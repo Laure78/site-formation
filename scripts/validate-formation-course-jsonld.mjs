@@ -15,7 +15,7 @@ import {
   getCourseJsonLdFromFormationsData,
   getDedicatedFormationCoursePageJsonLd,
 } from '../lib/schema-course-formations.ts';
-import { assertFormationFicheCourseSchema } from '../lib/schema-formation-course-jsonld.ts';
+import { assertFormationFicheCourseSchema, FORMATION_COURSE_OFFER_CATEGORY } from '../lib/schema-formation-course-jsonld.ts';
 import { getCourseSchema } from '../lib/seo.ts';
 
 const BLOCKS = [
@@ -55,8 +55,8 @@ function assertOfferRules(name, schema) {
   if (offers.priceCurrency !== 'EUR') {
     throw new Error(`${name}: priceCurrency EUR requis`);
   }
-  if (offers.category !== 'HT / session groupe') {
-    throw new Error(`${name}: category « HT / session groupe » requise`);
+  if (offers.category !== FORMATION_COURSE_OFFER_CATEGORY) {
+    throw new Error(`${name}: category « ${FORMATION_COURSE_OFFER_CATEGORY} » requise`);
   }
   if (name.startsWith('catalogue-niv-')) {
     if (offers.price == null) {

@@ -73,6 +73,8 @@ export interface BlogArticle {
   coverImage?: string;
   /** Affichage carte blog (ex. « 8 min ») — articles MDX avec `sections` vides */
   readingTime?: string;
+  /** Synthèse factuelle sous le H1 (2–3 phrases) — absent = bloc masqué */
+  enBref?: string | string[];
 }
 
 /** Titre de section (H2) typique d’un bloc FAQ pour détection HTML. */

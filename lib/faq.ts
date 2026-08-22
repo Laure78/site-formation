@@ -12,7 +12,6 @@ import {
   libelleTarifSessionForfaitaire,
   MENTIONS_TVA_REGIMES_COURT,
 } from '@/lib/tarifs-sessions';
-import { buildSiteCalendlyCtaUrl } from '@/lib/calendly';
 import { CATALOGUE_FORMATIONS_COUNT } from '@/lib/formations-catalogue-display';
 import { SOCIAL_PROOF, formatProfessionalsTrainedCount, IDF_ZONE_INTERVENTION } from '@/lib/constants';
 import { getLaureOlivieSchemaPersonDescription } from '@/lib/laure-olivie-profile';
@@ -155,11 +154,11 @@ export const FAQ_ITEMS: readonly FAQItem[] = [
   },
   {
     q: "La formation se fait-elle en présentiel ?",
-    a: `Oui. ${MODALITE_FORMATIONS_STANDARD} Couverture : ${IDF_ZONE_INTERVENTION}. Pour cadrer votre format : <a href="/prendre-rdv">prendre rendez-vous</a> ou <a href="/contact">contact</a>.`,
+    a: `Oui. ${MODALITE_FORMATIONS_STANDARD} Couverture : ${IDF_ZONE_INTERVENTION}. Pour cadrer votre format : <a href="${LINKS.prendreRdv}">prendre rendez-vous</a> ou <a href="/contact">contact</a>.`,
   },
   {
     q: 'Où se déroulent les formations catalogue ?',
-    a: `Sessions OFC : présentiel uniquement · Île-de-France uniquement (inter en salle ou intra dans vos locaux, ${IDF_ZONE_INTERVENTION}). L'échange préalable de 30 min (visio ou téléphone) sert uniquement à cadrer votre projet — voir <a href="/prendre-rdv">prendre rendez-vous</a>.`,
+    a: `Sessions OFC : présentiel uniquement · Île-de-France uniquement (inter en salle ou intra dans vos locaux, ${IDF_ZONE_INTERVENTION}). L'échange préalable de 30 min (visio ou téléphone) sert uniquement à cadrer votre projet — voir <a href="${LINKS.prendreRdv}">prendre rendez-vous</a>.`,
   },
   {
     q: "Comment mesurer le ROI de la formation IA ?",
@@ -302,7 +301,7 @@ export const FAQ_FINANCEMENT: FAQItem[] = [
   },
   {
     q: "Quels documents fournir pour le financement ?",
-    a: 'Programme de formation détaillé, devis du prestataire, convention de formation, liste des participants, attestation FFB (si adhérent), justificatifs d\'effectif. Je vous accompagne pour monter le dossier : <a href="/contact">contact</a> ou <a href="/prendre-rdv">prise de rendez-vous</a>.',
+    a: 'Programme de formation détaillé, devis du prestataire, convention de formation, liste des participants, attestation FFB (si adhérent), justificatifs d\'effectif. Je vous accompagne pour monter le dossier : <a href="/contact">contact</a> ou <a href="${LINKS.prendreRdv}">prise de rendez-vous</a>.',
   },
 ];
 
@@ -364,7 +363,7 @@ export const FAQ_PRENDRE_RDV: FAQItem[] = [
   },
   {
     q: "Comment se déroule le RDV ?",
-    a: `Vous réservez un créneau via <a href="${buildSiteCalendlyCtaUrl('prendre-rdv-faq-calendly')}" rel="noopener noreferrer">Calendly</a>. L'échange se fait en visioconférence ou par téléphone selon ce que vous choisissez. À l'issue, vous recevez un devis détaillé avec les possibilités de financement OPCO — <a href="/financement-constructys-formation-ia-btp">guide Constructys</a>.`,
+    a: `Vous réservez un créneau via <a href="${LINKS.prendreRdv}">prendre rendez-vous</a>. L'échange se fait en visioconférence ou par téléphone selon ce que vous choisissez. À l'issue, vous recevez un devis détaillé avec les possibilités de financement OPCO — <a href="/financement-constructys-formation-ia-btp">guide Constructys</a>.`,
   },
   {
     q: 'La formation se déroule-t-elle en visio ?',
@@ -372,7 +371,7 @@ export const FAQ_PRENDRE_RDV: FAQItem[] = [
   },
   {
     q: "Que faire si aucun créneau ne me convient ?",
-    a: 'Écrivez à Laure depuis la page <a href="/contact">contact</a> ou <a href="/">accueil</a> (e-mail et téléphone) ou réservez un créneau <a href="/prendre-rendez-vous">prendre rendez-vous</a>. Je vous recontacte rapidement si besoin.',
+    a: `Écrivez à Laure depuis la page <a href="/contact">contact</a> ou <a href="/">accueil</a> (e-mail et téléphone) ou réservez un créneau <a href="${LINKS.prendreRdv}">prendre rendez-vous</a>. Je vous recontacte rapidement si besoin.`,
   },
 ];
 
@@ -389,7 +388,7 @@ export const FAQ_IA_BTP_YVELINES: FAQItem[] = [
   },
   {
     q: "Combien de temps dure la formation ?",
-    a: 'Le format le plus courant est une session de 4 heures, adaptée au rythme des entreprises du BTP et aux règles de financement Constructys. Des formats de sensibilisation (2 h) ou d\'approfondissement peuvent être étudiés selon votre projet — <a href="/prendre-rdv">prendre rendez-vous</a>.',
+    a: 'Le format le plus courant est une session de 4 heures, adaptée au rythme des entreprises du BTP et aux règles de financement Constructys. Des formats de sensibilisation (2 h) ou d\'approfondissement peuvent être étudiés selon votre projet — <a href="${LINKS.prendreRdv}">prendre rendez-vous</a>.',
   },
   {
     q: "La formation IA appliquée au bâtiment est-elle financement possible selon éligibilité (Constructys) dans les Yvelines ?",
@@ -417,7 +416,7 @@ export const FAQ_IA_BTP_SAINT_QUENTIN_YVELINES: FAQItem[] = [
   },
   {
     q: "Combien de temps dure la formation ?",
-    a: 'Le format le plus courant est une session de 4 heures, adaptée au rythme des entreprises du BTP et aux règles de financement Constructys. Des formats de sensibilisation (2 h) ou d\'approfondissement peuvent être étudiés selon votre projet — <a href="/prendre-rdv">prendre rendez-vous</a>.',
+    a: 'Le format le plus courant est une session de 4 heures, adaptée au rythme des entreprises du BTP et aux règles de financement Constructys. Des formats de sensibilisation (2 h) ou d\'approfondissement peuvent être étudiés selon votre projet — <a href="${LINKS.prendreRdv}">prendre rendez-vous</a>.',
   },
   {
     q: "La formation IA pour les pros du BTP est-elle financement possible selon éligibilité (Constructys) dans les Yvelines ?",
@@ -443,7 +442,7 @@ export const FAQ_FORMATION_IA_BTP_YVELINES_LANDING: FAQItem[] = [
   {
     q: 'La formation est-elle disponible le samedi ?',
     a:
-      "Les créneaux les plus courants sont en semaine (journée ou demi-journée), pour s'aligner sur les habitudes des équipes terrain et du bureau d'études. Un samedi peut être étudié au cas par cas pour une session intra (contraintes d'atelier, planning chargé), sous réserve de disponibilité — le plus simple est d'en parler lors d'un <a href=\"/prendre-rdv\">rendez-vous découverte</a> ou via <a href=\"/contact\">contact</a>.",
+      `Les créneaux les plus courants sont en semaine (journée ou demi-journée), pour s'aligner sur les habitudes des équipes terrain et du bureau d'études. Un samedi peut être étudié au cas par cas pour une session intra (contraintes d'atelier, planning chargé), sous réserve de disponibilité — le plus simple est d'en parler lors d'un <a href="${LINKS.prendreRdv}">rendez-vous découverte</a> ou via <a href="/contact">contact</a>.`,
   },
   {
     q: 'Y a-t-il des sessions inter-entreprises à Versailles ?',
@@ -721,7 +720,7 @@ export const FAQ_CHECKLIST_PROMPTS: FAQItem[] = [
   },
   {
     q: "La formation est-elle finançable ?",
-    a: `Oui. Formation IA pour les pros du BTP financement possible selon éligibilité. Prenez rendez-vous pour un devis personnalisé : <a href="${buildSiteCalendlyCtaUrl('faq-checklist-prompts-rdv')}" rel="noopener noreferrer">Calendly</a> ou <a href="/contact">contact</a>.`,
+    a: `Oui. Formation IA pour les pros du BTP financement possible selon éligibilité. Prenez rendez-vous pour un devis personnalisé : <a href="${LINKS.prendreRdv}">prendre rendez-vous</a> ou <a href="/contact">contact</a>.`,
   },
 ];
 
@@ -765,7 +764,7 @@ export const FAQ_BLOG: FAQItem[] = [
   },
   {
     q: "Les formations sont-elles finançables ?",
-    a: 'Oui, financement possible via Constructys ou votre OPCO selon éligibilité. Prenez rendez-vous pour un devis personnalisé — <a href="/prendre-rdv">prendre rendez-vous</a> et <a href="/formations">catalogue</a>.',
+    a: 'Oui, financement possible via Constructys ou votre OPCO selon éligibilité. Prenez rendez-vous pour un devis personnalisé — <a href="${LINKS.prendreRdv}">prendre rendez-vous</a> et <a href="/formations">catalogue</a>.',
   },
   {
     q: "Comment accéder aux formations IA pour le BTP ?",
@@ -813,7 +812,7 @@ export const FAQ_DIAGNOSTIC: FAQItem[] = [
   },
   {
     q: "Que faire après le diagnostic ?",
-    a: `Prenez rendez-vous pour un échange de 30 minutes : <a href="${buildSiteCalendlyCtaUrl('faq-diagnostic-apres')}" rel="noopener noreferrer">Calendly</a> ou <a href="/prendre-rdv">prendre rendez-vous</a>. J'identifie avec vous vos besoins et vous envoie un devis personnalisé sous 24h.`,
+    a: `Prenez rendez-vous pour un échange de 30 minutes : <a href="${LINKS.prendreRdv}">prendre rendez-vous</a>. J'identifie avec vous vos besoins et vous envoie un devis personnalisé sous 24h.`,
   },
   {
     q: "L'IA peut-elle vraiment m'aider sur mes devis et emails ?",

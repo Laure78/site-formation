@@ -97,7 +97,9 @@ export function BeWorkHighlightSection({ id, surface = 'band' }: Props) {
               height={BEWORK_PHOTO_HERO.height}
               className="h-auto w-full transition-transform duration-500 hover:scale-[1.03] motion-reduce:transition-none motion-reduce:hover:scale-100"
               sizes="(min-width: 1024px) 480px, 50vw"
-            />
+            
+              quality={70}
+              loading="lazy"/>
             <figcaption className="border-t border-slate-100 px-4 py-2 text-xs text-[#5A5A5A]">
               Conception · déploiement · formation · adoption · bework.fr
             </figcaption>

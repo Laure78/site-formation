@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { JsonLd } from '@/components/JsonLd';
 import { createPageMetadata, getFAQSchema, SITE_CONFIG } from '@/lib/seo';
 import { LINKS } from '@/lib/internal-links';
+import { SITE_LOGO_ALT } from '@/lib/photos';
 import ConnexionClient from './ConnexionClient';
 
 export const revalidate = 3600;
@@ -100,14 +101,16 @@ export default function ConnexionPage() {
           aria-labelledby="connexion-seo-title"
           className="flex flex-col justify-center px-6 py-12 md:px-10 lg:px-14"
         >
-          <Image
-            src="/logo-lo.svg"
-            alt="Logo OFC Création d’Entreprise — formation IA pour le BTP"
-            width={72}
-            height={72}
-            className="h-16 w-16"
-            priority
-          />
+            <Image
+              src="/logo-lo.svg"
+              alt={SITE_LOGO_ALT}
+              width={72}
+              height={72}
+              className="h-16 w-16"
+              sizes="72px"
+              priority
+              quality={75}
+            />
 
           <h1
             id="connexion-seo-title"

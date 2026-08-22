@@ -1,7 +1,5 @@
-import Link from 'next/link';
-import { CalendlyInlineWidget } from '@/components/CalendlyInlineWidget';
-import { QualiopiLogoInline, QualiopiWordmark } from '@/components/QualiopiLogo';
-import { CALENDLY_INLINE_WIDGET_URL } from '@/lib/calendly';
+import { CtaButton } from '@/components/CtaButton';
+import { QualiopiWordmark } from '@/components/QualiopiLogo';
 import type { FormationIaRawMetier, FormationIaRawVille } from '@/lib/seo-formation-ia-hub-data';
 import {
   getMetierLinkedVilles,
@@ -41,8 +39,8 @@ function FormationIaVilleCalendlySection() {
           Choisissez un créneau de 30 minutes pour cadrer votre besoin (formation IA pour les pros du BTP, financement
           Constructys, format intra ou inter).
         </p>
-        <div className="mt-8">
-          <CalendlyInlineWidget url={CALENDLY_INLINE_WIDGET_URL} heightPx={700} />
+        <div className="mt-8 flex justify-center">
+          <CtaButton origin="hub-ville-calendly" />
         </div>
       </div>
     </section>
@@ -160,9 +158,8 @@ export function FormationIaMetierBody({
         chiffres et les engagements, et utiliser l&apos;IA comme assistant — pas comme « boîte noire ».
       </p>
 
-      <h2 className="font-display flex flex-wrap items-center gap-2 text-xl font-semibold text-slate-900">
-        <QualiopiLogoInline heightPx={28} className="hidden sm:inline-block" />
-        <span>Financement OPCO Constructys — organisme certifié Qualiopi</span>
+      <h2 className="font-display text-xl font-semibold text-slate-900">
+        Financement OPCO Constructys — organisme certifié Qualiopi
       </h2>
       <p>
         L&apos;organisme OFC Création d&apos;Entreprise est certifié <QualiopiWordmark />. Selon votre branche et
@@ -354,9 +351,8 @@ export function FormationIaVilleBody({
 
       <FormationIaVilleCalendlySection />
 
-      <h2 className="font-display flex flex-wrap items-center gap-2 text-xl font-semibold text-slate-900">
-        <QualiopiLogoInline heightPx={28} className="hidden sm:inline-block" />
-        <span>Qualiopi — financement Constructys — contact</span>
+      <h2 className="font-display text-xl font-semibold text-slate-900">
+        Qualiopi — financement Constructys — contact
       </h2>
       <p>
         Organisme certifié <QualiopiWordmark />, financements OPCO selon éligibilité.{' '}
@@ -490,9 +486,8 @@ function FormationIaParisBody() {
 
       <FormationIaVilleCalendlySection />
 
-      <h2 className="font-display flex flex-wrap items-center gap-2 text-xl font-semibold text-slate-900">
-        <QualiopiLogoInline heightPx={28} className="hidden sm:inline-block" />
-        <span>Qualiopi, OPCO Constructys, contact</span>
+      <h2 className="font-display text-xl font-semibold text-slate-900">
+        Qualiopi, OPCO Constructys, contact
       </h2>
       <p>
         OFC Création d&apos;Entreprise — Laure Olivié, formatrice <strong>ChatGPT</strong> et{' '}

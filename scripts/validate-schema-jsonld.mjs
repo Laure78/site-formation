@@ -10,6 +10,7 @@ import { getAProposUnifiedJsonLd } from '../lib/schema-a-propos-unified-graph.ts
 import {
   SCHEMA_CONTACT,
   SCHEMA_ORGANIZATION_SAME_AS,
+  SCHEMA_PERSON_KNOWS_ABOUT,
   SCHEMA_PERSON_LAURE,
   SCHEMA_PERSON_SAME_AS,
 } from '../lib/schema-constants.ts';
@@ -42,19 +43,12 @@ function assertPerson(node, label) {
     if (!sameAs.includes(url)) throw new Error(`${label}: sameAs manque ${url}`);
   }
   const knows = node.knowsAbout ?? [];
-  for (const topic of [
-    'formation IA BTP',
-    "appels d'offres",
-    'mémoire technique',
-    'conduite de travaux',
-    'devis',
-    'IA appliquée au BTP',
-    'ChatGPT bâtiment',
-    'Claude AI',
-    'analyse de DCE/CCTP',
-    'devis BTP',
-  ]) {
+  for (const topic of SCHEMA_PERSON_KNOWS_ABOUT) {
     if (!knows.includes(topic)) throw new Error(`${label}: knowsAbout manque « ${topic} »`);
+  }
+  const area = node.areaServed;
+  if (!area || area.name !== 'Île-de-France') {
+    throw new Error(`${label}: areaServed « Île-de-France » attendu`);
   }
 }
 

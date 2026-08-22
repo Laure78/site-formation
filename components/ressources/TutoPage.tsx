@@ -5,7 +5,7 @@ import { JsonLd } from '@/app/components/JsonLd';
 import { EnBref } from '@/app/components/EnBref';
 import { MaillageRessourceFromConfig } from '@/app/components/MaillageRessource';
 import { CopyPromptButton } from '@/components/CopyPromptButton';
-import { buildSiteCalendlyCtaUrl } from '@/lib/calendly';
+import { CtaButton } from '@/components/CtaButton';
 import { SITE_CONFIG } from '@/lib/seo';
 import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
 import { PHOTOS } from '@/lib/photos';
@@ -244,7 +244,9 @@ export function TutoPage({ tuto }: { tuto: TutoData }) {
                     fill
                     className="object-cover"
                     sizes="56px"
-                  />
+                  
+                    quality={70}
+                    loading="lazy"/>
                 </div>
                 <div className="text-sm">
                   <p className="font-semibold text-slate-900">Laure Olivié</p>
@@ -272,7 +274,8 @@ export function TutoPage({ tuto }: { tuto: TutoData }) {
                     className="h-auto w-full object-cover"
                     sizes="(max-width: 1024px) 100vw, 420px"
                     priority
-                  />
+                  
+                    quality={75}/>
                 </div>
               </figure>
             ) : null}
@@ -424,21 +427,25 @@ export function TutoPage({ tuto }: { tuto: TutoData }) {
           )}
 
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-            <a
-              href={
-                tuto.cta.brand === 'bework'
-                  ? (tuto.cta.primaryHref ?? EXTERNAL_SITE_URLS.bework)
-                  : buildSiteCalendlyCtaUrl(`ressources-tuto-${tuto.slug}-rdv`)
-              }
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#377CF3] px-6 py-3.5 text-[0.95rem] font-semibold text-white shadow-sm transition-transform hover:scale-[1.02] hover:bg-[#2d66d6] active:scale-[0.98]"
-            >
-              {tuto.cta.brand === 'bework'
-                ? (tuto.cta.primaryLabel ?? 'Réserver un appel de cadrage BeWork')
-                : 'Réserver un appel découverte'}
-              <ArrowRight size={18} aria-hidden />
-            </a>
+            {tuto.cta.brand === 'bework' ? (
+              <a
+                href={tuto.cta.primaryHref ?? EXTERNAL_SITE_URLS.bework}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#377CF3] px-6 py-3.5 text-[0.95rem] font-semibold text-white shadow-sm transition-transform hover:scale-[1.02] hover:bg-[#2d66d6] active:scale-[0.98]"
+              >
+                {tuto.cta.primaryLabel ?? 'Réserver un appel de cadrage BeWork'}
+                <ArrowRight size={18} aria-hidden />
+              </a>
+            ) : (
+              <CtaButton
+                origin={`ressources-tuto-${tuto.slug}-rdv`}
+                className="inline-flex items-center justify-center gap-2 rounded-xl px-6 py-3.5 text-[0.95rem] font-semibold shadow-sm transition-transform hover:scale-[1.02] active:scale-[0.98]"
+              >
+                Réserver un appel découverte
+                <ArrowRight size={18} aria-hidden />
+              </CtaButton>
+            )}
             <DownloadButton
               href={pdfUrl}
               variant="outline"

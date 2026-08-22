@@ -329,7 +329,9 @@ export default function FormationIaMaitriseOeuvrePage() {
               height={120}
               className={`h-[120px] w-[120px] shrink-0 rounded-full border-2 border-[#D4E3FC] object-cover ${AUTHOR_HEADSHOT_OBJECT_POSITION} shadow-md`}
               sizes="120px"
-            />
+            
+              quality={70}
+              loading="lazy"/>
             <div className="min-w-0 flex-1">
               <p className="text-lg font-semibold text-slate-900">Laure Olivié</p>
               <p className="mt-1 text-slate-700">

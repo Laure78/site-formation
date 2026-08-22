@@ -8,7 +8,7 @@ const EXACT: Record<string, string> = {
   '/contact': 'Contact',
   '/blog': 'Blog',
   '/a-propos': 'À propos',
-  '/prendre-rdv': 'Prendre RDV',
+  '/prendre-rendez-vous': 'Prendre RDV',
   '/claude-ai-btp': 'Claude AI BTP',
   '/financement-constructys-formation-ia-btp': 'Financement Constructys',
   '/outils-ia-btp': 'Outils IA BTP',

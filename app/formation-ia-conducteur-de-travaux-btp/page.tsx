@@ -1,3 +1,4 @@
+import { CtaButton } from '@/components/CtaButton';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Check } from 'lucide-react';
@@ -8,7 +9,6 @@ import { RdvLink } from '@/components/RdvLink';
 import { ShortAnswerBlock } from '@/components/landing/ShortAnswerBlock';
 import { PublicPhoneCta } from '@/components/PublicPhoneCta';
 import { getFAQSchema, SITE_CONFIG } from '@/lib/seo';
-import { buildSiteCalendlyCtaUrl } from '@/lib/calendly';
 import { LINKS } from '@/lib/internal-links';
 import { ContextualLinksSection } from '@/components/layout/ContextualLinksSection';
 import { LiensConnexes } from '@/components/LiensConnexes';
@@ -40,12 +40,6 @@ import {
   buildConducteurDeTravauxBtpCourseJsonLd,
 } from '@/lib/formation-ia-conducteur-de-travaux-btp-landing';
 
-const CALENDLY_MID = buildSiteCalendlyCtaUrl(
-  'formation-ia-conducteur-de-travaux-btp-milieu-page'
-);
-const CALENDLY_FINAL = buildSiteCalendlyCtaUrl(
-  'formation-ia-conducteur-de-travaux-btp-rdv-final'
-);
 
 import { RenvoiFicheCatalogue } from '@/components/qualiopi/RenvoiFicheCatalogue';
 
@@ -138,7 +132,8 @@ export default function FormationIaConducteurDeTravauxBtpPage() {
               className="object-cover"
               priority
               sizes="(max-width: 896px) 100vw, 896px"
-            />
+            
+              quality={75}/>
           </figure>
 
           <div className="mt-8">
@@ -313,14 +308,10 @@ export default function FormationIaConducteurDeTravauxBtpPage() {
             >
               Réserver ma visio gratuite →
             </RdvLink>
-            <a
-              href={CALENDLY_MID}
-              className="inline-flex items-center rounded-lg border-2 border-white/80 px-5 py-3 text-sm font-semibold text-white hover:bg-white/10"
-              target="_blank"
-              rel="noopener noreferrer"
+            <CtaButton origin="formation-ia-conducteur-de-travaux-btp-milieu-page" className="inline-flex items-center rounded-lg border-2 border-white/80 px-5 py-3 text-sm font-semibold text-white hover:bg-white/10"
             >
               Ouvrir Calendly
-            </a>
+            </CtaButton>
           </div>
         </section>
 
@@ -435,14 +426,10 @@ export default function FormationIaConducteurDeTravauxBtpPage() {
             <PublicPhoneCta className="inline-flex items-center rounded-lg border border-slate-300 px-5 py-3 font-medium text-slate-800 hover:bg-slate-50" />
           </div>
           <p className="mt-6 text-sm text-slate-600">
-            <a
-              href={CALENDLY_FINAL}
-              className="text-[#377CF3] underline"
-              target="_blank"
-              rel="noopener noreferrer"
+            <CtaButton origin="formation-ia-conducteur-de-travaux-btp-rdv-final" className="text-[#377CF3] underline"
             >
               Lien Calendly direct
-            </a>
+            </CtaButton>
             {' · '}
             <Link href={LINKS.formationConduiteTravauxSuiviChantier} className="text-[#377CF3] underline">
               Programme NIV-03 — conduite de travaux
@@ -475,7 +462,7 @@ export default function FormationIaConducteurDeTravauxBtpPage() {
           <p>Organisme certifié Qualiopi · SIRET 905 244 281 00010 · NDA 11788515078</p>
           <p>
             laureolivie@yahoo.fr ·{' '}
-            <a href="https://www.laureolivie.fr" className="underline">
+            <a href="/" className="underline">
               www.laureolivie.fr
             </a>
           </p>

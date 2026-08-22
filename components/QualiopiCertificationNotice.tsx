@@ -24,13 +24,12 @@ export function QualiopiCertificationNotice({
   const textSize = compact ? 'text-xs' : 'text-sm';
 
   return (
-    <div className={`flex flex-col gap-3 sm:flex-row sm:items-start sm:gap-5 ${className}`}>
-      <QualiopiBadge className="shrink-0" />
+    <div
+      className={`grid grid-cols-1 gap-4 sm:grid-cols-[min(100%,28rem)_minmax(0,1fr)] sm:items-center sm:gap-6 ${className}`}
+    >
+      <QualiopiBadge size="lg" className="mx-auto w-full sm:mx-0" />
       <div className="min-w-0 text-center sm:text-left">
-        <p className={`leading-snug text-slate-600 ${textSize}`}>
-          {QUALIOPI_LEGAL.qualiopiCategoryMention}
-        </p>
-        <p className={`mt-2 text-slate-600 ${textSize}`}>
+        <p className={`text-slate-600 ${textSize}`}>
           Certificateur : Certifopac — certificat n° {QUALIOPI_LEGAL.certificatNumero}, validité{' '}
           {QUALIOPI_LEGAL.certificatValidite}
         </p>

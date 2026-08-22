@@ -92,7 +92,9 @@ function PartenaireSection({
               width={section.logo.width}
               height={section.logo.height}
               className="max-h-14 w-auto object-contain object-left"
+              sizes="180px"
               loading="lazy"
+              quality={70}
             />
           </div>
         ) : null}

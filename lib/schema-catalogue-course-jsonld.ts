@@ -101,7 +101,7 @@ export const CATALOGUE_COURSE_IA_AO_NIV02: CatalogueCourseJsonLdConfig = {
   path: LINKS.formationAO,
   name: "L'IA appliquée aux appels d'offres BTP",
   description:
-    "Formation IA niveau 2 : appels d'offres BTP, DCE, mémoire technique (Claude AI). 4 h, présentiel Île-de-France.",
+    "Formation IA niveau 2 : appels d'offres BTP, DCE, mémoire technique (Claude AI Pro, Cowork & Skills). 4 h, intra-entreprise présentiel, 8 à 12 participants.",
   price: prixCatalogue('NIV-02'),
   keywords: ['DCE', 'mémoire technique', 'Claude AI Pro', 'Cowork', 'Skills'],
   courseCode: 'NIV-02',
@@ -214,6 +214,10 @@ function buildCatalogueOffer(
   return offer;
 }
 
+function mapEducationalLevelSchema(level: 'Débutant' | 'Avancé'): 'Beginner' | 'Advanced' {
+  return level === 'Débutant' ? 'Beginner' : 'Advanced';
+}
+
 /** JSON-LD `Course` enrichi — fiches catalogue NIV-01 à NIV-05 (Rich Results). */
 export function buildFormationCatalogueRichCourseJsonLd(
   config: FormationCatalogueRichCourseConfig
@@ -224,13 +228,14 @@ export function buildFormationCatalogueRichCourseJsonLd(
   const courseImage = getFormationCatalogueImageObjectJsonLd(catalogueRef, base);
   const organizationId = `${base}/#organization`;
   const instructorId = `${base}/#laure-olivie`;
+  const educationalLevel = mapEducationalLevelSchema(config.educationalLevel);
 
   const core = buildFormationFicheCourseJsonLd({
     name: config.name,
     description: config.description,
     path: config.path,
     courseCode: catalogueRef,
-    educationalLevel: config.educationalLevel,
+    educationalLevel,
     teaches: [...config.teaches],
     organizationId,
     instructorId,

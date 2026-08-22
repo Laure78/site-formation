@@ -231,7 +231,9 @@ export function FormationsAdminList({
                         fill
                         className="object-cover"
                         sizes="80px"
-                      />
+                      
+                        quality={70}
+                        loading="lazy"/>
                     ) : (
                       <div className="flex h-full w-full items-center justify-center bg-gradient-to-br from-slate-100 to-slate-200 text-xs font-semibold text-slate-400">
                         LO

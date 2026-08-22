@@ -20,7 +20,9 @@ export function AuthorBlock({ className }: { className?: string }) {
             fill
             className={AUTHOR_HEADSHOT_IMAGE_CLASS}
             sizes="64px"
-          />
+          
+            quality={70}
+            loading="lazy"/>
         </PortraitLinkedInLink>
         <div className="flex-1">
           <h3 className="font-display text-lg font-semibold text-slate-900">

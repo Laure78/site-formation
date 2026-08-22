@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from 'next';
 import { Inter, Outfit } from 'next/font/google';
 import './globals.css';
-import { Header } from '@/components/Navbar';
+import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
 import { StickyBlogMetierRdvBar } from '@/components/StickyBlogMetierRdvBar';
 import { StickyMobileCalendlyCta } from '@/components/StickyMobileCalendlyCta';
@@ -11,7 +11,8 @@ import { CookieConsentBanner } from '@/components/CookieConsentBanner';
 import { FormationCalendlyInlineGate } from '@/components/FormationCalendlyInlineGate';
 import { GoogleAnalytics } from '@/components/analytics/GoogleAnalytics';
 import { CalendlyClickTracker } from '@/components/analytics/CalendlyClickTracker';
-import { SITE_CONFIG, OG_SITE_NAME } from '@/lib/seo';
+import { DownloadGuideTracker } from '@/components/analytics/DownloadGuideTracker';
+import { SITE_CONFIG, OG_SITE_NAME, GOOGLE_SITE_VERIFICATION } from '@/lib/seo';
 import { PHOTOS, SITE_FAVICON_CACHE_BUST } from '@/lib/photos';
 import { clampMetaDescription } from '@/lib/meta-description';
 import { GlobalSitelinksJsonLd } from '@/components/schema/GlobalSitelinksJsonLd';
@@ -56,6 +57,7 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     metadataBase: new URL(SITE_CONFIG.url),
     title: {
+      /** Pages : `buildTitle()` → `{ absolute }` pour éviter double suffixe et « · | » orphelin. */
       template: '%s | Laure Olivié',
       default: "Laure Olivié — Formatrice IA pour les pros du BTP | OFC Création d'Entreprise",
     },
@@ -99,15 +101,13 @@ export async function generateMetadata(): Promise<Metadata> {
       },
     },
     verification: {
-      // À compléter si vous avez des codes Google Search Console, Bing, etc.
-      // google: 'votre-code',
-      // yandex: 'votre-code',
+      ...(GOOGLE_SITE_VERIFICATION ? { google: GOOGLE_SITE_VERIFICATION } : {}),
     },
     alternates: {
       canonical: baseUrl,
       languages: { 'fr-FR': baseUrl },
     },
-    // Favicons = logo Navbar (`SITE_HEADER_LOGO_SRC` / avatar).
+    // Favicons = logo Header (`SITE_HEADER_LOGO_SRC` / avatar).
     // `?v=` force le rechargement navigateur (les /favicon.ico sans query restent
     // souvent en cache des semaines). `app/favicon.ico` + `app/icon.png` +
     // `app/apple-icon.png` restent la source App Router (hash Next auto).
@@ -170,6 +170,7 @@ export default function RootLayout({
   return (
     <html lang="fr" className={`${inter.variable} ${outfit.variable}`}>
       <head>
+        {/* Organization + Person — SITE / PROOF via `lib/schema-site-proof.ts` */}
         <GlobalSiteJsonLd />
       </head>
       <body className="font-sans antialiased min-h-screen flex flex-col bg-white text-slate-900">
@@ -181,6 +182,7 @@ export default function RootLayout({
         <GoogleAnalytics />
         <CalendlyScriptLoader />
         <CalendlyClickTracker />
+        <DownloadGuideTracker />
         <CookieConsentBanner />
         <a
           href="#main-content"

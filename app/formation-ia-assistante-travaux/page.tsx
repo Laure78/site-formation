@@ -231,7 +231,8 @@ export default function FormationIaAssistanteTravauxPage() {
             className="object-cover object-top"
             priority
             sizes="(max-width: 896px) 100vw, 896px"
-          />
+          
+            quality={75}/>
         </figure>
 
         <div className="mt-8">

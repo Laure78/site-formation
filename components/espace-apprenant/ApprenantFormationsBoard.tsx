@@ -121,7 +121,9 @@ export function ApprenantFormationsBoard({
                         fill
                         className="object-cover"
                         sizes="140px"
-                      />
+                      
+                        quality={70}
+                        loading="lazy"/>
                     ) : (
                       <div className="flex h-full w-full items-center justify-center text-slate-300">
                         <BookOpen size={32} strokeWidth={1.25} />

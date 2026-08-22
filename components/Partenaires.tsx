@@ -14,6 +14,7 @@ import {
   PARTENAIRES_SECTION_TITLE,
 } from '@/lib/partenaires-content';
 import { PARTNER_LOGO_BAND_CELL } from '@/lib/client-logos';
+import { IMAGE_SIZES } from '@/lib/image-props';
 import { LINKS } from '@/lib/internal-links';
 import { OFC_CARD, OFC_CTA_PRIMARY, OFC_LINK } from '@/lib/ofc-interaction-classes';
 import { OFC_SEC, OFC_SECTION_INNER } from '@/lib/ofc-section-classes';
@@ -51,7 +52,8 @@ function LogoBandItem({ item }: { item: (typeof PARTENAIRES_LOGO_BAND)[number] }
               sizes={PARTNER_LOGO_BAND_CELL.sizes}
               className={`object-contain object-center opacity-90 transition group-hover:opacity-100 ${item.logo.imageClassName ?? ''}`.trim()}
               loading="lazy"
-            />
+            
+              quality={70}/>
           </div>
         ) : (
           <div className="flex h-14 min-w-[9rem] items-center justify-center rounded-lg border border-slate-200 bg-slate-50 px-4 transition group-hover:border-[#377CF3]/40 group-hover:bg-white md:h-16">
@@ -108,7 +110,9 @@ export function Partenaires({
                     width={card.logo.width}
                     height={card.logo.height}
                     className="max-h-12 w-auto object-contain object-center md:max-h-14"
+                    sizes={IMAGE_SIZES.logoPartnerCard}
                     loading="lazy"
+                    quality={70}
                   />
                 </div>
                 <h3 className="font-display text-lg font-bold text-slate-900">

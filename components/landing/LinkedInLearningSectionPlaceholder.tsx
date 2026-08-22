@@ -27,6 +27,9 @@ export function LinkedInLearningSectionPlaceholder({
               width={LOGO_LINKEDIN_LEARNING.width}
               height={LOGO_LINKEDIN_LEARNING.height}
               className="h-10 w-auto max-w-[180px] object-contain object-left sm:max-w-[200px]"
+              sizes="200px"
+              loading="lazy"
+              quality={70}
             />
           </div>
           <p className="mt-4 max-w-3xl text-base leading-relaxed text-[#475569] md:text-[16px]">

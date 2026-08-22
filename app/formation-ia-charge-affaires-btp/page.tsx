@@ -335,7 +335,7 @@ export default function FormationIaChargeAffairesBtpPage() {
               Réservez votre diagnostic IA commercial gratuit — 30 minutes en visio.
             </p>
             <a
-              href={buildSiteCalendlyCtaUrl('formation-ia-charge-affaires-btp-contact-rdv-page-calendly')}
+              origin="formation-ia-charge-affaires-btp-contact-rdv-page-calendly"
               className="mt-2 inline-block font-semibold text-[#377CF3] underline hover:no-underline"
               target="_blank"
               rel="noopener noreferrer"
@@ -610,7 +610,7 @@ export default function FormationIaChargeAffairesBtpPage() {
           <p>Organisme certifié Qualiopi · SIRET 905 244 281 00010 · NDA 11788515078</p>
           <p>
             laureolivie@yahoo.fr ·{' '}
-            <a href="https://www.laureolivie.fr" className="underline">
+            <a href="/" className="underline">
               www.laureolivie.fr
             </a>
           </p>

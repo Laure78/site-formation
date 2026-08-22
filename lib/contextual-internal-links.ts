@@ -279,7 +279,7 @@ export const SITE_NAV_HUB_ITEMS: ContextualLinkCard[] = [
   {
     href: LINKS.formations,
     title: 'Formations',
-    description: `Catalogue Qualiopi — NIV-01 à NIV-0${CATALOGUE_FORMATIONS_COUNT}`,
+    description: 'Catalogue Qualiopi — NIV-01 à NIV-05',
   },
   {
     href: LINKS.financement,

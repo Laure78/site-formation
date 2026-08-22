@@ -1,9 +1,9 @@
+import { CtaButton as RdvCtaButton } from '@/components/CtaButton';
 import Image from 'next/image';
 import Link from 'next/link';
 import type { ReactNode } from 'react';
 import { Download, Calendar } from 'lucide-react';
 import { JsonLd } from '@/components/JsonLd';
-import { buildSiteCalendlyCtaUrl } from '@/lib/calendly';
 import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
 import {
   FAQ_GUIDE_MOE_IA,
@@ -23,9 +23,6 @@ import { createPageMetadata } from '@/lib/seo';
 import { MaillageRessourceFromConfig } from '@/app/components/MaillageRessource';
 import { getMaillageRessourceConfig } from '@/lib/maillage-ressources';
 
-const CALENDLY_HERO = buildSiteCalendlyCtaUrl('ressources-guide-maitrise-oeuvre-ia-hero');
-const CALENDLY_MID = buildSiteCalendlyCtaUrl('ressources-guide-maitrise-oeuvre-ia-mid');
-const CALENDLY_FINAL = buildSiteCalendlyCtaUrl('ressources-guide-maitrise-oeuvre-ia-final');
 
 export const metadata = createPageMetadata({
   title: "Guide Maître d'Œuvre × IA — 12 missions | Laure Olivié",
@@ -51,7 +48,7 @@ const TAG_STYLES: Record<MissionMoeTag, string> = {
   HUMAIN: 'bg-[#F2F2F2] text-[#666666]',
 };
 
-function CtaButton({
+function GuidePageActionLink({
   href,
   children,
   variant = 'primary',
@@ -70,9 +67,7 @@ function CtaButton({
     <a
       href={href}
       className={`${base} ${styles}`}
-      {...(variant === 'primary'
-        ? { target: '_blank', rel: 'noopener noreferrer' }
-        : { download: true })}
+      {...(variant === 'secondary' ? { download: true } : {})}
     >
       {children}
     </a>
@@ -96,14 +91,18 @@ export default function GuideMaitriseOeuvreIaPage() {
               Gagne 2 week-ends par mois en confiant à l&apos;IA les bonnes tâches — et seulement celles-là.
             </p>
             <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:flex-wrap">
-              <CtaButton href={GUIDE_MOE_IA_PDF_PATH} variant="secondary">
+              <GuidePageActionLink href={GUIDE_MOE_IA_PDF_PATH} variant="secondary">
                 <Download className="h-5 w-5 shrink-0" aria-hidden />
                 Télécharger le guide (PDF)
-              </CtaButton>
-              <CtaButton href={CALENDLY_HERO} variant="primary">
+              </GuidePageActionLink>
+              <RdvCtaButton
+                origin="ressources-guide-maitrise-oeuvre-ia-hero"
+                variant="unstyled"
+                className="inline-flex items-center justify-center gap-2 rounded-lg bg-[#377CF3] px-6 py-3.5 text-base font-semibold text-white transition-colors hover:bg-[#2a63d4]"
+              >
                 <Calendar className="h-5 w-5 shrink-0" aria-hidden />
                 Réserver ma visio découverte
-              </CtaButton>
+              </RdvCtaButton>
             </div>
           </div>
           <figure className="mx-auto w-full max-w-[320px] lg:mx-0 lg:justify-self-end">
@@ -116,7 +115,8 @@ export default function GuideMaitriseOeuvreIaPage() {
                 className="h-auto w-full object-cover"
                 sizes="(max-width: 1024px) 320px, 360px"
                 priority
-              />
+              
+                quality={75}/>
             </div>
           </figure>
         </div>
@@ -256,15 +256,12 @@ export default function GuideMaitriseOeuvreIaPage() {
             .
           </p>
           <div className="mt-8">
-            <a
-              href={CALENDLY_MID}
-              target="_blank"
-              rel="noopener noreferrer"
+            <RdvCtaButton origin="ressources-guide-maitrise-oeuvre-ia-mid"
               className="inline-flex items-center gap-2 rounded-lg bg-[#377CF3] px-8 py-4 text-lg font-semibold text-white transition-colors hover:bg-[#2a63d4]"
             >
               <Calendar className="h-5 w-5" aria-hidden />
               Réserver ma visio découverte gratuite
-            </a>
+            </CtaButton>
           </div>
         </div>
       </section>
@@ -295,7 +292,9 @@ export default function GuideMaitriseOeuvreIaPage() {
               height={280}
               className="rounded-2xl object-cover shadow-lg"
               sizes="280px"
-            />
+            
+              quality={70}
+              loading="lazy"/>
           </figure>
           <div>
             <h2 id="qui-est-laure" className="font-display text-2xl font-bold md:text-3xl">
@@ -346,15 +345,12 @@ export default function GuideMaitriseOeuvreIaPage() {
             présentielle Qualiopi en Île-de-France.
           </p>
           <div className="mt-8">
-            <a
-              href={CALENDLY_FINAL}
-              target="_blank"
-              rel="noopener noreferrer"
+            <RdvCtaButton origin="ressources-guide-maitrise-oeuvre-ia-final"
               className="inline-flex items-center gap-2 rounded-lg bg-white px-8 py-4 text-lg font-semibold text-[#377CF3] transition-colors hover:bg-[#F2F2F2]"
             >
               <Calendar className="h-5 w-5" aria-hidden />
               Réserver ma visio découverte
-            </a>
+            </CtaButton>
           </div>
         </div>
       </section>

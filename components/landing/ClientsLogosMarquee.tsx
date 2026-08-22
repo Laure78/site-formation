@@ -31,7 +31,8 @@ function LogoTile({
           loading="lazy"
           sizes="(max-width: 768px) 152px, 168px"
           className="object-contain object-center p-0.5 opacity-[0.92] transition group-hover:opacity-100"
-        />
+        
+          quality={70}/>
       </div>
       {logo.caption ? (
         <span className="max-w-[9rem] text-center text-[0.6rem] font-medium leading-tight text-slate-500 md:text-[0.65rem]">

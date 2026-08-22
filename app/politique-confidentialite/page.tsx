@@ -45,7 +45,7 @@ export default function PolitiqueConfidentialitePage() {
           <p>
             Site :{' '}
             <a
-              href="https://www.laureolivie.fr"
+              href="/"
               target="_blank"
               rel="noopener noreferrer"
               className="text-[var(--accent)] hover:underline"

@@ -4,7 +4,6 @@ import { X } from 'lucide-react';
 import { usePathname } from 'next/navigation';
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { isStickyBlogMetierRdvPath } from '@/lib/sticky-blog-metier-rdv-path';
-import { QualiopiLogoInline } from '@/components/QualiopiLogo';
 import { CalendlyEmbed } from '@/components/CalendlyEmbed';
 
 const SESSION_DISMISS_KEY = 'ofc-sticky-formation-rdv-banner-dismissed';
@@ -112,11 +111,8 @@ export function StickyBlogMetierRdvBar() {
       aria-label="Formation IA pour les pros du BTP — prise de rendez-vous"
     >
       <div className="mx-auto flex w-full max-w-6xl items-center gap-3 px-4">
-        <p className="hidden min-w-0 flex-1 items-center gap-2 truncate text-sm font-medium text-slate-800 sm:flex">
-          <span className="inline-flex shrink-0 items-center rounded border border-slate-200 bg-white px-1 py-0.5">
-            <QualiopiLogoInline heightPx={16} />
-          </span>
-          <span className="truncate">Formation IA appliquée au bâtiment — Qualiopi · Constructys</span>
+        <p className="hidden min-w-0 flex-1 truncate text-sm font-medium text-slate-800 sm:block">
+          Formation IA appliquée au bâtiment — organisme certifié Qualiopi · Constructys
         </p>
         <div className="flex min-w-0 flex-1 items-center justify-end gap-2 sm:flex-none sm:justify-end">
           <CalendlyEmbed

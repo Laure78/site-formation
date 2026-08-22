@@ -6,6 +6,7 @@ import { ExternalLinkAnchor } from '@/components/ExternalLink';
 import { buildBlogArticleOgImageAlt } from '@/lib/image-alt';
 import {
   ARTICLE_SECTION_GEO,
+  buildTitle,
   createPageMetadata,
   getHowToFromArticle,
   SITE_CONFIG,
@@ -30,11 +31,11 @@ import { BlogCTA } from '@/components/BlogCTA';
 import { CTABlock } from '@/components/CTABlock';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
 import { RdvLink } from '@/components/RdvLink';
-import { CALENDLY_BOOKING_URL, buildSiteCalendlyCtaUrl } from '@/lib/calendly';
+import { LINKS } from '@/lib/internal-links';
 import { ArticleAuthorBio } from '@/components/blog/ArticleAuthorBio';
+import { BlogArticleEnBref } from '@/components/blog/BlogArticleEnBref';
 import { BlogArticleSchemas } from '@/components/blog/BlogArticleSchemas';
 import { Check, ExternalLink } from 'lucide-react';
-import { LINKS } from '@/lib/internal-links';
 import { OFC_CARD, OFC_LINK } from '@/lib/ofc-interaction-classes';
 import { SommaireAncre } from '@/components/readability/SommaireAncre';
 import {
@@ -43,6 +44,10 @@ import {
   sommaireItemsToAnchorMap,
 } from '@/lib/sommaire-ancre';
 import { autoLink, createAutoLinkScope } from '@/lib/autoLink';
+import {
+  filterArticleSectionsForDisplay,
+  resolveArticleEnBref,
+} from '@/lib/blog-en-bref';
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -118,7 +123,7 @@ export async function generateMetadata({ params }: Props) {
     };
   }
   const article = getArticle(slug);
-  if (!article) return { title: 'Article non trouvé' };
+  if (!article) return { title: { absolute: buildTitle('Article non trouvé') } };
   const metaTitle = article.seoTitle ?? article.title;
   const authorUrl = `${SITE_CONFIG.url}/a-propos`;
   const category = ARTICLE_SECTION_GEO;
@@ -168,10 +173,13 @@ export default async function BlogArticlePage({ params }: Props) {
 
   const related = getRelatedArticlesForDisplay(slug, 6);
 
+  const enBrefSentences = resolveArticleEnBref(article);
+  const displaySections = filterArticleSectionsForDisplay(article.sections, enBrefSentences);
+
   const wordCount = estimateWordCountFromArticle(article);
-  const midCtaAfterIndex = getBlogCTAMidInsertAfterIndex(article.sections);
+  const midCtaAfterIndex = getBlogCTAMidInsertAfterIndex(displaySections);
   const showMidBlogCTA =
-    midCtaAfterIndex !== null && midCtaAfterIndex < article.sections.length - 1;
+    midCtaAfterIndex !== null && midCtaAfterIndex < displaySections.length - 1;
   const defaultArticleImage = `${SITE_CONFIG.url}/images/og-default-formation-ia-btp.jpg`;
   const articleSchemaImage = article.coverImage
     ? article.coverImage.trim().startsWith('http')
@@ -180,7 +188,7 @@ export default async function BlogArticlePage({ params }: Props) {
     : defaultArticleImage;
   const howToSchema = getHowToFromArticle(article);
   const sommaireItems = buildSommaireFromSectionTitles(
-    article.sections,
+    displaySections,
     BLOG_SECTION_ANCHOR_OVERRIDES[slug]
   );
   const showSommaire = shouldShowSommaireAncre(sommaireItems);
@@ -260,6 +268,7 @@ export default async function BlogArticlePage({ params }: Props) {
         <h1 className="mt-4 font-display text-3xl font-bold tracking-tight text-slate-900 md:text-4xl">
           {article.title}
         </h1>
+        {enBrefSentences ? <BlogArticleEnBref sentences={enBrefSentences} /> : null}
         <p className="mt-4 text-lg text-slate-600">{article.description}</p>
 
         {/* Bloc liens commerciaux contextuels — au moins 2-3 pages commerciales par article */}
@@ -309,7 +318,7 @@ export default async function BlogArticlePage({ params }: Props) {
         </div>
 
         <div className="mt-12 space-y-10">
-          {article.sections.map((section, i) => {
+          {displaySections.map((section, i) => {
             const contentStr = getContentAsString(section.content);
             const sectionAnchor = section.title ? sectionAnchors[section.title] : undefined;
             const h2Class =
@@ -577,7 +586,7 @@ export default async function BlogArticlePage({ params }: Props) {
             title="Passez à l'action"
             description="Vous souhaitez découvrir comment l'IA peut faire gagner du temps à votre entreprise du BTP ? Prenez rendez-vous pour échanger sur votre projet — 30 minutes gratuites."
             primaryLabel="Prendre rendez-vous"
-            primaryHref={CALENDLY_BOOKING_URL}
+            primaryHref={LINKS.prendreRdv}
             primaryCalendlyCampaign={`blog-article-${slug}-cta-block-late`}
             secondaryLabel="Programme « L'IA au service du bâtiment »"
             secondaryHref={LINKS.formationIaBtpNiveau1BatimentTp}

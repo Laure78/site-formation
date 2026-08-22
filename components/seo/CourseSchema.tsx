@@ -1,5 +1,6 @@
 import { JsonLd } from '@/components/JsonLd';
-import { buildSiteCalendlyCtaUrl } from '@/lib/calendly';
+import { LINKS } from '@/lib/internal-links';
+import { SCHEMA_PUBLIC_SITE_URL } from '@/lib/schema-constants';
 import { buildFormationFicheCourseJsonLd } from '@/lib/schema-formation-course-jsonld';
 
 type CourseSchemaProps = {
@@ -12,7 +13,7 @@ type CourseSchemaProps = {
   level: string;
 };
 
-const CALENDLY_OFFER_URL = buildSiteCalendlyCtaUrl('schema-jsonld-course-offer');
+const RDV_OFFER_URL = `${SCHEMA_PUBLIC_SITE_URL.replace(/\/$/, '')}${LINKS.prendreRdv}`;
 
 export function CourseSchema({
   name,
@@ -39,7 +40,7 @@ export function CourseSchema({
       price: String(price),
       priceCurrency: currency,
       availability: 'https://schema.org/InStock',
-      url: CALENDLY_OFFER_URL,
+      url: RDV_OFFER_URL,
     },
     isAccessibleForFree: false,
     creditsAwarded: 'Certificat de réalisation',

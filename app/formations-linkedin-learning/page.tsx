@@ -129,7 +129,9 @@ function CourseCard({ id, name, publicAudience, learn, url, image }: CourseCardP
           height={image.height}
           className="h-full w-full object-cover"
           sizes="(max-width: 768px) 100vw, 50vw"
-        />
+        
+          quality={70}
+          loading="lazy"/>
       </div>
       <div className="flex flex-1 flex-col p-6 md:p-7">
         <h3 className="font-display text-xl font-bold text-slate-900 md:text-2xl">{name}</h3>
@@ -279,7 +281,9 @@ export default function FormationsLinkedInLearningPage() {
               width={LOGO_LINKEDIN_LEARNING.width}
               height={LOGO_LINKEDIN_LEARNING.height}
               className="h-10 w-auto max-w-[220px] object-contain object-left md:h-12"
+              sizes="220px"
               priority
+              quality={75}
             />
           </div>
 

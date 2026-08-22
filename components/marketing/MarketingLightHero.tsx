@@ -68,7 +68,8 @@ function HeroVisualBlock({
       priority={priority}
       className={shape === 'circle' ? 'h-auto w-full object-contain' : 'h-auto w-full rounded-[0.85rem] object-cover'}
       sizes="(max-width: 1024px) 280px, 360px"
-    />
+    
+      quality={75}/>
   );
 
   const shell =

@@ -4,9 +4,10 @@ import { useState, useRef, useEffect } from 'react';
 import { MessageCircle, X, Send, Loader2 } from 'lucide-react';
 import { SUGGESTED_QUESTIONS } from '@/lib/agent/suggestions';
 import { SITE_CONFIG } from '@/lib/seo';
-import { buildSiteCalendlyCtaUrl } from '@/lib/calendly';
+import { LINKS } from '@/lib/internal-links';
+import { trackCtaRdvClick } from '@/lib/cta-analytics';
 
-const CHAT_WIDGET_CALENDLY = buildSiteCalendlyCtaUrl('chat-widget-rdv');
+const CHAT_WIDGET_RDV = LINKS.prendreRdv;
 
 function escapeRegExp(s: string) {
   return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
@@ -38,7 +39,7 @@ interface Message {
 }
 
 const CTAS = [
-  { label: 'Prendre rendez-vous', href: CHAT_WIDGET_CALENDLY, intent: 'rdv' as const },
+  { label: 'Prendre rendez-vous', href: CHAT_WIDGET_RDV, intent: 'rdv' as const },
   { label: 'Recevoir le programme', intent: 'programme' as const },
   { label: 'Être recontacté', intent: 'recontact' as const },
 ];
@@ -117,6 +118,9 @@ export function ChatWidget() {
 
   const handleCtaClick = async (cta: (typeof CTAS)[number]) => {
     if (cta.href) {
+      if (cta.intent === 'rdv') {
+        trackCtaRdvClick('chat-widget-rdv', window.location.pathname);
+      }
       window.location.href = cta.href;
       return;
     }
@@ -129,8 +133,10 @@ export function ChatWidget() {
         visitorId: getVisitorId(),
       }),
     });
-    window.location.href =
-      cta.intent === 'programme' ? '/contact' : CHAT_WIDGET_CALENDLY;
+    if (cta.intent === 'rdv') {
+      trackCtaRdvClick('chat-widget-rdv', window.location.pathname);
+    }
+    window.location.href = cta.intent === 'programme' ? '/contact' : CHAT_WIDGET_RDV;
   };
 
   return (

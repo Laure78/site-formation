@@ -158,7 +158,8 @@ export default function FormationPlateformePage() {
               className="h-auto w-full object-cover"
               priority
               sizes="(min-width: 1024px) 560px, 100vw"
-            />
+            
+              quality={75}/>
           </figure>
         </div>
       </section>

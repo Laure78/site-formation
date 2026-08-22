@@ -24,10 +24,7 @@ export default function QualiopiPage() {
       </h1>
 
       <div className="mt-10">
-        <QualiopiBadge />
-        <p className="mt-3 max-w-2xl text-xs leading-relaxed text-slate-600">
-          {QUALIOPI_LEGAL.qualiopiCategoryMention}
-        </p>
+        <QualiopiBadge size="lg" />
       </div>
 
       <article className="mt-10 space-y-6 text-slate-700">

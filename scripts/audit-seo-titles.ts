@@ -6,7 +6,7 @@ import { readFileSync, readdirSync, statSync, existsSync } from 'fs';
 import { join } from 'path';
 import matter from 'gray-matter';
 import {
-  buildBrandedTitle,
+  buildTitle,
   BRAND_TITLE_SUFFIX,
   SEO_TITLE_MAX_LENGTH,
   SEO_TITLE_SEGMENT_MAX_LENGTH,
@@ -38,7 +38,7 @@ function walk(dir: string, acc: string[] = []): string[] {
 
 function add(entries: Entry[], path: string, source: string, rawTitle: string) {
   const segment = stripBrandSuffix(rawTitle.trim());
-  const htmlTitle = buildBrandedTitle(segment);
+  const htmlTitle = buildTitle(segment);
   const truncated = segment !== truncateForBrandedTitle(segment);
   entries.push({
     path,

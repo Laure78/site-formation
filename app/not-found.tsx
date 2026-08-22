@@ -1,8 +1,9 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
+import { buildTitle } from '@/lib/seo';
 
 export const metadata: Metadata = {
-  title: 'Page non trouvée',
+  title: { absolute: buildTitle('Page non trouvée') },
   description: 'La page demandée n\'existe pas.',
   robots: {
     index: false,

@@ -311,7 +311,7 @@ export default function FormationIaAssistanteGestionBtpPage() {
               Réservez votre diagnostic IA back-office gratuit — 30 minutes en visio.
             </p>
             <a
-              href={buildSiteCalendlyCtaUrl('formation-ia-assistante-gestion-btp-contact-rdv-page-calendly')}
+              origin="formation-ia-assistante-gestion-btp-contact-rdv-page-calendly"
               className="mt-2 inline-block font-semibold text-[#377CF3] underline hover:no-underline"
               target="_blank"
               rel="noopener noreferrer"
@@ -498,7 +498,7 @@ export default function FormationIaAssistanteGestionBtpPage() {
           </ul>
           <p className="mt-6">
             <a
-              href="https://www.laureolivie.fr/formations"
+              href="/formations"
               className="font-semibold text-[#377CF3] underline hover:no-underline"
               target="_blank"
               rel="noopener noreferrer"
@@ -664,7 +664,7 @@ export default function FormationIaAssistanteGestionBtpPage() {
           <p>Organisme certifié Qualiopi · SIRET 905 244 281 00010 · NDA 11788515078</p>
           <p>
             laureolivie@yahoo.fr ·{' '}
-            <a href="https://www.laureolivie.fr" className="underline">
+            <a href="/" className="underline">
               www.laureolivie.fr
             </a>
           </p>

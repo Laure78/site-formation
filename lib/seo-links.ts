@@ -3,7 +3,6 @@
  * Anchors optimisés par mot-clé cible
  */
 
-import { buildSiteCalendlyCtaUrl } from '@/lib/calendly';
 import { SITE_CONFIG } from '@/lib/seo';
 import { LINKS } from '@/lib/internal-links';
 
@@ -15,9 +14,9 @@ export const INTERNAL_LINKS = {
     path: LINKS.formations,
     anchors: ['formation IA pour les pros du BTP', 'catalogue formations IA', 'formations IA bâtiment'],
   },
-  /** Prise de RDV — lien direct Calendly (nouvel onglet côté UI) */
+  /** Prise de RDV — page interne `/prendre-rendez-vous` */
   prendreRdv: {
-    path: buildSiteCalendlyCtaUrl('maillage-seo-prendre-rdv'),
+    path: LINKS.prendreRdv,
     anchors: ['prendre rendez-vous', 'réserver un RDV gratuit', 'devis personnalisé formation'],
   },
   chatgptArtisans: {

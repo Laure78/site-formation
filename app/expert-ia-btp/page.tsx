@@ -94,7 +94,8 @@ export default function ExpertIABTPPage() {
                   className="h-auto w-full"
                   sizes="(max-width: 1024px) 100vw, 384px"
                   priority
-                />
+                
+                  quality={75}/>
               </PortraitLinkedInLink>
             </div>
           </div>

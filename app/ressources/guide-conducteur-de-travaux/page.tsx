@@ -158,7 +158,8 @@ export default function SkillIaConducteurTravauxPage() {
                   className="h-auto w-full object-contain"
                   sizes="(max-width: 1024px) 280px, 320px"
                   priority
-                />
+                
+                  quality={75}/>
               </div>
             </figure>
             <SkillIaLeadMagnetForm />
@@ -414,6 +415,9 @@ Signature : [NOM] — [TITRE] — [ENTREPRISE]
               width={400}
               height={400}
               className="h-full w-full object-cover"
+              sizes="200px"
+              loading="lazy"
+              quality={70}
             />
           </div>
           <div>
@@ -467,7 +471,7 @@ Signature : [NOM] — [TITRE] — [ENTREPRISE]
           </p>
           <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row">
             <a
-              href={buildSiteCalendlyCtaUrl('ressources-guide-conducteur-de-travaux-contact-rdv-page-calendly')}
+              origin="ressources-guide-conducteur-de-travaux-contact-rdv-page-calendly"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex rounded-xl bg-white px-6 py-3 font-semibold text-[#377CF3] shadow-sm hover:bg-[#F2F2F2]"

@@ -14,7 +14,7 @@ import { LaureOlivieFormationPortrait } from '@/components/laure-olivie/LaureOli
 import { LiensConnexes } from '@/components/LiensConnexes';
 import { OfcPromoVideoEmbed } from '@/components/media/OfcPromoVideoEmbed';
 import { createPageMetadata } from '@/lib/seo';
-import { buildSiteCalendlyCtaUrl } from '@/lib/calendly';
+import { CtaButton } from '@/components/CtaButton';
 import { TARIF_FORFAIT_DEBUTANT_HT } from '@/lib/tarifs-sessions';
 import { PROOF, formatProofFormes } from '@/lib/proof';
 import {
@@ -33,7 +33,6 @@ import {
 export const revalidate = 3600;
 
 const PATH = FORMATION_IA_GROS_OEUVRE_BTP_PATH;
-const CALENDLY_HREF = buildSiteCalendlyCtaUrl(FORMATION_IA_GROS_OEUVRE_CALENDLY_CAMPAIGN);
 const OFC = "OFC Création d'Entreprise";
 
 export const metadata: Metadata = createPageMetadata({
@@ -311,15 +310,14 @@ export default function FormationIaGrosOeuvreBtpPage() {
               et le montage Constructys selon éligibilité — sans engagement.
             </p>
             <div className="mt-6">
-              <a
-                href={CALENDLY_HREF}
-                target="_blank"
-                rel="noopener noreferrer"
+              <CtaButton
+                origin={FORMATION_IA_GROS_OEUVRE_CALENDLY_CAMPAIGN}
+                variant="unstyled"
                 className="inline-flex items-center gap-2 rounded-xl bg-white px-6 py-3.5 text-sm font-bold text-[#377CF3] shadow-sm hover:bg-blue-50"
               >
                 Réservez votre visio découverte gratuite
                 <ArrowRight size={18} strokeWidth={1.5} aria-hidden />
-              </a>
+              </CtaButton>
             </div>
           </section>
         </article>

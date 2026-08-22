@@ -1,7 +1,7 @@
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { createClient } from '@/lib/supabase/server';
-import { createPageMetadata, SITE_CONFIG } from '@/lib/seo';
+import { createPageMetadata, buildTitle, SITE_CONFIG } from '@/lib/seo';
 import { LINKS } from '@/lib/internal-links';
 import { BookOpen, Clock } from 'lucide-react';
 import { BuyButton } from '../BuyButton';
@@ -41,7 +41,7 @@ export async function generateMetadata({ params }: PageProps) {
   const { slug } = await params;
   const supabase = await createClient();
   const { data } = await supabase.from('courses').select('title').eq('slug', slug).eq('published', true).single();
-  if (!data) return { title: 'Cours non trouvé' };
+  if (!data) return { title: { absolute: buildTitle('Cours non trouvé') } };
   /** Meta manuelle (gabarit) — jamais d’excerpt / slice BDD. */
   const COURS_META_DESCRIPTION =
     'Cours formation IA pour le BTP : module pratique présentiel IDF, supports Qualiopi OFC. Constructys selon éligibilité. Accédez au programme et RDV découverte.';

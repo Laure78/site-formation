@@ -284,8 +284,10 @@ export function PillarPageHero({
             alt={backgroundImageAlt}
             fill
             className="object-cover object-center"
-            sizes="100vw"
+            sizes="(max-width: 768px) 100vw, 100vw"
             priority={!sideImage}
+            quality={!sideImage ? 75 : 70}
+            loading={!sideImage ? undefined : 'lazy'}
           />
           <div
             className="absolute inset-0 bg-gradient-to-br from-[#1E40AF]/85 via-[#377CF3]/82 to-[#2563EB]/85"
@@ -342,7 +344,9 @@ export function PillarPageHero({
                       sideImage.objectFit === 'contain' || sideImage.circular ? 'object-contain' : 'object-cover'
                     }`}
                     sizes="(max-width: 1024px) 100vw, 400px"
-                    priority
+                    priority={Boolean(sideImage)}
+                    quality={75}
+                    loading={sideImage ? undefined : 'lazy'}
                   />
                   {muted && sideImage.qualiopiBadge !== false && !sideImage.circular ? (
                     <div className="absolute bottom-4 right-4 flex items-center gap-2 rounded-xl border border-slate-200/90 bg-white/95 px-3 py-2 shadow-md backdrop-blur-sm">

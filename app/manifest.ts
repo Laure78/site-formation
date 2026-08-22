@@ -55,7 +55,7 @@ export default function manifest(): MetadataRoute.Manifest {
       {
         name: 'Prendre RDV',
         short_name: 'RDV',
-        url: '/prendre-rdv',
+        url: '/prendre-rendez-vous',
         icons: [{ src: icon192, sizes: '192x192', type: 'image/png' }],
       },
     ],

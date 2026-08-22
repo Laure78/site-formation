@@ -2,9 +2,9 @@
 
 import Image from 'next/image';
 import { Reveal, RevealGroup } from '@/components/motion/Reveal';
+import { QualiopiBadge } from '@/components/QualiopiLogo';
 import { A_PROPOS_CERTIFICATIONS } from '@/lib/a-propos-eeat-content';
 import { LOGO_LINKEDIN_LEARNING } from '@/lib/client-logos';
-import { PHOTOS } from '@/lib/photos';
 
 export function AProposCertificationCards() {
   return (
@@ -22,13 +22,7 @@ export function AProposCertificationCards() {
       </RevealGroup>
       <Reveal className="mt-8">
         <div className="flex flex-wrap items-center justify-center gap-8 rounded-xl border border-[#E2E8F0] bg-[#F8F8F8] p-6 transition-shadow duration-300 hover:shadow-[0_10px_28px_rgba(15,23,42,0.06)]">
-          <Image
-            src={PHOTOS.qualiopiLogoOfficiel.src}
-            alt={PHOTOS.qualiopiLogoOfficiel.alt}
-            width={PHOTOS.qualiopiLogoOfficiel.width}
-            height={PHOTOS.qualiopiLogoOfficiel.height}
-            className="h-auto max-h-28 w-full max-w-sm object-contain bg-white p-2"
-          />
+          <QualiopiBadge className="max-w-sm" />
           <div className="flex flex-col items-center gap-2 text-center sm:items-start sm:text-left">
             <Image
               src={LOGO_LINKEDIN_LEARNING.src}
@@ -36,6 +30,9 @@ export function AProposCertificationCards() {
               width={LOGO_LINKEDIN_LEARNING.width}
               height={LOGO_LINKEDIN_LEARNING.height}
               className="h-10 w-auto max-w-[200px] object-contain bg-white"
+              sizes="200px"
+              loading="lazy"
+              quality={70}
             />
             <p className="text-sm text-[#475569]">Instructrice officielle — cours IA BTP</p>
           </div>

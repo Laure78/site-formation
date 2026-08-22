@@ -4,6 +4,7 @@ import { computeBlogListing } from '@/lib/blog-index-query';
 import { getBlogCategoryMetadata } from '@/lib/blog-metadata';
 import { blogCategoryIdFromPathSlug, BLOG_CATEGORY_PATH_SLUGS } from '@/lib/blog-index-urls';
 import { BLOG_CATEGORIES } from '@/lib/blog';
+import { buildTitle } from '@/lib/seo';
 
 export const revalidate = 3600;
 
@@ -33,7 +34,7 @@ export async function generateMetadata({ params }: Props) {
   const id = blogCategoryIdFromPathSlug(slug);
   const n = parseInt(page, 10);
   if (!id || !Number.isFinite(n) || n < 2) {
-    return { title: 'Blog' };
+    return { title: { absolute: buildTitle('Blog') } };
   }
   return getBlogCategoryMetadata(`/blog/categorie/${slug}/${n}`, n, BLOG_CATEGORIES[id], id);
 }

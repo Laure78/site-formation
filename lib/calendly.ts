@@ -1,6 +1,9 @@
+import { LINKS } from '@/lib/internal-links';
+
 /**
  * Prise de RDV via Calendly — visio découverte.
  * Surcharge possible : NEXT_PUBLIC_CALENDLY_URL dans .env.local
+ * Usage interne : réservé à `/prendre-rendez-vous` (embed Calendly).
  */
 export const CALENDLY_BOOKING_URL =
   process.env.NEXT_PUBLIC_CALENDLY_URL ??
@@ -75,19 +78,17 @@ export function buildCalendlyInlineIframeUrl(bookingUrl: string): string {
   return u.href;
 }
 
-/** Lien Calendly site — utm_source=site, utm_medium=cta, campagne explicite. */
-export function buildSiteCalendlyCtaUrl(campaign: string): string {
-  return buildCalendlyUrlWithUtm({
-    utmSource: 'site',
-    utmMedium: 'cta',
-    utmCampaign: campaign,
-  });
+/** Lien CTA site — redirige vers `/prendre-rendez-vous` (Calendly réservé à cette page). */
+export function buildSiteCalendlyCtaUrl(_campaign: string): string {
+  return LINKS.prendreRdv;
 }
 
-/** Indique si l’URL pointe vers la page événement de réservation (sans tenir compte des query params). */
+/** Indique si l’URL pointe vers la prise de RDV (page interne ou legacy Calendly). */
 export function isCalendlyBookingHref(href: string): boolean {
+  if (href === LINKS.prendreRdv || href === '/prendre-rdv') return true;
   try {
-    const u = new URL(href);
+    const u = new URL(href, 'https://www.laureolivie.fr');
+    if (u.pathname.replace(/\/$/, '') === LINKS.prendreRdv) return true;
     const base = new URL(CALENDLY_BOOKING_URL);
     return (
       u.hostname === base.hostname &&

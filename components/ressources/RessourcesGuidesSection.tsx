@@ -39,7 +39,9 @@ export function RessourcesGuidesSection() {
                     fill
                     className="object-contain"
                     sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                  />
+                  
+                    quality={70}
+                    loading="lazy"/>
                 </Link>
               ) : null}
               <div className="flex flex-1 flex-col p-6">

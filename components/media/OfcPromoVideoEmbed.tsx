@@ -49,6 +49,8 @@ type OfcPromoVideoEmbedProps = {
   showWatchPageLink?: boolean;
   /** Alt du poster next/image (≤ 125 car.) — défaut : accroche accueil. */
   alt?: string;
+  /** LCP hero accueil — une seule image priority par page. */
+  priority?: boolean;
 };
 
 /**
@@ -61,6 +63,7 @@ export function OfcPromoVideoEmbed({
   title,
   showWatchPageLink = true,
   alt = DEFAULT_THUMBNAIL_ALT,
+  priority = false,
 }: OfcPromoVideoEmbedProps) {
   const iframeTitle = title ?? getOfcPromoVideoTitle();
   const innerClass = INNER[variant] ?? INNER.default ?? 'relative w-full';
@@ -78,7 +81,10 @@ export function OfcPromoVideoEmbed({
             aria-hidden
             fill
             className="object-cover"
-            sizes="(max-width: 768px) 100vw, 400px"
+            sizes="(max-width: 768px) 100vw, 50vw"
+            priority={priority}
+            loading={priority ? undefined : 'lazy'}
+            quality={priority ? 75 : 70}
           />
           <object
             data={OFC_PROMO_VIDEO.src}

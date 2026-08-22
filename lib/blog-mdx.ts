@@ -48,6 +48,8 @@ export type BlogMdxFrontmatter = {
   faqItems?: BlogMdxFaqItem[];
   /** Slugs d’articles JSON existants pour RelatedArticles */
   relatedSlugs?: string[];
+  /** Synthèse factuelle sous le H1 (2–3 phrases) — absent = bloc masqué */
+  enBref?: string | string[];
 };
 
 export type { BlogFaqFrontmatterPair, BlogMdxFaqItem };
@@ -186,6 +188,7 @@ export function mdxFrontmatterToBlogArticle(fm: BlogMdxFrontmatter): BlogArticle
     coverImage: fm.cover,
     relatedSlugs: fm.relatedSlugs,
     readingTime: fm.readingTime,
+    enBref: fm.enBref,
   };
 }
 

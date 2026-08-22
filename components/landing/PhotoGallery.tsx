@@ -29,7 +29,9 @@ export function PhotoGallery({ photos, className = '' }: PhotoGalleryProps) {
             height={photo.height}
             className="h-auto w-full object-cover"
             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-          />
+          
+            quality={70}
+            loading="lazy"/>
         </div>
       ))}
     </div>

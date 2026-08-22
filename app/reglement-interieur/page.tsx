@@ -1,473 +1,339 @@
 import Link from 'next/link';
-import { Mail } from 'lucide-react';
-import { createPageMetadata } from '@/lib/seo';
-import { PROOF } from '@/lib/proof';
+import type { ReactNode } from 'react';
+import { Poppins } from 'next/font/google';
+import { FileDown } from 'lucide-react';
+import { JsonLd } from '@/components/JsonLd';
+import { LINKS } from '@/lib/internal-links';
+import { OFC_IDENTITE } from '@/lib/ofc-identite';
+import { SCHEMA_PUBLIC_SITE_URL } from '@/lib/schema-constants';
+import { buildBreadcrumbListJsonLd, createPageMetadata, siteAbsoluteUrl } from '@/lib/seo';
 
 export const revalidate = 3600;
+
+const PAGE_PATH = LINKS.reglementInterieur;
+const PAGE_URL = siteAbsoluteUrl(PAGE_PATH);
+const PAGE_TITLE = 'Règlement intérieur | Laure Olivié';
+const PAGE_DESCRIPTION =
+  "Règlement intérieur applicable aux stagiaires d'OFC Création d'Entreprise, organisme de formation en présentiel Île-de-France : discipline, sécurité, IA et réclamations.";
+
 export const metadata = createPageMetadata({
-  title: 'Règlement intérieur — OFC Création d\'Entreprise',
-  description:
-    "Règlement intérieur OFC : présence, sécurité, discipline. Code du travail, organisme Qualiopi. Consultez avant votre session de formation BTP.",
-  path: '/reglement-interieur',
-  keywords: ['règlement intérieur formation', 'Qualiopi', 'formation BTP'],
+  titleAbsolute: PAGE_TITLE,
+  description: PAGE_DESCRIPTION,
+  descriptionFinal: true,
+  path: PAGE_PATH,
 });
+
+const poppins = Poppins({
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700'],
+  display: 'swap',
+});
+
+type Article = {
+  id: string;
+  number: number;
+  title: string;
+  body: ReactNode;
+};
+
+const ARTICLES: Article[] = [
+  {
+    id: 'article-1',
+    number: 1,
+    title: 'Objet et champ d\'application',
+    body: (
+      <p>
+        Le présent règlement est établi conformément aux articles L. 6352-3 à L. 6352-5 et R. 6352-1 à
+        R. 6352-15 du code du travail. Il définit les règles d&apos;hygiène et de sécurité, les règles
+        générales et permanentes relatives à la discipline, ainsi que la nature et l&apos;échelle des
+        sanctions applicables aux stagiaires et les garanties procédurales qui leur sont attachées.
+      </p>
+    ),
+  },
+  {
+    id: 'article-2',
+    number: 2,
+    title: 'Personnes concernées',
+    body: (
+      <p>
+        Il s&apos;applique à toute personne participant à une action de formation dispensée par{' '}
+        {OFC_IDENTITE.raisonSociale}, pour toute la durée de la formation. Un exemplaire est remis à
+        chaque stagiaire avant son entrée en formation et il est accessible en permanence sur
+        www.laureolivie.fr.
+      </p>
+    ),
+  },
+  {
+    id: 'article-3',
+    number: 3,
+    title: 'Hygiène et sécurité',
+    body: (
+      <p>
+        Les formations se déroulent en présentiel, dans les locaux de l&apos;entreprise cliente (intra)
+        ou dans des locaux mis à disposition par un partenaire organisateur (inter). Les règles
+        d&apos;hygiène et de sécurité applicables sont celles en vigueur dans l&apos;établissement
+        d&apos;accueil. Chaque stagiaire est tenu de prendre connaissance des consignes de sécurité, des
+        issues de secours et des consignes d&apos;évacuation qui lui sont présentées en début de session,
+        et de les respecter.
+      </p>
+    ),
+  },
+  {
+    id: 'article-4',
+    number: 4,
+    title: 'Interdiction de fumer et de vapoter',
+    body: (
+      <p>
+        Il est interdit de fumer et de vapoter dans les locaux de formation, conformément à la
+        réglementation en vigueur et aux règles de l&apos;établissement d&apos;accueil.
+      </p>
+    ),
+  },
+  {
+    id: 'article-5',
+    number: 5,
+    title: 'Boissons alcoolisées et substances',
+    body: (
+      <p>
+        Il est interdit d&apos;introduire ou de consommer des boissons alcoolisées ou des substances
+        illicites dans les locaux de formation, et de s&apos;y présenter en état d&apos;ébriété.
+      </p>
+    ),
+  },
+  {
+    id: 'article-6',
+    number: 6,
+    title: 'Accident',
+    body: (
+      <p>
+        Tout accident, même bénin, survenu pendant la formation ou pendant le trajet doit être
+        immédiatement signalé à la formatrice ainsi qu&apos;au responsable de l&apos;établissement
+        d&apos;accueil. La déclaration incombe à l&apos;employeur du stagiaire lorsque celui-ci est
+        salarié.
+      </p>
+    ),
+  },
+  {
+    id: 'article-7',
+    number: 7,
+    title: 'Horaires, assiduité et émargement',
+    body: (
+      <p>
+        Les horaires sont indiqués sur la convocation. Les stagiaires sont tenus de suivre
+        l&apos;intégralité de la formation et de signer la feuille d&apos;émargement par demi-journée. En
+        cas d&apos;absence ou de retard, le stagiaire prévient la formatrice et son employeur dans les
+        meilleurs délais. Les absences non justifiées sont signalées à l&apos;employeur et au financeur,
+        et peuvent entraîner une réduction de la prise en charge.
+      </p>
+    ),
+  },
+  {
+    id: 'article-8',
+    number: 8,
+    title: 'Accès aux locaux et usage du matériel',
+    body: (
+      <p>
+        Les stagiaires utilisent le matériel mis à disposition avec soin et dans le seul cadre de la
+        formation. Il est interdit d&apos;installer des logiciels sans autorisation ou de modifier les
+        configurations des postes.
+      </p>
+    ),
+  },
+  {
+    id: 'article-9',
+    number: 9,
+    title: 'Confidentialité et propriété intellectuelle',
+    body: (
+      <p>
+        Les supports pédagogiques remis restent la propriété d&apos;{OFC_IDENTITE.raisonSociale}. Ils
+        sont réservés à l&apos;usage personnel du stagiaire et ne peuvent être reproduits, diffusés ni
+        exploités à des fins commerciales ou de formation sans autorisation écrite. Réciproquement, les
+        documents d&apos;entreprise utilisés en atelier par les participants (devis, pièces de marché,
+        comptes rendus de chantier) restent confidentiels : ils ne sont ni conservés ni diffusés par
+        l&apos;organisme, et les participants s&apos;engagent à la même réserve entre eux.
+      </p>
+    ),
+  },
+  {
+    id: 'article-10',
+    number: 10,
+    title: "Usage des outils d'intelligence artificielle",
+    body: (
+      <p>
+        Les formations recourent à des outils d&apos;intelligence artificielle générative. Les stagiaires
+        s&apos;engagent à ne saisir dans ces outils aucune donnée personnelle sensible, aucun
+        identifiant, ni aucune information couverte par le secret des affaires ou par une clause de
+        confidentialité de leur employeur. La formatrice rappelle ces règles en début de session et
+        propose des jeux de données anonymisés pour les exercices lorsque c&apos;est nécessaire.
+      </p>
+    ),
+  },
+  {
+    id: 'article-11',
+    number: 11,
+    title: 'Comportement',
+    body: (
+      <p>
+        Chacun adopte un comportement respectueux envers les autres participants, la formatrice et le
+        personnel de l&apos;établissement d&apos;accueil. Tout comportement contraire aux bonnes mœurs,
+        toute forme de harcèlement ou de discrimination est proscrit.
+      </p>
+    ),
+  },
+  {
+    id: 'article-12',
+    number: 12,
+    title: 'Sanctions',
+    body: (
+      <p>
+        Tout manquement au présent règlement peut faire l&apos;objet, selon sa gravité, de l&apos;une des
+        sanctions suivantes : avertissement écrit · blâme · exclusion temporaire de la formation ·
+        exclusion définitive de la formation. L&apos;employeur et, le cas échéant, le financeur sont
+        informés de toute sanction.
+      </p>
+    ),
+  },
+  {
+    id: 'article-13',
+    number: 13,
+    title: 'Garanties disciplinaires',
+    body: (
+      <p>
+        Aucune sanction ne peut être infligée sans que le stagiaire ait été informé au préalable des griefs
+        retenus contre lui. Lorsque la sanction envisagée est autre qu&apos;un avertissement écrit, le
+        stagiaire est convoqué à un entretien, peut se faire assister par une personne de son choix, et
+        la sanction ne peut intervenir moins d&apos;un jour franc ni plus de quinze jours après cet
+        entretien. La sanction fait l&apos;objet d&apos;une décision écrite et motivée, notifiée au
+        stagiaire.
+      </p>
+    ),
+  },
+  {
+    id: 'article-14',
+    number: 14,
+    title: 'Représentation des stagiaires',
+    body: (
+      <p>
+        L&apos;élection de délégués des stagiaires est prévue pour les formations d&apos;une durée
+        supérieure à 500 heures. Les formations dispensées par {OFC_IDENTITE.raisonSociale} étant
+        d&apos;une durée inférieure, cette disposition n&apos;est pas applicable.
+      </p>
+    ),
+  },
+  {
+    id: 'article-15',
+    number: 15,
+    title: 'Réclamations',
+    body: (
+      <p>
+        Toute difficulté ou réclamation peut être adressée selon les modalités décrites sur la page{' '}
+        <Link href={LINKS.reclamations} className="font-semibold text-[#377CF3] hover:underline">
+          Réclamations, difficultés et aléas
+        </Link>
+        .
+      </p>
+    ),
+  },
+  {
+    id: 'article-16',
+    number: 16,
+    title: 'Entrée en vigueur et publicité',
+    body: (
+      <p>
+        Le présent règlement entre en vigueur le 22/08/2026. Il est publié sur www.laureolivie.fr, remis
+        à chaque stagiaire avant son entrée en formation, et révisé au moins une fois par an.
+      </p>
+    ),
+  },
+];
+
+const pageJsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'WebPage',
+      '@id': `${PAGE_URL}#webpage`,
+      url: PAGE_URL,
+      name: 'Règlement intérieur',
+      description: PAGE_DESCRIPTION,
+      inLanguage: 'fr-FR',
+      isPartOf: { '@id': `${SCHEMA_PUBLIC_SITE_URL.replace(/\/$/, '')}/#website` },
+      publisher: { '@id': `${SCHEMA_PUBLIC_SITE_URL.replace(/\/$/, '')}/#organization` },
+    },
+    buildBreadcrumbListJsonLd([
+      { name: 'Accueil', url: siteAbsoluteUrl('/') },
+      { name: 'Informations réglementaires', url: siteAbsoluteUrl(LINKS.informationsReglementaires) },
+      { name: 'Règlement intérieur', url: PAGE_URL },
+    ]),
+  ],
+};
+
+function ArticleBlock({ article }: { article: Article }) {
+  return (
+    <section
+      id={article.id}
+      aria-labelledby={`${article.id}-heading`}
+      className="scroll-mt-24 rounded-lg border-l-[6px] border-[#377CF3] bg-[#F2F2F2] p-5"
+    >
+      <h2 id={`${article.id}-heading`} className="text-lg font-bold text-[#377CF3] md:text-xl">
+        Article {article.number} — {article.title}
+      </h2>
+      <div className="mt-3 leading-relaxed text-[#1A1A1A]">{article.body}</div>
+    </section>
+  );
+}
 
 export default function ReglementInterieurPage() {
   return (
-    <div className="mx-auto max-w-4xl px-4 py-16">
-      {/* En-tête */}
-      <div className="rounded-2xl border border-slate-200 bg-slate-50 p-8">
-        <div className="text-center">
-          <p className="text-sm font-medium text-[var(--accent)]">
-            Organisme de formation certifié Qualiopi
-          </p>
-          <h1 className="mt-4 font-display text-3xl font-bold text-slate-900 md:text-4xl">
-            RÈGLEMENT INTÉRIEUR
-          </h1>
-          <p className="mt-2 font-display text-xl font-bold text-[var(--accent)]">
-            OFC CRÉATION D&apos;ENTREPRISE
-          </p>
-          <p className="mt-4 text-sm text-slate-600">
-            Conformément aux articles L.6352-3 et suivants et R.6352-1 et suivants
-            du Code du travail
-          </p>
-          <div className="mt-6 flex flex-wrap justify-center gap-x-6 gap-y-1 text-sm text-slate-600">
-            <span>SIRET : 905 244 281 00010</span>
-            <span>NDA : 11788515078</span>
-            <span>6 rue Henri Dunant, 78280 GUYANCOURT</span>
-          </div>
-          <div className="mt-4 flex flex-wrap justify-center gap-x-6 text-sm">
-            <a
-              href="mailto:laureolivie@yahoo.fr"
-              className="inline-flex items-center gap-2 text-[var(--accent)] hover:underline"
-            >
-              <Mail size={16} strokeWidth={1.5} />
-              laureolivie@yahoo.fr
-            </a>
-          </div>
-        </div>
-      </div>
+    <div className={`mx-auto max-w-4xl px-4 py-14 md:py-16 ${poppins.className} text-[#1A1A1A]`}>
+      <JsonLd id="schema-reglement-interieur" schema={pageJsonLd} />
 
-      <div className="mt-12 text-slate-600">
-        <p className="text-lg">
-          Le présent règlement intérieur s&apos;applique à toutes les personnes
-          participant à une action de formation organisée par OFC CRÉATION
-          D&apos;ENTREPRISE.
+      <header className="max-w-3xl">
+        <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#377CF3]">
+          {OFC_IDENTITE.raisonSociale} — actions de formation
         </p>
-        <div className="mt-6 rounded-lg bg-slate-50 p-4 text-sm">
-          <p>
-            <strong>Raison sociale :</strong> OFC CRÉATION D&apos;ENTREPRISE
-          </p>
-          <p>
-            <strong>SIRET :</strong> 905 244 281 00010
-          </p>
-          <p>
-            <strong>Numéro de déclaration d&apos;activité :</strong> 11788515078
-          </p>
-          <p>
-            <strong>Siège social :</strong> 6 rue Henri Dunant, 78280 GUYANCOURT
-          </p>
-          <p>
-            <strong>Organisme certifié Qualiopi :</strong> Organisme certifié
-          </p>
-        </div>
-      </div>
+        <h1 className="mt-2 text-3xl font-bold text-[#377CF3] md:text-4xl">Règlement intérieur</h1>
+        <p className="mt-4 leading-relaxed text-[#1A1A1A]/90">
+          Applicable aux stagiaires des formations dispensées par {OFC_IDENTITE.raisonSociale} — version 1
+          du 22/08/2026
+        </p>
+      </header>
 
-      <article className="mt-12 space-y-12">
-        {/* PRÉAMBULE */}
-        <section>
-          <h2 className="font-display text-xl font-bold text-slate-900">
-            PRÉAMBULE
-          </h2>
-          <p className="mt-4 text-slate-600">
-            Le présent règlement intérieur a pour objet de définir les règles de
-            fonctionnement et de discipline applicables aux Stagiaires durant leur
-            formation au sein de l&apos;Organisme, ainsi que les garanties de
-            procédure dont ils bénéficient.
-          </p>
-          <p className="mt-4 text-slate-600">
-            Il est applicable pour toute action de formation, qu&apos;elle se
-            déroule : dans les locaux de l&apos;Organisme ; dans des locaux mis à
-            disposition (intra-entreprise, centre de formation partenaire) en Île-de-France —
-            présentiel uniquement · Île-de-France uniquement.
-          </p>
-        </section>
+      <nav
+        aria-label="Sommaire du règlement intérieur"
+        className="mt-10 rounded-lg border-l-[6px] border-[#377CF3] bg-[#F2F2F2] p-5"
+      >
+        <p className="text-sm font-semibold text-[#377CF3]">Sommaire</p>
+        <ol className="mt-3 columns-1 gap-x-8 text-sm leading-relaxed sm:columns-2">
+          {ARTICLES.map((article) => (
+            <li key={article.id} className="mb-1.5 break-inside-avoid">
+              <a href={`#${article.id}`} className="text-[#377CF3] hover:underline">
+                Article {article.number} — {article.title}
+              </a>
+            </li>
+          ))}
+        </ol>
+      </nav>
 
-        {/* ARTICLE 1 */}
-        <section>
-          <h2 className="font-display text-xl font-bold text-slate-900">
-            ARTICLE 1 — CHAMP D&apos;APPLICATION
-          </h2>
-          <h3 className="mt-6 font-semibold text-[var(--accent)]">
-            1.1 Personnes concernées
-          </h3>
-          <p className="mt-2 text-slate-600">
-            Le présent règlement s&apos;applique à toute personne inscrite à une
-            formation dispensée par OFC CRÉATION D&apos;ENTREPRISE, ci-après
-            dénommée « le Stagiaire », pour la durée de la formation suivie.
-          </p>
-          <h3 className="mt-6 font-semibold text-[var(--accent)]">
-            1.2 Remise du règlement intérieur
-          </h3>
-          <p className="mt-2 text-slate-600">
-            Le présent règlement intérieur est remis à chaque Stagiaire : lors de
-            la signature du contrat ou de la convention de formation ; lors de
-            l&apos;envoi de la convocation ; le premier jour de la formation.
-          </p>
-          <p className="mt-2 text-slate-600">
-            Il est également consultable sur le site internet :{' '}
-            <a
-              href="https://www.laureolivie.fr"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-[var(--accent)] hover:underline"
-            >
-              www.laureolivie.fr
-            </a>
-          </p>
-          <p className="mt-2 text-slate-600">
-            Le Stagiaire reconnaît en avoir pris connaissance et s&apos;engage à le
-            respecter.
-          </p>
-        </section>
-
-        {/* ARTICLE 2 */}
-        <section>
-          <h2 className="font-display text-xl font-bold text-slate-900">
-            ARTICLE 2 — DISPOSITIONS GÉNÉRALES
-          </h2>
-          <h3 className="mt-6 font-semibold text-[var(--accent)]">
-            2.1 Principes généraux
-          </h3>
-          <p className="mt-2 text-slate-600">
-            Les Stagiaires sont tenus de : respecter les horaires de formation ;
-            respecter le matériel et les locaux mis à disposition ; adopter une
-            attitude et un comportement respectueux envers le formateur, le
-            personnel de l&apos;Organisme et les autres Stagiaires ; ne pas
-            perturber le bon déroulement de la formation.
-          </p>
-          <h3 className="mt-6 font-semibold text-[var(--accent)]">
-            2.2 Laïcité et neutralité
-          </h3>
-          <p className="mt-2 text-slate-600">
-            Conformément aux principes de laïcité et de neutralité du service
-            public, il est interdit : de faire du prosélytisme religieux,
-            politique ou philosophique ; d&apos;arborer des signes ostentatoires
-            pouvant porter atteinte à la liberté d&apos;autrui ; de tenir des propos
-            discriminatoires.
-          </p>
-          <h3 className="mt-6 font-semibold text-[var(--accent)]">
-            2.3 Égalité de traitement
-          </h3>
-          <p className="mt-2 text-slate-600">
-            L&apos;Organisme s&apos;engage à assurer l&apos;égalité de traitement
-            entre tous les Stagiaires sans discrimination liée : au sexe,
-            l&apos;identité de genre ; à l&apos;âge ; à l&apos;origine ; à la
-            religion ; à l&apos;orientation sexuelle ; à l&apos;état de santé ; au
-            handicap ; à l&apos;appartenance syndicale ou politique.
-          </p>
-        </section>
-
-        {/* ARTICLE 3 */}
-        <section>
-          <h2 className="font-display text-xl font-bold text-slate-900">
-            ARTICLE 3 — ORGANISATION DES FORMATIONS
-          </h2>
-          <h3 className="mt-6 font-semibold text-[var(--accent)]">
-            3.1 Horaires de formation
-          </h3>
-          <p className="mt-2 font-medium text-slate-700">
-            Formations en présentiel
-          </p>
-          <p className="mt-2 text-slate-600">
-            Les horaires de formation sont précisés dans la convocation. Sauf
-            indication contraire, les horaires habituels sont : matin 9h00-12h30 ;
-            après-midi 14h00-17h30. Des pauses sont prévues à mi-matinée et
-            mi-après-midi. Le déjeuner n&apos;est pas pris en charge par
-            l&apos;Organisme sauf mention contraire.
-          </p>
-          <p className="mt-2 text-slate-600">
-            Les formations se déroulent exclusivement en présentiel, en
-            Île-de-France (sessions inter en salle ou intra dans les locaux du
-            client). Les horaires précis figurent dans la convocation.
-          </p>
-
-          <h3 className="mt-6 font-semibold text-[var(--accent)]">
-            3.2 Retards et absences
-          </h3>
-          <p className="mt-2 font-medium text-slate-700">Ponctualité</p>
-          <p className="mt-2 text-slate-600">
-            Les Stagiaires doivent arriver à l&apos;heure prévue. En cas de retard :
-            le Stagiaire doit prévenir l&apos;Organisme dès que possible ; un
-            retard de plus de 15 minutes peut entraîner un refus d&apos;accès à la
-            salle ; les retards répétés peuvent entraîner des sanctions.
-          </p>
-          <p className="mt-4 font-medium text-slate-700">Absences</p>
-          <p className="mt-2 text-slate-600">
-            Toute absence doit être justifiée dans les plus brefs délais par
-            email (laureolivie@yahoo.fr).
-          </p>
-          <p className="mt-2 text-slate-600">
-            En cas d&apos;absence injustifiée ou de justificatif non fourni,
-            l&apos;Organisme se réserve le droit de ne pas délivrer l&apos;attestation
-            de formation. Une absence non justifiée supérieure à 20% de la durée
-            totale entraîne l&apos;exclusion de la session en cours.
-          </p>
-
-          <h3 className="mt-6 font-semibold text-[var(--accent)]">
-            3.3 Feuilles d&apos;émargement
-          </h3>
-          <p className="mt-2 text-slate-600">
-            Les Stagiaires doivent signer une feuille d&apos;émargement par
-            demi-journée (présentiel).
-            L&apos;émargement conditionne la délivrance de l&apos;attestation et le
-            versement des fonds par les financeurs. Tout refus d&apos;émargement
-            est considéré comme une absence injustifiée.
-          </p>
-        </section>
-
-        {/* ARTICLE 4 */}
-        <section>
-          <h2 className="font-display text-xl font-bold text-slate-900">
-            ARTICLE 4 — ACCÈS AUX LOCAUX ET SÉCURITÉ
-          </h2>
-          <h3 className="mt-6 font-semibold text-[var(--accent)]">
-            4.1 Accès aux locaux de formation
-          </h3>
-          <p className="mt-2 text-slate-600">
-            L&apos;accès aux locaux est réservé aux Stagiaires inscrits pendant les
-            horaires de formation. Aucune personne extérieure ne peut accéder sans
-            autorisation préalable.
-          </p>
-          <h3 className="mt-6 font-semibold text-[var(--accent)]">
-            4.2 Consignes de sécurité
-          </h3>
-          <p className="mt-2 text-slate-600">
-            Les Stagiaires doivent respecter les consignes affichées, connaître
-            les issues de secours, ne pas encombrer les voies d&apos;évacuation. En
-            cas d&apos;incendie : suivre les consignes, évacuer calmement, se
-            diriger vers le point de rassemblement. Tout accident doit être
-            immédiatement déclaré. Un registre des accidents est tenu conforme à
-            l&apos;article R.6352-13 du Code du travail.
-          </p>
-          <h3 className="mt-6 font-semibold text-[var(--accent)]">
-            4.3 Assurance
-          </h3>
-          <p className="mt-2 text-slate-600">
-            Le Stagiaire doit être couvert par une assurance responsabilité civile.
-            Une attestation peut être demandée.
-          </p>
-        </section>
-
-        {/* ARTICLE 5 */}
-        <section>
-          <h2 className="font-display text-xl font-bold text-slate-900">
-            ARTICLE 5 — HYGIÈNE ET SÉCURITÉ
-          </h2>
-          <p className="mt-4 text-slate-600">
-            Interdiction stricte de fumer/vapoter dans les salles et espaces fermés
-            (décret 2006-1386). Interdiction de consommer de l&apos;alcool ou des
-            substances illicites ; toute infraction entraîne l&apos;exclusion
-            immédiate. Repas interdits dans les salles ; boissons non alcoolisées
-            autorisées hors évaluations. Hygiène corporelle et tenue correcte
-            exigées. En situation sanitaire particulière, des mesures spécifiques
-            peuvent être mises en place (masque, gel, distanciation).
-          </p>
-        </section>
-
-        {/* ARTICLE 6 */}
-        <section>
-          <h2 className="font-display text-xl font-bold text-slate-900">
-            ARTICLE 6 — UTILISATION DU MATÉRIEL ET DES LOCAUX
-          </h2>
-          <p className="mt-4 text-slate-600">
-            Le matériel pédagogique doit être utilisé conformément à sa destination.
-            Interdit : modifier la configuration informatique, installer des
-            logiciels non autorisés, consulter des sites hors formation, dégrader le
-            matériel. Tout Stagiaire causant des dégradations sera tenu de
-            rembourser les frais. L&apos;Organisme n&apos;est pas responsable des
-            effets personnels.
-          </p>
-        </section>
-
-        {/* ARTICLE 7 */}
-        <section>
-          <h2 className="font-display text-xl font-bold text-slate-900">
-            ARTICLE 7 — UTILISATION DES OUTILS NUMÉRIQUES
-          </h2>
-          <p className="mt-4 text-slate-600">
-            Les identifiants de plateforme sont personnels et confidentiels.
-            Interdit : enregistrer les sessions sans autorisation écrite,
-            effectuer des captures d&apos;écran, diffuser les contenus.
-            L&apos;accès internet doit être utilisé uniquement dans le cadre de la
-            formation. Téléphones en mode silencieux pendant les sessions.
-          </p>
-        </section>
-
-        {/* ARTICLE 8 */}
-        <section>
-          <h2 className="font-display text-xl font-bold text-slate-900">
-            ARTICLE 8 — CONFIDENTIALITÉ ET PROPRIÉTÉ INTELLECTUELLE
-          </h2>
-          <p className="mt-4 text-slate-600">
-            Les Stagiaires s&apos;engagent à respecter la confidentialité des
-            échanges et à ne pas divulguer d&apos;informations sensibles. Les
-            supports de formation sont la propriété exclusive de l&apos;Organisme
-            (Code de la propriété intellectuelle). Toute reproduction,
-            diffusion ou utilisation commerciale non autorisée constitue une
-            contrefaçon (jusqu&apos;à 3 ans d&apos;emprisonnement et 300 000€
-            d&apos;amende).
-          </p>
-        </section>
-
-        {/* ARTICLE 9 */}
-        <section>
-          <h2 className="font-display text-xl font-bold text-slate-900">
-            ARTICLE 9 — COMPORTEMENT ET DISCIPLINE
-          </h2>
-          <p className="mt-4 text-slate-600">
-            Comportement respectueux exigé. Prohibés : discrimination, harcèlement,
-            violences, menaces, prosélytisme, sollicitation commerciale non
-            autorisée. Tenue correcte exigée. Participation active encouragée ;
-            manque d&apos;implication peut faire l&apos;objet d&apos;un avertissement.
-          </p>
-        </section>
-
-        {/* ARTICLE 10 */}
-        <section>
-          <h2 className="font-display text-xl font-bold text-slate-900">
-            ARTICLE 10 — ÉVALUATION
-          </h2>
-          <p className="mt-4 text-slate-600">
-            Les Stagiaires doivent se soumettre aux évaluations prévues (positionnement,
-            formatives, finale). Toute fraude ou tentative de fraude entraîne
-            l&apos;annulation de l&apos;évaluation, un avertissement écrit ; en
-            cas de récidive : exclusion. Les questionnaires de satisfaction sont
-            obligatoires.
-          </p>
-        </section>
-
-        {/* ARTICLE 11 */}
-        <section>
-          <h2 className="font-display text-xl font-bold text-slate-900">
-            ARTICLE 11 — SANCTIONS DISCIPLINAIRES
-          </h2>
-          <p className="mt-4 text-slate-600">
-            Sanctions possibles : avertissement oral ; avertissement écrit ;
-            exclusion temporaire (1 à 3 jours) ; exclusion définitive. Aucune
-            sanction majeure sans information des griefs et possibilité de
-            présenter sa défense (convocation 5 jours avant, entretien, notification
-            sous 2 jours). En cas de faute grave (violence, harcèlement, vol,
-            ébriété, etc.), exclusion immédiate à titre conservatoire. L&apos;exclusion
-            n&apos;entraîne aucun remboursement.
-          </p>
-        </section>
-
-        {/* ARTICLE 12 */}
-        <section>
-          <h2 className="font-display text-xl font-bold text-slate-900">
-            ARTICLE 12 — REPRÉSENTATION DES STAGIAIRES
-          </h2>
-          <p className="mt-4 text-slate-600">
-            Non applicable aux formations d&apos;une durée inférieure ou égale à 200 heures (sessions OFC : 4 h).
-            Pour les formations d&apos;une durée supérieure à 500 heures et au moins 4 Stagiaires, des délégués
-            peuvent être élus (2 titulaires, 2 suppléants) au scrutin uninominal à deux tours, au plus tard 20 heures
-            après le début. Les délégués représentent les Stagiaires, font part des réclamations et facilitent le
-            dialogue.
-          </p>
-        </section>
-
-        {/* ARTICLE 13 */}
-        <section>
-          <h2 className="font-display text-xl font-bold text-slate-900">
-            ARTICLE 13 — PERSONNES EN SITUATION DE HANDICAP
-          </h2>
-          <p className="mt-4 text-slate-600">
-            L&apos;Organisme s&apos;engage à faciliter l&apos;accès aux formations.
-            Référent Handicap : Laure OLIVIÉ — laureolivie@yahoo.fr.
-            Aménagements possibles sur demande (supports, horaires, moyens
-            techniques, temps supplémentaire). Demandes à formuler 15 jours avant
-            le début. Partenariats : MDPH, AGEFIPH, référents handicap OPCO.
-          </p>
-        </section>
-
-        {/* ARTICLE 14 */}
-        <section>
-          <h2 className="font-display text-xl font-bold text-slate-900">
-            ARTICLE 14 — RÉCLAMATIONS
-          </h2>
-          <p className="mt-4 text-slate-600">
-            Réclamations à adresser par email (laureolivie@yahoo.fr) ou courrier (6
-            rue Henri Dunant, 78280 GUYANCOURT).
-            L&apos;Organisme s&apos;engage à accuser réception sous 48h et répondre
-            sous 15 jours ouvrés.
-          </p>
-        </section>
-
-        {/* ARTICLE 15 */}
-        <section>
-          <h2 className="font-display text-xl font-bold text-slate-900">
-            ARTICLE 15 — DISPOSITIONS FINALES
-          </h2>
-          <p className="mt-4 text-slate-600">
-            Le règlement peut être modifié à tout moment ; les modifications sont
-            applicables immédiatement. Il est remis à chaque Stagiaire, consultable
-            sur www.laureolivie.fr et affiché dans les locaux. L&apos;inscription
-            à une formation vaut acceptation sans réserve du présent règlement
-            intérieur.
-          </p>
-        </section>
+      <article className="mt-12 space-y-5">
+        {ARTICLES.map((article) => (
+          <ArticleBlock key={article.id} article={article} />
+        ))}
       </article>
 
-      {/* Pied de page */}
-      <div className="mt-16 rounded-2xl border border-slate-200 bg-slate-50 p-8 text-center">
-        <p className="text-sm text-slate-600">
-          Règlement intérieur établi conformément aux articles L.6352-3, L.6352-4,
-          R.6352-1 à R.6352-15 du Code du travail
+      <footer className="mt-16 border-t border-[#377CF3]/20 pt-8 text-center">
+        <p className="text-sm text-[#1A1A1A]/80">
+          Règlement intérieur — version 1 du 22/08/2026 · {OFC_IDENTITE.raisonSociale}
         </p>
-        <p className="mt-4 font-semibold text-slate-900">
-          Version en vigueur au : 30 janvier 2026
-        </p>
-        <div className="mt-6 space-y-1 text-sm text-slate-600">
-          <p className="font-bold text-[var(--accent)]">
-            OFC CRÉATION D&apos;ENTREPRISE
-          </p>
-          <p>6 rue Henri Dunant — 78280 GUYANCOURT</p>
-          <p>SIRET : 905 244 281 00010 | NDA : 11788515078</p>
-          <p>
-            <a
-              href="mailto:laureolivie@yahoo.fr"
-              className="text-[var(--accent)] hover:underline"
-            >
-              laureolivie@yahoo.fr
-            </a>
-          </p>
-          <p>
-            Site :{' '}
-            <a
-              href="https://www.laureolivie.fr"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-[var(--accent)] hover:underline"
-            >
-              www.laureolivie.fr
-            </a>
-          </p>
-        </div>
-      </div>
-
-      <p className="mt-12 text-center text-xs text-slate-500">
-        Version en vigueur au {PROOF.majLe} — OFC Création d&apos;Entreprise
-      </p>
-
-      <div className="mt-8 border-t border-slate-200 pt-8">
-        <Link
-          href="/"
-          className="text-[var(--accent)] font-medium hover:underline"
+        <a
+          href={LINKS.reglementInterieurPdf}
+          className="mt-4 inline-flex items-center gap-2 font-semibold text-[#377CF3] hover:underline"
+          download
         >
-          ← Retour à l&apos;accueil
-        </Link>
-      </div>
+          <FileDown className="h-5 w-5" aria-hidden />
+          Télécharger le règlement intérieur (PDF)
+        </a>
+      </footer>
     </div>
   );
 }

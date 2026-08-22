@@ -1,7 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { Poppins } from 'next/font/google';
-import { PHOTOS } from '@/lib/photos';
 import { LOGO_LINKEDIN_LEARNING } from '@/lib/client-logos';
 import { LINKS } from '@/lib/internal-links';
 import {
@@ -9,7 +8,7 @@ import {
   LINKEDIN_LEARNING_INSTRUCTOR_HREF,
 } from '@/lib/linkedin-learning-a-propos-embeds';
 import { EXTERNAL_AUTHORITY_LINKS } from '@/lib/seo-links';
-import { QualiopiWordmark } from '@/components/QualiopiLogo';
+import { QualiopiBadge, QualiopiWordmark } from '@/components/QualiopiLogo';
 import { formatPersonnesFormeesCount, getStatsFreshnessLabel } from '@/lib/constants';
 
 const poppins = Poppins({
@@ -119,21 +118,9 @@ export function AProposEeatSections({ hideTimeline = false }: AProposEeatSection
           </p>
           <ul className="mt-12 grid list-none gap-8 p-0 sm:grid-cols-2 lg:grid-cols-3">
             <li className="flex flex-col items-center rounded-2xl border border-slate-200 bg-white p-8 text-center shadow-sm">
-              <div className="flex w-full max-w-md items-center justify-center rounded-lg bg-white p-3">
-                <Image
-                  src={PHOTOS.qualiopiLogoOfficiel.src}
-                  alt={PHOTOS.qualiopiLogoOfficiel.alt}
-                  width={PHOTOS.qualiopiLogoOfficiel.width}
-                  height={PHOTOS.qualiopiLogoOfficiel.height}
-                  className="h-auto w-full object-contain"
-                  sizes="(max-width: 640px) 100vw, 28rem"
-                />
-              </div>
+              <QualiopiBadge className="w-full max-w-md" />
               <p className="mt-4 text-sm font-semibold leading-snug text-slate-900">
                 Organisme certifié Qualiopi via Certifopac (NDA 11788515078)
-              </p>
-              <p className="mt-2 max-w-xs text-xs leading-relaxed text-slate-600">
-                Actions de formation — référentiel national qualité.
               </p>
               <Link
                 href={EXTERNAL_AUTHORITY_LINKS.dataGouvQualiopi.href}
@@ -152,6 +139,9 @@ export function AProposEeatSections({ hideTimeline = false }: AProposEeatSection
                   width={LOGO_LINKEDIN_LEARNING.width}
                   height={LOGO_LINKEDIN_LEARNING.height}
                   className="h-auto max-h-14 w-auto max-w-full object-contain object-center"
+                  sizes="220px"
+                  loading="lazy"
+                  quality={70}
                 />
               </div>
               <p className="mt-4 text-sm font-semibold leading-snug text-slate-900">
@@ -205,6 +195,9 @@ export function AProposEeatSections({ hideTimeline = false }: AProposEeatSection
               width={LOGO_LINKEDIN_LEARNING.width}
               height={LOGO_LINKEDIN_LEARNING.height}
               className="h-10 w-auto max-w-[200px] object-contain"
+              sizes="200px"
+              loading="lazy"
+              quality={70}
             />
           </div>
           <p className="mx-auto mt-3 max-w-2xl text-center text-sm text-slate-600 md:text-base">

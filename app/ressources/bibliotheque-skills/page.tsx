@@ -1,3 +1,4 @@
+import { CtaButton } from '@/components/CtaButton';
 import { BookOpen, Download, Package, Calendar } from 'lucide-react';
 import type { Metadata } from 'next';
 import { BibliothequeSkillsContent } from '@/components/ressources/BibliothequeSkillsContent';
@@ -6,7 +7,6 @@ import { MaillageRessourceFromConfig } from '@/app/components/MaillageRessource'
 import { createPageMetadata, SITE_CONFIG } from '@/lib/seo';
 import { LINKS } from '@/lib/internal-links';
 import { getMaillageRessourceConfig } from '@/lib/maillage-ressources';
-import { buildSiteCalendlyCtaUrl } from '@/lib/calendly';
 import { SKILL_INSTALL_TUTORIAL } from '@/lib/bibliotheque-skills/tutorial';
 import {
   BIBLIOTHEQUE_BEWORK_COUNT,
@@ -17,7 +17,6 @@ import {
 
 const PATH = LINKS.bibliothequeSkills;
 const CANONICAL = `${SITE_CONFIG.url.replace(/\/$/, '')}${PATH}`;
-const CALENDLY_FINAL = buildSiteCalendlyCtaUrl('ressources-bibliotheque-skills-final');
 
 const PAGE_META_DESCRIPTION =
   'Claude AI BTP — bibliothèque skills gratuits : CR, DCE, mémoire technique, PPSPS et DOE au format .skill. OFC Qualiopi, présentiel IDF. Téléchargez maintenant.';
@@ -137,13 +136,11 @@ export default function BibliothequeSkillsPage() {
             Installer ces skills sur vos dossiers réels en présentiel Île-de-France — Qualiopi, Constructys selon
             éligibilité.
           </p>
-          <a
-            href={CALENDLY_FINAL}
-            className="mt-6 inline-flex items-center gap-2 rounded-lg bg-[#377CF3] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[#2d66d6]"
+          <CtaButton origin="ressources-bibliotheque-skills-final" className="mt-6 inline-flex items-center gap-2 rounded-lg bg-[#377CF3] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[#2d66d6]"
           >
             <Calendar className="h-4 w-4" aria-hidden />
             Prendre un RDV découverte
-          </a>
+          </CtaButton>
         </div>
       </section>
 

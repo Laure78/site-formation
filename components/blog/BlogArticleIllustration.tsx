@@ -24,7 +24,8 @@ export function BlogArticleIllustration({ ill, priority, title }: Props) {
           className="object-cover object-center"
           sizes="(max-width: 768px) 100vw, 768px"
           priority={priority}
-        />
+        
+          quality={75}/>
       </div>
     </figure>
   );

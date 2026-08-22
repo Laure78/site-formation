@@ -56,6 +56,7 @@ export function getAProposUnifiedJsonLd(): Record<string, unknown> {
     personId: PERSON_ID,
     pageUrl: PAGE_URL,
     organizationId: ORGANIZATION_ID,
+    affiliationsScope: 'a-propos',
   });
 
   const person: Record<string, unknown> = {

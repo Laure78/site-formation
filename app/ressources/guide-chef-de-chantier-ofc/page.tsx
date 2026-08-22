@@ -1,8 +1,8 @@
+import { CtaButton } from '@/components/CtaButton';
 import { Download, Calendar, Check } from 'lucide-react';
 import { JsonLd } from '@/components/JsonLd';
 import { MaillageRessourceFromConfig } from '@/app/components/MaillageRessource';
 import { DisclaimerGains } from '@/components/formation/DisclaimerGains';
-import { buildSiteCalendlyCtaUrl } from '@/lib/calendly';
 import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
 import { LINKS } from '@/lib/internal-links';
 import { getMaillageRessourceConfig } from '@/lib/maillage-ressources';
@@ -12,8 +12,6 @@ const PATH = LINKS.guideChefDeChantierOfc;
 const FILE_HREF = LINKS.pdfGuideChefDeChantierOfc;
 const CANONICAL = `${SITE_CONFIG.url.replace(/\/$/, '')}${PATH}`;
 const FILE_URL = `${SITE_CONFIG.url.replace(/\/$/, '')}${FILE_HREF}`;
-const CALENDLY_HERO = buildSiteCalendlyCtaUrl('ressources-guide-chef-de-chantier-ofc-hero');
-const CALENDLY_FINAL = buildSiteCalendlyCtaUrl('ressources-guide-chef-de-chantier-ofc-final');
 
 const META_TITLE = 'Guide chef de chantier : 6 skills Claude';
 const META_DESCRIPTION =
@@ -165,13 +163,11 @@ export default function GuideChefDeChantierOfcPage() {
               <Download className="h-4 w-4" aria-hidden />
               Télécharger le PDF
             </a>
-            <a
-              href={CALENDLY_HERO}
-              className="inline-flex items-center gap-2 rounded-lg border border-white/40 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/10"
+            <CtaButton origin="ressources-guide-chef-de-chantier-ofc-hero" className="inline-flex items-center gap-2 rounded-lg border border-white/40 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/10"
             >
               <Calendar className="h-4 w-4" aria-hidden />
               RDV découverte formation
-            </a>
+            </CtaButton>
           </div>
         </div>
       </section>
@@ -283,13 +279,11 @@ export default function GuideChefDeChantierOfcPage() {
           Pour monter ces skills sur vos vrais documents de chantier en présentiel Île-de-France —
           Qualiopi, Constructys selon éligibilité.
         </p>
-        <a
-          href={CALENDLY_FINAL}
-          className="mt-8 inline-flex items-center gap-2 rounded-lg bg-[#377CF3] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[#2d66d6]"
+        <CtaButton origin="ressources-guide-chef-de-chantier-ofc-final" className="mt-8 inline-flex items-center gap-2 rounded-lg bg-[#377CF3] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[#2d66d6]"
         >
           <Calendar className="h-4 w-4" aria-hidden />
           Prendre un RDV découverte
-        </a>
+        </CtaButton>
       </section>
     </div>
   );

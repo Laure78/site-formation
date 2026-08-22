@@ -14,8 +14,8 @@ export const SCHEMA_PUBLIC_SITE_URL: string =
   (typeof process !== 'undefined' && process.env.NEXT_PUBLIC_SITE_URL) ||
   'https://www.laureolivie.fr';
 
-/** Profil LinkedIn FR — sameAs Person / Organization. */
-export const SCHEMA_LINKEDIN_PROFILE_URL = 'https://fr.linkedin.com/in/laure-olivie' as const;
+/** Profil LinkedIn — sameAs Person / Organization (entité Laure Olivié). */
+export const SCHEMA_LINKEDIN_PROFILE_URL = 'https://www.linkedin.com/in/laure-olivie/' as const;
 
 /** Page instructeur LinkedIn Learning (URL canonique — pluriel « instructors »). */
 export const SCHEMA_LINKEDIN_LEARNING_INSTRUCTOR_URL =
@@ -38,9 +38,10 @@ export const SCHEMA_PERSON_SAME_AS = [
   SCHEMA_YOUTUBE_CHANNEL_URL,
 ] as const;
 
-/** sameAs Organization OFC — LinkedIn + fiche Google Business (pas LinkedIn Learning). */
+/** sameAs Organization OFC — LinkedIn + LinkedIn Learning + fiche Google Business. */
 export const SCHEMA_ORGANIZATION_SAME_AS = [
   SCHEMA_LINKEDIN_PROFILE_URL,
+  SCHEMA_LINKEDIN_LEARNING_INSTRUCTOR_URL,
   SCHEMA_GOOGLE_BUSINESS_PROFILE_URL,
 ] as const;
 
@@ -123,22 +124,24 @@ export const SCHEMA_STATS = {
 export const SCHEMA_PERSON_LAURE = {
   '@type': 'Person' as const,
   name: 'Laure Olivié',
-  jobTitle: 'Formatrice IA spécialisée BTP',
+  jobTitle: 'Formatrice IA pour les professionnels du BTP',
   description:
-    "10 ans d'expérience terrain comme conductrice de travaux, forme les professionnels du BTP à l'IA appliquée à leurs documents réels, en présentiel en Île-de-France.",
+    "10 ans d'expérience terrain comme conductrice de travaux. Forme les professionnels du BTP à l'IA appliquée à leurs documents réels, en présentiel en Île-de-France.",
 } as const;
 
 /** Thématiques Person — schéma global layout (entité Laure Olivié). */
 export const SCHEMA_PERSON_KNOWS_ABOUT = [
-  'intelligence artificielle',
+  'Intelligence artificielle appliquée au BTP',
   'ChatGPT',
-  'BTP',
-  "appels d'offres",
-  'devis',
-  'CCTP',
-  'DCE',
+  'Claude AI',
   'mémoire technique',
+  'analyse de DCE',
+  'devis BTP',
+  "appels d'offres BTP",
 ] as const;
+
+/** Affiliations Person — page /a-propos (FFB Grand Paris, CSFE, UMB-FFB). */
+export const SCHEMA_PERSON_AFFILIATIONS_A_PROPOS = SCHEMA_PERSON_AFFILIATIONS.slice(0, 3);
 
 /**
  * Organization — OFC Création d'Entreprise (champs stables hors @id / url dynamiques).
@@ -184,8 +187,10 @@ export function schemaHeaderPersonImageUrl(): string {
 }
 
 /** Nœuds `affiliation` Schema.org pour Person. */
-export function buildPersonAffiliationSchemaNodes(): Array<Record<string, unknown>> {
-  return SCHEMA_PERSON_AFFILIATIONS.map((org) => {
+export function buildPersonAffiliationSchemaNodes(
+  affiliations: ReadonlyArray<{ name: string; url?: string }> = SCHEMA_PERSON_AFFILIATIONS,
+): Array<Record<string, unknown>> {
+  return affiliations.map((org) => {
     const node: Record<string, unknown> = {
       '@type': 'Organization',
       name: org.name,

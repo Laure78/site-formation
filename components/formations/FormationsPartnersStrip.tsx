@@ -93,6 +93,9 @@ export function FormationsPartnersStrip() {
               width={logo.width}
               height={logo.height}
               className="h-full w-full object-contain object-center transition group-hover:opacity-95"
+              sizes="180px"
+              loading="lazy"
+              quality={70}
             />
           </ExternalLinkAnchor>
         ))}

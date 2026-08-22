@@ -260,7 +260,8 @@ export default function EtudeDeCasFfbCsfePage() {
                 className="h-auto w-full object-cover"
                 sizes="(max-width: 1280px) 100vw, 1024px"
                 priority
-              />
+              
+                quality={75}/>
               <figcaption className="px-4 py-3 text-center text-xs text-slate-500 md:px-10">
                 « Les Rencontres des Artisans » — L&apos;IA au service des équipes du bâtiment
                 (intervention réseau FFB).

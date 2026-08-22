@@ -5,7 +5,7 @@ import {
   FORMATION_IA_METIER_DYNAMIC_REGISTRY,
   getFormationIaMetierDynamicConfig,
 } from '@/lib/formation-ia-metier-dynamic-registry';
-import { createPageMetadata } from '@/lib/seo';
+import { createPageMetadata, buildTitle } from '@/lib/seo';
 
 export const revalidate = 3600;
 type Props = {
@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { metier } = await params;
   const config = getFormationIaMetierDynamicConfig(metier);
   if (!config) {
-    return { title: 'Formation IA pour le BTP par métier' };
+    return { title: { absolute: buildTitle('Formation IA pour le BTP par métier') } };
   }
 
   return createPageMetadata({

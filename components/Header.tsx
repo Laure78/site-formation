@@ -12,18 +12,14 @@ import {
   GraduationCap,
   CircleDollarSign,
   Layers,
+  BookOpen,
   Landmark,
   UserCircle,
+  LogIn,
 } from 'lucide-react';
-import { LINKS } from '@/lib/internal-links';
-import { OFC_CTA_PRIMARY_PILL } from '@/lib/ofc-interaction-classes';
-import {
-  headerNavItemIsActive,
-  HEADER_NAV,
-} from '@/lib/header-nav';
-import { PHOTOS, SITE_LOGO_ALT, SITE_LOGO_TITLE } from '@/lib/photos';
+import { SITE } from '@/lib/site';
+import { CtaButton } from '@/components/CtaButton';
 import { SiteSearchTrigger } from '@/components/search/SiteSearchTrigger';
-import { FormationPlateformeConnexionButton } from '@/components/formation/FormationPlateformeConnexionButton';
 import {
   HeaderMobileNavSection,
   HeaderNavDropdown,
@@ -36,9 +32,16 @@ const MOBILE_NAV_ICON: Record<string, LucideIcon> = {
   formations: GraduationCap,
   financement: CircleDollarSign,
   ressources: Layers,
+  blog: BookOpen,
   partenaires: Landmark,
   'a-propos': UserCircle,
 };
+
+const PLATFORM_NAV_CLASS =
+  'inline-flex items-center justify-center gap-1.5 whitespace-nowrap rounded-full border border-slate-300 bg-white px-3 py-2 text-sm font-semibold text-slate-800 transition-colors hover:border-[#377CF3] hover:bg-[#EFF6FF] hover:text-[#377CF3]';
+
+const PLATFORM_NAV_MOBILE_CLASS =
+  'inline-flex w-full items-center justify-center gap-2 rounded-full border-2 border-[#377CF3] bg-white px-4 py-3.5 text-center text-[0.9375rem] font-semibold text-[#377CF3]';
 
 /** Seuil scroll (px) — mode compact avec hysteresis pour éviter les oscillations. */
 const HEADER_COMPACT_ON_PX = 120;
@@ -46,15 +49,6 @@ const HEADER_COMPACT_OFF_PX = 48;
 
 /** Header site unique — rendu depuis `app/layout.tsx` sur toutes les routes. */
 export function Header() {
-  return <NavbarInner />;
-}
-
-/** @deprecated Préférer `Header` — même chrome sticky. */
-export function Navbar() {
-  return <NavbarInner />;
-}
-
-function NavbarInner() {
   const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [openId, setOpenId] = useState<string | null>(null);
@@ -100,7 +94,7 @@ function NavbarInner() {
   useEffect(() => {
     if (!mobileOpen) return;
     const initial: Record<string, boolean> = {};
-    for (const item of HEADER_NAV) {
+    for (const item of SITE.nav.header) {
       if (item.children?.length && headerNavItemIsActive(item, pathname)) {
         initial[item.id] = true;
       }
@@ -180,19 +174,20 @@ function NavbarInner() {
         onMouseLeave={scheduleClose}
       >
         <div className="site-header__inner">
-          <Link href="/" className="site-header__brand">
+          <Link href={SITE.links.home} className="site-header__brand">
             <span className="site-header__logo-mark ring-[#377CF3]/25">
               <Image
-                src={PHOTOS.siteAvatar.src}
-                alt={SITE_LOGO_ALT}
-                title={SITE_LOGO_TITLE}
+                src={SITE.logo.src}
+                alt={SITE.logo.alt}
+                title={SITE.logo.title}
                 fill
                 className={AUTHOR_HEADSHOT_IMAGE_CLASS}
                 sizes="40px"
-                priority
+                loading="lazy"
+                quality={70}
               />
             </span>
-            <span className="sr-only">Laure Olivié</span>
+            <span className="sr-only">{SITE.name}</span>
           </Link>
 
           <nav
@@ -200,7 +195,7 @@ function NavbarInner() {
             aria-label="Navigation principale"
             data-header-nav-pill=""
           >
-            {HEADER_NAV.map((item) => {
+            {SITE.nav.header.map((item) => {
               const hasChildren = Boolean(item.children?.length);
               if (!hasChildren) {
                 const Icon = MOBILE_NAV_ICON[item.id];
@@ -242,22 +237,26 @@ function NavbarInner() {
           </div>
 
           <div className="site-header__actions">
-            <FormationPlateformeConnexionButton variant="nav" />
-            <Link
-              href={LINKS.accueilRdv}
-              className={`${OFC_CTA_PRIMARY_PILL} cta-calendly cta-calendly--inline text-sm max-[380px]:px-3 max-[380px]:py-2 max-[380px]:text-xs`}
+            <a
+              href={SITE.platform.loginHref}
+              title={SITE.platform.title}
+              aria-label={SITE.platform.connexionLabel}
+              className={PLATFORM_NAV_CLASS}
             >
-              Prendre rendez-vous
-            </Link>
+              <LogIn className="h-4 w-4 shrink-0" strokeWidth={1.75} aria-hidden />
+              {SITE.platform.connexionLabel}
+            </a>
+            <CtaButton
+              origin="header-desktop"
+              className="text-sm max-[380px]:px-3 max-[380px]:py-2 max-[380px]:text-xs"
+            />
           </div>
 
           <div className="site-header__rdv-mobile">
-            <Link
-              href={LINKS.accueilRdv}
-              className={`${OFC_CTA_PRIMARY_PILL} cta-calendly cta-calendly--inline text-sm max-[380px]:px-3 max-[380px]:py-2 max-[380px]:text-xs`}
-            >
-              Prendre rendez-vous
-            </Link>
+            <CtaButton
+              origin="header-mobile-bar"
+              className="text-sm max-[380px]:px-3 max-[380px]:py-2 max-[380px]:text-xs"
+            />
           </div>
 
           <div className="flex items-center gap-1 lg:hidden">
@@ -291,20 +290,22 @@ function NavbarInner() {
           >
             <div className="flex h-16 shrink-0 items-center justify-between border-b border-slate-100 px-4">
               <Link
-                href="/"
+                href={SITE.links.home}
                 onClick={() => setMobileOpen(false)}
                 className="flex items-center gap-2.5"
               >
                 <span className="relative h-9 w-9 shrink-0 overflow-hidden rounded-full ring-1 ring-slate-200/70">
                   <Image
-                    src={PHOTOS.siteAvatar.src}
+                    src={SITE.logo.src}
                     alt=""
                     fill
                     className={AUTHOR_HEADSHOT_IMAGE_CLASS}
                     sizes="36px"
+                    quality={70}
+                    loading="lazy"
                   />
                 </span>
-                <span className="font-display text-base font-bold text-slate-900">Laure Olivié</span>
+                <span className="font-display text-base font-bold text-slate-900">{SITE.name}</span>
               </Link>
               <button
                 type="button"
@@ -322,7 +323,7 @@ function NavbarInner() {
               className="min-h-0 flex-1 overflow-y-auto overflow-x-hidden px-4 py-4"
               aria-label="Navigation mobile"
             >
-              {HEADER_NAV.map((item) => {
+              {SITE.nav.header.map((item) => {
                 const Icon = MOBILE_NAV_ICON[item.id];
                 return (
                   <HeaderMobileNavSection
@@ -356,18 +357,21 @@ function NavbarInner() {
             </nav>
             <div className="shrink-0 border-t border-slate-200 bg-white px-4 py-4">
               <div className="flex flex-col gap-3">
-                <FormationPlateformeConnexionButton
-                  variant="navMobile"
-                  label="Connexion plateforme"
+                <a
+                  href={SITE.platform.loginHref}
+                  title={SITE.platform.title}
+                  aria-label={SITE.platform.connexionNavMobileLabel}
                   onClick={() => setMobileOpen(false)}
-                />
-                <Link
-                  href={LINKS.accueilRdv}
-                  onClick={() => setMobileOpen(false)}
-                  className={`${OFC_CTA_PRIMARY_PILL} cta-calendly w-full text-center text-[0.9375rem]`}
+                  className={PLATFORM_NAV_MOBILE_CLASS}
                 >
-                  Prendre rendez-vous
-                </Link>
+                  <LogIn className="h-4 w-4 shrink-0" strokeWidth={1.75} aria-hidden />
+                  {SITE.platform.connexionNavMobileLabel}
+                </CtaButton>
+                <CtaButton
+                  origin="header-mobile-drawer"
+                  onClick={() => setMobileOpen(false)}
+                  className="w-full text-center text-[0.9375rem]"
+                />
               </div>
             </div>
           </div>

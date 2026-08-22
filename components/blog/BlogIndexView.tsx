@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { JsonLd } from '@/components/JsonLd';
 import { FAQSectionServer } from '@/components/landing/FAQSectionServer';
 import { CTABlock } from '@/components/CTABlock';
-import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
+import { LINKS } from '@/lib/internal-links';
 import { ArrowRight } from 'lucide-react';
 import { FAQ_BLOG } from '@/lib/faq';
 import {
@@ -157,7 +157,7 @@ export function BlogIndexView({
           title="Prêt à vous former à l'IA ?"
           description="Réservez un échange de 30 minutes gratuit pour discuter de votre projet. Formation dispensée par un organisme certifié Qualiopi · Financement possible selon éligibilité."
           primaryLabel="Prendre rendez-vous"
-          primaryHref={CALENDLY_BOOKING_URL}
+          primaryHref={LINKS.prendreRdv}
           primaryCalendlyCampaign="blog-index-block-top"
           secondaryLabel="Découvrir les formations"
           secondaryHref="/formations"
@@ -363,7 +363,7 @@ export function BlogIndexView({
           title="Prêt à vous former à l'IA ?"
           description="Réservez un échange de 30 minutes gratuit. Devis personnalisé sous 24h. Formation Financement possible selon éligibilité."
           primaryLabel="Prendre rendez-vous"
-          primaryHref={CALENDLY_BOOKING_URL}
+          primaryHref={LINKS.prendreRdv}
           primaryCalendlyCampaign="blog-index-block-bottom"
           secondaryLabel="Voir le financement"
           secondaryHref="/financement-constructys-formation-ia-btp"

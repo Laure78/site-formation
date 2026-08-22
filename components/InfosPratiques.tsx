@@ -182,6 +182,22 @@ export function InfosPratiques({ formation, className = '' }: InfosPratiquesProp
         <p className="mt-6 text-center text-xs text-slate-500">
           Programme mis à jour le {dateMaj} — {programmeVersion}
         </p>
+
+        <p className="mt-4 text-center text-xs leading-relaxed text-slate-600">
+          Avant votre inscription : consultez le{' '}
+          <Link href={LINKS.livretAccueilStagiaire} className="font-medium text-[#377CF3] hover:underline">
+            livret d&apos;accueil
+          </Link>
+          , le{' '}
+          <Link href={LINKS.reglementInterieur} className="font-medium text-[#377CF3] hover:underline">
+            règlement intérieur
+          </Link>{' '}
+          et notre{' '}
+          <Link href={LINKS.reclamations} className="font-medium text-[#377CF3] hover:underline">
+            procédure de réclamation
+          </Link>
+          .
+        </p>
       </div>
     </section>
   );

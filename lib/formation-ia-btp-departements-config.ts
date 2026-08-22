@@ -6,7 +6,6 @@ import type { FormationIaBtpDeptLandingConfig } from '@/components/formation-ia-
 import type { FAQItem } from '@/lib/faq';
 import { buildDeptMetaDescription } from '@/lib/meta-description';
 import { buildIdfDeptPageTitle } from '@/lib/seo-geo-keywords';
-import { buildSiteCalendlyCtaUrl } from '@/lib/calendly';
 import {
   deptDe,
   deptLocatif,
@@ -57,7 +56,7 @@ function faqGeoBase(grammar: DeptGrammar, code: string, villes: string): FAQItem
     },
     {
       q: 'Combien de temps à l’avance réserver une date ?',
-      a: `Agendas intra souvent pleins 3 à 6 semaines à l'avance en IDF. Date urgente ? Indiquez-le sur Calendly : ${buildSiteCalendlyCtaUrl('faq-dept-calendly-urgence')}.`,
+      a: `Agendas intra souvent pleins 3 à 6 semaines à l'avance en IDF. Date urgente ? Indiquez-le lors de la réservation : ${LINKS.prendreRdv}.`,
     },
     {
       q: 'Puis-je combiner deux thèmes (ex. devis + appels d’offres) sur une journée ?',

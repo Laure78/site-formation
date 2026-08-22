@@ -2,7 +2,7 @@
  * Configuration Media Machine
  */
 
-import { buildSiteCalendlyCtaUrl } from '@/lib/calendly';
+import { LINKS } from '@/lib/internal-links';
 
 export const MEDIA_CONFIG = {
   siteUrl: process.env.NEXT_PUBLIC_SITE_URL || 'https://www.laureolivie.fr',
@@ -25,7 +25,7 @@ export const MEDIA_CONFIG = {
     },
     iaDevis: { path: '/ia-devis-batiment', anchors: ['IA devis bâtiment', 'automatiser devis BTP'] },
     prendreRdv: {
-      path: buildSiteCalendlyCtaUrl('media-machine-prendre-rdv'),
+      path: LINKS.prendreRdv,
       anchors: ['réserver formation', 'prendre rendez-vous', 'devis formation'],
     },
     blog: { path: '/blog', anchors: ['ressources IA BTP', 'articles formation'] },

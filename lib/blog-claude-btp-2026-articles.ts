@@ -210,12 +210,10 @@ export const blogArticlesClaudeBtp2026: BlogArticle[] = [
 </figure>`,
       },
       {
-        type: 'html',
-        title: 'Qualiopi, OPCO et passage à l’action',
-        content: `<figure class="my-6">
-<img src="${CAR5}/08-cta-qualiopi-opco.png" alt="Laure Olivié formatrice IA appliquée au bâtiment Qualiopi financement OPCO formation 4h" class="w-full rounded-xl border border-slate-200 shadow-sm" loading="lazy" width="1200" height="675" />
-<figcaption class="mt-2 text-center text-sm text-slate-500">Formation 4 h, déploiement possible dès la semaine suivante selon votre organisation.</figcaption>
-</figure>`,
+        type: 'paragraph',
+        title: 'Financement OPCO et passage à l’action',
+        content:
+          'OFC Création d’Entreprise est un organisme certifié Qualiopi (actions de formation). Selon votre branche et votre plan de développement des compétences, un financement OPCO Constructys est possible — session 4 h en présentiel, déploiement des cas d’usage dès la semaine suivante selon votre organisation. Consultez la page financement Constructys ou le catalogue formations pour en savoir plus.',
       },
       {
         type: 'paragraph',

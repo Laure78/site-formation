@@ -9,6 +9,7 @@ export function AccueilHeroVideoEmbed() {
       variant="default"
       showWatchPageLink={false}
       alt="Affiche formation IA pour le BTP : portrait Laure Olivié, devis et appels d'offres"
+      priority
     />
   );
 }

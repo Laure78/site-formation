@@ -1,3 +1,4 @@
+import { CtaButton } from '@/components/CtaButton';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Check } from 'lucide-react';
@@ -7,7 +8,6 @@ import { RdvLink } from '@/components/RdvLink';
 import { ShortAnswerBlock } from '@/components/landing/ShortAnswerBlock';
 import { PublicPhoneCta } from '@/components/PublicPhoneCta';
 import { createPageMetadata, getFAQSchema, SITE_CONFIG } from '@/lib/seo';
-import { buildSiteCalendlyCtaUrl } from '@/lib/calendly';
 import { LINKS } from '@/lib/internal-links';
 import { EFFECTIF_GROUPE_MAX, TARIF_FORFAIT_DEBUTANT_HT, libelleTarifSessionForfaitaire } from '@/lib/tarifs-sessions';
 import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
@@ -30,7 +30,6 @@ import {
 } from '@/lib/formation-ia-conducteur-travaux-landing';
 
 export const revalidate = 3600;
-const CALENDLY_VISIO = buildSiteCalendlyCtaUrl('formation-ia-conducteur-travaux-visio-decouverte');
 
 export const metadata = createPageMetadata({
   title: FORMATION_IA_CONDUCTEUR_TRAVAUX_SEO.title,
@@ -88,7 +87,8 @@ export default function FormationIaConducteurTravauxPage() {
               className="object-cover"
               priority
               sizes="(max-width: 896px) 100vw, 896px"
-            />
+            
+              quality={75}/>
           </figure>
 
           <div className="mt-8">
@@ -177,7 +177,9 @@ export default function FormationIaConducteurTravauxPage() {
               fill
               className="object-cover"
               sizes="(max-width: 896px) 100vw, 896px"
-            />
+            
+              quality={70}
+              loading="lazy"/>
           </figure>
         </section>
 
@@ -398,14 +400,10 @@ export default function FormationIaConducteurTravauxPage() {
             Gratuit, sans engagement.
           </p>
           <div className="mt-6 flex flex-wrap gap-4">
-            <a
-              href={CALENDLY_VISIO}
-              className="inline-flex items-center rounded-lg bg-[#377CF3] px-5 py-3 font-semibold text-white hover:bg-[#2d63c9]"
-              target="_blank"
-              rel="noopener noreferrer"
+            <CtaButton origin="formation-ia-conducteur-travaux-visio-decouverte" className="inline-flex items-center rounded-lg bg-[#377CF3] px-5 py-3 font-semibold text-white hover:bg-[#2d63c9]"
             >
               {FORMATION_IA_CONDUCTEUR_TRAVAUX_SEO.calendlyCtaLabel}
-            </a>
+            </CtaButton>
             <RdvLink className="inline-flex items-center rounded-lg border border-slate-300 px-5 py-3 font-medium text-slate-800 hover:bg-white">
               Autre créneau Calendly
             </RdvLink>

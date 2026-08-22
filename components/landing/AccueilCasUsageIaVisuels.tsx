@@ -89,7 +89,8 @@ export function AccueilCasUsageIaVisuels() {
                     loading="lazy"
                     className="ofc-cas-usage-image object-cover"
                     sizes="(max-width: 640px) 100vw, 448px"
-                  />
+                  
+                    quality={70}/>
                 </div>
                 <figcaption className="border-t border-slate-100 bg-[#F2F2F2]/60 px-4 py-4 text-center">
                   <p className="text-xs font-semibold leading-snug text-slate-900 sm:text-sm">
@@ -135,7 +136,8 @@ export function AccueilCasUsageIaVisuels() {
                         loading="lazy"
                         className="ofc-cas-usage-image object-cover"
                         sizes="(max-width: 1280px) 25vw, 220px"
-                      />
+                      
+                        quality={70}/>
                     </div>
                     <figcaption className="flex flex-1 flex-col gap-1.5 border-t border-slate-100 px-3 py-3">
                       <p className="text-xs font-semibold leading-snug text-slate-900 sm:text-sm">{item.title}</p>

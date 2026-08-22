@@ -28,7 +28,7 @@ export const SESSION_DUREE_MATIN_NIV04 = libelleDureeFormation(
 /** Prix niveau 1 (NIV-01) — source FORMATIONS */
 export const TARIF_SESSION_DEBUTANT_HT = PRIX_NIVEAU_1_HT;
 
-/** Prix niveau 2 (NIV-02…06) — source FORMATIONS */
+/** Prix niveau 2 (NIV-02…05) — source FORMATIONS */
 export const TARIF_SESSION_AVANCE_HT = PRIX_NIVEAU_2_HT;
 
 /**

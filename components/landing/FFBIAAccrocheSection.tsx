@@ -26,7 +26,8 @@ export function FFBIAAccrocheSection({ embedded = false }: FFBIAAccrocheSectionP
                   loading="lazy"
                   className="object-contain object-center"
                   sizes="240px"
-                />
+                
+                  quality={70}/>
               </div>
               <div className="relative h-16 w-full max-w-[200px] sm:h-20 sm:max-w-[240px]">
                 <Image
@@ -37,7 +38,8 @@ export function FFBIAAccrocheSection({ embedded = false }: FFBIAAccrocheSectionP
                   loading="lazy"
                   className="object-contain object-center"
                   sizes="240px"
-                />
+                
+                  quality={70}/>
               </div>
             </div>
             <p className="mt-3 text-center text-xs text-slate-500 lg:text-left">

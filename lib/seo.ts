@@ -20,6 +20,7 @@ import {
 } from '@/lib/schema-constants';
 import { buildFormationFicheCourseJsonLd } from '@/lib/schema-formation-course-jsonld';
 import { buildPersonLaureSchemaNode } from '@/lib/schema-person-global';
+import { SCHEMA_SITE_ORG, siteOrganizationLogoAbsoluteUrl } from '@/lib/schema-site-proof';
 import {
   buildOpenGraphTwitterFields,
   buildPageMetadata,
@@ -37,6 +38,7 @@ export {
   META_DESCRIPTION_MAX_LENGTH,
   stripBrandSuffix,
   truncateForBrandedTitle,
+  buildTitle,
   buildBrandedTitle,
   joinTitleSegments,
   assertBrandedTitleClean,
@@ -48,6 +50,14 @@ const SITE_URL_DEFAULT = SCHEMA_PUBLIC_SITE_URL;
 
 /** Profil LinkedIn (locale FR) — source unique pour liens UI et sameAs */
 export const LINKEDIN_PROFILE_URL = SCHEMA_LINKEDIN_PROFILE_URL;
+
+/**
+ * Token meta google-site-verification (Search Console).
+ * Alternative HTML : `public/google7ffabd404ad80783.html`
+ * Surcharge : NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION
+ */
+export const GOOGLE_SITE_VERIFICATION =
+  process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION?.trim() || '7ffabd404ad80783';
 
 export const SITE_CONFIG = {
   name: 'Laure Olivié',
@@ -626,7 +636,7 @@ export function buildBlogArticleJsonLd({
   wordCount?: number;
   keywords?: string[];
 }): Record<string, unknown> {
-  const base = SITE_CONFIG.url.replace(/\/$/, '');
+  const base = SCHEMA_SITE_ORG.url;
   const pageUrl = `${base}/blog/${slug}`;
   const pubIso = dateToIso8601ForMeta(datePublished);
   const modIso = dateToIso8601ForMeta(dateModified ?? datePublished);
@@ -637,22 +647,23 @@ export function buildBlogArticleJsonLd({
     description,
     author: {
       '@type': 'Person',
-      name: SITE_CONFIG.name,
+      name: SCHEMA_SITE_ORG.personName,
       url: `${base}/a-propos`,
-      jobTitle: 'Formatrice IA pour le BTP',
+      jobTitle: 'Formatrice IA spécialisée BTP',
       worksFor: {
         '@type': 'Organization',
-        name: SITE_CONFIG.legalName,
+        name: SCHEMA_SITE_ORG.legalName,
+        url: base,
       },
       sameAs: [...BLOG_ARTICLE_AUTHOR_SAME_AS],
     },
     publisher: {
       '@type': 'Organization',
-      name: SITE_CONFIG.legalName,
+      name: SCHEMA_SITE_ORG.legalName,
       url: base,
       logo: {
         '@type': 'ImageObject',
-        url: `${base}/logo-lo.svg`,
+        url: siteOrganizationLogoAbsoluteUrl(),
       },
     },
     datePublished: pubIso,

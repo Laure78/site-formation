@@ -2,7 +2,7 @@ import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 import { TutoPage } from '@/components/ressources/TutoPage';
 import { TUTOS, getTutoBySlug, type TutoData } from '@/lib/tutos';
-import { createPageMetadata, SITE_CONFIG } from '@/lib/seo';
+import { createPageMetadata, buildTitle, SITE_CONFIG } from '@/lib/seo';
 
 const SITE_BASE = SITE_CONFIG.url.replace(/\/$/, '');
 
@@ -38,7 +38,7 @@ export async function generateMetadata({
   const tuto = getTutoBySlug(slug);
   if (!tuto) {
     return {
-      title: 'Tuto introuvable',
+      title: { absolute: buildTitle('Tuto introuvable') },
       robots: { index: false, follow: false },
     };
   }

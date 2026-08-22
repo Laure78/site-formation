@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import {
   BRAND_TITLE_SUFFIX,
   SEO_TITLE_MAX_LENGTH,
-  buildBrandedTitle,
+  buildTitle,
   buildMetadata,
 } from '@/lib/seo';
 
@@ -27,7 +27,7 @@ export function withMetierBtpIdfTitle(
 ): Metadata {
   const segment = buildMetierBtpIdfTitleSegment(metierNomTitre);
   if (!segment) return metadata;
-  const absolute = buildBrandedTitle(segment);
+  const absolute = buildTitle(segment);
   return {
     ...metadata,
     title: { absolute },

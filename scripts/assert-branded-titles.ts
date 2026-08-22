@@ -8,7 +8,7 @@
 import assert from 'node:assert/strict';
 import {
   assertBrandedTitleClean,
-  buildBrandedTitle,
+  buildTitle,
   joinTitleSegments,
   BRAND_TITLE_SUFFIX,
   SEO_TITLE_MAX_LENGTH,
@@ -37,7 +37,7 @@ assert.equal(joinTitleSegments('', null, undefined), '');
 assert.equal(joinTitleSegments('Seul'), 'Seul');
 
 // 2. Truncature d’un titre long avec « · » : plus de « · | »
-const orphanRisk = buildBrandedTitle(
+const orphanRisk = buildTitle(
   "Blog Formation IA pour les pros du BTP · Guides & cas d'usage",
 );
 assert.doesNotMatch(orphanRisk, / ·\s*\|/, `orphelin · | dans « ${orphanRisk} »`);
@@ -63,7 +63,7 @@ expectThrows(
 
 // 4. Cible /blog (alignée sur lib/blog-metadata.ts)
 const BLOG_SEGMENT = "Blog IA pour le BTP — guides et cas d'usage";
-const BLOG_TITLE = buildBrandedTitle(BLOG_SEGMENT);
+const BLOG_TITLE = buildTitle(BLOG_SEGMENT);
 assert.equal(BLOG_TITLE, "Blog IA pour le BTP — guides et cas d'usage | Laure Olivié");
 assert.ok(BLOG_TITLE.length <= SEO_TITLE_MAX_LENGTH);
 
@@ -72,15 +72,15 @@ const BLOG_DESC =
 assert.equal(BLOG_DESC.length, 155);
 
 // 5. Pagination / catégorie — mêmes helpers
-const page2 = buildBrandedTitle(joinTitleSegments('Blog IA BTP', 'page 2'));
+const page2 = buildTitle(joinTitleSegments('Blog IA BTP', 'page 2'));
 assertBrandedTitleClean(page2, '/blog/page/2');
 assert.doesNotMatch(page2, / ·\s*\|/);
 
-const cat = buildBrandedTitle(joinTitleSegments('Articles IA BTP', 'Métiers'));
+const cat = buildTitle(joinTitleSegments('Articles IA BTP', 'Métiers'));
 assertBrandedTitleClean(cat, '/blog/categorie/metiers');
 assert.doesNotMatch(cat, / ·\s*\|/);
 
-const catPage = buildBrandedTitle(
+const catPage = buildTitle(
   joinTitleSegments('Blog IA BTP', 'Métiers', 'p.2'),
 );
 assertBrandedTitleClean(catPage, '/blog/categorie/metiers/2');

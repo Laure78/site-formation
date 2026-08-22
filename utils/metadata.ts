@@ -60,6 +60,35 @@ export function joinTitleSegments(
     .join(' · ');
 }
 
+/** Découpe un segment en sous-parties « · », sans vides ni suffixe marque. */
+function splitTitleSegments(segment: string): string[] {
+  return stripBrandSuffix(segment)
+    .split(/\s*[·•]\s*/)
+    .map((part) => part.trim())
+    .filter(Boolean);
+}
+
+/**
+ * Retire d’abord les segments « · » de fin qui ne rentrent pas dans le budget,
+ * puis tronque le dernier segment conservé au mot — jamais de « · » orphelin.
+ */
+function fitSegmentsToBudget(segments: string[], maxSegment: number): string {
+  if (segments.length === 0) return '';
+  if (segments.length === 1) {
+    return truncateForBrandedTitle(segments[0], maxSegment);
+  }
+  for (let count = segments.length; count >= 1; count -= 1) {
+    const joined = segments.slice(0, count).join(' · ');
+    if (joined.length <= maxSegment) {
+      return trimTitleOrphans(joined);
+    }
+    if (count === 1) {
+      return truncateForBrandedTitle(segments[0], maxSegment);
+    }
+  }
+  return '';
+}
+
 /** Retire le suffixe « | Laure Olivié » (et variantes) en fin de chaîne — y compris doublons. */
 export function stripBrandSuffix(title: string): string {
   let t = title.trim();
@@ -120,28 +149,27 @@ export function truncateForBrandedTitle(
 }
 
 /**
- * Titre HTML / OG / Twitter : vérifie segment + suffixe ≤ maxTotal,
- * tronque le segment AVANT le suffixe (jamais en plein mot), puis ajoute « | Laure Olivié ».
- * Ne jamais tronquer une chaîne déjà suffixée (évite « … BTP & | Laure Olivié »).
+ * Titre HTML complet ≤ maxTotal car. : tronque `base` au mot (ou retire des
+ * segments « · » entiers), puis ajoute « | Laure Olivié » (16 car.).
+ * Ne jamais tronquer après le suffixe ni laisser « · | » orphelin.
  */
-export function buildBrandedTitle(
-  segment: string,
+export function buildTitle(
+  base: string,
   maxTotal = SEO_TITLE_MAX_LENGTH,
-  maxSegment = SEO_TITLE_SEGMENT_MAX_LENGTH,
 ): string {
-  // Normalise d’abord les sous-segments séparés par « · » (filtre les vides).
-  const joined = joinTitleSegments(
-    ...stripBrandSuffix(segment)
-      .split(/\s*[·•]\s*/)
-      .map((part) => part.trim()),
-  );
-  const clean = trimTitleOrphans(joined);
+  const segments = splitTitleSegments(base);
+  const clean =
+    segments.length > 0
+      ? trimTitleOrphans(joinTitleSegments(...segments))
+      : trimTitleOrphans(stripBrandSuffix(base));
   const suffixLen = BRAND_TITLE_SUFFIX.length;
-  const segmentBudget = Math.max(0, Math.min(maxSegment, maxTotal - suffixLen));
-  let truncated = truncateForBrandedTitle(clean, segmentBudget);
+  const segmentBudget = Math.max(0, maxTotal - suffixLen);
+  let truncated =
+    segments.length > 1
+      ? fitSegmentsToBudget(segments, segmentBudget)
+      : truncateForBrandedTitle(clean, segmentBudget);
 
-  // Garde-fou : si le segment dépasse encore le budget, re-couper au mot
-  // avant d’ajouter le suffixe — jamais après concaténation.
+  // Garde-fou : re-couper au mot avant le suffixe — jamais après concaténation.
   while (truncated.length > segmentBudget && truncated.includes(' ')) {
     truncated = trimTitleOrphans(truncated.slice(0, truncated.lastIndexOf(' ')));
   }
@@ -153,9 +181,8 @@ export function buildBrandedTitle(
     );
   }
 
-  // Suffixe marque EN DERNIER, après troncature du segment.
   const full = `${truncated}${BRAND_TITLE_SUFFIX}`;
-  assertBrandedTitleClean(full, 'buildBrandedTitle');
+  assertBrandedTitleClean(full, 'buildTitle');
   if (full.length > maxTotal) {
     warnSeoMetadataDev(
       `title final > ${maxTotal} car. (${full.length}) : « ${full} »`,
@@ -164,6 +191,9 @@ export function buildBrandedTitle(
 
   return full;
 }
+
+/** @deprecated Préférer `buildTitle`. */
+export const buildBrandedTitle = buildTitle;
 
 /** Vérifie la fourchette 150–160 car. — warning en dev, pas de troncature. */
 export function assertMetaDescriptionLength(
@@ -350,9 +380,9 @@ export function buildPageMetadata({
 
   const rawSegment = stripBrandSuffix(titleAbsolute ?? title);
   /** Toujours tronquer le segment puis ajouter le suffixe (title, og, twitter). */
-  const htmlTitle = buildBrandedTitle(rawSegment);
+  const htmlTitle = buildTitle(rawSegment);
   const ogTitle = openGraphTitle?.trim()
-    ? buildBrandedTitle(openGraphTitle)
+    ? buildTitle(openGraphTitle)
     : htmlTitle;
   const ogDescription =
     openGraphDescription != null ? openGraphDescription.trim() : metaDescription;

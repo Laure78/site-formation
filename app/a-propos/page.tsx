@@ -9,7 +9,6 @@ import { getAProposOrganizationJsonLd } from '@/lib/schema-a-propos-organization
 import { SCHEMA_CONTACT, SCHEMA_GEO, SCHEMA_LINKEDIN_PROFILE_URL } from '@/lib/schema-constants';
 import { LINKS } from '@/lib/internal-links';
 import { formatPersonnesFormeesCount, getStatsFreshnessLabel } from '@/lib/constants';
-import { PROOF, formatProofFormes } from '@/lib/proof';
 import { PHOTOS } from '@/lib/photos';
 import {
   A_PROPOS_AUTORITE_PARAGRAPHS,
@@ -20,6 +19,7 @@ import {
   A_PROPOS_EXPERTISE_PARAGRAPHS,
   A_PROPOS_TRUST_PARAGRAPH,
 } from '@/lib/a-propos-eeat-content';
+import { AProposOffreSection } from '@/components/a-propos/AProposOffreSection';
 import { COUNT_UP_PROS_PLUS } from '@/lib/readability-presets';
 import { Timeline } from '@/components/a-propos/Timeline';
 import { PartnersGrid } from '@/components/a-propos/PartnersGrid';
@@ -41,13 +41,15 @@ import { CalendlyEmbed } from '@/components/CalendlyEmbed';
 import { EnBref } from '@/app/components/EnBref';
 import { BeWorkHighlightSection } from '@/components/landing/BeWorkHighlightSection';
 import { Reveal } from '@/components/motion/Reveal';
+import { AuthorBio } from '@/components/AuthorBio';
 import { Partenaires } from '@/components/Partenaires';
 
 const A_PROPOS_TOC = [
   { label: 'Introduction', anchor: 'introduction' },
   { label: 'Expertise', anchor: 'expertise' },
+  { label: 'Programmes & outils', anchor: 'programmes-outils' },
   { label: 'Expérience', anchor: 'experience' },
-  { label: 'Autorité & références', anchor: 'autorite' },
+  { label: 'Autorité & reconnaissance', anchor: 'autorite' },
   { label: 'Certifications', anchor: 'certifications' },
   { label: 'Mission & valeurs', anchor: 'mission-valeurs' },
   { label: 'Clients & partenaires', anchor: 'clients-partenaires' },
@@ -57,8 +59,9 @@ const A_PROPOS_TOC = [
   { label: 'FAQ', anchor: 'faq' },
 ] as const;
 
-const A_PROPOS_META_TITLE = `Laure Olivié — formatrice IA BTP — Qualiopi`;
-const A_PROPOS_META_DESCRIPTION = `Laure Olivié (OFC) : formatrice IA BTP, 10 ans terrain, Qualiopi, FFB et CSFE. ${formatProofFormes()} pros, . Formation IA pour le BTP en présentiel IDF. RDV découverte.`;
+const A_PROPOS_META_TITLE = 'Laure Olivié — formatrice IA BTP Qualiopi | Laure Olivié';
+const A_PROPOS_META_DESCRIPTION =
+  'Laure Olivié, formatrice IA pour les professionnels du BTP : 10 ans terrain, Qualiopi, FFB, LinkedIn Learning. Présentiel Île-de-France. RDV découverte.';
 
 export const metadata = createPageMetadata({
   title: A_PROPOS_META_TITLE,
@@ -104,16 +107,16 @@ export default function AProposPage() {
         layoutDensity="compact"
         surface="muted"
         entranceAnimation
-        eyebrow="OFC Création d'Entreprise · organisme certifié Qualiopi · Guyancourt"
-        title="Laure Olivié — Formatrice IA spécialisée BTP"
+        eyebrow="OFC Création d'Entreprise · organisme certifié Qualiopi · Guyancourt (78)"
+        title="Laure Olivié — Formatrice IA générative spécialiste BTP"
         titleId="a-propos-hero-title"
         enBref={
           <EnBref className="!mt-0">
             <p>
-              Laure Olivié est formatrice IA spécialisée BTP depuis 2022 et dirige OFC Création d&apos;Entreprise,
+              Laure Olivié est formatrice IA générative spécialiste BTP depuis 2022 et dirige OFC Création d&apos;Entreprise,
               organisme certifié Qualiopi basé à Guyancourt. Elle forme en présentiel, en Île-de-France, les
-              professionnels du bâtiment et des travaux publics sur ChatGPT et Claude appliqués à leurs documents
-              réels. {formatPersonnesFormeesCount()} professionnels formés, .
+              professionnels du bâtiment et des travaux publics sur ChatGPT, Claude, Copilot 365, Mistral et Perplexity,
+              appliqués à leurs documents réels. {formatPersonnesFormeesCount()} participants formés en présentiel Île-de-France.
             </p>
           </EnBref>
         }
@@ -122,7 +125,7 @@ export default function AProposPage() {
             {A_PROPOS_EEAT_INTRO}
           </p>
         }
-        tags={['Qualiopi', 'FFB', 'LinkedInLearning', 'BTP', 'Formation']}
+        tags={['Qualiopi', 'FFB', 'CAPEB', 'LinkedInLearning', 'BTP', 'Formation']}
         primaryCta={{
           href: LINKS.prendreRdv,
           label: 'Prendre RDV',
@@ -202,9 +205,17 @@ export default function AProposPage() {
               />
             </AProposSection>
 
+            <AProposSection id="programmes-outils" title="Programmes &amp; outils">
+              <p className="mt-4 text-[16px] leading-relaxed text-[#334155]">
+                Offre alignée sur le catalogue OFC et les sessions animées pour les fédérations du BTP — présentiel
+                uniquement, cas d&apos;usage terrain, financement Constructys selon éligibilité.
+              </p>
+              <AProposOffreSection />
+            </AProposSection>
+
             <Timeline />
 
-            <AProposSection id="autorite" title="Autorité &amp; références">
+            <AProposSection id="autorite" title="Autorité &amp; reconnaissance">
               <div className="mt-6 space-y-5 text-[16px] leading-relaxed text-[#334155]">
                 {A_PROPOS_AUTORITE_PARAGRAPHS.map((paragraph) => (
                   <p key={paragraph.slice(0, 40)}>
@@ -283,7 +294,7 @@ export default function AProposPage() {
                 <a
                   href={SCHEMA_LINKEDIN_PROFILE_URL}
                   target="_blank"
-                  rel="noopener noreferrer"
+                  rel="me noopener"
                   className="rounded-xl border-2 border-[#0A66C2] px-5 py-2.5 text-sm font-semibold text-[#0A66C2] hover:bg-[#0A66C2]/5"
                 >
                   LinkedIn — Laure Olivié
@@ -317,10 +328,12 @@ export default function AProposPage() {
               titleAccent
             />
 
+            <AuthorBio origin="a-propos-bio" heading="Laure Olivié — formatrice IA BTP" />
+
             <AProposAllerPlusLoin links={allerPlusLoinLinks} />
 
             <Reveal as="footer" className="text-center text-sm text-[#64748B]" distance={8}>
-              Profil mis à jour le <time dateTime="2026-05-22">22 mai 2026</time> · OFC Création d&apos;Entreprise — SIRET{' '}
+              Profil mis à jour le <time dateTime="2026-08-22">22 août 2026</time> · OFC Création d&apos;Entreprise — SIRET{' '}
               {SCHEMA_CONTACT.siretFormatted} · NDA {SCHEMA_CONTACT.nda}
             </Reveal>
           </article>

@@ -29,6 +29,12 @@ export function MediationCm2cBlock({ className = '' }: Props) {
         (saisine en ligne)
       </p>
       <p>
+        <strong>Courriel :</strong>{' '}
+        <a href={`mailto:${m.email}`} className="font-medium text-[#377CF3] hover:underline">
+          {m.email}
+        </a>
+      </p>
+      <p>
         <strong>Condition de saisine :</strong> {m.conditionPrealable}
       </p>
       <p>{m.precisionLitiges}</p>

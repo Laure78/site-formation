@@ -1,8 +1,8 @@
+import { CtaButton } from '@/components/CtaButton';
 import { Download, Calendar, Check } from 'lucide-react';
 import { JsonLd } from '@/components/JsonLd';
 import { MaillageRessourceFromConfig } from '@/app/components/MaillageRessource';
 import { DisclaimerGains } from '@/components/formation/DisclaimerGains';
-import { buildSiteCalendlyCtaUrl } from '@/lib/calendly';
 import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
 import {
   FAQ_GUIDE_ASSISTANTS_TRAVAUX,
@@ -18,8 +18,6 @@ import { LINKS } from '@/lib/internal-links';
 
 const PATH = GUIDE_ASSISTANTS_TRAVAUX_PATH;
 const CANONICAL = `${SITE_CONFIG.url.replace(/\/$/, '')}${PATH}`;
-const CALENDLY_HERO = buildSiteCalendlyCtaUrl('ressources-guide-assistants-travaux-hero');
-const CALENDLY_FINAL = buildSiteCalendlyCtaUrl('ressources-guide-assistants-travaux-final');
 
 /** Title ≤ 65 car. */
 const META_TITLE = 'Guide assistants travaux IA — 12 missions | Laure Olivié';
@@ -156,15 +154,12 @@ export default function GuideAssistantsTravauxOfcPage() {
               <Download className="h-5 w-5 shrink-0" aria-hidden />
               Télécharger le guide (PDF)
             </a>
-            <a
-              href={CALENDLY_HERO}
-              target="_blank"
-              rel="noopener noreferrer"
+            <CtaButton origin="ressources-guide-assistants-travaux-hero"
               className="inline-flex items-center justify-center gap-2 rounded-lg bg-white px-6 py-3.5 text-base font-semibold text-[#377CF3] transition hover:bg-[#EFF6FF]"
             >
               <Calendar className="h-5 w-5 shrink-0" aria-hidden />
               Visio découverte formation
-            </a>
+            </CtaButton>
           </div>
         </div>
       </section>
@@ -277,15 +272,12 @@ export default function GuideAssistantsTravauxOfcPage() {
               <Download className="h-4 w-4" aria-hidden />
               Télécharger le PDF
             </a>
-            <a
-              href={CALENDLY_FINAL}
-              target="_blank"
-              rel="noopener noreferrer"
+            <CtaButton origin="ressources-guide-assistants-travaux-final"
               className="inline-flex items-center justify-center gap-2 rounded-lg bg-[#377CF3] px-6 py-3.5 text-sm font-semibold text-white hover:bg-[#2d66d6]"
             >
               <Calendar className="h-4 w-4" aria-hidden />
               Prendre un rendez-vous découverte
-            </a>
+            </CtaButton>
           </div>
         </div>
       </section>

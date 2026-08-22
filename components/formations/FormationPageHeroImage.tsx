@@ -19,6 +19,8 @@ export function FormationPageHeroImage({ src, alt, priority }: Props) {
         className="object-cover object-center"
         sizes="(max-width: 896px) 100vw, 896px"
         priority={priority}
+        quality={priority ? 75 : 70}
+        loading={priority ? undefined : 'lazy'}
       />
     </div>
   );

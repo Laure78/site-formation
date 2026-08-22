@@ -32,8 +32,8 @@ export const IDF_ZONE_INTERVENTION =
  * Période et mise à jour : voir `/indicateurs-resultats`.
  */
 export const PREUVES = {
-  /** Arrondi public affiché « 1 500+ » — registre interne > 1 500 depuis déc. 2021. */
-  prosFormes: 1500,
+  /** Registre interne OFC — source CV juin 2026. */
+  prosFormes: 1592,
   satisfaction: '4,85/5',
   repondants: 412,
   periode: '01/01/2024 – 31/12/2025',

@@ -68,23 +68,35 @@ export const NAV_RESSOURCES: readonly NavItem[] = [
   { href: LINKS.casUsage, label: "Cas d'usage" },
 ];
 
+/** Colonne Informations réglementaires — indicateur 1 Qualiopi (une ancre par URL dans le footer). */
+export const NAV_REGLEMENTAIRE: readonly NavItem[] = [
+  { href: LINKS.livretAccueilStagiaire, label: "Livret d'accueil du stagiaire" },
+  { href: LINKS.reglementInterieur, label: 'Règlement intérieur' },
+  { href: LINKS.reclamations, label: 'Réclamations et médiation' },
+  { href: LINKS.accessibiliteHandicap, label: 'Accessibilité et handicap' },
+  {
+    href: LINKS.certificatQualiopi,
+    label: 'Certificat Qualiopi (PDF)',
+    title: 'Télécharger le certificat Qualiopi OFC',
+  },
+];
+
 /** Colonne Légal — textes / URLs inchangés */
 export const NAV_LEGAL: readonly NavItem[] = [
   { href: LINKS.cgv, label: 'CGV' },
   { href: LINKS.mentionsLegales, label: 'Mentions légales' },
   { href: LINKS.politiqueConfidentialite, label: 'Confidentialité' },
-  { href: LINKS.reglementInterieur, label: 'Règlement intérieur' },
-  { href: LINKS.accessibiliteHandicap, label: 'Accessibilité & handicap' },
+  { href: LINKS.informationsReglementaires, label: 'Informations réglementaires' },
   { href: LINKS.annuaireHandicap, label: 'Annuaire handicap' },
   { href: LINKS.indicateursResultats, label: 'Indicateurs de résultats' },
   { href: LINKS.qualiopi, label: 'Organisme certifié Qualiopi' },
-  { href: LINKS.reclamations, label: 'Réclamations' },
   { href: '/llms.txt', label: 'llms.txt' },
 ];
 
 /** Bandeau « Formations IA par métier » */
 export const NAV_METIERS: readonly NavItem[] = [
   { href: LINKS.formationConducteurTravaux, label: 'Conducteur de travaux' },
+  { href: LINKS.formationIaMetreurEconomisteConstruction, label: 'Métreur & économiste' },
   { href: LINKS.formationChargeAffairesBtp, label: "Chargé d'affaires" },
   { href: LINKS.formationElectricienBtp, label: 'Électricien' },
   { href: LINKS.formationPlombierBtp, label: 'Plombier' },

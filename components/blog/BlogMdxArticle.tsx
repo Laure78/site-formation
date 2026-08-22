@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { BlogArticleEnBref } from '@/components/blog/BlogArticleEnBref';
 import { BlogArticleSchemas } from '@/components/blog/BlogArticleSchemas';
 import { ArticleAuthorBio } from '@/components/blog/ArticleAuthorBio';
 import { RelatedArticles } from '@/components/blog/RelatedArticles';
@@ -9,6 +10,7 @@ import {
   resolveMdxCoverUrl,
 } from '@/lib/blog-mdx';
 import { getRelatedArticlesForDisplay } from '@/lib/blog';
+import { normalizeEnBref } from '@/lib/blog-en-bref';
 import { SITE_CONFIG } from '@/lib/seo';
 import { LINKS } from '@/lib/internal-links';
 import { shouldShowSkillLeadMagnetCta } from '@/lib/lead-magnet-skill-ia';
@@ -24,6 +26,7 @@ export async function BlogMdxArticle({ slug }: Props) {
   const { content, frontmatter, toc, wordCount } = compiled;
   const schemaImage = resolveMdxCoverUrl(frontmatter.cover);
   const related = getRelatedArticlesForDisplay(slug, 6, frontmatter.relatedSlugs);
+  const enBrefSentences = normalizeEnBref(frontmatter.enBref);
   const sommaireItems = toc
     .filter((entry) => entry.depth === 2)
     .map((entry) => ({ label: entry.text, anchor: entry.id }));
@@ -118,6 +121,7 @@ export async function BlogMdxArticle({ slug }: Props) {
         <h1 className="mt-4 font-display text-3xl font-bold tracking-tight text-slate-900 md:text-4xl">
           {frontmatter.title}
         </h1>
+        {enBrefSentences ? <BlogArticleEnBref sentences={enBrefSentences} /> : null}
         <p className="mt-4 text-lg text-slate-600">{frontmatter.description}</p>
 
         <div className="article-mdx mt-8 max-w-none">{content}</div>

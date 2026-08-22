@@ -37,7 +37,9 @@ export function CaseStudyYoutubeThumbnails({ items, className = '' }: Props) {
               fill
               className="object-cover object-center transition duration-500 group-hover:scale-[1.03]"
               sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 640px"
-            />
+            
+              quality={70}
+              loading="lazy"/>
             {/* Assombrissement progressif pour lisibilité du texte */}
             <div
               className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/88 via-black/35 to-black/10"

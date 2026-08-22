@@ -454,7 +454,7 @@ export default function FormationIaResponsableAdministratifBtpPage() {
           <p>Organisme certifié Qualiopi · SIRET 905 244 281 00010 · NDA 11788515078</p>
           <p>
             laureolivie@yahoo.fr ·{' '}
-            <a href="https://www.laureolivie.fr" className="underline">
+            <a href="/" className="underline">
               www.laureolivie.fr
             </a>
           </p>

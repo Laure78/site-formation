@@ -40,6 +40,7 @@ export function ProfilePhoto({ alt, title, priority = false }: Props) {
         className="h-auto w-full object-contain"
         sizes="(max-width: 768px) 100vw, 384px"
         priority={priority}
+        quality={priority ? 75 : 70}
         loading={priority ? undefined : 'lazy'}
         onError={() => setError(true)}
       />

@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { Check, Download, X } from 'lucide-react';
 import { submitLeadChecklistAction } from '@/app/actions/leads';
+import { trackDownloadGuide } from '@/lib/ga4-analytics';
 
 const BENEFITS = [
   'Rédiger des emails clients en 30 secondes',
@@ -55,6 +56,10 @@ export function ChecklistLeadMagnet({ asPageHero = false }: Props) {
     });
     setSubmitting(false);
     if (result.ok) {
+      trackDownloadGuide({
+        guide_type: 'checklist',
+        file_name: 'checklist-10-prompts-chatgpt-btp',
+      });
       setSuccess(true);
       setOpen(false);
     } else {

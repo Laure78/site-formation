@@ -173,7 +173,8 @@ export async function GoogleReviewsSection() {
                 loading="lazy"
                 className="h-auto w-full object-cover"
                 sizes="(max-width: 1024px) 100vw, 50vw"
-              />
+              
+                quality={70}/>
             </div>
             <figcaption className="mt-3 text-center text-sm text-slate-500">
               Laure Olivié — animation formation IA pour les pros du BTP en présentiel (réseau FFB, filière étanchéité /{' '}

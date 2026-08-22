@@ -2,53 +2,31 @@
 
 import { useId } from 'react';
 import { usePathname } from 'next/navigation';
-import type { CalendlyEmbedProps } from '@/components/CalendlyEmbed';
-import { CalendlyEmbed } from '@/components/CalendlyEmbed';
-import { deriveCalendlyCampaign } from '@/lib/calendly';
+import { CtaButton, type CtaButtonProps } from '@/components/CtaButton';
 
-type RdvLinkProps = Omit<CalendlyEmbedProps, 'type'> & {
-  /** Chemin logique pour utm_campaign (défaut : URL courante). */
+type RdvLinkProps = Omit<CtaButtonProps, 'origin'> & {
   page?: string;
-  /** Suffixe explicite si `campaign` absent (ex. `hero`, `footer`, `encart-visio`). */
   campaignSuffix?: string;
+  campaign?: string;
+  ctaPosition?: string;
+  ctaId?: string;
 };
 
-/** Lien Calendly (nouvel onglet) — alias métier pour prise de RDV. */
+/** Lien prise de RDV — alias métier de {@link CtaButton}. */
 export function RdvLink({
-  className,
-  children,
-  page,
+  page: _page,
   ctaPosition = 'unknown',
   campaign,
   campaignSuffix,
   ctaId,
-  variant = 'unstyled',
   ...rest
 }: RdvLinkProps) {
-  const pathname = usePathname();
   const reactId = useId().replace(/:/g, '');
-  const pathForCampaign = page ?? pathname;
   const effectiveCtaId =
     ctaId ??
     campaignSuffix ??
+    campaign ??
     (ctaPosition !== 'unknown' ? ctaPosition : `rdv-${reactId.slice(-8)}`);
-  const resolvedCampaign = deriveCalendlyCampaign(pathForCampaign, {
-    campaign,
-    ctaId: campaign ? undefined : effectiveCtaId,
-    ctaPosition: campaign || campaignSuffix ? undefined : ctaPosition,
-  });
 
-  return (
-    <CalendlyEmbed
-      type="link"
-      className={className}
-      ctaPosition={ctaPosition}
-      campaign={resolvedCampaign}
-      ctaId={ctaId ?? effectiveCtaId}
-      variant={variant}
-      {...rest}
-    >
-      {children}
-    </CalendlyEmbed>
-  );
+  return <CtaButton origin={effectiveCtaId} {...rest} />;
 }

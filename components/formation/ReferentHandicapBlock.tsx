@@ -89,7 +89,7 @@ export function ReferentHandicapBlock({
       {showQualiopi ? (
         <div className="mt-5 rounded-lg border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-700">
           <p>
-            <strong>Organisme certifié <QualiopiWordmark /></strong> — {QUALIOPI_LEGAL.qualiopiCategoryMention}.
+            <strong>Organisme certifié <QualiopiWordmark /></strong> (actions de formation).
           </p>
           <p className="mt-1 text-xs text-slate-500">
             SIRET {QUALIOPI_LEGAL.siret} · NDA {QUALIOPI_LEGAL.nda}

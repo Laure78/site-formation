@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { PHOTOS } from '@/lib/photos';
+import { IMAGE_SIZES } from '@/lib/image-props';
 import { StatCallout } from '@/components/readability/StatCallout';
 import { IndicateursResultatsLink } from '@/components/formation/IndicateursResultatsLink';
 import { formatProfessionalsTrainedCount } from '@/lib/constants';
@@ -67,7 +68,9 @@ export function HeroEditorial({ lead, qualiopiText, catalogueHref, calendlyHeroH
             width={PHOTOS.portraitPro2026.width}
             height={PHOTOS.portraitPro2026.height}
             className="mx-auto h-auto w-full max-w-sm object-contain drop-shadow-[0_16px_48px_rgba(15,23,42,0.18)] lg:max-w-none"
+            sizes={IMAGE_SIZES.heroSide}
             priority
+            quality={75}
           />
         </div>
       </div>

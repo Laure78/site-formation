@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { FAQSection } from '@/components/landing/FAQSection';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
 import { CalendlyConsentInline } from '@/components/CalendlyConsentInline';
+import { PrendreRdvCalendlyIntro } from '@/components/prendre-rendez-vous/PrendreRdvCalendlyIntro';
 import { createPageMetadata, getFAQSchema } from '@/lib/seo';
 import { FAQ_PRENDRE_RDV } from '@/lib/faq';
 import { JsonLd } from '@/components/JsonLd';
@@ -41,7 +42,7 @@ export default function PrendreRendezVousPage() {
   return (
     <div className="min-h-[80vh]">
       <JsonLd id="schema-prendre-rendez-vous-webpage" data={pageSchema} />
-      <JsonLd id="schema-faq-prendre-rendez-vous" schema={faqSchema} />
+      {faqSchema ? <JsonLd id="schema-faq-prendre-rendez-vous" schema={faqSchema} /> : null}
       <section className={OFC_SEC.whiteMesh}>
         <div className={`${OFC_SECTION_INNER} max-w-4xl`}>
           <Link href={LINKS.home} className={`text-sm ${OFC_LINK}`}>
@@ -50,29 +51,18 @@ export default function PrendreRendezVousPage() {
           <h1 className="mt-6 font-display text-3xl font-bold text-slate-900 md:text-4xl">
             Prendre rendez-vous
           </h1>
-          <p className="mt-4 max-w-xl text-slate-600">
-            30 minutes en visio ou par téléphone pour cadrer votre projet de formation IA pour le BTP et
-            obtenir un devis personnalisé.
+          <p className="mt-3 max-w-xl text-slate-600">
+            30 minutes en visio ou par téléphone pour cadrer votre projet de formation IA pour le BTP.
           </p>
-          <p className="mt-3 max-w-xl rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-700">
-            <strong>À noter :</strong> les sessions OFC : présentiel uniquement · Île-de-France uniquement.
-          </p>
-          <p className="mt-4">
-            <Link href={LINKS.formations} className={OFC_LINK}>
-              Voir le catalogue formations IA BTP →
-            </Link>
+          <p className="mt-2 max-w-xl text-sm text-slate-500">
+            Sessions en présentiel, Île-de-France uniquement — la visio sert uniquement au cadrage.
           </p>
 
-          <div className="mt-10">
-            <h2 className="font-display text-center text-2xl font-bold tracking-tight text-slate-900 md:text-3xl">
-              Réservez votre créneau (30 min, gratuit)
-            </h2>
-            <p className="mx-auto mt-3 max-w-2xl text-center text-slate-600 md:text-lg">
-              Choisissez votre horaire — confirmation immédiate par email.
-            </p>
-            <div className="mt-8">
-              <CalendlyConsentInline campaign="prendre-rendez-vous-page" heightPx={720} />
-            </div>
+          <PrendreRdvCalendlyIntro />
+
+          <div className="mt-8">
+            <h2 className="sr-only">Réserver un créneau Calendly</h2>
+            <CalendlyConsentInline campaign="prendre-rendez-vous-page" heightPx={720} />
           </div>
 
           <FAQSection
@@ -84,11 +74,8 @@ export default function PrendreRendezVousPage() {
           <AllerPlusLoin
             links={[
               { href: LINKS.formations, label: 'Catalogue des formations' },
-              { href: LINKS.chatgptArtisans, label: 'ChatGPT pour entreprises BTP' },
-              { href: LINKS.iaDevis, label: 'IA devis bâtiment' },
-              { href: LINKS.blog, label: 'Articles et guides' },
-              { href: LINKS.diagnostic, label: 'Diagnostic IA BTP gratuit' },
               { href: LINKS.financement, label: 'Financement Constructys' },
+              { href: LINKS.contact, label: 'Contact direct' },
             ]}
           />
         </div>

@@ -186,7 +186,8 @@ export default function BeworkPlateformePage() {
               className="h-auto w-full"
               priority
               sizes="(min-width: 1024px) 560px, 100vw"
-            />
+            
+              quality={75}/>
           </figure>
         </div>
       </section>

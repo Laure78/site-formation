@@ -128,7 +128,7 @@ export default async function MediaDashboardPage() {
           Maillage interne
         </h2>
         <p className="mt-1 text-sm text-slate-600">
-          Les articles générés incluent des ancres vers : /formations, /formation-ia-artisans-btp, /ia-devis-batiment, /prendre-rdv
+          Les articles générés incluent des ancres vers : /formations, /formation-ia-artisans-btp, /ia-devis-batiment, /prendre-rendez-vous
         </p>
         {generated.length > 0 && (
           <div className="mt-4 flex flex-wrap gap-2">

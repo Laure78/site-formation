@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import { IMAGE_SIZES } from '@/lib/image-props';
 import {
   ALT_LOGO_CSFE,
   ALT_LOGO_FFB_GRAND_PARIS_IDF,
@@ -65,7 +66,9 @@ export function PreuveSociale({ auteur, role, texte, className = '' }: PreuveSoc
               width={logo.width}
               height={logo.height}
               className="max-h-10 w-auto object-contain grayscale md:max-h-12"
+              sizes={IMAGE_SIZES.logoPartnerBand}
               loading="lazy"
+              quality={70}
             />
           </li>
         ))}

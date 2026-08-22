@@ -3,7 +3,7 @@
  * Pillar pages, clusters, internal linking, schema
  */
 
-import { buildSiteCalendlyCtaUrl } from '@/lib/calendly';
+import { LINKS } from '@/lib/internal-links';
 
 export const PILLAR_PAGES = [
   {
@@ -59,7 +59,7 @@ export function getPillarPathForCluster(clusterId: string): string {
 /** Liens internes par défaut pour les articles (URLs canoniques) */
 export const DEFAULT_INTERNAL_LINKS = {
   formation: { path: '/formations', anchor: 'formation IA pour le BTP' },
-  prendreRdv: { path: buildSiteCalendlyCtaUrl('seo-architecture-maillage-rdv'), anchor: 'prendre rendez-vous' },
+  prendreRdv: { path: LINKS.prendreRdv, anchor: 'prendre rendez-vous' },
   chatgptArtisans: { path: '/formation-ia-artisans-btp', anchor: 'ChatGPT pour entreprises BTP' },
   iaDevis: { path: '/ia-devis-batiment', anchor: 'IA devis bâtiment' },
 } as const;
@@ -67,6 +67,6 @@ export const DEFAULT_INTERNAL_LINKS = {
 /** CTAs par bloc */
 export const CTA_BLOCKS = [
   { label: 'Découvrir la formation IA pour les pros du BTP', href: '/formations', variant: 'primary' as const },
-  { label: 'Prendre rendez-vous', href: buildSiteCalendlyCtaUrl('seo-architecture-cta-block-rdv'), variant: 'secondary' as const },
+  { label: 'Prendre rendez-vous', href: LINKS.prendreRdv, variant: 'secondary' as const },
   { label: 'Télécharger le guide', href: '/ressources', variant: 'outline' as const },
 ] as const;

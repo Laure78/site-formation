@@ -27,7 +27,9 @@ function ReviewCard({
               fill
               className="object-cover"
               sizes="40px"
-            />
+            
+              quality={70}
+              loading="lazy"/>
           ) : (
             <div className="flex h-full w-full items-center justify-center text-sm font-bold text-slate-500">
               {review.authorName.charAt(0)}

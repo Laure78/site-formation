@@ -69,6 +69,9 @@ export default function RessourcesIndexPage() {
                 width={LOGO_LINKEDIN_LEARNING.width}
                 height={LOGO_LINKEDIN_LEARNING.height}
                 className="h-9 w-auto max-w-[160px] shrink-0 object-contain object-left"
+                sizes="160px"
+                loading="lazy"
+                quality={70}
               />
               <div>
                 <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#377CF3]">

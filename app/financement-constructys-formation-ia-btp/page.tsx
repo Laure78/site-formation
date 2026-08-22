@@ -328,7 +328,9 @@ export default function FinancementConstructysFormationIABTPPage() {
                   height={768}
                   className="h-auto w-full"
                   sizes="(min-width: 768px) 720px, 100vw"
-                />
+                
+                  quality={70}
+                  loading="lazy"/>
                 <figcaption className="border-t border-slate-100 px-4 py-2.5 text-xs text-slate-500">
                   Source : Constructys — Plan de développement des compétences (PDC) du Bâtiment, modalités de participation financière applicables au 1<sup>er</sup> juin 2026.
                 </figcaption>

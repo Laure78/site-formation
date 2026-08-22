@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect } from 'react';
-import { sendGTMEvent } from '@next/third-parties/google';
+import { sendGa4Event } from '@/lib/ga4-analytics';
 import { toRdvCalendlyPosition } from '@/lib/calendly-analytics';
 
 /**
@@ -25,16 +25,7 @@ export function CalendlyClickTracker() {
       const pagePath = window.location.pathname;
       const position = toRdvCalendlyPosition(ctaPosition);
 
-      sendGTMEvent({
-        event: 'rdv_calendly_click',
-        page_path: pagePath,
-        position,
-      });
-
-      const w = window as Window & { gtag?: (...args: unknown[]) => void };
-      if (typeof w.gtag !== 'function') return;
-
-      w.gtag('event', 'rdv_calendly_click', {
+      sendGa4Event('rdv_calendly_click', {
         page_path: pagePath,
         position,
       });

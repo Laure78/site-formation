@@ -365,6 +365,8 @@ export const LINKS = {
   mentionsLegales: '/mentions-legales',
   politiqueConfidentialite: '/politique-confidentialite',
   reglementInterieur: '/reglement-interieur',
+  /** Règlement intérieur OFC (PDF) */
+  reglementInterieurPdf: '/documents/reglement-interieur-ofc.pdf',
   annuaireHandicap: '/annuaire-handicap',
   /** Accessibilité & handicap — référente, processus d'accueil PSH */
   accessibiliteHandicap: '/accessibilite-handicap',
@@ -376,6 +378,14 @@ export const LINKS = {
   qualiopi: '/qualiopi',
   /** Certificat Qualiopi OFC (PDF) */
   certificatQualiopi: '/documents/certificat-qualiopi-ofc.pdf',
+  /** Procédure réclamations OFC (PDF) — version 3 */
+  procedureReclamationsPdf: '/documents/procedure-reclamations-ofc-v3.pdf',
+  /** Livret d'accueil du stagiaire (page publique) */
+  livretAccueilStagiaire: '/livret-accueil-stagiaire',
+  /** Livret d'accueil du stagiaire (PDF) */
+  livretAccueilStagiairePdf: '/documents/livret-accueil-stagiaire-ofc.pdf',
+  /** Hub informations réglementaires Qualiopi (indicateur 1) */
+  informationsReglementaires: '/informations-reglementaires',
 } as const;
 
 export type InternalLinkPath = (typeof LINKS)[keyof typeof LINKS];

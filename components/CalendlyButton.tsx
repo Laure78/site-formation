@@ -1,38 +1,27 @@
 'use client';
 
 import type { ReactNode } from 'react';
-import { CalendlyEmbed } from '@/components/CalendlyEmbed';
+import { Calendar } from 'lucide-react';
+import { CtaButton, type CtaButtonProps } from '@/components/CtaButton';
 
-const variantMap = {
-  primary: 'primary',
-  secondary: 'secondary',
-  small: 'unstyled',
-} as const;
-
-export type CalendlyButtonProps = {
+export type CalendlyButtonProps = Omit<CtaButtonProps, 'origin'> & {
+  /** Mappé vers `origin` pour GA4. */
   campaign: string;
-  variant?: keyof typeof variantMap;
+  variant?: 'primary' | 'secondary' | 'small';
   children: ReactNode;
-  className?: string;
 };
 
-/** Bouton lien Calendly (nouvel onglet) avec campagne UTM. */
+/** @deprecated Préférer `<CtaButton origin={campaign} />`. */
 export default function CalendlyButton({
   campaign,
-  variant = 'primary',
   className,
   children,
+  variant: _variant = 'primary',
+  ...rest
 }: CalendlyButtonProps) {
   return (
-    <CalendlyEmbed
-      type="link"
-      campaign={campaign}
-      ctaPosition="inline"
-      ctaId={`calendly-btn-${campaign}`}
-      variant={variantMap[variant]}
-      className={className}
-    >
+    <CtaButton origin={campaign} className={className} {...rest}>
       {children}
-    </CalendlyEmbed>
+    </CtaButton>
   );
 }

@@ -1,33 +1,36 @@
 'use client';
 
-import type { CalendlyEmbedProps } from '@/components/CalendlyEmbed';
-import { CalendlyEmbed } from '@/components/CalendlyEmbed';
+import { CtaButton, type CtaButtonProps } from '@/components/CtaButton';
 
-type CTACalendlyProps = Omit<CalendlyEmbedProps, 'type'> & {
+type CTACalendlyProps = Omit<CtaButtonProps, 'origin'> & {
   page?: string;
   unstyled?: boolean;
-  /** Alias rétrocompatible — préférer `campaign`. */
+  /** @deprecated — mappé vers `origin`. */
   utmCampaign?: string;
+  campaign?: string;
+  ctaPosition?: string;
+  ctaId?: string;
 };
 
 /**
- * @deprecated Préférer `<CalendlyEmbed />` directement — alias rétrocompatible (lien nouvel onglet).
+ * @deprecated Préférer `<CtaButton origin="…" />` — alias rétrocompatible.
  */
 export function CTACalendly({
-  page,
-  unstyled = true,
-  variant,
-  className,
+  page: _page,
+  unstyled = false,
   utmCampaign,
   campaign,
+  ctaPosition,
+  ctaId,
+  variant: _variant,
   ...rest
 }: CTACalendlyProps) {
+  const origin = ctaId ?? campaign ?? utmCampaign ?? ctaPosition ?? 'cta-calendly-legacy';
+
   return (
-    <CalendlyEmbed
-      type="link"
-      variant={unstyled ? 'unstyled' : variant ?? 'primary'}
-      className={className}
-      campaign={campaign ?? utmCampaign}
+    <CtaButton
+      origin={origin}
+      variant={unstyled ? 'unstyled' : 'primary'}
       {...rest}
     />
   );

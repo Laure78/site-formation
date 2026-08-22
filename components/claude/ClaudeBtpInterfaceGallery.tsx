@@ -63,7 +63,8 @@ export function ClaudeBtpInterfaceGallery() {
                 className="object-cover object-top transition duration-300 group-hover:scale-[1.02]"
                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 loading="lazy"
-              />
+              
+                quality={70}/>
               <figcaption className="absolute inset-x-0 bottom-0 bg-white/80 px-3 py-2.5 text-xs leading-snug text-[#334155] backdrop-blur-md">
                 {vis.caption}
               </figcaption>
@@ -88,7 +89,8 @@ export function ClaudeBtpInterfaceGallery() {
                 className="object-cover object-top transition duration-300 group-hover:scale-[1.02]"
                 sizes="(max-width: 640px) 100vw, 380px"
                 loading="lazy"
-              />
+              
+                quality={70}/>
               <figcaption className="absolute inset-x-0 bottom-0 bg-white/80 px-3 py-2.5 text-xs leading-snug text-[#334155] backdrop-blur-md">
                 {vis.caption}
               </figcaption>

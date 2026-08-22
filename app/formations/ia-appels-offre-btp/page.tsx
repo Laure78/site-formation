@@ -28,7 +28,8 @@ import {
   formatTarifHt,
   libelleTarifSessionForfaitaire,
 } from '@/lib/tarifs-sessions';
-import { PrerequisNiveau2 } from '@/components/formation/PrerequisNiveau2';
+import { FORMATION_NIV02 } from '@/data/formations';
+import { PREREQUIS_NIV02 } from '@/lib/infos-pratiques-catalogue';
 import { getFormationCatalogueVisuel } from '@/lib/formations-catalogue-display';
 import {
   FormationCourseHero,
@@ -38,6 +39,7 @@ import { formatPersonnesFormeesCount, getStatsFreshnessLabel, siteStats } from '
 import { IndicateursResultatsLink } from '@/components/formation/IndicateursResultatsLink';
 
 const PDF_HREF = LINKS.pdfProgrammeFormationAoBtpDetail2026;
+const PDF_DOWNLOAD_NAME = 'programme_OFC_Niveau2_IA_AO_ClaudePro.pdf';
 const KIT_7_PROMPTS_HREF = '/formations/ia-appels-offre-btp/Kit_IA_AO_BTP_7_prompts.html';
 
 const PAGE_META_DESCRIPTION =
@@ -85,15 +87,26 @@ type ProgrammeBloc = {
 
 const PROGRAMME_BLOCS: ProgrammeBloc[] = [
   {
-    heading: 'Module 1 — Paramétrage de Claude AI Pro & Cowork',
+    heading: 'Accueil — cadrage et positionnement',
+    meta: '15 min',
+    objectifs: [
+      'Accueil des participants, émargement et présentation des objectifs de la demi-journée',
+      'Auto-positionnement d\'entrée sur les objectifs visés',
+      'Tour de table : pratiques actuelles de réponse aux AO et dossiers apportés par chacun',
+    ],
+    livrable: '',
+  },
+  {
+    heading: 'Module 1 — Paramétrage de Claude AI Pro et de Cowork',
     meta: '60 min · Cowork · Projects · Skill Creator',
     objectifs: [
-      'Créer son compte Claude Pro — interface, Projects, choix du modèle (Sonnet / Opus / Haiku)',
-      'Organiser ses Projects par client ou type d\'AO, rédiger ses instructions personnalisées (System Prompt)',
-      'Uploader sa base documentaire entreprise (MT types, références, procédures QSE)',
+      'Créer son compte Claude Pro — interface, Projects, choix du modèle',
+      'Organiser ses Projects par client ou par type d\'AO, rédiger ses instructions personnalisées',
+      'Uploader sa base documentaire entreprise (mémoires techniques types, références, procédures QSE)',
+      'Confidentialité : ce qui peut être déposé dans l\'outil et ce qui doit rester en dehors',
       'Installer Cowork — comprendre la logique des skills (déclenchement, instructions, livrables)',
       'Créer un premier skill personnalisé alimenté par ses données entreprise',
-      'Programmer un workflow complet : analyse DCE → plan MT → rédaction section par section',
+      'Programmer un workflow complet : analyse DCE → plan de mémoire technique → rédaction section par section',
     ],
     livrable: 'Compte Claude Pro configuré + Project dédié AO + Cowork installé + premier skill créé',
     exercice:
@@ -103,28 +116,44 @@ const PROGRAMME_BLOCS: ProgrammeBloc[] = [
     heading: 'Module 2 — Analyse express de DCE avec Cowork',
     meta: '1 h 15 · Skill « Analyse DCE »',
     objectifs: [
-      'Méthodologie d\'analyse : 3 niveaux de lecture, priorisation des pièces, 15 infos critiques à extraire',
-      'Upload du DCE complet dans Cowork → extraction automatique (critères, clauses, pénalités, délais)',
+      'Méthodologie d\'analyse : trois niveaux de lecture, priorisation des pièces, 15 informations critiques à extraire',
+      'Upload du DCE complet dans Cowork → extraction (critères, clauses, pénalités, délais)',
       'Décortiquer le CCAP (risques financiers) et synthétiser le CCTP (normes, matériaux, moyens)',
-      'Adapter le skill à son métier (étanchéité, gros œuvre, VRD…) + veille AO automatique',
+      'Produire une fiche de synthèse, le tableau des 15 informations critiques et un verdict Go / No Go',
+      'Contrôler les extractions obtenues par retour aux pièces sources',
+      'Adapter le skill à son métier (étanchéité, gros œuvre, VRD…) et à sa veille AO',
+      'Tester et ajuster en temps réel sur un AO concret apporté par le participant',
     ],
-    livrable: 'Fiche synthèse DCE automatisée + skill d\'analyse DCE personnalisé',
+    livrable: 'Fiche de synthèse DCE automatisée + skill d\'analyse DCE personnalisé',
     exercice:
-      'Atelier pratique — skill « Analyse DCE » : fiche synthèse + tableau des 15 infos critiques + verdict Go / No Go sur un AO concret du participant.',
+      'Atelier pratique — skill « Analyse DCE » sur un AO concret du participant.',
   },
   {
     heading: 'Module 3 — Rédiger son mémoire technique avec Cowork',
-    meta: '1 h 30 · Skill « Mémoire Technique »',
+    meta: '1 h 30 · Skill « Mémoire technique »',
     objectifs: [
-      'Construire le plan de MT optimal adapté aux critères et pondérations du DCE — comparer 3 plans alternatifs',
-      'Rédiger les sections stratégiques : présentation entreprise, méthodologie, moyens et engagements QSE',
-      'Générer un MT Word complet (planning Gantt, organigramme, tableaux de moyens) via Cowork',
-      'Contrôler et humaniser les sorties IA : anti-hallucination et relecture experte',
-      'Créer son skill MT aux couleurs de l\'entreprise + skill productivité (CR chantier, emails, devis)',
+      'Bâtir le plan de mémoire technique adapté aux critères et pondérations du DCE — comparer trois plans alternatifs',
+      'Rédiger les sections stratégiques : présentation entreprise, méthodologie d\'exécution, moyens humains et matériels, engagements QSE',
+      'Générer un mémoire technique Word complet (planning, organigramme, tableaux de moyens) via Cowork',
+      'Contrôler et humaniser les sorties de l\'IA : anti-hallucination et relecture experte',
+      'Créer son skill mémoire technique aux couleurs de l\'entreprise + skill productivité (CR chantier, emails, devis)',
+      'Tester et ajuster ses skills en temps réel sur un AO concret',
     ],
-    livrable: 'MT Word généré par Cowork + skills MT et productivité personnalisés + 15 prompts AO BTP',
+    livrable:
+      'Mémoire technique Word généré + skills « mémoire technique » et « productivité » personnalisés + 15 prompts AO BTP',
     exercice:
       'Rédaction assistée et ajustement des skills en temps réel sur un AO concret du participant.',
+  },
+  {
+    heading: 'Bilan, plan d\'action et clôture',
+    meta: '15 min',
+    objectifs: [
+      'Auto-positionnement de sortie et mesure de la progression sur les objectifs visés',
+      'Plan d\'action individuel : 3 actions concrètes à mettre en place à 30 jours',
+      'Questions / réponses, questionnaire de satisfaction et remise des attestations',
+    ],
+    livrable:
+      'Plan d\'action individuel + attestation individuelle de fin de formation remise à chaque participant',
   },
 ];
 
@@ -149,7 +178,7 @@ export default function FormationIAAppelsOffreBTPPage() {
 
       <FormationCourseHero
         catalogueRef="NIV-02"
-        refLine={`Intra · inter · présentiel en Île-de-France · ${SESSION_DUREE_LIBELLE} · Niveau 2`}
+        refLine={`Intra-entreprise · présentiel · ${SESSION_DUREE_LIBELLE} · Niveau 2 · ${LIBELLE_EFFECTIF_GROUPE_NIV02}`}
         title="L'IA appliquée aux appels d'offres BTP"
         subtitle="Créer ses assistants IA pour DCE et mémoire technique — Claude AI Pro, Cowork & Skills"
         badges={['Claude Pro & Cowork', 'Skills DCE / MT', 'Organisme Qualiopi']}
@@ -166,7 +195,7 @@ export default function FormationIAAppelsOffreBTPPage() {
             </RdvLink>
             <a
               href={PDF_HREF}
-              download
+              download={PDF_DOWNLOAD_NAME}
               className="inline-flex items-center justify-center gap-2 rounded-xl border-2 border-slate-200 px-6 py-3.5 font-semibold text-slate-800 hover:border-[var(--accent)]"
             >
               <Download size={20} strokeWidth={1.5} />
@@ -244,8 +273,7 @@ export default function FormationIAAppelsOffreBTPPage() {
           <li className="flex gap-2">
             <Users className="mt-0.5 h-5 w-5 shrink-0 text-[var(--accent)]" strokeWidth={1.5} />
             <span>
-              <strong>Public :</strong> dirigeants, responsables d&apos;affaires, chargés d&apos;études, conducteurs de
-              travaux, directeurs techniques TPE/PME BTP, bureaux d&apos;études. Session calibrée pour des profils qui
+              <strong>Public :</strong> {FORMATION_NIV02.public}. Session calibrée pour des profils qui
               répondent déjà ou préparent des dossiers d&apos;appels d&apos;offres.
             </span>
           </li>
@@ -253,10 +281,10 @@ export default function FormationIAAppelsOffreBTPPage() {
             <Calendar className="mt-0.5 h-5 w-5 shrink-0 text-[var(--accent)]" strokeWidth={1.5} />
             <span>
               <strong>Format :</strong> action de formation — session unique <strong>{SESSION_DUREE_LIBELLE}</strong>{' '}
-              (75 % pratique / 25 % théorie) en demi-journée : 9h00–13h00 ou 13h30–17h30 (à convenir). Intra ou inter,
-              exclusivement en présentiel en Île-de-France. Forfait{' '}
-              <strong>{TARIF_SESSION_LIBELLE}</strong> (niveau avancé,{' '}
-              {LIBELLE_EFFECTIF_GROUPE_NIV02}). Inscription jusqu&apos;à 7 jours avant la session.
+              (75 % pratique / 25 % théorie) en demi-journée : {FORMATION_NIV02.horaires}. Intra-entreprise en
+              présentiel — locaux du client (Morbihan 56 et France entière selon disponibilités). Forfait{' '}
+              <strong>{TARIF_SESSION_LIBELLE}</strong> (niveau avancé, {LIBELLE_EFFECTIF_GROUPE_NIV02}).
+              Inscription jusqu&apos;à 15 jours calendaires avant le démarrage.
             </span>
           </li>
         </ul>
@@ -268,13 +296,10 @@ export default function FormationIAAppelsOffreBTPPage() {
         </p>
       </section>
 
-      <PrerequisNiveau2
-        asSection
-        extras={[
-          'Documents à préparer : DCE complet récent (RC + CCAP + CCTP) et 2 à 3 mémoires techniques de votre entreprise.',
-          'Cowork installé sur le poste.',
-        ]}
-      />
+      <section className="mt-12">
+        <h2 className="font-display text-2xl font-bold text-slate-900">Prérequis</h2>
+        <p className="mt-4 text-slate-700 leading-relaxed">{PREREQUIS_NIV02}</p>
+      </section>
 
       <section className="mt-12">
         <h2 className="font-display text-2xl font-bold text-slate-900">Objectifs pédagogiques</h2>
@@ -287,13 +312,7 @@ export default function FormationIAAppelsOffreBTPPage() {
           finançable OPCO Constructys selon éligibilité (donnée interne OFC).
         </p>
         <ul className="mt-4 space-y-2 text-slate-700">
-          {[
-            'Paramétrer Claude AI Pro (Projects, instructions personnalisées) pour l\'adapter à son métier et à ses appels d\'offres',
-            'Analyser un DCE complet via Cowork en extrayant les 15 informations critiques (critères de jugement, clauses éliminatoires, pénalités, délais)',
-            'Structurer un plan de mémoire technique adapté aux pondérations spécifiques du DCE avec l\'assistance de Claude',
-            'Rédiger les 5 sections clés d\'un mémoire technique (présentation, méthodologie, moyens, sécurité, environnement) en utilisant les skills Cowork dédiés',
-            'Créer et configurer ses propres skills Cowork spécialisés DCE/MT, alimentés par ses données d\'entreprise et réutilisables pour tous ses futurs appels d\'offres',
-          ].map((o) => (
+          {FORMATION_NIV02.objectifs.map((o) => (
             <li key={o} className="flex gap-2">
               <Check className="mt-0.5 h-5 w-5 shrink-0 text-[var(--accent)]" strokeWidth={1.5} />
               {o}
@@ -310,16 +329,15 @@ export default function FormationIAAppelsOffreBTPPage() {
           participant.
         </p>
         <p className="mt-4 text-slate-700 leading-relaxed">
-          En 2026, la session exige un abonnement Claude Pro (20&nbsp;€/mois) et Cowork installé sur le poste du
-          stagiaire (prérequis niveau 2).
+          En 2026, la session exige un abonnement Claude Pro (environ 18&nbsp;€ HT/mois, à la charge de
+          l&apos;entreprise) et Cowork installé sur le poste du stagiaire (prérequis niveau 2).
         </p>
         <ul className="mt-4 space-y-2 text-slate-700">
           {[
             '75 % pratique / 25 % théorie — travail sur DCE et mémoires techniques réels des participants',
-            'Chaque module s\'appuie sur un skill Cowork dédié, utilisé en direct pendant la formation',
-            'Exercices guidés en temps réel avec partage d\'écran',
-            'Création de skills IA opérationnels pendant la formation',
-            'Accompagnement personnalisé et support numérique illimité',
+            'Apports méthodologiques courts, démonstrations en direct, exercices guidés en temps réel avec partage d\'écran',
+            'Création de skills IA opérationnels pendant la séance, ateliers sur cas réels et restitutions croisées',
+            'Salle équipée mise à disposition par le client, vidéoprojecteur, connexion internet haut débit',
           ].map((m) => (
             <li key={m} className="flex gap-2">
               <Check className="mt-0.5 h-5 w-5 shrink-0 text-[var(--accent)]" strokeWidth={1.5} />
@@ -332,12 +350,8 @@ export default function FormationIAAppelsOffreBTPPage() {
       <section id="programme" className="mt-12 scroll-mt-24">
         <h2 className="font-display text-2xl font-bold text-slate-900">Programme détaillé</h2>
         <p className="mt-2 text-sm text-slate-600">
-          Le programme comporte 3 modules sur {SESSION_DUREE_LIBELLE} : paramétrage Claude, analyse DCE et
-          rédaction de mémoire technique.
-        </p>
-        <p className="mt-2 text-sm text-slate-600">
-          3 modules — total {SESSION_DUREE_LIBELLE} — 75 % pratique sur DCE et mémoires techniques réels des
-          participants. Chaque module s&apos;appuie sur un skill Cowork dédié.
+          Accueil (15 min), 3 modules et clôture (15 min) — total {SESSION_DUREE_LIBELLE} — 75 % pratique sur DCE et
+          mémoires techniques réels des participants. Chaque module s&apos;appuie sur un skill Cowork dédié.
         </p>
         <div className="mt-8 space-y-8">
           {PROGRAMME_BLOCS.map((bloc) => (
@@ -360,9 +374,11 @@ export default function FormationIAAppelsOffreBTPPage() {
                   <span className="font-semibold text-slate-900">Atelier pratique.</span> {bloc.exercice}
                 </p>
               ) : null}
-              <p className="mt-4 text-sm text-slate-700">
-                <span className="font-semibold text-slate-900">Livrable :</span> {bloc.livrable}
-              </p>
+              {bloc.livrable ? (
+                <p className="mt-4 text-sm text-slate-700">
+                  <span className="font-semibold text-slate-900">Livrable :</span> {bloc.livrable}
+                </p>
+              ) : null}
             </div>
           ))}
         </div>
@@ -408,21 +424,21 @@ export default function FormationIAAppelsOffreBTPPage() {
         <ul className="mt-4 space-y-2 text-sm text-slate-700">
           <li>
             <strong>Durée :</strong> {SESSION_DUREE_LIBELLE} · <strong>Forfait :</strong> {TARIF_SESSION_LIBELLE}{' '}
-            (niveau avancé) · <strong>Financement :</strong>{' '}
-            prise en charge partielle par Constructys ou OPCO selon votre statut, votre branche professionnelle et les conditions en
-            vigueur · <strong>Inscription :</strong> jusqu&apos;à 7 jours avant la
-            session.
+            (niveau avancé, {LIBELLE_EFFECTIF_GROUPE_NIV02}) · <strong>Financement :</strong>{' '}
+            prise en charge possible par les OPCO (Constructys, OPCO 2i, Akto…) selon éligibilité — plafonnée par
+            l&apos;OPCO, reste à charge possible · <strong>Inscription :</strong> jusqu&apos;à 15 jours calendaires
+            avant le démarrage.
           </li>
           <li>
-            <strong>Supports remis :</strong> support de formation sur la plateforme OFC, compte Claude Pro configuré
-            avec Project dédié AO, Cowork installé avec skills opérationnels, bibliothèque de 30 prompts spécialisés
-            DCE/mémoire technique, template Word structure MT (3 modèles), skills Cowork personnalisés (analyse DCE,
-            mémoire technique, veille AO, productivité).
+            <strong>Supports remis :</strong> support de formation numérique, compte Claude Pro configuré avec Project
+            dédié AO, Cowork installé avec skills opérationnels, bibliothèque de 30 prompts spécialisés DCE/mémoire
+            technique, template Word structure MT (3 modèles), skills personnalisés (analyse DCE, mémoire technique,
+            veille AO, productivité).
           </li>
           <li>
-            <strong>Évaluation :</strong> exercices pratiques et validation par le formateur en continu,
-            questionnaire de satisfaction à chaud et à froid (J+30), certificat de réalisation et attestation de fin de formation délivrés à l&apos;issue
-            de la session.
+            <strong>Évaluation :</strong> questionnaire de positionnement amont, auto-positionnement entrée/sortie,
+            évaluation continue sur exercices pratiques, questionnaire de satisfaction à chaud et à froid (J+30),
+            certificat de réalisation et attestation individuelle de fin de formation.
           </li>
         </ul>
       </section>

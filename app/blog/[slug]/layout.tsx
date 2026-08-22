@@ -1,4 +1,5 @@
 import { BlogReadingProgress } from '@/components/blog/BlogReadingProgress';
+import { BlogReadCompleteTracker } from '@/components/analytics/BlogReadCompleteTracker';
 
 export const revalidate = 3600;
 
@@ -7,6 +8,7 @@ export default function BlogArticleLayout({ children }: { children: React.ReactN
   return (
     <>
       <BlogReadingProgress />
+      <BlogReadCompleteTracker />
       {children}
     </>
   );

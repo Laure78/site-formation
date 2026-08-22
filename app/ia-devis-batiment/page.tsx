@@ -3,7 +3,8 @@ import Link from 'next/link';
 import { Check, FileText, Calculator, Clock, ArrowRight, Calendar } from 'lucide-react';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
 import { RdvLink } from '@/components/RdvLink';
-import { CALENDLY_BOOKING_URL, buildSiteCalendlyCtaUrl } from '@/lib/calendly';
+import { LINKS } from '@/lib/internal-links';
+import { SCHEMA_PUBLIC_SITE_URL } from '@/lib/schema-constants';
 import { ShortAnswerBlock } from '@/components/landing/ShortAnswerBlock';
 import { createPageMetadata, getFAQSchema } from '@/lib/seo';
 import { JsonLd } from '@/components/JsonLd';
@@ -496,15 +497,11 @@ export default function IADevisBatimentPage() {
             </Link>
           </div>
           <p className="mt-6 text-sm text-slate-600">
-            Lien direct agenda :{' '}
-            <a
-              href={buildSiteCalendlyCtaUrl('ia-devis')}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="font-medium text-[var(--accent)] hover:underline"
-            >
-              {CALENDLY_BOOKING_URL}
-            </a>
+            Page de réservation :{' '}
+            <Link href={LINKS.prendreRdv} className="font-medium text-[var(--accent)] hover:underline">
+              {SCHEMA_PUBLIC_SITE_URL.replace(/\/$/, '')}
+              {LINKS.prendreRdv}
+            </Link>
           </p>
         </section>
 

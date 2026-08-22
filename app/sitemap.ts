@@ -55,6 +55,23 @@ async function getCoursSitemapEntries(baseUrl: string): Promise<MetadataRoute.Si
   }
 }
 
+/** Pages conformité Qualiopi (indicateur 1) — indexables, priorité crawl modérée. */
+const COMPLIANCE_SITEMAP_PATHS = [
+  LINKS.informationsReglementaires,
+  LINKS.livretAccueilStagiaire,
+  LINKS.reglementInterieur,
+  LINKS.reclamations,
+] as const;
+
+function getComplianceSitemapRoutes(baseUrl: string): MetadataRoute.Sitemap {
+  return COMPLIANCE_SITEMAP_PATHS.map((path) => ({
+    url: `${baseUrl}${path}`,
+    lastModified: resolveSitemapLastModified(path),
+    changeFrequency: 'yearly' as const,
+    priority: 0.3 as const,
+  }));
+}
+
 /**
  * Pages marketing listées explicitement (hors blocs générés depuis données / registres).
  * À tenir à jour lors de l’ajout de nouvelles landing pages publiques.
@@ -114,12 +131,10 @@ function getAdditionalMarketingRoutes(baseUrl: string): MetadataRoute.Sitemap {
     { path: '/formation-ia', priority: 0.92, changeFrequency: 'weekly' },
     { path: '/formation-ia/faq', priority: 0.88, changeFrequency: 'monthly' },
     { path: '/formations/ia-pme-btp', priority: 0.85, changeFrequency: 'monthly' },
-    // Pages légales indexables mais exclues du sitemap (faible valeur crawl) :
-    // /mentions-legales, /cgv, /reglement-interieur, /politique-confidentialite
+    // Pages conformité : voir getComplianceSitemapRoutes (priorité 0.3)
     { path: '/annuaire-handicap', priority: 0.5, changeFrequency: 'yearly' },
     { path: LINKS.qualiopi, priority: 0.55, changeFrequency: 'yearly' },
     { path: LINKS.indicateursResultats, priority: 0.5, changeFrequency: 'yearly' },
-    { path: LINKS.reclamations, priority: 0.45, changeFrequency: 'yearly' },
     { path: LINKS.accessibiliteHandicap, priority: 0.5, changeFrequency: 'yearly' },
     { path: '/install-pwa', priority: 0.7, changeFrequency: 'monthly' },
     { path: '/ressources/tutos', priority: 0.88, changeFrequency: 'weekly' },
@@ -237,7 +252,6 @@ const SITEMAP_EXCLUDED_LOW_VALUE_PATHS = new Set<string>([
   '/mentions-legales',
   '/politique-confidentialite',
   '/cgv',
-  '/reglement-interieur',
 ]);
 
 /**
@@ -307,6 +321,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   const blogEntries = buildBlogSitemapEntries(baseUrl);
   const additional = getAdditionalMarketingRoutes(baseUrl);
+  const compliance = getComplianceSitemapRoutes(baseUrl);
   const coursEntries = await getCoursSitemapEntries(baseUrl);
 
   const tutosRessources: MetadataRoute.Sitemap = TUTOS.map((tuto) => ({
@@ -328,6 +343,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...deptLandings,
     ...blogEntries,
     ...additional,
+    ...compliance,
     ...coursEntries,
     ...tutosRessources,
   ]).map((entry) => applySeoPriorityRules(baseUrl, entry));

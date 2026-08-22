@@ -3,6 +3,7 @@ import Image from 'next/image';
 import { SITE_CONFIG } from '@/lib/seo';
 import { PortraitLinkedInLink } from '@/components/PortraitLinkedInLink';
 import { PHOTOS } from '@/lib/photos';
+import { IMAGE_SIZES } from '@/lib/image-props';
 import { AUTHOR_HEADSHOT_OBJECT_POSITION } from '@/lib/author-headshot';
 import { QualiopiWordmark } from '@/components/QualiopiLogo';
 import { OFC_CARD, OFC_LINK } from '@/lib/ofc-interaction-classes';
@@ -68,7 +69,8 @@ export function ArticlesFormationLies() {
                   loading="lazy"
                   className="object-cover"
                   sizes="(max-width: 768px) 100vw, 33vw"
-                />
+                
+                  quality={70}/>
               </Link>
               <div className="flex flex-1 flex-col p-5">
                 <div className="flex flex-wrap items-center gap-x-2 gap-y-1 text-sm">
@@ -96,6 +98,8 @@ export function ArticlesFormationLies() {
                       height={36}
                       loading="lazy"
                       className={`h-9 w-9 rounded-full object-cover ${AUTHOR_HEADSHOT_OBJECT_POSITION}`}
+                      sizes={IMAGE_SIZES.avatarXs}
+                      quality={70}
                     />
                   </PortraitLinkedInLink>
                   <div className="min-w-0">

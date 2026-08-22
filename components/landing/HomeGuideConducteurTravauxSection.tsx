@@ -119,7 +119,8 @@ export function HomeGuideConducteurTravauxSection() {
                     loading="lazy"
                     className="object-cover"
                     sizes="(max-width: 1024px) 100vw, 480px"
-                  />
+                  
+                    quality={70}/>
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-900/50 via-transparent to-transparent lg:bg-gradient-to-l lg:from-slate-900/40 lg:via-transparent lg:to-transparent" />
                   <p className="absolute bottom-4 left-4 right-4 text-sm font-semibold text-white drop-shadow-sm">
                     Conducteur de travaux — prompts inclus · ~400 Ko

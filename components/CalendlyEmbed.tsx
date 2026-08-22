@@ -1,34 +1,29 @@
 'use client';
 
-import { useCallback, type MouseEventHandler, type ReactNode } from 'react';
+import type { ReactNode } from 'react';
 import { usePathname } from 'next/navigation';
-import { sendGTMEvent } from '@next/third-parties/google';
+import { CtaButton } from '@/components/CtaButton';
 import {
-  CALENDLY_EMBED_URL,
   buildCalendlyInlineIframeUrl,
   buildCalendlyUrlWithUtm,
   deriveCalendlyCampaign,
+  CALENDLY_EMBED_URL,
 } from '@/lib/calendly';
 import {
-  CALENDLY_BUTTON_VARIANT_CLASS,
-  CALENDLY_DEFAULT_BUTTON_TEXT,
   CALENDLY_INLINE_DEFAULT_HEIGHT_PX,
   type CalendlyEmbedVariant,
 } from '@/lib/calendly-embed-config';
-import { toRdvCalendlyPosition } from '@/lib/calendly-analytics';
 
-/** `popup` conservé pour compatibilité — ouvre Calendly en nouvel onglet (plus de modal). */
+/** `popup` conservé pour compatibilité — redirige vers `/prendre-rendez-vous`. */
 export type CalendlyEmbedType = 'popup' | 'inline' | 'link';
 
 type CtaPosition = 'hero' | 'middle' | 'footer' | 'inline' | 'floating' | 'unknown';
 
 export type CalendlyEmbedProps = {
-  /** URL Calendly — défaut : événement appel découverte OFC. */
+  /** @deprecated Ignoré hors mode `inline` — Calendly réservé à `/prendre-rendez-vous`. */
   url?: string;
   type?: CalendlyEmbedType;
-  /** Libellé bouton si pas d’enfants React. */
   buttonText?: string;
-  /** utm_campaign */
   campaign?: string;
   ctaPosition?: CtaPosition;
   ctaId?: string;
@@ -37,41 +32,16 @@ export type CalendlyEmbedProps = {
   className?: string;
   variant?: CalendlyEmbedVariant;
   heightPx?: number;
-  /** En-tête section (mode inline). */
   sectionTitle?: string;
   sectionSubtitle?: string;
   children?: ReactNode;
-  onClick?: MouseEventHandler<HTMLButtonElement | HTMLAnchorElement>;
-  /** Attributs data-* analytics hérités de CTACalendly. */
+  onClick?: React.MouseEventHandler<HTMLAnchorElement>;
   'data-calendly-tracked'?: string;
   id?: string;
   title?: string;
   disabled?: boolean;
   'aria-label'?: string;
 };
-
-/**
- * Événement GA4 `rdv_calendly_click` (page_path + position).
- * No-op si `gtag` absent (NEXT_PUBLIC_GA_MEASUREMENT_ID non défini).
- */
-function trackCalendlyClick(pagePath: string, ctaPosition: string, ctaId: string) {
-  const position = toRdvCalendlyPosition(ctaPosition);
-  const payload = {
-    event: 'rdv_calendly_click',
-    page_path: pagePath,
-    position,
-    cta_id: ctaId,
-  };
-  sendGTMEvent(payload);
-  const w = window as Window & { gtag?: (...args: unknown[]) => void };
-  if (typeof w.gtag === 'function') {
-    w.gtag('event', 'rdv_calendly_click', {
-      page_path: pagePath,
-      position,
-      cta_id: ctaId,
-    });
-  }
-}
 
 function CalendlyInlineBody({
   url,
@@ -105,7 +75,6 @@ function CalendlyInlineBody({
         <a
           href={url}
           target="_blank"
-          rel="noopener noreferrer"
           className="ofc-link font-semibold"
         >
           Ouvrir l&apos;agenda dans un nouvel onglet
@@ -116,20 +85,19 @@ function CalendlyInlineBody({
 }
 
 /**
- * Widget Calendly unifié — lien nouvel onglet ou iframe inline.
- * Source unique pour toutes les pages de conversion du site.
+ * Widget Calendly — mode `inline` uniquement (réservé à `/prendre-rendez-vous`).
+ * Les autres types délèguent à {@link CtaButton} vers `/prendre-rendez-vous`.
  */
 export function CalendlyEmbed({
   url,
   type = 'link',
-  buttonText = CALENDLY_DEFAULT_BUTTON_TEXT,
+  buttonText,
   campaign,
   ctaPosition = 'unknown',
   ctaId,
   utmSource = 'site',
   utmMedium = 'cta',
   className = '',
-  variant = 'primary',
   heightPx = CALENDLY_INLINE_DEFAULT_HEIGHT_PX,
   sectionTitle,
   sectionSubtitle,
@@ -139,6 +107,7 @@ export function CalendlyEmbed({
   title,
   disabled,
   'aria-label': ariaLabel,
+  variant: _variant,
 }: CalendlyEmbedProps) {
   const pathname = usePathname();
   const resolvedCtaId = ctaId ?? `calendly-${ctaPosition}`;
@@ -154,17 +123,7 @@ export function CalendlyEmbed({
     utmCampaign: resolvedCampaign,
   });
   const label = children ?? buttonText;
-
-  const handleLinkClick: MouseEventHandler<HTMLAnchorElement> = (e) => {
-    if (disabled) {
-      e.preventDefault();
-      return;
-    }
-    const pagePath =
-      typeof window !== 'undefined' ? window.location.pathname : 'unknown';
-    trackCalendlyClick(pagePath, ctaPosition, resolvedCtaId);
-    onClick?.(e);
-  };
+  const origin = ctaId ?? campaign ?? ctaPosition ?? resolvedCtaId;
 
   if (type === 'inline') {
     return (
@@ -186,32 +145,17 @@ export function CalendlyEmbed({
     );
   }
 
-  const linkClassName = [
-    'cta-calendly',
-    `cta-calendly--${ctaPosition}`,
-    CALENDLY_BUTTON_VARIANT_CLASS[variant],
-    className,
-  ]
-    .filter(Boolean)
-    .join(' ');
-
   return (
-    <a
-      href={resolvedUrl}
+    <CtaButton
       id={id}
+      origin={origin}
+      className={className}
       title={title}
-      aria-label={ariaLabel ?? (typeof label === 'string' ? label : 'Prendre rendez-vous — visio découverte')}
-      target="_blank"
-      rel="noopener noreferrer"
-      data-calendly
-      data-calendly-tracked="component"
-      data-cta-position={ctaPosition}
-      data-cta-id={resolvedCtaId}
-      onClick={handleLinkClick}
+      aria-label={ariaLabel ?? (typeof label === 'string' ? label : undefined)}
+      onClick={onClick}
       aria-disabled={disabled || undefined}
-      className={`${linkClassName}${disabled ? ' pointer-events-none opacity-50' : ''}`.trim()}
     >
       {label}
-    </a>
+    </CtaButton>
   );
 }

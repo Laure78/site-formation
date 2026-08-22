@@ -10,6 +10,7 @@ import {
   A_PROPOS_PARTNERS_GRID,
 } from '@/lib/a-propos-partners-grid';
 import { PHOTOS } from '@/lib/photos';
+import { IMAGE_SIZES } from '@/lib/image-props';
 import { OFC_CARD, OFC_LINK } from '@/lib/ofc-interaction-classes';
 import { Reveal, RevealGroup } from '@/components/motion/Reveal';
 
@@ -43,7 +44,9 @@ export function PartnersGrid() {
                   width={200}
                   height={100}
                   className="max-h-20 w-auto object-contain grayscale transition duration-300 group-hover:grayscale-0 motion-reduce:transition-none"
+                  sizes={IMAGE_SIZES.logoPartnerCard}
                   loading="lazy"
+                  quality={70}
                 />
               </div>
               <div className="mt-4 text-center">
@@ -93,6 +96,9 @@ export function PartnersGrid() {
                 width={PHOTOS.rencontresArtisansIaFfbBtp.width}
                 height={PHOTOS.rencontresArtisansIaFfbBtp.height}
                 className="h-full w-full rounded-xl object-cover shadow-lg transition-transform duration-500 hover:scale-[1.02] motion-reduce:transition-none motion-reduce:hover:scale-100"
+                sizes={IMAGE_SIZES.cardHalf}
+                loading="lazy"
+                quality={70}
               />
             </div>
           </article>

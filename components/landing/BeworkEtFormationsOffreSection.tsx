@@ -68,7 +68,8 @@ export function BeworkEtFormationsOffreSection() {
                       loading="lazy"
                       className="object-contain object-center"
                       sizes="(max-width: 640px) 200px, 240px"
-                    />
+                    
+                      quality={70}/>
                     <CataloguePriceBadge level={cours.level} prixHT={cours.prixHT} variant="overlay" />
                   </div>
                 </div>

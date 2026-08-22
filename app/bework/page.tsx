@@ -125,7 +125,9 @@ function GalleryGrid({ photos, columns = 3 }: { photos: BeworkPhoto[]; columns?:
               fill
               className="object-cover object-top"
               sizes="(min-width: 1024px) 360px, 50vw"
-            />
+            
+              quality={70}
+              loading="lazy"/>
           </div>
           {photo.caption ? (
             <figcaption className="border-t border-slate-100 px-3 py-2 text-xs text-[#64748B]">
@@ -243,7 +245,8 @@ export default function BeworkPage() {
               className="h-auto w-full"
               priority
               sizes="(min-width: 1024px) 560px, 100vw"
-            />
+            
+              quality={75}/>
             {BEWORK_PHOTO_HERO.caption ? (
               <figcaption className="border-t border-slate-100 bg-[#0F172A] px-4 py-3 text-center text-sm leading-snug text-white">
                 {BEWORK_PHOTO_HERO.caption}

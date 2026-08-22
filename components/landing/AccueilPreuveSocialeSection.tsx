@@ -67,7 +67,8 @@ export function AccueilPreuveSocialeSection() {
                 loading="lazy"
                 className="object-cover object-[center_15%]"
                 sizes="(max-width: 1024px) 100vw, 576px"
-              />
+              
+                quality={70}/>
             </div>
           </div>
         </div>

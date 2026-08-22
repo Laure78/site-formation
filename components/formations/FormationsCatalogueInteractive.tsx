@@ -88,7 +88,9 @@ function FormationCard({
             fill
             className="object-contain object-center"
             sizes="(max-width: 640px) 200px, 240px"
-          />
+          
+            quality={70}
+            loading="lazy"/>
           <span
             className={`absolute right-0 top-0 rounded-full px-2.5 py-1 text-[10px] font-bold backdrop-blur-sm sm:px-3 sm:py-1.5 sm:text-xs ${
               isDebutant

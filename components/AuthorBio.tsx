@@ -1,88 +1,40 @@
-'use client';
-
 import Image from 'next/image';
-import Script from 'next/script';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
-import { ExternalLink } from 'lucide-react';
-import { CTACalendly } from '@/components/CTACalendly';
-import {
-  SCHEMA_CONTACT,
-  SCHEMA_LINKEDIN_PROFILE_URL,
-  SCHEMA_ORGANIZATION_OFC,
-  SCHEMA_PERSON_LAURE,
-  SCHEMA_PUBLIC_SITE_URL,
-} from '@/lib/schema-constants';
+import { CtaButton } from '@/components/CtaButton';
+import { LinkedInIcon } from '@/components/icons/LinkedInIcon';
 import { LINKS } from '@/lib/internal-links';
 import { PHOTOS } from '@/lib/photos';
 import { AUTHOR_HEADSHOT_OBJECT_POSITION } from '@/lib/author-headshot';
-import { getLaureOlivieAuthorBioBody } from '@/lib/laure-olivie-profile';
-
-const LINKEDIN_LEARNING_INSTRUCTOR =
-  'https://www.linkedin.com/learning/instructors/laure-olivie' as const;
-
-const MALT_PROFILE_URL = 'https://www.malt.fr/profile/laureoli' as const;
-
-function buildAuthorBioPersonSchema(): Record<string, unknown> {
-  const base = SCHEMA_PUBLIC_SITE_URL.replace(/\/$/, '');
-  const siren = SCHEMA_CONTACT.siretDigits.slice(0, 9);
-  const portraitUrl = `${base}${PHOTOS.siteAvatar.src}`;
-
-  return {
-    '@context': 'https://schema.org',
-    '@type': 'Person',
-    name: SCHEMA_PERSON_LAURE.name,
-    jobTitle:
-      "Formatrice IA pour le BTP, fondatrice et présidente d'OFC Création d'Entreprise",
-    url: `${base}${LINKS.aPropos}`,
-    image: portraitUrl,
-    sameAs: [
-      SCHEMA_LINKEDIN_PROFILE_URL,
-      LINKEDIN_LEARNING_INSTRUCTOR,
-      MALT_PROFILE_URL,
-      `https://annuaire-entreprises.data.gouv.fr/entreprise/${siren}`,
-    ],
-    worksFor: {
-      '@type': 'Organization',
-      name: SCHEMA_ORGANIZATION_OFC.name,
-      url: base,
-    },
-    alumniOf: 'ALIA BTP (2017-2024)',
-    knowsAbout: ['Formation IA pour les pros du BTP', 'ChatGPT', 'Claude AI', 'Construction', 'BTP'],
-  };
-}
+import { SCHEMA_LINKEDIN_PROFILE_URL, SCHEMA_PERSON_LAURE } from '@/lib/schema-constants';
 
 export type AuthorBioProps = {
   className?: string;
-  /** Évite un id JSON-LD en doublon si plusieurs blocs sur la même vue. */
-  schemaScriptId?: string;
+  /** Origin GA4 pour le CTA RDV. */
+  origin?: string;
+  /** Titre du bloc (accessibilité). */
+  heading?: string;
 };
 
+const BIO_LINES = [
+  'Plus de 10 ans de terrain BTP, dont une expérience comme conductrice de travaux.',
+  'Instructrice officielle LinkedIn Learning — cours IA appliqués au bâtiment.',
+  "OFC Création d'Entreprise, organisme certifié Qualiopi — formations en présentiel, Île-de-France uniquement.",
+] as const;
+
 /**
- * Bio auteure — bas d’article (E-E-A-T / GEO) + JSON-LD `Person`.
+ * Bio auteure réutilisable — blog, pages métier, À propos (E-E-A-T / GEO).
+ * JSON-LD Person global : `GlobalSiteJsonLd` dans `app/layout.tsx` (pas de doublon ici).
  */
-export default function AuthorBio({
+export function AuthorBio({
   className,
-  schemaScriptId = 'author-bio-schema',
+  origin = 'author-bio',
+  heading = "À propos de l'auteure",
 }: AuthorBioProps) {
-  const pathname = usePathname();
-  const calendlyPage =
-    pathname == null || pathname === '/'
-      ? 'site'
-      : pathname.replace(/^\/+|\/+$/g, '').replace(/\//g, '-');
-
-  const schema = buildAuthorBioPersonSchema();
-
   return (
     <aside
-      className={`mt-12 rounded-2xl border-l-4 border-[#377CF3] bg-[#F2F2F2] p-6 ${className ?? ''}`}
+      className={`mt-12 rounded-2xl border-l-4 border-[#377CF3] bg-[#F2F2F2] p-6${className ? ` ${className}` : ''}`}
       aria-labelledby="author-bio-heading"
     >
-      <Script
-        id={schemaScriptId}
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
-      />
       <div className="flex flex-col items-start gap-6 sm:flex-row">
         <Image
           src={PHOTOS.siteAvatar.src}
@@ -91,45 +43,43 @@ export default function AuthorBio({
           height={120}
           className={`h-[120px] w-[120px] shrink-0 rounded-full border-2 border-white object-cover ${AUTHOR_HEADSHOT_OBJECT_POSITION} shadow-md`}
           sizes="120px"
+          quality={70}
+          loading="lazy"
         />
         <div className="min-w-0 flex-1">
-          <h3
-            id="author-bio-heading"
-            className="mb-2 text-lg font-semibold text-slate-900"
-          >
-            À propos de l&apos;auteure
-          </h3>
-          <p className="mb-4 leading-relaxed text-slate-700">
-            <strong>{SCHEMA_PERSON_LAURE.name}</strong> {getLaureOlivieAuthorBioBody()}{' '}
-            <strong>Instructrice officielle LinkedIn Learning.</strong>
+          <h2 id="author-bio-heading" className="text-lg font-semibold text-slate-900">
+            {heading}
+          </h2>
+          <p className="mt-2 font-semibold text-slate-900">
+            {SCHEMA_PERSON_LAURE.name}
+            <span className="font-normal text-slate-600">
+              {' '}
+              — Formatrice IA pour les professionnels du BTP
+            </span>
           </p>
-          <div className="flex flex-wrap items-center gap-3 text-sm">
-            <CTACalendly
-              page={calendlyPage}
-              ctaPosition="footer"
-              ctaId="author-bio"
-              utmSource="site"
-              utmMedium="cta"
-              utmCampaign="author-bio"
-              className="inline-block rounded-lg bg-[#377CF3] px-4 py-2 font-semibold text-white transition-colors hover:bg-[#2563EB]"
-              unstyled
-            >
-              Réservez votre visio découverte gratuite
-            </CTACalendly>
+          <ul className="mt-3 space-y-1.5 text-sm leading-relaxed text-slate-700 md:text-[0.95rem]">
+            {BIO_LINES.map((line) => (
+              <li key={line.slice(0, 32)}>{line}</li>
+            ))}
+          </ul>
+          <div className="mt-5">
+            <CtaButton origin={origin} className="w-full sm:w-auto" />
+          </div>
+          <div className="mt-4 flex flex-wrap items-center gap-4 text-sm">
             <Link
               href={LINKS.aPropos}
-              className="text-[#377CF3] underline hover:no-underline"
+              className="font-medium text-[#377CF3] underline decoration-[#377CF3]/30 hover:decoration-[#377CF3]"
             >
-              Voir le parcours complet →
+              Parcours complet →
             </Link>
             <a
               href={SCHEMA_LINKEDIN_PROFILE_URL}
               target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1 font-medium text-[#377CF3] underline hover:no-underline"
+              rel="me noopener"
+              className="inline-flex items-center gap-1.5 font-medium text-slate-600 underline decoration-slate-300 hover:text-[#377CF3] hover:decoration-[#377CF3]/40"
             >
-              <ExternalLink size={14} strokeWidth={1.5} aria-hidden />
-              LinkedIn
+              <LinkedInIcon className="h-4 w-4 shrink-0" />
+              Suivre Laure Olivié sur LinkedIn
             </a>
           </div>
         </div>
@@ -137,3 +87,5 @@ export default function AuthorBio({
     </aside>
   );
 }
+
+export default AuthorBio;
