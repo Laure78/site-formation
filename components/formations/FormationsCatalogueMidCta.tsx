@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { CalendlyEmbed } from '@/components/CalendlyEmbed';
 import { LINKS } from '@/lib/internal-links';
-import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
+import { formatProfessionalsTrainedCount } from '@/lib/constants';
 import { SITE_CONFIG } from '@/lib/seo';
 
 export function FormationsCatalogueMidCta() {
@@ -28,7 +28,7 @@ export function FormationsCatalogueMidCta() {
               <span className="text-white/40" aria-hidden>
                 ·
               </span>
-              <span>✓ {SOCIAL_PROOF.AVERAGE_RATING}</span>
+              <span>✓ Qualiopi</span>
               <span className="text-white/40" aria-hidden>
                 ·
               </span>

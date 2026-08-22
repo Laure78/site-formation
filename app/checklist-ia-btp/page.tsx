@@ -150,7 +150,7 @@ export default function ChecklistIABTPPage() {
             </p>
             <ul className="mt-6 space-y-2 text-slate-700">
               {[
-                `${formatProfessionalsTrainedCount()}+ professionnels formés · note ${SOCIAL_PROOF.AVERAGE_RATING}`,
+                `${formatProfessionalsTrainedCount()}+ professionnels formés · note `,
                 'Prompts conçus pour le terrain BTP (pas du jargon startup)',
                 'Complément naturel d’une formation IA pour le BTP Qualiopi (Constructys selon éligibilité)',
               ].map((line) => (

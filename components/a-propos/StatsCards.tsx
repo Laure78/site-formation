@@ -1,11 +1,10 @@
-import { Award, Clock3, GraduationCap, Star, Users } from 'lucide-react';
-import { formatProfessionalsTrainedCount, SOCIAL_PROOF } from '@/lib/constants';
+import { Award, Clock3, GraduationCap, Users } from 'lucide-react';
+import { formatProfessionalsTrainedCount } from '@/lib/constants';
 import { OFC_CARD } from '@/lib/ofc-interaction-classes';
 import { IndicateursResultatsLink } from '@/components/formation/IndicateursResultatsLink';
 
 const STATS = [
   { icon: Users, value: formatProfessionalsTrainedCount(), label: 'PROS FORMÉS', ring: 'bg-[#EFF6FF]' },
-  { icon: Star, value: SOCIAL_PROOF.AVERAGE_RATING, label: 'SATISFACTION', ring: 'bg-[#FEF3C7]' },
   { icon: Clock3, value: '10 ans', label: 'TERRAIN BTP', ring: 'bg-[#EFF6FF]' },
   { icon: Award, value: 'Qualiopi', label: 'CERTIFIÉE', ring: 'bg-[#D1FAE5]' },
   { icon: GraduationCap, value: 'LinkedIn Learning', label: 'INSTRUCTRICE', ring: 'bg-[#EFF6FF]' },
@@ -19,7 +18,7 @@ export function StatsCards() {
           <h2 className="font-display text-3xl font-bold tracking-tight text-[#0F172A] md:text-4xl">Chiffres clés</h2>
           <p className="max-w-md text-sm text-[#64748B]">Indicateurs consolidés de formation IA pour les pros du BTP.</p>
         </div>
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {STATS.map((item) => {
             const Icon = item.icon;
             return (

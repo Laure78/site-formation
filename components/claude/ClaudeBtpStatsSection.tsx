@@ -44,8 +44,8 @@ export function ClaudeBtpStatsSection() {
       }))}
       footnote={
         <>
-          Source : mesures OFC sur 8 tâches, sessions FFB Grand Paris, FFB Île-de-France, CSFE — note moyenne{' '}
-          {SOCIAL_PROOF.AVERAGE_RATING}.
+          Source : mesures OFC sur 8 tâches, sessions FFB Grand Paris, FFB Île-de-France, CSFE —{' '}
+          {formatProfessionalsTrainedCount()} professionnels formés.
         </>
       }
     />

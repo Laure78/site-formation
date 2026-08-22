@@ -18,7 +18,7 @@
 
 Formation IA pour Maçons & Gros Œuvre — Devis, Métré et Planning de Chantier
 
-**Hero :** OFC Création d’Entreprise · Qualiopi · Constructys · 1 500+ pros · 4,85/5  
+**Hero :** OFC Création d’Entreprise · Qualiopi · Constructys · 1 500+ pros ·   
 **CTA Calendly #1 :** Réservez votre visio découverte gratuite
 
 ---

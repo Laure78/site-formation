@@ -1,7 +1,7 @@
 /**
  * Contenu E-E-A-T — page /a-propos (Expertise, Expérience, Autorité, Trustworthiness).
  */
-import { SOCIAL_PROOF, formatPersonnesFormeesCount, getStatsFreshnessLabel } from '@/lib/constants';
+import { formatPersonnesFormeesCount, getStatsFreshnessLabel } from '@/lib/constants';
 import { SCHEMA_CONTACT } from '@/lib/schema-constants';
 import {
   getLaureOlivieEeatIntro,
@@ -22,7 +22,7 @@ export const A_PROPOS_TIMELINE = LAURE_OLIVIE_PARCOURS_TIMELINE;
 
 export const A_PROPOS_AUTORITE_PARAGRAPHS = [
   `OFC Création d'Entreprise est **organisme de formation référencé FFB Grand Paris** depuis 2020 et intervient régulièrement avec la **FFB Île-de-France**, la **CSFE** (Chambre Syndicale de l'Étanchéité), **CNAM Entreprise** et **Lefebvre Dalloz**. Ces partenariats ne sont pas des logos décoratifs : ce sont des cadres de confiance pour des sessions finançables **Constructys** selon éligibilité.`,
-  `Les chiffres consolidés (${getStatsFreshnessLabel()}) : **${formatPersonnesFormeesCount()} professionnels formés**, note moyenne **${SOCIAL_PROOF.AVERAGE_RATING}** sur les questionnaires Qualiopi en fin de session. Je suis **instructrice officielle LinkedIn Learning** (cours IA BTP en français). Les retours **Google** et les réservations **Calendly** complètent cette preuve sociale — des dirigeants et conducteurs de travaux qui reviennent en intra ou recommandent la session à leur réseau.`,
+  `Les chiffres consolidés (${getStatsFreshnessLabel()}) : **${formatPersonnesFormeesCount()} professionnels formés**. Les indicateurs Qualiopi détaillés sont publiés sur la page [indicateurs de résultats](/indicateurs-resultats). Je suis **instructrice officielle LinkedIn Learning** (cours IA BTP en français). Les retours **Google** et les réservations **Calendly** complètent cette preuve sociale — des dirigeants et conducteurs de travaux qui reviennent en intra ou recommandent la session à leur réseau.`,
   `Les retours les plus fréquents portent sur le **gain de temps immédiat** (5 à 8 h par semaine sur l'administratif), la **clarté des comptes rendus** et la **montée en compétence progressive** sans jargon. Les fédérations apprécient un contenu opérationnel, finançable et mesurable — critères que je documente dans chaque convention et bilan de fin de session.`,
   `En tant qu'**instructrice LinkedIn Learning**, mes cours à la demande sont publics, vérifiables et complètent les sessions OFC en présentiel. Cette double présence — plateforme internationale et terrain Île-de-France — renforce la crédibilité pour les entreprises qui hésitent encore entre « buzz IA » et outil utile au quotidien.`,
 ] as const;
@@ -37,7 +37,7 @@ export const A_PROPOS_MISSION = {
     `Ma mission : **transformer la productivité BTP par l'IA opérationnelle** — pas par des promesses marketing. Chaque session vise des gains mesurables sur CR, devis, mails et dossiers marchés, avec relecture humaine systématique.`,
     `Mon approche : **100 % terrain, zéro théorie inutile**. Environ 70 % de pratique sur vos documents réels. Vous repartez avec des prompts calibrés « vocabulaire BTP » et un protocole de relecture.`,
     `Ma philosophie : **l'IA pour laisser les professionnels du BTP faire du métier**. L'outil structure, reformule, accélère — il ne signe pas, ne constate pas sur le chantier et ne négocie pas à votre place.`,
-    `Concrètement, une session type alterne démonstration, pratique guidée et plan d'action individuel. Je refuse les slides « histoire de l'IA » : on ouvre ChatGPT ou Claude, on charge un CCTP anonymisé, on produit un livrable, on le relit ensemble. C'est cette exigence qui explique la note **${SOCIAL_PROOF.AVERAGE_RATING}** et le taux de recommandation élevé entre pairs BTP.`,
+    `Concrètement, une session type alterne démonstration, pratique guidée et plan d'action individuel. Je refuse les slides « histoire de l'IA » : on ouvre ChatGPT ou Claude, on charge un CCTP anonymisé, on produit un livrable, on le relit ensemble. C'est cette exigence qui explique le taux de recommandation élevé entre pairs BTP.`,
   ],
 } as const;
 

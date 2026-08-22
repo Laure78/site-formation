@@ -116,7 +116,7 @@ export const GROS_OEUVRE_INTERNAL_LINKS = [
 
 export const GROS_OEUVRE_COURSE = {
   name: 'Formation IA gros œuvre BTP — devis, DCE et suivi de chantier',
-  description: `${OFC} : formation IA et ChatGPT pour le gros œuvre — devis, DCE, CCTP lot 2, planning et CR de chantier. Session 4 h, Qualiopi, présentiel Île-de-France, financement possible selon éligibilité. Déjà ${formatProofFormes(PROOF.formes)} professionnels formés · note ${PROOF.note}.`,
+  description: `${OFC} : formation IA et ChatGPT pour le gros œuvre — devis, DCE, CCTP lot 2, planning et CR de chantier. Session 4 h, Qualiopi, présentiel Île-de-France, financement possible selon éligibilité. Déjà ${formatProofFormes(PROOF.formes)} professionnels formés · note .`,
   teaches: [
     'ChatGPT pour entreprises de gros œuvre',
     'Devis et structure de postes (sans chiffrage définitif)',

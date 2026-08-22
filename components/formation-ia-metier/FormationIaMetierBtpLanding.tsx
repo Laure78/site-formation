@@ -131,8 +131,7 @@ export function FormationIaMetierBtpLanding({ config }: { config: FormationIaMet
             {OFC} — formation IA &amp; ChatGPT pour {config.metierNom} du BTP : devis, chantier, mémoires techniques.
             Sessions en présentiel en Île-de-France (4 h), dispensées par un organisme certifié Qualiopi. Financement possible selon éligibilité.
             Plus de{' '}
-            <strong className="text-slate-800">{formatProfessionalsTrainedCount()} professionnels</strong> formés · note{' '}
-            <strong className="text-slate-800">{SOCIAL_PROOF.AVERAGE_RATING}</strong>.
+            <strong className="text-slate-800">{formatProfessionalsTrainedCount()} professionnels</strong> formés.
           </p>
 
           {config.essentielItems && config.essentielItems.length > 0 ? (
@@ -363,7 +362,7 @@ export function FormationIaMetierBtpLanding({ config }: { config: FormationIaMet
                   <strong>{SITE_CONFIG.name}</strong> est formatrice organisme certifié Qualiopi pour {OFC}. Elle accompagne les
                   entreprises du bâtiment et des travaux publics sur ChatGPT, Claude et les usages responsables de
                   l&apos;IA (devis, mémoires techniques, comptes rendus). Instructrice LinkedIn Learning, elle a formé
-                  plus de {formatProfessionalsTrainedCount()} professionnels · note moyenne {SOCIAL_PROOF.AVERAGE_RATING}.{' '}
+                  plus de {formatProfessionalsTrainedCount()} professionnels · .{' '}
                   {config.authorBioClosingLine ??
                     'Basée en Île-de-France, elle intervient exclusivement en présentiel pour les entreprises du bâtiment et des travaux publics.'}
                 </p>

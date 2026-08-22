@@ -14,7 +14,7 @@
 - Objectif UNIQUE : transformer le trafic organique en RDV visio Calendly
 - Audience : dirigeants PME BTP, conducteurs de travaux, chargés d'affaires, fonctions support bâtiment
 - NE PAS cibler : artisans (terme non utilisé), GERESO, tarif journalier
-- 1 500+ professionnels formés · note 4,85/5 · Qualiopi · Constructys
+- 1 500+ professionnels formés ·  · Qualiopi · Constructys
 
 ## Clients de référence (à mentionner naturellement)
 

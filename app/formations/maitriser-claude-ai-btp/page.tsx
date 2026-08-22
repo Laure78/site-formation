@@ -368,7 +368,7 @@ export default function FormationMaitriserClaudeAiBtpPage() {
             connecteurs/sécurité et un script ou automatisation Claude Code testé.
           </p>
           <p className="mt-4 text-sm text-slate-700 leading-relaxed">
-            En {new Date().getFullYear()}, OFC affiche une note de satisfaction de {siteStats.noteMoyenneAffichee} sur plus de {formatPersonnesFormeesCount()} professionnels formés
+            En {new Date().getFullYear()}, OFC affiche une indicateurs publiés sur la page dédiée sur plus de {formatPersonnesFormeesCount()} professionnels formés
             ({getStatsFreshnessLabel()}).
           </p>
           <ul className="mt-4 space-y-2 text-sm text-slate-700">

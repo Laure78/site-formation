@@ -237,7 +237,7 @@ export default function GuideMaitriseOeuvreIaPage() {
           </div>
           <p className="mx-auto mt-10 max-w-2xl rounded-xl bg-[#377CF3] px-6 py-4 text-lg font-medium text-white">
             Plus de {formatProfessionalsTrainedCount(SOCIAL_PROOF.PROFESSIONALS_TRAINED)} professionnels formés ·{' '}
-            {SOCIAL_PROOF.AVERAGE_RATING} · {FINANCEMENT_FORMULATION_COURTE}
+            {FINANCEMENT_FORMULATION_COURTE}
           </p>
         </div>
       </section>

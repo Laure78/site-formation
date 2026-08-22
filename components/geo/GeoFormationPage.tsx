@@ -20,7 +20,7 @@ import {
 } from '@/lib/contextual-internal-links';
 import { voirAussiDepartementProps } from '@/lib/voir-aussi';
 import { OFC_SEC } from '@/lib/ofc-section-classes';
-import { COUNT_UP_PROS, COUNT_UP_RATING, getStatsFreshnessLabel } from '@/lib/readability-presets';
+import { COUNT_UP_PROS, getStatsFreshnessLabel } from '@/lib/readability-presets';
 import { buildDeptMetaDescription } from '@/lib/meta-description';
 import { buildIdfDeptPageTitle } from '@/lib/seo-geo-keywords';
 import {
@@ -135,12 +135,6 @@ export function GeoFormationPage(props: GeoFormationPageProps) {
               variant="inline"
               value={COUNT_UP_PROS}
               label="professionnels formés"
-              freshnessLabel={statsFreshness}
-            />
-            <StatCallout
-              variant="inline"
-              value={COUNT_UP_RATING}
-              label="note moyenne"
               freshnessLabel={statsFreshness}
             />
           </div>

@@ -15,7 +15,7 @@
 ## Photo & bannière
 
 ⦿ photo : visage net, regard caméra, tenue crédible terrain + formation
-⦿ bannière : slogan OFC + preuve (« 1 500+ pros formés · 4,85/5 · Qualiopi ») + bleu #377CF3
+⦿ bannière : slogan OFC + preuve (« 1 500+ pros formés ·  · Qualiopi ») + bleu #377CF3
 ↳ route la refonte bannière vers le skill `banniere-linkedin-ofc`
 ↳ BeWork n'apparaît pas sur la bannière (le profil est d'abord OFC)
 
@@ -25,7 +25,7 @@ Structure : [ce qu'elle fait] + [cible BTP] + [preuve/différenciateur], < 220 c
 
 Exemples :
 ↳ « Je forme les pros du BTP à l'IA et ChatGPT · 10 ans de terrain avant la formation · plus de 1 500 professionnels formés · Qualiopi »
-↳ « Dirigeante d'une entreprise de Travaux Publics dans les Yvelines devenue formatrice IA pour le BTP · Je rends l'IA utile sur le chantier · 4,85/5 »
+↳ « Dirigeante d'une entreprise de Travaux Publics dans les Yvelines devenue formatrice IA pour le BTP · Je rends l'IA utile sur le chantier ·  »
 ↳ « Formatrice IA du BTP (OFC) · Fondatrice BeWork · Du terrain, pas de la théorie · 1 500+ pros formés »
 
 Règles :

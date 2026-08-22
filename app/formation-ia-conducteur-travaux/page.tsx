@@ -95,8 +95,7 @@ export default function FormationIaConducteurTravauxPage() {
             <ShortAnswerBlock>
               Automatisez CR, PPSPS, mails chantier et rapports de réception avec ChatGPT et Claude AI.
               Formation dispensée par un organisme certifié <strong>Qualiopi</strong>, éligible <strong>Constructys</strong> selon dossier —{' '}
-              <strong>+{formatProfessionalsTrainedCount()} professionnels</strong> formés, note{' '}
-              {SOCIAL_PROOF.AVERAGE_RATING}.
+              <strong>+{formatProfessionalsTrainedCount()} professionnels</strong> formés.
             </ShortAnswerBlock>
           </div>
         </header>

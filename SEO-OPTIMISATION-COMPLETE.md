@@ -13,7 +13,7 @@
 **Schema.org Person enrichi (E-E-A-T) :**
 - ✅ Crédentials ajoutés (Qualiopi, LinkedIn Learning)
 - ✅ Affiliations (FFB, LinkedIn Learning)
-- ✅ Awards (+1500 formés, Note 4,85/5)
+- ✅ Awards (+1500 formés)
 - ✅ knowsAbout étendu (14 domaines)
 
 ### 2. Page Expert créée (`/expert-ia-btp`)

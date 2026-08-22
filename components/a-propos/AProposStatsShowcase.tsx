@@ -1,9 +1,9 @@
 'use client';
 
-import { Award, ShieldCheck, Star, Users } from 'lucide-react';
+import { Award, GraduationCap, ShieldCheck, Users } from 'lucide-react';
 import { Reveal, RevealGroup } from '@/components/motion/Reveal';
 import { CountUp } from '@/components/motion/CountUp';
-import { COUNT_UP_PROS_PLUS, COUNT_UP_RATING, getStatsFreshnessLabel } from '@/lib/readability-presets';
+import { COUNT_UP_PROS_PLUS, getStatsFreshnessLabel } from '@/lib/readability-presets';
 import { IndicateursResultatsLink } from '@/components/formation/IndicateursResultatsLink';
 
 const STATS = [
@@ -13,14 +13,14 @@ const STATS = [
     label: 'Professionnels formés',
   },
   {
-    Icon: Star,
-    value: <CountUp {...COUNT_UP_RATING} className="tabular-nums" />,
-    label: 'Satisfaction Qualiopi',
-  },
-  {
     Icon: Award,
     value: '10 ans',
     label: 'Terrain BTP',
+  },
+  {
+    Icon: GraduationCap,
+    value: 'LinkedIn',
+    label: 'Learning Instructor',
   },
   {
     Icon: ShieldCheck,

@@ -1,11 +1,11 @@
 import Link from 'next/link';
-import { Award, GraduationCap, LogIn, Star, Users } from 'lucide-react';
+import { Award, GraduationCap, LogIn, Users } from 'lucide-react';
 import { CalendlyEmbed } from '@/components/CalendlyEmbed';
 import { MarketingLightHero } from '@/components/marketing/MarketingLightHero';
 import { CatalogueTarifStrip } from '@/components/formations/CataloguePriceBadge';
 import { MentionTvaAsterisque } from '@/components/MentionTVA';
 import { LINKS } from '@/lib/internal-links';
-import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
+import { formatProfessionalsTrainedCount } from '@/lib/constants';
 import { CATALOGUE_FORMATIONS_COUNT } from '@/lib/formations-catalogue-display';
 import { PERIMETRE_FORMATIONS_COURT, TARIF_SESSION_FORFAIT_HT, SESSION_DUREE_LIBELLE, libelleTarifSessionForfaitaire } from '@/lib/tarifs-sessions';
 import { PHOTOS } from '@/lib/photos';
@@ -36,7 +36,7 @@ export function FormationsHero() {
       stats={[
         { icon: GraduationCap, value: CATALOGUE_FORMATIONS_COUNT, label: 'parcours catalogue' },
         { icon: Users, value: formatProfessionalsTrainedCount(), label: 'pros formés' },
-        { icon: Star, value: SOCIAL_PROOF.AVERAGE_RATING, label: 'satisfaction clients' },
+        { icon: Award, value: 'Qualiopi', label: 'organisme certifié' },
       ]}
       middle={
         <>

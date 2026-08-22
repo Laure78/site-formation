@@ -32,7 +32,7 @@ export function ConversionHero({ calendlyHref, emailDisplay, emailHref }: Props)
               cadre le financement Constructys, et vous recevez un devis personnalisé sous 24 heures.
             </p>
             <p className="mt-3 text-xs leading-snug text-white/65 md:text-sm">
-              ✓ Qualiopi · ✓ financement possible selon éligibilité · ✓ {formatPersonnesFormeesCount()} pros formés · ✓ {siteStats.noteMoyenneAffichee}
+              ✓ Qualiopi · ✓ financement possible selon éligibilité · ✓ {formatPersonnesFormeesCount()} pros formés · 
             </p>
           </div>
           <div className="flex shrink-0 flex-col items-center gap-2.5 sm:flex-row sm:justify-center lg:flex-col lg:items-stretch xl:flex-row xl:justify-end">

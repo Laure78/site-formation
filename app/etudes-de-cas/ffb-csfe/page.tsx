@@ -323,8 +323,8 @@ export default function EtudeDeCasFfbCsfePage() {
                     <p className="text-sm text-slate-600">professionnels accompagnés</p>
                   </li>
                   <li>
-                    <p className="text-3xl font-bold text-[var(--accent)]">{SOCIAL_PROOF.AVERAGE_RATING}</p>
-                    <p className="text-sm text-slate-600">note moyenne de satisfaction</p>
+                    <p className="text-3xl font-bold text-[var(--accent)]">Qualiopi</p>
+                    <p className="text-sm text-slate-600">organisme certifié</p>
                   </li>
                   <li>
                     <p className="text-3xl font-bold text-[var(--accent)]">3 à 5 h</p>

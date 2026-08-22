@@ -401,7 +401,7 @@ export default function FormationIAAppelsOffreBTPPage() {
           configuré, 30 prompts AO et 3 modèles Word de mémoire technique.
         </p>
         <p className="mt-4 text-sm text-slate-700 leading-relaxed">
-          En {new Date().getFullYear()}, OFC affiche une note de satisfaction de {siteStats.noteMoyenneAffichee} sur plus de{' '}
+          En {new Date().getFullYear()}, OFC affiche une indicateurs publiés sur la page dédiée sur plus de{' '}
           {formatPersonnesFormeesCount()} professionnels formés ({getStatsFreshnessLabel()}).
         </p>
         <IndicateursResultatsLink className="mt-2 text-left" />

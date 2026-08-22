@@ -278,7 +278,7 @@ export default function FormationIAArtisansBTPPage() {
             Sur les sessions OFC (TPE/PME BTP : électricité, plomberie, maçonnerie, peinture), les
             participants rapportent ces ordres de grandeur. Gains variables selon l&apos;organisation,
             les outils en place et le niveau de pratique. +{formatProfessionalsTrainedCount()}{' '}
-            professionnels formés, note {SOCIAL_PROOF.AVERAGE_RATING}.
+            professionnels formés.
           </p>
         </section>
 

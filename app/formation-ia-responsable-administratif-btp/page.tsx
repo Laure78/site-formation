@@ -117,8 +117,7 @@ export default function FormationIaResponsableAdministratifBtpPage() {
           </p>
 
           <p className="mt-4 text-sm text-slate-600">
-            Déjà {formatProfessionalsTrainedCount(SOCIAL_PROOF.PROFESSIONALS_TRAINED)}+ professionnels formés · note
-            moyenne {SOCIAL_PROOF.AVERAGE_RATING}/5 — sessions avec la FFB Île-de-France et partenaires BTP.
+            Déjà {formatProfessionalsTrainedCount(SOCIAL_PROOF.PROFESSIONALS_TRAINED)}+ professionnels formés — sessions avec la FFB Île-de-France et partenaires BTP.
           </p>
 
           <div className="mt-8">

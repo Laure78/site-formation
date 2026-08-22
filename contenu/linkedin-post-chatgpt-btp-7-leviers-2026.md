@@ -20,7 +20,7 @@ Dans mon nouvel article sur **ChatGPT BTP**, je détaille **7 leviers de product
 
 J’y rappelle aussi le terrain : **FFB, CSFE, CNAM Île-de-France, Lefebvre Dalloz** — des contextes différents, un point commun : des petites structures qui doivent **gagner des heures** sans sacrifier la qualité.
 
-Plus de **1 500 professionnels** formés depuis 2022 — note moyenne **4,85/5**.
+Plus de **1 500 professionnels** formés depuis 2022 — note moyenne ****.
 
 Si vous voulez cadrer **votre** contexte (données, public, financement), le créneau est ici : lien Calendly en commentaire épinglé / en bio.
 

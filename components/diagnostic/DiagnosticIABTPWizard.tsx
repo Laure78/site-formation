@@ -155,10 +155,6 @@ export function DiagnosticIABTPWizard() {
         </span>
         <span className="text-slate-300">·</span>
         <span>
-          <strong className="text-slate-900">{SOCIAL_PROOF.AVERAGE_RATING}</strong> de satisfaction
-        </span>
-        <span className="text-slate-300">·</span>
-        <span>
           Certifié <strong className="text-slate-900">Qualiopi</strong>
         </span>
         <span className="text-slate-300">·</span>

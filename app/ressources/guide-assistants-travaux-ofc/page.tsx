@@ -135,8 +135,7 @@ export default function GuideAssistantsTravauxOfcPage() {
       <section className="bg-[#377CF3] text-white" aria-labelledby="hero-guide-assistants">
         <div className="mx-auto max-w-7xl px-4 py-14 md:py-20">
           <p className="text-xs font-semibold uppercase tracking-[0.16em] text-white/85">
-            PDF gratuit · OFC Qualiopi · {formatProfessionalsTrainedCount()} pros formés · note{' '}
-            {SOCIAL_PROOF.AVERAGE_RATING}
+            PDF gratuit · OFC Qualiopi · {formatProfessionalsTrainedCount()} pros formés
           </p>
           <h1
             id="hero-guide-assistants"

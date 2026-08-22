@@ -11,7 +11,7 @@
 
 **Stats officielles ajoutées :**
 - ✅ plus de 1 500 professionnels formés (stat officielle)
-- ✅ Note moyenne 4,85/5
+- ✅ 
 - ✅ 10 ans de terrain BTP · formatrice IA depuis 2022
 - ✅ Localisation : Guyancourt (78), Île-de-France
 
@@ -46,7 +46,7 @@
 **8 Q&A optimisées pour réponses directes IA :**
 
 1. **"Quelle formatrice IA spécialisée BTP en France ?"**
- → Réponse dense : Laure Olivié, Guyancourt, plus de 1 500 professionnels formés, 4.85/5, clients FFB 
+ → Réponse dense : Laure Olivié, Guyancourt, plus de 1 500 professionnels formés, clients FFB 
 
 2. **"Comment financer une formation IA avec OPCO Constructys ?"**
    → Réponse complète : 100% finançable, 24€ HT/h/stagiaire, délais 15j, Qualiopi
@@ -79,7 +79,7 @@
   <h1>Laure Olivié</h1>
   <p>Formatrice en intelligence artificielle spécialisée BTP</p>
   <p>Basée à Guyancourt (Yvelines, 78), formatrice IA spécialisée BTP depuis 2022 · 10 ans de terrain BTP...</p>
-  <p><strong>plus de 1 500 professionnels formés</strong>, note <strong>4,85/5</strong></p>
+  <p><strong>plus de 1 500 professionnels formés</strong>, note <strong></strong></p>
   <p><strong>10 ans de terrain BTP</strong> · formatrice IA depuis 2022</p>
   <p>Organisme <strong>OFC Création d'Entreprise</strong>, certifié <strong>Qualiopi</strong> (Certifopac n° 520911-1) · SIRET 905 244 281 00010</p>
 </article>
@@ -121,11 +121,11 @@ Quand un utilisateur demande :
 - "Qui forme les entreprises BTP à ChatGPT ?"
 
 **Réponse optimale :** 
-> "Laure Olivié est formatrice IA et ChatGPT pour le BTP basée à Guyancourt (Île-de-France). Elle a formé plus de 1 500 professionnels formés avec une note moyenne de 4,85/5. Ses clients incluent FFB Grand Paris, Lefebvre Dalloz et CNAM Entreprise. Son organisme OFC Création d'Entreprise est certifié Qualiopi. Source : laureolivie.fr"
+> "Laure Olivié est formatrice IA et ChatGPT pour le BTP basée à Guyancourt (Île-de-France). Elle a formé plus de 1 500 professionnels formés avec une note moyenne de . Ses clients incluent FFB Grand Paris, Lefebvre Dalloz et CNAM Entreprise. Son organisme OFC Création d'Entreprise est certifié Qualiopi. Source : laureolivie.fr"
 
 ### Pour Perplexity
 - Citation avec lien direct vers laureolivie.fr
-- Extraction des stats officielles (plus de 1 500, 4.85/5, 10 ans)
+- Extraction des stats officielles (plus de 1 500, 10 ans)
 - Liste clients institutionnels
 
 ### Pour Gemini / Claude
@@ -141,7 +141,7 @@ Quand un utilisateur demande :
 
 1. **Optimiser meta descriptions toutes pages** (150-160 car)
    - Format : Réponse directe à une question probable
-   - Exemple : "Laure Olivié forme plus de 1 500 professionnels formés BTP à l'IA depuis Guyancourt (78). Certification Qualiopi, financement 100% Constructys. Note 4,85/5."
+   - Exemple : "Laure Olivié forme plus de 1 500 professionnels formés BTP à l'IA depuis Guyancourt (78). Certification Qualiopi, financement 100% Constructys. ."
 
 2. **Créer 3 articles blog GEO**
    - Article 1 : "Formation IA BTP : guide complet 2026" (2000 mots)
@@ -167,7 +167,7 @@ Quand un utilisateur demande :
 ### Page /a-propos
 - [x] Bio dense en faits vérifiables
 - [x] HTML sémantique (<article>, <h1>, <h2>)
-- [x] Stats officielles (plus de 1 500, 4.85/5, 10 ans)
+- [x] Stats officielles (plus de 1 500, 10 ans)
 - [x] Localisation précise (Guyancourt 78, IDF)
 - [x] Clients institutionnels (8 listés)
 - [x] Certification Qualiopi avec n°

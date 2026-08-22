@@ -3,14 +3,13 @@ import { CalendlyEmbed } from '@/components/CalendlyEmbed';
 import { JsonLd } from '@/components/JsonLd';
 import { FAQSection } from '@/components/landing/FAQSection';
 import { RelatedLinks } from '@/components/RelatedLinks';
-import { QualiopiSatisfactionSource } from '@/components/formation/QualiopiSatisfactionSource';
 import { EnBref } from '@/app/components/EnBref';
 import { buildMetadata, getFAQSchema, SITE_CONFIG } from '@/lib/seo';
 import { buildPersonLaureSchemaNode } from '@/lib/schema-person-global';
 import { buildOrganizationOfcSchemaNode } from '@/lib/schema-organization-global';
 import { SCHEMA_PUBLIC_SITE_URL } from '@/lib/schema-constants';
 import type { FAQItem } from '@/lib/faq';
-import { SOCIAL_PROOF, formatProfessionalsTrainedCount, IDF_ZONE_INTERVENTION } from '@/lib/constants';
+import { formatProfessionalsTrainedCount, IDF_ZONE_INTERVENTION } from '@/lib/constants';
 import { PROOF, formatProofFormes } from '@/lib/proof';
 import { LINKS } from '@/lib/internal-links';
 import { CSFE_NOM_COMPLET } from '@/lib/csfe';
@@ -25,7 +24,7 @@ const PATH = '/formateur-ia-btp';
 /** Segment sans suffixe — `buildMetadata` ajoute « | Laure Olivié ». */
 const META_TITLE = 'Formateur IA bâtiment Île-de-France';
 /** 156 car. — intention « formateur » + IDF, sans ellipse */
-const META_DESCRIPTION = `Formateur IA BTP Île-de-France : Laure Olivié forme vos équipes en présentiel sur devis, DCE et chantier. Qualiopi, OFC. ${formatProofFormes()} pros, ${PROOF.note}. RDV découverte.`;
+const META_DESCRIPTION = `Formateur IA BTP Île-de-France : Laure Olivié forme vos équipes en présentiel sur devis, DCE et chantier. Qualiopi, OFC. ${formatProofFormes()} pros, . RDV découverte.`;
 
 export const metadata = buildMetadata({
   title: META_TITLE,
@@ -108,15 +107,13 @@ export default function FormateurIaBtpPage() {
                 appliquée à leurs documents réels — devis, DCE, mémoires techniques, comptes rendus de chantier.
                 Dirigeante d&apos;une entreprise de Travaux Publics dans les Yvelines, elle intervient via OFC
                 Création d&apos;Entreprise, organisme certifié Qualiopi, en présentiel uniquement, en intra ou en
-                inter. {formatProfessionalsTrainedCount()} professionnels formés, note moyenne{' '}
-                {SOCIAL_PROOF.AVERAGE_RATING}.
+                inter. {formatProfessionalsTrainedCount()} professionnels formés.
               </p>
             </EnBref>
             <p className="mt-6 text-lg leading-relaxed text-slate-600">
               Vous cherchez un formateur IA pour le bâtiment ou la construction, à Paris ou en Île-de-France ?
               Laure Olivié forme vos équipes en présentiel, sur vos vrais documents.
             </p>
-            <QualiopiSatisfactionSource className="mt-4" />
           </div>
         </section>
 
@@ -217,7 +214,7 @@ export default function FormateurIaBtpPage() {
               Références et preuves
             </h2>
             <p className="mt-4 text-base leading-relaxed text-slate-600 md:text-lg">
-              {formatProfessionalsTrainedCount()} professionnels formés, note moyenne {SOCIAL_PROOF.AVERAGE_RATING}.
+              {formatProfessionalsTrainedCount()} professionnels formés, .
               Organisme certifié Qualiopi — actions de formation. {FINANCEMENT_FORMULATION_PRUDENTE} Références : FFB
               Grand Paris, {CSFE_NOM_COMPLET}, CNAM Entreprise, Lefebvre Dalloz, instructrice LinkedIn Learning.
             </p>

@@ -5,7 +5,7 @@ import {
   ALT_LOGO_UMB_FFB,
   LOGO_UMB_FFB,
 } from '@/lib/client-logos';
-import { PREUVES, PROS_FORMES_TEXTE } from '@/lib/constants';
+import { PROS_FORMES_TEXTE } from '@/lib/constants';
 import { Temoignage } from '@/components/Temoignage';
 
 export type PreuveSocialeProps = {
@@ -54,7 +54,7 @@ export function PreuveSociale({ auteur, role, texte, className = '' }: PreuveSoc
     >
       <p className="text-center text-sm font-semibold text-[#377CF3] md:text-base">
         {PROS_FORMES_TEXTE.charAt(0).toUpperCase()}
-        {PROS_FORMES_TEXTE.slice(1)} · {PREUVES.satisfaction}
+        {PROS_FORMES_TEXTE.slice(1)}
       </p>
       <ul className="mt-4 flex flex-wrap items-center justify-center gap-x-8 gap-y-3">
         {LOGOS.map((logo) => (

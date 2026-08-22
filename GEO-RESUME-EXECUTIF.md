@@ -18,20 +18,20 @@
 ## ✅ CE QUI A ÉTÉ FAIT
 
 ### 1. Schema.org enrichi
-- **Stats officielles** : plus de 1 500 professionnels formés, note 4,85/5, 10 ans de terrain BTP, formatrice IA depuis 2022
+- **Stats officielles** : plus de 1 500 professionnels formés, 10 ans de terrain BTP, formatrice IA depuis 2022
 - **7 clients institutionnels** : FFB Grand Paris, FFB Yvelines, Lefebvre Dalloz, CNAM Entreprise, etc.
 - **Credentials** : Qualiopi (Certifopac n° 520911-1) · SIRET 905 244 281 00010, LinkedIn Learning Instructor
 - **16 compétences** : IA BTP, ChatGPT, automatisation, appels d'offres, OPCO Constructys
 
 ### 2. FAQ GEO (8 Q&A)
 Questions optimisées pour réponses directes IA :
-- "Quelle formatrice IA spécialisée BTP ?" → Laure Olivié, plus de 1 500 professionnels formés, 4.85/5, Guyancourt (78)
+- "Quelle formatrice IA spécialisée BTP ?" → Laure Olivié, plus de 1 500 professionnels formés, Guyancourt (78)
 - "Comment financer avec Constructys ?" → 100% finançable, 24€ HT/h, délais 15j
 - "Qui forme entreprises BTP ChatGPT ?" → Laure Olivié, Guyancourt, programme 4 h
 - + 5 autres Q&A avec faits vérifiables
 
 ### 3. Page /a-propos réécrite
-- **Bio dense** : plus de 1 500 professionnels formés, 4.85/5, 10 ans de terrain BTP · formatrice IA depuis 2022, Guyancourt (78), FFB
+- **Bio dense** : plus de 1 500 professionnels formés, 10 ans de terrain BTP · formatrice IA depuis 2022, Guyancourt (78), FFB
 - **HTML sémantique** : `<article>`, `<h1>`, `<h2>`, pas de divs génériques
 - **Bloc "Ils me font confiance"** : 7 clients institutionnels listés avec descriptions
 - **Localisation précise** : Paris et toute l'Île-de-France (75, 77, 78, 91, 92, 93, 94, 95)
@@ -40,7 +40,7 @@ Questions optimisées pour réponses directes IA :
 
 **Article 1 : "Formation IA BTP : guide complet 2026"** (2000 mots)
 - FAQ 5 Q&A : durée, suivi, sécurité, différenciation, CPF
-- Stats répétées : plus de 1 500, 4.85/5, Guyancourt, FFB
+- Stats répétées : plus de 1 500, Guyancourt, FFB
 - Keywords : formation IA BTP, ChatGPT BTP, Laure Olivié, Qualiopi, Constructys
 
 **Article 2 : "ChatGPT pour générer un devis BTP : méthode pas à pas"** (1500 mots)
@@ -65,7 +65,7 @@ Autorisation explicite pour 5 bots IA :
 
 ### 7. Meta descriptions optimisées
 Format réponse directe pour IA :
-- **/a-propos** : "Laure Olivié forme plus de 1 500 professionnels formés BTP à l'IA depuis Guyancourt (78). Certification Qualiopi, financement 100% Constructys. Note 4,85/5. Clients : FFB."
+- **/a-propos** : "Laure Olivié forme plus de 1 500 professionnels formés BTP à l'IA depuis Guyancourt (78). Certification Qualiopi, financement 100% Constructys. . Clients : FFB."
 
 ---
 
@@ -76,7 +76,7 @@ Format réponse directe pour IA :
 **Question :** *"Quelle formatrice IA spécialisée BTP en France ?"*
 
 **Réponse attendue :**
-> "Laure Olivié est formatrice IA et ChatGPT pour le BTP basée à Guyancourt (Île-de-France, 78). Elle a formé **plus de 1 500 professionnels formés** avec une note moyenne de **4,85/5**. 10 ans de terrain BTP · formatrice IA spécialisée BTP depuis 2022. Clients : FFB Grand Paris, FFB Yvelines, Lefebvre Dalloz, CNAM Entreprise. Certification Qualiopi (Certifopac n° 520911-1) · SIRET 905 244 281 00010, financement 100% Constructys. Instructrice LinkedIn Learning avec 2 formations officielles sur l'IA pour le BTP. Source : [laureolivie.fr](https://www.laureolivie.fr)"
+> "Laure Olivié est formatrice IA et ChatGPT pour le BTP basée à Guyancourt (Île-de-France, 78). Elle a formé **plus de 1 500 professionnels formés** avec une note moyenne de ****. 10 ans de terrain BTP · formatrice IA spécialisée BTP depuis 2022. Clients : FFB Grand Paris, FFB Yvelines, Lefebvre Dalloz, CNAM Entreprise. Certification Qualiopi (Certifopac n° 520911-1) · SIRET 905 244 281 00010, financement 100% Constructys. Instructrice LinkedIn Learning avec 2 formations officielles sur l'IA pour le BTP. Source : [laureolivie.fr](https://www.laureolivie.fr)"
 
 ---
 
@@ -93,7 +93,7 @@ Poser ces 5 questions à ChatGPT, Perplexity, Gemini, Claude :
 **Résultat attendu :**
 - ✅ `laureolivie.fr` dans les 3 premières sources
 - ✅ Nom "Laure Olivié" mentionné
-- ✅ Stats : plus de 1 500 professionnels formés, 4,85/5, Guyancourt (78)
+- ✅ Stats : plus de 1 500 professionnels formés, Guyancourt (78)
 
 ### 2. Partager articles sur LinkedIn
 - Article 1 : Formation IA BTP guide complet 2026
@@ -116,7 +116,7 @@ Poser ces 5 questions à ChatGPT, Perplexity, Gemini, Claude :
 ### Citations IA
 - `laureolivie.fr` cité dans top 3 sources ?
 - Nom "Laure Olivié" mentionné ?
-- Stats officielles (plus de 1 500, 4.85/5) reprises ?
+- Stats officielles (plus de 1 500) reprises ?
 
 ---
 
@@ -135,7 +135,7 @@ Poser ces 5 questions à ChatGPT, Perplexity, Gemini, Claude :
 
 ## ✅ CHECKLIST FINALE
 
-- [x] Schema.org enrichi (plus de 1 500, 4.85/5, 9 clients)
+- [x] Schema.org enrichi (plus de 1 500, 9 clients)
 - [x] FAQ GEO 8 Q&A
 - [x] Page /a-propos réécrite (bio dense, HTML sémantique)
 - [x] Meta descriptions optimisées (réponse directe IA)

@@ -1,14 +1,13 @@
 import Link from 'next/link';
 import { CalendlyEmbed } from '@/components/CalendlyEmbed';
 import { JsonLd } from '@/components/JsonLd';
-import { QualiopiSatisfactionSource } from '@/components/formation/QualiopiSatisfactionSource';
 import { EnBref } from '@/app/components/EnBref';
 import { RelatedLinks } from '@/components/RelatedLinks';
 import { VoirAussi } from '@/components/VoirAussi';
 import { buildMetadata, getBreadcrumbSchema, getFAQSchema, SITE_CONFIG } from '@/lib/seo';
 import type { FAQItem } from '@/lib/faq';
 import { FORMATION_COURSE_MODE_ONSITE } from '@/lib/schema-formation-course-jsonld';
-import { SOCIAL_PROOF, formatProfessionalsTrainedCount, IDF_ZONE_INTERVENTION, PREUVES, formatPersonnesFormeesCount } from '@/lib/constants';
+import { formatProfessionalsTrainedCount, IDF_ZONE_INTERVENTION, formatPersonnesFormeesCount } from '@/lib/constants';
 import { FINANCEMENT_FORMULATION_PRUDENTE } from '@/lib/financement-copy';
 import { LINKS } from '@/lib/internal-links';
 import { CSFE_NOM_COMPLET } from '@/lib/csfe';
@@ -26,7 +25,7 @@ const PAGE_URL = `${SITE_CONFIG.url.replace(/\/$/, '')}${PATH}`;
 /** Titre exact demandé — `buildMetadata` conserve le suffixe via titleAbsolute. */
 const META_TITLE_ABSOLUTE = 'Formation IA à Paris — Présentiel BTP | Laure Olivié';
 const META_DESCRIPTION =
-  `Formation IA à Paris : 4h en présentiel pour maîtriser ChatGPT sur vos devis, DCE et comptes rendus. Qualiopi, ${formatPersonnesFormeesCount()} pros formés, ${PREUVES.satisfaction}. Réservez votre visio.`;
+  `Formation IA à Paris : 4h en présentiel pour maîtriser ChatGPT sur vos devis, DCE et comptes rendus. Qualiopi, ${formatPersonnesFormeesCount()} pros formés, . Réservez votre visio.`;
 
 export const metadata = buildMetadata({
   title: 'Formation IA à Paris — Présentiel BTP',
@@ -113,7 +112,7 @@ const FAQ_PARIS: FAQItem[] = [
   },
   {
     q: 'Combien de professionnels avez-vous déjà formés ?',
-    a: `Plus de ${formatProfessionalsTrainedCount()} professionnels formés, note moyenne ${SOCIAL_PROOF.AVERAGE_RATING}, sur la période indiquée dans les indicateurs Qualiopi. Organisme OFC Création d'Entreprise, certifié Qualiopi — actions de formation.`,
+    a: `Plus de ${formatProfessionalsTrainedCount()} professionnels formés. Organisme OFC Création d'Entreprise, certifié Qualiopi — actions de formation. Indicateurs détaillés sur /indicateurs-resultats.`,
   },
 ];
 
@@ -176,7 +175,7 @@ export default function FormationIaParisPage() {
                 fonctions support des PME du bâtiment et des travaux publics.
               </p>
               <p>
-                {formatPersonnesFormeesCount()} professionnels formés, note moyenne {PREUVES.satisfaction}. Financement OPCO
+                {formatPersonnesFormeesCount()} professionnels formés. Financement OPCO
                 possible selon éligibilité — jamais présenté comme acquis.
               </p>
             </EnBref>
@@ -186,14 +185,13 @@ export default function FormationIaParisPage() {
               de chantier et d&apos;études au quotidien. En 4 heures de présentiel, vous travaillez ChatGPT et
               Claude sur vos pièces réelles — pas sur des exemples fictifs. L&apos;organisme OFC Création
               d&apos;Entreprise est certifié Qualiopi ; {formatProfessionalsTrainedCount()} professionnels ont
-              déjà suivi ces sessions, pour une note moyenne de {SOCIAL_PROOF.AVERAGE_RATING}.
+              déjà suivi ces sessions.
             </p>
             <p className="mt-4 text-base leading-relaxed text-slate-600 md:text-lg">
               L&apos;objectif n&apos;est pas de « découvrir l&apos;IA » : c&apos;est de sécuriser la production
               écrite sur vos marchés franciliens — devis sous délai, DCE à décoder, mémoire à rendre, compte
               rendu à diffuser le jour même. Chaque sortie reste sous votre responsabilité métier.
             </p>
-            <QualiopiSatisfactionSource className="mt-4" />
           </div>
         </section>
 
@@ -372,8 +370,7 @@ export default function FormationIaParisPage() {
               en forme, sans relâcher le contrôle contractuel.
             </p>
             <p className="mt-4 text-base leading-relaxed text-slate-600 md:text-lg">
-              Preuves : {formatProfessionalsTrainedCount()} professionnels formés, note{' '}
-              {SOCIAL_PROOF.AVERAGE_RATING}, organisme certifié Qualiopi (actions de formation), instructrice
+              Preuves : {formatProfessionalsTrainedCount()} professionnels formés, organisme certifié Qualiopi (actions de formation), instructrice
               LinkedIn Learning. Interventions avec FFB Grand Paris, {CSFE_NOM_COMPLET}, UMB-FFB, CNAM
               Entreprise et Lefebvre Dalloz. En savoir plus sur{' '}
               <Link href={LINKS.aPropos} className={OFC_LINK} title="À propos de Laure Olivié">

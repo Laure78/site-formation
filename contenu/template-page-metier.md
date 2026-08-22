@@ -28,7 +28,7 @@ Longueur cible : **1 500 à 2 000 mots** de corps de page (hors menus, hors foot
 
 - **H1** (voir fiche métier)
 - Sous-texte : OFC · Qualiopi · Constructys · Île-de-France (une ligne)
-- **Chiffres** (option) : ex. 1 500+ pros formés · 4,85/5 · Qualiopi
+- **Chiffres** (option) : ex. 1 500+ pros formés ·  · Qualiopi
 - **CTA Calendly #1** — bouton principal : « Réservez votre visio découverte gratuite »
 
 ### 2. Sommaire cliquable

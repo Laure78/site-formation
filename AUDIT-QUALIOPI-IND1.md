@@ -60,7 +60,7 @@ Composants : `FormationsHero`, `FormationsCatalogueInteractive`, `FormationsComp
 | `lib/tarifs-sessions.ts` | Grille commerciale (1200 € HT / session) |
 | `lib/qualiopi-info.ts` | Textes Ind. 1, contacts, certificat, `getInfosQualiopiForCatalogue()` |
 | `config/qualiopi.ts` | Délais d'accès, modalités, version fiche, stats |
-| `lib/constants.ts` | `PREUVES` (plus de 1 500 professionnels formés, 4,85/5, période, date MAJ) |
+| `lib/constants.ts` | `PREUVES` (plus de 1 500 professionnels formés, période, date MAJ) |
 | `src/data/formations.ts` | Données LMS / JSON-LD complémentaires |
 | `lib/faq.ts` | FAQ formations (catalogue, tarifs, modalités) |
 | Landings métier / geo | `lib/formation-ia-*-landing.ts`, `lib/formation-ia-metier-eight-rich.ts`, `lib/geo-formation-config.ts`, etc. |
@@ -103,7 +103,7 @@ Légende : ✅ = affiché explicitement sur la page (corps + bloc `CatalogueInfo
 |------|--------|--------|
 | 3 Programme | ⚠️ | Programme inline (`#programme`, `ProgrammeAccordionBatiment`) ✅ — **aucun lien de téléchargement PDF** alors que le fichier existe (`/formations/pdf/programme-niveau-1-ia-batiment-travaux-publics.pdf`, constante `LINKS.pdfProgrammeIaBtpNiveau1BatimentTp` dans `lib/internal-links.ts` L.87). CTA « Demander le programme » = mailto L.67, L.284, L.853. |
 | 10 Évaluation | ⚠️ | L.754–755 : *« attestation Qualiopi en fin de session »* — **formulation interdite** (voir § 4). |
-| 12 Indicateurs | ✅ | L.404–405 : note 4,85/5 + volume formé. |
+| 12 Indicateurs | ✅ | L.404–405 :  + volume formé. |
 
 #### NIV-02 — `/formations/ia-appels-offre-btp`
 

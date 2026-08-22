@@ -18,7 +18,7 @@
 
 Formation IA pour Couvreurs — Devis Toiture, Fiches Chantier & Zinguerie (Île-de-France)
 
-**Hero :** OFC · Qualiopi · Constructys · 1 500+ pros formés · 4,85/5  
+**Hero :** OFC · Qualiopi · Constructys · 1 500+ pros formés ·   
 **CTA Calendly #1 :** Réservez votre visio découverte gratuite
 
 ---

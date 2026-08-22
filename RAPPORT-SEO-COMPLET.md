@@ -47,7 +47,7 @@
 2. **Schema Person enrichi (E-E-A-T)** :
    - Credentials : Qualiopi, LinkedIn Learning Instructor
    - Affiliations : FFB, LinkedIn Learning
-   - Awards : +1500 formés, Note 4,85/5
+   - Awards : +1500 formés
    - knowsAbout : 14 domaines d'expertise
 
 3. **Page Expert `/expert-ia-btp`** :
@@ -89,7 +89,7 @@
 - ✅ Meta : 150-160 caractères max
 - ✅ Mot-clé principal en début de title
 - ✅ Bénéfice ou chiffre clé dans title
-- ✅ Call-to-action dans meta (Note 4,85/5, 100% finançable)
+- ✅ Call-to-action dans meta (, 100% finançable)
 
 **Impact :**
 - ✅ +50% de chances d'apparaître en rich snippets

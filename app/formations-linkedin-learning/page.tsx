@@ -219,7 +219,7 @@ function buildPageJsonLd() {
           },
         ],
         sameAs: [...SCHEMA_PERSON_SAME_AS],
-        description: `Instructrice LinkedIn Learning et formatrice IA spécialisée BTP. ${formés}+ professionnels formés, note ${SOCIAL_PROOF.AVERAGE_RATING}/5.`,
+        description: `Instructrice LinkedIn Learning et formatrice IA spécialisée BTP. ${formés}+ professionnels formés, note /5.`,
       },
       {
         '@type': 'Organization',
@@ -319,7 +319,7 @@ export default function FormationsLinkedInLearningPage() {
                 Laure Olivié est instructrice LinkedIn Learning et formatrice IA spécialisée BTP, avec
                 10 ans de terrain BTP (Dirigeante d&apos;une entreprise de Travaux Publics dans les Yvelines, ex-ALIA BTP) · formatrice IA depuis 2022. Elle a publié 2
                 formations en français sur l&apos;IA appliquée au bâtiment. Plus de {formés}{' '}
-                professionnels formés, note {SOCIAL_PROOF.AVERAGE_RATING}/5.
+                professionnels formés/5.
               </p>
             </div>
 
@@ -570,7 +570,7 @@ export default function FormationsLinkedInLearningPage() {
               </p>
               <p className="mt-3">
                 10 ans de terrain BTP (Dirigeante d&apos;une entreprise de Travaux Publics dans les Yvelines) · formatrice IA depuis 2022. OFC Création d&apos;Entreprise —
-                Qualiopi. {formés}+ professionnels formés, note {SOCIAL_PROOF.AVERAGE_RATING}/5.
+                Qualiopi. {formés}+ professionnels formés/5.
                 Partenaires : FFB Grand Paris, CSFE, UMB-FFB, CNAM, Lefebvre Dalloz.
               </p>
             </div>

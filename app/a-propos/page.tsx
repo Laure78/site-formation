@@ -8,7 +8,7 @@ import { getAProposPersonJsonLd } from '@/lib/schema-a-propos-person-jsonld';
 import { getAProposOrganizationJsonLd } from '@/lib/schema-a-propos-organization-jsonld';
 import { SCHEMA_CONTACT, SCHEMA_GEO, SCHEMA_LINKEDIN_PROFILE_URL } from '@/lib/schema-constants';
 import { LINKS } from '@/lib/internal-links';
-import { SOCIAL_PROOF, formatPersonnesFormeesCount, getStatsFreshnessLabel, siteStats } from '@/lib/constants';
+import { formatPersonnesFormeesCount, getStatsFreshnessLabel } from '@/lib/constants';
 import { PROOF, formatProofFormes } from '@/lib/proof';
 import { PHOTOS } from '@/lib/photos';
 import {
@@ -20,7 +20,7 @@ import {
   A_PROPOS_EXPERTISE_PARAGRAPHS,
   A_PROPOS_TRUST_PARAGRAPH,
 } from '@/lib/a-propos-eeat-content';
-import { COUNT_UP_PROS_PLUS, COUNT_UP_RATING } from '@/lib/readability-presets';
+import { COUNT_UP_PROS_PLUS } from '@/lib/readability-presets';
 import { Timeline } from '@/components/a-propos/Timeline';
 import { PartnersGrid } from '@/components/a-propos/PartnersGrid';
 import { EeatRichText } from '@/components/a-propos/EeatRichText';
@@ -58,7 +58,7 @@ const A_PROPOS_TOC = [
 ] as const;
 
 const A_PROPOS_META_TITLE = `Laure Olivié — formatrice IA BTP — Qualiopi`;
-const A_PROPOS_META_DESCRIPTION = `Laure Olivié (OFC) : formatrice IA BTP, 10 ans terrain, Qualiopi, FFB et CSFE. ${formatProofFormes()} pros, ${PROOF.note}. Formation IA pour le BTP en présentiel IDF. RDV découverte.`;
+const A_PROPOS_META_DESCRIPTION = `Laure Olivié (OFC) : formatrice IA BTP, 10 ans terrain, Qualiopi, FFB et CSFE. ${formatProofFormes()} pros, . Formation IA pour le BTP en présentiel IDF. RDV découverte.`;
 
 export const metadata = createPageMetadata({
   title: A_PROPOS_META_TITLE,
@@ -113,7 +113,7 @@ export default function AProposPage() {
               Laure Olivié est formatrice IA spécialisée BTP depuis 2022 et dirige OFC Création d&apos;Entreprise,
               organisme certifié Qualiopi basé à Guyancourt. Elle forme en présentiel, en Île-de-France, les
               professionnels du bâtiment et des travaux publics sur ChatGPT et Claude appliqués à leurs documents
-              réels. {formatPersonnesFormeesCount()} professionnels formés, note moyenne {SOCIAL_PROOF.AVERAGE_RATING}.
+              réels. {formatPersonnesFormeesCount()} professionnels formés, .
             </p>
           </EnBref>
         }
@@ -140,7 +140,7 @@ export default function AProposPage() {
             </span>
             <span className="inline-flex items-center gap-1.5 text-[#475569]">
               <Star className="h-3.5 w-3.5 shrink-0 text-[#377CF3]" aria-hidden />
-              Qualiopi · {formatPersonnesFormeesCount()} formés · {SOCIAL_PROOF.AVERAGE_RATING}
+              Qualiopi · {formatPersonnesFormeesCount()} formés
             </span>
           </>
         }
@@ -192,11 +192,10 @@ export default function AProposPage() {
                 className="mt-8"
                 titleId="expertise-chiffres"
                 title="Repères clés"
-                description={`Volume formé, satisfaction et certification — ${getStatsFreshnessLabel()}.`}
+                description={`Volume formé et certification — ${getStatsFreshnessLabel()}.`}
                 columns={2}
                 items={[
                   { label: 'Professionnels formés', value: COUNT_UP_PROS_PLUS, Icon: Users },
-                  { label: 'Satisfaction Qualiopi', value: COUNT_UP_RATING, Icon: Star },
                   { label: 'Organisme', value: "OFC Création d'Entreprise", Icon: Building2 },
                   { label: 'Certification', value: 'Qualiopi (jan. 2028)', Icon: ShieldCheck },
                 ]}

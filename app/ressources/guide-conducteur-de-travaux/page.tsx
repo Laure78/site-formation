@@ -425,7 +425,7 @@ Signature : [NOM] — [TITRE] — [ENTREPRISE]
               la FFB, le CNAM et de nombreuses PME du bâtiment en Île-de-France.
             </p>
             <p className="mt-3 font-semibold text-slate-900">
-              +{formatProfessionalsTrainedCount()} personnes formées · {SOCIAL_PROOF.AVERAGE_RATING} · Qualiopi ·
+              +{formatProfessionalsTrainedCount()} personnes formées · Qualiopi ·
               Constructys
             </p>
             <p className="mt-4 text-sm font-medium text-slate-600">

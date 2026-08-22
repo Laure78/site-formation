@@ -18,7 +18,7 @@
 
 Formation IA pour Plombiers & Chauffagistes BTP — Devis, SAV et Fiches d’Intervention
 
-**Hero :** OFC · Qualiopi · Constructys · Île-de-France · 1 500+ pros formés · 4,85/5  
+**Hero :** OFC · Qualiopi · Constructys · Île-de-France · 1 500+ pros formés ·   
 **CTA Calendly #1 :** Réservez votre visio découverte gratuite
 
 ---

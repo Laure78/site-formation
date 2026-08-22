@@ -95,7 +95,7 @@ export function getAProposUnifiedJsonLd(): Record<string, unknown> {
     },
     award: [
       `${formatPersonnesFormeesCount()} professionnels formés (${new Date().getFullYear()})`,
-      `Note moyenne ${siteStats.noteMoyenneAffichee}`,
+      `Note moyenne `,
       'Actions de formation avec FFB Grand Paris',
     ],
     workLocation: [{ '@type': 'AdministrativeArea', name: 'Île-de-France' }],
@@ -123,7 +123,7 @@ export function getAProposUnifiedJsonLd(): Record<string, unknown> {
     url: BASE,
     logo: `${BASE}/logo-lo.svg`,
     image: `${BASE}${PHOTOS.aProposHero2026.src}`,
-    description: `Organisme de formation certifié Qualiopi spécialisé en intelligence artificielle pour les entreprises du bâtiment et des travaux publics. Formation IA pour les pros du BTP — financement possible selon éligibilité. +${formatPersonnesFormeesCount()} professionnels formés. Note ${SOCIAL_PROOF.AVERAGE_RATING}.`,
+    description: `Organisme de formation certifié Qualiopi spécialisé en intelligence artificielle pour les entreprises du bâtiment et des travaux publics. Formation IA pour les pros du BTP — financement possible selon éligibilité. +${formatPersonnesFormeesCount()} professionnels formés. Note .`,
     email: SCHEMA_CONTACT.email,
     address: {
       '@type': 'PostalAddress',

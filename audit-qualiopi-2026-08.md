@@ -59,7 +59,7 @@ Formations **non certifiantes RNCP/RS** : colonnes RNCP non applicables (N/A).
 
 | Élément attendu | Présent ? | Fichier | Niveau | Correction |
 |---|---|---|---|---|
-| **Ind. 2** — satisfaction chiffrée et datée | Oui — `4,85/5`, période `01/01/2024 – 31/12/2025`, maj `03/06/2026`, millésime année de référence `2025` | `lib/constants.ts` (`PREUVES`) ; `app/indicateurs-resultats/page.tsx` ; `config/qualiopi.ts` | — | — |
+| **Ind. 2** — satisfaction chiffrée et datée | Oui — ``, période `01/01/2024 – 31/12/2025`, maj `03/06/2026`, millésime année de référence `2025` | `lib/constants.ts` (`PREUVES`) ; `app/indicateurs-resultats/page.tsx` ; `config/qualiopi.ts` | — | — |
 | **Ind. 2** — nb stagiaires / heures | Oui — cumul stagiaires (plus de 1 500) + répondants ; pas de volume d’heures global affiché | `app/indicateurs-resultats/page.tsx` | **amélioration** | Ajouter heures stagiaires ou heures réalisées si disponibles en registre interne |
 | **Ind. 2** — taux d’abandon | **Non** explicite (taux de réalisation 100 %, assiduité 98 % seulement) | `app/indicateurs-resultats/page.tsx` l.9–14, 70–78 | **à corriger** | Publier un **taux d’abandon** (ou « non-démarrage / rupture ») chiffré, daté, avec méthode |
 | Certificat Qualiopi PDF + validité | Oui — PDF `public/documents/certificat-qualiopi-ofc.pdf` ; validité `16/01/2025` → `15/01/2028` ; n° `520911-1` | `lib/qualiopi-info.ts` (`QUALIOPI_LEGAL`) ; `components/QualiopiCertificationNotice.tsx` ; footer | — | **À vérifier en ligne** : ouverture PDF + date encore valide le 24/08 |
@@ -107,7 +107,7 @@ Ces éléments ne peuvent pas être tranchés par le seul code :
 6. Lien annuaire handicap (PDF) depuis `/accessibilite-handicap` et `/annuaire-handicap` — téléchargement OK.
 7. Redirection live : `/formations/formation-claude-ia-btp` → `/formations/maitriser-claude-ai-btp` (308/301 permanent).
 8. Sur production, ouvrir **une landing métier** (ex. électricien) et **SQY** : constater ou non le faux bloc NIV-01 / l’absence de bloc (écarts bloquants §2.2).
-9. Registre interne : valeurs affichées (plus de 1 500 professionnels formés, 4,85/5, 412 répondants, 100 % réalisation, 98 % assiduité) — preuves documentaires pour l’auditeur (pas dans le dépôt).
+9. Registre interne : valeurs affichées (plus de 1 500 professionnels formés, 412 répondants, 100 % réalisation, 98 % assiduité) — preuves documentaires pour l’auditeur (pas dans le dépôt).
 10. Aucune page production encore indexée sous l’ancien domaine `ofc-creation-entreprise.fr` (Search Console / redirections serveur hors Next).
 
 ---

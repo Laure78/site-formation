@@ -31,7 +31,7 @@ import {
   createPageMetadata,
   getFAQSchema,
 } from '@/lib/seo';
-import { COUNT_UP_PROS, COUNT_UP_RATING, getStatsFreshnessLabel } from '@/lib/readability-presets';
+import { COUNT_UP_PROS, getStatsFreshnessLabel } from '@/lib/readability-presets';
 import { FormationDeptLocalSeoBlock } from '@/components/formation-ia-btp/FormationDeptLocalSeoBlock';
 import { RelatedLinks } from '@/components/RelatedLinks';
 import { getClusterRelatedHrefs } from '@/lib/maillage-clusters';
@@ -177,12 +177,6 @@ export function FormationIaBtpDepartementLanding({ config }: { config: Formation
               variant="inline"
               value={COUNT_UP_PROS}
               label="professionnels formés"
-              freshnessLabel={statsFreshness}
-            />
-            <StatCallout
-              variant="inline"
-              value={COUNT_UP_RATING}
-              label="note moyenne"
               freshnessLabel={statsFreshness}
             />
           </div>

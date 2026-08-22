@@ -291,7 +291,7 @@ export function buildClaudeAiBtpJsonLdGraph(): Record<string, unknown> {
     '@type': 'Dataset',
     '@id': `${CANONICAL}#dataset-gains-temps`,
     name: 'Gains de temps avec Claude AI dans le BTP (mesures OFC 2026)',
-    description: `Mesures de gain de temps sur 8 tâches BTP, établies lors des sessions OFC avec la FFB Grand Paris, FFB IDF, CSFE, CNAM (${formatProfessionalsTrainedCount()} professionnels formés, note ${SOCIAL_PROOF.AVERAGE_RATING}).`,
+    description: `Mesures de gain de temps sur 8 tâches BTP, établies lors des sessions OFC avec la FFB Grand Paris, FFB IDF, CSFE, CNAM (${formatProfessionalsTrainedCount()} professionnels formés, note ).`,
     creator: { '@type': 'Organization', name: "OFC Création d'Entreprise", '@id': ORG_ID },
     datePublished: '2026-04-15',
     license: 'https://creativecommons.org/licenses/by-nc/4.0/',

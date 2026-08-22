@@ -97,7 +97,7 @@ export function BlogIndexView({
             Guides pratiques sur l&apos;IA pour le BTP, le financement des formations et les gains de productivité.
           </p>
           <p className="mt-2 text-sm font-medium text-slate-700">
-            {allCount} articles · {SOCIAL_PROOF.AVERAGE_RATING} · {formatProfessionalsTrainedCount()} professionnels
+            {allCount} articles · {formatProfessionalsTrainedCount()} professionnels
             formés (OFC)
           </p>
 

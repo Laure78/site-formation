@@ -26,7 +26,7 @@ export function getAProposLocalBusinessJsonLd(): Record<string, unknown> {
     url: BASE,
     logo: `${BASE}/logo-lo.svg`,
     image: `${BASE}${PHOTOS.aProposHero2026.src}`,
-    description: `Organisme de formation certifié Qualiopi spécialisé en intelligence artificielle pour les entreprises du bâtiment et des travaux publics. Formation IA appliquée au bâtiment — financement possible selon éligibilité. +${formatProfessionalsTrainedCount()} professionnels formés. Note ${SOCIAL_PROOF.AVERAGE_RATING}.`,
+    description: `Organisme de formation certifié Qualiopi spécialisé en intelligence artificielle pour les entreprises du bâtiment et des travaux publics. Formation IA appliquée au bâtiment — financement possible selon éligibilité. +${formatProfessionalsTrainedCount()} professionnels formés. Note .`,
     email: SCHEMA_CONTACT.email,
     address: {
       '@type': 'PostalAddress',

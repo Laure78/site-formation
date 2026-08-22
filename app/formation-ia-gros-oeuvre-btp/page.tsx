@@ -65,7 +65,7 @@ const SOMMAIRE = [
 const ESSENTIEL = [
   'Gros œuvre en Île-de-France : devis, DCE / CCTP lot 2, planning et CR — présentiel uniquement.',
   'Session 4 h · organisme certifié Qualiopi : brouillons encadrés, relecture humaine — l’IA ne tranche pas la conformité.',
-  `Déjà ${formatProofFormes(PROOF.formes)} professionnels formés · note ${PROOF.note} (questionnaires fin de session).`,
+  `Déjà ${formatProofFormes(PROOF.formes)} professionnels formés · note  (questionnaires fin de session).`,
   'Financement OPCO Constructys possible selon éligibilité — sessions en présentiel uniquement.',
 ] as const;
 
@@ -111,8 +111,7 @@ export default function FormationIaGrosOeuvreBtpPage() {
             {OFC} — formation IA &amp; ChatGPT pour les entreprises de gros œuvre du BTP : devis, DCE, suivi de
             chantier. Sessions en <strong className="text-slate-800">présentiel uniquement</strong> en Île-de-France
             (4&nbsp;h), dispensées par un organisme certifié Qualiopi. Financement possible selon éligibilité. Plus de{' '}
-            <strong className="text-slate-800">{formatProofFormes(PROOF.formes)} professionnels</strong> formés · note{' '}
-            <strong className="text-slate-800">{PROOF.note}</strong>.
+            <strong className="text-slate-800">{formatProofFormes(PROOF.formes)} professionnels</strong> formés.
           </p>
 
           <Essentiel className="mt-8" idPrefix="metier-gros-oeuvre" items={[...ESSENTIEL]} />
@@ -216,8 +215,7 @@ export default function FormationIaGrosOeuvreBtpPage() {
           <section id="resultats" className="scroll-mt-24 mt-14">
             <h2 className="font-display text-2xl font-bold text-slate-900 md:text-3xl">Résultats et preuves</h2>
             <p className="mt-6 text-slate-700 leading-relaxed">
-              Indicateurs sourcés {OFC} : {formatProofFormes(PROOF.formes)} professionnels formés · note moyenne{' '}
-              {PROOF.note} ({PROOF.mentionSource})
+              Indicateurs sourcés {OFC} : {formatProofFormes(PROOF.formes)} professionnels formés ({PROOF.mentionSource})
             </p>
             <div className="mt-8 overflow-x-auto rounded-xl border border-slate-200">
               <table className="min-w-full text-left text-sm text-slate-700">

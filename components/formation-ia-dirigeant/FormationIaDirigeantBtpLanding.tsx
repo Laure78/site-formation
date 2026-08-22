@@ -91,7 +91,7 @@ export function FormationIaDirigeantBtpLanding() {
             <strong className="text-slate-800">libérer du temps utile</strong>,{' '}
             <strong className="text-slate-800">accélérer la réponse client</strong> et{' '}
             <strong className="text-slate-800">différencier votre entreprise</strong> sur les marchés serrés. {OFC} —{' '}
-            {formatProfessionalsTrainedCount()}+ professionnels formés · note {SOCIAL_PROOF.AVERAGE_RATING}.
+            {formatProfessionalsTrainedCount()}+ professionnels formés · .
           </p>
 
           <div className="mt-8">

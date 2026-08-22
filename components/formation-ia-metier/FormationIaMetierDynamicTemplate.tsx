@@ -59,8 +59,6 @@ export function FormationIaMetierDynamicTemplate({
             <strong className="font-semibold text-slate-800">
               Plus de {formatProfessionalsTrainedCount()} professionnels formés
             </strong>{' '}
-            · satisfaction moyenne{' '}
-            <strong className="font-semibold text-slate-800">{SOCIAL_PROOF.AVERAGE_RATING}</strong>
             · organisme certifié Qualiopi ({SITE_CONFIG.legalName}).
           </p>
           <SectionCtaVisio className="mt-10" />

@@ -131,8 +131,7 @@ export default function FormationIaConstructionPage() {
           </div>
 
           <p className="mt-6 text-sm text-slate-600">
-            <strong>{formatPersonnesFormeesCount()} professionnels formés</strong> ·{' '}
-            <strong>{SOCIAL_PROOF.AVERAGE_RATING}</strong> · Partenaires : FFB Grand Paris, CSFE,
+            <strong>{formatPersonnesFormeesCount()} professionnels formés</strong> · Partenaires : FFB Grand Paris, CSFE,
             UMB-FFB, CNAM Entreprise, Lefebvre Dalloz
           </p>
         </header>
@@ -297,9 +296,6 @@ export default function FormationIaConstructionPage() {
             <ul className="mt-3 list-inside list-disc space-y-1">
               <li>
                 <strong>{formatPersonnesFormeesCount()} professionnels formés</strong>
-              </li>
-              <li>
-                <strong>{SOCIAL_PROOF.AVERAGE_RATING}</strong> — note de satisfaction moyenne
               </li>
               <li>
                 Partenaires : FFB Grand Paris, CSFE, UMB-FFB, CNAM Entreprise, Lefebvre Dalloz

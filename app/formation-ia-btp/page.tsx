@@ -27,7 +27,7 @@ const ogImage = PHOTOS.formationIaBtpOgPortrait2026;
 
 const personnesFormeesAffiche = `${formatProofFormes()}+`;
 
-const FORMATION_IA_BTP_META_DESCRIPTION = `Formation IA pour le BTP en Île-de-France : ChatGPT pour devis, AO et chantier. Qualiopi, Constructys selon éligibilité. ${formatProofFormes()} pros, ${PROOF.note}. Visio découverte.`;
+const FORMATION_IA_BTP_META_DESCRIPTION = `Formation IA pour le BTP en Île-de-France : ChatGPT pour devis, AO et chantier. Qualiopi, Constructys selon éligibilité. ${formatProofFormes()} pros, . Visio découverte.`;
 
 export const metadata = createPageMetadata({
   title: 'Formation IA bâtiment IDF — ChatGPT 2026',
@@ -153,7 +153,7 @@ export default function FormationIaBtpPillarPage() {
               Formation IA appliquée au bâtiment — ChatGPT pour le Bâtiment en Île-de-France
             </h1>
             <p className="mt-4 text-base font-semibold text-slate-800">
-              {formatProofFormes()} · {PROOF.note} · organisme certifié Qualiopi
+              {formatProofFormes()} · organisme certifié Qualiopi
             </p>
             <div className="mx-auto mt-8 max-w-2xl space-y-6 text-left md:mx-0">
               <BlocCtaHaut />
@@ -547,9 +547,6 @@ export default function FormationIaBtpPillarPage() {
           <Reveal className="not-prose mt-10 rounded-2xl border border-slate-200 bg-white p-6 text-slate-700">
             <p className="font-display font-semibold text-slate-900">Mes chiffres</p>
             <ul className="mt-3 list-inside list-disc space-y-1">
-              <li>
-                <strong>{PROOF.note}</strong> — note de satisfaction moyenne
-              </li>
               <li>
                 <strong>{personnesFormeesAffiche}</strong> professionnels du BTP formés
               </li>

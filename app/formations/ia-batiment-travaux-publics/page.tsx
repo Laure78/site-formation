@@ -412,7 +412,7 @@ export default function FormationIAuServiceDuBatimentPage() {
             pour déployer l&apos;IA en entreprise avec relecture humaine obligatoire.
           </p>
           <p className="mt-4 text-slate-700 leading-relaxed">
-            En {new Date().getFullYear()}, OFC Création d&apos;Entreprise affiche une note de satisfaction de {siteStats.noteMoyenneAffichee} sur plus de{' '}
+            En {new Date().getFullYear()}, OFC Création d&apos;Entreprise affiche une indicateurs publiés sur la page dédiée sur plus de{' '}
             {formatPersonnesFormeesCount()} professionnels formés ({getStatsFreshnessLabel()}).
           </p>
           <p className="mt-4 text-slate-700 leading-relaxed">

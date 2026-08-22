@@ -1,7 +1,4 @@
 import type { ReactNode } from 'react';
-import {
-  PREUVES,
-} from '@/lib/constants';
 import { COUNT_UP_PROS_PLUS_SUFFIX } from '@/lib/readability-presets';
 import { CountUp } from '@/components/motion/CountUp';
 import { IndicateursResultatsLink } from '@/components/formation/IndicateursResultatsLink';
@@ -24,7 +21,6 @@ const STATS_BASE: StatItem[] = [
     value: <CountUp {...COUNT_UP_PROS_PLUS_SUFFIX} className="tabular-nums" />,
     label: 'Pros formés depuis 2021',
   },
-  { value: PREUVES.satisfaction, label: 'Satisfaction' },
   { value: 'OPCO', label: 'Financement possible' },
 ];
 

@@ -28,7 +28,7 @@ import { StatCallout } from '@/components/readability/StatCallout';
 import { IndicateursResultatsLink } from '@/components/formation/IndicateursResultatsLink';
 import { KeyPoint } from '@/components/readability/KeyPoint';
 import { RenvoiFicheCatalogue } from '@/components/qualiopi/RenvoiFicheCatalogue';
-import { COUNT_UP_PROS_PLUS, COUNT_UP_RATING, getStatsFreshnessLabel } from '@/lib/readability-presets';
+import { COUNT_UP_PROS_PLUS, getStatsFreshnessLabel } from '@/lib/readability-presets';
 
 interface FormationCityPageProps {
   config: CityFormationConfig;
@@ -167,12 +167,6 @@ export function FormationCityPage({
               variant="inline"
               value={COUNT_UP_PROS_PLUS}
               label="pros BTP formés"
-              freshnessLabel={statsFreshness}
-            />
-            <StatCallout
-              variant="inline"
-              value={COUNT_UP_RATING}
-              label="note moyenne"
               freshnessLabel={statsFreshness}
             />
           </div>

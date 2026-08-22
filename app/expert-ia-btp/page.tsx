@@ -58,8 +58,7 @@ export default function ExpertIABTPPage() {
                   Laure Olivié est experte en intelligence artificielle pour le bâtiment et les travaux publics :
                   appels d&apos;offres, mémoires techniques, devis et suivi de chantier. Elle accompagne les
                   entreprises via OFC Création d&apos;Entreprise, organisme certifié Qualiopi, en présentiel, en
-                  Île-de-France. {formatProfessionalsTrainedCount()} professionnels formés, note moyenne{' '}
-                  {SOCIAL_PROOF.AVERAGE_RATING}.
+                  Île-de-France. {formatProfessionalsTrainedCount()} professionnels formés.
                 </p>
               </EnBref>
               <p className="mt-4 text-2xl font-semibold text-blue-100">
@@ -76,8 +75,8 @@ export default function ExpertIABTPPage() {
                   <p className="text-sm text-blue-100">Professionnels formés</p>
                 </div>
                 <div className="rounded-xl bg-white/10 px-6 py-3 backdrop-blur-sm">
-                  <p className="text-3xl font-bold text-white">{SOCIAL_PROOF.AVERAGE_RATING}</p>
-                  <p className="text-sm text-blue-100">Note moyenne</p>
+                  <p className="text-3xl font-bold text-white">Qualiopi</p>
+                  <p className="text-sm text-blue-100">Organisme certifié</p>
                 </div>
                 <div className="rounded-xl bg-white/10 px-6 py-3 backdrop-blur-sm">
                   <p className="text-3xl font-bold text-white">10 ans</p>

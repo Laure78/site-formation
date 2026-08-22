@@ -2,7 +2,6 @@ import Link from 'next/link';
 import { CalendlyEmbed } from '@/components/CalendlyEmbed';
 import { JsonLd } from '@/components/JsonLd';
 import { FAQSection } from '@/components/landing/FAQSection';
-import { QualiopiSatisfactionSource } from '@/components/formation/QualiopiSatisfactionSource';
 import { EnBref } from '@/app/components/EnBref';
 import { VoirAussi } from '@/components/VoirAussi';
 import { buildMetadata, getFAQSchema, SITE_CONFIG } from '@/lib/seo';
@@ -37,7 +36,7 @@ const PATH = '/formation-ia-btp-ile-de-france';
 /** Segment sans suffixe — `buildMetadata` ajoute « | Laure Olivié » (total ≤ 60). */
 const META_TITLE = 'Formation IA BTP Île-de-France';
 /** 152 caractères — phrase complète, sans ellipse */
-const META_DESCRIPTION = `Formation IA pour le BTP en Île-de-France : devis, DCE et CR. Présentiel, Qualiopi, Constructys selon éligibilité. ${formatProofFormes()} pros, ${PROOF.note}. Visio découverte.`;
+const META_DESCRIPTION = `Formation IA pour le BTP en Île-de-France : devis, DCE et CR. Présentiel, Qualiopi, Constructys selon éligibilité. ${formatProofFormes()} pros, . Visio découverte.`;
 
 export const metadata = buildMetadata({
   title: META_TITLE,
@@ -93,7 +92,7 @@ const FAQ_IDF: FAQItem[] = [
   },
   {
     q: 'Combien de professionnels avez-vous formés ?',
-    a: `Plus de ${formatProfessionalsTrainedCount()} professionnels formés, note moyenne ${SOCIAL_PROOF.AVERAGE_RATING}. Organisme OFC Création d'Entreprise, certifié Qualiopi — actions de formation.`,
+    a: `Plus de ${formatProfessionalsTrainedCount()} professionnels formés. Organisme OFC Création d'Entreprise, certifié Qualiopi — actions de formation.`,
   },
 ];
 
@@ -121,17 +120,15 @@ export default function FormationIaBtpIleDeFrancePage() {
                 En Île-de-France, Laure Olivié propose des formations IA pour le BTP via OFC Création
                 d&apos;Entreprise, organisme certifié Qualiopi : sessions en présentiel uniquement, sur documents
                 réels — devis, DCE, mémoires techniques, comptes rendus. Catalogue inter et intra ; financement OPCO
-                possible selon éligibilité. {formatProfessionalsTrainedCount()} professionnels formés, note moyenne{' '}
-                {SOCIAL_PROOF.AVERAGE_RATING}.
+                possible selon éligibilité. {formatProfessionalsTrainedCount()} professionnels formés.
               </p>
             </EnBref>
             <p className="mt-6 text-lg leading-relaxed text-slate-600">
               Laure Olivié forme les TPE et PME du bâtiment et de la construction en présentiel uniquement, en
               Île-de-France uniquement : devis, DCE, comptes rendus et administratif sur vos documents réels.{' '}
-              {formatProfessionalsTrainedCount()} professionnels formés, note {SOCIAL_PROOF.AVERAGE_RATING}. Organisme
+              {formatProfessionalsTrainedCount()} professionnels formés. Organisme
               certifié Qualiopi — {FINANCEMENT_FORMULATION_PRUDENTE}
             </p>
-            <QualiopiSatisfactionSource className="mt-4" />
             <p className="mt-6 text-base leading-relaxed text-slate-600">
               <Link href={LINKS.videoFormationsIaBtp} className={OFC_LINK}>
                 Voir la présentation vidéo des formations IA BTP

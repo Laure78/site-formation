@@ -14,7 +14,6 @@ import {
   Users,
 } from 'lucide-react';
 import { IndicateursResultatsLink } from '@/components/formation/IndicateursResultatsLink';
-import { QualiopiSatisfactionSource } from '@/components/formation/QualiopiSatisfactionSource';
 import { formatPersonnesFormeesCount, getStatsFreshnessLabel, siteStats } from '@/lib/constants';
 import {
   QUALIOPI_FICHE_META,
@@ -237,11 +236,11 @@ export function InformationsReglementaires(props: InfosQualiopiProps) {
             <h3 className="font-semibold text-slate-900">Indicateurs de résultats</h3>
           </div>
           <p className="mt-3 text-sm leading-relaxed text-slate-700">
-            En {new Date().getFullYear()}, OFC Création d&apos;Entreprise affiche une note de satisfaction de{' '}
-            <strong>{siteStats.noteMoyenneAffichee}</strong> sur plus de{' '}
-            <strong>{formatPersonnesFormeesCount()} professionnels formés</strong> ({getStatsFreshnessLabel()}).
+            En {new Date().getFullYear()}, OFC Création d&apos;Entreprise publie ses indicateurs de résultats
+            Qualiopi sur plus de{' '}
+            <strong>{formatPersonnesFormeesCount()} professionnels formés</strong> ({getStatsFreshnessLabel()}
+            ).
           </p>
-          <QualiopiSatisfactionSource className="mt-2" />
           <IndicateursResultatsLink className="mt-3 text-left" />
         </div>
 

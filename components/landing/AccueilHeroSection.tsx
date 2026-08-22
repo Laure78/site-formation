@@ -2,7 +2,6 @@ import Link from 'next/link';
 import { Sparkles, FileText } from 'lucide-react';
 import { AccueilHeroVideoSection } from '@/components/landing/AccueilHeroVideoSection';
 import { CitationSentence } from '@/components/seo/CitationSentence';
-import { QualiopiSatisfactionSource } from '@/components/formation/QualiopiSatisfactionSource';
 import { Partenaires } from '@/components/Partenaires';
 import { MentionFinancement } from '@/components/MentionFinancement';
 import { MentionTvaAsterisque } from '@/components/MentionTVA';
@@ -80,8 +79,6 @@ export function AccueilHeroSection() {
               Présentiel uniquement · Île-de-France uniquement
             </p>
           </div>
-          <QualiopiSatisfactionSource className="max-w-2xl" />
-
           <Partenaires
             id="accueil-partenaires"
             embedded

@@ -37,7 +37,7 @@ const HERO_RESUME = [
   'Siège OFC à Guyancourt : une formatrice à proximité immédiate, sans frais de déplacement supplémentaires pour les entreprises du 78.',
   `Session ${CATALOGUE_NIV01.duree} — 100 % pratique sur vos documents : devis, comptes rendus de chantier, appels d'offres.`,
   'Financement possible par OPCO Constructys (plan de développement des compétences) selon éligibilité et dossier.',
-  `Plus de ${formatProfessionalsTrainedCount()} professionnels BTP formés · Note ${SOCIAL_PROOF.AVERAGE_RATING} · Organisme certifié Qualiopi.`,
+  `Plus de ${formatProfessionalsTrainedCount()} professionnels BTP formés · Note  · Organisme certifié Qualiopi.`,
 ];
 
 // ISR : HTML mis en cache au edge et revalidé toutes les heures (3600 s)
@@ -438,7 +438,7 @@ export default function FormationIABTPSaintQuentinYvelinesPage() {
             (78/91/95) · FFB Île-de-France Est · CSFE · CNAM Entreprise · Lefebvre Dalloz
           </p>
           <p className="mt-2 text-sm text-slate-600">
-            Plus de {formatProfessionalsTrainedCount()} professionnels BTP formés · Note {SOCIAL_PROOF.AVERAGE_RATING} ·
+            Plus de {formatProfessionalsTrainedCount()} professionnels BTP formés ·
             Qualiopi · OPCO Constructys selon éligibilité
           </p>
           <p className="mt-6 text-sm text-slate-500">

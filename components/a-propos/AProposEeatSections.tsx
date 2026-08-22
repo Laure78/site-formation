@@ -10,7 +10,7 @@ import {
 } from '@/lib/linkedin-learning-a-propos-embeds';
 import { EXTERNAL_AUTHORITY_LINKS } from '@/lib/seo-links';
 import { QualiopiWordmark } from '@/components/QualiopiLogo';
-import { formatPersonnesFormeesCount, getStatsFreshnessLabel, siteStats } from '@/lib/constants';
+import { formatPersonnesFormeesCount, getStatsFreshnessLabel } from '@/lib/constants';
 
 const poppins = Poppins({
   subsets: ['latin'],
@@ -40,13 +40,16 @@ const PARCOURS = [
   },
   {
     year: '2026',
-    text: `${formesNombreAffiche} professionnels formés (${statsFreshness}) — note ${siteStats.noteMoyenneAffichee} (évaluations fin de formation).`,
+    text: `${formesNombreAffiche} professionnels formés (${statsFreshness}) — indicateurs Qualiopi publiés en ligne.`,
   },
 ] as const;
 
 const REF_TABLE = [
   { label: `Professionnels formés (${statsFreshness})`, value: formesNombreAffiche },
-  { label: 'Note de satisfaction (questionnaires fin de formation)', value: siteStats.noteMoyenneAffichee },
+  {
+    label: 'Indicateurs de résultats Qualiopi',
+    value: 'Publiés sur /indicateurs-resultats',
+  },
   {
     label: 'Financement OPCO Constructys',
     value: 'Prise en charge partielle selon barème et éligibilité',

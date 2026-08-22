@@ -305,7 +305,7 @@ export default function ClaudeAiBtpPillarPage() {
                   </table>
                 </div>
                 <p className="mt-5 text-sm text-[#64748B]">
-                  {`Sur les sessions FFB et CSFE, les participants rapportent ces ordres de grandeur sur des dossiers comparables. Gains variables selon l'organisation, les outils en place et le niveau de pratique. · +${formatProfessionalsTrainedCount()} formés · ${SOCIAL_PROOF.AVERAGE_RATING}`}
+                  {`Sur les sessions FFB et CSFE, les participants rapportent ces ordres de grandeur sur des dossiers comparables. Gains variables selon l'organisation, les outils en place et le niveau de pratique. · +${formatProfessionalsTrainedCount()} formés · `}
                 </p>
               </section>
 

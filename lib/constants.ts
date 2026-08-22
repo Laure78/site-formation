@@ -79,7 +79,7 @@ export const PREUVES_MENTION_SOURCE =
 
 /** Bloc « Fédérations & OPCO » — accueil, pour qui. */
 export const PREUVES_FEDERATIONS_OPCO =
-  'Depuis décembre 2021, plus de 1 500 professionnels formés toutes actions confondues, 4,85/5 de satisfaction — dont des sessions animées avec FFB Grand Paris, CSFE et UMB-FFB.' as const;
+  'Depuis décembre 2021, plus de 1 500 professionnels formés toutes actions confondues — dont des sessions animées avec FFB Grand Paris, CSFE et UMB-FFB.' as const;
 
 /** Formulation publique arrondie (texte courant, llms.txt, JSON-LD texte). */
 export const PROS_FORMES_TEXTE = 'plus de 1 500 professionnels formés' as const;

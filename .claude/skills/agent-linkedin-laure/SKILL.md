@@ -125,7 +125,7 @@ Différenciateur unique, à réactiver en boucle :
 
 Preuves :
 ⦿ 1 500+ pros formés
-⦿ 4,85/5
+⦿ 
 ⦿ Qualiopi (finançable Constructys)
 ⦿ 2 formations LinkedIn Learning publiées
 

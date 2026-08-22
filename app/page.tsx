@@ -122,7 +122,7 @@ const GAINS_COMMERCIAUX_CARDS = [
 
 /** Segment sans suffixe — `buildMetadata` ajoute « | Laure Olivié » (total ≤ 60). */
 const HOME_META_TITLE = 'Formation IA pour le BTP en Île-de-France';
-const HOME_META_DESCRIPTION = `Formation IA pour le BTP en présentiel IDF : devis, DCE et CR. Qualiopi, Constructys selon éligibilité. Laure Olivié, ${formatPersonnesFormeesCountPlus()} pros, ${PREUVES.satisfaction}. Visio découverte.`;
+const HOME_META_DESCRIPTION = `Formation IA pour le BTP en présentiel IDF : devis, DCE et CR. Qualiopi, Constructys selon éligibilité. Laure Olivié, ${formatPersonnesFormeesCountPlus()} pros, . Visio découverte.`;
 
 const HOME_FAQ_PAGE_JSON_LD = buildHomeFAQPageJsonLd();
 

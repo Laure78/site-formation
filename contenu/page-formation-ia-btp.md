@@ -75,7 +75,7 @@ Formation IA pour les pros du BTP — ChatGPT pour le Bâtiment en Île-de-Franc
 ### Chiffres clés (sous-titre ou ligne de badges)
 
 - **plus de 1 500 professionnels formés** professionnels formés  
-- **4,85/5** satisfaction  
+- **** satisfaction  
 - **Qualiopi** (certification OFC)
 
 ### Sous-texte court (optionnel)

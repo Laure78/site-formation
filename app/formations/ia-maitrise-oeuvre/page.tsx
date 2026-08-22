@@ -59,7 +59,7 @@ const HERO_BADGES = [
   '4h de formation',
   '3 à 8 participants',
   FINANCEMENT_STAT_LABEL,
-  `${SOCIAL_PROOF.AVERAGE_RATING} satisfaction`,
+  ` satisfaction`,
 ];
 
 const TARIF_SESSION_LIBELLE = libelleTarifSessionForfaitaire(TARIF_SESSION_AVANCE_HT);
@@ -267,8 +267,7 @@ export default function FormationIaMaitriseOeuvrePage() {
               </p>
               <p className="mt-3 text-sm leading-relaxed text-slate-600">
                 Fondatrice d&apos;OFC Création d&apos;Entreprise. Dirigeante d&apos;une entreprise de Travaux Publics dans les Yvelines (ALIA BTP,
-                2017-2024). Plus de {SOCIAL_PROOF.PROFESSIONALS_TRAINED} professionnels formés — note de satisfaction{' '}
-                {SOCIAL_PROOF.AVERAGE_RATING}/5.
+                2017-2024).                 Plus de {SOCIAL_PROOF.PROFESSIONALS_TRAINED} professionnels formés.
               </p>
               <Link
                 href={LINKS.aPropos}

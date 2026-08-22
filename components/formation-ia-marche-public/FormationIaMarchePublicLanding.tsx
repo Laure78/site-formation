@@ -139,7 +139,7 @@ export function FormationIaMarchePublicLanding({
                 technique. Sessions en présentiel en Île-de-France (4&nbsp;h), dispensées par un organisme certifié Qualiopi. Financement
                 Constructys possible selon éligibilité. Plus de{' '}
                 <strong className="text-slate-800">{formatProfessionalsTrainedCount()} professionnels</strong>{' '}
-                formés · note <strong className="text-slate-800">{SOCIAL_PROOF.AVERAGE_RATING}</strong>.
+                formés.
               </>
             )}
             {config.introParagraph ? (
@@ -147,7 +147,7 @@ export function FormationIaMarchePublicLanding({
                 {' '}
                 Plus de{' '}
                 <strong className="text-slate-800">{formatProfessionalsTrainedCount()} professionnels</strong>{' '}
-                formés · note <strong className="text-slate-800">{SOCIAL_PROOF.AVERAGE_RATING}</strong>.
+                formés.
               </>
             ) : null}
           </p>
