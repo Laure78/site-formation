@@ -35,7 +35,6 @@ import { ExternalLinkAnchor } from '@/components/ExternalLink';
 import { QualiopiBadge } from '@/components/QualiopiLogo';
 import { DisclaimerGains } from '@/components/formation/DisclaimerGains';
 import { QUALIOPI_FINANCEMENT_FORMULATION } from '@/config/qualiopi';
-import { QUALIOPI_LEGAL } from '@/lib/qualiopi-info';
 import Image from 'next/image';
 import { buildMetadata } from '@/lib/seo';
 import { FAQ_ITEMS_HOME, buildHomeFAQPageJsonLd } from '@/lib/faq';
@@ -63,6 +62,7 @@ import { HomePrincipalSections } from '@/components/landing/HomePrincipalSection
 import { SelecteurMetier } from '@/components/SelecteurMetier/SelecteurMetier';
 import { BeworkEtFormationsOffreSection } from '@/components/landing/BeworkEtFormationsOffreSection';
 import { HomeGuideConducteurTravauxSection } from '@/components/landing/HomeGuideConducteurTravauxSection';
+import { AccueilFormationsIaMetiersSection } from '@/components/landing/AccueilFormationsIaMetiersSection';
 import { Accordion } from '@/components/readability/Accordion';
 import { KeyPoint } from '@/components/readability/KeyPoint';
 import { Citation } from '@/components/readability/Citation';
@@ -571,6 +571,8 @@ export default function HomePage() {
 
       <HomeGuideConducteurTravauxSection />
 
+      <AccueilFormationsIaMetiersSection />
+
       <PourQuiSection />
 
       {/* Thématiques abordées — H3 sous « Mes formations IA spécialisées BTP » */}
@@ -677,6 +679,9 @@ export default function HomePage() {
                 width={LOGO_LINKEDIN_LEARNING.width}
                 height={LOGO_LINKEDIN_LEARNING.height}
                 className="h-8 w-auto max-w-[160px] object-contain"
+                sizes="160px"
+                loading="lazy"
+                quality={70}
               />
               <p className="mt-3 text-sm font-medium uppercase tracking-wide text-[var(--accent)]">
                 LinkedIn Learning
@@ -898,13 +903,10 @@ export default function HomePage() {
             <Reveal>
             <div className="mx-auto max-w-4xl">
               <div className="flex flex-col gap-8 rounded-2xl border border-slate-200 bg-slate-50 p-8 md:flex-row md:items-start">
-                <div className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm md:max-w-md">
+                <div className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm md:w-[28rem] md:shrink-0">
                   <Link href={LINKS.qualiopi} className="block hover:opacity-95">
-                    <QualiopiBadge />
+                    <QualiopiBadge size="lg" />
                   </Link>
-                  <p className="mt-3 text-xs leading-relaxed text-slate-600">
-                    {QUALIOPI_LEGAL.qualiopiCategoryMention}
-                  </p>
                   <ExternalLinkAnchor
                     href={ANNUAIRE_ENTREPRISES_OFC_URL}
                     title="Consulter la fiche OFC Création d'Entreprise sur l'Annuaire des Entreprises (data.gouv.fr)"

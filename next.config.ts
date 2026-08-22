@@ -198,8 +198,23 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
-        source: '/formation-ia-appels-offres-btp',
-        destination: '/formations/ia-appels-offre-btp',
+        source: '/formation-ia-conducteur-de-travaux-btp',
+        destination: '/formation-ia-conducteur-de-travaux',
+        permanent: true,
+      },
+      {
+        source: '/formation-ia-conducteur-de-travaux-btp/:path*',
+        destination: '/formation-ia-conducteur-de-travaux',
+        permanent: true,
+      },
+      {
+        source: '/formation-ia-conducteur-travaux',
+        destination: '/formation-ia-conducteur-de-travaux',
+        permanent: true,
+      },
+      {
+        source: '/formation-ia-conducteur-travaux/:path*',
+        destination: '/formation-ia-conducteur-de-travaux',
         permanent: true,
       },
       {
@@ -226,12 +241,12 @@ const nextConfig: NextConfig = {
       // Canonique métier : ancienne landing courte → URL formation-
       {
         source: '/ia-conducteur-travaux',
-        destination: '/formation-ia-conducteur-de-travaux-btp',
+        destination: '/formation-ia-conducteur-de-travaux',
         permanent: true,
       },
       {
         source: '/ia-conducteur-travaux/',
-        destination: '/formation-ia-conducteur-de-travaux-btp',
+        destination: '/formation-ia-conducteur-de-travaux',
         permanent: true,
       },
       {
@@ -1082,6 +1097,11 @@ const nextConfig: NextConfig = {
       {
         source: '/images/formation-ia-maitrise-oeuvre-moex-btp.png',
         destination: '/images/formation-ia-maitrise-oeuvre-btp.webp',
+        permanent: true,
+      },
+      {
+        source: '/images/logo-qualiopi-certification-formation-actions.webp',
+        destination: '/images/logo-qualiopi-certifopac-actions-formation.png',
         permanent: true,
       },
       {

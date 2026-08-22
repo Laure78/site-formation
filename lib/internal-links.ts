@@ -46,7 +46,7 @@ export const LINKS = {
   prendreRdv: '/prendre-rendez-vous',
   /** Calendly inline — ancre unique page d'accueil */
   accueilRdv: '/#rdv',
-  /** Alias historique — redirige vers `prendreRdv`. */
+  /** Alias historique — URL legacy ; redirection 301 vers `prendreRdv` (ne pas utiliser dans les liens internes). */
   prendreRdvLegacy: '/prendre-rdv',
   /**
    * Ancien pilier `/formation-ia-btp` (308 → catalogue).
@@ -55,6 +55,18 @@ export const LINKS = {
   formationIaBtp: '/formations',
   /** Landing SEO cluster — formation IA entreprises de construction (ETI, EG, MOE, BET) */
   formationIaConstruction: '/formation-ia-construction',
+  /** Cluster SEO — formation ChatGPT BTP (outil) */
+  formationChatgptBtp: '/formation-chatgpt-btp',
+  /** Cluster SEO — formation IA conducteur de travaux (métier) */
+  formationIaConducteurDeTravaux: '/formation-ia-conducteur-de-travaux',
+  /** Cluster SEO — formation IA appels d'offres BTP (processus AO/DCE) */
+  formationIaAppelsOffresBtp: '/formation-ia-appels-offres-btp',
+  /** Cluster SEO — formation Claude BTP (outil Claude AI) */
+  formationClaudeBtp: '/formation-claude-btp',
+  /** Cluster SEO local — formation IA intra entreprise bâtiment Paris / IDF */
+  formationIaEntrepriseBatimentParis: '/formation-ia-entreprise-batiment-paris',
+  /** Pilier SEO cluster — formation IA pour le BTP (page maîtresse) */
+  formationIaBtpPillar: '/formation-ia-btp',
   /** Guide Claude AI — Anthropic, interfaces, prompts BTP */
   claudeAiBtp: '/claude-ai-btp',
   /**
@@ -129,12 +141,14 @@ export const LINKS = {
   iaMemoireTechnique: '/ia-memoire-technique-btp',
   /** Méthode transactionnelle — comptes rendus de chantier avec l'IA */
   iaCompteRenduChantier: '/ia-compte-rendu-chantier',
-  /** Canonique SEO — guide IA conducteur de travaux BTP (ancien `/ia-conducteur-travaux` → 301) */
-  iaConducteurTravaux: '/formation-ia-conducteur-de-travaux-btp',
+  /** Canonique SEO — formation IA conducteur de travaux (ancien `/formation-ia-conducteur-de-travaux-btp` → 301) */
+  iaConducteurTravaux: '/formation-ia-conducteur-de-travaux',
   /** Alias canonique — même URL que `formationConducteurTravaux` */
-  iaCDT: '/formation-ia-conducteur-de-travaux-btp',
+  iaCDT: '/formation-ia-conducteur-de-travaux',
+  /** Landing SEO — métreur & économiste de la construction (DPGF, DQE, métrés) */
+  formationIaMetreurEconomisteConstruction: '/formation-ia-metreur-economiste-construction',
   /** Fiche SEO — formation IA conducteur de travaux BTP */
-  formationConducteurTravaux: '/formation-ia-conducteur-de-travaux-btp',
+  formationConducteurTravaux: '/formation-ia-conducteur-de-travaux',
   /** Fiche SEO — formation IA chargé d'affaires BTP */
   formationChargeAffairesBtp: '/formation-ia-charge-affaires-btp',
   formationElectricienBtp: '/formation-ia-electricien-btp',
@@ -291,8 +305,8 @@ export const LINKS = {
     '/ressources/pdf/tuto-skill-memoire-reclamation-bework.pdf',
   tutoPvLeveeReserves: '/ressources/tuto-pv-levee-reserves',
 
-  /** AO BTP — maître (l'ancien `/formation-ia-appels-offres-btp` redirige en 308) */
-  repondreAoLanding: '/formations/ia-appels-offre-btp',
+  /** AO BTP — landing SEO cluster (fiche catalogue : `formationAO`) */
+  repondreAoLanding: '/formation-ia-appels-offres-btp',
   /**
    * Alias historique analyse CCTP/DCE → fiche catalogue NIV-02.
    * L’ancienne URL `/formations/formation-ia-cctp-analyse-dce-btp` redirige en 308.

@@ -119,6 +119,21 @@ const ROUTE_SOURCE_FILES: Record<string, readonly string[]> = {
   '/financement-constructys-formation-ia-btp': ['app/financement-constructys-formation-ia-btp/page.tsx'],
   '/llms.txt': ['public/llms.txt'],
   '/claude-ai-btp': ['app/claude-ai-btp/page.tsx'],
+  '/formation-ia-btp': ['app/formation-ia-btp/page.tsx', 'lib/formation-ia-btp-pillar-faq.ts'],
+  '/formation-chatgpt-btp': ['app/formation-chatgpt-btp/page.tsx', 'lib/formation-chatgpt-btp-landing.ts'],
+  '/formation-ia-conducteur-de-travaux': [
+    'app/formation-ia-conducteur-de-travaux/page.tsx',
+    'lib/formation-ia-conducteur-de-travaux-landing.ts',
+  ],
+  '/formation-ia-appels-offres-btp': [
+    'app/formation-ia-appels-offres-btp/page.tsx',
+    'lib/formation-ia-appels-offres-btp-landing.ts',
+  ],
+  '/formation-claude-btp': ['app/formation-claude-btp/page.tsx', 'lib/formation-claude-btp-landing.ts'],
+  '/formation-ia-entreprise-batiment-paris': [
+    'app/formation-ia-entreprise-batiment-paris/page.tsx',
+    'lib/formation-ia-entreprise-batiment-paris-landing.ts',
+  ],
   '/outils/cas-usage-ia-btp': ['app/outils/cas-usage-ia-btp/page.tsx'],
   '/outils-ia-btp': ['app/outils-ia-btp/page.tsx'],
   '/formation-ia-btp-ile-de-france': [
@@ -167,13 +182,17 @@ const ROUTE_SOURCE_FILES: Record<string, readonly string[]> = {
   '/formation-ia-conducteur-de-travaux-btp': [
     'app/formation-ia-conducteur-de-travaux-btp/page.tsx',
   ],
+  '/formation-ia-metreur-economiste-construction': [
+    'app/formation-ia-metreur-economiste-construction/page.tsx',
+    'lib/formation-ia-metreur-economiste-construction-landing.ts',
+  ],
   '/formation-ia-dirigeant-btp': ['app/formation-ia-dirigeant-btp/page.tsx'],
   '/formation-ia-assistante-gestion-btp': ['app/formation-ia-assistante-gestion-btp/page.tsx'],
   '/formation-ia-assistante-travaux': ['app/formation-ia-assistante-travaux/page.tsx'],
   '/etudes-de-cas/ffb-csfe': ['app/etudes-de-cas/ffb-csfe/page.tsx'],
   '/expert-ia-btp': ['app/expert-ia-btp/page.tsx'],
   '/formateur-ia-btp': ['app/formateur-ia-btp/page.tsx'],
-  '/prendre-rdv': ['app/prendre-rdv/page.tsx'],
+  '/prendre-rendez-vous': ['app/prendre-rendez-vous/page.tsx'],
   '/diagnostic-ia-btp': ['app/diagnostic-ia-btp/page.tsx'],
   '/checklist-ia-btp': ['app/checklist-ia-btp/page.tsx'],
   '/communaute-formateurs': ['app/communaute-formateurs/page.tsx'],
