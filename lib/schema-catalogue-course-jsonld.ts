@@ -88,9 +88,9 @@ export type FormationCatalogueRichCourseConfig = {
 
 export const CATALOGUE_COURSE_IA_BTP_NIV01: CatalogueCourseJsonLdConfig = {
   path: LINKS.formationIaBtpNiveau1BatimentTp,
-  name: "L'IA au service des pros du bâtiment et des travaux publics",
+  name: "L'IA au service des professionnels du BTP",
   description:
-    'Formation IA niveau 1 pour le BTP : devis, comptes rendus, administratif. 4 h, présentiel Île-de-France.',
+    'Formation IA niveau 1 : fondamentaux ChatGPT et IA générative, devis, DOE, PV, CR et communication. 4 h, présentiel Île-de-France.',
   price: prixCatalogue('NIV-01'),
   keywords: ['Devis BTP', 'administratif', 'comptes rendus', 'PPSPS', 'construction'],
   courseCode: 'NIV-01',

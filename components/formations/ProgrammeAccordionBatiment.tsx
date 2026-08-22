@@ -36,7 +36,7 @@ const PROGRAMME_SECTIONS = [
           'Rédiger des DOE conformes : fiches techniques, plans de récolement, notices d’entretien',
           'PV de réception, levée de réserves, documents de garantie (parfait achèvement, biennale, décennale)',
           'Comptes rendus de chantier à partir de notes ou dictée — niveau de détail adapté au destinataire',
-          'Livrable : trames DOE / PV / CR adaptées à votre métier',
+          'Livrable : kit de prompts multi-usages (recrutement, vente, SEO, juridique, RH) + trames DOE / PV / CR adaptées à votre métier',
         ],
       },
       {

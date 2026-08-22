@@ -30,7 +30,7 @@ const FORMATIONS_DATA = [
   { path: '/formations', title: 'Catalogue formations IA appliquées au bâtiment', desc: `Sessions ${SESSION_DUREE_LIBELLE} : forfait unique ${libelleTarifSessionForfaitaire(TARIF_SESSION_FORFAIT_HT)} (tous niveaux). ${MODALITE_FORMATIONS_PRESENTIEL} Qualiopi, Constructys selon éligibilité.` },
   {
     path: '/formations/ia-batiment-travaux-publics',
-    title: "L'IA au service des pros du bâtiment et des travaux publics",
+    title: "L'IA au service des professionnels du BTP",
     desc: `Formation niveau 1 : ${SESSION_DUREE_LIBELLE}, forfait unique ${libelleTarifSessionForfaitaire(TARIF_SESSION_FORFAIT_HT)}. ${COMPTES_IA_GRATUITS_NIVEAU_DEBUTANT} Bâtiment, TP, devis, administratif. Qualiopi, Constructys.`,
   },
   { path: '/formation-ia-btp-paris', title: 'Formation IA BTP Paris (75)', desc: `${SESSION_DUREE_LIBELLE}. Intra par arrondissement, présentiel Paris & petite couronne. Qualiopi, Constructys selon éligibilité.` },

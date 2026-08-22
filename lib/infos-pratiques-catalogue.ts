@@ -60,7 +60,20 @@ export const PROGRAMME_CONTENU_CATALOGUE: Record<FormationCode, readonly string[
 };
 
 const PREREQUIS_NIV01 =
-  'Savoir utiliser un ordinateur et un smartphone (navigation web, traitement de texte). Bonne maîtrise du français écrit et oral. Aucun prérequis en intelligence artificielle. Niveau 1 : un compte gratuit Claude AI ou ChatGPT suffit.';
+  'Savoir utiliser un ordinateur et un smartphone. Bonne maîtrise du français écrit et oral. Aucun prérequis IA ni abonnement payant : les versions gratuites suffisent. Un compte payant (Claude Pro, ChatGPT Plus) est seulement recommandé pour aller plus loin ensuite.';
+
+const MODALITES_ACCES_NIV01 =
+  "Inscription sur demande auprès d'OFC (laureolivie@yahoo.fr — 06 95 66 18 18) : analyse du besoin → acceptation du devis → signature de la convention de formation → demande de prise en charge OPCO → convocation. Un questionnaire de positionnement est adressé à chaque participant avant la session.";
+
+const DELAI_ACCES_NIV01 =
+  "Inscription jusqu'à 15 jours calendaires avant le démarrage, sous réserve des disponibilités de la formatrice et du client. Ce délai correspond au minimum exigé par les OPCO pour l'instruction d'une demande de prise en charge. Le délai exact est confirmé lors de la demande de formation.";
+
+const EVALUATION_NIV01 = [
+  'Questionnaire de positionnement adressé à chaque participant avant la session.',
+  'Auto-positionnement en début et en fin de session ; évaluation continue par exercices pratiques et mises en situation.',
+  'Questionnaire de satisfaction à chaud en fin de session ; questionnaire à froid à 3 mois.',
+  'Feuille d’émargement signée par demi-journée ; attestation de fin de formation et certificat de réalisation.',
+] as const;
 
 function stripLabelPrefix(text: string, prefix: RegExp): string {
   return text.replace(prefix, '').trim();
@@ -127,14 +140,18 @@ export function getInfosPratiquesForCatalogue(ref: string): InfosPratiquesFormat
     programmePdfUrl: formation.pdfProgramme,
     duree: libelleDureeInfosPratiques(formation),
     modalitesAcces: sanitizeInfosPratiquesText(
-      stripLabelPrefix(QUALIOPI_MODALITES_ACCES_EXACT, /^Modalités d'accès\s*:\s*/i)
+      code === 'NIV-01'
+        ? MODALITES_ACCES_NIV01
+        : stripLabelPrefix(QUALIOPI_MODALITES_ACCES_EXACT, /^Modalités d'accès\s*:\s*/i)
     ),
     delaiAcces: sanitizeInfosPratiquesText(
-      stripLabelPrefix(QUALIOPI_DELAI_ACCES_EXACT, /^Délai d'accès\s*:\s*/i)
+      code === 'NIV-01'
+        ? DELAI_ACCES_NIV01
+        : stripLabelPrefix(QUALIOPI_DELAI_ACCES_EXACT, /^Délai d'accès\s*:\s*/i)
     ),
     tarif: tarifPourRef(code),
     methodes: [...QUALIOPI_METHODES_STANDARD],
-    modalitesEvaluation: [...QUALIOPI_EVALUATION_STANDARD],
+    modalitesEvaluation: code === 'NIV-01' ? [...EVALUATION_NIV01] : [...QUALIOPI_EVALUATION_STANDARD],
     modalitePedagogique: MODALITE_PEDAGOGIQUE_CATALOGUE,
     accessibiliteHandicap: INFOS_PRATIQUES_HANDICAP_ENCART,
     dateMaj: formation.programmeUpdatedAt,

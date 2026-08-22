@@ -609,7 +609,7 @@ export const FAQ_FORMATION_IA_APPELS_OFFRES_LANDING: FAQItem[] = [
 export const FAQ_BATIMENT: FAQItem[] = [
   {
     q: 'Je suis artisan du bâtiment sans compétence informatique : cette formation est-elle faisable ?',
-    a: `Oui : La formation niveau 1 part de zéro prérequis technique et se déroule en ${SESSION_DUREE_LIBELLE} de présentiel. Vous travaillez sur vos devis, emails et comptes rendus réels avec des trames guidées — pas besoin de savoir « coder ». Seuls prérequis : ordinateur, connexion internet et ${COMPTES_IA_GRATUITS_NIVEAU_DEBUTANT}`,
+    a: `Oui : la formation niveau 1 part de zéro prérequis technique et se déroule en ${SESSION_DUREE_LIBELLE} de présentiel. Vous travaillez sur vos devis, emails et comptes rendus réels avec des trames guidées — pas besoin de savoir « coder ». Seuls prérequis : ordinateur, smartphone, connexion internet et bonne maîtrise du français. Aucun abonnement IA payant requis : les versions gratuites suffisent.`,
   },
   {
     q: 'Combien coûte la formation IA niveau 1 et est-ce finançable OPCO en 2026 ?',
@@ -617,7 +617,7 @@ export const FAQ_BATIMENT: FAQItem[] = [
   },
   {
     q: 'Faut-il payer ChatGPT ou Claude pour suivre la formation niveau 1 ?',
-    a: `${COMPTES_IA_GRATUITS_NIVEAU_DEBUTANT} Le niveau débutant ne nécessite pas d'abonnement payant. Pour les marchés publics ou l'industrialisation Claude, voir le <a href="${LINKS.formationAO}">formation appels d'offres</a> ou le <a href="${LINKS.formationMaitriserClaudeAiBtp}">parcours Claude AI BTP</a>.`,
+    a: `Non : aucun prérequis IA ni abonnement payant pour le niveau 1 — les versions gratuites de ChatGPT, Claude AI, Gemini ou Perplexity suffisent. Un compte payant (Claude Pro, ChatGPT Plus) est seulement recommandé pour aller plus loin ensuite. Pour les marchés publics ou l'industrialisation Claude, voir la <a href="${LINKS.formationAO}">formation appels d'offres</a> ou le <a href="${LINKS.formationMaitriserClaudeAiBtp}">parcours Claude AI BTP</a>.`,
   },
   {
     q: 'On perd combien de temps sur l\'administratif qu\'on pourrait récupérer ?',

@@ -38,7 +38,6 @@ import {
   SESSION_DUREE_LIBELLE,
   TARIF_FORFAIT_DEBUTANT_HT,
   MODALITE_FORMATIONS_PRESENTIEL,
-  COMPTES_IA_GRATUITS_NIVEAU_DEBUTANT,
   LIBELLE_EFFECTIF_GROUPE,
   LIBELLE_EFFECTIF_GROUPE_COURT,
 
@@ -46,7 +45,6 @@ import {
   libelleTarifSessionForfaitaire,
 } from '@/lib/tarifs-sessions';
 import { GAINS_TEMPS_MENTION_PRUDENCE } from '@/lib/gains-temps-copy';
-import { QUALIOPI_CERTIFICAT_REALISATION } from '@/config/qualiopi';
 import { getFormationCatalogueVisuel } from '@/lib/formations-catalogue-display';
 import { LINKS } from '@/lib/internal-links';
 import { ContextualLinksSection } from '@/components/layout/ContextualLinksSection';
@@ -108,10 +106,10 @@ const courseSchema = buildCatalogueCourseIaBtpNiv01JsonLd();
 const TARIF_SESSION_LIBELLE = libelleTarifSessionForfaitaire(TARIF_FORFAIT_DEBUTANT_HT);
 
 const POINTS_MARQUANTS = [
-  'Parcours catalogue niveau 1 : fondamentaux IA, devis, documents réglementaires et communication digitale.',
+  'Parcours catalogue niveau 1 : fondamentaux ChatGPT et IA générative, devis, documents réglementaires et communication digitale.',
   `Session unique ${SESSION_DUREE_LIBELLE} — forfait ${TARIF_SESSION_LIBELLE} (niveau débutant).`,
   `${LIBELLE_EFFECTIF_GROUPE} — 70 % pratique.`,
-  'Qualiopi, financement OPCO Constructys selon éligibilité.',
+  'Qualiopi — financement OPCO (Constructys, OPCO 2i, Akto…) selon éligibilité.',
 ];
 
 const OBJECTIFS_FORMATION = [
@@ -124,20 +122,22 @@ const OBJECTIFS_FORMATION = [
 
 const MOYENS_PEDAGOGIQUES = [
   'Formation 70 % pratique / 30 % théorie — animée par une formatrice experte en IA appliquée au BTP',
-  `Exercices guidés et cas concrets sur des situations types bâtiment et travaux publics — ${MODALITE_FORMATIONS_PRESENTIEL}`,
+  `Exposés courts, démonstrations et exercices guidés sur documents métier — ${MODALITE_FORMATIONS_PRESENTIEL}`,
   'Atelier sur vos documents réels (anonymisés ou fictifs si besoin)',
-  'Kits de prompts BTP livrés à l’issue de chaque module',
+  'Kits de prompts BTP remis à l’issue de chaque module',
 ];
 
 const MOYENS_TECHNIQUES = [
-  'En présentiel : salle équipée, connexion internet, poste par apprenant si possible.',
-  `${COMPTES_IA_GRATUITS_NIVEAU_DEBUTANT} Rappels RGPD et confidentialité des données en session.`,
+  'Un ordinateur par participant et accès internet haut débit',
+  'Vidéoprojecteur ou partage d’écran pour les démonstrations',
+  'ChatGPT, Claude AI, Gemini ou Perplexity — versions gratuites suffisantes pour le niveau 1. Rappels RGPD et confidentialité des données en session.',
 ];
 
 const MODALITES_EVALUATION = [
-  'Mise en situation et exercices pratiques tout au long de la formation.',
-  'Questionnaire de satisfaction en fin de session.',
-  QUALIOPI_CERTIFICAT_REALISATION,
+  'Questionnaire de positionnement adressé à chaque participant avant la session.',
+  'Auto-positionnement en début et en fin de session ; évaluation continue par exercices pratiques et mises en situation.',
+  'Questionnaire de satisfaction à chaud en fin de session ; questionnaire à froid à 3 mois.',
+  'Feuille d’émargement signée par demi-journée ; attestation de fin de formation et certificat de réalisation.',
 ];
 
 const MODALITES = [
@@ -162,15 +162,16 @@ const MODALITES = [
   {
     icon: Users,
     title: 'Public cible',
-    primary: 'Entreprises du bâtiment, travaux publics et BTP',
-    secondary: 'TPE & PME du bâtiment, dirigeants, conducteurs de travaux, chargés d’affaires et équipes administratives',
+    primary: 'Artisans, PME et fonctions support du BTP',
+    secondary:
+      'Dirigeants (gros œuvre, second œuvre, bardage, peinture, VRD, TP…), conducteurs de travaux, chargés d’affaires, BE, administratif',
   },
   {
     icon: FileText,
     title: 'Pré-requis',
     primary: 'Ordinateur et smartphone',
     secondary:
-      'Navigation web, traitement de texte, bonne maîtrise du français — ' + COMPTES_IA_GRATUITS_NIVEAU_DEBUTANT,
+      'Bonne maîtrise du français écrit et oral. Aucun prérequis IA ni abonnement payant : les versions gratuites suffisent.',
   },
   {
     icon: Award,
@@ -182,7 +183,7 @@ const MODALITES = [
     icon: DollarSign,
     title: 'Tarif & financement',
     primary: `${TARIF_SESSION_LIBELLE} (débutant)`,
-    secondary: 'Financement OPCO selon éligibilité — Constructys, AKTO, OPCO EP',
+    secondary: 'Financement OPCO selon éligibilité — Constructys, OPCO 2i, Akto',
   },
 ];
 
@@ -199,8 +200,8 @@ const LIVRABLES = [
   },
   {
     icon: ClipboardList,
-    title: 'Trames DOE / PV / CR',
-    desc: 'Modèles pour dossiers des ouvrages exécutés, réception et comptes rendus de chantier.',
+    title: 'Trames DOE / PV / CR & kit multi-usages',
+    desc: 'Modèles réglementaires adaptés à votre métier + kit de prompts multi-usages (RH, recrutement, SEO…).',
   },
   {
     icon: Monitor,
@@ -251,12 +252,10 @@ const AVANT_APRES = [
 ];
 
 const PUBLIC_CIBLE = [
-  'Dirigeants d’entreprises du BTP (gros œuvre, second œuvre, étanchéité, couverture, électricité, plomberie, VRD, TP)',
+  'Dirigeants d’entreprises du BTP (gros œuvre, second œuvre, étanchéité, bardage, couverture, électricité, plomberie, peinture, VRD, TP)',
   'Chargés d’affaires et conducteurs de travaux',
   'Techniciens bureau d’études',
   'Assistantes administratives et fonctions support',
-  'Encadrement de chantier, chefs d’équipe, techniciens',
-  'Commerciaux et relation client',
 ];
 
 export default function FormationIAuServiceDuBatimentPage() {
@@ -268,8 +267,8 @@ export default function FormationIAuServiceDuBatimentPage() {
       <FormationCourseHero
         catalogueRef="NIV-01"
         refLine="Niveau 1 · Débutant"
-        title="L'IA au service des pros du bâtiment et des travaux publics"
-        subtitle="Niveau 1 — fondamentaux IA, devis, documents réglementaires et communication (bâtiment & TP)"
+        title="L'IA au service des professionnels du BTP"
+        subtitle="Niveau 1 — fondamentaux ChatGPT et IA générative pour artisans, PME et fonctions support du bâtiment"
         badges={[
           'OPCO / plan de développement des compétences',
           'Accessible débutant',
@@ -319,12 +318,11 @@ export default function FormationIAuServiceDuBatimentPage() {
       >
         <p>
           Formation pratique en <strong>{SESSION_DUREE_LIBELLE}</strong> pour intégrer l&apos;IA dans votre
-          quotidien : <strong>devis, DCE, CCTP, appels d&apos;offres, mémoires techniques, comptes rendus de chantier, relances clients et documents administratifs</strong>, avec des trames et prompts
+          quotidien : <strong>devis, emails, comptes rendus de chantier, documents réglementaires (DOE, PV) et communication digitale</strong>, avec des trames et prompts
           prêts à l&apos;emploi. Approche accessible, <strong>aucun jargon inutile</strong> — des cas réels
           issus du terrain BTP.{' '}
           <strong>Forfait {TARIF_SESSION_LIBELLE}</strong> (niveau débutant).
-          Financement possible via <strong>l&apos;OPCO Constructys</strong> selon éligibilité (formation
-          organisme certifié Qualiopi).
+          Financement possible via votre <strong>OPCO</strong> (Constructys, OPCO 2i, Akto…) selon éligibilité (organisme certifié Qualiopi).
         </p>
       </FormationCourseHero>
 
@@ -418,7 +416,7 @@ export default function FormationIAuServiceDuBatimentPage() {
           <p className="mt-4 text-slate-700 leading-relaxed">
             Cette <strong>formation intelligence artificielle construction</strong> s&apos;adresse aux
             professionnels qui veulent <strong>des résultats rapidement</strong> : une session unique de{' '}
-            {SESSION_DUREE_LIBELLE}, 100 % pratique, animée par une formatrice spécialisée dans le secteur
+            {SESSION_DUREE_LIBELLE}, 70 % pratique, animée par une formatrice spécialisée dans le secteur
             BTP. Vous repartez avec des supports réutilisables, une feuille de route claire et des repères
             pour former progressivement vos collaborateurs aux bonnes habitudes (confidentialité, validation
             des contenus générés, traçabilité).
@@ -758,8 +756,9 @@ export default function FormationIAuServiceDuBatimentPage() {
             </h2>
           </div>
           <p className="mt-4 text-slate-700 leading-relaxed">
-            L&apos;évaluation combine mise en situation continue, questionnaire de satisfaction et certificat de
-            réalisation en fin de session.
+            L&apos;évaluation combine questionnaire de positionnement amont, auto-positionnement, exercices
+            pratiques, satisfaction à chaud et à froid (3 mois), feuille d&apos;émargement et certificat de
+            réalisation.
           </p>
           <ul className="mt-8 space-y-3 text-slate-700">
             {MODALITES_EVALUATION.map((line) => (

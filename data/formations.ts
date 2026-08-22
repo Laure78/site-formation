@@ -33,7 +33,7 @@ export const FORMATIONS: readonly Formation[] = [
   {
     code: 'NIV-01',
     slug: 'ia-batiment-travaux-publics',
-    titre: "L'IA au service des pros du bâtiment et des travaux publics",
+    titre: "L'IA au service des professionnels du BTP",
     niveau: 1,
     niveauLabel: 'Niveau 1',
     duree: '4 h',
@@ -41,7 +41,8 @@ export const FORMATIONS: readonly Formation[] = [
     effectifMin: 4,
     effectifMax: 12,
     prixHT: 1200,
-    accroche: 'Niveau 1 : fondamentaux IA, devis, documents réglementaires et communication digitale pour le BTP.',
+    accroche:
+      'Niveau 1 — fondamentaux ChatGPT et IA générative pour artisans, PME et fonctions support du bâtiment.',
     objectifs: [
       'Maîtriser les outils IA adaptés aux métiers du BTP pour automatiser les tâches chronophages (mails, devis, documents, communication)',
       'Générer des devis techniques conformes aux DTU et règles professionnelles, adaptés à son métier',
@@ -50,11 +51,11 @@ export const FORMATIONS: readonly Formation[] = [
       'Appliquer les bonnes pratiques RGPD dans l’utilisation de l’IA pour sécuriser les données entreprise et clients',
     ],
     public:
-      'Dirigeants BTP (gros œuvre, second œuvre, étanchéité, couverture, électricité, plomberie, VRD, TP), conducteurs de travaux, techniciens BE, assistantes administratives',
+      'Dirigeants BTP (gros œuvre, second œuvre, étanchéité, bardage, couverture, électricité, plomberie, peinture, VRD, TP), chargés d’affaires, conducteurs de travaux, techniciens bureau d’études, assistantes administratives et fonctions support',
     casUsage: 'Devis, DOE, PV, CR, communication digitale',
     pdfProgramme: '/formations/pdf/programme-niveau-1-ia-batiment-travaux-publics.pdf',
-    programmeVersion: 'Version 2',
-    programmeUpdatedAt: '20/08/2026',
+    programmeVersion: 'Version 5',
+    programmeUpdatedAt: '22/08/2026',
     image: '/images/formation-ia-batiment-travaux-publics.webp',
   },
   {
