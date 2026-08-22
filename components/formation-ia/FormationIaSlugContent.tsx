@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { CtaButton } from '@/components/CtaButton';
 import { QualiopiWordmark } from '@/components/QualiopiLogo';
 import type { FormationIaRawMetier, FormationIaRawVille } from '@/lib/seo-formation-ia-hub-data';

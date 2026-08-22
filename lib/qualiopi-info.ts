@@ -49,6 +49,8 @@ import type { FormationCode } from '@/data/formations';
 /** Identité juridique OFC — réexport (définition : `lib/ofc-identite.ts`). */
 export { OFC_IDENTITE } from '@/lib/ofc-identite';
 
+export { QUALIOPI_CERTIFICAT_REALISATION } from '@/config/qualiopi';
+
 export const QUALIOPI_PROGRAMME_LAST_UPDATED = QUALIOPI_FICHE_META.updatedAt;
 export const QUALIOPI_FICHE_VERSION = QUALIOPI_FICHE_META.version;
 

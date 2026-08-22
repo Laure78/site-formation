@@ -48,3 +48,27 @@ export function QualiopiLogoBlock({ className = '', size = 'default' }: Qualiopi
 export function QualiopiBadge({ className, size = 'default' }: QualiopiLogoBlockProps) {
   return <QualiopiLogoBlock className={className} size={size} />;
 }
+
+type QualiopiLogoInlineProps = {
+  heightPx?: number;
+  alt?: string;
+  className?: string;
+};
+
+/** Logo Qualiopi compact inline (fiches formation, bio auteur). */
+export function QualiopiLogoInline({ heightPx = 16, alt, className = '' }: QualiopiLogoInlineProps) {
+  const width = Math.round((Q.width / Q.height) * heightPx);
+
+  return (
+    <Image
+      src={Q.src}
+      alt={alt ?? Q.alt}
+      width={width}
+      height={heightPx}
+      className={`inline-block shrink-0 align-middle object-contain ${className}`}
+      style={{ height: heightPx, width: 'auto' }}
+      quality={70}
+      loading="lazy"
+    />
+  );
+}

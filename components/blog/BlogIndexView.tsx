@@ -17,7 +17,6 @@ import {
 import { SITE_CONFIG } from '@/lib/seo';
 import { getFAQSchema } from '@/lib/seo';
 import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
-import { LINKS } from '@/lib/internal-links';
 import { BlogArticleCard } from '@/components/blog/BlogArticleCard';
 import { buildBlogListingJsonLd, getBlogIndexLastModifiedIso } from '@/lib/blog-index-schema';
 import { blogCategoryListingHref, blogIndexListingHref } from '@/lib/blog-index-urls';

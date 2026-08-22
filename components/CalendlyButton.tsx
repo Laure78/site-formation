@@ -4,7 +4,7 @@ import type { ReactNode } from 'react';
 import { Calendar } from 'lucide-react';
 import { CtaButton, type CtaButtonProps } from '@/components/CtaButton';
 
-export type CalendlyButtonProps = Omit<CtaButtonProps, 'origin'> & {
+export type CalendlyButtonProps = Omit<CtaButtonProps, 'origin' | 'variant'> & {
   /** Mappé vers `origin` pour GA4. */
   campaign: string;
   variant?: 'primary' | 'secondary' | 'small';

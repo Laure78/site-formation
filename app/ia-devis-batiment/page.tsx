@@ -4,12 +4,12 @@ import { Check, FileText, Calculator, Clock, ArrowRight, Calendar } from 'lucide
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
 import { RdvLink } from '@/components/RdvLink';
 import { LINKS } from '@/lib/internal-links';
+import { buildSiteCalendlyCtaUrl } from '@/lib/calendly';
 import { SCHEMA_PUBLIC_SITE_URL } from '@/lib/schema-constants';
 import { ShortAnswerBlock } from '@/components/landing/ShortAnswerBlock';
 import { createPageMetadata, getFAQSchema } from '@/lib/seo';
 import { JsonLd } from '@/components/JsonLd';
 import { DEVIS_GAIN_TEMPS_LIBELLE } from '@/lib/gains-temps-copy';
-import { LINKS } from '@/lib/internal-links';
 import { formatTarifHt, TARIF_SESSION_FORFAIT_HT } from '@/lib/tarifs-sessions';
 
 export const revalidate = 3600;

@@ -2,9 +2,10 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { Calendar, CheckCircle2 } from 'lucide-react';
 import { JsonLd } from '@/components/JsonLd';
-import { buildMetadata, SITE_CONFIG } from '@/lib/seo';
+import { buildMetadata, getBreadcrumbSchema, SITE_CONFIG } from '@/lib/seo';
 import { buildSiteCalendlyCtaUrl } from '@/lib/calendly';
 import { LINKS } from '@/lib/internal-links';
+import { RdvLink } from '@/components/RdvLink';
 
 export const revalidate = 3600;
 const PATH = '/guide-skill-ia-conducteur-travaux';
@@ -72,10 +73,14 @@ export default function GuideSkillIaConducteurTravauxPage() {
             <Link href={LINKS.skillIaConducteurTravaux} className="rounded-xl bg-[#377CF3] px-6 py-3 font-semibold text-white hover:bg-blue-700">
               Ouvrir la ressource complète
             </Link>
-            <a origin="guide-skill-ia-conducteur-travaux-contact-rdv-page-calendly" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-xl border border-[#377CF3] px-6 py-3 font-semibold text-[#377CF3] hover:bg-[#EFF6FF]">
+            <RdvLink
+              origin="guide-skill-ia-conducteur-travaux-contact-rdv-page-calendly"
+              variant="unstyled"
+              className="inline-flex items-center gap-2 rounded-xl border border-[#377CF3] px-6 py-3 font-semibold text-[#377CF3] hover:bg-[#EFF6FF]"
+            >
               <Calendar className="h-4 w-4" />
               Réserver un échange
-            </a>
+            </RdvLink>
           </div>
         </div>
       </section>

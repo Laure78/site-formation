@@ -38,6 +38,7 @@ const PAGE_DESCRIPTION =
   "Livret d'accueil du stagiaire : formation IA BTP en présentiel en Île-de-France. Déroulement de la formation, évaluation, accessibilité et contacts OFC Création d'Entreprise.";
 
 export const metadata = createPageMetadata({
+  title: PAGE_TITLE,
   titleAbsolute: PAGE_TITLE,
   description: PAGE_DESCRIPTION,
   descriptionFinal: true,

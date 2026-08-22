@@ -18,6 +18,7 @@ const PAGE_DESCRIPTION =
   "Informations réglementaires OFC Création d'Entreprise, organisme de formation : livret d'accueil, règlement intérieur, réclamations, accessibilité, Qualiopi.";
 
 export const metadata = createPageMetadata({
+  title: PAGE_TITLE,
   titleAbsolute: PAGE_TITLE,
   description: PAGE_DESCRIPTION,
   descriptionFinal: true,
@@ -124,7 +125,7 @@ export default function InformationsReglementairesPage() {
             >
               <h2 className="text-lg font-bold text-[#377CF3]">{doc.title}</h2>
               <p className="mt-2 text-sm leading-relaxed text-[#1A1A1A]">{doc.description}</p>
-              {doc.download ? (
+              {'download' in doc && doc.download ? (
                 <a href={doc.href} className={linkClass} download>
                   <FileDown className="h-4 w-4" aria-hidden />
                   Télécharger le PDF

@@ -17,6 +17,7 @@ const PAGE_DESCRIPTION =
   "Vous souhaitez déposer une réclamation auprès d'OFC Création d'Entreprise, organisme de formation ? Canaux, délai de réponse (48 h et 15 jours ouvrés), traitement et voies de recours.";
 
 export const metadata = createPageMetadata({
+  title: PAGE_TITLE,
   titleAbsolute: PAGE_TITLE,
   description: PAGE_DESCRIPTION,
   descriptionFinal: true,

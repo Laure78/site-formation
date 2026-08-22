@@ -38,11 +38,9 @@ export const AI_BOTS = [
   'Applebot-Extended',
 ] as const;
 
-const DISALLOW_PATHS = [...PRIVATE_DISALLOW];
+const DISALLOW_PATHS: string[] = [...PRIVATE_DISALLOW];
 
-function robotsRule(userAgent: string): MetadataRoute.Robots['rules'] extends (infer R)[]
-  ? R
-  : never {
+function robotsRule(userAgent: string) {
   return {
     userAgent,
     allow: '/',
@@ -74,8 +72,9 @@ export function buildRobotsMetadata(): MetadataRoute.Robots {
 export function buildRobotsTxt(): string {
   const { rules, host, sitemap } = buildRobotsMetadata();
   const lines: string[] = [];
+  const ruleList = rules ? (Array.isArray(rules) ? rules : [rules]) : [];
 
-  for (const rule of rules ?? []) {
+  for (const rule of ruleList) {
     const agents = Array.isArray(rule.userAgent)
       ? rule.userAgent
       : rule.userAgent

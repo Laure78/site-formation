@@ -32,6 +32,7 @@ import { CTABlock } from '@/components/CTABlock';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
 import { RdvLink } from '@/components/RdvLink';
 import { LINKS } from '@/lib/internal-links';
+import { buildSiteCalendlyCtaUrl } from '@/lib/calendly';
 import { ArticleAuthorBio } from '@/components/blog/ArticleAuthorBio';
 import { BlogArticleEnBref } from '@/components/blog/BlogArticleEnBref';
 import { BlogArticleSchemas } from '@/components/blog/BlogArticleSchemas';

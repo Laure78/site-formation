@@ -133,9 +133,6 @@ export function ChatWidget() {
         visitorId: getVisitorId(),
       }),
     });
-    if (cta.intent === 'rdv') {
-      trackCtaRdvClick('chat-widget-rdv', window.location.pathname);
-    }
     window.location.href = cta.intent === 'programme' ? '/contact' : CHAT_WIDGET_RDV;
   };
 

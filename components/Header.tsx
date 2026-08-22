@@ -18,6 +18,7 @@ import {
   LogIn,
 } from 'lucide-react';
 import { SITE } from '@/lib/site';
+import { headerNavItemIsActive } from '@/lib/header-nav';
 import { CtaButton } from '@/components/CtaButton';
 import { SiteSearchTrigger } from '@/components/search/SiteSearchTrigger';
 import {
@@ -366,7 +367,7 @@ export function Header() {
                 >
                   <LogIn className="h-4 w-4 shrink-0" strokeWidth={1.75} aria-hidden />
                   {SITE.platform.connexionNavMobileLabel}
-                </CtaButton>
+                </a>
                 <CtaButton
                   origin="header-mobile-drawer"
                   onClick={() => setMobileOpen(false)}

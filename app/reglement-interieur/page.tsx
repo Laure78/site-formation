@@ -17,6 +17,7 @@ const PAGE_DESCRIPTION =
   "Règlement intérieur applicable aux stagiaires d'OFC Création d'Entreprise, organisme de formation en présentiel Île-de-France : discipline, sécurité, IA et réclamations.";
 
 export const metadata = createPageMetadata({
+  title: PAGE_TITLE,
   titleAbsolute: PAGE_TITLE,
   description: PAGE_DESCRIPTION,
   descriptionFinal: true,

@@ -10,6 +10,8 @@ type RdvLinkProps = Omit<CtaButtonProps, 'origin'> & {
   campaign?: string;
   ctaPosition?: string;
   ctaId?: string;
+  /** Alias GA4 — mappé vers `origin` de {@link CtaButton}. */
+  origin?: string;
 };
 
 /** Lien prise de RDV — alias métier de {@link CtaButton}. */
@@ -19,6 +21,7 @@ export function RdvLink({
   campaign,
   campaignSuffix,
   ctaId,
+  origin,
   ...rest
 }: RdvLinkProps) {
   const reactId = useId().replace(/:/g, '');
@@ -26,6 +29,7 @@ export function RdvLink({
     ctaId ??
     campaignSuffix ??
     campaign ??
+    origin ??
     (ctaPosition !== 'unknown' ? ctaPosition : `rdv-${reactId.slice(-8)}`);
 
   return <CtaButton origin={effectiveCtaId} {...rest} />;

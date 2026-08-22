@@ -48,8 +48,6 @@ export function StickyCTA() {
           page={pathname}
           ctaPosition="floating"
           ctaId="sticky-mobile"
-          utmSource="site"
-          utmMedium="cta"
           campaign="sticky-mobile"
           className="whitespace-nowrap rounded-lg bg-white px-6 py-4 text-base font-bold text-[#377CF3]"
         >

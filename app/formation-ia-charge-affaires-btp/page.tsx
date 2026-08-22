@@ -334,14 +334,13 @@ export default function FormationIaChargeAffairesBtpPage() {
             <p className="font-medium text-slate-900">
               Réservez votre diagnostic IA commercial gratuit — 30 minutes en visio.
             </p>
-            <a
+            <RdvLink
               origin="formation-ia-charge-affaires-btp-contact-rdv-page-calendly"
+              variant="unstyled"
               className="mt-2 inline-block font-semibold text-[#377CF3] underline hover:no-underline"
-              target="_blank"
-              rel="noopener noreferrer"
             >
               Prendre rendez-vous →
-            </a>
+            </RdvLink>
           </blockquote>
         </section>
 

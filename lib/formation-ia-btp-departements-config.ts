@@ -4,6 +4,7 @@
  */
 import type { FormationIaBtpDeptLandingConfig } from '@/components/formation-ia-btp/FormationIaBtpDepartementLanding';
 import type { FAQItem } from '@/lib/faq';
+import { LINKS } from '@/lib/internal-links';
 import { buildDeptMetaDescription } from '@/lib/meta-description';
 import { buildIdfDeptPageTitle } from '@/lib/seo-geo-keywords';
 import {

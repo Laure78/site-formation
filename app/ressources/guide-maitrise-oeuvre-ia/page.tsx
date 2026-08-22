@@ -261,7 +261,7 @@ export default function GuideMaitriseOeuvreIaPage() {
             >
               <Calendar className="h-5 w-5" aria-hidden />
               Réserver ma visio découverte gratuite
-            </CtaButton>
+            </RdvCtaButton>
           </div>
         </div>
       </section>
@@ -350,7 +350,7 @@ export default function GuideMaitriseOeuvreIaPage() {
             >
               <Calendar className="h-5 w-5" aria-hidden />
               Réserver ma visio découverte
-            </CtaButton>
+            </RdvCtaButton>
           </div>
         </div>
       </section>

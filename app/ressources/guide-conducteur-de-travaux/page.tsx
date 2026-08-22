@@ -7,6 +7,7 @@ import { createPageMetadata, getFAQSchema, SITE_CONFIG } from '@/lib/seo';
 import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
 import { buildSiteCalendlyCtaUrl } from '@/lib/calendly';
 import { LINKS } from '@/lib/internal-links';
+import { RdvLink } from '@/components/RdvLink';
 import { PHOTOS } from '@/lib/photos';
 import { SCHEMA_LINKEDIN_PROFILE_URL } from '@/lib/schema-constants';
 import { MaillageRessourceFromConfig } from '@/app/components/MaillageRessource';
@@ -470,14 +471,13 @@ Signature : [NOM] — [TITRE] — [ENTREPRISE]
             Réservez 20 minutes d&apos;échange pour cadrer votre besoin formation IA pour le BTP.
           </p>
           <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row">
-            <a
+            <RdvLink
               origin="ressources-guide-conducteur-de-travaux-contact-rdv-page-calendly"
-              target="_blank"
-              rel="noopener noreferrer"
+              variant="unstyled"
               className="inline-flex rounded-xl bg-white px-6 py-3 font-semibold text-[#377CF3] shadow-sm hover:bg-[#F2F2F2]"
             >
               Prendre rendez-vous
-            </a>
+            </RdvLink>
             <Link
               href={LINKS.contact}
               className="inline-flex rounded-xl border border-white/40 px-6 py-3 font-semibold text-white hover:bg-white/10"

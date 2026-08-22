@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { CalendarClock, ShieldCheck, Users } from 'lucide-react';
-import { buildSiteCalendlyCtaUrl } from '@/lib/calendly';
+import { CtaButton } from '@/components/CtaButton';
 import { MarketingLightHero } from '@/components/marketing/MarketingLightHero';
 import { LINKS } from '@/lib/internal-links';
 import { PHOTOS } from '@/lib/photos';
@@ -71,14 +71,12 @@ export function FinancementConstructysHero() {
             ))}
           </ul>
           <div className="mt-4 flex flex-col gap-2.5 sm:flex-row sm:flex-wrap sm:gap-3">
-            <a
+            <CtaButton
               origin="financement-constructys-hero"
-              target="_blank"
-              rel="noopener noreferrer"
               className="inline-flex items-center justify-center rounded-full bg-[#377CF3] px-5 py-2.5 text-sm font-semibold text-white shadow-[0_10px_30px_-6px_rgba(55,124,243,0.45)] transition hover:bg-[#2563EB] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#377CF3] md:px-6"
             >
               Réservez votre visio découverte gratuite
-            </a>
+            </CtaButton>
             <Link
               href={LINKS.formations}
               className="inline-flex items-center justify-center rounded-full border-2 border-[#377CF3] bg-white px-5 py-2.5 text-center text-sm font-semibold text-[#377CF3] transition hover:bg-[#EFF6FF] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#377CF3] md:px-6"

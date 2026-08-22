@@ -63,8 +63,6 @@ export function CTASticky() {
             page={pathname}
             ctaPosition="footer"
             ctaId="sticky-cta-desktop"
-            utmSource="site"
-            utmMedium="sticky"
             utmCampaign="sticky-cta-desktop"
             className={`${OFC_CTA_COMPACT} px-8 py-4 text-base md:px-8`}
           >
