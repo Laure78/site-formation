@@ -14,7 +14,7 @@ const VARIANT_CLASSES: Record<
   string
 > = {
   nav:
-    'inline-flex items-center justify-center gap-1.5 whitespace-nowrap rounded-full border border-slate-300 bg-white px-2.5 py-2 text-sm font-semibold text-slate-800 transition-colors hover:border-[#377CF3] hover:bg-[#EFF6FF] hover:text-[#377CF3] 2xl:px-3.5',
+    'inline-flex items-center justify-center gap-1.5 whitespace-nowrap rounded-full border border-slate-300 bg-white px-3 py-2 text-sm font-semibold text-slate-800 transition-colors hover:border-[#377CF3] hover:bg-[#EFF6FF] hover:text-[#377CF3]',
   navMobile:
     'inline-flex w-full items-center justify-center gap-2 rounded-full border-2 border-[#377CF3] bg-white px-4 py-3.5 text-center text-[0.9375rem] font-semibold text-[#377CF3]',
   outline:
@@ -39,7 +39,7 @@ export function FormationPlateformeConnexionButton({
       className={`${VARIANT_CLASSES[variant]} ${className}`.trim()}
     >
       <LogIn className="h-4 w-4 shrink-0" strokeWidth={1.75} aria-hidden />
-      <span className="hidden 2xl:inline">{label}</span>
+      {label}
     </a>
   );
 }

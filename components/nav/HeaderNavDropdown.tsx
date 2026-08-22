@@ -67,7 +67,7 @@ export function HeaderNavDropdown({
   return (
     <div
       ref={wrapRef}
-      className="relative flex items-stretch"
+      className="relative flex w-full items-stretch justify-center"
       onMouseEnter={onOpen}
       onMouseLeave={onClose}
     >
