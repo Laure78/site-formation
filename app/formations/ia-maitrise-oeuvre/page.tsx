@@ -11,12 +11,17 @@ import { PHOTOS } from '@/lib/photos';
 import { createPageMetadata, SITE_CONFIG } from '@/lib/seo';
 import { SOCIAL_PROOF, CONTACT } from '@/lib/constants';
 import {
-  SESSION_DUREE_LIBELLE,
-  TARIF_SESSION_AVANCE_HT,
   libelleTarifSessionForfaitaire,
   MENTIONS_TVA_REGIMES_COURT,
+  TARIF_SESSION_AVANCE_HT,
 } from '@/lib/tarifs-sessions';
-import { PrerequisNiveau2 } from '@/components/formation/PrerequisNiveau2';
+import {
+  getFormationByCode,
+  libelleDureeFormation,
+  libelleEffectifFormation,
+  libellePrixSessionHt,
+} from '@/data/formations';
+import { PREREQUIS_NIV05 } from '@/lib/infos-pratiques-catalogue';
 import { getFormationCatalogueVisuel } from '@/lib/formations-catalogue-display';
 import { buildCatalogueCourseMaitriseOeuvreNiv05JsonLd } from '@/lib/schema-catalogue-course-jsonld';
 import {
@@ -29,10 +34,17 @@ import { AUTHOR_HEADSHOT_OBJECT_POSITION } from '@/lib/author-headshot';
 import { CatalogueInfosPratiques } from '@/components/InfosPratiques';
 import { RelatedLinks } from '@/components/RelatedLinks';
 
+const FORMATION = getFormationByCode('NIV-05')!;
 const PATH = LINKS.formationIaMaitriseOeuvre;
-const PDF_HREF = LINKS.pdfProgrammeIaMaitriseOeuvre;
+const PDF_HREF = FORMATION.pdfProgramme;
+const PDF_DOWNLOAD_NAME = 'programme_OFC_IA_MOE_4h.pdf';
 const PHONE_DISPLAY = CONTACT.phoneDisplay;
 const PHONE_TEL = CONTACT.phone;
+
+const DUREE_LIBELLE = libelleDureeFormation(FORMATION);
+const EFFECTIF_LIBELLE = libelleEffectifFormation(FORMATION);
+const PRIX_LIBELLE = libellePrixSessionHt(FORMATION);
+const TARIF_SESSION_LIBELLE = libelleTarifSessionForfaitaire(TARIF_SESSION_AVANCE_HT);
 
 const CATALOGUE_VISUEL = getFormationCatalogueVisuel('NIV-05');
 
@@ -56,61 +68,95 @@ export const metadata = createPageMetadata({
 });
 
 const HERO_BADGES = [
-  '4h de formation',
-  '3 à 8 participants',
+  '4 h effectives',
+  EFFECTIF_LIBELLE,
+  '70 % pratique',
   FINANCEMENT_STAT_LABEL,
-  ` satisfaction`,
 ];
-
-const TARIF_SESSION_LIBELLE = libelleTarifSessionForfaitaire(TARIF_SESSION_AVANCE_HT);
 
 const HERO_RESUME = [
-  `Session ${SESSION_DUREE_LIBELLE} — maîtrise d'œuvre d'exécution, 5 modules opérationnels.`,
-  `Forfait ${TARIF_SESSION_LIBELLE}. ${MENTIONS_TVA_REGIMES_COURT}`,
-  '3 à 8 participants — intra ou inter, présentiel Île-de-France.',
-  `${FINANCEMENT_FORMULATION_PRUDENTE} ${FINANCEMENT_CONSTRUCTYS_PLAFONDS_COURT}`,
-];
-
-const OBJECTIFS_PEDAGOGIQUES = [
-  'Identifier les fonctionnalités clés de Claude (Projets, Connecteurs, Skills, Cowork) et choisir entre Claude et ChatGPT selon le cas d\'usage MOE.',
-  'Analyser un dossier d\'appel d\'offres (DCE, CCTP, bordereau) avec l\'IA pour en extraire les points de conformité et les alertes contractuelles.',
-  'Rédiger un compte rendu de chantier complet en moins de 10 minutes à partir de notes vocales.',
-  'Produire courriers, ordres de service et actes administratifs conformes à partir d\'un modèle IA structuré.',
-  'Organiser le suivi des réserves, la préparation de réception et le suivi client avec un assistant IA dédié.',
-  'Utiliser ChatGPT et Claude en autonomie, en respectant la confidentialité des données chantier.',
+  `Session ${DUREE_LIBELLE} — maîtrise d'œuvre d'exécution, 5 modules opérationnels avec introduction à Claude.`,
+  `Forfait ${PRIX_LIBELLE}. ${MENTIONS_TVA_REGIMES_COURT}`,
+  `${EFFECTIF_LIBELLE.charAt(0).toUpperCase() + EFFECTIF_LIBELLE.slice(1)} — intra ou inter, présentiel Île-de-France.`,
+  `${FINANCEMENT_FORMULATION_PRUDENTE} ${FINANCEMENT_CONSTRUCTYS_PLAFONDS_COURT} Les abonnements Claude Pro et ChatGPT Plus ne sont pas inclus.`,
 ];
 
 type ProgrammeModule = {
   heading: string;
   duree: string;
+  objectifs: string[];
   livrable: string;
 };
 
 const PROGRAMME_MODULES: ProgrammeModule[] = [
   {
+    heading: 'Accueil — positionnement',
+    duree: '5 min',
+    objectifs: [
+      'Accueil, émargement, présentation des objectifs et recueil des attentes',
+      'Auto-positionnement d\'entrée sur les objectifs visés',
+    ],
+    livrable: 'Attentes recueillies et cadrage de session posé',
+  },
+  {
     heading: 'Module 0 — Introduction à Claude, l\'écosystème Anthropic',
     duree: '30 min',
-    livrable: 'mémo « Claude pour la maîtrise d\'œuvre »',
+    objectifs: [
+      'Claude vs ChatGPT : pour quel usage MOE choisir l\'un ou l\'autre — rigueur, confidentialité par défaut',
+      'Tour d\'horizon : Projets, connecteurs (drive, messagerie, agenda), skills, tâches planifiées, Cowork',
+      'Limites de contexte — comprendre la capacité d\'une conversation pour ne pas être bloqué',
+    ],
+    livrable: 'Mémo « Claude pour la maîtrise d\'œuvre » (1 page recto-verso) — quand utiliser Claude ou ChatGPT',
   },
   {
     heading: 'Module 1 — Analyse des offres et conformité avec l\'IA',
     duree: '50 min',
-    livrable: 'fiche-type d\'analyse DCE (30 points) + 10 prompts',
+    objectifs: [
+      'Lecture rapide CCTP, CCAP, CCAG, bordereaux — points de vigilance et incohérences entre pièces',
+      'Import du DCE dans un Projet (via connecteur drive) — base interrogeable',
+      'Construction d\'une fiche de synthèse (30 points clés) en moins de 15 minutes sur un DCE réel',
+      'Contrôle des extractions par retour aux pièces sources',
+    ],
+    livrable: 'Fiche-type d\'analyse DCE (30 points) + 10 prompts prêts à l\'emploi',
   },
   {
     heading: 'Module 2 — Comptes rendus de chantier en 10 minutes',
     duree: '50 min',
-    livrable: 'gabarit CR de chantier MOE + prompt de transcription vocale',
+    objectifs: [
+      'Trame MOE : présents / excusés, avancement par corps d\'état, réserves, décisions, prochaines échéances',
+      'Dictée vocale sur smartphone → transcription → mise en forme automatique',
+      'Photos de chantier : légendes et intégration dans le CR — gestion des versions et historique des réserves',
+    ],
+    livrable: 'Gabarit CR de chantier MOE + prompt de transcription vocale — gain mesuré : 45 min à 10 min par CR',
   },
   {
     heading: 'Module 3 — Courriers, ordres de service et actes administratifs',
     duree: '50 min',
-    livrable: 'pack de 15 modèles d\'actes administratifs MOE',
+    objectifs: [
+      'Bibliothèque IA d\'actes MOE : OS (démarrage, arrêt, modification, reprise), courriers types, PV, avenants',
+      'Production d\'un OS complet en moins de 5 minutes à partir d\'un contexte chantier',
+      'Contrôle juridique minimal (références CCAG, délais de notification) — 3 modèles personnalisés réutilisables',
+    ],
+    livrable: 'Pack de 15 modèles d\'actes administratifs MOE (OS, courriers, avenants) + prompt de rédaction juridique',
   },
   {
     heading: 'Module 4 — Réserves, réception et suivi client',
     duree: '50 min',
-    livrable: 'modèle de suivi des réserves + tableau GPA + 8 prompts',
+    objectifs: [
+      'Saisie terrain : photo + dictée → fiche de réserve structurée — suivi automatisé et relances entreprises',
+      'Préparation d\'un pré-PV de réception : inventaire, cotation, classement par corps d\'état',
+      'Réponses clients et acquéreurs (TMA, désordres), visites cloisons, pré-livraison, livraison — suivi GPA',
+    ],
+    livrable: 'Modèle de suivi des réserves + tableau GPA + 8 prompts pour réponses clients standardisées',
+  },
+  {
+    heading: 'Clôture — bilan et plan d\'action',
+    duree: '5 min',
+    objectifs: [
+      'Auto-positionnement de sortie et plan d\'action individuel à 30 jours',
+      'Questionnaire de satisfaction et remise des attestations',
+    ],
+    livrable: 'Plan d\'action individuel + attestation individuelle de fin de formation',
   },
 ];
 
@@ -123,9 +169,9 @@ export default function FormationIaMaitriseOeuvrePage() {
 
       <FormationCourseHero
         catalogueRef="NIV-05"
-        refLine={`Intra · inter · présentiel en Île-de-France · ${SESSION_DUREE_LIBELLE} · Niveau 2`}
-        title="L'IA au service des maîtres d'œuvre"
-        subtitle="Maîtrise d'œuvre d'exécution — 5 modules opérationnels, en une demi-journée"
+        refLine={`Intra · inter · présentiel en Île-de-France · ${DUREE_LIBELLE} · ${FORMATION.niveauLabel}`}
+        title={FORMATION.titre}
+        subtitle={FORMATION.accroche}
         badges={HERO_BADGES}
         summaryItems={HERO_RESUME}
         ctas={
@@ -138,7 +184,7 @@ export default function FormationIaMaitriseOeuvrePage() {
             </a>
             <a
               href={PDF_HREF}
-              download
+              download={PDF_DOWNLOAD_NAME}
               className="inline-flex items-center justify-center gap-2 rounded-xl border-2 border-slate-200 px-6 py-3.5 font-semibold text-slate-800 hover:border-[var(--accent)]"
             >
               <Download size={20} strokeWidth={1.5} />
@@ -163,7 +209,8 @@ export default function FormationIaMaitriseOeuvrePage() {
         <p>
           <strong>Formation IA pour la maîtrise d&apos;œuvre d&apos;exécution (MOEX)</strong> : analyse DCE,
           comptes rendus de chantier, ordres de service, courriers et suivi des réserves — avec Claude et ChatGPT,
-          en respectant la confidentialité des données chantier.
+          en respectant la confidentialité des données chantier. Aucun prérequis IA : abonnements Claude Pro et
+          ChatGPT Plus requis sur chaque poste.
         </p>
       </FormationCourseHero>
 
@@ -177,9 +224,20 @@ export default function FormationIaMaitriseOeuvrePage() {
             conducteurs de travaux, OPC, bureaux d&apos;études et assistant(e)s de gestion travaux — sur tous types
             d&apos;opérations : logements, tertiaire, réhabilitation.
           </p>
+          <p className="mt-4 text-slate-700 leading-relaxed">
+            Horaires : demi-journée matin (9h00–13h00) ou après-midi (13h30–17h30) — 4 heures effectives,
+            70&nbsp;% pratique sur vos dossiers réels (DCE, CR, OS, réserves).
+          </p>
         </section>
 
-        <PrerequisNiveau2 asSection />
+        <section className="mt-12">
+          <h2 className="font-display text-2xl font-bold text-slate-900">Prérequis</h2>
+          <p className="mt-4 text-slate-700 leading-relaxed">{PREREQUIS_NIV05}</p>
+          <p className="mt-4 text-slate-700 leading-relaxed">
+            Moyens requis : un poste informatique par participant avec accès internet et abonnements actifs —
+            salle équipée d&apos;un vidéoprojecteur, fournie par le client.
+          </p>
+        </section>
 
         <section className="mt-12">
           <h2 className="font-display text-2xl font-bold text-slate-900">Objectifs pédagogiques</h2>
@@ -187,7 +245,7 @@ export default function FormationIaMaitriseOeuvrePage() {
             À l&apos;issue de la formation, les participants seront capables de :
           </p>
           <ul className="mt-4 space-y-2 text-slate-700">
-            {OBJECTIFS_PEDAGOGIQUES.map((o) => (
+            {FORMATION.objectifs.map((o) => (
               <li key={o} className="flex gap-2">
                 <Check className="mt-0.5 h-5 w-5 shrink-0 text-[var(--accent)]" strokeWidth={1.5} />
                 {o}
@@ -201,8 +259,9 @@ export default function FormationIaMaitriseOeuvrePage() {
             Programme de la formation IA maîtrise d&apos;œuvre — 5 modules
           </h2>
           <p className="mt-2 text-sm text-slate-600">
-            {SESSION_DUREE_LIBELLE} effectives — 70&nbsp;% pratique / 30&nbsp;% théorie — travail sur vos documents
-            réels (anonymisés si besoin).
+            4 heures effectives — 70&nbsp;% pratique / 30&nbsp;% théorie — alternance théorie courte et ateliers
+            sur cas réels MOE apportés par les participants (anonymisés si besoin). Chaque module produit un
+            livrable réutilisable sur vos chantiers dès le lendemain.
           </p>
           <div className="mt-8 space-y-6">
             {PROGRAMME_MODULES.map((mod) => (
@@ -214,6 +273,12 @@ export default function FormationIaMaitriseOeuvrePage() {
                   <h3 className="font-display text-lg font-semibold text-slate-900">{mod.heading}</h3>
                   <span className="text-sm font-medium text-[var(--accent)]">{mod.duree}</span>
                 </div>
+                <p className="mt-3 text-xs font-semibold uppercase text-slate-500">Contenu</p>
+                <ul className="mt-2 space-y-1 text-sm text-slate-600">
+                  {mod.objectifs.map((o) => (
+                    <li key={o}>▸ {o}</li>
+                  ))}
+                </ul>
                 <p className="mt-4 text-sm text-slate-700">
                   <span className="font-semibold text-slate-900">Livrable :</span> {mod.livrable}
                 </p>
@@ -226,11 +291,10 @@ export default function FormationIaMaitriseOeuvrePage() {
           <h2 className="font-display text-xl font-bold text-slate-900">Infos pratiques</h2>
           <ul className="mt-4 space-y-3 text-sm text-slate-700">
             <li>
-              <strong>Durée :</strong> 4 heures effectives (demi-journée).
+              <strong>Durée :</strong> 4 heures effectives (demi-journée — {FORMATION.horaires}).
             </li>
             <li>
-              <strong>Public :</strong> maîtres d&apos;œuvre d&apos;exécution (MOEX), conducteurs de travaux, OPC,
-              BET, assistant(e)s de gestion travaux.
+              <strong>Public :</strong> {FORMATION.public}.
             </li>
             <li>
               <strong>Modalité :</strong> présentiel, en intra-entreprise ou en inter-entreprises. 70&nbsp;% pratique
@@ -241,6 +305,16 @@ export default function FormationIaMaitriseOeuvrePage() {
             </li>
             <li>
               <strong>Financement :</strong> {FINANCEMENT_FORMULATION_PRUDENTE} {FINANCEMENT_CONSTRUCTYS_PLAFONDS_COURT}
+              Les abonnements Claude Pro et ChatGPT Plus ne sont pas inclus dans le tarif.
+            </li>
+            <li>
+              <strong>Supports remis :</strong> mémo « Claude pour la maîtrise d&apos;œuvre », bibliothèque de prompts
+              MOE, fiche-type d&apos;analyse DCE, gabarit de CR, pack de modèles d&apos;actes administratifs, modèles
+              de suivi des réserves et tableau GPA.
+            </li>
+            <li>
+              <strong>Évaluation :</strong> auto-positionnement entrée/sortie, livrables par module, questionnaire à
+              chaud et à froid (J+30).
             </li>
           </ul>
         </section>
@@ -267,7 +341,7 @@ export default function FormationIaMaitriseOeuvrePage() {
               </p>
               <p className="mt-3 text-sm leading-relaxed text-slate-600">
                 Fondatrice d&apos;OFC Création d&apos;Entreprise. Dirigeante d&apos;une entreprise de Travaux Publics dans les Yvelines (ALIA BTP,
-                2017-2024).                 Plus de {SOCIAL_PROOF.PROFESSIONALS_TRAINED} professionnels formés.
+                2017-2024). Plus de {SOCIAL_PROOF.PROFESSIONALS_TRAINED} professionnels formés.
               </p>
               <Link
                 href={LINKS.aPropos}

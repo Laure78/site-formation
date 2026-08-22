@@ -47,17 +47,21 @@ export const PROGRAMME_CONTENU_CATALOGUE: Record<FormationCode, readonly string[
     'Module 4 — Administratif de suivi de chantier',
   ],
   'NIV-04': [
-    "Module 1 — Projets & Skills : structurer Claude pour l'entreprise",
+    'Accueil, cadrage et positionnement (10 min)',
+    "Module 1 — Projets et skills : structurer Claude pour l'entreprise",
     'Module 2 — Cowork : déléguer la production documentaire',
     'Module 3 — Connecteurs : relier Claude à ses outils',
     'Module 4 — Claude Code : automatiser ses tâches',
+    "Bilan, plan d'action et clôture (10 min)",
   ],
   'NIV-05': [
+    'Accueil et positionnement (5 min)',
     "Module 0 — Introduction à Claude, l'écosystème Anthropic",
     "Module 1 — Analyse des offres et conformité avec l'IA",
     'Module 2 — Comptes rendus de chantier en 10 minutes',
     'Module 3 — Courriers, ordres de service et actes administratifs',
     'Module 4 — Réserves, réception et suivi client',
+    "Bilan, plan d'action et clôture (5 min)",
   ],
 };
 
@@ -90,6 +94,46 @@ export const MODALITE_PEDAGOGIQUE_NIV03 =
 
 export const DELAI_ACCES_NIV03 =
   "Inscription jusqu'à 7 jours ouvrés avant la session.";
+
+export const PREREQUIS_NIV04 =
+  "Formation de niveau avancé : utilisation régulière de Claude déjà acquise. Abonnement Claude Pro actif (environ 18 € HT / mois, à la charge de l'entreprise) avec l'option « Exécution de code » activée. Chaque participant apporte ses propres pièces de chantier (CCTP, CCAP, modèles, dossiers).";
+
+export const MODALITE_PEDAGOGIQUE_NIV04 =
+  'Action de formation au sens de l\'art. L6313-1 du Code du travail — 100 % présentiel — intra-entreprise ou inter-entreprises — 70 % pratique / 30 % théorie';
+
+export const MODALITES_ACCES_NIV04 =
+  "Inscription sur demande auprès d'OFC (laureolivie@yahoo.fr — 06 95 66 18 18) : entretien d'analyse du besoin et vérification des prérequis → devis et programme personnalisé → convention de formation signée → demande de prise en charge OPCO → convocation des participants. Un recueil des attentes est adressé à chaque participant avant la session.";
+
+export const DELAI_ACCES_NIV04 =
+  "Inscription jusqu'à 15 jours calendaires avant le démarrage, sous réserve des disponibilités de la formatrice et du client. Ce délai correspond au minimum exigé par les OPCO pour l'instruction d'une demande de prise en charge. Le délai exact est confirmé lors de la demande de formation.";
+
+export const EVALUATION_NIV04 = [
+  'Évaluation en amont : vérification des prérequis, recueil des attentes et auto-positionnement des participants en début de session.',
+  'Évaluation des acquis : évaluation continue par mises en situation — chaque participant configure et teste son environnement Claude (Projet, skills, connecteur, automatisme) tout au long de la session, avec validation individuelle par la formatrice.',
+  'Auto-positionnement de sortie permettant de mesurer la progression sur chacun des objectifs.',
+  'Évaluation de la satisfaction : questionnaire à chaud en fin de session, suivi d\'un questionnaire à froid à J+30.',
+  'Feuille d\'émargement signée par demi-journée ; attestation individuelle de fin de formation et certificat de réalisation.',
+] as const;
+
+export const PREREQUIS_NIV05 =
+  "Aisance avec les outils numériques courants — aucun prérequis IA. Abonnements Claude Pro et ChatGPT Plus actifs sur le poste de chaque participant (environ 18 à 20 € HT / mois chacun, à la charge de l'entreprise). Chaque participant apporte ses dossiers techniques, OS, CR et DCE réels.";
+
+export const MODALITE_PEDAGOGIQUE_NIV05 =
+  'Action de formation au sens de l\'art. L6313-1 du Code du travail — 100 % présentiel — alternance théorie courte / ateliers pratiques sur cas réels MOE — 70 % pratique / 30 % théorie';
+
+export const MODALITES_ACCES_NIV05 =
+  "Inscription sur demande auprès d'OFC (laureolivie@yahoo.fr — 06 95 66 18 18) : entretien d'analyse du besoin et vérification des prérequis → devis et programme personnalisé → convention de formation signée → demande de prise en charge OPCO → convocation des participants. Un recueil des attentes est adressé à chaque participant avant la session.";
+
+export const DELAI_ACCES_NIV05 =
+  "Inscription jusqu'à 15 jours calendaires avant le démarrage, sous réserve des disponibilités de la formatrice et du client. Ce délai correspond au minimum exigé par les OPCO pour l'instruction d'une demande de prise en charge. Le délai exact est confirmé lors de la demande de formation.";
+
+export const EVALUATION_NIV05 = [
+  'Évaluation en amont : vérification des prérequis et recueil des attentes adressé à chaque participant avant la session, permettant d\'ajuster les cas pratiques aux dossiers apportés.',
+  'Auto-positionnement en début et en fin de session afin de mesurer la progression sur chacun des objectifs visés.',
+  'Évaluation des acquis : évaluation continue par les exercices pratiques — chaque module génère un livrable exploitable — avec validation individuelle par la formatrice.',
+  'Évaluation de la satisfaction : questionnaire à chaud en fin de session, suivi d\'un questionnaire à froid à J+30.',
+  'Feuille d\'émargement signée par demi-journée ; attestation individuelle de fin de formation et certificat de réalisation.',
+] as const;
 
 export const EVALUATION_NIV03 = [
   'Recueil des attentes et auto-positionnement des participants en début de session.',
@@ -147,6 +191,8 @@ function prerequisPourRef(ref: FormationCode): string {
   if (ref === 'NIV-01') return PREREQUIS_NIV01;
   if (ref === 'NIV-02') return PREREQUIS_NIV02;
   if (ref === 'NIV-03') return PREREQUIS_NIV03;
+  if (ref === 'NIV-04') return PREREQUIS_NIV04;
+  if (ref === 'NIV-05') return PREREQUIS_NIV05;
   return PREREQUIS_NIVEAU_2.join(' ');
 }
 
@@ -184,15 +230,23 @@ export function getInfosPratiquesForCatalogue(ref: string): InfosPratiquesFormat
         ? MODALITES_ACCES_NIV01
         : code === 'NIV-02'
           ? MODALITES_ACCES_NIV02
-          : stripLabelPrefix(QUALIOPI_MODALITES_ACCES_EXACT, /^Modalités d'accès\s*:\s*/i)
+          : code === 'NIV-04'
+            ? MODALITES_ACCES_NIV04
+            : code === 'NIV-05'
+              ? MODALITES_ACCES_NIV05
+              : stripLabelPrefix(QUALIOPI_MODALITES_ACCES_EXACT, /^Modalités d'accès\s*:\s*/i)
     ),
     delaiAcces: sanitizeInfosPratiquesText(
-      code === 'NIV-01' || code === 'NIV-02' || code === 'NIV-03'
+      code === 'NIV-01' || code === 'NIV-02' || code === 'NIV-03' || code === 'NIV-04' || code === 'NIV-05'
         ? code === 'NIV-02'
           ? DELAI_ACCES_NIV02
           : code === 'NIV-03'
             ? DELAI_ACCES_NIV03
-            : DELAI_ACCES_NIV01
+            : code === 'NIV-04'
+              ? DELAI_ACCES_NIV04
+              : code === 'NIV-05'
+                ? DELAI_ACCES_NIV05
+                : DELAI_ACCES_NIV01
         : stripLabelPrefix(QUALIOPI_DELAI_ACCES_EXACT, /^Délai d'accès\s*:\s*/i)
     ),
     tarif: tarifPourRef(code),
@@ -204,13 +258,21 @@ export function getInfosPratiquesForCatalogue(ref: string): InfosPratiquesFormat
           ? [...EVALUATION_NIV02]
           : code === 'NIV-03'
             ? [...EVALUATION_NIV03]
-            : [...QUALIOPI_EVALUATION_STANDARD],
+            : code === 'NIV-04'
+              ? [...EVALUATION_NIV04]
+              : code === 'NIV-05'
+                ? [...EVALUATION_NIV05]
+                : [...QUALIOPI_EVALUATION_STANDARD],
     modalitePedagogique:
       code === 'NIV-02'
         ? MODALITE_PEDAGOGIQUE_NIV02
         : code === 'NIV-03'
           ? MODALITE_PEDAGOGIQUE_NIV03
-          : MODALITE_PEDAGOGIQUE_CATALOGUE,
+          : code === 'NIV-04'
+            ? MODALITE_PEDAGOGIQUE_NIV04
+            : code === 'NIV-05'
+              ? MODALITE_PEDAGOGIQUE_NIV05
+              : MODALITE_PEDAGOGIQUE_CATALOGUE,
     accessibiliteHandicap: INFOS_PRATIQUES_HANDICAP_ENCART,
     dateMaj: formation.programmeUpdatedAt,
   });

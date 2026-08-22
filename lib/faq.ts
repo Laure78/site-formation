@@ -473,15 +473,15 @@ export const FAQ_IA_BTP_PARIS: FAQItem[] = [
 export const FAQ_MAITRISER_CLAUDE_NIV04: FAQItem[] = [
   {
     q: 'On utilise déjà Claude au bureau : cette formation m\'apporte quoi de plus ?',
-    a: `Il structure l'usage en entreprise : Projets partagés, bibliothèque de Skills, Cowork supervisé, connecteurs Gmail/Drive et premières automatisations Claude Code. En 4 h le matin, vous repartez avec des workflows réutilisables — pas seulement des prompts isolés. Public : référents IA, dirigeants, responsables digitaux, chargés d'affaires et conducteurs de travaux déjà à l'aise avec Claude Pro. Voir le <a href="${LINKS.claudeAiBtp}">guide Claude AI BTP</a>.`,
+    a: `Il structure l'usage en entreprise : Projets partagés, bibliothèque de skills, Cowork supervisé, connecteurs messagerie/drive/agenda et premières automatisations Claude Code. En 4 h le matin, vous repartez avec des workflows réutilisables — pas seulement des prompts isolés. Public : référents IA, dirigeants, responsables digitaux, chargés d'affaires et conducteurs de travaux déjà à l'aise avec Claude Pro. Voir le <a href="${LINKS.claudeAiBtp}">guide Claude AI BTP</a>.`,
   },
   {
     q: 'Pourquoi la formation Maîtriser Claude est-elle le matin uniquement ?',
-    a: `La session dure 4 h (9h00–13h00) pour enchaîner 4 modules techniques sans couper la concentration. Format présentiel en Île-de-France, intra ou inter — formation catalogue niveau 2.`,
+    a: `La session dure 4 h (9h00–13h00) pour enchaîner accueil, 4 modules techniques et clôture sans couper la concentration. Format présentiel en Île-de-France, intra ou inter — formation catalogue niveau avancé.`,
   },
   {
     q: 'Cowork et Claude Code : est-ce que l\'IA envoie des mails ou des docs sans mon accord ?',
-    a: `Non : Cowork et Claude Code fonctionnent en mode supervisé — vous validez chaque livrable avant envoi client ou marché. La session intègre une checklist RGPD, marchés publics et données clients. Les connecteurs (Gmail, Drive, agenda) sont paramétrés avec ces garde-fous.`,
+    a: `Non : Cowork et Claude Code fonctionnent en mode supervisé — vous validez chaque livrable avant envoi client ou marché. La session intègre une checklist RGPD, marchés publics et données clients. Les connecteurs (messagerie, drive, agenda) sont paramétrés avec ces garde-fous.`,
   },
   {
     q: 'Quelle différence entre Maîtriser Claude AI et la formation appels d\'offres ?',
@@ -489,19 +489,15 @@ export const FAQ_MAITRISER_CLAUDE_NIV04: FAQItem[] = [
   },
   {
     q: 'Combien coûte Maîtriser Claude AI en 2026 et est-ce finançable OPCO ?',
-    a: `Forfait ${libelleTarifSessionForfaitaire(TARIF_SESSION_FORFAIT_HT)} (8 participants max). Financement possible selon éligibilité Constructys ou votre OPCO — organisme certifié Qualiopi. Détails : <a href="${LINKS.financement}">financement Constructys formation IA BTP</a>.`,
+    a: `Forfait ${libelleTarifSessionForfaitaire(TARIF_SESSION_FORFAIT_HT)} (8 participants max). Financement possible selon éligibilité Constructys ou votre OPCO — organisme certifié Qualiopi. L'abonnement Claude Pro n'est pas inclus. Détails : <a href="${LINKS.financement}">financement Constructys formation IA BTP</a>.`,
   },
   {
     q: 'Faut-il activer l\'option « Exécution de code » sur Claude Pro ?',
-    a: `Oui, c'est un prérequis pour tester les skills avancés et Claude Code en session. Il faut aussi un abonnement Claude Pro actif et une utilisation régulière avant cette formation — sinon, commencer par la <a href="${LINKS.formationIaBtpNiveau1BatimentTp}">formation niveau 1</a> ou le <a href="${LINKS.formationMaitriserClaudeAiBtp}">parcours Claude dédié BTP</a>.`,
+    a: `Oui, c'est un prérequis pour tester les skills avancés et Claude Code en session. Il faut aussi un abonnement Claude Pro actif et une utilisation régulière de Claude avant cette formation — sinon, commencer par la <a href="${LINKS.formationIaBtpNiveau1BatimentTp}">formation niveau 1</a> ou le <a href="${LINKS.claudeAiBtp}">guide Claude AI BTP</a>.`,
   },
   {
     q: 'Quels skills Claude sont abordés pendant la formation ?',
-    a: `Selon vos besoins et dossiers réels : analyse RC, analyse DCE/DQE, organisation CCTP, CR de chantier, levée des réserves, normes/hors-gel et assistant juridique marché de travaux. Chaque skill est installé et testé sur les postes pendant la <a href="${LINKS.formationMaitriserClaudeAiBtp}">formation Maîtriser Claude AI pour le BTP — Chat, Cowork & Code</a>.`,
-  },
-  {
-    q: 'Le skill juridique remplace-t-il un avocat ?',
-    a: `Non : l'assistant juridique aide à qualifier un litige et rédiger des brouillons (mise en demeure, mémoire en réclamation). La validation juridique et le recours à un avocat restent indispensables sur les contentieux sensibles. En session, on cadre ces limites explicitement.`,
+    a: `Selon vos besoins et dossiers réels : la session installe une bibliothèque de skills BTP réutilisables (Projet chantier, dossier d'AO, suivi de travaux, automatisation administrative). Chaque skill est créé, testé et partagé sur les postes pendant la <a href="${LINKS.formationMaitriserClaudeAiBtp}">formation Maîtriser Claude AI pour le BTP — Chat, Cowork & Code</a>.`,
   },
 ];
 

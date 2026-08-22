@@ -20,7 +20,6 @@ import {
   libelleTarifIntraEntreprise,
   libelleTarifInterEntreprise,
   MODALITE_FORMATIONS_PRESENTIEL,
-  PREREQUIS_NIVEAU_2,
 } from '@/lib/tarifs-sessions';
 import {
   FORMATIONS_CATALOGUE,
@@ -30,12 +29,20 @@ import { getFormationByCode } from '@/data/formations';
 import {
   DELAI_ACCES_NIV02,
   DELAI_ACCES_NIV03,
+  DELAI_ACCES_NIV04,
+  DELAI_ACCES_NIV05,
   EVALUATION_NIV02,
   EVALUATION_NIV03,
+  EVALUATION_NIV04,
+  EVALUATION_NIV05,
   MODALITES_ACCES_NIV02,
+  MODALITES_ACCES_NIV04,
+  MODALITES_ACCES_NIV05,
   PROGRAMME_CONTENU_CATALOGUE,
   PREREQUIS_NIV02,
   PREREQUIS_NIV03,
+  PREREQUIS_NIV04,
+  PREREQUIS_NIV05,
 } from '@/lib/infos-pratiques-catalogue';
 import type { FormationCode } from '@/data/formations';
 
@@ -154,8 +161,11 @@ function prerequisPourCatalogue(entry: FormationCatalogueEntry): string[] {
   if (entry.ref === 'NIV-03') {
     return [PREREQUIS_NIV03];
   }
-  if (entry.ref === 'NIV-04' || entry.ref === 'NIV-05') {
-    return [...PREREQUIS_NIVEAU_2];
+  if (entry.ref === 'NIV-04') {
+    return [PREREQUIS_NIV04];
+  }
+  if (entry.ref === 'NIV-05') {
+    return [PREREQUIS_NIV05];
   }
   return [
     'Aucune compétence technique en IA requise.',
@@ -185,6 +195,8 @@ export function getInfosQualiopiForCatalogue(ref: string): InfosQualiopiProps {
   const tarifs = tarifsPourCatalogue(entry);
   const isNiv02 = code === 'NIV-02';
   const isNiv03 = code === 'NIV-03';
+  const isNiv04 = code === 'NIV-04';
+  const isNiv05 = code === 'NIV-05';
   return {
     formationTitle: entry.title,
     programmeRef: entry.ref,
@@ -194,12 +206,34 @@ export function getInfosQualiopiForCatalogue(ref: string): InfosQualiopiProps {
     programmePdfHref: formation.pdfProgramme,
     duree: entry.duree,
     dureeJours: '0,5 jour (session unique)',
-    modalitesAcces: isNiv02 ? MODALITES_ACCES_NIV02 : QUALIOPI_MODALITES_ACCES_EXACT,
-    delaiAcces: isNiv02 ? DELAI_ACCES_NIV02 : isNiv03 ? DELAI_ACCES_NIV03 : QUALIOPI_DELAI_ACCES_EXACT,
+    modalitesAcces: isNiv02
+      ? MODALITES_ACCES_NIV02
+      : isNiv04
+        ? MODALITES_ACCES_NIV04
+        : isNiv05
+          ? MODALITES_ACCES_NIV05
+          : QUALIOPI_MODALITES_ACCES_EXACT,
+    delaiAcces: isNiv02
+      ? DELAI_ACCES_NIV02
+      : isNiv03
+        ? DELAI_ACCES_NIV03
+        : isNiv04
+          ? DELAI_ACCES_NIV04
+          : isNiv05
+            ? DELAI_ACCES_NIV05
+            : QUALIOPI_DELAI_ACCES_EXACT,
     tarifInter: tarifs.inter,
     tarifIntra: tarifs.intra,
     methodes: QUALIOPI_METHODES_STANDARD,
-    evaluation: isNiv02 ? [...EVALUATION_NIV02] : isNiv03 ? [...EVALUATION_NIV03] : QUALIOPI_EVALUATION_STANDARD,
+    evaluation: isNiv02
+      ? [...EVALUATION_NIV02]
+      : isNiv03
+        ? [...EVALUATION_NIV03]
+        : isNiv04
+          ? [...EVALUATION_NIV04]
+          : isNiv05
+            ? [...EVALUATION_NIV05]
+            : QUALIOPI_EVALUATION_STANDARD,
     handicap: QUALIOPI_HANDICAP_STANDARD,
     lastUpdated: formation.programmeUpdatedAt,
     version: formation.programmeVersion,

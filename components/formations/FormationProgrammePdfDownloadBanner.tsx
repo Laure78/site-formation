@@ -26,6 +26,8 @@ function programmeDownloadDescription(catalogueRef: string, formationTitle: stri
 const PDF_DOWNLOAD_NAMES: Partial<Record<string, string>> = {
   'NIV-02': 'programme_OFC_Niveau2_IA_AO_ClaudePro.pdf',
   'NIV-03': 'Programme_IA_Conduite_Travaux_OFC.pdf',
+  'NIV-04': 'programme_OFC_Maitriser_Claude_BTP.pdf',
+  'NIV-05': 'programme_OFC_IA_MOE_4h.pdf',
 };
 
 /**
