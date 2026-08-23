@@ -15,11 +15,11 @@ import {
   BookOpen,
   Landmark,
   UserCircle,
-  LogIn,
 } from 'lucide-react';
 import { SITE } from '@/lib/site';
 import { headerNavItemIsActive } from '@/lib/header-nav';
 import { CtaButton } from '@/components/CtaButton';
+import { FormationPlateformeConnexionButton } from '@/components/formation/FormationPlateformeConnexionButton';
 import { SiteSearchTrigger } from '@/components/search/SiteSearchTrigger';
 import {
   HeaderMobileNavSection,
@@ -37,12 +37,6 @@ const MOBILE_NAV_ICON: Record<string, LucideIcon> = {
   partenaires: Landmark,
   'a-propos': UserCircle,
 };
-
-const PLATFORM_NAV_CLASS =
-  'inline-flex items-center justify-center gap-1.5 whitespace-nowrap rounded-full border border-slate-300 bg-white px-3 py-2 text-sm font-semibold text-slate-800 transition-colors hover:border-[#377CF3] hover:bg-[#EFF6FF] hover:text-[#377CF3]';
-
-const PLATFORM_NAV_MOBILE_CLASS =
-  'inline-flex w-full items-center justify-center gap-2 rounded-full border-2 border-[#377CF3] bg-white px-4 py-3.5 text-center text-[0.9375rem] font-semibold text-[#377CF3]';
 
 /** Seuil scroll (px) — mode compact avec hysteresis pour éviter les oscillations. */
 const HEADER_COMPACT_ON_PX = 120;
@@ -238,15 +232,10 @@ export function Header() {
           </div>
 
           <div className="site-header__actions">
-            <a
-              href={SITE.platform.loginHref}
-              title={SITE.platform.title}
-              aria-label={SITE.platform.connexionLabel}
-              className={PLATFORM_NAV_CLASS}
-            >
-              <LogIn className="h-4 w-4 shrink-0" strokeWidth={1.75} aria-hidden />
-              {SITE.platform.connexionLabel}
-            </a>
+            <FormationPlateformeConnexionButton
+              variant="nav"
+              label={SITE.platform.connexionLabel}
+            />
             <CtaButton
               origin="header-desktop"
               className="text-sm max-[380px]:px-3 max-[380px]:py-2 max-[380px]:text-xs"
@@ -358,16 +347,11 @@ export function Header() {
             </nav>
             <div className="shrink-0 border-t border-slate-200 bg-white px-4 py-4">
               <div className="flex flex-col gap-3">
-                <a
-                  href={SITE.platform.loginHref}
-                  title={SITE.platform.title}
-                  aria-label={SITE.platform.connexionNavMobileLabel}
+                <FormationPlateformeConnexionButton
+                  variant="navMobile"
+                  label={SITE.platform.connexionNavMobileLabel}
                   onClick={() => setMobileOpen(false)}
-                  className={PLATFORM_NAV_MOBILE_CLASS}
-                >
-                  <LogIn className="h-4 w-4 shrink-0" strokeWidth={1.75} aria-hidden />
-                  {SITE.platform.connexionNavMobileLabel}
-                </a>
+                />
                 <CtaButton
                   origin="header-mobile-drawer"
                   onClick={() => setMobileOpen(false)}
