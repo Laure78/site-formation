@@ -4,7 +4,7 @@ import { FooterTelOrMailLink } from '@/components/PublicPhoneCta';
 import { FileText, Calendar, Users, Check, Download, ExternalLink } from 'lucide-react';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
 import { ContextualLinksSection } from '@/components/layout/ContextualLinksSection';
-import { CatalogueInfosPratiques } from '@/components/InfosPratiques';
+import { FormationCatalogueIndicateur1Suite } from '@/components/formations/FormationCatalogueIndicateur1Suite';
 import { FORMATION_NIV02_RELATED } from '@/lib/contextual-internal-links';
 import { FORMATION_AO_CLUSTER_ARTICLES } from '@/lib/ao-dce-cluster-links';
 import { RdvLink } from '@/components/RdvLink';
@@ -178,6 +178,7 @@ export default function FormationIAAppelsOffreBTPPage() {
 
       <FormationCourseHero
         catalogueRef="NIV-02"
+        programmePdfAfterHero={false}
         refLine={`Intra-entreprise · présentiel · ${SESSION_DUREE_LIBELLE} · Niveau 2 · ${LIBELLE_EFFECTIF_GROUPE_NIV02}`}
         title="L'IA appliquée aux appels d'offres BTP"
         subtitle="Créer ses assistants IA pour DCE et mémoire technique — Claude AI Pro, Cowork & Skills"
@@ -257,6 +258,47 @@ export default function FormationIAAppelsOffreBTPPage() {
           . Outils : {OUTILS_IA_LINE}
         </p>
       </FormationCourseHero>
+
+      <section id="programme" className="scroll-mt-24 border-b border-slate-200 bg-white px-4 py-16">
+        <div className="mx-auto max-w-4xl">
+        <h2 className="font-display text-2xl font-bold text-slate-900">Programme détaillé</h2>
+        <p className="mt-2 text-sm text-slate-600">
+          Accueil (15 min), 3 modules et clôture (15 min) — total {SESSION_DUREE_LIBELLE} — 75 % pratique sur DCE et
+          mémoires techniques réels des participants. Chaque module s&apos;appuie sur un skill Cowork dédié.
+        </p>
+        <div className="mt-8 space-y-8">
+          {PROGRAMME_BLOCS.map((bloc) => (
+            <div
+              key={bloc.heading}
+              className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm"
+            >
+              <div className="flex flex-wrap items-baseline justify-between gap-2">
+                <h3 className="font-display text-lg font-semibold text-slate-900">{bloc.heading}</h3>
+                <span className="text-sm font-medium text-[var(--accent)]">{bloc.meta}</span>
+              </div>
+              <p className="mt-3 text-xs font-semibold uppercase text-slate-500">Contenu</p>
+              <ul className="mt-2 space-y-1 text-sm text-slate-600">
+                {bloc.objectifs.map((o) => (
+                  <li key={o}>▸ {o}</li>
+                ))}
+              </ul>
+              {bloc.exercice ? (
+                <p className="mt-3 text-sm text-slate-700">
+                  <span className="font-semibold text-slate-900">Atelier pratique.</span> {bloc.exercice}
+                </p>
+              ) : null}
+              {bloc.livrable ? (
+                <p className="mt-4 text-sm text-slate-700">
+                  <span className="font-semibold text-slate-900">Livrable :</span> {bloc.livrable}
+                </p>
+              ) : null}
+            </div>
+          ))}
+        </div>
+        </div>
+      </section>
+
+      <FormationCatalogueIndicateur1Suite programmeRef="NIV-02" />
 
       <div className="mx-auto max-w-4xl px-4 py-16">
       <section className="rounded-2xl border border-slate-200 bg-slate-50 p-6 md:p-8">
@@ -347,43 +389,6 @@ export default function FormationIAAppelsOffreBTPPage() {
         </ul>
       </section>
 
-      <section id="programme" className="mt-12 scroll-mt-24">
-        <h2 className="font-display text-2xl font-bold text-slate-900">Programme détaillé</h2>
-        <p className="mt-2 text-sm text-slate-600">
-          Accueil (15 min), 3 modules et clôture (15 min) — total {SESSION_DUREE_LIBELLE} — 75 % pratique sur DCE et
-          mémoires techniques réels des participants. Chaque module s&apos;appuie sur un skill Cowork dédié.
-        </p>
-        <div className="mt-8 space-y-8">
-          {PROGRAMME_BLOCS.map((bloc) => (
-            <div
-              key={bloc.heading}
-              className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm"
-            >
-              <div className="flex flex-wrap items-baseline justify-between gap-2">
-                <h3 className="font-display text-lg font-semibold text-slate-900">{bloc.heading}</h3>
-                <span className="text-sm font-medium text-[var(--accent)]">{bloc.meta}</span>
-              </div>
-              <p className="mt-3 text-xs font-semibold uppercase text-slate-500">Contenu</p>
-              <ul className="mt-2 space-y-1 text-sm text-slate-600">
-                {bloc.objectifs.map((o) => (
-                  <li key={o}>▸ {o}</li>
-                ))}
-              </ul>
-              {bloc.exercice ? (
-                <p className="mt-3 text-sm text-slate-700">
-                  <span className="font-semibold text-slate-900">Atelier pratique.</span> {bloc.exercice}
-                </p>
-              ) : null}
-              {bloc.livrable ? (
-                <p className="mt-4 text-sm text-slate-700">
-                  <span className="font-semibold text-slate-900">Livrable :</span> {bloc.livrable}
-                </p>
-              ) : null}
-            </div>
-          ))}
-        </div>
-      </section>
-
       <section
         id="parcours-lms"
         className="mt-12 scroll-mt-24 rounded-2xl border border-slate-200 bg-[var(--accent-soft)] p-6"
@@ -451,8 +456,6 @@ export default function FormationIAAppelsOffreBTPPage() {
         links={FORMATION_AO_CLUSTER_ARTICLES}
         tone="white"
       />
-
-      <CatalogueInfosPratiques programmeRef="NIV-02" />
 
       <FAQSection
         items={FAQ_APPELS_OFFRE}

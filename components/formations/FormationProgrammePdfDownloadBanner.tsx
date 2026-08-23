@@ -9,17 +9,17 @@ type Props = {
 function programmeDownloadDescription(catalogueRef: string, formationTitle: string): string {
   switch (catalogueRef) {
     case 'NIV-01':
-      return 'Téléchargez le programme détaillé de la formation niveau 1 — bâtiment & travaux publics.';
+      return 'Téléchargez le programme officiel (PDF) de la formation niveau 1 — bâtiment & travaux publics.';
     case 'NIV-02':
-      return "Téléchargez le programme détaillé de la formation appels d'offres BTP — DCE, mémoire technique, Cowork & Skills.";
+      return "Téléchargez le programme officiel (PDF) de la formation appels d'offres BTP — DCE, mémoire technique, Cowork & Skills.";
     case 'NIV-03':
-      return 'Téléchargez le programme détaillé de la formation conduite de travaux — suivi chantier et skills Claude BTP.';
+      return 'Téléchargez le programme officiel (PDF) de la formation conduite de travaux — suivi chantier et skills Claude BTP.';
     case 'NIV-04':
-      return 'Téléchargez le programme détaillé de la formation Maîtriser Claude AI pour le BTP — Projets, Skills, Cowork et Claude Code.';
+      return 'Téléchargez le programme officiel (PDF) de la formation Maîtriser Claude AI pour le BTP — Projets, Skills, Cowork et Claude Code.';
     case 'NIV-05':
-      return "Téléchargez le programme détaillé de la formation L'IA au service des maîtres d'œuvre — MOEX, DCE, CR chantier et réserves.";
+      return "Téléchargez le programme officiel (PDF) de la formation L'IA au service des maîtres d'œuvre — MOEX, DCE, CR chantier et réserves.";
     default:
-      return `Téléchargez le programme détaillé — ${formationTitle}.`;
+      return `Téléchargez le programme officiel (PDF) — ${formationTitle}.`;
   }
 }
 

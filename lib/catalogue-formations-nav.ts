@@ -1,6 +1,7 @@
 import type { LucideIcon } from 'lucide-react';
 import { Building2, FileText, HardHat, Landmark } from 'lucide-react';
 import { LINKS } from '@/lib/internal-links';
+import { isFormationCataloguePublished } from '@/lib/formation-catalogue-visibility';
 
 /** Page métier / landing rattachée à une fiche catalogue (méga-menu). */
 export type CatalogueFormationNavPage = {
@@ -19,7 +20,7 @@ export type CatalogueFormationNavLink = {
   pages?: readonly CatalogueFormationNavPage[];
 };
 
-export const CATALOGUE_FORMATIONS_NAV_LINKS: CatalogueFormationNavLink[] = [
+const ALL_CATALOGUE_FORMATIONS_NAV_LINKS: CatalogueFormationNavLink[] = [
   {
     href: LINKS.formationIaBtpNiveau1BatimentTp,
     label: "L'IA au service des pros du bâtiment et des travaux publics",
@@ -68,8 +69,22 @@ export const CATALOGUE_FORMATIONS_NAV_LINKS: CatalogueFormationNavLink[] = [
   },
 ];
 
+export function getCatalogueFormationsNavLinks(
+  at: Date = new Date(),
+): CatalogueFormationNavLink[] {
+  return ALL_CATALOGUE_FORMATIONS_NAV_LINKS.filter((link) => {
+    if (link.href === LINKS.formationConduiteTravauxSuiviChantier) {
+      return isFormationCataloguePublished('NIV-03', at);
+    }
+    return true;
+  });
+}
+
+export const CATALOGUE_FORMATIONS_NAV_LINKS: CatalogueFormationNavLink[] =
+  getCatalogueFormationsNavLinks();
+
 export function catalogueFormationNavContainsPath(pathname: string): boolean {
-  return CATALOGUE_FORMATIONS_NAV_LINKS.some(
+  return getCatalogueFormationsNavLinks().some(
     (l) =>
       pathname === l.href ||
       pathname.startsWith(`${l.href}/`) ||
@@ -78,7 +93,7 @@ export function catalogueFormationNavContainsPath(pathname: string): boolean {
 }
 
 export function catalogueFormationNavParentHref(pathname: string): string | null {
-  for (const link of CATALOGUE_FORMATIONS_NAV_LINKS) {
+  for (const link of getCatalogueFormationsNavLinks()) {
     if (pathname === link.href || pathname.startsWith(`${link.href}/`)) return link.href;
     if ((link.pages ?? []).some((p) => pathname === p.href || pathname.startsWith(`${p.href}/`))) {
       return link.href;

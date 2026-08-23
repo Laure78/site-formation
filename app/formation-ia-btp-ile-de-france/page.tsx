@@ -19,10 +19,7 @@ import { voirAussiIdfProps } from '@/lib/voir-aussi';
 import { CSFE_NOM_COMPLET } from '@/lib/csfe';
 import { OFC_LINK } from '@/lib/ofc-interaction-classes';
 import { OFC_SEC } from '@/lib/ofc-section-classes';
-import {
-  CATALOGUE_FORMATIONS_COUNT,
-  FORMATIONS_CATALOGUE,
-} from '@/lib/formations-catalogue-display';
+import { getCatalogueFormationsCount, getFormationsCatalogue } from '@/lib/formations-catalogue-display';
 import { FormationsCatalogueInteractive } from '@/components/formations/FormationsCatalogueInteractive';
 import { RelatedLinks } from '@/components/RelatedLinks';
 import { LIBELLE_EFFECTIF_GROUPE_NIV02 } from '@/lib/tarifs-sessions';
@@ -97,6 +94,8 @@ const FAQ_IDF: FAQItem[] = [
 ];
 
 export default function FormationIaBtpIleDeFrancePage() {
+  const catalogueFormations = getFormationsCatalogue();
+  const catalogueCount = getCatalogueFormationsCount();
   const localBusinessSchema = getFormationIleDeFrancePageLocalBusinessJsonLd();
   const faqSchema = getFAQSchema(FAQ_IDF);
 
@@ -171,7 +170,7 @@ export default function FormationIaBtpIleDeFrancePage() {
               id="catalogue-idf-heading"
               className="font-display text-2xl font-bold text-slate-900 md:text-3xl"
             >
-              Les {CATALOGUE_FORMATIONS_COUNT} formations IA en Île-de-France
+              Les {catalogueCount} formations IA en Île-de-France
             </h2>
             <p className="mt-4 max-w-3xl text-base leading-relaxed text-slate-600 md:text-lg">
               Même catalogue que la page{' '}
@@ -182,7 +181,7 @@ export default function FormationIaBtpIleDeFrancePage() {
               uniquement, sessions intra-entreprise, dans vos locaux sur {IDF_ZONE_INTERVENTION}.
             </p>
             <div className="mt-10">
-              <FormationsCatalogueInteractive formations={FORMATIONS_CATALOGUE} />
+              <FormationsCatalogueInteractive formations={catalogueFormations} catalogueCount={catalogueCount} />
             </div>
           </div>
         </section>

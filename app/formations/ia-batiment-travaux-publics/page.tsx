@@ -34,6 +34,7 @@ import { FAQ_BATIMENT } from '@/lib/faq';
 import {
   FormationCourseHero,
 } from '@/components/formations/FormationCourseHero';
+import { FormationCatalogueIndicateur1Suite } from '@/components/formations/FormationCatalogueIndicateur1Suite';
 import {
   SESSION_DUREE_LIBELLE,
   TARIF_FORFAIT_DEBUTANT_HT,
@@ -48,7 +49,6 @@ import { GAINS_TEMPS_MENTION_PRUDENCE } from '@/lib/gains-temps-copy';
 import { getFormationCatalogueVisuel } from '@/lib/formations-catalogue-display';
 import { LINKS } from '@/lib/internal-links';
 import { ContextualLinksSection } from '@/components/layout/ContextualLinksSection';
-import { CatalogueInfosPratiques } from '@/components/InfosPratiques';
 import { RelatedLinks } from '@/components/RelatedLinks';
 import { getClusterRelatedHrefs } from '@/lib/maillage-clusters';
 import { FORMATION_NIV01_RELATED } from '@/lib/contextual-internal-links';
@@ -266,6 +266,7 @@ export default function FormationIAuServiceDuBatimentPage() {
 
       <FormationCourseHero
         catalogueRef="NIV-01"
+        programmePdfAfterHero={false}
         refLine="Niveau 1 · Débutant"
         title="L'IA au service des professionnels du BTP"
         subtitle="Niveau 1 — fondamentaux ChatGPT et IA générative pour artisans, PME et fonctions support du bâtiment"
@@ -325,6 +326,27 @@ export default function FormationIAuServiceDuBatimentPage() {
           Financement possible via votre <strong>OPCO</strong> (Constructys, OPCO 2i, Akto…) selon éligibilité (organisme certifié Qualiopi).
         </p>
       </FormationCourseHero>
+
+      {/* Programme détaillé — avant le PDF officiel (ancre #programme du hero) */}
+      <section id="programme" className="scroll-mt-24 border-b border-slate-200 bg-white px-4 py-16">
+        <div className="mx-auto max-w-4xl">
+          <h2 className="font-display text-3xl font-bold text-slate-900">
+            Programme détaillé de la formation
+          </h2>
+          <p className="mt-3 text-slate-600">
+            Le programme détaillé niveau 1 répartit {SESSION_DUREE_LIBELLE} sur quatre blocs d&apos;1 h :
+            fondamentaux IA, devis et chiffrage, documents réglementaires et communication digitale.
+          </p>
+          <p className="mt-3 text-slate-600">
+            <strong>{SESSION_DUREE_LIBELLE}</strong> — quatre modules : fondamentaux IA (méthode RTC, RGPD),
+            devis et chiffrage assistés, documents réglementaires (DOE, PV, CR) et communication digitale.
+            Ateliers pratiques sur vos cas.
+          </p>
+          <ProgrammeAccordionBatiment />
+        </div>
+      </section>
+
+      <FormationCatalogueIndicateur1Suite programmeRef="NIV-01" />
 
       {/* Contenu SEO long */}
       <section className="border-b border-slate-200 bg-slate-50 px-4 py-16">
@@ -650,25 +672,6 @@ export default function FormationIAuServiceDuBatimentPage() {
         </div>
       </section>
 
-      {/* Programme détaillé */}
-      <section id="programme" className="border-b border-slate-200 bg-white px-4 py-16">
-        <div className="mx-auto max-w-4xl">
-          <h2 className="font-display text-3xl font-bold text-slate-900">
-            Programme détaillé de la formation
-          </h2>
-          <p className="mt-3 text-slate-600">
-            Le programme détaillé niveau 1 répartit {SESSION_DUREE_LIBELLE} sur quatre blocs d&apos;1 h :
-            fondamentaux IA, devis et chiffrage, documents réglementaires et communication digitale.
-          </p>
-          <p className="mt-3 text-slate-600">
-            <strong>{SESSION_DUREE_LIBELLE}</strong> — quatre modules : fondamentaux IA (méthode RTC, RGPD),
-            devis et chiffrage assistés, documents réglementaires (DOE, PV, CR) et communication digitale.
-            Ateliers pratiques sur vos cas.
-          </p>
-          <ProgrammeAccordionBatiment />
-        </div>
-      </section>
-
       {/* Modalités pratiques */}
       <section className="border-b border-slate-200 bg-slate-50 px-4 py-16">
         <div className="mx-auto max-w-6xl">
@@ -801,8 +804,6 @@ export default function FormationIAuServiceDuBatimentPage() {
           </div>
         </div>
       </section>
-
-      <CatalogueInfosPratiques programmeRef="NIV-01" />
 
       {/* FAQ */}
       <section className="border-b border-slate-200 bg-slate-50 px-4 py-16">

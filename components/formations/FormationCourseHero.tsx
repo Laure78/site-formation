@@ -11,6 +11,32 @@ import { FormationProgrammePdfViewer } from '@/components/formations/FormationPr
 import { getFormationCatalogueByRef } from '@/lib/formations-catalogue-display';
 
 /**
+ * Bandeau + visionneuse PDF — sous le hero ou après le programme détaillé (#programme).
+ */
+export function FormationProgrammePdfSection({
+  catalogueRef,
+}: {
+  catalogueRef: string;
+}) {
+  const catalogueEntry = getFormationCatalogueByRef(catalogueRef);
+  if (!catalogueEntry) return null;
+  return (
+    <>
+      <FormationProgrammePdfDownloadBanner
+        pdfHref={catalogueEntry.programmePdfHref}
+        catalogueRef={catalogueEntry.ref}
+        formationTitle={catalogueEntry.title}
+      />
+      <FormationProgrammePdfViewer
+        pdfHref={catalogueEntry.programmePdfHref}
+        catalogueRef={catalogueEntry.ref}
+        formationTitle={catalogueEntry.title}
+      />
+    </>
+  );
+}
+
+/**
  * Hero standard des fiches formation : 2 colonnes (contenu + photo + « En résumé »),
  * aligné sur la page « L'IA au service du bâtiment ».
  */
@@ -27,6 +53,8 @@ export function FormationCourseHero({
   summaryIcon: SummaryIcon = Building2,
   summaryItems,
   catalogueRef,
+  /** `false` : PDF + bloc Ind. 1 après `#programme` via `FormationCatalogueIndicateur1Suite`. */
+  programmePdfAfterHero = true,
 }: {
   refLine: string;
   title: React.ReactNode;
@@ -42,6 +70,7 @@ export function FormationCourseHero({
   summaryItems: string[];
   /** Réf catalogue — affiche le tarif en évidence sous le titre (NIV-01 à NIV-05). */
   catalogueRef?: string;
+  programmePdfAfterHero?: boolean;
 }) {
   const catalogueEntry = catalogueRef ? getFormationCatalogueByRef(catalogueRef) : undefined;
   const resolvedImage =
@@ -139,19 +168,8 @@ export function FormationCourseHero({
         </div>
       </div>
     </section>
-    {catalogueEntry ? (
-      <>
-        <FormationProgrammePdfDownloadBanner
-          pdfHref={catalogueEntry.programmePdfHref}
-          catalogueRef={catalogueEntry.ref}
-          formationTitle={catalogueEntry.title}
-        />
-        <FormationProgrammePdfViewer
-          pdfHref={catalogueEntry.programmePdfHref}
-          catalogueRef={catalogueEntry.ref}
-          formationTitle={catalogueEntry.title}
-        />
-      </>
+    {catalogueRef && programmePdfAfterHero ? (
+      <FormationProgrammePdfSection catalogueRef={catalogueRef} />
     ) : null}
     </>
   );

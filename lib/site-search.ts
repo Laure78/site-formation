@@ -1,5 +1,6 @@
 import { getAllArticles } from '@/lib/blog';
-import { FORMATIONS_CATALOGUE } from '@/lib/formations-catalogue-display';
+import { getFormationsCatalogue } from '@/lib/formations-catalogue-display';
+import { getCatalogueSiteSearchDescription } from '@/lib/formation-catalogue-visibility';
 import { LINKS } from '@/lib/internal-links';
 import { RESSOURCES_THEMATIC_BLOCKS } from '@/lib/ressources-thematic-hub';
 import { TUTOS, TUTO_CATEGORY_META } from '@/lib/tutos';
@@ -44,7 +45,7 @@ function buildStaticPages(): SiteSearchEntry[] {
     {
       id: 'page-formations',
       title: 'Catalogue formations IA BTP',
-      description: 'Formations Qualiopi 4 h — devis, appels d\'offres, conduite de travaux, Claude AI.',
+      description: getCatalogueSiteSearchDescription(),
       href: LINKS.formations,
       kind: 'page',
       keywords: 'catalogue formation qualiopi constructys',
@@ -231,7 +232,7 @@ function buildSiteSearchIndex(): SiteSearchEntry[] {
     ].join(' '),
   }));
 
-  const formations: SiteSearchEntry[] = FORMATIONS_CATALOGUE.map((f) => ({
+  const formations: SiteSearchEntry[] = getFormationsCatalogue().map((f) => ({
     id: `formation-${f.slug}`,
     title: f.title,
     description: f.pitch,

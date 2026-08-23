@@ -4,9 +4,10 @@
  * pas CONTACT, SCHEMA_CONTACT, LINKS ni SITE_CONFIG directement.
  */
 import { CONTACT } from '@/lib/constants';
-import { CATALOGUE_NIV_RANGE, FORMATIONS_COUNT } from '@/data/formations';
+import { CATALOGUE_NIV_RANGE } from '@/data/formations';
+import { getCatalogueFormationsCount } from '@/lib/formations-catalogue-display';
 import { TEACHIZY_PATHS } from '@/lib/external-site-urls';
-import { HEADER_NAV } from '@/lib/header-nav';
+import { getHeaderNav } from '@/lib/header-nav';
 import { LINKS } from '@/lib/internal-links';
 import {
   NAV_ENTREPRISE,
@@ -63,12 +64,12 @@ export const SITE = {
     title: "Connexion à la plateforme de formation IA BTP — OFC Création d'Entreprise",
   },
   catalogue: {
-    count: FORMATIONS_COUNT,
+    count: getCatalogueFormationsCount(),
     range: CATALOGUE_NIV_RANGE,
   },
   perimeter: PERIMETRE_FORMATIONS_COURT,
   nav: {
-    header: HEADER_NAV,
+    header: getHeaderNav(),
     footer: {
       entreprise: NAV_ENTREPRISE,
       services: NAV_SERVICES,

@@ -6,7 +6,8 @@ import { CatalogueTarifStrip } from '@/components/formations/CataloguePriceBadge
 import { FormationPlateformeConnexionButton } from '@/components/formation/FormationPlateformeConnexionButton';
 import { MentionTvaAsterisque } from '@/components/MentionTVA';
 import { LINKS } from '@/lib/internal-links';
-import { CATALOGUE_FORMATIONS_COUNT } from '@/lib/formations-catalogue-display';
+import { getCatalogueFormationsCount } from '@/lib/formations-catalogue-display';
+import { isFormationCataloguePublished } from '@/lib/formation-catalogue-visibility';
 import { PERIMETRE_FORMATIONS_COURT, TARIF_SESSION_FORFAIT_HT, SESSION_DUREE_LIBELLE, libelleTarifSessionForfaitaire } from '@/lib/tarifs-sessions';
 import { formatNoteSatisfactionSur5 } from '@/lib/data/indicateurs-resultats';
 import { PHOTOS } from '@/lib/photos';
@@ -20,22 +21,23 @@ const QUICK_LINKS = [
 /**
  * Hero catalogue formations — texte SEO inchangé (H1 + paragraphe intro).
  */
-export function FormationsHero() {
+export function FormationsHero({ catalogueCount = getCatalogueFormationsCount() }: { catalogueCount?: number }) {
+  const includeConduite = isFormationCataloguePublished('NIV-03');
   return (
     <MarketingLightHero
-      eyebrow={`${CATALOGUE_FORMATIONS_COUNT} parcours catalogue — organisme certifié Qualiopi`}
-      title={`Catalogue des formations IA pour le BTP — ${CATALOGUE_FORMATIONS_COUNT} parcours de ${SESSION_DUREE_LIBELLE}`}
+      eyebrow={`${catalogueCount} parcours catalogue — organisme certifié Qualiopi`}
+      title={`Catalogue des formations IA pour le BTP — ${catalogueCount} parcours de ${SESSION_DUREE_LIBELLE}`}
       titleId="formations-catalogue-hero-h1"
       description={
         <>
           Sessions en présentiel — organisme certifié Qualiopi — {SESSION_DUREE_LIBELLE} · {PERIMETRE_FORMATIONS_COURT}. Devis, appels
-          d&apos;offres, conduite de travaux avec Claude AI et ChatGPT : forfait unique{' '}
+          d&apos;offres{includeConduite ? ', conduite de travaux' : ''} avec Claude AI et ChatGPT : forfait unique{' '}
           {libelleTarifSessionForfaitaire(TARIF_SESSION_FORFAIT_HT)}
           <MentionTvaAsterisque /> — financement partiel possible selon éligibilité (Constructys).
         </>
       }
       stats={[
-        { icon: GraduationCap, value: CATALOGUE_FORMATIONS_COUNT, label: 'parcours catalogue' },
+        { icon: GraduationCap, value: catalogueCount, label: 'parcours catalogue' },
         { icon: Users, value: formatNoteSatisfactionSur5(), label: 'Satisfaction (Qualiopi)' },
         { icon: Award, value: 'Qualiopi', label: 'organisme certifié' },
       ]}

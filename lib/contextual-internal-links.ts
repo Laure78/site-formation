@@ -2,13 +2,13 @@
  * Maillage interne contextuel — groupes de liens par type de page (UX + SEO).
  * Toutes les URLs proviennent de `lib/internal-links.ts`.
  */
-import { CATALOGUE_NIV_RANGE } from '@/data/formations';
 import type { FormationIaMetierBtpConfig } from '@/lib/formation-ia-metier-btp-types';
 import {
-  CATALOGUE_FORMATIONS_COUNT,
   formationCatalogueLinkLabel,
+  getCatalogueFormationsCount,
   getFormationCatalogueByRef,
 } from '@/lib/formations-catalogue-display';
+import { isFormationCataloguePublished } from '@/lib/formation-catalogue-visibility';
 import { LINKS, type InternalLinkPath } from '@/lib/internal-links';
 
 const NIV01 = getFormationCatalogueByRef('NIV-01')!;
@@ -97,8 +97,8 @@ export function getGeoSisterDepartmentLinks(
   return pool.filter((item) => item.slug !== currentSlug).slice(0, limit);
 }
 
-/** Liens transverses catalogue NIV-01 / NIV-02. */
-export const FORMATION_CATALOGUE_CORE: ContextualLinkCard[] = [
+/** Liens transverses catalogue — parcours visibles uniquement. */
+const ALL_FORMATION_CATALOGUE_CORE: ContextualLinkCard[] = [
   {
     href: LINKS.formationIaBtpNiveau1BatimentTp,
     title: formationCatalogueLinkLabel(NIV01),
@@ -132,9 +132,26 @@ export const FORMATION_CATALOGUE_CORE: ContextualLinkCard[] = [
   {
     href: LINKS.formations,
     title: 'Catalogue complet',
-    description: `Comparatif des ${CATALOGUE_FORMATIONS_COUNT} sessions, tarifs et modalités.`,
+    description: 'Comparatif des sessions, tarifs et modalités.',
   },
 ];
+
+export function getFormationCatalogueCore(at: Date = new Date()): ContextualLinkCard[] {
+  const count = getCatalogueFormationsCount(at);
+  return ALL_FORMATION_CATALOGUE_CORE.filter((link) => {
+    if (link.href === LINKS.formationConduiteTravauxSuiviChantier) {
+      return isFormationCataloguePublished('NIV-03', at);
+    }
+    return true;
+  }).map((link) =>
+    link.href === LINKS.formations
+      ? { ...link, description: `Comparatif des ${count} sessions, tarifs et modalités.` }
+      : link,
+  );
+}
+
+/** @deprecated Préférer getFormationCatalogueCore() */
+export const FORMATION_CATALOGUE_CORE: ContextualLinkCard[] = getFormationCatalogueCore();
 
 export const FORMATION_NIV01_RELATED: ContextualLinkCard[] = [
   {
@@ -215,14 +232,19 @@ export const CONDUCTEUR_TRAVAUX_RELATED: ContextualLinkCard[] = [
   },
 ];
 
-export const GEO_PAGE_UTILITY_LINKS: ContextualLinkCard[] = [
-  ...FORMATION_CATALOGUE_CORE.slice(0, 5),
-  {
-    href: LINKS.aPropos,
-    title: 'Laure Olivié — formatrice',
-    description: 'Parcours terrain, Qualiopi, références FFB.',
-  },
-];
+export function getGeoPageUtilityLinks(at: Date = new Date()): ContextualLinkCard[] {
+  return [
+    ...getFormationCatalogueCore(at).slice(0, 5),
+    {
+      href: LINKS.aPropos,
+      title: 'Laure Olivié — formatrice',
+      description: 'Parcours terrain, Qualiopi, références FFB.',
+    },
+  ];
+}
+
+/** @deprecated Préférer getGeoPageUtilityLinks() */
+export const GEO_PAGE_UTILITY_LINKS: ContextualLinkCard[] = getGeoPageUtilityLinks();
 
 export const FORMATION_NIV03_RELATED: ContextualLinkCard[] = [
   {
@@ -252,62 +274,75 @@ export const FORMATION_NIV03_RELATED: ContextualLinkCard[] = [
   },
 ];
 
-export const FORMATION_NIV04_RELATED: ContextualLinkCard[] = [
-  {
-    href: LINKS.formationAO,
-    title: formationCatalogueLinkLabel(NIV02),
-    description: 'DCE, mémoire technique, Cowork & Skills.',
-  },
-  {
-    href: LINKS.formationConduiteTravauxSuiviChantier,
-    title: formationCatalogueLinkLabel(NIV03),
-    description: 'Skills Claude chantier, CCTP, CR, réception.',
-  },
-  {
-    href: LINKS.claudeAiBtp,
-    title: 'Guide Claude AI BTP',
-    description: 'Interfaces, prompts, Cowork et Claude Code.',
-  },
-  {
-    href: LINKS.financement,
-    title: 'Financement Constructys',
-    description: 'OPCO, dossier et convention.',
-  },
-];
+export function getFormationNiv04Related(at: Date = new Date()): ContextualLinkCard[] {
+  const links: ContextualLinkCard[] = [
+    {
+      href: LINKS.formationAO,
+      title: formationCatalogueLinkLabel(NIV02),
+      description: 'DCE, mémoire technique, Cowork & Skills.',
+    },
+    {
+      href: LINKS.claudeAiBtp,
+      title: 'Guide Claude AI BTP',
+      description: 'Interfaces, prompts, Cowork et Claude Code.',
+    },
+    {
+      href: LINKS.financement,
+      title: 'Financement Constructys',
+      description: 'OPCO, dossier et convention.',
+    },
+  ];
+  if (isFormationCataloguePublished('NIV-03', at)) {
+    links.splice(1, 0, {
+      href: LINKS.formationConduiteTravauxSuiviChantier,
+      title: formationCatalogueLinkLabel(NIV03),
+      description: 'Skills Claude chantier, CCTP, CR, réception.',
+    });
+  }
+  return links;
+}
 
-/** Hub global (SitelinksHub) — parcours utilisateur prioritaires. */
-export const SITE_NAV_HUB_ITEMS: ContextualLinkCard[] = [
-  {
-    href: LINKS.formations,
-    title: 'Formations',
-    description: `Catalogue Qualiopi — ${CATALOGUE_NIV_RANGE}`,
-  },
-  {
-    href: LINKS.financement,
-    title: 'Financement',
-    description: 'Constructys, OPCO, dossier',
-  },
-  {
-    href: LINKS.formationConducteurTravaux,
-    title: 'Conducteur de travaux',
-    description: 'CR, PPSPS, DCE — cas terrain',
-  },
-  {
-    href: LINKS.blog,
-    title: 'Blog & guides',
-    description: 'Articles IA BTP, bonnes pratiques',
-  },
-  {
-    href: LINKS.formationIleDeFrance,
-    title: 'Île-de-France',
-    description: 'Sessions par département francilien',
-  },
-  {
-    href: LINKS.prendreRdv,
-    title: 'Prendre RDV',
-    description: 'Visio découverte gratuite — 30 min',
-  },
-];
+/** @deprecated Préférer getFormationNiv04Related() */
+export const FORMATION_NIV04_RELATED: ContextualLinkCard[] = getFormationNiv04Related();
+
+export function getSiteNavHubItems(at: Date = new Date()): ContextualLinkCard[] {
+  const count = getCatalogueFormationsCount(at);
+  return [
+    {
+      href: LINKS.formations,
+      title: 'Formations',
+      description: `Catalogue Qualiopi — ${count} formations`,
+    },
+    {
+      href: LINKS.financement,
+      title: 'Financement',
+      description: 'Constructys, OPCO, dossier',
+    },
+    {
+      href: LINKS.formationConducteurTravaux,
+      title: 'Conducteur de travaux',
+      description: 'CR, PPSPS, DCE — cas terrain',
+    },
+    {
+      href: LINKS.blog,
+      title: 'Blog & guides',
+      description: 'Articles IA BTP, bonnes pratiques',
+    },
+    {
+      href: LINKS.formationIleDeFrance,
+      title: 'Île-de-France',
+      description: 'Sessions par département francilien',
+    },
+    {
+      href: LINKS.prendreRdv,
+      title: 'Prendre RDV',
+      description: 'Visio découverte gratuite — 30 min',
+    },
+  ];
+}
+
+/** @deprecated Préférer getSiteNavHubItems() */
+export const SITE_NAV_HUB_ITEMS: ContextualLinkCard[] = getSiteNavHubItems();
 
 /** Liens catalogue + ressources — landings métier BTP. */
 export function getMetierLandingCoreLinks(
@@ -337,7 +372,7 @@ export function getMetierLandingCoreLinks(
   }
 
   links.push(
-    ...FORMATION_CATALOGUE_CORE,
+    ...getFormationCatalogueCore(),
     {
       href: LINKS.claudeAiBtp,
       title: 'Claude AI & BTP',

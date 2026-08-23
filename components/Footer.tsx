@@ -10,7 +10,7 @@ import { ReferentHandicapBlock } from '@/components/formation/ReferentHandicapBl
 import { SITE } from '@/lib/site';
 import { PROOF } from '@/lib/proof';
 import { formatNoteSatisfactionAffichageComplet } from '@/lib/data/indicateurs-resultats';
-import type { NavItem } from '@/lib/nav';
+import { getNavServices, type NavItem } from '@/lib/nav';
 
 const PHONE_ARIA_LABEL = `Appeler ${SITE.name} au ${SITE.phoneDisplay}`;
 
@@ -67,6 +67,7 @@ function FooterNavColumn({
 /** Footer site unique — données depuis `lib/site.ts` et `lib/proof.ts`. */
 export function Footer() {
   const { footer: copy, nav, links, social, catalogue } = SITE;
+  const navServices = getNavServices();
 
   return (
     <footer className="relative overflow-hidden border-t border-slate-200 bg-white">
@@ -157,7 +158,7 @@ export function Footer() {
           </div>
 
           <FooterNavColumn ariaLabel="Entreprise" heading="Entreprise" items={nav.footer.entreprise} />
-          <FooterNavColumn ariaLabel="Services" heading="Services" items={nav.footer.services} />
+          <FooterNavColumn ariaLabel="Services" heading="Services" items={navServices} />
           <FooterNavColumn ariaLabel="Ressources" heading="Ressources" items={nav.footer.ressources} />
           <FooterNavColumn
             ariaLabel="Informations réglementaires"

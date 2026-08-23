@@ -17,7 +17,7 @@ import {
   UserCircle,
 } from 'lucide-react';
 import { SITE } from '@/lib/site';
-import { headerNavItemIsActive } from '@/lib/header-nav';
+import { headerNavItemIsActive, getHeaderNav } from '@/lib/header-nav';
 import { CtaButton } from '@/components/CtaButton';
 import { FormationPlateformeConnexionButton } from '@/components/formation/FormationPlateformeConnexionButton';
 import { SiteSearchTrigger } from '@/components/search/SiteSearchTrigger';
@@ -45,6 +45,7 @@ const HEADER_COMPACT_OFF_PX = 48;
 /** Header site unique — rendu depuis `app/layout.tsx` sur toutes les routes. */
 export function Header() {
   const pathname = usePathname();
+  const headerNav = getHeaderNav();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [openId, setOpenId] = useState<string | null>(null);
   const [mobileExpanded, setMobileExpanded] = useState<Record<string, boolean>>({});
@@ -89,7 +90,7 @@ export function Header() {
   useEffect(() => {
     if (!mobileOpen) return;
     const initial: Record<string, boolean> = {};
-    for (const item of SITE.nav.header) {
+    for (const item of headerNav) {
       if (item.children?.length && headerNavItemIsActive(item, pathname)) {
         initial[item.id] = true;
       }
@@ -190,7 +191,7 @@ export function Header() {
             aria-label="Navigation principale"
             data-header-nav-pill=""
           >
-            {SITE.nav.header.map((item) => {
+            {headerNav.map((item) => {
               const hasChildren = Boolean(item.children?.length);
               if (!hasChildren) {
                 const Icon = MOBILE_NAV_ICON[item.id];
@@ -313,7 +314,7 @@ export function Header() {
               className="min-h-0 flex-1 overflow-y-auto overflow-x-hidden px-4 py-4"
               aria-label="Navigation mobile"
             >
-              {SITE.nav.header.map((item) => {
+              {headerNav.map((item) => {
                 const Icon = MOBILE_NAV_ICON[item.id];
                 return (
                   <HeaderMobileNavSection

@@ -6,6 +6,7 @@ import { QualiopiLogoInline } from '@/components/QualiopiLogo';
 import {
   FormationCourseHero,
 } from '@/components/formations/FormationCourseHero';
+import { FormationCatalogueIndicateur1Suite } from '@/components/formations/FormationCatalogueIndicateur1Suite';
 import { LINKS } from '@/lib/internal-links';
 import { PHOTOS } from '@/lib/photos';
 import { createPageMetadata, SITE_CONFIG } from '@/lib/seo';
@@ -31,7 +32,6 @@ import {
   FINANCEMENT_STAT_LABEL,
 } from '@/lib/financement-copy';
 import { AUTHOR_HEADSHOT_OBJECT_POSITION } from '@/lib/author-headshot';
-import { CatalogueInfosPratiques } from '@/components/InfosPratiques';
 import { RelatedLinks } from '@/components/RelatedLinks';
 
 const FORMATION = getFormationByCode('NIV-05')!;
@@ -169,6 +169,7 @@ export default function FormationIaMaitriseOeuvrePage() {
 
       <FormationCourseHero
         catalogueRef="NIV-05"
+        programmePdfAfterHero={false}
         refLine={`Intra · inter · présentiel en Île-de-France · ${DUREE_LIBELLE} · ${FORMATION.niveauLabel}`}
         title={FORMATION.titre}
         subtitle={FORMATION.accroche}
@@ -214,6 +215,43 @@ export default function FormationIaMaitriseOeuvrePage() {
         </p>
       </FormationCourseHero>
 
+      <section id="programme" className="scroll-mt-24 border-b border-slate-200 bg-white px-4 py-16">
+        <div className="mx-auto max-w-4xl">
+          <h2 className="font-display text-2xl font-bold text-slate-900">
+            Programme de la formation IA maîtrise d&apos;œuvre — 5 modules
+          </h2>
+          <p className="mt-2 text-sm text-slate-600">
+            4 heures effectives — 70&nbsp;% pratique / 30&nbsp;% théorie — alternance théorie courte et ateliers
+            sur cas réels MOE apportés par les participants (anonymisés si besoin). Chaque module produit un
+            livrable réutilisable sur vos chantiers dès le lendemain.
+          </p>
+          <div className="mt-8 space-y-6">
+            {PROGRAMME_MODULES.map((mod) => (
+              <div
+                key={mod.heading}
+                className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm"
+              >
+                <div className="flex flex-wrap items-baseline justify-between gap-2">
+                  <h3 className="font-display text-lg font-semibold text-slate-900">{mod.heading}</h3>
+                  <span className="text-sm font-medium text-[var(--accent)]">{mod.duree}</span>
+                </div>
+                <p className="mt-3 text-xs font-semibold uppercase text-slate-500">Contenu</p>
+                <ul className="mt-2 space-y-1 text-sm text-slate-600">
+                  {mod.objectifs.map((o) => (
+                    <li key={o}>▸ {o}</li>
+                  ))}
+                </ul>
+                <p className="mt-4 text-sm text-slate-700">
+                  <span className="font-semibold text-slate-900">Livrable :</span> {mod.livrable}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <FormationCatalogueIndicateur1Suite programmeRef="NIV-05" />
+
       <div className="mx-auto max-w-4xl px-4 py-16">
         <section className="rounded-2xl border border-slate-200 bg-slate-50 p-6 md:p-8">
           <h2 className="font-display text-xl font-bold text-slate-900">
@@ -252,39 +290,6 @@ export default function FormationIaMaitriseOeuvrePage() {
               </li>
             ))}
           </ul>
-        </section>
-
-        <section id="programme" className="mt-12 scroll-mt-24">
-          <h2 className="font-display text-2xl font-bold text-slate-900">
-            Programme de la formation IA maîtrise d&apos;œuvre — 5 modules
-          </h2>
-          <p className="mt-2 text-sm text-slate-600">
-            4 heures effectives — 70&nbsp;% pratique / 30&nbsp;% théorie — alternance théorie courte et ateliers
-            sur cas réels MOE apportés par les participants (anonymisés si besoin). Chaque module produit un
-            livrable réutilisable sur vos chantiers dès le lendemain.
-          </p>
-          <div className="mt-8 space-y-6">
-            {PROGRAMME_MODULES.map((mod) => (
-              <div
-                key={mod.heading}
-                className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm"
-              >
-                <div className="flex flex-wrap items-baseline justify-between gap-2">
-                  <h3 className="font-display text-lg font-semibold text-slate-900">{mod.heading}</h3>
-                  <span className="text-sm font-medium text-[var(--accent)]">{mod.duree}</span>
-                </div>
-                <p className="mt-3 text-xs font-semibold uppercase text-slate-500">Contenu</p>
-                <ul className="mt-2 space-y-1 text-sm text-slate-600">
-                  {mod.objectifs.map((o) => (
-                    <li key={o}>▸ {o}</li>
-                  ))}
-                </ul>
-                <p className="mt-4 text-sm text-slate-700">
-                  <span className="font-semibold text-slate-900">Livrable :</span> {mod.livrable}
-                </p>
-              </div>
-            ))}
-          </div>
         </section>
 
         <section className="mt-12 rounded-2xl border border-[var(--accent)] bg-[var(--accent-soft)] p-6 md:p-8">
@@ -354,8 +359,6 @@ export default function FormationIaMaitriseOeuvrePage() {
             </div>
           </div>
         </section>
-
-        <CatalogueInfosPratiques programmeRef="NIV-05" />
 
         <RelatedLinks path={PATH} className="mt-12 !px-0" tone="transparent" />
 

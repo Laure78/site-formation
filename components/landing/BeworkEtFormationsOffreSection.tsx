@@ -9,8 +9,8 @@ import { Reveal, RevealGroup } from '@/components/motion/Reveal';
 import { OFC_SEC } from '@/lib/ofc-section-classes';
 import { OFC_CARD, OFC_CTA_PRIMARY, OFC_LINK } from '@/lib/ofc-interaction-classes';
 import {
-  FORMATIONS_CATALOGUE,
-  CATALOGUE_FORMATIONS_COUNT,
+  getFormationsCatalogue,
+  getCatalogueFormationsCount,
   cataloguePedagogicalLevelBadge,
   catalogueNiveauEtLevel,
 } from '@/lib/formations-catalogue-display';
@@ -22,6 +22,9 @@ import { MentionFinancement } from '@/components/MentionFinancement';
  * Accueil : catalogue OFC (5 formations) — ancre #offre-formations.
  */
 export function BeworkEtFormationsOffreSection() {
+  const formations = getFormationsCatalogue();
+  const catalogueCount = getCatalogueFormationsCount();
+
   return (
     <section
       id="offre-bework-formations"
@@ -49,7 +52,7 @@ export function BeworkEtFormationsOffreSection() {
           </Reveal>
 
           <RevealGroup className="mt-10 grid gap-8 md:grid-cols-2 xl:grid-cols-3" staggerMs={50}>
-            {FORMATIONS_CATALOGUE.map((cours) => (
+            {formations.map((cours) => (
               <article
                 key={cours.ref}
                 className={`${OFC_CARD} flex flex-col overflow-hidden`}
@@ -135,7 +138,7 @@ export function BeworkEtFormationsOffreSection() {
 
           <Reveal className="mt-10 text-center">
             <p className="text-base font-semibold text-slate-700">
-              Catalogue complet : {CATALOGUE_FORMATIONS_COUNT} formations IA pour le BTP
+              Catalogue complet : {catalogueCount} formations IA pour le BTP
             </p>
             <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row sm:flex-wrap sm:gap-4">
               <Link

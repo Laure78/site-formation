@@ -8,7 +8,6 @@ import {
   EFFECTIF_CATALOGUE_MAX,
   FORMATION_NIV01,
   FORMATION_NIV02,
-  FORMATIONS_COUNT,
   getFormationByCode,
   libelleDureeFormation,
   libelleEffectifFormation,
@@ -17,6 +16,7 @@ import {
   PRIX_NIVEAU_2_HT,
 } from '@/data/formations';
 import { IDF_ZONE_INTERVENTION } from '@/lib/constants';
+import { getCatalogueFormationsCount } from '@/lib/formations-catalogue-display';
 
 export const SESSION_DUREE_LIBELLE = FORMATION_NIV01.duree;
 
@@ -169,5 +169,11 @@ export const PREREQUIS_NIVEAU_2 = [
 export const COMPTES_IA_GRATUITS_NIVEAU_DEBUTANT =
   'Niveau 1 : un compte gratuit Claude AI ou ChatGPT suffit. Niveaux 2 : un abonnement Claude AI Pro par participant est requis (non inclus dans le forfait).';
 
+export function getEncartTarifsCommerciaux(at: Date = new Date()): string {
+  const count = getCatalogueFormationsCount(at);
+  return `Sessions en ${SESSION_DUREE_LIBELLE} — forfait unique ${libelleTarifSessionForfaitaire(TARIF_SESSION_FORFAIT_HT)}* pour les ${count} formations catalogue (effectifs selon fiche). ${COMPTES_IA_GRATUITS_NIVEAU_DEBUTANT} ${MODALITE_FORMATIONS_PRESENTIEL}`;
+}
+
+/** @deprecated Préférer getEncartTarifsCommerciaux() — compte les parcours visibles. */
 export const ENCART_TARIFS_COMMERCIAUX =
-  `Sessions en ${SESSION_DUREE_LIBELLE} — forfait unique ${libelleTarifSessionForfaitaire(TARIF_SESSION_FORFAIT_HT)}* pour les ${FORMATIONS_COUNT} formations catalogue (effectifs selon fiche). ${COMPTES_IA_GRATUITS_NIVEAU_DEBUTANT} ${MODALITE_FORMATIONS_PRESENTIEL}`;
+  `Sessions en ${SESSION_DUREE_LIBELLE} — forfait unique ${libelleTarifSessionForfaitaire(TARIF_SESSION_FORFAIT_HT)}* pour les formations catalogue (effectifs selon fiche). ${COMPTES_IA_GRATUITS_NIVEAU_DEBUTANT} ${MODALITE_FORMATIONS_PRESENTIEL}`;

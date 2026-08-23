@@ -13,6 +13,7 @@ import {
   libelleEffectifMaxFormation,
   type Formation,
 } from '@/data/formations';
+import { isFormationCataloguePublished } from '@/lib/formation-catalogue-visibility';
 import { formatTarifHt, libelleTarifSessionForfaitaire, MENTIONS_TVA_REGIMES_COURT } from '@/lib/tarifs-sessions';
 
 export type CatalogueLevel = 'DÉBUTANT' | 'AVANCÉ';
@@ -96,11 +97,20 @@ function toCatalogueEntry(f: Formation): FormationCatalogueEntry {
   };
 }
 
-/** Cinq parcours officiels — dérivés de FORMATIONS (Claude = NIV-04 unique). */
-export const FORMATIONS_CATALOGUE: FormationCatalogueEntry[] =
-  FORMATIONS.map(toCatalogueEntry);
+const ALL_FORMATIONS_CATALOGUE: FormationCatalogueEntry[] = FORMATIONS.map(toCatalogueEntry);
 
-/** Nombre de parcours catalogue — source unique pour copy SEO et JSON-LD. */
+/** Parcours visibles sur le site public (respecte les dates de publication). */
+export function getFormationsCatalogue(at: Date = new Date()): FormationCatalogueEntry[] {
+  return ALL_FORMATIONS_CATALOGUE.filter((e) => isFormationCataloguePublished(e.ref, at));
+}
+
+/** Nombre de parcours visibles — source pour copy SEO et listes catalogue. */
+export { getCatalogueFormationsCount } from '@/lib/formation-catalogue-visibility';
+
+/** Liste complète (admin, audit Qualiopi, sync LMS) — inclut les parcours non encore publiés. */
+export const FORMATIONS_CATALOGUE: FormationCatalogueEntry[] = ALL_FORMATIONS_CATALOGUE;
+
+/** @deprecated Préférer getCatalogueFormationsCount() pour le site public. */
 export const CATALOGUE_FORMATIONS_COUNT = FORMATIONS_COUNT;
 
 export function getFormationCatalogueByRef(ref: string): FormationCatalogueEntry | undefined {

@@ -1,10 +1,12 @@
+import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { LINKS } from '@/lib/internal-links';
+import { isFormationCataloguePublished } from '@/lib/formation-catalogue-visibility';
 import { FooterTelOrMailLink } from '@/components/PublicPhoneCta';
 import { Calendar, Users, Check, Download } from 'lucide-react';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
 import { ContextualLinksSection } from '@/components/layout/ContextualLinksSection';
-import { CatalogueInfosPratiques } from '@/components/InfosPratiques';
+import { FormationCatalogueIndicateur1Suite } from '@/components/formations/FormationCatalogueIndicateur1Suite';
 import { FORMATION_NIV03_RELATED } from '@/lib/contextual-internal-links';
 import { RdvLink } from '@/components/RdvLink';
 import { buildSiteCalendlyCtaUrl } from '@/lib/calendly';
@@ -153,7 +155,11 @@ const OBJECTIFS_PEDAGOGIQUES = [
 
 const courseSchema = buildCatalogueCourseConduiteTravauxNiv03JsonLd();
 
+export const dynamic = 'force-dynamic';
+
 export default function FormationIaConduiteTravauxSuiviChantierPage() {
+  if (!isFormationCataloguePublished('NIV-03')) notFound();
+
   const faqSchema = getFAQSchema(FAQ_CONDUITE_TRAVAUX_NIV03);
 
   return (
@@ -163,6 +169,7 @@ export default function FormationIaConduiteTravauxSuiviChantierPage() {
 
       <FormationCourseHero
         catalogueRef="NIV-03"
+        programmePdfAfterHero={false}
         refLine={`Intra · inter · présentiel en Île-de-France · ${SESSION_DUREE_LIBELLE} · Niveau 2`}
         title="L'IA appliquée à la conduite de travaux"
         subtitle="Pilotez vos chantiers avec l'IA — de l'analyse du CCTP à la réception des travaux"
@@ -225,6 +232,56 @@ export default function FormationIaConduiteTravauxSuiviChantierPage() {
           . {CLAUDE_PRO_RECOMMANDE_NIV03}
         </p>
       </FormationCourseHero>
+
+      <section id="programme" className="scroll-mt-24 border-b border-slate-200 bg-white px-4 py-16">
+        <div className="mx-auto max-w-4xl">
+          <h2 className="font-display text-2xl font-bold text-slate-900">Programme détaillé</h2>
+          <p className="mt-2 text-sm text-slate-600">
+            Le programme répartit {SESSION_DUREE_LIBELLE} sur 4 modules : installation chantier, sécurité,
+            gestion quotidienne et administratif jusqu&apos;à la réception.
+          </p>
+          <p className="mt-2 text-sm text-slate-600">
+            4 modules — phasage chantier (installation → sécurité → gestion → administratif) — total{' '}
+            {SESSION_DUREE_LIBELLE}. Travail sur vos documents réels (anonymisés si besoin). Pédagogie{' '}
+            <strong>70&nbsp;% pratique / 30&nbsp;% théorie</strong>.
+          </p>
+          <div className="mt-6 rounded-2xl border border-slate-200 bg-slate-50 p-6">
+            <h3 className="font-display text-lg font-semibold text-slate-900">Méthodes &amp; moyens pédagogiques</h3>
+            <ul className="mt-3 space-y-2 text-sm text-slate-700">
+              {METHODES_PEDAGOGIQUES.map((line) => (
+                <li key={line} className="flex gap-2">
+                  <Check className="mt-0.5 h-4 w-4 shrink-0 text-[var(--accent)]" strokeWidth={1.5} />
+                  {line}
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="mt-8 space-y-8">
+            {PROGRAMME_BLOCS.map((bloc) => (
+              <div
+                key={bloc.heading}
+                className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm"
+              >
+                <div className="flex flex-wrap items-baseline justify-between gap-2">
+                  <h3 className="font-display text-lg font-semibold text-slate-900">{bloc.heading}</h3>
+                  <span className="text-sm font-medium text-[var(--accent)]">{bloc.meta}</span>
+                </div>
+                <p className="mt-3 text-xs font-semibold uppercase text-slate-500">Contenu</p>
+                <ul className="mt-2 space-y-1 text-sm text-slate-600">
+                  {bloc.objectifs.map((o) => (
+                    <li key={o}>▸ {o}</li>
+                  ))}
+                </ul>
+                <p className="mt-4 text-sm text-slate-700">
+                  <span className="font-semibold text-slate-900">Livrable :</span> {bloc.livrable}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <FormationCatalogueIndicateur1Suite programmeRef="NIV-03" />
 
       <div className="mx-auto max-w-4xl px-4 py-16">
         <section className="rounded-2xl border border-slate-200 bg-slate-50 p-6 md:p-8">
@@ -298,52 +355,6 @@ export default function FormationIaConduiteTravauxSuiviChantierPage() {
           <p className="mt-4 text-sm leading-relaxed text-slate-500">{GAINS_TEMPS_MENTION_PRUDENCE}</p>
         </section>
 
-        <section id="programme" className="mt-12 scroll-mt-24">
-          <h2 className="font-display text-2xl font-bold text-slate-900">Programme détaillé</h2>
-          <p className="mt-2 text-sm text-slate-600">
-            Le programme répartit {SESSION_DUREE_LIBELLE} sur 4 modules : installation chantier, sécurité,
-            gestion quotidienne et administratif jusqu&apos;à la réception.
-          </p>
-          <p className="mt-2 text-sm text-slate-600">
-            4 modules — phasage chantier (installation → sécurité → gestion → administratif) — total{' '}
-            {SESSION_DUREE_LIBELLE}. Travail sur vos documents réels (anonymisés si besoin). Pédagogie{' '}
-            <strong>70&nbsp;% pratique / 30&nbsp;% théorie</strong>.
-          </p>
-          <div className="mt-6 rounded-2xl border border-slate-200 bg-slate-50 p-6">
-            <h3 className="font-display text-lg font-semibold text-slate-900">Méthodes &amp; moyens pédagogiques</h3>
-            <ul className="mt-3 space-y-2 text-sm text-slate-700">
-              {METHODES_PEDAGOGIQUES.map((line) => (
-                <li key={line} className="flex gap-2">
-                  <Check className="mt-0.5 h-4 w-4 shrink-0 text-[var(--accent)]" strokeWidth={1.5} />
-                  {line}
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div className="mt-8 space-y-8">
-            {PROGRAMME_BLOCS.map((bloc) => (
-              <div
-                key={bloc.heading}
-                className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm"
-              >
-                <div className="flex flex-wrap items-baseline justify-between gap-2">
-                  <h3 className="font-display text-lg font-semibold text-slate-900">{bloc.heading}</h3>
-                  <span className="text-sm font-medium text-[var(--accent)]">{bloc.meta}</span>
-                </div>
-                <p className="mt-3 text-xs font-semibold uppercase text-slate-500">Contenu</p>
-                <ul className="mt-2 space-y-1 text-sm text-slate-600">
-                  {bloc.objectifs.map((o) => (
-                    <li key={o}>▸ {o}</li>
-                  ))}
-                </ul>
-                <p className="mt-4 text-sm text-slate-700">
-                  <span className="font-semibold text-slate-900">Livrable :</span> {bloc.livrable}
-                </p>
-              </div>
-            ))}
-          </div>
-        </section>
-
         <section className="mt-12 rounded-2xl border border-[var(--accent)] bg-[var(--accent-soft)] p-6">
           <h2 className="font-display text-xl font-bold text-slate-900">Livrables &amp; tarification</h2>
           <p className="mt-4 text-sm text-slate-700 leading-relaxed">
@@ -373,8 +384,6 @@ export default function FormationIaConduiteTravauxSuiviChantierPage() {
             </li>
           </ul>
         </section>
-
-        <CatalogueInfosPratiques programmeRef="NIV-03" />
 
         <FAQSection
           items={FAQ_CONDUITE_TRAVAUX_NIV03}

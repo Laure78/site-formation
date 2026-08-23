@@ -23,7 +23,7 @@ import {
 import { createPageMetadata, getFAQSchema } from '@/lib/seo';
 import { LINKS } from '@/lib/internal-links';
 import {
-  FORMATION_CATALOGUE_CORE,
+  getFormationCatalogueCore,
   GEO_DEPARTMENT_EXTENDED,
   getGeoSisterDepartmentLinks,
 } from '@/lib/contextual-internal-links';
@@ -93,7 +93,7 @@ export function DepartementPage({ data }: { data: DepartementPageData }) {
   const sisterLinks = getGeoSisterDepartmentLinks(data.slug, 4, GEO_DEPARTMENT_EXTENDED);
   const clusterExcludes = getClusterRelatedHrefs(data.path);
   const utilityLinks = [
-    ...FORMATION_CATALOGUE_CORE.filter(
+    ...getFormationCatalogueCore().filter(
       (l) => !clusterExcludes.includes(l.href) && l.href !== data.metierPertinent.href,
     ).slice(0, 3),
     {
@@ -242,7 +242,7 @@ export function DepartementPage({ data }: { data: DepartementPageData }) {
           {...voirAussiDepartementProps({
             currentPath: data.path,
             excludeHrefs: [
-              ...FORMATION_CATALOGUE_CORE.map((l) => l.href),
+              ...getFormationCatalogueCore().map((l) => l.href),
               data.metierPertinent.href,
               ...sisterLinks.map((l) => l.href),
               ...clusterExcludes,

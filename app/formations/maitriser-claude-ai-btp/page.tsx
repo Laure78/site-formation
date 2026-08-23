@@ -4,8 +4,8 @@ import { FooterTelOrMailLink } from '@/components/PublicPhoneCta';
 import { Calendar, Users, Check, Download } from 'lucide-react';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
 import { ContextualLinksSection } from '@/components/layout/ContextualLinksSection';
-import { CatalogueInfosPratiques } from '@/components/InfosPratiques';
-import { FORMATION_NIV04_RELATED } from '@/lib/contextual-internal-links';
+import { FormationCatalogueIndicateur1Suite } from '@/components/formations/FormationCatalogueIndicateur1Suite';
+import { getFormationNiv04Related } from '@/lib/contextual-internal-links';
 import { RdvLink } from '@/components/RdvLink';
 import { buildSiteCalendlyCtaUrl } from '@/lib/calendly';
 import { FAQSection } from '@/components/landing/FAQSection';
@@ -167,6 +167,7 @@ export default function FormationMaitriserClaudeAiBtpPage() {
 
       <FormationCourseHero
         catalogueRef="NIV-04"
+        programmePdfAfterHero={false}
         refLine={`Intra · inter · présentiel en Île-de-France · ${DUREE_LIBELLE} · ${FORMATION.niveauLabel}`}
         title={FORMATION.titre}
         subtitle={FORMATION.accroche}
@@ -225,6 +226,48 @@ export default function FormationMaitriserClaudeAiBtpPage() {
           . {MODALITE_FORMATIONS_PRESENTIEL}
         </p>
       </FormationCourseHero>
+
+      <section id="programme" className="scroll-mt-24 border-b border-slate-200 bg-white px-4 py-16">
+        <div className="mx-auto max-w-4xl">
+          <h2 className="font-display text-2xl font-bold text-slate-900">Programme détaillé</h2>
+          <p className="mt-2 text-sm text-slate-600">
+            Le programme enchaîne accueil, 4 modules techniques et clôture sur {FORMATION.duree} le matin :
+            Projets &amp; skills, Cowork, connecteurs et Claude Code — fil rouge PME BTP.
+          </p>
+          <p className="mt-2 text-sm text-slate-600">
+            En 2026, moins de 10&nbsp;% des entreprises BTP utilisent déjà l&apos;IA en production (Observatoire
+            des métiers du BTP, 621 répondants) — cette formation vise l&apos;industrialisation, pas la découverte.
+          </p>
+          <p className="mt-2 text-sm text-slate-600">
+            70&nbsp;% pratique / 30&nbsp;% théorie — travail sur vos cas réels (documents anonymisés si besoin).
+            Relecture humaine obligatoire avant tout envoi client ou marché.
+          </p>
+          <div className="mt-8 space-y-8">
+            {PROGRAMME_BLOCS.map((bloc) => (
+              <div
+                key={bloc.heading}
+                className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm"
+              >
+                <div className="flex flex-wrap items-baseline justify-between gap-2">
+                  <h3 className="font-display text-lg font-semibold text-slate-900">{bloc.heading}</h3>
+                  <span className="text-sm font-medium text-[var(--accent)]">{bloc.meta}</span>
+                </div>
+                <p className="mt-3 text-xs font-semibold uppercase text-slate-500">Contenu</p>
+                <ul className="mt-2 space-y-1 text-sm text-slate-600">
+                  {bloc.objectifs.map((o) => (
+                    <li key={o}>▸ {o}</li>
+                  ))}
+                </ul>
+                <p className="mt-4 text-sm text-slate-700">
+                  <span className="font-semibold text-slate-900">Livrable :</span> {bloc.livrable}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <FormationCatalogueIndicateur1Suite programmeRef="NIV-04" />
 
       <div className="mx-auto max-w-4xl px-4 py-16">
         <section className="rounded-2xl border border-slate-200 bg-slate-50 p-6 md:p-8">
@@ -295,44 +338,6 @@ export default function FormationMaitriserClaudeAiBtpPage() {
           <p className="mt-4 text-sm leading-relaxed text-slate-500">{GAINS_TEMPS_MENTION_PRUDENCE}</p>
         </section>
 
-        <section id="programme" className="mt-12 scroll-mt-24">
-          <h2 className="font-display text-2xl font-bold text-slate-900">Programme détaillé</h2>
-          <p className="mt-2 text-sm text-slate-600">
-            Le programme enchaîne accueil, 4 modules techniques et clôture sur {FORMATION.duree} le matin :
-            Projets &amp; skills, Cowork, connecteurs et Claude Code — fil rouge PME BTP.
-          </p>
-          <p className="mt-2 text-sm text-slate-600">
-            En 2026, moins de 10&nbsp;% des entreprises BTP utilisent déjà l&apos;IA en production (Observatoire
-            des métiers du BTP, 621 répondants) — cette formation vise l&apos;industrialisation, pas la découverte.
-          </p>
-          <p className="mt-2 text-sm text-slate-600">
-            70&nbsp;% pratique / 30&nbsp;% théorie — travail sur vos cas réels (documents anonymisés si besoin).
-            Relecture humaine obligatoire avant tout envoi client ou marché.
-          </p>
-          <div className="mt-8 space-y-8">
-            {PROGRAMME_BLOCS.map((bloc) => (
-              <div
-                key={bloc.heading}
-                className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm"
-              >
-                <div className="flex flex-wrap items-baseline justify-between gap-2">
-                  <h3 className="font-display text-lg font-semibold text-slate-900">{bloc.heading}</h3>
-                  <span className="text-sm font-medium text-[var(--accent)]">{bloc.meta}</span>
-                </div>
-                <p className="mt-3 text-xs font-semibold uppercase text-slate-500">Contenu</p>
-                <ul className="mt-2 space-y-1 text-sm text-slate-600">
-                  {bloc.objectifs.map((o) => (
-                    <li key={o}>▸ {o}</li>
-                  ))}
-                </ul>
-                <p className="mt-4 text-sm text-slate-700">
-                  <span className="font-semibold text-slate-900">Livrable :</span> {bloc.livrable}
-                </p>
-              </div>
-            ))}
-          </div>
-        </section>
-
         <section className="mt-12 rounded-2xl border border-[var(--accent)] bg-[var(--accent-soft)] p-6">
           <h2 className="font-display text-xl font-bold text-slate-900">Livrables &amp; tarification</h2>
           <p className="mt-4 text-sm text-slate-700 leading-relaxed">
@@ -363,8 +368,6 @@ export default function FormationMaitriserClaudeAiBtpPage() {
           </ul>
         </section>
 
-        <CatalogueInfosPratiques programmeRef="NIV-04" />
-
         <FAQSection
           items={FAQ_MAITRISER_CLAUDE_NIV04}
           title="Questions fréquentes — Maîtriser Claude AI"
@@ -376,7 +379,7 @@ export default function FormationMaitriserClaudeAiBtpPage() {
       <ContextualLinksSection
           title="Pages associées"
           subtitle="formations niveau 2, guide Claude AI BTP, financement OPCO."
-          links={FORMATION_NIV04_RELATED.filter((l) => !getClusterRelatedHrefs(LINKS.formationMaitriserClaudeAiBtp).includes(l.href))}
+          links={getFormationNiv04Related().filter((l) => !getClusterRelatedHrefs(LINKS.formationMaitriserClaudeAiBtp).includes(l.href))}
           tone="muted"
         />
 

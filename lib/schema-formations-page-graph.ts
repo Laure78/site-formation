@@ -2,10 +2,12 @@
  * JSON-LD @graph unique — page `/formations` uniquement.
  * Modalités : présentiel uniquement (OfflineEventAttendanceMode) en Île-de-France — aligné catalogue.
  */
-import { FAQ_FORMATIONS } from '@/lib/faq';
+import { getFaqFormations } from '@/lib/faq';
 import { FORMATIONS_CATALOG_SCHEMA } from '@/lib/schema-course-formations';
 import { SCHEMA_PUBLIC_SITE_URL } from '@/lib/schema-constants';
 import { getFAQSchema } from '@/lib/seo';
+import { getCatalogueFormationsCount } from '@/lib/formations-catalogue-display';
+import { isFormationCataloguePublished } from '@/lib/formation-catalogue-visibility';
 import {
   FORMATION_COURSE_MODE_ONSITE,
   FORMATION_COURSE_OFFER_CATEGORY,
@@ -21,10 +23,12 @@ const NIV02_CATALOG = FORMATIONS_CATALOG_SCHEMA.find((e) => e.ref === 'NIV-02')!
 const NIV03_CATALOG = FORMATIONS_CATALOG_SCHEMA.find((e) => e.ref === 'NIV-03')!;
 const NIV04_CATALOG = FORMATIONS_CATALOG_SCHEMA.find((e) => e.ref === 'NIV-04')!;
 const NIV05_CATALOG = FORMATIONS_CATALOG_SCHEMA.find((e) => e.ref === 'NIV-05')!;
-const CATALOGUE_COUNT = FORMATIONS_CATALOG_SCHEMA.length;
 
-export function buildFormationsPageUnifiedGraphJsonLd(): Record<string, unknown> {
-  const faqSchema = getFAQSchema(FAQ_FORMATIONS);
+export function buildFormationsPageUnifiedGraphJsonLd(at: Date = new Date()): Record<string, unknown> {
+  const includeNiv03 = isFormationCataloguePublished('NIV-03', at);
+  const CATALOGUE_COUNT = getCatalogueFormationsCount(at);
+  const niv2Count = CATALOGUE_COUNT - 1;
+  const faqSchema = getFAQSchema(getFaqFormations(at));
 
   const graph: Record<string, unknown>[] = [
       {
@@ -51,7 +55,7 @@ export function buildFormationsPageUnifiedGraphJsonLd(): Record<string, unknown>
         url: `${BASE}/formations`,
         name: `Catalogue formation IA appliquée au bâtiment — ${CATALOGUE_COUNT} formations Qualiopi 4 h`,
         description:
-          `Catalogue ${CATALOGUE_COUNT} formations IA pour les pros du BTP de 4 h Qualiopi, financement possible selon éligibilité (Constructys ou OPCO) : niveau 1 (bâtiment & travaux publics) et quatre formations niveau 2 (appels d'offres, conduite de travaux, maîtres d'œuvre, Maîtriser Claude AI) — titres officiels sur chaque fiche.`,
+          `Catalogue ${CATALOGUE_COUNT} formations IA pour les pros du BTP de 4 h Qualiopi, financement possible selon éligibilité (Constructys ou OPCO) : niveau 1 (bâtiment & travaux publics) et ${niv2Count} formations niveau 2 (appels d'offres${includeNiv03 ? ", conduite de travaux" : ''}, maîtres d'œuvre, Maîtriser Claude AI) — titres officiels sur chaque fiche.`,
         inLanguage: 'fr-FR',
         isPartOf: { '@id': `${BASE}/#website` },
         about: { '@id': `${BASE}/#organization` },
@@ -119,21 +123,25 @@ export function buildFormationsPageUnifiedGraphJsonLd(): Record<string, unknown>
                 valueAddedTaxIncluded: false,
               },
             },
-            {
-              '@type': 'Offer',
-              itemOffered: {
-                '@id': `${BASE}/formations/ia-conduite-travaux-suivi-chantier#course`,
-              },
-              price: TARIF_SESSION_FORFAIT_HT,
-              priceCurrency: 'EUR',
-              priceSpecification: {
-                '@type': 'UnitPriceSpecification',
-                price: TARIF_SESSION_FORFAIT_HT,
-                priceCurrency: 'EUR',
-                unitText: 'par session (8 participants max)',
-                valueAddedTaxIncluded: false,
-              },
-            },
+            ...(includeNiv03
+              ? [
+                  {
+                    '@type': 'Offer',
+                    itemOffered: {
+                      '@id': `${BASE}/formations/ia-conduite-travaux-suivi-chantier#course`,
+                    },
+                    price: TARIF_SESSION_FORFAIT_HT,
+                    priceCurrency: 'EUR',
+                    priceSpecification: {
+                      '@type': 'UnitPriceSpecification',
+                      price: TARIF_SESSION_FORFAIT_HT,
+                      priceCurrency: 'EUR',
+                      unitText: 'par session (8 participants max)',
+                      valueAddedTaxIncluded: false,
+                    },
+                  },
+                ]
+              : []),
             {
               '@type': 'Offer',
               itemOffered: {
@@ -279,49 +287,53 @@ export function buildFormationsPageUnifiedGraphJsonLd(): Record<string, unknown>
               },
             },
           },
-          {
-            '@type': 'ListItem',
-            position: 3,
-            item: {
-              '@type': 'Course',
-              '@id': `${BASE}/formations/ia-conduite-travaux-suivi-chantier#course`,
-              name: NIV03_CATALOG.name,
-              description: NIV03_CATALOG.description,
-              url: `${BASE}/formations/ia-conduite-travaux-suivi-chantier`,
-              courseCode: 'NIV-03',
-              educationalLevel: 'Advanced',
-              inLanguage: 'fr-FR',
-              teaches: NIV03_CATALOG.teaches,
-              occupationalCategory: NIV03_CATALOG.occupationalCategory,
-              provider: { '@id': `${BASE}/#organization` },
-              hasCourseInstance: {
-                '@type': 'CourseInstance',
-                courseMode: FORMATION_COURSE_MODE_ONSITE,
-                courseWorkload: 'PT4H',
-                location: {
-                  '@type': 'Place',
-                  name: 'Île-de-France',
-                  address: {
-                    '@type': 'PostalAddress',
-                    addressRegion: 'Île-de-France',
-                    addressCountry: 'FR',
+          ...(includeNiv03
+            ? [
+                {
+                  '@type': 'ListItem',
+                  position: 3,
+                  item: {
+                    '@type': 'Course',
+                    '@id': `${BASE}/formations/ia-conduite-travaux-suivi-chantier#course`,
+                    name: NIV03_CATALOG.name,
+                    description: NIV03_CATALOG.description,
+                    url: `${BASE}/formations/ia-conduite-travaux-suivi-chantier`,
+                    courseCode: 'NIV-03',
+                    educationalLevel: 'Advanced',
+                    inLanguage: 'fr-FR',
+                    teaches: NIV03_CATALOG.teaches,
+                    occupationalCategory: NIV03_CATALOG.occupationalCategory,
+                    provider: { '@id': `${BASE}/#organization` },
+                    hasCourseInstance: {
+                      '@type': 'CourseInstance',
+                      courseMode: FORMATION_COURSE_MODE_ONSITE,
+                      courseWorkload: 'PT4H',
+                      location: {
+                        '@type': 'Place',
+                        name: 'Île-de-France',
+                        address: {
+                          '@type': 'PostalAddress',
+                          addressRegion: 'Île-de-France',
+                          addressCountry: 'FR',
+                        },
+                      },
+                      instructor: { '@id': `${BASE}/#laure-olivie` },
+                    },
+                    offers: {
+                      '@type': 'Offer',
+                      price: TARIF_SESSION_FORFAIT_HT,
+                      priceCurrency: 'EUR',
+                      availability: 'https://schema.org/InStock',
+                      url: `${BASE}/formations/ia-conduite-travaux-suivi-chantier`,
+                      category: FORMATION_COURSE_OFFER_CATEGORY,
+                    },
                   },
                 },
-                instructor: { '@id': `${BASE}/#laure-olivie` },
-              },
-              offers: {
-                '@type': 'Offer',
-                price: TARIF_SESSION_FORFAIT_HT,
-                priceCurrency: 'EUR',
-                availability: 'https://schema.org/InStock',
-                url: `${BASE}/formations/ia-conduite-travaux-suivi-chantier`,
-                category: FORMATION_COURSE_OFFER_CATEGORY,
-              },
-            },
-          },
+              ]
+            : []),
           {
             '@type': 'ListItem',
-            position: 4,
+            position: includeNiv03 ? 4 : 3,
             item: {
               '@type': 'Course',
               '@id': `${BASE}/formations/maitriser-claude-ai-btp#course`,
@@ -361,7 +373,7 @@ export function buildFormationsPageUnifiedGraphJsonLd(): Record<string, unknown>
           },
           {
             '@type': 'ListItem',
-            position: 5,
+            position: includeNiv03 ? 5 : 4,
             item: {
               '@type': 'Course',
               '@id': `${BASE}/formations/ia-maitrise-oeuvre#course`,
@@ -422,7 +434,9 @@ export function buildFormationsPageUnifiedGraphJsonLd(): Record<string, unknown>
             '@type': 'HowToStep',
             position: 1,
             name: 'Identifier le métier cible',
-            text: 'Choisissez le parcours adapté : niveau 1 — L\'IA au service des pros du bâtiment et des travaux publics ; niveau 2 — L\'IA appliquée aux appels d\'offres BTP, L\'IA appliquée à la conduite de travaux, L\'IA au service des maîtres d\'œuvre, ou Maîtriser Claude AI pour le BTP.',
+            text: includeNiv03
+              ? 'Choisissez le parcours adapté : niveau 1 — L\'IA au service des pros du bâtiment et des travaux publics ; niveau 2 — L\'IA appliquée aux appels d\'offres BTP, L\'IA appliquée à la conduite de travaux, L\'IA au service des maîtres d\'œuvre, ou Maîtriser Claude AI pour le BTP.'
+              : 'Choisissez le parcours adapté : niveau 1 — L\'IA au service des pros du bâtiment et des travaux publics ; niveau 2 — L\'IA appliquée aux appels d\'offres BTP, L\'IA au service des maîtres d\'œuvre, ou Maîtriser Claude AI pour le BTP.',
           },
           {
             '@type': 'HowToStep',

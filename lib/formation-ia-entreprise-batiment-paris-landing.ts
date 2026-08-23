@@ -113,7 +113,7 @@ export const FORMATION_IA_ENTREPRISE_BATIMENT_PARIS_CONFIG: SeoClusterPageConfig
   campaignSlug: 'formation-ia-entreprise-batiment-paris',
   programmeRef: 'NIV-01',
   catalogueHref: LINKS.formations,
-  catalogueLabel: 'Catalogue des 5 formations IA BTP',
+  catalogueLabel: 'Catalogue formations IA BTP',
   relatedLinks: [
     { href: LINKS.formationIaParis, label: 'Formation IA à Paris — présentiel' },
     { href: LINKS.formationIleDeFrance, label: 'Formation IA BTP Île-de-France' },

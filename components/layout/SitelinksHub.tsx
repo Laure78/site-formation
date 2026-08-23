@@ -4,12 +4,11 @@ import {
   Coins,
   GraduationCap,
   MapPin,
-  User,
   HardHat,
   BookOpen,
 } from 'lucide-react';
 import { LINKS } from '@/lib/internal-links';
-import { SITE_NAV_HUB_ITEMS } from '@/lib/contextual-internal-links';
+import { getSiteNavHubItems } from '@/lib/contextual-internal-links';
 import { OFC_CARD } from '@/lib/ofc-interaction-classes';
 import { OFC_SEC } from '@/lib/ofc-section-classes';
 import type { LucideIcon } from 'lucide-react';
@@ -21,20 +20,19 @@ const ICONS: Record<string, LucideIcon> = {
   [LINKS.blog]: BookOpen,
   [LINKS.formationIleDeFrance]: MapPin,
   [LINKS.prendreRdv]: Calendar,
-  [LINKS.aPropos]: User,
 };
-
-const items = SITE_NAV_HUB_ITEMS.map(({ href, title, description }) => ({
-  href,
-  title,
-  line: description ?? '',
-  Icon: ICONS[href] ?? GraduationCap,
-}));
 
 /**
  * Maillage interne vers les sections clés — présent sur toutes les pages (avant le footer).
  */
 export function SitelinksHub() {
+  const items = getSiteNavHubItems().map(({ href, title, description }) => ({
+    href,
+    title,
+    line: description ?? '',
+    Icon: ICONS[href] ?? GraduationCap,
+  }));
+
   return (
     <section aria-labelledby="nav-hub" className={OFC_SEC.mutedCompact}>
       <div className="mx-auto max-w-6xl px-4">

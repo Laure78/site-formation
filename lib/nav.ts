@@ -6,6 +6,7 @@ import { BEWORK_APP_PATHS } from '@/lib/external-site-urls';
 import { LINKS } from '@/lib/internal-links';
 import { SITE_CONFIG } from '@/lib/seo';
 import { FORMATIONS, formationHref } from '@/data/formations';
+import { getPublishedFormations } from '@/lib/formation-catalogue-visibility';
 
 export type NavItem = {
   href: string;
@@ -32,21 +33,25 @@ export const NAV_ENTREPRISE: readonly NavItem[] = [
   },
 ];
 
+export function getNavServices(at: Date = new Date()): readonly NavItem[] {
+  return [
+    { href: LINKS.formations, label: 'Catalogue' },
+    { href: LINKS.formationPlateforme, label: 'Espace apprenant' },
+    ...getPublishedFormations(at).map((f) => ({
+      href: formationHref(f),
+      label: f.code === 'NIV-01' ? 'Niveau 1 — bâtiment & TP' : `${f.niveauLabel} — ${shortTitle(f.titre)}`,
+      title: f.titre,
+    })),
+    { href: LINKS.formationIaMarchePublicTravaux, label: 'Marché public de travaux' },
+    { href: LINKS.financement, label: 'Financement' },
+  ];
+}
+
 /**
  * Colonne Services — catalogue & parcours.
  * Conducteur / TPE-PME / Paris : uniquement dans NAV_METIERS / NAV_IDF (une ancre par URL).
  */
-export const NAV_SERVICES: readonly NavItem[] = [
-  { href: LINKS.formations, label: 'Catalogue' },
-  { href: LINKS.formationPlateforme, label: 'Espace apprenant' },
-  ...FORMATIONS.map((f) => ({
-    href: formationHref(f),
-    label: f.code === 'NIV-01' ? 'Niveau 1 — bâtiment & TP' : `${f.niveauLabel} — ${shortTitle(f.titre)}`,
-    title: f.titre,
-  })),
-  { href: LINKS.formationIaMarchePublicTravaux, label: 'Marché public de travaux' },
-  { href: LINKS.financement, label: 'Financement' },
-];
+export const NAV_SERVICES: readonly NavItem[] = getNavServices();
 
 function shortTitle(titre: string): string {
   if (titre.length <= 36) return titre;

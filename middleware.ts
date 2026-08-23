@@ -3,12 +3,18 @@ import { updateSession } from '@/lib/supabase/middleware';
 import { isMiddlewareBypassPath, redirectApexToWww } from '@/lib/middleware/canonical-host';
 import { needsSupabaseSession } from '@/lib/middleware/public-marketing-paths';
 import { blockDevApiInProduction, enforceAdminAccess } from '@/lib/middleware/admin-guard';
+import { isFormationPathPublished } from '@/lib/formation-catalogue-visibility';
+import { LINKS } from '@/lib/internal-links';
 
 export async function middleware(request: NextRequest) {
   const apexRedirect = redirectApexToWww(request);
   if (apexRedirect) return apexRedirect;
 
   const { pathname } = request.nextUrl;
+
+  if (!isFormationPathPublished(pathname)) {
+    return NextResponse.redirect(new URL(LINKS.formations, request.url));
+  }
 
   const devBlock = blockDevApiInProduction(request);
   if (devBlock) return devBlock;

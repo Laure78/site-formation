@@ -3,6 +3,7 @@
  * pilier `/formations` + 1 page tâche `/ia-*` + 1 département IDF.
  */
 import { DEPARTEMENT_PAGES } from '@/lib/departement-pages';
+import { getCataloguePilierConnexeDescription } from '@/lib/formation-catalogue-visibility';
 import { LINKS } from '@/lib/internal-links';
 import { VOIR_AUSSI_DEPT_DEFAUT } from '@/lib/voir-aussi';
 
@@ -41,11 +42,13 @@ const TACHES: readonly LienConnexe[] = [
   },
 ];
 
-const PILIERS: LienConnexe = {
-  href: LINKS.formations,
-  label: 'Catalogue des formations IA pour le BTP',
-  description: 'Cinq sessions Qualiopi — devis, appels d’offres, chantier, Claude, MOE.',
-};
+function getCataloguePilierLienConnexe(): LienConnexe {
+  return {
+    href: LINKS.formations,
+    label: 'Catalogue des formations IA pour le BTP',
+    description: getCataloguePilierConnexeDescription(),
+  };
+}
 
 function tachePreferee(path: string): LienConnexe {
   const p = normPath(path);
@@ -109,7 +112,7 @@ export function getLiensConnexesMetier(
     description: `Sessions présentiel — ${d.villes.slice(0, 3).join(', ')}.`,
   }));
 
-  const pilier = pickFirstAvailable(PILIERS, [PILIERS], blocked);
+  const pilier = pickFirstAvailable(getCataloguePilierLienConnexe(), [getCataloguePilierLienConnexe()], blocked);
   if (pilier) blocked.add(normPath(pilier.href));
 
   const tache = pickFirstAvailable(tachePreferee(currentPath), TACHES, blocked);

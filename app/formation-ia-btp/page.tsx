@@ -13,7 +13,7 @@ import {
   SITE_CONFIG,
   siteHasPublicPhone,
 } from '@/lib/seo';
-import { FAQ_FORMATION_IA_BTP_PILLAR } from '@/lib/formation-ia-btp-pillar-faq';
+import { getFaqFormationIaBtpPillar } from '@/lib/formation-ia-btp-pillar-faq';
 import { PHOTOS } from '@/lib/photos';
 import { PROOF } from '@/lib/proof';
 import { QUALIOPI_CERTIFICAT_REALISATION } from '@/config/qualiopi';
@@ -90,8 +90,6 @@ const courseJsonLd = {
   },
 };
 
-const faqJsonLd = getFAQSchema(FAQ_FORMATION_IA_BTP_PILLAR);
-
 function CtaVisio({ className }: { className?: string }) {
   return (
     <RdvLink
@@ -137,6 +135,9 @@ function BlocCtaMilieu() {
 }
 
 export default function FormationIaBtpPillarPage() {
+  const faqItems = getFaqFormationIaBtpPillar();
+  const faqJsonLd = getFAQSchema(faqItems);
+
   return (
     <div className="bg-white">
       <JsonLd id="schema-formation-ia-btp-course" schema={courseJsonLd} />
@@ -712,7 +713,7 @@ export default function FormationIaBtpPillarPage() {
       <RenvoiFicheCatalogue programmeRef="NIV-01" contexte="pour les professionnels du BTP" />
 
       <div className="mx-auto max-w-3xl px-4 pb-8">
-        <FAQSection items={FAQ_FORMATION_IA_BTP_PILLAR} title="Questions fréquentes — formation IA pour les pros du BTP" />
+        <FAQSection items={faqItems} title="Questions fréquentes — formation IA pour les pros du BTP" />
       </div>
 
       <div className="border-t border-slate-200 bg-slate-50 px-4 py-12">

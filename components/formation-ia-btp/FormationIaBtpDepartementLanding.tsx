@@ -16,7 +16,7 @@ import { LINKS } from '@/lib/internal-links';
 import { ContextualLinksSection } from '@/components/layout/ContextualLinksSection';
 import { VoirAussi } from '@/components/VoirAussi';
 import {
-  FORMATION_CATALOGUE_CORE,
+  getFormationCatalogueCore,
   GEO_DEPARTMENT_EXTENDED,
   getGeoSisterDepartmentLinks,
 } from '@/lib/contextual-internal-links';
@@ -333,7 +333,7 @@ export function FormationIaBtpDepartementLanding({ config }: { config: Formation
         title="Liens utiles"
         subtitle="Accès direct aux ressources les plus consultées après une recherche « formation IA pour le BTP » par département."
         links={[
-          ...FORMATION_CATALOGUE_CORE,
+          ...getFormationCatalogueCore(),
           {
             href: LINKS.aPropos,
             title: 'À propos — Laure Olivié',
@@ -386,7 +386,7 @@ export function FormationIaBtpDepartementLanding({ config }: { config: Formation
           {...voirAussiDepartementProps({
             currentPath: config.path,
             excludeHrefs: [
-              ...FORMATION_CATALOGUE_CORE.map((l) => l.href),
+              ...getFormationCatalogueCore().map((l) => l.href),
               LINKS.formationIleDeFrance,
               LINKS.aPropos,
               LINKS.blog, ...getClusterRelatedHrefs(config.path), ...getGeoSisterDepartmentLinks(

@@ -114,7 +114,7 @@ export function InformationsReglementaires(props: InfosQualiopiProps) {
             </ul>
             <p className="mt-3">
               <Link href={programmePdfHref} className="font-medium text-[#377CF3] hover:underline">
-                Télécharger le programme détaillé (PDF)
+                Télécharger le programme officiel (PDF)
               </Link>
             </p>
           </QualiopiItem>

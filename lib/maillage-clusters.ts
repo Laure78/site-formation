@@ -4,6 +4,8 @@
  */
 import { LINKS } from '@/lib/internal-links';
 import { CATALOGUE_NIV_RANGE, FORMATIONS } from '@/data/formations';
+import { getCatalogueFormationsCount } from '@/lib/formations-catalogue-display';
+import { isFormationCataloguePublished } from '@/lib/formation-catalogue-visibility';
 import { IDF_ZONE_INTERVENTION } from '@/lib/constants';
 
 export type RelatedLinkItem = {
@@ -570,17 +572,22 @@ function buildCatalogueSatelliteLinks(path: string): RelatedLinkItem[] | null {
   return dedupeLinks(links).slice(0, 5);
 }
 
-function buildCataloguePillarLinks(): RelatedLinkItem[] {
-  const labels = [
-    'NIV-01 — L’IA au service du bâtiment & TP',
-    'NIV-02 — IA appliquée aux appels d’offres BTP',
-    'NIV-03 — Conduite de travaux & suivi chantier',
-    'NIV-04 — Maîtriser Claude AI pour le BTP — Chat, Cowork & Code',
-    'NIV-05 — IA pour la maîtrise d’œuvre',
-  ];
-  return CATALOGUE_CLUSTER.map((c, i) => ({
+function buildCataloguePillarLinks(at: Date = new Date()): RelatedLinkItem[] {
+  const labels: Record<string, string> = {
+    [LINKS.formationIaBtpNiveau1BatimentTp]: 'NIV-01 — L’IA au service du bâtiment & TP',
+    [LINKS.formationAO]: 'NIV-02 — IA appliquée aux appels d’offres BTP',
+    [LINKS.formationConduiteTravauxSuiviChantier]: 'NIV-03 — Conduite de travaux & suivi chantier',
+    [LINKS.formationMaitriserClaudeAiBtp]: 'NIV-04 — Maîtriser Claude AI pour le BTP — Chat, Cowork & Code',
+    [LINKS.formationIaMaitriseOeuvre]: 'NIV-05 — IA pour la maîtrise d’œuvre',
+  };
+  return CATALOGUE_CLUSTER.filter((c) => {
+    if (c.path === LINKS.formationConduiteTravauxSuiviChantier) {
+      return isFormationCataloguePublished('NIV-03', at);
+    }
+    return true;
+  }).map((c) => ({
     href: c.path,
-    label: labels[i] ?? c.path,
+    label: labels[c.path] ?? c.path,
     description: 'Fiche programme Qualiopi du catalogue.',
   }));
 }
@@ -817,10 +824,11 @@ export function getClusterRelatedLinks(path: string): ClusterPageConfig | null {
 
   // --- Catalogue ---
   if (normalized === LINKS.formations) {
+    const count = getCatalogueFormationsCount();
     return {
       cluster: 'catalogue',
       title: 'Parcours du catalogue Qualiopi',
-      subtitle: `Cinq fiches programme — ${FORMATIONS[0].code} à ${FORMATIONS[FORMATIONS.length - 1].code}`,
+      subtitle: `${count} fiches programme — ${FORMATIONS[0].code} à ${FORMATIONS[FORMATIONS.length - 1].code}`,
       links: buildCataloguePillarLinks(),
     };
   }

@@ -16,7 +16,6 @@ import {
 } from 'lucide-react';
 import type { FormationCatalogueEntry } from '@/lib/formations-catalogue-display';
 import {
-  CATALOGUE_FORMATIONS_COUNT,
   FORMATIONS_CATALOGUE,
   catalogueNiveauLabel,
   catalogueNiveauEtLevel,
@@ -47,13 +46,15 @@ const PROFILE_IDS: Record<string, ProfileId> = {
   'NIV-05': 'moe',
 };
 
-const PROFILES = FORMATIONS_CATALOGUE.map((entry) => ({
-  id: PROFILE_IDS[entry.ref],
-  label: entry.title,
-  short: catalogueNiveauLabel(entry.ref),
-  icon: PROFILE_ICONS[entry.ref as keyof typeof PROFILE_ICONS],
-  refs: [entry.ref],
-}));
+function buildProfiles(formations: FormationCatalogueEntry[]) {
+  return formations.map((entry) => ({
+    id: PROFILE_IDS[entry.ref],
+    label: entry.title,
+    short: catalogueNiveauLabel(entry.ref),
+    icon: PROFILE_ICONS[entry.ref as keyof typeof PROFILE_ICONS],
+    refs: [entry.ref],
+  }));
+}
 
 function FormationCard({
   cours,
@@ -197,9 +198,12 @@ export function FormationsCatalogueCards({
 
 export function FormationsCatalogueInteractive({
   formations,
+  catalogueCount = formations.length,
 }: {
   formations: FormationCatalogueEntry[];
+  catalogueCount?: number;
 }) {
+  const profiles = buildProfiles(formations);
   const refsMap = useRef<Record<string, HTMLDivElement | null>>({});
   const setRef = useCallback((ref: string) => (el: HTMLDivElement | null) => {
     refsMap.current[ref] = el;
@@ -216,7 +220,7 @@ export function FormationsCatalogueInteractive({
 
   const applyProfile = (id: ProfileId) => {
     setActiveProfile(id);
-    const def = PROFILES.find((p) => p.id === id);
+    const def = profiles.find((p) => p.id === id);
     if (!def || def.refs.length === 0) {
       setHighlightedRefs([]);
       return;
@@ -240,12 +244,12 @@ export function FormationsCatalogueInteractive({
             Quelle formation choisir ?
           </h2>
           <p className="mt-2 text-sm text-[#64748B] sm:text-base">
-            Les {CATALOGUE_FORMATIONS_COUNT} parcours sont affichés ci-dessous — cliquez sur votre profil pour mettre en avant la fiche qui
+            Les {catalogueCount} parcours sont affichés ci-dessous — cliquez sur votre profil pour mettre en avant la fiche qui
             vous correspond.
           </p>
         </div>
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
-          {PROFILES.map((p) => {
+          {profiles.map((p) => {
             const Icon = p.icon;
             const isActive = activeProfile === p.id;
             return (
@@ -274,7 +278,7 @@ export function FormationsCatalogueInteractive({
       <section aria-labelledby="catalogue-formations-heading" className="space-y-5">
         <div className="text-center">
           <h2 id="catalogue-formations-heading" className="sr-only">
-            Catalogue : {CATALOGUE_FORMATIONS_COUNT} formations
+            Catalogue : {catalogueCount} formations
           </h2>
           <div className="flex flex-wrap items-center justify-center gap-3">
             <span className="inline-flex rounded-full bg-[#D1FAE5] px-4 py-2 text-[13px] font-bold uppercase tracking-widest text-[#047857]">

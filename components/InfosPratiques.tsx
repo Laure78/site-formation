@@ -107,7 +107,7 @@ export function InfosPratiques({ formation, className = '' }: InfosPratiquesProp
                 href={programmePdfUrl}
                 className="font-medium text-[#377CF3] underline-offset-2 hover:underline"
               >
-                Télécharger le programme détaillé (PDF)
+                Télécharger le programme officiel (PDF)
               </Link>
             </p>
           </DlItem>

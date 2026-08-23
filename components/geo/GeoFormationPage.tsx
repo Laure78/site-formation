@@ -14,7 +14,7 @@ import { LINKS } from '@/lib/internal-links';
 import { ContextualLinksSection } from '@/components/layout/ContextualLinksSection';
 import { VoirAussi } from '@/components/VoirAussi';
 import {
-  GEO_PAGE_UTILITY_LINKS,
+  getGeoPageUtilityLinks,
   getGeoSisterDepartmentLinks,
 } from '@/lib/contextual-internal-links';
 import { voirAussiDepartementProps } from '@/lib/voir-aussi';
@@ -239,7 +239,7 @@ export function GeoFormationPage(props: GeoFormationPageProps) {
         id="maillage-formation-ia-btp"
         title="Catalogue et ressources"
         subtitle="Programmes officiels, financement et présentation de la formatrice."
-        links={GEO_PAGE_UTILITY_LINKS}
+        links={getGeoPageUtilityLinks()}
         tone="muted"
       />
 
@@ -255,7 +255,7 @@ export function GeoFormationPage(props: GeoFormationPageProps) {
           {...voirAussiDepartementProps({
             currentPath: geoFormationPath(slug),
             excludeHrefs: [
-              ...GEO_PAGE_UTILITY_LINKS.map((l) => l.href), ...getGeoSisterDepartmentLinks(slug).map((l) => l.href),
+              ...getGeoPageUtilityLinks().map((l) => l.href), ...getGeoSisterDepartmentLinks(slug).map((l) => l.href),
             ],
           })}
         />

@@ -64,10 +64,9 @@ Financement : prise en charge Constructys ou OPCO selon statut, branche et condi
 
 ## Key pages
 - Accueil : /
-- Catalogue (5 formations dispensées par un organisme certifié Qualiopi) : /formations
+- Catalogue (4 formations dispensées par un organisme certifié Qualiopi) : /formations
 - NIV-01 — Bâtiment & travaux publics : /formations/ia-batiment-travaux-publics
 - NIV-02 — Appels d'offres BTP : /formations/ia-appels-offre-btp
-- NIV-03 — Conduite de travaux : /formations/ia-conduite-travaux-suivi-chantier
 - NIV-04 — Maîtriser Claude AI : /formations/maitriser-claude-ai-btp
 - NIV-05 — Maîtres d'œuvre : /formations/ia-maitrise-oeuvre
 - Landing PME (renvoi NIV-01) : /formations/ia-pme-btp
@@ -108,12 +107,11 @@ Financement : prise en charge Constructys ou OPCO selon statut, branche et condi
 - Val-d'Oise (95) : /formation-ia-btp-val-doise-95
 
 ## Catalogue formations (`/formations`)
-**5 formations** dispensées par un **organisme certifié Qualiopi**, éligibles Constructys selon conditions. Programme PDF téléchargeable sur chaque fiche.
-Tarif catalogue : **forfait unique 1 200 € HT / session** (les 5 formations). Durée : **4 h** (NIV-04 : matin 9h–13h). Présentiel Île-de-France uniquement. TVA non applicable (art. 261-4-4°a CGI).
+**4 formations** dispensées par un **organisme certifié Qualiopi**, éligibles Constructys selon conditions. Programme PDF téléchargeable sur chaque fiche.
+Tarif catalogue : **forfait unique 1 200 € HT / session** (les 4 formations visibles). Durée : **4 h** (NIV-04 : matin 9h–13h). Présentiel Île-de-France uniquement. TVA non applicable (art. 261-4-4°a CGI).
 
 - NIV-01 — L'IA au service des pros du bâtiment et des travaux publics (niveau 1 · 1 200 € HT/session · 4 à 12 participants) — /formations/ia-batiment-travaux-publics — PDF : /formations/pdf/programme-niveau-1-ia-batiment-travaux-publics.pdf
 - NIV-02 — L'IA appliquée aux appels d'offres BTP (niveau 2 · 1 200 € HT/session · 4 à 8 participants) — /formations/ia-appels-offre-btp — PDF : /formations/ia-appels-offre-btp/Programme_IA_AO_DCE_MT_ClaudePro_OFC.pdf
-- NIV-03 — L'IA appliquée à la conduite de travaux (niveau 2 · 1 200 € HT/session · 4 à 8 participants) — /formations/ia-conduite-travaux-suivi-chantier — PDF : /formations/ia-conduite-travaux-suivi-chantier/Programme_IA_Conduite_Travaux_OFC.pdf
 - NIV-04 — Maîtriser Claude AI pour le BTP — Chat, Cowork & Code (niveau 2 · 1 200 € HT/session · 4 h matin · 4 à 8 participants) — /formations/maitriser-claude-ai-btp — PDF : /formations/maitriser-claude-ai-btp/Programme_Maitriser_Claude_BTP_OFC.pdf
 - NIV-05 — L'IA au service des maîtres d'œuvre (niveau 2 · 1 200 € HT/session · 3 à 8 participants) — /formations/ia-maitrise-oeuvre — PDF : /formations/ia-maitrise-oeuvre/programme_OFC_IA_MOE_4h.pdf
 

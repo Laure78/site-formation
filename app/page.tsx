@@ -50,7 +50,7 @@ import {
   TARIF_SESSION_FORFAIT_HT,
   SESSION_DUREE_LIBELLE,
 } from '@/lib/tarifs-sessions';
-import { FORMATIONS } from '@/data/formations';
+import { getPublishedFormations } from '@/lib/formation-catalogue-visibility';
 import { ConstructysResteAChargeBox } from '@/components/financement/ConstructysResteAChargeBox';
 import { MentionFinancement } from '@/components/MentionFinancement';
 import { OFC_LINK, OFC_BENEFIT_CARD, OFC_GAIN_CARD, OFC_PROBLEM_SOLUTION_CARD, OFC_HOWTO_STEP, OFC_CTA_PRIMARY, OFC_CTA_SECONDARY } from '@/lib/ofc-interaction-classes';
@@ -586,10 +586,10 @@ export default function HomePage() {
             conducteur de travaux
           </p>
           <p className="mt-3 max-w-none text-base leading-relaxed text-slate-600 md:text-lg">
-            {FORMATIONS.length} parcours officiels :{' '}
-            {FORMATIONS.map((f, i) => (
+            {getPublishedFormations().length} parcours officiels :{' '}
+            {getPublishedFormations().map((f, i, list) => (
               <span key={f.code}>
-                {i > 0 ? (i === FORMATIONS.length - 1 ? ' et ' : ' ; ') : null}
+                {i > 0 ? (i === list.length - 1 ? ' et ' : ' ; ') : null}
                 <strong className="font-semibold text-slate-800">{f.niveauLabel}</strong>
                 {' — '}
                 {f.titre}

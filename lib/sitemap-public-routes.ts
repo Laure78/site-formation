@@ -2,10 +2,11 @@
  * Routes publiques à pousser dans le sitemap — générées depuis les registres
  * (catalogue, métiers, tâches /ia-*, départements), pas une liste marketing figée.
  */
-import { FORMATIONS, formationHref } from '@/data/formations';
+import { formationHref } from '@/data/formations';
 import { DEPARTEMENT_PAGE_PATHS } from '@/lib/departement-pages';
 import { FORMATION_IA_METIER_DYNAMIC_REGISTRY } from '@/lib/formation-ia-metier-dynamic-registry';
 import { GSC_EXCLUDED_SITEMAP_PATHS } from '@/lib/gsc-redirects-2026';
+import { getPublishedFormations } from '@/lib/formation-catalogue-visibility';
 import { LINKS } from '@/lib/internal-links';
 import { isFormationMetierPath, normSitemapPath } from '@/lib/sitemap-tiers';
 
@@ -37,7 +38,10 @@ export const SITEMAP_CORE_STATIC_PATHS = [
  * Les landings géo (Morangis, Longjumeau, SQY) et la plateforme restent dans le bloc marketing.
  */
 export function getSitemapCatalogueFormationPaths(): string[] {
-  return uniqPaths([...FORMATIONS.map((f) => formationHref(f)), LINKS.formationPmeBtp]);
+  return uniqPaths([
+    ...getPublishedFormations().map((f) => formationHref(f)),
+    LINKS.formationPmeBtp,
+  ]);
 }
 
 /** Pages tâches canoniques `/ia-*` (hors redirections GSC, ex. `/ia-conducteur-travaux`). */

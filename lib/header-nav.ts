@@ -4,6 +4,7 @@
  */
 import { catalogueFormationNavContainsPath } from '@/lib/catalogue-formations-nav';
 import { FORMATIONS, formationHref } from '@/data/formations';
+import { getPublishedFormations } from '@/lib/formation-catalogue-visibility';
 import { LINKS } from '@/lib/internal-links';
 
 export type HeaderNavLink = {
@@ -110,7 +111,23 @@ const PARTENAIRES_SECTION_CHILDREN: readonly HeaderNavLink[] = [
   { href: LINKS.formationsLinkedInLearning, label: 'Formations LinkedIn Learning' },
 ];
 
-export const HEADER_NAV: readonly HeaderNavItem[] = [
+export function getHeaderNav(at: Date = new Date()): readonly HeaderNavItem[] {
+  const publishedFormations = getPublishedFormations(at);
+  return BASE_HEADER_NAV.map((item) => {
+    if (item.id !== 'formations' || !item.children) return item;
+    const catalogueChildren = publishedFormations.map((formation) => ({
+      href: formationHref(formation),
+      label: FORMATION_NAV_LABELS[formation.code] ?? formation.titre,
+    }));
+    const platformLink = item.children.find((child) => child.href === LINKS.formationPlateforme);
+    return {
+      ...item,
+      children: platformLink ? [...catalogueChildren, platformLink] : catalogueChildren,
+    };
+  });
+}
+
+const BASE_HEADER_NAV: readonly HeaderNavItem[] = [
   {
     id: 'accueil',
     label: 'Accueil',
@@ -182,6 +199,9 @@ export const HEADER_NAV: readonly HeaderNavItem[] = [
     footer: { href: LINKS.aPropos, label: "L'organisme de formation" },
   },
 ];
+
+/** Navigation header — filtre les parcours non publiés (date de lancement). */
+export const HEADER_NAV: readonly HeaderNavItem[] = getHeaderNav();
 
 export function headerNavItemIsActive(item: HeaderNavItem, pathname: string): boolean {
   if (item.isActive) return item.isActive(pathname);

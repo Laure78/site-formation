@@ -6,11 +6,12 @@ import CalendlyButton from '@/components/CalendlyButton';
 import { buildSiteCalendlyCtaUrl } from '@/lib/calendly';
 import { JsonLd } from '@/components/JsonLd';
 import { createPageMetadata, SITE_CONFIG } from '@/lib/seo';
-import { FAQ_FORMATIONS } from '@/lib/faq';
+import { getFaqFormations } from '@/lib/faq';
 import { PHOTOS } from '@/lib/photos';
 import { LINKS } from '@/lib/internal-links';
 import { buildFormationsPageUnifiedGraphJsonLd } from '@/lib/schema-formations-page-graph';
-import { CATALOGUE_FORMATIONS_COUNT, FORMATIONS_CATALOGUE } from '@/lib/formations-catalogue-display';
+import { getCatalogueFormationsCount, getFormationsCatalogue } from '@/lib/formations-catalogue-display';
+import { getCataloguePageMetaDescription } from '@/lib/formation-catalogue-visibility';
 import { FormationsHero } from '@/components/formations/FormationsHero';
 import { FormationsCatalogueInteractive } from '@/components/formations/FormationsCatalogueInteractive';
 import { FormationsComparisonTable } from '@/components/formations/FormationsComparisonTable';
@@ -20,7 +21,7 @@ import { FormationsPartnersStrip } from '@/components/formations/FormationsPartn
 import { FormationsFaqSection } from '@/components/formations/FormationsFaqSection';
 import { RelatedLinks } from '@/components/RelatedLinks';
 import { getClusterRelatedHrefs } from '@/lib/maillage-clusters';
-import { ENCART_TARIFS_COMMERCIAUX } from '@/lib/tarifs-sessions';
+import { getEncartTarifsCommerciaux } from '@/lib/tarifs-sessions';
 import { GAINS_TEMPS_MENTION_PRUDENCE } from '@/lib/gains-temps-copy';
 import { FINANCEMENT_FORMULATION_COURTE } from '@/lib/financement-copy';
 import { QUALIOPI_ACCESSIBILITE_EXACT, QUALIOPI_DELAI_ACCES_EXACT } from '@/config/qualiopi';
@@ -28,64 +29,73 @@ import { QUALIOPI_ACCESSIBILITE_EXACT, QUALIOPI_DELAI_ACCES_EXACT } from '@/conf
 const baseUrl = SITE_CONFIG.url.replace(/\/$/, '');
 
 const FORMATIONS_HTML_TITLE = 'Catalogue formations IA pour le BTP';
-const FORMATIONS_META_DESCRIPTION =
-  "5 formations IA pour le BTP en 4 h : devis, appels d'offres, conduite de travaux, Claude AI et maîtrise d'œuvre. Présentiel IDF — organisme certifié Qualiopi, Constructys.";
 
-export const metadata: Metadata = {
-  ...createPageMetadata({
-    title: FORMATIONS_HTML_TITLE,
-    titleAbsolute: FORMATIONS_HTML_TITLE,
-    description: FORMATIONS_META_DESCRIPTION,
-    descriptionFinal: true,
-    path: '/formations',
-    appendAuthorSuffix: false,
-    openGraphTitle: FORMATIONS_HTML_TITLE,
-    openGraphDescription: FORMATIONS_META_DESCRIPTION,
-    keywords: [
-      'catalogue formation IA pour les pros du BTP',
-      'formation ChatGPT BTP',
-      'formation IA bâtiment',
-      'formation IA construction',
-      'formation IA travaux publics',
-      "formation IA appels d'offre BTP",
-      'formation IA RH BTP',
-      'formation IA architecte',
-      'formation IA — organisme certifié Qualiopi',
-      'formation IA Constructys',
-      'formation IA appliquée au bâtiment Île-de-France',
-    ],
-    robots: { index: true, follow: true },
-    image: {
-      url: PHOTOS.formationIaBtpSalleInteractive2026.src,
-      width: 1200,
-      height: 630,
-      alt: `Catalogue formation IA pour le BTP — ${CATALOGUE_FORMATIONS_COUNT} formations dispensées par un organisme certifié Qualiopi de 4 h`,
+export const dynamic = 'force-dynamic';
+
+export async function generateMetadata(): Promise<Metadata> {
+  const catalogueCount = getCatalogueFormationsCount();
+  const metaDescription = getCataloguePageMetaDescription();
+
+  return {
+    ...createPageMetadata({
+      title: FORMATIONS_HTML_TITLE,
+      titleAbsolute: FORMATIONS_HTML_TITLE,
+      description: metaDescription,
+      descriptionFinal: true,
+      path: '/formations',
+      appendAuthorSuffix: false,
+      openGraphTitle: FORMATIONS_HTML_TITLE,
+      openGraphDescription: metaDescription,
+      keywords: [
+        'catalogue formation IA pour les pros du BTP',
+        'formation ChatGPT BTP',
+        'formation IA bâtiment',
+        'formation IA construction',
+        'formation IA travaux publics',
+        "formation IA appels d'offre BTP",
+        'formation IA RH BTP',
+        'formation IA architecte',
+        'formation IA — organisme certifié Qualiopi',
+        'formation IA Constructys',
+        'formation IA appliquée au bâtiment Île-de-France',
+      ],
+      robots: { index: true, follow: true },
+      image: {
+        url: PHOTOS.formationIaBtpSalleInteractive2026.src,
+        width: 1200,
+        height: 630,
+        alt: `Catalogue formation IA pour le BTP — ${catalogueCount} formations dispensées par un organisme certifié Qualiopi de 4 h`,
+      },
+    }),
+    alternates: {
+      canonical: `${baseUrl}/formations`,
+      languages: { 'fr-FR': `${baseUrl}/formations` },
     },
-  }),
-  alternates: {
-    canonical: `${baseUrl}/formations`,
-    languages: { 'fr-FR': `${baseUrl}/formations` },
-  },
-  other: {
-    'geo.region': 'FR-IDF',
-    'geo.placename': 'Guyancourt',
-    'geo.position': '48.7713;2.0739',
-    ICBM: '48.7713, 2.0739',
-  },
-};
+    other: {
+      'geo.region': 'FR-IDF',
+      'geo.placename': 'Guyancourt',
+      'geo.position': '48.7713;2.0739',
+      ICBM: '48.7713, 2.0739',
+    },
+  };
+}
 
 const chipLinkClass =
   'inline-flex items-center gap-2 rounded-full border border-[#E2E8F0] bg-white px-4 py-2.5 text-sm font-medium text-[#0F172A] transition duration-200 hover:border-[#377CF3] hover:bg-[#EFF6FF] hover:text-[#377CF3]';
 
 export default function FormationsPage() {
+  const catalogueFormations = getFormationsCatalogue();
+  const catalogueCount = getCatalogueFormationsCount();
+  const faqFormations = getFaqFormations();
+
   return (
     <>
       <JsonLd id="schema-formations-page-graph" schema={buildFormationsPageUnifiedGraphJsonLd()} />
-      <FormationsHero />
+      <FormationsHero catalogueCount={catalogueCount} />
 
       <div className="mx-auto max-w-6xl px-4 pb-20 pt-4 md:pt-5">
         <div className="mt-4 md:mt-5">
-          <FormationsCatalogueInteractive formations={FORMATIONS_CATALOGUE} />
+          <FormationsCatalogueInteractive formations={catalogueFormations} catalogueCount={catalogueCount} />
         </div>
 
         <section className="mt-8 rounded-2xl border border-[#E2E8F0] bg-[#F8FAFC] p-5 md:p-6">
@@ -97,7 +107,7 @@ export default function FormationsPage() {
               ChatGPT pour entreprises BTP
             </Link>{' '}
             au service des devis, DCE, CCTP, appels d&apos;offres, mémoires techniques, comptes rendus de chantier,
-            relances clients et documents administratifs. {ENCART_TARIFS_COMMERCIAUX}{' '}
+            relances clients et documents administratifs. {getEncartTarifsCommerciaux()}{' '}
             {FINANCEMENT_FORMULATION_COURTE}{' '}
             Méthode 100 % terrain, orientée
             productivité.{' '}
@@ -128,16 +138,16 @@ export default function FormationsPage() {
           </ul>
         </section>
 
-        <FormationsComparisonTable formations={FORMATIONS_CATALOGUE} />
+        <FormationsComparisonTable formations={catalogueFormations} />
 
-        <FormationsWhyMotifs />
+        <FormationsWhyMotifs formations={catalogueFormations} catalogueCount={catalogueCount} />
 
         <FormationsCatalogueMidCta />
 
         <FormationsPartnersStrip />
 
         <FormationsFaqSection
-          items={FAQ_FORMATIONS}
+          items={faqFormations}
           title="Questions fréquentes sur les formations IA pour le BTP et la construction"
           subtitle="Vous avez des questions ? Voici les réponses aux interrogations les plus fréquentes."
         />

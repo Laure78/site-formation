@@ -3,7 +3,6 @@ import { CataloguePriceBadge } from '@/components/formations/CataloguePriceBadge
 import { SESSION_DUREE_LIBELLE } from '@/lib/tarifs-sessions';
 import type { FormationCatalogueEntry } from '@/lib/formations-catalogue-display';
 import {
-  CATALOGUE_FORMATIONS_COUNT,
   catalogueNiveauLabel,
   formationCatalogueVersionLine,
   sortFormationsCatalogue,
@@ -15,6 +14,7 @@ export function FormationsComparisonTable({
   formations: FormationCatalogueEntry[];
 }) {
   const rows = sortFormationsCatalogue(formations);
+  const count = formations.length;
 
   return (
     <section
@@ -26,7 +26,7 @@ export function FormationsComparisonTable({
           id="comparatif-formations-heading"
           className="font-display text-[32px] font-bold text-[#0F172A]"
         >
-          Comparez les {CATALOGUE_FORMATIONS_COUNT} formations IA pour le BTP d&apos;un coup d&apos;œil
+          Comparez les {count} formations IA pour le BTP d&apos;un coup d&apos;œil
         </h2>
         <p className="mt-3 text-lg text-[#64748B]">
           Toutes — organisme certifié Qualiopi, toutes {SESSION_DUREE_LIBELLE}, intra-entreprise, dans vos locaux,

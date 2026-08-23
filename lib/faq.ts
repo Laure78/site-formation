@@ -12,7 +12,8 @@ import {
   libelleTarifSessionForfaitaire,
   MENTIONS_TVA_REGIMES_COURT,
 } from '@/lib/tarifs-sessions';
-import { CATALOGUE_FORMATIONS_COUNT } from '@/lib/formations-catalogue-display';
+import { CATALOGUE_FORMATIONS_COUNT, getCatalogueFormationsCount } from '@/lib/formations-catalogue-display';
+import { isFormationCataloguePublished } from '@/lib/formation-catalogue-visibility';
 import { SOCIAL_PROOF, IDF_ZONE_INTERVENTION } from '@/lib/constants';
 import { getLaureOlivieSchemaPersonDescription } from '@/lib/laure-olivie-profile';
 import { LINKS } from '@/lib/internal-links';
@@ -252,6 +253,32 @@ export const FAQ_FORMATIONS: FAQItem[] = [
     a: `${MODALITE_FORMATIONS_STANDARD} Format : 4 heures, ${EFFECTIF_GROUPE_MAX} participants maximum, supports inclus. Vue d&apos;ensemble : <a href="${LINKS.formationIleDeFrance}">formation IA pour le BTP en Île-de-France</a>.`,
   }, ...FAQ_IA_BTP_METIERS_CHANTIER_SEO,
 ];
+
+/** FAQ catalogue `/formations` — masque NIV-03 tant que non publiée. */
+export function getFaqFormations(at: Date = new Date()): FAQItem[] {
+  if (isFormationCataloguePublished('NIV-03', at)) {
+    return FAQ_FORMATIONS;
+  }
+
+  const count = getCatalogueFormationsCount(at);
+
+  return FAQ_FORMATIONS.map((item) => {
+    if (item.q === 'Quelles formations IA appliquées au bâtiment sont proposées au catalogue ?') {
+      return {
+        ...item,
+        a: `Le catalogue OFC propose ${count} formations IA pour le BTP de 4 heures, toutes dispensées par OFC Création d&apos;Entreprise, organisme certifié Qualiopi : (1) L&apos;IA au service des pros du bâtiment et des travaux publics — niveau 1, (2) L&apos;IA appliquée aux appels d&apos;offres BTP — niveau 2, (3) Maîtriser Claude AI pour le BTP — Chat, Cowork &amp; Code (niveau 2, ${libelleTarifSessionForfaitaire(TARIF_SESSION_FORFAIT_HT)}, matin 9h–13h, 8 participants max), (4) L&apos;IA au service des maîtres d&apos;œuvre — niveau 2 (3 à 8 participants, MOEX/MOE). ${MODALITE_FORMATIONS_STANDARD} ${FINANCEMENT_FORMULATION_COURTE} Fiches détaillées : cartes ci-dessus.`,
+      };
+    }
+    if (item.q === 'Comment choisir la bonne formation IA pour le BTP pour mon entreprise ?') {
+      const conduiteLink = ` Pour piloter vos chantiers (CCTP, CR, PPSPS, réception) : <a href="${LINKS.formationConduiteTravauxSuiviChantier}">L&apos;IA appliquée à la conduite de travaux</a>.`;
+      return {
+        ...item,
+        a: item.a.replace(conduiteLink, ''),
+      };
+    }
+    return item;
+  });
+}
 
 export const FAQ_TARIFS: FAQItem[] = [
   {

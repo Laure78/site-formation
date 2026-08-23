@@ -14,24 +14,56 @@ import {
 } from '@/lib/ofc-interaction-classes';
 import { OFC_SEC } from '@/lib/ofc-section-classes';
 import { LINKS } from '@/lib/internal-links';
-import { getFormationCatalogueByRef } from '@/lib/formations-catalogue-display';
+import { getPublishedFormations } from '@/lib/formation-catalogue-visibility';
+import { getCatalogueFormationsCount } from '@/lib/formations-catalogue-display';
 import {
   libelleTarifSessionForfaitaire,
   TARIF_SESSION_FORFAIT_HT,
 } from '@/lib/tarifs-sessions';
-import { FORMATIONS } from '@/data/formations';
 import { Essentiel } from '@/components/readability/Essentiel';
 import { Reveal } from '@/components/motion/Reveal';
 import { ProofStats } from '@/components/ProofStats';
 import { AccueilHeroAnimatedMesh } from '@/components/landing/AccueilHeroAnimatedMesh';
 import { PHOTOS } from '@/lib/photos';
 
-const FORMATION_CONDUITE = getFormationCatalogueByRef('NIV-03')!;
-
 const HERO_CATALOGUE_VISUAL = PHOTOS.formationsCatalogueHero2026;
+
+const CATALOGUE_QUICK_LINKS = [
+  {
+    href: LINKS.formationIaBtpNiveau1BatimentTp,
+    title: "L'IA au service des pros du bâtiment et des travaux publics",
+    label: 'IA bâtiment & travaux publics',
+  },
+  {
+    href: LINKS.formationAO,
+    title: "L'IA appliquée aux appels d'offres BTP",
+    label: "IA appels d'offres BTP",
+  },
+  {
+    href: LINKS.formationConduiteTravauxSuiviChantier,
+    title: "L'IA appliquée à la conduite de travaux",
+    label: 'IA conduite de travaux',
+    code: 'NIV-03' as const,
+  },
+  {
+    href: LINKS.formationMaitriserClaudeAiBtp,
+    title: 'Maîtriser Claude AI pour le BTP — Chat, Cowork & Code',
+    label: 'Maîtriser Claude AI pour le BTP',
+  },
+  {
+    href: LINKS.formationIaMaitriseOeuvre,
+    title: "L'IA au service des maîtres d'œuvre",
+    label: 'IA maîtres d\'œuvre',
+  },
+] as const;
 
 /** Hero accueil — fold option B + détails SEO sous le pli. */
 export function AccueilHeroSection() {
+  const catalogueCount = getCatalogueFormationsCount();
+  const catalogueLinks = CATALOGUE_QUICK_LINKS.filter(
+    (item) => !('code' in item) || getPublishedFormations().some((f) => f.code === item.code),
+  );
+
   return (
     <section className={`${OFC_SEC.hero} relative overflow-hidden`}>
       <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%23377cf3\' fill-opacity=\'0.045\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-90" />
@@ -120,7 +152,7 @@ export function AccueilHeroSection() {
               'intra-entreprise, dans vos locaux, présentiel uniquement · Île-de-France uniquement.',
               'Travail sur vos documents BTP réels : DCE, CCTP, relances clients et administratif chantier.',
               <>
-                Catalogue {FORMATIONS.length} formations dispensées par un organisme certifié Qualiopi — forfait unique{' '}
+                Catalogue {catalogueCount} formations dispensées par un organisme certifié Qualiopi — forfait unique{' '}
                 {libelleTarifSessionForfaitaire(TARIF_SESSION_FORFAIT_HT)}
                 <MentionTvaAsterisque /> (Claude AI = une fiche : Maîtriser Claude AI pour
                 le BTP).
@@ -146,47 +178,16 @@ export function AccueilHeroSection() {
           <div className="rounded-ofc-lg border border-ofc-border-strong/90 bg-white/70 px-4 py-3 shadow-ofc-sm backdrop-blur-sm md:px-5">
             <p className="text-sm leading-relaxed text-slate-600">
               <span className="font-medium text-slate-700">
-                Catalogue ({FORMATIONS.length} formations) :
+                Catalogue ({catalogueCount} formations) :
               </span>{' '}
-              <Link
-                href={LINKS.formationIaBtpNiveau1BatimentTp}
-                className={OFC_LINK}
-                title="L'IA au service des pros du bâtiment et des travaux publics"
-              >
-                IA bâtiment &amp; travaux publics
-              </Link>
-              {' · '}
-              <Link
-                href={LINKS.formationAO}
-                className={OFC_LINK}
-                title="L'IA appliquée aux appels d'offres BTP"
-              >
-                IA appels d&apos;offres BTP
-              </Link>
-              {' · '}
-              <Link
-                href={LINKS.formationConduiteTravauxSuiviChantier}
-                className={OFC_LINK}
-                title={FORMATION_CONDUITE.title}
-              >
-                IA conduite de travaux
-              </Link>
-              {' · '}
-              <Link
-                href={LINKS.formationMaitriserClaudeAiBtp}
-                className={OFC_LINK}
-                title="Maîtriser Claude AI pour le BTP — Chat, Cowork & Code"
-              >
-                Maîtriser Claude AI pour le BTP
-              </Link>
-              {' · '}
-              <Link
-                href={LINKS.formationIaMaitriseOeuvre}
-                className={OFC_LINK}
-                title="L'IA au service des maîtres d'œuvre"
-              >
-                IA maîtres d&apos;œuvre
-              </Link>
+              {catalogueLinks.map((item, index) => (
+                <span key={item.href}>
+                  {index > 0 ? ' · ' : null}
+                  <Link href={item.href} className={OFC_LINK} title={item.title}>
+                    {item.label}
+                  </Link>
+                </span>
+              ))}
               {' · '}
               <Link
                 href={LINKS.financement}

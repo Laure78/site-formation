@@ -1,7 +1,7 @@
 /**
  * Landing `/formation-ia-metreur-economiste-construction` — métadonnées, FAQ, prompts, JSON-LD.
  */
-import { CATALOGUE_NIV_RANGE } from '@/data/formations';
+import { getCatalogueSessionsRangeDescription } from '@/lib/formation-catalogue-visibility';
 import { LINKS } from '@/lib/internal-links';
 import {
   SCHEMA_LINKEDIN_PROFILE_URL,
@@ -131,28 +131,33 @@ export const METREUR_ECONOMISTE_FAQ: readonly FAQItem[] = [
   },
 ];
 
-export const METREUR_ECONOMISTE_RELATED = [
-  {
-    href: LINKS.formationAO,
-    title: 'Formation NIV-02 — IA appels d’offres BTP',
-    description: 'DCE, mémoire technique, Claude AI Pro — catalogue Qualiopi.',
-  },
-  {
-    href: LINKS.iaAnalyseDce,
-    title: 'Analyser un DCE avec l’IA',
-    description: 'Méthode CCTP, CCAP, RC — tâche transactionnelle.',
-  },
-  {
-    href: LINKS.formationIleDeFrance,
-    title: 'Formation IA BTP Île-de-France',
-    description: 'Pilier géo — présentiel, 8 départements IDF.',
-  },
-  {
-    href: LINKS.formations,
-    title: 'Catalogue formations IA BTP',
-    description: `5 sessions ${CATALOGUE_NIV_RANGE} — organisme Qualiopi.`,
-  },
-] as const;
+export function getMetreurEconomisteRelated(at: Date = new Date()) {
+  return [
+    {
+      href: LINKS.formationAO,
+      title: 'Formation NIV-02 — IA appels d’offres BTP',
+      description: 'DCE, mémoire technique, Claude AI Pro — catalogue Qualiopi.',
+    },
+    {
+      href: LINKS.iaAnalyseDce,
+      title: 'Analyser un DCE avec l’IA',
+      description: 'Méthode CCTP, CCAP, RC — tâche transactionnelle.',
+    },
+    {
+      href: LINKS.formationIleDeFrance,
+      title: 'Formation IA BTP Île-de-France',
+      description: 'Pilier géo — présentiel, 8 départements IDF.',
+    },
+    {
+      href: LINKS.formations,
+      title: 'Catalogue formations IA BTP',
+      description: getCatalogueSessionsRangeDescription(at),
+    },
+  ] as const;
+}
+
+/** @deprecated Préférer getMetreurEconomisteRelated() */
+export const METREUR_ECONOMISTE_RELATED = getMetreurEconomisteRelated();
 
 const PROMPTS_BY_KEY: Record<string, string> = {
   metre: PROMPT_METRE_QUANTITATIF,
