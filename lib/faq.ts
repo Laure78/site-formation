@@ -357,11 +357,11 @@ export const FAQ_FINANCEMENT_IA_BTP: FAQItem[] = [
   },
   {
     q: "Constructys finance-t-il les formations en présentiel ?",
-    a: `Oui. Les formations catalogue OFC se déroulent exclusivement en présentiel intra-entreprise, dans vos locaux en Île-de-France. ${FINANCEMENT_FORMULATION_PRUDENTE} Je vous renseigne sur votre dossier (programme, évaluation, dépôt eGestion) — page <a href="/financement-constructys-formation-ia-btp">financement Constructys formation IA pour les pros du BTP</a>.`,
+    a: `Oui. Les formations catalogue OFC se déroulent exclusivement en présentiel intra-entreprise, dans vos locaux en Île-de-France. ${FINANCEMENT_FORMULATION_PRUDENTE} Je vous fournis le programme détaillé et le devis nécessaires à votre demande de prise en charge — page <a href="/financement-constructys-formation-ia-btp">financement Constructys formation IA pour les pros du BTP</a>.`,
   },
   {
     q: "Que se passe-t-il si ma demande est déposée en retard ?",
-    a: 'Depuis le 1er janvier 2026, les demandes incomplètes ou reçues après la date limite ne sont plus financées. Il n\'y a pas d\'exception : anticipez le montage de dossier avec votre organisme de formation — <a href="/contact">m\'écrire</a>.',
+    a: 'Depuis le 1er janvier 2026, les demandes incomplètes ou reçues après la date limite ne sont plus financées. Il n\'y a pas d\'exception : anticipez votre demande : demandez le devis et le programme suffisamment tôt pour déposer avant J-15 — <a href="/contact">m\'écrire</a>.',
   },
   {
     q: "Comment savoir si mon OPCO est Constructys ?",

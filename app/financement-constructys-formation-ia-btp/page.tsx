@@ -51,7 +51,7 @@ const FINANCEMENT_TOC = [
   { label: 'Étapes du financement', anchor: 'etapes' },
   { label: 'Trouver son OPCO', anchor: 'trouver-opco' },
   { label: 'Mon cas : prise en charge', anchor: 'mon-cas' },
-  { label: 'OFC vous accompagne', anchor: 'ofc-accompagne' },
+  { label: 'Ce qu\'OFC fournit', anchor: 'ofc-accompagne' },
   { label: 'Définitions clés', anchor: 'definitions' },
   { label: 'FAQ', anchor: 'faq' },
   { label: 'Sources officielles', anchor: 'sources' },
@@ -468,22 +468,22 @@ export default function FinancementConstructysFormationIABTPPage() {
 
             <section id="ofc-accompagne" className="scroll-mt-24">
               <h2 className="font-display text-xl font-bold tracking-tight text-slate-900 md:text-2xl">
-                OFC vous accompagne dans le montage du dossier
+                Ce qu&apos;OFC fournit pour votre dossier Constructys
               </h2>
               <div className="mt-5 grid gap-6 lg:grid-cols-2 lg:items-start">
                 <div className="space-y-3 text-sm leading-relaxed text-slate-700">
                   <p>
-                    <strong>OFC Création d&apos;Entreprise</strong> est certifié Qualiopi : c&apos;est une condition sérieuse pour rassurer les financeurs OPCO. Au-delà du certificat, nous vous aidons à aligner les intitulés, le programme et les heures avec les attentes d&apos;un dossier <strong>finançable par Constructys selon éligibilité</strong>, pour éviter les allers-retours inutiles. Que vous visiez une formation courte sur ChatGPT ou un parcours plus large sur l&apos;IA au service du chantier, l&apos;objectif est le même : un dossier lisible, déposé dans les délais, pour que votre équipe se concentre sur le terrain.
+                    <strong>OFC Création d&apos;Entreprise</strong> est certifié Qualiopi : c&apos;est une condition indispensable pour que votre OPCO puisse prendre en charge la formation. Mon rôle s&apos;arrête là : je vous remets les pièces conformes attendues par Constructys — programme détaillé, devis, convention de formation, puis après la session la feuille d&apos;émargement et les certificats de réalisation.
                   </p>
                   <p>
-                    En pratique, vous n&apos;avez pas à deviner les intitulés : nous vous expliquons quoi envoyer, dans quel ordre, et comment éviter les oublis qui bloquent un dossier sur eGestion. L&apos;objectif est un montage de dossier OPCO simple, pas un second métier. Si vous hésitez entre Intra-entreprise, nous pouvons vous aider à arbitrer en fonction des plafonds et de votre agenda chantier (sessions catalogue OFC : 4 h, présentiel Île-de-France uniquement).
+                    Le montage et le dépôt du dossier sur eGestion restent à la charge de l&apos;entreprise (ou de son référent formation / de son interlocuteur Constructys). Je ne monte pas les dossiers OPCO et je n&apos;interviens pas sur la plateforme eGestion. En cas de question sur le circuit, votre conseiller Constructys régional est l&apos;interlocuteur.
                   </p>
                 </div>
                 <ul className="space-y-2 text-sm text-slate-700">
                   {[
-                    'Programme et devis cohérents avec votre besoin',
-                    'Rappels sur les délais eGestion et les pièces courantes',
-                    "Point d'étape avec votre référent formation si besoin",
+                    'Programme détaillé et devis conformes aux attentes OPCO',
+                    'Convention de formation à signer avant la session',
+                    'Émargement et certificats de réalisation après la session',
                   ].map((line) => (
                     <li key={line} className="flex gap-2">
                       <CheckCircle className="mt-0.5 h-4 w-4 shrink-0 text-emerald-600" strokeWidth={1.5} aria-hidden />
@@ -584,8 +584,8 @@ export default function FinancementConstructysFormationIABTPPage() {
             <PillarConversionCta
               variant="compact"
               titleId="financement-cta-fin"
-              title="Demandez votre devis + accompagnement dossier gratuit"
-              description="Décrivez votre projet et recevez un devis adapté. Nous vous accompagnons pour le volet financement Constructys sans surcoût caché sur votre demande de prise en charge."
+              title="Demandez votre devis"
+              description="Décrivez votre projet et recevez un devis et un programme détaillé, directement utilisables pour votre demande de prise en charge Constructys."
               primaryCta={{ href: '/contact', label: 'Demander un devis', external: false }}
               secondaryCta={{ href: buildSiteCalendlyCtaUrl('financement-constructys-bloc-secondary-rdv'), label: 'Réserver un rendez-vous', external: true }}
             />
