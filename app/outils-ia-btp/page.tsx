@@ -88,7 +88,7 @@ export default function OutilsIABTPPage() {
             En formation, <strong className="font-semibold text-white">Claude AI</strong> est l&apos;outil principal
             (niveaux 1 et 2) ; <strong className="font-semibold text-white">ChatGPT</strong> est cité en comparaison et
             pour les usages administratifs (niveau 1). Devis, courriers, mémoires techniques — méthode testée avec
-            1&nbsp;500+ professionnels formés (OFC, Qualiopi). Page dédiée{' '}
+            Organisme certifié Qualiopi. Page dédiée{' '}
             <Link href="/claude-ai-btp" className="font-semibold text-white underline decoration-white/80 hover:no-underline">
               Claude AI BTP
             </Link>

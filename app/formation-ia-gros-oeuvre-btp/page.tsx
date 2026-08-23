@@ -16,7 +16,7 @@ import { OfcPromoVideoEmbed } from '@/components/media/OfcPromoVideoEmbed';
 import { createPageMetadata } from '@/lib/seo';
 import { CtaButton } from '@/components/CtaButton';
 import { TARIF_FORFAIT_DEBUTANT_HT } from '@/lib/tarifs-sessions';
-import { PROOF, formatProofFormes } from '@/lib/proof';
+import { PROOF } from '@/lib/proof';
 import {
   FORMATION_IA_GROS_OEUVRE_BTP_H1,
   FORMATION_IA_GROS_OEUVRE_BTP_META_DESCRIPTION,
@@ -29,6 +29,7 @@ import {
   GROS_OEUVRE_KEYWORDS,
   GROS_OEUVRE_PROMPTS,
 } from '@/lib/formation-ia-gros-oeuvre-btp-landing';
+import { formatNoteSatisfactionAffichageComplet } from '@/lib/data/indicateurs-resultats';
 
 export const revalidate = 3600;
 
@@ -64,7 +65,7 @@ const SOMMAIRE = [
 const ESSENTIEL = [
   'Gros œuvre en Île-de-France : devis, DCE / CCTP lot 2, planning et CR — présentiel uniquement.',
   'Session 4 h · organisme certifié Qualiopi : brouillons encadrés, relecture humaine — l’IA ne tranche pas la conformité.',
-  `Déjà ${formatProofFormes(PROOF.formes)} professionnels formés · note  (questionnaires fin de session).`,
+  `${formatNoteSatisfactionAffichageComplet()}.`,
   'Financement OPCO Constructys possible selon éligibilité — sessions en présentiel uniquement.',
 ] as const;
 
@@ -109,8 +110,8 @@ export default function FormationIaGrosOeuvreBtpPage() {
           <p className="mt-6 text-lg leading-relaxed text-slate-600">
             {OFC} — formation IA &amp; ChatGPT pour les entreprises de gros œuvre du BTP : devis, DCE, suivi de
             chantier. Sessions en <strong className="text-slate-800">présentiel uniquement</strong> en Île-de-France
-            (4&nbsp;h), dispensées par un organisme certifié Qualiopi. Financement possible selon éligibilité. Plus de{' '}
-            <strong className="text-slate-800">{formatProofFormes(PROOF.formes)} professionnels</strong> formés.
+            (4&nbsp;h), dispensées par un organisme certifié Qualiopi. Financement possible selon éligibilité.{' '}
+            <strong className="text-slate-800">{formatNoteSatisfactionAffichageComplet()}</strong>.
           </p>
 
           <Essentiel className="mt-8" idPrefix="metier-gros-oeuvre" items={[...ESSENTIEL]} />
@@ -214,7 +215,7 @@ export default function FormationIaGrosOeuvreBtpPage() {
           <section id="resultats" className="scroll-mt-24 mt-14">
             <h2 className="font-display text-2xl font-bold text-slate-900 md:text-3xl">Résultats et preuves</h2>
             <p className="mt-6 text-slate-700 leading-relaxed">
-              Indicateurs sourcés {OFC} : {formatProofFormes(PROOF.formes)} professionnels formés ({PROOF.mentionSource})
+              Indicateurs sourcés {OFC} : ({PROOF.mentionSource})
             </p>
             <div className="mt-8 overflow-x-auto rounded-xl border border-slate-200">
               <table className="min-w-full text-left text-sm text-slate-700">

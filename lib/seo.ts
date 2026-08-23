@@ -4,7 +4,8 @@
  */
 
 import type { Metadata } from 'next';
-import { formatProfessionalsTrainedCount, PROS_FORMES_TEXTE, SOCIAL_PROOF, IDF_ZONE_INTERVENTION } from '@/lib/constants';
+import { SOCIAL_PROOF, IDF_ZONE_INTERVENTION } from '@/lib/constants';
+import { formatNoteSatisfactionAffichageComplet } from '@/lib/data/indicateurs-resultats';
 import { faqAnswerPlainTextForSchema } from '@/lib/faq-plain-text';
 import {
   SCHEMA_CONTACT,
@@ -64,7 +65,7 @@ export const SITE_CONFIG = {
   legalName: 'OFC Création d\'Entreprise',
   /** ≤ ~120 car. — le layout ajoute « Laure Olivié, formatrice IA appliquée au bâtiment. » (meta SERP totale ≈ 155 car.) */
   description:
-    `Formation IA pour le BTP et formation IA appliquée au bâtiment en Île-de-France : ${IDF_ZONE_INTERVENTION}. Formation IA travaux publics, ChatGPT, Qualiopi, Constructys. ${formatProfessionalsTrainedCount()}+ pros formés.`,
+    `Formation IA pour le BTP et formation IA appliquée au bâtiment en Île-de-France : ${IDF_ZONE_INTERVENTION}. Formation IA travaux publics, ChatGPT, Qualiopi, Constructys. ${formatNoteSatisfactionAffichageComplet()}.`,
   url: SITE_URL_DEFAULT,
   linkedinProfileUrl: LINKEDIN_PROFILE_URL,
   email: SCHEMA_CONTACT.email,
@@ -142,8 +143,8 @@ export const SITE_CONFIG = {
     SITE_URL_DEFAULT,
     SCHEMA_GOOGLE_BUSINESS_PROFILE_URL,
   ],
-  /** Nombre de professionnels formés — valeur unique pour cohérence NAP / biographie */
-  statsPersonnesFormees: SCHEMA_STATS.personnesFormees,
+  /** Note satisfaction — indicateur 2 Qualiopi (source `lib/data/indicateurs-resultats.ts`). */
+  statsNoteSatisfaction: SCHEMA_STATS.noteSatisfaction,
 } as const;
 
 /** Indique si un numéro public est exposé (liens cliquables, JSON-LD telephone, etc.) */
@@ -366,8 +367,7 @@ export function getCourseSchema({
 export function getGlobalLayoutPersonJsonLd() {
   const base = SITE_CONFIG.url.replace(/\/$/, '');
   return {
-    '@context': 'https://schema.org',
-    ...buildPersonLaureSchemaNode({
+    '@context': 'https://schema.org', ...buildPersonLaureSchemaNode({
       personId: `${base}/#laure-olivie`,
       organizationId: `${base}/#organization`,
     }),
@@ -388,8 +388,7 @@ export function getOrganizationSchema() {
     description:
       "Organisme de formation : intelligence artificielle et ChatGPT pour le BTP, PME bâtiment et professionnels du secteur. Automatisation administrative, IA devis bâtiment, IA gestion chantier. Certifié Qualiopi.",
     url: SITE_CONFIG.url,
-    email: SITE_CONFIG.email,
-    ...(siteHasPublicPhone() ? { telephone: SITE_CONFIG.phone } : {}),
+    email: SITE_CONFIG.email, ...(siteHasPublicPhone() ? { telephone: SITE_CONFIG.phone } : {}),
     address: {
       '@type': 'PostalAddress',
       addressCountry: 'FR',
@@ -409,8 +408,7 @@ export function getOrganizationSchema() {
     contactPoint: [
       {
         '@type': 'ContactPoint',
-        contactType: 'customer service',
-        ...(siteHasPublicPhone() ? { telephone: SITE_CONFIG.phone } : {}),
+        contactType: 'customer service', ...(siteHasPublicPhone() ? { telephone: SITE_CONFIG.phone } : {}),
         email: SITE_CONFIG.email,
         availableLanguage: ['French'],
         areaServed: 'FR',
@@ -775,7 +773,7 @@ export function getPersonSchema() {
     image: `${SITE_CONFIG.url}/images/laure-olivie-formatrice-ia-btp-qualiopi.webp`,
     jobTitle: 'Formatrice IA spécialisée BTP',
     alternateName: ['Laure Olivié', 'Laure Olivie'],
-    description: `Formatrice IA spécialisée BTP depuis fin 2021, basée à Guyancourt (78). ${PROS_FORMES_TEXTE}. Note moyenne . 10 ans de terrain BTP (conductrice de travaux). Instructrice LinkedIn Learning. Certification Qualiopi. Réseau FFB Grand Paris, CSFE, UMB-FFB.`,
+    description: `Formatrice IA spécialisée BTP depuis fin 2021, basée à Guyancourt (78). ${formatNoteSatisfactionAffichageComplet()}. 10 ans de terrain BTP (conductrice de travaux). Instructrice LinkedIn Learning. Certification Qualiopi. Réseau FFB Grand Paris, CSFE, UMB-FFB.`,
     knowsAbout: [
       'Formation IA pour le BTP',
       'Formation ChatGPT entreprise BTP',
@@ -824,11 +822,9 @@ export function getPersonSchema() {
         '@id': `${SITE_CONFIG.url}/#organization`,
         name: SITE_CONFIG.legalName,
         url: SITE_CONFIG.url,
-      },
-      ...SCHEMA_PERSON_AFFILIATIONS.map((org) => ({
+      }, ...SCHEMA_PERSON_AFFILIATIONS.map((org) => ({
         '@type': 'Organization' as const,
-        name: org.name,
-        ...(org.url ? { url: org.url } : {}),
+        name: org.name, ...(org.url ? { url: org.url } : {}),
       })),
     ],
     alumniOf: {
@@ -838,18 +834,11 @@ export function getPersonSchema() {
     },
     award: [
       'Formatrice LinkedIn Learning 2024',
-      `${PROS_FORMES_TEXTE} (statistique officielle)`,
-      `Note moyenne `,
+      `Note moyenne ${formatNoteSatisfactionAffichageComplet()}`,
       '10 ans de terrain BTP · formatrice IA spécialisée BTP depuis fin 2021',
     ],
-    numberOfEmployees: {
-      '@type': 'QuantitativeValue',
-      value: SOCIAL_PROOF.PROFESSIONALS_TRAINED,
-      unitText: 'personnes formées',
-    },
     url: SITE_CONFIG.url,
-    email: SITE_CONFIG.email,
-    ...(siteHasPublicPhone() ? { telephone: SITE_CONFIG.phone } : {}),
+    email: SITE_CONFIG.email, ...(siteHasPublicPhone() ? { telephone: SITE_CONFIG.phone } : {}),
     sameAs: [
       SCHEMA_LINKEDIN_PROFILE_URL,
       SCHEMA_LINKEDIN_LEARNING_INSTRUCTOR_URL,

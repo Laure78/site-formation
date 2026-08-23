@@ -16,9 +16,10 @@ import {
 } from '@/lib/blog';
 import { SITE_CONFIG } from '@/lib/seo';
 import { getFAQSchema } from '@/lib/seo';
-import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
+import { SOCIAL_PROOF } from '@/lib/constants';
 import { BlogArticleCard } from '@/components/blog/BlogArticleCard';
 import { buildBlogListingJsonLd, getBlogIndexLastModifiedIso } from '@/lib/blog-index-schema';
+import { formatNoteSatisfactionSur5 , formatNoteSatisfactionAffichageComplet } from '@/lib/data/indicateurs-resultats'
 import { blogCategoryListingHref, blogIndexListingHref } from '@/lib/blog-index-urls';
 
 const STARTER_SLUGS = [
@@ -96,8 +97,7 @@ export function BlogIndexView({
             Guides pratiques sur l&apos;IA pour le BTP, le financement des formations et les gains de productivité.
           </p>
           <p className="mt-2 text-sm font-medium text-slate-700">
-            {allCount} articles · {formatProfessionalsTrainedCount()} professionnels
-            formés (OFC)
+            {allCount} articles · satisfaction {formatNoteSatisfactionAffichageComplet()} (OFC)
           </p>
 
           <nav

@@ -33,7 +33,8 @@ import {
   FormationCourseHero,
 } from '@/components/formations/FormationCourseHero';
 import { buildCatalogueCourseConduiteTravauxNiv03JsonLd } from '@/lib/schema-catalogue-course-jsonld';
-import { formatPersonnesFormeesCount, getStatsFreshnessLabel, siteStats } from '@/lib/constants';
+import { formatNoteSatisfactionSur5 , formatNoteSatisfactionAffichageComplet } from '@/lib/data/indicateurs-resultats'
+import { getStatsFreshnessLabel, siteStats } from '@/lib/constants';
 
 const PDF_HREF = LINKS.pdfProgrammeConduiteTravauxNiv03;
 const PDF_DOWNLOAD_NAME = 'Programme_IA_Conduite_Travaux_OFC.pdf';
@@ -350,7 +351,7 @@ export default function FormationIaConduiteTravauxSuiviChantierPage() {
             fiches méthode par module et un rendez-vous visio J+30 inclus.
           </p>
           <p className="mt-4 text-sm text-slate-700 leading-relaxed">
-            En {new Date().getFullYear()}, OFC a formé plus de {formatPersonnesFormeesCount()} professionnels
+            Satisfaction publiée : {formatNoteSatisfactionAffichageComplet()} — OFC
             ({getStatsFreshnessLabel()}).
           </p>
           <ul className="mt-4 space-y-2 text-sm text-slate-700">

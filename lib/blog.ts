@@ -16,12 +16,11 @@ import { blogArticlesClaudeBtp2026 } from '@/lib/blog-claude-btp-2026-articles';
 import { blogArticlesLsrAoModules } from '@/lib/blog-lsr-ao-modules-articles';
 import { blogArticleFormationIaCctpAnalyseDceBtp } from '@/lib/blog-formation-ia-cctp-pillar';
 import { blogArticleIaDevisBatimentChiffrageAutomatise } from '@/lib/blog-ia-devis-batiment-chiffrage-automatise';
-import { formatPersonnesFormeesCount } from '@/lib/constants';
 import {
   AO_DCE_CLUSTER_BLOG,
   clusterMaillageHtmlSection,
 } from '@/lib/ao-dce-cluster-links';
-import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
+import { SOCIAL_PROOF } from '@/lib/constants';
 import { formatTarifHt, TARIF_SESSION_FORFAIT_HT, libelleTarifSessionForfaitaire } from '@/lib/tarifs-sessions';
 import {
   getAllMdxBlogSlugs,
@@ -36,6 +35,8 @@ import {
   blogConsolidationRedirectsJuly2026,
   gscRedirects2026April,
 } from '@/lib/gsc-redirects-2026';
+import { formatNoteSatisfactionSur5 , formatNoteSatisfactionAffichageComplet } from '@/lib/data/indicateurs-resultats'
+import { formatProsFormesEtNoteQualiopi } from '@/lib/data/indicateurs-resultats-helpers';
 
 /** Prompt optimisé pour affichage dans les articles ressources */
 export interface ArticlePrompt {
@@ -232,9 +233,7 @@ export function getBlogCTAMidInsertAfterIndex(
 
 export const BLOG_ARTICLES: BlogArticle[] = [
   blogArticleIaDevisBatimentChiffrageAutomatise,
-  blogArticleFormationIaCctpAnalyseDceBtp,
-  ...blogArticlesClaudeBtp2026,
-  ...blogArticlesLsrAoModules,
+  blogArticleFormationIaCctpAnalyseDceBtp, ...blogArticlesClaudeBtp2026, ...blogArticlesLsrAoModules,
   // Avril 2026 — Brief chiffré adoption IA BTP (Plein Sens, Orisha, marchés)
   {
     slug: 'adoption-ia-btp-2026-chiffres-freins-leviers',
@@ -454,7 +453,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
       {
         type: 'cta',
         content:
-          `Vous voulez maîtriser ces techniques ? Découvrez ma formation IA pour les pros du BTP financement possible selon éligibilité — sessions de 4 h en pratique, prompts et relecture des devis inclus. +${formatProfessionalsTrainedCount()} professionnels formés, note .`,
+          `Vous voulez maîtriser ces techniques ? Découvrez ma formation IA pour les pros du BTP financement possible selon éligibilité — sessions de 4 h en pratique, prompts et relecture des devis inclus. +${formatProsFormesEtNoteQualiopi()}`,
         formationHref: '/formations',
       },
     ],
@@ -906,7 +905,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
     seoTitle: 'Formation IA bâtiment : guide pratique Qualiopi',
     title: 'Formation IA appliquée au bâtiment : guide complet 2026',
     description:
-      `${formatProfessionalsTrainedCount()} pros formés, note . Formation IA pour le BTP Qualiopi ; financement Constructys si éligible. Gagnez 3 à 5 h par semaine sur l’administratif.`,
+      `${formatProsFormesEtNoteQualiopi()} Formation IA pour le BTP Qualiopi ; financement Constructys si éligible. Gagnez 3 à 5 h par semaine sur l’administratif.`,
     date: '2026-03-17',
     keywords: [
       'formation IA pour les pros du BTP',
@@ -923,13 +922,13 @@ export const BLOG_ARTICLES: BlogArticle[] = [
         type: 'definition',
         title: 'En bref',
         content:
-          `La formation IA appliquée au bâtiment proposée par Laure Olivié (OFC Création d'Entreprise) permet aux dirigeants de TPE et PME du bâtiment et des travaux publics, ainsi qu'aux conducteurs de travaux et équipes support, d'intégrer ChatGPT et l'IA dans leurs tâches quotidiennes. ${formatProfessionalsTrainedCount()} professionnels formés, note . Certifiée Qualiopi, financement possible selon éligibilité (Constructys, OPCO). Basée à Guyancourt (78), sessions présentiel uniquement · Île-de-France uniquement.`,
+          `La formation IA appliquée au bâtiment proposée par Laure Olivié (OFC Création d'Entreprise) permet aux dirigeants de TPE et PME du bâtiment et des travaux publics, ainsi qu'aux conducteurs de travaux et équipes support, d'intégrer ChatGPT et l'IA dans leurs tâches quotidiennes. ${formatProsFormesEtNoteQualiopi()} Certifiée Qualiopi, financement possible selon éligibilité (Constructys, OPCO). Basée à Guyancourt (78), sessions présentiel uniquement · Île-de-France uniquement.`,
       },
       {
         type: 'paragraph',
         title: 'Qui est Laure Olivié ?',
         content:
-          `Laure Olivié est formatrice IA spécialisée BTP depuis 2022. Elle compte 10 ans de terrain BTP (conductrice de travaux). Basée à Guyancourt (Yvelines, 78), elle a formé ${formatProfessionalsTrainedCount()} professionnels du bâtiment. Son organisme OFC Création d'Entreprise est certifié Qualiopi (Certifopac n° 520911-1) · SIRET 905 244 281 00010. Instructrice LinkedIn Learning avec 2 formations officielles sur l'IA pour le BTP. Ses clients incluent FFB Grand Paris, FFB Île-de-France Est et Ouest, IFRB 78, CSFE.`,
+          `Laure Olivié est formatrice IA spécialisée BTP depuis 2022. Elle compte 10 ans de terrain BTP (conductrice de travaux). Basée à Guyancourt (Yvelines, 78), satisfaction publiée : ${formatNoteSatisfactionAffichageComplet()}. Son organisme OFC Création d'Entreprise est certifié Qualiopi (Certifopac n° 520911-1) · SIRET 905 244 281 00010. Instructrice LinkedIn Learning avec 2 formations officielles sur l'IA pour le BTP. Ses clients incluent FFB Grand Paris, FFB Île-de-France Est et Ouest, IFRB 78, CSFE.`,
       },
       {
         type: 'html',
@@ -981,13 +980,13 @@ export const BLOG_ARTICLES: BlogArticle[] = [
         content: [
           'Combien de temps faut-il pour maîtriser ChatGPT dans le BTP ? — Les sessions catalogue sont calibrées sur 4 heures (niveau débutant ou avancé selon le programme — forfait par session). Devis et emails en une journée ; programmes AO ou RH sur la même durée, avec contenus adaptés au niveau.',
           'Mes données BTP sont-elles sécurisées avec ChatGPT ? — Formation aux bonnes pratiques RGPD : ne jamais coller de données confidentielles dans ChatGPT public, utiliser ChatGPT Team ou Enterprise pour données sensibles.',
-          `Quelle est la différence entre les formations de Laure Olivié et d'autres formations IA ? — Spécialisation BTP : 10 ans de terrain BTP (conduite de chantier) · formatrice IA depuis 2022. Méthode 100% pratique sur vrais documents. ${formatProfessionalsTrainedCount()} formés, note . Certification Qualiopi.`,
+          `Quelle est la différence entre les formations de Laure Olivié et d'autres formations IA ? — Spécialisation BTP : 10 ans de terrain BTP (conduite de chantier) · formatrice IA depuis 2022. Méthode 100% pratique sur vrais documents. ${formatProsFormesEtNoteQualiopi()} Certification Qualiopi.`,
           'Comment financer une formation IA pour mon équipe BTP ? — Via votre OPCO (Constructys pour le BTP) dans le cadre du plan de développement des compétences, selon éligibilité et barèmes en vigueur. Contactez OFC Création d\'Entreprise pour cadrer votre dossier.',
         ],
       },
       {
         type: 'cta',
-        content: `Découvrez mes formations IA pour les pros du BTP certifiées Qualiopi. ${formatProfessionalsTrainedCount()} formés, note . Financement possible selon éligibilité.`,
+        content: `Découvrez mes formations IA pour les pros du BTP certifiées Qualiopi. ${formatProsFormesEtNoteQualiopi()} Financement possible selon éligibilité.`,
         formationHref: '/formations',
       },
     ],
@@ -1015,7 +1014,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
         type: 'definition',
         title: 'En bref',
         content:
-          `ChatGPT permet de générer un devis BTP complet en 2 à 5 minutes au lieu de 1 à 2 heures manuellement. Cette méthode est enseignée par Laure Olivié dans sa formation "L'IA au service du bâtiment" (${formatProfessionalsTrainedCount()} professionnels formés, note ). Applicable aux devis plomberie, électricité, maçonnerie, menuiserie, tous corps d'état.`,
+          `ChatGPT permet de générer un devis BTP complet en 2 à 5 minutes au lieu de 1 à 2 heures manuellement. Cette méthode est enseignée par Laure Olivié dans sa formation "L'IA au service du bâtiment" (${formatProsFormesEtNoteQualiopi()}. Applicable aux devis plomberie, électricité, maçonnerie, menuiserie, tous corps d'état.`,
       },
       {
         type: 'paragraph',
@@ -1078,7 +1077,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
       {
         type: 'html',
         title: 'Formation ChatGPT pour devis BTP : comment aller plus loin ?',
-        content: `<p class="text-slate-600 leading-relaxed">Laure Olivié forme les dirigeants et équipes du BTP à automatiser leurs devis avec ChatGPT. La <a href="${LINKS.formationIaBtpNiveau1BatimentTp}" class="text-[var(--accent)] font-medium underline">formation IA bâtiment &amp; travaux publics</a> (session 4 h), certifiée Qualiopi, financement possible selon éligibilité (Constructys, OPCO), reprend ces prompts sur vos documents. ${formatProfessionalsTrainedCount()} professionnels formés, note . Présentiel uniquement · Île-de-France uniquement. Le cas chronométré est détaillé dans <a href="${LINKS.blogDevisBtpChatgpt20Minutes}" class="text-[var(--accent)] font-medium underline">devis ChatGPT BTP en 20 minutes</a>. La formation inclut : création de prompts personnalisés pour votre métier et intégration dans votre workflow.</p>`,
+        content: `<p class="text-slate-600 leading-relaxed">Laure Olivié forme les dirigeants et équipes du BTP à automatiser leurs devis avec ChatGPT. La <a href="${LINKS.formationIaBtpNiveau1BatimentTp}" class="text-[var(--accent)] font-medium underline">formation IA bâtiment &amp; travaux publics</a> (session 4 h), certifiée Qualiopi, financement possible selon éligibilité (Constructys, OPCO), reprend ces prompts sur vos documents. ${formatProsFormesEtNoteQualiopi()} Présentiel uniquement · Île-de-France uniquement. Le cas chronométré est détaillé dans <a href="${LINKS.blogDevisBtpChatgpt20Minutes}" class="text-[var(--accent)] font-medium underline">devis ChatGPT BTP en 20 minutes</a>. La formation inclut : création de prompts personnalisés pour votre métier et intégration dans votre workflow.</p>`,
       },
       {
         type: 'faq',
@@ -1593,7 +1592,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
         type: 'html',
         title: 'À propos de l\'auteure',
         content:
-          `<p>Laure Olivié est formatrice IA &amp; ChatGPT spécialisée BTP. Elle a formé plus de ${formatPersonnesFormeesCount()} professionnels du bâtiment (FFB, Lefebvre Dalloz, CNAM). Certifiée Qualiopi, ses formations sont éligibles à un financement selon dossier (Constructys).</p>`,
+          `<p>Laure Olivié est formatrice IA &amp; ChatGPT spécialisée BTP. Références : FFB, Lefebvre Dalloz, CNAM. Satisfaction publiée : ${formatNoteSatisfactionAffichageComplet()}. Certifiée Qualiopi, ses formations sont éligibles à un financement selon dossier (Constructys).</p>`,
       },
       {
         type: 'cta',
@@ -1791,7 +1790,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
         type: 'paragraph',
         title: 'Se former à l’analyse de CCTP avec l’IA',
         content:
-          `OFC Création d'Entreprise propose une formation IA pour le BTP de 4 heures, certifiée Qualiopi, avec un module appels d'offres et analyse de DCE : méthode en cinq étapes sur vos documents, prompts personnalisés selon votre corps de métier, confidentialité et choix d'outil. Sessions en présentiel en Île-de-France ; formations intra dans vos locaux sur devis. Partenaires et références : FFB Grand Paris, FFB Île-de-France (78, 91, 95), FFB Île-de-France Est, CSFE, CNAM Entreprise. Plus de ${formatProfessionalsTrainedCount()} professionnels formés, note .`,
+          `OFC Création d'Entreprise propose une formation IA pour le BTP de 4 heures, certifiée Qualiopi, avec un module appels d'offres et analyse de DCE : méthode en cinq étapes sur vos documents, prompts personnalisés selon votre corps de métier, confidentialité et choix d'outil. Sessions en présentiel en Île-de-France ; formations intra dans vos locaux sur devis. Partenaires et références : FFB Grand Paris, FFB Île-de-France (78, 91, 95), FFB Île-de-France Est, CSFE, CNAM Entreprise. ${formatProsFormesEtNoteQualiopi()}`,
       },
       {
         type: 'html',
@@ -1976,11 +1975,7 @@ function loadGeneratedArticles(): BlogArticle[] {
         date: a.date,
         keywords: a.keywords ?? [],
         sections: a.sections ?? [],
-        relatedSlugs: a.relatedSlugs ?? [],
-        ...(a.seoTitle ? { seoTitle: a.seoTitle } : {}),
-        ...(a.dateModified ? { dateModified: a.dateModified } : {}),
-        ...(a.faq?.length ? { faq: a.faq } : {}),
-        ...(a.coverImage ? { coverImage: a.coverImage } : {}),
+        relatedSlugs: a.relatedSlugs ?? [], ...(a.seoTitle ? { seoTitle: a.seoTitle } : {}), ...(a.dateModified ? { dateModified: a.dateModified } : {}), ...(a.faq?.length ? { faq: a.faq } : {}), ...(a.coverImage ? { coverImage: a.coverImage } : {}),
       };
     });
   } catch {

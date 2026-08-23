@@ -23,7 +23,7 @@ import { LaureOlivieFormationPortrait } from '@/components/laure-olivie/LaureOli
 import { MetierIdfPresentielLine } from '@/components/formation-ia-metier/MetierIdfPresentielLine';
 import { createMetierBtpPageMetadata } from '@/lib/formation-ia-metier-idf';
 import { DisclaimerGains } from '@/components/formation/DisclaimerGains';
-import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
+import { SOCIAL_PROOF } from '@/lib/constants';
 import {
   FORMATION_IA_RESPONSABLE_ADMINISTRATIF_BTP_PATH,
   FORMATION_IA_RESPONSABLE_ADMINISTRATIF_BTP_SEO,
@@ -117,7 +117,7 @@ export default function FormationIaResponsableAdministratifBtpPage() {
           </p>
 
           <p className="mt-4 text-sm text-slate-600">
-            Déjà {formatProfessionalsTrainedCount(SOCIAL_PROOF.PROFESSIONALS_TRAINED)}+ professionnels formés — sessions avec la FFB Île-de-France et partenaires BTP.
+            Organisme certifié Qualiopi — sessions avec la FFB Île-de-France et partenaires BTP.
           </p>
 
           <div className="mt-8">

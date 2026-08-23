@@ -1,6 +1,7 @@
 import { ClipboardList, FileSearch, Radar, Users } from 'lucide-react';
 import { PillarStatGrid } from '@/components/pillar/PillarStatGrid';
-import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
+import { formatNoteSatisfactionSur5 } from '@/lib/data/indicateurs-resultats';
+import { SOCIAL_PROOF } from '@/lib/constants';
 
 const STATS = [
   {
@@ -19,7 +20,7 @@ const STATS = [
     Icon: Radar,
   },
   {
-    label: 'Pros formés',
+    label: 'Satisfaction (Qualiopi)',
     value: null as string | null,
     Icon: Users,
   },
@@ -37,7 +38,7 @@ export function ClaudeBtpStatsSection() {
         Icon: row.Icon,
         value:
           row.value === null ? (
-            <span className="text-[#0F172A]">{formatProfessionalsTrainedCount()}</span>
+            <span className="text-[#0F172A]">{formatNoteSatisfactionSur5()}</span>
           ) : (
             row.value
           ),
@@ -45,8 +46,7 @@ export function ClaudeBtpStatsSection() {
       footnote={
         <>
           Source : mesures OFC sur 8 tâches, sessions FFB Grand Paris, FFB Île-de-France, CSFE —{' '}
-          {formatProfessionalsTrainedCount()} professionnels formés.
-        </>
+          </>
       }
     />
   );

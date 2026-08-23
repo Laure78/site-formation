@@ -4,7 +4,7 @@ import { Check, Users, HardHat, Building2 } from 'lucide-react';
 import { JsonLd } from '@/components/JsonLd';
 import { SkillIaLeadMagnetForm } from '@/components/ressources/SkillIaLeadMagnetForm';
 import { createPageMetadata, getFAQSchema, SITE_CONFIG } from '@/lib/seo';
-import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
+import { SOCIAL_PROOF } from '@/lib/constants';
 import { buildSiteCalendlyCtaUrl } from '@/lib/calendly';
 import { LINKS } from '@/lib/internal-links';
 import { RdvLink } from '@/components/RdvLink';
@@ -12,6 +12,7 @@ import { PHOTOS } from '@/lib/photos';
 import { SCHEMA_LINKEDIN_PROFILE_URL } from '@/lib/schema-constants';
 import { MaillageRessourceFromConfig } from '@/app/components/MaillageRessource';
 import { getMaillageRessourceConfig } from '@/lib/maillage-ressources';
+import { formatNoteSatisfactionSur5 , formatNoteSatisfactionAffichageComplet } from '@/lib/data/indicateurs-resultats'
 import { buildGuideConducteurTravauxImageObjectJsonLd } from '@/lib/schema-image-objects';
 
 const PATH = '/ressources/guide-conducteur-de-travaux';
@@ -265,7 +266,7 @@ export default function SkillIaConducteurTravauxPage() {
               'Listez les informations à fournir à chaque lancement.',
               'Décrivez le rôle métier de l’IA en 2 lignes.',
               'Écrivez les instructions pas à pas (numérotées).',
-              'Précisez le format final (mail, .docx, tableau).',
+              'Précisez le format final (mail.docx, tableau).',
               'Testez sur 3 cas réels puis corrigez.',
               'Documentez le déclencheur et partagez-le à l’équipe.',
             ].map((step, idx) => (
@@ -430,7 +431,7 @@ Signature : [NOM] — [TITRE] — [ENTREPRISE]
               la FFB, le CNAM et de nombreuses PME du bâtiment en Île-de-France.
             </p>
             <p className="mt-3 font-semibold text-slate-900">
-              +{formatProfessionalsTrainedCount()} personnes formées · Qualiopi ·
+              {formatNoteSatisfactionAffichageComplet()} · Qualiopi ·
               Constructys
             </p>
             <p className="mt-4 text-sm font-medium text-slate-600">

@@ -1,6 +1,5 @@
 import type { ReactNode } from 'react';
-import { COUNT_UP_PROS_PLUS_SUFFIX } from '@/lib/readability-presets';
-import { CountUp } from '@/components/motion/CountUp';
+import { formatNoteSatisfactionSur5 } from '@/lib/data/indicateurs-resultats';
 import { IndicateursResultatsLink } from '@/components/formation/IndicateursResultatsLink';
 
 type ProofStatsProps = {
@@ -18,14 +17,14 @@ type StatItem = {
 
 const STATS_BASE: StatItem[] = [
   {
-    value: <CountUp {...COUNT_UP_PROS_PLUS_SUFFIX} className="tabular-nums" />,
-    label: 'Pros formés depuis 2021',
+    value: formatNoteSatisfactionSur5(),
+    label: 'Satisfaction (Qualiopi)',
   },
   { value: 'OPCO', label: 'Financement possible' },
 ];
 
 /**
- * Bloc preuve sociale compact — formés / note / OPCO (source `PREUVES`).
+ * Bloc preuve sociale compact — satisfaction / OPCO (source `PREUVES`).
  */
 export function ProofStats({
   className = '',

@@ -1,6 +1,6 @@
 import { PillarConversionCta } from '@/components/pillar/PillarConversionCta';
 import { calendlyClaudeBtpGuideUrl } from '@/lib/calendly';
-import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
+import { SOCIAL_PROOF } from '@/lib/constants';
 import { LINKS } from '@/lib/internal-links';
 
 /**
@@ -21,7 +21,7 @@ export function ClaudeBtpConversionCta() {
         "Jusqu'à 24 € HT/h/stagiaire (plafonds Constructys)",
         'Entreprises < 11 sal. : prise en charge salaires (15 € HT/h)',
       ]}
-      footnote={`FFB Grand Paris, FFB IDF, CSFE, CNAM, Lefebvre Dalloz · +${formatProfessionalsTrainedCount()} formés · `}
+      footnote={`FFB Grand Paris, FFB IDF, CSFE, CNAM, Lefebvre Dalloz · +$· `}
       primaryCta={{ href: calendlyClaudeBtpGuideUrl('bottom-cta'), label: 'Prendre rendez-vous' }}
       secondaryCta={{ href: LINKS.contact, label: 'Contact formation IA appliquée au bâtiment', external: false }}
     />

@@ -13,7 +13,6 @@ import { ExternalLinkAnchor } from '@/components/ExternalLink';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
 import { JsonLd } from '@/components/JsonLd';
 import { createPageMetadata } from '@/lib/seo';
-import { formatPersonnesFormeesCount } from '@/lib/constants';
 import { FAQ_FINANCEMENT_IA_BTP } from '@/lib/faq';
 import { EXTERNAL_SITE_URLS } from '@/lib/external-site-urls';
 import { LINKS } from '@/lib/internal-links';

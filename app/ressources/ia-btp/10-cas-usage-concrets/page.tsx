@@ -20,8 +20,8 @@ import {
   getFAQSchema,
   SITE_CONFIG,
 } from '@/lib/seo';
-import { formatProfessionalsTrainedCount } from '@/lib/constants';
 import { GAINS_TEMPS_MENTION_PRUDENCE } from '@/lib/gains-temps-copy';
+import { formatNoteSatisfactionAffichageComplet } from '@/lib/data/indicateurs-resultats';
 import { JsonLd } from '@/components/JsonLd';
 
 export const metadata = createPageMetadata({
@@ -277,7 +277,7 @@ export default function CasUsageIABTPPage() {
             par manque de temps ou par méconnaissance des usages concrets.
           </p>
           <p className="text-slate-700">
-            {`Ce guide présente 10 cas d'usage opérationnels, testés et approuvés par +${formatProfessionalsTrainedCount()} professionnels du BTP formés depuis 2023. Chaque cas inclut un exemple réel, le gain de temps mesuré, et les secteurs concernés.`}
+            {`Ce guide présente 10 cas d'usage opérationnels testés en formation BTP depuis 2023. Chaque cas inclut un exemple réel, le gain de temps mesuré et les secteurs concernés. Satisfaction publiée : ${formatNoteSatisfactionAffichageComplet()}.`}
           </p>
         </div>
       </section>

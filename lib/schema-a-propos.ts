@@ -3,7 +3,7 @@
  * (évite les doublons avec les scripts globaux du layout)
  */
 import { PHOTOS } from '@/lib/photos';
-import { formatProfessionalsTrainedCount, SOCIAL_PROOF } from '@/lib/constants';
+import { SOCIAL_PROOF } from '@/lib/constants';
 import { getLaureOlivieSchemaPersonDescription } from '@/lib/laure-olivie-profile';
 import {
   SCHEMA_CONTACT,
@@ -26,7 +26,7 @@ export function getAProposLocalBusinessJsonLd(): Record<string, unknown> {
     url: BASE,
     logo: `${BASE}/logo-lo.svg`,
     image: `${BASE}${PHOTOS.aProposHero2026.src}`,
-    description: `Organisme de formation certifié Qualiopi spécialisé en intelligence artificielle pour les entreprises du bâtiment et des travaux publics. Formation IA appliquée au bâtiment — financement possible selon éligibilité. +${formatProfessionalsTrainedCount()} professionnels formés. Note .`,
+    description: `Organisme de formation certifié Qualiopi spécialisé en intelligence artificielle pour les entreprises du bâtiment et des travaux publics. Formation IA appliquée au bâtiment — financement possible selon éligibilité. +$`,
     email: SCHEMA_CONTACT.email,
     address: {
       '@type': 'PostalAddress',

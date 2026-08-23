@@ -1,7 +1,7 @@
 import { Award, Star, Users } from 'lucide-react';
 import { PillarPageHero } from '@/components/pillar/PillarPageHero';
 import { calendlyClaudeBtpGuideUrl } from '@/lib/calendly';
-import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
+import { SOCIAL_PROOF } from '@/lib/constants';
 import { CLAUDE_AI_BTP_WORD_COUNT } from '@/lib/claude-ai-btp-jsonld';
 import { LINKS } from '@/lib/internal-links';
 import { PHOTOS } from '@/lib/photos';
@@ -58,8 +58,7 @@ export function ClaudeAiBtpHero() {
           </span>
           <span className="inline-flex items-center gap-1.5">
             <Users className="h-3.5 w-3.5 shrink-0" strokeWidth={2} aria-hidden />+
-            {formatProfessionalsTrainedCount()} formés
-          </span>
+            </span>
         </>
       }
       bottomNote="Claude AI · BTP — interfaces, prompts et méthode terrain OFC"

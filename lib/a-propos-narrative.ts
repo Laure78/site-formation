@@ -2,7 +2,8 @@
  * Portrait narratif long — page /a-propos (GEO / E-E-A-T).
  * Faits alignés sur le reste du site (Qualiopi, OFC, chiffres, partenaires).
  */
-import { formatPersonnesFormeesCount, getStatsFreshnessLabel, siteStats } from '@/lib/constants';
+import { getStatsFreshnessLabel } from '@/lib/constants';
+import { formatNoteSatisfactionAffichageComplet } from '@/lib/data/indicateurs-resultats';
 
 const statsFreshness = getStatsFreshnessLabel();
 
@@ -19,7 +20,7 @@ export const A_PROPOS_NARRATIVE_PARAGRAPHS: readonly string[] = [
 
   `Ma méthode est volontairement terrain : environ 70 % de pratique sur documents réels, des prompts calibrés « vocabulaire BTP », et un accompagnement après session pour éviter que l’outil ne retombe en désuétude. Je ne promets pas de chiffres magiques : je mets en scène des gains de temps réalistes — structuration, relecture, brouillons — avec validation humaine sur tout ce qui engage la responsabilité de l’entreprise (prix, sécurité, engagements contractuels).`,
 
-  `Les chiffres que je publie sont consolidés : ${formatPersonnesFormeesCount()} participants accompagnés via OFC (${statsFreshness}) et une note de satisfaction moyenne de  sur les questionnaires de fin de formation — pas pour « faire joli », mais parce que c’est la même métrique que j’utilise en interne pour ajuster les contenus. Pour la suite, l’objectif reste le même : que l’IA soit un levier de clarté et de rapidité pour celles et ceux qui construisent la ville et les infrastructures — pas une couche de complexité supplémentaire. Si vous êtes une structure du BTP en Île-de-France ou une direction qui prépare un plan de formation, vous trouverez sur ce site le catalogue, le financement Constructys et des ressources pour cadrer votre projet — avec la même exigence de sincérité que sur le terrain.`,
+  `Les indicateurs que je publie sont consolidés (${statsFreshness}) : ${formatNoteSatisfactionAffichageComplet()} sur les questionnaires de fin de formation — pas pour « faire joli », mais parce que c’est la même métrique que j’utilise en interne pour ajuster les contenus. Pour la suite, l’objectif reste le même : que l’IA soit un levier de clarté et de rapidité pour celles et ceux qui construisent la ville et les infrastructures. Si vous préparez un plan de formation en Île-de-France, vous trouverez sur ce site le catalogue, le financement Constructys et des ressources pour cadrer votre projet.`,
 
   `— Laure Olivié`,
 ];

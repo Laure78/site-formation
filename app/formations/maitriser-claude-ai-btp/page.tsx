@@ -34,7 +34,8 @@ import {
   FormationCourseHero,
 } from '@/components/formations/FormationCourseHero';
 import { buildCatalogueCourseMaitriserClaudeNiv04JsonLd } from '@/lib/schema-catalogue-course-jsonld';
-import { formatPersonnesFormeesCount, getStatsFreshnessLabel } from '@/lib/constants';
+import { getStatsFreshnessLabel } from '@/lib/constants';
+import { formatNoteSatisfactionSur5 , formatNoteSatisfactionAffichageComplet } from '@/lib/data/indicateurs-resultats'
 import { IndicateursResultatsLink } from '@/components/formation/IndicateursResultatsLink';
 
 const FORMATION = getFormationByCode('NIV-04')!;
@@ -340,7 +341,7 @@ export default function FormationMaitriserClaudeAiBtpPage() {
             d&apos;action individuel à 30 jours.
           </p>
           <p className="mt-4 text-sm text-slate-700 leading-relaxed">
-            En {new Date().getFullYear()}, OFC a formé plus de {formatPersonnesFormeesCount()} professionnels
+            Satisfaction publiée : {formatNoteSatisfactionAffichageComplet()} — OFC
             ({getStatsFreshnessLabel()}).
           </p>
           <IndicateursResultatsLink className="mt-2 text-left" />

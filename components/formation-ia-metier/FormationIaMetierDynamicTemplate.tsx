@@ -3,7 +3,7 @@ import { JsonLd } from '@/components/JsonLd';
 import { ProfilePhoto } from '@/components/landing/ProfilePhoto';
 import { getCourseSchema, getFAQSchema, SITE_CONFIG } from '@/lib/seo';
 import { LINKS } from '@/lib/internal-links';
-import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
+import { SOCIAL_PROOF } from '@/lib/constants';
 import type { FormationIaMetierDynamicConfig } from '@/lib/formation-ia-metier-dynamic-types';
 import { MetierIdfPresentielLine } from '@/components/formation-ia-metier/MetierIdfPresentielLine';
 import { LiensConnexes } from '@/components/LiensConnexes';
@@ -57,8 +57,7 @@ export function FormationIaMetierDynamicTemplate({
           <p className="mt-6 text-lg leading-relaxed text-slate-600">
             Sessions en présentiel en Île-de-France — {config.heroIntro}{' '}
             <strong className="font-semibold text-slate-800">
-              Plus de {formatProfessionalsTrainedCount()} professionnels formés
-            </strong>{' '}
+              </strong>{' '}
             · organisme certifié Qualiopi ({SITE_CONFIG.legalName}).
           </p>
           <SectionCtaVisio className="mt-10" />

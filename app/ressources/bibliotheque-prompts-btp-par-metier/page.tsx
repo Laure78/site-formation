@@ -2,10 +2,11 @@ import { CtaButton } from '@/components/CtaButton';
 import { Download, Calendar, Check, FileSpreadsheet } from 'lucide-react';
 import { JsonLd } from '@/components/JsonLd';
 import { MaillageRessourceFromConfig } from '@/app/components/MaillageRessource';
-import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
+import { SOCIAL_PROOF } from '@/lib/constants';
 import { LINKS } from '@/lib/internal-links';
 import { getMaillageRessourceConfig } from '@/lib/maillage-ressources';
 import { buildMetadata, getFAQSchema, SITE_CONFIG } from '@/lib/seo';
+import { formatProsFormesEtNoteQualiopi } from '@/lib/data/indicateurs-resultats-helpers';
 
 const PATH = LINKS.bibliothequePromptsBtpParMetier;
 const FILE_HREF = LINKS.xlsxBibliothequePromptsBtpParMetier;
@@ -71,7 +72,7 @@ const FAQ = [
   },
   {
     q: 'Comment passer de l’Excel à la pratique en entreprise ?',
-    a: `Laure Olivié (OFC Création d’Entreprise) anime des sessions de formation IA pour le BTP en présentiel Île-de-France, dispensées par un organisme certifié Qualiopi, finançables Constructys selon éligibilité. ${formatProfessionalsTrainedCount()} pros formés, note .`,
+    a: `Laure Olivié (OFC Création d’Entreprise) anime des sessions de formation IA pour le BTP en présentiel Île-de-France, dispensées par un organisme certifié Qualiopi, finançables Constructys selon éligibilité. ${formatProsFormesEtNoteQualiopi()}`,
   },
 ] as const;
 

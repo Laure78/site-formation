@@ -5,7 +5,8 @@
 import type { FAQItem } from '@/lib/faq';
 import { IDF_ZONE_INTERVENTION } from '@/lib/constants';
 import { LINKS } from '@/lib/internal-links';
-import { PROOF, formatProofFormes } from '@/lib/proof';
+import { PROOF } from '@/lib/proof';
+import { formatNoteSatisfactionAffichageComplet } from '@/lib/data/indicateurs-resultats';
 
 export const FORMATION_IA_GROS_OEUVRE_BTP_PATH = '/formation-ia-gros-oeuvre-btp' as const;
 
@@ -116,7 +117,7 @@ export const GROS_OEUVRE_INTERNAL_LINKS = [
 
 export const GROS_OEUVRE_COURSE = {
   name: 'Formation IA gros œuvre BTP — devis, DCE et suivi de chantier',
-  description: `${OFC} : formation IA et ChatGPT pour le gros œuvre — devis, DCE, CCTP lot 2, planning et CR de chantier. Session 4 h, Qualiopi, présentiel Île-de-France, financement possible selon éligibilité. Déjà ${formatProofFormes(PROOF.formes)} professionnels formés · note .`,
+  description: `${OFC} : formation IA et ChatGPT pour le gros œuvre — devis, DCE, CCTP lot 2, planning et CR de chantier. Session 4 h, Qualiopi, présentiel Île-de-France, financement possible selon éligibilité. Déjà $· ${formatNoteSatisfactionAffichageComplet()}`,
   teaches: [
     'ChatGPT pour entreprises de gros œuvre',
     'Devis et structure de postes (sans chiffrage définitif)',

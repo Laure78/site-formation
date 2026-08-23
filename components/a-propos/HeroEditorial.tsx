@@ -3,8 +3,8 @@ import Link from 'next/link';
 import { PHOTOS } from '@/lib/photos';
 import { IMAGE_SIZES } from '@/lib/image-props';
 import { StatCallout } from '@/components/readability/StatCallout';
+import { formatNoteSatisfactionSur5 } from '@/lib/data/indicateurs-resultats';
 import { IndicateursResultatsLink } from '@/components/formation/IndicateursResultatsLink';
-import { formatProfessionalsTrainedCount } from '@/lib/constants';
 
 type Props = {
   lead: string;
@@ -34,8 +34,8 @@ export function HeroEditorial({ lead, qualiopiText, catalogueHref, calendlyHeroH
           <div className="mt-6 flex flex-wrap gap-3">
             <StatCallout
               variant="inline"
-              value={formatProfessionalsTrainedCount()}
-              label="professionnels formés"
+              value={formatNoteSatisfactionSur5()}
+              label="Satisfaction (Qualiopi)"
             />
           </div>
           <IndicateursResultatsLink className="mt-3 text-left" />

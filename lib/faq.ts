@@ -13,7 +13,7 @@ import {
   MENTIONS_TVA_REGIMES_COURT,
 } from '@/lib/tarifs-sessions';
 import { CATALOGUE_FORMATIONS_COUNT } from '@/lib/formations-catalogue-display';
-import { SOCIAL_PROOF, formatProfessionalsTrainedCount, IDF_ZONE_INTERVENTION } from '@/lib/constants';
+import { SOCIAL_PROOF, IDF_ZONE_INTERVENTION } from '@/lib/constants';
 import { getLaureOlivieSchemaPersonDescription } from '@/lib/laure-olivie-profile';
 import { LINKS } from '@/lib/internal-links';
 import {
@@ -23,6 +23,8 @@ import {
   FINANCEMENT_PAGE_LINK_LABEL,
   FINANCEMENT_FAQ_PARTIELLE_CORPS,
 } from '@/lib/financement-copy';
+import { formatProsFormesEtNoteQualiopi } from '@/lib/data/indicateurs-resultats-helpers';
+import { formatNoteSatisfactionAffichageComplet } from '@/lib/data/indicateurs-resultats';
 
 export type FAQItem = { q: string; a: string };
 
@@ -203,15 +205,15 @@ export const FAQ_GEO: FAQItem[] = [
   },
   {
     q: "Combien de temps pour automatiser des devis BTP avec l'IA ?",
-    a: `Avec ChatGPT : génération d'un devis BTP en 2-5 minutes (vs 1-2h manuellement). ROI immédiat : 3 à 5h gagnées par semaine. Formation 4h suffit pour maîtriser les bases. ${formatProfessionalsTrainedCount()} professionnels formés. Méthode enseignée par Laure Olivié (note ) — page <a href="/ia-devis-batiment">IA devis bâtiment</a>.`,
+    a: `Avec ChatGPT : génération d'un devis BTP en 2-5 minutes (vs 1-2h manuellement). ROI immédiat : 3 à 5h gagnées par semaine. Formation 4h suffit pour maîtriser les bases. $Méthode enseignée par Laure Olivié (${formatNoteSatisfactionAffichageComplet()}) — page <a href="/ia-devis-batiment">IA devis bâtiment</a>.`,
   },
   {
     q: "Quels résultats avec une formation IA pour les pros du BTP ?",
-    a: `Après formation IA appliquée au bâtiment : devis structurés sans page blanche, CR chantier plus réguliers, emails et relances plus fluides. ${formatProfessionalsTrainedCount()} professionnels formés, note . Gains variables selon l'organisation, les outils en place et le niveau de pratique.`,
+    a: `Après formation IA appliquée au bâtiment : devis structurés sans page blanche, CR chantier plus réguliers, emails et relances plus fluides. ${formatProsFormesEtNoteQualiopi()} Gains variables selon l'organisation, les outils en place et le niveau de pratique.`,
   },
   {
     q: "Formation IA appels d'offres BTP : quel programme ?",
-    a: `Formation <a href="/formations/ia-appels-offre-btp">IA appels d'offres BTP</a> (session 4 h, niveau avancé) : assistants IA DCE et mémoire technique avec Claude AI Pro, Cowork & Skills. Public : responsables d'affaires, conducteurs de travaux, chargés d'études, bureaux d'études. ${FINANCEMENT_FORMULATION_COURTE} Formatrice : Laure Olivié (${formatProfessionalsTrainedCount()} formés, note ). Programme certifié Qualiopi.`,
+    a: `Formation <a href="/formations/ia-appels-offre-btp">IA appels d'offres BTP</a> (session 4 h, niveau avancé) : assistants IA DCE et mémoire technique avec Claude AI Pro, Cowork & Skills. Public : responsables d'affaires, conducteurs de travaux, chargés d'études, bureaux d'études. ${FINANCEMENT_FORMULATION_COURTE} Formatrice : Laure Olivié (${formatProsFormesEtNoteQualiopi()}). Programme certifié Qualiopi.`,
   },
 ];
 
@@ -248,8 +250,7 @@ export const FAQ_FORMATIONS: FAQItem[] = [
   {
     q: 'Les formations sont-elles disponibles en inter ou en intra ?',
     a: `Inter ou intra : ${MODALITE_FORMATIONS_STANDARD} En inter ou en intra : ${IDF_ZONE_INTERVENTION}. Format : 4 heures, ${EFFECTIF_GROUPE_MAX} participants maximum, supports inclus. Vue d&apos;ensemble : <a href="${LINKS.formationIleDeFrance}">formation IA pour le BTP en Île-de-France</a>.`,
-  },
-  ...FAQ_IA_BTP_METIERS_CHANTIER_SEO,
+  }, ...FAQ_IA_BTP_METIERS_CHANTIER_SEO,
 ];
 
 export const FAQ_TARIFS: FAQItem[] = [
@@ -712,7 +713,7 @@ export const FAQ_CHECKLIST_IA_BTP: FAQItem[] = [
 export const FAQ_CHECKLIST_PROMPTS: FAQItem[] = [
   {
     q: "Comment personnaliser ces prompts ChatGPT ?",
-    a: 'Remplacez les parties entre crochets : [VOTRE MÉTIER], [NOM], [DÉCRIRE LA SITUATION]... Adaptez le ton et les détails à votre activité — ressources sur le <a href="/blog">blog IA BTP</a>.',
+    a: 'Remplacez les parties entre crochets : [VOTRE MÉTIER], [NOM], [DÉCRIRE LA SITUATION], ... Adaptez le ton et les détails à votre activité — ressources sur le <a href="/blog">blog IA BTP</a>.',
   },
   {
     q: "Ces prompts fonctionnent-ils avec d'autres outils IA ?",

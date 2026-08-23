@@ -1,9 +1,7 @@
 /**
  * Mots-clés SEO + ancrage GEO Île-de-France — source unique (pages, meta, alt images, vidéo).
  */
-import { formatProfessionalsTrainedCount, siteStats } from '@/lib/constants';
 import { deptLocatif, getDeptGrammar } from '@/lib/formation-ia-btp-dept-grammar';
-import { formatProofFormes } from '@/lib/proof';
 
 export const SEO_KW_FORMATION_IA_BTP = 'formation IA pour le BTP' as const;
 export const SEO_KW_FORMATION_IA_BATIMENT = 'formation IA appliquée au bâtiment' as const;
@@ -151,18 +149,16 @@ export function buildPromoVideoSectionHeading(): string {
   return 'La formation IA BTP en 2 minutes';
 }
 
-const N = formatProofFormes();
-
 /** Meta descriptions départements IDF — une par code, 150–160 car., finales (sans clamp). */
 export const FORMATION_IA_BTP_DEPT_META_BY_CODE: Record<string, string> = {
-  '75': `Formation IA pour le BTP à Paris : devis, DCE et comptes rendus sur vos documents. Présentiel intra, Qualiopi. ${N} pros formés. Visio découverte.`,
-  '77': `Formation IA pour le BTP en Seine-et-Marne (77) : devis, DCE et CR. Présentiel, Qualiopi, Constructys selon éligibilité. ${N} pros formés. Visio découverte.`,
-  '78': `Formation IA pour le BTP dans les Yvelines (78) : devis, DCE et CR. Présentiel, Qualiopi, Constructys selon éligibilité. ${N} pros formés. Visio découverte.`,
-  '91': `Formation IA pour le BTP en Essonne (91) : devis, DCE et CR. Présentiel, Qualiopi, Constructys selon éligibilité. ${N} pros formés. Visio découverte.`,
-  '92': `Formation IA pour le BTP dans les Hauts-de-Seine (92) : devis, DCE et CR sur vos documents réels. Présentiel, Qualiopi. ${N} pros formés. Visio découverte.`,
-  '93': `Formation IA pour le BTP en Seine-Saint-Denis (93) : devis, DCE et CR sur vos documents réels. Présentiel, Qualiopi. ${N} pros formés. Visio découverte.`,
-  '94': `Formation IA pour le BTP dans le Val-de-Marne (94) : devis, DCE et CR sur vos documents réels. Présentiel, Qualiopi. ${N} pros formés. Visio découverte.`,
-  '95': `Formation IA pour le BTP dans le Val-d'Oise (95) : devis, DCE et CR. Présentiel, Qualiopi, Constructys selon éligibilité. ${N} pros formés. Visio découverte.`,
+  '75': `Formation IA pour le BTP à Paris : devis, DCE et comptes rendus sur vos documents. Présentiel intra, Qualiopi. Visio découverte.`,
+  '77': `Formation IA pour le BTP en Seine-et-Marne (77) : devis, DCE et CR. Présentiel, Qualiopi, Constructys selon éligibilité. Visio découverte.`,
+  '78': `Formation IA pour le BTP dans les Yvelines (78) : devis, DCE et CR. Présentiel, Qualiopi, Constructys selon éligibilité. Visio découverte.`,
+  '91': `Formation IA pour le BTP en Essonne (91) : devis, DCE et CR. Présentiel, Qualiopi, Constructys selon éligibilité. Visio découverte.`,
+  '92': `Formation IA pour le BTP dans les Hauts-de-Seine (92) : devis, DCE et CR sur vos documents réels. Présentiel, Qualiopi. Visio découverte.`,
+  '93': `Formation IA pour le BTP en Seine-Saint-Denis (93) : devis, DCE et CR sur vos documents réels. Présentiel, Qualiopi. Visio découverte.`,
+  '94': `Formation IA pour le BTP dans le Val-de-Marne (94) : devis, DCE et CR sur vos documents réels. Présentiel, Qualiopi. Visio découverte.`,
+  '95': `Formation IA pour le BTP dans le Val-d'Oise (95) : devis, DCE et CR. Présentiel, Qualiopi, Constructys selon éligibilité. Visio découverte.`,
 };
 export function buildIdfDeptMetaDescription(
   departementNom: string,
@@ -172,7 +168,7 @@ export function buildIdfDeptMetaDescription(
   const curated = FORMATION_IA_BTP_DEPT_META_BY_CODE[deptCode];
   if (curated) return curated;
   const locatif = deptLocatif(getDeptGrammar(deptCode, departementNom));
-  return `Formation IA BTP ${locatif} (${deptCode}) : présentiel intra sur vos documents réels. Qualiopi, Constructys. ${formatProfessionalsTrainedCount(siteStats.personnesFormees)}+ pros formés.`;
+  return `Formation IA BTP ${locatif} (${deptCode}) : présentiel intra sur vos documents réels. Qualiopi, Constructys.`;
 }
 
 /** Segment title (≤ budget segment) — suffixe « | Laure Olivié » ajouté par buildMetadata. */
@@ -185,5 +181,5 @@ export function buildIdfDeptPageTitle(departementNom: string, deptCode: string):
 }
 
 export function buildIdfRegionalMetaDescription(): string {
-  return `Formation IA BTP en présentiel dans toute l'Île-de-France : devis, DCE, comptes rendus sur vos vrais documents. Qualiopi, Constructys. ${formatProfessionalsTrainedCount(siteStats.personnesFormees)}+ pros formés.`;
+  return `Formation IA BTP en présentiel dans toute l'Île-de-France : devis, DCE, comptes rendus sur vos vrais documents. Qualiopi, Constructys.`;
 }

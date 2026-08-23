@@ -6,8 +6,9 @@ import { createPageMetadata, getPersonSchema, SITE_CONFIG } from '@/lib/seo';
 import { PHOTOS } from '@/lib/photos';
 import { PortraitLinkedInLink } from '@/components/PortraitLinkedInLink';
 import { EnBref } from '@/app/components/EnBref';
-import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
+import { SOCIAL_PROOF } from '@/lib/constants';
 import { LINKS } from '@/lib/internal-links';
+import { formatNoteSatisfactionSur5 } from '@/lib/data/indicateurs-resultats';
 import { OFC_CARD, OFC_CTA_PRIMARY } from '@/lib/ofc-interaction-classes';
 
 export const revalidate = 3600;
@@ -58,8 +59,7 @@ export default function ExpertIABTPPage() {
                   Laure Olivié est experte en intelligence artificielle pour le bâtiment et les travaux publics :
                   appels d&apos;offres, mémoires techniques, devis et suivi de chantier. Elle accompagne les
                   entreprises via OFC Création d&apos;Entreprise, organisme certifié Qualiopi, en présentiel, en
-                  Île-de-France. {formatProfessionalsTrainedCount()} professionnels formés.
-                </p>
+                  Île-de-France. </p>
               </EnBref>
               <p className="mt-4 text-2xl font-semibold text-blue-100">
                 Expert IA pour le bâtiment et les travaux publics
@@ -71,8 +71,8 @@ export default function ExpertIABTPPage() {
               </p>
               <div className="mt-8 flex flex-wrap gap-4">
                 <div className="rounded-xl bg-white/10 px-6 py-3 backdrop-blur-sm">
-                  <p className="text-3xl font-bold text-white">+{formatProfessionalsTrainedCount()}</p>
-                  <p className="text-sm text-blue-100">Professionnels formés</p>
+                  <p className="text-3xl font-bold text-white">+{formatNoteSatisfactionSur5()}</p>
+                  <p className="text-sm text-blue-100">Satisfaction (Qualiopi)</p>
                 </div>
                 <div className="rounded-xl bg-white/10 px-6 py-3 backdrop-blur-sm">
                   <p className="text-3xl font-bold text-white">Qualiopi</p>

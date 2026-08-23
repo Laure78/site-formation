@@ -2,7 +2,7 @@
  * Pont JSON-LD ↔ constantes NAP + PROOF — sans importer `lib/site.ts` (évite cycle avec `lib/seo.ts`).
  */
 import { CONTACT } from '@/lib/constants';
-import { PROOF } from '@/lib/proof';
+import { formatNoteSatisfactionAffichageComplet } from '@/lib/data/indicateurs-resultats';
 import {
   SCHEMA_CONTACT,
   SCHEMA_GEO,
@@ -48,13 +48,10 @@ export const SCHEMA_SITE_ORG = {
 
 /** Ligne preuve sociale Qualiopi (indicateur 2). */
 export function siteOrganizationProofSnippet(): string {
-  const formes = PROOF.formes.toLocaleString('fr-FR');
-  const repondants = PROOF.repondants.toLocaleString('fr-FR');
-  return `${formes} professionnels formés · satisfaction ${PROOF.note}/5 (${repondants} répondants, ${PROOF.periode}).`;
+  return `Satisfaction ${formatNoteSatisfactionAffichageComplet()}.`;
 }
 
-/** Description Person par défaut — 10 ans terrain + PROOF. */
+/** Description Person par défaut — 10 ans terrain + note sourcée. */
 export function sitePersonProofDescription(baseDescription: string): string {
-  const formes = PROOF.formes.toLocaleString('fr-FR');
-  return `${baseDescription} ${formes} professionnels formés · ${PROOF.note}/5.`;
+  return `${baseDescription} ${formatNoteSatisfactionAffichageComplet()}.`;
 }

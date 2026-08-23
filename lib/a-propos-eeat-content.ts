@@ -1,8 +1,9 @@
 /**
  * Contenu E-E-A-T — page /a-propos (Expertise, Expérience, Autorité, Trustworthiness).
  */
-import { formatPersonnesFormeesCount, getStatsFreshnessLabel } from '@/lib/constants';
+import { getStatsFreshnessLabel } from '@/lib/constants';
 import { SCHEMA_CONTACT } from '@/lib/schema-constants';
+import { formatNoteSatisfactionAffichageComplet } from '@/lib/data/indicateurs-resultats';
 import {
   getLaureOlivieEeatIntro,
   LAURE_OLIVIE_CHATGPT_PRO_MODULES,
@@ -39,7 +40,7 @@ export const A_PROPOS_AUTORITE_PARAGRAPHS = [
   `Parcours terrain BTP : conductrice de travaux et direction d'entreprise (ALIA BTP, 2017-2024), puis structuration d'**OFC Création d'Entreprise** en 2022 — organisme certifié **Qualiopi** (NDA ${SCHEMA_CONTACT.nda}, SIRET ${SCHEMA_CONTACT.siretFormatted}). Les sessions restent en **présentiel, Île-de-France uniquement**, sur documents réels (DCE, devis, CR, mémoire technique).`,
   `**Instructrice officielle LinkedIn Learning** — cours publics vérifiables sur ChatGPT et l'IA appliquée au bâtiment, complémentaires aux formations OFC sur site ou en salle partenaire.`,
   `Interventions et références auprès de **FFB Grand Paris**, **CSFE**, **UMB-FFB**, **CNAM Entreprise**, **Lefebvre Dalloz** et **CAPEB** — cadres de confiance pour des sessions finançables **Constructys** selon éligibilité.`,
-  `Les chiffres consolidés (${getStatsFreshnessLabel()}) : **${formatPersonnesFormeesCount()} participants formés**. Les retours portent sur le gain de temps administratif, la clarté des livrables et la montée en compétence sans jargon — preuve sociale alignée sur le profil LinkedIn public.`,
+  `Indicateurs consolidés (${getStatsFreshnessLabel()}) : **${formatNoteSatisfactionAffichageComplet()}**. Les retours portent sur le gain de temps administratif, la clarté des livrables et la montée en compétence sans jargon — preuve sociale alignée sur le profil LinkedIn public.`,
 ] as const;
 
 export const A_PROPOS_CLIENTS_INTRO = `Mes clients et partenaires couvrent l'écosystème BTP francilien : fédérations professionnelles qui référencent l'organisme, OPCO qui instruisent les dossiers, PME qui montent en compétence en intra, et bureaux d'études qui cherchent à accélérer la production documentaire sans sacrifier la qualité technique. Chaque collaboration est construite sur des **objectifs pédagogiques explicites**.`;

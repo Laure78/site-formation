@@ -9,7 +9,7 @@ import { LaureOlivieFormationPortrait } from '@/components/laure-olivie/LaureOli
 import { ShortAnswerBlock } from '@/components/landing/ShortAnswerBlock';
 import { createPageMetadata, getFAQSchema, SITE_CONFIG } from '@/lib/seo';
 import { LINKS } from '@/lib/internal-links';
-import { SOCIAL_PROOF, formatPersonnesFormeesCount } from '@/lib/constants';
+import { SOCIAL_PROOF } from '@/lib/constants';
 import { FINANCEMENT_FORMULATION_PRUDENTE } from '@/lib/financement-copy';
 import { MODALITE_FORMATIONS_STANDARD } from '@/lib/tarifs-sessions';
 import {
@@ -131,7 +131,7 @@ export default function FormationIaConstructionPage() {
           </div>
 
           <p className="mt-6 text-sm text-slate-600">
-            <strong>{formatPersonnesFormeesCount()} professionnels formés</strong> · Partenaires : FFB Grand Paris, CSFE,
+            <strong></strong> · Partenaires : FFB Grand Paris, CSFE,
             UMB-FFB, CNAM Entreprise, Lefebvre Dalloz
           </p>
         </header>
@@ -295,7 +295,7 @@ export default function FormationIaConstructionPage() {
             <p className="font-display font-semibold text-slate-900">Mes chiffres</p>
             <ul className="mt-3 list-inside list-disc space-y-1">
               <li>
-                <strong>{formatPersonnesFormeesCount()} professionnels formés</strong>
+                <strong></strong>
               </li>
               <li>
                 Partenaires : FFB Grand Paris, CSFE, UMB-FFB, CNAM Entreprise, Lefebvre Dalloz

@@ -14,7 +14,7 @@ import {
   Users,
 } from 'lucide-react';
 import { IndicateursResultatsLink } from '@/components/formation/IndicateursResultatsLink';
-import { formatPersonnesFormeesCount, getStatsFreshnessLabel, siteStats } from '@/lib/constants';
+import { getStatsFreshnessLabel, siteStats } from '@/lib/constants';
 import {
   QUALIOPI_FICHE_META,
 } from '@/config/qualiopi';
@@ -238,7 +238,7 @@ export function InformationsReglementaires(props: InfosQualiopiProps) {
           <p className="mt-3 text-sm leading-relaxed text-slate-700">
             En {new Date().getFullYear()}, OFC Création d&apos;Entreprise publie ses indicateurs de résultats
             Qualiopi sur plus de{' '}
-            <strong>{formatPersonnesFormeesCount()} professionnels formés</strong> ({getStatsFreshnessLabel()}
+            <strong></strong> ({getStatsFreshnessLabel()}
             ).
           </p>
           <IndicateursResultatsLink className="mt-3 text-left" />

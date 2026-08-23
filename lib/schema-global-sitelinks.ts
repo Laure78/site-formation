@@ -3,8 +3,9 @@
  * Les SiteNavigationElement ont été retirés (valeur SEO négligeable, ils gonflaient le graph de chaque page).
  * @see https://schema.org/WebSite — hasPart
  */
-import { formatProfessionalsTrainedCount, SOCIAL_PROOF } from '@/lib/constants';
+import { SOCIAL_PROOF } from '@/lib/constants';
 import { SCHEMA_PUBLIC_SITE_URL } from '@/lib/schema-constants';
+import { formatProsFormesEtNoteQualiopi } from '@/lib/data/indicateurs-resultats-helpers';
 
 const base = SCHEMA_PUBLIC_SITE_URL.replace(/\/$/, '');
 
@@ -57,8 +58,8 @@ const HAS_PART = [
 ];
 
 export function buildGlobalSitelinksGraphJsonLd(): Record<string, unknown> {
-  const pros = formatProfessionalsTrainedCount();
-  const desc = `Formation IA et ChatGPT pour le BTP par Laure Olivié. Qualiopi. Financement possible selon éligibilité. ${pros} professionnels formés, note .`;
+  const pros = formatProsFormesEtNoteQualiopi();
+  const desc = `Formation IA et ChatGPT pour le BTP par Laure Olivié. Qualiopi. Financement possible selon éligibilité. ${pros}`;
 
   const webSite = {
     '@type': 'WebSite',
@@ -81,7 +82,6 @@ export function buildGlobalSitelinksGraphJsonLd(): Record<string, unknown> {
   };
 
   return {
-    '@context': 'https://schema.org',
-    ...webSite,
+    '@context': 'https://schema.org', ...webSite,
   };
 }

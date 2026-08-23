@@ -3,7 +3,7 @@
  * Références Organization par @id — pas de duplication du nœud #organization.
  */
 
-import { SOCIAL_PROOF, formatPersonnesFormeesCount, siteStats } from '@/lib/constants';
+import { SOCIAL_PROOF, siteStats } from '@/lib/constants';
 import { getLaureOlivieSchemaPersonDescription } from '@/lib/laure-olivie-profile';
 import { PHOTOS } from '@/lib/photos';
 import { FAQ_A_PROPOS, FAQ_CLIENTS_PARTENAIRES } from '@/lib/faq';
@@ -95,7 +95,7 @@ export function getAProposUnifiedJsonLd(): Record<string, unknown> {
         'IA appliquée au BTP, ChatGPT bâtiment, Claude AI, mémoire technique, analyse DCE/CCTP, devis BTP',
     },
     award: [
-      `${formatPersonnesFormeesCount()} professionnels formés (${new Date().getFullYear()})`,
+      `$(${new Date().getFullYear()})`,
       `Note moyenne `,
       'Actions de formation avec FFB Grand Paris',
     ],
@@ -124,7 +124,7 @@ export function getAProposUnifiedJsonLd(): Record<string, unknown> {
     url: BASE,
     logo: `${BASE}/logo-lo.svg`,
     image: `${BASE}${PHOTOS.aProposHero2026.src}`,
-    description: `Organisme de formation certifié Qualiopi spécialisé en intelligence artificielle pour les entreprises du bâtiment et des travaux publics. Formation IA pour les pros du BTP — financement possible selon éligibilité. +${formatPersonnesFormeesCount()} professionnels formés. Note .`,
+    description: `Organisme de formation certifié Qualiopi spécialisé en intelligence artificielle pour les entreprises du bâtiment et des travaux publics. Formation IA pour les pros du BTP — financement possible selon éligibilité. +$`,
     email: SCHEMA_CONTACT.email,
     address: {
       '@type': 'PostalAddress',

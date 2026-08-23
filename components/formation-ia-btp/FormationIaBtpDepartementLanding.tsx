@@ -31,7 +31,7 @@ import {
   createPageMetadata,
   getFAQSchema,
 } from '@/lib/seo';
-import { COUNT_UP_PROS, getStatsFreshnessLabel } from '@/lib/readability-presets';
+import { COUNT_UP_RATING, getStatsFreshnessLabel } from '@/lib/readability-presets';
 import { FormationDeptLocalSeoBlock } from '@/components/formation-ia-btp/FormationDeptLocalSeoBlock';
 import { RelatedLinks } from '@/components/RelatedLinks';
 import { getClusterRelatedHrefs } from '@/lib/maillage-clusters';
@@ -175,8 +175,8 @@ export function FormationIaBtpDepartementLanding({ config }: { config: Formation
           <div className="mt-4 flex flex-wrap gap-3">
             <StatCallout
               variant="inline"
-              value={COUNT_UP_PROS}
-              label="professionnels formés"
+              value={COUNT_UP_RATING}
+              label="Satisfaction (Qualiopi)"
               freshnessLabel={statsFreshness}
             />
           </div>
@@ -389,9 +389,7 @@ export function FormationIaBtpDepartementLanding({ config }: { config: Formation
               ...FORMATION_CATALOGUE_CORE.map((l) => l.href),
               LINKS.formationIleDeFrance,
               LINKS.aPropos,
-              LINKS.blog,
-              ...getClusterRelatedHrefs(config.path),
-              ...getGeoSisterDepartmentLinks(
+              LINKS.blog, ...getClusterRelatedHrefs(config.path), ...getGeoSisterDepartmentLinks(
                 config.path.replace('/formation-ia-btp-', ''),
                 4,
                 GEO_DEPARTMENT_EXTENDED

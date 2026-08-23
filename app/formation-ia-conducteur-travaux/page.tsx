@@ -10,13 +10,14 @@ import { PublicPhoneCta } from '@/components/PublicPhoneCta';
 import { createPageMetadata, getFAQSchema, SITE_CONFIG } from '@/lib/seo';
 import { LINKS } from '@/lib/internal-links';
 import { EFFECTIF_GROUPE_MAX, TARIF_FORFAIT_DEBUTANT_HT, libelleTarifSessionForfaitaire } from '@/lib/tarifs-sessions';
-import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
+import { SOCIAL_PROOF } from '@/lib/constants';
 import { PHOTOS } from '@/lib/photos';
 import { LaureOlivieFormationPortrait } from '@/components/laure-olivie/LaureOlivieFormationPortrait';
 import { RenvoiFicheCatalogue } from '@/components/qualiopi/RenvoiFicheCatalogue';
 import { RelatedLinks } from '@/components/RelatedLinks';
 import { LiensConnexes } from '@/components/LiensConnexes';
 import { getLiensConnexesHrefs } from '@/lib/liens-connexes';
+import { formatNoteSatisfactionSur5 , formatNoteSatisfactionAffichageComplet } from '@/lib/data/indicateurs-resultats'
 import {
   CONDUCTEUR_TRAVAUX_FAQ,
   CONDUCTEUR_TRAVAUX_USE_CASES,
@@ -95,7 +96,7 @@ export default function FormationIaConducteurTravauxPage() {
             <ShortAnswerBlock>
               Automatisez CR, PPSPS, mails chantier et rapports de réception avec ChatGPT et Claude AI.
               Formation dispensée par un organisme certifié <strong>Qualiopi</strong>, éligible <strong>Constructys</strong> selon dossier —{' '}
-              <strong>+{formatProfessionalsTrainedCount()} professionnels</strong> formés.
+              <strong>{formatNoteSatisfactionAffichageComplet()}</strong> (questionnaires de satisfaction).
             </ShortAnswerBlock>
           </div>
         </header>

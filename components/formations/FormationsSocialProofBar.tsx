@@ -1,8 +1,8 @@
-import { formatPersonnesFormeesCount } from '@/lib/constants';
 import { IndicateursResultatsLink } from '@/components/formation/IndicateursResultatsLink';
+import { formatNoteSatisfactionAffichageComplet } from '@/lib/data/indicateurs-resultats';
 
 const ITEMS = [
-  `${formatPersonnesFormeesCount()} pros formés`,
+  formatNoteSatisfactionAffichageComplet(),
   'Financement possible selon éligibilité',
   'Organisme certifié Qualiopi',
 ] as const;

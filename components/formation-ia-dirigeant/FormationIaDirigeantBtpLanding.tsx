@@ -7,7 +7,7 @@ import { ShortAnswerBlock } from '@/components/landing/ShortAnswerBlock';
 import { LINKS } from '@/lib/internal-links';
 import { OFC_CARD_MUTED, OFC_LINK } from '@/lib/ofc-interaction-classes';
 import { getCourseSchema, getFAQSchema, SITE_CONFIG } from '@/lib/seo';
-import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
+import { SOCIAL_PROOF } from '@/lib/constants';
 import {
   FORMATION_IA_DIRIGEANT_BTP_COURSE,
   FORMATION_IA_DIRIGEANT_BTP_FAQ,
@@ -91,7 +91,7 @@ export function FormationIaDirigeantBtpLanding() {
             <strong className="text-slate-800">libérer du temps utile</strong>,{' '}
             <strong className="text-slate-800">accélérer la réponse client</strong> et{' '}
             <strong className="text-slate-800">différencier votre entreprise</strong> sur les marchés serrés. {OFC} —{' '}
-            {formatProfessionalsTrainedCount()}+ professionnels formés · .
+            · .
           </p>
 
           <div className="mt-8">

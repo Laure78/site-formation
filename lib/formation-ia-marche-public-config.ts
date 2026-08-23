@@ -7,9 +7,11 @@ import { CSFE_NOM_LIBRE } from '@/lib/csfe';
 import { UMB_FFB_NOM_LIBRE } from '@/lib/umb-ffb';
 import { LINKS } from '@/lib/internal-links';
 import { createPageMetadata } from '@/lib/seo';
-import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
+import { SOCIAL_PROOF } from '@/lib/constants';
 import type { Metadata } from 'next';
 import type { FormationIaMarchePublicConfig } from '@/lib/formation-ia-marche-public-types';
+import { formatProsFormesEtNoteQualiopi } from '@/lib/data/indicateurs-resultats-helpers';
+import { formatNoteSatisfactionAffichageComplet } from '@/lib/data/indicateurs-resultats';
 
 export type { FormationIaMarchePublicConfig } from '@/lib/formation-ia-marche-public-types';
 
@@ -165,7 +167,7 @@ Propose une structure de courrier ou de DGD (titres uniquement) : faits, pièces
       comingSoon: true,
     },
   ],
-  eeatParagraph: `${OFC} a formé plus de ${formatProfessionalsTrainedCount()} professionnels (note ). Laure Olivié intervient notamment avec la FFB, la ${CSFE_NOM_LIBRE}, l’${UMB_FFB_NOM_LIBRE}, le CNAM Entreprise et Lefebvre Dalloz. Les sessions marché public de travaux restent en présentiel en Île-de-France, certifiées Qualiopi, avec financement OPCO Constructys possible selon éligibilité.`,
+  eeatParagraph: `${OFC} — satisfaction mesurée (${formatNoteSatisfactionAffichageComplet()}). Laure Olivié intervient notamment avec la FFB, la ${CSFE_NOM_LIBRE}, l’${UMB_FFB_NOM_LIBRE}, le CNAM Entreprise et Lefebvre Dalloz. Les sessions marché public de travaux restent en présentiel en Île-de-France, certifiées Qualiopi, avec financement OPCO Constructys possible selon éligibilité.`,
   faq: [
     {
       q: "Qu’est-ce qu’une formation IA marché public de travaux ?",
@@ -327,7 +329,7 @@ Structure CR : zones, observations factuelles, réserves, demandes de précision
       ],
     },
   ],
-  eeatParagraph: `Plus de ${formatProfessionalsTrainedCount()} professionnels formés · note . Partenariat pédagogique avec la ${CSFE_NOM_LIBRE} ; interventions FFB, ${UMB_FFB_NOM_LIBRE}, CNAM Entreprise, Lefebvre Dalloz. Sessions Qualiopi en présentiel Île-de-France — financement Constructys selon éligibilité.`,
+  eeatParagraph: `${formatProsFormesEtNoteQualiopi()} Partenariat pédagogique avec la ${CSFE_NOM_LIBRE} ; interventions FFB, ${UMB_FFB_NOM_LIBRE}, CNAM Entreprise, Lefebvre Dalloz. Sessions Qualiopi en présentiel Île-de-France — financement Constructys selon éligibilité.`,
   faq: [
     {
       q: 'ChatGPT connaît-il le DTU 43 pour un marché public d’étanchéité ?',

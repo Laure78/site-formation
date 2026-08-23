@@ -9,8 +9,8 @@ import { buildPersonLaureSchemaNode } from '@/lib/schema-person-global';
 import { buildOrganizationOfcSchemaNode } from '@/lib/schema-organization-global';
 import { SCHEMA_PUBLIC_SITE_URL } from '@/lib/schema-constants';
 import type { FAQItem } from '@/lib/faq';
-import { formatProfessionalsTrainedCount, IDF_ZONE_INTERVENTION } from '@/lib/constants';
-import { PROOF, formatProofFormes } from '@/lib/proof';
+import { IDF_ZONE_INTERVENTION } from '@/lib/constants';
+import { PROOF } from '@/lib/proof';
 import { LINKS } from '@/lib/internal-links';
 import { CSFE_NOM_COMPLET } from '@/lib/csfe';
 import { OFC_LINK } from '@/lib/ofc-interaction-classes';
@@ -24,7 +24,7 @@ const PATH = '/formateur-ia-btp';
 /** Segment sans suffixe — `buildMetadata` ajoute « | Laure Olivié ». */
 const META_TITLE = 'Formateur IA bâtiment Île-de-France';
 /** 156 car. — intention « formateur » + IDF, sans ellipse */
-const META_DESCRIPTION = `Formateur IA BTP Île-de-France : Laure Olivié forme vos équipes en présentiel sur devis, DCE et chantier. Qualiopi, OFC. ${formatProofFormes()} pros, . RDV découverte.`;
+const META_DESCRIPTION = `Formateur IA BTP Île-de-France : Laure Olivié forme vos équipes en présentiel sur devis, DCE et chantier. Qualiopi, OFC. RDV découverte.`;
 
 export const metadata = buildMetadata({
   title: META_TITLE,
@@ -70,16 +70,14 @@ const FAQ_FORMATEUR: FAQItem[] = [
 export default function FormateurIaBtpPage() {
   const base = SCHEMA_PUBLIC_SITE_URL.replace(/\/$/, '');
   const personSchema = {
-    '@context': 'https://schema.org',
-    ...buildPersonLaureSchemaNode({
+    '@context': 'https://schema.org', ...buildPersonLaureSchemaNode({
       personId: `${base}/formateur-ia-btp#person`,
       pageUrl: `${base}/formateur-ia-btp`,
       organizationId: `${base}/#organization`,
     }),
   };
   const organizationSchema = {
-    '@context': 'https://schema.org',
-    ...buildOrganizationOfcSchemaNode({
+    '@context': 'https://schema.org', ...buildOrganizationOfcSchemaNode({
       organizationId: `${base}/#organization`,
       personId: `${base}/formateur-ia-btp#person`,
     }),
@@ -107,8 +105,7 @@ export default function FormateurIaBtpPage() {
                 appliquée à leurs documents réels — devis, DCE, mémoires techniques, comptes rendus de chantier.
                 Dirigeante d&apos;une entreprise de Travaux Publics dans les Yvelines, elle intervient via OFC
                 Création d&apos;Entreprise, organisme certifié Qualiopi, en présentiel uniquement, en intra ou en
-                inter. {formatProfessionalsTrainedCount()} professionnels formés.
-              </p>
+                inter. </p>
             </EnBref>
             <p className="mt-6 text-lg leading-relaxed text-slate-600">
               Vous cherchez un formateur IA pour le bâtiment ou la construction, à Paris ou en Île-de-France ?
@@ -214,7 +211,7 @@ export default function FormateurIaBtpPage() {
               Références et preuves
             </h2>
             <p className="mt-4 text-base leading-relaxed text-slate-600 md:text-lg">
-              {formatProfessionalsTrainedCount()} professionnels formés, .
+              .
               Organisme certifié Qualiopi — actions de formation. {FINANCEMENT_FORMULATION_PRUDENTE} Références : FFB
               Grand Paris, {CSFE_NOM_COMPLET}, CNAM Entreprise, Lefebvre Dalloz, instructrice LinkedIn Learning.
             </p>

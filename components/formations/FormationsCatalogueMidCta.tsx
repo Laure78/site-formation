@@ -1,7 +1,6 @@
 import Link from 'next/link';
 import { CalendlyEmbed } from '@/components/CalendlyEmbed';
 import { LINKS } from '@/lib/internal-links';
-import { formatProfessionalsTrainedCount } from '@/lib/constants';
 import { SITE_CONFIG } from '@/lib/seo';
 
 export function FormationsCatalogueMidCta() {
@@ -24,7 +23,7 @@ export function FormationsCatalogueMidCta() {
               plus adaptée à votre équipe — devis personnalisé sous 24 heures.
             </p>
             <p className="mt-6 flex flex-wrap gap-x-3 gap-y-2 text-sm text-white/70">
-              <span>✓ {formatProfessionalsTrainedCount()} pros formés</span>
+              <span>✓ </span>
               <span className="text-white/40" aria-hidden>
                 ·
               </span>

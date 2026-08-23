@@ -6,7 +6,6 @@ import {
   ALT_LOGO_UMB_FFB,
   LOGO_UMB_FFB,
 } from '@/lib/client-logos';
-import { PROS_FORMES_TEXTE } from '@/lib/constants';
 import { Temoignage } from '@/components/Temoignage';
 
 export type PreuveSocialeProps = {
@@ -44,7 +43,7 @@ const LOGOS = [
 
 /**
  * Bandeau de preuve sous le H1 des landings métier.
- * Chiffres : `PREUVES` (Qualiopi). Logos FFB Grand Paris, CSFE, UMB-FFB en niveaux de gris.
+ * Logos FFB Grand Paris, CSFE, UMB-FFB — sans effectif formé publié.
  */
 export function PreuveSociale({ auteur, role, texte, className = '' }: PreuveSocialeProps) {
   const quote = texte?.trim() ?? '';
@@ -54,8 +53,7 @@ export function PreuveSociale({ auteur, role, texte, className = '' }: PreuveSoc
       className={`rounded-2xl border border-slate-200 bg-[#F2F2F2] px-5 py-4 md:px-6 md:py-5 ${className}`.trim()}
     >
       <p className="text-center text-sm font-semibold text-[#377CF3] md:text-base">
-        {PROS_FORMES_TEXTE.charAt(0).toUpperCase()}
-        {PROS_FORMES_TEXTE.slice(1)}
+        Organisme certifié Qualiopi — FFB Grand Paris, CSFE, UMB-FFB
       </p>
       <ul className="mt-4 flex flex-wrap items-center justify-center gap-x-8 gap-y-3">
         {LOGOS.map((logo) => (

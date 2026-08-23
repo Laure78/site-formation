@@ -16,18 +16,18 @@ import {
 } from '@/lib/seo';
 import { FAQ_FORMATION_IA_BTP_PILLAR } from '@/lib/formation-ia-btp-pillar-faq';
 import { PHOTOS } from '@/lib/photos';
-import { PROOF, formatProofFormes } from '@/lib/proof';
+import { PROOF } from '@/lib/proof';
 import { QUALIOPI_CERTIFICAT_REALISATION } from '@/config/qualiopi';
 import { MENTIONS_TVA_INTER_COURTE, MENTIONS_TVA_INTRA_COURTE } from '@/lib/tarifs-sessions';
+import { formatNoteSatisfactionAffichageComplet, formatNoteSatisfactionSur5 } from '@/lib/data/indicateurs-resultats';
 import { Reveal, RevealGroup } from '@/components/motion/Reveal';
 export const revalidate = 3600;
 const PATH = '/formation-ia-btp';
 
 const ogImage = PHOTOS.formationIaBtpOgPortrait2026;
 
-const personnesFormeesAffiche = `${formatProofFormes()}+`;
 
-const FORMATION_IA_BTP_META_DESCRIPTION = `Formation IA pour le BTP en Île-de-France : ChatGPT pour devis, AO et chantier. Qualiopi, Constructys selon éligibilité. ${formatProofFormes()} pros, . Visio découverte.`;
+const FORMATION_IA_BTP_META_DESCRIPTION = `Formation IA pour le BTP en Île-de-France : ChatGPT pour devis, AO et chantier. Qualiopi, Constructys selon éligibilité. Visio découverte.`;
 
 export const metadata = createPageMetadata({
   title: 'Formation IA bâtiment IDF — ChatGPT 2026',
@@ -153,7 +153,7 @@ export default function FormationIaBtpPillarPage() {
               Formation IA appliquée au bâtiment — ChatGPT pour le Bâtiment en Île-de-France
             </h1>
             <p className="mt-4 text-base font-semibold text-slate-800">
-              {formatProofFormes()} · organisme certifié Qualiopi
+              {formatNoteSatisfactionSur5()} · organisme certifié Qualiopi
             </p>
             <div className="mx-auto mt-8 max-w-2xl space-y-6 text-left md:mx-0">
               <BlocCtaHaut />
@@ -548,7 +548,7 @@ export default function FormationIaBtpPillarPage() {
             <p className="font-display font-semibold text-slate-900">Mes chiffres</p>
             <ul className="mt-3 list-inside list-disc space-y-1">
               <li>
-                <strong>{personnesFormeesAffiche}</strong> professionnels du BTP formés
+                <strong>{formatNoteSatisfactionAffichageComplet()}</strong>
               </li>
               <li>
                 Clients : FFB Grand Paris, FFB Île-de-France, CSFE, CNAM Entreprise, Lefebvre Dalloz

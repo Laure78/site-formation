@@ -4,7 +4,8 @@ import { CtaButton } from '@/components/CtaButton';
 import { MarketingLightHero } from '@/components/marketing/MarketingLightHero';
 import { LINKS } from '@/lib/internal-links';
 import { PHOTOS } from '@/lib/photos';
-import { formatPersonnesFormeesCount, getStatsFreshnessLabel } from '@/lib/constants';
+import { getStatsFreshnessLabel } from '@/lib/constants';
+import { formatNoteSatisfactionSur5 } from '@/lib/data/indicateurs-resultats';
 
 const H1 =
   'Financer une formation IA pour le BTP avec Constructys en 2026 — guide OPCO, plafonds et dossier eGestion';
@@ -49,8 +50,8 @@ export function FinancementConstructysHero() {
       stats={[
         {
           icon: Users,
-          value: formatPersonnesFormeesCount(),
-          label: `pros formés · ${statsFreshness}`,
+          value: formatNoteSatisfactionSur5(),
+          label: `Satisfaction · ${statsFreshness}`,
         },
         {
           icon: ShieldCheck,

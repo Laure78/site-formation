@@ -3,9 +3,7 @@
  */
 import type { BlogArticle } from '@/lib/blog';
 import { LINKS } from '@/lib/internal-links';
-import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
-
-const N = formatProfessionalsTrainedCount();
+import { formatProsFormesEtNoteQualiopi } from '@/lib/data/indicateurs-resultats-helpers';
 
 export const blogArticleIaDevisBatimentChiffrageAutomatise: BlogArticle = {
   slug: 'ia-devis-batiment-chiffrage-automatise',
@@ -82,7 +80,7 @@ export const blogArticleIaDevisBatimentChiffrageAutomatise: BlogArticle = {
         "L'IA ne remplace ni votre bibliothèque de prix ni votre validation métier : elle structure, rédige et sécurise la trame.",
         'La méthode terrain tient en 5 étapes : brief, trame, décomposition poste par poste, contrôle anti-oubli, mise en forme.',
         "Trois prompts couvrent 90 % des devis courants : tous corps d'état, électricité, vérification anti-oublis.",
-        `Le module est éligible à un financement selon dossier 2026 (24 € HT/h/stagiaire) et s'appuie sur +${N} professionnels formés (note ).`,
+        `Le module est éligible à un financement selon dossier 2026 (24 € HT/h/stagiaire). Indicateurs publiés : ${formatProsFormesEtNoteQualiopi()}.`,
       ],
     },
     {
@@ -218,7 +216,7 @@ Ne réécris pas le devis, signale uniquement les manques.`,
       content: `
 <p>Le module chiffrage est intégré à la formation IA pour les pros du BTP de 4 heures : méthode en 5 étapes, prompts prêts à l'emploi, vérification anti-oubli et intégration à vos outils.</p>
 <p>Sessions exclusivement en présentiel, en Île-de-France. Financement possible via Constructys selon barèmes en vigueur.</p>
-<p>Références : FFB Grand Paris, FFB Île-de-France, CSFE, CNAM Île-de-France, Lefebvre Dalloz — +${N} professionnels formés, note .</p>
+<p>Références : FFB Grand Paris, FFB Île-de-France, CSFE, CNAM Île-de-France, Lefebvre Dalloz — ${formatProsFormesEtNoteQualiopi()}</p>
 <p class="mt-4">Pour aller plus loin : <a href="${LINKS.formations}" class="font-medium text-[var(--accent)] underline hover:no-underline">catalogue des formations IA appliquées au bâtiment</a>, <a href="${LINKS.financement}" class="font-medium text-[var(--accent)] underline hover:no-underline">financement Constructys formation IA appliquée au bâtiment</a>, ou <a href="${LINKS.prendreRdv}" class="font-medium text-[var(--accent)] underline hover:no-underline">diagnostic IA BTP gratuit</a>.</p>`,
     },
     {

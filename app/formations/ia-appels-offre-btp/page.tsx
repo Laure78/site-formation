@@ -35,7 +35,7 @@ import {
   FormationCourseHero,
 } from '@/components/formations/FormationCourseHero';
 import { buildCatalogueCourseIaAppelsOffreNiv02JsonLd } from '@/lib/schema-catalogue-course-jsonld';
-import { formatPersonnesFormeesCount, getStatsFreshnessLabel, siteStats } from '@/lib/constants';
+import { getStatsFreshnessLabel, siteStats } from '@/lib/constants';
 import { IndicateursResultatsLink } from '@/components/formation/IndicateursResultatsLink';
 
 const PDF_HREF = LINKS.pdfProgrammeFormationAoBtpDetail2026;
@@ -418,7 +418,7 @@ export default function FormationIAAppelsOffreBTPPage() {
         </p>
         <p className="mt-4 text-sm text-slate-700 leading-relaxed">
           En {new Date().getFullYear()}, OFC affiche une indicateurs publiés sur la page dédiée sur plus de{' '}
-          {formatPersonnesFormeesCount()} professionnels formés ({getStatsFreshnessLabel()}).
+          ({getStatsFreshnessLabel()}).
         </p>
         <IndicateursResultatsLink className="mt-2 text-left" />
         <ul className="mt-4 space-y-2 text-sm text-slate-700">

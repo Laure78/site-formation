@@ -14,7 +14,7 @@ import {
   getFAQSchema,
   SITE_CONFIG,
 } from '@/lib/seo';
-import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
+import { SOCIAL_PROOF } from '@/lib/constants';
 
 export const revalidate = 3600;
 
@@ -150,7 +150,7 @@ export default function ChecklistIABTPPage() {
             </p>
             <ul className="mt-6 space-y-2 text-slate-700">
               {[
-                `${formatProfessionalsTrainedCount()}+ professionnels formés · note `,
+                `$· note `,
                 'Prompts conçus pour le terrain BTP (pas du jargon startup)',
                 'Complément naturel d’une formation IA pour le BTP Qualiopi (Constructys selon éligibilité)',
               ].map((line) => (

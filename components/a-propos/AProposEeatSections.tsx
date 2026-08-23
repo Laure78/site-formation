@@ -9,7 +9,10 @@ import {
 } from '@/lib/linkedin-learning-a-propos-embeds';
 import { EXTERNAL_AUTHORITY_LINKS } from '@/lib/seo-links';
 import { QualiopiBadge, QualiopiWordmark } from '@/components/QualiopiLogo';
-import { formatPersonnesFormeesCount, getStatsFreshnessLabel } from '@/lib/constants';
+import { getStatsFreshnessLabel } from '@/lib/constants';
+import { formatNoteSatisfactionAffichageComplet } from '@/lib/data/indicateurs-resultats';
+
+import { A_PROPOS_TIMELINE } from '@/lib/a-propos-eeat-content';
 
 const poppins = Poppins({
   subsets: ['latin'],
@@ -17,34 +20,15 @@ const poppins = Poppins({
   display: 'swap',
 });
 
-const formesNombreAffiche = formatPersonnesFormeesCount();
 const statsFreshness = getStatsFreshnessLabel();
 
-const PARCOURS = [
-  {
-    year: '2017-2024',
-    text: "ALIA BTP (SIRET 853 687 317 00018, Guyancourt) — fondatrice et conductrice de travaux : terrassement et revêtements extérieurs.",
-  },
-  {
-    year: '2022',
-    text: "Création d'OFC Création d'Entreprise — formation IA appliquée au bâtiment, démarche Qualiopi.",
-  },
-  {
-    year: '2023',
-    text: 'Organisme certifié Qualiopi (NDA 11788515078) — référentiel national qualité.',
-  },
-  {
-    year: '2024',
-    text: "Présidence d'OFC — instructrice LinkedIn Learning (2 cours) — partenariats FFB.",
-  },
-  {
-    year: '2026',
-    text: `${formesNombreAffiche} professionnels formés (${statsFreshness}) — indicateurs Qualiopi publiés en ligne.`,
-  },
-] as const;
+const PARCOURS = A_PROPOS_TIMELINE.map((item) => ({
+  year: item.period,
+  text: `${item.title} — ${item.body.replace(/\*\*/g, '')}`,
+}));
 
 const REF_TABLE = [
-  { label: `Professionnels formés (${statsFreshness})`, value: formesNombreAffiche },
+  { label: `Satisfaction (${statsFreshness})`, value: formatNoteSatisfactionAffichageComplet() },
   {
     label: 'Indicateurs de résultats Qualiopi',
     value: 'Publiés sur /indicateurs-resultats',

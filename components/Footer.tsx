@@ -9,6 +9,7 @@ import { OFC_LINK } from '@/lib/ofc-interaction-classes';
 import { ReferentHandicapBlock } from '@/components/formation/ReferentHandicapBlock';
 import { SITE } from '@/lib/site';
 import { PROOF } from '@/lib/proof';
+import { formatNoteSatisfactionAffichageComplet } from '@/lib/data/indicateurs-resultats';
 import type { NavItem } from '@/lib/nav';
 
 const PHONE_ARIA_LABEL = `Appeler ${SITE.name} au ${SITE.phoneDisplay}`;
@@ -77,8 +78,7 @@ export function Footer() {
               Catalogue — organisme certifié <QualiopiWordmark /> — financement Constructys, sessions 4 h.
             </p>
             <p className="mt-1 text-xs text-slate-500">
-              {PROOF.formes.toLocaleString('fr-FR')} pros formés · satisfaction {PROOF.note} (
-              {PROOF.repondants.toLocaleString('fr-FR')} répondants)
+              Satisfaction {formatNoteSatisfactionAffichageComplet()}
             </p>
             <Link href={links.skillConducteurTravaux} className={`mt-3 inline-flex text-sm ${OFC_LINK}`}>
               {copy.bannerGuideLabel}

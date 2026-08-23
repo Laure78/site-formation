@@ -5,9 +5,9 @@ import { MarketingLightHero } from '@/components/marketing/MarketingLightHero';
 import { CatalogueTarifStrip } from '@/components/formations/CataloguePriceBadge';
 import { MentionTvaAsterisque } from '@/components/MentionTVA';
 import { LINKS } from '@/lib/internal-links';
-import { formatProfessionalsTrainedCount } from '@/lib/constants';
 import { CATALOGUE_FORMATIONS_COUNT } from '@/lib/formations-catalogue-display';
 import { PERIMETRE_FORMATIONS_COURT, TARIF_SESSION_FORFAIT_HT, SESSION_DUREE_LIBELLE, libelleTarifSessionForfaitaire } from '@/lib/tarifs-sessions';
+import { formatNoteSatisfactionSur5 } from '@/lib/data/indicateurs-resultats';
 import { PHOTOS } from '@/lib/photos';
 
 const QUICK_LINKS = [
@@ -35,7 +35,7 @@ export function FormationsHero() {
       }
       stats={[
         { icon: GraduationCap, value: CATALOGUE_FORMATIONS_COUNT, label: 'parcours catalogue' },
-        { icon: Users, value: formatProfessionalsTrainedCount(), label: 'pros formés' },
+        { icon: Users, value: formatNoteSatisfactionSur5(), label: 'Satisfaction (Qualiopi)' },
         { icon: Award, value: 'Qualiopi', label: 'organisme certifié' },
       ]}
       middle={

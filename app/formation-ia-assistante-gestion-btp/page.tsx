@@ -14,7 +14,7 @@ import {
   TARIF_FORFAIT_DEBUTANT_HT,
   libelleTarifSessionForfaitaire,
 } from '@/lib/tarifs-sessions';
-import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
+import { SOCIAL_PROOF } from '@/lib/constants';
 import { LINKS } from '@/lib/internal-links';
 import { LiensConnexes } from '@/components/LiensConnexes';
 import { RelatedLinks } from '@/components/RelatedLinks';

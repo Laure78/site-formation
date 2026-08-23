@@ -1,7 +1,14 @@
 /**
  * Chiffres publics OFC — affichage, compteurs, JSON-LD.
- * Source unique des preuves sociales (indicateur 2 Qualiopi).
+ * Source unique des preuves sociales (indicateur 2 Qualiopi) : `lib/data/indicateurs-resultats.ts`.
+ * L’effectif cumulé formé n’est pas publié sur le site (audit Qualiopi).
  */
+
+import {
+  formatDateMiseAJourIndicateurs,
+  formatNoteSatisfactionSur5,
+  indicateursResultats,
+} from '@/lib/data/indicateurs-resultats';
 
 /** Contact public du site (email, téléphone, adresse) — source unique UI / contenus. */
 export const CONTACT = {
@@ -32,12 +39,13 @@ export const IDF_ZONE_INTERVENTION =
  * Période et mise à jour : voir `/indicateurs-resultats`.
  */
 export const PREUVES = {
-  /** Registre interne OFC — source CV juin 2026. */
-  prosFormes: 1592,
-  satisfaction: '4,85/5',
-  repondants: 412,
-  periode: '01/01/2024 – 31/12/2025',
-  majAt: '2026-06-03',
+  satisfaction: formatNoteSatisfactionSur5(),
+  repondants: indicateursResultats.nombreRepondants,
+  periode: indicateursResultats.periodeReference,
+  majAt: indicateursResultats.dateMiseAJour,
+  tauxRecommandation: indicateursResultats.tauxRecommandation,
+  partNotesSuperieures8: indicateursResultats.partNotesSuperieures8,
+  noteSatisfactionSur10: indicateursResultats.noteSatisfactionSur10,
   tauxAbandon: {
     valeur: '__X,X %__',
     periode: '01/01/2024 – 31/12/2025',
@@ -59,40 +67,30 @@ export const PREUVES = {
 } as const;
 
 /** Valeur numérique de la note (compteurs animés, JSON-LD). */
-export const PREUVES_SATISFACTION_VALEUR = 4.85 as const;
+export const PREUVES_SATISFACTION_VALEUR = indicateursResultats.noteSatisfaction;
 
-/** Début / fin extraits de `PREUVES.periode`. */
+/** Période de référence indicateurs (texte public). */
 export const PREUVES_PERIODE = {
-  debut: '01/01/2024',
-  fin: '31/12/2025',
+  label: indicateursResultats.periodeReference,
 } as const;
 
 /** Affichage FR de `PREUVES.majAt` (ISO → jj/mm/aaaa). */
 export function formatPreuvesMajLe(isoDate: string = PREUVES.majAt): string {
-  const [y, m, d] = isoDate.split('-');
-  return `${d}/${m}/${y}`;
+  return formatDateMiseAJourIndicateurs(isoDate);
 }
 
 /** Mention sourcing satisfaction (footer stats, hero). */
 export const PREUVES_MENTION_SOURCE =
-  `Note calculée sur la base des questionnaires de satisfaction recueillis à l'issue des sessions du ${PREUVES_PERIODE.debut} au ${PREUVES_PERIODE.fin} — ${PREUVES.repondants.toLocaleString('fr-FR')} répondants. Dernière mise à jour : ${formatPreuvesMajLe()}.` as const;
+  `Note calculée sur la base des questionnaires de satisfaction recueillis à l'issue des sessions — ${indicateursResultats.nombreRepondants} répondants, période ${indicateursResultats.periodeReference}. Dernière mise à jour : ${formatPreuvesMajLe()}.` as const;
 
-/** Bloc « Fédérations & OPCO » — accueil, pour qui. */
+/** Bloc « Fédérations & OPCO » — accueil, pour qui (sans effectif formé publié). */
 export const PREUVES_FEDERATIONS_OPCO =
-  'Depuis décembre 2021, plus de 1 500 professionnels formés toutes actions confondues — dont des sessions animées avec FFB Grand Paris, CSFE et UMB-FFB.' as const;
-
-/** Formulation publique arrondie (texte courant, llms.txt, JSON-LD texte). */
-export const PROS_FORMES_TEXTE = 'plus de 1 500 professionnels formés' as const;
+  'Sessions animées avec FFB Grand Paris, CSFE et UMB-FFB depuis décembre 2021.' as const;
 
 /** Ancrage temporal — activité formation IA BTP OFC. */
 export const PROS_FORMES_DEPUIS = 'depuis décembre 2021' as const;
 
-/** Formulation complète indicateurs / llms.txt. */
-export const PROS_FORMES_TEXTE_COMPLET =
-  `${PROS_FORMES_TEXTE} ${PROS_FORMES_DEPUIS}` as const;
-
 export const siteStats = {
-  personnesFormees: PREUVES.prosFormes,
   noteMoyenneAffichee: PREUVES.satisfaction,
   noteMoyenneValeur: PREUVES_SATISFACTION_VALEUR,
 } as const;
@@ -105,21 +103,6 @@ export function getStatsFreshnessLabel(referenceYear?: number): string {
 
 /** @deprecated Préférer `siteStats` — conservé pour compatibilité imports existants. */
 export const SOCIAL_PROOF = {
-  PROFESSIONALS_TRAINED: siteStats.personnesFormees,
   AVERAGE_RATING: siteStats.noteMoyenneAffichee,
   AVERAGE_RATING_VALUE: siteStats.noteMoyenneValeur,
 } as const;
-
-export function formatPersonnesFormeesCount(value: number = siteStats.personnesFormees): string {
-  return value.toLocaleString('fr-FR');
-}
-
-/** Affichage compteur / meta : « 1 500+ » */
-export function formatPersonnesFormeesCountPlus(value: number = siteStats.personnesFormees): string {
-  return `${formatPersonnesFormeesCount(value)}+`;
-}
-
-/** @deprecated Alias — utiliser `formatPersonnesFormeesCount`. */
-export function formatProfessionalsTrainedCount(value: number = siteStats.personnesFormees): string {
-  return formatPersonnesFormeesCount(value);
-}

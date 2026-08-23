@@ -6,7 +6,8 @@ import { ChevronRight, ChevronLeft, Send, Zap } from 'lucide-react';
 import { submitDiagnosticAction } from '@/app/actions/diagnostic-ia-btp';
 import type { DiagnosticAnswers } from '@/app/actions/diagnostic-ia-btp';
 import { LINKS } from '@/lib/internal-links';
-import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
+import { SOCIAL_PROOF } from '@/lib/constants';
+import { formatNoteSatisfactionSur5 , formatNoteSatisfactionAffichageComplet } from '@/lib/data/indicateurs-resultats'
 import { RdvLink } from '@/components/RdvLink';
 
 const QUESTIONS = [
@@ -151,7 +152,7 @@ export function DiagnosticIABTPWizard() {
       <div className="mt-6 flex flex-wrap items-center justify-center gap-3 rounded-xl border border-slate-200 bg-white px-4 py-3 text-xs font-medium text-slate-600 sm:text-sm">
         <span className="flex items-center gap-1.5">
           <span className="inline-block h-2 w-2 rounded-full bg-emerald-500" aria-hidden />
-          <strong className="text-slate-900">{formatProfessionalsTrainedCount()}</strong> professionnels formés
+          <strong className="text-slate-900">{formatNoteSatisfactionAffichageComplet()}</strong>
         </span>
         <span className="text-slate-300">·</span>
         <span>

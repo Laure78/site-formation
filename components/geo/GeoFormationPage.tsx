@@ -20,7 +20,7 @@ import {
 } from '@/lib/contextual-internal-links';
 import { voirAussiDepartementProps } from '@/lib/voir-aussi';
 import { OFC_SEC } from '@/lib/ofc-section-classes';
-import { COUNT_UP_PROS, getStatsFreshnessLabel } from '@/lib/readability-presets';
+import { COUNT_UP_RATING, getStatsFreshnessLabel } from '@/lib/readability-presets';
 import { buildDeptMetaDescription } from '@/lib/meta-description';
 import { buildIdfDeptPageTitle } from '@/lib/seo-geo-keywords';
 import {
@@ -133,8 +133,8 @@ export function GeoFormationPage(props: GeoFormationPageProps) {
           <div className="mt-4 flex flex-wrap gap-3">
             <StatCallout
               variant="inline"
-              value={COUNT_UP_PROS}
-              label="professionnels formés"
+              value={COUNT_UP_RATING}
+              label="Satisfaction (Qualiopi)"
               freshnessLabel={statsFreshness}
             />
           </div>
@@ -264,8 +264,7 @@ export function GeoFormationPage(props: GeoFormationPageProps) {
           {...voirAussiDepartementProps({
             currentPath: geoFormationPath(slug),
             excludeHrefs: [
-              ...GEO_PAGE_UTILITY_LINKS.map((l) => l.href),
-              ...getGeoSisterDepartmentLinks(slug).map((l) => l.href),
+              ...GEO_PAGE_UTILITY_LINKS.map((l) => l.href), ...getGeoSisterDepartmentLinks(slug).map((l) => l.href),
             ],
           })}
         />

@@ -16,11 +16,12 @@ import {
 import { SITE_CONFIG, siteHasPublicPhone } from '@/lib/seo';
 import { LINKS } from '@/lib/internal-links';
 import { TARIF_SESSION_FORFAIT_HT } from '@/lib/tarifs-sessions';
-import { formatProfessionalsTrainedCount } from '@/lib/constants';
 import { getLaureOlivieSchemaPersonDescription } from '@/lib/laure-olivie-profile';
 import { PHOTOS } from '@/lib/photos';
 import { buildHomeHeroImageObjectNode, HOME_HERO_IMAGE_OBJECT_ID } from '@/lib/schema-image-objects';
 import { buildPromoVideoObjectJsonLd } from '@/lib/schema-promo-video';
+import { formatNoteSatisfactionSur5 , formatNoteSatisfactionAffichageComplet } from '@/lib/data/indicateurs-resultats'
+import { buildSchemaAggregateRating } from '@/lib/schema-aggregate-rating';
 
 const ANNUAIRE_LABELS_CERT =
   'https://annuaire-entreprises.data.gouv.fr/labels-certificats/905244281';
@@ -62,8 +63,7 @@ export function buildHomeUnifiedGraphJsonLd(): Record<string, unknown> {
         description: SCHEMA_ORGANIZATION_OFC.descriptionShortGraph,
         founder: { '@id': laureId },
         foundingDate: SCHEMA_ORGANIZATION_OFC.foundingYear,
-        email: SCHEMA_CONTACT.email,
-        ...(siteHasPublicPhone() ? { telephone: SCHEMA_CONTACT.phone } : {}),
+        email: SCHEMA_CONTACT.email, ...(siteHasPublicPhone() ? { telephone: SCHEMA_CONTACT.phone } : {}),
         priceRange: '€€',
         currenciesAccepted: 'EUR',
         paymentAccepted: ['Bank transfer', 'OPCO Constructys'],
@@ -109,6 +109,7 @@ export function buildHomeUnifiedGraphJsonLd(): Record<string, unknown> {
           SITE_CONFIG.googleBusinessProfileUrl,
           `https://annuaire-entreprises.data.gouv.fr/entreprise/${SCHEMA_CONTACT.siretDigits}`,
         ],
+        aggregateRating: buildSchemaAggregateRating(),
       },
       {
         '@type': 'Person',
@@ -120,8 +121,7 @@ export function buildHomeUnifiedGraphJsonLd(): Record<string, unknown> {
         description: getLaureOlivieSchemaPersonDescription(),
         url: `${base}/a-propos`,
         image: personImageUrl,
-        email: SCHEMA_CONTACT.email,
-        ...(siteHasPublicPhone() ? { telephone: SCHEMA_CONTACT.phone } : {}),
+        email: SCHEMA_CONTACT.email, ...(siteHasPublicPhone() ? { telephone: SCHEMA_CONTACT.phone } : {}),
         worksFor: { '@id': orgId },
         knowsAbout: [
           'Intelligence artificielle pour le BTP',
@@ -172,7 +172,7 @@ export function buildHomeUnifiedGraphJsonLd(): Record<string, unknown> {
         '@type': 'Course',
         '@id': courseId,
         name: "Formation IA pour les pros du BTP — niveau 1 bâtiment & travaux publics",
-        description: `Formation pratique de 4 heures pour former les équipes BTP et du secteur de la construction à ChatGPT et Claude AI : devis, comptes rendus de chantier, administratif, documents bâtiment et TP. ${formatProfessionalsTrainedCount()} professionnels déjà formés.`,
+        description: `Formation pratique de 4 heures pour former les équipes BTP et du secteur de la construction à ChatGPT et Claude AI : devis, comptes rendus de chantier, administratif, documents bâtiment et TP. Satisfaction ${formatNoteSatisfactionAffichageComplet()}.`,
         url: `${base}${LINKS.formationIaBtpNiveau1BatimentTp}`,
         provider: { '@id': orgId },
         instructor: { '@id': laureId },

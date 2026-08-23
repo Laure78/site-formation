@@ -13,7 +13,7 @@ import {
   getMetierRelatedLinks,
 } from '@/lib/contextual-internal-links';
 import { SITE_CONFIG } from '@/lib/seo';
-import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
+import { SOCIAL_PROOF } from '@/lib/constants';
 import { TARIF_FORFAIT_DEBUTANT_HT } from '@/lib/tarifs-sessions';
 import type { FormationIaMetierBtpConfig } from '@/lib/formation-ia-metier-btp-types';
 import { Essentiel } from '@/components/readability/Essentiel';
@@ -24,6 +24,7 @@ import { RelatedLinks } from '@/components/RelatedLinks';
 import { LiensConnexes } from '@/components/LiensConnexes';
 import { getLiensConnexesHrefs } from '@/lib/liens-connexes';
 import { getClusterRelatedHrefs } from '@/lib/maillage-clusters';
+import { formatNoteSatisfactionSur5 , formatNoteSatisfactionAffichageComplet } from '@/lib/data/indicateurs-resultats'
 import { PreuveSociale } from '@/components/PreuveSociale';
 
 const OFC = "OFC Création d'Entreprise";
@@ -31,8 +32,7 @@ const OFC = "OFC Création d'Entreprise";
 function sommaireForConfig(config: FormationIaMetierBtpConfig) {
   const base: { href: string; label: string }[] = [
     { href: '#probleme', label: 'Le problème : charge documentaire et normes' },
-    { href: '#solution-ia', label: 'La solution IA : méthode et garde-fous' },
-    ...(config.casUsageConcrets && config.casUsageConcrets.length > 0
+    { href: '#solution-ia', label: 'La solution IA : méthode et garde-fous' }, ...(config.casUsageConcrets && config.casUsageConcrets.length > 0
       ? [{ href: '#cas-usage', label: 'Cinq cas d’usage concrets' } as const]
       : []),
     { href: '#prompts', label: 'Prompts ChatGPT spécifiques métier' },
@@ -131,7 +131,7 @@ export function FormationIaMetierBtpLanding({ config }: { config: FormationIaMet
             {OFC} — formation IA &amp; ChatGPT pour {config.metierNom} du BTP : devis, chantier, mémoires techniques.
             Sessions en présentiel en Île-de-France (4 h), dispensées par un organisme certifié Qualiopi. Financement possible selon éligibilité.
             Plus de{' '}
-            <strong className="text-slate-800">{formatProfessionalsTrainedCount()} professionnels</strong> formés.
+            <strong className="text-slate-800">{formatNoteSatisfactionAffichageComplet()}</strong>.
           </p>
 
           {config.essentielItems && config.essentielItems.length > 0 ? (
@@ -361,8 +361,8 @@ export function FormationIaMetierBtpLanding({ config }: { config: FormationIaMet
                 <p className="mt-4 text-slate-700 leading-relaxed">
                   <strong>{SITE_CONFIG.name}</strong> est formatrice organisme certifié Qualiopi pour {OFC}. Elle accompagne les
                   entreprises du bâtiment et des travaux publics sur ChatGPT, Claude et les usages responsables de
-                  l&apos;IA (devis, mémoires techniques, comptes rendus). Instructrice LinkedIn Learning, elle a formé
-                  plus de {formatProfessionalsTrainedCount()} professionnels · .{' '}
+                  l&apos;IA (devis, mémoires techniques, comptes rendus). Instructrice LinkedIn Learning — satisfaction{' '}
+                  {formatNoteSatisfactionAffichageComplet()}.{' '}
                   {config.authorBioClosingLine ??
                     'Basée en Île-de-France, elle intervient exclusivement en présentiel pour les entreprises du bâtiment et des travaux publics.'}
                 </p>

@@ -17,7 +17,7 @@ import { ClaudeSkillsLeadMagnetSection } from '@/components/claude/ClaudeSkillsL
 import { FAQSchema } from '@/components/seo/FAQSchema';
 import { createPageMetadata } from '@/lib/seo';
 import { buildClaudeAiBtpJsonLdGraph } from '@/lib/claude-ai-btp-jsonld';
-import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
+import { SOCIAL_PROOF } from '@/lib/constants';
 import { LINKS } from '@/lib/internal-links';
 import { OFC_CARD } from '@/lib/ofc-interaction-classes';
 import { PHOTOS } from '@/lib/photos';
@@ -28,7 +28,7 @@ const heroVisuel = PHOTOS.claudeBtpGuideHero2026;
 export const metadata = createPageMetadata({
   title: 'Claude AI BTP : Chat, Cowork, Code, Chrome',
   description:
-    `Guide Claude AI BTP : Chat, Cowork, Code & Chrome. Prompts chantier, DCE, CR. Qualiopi, IDF. ${formatProfessionalsTrainedCount()} pros formés.`,
+    `Guide Claude AI BTP : Chat, Cowork, Code & Chrome. Prompts chantier, DCE, CR. Qualiopi, IDF. $`,
   path: PATH,
   keywords: null,
   openGraphType: 'website',
@@ -305,7 +305,7 @@ export default function ClaudeAiBtpPillarPage() {
                   </table>
                 </div>
                 <p className="mt-5 text-sm text-[#64748B]">
-                  {`Sur les sessions FFB et CSFE, les participants rapportent ces ordres de grandeur sur des dossiers comparables. Gains variables selon l'organisation, les outils en place et le niveau de pratique. · +${formatProfessionalsTrainedCount()} formés · `}
+                  {`Sur les sessions FFB et CSFE, les participants rapportent ces ordres de grandeur sur des dossiers comparables. Gains variables selon l'organisation, les outils en place et le niveau de pratique. · +$· `}
                 </p>
               </section>
 

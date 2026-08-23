@@ -6,12 +6,10 @@ import {
   PREUVES,
   PREUVES_MENTION_SOURCE,
   PREUVES_PERIODE,
-  formatPersonnesFormeesCount,
   formatPreuvesMajLe,
 } from '@/lib/constants';
 
 export const PROOF = {
-  formes: PREUVES.prosFormes,
   note: PREUVES.satisfaction,
   repondants: PREUVES.repondants,
   periode: PREUVES.periode,
@@ -21,12 +19,7 @@ export const PROOF = {
 
 export const PROOF_PERIODE = PREUVES_PERIODE;
 
-/** @deprecated Utiliser `formatPersonnesFormeesCount`. */
-export function formatProofFormes(value: number = PREUVES.prosFormes): string {
-  return formatPersonnesFormeesCount(value);
-}
-
-/** Affichage FR des répondants (ex. « 412 »). */
+/** Affichage FR des répondants (ex. « 20 »). */
 export function formatProofRepondants(value: number = PREUVES.repondants): string {
   return value.toLocaleString('fr-FR');
 }

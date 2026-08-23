@@ -3,7 +3,7 @@ import { Download, Calendar, Check } from 'lucide-react';
 import { JsonLd } from '@/components/JsonLd';
 import { MaillageRessourceFromConfig } from '@/app/components/MaillageRessource';
 import { DisclaimerGains } from '@/components/formation/DisclaimerGains';
-import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
+import { SOCIAL_PROOF } from '@/lib/constants';
 import {
   FAQ_GUIDE_ASSISTANTS_TRAVAUX,
   GUIDE_ASSISTANTS_TRAVAUX_H1,
@@ -133,8 +133,7 @@ export default function GuideAssistantsTravauxOfcPage() {
       <section className="bg-[#377CF3] text-white" aria-labelledby="hero-guide-assistants">
         <div className="mx-auto max-w-7xl px-4 py-14 md:py-20">
           <p className="text-xs font-semibold uppercase tracking-[0.16em] text-white/85">
-            PDF gratuit · OFC Qualiopi · {formatProfessionalsTrainedCount()} pros formés
-          </p>
+            PDF gratuit · OFC Qualiopi · </p>
           <h1
             id="hero-guide-assistants"
             className="mt-4 max-w-4xl font-display text-3xl font-bold leading-tight md:text-4xl lg:text-[2.35rem]"

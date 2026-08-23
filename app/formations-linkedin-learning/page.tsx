@@ -5,7 +5,7 @@ import { ExternalLink } from 'lucide-react';
 import { JsonLd } from '@/components/JsonLd';
 import { RdvLink } from '@/components/RdvLink';
 import { LOGO_LINKEDIN_LEARNING } from '@/lib/client-logos';
-import { formatProfessionalsTrainedCount, SOCIAL_PROOF, IDF_ZONE_INTERVENTION } from '@/lib/constants';
+import { SOCIAL_PROOF, IDF_ZONE_INTERVENTION } from '@/lib/constants';
 import { LINKS } from '@/lib/internal-links';
 import { OFC_CTA_PRIMARY, OFC_LINK } from '@/lib/ofc-interaction-classes';
 import { PHOTOS } from '@/lib/photos';
@@ -19,6 +19,7 @@ import {
   schemaLogoUrl,
 } from '@/lib/schema-constants';
 import { createPageMetadata, SITE_CONFIG } from '@/lib/seo';
+import { formatProsFormesEtNoteQualiopi } from '@/lib/data/indicateurs-resultats-helpers';
 
 const PATH = '/formations-linkedin-learning';
 const PAGE_URL = `${SITE_CONFIG.url.replace(/\/$/, '')}${PATH}`;
@@ -178,7 +179,7 @@ function buildPageJsonLd() {
   const base = SCHEMA_PUBLIC_SITE_URL.replace(/\/$/, '');
   const personId = `${PAGE_URL}#person`;
   const orgId = `${PAGE_URL}#organization`;
-  const formés = formatProfessionalsTrainedCount();
+  
 
   const courses = [COURSE_1, COURSE_2]
     .filter((c) => Boolean(c.url))
@@ -221,7 +222,7 @@ function buildPageJsonLd() {
           },
         ],
         sameAs: [...SCHEMA_PERSON_SAME_AS],
-        description: `Instructrice LinkedIn Learning et formatrice IA spécialisée BTP. ${formés}+ professionnels formés, note /5.`,
+        description: `Instructrice LinkedIn Learning et formatrice IA spécialisée BTP. ${formatProsFormesEtNoteQualiopi()}.`,
       },
       {
         '@type': 'Organization',
@@ -234,8 +235,7 @@ function buildPageJsonLd() {
           SCHEMA_LINKEDIN_LEARNING_INSTRUCTOR_URL,
           SCHEMA_YOUTUBE_CHANNEL_URL,
         ],
-      },
-      ...courses,
+      }, ...courses,
       {
         '@type': 'BreadcrumbList',
         '@id': `${PAGE_URL}#breadcrumb`,
@@ -266,7 +266,7 @@ function buildPageJsonLd() {
 }
 
 export default function FormationsLinkedInLearningPage() {
-  const formés = formatProfessionalsTrainedCount();
+  
 
   return (
     <div className="min-h-screen bg-white font-sans">
@@ -322,8 +322,7 @@ export default function FormationsLinkedInLearningPage() {
               <p className="mt-3 text-base leading-relaxed text-slate-700 md:text-lg">
                 Laure Olivié est instructrice LinkedIn Learning et formatrice IA spécialisée BTP, avec
                 10 ans de terrain BTP (Dirigeante d&apos;une entreprise de Travaux Publics dans les Yvelines, ex-ALIA BTP) · formatrice IA depuis 2022. Elle a publié 2
-                formations en français sur l&apos;IA appliquée au bâtiment. Plus de {formés}{' '}
-                professionnels formés/5.
+                formations en français sur l&apos;IA appliquée au bâtiment. {formatProsFormesEtNoteQualiopi()}.
               </p>
             </div>
 
@@ -574,8 +573,7 @@ export default function FormationsLinkedInLearningPage() {
               </p>
               <p className="mt-3">
                 10 ans de terrain BTP (Dirigeante d&apos;une entreprise de Travaux Publics dans les Yvelines) · formatrice IA depuis 2022. OFC Création d&apos;Entreprise —
-                Qualiopi. {formés}+ professionnels formés/5.
-                Partenaires : FFB Grand Paris, CSFE, UMB-FFB, CNAM, Lefebvre Dalloz.
+                Qualiopi. {formatProsFormesEtNoteQualiopi()}. Partenaires : FFB Grand Paris, CSFE, UMB-FFB, CNAM, Lefebvre Dalloz.
               </p>
             </div>
           </div>

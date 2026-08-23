@@ -9,7 +9,7 @@ import { getFAQSchema, SITE_CONFIG } from '@/lib/seo';
 import { buildSiteCalendlyCtaUrl } from '@/lib/calendly';
 import { PublicPhoneCta } from '@/components/PublicPhoneCta';
 import { EFFECTIF_GROUPE_MAX, TARIF_FORFAIT_AVANCE_HT, libelleTarifSessionForfaitaire } from '@/lib/tarifs-sessions';
-import { SOCIAL_PROOF, formatProfessionalsTrainedCount, IDF_ZONE_INTERVENTION } from '@/lib/constants';
+import { SOCIAL_PROOF, IDF_ZONE_INTERVENTION } from '@/lib/constants';
 import { LINKS } from '@/lib/internal-links';
 import { LiensConnexes } from '@/components/LiensConnexes';
 import { RelatedLinks } from '@/components/RelatedLinks';

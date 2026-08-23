@@ -1,16 +1,16 @@
 'use client';
 
-import { Award, GraduationCap, ShieldCheck, Users } from 'lucide-react';
+import { Award, GraduationCap, ShieldCheck, Star } from 'lucide-react';
 import { Reveal, RevealGroup } from '@/components/motion/Reveal';
-import { CountUp } from '@/components/motion/CountUp';
-import { COUNT_UP_PROS_PLUS, getStatsFreshnessLabel } from '@/lib/readability-presets';
+import { formatNoteSatisfactionSur5 } from '@/lib/data/indicateurs-resultats';
+import { getStatsFreshnessLabel } from '@/lib/readability-presets';
 import { IndicateursResultatsLink } from '@/components/formation/IndicateursResultatsLink';
 
 const STATS = [
   {
-    Icon: Users,
-    value: <CountUp {...COUNT_UP_PROS_PLUS} className="tabular-nums" />,
-    label: 'Professionnels formés',
+    Icon: Star,
+    value: formatNoteSatisfactionSur5(),
+    label: 'Satisfaction (Qualiopi)',
   },
   {
     Icon: Award,
@@ -30,7 +30,7 @@ const STATS = [
 ] as const;
 
 /**
- * Bandeau chiffres clés — apparition au scroll + compteurs animés (page /a-propos).
+ * Bandeau chiffres clés — apparition au scroll (page /a-propos).
  */
 export function AProposStatsShowcase() {
   const statsFreshness = getStatsFreshnessLabel();

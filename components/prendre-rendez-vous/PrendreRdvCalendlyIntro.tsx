@@ -9,7 +9,8 @@ import {
   LOGO_LINKEDIN_LEARNING,
   LOGO_UMB_FFB,
 } from '@/lib/client-logos';
-import { formatPersonnesFormeesCount, PREUVES } from '@/lib/constants';
+import { formatNoteSatisfactionAffichageComplet } from '@/lib/data/indicateurs-resultats';
+import { indicateursResultats } from '@/lib/data/indicateurs-resultats';
 import { IMAGE_SIZES } from '@/lib/image-props';
 
 const REASSURANCE = [
@@ -68,8 +69,8 @@ export function PrendreRdvCalendlyIntro() {
       </ul>
 
       <p className="text-center text-xs text-slate-500">
-        {formatPersonnesFormeesCount(PREUVES.prosFormes)} professionnels formés · {PREUVES.satisfaction} (questionnaires
-        fin de session)
+        ·{' '}
+        {formatNoteSatisfactionAffichageComplet()}
       </p>
 
       <ul

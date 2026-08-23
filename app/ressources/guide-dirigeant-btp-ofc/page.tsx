@@ -3,10 +3,11 @@ import { Download, Calendar, Check } from 'lucide-react';
 import { JsonLd } from '@/components/JsonLd';
 import { MaillageRessourceFromConfig } from '@/app/components/MaillageRessource';
 import { DisclaimerGains } from '@/components/formation/DisclaimerGains';
-import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
+import { SOCIAL_PROOF } from '@/lib/constants';
 import { LINKS } from '@/lib/internal-links';
 import { getMaillageRessourceConfig } from '@/lib/maillage-ressources';
 import { buildMetadata, getFAQSchema, SITE_CONFIG } from '@/lib/seo';
+import { formatProsFormesEtNoteQualiopi } from '@/lib/data/indicateurs-resultats-helpers';
 
 const PATH = LINKS.guideDirigeantBtpOfc;
 const FILE_HREF = LINKS.pdfGuideDirigeantBtpOfc;
@@ -86,7 +87,7 @@ const FAQ = [
   },
   {
     q: 'Comment former toute la direction ensuite ?',
-    a: `Laure Olivié (OFC Création d’Entreprise) anime des sessions de formation IA pour le BTP en présentiel Île-de-France, dispensées par un organisme certifié Qualiopi, avec financement OPCO possible selon éligibilité (Constructys). ${formatProfessionalsTrainedCount()} pros formés, note .`,
+    a: `Laure Olivié (OFC Création d’Entreprise) anime des sessions de formation IA pour le BTP en présentiel Île-de-France, dispensées par un organisme certifié Qualiopi, avec financement OPCO possible selon éligibilité (Constructys). ${formatProsFormesEtNoteQualiopi()}`,
   },
 ] as const;
 

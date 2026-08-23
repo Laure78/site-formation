@@ -13,11 +13,12 @@ import { createPageMetadata, getFAQSchema, SITE_CONFIG } from '@/lib/seo';
 import { FAQ_IA_BTP_METIERS_CHANTIER_SEO } from '@/lib/faq';
 import { PHOTOS } from '@/lib/photos';
 import { LINKS } from '@/lib/internal-links';
-import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
+import { SOCIAL_PROOF } from '@/lib/constants';
 import { TARIF_SESSION_DEBUTANT_HT, LIBELLE_EFFECTIF_GROUPE_COURT, libelleTarifSessionForfaitaire } from '@/lib/tarifs-sessions';
 import { MetierIdfPresentielLine } from '@/components/formation-ia-metier/MetierIdfPresentielLine';
 import { createMetierBtpPageMetadata } from '@/lib/formation-ia-metier-idf';
 
+import { formatNoteSatisfactionAffichageComplet } from '@/lib/data/indicateurs-resultats';
 import { RenvoiFicheCatalogue } from '@/components/qualiopi/RenvoiFicheCatalogue';
 
 export const revalidate = 3600;
@@ -277,8 +278,7 @@ export default function FormationIAArtisansBTPPage() {
           <p className="mt-4 text-sm italic text-slate-500">
             Sur les sessions OFC (TPE/PME BTP : électricité, plomberie, maçonnerie, peinture), les
             participants rapportent ces ordres de grandeur. Gains variables selon l&apos;organisation,
-            les outils en place et le niveau de pratique. +{formatProfessionalsTrainedCount()}{' '}
-            professionnels formés.
+            les outils en place et le niveau de pratique. {formatNoteSatisfactionAffichageComplet()}.
           </p>
         </section>
 

@@ -2,13 +2,14 @@
  * JSON-LD @graph — page pilier /claude-ai-btp (TechArticle, FAQ, HowTo, ItemList, Dataset, Service).
  * @see https://schema.org/
  */
-import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
+import { SOCIAL_PROOF } from '@/lib/constants';
 import {
   breadcrumbItemsFromPaths,
   buildBreadcrumbListJsonLd,
   SITE_CONFIG,
 } from '@/lib/seo';
 import { PHOTOS } from '@/lib/photos';
+import { formatProsFormesEtNoteQualiopi } from '@/lib/data/indicateurs-resultats-helpers';
 
 const PATH = '/claude-ai-btp';
 
@@ -291,7 +292,7 @@ export function buildClaudeAiBtpJsonLdGraph(): Record<string, unknown> {
     '@type': 'Dataset',
     '@id': `${CANONICAL}#dataset-gains-temps`,
     name: 'Gains de temps avec Claude AI dans le BTP (mesures OFC 2026)',
-    description: `Mesures de gain de temps sur 8 tâches BTP, établies lors des sessions OFC avec la FFB Grand Paris, FFB IDF, CSFE, CNAM (${formatProfessionalsTrainedCount()} professionnels formés, note ).`,
+    description: `Mesures de gain de temps sur 8 tâches BTP, établies lors des sessions OFC avec la FFB Grand Paris, FFB IDF, CSFE, CNAM (${formatProsFormesEtNoteQualiopi()}.`,
     creator: { '@type': 'Organization', name: "OFC Création d'Entreprise", '@id': ORG_ID },
     datePublished: '2026-04-15',
     license: 'https://creativecommons.org/licenses/by-nc/4.0/',

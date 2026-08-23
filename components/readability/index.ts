@@ -5,8 +5,6 @@ export type { StatCountUpValue } from '@/components/readability/stat-callout-typ
 export { isStatCountUpValue } from '@/components/readability/stat-callout-types';
 export { CountUp, type CountUpProps } from '@/components/motion/CountUp';
 export {
-  COUNT_UP_PROS,
-  COUNT_UP_PROS_PLUS,
   COUNT_UP_RATING,
   COUNT_UP_SATISFACTION,
   getStatsFreshnessLabel,

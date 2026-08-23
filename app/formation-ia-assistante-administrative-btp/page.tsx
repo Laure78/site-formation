@@ -12,7 +12,7 @@ import { createPageMetadata, getFAQSchema, sitePhoneDisplaySuffix } from '@/lib/
 import { SITE_CONFIG } from '@/lib/seo';
 import { buildSiteCalendlyCtaUrl } from '@/lib/calendly';
 import { PublicPhoneCta } from '@/components/PublicPhoneCta';
-import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
+import { SOCIAL_PROOF } from '@/lib/constants';
 import { JsonLd } from '@/components/JsonLd';
 import { LINKS } from '@/lib/internal-links';
 import { LaureOlivieFormationPortrait } from '@/components/laure-olivie/LaureOlivieFormationPortrait';

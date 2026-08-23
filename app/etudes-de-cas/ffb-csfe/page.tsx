@@ -9,7 +9,8 @@ import {
 } from '@/lib/seo';
 import { CSFE_NOM_LIBRE, CSFE_TITRE_PAGE } from '@/lib/csfe';
 import { CaseStudyYoutubeThumbnails } from '@/components/landing/CaseStudyYoutubeThumbnails';
-import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
+import { formatNoteSatisfactionSur5 } from '@/lib/data/indicateurs-resultats';
+import { SOCIAL_PROOF } from '@/lib/constants';
 
 const ETUDE_CAS_THUMBNAILS = [
   {
@@ -319,7 +320,7 @@ export default function EtudeDeCasFfbCsfePage() {
                 <ul className="mt-4 space-y-6">
                   <li>
                     <p className="text-3xl font-bold text-[var(--accent)]">
-                      +{formatProfessionalsTrainedCount()}
+                      +{formatNoteSatisfactionSur5()}
                     </p>
                     <p className="text-sm text-slate-600">professionnels accompagnés</p>
                   </li>

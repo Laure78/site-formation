@@ -6,19 +6,7 @@ import type { StatCountUpValue } from '@/components/readability/stat-callout-typ
 
 export { getStatsFreshnessLabel };
 
-export const COUNT_UP_PROS: StatCountUpValue = { to: siteStats.personnesFormees };
-
-export const COUNT_UP_PROS_PLUS: StatCountUpValue = {
-  to: siteStats.personnesFormees,
-  prefix: '+',
-};
-
-/** Hero accueil — compteur jusqu'à 1 500, suffixe « + » statique. */
-export const COUNT_UP_PROS_PLUS_SUFFIX: StatCountUpValue = {
-  to: siteStats.personnesFormees,
-  suffix: '+',
-};
-
+/** Compteur animé — note satisfaction Qualiopi (sur 5). */
 export const COUNT_UP_RATING: StatCountUpValue = {
   to: siteStats.noteMoyenneValeur,
   decimals: 2,

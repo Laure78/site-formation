@@ -1,25 +1,21 @@
-import { QUALIOPI_STATS } from '@/config/qualiopi';
+import { indicateursResultats } from '@/lib/data/indicateurs-resultats';
 
 /**
- * Note moyenne questionnaires de satisfaction post-formation OFC.
- * Format Schema.org : point décimal, sans suffixe « /5 ».
- *
- * @deprecated Ne plus injecter dans le JSON-LD sans un tableau `review[]`
- * d’avis individuels vérifiables (politique Google Rich Results).
- * Les chiffres restent affichés en clair sur le site (+ méthodologie Qualiopi).
- * Conservé pour une éventuelle option B (avis Google Business documentés).
+ * Note moyenne questionnaires de satisfaction à chaud — OFC (indicateur 2 Qualiopi).
+ * Source : `lib/data/indicateurs-resultats.ts`.
  */
-export const SCHEMA_AGGREGATE_RATING_VALUE = String(QUALIOPI_STATS.NOTE_MOYENNE_VALEUR);
+export const SCHEMA_AGGREGATE_RATING_VALUE = String(indicateursResultats.noteSatisfaction);
 
-/**
- * @deprecated Voir commentaire ci-dessus — ne plus appeler dans les schémas publics.
- */
+/** Nombre de questionnaires consolidés sur la période de référence. */
+export const SCHEMA_AGGREGATE_REVIEW_COUNT = indicateursResultats.nombreRepondants;
+
+/** Bloc AggregateRating Schema.org — aligné questionnaires satisfaction à chaud. */
 export function buildSchemaAggregateRating(): Record<string, string | number> {
   return {
     '@type': 'AggregateRating',
-    ratingValue: SCHEMA_AGGREGATE_RATING_VALUE,
-    bestRating: '5',
-    worstRating: '1',
-    ratingCount: String(QUALIOPI_STATS.NB_REPONDANTS),
+    ratingValue: indicateursResultats.noteSatisfaction,
+    bestRating: 5,
+    worstRating: 1,
+    reviewCount: indicateursResultats.nombreRepondants,
   };
 }

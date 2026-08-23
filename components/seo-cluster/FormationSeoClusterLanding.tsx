@@ -9,7 +9,6 @@ import { ShortAnswerBlock } from '@/components/landing/ShortAnswerBlock';
 import { RelatedLinks } from '@/components/RelatedLinks';
 import { RenvoiFicheCatalogue } from '@/components/qualiopi/RenvoiFicheCatalogue';
 import { FINANCEMENT_FORMULATION_PRUDENTE } from '@/lib/financement-copy';
-import { formatPersonnesFormeesCount } from '@/lib/constants';
 import { LINKS } from '@/lib/internal-links';
 import { OFC_LINK } from '@/lib/ofc-interaction-classes';
 import type { SeoClusterPageConfig } from '@/lib/seo-cluster-landing-types';
@@ -114,12 +113,9 @@ export function FormationSeoClusterLanding({ config }: { config: SeoClusterPageC
 
   const sommaire = [
     { href: '#introduction', label: 'Introduction' },
-    { href: '#cas-usage', label: config.useCasesTitle },
-    ...(config.publicTargets?.length ? [{ href: '#public', label: 'Public concerné' }] : []),
-    ...(config.specialSection
+    { href: '#cas-usage', label: config.useCasesTitle }, ...(config.publicTargets?.length ? [{ href: '#public', label: 'Public concerné' }] : []), ...(config.specialSection
       ? [{ href: `#${config.specialSection.id}`, label: config.specialSection.title }]
-      : []),
-    ...(config.methodology ? [{ href: '#methodologie', label: config.methodology.title }] : []),
+      : []), ...(config.methodology ? [{ href: '#methodologie', label: config.methodology.title }] : []),
     { href: '#faq', label: 'Questions fréquentes' },
     { href: '#a-propos', label: 'Laure Olivié — formatrice' },
     { href: '#rdv', label: 'Prendre rendez-vous' },
@@ -148,7 +144,7 @@ export function FormationSeoClusterLanding({ config }: { config: SeoClusterPageC
           </div>
 
           <p className="mt-6 text-sm text-slate-600">
-            <strong>{formatPersonnesFormeesCount()} professionnels formés</strong> ·{' '}
+            <strong></strong> ·{' '}
             {FINANCEMENT_FORMULATION_PRUDENTE}
           </p>
 

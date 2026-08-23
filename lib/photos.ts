@@ -1,4 +1,3 @@
-import { formatProfessionalsTrainedCount } from '@/lib/constants';
 
 /** Logo header (portrait circulaire bleu) — source unique, format WebP uniquement. */
 export const SITE_HEADER_LOGO_SRC = '/images/laure-avatar-bleu.webp' as const;

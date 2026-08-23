@@ -343,7 +343,7 @@ export default function FormationIaMaitriseOeuvrePage() {
               </p>
               <p className="mt-3 text-sm leading-relaxed text-slate-600">
                 Fondatrice d&apos;OFC Création d&apos;Entreprise. Dirigeante d&apos;une entreprise de Travaux Publics dans les Yvelines (ALIA BTP,
-                2017-2024). Plus de {SOCIAL_PROOF.PROFESSIONALS_TRAINED} professionnels formés.
+                2017-2024). Organisme certifié Qualiopi.
               </p>
               <Link
                 href={LINKS.aPropos}

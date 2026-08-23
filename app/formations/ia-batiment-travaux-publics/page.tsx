@@ -53,7 +53,7 @@ import { RelatedLinks } from '@/components/RelatedLinks';
 import { getClusterRelatedHrefs } from '@/lib/maillage-clusters';
 import { FORMATION_NIV01_RELATED } from '@/lib/contextual-internal-links';
 import { buildCatalogueCourseIaBtpNiv01JsonLd } from '@/lib/schema-catalogue-course-jsonld';
-import { formatPersonnesFormeesCount, getStatsFreshnessLabel, siteStats } from '@/lib/constants';
+import { getStatsFreshnessLabel, siteStats } from '@/lib/constants';
 
 /** Title ≤ 60 car. — catalogue niveau 1 bâtiment & TP */
 const SEO_TITLE =
@@ -411,7 +411,7 @@ export default function FormationIAuServiceDuBatimentPage() {
           </p>
           <p className="mt-4 text-slate-700 leading-relaxed">
             En {new Date().getFullYear()}, OFC Création d&apos;Entreprise affiche une indicateurs publiés sur la page dédiée sur plus de{' '}
-            {formatPersonnesFormeesCount()} professionnels formés ({getStatsFreshnessLabel()}).
+            ({getStatsFreshnessLabel()}).
           </p>
           <p className="mt-4 text-slate-700 leading-relaxed">
             Cette <strong>formation intelligence artificielle construction</strong> s&apos;adresse aux

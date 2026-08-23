@@ -7,7 +7,7 @@ import { MaillageRessourceFromConfig } from '@/app/components/MaillageRessource'
 import { CopyPromptButton } from '@/components/CopyPromptButton';
 import { CtaButton } from '@/components/CtaButton';
 import { SITE_CONFIG } from '@/lib/seo';
-import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
+import { SOCIAL_PROOF } from '@/lib/constants';
 import { PHOTOS } from '@/lib/photos';
 import { LINKS } from '@/lib/internal-links';
 import { EXTERNAL_SITE_URLS } from '@/lib/external-site-urls';
@@ -17,6 +17,7 @@ import { FINANCEMENT_STAT_LABEL, FINANCEMENT_STAT_VAL } from '@/lib/financement-
 import type { TutoBlock, TutoData, TutoStep } from '@/lib/tutos/types';
 import { tutoDownloadLabel } from '@/lib/tutos/types';
 import { computeHeroLearnAnchorIds } from '@/lib/tutos/hero-anchors';
+import { formatNoteSatisfactionSur5 } from '@/lib/data/indicateurs-resultats';
 import { getTutoEnBref } from '@/lib/tutos/en-bref';
 
 function pdfUrlFor(tuto: TutoData): string {
@@ -418,7 +419,7 @@ export function TutoPage({ tuto }: { tuto: TutoData }) {
               </div>
               <div className="grid grid-cols-2 gap-4 md:grid-cols-1 md:gap-3">
                 <CtaStat
-                  value={formatProfessionalsTrainedCount()}
+                  value={formatNoteSatisfactionSur5()}
                   label="Personnes formées"
                 />
                 <CtaStat value={FINANCEMENT_STAT_VAL} label={FINANCEMENT_STAT_LABEL} />

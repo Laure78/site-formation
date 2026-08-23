@@ -4,7 +4,7 @@ import Link from 'next/link';
 import type { ReactNode } from 'react';
 import { Download, Calendar } from 'lucide-react';
 import { JsonLd } from '@/components/JsonLd';
-import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
+import { SOCIAL_PROOF } from '@/lib/constants';
 import {
   FAQ_GUIDE_MOE_IA,
   GUIDE_MOE_IA_H1,
@@ -236,7 +236,7 @@ export default function GuideMaitriseOeuvreIaPage() {
             </div>
           </div>
           <p className="mx-auto mt-10 max-w-2xl rounded-xl bg-[#377CF3] px-6 py-4 text-lg font-medium text-white">
-            Plus de {formatProfessionalsTrainedCount(SOCIAL_PROOF.PROFESSIONALS_TRAINED)} professionnels formés ·{' '}
+            ·{' '}
             {FINANCEMENT_FORMULATION_COURTE}
           </p>
         </div>

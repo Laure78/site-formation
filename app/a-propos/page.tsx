@@ -8,7 +8,7 @@ import { getAProposPersonJsonLd } from '@/lib/schema-a-propos-person-jsonld';
 import { getAProposOrganizationJsonLd } from '@/lib/schema-a-propos-organization-jsonld';
 import { SCHEMA_CONTACT, SCHEMA_GEO, SCHEMA_LINKEDIN_PROFILE_URL } from '@/lib/schema-constants';
 import { LINKS } from '@/lib/internal-links';
-import { formatPersonnesFormeesCount, getStatsFreshnessLabel } from '@/lib/constants';
+import { getStatsFreshnessLabel } from '@/lib/constants';
 import { PHOTOS } from '@/lib/photos';
 import {
   A_PROPOS_AUTORITE_PARAGRAPHS,
@@ -20,7 +20,7 @@ import {
   A_PROPOS_TRUST_PARAGRAPH,
 } from '@/lib/a-propos-eeat-content';
 import { AProposOffreSection } from '@/components/a-propos/AProposOffreSection';
-import { COUNT_UP_PROS_PLUS } from '@/lib/readability-presets';
+import { COUNT_UP_RATING } from '@/lib/readability-presets';
 import { Timeline } from '@/components/a-propos/Timeline';
 import { PartnersGrid } from '@/components/a-propos/PartnersGrid';
 import { EeatRichText } from '@/components/a-propos/EeatRichText';
@@ -42,6 +42,7 @@ import { EnBref } from '@/app/components/EnBref';
 import { BeWorkHighlightSection } from '@/components/landing/BeWorkHighlightSection';
 import { Reveal } from '@/components/motion/Reveal';
 import { AuthorBio } from '@/components/AuthorBio';
+import { formatNoteSatisfactionAffichageComplet, formatNoteSatisfactionSur5 } from '@/lib/data/indicateurs-resultats';
 import { Partenaires } from '@/components/Partenaires';
 
 const A_PROPOS_TOC = [
@@ -116,7 +117,7 @@ export default function AProposPage() {
               Laure Olivié est formatrice IA générative spécialiste BTP depuis 2022 et dirige OFC Création d&apos;Entreprise,
               organisme certifié Qualiopi basé à Guyancourt. Elle forme en présentiel, en Île-de-France, les
               professionnels du bâtiment et des travaux publics sur ChatGPT, Claude, Copilot 365, Mistral et Perplexity,
-              appliqués à leurs documents réels. {formatPersonnesFormeesCount()} participants formés en présentiel Île-de-France.
+              appliqués à leurs documents réels. Satisfaction {formatNoteSatisfactionAffichageComplet()} (questionnaires de fin de formation).
             </p>
           </EnBref>
         }
@@ -143,7 +144,7 @@ export default function AProposPage() {
             </span>
             <span className="inline-flex items-center gap-1.5 text-[#475569]">
               <Star className="h-3.5 w-3.5 shrink-0 text-[#377CF3]" aria-hidden />
-              Qualiopi · {formatPersonnesFormeesCount()} formés
+              Qualiopi · {formatNoteSatisfactionSur5()} satisfaction
             </span>
           </>
         }
@@ -198,7 +199,7 @@ export default function AProposPage() {
                 description={`Volume formé et certification — ${getStatsFreshnessLabel()}.`}
                 columns={2}
                 items={[
-                  { label: 'Professionnels formés', value: COUNT_UP_PROS_PLUS, Icon: Users },
+                  { label: 'Satisfaction (Qualiopi)', value: COUNT_UP_RATING, Icon: Users },
                   { label: 'Organisme', value: "OFC Création d'Entreprise", Icon: Building2 },
                   { label: 'Certification', value: 'Qualiopi (jan. 2028)', Icon: ShieldCheck },
                 ]}
