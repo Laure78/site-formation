@@ -297,7 +297,7 @@ export default function FormationIaConducteurTravauxPage() {
           <p className="mt-4 leading-relaxed text-slate-600">
             <strong>L&apos;IA au service des professionnels du BTP</strong> : session de 4 h pour conducteurs de
             travaux, chefs de chantier et équipes support. Travail sur vos CR, mails, PPSPS et documents chantier
-            réels. Intra ou inter, exclusivement en présentiel — Île-de-France.
+            réels. intra-entreprise, dans vos locaux, exclusivement en présentiel — Île-de-France.
           </p>
           <p className="mt-6">
             <Link

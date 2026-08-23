@@ -552,7 +552,7 @@ export default function FormationIAuServiceDuBatimentPage() {
             </h2>
           </div>
           <p className="mt-4 text-slate-700 leading-relaxed">
-            Les sessions niveau 1 se déroulent en présentiel en Île-de-France (intra ou inter), avec financement
+            Les sessions niveau 1 se déroulent en présentiel en Île-de-France (intra-entreprise, dans vos locaux), avec financement
             OPCO Constructys possible selon éligibilité.
           </p>
           <p className="mt-4 text-slate-700 leading-relaxed">
@@ -675,7 +675,7 @@ export default function FormationIAuServiceDuBatimentPage() {
           <h2 className="font-display text-3xl font-bold text-slate-900">Modalités pratiques</h2>
           <p className="mt-3 max-w-2xl text-slate-600">
             La session niveau 1 dure {SESSION_DUREE_LIBELLE}, coûte {TARIF_SESSION_LIBELLE} (
-            {LIBELLE_EFFECTIF_GROUPE_COURT.toLowerCase()}, niveau débutant) et se tient en intra ou inter en
+            {LIBELLE_EFFECTIF_GROUPE_COURT.toLowerCase()}, niveau débutant) et se tient en intra-entreprise, dans vos locaux en
             Île-de-France.
           </p>
           <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">

@@ -338,7 +338,7 @@ export default function FormationIaConstructionPage() {
           <CtaVisioBlock
             id="cta-final"
             title="Réservez votre visio découverte gratuite — 30 min"
-            subtitle="Cadrons ensemble vos enjeux DCE, chiffrage et coordination : format intra ou inter, éligibilité Constructys, profils à former. Sans engagement."
+            subtitle="Cadrons ensemble vos enjeux DCE, chiffrage et coordination : format intra-entreprise, dans vos locaux, éligibilité Constructys, profils à former. Sans engagement."
             campaign="formation-ia-construction-final"
           />
           <p className="mt-6 text-sm text-slate-600">

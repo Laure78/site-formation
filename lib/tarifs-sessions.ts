@@ -1,6 +1,6 @@
 /**
  * Grille commerciale OFC — dérivée de `data/formations.ts` (prix, durée, effectifs).
- * TVA : inter art. 293 B du CGI · intra art. 261-4-4° du CGI.
+ * TVA : intra art. 261-4-4° du CGI (seule modalité proposée).
  */
 
 import { formatNumberFr } from '@/lib/format-number-fr';
@@ -59,15 +59,17 @@ export function tarifHtDepuisBadgeCatalogue(level?: 'DÉBUTANT' | 'AVANCÉ'): nu
   return level === 'AVANCÉ' ? TARIF_SESSION_AVANCE_HT : TARIF_SESSION_DEBUTANT_HT;
 }
 
-/** TVA — sessions inter-entreprise (art. 293 B du CGI). */
+/**
+ * @deprecated Sessions inter-entreprise non proposées — conservé pour historique CGV / admin.
+ * TVA inter (art. 293 B du CGI).
+ */
 export const MENTIONS_TVA_INTER_COURTE = 'TVA non applicable, article 293 B du CGI.';
 
 /** TVA — formations intra-entreprise (art. 261-4-4° du CGI). */
 export const MENTIONS_TVA_INTRA_COURTE = 'TVA exonérée, article 261-4-4° du CGI.';
 
-/** Synthèse TVA catalogue (inter + intra) — FAQ, encarts. */
-export const MENTIONS_TVA_REGIMES_COURT =
-  `Inter-entreprise : ${MENTIONS_TVA_INTER_COURTE} Intra-entreprise : ${MENTIONS_TVA_INTRA_COURTE}`;
+/** Synthèse TVA catalogue — intra uniquement (FAQ, encarts, fiches). */
+export const MENTIONS_TVA_REGIMES_COURT = MENTIONS_TVA_INTRA_COURTE;
 
 /** Mention légale TVA — footnote unique (`MentionTVA`). */
 export const MENTIONS_TVA_EXONERATION = `Prix nets — ${MENTIONS_TVA_REGIMES_COURT}`;
@@ -80,19 +82,21 @@ export function libelleTarifSessionForfaitaire(amount: number): string {
   return `${formatTarifHt(amount)} € HT / session forfaitaire`;
 }
 
-/** Tarif inter-entreprise + mention TVA inter. */
+/**
+ * @deprecated Sessions inter-entreprise non proposées — ne pas afficher sur le site public.
+ */
 export function libelleTarifInterEntreprise(amount: number, effectifLabel: string): string {
-  return `${libelleTarifSessionForfaitaire(amount)} en inter-entreprise (${effectifLabel}). ${MENTIONS_TVA_INTER_COURTE}`;
+  return `${libelleTarifSessionForfaitaire(amount)} (${effectifLabel}). ${MENTIONS_TVA_INTER_COURTE}`;
 }
 
 /** Tarif intra-entreprise + mention TVA intra. */
 export function libelleTarifIntraEntreprise(amount: number, effectifLabel: string): string {
-  return `Intra-entreprise : forfait ${libelleTarifSessionForfaitaire(amount)} selon effectif et lieu (${effectifLabel}). ${MENTIONS_TVA_INTRA_COURTE}`;
+  return `Forfait ${libelleTarifSessionForfaitaire(amount)} (${effectifLabel}), ${MODALITE_INTRA_ENTREPRISE}. ${MENTIONS_TVA_INTRA_COURTE}`;
 }
 
-/** Bloc tarif Qualiopi / Informations pratiques (inter + intra). */
+/** Bloc tarif Qualiopi / Informations pratiques — intra uniquement. */
 export function libelleTarifsCatalogueComplets(amount: number, effectifLabel: string): string {
-  return `${libelleTarifInterEntreprise(amount, effectifLabel)} ${libelleTarifIntraEntreprise(amount, effectifLabel)}`;
+  return libelleTarifIntraEntreprise(amount, effectifLabel);
 }
 
 /** Ancre HTML de la mention unique (`MentionTVA`). */
@@ -127,19 +131,22 @@ export const LIBELLE_EFFECTIF_GROUPE = `Groupe de ${EFFECTIF_GROUPE_MAX} partici
 /** Positionnement modalité OFC — phrase canonique (badges, FAQ, meta). */
 export const MODALITE_POSITIONNEMENT = 'présentiel uniquement · Île-de-France uniquement';
 
+/** Modalité unique proposée — source unique (pages, FAQ, llms.txt). */
+export const MODALITE_INTRA_ENTREPRISE = 'intra-entreprise, dans vos locaux' as const;
+
 /** Badge court — header, footer, cartes */
 export const PERIMETRE_FORMATIONS_COURT = MODALITE_POSITIONNEMENT;
 
 /** Périmètre géographique et modalité — formulation standard avec exclusions explicites */
 export const PERIMETRE_FORMATIONS_STANDARD =
-  `Sessions inter en salle ou intra dans vos locaux (${IDF_ZONE_INTERVENTION}) — ${MODALITE_POSITIONNEMENT}.`;
+  `Sessions ${MODALITE_INTRA_ENTREPRISE} (${IDF_ZONE_INTERVENTION}) — ${MODALITE_POSITIONNEMENT}.`;
 
 /** Formulation standard — modalités (FAQ, pages, llms.txt) */
 export const MODALITE_FORMATIONS_STANDARD = PERIMETRE_FORMATIONS_STANDARD;
 
-/** Modalités d’intervention catalogue : présentiel uniquement, inter/intra */
+/** Modalités d’intervention catalogue — intra uniquement, présentiel IDF */
 export const MODALITE_FORMATIONS_PRESENTIEL =
-  `Sessions inter ou intra — ${MODALITE_POSITIONNEMENT}.`;
+  `Sessions ${MODALITE_INTRA_ENTREPRISE} — ${MODALITE_POSITIONNEMENT}.`;
 
 /** Toutes les formations catalogue « niveau avancé » (ex. NIV-02 appels d'offres) */
 export const EXIGENCE_CLAUDE_PRO_NIVEAU_AVANCE =

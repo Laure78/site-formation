@@ -590,7 +590,7 @@ export default function FormationIaAssistanteGestionBtpPage() {
               </Link>
             </li>
             <li>
-              <Link href="/formation-ia-conducteur-de-travaux-btp" className="text-[#377CF3] underline">
+              <Link href={LINKS.formationConducteurTravaux} className="text-[#377CF3] underline">
                 Formation IA conducteur de travaux BTP
               </Link>
             </li>

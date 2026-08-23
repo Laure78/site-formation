@@ -59,7 +59,7 @@ const FAQ_FORMATEUR: FAQItem[] = [
   },
   {
     q: 'Intervenez-vous à Paris intra-muros ?',
-    a: `Oui. Sessions en présentiel à Paris (intra dans vos locaux ou inter en salle) pour les entreprises et chantiers parisiens. Pour la petite et grande couronne, voir aussi la couverture ${IDF_ZONE_INTERVENTION}.`,
+    a: `Oui. Sessions en présentiel à Paris (intra-entreprise, dans vos locaux) pour les entreprises et chantiers parisiens. Pour la petite et grande couronne, voir aussi la couverture ${IDF_ZONE_INTERVENTION}.`,
   },
   {
     q: 'Formez-vous en construction / travaux publics aussi ?',

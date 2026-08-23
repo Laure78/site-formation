@@ -283,7 +283,7 @@ export default function FormationIATravauxPublicsLandingPage() {
               indiquons les repères à jour sur votre <strong>devis personnalisé</strong>.
             </p>
             <p>
-              Format : <strong>présentiel</strong> (sessions inter en Île-de-France ou intra dans vos locaux).
+              Format : <strong>présentiel</strong> intra-entreprise, dans vos locaux en Île-de-France.
               L&apos;objectif est que les participants repartent avec des modèles réutilisables sur leurs vrais
               dossiers — anonymisés si nécessaire.
             </p>

@@ -11,7 +11,7 @@ export const DEPARTEMENT_SEINE_SAINT_DENIS_93: DepartementPageData = {
   path: '/formation-ia-btp-seine-saint-denis-93',
   slug: 'seine-saint-denis-93',
   accroche:
-    "Formation IA pour le BTP en présentiel en Seine-Saint-Denis (93), intra ou inter. Territoire de grands chantiers et de marchés publics : la session met l'accent sur la réponse aux marchés, le gros œuvre / TP et la production documentaire de chantier à forte cadence — Bobigny, Saint-Denis, Montreuil, Aubervilliers.",
+    "Formation IA pour le BTP en présentiel en Seine-Saint-Denis (93), intra-entreprise, dans vos locaux. Territoire de grands chantiers et de marchés publics : la session met l'accent sur la réponse aux marchés, le gros œuvre / TP et la production documentaire de chantier à forte cadence — Bobigny, Saint-Denis, Montreuil, Aubervilliers.",
   villes: [
     'Bobigny',
     'Saint-Denis',

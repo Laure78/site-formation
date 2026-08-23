@@ -19,7 +19,7 @@ import { libelleTarifsCatalogueComplets, PREREQUIS_NIVEAU_2 } from '@/lib/tarifs
 
 /** Modalité pédagogique fixe — toutes les actions catalogue OFC. */
 export const MODALITE_PEDAGOGIQUE_CATALOGUE =
-  'Présentiel — Île-de-France uniquement (intra ou inter)' as const;
+  'Présentiel — Île-de-France uniquement (intra-entreprise, dans vos locaux)' as const;
 
 /** Encart accessibilité handicap — texte réglementaire affiché dans le composant. */
 export const INFOS_PRATIQUES_HANDICAP_ENCART =
@@ -99,7 +99,7 @@ export const PREREQUIS_NIV04 =
   "Formation de niveau avancé : utilisation régulière de Claude déjà acquise. Abonnement Claude Pro actif (environ 18 € HT / mois, à la charge de l'entreprise) avec l'option « Exécution de code » activée. Chaque participant apporte ses propres pièces de chantier (CCTP, CCAP, modèles, dossiers).";
 
 export const MODALITE_PEDAGOGIQUE_NIV04 =
-  'Action de formation au sens de l\'art. L6313-1 du Code du travail — 100 % présentiel — intra-entreprise ou inter-entreprises — 70 % pratique / 30 % théorie';
+  'Action de formation au sens de l\'art. L6313-1 du Code du travail — 100 % présentiel — intra-entreprise, dans vos locaux — 70 % pratique / 30 % théorie';
 
 export const MODALITES_ACCES_NIV04 =
   "Inscription sur demande auprès d'OFC (laureolivie@yahoo.fr — 06 95 66 18 18) : entretien d'analyse du besoin et vérification des prérequis → devis et programme personnalisé → convention de formation signée → demande de prise en charge OPCO → convocation des participants. Un recueil des attentes est adressé à chaque participant avant la session.";

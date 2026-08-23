@@ -106,7 +106,7 @@ Encadré **#377CF3**, texte blanc — **Titre :** Cadrer votre formation gros œ
 1. L’IA calcule-t-elle le béton ? **Non** comme validation finale — elle liste les paramètres à vérifier.  
 2. DTU et Eurocode ? **Référence humaine** obligatoire ; l’IA ne substitue pas le bureau d’études.  
 3. Constructys ? **Éligibilité** selon dossier — OFC Qualiopi.  
-4. Petites entreprises ? **Oui**, formations inter et intra.  
+4. Petites entreprises ? **Oui**, formations intra-entreprise, dans vos locaux.  
 5. Données chantier ? **Anonymiser** les relevés dans les prompts publics.  
 6. Durée ? **4 h** (présentiel Île-de-France) selon besoin.
 

@@ -224,7 +224,7 @@ export const blogArticlesClaudeBtp2026: BlogArticle[] = [
       {
         type: 'cta',
         content:
-          'Vous souhaitez une session en présentiel (inter ou intra) pour déployer ces assistants avec vos équipes ?',
+          'Vous souhaitez une session en présentiel (intra-entreprise, dans vos locaux) pour déployer ces assistants avec vos équipes ?',
         formationHref: '/formations',
       },
     ],
@@ -400,7 +400,7 @@ export const blogArticlesClaudeBtp2026: BlogArticle[] = [
         title: 'Formation pratique et financement',
         content: `<figure class="my-6">
 <img src="${IMG}/slide-16.png" alt="Formation IA au service du BTP : 4h pratiques, inter intra, financement OPCO Constructys, Qualiopi, laureolivie.fr" class="w-full rounded-xl border border-slate-200 shadow-sm" loading="lazy" width="1200" height="675" />
-<figcaption class="mt-2 text-center text-sm text-slate-500">« L’IA au service du BTP » — session 4 h, inter ou intra, éligibilité Constructys selon dossier.</figcaption>
+<figcaption class="mt-2 text-center text-sm text-slate-500">« L’IA au service du BTP » — session 4 h, intra-entreprise, dans vos locaux, éligibilité Constructys selon dossier.</figcaption>
 </figure>`,
       },
       {

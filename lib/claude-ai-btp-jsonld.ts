@@ -159,7 +159,7 @@ export function buildClaudeAiBtpJsonLdGraph(): Record<string, unknown> {
         name: 'Où suivre une formation Claude AI BTP en Île-de-France (Paris, Yvelines, Essonne) ?',
         acceptedAnswer: {
           '@type': 'Answer',
-          text: "OFC Création d'Entreprise anime des formations IA pour le BTP exclusivement en présentiel en Île-de-France (Paris, Yvelines, Essonne, Hauts-de-Seine, etc.). Les sessions inter sont planifiées selon le calendrier Qualiopi ; les entreprises peuvent aussi organiser une formation intra sur leur site ou en salle partenaire.",
+          text: "OFC Création d'Entreprise anime des formations IA pour le BTP exclusivement en présentiel intra-entreprise, dans vos locaux en Île-de-France (Paris, Yvelines, Essonne, Hauts-de-Seine, etc.).",
         },
       },
       {

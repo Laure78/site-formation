@@ -214,7 +214,7 @@ export function buildHomeUnifiedGraphJsonLd(): Record<string, unknown> {
           price: priceStr,
           priceCurrency: 'EUR',
           availability: 'https://schema.org/InStock',
-          category: 'Inter-entreprises',
+          category: 'Intra-entreprise',
           eligibleRegion: { '@type': 'Country', name: 'France' },
           url: `${base}${LINKS.formations}`,
         },

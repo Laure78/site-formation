@@ -36,7 +36,7 @@ export const FAQ_IA_BTP_METIERS_CHANTIER_SEO: readonly FAQItem[] = [
   {
     q: "L'IA peut-elle vraiment aider sur les chantiers ?",
     a:
-      "Oui, en prolongement du terrain : la formation vise surtout à accélérer la rédaction et la coordination (comptes rendus, synthèses, consignes, mails) pour libérer du temps utile sur le chantier. L'IA ne remplace pas le jugement professionnel ni les obligations réglementaires — elle aide à structurer l'information et à réagir plus vite. Pour la coordination et le suivi écrit, voir aussi la page <a href=\"/formation-ia-conducteur-de-travaux-btp\">IA conducteur de travaux</a> et le <a href=\"/formations\">catalogue formations IA pour les pros du BTP</a>.",
+      `Oui, en prolongement du terrain : la formation vise surtout à accélérer la rédaction et la coordination (comptes rendus, synthèses, consignes, mails) pour libérer du temps utile sur le chantier. L'IA ne remplace pas le jugement professionnel ni les obligations réglementaires — elle aide à structurer l'information et à réagir plus vite. Pour la coordination et le suivi écrit, voir aussi la page <a href="${LINKS.formationConducteurTravaux}">IA conducteur de travaux</a> et le <a href="/formations">catalogue formations IA pour les pros du BTP</a>.`,
   },
   {
     q: "Comment l'IA améliore-t-elle les devis et métrés ?",
@@ -98,7 +98,7 @@ export const FAQ_ITEMS_HOME: readonly FAQItem[] = [
   {
     q: 'Combien de temps dure la formation IA pour le BTP ?',
     a:
-      `Le module standard est de 4 heures, exclusivement en présentiel dans vos locaux (intra) ou en salle en Île-de-France (inter). Ce format s'intègre dans une demi-journée de travail. Forfait unique ${libelleTarifSessionForfaitaire(TARIF_SESSION_FORFAIT_HT)} (tous niveaux).`,
+      `Le module standard est de 4 heures, exclusivement en présentiel intra-entreprise, dans vos locaux en Île-de-France. Ce format s'intègre dans une demi-journée de travail. Forfait unique ${libelleTarifSessionForfaitaire(TARIF_SESSION_FORFAIT_HT)} (tous niveaux).`,
   },
   {
     q: 'Où se déroulent les sessions de formation ?',
@@ -106,7 +106,7 @@ export const FAQ_ITEMS_HOME: readonly FAQItem[] = [
   },
   {
     q: 'Comment démarrer une formation IA pour mon entreprise BTP ?',
-    a: "Réservez un appel découverte gratuit de 30 minutes : on identifie vos cas d'usage (devis, AO, CR chantier) et le format adapté (inter ou intra). Ensuite vous recevez un devis avec les options de financement selon éligibilité.",
+    a: "Réservez un appel découverte gratuit de 30 minutes : on identifie vos cas d'usage (devis, AO, CR chantier) et le format adapté (intra-entreprise, dans vos locaux). Ensuite vous recevez un devis avec les options de financement selon éligibilité.",
   },
 ];
 
@@ -136,7 +136,7 @@ export function buildHomeFAQPageJsonLd(): Record<string, unknown> {
 export const FAQ_ITEMS: readonly FAQItem[] = [
   {
     q: "Comment utiliser ChatGPT dans une entreprise du bâtiment ?",
-    a: 'On part de vos documents réels (devis, CR chantier, emails) : prompts adaptés au vocabulaire BTP, relecture humaine et bonnes pratiques confidentialité. Le <a href="/formations">catalogue formations IA appliquées au bâtiment</a> et la page <a href="/formation-ia-artisans-btp">ChatGPT pour entreprises BTP</a> vous donnent des trames pour l\'<a href="/ia-devis-batiment">IA devis bâtiment</a>, l\'<a href="/formation-ia-conducteur-de-travaux-btp">IA gestion chantier</a> et l\'automatisation administrative — sans prérequis technique.',
+    a: `On part de vos documents réels (devis, CR chantier, emails) : prompts adaptés au vocabulaire BTP, relecture humaine et bonnes pratiques confidentialité. Le <a href="/formations">catalogue formations IA appliquées au bâtiment</a> et la page <a href="/formation-ia-artisans-btp">ChatGPT pour entreprises BTP</a> vous donnent des trames pour l'<a href="/ia-devis-batiment">IA devis bâtiment</a>, l'<a href="${LINKS.formationConducteurTravaux}">IA gestion chantier</a> et l'automatisation administrative — sans prérequis technique.`,
   },
   {
     q: "Comment gagner du temps administratif dans le BTP avec l'IA ?",
@@ -160,11 +160,11 @@ export const FAQ_ITEMS: readonly FAQItem[] = [
   },
   {
     q: 'Où se déroulent les formations catalogue ?',
-    a: `Sessions OFC : présentiel uniquement · Île-de-France uniquement (inter en salle ou intra dans vos locaux, ${IDF_ZONE_INTERVENTION}). L'échange préalable de 30 min (visio ou téléphone) sert uniquement à cadrer votre projet — voir <a href="${LINKS.prendreRdv}">prendre rendez-vous</a>.`,
+    a: `Sessions OFC : présentiel uniquement · Île-de-France uniquement (intra-entreprise, dans vos locaux, ${IDF_ZONE_INTERVENTION}). L'échange préalable de 30 min (visio ou téléphone) sert uniquement à cadrer votre projet — voir <a href="${LINKS.prendreRdv}">prendre rendez-vous</a>.`,
   },
   {
     q: "Comment mesurer le ROI de la formation IA ?",
-    a: 'Les gains se constatent dès les premières semaines de pratique : premier devis structuré en moins d\'une heure vs demi-journée selon complexité, comptes rendus rédigés le jour même, moins de temps sur les relances. Pour des cas d\'usage ciblés, voir <a href="/ia-devis-batiment">IA devis bâtiment</a> et <a href="/formation-ia-conducteur-de-travaux-btp">IA conducteur de travaux</a>. Les gains varient selon l\'organisation et le niveau de pratique.',
+    a: `Les gains se constatent dès les premières semaines de pratique : premier devis structuré en moins d'une heure vs demi-journée selon complexité, comptes rendus rédigés le jour même, moins de temps sur les relances. Pour des cas d'usage ciblés, voir <a href="/ia-devis-batiment">IA devis bâtiment</a> et <a href="${LINKS.formationConducteurTravaux}">IA conducteur de travaux</a>. Les gains varient selon l'organisation et le niveau de pratique.`,
   },
   {
     q: "Mes données BTP sont-elles sécurisées avec ChatGPT ?",
@@ -181,7 +181,7 @@ export const FAQ_GEO: FAQItem[] = [
   },
   {
     q: "Formation IA pour conducteur de travaux : à quoi ça sert ?",
-    a: 'Accélérer les comptes rendus chantier, les synthèses de réunion, la coordination écrite et la préparation de dossiers — sans remplacer le jugement terrain. Voir la page <a href="/formation-ia-conducteur-de-travaux-btp">IA conducteur de travaux</a> et le <a href="/formations">catalogue formations</a> ; financement Constructys sur <a href="/financement-constructys-formation-ia-btp">le guide OPCO</a>.',
+    a: `Accélérer les comptes rendus chantier, les synthèses de réunion, la coordination écrite et la préparation de dossiers — sans remplacer le jugement terrain. Voir la page <a href="${LINKS.formationConducteurTravaux}">IA conducteur de travaux</a> et le <a href="/formations">catalogue formations</a> ; financement Constructys sur <a href="/financement-constructys-formation-ia-btp">le guide OPCO</a>.`,
   },
   {
     q: "IA pour PME du bâtiment et des travaux publics : par où commencer ?",
@@ -248,8 +248,8 @@ export const FAQ_FORMATIONS: FAQItem[] = [
     a: `Oui. OFC Création d&apos;Entreprise est certifié Qualiopi (action de formation), certification valable jusqu&apos;en janvier 2028. Numéro de déclaration d&apos;activité : 11788515078. ${FINANCEMENT_FORMULATION_PRUDENTE} <a href="${LINKS.aPropos}">À propos de l&apos;organisme</a>.`,
   },
   {
-    q: 'Les formations sont-elles disponibles en inter ou en intra ?',
-    a: `Inter ou intra : ${MODALITE_FORMATIONS_STANDARD} En inter ou en intra : ${IDF_ZONE_INTERVENTION}. Format : 4 heures, ${EFFECTIF_GROUPE_MAX} participants maximum, supports inclus. Vue d&apos;ensemble : <a href="${LINKS.formationIleDeFrance}">formation IA pour le BTP en Île-de-France</a>.`,
+    q: 'Les formations sont-elles disponibles en intra-entreprise ?',
+    a: `${MODALITE_FORMATIONS_STANDARD} Format : 4 heures, ${EFFECTIF_GROUPE_MAX} participants maximum, supports inclus. Vue d&apos;ensemble : <a href="${LINKS.formationIleDeFrance}">formation IA pour le BTP en Île-de-France</a>.`,
   }, ...FAQ_IA_BTP_METIERS_CHANTIER_SEO,
 ];
 
@@ -279,7 +279,7 @@ export const FAQ_TARIFS: FAQItem[] = [
 export const FAQ_OFFRES: FAQItem[] = [
   {
     q: "Quels formats de formation proposez-vous ?",
-    a: `Sessions de 4 heures, inter ou intra. ${MODALITE_FORMATIONS_STANDARD} Forfait unique ${libelleTarifSessionForfaitaire(TARIF_SESSION_FORFAIT_HT)}, jusqu'à ${EFFECTIF_GROUPE_MAX} participants. Parcours sur la page <a href="/formations">formations IA appliquées au bâtiment</a>.`,
+    a: `Sessions de 4 heures, intra-entreprise, dans vos locaux. ${MODALITE_FORMATIONS_STANDARD} Forfait unique ${libelleTarifSessionForfaitaire(TARIF_SESSION_FORFAIT_HT)}, jusqu'à ${EFFECTIF_GROUPE_MAX} participants. Parcours sur la page <a href="/formations">formations IA appliquées au bâtiment</a>.`,
   },
   {
     q: "Comment accéder à l'espace apprenant ?",
@@ -287,7 +287,7 @@ export const FAQ_OFFRES: FAQItem[] = [
   },
   {
     q: "Les formations sont-elles adaptées aux dirigeants et équipes du BTP ?",
-    a: 'Oui. Mes formations sont conçues pour des professionnels du BTP sans prérequis technique. On travaille sur vos vrais documents : devis, emails, comptes rendus. Méthode 100 % pratique — voir <a href="/formation-ia-artisans-btp">ChatGPT pour entreprises BTP</a> et <a href="/formation-ia-conducteur-de-travaux-btp">IA conducteur de travaux</a>.',
+    a: `Oui. Mes formations sont conçues pour des professionnels du BTP sans prérequis technique. On travaille sur vos vrais documents : devis, emails, comptes rendus. Méthode 100 % pratique — voir <a href="/formation-ia-artisans-btp">ChatGPT pour entreprises BTP</a> et <a href="${LINKS.formationConducteurTravaux}">IA conducteur de travaux</a>.`,
   },
 ];
 
@@ -330,7 +330,7 @@ export const FAQ_FINANCEMENT_IA_BTP: FAQItem[] = [
   },
   {
     q: "Constructys finance-t-il les formations en présentiel ?",
-    a: `Oui. Les formations catalogue OFC se déroulent exclusivement en présentiel, en intra dans vos locaux ou en inter en Île-de-France. ${FINANCEMENT_FORMULATION_PRUDENTE} Je vous renseigne sur votre dossier (programme, évaluation, dépôt eGestion) — page <a href="/financement-constructys-formation-ia-btp">financement Constructys formation IA pour les pros du BTP</a>.`,
+    a: `Oui. Les formations catalogue OFC se déroulent exclusivement en présentiel intra-entreprise, dans vos locaux en Île-de-France. ${FINANCEMENT_FORMULATION_PRUDENTE} Je vous renseigne sur votre dossier (programme, évaluation, dépôt eGestion) — page <a href="/financement-constructys-formation-ia-btp">financement Constructys formation IA pour les pros du BTP</a>.`,
   },
   {
     q: "Que se passe-t-il si ma demande est déposée en retard ?",
@@ -368,7 +368,7 @@ export const FAQ_PRENDRE_RDV: FAQItem[] = [
   },
   {
     q: 'La formation se déroule-t-elle en visio ?',
-    a: 'Non pour la session catalogue : présentiel uniquement · Île-de-France uniquement (inter ou intra). Le RDV de cadrage préalable se fait en visio ou par téléphone.',
+    a: 'Non pour la session catalogue : présentiel uniquement · Île-de-France uniquement (intra-entreprise, dans vos locaux). Le RDV de cadrage préalable se fait en visio ou par téléphone.',
   },
   {
     q: "Que faire si aucun créneau ne me convient ?",
@@ -446,9 +446,9 @@ export const FAQ_FORMATION_IA_BTP_YVELINES_LANDING: FAQItem[] = [
       `Les créneaux les plus courants sont en semaine (journée ou demi-journée), pour s'aligner sur les habitudes des équipes terrain et du bureau d'études. Un samedi peut être étudié au cas par cas pour une session intra (contraintes d'atelier, planning chargé), sous réserve de disponibilité — le plus simple est d'en parler lors d'un <a href="${LINKS.prendreRdv}">rendez-vous découverte</a> ou via <a href="/contact">contact</a>.`,
   },
   {
-    q: 'Y a-t-il des sessions inter-entreprises à Versailles ?',
+    q: 'Comment se déroule une session intra-entreprise à Versailles ?',
     a:
-      "Les sessions inter du catalogue ont lieu en Île-de-France (lieux selon calendrier : Versailles, Paris, etc.). En intra, " +
+      'Les sessions ont lieu en intra-entreprise, dans vos locaux en Île-de-France (Yvelines, Paris, etc.). Format : 4 h sur vos documents réels — devis, CCTP, courriers. ' +
       MODALITE_FORMATIONS_STANDARD +
       ' Consultez <a href="/formation-ia-btp-ile-de-france">formation IA pour les pros du BTP Île-de-France</a> et le <a href="/formations">catalogue</a>.',
   },
@@ -457,7 +457,7 @@ export const FAQ_FORMATION_IA_BTP_YVELINES_LANDING: FAQItem[] = [
 export const FAQ_IA_BTP_PARIS: FAQItem[] = [
   {
     q: "Où se déroule la formation IA appliquée au bâtiment à Paris ?",
-    a: `La formation se déroule exclusivement en présentiel, en intra dans vos locaux ou en salle — ${IDF_ZONE_INTERVENTION}. ${MODALITE_FORMATIONS_STANDARD} Voir <a href="/formation-ia-btp-ile-de-france">formation IA appliquée au bâtiment Île-de-France</a> et le <a href="/formations">catalogue</a>.`,
+    a: `La formation se déroule exclusivement en présentiel intra-entreprise, dans vos locaux — ${IDF_ZONE_INTERVENTION}. ${MODALITE_FORMATIONS_STANDARD} Voir <a href="/formation-ia-btp-ile-de-france">formation IA appliquée au bâtiment Île-de-France</a> et le <a href="/formations">catalogue</a>.`,
   },
   {
     q: "La formation IA Paris est-elle finançable ?",
@@ -477,7 +477,7 @@ export const FAQ_MAITRISER_CLAUDE_NIV04: FAQItem[] = [
   },
   {
     q: 'Pourquoi la formation Maîtriser Claude est-elle le matin uniquement ?',
-    a: `La session dure 4 h (9h00–13h00) pour enchaîner accueil, 4 modules techniques et clôture sans couper la concentration. Format présentiel en Île-de-France, intra ou inter — formation catalogue niveau avancé.`,
+    a: `La session dure 4 h (9h00–13h00) pour enchaîner accueil, 4 modules techniques et clôture sans couper la concentration. Format présentiel en Île-de-France, intra-entreprise, dans vos locaux — formation catalogue niveau avancé.`,
   },
   {
     q: 'Cowork et Claude Code : est-ce que l\'IA envoie des mails ou des docs sans mon accord ?',
@@ -673,7 +673,7 @@ export const FAQ_TRAVAUX_PUBLICS: FAQItem[] = [
 export const FAQ_FORMATION_VILLE: FAQItem[] = [
   {
     q: "Où se déroule la formation IA pour les pros du BTP ?",
-    a: `En présentiel uniquement, en intra dans vos locaux ou en salle — ${IDF_ZONE_INTERVENTION}. Sessions adaptées à votre équipe — <a href="/formations">catalogue formations IA pour les pros du BTP</a> et <a href="/formation-ia-btp-ile-de-france">Île-de-France</a>.`,
+    a: `En présentiel uniquement, intra-entreprise dans vos locaux — ${IDF_ZONE_INTERVENTION}. Sessions adaptées à votre équipe — <a href="/formations">catalogue formations IA pour les pros du BTP</a> et <a href="/formation-ia-btp-ile-de-france">Île-de-France</a>.`,
   },
   {
     q: "La formation est-elle finançable ?",
@@ -681,7 +681,7 @@ export const FAQ_FORMATION_VILLE: FAQItem[] = [
   },
   {
     q: "Faut-il des compétences techniques ?",
-    a: 'Non. La formation est conçue pour des professionnels du BTP sans prérequis. Travail sur vos vrais documents : devis, emails, CR chantier — voir <a href="/ia-devis-batiment">IA devis bâtiment</a> et <a href="/formation-ia-conducteur-de-travaux-btp">IA conducteur de travaux</a>.',
+    a: `Non. La formation est conçue pour des professionnels du BTP sans prérequis. Travail sur vos vrais documents : devis, emails, CR chantier — voir <a href="/ia-devis-batiment">IA devis bâtiment</a> et <a href="${LINKS.formationConducteurTravaux}">IA conducteur de travaux</a>.`,
   },
 ];
 
@@ -761,7 +761,7 @@ export const FAQ_CLIENTS_PARTENAIRES: FAQItem[] = [
 export const FAQ_BLOG: FAQItem[] = [
   {
     q: "Quels sujets sont couverts dans les articles ?",
-    a: 'ChatGPT et IA pour entreprises BTP, <a href="/ia-devis-batiment">IA devis bâtiment</a>, <a href="/financement-constructys-formation-ia-btp">financement Constructys</a>, automatisation administrative, <a href="/formations/ia-appels-offre-btp">appels d\'offres</a>, <a href="/formation-ia-conducteur-de-travaux-btp">gestion de chantier</a>. Guides pratiques et cas d\'usage.',
+    a: `ChatGPT et IA pour entreprises BTP, <a href="/ia-devis-batiment">IA devis bâtiment</a>, <a href="/financement-constructys-formation-ia-btp">financement Constructys</a>, automatisation administrative, <a href="/formations/ia-appels-offre-btp">appels d'offres</a>, <a href="${LINKS.formationConducteurTravaux}">gestion de chantier</a>. Guides pratiques et cas d'usage.`,
   },
   {
     q: "Les formations sont-elles finançables ?",

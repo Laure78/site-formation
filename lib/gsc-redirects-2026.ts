@@ -2,6 +2,7 @@
  * Redirections 301 — consolidation GSC (avril 2026).
  * @see prompt « 28 URLs à nettoyer »
  */
+import { LINKS } from '@/lib/internal-links';
 
 /** Slugs hub /formation-ia/[slug] fusionnés vers une landing métier ou catalogue (exclus du legacy hyphen→slash). */
 export const GSC_HUB_MERGED_SLUGS = new Set([
@@ -87,12 +88,12 @@ export function gscRedirects2026April(): RedirectEntry[] {
     },
     {
       source: '/formation-ia-conducteur-travaux-btp',
-      destination: '/formation-ia-conducteur-de-travaux-btp',
+      destination: LINKS.formationConducteurTravaux,
       permanent: true,
     },
     {
       source: '/formation-ia-conducteur-travaux',
-      destination: '/formation-ia-conducteur-de-travaux-btp',
+      destination: LINKS.formationConducteurTravaux,
       permanent: true,
     },
     {

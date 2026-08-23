@@ -38,7 +38,7 @@ export const FORMATION_IA_CONDUCTEUR_DE_TRAVAUX_CONFIG: SeoClusterPageConfig = {
   introParagraphs: [
     'Un conducteur de travaux consacre une part importante de sa semaine à l\'administratif : comptes rendus, courriers, synthèses de documents, préparation de réunions et suivi des réserves. L\'IA ne remplace pas le jugement terrain — elle accélère la formalisation.',
     'En formation, vous travaillez sur des situations réelles : notes de réunion transformées en CR, analyse d\'un extrait CCTP, courrier de relance sous-traitant, tableau de suivi des retards. ChatGPT et Claude sont présentés comme outils complémentaires selon le type de document.',
-    'Sessions en présentiel en Île-de-France — intra dans vos locaux ou inter en salle. Organisme certifié Qualiopi.',
+    'Sessions en présentiel en Île-de-France — intra-entreprise, dans vos locaux. Organisme certifié Qualiopi.',
   ],
   useCasesTitle: 'Usages IA directement liés au métier de conducteur de travaux',
   useCases: [

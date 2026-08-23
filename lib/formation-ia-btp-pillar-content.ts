@@ -17,7 +17,7 @@ export const FORMATION_IA_BTP_DEFINITION =
   'Une formation IA BTP est une session professionnelle de 4 heures en présentiel, certifiée Qualiopi, où les équipes du bâtiment et des travaux publics apprennent à utiliser Claude AI (outil principal) et ChatGPT (usages administratifs et comparaison) sur leurs documents réels : devis, DCE, CCTP, comptes rendus de chantier et courriers. L\'objectif est un gain de temps mesurable sur l\'administratif, avec relecture humaine et validation terrain — jamais une promesse de financement garanti.';
 
 export const FORMATION_IA_BTP_METIERS = [
-  { href: '/formation-ia-conducteur-de-travaux-btp', label: 'Conducteur de travaux' },
+  { href: LINKS.formationConducteurTravaux, label: 'Conducteur de travaux' },
   { href: '/formation-ia-charge-affaires-btp', label: 'Chargé d\'affaires' },
   { href: '/formation-ia-dirigeant-btp', label: 'Dirigeant de PME BTP' },
   { href: '/formation-ia-artisans-btp', label: 'TPE & PME du bâtiment' },

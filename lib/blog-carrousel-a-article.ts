@@ -41,7 +41,7 @@ export const carrouselAFormationArticle: BlogArticle = {
       type: 'paragraph',
       title: 'Modalité : présentiel uniquement',
       content:
-        'Les formations OFC (NIV-01, NIV-02) : présentiel uniquement · Île-de-France uniquement — inter en salle ou intra dans vos locaux. Les modalités définitives figurent sur votre proposition de formation et la convention signée.',
+        'Les formations OFC (NIV-01, NIV-02) : présentiel uniquement · Île-de-France uniquement — intra-entreprise, dans vos locaux. Les modalités définitives figurent sur votre proposition de formation et la convention signée.',
     },
     {
       type: 'html',

@@ -61,7 +61,7 @@ export const A_PROPOS_CERTIFICATIONS_INTRO = `Transparence totale sur l'organism
 
 export const A_PROPOS_CONTACT_INTRO = `Pour un premier échange, réservez un créneau Calendly (visio 30 min, sans engagement) ou écrivez-moi directement. Je réponds sous 48 h ouvrées avec une proposition adaptée : session inter catalogue, intra sur site, ou parcours sur mesure pour votre métier (conducteur de travaux, dirigeant de TPE/PME, bureau d'études). Les dossiers Constructys peuvent être montés en amont si votre entreprise est éligible.`;
 
-export const A_PROPOS_TRUST_PARAGRAPH = `Côté confiance (Trustworthiness) : pas de promesse de « remplacement du métier », pas de collecte de données chantier sensibles pendant les démos, et rappel systématique de la relecture humaine sur tout livrable contractuel. Les conventions précisent objectifs, durée, tarif et modalités d'évaluation — conformément au référentiel Qualiopi et aux règles de TVA applicables aux formations (intra exonérée art. 261-4-4° CGI ; inter non applicable art. 293 B).`;
+export const A_PROPOS_TRUST_PARAGRAPH = `Côté confiance (Trustworthiness) : pas de promesse de « remplacement du métier », pas de collecte de données chantier sensibles pendant les démos, et rappel systématique de la relecture humaine sur tout livrable contractuel. Les conventions précisent objectifs, durée, tarif et modalités d'évaluation — conformément au référentiel Qualiopi et aux règles de TVA applicables aux formations intra-entreprise (exonération art. 261-4-4° CGI).`;
 
 export const A_PROPOS_CERTIFICATIONS = [
   {

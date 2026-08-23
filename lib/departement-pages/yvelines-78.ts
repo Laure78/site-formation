@@ -11,7 +11,7 @@ export const DEPARTEMENT_YVELINES_78: DepartementPageData = {
   path: '/formation-ia-btp-yvelines-78',
   slug: 'yvelines-78',
   accroche:
-    "Laure Olivié est basée à Guyancourt, au cœur des Yvelines (78) : c'est le département où l'intervention est la plus rapide. Formation IA pour le BTP en présentiel, intra dans vos locaux ou inter en salle, sur vos devis, CCTP et comptes rendus réels — Versailles, SQY, Mantes et périphérie Poissy.",
+    "Laure Olivié est basée à Guyancourt, au cœur des Yvelines (78) : c'est le département où l'intervention est la plus rapide. Formation IA pour le BTP en présentiel, intra-entreprise, dans vos locaux, sur vos devis, CCTP et comptes rendus réels — Versailles, SQY, Mantes et périphérie Poissy.",
   villes: [
     'Versailles',
     'Saint-Quentin-en-Yvelines',

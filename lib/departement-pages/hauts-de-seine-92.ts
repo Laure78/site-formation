@@ -11,7 +11,7 @@ export const DEPARTEMENT_HAUTS_DE_SEINE_92: DepartementPageData = {
   path: '/formation-ia-btp-hauts-de-seine-92',
   slug: 'hauts-de-seine-92',
   accroche:
-    "Formation IA pour le BTP en présentiel dans les Hauts-de-Seine (92), intra ou inter. Département de donneurs d'ordre et de tertiaire : la session cible la productivité sur l'écrit contractuel, les mémoires techniques et la conduite de travaux — Nanterre, La Défense, Boulogne, Issy.",
+    "Formation IA pour le BTP en présentiel dans les Hauts-de-Seine (92), intra-entreprise, dans vos locaux. Département de donneurs d'ordre et de tertiaire : la session cible la productivité sur l'écrit contractuel, les mémoires techniques et la conduite de travaux — Nanterre, La Défense, Boulogne, Issy.",
   villes: [
     'Nanterre',
     'Boulogne-Billancourt',

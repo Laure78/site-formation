@@ -64,8 +64,7 @@ export default function AccessibiliteHandicapPage() {
         <Section id="engagement-accessibilite" title="Nos formations sont accessibles aux personnes en situation de handicap">
           <p>
             {QUALIOPI_LEGAL.raisonSociale} s&apos;engage à rendre ses actions de formation accessibles
-            aux personnes en situation de handicap, que la session ait lieu en intra dans votre
-            entreprise ou en inter sur un site en Île-de-France.
+            aux personnes en situation de handicap, en intra-entreprise dans vos locaux en Île-de-France.
           </p>
           <p>
             <strong>{QUALIOPI_REFERENT_HANDICAP.nom}</strong>, {QUALIOPI_REFERENT_HANDICAP.role} et
@@ -130,11 +129,9 @@ export default function AccessibiliteHandicapPage() {
               versions numériques compatibles lecture vocale ou agrandissement.
             </li>
             <li>
-              <strong>Lieu et accès</strong> — pour une session <strong>intra</strong> dans votre
+              <strong>Lieu et accès</strong> — session <strong>intra-entreprise</strong> dans votre
               entreprise : vérification avec vous de la place de stationnement, de l&apos;accès de
-              plain-pied ou des ascenseurs, et des locaux d&apos;accueil. Pour une session{' '}
-              <strong>inter</strong> : choix d&apos;une salle accessible (PMR) communiquée à la
-              convocation.
+              plain-pied ou des ascenseurs, et des locaux d&apos;accueil.
             </li>
             <li>
               <strong>Exercices pratiques</strong> — temps supplémentaire sur les mises en situation

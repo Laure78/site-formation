@@ -29,7 +29,7 @@ export function FormationCalendlyInlineGate() {
         </h2>
         <p className="mx-auto mt-3 max-w-2xl text-slate-600 md:text-lg">
           Choisissez un créneau de 30 minutes pour cadrer votre besoin (formation IA appliquée au
-          bâtiment, financement Constructys, format intra ou inter).
+          bâtiment, financement Constructys, format intra-entreprise, dans vos locaux).
         </p>
         <div className="mt-8 flex justify-center">
           <CtaButton origin={origin} />

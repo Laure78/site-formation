@@ -2,6 +2,7 @@
  * Maillage interne contextuel — groupes de liens par type de page (UX + SEO).
  * Toutes les URLs proviennent de `lib/internal-links.ts`.
  */
+import { CATALOGUE_NIV_RANGE } from '@/data/formations';
 import type { FormationIaMetierBtpConfig } from '@/lib/formation-ia-metier-btp-types';
 import {
   CATALOGUE_FORMATIONS_COUNT,
@@ -37,7 +38,7 @@ export const GEO_DEPARTMENT_LINKS: (ContextualLinkCard & { slug: string })[] = [
     slug: 'yvelines-78',
     href: LINKS.formationIaBtpYvelines78,
     title: 'Yvelines (78)',
-    description: 'Versailles, Guyancourt, Saint-Quentin-en-Yvelines — intra et inter.',
+    description: 'Versailles, Guyancourt, Saint-Quentin-en-Yvelines — intra-entreprise, dans vos locaux.',
   },
   {
     slug: 'essonne-91',
@@ -67,7 +68,7 @@ export const GEO_DEPARTMENT_LINKS: (ContextualLinkCard & { slug: string })[] = [
     slug: 'seine-et-marne-77',
     href: LINKS.formationIaBtpSeineEtMarne77,
     title: 'Seine-et-Marne (77)',
-    description: 'Melun, Meaux, Marne-la-Vallée — intra et inter.',
+    description: 'Melun, Meaux, Marne-la-Vallée — intra-entreprise, dans vos locaux.',
   },
 ];
 
@@ -279,7 +280,7 @@ export const SITE_NAV_HUB_ITEMS: ContextualLinkCard[] = [
   {
     href: LINKS.formations,
     title: 'Formations',
-    description: 'Catalogue Qualiopi — NIV-01 à NIV-05',
+    description: `Catalogue Qualiopi — ${CATALOGUE_NIV_RANGE}`,
   },
   {
     href: LINKS.financement,

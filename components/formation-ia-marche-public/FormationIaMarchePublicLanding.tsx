@@ -210,7 +210,7 @@ export function FormationIaMarchePublicLanding({
               id="rdv-1"
               campaign={`${utmBase}-rdv-1`}
               title="Premier rendez-vous — Calendly"
-              subtitle="30 minutes pour cadrer votre besoin (intra ou inter, présentiel Île-de-France) et voir si l’angle marché public de travaux correspond à votre équipe."
+              subtitle="30 minutes pour cadrer votre besoin (intra-entreprise, dans vos locaux, présentiel Île-de-France) et voir si l’angle marché public de travaux correspond à votre équipe."
             />
           </div>
 

@@ -6,6 +6,5 @@ export {
   formatNoteSatisfactionAffichageComplet,
   formatNoteSatisfactionSur5,
   formatPeriodeReferenceAffichage,
-  formatTauxPourcentFr,
   indicateursResultats,
 } from '@/lib/data/indicateurs-resultats';

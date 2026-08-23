@@ -222,8 +222,7 @@ export default function HomePage() {
               data-citation="true"
             >
             Basée à Guyancourt (78), Laure Olivié anime des formations{' '}
-            <strong>présentiel uniquement · Île-de-France uniquement</strong> (Paris, 77, 78, 91, 92, 93, 94, 95) — intra
-            dans vos locaux ou inter en salle, pour les entreprises de construction et du BTP. On travaille sur vos
+            <strong>présentiel uniquement · Île-de-France uniquement</strong> (Paris, 77, 78, 91, 92, 93, 94, 95) — intra-entreprise, dans vos locaux, pour les entreprises de construction et du BTP. On travaille sur vos
             documents réels. Découvrez la{' '}
             <Link href={LINKS.formationIleDeFrance} className={`${OFC_LINK} font-semibold`}>
               formation IA BTP en Île-de-France

@@ -36,5 +36,5 @@ export const DEPARTEMENT_TEMOIGNAGES_PARTAGES = TEMOIGNAGES_REGION_IDF;
 
 export const DEPARTEMENT_FORMATRICE_GUYANCOURT = {
   title: 'Formatrice basée à Guyancourt (78)',
-  body: `Laure Olivié (OFC Création d'Entreprise) forme les équipes BTP à ChatGPT et Claude AI depuis Guyancourt. Sessions de 4 h en présentiel uniquement, en Île-de-France uniquement — intra dans vos locaux ou inter en salle. Déplacements et logistique sont précisés au devis, après un échange découverte de 30 minutes.`,
+  body: `Laure Olivié (OFC Création d'Entreprise) forme les équipes BTP à ChatGPT et Claude AI depuis Guyancourt. Sessions de 4 h en présentiel uniquement, en Île-de-France uniquement — intra-entreprise, dans vos locaux. Déplacements et logistique sont précisés au devis, après un échange découverte de 30 minutes.`,
 } as const;

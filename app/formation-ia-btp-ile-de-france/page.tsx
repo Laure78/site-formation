@@ -76,7 +76,7 @@ const COURSE_JSON_LD = {
 const FAQ_IDF: FAQItem[] = [
   {
     q: 'Où se déroulent les formations en Île-de-France ?',
-    a: `Exclusivement en présentiel en Île-de-France : en intra dans vos locaux ou en inter en salle. Basée à Guyancourt (78), Laure Olivié intervient sur ${IDF_ZONE_INTERVENTION}.`,
+    a: `Exclusivement en présentiel en Île-de-France : intra-entreprise, dans vos locaux. Basée à Guyancourt (78), Laure Olivié intervient sur ${IDF_ZONE_INTERVENTION}.`,
   },
   {
     q: 'La formation IA construction est-elle finançable par Constructys ?',
@@ -119,7 +119,7 @@ export default function FormationIaBtpIleDeFrancePage() {
               <p>
                 En Île-de-France, Laure Olivié propose des formations IA pour le BTP via OFC Création
                 d&apos;Entreprise, organisme certifié Qualiopi : sessions en présentiel uniquement, sur documents
-                réels — devis, DCE, mémoires techniques, comptes rendus. Catalogue inter et intra ; financement OPCO
+                réels — devis, DCE, mémoires techniques, comptes rendus. Catalogue intra-entreprise, dans vos locaux ; financement OPCO
                 possible selon éligibilité. </p>
             </EnBref>
             <p className="mt-6 text-lg leading-relaxed text-slate-600">
@@ -179,7 +179,7 @@ export default function FormationIaBtpIleDeFrancePage() {
                 formations IA pour le BTP
               </Link>
               — effectifs et tarifs à jour (ex. appels d&apos;offres : {LIBELLE_EFFECTIF_GROUPE_NIV02}). Présentiel
-              uniquement, sessions inter ou intra sur {IDF_ZONE_INTERVENTION}.
+              uniquement, sessions intra-entreprise, dans vos locaux sur {IDF_ZONE_INTERVENTION}.
             </p>
             <div className="mt-10">
               <FormationsCatalogueInteractive formations={FORMATIONS_CATALOGUE} />
@@ -190,7 +190,7 @@ export default function FormationIaBtpIleDeFrancePage() {
         <section className={OFC_SEC.muted} aria-labelledby="intra-inter-idf">
           <div className="mx-auto max-w-4xl">
             <h2 id="intra-inter-idf" className="font-display text-2xl font-bold text-slate-900 md:text-3xl">
-              Intra ou inter, partout en Île-de-France
+              intra-entreprise, dans vos locaux, partout en Île-de-France
             </h2>
             <p className="mt-4 text-base leading-relaxed text-slate-600 md:text-lg">
               Sessions <strong>intra</strong> dans vos locaux ou <strong>inter</strong> en salle —{' '}
@@ -214,7 +214,7 @@ export default function FormationIaBtpIleDeFrancePage() {
               Cadrer votre formation IA en Île-de-France
             </h2>
             <p className="mt-3 text-blue-100">
-              30 min en visio : format intra ou inter, financement Constructys selon éligibilité, sans engagement.
+              30 min en visio : format intra-entreprise, dans vos locaux, financement Constructys selon éligibilité, sans engagement.
             </p>
             <div className="mt-6">
               <CalendlyEmbed

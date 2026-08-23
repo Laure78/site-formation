@@ -71,7 +71,7 @@ const DOCUMENTS = [
   {
     title: 'Indicateurs de résultats',
     description:
-      'Satisfaction, assiduité, taux de réalisation et volume de formations — indicateur 2 Qualiopi.',
+      'Note de satisfaction à chaud et méthode de calcul — indicateur 2 Qualiopi.',
     href: LINKS.indicateursResultats,
     external: false,
   },

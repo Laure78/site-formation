@@ -55,7 +55,7 @@ export function FormationCityPage({
   const summaryVille = [
     `IA BTP à ${ville} — devis, emails, appels d'offres, admin.`,
     `Session ${SESSION_DUREE_LIBELLE} · forfait unique ${formatTarifHt(TARIF_SESSION_FORFAIT_HT)} € HT · organisme certifié Qualiopi.`,
-    `Présentiel ${regionLabel} — intra ou inter selon convention.`,
+    `Présentiel ${regionLabel} — intra-entreprise, dans vos locaux selon convention.`,
     'Financement Constructys selon éligibilité.',
   ];
   const voirAussiDept =

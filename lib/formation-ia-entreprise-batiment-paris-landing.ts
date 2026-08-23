@@ -94,7 +94,7 @@ export const FORMATION_IA_ENTREPRISE_BATIMENT_PARIS_CONFIG: SeoClusterPageConfig
     },
     {
       q: 'Différence avec la page Formation IA à Paris ?',
-      a: `Cette page cible l'<strong>intra-entreprise</strong> et les équipes multi-profils. Pour les sessions inter présentiel Paris, voir aussi <a href="${LINKS.formationIaParis}">Formation IA à Paris</a>.`,
+      a: `Cette page cible l'<strong>intra-entreprise</strong> et les équipes multi-profils en présentiel à Paris et en Île-de-France — voir aussi <a href="${LINKS.formationIaParis}">Formation IA à Paris</a>.`,
     },
   ],
   courseName: 'Formation IA intra entreprise bâtiment Paris et Île-de-France',

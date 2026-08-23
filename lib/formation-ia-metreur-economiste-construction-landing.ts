@@ -1,6 +1,7 @@
 /**
  * Landing `/formation-ia-metreur-economiste-construction` — métadonnées, FAQ, prompts, JSON-LD.
  */
+import { CATALOGUE_NIV_RANGE } from '@/data/formations';
 import { LINKS } from '@/lib/internal-links';
 import {
   SCHEMA_LINKEDIN_PROFILE_URL,
@@ -122,7 +123,7 @@ export const METREUR_ECONOMISTE_FAQ: readonly FAQItem[] = [
   },
   {
     q: 'La formation se déroule-t-elle en visio ?',
-    a: 'Non — présentiel uniquement en Île-de-France (intra ou inter). La visio découverte sert uniquement au cadrage commercial, pas à la session certifiante.',
+    a: 'Non — présentiel uniquement en Île-de-France (intra-entreprise, dans vos locaux). La visio découverte sert uniquement au cadrage commercial, pas à la session certifiante.',
   },
   {
     q: 'Financement OPCO / Constructys possible ?',
@@ -149,7 +150,7 @@ export const METREUR_ECONOMISTE_RELATED = [
   {
     href: LINKS.formations,
     title: 'Catalogue formations IA BTP',
-    description: '5 sessions NIV-01 à NIV-05 — organisme Qualiopi.',
+    description: `5 sessions ${CATALOGUE_NIV_RANGE} — organisme Qualiopi.`,
   },
 ] as const;
 

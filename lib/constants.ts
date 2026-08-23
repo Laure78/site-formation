@@ -43,27 +43,6 @@ export const PREUVES = {
   repondants: indicateursResultats.nombreRepondants,
   periode: indicateursResultats.periodeReference,
   majAt: indicateursResultats.dateMiseAJour,
-  tauxRecommandation: indicateursResultats.tauxRecommandation,
-  partNotesSuperieures8: indicateursResultats.partNotesSuperieures8,
-  noteSatisfactionSur10: indicateursResultats.noteSatisfactionSur10,
-  tauxAbandon: {
-    valeur: '__X,X %__',
-    periode: '01/01/2024 – 31/12/2025',
-    methode:
-      "Nombre de parcours interrompus avant leur terme rapporté au nombre d'entrées en formation sur la période, source registre interne des sessions.",
-    miseAJour: '__JJ/MM/AAAA__',
-  },
-  /**
-   * Volume d'heures — notion = heures-stagiaires (durée × effectif présent),
-   * pas les heures calendaires de session seules.
-   */
-  heuresRealisees: {
-    valeur: '__X XXX__',
-    periode: '01/01/2024 – 31/12/2025',
-    methode:
-      "Somme, pour chaque session, de (durée prévue en heures × nombre de stagiaires présents) — heures-stagiaires. Distinct des heures de formation calendaires (durée des sessions sans multiplier par l'effectif). Source : registre interne des sessions.",
-    miseAJour: '__JJ/MM/AAAA__',
-  },
 } as const;
 
 /** Valeur numérique de la note (compteurs animés, JSON-LD). */
@@ -85,10 +64,7 @@ export const PREUVES_MENTION_SOURCE =
 
 /** Bloc « Fédérations & OPCO » — accueil, pour qui (sans effectif formé publié). */
 export const PREUVES_FEDERATIONS_OPCO =
-  'Sessions animées avec FFB Grand Paris, CSFE et UMB-FFB depuis décembre 2021.' as const;
-
-/** Ancrage temporal — activité formation IA BTP OFC. */
-export const PROS_FORMES_DEPUIS = 'depuis décembre 2021' as const;
+  'Sessions animées avec FFB Grand Paris, CSFE et UMB-FFB.' as const;
 
 export const siteStats = {
   noteMoyenneAffichee: PREUVES.satisfaction,

@@ -1,6 +1,6 @@
 /**
  * JSON-LD `Course` — champs communs pour toutes les fiches formation.
- * Présentiel uniquement (Onsite), zone Île-de-France, durée 4 h, intra / inter.
+ * Présentiel uniquement (Onsite), zone Île-de-France, durée 4 h, intra-entreprise.
  */
 import {
   SCHEMA_CONTACT,
@@ -85,7 +85,7 @@ export function buildFormationCourseInstanceLocation(): Record<string, unknown> 
   };
 }
 
-/** Deux instances : intra-entreprise et inter-entreprises, présentiel IDF (courseMode Onsite, PT4H). */
+/** Instance CourseInstance — intra-entreprise, présentiel IDF (courseMode Onsite, PT4H). */
 export function buildFormationCourseInstances(
   duration: string = FORMATION_COURSE_DURATION_ISO
 ): Record<string, unknown>[] {
@@ -93,14 +93,6 @@ export function buildFormationCourseInstances(
     {
       '@type': 'CourseInstance',
       name: 'Session intra-entreprise — présentiel',
-      courseMode: FORMATION_COURSE_MODE_ONSITE,
-      courseWorkload: duration,
-      inLanguage: FORMATION_COURSE_IN_LANGUAGE,
-      location: buildFormationCourseInstanceLocation(),
-    },
-    {
-      '@type': 'CourseInstance',
-      name: 'Session inter-entreprises — présentiel',
       courseMode: FORMATION_COURSE_MODE_ONSITE,
       courseWorkload: duration,
       inLanguage: FORMATION_COURSE_IN_LANGUAGE,
@@ -254,8 +246,8 @@ export function assertFormationFicheCourseSchema(
   }
 
   const instances = collectCourseInstances(course.hasCourseInstance);
-  if (instances.length < 2) {
-    throw new Error(`${label}: hasCourseInstance doit contenir au moins 2 instances (intra + inter)`);
+  if (instances.length < 1) {
+    throw new Error(`${label}: hasCourseInstance doit contenir au moins 1 instance intra-entreprise`);
   }
   for (const [i, inst] of instances.entries()) {
     if (inst.courseMode !== FORMATION_COURSE_MODE_ONSITE) {
@@ -267,6 +259,9 @@ export function assertFormationFicheCourseSchema(
     const instName = typeof inst.name === 'string' ? inst.name : '';
     if (!instName.toLowerCase().includes('présentiel')) {
       throw new Error(`${label}: instance ${i + 1} — libellé présentiel attendu`);
+    }
+    if (!instName.toLowerCase().includes('intra')) {
+      throw new Error(`${label}: instance ${i + 1} — libellé intra-entreprise attendu`);
     }
   }
 

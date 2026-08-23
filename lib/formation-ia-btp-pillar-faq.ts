@@ -16,7 +16,7 @@ export const FAQ_FORMATION_IA_BTP_PILLAR: FAQItem[] = [
   {
     q: 'Où se déroulent les sessions ?',
     a:
-      'Sessions inter en salle ou intra dans vos locaux — présentiel uniquement · Île-de-France uniquement. Détail par département sur <a href="/formation-ia-btp-ile-de-france">formation IA BTP Île-de-France</a>.',
+      'Sessions intra-entreprise, dans vos locaux — présentiel uniquement · Île-de-France uniquement. Détail par département sur <a href="/formation-ia-btp-ile-de-france">formation IA BTP Île-de-France</a>.',
   },
   {
     q: 'Comment financer avec Constructys ou mon OPCO ?',

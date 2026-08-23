@@ -40,7 +40,7 @@ export const FORMATION_CITIES: Record<string, CityFormationConfig> = {
     ],
     zones: [
       { num: '91', nom: 'Morangis', contenu: 'Entreprises du bâtiment et périphérie immédiate • intra possible sur site' },
-      { num: '91', nom: 'Les Ulis', contenu: 'Ville nouvelle voisine • sessions inter ou regroupement d’équipes' },
+      { num: '91', nom: 'Les Ulis', contenu: 'Ville nouvelle voisine • regroupement d’équipes en intra-entreprise' },
       { num: '91', nom: 'Longjumeau', contenu: 'TPE et PME du bâtiment — déplacements courts depuis Guyancourt (78)' },
       { num: '91', nom: 'Massy', contenu: 'Pôle tertiaire et entreprises locales • créneaux adaptés aux agendas chargés' },
       { num: '91', nom: 'Savigny-sur-Orge', contenu: 'Second œuvre et rénovation • même programme catalogue Qualiopi' },
@@ -80,7 +80,7 @@ export const ILE_DE_FRANCE = {
     'Devis, emails, appels d’offres et organisation chantier — méthode terrain, sans jargon inutile',
   customHeroIntro: [
     'Vous perdez encore du temps sur vos devis, vos emails clients, vos mémoires techniques ou l’organisation de chantier ? L’intelligence artificielle permet aujourd’hui aux entreprises du BTP de gagner plusieurs heures par semaine sur l’administratif et les dossiers — à condition de savoir l’utiliser concrètement, sur des cas réels.',
-    'Les sessions sont animées présentiel uniquement · Île-de-France uniquement (inter en salle ou intra dans vos locaux). Objectif : repartir avec des prompts, trames et habitudes directement utilisables au bureau comme sur le terrain.',
+    'Les sessions sont animées présentiel uniquement · Île-de-France uniquement (intra-entreprise, dans vos locaux). Objectif : repartir avec des prompts, trames et habitudes directement utilisables au bureau comme sur le terrain.',
   ],
   heroBadges: [
     'Présentiel IDF uniquement',

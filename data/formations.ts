@@ -182,6 +182,9 @@ export type FormationSlug = (typeof FORMATIONS)[number]['slug'];
 
 export const FORMATIONS_COUNT = FORMATIONS.length;
 
+/** Plage de numérotation catalogue — 5 formations (NIV-01 … NIV-05). */
+export const CATALOGUE_NIV_RANGE = 'NIV-01 à NIV-05' as const;
+
 export function getFormationByCode(code: string): Formation | undefined {
   return FORMATIONS.find((f) => f.code === code);
 }

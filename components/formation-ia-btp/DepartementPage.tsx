@@ -256,7 +256,7 @@ export function DepartementPage({ data }: { data: DepartementPageData }) {
         <div className="mx-auto max-w-2xl text-center">
           <h2 className="font-display text-2xl font-bold md:text-3xl">Réserver un créneau découverte</h2>
           <p className="mt-4 text-lg text-blue-100 md:text-xl">
-            30 minutes pour cadrer votre besoin {locatif} ({data.code}) — en présentiel, intra ou inter
+            30 minutes pour cadrer votre besoin {locatif} ({data.code}) — en présentiel, intra-entreprise, dans vos locaux
             selon vos contraintes.
           </p>
           <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">

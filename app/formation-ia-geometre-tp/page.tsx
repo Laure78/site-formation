@@ -410,7 +410,7 @@ export default function FormationIaGeometreTpPage() {
         <AllerPlusLoin
           links={[
             { href: LINKS.formationIaBtpNiveau1BatimentTp, label: 'NIV-01 — Bâtiment & travaux publics' },
-            { href: '/formation-ia-conducteur-de-travaux-btp', label: 'Formation IA conducteur de travaux BTP' },
+            { href: LINKS.formationConducteurTravaux, label: 'Formation IA conducteur de travaux BTP' },
             { href: '/formation-ia-charge-affaires-btp', label: 'Formation IA chargé d’affaires BTP' },
             { href: '/financement-constructys-formation-ia-btp', label: 'Financement Constructys' },
             { href: buildSiteCalendlyCtaUrl('formation-ia-geometre-tp-footer-rdv'), label: 'Prendre rendez-vous' },

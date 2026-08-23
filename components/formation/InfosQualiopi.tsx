@@ -146,11 +146,7 @@ export function InformationsReglementaires(props: InfosQualiopiProps) {
 
           <QualiopiItem icon={Euro} title={`7. ${labels.tarif}`}>
             <p>
-              <strong>Inter-entreprise :</strong> {validated.tarifInter}
-              <MentionTvaAsterisque />
-            </p>
-            <p className="mt-2">
-              <strong>Intra-entreprise :</strong> {validated.tarifIntra}
+              <strong>Tarif :</strong> {validated.tarifIntra}
               <MentionTvaAsterisque />
             </p>
             <MentionTVA className="mt-3" />

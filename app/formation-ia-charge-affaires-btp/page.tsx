@@ -137,11 +137,11 @@ const FAQ_ITEMS = [
   },
   {
     q: 'La formation se fait-elle sur nos dossiers réels ?',
-    a: "Oui. En intra comme en inter (présentiel Île-de-France), on travaille de préférence sur vos devis, DCE et mémoires — anonymisés si besoin — pour que les gains soient immédiatement applicables.",
+    a: "Oui. En intra-entreprise, dans vos locaux (présentiel Île-de-France), on travaille de préférence sur vos devis, DCE et mémoires — anonymisés si besoin — pour que les gains soient immédiatement applicables.",
   },
   {
     q: 'Où intervenez-vous en Île-de-France ?',
-    a: `Présentiel uniquement : ${IDF_ZONE_INTERVENTION} — intra dans vos locaux ou inter en salle.`,
+    a: `Présentiel uniquement : ${IDF_ZONE_INTERVENTION} — intra-entreprise, dans vos locaux.`,
   },
   {
     q: "Comment l'IA aide-t-elle un chargé d'affaires au quotidien ?",
@@ -466,13 +466,10 @@ export default function FormationIaChargeAffairesBtpPage() {
             cohérence avec la DPGF et critères d&apos;attribution.
           </p>
 
-          <p className="mt-6 font-medium text-slate-900">Les formations se déroulent exclusivement en présentiel, en Île-de-France :</p>
+          <p className="mt-6 font-medium text-slate-900">Les formations se déroulent exclusivement en présentiel intra-entreprise, dans vos locaux en Île-de-France.</p>
           <ul className="mt-3 list-disc space-y-2 pl-6 text-slate-700">
             <li>
-              En <strong>intra</strong> dans vos locaux (Île-de-France)
-            </li>
-            <li>
-              En <strong>inter</strong> en Île-de-France (Paris, Versailles, Nanterre, Créteil)
+              Dans vos locaux ou sur site ({IDF_ZONE_INTERVENTION})
             </li>
           </ul>
           <p className="mt-6">

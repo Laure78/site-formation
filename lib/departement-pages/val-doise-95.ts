@@ -11,7 +11,7 @@ export const DEPARTEMENT_VAL_DOISE_95: DepartementPageData = {
   path: '/formation-ia-btp-val-doise-95',
   slug: 'val-doise-95',
   accroche:
-    "Formation IA pour le BTP en présentiel dans le Val-d'Oise (95), intra ou inter. Entre Cergy-Pontoise et le pôle aéroportuaire de Roissy, le nord-ouest francilien a ses propres logiques de chantier, de logistique et d'équipes parfois éloignées — la session s'appuie sur vos documents pour réduire le temps bureau.",
+    "Formation IA pour le BTP en présentiel dans le Val-d'Oise (95), intra-entreprise, dans vos locaux. Entre Cergy-Pontoise et le pôle aéroportuaire de Roissy, le nord-ouest francilien a ses propres logiques de chantier, de logistique et d'équipes parfois éloignées — la session s'appuie sur vos documents pour réduire le temps bureau.",
   villes: [
     'Cergy',
     'Pontoise',

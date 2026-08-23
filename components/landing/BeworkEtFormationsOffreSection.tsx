@@ -41,7 +41,7 @@ export function BeworkEtFormationsOffreSection() {
               Mes formations IA pour le BTP et la construction
             </h2>
             <p className="mt-3 max-w-3xl text-base leading-relaxed text-slate-600 md:text-lg">
-              Formations IA — organisme certifié Qualiopi / OPCO — intra ou inter, en présentiel en Île-de-France, pour les équipes du
+              Formations IA — organisme certifié Qualiopi / OPCO — intra-entreprise, dans vos locaux, en présentiel en Île-de-France, pour les équipes du
               bâtiment et de la construction.{' '}
               <MentionFinancement variant="court" withLink={false} />.
             </p>

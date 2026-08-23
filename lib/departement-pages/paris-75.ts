@@ -11,7 +11,7 @@ export const DEPARTEMENT_PARIS_75: DepartementPageData = {
   path: '/formation-ia-btp-paris',
   slug: 'paris',
   accroche:
-    "Formation IA pour le BTP en présentiel à Paris : devis, DCE et comptes rendus sur vos documents réels, dans vos locaux ou en salle inter. Le bassin parisien intra-muros impose des contraintes spécifiques — site occupé, copropriétés, accès chantiers et exigences patrimoniales — que la session traite avec vos pièces concrètes.",
+    "Formation IA pour le BTP en présentiel à Paris : devis, DCE et comptes rendus sur vos documents réels, dans vos locaux ou intra-entreprise, dans vos locaux. Le bassin parisien intra-muros impose des contraintes spécifiques — site occupé, copropriétés, accès chantiers et exigences patrimoniales — que la session traite avec vos pièces concrètes.",
   villes: [
     'Paris 1er–4e (centre & Louvre)',
     'Paris 11e–12e (Bastille, Nation)',
@@ -30,7 +30,7 @@ export const DEPARTEMENT_PARIS_75: DepartementPageData = {
   faqLocale: [
     {
       q: 'Intervenez-vous dans Paris intra-muros ?',
-      a: 'Oui. Les sessions ont lieu en présentiel à Paris, dans vos locaux (intra) ou en salle inter — présentiel uniquement · Île-de-France uniquement. Arrondissements centre, est et ouest se traitent de la même façon.',
+      a: 'Oui. Les sessions ont lieu en présentiel à Paris, dans vos locaux (intra) ou intra-entreprise, dans vos locaux — présentiel uniquement · Île-de-France uniquement. Arrondissements centre, est et ouest se traitent de la même façon.',
     },
     {
       q: 'Comment se passe une session intra à Paris ?',

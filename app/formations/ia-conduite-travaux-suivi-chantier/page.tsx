@@ -250,7 +250,7 @@ export default function FormationIaConduiteTravauxSuiviChantierPage() {
               <Calendar className="mt-0.5 h-5 w-5 shrink-0 text-[var(--accent)]" strokeWidth={1.5} />
               <span>
                 <strong>Format :</strong> session unique <strong>{SESSION_DUREE_LIBELLE}</strong> en demi-journée
-                (9h00–13h00 ou 13h30–17h30). Intra ou inter, exclusivement en présentiel en Île-de-France. Forfait{' '}
+                (9h00–13h00 ou 13h30–17h30). intra-entreprise, dans vos locaux, exclusivement en présentiel en Île-de-France. Forfait{' '}
                 <strong>{TARIF_SESSION_LIBELLE}</strong> — {LIBELLE_EFFECTIF_GROUPE_NIV03}.
               </span>
             </li>

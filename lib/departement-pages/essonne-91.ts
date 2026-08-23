@@ -11,7 +11,7 @@ export const DEPARTEMENT_ESSONNE_91: DepartementPageData = {
   path: '/formation-ia-btp-essonne-91',
   slug: 'essonne-91',
   accroche:
-    "Formation IA pour le BTP en présentiel en Essonne (91), intra ou inter, sur vos documents réels. Le sud francilien mêle pôles d'innovation (plateau de Saclay, Massy) et zones pavillonnaires : la session s'adapte aux marchés publics, au tertiaire et au tissu PME local.",
+    "Formation IA pour le BTP en présentiel en Essonne (91), intra-entreprise, dans vos locaux, sur vos documents réels. Le sud francilien mêle pôles d'innovation (plateau de Saclay, Massy) et zones pavillonnaires : la session s'adapte aux marchés publics, au tertiaire et au tissu PME local.",
   villes: [
     'Évry-Courcouronnes',
     'Massy',

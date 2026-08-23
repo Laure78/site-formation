@@ -173,7 +173,7 @@ Classés par potentiel trafic + conversion :
 14. P3 — « ChatGPT maçon — Devis, AO et comptes rendus de chantier automatisés » → `ChatGPT maçon`
 15. P3 — « IA pour les appels d'offres BTP : analyse DCE et rédaction CCTP » → `IA AO BTP`
 16. P3 — « Les 3 erreurs que font les entreprises BTP avec ChatGPT (et comment les éviter) » → conversion blog
-17. P3 — « Formation IA BTP intra ou inter : que choisir pour votre équipe ? » → `formation intra BTP`
+17. P3 — « Formation IA BTP intra-entreprise, dans vos locaux : que choisir pour votre équipe ? » → `formation intra BTP`
 18. P3 — « ChatGPT charpentier couvreur : 5 usages concrets pour le gros œuvre » → `ChatGPT charpentier`
 19. P3 — « IA assistante administrative BTP : automatiser les tâches répétitives » → `IA admin BTP`
 20. P4 — « Intelligence artificielle dans le BTP en 2026 : état des lieux et tendances » → notoriété

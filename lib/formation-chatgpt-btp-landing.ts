@@ -107,7 +107,7 @@ export const FORMATION_CHATGPT_BTP_CONFIG: SeoClusterPageConfig = {
     '30 minutes pour identifier vos cas d\'usage prioritaires : devis, CR, administratif ou appels d\'offres.',
   finalCtaTitle: 'Organiser une formation intra ChatGPT',
   finalCtaSubtitle:
-    'Session dans vos locaux ou en salle — contenu adapté à vos process et à vos équipes.',
+    'Session intra-entreprise, dans vos locaux — contenu adapté à vos process et à vos équipes.',
   campaignSlug: 'formation-chatgpt-btp',
   programmeRef: 'NIV-01',
   catalogueHref: LINKS.formationIaBtpNiveau1BatimentTp,

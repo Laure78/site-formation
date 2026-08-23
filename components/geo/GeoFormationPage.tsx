@@ -156,7 +156,7 @@ export function GeoFormationPage(props: GeoFormationPageProps) {
           </h2>
           <p className="mt-4 text-base leading-relaxed text-slate-700 md:text-lg">
             <strong>Laure Olivié</strong> intervient dans tout le département {deptPreposition} ({code}) :
-            sessions <strong>intra dans vos locaux</strong> ou <strong>inter en salle</strong> (proche de{' '}
+            sessions <strong>intra-entreprise, dans vos locaux</strong> (proche de{' '}
             {villePrincipale}). Siège {SITE_CONFIG.legalName} à Guyancourt — déplacements Île-de-France
             précisés au devis, sans surprise.
           </p>
@@ -188,7 +188,7 @@ export function GeoFormationPage(props: GeoFormationPageProps) {
             ))}
           </ul>
           <p className="mt-6 text-base leading-relaxed text-slate-600">
-            Formations <strong>intra dans vos locaux</strong> ou <strong>inter en salle</strong> en
+            Formations <strong>intra-entreprise, dans vos locaux</strong> en
             Île-de-France — créneaux souvent disponibles à proximité de {villePrincipale}.
           </p>
         </div>

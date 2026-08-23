@@ -191,7 +191,7 @@ Propose une structure de courrier ou de DGD (titres uniquement) : faits, pièces
     },
     {
       q: 'Où se déroule la formation ?',
-      a: 'Catalogue OFC : présentiel uniquement · Île-de-France uniquement (inter en salle ou intra dans vos locaux franciliens).',
+      a: 'Catalogue OFC : présentiel uniquement · Île-de-France uniquement (intra-entreprise, dans vos locaux franciliens).',
     },
   ],
   inlineLinkHrefs: [

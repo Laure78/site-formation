@@ -162,7 +162,7 @@ export const blogArticleFormationIaCctpAnalyseDceBtp: BlogArticle = {
       content: `
 <h3 class="font-display text-lg font-semibold text-slate-900">Auto-formation : forces et angles morts</h3>
 <p class="mt-3">Forces : coût modique, flexibilité. Angles morts : personne pour corriger vos prompts, risque de généralités inutiles. L’autoformation ne remplace pas un retour d’expérience BTP.</p>
-<h3 class="font-display mt-8 text-lg font-semibold text-slate-900">Formation inter-entreprise (FFB, fédérations)</h3>
+<h3 class="font-display mt-8 text-lg font-semibold text-slate-900">Formation intra-entreprise (FFB, fédérations)</h3>
 <p class="mt-3">Forces : échanges entre pairs, dynamique de groupe. Je suis intervenue pour des réseaux institutionnels : le format s’adapte aux calendriers des fédérations.</p>
 <h3 class="font-display mt-8 text-lg font-semibold text-slate-900">Formation intra-entreprise sur mesure</h3>
 <p class="mt-3">Forces : vos PDF, vos lots, vos règles internes. Je recommande ce format si vous répondez souvent aux marchés. Le financement passe souvent par l’OPCO : je renvoie vers la page <a href="${LINKS.financement}" class="font-medium text-[var(--accent)] underline hover:no-underline">financement Constructys formation IA appliquée au bâtiment</a> pour les conditions.</p>
@@ -173,7 +173,7 @@ export const blogArticleFormationIaCctpAnalyseDceBtp: BlogArticle = {
       title: 'Foire aux questions',
       content: `
 <h3 class="font-display text-lg font-semibold text-slate-900">Combien coûte une formation IA CCTP ?</h3>
-<p class="mt-2">Le tarif dépend du format intra ou inter. Je prépare un devis après un échange court.</p>
+<p class="mt-2">Le tarif dépend du format intra-entreprise, dans vos locaux. Je prépare un devis après un échange court.</p>
 <h3 class="font-display mt-6 text-lg font-semibold text-slate-900">Quel niveau IA faut-il avant la formation ?</h3>
 <p class="mt-2">Aucun : je pars des réglages de base et des exemples réels.</p>
 <h3 class="font-display mt-6 text-lg font-semibold text-slate-900">Constructys finance-t-il la formation IA CCTP ?</h3>

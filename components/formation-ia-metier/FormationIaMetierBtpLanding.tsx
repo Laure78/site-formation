@@ -228,7 +228,7 @@ export function FormationIaMetierBtpLanding({ config }: { config: FormationIaMet
               id="rdv-1"
               metierId={config.id}
               title="Premier rendez-vous — Calendly"
-              subtitle="30 minutes pour cadrer votre besoin (intra ou inter, en présentiel) et voir si la formation IA appliquée au bâtiment correspond à votre équipe."
+              subtitle="30 minutes pour cadrer votre besoin (intra-entreprise, dans vos locaux, en présentiel) et voir si la formation IA appliquée au bâtiment correspond à votre équipe."
             />
           </div>
 

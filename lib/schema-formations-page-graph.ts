@@ -172,7 +172,7 @@ export function buildFormationsPageUnifiedGraphJsonLd(): Record<string, unknown>
         '@id': `${BASE}/formations#course-list`,
         name: `Catalogue ${CATALOGUE_COUNT} formations IA pour le BTP`,
         description:
-          `${CATALOGUE_COUNT} formations IA pour les pros du BTP de 4 heures, certifiées Qualiopi, financement possible selon éligibilité, exclusivement en présentiel en Île-de-France (inter ou intra).`,
+          `${CATALOGUE_COUNT} formations IA pour les pros du BTP de 4 heures, certifiées Qualiopi, financement possible selon éligibilité, exclusivement en présentiel en Île-de-France (intra-entreprise, dans vos locaux).`,
         numberOfItems: CATALOGUE_COUNT,
         itemListElement: [
           {
@@ -433,8 +433,8 @@ export function buildFormationsPageUnifiedGraphJsonLd(): Record<string, unknown>
           {
             '@type': 'HowToStep',
             position: 3,
-            name: 'Choisir le format inter ou intra',
-            text: "Inter : 1 à 3 participants par entreprise, vous rejoignez une session ouverte en Île-de-France. Intra : à partir de 6 participants d'une même entreprise, la formatrice se déplace dans vos locaux.",
+            name: 'Choisir le format intra-entreprise, dans vos locaux',
+            text: "Intra-entreprise : la formatrice se déplace dans vos locaux en Île-de-France, jusqu'à 12 participants selon la fiche catalogue.",
           },
           {
             '@type': 'HowToStep',

@@ -152,7 +152,7 @@ const FAQ_IA_DEVIS_BATIMENT = [
   },
   {
     q: "Faut-il une formation pour utiliser l'IA sur les devis ?",
-    a: "Non pour un essai ponctuel ; oui pour l'ancrer en équipe sans erreurs coûteuses. Une session de 4 h suffit à maîtriser prompts, trames par métier, checklist TVA et règles de confidentialité — sans prérequis technique ni code. En intra comme en inter, l'objectif est de repartir avec des modèles réutilisables sur vos vrais documents, pas une démo générique déconnectée du terrain.",
+    a: "Non pour un essai ponctuel ; oui pour l'ancrer en équipe sans erreurs coûteuses. Une session de 4 h suffit à maîtriser prompts, trames par métier, checklist TVA et règles de confidentialité — sans prérequis technique ni code. En intra-entreprise, l'objectif est de repartir avec des modèles réutilisables sur vos vrais documents, pas une démo générique déconnectée du terrain.",
   },
   {
     q: "La formation IA devis est-elle finançable par l'OPCO ?",

@@ -25,12 +25,12 @@
 - **Certification** : Qualiopi
 - **Financements** : Constructys, OPCO
 - **Plafonds pédagogiques Constructys** : 24 € HT/h/participant, max 840 € HT/jour/groupe intra
-- **Satisfaction clients** : 4,85/5 ⭐
-- **Nombre de personnes formées** : plus de 1 500 (depuis décembre 2021)
+- **Satisfaction clients** : 4,45/5 ⭐ (20 répondants, juillet 2025 – juin 2026 — source `lib/data/indicateurs-resultats.ts`)
+- **Effectif formé** : non publié sur le site (audit Qualiopi)
 - **Spécialité** : IA & ChatGPT pour le BTP (bâtiment, travaux publics, second œuvre)
 
 ## Formations Proposées
-- Formations inter et intra en français uniquement
+- Formations intra-entreprise en français uniquement
 - Thèmes : productivité IA, devis/chiffrage, appels d'offres (DCE/mémoire technique), réseaux sociaux, communication
 - **Tarif session catalogue** : 1 200 € HT forfaitaire — session unique, max 12 participants
 - **Public cible** : Artisans, conducteurs de travaux, chefs d'entreprise, fonctions support
@@ -132,7 +132,6 @@ Placer dans le footer de chaque page + page dédiée "Mentions légales".
 
 ## Règles Fiscales (à documenter)
 - **Formations intra** : TVA exonérée (article 261-4-4° du CGI)
-- **Formations inter** : TVA non applicable (article 293B du CGI)
 - Adapter les devis en fonction du type de formation
 
 ## Robots.txt & IA Bots

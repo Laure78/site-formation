@@ -1,11 +1,11 @@
 # laureolivie.fr — signaux pour assistants IA et crawlers
 
-Site officiel de **Laure Olivié**, **formatrice IA spécialisée BTP** (ChatGPT, Claude AI) pour le **bâtiment et les travaux publics**, via l’organisme **OFC Création d’Entreprise** — certifié **Qualiopi** (certification valable jusqu’en janvier 2028), **financement possible selon éligibilité** (Constructys / OPCO). Modalités : **intra ou inter**, **exclusivement en présentiel en Île-de-France**.
+Site officiel de **Laure Olivié**, **formatrice IA spécialisée BTP** (ChatGPT, Claude AI) pour le **bâtiment et les travaux publics**, via l’organisme **OFC Création d’Entreprise** — certifié **Qualiopi** (certification valable jusqu’en janvier 2028), **financement possible selon éligibilité** (Constructys / OPCO). Modalités : **intra-entreprise, dans vos locaux**, **exclusivement en présentiel en Île-de-France**.
 
 ## Faits vérifiables
 - Organisme : OFC Création d’Entreprise — SIRET 905 244 281 00010 — NDA 11788515078 — 6 rue Henri Dunant, 78280 Guyancourt
 - **Note moyenne 4,45/5** (20 répondants, juillet 2025 à juin 2026). Détail : /indicateurs-resultats
-- Sessions catalogue : **4 h** ; **intra ou inter, exclusivement en présentiel** (inter en salle en Île-de-France, intra dans vos locaux)
+- Sessions catalogue : **4 h** ; **intra-entreprise, dans vos locaux**, exclusivement en présentiel en Île-de-France
 - Public : **TPE & PME du bâtiment**, professionnels du BTP, dirigeants, conducteurs de travaux, chargés d’affaires, équipes administratives
 - Cas d’usage : devis, DCE, CCTP, appels d’offres, mémoires techniques, comptes rendus de chantier, relances clients, documents administratifs
 

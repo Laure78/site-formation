@@ -93,7 +93,7 @@ const COURSE_JSON_LD = {
 const FAQ_PARIS: FAQItem[] = [
   {
     q: 'Les sessions à Paris sont-elles uniquement en présentiel ?',
-    a: `Oui. Les sessions OFC se déroulent exclusivement en présentiel à Paris et en Île-de-France — intra dans vos locaux ou inter en salle. Les 4 heures portent sur vos documents de chantier : devis, DCE, mémoires ou comptes rendus, avec relecture métier de votre côté.`,
+    a: `Oui. Les sessions OFC se déroulent exclusivement en présentiel à Paris et en Île-de-France — intra-entreprise, dans vos locaux. Les 4 heures portent sur vos documents de chantier : devis, DCE, mémoires ou comptes rendus, avec relecture métier de votre côté.`,
   },
   {
     q: 'Qui peut suivre une formation ChatGPT Paris avec Laure Olivié ?',
@@ -109,7 +109,7 @@ const FAQ_PARIS: FAQItem[] = [
   },
   {
     q: 'Intervenez-vous seulement intramuros ou aussi en petite couronne ?',
-    a: `Les deux. Les sessions couvrent ${IDF_ZONE_INTERVENTION}. Pour une vue régionale complète, la page Île-de-France détaille les formats inter et intra sur tout le bassin.`,
+    a: `Les deux. Les sessions couvrent ${IDF_ZONE_INTERVENTION}. Pour une vue régionale complète, la page Île-de-France détaille les formats intra-entreprise, dans vos locaux sur tout le bassin.`,
   },
   {
     q: 'Combien de professionnels avez-vous déjà formés ?',
@@ -225,7 +225,7 @@ export default function FormationIaParisPage() {
               <Link href={LINKS.formations} className={OFC_LINK} title="Catalogue formations IA pour le BTP">
                 formations IA pour le BTP
               </Link>{' '}
-              décline ces usages en sessions — organisme certifié Qualiopi de 4 heures, en inter ou en intra. Pour une vue sur
+              décline ces usages en sessions intra-entreprise, dans vos locaux — organisme certifié Qualiopi de 4 heures. Pour une vue sur
               toute la région, la page{' '}
               <Link
                 href={LINKS.formationIleDeFrance}
@@ -300,7 +300,7 @@ export default function FormationIaParisPage() {
               Cadrer votre session présentielle à Paris
             </h2>
             <p className="mt-3 text-blue-100">
-              30 minutes de visio découverte : format intra ou inter, documents à apporter, financement
+              30 minutes de visio découverte : format intra-entreprise, dans vos locaux, documents à apporter, financement
               Constructys selon éligibilité — sans engagement.
             </p>
             <div className="mt-6">
@@ -323,15 +323,12 @@ export default function FormationIaParisPage() {
               Où se déroulent les formations à Paris et en Île-de-France
             </h2>
             <p className="mt-4 text-base leading-relaxed text-slate-600 md:text-lg">
-              Les sessions ont lieu en présentiel : en <strong>intra</strong> dans les locaux de
-              l&apos;entreprise, ou en <strong>inter</strong> en salle — {IDF_ZONE_INTERVENTION}. Basée à
+              Les sessions ont lieu en présentiel intra-entreprise, dans vos locaux — {IDF_ZONE_INTERVENTION}. Basée à
               Guyancourt (78), Laure Olivié se déplace sur vos sites franciliens — bureaux d&apos;études, bases
-              travaux, salles fédérales.
+              travaux ou locaux de l&apos;entreprise.
             </p>
             <p className="mt-4 text-base leading-relaxed text-slate-600 md:text-lg">
-              En intra, le groupe reste homogène (même entreprise, mêmes modèles de documents). En inter, les
-              échanges entre PME du bâtiment enrichissent les cas sans diluer le fil pédagogique. Dans les
-              deux cas, le présentiel permet de corriger un prompt au moment où il dérape — ce qu&apos;un
+              Le groupe reste homogène (même entreprise, mêmes modèles de documents). Le présentiel permet de corriger un prompt au moment où il dérape — ce qu&apos;un
               tutoriel isolé ne fait pas.
             </p>
             <p className="mt-4 text-base leading-relaxed text-slate-600 md:text-lg">
@@ -392,7 +389,7 @@ export default function FormationIaParisPage() {
               dépendent de votre dossier — aucune prise en charge n&apos;est présentée comme garantie.
             </p>
             <p className="mt-4 text-base leading-relaxed text-slate-600 md:text-lg">
-              En pratique, la visio découverte sert à clarifier le format (inter / intra), le public interne et
+              En pratique, la visio découverte sert à clarifier le format intra-entreprise, le public interne et
               les pièces à préparer pour Constructys ou votre OPCO. Vous repartez avec une estimation
               d&apos;éligibilité, pas avec une promesse de couverture totale.
             </p>
@@ -446,7 +443,7 @@ export default function FormationIaParisPage() {
             </h2>
             <p className="mx-auto mt-4 max-w-2xl text-blue-100">
               30 minutes pour cadrer une formation IA à Paris adaptée à votre équipe : documents à apporter,
-              format inter ou intra, financement selon éligibilité. Sans engagement.
+              format intra-entreprise, dans vos locaux, financement selon éligibilité. Sans engagement.
             </p>
             <div className="mt-8">
               <CalendlyEmbed

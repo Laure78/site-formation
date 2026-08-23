@@ -408,7 +408,7 @@ export default function FormationIABTPSaintQuentinYvelinesPage() {
             </div>
             <div className="rounded-2xl border border-slate-200 bg-slate-50 p-6">
               <h3 className="font-display text-lg font-semibold text-slate-900">
-                Option 2 — Session inter-entreprises
+                Session intra-entreprise, dans vos locaux
               </h3>
               <p className="mt-3 text-slate-600">
                 Pour de petits groupes, les sessions organisées avec la FFB Île-de-France peuvent convenir.

@@ -209,13 +209,8 @@ export default function LivretAccueilStagiairePage() {
           <H2 id="vos-formations">Vos formations</H2>
           <div className="mt-4 space-y-4 leading-relaxed">
             <p>
-              Modalité : {MODALITE_FORMATIONS_PRESENTIEL} Sessions en intra-entreprise (dans vos locaux)
-              ou en inter-entreprises (lieu communiqué à la convocation —{' '}
-              {/* TODO : nom(s) du ou des partenaires organisateurs inter — à compléter si affichage public souhaité */}
-              <span className="rounded bg-[#F2F2F2] px-1 text-sm text-[#377CF3]">
-                TODO : partenaire(s) organisateur(s) inter
-              </span>
-              ).
+              Modalité : {MODALITE_FORMATIONS_PRESENTIEL} Sessions en intra-entreprise, dans vos locaux en
+              Île-de-France.
             </p>
             <p>
               Durée type du catalogue : <strong>{SESSION_DUREE_LIBELLE}</strong> (selon fiche formation).

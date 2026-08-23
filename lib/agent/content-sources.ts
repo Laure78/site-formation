@@ -14,6 +14,7 @@ import {
 } from '@/lib/tarifs-sessions';
 import { BLOG_ARTICLES } from '@/lib/blog';
 import { CSFE_NOM_LIBRE } from '@/lib/csfe';
+import { LINKS } from '@/lib/internal-links';
 
 export interface ContentChunk {
   url: string;
@@ -130,7 +131,7 @@ const PAGES_DATA: { path: string; title: string; content: string }[] = [
       'Landing SEO : dirigeants PME BTP, devis, prospection, relances, synthèses rentabilité avec ChatGPT. Île-de-France, Grand Paris. Qualiopi, Constructys. Validation humaine des engagements et des chiffres.',
   },
   {
-    path: '/formation-ia-conducteur-de-travaux-btp',
+    path: LINKS.formationConducteurTravaux,
     title: 'Formation IA conducteur de travaux BTP',
     content:
       'Landing SEO : rapports multi-lots, mails sous-traitants, variations, planning hebdo avec ChatGPT. Île-de-France, Grand Paris. Qualiopi, Constructys. Décisions et contrats restent au conducteur de travaux.',
@@ -213,7 +214,7 @@ const PAGES_DATA: { path: string; title: string; content: string }[] = [
     content:
       "Landing SEO : formation IA et ChatGPT pour routes, VRD, génie civil. Cas d'usage TP (planification, études de sol, marchés publics, rapports chantier). Qualiopi, OPCO Constructys. Fiche catalogue niveau 1 : /formations/ia-batiment-travaux-publics ; page pilier SEO : /formation-ia-travaux-publics.",
   },
-  { path: '/formation-ia-conducteur-de-travaux-btp', title: 'Guide IA conducteur de travaux BTP', content: 'L\'IA pour les conducteurs de travaux : CR, planning, DCE, PPSPS. Page métier canonique.' },
+  { path: LINKS.formationConducteurTravaux, title: 'Guide IA conducteur de travaux BTP', content: 'L\'IA pour les conducteurs de travaux : CR, planning, DCE, PPSPS. Page métier canonique.' },
   { path: '/mentions-legales', title: 'Mentions légales', content: 'OFC Création d\'Entreprise, SIRET 905 244 281 00010. Hébergement O2switch.' },
 ];
 

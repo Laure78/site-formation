@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { Sparkles, FileText } from 'lucide-react';
 import { CitationSentence } from '@/components/seo/CitationSentence';
 import { Partenaires } from '@/components/Partenaires';
@@ -23,8 +24,11 @@ import { Essentiel } from '@/components/readability/Essentiel';
 import { Reveal } from '@/components/motion/Reveal';
 import { ProofStats } from '@/components/ProofStats';
 import { AccueilHeroAnimatedMesh } from '@/components/landing/AccueilHeroAnimatedMesh';
+import { PHOTOS } from '@/lib/photos';
 
 const FORMATION_CONDUITE = getFormationCatalogueByRef('NIV-03')!;
+
+const HERO_CATALOGUE_VISUAL = PHOTOS.formationsCatalogueHero2026;
 
 /** Hero accueil — fold option B + détails SEO sous le pli. */
 export function AccueilHeroSection() {
@@ -32,8 +36,8 @@ export function AccueilHeroSection() {
     <section className={`${OFC_SEC.hero} relative overflow-hidden`}>
       <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%23377cf3\' fill-opacity=\'0.045\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-90" />
       <AccueilHeroAnimatedMesh />
-      <div className="relative mx-auto max-w-7xl">
-        <div className="accueil-hero-fold max-w-3xl">
+      <div className="relative mx-auto max-w-7xl px-4">
+        <div className="accueil-hero-fold">
           <div className="accueil-hero-content min-w-0">
             <div className="inline-flex flex-wrap items-center gap-x-2 gap-y-1 rounded-full border border-ofc-accent/20 bg-white/95 px-3 py-1.5 text-xs font-medium text-ofc-accent shadow-ofc-sm backdrop-blur-sm ring-1 ring-white/80 sm:px-4 sm:py-2 sm:text-sm">
               <Sparkles size={14} strokeWidth={1.5} className="shrink-0 text-ofc-accent sm:h-4 sm:w-4" aria-hidden />
@@ -55,6 +59,26 @@ export function AccueilHeroSection() {
               <ProofStats className="rounded-ofc-card border border-ofc-border-strong/80 shadow-ofc-sm" />
             </div>
           </div>
+
+          <aside className="accueil-hero-aside mx-auto w-full max-w-[280px] shrink-0 lg:mx-0 lg:max-w-none xl:max-w-[360px]">
+            <Link
+              href={LINKS.formations}
+              title={HERO_CATALOGUE_VISUAL.title}
+              className="block overflow-hidden rounded-2xl bg-white/95 p-1 shadow-[0_20px_50px_-24px_rgba(15,23,42,0.25)] ring-1 ring-slate-200/80 transition hover:opacity-95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#377CF3]"
+            >
+              <Image
+                src={HERO_CATALOGUE_VISUAL.src}
+                alt={HERO_CATALOGUE_VISUAL.alt}
+                title={HERO_CATALOGUE_VISUAL.title}
+                width={HERO_CATALOGUE_VISUAL.width}
+                height={HERO_CATALOGUE_VISUAL.height}
+                priority
+                className="h-auto w-full rounded-[0.85rem] object-cover"
+                sizes="(max-width: 1024px) 280px, 360px"
+                quality={75}
+              />
+            </Link>
+          </aside>
         </div>
 
         <div className="accueil-hero-details mt-10 space-y-6 md:mt-12 md:space-y-7">
@@ -93,7 +117,7 @@ export function AccueilHeroSection() {
               <>
                 OFC Création d’Entreprise certifié Qualiopi — <MentionFinancement variant="long" />
               </>,
-              'Intra ou inter, présentiel uniquement · Île-de-France uniquement.',
+              'intra-entreprise, dans vos locaux, présentiel uniquement · Île-de-France uniquement.',
               'Travail sur vos documents BTP réels : DCE, CCTP, relances clients et administratif chantier.',
               <>
                 Catalogue {FORMATIONS.length} formations dispensées par un organisme certifié Qualiopi — forfait unique{' '}

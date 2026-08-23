@@ -77,7 +77,7 @@ const HERO_BADGES = [
 const HERO_RESUME = [
   `Session ${DUREE_LIBELLE} — maîtrise d'œuvre d'exécution, 5 modules opérationnels avec introduction à Claude.`,
   `Forfait ${PRIX_LIBELLE}. ${MENTIONS_TVA_REGIMES_COURT}`,
-  `${EFFECTIF_LIBELLE.charAt(0).toUpperCase() + EFFECTIF_LIBELLE.slice(1)} — intra ou inter, présentiel Île-de-France.`,
+  `${EFFECTIF_LIBELLE.charAt(0).toUpperCase() + EFFECTIF_LIBELLE.slice(1)} — intra-entreprise, dans vos locaux, présentiel Île-de-France.`,
   `${FINANCEMENT_FORMULATION_PRUDENTE} ${FINANCEMENT_CONSTRUCTYS_PLAFONDS_COURT} Les abonnements Claude Pro et ChatGPT Plus ne sont pas inclus.`,
 ];
 
@@ -297,7 +297,7 @@ export default function FormationIaMaitriseOeuvrePage() {
               <strong>Public :</strong> {FORMATION.public}.
             </li>
             <li>
-              <strong>Modalité :</strong> présentiel, en intra-entreprise ou en inter-entreprises. 70&nbsp;% pratique
+              <strong>Modalité :</strong> présentiel intra-entreprise, dans vos locaux. 70&nbsp;% pratique
               / 30&nbsp;% théorie.
             </li>
             <li>
@@ -365,7 +365,7 @@ export default function FormationIaMaitriseOeuvrePage() {
         >
           <h2 className="font-display text-2xl font-bold">Réservez votre session</h2>
           <p className="mt-4 text-white/90">
-            Demandez un devis ou planifiez votre session intra ou inter — réponse sous 24 h ouvrées.
+            Demandez un devis ou planifiez votre session intra-entreprise, dans vos locaux — réponse sous 24 h ouvrées.
           </p>
           <div className="mt-6 flex flex-col gap-4 sm:flex-row sm:flex-wrap">
             <a

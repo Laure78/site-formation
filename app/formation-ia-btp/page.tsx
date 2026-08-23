@@ -17,7 +17,7 @@ import { FAQ_FORMATION_IA_BTP_PILLAR } from '@/lib/formation-ia-btp-pillar-faq';
 import { PHOTOS } from '@/lib/photos';
 import { PROOF } from '@/lib/proof';
 import { QUALIOPI_CERTIFICAT_REALISATION } from '@/config/qualiopi';
-import { MENTIONS_TVA_INTER_COURTE, MENTIONS_TVA_INTRA_COURTE } from '@/lib/tarifs-sessions';
+import { MENTIONS_TVA_INTRA_COURTE } from '@/lib/tarifs-sessions';
 import { formatNoteSatisfactionAffichageComplet, formatNoteSatisfactionSur5 } from '@/lib/data/indicateurs-resultats';
 import { Reveal, RevealGroup } from '@/components/motion/Reveal';
 export const revalidate = 3600;
@@ -484,8 +484,7 @@ export default function FormationIaBtpPillarPage() {
             selon éligibilité et barèmes en vigueur.
           </p>
           <p className="rounded-lg border border-amber-200 bg-amber-50/80 p-4 text-sm">
-            <strong>TVA</strong> — intra-entreprise : {MENTIONS_TVA_INTRA_COURTE} Inter-entreprise :{' '}
-            {MENTIONS_TVA_INTER_COURTE}
+            <strong>TVA</strong> — intra-entreprise : {MENTIONS_TVA_INTRA_COURTE}
           </p>
           <p>
             <Link href={LINKS.financement} className="font-semibold text-[var(--accent)] hover:underline">
@@ -575,7 +574,7 @@ export default function FormationIaBtpPillarPage() {
           </p>
           <p>
             <strong>Basée à Guyancourt (78)</strong>, elle intervient sur toute l&apos;Île-de-France (Paris, 78, 91, 92,
-            93, 94, 95) en intra entreprise, et organise des sessions inter à Paris et en proche banlieue.
+            93, 94, 95) en intra entreprise, et anime des sessions intra-entreprise, dans vos locaux, en Île-de-France.
           </p>
           <p className="flex flex-wrap gap-x-3 gap-y-1">
             <Link href={LINKS.aPropos} className="font-semibold text-[var(--accent)] hover:underline">

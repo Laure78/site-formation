@@ -11,7 +11,7 @@ export const DEPARTEMENT_SEINE_ET_MARNE_77: DepartementPageData = {
   path: '/formation-ia-btp-seine-et-marne-77',
   slug: 'seine-et-marne-77',
   accroche:
-    "Formation IA pour le BTP en présentiel en Seine-et-Marne (77), intra dans vos locaux ou inter en salle, sur vos devis et dossiers réels. Le 77 est le plus vaste département francilien : la session est pensée pour des équipes parfois dispersées entre l'ouest urbain (Marne-la-Vallée, Sénart, Melun, Meaux) et l'est plus étendu.",
+    "Formation IA pour le BTP en présentiel en Seine-et-Marne (77), intra-entreprise, dans vos locaux, sur vos devis et dossiers réels. Le 77 est le plus vaste département francilien : la session est pensée pour des équipes parfois dispersées entre l'ouest urbain (Marne-la-Vallée, Sénart, Melun, Meaux) et l'est plus étendu.",
   villes: [
     'Melun',
     'Meaux',

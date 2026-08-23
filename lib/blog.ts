@@ -862,7 +862,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
         type: 'paragraph',
         title: 'Pour qui est faite cette méthode ?',
         content:
-          'Professionnels du BTP, PME du BTP, conducteurs de travaux, responsables appels d’offres ou direction technique : si vous répondez régulièrement à des marchés publics ou privés, structurer la rédaction avec l’IA est un levier fort — à condition d’imposer une discipline interne (données, confidentialité, relecture). En Île-de-France, les sessions inter se déroulent en présentiel ; l’intra est possible dans vos locaux. Pour le détail des lieux et modalités, voir la page « Formation IA pour le BTP en Île-de-France ».',
+          'Professionnels du BTP, PME du BTP, conducteurs de travaux, responsables appels d’offres ou direction technique : si vous répondez régulièrement à des marchés publics ou privés, structurer la rédaction avec l’IA est un levier fort — à condition d’imposer une discipline interne (données, confidentialité, relecture). En Île-de-France, les sessions se déroulent en présentiel intra-entreprise, dans vos locaux. Pour le détail des lieux et modalités, voir la page « Formation IA pour le BTP en Île-de-France ».',
       },
       {
         type: 'html',
@@ -872,7 +872,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
           '<ul class="mt-4 list-disc pl-6 text-slate-600">' +
           '<li><a href="/blog/ia-memoire-technique-appel-offres-guide-2026">IA mémoire technique appel d’offres — guide complet 2026</a></li>' +
           '<li><a href="/formations/ia-appels-offre-btp">Formation « Répondre aux appels d’offres avec l’IA »</a> (Qualiopi, OPCO Constructys)</li>' +
-          '<li><a href="/formation-ia-btp-ile-de-france">Formation IA pour les pros du BTP en Île-de-France</a> — sessions inter et intra</li>' +
+          '<li><a href="/formation-ia-btp-ile-de-france">Formation IA pour les pros du BTP en Île-de-France</a> — sessions intra-entreprise, dans vos locaux</li>' +
           '</ul>',
       },
       {
@@ -972,7 +972,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
         type: 'paragraph',
         title: 'Où se déroulent les formations IA pour le BTP en 2026 ?',
         content:
-          'Laure Olivié anime des formations présentiel uniquement · Île-de-France uniquement. Basée à Guyancourt (78), elle couvre Paris (75), Yvelines (78), Seine-et-Marne (77), Essonne (91), Hauts-de-Seine (92), Val-de-Marne (94), Seine-Saint-Denis (93), Val-d\'Oise (95) — inter en salle ou intra dans vos locaux.',
+          'Laure Olivié anime des formations présentiel uniquement · Île-de-France uniquement. Basée à Guyancourt (78), elle couvre Paris (75), Yvelines (78), Seine-et-Marne (77), Essonne (91), Hauts-de-Seine (92), Val-de-Marne (94), Seine-Saint-Denis (93), Val-d\'Oise (95) — intra-entreprise, dans vos locaux.',
       },
       {
         type: 'faq',

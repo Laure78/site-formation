@@ -1,3 +1,4 @@
+import { CATALOGUE_NIV_RANGE } from '@/data/formations';
 import type { FAQItem } from '@/lib/faq';
 import { LINKS } from '@/lib/internal-links';
 
@@ -36,7 +37,7 @@ export const DEPT_LOCAL_SEO_CONTENT: Record<string, DeptLocalSeoContent> = {
     faq: [
       {
         q: 'Intervenez-vous dans Paris intra-muros ?',
-        a: 'Oui. Les sessions ont lieu en présentiel à Paris, dans vos locaux ou en salle inter — présentiel uniquement · Île-de-France uniquement.',
+        a: 'Oui. Les sessions ont lieu en présentiel à Paris, dans vos locaux ou intra-entreprise, dans vos locaux — présentiel uniquement · Île-de-France uniquement.',
       },
       {
         q: 'Comment se passe une session intra à Paris ?',
@@ -61,7 +62,7 @@ export const DEPT_LOCAL_SEO_CONTENT: Record<string, DeptLocalSeoContent> = {
       {
         href: LINKS.formationIleDeFrance,
         label: 'Formation IA Île-de-France',
-        description: '8 départements, intra et inter',
+        description: '8 départements, intra-entreprise, dans vos locaux',
       },
     ],
   },
@@ -69,7 +70,7 @@ export const DEPT_LOCAL_SEO_CONTENT: Record<string, DeptLocalSeoContent> = {
     deptCode: '77',
     departementNom: 'Seine-et-Marne',
     intro:
-      "Formation IA pour le BTP en présentiel en Seine-et-Marne (77), intra dans vos locaux ou inter en salle. Le 77 est le plus vaste département francilien : la formation est pensée pour des équipes parfois dispersées sur de grandes distances de chantier.",
+      "Formation IA pour le BTP en présentiel en Seine-et-Marne (77), intra-entreprise, dans vos locaux. Le 77 est le plus vaste département francilien : la formation est pensée pour des équipes parfois dispersées sur de grandes distances de chantier.",
     villesEtTrajets:
       "Melun (préfecture), Meaux, Chelles, le secteur de Marne-la-Vallée, Fontainebleau, Provins. Depuis Guyancourt, comptez environ une heure à une heure et quart selon la destination et le trafic — temps indicatifs.",
     tissuBtpLocal:
@@ -106,7 +107,7 @@ export const DEPT_LOCAL_SEO_CONTENT: Record<string, DeptLocalSeoContent> = {
       {
         href: LINKS.formationIleDeFrance,
         label: 'Formation IA Île-de-France',
-        description: '8 départements, intra et inter',
+        description: '8 départements, intra-entreprise, dans vos locaux',
       },
     ],
   },
@@ -114,7 +115,7 @@ export const DEPT_LOCAL_SEO_CONTENT: Record<string, DeptLocalSeoContent> = {
     deptCode: '78',
     departementNom: 'Yvelines',
     intro:
-      "Laure Olivié est basée à Guyancourt, au cœur des Yvelines (78) : c'est le département où l'intervention est la plus rapide. Formation IA pour le BTP en présentiel, intra dans vos locaux ou inter en salle, sur vos documents réels.",
+      "Laure Olivié est basée à Guyancourt, au cœur des Yvelines (78) : c'est le département où l'intervention est la plus rapide. Formation IA pour le BTP en présentiel, intra-entreprise, dans vos locaux, sur vos documents réels.",
     villesEtTrajets:
       "Versailles (préfecture), Saint-Quentin-en-Yvelines, Guyancourt, Poissy, Mantes-la-Jolie, Sartrouville, Trappes. La plupart des sites yvelinois sont à moins de 30 minutes de Guyancourt — selon le trafic.",
     tissuBtpLocal:
@@ -151,7 +152,7 @@ export const DEPT_LOCAL_SEO_CONTENT: Record<string, DeptLocalSeoContent> = {
       {
         href: LINKS.formationIleDeFrance,
         label: 'Formation IA Île-de-France',
-        description: '8 départements, intra et inter',
+        description: '8 départements, intra-entreprise, dans vos locaux',
       },
     ],
   },
@@ -159,7 +160,7 @@ export const DEPT_LOCAL_SEO_CONTENT: Record<string, DeptLocalSeoContent> = {
     deptCode: '91',
     departementNom: 'Essonne',
     intro:
-      "Formation IA pour le BTP en présentiel en Essonne (91), intra ou inter. Le sud francilien mêle pôles d'innovation (plateau de Saclay) et zones pavillonnaires : la formation s'adapte aux deux réalités.",
+      "Formation IA pour le BTP en présentiel en Essonne (91), intra-entreprise, dans vos locaux. Le sud francilien mêle pôles d'innovation (plateau de Saclay) et zones pavillonnaires : la formation s'adapte aux deux réalités.",
     villesEtTrajets:
       "Évry-Courcouronnes (préfecture), Massy, Palaiseau, le plateau de Saclay, Longjumeau, Morangis, Corbeil-Essonnes. Depuis Guyancourt, le nord de l'Essonne (Massy, Saclay) est à une trentaine de minutes selon le trafic.",
     tissuBtpLocal:
@@ -196,7 +197,7 @@ export const DEPT_LOCAL_SEO_CONTENT: Record<string, DeptLocalSeoContent> = {
       {
         href: LINKS.formationIleDeFrance,
         label: 'Formation IA Île-de-France',
-        description: '8 départements, intra et inter',
+        description: '8 départements, intra-entreprise, dans vos locaux',
       },
     ],
   },
@@ -204,7 +205,7 @@ export const DEPT_LOCAL_SEO_CONTENT: Record<string, DeptLocalSeoContent> = {
     deptCode: '92',
     departementNom: 'Hauts-de-Seine',
     intro:
-      "Formation IA pour le BTP en présentiel dans les Hauts-de-Seine (92), intra ou inter. Département de donneurs d'ordre et de tertiaire : la formation cible la productivité sur l'écrit contractuel et la conduite de travaux.",
+      "Formation IA pour le BTP en présentiel dans les Hauts-de-Seine (92), intra-entreprise, dans vos locaux. Département de donneurs d'ordre et de tertiaire : la formation cible la productivité sur l'écrit contractuel et la conduite de travaux.",
     villesEtTrajets:
       "Nanterre (préfecture), La Défense, Boulogne-Billancourt, Courbevoie, Issy-les-Moulineaux, Clichy, Levallois-Perret. Depuis Guyancourt, Nanterre / La Défense sont à environ 40 minutes à une heure selon le trafic.",
     tissuBtpLocal:
@@ -241,7 +242,7 @@ export const DEPT_LOCAL_SEO_CONTENT: Record<string, DeptLocalSeoContent> = {
       {
         href: LINKS.formationIleDeFrance,
         label: 'Formation IA Île-de-France',
-        description: '8 départements, intra et inter',
+        description: '8 départements, intra-entreprise, dans vos locaux',
       },
     ],
   },
@@ -249,7 +250,7 @@ export const DEPT_LOCAL_SEO_CONTENT: Record<string, DeptLocalSeoContent> = {
     deptCode: '93',
     departementNom: 'Seine-Saint-Denis',
     intro:
-      "Formation IA pour le BTP en présentiel en Seine-Saint-Denis (93), intra ou inter. Territoire de grands chantiers et de marchés publics : la formation met l'accent sur la réponse aux marchés et la production documentaire de chantier.",
+      "Formation IA pour le BTP en présentiel en Seine-Saint-Denis (93), intra-entreprise, dans vos locaux. Territoire de grands chantiers et de marchés publics : la formation met l'accent sur la réponse aux marchés et la production documentaire de chantier.",
     villesEtTrajets:
       "Bobigny (préfecture), Saint-Denis, Montreuil, Aubervilliers, Pantin, Saint-Ouen, Aulnay-sous-Bois. Depuis Guyancourt, comptez environ une heure selon la destination et le trafic.",
     tissuBtpLocal:
@@ -286,7 +287,7 @@ export const DEPT_LOCAL_SEO_CONTENT: Record<string, DeptLocalSeoContent> = {
       {
         href: LINKS.formationIleDeFrance,
         label: 'Formation IA Île-de-France',
-        description: '8 départements, intra et inter',
+        description: '8 départements, intra-entreprise, dans vos locaux',
       },
     ],
   },
@@ -294,7 +295,7 @@ export const DEPT_LOCAL_SEO_CONTENT: Record<string, DeptLocalSeoContent> = {
     deptCode: '94',
     departementNom: 'Val-de-Marne',
     intro:
-      "Formation IA pour le BTP en présentiel dans le Val-de-Marne (94), intra ou inter. Le sud-est francilien est traversé par les nouvelles lignes du Grand Paris Express : beaucoup d'opérations à coordonner.",
+      "Formation IA pour le BTP en présentiel dans le Val-de-Marne (94), intra-entreprise, dans vos locaux. Le sud-est francilien est traversé par les nouvelles lignes du Grand Paris Express : beaucoup d'opérations à coordonner.",
     villesEtTrajets:
       "Créteil (préfecture), Vitry-sur-Seine, Ivry-sur-Seine, Nogent-sur-Marne, Vincennes, Maisons-Alfort, Champigny-sur-Marne. Depuis Guyancourt, Créteil est à environ une heure selon le trafic.",
     tissuBtpLocal:
@@ -331,7 +332,7 @@ export const DEPT_LOCAL_SEO_CONTENT: Record<string, DeptLocalSeoContent> = {
       {
         href: LINKS.formationIleDeFrance,
         label: 'Formation IA Île-de-France',
-        description: '8 départements, intra et inter',
+        description: '8 départements, intra-entreprise, dans vos locaux',
       },
     ],
   },
@@ -339,7 +340,7 @@ export const DEPT_LOCAL_SEO_CONTENT: Record<string, DeptLocalSeoContent> = {
     deptCode: '95',
     departementNom: "Val-d'Oise",
     intro:
-      "Formation IA pour le BTP en présentiel dans le Val-d'Oise (95), intra ou inter. Entre Cergy-Pontoise et le pôle aéroportuaire de Roissy, le nord-ouest francilien a ses propres logiques de chantier et de logistique.",
+      "Formation IA pour le BTP en présentiel dans le Val-d'Oise (95), intra-entreprise, dans vos locaux. Entre Cergy-Pontoise et le pôle aéroportuaire de Roissy, le nord-ouest francilien a ses propres logiques de chantier et de logistique.",
     villesEtTrajets:
       "Cergy (préfecture), Pontoise, Argenteuil, Sarcelles, le secteur de Roissy, Goussainville. Depuis Guyancourt, Cergy-Pontoise est à environ 45 minutes à une heure selon le trafic.",
     tissuBtpLocal:
@@ -376,7 +377,7 @@ export const DEPT_LOCAL_SEO_CONTENT: Record<string, DeptLocalSeoContent> = {
       {
         href: LINKS.formationIleDeFrance,
         label: 'Formation IA Île-de-France',
-        description: '8 départements, intra et inter',
+        description: '8 départements, intra-entreprise, dans vos locaux',
       },
     ],
   },
@@ -384,7 +385,7 @@ export const DEPT_LOCAL_SEO_CONTENT: Record<string, DeptLocalSeoContent> = {
 
 export const IDF_CHAPEAU_LOCAL = {
   intro:
-    "Laure Olivié forme les équipes BTP à l'IA en présentiel dans toute l'Île-de-France — Paris (75), Seine-et-Marne (77), Yvelines (78), Essonne (91), Hauts-de-Seine (92), Seine-Saint-Denis (93), Val-de-Marne (94), Val-d'Oise (95). Intra dans vos locaux ou inter en salle — présentiel uniquement · Île-de-France uniquement.",
+    "Laure Olivié forme les équipes BTP à l'IA en présentiel dans toute l'Île-de-France — Paris (75), Seine-et-Marne (77), Yvelines (78), Essonne (91), Hauts-de-Seine (92), Seine-Saint-Denis (93), Val-de-Marne (94), Val-d'Oise (95). intra-entreprise, dans vos locaux — présentiel uniquement · Île-de-France uniquement.",
   positionnement:
     "Basée à Guyancourt (78), au centre de la région, elle intervient sur l'ensemble du territoire francilien sur vos documents réels : devis, comptes rendus, DCE, mémoires techniques, administratif chantier — toujours avec validation métier de vos équipes.",
   faq: [
@@ -402,7 +403,7 @@ export const IDF_CHAPEAU_LOCAL = {
     },
   ] satisfies FAQItem[],
   internalLinks: [
-    { href: LINKS.formations, label: 'Catalogue formations', description: 'NIV-01 à NIV-05, Qualiopi' },
+    { href: LINKS.formations, label: 'Catalogue formations', description: `${CATALOGUE_NIV_RANGE}, Qualiopi` },
     { href: '/formation-ia', label: 'Hub formations par métier', description: 'Conducteur, dirigeant, corps d\'état…' },
     { href: LINKS.financement, label: 'Financement Constructys', description: 'OPCO, dossier et convention' },
   ] as [DeptInternalLink, DeptInternalLink, DeptInternalLink],

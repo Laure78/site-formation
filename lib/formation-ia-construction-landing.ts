@@ -137,7 +137,7 @@ export const CONSTRUCTION_FAQ = [
   },
   {
     q: 'Quelle durée/format ?',
-    a: `Session catalogue de 4 heures en présentiel — intra dans vos locaux ou inter en salle en Île-de-France. ${MODALITE_FORMATIONS_STANDARD} Contenu adapté aux équipes études, direction travaux et fonctions support des entreprises de construction.`,
+    a: `Session catalogue de 4 heures en présentiel — intra-entreprise, dans vos locaux en Île-de-France. ${MODALITE_FORMATIONS_STANDARD} Contenu adapté aux équipes études, direction travaux et fonctions support des entreprises de construction.`,
   },
   {
     q: 'Cette formation convient-elle aux ETI et entreprises générales ?',

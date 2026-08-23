@@ -11,7 +11,7 @@ export const DEPARTEMENT_VAL_DE_MARNE_94: DepartementPageData = {
   path: '/formation-ia-btp-val-de-marne-94',
   slug: 'val-de-marne-94',
   accroche:
-    "Formation IA pour le BTP en présentiel dans le Val-de-Marne (94), intra ou inter. Le sud-est francilien est traversé par les nouvelles lignes du Grand Paris Express : beaucoup d'opérations à coordonner, de résidences denses et de marchés mixtes public-privé autour de Créteil, Vitry, Ivry et Vincennes.",
+    "Formation IA pour le BTP en présentiel dans le Val-de-Marne (94), intra-entreprise, dans vos locaux. Le sud-est francilien est traversé par les nouvelles lignes du Grand Paris Express : beaucoup d'opérations à coordonner, de résidences denses et de marchés mixtes public-privé autour de Créteil, Vitry, Ivry et Vincennes.",
   villes: [
     'Créteil',
     'Vincennes',

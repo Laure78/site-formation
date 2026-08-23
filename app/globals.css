@@ -218,6 +218,22 @@
   min-width: 0;
 }
 
+@media (min-width: 1024px) {
+  .accueil-hero-fold {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(240px, 320px);
+    gap: 2.5rem;
+    align-items: center;
+  }
+}
+
+@media (min-width: 1280px) {
+  .accueil-hero-fold {
+    grid-template-columns: minmax(0, 1fr) 360px;
+    gap: 3rem;
+  }
+}
+
 @media (max-width: 767px) {
   .accueil-hero-fold {
     gap: 1.5rem;

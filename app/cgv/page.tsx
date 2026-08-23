@@ -161,7 +161,7 @@ export default function CGVPage() {
           </h3>
           <p className="mt-2">
             Le délai moyen entre la demande d&apos;inscription et l&apos;entrée en formation est de
-            2 à 4 semaines en inter-entreprises et de 4 à 6 semaines en intra-entreprise,
+            4 à 6 semaines en intra-entreprise,
             ce délai intégrant l&apos;instruction du dossier de prise en charge OPCO. En cas de
             financement direct par le Client, l&apos;entrée en formation peut intervenir sous
             10 jours ouvrés selon les disponibilités de sessions. Le délai applicable est
@@ -223,11 +223,10 @@ export default function CGVPage() {
           </h2>
           <p className="mt-4">
             <strong>Présentiel en Île-de-France uniquement :</strong> lieu indiqué dans la
-            convention (inter en salle ou intra dans les locaux du Client en Île-de-France),
-            horaires dans la convocation (7 jours avant), matériel fourni.{" "}
+            convention (intra-entreprise, dans vos locaux du Client en Île-de-France),
+            horaires dans la convocation (7 jours avant), matériel fourni.{' '}
             <strong>Présentiel uniquement · Île-de-France uniquement</strong> pour les
-            sessions catalogue OFC. <strong>Intra-entreprise :</strong> locaux du Client en
-            Île-de-France, programme adapté.
+            sessions catalogue OFC.
           </p>
         </section>
 
@@ -267,17 +266,7 @@ export default function CGVPage() {
             intégral ou report.
           </p>
           <h3 className="mt-6 font-semibold text-[var(--accent)]">
-            9.2 Par le Client — Inter-entreprises
-          </h3>
-          <ul className="mt-2 list-disc space-y-1 pl-6">
-            <li>Plus de 30 jours : remboursement intégral ou report</li>
-            <li>30 à 15 jours : retenue 30%</li>
-            <li>14 à 7 jours : retenue 50%</li>
-            <li>Moins de 7 jours : retenue 100%</li>
-            <li>Non-présentation : facturation intégrale</li>
-          </ul>
-          <h3 className="mt-6 font-semibold text-[var(--accent)]">
-            9.3 Par le Client — Intra-entreprise
+            9.2 Par le Client — Intra-entreprise
           </h3>
           <ul className="mt-2 list-disc space-y-1 pl-6">
             <li>Plus de 21 jours : annulation sans frais</li>

@@ -8,8 +8,8 @@ export const EXTERNAL_SITE_URLS = {
   bework: 'https://www.bework.fr/',
   /** Plateforme BeWork — connexion espace entreprise (sous-domaine Laure Olivié). */
   beworkApp: 'https://app.laureolivie.fr/',
-  /** Espace apprenant OFC — supports post-session (Teachizy). */
-  teachizyFormation: 'https://app.teachizy.fr/',
+  /** Espace apprenant OFC — plateforme Teachizy (formation IA ChatGPT BTP). */
+  teachizyFormation: 'https://formation-ia-chatgpt.teachizy.fr/',
   /** OPCO Constructys — conditions et actualités financement formation BTP. */
   constructys: 'https://www.constructys.fr/',
   /** Plateforme de dépôt des dossiers de financement Constructys. */
@@ -28,5 +28,5 @@ export const BEWORK_APP_PATHS = {
 /** Chemins utiles sur la plateforme Teachizy (stagiaires OFC). */
 export const TEACHIZY_PATHS = {
   home: EXTERNAL_SITE_URLS.teachizyFormation,
-  login: `${EXTERNAL_SITE_URLS.teachizyFormation}connexion`,
+  login: EXTERNAL_SITE_URLS.teachizyFormation,
 } as const;

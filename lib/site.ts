@@ -4,7 +4,7 @@
  * pas CONTACT, SCHEMA_CONTACT, LINKS ni SITE_CONFIG directement.
  */
 import { CONTACT } from '@/lib/constants';
-import { FORMATIONS_COUNT } from '@/data/formations';
+import { CATALOGUE_NIV_RANGE, FORMATIONS_COUNT } from '@/data/formations';
 import { TEACHIZY_PATHS } from '@/lib/external-site-urls';
 import { HEADER_NAV } from '@/lib/header-nav';
 import { LINKS } from '@/lib/internal-links';
@@ -64,7 +64,7 @@ export const SITE = {
   },
   catalogue: {
     count: FORMATIONS_COUNT,
-    range: 'NIV-01 à NIV-05',
+    range: CATALOGUE_NIV_RANGE,
   },
   perimeter: PERIMETRE_FORMATIONS_COURT,
   nav: {

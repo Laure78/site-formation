@@ -39,7 +39,7 @@ function FormationIaVilleCalendlySection() {
         </h2>
         <p className="mx-auto mt-3 max-w-2xl text-center text-slate-600 md:text-lg">
           Choisissez un créneau de 30 minutes pour cadrer votre besoin (formation IA pour les pros du BTP, financement
-          Constructys, format intra ou inter).
+          Constructys, format intra-entreprise, dans vos locaux).
         </p>
         <div className="mt-8 flex justify-center">
           <CtaButton origin="hub-ville-calendly" />

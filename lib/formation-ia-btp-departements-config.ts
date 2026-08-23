@@ -2,6 +2,7 @@
  * Pages locales « formation IA pour le BTP » par département d’Île-de-France (+77).
  * Contenus longs (SEO) — maillage : LINKS dans le composant.
  */
+import { CATALOGUE_NIV_RANGE } from '@/data/formations';
 import type { FormationIaBtpDeptLandingConfig } from '@/components/formation-ia-btp/FormationIaBtpDepartementLanding';
 import type { FAQItem } from '@/lib/faq';
 import { LINKS } from '@/lib/internal-links';
@@ -40,12 +41,12 @@ function faqGeoBase(grammar: DeptGrammar, code: string, villes: string): FAQItem
       a: `Oui. Intra dans vos locaux ou sur site ${locatif}, selon calendrier. Siège à Guyancourt (78) — déplacements vers ${villes} courants. Zones éloignées : journée bloquée ou demi-journées.`,
     },
     {
-      q: 'Quelle est la différence entre session inter et intra pour mon équipe ?',
-      a: `Inter : groupe à date fixée en IDF. Intra : réservé à votre entreprise, 4 h sur vos devis, CCTP et courriers — souvent préféré des PME du ${code}.`,
+      q: 'Comment se déroule une session intra-entreprise pour mon équipe ?',
+      a: `Session réservée à votre entreprise, 4 h intra-entreprise dans vos locaux, sur vos devis, CCTP et courriers — format privilégié des PME du ${code}.`,
     },
     {
       q: 'Les formations ont-elles lieu en présentiel dans le département ?',
-      a: "Présentiel uniquement · Île-de-France uniquement — intra dans vos locaux ou inter en salle. Exercices sur vos documents réels (devis, CCTP, courriers).",
+      a: "Présentiel uniquement · Île-de-France uniquement — intra-entreprise, dans vos locaux. Exercices sur vos documents réels (devis, CCTP, courriers).",
     },
     {
       q: 'Y a-t-il des frais de déplacement facturés pour une session dans mon département ?',
@@ -136,7 +137,7 @@ export const FORMATION_IA_BTP_YVELINES_78: FormationIaBtpDeptLandingConfig = {
   ],
   solutionTitle: 'Formation IA BTP 4 h, Qualiopi, centrée sur vos documents',
   solutionBody: [
-    `Format standard 4 h, présentiel intra ou inter IDF. Alternance démo, exercice guidé, pratique sur vos devis, courriers et CR. Siège Guyancourt : logistique simple pour Versailles, Poissy, Mantes.`,
+    `Format standard 4 h, présentiel intra-entreprise, dans vos locaux IDF. Alternance démo, exercice guidé, pratique sur vos devis, courriers et CR. Siège Guyancourt : logistique simple pour Versailles, Poissy, Mantes.`,
     `Financement Constructys possible selon éligibilité — plafonds nationaux, pièces pédagogiques cohérentes Qualiopi fournies pour le dossier OPCO.`,
     `Montée progressive : courriers et relances d'abord, puis DCE et mémoires quand l'équipe maîtrise la relecture humaine.`,
     `Directions multi-chantiers : volet standardisation des consignes — mêmes prompts CR, mêmes grilles de relecture.`,
@@ -231,7 +232,7 @@ function buildDeptConfig(opts: {
     solutionTitle: `Formation IA BTP ${deptCode} : 4 h, résultats opérationnels`,
     solutionBody: [
       `${OFC} pour ${avecArticle} (${deptCode}) : 4 h, vos documents réels, zéro jargon startup. Devis, mails, synthèses, brouillons mémoires — itérations guidées.`,
-      `Siège Guyancourt (78) : déplacements IDF réalistes ${opts.temoignageZone}. Présentiel intra ou inter uniquement.`,
+      `Siège Guyancourt (78) : déplacements IDF réalistes ${opts.temoignageZone}. Présentiel intra-entreprise, dans vos locaux uniquement.`,
       `Catalogue NIV-01 (bases), NIV-02 (appels d'offres), NIV-03 (conduite de travaux), NIV-04 (Maîtriser Claude AI) et NIV-05 (maîtres d'œuvre). Programmes PDF sur chaque fiche.`,
       `Repartez avec modèles réutilisables et feuille de route 15 jours — quoi tester, quoi mesurer, comment partager en équipe.`,
     ],
@@ -277,7 +278,7 @@ function faqSeineEtMarne77(): FAQItem[] {
     if (index === 6) {
       return {
         ...item,
-        a: 'Chaque référence catalogue (NIV-01 à NIV-05) = 4 h. Deux demi-journées sur deux thèmes possibles la même semaine — selon disponibilités.',
+        a: `Chaque référence catalogue (${CATALOGUE_NIV_RANGE}) = 4 h. Deux demi-journées sur deux thèmes possibles la même semaine — selon disponibilités.`,
       };
     }
     return item;
@@ -340,7 +341,7 @@ export const FORMATION_IA_BTP_SEINE_ET_MARNE_77: FormationIaBtpDeptLandingConfig
   solutionTitle: 'Formation IA BTP 77 : 4 h, résultats opérationnels',
   solutionBody: [
     `${OFC} pour la Seine-et-Marne : 4 h, vos documents réels, zéro jargon startup. Devis, mails, synthèses, brouillons de mémoires — itérations guidées.`,
-    `Siège Guyancourt (78) : déplacements réalistes vers l'ouest du 77 (Marne-la-Vallée, Sénart, Melun) ; pour l'est (Provins, Coulommiers, Fontainebleau), journée bloquée ou demi-journées. Présentiel intra ou inter uniquement.`,
+    `Siège Guyancourt (78) : déplacements réalistes vers l'ouest du 77 (Marne-la-Vallée, Sénart, Melun) ; pour l'est (Provins, Coulommiers, Fontainebleau), journée bloquée ou demi-journées. Présentiel intra-entreprise, dans vos locaux uniquement.`,
     `Catalogue NIV-01 (bases), NIV-02 (appels d'offres), NIV-03 (conduite de travaux). Programmes PDF sur chaque fiche.`,
     `Repartez avec modèles réutilisables et feuille de route 15 jours — quoi tester, quoi mesurer, comment partager en équipe.`,
   ],

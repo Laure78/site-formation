@@ -250,7 +250,7 @@ export default function FormationMaitriserClaudeAiBtpPage() {
               <Calendar className="mt-0.5 h-5 w-5 shrink-0 text-[var(--accent)]" strokeWidth={1.5} />
               <span>
                 <strong>Format :</strong> session unique <strong>{DUREE_LIBELLE}</strong> — matin
-                uniquement. Intra ou inter, exclusivement en présentiel en Île-de-France. Forfait{' '}
+                uniquement. intra-entreprise, dans vos locaux, exclusivement en présentiel en Île-de-France. Forfait{' '}
                 <strong>{PRIX_LIBELLE} par session</strong> — {EFFECTIF_LIBELLE}.
               </span>
             </li>

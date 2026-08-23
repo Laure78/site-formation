@@ -132,7 +132,7 @@ const FAQ_ITEMS = [
   {
     question: 'Quelle durée et quel format ?',
     answer:
-      'Session catalogue de 4 h, en présentiel uniquement, en Île-de-France uniquement : intra dans vos locaux ou inter en salle. On s’appuie sur vos PPSPS, CR, DC4 et suivis de marché réels.',
+      'Session catalogue de 4 h, en présentiel uniquement, en Île-de-France uniquement : intra-entreprise, dans vos locaux. On s’appuie sur vos PPSPS, CR, DC4 et suivis de marché réels.',
   },
   {
     question: 'Quelle différence avec la formation assistante administrative ou de gestion ?',

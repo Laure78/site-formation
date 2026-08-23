@@ -143,8 +143,9 @@ export function Footer() {
             </div>
             <address className="not-italic mt-3 space-y-1 text-[11px] leading-snug text-slate-500">
               <span className="block font-medium text-slate-600">
-                {SITE.legalName} · SIRET {SITE.siret} · NDA {SITE.nda}
+                {SITE.legalName} · SIRET {SITE.siret}
               </span>
+              <span className="block font-medium text-slate-600">NDA {SITE.nda}</span>
               <span className="block">
                 {SITE.address.street}, {SITE.address.postalCode} {SITE.address.locality}
               </span>

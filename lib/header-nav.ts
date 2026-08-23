@@ -49,14 +49,12 @@ function formationsNavActive(pathname: string): boolean {
   return catalogueFormationNavContainsPath(pathname);
 }
 
-function blogNavActive(pathname: string): boolean {
-  return pathname === LINKS.blog || pathname.startsWith(`${LINKS.blog}/`);
-}
-
 function ressourcesNavActive(pathname: string): boolean {
   return (
     pathname === LINKS.ressources ||
     pathname.startsWith(`${LINKS.ressources}/`) ||
+    pathname === LINKS.blog ||
+    pathname.startsWith(`${LINKS.blog}/`) ||
     pathname === LINKS.claudeAiBtp ||
     pathname === LINKS.outilsIaBtp ||
     pathname.startsWith(`${LINKS.outilsIaBtp}/`) ||
@@ -147,8 +145,8 @@ export const HEADER_NAV: readonly HeaderNavItem[] = [
     href: LINKS.ressources,
     isActive: ressourcesNavActive,
     children: [
+      { href: LINKS.blog, label: 'Blog' },
       { href: `${LINKS.ressources}#guides-pdf`, label: 'Guides' },
-      { href: LINKS.blog, label: 'Articles' },
       { href: LINKS.outilsIaBtp, label: 'Outils' },
       { href: LINKS.ressourcesIaBtp, label: 'Ressources BTP' },
       { href: LINKS.bibliothequeSkills, label: 'Téléchargements' },
@@ -157,12 +155,6 @@ export const HEADER_NAV: readonly HeaderNavItem[] = [
       { href: LINKS.diagnostic, label: 'Diagnostic IA BTP' },
     ],
     footer: { href: LINKS.ressources, label: 'Toutes les ressources' },
-  },
-  {
-    id: 'blog',
-    label: 'Blog',
-    href: LINKS.blog,
-    isActive: blogNavActive,
   },
   {
     id: 'partenaires',

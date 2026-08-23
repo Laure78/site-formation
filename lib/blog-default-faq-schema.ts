@@ -10,7 +10,7 @@ const DEFAULT_BLOG_FAQ_ITEMS = [
   },
   {
     q: 'Quelle formation IA pour un conducteur de travaux ?',
-    a: "Le conducteur de travaux peut utiliser l'IA pour rédiger des comptes rendus de chantier, analyser les DCE et CCTP, automatiser ses emails et relances, et préparer des mémoires techniques. La formation IA pour le BTP de Laure Olivié (4h, intra ou inter) couvre ces cas d'usage avec des prompts ChatGPT adaptés au vocabulaire chantier.",
+    a: "Le conducteur de travaux peut utiliser l'IA pour rédiger des comptes rendus de chantier, analyser les DCE et CCTP, automatiser ses emails et relances, et préparer des mémoires techniques. La formation IA pour le BTP de Laure Olivié (4h, intra-entreprise, dans vos locaux) couvre ces cas d'usage avec des prompts ChatGPT adaptés au vocabulaire chantier.",
   },
   {
     q: "ChatGPT peut-il aider à rédiger un mémoire technique pour un appel d'offres BTP ?",
@@ -18,7 +18,7 @@ const DEFAULT_BLOG_FAQ_ITEMS = [
   },
   {
     q: 'Combien de temps dure la formation IA pour les pros du BTP ?',
-    a: "Les formations IA appliquées au bâtiment de Laure Olivié durent 4 heures en format inter-entreprises ou intra-entreprise. Des modules combinés (2×4h) sont disponibles pour approfondir les appels d'offres ou le chiffrage. Les formations sont réalisables en présentiel sur votre site ou dans les locaux des partenaires (FFB, CSFE).",
+    a: "Les formations IA appliquées au bâtiment de Laure Olivié durent 4 heures en format intra-entreprise, dans vos locaux. Des modules combinés (2×4h) sont disponibles pour approfondir les appels d'offres ou le chiffrage. Les formations se déroulent en présentiel dans vos locaux ou sur site (FFB, CSFE en intra-entreprise).",
   },
   {
     q: "L'IA va-t-elle remplacer les métiers du bâtiment ?",
@@ -30,7 +30,7 @@ const DEFAULT_BLOG_FAQ_ITEMS = [
   },
   {
     q: "Laure Olivié intervient-elle en présentiel en Île-de-France ?",
-    a: `Oui pour les sessions OFC : présentiel uniquement · Île-de-France uniquement (${IDF_ZONE_INTERVENTION}), en inter ou intra. L'échange préalable de cadrage (30 min) peut se faire en visio.`,
+    a: `Oui pour les sessions OFC : présentiel uniquement · Île-de-France uniquement (${IDF_ZONE_INTERVENTION}), en intra-entreprise, dans vos locaux. L'échange préalable de cadrage (30 min) peut se faire en visio.`,
   },
 ] as const;
 

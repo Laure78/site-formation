@@ -3,7 +3,7 @@
  * Chaque page d’un cluster reçoit 3–5 liens via `getClusterRelatedLinks(path)`.
  */
 import { LINKS } from '@/lib/internal-links';
-import { FORMATIONS } from '@/data/formations';
+import { CATALOGUE_NIV_RANGE, FORMATIONS } from '@/data/formations';
 import { IDF_ZONE_INTERVENTION } from '@/lib/constants';
 
 export type RelatedLinkItem = {
@@ -514,7 +514,7 @@ const CATALOGUE_CLUSTER: CatalogueCluster[] = [
   },
   {
     path: LINKS.formationMaitriserClaudeAiBtp,
-    catalogueAnchor: 'Catalogue formations — NIV-01 à NIV-05',
+    catalogueAnchor: `Catalogue formations — ${CATALOGUE_NIV_RANGE}`,
     metier: {
       href: LINKS.formationConducteurTravaux,
       label: 'Usages Claude pour conducteurs de travaux',
