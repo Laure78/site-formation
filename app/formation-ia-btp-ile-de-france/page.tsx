@@ -129,8 +129,8 @@ export default function FormationIaBtpIleDeFrancePage() {
               certifié Qualiopi — {FINANCEMENT_FORMULATION_PRUDENTE}
             </p>
             <p className="mt-6 text-base leading-relaxed text-slate-600">
-              <Link href={LINKS.videoFormationsIaBtp} className={OFC_LINK}>
-                Voir la présentation vidéo des formations IA BTP
+              <Link href={LINKS.formations} className={OFC_LINK}>
+                Voir le catalogue des formations IA BTP
               </Link>
             </p>
           </div>

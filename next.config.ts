@@ -88,6 +88,16 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
+        source: '/video/formations-ia-btp',
+        destination: '/formations',
+        permanent: true,
+      },
+      {
+        source: '/video/formations-ia-btp/:path*',
+        destination: '/formations',
+        permanent: true,
+      },
+      {
         source: '/prendre-rdv',
         destination: '/prendre-rendez-vous',
         permanent: true,

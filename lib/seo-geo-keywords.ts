@@ -140,15 +140,6 @@ export function buildPhotoTitleFromAlt(alt: string, _context?: string): string {
   return title.length <= 160 ? title : `${title.slice(0, 157).replace(/\s+\S*$/, '')}…`;
 }
 
-export function buildPromoVideoIframeTitle(): string {
-  return 'Présentation vidéo des formations IA BTP — Laure Olivié';
-}
-
-/** Titre visible des sections vidéo (H1/H2) — formulation naturelle, sans empilement SEO. */
-export function buildPromoVideoSectionHeading(): string {
-  return 'La formation IA BTP en 2 minutes';
-}
-
 /** Meta descriptions départements IDF — une par code, 150–160 car., finales (sans clamp). */
 export const FORMATION_IA_BTP_DEPT_META_BY_CODE: Record<string, string> = {
   '75': `Formation IA pour le BTP à Paris : devis, DCE et comptes rendus sur vos documents. Présentiel intra, Qualiopi. Visio découverte.`,

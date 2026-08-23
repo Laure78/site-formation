@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import { OfcPromoVideoEmbed } from '@/components/media/OfcPromoVideoEmbed';
 import { JsonLd } from '@/components/JsonLd';
 import { RdvLink } from '@/components/RdvLink';
 import { FAQSection } from '@/components/landing/FAQSection';
@@ -144,7 +143,7 @@ export default function FormationIaBtpPillarPage() {
       <JsonLd id="schema-formation-ia-btp-faq" schema={faqJsonLd} />
 
       <header className="border-b border-slate-200 bg-gradient-to-br from-slate-50 to-white px-4 py-14 md:py-20">
-        <div className="mx-auto grid max-w-6xl items-start gap-10 md:grid-cols-[1fr_minmax(0,420px)]">
+        <div className="mx-auto max-w-4xl">
           <div className="text-center md:text-left">
             <p className="text-sm font-medium uppercase tracking-wide text-[var(--accent)]">
               OFC Création d&apos;Entreprise · organisme certifié Qualiopi · Constructys
@@ -211,9 +210,6 @@ export default function FormationIaBtpPillarPage() {
                 Voir le catalogue des formations
               </Link>
             </div>
-          </div>
-          <div className="mx-auto w-full max-w-md shrink-0 md:max-w-none">
-            <OfcPromoVideoEmbed variant="heroColumn" />
           </div>
         </div>
       </header>

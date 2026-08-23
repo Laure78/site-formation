@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import { Calendar, Check, MapPin } from 'lucide-react';
-import { OfcPromoVideoEmbed } from '@/components/media/OfcPromoVideoEmbed';
 import { JsonLd } from '@/components/JsonLd';
 import { CTABlock } from '@/components/CTABlock';
 import { RdvLink } from '@/components/RdvLink';
@@ -96,8 +95,7 @@ export function GeoFormationPage(props: GeoFormationPageProps) {
 
       <section className={OFC_SEC.white}>
         <div className="mx-auto max-w-6xl px-4">
-          <div className="grid items-start gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(280px,400px)] lg:gap-12">
-            <div className="min-w-0">
+          <div className="min-w-0 max-w-3xl">
               <p className="text-sm font-semibold uppercase tracking-wide text-[#377CF3]">
                 {deptLabel} · Présentiel · organisme certifié Qualiopi · Constructys
               </p>
@@ -107,13 +105,6 @@ export function GeoFormationPage(props: GeoFormationPageProps) {
               <p className="mt-6 text-lg leading-relaxed text-slate-600 md:text-xl">
                 {heroIntro ?? defaultIntro}
               </p>
-            </div>
-            <aside className="mx-auto w-full max-w-[320px] shrink-0 lg:mx-0 lg:max-w-none">
-              <OfcPromoVideoEmbed
-                variant="heroColumn"
-                alt={`Formation IA BTP à ${departement} — présentiel intra, session 4 h`}
-              />
-            </aside>
           </div>
         </div>
 

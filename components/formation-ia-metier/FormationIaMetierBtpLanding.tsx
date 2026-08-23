@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import { OfcPromoVideoEmbed } from '@/components/media/OfcPromoVideoEmbed';
 import { ArrowRight, Check } from 'lucide-react';
 import { Citation } from '@/components/readability/Citation';
 import { CalendlyEmbed } from '@/components/CalendlyEmbed';
@@ -124,13 +123,9 @@ export function FormationIaMetierBtpLanding({ config }: { config: FormationIaMet
             {config.h1}
           </h1>
           <PreuveSociale className="mt-6" />
-          <div className="mt-8">
-            <OfcPromoVideoEmbed variant="heroColumn" />
-          </div>
           <p className="mt-6 text-lg leading-relaxed text-slate-600">
             {OFC} — formation IA &amp; ChatGPT pour {config.metierNom} du BTP : devis, chantier, mémoires techniques.
-            Sessions en présentiel en Île-de-France (4 h), dispensées par un organisme certifié Qualiopi. Financement possible selon éligibilité.
-            Plus de{' '}
+            Sessions en présentiel en Île-de-France (4 h), dispensées par un organisme certifié Qualiopi. Financement possible selon éligibilité.{' '}
             <strong className="text-slate-800">{formatNoteSatisfactionAffichageComplet()}</strong>.
           </p>
 

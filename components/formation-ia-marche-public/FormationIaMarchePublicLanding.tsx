@@ -10,7 +10,6 @@ import { RelatedLinks } from '@/components/RelatedLinks';
 import { LiensConnexes } from '@/components/LiensConnexes';
 import { getLiensConnexesHrefs } from '@/lib/liens-connexes';
 import { MetierIdfPresentielLine } from '@/components/formation-ia-metier/MetierIdfPresentielLine';
-import { OfcPromoVideoEmbed } from '@/components/media/OfcPromoVideoEmbed';
 import { LINKS } from '@/lib/internal-links';
 import { SITE_CONFIG } from '@/lib/seo';
 import { SOCIAL_PROOF } from '@/lib/constants';
@@ -130,22 +129,18 @@ export function FormationIaMarchePublicLanding({
           <h1 className="font-display mt-4 text-3xl font-bold leading-tight tracking-tight text-slate-900 md:text-4xl lg:text-[2.35rem]">
             {config.h1}
           </h1>
-          <div className="mt-8">
-            <OfcPromoVideoEmbed variant="heroColumn" />
-          </div>
           <p className="mt-6 text-lg leading-relaxed text-slate-600">
             {config.introParagraph ?? (
               <>
                 {OFC} — formation IA pour répondre et gérer un marché public de travaux : DCE, Go-NoGo, mémoire
                 technique. Sessions en présentiel en Île-de-France (4&nbsp;h), dispensées par un organisme certifié Qualiopi. Financement
-                Constructys possible selon éligibilité. Plus de{' '}
+                Constructys possible selon éligibilité.{' '}
                 <strong className="text-slate-800">{formatNoteSatisfactionAffichageComplet()}</strong>.
               </>
             )}
             {config.introParagraph ? (
               <>
                 {' '}
-                Plus de{' '}
                 <strong className="text-slate-800">{formatNoteSatisfactionAffichageComplet()}</strong>.
               </>
             ) : null}

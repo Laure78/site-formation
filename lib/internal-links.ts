@@ -211,8 +211,6 @@ export const LINKS = {
   formationPlateforme: '/formations/plateforme',
   /** Connexion espace apprenant LMS (indexable SEO/GEO) */
   authConnexion: '/auth/connexion',
-  /** Page watch — vidéo promo formations IA BTP (indexation Google Video) */
-  videoFormationsIaBtp: '/video/formations-ia-btp',
   diagnostic: '/diagnostic-ia-btp',
   outilsIaBtp: '/outils-ia-btp',
   /** Sélecteur interactif — cas d'usage IA par métier BTP */

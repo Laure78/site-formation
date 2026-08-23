@@ -8,7 +8,6 @@ import {
 } from '@/components/formations/CataloguePriceBadge';
 import { FormationProgrammePdfDownloadBanner } from '@/components/formations/FormationProgrammePdfDownloadBanner';
 import { FormationProgrammePdfViewer } from '@/components/formations/FormationProgrammePdfViewer';
-import { OfcPromoVideoEmbed } from '@/components/media/OfcPromoVideoEmbed';
 import { getFormationCatalogueByRef } from '@/lib/formations-catalogue-display';
 
 /**
@@ -28,7 +27,6 @@ export function FormationCourseHero({
   summaryIcon: SummaryIcon = Building2,
   summaryItems,
   catalogueRef,
-  heroVisual = 'promo-video',
 }: {
   refLine: string;
   title: React.ReactNode;
@@ -37,10 +35,8 @@ export function FormationCourseHero({
   badges?: string[];
   ctas: React.ReactNode;
   footerLinks?: React.ReactNode;
-  /** Colonne droite — si omis, vidéo promo par défaut (`heroVisual="catalogue"` pour l’affiche catalogue). */
+  /** Colonne droite — si omis, affiche l’affiche catalogue lorsque `catalogueRef` est renseigné. */
   image?: React.ReactNode;
-  /** Visuel hero par défaut : vidéo promo ; `catalogue` = affiche NIV si `catalogueRef` est renseigné. */
-  heroVisual?: 'promo-video' | 'catalogue';
   summaryTitle?: string;
   summaryIcon?: LucideIcon;
   summaryItems: string[];
@@ -50,7 +46,7 @@ export function FormationCourseHero({
   const catalogueEntry = catalogueRef ? getFormationCatalogueByRef(catalogueRef) : undefined;
   const resolvedImage =
     image ??
-    (heroVisual === 'catalogue' && catalogueEntry ? (
+    (catalogueEntry ? (
       <FormationHeroPhoto
         src={catalogueEntry.visuel.src}
         alt={catalogueEntry.visuel.alt}
@@ -63,14 +59,12 @@ export function FormationCourseHero({
         }
         priority
       />
-    ) : (
-      <OfcPromoVideoEmbed variant="heroColumn" />
-    ));
+    ) : null);
   return (
     <>
     <section className="border-b border-slate-200 bg-white px-4 py-16 md:py-20">
       <div className="mx-auto max-w-6xl">
-        <div className="flex flex-col gap-12 lg:flex-row lg:items-start lg:justify-between">
+        <div className={`flex flex-col gap-12 ${resolvedImage ? 'lg:flex-row lg:items-start lg:justify-between' : ''}`}>
           <div className="min-w-0 flex-1 lg:max-w-[min(100%,42rem)]">
             <Link
               href="/formations"
@@ -123,6 +117,7 @@ export function FormationCourseHero({
               </p>
             ) : null}
           </div>
+          {resolvedImage ? (
           <div className="w-full shrink-0 lg:w-[400px]">
             {resolvedImage}
             <div className="mt-4 rounded-2xl border border-slate-200 bg-slate-50 p-6 shadow-sm">
@@ -140,6 +135,7 @@ export function FormationCourseHero({
               </ul>
             </div>
           </div>
+          ) : null}
         </div>
       </div>
     </section>

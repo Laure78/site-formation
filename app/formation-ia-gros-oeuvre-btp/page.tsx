@@ -12,7 +12,6 @@ import { MetierIdfPresentielLine } from '@/components/formation-ia-metier/Metier
 import { PreuveSociale } from '@/components/PreuveSociale';
 import { LaureOlivieFormationPortrait } from '@/components/laure-olivie/LaureOlivieFormationPortrait';
 import { LiensConnexes } from '@/components/LiensConnexes';
-import { OfcPromoVideoEmbed } from '@/components/media/OfcPromoVideoEmbed';
 import { createPageMetadata } from '@/lib/seo';
 import { CtaButton } from '@/components/CtaButton';
 import { TARIF_FORFAIT_DEBUTANT_HT } from '@/lib/tarifs-sessions';
@@ -102,10 +101,6 @@ export default function FormationIaGrosOeuvreBtpPage() {
           </h1>
 
           <PreuveSociale className="mt-6" />
-
-          <div className="mt-8">
-            <OfcPromoVideoEmbed variant="heroColumn" />
-          </div>
 
           <p className="mt-6 text-lg leading-relaxed text-slate-600">
             {OFC} — formation IA &amp; ChatGPT pour les entreprises de gros œuvre du BTP : devis, DCE, suivi de

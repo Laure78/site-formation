@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import { Sparkles, FileText } from 'lucide-react';
-import { AccueilHeroVideoSection } from '@/components/landing/AccueilHeroVideoSection';
 import { CitationSentence } from '@/components/seo/CitationSentence';
 import { Partenaires } from '@/components/Partenaires';
 import { MentionFinancement } from '@/components/MentionFinancement';
@@ -32,13 +31,9 @@ export function AccueilHeroSection() {
   return (
     <section className={`${OFC_SEC.hero} relative overflow-hidden`}>
       <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%23377cf3\' fill-opacity=\'0.045\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-90" />
-      <div
-        className="accueil-hero-glow pointer-events-none absolute -right-24 top-1/2 h-[min(480px,70vh)] w-[min(560px,55vw)] -translate-y-1/2 rounded-full bg-[#377CF3]/[0.06] blur-3xl md:right-0"
-        aria-hidden
-      />
       <AccueilHeroAnimatedMesh />
       <div className="relative mx-auto max-w-7xl">
-        <div className="accueil-hero-fold grid items-start gap-8 lg:grid-cols-2 lg:gap-10 xl:gap-12">
+        <div className="accueil-hero-fold max-w-3xl">
           <div className="accueil-hero-content min-w-0">
             <div className="inline-flex flex-wrap items-center gap-x-2 gap-y-1 rounded-full border border-ofc-accent/20 bg-white/95 px-3 py-1.5 text-xs font-medium text-ofc-accent shadow-ofc-sm backdrop-blur-sm ring-1 ring-white/80 sm:px-4 sm:py-2 sm:text-sm">
               <Sparkles size={14} strokeWidth={1.5} className="shrink-0 text-ofc-accent sm:h-4 sm:w-4" aria-hidden />
@@ -60,14 +55,6 @@ export function AccueilHeroSection() {
               <ProofStats className="rounded-ofc-card border border-ofc-border-strong/80 shadow-ofc-sm" />
             </div>
           </div>
-
-          <aside className="accueil-hero-aside flex w-full min-w-0 flex-col lg:sticky lg:top-24">
-            <div className="w-full rounded-ofc-card bg-gradient-to-b from-white to-ofc-surface/80 p-1 shadow-ofc-lg ring-1 ring-ofc-border">
-              <div className="rounded-[0.85rem] bg-white p-3 sm:p-4">
-                <AccueilHeroVideoSection />
-              </div>
-            </div>
-          </aside>
         </div>
 
         <div className="accueil-hero-details mt-10 space-y-6 md:mt-12 md:space-y-7">

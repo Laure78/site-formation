@@ -258,11 +258,6 @@ const ROUTE_SOURCE_FILES: Record<string, readonly string[]> = {
   '/bework': ['app/bework/page.tsx', 'lib/bework-photos.ts'],
   '/bework/plateforme': ['app/bework/plateforme/page.tsx', 'lib/external-site-urls.ts'],
   '/formations/plateforme': ['app/formations/plateforme/page.tsx', 'lib/external-site-urls.ts'],
-  '/video/formations-ia-btp': [
-    'app/video/formations-ia-btp/page.tsx',
-    'lib/ofc-promo-video.ts',
-    'lib/schema-promo-video.ts',
-  ],
 };
 
 /**
