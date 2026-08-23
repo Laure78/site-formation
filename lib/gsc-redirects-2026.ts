@@ -1,8 +1,13 @@
 /**
  * Redirections 301 — consolidation GSC (avril 2026).
  * @see prompt « 28 URLs à nettoyer »
+ *
+ * Pas d'import `@/lib/internal-links` ici : ce fichier est chargé par `next.config.ts`
+ * avant résolution des alias TypeScript.
  */
-import { LINKS } from '@/lib/internal-links';
+
+/** Canonique conducteur de travaux — aligné sur `LINKS.formationConducteurTravaux`. */
+const FORMATION_CONDUCTEUR_TRAVAUX = '/formation-ia-conducteur-de-travaux' as const;
 
 /** Slugs hub /formation-ia/[slug] fusionnés vers une landing métier ou catalogue (exclus du legacy hyphen→slash). */
 export const GSC_HUB_MERGED_SLUGS = new Set([
@@ -88,12 +93,12 @@ export function gscRedirects2026April(): RedirectEntry[] {
     },
     {
       source: '/formation-ia-conducteur-travaux-btp',
-      destination: LINKS.formationConducteurTravaux,
+      destination: FORMATION_CONDUCTEUR_TRAVAUX,
       permanent: true,
     },
     {
       source: '/formation-ia-conducteur-travaux',
-      destination: LINKS.formationConducteurTravaux,
+      destination: FORMATION_CONDUCTEUR_TRAVAUX,
       permanent: true,
     },
     {
