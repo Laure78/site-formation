@@ -6,13 +6,11 @@ import { JsonLd } from '@/components/JsonLd';
 import { createPageMetadata, getFAQSchema } from '@/lib/seo';
 import { CONTACT } from '@/lib/constants';
 import { LINKS } from '@/lib/internal-links';
-import { MediationCm2cBlock } from '@/components/qualiopi/MediationCm2cBlock';
 import { OFC_IDENTITE } from '@/lib/ofc-identite';
-import { QUALIOPI_MEDIATION_CM2C } from '@/lib/qualiopi-info';
 
 export const revalidate = 3600;
 
-const PAGE_TITLE = 'Réclamations et médiation | Laure Olivié';
+const PAGE_TITLE = 'Réclamations | Laure Olivié';
 const PAGE_DESCRIPTION =
   "Vous souhaitez déposer une réclamation auprès d'OFC Création d'Entreprise, organisme de formation ? Canaux, délai de réponse (48 h et 15 jours ouvrés), traitement et voies de recours.";
 
@@ -85,7 +83,7 @@ const FAQ_DELAIS =
   'Accusé de réception : 48 heures ouvrées, courriel de prise en charge avec numéro de fiche. Réponse de fond : 15 jours ouvrés, courriel ou lettre recommandée selon la gravité. Délai maximum : 2 mois, information écrite de l\'avancement en cas de circonstances particulières. Clôture : accord de l\'auteur, ou 15 jours après la réponse, fiche de suivi datée.';
 
 const FAQ_RECOURS =
-  `Médiation de la consommation, pour les personnes ayant contracté à titre personnel, après démarche écrite préalable restée sans solution (articles L. 612-1 et suivants du code de la consommation). Médiateur : ${QUALIOPI_MEDIATION_CM2C.nom}, ${QUALIOPI_MEDIATION_CM2C.adresse}, ${QUALIOPI_MEDIATION_CM2C.siteUrl}, ${QUALIOPI_MEDIATION_CM2C.email}. Le financeur ou le partenaire organisateur de la session. CERTIFOPAC, organisme certificateur, pour toute réclamation portant sur le respect du Référentiel National Qualité.`;
+  'Le financeur ou le partenaire organisateur de la session. CERTIFOPAC, organisme certificateur, pour toute réclamation portant sur le respect du Référentiel National Qualité.';
 
 const FAQ_ITEMS = [
   {
@@ -249,14 +247,6 @@ export default function ReclamationsPage() {
         <section aria-labelledby="recours">
           <H2 id="recours">Si notre réponse ne vous satisfait pas</H2>
           <ul className="mt-4 list-disc space-y-4 pl-5 leading-relaxed">
-            <li>
-              Médiation de la consommation, pour les personnes ayant contracté à titre personnel, après
-              démarche écrite préalable restée sans solution (articles L. 612-1 et suivants du code de la
-              consommation).
-              <Encadre className="mt-3 border-dashed border-[#377CF3]/50 bg-white text-sm">
-                <MediationCm2cBlock />
-              </Encadre>
-            </li>
             <li>Le financeur ou le partenaire organisateur de la session.</li>
             <li>
               CERTIFOPAC, organisme certificateur, pour toute réclamation portant sur le respect du

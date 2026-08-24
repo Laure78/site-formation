@@ -47,9 +47,9 @@ const DOCUMENTS = [
     external: false,
   },
   {
-    title: 'Réclamations et médiation',
+    title: 'Réclamations',
     description:
-      'Procédure pour signaler une difficulté, une réclamation ou solliciter une médiation.',
+      'Procédure pour signaler une difficulté, un aléa ou une réclamation.',
     href: LINKS.reclamations,
     external: false,
   },

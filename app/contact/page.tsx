@@ -280,7 +280,7 @@ export default function ContactPage() {
           </p>
           <p className="mt-3">
             <Link href={LINKS.reclamations} className="font-medium text-[#377CF3] hover:underline">
-              Procédure détaillée et médiation →
+              Procédure détaillée →
             </Link>
           </p>
         </div>

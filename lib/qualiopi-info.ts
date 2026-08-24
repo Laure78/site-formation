@@ -125,18 +125,6 @@ export const QUALIOPI_RECLAMATIONS = {
   delaiAccuseReception: '48 h ouvrées',
 } as const;
 
-/** Médiateur de la consommation — adhésion OFC (indicateur 31 Qualiopi, art. L612-1). */
-export const QUALIOPI_MEDIATION_CM2C = {
-  nom: 'CM2C — Centre de la Médiation de la Consommation de Conciliateurs de justice',
-  adresse: '14 rue Saint Jean, 75017 Paris',
-  email: 'cm2c@cm2c.net',
-  siteUrl: 'https://cm2c.net/',
-  siteLabel: 'cm2c.net',
-  conditionPrealable: `La médiation ne peut être saisie qu'après une réclamation écrite préalable auprès d'OFC restée sans réponse satisfaisante sous ${QUALIOPI_RECLAMATIONS.delaiReponse}.`,
-  precisionLitiges:
-    'La médiation de la consommation concerne les clients particuliers ; pour les litiges entre professionnels, règlement amiable puis juridictions compétentes selon les CGV.',
-} as const;
-
 export type InfosQualiopiProps = {
   formationTitle: string;
   prerequis: string | readonly string[];

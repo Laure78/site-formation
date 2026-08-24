@@ -77,7 +77,7 @@ export const NAV_RESSOURCES: readonly NavItem[] = [
 export const NAV_REGLEMENTAIRE: readonly NavItem[] = [
   { href: LINKS.livretAccueilStagiaire, label: "Livret d'accueil du stagiaire" },
   { href: LINKS.reglementInterieur, label: 'Règlement intérieur' },
-  { href: LINKS.reclamations, label: 'Réclamations et médiation' },
+  { href: LINKS.reclamations, label: 'Réclamations' },
   { href: LINKS.accessibiliteHandicap, label: 'Accessibilité et handicap' },
   {
     href: LINKS.certificatQualiopi,

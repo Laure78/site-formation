@@ -1,7 +1,6 @@
 import Link from 'next/link';
 import { Mail } from 'lucide-react';
 import { createPageMetadata } from '@/lib/seo';
-import { MediationCm2cBlock } from '@/components/qualiopi/MediationCm2cBlock';
 import { MentionTVA, MentionTvaAsterisque } from '@/components/MentionTVA';
 import { OFC_IDENTITE, QUALIOPI_RECLAMATIONS } from '@/lib/qualiopi-info';
 import { LINKS } from '@/lib/internal-links';
@@ -346,7 +345,7 @@ export default function CGVPage() {
 
         <section>
           <h2 className="font-display text-xl font-bold text-slate-900">
-            ARTICLE 15 — RÉCLAMATION — MÉDIATION
+            ARTICLE 15 — RÉCLAMATION
           </h2>
           <p className="mt-4">
             Réclamations : toute réclamation relative à une prestation de formation peut être adressée par email à
@@ -355,7 +354,6 @@ export default function CGVPage() {
             et une réponse vous est apportée sous {QUALIOPI_RECLAMATIONS.delaiReponse}. Chaque réclamation est enregistrée
             et analysée dans le cadre de notre démarche d&apos;amélioration continue Qualiopi.
           </p>
-          <MediationCm2cBlock className="mt-4" />
           <p className="mt-4">
             Compétence exclusive des tribunaux du siège de l&apos;Organisme pour les litiges entre professionnels non
             résolus à l&apos;amiable.
