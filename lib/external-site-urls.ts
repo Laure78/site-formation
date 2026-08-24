@@ -16,6 +16,8 @@ export const EXTERNAL_SITE_URLS = {
   constructysEgestion: 'https://egestion.constructys.fr/',
   /** AGEFIPH — insertion professionnelle et handicap. */
   agefiph: 'https://www.agefiph.fr/',
+  /** AGEFIPH — Ressource Handicap Formation (RHF). */
+  agefiphRhf: 'https://www.agefiph.fr/services/ressource-handicap-formation',
 } as const;
 
 /** Chemins utiles sur app.laureolivie.fr */

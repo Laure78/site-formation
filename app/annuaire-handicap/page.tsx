@@ -13,6 +13,7 @@ import {
 import { createPageMetadata } from '@/lib/seo';
 import { ReferentHandicapBlock } from '@/components/formation/ReferentHandicapBlock';
 import { LINKS } from '@/lib/internal-links';
+import { EXTERNAL_SITE_URLS } from '@/lib/external-site-urls';
 
 export const revalidate = 3600;
 export const metadata = createPageMetadata({
@@ -75,8 +76,15 @@ export default function AnnuaireHandicapPage() {
       {/* Contacts utiles — version web + PDF RHF */}
       <p className="mt-12 text-center text-sm text-slate-600">
         Les contacts détaillés RHF figurent dans le PDF ci-dessus. Pour les ressources officielles :{' '}
-        <ExternalLinkAnchor href="https://www.agefiph.fr/" className="font-medium text-[var(--accent)] hover:underline">
+        <ExternalLinkAnchor href={EXTERNAL_SITE_URLS.agefiph} className="font-medium text-[var(--accent)] hover:underline">
           AGEFIPH
+        </ExternalLinkAnchor>
+        {' · '}
+        <ExternalLinkAnchor
+          href={EXTERNAL_SITE_URLS.agefiphRhf}
+          className="font-medium text-[var(--accent)] hover:underline"
+        >
+          Ressource Handicap Formation (RHF)
         </ExternalLinkAnchor>
         {' · '}
         <ExternalLinkAnchor
@@ -101,8 +109,17 @@ export default function AnnuaireHandicapPage() {
               L&apos;AGEFIPH (Association de Gestion du Fonds pour l&apos;Insertion
               Professionnelle des Personnes Handicapées) accompagne les personnes
               handicapées et les employeurs pour favoriser l&apos;emploi dans le
-              secteur privé. La Ressource Handicap Formation (RHF) propose des
-              interlocuteurs régionaux pour les questions de formation.
+              secteur privé. La <strong>Ressource Handicap Formation (RHF)</strong> est
+              un service <strong>gratuit</strong> pour adapter une formation au handicap :
+              elle accompagne les organismes de formation sur l&apos;accessibilité et
+              conseille le référent handicap pour proposer un parcours adapté.
+            </p>
+            <p className="mt-4 text-slate-600">
+              <strong>Public :</strong> personnes en situation de handicap (recherche
+              d&apos;emploi, salariés, alternants) avec un projet de formation validé.{' '}
+              <strong>Demande :</strong> effectuée par le référent handicap de
+              l&apos;organisme de formation auprès du conseiller RHF — chez OFC, Laure
+              Olivié.
             </p>
             <ul className="mt-6 space-y-3 text-slate-600">
               <li className="flex items-center gap-2">
@@ -115,9 +132,20 @@ export default function AnnuaireHandicapPage() {
               </li>
               <li className="flex items-center gap-2">
                 <Globe size={18} strokeWidth={1.5} className="shrink-0 text-[var(--accent)]" />
+                Service RHF :{' '}
+                <ExternalLinkAnchor
+                  href={EXTERNAL_SITE_URLS.agefiphRhf}
+                  title="Agefiph — Ressource Handicap Formation"
+                  className="text-[var(--accent)] hover:underline"
+                >
+                  agefiph.fr/services/ressource-handicap-formation
+                </ExternalLinkAnchor>
+              </li>
+              <li className="flex items-center gap-2">
+                <Globe size={18} strokeWidth={1.5} className="shrink-0 text-[var(--accent)]" />
                 Site web :{' '}
                 <ExternalLinkAnchor
-                  href="https://www.agefiph.fr"
+                  href={EXTERNAL_SITE_URLS.agefiph}
                   title="Agefiph — Association gestion fonds insertion handicap"
                   className="text-[var(--accent)] hover:underline"
                 >

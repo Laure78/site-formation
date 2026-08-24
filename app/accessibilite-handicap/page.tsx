@@ -1,9 +1,11 @@
 import Link from 'next/link';
 import { Poppins } from 'next/font/google';
 import { Mail, Phone } from 'lucide-react';
+import { ExternalLinkAnchor } from '@/components/ExternalLink';
 import { createPageMetadata } from '@/lib/seo';
 import { LINKS } from '@/lib/internal-links';
 import { CONTACT } from '@/lib/constants';
+import { EXTERNAL_SITE_URLS } from '@/lib/external-site-urls';
 import { QUALIOPI_LEGAL, QUALIOPI_REFERENT_HANDICAP } from '@/lib/qualiopi-info';
 
 export const revalidate = 3600;
@@ -180,21 +182,62 @@ export default function AccessibiliteHandicapPage() {
             interlocuteurs pertinents ; c&apos;est à vous ou à votre employeur d&apos;engager les démarches
             auprès de leurs services.
           </p>
+        </Section>
+
+        <Section id="ressource-handicap-formation" title="Ressource Handicap Formation (RHF) — Agefiph">
+          <p>
+            La <strong>Ressource Handicap Formation (RHF)</strong> est un service gratuit de
+            l&apos;Agefiph pour adapter une formation en fonction du handicap. Elle s&apos;adresse aux
+            personnes en situation de handicap (en recherche d&apos;emploi, salariées ou en
+            alternance) qui ont un <strong>projet de formation validé</strong>.
+          </p>
+          <p>
+            <strong>Qui fait la demande ?</strong> Le référent handicap de l&apos;organisme de
+            formation — chez OFC, {QUALIOPI_REFERENT_HANDICAP.nom} — auprès du conseiller RHF de la
+            région. Ce n&apos;est pas le stagiaire qui dépose seul la demande auprès de la RHF.
+          </p>
+          <p>Le service permet notamment de :</p>
+          <ul className="list-disc space-y-2 pl-5">
+            <li>
+              accompagner l&apos;organisme de formation pour penser et organiser l&apos;accessibilité
+              de ses sessions ;
+            </li>
+            <li>
+              conseiller le référent handicap afin de proposer un parcours adapté aux besoins et
+              contraintes de la personne.
+            </li>
+          </ul>
+          <p>
+            En Île-de-France, le contact RHF figure dans l&apos;annuaire PDF (ex.{' '}
+            <a
+              href="mailto:rhf-idf@agefiph.asso.fr"
+              className="font-medium text-[#377CF3] underline-offset-2 hover:underline"
+            >
+              rhf-idf@agefiph.asso.fr
+            </a>
+            ). Pour le détail officiel :{' '}
+            <ExternalLinkAnchor
+              href={EXTERNAL_SITE_URLS.agefiphRhf}
+              className="font-medium text-[#377CF3] underline-offset-2 hover:underline"
+            >
+              page Agefiph — Ressource Handicap Formation
+            </ExternalLinkAnchor>
+            .
+          </p>
           <p>
             <a
               href={LINKS.annuaireHandicapPdf}
               download
               className="font-medium text-[#377CF3] underline-offset-2 hover:underline"
             >
-              Télécharger l&apos;annuaire de contacts RHF Agefiph (PDF — janvier 2026)
-            </a>{' '}
-            — Ressource Handicap Formation, contacts régionaux, sans engagement de partenariat nominatif.
-            Voir aussi la{' '}
+              Télécharger les contacts RHF Agefiph (PDF — janvier 2026)
+            </a>
+            {' · '}
             <Link
               href={LINKS.annuaireHandicap}
               className="font-medium text-[#377CF3] underline-offset-2 hover:underline"
             >
-              page Annuaire handicap
+              Page Annuaire handicap
             </Link>
             .
           </p>
