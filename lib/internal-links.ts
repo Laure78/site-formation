@@ -378,7 +378,7 @@ export const LINKS = {
   qualiopi: '/qualiopi',
   /** Certificat Qualiopi OFC (PDF) */
   certificatQualiopi: '/documents/certificat-qualiopi-ofc.pdf',
-  /** Procédure réclamations OFC (PDF) — version 3 */
+  /** Procédure réclamations OFC (PDF) — version 8 */
   procedureReclamationsPdf: '/documents/procedure-reclamations-ofc-v3.pdf',
   /** Livret d'accueil du stagiaire (page publique) */
   livretAccueilStagiaire: '/livret-accueil-stagiaire',

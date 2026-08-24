@@ -33,15 +33,15 @@ const poppins = Poppins({
 const SITUATIONS = [
   {
     title: 'Aléa',
-    body: "Événement imprévu qui perturbe le déroulement de la session (salle indisponible, panne de connexion, absence d'un participant, indisponibilité de la formatrice).",
+    body: 'Évènement externe imprévisible qui implique une perturbation.',
   },
   {
     title: 'Difficulté',
-    body: 'Obstacle rencontré pendant la prestation, sans expression de mécontentement (exercice trop rapide, équipement informatique insuffisant, besoin d\'adaptation révélé en séance).',
+    body: 'Élément qui empêche ou gêne dans la réalisation de la prestation.',
   },
   {
     title: 'Réclamation',
-    body: 'Toute déclaration écrite actant un mécontentement ou un litige.',
+    body: 'Action visant à faire respecter un droit ou à demander une chose due, recueillie par écrit.',
   },
 ] as const;
 
@@ -282,7 +282,7 @@ export default function ReclamationsPage() {
 
       {/* Pied de page */}
       <footer className="mt-16 border-t border-[#377CF3]/20 pt-8 text-center">
-        <p className="text-sm text-[#1A1A1A]/80">Procédure version 3 — mise à jour le 22/08/2026</p>
+        <p className="text-sm text-[#1A1A1A]/80">Procédure version 8 — mise à jour le 24/08/2026</p>
         <a
           href={LINKS.procedureReclamationsPdf}
           className="mt-4 inline-flex items-center gap-2 font-semibold text-[#377CF3] hover:underline"
