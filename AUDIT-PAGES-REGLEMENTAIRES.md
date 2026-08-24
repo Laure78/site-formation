@@ -206,7 +206,6 @@ export default function MaPage() {
 |---|---|
 | `QualiopiCertificationNotice` | Footer, pages qualité |
 | `ReferentHandicapBlock` | Footer, `/annuaire-handicap`, fiches formation |
-| `MediationCm2cBlock` | `/reclamations`, CGV |
 | `InfosQualiopi` / `CatalogueInfosQualiopi` | Fiches formation (9 sections indicateur 1) |
 
 ### Recommandation pour homogénéité des nouvelles pages
