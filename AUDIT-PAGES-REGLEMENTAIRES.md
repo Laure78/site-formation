@@ -19,8 +19,7 @@
 ### Précisions importantes
 
 #### Procédure de réclamation
-- Contenu complet : objet, mode de saisine (email `laureolivie@yahoo.fr`), chronologie (accusé / instruction / médiation CM2C), amélioration continue, documents connexes.
-- Composant médiation réutilisable : `components/qualiopi/MediationCm2cBlock.tsx` (CM2C, 49 rue de Ponthieu, Paris).
+- Contenu complet : objet, mode de saisine (email `laureolivie@yahoo.fr`), chronologie (accusé / instruction / recours), amélioration continue, documents connexes.
 - Cross-liens depuis `/reclamations` vers CGV, règlement intérieur, indicateurs de résultats, accessibilité handicap.
 - Présent dans le sitemap (`app/sitemap.ts`, priorité 0,45).
 - **Pas de PDF** de procédure dans `public/`.
