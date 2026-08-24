@@ -59,6 +59,11 @@ const EXTERNAL = [
 
 const TARGETS = [
   { group: 'Certificat Qualiopi', href: '/documents/certificat-qualiopi-ofc.pdf', expectPdf: true },
+  {
+    group: 'Annuaire handicap RHF',
+    href: '/documents/annuaire-handicap-agefiph-rhf-2026-01.pdf',
+    expectPdf: true,
+  },
   ...FORMATION_PDFS.map((f) => ({
     group: `Programme ${f.ref}`,
     href: f.href,

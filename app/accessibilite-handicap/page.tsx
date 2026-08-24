@@ -181,13 +181,22 @@ export default function AccessibiliteHandicapPage() {
             auprès de leurs services.
           </p>
           <p>
+            <a
+              href={LINKS.annuaireHandicapPdf}
+              download
+              className="font-medium text-[#377CF3] underline-offset-2 hover:underline"
+            >
+              Télécharger l&apos;annuaire de contacts RHF Agefiph (PDF — janvier 2026)
+            </a>{' '}
+            — Ressource Handicap Formation, contacts régionaux, sans engagement de partenariat nominatif.
+            Voir aussi la{' '}
             <Link
               href={LINKS.annuaireHandicap}
               className="font-medium text-[#377CF3] underline-offset-2 hover:underline"
             >
-              Consulter l&apos;annuaire de contacts handicap (PDF)
-            </Link>{' '}
-            — liste de ressources nationales et régionales, sans engagement de partenariat nominatif.
+              page Annuaire handicap
+            </Link>
+            .
           </p>
         </Section>
 

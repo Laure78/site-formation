@@ -366,6 +366,8 @@ export const LINKS = {
   /** Règlement intérieur OFC (PDF) */
   reglementInterieurPdf: '/documents/reglement-interieur-ofc.pdf',
   annuaireHandicap: '/annuaire-handicap',
+  /** Annuaire contacts RHF Agefiph (PDF — janvier 2026) */
+  annuaireHandicapPdf: '/documents/annuaire-handicap-agefiph-rhf-2026-01.pdf',
   /** Accessibilité & handicap — référente, processus d'accueil PSH */
   accessibiliteHandicap: '/accessibilite-handicap',
   /** Indicateur 2 Qualiopi — résultats des actions de formation */

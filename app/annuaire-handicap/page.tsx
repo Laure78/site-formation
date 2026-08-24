@@ -8,9 +8,11 @@ import {
   Globe,
   CheckCircle,
   Building2,
+  Download,
 } from 'lucide-react';
 import { createPageMetadata } from '@/lib/seo';
 import { ReferentHandicapBlock } from '@/components/formation/ReferentHandicapBlock';
+import { LINKS } from '@/lib/internal-links';
 
 export const revalidate = 3600;
 export const metadata = createPageMetadata({
@@ -30,21 +32,34 @@ export default function AnnuaireHandicapPage() {
           Annuaire national des partenaires handicap
         </h1>
         <p className="mt-4 text-slate-600">
-          Document actualisé le 30 janvier 2026
+          Document actualisé le 30 janvier 2026 — contacts RHF Agefiph (janvier 2026)
         </p>
         <p className="mt-4 text-slate-600">
-          Cet annuaire répertorie l&apos;ensemble des contacts pour accompagner les personnes en
+          Cet annuaire répertorie les contacts utiles pour accompagner les personnes en
           situation de handicap en France. Pour le processus d&apos;accueil et la référente handicap
           OFC, consultez la{' '}
-          <Link href="/accessibilite-handicap" className="font-medium text-[var(--accent)] hover:underline">
+          <Link href={LINKS.accessibiliteHandicap} className="font-medium text-[var(--accent)] hover:underline">
             page Accessibilité &amp; handicap
           </Link>
           .
         </p>
-        <ul className="mt-4 flex flex-col items-center gap-2 text-left sm:inline-block">
+        <p className="mt-6">
+          <a
+            href={LINKS.annuaireHandicapPdf}
+            download
+            className="inline-flex items-center gap-2 rounded-xl bg-[var(--accent)] px-5 py-3 font-semibold text-white hover:bg-blue-700"
+          >
+            <Download size={18} strokeWidth={1.5} aria-hidden />
+            Télécharger les contacts RHF Agefiph (PDF)
+          </a>
+        </p>
+        <p className="mt-3 text-sm text-slate-500">
+          Source : Agefiph — Ressource Handicap Formation, liste des contacts régionaux (janvier 2026).
+        </p>
+        <ul className="mt-8 flex flex-col items-center gap-2 text-left sm:inline-block">
           <li className="flex items-center gap-2 text-slate-600">
             <CheckCircle size={20} strokeWidth={1.5} className="shrink-0 text-emerald-500" />
-            AGEFIPH : Contacts par région pour l&apos;insertion professionnelle
+            AGEFIPH / RHF : Contacts par région pour l&apos;insertion professionnelle
             dans le secteur privé
           </li>
           <li className="flex items-center gap-2 text-slate-600">
@@ -57,9 +72,9 @@ export default function AnnuaireHandicapPage() {
 
       <ReferentHandicapBlock className="mt-10" />
 
-      {/* Contacts utiles — version web (pas de PDF séparé) */}
+      {/* Contacts utiles — version web + PDF RHF */}
       <p className="mt-12 text-center text-sm text-slate-600">
-        Les contacts détaillés figurent ci-dessous. Pour les ressources officielles :{' '}
+        Les contacts détaillés RHF figurent dans le PDF ci-dessus. Pour les ressources officielles :{' '}
         <ExternalLinkAnchor href="https://www.agefiph.fr/" className="font-medium text-[var(--accent)] hover:underline">
           AGEFIPH
         </ExternalLinkAnchor>
@@ -80,23 +95,23 @@ export default function AnnuaireHandicapPage() {
           </div>
           <div>
             <h2 className="font-display text-xl font-bold text-slate-900">
-              AGEFIPH — Par région
+              AGEFIPH — Ressource Handicap Formation (RHF)
             </h2>
             <p className="mt-4 text-slate-600">
               L&apos;AGEFIPH (Association de Gestion du Fonds pour l&apos;Insertion
               Professionnelle des Personnes Handicapées) accompagne les personnes
               handicapées et les employeurs pour favoriser l&apos;emploi dans le
-              secteur privé.
+              secteur privé. La Ressource Handicap Formation (RHF) propose des
+              interlocuteurs régionaux pour les questions de formation.
             </p>
             <ul className="mt-6 space-y-3 text-slate-600">
               <li className="flex items-center gap-2">
                 <MapPin size={18} strokeWidth={1.5} className="shrink-0 text-[var(--accent)]" />
-                17 régions couvertes — Contacts spécialisés dans chaque région
+                Contacts RHF par région — dont Île-de-France (rhf-idf@agefiph.asso.fr)
               </li>
               <li className="flex items-center gap-2">
                 <Phone size={18} className="shrink-0 text-[var(--accent)]" />
-                Contacts directs : téléphones et emails des référents handicap
-                formation régionaux
+                Coordonnées téléphones et emails dans le PDF téléchargeable
               </li>
               <li className="flex items-center gap-2">
                 <Globe size={18} strokeWidth={1.5} className="shrink-0 text-[var(--accent)]" />
@@ -155,19 +170,19 @@ export default function AnnuaireHandicapPage() {
         </h2>
         <div className="mt-8 grid gap-8 md:grid-cols-2">
           <div className="rounded-xl border border-slate-200 bg-slate-50 p-6">
-            <h3 className="font-semibold text-[var(--accent)]">AGEFIPH</h3>
+            <h3 className="font-semibold text-[var(--accent)]">AGEFIPH / RHF</h3>
             <ul className="mt-4 space-y-2 text-sm text-slate-600">
               <li>
                 <strong>Région :</strong> Toutes les régions françaises
               </li>
               <li>
-                <strong>Contacts :</strong> Noms des référents
+                <strong>Contacts :</strong> Emails RHF régionaux (PDF)
               </li>
               <li>
-                <strong>Téléphones :</strong> Directs et lignes dédiées
+                <strong>Téléphones :</strong> Lignes dédiées selon le PDF
               </li>
               <li>
-                <strong>Emails :</strong> Contacts régionaux
+                <strong>Île-de-France :</strong> rhf-idf@agefiph.asso.fr
               </li>
             </ul>
           </div>
@@ -213,7 +228,7 @@ export default function AnnuaireHandicapPage() {
 
       {/* Pied de page */}
       <div className="mt-16 rounded-xl border border-slate-200 bg-slate-50 p-6 text-center text-sm text-slate-600">
-        <p>Document actualisé le 30 janvier 2026</p>
+        <p>Document actualisé le 30 janvier 2026 — PDF RHF Agefiph janvier 2026</p>
         <p className="mt-2 font-semibold text-slate-900">
           OFC Création d&apos;Entreprise
         </p>
