@@ -1,8 +1,7 @@
 /**
- * Grille commerciale OFC — dérivée de `data/formations.ts` (prix, durée, effectifs).
- * TVA : intra art. 261-4-4° du CGI (seule modalité proposée).
+ * Grille commerciale OFC — intra (forfait session) et inter (par participant).
+ * TVA intra : art. 261-4-4° du CGI.
  */
-
 import { formatNumberFr } from '@/lib/format-number-fr';
 import {
   EFFECTIF_CATALOGUE_MAX,
@@ -16,164 +15,222 @@ import {
   PRIX_NIVEAU_2_HT,
 } from '@/data/formations';
 import { IDF_ZONE_INTERVENTION } from '@/lib/constants';
+import { FINANCEMENT_FORMULATION_PRUDENTE } from '@/lib/financement-copy';
 import { getCatalogueFormationsCount } from '@/lib/formations-catalogue-display';
+
+/** Durées catalogue reconnues pour la grille tarifaire. */
+export type TarifDureeHeures = 2 | 4 | 7 | 14;
 
 export const SESSION_DUREE_LIBELLE = FORMATION_NIV01.duree;
 
 /** NIV-04 — session matin uniquement */
-export const SESSION_DUREE_MATIN_NIV04 = libelleDureeFormation(
-  getFormationByCode('NIV-04')!
-);
+export const SESSION_DUREE_MATIN_NIV04 = libelleDureeFormation(getFormationByCode('NIV-04')!);
 
-/** Prix niveau 1 (NIV-01) — source FORMATIONS */
+/* ── Grille intra-entreprise (forfait session) ── */
+export const TARIF_INTRA_SENSIBILISATION_2H_HT = 750;
+export const TARIF_INTRA_4H_HT = 1200;
+export const TARIF_INTRA_7H_HT = 1800;
+export const TARIF_INTRA_14H_HT_FROM = 3200;
+
+/* ── Grille interentreprises (par participant) ── */
+export const TARIF_INTER_4H_HT_FROM = 300;
+export const TARIF_INTER_7H_HT_FROM = 650;
+export const TARIF_INTER_14H_HT_FROM = 1100;
+
+/** @deprecated Préférer TARIF_INTRA_4H_HT — conservé pour compatibilité imports. */
 export const TARIF_SESSION_DEBUTANT_HT = PRIX_NIVEAU_1_HT;
 
-/** Prix niveau 2 (NIV-02…05) — source FORMATIONS */
+/** @deprecated Préférer TARIF_INTRA_4H_HT — conservé pour compatibilité imports. */
 export const TARIF_SESSION_AVANCE_HT = PRIX_NIVEAU_2_HT;
 
-/**
- * @deprecated Préférer le prix par formation (`formation.prixHT` / `entry.prixHT`).
- * Conservé pour les pages génériques : équivalent prix niveau 2.
- */
-export const TARIF_SESSION_FORFAIT_HT = PRIX_NIVEAU_2_HT;
+/** @deprecated Préférer TARIF_INTRA_4H_HT. */
+export const TARIF_SESSION_FORFAIT_HT = TARIF_INTRA_4H_HT;
+
+/** @deprecated Utiliser TARIF_INTRA_4H_HT. */
+export const TARIF_FORFAIT_DEBUTANT_HT = TARIF_INTRA_4H_HT;
+
+/** @deprecated Utiliser TARIF_INTRA_4H_HT. */
+export const TARIF_FORFAIT_AVANCE_HT = TARIF_INTRA_4H_HT;
+
+export type NiveauTarif = 'debutant' | 'avance';
 
 /** Montant HT affiché (espace milliers FR) — ex. 1 200 */
 export function formatTarifHt(amount: number): string {
   return formatNumberFr(amount);
 }
 
-/** @deprecated Utiliser `TARIF_SESSION_DEBUTANT_HT`. */
-export const TARIF_FORFAIT_DEBUTANT_HT = TARIF_SESSION_DEBUTANT_HT;
-
-/** @deprecated Utiliser `TARIF_SESSION_AVANCE_HT`. */
-export const TARIF_FORFAIT_AVANCE_HT = TARIF_SESSION_AVANCE_HT;
-
-export type NiveauTarif = 'debutant' | 'avance';
-
-export function tarifHtPourNiveau(niveau?: NiveauTarif): number {
-  return niveau === 'avance' ? TARIF_SESSION_AVANCE_HT : TARIF_SESSION_DEBUTANT_HT;
+/** Extrait les heures depuis « 4 h », « 7 h », etc. — défaut 4 h catalogue. */
+export function parseDureeHeures(duree: string): TarifDureeHeures {
+  const match = duree.match(/(\d+)/);
+  const h = match ? Number.parseInt(match[1], 10) : 4;
+  if (h === 2) return 2;
+  if (h === 7) return 7;
+  if (h === 14) return 14;
+  return 4;
 }
 
-/** Montant HT selon badge catalogue (débutant / avancé). */
-export function tarifHtDepuisBadgeCatalogue(level?: 'DÉBUTANT' | 'AVANCÉ'): number {
-  return level === 'AVANCÉ' ? TARIF_SESSION_AVANCE_HT : TARIF_SESSION_DEBUTANT_HT;
+export type TarifGrille = {
+  dureeHeures: TarifDureeHeures;
+  intraHT: number;
+  intraFrom?: boolean;
+  /** Absent pour la sensibilisation 2 h (intra uniquement). */
+  interHT?: number;
+};
+
+export function getTarifGrille(dureeHeures: TarifDureeHeures): TarifGrille {
+  switch (dureeHeures) {
+    case 2:
+      return { dureeHeures: 2, intraHT: TARIF_INTRA_SENSIBILISATION_2H_HT };
+    case 7:
+      return { dureeHeures: 7, intraHT: TARIF_INTRA_7H_HT, intraFrom: true, interHT: TARIF_INTER_7H_HT_FROM };
+    case 14:
+      return {
+        dureeHeures: 14,
+        intraHT: TARIF_INTRA_14H_HT_FROM,
+        intraFrom: true,
+        interHT: TARIF_INTER_14H_HT_FROM,
+      };
+    default:
+      return { dureeHeures: 4, intraHT: TARIF_INTRA_4H_HT, interHT: TARIF_INTER_4H_HT_FROM };
+  }
 }
 
-/**
- * @deprecated Sessions inter-entreprise non proposées — conservé pour historique CGV / admin.
- * TVA inter (art. 293 B du CGI).
- */
-export const MENTIONS_TVA_INTER_COURTE = 'TVA non applicable, article 293 B du CGI.';
+export function getTarifGrilleFromDureeLibelle(duree: string): TarifGrille {
+  return getTarifGrille(parseDureeHeures(duree));
+}
 
-/** TVA — formations intra-entreprise (art. 261-4-4° du CGI). */
-export const MENTIONS_TVA_INTRA_COURTE = 'TVA exonérée, article 261-4-4° du CGI.';
+/** « 1 200 € HT par session » */
+export function libelleTarifIntraParSession(amount: number, from = false): string {
+  const prefix = from ? 'à partir de ' : '';
+  return `${prefix}${formatTarifHt(amount)} € HT par session`;
+}
 
-/** Synthèse TVA catalogue — intra uniquement (FAQ, encarts, fiches). */
-export const MENTIONS_TVA_REGIMES_COURT = MENTIONS_TVA_INTRA_COURTE;
+/** « à partir de 300 € HT par participant » */
+export function libelleTarifInterParParticipant(amount: number, from = true): string {
+  const prefix = from ? 'à partir de ' : '';
+  return `${prefix}${formatTarifHt(amount)} € HT par participant`;
+}
 
-/** Mention légale TVA — footnote unique (`MentionTVA`). */
-export const MENTIONS_TVA_EXONERATION = `Prix nets — ${MENTIONS_TVA_REGIMES_COURT}`;
-
-/** @deprecated Préférer `MENTIONS_TVA_INTER_COURTE` ou `MENTIONS_TVA_INTRA_COURTE` selon le régime. */
-export const MENTIONS_TVA_EXONERATION_COURTE = MENTIONS_TVA_INTER_COURTE;
-
-/** Libellé canonique — ex. « 1 200 € HT / session forfaitaire » */
+/** @deprecated Préférer libelleTarifIntraParSession — compatibilité legacy. */
 export function libelleTarifSessionForfaitaire(amount: number): string {
   return `${formatTarifHt(amount)} € HT / session forfaitaire`;
 }
 
+/** Ligne carte catalogue — intra + inter (inter absent pour 2 h). */
+export function libelleTarifsCarteCatalogue(dureeHeures: TarifDureeHeures = 4): {
+  intra: string;
+  inter?: string;
+} {
+  const g = getTarifGrille(dureeHeures);
+  const result = {
+    intra: libelleTarifIntraParSession(g.intraHT, g.intraFrom),
+  };
+  if (g.interHT != null) {
+    return { ...result, inter: libelleTarifInterParParticipant(g.interHT) };
+  }
+  return result;
+}
+
+/** Résumé court dual intra/inter — ex. fiches formation, landings. */
+export function libelleTarifsDualCourt(dureeHeures: TarifDureeHeures = 4): string {
+  const t = libelleTarifsCarteCatalogue(dureeHeures);
+  if (t.inter) {
+    return `Intra-entreprise : ${t.intra} · Interentreprises : ${t.inter}`;
+  }
+  return `Intra-entreprise : ${t.intra}`;
+}
+
+/** Mention abonnements IA hors forfait. */
+export const MENTION_ABONNEMENTS_IA_HORS_FORFAIT =
+  'Les éventuels abonnements payants aux outils d\u2019intelligence artificielle ne sont pas inclus, sauf mention contraire dans le devis.';
+
 /**
- * @deprecated Sessions inter-entreprise non proposées — ne pas afficher sur le site public.
+ * @deprecated Sessions inter historiques CGV — ne pas afficher seul.
  */
-export function libelleTarifInterEntreprise(amount: number, effectifLabel: string): string {
-  return `${libelleTarifSessionForfaitaire(amount)} (${effectifLabel}). ${MENTIONS_TVA_INTER_COURTE}`;
-}
+export const MENTIONS_TVA_INTER_COURTE = 'TVA non applicable, article 293 B du CGI.';
 
-/** Tarif intra-entreprise + mention TVA intra. */
+export const MENTIONS_TVA_INTRA_COURTE = 'TVA exonérée, article 261-4-4° du CGI.';
+
+export const MENTIONS_TVA_REGIMES_COURT = MENTIONS_TVA_INTRA_COURTE;
+
+export const MENTIONS_TVA_EXONERATION = `Prix nets — ${MENTIONS_TVA_REGIMES_COURT}`;
+
+/** @deprecated Préférer MENTIONS_TVA_INTER_COURTE ou MENTIONS_TVA_INTRA_COURTE. */
+export const MENTIONS_TVA_EXONERATION_COURTE = MENTIONS_TVA_INTER_COURTE;
+
 export function libelleTarifIntraEntreprise(amount: number, effectifLabel: string): string {
-  return `Forfait ${libelleTarifSessionForfaitaire(amount)} (${effectifLabel}), ${MODALITE_INTRA_ENTREPRISE}. ${MENTIONS_TVA_INTRA_COURTE}`;
+  return `Intra-entreprise : ${libelleTarifIntraParSession(amount)} (${effectifLabel}), ${MODALITE_INTRA_ENTREPRISE}. ${MENTIONS_TVA_INTRA_COURTE}`;
 }
 
-/** Bloc tarif Qualiopi / Informations pratiques — intra uniquement. */
 export function libelleTarifsCatalogueComplets(amount: number, effectifLabel: string): string {
   return libelleTarifIntraEntreprise(amount, effectifLabel);
 }
 
-/** Ancre HTML de la mention unique (`MentionTVA`). */
-export const MENTION_TVA_ANCHOR_ID = 'mention-tva' as const;
-
-/** Effectif maximal catalogue (NIV-01) */
-export const EFFECTIF_GROUPE_MAX = EFFECTIF_CATALOGUE_MAX;
-
-/** Libellé carte / ligne tableau : forfait session selon niveau badge */
-export function libelleTarifParticipant(level?: 'DÉBUTANT' | 'AVANCÉ'): string {
-  const effectif =
-    level === 'AVANCÉ'
-      ? libelleEffectifMaxFormation(FORMATION_NIV02)
-      : libelleEffectifMaxFormation(FORMATION_NIV01);
-  return `${libelleTarifSessionForfaitaire(tarifHtDepuisBadgeCatalogue(level))} (${effectif}) — ${MENTIONS_TVA_REGIMES_COURT}`;
+/** @deprecated Ne plus utiliser seul — dual intra/inter. */
+export function libelleTarifInterEntreprise(amount: number, effectifLabel: string): string {
+  return `${libelleTarifInterParParticipant(amount)} (${effectifLabel}). ${MENTIONS_TVA_INTER_COURTE}`;
 }
 
-/** Libellé pour badges / cartes (icône « participants ») — NIV-01 */
+export const MENTION_TVA_ANCHOR_ID = 'mention-tva' as const;
+
+export const EFFECTIF_GROUPE_MAX = EFFECTIF_CATALOGUE_MAX;
+
+/** @deprecated Préférer libelleTarifsCarteCatalogue. */
+export function libelleTarifParticipant(level?: 'DÉBUTANT' | 'AVANCÉ'): string {
+  const g = getTarifGrille(4);
+  const lines = libelleTarifsCarteCatalogue(g.dureeHeures);
+  return `Intra-entreprise : ${lines.intra}${lines.inter ? ` · Interentreprises : ${lines.inter}` : ''} — ${MENTIONS_TVA_REGIMES_COURT}`;
+}
+
+export function tarifHtPourNiveau(_niveau?: NiveauTarif): number {
+  return TARIF_INTRA_4H_HT;
+}
+
+export function tarifHtDepuisBadgeCatalogue(_level?: 'DÉBUTANT' | 'AVANCÉ'): number {
+  return TARIF_INTRA_4H_HT;
+}
+
 export const LIBELLE_EFFECTIF_GROUPE_COURT = libelleEffectifMaxFormation(FORMATION_NIV01);
-
-/** Effectif NIV-02 (appels d'offres) */
 export const LIBELLE_EFFECTIF_GROUPE_NIV02 = libelleEffectifFormation(FORMATION_NIV02);
-
-/** Effectif NIV-03 / NIV-04 (max 8) */
-export const LIBELLE_EFFECTIF_GROUPE_NIV03 = libelleEffectifMaxFormation(
-  getFormationByCode('NIV-03')!
-);
-
-/** Phrase complète pour modalités et encarts */
+export const LIBELLE_EFFECTIF_GROUPE_NIV03 = libelleEffectifMaxFormation(getFormationByCode('NIV-03')!);
 export const LIBELLE_EFFECTIF_GROUPE = `Groupe de ${EFFECTIF_GROUPE_MAX} participants maximum`;
 
-/** Positionnement modalité OFC — phrase canonique (badges, FAQ, meta). */
 export const MODALITE_POSITIONNEMENT = 'présentiel uniquement · Île-de-France uniquement';
 
-/** Modalité unique proposée — source unique (pages, FAQ, llms.txt). */
 export const MODALITE_INTRA_ENTREPRISE = 'intra-entreprise, dans vos locaux' as const;
 
-/** Badge court — header, footer, cartes */
 export const PERIMETRE_FORMATIONS_COURT = MODALITE_POSITIONNEMENT;
 
-/** Périmètre géographique et modalité — formulation standard avec exclusions explicites */
 export const PERIMETRE_FORMATIONS_STANDARD =
   `Sessions ${MODALITE_INTRA_ENTREPRISE} (${IDF_ZONE_INTERVENTION}) — ${MODALITE_POSITIONNEMENT}.`;
 
-/** Formulation standard — modalités (FAQ, pages, llms.txt) */
 export const MODALITE_FORMATIONS_STANDARD = PERIMETRE_FORMATIONS_STANDARD;
 
-/** Modalités d’intervention catalogue — intra uniquement, présentiel IDF */
 export const MODALITE_FORMATIONS_PRESENTIEL =
-  `Sessions ${MODALITE_INTRA_ENTREPRISE} — ${MODALITE_POSITIONNEMENT}.`;
+  `Sessions ${MODALITE_INTRA_ENTREPRISE} et interentreprises en présentiel — ${MODALITE_POSITIONNEMENT}.`;
 
-/** Toutes les formations catalogue « niveau avancé » (ex. NIV-02 appels d'offres) */
 export const EXIGENCE_CLAUDE_PRO_NIVEAU_AVANCE =
   'Un abonnement Claude AI Pro actif par participant (environ 18 € HT/mois, à souscrire par l\'entreprise avant la session) — non inclus dans le forfait.';
 
-/**
- * Prérequis communs — formations catalogue niveau 2 (Qualiopi + fiches).
- * Ordre figé pour affichage cohérent.
- */
 export const PREREQUIS_NIVEAU_2 = [
   'Ordinateur portable par participant + connexion internet',
   EXIGENCE_CLAUDE_PRO_NIVEAU_AVANCE,
   'Avoir suivi le niveau 1 ou pratiquer déjà l\'IA générative au quotidien',
 ] as const;
 
-/**
- * Comptes IA — intro catalogue / encart tarifs.
- * Niveau 1 : gratuit OK · Niveaux 2 : Claude AI Pro requis (hors forfait).
- */
 export const COMPTES_IA_GRATUITS_NIVEAU_DEBUTANT =
   'Niveau 1 : un compte gratuit Claude AI ou ChatGPT suffit. Niveaux 2 : un abonnement Claude AI Pro par participant est requis (non inclus dans le forfait).';
 
 export function getEncartTarifsCommerciaux(at: Date = new Date()): string {
   const count = getCatalogueFormationsCount(at);
-  return `Sessions en ${SESSION_DUREE_LIBELLE} — forfait unique ${libelleTarifSessionForfaitaire(TARIF_SESSION_FORFAIT_HT)}* pour les ${count} formations catalogue (effectifs selon fiche). ${COMPTES_IA_GRATUITS_NIVEAU_DEBUTANT} ${MODALITE_FORMATIONS_PRESENTIEL}`;
+  const tarifs = libelleTarifsCarteCatalogue(4);
+  return `Formations catalogue (${count} parcours, ${SESSION_DUREE_LIBELLE}) — intra-entreprise : ${tarifs.intra} ; interentreprises : ${tarifs.inter}. ${COMPTES_IA_GRATUITS_NIVEAU_DEBUTANT} ${MODALITE_FORMATIONS_PRESENTIEL}`;
 }
 
-/** @deprecated Préférer getEncartTarifsCommerciaux() — compte les parcours visibles. */
-export const ENCART_TARIFS_COMMERCIAUX =
-  `Sessions en ${SESSION_DUREE_LIBELLE} — forfait unique ${libelleTarifSessionForfaitaire(TARIF_SESSION_FORFAIT_HT)}* pour les formations catalogue (effectifs selon fiche). ${COMPTES_IA_GRATUITS_NIVEAU_DEBUTANT} ${MODALITE_FORMATIONS_PRESENTIEL}`;
+/** @deprecated Préférer getEncartTarifsCommerciaux() — évaluation paresseuse (évite cycle d'import). */
+export function getEncartTarifsCommerciauxLazy(): string {
+  return getEncartTarifsCommerciaux();
+}
+
+/** Texte financement canonique — source unique pages tarifs. */
+export { FINANCEMENT_FORMULATION_PRUDENTE };

@@ -28,6 +28,7 @@ export const SITEMAP_CORE_STATIC_PATHS = [
   LINKS.formations,
   LINKS.financement,
   LINKS.aPropos,
+  LINKS.avisClients,
   LINKS.partenaires,
   LINKS.blog,
   LINKS.contact,

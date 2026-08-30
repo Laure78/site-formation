@@ -156,6 +156,7 @@ export async function generateMetadata(): Promise<Metadata> {
 export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
+  viewportFit: 'cover',
   themeColor: [
     { media: '(prefers-color-scheme: light)', color: '#ffffff' },
     { media: '(prefers-color-scheme: dark)', color: '#1e293b' },
@@ -173,7 +174,7 @@ export default function RootLayout({
         {/* Organization + Person — SITE / PROOF via `lib/schema-site-proof.ts` */}
         <GlobalSiteJsonLd />
       </head>
-      <body className="font-sans antialiased min-h-screen flex flex-col bg-white text-slate-900">
+      <body className="flex min-h-screen min-w-0 flex-col overflow-x-clip bg-white font-sans text-slate-900 antialiased">
         <GlobalSitelinksJsonLd />
         <script
           type="application/ld+json"
@@ -192,7 +193,7 @@ export default function RootLayout({
         </a>
         <SiteSearchProvider>
         <Header />
-        <main className="flex-1" id="main-content">
+        <main className="min-w-0 w-full flex-1" id="main-content">
           <GlobalBreadcrumbs />
           {children}
           <FormationCalendlyInlineGate />

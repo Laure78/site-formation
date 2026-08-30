@@ -14,7 +14,7 @@ import {
   type Formation,
 } from '@/data/formations';
 import { isFormationCataloguePublished } from '@/lib/formation-catalogue-visibility';
-import { formatTarifHt, libelleTarifSessionForfaitaire, MENTIONS_TVA_REGIMES_COURT } from '@/lib/tarifs-sessions';
+import { formatTarifHt, libelleTarifsCarteCatalogue, parseDureeHeures, MENTIONS_TVA_REGIMES_COURT } from '@/lib/tarifs-sessions';
 
 export type CatalogueLevel = 'DÉBUTANT' | 'AVANCÉ';
 
@@ -188,10 +188,15 @@ export function tarifLabel(level: CatalogueLevel): string {
 }
 
 function libelleTarifPourEntry(entry: FormationCatalogueEntry): string {
-  return `${libelleTarifSessionForfaitaire(entry.prixHT)} (${libelleEffectifMaxFormation(entry)}) — ${MENTIONS_TVA_REGIMES_COURT}`;
+  const tarifs = libelleTarifsCarteCatalogue(parseDureeHeures(entry.duree));
+  const interPart = tarifs.inter ? ` · Interentreprises : ${tarifs.inter}` : '';
+  return `Intra-entreprise : ${tarifs.intra}${interPart} (${libelleEffectifMaxFormation(entry)}) — ${MENTIONS_TVA_REGIMES_COURT}`;
 }
 
 /** Libellé tarif carte catalogue */
 export function tarifLabelForEntry(entry: FormationCatalogueEntry): string {
-  return libelleTarifSessionForfaitaire(entry.prixHT);
+  const tarifs = libelleTarifsCarteCatalogue(parseDureeHeures(entry.duree));
+  return tarifs.inter
+    ? `Intra : ${tarifs.intra} · Inter : ${tarifs.inter}`
+    : `Intra : ${tarifs.intra}`;
 }

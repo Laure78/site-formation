@@ -12,7 +12,7 @@ import {
   EFFECTIF_GROUPE_MAX,
   TARIF_FORFAIT_AVANCE_HT,
   TARIF_FORFAIT_DEBUTANT_HT,
-  libelleTarifSessionForfaitaire,
+  libelleTarifsDualCourt,
 } from '@/lib/tarifs-sessions';
 import { SOCIAL_PROOF } from '@/lib/constants';
 import { LINKS } from '@/lib/internal-links';
@@ -478,7 +478,7 @@ export default function FormationIaAssistanteGestionBtpPage() {
             Formation BTP-01 — L&apos;IA au service du bâtiment : débutant
           </h3>
           <p className="mt-2 text-sm text-slate-600">
-            Référence : BTP-01 · Débutant · 4 h · {libelleTarifSessionForfaitaire(TARIF_FORFAIT_DEBUTANT_HT)} ·{' '}
+            Référence : BTP-01 · Débutant · 4 h · {libelleTarifsDualCourt(4)} ·{' '}
             {EFFECTIF_GROUPE_MAX} participants max
           </p>
           <p className="mt-4 text-slate-600 leading-relaxed">
@@ -662,7 +662,7 @@ export default function FormationIaAssistanteGestionBtpPage() {
           <p>Laure Olivié — Formatrice IA pour les pros du BTP, OFC Création d&apos;Entreprise</p>
           <p>Organisme certifié Qualiopi · SIRET 905 244 281 00010 · NDA 11788515078</p>
           <p>
-            laureolivie@yahoo.fr ·{' '}
+            contact@laureolivie.fr ·{' '}
             <a href="/" className="underline">
               www.laureolivie.fr
             </a>

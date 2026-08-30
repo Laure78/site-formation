@@ -29,6 +29,14 @@ export const SCHEMA_YOUTUBE_CHANNEL_URL =
 export const SCHEMA_GOOGLE_BUSINESS_PROFILE_URL =
   'https://share.google/gLnYapEtSEq25mSQF' as const;
 
+/** Lien direct pour déposer un avis sur Google Business Profile. */
+export const SCHEMA_GOOGLE_REVIEW_SUBMIT_URL =
+  'https://g.page/r/CW5GeuAB5XBVEBM/review' as const;
+
+/** Fiche Google — consulter tous les avis (lien de partage). */
+export const SCHEMA_GOOGLE_REVIEWS_VIEW_URL =
+  'https://share.google/iiZ4okZ2AOt7VWloy' as const;
+
 /** sameAs Person — LinkedIn, LinkedIn Learning, YouTube.
  * Absents du Footer : URLs sourcées ici (constantes NAP / EEAT).
  */

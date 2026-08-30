@@ -114,7 +114,7 @@ export function FormationCourseHero({
               <div className="mt-5">
                 <CataloguePriceBadge
                   level={catalogueEntry.level}
-                  prixHT={catalogueEntry.prixHT}
+                  duree={catalogueEntry.duree}
                   variant="hero"
                 />
               </div>

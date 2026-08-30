@@ -14,7 +14,7 @@ import { FAQ_IA_BTP_METIERS_CHANTIER_SEO } from '@/lib/faq';
 import { PHOTOS } from '@/lib/photos';
 import { LINKS } from '@/lib/internal-links';
 import { SOCIAL_PROOF } from '@/lib/constants';
-import { TARIF_SESSION_DEBUTANT_HT, LIBELLE_EFFECTIF_GROUPE_COURT, libelleTarifSessionForfaitaire } from '@/lib/tarifs-sessions';
+import { TARIF_SESSION_DEBUTANT_HT, LIBELLE_EFFECTIF_GROUPE_COURT, libelleTarifsDualCourt } from '@/lib/tarifs-sessions';
 import { MetierIdfPresentielLine } from '@/components/formation-ia-metier/MetierIdfPresentielLine';
 import { createMetierBtpPageMetadata } from '@/lib/formation-ia-metier-idf';
 
@@ -293,7 +293,7 @@ export default function FormationIAArtisansBTPPage() {
             des prompts prêts à l&apos;emploi. Financement possible selon éligibilité.
           </p>
           <p className="mt-3 text-sm text-blue-100">
-            Forfait unique {libelleTarifSessionForfaitaire(TARIF_SESSION_DEBUTANT_HT)} · Sessions de 4h · {LIBELLE_EFFECTIF_GROUPE_COURT}
+            {libelleTarifsDualCourt(4)} · Sessions de 4h · {LIBELLE_EFFECTIF_GROUPE_COURT}
           </p>
           <ul className="mt-6 space-y-2">
             {[

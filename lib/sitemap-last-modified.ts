@@ -115,6 +115,7 @@ const ROUTE_SOURCE_FILES: Record<string, readonly string[]> = {
   '/': ['app/page.tsx'],
   '/formations': ['app/formations/page.tsx', 'src/data/formations.ts'],
   '/a-propos': ['app/a-propos/page.tsx'],
+  '/avis-clients': ['app/avis-clients/page.tsx', 'data/googleReviews.ts'],
   '/contact': ['app/contact/page.tsx'],
   '/financement-constructys-formation-ia-btp': ['app/financement-constructys-formation-ia-btp/page.tsx'],
   '/llms.txt': ['public/llms.txt'],
@@ -202,6 +203,10 @@ const ROUTE_SOURCE_FILES: Record<string, readonly string[]> = {
   '/ressources/ia-btp': ['app/ressources/ia-btp/page.tsx'],
   '/ressources/ia-btp/10-cas-usage-concrets': ['app/ressources/ia-btp/10-cas-usage-concrets/page.tsx'],
   '/ressources/guide-conducteur-de-travaux': ['app/ressources/guide-conducteur-de-travaux/page.tsx'],
+  '/prompts-ia-conducteur-travaux': [
+    'app/prompts-ia-conducteur-travaux/page.tsx',
+    'lib/prompts-ia-conducteur-travaux-content.ts',
+  ],
   '/ressources/guide-maitrise-oeuvre-ia': ['app/ressources/guide-maitrise-oeuvre-ia/page.tsx'],
   '/ressources/guide-assistants-travaux-ofc': ['app/ressources/guide-assistants-travaux-ofc/page.tsx'],
   '/ressources/bibliotheque-prompts-btp-par-metier': [

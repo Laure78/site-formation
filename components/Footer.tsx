@@ -10,6 +10,7 @@ import { ReferentHandicapBlock } from '@/components/formation/ReferentHandicapBl
 import { SITE } from '@/lib/site';
 import { PROOF } from '@/lib/proof';
 import { formatNoteSatisfactionAffichageComplet } from '@/lib/data/indicateurs-resultats';
+import { FINANCEMENT_FORMULATION_COURTE } from '@/lib/financement-copy';
 import { getNavServices, type NavItem } from '@/lib/nav';
 
 const PHONE_ARIA_LABEL = `Appeler ${SITE.name} au ${SITE.phoneDisplay}`;
@@ -76,7 +77,7 @@ export function Footer() {
           <div>
             <p className="font-display text-base font-semibold text-slate-900">{copy.bannerTitle}</p>
             <p className="mt-0.5 text-sm text-slate-600">
-              Catalogue — organisme certifié <QualiopiWordmark /> — financement Constructys, sessions 4 h.
+              Catalogue — organisme certifié <QualiopiWordmark /> — {FINANCEMENT_FORMULATION_COURTE}
             </p>
             <p className="mt-1 text-xs text-slate-500">
               Satisfaction {formatNoteSatisfactionAffichageComplet()}
@@ -94,7 +95,7 @@ export function Footer() {
           </Link>
         </div>
 
-        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-7 lg:gap-6">
+        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-7 lg:gap-6">
           <div className="sm:col-span-2 lg:col-span-2">
             <div className="flex items-center gap-3">
               <img

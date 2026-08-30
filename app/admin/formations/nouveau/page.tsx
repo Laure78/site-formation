@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { createClient } from '@/lib/supabase/client';
 import { enrollUserByEmail } from '@/lib/lms-auto-enroll';
-import { TARIF_SESSION_FORFAIT_HT, libelleTarifSessionForfaitaire, MENTIONS_TVA_REGIMES_COURT } from '@/lib/tarifs-sessions';
+import { libelleTarifsDualCourt, MENTIONS_TVA_REGIMES_COURT, TARIF_INTRA_4H_HT } from '@/lib/tarifs-sessions';
 
 export default function NouvelleFormationPage() {
   const router = useRouter();
@@ -15,7 +15,7 @@ export default function NouvelleFormationPage() {
   const [objectifs, setObjectifs] = useState('');
   const [prerequis, setPrerequis] = useState('');
   const [programme, setProgramme] = useState('');
-  const [price, setPrice] = useState(String(TARIF_SESSION_FORFAIT_HT));
+  const [price, setPrice] = useState(String(TARIF_INTRA_4H_HT));
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -157,11 +157,11 @@ export default function NouvelleFormationPage() {
             step="1"
             value={price}
             onChange={(e) => setPrice(e.target.value)}
-            placeholder={String(TARIF_SESSION_FORFAIT_HT)}
+            placeholder={String(TARIF_INTRA_4H_HT)}
             className="mt-1 w-full rounded-lg border border-slate-300 px-4 py-3 focus:border-[var(--accent)] focus:outline-none focus:ring-2 focus:ring-[var(--accent)]/20"
           />
           <p className="mt-1 text-xs text-slate-500">
-            Forfait unique {libelleTarifSessionForfaitaire(TARIF_SESSION_FORFAIT_HT)} (toutes formations catalogue) —{' '}
+            {libelleTarifsDualCourt(4)} (toutes formations catalogue) —{' '}
             {MENTIONS_TVA_REGIMES_COURT}
           </p>
         </div>

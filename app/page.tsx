@@ -46,8 +46,7 @@ import { CSFE_NOM_COMPLET, CSFE_NOM_LIBRE } from '@/lib/csfe';
 import { LINKS } from '@/lib/internal-links';
 import { LOGO_LINKEDIN_LEARNING } from '@/lib/client-logos';
 import {
-  libelleTarifSessionForfaitaire,
-  TARIF_SESSION_FORFAIT_HT,
+  libelleTarifsCarteCatalogue,
   SESSION_DUREE_LIBELLE,
 } from '@/lib/tarifs-sessions';
 import { getPublishedFormations } from '@/lib/formation-catalogue-visibility';
@@ -599,7 +598,7 @@ export default function HomePage() {
             relation client — en{' '}
             <strong className="font-semibold text-slate-800">sessions de {SESSION_DUREE_LIBELLE}</strong>
             {' '}
-            (forfait unique {libelleTarifSessionForfaitaire(TARIF_SESSION_FORFAIT_HT)} — effectifs selon fiche). Téléchargez les{' '}
+            (intra {libelleTarifsCarteCatalogue(4).intra} ; inter {libelleTarifsCarteCatalogue(4).inter} — effectifs selon fiche). Téléchargez les{' '}
             <strong className="font-semibold text-slate-800">programmes PDF</strong> depuis chaque fiche ou ci-dessous
             sur la page catalogue.
           </p>

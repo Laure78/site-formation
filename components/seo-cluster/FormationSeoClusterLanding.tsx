@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import type { ReactNode } from 'react';
 import { Check } from 'lucide-react';
 import { CalendlyEmbed } from '@/components/CalendlyEmbed';
 import { FAQAnswer } from '@/components/landing/FAQAnswer';
@@ -102,7 +103,23 @@ function CtaVisioBlock({
   );
 }
 
-export function FormationSeoClusterLanding({ config }: { config: SeoClusterPageConfig }) {
+export function FormationSeoClusterLanding({
+  config,
+  suppressJsonLd = false,
+  afterUseCases,
+  sommaireAfterUseCases,
+  afterH1,
+}: {
+  config: SeoClusterPageConfig;
+  /** true — JSON-LD émis par la page parente (@graph unique). */
+  suppressJsonLd?: boolean;
+  /** Contenu inséré juste après la section cas d'usage (#cas-usage). */
+  afterUseCases?: ReactNode;
+  /** Entrées de sommaire ajoutées après le titre cas d'usage. */
+  sommaireAfterUseCases?: readonly { href: string; label: string }[];
+  /** Contenu inséré juste sous le H1 (ex. barre de preuve). */
+  afterH1?: ReactNode;
+}) {
   const faqSchema = getFAQSchema([...config.faq]);
   const courseJsonLd = buildCourseJsonLd(config);
   const breadcrumbJsonLd = getBreadcrumbSchema([
@@ -113,9 +130,13 @@ export function FormationSeoClusterLanding({ config }: { config: SeoClusterPageC
 
   const sommaire = [
     { href: '#introduction', label: 'Introduction' },
-    { href: '#cas-usage', label: config.useCasesTitle }, ...(config.publicTargets?.length ? [{ href: '#public', label: 'Public concerné' }] : []), ...(config.specialSection
+    { href: '#cas-usage', label: config.useCasesTitle },
+    ...(sommaireAfterUseCases ?? []),
+    ...(config.publicTargets?.length ? [{ href: '#public', label: 'Public concerné' }] : []),
+    ...(config.specialSection
       ? [{ href: `#${config.specialSection.id}`, label: config.specialSection.title }]
-      : []), ...(config.methodology ? [{ href: '#methodologie', label: config.methodology.title }] : []),
+      : []),
+    ...(config.methodology ? [{ href: '#methodologie', label: config.methodology.title }] : []),
     { href: '#faq', label: 'Questions fréquentes' },
     { href: '#a-propos', label: 'Laure Olivié — formatrice' },
     { href: '#rdv', label: 'Prendre rendez-vous' },
@@ -123,10 +144,14 @@ export function FormationSeoClusterLanding({ config }: { config: SeoClusterPageC
 
   return (
     <div className="mx-auto max-w-4xl px-4 py-10 text-slate-800 md:py-14">
-      <JsonLd id={`jsonld-course-${config.campaignSlug}`} schema={courseJsonLd} />
-      {faqSchema ? <JsonLd id={`jsonld-faq-${config.campaignSlug}`} schema={faqSchema} /> : null}
-      {breadcrumbJsonLd ? (
-        <JsonLd id={`jsonld-breadcrumb-${config.campaignSlug}`} schema={breadcrumbJsonLd} />
+      {!suppressJsonLd ? (
+        <>
+          <JsonLd id={`jsonld-course-${config.campaignSlug}`} schema={courseJsonLd} />
+          {faqSchema ? <JsonLd id={`jsonld-faq-${config.campaignSlug}`} schema={faqSchema} /> : null}
+          {breadcrumbJsonLd ? (
+            <JsonLd id={`jsonld-breadcrumb-${config.campaignSlug}`} schema={breadcrumbJsonLd} />
+          ) : null}
+        </>
       ) : null}
 
       <article>
@@ -137,6 +162,7 @@ export function FormationSeoClusterLanding({ config }: { config: SeoClusterPageC
           <h1 className="font-display mt-4 text-3xl font-bold tracking-tight text-slate-900 md:text-4xl lg:text-[2.35rem] lg:leading-tight">
             {config.h1}
           </h1>
+          {afterH1}
           <p className="mt-4 text-lg text-slate-600">{config.subtitle}</p>
 
           <div className="mt-8">
@@ -212,6 +238,8 @@ export function FormationSeoClusterLanding({ config }: { config: SeoClusterPageC
             ))}
           </ul>
         </section>
+
+        {afterUseCases}
 
         {config.publicTargets?.length ? (
           <section id="public" className="scroll-mt-24 mt-14">

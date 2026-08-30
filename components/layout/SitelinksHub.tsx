@@ -42,7 +42,7 @@ export function SitelinksHub() {
         <p className="mb-6 text-center text-sm text-slate-600 md:text-base">
           Pages les plus consultées — catalogue, financement, métiers et prise de contact.
         </p>
-        <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6">
+        <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-6">
           {items.map(({ href, title, line, Icon }) => (
             <Link
               key={href}

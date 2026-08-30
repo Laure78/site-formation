@@ -37,6 +37,10 @@ import { buildCatalogueCourseMaitriserClaudeNiv04JsonLd } from '@/lib/schema-cat
 import { getStatsFreshnessLabel } from '@/lib/constants';
 import { formatNoteSatisfactionSur5 , formatNoteSatisfactionAffichageComplet } from '@/lib/data/indicateurs-resultats'
 import { IndicateursResultatsLink } from '@/components/formation/IndicateursResultatsLink';
+import { FormationCatalogueGeoSections } from '@/components/formations/FormationCatalogueGeoSections';
+import { getFormationCatalogueSeo } from '@/lib/formation-catalogue-seo';
+
+const CATALOGUE_SEO = getFormationCatalogueSeo('NIV-04');
 
 const FORMATION = getFormationByCode('NIV-04')!;
 const PATH = LINKS.formationMaitriserClaudeAiBtp;
@@ -46,14 +50,13 @@ const DUREE_LIBELLE = libelleDureeFormation(FORMATION);
 const EFFECTIF_LIBELLE = libelleEffectifMaxFormation(FORMATION);
 const PRIX_LIBELLE = libellePrixSessionHt(FORMATION);
 
-const PAGE_META_DESCRIPTION =
-  `Formation avancée Claude pour le BTP (${DUREE_LIBELLE}). Projets, Skills, Cowork, connecteurs, Claude Code. ${PRIX_LIBELLE}. Qualiopi.`;
+const PAGE_META_DESCRIPTION = CATALOGUE_SEO.metaDescription;
 
 const CATALOGUE_VISUEL = getFormationCatalogueVisuel('NIV-04');
 
 export const metadata = createPageMetadata({
-  title: 'Maîtriser Claude AI BTP — 4 h · organisme certifié Qualiopi',
-  titleAbsolute: 'Maîtriser Claude AI BTP — 4 h · organisme certifié Qualiopi',
+  title: CATALOGUE_SEO.metaTitle,
+  titleAbsolute: `${CATALOGUE_SEO.metaTitle} | Laure Olivié`,
   description: PAGE_META_DESCRIPTION,
   path: PATH,
   keywords: [
@@ -169,8 +172,8 @@ export default function FormationMaitriserClaudeAiBtpPage() {
         catalogueRef="NIV-04"
         programmePdfAfterHero={false}
         refLine={`Intra · inter · présentiel en Île-de-France · ${DUREE_LIBELLE} · ${FORMATION.niveauLabel}`}
-        title={FORMATION.titre}
-        subtitle={FORMATION.accroche}
+        title={CATALOGUE_SEO.h1}
+        subtitle={CATALOGUE_SEO.subtitle}
         badges={['Projets & Skills', 'Cowork · Connecteurs', 'Organisme Qualiopi']}
         summaryItems={HERO_RESUME}
         ctas={
@@ -226,6 +229,14 @@ export default function FormationMaitriserClaudeAiBtpPage() {
           . {MODALITE_FORMATIONS_PRESENTIEL}
         </p>
       </FormationCourseHero>
+
+      <FormationCatalogueGeoSections
+        catalogueRef="NIV-04"
+        ressourcesGratuites={[
+          { href: LINKS.claudeAiBtp, label: 'Guide Claude AI pour le BTP' },
+          { href: LINKS.formationClaudeBtp, label: 'Formation Claude pour le bâtiment' },
+        ]}
+      />
 
       <section id="programme" className="scroll-mt-24 border-b border-slate-200 bg-white px-4 py-16">
         <div className="mx-auto max-w-4xl">

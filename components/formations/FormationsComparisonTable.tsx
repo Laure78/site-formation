@@ -24,17 +24,17 @@ export function FormationsComparisonTable({
       <div className="text-center">
         <h2
           id="comparatif-formations-heading"
-          className="font-display text-[32px] font-bold text-[#0F172A]"
+          className="font-display text-2xl font-bold text-[#0F172A] sm:text-[32px]"
         >
           Comparez les {count} formations IA pour le BTP d&apos;un coup d&apos;œil
         </h2>
-        <p className="mt-3 text-lg text-[#64748B]">
+        <p className="mt-3 text-base text-[#64748B] sm:text-lg">
           Toutes — organisme certifié Qualiopi, toutes {SESSION_DUREE_LIBELLE}, intra-entreprise, dans vos locaux,
           exclusivement en présentiel en Île-de-France. Financement partiel possible selon éligibilité.
         </p>
       </div>
 
-      <div className="mt-10 hidden overflow-hidden rounded-2xl border border-[#E2E8F0] md:block">
+      <div className="mt-10 hidden overflow-x-auto rounded-2xl border border-[#E2E8F0] md:block">
         <table className="w-full min-w-[720px] border-collapse text-left text-sm">
           <thead>
             <tr className="bg-[#377CF3] text-white">
@@ -88,7 +88,7 @@ export function FormationsComparisonTable({
                 <td className="px-[18px] py-3 align-top">
                   <CataloguePriceBadge
                 level={row.level}
-                prixHT={row.prixHT}
+                duree={row.duree}
                 variant="pill"
               />
                 </td>
@@ -109,7 +109,7 @@ export function FormationsComparisonTable({
               <span className="inline-block rounded-md bg-[#EFF6FF] px-2 py-0.5 text-xs font-bold text-[#1E40AF]">
                 {catalogueNiveauLabel(row.ref)}
               </span>
-              <CataloguePriceBadge level={row.level} prixHT={row.prixHT} variant="pill" />
+              <CataloguePriceBadge level={row.level} duree={row.duree} variant="pill" />
             </div>
             <h3 className="mt-3 font-display text-base font-semibold text-[#0F172A]">
               <Link href={row.href} className="hover:text-[#377CF3] hover:underline">

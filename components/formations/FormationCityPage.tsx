@@ -19,9 +19,8 @@ import {
 } from '@/components/formations/FormationCourseHero';
 import {
   SESSION_DUREE_LIBELLE,
-  TARIF_SESSION_FORFAIT_HT,
-  MODALITE_FORMATIONS_STANDARD,
-  formatTarifHt,
+  MODALITE_FORMATIONS_PRESENTIEL,
+  libelleTarifsDualCourt,
 } from '@/lib/tarifs-sessions';
 import { JsonLd } from '@/components/JsonLd';
 import { StatCallout } from '@/components/readability/StatCallout';
@@ -54,8 +53,8 @@ export function FormationCityPage({
   const mailRappelVille = `mailto:${SITE_CONFIG.email}?subject=${encodeURIComponent(`Être rappelé — formation IA appliquée au bâtiment ${ville}`)}`;
   const summaryVille = [
     `IA BTP à ${ville} — devis, emails, appels d'offres, admin.`,
-    `Session ${SESSION_DUREE_LIBELLE} · forfait unique ${formatTarifHt(TARIF_SESSION_FORFAIT_HT)} € HT · organisme certifié Qualiopi.`,
-    `Présentiel ${regionLabel} — intra-entreprise, dans vos locaux selon convention.`,
+    `Session ${SESSION_DUREE_LIBELLE} · ${libelleTarifsDualCourt(4)} · organisme certifié Qualiopi.`,
+    `Présentiel ${regionLabel} — intra-entreprise et interentreprises selon calendrier.`,
     'Financement Constructys selon éligibilité.',
   ];
   const voirAussiDept =
@@ -215,7 +214,7 @@ export function FormationCityPage({
             Zones d&apos;intervention autour de {ville}
           </h2>
           <p className="mt-3 max-w-2xl text-slate-600">
-            Formations disponibles à {ville} et dans les villes voisines. {MODALITE_FORMATIONS_STANDARD}
+            Formations disponibles à {ville} et dans les villes voisines. {MODALITE_FORMATIONS_PRESENTIEL}
           </p>
           <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {zones.map((zone) => (

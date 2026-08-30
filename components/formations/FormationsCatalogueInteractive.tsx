@@ -25,7 +25,7 @@ import { CataloguePriceBadge } from '@/components/formations/CataloguePriceBadge
 import { FormationCatalogueTitle } from '@/components/formations/FormationCatalogueTitle';
 import { MentionTvaAsterisque } from '@/components/MentionTVA';
 import { calendlyCatalogueUrl } from '@/lib/calendly';
-import { TARIF_SESSION_FORFAIT_HT, libelleTarifSessionForfaitaire } from '@/lib/tarifs-sessions';
+import { libelleTarifsCarteCatalogue } from '@/lib/tarifs-sessions';
 import { OFC_CARD, OFC_CTA_PRIMARY } from '@/lib/ofc-interaction-classes';
 
 type ProfileId = 'debutant' | 'ao' | 'conduite' | 'claude' | 'moe';
@@ -103,7 +103,7 @@ function FormationCard({
           </span>
           <CataloguePriceBadge
             level={cours.level}
-            prixHT={cours.prixHT}
+            duree={cours.duree}
             variant="overlay"
           />
         </div>
@@ -118,7 +118,7 @@ function FormationCard({
         <p className="mt-2 text-base italic leading-snug text-[#475569]">{cours.pitch}</p>
         <CataloguePriceBadge
           level={cours.level}
-          prixHT={cours.prixHT}
+          duree={cours.duree}
           variant="banner"
           className="mt-4"
         />
@@ -248,7 +248,7 @@ export function FormationsCatalogueInteractive({
             vous correspond.
           </p>
         </div>
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5">
           {profiles.map((p) => {
             const Icon = p.icon;
             const isActive = activeProfile === p.id;
@@ -281,10 +281,21 @@ export function FormationsCatalogueInteractive({
             Catalogue : {catalogueCount} formations
           </h2>
           <div className="flex flex-wrap items-center justify-center gap-3">
-            <span className="inline-flex rounded-full bg-[#D1FAE5] px-4 py-2 text-[13px] font-bold uppercase tracking-widest text-[#047857]">
-              Forfait {libelleTarifSessionForfaitaire(TARIF_SESSION_FORFAIT_HT)}
-              <MentionTvaAsterisque />
-            </span>
+            {(() => {
+              const tarifs = libelleTarifsCarteCatalogue(4);
+              return (
+                <>
+                  <span className="inline-flex rounded-full bg-[#EFF6FF] px-4 py-2 text-[13px] font-bold uppercase tracking-widest text-[#1E40AF]">
+                    Intra : {tarifs.intra}
+                    <MentionTvaAsterisque />
+                  </span>
+                  <span className="inline-flex rounded-full bg-[#D1FAE5] px-4 py-2 text-[13px] font-bold uppercase tracking-widest text-[#047857]">
+                    Inter : {tarifs.inter}
+                    <MentionTvaAsterisque />
+                  </span>
+                </>
+              );
+            })()}
           </div>
         </div>
         <FormationsCatalogueCards

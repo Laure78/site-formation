@@ -123,7 +123,7 @@ export function StickyBlogMetierRdvBar() {
             utmSource="blog"
             utmMedium="sticky"
             campaign="blog-metier"
-            className="h-10 max-w-full flex-1 rounded-xl px-8 text-base font-bold sm:flex-none sm:px-5 sm:text-sm"
+          className="h-10 max-w-full min-w-0 flex-1 rounded-xl px-4 text-sm font-bold sm:flex-none sm:px-5"
           />
         </div>
         <button

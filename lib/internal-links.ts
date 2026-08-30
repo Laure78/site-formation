@@ -40,6 +40,8 @@ export const LINKS = {
   /** Article — sécurité données ChatGPT en entreprise BTP (RGPD, Enterprise) */
   blogSecuriteDonneesChatgptBtp: '/blog/securite-donnees-chatgpt-btp',
   aPropos: '/a-propos',
+  /** Page preuve sociale — avis Google des clients BTP formés */
+  avisClients: '/avis-clients',
   partenaires: '/partenaires',
   contact: '/contact',
   financement: '/financement-constructys-formation-ia-btp',
@@ -230,6 +232,8 @@ export const LINKS = {
   guideConducteurTravauxIaBtp: '/ressources/guide-conducteur-de-travaux',
   /** PDF gratuit — Guide conducteur de travaux OFC (6 tutos Claude, ~52 p.) */
   pdfPackConducteurTravauxOfc: '/ressources/pdf/pack-conducteur-de-travaux-ofc.pdf',
+  /** 20 prompts IA copiables — conducteur de travaux */
+  promptsIaConducteurTravaux: '/prompts-ia-conducteur-travaux',
   /** Lead magnet — Guide Maître d'Œuvre × IA (12 missions MOE) */
   guideMaitriseOeuvreIa: '/ressources/guide-maitrise-oeuvre-ia',
   /** PDF gratuit — Guide MOE × IA OFC */

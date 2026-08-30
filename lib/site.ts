@@ -6,7 +6,6 @@
 import { CONTACT } from '@/lib/constants';
 import { CATALOGUE_NIV_RANGE } from '@/data/formations';
 import { getCatalogueFormationsCount } from '@/lib/formations-catalogue-display';
-import { TEACHIZY_PATHS } from '@/lib/external-site-urls';
 import { getHeaderNav } from '@/lib/header-nav';
 import { LINKS } from '@/lib/internal-links';
 import {
@@ -56,9 +55,11 @@ export const SITE = {
   cta: {
     href: LINKS.prendreRdv,
     label: 'Réservez votre visio découverte gratuite',
+    /** Libellé court — header / bandeaux étroits (mobile). */
+    labelCompact: 'Réserver une visio',
   },
   platform: {
-    loginHref: TEACHIZY_PATHS.login,
+    loginHref: LINKS.authConnexion,
     connexionLabel: 'Connexion',
     connexionNavMobileLabel: 'Connexion plateforme',
     title: "Connexion à la plateforme de formation IA BTP — OFC Création d'Entreprise",

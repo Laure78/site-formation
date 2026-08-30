@@ -41,11 +41,11 @@ export default function CGVPage() {
           </div>
           <div className="mt-4 flex flex-wrap justify-center gap-x-6 text-sm">
             <a
-              href="mailto:laureolivie@yahoo.fr"
+              href="mailto:contact@laureolivie.fr"
               className="inline-flex items-center gap-2 text-[var(--accent)] hover:underline"
             >
               <Mail size={16} strokeWidth={1.5} />
-              laureolivie@yahoo.fr
+              contact@laureolivie.fr
             </a>
           </div>
         </div>
@@ -121,7 +121,7 @@ export default function CGVPage() {
           </h3>
           <p className="mt-2">
             Via la page contact de www.laureolivie.fr (coordonnées et prise de rendez-vous Calendly) ; par email à
-            laureolivie@yahoo.fr ; par voie postale. Demande d&apos;inscription → proposition commerciale → convention
+            contact@laureolivie.fr ; par voie postale. Demande d&apos;inscription → proposition commerciale → convention
             de formation signée avant l&apos;entrée en formation → convocation.
           </p>
           <p className="mt-2">
@@ -315,7 +315,7 @@ export default function CGVPage() {
           <p className="mt-4">
             Traitement pour gestion administrative, documents obligatoires,
             déclarations financeurs. Droits RGPD : accès, rectification,
-            opposition, limitation, portabilité. Contact : laureolivie@yahoo.fr.
+            opposition, limitation, portabilité. Contact : contact@laureolivie.fr.
             Voir Politique de confidentialité sur www.laureolivie.fr.
           </p>
         </section>
@@ -349,7 +349,7 @@ export default function CGVPage() {
           </h2>
           <p className="mt-4">
             Réclamations : toute réclamation relative à une prestation de formation peut être adressée par email à
-            laureolivie@yahoo.fr (objet : Réclamation) ou par courrier à OFC Création d&apos;Entreprise, 6 rue Henri
+            contact@laureolivie.fr (objet : Réclamation) ou par courrier à OFC Création d&apos;Entreprise, 6 rue Henri
             Dunant, 78280 Guyancourt. Un accusé de réception vous est envoyé sous {QUALIOPI_RECLAMATIONS.delaiAccuseReception}{' '}
             et une réponse vous est apportée sous {QUALIOPI_RECLAMATIONS.delaiReponse}. Chaque réclamation est enregistrée
             et analysée dans le cadre de notre démarche d&apos;amélioration continue Qualiopi.
@@ -376,7 +376,7 @@ export default function CGVPage() {
             ARTICLE 17 — RÉFÉRENT HANDICAP
           </h2>
           <p className="mt-4">
-            Référent : Laure OLIVIÉ — laureolivie@yahoo.fr.
+            Référent : Laure OLIVIÉ — contact@laureolivie.fr.
             Contact au moins 15 jours avant le début pour adaptation. Annuaire
             partenaires handicap disponible sur demande.
           </p>
@@ -406,10 +406,10 @@ export default function CGVPage() {
           <p>SIRET : 905 244 281 00010 | NDA : 11788515078</p>
           <p>
             <a
-              href="mailto:laureolivie@yahoo.fr"
+              href="mailto:contact@laureolivie.fr"
               className="text-[var(--accent)] hover:underline"
             >
-              laureolivie@yahoo.fr
+              contact@laureolivie.fr
             </a>
           </p>
           <p>

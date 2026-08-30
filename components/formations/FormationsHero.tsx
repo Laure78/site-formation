@@ -8,7 +8,8 @@ import { MentionTvaAsterisque } from '@/components/MentionTVA';
 import { LINKS } from '@/lib/internal-links';
 import { getCatalogueFormationsCount } from '@/lib/formations-catalogue-display';
 import { isFormationCataloguePublished } from '@/lib/formation-catalogue-visibility';
-import { PERIMETRE_FORMATIONS_COURT, TARIF_SESSION_FORFAIT_HT, SESSION_DUREE_LIBELLE, libelleTarifSessionForfaitaire } from '@/lib/tarifs-sessions';
+import { FINANCEMENT_FORMULATION_COURTE } from '@/lib/financement-copy';
+import { PERIMETRE_FORMATIONS_COURT, SESSION_DUREE_LIBELLE, libelleTarifsCarteCatalogue } from '@/lib/tarifs-sessions';
 import { formatNoteSatisfactionSur5 } from '@/lib/data/indicateurs-resultats';
 import { PHOTOS } from '@/lib/photos';
 
@@ -31,9 +32,9 @@ export function FormationsHero({ catalogueCount = getCatalogueFormationsCount() 
       description={
         <>
           Sessions en présentiel — organisme certifié Qualiopi — {SESSION_DUREE_LIBELLE} · {PERIMETRE_FORMATIONS_COURT}. Devis, appels
-          d&apos;offres{includeConduite ? ', conduite de travaux' : ''} avec Claude AI et ChatGPT : forfait unique{' '}
-          {libelleTarifSessionForfaitaire(TARIF_SESSION_FORFAIT_HT)}
-          <MentionTvaAsterisque /> — financement partiel possible selon éligibilité (Constructys).
+          d&apos;offres{includeConduite ? ', conduite de travaux' : ''} avec Claude AI et ChatGPT : intra{' '}
+          {libelleTarifsCarteCatalogue(4).intra} ; inter {libelleTarifsCarteCatalogue(4).inter}
+          <MentionTvaAsterisque /> — {FINANCEMENT_FORMULATION_COURTE}.
         </>
       }
       stats={[

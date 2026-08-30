@@ -5,9 +5,20 @@
 export const indicateursResultats = {
   noteSatisfaction: 4.45,
   nombreRepondants: 20,
+  volumeProsFormesBtp: 1592,
   periodeReference: 'juillet 2025 – juin 2026',
   dateMiseAJour: '2026-08-23',
 } as const;
+
+/** Volume cumulé formé — affichage FR avec espace milliers (ex. « 1 592 »). */
+export function formatVolumeProsFormesBtp(): string {
+  return indicateursResultats.volumeProsFormesBtp.toLocaleString('fr-FR');
+}
+
+/** Libellé complet volume formé (ex. « 1 592 professionnels du BTP formés »). */
+export function formatVolumeProsFormesBtpLibelle(): string {
+  return `${formatVolumeProsFormesBtp()} professionnels du BTP formés`;
+}
 
 /** Note sur 5 avec virgule décimale (ex. « 4,45/5 »). */
 export function formatNoteSatisfactionSur5(): string {

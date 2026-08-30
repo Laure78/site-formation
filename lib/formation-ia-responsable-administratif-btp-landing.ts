@@ -186,7 +186,7 @@ export const RAF_BTP_FAQ = [
   },
   {
     q: 'Combien dure la session catalogue ?',
-    a: '4 heures en présentiel (forfait session catalogue). Le contenu est condensé sur des cas admin BTP concrets — pas un parcours e-learning de plusieurs jours.',
+    a: '4 heures en présentiel. Tarifs catalogue : intra 1 200 € HT par session · inter dès 300 € HT par participant. Le contenu est condensé sur des cas admin BTP concrets — pas un parcours e-learning de plusieurs jours.',
   },
   {
     q: 'La formation est-elle finançable Constructys ?',

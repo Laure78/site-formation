@@ -85,6 +85,7 @@ const STATIC_PAGE_TITLES: Record<string, string> = {
   '/accessibilite-handicap': 'Accessibilité & handicap',
   '/annuaire-handicap': 'Annuaire handicap',
   '/indicateurs-resultats': 'Indicateurs de résultats',
+  '/avis-clients': 'Avis clients',
 };
 
 function buildGeoBtpDeptLabels(): Record<string, string> {

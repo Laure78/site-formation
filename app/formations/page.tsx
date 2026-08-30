@@ -21,6 +21,8 @@ import { FormationsPartnersStrip } from '@/components/formations/FormationsPartn
 import { FormationsFaqSection } from '@/components/formations/FormationsFaqSection';
 import { RelatedLinks } from '@/components/RelatedLinks';
 import { getClusterRelatedHrefs } from '@/lib/maillage-clusters';
+import { FormationsTarifsGrilleSection } from '@/components/formations/FormationsTarifsGrilleSection';
+import { FormationsHubNavigationSection } from '@/components/formations/FormationsHubNavigationSection';
 import { getEncartTarifsCommerciaux } from '@/lib/tarifs-sessions';
 import { GAINS_TEMPS_MENTION_PRUDENCE } from '@/lib/gains-temps-copy';
 import { FINANCEMENT_FORMULATION_COURTE } from '@/lib/financement-copy';
@@ -94,9 +96,13 @@ export default function FormationsPage() {
       <FormationsHero catalogueCount={catalogueCount} />
 
       <div className="mx-auto max-w-6xl px-4 pb-20 pt-4 md:pt-5">
+        <FormationsHubNavigationSection />
+
         <div className="mt-4 md:mt-5">
           <FormationsCatalogueInteractive formations={catalogueFormations} catalogueCount={catalogueCount} />
         </div>
+
+        <FormationsTarifsGrilleSection />
 
         <section className="mt-8 rounded-2xl border border-[#E2E8F0] bg-[#F8FAFC] p-5 md:p-6">
           <p className="max-w-5xl text-sm leading-relaxed text-[#334155] md:text-base">

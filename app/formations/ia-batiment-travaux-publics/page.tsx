@@ -37,13 +37,11 @@ import {
 import { FormationCatalogueIndicateur1Suite } from '@/components/formations/FormationCatalogueIndicateur1Suite';
 import {
   SESSION_DUREE_LIBELLE,
-  TARIF_FORFAIT_DEBUTANT_HT,
   MODALITE_FORMATIONS_PRESENTIEL,
   LIBELLE_EFFECTIF_GROUPE,
   LIBELLE_EFFECTIF_GROUPE_COURT,
-
-  formatTarifHt,
-  libelleTarifSessionForfaitaire,
+  libelleTarifsDualCourt,
+  libelleTarifsCarteCatalogue,
 } from '@/lib/tarifs-sessions';
 import { GAINS_TEMPS_MENTION_PRUDENCE } from '@/lib/gains-temps-copy';
 import { getFormationCatalogueVisuel } from '@/lib/formations-catalogue-display';
@@ -54,14 +52,16 @@ import { getClusterRelatedHrefs } from '@/lib/maillage-clusters';
 import { FORMATION_NIV01_RELATED } from '@/lib/contextual-internal-links';
 import { buildCatalogueCourseIaBtpNiv01JsonLd } from '@/lib/schema-catalogue-course-jsonld';
 import { getStatsFreshnessLabel, siteStats } from '@/lib/constants';
+import { FormationCatalogueGeoSections } from '@/components/formations/FormationCatalogueGeoSections';
+import { getFormationCatalogueSeo } from '@/lib/formation-catalogue-seo';
 
-/** Title ≤ 60 car. — catalogue niveau 1 bâtiment & TP */
-const SEO_TITLE =
-  'Formation IA bâtiment & travaux publics (niveau 1)';
+const CATALOGUE_SEO = getFormationCatalogueSeo('NIV-01');
 
-/** Meta description — formation IA pour les pros du BTP (150–160 car., finale). */
-const SEO_DESCRIPTION =
-  "L'IA au service du bâtiment & TP : devis, emails et CR chantier en 4 h, présentiel IDF. Qualiopi, Constructys selon éligibilité. Programme PDF et RDV.";
+/** Title ≤ 65 car. — catalogue niveau 1 bâtiment & TP */
+const SEO_TITLE = CATALOGUE_SEO.metaTitle;
+
+/** Meta description — formation IA pour les pros du BTP (≤ 160 car.). */
+const SEO_DESCRIPTION = CATALOGUE_SEO.metaDescription;
 
 const MAIL_PROGRAMME =
   `mailto:${SITE_CONFIG.email}?subject=${encodeURIComponent('Demande de programme — formation IA niveau 1 bâtiment & TP')}`;
@@ -103,11 +103,12 @@ export const metadata = createPageMetadata({
 const faqSchema = getFAQSchema(FAQ_BATIMENT);
 const courseSchema = buildCatalogueCourseIaBtpNiv01JsonLd();
 
-const TARIF_SESSION_LIBELLE = libelleTarifSessionForfaitaire(TARIF_FORFAIT_DEBUTANT_HT);
+const TARIFS_CATALOGUE = libelleTarifsCarteCatalogue(4);
+const TARIFS_DUAL = libelleTarifsDualCourt(4);
 
 const POINTS_MARQUANTS = [
   'Parcours catalogue niveau 1 : fondamentaux ChatGPT et IA générative, devis, documents réglementaires et communication digitale.',
-  `Session unique ${SESSION_DUREE_LIBELLE} — forfait ${TARIF_SESSION_LIBELLE} (niveau débutant).`,
+  `Session ${SESSION_DUREE_LIBELLE} — ${TARIFS_DUAL} (niveau débutant).`,
   `${LIBELLE_EFFECTIF_GROUPE} — 70 % pratique.`,
   'Qualiopi — financement OPCO (Constructys, OPCO 2i, Akto…) selon éligibilité.',
 ];
@@ -145,7 +146,7 @@ const MODALITES = [
     icon: Clock,
     title: 'Durée',
     primary: SESSION_DUREE_LIBELLE,
-    secondary: `Forfait ${TARIF_SESSION_LIBELLE} (niveau débutant)`,
+    secondary: TARIFS_DUAL,
   },
   {
     icon: MapPin,
@@ -157,7 +158,7 @@ const MODALITES = [
     icon: UserCircle,
     title: 'Effectif',
     primary: LIBELLE_EFFECTIF_GROUPE_COURT,
-    secondary: 'Par session forfaitaire',
+    secondary: 'Forfait intra par session · tarif inter par participant',
   },
   {
     icon: Users,
@@ -182,7 +183,7 @@ const MODALITES = [
   {
     icon: DollarSign,
     title: 'Tarif & financement',
-    primary: `${TARIF_SESSION_LIBELLE} (débutant)`,
+    primary: TARIFS_DUAL,
     secondary: 'Financement OPCO selon éligibilité — Constructys, OPCO 2i, Akto',
   },
 ];
@@ -267,9 +268,9 @@ export default function FormationIAuServiceDuBatimentPage() {
       <FormationCourseHero
         catalogueRef="NIV-01"
         programmePdfAfterHero={false}
-        refLine="Niveau 1 · Débutant"
-        title="L'IA au service des professionnels du BTP"
-        subtitle="Niveau 1 — fondamentaux ChatGPT et IA générative pour artisans, PME et fonctions support du bâtiment"
+        refLine="Niveau 1 · Débutant · 4 h"
+        title={CATALOGUE_SEO.h1}
+        subtitle={CATALOGUE_SEO.subtitle}
         badges={[
           'OPCO / plan de développement des compétences',
           'Accessible débutant',
@@ -322,10 +323,18 @@ export default function FormationIAuServiceDuBatimentPage() {
           quotidien : <strong>devis, emails, comptes rendus de chantier, documents réglementaires (DOE, PV) et communication digitale</strong>, avec des trames et prompts
           prêts à l&apos;emploi. Approche accessible, <strong>aucun jargon inutile</strong> — des cas réels
           issus du terrain BTP.{' '}
-          <strong>Forfait {TARIF_SESSION_LIBELLE}</strong> (niveau débutant).
+          {TARIFS_DUAL} (niveau débutant).
           Financement possible via votre <strong>OPCO</strong> (Constructys, OPCO 2i, Akto…) selon éligibilité (organisme certifié Qualiopi).
         </p>
       </FormationCourseHero>
+
+      <FormationCatalogueGeoSections
+        catalogueRef="NIV-01"
+        ressourcesGratuites={[
+          { href: LINKS.checklist, label: 'Checklist prompts IA BTP — ressource gratuite' },
+          { href: LINKS.iaDevis, label: 'Guide IA devis bâtiment' },
+        ]}
+      />
 
       {/* Programme détaillé — avant le PDF officiel (ancre #programme du hero) */}
       <section id="programme" className="scroll-mt-24 border-b border-slate-200 bg-white px-4 py-16">
@@ -578,8 +587,8 @@ export default function FormationIAuServiceDuBatimentPage() {
             OPCO Constructys possible selon éligibilité.
           </p>
           <p className="mt-4 text-slate-700 leading-relaxed">
-            En 2026, une session niveau 1 reste calibrée sur {SESSION_DUREE_LIBELLE} pour un forfait de{' '}
-            {TARIF_SESSION_LIBELLE} (niveau débutant, max {LIBELLE_EFFECTIF_GROUPE_COURT.toLowerCase()}).
+            En 2026, une session niveau 1 reste calibrée sur {SESSION_DUREE_LIBELLE} :{' '}
+            {TARIFS_DUAL} (niveau débutant, max {LIBELLE_EFFECTIF_GROUPE_COURT.toLowerCase()}).
           </p>
           <p className="mt-4 text-slate-700 leading-relaxed">
             J&apos;organise des sessions <strong>formation IA pour le BTP Paris</strong> et en{' '}
@@ -677,7 +686,7 @@ export default function FormationIAuServiceDuBatimentPage() {
         <div className="mx-auto max-w-6xl">
           <h2 className="font-display text-3xl font-bold text-slate-900">Modalités pratiques</h2>
           <p className="mt-3 max-w-2xl text-slate-600">
-            La session niveau 1 dure {SESSION_DUREE_LIBELLE}, coûte {TARIF_SESSION_LIBELLE} (
+            La session niveau 1 dure {SESSION_DUREE_LIBELLE}, coûte {TARIFS_DUAL} (
             {LIBELLE_EFFECTIF_GROUPE_COURT.toLowerCase()}, niveau débutant) et se tient en intra-entreprise, dans vos locaux en
             Île-de-France.
           </p>
@@ -839,8 +848,8 @@ export default function FormationIAuServiceDuBatimentPage() {
             Contactez-moi pour organiser cette formation dans votre entreprise du bâtiment.
           </p>
           <p className="mt-2 text-blue-100">
-            Financement OPCO selon éligibilité. Session {SESSION_DUREE_LIBELLE} — forfait{' '}
-            {TARIF_SESSION_LIBELLE} (niveau débutant).
+            Financement OPCO selon éligibilité. Session {SESSION_DUREE_LIBELLE} — {' '}
+            {TARIFS_DUAL} (niveau débutant).
           </p>
           <div className="mt-10 flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:flex-wrap sm:justify-center">
             <RdvLink

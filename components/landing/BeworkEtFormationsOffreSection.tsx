@@ -73,7 +73,7 @@ export function BeworkEtFormationsOffreSection() {
                       sizes="(max-width: 640px) 200px, 240px"
                     
                       quality={70}/>
-                    <CataloguePriceBadge level={cours.level} prixHT={cours.prixHT} variant="overlay" />
+                    <CataloguePriceBadge level={cours.level} duree={cours.duree} variant="overlay" />
                   </div>
                 </div>
                 <div className="flex flex-1 flex-col p-6">
@@ -91,7 +91,7 @@ export function BeworkEtFormationsOffreSection() {
                       versionClassName="mt-1 block text-xs font-normal leading-snug text-slate-500"
                     />
                   </h3>
-                  <CataloguePriceBadge level={cours.level} prixHT={cours.prixHT} variant="banner" className="mt-4" />
+                  <CataloguePriceBadge level={cours.level} duree={cours.duree} variant="banner" className="mt-4" />
                   <div className="mt-3 flex flex-wrap gap-4 rounded-lg bg-slate-50 px-4 py-3">
                     <span className="flex flex-wrap items-center gap-2 text-sm text-slate-600">
                       <Clock size={16} strokeWidth={1.5} aria-hidden />

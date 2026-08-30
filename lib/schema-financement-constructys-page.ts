@@ -152,7 +152,7 @@ export function getFinancementConstructysUnifiedJsonLd(): Record<string, unknown
     offers: [
       {
         '@type': 'Offer',
-        name: 'Session catalogue — forfait unique',
+        name: 'Session catalogue 4 h — intra-entreprise (forfait session)',
         price: String(TARIF_SESSION_FORFAIT_HT),
         priceCurrency: 'EUR',
         availability: 'https://schema.org/InStock',

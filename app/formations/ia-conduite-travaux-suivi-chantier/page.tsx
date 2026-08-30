@@ -27,7 +27,7 @@ import {
   LIBELLE_EFFECTIF_GROUPE_NIV03,
 
   formatTarifHt,
-  libelleTarifSessionForfaitaire,
+  libelleTarifsDualCourt,
 } from '@/lib/tarifs-sessions';
 import { PREREQUIS_NIV03 } from '@/lib/infos-pratiques-catalogue';
 import { getFormationCatalogueVisuel } from '@/lib/formations-catalogue-display';
@@ -37,6 +37,10 @@ import {
 import { buildCatalogueCourseConduiteTravauxNiv03JsonLd } from '@/lib/schema-catalogue-course-jsonld';
 import { formatNoteSatisfactionSur5 , formatNoteSatisfactionAffichageComplet } from '@/lib/data/indicateurs-resultats'
 import { getStatsFreshnessLabel, siteStats } from '@/lib/constants';
+import { FormationCatalogueGeoSections } from '@/components/formations/FormationCatalogueGeoSections';
+import { getFormationCatalogueSeo } from '@/lib/formation-catalogue-seo';
+
+const CATALOGUE_SEO = getFormationCatalogueSeo('NIV-03');
 
 const PDF_HREF = LINKS.pdfProgrammeConduiteTravauxNiv03;
 const PDF_DOWNLOAD_NAME = 'Programme_IA_Conduite_Travaux_OFC.pdf';
@@ -44,13 +48,12 @@ const PDF_DOWNLOAD_NAME = 'Programme_IA_Conduite_Travaux_OFC.pdf';
 const CLAUDE_PRO_RECOMMANDE_NIV03 =
   'Un compte Claude Pro est recommandé par participant (environ 18 € HT/mois, à souscrire par l\'entreprise si besoin) — non inclus dans le forfait.';
 
-const PAGE_META_DESCRIPTION =
-  'IA conduite de travaux & suivi chantier : CCTP, PPSPS, CR et réception en 4 h, présentiel IDF. Qualiopi, Constructys selon éligibilité. Programme PDF et RDV.';
+const PAGE_META_DESCRIPTION = CATALOGUE_SEO.metaDescription;
 
 const CATALOGUE_VISUEL = getFormationCatalogueVisuel('NIV-03');
 
 export const metadata = createPageMetadata({
-  title: 'IA conduite travaux BTP — Claude',
+  title: CATALOGUE_SEO.metaTitle,
   description: PAGE_META_DESCRIPTION,
   descriptionFinal: true,
   path: LINKS.formationConduiteTravauxSuiviChantier,
@@ -137,11 +140,11 @@ const METHODES_PEDAGOGIQUES = [
   'Moyens : un ordinateur portable par participant, un accès internet haut débit et un compte Claude (Pro recommandé). Supports de prompts et fiches méthodes remis à chaque participant.',
 ];
 
-const TARIF_SESSION_LIBELLE = libelleTarifSessionForfaitaire(TARIF_FORFAIT_AVANCE_HT);
+const TARIFS_DUAL = libelleTarifsDualCourt(4);
 
 const HERO_RESUME = [
   `Parcours catalogue : conduite de travaux & suivi chantier — bibliothèque de 20+ skills Claude.`,
-  `Session ${SESSION_DUREE_LIBELLE} — forfait ${TARIF_SESSION_LIBELLE}.`,
+  `Session ${SESSION_DUREE_LIBELLE} — ${TARIFS_DUAL}.`,
   `${LIBELLE_EFFECTIF_GROUPE_NIV03}.`,
   'Qualiopi — financement possible selon éligibilité (Constructys / OPCO).',
 ];
@@ -170,9 +173,9 @@ export default function FormationIaConduiteTravauxSuiviChantierPage() {
       <FormationCourseHero
         catalogueRef="NIV-03"
         programmePdfAfterHero={false}
-        refLine={`Intra · inter · présentiel en Île-de-France · ${SESSION_DUREE_LIBELLE} · Niveau 2`}
-        title="L'IA appliquée à la conduite de travaux"
-        subtitle="Pilotez vos chantiers avec l'IA — de l'analyse du CCTP à la réception des travaux"
+        refLine={`Intra · inter · présentiel en Île-de-France · ${SESSION_DUREE_LIBELLE} · Niveau 2 · Avancé`}
+        title={CATALOGUE_SEO.h1}
+        subtitle={CATALOGUE_SEO.subtitle}
         badges={['Skills Claude BTP', 'Suivi chantier', 'Organisme Qualiopi']}
         summaryItems={HERO_RESUME}
         ctas={
@@ -232,6 +235,14 @@ export default function FormationIaConduiteTravauxSuiviChantierPage() {
           . {CLAUDE_PRO_RECOMMANDE_NIV03}
         </p>
       </FormationCourseHero>
+
+      <FormationCatalogueGeoSections
+        catalogueRef="NIV-03"
+        ressourcesGratuites={[
+          { href: LINKS.formationIaConducteurTravauxLanding, label: 'Guide IA conducteur de travaux BTP' },
+          { href: LINKS.promptsIaConducteurTravaux, label: '20 prompts IA conducteur de travaux' },
+        ]}
+      />
 
       <section id="programme" className="scroll-mt-24 border-b border-slate-200 bg-white px-4 py-16">
         <div className="mx-auto max-w-4xl">
@@ -308,7 +319,7 @@ export default function FormationIaConduiteTravauxSuiviChantierPage() {
               <span>
                 <strong>Format :</strong> session unique <strong>{SESSION_DUREE_LIBELLE}</strong> en demi-journée
                 (9h00–13h00 ou 13h30–17h30). intra-entreprise, dans vos locaux, exclusivement en présentiel en Île-de-France. Forfait{' '}
-                <strong>{TARIF_SESSION_LIBELLE}</strong> — {LIBELLE_EFFECTIF_GROUPE_NIV03}.
+                <strong>{TARIFS_DUAL}</strong> — {LIBELLE_EFFECTIF_GROUPE_NIV03}.
               </span>
             </li>
             <li className="flex gap-2">
@@ -358,7 +369,7 @@ export default function FormationIaConduiteTravauxSuiviChantierPage() {
         <section className="mt-12 rounded-2xl border border-[var(--accent)] bg-[var(--accent-soft)] p-6">
           <h2 className="font-display text-xl font-bold text-slate-900">Livrables &amp; tarification</h2>
           <p className="mt-4 text-sm text-slate-700 leading-relaxed">
-            Le forfait est de {TARIF_SESSION_LIBELLE}, avec bibliothèque de 20+ skills Claude BTP,
+            Tarifs : {TARIFS_DUAL}, avec bibliothèque de 20+ skills Claude BTP,
             fiches méthode par module et un rendez-vous visio J+30 inclus.
           </p>
           <p className="mt-4 text-sm text-slate-700 leading-relaxed">
@@ -367,8 +378,8 @@ export default function FormationIaConduiteTravauxSuiviChantierPage() {
           </p>
           <ul className="mt-4 space-y-2 text-sm text-slate-700">
             <li>
-              <strong>Durée :</strong> {SESSION_DUREE_LIBELLE} · <strong>Forfait :</strong>{' '}
-              {TARIF_SESSION_LIBELLE} · <strong>Effectif :</strong>{' '}
+              <strong>Durée :</strong> {SESSION_DUREE_LIBELLE} · Tarifs :{' '}
+              {TARIFS_DUAL} · <strong>Effectif :</strong>{' '}
               {LIBELLE_EFFECTIF_GROUPE_NIV03} · <strong>Financement :</strong> possible selon éligibilité
               (Constructys / OPCO).
             </li>

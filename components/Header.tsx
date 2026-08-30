@@ -246,11 +246,12 @@ export function Header() {
           <div className="site-header__rdv-mobile">
             <CtaButton
               origin="header-mobile-bar"
-              className="text-sm max-[380px]:px-3 max-[380px]:py-2 max-[380px]:text-xs"
+              layout="nav"
+              className="px-3 py-2 text-xs leading-tight sm:px-4 sm:text-sm"
             />
           </div>
 
-          <div className="flex items-center gap-1 lg:hidden">
+          <div className="flex shrink-0 items-center gap-0.5 lg:hidden">
             <SiteSearchTrigger className="p-2.5" />
             <button
               type="button"

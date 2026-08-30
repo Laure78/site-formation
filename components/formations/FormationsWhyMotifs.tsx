@@ -60,7 +60,7 @@ export function FormationsWhyMotifs({
               </p>
               <CataloguePriceBadge
                 level={entry.level}
-                prixHT={entry.prixHT}
+                duree={entry.duree}
                 variant="banner"
                 className="mt-5"
               />

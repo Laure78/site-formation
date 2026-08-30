@@ -40,7 +40,7 @@ export function CTASticky() {
 
   return (
     <div
-      className="fixed bottom-0 left-0 right-0 z-[45] border-t border-white/10 bg-[#377CF3] transition-opacity duration-300"
+      className="fixed bottom-0 left-0 right-0 z-[45] border-t border-white/10 bg-[#377CF3] pb-[env(safe-area-inset-bottom,0px)] transition-opacity duration-300"
       style={{ opacity: visible ? 1 : 0 }}
       role="region"
       aria-label="Visio découverte gratuite"

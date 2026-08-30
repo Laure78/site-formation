@@ -12,7 +12,7 @@ import { PHOTOS } from '@/lib/photos';
 import { createPageMetadata, SITE_CONFIG } from '@/lib/seo';
 import { SOCIAL_PROOF, CONTACT } from '@/lib/constants';
 import {
-  libelleTarifSessionForfaitaire,
+  libelleTarifsDualCourt,
   MENTIONS_TVA_REGIMES_COURT,
   TARIF_SESSION_AVANCE_HT,
 } from '@/lib/tarifs-sessions';
@@ -33,6 +33,10 @@ import {
 } from '@/lib/financement-copy';
 import { AUTHOR_HEADSHOT_OBJECT_POSITION } from '@/lib/author-headshot';
 import { RelatedLinks } from '@/components/RelatedLinks';
+import { FormationCatalogueGeoSections } from '@/components/formations/FormationCatalogueGeoSections';
+import { getFormationCatalogueSeo } from '@/lib/formation-catalogue-seo';
+
+const CATALOGUE_SEO = getFormationCatalogueSeo('NIV-05');
 
 const FORMATION = getFormationByCode('NIV-05')!;
 const PATH = LINKS.formationIaMaitriseOeuvre;
@@ -44,15 +48,14 @@ const PHONE_TEL = CONTACT.phone;
 const DUREE_LIBELLE = libelleDureeFormation(FORMATION);
 const EFFECTIF_LIBELLE = libelleEffectifFormation(FORMATION);
 const PRIX_LIBELLE = libellePrixSessionHt(FORMATION);
-const TARIF_SESSION_LIBELLE = libelleTarifSessionForfaitaire(TARIF_SESSION_AVANCE_HT);
+const TARIFS_DUAL = libelleTarifsDualCourt(4);
 
 const CATALOGUE_VISUEL = getFormationCatalogueVisuel('NIV-05');
 
 export const metadata = createPageMetadata({
-  title: 'Formation IA maîtres d\'œuvre MOEX — organisme certifié Qualiopi',
-  titleAbsolute: 'Formation IA maîtres d\'œuvre MOEX — organisme certifié Qualiopi',
-  description:
-    `Formation IA & ChatGPT pour la maîtrise d'œuvre d'exécution : analyse DCE, comptes rendus de chantier, OS et courriers, suivi des réserves. 4h, ${FINANCEMENT_FORMULATION_COURTE} Organisme certifié Qualiopi.`,
+  title: CATALOGUE_SEO.metaTitle,
+  titleAbsolute: `${CATALOGUE_SEO.metaTitle} | Laure Olivié`,
+  description: CATALOGUE_SEO.metaDescription,
   path: PATH,
   openGraphType: 'website',
   openGraphTitle: 'Formation IA maîtres d\'œuvre MOEX — organisme certifié Qualiopi',
@@ -171,8 +174,8 @@ export default function FormationIaMaitriseOeuvrePage() {
         catalogueRef="NIV-05"
         programmePdfAfterHero={false}
         refLine={`Intra · inter · présentiel en Île-de-France · ${DUREE_LIBELLE} · ${FORMATION.niveauLabel}`}
-        title={FORMATION.titre}
-        subtitle={FORMATION.accroche}
+        title={CATALOGUE_SEO.h1}
+        subtitle={CATALOGUE_SEO.subtitle}
         badges={HERO_BADGES}
         summaryItems={HERO_RESUME}
         ctas={
@@ -214,6 +217,14 @@ export default function FormationIaMaitriseOeuvrePage() {
           ChatGPT Plus requis sur chaque poste.
         </p>
       </FormationCourseHero>
+
+      <FormationCatalogueGeoSections
+        catalogueRef="NIV-05"
+        ressourcesGratuites={[
+          { href: LINKS.formationIaConducteurTravauxLanding, label: 'Guide IA conducteur de travaux' },
+          { href: LINKS.guideRepondreAoBtpOfc2026, label: 'Guide répondre aux AO BTP — 5 étapes' },
+        ]}
+      />
 
       <section id="programme" className="scroll-mt-24 border-b border-slate-200 bg-white px-4 py-16">
         <div className="mx-auto max-w-4xl">
@@ -306,7 +317,7 @@ export default function FormationIaMaitriseOeuvrePage() {
               / 30&nbsp;% théorie.
             </li>
             <li>
-              <strong>Tarif :</strong> {TARIF_SESSION_LIBELLE}. {MENTIONS_TVA_REGIMES_COURT}
+              <strong>Tarif :</strong> {TARIFS_DUAL}. {MENTIONS_TVA_REGIMES_COURT}
             </li>
             <li>
               <strong>Financement :</strong> {FINANCEMENT_FORMULATION_PRUDENTE} {FINANCEMENT_CONSTRUCTYS_PLAFONDS_COURT}

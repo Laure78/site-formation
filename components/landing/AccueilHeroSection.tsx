@@ -17,8 +17,7 @@ import { LINKS } from '@/lib/internal-links';
 import { getPublishedFormations } from '@/lib/formation-catalogue-visibility';
 import { getCatalogueFormationsCount } from '@/lib/formations-catalogue-display';
 import {
-  libelleTarifSessionForfaitaire,
-  TARIF_SESSION_FORFAIT_HT,
+  libelleTarifsCarteCatalogue,
 } from '@/lib/tarifs-sessions';
 import { Essentiel } from '@/components/readability/Essentiel';
 import { Reveal } from '@/components/motion/Reveal';
@@ -152,8 +151,8 @@ export function AccueilHeroSection() {
               'intra-entreprise, dans vos locaux, présentiel uniquement · Île-de-France uniquement.',
               'Travail sur vos documents BTP réels : DCE, CCTP, relances clients et administratif chantier.',
               <>
-                Catalogue {catalogueCount} formations dispensées par un organisme certifié Qualiopi — forfait unique{' '}
-                {libelleTarifSessionForfaitaire(TARIF_SESSION_FORFAIT_HT)}
+                Catalogue {catalogueCount} formations dispensées par un organisme certifié Qualiopi — intra{' '}
+                {libelleTarifsCarteCatalogue(4).intra} ; inter {libelleTarifsCarteCatalogue(4).inter}
                 <MentionTvaAsterisque /> (Claude AI = une fiche : Maîtriser Claude AI pour
                 le BTP).
               </>,

@@ -7,9 +7,9 @@
 export const FINANCEMENT_CONSTRUCTYS_FORMULATION =
   'Finançable par Constructys selon éligibilité';
 
-/** Formulation prudente — paragraphes, FAQ détaillées, pages financement */
+/** Formulation prudente — paragraphes, FAQ détaillées, pages financement et tarifs */
 export const FINANCEMENT_FORMULATION_PRUDENTE =
-  'Formation éligible à une prise en charge partielle par Constructys ou votre OPCO, selon votre statut, votre branche professionnelle et les conditions en vigueur.';
+  'Une prise en charge partielle peut être possible par Constructys ou un autre OPCO, selon l\u2019éligibilité de l\u2019entreprise, les critères applicables et les plafonds en vigueur. Un reste à charge peut s\u2019appliquer.';
 
 /** Formulation courte — meta, badges, accroches commerciales */
 export const FINANCEMENT_FORMULATION_COURTE =

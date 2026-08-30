@@ -18,6 +18,7 @@ export type NavItem = {
 /** Colonne Entreprise */
 export const NAV_ENTREPRISE: readonly NavItem[] = [
   { href: LINKS.aPropos, label: 'À propos' },
+  { href: LINKS.avisClients, label: 'Avis clients' },
   { href: LINKS.partenaires, label: 'Partenaires' },
   {
     href: LINKS.bework,
@@ -69,6 +70,7 @@ export const NAV_RESSOURCES: readonly NavItem[] = [
     title: 'Lexique & apprentissage BTP — parcours, flashcards et quiz (BeWork)',
   },
   { href: LINKS.skillIaConducteurTravaux, label: 'Guide Conducteur de travaux (PDF)' },
+  { href: LINKS.promptsIaConducteurTravaux, label: '20 prompts IA conducteur de travaux' },
   { href: LINKS.etudesCas, label: 'Étude de cas' },
   { href: LINKS.casUsage, label: "Cas d'usage" },
 ];

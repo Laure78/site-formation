@@ -33,7 +33,7 @@ export const FORMATIONS: readonly Formation[] = [
   {
     code: 'NIV-01',
     slug: 'ia-batiment-travaux-publics',
-    titre: "L'IA au service des professionnels du BTP",
+    titre: 'Formation IA BTP : devis, emails et productivité',
     niveau: 1,
     niveauLabel: 'Niveau 1',
     duree: '4 h',
@@ -42,7 +42,7 @@ export const FORMATIONS: readonly Formation[] = [
     effectifMax: 12,
     prixHT: 1200,
     accroche:
-      'Niveau 1 — fondamentaux ChatGPT et IA générative pour artisans, PME et fonctions support du bâtiment.',
+      'Fondamentaux ChatGPT et IA générative pour artisans, PME et fonctions support — devis, DOE et communication sur vos documents réels.',
     objectifs: [
       'Maîtriser les outils IA adaptés aux métiers du BTP pour automatiser les tâches chronophages (mails, devis, documents, communication)',
       'Générer des devis techniques conformes aux DTU et règles professionnelles, adaptés à son métier',
@@ -61,7 +61,7 @@ export const FORMATIONS: readonly Formation[] = [
   {
     code: 'NIV-02',
     slug: 'ia-appels-offre-btp',
-    titre: "L'IA appliquée aux appels d'offres BTP",
+    titre: "Formation IA appels d'offres BTP : DCE, chiffrage et mémoire technique",
     niveau: 2,
     niveauLabel: 'Niveau 2',
     duree: '4 h',
@@ -70,14 +70,16 @@ export const FORMATIONS: readonly Formation[] = [
     effectifMax: 12,
     prixHT: 1200,
     accroche:
-      'Niveau 2 : Claude AI Pro, Cowork & Skills — analyse DCE, mémoire technique et assistants IA réutilisables.',
+      'DCE réel, devis réel, chiffrage assisté, mémoire technique — Claude AI Pro, Cowork & 8 assistants IA réutilisables.',
     objectifs: [
       'Paramétrer Claude AI Pro (Projects, instructions personnalisées) pour l\'adapter à son métier et à ses appels d\'offres',
-      'Analyser un DCE complet via Cowork en extrayant les 15 informations critiques (critères de jugement, clauses éliminatoires, pénalités, délais)',
-      'Structurer un plan de mémoire technique adapté aux pondérations spécifiques du DCE avec l\'assistance de l\'IA',
-      'Rédiger les 5 sections clés d\'un mémoire technique (présentation, méthodologie, moyens, sécurité, environnement) en utilisant les skills dédiés',
-      'Créer et configurer ses propres skills spécialisés DCE et mémoire technique, alimentés par ses données d\'entreprise et réutilisables sur ses futurs appels d\'offres',
-      'Contrôler la fiabilité des productions générées (anti-hallucination, relecture experte) avant toute remise d\'offre',
+      'Analyser un DCE complet (RC, CCTP, CCAP, DPGF, BPU, plans) via Cowork — synthèse structurée et extraction des prestations du lot entreprise',
+      'Comparer CCTP, DPGF, CCAP et RC pour repérer incohérences, informations manquantes et points nécessitant une question à la MOE',
+      'Préparer le chiffrage avec une checklist de postes, comparer un ancien devis au DCE et identifier les postes potentiellement oubliés — validation métier obligatoire',
+      'Améliorer les désignations d\'ouvrages et structurer un devis à partir des prestations identifiées (IA devis bâtiment en aide, pas en substitut)',
+      'Structurer un plan de mémoire technique adapté aux critères et pondérations du RC, rédiger les sections clés avec les skills dédiés',
+      'Créer et configurer 8 assistants ou skills réutilisables (analyse DCE, CCTP, contrôle DPGF, chiffrage, devis, mémoire technique, contrôle avant dépôt)',
+      'Effectuer un contrôle final de cohérence de l\'offre et valider toute production IA (anti-hallucination, relecture experte) avant remise',
     ],
     public:
       'Dirigeants, responsables d\'affaires, chargés d\'études, conducteurs de travaux et directeurs techniques de TPE/PME du BTP et de bureaux d\'études',
@@ -91,7 +93,7 @@ export const FORMATIONS: readonly Formation[] = [
   {
     code: 'NIV-03',
     slug: 'ia-conduite-travaux-suivi-chantier',
-    titre: "L'IA appliquée à la conduite de travaux",
+    titre: 'Formation IA conducteur de travaux : suivi chantier, CR et DOE',
     niveau: 2,
     niveauLabel: 'Niveau 2',
     duree: '4 h',
@@ -99,7 +101,7 @@ export const FORMATIONS: readonly Formation[] = [
     effectifMax: 8,
     prixHT: 1200,
     accroche:
-      "Niveau 2 : pilotez vos chantiers avec l'IA — une bibliothèque de 20+ skills Claude, de l'analyse du CCTP à la réception des travaux.",
+      'Pilotez vos chantiers avec l\'IA — bibliothèque de 20+ skills Claude, de l\'analyse du CCTP à la réception des travaux.',
     objectifs: [
       'Comprendre le fonctionnement des skills Claude et accéder à la bibliothèque de skills BTP mise à disposition',
       "Préparer et démarrer un chantier avec l'IA : analyse du CCTP, génération de la DPGF, DICT, ordre de service, planning",
@@ -118,7 +120,7 @@ export const FORMATIONS: readonly Formation[] = [
   {
     code: 'NIV-04',
     slug: 'maitriser-claude-ai-btp',
-    titre: 'Maîtriser Claude AI pour le BTP — Chat, Cowork & Code',
+    titre: 'Formation Claude AI BTP : Cowork, Skills et automatisations',
     niveau: 2,
     niveauLabel: 'Avancé',
     duree: '4 h',
@@ -148,7 +150,7 @@ export const FORMATIONS: readonly Formation[] = [
   {
     code: 'NIV-05',
     slug: 'ia-maitrise-oeuvre',
-    titre: "L'IA au service des maîtres d'œuvre",
+    titre: "Formation IA maîtrise d'œuvre : CR, OS et réception chantier",
     niveau: 2,
     niveauLabel: 'Niveau 2',
     duree: '4 h',
@@ -157,7 +159,7 @@ export const FORMATIONS: readonly Formation[] = [
     effectifMax: 8,
     prixHT: 1200,
     accroche:
-      "Maîtrise d'œuvre d'exécution — 5 modules opérationnels, avec introduction à Claude.",
+      "Maîtrise d'œuvre d'exécution — analyse DCE, CR chantier, OS et suivi réserves avec ChatGPT et Claude.",
     objectifs: [
       "Identifier les fonctionnalités clés de Claude (Projets, connecteurs, skills, Cowork) et choisir entre Claude et ChatGPT selon le cas d'usage MOE",
       'Analyser un dossier d\'appel d\'offres (DCE, CCTP, bordereau) avec l\'IA pour en extraire les points de conformité et les alertes contractuelles',
@@ -226,7 +228,7 @@ export function formatPrixHt(amount: number): string {
 }
 
 export function libellePrixSessionHt(f: Pick<Formation, 'prixHT'>): string {
-  return `${formatPrixHt(f.prixHT)} € HT / session forfaitaire`;
+  return `${formatPrixHt(f.prixHT)} € HT par session (intra-entreprise)`;
 }
 
 export const FORMATION_NIV01 = getFormationByCode('NIV-01')!;

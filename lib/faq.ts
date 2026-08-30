@@ -5,11 +5,15 @@
 import {
   EXIGENCE_CLAUDE_PRO_NIVEAU_AVANCE,
   COMPTES_IA_GRATUITS_NIVEAU_DEBUTANT,
-  TARIF_SESSION_FORFAIT_HT,
+  TARIF_INTRA_4H_HT,
+  TARIF_INTER_4H_HT_FROM,
   SESSION_DUREE_LIBELLE,
   EFFECTIF_GROUPE_MAX,
   MODALITE_FORMATIONS_STANDARD,
-  libelleTarifSessionForfaitaire,
+  MODALITE_FORMATIONS_PRESENTIEL,
+  libelleTarifIntraParSession,
+  libelleTarifInterParParticipant,
+  libelleTarifsDualCourt,
   MENTIONS_TVA_REGIMES_COURT,
 } from '@/lib/tarifs-sessions';
 import { CATALOGUE_FORMATIONS_COUNT, getCatalogueFormationsCount } from '@/lib/formations-catalogue-display';
@@ -99,7 +103,7 @@ export const FAQ_ITEMS_HOME: readonly FAQItem[] = [
   {
     q: 'Combien de temps dure la formation IA pour le BTP ?',
     a:
-      `Le module standard est de 4 heures, exclusivement en présentiel intra-entreprise, dans vos locaux en Île-de-France. Ce format s'intègre dans une demi-journée de travail. Forfait unique ${libelleTarifSessionForfaitaire(TARIF_SESSION_FORFAIT_HT)} (tous niveaux).`,
+      `Le module standard est de 4 heures, en présentiel intra-entreprise ou interentreprises en Île-de-France. Ce format s'intègre dans une demi-journée de travail. ${libelleTarifsDualCourt(4)}.`,
   },
   {
     q: 'Où se déroulent les sessions de formation ?',
@@ -153,7 +157,7 @@ export const FAQ_ITEMS: readonly FAQItem[] = [
   },
   {
     q: "Combien de temps dure la formation IA pour le BTP ?",
-    a: `Toutes mes sessions sont proposées au format unique de 4 heures. ${MODALITE_FORMATIONS_STANDARD} Forfait unique ${libelleTarifSessionForfaitaire(TARIF_SESSION_FORFAIT_HT)} (tous niveaux) — voir les programmes sur la page <a href="/formations">formations IA pour le BTP</a>.`,
+    a: `Les sessions catalogue durent 4 heures. ${MODALITE_FORMATIONS_PRESENTIEL} ${libelleTarifsDualCourt(4)} — voir les programmes sur la page <a href="/formations">formations IA pour le BTP</a>.`,
   },
   {
     q: "La formation se fait-elle en présentiel ?",
@@ -198,7 +202,7 @@ export const FAQ_GEO: FAQItem[] = [
   },
   {
     q: "Formation IA pour entreprises BTP : quelle durée et quel prix ?",
-    a: `Sessions de 4 h : forfait unique ${libelleTarifSessionForfaitaire(TARIF_SESSION_FORFAIT_HT)} (tous niveaux), jusqu'à ${EFFECTIF_GROUPE_MAX} participants. ${MENTIONS_TVA_REGIMES_COURT} Financement possible via Constructys ou votre OPCO selon éligibilité et barèmes en vigueur. Zéro prérequis technique pour le niveau débutant. Travail sur documents réels (devis, emails, CR chantier). Note  — voir les <a href="/formations">formations IA pour les pros du BTP</a>.`,
+    a: `Sessions de 4 h : ${libelleTarifsDualCourt(4)}, jusqu'à ${EFFECTIF_GROUPE_MAX} participants en intra. ${MENTIONS_TVA_REGIMES_COURT} ${FINANCEMENT_FORMULATION_PRUDENTE} Zéro prérequis technique pour le niveau débutant. Travail sur documents réels (devis, emails, CR chantier). Voir les <a href="/formations">formations IA pour les pros du BTP</a>.`,
   },
   {
     q: "Quels sont les prérequis pour une formation ChatGPT BTP ?",
@@ -221,8 +225,20 @@ export const FAQ_GEO: FAQItem[] = [
 /** FAQ page catalogue `/formations` — alignée JSON-LD FAQPage (`lib/schema-formations-page-graph.ts`) */
 export const FAQ_FORMATIONS: FAQItem[] = [
   {
+    q: 'Le tarif est-il calculé par participant ou par entreprise ?',
+    a: 'Cela dépend du format choisi. En intra-entreprise, le tarif est forfaitaire pour l\'ensemble de la session et du groupe. En interentreprises, le tarif est calculé par participant. Le devis précise systématiquement le format, l\'effectif, la durée et le montant total.',
+  },
+  {
+    q: 'Combien coûte une formation IA pour le BTP ?',
+    a: `Une formation intra-entreprise de 4 heures coûte ${libelleTarifIntraParSession(TARIF_INTRA_4H_HT)}. Une session interentreprises de 4 heures est proposée ${libelleTarifInterParParticipant(TARIF_INTER_4H_HT_FROM)}. Les parcours de 7 ou 14 heures font l'objet d'un tarif adapté à leur durée et à leur niveau de personnalisation. Voir la <a href="${LINKS.formations}#tarifs-formations-btp">grille tarifaire</a>.`,
+  },
+  {
+    q: 'La formation peut-elle être financée par Constructys ?',
+    a: `${FINANCEMENT_FORMULATION_PRUDENTE} La demande doit être validée par l'OPCO avant le début de la formation. Guide : <a href="${LINKS.financement}">${FINANCEMENT_PAGE_LINK_LABEL}</a>.`,
+  },
+  {
     q: 'Quelles formations IA appliquées au bâtiment sont proposées au catalogue ?',
-    a: `Le catalogue OFC propose ${CATALOGUE_FORMATIONS_COUNT} formations IA pour le BTP de 4 heures, toutes dispensées par OFC Création d&apos;Entreprise, organisme certifié Qualiopi : (1) L&apos;IA au service des pros du bâtiment et des travaux publics — niveau 1, (2) L&apos;IA appliquée aux appels d&apos;offres BTP — niveau 2, (3) L&apos;IA appliquée à la conduite de travaux — niveau 2 (8 participants max), (4) Maîtriser Claude AI pour le BTP — Chat, Cowork &amp; Code (niveau 2, ${libelleTarifSessionForfaitaire(TARIF_SESSION_FORFAIT_HT)}, matin 9h–13h, 8 participants max), (5) L&apos;IA au service des maîtres d&apos;œuvre — niveau 2 (3 à 8 participants, MOEX/MOE). ${MODALITE_FORMATIONS_STANDARD} ${FINANCEMENT_FORMULATION_COURTE} Fiches détaillées : cartes ci-dessus.`,
+    a: `Le catalogue OFC propose ${CATALOGUE_FORMATIONS_COUNT} formations IA pour le BTP de 4 heures, toutes dispensées par OFC Création d&apos;Entreprise, organisme certifié Qualiopi : (1) L&apos;IA au service des pros du bâtiment et des travaux publics — niveau 1, (2) L&apos;IA appliquée aux appels d&apos;offres BTP — niveau 2, (3) L&apos;IA appliquée à la conduite de travaux — niveau 2 (8 participants max), (4) Maîtriser Claude AI pour le BTP — Chat, Cowork &amp; Code (niveau 2, ${libelleTarifsDualCourt(4)}, matin 9h–13h, 8 participants max), (5) L&apos;IA au service des maîtres d&apos;œuvre — niveau 2 (3 à 8 participants, MOEX/MOE). ${MODALITE_FORMATIONS_PRESENTIEL} ${FINANCEMENT_FORMULATION_COURTE} Fiches détaillées : cartes ci-dessus.`,
   },
   {
     q: 'Comment choisir la bonne formation IA pour le BTP pour mon entreprise ?',
@@ -230,11 +246,11 @@ export const FAQ_FORMATIONS: FAQItem[] = [
   },
   {
     q: 'Qu\'apporte la formation Maîtriser Claude AI pour le BTP (niveau 2) ?',
-    a: `Cette formation cible les profils qui maîtrisent déjà Claude Pro : structurer l&apos;usage en entreprise (Projets, bibliothèque de Skills), installer des skills métier (appels d&apos;offres RC/DCE, chantier CCTP/CR/réserves, juridique marché de travaux — l&apos;IA n&apos;est pas un avocat), déléguer la production documentaire via Cowork, connecter Gmail/Drive/agenda en sécurisant les données, et automatiser avec Claude Code. Session de 4 h le matin (9h00–13h00), 8 participants max, forfait ${libelleTarifSessionForfaitaire(TARIF_SESSION_FORFAIT_HT)}. Fiche : <a href="${LINKS.formationMaitriserClaudeAiBtp}">Maîtriser Claude AI pour le BTP — Chat, Cowork &amp; Code</a>.`,
+    a: `Cette formation cible les profils qui maîtrisent déjà Claude Pro : structurer l&apos;usage en entreprise (Projets, bibliothèque de Skills), installer des skills métier (appels d&apos;offres RC/DCE, chantier CCTP/CR/réserves, juridique marché de travaux — l&apos;IA n&apos;est pas un avocat), déléguer la production documentaire via Cowork, connecter Gmail/Drive/agenda en sécurisant les données, et automatiser avec Claude Code. Session de 4 h le matin (9h00–13h00), 8 participants max, ${libelleTarifsDualCourt(4)}. Fiche : <a href="${LINKS.formationMaitriserClaudeAiBtp}">Maîtriser Claude AI pour le BTP — Chat, Cowork &amp; Code</a>.`,
   },
   {
     q: 'Combien coûte une formation IA pour les pros du BTP du catalogue ?',
-    a: `Forfait unique ${libelleTarifSessionForfaitaire(TARIF_SESSION_FORFAIT_HT)} pour toutes les formations catalogue (niveau 1 et niveau 2), ${MENTIONS_TVA_REGIMES_COURT} Chaque session dure 4 heures — jusqu&apos;à ${EFFECTIF_GROUPE_MAX} participants (conduite de travaux, Maîtriser Claude AI et maîtres d&apos;œuvre : effectifs réduits selon fiche). ${FINANCEMENT_FORMULATION_PRUDENTE}`,
+    a: `Intra-entreprise (4 h) : ${libelleTarifIntraParSession(TARIF_INTRA_4H_HT)}. Interentreprises (4 h) : ${libelleTarifInterParParticipant(TARIF_INTER_4H_HT_FROM)}. ${MENTIONS_TVA_REGIMES_COURT} ${FINANCEMENT_FORMULATION_PRUDENTE}`,
   },
   {
     q: 'Les formations IA pour les pros du BTP peuvent-elles être financées par Constructys ou mon OPCO ?',
@@ -266,7 +282,7 @@ export function getFaqFormations(at: Date = new Date()): FAQItem[] {
     if (item.q === 'Quelles formations IA appliquées au bâtiment sont proposées au catalogue ?') {
       return {
         ...item,
-        a: `Le catalogue OFC propose ${count} formations IA pour le BTP de 4 heures, toutes dispensées par OFC Création d&apos;Entreprise, organisme certifié Qualiopi : (1) L&apos;IA au service des pros du bâtiment et des travaux publics — niveau 1, (2) L&apos;IA appliquée aux appels d&apos;offres BTP — niveau 2, (3) Maîtriser Claude AI pour le BTP — Chat, Cowork &amp; Code (niveau 2, ${libelleTarifSessionForfaitaire(TARIF_SESSION_FORFAIT_HT)}, matin 9h–13h, 8 participants max), (4) L&apos;IA au service des maîtres d&apos;œuvre — niveau 2 (3 à 8 participants, MOEX/MOE). ${MODALITE_FORMATIONS_STANDARD} ${FINANCEMENT_FORMULATION_COURTE} Fiches détaillées : cartes ci-dessus.`,
+        a: `Le catalogue OFC propose ${count} formations IA pour le BTP de 4 heures, toutes dispensées par OFC Création d&apos;Entreprise, organisme certifié Qualiopi : (1) L&apos;IA au service des pros du bâtiment et des travaux publics — niveau 1, (2) L&apos;IA appliquée aux appels d&apos;offres BTP — niveau 2, (3) Maîtriser Claude AI pour le BTP — Chat, Cowork &amp; Code (niveau 2, ${libelleTarifsDualCourt(4)}, matin 9h–13h, 8 participants max), (4) L&apos;IA au service des maîtres d&apos;œuvre — niveau 2 (3 à 8 participants, MOEX/MOE). ${MODALITE_FORMATIONS_PRESENTIEL} ${FINANCEMENT_FORMULATION_COURTE} Fiches détaillées : cartes ci-dessus.`,
       };
     }
     if (item.q === 'Comment choisir la bonne formation IA pour le BTP pour mon entreprise ?') {
@@ -290,8 +306,8 @@ export const FAQ_TARIFS: FAQItem[] = [
     a: `${COMPTES_IA_GRATUITS_NIVEAU_DEBUTANT} Voir le <a href="/formations">catalogue</a> et la <a href="/checklist-ia-btp">checklist prompts ChatGPT BTP</a>.`,
   },
   {
-    q: "Combien coûte une formation IA pour les pros du BTP ?",
-    a: `Je propose uniquement des sessions de 4 heures, au forfait unique ${libelleTarifSessionForfaitaire(TARIF_SESSION_FORFAIT_HT)} (tous niveaux), jusqu'à ${EFFECTIF_GROUPE_MAX} participants. ${MENTIONS_TVA_REGIMES_COURT} Selon votre entreprise, le financement OPCO Constructys peut couvrir partiellement le coût selon éligibilité — <a href="/financement-constructys-formation-ia-btp">guide financement</a> et <a href="/contact">accompagnement dossier</a>.`,
+    q: 'Combien coûte une formation IA pour les pros du BTP ?',
+    a: `Une formation intra-entreprise de 4 heures coûte ${libelleTarifIntraParSession(TARIF_INTRA_4H_HT)}. Une session interentreprises de 4 heures est proposée ${libelleTarifInterParParticipant(TARIF_INTER_4H_HT_FROM)}. ${MENTIONS_TVA_REGIMES_COURT} ${FINANCEMENT_FORMULATION_PRUDENTE} — <a href="/financement-constructys-formation-ia-btp">guide financement</a> et <a href="/contact">accompagnement dossier</a>.`,
   },
   {
     q: "Comment financer ma formation IA ?",
@@ -306,7 +322,7 @@ export const FAQ_TARIFS: FAQItem[] = [
 export const FAQ_OFFRES: FAQItem[] = [
   {
     q: "Quels formats de formation proposez-vous ?",
-    a: `Sessions de 4 heures, intra-entreprise, dans vos locaux. ${MODALITE_FORMATIONS_STANDARD} Forfait unique ${libelleTarifSessionForfaitaire(TARIF_SESSION_FORFAIT_HT)}, jusqu'à ${EFFECTIF_GROUPE_MAX} participants. Parcours sur la page <a href="/formations">formations IA appliquées au bâtiment</a>.`,
+    a: `Sessions de 4 heures. ${MODALITE_FORMATIONS_PRESENTIEL} ${libelleTarifsDualCourt(4)}, jusqu'à ${EFFECTIF_GROUPE_MAX} participants en intra. Parcours sur la page <a href="/formations">formations IA appliquées au bâtiment</a>.`,
   },
   {
     q: "Comment accéder à l'espace apprenant ?",
@@ -492,7 +508,7 @@ export const FAQ_IA_BTP_PARIS: FAQItem[] = [
   },
   {
     q: "Quel est le format de la formation IA pour le BTP Paris ?",
-    a: `Session de 4 h pratiques : ChatGPT pour devis, emails, relances clients. Travail sur vos vrais documents. Aucun prérequis technique pour le niveau débutant. Forfait unique ${libelleTarifSessionForfaitaire(TARIF_SESSION_FORFAIT_HT)} — parcours <a href="${LINKS.formationIaBtpNiveau1BatimentTp}">formation niveau 1 — Bâtiment & travaux publics</a>.`,
+    a: `Session de 4 h pratiques : ChatGPT pour devis, emails, relances clients. Travail sur vos vrais documents. Aucun prérequis technique pour le niveau débutant. ${libelleTarifsDualCourt(4)} — parcours <a href="${LINKS.formationIaBtpNiveau1BatimentTp}">formation niveau 1 — Bâtiment & travaux publics</a>.`,
   },
 ];
 
@@ -516,7 +532,7 @@ export const FAQ_MAITRISER_CLAUDE_NIV04: FAQItem[] = [
   },
   {
     q: 'Combien coûte Maîtriser Claude AI en 2026 et est-ce finançable OPCO ?',
-    a: `Forfait ${libelleTarifSessionForfaitaire(TARIF_SESSION_FORFAIT_HT)} (8 participants max). Financement possible selon éligibilité Constructys ou votre OPCO — organisme certifié Qualiopi. L'abonnement Claude Pro n'est pas inclus. Détails : <a href="${LINKS.financement}">financement Constructys formation IA BTP</a>.`,
+    a: `${libelleTarifsDualCourt(4)} (8 participants max en intra). ${FINANCEMENT_FORMULATION_PRUDENTE} Organisme certifié Qualiopi. L'abonnement Claude Pro n'est pas inclus. Détails : <a href="${LINKS.financement}">financement Constructys formation IA BTP</a>.`,
   },
   {
     q: 'Faut-il activer l\'option « Exécution de code » sur Claude Pro ?',
@@ -548,7 +564,7 @@ export const FAQ_CONDUITE_TRAVAUX_NIV03: FAQItem[] = [
   },
   {
     q: 'Combien coûte la formation conduite de travaux IA en 2026 ?',
-    a: `Forfait ${libelleTarifSessionForfaitaire(TARIF_SESSION_FORFAIT_HT)} (${SESSION_DUREE_LIBELLE}, 8 participants max). Financement possible selon éligibilité Constructys / OPCO — <a href="${LINKS.financement}">guide financement</a>. Un rendez-vous visio J+30 est inclus pour ancrer les skills.`,
+    a: `${libelleTarifsDualCourt(4)} (${SESSION_DUREE_LIBELLE}, 8 participants max en intra). ${FINANCEMENT_FORMULATION_PRUDENTE} <a href="${LINKS.financement}">Guide financement</a>. Un rendez-vous visio J+30 est inclus pour ancrer les skills.`,
   },
   {
     q: 'Que contient la bibliothèque de 20+ skills Claude BTP ?',
@@ -576,11 +592,15 @@ export const FAQ_APPELS_OFFRE: FAQItem[] = [
   },
   {
     q: 'La formation appels d\'offres est-elle finançable Constructys en 2026 ?',
-    a: `Oui, selon éligibilité : organisme Qualiopi, session ${SESSION_DUREE_LIBELLE}, forfait ${libelleTarifSessionForfaitaire(TARIF_SESSION_FORFAIT_HT)}. Dépôt dossier eGestion au moins 15 jours avant — <a href="${LINKS.financement}">financement Constructys formation IA BTP</a>.`,
+    a: `Oui, selon éligibilité : organisme Qualiopi, session ${SESSION_DUREE_LIBELLE}, ${libelleTarifsDualCourt(4)}. ${FINANCEMENT_FORMULATION_PRUDENTE} Dépôt dossier eGestion au moins 15 jours avant — <a href="${LINKS.financement}">financement Constructys formation IA BTP</a>.`,
   },
   {
     q: 'Quels livrables je repars avec après les 4 heures ?',
-    a: `Compte Claude Pro configuré, Project AO, Cowork avec skills DCE et MT opérationnels, 30 prompts spécialisés, 3 modèles Word MT et supports plateforme selon convention. Kit complémentaire : <a href="/checklist-ia-btp">checklist prompts IA BTP</a>.`,
+    a: `Compte Claude Pro configuré, Project AO, Cowork avec 8 assistants IA opérationnels (analyse DCE, CCTP, contrôle DPGF, chiffrage, devis, mémoire technique, contrôle avant dépôt), trames DCE/chiffrage/MT, bibliothèque de prompts AO BTP et supports plateforme selon convention. Kit complémentaire : <a href="/checklist-ia-btp">checklist prompts IA BTP</a>.`,
+  },
+  {
+    q: 'La formation couvre-t-elle le chiffrage et les devis, ou seulement le mémoire technique ?',
+    a: `Les deux. Analyse DCE complète (RC, CCTP, CCAP, DPGF, BPU), comparaison CCTP/DPGF, checklist de chiffrage, comparaison avec un ancien devis, désignations d'ouvrages et structuration de devis — puis mémoire technique et contrôle final. L'IA assiste l'analyse et facilite le contrôle ; le chiffrage final reste à valider par votre équipe.`,
   },
 ];
 
@@ -624,7 +644,7 @@ export const FAQ_FORMATION_IA_APPELS_OFFRES_LANDING: FAQItem[] = [
   {
     q: "La formation couvre-t-elle uniquement les mémoires techniques ou aussi le chiffrage ?",
     a:
-      "La formation appels d'offres couvre l'analyse DCE, la structuration et la rédaction de mémoires techniques avec Claude AI Pro, Cowork & Skills. Les participants repartent avec des assistants IA réutilisables sur leurs futurs appels d'offres. Programme : <a href=\"/formations/ia-appels-offre-btp\">L'IA appliquée aux appels d'offres BTP</a>.",
+      "Les deux. Analyse DCE avec IA (RC, CCTP, CCAP, DPGF, BPU), comparaison CCTP/DPGF, checklist de chiffrage assisté, comparaison avec un ancien devis, désignations d'ouvrages, structuration de devis, mémoire technique aligné critères RC et 8 assistants IA réutilisables. L'IA ne garantit pas l'exhaustivité du chiffrage — validation métier obligatoire. Programme : <a href=\"/formations/ia-appels-offre-btp\">L'IA appliquée aux appels d'offres BTP</a>.",
   },
 ];
 
@@ -636,7 +656,7 @@ export const FAQ_BATIMENT: FAQItem[] = [
   },
   {
     q: 'Combien coûte la formation IA niveau 1 et est-ce finançable OPCO en 2026 ?',
-    a: `Forfait ${libelleTarifSessionForfaitaire(TARIF_SESSION_FORFAIT_HT)} (${SESSION_DUREE_LIBELLE}, jusqu'à ${EFFECTIF_GROUPE_MAX} participants). Prise en charge possible via Constructys ou votre OPCO selon éligibilité — organisme Qualiopi. Guide : <a href="${LINKS.financement}">financement Constructys formation IA BTP</a>.`,
+    a: `${libelleTarifsDualCourt(4)} (${SESSION_DUREE_LIBELLE}, jusqu'à ${EFFECTIF_GROUPE_MAX} participants en intra). ${FINANCEMENT_FORMULATION_PRUDENTE} Organisme Qualiopi. Guide : <a href="${LINKS.financement}">financement Constructys formation IA BTP</a>.`,
   },
   {
     q: 'Faut-il payer ChatGPT ou Claude pour suivre la formation niveau 1 ?',
@@ -673,7 +693,7 @@ export const FAQ_FORMATION_IA_TRAVAUX_PUBLICS_LANDING: FAQItem[] = [
   },
   {
     q: "Quelle est la durée de la formation IA travaux publics ?",
-    a: `Je propose une session unique de 4 heures (niveau débutant), avec forfait ${libelleTarifSessionForfaitaire(TARIF_SESSION_FORFAIT_HT)} (jusqu'à ${EFFECTIF_GROUPE_MAX} participants). Le programme condense consultations / DCE, documents de chantier et bases d'industrialisation (templates, assistants) — <a href="${LINKS.formationIaBtpNiveau1BatimentTp}">programme niveau 1 (PDF sur la fiche)</a>.`,
+    a: `Je propose une session de 4 heures (niveau débutant), ${libelleTarifsDualCourt(4)} (jusqu'à ${EFFECTIF_GROUPE_MAX} participants en intra). Le programme condense consultations / DCE, documents de chantier et bases d'industrialisation (templates, assistants) — <a href="${LINKS.formationIaBtpNiveau1BatimentTp}">programme niveau 1 (PDF sur la fiche)</a>.`,
   },
 ];
 

@@ -29,13 +29,13 @@ const CATALOGUE_REF_BY_PATH: Record<FormationCatalogueRichCourseConfig['path'], 
 
 function priceSpecDescription(ref: string): string {
   const f = getFormationByCode(ref);
-  if (!f) return 'Forfait session groupe HT';
+  if (!f) return 'Forfait intra-entreprise — prix session groupe HT (non par participant)';
   const effectif =
     f.effectifMin === f.effectifMax
       ? libelleEffectifMaxFormation(f)
       : libelleEffectifFormation(f);
   const matin = f.horaires ? ', matin' : '';
-  return `Forfait session groupe HT${matin} — ${effectif}`;
+  return `Forfait intra-entreprise — ${effectif}${matin} — prix session groupe HT`;
 }
 
 const PRICE_SPEC_DESCRIPTION_BY_REF: Record<string, string> = Object.fromEntries(
@@ -101,9 +101,9 @@ export const CATALOGUE_COURSE_IA_AO_NIV02: CatalogueCourseJsonLdConfig = {
   path: LINKS.formationAO,
   name: "L'IA appliquée aux appels d'offres BTP",
   description:
-    "Formation IA niveau 2 : appels d'offres BTP, DCE, mémoire technique (Claude AI Pro, Cowork & Skills). 4 h, intra-entreprise présentiel, 8 à 12 participants.",
+    "Formation IA appels d'offres BTP : DCE réel, chiffrage assisté, devis et mémoire technique (Claude AI Pro, Cowork & 8 assistants IA). 4 h, intra-entreprise présentiel, 8 à 12 participants.",
   price: prixCatalogue('NIV-02'),
-  keywords: ['DCE', 'mémoire technique', 'Claude AI Pro', 'Cowork', 'Skills'],
+  keywords: ['DCE', 'chiffrage BTP', 'mémoire technique', 'Claude AI Pro', 'Cowork', 'assistants IA'],
   courseCode: 'NIV-02',
   educationalLevel: 'Advanced',
 };

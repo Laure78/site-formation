@@ -1,5 +1,6 @@
+import Link from 'next/link';
 import { LogIn } from 'lucide-react';
-import { TEACHIZY_PATHS } from '@/lib/external-site-urls';
+import { LINKS } from '@/lib/internal-links';
 
 type FormationPlateformeConnexionButtonProps = {
   /** nav = header desktop ; navMobile = drawer ; outline = bouton secondaire ; primary = CTA plein */
@@ -31,8 +32,8 @@ export function FormationPlateformeConnexionButton({
   onClick,
 }: FormationPlateformeConnexionButtonProps) {
   return (
-    <a
-      href={TEACHIZY_PATHS.login}
+    <Link
+      href={LINKS.authConnexion}
       title="Connexion à la plateforme de formation IA BTP — OFC Création d'Entreprise"
       aria-label={label}
       onClick={onClick}
@@ -40,6 +41,6 @@ export function FormationPlateformeConnexionButton({
     >
       <LogIn className="h-4 w-4 shrink-0" strokeWidth={1.75} aria-hidden />
       {label}
-    </a>
+    </Link>
   );
 }

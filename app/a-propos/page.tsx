@@ -302,6 +302,12 @@ export default function AProposPage() {
                 </a>
                 <GoogleBusinessProfileCta label="Fiche Google — avis & horaires" />
                 <Link
+                  href={LINKS.avisClients}
+                  className="rounded-xl border-2 border-slate-200 px-5 py-2.5 text-sm font-semibold text-slate-800 hover:border-[#377CF3] hover:bg-[#EFF6FF]"
+                >
+                  Avis clients
+                </Link>
+                <Link
                   href={LINKS.contact}
                   className="rounded-xl border-2 border-[#377CF3] px-5 py-2.5 text-sm font-semibold text-[#377CF3] hover:bg-[#EFF6FF]"
                 >

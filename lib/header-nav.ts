@@ -79,6 +79,7 @@ function aProposNavActive(pathname: string): boolean {
   return (
     pathname === LINKS.aPropos ||
     pathname.startsWith(`${LINKS.aPropos}/`) ||
+    pathname === LINKS.avisClients ||
     pathname === LINKS.formateurIaBtp ||
     pathname === LINKS.qualiopi ||
     pathname === LINKS.accessibiliteHandicap ||
@@ -194,6 +195,7 @@ const BASE_HEADER_NAV: readonly HeaderNavItem[] = [
       { href: LINKS.qualiopi, label: 'Qualiopi' },
       { href: LINKS.accessibiliteHandicap, label: 'Référente handicap' },
       { href: LINKS.indicateursResultats, label: 'Indicateurs de résultats' },
+      { href: LINKS.avisClients, label: 'Avis clients' },
       { href: LINKS.contact, label: 'Contact' },
     ],
     footer: { href: LINKS.aPropos, label: "L'organisme de formation" },

@@ -19,14 +19,17 @@ import { LINKS } from '@/lib/internal-links';
 import { getFinancementConstructysUnifiedJsonLd } from '@/lib/schema-financement-constructys-page';
 import {
   SESSION_DUREE_LIBELLE,
-  TARIF_SESSION_FORFAIT_HT,
+  TARIF_INTRA_4H_HT,
+  TARIF_INTER_4H_HT_FROM,
   EXIGENCE_CLAUDE_PRO_NIVEAU_AVANCE,
   COMPTES_IA_GRATUITS_NIVEAU_DEBUTANT,
   MODALITE_FORMATIONS_PRESENTIEL,
   MENTIONS_TVA_REGIMES_COURT,
   formatTarifHt,
-  libelleTarifSessionForfaitaire,
+  libelleTarifIntraParSession,
+  libelleTarifInterParParticipant,
 } from '@/lib/tarifs-sessions';
+import { FINANCEMENT_FORMULATION_PRUDENTE } from '@/lib/financement-copy';
 import { FinancementConstructysHero } from '@/components/financement/FinancementConstructysHero';
 import { ConstructysResteAChargeBox } from '@/components/financement/ConstructysResteAChargeBox';
 import { SommaireAncre } from '@/components/readability/SommaireAncre';
@@ -199,20 +202,31 @@ export default function FinancementConstructysFormationIABTPPage() {
               <Reveal>
               <h2 className="font-display text-lg font-bold text-slate-900 md:text-xl">Grille commerciale OFC — sessions de formation</h2>
               <p className="mt-2 text-sm text-slate-700">
-                L&apos;organisme propose un format unique : <strong>session de {SESSION_DUREE_LIBELLE}</strong>, avec un{' '}
-                <strong>forfait unique de {libelleTarifSessionForfaitaire(TARIF_SESSION_FORFAIT_HT)}</strong>{' '}
-                (jusqu&apos;à 12 participants), tous niveaux confondus. {MENTIONS_TVA_REGIMES_COURT}.
+                Deux formats : <strong>intra-entreprise</strong> (forfait par session) et{' '}
+                <strong>interentreprises</strong> (tarif par participant). Session catalogue de{' '}
+                {SESSION_DUREE_LIBELLE} : intra {libelleTarifIntraParSession(TARIF_INTRA_4H_HT)} ; inter{' '}
+                {libelleTarifInterParParticipant(TARIF_INTER_4H_HT_FROM)}. {MENTIONS_TVA_REGIMES_COURT}.{' '}
+                {FINANCEMENT_FORMULATION_PRUDENTE}
               </p>
               </Reveal>
               <RevealGroup className="mt-5 grid gap-3 sm:grid-cols-2" staggerMs={50}>
-                <div className="rounded-xl border border-slate-200 bg-white p-4 sm:col-span-2">
+                <div className="rounded-xl border border-slate-200 bg-white p-4">
                   <span className="inline-flex rounded-full bg-[#EFF6FF] px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wide text-[#377CF3]">
-                    4 h · forfait
+                    Intra · 4 h
                   </span>
                   <p className="mt-3 font-display text-2xl font-bold text-[#1E40AF] md:text-[1.75rem]">
-                    {libelleTarifSessionForfaitaire(TARIF_SESSION_FORFAIT_HT)}
+                    {libelleTarifIntraParSession(TARIF_INTRA_4H_HT)}
                   </p>
-                  <p className="mt-1 text-sm font-semibold text-[#0F172A]">Toutes formations catalogue</p>
+                  <p className="mt-1 text-sm font-semibold text-[#0F172A]">Forfait groupe — vos locaux IDF</p>
+                </div>
+                <div className="rounded-xl border border-slate-200 bg-white p-4">
+                  <span className="inline-flex rounded-full bg-[#ECFDF5] px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wide text-[#047857]">
+                    Inter · 4 h
+                  </span>
+                  <p className="mt-3 font-display text-2xl font-bold text-[#047857] md:text-[1.75rem]">
+                    {libelleTarifInterParParticipant(TARIF_INTER_4H_HT_FROM)}
+                  </p>
+                  <p className="mt-1 text-sm font-semibold text-[#0F172A]">Inscription individuelle</p>
                   <p className="mt-3 text-sm text-[#64748B]">
                     {COMPTES_IA_GRATUITS_NIVEAU_DEBUTANT} Pour le niveau avancé : {EXIGENCE_CLAUDE_PRO_NIVEAU_AVANCE}
                   </p>
@@ -315,7 +329,7 @@ export default function FinancementConstructysFormationIABTPPage() {
                   Concrètement, la prise en charge du coût pédagogique se lit désormais selon votre effectif : <strong>24 € HT/h/stagiaire</strong> en dessous de 11 salariés (dans la limite de <strong>840 € HT/jour/groupe</strong> en intra), et <strong>19 € HT/h/stagiaire</strong> de 11 à moins de 50 salariés (dans la limite de <strong>665 € HT/jour/groupe</strong> en intra). Ce qui ne change pas : le dépôt sur eGestion <strong>au moins 15 jours avant</strong> le premier jour, la nécessité d&apos;un organisme certifié Qualiopi, et l&apos;interdiction de démarrer la formation avant la réception du dossier.
                 </p>
                 <p>
-                  <strong>Exemple chiffré sur une session IA de 4 h.</strong> Une PME de 20 salariés qui forme 6 personnes en intra (niveau NIV-01) : coût pédagogique pris en charge jusqu&apos;à 19 € × 4 h × 6 = <strong>456 € HT</strong>, dans la limite de 665 € HT/jour/groupe. Une TPE de moins de 11 salariés sur la même session : jusqu&apos;à 24 € × 4 h × 6 = <strong>576 € HT</strong>, dans la limite de 840 € HT/jour/groupe. Au-delà de ces plafonds, la différence avec le forfait OFC ({libelleTarifSessionForfaitaire(TARIF_SESSION_FORFAIT_HT)}, toutes formations) reste à la charge de l&apos;entreprise — d&apos;où l&apos;intérêt d&apos;arbitrer le nombre de participants par session.
+                  <strong>Exemple chiffré sur une session IA de 4 h.</strong> Une PME de 20 salariés qui forme 6 personnes en intra (niveau NIV-01) : coût pédagogique pris en charge jusqu&apos;à 19 € × 4 h × 6 = <strong>456 € HT</strong>, dans la limite de 665 € HT/jour/groupe. Une TPE de moins de 11 salariés sur la même session : jusqu&apos;à 24 € × 4 h × 6 = <strong>576 € HT</strong>, dans la limite de 840 € HT/jour/groupe. Au-delà de ces plafonds, la différence avec le tarif intra OFC ({libelleTarifIntraParSession(TARIF_INTRA_4H_HT)}, toutes formations) reste à la charge de l&apos;entreprise — d&apos;où l&apos;intérêt d&apos;arbitrer le nombre de participants par session.
                 </p>
               </div>
 
