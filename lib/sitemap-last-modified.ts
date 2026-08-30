@@ -190,7 +190,15 @@ const ROUTE_SOURCE_FILES: Record<string, readonly string[]> = {
   '/formation-ia-dirigeant-btp': ['app/formation-ia-dirigeant-btp/page.tsx'],
   '/formation-ia-assistante-gestion-btp': ['app/formation-ia-assistante-gestion-btp/page.tsx'],
   '/formation-ia-assistante-travaux': ['app/formation-ia-assistante-travaux/page.tsx'],
+  '/etudes-de-cas': ['app/etudes-de-cas/page.tsx'],
   '/etudes-de-cas/ffb-csfe': ['app/etudes-de-cas/ffb-csfe/page.tsx'],
+  '/etudes-de-cas/compte-rendu-vocal-chantier-btp': [
+    'app/etudes-de-cas/compte-rendu-vocal-chantier-btp/page.tsx',
+  ],
+  '/formations/ia-etudes-prix-chiffrage-btp': [
+    'app/formations/ia-etudes-prix-chiffrage-btp/page.tsx',
+    'lib/formation-ia-etudes-prix-chiffrage-btp-content.ts',
+  ],
   '/expert-ia-btp': ['app/expert-ia-btp/page.tsx'],
   '/formateur-ia-btp': ['app/formateur-ia-btp/page.tsx'],
   '/prendre-rendez-vous': ['app/prendre-rendez-vous/page.tsx'],

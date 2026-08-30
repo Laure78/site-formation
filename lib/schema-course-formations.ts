@@ -38,7 +38,7 @@ function teachesFromCatalogueDisplay(ref: string): string[] {
   return [...entry.objectifs];
 }
 
-/** Données alignées sur le catalogue (NIV-01 → NIV-05). */
+/** Données alignées sur le catalogue (NIV-01 → NIV-06). */
 export const FORMATIONS_CATALOG_SCHEMA: FormationCatalogEntry[] = [
   {
     ref: 'NIV-01',
@@ -88,6 +88,15 @@ export const FORMATIONS_CATALOG_SCHEMA: FormationCatalogEntry[] = [
       "Formation niveau 2 — 4 h : IA pour maîtrise d'œuvre d'exécution — analyse DCE, CR chantier, OS, courriers et réserves. Qualiopi, Constructys.",
     teaches: teachesFromCatalogueDisplay('NIV-05'),
     occupationalCategory: 'BTP, maîtrise d\'œuvre, MOEX',
+  },
+  {
+    ref: 'NIV-06',
+    level: 'AVANCÉ',
+    path: '/formations/cursor-btp',
+    name: getFormationByCode('NIV-06')!.titre,
+    description: `${getFormationByCode('NIV-06')!.accroche} Qualiopi, Constructys.`,
+    teaches: teachesFromCatalogueDisplay('NIV-06'),
+    occupationalCategory: 'BTP, outils métier, développement assisté IA',
   },
 ];
 

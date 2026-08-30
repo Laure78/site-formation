@@ -229,7 +229,7 @@ export default function FormationIaChefChantierTpPage() {
           <p className="font-medium text-slate-900">Aller plus loin</p>
           <p className="mt-2 text-slate-600">
             <a href="#rdv" className="font-semibold text-[#377CF3] underline hover:no-underline">
-              Réservez votre visio découverte gratuite
+              Prendre rendez-vous
             </a>{' '}
             — 30 minutes pour adapter ces usages à votre chantier TP.
           </p>

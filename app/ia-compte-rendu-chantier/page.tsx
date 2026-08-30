@@ -164,7 +164,7 @@ export default function IaCompteRenduChantierPage() {
               Former vos équipes chantier à cette méthode
             </h2>
             <p className="mt-3 text-blue-100">
-              Appel découverte gratuit — sessions présentiel Île-de-France sur vos cas réels.
+              Prendre rendez-vous (30 min) — sessions présentiel Île-de-France sur vos cas réels.
             </p>
             <div className="mt-6">
               <CalendlyEmbed

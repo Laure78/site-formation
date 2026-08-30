@@ -5,10 +5,32 @@
 
 export type FormationNiveau = 1 | 2;
 
+/** Gamme stratégique du catalogue — Découvrir · Appliquer par métier · Déployer. */
+export type FormationGamme = 'decouvrir' | 'appliquer-metier' | 'deployer';
+
+/** Thématique métier (gamme Appliquer ou Déployer). */
+export type FormationTheme =
+  | 'appels-offres-etudes'
+  | 'chantier-travaux'
+  | 'maitrise-oeuvre'
+  | 'administratif'
+  | 'gestion-contractuelle'
+  | 'commercial'
+  | 'transformation-ia'
+  | 'strategie-adoption'
+  | 'assistants-automatisation'
+  | 'outils-applications';
+
 export type Formation = {
   code: string;
   slug: string;
   titre: string;
+  /** Promesse courte — cartes catalogue (max ~120 car.). */
+  promesse: string;
+  /** 3 cas d'usage max — cartes catalogue et GEO. */
+  casUsageCourts: readonly [string, string, string];
+  gamme: FormationGamme;
+  theme?: FormationTheme;
   niveau: FormationNiveau;
   niveauLabel: string;
   duree: string;
@@ -34,6 +56,10 @@ export const FORMATIONS: readonly Formation[] = [
     code: 'NIV-01',
     slug: 'ia-batiment-travaux-publics',
     titre: 'Formation IA BTP : devis, emails et productivité',
+    promesse:
+      'Comprendre l’IA générative et l’utiliser sur vos documents BTP : devis, emails, comptes rendus et DOE.',
+    casUsageCourts: ['Rédiger un devis ou une désignation', 'Préparer un compte rendu', 'Structurer un DOE ou PV'],
+    gamme: 'decouvrir',
     niveau: 1,
     niveauLabel: 'Niveau 1',
     duree: '4 h',
@@ -62,6 +88,11 @@ export const FORMATIONS: readonly Formation[] = [
     code: 'NIV-02',
     slug: 'ia-appels-offre-btp',
     titre: "Formation IA appels d'offres BTP : DCE, chiffrage et mémoire technique",
+    promesse:
+      'Analyser un DCE complet et préparer une réponse structurée : chiffrage assisté, mémoire technique et assistants réutilisables.',
+    casUsageCourts: ['Synthétiser un DCE (RC, CCTP, CCAP)', 'Préparer le chiffrage assisté', 'Structurer un mémoire technique'],
+    gamme: 'appliquer-metier',
+    theme: 'appels-offres-etudes',
     niveau: 2,
     niveauLabel: 'Niveau 2',
     duree: '4 h',
@@ -94,6 +125,11 @@ export const FORMATIONS: readonly Formation[] = [
     code: 'NIV-03',
     slug: 'ia-conduite-travaux-suivi-chantier',
     titre: 'Formation IA conducteur de travaux : suivi chantier, CR et DOE',
+    promesse:
+      'Piloter le chantier avec l’IA : analyser le CCTP, produire vos CR, suivre les actions et structurer le DOE jusqu’à la réception.',
+    casUsageCourts: ['Analyser un CCTP et préparer le chantier', 'Rédiger un compte rendu', 'Organiser réserves et DOE'],
+    gamme: 'appliquer-metier',
+    theme: 'chantier-travaux',
     niveau: 2,
     niveauLabel: 'Niveau 2',
     duree: '4 h',
@@ -120,7 +156,12 @@ export const FORMATIONS: readonly Formation[] = [
   {
     code: 'NIV-04',
     slug: 'maitriser-claude-ai-btp',
-    titre: 'Formation Claude AI BTP : Cowork, Skills et automatisations',
+    titre: 'Maîtriser Claude pour le BTP : Projects, Cowork et Skills',
+    promesse:
+      'Exploiter l’écosystème Claude (Projects, Cowork, Skills, connecteurs) pour industrialiser vos usages documentaires BTP.',
+    casUsageCourts: ['Créer des assistants IA métier', 'Automatiser la production documentaire', 'Connecter Claude à vos outils'],
+    gamme: 'deployer',
+    theme: 'outils-applications',
     niveau: 2,
     niveauLabel: 'Avancé',
     duree: '4 h',
@@ -129,7 +170,7 @@ export const FORMATIONS: readonly Formation[] = [
     effectifMax: 8,
     prixHT: 1200,
     accroche:
-      'Industrialisez Claude dans votre entreprise BTP : Projets, Skills métier, Cowork, connecteurs et Claude Code — sur vos documents réels.',
+      'Industrialisez Claude dans votre entreprise BTP : Projets, Skills métier, Cowork et connecteurs — sur vos documents réels.',
     objectifs: [
       "Structurer l'usage de Claude dans l'entreprise avec les Projets et une bibliothèque de skills réutilisables",
       'Déléguer la production documentaire à Cowork (CR, mémoires, dossiers) en autonomie supervisée',
@@ -151,6 +192,11 @@ export const FORMATIONS: readonly Formation[] = [
     code: 'NIV-05',
     slug: 'ia-maitrise-oeuvre',
     titre: "Formation IA maîtrise d'œuvre : CR, OS et réception chantier",
+    promesse:
+      'Coordonner et contrôler le chantier côté MOE/MOEX : analyse DCE, CR, ordres de service, visas, réserves et GPA.',
+    casUsageCourts: ['Analyser un dossier MOE', 'Rédiger CR et ordres de service', 'Suivre réserves et réception'],
+    gamme: 'appliquer-metier',
+    theme: 'maitrise-oeuvre',
     niveau: 2,
     niveauLabel: 'Niveau 2',
     duree: '4 h',
@@ -177,6 +223,44 @@ export const FORMATIONS: readonly Formation[] = [
     programmeUpdatedAt: '22/08/2026',
     image: '/images/formation-ia-maitrise-oeuvre-btp.webp',
   },
+  {
+    code: 'NIV-06',
+    slug: 'cursor-btp',
+    titre: 'Créer ses outils métier BTP avec Cursor',
+    promesse:
+      'Piloter Cursor pour construire un premier outil métier interne — suivi, CR ou documents — sans être développeur.',
+    casUsageCourts: [
+      'Suivi des situations de travaux',
+      'Comptes rendus de chantier',
+      'Tableau de bord documentaire chantier',
+    ],
+    gamme: 'deployer',
+    theme: 'outils-applications',
+    niveau: 2,
+    niveauLabel: 'Avancé',
+    duree: '4 h',
+    horaires: '9h00 – 13h00',
+    effectifMin: 1,
+    effectifMax: 8,
+    prixHT: 1200,
+    accroche:
+      'Atelier avancé : cadrer un besoin métier, piloter Cursor (Plan, Agent) et publier un premier outil interne simple.',
+    objectifs: [
+      'Comprendre les briques d’une application web (interface, traitement, stockage, hébergement) sans être développeur',
+      'Installer et configurer Cursor ; fournir du contexte métier (fichiers, règles, documentation)',
+      'Utiliser le mode Plan : Besoin → questions → plan → validation → développement',
+      'Cadrer un cas d’usage BTP et construire progressivement un premier outil fonctionnel',
+      'Tester, versionner avec Git/GitHub et identifier les précautions de sécurité',
+      'Reconnaître les situations nécessitant un développeur, un DSI ou un spécialiste cybersécurité',
+    ],
+    public:
+      'Dirigeants PME BTP, conducteurs de travaux, chargés d’affaires, responsables BE, profils BIM, assistants travaux avancés, responsables administratifs avec projet d’outil, responsables informatiques',
+    casUsage: 'Suivi situations, CR chantier, suivi documentaire, réserves, mémoire technique',
+    pdfProgramme: '/formations/cursor-btp/programme-cursor-btp-ofc.pdf',
+    programmeVersion: 'Version 1',
+    programmeUpdatedAt: '30/08/2026',
+    image: '/images/formation-ia-architecture-claude-presentiel-groupe.jpg',
+  },
 ] as const;
 
 export type FormationCode = (typeof FORMATIONS)[number]['code'];
@@ -184,8 +268,8 @@ export type FormationSlug = (typeof FORMATIONS)[number]['slug'];
 
 export const FORMATIONS_COUNT = FORMATIONS.length;
 
-/** Plage de numérotation catalogue — 5 formations (NIV-01 … NIV-05). */
-export const CATALOGUE_NIV_RANGE = 'NIV-01 à NIV-05' as const;
+/** Plage de numérotation catalogue — 6 formations (NIV-01 … NIV-06). */
+export const CATALOGUE_NIV_RANGE = 'NIV-01 à NIV-06' as const;
 
 export function getFormationByCode(code: string): Formation | undefined {
   return FORMATIONS.find((f) => f.code === code);

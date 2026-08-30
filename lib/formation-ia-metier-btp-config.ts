@@ -122,7 +122,7 @@ Structure : contexte chantier, observations par zone, réserves factuelles, dema
     },
   ],
   courseName: 'Formation IA étancheur BTP — partenariat CSFE, Qualiopi',
-  courseDescription: `${OFC} : formation IA et ChatGPT pour étancheurs — mémoires techniques, DTU 43, bardage, relevés, CCTP. Interventions auprès de ${CSFE_NOM_LIBRE}. Session 4 h, Qualiopi, financement possible selon éligibilité. Île-de-France et France.`,
+  courseDescription: `${OFC} : formation IA et ChatGPT pour étancheurs — mémoires techniques, DTU 43, bardage, relevés, CCTP. Interventions auprès de ${CSFE_NOM_LIBRE}. Session 4 h, Qualiopi, financement possible selon éligibilité. Présentiel Île-de-France.`,
   courseTeaches: [
     'ChatGPT pour étancheurs BTP',
     'Méthodes IA et DTU 43 (relecture humaine)',

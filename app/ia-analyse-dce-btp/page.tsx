@@ -165,7 +165,7 @@ export default function IaAnalyseDceBtpPage() {
               Cadrer une session sur vos DCE
             </h2>
             <p className="mt-3 text-blue-100">
-              Appel découverte gratuit (30 min) — présentiel Île-de-France ensuite, sur vos dossiers.
+              Prendre rendez-vous (30 min) — présentiel Île-de-France ensuite, sur vos dossiers.
             </p>
             <div className="mt-6">
               <CalendlyEmbed

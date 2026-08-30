@@ -110,7 +110,7 @@ function BlocCtaHaut() {
         Votre formation IA pour le BTP, financement possible selon éligibilité.
       </p>
       <p className="mt-2 text-slate-700">
-        Réservez votre visio découverte gratuite — 30 min pour savoir si la formation vous convient.
+        Prendre rendez-vous — 30 min pour savoir si la formation vous convient.
       </p>
       <div className="mt-4">
         <CtaVisio />
@@ -198,7 +198,7 @@ export default function FormationIaBtpPillarPage() {
                 </li>
                 <li>
                   <a href="#rdv" className="text-slate-700 underline-offset-2 hover:underline">
-                    Réservez votre visio découverte
+                    Prendre rendez-vous
                   </a>
                 </li>
               </ul>

@@ -755,7 +755,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
       {
         type: 'cta',
         content:
-          'Formez votre équipe à l\'IA pour les appels d\'offres et les mémoires techniques — en présentiel, sur vos DCE anonymisés. Formation certifiée Qualiopi, financement possible selon éligibilité.',
+          'Formez votre équipe à l\'IA pour les appels d\'offres et les mémoires techniques — en présentiel Île-de-France, sur vos DCE anonymisés. 100 % de prise en charge possible selon éligibilité.',
         formationHref: '/formations/ia-appels-offre-btp',
       },
     ],
@@ -1564,7 +1564,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
         title: '',
         content: `<div class="rounded-2xl border border-[var(--accent)] bg-[var(--accent-soft)] p-6 my-2">
 <p class="font-semibold text-slate-900">Vous voulez voir la méthode en action ?</p>
-<p class="mt-2 text-slate-700"><a href="${LINKS.prendreRdv}" class="ofc-link">Réservez votre visio découverte gratuite</a> — je vous montre en 30 min comment l'adapter à vos devis.</p>
+<p class="mt-2 text-slate-700"><a href="${LINKS.prendreRdv}" class="ofc-link">Prendre rendez-vous</a> — je vous montre en 30 min comment l'adapter à vos devis.</p>
 </div>`,
       },
       {

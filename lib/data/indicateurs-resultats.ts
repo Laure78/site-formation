@@ -1,6 +1,6 @@
 /**
  * Indicateurs de résultats Qualiopi (indicateur 2) — source unique pour le site public.
- * Satisfaction uniquement ; réalisation et assiduité en consolidation.
+ * Satisfaction et volume formé publiés ; réalisation et assiduité en consolidation.
  */
 export const indicateursResultats = {
   noteSatisfaction: 4.45,

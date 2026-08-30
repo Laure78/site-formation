@@ -20,7 +20,7 @@ export function CalendlyFloatingButton() {
       origin="footer-floating-button"
       variant="unstyled"
       className={`fixed z-[70] inline-flex max-w-[min(100vw-3rem,20rem)] items-center gap-2 rounded-lg bg-[#377CF3] px-4 py-3 text-left text-sm font-semibold text-white shadow-lg transition hover:bg-[#2d6ae0] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#377CF3] ${positionClass}`}
-      aria-label="Réservez votre visio découverte gratuite"
+      aria-label="Prendre rendez-vous"
       title="Prendre rendez-vous"
     >
       <Calendar className="h-5 w-5 shrink-0" strokeWidth={2} aria-hidden />

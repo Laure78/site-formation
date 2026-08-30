@@ -125,7 +125,7 @@ export function FormationMetierB1Page({
         </section>
 
         <aside className="mt-14 rounded-2xl bg-[var(--accent)] p-8 text-white md:p-10">
-          <h2 className="font-display text-2xl font-bold">Réservez votre visio découverte gratuite</h2>
+          <h2 className="font-display text-2xl font-bold">Prendre rendez-vous</h2>
           <p className="mt-4 text-blue-100 leading-relaxed">
             30 minutes pour analyser vos besoins et bâtir un plan de formation IA adapté à votre activité.
           </p>
@@ -134,7 +134,7 @@ export function FormationMetierB1Page({
               campaign={`${slugFromPath}-visio-encart`}
               className="inline-flex items-center gap-2 rounded-xl bg-white px-6 py-3 font-semibold text-[var(--accent)] hover:bg-blue-50"
             >
-              Prendre un rendez-vous découverte
+              Prendre rendez-vous
               <ArrowRight size={20} strokeWidth={1.5} />
             </RdvLink>
             <PublicPhoneCta className="inline-flex items-center gap-2 rounded-xl border-2 border-white px-6 py-3 font-semibold text-white hover:bg-white/10" />
@@ -218,7 +218,7 @@ export function FormationMetierB1Page({
         <section id="rdv" className="scroll-mt-24 mt-14 rounded-2xl bg-[var(--accent)] p-8 text-white md:p-10">
           <h2 className="font-display text-2xl font-bold">Passez à l&apos;action</h2>
           <p className="mt-4 text-blue-100 leading-relaxed">
-            Prendre un rendez-vous découverte pour cadrer votre plan de formation IA.
+            Prendre rendez-vous pour cadrer votre plan de formation IA.
           </p>
           <div className="mt-8 flex flex-wrap gap-4" id="cta-calendly">
             <RdvLink

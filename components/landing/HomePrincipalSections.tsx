@@ -59,7 +59,7 @@ const cards = [
   },
   {
     href: '#rdv',
-    title: 'Réservez votre visio découverte gratuite',
+    title: 'Prendre rendez-vous',
     desc: 'Visio découverte gratuite — devis personnalisé',
     Icon: Calendar,
   },

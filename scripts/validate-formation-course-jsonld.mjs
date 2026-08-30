@@ -8,6 +8,7 @@ import {
   buildCatalogueCourseConduiteTravauxNiv03JsonLd,
   buildCatalogueCourseMaitriserClaudeNiv04JsonLd,
   buildCatalogueCourseMaitriseOeuvreNiv05JsonLd,
+  buildCatalogueCourseCursorBtpNiv06JsonLd,
 } from '../lib/schema-catalogue-course-jsonld.ts';
 import { buildCatalogFormationCoursePageSchema } from '../lib/catalog-formation-course-page-jsonld.ts';
 import {
@@ -24,6 +25,7 @@ const BLOCKS = [
   { name: 'catalogue-niv-03', schema: buildCatalogueCourseConduiteTravauxNiv03JsonLd() },
   { name: 'catalogue-niv-04', schema: buildCatalogueCourseMaitriserClaudeNiv04JsonLd() },
   { name: 'catalogue-niv-05', schema: buildCatalogueCourseMaitriseOeuvreNiv05JsonLd() },
+  { name: 'catalogue-niv-06', schema: buildCatalogueCourseCursorBtpNiv06JsonLd() },
   {
     name: 'catalog-formation-page',
     schema: buildCatalogFormationCoursePageSchema(FORMATIONS_CATALOG_SCHEMA[0]),

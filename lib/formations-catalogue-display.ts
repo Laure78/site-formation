@@ -30,6 +30,10 @@ export type FormationCatalogueEntry = {
   effectif: string;
   objectifs: string[];
   pitch: string;
+  promesse: string;
+  casUsageCourts: readonly string[];
+  gamme: import('@/data/formations').FormationGamme;
+  theme?: import('@/data/formations').FormationTheme;
   slug: string;
   programmePdfHref: string;
   prixHT: number;
@@ -41,6 +45,7 @@ export type FormationCatalogueEntry = {
     | 'conduite-travaux'
     | 'maitriser-claude'
     | 'maitrise-oeuvre'
+    | 'cursor-btp'
   >;
   comparatif: {
     publicLabel: string;
@@ -54,6 +59,7 @@ const PHOTO_BY_CODE: Record<string, (typeof PHOTOS)[keyof typeof PHOTOS]> = {
   'NIV-03': PHOTOS.formationNiv03IaConduiteTravaux2026,
   'NIV-04': PHOTOS.formationNiv04MaitriserClaudeAiBtp2026,
   'NIV-05': PHOTOS.formationNiv05IaMaitriseOeuvre2026,
+  'NIV-06': PHOTOS.formationNiv06CursorBtp2026,
 };
 
 const PROFILE_TAGS_BY_CODE: Record<
@@ -65,6 +71,7 @@ const PROFILE_TAGS_BY_CODE: Record<
   'NIV-03': ['conduite-travaux'],
   'NIV-04': ['maitriser-claude'],
   'NIV-05': ['maitrise-oeuvre'],
+  'NIV-06': ['cursor-btp'],
 };
 
 function toCatalogueEntry(f: Formation): FormationCatalogueEntry {
@@ -85,6 +92,10 @@ function toCatalogueEntry(f: Formation): FormationCatalogueEntry {
     duree: libelleDureeFormation(f),
     effectif: libelleEffectifFormation(f),
     pitch: f.accroche,
+    promesse: f.promesse,
+    casUsageCourts: f.casUsageCourts,
+    gamme: f.gamme,
+    theme: f.theme,
     objectifs: [...f.objectifs],
     prixHT: f.prixHT,
     effectifMin: f.effectifMin,

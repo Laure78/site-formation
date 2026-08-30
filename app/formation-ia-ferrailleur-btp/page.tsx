@@ -102,7 +102,7 @@ const SOMMAIRE = [
   { href: '#resultats', label: 'Résultats concrets et témoignages' },
   { href: '#faq', label: 'FAQ — questions des ferrailleurs sur l’IA' },
   { href: '#a-propos', label: 'Qui est Laure Olivié ?' },
-  { href: '#rdv', label: 'Réservez votre visio découverte gratuite' },
+  { href: '#rdv', label: 'Prendre rendez-vous' },
 ];
 
 export default function FormationIaFerrailleurBtpPage() {
@@ -247,7 +247,7 @@ export default function FormationIaFerrailleurBtpPage() {
           <p className="font-medium text-slate-900">Aller plus loin</p>
           <p className="mt-2 text-slate-600">
             <a href="#rdv" className="font-semibold text-[var(--accent)] underline hover:no-underline">
-              Réservez votre visio découverte gratuite
+              Prendre rendez-vous
             </a>{' '}
             — Laure vous montre comment l’IA structure un quantitatif de ferraillage et un devis sur un cas type, financement
             Constructys, programme 1 ou 2 jours.

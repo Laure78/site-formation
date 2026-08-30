@@ -1,5 +1,5 @@
 /**
- * JSON-LD `Course` — catalogue officiel (NIV-01 à NIV-05).
+ * JSON-LD `Course` — catalogue officiel (NIV-01 à NIV-06).
  * Données fixes : `lib/schema-constants.ts`, `lib/internal-links.ts`, `lib/tarifs-sessions.ts`.
  * Objectifs pédagogiques (`teaches`) : source `lib/formations-catalogue-display.ts`.
  */
@@ -25,6 +25,7 @@ const CATALOGUE_REF_BY_PATH: Record<FormationCatalogueRichCourseConfig['path'], 
   [LINKS.formationConduiteTravauxSuiviChantier]: 'NIV-03',
   [LINKS.formationMaitriserClaudeAiBtp]: 'NIV-04',
   [LINKS.formationIaMaitriseOeuvre]: 'NIV-05',
+  [LINKS.formationCursorBtp]: 'NIV-06',
 };
 
 function priceSpecDescription(ref: string): string {
@@ -39,7 +40,7 @@ function priceSpecDescription(ref: string): string {
 }
 
 const PRICE_SPEC_DESCRIPTION_BY_REF: Record<string, string> = Object.fromEntries(
-  (['NIV-01', 'NIV-02', 'NIV-03', 'NIV-04', 'NIV-05'] as const).map((ref) => [
+  (['NIV-01', 'NIV-02', 'NIV-03', 'NIV-04', 'NIV-05', 'NIV-06'] as const).map((ref) => [
     ref,
     priceSpecDescription(ref),
   ])
@@ -63,12 +64,13 @@ export type CatalogueCourseJsonLdConfig = {
     | typeof LINKS.formationAO
     | typeof LINKS.formationConduiteTravauxSuiviChantier
     | typeof LINKS.formationMaitriserClaudeAiBtp
-    | typeof LINKS.formationIaMaitriseOeuvre;
+    | typeof LINKS.formationIaMaitriseOeuvre
+    | typeof LINKS.formationCursorBtp;
   name: string;
   description: string;
   price?: number;
   keywords: readonly string[];
-  courseCode: 'NIV-01' | 'NIV-02' | 'NIV-03' | 'NIV-04' | 'NIV-05';
+  courseCode: 'NIV-01' | 'NIV-02' | 'NIV-03' | 'NIV-04' | 'NIV-05' | 'NIV-06';
   educationalLevel: 'Beginner' | 'Advanced';
 };
 
@@ -78,7 +80,8 @@ export type FormationCatalogueRichCourseConfig = {
     | typeof LINKS.formationAO
     | typeof LINKS.formationConduiteTravauxSuiviChantier
     | typeof LINKS.formationMaitriserClaudeAiBtp
-    | typeof LINKS.formationIaMaitriseOeuvre;
+    | typeof LINKS.formationIaMaitriseOeuvre
+    | typeof LINKS.formationCursorBtp;
   name: string;
   description: string;
   price?: number;
@@ -185,6 +188,25 @@ export const FORMATION_RICH_COURSE_NIV05: FormationCatalogueRichCourseConfig = {
   teaches: teachesFromCatalogue('NIV-05'),
 };
 
+export const CATALOGUE_COURSE_CURSOR_BTP_NIV06: CatalogueCourseJsonLdConfig = {
+  path: LINKS.formationCursorBtp,
+  name: getFormationByCode('NIV-06')!.titre,
+  description: `${getFormationByCode('NIV-06')!.accroche} Session ${getFormationByCode('NIV-06')!.duree}, présentiel Île-de-France, Qualiopi.`,
+  price: prixCatalogue('NIV-06'),
+  keywords: ['Cursor BTP', 'outil métier', 'application interne', 'GitHub', 'développement assisté IA'],
+  courseCode: 'NIV-06',
+  educationalLevel: 'Advanced',
+};
+
+export const FORMATION_RICH_COURSE_NIV06: FormationCatalogueRichCourseConfig = {
+  path: LINKS.formationCursorBtp,
+  name: CATALOGUE_COURSE_CURSOR_BTP_NIV06.name,
+  description: CATALOGUE_COURSE_CURSOR_BTP_NIV06.description,
+  price: prixCatalogue('NIV-06'),
+  educationalLevel: 'Avancé',
+  teaches: teachesFromCatalogue('NIV-06'),
+};
+
 function buildCatalogueOffer(
   catalogueRef: string,
   courseUrl: string,
@@ -273,6 +295,7 @@ export function buildCatalogueCourseJsonLd(
     'NIV-03': FORMATION_RICH_COURSE_NIV03,
     'NIV-04': FORMATION_RICH_COURSE_NIV04,
     'NIV-05': FORMATION_RICH_COURSE_NIV05,
+    'NIV-06': FORMATION_RICH_COURSE_NIV06,
   };
   const rich = richByCode[config.courseCode];
   if (!rich) {
@@ -306,4 +329,8 @@ export function buildCatalogueCourseMaitriserClaudeNiv04JsonLd(): Record<string,
 
 export function buildCatalogueCourseMaitriseOeuvreNiv05JsonLd(): Record<string, unknown> {
   return buildFormationCatalogueRichCourseJsonLd(FORMATION_RICH_COURSE_NIV05);
+}
+
+export function buildCatalogueCourseCursorBtpNiv06JsonLd(): Record<string, unknown> {
+  return buildFormationCatalogueRichCourseJsonLd(FORMATION_RICH_COURSE_NIV06);
 }

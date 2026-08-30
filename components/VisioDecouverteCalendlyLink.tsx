@@ -17,7 +17,7 @@ export function VisioDecouverteCalendlyLink({ className = '', ...rest }: Props) 
         {...rest}
       >
         <Calendar className="h-5 w-5 shrink-0" strokeWidth={2} aria-hidden />
-        Réservez votre visio découverte gratuite
+        Prendre rendez-vous
       </CtaButton>
     </div>
   );

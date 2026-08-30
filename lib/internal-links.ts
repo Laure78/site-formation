@@ -90,6 +90,10 @@ export const LINKS = {
   formationConduiteTravauxSuiviChantier: '/formations/ia-conduite-travaux-suivi-chantier',
   pdfProgrammeConduiteTravauxNiv03:
     '/formations/ia-conduite-travaux-suivi-chantier/Programme_IA_Conduite_Travaux_OFC.pdf',
+  /** NIV-06 — Créer ses outils métier BTP avec Cursor (catalogue) */
+  formationCursorBtp: '/formations/cursor-btp',
+  /** Landing thématique — études de prix et chiffrage (fiche catalogue : NIV-02) */
+  formationIaEtudesPrixChiffrageBtp: '/formations/ia-etudes-prix-chiffrage-btp',
   /** NIV-04 — Maîtriser Claude AI pour le BTP (catalogue) */
   formationMaitriserClaudeAiBtp: '/formations/maitriser-claude-ai-btp',
   pdfProgrammeMaitriserClaudeBtpNiv04:
@@ -224,6 +228,9 @@ export const LINKS = {
   downloadClaudeSkillsBtp: '/downloads/3-skills-claude-ai-btp.txt',
   /** Alias canonique financement (aligné sur le guide OPCO principal) */
   financement100: '/financement-constructys-formation-ia-btp',
+  etudesCasHub: '/etudes-de-cas',
+  etudesCasFfbCsfe: '/etudes-de-cas/ffb-csfe',
+  etudesCasCrVocalChantier: '/etudes-de-cas/compte-rendu-vocal-chantier-btp',
   etudesCas: '/etudes-de-cas/ffb-csfe',
   casUsage: '/ressources/ia-btp/10-cas-usage-concrets',
   /** Lead magnet — Guide PDF Skill IA conducteur de travaux */

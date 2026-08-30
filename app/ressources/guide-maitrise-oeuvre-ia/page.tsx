@@ -338,7 +338,7 @@ export default function GuideMaitriseOeuvreIaPage() {
       <section className="bg-[#377CF3] py-16 text-center text-white" aria-labelledby="cta-final-moe">
         <div className="mx-auto max-w-3xl px-4">
           <h2 id="cta-final-moe" className="font-display text-2xl font-bold md:text-3xl">
-            Réservez votre visio découverte gratuite
+            Prendre rendez-vous
           </h2>
           <p className="mt-4 text-lg text-white/95">
             30&nbsp;minutes pour cartographier vos missions MOE et valider la prochaine étape — guide PDF ou formation

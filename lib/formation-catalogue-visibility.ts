@@ -5,7 +5,7 @@
 import { FORMATIONS, type Formation } from '@/data/formations';
 import { LINKS } from '@/lib/internal-links';
 
-export type FormationCatalogueCode = 'NIV-01' | 'NIV-02' | 'NIV-03' | 'NIV-04' | 'NIV-05';
+export type FormationCatalogueCode = 'NIV-01' | 'NIV-02' | 'NIV-03' | 'NIV-04' | 'NIV-05' | 'NIV-06';
 
 /** Date de première publication (YYYY-MM-DD, inclusive, fuseau Europe/Paris). */
 export const FORMATION_CATALOGUE_PUBLISH_FROM: Partial<
@@ -46,9 +46,9 @@ export function getPublishedFormations(at: Date = new Date()): readonly Formatio
 /** Meta description page `/formations` — sans NIV-03 tant que non publiée. */
 export function getCataloguePageMetaDescription(at: Date = new Date()): string {
   if (isFormationCataloguePublished('NIV-03', at)) {
-    return "5 formations IA pour le BTP en 4 h : devis, appels d'offres, conduite de travaux, Claude AI et maîtrise d'œuvre. Présentiel IDF — organisme certifié Qualiopi, Constructys.";
+    return "6 formations IA pour le BTP : devis, appels d'offres, conduite de travaux, Claude AI, Cursor et maîtrise d'œuvre. Présentiel IDF — organisme certifié Qualiopi, Constructys selon éligibilité.";
   }
-  return "4 formations IA pour le BTP en 4 h : devis, appels d'offres, Claude AI et maîtrise d'œuvre. Présentiel IDF — organisme certifié Qualiopi, Constructys.";
+  return "5 formations IA pour le BTP : devis, appels d'offres, Claude AI, Cursor et maîtrise d'œuvre. Présentiel IDF — organisme certifié Qualiopi, Constructys selon éligibilité.";
 }
 
 export function getCatalogueFormationsCount(at: Date = new Date()): number {
@@ -62,6 +62,9 @@ export function getCatalogueLabelWithCount(at: Date = new Date()): string {
 /** Description pilier — bloc Liens connexes métier. */
 export function getCataloguePilierConnexeDescription(at: Date = new Date()): string {
   const count = getCatalogueFormationsCount(at);
+  if (count >= 6) {
+    return 'Six sessions Qualiopi — devis, appels d\'offres, chantier, Claude, Cursor, MOE.';
+  }
   if (count >= 5) {
     return 'Cinq sessions Qualiopi — devis, appels d\'offres, chantier, Claude, MOE.';
   }
@@ -79,7 +82,7 @@ export function getCatalogueSiteSearchDescription(at: Date = new Date()): string
 /** Description lien catalogue — landings métier (ex. métreur). */
 export function getCatalogueSessionsRangeDescription(at: Date = new Date()): string {
   const count = getCatalogueFormationsCount(at);
-  return `${count} sessions NIV-01 à NIV-05 — organisme Qualiopi.`;
+  return `${count} sessions NIV-01 à NIV-06 — organisme Qualiopi.`;
 }
 
 /** Chemin catalogue masqué (NIV-03) — pour filtrer maillage et FAQ. */

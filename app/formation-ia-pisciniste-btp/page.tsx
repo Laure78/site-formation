@@ -130,7 +130,7 @@ const SOMMAIRE = [
   { href: '#resultats', label: 'Résultats concrets et témoignages' },
   { href: '#faq', label: 'FAQ — questions des piscinistes sur l’IA' },
   { href: '#a-propos', label: 'Qui est Laure Olivié ?' },
-  { href: '#rdv', label: 'Réservez votre visio découverte gratuite' },
+  { href: '#rdv', label: 'Prendre rendez-vous' },
 ];
 
 export default function FormationIaPiscinisteBtpPage() {
@@ -248,7 +248,7 @@ export default function FormationIaPiscinisteBtpPage() {
           <p className="font-medium text-slate-900">Aller plus loin</p>
           <p className="mt-2 text-slate-600">
             <a href="#rdv" className="font-semibold text-[var(--accent)] underline hover:no-underline">
-              Réservez votre visio découverte gratuite
+              Prendre rendez-vous
             </a>{' '}
             — 30 minutes pour adapter ces usages à votre processus de devis piscine.
           </p>

@@ -219,7 +219,7 @@ export function GeoFormationPage(props: GeoFormationPageProps) {
       <section className={OFC_SEC.white}>
         <div className="mx-auto max-w-4xl px-4">
           <CTABlock
-            title="Réservez votre visio découverte gratuite"
+            title="Prendre rendez-vous"
             description={
               <>
                 30 minutes pour cadrer vos besoins {deptPreposition} : devis, CR, AO, financement

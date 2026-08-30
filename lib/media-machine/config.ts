@@ -34,6 +34,6 @@ export const MEDIA_CONFIG = {
   ctaPhrases: [
     'Découvrez ma formation IA appliquée au bâtiment — Financement possible selon éligibilité.',
     'Réservez un échange de 30 minutes gratuit pour une formation sur-mesure.',
-    'Formation certifiée Qualiopi. Gagnez 3 à 5h par semaine sur vos devis et emails.',
+    '100 % de prise en charge possible selon éligibilité. Gagnez du temps sur vos devis et emails.',
   ],
 } as const;

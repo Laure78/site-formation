@@ -31,6 +31,12 @@ const PILIER_AO: MaillageLink = {
   label: 'Formation IA pour répondre aux appels d’offres BTP',
 };
 
+/** Thème études de prix & chiffrage */
+const PILIER_ETUDES_PRIX: MaillageLink = {
+  href: LINKS.formationIaEtudesPrixChiffrageBtp,
+  label: 'Formation IA études de prix et chiffrage BTP',
+};
+
 /** Thème Chantier / Prévention — même pilier CDT */
 const PILIER_CDT: MaillageLink = {
   href: LINKS.formationConducteurTravaux,
@@ -144,7 +150,14 @@ export const MAILLAGE_RESSOURCES_BY_PATH: Readonly<Record<string, MaillageRessou
   },
   [LINKS.tutoCrChantier]: {
     pilier: PILIER_CDT,
-    soeurs: [TUTO_DOE, TUTO_PV],
+    soeurs: [
+      TUTO_DOE,
+      TUTO_PV,
+      {
+        href: LINKS.etudesCasCrVocalChantier,
+        label: 'Étude de cas — compte rendu vocal de chantier',
+      },
+    ],
   },
   [LINKS.tutoDoeDossierOuvragesExecutes]: {
     pilier: PILIER_CDT,
@@ -241,6 +254,7 @@ export const MAILLAGE_RESSOURCES_BY_PATH: Readonly<Record<string, MaillageRessou
       label: 'Formation IA chargé d’affaires BTP — présentiel IDF',
     },
     soeurs: [
+      PILIER_ETUDES_PRIX,
       {
         href: LINKS.guideRepondreAoBtpOfc2026,
         label: 'Répondre AO BTP — méthode en 5 étapes (PDF 2026)',
@@ -249,18 +263,12 @@ export const MAILLAGE_RESSOURCES_BY_PATH: Readonly<Record<string, MaillageRessou
         href: LINKS.tutoMemoireTechnique,
         label: 'Tuto — skill mémoire technique',
       },
-      {
-        href: LINKS.tutoAnalyseDce,
-        label: 'Tuto — analyse de DCE',
-      },
     ],
   },
   [LINKS.guideRepondreAoBtpOfc2026]: {
-    pilier: {
-      href: LINKS.formationAO,
-      label: 'Formation IA appels d’offres BTP — présentiel IDF',
-    },
+    pilier: PILIER_AO,
     soeurs: [
+      PILIER_ETUDES_PRIX,
       {
         href: LINKS.guideChargeAffairesOfc,
         label: 'Guide chargé d’affaires — 12 cas Claude',
@@ -268,10 +276,6 @@ export const MAILLAGE_RESSOURCES_BY_PATH: Readonly<Record<string, MaillageRessou
       {
         href: LINKS.tutoAnalyseDce,
         label: 'Tuto — analyse de DCE',
-      },
-      {
-        href: LINKS.tutoMemoireTechnique,
-        label: 'Tuto — skill mémoire technique',
       },
     ],
   },

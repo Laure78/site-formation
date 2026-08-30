@@ -16,7 +16,7 @@ function SectionCtaVisio({ className = '' }: { className?: string }) {
         href={LINKS.prendreRdv}
         className="inline-flex items-center justify-center rounded-xl bg-[#377CF3] px-8 py-4 text-center text-base font-semibold text-white shadow-sm transition hover:bg-blue-700"
       >
-        Réservez votre visio découverte gratuite
+        Prendre rendez-vous
       </Link>
     </div>
   );
@@ -109,7 +109,7 @@ export function FormationIaMetierDynamicTemplate({
               href={LINKS.prendreRdv}
               className="inline-flex items-center justify-center rounded-xl bg-white px-8 py-4 text-base font-semibold text-[#377CF3] shadow-sm transition hover:bg-blue-50"
             >
-              Réservez votre visio découverte gratuite
+              Prendre rendez-vous
             </Link>
           </div>
         </div>

@@ -275,7 +275,7 @@ export default function GuideAssistantsTravauxOfcPage() {
               className="inline-flex items-center justify-center gap-2 rounded-lg bg-[#377CF3] px-6 py-3.5 text-sm font-semibold text-white hover:bg-[#2d66d6]"
             >
               <Calendar className="h-4 w-4" aria-hidden />
-              Prendre un rendez-vous découverte
+              Prendre rendez-vous
             </CtaButton>
           </div>
         </div>

@@ -39,6 +39,12 @@ const STATS_BASE: StatItem[] = [
     value: formatNoteSatisfactionSur5(),
     label: 'Satisfaction (Qualiopi)',
   },
+  {
+    id: 'volume',
+    value: formatVolumeProsFormesBtp(),
+    label: 'professionnels formés BTP',
+    href: LINKS.indicateursResultats,
+  },
   { id: 'opco', value: 'OPCO', label: 'Financement possible' },
 ];
 

@@ -363,7 +363,7 @@ export default function FormationIAAppelsOffreBTPPage() {
             <span>
               <strong>Format :</strong> action de formation — session unique <strong>{SESSION_DUREE_LIBELLE}</strong>{' '}
               (75 % pratique / 25 % théorie) en demi-journée : {FORMATION_NIV02.horaires}. Intra-entreprise en
-              présentiel — locaux du client (Morbihan 56 et France entière selon disponibilités). Forfait{' '}
+              présentiel — locaux du client en Île-de-France (75, 77, 78, 91, 92, 93, 94, 95). Forfait{' '}
               <strong>{TARIFS_DUAL}</strong> (niveau avancé, {LIBELLE_EFFECTIF_GROUPE_NIV02}).
               Inscription jusqu&apos;à 15 jours calendaires avant le démarrage.
             </span>

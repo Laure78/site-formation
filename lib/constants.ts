@@ -1,12 +1,12 @@
 /**
  * Chiffres publics OFC — affichage, compteurs, JSON-LD.
  * Source unique des preuves sociales (indicateur 2 Qualiopi) : `lib/data/indicateurs-resultats.ts`.
- * L’effectif cumulé formé n’est pas publié sur le site (audit Qualiopi).
  */
 
 import {
   formatDateMiseAJourIndicateurs,
   formatNoteSatisfactionSur5,
+  formatVolumeProsFormesBtp,
   indicateursResultats,
 } from '@/lib/data/indicateurs-resultats';
 
@@ -41,6 +41,7 @@ export const IDF_ZONE_INTERVENTION =
 export const PREUVES = {
   satisfaction: formatNoteSatisfactionSur5(),
   repondants: indicateursResultats.nombreRepondants,
+  volumeFormes: formatVolumeProsFormesBtp(),
   periode: indicateursResultats.periodeReference,
   majAt: indicateursResultats.dateMiseAJour,
 } as const;
@@ -62,9 +63,9 @@ export function formatPreuvesMajLe(isoDate: string = PREUVES.majAt): string {
 export const PREUVES_MENTION_SOURCE =
   `Note calculée sur la base des questionnaires de satisfaction recueillis à l'issue des sessions — ${indicateursResultats.nombreRepondants} répondants, période ${indicateursResultats.periodeReference}. Dernière mise à jour : ${formatPreuvesMajLe()}.` as const;
 
-/** Bloc « Fédérations & OPCO » — accueil, pour qui (sans effectif formé publié). */
+/** Bloc « Fédérations & OPCO » — accueil, pour qui. */
 export const PREUVES_FEDERATIONS_OPCO =
-  'Sessions animées avec FFB Grand Paris, CSFE et UMB-FFB.' as const;
+  `${formatVolumeProsFormesBtp()} professionnels du BTP formés — sessions animées avec FFB Grand Paris, CSFE et UMB-FFB.` as const;
 
 export const siteStats = {
   noteMoyenneAffichee: PREUVES.satisfaction,

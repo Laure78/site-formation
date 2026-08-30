@@ -23,11 +23,16 @@ const FORMATION_PATH_EXTRA_TITLES: Record<string, string> = {
   '/formations/ia-btp-longjumeau': 'Formation IA pour les pros du BTP à Longjumeau',
   '/formations/ia-btp-saint-quentin-en-yvelines':
     'Formation IA appliquée au bâtiment Saint-Quentin-en-Yvelines',
-  '/formations/ia-pme-btp': 'IA pour PME du BTP',
+  '/formations/ia-pme-btp': 'Déployer l’IA dans une PME BTP',
+  '/formations/ia-etudes-prix-chiffrage-btp': 'IA études de prix et chiffrage BTP',
+  '/formations/cursor-btp': 'Créer ses outils métier BTP avec Cursor',
+  '/formations/maitriser-claude-ai-btp': 'Maîtriser Claude pour le BTP',
 };
 
 const ETUDES_TITLES: Record<string, string> = {
+  '/etudes-de-cas': 'Études de cas — formation IA BTP',
   '/etudes-de-cas/ffb-csfe': 'Étude de cas FFB & CSFE — Étanchéité',
+  '/etudes-de-cas/compte-rendu-vocal-chantier-btp': 'Étude de cas — CR vocal de chantier',
 };
 
 const RESSOURCES_TITLES: Record<string, string> = {

@@ -36,7 +36,7 @@ export function formationIaDirigeantBtpMetadata(): Metadata {
 
 export const FORMATION_IA_DIRIGEANT_BTP_COURSE = {
   name: 'Formation IA pour dirigeants du BTP — stratégie, ROI et déploiement équipes',
-  description: `${SITE_CONFIG.legalName} : accompagner les décideurs de PME bâtiment sur l’IA générative — vision, gains de productivité, cadre Qualiopi, financement possible selon éligibilité. Île-de-France et France.`,
+  description: `${SITE_CONFIG.legalName} : accompagner les décideurs de PME bâtiment sur l'IA générative — vision, gains de productivité, cadre Qualiopi, financement possible selon éligibilité. Présentiel Île-de-France.`,
   teaches: [
     'Pilotage stratégique de l’IA en entreprise BTP',
     'ROI et productivité par fonction (encadrement, support)',

@@ -134,6 +134,11 @@ export const METREUR_ECONOMISTE_FAQ: readonly FAQItem[] = [
 export function getMetreurEconomisteRelated(at: Date = new Date()) {
   return [
     {
+      href: LINKS.formationIaEtudesPrixChiffrageBtp,
+      title: 'Formation IA études de prix et chiffrage BTP',
+      description: 'Landing thématique — DPGF, métrés, BPU, quantitatifs.',
+    },
+    {
       href: LINKS.formationAO,
       title: 'Formation NIV-02 — IA appels d’offres BTP',
       description: 'DCE, mémoire technique, Claude AI Pro — catalogue Qualiopi.',

@@ -48,7 +48,7 @@ function CalendlyBlock({
           campaign={campaign}
           className="gap-2 font-bold shadow-sm"
         >
-          Prendre un rendez-vous découverte
+          Prendre rendez-vous
           <ArrowRight size={18} strokeWidth={1.5} aria-hidden />
         </CalendlyEmbed>
         {showFinancementLink ? (

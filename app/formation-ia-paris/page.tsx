@@ -26,7 +26,7 @@ const PAGE_URL = `${SITE_CONFIG.url.replace(/\/$/, '')}${PATH}`;
 /** Titre exact demandé — `buildMetadata` conserve le suffixe via titleAbsolute. */
 const META_TITLE_ABSOLUTE = 'Formation IA à Paris — Présentiel BTP | Laure Olivié';
 const META_DESCRIPTION =
-  `Formation IA à Paris : 4h en présentiel pour maîtriser ChatGPT sur vos devis, DCE et comptes rendus. Qualiopi, $. Réservez votre visio.`;
+  `Formation IA à Paris : 4h en présentiel pour maîtriser ChatGPT sur vos devis, DCE et comptes rendus. Qualiopi, financement possible selon éligibilité. Prendre rendez-vous.`;
 
 export const metadata = buildMetadata({
   title: 'Formation IA à Paris — Présentiel BTP',
@@ -439,7 +439,7 @@ export default function FormationIaParisPage() {
         <section id="rdv" className={`${OFC_SEC.accent} scroll-mt-24`}>
           <div className="mx-auto max-w-4xl text-center">
             <h2 className="font-display text-2xl font-bold md:text-3xl">
-              Réservez votre visio découverte gratuite
+              Prendre rendez-vous
             </h2>
             <p className="mx-auto mt-4 max-w-2xl text-blue-100">
               30 minutes pour cadrer une formation IA à Paris adaptée à votre équipe : documents à apporter,
@@ -453,7 +453,7 @@ export default function FormationIaParisPage() {
                 ctaPosition="footer"
                 className="inline-flex items-center rounded-lg bg-white px-6 py-3.5 font-semibold text-[#377CF3] hover:bg-slate-50"
               >
-                Réservez votre visio découverte gratuite
+                Prendre rendez-vous
               </CalendlyEmbed>
             </div>
           </div>

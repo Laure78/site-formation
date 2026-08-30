@@ -25,7 +25,7 @@ export function FormationCalendlyInlineGate() {
           id="formation-calendly-heading"
           className="font-display text-2xl font-bold tracking-tight text-slate-900 md:text-3xl"
         >
-          {isCatalogue ? 'Réserver ma session' : 'Réservez votre visio découverte gratuite'}
+          {isCatalogue ? 'Réserver ma session' : 'Prendre rendez-vous'}
         </h2>
         <p className="mx-auto mt-3 max-w-2xl text-slate-600 md:text-lg">
           Choisissez un créneau de 30 minutes pour cadrer votre besoin (formation IA appliquée au

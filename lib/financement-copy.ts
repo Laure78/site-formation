@@ -1,19 +1,23 @@
 /**
  * Formulations éditoriales — financement formations (Constructys / OPCO).
- * Éviter les promesses absolues (100 %, garanti, gratuit, aucun reste à charge).
+ * Ne pas promettre un financement garanti — toujours conditionner à l'éligibilité.
  */
+
+/** Formulation marketing — prise en charge intégrale possible selon dossier OPCO. */
+export const FINANCEMENT_PRISE_EN_CHARGE_100_SELON_ELIGIBILITE =
+  '100 % de prise en charge possible selon éligibilité (Constructys / plan de développement des compétences).';
 
 /** Formulation SEO / badges — Constructys sans promesse de prise en charge. */
 export const FINANCEMENT_CONSTRUCTYS_FORMULATION =
   'Finançable par Constructys selon éligibilité';
 
-/** Formulation prudente — paragraphes, FAQ détaillées, pages financement et tarifs */
+/** Formulation prudente — paragraphes juridiques détaillés, pages financement et tarifs */
 export const FINANCEMENT_FORMULATION_PRUDENTE =
-  'Une prise en charge partielle peut être possible par Constructys ou un autre OPCO, selon l\u2019éligibilité de l\u2019entreprise, les critères applicables et les plafonds en vigueur. Un reste à charge peut s\u2019appliquer.';
+  `${FINANCEMENT_PRISE_EN_CHARGE_100_SELON_ELIGIBILITE} Plafonds et reste à charge selon barèmes Constructys, effectif et dossier en vigueur.`;
 
 /** Formulation courte — meta, badges, accroches commerciales */
 export const FINANCEMENT_FORMULATION_COURTE =
-  'Financement partiel possible selon éligibilité.';
+  'Financement possible selon éligibilité — prise en charge à 100 % selon dossier.';
 
 /**
  * Mention courte avec lien (composant `MentionFinancement` variant="court").
@@ -42,4 +46,4 @@ export const FINANCEMENT_CONSTRUCTYS_PLAFONDS_COURT =
  * Le href est injecté côté `lib/faq.ts` via LINKS.financement.
  */
 export const FINANCEMENT_FAQ_PARTIELLE_CORPS =
-  'Oui : une prise en charge partielle est possible via Constructys ou votre OPCO selon éligibilité. Le plafond s’applique par stagiaire (24 € HT × 4 h = 96 € HT indicatifs) : au-delà d’un certain effectif, un reste à charge est fréquent.';
+  `Oui : ${FINANCEMENT_PRISE_EN_CHARGE_100_SELON_ELIGIBILITE} Plafond pédagogique indicatif : 24 € HT/heure/stagiaire (96 € HT pour 4 h) — au-delà d'un certain effectif, un reste à charge peut s'appliquer selon barèmes et dossier.`;

@@ -151,7 +151,7 @@ const SOMMAIRE = [
   { href: '#resultats', label: 'Résultats concrets et témoignages' },
   { href: '#faq', label: 'FAQ — questions des chefs d’entreprise BTP sur l’IA' },
   { href: '#a-propos', label: 'Qui est Laure Olivié ?' },
-  { href: '#rdv', label: 'Réservez votre visio découverte gratuite' },
+  { href: '#rdv', label: 'Prendre rendez-vous' },
 ];
 
 export default function FormationIaDirigeantPmeBtpPage() {
@@ -286,7 +286,7 @@ export default function FormationIaDirigeantPmeBtpPage() {
           <p className="font-medium text-slate-900">Aller plus loin</p>
           <p className="mt-2 text-slate-600">
             <a href="#rdv" className="font-semibold text-[var(--accent)] underline hover:no-underline">
-              Réservez votre visio découverte gratuite
+              Prendre rendez-vous
             </a>{' '}
             — 30 minutes pour voir comment adapter ces usages à votre PME BTP.
           </p>

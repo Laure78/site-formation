@@ -8,7 +8,9 @@ import {
   SITE_CONFIG,
 } from '@/lib/seo';
 import { CSFE_NOM_LIBRE, CSFE_TITRE_PAGE } from '@/lib/csfe';
+import { LINKS } from '@/lib/internal-links';
 import { CaseStudyYoutubeThumbnails } from '@/components/landing/CaseStudyYoutubeThumbnails';
+import { DisclaimerGains } from '@/components/formation/DisclaimerGains';
 import { formatNoteSatisfactionAffichageComplet, formatVolumeProsFormesBtpLibelle } from '@/lib/data/indicateurs-resultats';
 
 const ETUDE_CAS_THUMBNAILS = [
@@ -339,6 +341,7 @@ export default function EtudeDeCasFfbCsfePage() {
                       par semaine récupérables sur l&apos;administratif (ordre de grandeur
                       constaté en entreprise après mise en pratique)
                     </p>
+                    <DisclaimerGains className="mt-3" />
                   </li>
                 </ul>
               </div>
@@ -501,10 +504,10 @@ export default function EtudeDeCasFfbCsfePage() {
               Demander un échange
             </RdvLink>
             <Link
-              href="/a-propos#clients-partenaires"
+              href={LINKS.etudesCasHub}
               className="inline-flex rounded-xl border border-white/40 px-8 py-3 font-semibold text-white hover:bg-white/10"
             >
-              Voir les références
+              Toutes les études de cas
             </Link>
           </div>
         </div>

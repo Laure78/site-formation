@@ -140,6 +140,19 @@ export function libelleTarifsDualCourt(dureeHeures: TarifDureeHeures = 4): strin
   return `Intra-entreprise : ${t.intra}`;
 }
 
+/** Ligne grille — ex. « 7 heures : 1 800 € HT par session (intra) · dès 650 € HT/participant (inter) ». */
+export function libelleTarifsGrilleLigne(dureeHeures: TarifDureeHeures): string {
+  const t = libelleTarifsCarteCatalogue(dureeHeures);
+  const label = dureeHeures === 2 ? '2 heures' : `${dureeHeures} heures`;
+  if (t.inter) {
+    return `${label} : ${t.intra} (intra) · ${t.inter} (inter)`;
+  }
+  return `${label} : ${t.intra} (intra uniquement)`;
+}
+
+/** Durées affichées sur la grille catalogue `/formations`. */
+export const GRILLE_TARIFS_CATALOGUE_DUREES: readonly TarifDureeHeures[] = [4, 7, 14];
+
 /** Mention abonnements IA hors forfait. */
 export const MENTION_ABONNEMENTS_IA_HORS_FORFAIT =
   'Les éventuels abonnements payants aux outils d\u2019intelligence artificielle ne sont pas inclus, sauf mention contraire dans le devis.';

@@ -984,7 +984,7 @@ export default function HomePage() {
                 className={`${OFC_CTA_SECONDARY} inline-flex items-center justify-center gap-2 px-6 py-3`}
               >
                 <Calendar size={20} strokeWidth={1.5} />
-                Réservez votre visio découverte gratuite
+                Prendre rendez-vous
               </Link>
             </div>
           </div>

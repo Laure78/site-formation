@@ -16,7 +16,7 @@ export const FORMATION_IA_GROS_OEUVRE_BTP_META_TITLE =
 
 /** 150–160 car., phrase complète, commence par « Formation IA gros œuvre », finit par un CTA. */
 export const FORMATION_IA_GROS_OEUVRE_BTP_META_DESCRIPTION =
-  'Formation IA gros œuvre : formation IA pour le BTP — devis, DCE et suivi chantier. Présentiel Île-de-France. Réservez votre visio découverte gratuite.' as const;
+  'Formation IA gros œuvre : formation IA pour le BTP — devis, DCE et suivi chantier. Présentiel Île-de-France. Prendre rendez-vous.' as const;
 
 export const FORMATION_IA_GROS_OEUVRE_BTP_H1 =
   'Formation IA pour le gros œuvre en Île-de-France — devis, DCE et suivi de chantier' as const;

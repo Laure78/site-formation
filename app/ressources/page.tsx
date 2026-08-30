@@ -137,7 +137,7 @@ export default function RessourcesIndexPage() {
               href={LINKS.prendreRdv}
               className="inline-flex items-center gap-2 rounded-xl bg-white px-6 py-3 text-[0.95rem] font-semibold text-[#377CF3] shadow-lg transition hover:bg-[#F2F2F2]"
             >
-              Prendre un rendez-vous découverte
+              Prendre rendez-vous
               <ArrowRight size={16} aria-hidden />
             </Link>
             <Link

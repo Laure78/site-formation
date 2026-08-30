@@ -6,7 +6,11 @@ import {
   EXIGENCE_CLAUDE_PRO_NIVEAU_AVANCE,
   COMPTES_IA_GRATUITS_NIVEAU_DEBUTANT,
   TARIF_INTRA_4H_HT,
+  TARIF_INTRA_7H_HT,
+  TARIF_INTRA_14H_HT_FROM,
   TARIF_INTER_4H_HT_FROM,
+  TARIF_INTER_7H_HT_FROM,
+  TARIF_INTER_14H_HT_FROM,
   SESSION_DUREE_LIBELLE,
   EFFECTIF_GROUPE_MAX,
   MODALITE_FORMATIONS_STANDARD,
@@ -230,7 +234,7 @@ export const FAQ_FORMATIONS: FAQItem[] = [
   },
   {
     q: 'Combien coûte une formation IA pour le BTP ?',
-    a: `Une formation intra-entreprise de 4 heures coûte ${libelleTarifIntraParSession(TARIF_INTRA_4H_HT)}. Une session interentreprises de 4 heures est proposée ${libelleTarifInterParParticipant(TARIF_INTER_4H_HT_FROM)}. Les parcours de 7 ou 14 heures font l'objet d'un tarif adapté à leur durée et à leur niveau de personnalisation. Voir la <a href="${LINKS.formations}#tarifs-formations-btp">grille tarifaire</a>.`,
+    a: `Catalogue Qualiopi 4 h : intra ${libelleTarifIntraParSession(TARIF_INTRA_4H_HT)} · inter ${libelleTarifInterParParticipant(TARIF_INTER_4H_HT_FROM)}. Parcours déploiement 7 h : intra ${libelleTarifIntraParSession(TARIF_INTRA_7H_HT, true)} · inter ${libelleTarifInterParParticipant(TARIF_INTER_7H_HT_FROM)}. Parcours 14 h : intra ${libelleTarifIntraParSession(TARIF_INTRA_14H_HT_FROM, true)} · inter ${libelleTarifInterParParticipant(TARIF_INTER_14H_HT_FROM)}. Voir la <a href="${LINKS.formations}#tarifs-formations-btp">grille tarifaire</a>.`,
   },
   {
     q: 'La formation peut-elle être financée par Constructys ?',
@@ -238,7 +242,7 @@ export const FAQ_FORMATIONS: FAQItem[] = [
   },
   {
     q: 'Quelles formations IA appliquées au bâtiment sont proposées au catalogue ?',
-    a: `Le catalogue OFC propose ${CATALOGUE_FORMATIONS_COUNT} formations IA pour le BTP de 4 heures, toutes dispensées par OFC Création d&apos;Entreprise, organisme certifié Qualiopi : (1) L&apos;IA au service des pros du bâtiment et des travaux publics — niveau 1, (2) L&apos;IA appliquée aux appels d&apos;offres BTP — niveau 2, (3) L&apos;IA appliquée à la conduite de travaux — niveau 2 (8 participants max), (4) Maîtriser Claude AI pour le BTP — Chat, Cowork &amp; Code (niveau 2, ${libelleTarifsDualCourt(4)}, matin 9h–13h, 8 participants max), (5) L&apos;IA au service des maîtres d&apos;œuvre — niveau 2 (3 à 8 participants, MOEX/MOE). ${MODALITE_FORMATIONS_PRESENTIEL} ${FINANCEMENT_FORMULATION_COURTE} Fiches détaillées : cartes ci-dessus.`,
+    a: `Le catalogue OFC propose ${CATALOGUE_FORMATIONS_COUNT} formations IA pour le BTP de 4 heures, toutes dispensées par OFC Création d&apos;Entreprise, organisme certifié Qualiopi : (1) L&apos;IA au service des pros du bâtiment et des travaux publics — niveau 1, (2) L&apos;IA appliquée aux appels d&apos;offres BTP — niveau 2, (3) L&apos;IA appliquée à la conduite de travaux — niveau 2 (8 participants max), (4) Maîtriser Claude AI pour le BTP — Chat, Cowork &amp; Code (niveau 2, ${libelleTarifsDualCourt(4)}, matin 9h–13h, 8 participants max), (5) L&apos;IA au service des maîtres d&apos;œuvre — niveau 2 (3 à 8 participants, MOEX/MOE), (6) Créer ses outils métier BTP avec Cursor — atelier avancé (8 participants max). ${MODALITE_FORMATIONS_PRESENTIEL} ${FINANCEMENT_FORMULATION_COURTE} Fiches détaillées : cartes ci-dessus.`,
   },
   {
     q: 'Comment choisir la bonne formation IA pour le BTP pour mon entreprise ?',
@@ -311,7 +315,7 @@ export const FAQ_TARIFS: FAQItem[] = [
   },
   {
     q: "Comment financer ma formation IA ?",
-    a: 'Via l\'OPCO Constructys pour les entreprises du BTP, selon éligibilité. Le coût pédagogique est pris en charge partiellement jusqu\'à 24 € HT/heure/stagiaire (96 € HT pour 4 h) : au-delà d\'un certain effectif, un reste à charge est fréquent. Les entreprises de moins de 11 salariés peuvent également bénéficier d\'une prise en charge partielle des salaires (15 € HT/heure). Page dédiée : <a href="/financement-constructys-formation-ia-btp">financement Constructys formation IA pour le BTP</a>.',
+    a: 'Via l\'OPCO Constructys pour les entreprises du BTP, selon éligibilité. 100 % de prise en charge possible selon dossier (plafond pédagogique indicatif : 24 € HT/heure/stagiaire, soit 96 € HT pour 4 h). Les entreprises de moins de 11 salariés peuvent également bénéficier d\'une prise en charge partielle des salaires (15 € HT/heure). Page dédiée : <a href="/financement-constructys-formation-ia-btp">financement Constructys formation IA pour le BTP</a>.',
   },
   {
     q: "Faut-il avancer des frais ?",

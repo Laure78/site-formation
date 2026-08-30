@@ -11,6 +11,7 @@ import {
   Cpu,
   FileText,
   Users,
+  Code2,
   HardHat,
   Landmark,
 } from 'lucide-react';
@@ -28,7 +29,7 @@ import { calendlyCatalogueUrl } from '@/lib/calendly';
 import { libelleTarifsCarteCatalogue } from '@/lib/tarifs-sessions';
 import { OFC_CARD, OFC_CTA_PRIMARY } from '@/lib/ofc-interaction-classes';
 
-type ProfileId = 'debutant' | 'ao' | 'conduite' | 'claude' | 'moe';
+type ProfileId = 'debutant' | 'ao' | 'conduite' | 'claude' | 'moe' | 'cursor';
 
 const PROFILE_ICONS = {
   'NIV-01': BookOpen,
@@ -36,6 +37,7 @@ const PROFILE_ICONS = {
   'NIV-03': HardHat,
   'NIV-04': Cpu,
   'NIV-05': Landmark,
+  'NIV-06': Code2,
 } as const;
 
 const PROFILE_IDS: Record<string, ProfileId> = {
@@ -44,6 +46,7 @@ const PROFILE_IDS: Record<string, ProfileId> = {
   'NIV-03': 'conduite',
   'NIV-04': 'claude',
   'NIV-05': 'moe',
+  'NIV-06': 'cursor',
 };
 
 function buildProfiles(formations: FormationCatalogueEntry[]) {
@@ -115,7 +118,7 @@ function FormationCard({
         <h3 className="mt-2 font-display text-[22px] font-semibold leading-snug text-[#0F172A]">
           <FormationCatalogueTitle entry={cours} />
         </h3>
-        <p className="mt-2 text-base italic leading-snug text-[#475569]">{cours.pitch}</p>
+        <p className="mt-2 text-base leading-snug text-[#475569]">{cours.promesse}</p>
         <CataloguePriceBadge
           level={cours.level}
           duree={cours.duree}
@@ -133,12 +136,12 @@ function FormationCard({
           </span>
         </div>
         <hr className="my-5 border-[#E2E8F0]" />
-        <p className="text-[11px] font-semibold uppercase tracking-widest text-[#377CF3]">Objectifs pédagogiques</p>
+        <p className="text-[11px] font-semibold uppercase tracking-widest text-[#377CF3]">Cas d&apos;usage</p>
         <ul className="mt-3 flex-1 space-y-2">
-          {cours.objectifs.map((obj) => (
-            <li key={obj} className="flex gap-2 text-sm leading-relaxed text-[#334155]">
+          {cours.casUsageCourts.map((useCase) => (
+            <li key={useCase} className="flex gap-2 text-sm leading-relaxed text-[#334155]">
               <Check size={16} className="mt-0.5 shrink-0 text-[#377CF3]" aria-hidden />
-              <span>{obj}</span>
+              <span>{useCase}</span>
             </li>
           ))}
         </ul>
@@ -147,23 +150,16 @@ function FormationCard({
             href={cours.href}
             className={`${OFC_CTA_PRIMARY} gap-2 rounded-lg px-5 py-3 text-sm`}
           >
-            Voir la fiche formation
+            Découvrir la formation
             <ArrowRight size={18} aria-hidden />
           </Link>
-          <a
-            href={cours.programmePdfHref}
-            download
-            className="inline-flex items-center justify-center gap-2 rounded-lg border-[1.5px] border-slate-300 bg-white px-5 py-3 text-center text-sm font-medium text-[#0F172A] transition hover:border-[#377CF3] hover:text-[#377CF3]"
-          >
-            Télécharger le programme (PDF)
-          </a>
           <a
             href={intraUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center rounded-lg border-[1.5px] border-[#377CF3] px-5 py-3 text-center text-sm font-medium text-[#377CF3] transition hover:bg-[#EFF6FF]"
+            className="inline-flex items-center justify-center gap-2 rounded-lg border-[1.5px] border-[#377CF3] px-5 py-3 text-center text-sm font-medium text-[#377CF3] transition hover:bg-[#EFF6FF]"
           >
-            Demander une session intra
+            Parler de votre besoin
           </a>
         </div>
       </div>

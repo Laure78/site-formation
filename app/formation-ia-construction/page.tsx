@@ -91,7 +91,7 @@ function CtaVisioBlock({
           campaign={campaign}
           className="inline-flex items-center rounded-lg bg-white px-5 py-3 font-semibold text-[#377CF3] hover:bg-slate-50"
         >
-          Réservez votre visio découverte gratuite
+          Prendre rendez-vous
         </CalendlyEmbed>
       </div>
     </section>
@@ -337,7 +337,7 @@ export default function FormationIaConstructionPage() {
         <section id="rdv" className="scroll-mt-24 mt-14">
           <CtaVisioBlock
             id="cta-final"
-            title="Réservez votre visio découverte gratuite — 30 min"
+            title="Prendre rendez-vous — 30 min"
             subtitle="Cadrons ensemble vos enjeux DCE, chiffrage et coordination : format intra-entreprise, dans vos locaux, éligibilité Constructys, profils à former. Sans engagement."
             campaign="formation-ia-construction-final"
           />

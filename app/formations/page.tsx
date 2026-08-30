@@ -22,7 +22,9 @@ import { FormationsFaqSection } from '@/components/formations/FormationsFaqSecti
 import { RelatedLinks } from '@/components/RelatedLinks';
 import { getClusterRelatedHrefs } from '@/lib/maillage-clusters';
 import { FormationsTarifsGrilleSection } from '@/components/formations/FormationsTarifsGrilleSection';
-import { FormationsHubNavigationSection } from '@/components/formations/FormationsHubNavigationSection';
+import { FormationsCataloguePromiseSection } from '@/components/formations/FormationsCataloguePromiseSection';
+import { FormationsCatalogueGammeSection } from '@/components/formations/FormationsCatalogueGammeSection';
+import { FormationsCatalogueMaturitySection } from '@/components/formations/FormationsCatalogueMaturitySection';
 import { getEncartTarifsCommerciaux } from '@/lib/tarifs-sessions';
 import { GAINS_TEMPS_MENTION_PRUDENCE } from '@/lib/gains-temps-copy';
 import { FINANCEMENT_FORMULATION_COURTE } from '@/lib/financement-copy';
@@ -96,9 +98,11 @@ export default function FormationsPage() {
       <FormationsHero catalogueCount={catalogueCount} />
 
       <div className="mx-auto max-w-6xl px-4 pb-20 pt-4 md:pt-5">
-        <FormationsHubNavigationSection />
+        <FormationsCataloguePromiseSection />
+        <FormationsCatalogueMaturitySection />
+        <FormationsCatalogueGammeSection />
 
-        <div className="mt-4 md:mt-5">
+        <div className="mt-12 md:mt-14">
           <FormationsCatalogueInteractive formations={catalogueFormations} catalogueCount={catalogueCount} />
         </div>
 

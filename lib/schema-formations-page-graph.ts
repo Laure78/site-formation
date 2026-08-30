@@ -23,6 +23,7 @@ const NIV02_CATALOG = FORMATIONS_CATALOG_SCHEMA.find((e) => e.ref === 'NIV-02')!
 const NIV03_CATALOG = FORMATIONS_CATALOG_SCHEMA.find((e) => e.ref === 'NIV-03')!;
 const NIV04_CATALOG = FORMATIONS_CATALOG_SCHEMA.find((e) => e.ref === 'NIV-04')!;
 const NIV05_CATALOG = FORMATIONS_CATALOG_SCHEMA.find((e) => e.ref === 'NIV-05')!;
+const NIV06_CATALOG = FORMATIONS_CATALOG_SCHEMA.find((e) => e.ref === 'NIV-06')!;
 
 export function buildFormationsPageUnifiedGraphJsonLd(at: Date = new Date()): Record<string, unknown> {
   const includeNiv03 = isFormationCataloguePublished('NIV-03', at);
@@ -169,6 +170,21 @@ export function buildFormationsPageUnifiedGraphJsonLd(at: Date = new Date()): Re
                 price: TARIF_SESSION_FORFAIT_HT,
                 priceCurrency: 'EUR',
                 unitText: 'par session (3 à 8 participants, MOE/MOEX)',
+                valueAddedTaxIncluded: false,
+              },
+            },
+            {
+              '@type': 'Offer',
+              itemOffered: {
+                '@id': `${BASE}/formations/cursor-btp#course`,
+              },
+              price: getFormationByCode('NIV-06')!.prixHT,
+              priceCurrency: 'EUR',
+              priceSpecification: {
+                '@type': 'UnitPriceSpecification',
+                price: getFormationByCode('NIV-06')!.prixHT,
+                priceCurrency: 'EUR',
+                unitText: 'par session (8 participants max, atelier avancé)',
                 valueAddedTaxIncluded: false,
               },
             },
@@ -407,6 +423,46 @@ export function buildFormationsPageUnifiedGraphJsonLd(at: Date = new Date()): Re
                 priceCurrency: 'EUR',
                 availability: 'https://schema.org/InStock',
                 url: `${BASE}/formations/ia-maitrise-oeuvre`,
+                category: FORMATION_COURSE_OFFER_CATEGORY,
+              },
+            },
+          },
+          {
+            '@type': 'ListItem',
+            position: includeNiv03 ? 6 : 5,
+            item: {
+              '@type': 'Course',
+              '@id': `${BASE}/formations/cursor-btp#course`,
+              name: NIV06_CATALOG.name,
+              description: NIV06_CATALOG.description,
+              url: `${BASE}/formations/cursor-btp`,
+              courseCode: 'NIV-06',
+              educationalLevel: 'Advanced',
+              inLanguage: 'fr-FR',
+              teaches: NIV06_CATALOG.teaches,
+              occupationalCategory: NIV06_CATALOG.occupationalCategory,
+              provider: { '@id': `${BASE}/#organization` },
+              hasCourseInstance: {
+                '@type': 'CourseInstance',
+                courseMode: FORMATION_COURSE_MODE_ONSITE,
+                courseWorkload: 'PT4H',
+                location: {
+                  '@type': 'Place',
+                  name: 'Île-de-France',
+                  address: {
+                    '@type': 'PostalAddress',
+                    addressRegion: 'Île-de-France',
+                    addressCountry: 'FR',
+                  },
+                },
+                instructor: { '@id': `${BASE}/#laure-olivie` },
+              },
+              offers: {
+                '@type': 'Offer',
+                price: getFormationByCode('NIV-06')!.prixHT,
+                priceCurrency: 'EUR',
+                availability: 'https://schema.org/InStock',
+                url: `${BASE}/formations/cursor-btp`,
                 category: FORMATION_COURSE_OFFER_CATEGORY,
               },
             },

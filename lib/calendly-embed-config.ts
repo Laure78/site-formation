@@ -6,7 +6,7 @@ import {
 } from '@/lib/ofc-interaction-classes';
 
 /** Texte CTA Calendly standard — charte OFC (jamais « Cliquez ici »). */
-export const CALENDLY_DEFAULT_BUTTON_TEXT = 'Réservez votre visio découverte gratuite';
+export const CALENDLY_DEFAULT_BUTTON_TEXT = 'Prendre rendez-vous';
 
 export type CalendlyEmbedVariant =
   | 'primary'

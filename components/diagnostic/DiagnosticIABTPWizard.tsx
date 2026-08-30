@@ -212,7 +212,7 @@ export function DiagnosticIABTPWizard() {
             </p>
             <div className="flex flex-col gap-3 pt-2 sm:flex-row sm:flex-wrap">
               <RdvLink className="inline-flex items-center justify-center gap-2 rounded-xl bg-[var(--accent)] px-6 py-3 text-center font-semibold text-white transition-colors hover:bg-blue-700">
-                Prendre un rendez-vous découverte
+                Prendre rendez-vous
               </RdvLink>
               <Link
                 href={LINKS.formationIaBtp}

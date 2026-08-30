@@ -49,7 +49,7 @@ export function ContactDirect({ formationHint }: ContactDirectProps) {
         className="w-full gap-2"
       >
         <Calendar className="h-5 w-5 shrink-0" strokeWidth={1.5} />
-        Réservez votre visio découverte gratuite
+        Prendre rendez-vous
       </CalendlyEmbed>
     </div>
   );

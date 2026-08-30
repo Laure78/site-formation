@@ -43,7 +43,7 @@ const LOGOS = [
 
 /**
  * Bandeau de preuve sous le H1 des landings métier.
- * Logos FFB Grand Paris, CSFE, UMB-FFB — sans effectif formé publié.
+ * Logos FFB Grand Paris, CSFE, UMB-FFB.
  */
 export function PreuveSociale({ auteur, role, texte, className = '' }: PreuveSocialeProps) {
   const quote = texte?.trim() ?? '';

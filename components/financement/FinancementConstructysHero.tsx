@@ -76,7 +76,7 @@ export function FinancementConstructysHero() {
               origin="financement-constructys-hero"
               className="inline-flex items-center justify-center rounded-full bg-[#377CF3] px-5 py-2.5 text-sm font-semibold text-white shadow-[0_10px_30px_-6px_rgba(55,124,243,0.45)] transition hover:bg-[#2563EB] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#377CF3] md:px-6"
             >
-              Réservez votre visio découverte gratuite
+              Prendre rendez-vous
             </CtaButton>
             <Link
               href={LINKS.formations}

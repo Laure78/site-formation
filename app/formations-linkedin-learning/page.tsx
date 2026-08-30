@@ -465,7 +465,7 @@ export default function FormationsLinkedInLearningPage() {
                 ctaId="linkedin-learning-mid-visio"
                 className={`${OFC_CTA_PRIMARY} inline-flex items-center justify-center rounded-lg px-6 py-3 text-sm font-semibold md:text-base`}
               >
-                Réservez votre visio découverte gratuite
+                Prendre rendez-vous
               </RdvLink>
             </div>
           </div>
@@ -562,7 +562,7 @@ export default function FormationsLinkedInLearningPage() {
                 ctaId="linkedin-learning-final-visio"
                 className="inline-flex items-center justify-center rounded-lg bg-white px-6 py-3 text-sm font-semibold text-[#377CF3] shadow-lg transition hover:bg-[#F2F2F2] md:text-base"
               >
-                Réservez votre visio découverte gratuite
+                Prendre rendez-vous
               </RdvLink>
             </div>
 

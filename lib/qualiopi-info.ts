@@ -17,6 +17,7 @@ import { OFC_IDENTITE } from '@/lib/ofc-identite';
 import { SCHEMA_CONTACT, SCHEMA_GEO } from '@/lib/schema-constants';
 import { SITE_CONFIG } from '@/lib/seo';
 import {
+  getTarifGrilleFromDureeLibelle,
   libelleTarifIntraEntreprise,
   libelleTarifInterEntreprise,
   MODALITE_FORMATIONS_PRESENTIEL,
@@ -166,8 +167,12 @@ function prerequisPourCatalogue(entry: FormationCatalogueEntry): string[] {
 
 function tarifsPourCatalogue(entry: FormationCatalogueEntry): { inter: string; intra: string } {
   const effectif = entry.effectif.toLowerCase();
+  const grille = getTarifGrilleFromDureeLibelle(entry.duree);
   return {
-    inter: libelleTarifInterEntreprise(entry.prixHT, effectif),
+    inter:
+      grille.interHT != null
+        ? libelleTarifInterEntreprise(grille.interHT, effectif)
+        : 'Interentreprises : sur demande',
     intra: libelleTarifIntraEntreprise(entry.prixHT, effectif),
   };
 }

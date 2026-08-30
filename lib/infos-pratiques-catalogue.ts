@@ -63,6 +63,12 @@ export const PROGRAMME_CONTENU_CATALOGUE: Record<FormationCode, readonly string[
     'Module 4 — Réserves, réception et suivi client',
     "Bilan, plan d'action et clôture (5 min)",
   ],
+  'NIV-06': [
+    'Module 1 — Comprendre le développement web sans être développeur',
+    'Module 2 — Configurer et piloter Cursor',
+    'Module 3 — Atelier : construire son premier outil métier BTP',
+    'Module 4 — Tester, publier et sécuriser',
+  ],
 };
 
 const PREREQUIS_NIV01 =
@@ -114,6 +120,16 @@ export const EVALUATION_NIV04 = [
   'Évaluation de la satisfaction : questionnaire à chaud en fin de session, suivi d\'un questionnaire à froid à J+30.',
   'Feuille d\'émargement signée par demi-journée ; attestation individuelle de fin de formation et certificat de réalisation.',
 ] as const;
+
+export const PREREQUIS_NIV06 =
+  "Formation avancée : utilisation régulière d'un assistant IA (ChatGPT ou Claude) et capacité à rédiger une consigne structurée — ou avoir suivi une formation d'initiation IA BTP. Ordinateur portable avec droits d'installation, connexion internet, compte Cursor, compte GitHub. Jeu de données professionnelles anonymisées recommandé.";
+
+export const MODALITE_PEDAGOGIQUE_NIV06 =
+  'Action de formation — 100 % présentiel — intra-entreprise — 70 % pratique / 30 % théorie — manipulations sur le poste du participant';
+
+export const MODALITES_ACCES_NIV06 = MODALITES_ACCES_NIV04;
+
+export const DELAI_ACCES_NIV06 = DELAI_ACCES_NIV04;
 
 export const PREREQUIS_NIV05 =
   "Aisance avec les outils numériques courants — aucun prérequis IA. Abonnements Claude Pro et ChatGPT Plus actifs sur le poste de chaque participant (environ 18 à 20 € HT / mois chacun, à la charge de l'entreprise). Chaque participant apporte ses dossiers techniques, OS, CR et DCE réels.";
@@ -193,6 +209,7 @@ function prerequisPourRef(ref: FormationCode): string {
   if (ref === 'NIV-03') return PREREQUIS_NIV03;
   if (ref === 'NIV-04') return PREREQUIS_NIV04;
   if (ref === 'NIV-05') return PREREQUIS_NIV05;
+  if (ref === 'NIV-06') return PREREQUIS_NIV06;
   return PREREQUIS_NIVEAU_2.join(' ');
 }
 
@@ -233,18 +250,22 @@ export function getInfosPratiquesForCatalogue(ref: string): InfosPratiquesFormat
           ? MODALITES_ACCES_NIV02
           : code === 'NIV-04'
             ? MODALITES_ACCES_NIV04
+            : code === 'NIV-06'
+              ? MODALITES_ACCES_NIV06
             : code === 'NIV-05'
               ? MODALITES_ACCES_NIV05
               : stripLabelPrefix(QUALIOPI_MODALITES_ACCES_EXACT, /^Modalités d'accès\s*:\s*/i)
     ),
     delaiAcces: sanitizeInfosPratiquesText(
-      code === 'NIV-01' || code === 'NIV-02' || code === 'NIV-03' || code === 'NIV-04' || code === 'NIV-05'
+      code === 'NIV-01' || code === 'NIV-02' || code === 'NIV-03' || code === 'NIV-04' || code === 'NIV-05' || code === 'NIV-06'
         ? code === 'NIV-02'
           ? DELAI_ACCES_NIV02
           : code === 'NIV-03'
             ? DELAI_ACCES_NIV03
             : code === 'NIV-04'
               ? DELAI_ACCES_NIV04
+              : code === 'NIV-06'
+                ? DELAI_ACCES_NIV06
               : code === 'NIV-05'
                 ? DELAI_ACCES_NIV05
                 : DELAI_ACCES_NIV01
@@ -261,6 +282,8 @@ export function getInfosPratiquesForCatalogue(ref: string): InfosPratiquesFormat
             ? [...EVALUATION_NIV03]
             : code === 'NIV-04'
               ? [...EVALUATION_NIV04]
+              : code === 'NIV-06'
+                ? [...EVALUATION_NIV04]
               : code === 'NIV-05'
                 ? [...EVALUATION_NIV05]
                 : [...QUALIOPI_EVALUATION_STANDARD],
@@ -271,6 +294,8 @@ export function getInfosPratiquesForCatalogue(ref: string): InfosPratiquesFormat
           ? MODALITE_PEDAGOGIQUE_NIV03
           : code === 'NIV-04'
             ? MODALITE_PEDAGOGIQUE_NIV04
+            : code === 'NIV-06'
+              ? MODALITE_PEDAGOGIQUE_NIV06
             : code === 'NIV-05'
               ? MODALITE_PEDAGOGIQUE_NIV05
               : MODALITE_PEDAGOGIQUE_CATALOGUE,

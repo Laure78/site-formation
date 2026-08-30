@@ -4,12 +4,14 @@ import { LINKS } from '@/lib/internal-links';
 import { FINANCEMENT_FORMULATION_PRUDENTE } from '@/lib/financement-copy';
 import {
   getTarifGrille,
+  GRILLE_TARIFS_CATALOGUE_DUREES,
   libelleTarifInterParParticipant,
   libelleTarifIntraParSession,
   MENTION_ABONNEMENTS_IA_HORS_FORFAIT,
-  TARIF_INTRA_7H_HT,
+  TARIF_INTRA_SENSIBILISATION_2H_HT,
   TARIF_INTER_4H_HT_FROM,
   TARIF_INTER_7H_HT_FROM,
+  TARIF_INTER_14H_HT_FROM,
 } from '@/lib/tarifs-sessions';
 import { MentionTVA } from '@/components/MentionTVA';
 
@@ -17,9 +19,6 @@ import { MentionTVA } from '@/components/MentionTVA';
  * Section « Tarifs des formations IA pour le BTP » — page catalogue `/formations`.
  */
 export function FormationsTarifsGrilleSection() {
-  const g4 = getTarifGrille(4);
-  const g7 = getTarifGrille(7);
-
   return (
     <section
       id="tarifs-formations-btp"
@@ -31,7 +30,8 @@ export function FormationsTarifsGrilleSection() {
       </h2>
       <p className="mt-3 max-w-3xl text-sm leading-relaxed text-[#64748B]">
         Deux formats : session réservée pour votre entreprise (tarif forfaitaire) ou inscription
-        individuelle en interentreprises (tarif par participant). {FINANCEMENT_FORMULATION_PRUDENTE}
+        individuelle en interentreprises (tarif par participant). Parcours sur mesure 7 h et 14 h
+        pour le déploiement IA en entreprise. {FINANCEMENT_FORMULATION_PRUDENTE}
       </p>
 
       <div className="mt-8 grid gap-6 md:grid-cols-2">
@@ -42,12 +42,15 @@ export function FormationsTarifsGrilleSection() {
             Le tarif est forfaitaire pour l&apos;ensemble du groupe.
           </p>
           <ul className="mt-4 flex-1 space-y-2 text-sm text-[#334155]">
-            <li>
-              <strong>4 heures :</strong> {libelleTarifIntraParSession(g4.intraHT)}.
-            </li>
-            <li>
-              <strong>7 heures :</strong> {libelleTarifIntraParSession(g7.intraHT, g7.intraFrom)}.
-            </li>
+            {GRILLE_TARIFS_CATALOGUE_DUREES.map((duree) => {
+              const g = getTarifGrille(duree);
+              return (
+                <li key={duree}>
+                  <strong>{duree} heures :</strong>{' '}
+                  {libelleTarifIntraParSession(g.intraHT, g.intraFrom)}.
+                </li>
+              );
+            })}
             <li>Jusqu&apos;à 8 ou 12 participants selon le programme.</li>
             <li>Programme adapté aux besoins et aux documents de l&apos;entreprise.</li>
           </ul>
@@ -72,6 +75,9 @@ export function FormationsTarifsGrilleSection() {
             <li>
               <strong>7 heures :</strong> {libelleTarifInterParParticipant(TARIF_INTER_7H_HT_FROM)}.
             </li>
+            <li>
+              <strong>14 heures :</strong> {libelleTarifInterParParticipant(TARIF_INTER_14H_HT_FROM)}.
+            </li>
             <li>Dates et lieux communiqués selon le calendrier des sessions.</li>
             <li>Session maintenue sous réserve d&apos;un nombre minimum d&apos;inscrits.</li>
           </ul>
@@ -85,9 +91,8 @@ export function FormationsTarifsGrilleSection() {
       </div>
 
       <p className="mt-6 text-xs leading-relaxed text-[#64748B]">
-        Sensibilisation 2 h (intra) : {libelleTarifIntraParSession(750)} · Parcours 14 h (intra) : à
-        partir de 3 200 € HT par session · Parcours 14 h (inter) : à partir de 1 100 € HT par
-        participant. {MENTION_ABONNEMENTS_IA_HORS_FORFAIT}
+        Sensibilisation 2 h (intra uniquement) :{' '}
+        {libelleTarifIntraParSession(TARIF_INTRA_SENSIBILISATION_2H_HT)}. {MENTION_ABONNEMENTS_IA_HORS_FORFAIT}
       </p>
       <MentionTVA className="mt-3 max-w-3xl" />
     </section>

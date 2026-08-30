@@ -14,7 +14,7 @@
  * 5. Tableau gains (Tâche | Avant | Avec IA | Gain)
  * 6. FAQ × 5 (réponse directe en 1–2 phrases en tête)
  * 7. Pourquoi Laure Olivié (preuves)
- * 8. CTA × 3 : Réservez votre visio découverte gratuite (Calendly)
+ * 8. CTA × 3 : Prendre rendez-vous (Calendly)
  *
  * Schémas : Course + FAQPage + BreadcrumbList (voir `getCourseSchema`, `getFAQSchema`, `getBreadcrumbSchema`).
  * Maillage : 3 liens internes distincts (`LINKS.formationIaBtp`, blog, autre page métier).

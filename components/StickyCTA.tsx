@@ -51,7 +51,7 @@ export function StickyCTA() {
           campaign="sticky-mobile"
           className="whitespace-nowrap rounded-lg bg-white px-6 py-4 text-base font-bold text-[#377CF3]"
         >
-          Réservez votre visio découverte gratuite
+          Prendre rendez-vous
         </CTACalendly>
         <button
           type="button"

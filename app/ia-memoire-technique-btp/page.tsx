@@ -157,7 +157,7 @@ export default function IaMemoireTechniqueBtpPage() {
               Travailler vos mémoires en présentiel
             </h2>
             <p className="mt-3 text-blue-100">
-              Appel découverte gratuit — puis session en Île-de-France sur vos AO réels.
+              Prendre rendez-vous (30 min) — puis session en Île-de-France sur vos AO réels.
             </p>
             <div className="mt-6">
               <CalendlyEmbed

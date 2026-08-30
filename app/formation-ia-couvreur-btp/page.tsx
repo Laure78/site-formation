@@ -153,7 +153,7 @@ const SOMMAIRE = [
   { href: '#resultats', label: 'Résultats concrets' },
   { href: '#faq', label: "FAQ — questions des couvreurs sur l'IA" },
   { href: '#a-propos', label: 'Qui est Laure Olivié ?' },
-  { href: '#rdv', label: 'Réservez votre visio découverte gratuite' },
+  { href: '#rdv', label: 'Prendre rendez-vous' },
 ];
 
 const CAS_USAGE = [

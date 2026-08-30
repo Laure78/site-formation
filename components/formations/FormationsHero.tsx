@@ -7,15 +7,17 @@ import { FormationPlateformeConnexionButton } from '@/components/formation/Forma
 import { MentionTvaAsterisque } from '@/components/MentionTVA';
 import { LINKS } from '@/lib/internal-links';
 import { getCatalogueFormationsCount } from '@/lib/formations-catalogue-display';
-import { isFormationCataloguePublished } from '@/lib/formation-catalogue-visibility';
 import { FINANCEMENT_FORMULATION_COURTE } from '@/lib/financement-copy';
 import { PERIMETRE_FORMATIONS_COURT, SESSION_DUREE_LIBELLE, libelleTarifsCarteCatalogue } from '@/lib/tarifs-sessions';
 import { formatNoteSatisfactionSur5 } from '@/lib/data/indicateurs-resultats';
+import { CATALOGUE_POSITIONNEMENT } from '@/lib/formations-catalogue-architecture';
 import { PHOTOS } from '@/lib/photos';
 
 const QUICK_LINKS = [
-  { href: '#parcours-guide-heading', label: 'Choisir sa formation' },
-  { href: '#comparatif-formations-heading', label: 'Comparer les parcours' },
+  { href: '#catalogue-positionnement', label: 'Notre approche' },
+  { href: '#catalogue-gammes', label: 'Choisir sa gamme' },
+  { href: '#tarifs-formations-btp', label: 'Tarifs 7 h / 14 h' },
+  { href: '#parcours-guide-heading', label: 'Parcours Qualiopi' },
   { href: '#formations-page-faq-heading', label: 'Questions fréquentes' },
 ] as const;
 
@@ -23,16 +25,15 @@ const QUICK_LINKS = [
  * Hero catalogue formations — texte SEO inchangé (H1 + paragraphe intro).
  */
 export function FormationsHero({ catalogueCount = getCatalogueFormationsCount() }: { catalogueCount?: number }) {
-  const includeConduite = isFormationCataloguePublished('NIV-03');
   return (
     <MarketingLightHero
-      eyebrow={`${catalogueCount} parcours catalogue — organisme certifié Qualiopi`}
-      title={`Catalogue des formations IA pour le BTP — ${catalogueCount} parcours de ${SESSION_DUREE_LIBELLE}`}
+      eyebrow={`Catalogue IA BTP — organisme certifié Qualiopi`}
+      title={CATALOGUE_POSITIONNEMENT.h1}
       titleId="formations-catalogue-hero-h1"
       description={
         <>
-          Sessions en présentiel — organisme certifié Qualiopi — {SESSION_DUREE_LIBELLE} · {PERIMETRE_FORMATIONS_COURT}. Devis, appels
-          d&apos;offres{includeConduite ? ', conduite de travaux' : ''} avec Claude AI et ChatGPT : intra{' '}
+          {CATALOGUE_POSITIONNEMENT.promesseDocuments} {CATALOGUE_POSITIONNEMENT.promesseLivrables}{' '}
+          Sessions en présentiel — {SESSION_DUREE_LIBELLE} · {PERIMETRE_FORMATIONS_COURT}. Intra{' '}
           {libelleTarifsCarteCatalogue(4).intra} ; inter {libelleTarifsCarteCatalogue(4).inter}
           <MentionTvaAsterisque /> — {FINANCEMENT_FORMULATION_COURTE}.
         </>

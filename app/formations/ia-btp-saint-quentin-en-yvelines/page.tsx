@@ -396,7 +396,7 @@ export default function FormationIABTPSaintQuentinYvelinesPage() {
           <div className="mt-8 grid gap-8 md:grid-cols-2">
             <div className="rounded-2xl border-2 border-[var(--accent)] bg-[var(--accent-soft)] p-6">
               <h3 className="font-display text-lg font-semibold text-slate-900">
-                Option 1 — Appel découverte (30 min, gratuit)
+                Option 1 — Prendre rendez-vous (30 min, gratuit)
               </h3>
               <p className="mt-3 text-slate-700">
                 Échange sur votre activité, vos besoins et votre éligibilité Constructys. Devis et programme

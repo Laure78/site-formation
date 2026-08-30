@@ -405,7 +405,7 @@ export default function FormationIaResponsableAdministratifBtpPage() {
         <LaureOlivieFormationPortrait />
         <section id="rdv" className="scroll-mt-24 mt-14 rounded-2xl border border-[#377CF3]/30 bg-[#F2F2F2] p-8">
           <h2 className="font-display text-2xl font-bold text-slate-900">
-            Réservez votre visio découverte gratuite — 30 min
+            Prendre rendez-vous — 30 min
           </h2>
           <p className="mt-4 leading-relaxed text-slate-600">
             Identifions ensemble les tâches admin (mails, contrôles, dossiers, Excel) où l&apos;IA vous fera gagner

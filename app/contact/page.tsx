@@ -120,7 +120,7 @@ export default function ContactPage() {
             type="inline"
             campaign="contact-inline"
             ctaPosition="inline"
-            sectionTitle="Réservez votre visio découverte gratuite"
+            sectionTitle="Prendre rendez-vous"
             sectionSubtitle="30 minutes pour cadrer votre projet de formation IA pour le BTP — créneau au choix, confirmation immédiate."
             heightPx={720}
           />

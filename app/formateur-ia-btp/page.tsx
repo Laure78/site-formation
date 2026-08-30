@@ -237,7 +237,7 @@ export default function FormateurIaBtpPage() {
         <section id="rdv" className={`${OFC_SEC.accent} scroll-mt-24`}>
           <div className="mx-auto max-w-4xl text-center">
             <h2 className="font-display text-2xl font-bold md:text-3xl">
-              Réservez votre visio découverte gratuite
+              Prendre rendez-vous
             </h2>
             <p className="mx-auto mt-4 max-w-2xl text-blue-100">
               30 minutes pour vérifier que Laure Olivié est le bon prestataire formateur / formatrice IA pour votre
@@ -251,7 +251,7 @@ export default function FormateurIaBtpPage() {
                 ctaPosition="footer"
                 className="inline-flex items-center rounded-lg bg-white px-6 py-3.5 font-semibold text-[#377CF3] hover:bg-slate-50"
               >
-                Réservez votre visio découverte gratuite
+                Prendre rendez-vous
               </CalendlyEmbed>
             </div>
           </div>

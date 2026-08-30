@@ -58,7 +58,7 @@ const SOMMAIRE = [
   { href: '#resultats', label: 'Résultats et preuves' },
   { href: '#faq', label: 'FAQ' },
   { href: '#a-propos', label: 'Laure Olivié — formatrice' },
-  { href: '#cta-final', label: 'Réservez votre visio découverte gratuite' },
+  { href: '#cta-final', label: 'Prendre rendez-vous' },
 ] as const;
 
 const ESSENTIEL = [
@@ -311,7 +311,7 @@ export default function FormationIaGrosOeuvreBtpPage() {
                 variant="unstyled"
                 className="inline-flex items-center gap-2 rounded-xl bg-white px-6 py-3.5 text-sm font-bold text-[#377CF3] shadow-sm hover:bg-blue-50"
               >
-                Réservez votre visio découverte gratuite
+                Prendre rendez-vous
                 <ArrowRight size={18} strokeWidth={1.5} aria-hidden />
               </CtaButton>
             </div>
