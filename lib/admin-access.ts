@@ -2,7 +2,7 @@ import { createClient } from '@/lib/supabase/server';
 import { getProfile, isAdmin, type Profile, type UserRole } from '@/lib/auth';
 
 /** Compte admin (auth Supabase). */
-const DEFAULT_ADMIN_LOGIN_EMAIL = 'contact@laureolivie.fr';
+const DEFAULT_ADMIN_LOGIN_EMAIL = 'laureolivie@yahoo.fr';
 
 /** Emails autorisés à accéder à /admin (liste blanche, défense en profondeur). */
 function parseAllowedAdminEmails(): Set<string> {

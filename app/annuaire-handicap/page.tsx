@@ -245,11 +245,11 @@ export default function AnnuaireHandicapPage() {
         </p>
         <div className="mt-4 flex flex-wrap gap-6">
           <a
-            href="mailto:contact@laureolivie.fr"
+            href="mailto:laureolivie@yahoo.fr"
             className="inline-flex items-center gap-2 font-medium text-[var(--accent)] hover:underline"
           >
             <Mail size={20} strokeWidth={1.5} />
-            contact@laureolivie.fr
+            laureolivie@yahoo.fr
           </a>
         </div>
       </section>
