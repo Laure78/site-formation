@@ -4,8 +4,6 @@ import { Inter, Outfit } from 'next/font/google';
 import './globals.css';
 import { Footer } from '@/components/Footer';
 import { DeferredLayoutWidgets } from '@/components/layout/DeferredLayoutWidgets';
-import { CalendlyScriptLoader } from '@/components/CalendlyScriptLoader';
-import { GoogleAnalytics } from '@/components/analytics/GoogleAnalytics';
 import { SITE_CONFIG, OG_SITE_NAME, GOOGLE_SITE_VERIFICATION } from '@/lib/seo';
 import { PHOTOS, SITE_FAVICON_CACHE_BUST } from '@/lib/photos';
 import { clampMetaDescription } from '@/lib/meta-description';
@@ -191,8 +189,6 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(llmsTxtSchema) }}
         />
-        <GoogleAnalytics />
-        <CalendlyScriptLoader />
         <a
           href="#main-content"
           className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-lg focus:bg-slate-900 focus:px-4 focus:py-3 focus:text-sm focus:font-semibold focus:text-white focus:shadow-lg focus:outline-none focus:ring-2 focus:ring-[var(--accent)] focus:ring-offset-2"
@@ -200,7 +196,8 @@ export default function RootLayout({
           Aller au contenu principal
         </a>
         <SiteSearchProvider>
-        <Header />
+          <Header />
+        </SiteSearchProvider>
         <main className="min-w-0 w-full flex-1" id="main-content">
           <GlobalBreadcrumbs />
           {children}
@@ -209,7 +206,6 @@ export default function RootLayout({
         <SitelinksHub />
         <Footer />
         <DeferredLayoutWidgets />
-        </SiteSearchProvider>
       </body>
     </html>
   );

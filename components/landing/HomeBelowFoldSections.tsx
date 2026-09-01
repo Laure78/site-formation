@@ -78,3 +78,17 @@ export const PourQuiSection = dynamic(
       default: m.PourQuiSection,
     })),
 );
+
+export const HomeBeneficesSections = dynamic(
+  () =>
+    import('@/components/landing/HomeBeneficesSections').then((m) => ({
+      default: m.HomeBeneficesSections,
+    })),
+);
+
+export const HomeProgrammeFaqSections = dynamic(
+  () =>
+    import('@/components/landing/HomeProgrammeFaqSections').then((m) => ({
+      default: m.HomeProgrammeFaqSections,
+    })),
+);

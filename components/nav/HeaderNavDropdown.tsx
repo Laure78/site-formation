@@ -1,8 +1,6 @@
 'use client';
 
 import type { ReactNode } from 'react';
-import { useLayoutEffect, useRef, useState } from 'react';
-import { createPortal } from 'react-dom';
 import Link from 'next/link';
 import { ChevronDown } from 'lucide-react';
 import {
@@ -40,36 +38,13 @@ export function HeaderNavDropdown({
 }) {
   const panelId = `header-nav-panel-${item.id}`;
   const buttonId = `header-nav-btn-${item.id}`;
-  const wrapRef = useRef<HTMLDivElement>(null);
-  const [box, setBox] = useState<{ top: number; left: number; right: number } | null>(null);
   const routeActive = headerNavItemIsActive(item, pathname);
   const highlighted = routeActive || open;
   const children = item.children ?? [];
-
-  useLayoutEffect(() => {
-    if (!open) return;
-    const el = wrapRef.current;
-    if (!el) return;
-    const update = () => {
-      const rect = el.getBoundingClientRect();
-      setBox({
-        top: rect.bottom,
-        left: rect.left,
-        right: window.innerWidth - rect.right,
-      });
-    };
-    update();
-    window.addEventListener('resize', update);
-    window.addEventListener('scroll', update, true);
-    return () => {
-      window.removeEventListener('resize', update);
-      window.removeEventListener('scroll', update, true);
-    };
-  }, [open]);
+  const alignEnd = item.dropdownAlign === 'end';
 
   return (
     <div
-      ref={wrapRef}
       className="relative flex w-full items-stretch justify-center"
       onMouseEnter={onOpen}
       onMouseLeave={onClose}
@@ -103,56 +78,49 @@ export function HeaderNavDropdown({
           />
         </button>
       </div>
-      {open && box
-        ? createPortal(
-            <div
-              id={panelId}
-              data-header-dropdown=""
-              className="header-nav-dropdown-panel min-w-[16.5rem] max-w-[min(100vw-2rem,24rem)] pt-1"
-              style={{
-                position: 'fixed',
-                top: box.top - 4,
-                zIndex: 60,
-                ...(item.dropdownAlign === 'end' ? { right: box.right } : { left: box.left }),
-              }}
-              onMouseEnter={onOpen}
-              onMouseLeave={onClose}
-            >
-              <div className="header-nav-dropdown-menu" aria-labelledby={buttonId}>
-                <p className="header-nav-dropdown-heading">{item.label}</p>
-                <ul>
-                  {children.map((child) => {
-                    const childActive = headerNavLinkIsActive(child.href, pathname);
-                    return (
-                      <li key={`${child.href}-${child.label}`}>
-                        <Link
-                          href={child.href}
-                          onClick={onNavigate}
-                          className={`header-nav-dropdown-link ${
-                            childActive ? 'header-nav-dropdown-link--active' : ''
-                          }`}
-                        >
-                          {child.label}
-                        </Link>
-                      </li>
-                    );
-                  })}
-                </ul>
-                {item.footer ? (
-                  <div className="mt-2 border-t border-slate-100 px-2 pt-2">
-                    <Link href={item.footer.href} onClick={onNavigate} className="header-nav-dropdown-footer">
-                      {item.footer.label}
-                      <span aria-hidden className="text-base leading-none">
-                        →
-                      </span>
+      {open ? (
+        <div
+          id={panelId}
+          data-header-dropdown=""
+          className={`header-nav-dropdown-panel absolute top-full z-[60] min-w-[16.5rem] max-w-[min(100vw-2rem,24rem)] pt-1 ${
+            alignEnd ? 'right-0' : 'left-0'
+          }`}
+          onMouseEnter={onOpen}
+          onMouseLeave={onClose}
+        >
+          <div className="header-nav-dropdown-menu" aria-labelledby={buttonId}>
+            <p className="header-nav-dropdown-heading">{item.label}</p>
+            <ul>
+              {children.map((child) => {
+                const childActive = headerNavLinkIsActive(child.href, pathname);
+                return (
+                  <li key={`${child.href}-${child.label}`}>
+                    <Link
+                      href={child.href}
+                      onClick={onNavigate}
+                      className={`header-nav-dropdown-link ${
+                        childActive ? 'header-nav-dropdown-link--active' : ''
+                      }`}
+                    >
+                      {child.label}
                     </Link>
-                  </div>
-                ) : null}
+                  </li>
+                );
+              })}
+            </ul>
+            {item.footer ? (
+              <div className="mt-2 border-t border-slate-100 px-2 pt-2">
+                <Link href={item.footer.href} onClick={onNavigate} className="header-nav-dropdown-footer">
+                  {item.footer.label}
+                  <span aria-hidden className="text-base leading-none">
+                    →
+                  </span>
+                </Link>
               </div>
-            </div>,
-            document.body,
-          )
-        : null}
+            ) : null}
+          </div>
+        </div>
+      ) : null}
     </div>
   );
 }

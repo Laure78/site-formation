@@ -42,10 +42,28 @@ const CookieConsentBanner = dynamic(
   { ssr: false },
 );
 
+const GoogleAnalytics = dynamic(
+  () =>
+    import('@/components/analytics/GoogleAnalytics').then((mod) => ({
+      default: mod.GoogleAnalytics,
+    })),
+  { ssr: false },
+);
+
+const CalendlyScriptLoader = dynamic(
+  () =>
+    import('@/components/CalendlyScriptLoader').then((mod) => ({
+      default: mod.CalendlyScriptLoader,
+    })),
+  { ssr: false },
+);
+
 /** Widgets globaux non critiques — chargés après le JS initial (code splitting). */
 export function DeferredLayoutWidgets() {
   return (
     <>
+      <GoogleAnalytics />
+      <CalendlyScriptLoader />
       <CookieConsentBanner />
       <ScrollToTopButton />
       <StickyMobileCalendlyCta />
