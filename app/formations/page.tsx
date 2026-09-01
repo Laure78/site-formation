@@ -34,7 +34,7 @@ const baseUrl = SITE_CONFIG.url.replace(/\/$/, '');
 
 const FORMATIONS_HTML_TITLE = 'Catalogue formations IA pour le BTP';
 
-export const dynamic = 'force-dynamic';
+export const revalidate = 3600;
 
 export async function generateMetadata(): Promise<Metadata> {
   const catalogueCount = getCatalogueFormationsCount();

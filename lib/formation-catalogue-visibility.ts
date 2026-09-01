@@ -4,6 +4,7 @@
  */
 import { FORMATIONS, type Formation } from '@/data/formations';
 import { LINKS } from '@/lib/internal-links';
+import { clampMetaDescription } from '@/lib/meta-description';
 
 export type FormationCatalogueCode = 'NIV-01' | 'NIV-02' | 'NIV-03' | 'NIV-04' | 'NIV-05' | 'NIV-06';
 
@@ -43,12 +44,12 @@ export function getPublishedFormations(at: Date = new Date()): readonly Formatio
   return FORMATIONS.filter((f) => isFormationCataloguePublished(f.code, at));
 }
 
-/** Meta description page `/formations` — sans NIV-03 tant que non publiée. */
+/** Meta description page `/formations` — 25–160 car. (Bing / Google SERP). */
 export function getCataloguePageMetaDescription(at: Date = new Date()): string {
-  if (isFormationCataloguePublished('NIV-03', at)) {
-    return "Catalogue formation IA pour le BTP : 6 sessions devis, AO, chantier, Claude, Cursor, MOE. Présentiel IDF — Qualiopi, Constructys selon éligibilité.";
-  }
-  return "Formation IA pour le BTP : 5 sessions devis, AO, Claude, Cursor, MOE. Présentiel IDF — Qualiopi, financement Constructys selon éligibilité.";
+  const raw = isFormationCataloguePublished('NIV-03', at)
+    ? 'Formation IA pour le BTP : 6 sessions Qualiopi (devis, AO, chantier, Claude, Cursor, MOE). Présentiel IDF — financement Constructys selon éligibilité.'
+    : 'Formation IA pour le BTP : 5 sessions Qualiopi (devis, AO, Claude, Cursor, MOE). Présentiel IDF — financement Constructys selon éligibilité.';
+  return clampMetaDescription(raw);
 }
 
 export function getCatalogueFormationsCount(at: Date = new Date()): number {
