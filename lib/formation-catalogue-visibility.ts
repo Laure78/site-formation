@@ -2,11 +2,11 @@
  * Publication programmée des fiches catalogue — masquage URL, nav, sitemap et listes
  * jusqu'à la date incluse (minuit Europe/Paris).
  */
-import { FORMATIONS, type Formation } from '@/data/formations';
+import { FORMATIONS, CATALOGUE_NIV_RANGE, type Formation } from '@/data/formations';
 import { LINKS } from '@/lib/internal-links';
 import { clampMetaDescription } from '@/lib/meta-description';
 
-export type FormationCatalogueCode = 'NIV-01' | 'NIV-02' | 'NIV-03' | 'NIV-04' | 'NIV-05' | 'NIV-06';
+export type FormationCatalogueCode = 'NIV-01' | 'NIV-02' | 'NIV-03' | 'NIV-04' | 'NIV-05' | 'NIV-06' | 'NIV-07' | 'NIV-08';
 
 /** Date de première publication (YYYY-MM-DD, inclusive, fuseau Europe/Paris). */
 export const FORMATION_CATALOGUE_PUBLISH_FROM: Partial<
@@ -47,8 +47,8 @@ export function getPublishedFormations(at: Date = new Date()): readonly Formatio
 /** Meta description page `/formations` — 25–160 car. (Bing / Google SERP). */
 export function getCataloguePageMetaDescription(at: Date = new Date()): string {
   const raw = isFormationCataloguePublished('NIV-03', at)
-    ? 'Formation IA pour le BTP : 6 sessions Qualiopi (devis, AO, chantier, Claude, Cursor, MOE). Présentiel IDF — financement Constructys selon éligibilité.'
-    : 'Formation IA pour le BTP : 5 sessions Qualiopi (devis, AO, Claude, Cursor, MOE). Présentiel IDF — financement Constructys selon éligibilité.';
+    ? 'Formation IA pour le BTP : catalogue Qualiopi (devis, AO, chantier, Claude, applications métier, MOE). Présentiel IDF — financement Constructys selon éligibilité.'
+    : 'Formation IA pour le BTP : catalogue Qualiopi (devis, AO, Claude, applications métier, MOE). Présentiel IDF — financement Constructys selon éligibilité.';
   return clampMetaDescription(raw);
 }
 
@@ -64,7 +64,7 @@ export function getCatalogueLabelWithCount(at: Date = new Date()): string {
 export function getCataloguePilierConnexeDescription(at: Date = new Date()): string {
   const count = getCatalogueFormationsCount(at);
   if (count >= 6) {
-    return 'Six sessions Qualiopi — devis, appels d\'offres, chantier, Claude, Cursor, MOE.';
+    return 'Sessions Qualiopi — devis, appels d\'offres, chantier, Claude, applications métier, MOE.';
   }
   if (count >= 5) {
     return 'Cinq sessions Qualiopi — devis, appels d\'offres, chantier, Claude, MOE.';
@@ -83,7 +83,7 @@ export function getCatalogueSiteSearchDescription(at: Date = new Date()): string
 /** Description lien catalogue — landings métier (ex. métreur). */
 export function getCatalogueSessionsRangeDescription(at: Date = new Date()): string {
   const count = getCatalogueFormationsCount(at);
-  return `${count} sessions NIV-01 à NIV-06 — organisme Qualiopi.`;
+  return `${count} sessions ${CATALOGUE_NIV_RANGE} — organisme Qualiopi.`;
 }
 
 /** Chemin catalogue masqué (NIV-03) — pour filtrer maillage et FAQ. */

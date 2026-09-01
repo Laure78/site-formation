@@ -20,6 +20,7 @@
     "import:teachizy": "npx tsx scripts/import-teachizy.ts",
     "audit:qualiopi-liens": "node scripts/audit-liens-qualiopi.mjs",
     "audit:qualiopi-fiches": "npx tsx scripts/audit-qualiopi-fiches-formations.ts",
+    "programmes:applications-metier": "npx tsx scripts/generate-programmes-applications-metier.ts",
     "validate:schema": "npx tsx scripts/validate-schema-jsonld.mjs && npx tsx scripts/validate-formation-course-jsonld.mjs && node scripts/validate-article-faq-jsonld.mjs",
     "test:seo-titles": "npx tsx scripts/assert-branded-titles.ts",
     "check:internal-links": "npx tsx scripts/check-internal-links.ts",
@@ -56,6 +57,7 @@
     "dotenv": "^17.3.1",
     "eslint": "^9",
     "eslint-config-next": "16.1.6",
+    "pdfkit": "^0.20.2",
     "tailwindcss": "^4",
     "typescript": "^5"
   }

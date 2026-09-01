@@ -25,7 +25,10 @@ const FORMATION_PATH_EXTRA_TITLES: Record<string, string> = {
     'Formation IA appliquée au bâtiment Saint-Quentin-en-Yvelines',
   '/formations/ia-pme-btp': 'Déployer l’IA dans une PME BTP',
   '/formations/ia-etudes-prix-chiffrage-btp': 'IA études de prix et chiffrage BTP',
-  '/formations/cursor-btp': 'Créer ses outils métier BTP avec Cursor',
+  '/parcours/applications-metier-btp': 'Applications métier BTP avec l’IA',
+  '/formations/application-metier-btp-niveau-1': 'Créer sa première application métier BTP',
+  '/formations/application-metier-btp-niveau-2': 'Application métier BTP connectée',
+  '/formations/application-metier-btp-niveau-3': 'Application métier BTP avancée avec l’IA',
   '/formations/maitriser-claude-ai-btp': 'Maîtriser Claude pour le BTP',
 };
 

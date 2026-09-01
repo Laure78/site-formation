@@ -1,5 +1,5 @@
 import type { LucideIcon } from 'lucide-react';
-import { Building2, FileText, HardHat, Landmark } from 'lucide-react';
+import { Building2, Code2, FileText, HardHat, Landmark } from 'lucide-react';
 import { LINKS } from '@/lib/internal-links';
 import { isFormationCataloguePublished } from '@/lib/formation-catalogue-visibility';
 
@@ -66,6 +66,16 @@ const ALL_CATALOGUE_FORMATIONS_NAV_LINKS: CatalogueFormationNavLink[] = [
     href: LINKS.formationIaMaitriseOeuvre,
     label: "L'IA au service des maîtres d'œuvre",
     icon: Landmark,
+  },
+  {
+    href: LINKS.parcoursApplicationsMetierBtp,
+    label: 'Parcours applications métier BTP avec l’IA',
+    icon: Code2,
+    pages: [
+      { href: LINKS.formationApplicationMetierBtpNiveau1, label: 'Niveau 1 — premier prototype' },
+      { href: LINKS.formationApplicationMetierBtpNiveau2, label: 'Niveau 2 — application connectée' },
+      { href: LINKS.formationApplicationMetierBtpNiveau3, label: 'Niveau 3 — IA et automatisations' },
+    ],
   },
 ];
 

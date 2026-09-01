@@ -176,13 +176,13 @@ export function buildFormationsPageUnifiedGraphJsonLd(at: Date = new Date()): Re
             {
               '@type': 'Offer',
               itemOffered: {
-                '@id': `${BASE}/formations/cursor-btp#course`,
+                '@id': `${BASE}/formations/application-metier-btp-niveau-1#course`,
               },
-              price: getFormationByCode('NIV-06')!.prixHT,
+              price: getFormationByCode('NIV-06')!.prixHT || undefined,
               priceCurrency: 'EUR',
               priceSpecification: {
                 '@type': 'UnitPriceSpecification',
-                price: getFormationByCode('NIV-06')!.prixHT,
+                price: getFormationByCode('NIV-06')!.prixHT || undefined,
                 priceCurrency: 'EUR',
                 unitText: 'par session (8 participants max, atelier avancé)',
                 valueAddedTaxIncluded: false,
@@ -432,10 +432,10 @@ export function buildFormationsPageUnifiedGraphJsonLd(at: Date = new Date()): Re
             position: includeNiv03 ? 6 : 5,
             item: {
               '@type': 'Course',
-              '@id': `${BASE}/formations/cursor-btp#course`,
+              '@id': `${BASE}/formations/application-metier-btp-niveau-1#course`,
               name: NIV06_CATALOG.name,
               description: NIV06_CATALOG.description,
-              url: `${BASE}/formations/cursor-btp`,
+              url: `${BASE}/formations/application-metier-btp-niveau-1`,
               courseCode: 'NIV-06',
               educationalLevel: 'Advanced',
               inLanguage: 'fr-FR',
@@ -445,7 +445,7 @@ export function buildFormationsPageUnifiedGraphJsonLd(at: Date = new Date()): Re
               hasCourseInstance: {
                 '@type': 'CourseInstance',
                 courseMode: FORMATION_COURSE_MODE_ONSITE,
-                courseWorkload: 'PT4H',
+                courseWorkload: 'PT7H',
                 location: {
                   '@type': 'Place',
                   name: 'Île-de-France',
@@ -459,10 +459,10 @@ export function buildFormationsPageUnifiedGraphJsonLd(at: Date = new Date()): Re
               },
               offers: {
                 '@type': 'Offer',
-                price: getFormationByCode('NIV-06')!.prixHT,
+                price: getFormationByCode('NIV-06')!.prixHT || undefined,
                 priceCurrency: 'EUR',
                 availability: 'https://schema.org/InStock',
-                url: `${BASE}/formations/cursor-btp`,
+                url: `${BASE}/formations/application-metier-btp-niveau-1`,
                 category: FORMATION_COURSE_OFFER_CATEGORY,
               },
             },

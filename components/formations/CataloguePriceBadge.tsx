@@ -19,6 +19,8 @@ type Props = {
   level: CatalogueLevel;
   /** Durée libellée — ex. « 4 h » (source formation.duree) */
   duree?: string;
+  /** Libellé tarif custom (parcours 7 h applications métier). */
+  labelOverride?: string;
   /** @deprecated Préférer duree — montant intra ignoré si duree fournie */
   prixHT?: number;
   variant?: CataloguePriceVariant;
@@ -85,11 +87,36 @@ function DualPriceContent({
 export function CataloguePriceBadge({
   level,
   duree,
+  labelOverride,
   variant = 'pill',
   className = '',
 }: Props) {
   const dureeHeures = resolveDureeHeures(duree);
   const colors = levelColors(level);
+
+  if (labelOverride) {
+    if (variant === 'overlay') {
+      return (
+        <div
+          className={`absolute bottom-3 left-3 z-10 max-w-[85%] rounded-xl border px-2.5 py-2 text-[10px] font-semibold leading-tight shadow-[0_8px_24px_-8px_rgba(15,23,42,0.35)] backdrop-blur-sm ${colors.surface} ${className}`}
+        >
+          {labelOverride}
+        </div>
+      );
+    }
+    if (variant === 'banner') {
+      return (
+        <div className={`rounded-xl border px-4 py-3 text-sm font-semibold ${colors.banner} ${className}`}>
+          {labelOverride}
+        </div>
+      );
+    }
+    return (
+      <span className={`inline-flex rounded-xl border px-3 py-2 text-xs font-semibold shadow-sm ${colors.surface} ${className}`}>
+        {labelOverride}
+      </span>
+    );
+  }
 
   if (variant === 'overlay') {
     return (

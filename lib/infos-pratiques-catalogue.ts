@@ -16,6 +16,7 @@ import { getFormationCatalogueByRef } from '@/lib/formations-catalogue-display';
 import type { InfosPratiquesFormation } from '@/lib/infos-pratiques-types';
 import { assertInfosPratiquesCompletes } from '@/lib/assert-infos-pratiques';
 import { libelleTarifsCarteCatalogue, parseDureeHeures, MENTIONS_TVA_INTRA_COURTE, PREREQUIS_NIVEAU_2 } from '@/lib/tarifs-sessions';
+import { libelleTarifApplicationMetierBtp } from '@/lib/tarifs-applications-metier-btp';
 
 /** Modalité pédagogique fixe — toutes les actions catalogue OFC. */
 export const MODALITE_PEDAGOGIQUE_CATALOGUE =
@@ -64,10 +65,30 @@ export const PROGRAMME_CONTENU_CATALOGUE: Record<FormationCode, readonly string[
     "Bilan, plan d'action et clôture (5 min)",
   ],
   'NIV-06': [
-    'Module 1 — Comprendre le développement web sans être développeur',
-    'Module 2 — Configurer et piloter Cursor',
-    'Module 3 — Atelier : construire son premier outil métier BTP',
-    'Module 4 — Tester, publier et sécuriser',
+    'Module 1 — Identifier un problème métier à digitaliser (45 min)',
+    'Module 2 — Transformer le problème en cahier des charges (1 h)',
+    'Module 3 — Comprendre le fonctionnement d’une application web (1 h)',
+    'Module 4 — Concevoir l’interface (1 h 30)',
+    'Module 5 — Construire les premières fonctionnalités (1 h 30)',
+    'Module 6 — Tester et améliorer le prototype (1 h 15)',
+  ],
+  'NIV-07': [
+    'Module 1 — Structurer une base de données métier (1 h 15)',
+    'Module 2 — Gérer les utilisateurs et les accès (1 h)',
+    'Module 3 — Construire un workflow métier (1 h)',
+    'Module 4 — Connecter des services externes (1 h 15)',
+    'Module 5 — Automatiser les actions répétitives (1 h)',
+    'Module 6 — Générer et gérer des documents (1 h)',
+    'Module 7 — Tester et sécuriser (30 min)',
+  ],
+  'NIV-08': [
+    'Module 1 — Structurer une application métier avancée (1 h)',
+    'Module 2 — Intégrer une intelligence artificielle (1 h 15)',
+    'Module 3 — Exploiter des documents métier (1 h 15)',
+    'Module 4 — Construire un workflow IA (1 h)',
+    'Module 5 — Automatiser un processus complet (1 h)',
+    'Module 6 — Fiabiliser et sécuriser (1 h)',
+    'Module 7 — Déployer et maintenir (30 min)',
   ],
 };
 
@@ -122,10 +143,28 @@ export const EVALUATION_NIV04 = [
 ] as const;
 
 export const PREREQUIS_NIV06 =
-  "Formation avancée : utilisation régulière d'un assistant IA (ChatGPT ou Claude) et capacité à rédiger une consigne structurée — ou avoir suivi une formation d'initiation IA BTP. Ordinateur portable avec droits d'installation, connexion internet, compte Cursor, compte GitHub. Jeu de données professionnelles anonymisées recommandé.";
+  'Aucune compétence préalable en programmation. Une pratique courante de l’intelligence artificielle générative est recommandée. Ordinateur portable avec connexion internet. Jeu de données professionnelles anonymisées recommandé.';
 
 export const MODALITE_PEDAGOGIQUE_NIV06 =
-  'Action de formation — 100 % présentiel — intra-entreprise — 70 % pratique / 30 % théorie — manipulations sur le poste du participant';
+  'Action de formation — 100 % présentiel — intra-entreprise — 70 % pratique / 30 % théorie — développement assisté par l’IA sur le poste du participant';
+
+export const PREREQUIS_NIV07 =
+  'Avoir suivi le niveau 1 (applications métier BTP) ou maîtriser les compétences équivalentes : prototype, cahier des charges et premières fonctionnalités. Ordinateur portable avec connexion internet.';
+
+export const MODALITE_PEDAGOGIQUE_NIV07 = MODALITE_PEDAGOGIQUE_NIV06;
+
+export const MODALITES_ACCES_NIV07 = MODALITES_ACCES_NIV04;
+
+export const DELAI_ACCES_NIV07 = DELAI_ACCES_NIV04;
+
+export const PREREQUIS_NIV08 =
+  'Être autonome dans la création d’une application simple, comprendre les principales briques techniques, maîtriser le niveau 2 ou disposer d’une expérience équivalente. Ordinateur portable avec connexion internet.';
+
+export const MODALITE_PEDAGOGIQUE_NIV08 = MODALITE_PEDAGOGIQUE_NIV06;
+
+export const MODALITES_ACCES_NIV08 = MODALITES_ACCES_NIV04;
+
+export const DELAI_ACCES_NIV08 = DELAI_ACCES_NIV04;
 
 export const MODALITES_ACCES_NIV06 = MODALITES_ACCES_NIV04;
 
@@ -210,10 +249,16 @@ function prerequisPourRef(ref: FormationCode): string {
   if (ref === 'NIV-04') return PREREQUIS_NIV04;
   if (ref === 'NIV-05') return PREREQUIS_NIV05;
   if (ref === 'NIV-06') return PREREQUIS_NIV06;
+  if (ref === 'NIV-07') return PREREQUIS_NIV07;
+  if (ref === 'NIV-08') return PREREQUIS_NIV08;
   return PREREQUIS_NIVEAU_2.join(' ');
 }
 
 function tarifPourRef(ref: FormationCode): string {
+  const formation = getFormationByCode(ref);
+  if (formation?.tarifParcoursAppMetier) {
+    return `${libelleTarifApplicationMetierBtp(formation.tarifParcoursAppMetier)} ${MENTIONS_TVA_INTRA_COURTE}`;
+  }
   const entry = getFormationCatalogueByRef(ref);
   if (!entry) {
     throw new Error(`[getInfosPratiquesForCatalogue] Référence inconnue : ${ref}`);
@@ -252,12 +297,16 @@ export function getInfosPratiquesForCatalogue(ref: string): InfosPratiquesFormat
             ? MODALITES_ACCES_NIV04
             : code === 'NIV-06'
               ? MODALITES_ACCES_NIV06
+              : code === 'NIV-07'
+                ? MODALITES_ACCES_NIV07
+                : code === 'NIV-08'
+                  ? MODALITES_ACCES_NIV08
             : code === 'NIV-05'
               ? MODALITES_ACCES_NIV05
               : stripLabelPrefix(QUALIOPI_MODALITES_ACCES_EXACT, /^Modalités d'accès\s*:\s*/i)
     ),
     delaiAcces: sanitizeInfosPratiquesText(
-      code === 'NIV-01' || code === 'NIV-02' || code === 'NIV-03' || code === 'NIV-04' || code === 'NIV-05' || code === 'NIV-06'
+      code === 'NIV-01' || code === 'NIV-02' || code === 'NIV-03' || code === 'NIV-04' || code === 'NIV-05' || code === 'NIV-06' || code === 'NIV-07' || code === 'NIV-08'
         ? code === 'NIV-02'
           ? DELAI_ACCES_NIV02
           : code === 'NIV-03'
@@ -266,6 +315,10 @@ export function getInfosPratiquesForCatalogue(ref: string): InfosPratiquesFormat
               ? DELAI_ACCES_NIV04
               : code === 'NIV-06'
                 ? DELAI_ACCES_NIV06
+                : code === 'NIV-07'
+                  ? DELAI_ACCES_NIV07
+                  : code === 'NIV-08'
+                    ? DELAI_ACCES_NIV08
               : code === 'NIV-05'
                 ? DELAI_ACCES_NIV05
                 : DELAI_ACCES_NIV01
@@ -282,7 +335,7 @@ export function getInfosPratiquesForCatalogue(ref: string): InfosPratiquesFormat
             ? [...EVALUATION_NIV03]
             : code === 'NIV-04'
               ? [...EVALUATION_NIV04]
-              : code === 'NIV-06'
+              : code === 'NIV-06' || code === 'NIV-07' || code === 'NIV-08'
                 ? [...EVALUATION_NIV04]
               : code === 'NIV-05'
                 ? [...EVALUATION_NIV05]
@@ -296,6 +349,10 @@ export function getInfosPratiquesForCatalogue(ref: string): InfosPratiquesFormat
             ? MODALITE_PEDAGOGIQUE_NIV04
             : code === 'NIV-06'
               ? MODALITE_PEDAGOGIQUE_NIV06
+              : code === 'NIV-07'
+                ? MODALITE_PEDAGOGIQUE_NIV07
+                : code === 'NIV-08'
+                  ? MODALITE_PEDAGOGIQUE_NIV08
             : code === 'NIV-05'
               ? MODALITE_PEDAGOGIQUE_NIV05
               : MODALITE_PEDAGOGIQUE_CATALOGUE,

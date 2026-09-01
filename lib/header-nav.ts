@@ -32,6 +32,9 @@ const FORMATION_NAV_LABELS: Record<string, string> = {
   'NIV-03': 'IA et conduite de travaux',
   'NIV-04': 'Maîtriser Claude AI',
   'NIV-05': "IA et maîtrise d'œuvre",
+  'NIV-06': 'Application métier — niveau 1',
+  'NIV-07': 'Application métier — niveau 2',
+  'NIV-08': 'Application métier — niveau 3',
 };
 
 function pathMatches(pathname: string, href: string): boolean {
@@ -116,10 +119,13 @@ export function getHeaderNav(at: Date = new Date()): readonly HeaderNavItem[] {
   const publishedFormations = getPublishedFormations(at);
   return BASE_HEADER_NAV.map((item) => {
     if (item.id !== 'formations' || !item.children) return item;
-    const catalogueChildren = publishedFormations.map((formation) => ({
-      href: formationHref(formation),
-      label: FORMATION_NAV_LABELS[formation.code] ?? formation.titre,
-    }));
+    const catalogueChildren = [
+      { href: LINKS.parcoursApplicationsMetierBtp, label: 'Parcours applications métier BTP' },
+      ...publishedFormations.map((formation) => ({
+        href: formationHref(formation),
+        label: FORMATION_NAV_LABELS[formation.code] ?? formation.titre,
+      })),
+    ];
     const platformLink = item.children.find((child) => child.href === LINKS.formationPlateforme);
     return {
       ...item,

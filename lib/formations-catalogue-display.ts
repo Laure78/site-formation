@@ -15,6 +15,7 @@ import {
 } from '@/data/formations';
 import { isFormationCataloguePublished } from '@/lib/formation-catalogue-visibility';
 import { formatTarifHt, libelleTarifsCarteCatalogue, parseDureeHeures, MENTIONS_TVA_REGIMES_COURT } from '@/lib/tarifs-sessions';
+import { libelleTarifApplicationMetierBtp } from '@/lib/tarifs-applications-metier-btp';
 
 export type CatalogueLevel = 'DÉBUTANT' | 'AVANCÉ';
 
@@ -37,6 +38,8 @@ export type FormationCatalogueEntry = {
   slug: string;
   programmePdfHref: string;
   prixHT: number;
+  /** Libellé tarif parcours 7 h (applications métier). */
+  tarifParcoursLabel?: string;
   effectifMin: number;
   effectifMax: number;
   profileTags: Array<
@@ -46,6 +49,7 @@ export type FormationCatalogueEntry = {
     | 'maitriser-claude'
     | 'maitrise-oeuvre'
     | 'cursor-btp'
+    | 'applications-metier-btp'
   >;
   comparatif: {
     publicLabel: string;
@@ -60,6 +64,8 @@ const PHOTO_BY_CODE: Record<string, (typeof PHOTOS)[keyof typeof PHOTOS]> = {
   'NIV-04': PHOTOS.formationNiv04MaitriserClaudeAiBtp2026,
   'NIV-05': PHOTOS.formationNiv05IaMaitriseOeuvre2026,
   'NIV-06': PHOTOS.formationNiv06CursorBtp2026,
+  'NIV-07': PHOTOS.formationNiv06CursorBtp2026,
+  'NIV-08': PHOTOS.formationNiv06CursorBtp2026,
 };
 
 const PROFILE_TAGS_BY_CODE: Record<
@@ -71,7 +77,9 @@ const PROFILE_TAGS_BY_CODE: Record<
   'NIV-03': ['conduite-travaux'],
   'NIV-04': ['maitriser-claude'],
   'NIV-05': ['maitrise-oeuvre'],
-  'NIV-06': ['cursor-btp'],
+  'NIV-06': ['applications-metier-btp'],
+  'NIV-07': ['applications-metier-btp'],
+  'NIV-08': ['applications-metier-btp'],
 };
 
 function toCatalogueEntry(f: Formation): FormationCatalogueEntry {
@@ -98,6 +106,9 @@ function toCatalogueEntry(f: Formation): FormationCatalogueEntry {
     theme: f.theme,
     objectifs: [...f.objectifs],
     prixHT: f.prixHT,
+    tarifParcoursLabel: f.tarifParcoursAppMetier
+      ? libelleTarifApplicationMetierBtp(f.tarifParcoursAppMetier)
+      : undefined,
     effectifMin: f.effectifMin,
     effectifMax: f.effectifMax,
     profileTags: PROFILE_TAGS_BY_CODE[f.code] ?? [],

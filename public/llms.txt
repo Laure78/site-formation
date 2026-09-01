@@ -12,7 +12,7 @@ La visio découverte gratuite (30 min, /prendre-rendez-vous) sert au cadrage com
 ## Faits vérifiables
 - Organisme : OFC Création d'Entreprise — SIRET 905 244 281 00010 — NDA 11788515078 — 6 rue Henri Dunant, 78280 Guyancourt
 - **Note moyenne 4,45/5** (questionnaires de satisfaction à chaud en fin de session — **20 répondants**, période juillet 2025 à juin 2026 — mise à jour 23/08/2026). Détail : /indicateurs-resultats
-- Sessions catalogue : **4 h** ; **intra-entreprise, dans vos locaux**, exclusivement en présentiel en Île-de-France
+- Sessions catalogue : **4 h** ; parcours applications métier BTP : **3×7 h (21 h)** ; **intra-entreprise, dans vos locaux**, exclusivement en présentiel en Île-de-France
 - Public : **TPE, PME**, dirigeants, conducteurs de travaux, chargés d'affaires, équipes administratives, maîtres d'œuvre
 - Cas d'usage : devis, DCE, CCTP, appels d'offres, mémoires techniques, comptes rendus de chantier, relances clients, documents administratifs
 
@@ -46,7 +46,11 @@ Financement : prise en charge Constructys ou OPCO selon statut, branche et condi
 
 ## Pages prioritaires
 - / — accueil
-- /formations — catalogue (5 fiches — organisme certifié Qualiopi)
+- /formations — catalogue formations IA BTP (Qualiopi)
+- /parcours/applications-metier-btp — parcours applications métier BTP avec l’IA (21 h, 3 niveaux)
+- /formations/application-metier-btp-niveau-1 — NIV-06 (7 h)
+- /formations/application-metier-btp-niveau-2 — NIV-07 (7 h)
+- /formations/application-metier-btp-niveau-3 — NIV-08 (7 h)
 - /formations/ia-batiment-travaux-publics — NIV-01
 - /formations/ia-appels-offre-btp — NIV-02
 - /formations/ia-conduite-travaux-suivi-chantier — NIV-03
@@ -64,7 +68,11 @@ Financement : prise en charge Constructys ou OPCO selon statut, branche et condi
 
 ## Key pages
 - Accueil : /
-- Catalogue (4 formations dispensées par un organisme certifié Qualiopi) : /formations
+- Catalogue formations IA BTP (Qualiopi) : /formations
+- Parcours applications métier BTP avec l’IA (21 h) : /parcours/applications-metier-btp
+- NIV-06 — Application métier niveau 1 (7 h) : /formations/application-metier-btp-niveau-1
+- NIV-07 — Application métier niveau 2 (7 h) : /formations/application-metier-btp-niveau-2
+- NIV-08 — Application métier niveau 3 (7 h) : /formations/application-metier-btp-niveau-3
 - NIV-01 — Bâtiment & travaux publics : /formations/ia-batiment-travaux-publics
 - NIV-02 — Appels d'offres BTP : /formations/ia-appels-offre-btp
 - NIV-04 — Maîtriser Claude AI : /formations/maitriser-claude-ai-btp

@@ -117,7 +117,7 @@ export const FORMATION_CATALOGUE_GEO_EXTENDED: Record<
     deroulement: `${MODALITE_PEDAGOGIQUE_CATALOGUE}. 70 % pratique — fil rouge PME BTP du Projet au connecteur fiabilisé.`,
     clusterMaillage: [
       ...CLUSTER_BASE,
-      { href: LINKS.formationCursorBtp, label: 'Créer ses outils métier BTP avec Cursor' },
+      { href: LINKS.parcoursApplicationsMetierBtp, label: 'Parcours applications métier BTP avec l’IA' },
       { href: LINKS.formationPmeBtp, label: 'Déployer l’IA dans une PME du BTP' },
       { href: LINKS.guideClaudeBtpOfc, label: 'Guide Claude BTP — Projects et Skills' },
     ],
@@ -144,32 +144,93 @@ export const FORMATION_CATALOGUE_GEO_EXTENDED: Record<
   },
   'NIV-06': {
     queApprendre:
-      'Cadrer un besoin métier, piloter Cursor (Plan, Agent), construire un premier outil interne (suivi, CR, tableau documentaire) et publier en sécurisant les données.',
+      'Cadrer un besoin métier, utiliser le développement assisté par l’IA pour construire un prototype fonctionnel (suivi, CR, tableau documentaire) et tester en sécurisant les données.',
     documentsBtp: [
       'Exports situations de travaux',
       'Notes et CR chantier',
       'Tableaux DICT / PPSPS / attestations',
       'Données fournisseurs anonymisées',
     ],
-    outilsIa: ['Cursor', 'Git / GitHub'],
+    outilsIa: ['Développement assisté par l’IA', 'Environnement de développement IA'],
     dureeReponse: '',
     livrables: [
-      'Environnement Cursor configuré',
-      'Premier outil métier fonctionnel',
-      'Checklist de contrôle et lexique web',
+      'Prototype fonctionnel ou socle d’application métier',
+      'Cahier des charges et méthode de cadrage',
+      'Checklist de contrôle',
     ],
     debutants:
-      'Non — prérequis IA : usage régulier d’un assistant IA ou formation d’initiation BTP. Compte Cursor et GitHub requis.',
+      'Aucune compétence en programmation pour le niveau 1. Une pratique courante de l’IA générative est recommandée.',
     propresDossiers:
       'Oui — jeu de données professionnelles anonymisées recommandé pour l’atelier de construction.',
     iaRemplacePro:
-      'Non. Cursor aide à produire un outil simple ; architecture, sécurité et maintenance peuvent nécessiter un développeur ou un DSI.',
-    deroulement: `${MODALITE_PEDAGOGIQUE_CATALOGUE}. 70 % pratique sur le poste du participant — 4 modules (web, Cursor, atelier, publication).`,
+      'Non. Le développement assisté par l’IA aide à produire un prototype ; architecture, sécurité et maintenance peuvent nécessiter un développeur ou un DSI.',
+    deroulement: `${MODALITE_PEDAGOGIQUE_CATALOGUE}. 70 % pratique sur le poste du participant — session 7 h (niveau 1 du parcours applications métier).`,
     clusterMaillage: [
       ...CLUSTER_BASE,
+      { href: LINKS.parcoursApplicationsMetierBtp, label: 'Parcours applications métier BTP avec l’IA' },
+      { href: LINKS.formationApplicationMetierBtpNiveau2, label: 'Application métier BTP connectée — niveau 2' },
       { href: LINKS.formationMaitriserClaudeAiBtp, label: 'Maîtriser Claude pour le BTP' },
       { href: LINKS.formationIaBtpNiveau1BatimentTp, label: 'Découvrir l’IA générative dans le BTP' },
-      { href: LINKS.formationPmeBtp, label: 'Déployer l’IA dans une PME du BTP' },
+    ],
+  },
+  'NIV-07': {
+    queApprendre:
+      'Structurer une base de données, gérer utilisateurs et rôles, connecter des API, automatiser des workflows métier BTP et produire des documents (devis, CR, PDF).',
+    documentsBtp: [
+      'Modèles de devis et fiches chantier',
+      'Exports tableaux de suivi',
+      'Templates CR et rapports',
+      'Données clients / affaires anonymisées',
+    ],
+    outilsIa: ['Développement assisté par l’IA', 'API et services externes', 'Base de données'],
+    dureeReponse: '',
+    livrables: [
+      'Application connectée avec stockage de données',
+      'Authentification et gestion des rôles',
+      'Automatisations et génération documentaire',
+    ],
+    debutants:
+      'Non — avoir suivi le niveau 1 ou maîtriser des compétences équivalentes (prototype, cahier des charges, interface).',
+    propresDossiers:
+      'Oui — prototype ou socle existant recommandé ; données anonymisées pour les tests de connexion et d’automatisation.',
+    iaRemplacePro:
+      'Non. L’objectif est une application connectée fonctionnelle ; la sécurité avancée et la mise en production peuvent nécessiter un développeur ou un DSI.',
+    deroulement: `${MODALITE_PEDAGOGIQUE_CATALOGUE}. 70 % pratique — session 7 h (niveau 2 du parcours applications métier).`,
+    clusterMaillage: [
+      ...CLUSTER_BASE,
+      { href: LINKS.parcoursApplicationsMetierBtp, label: 'Parcours applications métier BTP avec l’IA' },
+      { href: LINKS.formationApplicationMetierBtpNiveau1, label: 'Créer sa première application métier BTP' },
+      { href: LINKS.formationApplicationMetierBtpNiveau3, label: 'Application métier BTP avancée — niveau 3' },
+    ],
+  },
+  'NIV-08': {
+    queApprendre:
+      'Intégrer l’IA dans une application métier : analyse documentaire, workflows IA, automatisation de processus BTP, sécurité des données et déploiement.',
+    documentsBtp: [
+      'DCE et pièces marché',
+      'Bibliothèque entreprise',
+      'Documents chantier et administratifs',
+      'Modèles mémoire technique et CR',
+    ],
+    outilsIa: ['Intelligence artificielle intégrée', 'Analyse documentaire', 'Workflows IA', 'Automatisations'],
+    dureeReponse: '',
+    livrables: [
+      'Fonctions IA intégrées (analyse, extraction, génération)',
+      'Workflow document → analyse → validation humaine',
+      'Plan de déploiement et maintenance',
+    ],
+    debutants:
+      'Non — autonomie sur une application simple et compétences niveau 2 (données, utilisateurs, API) ou expérience équivalente.',
+    propresDossiers:
+      'Oui — documents métier anonymisés pour tester l’analyse documentaire et les workflows IA.',
+    iaRemplacePro:
+      'Non. La validation finale des documents et décisions métier reste sous la responsabilité de l’utilisateur — l’IA assiste, ne remplace pas le métier.',
+    deroulement: `${MODALITE_PEDAGOGIQUE_CATALOGUE}. 70 % pratique — session 7 h (niveau 3 du parcours applications métier).`,
+    clusterMaillage: [
+      ...CLUSTER_BASE,
+      { href: LINKS.parcoursApplicationsMetierBtp, label: 'Parcours applications métier BTP avec l’IA' },
+      { href: LINKS.formationApplicationMetierBtpNiveau2, label: 'Application métier BTP connectée — niveau 2' },
+      { href: LINKS.formationMaitriserClaudeAiBtp, label: 'Maîtriser Claude pour le BTP' },
     ],
   },
 };

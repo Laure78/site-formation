@@ -18,14 +18,21 @@ import {
   buildFormationFicheCourseJsonLd,
 } from '@/lib/schema-formation-course-jsonld';
 import { buildQualiopiCredentialSchema } from '@/lib/qualiopi-info';
+const APPLICATION_METIER_PATH_BY_REF = {
+  'NIV-06': LINKS.formationApplicationMetierBtpNiveau1,
+  'NIV-07': LINKS.formationApplicationMetierBtpNiveau2,
+  'NIV-08': LINKS.formationApplicationMetierBtpNiveau3,
+} as const;
 
-const CATALOGUE_REF_BY_PATH: Record<FormationCatalogueRichCourseConfig['path'], string> = {
+const CATALOGUE_REF_BY_PATH: Record<string, string> = {
   [LINKS.formationIaBtpNiveau1BatimentTp]: 'NIV-01',
   [LINKS.formationAO]: 'NIV-02',
   [LINKS.formationConduiteTravauxSuiviChantier]: 'NIV-03',
   [LINKS.formationMaitriserClaudeAiBtp]: 'NIV-04',
   [LINKS.formationIaMaitriseOeuvre]: 'NIV-05',
-  [LINKS.formationCursorBtp]: 'NIV-06',
+  [LINKS.formationApplicationMetierBtpNiveau1]: 'NIV-06',
+  [LINKS.formationApplicationMetierBtpNiveau2]: 'NIV-07',
+  [LINKS.formationApplicationMetierBtpNiveau3]: 'NIV-08',
 };
 
 function priceSpecDescription(ref: string): string {
@@ -40,14 +47,17 @@ function priceSpecDescription(ref: string): string {
 }
 
 const PRICE_SPEC_DESCRIPTION_BY_REF: Record<string, string> = Object.fromEntries(
-  (['NIV-01', 'NIV-02', 'NIV-03', 'NIV-04', 'NIV-05', 'NIV-06'] as const).map((ref) => [
+  (['NIV-01', 'NIV-02', 'NIV-03', 'NIV-04', 'NIV-05', 'NIV-06', 'NIV-07', 'NIV-08'] as const).map((ref) => [
     ref,
     priceSpecDescription(ref),
   ])
 );
 
-function prixCatalogue(ref: string): number {
-  return getFormationByCode(ref)!.prixHT;
+function prixCatalogue(ref: string): number | undefined {
+  const f = getFormationByCode(ref);
+  if (!f) return undefined;
+  if (f.prixHT > 0) return f.prixHT;
+  return undefined;
 }
 function teachesFromCatalogue(ref: string): string[] {
   const entry = getFormationCatalogueByRef(ref);
@@ -65,12 +75,14 @@ export type CatalogueCourseJsonLdConfig = {
     | typeof LINKS.formationConduiteTravauxSuiviChantier
     | typeof LINKS.formationMaitriserClaudeAiBtp
     | typeof LINKS.formationIaMaitriseOeuvre
-    | typeof LINKS.formationCursorBtp;
+    | typeof LINKS.formationApplicationMetierBtpNiveau1
+    | typeof LINKS.formationApplicationMetierBtpNiveau2
+    | typeof LINKS.formationApplicationMetierBtpNiveau3;
   name: string;
   description: string;
   price?: number;
   keywords: readonly string[];
-  courseCode: 'NIV-01' | 'NIV-02' | 'NIV-03' | 'NIV-04' | 'NIV-05' | 'NIV-06';
+  courseCode: 'NIV-01' | 'NIV-02' | 'NIV-03' | 'NIV-04' | 'NIV-05' | 'NIV-06' | 'NIV-07' | 'NIV-08';
   educationalLevel: 'Beginner' | 'Advanced';
 };
 
@@ -81,7 +93,9 @@ export type FormationCatalogueRichCourseConfig = {
     | typeof LINKS.formationConduiteTravauxSuiviChantier
     | typeof LINKS.formationMaitriserClaudeAiBtp
     | typeof LINKS.formationIaMaitriseOeuvre
-    | typeof LINKS.formationCursorBtp;
+    | typeof LINKS.formationApplicationMetierBtpNiveau1
+    | typeof LINKS.formationApplicationMetierBtpNiveau2
+    | typeof LINKS.formationApplicationMetierBtpNiveau3;
   name: string;
   description: string;
   price?: number;
@@ -188,23 +202,66 @@ export const FORMATION_RICH_COURSE_NIV05: FormationCatalogueRichCourseConfig = {
   teaches: teachesFromCatalogue('NIV-05'),
 };
 
-export const CATALOGUE_COURSE_CURSOR_BTP_NIV06: CatalogueCourseJsonLdConfig = {
-  path: LINKS.formationCursorBtp,
+export const CATALOGUE_COURSE_APPLICATION_METIER_NIV06: CatalogueCourseJsonLdConfig = {
+  path: LINKS.formationApplicationMetierBtpNiveau1,
   name: getFormationByCode('NIV-06')!.titre,
   description: `${getFormationByCode('NIV-06')!.accroche} Session ${getFormationByCode('NIV-06')!.duree}, présentiel Île-de-France, Qualiopi.`,
   price: prixCatalogue('NIV-06'),
-  keywords: ['Cursor BTP', 'outil métier', 'application interne', 'GitHub', 'développement assisté IA'],
+  keywords: [
+    'application métier BTP',
+    'développement assisté IA',
+    'prototype application',
+    'automatiser processus BTP',
+  ],
   courseCode: 'NIV-06',
   educationalLevel: 'Advanced',
 };
 
 export const FORMATION_RICH_COURSE_NIV06: FormationCatalogueRichCourseConfig = {
-  path: LINKS.formationCursorBtp,
-  name: CATALOGUE_COURSE_CURSOR_BTP_NIV06.name,
-  description: CATALOGUE_COURSE_CURSOR_BTP_NIV06.description,
+  path: LINKS.formationApplicationMetierBtpNiveau1,
+  name: CATALOGUE_COURSE_APPLICATION_METIER_NIV06.name,
+  description: CATALOGUE_COURSE_APPLICATION_METIER_NIV06.description,
   price: prixCatalogue('NIV-06'),
   educationalLevel: 'Avancé',
   teaches: teachesFromCatalogue('NIV-06'),
+};
+
+export const CATALOGUE_COURSE_APPLICATION_METIER_NIV07: CatalogueCourseJsonLdConfig = {
+  path: LINKS.formationApplicationMetierBtpNiveau2,
+  name: getFormationByCode('NIV-07')!.titre,
+  description: `${getFormationByCode('NIV-07')!.accroche} Session ${getFormationByCode('NIV-07')!.duree}, présentiel Île-de-France, Qualiopi.`,
+  price: prixCatalogue('NIV-07'),
+  keywords: ['application métier connectée', 'base de données BTP', 'API', 'workflow métier'],
+  courseCode: 'NIV-07',
+  educationalLevel: 'Advanced',
+};
+
+export const FORMATION_RICH_COURSE_NIV07: FormationCatalogueRichCourseConfig = {
+  path: LINKS.formationApplicationMetierBtpNiveau2,
+  name: CATALOGUE_COURSE_APPLICATION_METIER_NIV07.name,
+  description: CATALOGUE_COURSE_APPLICATION_METIER_NIV07.description,
+  price: prixCatalogue('NIV-07'),
+  educationalLevel: 'Avancé',
+  teaches: teachesFromCatalogue('NIV-07'),
+};
+
+export const CATALOGUE_COURSE_APPLICATION_METIER_NIV08: CatalogueCourseJsonLdConfig = {
+  path: LINKS.formationApplicationMetierBtpNiveau3,
+  name: getFormationByCode('NIV-08')!.titre,
+  description: `${getFormationByCode('NIV-08')!.accroche} Session ${getFormationByCode('NIV-08')!.duree}, présentiel Île-de-France, Qualiopi.`,
+  price: prixCatalogue('NIV-08'),
+  keywords: ['IA intégrée application', 'analyse documentaire BTP', 'workflow IA', 'déploiement'],
+  courseCode: 'NIV-08',
+  educationalLevel: 'Advanced',
+};
+
+export const FORMATION_RICH_COURSE_NIV08: FormationCatalogueRichCourseConfig = {
+  path: LINKS.formationApplicationMetierBtpNiveau3,
+  name: CATALOGUE_COURSE_APPLICATION_METIER_NIV08.name,
+  description: CATALOGUE_COURSE_APPLICATION_METIER_NIV08.description,
+  price: prixCatalogue('NIV-08'),
+  educationalLevel: 'Avancé',
+  teaches: teachesFromCatalogue('NIV-08'),
 };
 
 function buildCatalogueOffer(
@@ -296,6 +353,8 @@ export function buildCatalogueCourseJsonLd(
     'NIV-04': FORMATION_RICH_COURSE_NIV04,
     'NIV-05': FORMATION_RICH_COURSE_NIV05,
     'NIV-06': FORMATION_RICH_COURSE_NIV06,
+    'NIV-07': FORMATION_RICH_COURSE_NIV07,
+    'NIV-08': FORMATION_RICH_COURSE_NIV08,
   };
   const rich = richByCode[config.courseCode];
   if (!rich) {
@@ -331,6 +390,18 @@ export function buildCatalogueCourseMaitriseOeuvreNiv05JsonLd(): Record<string, 
   return buildFormationCatalogueRichCourseJsonLd(FORMATION_RICH_COURSE_NIV05);
 }
 
+export function buildCatalogueCourseApplicationMetierJsonLd(
+  ref: 'NIV-06' | 'NIV-07' | 'NIV-08',
+): Record<string, unknown> {
+  const richByRef = {
+    'NIV-06': FORMATION_RICH_COURSE_NIV06,
+    'NIV-07': FORMATION_RICH_COURSE_NIV07,
+    'NIV-08': FORMATION_RICH_COURSE_NIV08,
+  } as const;
+  return buildFormationCatalogueRichCourseJsonLd(richByRef[ref]);
+}
+
+/** @deprecated Utiliser buildCatalogueCourseApplicationMetierJsonLd('NIV-06') */
 export function buildCatalogueCourseCursorBtpNiv06JsonLd(): Record<string, unknown> {
-  return buildFormationCatalogueRichCourseJsonLd(FORMATION_RICH_COURSE_NIV06);
+  return buildCatalogueCourseApplicationMetierJsonLd('NIV-06');
 }

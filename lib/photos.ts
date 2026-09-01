@@ -668,10 +668,10 @@ export const PHOTOS = {
   },
   formationNiv06CursorBtp2026: {
     src: '/images/formation-ia-architecture-claude-presentiel-groupe.jpg',
-    alt: 'Formation Cursor BTP — créer un outil métier interne avec l’IA, atelier présentiel',
+    alt: 'Formation application métier BTP — créer un prototype avec le développement assisté par l’IA',
     description:
-      'Atelier « Créer ses outils métier BTP avec Cursor » : cadrage, Plan, Agent et premier outil interne — 4 h, niveau avancé. Laure Olivié, OFC Qualiopi.',
-    title: 'Avancé · Créer ses outils métier BTP avec Cursor',
+      'Parcours applications métier BTP : cadrage, prototype et développement assisté par l’IA — session 7 h. Laure Olivié, OFC Qualiopi.',
+    title: 'Applications métier BTP avec l’IA — niveau 1',
     width: 1200,
     height: 800,
   },

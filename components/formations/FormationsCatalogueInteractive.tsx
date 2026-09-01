@@ -29,7 +29,7 @@ import { calendlyCatalogueUrl } from '@/lib/calendly';
 import { libelleTarifsCarteCatalogue } from '@/lib/tarifs-sessions';
 import { OFC_CARD, OFC_CTA_PRIMARY } from '@/lib/ofc-interaction-classes';
 
-type ProfileId = 'debutant' | 'ao' | 'conduite' | 'claude' | 'moe' | 'cursor';
+type ProfileId = 'debutant' | 'ao' | 'conduite' | 'claude' | 'moe' | 'applications-metier';
 
 const PROFILE_ICONS = {
   'NIV-01': BookOpen,
@@ -38,6 +38,8 @@ const PROFILE_ICONS = {
   'NIV-04': Cpu,
   'NIV-05': Landmark,
   'NIV-06': Code2,
+  'NIV-07': Code2,
+  'NIV-08': Code2,
 } as const;
 
 const PROFILE_IDS: Record<string, ProfileId> = {
@@ -46,7 +48,9 @@ const PROFILE_IDS: Record<string, ProfileId> = {
   'NIV-03': 'conduite',
   'NIV-04': 'claude',
   'NIV-05': 'moe',
-  'NIV-06': 'cursor',
+  'NIV-06': 'applications-metier',
+  'NIV-07': 'applications-metier',
+  'NIV-08': 'applications-metier',
 };
 
 function buildProfiles(formations: FormationCatalogueEntry[]) {
@@ -107,6 +111,7 @@ function FormationCard({
           <CataloguePriceBadge
             level={cours.level}
             duree={cours.duree}
+            labelOverride={cours.tarifParcoursLabel}
             variant="overlay"
           />
         </div>
@@ -122,6 +127,7 @@ function FormationCard({
         <CataloguePriceBadge
           level={cours.level}
           duree={cours.duree}
+          labelOverride={cours.tarifParcoursLabel}
           variant="banner"
           className="mt-4"
         />

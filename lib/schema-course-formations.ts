@@ -92,11 +92,29 @@ export const FORMATIONS_CATALOG_SCHEMA: FormationCatalogEntry[] = [
   {
     ref: 'NIV-06',
     level: 'AVANCÉ',
-    path: '/formations/cursor-btp',
+    path: '/formations/application-metier-btp-niveau-1',
     name: getFormationByCode('NIV-06')!.titre,
     description: `${getFormationByCode('NIV-06')!.accroche} Qualiopi, Constructys.`,
     teaches: teachesFromCatalogueDisplay('NIV-06'),
-    occupationalCategory: 'BTP, outils métier, développement assisté IA',
+    occupationalCategory: 'BTP, applications métier, développement assisté IA',
+  },
+  {
+    ref: 'NIV-07',
+    level: 'AVANCÉ',
+    path: '/formations/application-metier-btp-niveau-2',
+    name: getFormationByCode('NIV-07')!.titre,
+    description: `${getFormationByCode('NIV-07')!.accroche} Qualiopi, Constructys.`,
+    teaches: teachesFromCatalogueDisplay('NIV-07'),
+    occupationalCategory: 'BTP, applications métier connectées',
+  },
+  {
+    ref: 'NIV-08',
+    level: 'AVANCÉ',
+    path: '/formations/application-metier-btp-niveau-3',
+    name: getFormationByCode('NIV-08')!.titre,
+    description: `${getFormationByCode('NIV-08')!.accroche} Qualiopi, Constructys.`,
+    teaches: teachesFromCatalogueDisplay('NIV-08'),
+    occupationalCategory: 'BTP, IA intégrée, applications métier avancées',
   },
 ];
 
@@ -117,7 +135,12 @@ function buildCatalogOffer(
     url: courseUrl,
     category: FORMATION_COURSE_OFFER_CATEGORY,
   };
-  offer.price = getFormationByCode(entry.ref)?.prixHT ?? tarifHtDepuisBadgeCatalogue(entry.level);
+  offer.price = (() => {
+    const f = getFormationByCode(entry.ref);
+    if (f?.tarifParcoursAppMetier) return undefined;
+    if (f && f.prixHT > 0) return f.prixHT;
+    return tarifHtDepuisBadgeCatalogue(entry.level);
+  })();
   return offer;
 }
 

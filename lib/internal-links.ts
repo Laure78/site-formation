@@ -90,7 +90,18 @@ export const LINKS = {
   formationConduiteTravauxSuiviChantier: '/formations/ia-conduite-travaux-suivi-chantier',
   pdfProgrammeConduiteTravauxNiv03:
     '/formations/ia-conduite-travaux-suivi-chantier/Programme_IA_Conduite_Travaux_OFC.pdf',
-  /** NIV-06 — Créer ses outils métier BTP avec Cursor (catalogue) */
+  /** Parcours applications métier BTP avec l’IA — page pilier */
+  parcoursApplicationsMetierBtp: '/parcours/applications-metier-btp',
+  /** NIV-06 — Créer sa première application métier BTP (niveau 1, 7 h) */
+  formationApplicationMetierBtpNiveau1: '/formations/application-metier-btp-niveau-1',
+  /** NIV-07 — Application métier BTP connectée (niveau 2, 7 h) */
+  formationApplicationMetierBtpNiveau2: '/formations/application-metier-btp-niveau-2',
+  /** NIV-08 — Application métier BTP avancée avec IA (niveau 3, 7 h) */
+  formationApplicationMetierBtpNiveau3: '/formations/application-metier-btp-niveau-3',
+  /**
+   * @deprecated Ancienne fiche Cursor — 301 → `parcoursApplicationsMetierBtp`.
+   * Ne pas utiliser dans les nouveaux liens internes.
+   */
   formationCursorBtp: '/formations/cursor-btp',
   /** Landing thématique — études de prix et chiffrage (fiche catalogue : NIV-02) */
   formationIaEtudesPrixChiffrageBtp: '/formations/ia-etudes-prix-chiffrage-btp',

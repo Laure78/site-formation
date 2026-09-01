@@ -49,6 +49,11 @@ export type Formation = {
   programmeUpdatedAt: string;
   /** Chemin public de l’affiche catalogue */
   image: string;
+  /**
+   * Parcours applications métier BTP — tarif via `lib/tarifs-applications-metier-btp.ts`
+   * (null = sur devis, sans montant catalogue).
+   */
+  tarifParcoursAppMetier?: import('@/lib/tarifs-applications-metier-btp').ApplicationMetierBtpTarifKey;
 };
 
 export const FORMATIONS: readonly Formation[] = [
@@ -225,40 +230,122 @@ export const FORMATIONS: readonly Formation[] = [
   },
   {
     code: 'NIV-06',
-    slug: 'cursor-btp',
-    titre: 'Créer ses outils métier BTP avec Cursor',
+    slug: 'application-metier-btp-niveau-1',
+    titre: 'Créer sa première application métier BTP avec l’IA',
     promesse:
-      'Piloter Cursor pour construire un premier outil métier interne — suivi, CR ou documents — sans être développeur.',
+      'Transformer un problème métier en prototype fonctionnel avec le développement assisté par l’intelligence artificielle.',
     casUsageCourts: [
-      'Suivi des situations de travaux',
-      'Comptes rendus de chantier',
-      'Tableau de bord documentaire chantier',
+      'Remplacer un fichier Excel métier',
+      'Centraliser des informations chantier',
+      'Automatiser une tâche répétitive',
     ],
     gamme: 'deployer',
     theme: 'outils-applications',
     niveau: 2,
-    niveauLabel: 'Avancé',
-    duree: '4 h',
-    horaires: '9h00 – 13h00',
+    niveauLabel: 'Niveau 1 — Concevoir',
+    duree: '7 h',
+    horaires: 'à convenir (journée ou demi-journées)',
     effectifMin: 1,
     effectifMax: 8,
-    prixHT: 1200,
+    prixHT: 1800,
+    tarifParcoursAppMetier: 'niveau-1',
     accroche:
-      'Atelier avancé : cadrer un besoin métier, piloter Cursor (Plan, Agent) et publier un premier outil interne simple.',
+      'Découvrir la méthode pour cadrer un besoin métier BTP et obtenir un prototype fonctionnel avec le développement assisté par l’IA — sans compétence préalable en programmation.',
     objectifs: [
-      'Comprendre les briques d’une application web (interface, traitement, stockage, hébergement) sans être développeur',
-      'Installer et configurer Cursor ; fournir du contexte métier (fichiers, règles, documentation)',
-      'Utiliser le mode Plan : Besoin → questions → plan → validation → développement',
-      'Cadrer un cas d’usage BTP et construire progressivement un premier outil fonctionnel',
-      'Tester, versionner avec Git/GitHub et identifier les précautions de sécurité',
-      'Reconnaître les situations nécessitant un développeur, un DSI ou un spécialiste cybersécurité',
+      'Identifier un besoin métier pouvant être transformé en application',
+      'Formaliser un cahier des charges simple (utilisateurs, données, fonctionnalités)',
+      'Comprendre les briques d’une application web (interface, logique, données, hébergement)',
+      'Concevoir une interface (navigation, formulaires, tableaux, indicateurs)',
+      'Construire les premières fonctionnalités (CRUD, filtres, calculs, statuts)',
+      'Tester et améliorer un prototype sur ordinateur et smartphone',
     ],
     public:
-      'Dirigeants PME BTP, conducteurs de travaux, chargés d’affaires, responsables BE, profils BIM, assistants travaux avancés, responsables administratifs avec projet d’outil, responsables informatiques',
-    casUsage: 'Suivi situations, CR chantier, suivi documentaire, réserves, mémoire technique',
-    pdfProgramme: '/formations/cursor-btp/programme-cursor-btp-ofc.pdf',
+      'Dirigeants PME BTP, conducteurs de travaux, chargés d’affaires, responsables administratifs et profils métier porteurs d’un projet d’outil interne',
+    casUsage: 'Prototype de suivi, remplacement Excel, outil de saisie chantier',
+    pdfProgramme:
+      '/formations/application-metier-btp-niveau-1/programme-application-metier-btp-niveau-1-ofc.pdf',
     programmeVersion: 'Version 1',
-    programmeUpdatedAt: '30/08/2026',
+    programmeUpdatedAt: '01/09/2026',
+    image: '/images/formation-ia-architecture-claude-presentiel-groupe.jpg',
+  },
+  {
+    code: 'NIV-07',
+    slug: 'application-metier-btp-niveau-2',
+    titre: 'Développer une application métier BTP connectée',
+    promesse:
+      'Faire évoluer un prototype vers une application connectée : base de données, utilisateurs, workflows et services externes.',
+    casUsageCourts: [
+      'CRM ou suivi commercial BTP',
+      'Application devis et métrés',
+      'Suivi de trésorerie',
+    ],
+    gamme: 'deployer',
+    theme: 'outils-applications',
+    niveau: 2,
+    niveauLabel: 'Niveau 2 — Connecter',
+    duree: '7 h',
+    horaires: 'à convenir (journée ou demi-journées)',
+    effectifMin: 1,
+    effectifMax: 8,
+    prixHT: 2000,
+    tarifParcoursAppMetier: 'niveau-2',
+    accroche:
+      'Structurer une base de données métier, gérer les accès, connecter des services et automatiser des actions — sur votre cas d’usage réel.',
+    objectifs: [
+      'Structurer une base de données métier (tables, relations, statuts, historique)',
+      'Mettre en place authentification, rôles et droits',
+      'Construire un workflow métier adapté à son processus',
+      'Connecter des services externes (API, calendrier, messagerie, notifications)',
+      'Automatiser des actions répétitives et générer des documents',
+      'Tester et sécuriser les accès et les données',
+    ],
+    public:
+      'Participants ayant suivi le niveau 1 ou disposant d’un prototype — dirigeants, conducteurs de travaux, responsables BE et profils métier',
+    casUsage: 'CRM, devis, trésorerie, site web métier, communication digitale',
+    pdfProgramme:
+      '/formations/application-metier-btp-niveau-2/programme-application-metier-btp-niveau-2-ofc.pdf',
+    programmeVersion: 'Version 1',
+    programmeUpdatedAt: '01/09/2026',
+    image: '/images/formation-ia-architecture-claude-presentiel-groupe.jpg',
+  },
+  {
+    code: 'NIV-08',
+    slug: 'application-metier-btp-niveau-3',
+    titre: 'Développer une application métier BTP avancée avec l’IA',
+    promesse:
+      'Intégrer l’intelligence artificielle dans une application métier : analyse documentaire, workflows IA, déploiement et maintenance.',
+    casUsageCourts: [
+      'Assistant analyse DCE',
+      'Workflow documents chantier',
+      'Automatisations métier avec IA',
+    ],
+    gamme: 'deployer',
+    theme: 'outils-applications',
+    niveau: 2,
+    niveauLabel: 'Niveau 3 — Industrialiser',
+    duree: '7 h',
+    horaires: 'à convenir (journée ou demi-journées)',
+    effectifMin: 1,
+    effectifMax: 8,
+    prixHT: 2200,
+    tarifParcoursAppMetier: 'niveau-3',
+    accroche:
+      'Intégrer l’IA dans une application métier existante : extraction, classification, génération, workflows automatisés — validation humaine obligatoire.',
+    objectifs: [
+      'Structurer une application métier avancée (modules, automatisations, dépendances)',
+      'Intégrer l’IA pour analyser, extraire, classer, résumer et générer',
+      'Exploiter des documents métier (import, recherche, comparaison, structuration)',
+      'Construire un workflow IA avec contrôle humain',
+      'Automatiser un processus complet (analyse, notifications, documents)',
+      'Fiabiliser, sécuriser, déployer et maintenir l’application',
+    ],
+    public:
+      'Participants autonomes sur une application simple — dirigeants, référents digitaux et profils métier avancés du BTP',
+    casUsage: 'Assistant DCE, devis, trésorerie, communication, suivi chantier',
+    pdfProgramme:
+      '/formations/application-metier-btp-niveau-3/programme-application-metier-btp-niveau-3-ofc.pdf',
+    programmeVersion: 'Version 1',
+    programmeUpdatedAt: '01/09/2026',
     image: '/images/formation-ia-architecture-claude-presentiel-groupe.jpg',
   },
 ] as const;
@@ -268,8 +355,8 @@ export type FormationSlug = (typeof FORMATIONS)[number]['slug'];
 
 export const FORMATIONS_COUNT = FORMATIONS.length;
 
-/** Plage de numérotation catalogue — 6 formations (NIV-01 … NIV-06). */
-export const CATALOGUE_NIV_RANGE = 'NIV-01 à NIV-06' as const;
+/** Plage de numérotation catalogue — 8 formations (NIV-01 … NIV-08). */
+export const CATALOGUE_NIV_RANGE = 'NIV-01 à NIV-08' as const;
 
 export function getFormationByCode(code: string): Formation | undefined {
   return FORMATIONS.find((f) => f.code === code);

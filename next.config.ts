@@ -193,8 +193,13 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
-        source: '/formations/formation-claude-ia-btp',
-        destination: '/formations/maitriser-claude-ai-btp',
+        source: '/formations/cursor-btp',
+        destination: '/parcours/applications-metier-btp',
+        permanent: true,
+      },
+      {
+        source: '/formations/cursor-btp/:path*',
+        destination: '/parcours/applications-metier-btp',
         permanent: true,
       },
 

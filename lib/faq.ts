@@ -20,7 +20,7 @@ import {
   libelleTarifsDualCourt,
   MENTIONS_TVA_REGIMES_COURT,
 } from '@/lib/tarifs-sessions';
-import { CATALOGUE_FORMATIONS_COUNT, getCatalogueFormationsCount } from '@/lib/formations-catalogue-display';
+import { getCatalogueFormationsCount } from '@/lib/formations-catalogue-display';
 import { isFormationCataloguePublished } from '@/lib/formation-catalogue-visibility';
 import { SOCIAL_PROOF, IDF_ZONE_INTERVENTION } from '@/lib/constants';
 import { getLaureOlivieSchemaPersonDescription } from '@/lib/laure-olivie-profile';
@@ -242,11 +242,11 @@ export const FAQ_FORMATIONS: FAQItem[] = [
   },
   {
     q: 'Quelles formations IA appliquées au bâtiment sont proposées au catalogue ?',
-    a: `Le catalogue OFC propose ${CATALOGUE_FORMATIONS_COUNT} formations IA pour le BTP de 4 heures, toutes dispensées par OFC Création d&apos;Entreprise, organisme certifié Qualiopi : (1) L&apos;IA au service des pros du bâtiment et des travaux publics — niveau 1, (2) L&apos;IA appliquée aux appels d&apos;offres BTP — niveau 2, (3) L&apos;IA appliquée à la conduite de travaux — niveau 2 (8 participants max), (4) Maîtriser Claude AI pour le BTP — Chat, Cowork &amp; Code (niveau 2, ${libelleTarifsDualCourt(4)}, matin 9h–13h, 8 participants max), (5) L&apos;IA au service des maîtres d&apos;œuvre — niveau 2 (3 à 8 participants, MOEX/MOE), (6) Créer ses outils métier BTP avec Cursor — atelier avancé (8 participants max). ${MODALITE_FORMATIONS_PRESENTIEL} ${FINANCEMENT_FORMULATION_COURTE} Fiches détaillées : cartes ci-dessus.`,
+    a: `Notre catalogue de formations IA pour le BTP comprend des sessions de 4 h (devis, appels d&apos;offres, chantier, Claude, maîtrise d&apos;œuvre) et un <a href="${LINKS.parcoursApplicationsMetierBtp}">parcours applications métier BTP avec l&apos;IA</a> en 3 niveaux de 7 h. Toutes les actions sont dispensées par OFC Création d&apos;Entreprise, organisme certifié Qualiopi. ${MODALITE_FORMATIONS_PRESENTIEL} ${FINANCEMENT_FORMULATION_COURTE} Fiches détaillées : cartes ci-dessus.`,
   },
   {
     q: 'Comment choisir la bonne formation IA pour le BTP pour mon entreprise ?',
-    a: `Le choix dépend de votre fonction et de votre niveau. L&apos;équipe débute ou couvre à la fois chantier bâtiment et travaux publics : <a href="${LINKS.formationIaBtpNiveau1BatimentTp}">L&apos;IA au service des pros du bâtiment et des travaux publics</a>. Pour la réponse aux marchés, mémoires techniques et DCE : <a href="${LINKS.formationAO}">L&apos;IA appliquée aux appels d&apos;offres BTP</a>. Pour piloter vos chantiers (CCTP, CR, PPSPS, réception) : <a href="${LINKS.formationConduiteTravauxSuiviChantier}">L&apos;IA appliquée à la conduite de travaux</a>. Pour industrialiser Claude (Projets, Skills, Cowork, connecteurs, Claude Code) et installer des skills métier sur les appels d&apos;offres, le chantier ou le juridique : <a href="${LINKS.formationMaitriserClaudeAiBtp}">Maîtriser Claude AI pour le BTP — Chat, Cowork &amp; Code</a>. Pour la maîtrise d&apos;œuvre d&apos;exécution (DCE, CR, OS, réserves) : <a href="${LINKS.formationIaMaitriseOeuvre}">L&apos;IA au service des maîtres d&apos;œuvre</a>. Un diagnostic gratuit de 30 minutes en visio permet de cibler le parcours — <a href="${LINKS.prendreRdv}">prendre rendez-vous</a> ou <a href="${LINKS.contact}">contact</a>.`,
+    a: `Le choix dépend de votre fonction et de votre niveau. L&apos;équipe débute ou couvre à la fois chantier bâtiment et travaux publics : <a href="${LINKS.formationIaBtpNiveau1BatimentTp}">L&apos;IA au service des pros du bâtiment et des travaux publics</a>. Pour la réponse aux marchés, mémoires techniques et DCE : <a href="${LINKS.formationAO}">L&apos;IA appliquée aux appels d&apos;offres BTP</a>. Pour piloter vos chantiers (CCTP, CR, PPSPS, réception) : <a href="${LINKS.formationConduiteTravauxSuiviChantier}">L&apos;IA appliquée à la conduite de travaux</a>. Pour industrialiser Claude (Projets, Skills, Cowork, connecteurs, Claude Code) et installer des skills métier sur les appels d&apos;offres, le chantier ou le juridique : <a href="${LINKS.formationMaitriserClaudeAiBtp}">Maîtriser Claude AI pour le BTP — Chat, Cowork &amp; Code</a>. Pour la maîtrise d&apos;œuvre d&apos;exécution (DCE, CR, OS, réserves) : <a href="${LINKS.formationIaMaitriseOeuvre}">L&apos;IA au service des maîtres d&apos;œuvre</a>. Pour transformer vos processus en applications métier : <a href="${LINKS.parcoursApplicationsMetierBtp}">parcours applications métier BTP avec l&apos;IA</a>. Un diagnostic gratuit de 30 minutes en visio permet de cibler le parcours — <a href="${LINKS.prendreRdv}">prendre rendez-vous</a> ou <a href="${LINKS.contact}">contact</a>.`,
   },
   {
     q: 'Qu\'apporte la formation Maîtriser Claude AI pour le BTP (niveau 2) ?',
@@ -286,7 +286,7 @@ export function getFaqFormations(at: Date = new Date()): FAQItem[] {
     if (item.q === 'Quelles formations IA appliquées au bâtiment sont proposées au catalogue ?') {
       return {
         ...item,
-        a: `Le catalogue OFC propose ${count} formations IA pour le BTP de 4 heures, toutes dispensées par OFC Création d&apos;Entreprise, organisme certifié Qualiopi : (1) L&apos;IA au service des pros du bâtiment et des travaux publics — niveau 1, (2) L&apos;IA appliquée aux appels d&apos;offres BTP — niveau 2, (3) Maîtriser Claude AI pour le BTP — Chat, Cowork &amp; Code (niveau 2, ${libelleTarifsDualCourt(4)}, matin 9h–13h, 8 participants max), (4) L&apos;IA au service des maîtres d&apos;œuvre — niveau 2 (3 à 8 participants, MOEX/MOE). ${MODALITE_FORMATIONS_PRESENTIEL} ${FINANCEMENT_FORMULATION_COURTE} Fiches détaillées : cartes ci-dessus.`,
+        a: `Notre catalogue de formations IA pour le BTP comprend des sessions de 4 h (devis, appels d&apos;offres, Claude, maîtrise d&apos;œuvre${count > 4 ? ', conduite de travaux' : ''}) et un <a href="${LINKS.parcoursApplicationsMetierBtp}">parcours applications métier BTP avec l&apos;IA</a> en 3 niveaux de 7 h. Toutes les actions sont dispensées par OFC Création d&apos;Entreprise, organisme certifié Qualiopi. ${MODALITE_FORMATIONS_PRESENTIEL} ${FINANCEMENT_FORMULATION_COURTE} Fiches détaillées : cartes ci-dessus.`,
       };
     }
     if (item.q === 'Comment choisir la bonne formation IA pour le BTP pour mon entreprise ?') {

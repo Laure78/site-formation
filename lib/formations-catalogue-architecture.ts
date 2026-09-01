@@ -46,7 +46,7 @@ export type CatalogueGammeSection = {
 };
 
 const QUALIOPI_OFFERS: CatalogueOffer[] = (
-  ['NIV-01', 'NIV-02', 'NIV-03', 'NIV-04', 'NIV-05', 'NIV-06'] as const
+  ['NIV-01', 'NIV-02', 'NIV-03', 'NIV-04', 'NIV-05', 'NIV-06', 'NIV-07', 'NIV-08'] as const
 ).map(
   (code) => {
     const f = getFormationByCode(code)!;
@@ -281,7 +281,7 @@ function groupByTheme(offers: CatalogueOffer[]): CatalogueThemeGroup[] {
     },
     'outils-applications': {
       title: 'Outils & applications métier',
-      description: 'Cursor pour applications internes · Claude pour l’écosystème avancé.',
+      description: 'Applications métier avec le développement assisté par l’IA · Claude pour l’écosystème avancé.',
     },
   };
 
@@ -329,8 +329,9 @@ function buildDeployerGammeThemes(): CatalogueThemeGroup[] {
     {
       id: 'outils-applications',
       title: 'Outils & applications métier',
-      description: 'Cursor pour vos applications internes · Claude pour Projects, Cowork et Skills.',
-      offers: [qualiopiById['NIV-06'], qualiopiById['NIV-04']].filter(Boolean),
+      description:
+        'Parcours applications métier BTP (3×7 h) · Claude pour Projects, Cowork et Skills.',
+      offers: [qualiopiById['NIV-06'], qualiopiById['NIV-07'], qualiopiById['NIV-08'], qualiopiById['NIV-04']].filter(Boolean),
     },
   ];
 }
@@ -341,7 +342,7 @@ export const CATALOGUE_MATURITE_STEPS = [
   { label: 'Appliquer à son métier', href: LINKS.formations },
   { label: 'Créer un assistant', href: LINKS.prendreRdv },
   { label: 'Automatiser un processus', href: LINKS.prendreRdv },
-  { label: 'Créer son outil métier', href: LINKS.formationCursorBtp },
+  { label: 'Applications métier BTP', href: LINKS.parcoursApplicationsMetierBtp },
   { label: 'Déployer & gouverner', href: LINKS.formationPmeBtp },
 ] as const;
 

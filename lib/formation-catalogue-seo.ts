@@ -104,10 +104,10 @@ export const FORMATION_CATALOGUE_SEO: Record<FormationCatalogueCode, FormationCa
     metaTitle: 'Formation Claude BTP | Projects & Cowork',
     h1: 'Maîtriser Claude pour le BTP : Projects, Cowork et Skills',
     subtitle:
-      'Exploitez l’écosystème Claude (Projects, Cowork, Skills, connecteurs) sur vos documents BTP — formation avancée distincte de Cursor.',
+      'Exploitez l’écosystème Claude (Projects, Cowork, Skills, connecteurs) sur vos documents BTP — formation avancée distincte du parcours applications métier.',
     metaDescription:
       'Formation Claude BTP : Projects, Cowork, Skills et connecteurs sur vos dossiers chantier. 4 h présentiel IDF, Qualiopi, financement OPCO selon éligibilité.',
-    enBref: `La formation Claude BTP apprend à structurer des Projets Claude, créer des Skills métier, déléguer la production documentaire à Cowork et connecter Claude à la messagerie et au drive. ${SESSION_DUREE_LIBELLE} en présentiel — ${QUALIOPI_MENTION}. Distincte de la formation Cursor (applications métier).`,
+    enBref: `La formation Claude BTP apprend à structurer des Projets Claude, créer des Skills métier, déléguer la production documentaire à Cowork et connecter Claude à la messagerie et au drive. ${SESSION_DUREE_LIBELLE} en présentiel — ${QUALIOPI_MENTION}. Distincte du parcours applications métier BTP.`,
     publicTargets: [
       'Référents IA et responsables digitaux',
       'Dirigeants souhaitant industrialiser l\'usage de Claude',
@@ -142,24 +142,63 @@ export const FORMATION_CATALOGUE_SEO: Record<FormationCatalogueCode, FormationCa
     ],
   },
   'NIV-06': {
-    metaTitle: 'Formation Cursor BTP : outils métier IA',
-    h1: 'Créer ses outils métier BTP avec Cursor',
+    metaTitle: 'Application métier BTP niveau 1 : prototype IA',
+    h1: 'Créer sa première application métier BTP avec l’IA',
     subtitle:
-      'Comprendre le développement web et construire vos applications internes avec l’IA — atelier avancé sur vos besoins réels.',
+      'Transformer un problème métier en prototype fonctionnel avec le développement assisté par l’intelligence artificielle — sans compétence préalable en programmation.',
     metaDescription:
-      'Formation Cursor BTP : premier outil métier (suivi, CR, documents) avec l\'IA. 4 h pratique, présentiel IDF, Qualiopi, financement OPCO selon éligibilité.',
-    enBref: `La formation Cursor BTP apprend à cadrer un besoin métier, piloter Cursor (Plan, Agent) et publier un premier outil interne simple — suivi de situations, comptes rendus ou tableau documentaire. ${SESSION_DUREE_LIBELLE} en présentiel — ${QUALIOPI_MENTION}. Distincte des assistants IA et de l’automatisation no-code.`,
+      'Formation IA pour le BTP : créer sa première application métier avec le développement assisté par l’IA. 7 h, prototype, Qualiopi, présentiel IDF.',
+    enBref: `La formation niveau 1 applications métier BTP apprend à cadrer un besoin métier, rédiger un cahier des charges simple et construire un prototype fonctionnel avec le développement assisté par l’IA. Session 7 h en présentiel — ${QUALIOPI_MENTION}. Chaque participant repart avec un prototype ou le socle de son application — pas une application professionnelle complète.`,
     publicTargets: [
       'Dirigeants PME BTP et responsables méthodes',
-      'Conducteurs de travaux et chargés d’affaires avec projet d’outil',
-      'Responsables BE, profils BIM et assistants travaux avancés',
-      'Responsables informatiques ou administratifs porteurs d’un outil interne',
+      'Conducteurs de travaux et chargés d’affaires porteurs d’un projet d’outil',
+      'Responsables administratifs et profils métier avec processus à digitaliser',
     ],
     iaLimits: [
-      { iaAide: 'Générer une première version d’interface', validationHumaine: 'Valider l’ergonomie et les calculs métier' },
-      { iaAide: 'Proposer un plan de développement', validationHumaine: 'Valider l’architecture avant mise en production' },
-      { iaAide: 'Itérer sur un outil simple', validationHumaine: 'Tester avec des données réelles anonymisées' },
-      { iaAide: 'Préparer un déploiement basique', validationHumaine: 'Faire valider sécurité et hébergement par un expert si besoin' },
+      { iaAide: 'Proposer une structure d’interface et de données', validationHumaine: 'Valider l’ergonomie et les règles métier' },
+      { iaAide: 'Générer un premier prototype', validationHumaine: 'Tester avec des données réelles anonymisées' },
+      { iaAide: 'Itérer sur les fonctionnalités', validationHumaine: 'Confirmer les calculs et les statuts' },
+      { iaAide: 'Préparer une publication basique', validationHumaine: 'Faire valider sécurité et hébergement si besoin' },
+    ],
+  },
+  'NIV-07': {
+    metaTitle: 'Application métier BTP niveau 2 : connectée',
+    h1: 'Développer une application métier BTP connectée',
+    subtitle:
+      'Base de données, utilisateurs, workflows et services externes — faire évoluer un prototype vers une application métier connectée.',
+    metaDescription:
+      'Formation IA appliquée au bâtiment : application métier connectée (BDD, API, automatisations). 7 h présentiel, Qualiopi, financement selon éligibilité.',
+    enBref: `La formation niveau 2 applications métier BTP enseigne la structuration d’une base de données, la gestion des accès, les workflows métier et la connexion à des services externes. Session 7 h en présentiel — ${QUALIOPI_MENTION}. Les cas d’usage (CRM, devis, trésorerie…) sont des exemples, pas des modules obligatoires.`,
+    publicTargets: [
+      'Participants ayant suivi le niveau 1 ou disposant d’un prototype',
+      'Dirigeants et responsables digitaux PME BTP',
+      'Conducteurs de travaux et chargés d’affaires avec outil en cours',
+    ],
+    iaLimits: [
+      { iaAide: 'Proposer un schéma de base de données', validationHumaine: 'Valider les relations et les statuts métier' },
+      { iaAide: 'Automatiser des notifications ou documents', validationHumaine: 'Contrôler le contenu avant envoi' },
+      { iaAide: 'Connecter un service externe', validationHumaine: 'Vérifier la confidentialité des données' },
+      { iaAide: 'Générer un PDF ou un rapport', validationHumaine: 'Relire avant remise client' },
+    ],
+  },
+  'NIV-08': {
+    metaTitle: 'Application métier BTP niveau 3 : IA intégrée',
+    h1: 'Développer une application métier BTP avancée avec l’IA',
+    subtitle:
+      'Intégrer l’intelligence artificielle dans une application métier : analyse documentaire, workflows IA et déploiement.',
+    metaDescription:
+      'Formation IA pour les pros du BTP : intégrer l’IA dans une application métier (documents, workflows). 7 h, Qualiopi, présentiel IDF.',
+    enBref: `La formation niveau 3 applications métier BTP enseigne l’intégration de l’IA dans une application (analyse, extraction, classification, génération) avec validation humaine. Session 7 h en présentiel — ${QUALIOPI_MENTION}. L’assistant DCE est un exemple parmi d’autres cas d’usage avancés.`,
+    publicTargets: [
+      'Participants autonomes sur une application simple (niveau 2 ou équivalent)',
+      'Dirigeants et référents digitaux PME BTP',
+      'Profils métier avancés porteurs d’un outil à industrialiser',
+    ],
+    iaLimits: [
+      { iaAide: 'Analyser et extraire des documents métier', validationHumaine: 'Valider interprétation et engagements' },
+      { iaAide: 'Classer et structurer des informations', validationHumaine: 'Contrôler les erreurs d’extraction' },
+      { iaAide: 'Générer des brouillons (mémoire, synthèse)', validationHumaine: 'Relecture experte obligatoire' },
+      { iaAide: 'Automatiser un workflow IA', validationHumaine: 'Point de contrôle humain sur les résultats sensibles' },
     ],
   },
 };

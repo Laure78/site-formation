@@ -201,7 +201,7 @@ export default function FormationDeployerIaPmeBtpPage() {
             links={[
               { href: LINKS.formations, label: 'Catalogue formations IA BTP' },
               { href: formationHref(getFormationByCode('NIV-01')!), label: 'Première étape — formation NIV-01 (4 h)' },
-              { href: LINKS.formationCursorBtp, label: 'Créer ses outils métier avec Cursor' },
+              { href: LINKS.parcoursApplicationsMetierBtp, label: 'Parcours applications métier BTP avec l’IA' },
               { href: LINKS.financement, label: 'Financement Constructys' },
               { href: buildSiteCalendlyCtaUrl('formations-deployer-pme-footer'), label: 'Prendre rendez-vous' },
             ]}
