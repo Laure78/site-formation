@@ -32,11 +32,22 @@ export const LOGO_LINKEDIN_LEARNING = {
   width: 600,
   height: 600,
 } as const;
+
+/** Logo officiel Activateur France Num — usage charte France Num (sans recolorisation). */
+export const LOGO_ACTIVATEUR_FRANCE_NUM = {
+  src: '/images/partenaires/logo-activateur-france-num.jpg',
+  alt: ALT_LOGO_ACTIVATEUR_FRANCE_NUM,
+  width: 907,
+  height: 826,
+} as const;
 export const ALT_LOGO_CNAM_ENTREPRISES = 'Logo CNAM Entreprises' as const;
 export const ALT_LOGO_LEFEBVRE_DALLOZ = 'Logo Lefebvre Dalloz Formation' as const;
 export const ALT_LOGO_ARFAB = 'Logo ARFAB — formation artisans du bâtiment' as const;
 export const ALT_LOGO_IFRB =
   "Logo IFRB — Institut de Formation Régional du Bâtiment Yvelines, Essonne, Val-d'Oise" as const;
+/** Logo officiel Activateur France Num (programme gouvernemental TPE/PME). */
+export const ALT_LOGO_ACTIVATEUR_FRANCE_NUM =
+  'Logo Activateur France Num — accompagnement numérique TPE PME' as const;
 /** @deprecated Alias — préférer `ALT_LOGO_IFRB`. */
 export const ALT_LOGO_IFRB_77 = ALT_LOGO_IFRB;
 
@@ -81,6 +92,9 @@ export const PARTNER_WEBSITES = {
   ifrb: 'https://www.ifrb-78-91-95.fr/',
   arfab: 'https://www.arfab.fr/',
   linkedinLearning: 'https://www.linkedin.com/learning/',
+  /** Fiche officielle OFC — réseau Activateurs France Num. */
+  franceNumActivateur: 'https://www.francenum.gouv.fr/activateurs/ofc-creation-dentreprise',
+  franceNum: 'https://www.francenum.gouv.fr/',
 } as const;
 
 export const CLIENT_LOGOS_MARQUEE: ClientLogoItem[] = [

@@ -1,7 +1,8 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { Poppins } from 'next/font/google';
-import { LOGO_LINKEDIN_LEARNING } from '@/lib/client-logos';
+import { LOGO_ACTIVATEUR_FRANCE_NUM, LOGO_LINKEDIN_LEARNING } from '@/lib/client-logos';
+import { ExternalLinkAnchor } from '@/components/ExternalLink';
 import { LINKS } from '@/lib/internal-links';
 import {
   LINKEDIN_LEARNING_A_PROPOS_EMBEDS,
@@ -133,27 +134,32 @@ export function AProposEeatSections({ hideTimeline = false }: AProposEeatSection
               </p>
             </li>
             <li className="flex flex-col items-center rounded-2xl border border-slate-200 bg-white p-8 text-center shadow-sm sm:col-span-2 lg:col-span-1">
-              <div
-                className="flex h-20 w-full max-w-[200px] items-center justify-center rounded-xl border-2 border-[#000091] bg-white px-3"
-                aria-hidden
+              <ExternalLinkAnchor
+                href={EXTERNAL_AUTHORITY_LINKS.franceNumActivateur.href}
+                title={EXTERNAL_AUTHORITY_LINKS.franceNumActivateur.title}
+                className="flex h-20 w-full max-w-[200px] items-center justify-center rounded-xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#377CF3]"
               >
-                <span className="text-center text-[11px] font-bold uppercase leading-tight tracking-wide text-[#000091]">
-                  Activateur
-                  <br />
-                  <span className="text-[10px] font-semibold normal-case">France Num</span>
-                </span>
-              </div>
+                <Image
+                  src={LOGO_ACTIVATEUR_FRANCE_NUM.src}
+                  alt={LOGO_ACTIVATEUR_FRANCE_NUM.alt}
+                  width={LOGO_ACTIVATEUR_FRANCE_NUM.width}
+                  height={LOGO_ACTIVATEUR_FRANCE_NUM.height}
+                  className="h-auto max-h-16 w-auto max-w-full object-contain object-center"
+                  sizes="200px"
+                  loading="lazy"
+                  quality={85}
+                />
+              </ExternalLinkAnchor>
               <p className="mt-4 text-sm font-semibold leading-snug text-slate-900">
                 Labellisée Activateur France Num
               </p>
-              <Link
-                href="https://www.francenum.gouv.fr/"
-                target="_blank"
-                rel="noopener noreferrer"
+              <ExternalLinkAnchor
+                href={EXTERNAL_AUTHORITY_LINKS.franceNumActivateur.href}
+                title={EXTERNAL_AUTHORITY_LINKS.franceNumActivateur.title}
                 className="mt-2 text-xs font-medium text-[#377CF3] underline-offset-2 hover:underline"
               >
-                francenum.gouv.fr
-              </Link>
+                {EXTERNAL_AUTHORITY_LINKS.franceNumActivateur.label}
+              </ExternalLinkAnchor>
             </li>
           </ul>
         </div>

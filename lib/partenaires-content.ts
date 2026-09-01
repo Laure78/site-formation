@@ -7,6 +7,7 @@ import {
   ALT_LOGO_LEFEBVRE_DALLOZ,
   ALT_LOGO_LINKEDIN_LEARNING,
   ALT_LOGO_UMB_FFB,
+  LOGO_ACTIVATEUR_FRANCE_NUM,
   LOGO_LEFEBVRE_DALLOZ,
   LOGO_LINKEDIN_LEARNING,
   LOGO_UMB_FFB,
@@ -220,6 +221,18 @@ export const PARTENAIRES_LOGO_BAND: PartenaireLogoBandItem[] = [
       width: LOGO_LINKEDIN_LEARNING.width,
       height: LOGO_LINKEDIN_LEARNING.height,
       imageClassName: 'scale-[2.35]',
+    },
+  },
+  {
+    id: 'france-num',
+    name: 'Activateur France Num',
+    href: PARTNER_WEBSITES.franceNumActivateur,
+    logo: {
+      src: LOGO_ACTIVATEUR_FRANCE_NUM.src,
+      alt: LOGO_ACTIVATEUR_FRANCE_NUM.alt,
+      width: LOGO_ACTIVATEUR_FRANCE_NUM.width,
+      height: LOGO_ACTIVATEUR_FRANCE_NUM.height,
+      imageClassName: 'scale-110',
     },
   },
 ];

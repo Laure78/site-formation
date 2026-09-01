@@ -4,7 +4,9 @@ import Image from 'next/image';
 import { Reveal, RevealGroup } from '@/components/motion/Reveal';
 import { QualiopiBadge } from '@/components/QualiopiLogo';
 import { A_PROPOS_CERTIFICATIONS } from '@/lib/a-propos-eeat-content';
-import { LOGO_LINKEDIN_LEARNING } from '@/lib/client-logos';
+import { LOGO_ACTIVATEUR_FRANCE_NUM, LOGO_LINKEDIN_LEARNING } from '@/lib/client-logos';
+import { ExternalLinkAnchor } from '@/components/ExternalLink';
+import { EXTERNAL_AUTHORITY_LINKS } from '@/lib/seo-links';
 
 export function AProposCertificationCards() {
   return (
@@ -35,6 +37,25 @@ export function AProposCertificationCards() {
               quality={70}
             />
             <p className="text-sm text-[#475569]">Instructrice officielle — cours IA BTP</p>
+          </div>
+          <div className="flex flex-col items-center gap-2 text-center sm:items-start sm:text-left">
+            <ExternalLinkAnchor
+              href={EXTERNAL_AUTHORITY_LINKS.franceNumActivateur.href}
+              title={EXTERNAL_AUTHORITY_LINKS.franceNumActivateur.title}
+              className="rounded-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#377CF3]"
+            >
+              <Image
+                src={LOGO_ACTIVATEUR_FRANCE_NUM.src}
+                alt={LOGO_ACTIVATEUR_FRANCE_NUM.alt}
+                width={LOGO_ACTIVATEUR_FRANCE_NUM.width}
+                height={LOGO_ACTIVATEUR_FRANCE_NUM.height}
+                className="h-14 w-auto max-w-[140px] object-contain"
+                sizes="140px"
+                loading="lazy"
+                quality={85}
+              />
+            </ExternalLinkAnchor>
+            <p className="text-sm text-[#475569]">Activateur France Num — TPE/PME</p>
           </div>
         </div>
       </Reveal>

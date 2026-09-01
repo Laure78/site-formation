@@ -150,4 +150,9 @@ export const EXTERNAL_AUTHORITY_LINKS = {
     title:
       "Formation LinkedIn Learning — recrutement PME et TPE du BTP avec l'IA",
   },
+  franceNumActivateur: {
+    href: 'https://www.francenum.gouv.fr/activateurs/ofc-creation-dentreprise',
+    label: 'Fiche Activateur France Num — OFC Création d\'Entreprise',
+    title: 'OFC Création d\'Entreprise — Activateur France Num sur francenum.gouv.fr',
+  },
 } as const;
