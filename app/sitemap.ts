@@ -87,7 +87,6 @@ function getAdditionalMarketingRoutes(baseUrl: string): MetadataRoute.Sitemap {
     { path: LINKS.bework, priority: 0.88, changeFrequency: 'monthly' },
     { path: LINKS.beworkPlateforme, priority: 0.9, changeFrequency: 'weekly' },
     { path: LINKS.formationPlateforme, priority: 0.9, changeFrequency: 'weekly' },
-    { path: LINKS.authConnexion, priority: 0.85, changeFrequency: 'monthly' },
     { path: LINKS.etudesCasHub, priority: 0.82, changeFrequency: 'monthly' },
     { path: LINKS.etudesCasFfbCsfe, priority: 0.82, changeFrequency: 'monthly' },
     { path: LINKS.etudesCasCrVocalChantier, priority: 0.8, changeFrequency: 'monthly' },

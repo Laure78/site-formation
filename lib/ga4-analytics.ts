@@ -1,7 +1,7 @@
 /**
  * GA4 — événements personnalisés laureolivie.fr
  *
- * Chargement gtag : `components/analytics/GoogleAnalytics.tsx` (next/script, afterInteractive).
+ * Chargement gtag : `components/analytics/GoogleAnalytics.tsx` (lazyOnload, après consentement).
  *
  * Conversions à activer dans GA4 Admin → Événements → marquer comme conversion :
  * - `cta_rdv_click` (paramètres : origin, page_path)

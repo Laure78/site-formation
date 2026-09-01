@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { updateSession } from '@/lib/supabase/middleware';
 import { isMiddlewareBypassPath, redirectApexToWww } from '@/lib/middleware/canonical-host';
+import { nextWithPathname, withPathnameHeader } from '@/lib/middleware/pathname-header';
 import { needsSupabaseSession } from '@/lib/middleware/public-marketing-paths';
 import { blockDevApiInProduction, enforceAdminAccess } from '@/lib/middleware/admin-guard';
 import { isFormationPathPublished } from '@/lib/formation-catalogue-visibility';
@@ -25,14 +26,14 @@ export async function middleware(request: NextRequest) {
   }
 
   if (isMiddlewareBypassPath(pathname)) {
-    return NextResponse.next();
+    return nextWithPathname(request);
   }
 
   if (!needsSupabaseSession(pathname)) {
-    return NextResponse.next();
+    return nextWithPathname(request);
   }
 
-  return updateSession(request);
+  return withPathnameHeader(request, await updateSession(request));
 }
 
 export const config = {

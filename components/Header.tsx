@@ -179,7 +179,8 @@ export function Header() {
                 fill
                 className={AUTHOR_HEADSHOT_IMAGE_CLASS}
                 sizes="40px"
-                loading="lazy"
+                priority
+                fetchPriority="high"
                 quality={70}
               />
             </span>

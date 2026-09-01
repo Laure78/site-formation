@@ -6,7 +6,7 @@ import {
   CALENDLY_SCRIPT_READY_EVENT,
   buildCalendlyUrlWithUtm,
 } from '@/lib/calendly';
-import { useCookieConsent } from '@/components/CookieConsentBanner';
+import { useCookieConsent } from '@/hooks/useCookieConsent';
 import { writeCookieConsent } from '@/lib/cookie-consent';
 import { CALENDLY_INLINE_DEFAULT_HEIGHT_PX } from '@/lib/calendly-embed-config';
 

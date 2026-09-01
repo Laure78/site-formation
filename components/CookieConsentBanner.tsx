@@ -2,29 +2,8 @@
 
 import { useCallback, useEffect, useState } from 'react';
 import Link from 'next/link';
-import {
-  COOKIE_CONSENT_CHANGED_EVENT,
-  readCookieConsent,
-  writeCookieConsent,
-  type CookieConsentValue,
-} from '@/lib/cookie-consent';
+import { readCookieConsent, writeCookieConsent } from '@/lib/cookie-consent';
 import { LINKS } from '@/lib/internal-links';
-
-export function useCookieConsent(): CookieConsentValue | null {
-  const [consent, setConsent] = useState<CookieConsentValue | null>(null);
-
-  useEffect(() => {
-    setConsent(readCookieConsent());
-    const onChange = (e: Event) => {
-      const detail = (e as CustomEvent<{ value: CookieConsentValue }>).detail;
-      setConsent(detail?.value ?? readCookieConsent());
-    };
-    window.addEventListener(COOKIE_CONSENT_CHANGED_EVENT, onChange);
-    return () => window.removeEventListener(COOKIE_CONSENT_CHANGED_EVENT, onChange);
-  }, []);
-
-  return consent;
-}
 
 /**
  * Bandeau cookies RGPD — requis avant chargement Calendly (widget.js) et scripts marketing.

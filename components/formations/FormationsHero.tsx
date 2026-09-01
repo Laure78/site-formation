@@ -35,7 +35,7 @@ export function FormationsHero({ catalogueCount = getCatalogueFormationsCount() 
           {CATALOGUE_POSITIONNEMENT.promesseDocuments} {CATALOGUE_POSITIONNEMENT.promesseLivrables}{' '}
           Sessions en présentiel — {SESSION_DUREE_LIBELLE} · {PERIMETRE_FORMATIONS_COURT}. Intra{' '}
           {libelleTarifsCarteCatalogue(4).intra} ; inter {libelleTarifsCarteCatalogue(4).inter}
-          <MentionTvaAsterisque /> — {FINANCEMENT_FORMULATION_COURTE}.
+          <MentionTvaAsterisque /> — {FINANCEMENT_FORMULATION_COURTE}
         </>
       }
       stats={[

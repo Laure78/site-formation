@@ -45,3 +45,6 @@ next-env.d.ts
 
 # dates git pour sitemap (généré au build)
 lib/sitemap-dates.generated.json
+
+# état IndexNow (dernier commit soumis — local / CI)
+.indexnow-state.json

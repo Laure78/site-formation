@@ -20,7 +20,6 @@ import {
   libelleTarifsCarteCatalogue,
 } from '@/lib/tarifs-sessions';
 import { Essentiel } from '@/components/readability/Essentiel';
-import { Reveal } from '@/components/motion/Reveal';
 import { ProofStats } from '@/components/ProofStats';
 import { AccueilHeroAnimatedMesh } from '@/components/landing/AccueilHeroAnimatedMesh';
 import { PHOTOS } from '@/lib/photos';
@@ -197,11 +196,10 @@ export function AccueilHeroSection() {
               </Link>
             </p>
           </div>
-          <Reveal>
-            <p
-              className="text-sm text-slate-600 italic"
-              data-citation="true"
-            >
+          <p
+            className="text-sm text-slate-600 italic"
+            data-citation="true"
+          >
               <strong>Définition.</strong> Une « formation IA appliquée au bâtiment » est une formation professionnelle
               destinée aux entreprises du bâtiment et de la construction (gros œuvre, second œuvre, travaux publics).
               Elle apprend aux équipes à utiliser les outils d&apos;intelligence artificielle générative
@@ -209,7 +207,6 @@ export function AccueilHeroSection() {
               appels d&apos;offres et mémoires techniques, comptes rendus de chantier, relances clients et documents
               administratifs.
             </p>
-          </Reveal>
           <CitationSentence text="La formation IA pour le BTP animée par Laure Olivié aide les professionnels du BTP et conducteurs de travaux à gagner du temps : automatisation des devis, de l'administratif et des dossiers d'appels d'offres avec l'IA adaptée au chantier (Claude AI)." />
         </div>
       </div>

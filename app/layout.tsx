@@ -1,17 +1,12 @@
 import type { Metadata, Viewport } from 'next';
+import dynamic from 'next/dynamic';
 import { Inter, Outfit } from 'next/font/google';
 import './globals.css';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
-import { StickyBlogMetierRdvBar } from '@/components/StickyBlogMetierRdvBar';
-import { StickyMobileCalendlyCta } from '@/components/StickyMobileCalendlyCta';
-import { ScrollToTopButton } from '@/components/ScrollToTopButton';
+import { DeferredLayoutWidgets } from '@/components/layout/DeferredLayoutWidgets';
 import { CalendlyScriptLoader } from '@/components/CalendlyScriptLoader';
-import { CookieConsentBanner } from '@/components/CookieConsentBanner';
-import { FormationCalendlyInlineGate } from '@/components/FormationCalendlyInlineGate';
 import { GoogleAnalytics } from '@/components/analytics/GoogleAnalytics';
-import { CalendlyClickTracker } from '@/components/analytics/CalendlyClickTracker';
-import { DownloadGuideTracker } from '@/components/analytics/DownloadGuideTracker';
 import { SITE_CONFIG, OG_SITE_NAME, GOOGLE_SITE_VERIFICATION } from '@/lib/seo';
 import { PHOTOS, SITE_FAVICON_CACHE_BUST } from '@/lib/photos';
 import { clampMetaDescription } from '@/lib/meta-description';
@@ -21,10 +16,17 @@ import { SitelinksHub } from '@/components/layout/SitelinksHub';
 import { GlobalBreadcrumbs } from '@/components/layout/GlobalBreadcrumbs';
 import { SiteSearchProvider } from '@/components/search/SiteSearchProvider';
 
+const FormationCalendlyInlineGate = dynamic(
+  () =>
+    import('@/components/FormationCalendlyInlineGate').then((mod) => ({
+      default: mod.FormationCalendlyInlineGate,
+    })),
+);
+
 const inter = Inter({
   variable: '--font-body',
   subsets: ['latin'],
-  weight: ['400', '500', '600', '700'],
+  weight: ['400', '700'],
   display: 'swap',
 });
 
@@ -182,9 +184,6 @@ export default function RootLayout({
         />
         <GoogleAnalytics />
         <CalendlyScriptLoader />
-        <CalendlyClickTracker />
-        <DownloadGuideTracker />
-        <CookieConsentBanner />
         <a
           href="#main-content"
           className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-lg focus:bg-slate-900 focus:px-4 focus:py-3 focus:text-sm focus:font-semibold focus:text-white focus:shadow-lg focus:outline-none focus:ring-2 focus:ring-[var(--accent)] focus:ring-offset-2"
@@ -200,9 +199,7 @@ export default function RootLayout({
         </main>
         <SitelinksHub />
         <Footer />
-        <ScrollToTopButton />
-        <StickyMobileCalendlyCta />
-        <StickyBlogMetierRdvBar />
+        <DeferredLayoutWidgets />
         </SiteSearchProvider>
       </body>
     </html>

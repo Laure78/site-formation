@@ -6,7 +6,7 @@ import { buildBreadcrumbTrail } from '@/lib/breadcrumb-trail';
 
 /**
  * Fil d'Ariane unique — injecté dans `app/layout.tsx` (toutes les pages sauf l'accueil / admin).
- * Ne pas re-rendre `<Breadcrumb />` dans les pages (évite le doublon visuel + JSON-LD).
+ * Client minimal (`usePathname` uniquement) pour ne pas forcer le rendu dynamique du layout root.
  */
 export function GlobalBreadcrumbs() {
   const pathname = usePathname() ?? '/';

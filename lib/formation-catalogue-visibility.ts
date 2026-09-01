@@ -46,9 +46,9 @@ export function getPublishedFormations(at: Date = new Date()): readonly Formatio
 /** Meta description page `/formations` — sans NIV-03 tant que non publiée. */
 export function getCataloguePageMetaDescription(at: Date = new Date()): string {
   if (isFormationCataloguePublished('NIV-03', at)) {
-    return "6 formations IA pour le BTP : devis, appels d'offres, conduite de travaux, Claude AI, Cursor et maîtrise d'œuvre. Présentiel IDF — organisme certifié Qualiopi, Constructys selon éligibilité.";
+    return "Catalogue formation IA pour le BTP : 6 sessions devis, AO, chantier, Claude, Cursor, MOE. Présentiel IDF — Qualiopi, Constructys selon éligibilité.";
   }
-  return "5 formations IA pour le BTP : devis, appels d'offres, Claude AI, Cursor et maîtrise d'œuvre. Présentiel IDF — organisme certifié Qualiopi, Constructys selon éligibilité.";
+  return "Formation IA pour le BTP : 5 sessions devis, AO, Claude, Cursor, MOE. Présentiel IDF — Qualiopi, financement Constructys selon éligibilité.";
 }
 
 export function getCatalogueFormationsCount(at: Date = new Date()): number {

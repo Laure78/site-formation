@@ -22,7 +22,9 @@
     "audit:qualiopi-fiches": "npx tsx scripts/audit-qualiopi-fiches-formations.ts",
     "validate:schema": "npx tsx scripts/validate-schema-jsonld.mjs && npx tsx scripts/validate-formation-course-jsonld.mjs && node scripts/validate-article-faq-jsonld.mjs",
     "test:seo-titles": "npx tsx scripts/assert-branded-titles.ts",
-    "check:internal-links": "npx tsx scripts/check-internal-links.ts"
+    "check:internal-links": "npx tsx scripts/check-internal-links.ts",
+    "indexnow": "npx tsx scripts/indexnow-submit.ts",
+    "indexnow:changed": "npx tsx scripts/indexnow-notify-changed.ts"
   },
   "dependencies": {
     "@next/third-parties": "^16.1.6",

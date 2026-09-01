@@ -1,5 +1,6 @@
 'use client';
 
+import dynamic from 'next/dynamic';
 import {
   createContext,
   useCallback,
@@ -9,7 +10,14 @@ import {
   useState,
   type ReactNode,
 } from 'react';
-import { SiteSearchDialog } from '@/components/search/SiteSearchDialog';
+
+const SiteSearchDialog = dynamic(
+  () =>
+    import('@/components/search/SiteSearchDialog').then((mod) => ({
+      default: mod.SiteSearchDialog,
+    })),
+  { ssr: false },
+);
 
 type SiteSearchContextValue = {
   openSearch: () => void;
@@ -46,7 +54,9 @@ export function SiteSearchProvider({ children }: { children: ReactNode }) {
   return (
     <SiteSearchContext.Provider value={value}>
       {children}
-      <SiteSearchDialog open={open} onOpenChange={setOpen} scope="all" />
+      {open ? (
+        <SiteSearchDialog open={open} onOpenChange={setOpen} scope="all" />
+      ) : null}
     </SiteSearchContext.Provider>
   );
 }

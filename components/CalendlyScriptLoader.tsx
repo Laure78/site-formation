@@ -2,7 +2,7 @@
 
 import Script from 'next/script';
 import { CALENDLY_SCRIPT_READY_EVENT } from '@/lib/calendly';
-import { useCookieConsent } from '@/components/CookieConsentBanner';
+import { useCookieConsent } from '@/hooks/useCookieConsent';
 
 const CALENDLY_WIDGET_SRC = 'https://assets.calendly.com/assets/external/widget.js';
 

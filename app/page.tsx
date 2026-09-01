@@ -1,9 +1,19 @@
 import Link from 'next/link';
 import { Suspense } from 'react';
+import { preload } from 'react-dom';
 import { AccueilHeroSection } from '@/components/landing/AccueilHeroSection';
-import { AccueilPreuveSocialeSection } from '@/components/landing/AccueilPreuveSocialeSection';
-import { AccueilBeworkAccordionSection } from '@/components/landing/AccueilBeworkAccordionSection';
-import { AccueilCasUsageIaVisuels } from '@/components/landing/AccueilCasUsageIaVisuels';
+import {
+  AccueilPreuveSocialeSection,
+  AccueilCasUsageIaVisuels,
+  HomePrincipalSections,
+  BeworkEtFormationsOffreSection,
+  AccueilBeworkAccordionSection,
+  HomeGuideConducteurTravauxSection,
+  AccueilFormationsIaMetiersSection,
+  GoogleReviewsSection,
+  HomeDeferredLinkedInLearning,
+  SelecteurMetier,
+} from '@/components/landing/HomeBelowFoldSections';
 import { CalendlyEmbed } from '@/components/CalendlyEmbed';
 import {
   FileText,
@@ -27,9 +37,7 @@ import {
   Building2,
 } from 'lucide-react';
 import { ProfilePhoto } from '@/components/landing/ProfilePhoto';
-import { GoogleReviewsSection } from '@/components/landing/GoogleReviewsSection';
 import { GoogleReviewsSectionPlaceholder } from '@/components/landing/GoogleReviewsSectionPlaceholder';
-import { HomeDeferredLinkedInLearning } from '@/components/landing/HomeDeferredLinkedInLearning';
 import { HomeFaqDetailsList } from '@/components/landing/HomeFaqDetailsList';
 import { ExternalLinkAnchor } from '@/components/ExternalLink';
 import { QualiopiBadge } from '@/components/QualiopiLogo';
@@ -57,16 +65,12 @@ import { OFC_SEC, OFC_INSET_PANEL, OFC_INNER_ACCENT_BAND } from '@/lib/ofc-secti
 import { DEVIS_GAIN_TEMPS_LIBELLE, GAINS_TEMPS_MENTION_PRUDENCE } from '@/lib/gains-temps-copy';
 import { SCHEMA_CONTACT } from '@/lib/schema-constants';
 import { buildHomeUnifiedGraphJsonLd } from '@/lib/schema-home-unified-graph';
-import { HomePrincipalSections } from '@/components/landing/HomePrincipalSections';
-import { SelecteurMetier } from '@/components/SelecteurMetier/SelecteurMetier';
-import { BeworkEtFormationsOffreSection } from '@/components/landing/BeworkEtFormationsOffreSection';
-import { HomeGuideConducteurTravauxSection } from '@/components/landing/HomeGuideConducteurTravauxSection';
-import { AccueilFormationsIaMetiersSection } from '@/components/landing/AccueilFormationsIaMetiersSection';
 import { Accordion } from '@/components/readability/Accordion';
 import { KeyPoint } from '@/components/readability/KeyPoint';
 import { Citation } from '@/components/readability/Citation';
 import { formatNoteSatisfactionAffichageComplet } from '@/lib/data/indicateurs-resultats';
-import { Reveal, RevealGroup } from '@/components/motion/Reveal';
+import { RevealShell, RevealGroupShell } from '@/components/motion/RevealShell';
+import { DeferredRevealScrollObserver } from '@/components/motion/DeferredRevealScrollObserver';
 
 import { ANNUAIRE_ENTREPRISES_OFC_URL } from '@/lib/schema-constants';
 
@@ -122,6 +126,8 @@ const HOME_META_DESCRIPTION = `Formation IA pour le BTP en présentiel IDF : dev
 
 const HOME_FAQ_PAGE_JSON_LD = buildHomeFAQPageJsonLd();
 
+preload(PHOTOS.formationsCatalogueHero2026.src, { as: 'image', fetchPriority: 'high' });
+
 // ISR : HTML mis en cache au edge et revalidé toutes les heures (3600 s)
 
 export const revalidate = 3600;
@@ -171,6 +177,7 @@ export const metadata = buildMetadata({
 export default function HomePage() {
   return (
     <div>
+      <DeferredRevealScrollObserver />
       <AccueilHeroSection />
 
       <AccueilPreuveSocialeSection />
@@ -180,7 +187,7 @@ export default function HomePage() {
         className={OFC_SEC.muted}
       >
         <div className="mx-auto max-w-6xl">
-          <Reveal className="text-center">
+          <RevealShell className="text-center">
             <h2
               id="home-selecteur-cas-usage-ia"
               className="font-display text-2xl font-bold tracking-tight text-[#1A1A1A] md:text-3xl"
@@ -191,10 +198,10 @@ export default function HomePage() {
               Choisissez votre profil. Exemples concrets, documents concernés et formation adaptée — toujours avec
               validation métier de votre côté.
             </p>
-          </Reveal>
-          <Reveal className="mt-10">
+          </RevealShell>
+          <RevealShell className="mt-10">
             <SelecteurMetier showDedicatedPageLink />
-          </Reveal>
+          </RevealShell>
         </div>
       </section>
 
@@ -209,7 +216,7 @@ export default function HomePage() {
         aria-labelledby="couverture-geo"
       >
         <div className="mx-auto max-w-7xl">
-          <Reveal>
+          <RevealShell>
             <h2
               id="couverture-geo"
               className="font-display text-2xl font-bold text-slate-900 md:text-3xl"
@@ -228,7 +235,7 @@ export default function HomePage() {
             </Link>
             .
             </p>
-          </Reveal>
+          </RevealShell>
         </div>
       </section>
 
@@ -238,16 +245,16 @@ export default function HomePage() {
         aria-labelledby="benefices-formation-ia-heading"
       >
         <div className="mx-auto max-w-7xl">
-            <Reveal className="text-center">
+            <RevealShell className="text-center">
               <h2
                 id="benefices-formation-ia-heading"
                 className="font-display text-3xl font-bold text-slate-900 md:text-4xl"
               >
                 Les bénéfices d&apos;une formation IA pour les pros du BTP et de la construction
               </h2>
-            </Reveal>
+            </RevealShell>
             <div className="mt-12">
-              <Reveal>
+              <RevealShell>
                 <div className="inline-flex items-center gap-2 rounded-full bg-[var(--accent-soft)] px-4 py-2 text-sm font-medium text-[var(--accent)]">
                   <Zap size={16} strokeWidth={1.5} />
                   <span>GAINS CONCRETS</span>
@@ -260,8 +267,8 @@ export default function HomePage() {
                   remplacer le métier. Dans le secteur de la construction, les professionnels du BTP et conducteurs de
                   travaux gagnent en productivité et retrouvent du temps sur le chantier et les appels d&apos;offres.
                 </p>
-              </Reveal>
-              <RevealGroup
+              </RevealShell>
+              <RevealGroupShell
                 className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4"
                 staggerMs={60}
               >
@@ -309,12 +316,12 @@ export default function HomePage() {
                   </div>
                   );
                 })}
-              </RevealGroup>
+              </RevealGroupShell>
               <p className="mt-4 text-sm leading-relaxed text-slate-500">{GAINS_TEMPS_MENTION_PRUDENCE}</p>
             </div>
 
             <div className={OFC_INSET_PANEL} aria-labelledby="probleme-solution-heading">
-              <Reveal className="text-center">
+              <RevealShell className="text-center">
                 <p className="text-[0.7rem] font-semibold uppercase tracking-[0.28em] text-slate-500">
                   Avant · Après
                 </p>
@@ -335,8 +342,8 @@ export default function HomePage() {
                   Trois freins fréquents sur chantier et au bureau — et ce que change une formation IA
                   BTP encadrée (toujours sous votre validation métier).
                 </p>
-              </Reveal>
-              <RevealGroup className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8" staggerMs={50}>
+              </RevealShell>
+              <RevealGroupShell className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8" staggerMs={50}>
                 {[
                   {
                     problem: 'Mémoires techniques et dossiers chronophages',
@@ -390,7 +397,7 @@ export default function HomePage() {
                     </div>
                   </article>
                 ))}
-              </RevealGroup>
+              </RevealGroupShell>
             </div>
 
             <div
@@ -398,7 +405,7 @@ export default function HomePage() {
               itemScope
               itemType="https://schema.org/HowTo"
             >
-              <Reveal className="text-center">
+              <RevealShell className="text-center">
                 <h3
                   className="font-display text-2xl font-bold text-slate-900 md:text-3xl"
                   itemProp="name"
@@ -414,8 +421,8 @@ export default function HomePage() {
                   entreprises de construction : devis, chantier, appels d&apos;offres et productivité au
                   quotidien.
                 </p>
-              </Reveal>
-              <RevealGroup className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3" staggerMs={45}>
+              </RevealShell>
+              <RevealGroupShell className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3" staggerMs={45}>
                 {[
                   {
                     title: 'Mémoires techniques & dossiers',
@@ -454,8 +461,8 @@ export default function HomePage() {
                     </p>
                   </div>
                 ))}
-              </RevealGroup>
-              <Reveal className="mt-10 text-center">
+              </RevealGroupShell>
+              <RevealShell className="mt-10 text-center">
                 <Link
                   href={LINKS.casUsage}
                   className={`inline-flex items-center gap-2 ${OFC_LINK}`}
@@ -464,12 +471,12 @@ export default function HomePage() {
                   Voir le détail des 10 cas d&apos;usage
                   <span aria-hidden>→</span>
                 </Link>
-              </Reveal>
+              </RevealShell>
             </div>
         </div>
         <div className={OFC_INNER_ACCENT_BAND}>
           <div className="mx-auto max-w-7xl">
-            <Reveal>
+            <RevealShell>
               <h2
                 id="gains-concrets-heading"
                 className="font-display text-3xl font-bold text-white md:text-4xl"
@@ -480,8 +487,8 @@ export default function HomePage() {
                 Après la formation : rentabilité, réactivité commerciale, fidélisation des équipes et image
                 professionnelle — sans embaucher à tout prix.
               </p>
-            </Reveal>
-            <RevealGroup className="mt-8 grid gap-6 sm:grid-cols-2" staggerMs={60}>
+            </RevealShell>
+            <RevealGroupShell className="mt-8 grid gap-6 sm:grid-cols-2" staggerMs={60}>
               {GAINS_COMMERCIAUX_CARDS.slice(0, 2).map((card) => {
                 const Icon = card.icon;
                 return (
@@ -512,7 +519,7 @@ export default function HomePage() {
                 </div>
                 );
               })}
-            </RevealGroup>
+            </RevealGroupShell>
             <ul className="mt-8 space-y-3 text-base leading-relaxed text-blue-100/95">
               {GAINS_CONCRETS_MERGES.map((line) => (
                 <li key={line} className="flex gap-3">
@@ -527,7 +534,7 @@ export default function HomePage() {
               variant="inverse"
               summaryLabel="Lire la suite — 4 autres bénéfices"
             >
-              <RevealGroup className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3" staggerMs={45}>
+              <RevealGroupShell className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3" staggerMs={45}>
                 {GAINS_COMMERCIAUX_CARDS.slice(2).map((card) => {
                   const Icon = card.icon;
                   return (
@@ -558,7 +565,7 @@ export default function HomePage() {
                   </div>
                   );
                 })}
-              </RevealGroup>
+              </RevealGroupShell>
             </Accordion>
           </div>
         </div>
@@ -573,7 +580,7 @@ export default function HomePage() {
       {/* Thématiques abordées — H3 sous « Mes formations IA spécialisées BTP » */}
       <section id="programme" className={OFC_SEC.white}>
         <div className="mx-auto max-w-7xl">
-          <Reveal>
+          <RevealShell>
           <div className="inline-flex items-center gap-2 rounded-full bg-[var(--accent-soft)] px-4 py-2 text-sm font-medium text-[var(--accent)]">
             <span>THÉMATIQUES ABORDÉES</span>
           </div>
@@ -602,9 +609,9 @@ export default function HomePage() {
             <strong className="font-semibold text-slate-800">programmes PDF</strong> depuis chaque fiche ou ci-dessous
             sur la page catalogue.
           </p>
-          </Reveal>
+          </RevealShell>
           <Accordion id="programme-modules-detail" summaryLabel="Lire la suite — modules et ressources">
-            <RevealGroup className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4" staggerMs={45}>
+            <RevealGroupShell className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4" staggerMs={45}>
               {[
                 {
                   n: 1,
@@ -665,9 +672,9 @@ export default function HomePage() {
                   </ul>
                 </div>
               ))}
-            </RevealGroup>
+            </RevealGroupShell>
 
-            <Reveal className="mt-16 max-w-4xl rounded-2xl border border-slate-200 bg-slate-50 p-6 md:p-8">
+            <RevealShell className="mt-16 max-w-4xl rounded-2xl border border-slate-200 bg-slate-50 p-6 md:p-8">
               <Image
                 src={LOGO_LINKEDIN_LEARNING.src}
                 alt={LOGO_LINKEDIN_LEARNING.alt}
@@ -701,7 +708,7 @@ export default function HomePage() {
                 </a>
                 .
               </p>
-            </Reveal>
+            </RevealShell>
           </Accordion>
         </div>
       </section>
@@ -717,7 +724,7 @@ export default function HomePage() {
               <ProfilePhoto title="Sessions présentiel Île-de-France — Qualiopi, Constructys" />
             </div>
             <div>
-              <Reveal>
+              <RevealShell>
               <div className="inline-flex items-center gap-2 rounded-full bg-[var(--accent-soft)] px-4 py-2 text-sm font-medium text-[var(--accent)]">
                 <span>VOTRE FORMATRICE</span>
               </div>
@@ -727,8 +734,8 @@ export default function HomePage() {
               >
                 Pourquoi choisir Laure Olivié ?
               </h2>
-              </Reveal>
-              <Reveal>
+              </RevealShell>
+              <RevealShell>
               <Citation
                 className="mt-6"
                 variant="formatrice"
@@ -743,8 +750,8 @@ export default function HomePage() {
                 </Link>
                 .
               </p>
-              </Reveal>
-              <RevealGroup className="mt-8 grid gap-4 sm:grid-cols-2" staggerMs={55}>
+              </RevealShell>
+              <RevealGroupShell className="mt-8 grid gap-4 sm:grid-cols-2" staggerMs={55}>
                 {[
                   {
                     icon: GraduationCap,
@@ -776,7 +783,7 @@ export default function HomePage() {
                     <p className="mt-1 text-sm text-slate-600">{desc}</p>
                   </div>
                 ))}
-              </RevealGroup>
+              </RevealGroupShell>
 
               <div className="mt-8 rounded-2xl border border-slate-200 bg-gradient-to-br from-white to-[var(--accent-soft)] p-6 shadow-sm">
                 <div className="flex items-center gap-2 font-semibold text-slate-900">
@@ -839,7 +846,7 @@ export default function HomePage() {
           <HomeDeferredLinkedInLearning />
 
           <div className="mt-16 space-y-16 border-t border-slate-200 pt-16">
-            <Reveal>
+            <RevealShell>
             <div>
               <div className="inline-flex items-center gap-2 rounded-full bg-[var(--accent-soft)] px-4 py-2 text-sm font-medium text-[var(--accent)]">
                 <span>FINANCEMENT</span>
@@ -851,7 +858,7 @@ export default function HomePage() {
                 <MentionFinancement variant="long" />
               </p>
               <Accordion id="financement-constructys-detail" summaryLabel="Lire la suite — barèmes et démarches">
-                <RevealGroup className="grid gap-6 md:grid-cols-3" staggerMs={45}>
+                <RevealGroupShell className="grid gap-6 md:grid-cols-3" staggerMs={45}>
                   {[
                     {
                       icon: Award,
@@ -880,7 +887,7 @@ export default function HomePage() {
                       <p className="mt-2 text-sm text-slate-600">{desc}</p>
                     </div>
                   ))}
-                </RevealGroup>
+                </RevealGroupShell>
                 <ConstructysResteAChargeBox />
                 <div className="mt-10 text-center">
                   <Link
@@ -893,9 +900,9 @@ export default function HomePage() {
                 </div>
               </Accordion>
             </div>
-            </Reveal>
+            </RevealShell>
 
-            <Reveal>
+            <RevealShell>
             <div className="mx-auto max-w-4xl">
               <div className="flex flex-col gap-8 rounded-2xl border border-slate-200 bg-slate-50 p-8 md:flex-row md:items-start">
                 <div className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm md:w-[28rem] md:shrink-0">
@@ -931,7 +938,7 @@ export default function HomePage() {
                 </div>
               </div>
             </div>
-            </Reveal>
+            </RevealShell>
           </div>
         </div>
       </section>
@@ -943,7 +950,7 @@ export default function HomePage() {
       {/* FAQ */}
       <section className={OFC_SEC.muted}>
         <div className="mx-auto max-w-7xl">
-          <Reveal>
+          <RevealShell>
           <div className="inline-flex items-center gap-2 rounded-full bg-[var(--accent)] px-4 py-2 text-sm font-medium text-white">
             <span>FAQ</span>
           </div>
@@ -954,16 +961,16 @@ export default function HomePage() {
             Vous avez des questions ? Voici les réponses aux interrogations les plus
             fréquentes.
           </p>
-          </Reveal>
-          <Reveal className="mt-8">
+          </RevealShell>
+          <RevealShell className="mt-8">
             <HomeFaqDetailsList items={FAQ_ITEMS_HOME} />
-          </Reveal>
+          </RevealShell>
         </div>
       </section>
 
       {/* Une autre question ? Contact CTA */}
       <section className={OFC_SEC.white}>
-        <Reveal className="mx-auto max-w-2xl">
+        <RevealShell className="mx-auto max-w-2xl">
           <div className="rounded-2xl bg-[var(--accent-soft)] p-10 text-center">
             <h3 className="font-display text-2xl font-bold text-slate-900">
               Une autre question ?
@@ -988,7 +995,7 @@ export default function HomePage() {
               </Link>
             </div>
           </div>
-        </Reveal>
+        </RevealShell>
       </section>
 
       {/* Prise de RDV — bloc Calendly unique (#rdv) */}
