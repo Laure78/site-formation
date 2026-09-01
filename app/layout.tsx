@@ -2,7 +2,6 @@ import type { Metadata, Viewport } from 'next';
 import dynamic from 'next/dynamic';
 import { Inter, Outfit } from 'next/font/google';
 import './globals.css';
-import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
 import { DeferredLayoutWidgets } from '@/components/layout/DeferredLayoutWidgets';
 import { CalendlyScriptLoader } from '@/components/CalendlyScriptLoader';
@@ -12,9 +11,19 @@ import { PHOTOS, SITE_FAVICON_CACHE_BUST } from '@/lib/photos';
 import { clampMetaDescription } from '@/lib/meta-description';
 import { GlobalSitelinksJsonLd } from '@/components/schema/GlobalSitelinksJsonLd';
 import { GlobalSiteJsonLd } from '@/components/schema/GlobalSiteJsonLd';
-import { SitelinksHub } from '@/components/layout/SitelinksHub';
 import { GlobalBreadcrumbs } from '@/components/layout/GlobalBreadcrumbs';
 import { SiteSearchProvider } from '@/components/search/SiteSearchProvider';
+
+const Header = dynamic(
+  () => import('@/components/Header').then((mod) => ({ default: mod.Header })),
+);
+
+const SitelinksHub = dynamic(
+  () =>
+    import('@/components/layout/SitelinksHub').then((mod) => ({
+      default: mod.SitelinksHub,
+    })),
+);
 
 const FormationCalendlyInlineGate = dynamic(
   () =>
@@ -33,7 +42,7 @@ const inter = Inter({
 const outfit = Outfit({
   variable: '--font-display',
   subsets: ['latin'],
-  weight: ['600', '700'],
+  weight: ['700'],
   display: 'swap',
 });
 

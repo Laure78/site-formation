@@ -5,7 +5,7 @@ import Image from 'next/image';
 import { Check, Clock, Users } from 'lucide-react';
 import { LINKS } from '@/lib/internal-links';
 import { CALENDLY_DEFAULT_BUTTON_TEXT } from '@/lib/calendly-embed-config';
-import { Reveal, RevealGroup } from '@/components/motion/Reveal';
+import { RevealShell, RevealGroupShell } from '@/components/motion/RevealShell';
 import { OFC_SEC } from '@/lib/ofc-section-classes';
 import { OFC_CARD, OFC_CTA_PRIMARY, OFC_LINK } from '@/lib/ofc-interaction-classes';
 import {
@@ -33,7 +33,7 @@ export function BeworkEtFormationsOffreSection() {
     >
       <div className="mx-auto max-w-7xl">
         <div id="offre-formations" className="scroll-mt-28">
-          <Reveal>
+          <RevealShell>
             <div className="inline-flex items-center gap-2 rounded-full bg-[var(--accent-soft)] px-4 py-2 text-sm font-medium text-[var(--accent)]">
               <span>Formations IA pour le BTP</span>
             </div>
@@ -49,9 +49,9 @@ export function BeworkEtFormationsOffreSection() {
               <MentionFinancement variant="court" withLink={false} />.
             </p>
             <CatalogueTarifStrip className="mt-5" />
-          </Reveal>
+          </RevealShell>
 
-          <RevealGroup className="mt-10 grid gap-8 md:grid-cols-2 xl:grid-cols-3" staggerMs={50}>
+          <RevealGroupShell className="mt-10 grid gap-8 md:grid-cols-2 xl:grid-cols-3" staggerMs={50}>
             {formations.map((cours) => (
               <article
                 key={cours.ref}
@@ -134,9 +134,9 @@ export function BeworkEtFormationsOffreSection() {
                 </div>
               </article>
             ))}
-          </RevealGroup>
+          </RevealGroupShell>
 
-          <Reveal className="mt-10 text-center">
+          <RevealShell className="mt-10 text-center">
             <p className="text-base font-semibold text-slate-700">
               Catalogue complet : {catalogueCount} formations IA pour le BTP
             </p>
@@ -151,7 +151,7 @@ export function BeworkEtFormationsOffreSection() {
                 Financement OPCO&nbsp;: modalités Constructys
               </Link>
             </div>
-          </Reveal>
+          </RevealShell>
         </div>
       </div>
     </section>

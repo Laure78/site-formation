@@ -10,7 +10,7 @@ import {
   User,
 } from 'lucide-react';
 import { LINKS } from '@/lib/internal-links';
-import { Reveal, RevealGroup } from '@/components/motion/Reveal';
+import { RevealShell, RevealGroupShell } from '@/components/motion/RevealShell';
 import { OFC_CARD } from '@/lib/ofc-interaction-classes';
 import { OFC_SEC } from '@/lib/ofc-section-classes';
 
@@ -77,7 +77,7 @@ export function HomePrincipalSections() {
       className={OFC_SEC.whiteMesh}
     >
       <div className="mx-auto max-w-6xl">
-        <Reveal className="text-center">
+        <RevealShell className="text-center">
           <h2
             id="sections-principales"
             className="font-display text-2xl font-bold tracking-tight text-slate-900 md:text-3xl"
@@ -87,8 +87,8 @@ export function HomePrincipalSections() {
           <p className="mx-auto mt-4 max-w-2xl text-sm text-slate-600 md:text-base">
             Formations, financement, articles et contact — accès direct.
           </p>
-        </Reveal>
-        <RevealGroup className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3" staggerMs={55}>
+        </RevealShell>
+        <RevealGroupShell className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3" staggerMs={55}>
           {cards.map(({ href, title, desc, Icon }) => (
             <Link key={href} href={href} className={cardClass}>
               <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-[var(--accent-soft)] text-[var(--accent)]">
@@ -101,7 +101,7 @@ export function HomePrincipalSections() {
               <span className="mt-4 text-sm font-semibold text-[var(--accent)]">Accéder →</span>
             </Link>
           ))}
-        </RevealGroup>
+        </RevealGroupShell>
       </div>
     </section>
   );

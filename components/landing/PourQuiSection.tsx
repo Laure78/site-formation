@@ -1,5 +1,5 @@
 import { PREUVES_FEDERATIONS_OPCO } from '@/lib/constants';
-import { Reveal, RevealGroup } from '@/components/motion/Reveal';
+import { RevealShell, RevealGroupShell } from '@/components/motion/RevealShell';
 import { OFC_CARD } from '@/lib/ofc-interaction-classes';
 import { OFC_SEC } from '@/lib/ofc-section-classes';
 
@@ -26,12 +26,12 @@ export function PourQuiSection() {
   return (
     <section className={OFC_SEC.muted}>
       <div className="mx-auto max-w-6xl">
-        <Reveal className="text-center">
+        <RevealShell className="text-center">
           <h3 className="font-display text-3xl font-bold text-slate-900 md:text-4xl">
             Pour <span className="font-serif italic text-slate-800">qui</span> ?
           </h3>
-        </Reveal>
-        <RevealGroup className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4" staggerMs={60}>
+        </RevealShell>
+        <RevealGroupShell className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4" staggerMs={60}>
           {CARTES.map((c) => (
             <div
               key={c.title}
@@ -41,7 +41,7 @@ export function PourQuiSection() {
               <p className="mt-3 text-sm leading-relaxed text-slate-600">{c.desc}</p>
             </div>
           ))}
-        </RevealGroup>
+        </RevealGroupShell>
       </div>
     </section>
   );

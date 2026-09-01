@@ -3,7 +3,7 @@ import { Building2, FileSearch, HardHat, MapPin, MessageSquare } from 'lucide-re
 import { LINKS } from '@/lib/internal-links';
 import { OFC_CARD } from '@/lib/ofc-interaction-classes';
 import { OFC_SEC } from '@/lib/ofc-section-classes';
-import { Reveal, RevealGroup } from '@/components/motion/Reveal';
+import { RevealShell, RevealGroupShell } from '@/components/motion/RevealShell';
 
 const CLUSTER_BLOCKS = [
   {
@@ -49,7 +49,7 @@ export function AccueilFormationsIaMetiersSection() {
       className={OFC_SEC.white}
     >
       <div className="mx-auto max-w-7xl">
-        <Reveal className="text-center">
+        <RevealShell className="text-center">
           <h2
             id="formations-ia-metiers-btp-heading"
             className="font-display text-2xl font-bold tracking-tight text-slate-900 md:text-3xl"
@@ -63,8 +63,8 @@ export function AccueilFormationsIaMetiersSection() {
             </Link>
             .
           </p>
-        </Reveal>
-        <RevealGroup
+        </RevealShell>
+        <RevealGroupShell
           className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3"
           staggerMs={50}
         >
@@ -79,7 +79,7 @@ export function AccueilFormationsIaMetiersSection() {
               <p className="mt-2 flex-1 text-sm leading-relaxed text-slate-600">{desc}</p>
             </Link>
           ))}
-        </RevealGroup>
+        </RevealGroupShell>
       </div>
     </section>
   );

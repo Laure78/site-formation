@@ -7,7 +7,7 @@ import { GoogleReviewsMarquee } from '@/components/landing/GoogleReviewsMarquee'
 import { Temoignages } from '@/components/Temoignages';
 import { getTemoignagesRemplis } from '@/data/temoignages';
 import { Star, Award, ExternalLink, ArrowRight, CheckCircle2 } from 'lucide-react';
-import { Reveal } from '@/components/motion/Reveal';
+import { RevealShell } from '@/components/motion/RevealShell';
 import { OFC_SEC } from '@/lib/ofc-section-classes';
 import { RdvLink } from '@/components/RdvLink';
 import { CSFE_NOM_LIBRE } from '@/lib/csfe';
@@ -38,7 +38,7 @@ export async function GoogleReviewsSection() {
     <section id="temoignages" className={`${OFC_SEC.muted} scroll-mt-24`}>
       <div className="mx-auto max-w-6xl">
         <div className="flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-center">
-          <Reveal>
+          <RevealShell>
             <div className="inline-flex items-center gap-2 rounded-full bg-[var(--accent-soft)] px-4 py-2 text-sm font-medium text-[var(--accent)]">
               <Award size={16} strokeWidth={1.5} />
               <span>{kicker}</span>
@@ -54,10 +54,10 @@ export async function GoogleReviewsSection() {
                 Retours d&apos;entreprises formées à l&apos;IA — étude de cas FFB / filière étanchéité en complément.
               </p>
             ) : null}
-          </Reveal>
+          </RevealShell>
 
           {hasGoogleApi && data ? (
-            <Reveal>
+            <RevealShell>
               <div className="flex flex-col items-end rounded-2xl border-2 border-[var(--accent)] bg-white px-6 py-4">
                 <div className="flex items-center gap-2">
                   <span className="text-4xl font-bold text-[var(--accent)]">{formatRating(data.rating)}</span>
@@ -74,20 +74,20 @@ export async function GoogleReviewsSection() {
                 </div>
                 <p className="mt-1 text-sm text-slate-600">{data.user_ratings_total} avis Google</p>
               </div>
-            </Reveal>
+            </RevealShell>
           ) : null}
         </div>
 
         {hasGoogleApi ? (
-          <Reveal className="mt-10">
+          <RevealShell className="mt-10">
             <GoogleReviewsMarquee reviews={marqueeItems} />
-          </Reveal>
+          </RevealShell>
         ) : (
           <Temoignages className="mt-10" />
         )}
 
         {hasGoogleApi ? (
-          <Reveal className="mt-10 text-center">
+          <RevealShell className="mt-10 text-center">
             <a
               href={SITE_CONFIG.googleBusinessProfileUrl}
               target="_blank"
@@ -97,7 +97,7 @@ export async function GoogleReviewsSection() {
               Voir la fiche et tous les avis sur Google
               <ExternalLink size={18} strokeWidth={1.5} />
             </a>
-          </Reveal>
+          </RevealShell>
         ) : null}
 
         {/* Étude de cas FFB / CSFE */}
@@ -107,7 +107,7 @@ export async function GoogleReviewsSection() {
           }`}
         >
           <div className="min-w-0 max-w-3xl lg:max-w-none">
-            <Reveal>
+            <RevealShell>
               {!hasGoogleApi && !hasTemoignages ? null : (
                 <p className="inline-flex items-center gap-2 rounded-full border border-blue-100 bg-white px-4 py-1.5 text-xs font-semibold uppercase tracking-wide text-[var(--accent)] shadow-sm">
                   Étude de cas
@@ -143,8 +143,8 @@ export async function GoogleReviewsSection() {
                   </span>
                 </li>
               </ul>
-            </Reveal>
-            <Reveal className="mt-10 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
+            </RevealShell>
+            <RevealShell className="mt-10 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
               <RdvLink
                 page="/"
                 ctaPosition="middle"
@@ -160,9 +160,9 @@ export async function GoogleReviewsSection() {
                 Lire l&apos;étude de cas complète
                 <ArrowRight size={18} strokeWidth={2} aria-hidden />
               </Link>
-            </Reveal>
+            </RevealShell>
           </div>
-          <Reveal as="figure" className="min-w-0 lg:sticky lg:top-28">
+          <RevealShell as="figure" className="min-w-0 lg:sticky lg:top-28">
             <div className="overflow-hidden rounded-2xl border border-slate-200/80 bg-slate-100 shadow-[0_20px_50px_-20px_rgba(15,23,42,0.25)]">
               <Image
                 src={PHOTOS.accueilEtudeCasFfbLaureIntervention.src}
@@ -180,7 +180,7 @@ export async function GoogleReviewsSection() {
               Laure Olivié — animation formation IA pour les pros du BTP en présentiel (réseau FFB, filière étanchéité /{' '}
               {CSFE_NOM_LIBRE})
             </figcaption>
-          </Reveal>
+          </RevealShell>
         </div>
       </div>
     </section>

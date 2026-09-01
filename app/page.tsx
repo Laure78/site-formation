@@ -13,8 +13,9 @@ import {
   GoogleReviewsSection,
   HomeDeferredLinkedInLearning,
   SelecteurMetier,
+  PourQuiSection,
 } from '@/components/landing/HomeBelowFoldSections';
-import { CalendlyEmbed } from '@/components/CalendlyEmbed';
+import { DeferredHomeFooterCalendly } from '@/components/landing/DeferredHomeFooterCalendly';
 import {
   FileText,
   Award,
@@ -48,7 +49,6 @@ import { buildMetadata } from '@/lib/seo';
 import { FAQ_ITEMS_HOME, buildHomeFAQPageJsonLd } from '@/lib/faq';
 import { JsonLd } from '@/components/JsonLd';
 import { PHOTOS } from '@/lib/photos';
-import { PourQuiSection } from '@/components/landing/PourQuiSection';
 import { ArticlesFormationLies } from '@/components/landing/ArticlesFormationLies';
 import { CSFE_NOM_COMPLET, CSFE_NOM_LIBRE } from '@/lib/csfe';
 import { LINKS } from '@/lib/internal-links';
@@ -1064,12 +1064,7 @@ export default function HomePage() {
               </div>
             </div>
             <div className="accueil-rdv-calendly min-w-0 overflow-hidden rounded-2xl border border-slate-200 bg-white p-3 shadow-sm sm:p-4 md:p-6">
-              <CalendlyEmbed
-                type="inline"
-                campaign="accueil-rdv-inline"
-                ctaPosition="inline"
-                heightPx={620}
-              />
+              <DeferredHomeFooterCalendly />
             </div>
           </div>
         </div>

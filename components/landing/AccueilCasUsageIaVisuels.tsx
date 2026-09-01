@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowRight, GraduationCap } from 'lucide-react';
-import { Reveal, RevealGroup } from '@/components/motion/Reveal';
+import { RevealShell, RevealGroupShell } from '@/components/motion/RevealShell';
 import { OFC_CAS_USAGE_CARD } from '@/lib/ofc-interaction-classes';
 import { OFC_SEC } from '@/lib/ofc-section-classes';
 import { LINKS } from '@/lib/internal-links';
@@ -52,7 +52,7 @@ export function AccueilCasUsageIaVisuels() {
       className={OFC_SEC.white}
     >
       <div className="mx-auto max-w-7xl">
-        <Reveal as="header" className="mx-auto max-w-3xl text-center">
+        <RevealShell as="header" className="mx-auto max-w-3xl text-center">
           <p className="inline-flex items-center gap-2 rounded-full border border-[#377CF3]/20 bg-[#F2F2F2]/80 px-3 py-1.5 text-[0.65rem] font-semibold uppercase tracking-[0.16em] text-[#377CF3] sm:text-xs">
             <GraduationCap className="h-3.5 w-3.5 shrink-0" strokeWidth={2} aria-hidden />
             Cas d&apos;usage terrain
@@ -67,10 +67,10 @@ export function AccueilCasUsageIaVisuels() {
             De la saisie terrain au document final : des workflows concrets enseignés en formation,
             toujours avec relecture et validation métier de votre côté.
           </p>
-        </Reveal>
+        </RevealShell>
 
         <div className="mt-10 space-y-10 lg:mt-12 lg:space-y-12">
-          <Reveal className="mx-auto w-full max-w-sm sm:max-w-md">
+          <RevealShell className="mx-auto w-full max-w-sm sm:max-w-md">
             <p className="mb-3 text-center text-[0.65rem] font-semibold uppercase tracking-[0.14em] text-slate-500 sm:text-xs">
               Formations présentiel
             </p>
@@ -103,19 +103,19 @@ export function AccueilCasUsageIaVisuels() {
                 </figcaption>
               </figure>
             </Link>
-          </Reveal>
+          </RevealShell>
 
           <div className="min-w-0">
-            <Reveal>
+            <RevealShell>
               <h3 className="text-center font-display text-lg font-bold tracking-tight text-[#1A1A1A] md:text-xl">
                 Méthodes IA par thématique terrain
               </h3>
               <p className="mt-2 text-center text-sm leading-relaxed text-[#5A5A5A]">
                 Devis, DCE, comptes rendus — pages méthodes + formation, validation métier de votre côté.
               </p>
-            </Reveal>
+            </RevealShell>
 
-            <RevealGroup
+            <RevealGroupShell
               className="mt-5 grid grid-cols-2 items-stretch gap-4 sm:gap-5 lg:mt-6 xl:grid-cols-4"
               staggerMs={50}
             >
@@ -150,7 +150,7 @@ export function AccueilCasUsageIaVisuels() {
                   </figure>
                 </Link>
               ))}
-            </RevealGroup>
+            </RevealGroupShell>
           </div>
         </div>
       </div>

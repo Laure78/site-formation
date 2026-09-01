@@ -26,7 +26,7 @@ const formationIaLegacyRedirects = () =>
 
 const nextConfig: NextConfig = {
   experimental: {
-    optimizePackageImports: ['lucide-react'],
+    optimizePackageImports: ['lucide-react', '@supabase/supabase-js'],
   },
   async headers() {
     return [

@@ -1,5 +1,6 @@
 'use client';
 
+import dynamic from 'next/dynamic';
 import Link from 'next/link';
 import Image from 'next/image';
 import { AUTHOR_HEADSHOT_IMAGE_CLASS } from '@/lib/author-headshot';
@@ -22,11 +23,18 @@ import { CtaButton } from '@/components/CtaButton';
 import { FormationPlateformeConnexionButton } from '@/components/formation/FormationPlateformeConnexionButton';
 import { SiteSearchTrigger } from '@/components/search/SiteSearchTrigger';
 import {
-  HeaderMobileNavSection,
   HeaderNavDropdown,
   HeaderNavSimpleLink,
 } from '@/components/nav/HeaderNavDropdown';
 import type { LucideIcon } from 'lucide-react';
+
+const HeaderMobileDrawer = dynamic(
+  () =>
+    import('@/components/HeaderMobileDrawer').then((mod) => ({
+      default: mod.HeaderMobileDrawer,
+    })),
+  { ssr: false },
+);
 
 const MOBILE_NAV_ICON: Record<string, LucideIcon> = {
   accueil: Home,
@@ -110,17 +118,39 @@ export function Header() {
   useEffect(() => () => clearCloseTimer(), []);
 
   useEffect(() => {
-    const onScroll = () => {
-      const y = window.scrollY;
-      setCompact((prev) => {
-        if (!prev && y > HEADER_COMPACT_ON_PX) return true;
-        if (prev && y < HEADER_COMPACT_OFF_PX) return false;
-        return prev;
-      });
+    let mounted = true;
+    let cleanup: (() => void) | undefined;
+
+    const attachScroll = () => {
+      if (!mounted) return;
+      const onScroll = () => {
+        const y = window.scrollY;
+        setCompact((prev) => {
+          if (!prev && y > HEADER_COMPACT_ON_PX) return true;
+          if (prev && y < HEADER_COMPACT_OFF_PX) return false;
+          return prev;
+        });
+      };
+      onScroll();
+      window.addEventListener('scroll', onScroll, { passive: true });
+      cleanup = () => window.removeEventListener('scroll', onScroll);
     };
-    onScroll();
-    window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
+
+    if (typeof window.requestIdleCallback === 'function') {
+      const idleId = window.requestIdleCallback(attachScroll, { timeout: 2500 });
+      return () => {
+        mounted = false;
+        window.cancelIdleCallback(idleId);
+        cleanup?.();
+      };
+    }
+
+    const timerId = window.setTimeout(attachScroll, 1);
+    return () => {
+      mounted = false;
+      window.clearTimeout(timerId);
+      cleanup?.();
+    };
   }, []);
 
   useEffect(() => {
@@ -268,102 +298,19 @@ export function Header() {
       </header>
 
       {mobileOpen ? (
-        <>
-          <button
-            type="button"
-            className="header-mobile-backdrop lg:hidden"
-            aria-label="Fermer le menu"
-            onClick={() => setMobileOpen(false)}
-          />
-          <div
-            className="header-mobile-drawer lg:hidden"
-            role="dialog"
-            aria-modal="true"
-            aria-label="Menu de navigation"
-          >
-            <div className="flex h-16 shrink-0 items-center justify-between border-b border-slate-100 px-4">
-              <Link
-                href={SITE.links.home}
-                onClick={() => setMobileOpen(false)}
-                className="flex items-center gap-2.5"
-              >
-                <span className="relative h-9 w-9 shrink-0 overflow-hidden rounded-full ring-1 ring-slate-200/70">
-                  <Image
-                    src={SITE.logo.src}
-                    alt=""
-                    fill
-                    className={AUTHOR_HEADSHOT_IMAGE_CLASS}
-                    sizes="36px"
-                    quality={70}
-                    loading="lazy"
-                  />
-                </span>
-                <span className="font-display text-base font-bold text-slate-900">{SITE.name}</span>
-              </Link>
-              <button
-                type="button"
-                onClick={() => setMobileOpen(false)}
-                className="flex min-h-[44px] min-w-[44px] items-center justify-center rounded-xl text-slate-700 hover:bg-slate-100"
-                aria-label="Fermer"
-              >
-                <X size={22} strokeWidth={1.75} />
-              </button>
-            </div>
-            <div className="border-b border-slate-100 px-4 py-3">
-              <SiteSearchTrigger className="w-full justify-start px-3 py-2.5" showLabel />
-            </div>
-            <nav
-              className="min-h-0 flex-1 overflow-y-auto overflow-x-hidden px-4 py-4"
-              aria-label="Navigation mobile"
-            >
-              {headerNav.map((item) => {
-                const Icon = MOBILE_NAV_ICON[item.id];
-                return (
-                  <HeaderMobileNavSection
-                    key={item.id}
-                    item={item}
-                    pathname={pathname}
-                    expanded={Boolean(mobileExpanded[item.id])}
-                    onToggle={() =>
-                      setMobileExpanded((current) => ({
-                        ...current,
-                        [item.id]: !current[item.id],
-                      }))
-                    }
-                    onNavigate={() => setMobileOpen(false)}
-                    icon={
-                      Icon ? (
-                        <Icon
-                          size={18}
-                          strokeWidth={1.75}
-                          className={
-                            item.isActive?.(pathname) || pathname === item.href
-                              ? 'text-[#377CF3]'
-                              : 'text-slate-400'
-                          }
-                        />
-                      ) : undefined
-                    }
-                  />
-                );
-              })}
-            </nav>
-            <div className="shrink-0 border-t border-slate-200 bg-white px-4 py-4">
-              <div className="flex flex-col gap-3">
-                <FormationPlateformeConnexionButton
-                  variant="navMobile"
-                  label={SITE.platform.connexionNavMobileLabel}
-                  onClick={() => setMobileOpen(false)}
-                />
-                <CtaButton
-                  origin="header-mobile-drawer"
-                  onClick={() => setMobileOpen(false)}
-                  className="w-full text-center text-[0.9375rem]"
-                />
-              </div>
-            </div>
-          </div>
-        </>
+        <HeaderMobileDrawer
+          headerNav={headerNav}
+          pathname={pathname}
+          mobileExpanded={mobileExpanded}
+          onToggleSection={(id) =>
+            setMobileExpanded((current) => ({
+              ...current,
+              [id]: !current[id],
+            }))
+          }
+          onClose={() => setMobileOpen(false)}
+          navIcons={MOBILE_NAV_ICON}
+        />
       ) : null}
     </>
   );

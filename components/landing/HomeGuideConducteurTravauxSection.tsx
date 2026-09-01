@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowRight, Download, FileText, HardHat } from 'lucide-react';
-import { Reveal } from '@/components/motion/Reveal';
+import { RevealShell } from '@/components/motion/RevealShell';
 import { LINKS } from '@/lib/internal-links';
 import { SKILL_IA_LEAD_MAGNET } from '@/lib/lead-magnet-skill-ia';
 import { PHOTOS } from '@/lib/photos';
@@ -35,7 +35,7 @@ export function HomeGuideConducteurTravauxSection() {
       className={OFC_SEC.white}
     >
       <div className="mx-auto max-w-6xl">
-        <Reveal>
+        <RevealShell>
           <div className="overflow-hidden rounded-3xl border border-[#377CF3]/20 bg-gradient-to-br from-[#EFF6FF] via-white to-white shadow-[0_20px_50px_-24px_rgba(55,124,243,0.35)]">
             <div className="grid gap-0 lg:grid-cols-[1.05fr_0.95fr] lg:items-stretch">
               <div className="flex flex-col p-6 md:p-8 lg:p-10">
@@ -129,7 +129,7 @@ export function HomeGuideConducteurTravauxSection() {
               </div>
             </div>
           </div>
-        </Reveal>
+        </RevealShell>
       </div>
     </section>
   );

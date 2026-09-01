@@ -71,3 +71,10 @@ export const SelecteurMetier = dynamic(
       default: m.SelecteurMetier,
     })),
 );
+
+export const PourQuiSection = dynamic(
+  () =>
+    import('@/components/landing/PourQuiSection').then((m) => ({
+      default: m.PourQuiSection,
+    })),
+);
