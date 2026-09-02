@@ -3,10 +3,9 @@
  * Références Organization par @id — pas de duplication du nœud #organization.
  */
 
-import { SOCIAL_PROOF, siteStats } from '@/lib/constants';
-import { getLaureOlivieSchemaPersonDescription } from '@/lib/laure-olivie-profile';
+import { PREUVES } from '@/lib/constants';
+import { getAProposPagePersonDescription, FAQ_A_PROPOS_PAGE } from '@/lib/a-propos-page-config';
 import { PHOTOS } from '@/lib/photos';
-import { FAQ_A_PROPOS, FAQ_CLIENTS_PARTENAIRES } from '@/lib/faq';
 import {
   SCHEMA_CONTACT,
   SCHEMA_GEO,
@@ -33,7 +32,7 @@ const ORGANIZATION_ID = `${BASE}/#organization`;
 const PROFILE_PAGE_ID = `${PAGE_URL}#profilepage`;
 const OFC_LOCAL_ID = `${PAGE_URL}#ofc-local-business`;
 
-const FAQ_COMPLET = [...FAQ_CLIENTS_PARTENAIRES, ...FAQ_A_PROPOS];
+const FAQ_COMPLET = FAQ_A_PROPOS_PAGE;
 
 function stripAtContext(obj: Record<string, unknown>): Record<string, unknown> {
   const { ['@context']: _c, ...rest } = obj;
@@ -62,7 +61,7 @@ export function getAProposUnifiedJsonLd(): Record<string, unknown> {
   const person: Record<string, unknown> = {
     ...personBase,
     honorificPrefix: 'Mme',
-    description: getLaureOlivieSchemaPersonDescription(),
+    description: getAProposPagePersonDescription(),
     image: `${BASE}${PHOTOS.aProposHero2026.src}`,
     nationality: { '@type': 'Country', name: 'France' },
     knowsLanguage: ['fr', 'en'],
@@ -70,7 +69,7 @@ export function getAProposUnifiedJsonLd(): Record<string, unknown> {
     alumniOf: [
       {
         '@type': 'Organization',
-        name: 'ALIA BTP (dirigeante 2017-2024)',
+        name: 'ALIA BTP — direction (2017-2024)',
         identifier: '85368731700018',
       },
       {
@@ -94,15 +93,10 @@ export function getAProposUnifiedJsonLd(): Record<string, unknown> {
       skills:
         'IA appliquée au BTP, ChatGPT bâtiment, Claude AI, mémoire technique, analyse DCE/CCTP, devis BTP',
     },
-    award: [
-      `$(${new Date().getFullYear()})`,
-      `Note moyenne `,
-      'Actions de formation avec FFB Grand Paris',
-    ],
+    award: [`Satisfaction ${PREUVES.satisfaction} (${PREUVES.repondants} répondants)`],
     workLocation: [{ '@type': 'AdministrativeArea', name: 'Île-de-France' }],
     memberOf: buildPersonAffiliationSchemaNodes(),
     hasCredential: [
-      buildQualiopiCredentialSchema(),
       {
         '@type': 'EducationalOccupationalCredential',
         credentialCategory: 'LinkedIn Learning Instructor',
@@ -124,7 +118,7 @@ export function getAProposUnifiedJsonLd(): Record<string, unknown> {
     url: BASE,
     logo: `${BASE}/logo-lo.svg`,
     image: `${BASE}${PHOTOS.aProposHero2026.src}`,
-    description: `Organisme de formation certifié Qualiopi spécialisé en intelligence artificielle pour les entreprises du bâtiment et des travaux publics. Formation IA pour les pros du BTP — financement possible selon éligibilité. +$`,
+    description: `Organisme de formation certifié Qualiopi spécialisé en intelligence artificielle pour les entreprises du bâtiment et des travaux publics. Formation IA pour les pros du BTP — financement possible selon éligibilité. Satisfaction ${PREUVES.satisfaction} (${PREUVES.repondants} répondants).`,
     email: SCHEMA_CONTACT.email,
     address: {
       '@type': 'PostalAddress',
@@ -158,13 +152,13 @@ export function getAProposUnifiedJsonLd(): Record<string, unknown> {
     '@type': 'ProfilePage',
     '@id': PROFILE_PAGE_ID,
     url: PAGE_URL,
-    name: 'Laure Olivié — Formatrice IA spécialisée BTP (Qualiopi, FFB, LinkedIn Learning)',
+    name: 'Laure Olivié — Formatrice IA spécialisée BTP',
     dateCreated: '2022-01-15T12:00:00+01:00',
-    dateModified: '2026-05-22T12:00:00+02:00',
+    dateModified: '2026-09-02T12:00:00+02:00',
     mainEntity: { '@id': PERSON_ID },
     speakable: {
       '@type': 'SpeakableSpecification',
-      cssSelector: ['h1', '.tldr-bio', '#experience'],
+      cssSelector: ['h1', '#positionnement-title', '#parcours'],
     },
   };
 

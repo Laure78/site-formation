@@ -3,7 +3,7 @@
  * Coordonnées depuis `lib/schema-constants.ts` — ne pas dupliquer en dur.
  */
 
-import { getLaureOlivieSchemaPersonDescription } from '@/lib/laure-olivie-profile';
+import { getAProposPagePersonDescription } from '@/lib/a-propos-page-config';
 import { buildPersonLaureSchemaNode } from '@/lib/schema-person-global';
 import { SCHEMA_PUBLIC_SITE_URL } from '@/lib/schema-constants';
 
@@ -19,6 +19,6 @@ export function getAProposPersonJsonLd(): Record<string, unknown> {
       organizationId: `${BASE}/#organization`,
       affiliationsScope: 'a-propos',
     }),
-    description: getLaureOlivieSchemaPersonDescription(),
+    description: getAProposPagePersonDescription(),
   };
 }
