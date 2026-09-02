@@ -3,6 +3,7 @@ import dynamic from 'next/dynamic';
 import { Inter, Outfit } from 'next/font/google';
 import './globals.css';
 import { Footer } from '@/components/Footer';
+import { Header } from '@/components/Header';
 import { DeferredLayoutWidgets } from '@/components/layout/DeferredLayoutWidgets';
 import { SITE_CONFIG, OG_SITE_NAME, GOOGLE_SITE_VERIFICATION } from '@/lib/seo';
 import { PHOTOS, SITE_FAVICON_CACHE_BUST } from '@/lib/photos';
@@ -11,10 +12,6 @@ import { GlobalSitelinksJsonLd } from '@/components/schema/GlobalSitelinksJsonLd
 import { GlobalSiteJsonLd } from '@/components/schema/GlobalSiteJsonLd';
 import { GlobalBreadcrumbs } from '@/components/layout/GlobalBreadcrumbs';
 import { SiteSearchProvider } from '@/components/search/SiteSearchProvider';
-
-const Header = dynamic(
-  () => import('@/components/Header').then((mod) => ({ default: mod.Header })),
-);
 
 const SitelinksHub = dynamic(
   () =>
