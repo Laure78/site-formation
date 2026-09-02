@@ -44,7 +44,7 @@ export default function FinancementConstructysPage() {
 
       <FinancementConstructysHero />
 
-      <div className="mx-auto max-w-3xl px-4 pb-16 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-6xl px-4 pb-16 sm:px-6 lg:px-8">
         <div className="space-y-14">
           <FinancementOct2026Alert />
           <FinancementEssentielSection />
@@ -64,7 +64,7 @@ export default function FinancementConstructysPage() {
       </div>
 
       <div className="border-t border-[#E2E8F0] bg-[#F8FAFC] px-4 py-8">
-        <div className="mx-auto max-w-3xl">
+        <div className="mx-auto max-w-6xl">
           <Link href="/" className="font-medium text-[#377CF3] hover:underline">
             ← Retour à l&apos;accueil
           </Link>

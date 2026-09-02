@@ -11,7 +11,7 @@ export function FinancementConstructysHero() {
       className="relative overflow-hidden bg-gradient-to-b from-[#EFF6FF] via-white to-white px-4 pb-12 pt-10 sm:px-6 lg:px-8 lg:pb-16 lg:pt-14"
       aria-labelledby="financement-hero-title"
     >
-      <div className="mx-auto max-w-3xl text-center">
+      <div className="mx-auto max-w-6xl text-center">
         <p className="text-sm font-semibold uppercase tracking-wide text-[#377CF3]">
           Financement OPCO · Constructys · 2026
         </p>
