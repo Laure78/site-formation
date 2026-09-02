@@ -1,154 +1,93 @@
-import Link from 'next/link';
-import Image from 'next/image';
 import type { Metadata } from 'next';
-import { ArrowRight, CalendarCheck } from 'lucide-react';
-import { JsonLd } from '@/app/components/JsonLd';
+import { JsonLd } from '@/components/JsonLd';
 import { createPageMetadata } from '@/lib/seo';
-import { LINKS } from '@/lib/internal-links';
-import { LOGO_LINKEDIN_LEARNING } from '@/lib/client-logos';
-import { TUTOS } from '@/lib/tutos';
-import { TutosGroupedByCategory } from '@/components/ressources/TutosGroupedByCategory';
-import { RessourcesThematicHub } from '@/components/ressources/RessourcesThematicHub';
-import { RessourcesGuidesSection } from '@/components/ressources/RessourcesGuidesSection';
-import { RessourcesSkillsSection } from '@/components/ressources/RessourcesSkillsSection';
-import { RessourcesHero } from '@/components/ressources/RessourcesHero';
-import { RessourcesLexiqueSection } from '@/components/ressources/RessourcesLexiqueSection';
-import { RessourcesTutosNav } from '@/components/ressources/RessourcesTutosNav';
+import { RessourcesHubHero } from '@/components/ressources/RessourcesHubHero';
+import { RessourcesFeaturedSection } from '@/components/ressources/RessourcesFeaturedSection';
+import { RessourcesGuidesPdfSection } from '@/components/ressources/RessourcesGuidesPdfSection';
+import { RessourcesHubLibrary } from '@/components/ressources/RessourcesHubLibrary';
+import { RessourcesDisclaimerSection } from '@/components/ressources/RessourcesDisclaimerSection';
+import { RessourcesFinalCta } from '@/components/ressources/RessourcesFinalCta';
 import { buildRessourcesHubJsonLd } from '@/lib/schema-ressources-hub-jsonld';
+import { getFeaturedRessources, getRessourcesCatalog } from '@/lib/ressources-catalog';
+import { LINKS } from '@/lib/internal-links';
 
-/**
- * Hub /ressources — atteignabilité cluster (1 clic) :
- * - Tutos : section « Tutoriels PDF » + hub thématique.
- * - Guides : RessourcesGuidesSection + hub thématique (dont guide-maitrise-oeuvre-ia).
- * Pages orphelines détectées : aucune.
- */
-const PATH = '/ressources';
+const PATH = LINKS.ressources;
 
 export const metadata: Metadata = createPageMetadata({
-  title: 'Ressources IA BTP : appels d’offres & tutos',
+  title: 'Ressources IA BTP gratuites | Guides, tutos et outils',
   description:
-    'Tutos gratuits appels d’offres, DCE et chantier. Formation IA pour le BTP en Île-de-France : guides PDF, lexique et skills Claude. Sans inscription.',
+    'Guides, tutoriels, prompts et outils gratuits pour utiliser l’IA dans le BTP : DCE, mémoire technique, chantier, PPSPS, DOE et productivité.',
   descriptionFinal: true,
   path: PATH,
   openGraphType: 'website',
-  openGraphTitle: 'Ressources IA BTP : appels d’offres, DCE & tutos gratuits',
+  openGraphTitle: 'Ressources IA BTP gratuites | Guides, tutos et outils',
   openGraphDescription:
-    'Guides et tutos IA pour marchés publics BTP (DCE, CCAP, mémoire), chantier et skills Claude — PME Île-de-France. Gratuit, sans inscription.',
+    'Guides, tutoriels, prompts et outils gratuits pour utiliser l’IA dans le BTP : DCE, mémoire technique, chantier, PPSPS, DOE et productivité.',
   appendAuthorSuffix: false,
   image: {
     url: '/images/ressources-gratuites-ia-btp-hero.png',
     width: 1024,
     height: 1024,
-    alt: 'Ressources IA BTP : appels d’offres, DCE et tutos PDF pour PME du bâtiment en Île-de-France',
+    alt: 'Ressources IA BTP : guides, tutoriels et outils pour professionnels du bâtiment',
   },
 });
 
 const hubJsonLd = buildRessourcesHubJsonLd();
 
-export default function RessourcesIndexPage() {
+type PageProps = {
+  searchParams?: Promise<Record<string, string | string[] | undefined>>;
+};
+
+function buildInitialSearch(params: Record<string, string | string[] | undefined>): string {
+  const qs = new URLSearchParams();
+  for (const [key, value] of Object.entries(params)) {
+    if (value === undefined) continue;
+    if (Array.isArray(value)) {
+      for (const v of value) qs.append(key, v);
+    } else {
+      qs.set(key, value);
+    }
+  }
+  const str = qs.toString();
+  return str ? `?${str}` : '';
+}
+
+export default async function RessourcesIndexPage({ searchParams }: PageProps) {
+  const catalog = getRessourcesCatalog();
+  /** Bibliothèque complète hors guides (section `#guides-pdf` dédiée). */
+  const libraryCatalog = catalog.filter(
+    (r) => r.resourceType !== 'guide' && r.resourceType !== 'modele-fichier',
+  );
+  const featured = getFeaturedRessources();
+  const resolvedParams = searchParams ? await searchParams : {};
+  const initialSearch = buildInitialSearch(resolvedParams);
+
   return (
     <div className="min-h-screen bg-white">
       <JsonLd id="schema-ressources-hub" data={hubJsonLd} />
 
-      <RessourcesHero />
+      <RessourcesHubHero />
 
-      <RessourcesGuidesSection />
+      <RessourcesFeaturedSection resources={featured} />
 
-      <RessourcesThematicHub />
+      <RessourcesGuidesPdfSection />
 
-      <section className="border-t border-slate-200 bg-white py-10 md:py-12" aria-labelledby="ressources-linkedin-heading">
-        <div className="mx-auto max-w-7xl px-4">
-          <Link
-            href={LINKS.formationsLinkedInLearning}
-            className="group flex flex-col rounded-2xl border border-slate-200 bg-[#F8FAFC] p-6 shadow-sm transition hover:border-[#377CF3]/40 hover:shadow-md md:flex-row md:items-center md:justify-between md:gap-8"
-          >
-            <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:gap-5">
-              <Image
-                src={LOGO_LINKEDIN_LEARNING.src}
-                alt={LOGO_LINKEDIN_LEARNING.alt}
-                width={LOGO_LINKEDIN_LEARNING.width}
-                height={LOGO_LINKEDIN_LEARNING.height}
-                className="h-9 w-auto max-w-[160px] shrink-0 object-contain object-left"
-                sizes="160px"
-                loading="lazy"
-                quality={70}
-              />
-              <div>
-                <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#377CF3]">
-                  En ligne · LinkedIn Learning
-                </p>
-                <h2
-                  id="ressources-linkedin-heading"
-                  className="mt-2 font-display text-xl font-bold text-slate-900 md:text-2xl"
-                >
-                  Mes formations LinkedIn Learning
-                </h2>
-                <p className="mt-2 max-w-2xl text-sm leading-relaxed text-slate-600 md:text-base">
-                  2 cours LinkedIn Learning à la demande sur l&apos;IA appliquée au BTP.
-                </p>
-              </div>
-            </div>
-            <span className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-[#377CF3] transition group-hover:gap-3 md:mt-0">
-              Voir les 2 cours
-              <ArrowRight className="h-4 w-4" aria-hidden />
-            </span>
-          </Link>
-        </div>
-      </section>
+      {/* Maillage HTML crawlable — indépendant du « Afficher plus » client */}
+      <nav className="sr-only" aria-label="Liste complète des ressources">
+        <ul>
+          {catalog.map((resource) => (
+            <li key={`crawl-${resource.id}`}>
+              <a href={resource.viewUrl}>{resource.title}</a>
+            </li>
+          ))}
+        </ul>
+      </nav>
 
-      <RessourcesLexiqueSection />
+      <RessourcesHubLibrary resources={libraryCatalog} initialSearch={initialSearch} />
 
-      <RessourcesSkillsSection />
+      <RessourcesDisclaimerSection />
 
-      <section id="tutoriels-pdf" className="scroll-mt-28 bg-[#F2F2F2] py-14 md:py-20">
-        <div className="mx-auto max-w-7xl px-4">
-          <div className="mb-2 max-w-3xl">
-            <h2 className="font-display text-2xl font-bold text-slate-900 md:text-3xl">Tutoriels PDF par thème</h2>
-            <p className="mt-3 text-sm leading-relaxed text-slate-600 md:text-base">
-              Parcours pas à pas signés OFC — lisez sur le site ou téléchargez le PDF directement.
-            </p>
-          </div>
-
-          <RessourcesTutosNav />
-
-          <div className="mt-6 md:mt-8">
-            <TutosGroupedByCategory tutos={TUTOS} badgeMode="offert" />
-          </div>
-        </div>
-      </section>
-
-      <section
-        id="aller-plus-loin"
-        className="scroll-mt-28 border-t border-slate-200 bg-gradient-to-br from-[#377CF3] to-[#2d66d6] py-14 text-white md:py-16"
-      >
-        <div className="mx-auto max-w-3xl px-4 text-center">
-          <span className="inline-flex items-center gap-2 rounded-full bg-white/15 px-3 py-1 text-xs font-semibold uppercase tracking-[0.16em]">
-            <CalendarCheck size={14} aria-hidden />
-            Prochaine étape
-          </span>
-          <h2 className="mt-4 font-display text-2xl font-bold md:text-3xl">Envie d&apos;aller plus loin ?</h2>
-          <p className="mt-3 text-base leading-relaxed text-white/90 md:text-lg">
-            Les tutos t&apos;ont mis le pied à l&apos;étrier. Pour passer au niveau supérieur — skill construit sur ta
-            vraie entreprise, équipe formée — découvre les programmes catalogue, financement possible selon éligibilité
-            (Constructys) / OPCO.
-          </p>
-          <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
-            <Link
-              href={LINKS.prendreRdv}
-              className="inline-flex items-center gap-2 rounded-xl bg-white px-6 py-3 text-[0.95rem] font-semibold text-[#377CF3] shadow-lg transition hover:bg-[#F2F2F2]"
-            >
-              Prendre rendez-vous
-              <ArrowRight size={16} aria-hidden />
-            </Link>
-            <Link
-              href={LINKS.diagnostic}
-              className="inline-flex items-center gap-2 rounded-xl border-2 border-white/80 bg-transparent px-6 py-3 text-[0.95rem] font-semibold text-white transition hover:bg-white/10"
-            >
-              Diagnostic IA BTP offert
-            </Link>
-          </div>
-        </div>
-      </section>
+      <RessourcesFinalCta />
     </div>
   );
 }

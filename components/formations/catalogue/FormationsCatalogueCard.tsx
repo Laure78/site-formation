@@ -7,6 +7,7 @@ import {
   cataloguePublicOneLine,
 } from '@/lib/formations-catalogue-page-config';
 import {
+  catalogueGammeLabel,
   catalogueNiveauLabel,
   tarifLabelForEntry,
 } from '@/lib/formations-catalogue-display';
@@ -16,31 +17,36 @@ import { OFC_CARD, OFC_CTA_PRIMARY, OFC_CTA_SECONDARY } from '@/lib/ofc-interact
 type Props = {
   entry: FormationCatalogueEntry;
   highlighted?: boolean;
+  dimmed?: boolean;
 };
 
-/** Carte catalogue simplifiée — promesse + cas d'usage, sans objectifs complets. */
-export function FormationsCatalogueCard({ entry, highlighted = false }: Props) {
-  const isDebutant = entry.level === 'DÉBUTANT';
+/** Carte catalogue — une formation, un CTA principal. */
+export function FormationsCatalogueCard({
+  entry,
+  highlighted = false,
+  dimmed = false,
+}: Props) {
   const tags = catalogueCasUsageTags(entry);
   const publicLine = cataloguePublicOneLine(entry.comparatif.publicLabel);
+  const isDebutant = entry.level === 'DÉBUTANT';
 
   return (
     <article
       id={catalogueCardAnchorId(entry.ref)}
-      className={`${OFC_CARD} flex h-full scroll-mt-28 flex-col p-6 ${
+      className={`${OFC_CARD} flex h-full scroll-mt-28 flex-col p-6 transition ${
         highlighted ? 'ring-2 ring-ofc-accent ring-offset-2' : ''
-      }`}
+      } ${dimmed ? 'opacity-45' : ''}`}
     >
       <div className="flex flex-wrap items-center gap-2">
+        <span className="rounded-full bg-[#EFF6FF] px-2.5 py-1 text-[11px] font-bold uppercase tracking-wide text-[#377CF3]">
+          {catalogueGammeLabel(entry.gamme)}
+        </span>
         <span
           className={`rounded-full px-2.5 py-1 text-[11px] font-bold uppercase tracking-wide ${
             isDebutant ? 'bg-emerald-100 text-emerald-800' : 'bg-orange-100 text-orange-800'
           }`}
         >
           {catalogueNiveauLabel(entry.ref)}
-        </span>
-        <span className="text-xs font-semibold uppercase tracking-wide text-slate-500">
-          {isDebutant ? 'Débutant' : 'Avancé'}
         </span>
       </div>
 

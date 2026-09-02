@@ -125,17 +125,6 @@ function aProposNavActive(pathname: string): boolean {
   );
 }
 
-function financementNavActive(pathname: string): boolean {
-  return pathname === LINKS.financement || pathname.startsWith('/financement-constructys');
-}
-
-/** Ancres réelles de `app/financement-constructys-formation-ia-btp/page.tsx`. */
-const FINANCEMENT_CHILDREN: readonly HeaderNavLink[] = [
-  { href: `${LINKS.financement}#quest-ce-que-constructys`, label: 'Constructys' },
-  { href: `${LINKS.financement}#trouver-opco`, label: 'Trouver son OPCO' },
-  { href: `${LINKS.financement}#mon-cas`, label: 'Prise en charge' },
-];
-
 /** Ancres réelles de `app/partenaires/page.tsx`. */
 const PARTENAIRES_SECTION_CHILDREN: readonly HeaderNavLink[] = [
   { href: `${LINKS.partenaires}#references-btp`, label: 'Réseaux BTP' },
@@ -175,14 +164,6 @@ const BASE_HEADER_NAV: readonly HeaderNavItem[] = [
       { href: LINKS.formationPlateforme, label: 'Espace apprenant' },
     ],
     footer: { href: LINKS.formations, label: 'Toutes les formations' },
-  },
-  {
-    id: 'financement',
-    label: 'Financement',
-    href: LINKS.financement,
-    isActive: financementNavActive,
-    children: FINANCEMENT_CHILDREN,
-    footer: { href: LINKS.financement, label: 'Financement des formations' },
   },
   {
     id: 'ressources',

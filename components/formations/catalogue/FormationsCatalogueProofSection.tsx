@@ -44,18 +44,26 @@ const PROOF_LOGOS = [
   },
 ] as const;
 
-/** Preuves sociales compactes — une seule section. */
+/** Confiance — une seule section (Qualiopi, satisfaction, références, accessibilité). */
 export function FormationsCatalogueProofSection() {
   return (
-    <section className="mt-16 rounded-2xl border border-slate-200 bg-slate-50/80 p-6 md:p-8" aria-labelledby="catalogue-preuves">
+    <section
+      className="mt-16 rounded-2xl border border-slate-200 bg-slate-50/80 p-6 md:p-8"
+      aria-labelledby="catalogue-preuves"
+    >
       <h2 id="catalogue-preuves" className="font-display text-xl font-bold text-ofc-ink md:text-2xl">
-        Des formations conçues pour les professionnels du BTP
+        Confiance et références
       </h2>
       <p className="mt-3 text-sm text-slate-600 md:text-base">
         {getCataloguePageProofLine()} —{' '}
         <Link href={LINKS.indicateursResultats} className={OFC_LINK}>
-          Indicateurs Qualiopi
+          Indicateurs de résultats
         </Link>
+        . Accessibilité étudiée au cas par cas —{' '}
+        <Link href={LINKS.accessibiliteHandicap} className={OFC_LINK}>
+          aménagements handicap
+        </Link>
+        .
       </p>
       <ul className="mt-6 flex flex-wrap items-center justify-center gap-6 md:gap-8">
         {PROOF_LOGOS.map((logo) => (
@@ -75,7 +83,7 @@ export function FormationsCatalogueProofSection() {
         ))}
       </ul>
       <p className="mt-4 text-center text-xs text-slate-500">
-        Organisme certifié <QualiopiWordmark /> — actions de formation
+        Organisme certifié <QualiopiWordmark /> — catégorie actions de formation
       </p>
     </section>
   );

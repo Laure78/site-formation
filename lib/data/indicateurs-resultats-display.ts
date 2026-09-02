@@ -7,5 +7,6 @@ export {
   formatNoteSatisfactionSur5,
   formatPeriodeReferenceAffichage,
   formatVolumeProsFormesBtpLibelle,
+  INDICATEUR_NON_PUBLIE_LIBELLE,
   indicateursResultats,
 } from '@/lib/data/indicateurs-resultats';

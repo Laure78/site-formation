@@ -15,9 +15,13 @@ export const FINANCEMENT_CONSTRUCTYS_FORMULATION =
 export const FINANCEMENT_FORMULATION_PRUDENTE =
   `${FINANCEMENT_PRISE_EN_CHARGE_100_SELON_ELIGIBILITE} Plafonds et reste à charge selon barèmes Constructys, effectif et dossier en vigueur.`;
 
-/** Formulation courte — meta, badges, accroches commerciales */
+/** Formulation courte — meta, badges, accroches commerciales (sans promesse de 100 %). */
 export const FINANCEMENT_FORMULATION_COURTE =
-  'Financement possible selon éligibilité — prise en charge à 100 % selon dossier.';
+  'Financement OPCO possible selon éligibilité — un reste à charge peut s’appliquer.';
+
+/** Formulation page catalogue `/formations` — alignée consigne UX. */
+export const FINANCEMENT_FORMULATION_CATALOGUE =
+  'Participation possible selon l’éligibilité, les plafonds et l’accord de l’OPCO. Un reste à charge peut s’appliquer.';
 
 /**
  * Mention courte avec lien (composant `MentionFinancement` variant="court").

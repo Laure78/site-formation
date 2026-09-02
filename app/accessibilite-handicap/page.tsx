@@ -1,19 +1,28 @@
 import Link from 'next/link';
+import type { ReactNode } from 'react';
 import { Poppins } from 'next/font/google';
 import { Mail, Phone } from 'lucide-react';
 import { ExternalLinkAnchor } from '@/components/ExternalLink';
+import { JsonLd } from '@/components/JsonLd';
 import { createPageMetadata } from '@/lib/seo';
 import { LINKS } from '@/lib/internal-links';
 import { CONTACT } from '@/lib/constants';
 import { EXTERNAL_SITE_URLS } from '@/lib/external-site-urls';
-import { QUALIOPI_LEGAL, QUALIOPI_REFERENT_HANDICAP } from '@/lib/qualiopi-info';
+import { OFC_IDENTITE } from '@/lib/ofc-identite';
+import { QUALIOPI_REFERENT_HANDICAP } from '@/lib/qualiopi-info';
+import {
+  ACCESSIBILITE_HANDICAP_PAGE_DESCRIPTION,
+  ACCESSIBILITE_HANDICAP_PAGE_TITLE,
+  getAccessibiliteHandicapPageJsonLd,
+} from '@/lib/schema-accessibilite-handicap-page';
 
 export const revalidate = 3600;
 
 export const metadata = createPageMetadata({
-  title: 'Accessibilité handicap — formations BTP',
-  description:
-    "Accessibilité handicap OFC : référente Laure Olivié, adaptations en formation IA pour le BTP. Contact dès l'inscription, acteurs mobilisables (AGEFIPH, Cap Emploi, MDPH) selon besoin.",
+  title: ACCESSIBILITE_HANDICAP_PAGE_TITLE,
+  titleAbsolute: ACCESSIBILITE_HANDICAP_PAGE_TITLE,
+  description: ACCESSIBILITE_HANDICAP_PAGE_DESCRIPTION,
+  descriptionFinal: true,
   path: LINKS.accessibiliteHandicap,
 });
 
@@ -23,7 +32,74 @@ const poppins = Poppins({
   display: 'swap',
 });
 
-const PHONE_ARIA = `Appeler Laure Olivié, référente handicap, au ${CONTACT.phoneDisplay}`;
+const MAIL_SUBJECT = 'Demande d’aménagement de formation';
+const PHONE_ARIA = `Appeler ${QUALIOPI_REFERENT_HANDICAP.nom}, ${QUALIOPI_REFERENT_HANDICAP.role}, au ${CONTACT.phoneDisplay}`;
+
+const ETAPES_DEMANDE = [
+  {
+    title: 'Prendre contact',
+    body: `Contactez ${QUALIOPI_REFERENT_HANDICAP.nom}, ${QUALIOPI_REFERENT_HANDICAP.role} d’${OFC_IDENTITE.raisonSociale}, par e-mail ou téléphone. L’échange est confidentiel.`,
+  },
+  {
+    title: 'Décrire le besoin fonctionnel',
+    body: 'Expliquez ce qui peut gêner votre participation (rythme, supports, accès, concentration…) et les aménagements déjà utiles dans votre activité. Aucun diagnostic médical, dossier médical ou justificatif n’est demandé lors du premier contact.',
+  },
+  {
+    title: 'Étudier les solutions',
+    body: 'Nous vérifions avec vous le format de la session, le lieu d’accueil, les supports pédagogiques, le rythme et les objectifs de la formation pour identifier ce qui peut être aménagé.',
+  },
+  {
+    title: 'Confirmer les adaptations',
+    body: 'Les aménagements retenus sont confirmés avec vous avant la session. Seules les informations opérationnelles nécessaires sont formalisées — sans diffusion de données médicales.',
+  },
+] as const;
+
+const ADAPTATIONS = [
+  {
+    title: 'Rythme et organisation',
+    body: 'Pauses, séquences adaptées, temps supplémentaire ou horaires ajustés selon faisabilité et contraintes du lieu.',
+  },
+  {
+    title: 'Supports pédagogiques',
+    body: 'Format numérique, taille de texte, contraste, documents transmis en amont ou compatibilité avec vos outils d’assistance, selon les supports disponibles.',
+  },
+  {
+    title: 'Lieu et matériel',
+    body: 'Vérification de l’accès, de l’installation et du matériel avec l’entreprise ou le lieu d’accueil (sessions intra-entreprise en Île-de-France).',
+  },
+  {
+    title: 'Modalités pédagogiques',
+    body: 'Reformulation des consignes, accompagnement progressif ou adaptation des exercices, sans modifier les objectifs essentiels de la formation.',
+  },
+] as const;
+
+const ACTEURS = [
+  {
+    name: 'Agefiph',
+    role: 'Accompagnement et financements possibles pour l’insertion et la formation professionnelle dans le secteur privé.',
+    href: EXTERNAL_SITE_URLS.agefiph,
+  },
+  {
+    name: 'Ressource Handicap Formation (RHF)',
+    role: 'Service gratuit Agefiph pour adapter une formation lorsque la personne a un projet de formation validé. La demande est faite par le référent handicap de l’organisme de formation auprès du conseiller RHF.',
+    href: EXTERNAL_SITE_URLS.agefiphRhf,
+  },
+  {
+    name: 'Cap emploi',
+    role: 'Accompagnement des personnes en situation de handicap dans leur parcours professionnel.',
+    href: EXTERNAL_SITE_URLS.capEmploi,
+  },
+  {
+    name: 'MDPH ou Maison départementale de l’autonomie',
+    role: 'Informations et démarches selon votre département (aides, orientation).',
+    href: EXTERNAL_SITE_URLS.servicePublicMdph,
+  },
+  {
+    name: 'Référent handicap de l’employeur ou du financeur',
+    role: 'Coordination avec le plan de développement des compétences et le financement, si vous en avez un.',
+    href: EXTERNAL_SITE_URLS.monParcoursHandicap,
+  },
+] as const;
 
 function Section({
   id,
@@ -32,7 +108,7 @@ function Section({
 }: {
   id: string;
   title: string;
-  children: React.ReactNode;
+  children: ReactNode;
 }) {
   return (
     <section aria-labelledby={id} className="scroll-mt-24">
@@ -46,244 +122,274 @@ function Section({
   );
 }
 
+function Encadre({ children }: { children: ReactNode }) {
+  return (
+    <div className="rounded-lg border border-[#377CF3]/20 bg-white p-5">{children}</div>
+  );
+}
+
 export default function AccessibiliteHandicapPage() {
+  const mailtoHref = `mailto:${CONTACT.email}?subject=${encodeURIComponent(MAIL_SUBJECT)}`;
+
   return (
     <div className={`mx-auto max-w-4xl px-4 py-14 md:py-16 ${poppins.className}`}>
+      <JsonLd
+        id="schema-accessibilite-handicap"
+        schema={getAccessibiliteHandicapPageJsonLd()}
+      />
+
+      {/* Hero */}
       <header className="max-w-3xl">
         <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#377CF3]">
-          {QUALIOPI_LEGAL.raisonSociale} — actions de formation
+          {OFC_IDENTITE.raisonSociale} — actions de formation
         </p>
         <h1 className="mt-2 text-3xl font-bold text-slate-900 md:text-4xl">
-          Accessibilité &amp; handicap
+          Accessibilité des formations et besoins d&apos;aménagement
         </h1>
         <p className="mt-4 text-slate-600">
-          Formations IA en présentiel pour les pros du bâtiment et des travaux publics — démarche
-          d&apos;accueil et d&apos;adaptation pour les salariés et dirigeants en situation de handicap.
+          Vous avez besoin d&apos;un aménagement pour suivre une formation ? Contactez la référente
+          handicap afin d&apos;étudier les solutions possibles avec vous.
+        </p>
+        <p className="mt-3 text-sm text-slate-600">
+          Échange confidentiel · Étude individualisée · Orientation si nécessaire
+        </p>
+        <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+          <a
+            href={mailtoHref}
+            className="inline-flex min-h-11 items-center justify-center gap-2 rounded-lg bg-[#377CF3] px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-[#2d66d6] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#377CF3]"
+          >
+            <Mail className="h-4 w-4 shrink-0" aria-hidden />
+            Contacter la référente handicap
+          </a>
+          <a
+            href="#essentiel"
+            className="inline-flex min-h-11 items-center justify-center rounded-lg border-2 border-[#377CF3] px-5 py-2.5 text-sm font-semibold text-[#377CF3] transition hover:bg-[#EFF6FF] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#377CF3]"
+          >
+            Voir les étapes
+          </a>
+        </div>
+        <p className="mt-6 text-sm text-slate-600">
+          Cette page concerne l&apos;accessibilité des <strong>actions de formation</strong> — pas
+          l&apos;accessibilité numérique du site internet, qui fait l&apos;objet d&apos;une démarche
+          distincte et n&apos;a pas fait l&apos;objet d&apos;audit de conformité RGAA publié.
         </p>
       </header>
 
       <article className="mt-12 space-y-10 rounded-lg bg-[#F2F2F2] px-5 py-8 md:space-y-12 md:px-8 md:py-10">
-        <Section id="engagement-accessibilite" title="Nos formations sont accessibles aux personnes en situation de handicap">
-          <p>
-            {QUALIOPI_LEGAL.raisonSociale} s&apos;engage à rendre ses actions de formation accessibles
-            aux personnes en situation de handicap, en intra-entreprise dans vos locaux en Île-de-France.
-          </p>
-          <p>
-            <strong>{QUALIOPI_REFERENT_HANDICAP.nom}</strong>, {QUALIOPI_REFERENT_HANDICAP.role} et
-            présidente de l&apos;organisme, est votre interlocutrice unique pour étudier les besoins
-            avant l&apos;entrée en formation : contraintes liées au chantier ou au bureau, fatigue,
-            vision, audition, mobilité, cognition ou tout autre situation nécessitant un aménagement.
-          </p>
-          <p>
-            L&apos;objectif est simple : vous permettre de suivre la session dans de bonnes conditions,
-            avec des supports et un rythme adaptés, sans compromettre les objectifs pédagogiques ni la
-            sécurité des exercices sur documents métier.
-          </p>
+        {/* L'essentiel */}
+        <Section id="essentiel" title="L'essentiel">
+          <ul className="list-disc space-y-2 pl-5">
+            <li>Signalez votre besoin d&apos;aménagement le plus tôt possible.</li>
+            <li>
+              Décrivez les difficultés rencontrées et les aménagements utiles, sans transmettre de
+              diagnostic médical.
+            </li>
+            <li>La faisabilité est étudiée avec vous — aucune solution n&apos;est garantie avant cette étude.</li>
+            <li>
+              Une orientation vers un autre format, un autre lieu ou un acteur spécialisé peut être
+              proposée si l&apos;adaptation n&apos;est pas réalisable.
+            </li>
+          </ul>
+          <Encadre>
+            <p>
+              Contactez-nous le plus tôt possible, idéalement au moins{' '}
+              <strong>15 jours avant la formation</strong>. Une demande plus tardive sera néanmoins
+              examinée, dans la limite du temps nécessaire pour organiser les adaptations (article 17
+              des{' '}
+              <Link
+                href={LINKS.cgv}
+                className="font-medium text-[#377CF3] underline-offset-2 hover:underline"
+              >
+                conditions générales de vente
+              </Link>
+              ).
+            </p>
+          </Encadre>
         </Section>
 
-        <Section id="comment-nous-prevenir" title="Comment nous prévenir">
-          <p>
-            Contactez la référente handicap <strong>dès votre demande d&apos;inscription</strong>, et au
-            plus tard <strong>15 jours avant le début de la session</strong>. Ce délai laisse le temps
-            d&apos;échanger avec vous, votre employeur et, si besoin, votre financeur (OPCO, etc.) sur
-            les adaptations à prévoir.
-          </p>
-          <div className="rounded-lg border border-[#377CF3]/20 bg-white p-5">
-            <p className="font-semibold text-slate-900">{QUALIOPI_REFERENT_HANDICAP.nom}</p>
-            <p className="text-sm text-slate-600">{QUALIOPI_REFERENT_HANDICAP.role}</p>
-            <div className="mt-4 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-              <a
-                href={`mailto:${CONTACT.email}?subject=${encodeURIComponent('Accessibilité handicap — demande avant formation OFC')}`}
-                className="inline-flex items-center justify-center gap-2 rounded-lg bg-[#377CF3] px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-[#2d66d6]"
+        {/* Comment faire une demande */}
+        <Section id="comment-faire-demande" title="Comment faire une demande ?">
+          <ol className="space-y-5">
+            {ETAPES_DEMANDE.map((etape, index) => (
+              <li key={etape.title} className="flex gap-4">
+                <span
+                  className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#377CF3] text-sm font-bold text-white"
+                  aria-hidden
+                >
+                  {index + 1}
+                </span>
+                <div>
+                  <h3 className="font-semibold text-slate-900">{etape.title}</h3>
+                  <p className="mt-1">{etape.body}</p>
+                </div>
+              </li>
+            ))}
+          </ol>
+        </Section>
+
+        {/* Adaptations */}
+        <Section id="exemples-adaptations" title="Exemples d'adaptations possibles">
+          <div className="grid gap-4 sm:grid-cols-2">
+            {ADAPTATIONS.map((item) => (
+              <div
+                key={item.title}
+                className="rounded-lg border border-slate-200/80 bg-white p-5"
               >
-                <Mail className="h-4 w-4 shrink-0" aria-hidden />
-                {CONTACT.email}
-              </a>
-              <a
-                href={`tel:${CONTACT.phone}`}
-                aria-label={PHONE_ARIA}
-                className="inline-flex items-center justify-center gap-2 rounded-lg border-2 border-[#377CF3] px-4 py-2.5 text-sm font-semibold text-[#377CF3] transition hover:bg-white"
-              >
-                <Phone className="h-4 w-4 shrink-0" aria-hidden />
-                {CONTACT.phoneDisplay}
-              </a>
-            </div>
+                <h3 className="font-semibold text-slate-900">{item.title}</h3>
+                <p className="mt-2 text-sm">{item.body}</p>
+              </div>
+            ))}
           </div>
           <p className="text-sm text-slate-600">
-            Décrivez votre situation, le public visé (salarié, dirigeant, équipe), la date envisagée
-            et toute contrainte connue (déplacement, horaires de chantier, matériel). Nous revenons
-            vers vous avec une proposition d&apos;adaptations avant signature de la convention.
+            Ces exemples ne constituent pas une liste garantie. Chaque solution dépend du besoin, du
+            lieu, du délai et de sa faisabilité.
           </p>
         </Section>
 
-        <Section id="adaptations-possibles" title="Les adaptations possibles">
+        {/* Confidentialité */}
+        <Section id="confidentialite" title="Vos informations restent confidentielles">
           <p>
-            Chaque demande est étudiée au cas par cas. Voici les aménagements les plus fréquents
-            sur nos sessions IA BTP (devis, appels d&apos;offres, suivi de chantier, administratif) :
-          </p>
-          <ul className="list-disc space-y-2 pl-5">
-            <li>
-              <strong>Rythme et pauses</strong> — découpes, temps de repos, séquences plus courtes
-              adaptées à la fatigue ou à la concentration.
-            </li>
-            <li>
-              <strong>Supports pédagogiques</strong> — documents en gros caractères, contraste renforcé,
-              versions numériques compatibles lecture vocale ou agrandissement.
-            </li>
-            <li>
-              <strong>Lieu et accès</strong> — session <strong>intra-entreprise</strong> dans votre
-              entreprise : vérification avec vous de la place de stationnement, de l&apos;accès de
-              plain-pied ou des ascenseurs, et des locaux d&apos;accueil.
-            </li>
-            <li>
-              <strong>Exercices pratiques</strong> — temps supplémentaire sur les mises en situation
-              (devis, comptes rendus, pièces d&apos;appel d&apos;offres), consignes reformulées,
-              accompagnement pas à pas si nécessaire.
-            </li>
-            <li>
-              <strong>Matériel</strong> — poste adapté (clavier, souris, écran), siège ergonomique
-              lorsque le site d&apos;accueil le permet, ou apport de matériel par le stagiaire /
-              l&apos;employeur selon faisabilité.
-            </li>
-          </ul>
-          <p className="text-sm text-slate-600">
-            Les adaptations retenues sont formalisées dans la convention de formation ou le programme
-            individualisé, puis ajustées en début et fin de session si besoin.
-          </p>
-        </Section>
-
-        <Section id="reseau-acteurs" title="Notre réseau de partenaires">
-          <p>
-            OFC ne prétend pas disposer d&apos;un réseau de partenaires contractuels dédié au
-            handicap. En revanche, l&apos;organisme peut <strong>orienter ou mobiliser, au cas par
-            cas</strong>, les acteurs publics et professionnels suivants selon le besoin identifié avec
-            le stagiaire et son employeur :
-          </p>
-          <ul className="list-disc space-y-2 pl-5">
-            <li>
-              <strong>AGEFIPH</strong> — accompagnement et financements possibles pour l&apos;insertion
-              et la formation dans le secteur privé.
-            </li>
-            <li>
-              <strong>Cap Emploi</strong> — appui aux personnes en situation de handicap dans leur
-              parcours professionnel.
-            </li>
-            <li>
-              <strong>MDPH du département du stagiaire</strong> — démarches et aides selon la
-              situation personnelle.
-            </li>
-            <li>
-              <strong>Référent handicap de l&apos;entreprise</strong> ou de l&apos;OPCO — coordination
-              avec le plan de développement des compétences et le financement.
-            </li>
-          </ul>
-          <p>
-            La mobilisation de ces acteurs dépend de votre situation : nous vous indiquons les
-            interlocuteurs pertinents ; c&apos;est à vous ou à votre employeur d&apos;engager les démarches
-            auprès de leurs services.
-          </p>
-        </Section>
-
-        <Section id="ressource-handicap-formation" title="Ressource Handicap Formation (RHF) — Agefiph">
-          <p>
-            La <strong>Ressource Handicap Formation (RHF)</strong> est un service gratuit de
-            l&apos;Agefiph pour adapter une formation en fonction du handicap. Elle s&apos;adresse aux
-            personnes en situation de handicap (en recherche d&apos;emploi, salariées ou en
-            alternance) qui ont un <strong>projet de formation validé</strong>.
+            Vous n&apos;avez pas à transmettre votre diagnostic médical. Indiquez uniquement les
+            besoins utiles à l&apos;organisation de la formation.
           </p>
           <p>
-            <strong>Qui fait la demande ?</strong> Le référent handicap de l&apos;organisme de
-            formation — chez OFC, {QUALIOPI_REFERENT_HANDICAP.nom} — auprès du conseiller RHF de la
-            région. Ce n&apos;est pas le stagiaire qui dépose seul la demande auprès de la RHF.
-          </p>
-          <p>Le service permet notamment de :</p>
-          <ul className="list-disc space-y-2 pl-5">
-            <li>
-              accompagner l&apos;organisme de formation pour penser et organiser l&apos;accessibilité
-              de ses sessions ;
-            </li>
-            <li>
-              conseiller le référent handicap afin de proposer un parcours adapté aux besoins et
-              contraintes de la personne.
-            </li>
-          </ul>
-          <p>
-            En Île-de-France, le contact RHF figure dans l&apos;annuaire PDF (ex.{' '}
-            <a
-              href="mailto:rhf-idf@agefiph.asso.fr"
-              className="font-medium text-[#377CF3] underline-offset-2 hover:underline"
-            >
-              rhf-idf@agefiph.asso.fr
-            </a>
-            ). Pour le détail officiel :{' '}
-            <ExternalLinkAnchor
-              href={EXTERNAL_SITE_URLS.agefiphRhf}
-              className="font-medium text-[#377CF3] underline-offset-2 hover:underline"
-            >
-              page Agefiph — Ressource Handicap Formation
-            </ExternalLinkAnchor>
-            .
+            Les informations ne sont partagées avec l&apos;employeur, le lieu d&apos;accueil, le
+            financeur ou un acteur spécialisé qu&apos;en fonction de la nécessité et après
+            information de la personne concernée.
           </p>
           <p>
-            <a
-              href={LINKS.annuaireHandicapPdf}
-              download
-              className="font-medium text-[#377CF3] underline-offset-2 hover:underline"
-            >
-              Télécharger les contacts RHF Agefiph (PDF — janvier 2026)
-            </a>
-            {' · '}
+            Les aménagements opérationnels sont formalisés sans y faire figurer de données médicales
+            inutiles (convention, programme, feuille d&apos;émargement). Pour le cadre juridique du
+            traitement des données, consultez la{' '}
             <Link
-              href={LINKS.annuaireHandicap}
+              href={LINKS.politiqueConfidentialite}
               className="font-medium text-[#377CF3] underline-offset-2 hover:underline"
             >
-              Page Annuaire handicap
+              politique de confidentialité
             </Link>
             .
           </p>
         </Section>
 
-        <Section id="si-pas-adaptation" title="Et si nous ne pouvons pas adapter">
+        {/* Acteurs */}
+        <Section id="acteurs-ressources" title="Acteurs et ressources utiles">
           <p>
-            Si, après échange avec la référente handicap, les contraintes (délai, lieu, matériel,
-            objectifs pédagogiques ou sécurité des exercices) ne permettent pas de garantir un accueil
-            de qualité, OFC propose une <strong>réorientation</strong> vers une solution plus adaptée :
+            Les structures ci-dessous ne sont pas des partenaires contractuels d&apos;OFC. Elles
+            peuvent être utiles selon votre situation ; nous pouvons vous orienter, sans garantie
+            d&apos;éligibilité ni de financement.
+          </p>
+          <ul className="space-y-4">
+            {ACTEURS.map((acteur) => (
+              <li key={acteur.name} className="rounded-lg border border-slate-200/80 bg-white p-4">
+                <p className="font-semibold text-slate-900">
+                  <ExternalLinkAnchor
+                    href={acteur.href}
+                    className="text-[#377CF3] underline-offset-2 hover:underline"
+                  >
+                    {acteur.name}
+                  </ExternalLinkAnchor>
+                </p>
+                <p className="mt-1 text-sm">{acteur.role}</p>
+              </li>
+            ))}
+          </ul>
+          <p className="text-sm text-slate-600">
+            Contacts RHF par région :{' '}
+            <ExternalLinkAnchor
+              href={EXTERNAL_SITE_URLS.agefiphRhf}
+              className="font-medium text-[#377CF3] underline-offset-2 hover:underline"
+            >
+              page officielle Agefiph — Ressource Handicap Formation
+            </ExternalLinkAnchor>
+            {' · '}
+            <Link
+              href={LINKS.annuaireHandicap}
+              className="font-medium text-[#377CF3] underline-offset-2 hover:underline"
+            >
+              annuaire handicap OFC
+            </Link>
+            {' '}
+            (PDF contacts RHF — janvier 2026).
+          </p>
+        </Section>
+
+        {/* Si adaptation non réalisable */}
+        <Section id="adaptation-non-realisable" title="Si une adaptation ne peut pas être mise en place">
+          <p>
+            Si, après échange, les contraintes (délai, lieu, matériel, objectifs pédagogiques ou
+            sécurité) ne permettent pas de proposer un accueil satisfaisant, nous vous expliquons
+            les raisons et recherchons avec vous d&apos;autres pistes :
           </p>
           <ul className="list-disc space-y-2 pl-5">
-            <li>report de la session à une date ou un lieu permettant les aménagements ;</li>
+            <li>report à une date ou un lieu permettant les aménagements ;</li>
+            <li>autre format de session, lorsque cela est envisageable ;</li>
             <li>
-              session intra dans l&apos;entreprise, lorsque l&apos;environnement du stagiaire (bureau,
-              chantier, équipements) est plus favorable ;
+              orientation vers un organisme ou un dispositif plus adapté, en lien avec l&apos;employeur
+              et le financeur si nécessaire et avec votre accord ;
             </li>
             <li>
-              orientation vers un autre organisme ou dispositif identifié avec l&apos;employeur et le
-              financeur (OPCO, AGEFIPH, etc.), en toute transparence sur les raisons du refus ou du
-              report ;
-            </li>
-            <li>
-              annulation sans pénalité du stagiaire si la convention n&apos;a pas encore démarré et qu&apos;aucune
-              alternative n&apos;est trouvée dans un délai raisonnable.
+              conséquences contractuelles selon la convention signée et les{' '}
+              <Link
+                href={LINKS.cgv}
+                className="font-medium text-[#377CF3] underline-offset-2 hover:underline"
+              >
+                conditions générales de vente
+              </Link>{' '}
+              applicables.
             </li>
           </ul>
-          <p>
-            Cette démarche est menée en lien avec <strong>votre employeur</strong> et, le cas échéant,{' '}
-            <strong>votre financeur</strong>, pour respecter vos obligations administratives et
-            budgétaires. Notre priorité reste de trouver une modalité de formation viable plutôt que
-            d&apos;imposer un parcours inadapté.
+          <p className="text-sm text-slate-600">
+            Une trace interne proportionnée de la demande, des solutions étudiées et de la décision
+            est conservée, sans données médicales inutiles.
+          </p>
+        </Section>
+
+        {/* Contact */}
+        <Section id="contacter-referente" title="Contacter la référente handicap">
+          <Encadre>
+            <p className="font-semibold text-slate-900">{QUALIOPI_REFERENT_HANDICAP.nom}</p>
+            <p className="text-sm text-slate-600">
+              {QUALIOPI_REFERENT_HANDICAP.role} — {OFC_IDENTITE.raisonSociale}
+            </p>
+            <div className="mt-4 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+              <a
+                href={mailtoHref}
+                className="inline-flex min-h-11 items-center justify-center gap-2 rounded-lg bg-[#377CF3] px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-[#2d66d6] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#377CF3]"
+              >
+                <Mail className="h-4 w-4 shrink-0" aria-hidden />
+                Écrire à la référente handicap
+              </a>
+              <a
+                href={`tel:${CONTACT.phone}`}
+                aria-label={PHONE_ARIA}
+                className="inline-flex min-h-11 items-center justify-center gap-2 rounded-lg border-2 border-[#377CF3] px-4 py-2.5 text-sm font-semibold text-[#377CF3] transition hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#377CF3]"
+              >
+                <Phone className="h-4 w-4 shrink-0" aria-hidden />
+                Appeler — {CONTACT.phoneDisplay}
+              </a>
+            </div>
+          </Encadre>
+          <p className="text-sm text-slate-600">
+            Dans votre premier message, indiquez la formation ou la période envisagée et les
+            aménagements dont vous pourriez avoir besoin. N&apos;envoyez pas de document médical.
+          </p>
+          <p className="text-sm text-slate-600">
+            <Link
+              href={LINKS.contact}
+              className="font-medium text-[#377CF3] underline-offset-2 hover:underline"
+            >
+              Page contact
+            </Link>
+            {' · '}
+            <Link
+              href={LINKS.formations}
+              className="font-medium text-[#377CF3] underline-offset-2 hover:underline"
+            >
+              Catalogue formations
+            </Link>
           </p>
         </Section>
       </article>
-
-      <p className="mt-10 text-center text-sm text-slate-600">
-        Une question avant de vous inscrire ?{' '}
-        <Link href={LINKS.contact} className="font-medium text-[#377CF3] hover:underline">
-          Page contact
-        </Link>{' '}
-        ·{' '}
-        <Link href={LINKS.formations} className="font-medium text-[#377CF3] hover:underline">
-          Catalogue formations
-        </Link>
-      </p>
     </div>
   );
 }

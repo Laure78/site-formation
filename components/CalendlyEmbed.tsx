@@ -76,6 +76,7 @@ function CalendlyInlineBody({
         <a
           href={url}
           target="_blank"
+          rel="noopener noreferrer"
           className="ofc-link font-semibold"
         >
           Ouvrir l&apos;agenda dans un nouvel onglet

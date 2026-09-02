@@ -172,7 +172,7 @@ export function InfosPratiques({ formation, className = '' }: InfosPratiquesProp
                   href={LINKS.accessibiliteHandicap}
                   className="font-medium text-[#377CF3] underline-offset-2 hover:underline"
                 >
-                  Accessibilité handicap — page dédiée et contact référente
+                  Accessibilité des formations — parcours d&apos;aménagement
                 </Link>
               </p>
             </div>

@@ -100,6 +100,6 @@ export const SITE = {
     exploreMetiersTitle: 'Formations IA par métier',
     exploreIdfTitle: 'Formations en Île-de-France',
     accessibiliteLabel:
-      'Accessibilité handicap — informations complètes et adaptations possibles',
+      'Accessibilité des formations — besoins d’aménagement et référente handicap',
   },
 } as const;

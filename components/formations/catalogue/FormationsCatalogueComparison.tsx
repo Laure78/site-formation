@@ -1,17 +1,15 @@
 import Link from 'next/link';
 import type { FormationCatalogueEntry } from '@/lib/formations-catalogue-display';
 import {
-  catalogueCasUsageTags,
-  cataloguePublicOneLine,
-} from '@/lib/formations-catalogue-page-config';
-import {
   catalogueNiveauLabel,
   sortFormationsCatalogue,
   tarifLabelForEntry,
 } from '@/lib/formations-catalogue-display';
-import { OFC_CTA_SECONDARY } from '@/lib/ofc-interaction-classes';
+import { catalogueGammeLabel } from '@/lib/formations-catalogue-display';
+import { PERIMETRE_FORMATIONS_COURT } from '@/lib/tarifs-sessions';
+import { OFC_CTA_SECONDARY, OFC_LINK } from '@/lib/ofc-interaction-classes';
 
-/** Comparateur synthétique — tableau desktop + cartes mobile. */
+/** Comparateur synthétique — tableau desktop, cartes mobile (pas de scroll horizontal). */
 export function FormationsCatalogueComparison({ formations }: { formations: FormationCatalogueEntry[] }) {
   const rows = sortFormationsCatalogue(formations);
 
@@ -21,44 +19,45 @@ export function FormationsCatalogueComparison({ formations }: { formations: Form
         id="comparatif-formations-heading"
         className="font-display text-2xl font-bold text-ofc-ink md:text-3xl"
       >
-        Comparez les formations en un coup d&apos;œil
+        Comparez les formations
       </h2>
+      <p className="mt-3 max-w-2xl text-sm text-slate-600">
+        Vue synthétique — le détail pédagogique reste sur chaque fiche.
+      </p>
 
-      <div className="mt-8 hidden overflow-x-auto rounded-2xl border border-slate-200 md:block">
-        <table className="w-full min-w-[720px] border-collapse text-left text-sm">
+      <div className="mt-8 hidden md:block">
+        <table className="w-full border-collapse text-left text-sm">
           <thead>
-            <tr className="bg-ofc-accent text-white">
-              <th className="px-4 py-3 font-semibold">Formation</th>
-              <th className="px-4 py-3 font-semibold">Pour qui ?</th>
-              <th className="px-4 py-3 font-semibold">Cas d&apos;usage</th>
-              <th className="px-4 py-3 font-semibold">Niveau</th>
-              <th className="px-4 py-3 font-semibold">Durée</th>
-              <th className="px-4 py-3 font-semibold">Tarif</th>
-              <th className="px-4 py-3 font-semibold"> </th>
+            <tr className="border-b border-slate-200 bg-slate-50">
+              <th className="px-3 py-3 font-semibold text-ofc-ink">Formation</th>
+              <th className="px-3 py-3 font-semibold text-ofc-ink">Besoin</th>
+              <th className="px-3 py-3 font-semibold text-ofc-ink">Niveau</th>
+              <th className="px-3 py-3 font-semibold text-ofc-ink">Durée</th>
+              <th className="px-3 py-3 font-semibold text-ofc-ink">Format</th>
+              <th className="px-3 py-3 font-semibold text-ofc-ink">Tarif</th>
+              <th className="px-3 py-3 font-semibold text-ofc-ink">
+                <span className="sr-only">Lien</span>
+              </th>
             </tr>
           </thead>
           <tbody>
-            {rows.map((row, i) => (
-              <tr key={row.ref} className={i % 2 === 0 ? 'bg-white' : 'bg-slate-50'}>
-                <td className="px-4 py-3 align-top font-medium text-ofc-ink">
-                  <Link href={row.href} className="hover:text-ofc-accent hover:underline">
+            {rows.map((row) => (
+              <tr key={row.ref} className="border-b border-slate-100">
+                <td className="px-3 py-3 align-top font-medium text-ofc-ink">
+                  <Link href={row.href} className={OFC_LINK}>
                     {row.title}
                   </Link>
                 </td>
-                <td className="max-w-[12rem] px-4 py-3 align-top text-slate-600">
-                  {cataloguePublicOneLine(row.comparatif.publicLabel, 2)}
-                </td>
-                <td className="px-4 py-3 align-top text-slate-600">
-                  {catalogueCasUsageTags(row).join(' · ')}
-                </td>
-                <td className="px-4 py-3 align-top text-slate-700">{catalogueNiveauLabel(row.ref)}</td>
-                <td className="px-4 py-3 align-top text-slate-700">{row.duree}</td>
-                <td className="px-4 py-3 align-top text-slate-700">
+                <td className="px-3 py-3 align-top text-slate-600">{catalogueGammeLabel(row.gamme)}</td>
+                <td className="px-3 py-3 align-top text-slate-700">{catalogueNiveauLabel(row.ref)}</td>
+                <td className="px-3 py-3 align-top text-slate-700">{row.duree}</td>
+                <td className="px-3 py-3 align-top text-slate-700">{PERIMETRE_FORMATIONS_COURT}</td>
+                <td className="px-3 py-3 align-top text-slate-700">
                   {row.tarifParcoursLabel ?? tarifLabelForEntry(row)}
                 </td>
-                <td className="px-4 py-3 align-top">
-                  <Link href={row.href} className={`${OFC_CTA_SECONDARY} whitespace-nowrap px-4 py-2 text-xs`}>
-                    Voir la formation
+                <td className="px-3 py-3 align-top">
+                  <Link href={row.href} className={`${OFC_CTA_SECONDARY} whitespace-nowrap px-3 py-2 text-xs`}>
+                    Voir
                   </Link>
                 </td>
               </tr>
@@ -67,32 +66,21 @@ export function FormationsCatalogueComparison({ formations }: { formations: Form
         </table>
       </div>
 
-      <div className="mt-8 space-y-4 md:hidden">
+      <div className="mt-8 space-y-3 md:hidden">
         {rows.map((row) => (
-          <div key={row.ref} className="rounded-xl border border-slate-200 bg-white p-4 text-sm shadow-sm">
+          <div key={row.ref} className="rounded-xl border border-slate-200 bg-white p-4 text-sm">
             <p className="text-xs font-bold uppercase tracking-wide text-ofc-accent">
-              {catalogueNiveauLabel(row.ref)}
+              {catalogueGammeLabel(row.gamme)} · {catalogueNiveauLabel(row.ref)}
             </p>
-            <h3 className="mt-2 font-display text-base font-semibold text-ofc-ink">
+            <h3 className="mt-1 font-display text-base font-semibold text-ofc-ink">
               <Link href={row.href}>{row.title}</Link>
             </h3>
             <p className="mt-2 text-slate-600">
-              <span className="font-medium text-slate-800">Pour qui : </span>
-              {cataloguePublicOneLine(row.comparatif.publicLabel, 2)}
-            </p>
-            <p className="mt-2 text-slate-600">
-              <span className="font-medium text-slate-800">Cas d&apos;usage : </span>
-              {catalogueCasUsageTags(row).join(' · ')}
-            </p>
-            <p className="mt-2 text-slate-600">
-              <span className="font-medium text-slate-800">Durée : </span>
-              {row.duree}
-              <span className="font-medium text-slate-800"> · Tarif : </span>
-              {row.tarifParcoursLabel ?? tarifLabelForEntry(row)}
+              {row.duree} · {row.tarifParcoursLabel ?? tarifLabelForEntry(row)}
             </p>
             <Link
               href={row.href}
-              className={`${OFC_CTA_SECONDARY} mt-4 inline-flex min-h-11 w-full items-center justify-center px-4 py-2.5`}
+              className={`${OFC_CTA_SECONDARY} mt-3 inline-flex min-h-11 w-full items-center justify-center px-4 py-2.5`}
             >
               Voir la formation
             </Link>

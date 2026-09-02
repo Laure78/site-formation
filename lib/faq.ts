@@ -22,13 +22,14 @@ import {
 } from '@/lib/tarifs-sessions';
 import { getCatalogueFormationsCount } from '@/lib/formations-catalogue-display';
 import { isFormationCataloguePublished } from '@/lib/formation-catalogue-visibility';
-import { SOCIAL_PROOF, IDF_ZONE_INTERVENTION } from '@/lib/constants';
+import { SOCIAL_PROOF, IDF_ZONE_INTERVENTION, CONTACT } from '@/lib/constants';
 import { getLaureOlivieSchemaPersonDescription } from '@/lib/laure-olivie-profile';
 import { LINKS } from '@/lib/internal-links';
 import {
   FINANCEMENT_CONSTRUCTYS_PLAFONDS_COURT,
   FINANCEMENT_FORMULATION_PRUDENTE,
   FINANCEMENT_FORMULATION_COURTE,
+  FINANCEMENT_FORMULATION_CATALOGUE,
   FINANCEMENT_PAGE_LINK_LABEL,
   FINANCEMENT_FAQ_PARTIELLE_CORPS,
 } from '@/lib/financement-copy';
@@ -229,16 +230,16 @@ export const FAQ_GEO: FAQItem[] = [
 /** FAQ page catalogue `/formations` — 6 questions visibles (orientation + pratique). */
 export const FAQ_CATALOGUE_PAGE: readonly FAQItem[] = [
   {
-    q: 'Quelle formation choisir pour débuter ?',
-    a: `Commencez par <a href="${LINKS.formationIaBtpNiveau1BatimentTp}">L'IA au service des pros du bâtiment et des travaux publics</a> (niveau 1) : devis, emails, comptes rendus et documents sur vos fichiers réels.`,
+    q: 'Quelle formation choisir ?',
+    a: `Repérez votre besoin (découvrir, devis, appels d’offres, chantier, maîtrise d’œuvre, déployer) puis consultez la fiche correspondante. En cas de doute : <a href="${LINKS.prendreRdv}">être conseillé</a>.`,
   },
   {
-    q: "Quelle formation choisir pour les appels d'offres ?",
-    a: `Optez pour <a href="${LINKS.formationAO}">L'IA appliquée aux appels d'offres BTP</a> : analyse DCE, chiffrage assisté et structuration du mémoire technique.`,
+    q: 'Quelle différence entre intra et interentreprises ?',
+    a: 'En intra-entreprise, la session est organisée pour votre équipe (forfait par session). En interentreprises, le tarif est calculé par participant. Le devis précise le format, l’effectif, la durée et le montant.',
   },
   {
     q: 'Les formations peuvent-elles être adaptées à notre métier ?',
-    a: `Oui. Les exercices s'appuient sur vos documents et processus (devis, DCE, CR, mémoires techniques). Un échange préalable permet de cadrer les cas d'usage — <a href="${LINKS.prendreRdv}">Réserver un échange</a>.`,
+    a: `Oui. Les exercices s’appuient sur vos documents et processus (devis, DCE, CR, mémoires techniques). Un échange préalable permet de cadrer les cas d’usage — <a href="${LINKS.prendreRdv}">Réserver un échange</a>.`,
   },
   {
     q: 'Peut-on travailler sur nos propres documents ?',
@@ -250,7 +251,7 @@ export const FAQ_CATALOGUE_PAGE: readonly FAQItem[] = [
   },
   {
     q: 'Une prise en charge OPCO est-elle possible ?',
-    a: `${FINANCEMENT_FORMULATION_PRUDENTE} Détails : <a href="${LINKS.financement}">${FINANCEMENT_PAGE_LINK_LABEL}</a>.`,
+    a: `${FINANCEMENT_FORMULATION_CATALOGUE} Détails : <a href="${LINKS.financement}">${FINANCEMENT_PAGE_LINK_LABEL}</a>.`,
   },
 ];
 
@@ -471,20 +472,16 @@ export const FAQ_A_PROPOS: FAQItem[] = [
 
 export const FAQ_PRENDRE_RDV: FAQItem[] = [
   {
-    q: "Le rendez-vous est-il gratuit ?",
-    a: 'Oui. L\'échange de 30 minutes est gratuit. J\'échange avec vous sur votre projet, j\'identifie vos besoins et vous envoie un devis personnalisé sous 24h — voir aussi la page <a href="/contact">contact</a> et le <a href="/formations">catalogue formations</a>.',
+    q: 'Le rendez-vous est-il gratuit ?',
+    a: 'Oui. L’échange de 30 minutes est gratuit et sans engagement d’achat.',
   },
   {
-    q: "Comment se déroule le RDV ?",
-    a: `Vous réservez un créneau via <a href="${LINKS.prendreRdv}">Réservez votre visio découverte gratuite</a>. L'échange se fait en visioconférence ou par téléphone selon ce que vous choisissez. À l'issue, vous recevez un devis détaillé avec les possibilités de financement OPCO — <a href="/financement-constructys-formation-ia-btp">guide Constructys</a>.`,
+    q: 'Comment se déroule l’échange ?',
+    a: 'Vous choisissez un créneau, puis nous échangeons en visioconférence ou par téléphone. Nous précisons votre besoin et la suite possible. Aucun document confidentiel n’est nécessaire pour ce premier échange.',
   },
   {
-    q: 'La formation se déroule-t-elle en visio ?',
-    a: 'Non pour la session catalogue : présentiel uniquement · Île-de-France uniquement (intra-entreprise, dans vos locaux). Le RDV de cadrage préalable se fait en visio ou par téléphone.',
-  },
-  {
-    q: "Que faire si aucun créneau ne me convient ?",
-    a: `Écrivez à Laure depuis la page <a href="/contact">contact</a> ou <a href="/">accueil</a> (e-mail et téléphone) ou réservez un créneau <a href="${LINKS.prendreRdv}">Réservez votre visio découverte gratuite</a>. Je vous recontacte rapidement si besoin.`,
+    q: 'Que faire si aucun créneau ne me convient ?',
+    a: `Utilisez la page <a href="${LINKS.contact}">Contact</a> pour envoyer votre demande, ou écrivez à <a href="mailto:${CONTACT.email}">${CONTACT.email}</a>.`,
   },
 ];
 

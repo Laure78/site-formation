@@ -23,6 +23,8 @@
     "programmes:applications-metier": "npx tsx scripts/generate-programmes-applications-metier.ts",
     "validate:schema": "npx tsx scripts/validate-schema-jsonld.mjs && npx tsx scripts/validate-formation-course-jsonld.mjs && node scripts/validate-article-faq-jsonld.mjs",
     "test:seo-titles": "npx tsx scripts/assert-branded-titles.ts",
+    "test:indicateurs": "npx tsx scripts/assert-indicateurs-resultats.ts",
+    "test:ressources": "npx tsx scripts/assert-ressources-catalog.ts",
     "check:internal-links": "npx tsx scripts/check-internal-links.ts",
     "indexnow": "npx tsx scripts/indexnow-submit.ts",
     "indexnow:changed": "npx tsx scripts/indexnow-notify-changed.ts"

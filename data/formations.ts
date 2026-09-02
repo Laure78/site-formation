@@ -176,7 +176,7 @@ export const FORMATIONS: readonly Formation[] = [
     niveau: 2,
     niveauLabel: 'Avancé',
     duree: '4 h',
-    horaires: 'matin (9h00 – 13h00)',
+    horaires: '9h00 – 13h00',
     effectifMin: 1,
     effectifMax: 8,
     prixHT: 1200,
@@ -376,13 +376,10 @@ export function formationHref(f: Pick<Formation, 'slug'>): string {
   return `/formations/${f.slug}`;
 }
 
-/** Affichage durée (+ horaires si présents ; évite le double « matin »). */
+/** Affichage durée (+ horaires si présents ; sans préfixe « matin » abusif). */
 export function libelleDureeFormation(f: Pick<Formation, 'duree' | 'horaires'>): string {
   if (!f.horaires) return f.duree;
-  if (/matin/i.test(f.horaires)) {
-    return `${f.duree} ${f.horaires}`;
-  }
-  return `${f.duree} matin (${f.horaires})`;
+  return `${f.duree} (${f.horaires})`;
 }
 
 /** « 4 à 12 participants » — jamais de littéral hors de cette helper. */

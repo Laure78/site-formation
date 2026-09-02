@@ -1,117 +1,118 @@
 /**
- * Page catalogue `/formations` — données UX (source formations + tarifs existants).
+ * Page catalogue `/formations` — données UX (source `data/formations.ts` + tarifs).
  */
 import {
   getFormationsCatalogue,
   type FormationCatalogueEntry,
 } from '@/lib/formations-catalogue-display';
-import { getCatalogueFormationsCount, isFormationCataloguePublished } from '@/lib/formation-catalogue-visibility';
-import { formatVolumeProsFormesBtp, formatNoteSatisfactionSur5 } from '@/lib/data/indicateurs-resultats';
-import { PERIMETRE_FORMATIONS_COURT } from '@/lib/tarifs-sessions';
+import {
+  formatNoteSatisfactionAffichageComplet,
+  formatPeriodeReferenceAffichage,
+} from '@/lib/data/indicateurs-resultats';
+import { CATALOGUE_ALL_OFFERS, type CatalogueOffer } from '@/lib/formations-catalogue-architecture';
+import { FINANCEMENT_FORMULATION_CATALOGUE } from '@/lib/financement-copy';
 
-/** Cinq parcours cœur du catalogue (spec UX). */
-export const CATALOGUE_PAGE_CORE_REFS = [
-  'NIV-01',
-  'NIV-02',
-  'NIV-03',
-  'NIV-04',
-  'NIV-05',
-] as const;
+/** Toutes les formations catalogue publiées (NIV-01 … NIV-08 selon dates). */
+export function getCataloguePageCoreFormations(
+  at: Date = new Date(),
+): FormationCatalogueEntry[] {
+  return getFormationsCatalogue(at);
+}
 
 export type CatalogueBesoinId =
-  | 'debuter'
+  | 'decouvrir'
+  | 'devis-documents'
   | 'appels-offres'
-  | 'conduite-travaux'
+  | 'chantier'
   | 'maitrise-oeuvre'
-  | 'deploiement-ia';
+  | 'deployer';
 
 export type CatalogueBesoinOption = {
   id: CatalogueBesoinId;
   label: string;
   description: string;
-  targetRef: (typeof CATALOGUE_PAGE_CORE_REFS)[number];
+  /** Réfs catalogue mises en évidence (OU). */
+  targetRefs: readonly string[];
 };
 
 export const CATALOGUE_BESOIN_OPTIONS: readonly CatalogueBesoinOption[] = [
   {
-    id: 'debuter',
-    label: 'Je découvre l’IA',
-    description: 'Fondamentaux IA BTP — devis, emails, documents',
-    targetRef: 'NIV-01',
+    id: 'decouvrir',
+    label: 'Découvrir l’IA',
+    description: 'Fondamentaux IA BTP — premiers usages sur vos documents',
+    targetRefs: ['NIV-01'],
+  },
+  {
+    id: 'devis-documents',
+    label: 'Gagner du temps sur les devis et documents',
+    description: 'Devis, emails, comptes rendus et production documentaire',
+    targetRefs: ['NIV-01'],
   },
   {
     id: 'appels-offres',
-    label: 'Je réponds aux appels d’offres',
+    label: 'Répondre aux appels d’offres',
     description: 'DCE, chiffrage, mémoire technique',
-    targetRef: 'NIV-02',
+    targetRefs: ['NIV-02'],
   },
   {
-    id: 'conduite-travaux',
-    label: 'Je pilote des chantiers',
+    id: 'chantier',
+    label: 'Piloter les chantiers',
     description: 'CR, PPSPS, réserves, DOE',
-    targetRef: 'NIV-03',
+    targetRefs: ['NIV-03'],
   },
   {
     id: 'maitrise-oeuvre',
-    label: 'Je travaille en maîtrise d’œuvre',
+    label: 'Travailler en maîtrise d’œuvre',
     description: 'DCE, CR, OS, réception',
-    targetRef: 'NIV-05',
+    targetRefs: ['NIV-05'],
   },
   {
-    id: 'deploiement-ia',
-    label: 'Je veux industrialiser l’IA',
-    description: 'Claude, assistants et workflows en entreprise',
-    targetRef: 'NIV-04',
+    id: 'deployer',
+    label: 'Créer ou déployer des outils IA',
+    description: 'Claude avancé et applications métier',
+    targetRefs: ['NIV-04', 'NIV-06', 'NIV-07', 'NIV-08'],
   },
-];
+] as const;
 
-/** Options sélecteur — masque les besoins dont la fiche n'est pas publiée. */
+/** Options sélecteur — masque les besoins sans formation publiée. */
 export function getCatalogueBesoinOptions(at: Date = new Date()): readonly CatalogueBesoinOption[] {
+  const published = new Set(getFormationsCatalogue(at).map((f) => f.ref));
   return CATALOGUE_BESOIN_OPTIONS.filter((opt) =>
-    isFormationCataloguePublished(opt.targetRef, at),
+    opt.targetRefs.some((ref) => published.has(ref)),
   );
 }
 
 export const CATALOGUE_METHODE_ETAPES = [
   {
     n: '1',
-    titre: 'Identification du besoin',
-    texte: 'Nous identifions les usages prioritaires de votre équipe.',
+    titre: 'Cadrage',
+    texte: 'Identification des usages prioritaires de votre équipe.',
   },
   {
     n: '2',
-    titre: 'Travail sur vos documents',
-    texte: 'Les exercices s’appuient sur vos documents et situations métier.',
+    titre: 'Adaptation',
+    texte: 'Exercices sur vos documents et situations métier.',
   },
   {
     n: '3',
-    titre: 'Formation opérationnelle',
+    titre: 'Pratique',
     texte: 'Les participants pratiquent directement pendant la session.',
   },
   {
     n: '4',
-    titre: 'Réutilisation en entreprise',
-    texte: 'Ils repartent avec des méthodes directement applicables.',
+    titre: 'Réutilisation',
+    texte: 'Méthodes et livrables applicables dès le retour en entreprise.',
   },
 ] as const;
 
-/** Parcours cœur publiés (NIV-01 à NIV-05). */
-export function getCataloguePageCoreFormations(
-  at: Date = new Date(),
-): FormationCatalogueEntry[] {
-  const published = new Set(
-    getFormationsCatalogue(at).map((f) => f.ref),
-  );
-  return CATALOGUE_PAGE_CORE_REFS.filter((ref) => published.has(ref)).map((ref) => {
-    const entry = getFormationsCatalogue(at).find((f) => f.ref === ref);
-    if (!entry) throw new Error(`Formation catalogue ${ref} introuvable`);
-    return entry;
-  });
-}
+export const CATALOGUE_HERO_REASSURANCE =
+  `OFC certifié Qualiopi · Formations en entreprise · Île-de-France` as const;
 
-export function getCataloguePageHeroReassurance(at: Date = new Date()): string {
-  const count = getCataloguePageCoreFormations(at).length;
-  return `${count} parcours · Organisme certifié Qualiopi · ${PERIMETRE_FORMATIONS_COURT}`;
+export const CATALOGUE_HERO_SUBTITLE =
+  'Choisissez un parcours selon votre niveau et vos usages : devis, appels d’offres, chantier, maîtrise d’œuvre ou déploiement de l’IA.' as const;
+
+export function getCataloguePageHeroReassurance(): string {
+  return CATALOGUE_HERO_REASSURANCE;
 }
 
 /** Une ligne « pour qui » — extrait du champ public catalogue. */
@@ -134,15 +135,42 @@ export function catalogueCardAnchorId(ref: string): string {
 }
 
 export function getCataloguePageProofLine(): string {
-  return `${formatVolumeProsFormesBtp()} professionnels formés · ${formatNoteSatisfactionSur5()} de satisfaction · Qualiopi`;
+  return `Satisfaction à chaud : ${formatNoteSatisfactionAffichageComplet()} (${formatPeriodeReferenceAffichage()}). Organisme certifié Qualiopi — actions de formation.`;
 }
 
-/** Parcours applications métier — bandeau secondaire si NIV-06 publié. */
+export function getCataloguePageFinancementLine(): string {
+  return FINANCEMENT_FORMULATION_CATALOGUE;
+}
+
+/** Parcours applications métier — bandeau si NIV-06 publié. */
 export function showParcoursApplicationsMetierBandeau(at: Date = new Date()): boolean {
-  return isFormationCataloguePublished('NIV-06', at);
+  return getFormationsCatalogue(at).some((f) => f.ref === 'NIV-06');
+}
+
+export function getCatalogueApplicationsMetierFormations(
+  at: Date = new Date(),
+): FormationCatalogueEntry[] {
+  return getFormationsCatalogue(at).filter((f) =>
+    f.ref === 'NIV-06' || f.ref === 'NIV-07' || f.ref === 'NIV-08',
+  );
+}
+
+export function getCatalogueCoreWithoutApplications(
+  at: Date = new Date(),
+): FormationCatalogueEntry[] {
+  return getFormationsCatalogue(at).filter(
+    (f) => f.ref !== 'NIV-06' && f.ref !== 'NIV-07' && f.ref !== 'NIV-08',
+  );
+}
+
+/** Offres sur demande / sans fiche Qualiopi catalogue. */
+export function getCatalogueSurDemandeOffers(): readonly CatalogueOffer[] {
+  return CATALOGUE_ALL_OFFERS.filter((o) => o.kind === 'sur-demande');
 }
 
 export function getCataloguePageMetaDescriptionShort(at: Date = new Date()): string {
-  const count = getCatalogueFormationsCount(at);
-  return `Formations IA pour les pros du BTP : fondamentaux, appels d'offres, chantier, maîtrise d'œuvre et usages avancés. ${count} parcours Qualiopi — présentiel IDF.`;
+  void at;
+  return 'Formation IA pour le BTP : devis, DCE, appels d’offres, conduite de travaux, maîtrise d’œuvre et outils métier.';
 }
+
+export const CATALOGUE_PAGE_TITLE = 'Formations IA BTP | Devis, chantier et appels d’offres';

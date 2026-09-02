@@ -9,6 +9,8 @@ type QualiopiCertificationNoticeProps = {
   className?: string;
   /** Afficher le lien vers le certificat PDF */
   showCertificateLink?: boolean;
+  /** Afficher le lien vers `/indicateurs-resultats` (désactiver sur cette page). */
+  showIndicateursLink?: boolean;
   compact?: boolean;
 };
 
@@ -19,6 +21,7 @@ type QualiopiCertificationNoticeProps = {
 export function QualiopiCertificationNotice({
   className = '',
   showCertificateLink = true,
+  showIndicateursLink = true,
   compact = false,
 }: QualiopiCertificationNoticeProps) {
   const textSize = compact ? 'text-xs' : 'text-sm';
@@ -52,9 +55,11 @@ export function QualiopiCertificationNotice({
           >
             Vérifier sur data.gouv.fr
           </ExternalLinkAnchor>
-          <Link href={LINKS.indicateursResultats} className="font-medium text-[#377CF3] hover:underline">
-            Indicateurs de résultats
-          </Link>
+          {showIndicateursLink ? (
+            <Link href={LINKS.indicateursResultats} className="font-medium text-[#377CF3] hover:underline">
+              Indicateurs de résultats
+            </Link>
+          ) : null}
         </div>
       </div>
     </div>

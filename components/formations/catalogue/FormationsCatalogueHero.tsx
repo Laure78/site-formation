@@ -1,41 +1,31 @@
 import Link from 'next/link';
-import { Award, GraduationCap, Users } from 'lucide-react';
 import { MarketingLightHero } from '@/components/marketing/MarketingLightHero';
 import {
-  getCataloguePageCoreFormations,
+  CATALOGUE_HERO_SUBTITLE,
   getCataloguePageHeroReassurance,
 } from '@/lib/formations-catalogue-page-config';
 import { LINKS } from '@/lib/internal-links';
 import { CATALOGUE_POSITIONNEMENT } from '@/lib/formations-catalogue-architecture';
-import { formatNoteSatisfactionSur5 } from '@/lib/data/indicateurs-resultats';
 import { getPillarPageContentUpdatedAt } from '@/lib/content-updated-at';
 import { PHOTOS } from '@/lib/photos';
 import { OFC_CTA_PRIMARY, OFC_CTA_SECONDARY } from '@/lib/ofc-interaction-classes';
 
-/** Hero catalogue — en-tête visuel (photo, stats, CTAs) aligné spec UX. */
+/** Hero catalogue — sans bandeau de stats (réassurance texte seule). */
 export function FormationsCatalogueHero() {
-  const parcoursCount = getCataloguePageCoreFormations().length;
-
   return (
     <MarketingLightHero
-      eyebrow="Catalogue IA BTP — organisme certifié Qualiopi"
+      eyebrow="Catalogue formations IA BTP"
       title={CATALOGUE_POSITIONNEMENT.h1}
       titleId="formations-catalogue-hero-h1"
       contentUpdatedAt={getPillarPageContentUpdatedAt('/formations')}
       description={
         <>
-          Choisissez le parcours adapté à votre métier et à vos usages : devis, appels d&apos;offres,
-          conduite de travaux, maîtrise d&apos;œuvre ou déploiement avancé de l&apos;IA.
+          {CATALOGUE_HERO_SUBTITLE}
           <span className="mt-3 block text-base font-medium text-slate-600">
             {getCataloguePageHeroReassurance()}
           </span>
         </>
       }
-      stats={[
-        { icon: GraduationCap, value: parcoursCount, label: 'parcours catalogue' },
-        { icon: Users, value: formatNoteSatisfactionSur5(), label: 'Satisfaction (Qualiopi)' },
-        { icon: Award, value: 'Qualiopi', label: 'organisme certifié' },
-      ]}
       middle={
         <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
           <a

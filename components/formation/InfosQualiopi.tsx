@@ -190,8 +190,12 @@ export function InformationsReglementaires(props: InfosQualiopiProps) {
               </a>
             </p>
             <p className="mt-3">
+              <Link href={LINKS.accessibiliteHandicap} className="font-medium text-[#377CF3] hover:underline">
+                Parcours d&apos;aménagement et contact référente handicap
+              </Link>
+              {' · '}
               <Link href={LINKS.annuaireHandicap} className="font-medium text-[#377CF3] hover:underline">
-                Consulter l&apos;annuaire des partenaires handicap
+                Annuaire handicap
               </Link>
             </p>
           </QualiopiItem>

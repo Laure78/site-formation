@@ -40,8 +40,9 @@ export type MarketingLightHeroProps = {
   /** Date de mise à jour figée (YYYY-MM-DD) — affichée sous le H1. */
   contentUpdatedAt?: string;
   description: ReactNode;
-  stats: readonly MarketingLightHeroStat[];
-  /** Tarifs, CTAs, tags — inséré entre stats et navigation rapide */
+  /** Cartes stats optionnelles — absentes = pas de bandeau chiffres. */
+  stats?: readonly MarketingLightHeroStat[];
+  /** Tarifs, CTAs, tags — après description (et stats si présentes) */
   middle?: ReactNode;
   quickLinks?: readonly MarketingLightHeroQuickLink[];
   quickNavAriaLabel?: string;
@@ -140,40 +141,43 @@ export function MarketingLightHero({
             {contentUpdatedAt ? <ContentUpdatedLine date={contentUpdatedAt} /> : null}
             <div className="mt-4 max-w-3xl text-lg leading-relaxed text-slate-700">{description}</div>
 
-            <ul className="mt-8 grid gap-3 sm:grid-cols-2 sm:gap-4 lg:grid-cols-2 xl:grid-cols-4">
-              {stats.map((stat) => {
-                const Icon = stat.icon;
-                const content = (
-                  <>
-                    <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#377CF3]/10 text-[#377CF3]">
-                      <Icon size={20} aria-hidden />
-                    </span>
-                    <div>
-                      <p className="font-display text-xl font-bold text-slate-900">{stat.value}</p>
-                      <p className="text-xs text-slate-600">{stat.label}</p>
-                    </div>
-                  </>
-                );
-                const cardClass =
-                  'flex w-full items-center gap-3 rounded-2xl border border-white/80 bg-white/90 px-4 py-3 shadow-sm backdrop-blur-sm';
-                return (
-                  <li key={stat.label}>
-                    {stat.href ? (
-                      <Link
-                        href={stat.href}
-                        className={`${cardClass} transition hover:border-[#377CF3]/40 hover:shadow-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#377CF3]`}
-                      >
-                        {content}
-                      </Link>
-                    ) : (
-                      <div className={cardClass}>{content}</div>
-                    )}
-                  </li>
-                );
-              })}
-            </ul>
-
-            <IndicateursResultatsLink className="mt-3" />
+            {stats && stats.length > 0 ? (
+              <>
+                <ul className="mt-8 grid gap-3 sm:grid-cols-2 sm:gap-4 lg:grid-cols-2 xl:grid-cols-4">
+                  {stats.map((stat) => {
+                    const Icon = stat.icon;
+                    const content = (
+                      <>
+                        <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#377CF3]/10 text-[#377CF3]">
+                          <Icon size={20} aria-hidden />
+                        </span>
+                        <div>
+                          <p className="font-display text-xl font-bold text-slate-900">{stat.value}</p>
+                          <p className="text-xs text-slate-600">{stat.label}</p>
+                        </div>
+                      </>
+                    );
+                    const cardClass =
+                      'flex w-full items-center gap-3 rounded-2xl border border-white/80 bg-white/90 px-4 py-3 shadow-sm backdrop-blur-sm';
+                    return (
+                      <li key={stat.label}>
+                        {stat.href ? (
+                          <Link
+                            href={stat.href}
+                            className={`${cardClass} transition hover:border-[#377CF3]/40 hover:shadow-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#377CF3]`}
+                          >
+                            {content}
+                          </Link>
+                        ) : (
+                          <div className={cardClass}>{content}</div>
+                        )}
+                      </li>
+                    );
+                  })}
+                </ul>
+                <IndicateursResultatsLink className="mt-3" />
+              </>
+            ) : null}
 
             {middle ? <div className="mt-8">{middle}</div> : null}
 

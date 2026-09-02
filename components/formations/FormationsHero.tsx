@@ -1,15 +1,13 @@
 import Link from 'next/link';
-import { Award, GraduationCap, Users } from 'lucide-react';
+import { Award } from 'lucide-react';
 import { CalendlyEmbed } from '@/components/CalendlyEmbed';
 import { MarketingLightHero } from '@/components/marketing/MarketingLightHero';
 import { CatalogueTarifStrip } from '@/components/formations/CataloguePriceBadge';
 import { FormationPlateformeConnexionButton } from '@/components/formation/FormationPlateformeConnexionButton';
 import { MentionTvaAsterisque } from '@/components/MentionTVA';
 import { LINKS } from '@/lib/internal-links';
-import { getCatalogueFormationsCount } from '@/lib/formations-catalogue-display';
 import { FINANCEMENT_FORMULATION_COURTE } from '@/lib/financement-copy';
 import { PERIMETRE_FORMATIONS_COURT, SESSION_DUREE_LIBELLE, libelleTarifsCarteCatalogue } from '@/lib/tarifs-sessions';
-import { formatNoteSatisfactionSur5 } from '@/lib/data/indicateurs-resultats';
 import { CATALOGUE_POSITIONNEMENT } from '@/lib/formations-catalogue-architecture';
 import { getPillarPageContentUpdatedAt } from '@/lib/content-updated-at';
 import { PHOTOS } from '@/lib/photos';
@@ -23,9 +21,9 @@ const QUICK_LINKS = [
 ] as const;
 
 /**
- * Hero catalogue formations — texte SEO inchangé (H1 + paragraphe intro).
+ * Hero catalogue formations — legacy (page actuelle : FormationsCatalogueHero).
  */
-export function FormationsHero({ catalogueCount = getCatalogueFormationsCount() }: { catalogueCount?: number }) {
+export function FormationsHero() {
   return (
     <MarketingLightHero
       eyebrow={`Catalogue IA BTP — organisme certifié Qualiopi`}
@@ -40,11 +38,6 @@ export function FormationsHero({ catalogueCount = getCatalogueFormationsCount() 
           <MentionTvaAsterisque /> — {FINANCEMENT_FORMULATION_COURTE}
         </>
       }
-      stats={[
-        { icon: GraduationCap, value: catalogueCount, label: 'parcours catalogue' },
-        { icon: Users, value: formatNoteSatisfactionSur5(), label: 'Satisfaction (Qualiopi)' },
-        { icon: Award, value: 'Qualiopi', label: 'organisme certifié' },
-      ]}
       middle={
         <>
           <CatalogueTarifStrip className="max-w-3xl" />

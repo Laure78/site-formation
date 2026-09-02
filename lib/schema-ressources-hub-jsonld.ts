@@ -1,61 +1,64 @@
 /**
  * JSON-LD hub `/ressources` — CollectionPage + ItemList + BreadcrumbList.
- * Ordre ItemList = rubriques de la page (hors hub thématique navigational).
+ * Alimenté par `lib/ressources-catalog.ts` (source unique avec les cartes).
  */
 import { LINKS } from '@/lib/internal-links';
-import { RESSOURCES_GUIDES } from '@/lib/ressources-guides';
-import { RESSOURCES_LEXIQUE } from '@/lib/ressources-lexique';
+import {
+  getRessourcesCatalog,
+  getRessourceEncodingFormat,
+  RESSOURCES_HUB_H1,
+} from '@/lib/ressources-catalog';
+import { SCHEMA_ORGANIZATION_OFC } from '@/lib/schema-constants';
 import { SITE_CONFIG } from '@/lib/seo';
-import { TUTOS } from '@/lib/tutos';
 
 const SITE_BASE = SITE_CONFIG.url.replace(/\/$/, '');
 const PATH = LINKS.ressources;
 const CANONICAL = `${SITE_BASE}${PATH}`;
 
-type ListEntry = {
-  name: string;
-  url: string;
-  description: string;
-};
-
-/** Ressources principales dans l’ordre des rubriques de `app/ressources/page.tsx`. */
-function buildPrincipalRessourcesList(): ListEntry[] {
-  const items: ListEntry[] = [
-    {
-      name: 'Mes formations LinkedIn Learning',
-      url: `${SITE_BASE}${LINKS.formationsLinkedInLearning}`,
-      description: '2 formations LinkedIn Learning sur l’IA appliquée au BTP.',
-    },
-    {
-      name: RESSOURCES_LEXIQUE.schemaName,
-      url: RESSOURCES_LEXIQUE.url,
-      description: RESSOURCES_LEXIQUE.schemaDescription,
-    },
-    ...RESSOURCES_GUIDES.map((g) => ({
-      name: g.title,
-      url: `${SITE_BASE}${g.href}`,
-      description: g.description,
-    })),
-    {
-      name: 'Bibliothèque skills Claude BTP',
-      url: `${SITE_BASE}${LINKS.bibliothequeSkills}`,
-      description:
-        'Skills métier BTP au format .skill et tutos associés — téléchargement gratuit, sans inscription.',
-    },
-    ...TUTOS.map((t) => ({
-      name: t.title,
-      url: `${SITE_BASE}${LINKS.ressources}/${t.slug}`,
-      description: t.metaDescription,
-    })),
-  ];
-  return items;
+function schemaTypeForResource(resourceType: string): string {
+  switch (resourceType) {
+    case 'tutoriel':
+      return 'LearningResource';
+    case 'guide':
+    case 'modele-fichier':
+      return 'DigitalDocument';
+    case 'skill':
+      return 'CreativeWork';
+    case 'outil':
+    case 'article':
+    default:
+      return 'CreativeWork';
+  }
 }
 
-/** H1 de la page hub (`RessourcesHero`). */
-const HUB_H1 = 'Ressources gratuites IA BTP';
-
 export function buildRessourcesHubJsonLd(): Record<string, unknown> {
-  const list = buildPrincipalRessourcesList();
+  const catalog = getRessourcesCatalog();
+
+  const itemListElement = catalog.map((entry, index) => {
+    const url = entry.external ? entry.viewUrl : `${SITE_BASE}${entry.viewUrl}`;
+    const encodingFormat = getRessourceEncodingFormat(entry.format);
+    const schemaType = schemaTypeForResource(entry.resourceType);
+
+    const item: Record<string, unknown> = {
+      '@type': schemaType,
+      name: entry.title,
+      description: entry.shortDescription,
+      url,
+      inLanguage: 'fr-FR',
+      author: SCHEMA_ORGANIZATION_OFC,
+      isAccessibleForFree: entry.isFree,
+    };
+
+    if (encodingFormat) item.encodingFormat = encodingFormat;
+    if (entry.publishedAt) item.datePublished = entry.publishedAt;
+    if (entry.updatedAt) item.dateModified = entry.updatedAt;
+
+    return {
+      '@type': 'ListItem',
+      position: index + 1,
+      item,
+    };
+  });
 
   return {
     '@context': 'https://schema.org',
@@ -63,28 +66,20 @@ export function buildRessourcesHubJsonLd(): Record<string, unknown> {
       {
         '@type': 'CollectionPage',
         '@id': `${CANONICAL}#collection`,
-        name: HUB_H1,
+        name: RESSOURCES_HUB_H1,
         description:
-          'Tutos PDF, guides et skills Claude pour appliquer l’IA sur appels d’offres, DCE, mémoires techniques et documents de chantier — PME et pros du BTP.',
+          'Guides, tutoriels, prompts et outils gratuits pour utiliser l’IA dans le BTP : DCE, mémoire technique, chantier, PPSPS, DOE et productivité.',
         url: CANONICAL,
         inLanguage: 'fr-FR',
         isPartOf: { '@type': 'WebSite', name: 'laureolivie.fr', url: SITE_CONFIG.url },
+        publisher: SCHEMA_ORGANIZATION_OFC,
         mainEntity: {
           '@type': 'ItemList',
           '@id': `${CANONICAL}#itemlist`,
-          name: 'Ressources principales IA BTP',
-          itemListOrder: 'https://schema.org/ItemListOrderAscending',
-          numberOfItems: list.length,
-          itemListElement: list.map((entry, index) => ({
-            '@type': 'ListItem',
-            position: index + 1,
-            item: {
-              '@type': 'CreativeWork',
-              name: entry.name,
-              url: entry.url,
-              description: entry.description,
-            },
-          })),
+          name: 'Bibliothèque ressources IA BTP',
+          itemListOrder: 'https://schema.org/ItemListUnordered',
+          numberOfItems: catalog.length,
+          itemListElement,
         },
       },
       {
@@ -105,6 +100,7 @@ export function buildRessourcesHubJsonLd(): Record<string, unknown> {
           },
         ],
       },
+      SCHEMA_ORGANIZATION_OFC,
     ],
   };
 }

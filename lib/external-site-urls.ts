@@ -18,6 +18,12 @@ export const EXTERNAL_SITE_URLS = {
   agefiph: 'https://www.agefiph.fr/',
   /** AGEFIPH — Ressource Handicap Formation (RHF). */
   agefiphRhf: 'https://www.agefiph.fr/services/ressource-handicap-formation',
+  /** Cap emploi — accompagnement emploi des personnes en situation de handicap. */
+  capEmploi: 'https://www.capemploi.info/',
+  /** Service-Public — MDPH / MDA (orientation départementale). */
+  servicePublicMdph: 'https://www.service-public.fr/particuliers/vosdroits/F16575',
+  /** Mon Parcours Handicap — portail public d'information. */
+  monParcoursHandicap: 'https://www.monparcourshandicap.gouv.fr/',
 } as const;
 
 /** Chemins utiles sur app.laureolivie.fr */

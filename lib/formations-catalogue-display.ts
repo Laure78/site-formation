@@ -8,7 +8,6 @@ import {
   FORMATIONS_COUNT,
   formationHref,
   getFormationByCode,
-  libelleDureeFormation,
   libelleEffectifFormation,
   libelleEffectifMaxFormation,
   type Formation,
@@ -97,7 +96,8 @@ function toCatalogueEntry(f: Formation): FormationCatalogueEntry {
     slug: f.slug,
     programmePdfHref: f.pdfProgramme,
     visuel: photo,
-    duree: libelleDureeFormation(f),
+    /** Durée seule (ex. « 4 h ») — pas d’horaires sur le catalogue. */
+    duree: f.duree,
     effectif: libelleEffectifFormation(f),
     pitch: f.accroche,
     promesse: f.promesse,
@@ -148,10 +148,23 @@ export function getFormationCatalogueVisuel(ref: string) {
   return entry.visuel;
 }
 
-/** Niveau pédagogique affiché (sans code NIV-XX). */
-export function catalogueNiveauLabel(ref: string): 'Niveau 1' | 'Niveau 2' {
+/** Niveau pédagogique affiché (libellé source `data/formations.ts`). */
+export function catalogueNiveauLabel(ref: string): string {
   const f = getFormationByCode(ref);
-  return f?.niveau === 1 ? 'Niveau 1' : 'Niveau 2';
+  return f?.niveauLabel ?? (f?.niveau === 1 ? 'Niveau 1' : 'Niveau 2');
+}
+
+export function catalogueGammeLabel(gamme: FormationCatalogueEntry['gamme']): string {
+  switch (gamme) {
+    case 'decouvrir':
+      return 'Découvrir';
+    case 'appliquer-metier':
+      return 'Métier';
+    case 'deployer':
+      return 'Déployer';
+    default:
+      return 'Catalogue';
+  }
 }
 
 export function isCatalogueNiveau1(ref: string): boolean {
