@@ -91,31 +91,31 @@ export const FAQ_IA_BTP_METIERS_CHANTIER_SEO: readonly FAQItem[] = [
 ];
 
 /**
- * FAQ page d'accueil — 5 questions transactionnelles (financement, prérequis, durée, lieu, RDV).
+ * FAQ page d'accueil — 5 questions visibles (public, prérequis, documents, lieu, OPCO).
  * Source unique accordion + JSON-LD FAQPage (`buildHomeFAQPageJsonLd`).
  */
 export const FAQ_ITEMS_HOME: readonly FAQItem[] = [
   {
-    q: 'La formation IA pour les pros du BTP peut-elle être financée par Constructys ou mon OPCO ?',
-    a: `${FINANCEMENT_FAQ_PARTIELLE_CORPS} Selon éligibilité et barèmes en vigueur. Exemples de reste à charge et plafonds : <a href="${LINKS.financement}">${FINANCEMENT_PAGE_LINK_LABEL}</a>.`,
+    q: "À qui s'adressent les formations IA BTP ?",
+    a: `Dirigeants d'entreprise BTP, conducteurs de travaux, chargés d'affaires, responsables appels d'offres, responsables administratifs, responsables formation et fonctions support des PME et ETI du bâtiment et des travaux publics. Voir le <a href="${LINKS.formations}">catalogue des formations IA BTP</a>.`,
   },
   {
-    q: 'Faut-il des compétences techniques pour suivre cette formation IA appliquée au bâtiment ?',
+    q: 'Faut-il déjà savoir utiliser une IA ?',
     a:
-      "Non. La formation est conçue pour des professionnels du bâtiment et des travaux publics sans formation informatique. Seuls prérequis : savoir naviguer sur internet et disposer d'un ordinateur. Tout le reste est expliqué pas à pas, en travaillant directement sur vos documents réels de chantier.",
+      "Non. La formation est conçue pour des professionnels du bâtiment et des travaux publics sans formation informatique. Seuls prérequis : savoir naviguer sur internet et disposer d'un ordinateur. Tout est expliqué pas à pas, en travaillant sur vos documents réels.",
   },
   {
-    q: 'Combien de temps dure la formation IA pour le BTP ?',
+    q: 'Peut-on travailler sur les documents de notre entreprise ?',
     a:
-      `Le module standard est de 4 heures, en présentiel intra-entreprise ou interentreprises en Île-de-France. Ce format s'intègre dans une demi-journée de travail. ${libelleTarifsDualCourt(4)}.`,
+      "Oui. Les participants travaillent à partir de leurs documents et processus (devis, DCE, CCTP, comptes rendus, mémoires techniques, emails) pour construire des méthodes et assistants IA réutilisables en entreprise, avec validation métier de votre côté.",
   },
   {
-    q: 'Où se déroulent les sessions de formation ?',
-    a: `${MODALITE_FORMATIONS_STANDARD} L'appel découverte (visio ou téléphone) sert uniquement à cadrer votre projet avant devis.`,
+    q: 'Où se déroulent les formations ?',
+    a: `${MODALITE_FORMATIONS_STANDARD} Couverture : ${IDF_ZONE_INTERVENTION}.`,
   },
   {
-    q: 'Comment démarrer une formation IA pour mon entreprise BTP ?',
-    a: "Réservez un appel découverte gratuit de 30 minutes : on identifie vos cas d'usage (devis, AO, CR chantier) et le format adapté (intra-entreprise, dans vos locaux). Ensuite vous recevez un devis avec les options de financement selon éligibilité.",
+    q: 'Une prise en charge par un OPCO est-elle possible ?',
+    a: `${FINANCEMENT_FORMULATION_PRUDENTE} Détails et plafonds : <a href="${LINKS.financement}">${FINANCEMENT_PAGE_LINK_LABEL}</a>.`,
   },
 ];
 
