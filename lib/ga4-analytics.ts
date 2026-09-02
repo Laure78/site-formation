@@ -78,6 +78,27 @@ export function trackBlogReadComplete(articleSlug: string, pagePath?: string): v
   });
 }
 
+/** Formulaire contact — première interaction. */
+export function trackContactFormStart(): void {
+  sendGa4Event('contact_form_start', { page_path: getPagePath() });
+}
+
+/** Formulaire contact — envoi réussi (sans données personnelles). */
+export function trackContactFormSuccess(subject: string): void {
+  sendGa4Event('contact_form_submit', {
+    page_path: getPagePath(),
+    subject_type: subject,
+  });
+}
+
+/** Formulaire contact — erreur d’envoi (message générique uniquement). */
+export function trackContactFormError(errorType: string): void {
+  sendGa4Event('contact_form_error', {
+    page_path: getPagePath(),
+    error_type: errorType.slice(0, 80),
+  });
+}
+
 /** Infère le type de ressource à partir de l’URL / nom de fichier. */
 export function classifyPdfDownload(
   href: string,
