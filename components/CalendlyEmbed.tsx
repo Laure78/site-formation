@@ -60,7 +60,7 @@ function CalendlyInlineBody({
       data-calendly
       data-cta-position="inline"
       className={`w-full max-w-full ${className}`}
-      style={{ minWidth: 320, width: '100%', maxWidth: 600, margin: '0 auto' }}
+      style={{ minWidth: 320, width: '100%', maxWidth: '100%', margin: '0 auto' }}
     >
       <div
         className="overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm"

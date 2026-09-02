@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { FAQSection } from '@/components/landing/FAQSection';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
-import { CalendlyConsentInline } from '@/components/CalendlyConsentInline';
+import { CalendlyEmbed } from '@/components/CalendlyEmbed';
 import { PrendreRdvCalendlyIntro } from '@/components/prendre-rendez-vous/PrendreRdvCalendlyIntro';
 import { createPageMetadata, getFAQSchema } from '@/lib/seo';
 import { FAQ_PRENDRE_RDV } from '@/lib/faq';
@@ -62,7 +62,7 @@ export default function PrendreRendezVousPage() {
 
           <div className="mt-8">
             <h2 className="sr-only">Réserver un créneau Calendly</h2>
-            <CalendlyConsentInline campaign="prendre-rendez-vous-page" heightPx={720} />
+            <CalendlyEmbed type="inline" campaign="prendre-rendez-vous-page" heightPx={720} />
           </div>
 
           <FAQSection
