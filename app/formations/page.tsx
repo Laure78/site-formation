@@ -1,34 +1,24 @@
 import type { Metadata } from 'next';
-import { CTA_RDV_LABEL, CtaRdv } from '@/components/CtaRdv';
-import Link from 'next/link';
-import { ArrowUpRight, Clock, Accessibility } from 'lucide-react';
-import { AllerPlusLoin } from '@/components/AllerPlusLoin';
-import { buildSiteCalendlyCtaUrl } from '@/lib/calendly';
 import { JsonLd } from '@/components/JsonLd';
 import { createPageMetadata, SITE_CONFIG } from '@/lib/seo';
-import { getFaqFormations } from '@/lib/faq';
+import { getFaqCataloguePage } from '@/lib/faq';
 import { PHOTOS } from '@/lib/photos';
-import { LINKS } from '@/lib/internal-links';
 import { buildFormationsPageUnifiedGraphJsonLd } from '@/lib/schema-formations-page-graph';
-import { getCatalogueFormationsCount, getFormationsCatalogue } from '@/lib/formations-catalogue-display';
-import { getCataloguePageMetaDescription } from '@/lib/formation-catalogue-visibility';
-import { FormationsHero } from '@/components/formations/FormationsHero';
-import { FormationsCatalogueInteractive } from '@/components/formations/FormationsCatalogueInteractive';
-import { FormationsComparisonTable } from '@/components/formations/FormationsComparisonTable';
-import { FormationsWhyMotifs } from '@/components/formations/FormationsWhyMotifs';
-import { FormationsCatalogueMidCta } from '@/components/formations/FormationsCatalogueMidCta';
-import { FormationsPartnersStrip } from '@/components/formations/FormationsPartnersStrip';
+import { getCatalogueFormationsCount } from '@/lib/formations-catalogue-display';
+import {
+  getCatalogueBesoinOptions,
+  getCataloguePageCoreFormations,
+  getCataloguePageMetaDescriptionShort,
+} from '@/lib/formations-catalogue-page-config';
+import { FormationsCatalogueHero } from '@/components/formations/catalogue/FormationsCatalogueHero';
+import { FormationsCatalogueMainSection } from '@/components/formations/catalogue/FormationsCatalogueMainSection';
+import { FormationsCatalogueComparison } from '@/components/formations/catalogue/FormationsCatalogueComparison';
+import { FormationsCatalogueMethodSection } from '@/components/formations/catalogue/FormationsCatalogueMethodSection';
+import { FormationsCataloguePracticalInfoSection } from '@/components/formations/catalogue/FormationsCataloguePracticalInfoSection';
+import { FormationsCatalogueProofSection } from '@/components/formations/catalogue/FormationsCatalogueProofSection';
+import { FormationsCatalogueHesitationCta } from '@/components/formations/catalogue/FormationsCatalogueHesitationCta';
 import { FormationsFaqSection } from '@/components/formations/FormationsFaqSection';
-import { RelatedLinks } from '@/components/RelatedLinks';
-import { getClusterRelatedHrefs } from '@/lib/maillage-clusters';
-import { FormationsTarifsGrilleSection } from '@/components/formations/FormationsTarifsGrilleSection';
-import { FormationsCataloguePromiseSection } from '@/components/formations/FormationsCataloguePromiseSection';
-import { FormationsCatalogueGammeSection } from '@/components/formations/FormationsCatalogueGammeSection';
-import { FormationsCatalogueMaturitySection } from '@/components/formations/FormationsCatalogueMaturitySection';
-import { getEncartTarifsCommerciaux } from '@/lib/tarifs-sessions';
-import { GAINS_TEMPS_MENTION_PRUDENCE } from '@/lib/gains-temps-copy';
-import { FINANCEMENT_FORMULATION_COURTE } from '@/lib/financement-copy';
-import { QUALIOPI_ACCESSIBILITE_EXACT, QUALIOPI_DELAI_ACCES_EXACT } from '@/config/qualiopi';
+import { FormationsCatalogueMaillageSection } from '@/components/formations/catalogue/FormationsCatalogueMaillageSection';
 
 const baseUrl = SITE_CONFIG.url.replace(/\/$/, '');
 
@@ -38,7 +28,7 @@ export const revalidate = 3600;
 
 export async function generateMetadata(): Promise<Metadata> {
   const catalogueCount = getCatalogueFormationsCount();
-  const metaDescription = getCataloguePageMetaDescription();
+  const metaDescription = getCataloguePageMetaDescriptionShort();
 
   return {
     ...createPageMetadata({
@@ -57,8 +47,6 @@ export async function generateMetadata(): Promise<Metadata> {
         'formation IA construction',
         'formation IA travaux publics',
         "formation IA appels d'offre BTP",
-        'formation IA RH BTP',
-        'formation IA architecte',
         'formation IA — organisme certifié Qualiopi',
         'formation IA Constructys',
         'formation IA appliquée au bâtiment Île-de-France',
@@ -84,220 +72,25 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
-const chipLinkClass =
-  'inline-flex items-center gap-2 rounded-full border border-[#E2E8F0] bg-white px-4 py-2.5 text-sm font-medium text-[#0F172A] transition duration-200 hover:border-[#377CF3] hover:bg-[#EFF6FF] hover:text-[#377CF3]';
-
 export default function FormationsPage() {
-  const catalogueFormations = getFormationsCatalogue();
-  const catalogueCount = getCatalogueFormationsCount();
-  const faqFormations = getFaqFormations();
+  const coreFormations = getCataloguePageCoreFormations();
+  const besoinOptions = getCatalogueBesoinOptions();
+  const faqCatalogue = getFaqCataloguePage();
 
   return (
     <>
       <JsonLd id="schema-formations-page-graph" schema={buildFormationsPageUnifiedGraphJsonLd()} />
-      <FormationsHero catalogueCount={catalogueCount} />
+      <FormationsCatalogueHero />
 
-      <div className="mx-auto max-w-6xl px-4 pb-20 pt-4 md:pt-5">
-        <FormationsCataloguePromiseSection />
-        <FormationsCatalogueMaturitySection />
-        <FormationsCatalogueGammeSection />
-
-        <div className="mt-12 md:mt-14">
-          <FormationsCatalogueInteractive formations={catalogueFormations} catalogueCount={catalogueCount} />
-        </div>
-
-        <FormationsTarifsGrilleSection />
-
-        <section className="mt-8 rounded-2xl border border-[#E2E8F0] bg-[#F8FAFC] p-5 md:p-6">
-          <p className="max-w-5xl text-sm leading-relaxed text-[#334155] md:text-base">
-            Formations IA pour le BTP pour <strong>TPE & PME du bâtiment et de la construction</strong>, dirigeants,
-            conducteurs de travaux, chargés d&apos;affaires et équipes administratives : intelligence artificielle
-            bâtiment avec Claude AI et ChatGPT, formation IA travaux publics et{' '}
-            <Link href={LINKS.chatgptArtisans} className="font-medium text-[#377CF3] hover:underline">
-              ChatGPT pour entreprises BTP
-            </Link>{' '}
-            au service des devis, DCE, CCTP, appels d&apos;offres, mémoires techniques, comptes rendus de chantier,
-            relances clients et documents administratifs. {getEncartTarifsCommerciaux()}{' '}
-            {FINANCEMENT_FORMULATION_COURTE}{' '}
-            Méthode 100 % terrain, orientée
-            productivité.{' '}
-            <CtaRdv variant="inline" origin="formations-intro-rdv" className="font-medium" />{' '}
-            pour un diagnostic personnalisé.
-          </p>
-          <p className="mt-3 max-w-5xl text-sm leading-relaxed text-[#64748B]">{GAINS_TEMPS_MENTION_PRUDENCE}</p>
-        </section>
-
-        <section className="mt-8 rounded-2xl border border-[#E2E8F0] bg-white p-5 md:p-6">
-          <h2 className="font-display text-lg font-semibold text-[#0F172A]">Informations pratiques</h2>
-          <ul className="mt-4 space-y-4 text-sm leading-relaxed text-slate-600">
-            <li className="flex gap-3">
-              <Clock className="mt-0.5 h-5 w-5 shrink-0 text-[#377CF3]" strokeWidth={1.75} aria-hidden />
-              <span>{QUALIOPI_DELAI_ACCES_EXACT}</span>
-            </li>
-            <li className="flex gap-3">
-              <Accessibility className="mt-0.5 h-5 w-5 shrink-0 text-[#377CF3]" strokeWidth={1.75} aria-hidden />
-              <span>
-                {QUALIOPI_ACCESSIBILITE_EXACT}{' '}
-                <Link href={LINKS.annuaireHandicap} className="font-medium text-[#377CF3] hover:underline">
-                  Consulter notre annuaire des partenaires handicap
-                </Link>
-              </span>
-            </li>
-          </ul>
-        </section>
-
-        <FormationsComparisonTable formations={catalogueFormations} />
-
-        <FormationsWhyMotifs formations={catalogueFormations} catalogueCount={catalogueCount} />
-
-        <FormationsCatalogueMidCta />
-
-        <FormationsPartnersStrip />
-
-        <FormationsFaqSection
-          items={faqFormations}
-          title="Questions fréquentes sur les formations IA pour le BTP et la construction"
-          subtitle="Vous avez des questions ? Voici les réponses aux interrogations les plus fréquentes."
-        />
-
-        <section className="mt-12 border-t border-[#E2E8F0] pt-12">
-          <h2 className="font-display text-lg font-semibold text-[#0F172A]">
-            Formations IA appliquées au bâtiment et à la construction par métier, sujet et géographie
-          </h2>
-          <p className="mt-3 text-sm text-[#64748B]">
-            Vous cherchez une formation IA pour le BTP ciblée sur un métier du secteur de la construction, un
-            département francilien ou un cas d&apos;usage opérationnel ? Voici les pages dédiées.
-          </p>
-          <ul className="mt-6 flex flex-wrap gap-3">
-            <li>
-              <Link href={LINKS.formationParis} className={chipLinkClass}>
-                Formation IA bâtiment à Paris
-                <ArrowUpRight size={16} strokeWidth={2} className="shrink-0" aria-hidden />
-              </Link>
-            </li>
-            <li>
-              <Link href={LINKS.formateurIaBtp} className={chipLinkClass}>
-                Une formatrice IA spécialisée construction
-                <ArrowUpRight size={16} strokeWidth={2} className="shrink-0" aria-hidden />
-              </Link>
-            </li>
-            <li>
-              <Link href={LINKS.formationYvelines} className={chipLinkClass}>
-                Formation IA appliquée au bâtiment Yvelines (78)
-                <ArrowUpRight size={16} strokeWidth={2} className="shrink-0" aria-hidden />
-              </Link>
-            </li>
-            <li>
-              <Link href={LINKS.formationSaintQuentinYvelines} className={chipLinkClass}>
-                Formation IA pour le BTP Saint-Quentin-en-Yvelines
-                <ArrowUpRight size={16} strokeWidth={2} className="shrink-0" aria-hidden />
-              </Link>
-            </li>
-            <li>
-              <Link href={LINKS.chatgptArtisans} className={chipLinkClass}>
-                ChatGPT pour entreprises BTP
-                <ArrowUpRight size={16} strokeWidth={2} className="shrink-0" aria-hidden />
-              </Link>
-            </li>
-            <li>
-              <Link href={LINKS.iaDevis} className={chipLinkClass}>
-                IA pour les devis bâtiment
-                <ArrowUpRight size={16} strokeWidth={2} className="shrink-0" aria-hidden />
-              </Link>
-            </li>
-            <li>
-              <Link href={LINKS.iaAnalyseDce} className={chipLinkClass}>
-                Analyser un DCE avec l&apos;IA
-                <ArrowUpRight size={16} strokeWidth={2} className="shrink-0" aria-hidden />
-              </Link>
-            </li>
-            <li>
-              <Link href={LINKS.iaMemoireTechnique} className={chipLinkClass}>
-                Mémoire technique BTP avec l&apos;IA
-                <ArrowUpRight size={16} strokeWidth={2} className="shrink-0" aria-hidden />
-              </Link>
-            </li>
-            <li>
-              <Link href={LINKS.iaCompteRenduChantier} className={chipLinkClass}>
-                Compte rendu de chantier avec l&apos;IA
-                <ArrowUpRight size={16} strokeWidth={2} className="shrink-0" aria-hidden />
-              </Link>
-            </li>
-            <li>
-              <Link href={LINKS.formationChargeAffairesBtp} className={chipLinkClass}>
-                Formation IA chargé d&apos;affaires BTP
-                <ArrowUpRight size={16} strokeWidth={2} className="shrink-0" aria-hidden />
-              </Link>
-            </li>
-            <li>
-              <Link href={LINKS.iaCDT} className={chipLinkClass}>
-                IA pour conducteur de travaux
-                <ArrowUpRight size={16} strokeWidth={2} className="shrink-0" aria-hidden />
-              </Link>
-            </li>
-            <li>
-              <Link href={LINKS.formationMaitriserClaudeAiBtp} className={chipLinkClass}>
-                Maîtriser Claude AI pour le BTP
-                <ArrowUpRight size={16} strokeWidth={2} className="shrink-0" aria-hidden />
-              </Link>
-            </li>
-            <li>
-              <Link href={LINKS.formationIaMaitriseOeuvre} className={chipLinkClass}>
-                L&apos;IA au service des maîtres d&apos;œuvre
-                <ArrowUpRight size={16} strokeWidth={2} className="shrink-0" aria-hidden />
-              </Link>
-            </li>
-            <li>
-              <Link href={LINKS.claudeAiBtp} className={chipLinkClass}>
-                Claude AI pour le BTP
-                <ArrowUpRight size={16} strokeWidth={2} className="shrink-0" aria-hidden />
-              </Link>
-            </li>
-            <li>
-              <Link href={LINKS.financement} className={chipLinkClass}>
-                Financement Constructys selon éligibilité
-                <ArrowUpRight size={16} strokeWidth={2} className="shrink-0" aria-hidden />
-              </Link>
-            </li>
-            <li>
-              <Link href={LINKS.etudesCas} className={chipLinkClass}>
-                Étude de cas FFB &amp; CSFE
-                <ArrowUpRight size={16} strokeWidth={2} className="shrink-0" aria-hidden />
-              </Link>
-            </li>
-            <li>
-              <Link href={LINKS.casUsage} className={chipLinkClass}>
-                10 cas d&apos;usage concrets IA BTP
-                <ArrowUpRight size={16} strokeWidth={2} className="shrink-0" aria-hidden />
-              </Link>
-            </li>
-            <li>
-              <Link href={LINKS.blog} className={chipLinkClass}>
-                Articles et guides
-                <ArrowUpRight size={16} strokeWidth={2} className="shrink-0" aria-hidden />
-              </Link>
-            </li>
-            <li>
-              <Link href={LINKS.aPropos} className={chipLinkClass}>
-                À propos de Laure Olivié
-                <ArrowUpRight size={16} strokeWidth={2} className="shrink-0" aria-hidden />
-              </Link>
-            </li>
-          </ul>
-        </section>
-
-        <RelatedLinks path={LINKS.formations} />
-
-        <AllerPlusLoin
-          variant="chips"
-          links={[
-            { href: LINKS.formationIaBtpNiveau1BatimentTp, label: 'NIV-01 — Bâtiment & travaux publics' },
-            { href: LINKS.diagnostic, label: 'Diagnostic IA BTP' },
-            { href: LINKS.checklist, label: 'Checklist prompts ChatGPT BTP' },
-            { href: LINKS.formationIleDeFrance, label: 'Formation IA BTP en Île-de-France' },
-            { href: LINKS.prendreRdv, label: CTA_RDV_LABEL },
-          ].filter((l) => !getClusterRelatedHrefs(LINKS.formations).includes(l.href))}
-        />
+      <div className="mx-auto max-w-6xl px-4 pb-20 pt-8 md:pt-10">
+        <FormationsCatalogueMainSection formations={coreFormations} besoinOptions={besoinOptions} />
+        <FormationsCatalogueComparison formations={coreFormations} />
+        <FormationsCatalogueMethodSection />
+        <FormationsCataloguePracticalInfoSection />
+        <FormationsCatalogueProofSection />
+        <FormationsCatalogueHesitationCta />
+        <FormationsFaqSection items={faqCatalogue} title="Questions fréquentes" />
+        <FormationsCatalogueMaillageSection />
       </div>
     </>
   );

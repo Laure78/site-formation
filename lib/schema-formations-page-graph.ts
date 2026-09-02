@@ -2,7 +2,7 @@
  * JSON-LD @graph unique — page `/formations` uniquement.
  * Modalités : présentiel uniquement (OfflineEventAttendanceMode) en Île-de-France — aligné catalogue.
  */
-import { getFaqFormations } from '@/lib/faq';
+import { getFaqCataloguePage } from '@/lib/faq';
 import { getPillarPageContentUpdatedAt } from '@/lib/content-updated-at';
 import { FORMATIONS_CATALOG_SCHEMA } from '@/lib/schema-course-formations';
 import { SCHEMA_PUBLIC_SITE_URL } from '@/lib/schema-constants';
@@ -30,7 +30,7 @@ export function buildFormationsPageUnifiedGraphJsonLd(at: Date = new Date()): Re
   const includeNiv03 = isFormationCataloguePublished('NIV-03', at);
   const CATALOGUE_COUNT = getCatalogueFormationsCount(at);
   const niv2Count = CATALOGUE_COUNT - 1;
-  const faqSchema = getFAQSchema(getFaqFormations(at));
+  const faqSchema = getFAQSchema([...getFaqCataloguePage(at)]);
 
   const graph: Record<string, unknown>[] = [
       {

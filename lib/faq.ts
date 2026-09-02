@@ -226,7 +226,40 @@ export const FAQ_GEO: FAQItem[] = [
   },
 ];
 
-/** FAQ page catalogue `/formations` — alignée JSON-LD FAQPage (`lib/schema-formations-page-graph.ts`) */
+/** FAQ page catalogue `/formations` — 6 questions visibles (orientation + pratique). */
+export const FAQ_CATALOGUE_PAGE: readonly FAQItem[] = [
+  {
+    q: 'Quelle formation choisir pour débuter ?',
+    a: `Commencez par <a href="${LINKS.formationIaBtpNiveau1BatimentTp}">L'IA au service des pros du bâtiment et des travaux publics</a> (niveau 1) : devis, emails, comptes rendus et documents sur vos fichiers réels.`,
+  },
+  {
+    q: "Quelle formation choisir pour les appels d'offres ?",
+    a: `Optez pour <a href="${LINKS.formationAO}">L'IA appliquée aux appels d'offres BTP</a> : analyse DCE, chiffrage assisté et structuration du mémoire technique.`,
+  },
+  {
+    q: 'Les formations peuvent-elles être adaptées à notre métier ?',
+    a: `Oui. Les exercices s'appuient sur vos documents et processus (devis, DCE, CR, mémoires techniques). Un échange préalable permet de cadrer les cas d'usage — <a href="${LINKS.prendreRdv}">Réserver un échange</a>.`,
+  },
+  {
+    q: 'Peut-on travailler sur nos propres documents ?',
+    a: 'Oui. Les participants travaillent à partir de leurs documents réels, avec validation métier de votre côté. Les méthodes construites pendant la session sont réutilisables en entreprise.',
+  },
+  {
+    q: 'Combien de participants peuvent suivre une session ?',
+    a: `Les effectifs varient selon la fiche (généralement 4 à ${EFFECTIF_GROUPE_MAX} participants en intra). Le détail figure sur chaque programme et dans votre devis.`,
+  },
+  {
+    q: 'Une prise en charge OPCO est-elle possible ?',
+    a: `${FINANCEMENT_FORMULATION_PRUDENTE} Détails : <a href="${LINKS.financement}">${FINANCEMENT_PAGE_LINK_LABEL}</a>.`,
+  },
+];
+
+/** FAQ catalogue visible — 6 questions orientation (NIV-03 non citée). */
+export function getFaqCataloguePage(_at: Date = new Date()): readonly FAQItem[] {
+  return FAQ_CATALOGUE_PAGE;
+}
+
+/** FAQ page catalogue `/formations` — alignée JSON-LD FAQPage (legacy / autres usages). */
 export const FAQ_FORMATIONS: FAQItem[] = [
   {
     q: 'Le tarif est-il calculé par participant ou par entreprise ?',

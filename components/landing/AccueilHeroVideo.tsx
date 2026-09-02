@@ -71,7 +71,7 @@ export function AccueilHeroVideo({ className }: Props) {
       priority
       fetchPriority="high"
       className={className}
-      sizes="(max-width: 1024px) 280px, 360px"
+      sizes="(max-width: 767px) 100vw, (max-width: 1023px) 42vw, (max-width: 1280px) 46vw, 520px"
       quality={75}
     />
   );

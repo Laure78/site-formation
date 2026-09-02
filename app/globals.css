@@ -239,19 +239,28 @@
   contain-intrinsic-size: auto 720px;
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 768px) {
   .accueil-hero-fold {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(240px, 320px);
-    gap: 2.5rem;
+    grid-template-columns: minmax(0, 1fr) minmax(300px, 42%);
+    gap: 2rem;
+    align-items: center;
+  }
+}
+
+@media (min-width: 1024px) {
+  .accueil-hero-fold {
+    grid-template-columns: minmax(0, 1fr) minmax(380px, 46%);
+    gap: 2.75rem;
     align-items: center;
   }
 }
 
 @media (min-width: 1280px) {
   .accueil-hero-fold {
-    grid-template-columns: minmax(0, 1fr) 360px;
-    gap: 3rem;
+    grid-template-columns: minmax(0, 1fr) minmax(440px, 520px);
+    gap: 3.5rem;
+    align-items: start;
   }
 }
 

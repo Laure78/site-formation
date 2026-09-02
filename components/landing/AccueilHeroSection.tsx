@@ -52,13 +52,13 @@ export function AccueilHeroSection() {
             </div>
           </div>
 
-          <aside className="accueil-hero-aside mx-auto w-full max-w-[280px] shrink-0 lg:mx-0 lg:max-w-none xl:max-w-[360px]">
+          <aside className="accueil-hero-aside mt-8 w-full min-w-0 md:mt-0 lg:justify-self-end">
             <Link
               href={HERO_ASIDE_LINK.href}
               title={HERO_ASIDE_LINK.title}
-              className="block overflow-hidden rounded-2xl bg-white/95 p-1 shadow-[0_20px_50px_-24px_rgba(15,23,42,0.25)] ring-1 ring-slate-200/80 transition hover:opacity-95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#377CF3]"
+              className="block overflow-hidden rounded-2xl bg-white/95 p-1.5 shadow-[0_24px_60px_-28px_rgba(15,23,42,0.35)] ring-1 ring-slate-200/80 transition hover:opacity-95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#377CF3] lg:max-w-none"
             >
-              <AccueilHeroVideo className="h-auto w-full rounded-[0.85rem] object-cover" />
+              <AccueilHeroVideo className="aspect-[4/3] h-auto w-full rounded-xl object-cover sm:aspect-[16/10] lg:aspect-[4/3]" />
             </Link>
           </aside>
         </div>
