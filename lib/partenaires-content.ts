@@ -237,7 +237,8 @@ export const PARTENAIRES_LOGO_BAND: PartenaireLogoBandItem[] = [
   },
 ];
 
-export const PARTENAIRES_PAGE_META_TITLE = 'Partenaires BTP — FFB, CSFE, UMB-FFB | Laure Olivié';
+/** @deprecated Préférer `lib/partenaires-references-config.ts` pour la page /partenaires. */
+export const PARTENAIRES_PAGE_META_TITLE = 'Références formation IA BTP | Laure Olivié';
 
 export const PARTENAIRES_PAGE_META_DESCRIPTION =
-  'FFB Grand Paris, CSFE, UMB-FFB et LinkedIn Learning : Laure Olivié anime des formations IA en présentiel en Île-de-France pour les fédérations du bâtiment.';
+  'Découvrez les réseaux, fédérations et organismes pour lesquels Laure Olivié anime des formations pratiques à l’IA appliquée au BTP.';

@@ -1,26 +1,20 @@
-import Image from 'next/image';
-import { ArrowRight } from 'lucide-react';
-import { CalendlyEmbed } from '@/components/CalendlyEmbed';
-import { ExternalLinkAnchor } from '@/components/ExternalLink';
-import { ContextualLinksSection } from '@/components/layout/ContextualLinksSection';
-import { Temoignage } from '@/components/Temoignage';
 import { createPageMetadata } from '@/lib/seo';
-import { LINKS } from '@/lib/internal-links';
+import { JsonLd } from '@/components/JsonLd';
+import { getPartenairesPageJsonLd } from '@/lib/schema-partenaires-page';
 import {
-  PARTENAIRES_CTA_INTRO,
-  PARTENAIRES_CTA_LABEL,
+  getPartenairesReferencesByCategory,
   PARTENAIRES_PAGE_META_DESCRIPTION,
   PARTENAIRES_PAGE_META_TITLE,
-  PARTENAIRES_SECTION_TITLE,
-} from '@/lib/partenaires-content';
-import {
-  PARTENAIRES_PAGE_CLOSING,
-  PARTENAIRES_PAGE_INTRO,
-  PARTENAIRES_PAGE_SECTIONS,
-  type PartenairePageSection,
-} from '@/lib/partenaires-page-sections';
-import { OFC_LINK } from '@/lib/ofc-interaction-classes';
-import { OFC_SEC, OFC_SECTION_INNER } from '@/lib/ofc-section-classes';
+} from '@/lib/partenaires-references-config';
+import { PartenairesPageHero } from '@/components/partenaires/PartenairesPageHero';
+import { PartenairesReassuranceBar } from '@/components/partenaires/PartenairesReassuranceBar';
+import { PartenairesReferencesSection } from '@/components/partenaires/PartenairesReferencesSection';
+import { PartenairesInterventionSection } from '@/components/partenaires/PartenairesInterventionSection';
+import { PartenairesCadreSection } from '@/components/partenaires/PartenairesCadreSection';
+import { PartenairesCtaSection } from '@/components/partenaires/PartenairesCtaSection';
+import { AllerPlusLoin } from '@/components/AllerPlusLoin';
+import { LINKS } from '@/lib/internal-links';
+import Link from 'next/link';
 
 export const revalidate = 3600;
 
@@ -31,12 +25,11 @@ export const metadata = createPageMetadata({
   descriptionFinal: true,
   path: LINKS.partenaires,
   keywords: [
-    'partenaires formation IA BTP',
-    'FFB Grand Paris formation IA',
-    'CSFE formation IA',
-    'UMB-FFB métiers du bois',
-    'Laure Olivié partenaires BTP',
-    'LinkedIn Learning IA BTP',
+    'références formation IA BTP',
+    'formatrice IA fédération BTP',
+    'formation IA adhérents FFB',
+    'intervention IA BTP Île-de-France',
+    'Laure Olivié références',
   ],
   appendAuthorSuffix: false,
   openGraphTitle: PARTENAIRES_PAGE_META_TITLE,
@@ -44,154 +37,54 @@ export const metadata = createPageMetadata({
   openGraphType: 'article',
 });
 
-function CtaVisio({
-  campaign,
-  ctaPosition,
-}: {
-  campaign: string;
-  ctaPosition: 'middle' | 'footer';
-}) {
-  return (
-    <section className={ctaPosition === 'middle' ? OFC_SEC.mutedCompact : OFC_SEC.whiteCompact}>
-      <div className={`${OFC_SECTION_INNER} flex max-w-3xl flex-col items-center text-center`}>
-        <p className="text-sm leading-relaxed text-slate-600 md:text-base">{PARTENAIRES_CTA_INTRO}</p>
-        <CalendlyEmbed
-          type="link"
-          variant="primary"
-          ctaPosition={ctaPosition}
-          campaign={campaign}
-          className="mt-4 min-w-[min(100%,280px)]"
-         />
-      </div>
-    </section>
-  );
-}
+export default function PartenairesPage() {
+  const referencesBtp = getPartenairesReferencesByCategory('btp');
+  const autresOrganismes = getPartenairesReferencesByCategory('autres');
 
-function PartenaireSection({
-  section,
-  tone,
-}: {
-  section: PartenairePageSection;
-  tone: 'white' | 'muted';
-}) {
   return (
-    <section
-      id={section.id}
-      className={`${tone === 'white' ? OFC_SEC.white : OFC_SEC.muted} scroll-mt-24`}
-      aria-labelledby={`${section.id}-heading`}
-    >
-      <div className={`${OFC_SECTION_INNER} max-w-3xl`}>
-        {section.logo ? (
-          <div className="mb-6 flex h-16 items-center md:h-[4.5rem]">
-            <Image
-              src={section.logo.src}
-              alt={section.logo.alt}
-              width={section.logo.width}
-              height={section.logo.height}
-              className="max-h-14 w-auto object-contain object-left"
-              sizes="180px"
-              loading="lazy"
-              quality={70}
+    <>
+      <JsonLd data={getPartenairesPageJsonLd()} />
+
+      <PartenairesPageHero />
+
+      <div className="mx-auto max-w-6xl space-y-14 px-4 pb-16 sm:px-6 lg:px-8">
+        <PartenairesReassuranceBar />
+
+        <PartenairesReferencesSection
+          id="references-btp"
+          titleId="references-btp-title"
+          title="Fédérations et réseaux du BTP"
+          references={referencesBtp}
+        />
+
+        <PartenairesReferencesSection
+          id="autres-organismes"
+          titleId="autres-organismes-title"
+          title="Autres organismes pour lesquels j’interviens"
+          references={autresOrganismes}
+        />
+
+        <PartenairesInterventionSection />
+        <PartenairesCadreSection />
+        <PartenairesCtaSection />
+      </div>
+
+      <div className="border-t border-[#E2E8F0] bg-[#F8FAFC] px-4 py-8">
+        <div className="mx-auto max-w-6xl">
+          <Link href="/" className="font-medium text-[#377CF3] hover:underline">
+            ← Retour à l&apos;accueil
+          </Link>
+          <div className="mt-8">
+            <AllerPlusLoin
+              links={[
+                { href: LINKS.formations, label: 'Catalogue des formations IA pour le BTP' },
+                { href: LINKS.etudesCasFfbCsfe, label: 'Étude de cas FFB & CSFE' },
+                { href: LINKS.contact, label: 'Demander une session ou un devis' },
+              ]}
             />
           </div>
-        ) : null}
-        <h2
-          id={`${section.id}-heading`}
-          className="font-display text-2xl font-bold tracking-tight text-slate-900 md:text-3xl"
-        >
-          {section.h2}
-        </h2>
-        {section.subtitle ? (
-          <p className="mt-1 text-sm font-medium text-slate-500">{section.subtitle}</p>
-        ) : null}
-        <div className="mt-4 space-y-3 text-base leading-relaxed text-slate-600 md:text-lg">
-          {section.paragraphs.map((paragraph, index) => (
-            <p key={`${section.id}-p-${index}`}>{paragraph}</p>
-          ))}
         </div>
-        <p className="mt-4">
-          <ExternalLinkAnchor href={section.officialHref} className={OFC_LINK}>
-            {section.officialLabel}
-          </ExternalLinkAnchor>
-        </p>
-        {/* À compléter par Laure */}
-        <Temoignage auteur="" role="" texte="" />
       </div>
-    </section>
-  );
-}
-
-export default function PartenairesPage() {
-  const avantCta = PARTENAIRES_PAGE_SECTIONS.slice(0, 4);
-  const apresCta = PARTENAIRES_PAGE_SECTIONS.slice(4);
-
-  return (
-    <div>
-      <section className={OFC_SEC.heroWhite} aria-labelledby="partenaires-page-heading">
-        <div className={`${OFC_SECTION_INNER} max-w-3xl`}>
-          <h1
-            id="partenaires-page-heading"
-            className="font-display text-balance text-3xl font-bold tracking-tight text-slate-900 md:text-4xl"
-          >
-            {PARTENAIRES_SECTION_TITLE}
-          </h1>
-          <div className="mt-6 space-y-4 text-base leading-relaxed text-slate-600 md:text-lg">
-            {PARTENAIRES_PAGE_INTRO.map((paragraph, index) => (
-              <p key={`intro-${index}`}>{paragraph}</p>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {avantCta.map((section, index) => (
-        <PartenaireSection
-          key={section.id}
-          section={section}
-          tone={index % 2 === 0 ? 'muted' : 'white'}
-        />
-      ))}
-
-      <CtaVisio campaign="partenaires-page-middle" ctaPosition="middle" />
-
-      {apresCta.map((section, index) => (
-        <PartenaireSection
-          key={section.id}
-          section={section}
-          tone={index % 2 === 0 ? 'white' : 'muted'}
-        />
-      ))}
-
-      <section className={OFC_SEC.mutedCompact}>
-        <div className={`${OFC_SECTION_INNER} max-w-3xl space-y-3 text-base leading-relaxed text-slate-600 md:text-lg`}>
-          {PARTENAIRES_PAGE_CLOSING.map((paragraph, index) => (
-            <p key={`closing-${index}`}>{paragraph}</p>
-          ))}
-        </div>
-      </section>
-
-      <CtaVisio campaign="partenaires-page-footer" ctaPosition="footer" />
-
-      <ContextualLinksSection
-        title="Continuer votre navigation"
-        tone="muted"
-        links={[
-          {
-            href: LINKS.financement,
-            title: 'Financement Constructys — formation IA BTP',
-            description: 'OPCO Constructys : éligibilité, plafonds et constitution du dossier.',
-          },
-          {
-            href: LINKS.formationIleDeFrance,
-            title: 'Formation IA BTP en Île-de-France',
-            description: 'Présentiel francilien : Paris et départements, sessions — organisme certifié Qualiopi.',
-          },
-          {
-            href: LINKS.contact,
-            title: 'Contacter Laure Olivié',
-            description: 'Question sur une session déléguée ou un intra en Île-de-France.',
-          },
-        ]}
-      />
-    </div>
+    </>
   );
 }

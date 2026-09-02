@@ -136,16 +136,12 @@ const FINANCEMENT_CHILDREN: readonly HeaderNavLink[] = [
   { href: `${LINKS.financement}#mon-cas`, label: 'Prise en charge' },
 ];
 
-/** Ancres réelles de `app/partenaires/page.tsx` (ids des sections). */
+/** Ancres réelles de `app/partenaires/page.tsx`. */
 const PARTENAIRES_SECTION_CHILDREN: readonly HeaderNavLink[] = [
-  { href: `${LINKS.partenaires}#ffb-grand-paris`, label: 'FFB Grand Paris' },
-  { href: `${LINKS.partenaires}#ffb-ile-de-france`, label: 'FFB Île-de-France' },
-  { href: `${LINKS.partenaires}#csfe`, label: 'CSFE' },
-  { href: `${LINKS.partenaires}#umb-ffb`, label: 'UMB-FFB' },
-  { href: `${LINKS.partenaires}#cnam-entreprise`, label: 'CNAM Entreprise' },
-  { href: `${LINKS.partenaires}#lefebvre-dalloz`, label: 'Lefebvre Dalloz' },
-  { href: `${LINKS.partenaires}#ifrb-77`, label: 'IFRB 77' },
-  { href: LINKS.etudesCas, label: 'Étude de cas FFB & CSFE' },
+  { href: `${LINKS.partenaires}#references-btp`, label: 'Réseaux BTP' },
+  { href: `${LINKS.partenaires}#autres-organismes`, label: 'Autres organismes' },
+  { href: `${LINKS.partenaires}#deroulement`, label: 'Déroulement' },
+  { href: LINKS.etudesCasFfbCsfe, label: 'Étude de cas FFB & CSFE' },
   { href: LINKS.formationsLinkedInLearning, label: 'Formations LinkedIn Learning' },
 ];
 
