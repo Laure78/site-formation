@@ -1,99 +1,87 @@
 import Link from 'next/link';
-import { CalendarClock, ShieldCheck, Users } from 'lucide-react';
-import { CtaButton } from '@/components/CtaButton';
-import { MarketingLightHero } from '@/components/marketing/MarketingLightHero';
+import { ArrowRight, Calendar, FileText } from 'lucide-react';
 import { LINKS } from '@/lib/internal-links';
-import { PHOTOS } from '@/lib/photos';
-import { getStatsFreshnessLabel } from '@/lib/constants';
-import { getPillarPageContentUpdatedAt } from '@/lib/content-updated-at';
-import { formatNoteSatisfactionSur5 } from '@/lib/data/indicateurs-resultats';
+import { FINANCEMENT_PAGE_H1 } from '@/lib/financement-constructys-page-config';
 
-const H1 =
-  'Financer une formation IA pour le BTP avec Constructys en 2026 — guide OPCO, plafonds et dossier eGestion';
-
-const QUICK_LINKS = [
-  { href: '#tldr', label: 'En résumé' },
-  { href: '#etapes', label: 'Les étapes' },
-  { href: '#faq', label: 'FAQ' },
-] as const;
+const ANCHOR_ETAPES = '#etapes-financement';
 
 export function FinancementConstructysHero() {
-  const heroVisual = PHOTOS.financementConstructysHero2026;
-  const statsFreshness = getStatsFreshnessLabel();
-
   return (
-    <MarketingLightHero
-      eyebrow="Constructys · OPCO BTP"
-      title={H1}
-      titleId="financement-hero-title"
-      contentUpdatedAt={getPillarPageContentUpdatedAt('/financement-constructys-formation-ia-btp')}
-      description={
-        <>
-          <p>
-            Ce guide vous aide à comprendre les règles Constructys sans jargon administratif — que vous visiez une{' '}
-            <Link href={LINKS.chatgptArtisans} className="font-medium text-[#377CF3] underline-offset-2 hover:underline">
-              formation IA pour PME BTP
-            </Link>
-            , l&apos;
-            <Link href={LINKS.iaDevis} className="font-medium text-[#377CF3] underline-offset-2 hover:underline">
-              IA pour les devis bâtiment
-            </Link>{' '}
-            ou un{' '}
-            <Link href={LINKS.formationAO} className="font-medium text-[#377CF3] underline-offset-2 hover:underline">
-              programme IA appels d&apos;offres
-            </Link>
-            .
-          </p>
-          <p className="mt-3 text-base text-slate-600 md:text-lg">Temps de lecture : 7 min</p>
-        </>
-      }
-      stats={[
-        {
-          icon: Users,
-          value: formatNoteSatisfactionSur5(),
-          label: `Satisfaction · ${statsFreshness}`,
-        },
-        {
-          icon: ShieldCheck,
-          value: 'Qualiopi',
-          label: 'organisme certifié',
-        },
-        { icon: CalendarClock, value: 'J-15', label: 'délai minimum eGestion' },
-      ]}
-      middle={
-        <>
-          <ul className="flex flex-wrap gap-2" aria-label="Thématiques de la page">
-            {['Constructys', 'OPCO', 'Qualiopi', 'BTP', 'eGestion', '2026'].map((tag) => (
-              <li key={tag}>
-                <span className="inline-flex rounded-full border border-slate-200/90 bg-white px-3 py-1.5 text-xs font-medium text-slate-600 shadow-sm">
-                  #{tag}
-                </span>
-              </li>
-            ))}
-          </ul>
-          <div className="mt-4 flex flex-col gap-2.5 sm:flex-row sm:flex-wrap sm:gap-3">
-            <CtaButton
-              origin="financement-constructys-hero"
-              className="inline-flex items-center justify-center rounded-full bg-[#377CF3] px-5 py-2.5 text-sm font-semibold text-white shadow-[0_10px_30px_-6px_rgba(55,124,243,0.45)] transition hover:bg-[#2563EB] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#377CF3] md:px-6" />
-            <Link
-              href={LINKS.formations}
-              className="inline-flex items-center justify-center rounded-full border-2 border-[#377CF3] bg-white px-5 py-2.5 text-center text-sm font-semibold text-[#377CF3] transition hover:bg-[#EFF6FF] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#377CF3] md:px-6"
-            >
-              Voir le programme
-            </Link>
-          </div>
-        </>
-      }
-      quickLinks={QUICK_LINKS}
-      heroVisual={{
-        src: heroVisual.src,
-        alt: heroVisual.alt,
-        title: heroVisual.title,
-        width: heroVisual.width,
-        height: heroVisual.height,
-      }}
-    />
+    <section
+      className="relative overflow-hidden bg-gradient-to-b from-[#EFF6FF] via-white to-white px-4 pb-12 pt-10 sm:px-6 lg:px-8 lg:pb-16 lg:pt-14"
+      aria-labelledby="financement-hero-title"
+    >
+      <div className="mx-auto max-w-3xl text-center">
+        <p className="text-sm font-semibold uppercase tracking-wide text-[#377CF3]">
+          Financement OPCO · Constructys · 2026
+        </p>
+        <h1
+          id="financement-hero-title"
+          className="font-display mt-4 text-3xl font-bold leading-tight tracking-tight text-[#0F172A] sm:text-4xl lg:text-[2.5rem]"
+        >
+          {FINANCEMENT_PAGE_H1}
+        </h1>
+        <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-[#475569] sm:text-lg">
+          Plafonds, délai de dépôt, reste à charge et nouveau circuit de remboursement à compter du
+          1<sup>er</sup> octobre 2026.
+        </p>
+        <p className="mt-3 text-sm font-medium text-[#64748B]">
+          OFC certifié Qualiopi · Programme et devis fournis · Île-de-France
+        </p>
+        <div className="mt-8 flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:items-center">
+          <Link
+            href={LINKS.contact}
+            className="inline-flex min-h-[44px] items-center justify-center gap-2 rounded-xl bg-[#377CF3] px-6 py-3 text-base font-semibold text-white shadow-sm transition-colors hover:bg-[#2563EB] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#377CF3]"
+          >
+            <FileText className="h-5 w-5 shrink-0" aria-hidden />
+            Demander un devis
+          </Link>
+          <a
+            href={ANCHOR_ETAPES}
+            className="inline-flex min-h-[44px] items-center justify-center gap-2 rounded-xl border border-[#CBD5E1] bg-white px-6 py-3 text-base font-semibold text-[#0F172A] transition-colors hover:border-[#377CF3] hover:text-[#377CF3] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#377CF3]"
+          >
+            Vérifier les étapes
+            <ArrowRight className="h-5 w-5 shrink-0" aria-hidden />
+          </a>
+        </div>
+      </div>
+    </section>
   );
 }
 
-export { H1 as FINANCEMENT_CONSTRUCTYS_H1 };
+/** CTA conversion bas de page — réutilise les liens contact + Calendly. */
+export function FinancementConstructysCta() {
+  return (
+    <section
+      className="rounded-2xl border border-[#BFDBFE] bg-gradient-to-br from-[#EFF6FF] to-white px-6 py-10 sm:px-10"
+      aria-labelledby="financement-cta-title"
+    >
+      <h2
+        id="financement-cta-title"
+        className="font-display text-2xl font-bold tracking-tight text-[#0F172A] md:text-3xl"
+      >
+        Préparez votre demande avant le délai de dépôt
+      </h2>
+      <p className="mt-3 max-w-2xl text-base leading-relaxed text-[#475569]">
+        Recevez le programme détaillé et le devis nécessaires à votre demande Constructys. Le dépôt
+        et la validation restent gérés par l’entreprise avec Constructys.
+      </p>
+      <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+        <Link
+          href={LINKS.contact}
+          className="inline-flex min-h-[44px] items-center justify-center gap-2 rounded-xl bg-[#377CF3] px-6 py-3 text-base font-semibold text-white hover:bg-[#2563EB] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#377CF3]"
+        >
+          <FileText className="h-5 w-5" aria-hidden />
+          Demander un devis
+        </Link>
+        <Link
+          href={LINKS.prendreRdv}
+          className="inline-flex min-h-[44px] items-center justify-center gap-2 rounded-xl border border-[#CBD5E1] bg-white px-6 py-3 text-base font-semibold text-[#0F172A] hover:border-[#377CF3] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#377CF3]"
+        >
+          <Calendar className="h-5 w-5" aria-hidden />
+          Réserver un échange
+        </Link>
+      </div>
+    </section>
+  );
+}

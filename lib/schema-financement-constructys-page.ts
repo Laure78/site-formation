@@ -3,46 +3,22 @@
  * Pas de nœud Organization dupliqué : références par @id uniquement.
  */
 
-import { FAQ_FINANCEMENT_IA_BTP } from '@/lib/faq';
+import { FAQ_FINANCEMENT_CONSTRUCTYS_PAGE } from '@/lib/faq';
 import { getPillarPageContentUpdatedAt } from '@/lib/content-updated-at';
 import { SCHEMA_CONTACT, SCHEMA_GEO } from '@/lib/schema-constants';
 import { SITE_CONFIG, getArticleSchema, getFAQSchema } from '@/lib/seo';
 import { buildFinancementConstructysImageObjectJsonLd } from '@/lib/schema-image-objects';
+import {
+  FINANCEMENT_ETAPES,
+  FINANCEMENT_PAGE_H1,
+  FINANCEMENT_PAGE_META_DESCRIPTION,
+} from '@/lib/financement-constructys-page-config';
 import {
   SESSION_DUREE_LIBELLE,
   TARIF_SESSION_FORFAIT_HT,
 } from '@/lib/tarifs-sessions';
 
 const PATH = '/financement-constructys-formation-ia-btp' as const;
-
-const H1 =
-  'Financer une formation IA pour les pros du BTP avec Constructys en 2026 — guide OPCO, plafonds et dossier eGestion';
-
-const HOWTO_STEPS: { name: string; text: string }[] = [
-  {
-    name: 'Vérifier le périmètre BTP',
-    text:
-      'Construire, travaux publics, négoce de matériaux : si c’est votre cas, Constructys est votre OPCO.',
-  },
-  {
-    name: 'Choisir une formation Qualiopi et demander un devis',
-    text:
-      'OFC délivre des programmes avec programme détaillé et devis — deux pièces que Constructys attend.',
-  },
-  {
-    name: 'Réunir les pièces du dossier',
-    text:
-      'Convention de formation, liste des participants, justificatifs d’effectif. Si vous êtes adhérent FFB, prévoyez l’attestation demandée.',
-  },
-  {
-    name: 'Déposer sur eGestion au moins 15 jours avant le premier jour',
-    text: "Depuis le 1er janvier 2026, un dossier incomplet ou tardif n'est plus financé.",
-  },
-  {
-    name: 'Attendre la validation avant de lancer la formation',
-    text: "La formation ne doit pas avoir démarré avant la réception de votre demande par Constructys.",
-  },
-];
 
 function stripJsonLdContext<T extends Record<string, unknown>>(obj: T): Omit<T, '@context'> {
   const { ['@context']: _c, ...rest } = obj;
@@ -52,7 +28,7 @@ function stripJsonLdContext<T extends Record<string, unknown>>(obj: T): Omit<T, 
 export function getFinancementConstructysUnifiedJsonLd(): Record<string, unknown> {
   const base = SITE_CONFIG.url.replace(/\/$/, '');
   const pageUrl = `${base}${PATH}`;
-  const faqRaw = getFAQSchema(FAQ_FINANCEMENT_IA_BTP);
+  const faqRaw = getFAQSchema(FAQ_FINANCEMENT_CONSTRUCTYS_PAGE);
   if (!faqRaw) {
     throw new Error('FAQ financement : schéma FAQPage invalide');
   }
@@ -60,9 +36,8 @@ export function getFinancementConstructysUnifiedJsonLd(): Record<string, unknown
   faq['@id'] = `${pageUrl}#faq`;
 
   const articleRaw = getArticleSchema({
-    headline: H1,
-    description:
-      'Plafonds Constructys 2026 pour une formation IA pour le BTP : 24 € HT/h (< 11 salariés) ou 19 € HT/h (11–50 salariés depuis le 1er juin 2026), 840/665 € HT/jour intra, dépôt eGestion J-15.',
+    headline: FINANCEMENT_PAGE_H1,
+    description: FINANCEMENT_PAGE_META_DESCRIPTION,
     path: PATH,
     datePublished: '2026-01-15',
     dateModified: getPillarPageContentUpdatedAt('/financement-constructys-formation-ia-btp'),
@@ -75,20 +50,15 @@ export function getFinancementConstructysUnifiedJsonLd(): Record<string, unknown
   const howTo: Record<string, unknown> = {
     '@type': 'HowTo',
     '@id': `${pageUrl}#howto`,
-    name: 'Comment obtenir le financement Constructys pour une formation IA appliquée au bâtiment',
+    name: 'Comment demander une prise en charge Constructys pour une formation IA BTP',
     description:
-      'Cinq étapes pour financer votre formation IA pour le BTP avec Constructys en 2026 : périmètre BTP, Qualiopi, pièces, eGestion, validation.',
+      'Cinq étapes pour préparer une demande de participation financière Constructys : vérification OPCO, programme et devis, dépôt eGestion, validation, justificatifs.',
     totalTime: 'P15D',
-    estimatedCost: {
-      '@type': 'MonetaryAmount',
-      currency: 'EUR',
-      value: '0',
-    },
-    step: HOWTO_STEPS.map((s, i) => ({
+    step: FINANCEMENT_ETAPES.map((s, i) => ({
       '@type': 'HowToStep',
       position: i + 1,
-      name: s.name,
-      text: s.text,
+      name: s.titre,
+      text: s.texte,
     })),
   };
 

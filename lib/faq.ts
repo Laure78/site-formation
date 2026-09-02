@@ -426,6 +426,38 @@ export const FAQ_FINANCEMENT_IA_BTP: FAQItem[] = [
   },
 ];
 
+/** FAQ page `/financement-constructys-formation-ia-btp` — 6 questions visibles (JSON-LD aligné). */
+export const FAQ_FINANCEMENT_CONSTRUCTYS_PAGE: FAQItem[] = [
+  {
+    q: 'Une formation IA peut-elle bénéficier d’une participation Constructys ?',
+    a: `Oui, si votre entreprise relève du périmètre BTP, que Constructys est votre OPCO et que votre dossier est éligible. OFC propose des actions certifiées Qualiopi. ${FINANCEMENT_FORMULATION_PRUDENTE} Voir le <a href="${LINKS.formations}">catalogue formations IA BTP</a>.`,
+  },
+  {
+    q: 'Quel est le délai pour déposer le dossier ?',
+    a: 'Le dossier complet doit être déposé dans eGestion au moins 15 jours calendaires avant le début de la formation. Anticipez la demande de programme et de devis auprès d’OFC.',
+  },
+  {
+    q: 'Quel montant peut être pris en charge ?',
+    a: 'Montants indicatifs selon l’effectif : 24 € HT/h/stagiaire (moins de 11 salariés, plafond journalier groupe intra 840 € HT) ou 19 € HT/h/stagiaire (11 salariés et plus en Bâtiment, plafond journalier 665 € HT). La prise en charge retenue est le minimum entre plafond horaire × durée × stagiaires, plafond de groupe et coût pédagogique facturé. Reste à charge possible.',
+  },
+  {
+    q: 'Qui règle la formation à partir du 1er octobre 2026 ?',
+    a: 'Pour les nouveaux dossiers concernés du 1er octobre au 31 décembre 2026 : OFC facture l’entreprise, l’entreprise règle la facture, puis demande le remboursement à Constructys avec les justificatifs. Le remboursement intervient sur la base du montant net de taxe. Dispositif transitoire annoncé par Constructys.',
+  },
+  {
+    q: 'OFC dépose-t-il le dossier dans eGestion ?',
+    a: 'Non. L’entreprise reste responsable du dépôt et du suivi de son dossier dans eGestion. OFC fournit le programme détaillé, le devis et les justificatifs de fin de formation.',
+  },
+  {
+    q: 'Quels documents OFC fournit-il ?',
+    a: 'Programme détaillé, devis, convention de formation, feuilles d’émargement ou justificatifs de présence, certificat de réalisation. Pour un devis : <a href="/contact">contact</a>.',
+  },
+];
+
+export function getFaqFinancementConstructysPage(): readonly FAQItem[] {
+  return FAQ_FINANCEMENT_CONSTRUCTYS_PAGE;
+}
+
 export const FAQ_A_PROPOS: FAQItem[] = [
   {
     q: "Où intervenez-vous pour les formations IA pour les pros du BTP ?",
