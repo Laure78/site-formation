@@ -50,9 +50,7 @@ export default function EtudesDeCasHubPage() {
             accompagnées par {SITE_CONFIG.name}, organisme certifié Qualiopi.
           </p>
           <div className="mt-8">
-            <RdvLink className="rounded-xl bg-[var(--accent)] px-6 py-3 font-semibold text-white hover:bg-blue-600">
-              Prendre rendez-vous
-            </RdvLink>
+            <RdvLink className="rounded-xl bg-[var(--accent)] px-6 py-3 font-semibold text-white hover:bg-blue-600" />
           </div>
         </div>
       </section>

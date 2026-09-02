@@ -500,9 +500,7 @@ export default function EtudeDeCasFfbCsfePage() {
             .
           </p>
           <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <RdvLink className="inline-flex rounded-xl bg-white px-8 py-3 font-semibold text-slate-900 hover:bg-slate-100">
-              Demander un échange
-            </RdvLink>
+            <RdvLink className="inline-flex rounded-xl bg-white px-8 py-3 font-semibold text-slate-900 hover:bg-slate-100" />
             <Link
               href={LINKS.etudesCasHub}
               className="inline-flex rounded-xl border border-white/40 px-8 py-3 font-semibold text-white hover:bg-white/10"

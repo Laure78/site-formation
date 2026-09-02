@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { CTA_RDV_LABEL } from '@/components/CtaRdv';
 import { Suspense } from 'react';
 import { CheckCircle, Building2, Clock, Award, Phone } from 'lucide-react';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
@@ -342,7 +343,7 @@ export default function ContactPage() {
                 links={[
                   { href: '/formations', label: 'Formation IA pour le BTP' },
                   { href: '/formation-ia-artisans-btp', label: 'ChatGPT et IA pour votre entreprise BTP' },
-                  { href: buildSiteCalendlyCtaUrl('contact-footer-rdv-diagnostic'), label: 'Prendre rendez-vous pour un diagnostic' },
+                  { href: LINKS.prendreRdv, label: CTA_RDV_LABEL },
                 ]}
               />
             </div>

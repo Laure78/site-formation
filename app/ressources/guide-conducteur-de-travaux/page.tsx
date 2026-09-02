@@ -476,9 +476,7 @@ Signature : [NOM] — [TITRE] — [ENTREPRISE]
               origin="ressources-guide-conducteur-de-travaux-contact-rdv-page-calendly"
               variant="unstyled"
               className="inline-flex rounded-xl bg-white px-6 py-3 font-semibold text-[#377CF3] shadow-sm hover:bg-[#F2F2F2]"
-            >
-              Prendre rendez-vous
-            </RdvLink>
+             />
             <Link
               href={LINKS.contact}
               className="inline-flex rounded-xl border border-white/40 px-6 py-3 font-semibold text-white hover:bg-white/10"

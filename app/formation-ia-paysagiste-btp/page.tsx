@@ -1,4 +1,6 @@
 import { FAQAnswer } from '@/components/landing/FAQAnswer';
+import { LINKS } from '@/lib/internal-links';
+import { CTA_RDV_LABEL, CtaRdv } from '@/components/CtaRdv';
 import Link from 'next/link';
 import { ArrowRight, Check, Phone } from 'lucide-react';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
@@ -119,7 +121,7 @@ const SOMMAIRE = [
   { href: '#resultats', label: 'Résultats concrets et témoignages' },
   { href: '#faq', label: 'FAQ — questions des paysagistes sur l’IA' },
   { href: '#a-propos', label: 'Qui est Laure Olivié ?' },
-  { href: '#rdv', label: 'Prendre rendez-vous' },
+  { href: LINKS.prendreRdv, label: CTA_RDV_LABEL },
 ];
 
 export default function FormationIaPaysagisteBtpPage() {
@@ -234,9 +236,7 @@ export default function FormationIaPaysagisteBtpPage() {
         <aside className="mt-10 rounded-2xl border-l-4 border-[var(--accent)] bg-slate-50 p-6 md:p-8">
           <p className="font-medium text-slate-900">Aller plus loin</p>
           <p className="mt-2 text-slate-600">
-            <a href="#rdv" className="font-semibold text-[var(--accent)] underline hover:no-underline">
-              Prendre rendez-vous
-            </a>{' '}
+            <CtaRdv variant="inline" origin="page-inline-rdv" className="font-semibold text-[var(--accent)] underline hover:no-underline" />{' '}
             — 30 minutes pour voir comment adapter ces usages à votre portefeuille de projets.
           </p>
         </aside>
@@ -357,10 +357,7 @@ export default function FormationIaPaysagisteBtpPage() {
             de vos habitudes — l’IA sert d’abord à produire des textes et des tableaux à copier ou à importer.
           </p>
           <div className="mt-8 flex flex-wrap gap-4" id="cta-calendly">
-            <RdvLink className="inline-flex items-center gap-2 rounded-xl bg-white px-6 py-3 font-semibold text-[var(--accent)] hover:bg-blue-50">
-              Réserver votre visio découverte
-              <ArrowRight size={20} strokeWidth={1.5} />
-            </RdvLink>
+            <RdvLink className="inline-flex items-center gap-2 rounded-xl bg-white px-6 py-3 font-semibold text-[var(--accent)] hover:bg-blue-50" />
             <PublicPhoneCta className="inline-flex items-center gap-2 rounded-xl border-2 border-white px-6 py-3 font-semibold text-white hover:bg-white/10" />
             <Link
               href="/contact"
@@ -397,7 +394,7 @@ export default function FormationIaPaysagisteBtpPage() {
             { href: '/formation-ia-pisciniste-btp', label: 'Formation IA pisciniste BTP' },
             { href: '/formation-ia-dirigeant-pme-btp', label: 'Formation IA dirigeant PME BTP' },
             { href: '/financement-constructys-formation-ia-btp', label: 'Financement Constructys' },
-            { href: buildSiteCalendlyCtaUrl('formation-ia-paysagiste-btp-footer-rdv'), label: 'Prendre rendez-vous' },
+            { href: LINKS.prendreRdv, label: CTA_RDV_LABEL },
           ]}
         />
 

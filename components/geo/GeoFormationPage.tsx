@@ -135,10 +135,7 @@ export function GeoFormationPage(props: GeoFormationPageProps) {
               campaign={`geo-formation-${slug}-hero`}
               ctaPosition="hero"
               className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#377CF3] px-6 py-3.5 text-center text-base font-semibold text-white shadow-sm transition hover:bg-[#2d6ae0]"
-            >
-              <Calendar size={20} strokeWidth={1.5} aria-hidden />
-              Visio découverte gratuite — 30 min
-            </RdvLink>
+             />
             <Link
               href={LINKS.formationIaBtpNiveau1BatimentTp}
               className="inline-flex items-center justify-center rounded-xl border-2 border-[#377CF3] px-6 py-3.5 text-base font-semibold text-[#377CF3] hover:bg-blue-50"

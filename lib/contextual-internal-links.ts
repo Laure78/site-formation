@@ -335,7 +335,7 @@ export function getSiteNavHubItems(at: Date = new Date()): ContextualLinkCard[] 
     },
     {
       href: LINKS.prendreRdv,
-      title: 'Prendre RDV',
+      title: 'Réservez votre visio découverte gratuite',
       description: 'Visio découverte gratuite — 30 min',
     },
   ];

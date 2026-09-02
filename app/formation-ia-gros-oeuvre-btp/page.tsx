@@ -309,11 +309,7 @@ export default function FormationIaGrosOeuvreBtpPage() {
               <CtaButton
                 origin={FORMATION_IA_GROS_OEUVRE_CALENDLY_CAMPAIGN}
                 variant="unstyled"
-                className="inline-flex items-center gap-2 rounded-xl bg-white px-6 py-3.5 text-sm font-bold text-[#377CF3] shadow-sm hover:bg-blue-50"
-              >
-                Prendre rendez-vous
-                <ArrowRight size={18} strokeWidth={1.5} aria-hidden />
-              </CtaButton>
+                className="inline-flex items-center gap-2 rounded-xl bg-white px-6 py-3.5 text-sm font-bold text-[#377CF3] shadow-sm hover:bg-blue-50" />
             </div>
           </section>
         </article>

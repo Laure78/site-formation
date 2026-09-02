@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
+import { CTA_RDV_LABEL, CtaRdv } from '@/components/CtaRdv';
 import Link from 'next/link';
 import { ArrowUpRight, Clock, Accessibility } from 'lucide-react';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
-import CalendlyButton from '@/components/CalendlyButton';
 import { buildSiteCalendlyCtaUrl } from '@/lib/calendly';
 import { JsonLd } from '@/components/JsonLd';
 import { createPageMetadata, SITE_CONFIG } from '@/lib/seo';
@@ -121,9 +121,7 @@ export default function FormationsPage() {
             {FINANCEMENT_FORMULATION_COURTE}{' '}
             Méthode 100 % terrain, orientée
             productivité.{' '}
-            <CalendlyButton variant="small" campaign="formations-intro-rdv" className="font-medium">
-              Prenez rendez-vous
-            </CalendlyButton>{' '}
+            <CtaRdv variant="inline" origin="formations-intro-rdv" className="font-medium" />{' '}
             pour un diagnostic personnalisé.
           </p>
           <p className="mt-3 max-w-5xl text-sm leading-relaxed text-[#64748B]">{GAINS_TEMPS_MENTION_PRUDENCE}</p>
@@ -297,7 +295,7 @@ export default function FormationsPage() {
             { href: LINKS.diagnostic, label: 'Diagnostic IA BTP' },
             { href: LINKS.checklist, label: 'Checklist prompts ChatGPT BTP' },
             { href: LINKS.formationIleDeFrance, label: 'Formation IA BTP en Île-de-France' },
-            { href: LINKS.prendreRdv, label: 'Prendre rendez-vous' },
+            { href: LINKS.prendreRdv, label: CTA_RDV_LABEL },
           ].filter((l) => !getClusterRelatedHrefs(LINKS.formations).includes(l.href))}
         />
       </div>

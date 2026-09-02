@@ -3,6 +3,7 @@ import { PillarPageHero } from '@/components/pillar/PillarPageHero';
 import { calendlyClaudeBtpGuideUrl } from '@/lib/calendly';
 import { SOCIAL_PROOF } from '@/lib/constants';
 import { CLAUDE_AI_BTP_WORD_COUNT } from '@/lib/claude-ai-btp-jsonld';
+import { getPillarPageContentUpdatedAt } from '@/lib/content-updated-at';
 import { LINKS } from '@/lib/internal-links';
 import { PHOTOS } from '@/lib/photos';
 
@@ -20,6 +21,7 @@ export function ClaudeAiBtpHero() {
       eyebrow="Anthropic · Claude AI · Guide BTP 2026"
       title="Claude AI pour le BTP"
       titleId="claude-btp-hero-title"
+      contentUpdatedAt={getPillarPageContentUpdatedAt('/claude-ai-btp')}
       subtitle={
         <>
           Interfaces, workflows et prompts pour TPE &amp; PME du bâtiment, professionnels du BTP, conducteurs de
@@ -27,7 +29,7 @@ export function ClaudeAiBtpHero() {
           DCE, CCTP, mémoires techniques, comptes rendus et relances.
         </>
       }
-      metaLine={`Temps de lecture estimé : environ ${READING_MINUTES} minutes · guide mis à jour en avril 2026`}
+      metaLine={`Temps de lecture estimé : environ ${READING_MINUTES} minutes`}
       tags={['ClaudeAI', 'BTP', 'Formation', 'IA chantier', 'Qualiopi', 'Constructys']}
       primaryCta={{ href: calendlyClaudeBtpGuideUrl('hero'), label: 'Visio découverte gratuite' }}
       secondaryCta={{ href: LINKS.diagnostic, label: 'Diagnostic IA BTP', external: false }}

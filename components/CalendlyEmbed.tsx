@@ -2,17 +2,18 @@
 
 import type { ReactNode } from 'react';
 import { usePathname } from 'next/navigation';
-import { CtaButton } from '@/components/CtaButton';
+import { CtaRdv } from '@/components/CtaRdv';
+import {
+  CALENDLY_INLINE_DEFAULT_HEIGHT_PX,
+  CALENDLY_BUTTON_VARIANT_CLASS,
+  type CalendlyEmbedVariant,
+} from '@/lib/calendly-embed-config';
 import {
   buildCalendlyInlineIframeUrl,
   buildCalendlyUrlWithUtm,
   deriveCalendlyCampaign,
   CALENDLY_EMBED_URL,
 } from '@/lib/calendly';
-import {
-  CALENDLY_INLINE_DEFAULT_HEIGHT_PX,
-  type CalendlyEmbedVariant,
-} from '@/lib/calendly-embed-config';
 
 /** `popup` conservé pour compatibilité — redirige vers `/prendre-rendez-vous`. */
 export type CalendlyEmbedType = 'popup' | 'inline' | 'link';
@@ -107,7 +108,7 @@ export function CalendlyEmbed({
   title,
   disabled,
   'aria-label': ariaLabel,
-  variant: _variant,
+  variant = 'primary',
 }: CalendlyEmbedProps) {
   const pathname = usePathname();
   const resolvedCtaId = ctaId ?? `calendly-${ctaPosition}`;
@@ -122,8 +123,14 @@ export function CalendlyEmbed({
     utmMedium,
     utmCampaign: resolvedCampaign,
   });
-  const label = children ?? buttonText;
   const origin = ctaId ?? campaign ?? ctaPosition ?? resolvedCtaId;
+  const ctaVariant =
+    variant === 'secondary' || variant === 'on-accent' || variant === 'slate'
+      ? 'secondary'
+      : variant === 'unstyled' || variant === 'nav'
+        ? 'inline'
+        : 'primary';
+  const extraClass = CALENDLY_BUTTON_VARIANT_CLASS[variant as CalendlyEmbedVariant] ?? '';
 
   if (type === 'inline') {
     return (
@@ -145,17 +152,19 @@ export function CalendlyEmbed({
     );
   }
 
+  void children;
+  void buttonText;
+
   return (
-    <CtaButton
+    <CtaRdv
       id={id}
       origin={origin}
-      className={className}
+      variant={ctaVariant}
+      className={[extraClass, className].filter(Boolean).join(' ')}
       title={title}
-      aria-label={ariaLabel ?? (typeof label === 'string' ? label : undefined)}
+      aria-label={ariaLabel}
       onClick={onClick}
       aria-disabled={disabled || undefined}
-    >
-      {label}
-    </CtaButton>
+    />
   );
 }

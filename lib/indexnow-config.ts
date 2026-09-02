@@ -11,7 +11,7 @@ export const INDEXNOW_SITE_ORIGIN = SCHEMA_PUBLIC_SITE_URL.replace(/\/$/, '');
  * Surcharge possible via INDEXNOW_KEY (Vercel / Railway).
  */
 export const INDEXNOW_KEY =
-  process.env.INDEXNOW_KEY?.trim() || 'ofc-laureolivie-indexnow-7k9m2p4x';
+  process.env.INDEXNOW_KEY?.trim() || 'e05un916c5fd0496fbfbun9c2d975712b4';
 
 export const INDEXNOW_KEY_FILE_URL = `${INDEXNOW_SITE_ORIGIN}/${INDEXNOW_KEY}.txt`;
 

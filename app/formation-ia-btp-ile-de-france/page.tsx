@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { CalendlyEmbed } from '@/components/CalendlyEmbed';
 import { JsonLd } from '@/components/JsonLd';
+import { ContentUpdatedLine } from '@/components/seo/ContentUpdatedLine';
 import { FAQSection } from '@/components/landing/FAQSection';
 import { EnBref } from '@/app/components/EnBref';
 import { VoirAussi } from '@/components/VoirAussi';
@@ -9,8 +10,10 @@ import type { FAQItem } from '@/lib/faq';
 import {
   buildFormationIaCourseJsonLd,
   getFormationIleDeFrancePageLocalBusinessJsonLd,
+  getFormationIleDeFrancePageWebPageJsonLd,
   IDF_COURSE_AREA_SERVED_NAMES,
 } from '@/lib/seo-formation-ia-schemas';
+import { getPillarPageContentUpdatedAt } from '@/lib/content-updated-at';
 import { SOCIAL_PROOF, IDF_ZONE_INTERVENTION } from '@/lib/constants';
 import { PROOF } from '@/lib/proof';
 import { FINANCEMENT_FORMULATION_PRUDENTE } from '@/lib/financement-copy';
@@ -102,6 +105,7 @@ export default function FormationIaBtpIleDeFrancePage() {
   return (
     <>
       <JsonLd id="schema-formation-idf-course" schema={COURSE_JSON_LD} />
+      <JsonLd id="schema-formation-idf-webpage" schema={getFormationIleDeFrancePageWebPageJsonLd()} />
       <JsonLd id="schema-formation-idf-localbusiness" schema={localBusinessSchema} />
       {faqSchema ? <JsonLd id="schema-formation-idf-faq" schema={faqSchema} /> : null}
 
@@ -114,6 +118,10 @@ export default function FormationIaBtpIleDeFrancePage() {
             <h1 className="mt-4 font-display text-3xl font-bold leading-tight text-slate-900 md:text-4xl lg:text-[2.5rem]">
               Formation IA pour le bâtiment et la construction en Île-de-France
             </h1>
+            <ContentUpdatedLine
+              date={getPillarPageContentUpdatedAt('/formation-ia-btp-ile-de-france')}
+              className="mt-2 text-xs text-slate-500"
+            />
             <EnBref>
               <p>
                 En Île-de-France, Laure Olivié propose des formations IA pour le BTP via OFC Création
@@ -222,9 +230,7 @@ export default function FormationIaBtpIleDeFrancePage() {
                 campaign="idf-mid-page"
                 ctaPosition="middle"
                 className="inline-flex items-center rounded-lg bg-white px-5 py-3 font-semibold text-[#377CF3] hover:bg-slate-50"
-              >
-                Prendre rendez-vous découverte
-              </CalendlyEmbed>
+               />
             </div>
           </div>
         </section>
@@ -278,9 +284,7 @@ export default function FormationIaBtpIleDeFrancePage() {
                 campaign="idf-footer"
                 ctaPosition="footer"
                 className="inline-flex items-center rounded-lg bg-white px-6 py-3.5 font-semibold text-[#377CF3] hover:bg-slate-50"
-              >
-                Prendre rendez-vous
-              </CalendlyEmbed>
+               />
             </div>
           </div>
         </section>

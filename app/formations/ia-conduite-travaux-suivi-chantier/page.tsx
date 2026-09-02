@@ -1,4 +1,5 @@
 import { notFound } from 'next/navigation';
+import { CTA_RDV_LABEL } from '@/components/CtaRdv';
 import Link from 'next/link';
 import { LINKS } from '@/lib/internal-links';
 import { isFormationCataloguePublished } from '@/lib/formation-catalogue-visibility';
@@ -183,9 +184,7 @@ export default function FormationIaConduiteTravauxSuiviChantierPage() {
             <RdvLink
               campaign="formations-ia-conduite-travaux-suivi-chantier-hero"
               className="rounded-xl bg-[var(--accent)] px-6 py-3.5 text-center font-semibold text-white hover:bg-blue-600"
-            >
-              Prendre rendez-vous
-            </RdvLink>
+             />
             <a
               href={PDF_HREF}
               download={PDF_DOWNLOAD_NAME}
@@ -418,16 +417,14 @@ export default function FormationIaConduiteTravauxSuiviChantierPage() {
             ctaId="footer-rdv"
             variant="primary"
             className="rounded-xl px-6 py-3.5"
-          >
-            Prendre rendez-vous — visio gratuite 30 min
-          </RdvLink>
+           />
         </div>
 
         <div className="mt-10">
           <AllerPlusLoin
             links={[
               { href: LINKS.formations, label: 'Catalogue formations' },
-              { href: buildSiteCalendlyCtaUrl('formations-ia-conduite-travaux-footer-rdv'), label: 'Prendre rendez-vous' },
+              { href: LINKS.prendreRdv, label: CTA_RDV_LABEL },
               { href: LINKS.financement, label: 'Financement Constructys' },
               { href: LINKS.formationConducteurTravaux, label: 'Formation IA conducteur de travaux' },
             ]}

@@ -9,6 +9,7 @@ import {
   Target,
   User,
 } from 'lucide-react';
+import { CTA_RDV_HREF, CTA_RDV_LABEL } from '@/components/CtaRdv';
 import { LINKS } from '@/lib/internal-links';
 import { RevealShell, RevealGroupShell } from '@/components/motion/RevealShell';
 import { OFC_CARD } from '@/lib/ofc-interaction-classes';
@@ -58,9 +59,9 @@ const cards = [
     Icon: User,
   },
   {
-    href: '#rdv',
-    title: 'Prendre rendez-vous',
-    desc: 'Visio découverte gratuite — devis personnalisé',
+    href: CTA_RDV_HREF,
+    title: CTA_RDV_LABEL,
+    desc: 'Devis personnalisé après échange de 30 minutes',
     Icon: Calendar,
   },
 ] as const;

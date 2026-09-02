@@ -10,6 +10,7 @@ import {
   resolveMdxCoverUrl,
 } from '@/lib/blog-mdx';
 import { getRelatedArticlesForDisplay } from '@/lib/blog';
+import { getBlogArticleContentUpdatedAt, formatContentUpdatedLabel } from '@/lib/content-updated-at';
 import { normalizeEnBref } from '@/lib/blog-en-bref';
 import { SITE_CONFIG } from '@/lib/seo';
 import { LINKS } from '@/lib/internal-links';
@@ -27,6 +28,10 @@ export async function BlogMdxArticle({ slug }: Props) {
   const schemaImage = resolveMdxCoverUrl(frontmatter.cover);
   const related = getRelatedArticlesForDisplay(slug, 6, frontmatter.relatedSlugs);
   const enBrefSentences = normalizeEnBref(frontmatter.enBref);
+  const contentUpdatedAt = getBlogArticleContentUpdatedAt(
+    frontmatter.publishedAt,
+    frontmatter.updatedAt
+  );
   const sommaireItems = toc
     .filter((entry) => entry.depth === 2)
     .map((entry) => ({ label: entry.text, anchor: entry.id }));
@@ -67,7 +72,10 @@ export async function BlogMdxArticle({ slug }: Props) {
         ) : null}
 
         <article className={showSommaire ? 'min-w-0 max-w-3xl' : undefined}>
-        <div className="flex flex-col gap-1 text-sm text-slate-500 sm:flex-row sm:flex-wrap sm:items-center sm:gap-x-4 sm:gap-y-1">
+        <p className="text-xs text-slate-400 sm:text-sm">
+          <time dateTime={contentUpdatedAt}>{formatContentUpdatedLabel(contentUpdatedAt)}</time>
+        </p>
+        <div className="mt-2 flex flex-col gap-1 text-sm text-slate-500 sm:flex-row sm:flex-wrap sm:items-center sm:gap-x-4 sm:gap-y-1">
           <div className="flex flex-wrap items-center gap-x-4 gap-y-1">
             <span>
               Publié le{' '}
@@ -103,19 +111,6 @@ export async function BlogMdxArticle({ slug }: Props) {
               </>
             ) : null}
           </div>
-          <p className="text-xs text-slate-400 sm:text-sm">
-            Dernière mise à jour :{' '}
-            <time dateTime={frontmatter.updatedAt ?? frontmatter.publishedAt}>
-              {new Date(frontmatter.updatedAt ?? frontmatter.publishedAt).toLocaleDateString(
-                'fr-FR',
-                {
-                  day: 'numeric',
-                  month: 'long',
-                  year: 'numeric',
-                }
-              )}
-            </time>
-          </p>
         </div>
 
         <h1 className="mt-4 font-display text-3xl font-bold tracking-tight text-slate-900 md:text-4xl">

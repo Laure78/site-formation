@@ -29,8 +29,6 @@ import { calendlyCatalogueUrl } from '@/lib/calendly';
 import { libelleTarifsCarteCatalogue } from '@/lib/tarifs-sessions';
 import { OFC_CARD, OFC_CTA_PRIMARY } from '@/lib/ofc-interaction-classes';
 
-type ProfileId = 'debutant' | 'ao' | 'conduite' | 'claude' | 'moe' | 'applications-metier';
-
 const PROFILE_ICONS = {
   'NIV-01': BookOpen,
   'NIV-02': FileText,
@@ -42,23 +40,12 @@ const PROFILE_ICONS = {
   'NIV-08': Code2,
 } as const;
 
-const PROFILE_IDS: Record<string, ProfileId> = {
-  'NIV-01': 'debutant',
-  'NIV-02': 'ao',
-  'NIV-03': 'conduite',
-  'NIV-04': 'claude',
-  'NIV-05': 'moe',
-  'NIV-06': 'applications-metier',
-  'NIV-07': 'applications-metier',
-  'NIV-08': 'applications-metier',
-};
-
 function buildProfiles(formations: FormationCatalogueEntry[]) {
   return formations.map((entry) => ({
-    id: PROFILE_IDS[entry.ref],
+    id: entry.ref,
     label: entry.title,
     short: catalogueNiveauLabel(entry.ref),
-    icon: PROFILE_ICONS[entry.ref as keyof typeof PROFILE_ICONS],
+    icon: PROFILE_ICONS[entry.ref as keyof typeof PROFILE_ICONS] ?? BookOpen,
     refs: [entry.ref],
   }));
 }
@@ -211,7 +198,7 @@ export function FormationsCatalogueInteractive({
     refsMap.current[ref] = el;
   }, []);
 
-  const [activeProfile, setActiveProfile] = useState<ProfileId>('debutant');
+  const [activeProfile, setActiveProfile] = useState<string>(() => formations[0]?.ref ?? 'NIV-01');
   const [highlightedRefs, setHighlightedRefs] = useState<string[]>([]);
 
   useEffect(() => {
@@ -220,7 +207,7 @@ export function FormationsCatalogueInteractive({
     return () => window.clearTimeout(t);
   }, [highlightedRefs]);
 
-  const applyProfile = (id: ProfileId) => {
+  const applyProfile = (id: string) => {
     setActiveProfile(id);
     const def = profiles.find((p) => p.id === id);
     if (!def || def.refs.length === 0) {

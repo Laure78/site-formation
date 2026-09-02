@@ -46,8 +46,8 @@ export const LINKS = {
   contact: '/contact',
   financement: '/financement-constructys-formation-ia-btp',
   prendreRdv: '/prendre-rendez-vous',
-  /** Calendly inline — ancre unique page d'accueil */
-  accueilRdv: '/#rdv',
+  /** @deprecated Alias — utiliser `prendreRdv` (plus d’ancre `/#rdv`). */
+  accueilRdv: '/prendre-rendez-vous',
   /** Alias historique — URL legacy ; redirection 301 vers `prendreRdv` (ne pas utiliser dans les liens internes). */
   prendreRdvLegacy: '/prendre-rdv',
   /**
@@ -323,6 +323,10 @@ export const LINKS = {
   /** PDF — tuto skill mémoire de réclamation BeWork */
   pdfTutoSkillMemoireReclamationBework:
     '/ressources/pdf/tuto-skill-memoire-reclamation-bework.pdf',
+  /** Tuto — skill métré Excel (quantités traçables, DPGF) */
+  tutoSkillMetreExcelOfc: '/ressources/tuto-skill-metre-excel-ofc',
+  /** PDF — tuto skill métré Excel OFC */
+  pdfTutoSkillMetreExcelOfc: '/ressources/pdf/tuto-skill-metre-excel-ofc.pdf',
   tutoPvLeveeReserves: '/ressources/tuto-pv-levee-reserves',
 
   /** AO BTP — landing SEO cluster (fiche catalogue : `formationAO`) */

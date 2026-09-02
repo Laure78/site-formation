@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { CTA_RDV_LABEL } from '@/components/CtaRdv';
 import { Check } from 'lucide-react';
 import { EnBref } from '@/app/components/EnBref';
 import { FAQAnswer } from '@/components/landing/FAQAnswer';
@@ -68,7 +69,7 @@ const SOMMAIRE = [
   { href: '#methode', label: 'Méthode + prompts concrets' },
   { href: '#financement', label: 'Financement Constructys' },
   { href: '#faq', label: 'FAQ' },
-  { href: '#rdv', label: 'Visio découverte gratuite' },
+  { href: LINKS.prendreRdv, label: CTA_RDV_LABEL },
 ];
 
 const METHODE_ETAPES = [
@@ -139,9 +140,7 @@ export default function FormationIaResponsableAdministratifBtpPage() {
               ctaId="hero"
               variant="primary"
               className="rounded-lg px-5 py-3"
-            >
-              Réserver une visio découverte gratuite
-            </RdvLink>
+             />
             <Link
               href={LINKS.formationIaBtpNiveau1BatimentTp}
               className="inline-flex items-center rounded-lg border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-800 hover:border-[#377CF3] hover:text-[#377CF3]"
@@ -283,9 +282,7 @@ export default function FormationIaResponsableAdministratifBtpPage() {
               campaign="formation-ia-responsable-administratif-btp-milieu"
               ctaPosition="middle"
               className="inline-flex items-center rounded-lg bg-white px-5 py-3 font-semibold text-[#377CF3] hover:bg-slate-50"
-            >
-              Réserver ma visio gratuite →
-            </RdvLink>
+             />
           </div>
         </section>
 
@@ -416,9 +413,7 @@ export default function FormationIaResponsableAdministratifBtpPage() {
               campaign="formation-ia-responsable-administratif-btp-rdv-final"
               ctaPosition="footer"
               className="inline-flex items-center rounded-lg bg-[#377CF3] px-5 py-3 font-semibold text-white hover:bg-[#2d63c9]"
-            >
-              Prendre rendez-vous — visio gratuite 30 min
-            </RdvLink>
+             />
             <PublicPhoneCta className="inline-flex items-center rounded-lg border border-slate-300 px-5 py-3 font-medium text-slate-800 hover:bg-slate-50" />
             <Link
               href={LINKS.contact}

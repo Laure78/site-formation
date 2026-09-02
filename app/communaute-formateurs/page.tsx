@@ -66,9 +66,7 @@ export default function CommunauteFormateursPage() {
                 <ExternalLink size={20} strokeWidth={1.5} />
                 Rejoindre le groupe Facebook
               </a>
-              <RdvLink className="inline-flex items-center gap-2 rounded-xl border-2 border-[var(--accent)] px-8 py-4 font-semibold text-[var(--accent)] hover:bg-[var(--accent-soft)]">
-                Prendre rendez-vous
-              </RdvLink>
+              <RdvLink className="inline-flex items-center gap-2 rounded-xl border-2 border-[var(--accent)] px-8 py-4 font-semibold text-[var(--accent)] hover:bg-[var(--accent-soft)]" />
             </div>
           </div>
         </div>
@@ -169,9 +167,7 @@ export default function CommunauteFormateursPage() {
               </Link>
             </li>
             <li>
-              <RdvLink className="rounded-xl bg-white px-4 py-2.5 font-medium text-[var(--accent)] shadow-sm transition-colors hover:bg-[var(--accent-soft)]">
-                Prendre rendez-vous
-              </RdvLink>
+              <RdvLink className="rounded-xl bg-white px-4 py-2.5 font-medium text-[var(--accent)] shadow-sm transition-colors hover:bg-[var(--accent-soft)]" />
             </li>
             <li>
               <Link href={LINKS.formationParis} className="rounded-xl bg-white px-4 py-2.5 font-medium text-[var(--accent)] shadow-sm transition-colors hover:bg-[var(--accent-soft)]" title="Formation IA BTP Paris (75) — présentiel intra">

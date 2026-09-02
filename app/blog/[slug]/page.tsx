@@ -1,4 +1,5 @@
 import { Fragment } from 'react';
+import { CTA_RDV_LABEL } from '@/components/CtaRdv';
 import { FAQAnswer } from '@/components/landing/FAQAnswer';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
@@ -36,6 +37,7 @@ import { buildSiteCalendlyCtaUrl } from '@/lib/calendly';
 import { ArticleAuthorBio } from '@/components/blog/ArticleAuthorBio';
 import { BlogArticleEnBref } from '@/components/blog/BlogArticleEnBref';
 import { BlogArticleSchemas } from '@/components/blog/BlogArticleSchemas';
+import { getBlogArticleContentUpdatedAt, formatContentUpdatedLabel } from '@/lib/content-updated-at';
 import { Check, ExternalLink } from 'lucide-react';
 import { OFC_CARD, OFC_LINK } from '@/lib/ofc-interaction-classes';
 import { SommaireAncre } from '@/components/readability/SommaireAncre';
@@ -195,6 +197,7 @@ export default async function BlogArticlePage({ params }: Props) {
   const showSommaire = shouldShowSommaireAncre(sommaireItems);
   const sectionAnchors = sommaireItemsToAnchorMap(sommaireItems);
   const autoLinkScope = createAutoLinkScope();
+  const contentUpdatedAt = getBlogArticleContentUpdatedAt(article.date, article.dateModified);
 
   return (
     <div className={`mx-auto px-4 py-16 ${showSommaire ? 'max-w-6xl' : 'max-w-3xl'}`}>
@@ -233,7 +236,10 @@ export default async function BlogArticlePage({ params }: Props) {
         ) : null}
 
         <article className={showSommaire ? 'min-w-0 max-w-3xl' : undefined}>
-        <div className="flex flex-col gap-1 text-sm text-slate-500 sm:flex-row sm:flex-wrap sm:items-center sm:gap-x-4 sm:gap-y-1">
+        <p className="text-xs text-slate-400 sm:text-sm">
+          <time dateTime={contentUpdatedAt}>{formatContentUpdatedLabel(contentUpdatedAt)}</time>
+        </p>
+        <div className="mt-2 flex flex-col gap-1 text-sm text-slate-500 sm:flex-row sm:flex-wrap sm:items-center sm:gap-x-4 sm:gap-y-1">
           <div className="flex flex-wrap items-center gap-x-4 gap-y-1">
             <span>
               Publié le{' '}
@@ -255,16 +261,6 @@ export default async function BlogArticlePage({ params }: Props) {
               </Link>
             </address>
           </div>
-          <p className="text-xs text-slate-400 sm:text-sm">
-            Dernière mise à jour :{' '}
-            <time dateTime={article.dateModified ?? article.date}>
-              {new Date(article.dateModified ?? article.date).toLocaleDateString('fr-FR', {
-                day: 'numeric',
-                month: 'long',
-                year: 'numeric',
-              })}
-            </time>
-          </p>
         </div>
         <h1 className="mt-4 font-display text-3xl font-bold tracking-tight text-slate-900 md:text-4xl">
           {article.title}
@@ -445,9 +441,7 @@ export default async function BlogArticlePage({ params }: Props) {
                         Rejoindre la communauté
                       </ExternalLinkAnchor>
                     )}
-                    <RdvLink campaign={`blog-article-${slug}-section-cta`} className="inline-block rounded-xl bg-white px-6 py-2 font-semibold text-[var(--accent)] hover:bg-blue-50">
-                      Prendre rendez-vous
-                    </RdvLink>
+                    <RdvLink campaign={`blog-article-${slug}-section-cta`} className="inline-block rounded-xl bg-white px-6 py-2 font-semibold text-[var(--accent)] hover:bg-blue-50" />
                     <Link
                       href="/formations"
                       className="inline-block rounded-xl border-2 border-white/60 px-6 py-2 font-semibold text-white hover:bg-white/10"
@@ -615,7 +609,7 @@ export default async function BlogArticlePage({ params }: Props) {
             { href: LINKS.iaDevis, label: 'IA devis bâtiment' },
             { href: LINKS.iaCDT, label: 'IA conducteur de travaux' },
             { href: LINKS.diagnostic, label: 'Diagnostic IA BTP gratuit' },
-            { href: buildSiteCalendlyCtaUrl(`blog-article-${slug}-aller-plus-loin`), label: 'Prendre rendez-vous' },
+            { href: LINKS.prendreRdv, label: CTA_RDV_LABEL },
           ]}
         />
         </article>

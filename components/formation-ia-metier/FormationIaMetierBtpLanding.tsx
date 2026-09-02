@@ -75,10 +75,7 @@ function CalendlyBlock({
           ctaPosition="middle"
           campaign={`formation-metier-${metierId}-${id}`}
           className="gap-2 font-bold shadow-sm"
-        >
-          Échanger sur vos besoins
-          <ArrowRight size={18} strokeWidth={1.5} aria-hidden />
-        </CalendlyEmbed>
+         />
         <Link href={LINKS.financement} className="inline-flex items-center rounded-xl border-2 border-white/80 px-5 py-3.5 text-sm font-semibold text-white hover:bg-white/10">
           Voir les options de financement
         </Link>

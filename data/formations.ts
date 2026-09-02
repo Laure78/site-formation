@@ -3,6 +3,12 @@
  * Ne plus dupliquer ces valeurs en dur dans le JSX / FAQ / lib.
  */
 
+import {
+  TARIF_APPLICATION_METIER_BTP_NIV1_HT,
+  TARIF_APPLICATION_METIER_BTP_NIV2_HT,
+  TARIF_APPLICATION_METIER_BTP_NIV3_HT,
+} from '@/lib/tarifs-applications-metier-btp';
+
 export type FormationNiveau = 1 | 2;
 
 /** Gamme stratégique du catalogue — Découvrir · Appliquer par métier · Déployer. */
@@ -73,7 +79,7 @@ export const FORMATIONS: readonly Formation[] = [
     effectifMax: 12,
     prixHT: 1200,
     accroche:
-      'Fondamentaux ChatGPT et IA générative pour artisans, PME et fonctions support — devis, DOE et communication sur vos documents réels.',
+      'Fondamentaux ChatGPT et IA générative pour TPE, PME du bâtiment et fonctions support — devis, DOE et communication sur vos documents réels.',
     objectifs: [
       'Maîtriser les outils IA adaptés aux métiers du BTP pour automatiser les tâches chronophages (mails, devis, documents, communication)',
       'Générer des devis techniques conformes aux DTU et règles professionnelles, adaptés à son métier',
@@ -247,7 +253,7 @@ export const FORMATIONS: readonly Formation[] = [
     horaires: 'à convenir (journée ou demi-journées)',
     effectifMin: 1,
     effectifMax: 8,
-    prixHT: 1800,
+    prixHT: TARIF_APPLICATION_METIER_BTP_NIV1_HT,
     tarifParcoursAppMetier: 'niveau-1',
     accroche:
       'Découvrir la méthode pour cadrer un besoin métier BTP et obtenir un prototype fonctionnel avec le développement assisté par l’IA — sans compétence préalable en programmation.',
@@ -287,7 +293,7 @@ export const FORMATIONS: readonly Formation[] = [
     horaires: 'à convenir (journée ou demi-journées)',
     effectifMin: 1,
     effectifMax: 8,
-    prixHT: 2000,
+    prixHT: TARIF_APPLICATION_METIER_BTP_NIV2_HT,
     tarifParcoursAppMetier: 'niveau-2',
     accroche:
       'Structurer une base de données métier, gérer les accès, connecter des services et automatiser des actions — sur votre cas d’usage réel.',
@@ -327,7 +333,7 @@ export const FORMATIONS: readonly Formation[] = [
     horaires: 'à convenir (journée ou demi-journées)',
     effectifMin: 1,
     effectifMax: 8,
-    prixHT: 2200,
+    prixHT: TARIF_APPLICATION_METIER_BTP_NIV3_HT,
     tarifParcoursAppMetier: 'niveau-3',
     accroche:
       'Intégrer l’IA dans une application métier existante : extraction, classification, génération, workflows automatisés — validation humaine obligatoire.',

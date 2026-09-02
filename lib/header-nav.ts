@@ -10,6 +10,10 @@ import { LINKS } from '@/lib/internal-links';
 export type HeaderNavLink = {
   href: string;
   label: string;
+  /** Attribut HTML `title` (tooltip), optionnel. */
+  title?: string;
+  /** Sous-liens indentés (ex. niveaux d'un parcours). */
+  children?: readonly HeaderNavLink[];
 };
 
 export type HeaderNavItem = {
@@ -37,6 +41,34 @@ const FORMATION_NAV_LABELS: Record<string, string> = {
   'NIV-08': 'Application métier — niveau 3',
 };
 
+const APPLICATION_METIER_CODES = new Set(['NIV-06', 'NIV-07', 'NIV-08']);
+
+function formationNavLink(formation: (typeof FORMATIONS)[number]): HeaderNavLink {
+  return {
+    href: formationHref(formation),
+    label: FORMATION_NAV_LABELS[formation.code] ?? formation.titre,
+  };
+}
+
+function buildFormationsNavChildren(at: Date): HeaderNavLink[] {
+  const published = getPublishedFormations(at);
+  const applicationMetier = published.filter((f) => APPLICATION_METIER_CODES.has(f.code));
+  const catalogueCore = published.filter((f) => !APPLICATION_METIER_CODES.has(f.code));
+
+  const parcoursItem: HeaderNavLink = {
+    href: LINKS.parcoursApplicationsMetierBtp,
+    label: 'Parcours applications métier BTP',
+    title: 'Créer ses applications métier BTP avec l’IA — parcours 21 h',
+    children: applicationMetier.map(formationNavLink),
+  };
+
+  return [
+    parcoursItem,
+    ...catalogueCore.map(formationNavLink),
+    { href: LINKS.formationPlateforme, label: 'Espace apprenant' },
+  ];
+}
+
 function pathMatches(pathname: string, href: string): boolean {
   const path = href.split('#')[0] || '/';
   if (path === '/') return pathname === '/';
@@ -45,6 +77,9 @@ function pathMatches(pathname: string, href: string): boolean {
 
 function formationsNavActive(pathname: string): boolean {
   if (pathname === LINKS.formations || pathname.startsWith(`${LINKS.formations}/`)) {
+    return true;
+  }
+  if (pathname === LINKS.parcoursApplicationsMetierBtp || pathname.startsWith(`${LINKS.parcoursApplicationsMetierBtp}/`)) {
     return true;
   }
   if (pathname === LINKS.formationIaHub || pathname.startsWith(`${LINKS.formationIaHub}/`)) {
@@ -86,8 +121,7 @@ function aProposNavActive(pathname: string): boolean {
     pathname === LINKS.formateurIaBtp ||
     pathname === LINKS.qualiopi ||
     pathname === LINKS.accessibiliteHandicap ||
-    pathname === LINKS.indicateursResultats ||
-    pathname === LINKS.contact
+    pathname === LINKS.indicateursResultats
   );
 }
 
@@ -116,20 +150,11 @@ const PARTENAIRES_SECTION_CHILDREN: readonly HeaderNavLink[] = [
 ];
 
 export function getHeaderNav(at: Date = new Date()): readonly HeaderNavItem[] {
-  const publishedFormations = getPublishedFormations(at);
   return BASE_HEADER_NAV.map((item) => {
     if (item.id !== 'formations' || !item.children) return item;
-    const catalogueChildren = [
-      { href: LINKS.parcoursApplicationsMetierBtp, label: 'Parcours applications métier BTP' },
-      ...publishedFormations.map((formation) => ({
-        href: formationHref(formation),
-        label: FORMATION_NAV_LABELS[formation.code] ?? formation.titre,
-      })),
-    ];
-    const platformLink = item.children.find((child) => child.href === LINKS.formationPlateforme);
     return {
       ...item,
-      children: platformLink ? [...catalogueChildren, platformLink] : catalogueChildren,
+      children: buildFormationsNavChildren(at),
     };
   });
 }
@@ -169,14 +194,21 @@ const BASE_HEADER_NAV: readonly HeaderNavItem[] = [
     href: LINKS.ressources,
     isActive: ressourcesNavActive,
     children: [
-      { href: LINKS.blog, label: 'Blog' },
-      { href: `${LINKS.ressources}#guides-pdf`, label: 'Guides' },
-      { href: LINKS.outilsIaBtp, label: 'Outils' },
-      { href: LINKS.ressourcesIaBtp, label: 'Ressources BTP' },
-      { href: LINKS.bibliothequeSkills, label: 'Téléchargements' },
-      { href: LINKS.ressourcesTutos, label: 'Tutos' },
-      { href: LINKS.claudeAiBtp, label: 'Claude AI BTP' },
-      { href: LINKS.diagnostic, label: 'Diagnostic IA BTP' },
+      {
+        href: LINKS.blog,
+        label: 'Blog',
+        title: 'Articles IA BTP — devis, chantier, appels d’offres',
+      },
+      {
+        href: LINKS.ressourcesTutos,
+        label: 'Tutos',
+        title: 'Tutos PDF Claude & IA pour le BTP',
+      },
+      {
+        href: `${LINKS.ressources}#guides-pdf`,
+        label: 'Guides',
+        title: 'Guides PDF gratuits par métier — conducteur, dirigeant, AO…',
+      },
     ],
     footer: { href: LINKS.ressources, label: 'Toutes les ressources' },
   },
@@ -202,9 +234,14 @@ const BASE_HEADER_NAV: readonly HeaderNavItem[] = [
       { href: LINKS.accessibiliteHandicap, label: 'Référente handicap' },
       { href: LINKS.indicateursResultats, label: 'Indicateurs de résultats' },
       { href: LINKS.avisClients, label: 'Avis clients' },
-      { href: LINKS.contact, label: 'Contact' },
     ],
     footer: { href: LINKS.aPropos, label: "L'organisme de formation" },
+  },
+  {
+    id: 'contact',
+    label: 'Contact',
+    href: LINKS.contact,
+    isActive: (pathname) => pathname === LINKS.contact,
   },
 ];
 
@@ -220,12 +257,24 @@ export function headerNavLinkIsActive(href: string, pathname: string): boolean {
   return pathMatches(pathname, href);
 }
 
+export function headerNavLinkTreeIsActive(link: HeaderNavLink, pathname: string): boolean {
+  if (headerNavLinkIsActive(link.href, pathname)) return true;
+  return link.children?.some((child) => headerNavLinkTreeIsActive(child, pathname)) ?? false;
+}
+
+function collectHeaderNavLinkHrefs(links: readonly HeaderNavLink[], hrefs: string[]): void {
+  for (const link of links) {
+    hrefs.push(link.href);
+    if (link.children?.length) collectHeaderNavLinkHrefs(link.children, hrefs);
+  }
+}
+
 /** Tous les hrefs du header (pour audit de routes). */
 export function collectHeaderNavHrefs(): string[] {
   const hrefs: string[] = [];
   for (const item of HEADER_NAV) {
     hrefs.push(item.href);
-    for (const child of item.children ?? []) hrefs.push(child.href);
+    if (item.children?.length) collectHeaderNavLinkHrefs(item.children, hrefs);
     if (item.footer) hrefs.push(item.footer.href);
   }
   return hrefs;

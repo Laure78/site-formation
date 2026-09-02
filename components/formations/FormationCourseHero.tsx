@@ -55,6 +55,7 @@ export function FormationCourseHero({
   catalogueRef,
   /** `false` : PDF + bloc Ind. 1 après `#programme` via `FormationCatalogueIndicateur1Suite`. */
   programmePdfAfterHero = true,
+  backLink,
 }: {
   refLine: string;
   title: React.ReactNode;
@@ -71,6 +72,8 @@ export function FormationCourseHero({
   /** Réf catalogue — affiche le tarif en évidence sous le titre (NIV-01 à NIV-05). */
   catalogueRef?: string;
   programmePdfAfterHero?: boolean;
+  /** Remplace « ← Retour au catalogue » (ex. lien vers le parcours). */
+  backLink?: { href: string; label: string };
 }) {
   const catalogueEntry = catalogueRef ? getFormationCatalogueByRef(catalogueRef) : undefined;
   const resolvedImage =
@@ -96,10 +99,10 @@ export function FormationCourseHero({
         <div className={`flex flex-col gap-12 ${resolvedImage ? 'lg:flex-row lg:items-start lg:justify-between' : ''}`}>
           <div className="min-w-0 flex-1 lg:max-w-[min(100%,42rem)]">
             <Link
-              href="/formations"
+              href={backLink?.href ?? '/formations'}
               className="text-sm text-[var(--accent)] hover:underline"
             >
-              ← Retour au catalogue
+              {backLink?.label ?? '← Retour au catalogue'}
             </Link>
             <p className="mt-4 text-sm font-medium uppercase tracking-wide text-slate-500">
               {refLine}
@@ -116,6 +119,7 @@ export function FormationCourseHero({
                   level={catalogueEntry.level}
                   duree={catalogueEntry.duree}
                   variant="hero"
+                  labelOverride={catalogueEntry.tarifParcoursLabel}
                 />
               </div>
             ) : null}

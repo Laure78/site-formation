@@ -302,9 +302,7 @@ export default function ExpertIABTPPage() {
             Diagnostic personnalisé gratuit pour identifier les gains de productivité possibles dans votre entreprise.
           </p>
           <div className="mt-8 flex flex-col justify-center gap-4 sm:flex-row">
-            <RdvLink className="rounded-xl bg-[var(--accent)] px-8 py-4 font-semibold text-white hover:bg-blue-700">
-              Prendre rendez-vous
-            </RdvLink>
+            <RdvLink className="rounded-xl bg-[var(--accent)] px-8 py-4 font-semibold text-white hover:bg-blue-700" />
             <Link
               href="/diagnostic-ia-btp"
               className="rounded-xl border-2 border-[var(--accent)] px-8 py-4 font-semibold text-[var(--accent)] hover:bg-[var(--accent-soft)]"

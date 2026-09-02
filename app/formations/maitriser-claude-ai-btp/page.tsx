@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { CTA_RDV_LABEL } from '@/components/CtaRdv';
 import { LINKS } from '@/lib/internal-links';
 import { FooterTelOrMailLink } from '@/components/PublicPhoneCta';
 import { Calendar, Users, Check, Download } from 'lucide-react';
@@ -181,9 +182,7 @@ export default function FormationMaitriserClaudeAiBtpPage() {
             <RdvLink
               campaign="formations-maitriser-claude-ai-btp-hero"
               className="rounded-xl bg-[var(--accent)] px-6 py-3.5 text-center font-semibold text-white hover:bg-blue-600"
-            >
-              Prendre rendez-vous
-            </RdvLink>
+             />
             <a
               href={PDF_HREF}
               download={PDF_DOWNLOAD_NAME}
@@ -401,9 +400,7 @@ export default function FormationMaitriserClaudeAiBtpPage() {
             ctaId="footer-rdv"
             variant="primary"
             className="rounded-xl px-6 py-3.5"
-          >
-            Prendre rendez-vous — visio gratuite 30 min
-          </RdvLink>
+           />
         </div>
 
         <div className="mt-10">
@@ -411,8 +408,7 @@ export default function FormationMaitriserClaudeAiBtpPage() {
             links={[
               { href: LINKS.formations, label: 'Catalogue formations' },
               {
-                href: buildSiteCalendlyCtaUrl('formations-maitriser-claude-footer-rdv'),
-                label: 'Prendre rendez-vous',
+                href: LINKS.prendreRdv, label: CTA_RDV_LABEL,
               },
               { href: LINKS.financement, label: 'Financement Constructys' },
               { href: LINKS.claudeAiBtp, label: 'Guide Claude AI BTP' },

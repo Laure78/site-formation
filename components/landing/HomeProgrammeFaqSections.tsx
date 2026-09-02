@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { CtaRdv } from '@/components/CtaRdv';
 import { Suspense } from 'react';
 import Image from 'next/image';
 import {
@@ -451,13 +452,11 @@ export function HomeProgrammeFaqSections() {
                 <Mail size={20} strokeWidth={1.5} />
                 {SCHEMA_CONTACT.email}
               </a>
-              <Link
-                href={LINKS.accueilRdv}
+              <CtaRdv
+                origin="accueil-faq-contact"
+                variant="secondary"
                 className={`${OFC_CTA_SECONDARY} inline-flex items-center justify-center gap-2 px-6 py-3`}
-              >
-                <Calendar size={20} strokeWidth={1.5} />
-                Prendre rendez-vous
-              </Link>
+              />
             </div>
           </div>
         </RevealShell>

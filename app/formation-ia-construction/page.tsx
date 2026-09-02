@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { CTA_RDV_LABEL } from '@/components/CtaRdv';
 import { Check } from 'lucide-react';
 import { CalendlyEmbed } from '@/components/CalendlyEmbed';
 import { FAQAnswer } from '@/components/landing/FAQAnswer';
@@ -62,7 +63,7 @@ const SOMMAIRE = [
   { href: '#resultats', label: 'Résultats et témoignages' },
   { href: '#faq', label: 'Questions fréquentes' },
   { href: '#a-propos', label: 'Laure Olivié — formatrice' },
-  { href: '#rdv', label: 'Visio découverte gratuite' },
+  { href: LINKS.prendreRdv, label: CTA_RDV_LABEL },
 ];
 
 function CtaVisioBlock({
@@ -90,9 +91,7 @@ function CtaVisioBlock({
           ctaPosition="middle"
           campaign={campaign}
           className="inline-flex items-center rounded-lg bg-white px-5 py-3 font-semibold text-[#377CF3] hover:bg-slate-50"
-        >
-          Prendre rendez-vous
-        </CalendlyEmbed>
+         />
       </div>
     </section>
   );

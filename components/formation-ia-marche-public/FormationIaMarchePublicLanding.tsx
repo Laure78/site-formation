@@ -47,10 +47,7 @@ function CalendlyBlock({
           ctaPosition="middle"
           campaign={campaign}
           className="gap-2 font-bold shadow-sm"
-        >
-          Prendre rendez-vous
-          <ArrowRight size={18} strokeWidth={1.5} aria-hidden />
-        </CalendlyEmbed>
+         />
         {showFinancementLink ? (
           <Link
             href={LINKS.financement}

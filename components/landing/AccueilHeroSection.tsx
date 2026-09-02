@@ -1,10 +1,11 @@
 import Link from 'next/link';
-import Image from 'next/image';
+import { CtaRdv } from '@/components/CtaRdv';
 import { Sparkles, FileText } from 'lucide-react';
 import { CitationSentence } from '@/components/seo/CitationSentence';
 import { Partenaires } from '@/components/Partenaires';
 import { MentionFinancement } from '@/components/MentionFinancement';
 import { MentionTvaAsterisque } from '@/components/MentionTVA';
+import { AccueilHeroVideo } from '@/components/landing/AccueilHeroVideo';
 import {
   OFC_LINK,
   OFC_CTA_PRIMARY_PILL,
@@ -24,7 +25,10 @@ import { ProofStats } from '@/components/ProofStats';
 import { AccueilHeroAnimatedMesh } from '@/components/landing/AccueilHeroAnimatedMesh';
 import { PHOTOS } from '@/lib/photos';
 
-const HERO_CATALOGUE_VISUAL = PHOTOS.formationsCatalogueHero2026;
+const HERO_ASIDE_LINK = {
+  href: LINKS.formations,
+  title: PHOTOS.heroAccueilFormationIABtpEchange2026.title,
+} as const;
 
 const CATALOGUE_QUICK_LINKS = [
   {
@@ -74,16 +78,18 @@ export function AccueilHeroSection() {
               <span>Formation IA BTP · organisme certifié Qualiopi · Constructys</span>
             </div>
             <h1 className={`${OFC_TYPE_HERO} mt-5`}>
-              Formation IA pour le BTP — devis, chantier, appels d&apos;offres
+              Formation IA pour le BTP en Île-de-France — devis, chantier, appels d&apos;offres
             </h1>
             <p className={`${OFC_TYPE_LEAD} mt-4 font-medium text-ofc-ink`}>
               Gagnez du temps sur vos devis, comptes rendus et réponses aux appels d&apos;offres avec{' '}
               <span className="font-serif italic text-ofc-accent">Claude AI</span> et ChatGPT.
             </p>
             <div className="mt-6 sm:mt-7">
-              <Link href={LINKS.accueilRdv} className={`${OFC_CTA_PRIMARY_PILL} w-full sm:w-auto`}>
-                Prendre rendez-vous
-              </Link>
+              <CtaRdv
+                origin="accueil-hero"
+                variant="primary"
+                className={`${OFC_CTA_PRIMARY_PILL} w-full sm:w-auto`}
+              />
             </div>
             <div className="mt-6 sm:mt-7">
               <ProofStats className="rounded-ofc-card border border-ofc-border-strong/80 shadow-ofc-sm" />
@@ -92,21 +98,11 @@ export function AccueilHeroSection() {
 
           <aside className="accueil-hero-aside mx-auto w-full max-w-[280px] shrink-0 lg:mx-0 lg:max-w-none xl:max-w-[360px]">
             <Link
-              href={LINKS.formations}
-              title={HERO_CATALOGUE_VISUAL.title}
+              href={HERO_ASIDE_LINK.href}
+              title={HERO_ASIDE_LINK.title}
               className="block overflow-hidden rounded-2xl bg-white/95 p-1 shadow-[0_20px_50px_-24px_rgba(15,23,42,0.25)] ring-1 ring-slate-200/80 transition hover:opacity-95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#377CF3]"
             >
-              <Image
-                src={HERO_CATALOGUE_VISUAL.src}
-                alt={HERO_CATALOGUE_VISUAL.alt}
-                title={HERO_CATALOGUE_VISUAL.title}
-                width={HERO_CATALOGUE_VISUAL.width}
-                height={HERO_CATALOGUE_VISUAL.height}
-                priority
-                className="h-auto w-full rounded-[0.85rem] object-cover"
-                sizes="(max-width: 1024px) 280px, 360px"
-                quality={75}
-              />
+              <AccueilHeroVideo className="h-auto w-full rounded-[0.85rem] object-cover" />
             </Link>
           </aside>
         </div>

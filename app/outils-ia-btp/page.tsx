@@ -258,9 +258,7 @@ export default function OutilsIABTPPage() {
             Sessions courtes, ateliers pratiques Qualiopi — financement Constructys selon éligibilité.
           </p>
           <div className="mt-8 flex flex-col justify-center gap-4 sm:flex-row">
-            <RdvLink className="inline-flex items-center justify-center rounded-xl bg-[var(--accent)] px-8 py-4 font-semibold text-white hover:bg-blue-700">
-              Échanger sur vos besoins
-            </RdvLink>
+            <RdvLink className="inline-flex items-center justify-center rounded-xl bg-[var(--accent)] px-8 py-4 font-semibold text-white hover:bg-blue-700" />
             <Link
               href="/formations"
               className="inline-flex items-center justify-center rounded-xl border-2 border-[var(--accent)] px-8 py-4 font-semibold text-[var(--accent)] hover:bg-[var(--accent-soft)]"

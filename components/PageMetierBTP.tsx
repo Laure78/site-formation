@@ -311,10 +311,7 @@ export function PageMetierBTP({
               ctaPosition="footer"
               campaign={`page-metier-${slug}-visio`}
               className="gap-2 font-bold shadow-sm"
-            >
-              {CALENDLY_DEFAULT_BUTTON_TEXT}
-              <ArrowRight size={18} strokeWidth={1.5} aria-hidden />
-            </CalendlyEmbed>
+             />
           </div>
         </section>
       </article>

@@ -6,6 +6,7 @@
 import { getFormationByCode, libelleEffectifFormation, libelleEffectifMaxFormation } from '@/data/formations';
 import { getFormationCatalogueByRef } from '@/lib/formations-catalogue-display';
 import { LINKS } from '@/lib/internal-links';
+import { getTarifApplicationMetierBtpHt, libelleTarifApplicationMetierBtp } from '@/lib/tarifs-applications-metier-btp';
 import { getFormationCatalogueImageObjectJsonLd } from '@/lib/photo-seo';
 import {
   SCHEMA_CONTACT,
@@ -37,6 +38,9 @@ const CATALOGUE_REF_BY_PATH: Record<string, string> = {
 
 function priceSpecDescription(ref: string): string {
   const f = getFormationByCode(ref);
+  if (f?.tarifParcoursAppMetier) {
+    return `Session intra-entreprise — ${libelleTarifApplicationMetierBtp(f.tarifParcoursAppMetier)} (ensemble du groupe, HT)`;
+  }
   if (!f) return 'Forfait intra-entreprise — prix session groupe HT (non par participant)';
   const effectif =
     f.effectifMin === f.effectifMax
@@ -56,6 +60,9 @@ const PRICE_SPEC_DESCRIPTION_BY_REF: Record<string, string> = Object.fromEntries
 function prixCatalogue(ref: string): number | undefined {
   const f = getFormationByCode(ref);
   if (!f) return undefined;
+  if (f.tarifParcoursAppMetier) {
+    return getTarifApplicationMetierBtpHt(f.tarifParcoursAppMetier);
+  }
   if (f.prixHT > 0) return f.prixHT;
   return undefined;
 }

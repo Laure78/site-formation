@@ -136,11 +136,7 @@ export default function BibliothequeSkillsPage() {
             Installer ces skills sur vos dossiers réels en présentiel Île-de-France — Qualiopi, Constructys selon
             éligibilité.
           </p>
-          <CtaButton origin="ressources-bibliotheque-skills-final" className="mt-6 inline-flex items-center gap-2 rounded-lg bg-[#377CF3] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[#2d66d6]"
-          >
-            <Calendar className="h-4 w-4" aria-hidden />
-            Prendre un RDV découverte
-          </CtaButton>
+          <CtaButton origin="ressources-bibliotheque-skills-final" className="mt-6 inline-flex items-center gap-2 rounded-lg bg-[#377CF3] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[#2d66d6]" />
         </div>
       </section>
 

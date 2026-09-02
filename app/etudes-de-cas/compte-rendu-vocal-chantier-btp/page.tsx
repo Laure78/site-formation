@@ -95,9 +95,7 @@ export default function EtudeDeCasCrVocalChantierPage() {
             et de l&apos;IA — sans sacrifier la validation métier.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
-            <RdvLink className="rounded-xl bg-[var(--accent)] px-6 py-3 font-semibold text-white hover:bg-blue-600">
-              Prendre rendez-vous
-            </RdvLink>
+            <RdvLink className="rounded-xl bg-[var(--accent)] px-6 py-3 font-semibold text-white hover:bg-blue-600" />
             <Link
               href={LINKS.formationConduiteTravauxSuiviChantier}
               className="rounded-xl border-2 border-slate-200 px-6 py-3 font-semibold text-slate-800 hover:border-[var(--accent)]"

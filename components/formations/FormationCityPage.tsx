@@ -102,9 +102,7 @@ export function FormationCityPage({
         summaryItems={summaryVille}
         ctas={
           <>
-            <RdvLink campaign={`${cityCamp}-hero`} className="rounded-xl bg-[var(--accent)] px-6 py-3.5 text-center font-semibold text-white hover:bg-blue-600">
-              Échanger sur vos besoins
-            </RdvLink>
+            <RdvLink campaign={`${cityCamp}-hero`} className="rounded-xl bg-[var(--accent)] px-6 py-3.5 text-center font-semibold text-white hover:bg-blue-600" />
             <a
               href="#zones"
               className="rounded-xl border-2 border-slate-200 px-6 py-3.5 text-center font-semibold text-slate-800 hover:border-[var(--accent)]"
@@ -243,10 +241,7 @@ export function FormationCityPage({
               Interventions dans toute la {regionLabel}. Contactez-moi pour vérifier la disponibilité.
             </p>
             <div className="mt-8 flex flex-col gap-4 sm:flex-row">
-              <RdvLink campaign={`${cityCamp}-zones-cta`} className="inline-flex items-center justify-center gap-2 rounded-xl bg-[var(--accent)] px-6 py-3 font-semibold text-white hover:bg-blue-600">
-                <Calendar size={20} strokeWidth={1.5} />
-                Échanger sur vos besoins
-              </RdvLink>
+              <RdvLink campaign={`${cityCamp}-zones-cta`} className="inline-flex items-center justify-center gap-2 rounded-xl bg-[var(--accent)] px-6 py-3 font-semibold text-white hover:bg-blue-600" />
               <PublicPhoneCta className="inline-flex items-center justify-center gap-2 rounded-xl border-2 border-slate-300 bg-white px-6 py-3 font-semibold text-slate-800 hover:bg-slate-50" />
             </div>
           </div>
@@ -362,10 +357,7 @@ export function FormationCityPage({
             Devis sous 24 h. Financement Constructys selon éligibilité.
           </p>
           <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <RdvLink campaign={cityFinCtaCampaign} className="flex items-center gap-2 rounded-xl border-2 border-white/60 bg-white px-8 py-4 font-semibold text-[var(--accent)] hover:bg-blue-50">
-              <Calendar size={20} strokeWidth={1.5} />
-              Échanger sur vos besoins
-            </RdvLink>
+            <RdvLink campaign={cityFinCtaCampaign} className="flex items-center gap-2 rounded-xl border-2 border-white/60 bg-white px-8 py-4 font-semibold text-[var(--accent)] hover:bg-blue-50" />
             <PublicPhoneCta className="flex items-center gap-2 rounded-xl border-2 border-white bg-transparent px-8 py-4 font-semibold text-white hover:bg-white/10" />
           </div>
         </div>

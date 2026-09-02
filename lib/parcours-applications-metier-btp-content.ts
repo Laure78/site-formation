@@ -39,9 +39,9 @@ export type ApplicationMetierNiveauConfig = {
 };
 
 export const PARCOURS_APPLICATIONS_METIER = {
-  metaTitle: 'Créer une application métier BTP avec l’IA | Formation',
+  metaTitle: 'Parcours applications métier BTP : 21 h IA',
   metaDescription:
-    'Formation en 3 niveaux pour apprendre à créer vos applications métier BTP avec l’IA : devis, chantier, DCE, trésorerie, CRM et automatisations.',
+    'Parcours formation applications métier BTP en 3 niveaux (21 h) : créer, connecter et industrialiser une application avec l’IA. Formation IA pour le BTP, Qualiopi.',
   h1: 'Créer ses applications métier BTP avec l’intelligence artificielle',
   messagePrincipal:
     'Vos processus métier reposent encore sur des fichiers Excel, des e-mails et des tâches manuelles ?',
@@ -82,7 +82,7 @@ export const PARCOURS_APPLICATIONS_METIER = {
     },
     {
       q: 'Le financement OPCO est-il possible ?',
-      a: 'Prise en charge possible selon éligibilité et barèmes Constructys en vigueur. Les conditions doivent être vérifiées par l’entreprise avant le démarrage de la formation.',
+      a: 'Prise en charge possible selon l’éligibilité de l’entreprise et les barèmes Constructys en vigueur. Les plafonds de prise en charge peuvent être inférieurs au tarif de la formation.',
     },
   ] as const,
 } as const;
@@ -95,9 +95,9 @@ export const APPLICATION_METIER_NIVEAU_1: ApplicationMetierNiveauConfig = {
   duree: '7 h',
   progressionLabel: 'Niveau 1 — CONCEVOIR',
   progressionTagline: 'Je transforme un problème métier en prototype.',
-  metaTitle: 'Application métier BTP niveau 1 : prototype IA',
+  metaTitle: 'Créer application métier BTP IA : niveau 1',
   metaDescription:
-    'Formation IA pour le BTP : créer sa première application métier avec le développement assisté par l’IA. 7 h, prototype fonctionnel, Qualiopi, présentiel IDF.',
+    'Formation IA pour le BTP : créer une application métier avec l’IA, du besoin au prototype fonctionnel. 7 h, présentiel, Qualiopi, financement selon éligibilité.',
   h1: 'Créer sa première application métier BTP avec l’IA',
   subtitle:
     'Découvrir la méthode pour transformer un problème métier en prototype fonctionnel — sans compétence préalable en programmation.',
@@ -186,9 +186,9 @@ export const APPLICATION_METIER_NIVEAU_2: ApplicationMetierNiveauConfig = {
   duree: '7 h',
   progressionLabel: 'Niveau 2 — CONNECTER',
   progressionTagline: 'Je transforme mon prototype en application métier connectée.',
-  metaTitle: 'Application métier BTP niveau 2 : données & API',
+  metaTitle: 'Application métier BTP connectée : niveau 2',
   metaDescription:
-    'Formation IA appliquée au bâtiment : développer une application métier connectée (BDD, utilisateurs, API). 7 h présentiel, Qualiopi, financement selon éligibilité.',
+    'Formation IA appliquée au bâtiment : développer une application métier BTP connectée (BDD, utilisateurs, API). 7 h, Qualiopi, financement selon éligibilité.',
   h1: 'Développer une application métier BTP connectée',
   subtitle:
     'Transformer un prototype en application capable de gérer des données, plusieurs utilisateurs et des services externes.',
@@ -303,9 +303,9 @@ export const APPLICATION_METIER_NIVEAU_3: ApplicationMetierNiveauConfig = {
   progressionLabel: 'Niveau 3 — INTÉGRER L’IA ET INDUSTRIALISER',
   progressionTagline:
     'Je transforme mon application en outil avancé intégrant intelligence artificielle, automatisations et workflows métier.',
-  metaTitle: 'Application métier BTP niveau 3 : IA intégrée',
+  metaTitle: 'Application métier BTP IA : niveau 3',
   metaDescription:
-    'Formation IA pour les pros du BTP : intégrer l’IA dans une application métier (documents, workflows, déploiement). 7 h, Qualiopi, présentiel IDF.',
+    'Formation IA pour les pros du BTP : application métier BTP avec intelligence artificielle, automatisations et workflows. 7 h, Qualiopi, présentiel IDF.',
   h1: 'Développer une application métier BTP avancée avec l’IA',
   subtitle:
     'Intégrer des fonctionnalités avancées d’intelligence artificielle dans une application métier — analyse documentaire, workflows et déploiement.',

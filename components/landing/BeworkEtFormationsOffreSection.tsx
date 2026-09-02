@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import { CtaRdv } from '@/components/CtaRdv';
 import Image from 'next/image';
 import { Check, Clock, Users } from 'lucide-react';
 import { LINKS } from '@/lib/internal-links';
@@ -141,12 +142,11 @@ export function BeworkEtFormationsOffreSection() {
               Catalogue complet : {catalogueCount} formations IA pour le BTP
             </p>
             <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row sm:flex-wrap sm:gap-4">
-              <Link
-                href={LINKS.accueilRdv}
+              <CtaRdv
+                origin="accueil-bework-formations"
+                variant="primary"
                 className={`${OFC_CTA_PRIMARY} inline-flex items-center justify-center px-5 py-3 text-center text-sm font-semibold`}
-              >
-                {CALENDLY_DEFAULT_BUTTON_TEXT}
-              </Link>
+              />
               <Link href={LINKS.financement} className={`${OFC_LINK} inline-flex items-center text-sm font-semibold`}>
                 Financement OPCO&nbsp;: modalités Constructys
               </Link>

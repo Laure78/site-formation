@@ -13,6 +13,11 @@ export const TUTO_EN_BREF: Readonly<Record<string, readonly string[]>> = {
     'Le tuto annonce une fiche en environ 3 minutes, contre une lecture brute de l’ordre de 4 heures.',
     'Outil : skill Claude (abonnement Pro requis pour les skills).',
   ],
+  'tuto-skill-metre-excel-ofc': [
+    'Vous créez un skill Claude qui produit un classeur Excel de métré : formules visibles, onglets par lot, récap DPGF et points à vérifier.',
+    'Le tuto vise environ 45 minutes par dossier (contrôle compris), contre 1 à 2 jours de métré manuel.',
+    'Outil : skill Claude Pro avec exécution de code — vous signez les quantités après relecture métier.',
+  ],
   'tuto-tri-dce-claude-chrome': [
     'Claude in Chrome scanne les plateformes (ex. BOAMP) selon vos critères de zone, métier, montant et délai, puis liste les fiches utiles.',
     'Objectif du tuto : recevoir 3 à 5 DCE pertinents plutôt que filtrer des dizaines d’avis, avec un gain indiqué de 3 à 4 heures par semaine.',

@@ -1,4 +1,5 @@
 import { FAQAnswer } from '@/components/landing/FAQAnswer';
+import { CTA_RDV_LABEL } from '@/components/CtaRdv';
 import Link from 'next/link';
 import { Check, FileText, Calendar, ClipboardList, ArrowRight } from 'lucide-react';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
@@ -176,18 +177,14 @@ export default function IAConducteurTravauxPage() {
               Voir le programme
               <ArrowRight size={20} strokeWidth={1.5} />
             </Link>
-            <RdvLink className="inline-flex items-center gap-2 rounded-xl border-2 border-white px-6 py-3 font-semibold text-white hover:bg-white/10">
-              Prendre rendez-vous
-            </RdvLink>
+            <RdvLink className="inline-flex items-center gap-2 rounded-xl border-2 border-white px-6 py-3 font-semibold text-white hover:bg-white/10" />
           </div>
         </section>
 
         <section className="mt-12 rounded-2xl border-2 border-[var(--accent)] bg-[var(--accent-soft)] p-6">
           <p className="text-slate-800">
             Vous souhaitez découvrir comment l&apos;IA peut faire gagner du temps à votre entreprise du BTP ?{' '}
-            <RdvLink className="font-semibold text-[var(--accent)] hover:underline">
-              Prenez rendez-vous pour échanger sur votre projet.
-            </RdvLink>
+            <RdvLink className="font-semibold text-[var(--accent)] hover:underline" />
           </p>
         </section>
 
@@ -222,9 +219,7 @@ export default function IAConducteurTravauxPage() {
               </Link>
             </li>
             <li>
-              <RdvLink className="text-[var(--accent)] hover:underline">
-                Prendre rendez-vous
-              </RdvLink>
+              <RdvLink className="text-[var(--accent)] hover:underline" />
             </li>
           </ul>
         </section>
@@ -235,7 +230,7 @@ export default function IAConducteurTravauxPage() {
             { href: LINKS.formationConducteurTravaux, label: 'Guide métier IA conducteur de travaux BTP' },
             { href: LINKS.formations, label: 'Catalogue formations IA pour le BTP' },
             { href: LINKS.blogCommentIaGagne5hConducteursTravaux, label: 'Article — gagner 5 h/semaine avec l\'IA' },
-            { href: buildSiteCalendlyCtaUrl('ia-conducteur-travaux-footer-rdv'), label: 'Prendre rendez-vous' },
+            { href: LINKS.prendreRdv, label: CTA_RDV_LABEL },
           ]}
         />
       </article>

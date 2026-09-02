@@ -1,4 +1,5 @@
 import { FAQAnswer } from '@/components/landing/FAQAnswer';
+import { CTA_RDV_LABEL } from '@/components/CtaRdv';
 import Link from 'next/link';
 import { Check, FileText, MessageSquare, ClipboardList, Shield, ArrowRight } from 'lucide-react';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
@@ -315,18 +316,14 @@ export default function FormationIAArtisansBTPPage() {
               Voir la formation IA pour le BTP
               <ArrowRight size={20} strokeWidth={1.5} />
             </Link>
-            <RdvLink className="inline-flex items-center gap-2 rounded-xl border-2 border-white px-6 py-3 font-semibold text-white hover:bg-white/10">
-              Prendre rendez-vous
-            </RdvLink>
+            <RdvLink className="inline-flex items-center gap-2 rounded-xl border-2 border-white px-6 py-3 font-semibold text-white hover:bg-white/10" />
           </div>
         </section>
 
         <section className="mt-12 rounded-2xl border-2 border-[var(--accent)] bg-[var(--accent-soft)] p-6">
           <p className="text-slate-800">
             Vous souhaitez découvrir comment l&apos;IA peut faire gagner du temps à votre entreprise du BTP ?{' '}
-            <RdvLink className="font-semibold text-[var(--accent)] hover:underline">
-              Prenez rendez-vous pour échanger sur votre projet.
-            </RdvLink>
+            <RdvLink className="font-semibold text-[var(--accent)] hover:underline" />
           </p>
         </section>
 
@@ -367,7 +364,7 @@ export default function FormationIAArtisansBTPPage() {
             { href: LINKS.iaDevis, label: 'IA devis bâtiment' },
             { href: LINKS.iaCDT, label: 'IA conducteur de travaux' },
             { href: LINKS.blog, label: 'Articles et guides' },
-            { href: buildSiteCalendlyCtaUrl('formation-ia-artisans-btp-footer-rdv'), label: 'Prendre rendez-vous' },
+            { href: LINKS.prendreRdv, label: CTA_RDV_LABEL },
           ].filter((l) => !getClusterRelatedHrefs(LINKS.chatgptArtisans).includes(l.href))}
         />
 

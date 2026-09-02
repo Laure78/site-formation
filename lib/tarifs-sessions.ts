@@ -29,6 +29,7 @@ export const SESSION_DUREE_MATIN_NIV04 = libelleDureeFormation(getFormationByCod
 /* ── Grille intra-entreprise (forfait session) ── */
 export const TARIF_INTRA_SENSIBILISATION_2H_HT = 750;
 export const TARIF_INTRA_4H_HT = 1200;
+/** Grille catalogue 7 h générique — ne pas confondre avec le parcours applications métier (voir `lib/tarifs-applications-metier-btp.ts`). */
 export const TARIF_INTRA_7H_HT = 1800;
 export const TARIF_INTRA_14H_HT_FROM = 3200;
 

@@ -1,6 +1,6 @@
 import {
   libelleTarifApplicationMetierBtp,
-  TARIF_FORFAIT_INTRA_MENTION,
+  TARIF_SESSION_INTRA_MENTION,
   type ApplicationMetierBtpTarifKey,
 } from '@/lib/tarifs-applications-metier-btp';
 import { MentionTvaAsterisque } from '@/components/MentionTVA';
@@ -24,7 +24,7 @@ export function ApplicationMetierTarifBlock({ tarifKey, duree, className = '' }:
         {libelleTarifApplicationMetierBtp(tarifKey)}
         <MentionTvaAsterisque />
       </p>
-      <p className="mt-2 text-sm text-slate-600">{TARIF_FORFAIT_INTRA_MENTION}</p>
+      <p className="mt-2 text-sm text-slate-600">{TARIF_SESSION_INTRA_MENTION}</p>
     </div>
   );
 }

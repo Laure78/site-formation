@@ -65,10 +65,7 @@ export function CTASticky() {
             ctaId="sticky-cta-desktop"
             utmCampaign="sticky-cta-desktop"
             className={`${OFC_CTA_COMPACT} px-8 py-4 text-base md:px-8`}
-          >
-            <span className="hidden md:inline">→ Prendre rendez-vous</span>
-            <span className="md:hidden">Réserver</span>
-          </CTACalendly>
+           />
         </div>
       </div>
     </div>

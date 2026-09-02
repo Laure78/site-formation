@@ -19,7 +19,7 @@ const MESH_PATH =
 export function AccueilHeroAnimatedMesh() {
   return (
     <div
-      className="pointer-events-none absolute inset-0 opacity-[0.12] md:opacity-[0.14] motion-reduce:opacity-[0.08]"
+      className="pointer-events-none absolute inset-0 hidden opacity-[0.14] motion-reduce:opacity-[0.08] lg:block"
       aria-hidden
     >
       <svg

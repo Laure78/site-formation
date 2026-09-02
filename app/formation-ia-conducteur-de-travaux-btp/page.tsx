@@ -1,4 +1,5 @@
 import { CtaButton } from '@/components/CtaButton';
+import { CTA_RDV_LABEL } from '@/components/CtaRdv';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Check } from 'lucide-react';
@@ -66,7 +67,7 @@ const SOMMAIRE = [
   { href: '#methode', label: 'Méthode + prompts terrain' },
   { href: '#resultats', label: 'Gains de temps mesurés' },
   { href: '#faq', label: 'FAQ' },
-  { href: '#rdv', label: 'Visio découverte gratuite 30 min' },
+  { href: LINKS.prendreRdv, label: CTA_RDV_LABEL },
 ];
 
 const METHODE_ETAPES = [
@@ -158,9 +159,7 @@ export default function FormationIaConducteurDeTravauxBtpPage() {
               ctaId="hero"
               variant="primary"
               className="rounded-lg px-5 py-3"
-            >
-              Réserver une visio découverte gratuite
-            </RdvLink>
+             />
             <Link
               href={LINKS.formationConduiteTravauxSuiviChantier}
               className="inline-flex items-center rounded-lg border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-800 hover:border-[#377CF3] hover:text-[#377CF3]"
@@ -305,13 +304,7 @@ export default function FormationIaConducteurDeTravauxBtpPage() {
               campaign="formation-ia-conducteur-de-travaux-btp-milieu"
               ctaPosition="middle"
               className="inline-flex items-center rounded-lg bg-white px-5 py-3 font-semibold text-[#377CF3] hover:bg-slate-50"
-            >
-              Réserver ma visio gratuite →
-            </RdvLink>
-            <CtaButton origin="formation-ia-conducteur-de-travaux-btp-milieu-page" className="inline-flex items-center rounded-lg border-2 border-white/80 px-5 py-3 text-sm font-semibold text-white hover:bg-white/10"
-            >
-              Ouvrir Calendly
-            </CtaButton>
+            />
           </div>
         </section>
 
@@ -420,16 +413,11 @@ export default function FormationIaConducteurDeTravauxBtpPage() {
               campaign="formation-ia-conducteur-de-travaux-btp-rdv-final"
               ctaPosition="footer"
               className="inline-flex items-center rounded-lg bg-[#377CF3] px-5 py-3 font-semibold text-white hover:bg-[#2d63c9]"
-            >
-              Prendre rendez-vous — visio gratuite 30 min
-            </RdvLink>
+             />
             <PublicPhoneCta className="inline-flex items-center rounded-lg border border-slate-300 px-5 py-3 font-medium text-slate-800 hover:bg-slate-50" />
           </div>
           <p className="mt-6 text-sm text-slate-600">
-            <CtaButton origin="formation-ia-conducteur-de-travaux-btp-rdv-final" className="text-[#377CF3] underline"
-            >
-              Lien Calendly direct
-            </CtaButton>
+            <CtaButton origin="formation-ia-conducteur-de-travaux-btp-rdv-final" className="text-[#377CF3] underline" />
             {' · '}
             <Link href={LINKS.formationConduiteTravauxSuiviChantier} className="text-[#377CF3] underline">
               Programme NIV-03 — conduite de travaux

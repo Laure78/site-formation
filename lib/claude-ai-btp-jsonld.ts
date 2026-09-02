@@ -3,6 +3,7 @@
  * @see https://schema.org/
  */
 import { SOCIAL_PROOF } from '@/lib/constants';
+import { getPillarPageContentUpdatedAt } from '@/lib/content-updated-at';
 import {
   breadcrumbItemsFromPaths,
   buildBreadcrumbListJsonLd,
@@ -74,7 +75,7 @@ export function buildClaudeAiBtpJsonLdGraph(): Record<string, unknown> {
     author: { '@id': PERSON_ID },
     publisher: { '@id': ORG_ID },
     datePublished: '2026-04-13',
-    dateModified: '2026-04-18',
+    dateModified: getPillarPageContentUpdatedAt('/claude-ai-btp'),
     url: CANONICAL,
     mainEntityOfPage: { '@id': `${CANONICAL}#webpage` },
     keywords: [
@@ -372,6 +373,8 @@ export function buildClaudeAiBtpJsonLdGraph(): Record<string, unknown> {
     primaryImageOfPage: { '@type': 'ImageObject', url: OG_IMAGE },
     mainEntity: { '@id': `${CANONICAL}#techarticle` },
     breadcrumb: { '@id': `${CANONICAL}#breadcrumb` },
+    datePublished: '2026-04-13',
+    dateModified: getPillarPageContentUpdatedAt('/claude-ai-btp'),
   };
 
   return {

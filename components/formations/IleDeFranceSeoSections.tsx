@@ -249,9 +249,7 @@ export function IleDeFranceSeoSections() {
             pour un échange ou demandez le programme détaillé par email.
           </p>
           <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row sm:flex-wrap">
-            <RdvLink className="inline-flex rounded-xl bg-[var(--accent)] px-6 py-3.5 font-semibold text-white hover:bg-blue-600">
-              Prendre rendez-vous
-            </RdvLink>
+            <RdvLink className="inline-flex rounded-xl bg-[var(--accent)] px-6 py-3.5 font-semibold text-white hover:bg-blue-600" />
             <a
               href={mailProgramme}
               className="inline-flex rounded-xl border-2 border-slate-300 bg-white px-6 py-3.5 font-semibold text-slate-800 hover:border-[var(--accent)]"

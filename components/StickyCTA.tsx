@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import { usePathname } from 'next/navigation';
 import { isStickyBlogMetierRdvPath } from '@/lib/sticky-blog-metier-rdv-path';
-import { CTACalendly } from '@/components/CTACalendly';
+import { CtaRdv } from '@/components/CtaRdv';
 
 const SESSION_KEY = 'cta-dismissed';
 
@@ -44,15 +44,11 @@ export function StickyCTA() {
         <p className="text-xs opacity-90">Financement possible selon éligibilité</p>
       </div>
       <div className="flex shrink-0 items-center gap-2">
-        <CTACalendly
-          page={pathname}
-          ctaPosition="floating"
-          ctaId="sticky-mobile"
-          campaign="sticky-mobile"
-          className="whitespace-nowrap rounded-lg bg-white px-6 py-4 text-base font-bold text-[#377CF3]"
-        >
-          Prendre rendez-vous
-        </CTACalendly>
+        <CtaRdv
+          origin="sticky-mobile"
+          variant="secondary"
+          className="whitespace-nowrap rounded-lg bg-white px-6 py-4 text-base font-bold text-[#377CF3] hover:bg-slate-50"
+        />
         <button
           type="button"
           onClick={dismiss}

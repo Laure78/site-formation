@@ -14,6 +14,7 @@ import {
 import { buildQualiopiCredentialSchema } from '@/lib/qualiopi-info';
 import { SCHEMA_CONTACT } from '@/lib/schema-constants';
 import { tarifHtDepuisBadgeCatalogue } from '@/lib/tarifs-sessions';
+import { getTarifApplicationMetierBtpHt } from '@/lib/tarifs-applications-metier-btp';
 
 export const EDUCATIONAL_ORGANIZATION_FRAGMENT_ID =
   `${SITE_CONFIG.url}/#educational-organization` as const;
@@ -137,7 +138,9 @@ function buildCatalogOffer(
   };
   offer.price = (() => {
     const f = getFormationByCode(entry.ref);
-    if (f?.tarifParcoursAppMetier) return undefined;
+    if (f?.tarifParcoursAppMetier) {
+      return getTarifApplicationMetierBtpHt(f.tarifParcoursAppMetier);
+    }
     if (f && f.prixHT > 0) return f.prixHT;
     return tarifHtDepuisBadgeCatalogue(entry.level);
   })();

@@ -310,9 +310,7 @@ export default function FormationIaParisPage() {
                 campaign="paris-pilier-mid"
                 ctaPosition="middle"
                 className="inline-flex items-center rounded-lg bg-white px-5 py-3 font-semibold text-[#377CF3] hover:bg-slate-50"
-              >
-                Prendre rendez-vous découverte
-              </CalendlyEmbed>
+               />
             </div>
           </div>
         </section>
@@ -452,9 +450,7 @@ export default function FormationIaParisPage() {
                 campaign="paris-pilier-footer"
                 ctaPosition="footer"
                 className="inline-flex items-center rounded-lg bg-white px-6 py-3.5 font-semibold text-[#377CF3] hover:bg-slate-50"
-              >
-                Prendre rendez-vous
-              </CalendlyEmbed>
+               />
             </div>
           </div>
         </section>

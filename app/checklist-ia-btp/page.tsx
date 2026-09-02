@@ -183,10 +183,7 @@ export default function ChecklistIABTPPage() {
               >
                 Formation niveau 1 — bâtiment &amp; TP
               </Link>
-              <RdvLink className="inline-flex items-center gap-2 rounded-xl border border-slate-300 bg-white px-5 py-3 text-sm font-semibold text-slate-800 hover:bg-slate-50">
-                <Download size={16} strokeWidth={1.75} aria-hidden />
-                Visio découverte gratuite
-              </RdvLink>
+              <RdvLink className="inline-flex items-center gap-2 rounded-xl border border-slate-300 bg-white px-5 py-3 text-sm font-semibold text-slate-800 hover:bg-slate-50" />
             </div>
             <nav className="mt-8 flex flex-wrap gap-x-5 gap-y-2 text-sm" aria-label="Maillage ressources">
               <Link href={LINKS.formationConducteurTravaux} className="font-medium text-[#377CF3] hover:underline">

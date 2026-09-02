@@ -93,10 +93,7 @@ export function EtudeCasClientsSection() {
                 Lire l&apos;étude de cas complète
                 <ArrowRight size={18} strokeWidth={2} aria-hidden />
               </Link>
-              <RdvLink className="inline-flex items-center justify-center gap-2 rounded-xl border-2 border-slate-200 bg-white px-6 py-3.5 text-center text-sm font-semibold text-slate-800 transition-colors hover:border-[var(--accent)] hover:bg-[var(--accent-soft)]">
-                <Building2 size={18} strokeWidth={1.75} aria-hidden />
-                Projet équivalent ?
-              </RdvLink>
+              <RdvLink className="inline-flex items-center justify-center gap-2 rounded-xl border-2 border-slate-200 bg-white px-6 py-3.5 text-center text-sm font-semibold text-slate-800 transition-colors hover:border-[var(--accent)] hover:bg-[var(--accent-soft)]" />
             </Reveal>
           </div>
 

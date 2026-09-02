@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { CTA_RDV_LABEL } from '@/components/CtaRdv';
 import { FooterTelOrMailLink, PublicPhoneCta } from '@/components/PublicPhoneCta';
 import { RdvLink } from '@/components/RdvLink';
 import { buildSiteCalendlyCtaUrl } from '@/lib/calendly';
@@ -88,9 +89,7 @@ export default function FormationIABTPSaintQuentinYvelinesPage() {
         summaryItems={HERO_RESUME}
         ctas={
           <>
-            <RdvLink className="rounded-xl bg-[var(--accent)] px-6 py-3.5 text-center font-semibold text-white hover:bg-blue-600">
-              Prendre rendez-vous
-            </RdvLink>
+            <RdvLink className="rounded-xl bg-[var(--accent)] px-6 py-3.5 text-center font-semibold text-white hover:bg-blue-600" />
             <a
               href="#zones-sqy"
               className="rounded-xl border-2 border-slate-200 px-6 py-3.5 text-center font-semibold text-slate-800 hover:border-[var(--accent)]"
@@ -402,9 +401,7 @@ export default function FormationIABTPSaintQuentinYvelinesPage() {
                 Échange sur votre activité, vos besoins et votre éligibilité Constructys. Devis et programme
                 personnalisés sous 24 à 48 h en général.
               </p>
-              <RdvLink className="mt-6 inline-flex rounded-xl bg-[var(--accent)] px-6 py-3 font-semibold text-white hover:bg-blue-600">
-                Prendre rendez-vous
-              </RdvLink>
+              <RdvLink className="mt-6 inline-flex rounded-xl bg-[var(--accent)] px-6 py-3 font-semibold text-white hover:bg-blue-600" />
             </div>
             <div className="rounded-2xl border border-slate-200 bg-slate-50 p-6">
               <h3 className="font-display text-lg font-semibold text-slate-900">
@@ -472,7 +469,7 @@ export default function FormationIABTPSaintQuentinYvelinesPage() {
               { href: LINKS.formationParis, label: 'Formation IA pour le BTP Paris' },
               { href: LINKS.formations, label: 'Catalogue formations' },
               { href: LINKS.financement, label: 'Financement Constructys' },
-              { href: buildSiteCalendlyCtaUrl('formations-ia-btp-saint-quentin-en-yvelines-footer-rdv'), label: 'Prendre rendez-vous' },
+              { href: LINKS.prendreRdv, label: CTA_RDV_LABEL },
             ]}
           />
         </div>
@@ -488,10 +485,7 @@ export default function FormationIABTPSaintQuentinYvelinesPage() {
             votre entreprise du 78.
           </p>
           <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <RdvLink className="flex items-center gap-2 rounded-xl border-2 border-white/60 bg-white px-8 py-4 font-semibold text-[var(--accent)] hover:bg-blue-50">
-              <Calendar size={20} strokeWidth={1.5} />
-              Prendre rendez-vous
-            </RdvLink>
+            <RdvLink className="flex items-center gap-2 rounded-xl border-2 border-white/60 bg-white px-8 py-4 font-semibold text-[var(--accent)] hover:bg-blue-50" />
             <PublicPhoneCta className="flex items-center gap-2 rounded-xl border-2 border-white bg-transparent px-8 py-4 font-semibold text-white hover:bg-white/10" />
           </div>
         </div>

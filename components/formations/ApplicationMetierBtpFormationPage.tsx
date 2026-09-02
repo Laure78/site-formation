@@ -7,6 +7,9 @@ import { FormationCourseHero } from '@/components/formations/FormationCourseHero
 import { FormationCatalogueIndicateur1Suite } from '@/components/formations/FormationCatalogueIndicateur1Suite';
 import { FormationCatalogueGeoSections } from '@/components/formations/FormationCatalogueGeoSections';
 import { ApplicationMetierTarifBlock } from '@/components/formations/ApplicationMetierTarifBlock';
+import { ApplicationMetierLearningPath } from '@/components/formations/ApplicationMetierLearningPath';
+import { ApplicationMetierParcoursStepNav } from '@/components/formations/ApplicationMetierParcoursStepNav';
+import { ApplicationMetierParcoursContinueSection } from '@/components/formations/ApplicationMetierParcoursContinueSection';
 import { getFormationByCode, libelleDureeFormation, libelleEffectifMaxFormation } from '@/data/formations';
 import { getFAQSchema } from '@/lib/seo';
 import { LINKS } from '@/lib/internal-links';
@@ -17,6 +20,10 @@ import {
 } from '@/lib/tarifs-applications-metier-btp';
 import type { ApplicationMetierNiveauConfig } from '@/lib/parcours-applications-metier-btp-content';
 import { buildCatalogueCourseApplicationMetierJsonLd } from '@/lib/schema-catalogue-course-jsonld';
+import {
+  APPLICATION_METIER_PARCOURS_MOTHER,
+  getApplicationMetierParcoursStepByRef,
+} from '@/lib/application-metier-btp-parcours-nav';
 
 type Props = {
   config: ApplicationMetierNiveauConfig;
@@ -24,6 +31,7 @@ type Props = {
 
 export function ApplicationMetierBtpFormationPage({ config }: Props) {
   const formation = getFormationByCode(config.ref)!;
+  const parcoursStep = getApplicationMetierParcoursStepByRef(config.ref);
   const courseSchema = buildCatalogueCourseApplicationMetierJsonLd(config.ref);
   const faqSchema = getFAQSchema(config.faq);
 
@@ -35,7 +43,11 @@ export function ApplicationMetierBtpFormationPage({ config }: Props) {
       <FormationCourseHero
         catalogueRef={config.ref}
         programmePdfAfterHero={false}
-        refLine={`Intra-entreprise · présentiel · ${libelleDureeFormation(formation)} · ${libelleEffectifMaxFormation(formation)} · ${config.progressionLabel}`}
+        backLink={{
+          href: APPLICATION_METIER_PARCOURS_MOTHER.path,
+          label: APPLICATION_METIER_PARCOURS_MOTHER.backLabel,
+        }}
+        refLine={`Intra-entreprise · présentiel · ${libelleDureeFormation(formation)} · ${libelleEffectifMaxFormation(formation)} · ${parcoursStep.stepBadge}`}
         title={config.h1}
         subtitle={config.subtitle}
         badges={['Applications métier', 'Développement assisté par l’IA', 'Organisme Qualiopi']}
@@ -48,18 +60,25 @@ export function ApplicationMetierBtpFormationPage({ config }: Props) {
           <RdvLink
             variant="primary"
             campaign={`application-metier-btp-${config.slug}-hero`}
-          >
-            Réserver une visio découverte
-          </RdvLink>
+           />
         }
         footerLinks={
-          <Link href={LINKS.parcoursApplicationsMetierBtp} className={OFC_LINK}>
-            Voir le parcours complet applications métier BTP →
-          </Link>
+          <>
+            <Link href={LINKS.formations} className={OFC_LINK}>
+              {APPLICATION_METIER_PARCOURS_MOTHER.linkCatalogueLabel}
+            </Link>
+          </>
         }
       >
         <p>{config.positionnement}</p>
       </FormationCourseHero>
+
+      <section className="border-b border-slate-200 bg-white px-4 pb-10">
+        <div className="mx-auto max-w-4xl space-y-8">
+          <ApplicationMetierParcoursStepNav step={parcoursStep} />
+          <ApplicationMetierLearningPath currentStep={parcoursStep.step} />
+        </div>
+      </section>
 
       <section className={OFC_SEC.muted}>
         <div className="mx-auto max-w-4xl">
@@ -73,7 +92,7 @@ export function ApplicationMetierBtpFormationPage({ config }: Props) {
       <section className={OFC_SEC.white}>
         <div className="mx-auto max-w-4xl">
           <p className="text-sm font-semibold uppercase tracking-wide text-[var(--accent)]">
-            {config.progressionLabel}
+            {parcoursStep.stepBadge}
           </p>
           <h2 className="mt-2 font-display text-2xl font-bold text-slate-900 md:text-3xl">
             {config.progressionTagline}
@@ -134,6 +153,8 @@ export function ApplicationMetierBtpFormationPage({ config }: Props) {
         </div>
       </section>
 
+      <ApplicationMetierParcoursContinueSection step={parcoursStep} />
+
       {config.casUsageExemples?.length ? (
         <section className={OFC_SEC.muted}>
           <div className="mx-auto max-w-4xl">
@@ -175,9 +196,7 @@ export function ApplicationMetierBtpFormationPage({ config }: Props) {
             className="mt-8"
             variant="primary"
             campaign={`application-metier-btp-${config.slug}-footer`}
-          >
-            Réserver une visio découverte
-          </RdvLink>
+           />
         </div>
       </section>
     </div>

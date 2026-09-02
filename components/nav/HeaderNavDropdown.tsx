@@ -5,8 +5,9 @@ import Link from 'next/link';
 import { ChevronDown } from 'lucide-react';
 import {
   headerNavItemIsActive,
-  headerNavLinkIsActive,
+  headerNavLinkTreeIsActive,
   type HeaderNavItem,
+  type HeaderNavLink,
 } from '@/lib/header-nav';
 
 function triggerClass(active: boolean, simple = false) {
@@ -17,6 +18,102 @@ function triggerClass(active: boolean, simple = false) {
   ]
     .filter(Boolean)
     .join(' ');
+}
+
+function HeaderNavDropdownLinks({
+  links,
+  pathname,
+  onNavigate,
+  nested = false,
+}: {
+  links: readonly HeaderNavLink[];
+  pathname: string;
+  onNavigate?: () => void;
+  nested?: boolean;
+}) {
+  return (
+    <>
+      {links.map((child) => {
+        const childActive = headerNavLinkTreeIsActive(child, pathname);
+        const hasNested = Boolean(child.children?.length);
+        return (
+          <li key={`${child.href}-${child.label}`}>
+            <Link
+              href={child.href}
+              title={child.title}
+              onClick={onNavigate}
+              className={`header-nav-dropdown-link ${
+                nested ? 'header-nav-dropdown-link--nested' : ''
+              } ${hasNested ? 'header-nav-dropdown-link--group' : ''} ${
+                childActive ? 'header-nav-dropdown-link--active' : ''
+              }`}
+            >
+              {child.label}
+            </Link>
+            {hasNested ? (
+              <ul className="header-nav-dropdown-nested">
+                <HeaderNavDropdownLinks
+                  links={child.children!}
+                  pathname={pathname}
+                  onNavigate={onNavigate}
+                  nested
+                />
+              </ul>
+            ) : null}
+          </li>
+        );
+      })}
+    </>
+  );
+}
+
+function HeaderMobileNavLinks({
+  links,
+  pathname,
+  onNavigate,
+  nested = false,
+}: {
+  links: readonly HeaderNavLink[];
+  pathname: string;
+  onNavigate: () => void;
+  nested?: boolean;
+}) {
+  return (
+    <>
+      {links.map((child) => {
+        const childActive = headerNavLinkTreeIsActive(child, pathname);
+        const hasNested = Boolean(child.children?.length);
+        return (
+          <li key={`${child.href}-${child.label}`}>
+            <Link
+              href={child.href}
+              title={child.title}
+              onClick={onNavigate}
+              className={`header-mobile-submenu-link ${
+                nested ? 'header-mobile-submenu-link--nested' : ''
+              } ${hasNested ? 'font-medium text-slate-800' : ''} ${
+                childActive
+                  ? 'header-mobile-submenu-link--active'
+                  : 'header-mobile-submenu-link--idle'
+              }`}
+            >
+              {child.label}
+            </Link>
+            {hasNested ? (
+              <ul className="header-mobile-submenu-nested">
+                <HeaderMobileNavLinks
+                  links={child.children!}
+                  pathname={pathname}
+                  onNavigate={onNavigate}
+                  nested
+                />
+              </ul>
+            ) : null}
+          </li>
+        );
+      })}
+    </>
+  );
 }
 
 export function HeaderNavDropdown({
@@ -91,22 +188,7 @@ export function HeaderNavDropdown({
           <div className="header-nav-dropdown-menu" aria-labelledby={buttonId}>
             <p className="header-nav-dropdown-heading">{item.label}</p>
             <ul>
-              {children.map((child) => {
-                const childActive = headerNavLinkIsActive(child.href, pathname);
-                return (
-                  <li key={`${child.href}-${child.label}`}>
-                    <Link
-                      href={child.href}
-                      onClick={onNavigate}
-                      className={`header-nav-dropdown-link ${
-                        childActive ? 'header-nav-dropdown-link--active' : ''
-                      }`}
-                    >
-                      {child.label}
-                    </Link>
-                  </li>
-                );
-              })}
+              <HeaderNavDropdownLinks links={children} pathname={pathname} onNavigate={onNavigate} />
             </ul>
             {item.footer ? (
               <div className="mt-2 border-t border-slate-100 px-2 pt-2">
@@ -208,24 +290,7 @@ export function HeaderMobileNavSection({
       </div>
       {hasMenu && expanded ? (
         <ul id={panelId} className="header-mobile-submenu" aria-labelledby={buttonId}>
-          {children.map((child) => {
-            const childActive = headerNavLinkIsActive(child.href, pathname);
-            return (
-              <li key={`${child.href}-${child.label}`}>
-                <Link
-                  href={child.href}
-                  onClick={onNavigate}
-                  className={`header-mobile-submenu-link ${
-                    childActive
-                      ? 'header-mobile-submenu-link--active'
-                      : 'header-mobile-submenu-link--idle'
-                  }`}
-                >
-                  {child.label}
-                </Link>
-              </li>
-            );
-          })}
+          <HeaderMobileNavLinks links={children} pathname={pathname} onNavigate={onNavigate} />
           {item.footer ? (
             <li className="mt-1 border-t border-slate-100 pt-1">
               <Link

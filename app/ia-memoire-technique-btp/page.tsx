@@ -166,9 +166,7 @@ export default function IaMemoireTechniqueBtpPage() {
                 campaign="ia-memoire-mid"
                 ctaPosition="middle"
                 className="inline-flex items-center rounded-lg bg-white px-5 py-3 font-semibold text-[#377CF3] hover:bg-slate-50"
-              >
-                Prendre rendez-vous découverte
-              </CalendlyEmbed>
+               />
             </div>
           </div>
         </section>
@@ -233,9 +231,7 @@ export default function IaMemoireTechniqueBtpPage() {
                 campaign="ia-memoire-footer"
                 ctaPosition="footer"
                 className="inline-flex items-center rounded-lg bg-white px-6 py-3.5 font-semibold text-[#377CF3] hover:bg-slate-50"
-              >
-                Prendre rendez-vous découverte
-              </CalendlyEmbed>
+               />
             </div>
           </div>
         </section>

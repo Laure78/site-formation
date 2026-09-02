@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { CTA_RDV_LABEL, CtaRdv } from '@/components/CtaRdv';
 import { ArrowRight, Check } from 'lucide-react';
 import { EnBref } from '@/app/components/EnBref';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
@@ -58,7 +59,7 @@ const SOMMAIRE = [
   { href: '#methode', label: 'Méthode + prompts ChatGPT / Claude' },
   { href: '#resultats', label: 'Résultats concrets' },
   { href: '#faq', label: 'FAQ' },
-  { href: '#rdv', label: 'Visio découverte gratuite' },
+  { href: LINKS.prendreRdv, label: CTA_RDV_LABEL },
 ];
 
 export default function FormationIaChefChantierTpPage() {
@@ -115,9 +116,7 @@ export default function FormationIaChefChantierTpPage() {
             ctaPosition="hero"
             variant="primary"
             className="rounded-lg px-5 py-3"
-          >
-            Réserver une visio découverte gratuite
-          </RdvLink>
+           />
           <Link
             href={LINKS.formationIaBtpNiveau1BatimentTp}
             className="inline-flex items-center rounded-lg border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-800 hover:border-[#377CF3] hover:text-[#377CF3]"
@@ -228,9 +227,7 @@ export default function FormationIaChefChantierTpPage() {
         <aside className="mt-10 rounded-2xl border-l-4 border-[#377CF3] bg-[#F2F2F2] p-6 md:p-8">
           <p className="font-medium text-slate-900">Aller plus loin</p>
           <p className="mt-2 text-slate-600">
-            <a href="#rdv" className="font-semibold text-[#377CF3] underline hover:no-underline">
-              Prendre rendez-vous
-            </a>{' '}
+            <CtaRdv variant="inline" origin="page-inline-rdv" className="font-semibold text-[#377CF3] underline hover:no-underline" />{' '}
             — 30 minutes pour adapter ces usages à votre chantier TP.
           </p>
         </aside>
@@ -365,10 +362,7 @@ export default function FormationIaChefChantierTpPage() {
               campaign="formation-ia-chef-chantier-tp-rdv-final"
               ctaPosition="footer"
               className="inline-flex items-center gap-2 rounded-xl bg-white px-6 py-3 font-semibold text-[#377CF3] hover:bg-blue-50"
-            >
-              Réserver votre visio découverte
-              <ArrowRight size={20} strokeWidth={1.5} />
-            </RdvLink>
+             />
             <PublicPhoneCta className="inline-flex items-center gap-2 rounded-xl border-2 border-white px-6 py-3 font-semibold text-white hover:bg-white/10" />
             <Link
               href={LINKS.contact}

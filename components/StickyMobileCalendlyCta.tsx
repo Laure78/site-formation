@@ -3,7 +3,7 @@
 import { X } from 'lucide-react';
 import { usePathname } from 'next/navigation';
 import { useCallback, useEffect, useMemo, useState } from 'react';
-import { CtaButton } from '@/components/CtaButton';
+import { CtaRdv } from '@/components/CtaRdv';
 import { shouldShowStickyMobileCalendlyBar } from '@/lib/sticky-mobile-calendly-path';
 
 const SESSION_DISMISS_KEY = 'ofc-sticky-mobile-calendly-dismissed';
@@ -98,9 +98,9 @@ export function StickyMobileCalendlyCta() {
         >
           <X className="h-4 w-4" strokeWidth={2} aria-hidden />
         </button>
-        <CtaButton
+        <CtaRdv
           origin="sticky-mobile-bar"
-          layout="nav"
+          variant="primary"
           className="block w-full min-h-12 rounded-lg px-4 py-3.5 pr-12 text-center text-[0.8125rem] font-semibold leading-snug"
         />
       </div>

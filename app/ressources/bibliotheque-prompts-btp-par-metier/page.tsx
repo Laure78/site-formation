@@ -145,11 +145,7 @@ export default function BibliothequePromptsBtpParMetierPage() {
               <Download className="h-4 w-4" aria-hidden />
               Télécharger l’Excel
             </a>
-            <CtaButton origin="ressources-bibliotheque-prompts-btp-hero" className="inline-flex items-center gap-2 rounded-lg border border-white/40 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/10"
-            >
-              <Calendar className="h-4 w-4" aria-hidden />
-              RDV découverte formation
-            </CtaButton>
+            <CtaButton origin="ressources-bibliotheque-prompts-btp-hero" className="inline-flex items-center gap-2 rounded-lg border border-white/40 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/10" />
           </div>
         </div>
       </section>
@@ -241,11 +237,7 @@ export default function BibliothequePromptsBtpParMetierPage() {
             Pour ancrer ces prompts dans vos documents réels en présentiel Île-de-France — Qualiopi,
             Constructys selon éligibilité.
           </p>
-          <CtaButton origin="ressources-bibliotheque-prompts-btp-final" className="mt-8 inline-flex items-center gap-2 rounded-lg bg-[#377CF3] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[#2d66d6]"
-          >
-            <Calendar className="h-4 w-4" aria-hidden />
-            Prendre un RDV découverte
-          </CtaButton>
+          <CtaButton origin="ressources-bibliotheque-prompts-btp-final" className="mt-8 inline-flex items-center gap-2 rounded-lg bg-[#377CF3] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[#2d66d6]" />
         </div>
       </section>
     </div>

@@ -1,6 +1,6 @@
 import {
   buildIdfDeptMetaDescription,
-  FORMATION_IA_BTP_DEPT_META_BY_CODE,
+  IDF_DEPT_META_CODES,
   hasSeoGeoSignal,
   SEO_GEO_REGION,
 } from '@/lib/seo-geo-keywords';
@@ -52,8 +52,8 @@ export function buildDeptMetaDescription(
   villesCourtes: string,
 ): string {
   const text = buildIdfDeptMetaDescription(departementNom, deptCode, villesCourtes);
-  // Metas curatées déjà finales (150–160) — ne pas reclamper.
-  if (FORMATION_IA_BTP_DEPT_META_BY_CODE[deptCode]) return text;
+  // Metas départements IDF — texte final curaté (150–160 car.), sans reclamp.
+  if ((IDF_DEPT_META_CODES as readonly string[]).includes(deptCode)) return text;
   return clampMetaDescription(text);
 }
 

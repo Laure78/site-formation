@@ -2,6 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import type { ReactNode } from 'react';
 import { ArrowRight, Award, Calendar } from 'lucide-react';
+import { ContentUpdatedLine } from '@/components/seo/ContentUpdatedLine';
 import {
   OFC_CTA_GHOST_ON_ACCENT,
   OFC_CTA_ON_ACCENT,
@@ -30,6 +31,8 @@ export type PillarPageHeroProps = {
   eyebrow: string;
   title: string;
   titleId: string;
+  /** Date de mise à jour figée (YYYY-MM-DD) — affichée sous le H1. */
+  contentUpdatedAt?: string;
   /** Résumé factuel « En bref » juste sous le H1 (citation IA / GEO). */
   enBref?: ReactNode;
   subtitle?: ReactNode;
@@ -76,6 +79,7 @@ export function PillarPageHero({
   eyebrow,
   title,
   titleId,
+  contentUpdatedAt,
   enBref,
   subtitle,
   metaLine,
@@ -163,6 +167,21 @@ export function PillarPageHero({
       >
         {title}
       </h1>
+
+      {contentUpdatedAt ? (
+        <ContentUpdatedLine
+          date={contentUpdatedAt}
+          className={
+            muted
+              ? compact
+                ? 'mt-2 text-xs text-[#64748B]'
+                : 'mt-3 text-xs text-[#64748B] md:text-sm'
+              : compact
+                ? 'mt-2 text-xs text-white/75'
+                : 'mt-3 text-xs text-white/75 md:text-sm'
+          }
+        />
+      ) : null}
 
       {enBref ? <div className="mt-5 max-w-2xl">{enBref}</div> : null}
 

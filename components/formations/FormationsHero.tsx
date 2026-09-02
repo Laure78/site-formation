@@ -11,6 +11,7 @@ import { FINANCEMENT_FORMULATION_COURTE } from '@/lib/financement-copy';
 import { PERIMETRE_FORMATIONS_COURT, SESSION_DUREE_LIBELLE, libelleTarifsCarteCatalogue } from '@/lib/tarifs-sessions';
 import { formatNoteSatisfactionSur5 } from '@/lib/data/indicateurs-resultats';
 import { CATALOGUE_POSITIONNEMENT } from '@/lib/formations-catalogue-architecture';
+import { getPillarPageContentUpdatedAt } from '@/lib/content-updated-at';
 import { PHOTOS } from '@/lib/photos';
 
 const QUICK_LINKS = [
@@ -30,6 +31,7 @@ export function FormationsHero({ catalogueCount = getCatalogueFormationsCount() 
       eyebrow={`Catalogue IA BTP — organisme certifié Qualiopi`}
       title={CATALOGUE_POSITIONNEMENT.h1}
       titleId="formations-catalogue-hero-h1"
+      contentUpdatedAt={getPillarPageContentUpdatedAt('/formations')}
       description={
         <>
           {CATALOGUE_POSITIONNEMENT.promesseDocuments} {CATALOGUE_POSITIONNEMENT.promesseLivrables}{' '}

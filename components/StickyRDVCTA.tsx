@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Calendar, X } from 'lucide-react';
 import { isStickyBlogMetierRdvPath } from '@/lib/sticky-blog-metier-rdv-path';
-import { CtaButton } from '@/components/CtaButton';
+import { CtaRdv } from '@/components/CtaRdv';
 
 /** CTA sticky au scroll — accès rapide au catalogue et à la prise de RDV */
 export function StickyRDVCTA() {
@@ -60,14 +60,11 @@ export function StickyRDVCTA() {
               Coordonnées
             </Link>
           )}
-          <CtaButton
+          <CtaRdv
             origin="sticky-rdv-desktop"
-            variant="unstyled"
+            variant="primary"
             className="inline-flex items-center gap-2 rounded-lg bg-[#377CF3] px-8 py-4 text-base font-bold text-white transition-colors hover:bg-[#2d6ae8]"
-          >
-            <Calendar size={18} strokeWidth={1.5} />
-            Prendre rendez-vous (30 min, gratuit)
-          </CtaButton>
+          />
           <button
             type="button"
             onClick={() => setDismissed(true)}

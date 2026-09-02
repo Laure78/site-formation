@@ -1,27 +1,22 @@
 'use client';
 
-import type { ReactNode } from 'react';
-import { Calendar } from 'lucide-react';
-import { CtaButton, type CtaButtonProps } from '@/components/CtaButton';
+import { CtaRdv, type CtaRdvProps } from '@/components/CtaRdv';
 
-export type CalendlyButtonProps = Omit<CtaButtonProps, 'origin' | 'variant'> & {
+export type CalendlyButtonProps = Omit<CtaRdvProps, 'origin' | 'variant'> & {
   /** Mappé vers `origin` pour GA4. */
   campaign: string;
   variant?: 'primary' | 'secondary' | 'small';
-  children: ReactNode;
 };
 
-/** @deprecated Préférer `<CtaButton origin={campaign} />`. */
+/** @deprecated Préférer {@link CtaRdv}. */
 export default function CalendlyButton({
   campaign,
   className,
-  children,
-  variant: _variant = 'primary',
+  variant: legacyVariant = 'primary',
   ...rest
 }: CalendlyButtonProps) {
-  return (
-    <CtaButton origin={campaign} className={className} {...rest}>
-      {children}
-    </CtaButton>
-  );
+  const ctaVariant =
+    legacyVariant === 'secondary' ? 'secondary' : legacyVariant === 'small' ? 'inline' : 'primary';
+
+  return <CtaRdv origin={campaign} variant={ctaVariant} className={className} {...rest} />;
 }

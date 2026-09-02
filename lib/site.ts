@@ -54,9 +54,9 @@ export const SITE = {
   },
   cta: {
     href: LINKS.prendreRdv,
-    label: 'Prendre rendez-vous',
-    /** Libellé court — header / bandeaux étroits (mobile). */
-    labelCompact: 'Prendre RDV',
+    label: 'Réservez votre visio découverte gratuite',
+    /** @deprecated Conservé pour compat — identique à `label`. */
+    labelCompact: 'Réservez votre visio découverte gratuite',
   },
   platform: {
     loginHref: LINKS.authConnexion,

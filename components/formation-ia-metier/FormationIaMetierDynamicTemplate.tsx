@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import { CtaRdv } from '@/components/CtaRdv';
 import { JsonLd } from '@/components/JsonLd';
 import { ProfilePhoto } from '@/components/landing/ProfilePhoto';
 import { getCourseSchema, getFAQSchema, SITE_CONFIG } from '@/lib/seo';
@@ -12,12 +12,11 @@ import { PreuveSociale } from '@/components/PreuveSociale';
 function SectionCtaVisio({ className = '' }: { className?: string }) {
   return (
     <div className={className}>
-      <Link
-        href={LINKS.prendreRdv}
+      <CtaRdv
+        origin="formation-ia-metier-dynamic"
+        variant="primary"
         className="inline-flex items-center justify-center rounded-xl bg-[#377CF3] px-8 py-4 text-center text-base font-semibold text-white shadow-sm transition hover:bg-blue-700"
-      >
-        Prendre rendez-vous
-      </Link>
+      />
     </div>
   );
 }
@@ -105,12 +104,7 @@ export function FormationIaMetierDynamicTemplate({
             30 minutes pour cadrer votre besoin — formation IA pour les pros du BTP, financement, calendrier.
           </p>
           <div className="mt-6 flex justify-center">
-            <Link
-              href={LINKS.prendreRdv}
-              className="inline-flex items-center justify-center rounded-xl bg-white px-8 py-4 text-base font-semibold text-[#377CF3] shadow-sm transition hover:bg-blue-50"
-            >
-              Prendre rendez-vous
-            </Link>
+            <SectionCtaVisio />
           </div>
         </div>
       </section>
@@ -238,12 +232,7 @@ export function FormationIaMetierDynamicTemplate({
             inter et le montage Constructys selon votre structure.
           </p>
           <div className="mt-8 flex justify-center">
-            <Link
-              href={LINKS.prendreRdv}
-              className="inline-flex items-center justify-center rounded-xl bg-white px-8 py-4 text-base font-semibold text-[#377CF3] shadow-sm transition hover:bg-blue-50"
-            >
-              Prendre rendez-vous — visio découverte
-            </Link>
+            <SectionCtaVisio />
           </div>
         </div>
       </section>

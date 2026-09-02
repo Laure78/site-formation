@@ -3,6 +3,7 @@
  * Modalités : présentiel uniquement (OfflineEventAttendanceMode) en Île-de-France — aligné catalogue.
  */
 import { getFaqFormations } from '@/lib/faq';
+import { getPillarPageContentUpdatedAt } from '@/lib/content-updated-at';
 import { FORMATIONS_CATALOG_SCHEMA } from '@/lib/schema-course-formations';
 import { SCHEMA_PUBLIC_SITE_URL } from '@/lib/schema-constants';
 import { getFAQSchema } from '@/lib/seo';
@@ -64,7 +65,7 @@ export function buildFormationsPageUnifiedGraphJsonLd(at: Date = new Date()): Re
         mainEntity: { '@id': `${BASE}/formations#course-list` },
         primaryImageOfPage: `${BASE}/images/formation-ia-btp-salle-interactive.jpg`,
         datePublished: '2024-01-15',
-        dateModified: '2026-04-18',
+        dateModified: getPillarPageContentUpdatedAt('/formations'),
         speakable: {
           '@type': 'SpeakableSpecification',
           cssSelector: ['.citation-sentence', 'h1'],

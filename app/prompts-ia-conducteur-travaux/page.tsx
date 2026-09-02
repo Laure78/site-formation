@@ -116,9 +116,7 @@ export default function PromptsIaConducteurTravauxPage() {
               ctaPosition="footer"
               campaign="prompts-ia-conducteur-travaux-footer"
               className="inline-flex items-center rounded-lg bg-white px-5 py-3 font-semibold text-[#377CF3] hover:bg-slate-50"
-            >
-              Prendre rendez-vous
-            </CalendlyEmbed>
+             />
           </div>
         </section>
       </article>

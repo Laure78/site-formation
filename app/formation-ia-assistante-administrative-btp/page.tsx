@@ -1,4 +1,5 @@
 import { FAQAnswer } from '@/components/landing/FAQAnswer';
+import { CTA_RDV_LABEL, CtaRdv } from '@/components/CtaRdv';
 import Link from 'next/link';
 import { ArrowRight, Check, Phone } from 'lucide-react';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
@@ -146,7 +147,7 @@ const SOMMAIRE = [
   { href: '#resultats', label: 'Résultats concrets et témoignages' },
   { href: '#faq', label: 'FAQ — questions des assistantes administratives sur l’IA' },
   { href: '#a-propos', label: 'Qui est Laure Olivié ?' },
-  { href: '#rdv', label: 'Prendre rendez-vous' },
+  { href: LINKS.prendreRdv, label: CTA_RDV_LABEL },
 ];
 
 export default function FormationIaAssistanteAdministrativeBtpPage() {
@@ -281,9 +282,7 @@ export default function FormationIaAssistanteAdministrativeBtpPage() {
         <aside className="mt-10 rounded-2xl border-l-4 border-[var(--accent)] bg-slate-50 p-6 md:p-8">
           <p className="font-medium text-slate-900">Aller plus loin</p>
           <p className="mt-2 text-slate-600">
-            <a href="#rdv" className="font-semibold text-[var(--accent)] underline hover:no-underline">
-              Prendre rendez-vous
-            </a>{' '}
+            <CtaRdv variant="inline" origin="page-inline-rdv" className="font-semibold text-[var(--accent)] underline hover:no-underline" />{' '}
             — 30 minutes pour adapter ces usages à votre administratif BTP.
           </p>
         </aside>
@@ -403,10 +402,7 @@ export default function FormationIaAssistanteAdministrativeBtpPage() {
             Courriers, relances, rapports chantier, synthèses — démonstration sur des cas types. Sans engagement.
           </p>
           <div className="mt-8 flex flex-wrap gap-4" id="cta-calendly">
-            <RdvLink className="inline-flex items-center gap-2 rounded-xl bg-white px-6 py-3 font-semibold text-[var(--accent)] hover:bg-blue-50">
-              Réserver votre visio découverte
-              <ArrowRight size={20} strokeWidth={1.5} />
-            </RdvLink>
+            <RdvLink className="inline-flex items-center gap-2 rounded-xl bg-white px-6 py-3 font-semibold text-[var(--accent)] hover:bg-blue-50" />
             <PublicPhoneCta className="inline-flex items-center gap-2 rounded-xl border-2 border-white px-6 py-3 font-semibold text-white hover:bg-white/10" />
             <Link
               href="/contact"
@@ -455,7 +451,7 @@ export default function FormationIaAssistanteAdministrativeBtpPage() {
             { href: LINKS.formationIaAssistanteGestionBtp, label: 'Formation IA assistante de gestion BTP — facturation & relances impayés' },
             { href: LINKS.formations, label: 'Catalogue formations IA pour les pros du BTP' },
             { href: LINKS.financement, label: 'Financement Constructys' },
-            { href: buildSiteCalendlyCtaUrl('formation-ia-assistante-administrative-btp-footer-rdv'), label: 'Prendre rendez-vous' },
+            { href: LINKS.prendreRdv, label: CTA_RDV_LABEL },
           ].filter((l) => !getClusterRelatedHrefs(PATH).includes(l.href))}
         />
 

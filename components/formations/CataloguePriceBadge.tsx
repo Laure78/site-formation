@@ -95,6 +95,19 @@ export function CataloguePriceBadge({
   const colors = levelColors(level);
 
   if (labelOverride) {
+    if (variant === 'hero') {
+      return (
+        <div
+          className={`inline-flex flex-col gap-2 rounded-2xl border-2 px-5 py-4 shadow-sm ${colors.hero} ${className}`}
+        >
+          <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-[#64748B]">Tarif session</p>
+          <p className="font-display text-lg font-bold leading-snug text-[#0F172A] md:text-xl">
+            {labelOverride}
+            <MentionTvaAsterisque />
+          </p>
+        </div>
+      );
+    }
     if (variant === 'overlay') {
       return (
         <div

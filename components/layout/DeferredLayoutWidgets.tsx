@@ -1,6 +1,7 @@
 'use client';
 
 import dynamic from 'next/dynamic';
+import { useEffect, useState } from 'react';
 
 const ScrollToTopButton = dynamic(
   () =>
@@ -60,15 +61,33 @@ const CalendlyScriptLoader = dynamic(
 
 /** Widgets globaux non critiques — chargés après le JS initial (code splitting). */
 export function DeferredLayoutWidgets() {
+  const [deferredReady, setDeferredReady] = useState(false);
+
+  useEffect(() => {
+    const enable = () => setDeferredReady(true);
+
+    if (typeof window.requestIdleCallback === 'function') {
+      const id = window.requestIdleCallback(enable, { timeout: 3500 });
+      return () => window.cancelIdleCallback(id);
+    }
+
+    const timer = setTimeout(enable, 1200);
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <>
-      <GoogleAnalytics />
-      <CalendlyScriptLoader />
       <CookieConsentBanner />
-      <ScrollToTopButton />
-      <StickyMobileCalendlyCta />
-      <StickyBlogMetierRdvBar />
-      <InteractionTrackers />
+      {deferredReady ? (
+        <>
+          <GoogleAnalytics />
+          <CalendlyScriptLoader />
+          <ScrollToTopButton />
+          <StickyMobileCalendlyCta />
+          <StickyBlogMetierRdvBar />
+          <InteractionTrackers />
+        </>
+      ) : null}
     </>
   );
 }

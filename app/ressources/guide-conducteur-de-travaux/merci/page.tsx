@@ -34,14 +34,7 @@ export default function MerciSkillIaPage() {
           <RdvLink
             origin="ressources-guide-conducteur-de-travaux-merci-contact-rdv-page-calendly"
             variant="unstyled"
-            className="rounded-xl border-2 border-[#377CF3] bg-white p-5 transition hover:bg-[#D4E3FC]/40"
-          >
-            <p className="text-2xl" aria-hidden>
-              📞
-            </p>
-            <p className="mt-2 font-semibold text-slate-900">20 min pour parler formation IA</p>
-            <p className="mt-1 text-sm text-[#377CF3]">Réserver un créneau →</p>
-          </RdvLink>
+            className="rounded-xl border-2 border-[#377CF3] bg-white p-5 transition hover:bg-[#D4E3FC]/40" />
           <a
             href={SCHEMA_LINKEDIN_PROFILE_URL}
             target="_blank"

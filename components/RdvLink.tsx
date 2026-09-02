@@ -1,20 +1,21 @@
 'use client';
 
 import { useId } from 'react';
-import { usePathname } from 'next/navigation';
-import { CtaButton, type CtaButtonProps } from '@/components/CtaButton';
+import { CtaRdv, type CtaRdvProps } from '@/components/CtaRdv';
 
-type RdvLinkProps = Omit<CtaButtonProps, 'origin'> & {
+type RdvLinkProps = Omit<CtaRdvProps, 'origin' | 'variant'> & {
   page?: string;
   campaignSuffix?: string;
   campaign?: string;
   ctaPosition?: string;
   ctaId?: string;
-  /** Alias GA4 — mappé vers `origin` de {@link CtaButton}. */
+  /** Alias GA4 — mappé vers `origin` de {@link CtaRdv}. */
   origin?: string;
+  /** @deprecated `unstyled` et `nav` → `inline`. */
+  variant?: CtaRdvProps['variant'] | 'unstyled' | 'nav';
 };
 
-/** Lien prise de RDV — alias métier de {@link CtaButton}. */
+/** Lien prise de RDV — alias métier de {@link CtaRdv}. */
 export function RdvLink({
   page: _page,
   ctaPosition = 'unknown',
@@ -25,12 +26,16 @@ export function RdvLink({
   ...rest
 }: RdvLinkProps) {
   const reactId = useId().replace(/:/g, '');
-  const effectiveCtaId =
+  const effectiveOrigin =
+    origin ??
     ctaId ??
     campaignSuffix ??
     campaign ??
-    origin ??
     (ctaPosition !== 'unknown' ? ctaPosition : `rdv-${reactId.slice(-8)}`);
 
-  return <CtaButton origin={effectiveCtaId} {...rest} />;
+  const { variant = 'primary', ...rdvRest } = rest;
+  const ctaVariant =
+    variant === 'unstyled' || variant === 'nav' ? 'inline' : variant === 'secondary' ? 'secondary' : 'primary';
+
+  return <CtaRdv origin={effectiveOrigin} variant={ctaVariant} {...rdvRest} />;
 }

@@ -117,10 +117,7 @@ export default async function MerciRDVPage({
             <Home size={20} strokeWidth={1.5} />
             Retour à l&apos;accueil
           </Link>
-          <RdvLink className="inline-flex w-full items-center justify-center gap-2 rounded-xl border-2 border-[var(--accent)] bg-white px-8 py-4 font-semibold text-[var(--accent)] hover:bg-[var(--accent-soft)] sm:w-auto">
-            <Calendar size={20} strokeWidth={1.5} />
-            Prendre un autre rendez-vous
-          </RdvLink>
+          <RdvLink className="inline-flex w-full items-center justify-center gap-2 rounded-xl border-2 border-[var(--accent)] bg-white px-8 py-4 font-semibold text-[var(--accent)] hover:bg-[var(--accent-soft)] sm:w-auto" />
         </div>
       </div>
     </div>

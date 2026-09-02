@@ -16,6 +16,7 @@ import {
   BookOpen,
   Landmark,
   UserCircle,
+  Mail,
 } from 'lucide-react';
 import { SITE } from '@/lib/site';
 import { headerNavItemIsActive, getHeaderNav } from '@/lib/header-nav';
@@ -44,6 +45,7 @@ const MOBILE_NAV_ICON: Record<string, LucideIcon> = {
   blog: BookOpen,
   partenaires: Landmark,
   'a-propos': UserCircle,
+  contact: Mail,
 };
 
 /** Seuil scroll (px) — mode compact avec hysteresis pour éviter les oscillations. */

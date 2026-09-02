@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { CTA_RDV_LABEL } from '@/components/CtaRdv';
 import Image from 'next/image';
 import { ArrowRight, Check } from 'lucide-react';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
@@ -153,7 +154,7 @@ const SOMMAIRE = [
   { href: '#resultats', label: 'Résultats concrets' },
   { href: '#faq', label: "FAQ — questions des assistantes travaux sur l'IA" },
   { href: '#a-propos', label: 'Qui est Laure Olivié ?' },
-  { href: '#rdv', label: 'Prendre rendez-vous' },
+  { href: LINKS.prendreRdv, label: CTA_RDV_LABEL },
 ];
 
 const CAS_USAGE = [
@@ -369,10 +370,7 @@ export default function FormationIaAssistanteTravauxPage() {
               campaign="metier-assistante-travaux-milieu"
               ctaPosition="inline"
               className="inline-flex items-center gap-2 rounded-xl bg-white px-6 py-3 font-semibold text-[var(--accent)] hover:bg-blue-50"
-            >
-              Réserver votre visio découverte
-              <ArrowRight size={20} strokeWidth={1.5} />
-            </RdvLink>
+             />
             <PublicPhoneCta className="inline-flex items-center gap-2 rounded-xl border-2 border-white px-6 py-3 font-semibold text-white hover:bg-white/10" />
           </div>
         </aside>
@@ -472,10 +470,7 @@ export default function FormationIaAssistanteTravauxPage() {
               campaign="metier-assistante-travaux-footer"
               ctaPosition="footer"
               className="inline-flex items-center gap-2 rounded-xl bg-white px-6 py-3 font-semibold text-[var(--accent)] hover:bg-blue-50"
-            >
-              Réserver votre visio découverte
-              <ArrowRight size={20} strokeWidth={1.5} />
-            </RdvLink>
+             />
             <PublicPhoneCta className="inline-flex items-center gap-2 rounded-xl border-2 border-white px-6 py-3 font-semibold text-white hover:bg-white/10" />
             <Link
               href={LINKS.contact}
@@ -516,8 +511,7 @@ export default function FormationIaAssistanteTravauxPage() {
             { href: LINKS.financement, label: 'Financement Constructys' },
             { href: LINKS.iaCompteRenduChantier, label: 'Compte rendu de chantier avec l’IA' },
             {
-              href: buildSiteCalendlyCtaUrl('formation-ia-assistante-travaux-footer-rdv'),
-              label: 'Prendre rendez-vous',
+              href: LINKS.prendreRdv, label: CTA_RDV_LABEL,
             },
           ].filter(
             (l) =>

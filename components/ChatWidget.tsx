@@ -39,7 +39,7 @@ interface Message {
 }
 
 const CTAS = [
-  { label: 'Prendre rendez-vous', href: CHAT_WIDGET_RDV, intent: 'rdv' as const },
+  { label: 'Réservez votre visio découverte gratuite', href: CHAT_WIDGET_RDV, intent: 'rdv' as const },
   { label: 'Recevoir le programme', intent: 'programme' as const },
   { label: 'Être recontacté', intent: 'recontact' as const },
 ];

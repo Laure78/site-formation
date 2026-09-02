@@ -1,4 +1,5 @@
 import { CtaButton } from '@/components/CtaButton';
+import { CTA_RDV_LABEL } from '@/components/CtaRdv';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Check } from 'lucide-react';
@@ -51,7 +52,7 @@ const SOMMAIRE = [
   { href: '#methode', label: 'Méthode en 4 étapes + prompts' },
   { href: '#resultats', label: 'Tableau de gains' },
   { href: '#faq', label: 'FAQ' },
-  { href: '#rdv', label: 'Visio découverte gratuite 30 min' },
+  { href: LINKS.prendreRdv, label: CTA_RDV_LABEL },
 ];
 
 export default function FormationIaMetreurEconomisteConstructionPage() {
@@ -212,9 +213,7 @@ export default function FormationIaMetreurEconomisteConstructionPage() {
               campaign="formation-ia-metreur-economiste-construction-milieu"
               ctaPosition="middle"
               className="inline-flex items-center rounded-lg bg-white px-5 py-3 font-semibold text-[#377CF3] hover:bg-slate-50"
-            >
-              Réserver ma visio gratuite →
-            </RdvLink>
+             />
             <CtaButton
               origin="formation-ia-metreur-economiste-construction-milieu"
               className="inline-flex items-center rounded-lg border-2 border-white/80 bg-transparent px-5 py-3 text-sm font-semibold text-white hover:bg-white/10"

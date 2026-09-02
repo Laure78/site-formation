@@ -1,7 +1,7 @@
 'use client';
 
 import { usePathname } from 'next/navigation';
-import { CtaButton } from '@/components/CtaButton';
+import { CtaRdv } from '@/components/CtaRdv';
 import { isFormationCalendlyInlinePath } from '@/lib/formation-calendly-path';
 
 /**
@@ -25,14 +25,14 @@ export function FormationCalendlyInlineGate() {
           id="formation-calendly-heading"
           className="font-display text-2xl font-bold tracking-tight text-slate-900 md:text-3xl"
         >
-          {isCatalogue ? 'Réserver ma session' : 'Prendre rendez-vous'}
+          {isCatalogue ? 'Réserver ma session' : 'Réservez votre visio découverte gratuite'}
         </h2>
         <p className="mx-auto mt-3 max-w-2xl text-slate-600 md:text-lg">
           Choisissez un créneau de 30 minutes pour cadrer votre besoin (formation IA appliquée au
           bâtiment, financement Constructys, format intra-entreprise, dans vos locaux).
         </p>
         <div className="mt-8 flex justify-center">
-          <CtaButton origin={origin} />
+          <CtaRdv origin={origin} />
         </div>
       </div>
     </section>

@@ -2,7 +2,8 @@
 
 import Link from 'next/link';
 import { ArrowRight, ArrowUpRight } from 'lucide-react';
-import { CtaButton } from '@/components/CtaButton';
+import { CTA_RDV_HREF, CtaRdv } from '@/components/CtaRdv';
+import { isCalendlyBookingHref } from '@/lib/calendly';
 import { LINKS } from '@/lib/internal-links';
 import { OFC_LINK } from '@/lib/ofc-interaction-classes';
 
@@ -19,15 +20,15 @@ const DEFAULT_LINKS: AllerPlusLoinLink[] = [
   { href: LINKS.iaDevis, label: 'IA devis bâtiment' },
   { href: LINKS.blog, label: 'Articles et guides' },
   {
-    href: LINKS.prendreRdv,
-    label: 'Prendre rendez-vous',
+    href: CTA_RDV_HREF,
+    label: 'Réservez votre visio découverte gratuite',
     origin: 'aller-plus-loin',
   },
   { href: LINKS.financement, label: 'Financement Constructys' },
 ];
 
 function isRdvHref(href: string): boolean {
-  return href === LINKS.prendreRdv || href === '/prendre-rdv';
+  return isCalendlyBookingHref(href) || href === '/#rdv' || href === '#rdv';
 }
 
 interface AllerPlusLoinProps {
@@ -50,15 +51,10 @@ function AllerPlusLoinItem({
 }) {
   if (isRdvHref(href)) {
     return (
-      <CtaButton
-        origin={origin ?? 'aller-plus-loin'}
-        label={label}
-        variant="unstyled"
-        className={className}
-      >
-        {label}
+      <span className={`inline-flex items-center gap-2 ${className}`.trim()}>
+        <CtaRdv origin={origin ?? 'aller-plus-loin'} variant="inline" />
         {icon}
-      </CtaButton>
+      </span>
     );
   }
 

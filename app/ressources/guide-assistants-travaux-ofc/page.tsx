@@ -154,11 +154,7 @@ export default function GuideAssistantsTravauxOfcPage() {
               Télécharger le guide (PDF)
             </a>
             <CtaButton origin="ressources-guide-assistants-travaux-hero"
-              className="inline-flex items-center justify-center gap-2 rounded-lg bg-white px-6 py-3.5 text-base font-semibold text-[#377CF3] transition hover:bg-[#EFF6FF]"
-            >
-              <Calendar className="h-5 w-5 shrink-0" aria-hidden />
-              Visio découverte formation
-            </CtaButton>
+              className="inline-flex items-center justify-center gap-2 rounded-lg bg-white px-6 py-3.5 text-base font-semibold text-[#377CF3] transition hover:bg-[#EFF6FF]" />
           </div>
         </div>
       </section>
@@ -272,11 +268,7 @@ export default function GuideAssistantsTravauxOfcPage() {
               Télécharger le PDF
             </a>
             <CtaButton origin="ressources-guide-assistants-travaux-final"
-              className="inline-flex items-center justify-center gap-2 rounded-lg bg-[#377CF3] px-6 py-3.5 text-sm font-semibold text-white hover:bg-[#2d66d6]"
-            >
-              <Calendar className="h-4 w-4" aria-hidden />
-              Prendre rendez-vous
-            </CtaButton>
+              className="inline-flex items-center justify-center gap-2 rounded-lg bg-[#377CF3] px-6 py-3.5 text-sm font-semibold text-white hover:bg-[#2d66d6]" />
           </div>
         </div>
       </section>

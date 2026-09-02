@@ -1,28 +1,25 @@
 'use server';
 
 import { createClient } from '@/lib/supabase/server';
-
-export type DiagnosticAnswers = {
-  metier?: string;
-  nb_personnes?: string;
-  tache_chronophage?: string;
-  ia_deja_utilisee?: string;
-  decouvrir_ia?: string;
-};
+import type { DiagnosticAnswers, DiagnosticResult } from '@/lib/diagnostic-ia-btp/types';
 
 export type DiagnosticLeadData = {
-  nom: string;
+  prenom: string;
   entreprise?: string;
   email: string;
   telephone?: string;
   answers: DiagnosticAnswers;
+  result: DiagnosticResult;
 };
 
+/** @deprecated — compatibilité imports legacy */
+export type { DiagnosticAnswers };
+
 export async function submitDiagnosticAction(
-  data: DiagnosticLeadData
+  data: DiagnosticLeadData,
 ): Promise<{ ok: boolean; error?: string }> {
-  if (!data.nom?.trim() || !data.email?.trim()) {
-    return { ok: false, error: 'Nom et email requis.' };
+  if (!data.prenom?.trim() || !data.email?.trim()) {
+    return { ok: false, error: 'Prénom et email requis.' };
   }
   const email = data.email.trim().toLowerCase();
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
@@ -31,11 +28,15 @@ export async function submitDiagnosticAction(
 
   const supabase = await createClient();
   const { error } = await supabase.from('diagnostic_ia_btp_leads').insert({
-    nom: data.nom.trim(),
+    nom: data.prenom.trim(),
     entreprise: data.entreprise?.trim() || null,
     email,
     telephone: data.telephone?.trim() || null,
-    reponses: data.answers || {},
+    reponses: {
+      answers: data.answers,
+      result: data.result,
+      version: 2,
+    },
   });
 
   if (error) {

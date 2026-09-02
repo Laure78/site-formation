@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import { CtaRdv } from '@/components/CtaRdv';
 import { ArrowRight } from 'lucide-react';
 import { CalendlyEmbed } from '@/components/CalendlyEmbed';
 import { ExternalLinkAnchor } from '@/components/ExternalLink';
@@ -163,13 +164,11 @@ export function Partenaires({
         <div className="mx-auto mt-10 flex max-w-3xl flex-col items-center gap-4 text-center">
           <p className="text-sm leading-relaxed text-slate-600 md:text-base">{PARTENAIRES_CTA_INTRO}</p>
           {rdvAnchor ? (
-            <Link
-              href={LINKS.accueilRdv}
+            <CtaRdv
+              origin="partenaires-section"
+              variant="primary"
               className={`${OFC_CTA_PRIMARY} inline-flex min-w-[min(100%,280px)] items-center justify-center gap-1`}
-            >
-              {PARTENAIRES_CTA_LABEL}
-              <ArrowRight size={18} strokeWidth={1.5} aria-hidden className="ml-1.5" />
-            </Link>
+            />
           ) : (
             <CalendlyEmbed
               type="link"
@@ -177,10 +176,7 @@ export function Partenaires({
               ctaPosition="middle"
               campaign={calendlyCampaign}
               className="min-w-[min(100%,280px)]"
-            >
-              {PARTENAIRES_CTA_LABEL}
-              <ArrowRight size={18} strokeWidth={1.5} aria-hidden className="ml-1.5" />
-            </CalendlyEmbed>
+            />
           )}
           {showPageLink ? (
             <Link href={LINKS.partenaires} className={`${OFC_LINK} text-sm font-semibold`}>

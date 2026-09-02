@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { CtaRdv, CTA_RDV_LABEL } from '@/components/CtaRdv';
 import { JsonLd } from '@/components/JsonLd';
 import { RdvLink } from '@/components/RdvLink';
 import { FAQSection } from '@/components/landing/FAQSection';
@@ -97,9 +98,7 @@ function CtaVisio({ className }: { className?: string }) {
         className ??
         'inline-flex items-center justify-center rounded-lg bg-[var(--accent)] px-6 py-3.5 text-center font-semibold text-white shadow-sm hover:bg-blue-700'
       }
-    >
-      Je réserve ma visio gratuite
-    </RdvLink>
+     />
   );
 }
 
@@ -197,9 +196,7 @@ export default function FormationIaBtpPillarPage() {
                   </a>
                 </li>
                 <li>
-                  <a href="#rdv" className="text-slate-700 underline-offset-2 hover:underline">
-                    Prendre rendez-vous
-                  </a>
+                  <CtaRdv variant="inline" origin="page-inline-rdv" className="text-slate-700 underline-offset-2 hover:underline" />
                 </li>
               </ul>
             </nav>

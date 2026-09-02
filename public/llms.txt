@@ -41,6 +41,7 @@ Financement : prise en charge Constructys ou OPCO selon statut, branche et condi
 - /ressources/guide-maitrise-oeuvre-ia — Guide « Maître d'Œuvre × IA » (12 missions MOE, PDF gratuit)
 - /ressources/guide-conducteur-de-travaux — Guide conducteur de travaux (6 tutos Claude BTP, PDF gratuit)
 - /ressources/tuto-skill-memoire-reclamation-bework — Tuto skill mémoire de réclamation (CCAG art. 55, Claude)
+- /ressources/tuto-skill-metre-excel-ofc — Tuto skill métré Excel BTP (formules visibles, récap DPGF, Claude)
 - /ressources/tuto-skill-livret-integration-ofc — Tuto skill livret d'intégration BTP (accueil sécurité, J1/S1/M1)
 - /ressources — Hub tutos PDF, guides et fiches pratiques IA BTP
 

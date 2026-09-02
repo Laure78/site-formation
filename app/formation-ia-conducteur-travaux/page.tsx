@@ -1,4 +1,5 @@
 import { CtaButton } from '@/components/CtaButton';
+import { CTA_RDV_LABEL } from '@/components/CtaRdv';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Check } from 'lucide-react';
@@ -59,7 +60,7 @@ const SOMMAIRE = [
   { href: '#programme', label: 'Formation catalogue NIV-01' },
   { href: '#financement', label: 'Financement Constructys' },
   { href: '#faq', label: 'FAQ conducteurs de travaux' },
-  { href: '#rdv', label: FORMATION_IA_CONDUCTEUR_TRAVAUX_SEO.calendlyCtaLabel },
+  { href: LINKS.prendreRdv, label: CTA_RDV_LABEL },
 ];
 
 export default function FormationIaConducteurTravauxPage() {
@@ -401,13 +402,8 @@ export default function FormationIaConducteurTravauxPage() {
             Gratuit, sans engagement.
           </p>
           <div className="mt-6 flex flex-wrap gap-4">
-            <CtaButton origin="formation-ia-conducteur-travaux-visio-decouverte" className="inline-flex items-center rounded-lg bg-[#377CF3] px-5 py-3 font-semibold text-white hover:bg-[#2d63c9]"
-            >
-              {FORMATION_IA_CONDUCTEUR_TRAVAUX_SEO.calendlyCtaLabel}
-            </CtaButton>
-            <RdvLink className="inline-flex items-center rounded-lg border border-slate-300 px-5 py-3 font-medium text-slate-800 hover:bg-white">
-              Autre créneau Calendly
-            </RdvLink>
+            <CtaButton origin="formation-ia-conducteur-travaux-visio-decouverte" className="inline-flex items-center rounded-lg bg-[#377CF3] px-5 py-3 font-semibold text-white hover:bg-[#2d63c9]" />
+            <RdvLink className="inline-flex items-center rounded-lg border border-slate-300 px-5 py-3 font-medium text-slate-800 hover:bg-white" />
             <PublicPhoneCta className="inline-flex items-center rounded-lg border border-slate-300 px-5 py-3 font-medium text-slate-800 hover:bg-white" />
           </div>
         </section>

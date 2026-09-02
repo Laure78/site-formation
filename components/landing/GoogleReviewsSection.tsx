@@ -149,10 +149,7 @@ export async function GoogleReviewsSection() {
                 page="/"
                 ctaPosition="middle"
                 campaign="accueil-temoignages-etude-cas"
-                className="inline-flex items-center justify-center gap-2 rounded-xl bg-[var(--accent)] px-6 py-3.5 text-center text-sm font-semibold text-white shadow-md shadow-blue-500/15 transition-colors hover:bg-blue-700"
-              >
-                Prendre rendez-vous
-              </RdvLink>
+                className="inline-flex items-center justify-center gap-2 rounded-xl bg-[var(--accent)] px-6 py-3.5 text-center text-sm font-semibold text-white shadow-md shadow-blue-500/15 transition-colors hover:bg-blue-700" />
               <Link
                 href={ETUDE_HREF}
                 className="inline-flex items-center justify-center gap-2 rounded-xl border-2 border-slate-200 bg-white px-6 py-3.5 text-center text-sm font-semibold text-slate-800 transition-colors hover:border-[var(--accent)] hover:bg-[var(--accent-soft)]"

@@ -1,4 +1,5 @@
 import { PillarConversionCta } from '@/components/pillar/PillarConversionCta';
+import { CTA_RDV_LABEL } from '@/components/CtaRdv';
 import { calendlyClaudeBtpGuideUrl } from '@/lib/calendly';
 import { SOCIAL_PROOF } from '@/lib/constants';
 import { LINKS } from '@/lib/internal-links';
@@ -22,7 +23,7 @@ export function ClaudeBtpConversionCta() {
         'Entreprises < 11 sal. : prise en charge salaires (15 € HT/h)',
       ]}
       footnote={`FFB Grand Paris, FFB IDF, CSFE, CNAM, Lefebvre Dalloz · +$· `}
-      primaryCta={{ href: calendlyClaudeBtpGuideUrl('bottom-cta'), label: 'Prendre rendez-vous' }}
+      primaryCta={{ href: calendlyClaudeBtpGuideUrl('bottom-cta'), label: CTA_RDV_LABEL }}
       secondaryCta={{ href: LINKS.contact, label: 'Contact formation IA appliquée au bâtiment', external: false }}
     />
   );

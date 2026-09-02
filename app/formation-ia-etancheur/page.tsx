@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { CTA_RDV_LABEL } from '@/components/CtaRdv';
 import { ArrowRight, Check } from 'lucide-react';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
 import { RelatedLinks } from '@/components/RelatedLinks';
@@ -174,7 +175,7 @@ const SOMMAIRE = [
   { href: '#resultats', label: 'Résultats concrets et partenariat CSFE' },
   { href: '#faq', label: "FAQ — questions des étancheurs sur l'IA" },
   { href: '#a-propos', label: 'Qui est Laure Olivié ?' },
-  { href: '#rdv', label: 'Prendre rendez-vous' },
+  { href: LINKS.prendreRdv, label: CTA_RDV_LABEL },
 ];
 
 const CAS_USAGE = [
@@ -335,10 +336,7 @@ export default function FormationIaEtancheurPage() {
             difficile, ou une réponse à un marché public. Sans engagement.
           </p>
           <div className="mt-8 flex flex-wrap gap-4">
-            <RdvLink className="inline-flex items-center gap-2 rounded-xl bg-white px-6 py-3 font-semibold text-[var(--accent)] hover:bg-blue-50">
-              Réserver votre visio découverte
-              <ArrowRight size={20} strokeWidth={1.5} />
-            </RdvLink>
+            <RdvLink className="inline-flex items-center gap-2 rounded-xl bg-white px-6 py-3 font-semibold text-[var(--accent)] hover:bg-blue-50" />
             <PublicPhoneCta className="inline-flex items-center gap-2 rounded-xl border-2 border-white px-6 py-3 font-semibold text-white hover:bg-white/10" />
           </div>
         </aside>
@@ -508,10 +506,7 @@ export default function FormationIaEtancheurPage() {
             mémoire technique. Apportez un document réel, on travaille dessus en direct. Sans engagement.
           </p>
           <div className="mt-8 flex flex-wrap gap-4" id="cta-calendly">
-            <RdvLink className="inline-flex items-center gap-2 rounded-xl bg-white px-6 py-3 font-semibold text-[var(--accent)] hover:bg-blue-50">
-              Réserver votre visio découverte
-              <ArrowRight size={20} strokeWidth={1.5} />
-            </RdvLink>
+            <RdvLink className="inline-flex items-center gap-2 rounded-xl bg-white px-6 py-3 font-semibold text-[var(--accent)] hover:bg-blue-50" />
             <PublicPhoneCta className="inline-flex items-center gap-2 rounded-xl border-2 border-white px-6 py-3 font-semibold text-white hover:bg-white/10" />
             <Link
               href={LINKS.contact}
@@ -558,7 +553,7 @@ export default function FormationIaEtancheurPage() {
             { href: LINKS.formationMaitriserClaudeAiBtp, label: 'Maîtriser Claude AI pour le BTP' },
             { href: LINKS.financement, label: 'Financement Constructys' },
             { href: LINKS.etudesCas, label: 'Étude de cas FFB & CSFE' },
-            { href: buildSiteCalendlyCtaUrl('formation-ia-etancheur-footer-rdv'), label: 'Prendre rendez-vous' },
+            { href: LINKS.prendreRdv, label: CTA_RDV_LABEL },
           ].filter((l) => !getClusterRelatedHrefs(PATH).includes(l.href))}
         />
       </article>

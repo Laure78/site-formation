@@ -57,6 +57,10 @@ const TUTO_ANALYSE_DCE: MaillageLink = {
   href: LINKS.tutoAnalyseDce,
   label: 'Tuto PDF — analyser un DCE avec l’IA',
 };
+const TUTO_METRE_EXCEL: MaillageLink = {
+  href: LINKS.tutoSkillMetreExcelOfc,
+  label: 'Tuto PDF — skill métré Excel',
+};
 const TUTO_TRI_DCE: MaillageLink = {
   href: LINKS.tutoTriDceClaudeChrome,
   label: 'Tuto PDF — trier un DCE avec Claude in Chrome',
@@ -120,11 +124,21 @@ export const MAILLAGE_RESSOURCES_BY_PATH: Readonly<Record<string, MaillageRessou
   },
   [LINKS.tutoAnalyseDce]: {
     pilier: PILIER_AO,
-    soeurs: [TUTO_MEMOIRE, TUTO_TRI_DCE],
+    soeurs: [TUTO_MEMOIRE, TUTO_METRE_EXCEL],
     blog: [
       {
         href: LINKS.blogIaAnalyseCctpMethode,
         label: 'Article — analyser un CCTP avec l’IA en 20 minutes',
+      },
+    ],
+  },
+  [LINKS.tutoSkillMetreExcelOfc]: {
+    pilier: PILIER_ETUDES_PRIX,
+    soeurs: [TUTO_ANALYSE_DCE, TUTO_MEMOIRE],
+    blog: [
+      {
+        href: LINKS.blogChiffrageCctpBpu,
+        label: 'Article — chiffrage CCTP et BPU sur appels d’offres BTP',
       },
     ],
   },

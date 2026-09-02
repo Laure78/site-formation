@@ -47,10 +47,7 @@ export function ContactDirect({ formationHint }: ContactDirectProps) {
         campaign="contact-direct"
         variant="primary"
         className="w-full gap-2"
-      >
-        <Calendar className="h-5 w-5 shrink-0" strokeWidth={1.5} />
-        Prendre rendez-vous
-      </CalendlyEmbed>
+       />
     </div>
   );
 }

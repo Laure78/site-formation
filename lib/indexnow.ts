@@ -49,6 +49,7 @@ async function postIndexNowBatch(urls: string[]): Promise<Response> {
 function interpretStatus(status: number): string {
   switch (status) {
     case 200:
+    case 202:
       return 'Soumission reçue par IndexNow.';
     case 400:
       return 'Requête invalide (format JSON ou paramètres).';
@@ -100,7 +101,7 @@ export async function submitIndexNow(
       lastStatusText = response.statusText;
     }
 
-    if (lastStatus !== 200) {
+    if (lastStatus !== 200 && lastStatus !== 202) {
       return {
         ok: false,
         status: lastStatus,

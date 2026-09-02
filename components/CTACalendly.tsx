@@ -1,8 +1,8 @@
 'use client';
 
-import { CtaButton, type CtaButtonProps } from '@/components/CtaButton';
+import { CtaRdv, type CtaRdvProps } from '@/components/CtaRdv';
 
-type CTACalendlyProps = Omit<CtaButtonProps, 'origin'> & {
+type CTACalendlyProps = Omit<CtaRdvProps, 'origin'> & {
   page?: string;
   unstyled?: boolean;
   /** @deprecated — mappé vers `origin`. */
@@ -13,7 +13,7 @@ type CTACalendlyProps = Omit<CtaButtonProps, 'origin'> & {
 };
 
 /**
- * @deprecated Préférer `<CtaButton origin="…" />` — alias rétrocompatible.
+ * @deprecated Préférer {@link CtaRdv} — alias rétrocompatible.
  */
 export function CTACalendly({
   page: _page,
@@ -22,15 +22,14 @@ export function CTACalendly({
   campaign,
   ctaPosition,
   ctaId,
-  variant: _variant,
   ...rest
 }: CTACalendlyProps) {
   const origin = ctaId ?? campaign ?? utmCampaign ?? ctaPosition ?? 'cta-calendly-legacy';
 
   return (
-    <CtaButton
+    <CtaRdv
       origin={origin}
-      variant={unstyled ? 'unstyled' : 'primary'}
+      variant={unstyled ? 'inline' : 'primary'}
       {...rest}
     />
   );

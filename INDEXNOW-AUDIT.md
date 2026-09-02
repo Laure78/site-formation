@@ -113,9 +113,9 @@ Estimation locale : **~250–280 URL** (catalogue + blog + géo + métier).
 
 | | |
 | --- | --- |
-| **Clé** | `ofc-laureolivie-indexnow-7k9m2p4x` |
-| **Fichier clé** | `public/ofc-laureolivie-indexnow-7k9m2p4x.txt` |
-| **URL publique** | https://www.laureolivie.fr/ofc-laureolivie-indexnow-7k9m2p4x.txt |
+| **Clé** | `e05un916c5fd0496fbfbun9c2d975712b4` (Bing Webmaster Tools) |
+| **Fichier clé** | `public/e05un916c5fd0496fbfbun9c2d975712b4.txt` |
+| **URL publique** | https://www.laureolivie.fr/e05un916c5fd0496fbfbun9c2d975712b4.txt |
 | **Module** | `lib/indexnow.ts` + `lib/indexnow-config.ts` + `lib/indexnow-url-map.ts` |
 | **Endpoint** | `POST https://api.indexnow.org/indexnow` |
 | **Surcharge clé** | Variable d’environnement `INDEXNOW_KEY` (optionnel) |
@@ -170,7 +170,7 @@ INDEXNOW_AUTO_SUBMIT=1 npm run indexnow:changed
 # Après déploiement
 curl -I https://www.laureolivie.fr/robots.txt
 curl -I https://www.laureolivie.fr/sitemap.xml
-curl https://www.laureolivie.fr/ofc-laureolivie-indexnow-7k9m2p4x.txt
+curl https://www.laureolivie.fr/e05un916c5fd0496fbfbun9c2d975712b4.txt
 npm run indexnow -- https://www.laureolivie.fr/formations
 # Attendu : HTTP 200
 ```
@@ -194,7 +194,7 @@ npm run indexnow -- https://www.laureolivie.fr/formations
 - `lib/indexnow-config.ts` (nouveau)
 - `lib/indexnow.ts` (nouveau)
 - `lib/indexnow-url-map.ts` (nouveau)
-- `public/ofc-laureolivie-indexnow-7k9m2p4x.txt` (nouveau)
+- `public/e05un916c5fd0496fbfbun9c2d975712b4.txt` (clé Bing IndexNow)
 - `scripts/indexnow-submit.ts` (nouveau)
 - `scripts/indexnow-notify-changed.ts` (nouveau)
 - `app/sitemap.ts` (retrait `/auth/connexion`)

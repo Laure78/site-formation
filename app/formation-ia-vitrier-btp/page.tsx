@@ -1,4 +1,6 @@
 import { FAQAnswer } from '@/components/landing/FAQAnswer';
+import { LINKS } from '@/lib/internal-links';
+import { CTA_RDV_LABEL, CtaRdv } from '@/components/CtaRdv';
 import Link from 'next/link';
 import { ArrowRight, Check, Phone } from 'lucide-react';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
@@ -136,7 +138,7 @@ const SOMMAIRE = [
   { href: '#resultats', label: 'Résultats concrets et témoignages' },
   { href: '#faq', label: 'FAQ — questions des vitriers sur l’IA' },
   { href: '#a-propos', label: 'Qui est Laure Olivié ?' },
-  { href: '#rdv', label: 'Prendre rendez-vous' },
+  { href: LINKS.prendreRdv, label: CTA_RDV_LABEL },
 ];
 
 export default function FormationIaVitrierBtpPage() {
@@ -272,9 +274,7 @@ export default function FormationIaVitrierBtpPage() {
         <aside className="mt-10 rounded-2xl border-l-4 border-[var(--accent)] bg-slate-50 p-6 md:p-8">
           <p className="font-medium text-slate-900">Aller plus loin</p>
           <p className="mt-2 text-slate-600">
-            <a href="#rdv" className="font-semibold text-[var(--accent)] underline hover:no-underline">
-              Prendre rendez-vous
-            </a>{' '}
+            <CtaRdv variant="inline" origin="page-inline-rdv" className="font-semibold text-[var(--accent)] underline hover:no-underline" />{' '}
             — adaptation de ChatGPT au métier vitrier (devis, variantes, brief chantier), financement Constructys.
           </p>
         </aside>
@@ -391,9 +391,7 @@ export default function FormationIaVitrierBtpPage() {
 
           <p className="mt-8 text-slate-600 leading-relaxed">
             <strong>Devis trop longs à rédiger ?</strong>{' '}
-            <a href="#rdv" className="text-[var(--accent)] font-medium underline hover:no-underline">
-              Réservez une visio découverte gratuite
-            </a>
+            <CtaRdv variant="inline" origin="page-inline-rdv" className="text-[var(--accent)] font-medium underline hover:no-underline" />
             .
           </p>
         </section>
@@ -434,10 +432,7 @@ export default function FormationIaVitrierBtpPage() {
             <RdvLink
               id="cta-calendly"
               className="inline-flex items-center gap-2 rounded-xl bg-white px-6 py-3 font-semibold text-[var(--accent)] hover:bg-blue-50"
-            >
-              Choisir un créneau
-              <ArrowRight size={20} strokeWidth={1.5} />
-            </RdvLink>
+             />
             <PublicPhoneCta className="inline-flex items-center gap-2 rounded-xl border-2 border-white px-6 py-3 font-semibold text-white hover:bg-white/10" />
             <Link
               href="/contact"
@@ -476,7 +471,7 @@ export default function FormationIaVitrierBtpPage() {
             { href: '/formation-ia-couvreur-btp', label: 'Formation IA couvreur BTP' },
             { href: '/formation-ia-etancheur', label: 'Formation IA étancheur BTP' },
             { href: '/financement-constructys-formation-ia-btp', label: 'Financement Constructys' },
-            { href: buildSiteCalendlyCtaUrl('formation-ia-vitrier-btp-footer-rdv'), label: 'Prendre rendez-vous' },
+            { href: LINKS.prendreRdv, label: CTA_RDV_LABEL },
           ]}
         />
 

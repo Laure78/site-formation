@@ -1,4 +1,5 @@
 import { FAQAnswer } from '@/components/landing/FAQAnswer';
+import { CTA_RDV_LABEL } from '@/components/CtaRdv';
 import { JsonLd } from '@/components/JsonLd';
 import Link from 'next/link';
 import { Check } from 'lucide-react';
@@ -160,7 +161,7 @@ const SOMMAIRE = [
   { href: '#financement', label: 'Financement Constructys 2026' },
   { href: '#faq', label: 'FAQ chargés d\'affaires' },
   { href: '#a-propos', label: 'Qui est Laure Olivié ?' },
-  { href: '#rdv', label: 'Réservez votre diagnostic IA commercial gratuit' },
+  { href: LINKS.prendreRdv, label: CTA_RDV_LABEL },
 ];
 
 export default function FormationIaChargeAffairesBtpPage() {
@@ -338,9 +339,7 @@ export default function FormationIaChargeAffairesBtpPage() {
               origin="formation-ia-charge-affaires-btp-contact-rdv-page-calendly"
               variant="unstyled"
               className="mt-2 inline-block font-semibold text-[#377CF3] underline hover:no-underline"
-            >
-              Prendre rendez-vous →
-            </RdvLink>
+             />
           </blockquote>
         </section>
 
@@ -571,9 +570,7 @@ export default function FormationIaChargeAffairesBtpPage() {
             augmenteront le plus votre taux de transformation. Gratuit, sans engagement.
           </p>
           <div className="mt-6 flex flex-wrap gap-4">
-            <RdvLink className="inline-flex items-center rounded-lg bg-[#377CF3] px-5 py-3 font-semibold text-white hover:bg-[#2d63c9]">
-              Réserver mon diagnostic IA commercial
-            </RdvLink>
+            <RdvLink className="inline-flex items-center rounded-lg bg-[#377CF3] px-5 py-3 font-semibold text-white hover:bg-[#2d63c9]" />
             <PublicPhoneCta className="inline-flex items-center rounded-lg border border-slate-300 px-5 py-3 font-medium text-slate-800 hover:bg-slate-50" />
           </div>
         </section>

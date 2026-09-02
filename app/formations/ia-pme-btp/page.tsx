@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { CTA_RDV_LABEL } from '@/components/CtaRdv';
 import { FooterTelOrMailLink } from '@/components/PublicPhoneCta';
 import { ClipboardList, Map, Shield, TrendingUp } from 'lucide-react';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
@@ -101,9 +102,7 @@ export default function FormationDeployerIaPmeBtpPage() {
             <RdvLink
               campaign="formations-deployer-pme-hero"
               className="rounded-xl bg-[var(--accent)] px-6 py-3.5 text-center font-semibold text-white hover:bg-blue-600"
-            >
-              Cadrer votre projet
-            </RdvLink>
+             />
             <a
               href={MAIL_PROGRAMME_PME}
               className="rounded-xl border-2 border-slate-200 px-6 py-3.5 text-center font-semibold text-slate-800 hover:border-[var(--accent)]"
@@ -191,9 +190,7 @@ export default function FormationDeployerIaPmeBtpPage() {
         />
 
         <div className="mt-10">
-          <RdvLink className="inline-block rounded-xl bg-[var(--accent)] px-8 py-3 font-semibold text-white hover:bg-blue-700">
-            Prendre RDV pour cadrer le parcours
-          </RdvLink>
+          <RdvLink className="inline-block rounded-xl bg-[var(--accent)] px-8 py-3 font-semibold text-white hover:bg-blue-700" />
         </div>
 
         <div className="mt-12">
@@ -203,7 +200,7 @@ export default function FormationDeployerIaPmeBtpPage() {
               { href: formationHref(getFormationByCode('NIV-01')!), label: 'Première étape — formation NIV-01 (4 h)' },
               { href: LINKS.parcoursApplicationsMetierBtp, label: 'Parcours applications métier BTP avec l’IA' },
               { href: LINKS.financement, label: 'Financement Constructys' },
-              { href: buildSiteCalendlyCtaUrl('formations-deployer-pme-footer'), label: 'Prendre rendez-vous' },
+              { href: LINKS.prendreRdv, label: CTA_RDV_LABEL },
             ]}
           />
         </div>

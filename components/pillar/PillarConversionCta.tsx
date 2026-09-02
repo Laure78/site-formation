@@ -1,5 +1,7 @@
 import Link from 'next/link';
 import type { ReactNode } from 'react';
+import { CTA_RDV_LABEL, CtaRdv } from '@/components/CtaRdv';
+import { isCalendlyBookingHref } from '@/lib/calendly';
 
 type Props = {
   title: string;
@@ -18,7 +20,11 @@ type Props = {
 function renderPrimary(
   cta: { href: string; label: string; external?: boolean },
   btnClassName: string,
+  origin = 'pillar-conversion-primary',
 ) {
+  if (isCalendlyBookingHref(cta.href)) {
+    return <CtaRdv origin={origin} variant="inline" className={btnClassName} />;
+  }
   return cta.external === false ? (
     <Link href={cta.href} className={btnClassName}>
       {cta.label}

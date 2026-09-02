@@ -4,6 +4,7 @@
  */
 
 import { FAQ_FINANCEMENT_IA_BTP } from '@/lib/faq';
+import { getPillarPageContentUpdatedAt } from '@/lib/content-updated-at';
 import { SCHEMA_CONTACT, SCHEMA_GEO } from '@/lib/schema-constants';
 import { SITE_CONFIG, getArticleSchema, getFAQSchema } from '@/lib/seo';
 import { buildFinancementConstructysImageObjectJsonLd } from '@/lib/schema-image-objects';
@@ -64,7 +65,7 @@ export function getFinancementConstructysUnifiedJsonLd(): Record<string, unknown
       'Plafonds Constructys 2026 pour une formation IA pour le BTP : 24 € HT/h (< 11 salariés) ou 19 € HT/h (11–50 salariés depuis le 1er juin 2026), 840/665 € HT/jour intra, dépôt eGestion J-15.',
     path: PATH,
     datePublished: '2026-01-15',
-    dateModified: '2026-06-01',
+    dateModified: getPillarPageContentUpdatedAt('/financement-constructys-formation-ia-btp'),
     authorName: SITE_CONFIG.name,
     image: '/images/financement-constructys-formation-ia-btp-hero.webp',
   });

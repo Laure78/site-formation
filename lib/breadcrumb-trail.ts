@@ -8,8 +8,13 @@ import { formationsData } from '@/src/data/formations';
 import { TUTOS } from '@/lib/tutos';
 import { DEPARTEMENT_PAGES } from '@/lib/departement-pages';
 import { getFormationIaEntry } from '@/lib/seo-formation-ia-hub-data';
+import { LINKS } from '@/lib/internal-links';
+import {
+  APPLICATION_METIER_PARCOURS_MOTHER,
+  getApplicationMetierParcoursStepByPath,
+} from '@/lib/application-metier-btp-parcours-nav';
 
-export type BreadcrumbHrefCrumb = { label: string; href: string };
+export type BreadcrumbHrefCrumb = { label: string; href: string; link?: boolean };
 
 const EXACT: Record<string, string> = {
   '/formations/ia-batiment-travaux-publics':
@@ -78,7 +83,7 @@ const STATIC_PAGE_TITLES: Record<string, string> = {
   '/ia-memoire-technique-btp': "Mémoire technique avec l'IA",
   '/ia-compte-rendu-chantier': 'Compte rendu de chantier avec l\'IA',
   '/diagnostic-ia-btp': 'Diagnostic IA BTP',
-  '/prendre-rendez-vous': 'Prendre RDV',
+  '/prendre-rendez-vous': 'Réservez votre visio découverte gratuite',
   '/contact': 'Contact',
   '/a-propos': 'À propos',
   '/financement-constructys-formation-ia-btp': 'Financement Constructys',
@@ -211,7 +216,40 @@ function blogTrail(pathNorm: string): BreadcrumbHrefCrumb[] {
   return fromAuto(pathNorm);
 }
 
+function applicationMetierBtpParcoursTrail(pathNorm: string): BreadcrumbHrefCrumb[] | null {
+  const parcoursPath = APPLICATION_METIER_PARCOURS_MOTHER.path;
+
+  if (pathNorm === parcoursPath) {
+    return [
+      { label: 'Accueil', href: '/' },
+      {
+        label: APPLICATION_METIER_PARCOURS_MOTHER.breadcrumbParcoursLabel,
+        href: parcoursPath,
+        link: false,
+      },
+      { label: APPLICATION_METIER_PARCOURS_MOTHER.breadcrumbMotherLabel, href: parcoursPath },
+    ];
+  }
+
+  const step = getApplicationMetierParcoursStepByPath(pathNorm);
+  if (!step) return null;
+
+  return [
+    { label: 'Accueil', href: '/' },
+    {
+      label: APPLICATION_METIER_PARCOURS_MOTHER.breadcrumbParcoursLabel,
+      href: parcoursPath,
+      link: false,
+    },
+    { label: APPLICATION_METIER_PARCOURS_MOTHER.breadcrumbMotherLabel, href: parcoursPath },
+    { label: step.breadcrumbLabel, href: pathNorm },
+  ];
+}
+
 function formationsTrail(pathNorm: string): BreadcrumbHrefCrumb[] {
+  const parcoursTrail = applicationMetierBtpParcoursTrail(pathNorm);
+  if (parcoursTrail) return parcoursTrail;
+
   if (pathNorm === '/formations') {
     return [
       { label: 'Accueil', href: '/' },
@@ -331,6 +369,9 @@ export function buildBreadcrumbTrail(pathname: string): BreadcrumbHrefCrumb[] {
   const pathNorm = (pathname || '/').replace(/\/$/, '') || '/';
   if (pathNorm === '/') return [];
   if (pathNorm.startsWith('/admin')) return [];
+
+  const parcoursAppMetier = applicationMetierBtpParcoursTrail(pathNorm);
+  if (parcoursAppMetier) return parcoursAppMetier;
 
   if (pathNorm.startsWith('/formations')) {
     return formationsTrail(pathNorm);

@@ -1,4 +1,5 @@
 import { FAQAnswer } from '@/components/landing/FAQAnswer';
+import { CTA_RDV_LABEL } from '@/components/CtaRdv';
 import Link from 'next/link';
 import { Check, FileText, Calculator, Clock, ArrowRight, Calendar } from 'lucide-react';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
@@ -392,11 +393,7 @@ export default function IADevisBatimentPage() {
             <RdvLink
               campaign="ia-devis"
               ctaPosition="middle"
-              className="inline-flex items-center justify-center gap-2 rounded-xl bg-[var(--accent)] px-8 py-4 text-center font-semibold text-white shadow-md hover:bg-blue-600"
-            >
-              <Calendar size={20} strokeWidth={1.5} aria-hidden />
-              Réserver un créneau Calendly
-            </RdvLink>
+              className="inline-flex items-center justify-center gap-2 rounded-xl bg-[var(--accent)] px-8 py-4 text-center font-semibold text-white shadow-md hover:bg-blue-600" />
             <Link
               href={LINKS.formationIaBtpNiveau1BatimentTp}
               className="inline-flex items-center justify-center gap-2 rounded-xl border-2 border-[var(--accent)] bg-white px-6 py-4 text-center font-semibold text-[var(--accent)] hover:bg-white/90"
@@ -479,10 +476,7 @@ export default function IADevisBatimentPage() {
             <RdvLink
               campaign="ia-devis"
               ctaPosition="inline"
-              className="inline-flex items-center justify-center gap-2 rounded-xl bg-[var(--accent)] px-8 py-4 text-center text-base font-semibold text-white shadow-md hover:bg-blue-600"
-            >
-              Réserver un appel découverte (Calendly)
-            </RdvLink>
+              className="inline-flex items-center justify-center gap-2 rounded-xl bg-[var(--accent)] px-8 py-4 text-center text-base font-semibold text-white shadow-md hover:bg-blue-600" />
             <Link
               href={LINKS.formationIaBtpNiveau1BatimentTp}
               className="inline-flex items-center justify-center gap-2 rounded-xl border-2 border-[var(--accent)] bg-white px-8 py-4 text-center font-semibold text-[var(--accent)] hover:bg-white/90"
@@ -544,10 +538,7 @@ export default function IADevisBatimentPage() {
             <RdvLink
               campaign="ia-devis"
               ctaPosition="footer"
-              className="inline-flex items-center gap-2 rounded-xl border-2 border-white px-6 py-3 font-semibold text-white hover:bg-white/10"
-            >
-              Prendre rendez-vous
-            </RdvLink>
+              className="inline-flex items-center gap-2 rounded-xl border-2 border-white px-6 py-3 font-semibold text-white hover:bg-white/10" />
           </div>
         </section>
 
@@ -555,9 +546,7 @@ export default function IADevisBatimentPage() {
         <section className="mt-12 rounded-2xl border-2 border-[var(--accent)] bg-[var(--accent-soft)] p-6">
           <p className="text-slate-800">
             Vous souhaitez découvrir comment l&apos;IA peut faire gagner du temps à votre entreprise du BTP ?{' '}
-            <RdvLink campaign="ia-devis" ctaPosition="footer" className="font-semibold text-[var(--accent)] hover:underline">
-              Prenez rendez-vous pour échanger sur votre projet.
-            </RdvLink>
+            <RdvLink campaign="ia-devis" ctaPosition="footer" className="font-semibold text-[var(--accent)] hover:underline" />
           </p>
         </section>
 
@@ -588,9 +577,7 @@ export default function IADevisBatimentPage() {
               </Link>
             </li>
             <li>
-              <RdvLink campaign="ia-devis" className="text-[var(--accent)] hover:underline">
-                Prendre rendez-vous
-              </RdvLink>
+              <RdvLink campaign="ia-devis" className="text-[var(--accent)] hover:underline" />
             </li>
           </ul>
         </section>
@@ -601,7 +588,7 @@ export default function IADevisBatimentPage() {
             { href: '/formation-ia-artisans-btp', label: 'ChatGPT pour entreprises BTP' },
             { href: LINKS.formationConducteurTravaux, label: 'IA conducteur de travaux' },
             { href: '/blog', label: 'Articles et guides' },
-            { href: buildSiteCalendlyCtaUrl('ia-devis'), label: 'Prendre rendez-vous' },
+            { href: LINKS.prendreRdv, label: CTA_RDV_LABEL },
           ]}
         />
       </article>

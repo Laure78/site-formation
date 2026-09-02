@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { CTA_RDV_LABEL } from '@/components/CtaRdv';
 import { LINKS } from '@/lib/internal-links';
 import { FooterTelOrMailLink } from '@/components/PublicPhoneCta';
 import { FileText, Calendar, Users, Check, Download, ExternalLink } from 'lucide-react';
@@ -213,9 +214,7 @@ export default function FormationIAAppelsOffreBTPPage() {
               ctaPosition="hero"
               ctaId="hero"
               className="rounded-xl bg-[var(--accent)] px-6 py-3.5 text-center font-semibold text-white hover:bg-blue-600"
-            >
-              Prendre rendez-vous
-            </RdvLink>
+             />
             <a
               href={PDF_HREF}
               download={PDF_DOWNLOAD_NAME}
@@ -518,9 +517,7 @@ export default function FormationIAAppelsOffreBTPPage() {
           ctaId="footer-rdv"
           variant="primary"
           className="rounded-xl px-6 py-3.5"
-        >
-          Prendre rendez-vous — visio gratuite 30 min
-        </RdvLink>
+         />
       </div>
 
       <div className="mt-10">
@@ -532,7 +529,7 @@ export default function FormationIAAppelsOffreBTPPage() {
               label: 'Guide gratuit — répondre AO BTP (5 étapes)',
             },
             { href: LINKS.formationPlateforme, label: 'Cours sur la plateforme' },
-            { href: buildSiteCalendlyCtaUrl('formations-ia-appels-offre-btp-footer-rdv'), label: 'Prendre rendez-vous' },
+            { href: LINKS.prendreRdv, label: CTA_RDV_LABEL },
             { href: LINKS.financement, label: 'Financement Constructys' },
           ]}
         />

@@ -174,11 +174,7 @@ export default function GuideRhBtpIaOfcPage() {
               <Download className="h-4 w-4" aria-hidden />
               Télécharger le PDF
             </a>
-            <CtaButton origin="ressources-guide-rh-btp-ia-ofc-hero" className="inline-flex items-center gap-2 rounded-lg border border-white/40 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/10"
-            >
-              <Calendar className="h-4 w-4" aria-hidden />
-              RDV découverte formation
-            </CtaButton>
+            <CtaButton origin="ressources-guide-rh-btp-ia-ofc-hero" className="inline-flex items-center gap-2 rounded-lg border border-white/40 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/10" />
           </div>
         </div>
       </section>
@@ -286,11 +282,7 @@ export default function GuideRhBtpIaOfcPage() {
           Pour installer ces cas d’usage RH sur vos vrais documents en présentiel Île-de-France —
           Qualiopi, Constructys selon éligibilité.
         </p>
-        <CtaButton origin="ressources-guide-rh-btp-ia-ofc-final" className="mt-8 inline-flex items-center gap-2 rounded-lg bg-[#377CF3] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[#2d66d6]"
-        >
-          <Calendar className="h-4 w-4" aria-hidden />
-          Prendre un RDV découverte
-        </CtaButton>
+        <CtaButton origin="ressources-guide-rh-btp-ia-ofc-final" className="mt-8 inline-flex items-center gap-2 rounded-lg bg-[#377CF3] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[#2d66d6]" />
       </section>
     </div>
   );

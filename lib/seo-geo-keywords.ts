@@ -140,24 +140,70 @@ export function buildPhotoTitleFromAlt(alt: string, _context?: string): string {
   return title.length <= 160 ? title : `${title.slice(0, 157).replace(/\s+\S*$/, '')}…`;
 }
 
-/** Meta descriptions départements IDF — une par code, 150–160 car., finales (sans clamp). */
-export const FORMATION_IA_BTP_DEPT_META_BY_CODE: Record<string, string> = {
-  '75': `Formation IA pour le BTP à Paris : devis, DCE et comptes rendus sur vos documents. Présentiel intra, Qualiopi. Visio découverte.`,
-  '77': `Formation IA pour le BTP en Seine-et-Marne (77) : devis, DCE et CR. Présentiel, Qualiopi, Constructys selon éligibilité. Visio découverte.`,
-  '78': `Formation IA pour le BTP dans les Yvelines (78) : devis, DCE et CR. Présentiel, Qualiopi, Constructys selon éligibilité. Visio découverte.`,
-  '91': `Formation IA pour le BTP en Essonne (91) : devis, DCE et CR. Présentiel, Qualiopi, Constructys selon éligibilité. Visio découverte.`,
-  '92': `Formation IA pour le BTP dans les Hauts-de-Seine (92) : devis, DCE et CR sur vos documents réels. Présentiel, Qualiopi. Visio découverte.`,
-  '93': `Formation IA pour le BTP en Seine-Saint-Denis (93) : devis, DCE et CR sur vos documents réels. Présentiel, Qualiopi. Visio découverte.`,
-  '94': `Formation IA pour le BTP dans le Val-de-Marne (94) : devis, DCE et CR sur vos documents réels. Présentiel, Qualiopi. Visio découverte.`,
-  '95': `Formation IA pour le BTP dans le Val-d'Oise (95) : devis, DCE et CR. Présentiel, Qualiopi, Constructys selon éligibilité. Visio découverte.`,
-};
+/** Meta descriptions départements IDF — générées via {@link buildFormationIaBtpDeptMetaDescription}. */
+export const IDF_DEPT_META_CODES = ['75', '77', '78', '91', '92', '93', '94', '95'] as const;
+
+/** Noms longs — « Qualiopi » au lieu de « organisme Qualiopi » (≤ 160 car.). */
+const DEPT_META_SHORT_QUALIOPI_NOM = new Set([
+  'Seine-Saint-Denis',
+  'Seine-et-Marne',
+  'Hauts-de-Seine',
+  'Val-de-Marne',
+]);
+
+/** Locatifs longs — même raccourci Qualiopi. */
+const DEPT_META_SHORT_QUALIOPI_EXTRA = new Set(['Yvelines', 'Essonne', "Val-d'Oise"]);
+
+/**
+ * Meta description pages `/formation-ia-btp-*` — patron 150–160 car., phrase complète.
+ * Patron : « Formation IA pour le BTP [locatif] : devis, DCE et comptes rendus sur vos documents.
+ * Présentiel dans vos locaux, [organisme ]Qualiopi. Visio découverte [de] 30 min. »
+ */
+export function buildFormationIaBtpDeptMetaDescription(
+  deptCode: string,
+  departementNom?: string,
+): string {
+  const grammar = getDeptGrammar(deptCode, departementNom);
+  const locatif = deptLocatif(grammar);
+  const useShortQualiopi =
+    DEPT_META_SHORT_QUALIOPI_NOM.has(grammar.nom) ||
+    DEPT_META_SHORT_QUALIOPI_EXTRA.has(grammar.nom);
+
+  let qualiopi = useShortQualiopi ? 'Qualiopi' : 'organisme Qualiopi';
+  let presentiel = 'Présentiel dans vos locaux';
+  let visio = 'Visio découverte de 30 min.';
+
+  const compose = () =>
+    `Formation IA pour le BTP ${locatif} : devis, DCE et comptes rendus sur vos documents. ${presentiel}, ${qualiopi}. ${visio}`;
+
+  let text = compose();
+  if (text.length > 160) {
+    visio = 'Visio découverte 30 min.';
+    text = compose();
+  }
+  if (text.length > 160) {
+    presentiel = 'Présentiel intra';
+    text = compose();
+  }
+  return text;
+}
+
+/** @deprecated Préférer {@link buildFormationIaBtpDeptMetaDescription} — conservé pour scripts d'audit. */
+export const FORMATION_IA_BTP_DEPT_META_BY_CODE: Record<string, string> = Object.fromEntries(
+  IDF_DEPT_META_CODES.map((code) => [
+    code,
+    buildFormationIaBtpDeptMetaDescription(code),
+  ]),
+);
+
 export function buildIdfDeptMetaDescription(
   departementNom: string,
   deptCode: string,
   _villesCourtes: string,
 ): string {
-  const curated = FORMATION_IA_BTP_DEPT_META_BY_CODE[deptCode];
-  if (curated) return curated;
+  if ((IDF_DEPT_META_CODES as readonly string[]).includes(deptCode)) {
+    return buildFormationIaBtpDeptMetaDescription(deptCode, departementNom);
+  }
   const locatif = deptLocatif(getDeptGrammar(deptCode, departementNom));
   return `Formation IA BTP ${locatif} (${deptCode}) : présentiel intra sur vos documents réels. Qualiopi, Constructys.`;
 }

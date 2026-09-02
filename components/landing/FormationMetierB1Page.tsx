@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { CTA_RDV_LABEL } from '@/components/CtaRdv';
 import { ArrowRight, Check } from 'lucide-react';
 import { FAQAnswer } from '@/components/landing/FAQAnswer';
 import { ShortAnswerBlock } from '@/components/landing/ShortAnswerBlock';
@@ -133,10 +134,7 @@ export function FormationMetierB1Page({
             <RdvLink
               campaign={`${slugFromPath}-visio-encart`}
               className="inline-flex items-center gap-2 rounded-xl bg-white px-6 py-3 font-semibold text-[var(--accent)] hover:bg-blue-50"
-            >
-              Prendre rendez-vous
-              <ArrowRight size={20} strokeWidth={1.5} />
-            </RdvLink>
+             />
             <PublicPhoneCta className="inline-flex items-center gap-2 rounded-xl border-2 border-white px-6 py-3 font-semibold text-white hover:bg-white/10" />
           </div>
         </aside>
@@ -224,10 +222,7 @@ export function FormationMetierB1Page({
             <RdvLink
               campaign={`${slugFromPath}-fin-rdv`}
               className="inline-flex items-center gap-2 rounded-xl bg-white px-6 py-3 font-semibold text-[var(--accent)] hover:bg-blue-50"
-            >
-              Réserver votre visio découverte
-              <ArrowRight size={20} strokeWidth={1.5} />
-            </RdvLink>
+             />
             <Link
               href={LINKS.contact}
               className="inline-flex items-center gap-2 rounded-xl border-2 border-white px-6 py-3 font-semibold text-white hover:bg-white/10"
@@ -274,7 +269,7 @@ export function FormationMetierB1Page({
         <AllerPlusLoin
           links={[
             { href: LINKS.financement, label: 'Financement Constructys' },
-            { href: allerPlusCalendlyHref, label: 'Prendre rendez-vous' },
+            { href: LINKS.prendreRdv, label: CTA_RDV_LABEL },
           ].filter((l) => !getLiensConnexesHrefs(path).includes(l.href))}
         />
       </article>

@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import { CTA_RDV_LABEL } from '@/components/CtaRdv';
 import Link from 'next/link';
 import type { ReactNode } from 'react';
 import { Check } from 'lucide-react';
@@ -87,9 +88,7 @@ function CtaVisioBlock({
           ctaPosition="middle"
           campaign={campaign}
           className="inline-flex items-center rounded-lg bg-white px-5 py-3 font-semibold text-[#377CF3] hover:bg-slate-50"
-        >
-          {ctaLabel}
-        </CalendlyEmbed>
+         />
         {id === 'cta-final' ? (
           <Link
             href={LINKS.contact}
@@ -139,7 +138,7 @@ export function FormationSeoClusterLanding({
     ...(config.methodology ? [{ href: '#methodologie', label: config.methodology.title }] : []),
     { href: '#faq', label: 'Questions fréquentes' },
     { href: '#a-propos', label: 'Laure Olivié — formatrice' },
-    { href: '#rdv', label: 'Prendre rendez-vous' },
+    { href: LINKS.prendreRdv, label: CTA_RDV_LABEL },
   ];
 
   return (
@@ -180,9 +179,7 @@ export function FormationSeoClusterLanding({
               ctaPosition="hero"
               campaign={`${config.campaignSlug}-intro`}
               className="inline-flex items-center rounded-lg bg-[#377CF3] px-6 py-3.5 font-semibold text-white hover:bg-blue-700"
-            >
-              {config.primaryCtaLabel}
-            </CalendlyEmbed>
+             />
           </div>
         </header>
 

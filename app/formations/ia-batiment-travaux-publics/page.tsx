@@ -284,9 +284,7 @@ export default function FormationIAuServiceDuBatimentPage() {
               ctaPosition="hero"
               ctaId="hero"
               className="rounded-xl bg-[var(--accent)] px-6 py-3.5 text-center font-semibold text-white hover:bg-blue-600"
-            >
-              Prendre rendez-vous
-            </RdvLink>
+             />
             <a
               href={LINKS.pdfProgrammeIaBtpNiveau1BatimentTp}
               download
@@ -857,10 +855,7 @@ export default function FormationIAuServiceDuBatimentPage() {
               ctaPosition="footer"
               ctaId="footer-rdv"
               className="flex items-center justify-center gap-2 rounded-xl border-2 border-white bg-white px-6 py-4 font-semibold text-[var(--accent)] hover:bg-blue-50"
-            >
-              <Mail size={20} strokeWidth={1.5} />
-              Prendre rendez-vous
-            </RdvLink>
+             />
             <a
               href={MAIL_PROGRAMME}
               className="flex items-center justify-center gap-2 rounded-xl border-2 border-white/80 bg-transparent px-6 py-4 font-semibold text-white hover:bg-white/10"

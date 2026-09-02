@@ -61,10 +61,7 @@ function CtaVisio({
           ctaPosition={ctaPosition}
           campaign={campaign}
           className="mt-4 min-w-[min(100%,280px)]"
-        >
-          {PARTENAIRES_CTA_LABEL}
-          <ArrowRight size={18} strokeWidth={1.5} aria-hidden className="ml-1.5" />
-        </CalendlyEmbed>
+         />
       </div>
     </section>
   );

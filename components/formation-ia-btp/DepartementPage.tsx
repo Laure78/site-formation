@@ -194,10 +194,7 @@ export function DepartementPage({ data }: { data: DepartementPageData }) {
               ctaPosition="inline"
               ctaId="dept-mid"
               className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-[#377CF3] px-6 py-3.5 text-center text-base font-semibold text-white shadow-sm transition hover:bg-[#2d6ae0] sm:w-auto"
-            >
-              <Calendar size={20} strokeWidth={1.5} aria-hidden />
-              Prendre rendez-vous (30 min)
-            </RdvLink>
+             />
           </div>
         </div>
       </section>
@@ -264,10 +261,7 @@ export function DepartementPage({ data }: { data: DepartementPageData }) {
               campaign={`${campaign}-footer`}
               ctaPosition="footer"
               className="inline-flex items-center gap-2 rounded-xl bg-white px-8 py-4 font-semibold text-[#377CF3] hover:bg-blue-50"
-            >
-              <Calendar size={20} strokeWidth={1.5} aria-hidden />
-              Ouvrir Calendly
-            </RdvLink>
+             />
             <Link
               href={LINKS.diagnostic}
               className="inline-flex items-center gap-2 rounded-xl border-2 border-white/80 px-8 py-4 font-semibold text-white hover:bg-white/10"

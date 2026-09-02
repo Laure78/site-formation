@@ -8,7 +8,10 @@ import {
 
 export type BreadcrumbItem = {
   label: string;
+  /** URL pour le JSON-LD ; le libellé peut rester non cliquable si `link` vaut false. */
   href: string;
+  /** Afficher comme lien (défaut true pour les entrées intermédiaires). */
+  link?: boolean;
 };
 
 type BreadcrumbsProps = {
@@ -55,6 +58,8 @@ export function Breadcrumbs({ items, jsonLdId, className }: BreadcrumbsProps) {
                   <span className="font-medium text-slate-800" aria-current="page">
                     {item.label}
                   </span>
+                ) : item.link === false ? (
+                  <span className="font-medium text-slate-600">{item.label}</span>
                 ) : (
                   <Link
                     href={item.href}

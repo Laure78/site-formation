@@ -33,6 +33,10 @@ export const LOGO_LINKEDIN_LEARNING = {
   height: 600,
 } as const;
 
+/** Logo officiel Activateur France Num (programme gouvernemental TPE/PME). */
+export const ALT_LOGO_ACTIVATEUR_FRANCE_NUM =
+  'Logo Activateur France Num — accompagnement numérique TPE PME' as const;
+
 /** Logo officiel Activateur France Num — usage charte France Num (sans recolorisation). */
 export const LOGO_ACTIVATEUR_FRANCE_NUM = {
   src: '/images/partenaires/logo-activateur-france-num.jpg',
@@ -45,9 +49,6 @@ export const ALT_LOGO_LEFEBVRE_DALLOZ = 'Logo Lefebvre Dalloz Formation' as cons
 export const ALT_LOGO_ARFAB = 'Logo ARFAB — formation artisans du bâtiment' as const;
 export const ALT_LOGO_IFRB =
   "Logo IFRB — Institut de Formation Régional du Bâtiment Yvelines, Essonne, Val-d'Oise" as const;
-/** Logo officiel Activateur France Num (programme gouvernemental TPE/PME). */
-export const ALT_LOGO_ACTIVATEUR_FRANCE_NUM =
-  'Logo Activateur France Num — accompagnement numérique TPE PME' as const;
 /** @deprecated Alias — préférer `ALT_LOGO_IFRB`. */
 export const ALT_LOGO_IFRB_77 = ALT_LOGO_IFRB;
 

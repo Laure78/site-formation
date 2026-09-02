@@ -1,4 +1,5 @@
 import { SITE_CONFIG, getCourseSchema, getLocalBusinessSchema, getOrganizationSchema } from '@/lib/seo';
+import { getPillarPageContentUpdatedAt } from '@/lib/content-updated-at';
 import {
   IDF_COURSE_AREA_SERVED_NAMES,
   IDF_DEPT_AREA_SERVED_LABELS,
@@ -62,6 +63,23 @@ export function getFormationIleDeFrancePageLocalBusinessJsonLd(): Record<string,
     name: `${SITE_CONFIG.legalName} — Formation IA appliquée au bâtiment Île-de-France`,
     description:
       'Formation IA pour le BTP en Île-de-France : ChatGPT et Claude AI pour entreprises du bâtiment et des travaux publics. Sessions 4 h en présentiel, Qualiopi, financement OPCO Constructys. Paris, Yvelines, 8 départements.',
+  };
+}
+
+/** WebPage pilier IDF — dateModified alignée sur `PILLAR_PAGE_CONTENT_UPDATED_AT`. */
+export function getFormationIleDeFrancePageWebPageJsonLd(): Record<string, unknown> {
+  const pageUrl = `${SITE_CONFIG.url}${FORMATION_IDF_PATH}`;
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    '@id': `${pageUrl}#webpage`,
+    url: pageUrl,
+    name: 'Formation IA pour le bâtiment et la construction en Île-de-France',
+    inLanguage: 'fr-FR',
+    isPartOf: { '@id': `${SITE_CONFIG.url.replace(/\/$/, '')}/#website` },
+    datePublished: '2024-06-01',
+    dateModified: getPillarPageContentUpdatedAt('/formation-ia-btp-ile-de-france'),
+    primaryImageOfPage: `${SITE_CONFIG.url}/images/formation-ia-btp-laure-olivie-ile-de-france.webp`,
   };
 }
 

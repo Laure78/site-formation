@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { CTA_RDV_LABEL } from '@/components/CtaRdv';
 import { RdvLink } from '@/components/RdvLink';
 import { buildSiteCalendlyCtaUrl } from '@/lib/calendly';
 import {
@@ -127,9 +128,7 @@ export default function FormationIATravauxPublicsLandingPage() {
               Première formation IA dédiée aux travaux publics — demandez un devis
               <ArrowRight className="ml-2 h-5 w-5" strokeWidth={1.5} aria-hidden />
             </Link>
-            <RdvLink className="inline-flex w-full items-center justify-center rounded-xl border-2 border-white/70 px-8 py-4 font-semibold text-white transition-colors hover:bg-white/10 sm:w-auto">
-              Réserver un échange
-            </RdvLink>
+            <RdvLink className="inline-flex w-full items-center justify-center rounded-xl border-2 border-white/70 px-8 py-4 font-semibold text-white transition-colors hover:bg-white/10 sm:w-auto" />
           </div>
         </div>
       </section>
@@ -327,9 +326,7 @@ export default function FormationIATravauxPublicsLandingPage() {
             >
               Demander un devis
             </Link>
-            <RdvLink className="inline-flex items-center justify-center rounded-xl border-2 border-white/70 px-8 py-4 font-semibold text-white transition-colors hover:bg-white/10">
-              Prendre rendez-vous
-            </RdvLink>
+            <RdvLink className="inline-flex items-center justify-center rounded-xl border-2 border-white/70 px-8 py-4 font-semibold text-white transition-colors hover:bg-white/10" />
           </div>
         </div>
       </section>
@@ -357,7 +354,7 @@ export default function FormationIATravauxPublicsLandingPage() {
                 { href: LINKS.financement, label: 'Financement Constructys' },
                 { href: LINKS.formationAO, label: "IA appels d'offres BTP (NIV-02)" },
                 { href: '/blog', label: 'Blog IA BTP' },
-                { href: buildSiteCalendlyCtaUrl('formation-ia-travaux-publics-footer-rdv'), label: 'Prendre rendez-vous' },
+                { href: LINKS.prendreRdv, label: CTA_RDV_LABEL },
               ]}
             />
           </div>

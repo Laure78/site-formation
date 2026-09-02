@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { CTA_RDV_LABEL } from '@/components/CtaRdv';
 import Image from 'next/image';
 import {
   AlertTriangle,
@@ -601,7 +602,7 @@ export default function FinancementConstructysFormationIABTPPage() {
               title="Demandez votre devis"
               description="Décrivez votre projet et recevez un devis et un programme détaillé, directement utilisables pour votre demande de prise en charge Constructys."
               primaryCta={{ href: '/contact', label: 'Demander un devis', external: false }}
-              secondaryCta={{ href: buildSiteCalendlyCtaUrl('financement-constructys-bloc-secondary-rdv'), label: 'Réserver un rendez-vous', external: true }}
+              secondaryCta={{ href: LINKS.prendreRdv, label: CTA_RDV_LABEL }}
             />
           </article>
         </div>
@@ -628,7 +629,7 @@ export default function FinancementConstructysFormationIABTPPage() {
                 { href: LINKS.formationIaTravauxPublics, label: 'IA travaux publics' },
                 { href: LINKS.skillIaConducteurTravaux, label: 'Guide Conducteur de travaux (PDF)' },
                 { href: LINKS.blog, label: 'Tous les articles' },
-                { href: buildSiteCalendlyCtaUrl('financement-constructys-formation-ia-btp-footer-rdv'), label: 'Prendre rendez-vous' },
+                { href: LINKS.prendreRdv, label: CTA_RDV_LABEL },
               ]}
             />
           </div>

@@ -26,9 +26,3 @@ export const BEWORK_APP_PATHS = {
   signup: `${EXTERNAL_SITE_URLS.beworkApp}auth/inscription`,
   lexique: `${EXTERNAL_SITE_URLS.beworkApp}lexique`,
 } as const;
-
-/** Chemins utiles sur la plateforme Teachizy (stagiaires OFC). */
-export const TEACHIZY_PATHS = {
-  home: EXTERNAL_SITE_URLS.teachizyFormation,
-  login: EXTERNAL_SITE_URLS.teachizyFormation,
-} as const;

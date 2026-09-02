@@ -77,10 +77,7 @@ export default function GuideSkillIaConducteurTravauxPage() {
               origin="guide-skill-ia-conducteur-travaux-contact-rdv-page-calendly"
               variant="unstyled"
               className="inline-flex items-center gap-2 rounded-xl border border-[#377CF3] px-6 py-3 font-semibold text-[#377CF3] hover:bg-[#EFF6FF]"
-            >
-              <Calendar className="h-4 w-4" />
-              Réserver un échange
-            </RdvLink>
+             />
           </div>
         </div>
       </section>

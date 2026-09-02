@@ -2,6 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import type { LucideIcon } from 'lucide-react';
 import type { ReactNode } from 'react';
+import { ContentUpdatedLine } from '@/components/seo/ContentUpdatedLine';
 import { IndicateursResultatsLink } from '@/components/formation/IndicateursResultatsLink';
 
 export type MarketingLightHeroStat = {
@@ -36,6 +37,8 @@ export type MarketingLightHeroProps = {
   eyebrow: string;
   title: string;
   titleId: string;
+  /** Date de mise à jour figée (YYYY-MM-DD) — affichée sous le H1. */
+  contentUpdatedAt?: string;
   description: ReactNode;
   stats: readonly MarketingLightHeroStat[];
   /** Tarifs, CTAs, tags — inséré entre stats et navigation rapide */
@@ -105,6 +108,7 @@ export function MarketingLightHero({
   eyebrow,
   title,
   titleId,
+  contentUpdatedAt,
   description,
   stats,
   middle,
@@ -133,6 +137,7 @@ export function MarketingLightHero({
             >
               {title}
             </h1>
+            {contentUpdatedAt ? <ContentUpdatedLine date={contentUpdatedAt} /> : null}
             <div className="mt-4 max-w-3xl text-lg leading-relaxed text-slate-700">{description}</div>
 
             <ul className="mt-8 grid gap-3 sm:grid-cols-2 sm:gap-4 lg:grid-cols-2 xl:grid-cols-4">

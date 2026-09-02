@@ -46,10 +46,7 @@ function AuditCalendlyBlock({ id }: { id: string }) {
           ctaPosition="middle"
           ctaId="audit-rdv"
           className="inline-flex items-center gap-2 rounded-lg bg-[#377CF3] px-8 py-4 text-base font-bold text-white hover:bg-[#2d6ab8]"
-        >
-          Réserver l&apos;audit IA gratuit
-          <ArrowRight size={18} strokeWidth={1.5} aria-hidden />
-        </RdvLink>
+         />
         <Link href={LINKS.financement} className="inline-flex items-center rounded-xl border-2 border-white/80 px-5 py-3.5 text-sm font-semibold text-white hover:bg-white/10">
           Financement Constructys
         </Link>

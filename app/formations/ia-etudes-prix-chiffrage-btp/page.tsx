@@ -55,9 +55,7 @@ export default function FormationIaEtudesPrixChiffrageBtpPage() {
             <RdvLink
               campaign="formations-etudes-prix-hero"
               className="rounded-xl bg-[var(--accent)] px-6 py-3.5 text-center font-semibold text-white hover:bg-blue-600"
-            >
-              Prendre rendez-vous
-            </RdvLink>
+             />
             <Link
               href={LINKS.formationAO}
               className="rounded-xl border-2 border-slate-200 px-6 py-3.5 text-center font-semibold text-slate-800 hover:border-[var(--accent)]"
@@ -120,9 +118,7 @@ export default function FormationIaEtudesPrixChiffrageBtpPage() {
         />
 
         <div className="mt-10">
-          <RdvLink className="inline-block rounded-xl bg-[var(--accent)] px-8 py-3 font-semibold text-white hover:bg-blue-700">
-            Cadrer votre besoin en visio découverte
-          </RdvLink>
+          <RdvLink className="inline-block rounded-xl bg-[var(--accent)] px-8 py-3 font-semibold text-white hover:bg-blue-700" />
         </div>
 
         <RenvoiFicheCatalogue

@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { CTA_RDV_LABEL } from '@/components/CtaRdv';
 import Image from 'next/image';
 import Link from 'next/link';
 import { ExternalLink } from 'lucide-react';
@@ -56,7 +57,7 @@ const TOC = [
   { href: '#en-ligne-vs-presentiel', label: 'En ligne ou en présentiel : que choisir ?' },
   { href: '#ressources', label: 'Ressources complémentaires' },
   { href: '#faq', label: 'FAQ' },
-  { href: '#rdv', label: 'Réserver une visio découverte' },
+  { href: LINKS.prendreRdv, label: CTA_RDV_LABEL },
 ] as const;
 
 const FAQ_ITEMS = [
@@ -464,9 +465,7 @@ export default function FormationsLinkedInLearningPage() {
                 ctaPosition="middle"
                 ctaId="linkedin-learning-mid-visio"
                 className={`${OFC_CTA_PRIMARY} inline-flex items-center justify-center rounded-lg px-6 py-3 text-sm font-semibold md:text-base`}
-              >
-                Prendre rendez-vous
-              </RdvLink>
+               />
             </div>
           </div>
         </section>
@@ -561,9 +560,7 @@ export default function FormationsLinkedInLearningPage() {
                 ctaPosition="footer"
                 ctaId="linkedin-learning-final-visio"
                 className="inline-flex items-center justify-center rounded-lg bg-white px-6 py-3 text-sm font-semibold text-[#377CF3] shadow-lg transition hover:bg-[#F2F2F2] md:text-base"
-              >
-                Prendre rendez-vous
-              </RdvLink>
+               />
             </div>
 
             <div className="mt-10 rounded-2xl border border-white/25 bg-white/10 p-5 text-left text-sm leading-relaxed text-white/95 md:p-6 md:text-base">

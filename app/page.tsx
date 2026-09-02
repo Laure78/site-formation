@@ -33,7 +33,7 @@ const HOME_META_DESCRIPTION = `Formation IA pour le BTP en présentiel IDF : dev
 
 const HOME_FAQ_PAGE_JSON_LD = buildHomeFAQPageJsonLd();
 
-preload(PHOTOS.formationsCatalogueHero2026.src, { as: 'image', fetchPriority: 'high' });
+preload(PHOTOS.heroAccueilFormationIABtpEchange2026.src, { as: 'image', fetchPriority: 'high' });
 
 // ISR : HTML mis en cache au edge et revalidé toutes les heures (3600 s)
 

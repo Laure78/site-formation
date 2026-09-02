@@ -441,11 +441,7 @@ export function TutoPage({ tuto }: { tuto: TutoData }) {
             ) : (
               <CtaButton
                 origin={`ressources-tuto-${tuto.slug}-rdv`}
-                className="inline-flex items-center justify-center gap-2 rounded-xl px-6 py-3.5 text-[0.95rem] font-semibold shadow-sm transition-transform hover:scale-[1.02] active:scale-[0.98]"
-              >
-                Réserver un appel découverte
-                <ArrowRight size={18} aria-hidden />
-              </CtaButton>
+                className="inline-flex items-center justify-center gap-2 rounded-xl px-6 py-3.5 text-[0.95rem] font-semibold shadow-sm transition-transform hover:scale-[1.02] active:scale-[0.98]" />
             )}
             <DownloadButton
               href={pdfUrl}

@@ -1,4 +1,5 @@
 import { FAQAnswer } from '@/components/landing/FAQAnswer';
+import { CTA_RDV_LABEL } from '@/components/CtaRdv';
 import { JsonLd } from '@/components/JsonLd';
 import Link from 'next/link';
 import { Check } from 'lucide-react';
@@ -170,7 +171,7 @@ const SOMMAIRE = [
   { href: '#financement', label: 'Financement Constructys 2026' },
   { href: '#faq', label: 'FAQ assistantes de gestion BTP' },
   { href: '#a-propos', label: 'Qui est Laure Olivié ?' },
-  { href: '#rdv', label: 'Réservez votre diagnostic IA back-office gratuit' },
+  { href: LINKS.prendreRdv, label: CTA_RDV_LABEL },
 ];
 
 export default function FormationIaAssistanteGestionBtpPage() {
@@ -314,9 +315,7 @@ export default function FormationIaAssistanteGestionBtpPage() {
               origin="formation-ia-assistante-gestion-btp-contact-rdv-page-calendly"
               variant="unstyled"
               className="mt-2 inline-block font-semibold text-[#377CF3] underline hover:no-underline"
-            >
-              Prendre rendez-vous →
-            </RdvLink>
+             />
           </blockquote>
         </section>
 
@@ -611,9 +610,7 @@ export default function FormationIaAssistanteGestionBtpPage() {
             Gratuit, sans engagement.
           </p>
           <div className="mt-6 flex flex-wrap gap-4">
-            <RdvLink className="inline-flex items-center rounded-lg bg-[#377CF3] px-5 py-3 font-semibold text-white hover:bg-[#2d63c9]">
-              Réserver mon diagnostic IA back-office
-            </RdvLink>
+            <RdvLink className="inline-flex items-center rounded-lg bg-[#377CF3] px-5 py-3 font-semibold text-white hover:bg-[#2d63c9]" />
             <PublicPhoneCta className="inline-flex items-center rounded-lg border border-slate-300 px-5 py-3 font-medium text-slate-800 hover:bg-slate-50" />
           </div>
           <p className="mt-6 text-sm text-slate-600">

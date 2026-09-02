@@ -90,10 +90,7 @@ export function FormationDeptLocalSeoBlock({
               ctaPosition="inline"
               ctaId="local-block"
               className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-[#377CF3] px-6 py-3.5 text-center text-base font-semibold text-white shadow-sm transition hover:bg-[#2d6ae0] sm:w-auto"
-            >
-              <Calendar size={20} strokeWidth={1.5} aria-hidden />
-              Visio découverte gratuite — {content.departementNom} ({content.deptCode})
-            </RdvLink>
+             />
           </div>
 
           <div className="mt-10">
