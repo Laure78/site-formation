@@ -42,14 +42,13 @@ export function RessourceGuideLibraryCard({ guide }: Props) {
 
   return (
     <article className="flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition hover:border-[#377CF3]/40 hover:shadow-md">
-      <div className="relative aspect-[4/3] bg-[#F2F2F2]">
+      <div className="relative aspect-video bg-[#F2F2F2]">
         {guide.thumbnail ? (
           <Image
             src={guide.thumbnail.src}
-            alt=""
-            width={guide.thumbnail.width}
-            height={guide.thumbnail.height}
-            className="h-full w-full object-cover"
+            alt={guide.thumbnail.alt}
+            fill
+            className="object-contain p-1.5"
             sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
             quality={70}
             loading="lazy"
@@ -57,7 +56,7 @@ export function RessourceGuideLibraryCard({ guide }: Props) {
         ) : (
           <div className="flex h-full flex-col items-center justify-center gap-3 px-6 text-center">
             {/* eslint-disable-next-line @next/next/no-img-element -- logo SVG léger décoratif */}
-            <img src="/logo-lo.svg" alt="" width={48} height={48} className="opacity-80" />
+            <img src="/logo-lo.svg" alt="" width={40} height={40} className="opacity-80" />
             <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">
               {isExcel ? 'Excel' : 'PDF'} · {guide.categoryLabel}
             </p>
