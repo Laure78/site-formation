@@ -224,7 +224,7 @@ export const MODALITE_FORMATIONS_PRESENTIEL =
   `Sessions ${MODALITE_INTRA_ENTREPRISE} et interentreprises en présentiel — ${MODALITE_POSITIONNEMENT}.`;
 
 export const EXIGENCE_CLAUDE_PRO_NIVEAU_AVANCE =
-  'Un abonnement Claude AI Pro actif par participant (environ 18 € HT/mois, à souscrire par l\'entreprise avant la session) — non inclus dans le forfait.';
+  'Un abonnement Claude AI Pro actif par participant, à souscrire par l\'entreprise avant la session — non inclus dans le forfait (abonnement payant selon l\'outil utilisé).';
 
 export const PREREQUIS_NIVEAU_2 = [
   'Ordinateur portable par participant + connexion internet',

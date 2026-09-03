@@ -34,7 +34,7 @@ const FORMATIONS_DATA = [
     desc: `Formation niveau 1 : ${SESSION_DUREE_LIBELLE}, ${libelleTarifsDualCourt(4)}. ${COMPTES_IA_GRATUITS_NIVEAU_DEBUTANT} Bâtiment, TP, devis, administratif. Qualiopi.`,
   },
   { path: '/formation-ia-btp-paris', title: 'Formation IA BTP Paris (75)', desc: `${SESSION_DUREE_LIBELLE}. Intra par arrondissement, présentiel Paris & petite couronne. Qualiopi. ${FINANCEMENT_FORMULATION_COURTE}` },
-  { path: '/formations/ia-appels-offre-btp', title: 'IA appels d\'offres BTP — DCE, mémoire technique, Cowork', desc: `${SESSION_DUREE_LIBELLE}, ${libelleTarifsDualCourt(4)}. Claude AI Pro, Cowork & Skills — DCE et mémoire technique. ${EXIGENCE_CLAUDE_PRO_NIVEAU_AVANCE} Qualiopi.` },
+  { path: '/formations/ia-appels-offre-btp', title: 'IA appels d\'offres BTP — DCE, mémoire technique', desc: `${SESSION_DUREE_LIBELLE}, ${libelleTarifsDualCourt(4)}. Méthode guidée DCE / chiffrage / mémoire technique. ${EXIGENCE_CLAUDE_PRO_NIVEAU_AVANCE} Qualiopi.` },
   { path: '/formations/ia-pme-btp', title: 'IA pour PME du BTP', desc: `Formation adaptée aux PME. ${libelleTarifsDualCourt(4)} (12 participants max en intra).` },
 ];
 

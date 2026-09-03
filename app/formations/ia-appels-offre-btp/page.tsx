@@ -1,84 +1,59 @@
+import Image from 'next/image';
 import Link from 'next/link';
-import { CTA_RDV_LABEL } from '@/components/CtaRdv';
-import { LINKS } from '@/lib/internal-links';
-import { FooterTelOrMailLink } from '@/components/PublicPhoneCta';
-import { FileText, Calendar, Users, Check, Download, ExternalLink } from 'lucide-react';
-import { AllerPlusLoin } from '@/components/AllerPlusLoin';
-import { ContextualLinksSection } from '@/components/layout/ContextualLinksSection';
-import { FormationCatalogueIndicateur1Suite } from '@/components/formations/FormationCatalogueIndicateur1Suite';
-import { FORMATION_NIV02_RELATED } from '@/lib/contextual-internal-links';
-import { FORMATION_AO_CLUSTER_ARTICLES } from '@/lib/ao-dce-cluster-links';
-import { RdvLink } from '@/components/RdvLink';
-import { buildSiteCalendlyCtaUrl } from '@/lib/calendly';
+import { Download } from 'lucide-react';
 import { FAQSection } from '@/components/landing/FAQSection';
 import { JsonLd } from '@/components/JsonLd';
-import { RelatedLinks } from '@/components/RelatedLinks';
-import { getClusterRelatedHrefs } from '@/lib/maillage-clusters';
-import {
-  createPageMetadata,
-  getFAQSchema,
-  SITE_CONFIG,
-} from '@/lib/seo';
+import { ProgrammeAccordionAppelsOffre } from '@/components/formations/ProgrammeAccordionAppelsOffre';
+import { FormationHeroPhoto } from '@/components/formations/FormationCourseHero';
+import { CatalogueInfosPratiques } from '@/components/InfosPratiques';
+import { MentionTVA, MentionTvaAsterisque } from '@/components/MentionTVA';
+import { ShortAnswerBlock } from '@/components/landing/ShortAnswerBlock';
+import { IndicateursResultatsLink } from '@/components/formation/IndicateursResultatsLink';
+import { createPageMetadata, getFAQSchema, SITE_CONFIG } from '@/lib/seo';
 import { FAQ_APPELS_OFFRE } from '@/lib/faq';
-import { GAINS_TEMPS_MENTION_PRUDENCE } from '@/lib/gains-temps-copy';
 import {
   SESSION_DUREE_LIBELLE,
-  TARIF_FORFAIT_AVANCE_HT,
-  LIBELLE_EFFECTIF_GROUPE_NIV02,
-
-  formatTarifHt,
-  libelleTarifsDualCourt,
+  MENTION_ABONNEMENTS_IA_HORS_FORFAIT,
+  libelleTarifIntraParSession,
+  libelleTarifInterParParticipant,
+  getTarifGrilleFromDureeLibelle,
 } from '@/lib/tarifs-sessions';
-import { FORMATION_NIV02 } from '@/data/formations';
-import { PREREQUIS_NIV02 } from '@/lib/infos-pratiques-catalogue';
+import { FINANCEMENT_FORMULATION_COURTE } from '@/lib/financement-copy';
 import { getFormationCatalogueVisuel } from '@/lib/formations-catalogue-display';
-import {
-  FormationCourseHero,
-} from '@/components/formations/FormationCourseHero';
+import { LINKS } from '@/lib/internal-links';
 import { buildCatalogueCourseIaAppelsOffreNiv02JsonLd } from '@/lib/schema-catalogue-course-jsonld';
-import { getStatsFreshnessLabel } from '@/lib/constants';
-import { formatNoteSatisfactionAffichageComplet } from '@/lib/data/indicateurs-resultats';
-import { IndicateursResultatsLink } from '@/components/formation/IndicateursResultatsLink';
-import { FormationIaAppelsOffresOperationalSections } from '@/components/formations/FormationIaAppelsOffresOperationalSections';
 import { getFormationCatalogueSeo } from '@/lib/formation-catalogue-seo';
+import { getFormationByCode } from '@/data/formations';
+import { PHOTOS } from '@/lib/photos';
 import {
-  AO_FORMATION_CAS_PRATIQUE_QUOTE,
-  AO_FORMATION_PROMESSE,
-  AO_LIVRABLES_FORMATION,
-  AO_PRUDENCE_FORMULATION,
-} from '@/lib/formation-ia-appels-offres-btp-operational-content';
-import { FormationCatalogueGeoSections } from '@/components/formations/FormationCatalogueGeoSections';
-
-const PDF_HREF = LINKS.pdfProgrammeFormationAoBtpDetail2026;
-const PDF_DOWNLOAD_NAME = 'programme_OFC_Niveau2_IA_AO_ClaudePro.pdf';
-const KIT_7_PROMPTS_HREF = '/formations/ia-appels-offre-btp/Kit_IA_AO_BTP_7_prompts.html';
+  formatNoteSatisfactionAffichageComplet,
+  formatPeriodeReferenceAffichage,
+  formatVolumeProsFormesBtpLibelle,
+} from '@/lib/data/indicateurs-resultats';
+import { OFC_CTA_PRIMARY, OFC_CTA_SECONDARY, OFC_LINK } from '@/lib/ofc-interaction-classes';
 
 const CATALOGUE_SEO = getFormationCatalogueSeo('NIV-02');
-
-const PAGE_META_DESCRIPTION = CATALOGUE_SEO.metaDescription;
-
+const FORMATION = getFormationByCode('NIV-02')!;
+const GRILLE = getTarifGrilleFromDureeLibelle(FORMATION.duree);
 const CATALOGUE_VISUEL = getFormationCatalogueVisuel('NIV-02');
+const PORTRAIT = PHOTOS.portraitPro2026;
+const PDF_HREF = LINKS.pdfProgrammeFormationAoBtpDetail2026;
+
+const MAIL_PROGRAMME = `mailto:${SITE_CONFIG.email}?subject=${encodeURIComponent('Demande de programme — formation IA appels d’offres BTP (NIV-02)')}`;
 
 export const metadata = createPageMetadata({
   title: CATALOGUE_SEO.metaTitle,
-  description: PAGE_META_DESCRIPTION,
+  description: CATALOGUE_SEO.metaDescription,
   descriptionFinal: true,
-  path: '/formations/ia-appels-offre-btp',
+  path: LINKS.formationAO,
   keywords: [
     'formation IA appels d\'offres BTP',
-    'formation ChatGPT appels d\'offres BTP',
-    'analyse DCE avec IA',
-    'analyser un CCTP avec ChatGPT',
+    'analyser un DCE avec l\'IA',
+    'mémoire technique avec IA',
+    'formation appels d\'offres bâtiment',
     'IA chiffrage BTP',
-    'IA devis bâtiment',
-    'IA mémoire technique',
-    'ChatGPT mémoire technique BTP',
-    'formation IA chiffrage bâtiment',
-    'assistant IA appels d\'offres',
-    'intelligence artificielle appels d\'offres BTP',
-    'Claude AI appels d\'offres BTP',
-    'Claude Cowork DCE',
-    'IA marchés publics BTP',
+    'analyse CCTP DPGF',
+    'formation Claude BTP',
   ],
   image: {
     url: CATALOGUE_VISUEL.src,
@@ -88,454 +63,547 @@ export const metadata = createPageMetadata({
   },
 });
 
-const OUTILS_IA_LINE =
-  'Claude AI Pro (Anthropic) — Cowork & Skills : analyse de DCE, rédaction de mémoires techniques, assistants réutilisables sur vos fichiers locaux.';
-
-type ProgrammeBloc = {
-  heading: string;
-  meta: string;
-  objectifs: string[];
-  livrable: string;
-  exercice?: string;
-};
-
-const PROGRAMME_BLOCS: ProgrammeBloc[] = [
-  {
-    heading: 'Accueil — cadrage et positionnement',
-    meta: '15 min',
-    objectifs: [
-      'Accueil des participants, émargement et présentation des objectifs de la demi-journée',
-      'Auto-positionnement d\'entrée sur les objectifs visés',
-      'Tour de table : pratiques actuelles de réponse aux AO et dossiers apportés par chacun',
-    ],
-    livrable: '',
-  },
-  {
-    heading: 'Module 1 — Paramétrage de Claude AI Pro et de Cowork',
-    meta: '60 min · Cowork · Projects · Skill Creator',
-    objectifs: [
-      'Créer son compte Claude Pro — interface, Projects, choix du modèle',
-      'Organiser ses Projects par client ou par type d\'AO, rédiger ses instructions personnalisées',
-      'Uploader sa base documentaire entreprise (mémoires techniques types, références, procédures QSE)',
-      'Confidentialité : ce qui peut être déposé dans l\'outil et ce qui doit rester en dehors',
-      'Installer Cowork — comprendre la logique des skills (déclenchement, instructions, livrables)',
-      'Créer un premier skill personnalisé alimenté par ses données entreprise',
-      'Programmer un workflow complet : analyse DCE → plan de mémoire technique → rédaction section par section',
-    ],
-    livrable: 'Compte Claude Pro configuré + Project dédié AO + Cowork installé + premier skill créé',
-    exercice:
-      'Configuration en direct du Project AO et création du premier skill sur les données du participant.',
-  },
-  {
-    heading: 'Module 2 — Analyse DCE, chiffrage assisté et contrôle des pièces',
-    meta: '1 h 15 · Skills « Analyse DCE » & « Préparation chiffrage »',
-    objectifs: [
-      'Méthodologie d\'analyse : trois niveaux de lecture, priorisation des pièces, 15 informations critiques à extraire',
-      'Import et organisation du DCE complet : RC, CCTP, CCAP, DPGF, BPU, plans et annexes',
-      'Upload du DCE dans Cowork → synthèse structurée du marché (critères, clauses, pénalités, délais)',
-      'Extraire les prestations du lot entreprise — explicites et implicites à vérifier (ex. menuiserie, étanchéité, VRD)',
-      'Décortiquer le CCAP (risques financiers) et synthétiser le CCTP (normes, matériaux, performances, interfaces lots)',
-      'Comparer CCTP, DPGF, CCAP et RC — repérer incohérences, informations manquantes et points à clarifier auprès de la MOE',
-      'Construire une checklist de chiffrage et comparer les prestations détectées avec un ancien devis de l\'entreprise',
-      'Identifier les postes potentiellement oubliés — aide au contrôle, validation métier obligatoire',
-      'Produire une fiche de synthèse, le tableau des 15 informations critiques et un verdict Go / No Go',
-      'Contrôler les extractions obtenues par retour aux pièces sources',
-      'Adapter le skill à son métier et tester en temps réel sur un AO concret apporté par le participant',
-    ],
-    livrable:
-      'Fiche de synthèse DCE + checklist chiffrage + tableau comparaison CCTP/DPGF + skills d\'analyse DCE et préparation chiffrage',
-    exercice:
-      'Atelier pratique — analyse DCE et préparation chiffrage sur un AO concret et un ancien devis du participant.',
-  },
-  {
-    heading: 'Module 3 — Devis, mémoire technique et assistants IA réutilisables',
-    meta: '1 h 30 · Skills « Mémoire technique », « Désignations devis » & « Contrôle avant dépôt »',
-    objectifs: [
-      'Générer ou améliorer les désignations d\'ouvrages professionnelles à partir des prestations identifiées',
-      'Structurer le devis — organisation des postes (IA devis bâtiment en aide, pas en substitut du chiffrage)',
-      'Analyser les critères de notation du RC et bâtir le plan de mémoire technique adapté aux pondérations',
-      'Rédiger les sections stratégiques : présentation entreprise, méthodologie d\'exécution, moyens humains et matériels, engagements QSE',
-      'Générer un mémoire technique Word complet (planning, organigramme, tableaux de moyens) via Cowork',
-      'Contrôler et humaniser les sorties de l\'IA : anti-hallucination et relecture experte',
-      'Configurer les 8 assistants IA réutilisables : analyse DCE, CCTP, contrôle DPGF, chiffrage, devis, mémoire technique, contrôle avant dépôt',
-      'Effectuer un contrôle final de cohérence de l\'offre (mémoire, chiffrage, pièces administratives)',
-      'Créer son skill mémoire technique aux couleurs de l\'entreprise + skill productivité (CR chantier, emails)',
-      'Tester et ajuster ses skills en temps réel sur un AO concret',
-    ],
-    livrable:
-      'Mémoire technique Word + 8 assistants IA configurés + trames DCE/chiffrage/MT + bibliothèque de prompts AO BTP',
-    exercice:
-      'Rédaction assistée, structuration devis et configuration des assistants en temps réel sur un AO concret du participant.',
-  },
-  {
-    heading: 'Bilan, plan d\'action et clôture',
-    meta: '15 min',
-    objectifs: [
-      'Auto-positionnement de sortie et mesure de la progression sur les objectifs visés',
-      'Plan d\'action individuel : 3 actions concrètes à mettre en place à 30 jours',
-      'Questions / réponses, questionnaire de satisfaction et remise des attestations',
-    ],
-    livrable:
-      'Plan d\'action individuel + attestation individuelle de fin de formation remise à chaque participant',
-  },
-];
-
-const TARIFS_DUAL = libelleTarifsDualCourt(4);
-
-const HERO_RESUME_AO = [
-  `Parcours catalogue : DCE réel, devis réel, chiffrage assisté, mémoire technique — Claude AI Pro, Cowork & 8 assistants IA.`,
-  `Session ${SESSION_DUREE_LIBELLE} — 75 % pratique — ${TARIFS_DUAL} (niveau avancé).`,
-  `${LIBELLE_EFFECTIF_GROUPE_NIV02}.`,
-  'Qualiopi. Financement possible selon éligibilité (OPCO Constructys).',
-];
-
+const faqSchema = getFAQSchema(FAQ_APPELS_OFFRE);
 const courseSchema = buildCatalogueCourseIaAppelsOffreNiv02JsonLd();
 
-export default function FormationIAAppelsOffreBTPPage() {
-  const faqSchema = getFAQSchema(FAQ_APPELS_OFFRE);
+const HERO_FACTS = [
+  '4 heures',
+  '75 % de pratique',
+  'Présentiel en Île-de-France',
+  'Niveau intermédiaire',
+  'Dossier fil rouge BTP',
+] as const;
 
+const PROBLEMES = [
+  {
+    title: 'Pièces dispersées',
+    texte: 'Les informations utiles sont réparties entre RC, CCTP, CCAP, DPGF et annexes.',
+  },
+  {
+    title: 'Écarts CCTP / DPGF',
+    texte: 'Des incohérences entre pièces créent un risque d’oubli ou de mauvaise interprétation.',
+  },
+  {
+    title: 'Contrôle du chiffrage',
+    texte: 'Sans checklist, une prestation ou une exigence peut passer à côté.',
+  },
+  {
+    title: 'Mémoire technique',
+    texte: 'Le plan est difficile à aligner sur les critères et pondérations du RC.',
+  },
+] as const;
+
+const RESULTATS = [
+  'Organiser les pièces d’un DCE avant analyse',
+  'Extraire les exigences importantes avec leurs sources',
+  'Comparer le RC, le CCTP, le CCAP et la DPGF',
+  'Créer une checklist des points à vérifier avant le chiffrage',
+  'Structurer un mémoire technique selon les critères du RC',
+  'Réutiliser une méthode de travail sur les prochains dossiers',
+] as const;
+
+const WORKFLOW = [
+  'Organiser les pièces.',
+  'Extraire les exigences.',
+  'Croiser les documents.',
+  'Préparer les points de chiffrage.',
+  'Structurer le mémoire technique.',
+  'Contrôler l’offre avant dépôt.',
+] as const;
+
+const LIVRABLES = [
+  'Grille de lecture du DCE',
+  'Tableau de comparaison CCTP–DPGF',
+  'Checklist des points de chiffrage',
+  'Trame de questions à adresser à la MOE',
+  'Structure de mémoire technique',
+  'Checklist avant dépôt',
+  'Bibliothèque de prompts',
+  'Méthode de validation humaine',
+] as const;
+
+const IA_LIMITS = [
+  {
+    iaAide: 'Synthétiser une pièce',
+    validation: 'L’interprétation contractuelle',
+  },
+  {
+    iaAide: 'Extraire des exigences',
+    validation: 'Les prestations du lot',
+  },
+  {
+    iaAide: 'Comparer deux documents',
+    validation: 'Les quantités et métrés',
+  },
+  {
+    iaAide: 'Préparer une checklist',
+    validation: 'Les prix et marges',
+  },
+  {
+    iaAide: 'Structurer un mémoire technique',
+    validation: 'Les moyens et engagements remis',
+  },
+] as const;
+
+const ATELIER_ETAPES = [
+  'Sélection et anonymisation des documents.',
+  'Analyse guidée du dossier fil rouge.',
+  'Création d’une méthode réutilisable.',
+] as const;
+
+export default function FormationIAAppelsOffreBTPPage() {
   return (
     <div>
       <JsonLd id="schema-course-niv-02" schema={courseSchema} />
-      <JsonLd id="schema-faq" schema={faqSchema} />
+      {faqSchema ? <JsonLd id="schema-faq" schema={faqSchema} /> : null}
 
-      <FormationCourseHero
-        catalogueRef="NIV-02"
-        programmePdfAfterHero={false}
-        refLine={`Intra-entreprise · présentiel · ${SESSION_DUREE_LIBELLE} · Appels d'offres · ${LIBELLE_EFFECTIF_GROUPE_NIV02}`}
-        title={CATALOGUE_SEO.h1}
-        subtitle={CATALOGUE_SEO.subtitle}
-        badges={['DCE & chiffrage assisté', '8 assistants IA', 'Organisme Qualiopi']}
-        summaryItems={HERO_RESUME_AO}
-        ctas={
-          <>
-            <RdvLink
-              campaign="formations-ia-appels-offre-btp-hero"
-              ctaPosition="hero"
-              ctaId="hero"
-              className="rounded-xl bg-[var(--accent)] px-6 py-3.5 text-center font-semibold text-white hover:bg-blue-600"
-             />
-            <a
-              href={PDF_HREF}
-              download={PDF_DOWNLOAD_NAME}
-              className="inline-flex items-center justify-center gap-2 rounded-xl border-2 border-slate-200 px-6 py-3.5 font-semibold text-slate-800 hover:border-[var(--accent)]"
-            >
-              <Download size={20} strokeWidth={1.5} />
-              Télécharger le programme (PDF)
-            </a>
-            <a
-              href={KIT_7_PROMPTS_HREF}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 rounded-xl border-2 border-[var(--accent)] bg-[var(--accent-soft)] px-6 py-3.5 font-semibold text-[var(--accent)] hover:bg-blue-100"
-            >
-              <FileText size={20} strokeWidth={1.5} />
-              Kit 7 prompts AO
-            </a>
-            <Link
-              href={LINKS.formationPlateforme}
-              className="inline-flex items-center justify-center gap-2 rounded-xl border-2 border-[var(--accent)] px-6 py-3.5 font-semibold text-[var(--accent)] hover:bg-[var(--accent-soft)]"
-            >
-              <ExternalLink size={20} strokeWidth={1.5} />
-              Voir sur la plateforme
+      <section className="border-b border-slate-200 bg-white px-4 py-8 md:py-10">
+        <div className="mx-auto grid max-w-6xl items-start gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(240px,360px)] lg:gap-8">
+          <div className="min-w-0">
+            <Link href={LINKS.formations} className={`${OFC_LINK} text-sm`}>
+              Catalogue des formations IA pour le BTP
             </Link>
-          </>
-        }
-        footerLinks={
-          <>
-            <a href="#programme" className="font-medium text-[var(--accent)] hover:underline">
-              Voir le programme détaillé
-            </a>
-            <Link
-              href={LINKS.formationPlateforme}
-              className="font-medium text-slate-600 hover:text-[var(--accent)] hover:underline"
+            <p className="mt-3 inline-flex rounded-full border border-[#377CF3]/25 bg-[#377CF3]/5 px-3 py-1 text-sm font-semibold text-[#377CF3]">
+              Niveau 2 · Appels d’offres BTP · 4 heures
+            </p>
+            <h1
+              id="formation-niv-02-h1"
+              className="mt-3 font-display text-3xl font-bold tracking-tight text-slate-900 md:text-4xl"
             >
-              Fiche cours plateforme
-            </Link>
-            <FooterTelOrMailLink className="font-medium text-slate-600 hover:text-[var(--accent)] hover:underline" />
-          </>
-        }
-      >
-        <p>
-          <strong>Formation IA appliquée aux appels d&apos;offres BTP</strong> : analyser un{' '}
-          <strong>DCE complet</strong> (RC, CCTP, CCAP, DPGF, BPU), préparer le{' '}
-          <strong>chiffrage assisté</strong>, structurer et rédiger des <strong>mémoires techniques</strong>, et
-          configurer <strong>8 assistants IA réutilisables</strong> avec Claude AI Pro et Cowork.{' '}
-          {AO_FORMATION_CAS_PRATIQUE_QUOTE} Parcours opérationnel pour responsables d&apos;affaires, chargés
-          d&apos;études, conducteurs de travaux, dirigeants et artisans du second œuvre — complément idéal après
-          le{' '}
-          <Link
-            href={LINKS.formationIaBtpNiveau1BatimentTp}
-            className="font-medium text-[var(--accent)] hover:underline"
-          >
-            niveau 1
-          </Link>{' '}
-          ou une{' '}
-          <Link
-            href={LINKS.formationMaitriserClaudeAiBtp}
-            className="font-medium text-[var(--accent)] hover:underline"
-          >
-            formation Claude AI dédiée au BTP
-          </Link>
-          . Outils : {OUTILS_IA_LINE}
-        </p>
-        <p className="mt-4 text-sm leading-relaxed text-slate-600">{AO_PRUDENCE_FORMULATION}</p>
-      </FormationCourseHero>
+              {CATALOGUE_SEO.h1}
+            </h1>
+            <p className="mt-3 max-w-2xl text-lg leading-relaxed text-slate-700">{CATALOGUE_SEO.subtitle}</p>
+            <p className="mt-2 max-w-2xl text-base text-slate-600">
+              Bases de l’IA générative requises. Abonnement professionnel à l’outil utilisé pendant la session
+              (non inclus dans le tarif).
+            </p>
 
-      <FormationCatalogueGeoSections
-        catalogueRef="NIV-02"
-        ressourcesGratuites={[
-          { href: LINKS.guideRepondreAoBtpOfc2026, label: 'Guide répondre aux AO BTP (PDF)' },
-          { href: LINKS.tutoAnalyseDce, label: 'Tutoriel analyser un DCE avec l\'IA' },
-        ]}
-        etudeDeCasHref={LINKS.etudesCas}
-        etudeDeCasLabel="Études de cas FFB & CSFE — formation IA BTP en réseau"
-      />
+            <ul className="mt-5 grid gap-2 sm:grid-cols-2">
+              {HERO_FACTS.map((fact) => (
+                <li
+                  key={fact}
+                  className="rounded-xl border border-slate-200 bg-slate-50 px-3 py-2.5 text-base font-medium text-slate-800"
+                >
+                  {fact}
+                </li>
+              ))}
+            </ul>
 
-      <section id="programme" className="scroll-mt-24 border-b border-slate-200 bg-white px-4 py-16">
-        <div className="mx-auto max-w-4xl">
-        <h2 className="font-display text-2xl font-bold text-slate-900">Programme détaillé</h2>
-        <p className="mt-2 text-sm text-slate-600">
-          Accueil (15 min), 3 modules et clôture (15 min) — total {SESSION_DUREE_LIBELLE} — 75 % pratique sur DCE,
-          devis et mémoires techniques réels des participants. Workflow reproductible en 20 étapes et 8 assistants IA
-          configurés en session.
-        </p>
-        <div className="mt-8 space-y-8">
-          {PROGRAMME_BLOCS.map((bloc) => (
-            <div
-              key={bloc.heading}
-              className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm"
-            >
-              <div className="flex flex-wrap items-baseline justify-between gap-2">
-                <h3 className="font-display text-lg font-semibold text-slate-900">{bloc.heading}</h3>
-                <span className="text-sm font-medium text-[var(--accent)]">{bloc.meta}</span>
-              </div>
-              <p className="mt-3 text-xs font-semibold uppercase text-slate-500">Contenu</p>
-              <ul className="mt-2 space-y-1 text-sm text-slate-600">
-                {bloc.objectifs.map((o) => (
-                  <li key={o}>▸ {o}</li>
-                ))}
-              </ul>
-              {bloc.exercice ? (
-                <p className="mt-3 text-sm text-slate-700">
-                  <span className="font-semibold text-slate-900">Atelier pratique.</span> {bloc.exercice}
-                </p>
-              ) : null}
-              {bloc.livrable ? (
-                <p className="mt-4 text-sm text-slate-700">
-                  <span className="font-semibold text-slate-900">Livrable :</span> {bloc.livrable}
+            <div className="mt-4 space-y-1.5 text-base text-slate-800">
+              <p>
+                Intra-entreprise : {libelleTarifIntraParSession(GRILLE.intraHT)}
+                <MentionTvaAsterisque />
+              </p>
+              {GRILLE.interHT != null ? (
+                <p>
+                  Interentreprises : {libelleTarifInterParParticipant(GRILLE.interHT)}
+                  <MentionTvaAsterisque />
                 </p>
               ) : null}
             </div>
-          ))}
+
+            <div className="mt-5 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+              <Link
+                href={LINKS.contact}
+                className={`${OFC_CTA_PRIMARY} inline-flex min-h-11 w-full items-center justify-center px-6 py-3 sm:w-auto`}
+              >
+                Demander un devis
+              </Link>
+              <a
+                href={PDF_HREF}
+                download
+                className={`${OFC_CTA_SECONDARY} inline-flex min-h-11 w-full items-center justify-center gap-2 px-6 py-3 sm:w-auto`}
+              >
+                <Download size={18} aria-hidden />
+                Télécharger le programme
+              </a>
+            </div>
+            <p className="mt-2 text-sm text-slate-600">
+              Réponse sous 48 heures ouvrées · {FINANCEMENT_FORMULATION_COURTE}
+            </p>
+            <p className="mt-2 text-sm">
+              <a href="#informations-pratiques" className={OFC_LINK}>
+                Informations réglementaires Qualiopi
+              </a>
+            </p>
+          </div>
+
+          <div>
+            <FormationHeroPhoto
+              src={CATALOGUE_VISUEL.src}
+              alt={CATALOGUE_VISUEL.alt}
+              width={CATALOGUE_VISUEL.width}
+              height={CATALOGUE_VISUEL.height}
+              title={
+                'title' in CATALOGUE_VISUEL && typeof CATALOGUE_VISUEL.title === 'string'
+                  ? CATALOGUE_VISUEL.title
+                  : undefined
+              }
+              priority
+            />
+          </div>
         </div>
+      </section>
+
+      <section className="border-b border-slate-200 bg-[#F2F2F2] px-4 py-5" aria-label="Preuves et indicateurs">
+        <div className="mx-auto max-w-6xl">
+          <ul className="flex flex-wrap gap-x-5 gap-y-1.5 text-sm text-slate-700 md:text-base">
+            <li>Organisme certifié Qualiopi</li>
+            <li>Formation spécialisée BTP</li>
+            <li>{formatVolumeProsFormesBtpLibelle()}</li>
+            <li>
+              Satisfaction : {formatNoteSatisfactionAffichageComplet()} ({formatPeriodeReferenceAffichage()})
+            </li>
+            <li>
+              Programme actualisé — {FORMATION.programmeVersion} du {FORMATION.programmeUpdatedAt}
+            </li>
+          </ul>
+          <IndicateursResultatsLink className="mt-2 text-left" />
         </div>
       </section>
 
-      <FormationCatalogueIndicateur1Suite programmeRef="NIV-02" />
-
-      <div className="mx-auto max-w-4xl px-4">
-        <FormationIaAppelsOffresOperationalSections />
-      </div>
-
-      <div className="mx-auto max-w-4xl px-4 py-16">
-      <section className="rounded-2xl border border-slate-200 bg-slate-50 p-6 md:p-8">
-        <h2 className="font-display text-xl font-bold text-slate-900">Public &amp; modalités</h2>
-        <p className="mt-4 text-slate-700 leading-relaxed">
-          Cette formation s&apos;adresse aux professionnels qui répondent déjà aux appels d&apos;offres et dure{' '}
-          {SESSION_DUREE_LIBELLE} (75&nbsp;% pratique) avec Claude Pro et Cowork obligatoires.
-        </p>
-        <p className="mt-4 text-slate-700 leading-relaxed">
-          En 2026, seulement 3&nbsp;% des entreprises BTP déclarent un déploiement effectif de l&apos;IA, contre
-          36&nbsp;% de dirigeants prêts à l&apos;adopter (Observatoire des métiers du BTP, cabinet Plein Sens).
-        </p>
-        <ul className="mt-4 space-y-2 text-slate-700">
-          <li className="flex gap-2">
-            <Users className="mt-0.5 h-5 w-5 shrink-0 text-[var(--accent)]" strokeWidth={1.5} />
-            <span>
-              <strong>Public :</strong> {FORMATION_NIV02.public}. Session calibrée pour des profils qui
-              répondent déjà ou préparent des dossiers d&apos;appels d&apos;offres.
-            </span>
-          </li>
-          <li className="flex gap-2">
-            <Calendar className="mt-0.5 h-5 w-5 shrink-0 text-[var(--accent)]" strokeWidth={1.5} />
-            <span>
-              <strong>Format :</strong> action de formation — session unique <strong>{SESSION_DUREE_LIBELLE}</strong>{' '}
-              (75 % pratique / 25 % théorie) en demi-journée : {FORMATION_NIV02.horaires}. Intra-entreprise en
-              présentiel — locaux du client en Île-de-France (75, 77, 78, 91, 92, 93, 94, 95). Forfait{' '}
-              <strong>{TARIFS_DUAL}</strong> (niveau avancé, {LIBELLE_EFFECTIF_GROUPE_NIV02}).
-              Inscription jusqu&apos;à 15 jours calendaires avant le démarrage.
-            </span>
-          </li>
-        </ul>
-        <p className="mt-4 text-sm text-slate-600">
-          Devis et convention :{' '}
-          <a href="mailto:laureolivie@yahoo.fr" className="font-medium text-[var(--accent)] hover:underline">
-            laureolivie@yahoo.fr
-          </a>
-        </p>
+      <section className="border-b border-slate-200 bg-white px-4 py-6">
+        <div className="mx-auto max-w-4xl">
+          <ShortAnswerBlock>{CATALOGUE_SEO.enBref}</ShortAnswerBlock>
+        </div>
       </section>
 
-      <section className="mt-12">
-        <h2 className="font-display text-2xl font-bold text-slate-900">Prérequis</h2>
-        <p className="mt-4 text-slate-700 leading-relaxed">{PREREQUIS_NIV02}</p>
+      <section className="border-b border-slate-200 bg-white px-4 py-8 md:py-10">
+        <div className="mx-auto max-w-6xl">
+          <h2 className="font-display text-2xl font-bold text-slate-900 md:text-3xl">
+            Vos réponses aux appels d’offres mobilisent trop de temps ?
+          </h2>
+          <div className="mt-5 grid gap-3 sm:grid-cols-2">
+            {PROBLEMES.map((item) => (
+              <article key={item.title} className="rounded-2xl border border-slate-200 bg-slate-50 p-4">
+                <h3 className="font-display text-lg font-semibold text-slate-900">{item.title}</h3>
+                <p className="mt-1.5 text-base text-slate-700">{item.texte}</p>
+              </article>
+            ))}
+          </div>
+        </div>
       </section>
 
-      <section className="mt-12">
-        <h2 className="font-display text-2xl font-bold text-slate-900">Objectifs pédagogiques</h2>
-        <p className="mt-4 text-slate-700 leading-relaxed">
-          {AO_FORMATION_PROMESSE} L&apos;objectif est de créer des skills Cowork réutilisables pour analyser un DCE,
-          préparer le chiffrage, structurer un devis et rédiger un mémoire technique aligné sur les critères
-          pondérés du marché.
-        </p>
-        <p className="mt-4 text-slate-700 leading-relaxed">
-          En 2026, les tarifs catalogue sont : {TARIFS_DUAL},{' '}
-          finançable OPCO Constructys selon éligibilité (donnée interne OFC).
-        </p>
-        <ul className="mt-4 space-y-2 text-slate-700">
-          {FORMATION_NIV02.objectifs.map((o) => (
-            <li key={o} className="flex gap-2">
-              <Check className="mt-0.5 h-5 w-5 shrink-0 text-[var(--accent)]" strokeWidth={1.5} />
-              {o}
-            </li>
-          ))}
-        </ul>
-        <p className="mt-4 text-sm leading-relaxed text-slate-500">{GAINS_TEMPS_MENTION_PRUDENCE}</p>
+      <section className="border-b border-slate-200 bg-slate-50 px-4 py-8 md:py-10">
+        <div className="mx-auto max-w-3xl">
+          <h2 className="font-display text-2xl font-bold text-slate-900 md:text-3xl">
+            Après la formation, vous saurez…
+          </h2>
+          <ul className="mt-5 space-y-2">
+            {RESULTATS.map((item) => (
+              <li
+                key={item}
+                className="rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-base text-slate-800"
+              >
+                {item}
+              </li>
+            ))}
+          </ul>
+          <p className="mt-4 text-base leading-relaxed text-slate-700">
+            En quatre heures, l’entreprise construit une méthode guidée pour analyser un DCE, sécuriser la
+            préparation de son chiffrage et structurer un mémoire technique avec l’aide de l’IA — pas une offre
+            prête à déposer sans contrôle humain.
+          </p>
+        </div>
       </section>
 
-      <section className="mt-12">
-        <h2 className="font-display text-2xl font-bold text-slate-900">Méthodes pédagogiques</h2>
-        <p className="mt-4 text-slate-700 leading-relaxed">
-          La pédagogie est quasi exclusivement pratique : chaque module active des skills Cowork sur le DCE réel et
-          l&apos;ancien devis du participant — analyse DCE avec IA, préparation chiffrage, désignations de devis et
-          mémoire technique.
-        </p>
-        <p className="mt-4 text-slate-700 leading-relaxed">
-          En 2026, la session exige un abonnement Claude Pro (environ 18&nbsp;€ HT/mois, à la charge de
-          l&apos;entreprise) et Cowork installé sur le poste du stagiaire (prérequis niveau 2).
-        </p>
-        <ul className="mt-4 space-y-2 text-slate-700">
-          {[
-            '75 % pratique / 25 % théorie — travail sur DCE, devis et mémoires techniques réels des participants',
-            'Workflow 20 étapes : de l\'import DCE au contrôle final, avec 8 assistants IA configurés en session',
-            'Apports méthodologiques courts, démonstrations en direct, exercices guidés en temps réel avec partage d\'écran',
-            'Création de skills IA opérationnels pendant la séance, ateliers sur cas réels et restitutions croisées',
-            'Salle équipée mise à disposition par le client, vidéoprojecteur, connexion internet haut débit',
-          ].map((m) => (
-            <li key={m} className="flex gap-2">
-              <Check className="mt-0.5 h-5 w-5 shrink-0 text-[var(--accent)]" strokeWidth={1.5} />
-              {m}
-            </li>
-          ))}
-        </ul>
+      <section className="border-b border-slate-200 bg-[#F2F2F2] px-4 py-8 md:py-10">
+        <div className="mx-auto max-w-3xl">
+          <h2 className="font-display text-2xl font-bold text-slate-900 md:text-3xl">
+            Travaillez sur un véritable dossier de l’entreprise
+          </h2>
+          <p className="mt-3 text-base leading-relaxed text-slate-700">
+            Avant la session, l’entreprise sélectionne un DCE représentatif, un ancien devis et, si elle en dispose,
+            une trame de mémoire technique. Ces documents servent de fil rouge pendant les exercices.
+          </p>
+          <p className="mt-3 text-base leading-relaxed text-slate-700">
+            La formation s’appuie sur un dossier fil rouge sélectionné avec l’entreprise avant la session. En
+            interentreprises, des dossiers pédagogiques anonymisés peuvent être utilisés.
+          </p>
+          <ol className="mt-5 space-y-2">
+            {ATELIER_ETAPES.map((etape, index) => (
+              <li
+                key={etape}
+                className="flex gap-3 rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-base"
+              >
+                <span className="font-display font-bold text-[#377CF3]">{index + 1}.</span>
+                <span className="text-slate-800">{etape}</span>
+              </li>
+            ))}
+          </ol>
+          <aside
+            className="mt-5 rounded-xl border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-slate-800"
+            role="note"
+          >
+            Les documents doivent être anonymisés. Les informations sensibles, personnelles ou couvertes par une
+            obligation de confidentialité ne doivent pas être déposées dans un outil IA sans cadre adapté.
+          </aside>
+        </div>
+      </section>
+
+      <section id="programme" className="scroll-mt-24 border-b border-slate-200 bg-white px-4 py-8 md:py-10">
+        <div className="mx-auto max-w-4xl">
+          <h2 className="font-display text-2xl font-bold text-slate-900 md:text-3xl">
+            Programme — {SESSION_DUREE_LIBELLE}
+          </h2>
+          <p className="mt-2 max-w-2xl text-base text-slate-600">
+            Atelier collectif, 75&nbsp;% de pratique. Accueil, quatre modules et bilan — total 4 heures.
+          </p>
+          <ProgrammeAccordionAppelsOffre />
+          <p className="mt-4 text-base text-slate-700">
+            Pour les bases IA avant ce niveau, voir la{' '}
+            <Link href={LINKS.formationIaBtpNiveau1BatimentTp} className={OFC_LINK}>
+              formation IA BTP niveau 1
+            </Link>
+            . Pour le cadre marchés publics :{' '}
+            <Link href={LINKS.formationIaMarchePublicTravaux} className={OFC_LINK}>
+              formation IA marché public de travaux
+            </Link>
+            .
+          </p>
+        </div>
+      </section>
+
+      <section className="border-b border-slate-200 bg-slate-50 px-4 py-8 md:py-10">
+        <div className="mx-auto max-w-3xl">
+          <h2 className="font-display text-2xl font-bold text-slate-900 md:text-3xl">Workflow en six étapes</h2>
+          <ol className="mt-5 space-y-2">
+            {WORKFLOW.map((step, index) => (
+              <li
+                key={step}
+                className="flex gap-3 rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-base text-slate-800"
+              >
+                <span className="font-display font-bold text-[#377CF3]">{index + 1}.</span>
+                {step}
+              </li>
+            ))}
+          </ol>
+        </div>
+      </section>
+
+      <section className="border-b border-slate-200 bg-white px-4 py-8 md:py-10">
+        <div className="mx-auto max-w-3xl">
+          <h2 className="font-display text-2xl font-bold text-slate-900 md:text-3xl">Ce que vous emportez</h2>
+          <p className="mt-2 text-base text-slate-600">
+            Une bibliothèque de trames et d’assistants à personnaliser — selon l’avancement du groupe.
+          </p>
+          <ul className="mt-5 grid gap-2 sm:grid-cols-2">
+            {LIVRABLES.map((item) => (
+              <li
+                key={item}
+                className="rounded-xl border border-slate-200 bg-slate-50 px-4 py-2.5 text-base font-medium text-slate-800"
+              >
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      <section className="border-b border-slate-200 bg-[#F2F2F2] px-4 py-8 md:py-10">
+        <div className="mx-auto max-w-4xl">
+          <h2 className="font-display text-2xl font-bold text-slate-900 md:text-3xl">Limites de l’IA</h2>
+          <div className="mt-5 overflow-x-auto rounded-xl border border-slate-200 bg-white">
+            <table className="min-w-full text-left text-sm md:text-base">
+              <caption className="sr-only">Ce que l’IA peut faire et ce que le professionnel valide</caption>
+              <thead className="bg-slate-50">
+                <tr>
+                  <th scope="col" className="px-4 py-3 font-semibold text-slate-900">
+                    L’IA peut aider à
+                  </th>
+                  <th scope="col" className="px-4 py-3 font-semibold text-slate-900">
+                    Le professionnel doit valider
+                  </th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-slate-100">
+                {IA_LIMITS.map((row) => (
+                  <tr key={row.iaAide}>
+                    <td className="px-4 py-3 text-slate-700">{row.iaAide}</td>
+                    <td className="px-4 py-3 text-slate-700">{row.validation}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <p className="mt-4 text-base leading-relaxed text-slate-700">
+            L’IA ne garantit ni l’exhaustivité du chiffrage, ni la conformité de l’offre, ni l’interprétation
+            juridique des documents contractuels.
+          </p>
+        </div>
+      </section>
+
+      <section className="border-b border-slate-200 bg-white px-4 py-8 md:py-10">
+        <div className="mx-auto max-w-3xl">
+          <h2 className="font-display text-2xl font-bold text-slate-900 md:text-3xl">Public et prérequis</h2>
+          <p className="mt-3 text-base text-slate-700">
+            Dirigeants de PME du BTP, responsables d’affaires, chargés d’études, conducteurs de travaux,
+            responsables appels d’offres et artisans répondant déjà à des consultations.
+          </p>
+          <div className="mt-5 grid gap-4 md:grid-cols-2">
+            <div className="rounded-xl border border-slate-200 bg-slate-50 p-4">
+              <h3 className="font-semibold text-slate-900">Prérequis pédagogiques</h3>
+              <ul className="mt-2 list-disc space-y-1 pl-5 text-base text-slate-700">
+                <li>Connaître le fonctionnement général d’un appel d’offres</li>
+                <li>Avoir les bases d’une IA générative (ou le niveau 1)</li>
+              </ul>
+            </div>
+            <div className="rounded-xl border border-slate-200 bg-slate-50 p-4">
+              <h3 className="font-semibold text-slate-900">Prérequis techniques</h3>
+              <ul className="mt-2 list-disc space-y-1 pl-5 text-base text-slate-700">
+                <li>Ordinateur et accès aux outils utilisés</li>
+                <li>Abonnement professionnel à l’outil de session</li>
+                <li>Documents du fil rouge, anonymisés</li>
+              </ul>
+            </div>
+          </div>
+        </div>
       </section>
 
       <section
-        id="parcours-lms"
-        className="mt-12 scroll-mt-24 rounded-2xl border border-slate-200 bg-[var(--accent-soft)] p-6"
+        id="tarifs-modalites"
+        className="scroll-mt-24 border-b border-slate-200 bg-white px-4 py-8 md:py-10"
+        aria-labelledby="tarifs-modalites-title"
       >
-        <h2 className="font-display text-xl font-bold text-slate-900">
-          Ressources sur la plateforme — assistants IA DCE &amp; mémoire technique
-        </h2>
-        <p className="mt-3 text-sm text-slate-700 leading-relaxed">
-          La plateforme OFC peut compléter la session avec des ressources selon convention ; la formation reste
-          dispensée par un organisme certifié Qualiopi — formation catalogue.
-        </p>
-        <p className="mt-3 text-sm text-slate-700 leading-relaxed">
-          Des contenus et approfondissements peuvent compléter la session sur la plateforme (accès selon
-          convention). <strong>Qualiopi</strong>, financement <strong>OPCO Constructys</strong> selon
-          éligibilité — formation catalogue.
-        </p>
-        <p className="mt-4">
-          <Link
-            href={LINKS.formationPlateforme}
-            className="text-sm font-semibold text-[var(--accent)] hover:underline"
-          >
-            Ouvrir la fiche cours sur la plateforme →
-          </Link>
-        </p>
+        <div className="mx-auto max-w-4xl">
+          <h2 id="tarifs-modalites-title" className="font-display text-2xl font-bold text-slate-900 md:text-3xl">
+            Format et tarifs
+          </h2>
+          <div className="mt-5 grid gap-4 md:grid-cols-2">
+            <article className="rounded-2xl border border-slate-200 bg-slate-50 p-5">
+              <h3 className="font-display text-lg font-semibold text-slate-900">Intra-entreprise</h3>
+              <p className="mt-3 font-display text-xl font-bold text-[#377CF3]">
+                {libelleTarifIntraParSession(GRILLE.intraHT)}
+                <MentionTvaAsterisque />
+              </p>
+              <ul className="mt-3 list-disc space-y-1 pl-5 text-base text-slate-700">
+                <li>{SESSION_DUREE_LIBELLE}</li>
+                <li>
+                  {FORMATION.effectifMin} à {FORMATION.effectifMax} participants
+                </li>
+                <li>Dans les locaux de l’entreprise</li>
+                <li>Dossier fil rouge de l’entreprise</li>
+              </ul>
+            </article>
+            <article className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+              <h3 className="font-display text-lg font-semibold text-slate-900">Interentreprises</h3>
+              {GRILLE.interHT != null ? (
+                <p className="mt-3 font-display text-xl font-bold text-[#377CF3]">
+                  {libelleTarifInterParParticipant(GRILLE.interHT)}
+                  <MentionTvaAsterisque />
+                </p>
+              ) : null}
+              <ul className="mt-3 list-disc space-y-1 pl-5 text-base text-slate-700">
+                <li>{SESSION_DUREE_LIBELLE}</li>
+                <li>Dates selon le calendrier disponible</li>
+                <li>Dossier pédagogique commun</li>
+                <li>Session maintenue sous réserve d’un nombre minimum d’inscrits</li>
+              </ul>
+            </article>
+          </div>
+          <p className="mt-4 text-sm leading-relaxed text-slate-600">{MENTION_ABONNEMENTS_IA_HORS_FORFAIT}</p>
+          <MentionTVA className="mt-2" />
+          <p className="mt-2 text-sm leading-relaxed text-slate-600">
+            Financement possible par votre OPCO selon votre éligibilité, les plafonds applicables et les budgets
+            disponibles. Un reste à charge peut s’appliquer.{' '}
+            <Link href={LINKS.financement} className={OFC_LINK}>
+              Financement Constructys — formation IA pour le BTP
+            </Link>
+            .
+          </p>
+        </div>
       </section>
 
-      <section className="mt-12 rounded-2xl border border-[var(--accent)] bg-[var(--accent-soft)] p-6">
-        <h2 className="font-display text-xl font-bold text-slate-900">Livrables &amp; tarification</h2>
-        <p className="mt-4 text-sm text-slate-700 leading-relaxed">
-          Tarifs : {TARIFS_DUAL} avec Cowork configuré, trames DCE/chiffrage/MT, bibliothèque de
-          prompts AO BTP et 8 assistants IA opérationnels.
-        </p>
-        <p className="mt-4 text-sm text-slate-700 leading-relaxed">
-          Satisfaction publiée : {formatNoteSatisfactionAffichageComplet()} — OFC ({getStatsFreshnessLabel()}).
-        </p>
-        <IndicateursResultatsLink className="mt-2 text-left" />
-        <ul className="mt-4 space-y-2 text-sm text-slate-700">
-          <li>
-            <strong>Durée :</strong> {SESSION_DUREE_LIBELLE} · Tarifs : {TARIFS_DUAL}{' '}
-            (niveau avancé, {LIBELLE_EFFECTIF_GROUPE_NIV02}) · <strong>Financement :</strong>{' '}
-            prise en charge possible par les OPCO (Constructys, OPCO 2i, Akto…) selon éligibilité — plafonnée par
-            l&apos;OPCO, reste à charge possible · <strong>Inscription :</strong> jusqu&apos;à 15 jours calendaires
-            avant le démarrage.
-          </li>
-          <li>
-            <strong>Supports remis :</strong> support de formation numérique, compte Claude Pro configuré avec Project
-            dédié AO, Cowork installé avec 8 assistants IA opérationnels,{' '}
-            {AO_LIVRABLES_FORMATION.slice(0, 5).join(', ').toLowerCase()} et{' '}
-            {AO_LIVRABLES_FORMATION.length - 5} autres trames et prompts (voir section livrables).
-          </li>
-          <li>
-            <strong>Évaluation :</strong> questionnaire de positionnement amont, auto-positionnement entrée/sortie,
-            évaluation continue sur exercices pratiques, questionnaire de satisfaction à chaud et à froid (J+30),
-            certificat de réalisation et attestation individuelle de fin de formation.
-          </li>
-        </ul>
+      <section className="border-b border-slate-200 bg-slate-50 px-4 py-8 md:py-10">
+        <div className="mx-auto grid max-w-4xl items-center gap-5 md:grid-cols-[120px_minmax(0,1fr)]">
+          <Image
+            src={PORTRAIT.src}
+            alt={PORTRAIT.alt}
+            title={PORTRAIT.title}
+            width={PORTRAIT.width}
+            height={PORTRAIT.height}
+            className="mx-auto h-24 w-24 rounded-full object-cover ring-4 ring-white"
+            sizes="96px"
+          />
+          <div>
+            <h2 className="font-display text-2xl font-bold text-slate-900 md:text-3xl">
+              Une formation conçue par une spécialiste de l’IA appliquée au BTP
+            </h2>
+            <p className="mt-3 text-base leading-relaxed text-slate-700">
+              Laure Olivié, OFC Création d’Entreprise (Qualiopi). Expérience du bâtiment et des travaux publics,
+              spécialisation IA appliquée aux métiers du BTP. Références : FFB Grand Paris, CSFE, CNAM Entreprise,
+              Lefebvre Dalloz.
+            </p>
+            <p className="mt-3 flex flex-wrap gap-x-4 gap-y-2 text-base">
+              <Link href={LINKS.aPropos} className={OFC_LINK}>
+                Page À propos — Laure Olivié
+              </Link>
+              <Link href={LINKS.avisClients} className={OFC_LINK}>
+                Avis clients
+              </Link>
+              <Link href={LINKS.indicateursResultats} className={OFC_LINK}>
+                Indicateurs de résultats
+              </Link>
+              <Link href={LINKS.qualiopi} className={OFC_LINK}>
+                Certification Qualiopi
+              </Link>
+            </p>
+          </div>
+        </div>
       </section>
 
-      <RelatedLinks path={LINKS.formationAO} />
-
-      <ContextualLinksSection
-        title="Pour aller plus loin"
-        subtitle="Guides pratiques DCE, CCTP, NotebookLM et chiffrage BPU — angles complémentaires à la session formation."
-        links={FORMATION_AO_CLUSTER_ARTICLES}
-        tone="white"
+      {/* Marqueur audit Qualiopi fiches : catalogueRef="NIV-02" */}
+      <CatalogueInfosPratiques
+        programmeRef="NIV-02"
+        compact
+        publicCible={FORMATION.public}
       />
-
       <FAQSection
         items={FAQ_APPELS_OFFRE}
         title="Questions fréquentes"
-        subtitle="Public, durée, livrables."
+        id="faq-niv-02"
+        className="border-b border-slate-200 bg-slate-50 px-4 py-8 md:py-10"
       />
 
-      <ContextualLinksSection
-        title="Pages associées"
-        subtitle="niveau 1 — productivité, guides DCE/CCTP et financement OPCO."
-        links={FORMATION_NIV02_RELATED.filter((l) => !getClusterRelatedHrefs(LINKS.formationAO).includes(l.href))}
-        tone="muted"
-      />
-
-      <div className="mt-10 flex flex-wrap gap-4">
-        <RdvLink
-          campaign="formations-ia-appels-offre-btp-footer"
-          ctaPosition="footer"
-          ctaId="footer-rdv"
-          variant="primary"
-          className="rounded-xl px-6 py-3.5"
-         />
-      </div>
-
-      <div className="mt-10">
-        <AllerPlusLoin
-          links={[
-            { href: LINKS.formations, label: 'Catalogue formations' },
-            {
-              href: LINKS.guideRepondreAoBtpOfc2026,
-              label: 'Guide gratuit — répondre AO BTP (5 étapes)',
-            },
-            { href: LINKS.formationPlateforme, label: 'Cours sur la plateforme' },
-            { href: LINKS.prendreRdv, label: CTA_RDV_LABEL },
-            { href: LINKS.financement, label: 'Financement Constructys' },
-          ]}
-        />
-      </div>
-      </div>
-
+      <section className="bg-[#377CF3] px-4 py-8 md:py-10 text-white">
+        <div className="mx-auto max-w-2xl text-center">
+          <h2 className="font-display text-2xl font-bold md:text-3xl">
+            Analysez un dossier réel avec votre équipe
+          </h2>
+          <p className="mt-3 text-lg text-blue-100">
+            Lors d’un rendez-vous de 30 minutes, nous vérifions vos objectifs, vos prérequis et le dossier qui
+            pourra servir de fil rouge pendant la formation.
+          </p>
+          <div className="mt-5 flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:flex-wrap sm:justify-center">
+            <Link
+              href={LINKS.prendreRdv}
+              className="inline-flex min-h-11 items-center justify-center rounded-xl bg-white px-6 py-3 font-semibold text-[#377CF3]"
+            >
+              Prendre rendez-vous
+            </Link>
+            <a
+              href={MAIL_PROGRAMME}
+              className="inline-flex min-h-11 items-center justify-center rounded-xl border-2 border-white px-6 py-3 font-semibold text-white"
+            >
+              Demander le programme
+            </a>
+          </div>
+          <p className="mt-4 text-sm text-blue-100">{SITE_CONFIG.email}</p>
+          <p className="mt-3 text-sm text-blue-100">
+            <Link href={LINKS.tutoAnalyseDce} className="underline hover:text-white">
+              Tutoriel analyser un DCE
+            </Link>
+            {' · '}
+            <Link href={LINKS.guideRepondreAoBtpOfc2026} className="underline hover:text-white">
+              Guide répondre aux AO
+            </Link>
+            {' · '}
+            <Link href={LINKS.ressources} className="underline hover:text-white">
+              Ressources
+            </Link>
+          </p>
+        </div>
+      </section>
     </div>
   );
 }

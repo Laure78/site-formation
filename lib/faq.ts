@@ -223,7 +223,7 @@ export const FAQ_GEO: FAQItem[] = [
   },
   {
     q: "Formation IA appels d'offres BTP : quel programme ?",
-    a: `Formation <a href="/formations/ia-appels-offre-btp">IA appels d'offres BTP</a> (session 4 h, niveau avancé) : assistants IA DCE et mémoire technique avec Claude AI Pro, Cowork & Skills. Public : responsables d'affaires, conducteurs de travaux, chargés d'études, bureaux d'études. ${FINANCEMENT_FORMULATION_COURTE} Formatrice : Laure Olivié (${formatProsFormesEtNoteQualiopi()}). Programme certifié Qualiopi.`,
+    a: `Formation <a href="/formations/ia-appels-offre-btp">IA appels d'offres BTP</a> (session 4 h, niveau intermédiaire) : méthode guidée pour analyser un DCE, préparer le chiffrage et structurer un mémoire technique avec l'IA. Public : responsables d'affaires, conducteurs de travaux, chargés d'études, bureaux d'études. ${FINANCEMENT_FORMULATION_COURTE} Formatrice : Laure Olivié (${formatProsFormesEtNoteQualiopi()}). Programme certifié Qualiopi.`,
   },
 ];
 
@@ -641,32 +641,28 @@ export const FAQ_CONDUITE_TRAVAUX_NIV03: FAQItem[] = [
 /** FAQ Formation IA Appels d'offres BTP — NIV-02 */
 export const FAQ_APPELS_OFFRE: FAQItem[] = [
   {
-    q: "L'IA peut-elle rédiger mon mémoire technique sur un marché public ?",
-    a: `Elle structure et rédige à partir de vos références réelles — pas à votre place sur le fond technique. Dans cette formation, vous créez des skills Cowork pour analyser le DCE et produire un MT aligné sur les critères pondérés, avec relecture experte obligatoire. L'IA ne peut pas inventer vos chantiers ni vos effectifs.`,
+    q: 'Cette formation est-elle adaptée aux débutants ?',
+    a: `Non en premier niveau. Il faut connaître le fonctionnement général d’un appel d’offres et disposer des bases d’une IA générative (ou avoir suivi la <a href="${LINKS.formationIaBtpNiveau1BatimentTp}">formation IA BTP niveau 1</a>). La session est un atelier pratique de ${SESSION_DUREE_LIBELLE} sur un dossier fil rouge.`,
   },
   {
-    q: 'Faut-il payer Claude Pro pour suivre la formation appels d\'offres ?',
-    a: `Oui. ${EXIGENCE_CLAUDE_PRO_NIVEAU_AVANCE} Cowork doit être installé sur le poste — comptes gratuits insuffisants pour cette session. Prévoir aussi un DCE complet récent et 2 à 3 mémoires techniques de votre entreprise.`,
+    q: 'Quels documents devons-nous préparer ?',
+    a: 'En intra-entreprise : un DCE représentatif, un ancien devis et, si possible, une trame de mémoire technique. Ces documents servent de fil rouge collectif. En interentreprises, des dossiers pédagogiques anonymisés peuvent être utilisés.',
   },
   {
-    q: 'Combien de temps pour analyser un DCE avec Cowork après la formation ?',
-    a: `Les participants visent une fiche synthèse (15 infos critiques, verdict Go/No Go) en une fraction du temps d'une lecture manuelle complète — le gain dépend du volume de pièces. En session, le module 2 (1 h 15) est entièrement dédié à cette méthode sur votre AO réel.`,
+    q: 'Peut-on travailler sur un DCE confidentiel ?',
+    a: 'Oui, sous réserve d’anonymisation et du respect des règles internes de l’entreprise. Les informations sensibles, personnelles ou couvertes par une obligation de confidentialité ne doivent pas être déposées dans un outil IA sans cadre adapté.',
   },
   {
-    q: 'Une TPE qui répond seule aux AO est-elle au bon niveau ?',
-    a: `Oui si vous répondez déjà à des marchés et maîtrisez les bases de l'IA (ou la <a href="${LINKS.formationIaBtpNiveau1BatimentTp}">formation niveau 1</a>). La session est calibrée 8 à 12 participants, 75 % pratique sur vos dossiers — pas de théorie inutile.`,
+    q: 'Claude Pro ou un autre abonnement est-il obligatoire ?',
+    a: `Un abonnement professionnel à l’outil utilisé pendant la session est requis — non inclus dans le tarif. ${EXIGENCE_CLAUDE_PRO_NIVEAU_AVANCE} Les comptes gratuits sont insuffisants pour ce niveau.`,
   },
   {
-    q: 'La formation appels d\'offres est-elle finançable Constructys en 2026 ?',
-    a: `Oui, selon éligibilité : organisme Qualiopi, session ${SESSION_DUREE_LIBELLE}, ${libelleTarifsDualCourt(4)}. ${FINANCEMENT_FORMULATION_PRUDENTE} Dépôt dossier eGestion au moins 15 jours avant — <a href="${LINKS.financement}">financement Constructys formation IA BTP</a>.`,
+    q: 'L’IA peut-elle réaliser automatiquement le chiffrage ?',
+    a: 'Non. L’IA aide à préparer une checklist et à repérer des écarts apparents. Les prix, quantités, métrés, déboursés et marges restent sous la responsabilité du professionnel. Aucun chiffrage définitif ni offre prête à déposer n’est promis.',
   },
   {
-    q: 'Quels livrables je repars avec après les 4 heures ?',
-    a: `Compte Claude Pro configuré, Project AO, Cowork avec 8 assistants IA opérationnels (analyse DCE, CCTP, contrôle DPGF, chiffrage, devis, mémoire technique, contrôle avant dépôt), trames DCE/chiffrage/MT, bibliothèque de prompts AO BTP et supports plateforme selon convention. Kit complémentaire : <a href="/checklist-ia-btp">checklist prompts IA BTP</a>.`,
-  },
-  {
-    q: 'La formation couvre-t-elle le chiffrage et les devis, ou seulement le mémoire technique ?',
-    a: `Les deux. Analyse DCE complète (RC, CCTP, CCAP, DPGF, BPU), comparaison CCTP/DPGF, checklist de chiffrage, comparaison avec un ancien devis, désignations d'ouvrages et structuration de devis — puis mémoire technique et contrôle final. L'IA assiste l'analyse et facilite le contrôle ; le chiffrage final reste à valider par votre équipe.`,
+    q: 'La formation peut-elle être financée par Constructys ?',
+    a: `${FINANCEMENT_FORMULATION_COURTE} Les critères, plafonds et budgets dépendent de votre dossier. Aucun accord OPCO n’est promis à l’avance. Organisme certifié Qualiopi — actions de formation.`,
   },
 ];
 
@@ -710,7 +706,7 @@ export const FAQ_FORMATION_IA_APPELS_OFFRES_LANDING: FAQItem[] = [
   {
     q: "La formation couvre-t-elle uniquement les mémoires techniques ou aussi le chiffrage ?",
     a:
-      "Les deux. Analyse DCE avec IA (RC, CCTP, CCAP, DPGF, BPU), comparaison CCTP/DPGF, checklist de chiffrage assisté, comparaison avec un ancien devis, désignations d'ouvrages, structuration de devis, mémoire technique aligné critères RC et 8 assistants IA réutilisables. L'IA ne garantit pas l'exhaustivité du chiffrage — validation métier obligatoire. Programme : <a href=\"/formations/ia-appels-offre-btp\">L'IA appliquée aux appels d'offres BTP</a>.",
+      "Analyse DCE avec IA (RC, CCTP, CCAP, DPGF, BPU), comparaison CCTP/DPGF, checklist de chiffrage assisté, comparaison avec un ancien devis, structuration d'un mémoire technique selon le RC et trames réutilisables. L'IA ne garantit pas l'exhaustivité du chiffrage — validation métier obligatoire. Programme : <a href=\"/formations/ia-appels-offre-btp\">L'IA appliquée aux appels d'offres BTP</a>.",
   },
 ];
 

@@ -35,11 +35,12 @@ export const PROGRAMME_CONTENU_CATALOGUE: Record<FormationCode, readonly string[
     'Module 4 — Communication professionnelle',
   ],
   'NIV-02': [
-    'Accueil, cadrage et positionnement (15 min)',
-    'Module 1 — Paramétrage de Claude AI Pro et de Cowork',
-    'Module 2 — Analyse express de DCE avec Cowork',
-    'Module 3 — Rédiger son mémoire technique avec Cowork',
-    'Bilan, plan d\'action et clôture (15 min)',
+    'Accueil et cadrage (15 min)',
+    'Module 1 — Préparer l’analyse du DCE (45 min)',
+    'Module 2 — Analyser et croiser les pièces (1 h)',
+    'Module 3 — Préparer le chiffrage (45 min)',
+    'Module 4 — Structurer le mémoire technique (1 h)',
+    'Bilan, plan d’action et clôture (15 min)',
   ],
   'NIV-03': [
     'Module 1 — Installation & démarrage de chantier',
@@ -105,7 +106,7 @@ export const MODALITE_PEDAGOGIQUE_NIV02 =
   'Action de formation — intra-entreprise — 100 % présentiel — 75 % pratique / 25 % théorie';
 
 export const PREREQUIS_NIV02 =
-  "Formation de niveau 2 : bases d'une IA générative acquises, ou avoir suivi la session « L'IA au service des professionnels du BTP » (niveau 1). Abonnement Claude Pro actif (environ 18 € HT / mois, à la charge de l'entreprise) avec Cowork installé. Chaque participant apporte un DCE complet récent (RC + CCAP + CCTP) et 2 à 3 mémoires techniques de son entreprise.";
+  "Formation de niveau 2 : bases d'une IA générative acquises, ou avoir suivi la session « L'IA au service des professionnels du BTP » (niveau 1). Connaître le fonctionnement général d'un appel d'offres. Abonnement professionnel à l'outil utilisé pendant la session (Claude AI Pro avec Cowork installé selon le programme) — non inclus dans le tarif. En intra-entreprise : dossier fil rouge sélectionné avec l'entreprise (DCE représentatif, ancien devis, trame de mémoire technique si disponible), documents anonymisés.";
 
 export const MODALITES_ACCES_NIV02 =
   "Inscription sur demande auprès d'OFC (laureolivie@yahoo.fr — 06 95 66 18 18) : entretien d'analyse du besoin et vérification des prérequis → devis et programme personnalisé → convention de formation signée → demande de prise en charge OPCO → convocation des participants. Un questionnaire de positionnement est adressé à chaque participant avant la session.";

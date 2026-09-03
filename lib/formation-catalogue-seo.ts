@@ -58,24 +58,24 @@ export const FORMATION_CATALOGUE_SEO: Record<FormationCatalogueCode, FormationCa
     ],
   },
   'NIV-02': {
-    metaTitle: 'Formation IA appels d\'offres BTP | DCE & MT',
-    h1: 'Formation IA appels d\'offres BTP : DCE, chiffrage et mémoire technique',
+    metaTitle: 'Formation IA appels d’offres BTP | DCE et mémoire',
+    h1: 'Formation IA appels d’offres BTP : analyser un DCE et préparer son mémoire technique',
     subtitle:
-      'Analysez un DCE complet, préparez le chiffrage assisté et structurez votre mémoire technique — sur vos dossiers réels avec Claude Cowork.',
+      'Apprenez à extraire les exigences d’un DCE, préparer les points de contrôle du chiffrage et structurer un mémoire technique avec l’aide de l’IA. Atelier pratique sur un dossier réel de l’entreprise.',
     metaDescription:
-      'Formation IA appels d\'offres BTP : DCE, CCTP, chiffrage assisté et mémoire technique avec Claude. 4 h présentiel, Qualiopi, financement OPCO selon éligibilité.',
-    enBref: `La formation IA appels d'offres BTP apprend à analyser un DCE (RC, CCTP, CCAP, DPGF), préparer une checklist de chiffrage, comparer un devis et structurer un mémoire technique avec Claude AI Pro et Cowork. ${SESSION_DUREE_LIBELLE} en présentiel — ${QUALIOPI_MENTION}. L'IA assiste l'analyse ; le chiffrage final reste à valider par le professionnel.`,
+      'Formation IA pour le BTP : analyser un DCE, préparer le chiffrage et structurer un mémoire technique avec l’IA. 4 h, présentiel en Île-de-France.',
+    enBref: `La formation IA appels d’offres BTP construit une méthode guidée pour analyser un DCE, préparer une checklist de chiffrage et structurer un mémoire technique avec l’aide de l’IA. ${SESSION_DUREE_LIBELLE} en présentiel sur un dossier fil rouge — ${QUALIOPI_MENTION}. L’IA assiste l’analyse ; le chiffrage et les engagements restent à valider par le professionnel.`,
     publicTargets: [
-      'Chargés d\'affaires et responsables appels d\'offres',
-      'Conducteurs de travaux impliqués dans les réponses aux marchés',
-      'Dirigeants PME BTP et artisans du second œuvre',
-      'Assistants commerciaux et chargés d\'études',
+      'Dirigeants de PME du BTP',
+      'Responsables d’affaires et chargés d’études',
+      'Conducteurs de travaux et responsables appels d’offres',
+      'Artisans répondant déjà à des consultations',
     ],
     iaLimits: [
-      { iaAide: 'Synthétiser un DCE et extraire les prestations', validationHumaine: 'Valider l\'interprétation contractuelle et le chiffrage' },
-      { iaAide: 'Comparer CCTP et DPGF', validationHumaine: 'Confirmer les postes oubliés et les quantités' },
-      { iaAide: 'Rédiger des désignations de devis', validationHumaine: 'Valider prix et périmètre des ouvrages' },
-      { iaAide: 'Structurer un mémoire technique', validationHumaine: 'Vérifier références, moyens et engagements réels' },
+      { iaAide: 'Synthétiser une pièce et extraire des exigences', validationHumaine: 'Valider l’interprétation contractuelle' },
+      { iaAide: 'Comparer CCTP et DPGF', validationHumaine: 'Confirmer prestations, quantités et métrés' },
+      { iaAide: 'Préparer une checklist de chiffrage', validationHumaine: 'Valider prix, marges et périmètre' },
+      { iaAide: 'Structurer un mémoire technique', validationHumaine: 'Vérifier moyens et engagements remis' },
     ],
   },
   'NIV-03': {

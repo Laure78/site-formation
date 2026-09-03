@@ -70,18 +70,23 @@ export const FORMATION_CATALOGUE_GEO_EXTENDED: Record<
   },
   'NIV-02': {
     queApprendre:
-      'Analyser un DCE complet, préparer le chiffrage assisté, structurer un mémoire technique et configurer des assistants IA réutilisables pour les appels d’offres.',
-    documentsBtp: ['DCE (RC, CCTP, CCAP, DPGF, BPU)', 'Mémoires techniques', 'Devis et comparatifs', 'Checklists Go / No-Go'],
+      'Organiser un DCE, extraire les exigences, croiser les pièces, préparer une checklist de chiffrage et structurer un mémoire technique avec une méthode guidée réutilisable.',
+    documentsBtp: ['DCE (RC, CCTP, CCAP, DPGF, BPU)', 'Ancien devis', 'Trame de mémoire technique', 'Checklist avant dépôt'],
     outilsIa: ['Claude AI Pro', 'Claude Cowork'],
     dureeReponse: '',
-    livrables: ['Grille d’analyse DCE', 'Structure de mémoire technique', 'Assistants IA appels d’offres configurés'],
+    livrables: [
+      'Grille de lecture du DCE',
+      'Checklist des points de chiffrage',
+      'Structure de mémoire technique',
+      'Bibliothèque de prompts et méthode de validation',
+    ],
     debutants:
-      'Non en prérequis strict — bases IA ou niveau 1 recommandé. Abonnement Claude Pro requis pour Cowork.',
+      'Non : bases d’une IA générative et connaissance générale des appels d’offres requises. Abonnement professionnel à l’outil de session obligatoire.',
     propresDossiers:
-      'Oui — chaque participant apporte un DCE complet récent et des mémoires techniques de son entreprise.',
+      'Oui en intra : un dossier fil rouge collectif (DCE, ancien devis, trame MT) sélectionné avec l’entreprise. En interentreprises : dossiers pédagogiques anonymisés possibles.',
     iaRemplacePro:
-      'Non pour le chiffrage final ni les engagements contractuels. L’IA aide à structurer l’analyse ; le professionnel valide prix, quantités et conformité.',
-    deroulement: `${MODALITE_PEDAGOGIQUE_CATALOGUE}. 75 % pratique sur DCE, devis et mémoires réels. Session en 4 modules + accueil et clôture.`,
+      'Non. L’IA n’assure ni chiffrage définitif, ni conformité de l’offre, ni interprétation juridique. Le professionnel valide prix, quantités, moyens et engagements.',
+    deroulement: `${MODALITE_PEDAGOGIQUE_CATALOGUE}. 75 % pratique sur un dossier fil rouge. Accueil, quatre modules et bilan — total 4 heures.`,
     clusterMaillage: [
       ...CLUSTER_BASE,
       { href: LINKS.iaAnalyseDce, label: 'Analyser un DCE avec l’IA' },

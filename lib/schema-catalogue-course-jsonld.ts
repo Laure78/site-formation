@@ -125,9 +125,9 @@ export const CATALOGUE_COURSE_IA_AO_NIV02: CatalogueCourseJsonLdConfig = {
   path: LINKS.formationAO,
   name: "L'IA appliquée aux appels d'offres BTP",
   description:
-    "Formation IA appels d'offres BTP : DCE réel, chiffrage assisté, devis et mémoire technique (Claude AI Pro, Cowork & 8 assistants IA). 4 h, intra-entreprise présentiel, 8 à 12 participants.",
+    'Formation IA appels d’offres BTP : méthode guidée pour analyser un DCE, préparer le chiffrage et structurer un mémoire technique avec l’IA. 4 h, présentiel Île-de-France, 8 à 12 participants.',
   price: prixCatalogue('NIV-02'),
-  keywords: ['DCE', 'chiffrage BTP', 'mémoire technique', 'Claude AI Pro', 'Cowork', 'assistants IA'],
+  keywords: ['formation IA appels d’offres BTP', 'DCE', 'mémoire technique', 'chiffrage BTP', 'CCTP', 'DPGF'],
   courseCode: 'NIV-02',
   educationalLevel: 'Advanced',
 };

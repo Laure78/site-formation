@@ -98,10 +98,14 @@ export const FORMATIONS: readonly Formation[] = [
   {
     code: 'NIV-02',
     slug: 'ia-appels-offre-btp',
-    titre: "Formation IA appels d'offres BTP : DCE, chiffrage et mémoire technique",
+    titre: 'Formation IA appels d’offres BTP : analyser un DCE et préparer son mémoire technique',
     promesse:
-      'Analyser un DCE complet et préparer une réponse structurée : chiffrage assisté, mémoire technique et assistants réutilisables.',
-    casUsageCourts: ['Synthétiser un DCE (RC, CCTP, CCAP)', 'Préparer le chiffrage assisté', 'Structurer un mémoire technique'],
+      'En quatre heures, construire une méthode guidée pour analyser un DCE, préparer le chiffrage et structurer un mémoire technique avec l’IA.',
+    casUsageCourts: [
+      'Extraire les exigences d’un DCE',
+      'Préparer une checklist de chiffrage',
+      'Structurer un mémoire technique',
+    ],
     gamme: 'appliquer-metier',
     theme: 'appels-offres-etudes',
     niveau: 2,
@@ -112,20 +116,18 @@ export const FORMATIONS: readonly Formation[] = [
     effectifMax: 12,
     prixHT: 1200,
     accroche:
-      'DCE réel, devis réel, chiffrage assisté, mémoire technique — Claude AI Pro, Cowork & 8 assistants IA réutilisables.',
+      'Atelier pratique sur un dossier fil rouge : analyser un DCE, préparer le chiffrage et structurer un mémoire technique avec l’IA.',
     objectifs: [
-      'Paramétrer Claude AI Pro (Projects, instructions personnalisées) pour l\'adapter à son métier et à ses appels d\'offres',
-      'Analyser un DCE complet (RC, CCTP, CCAP, DPGF, BPU, plans) via Cowork — synthèse structurée et extraction des prestations du lot entreprise',
-      'Comparer CCTP, DPGF, CCAP et RC pour repérer incohérences, informations manquantes et points nécessitant une question à la MOE',
-      'Préparer le chiffrage avec une checklist de postes, comparer un ancien devis au DCE et identifier les postes potentiellement oubliés — validation métier obligatoire',
-      'Améliorer les désignations d\'ouvrages et structurer un devis à partir des prestations identifiées (IA devis bâtiment en aide, pas en substitut)',
-      'Structurer un plan de mémoire technique adapté aux critères et pondérations du RC, rédiger les sections clés avec les skills dédiés',
-      'Créer et configurer 8 assistants ou skills réutilisables (analyse DCE, CCTP, contrôle DPGF, chiffrage, devis, mémoire technique, contrôle avant dépôt)',
-      'Effectuer un contrôle final de cohérence de l\'offre et valider toute production IA (anti-hallucination, relecture experte) avant remise',
+      'Organiser les pièces d’un DCE (RC, CCTP, CCAP, DPGF, BPU) avant analyse assistée par l’IA',
+      'Extraire les exigences importantes avec citation des pièces sources',
+      'Comparer le RC, le CCTP, le CCAP et la DPGF pour repérer écarts, manques et questions à la MOE',
+      'Créer une checklist des points à vérifier avant le chiffrage et la comparer à un ancien devis — validation métier obligatoire',
+      'Structurer un plan de mémoire technique selon les critères et pondérations du RC, et rédiger une section de façon guidée',
+      'Réutiliser une méthode de travail (trames, prompts, contrôles humains) sur les prochains dossiers',
     ],
     public:
-      'Dirigeants, responsables d\'affaires, chargés d\'études, conducteurs de travaux et directeurs techniques de TPE/PME du BTP et de bureaux d\'études',
-    casUsage: 'DCE, mémoires techniques, skills Cowork',
+      'Dirigeants de PME du BTP, responsables d’affaires, chargés d’études, conducteurs de travaux, responsables appels d’offres et artisans répondant déjà à des consultations',
+    casUsage: 'DCE, checklist de chiffrage, mémoire technique',
     pdfProgramme:
       '/formations/ia-appels-offre-btp/Programme_IA_AO_DCE_MT_ClaudePro_OFC.pdf',
     programmeVersion: 'Version 2',
