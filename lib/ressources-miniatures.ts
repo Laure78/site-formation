@@ -43,6 +43,12 @@ export const RESSOURCES_MINIATURES = {
     width: 1200,
     height: 675,
   },
+  guideConducteurTravaux: {
+    src: `${BASE}/miniature-guide-conducteur-travaux.jpg`,
+    alt: 'Conducteur de travaux casque et gilet, tablette et plans — guide IA chantier BTP',
+    width: 1024,
+    height: 1024,
+  },
   guideDirigeant: {
     src: `${BASE}/miniature-guide-dirigeant-btp.jpg`,
     alt: 'Dirigeant BTP en costume au bureau vue chantier — guide IA pilotage PME Île-de-France',
@@ -51,9 +57,9 @@ export const RESSOURCES_MINIATURES = {
   },
   guideRh: {
     src: `${BASE}/miniature-guide-rh-btp.jpg`,
-    alt: 'Responsable RH BTP au téléphone et laptop — guide IA recrutement formation pros du BTP',
-    width: 1200,
-    height: 675,
+    alt: 'Guide des RH du BTP — professionnelle au bureau avec CV et laptop, formation IA BTP',
+    width: 1024,
+    height: 1024,
   },
   guideAssistantsTravaux: {
     src: `${BASE}/miniature-guide-assistants-travaux.jpg`,
