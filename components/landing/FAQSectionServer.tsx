@@ -12,6 +12,8 @@ type FAQSectionServerProps = {
   title?: string;
   subtitle?: string;
   id?: string;
+  /** Remplace les classes de section par défaut (ex. espacement plus compact). */
+  className?: string;
 };
 
 /**
@@ -22,9 +24,10 @@ export function FAQSectionServer({
   title = 'Questions fréquentes',
   subtitle,
   id = 'faq',
+  className,
 }: FAQSectionServerProps) {
   return (
-    <section id={id} className={OFC_SEC.muted}>
+    <section id={id} className={className ?? OFC_SEC.muted}>
       <div className="mx-auto max-w-3xl">
         <div className="inline-flex items-center gap-2 rounded-full bg-[var(--accent)] px-4 py-2 text-sm font-medium text-white">
           <span>FAQ</span>

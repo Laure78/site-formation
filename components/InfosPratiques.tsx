@@ -208,10 +208,10 @@ export function InfosPratiques({
     <section
       id="informations-pratiques"
       aria-labelledby="infos-pratiques-heading"
-      className={`scroll-mt-28 px-4 py-14 md:py-16 ${className}`.trim()}
+      className={`scroll-mt-28 px-4 ${compact ? 'py-8 md:py-10' : 'py-14 md:py-16'} ${className}`.trim()}
     >
       <div
-        className={`mx-auto max-w-4xl rounded-lg bg-[#F2F2F2] px-5 py-8 md:px-8 md:py-10 ${poppins.className}`}
+        className={`mx-auto max-w-4xl rounded-lg bg-[#F2F2F2] px-4 py-5 md:px-6 md:py-6 ${poppins.className}`}
       >
         {compact ? (
           <details className="group">
@@ -260,16 +260,19 @@ export function CatalogueInfosPratiques({
   programmeRef,
   compact = false,
   publicCible,
+  className,
 }: {
   programmeRef: string;
   compact?: boolean;
   publicCible?: string;
+  className?: string;
 }) {
   return (
     <InfosPratiques
       formation={getInfosPratiquesForCatalogue(programmeRef)}
       compact={compact}
       publicCible={publicCible}
+      className={className}
     />
   );
 }

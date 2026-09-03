@@ -121,38 +121,38 @@ export default function FormationIAuServiceDuBatimentPage() {
       <JsonLd id="schema-course-niv-01" schema={courseSchema} />
       {faqSchema ? <JsonLd id="schema-faq" schema={faqSchema} /> : null}
 
-      <section className="border-b border-slate-200 bg-white px-4 py-12 md:py-16">
-        <div className="mx-auto grid max-w-6xl items-start gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(240px,400px)]">
+      <section className="border-b border-slate-200 bg-white px-4 py-8 md:py-10">
+        <div className="mx-auto grid max-w-6xl items-start gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(240px,360px)] lg:gap-8">
           <div className="min-w-0">
             <Link href={LINKS.formations} className={`${OFC_LINK} text-sm`}>
               Catalogue des formations IA pour le BTP
             </Link>
-            <p className="mt-4 inline-flex rounded-full border border-[#377CF3]/25 bg-[#377CF3]/5 px-3 py-1 text-sm font-semibold text-[#377CF3]">
+            <p className="mt-3 inline-flex rounded-full border border-[#377CF3]/25 bg-[#377CF3]/5 px-3 py-1 text-sm font-semibold text-[#377CF3]">
               Niveau 1 · Débutant · 4 heures
             </p>
             <h1
               id="formation-niv-01-h1"
-              className="mt-4 font-display text-3xl font-bold tracking-tight text-slate-900 md:text-4xl"
+              className="mt-3 font-display text-3xl font-bold tracking-tight text-slate-900 md:text-4xl"
             >
               {CATALOGUE_SEO.h1}
             </h1>
-            <p className="mt-4 max-w-2xl text-lg leading-relaxed text-slate-700">{CATALOGUE_SEO.subtitle}</p>
-            <p className="mt-3 max-w-2xl text-base text-slate-600">
+            <p className="mt-3 max-w-2xl text-lg leading-relaxed text-slate-700">{CATALOGUE_SEO.subtitle}</p>
+            <p className="mt-2 max-w-2xl text-base text-slate-600">
               Public : {PUBLIC_CIBLE_COURT}
             </p>
 
-            <ul className="mt-6 grid gap-2 sm:grid-cols-2">
+            <ul className="mt-5 grid gap-2 sm:grid-cols-2">
               {HERO_FACTS.map((fact) => (
                 <li
                   key={fact}
-                  className="rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-base font-medium text-slate-800"
+                  className="rounded-xl border border-slate-200 bg-slate-50 px-3 py-2.5 text-base font-medium text-slate-800"
                 >
                   {fact}
                 </li>
               ))}
             </ul>
 
-            <div className="mt-6 space-y-2 text-base text-slate-800">
+            <div className="mt-4 space-y-1.5 text-base text-slate-800">
               <p>
                 Intra-entreprise : {libelleTarifIntraParSession(GRILLE.intraHT)}
                 <MentionTvaAsterisque />
@@ -165,7 +165,7 @@ export default function FormationIAuServiceDuBatimentPage() {
               ) : null}
             </div>
 
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+            <div className="mt-5 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
               <Link
                 href={LINKS.contact}
                 className={`${OFC_CTA_PRIMARY} inline-flex min-h-11 w-full items-center justify-center px-6 py-3 sm:w-auto`}
@@ -181,10 +181,10 @@ export default function FormationIAuServiceDuBatimentPage() {
                 Télécharger le programme
               </a>
             </div>
-            <p className="mt-3 text-sm text-slate-600">
+            <p className="mt-2 text-sm text-slate-600">
               Réponse sous 48 heures ouvrées · {FINANCEMENT_FORMULATION_COURTE}
             </p>
-            <p className="mt-3 text-sm">
+            <p className="mt-2 text-sm">
               <a href="#informations-pratiques" className={OFC_LINK}>
                 Informations réglementaires Qualiopi
               </a>
@@ -208,9 +208,9 @@ export default function FormationIAuServiceDuBatimentPage() {
         </div>
       </section>
 
-      <section className="border-b border-slate-200 bg-[#F2F2F2] px-4 py-8" aria-label="Preuves et indicateurs">
+      <section className="border-b border-slate-200 bg-[#F2F2F2] px-4 py-5" aria-label="Preuves et indicateurs">
         <div className="mx-auto max-w-6xl">
-          <ul className="flex flex-wrap gap-x-6 gap-y-2 text-sm text-slate-700 md:text-base">
+          <ul className="flex flex-wrap gap-x-5 gap-y-1.5 text-sm text-slate-700 md:text-base">
             <li>Organisme certifié Qualiopi</li>
             <li>Formation spécialisée BTP</li>
             <li>{formatVolumeProsFormesBtpLibelle()}</li>
@@ -221,61 +221,61 @@ export default function FormationIAuServiceDuBatimentPage() {
               Programme actualisé — {FORMATION.programmeVersion} du {FORMATION.programmeUpdatedAt}
             </li>
           </ul>
-          <IndicateursResultatsLink className="mt-3 text-left" />
+          <IndicateursResultatsLink className="mt-2 text-left" />
         </div>
       </section>
 
-      <section className="border-b border-slate-200 bg-white px-4 py-10">
+      <section className="border-b border-slate-200 bg-white px-4 py-6">
         <div className="mx-auto max-w-4xl">
           <ShortAnswerBlock>{CATALOGUE_SEO.enBref}</ShortAnswerBlock>
         </div>
       </section>
 
-      <section className="border-b border-slate-200 bg-white px-4 py-14">
+      <section className="border-b border-slate-200 bg-white px-4 py-8 md:py-10">
         <div className="mx-auto max-w-6xl">
           <h2 className="font-display text-2xl font-bold text-slate-900 md:text-3xl">
             Vous perdez du temps sur ces tâches ?
           </h2>
-          <div className="mt-8 grid gap-4 sm:grid-cols-2">
+          <div className="mt-5 grid gap-3 sm:grid-cols-2">
             {PROBLEMES.map((item) => (
-              <article key={item.title} className="rounded-2xl border border-slate-200 bg-slate-50 p-5">
+              <article key={item.title} className="rounded-2xl border border-slate-200 bg-slate-50 p-4">
                 <h3 className="font-display text-lg font-semibold text-slate-900">{item.title}</h3>
-                <p className="mt-2 text-base text-slate-700">{item.texte}</p>
+                <p className="mt-1.5 text-base text-slate-700">{item.texte}</p>
               </article>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="border-b border-slate-200 bg-slate-50 px-4 py-14">
+      <section className="border-b border-slate-200 bg-slate-50 px-4 py-8 md:py-10">
         <div className="mx-auto max-w-3xl">
           <h2 className="font-display text-2xl font-bold text-slate-900 md:text-3xl">Après 4 heures, vous saurez…</h2>
-          <ul className="mt-8 space-y-3">
+          <ul className="mt-5 space-y-2">
             {RESULTATS.map((item) => (
               <li
                 key={item}
-                className="rounded-xl border border-slate-200 bg-white px-4 py-3 text-base text-slate-800"
+                className="rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-base text-slate-800"
               >
                 {item}
               </li>
             ))}
           </ul>
-          <p className="mt-6 text-base leading-relaxed text-slate-700">
+          <p className="mt-4 text-base leading-relaxed text-slate-700">
             Vous apprenez à préparer et structurer une première version de devis, soumise au contrôle du
             professionnel. L’IA n’établit ni les prix, ni les métrés, ni la conformité aux DTU.
           </p>
         </div>
       </section>
 
-      <section id="programme" className="scroll-mt-24 border-b border-slate-200 bg-white px-4 py-14">
+      <section id="programme" className="scroll-mt-24 border-b border-slate-200 bg-white px-4 py-8 md:py-10">
         <div className="mx-auto max-w-4xl">
           <h2 className="font-display text-2xl font-bold text-slate-900 md:text-3xl">Programme — {SESSION_DUREE_LIBELLE}</h2>
-          <p className="mt-3 max-w-2xl text-base text-slate-600">
+          <p className="mt-2 max-w-2xl text-base text-slate-600">
             Quatre modules d’une heure. 70&nbsp;% de pratique. ChatGPT et Claude comme outils d’assistance —
             jamais comme substitut à votre expertise.
           </p>
           <ProgrammeAccordionBatiment />
-          <p className="mt-6 text-base text-slate-700">
+          <p className="mt-4 text-base text-slate-700">
             Pour analyser un DCE et structurer un mémoire technique, voir la{' '}
             <Link href={LINKS.formationAO} className={OFC_LINK}>
               formation IA appels d&apos;offres BTP
@@ -285,18 +285,18 @@ export default function FormationIAuServiceDuBatimentPage() {
         </div>
       </section>
 
-      <section className="border-b border-slate-200 bg-[#F2F2F2] px-4 py-14">
+      <section className="border-b border-slate-200 bg-[#F2F2F2] px-4 py-8 md:py-10">
         <div className="mx-auto max-w-3xl">
           <h2 className="font-display text-2xl font-bold text-slate-900 md:text-3xl">
             Travaillez sur vos propres documents
           </h2>
-          <p className="mt-4 text-base leading-relaxed text-slate-700">
+          <p className="mt-3 text-base leading-relaxed text-slate-700">
             Les exercices peuvent être réalisés à partir de vos devis, comptes rendus, DOE, PV ou emails. Les
             documents doivent être anonymisés avant leur utilisation dans un outil d’intelligence artificielle.
           </p>
-          <ol className="mt-8 space-y-3">
+          <ol className="mt-5 space-y-2">
             {ATELIER_ETAPES.map((etape, index) => (
-              <li key={etape} className="flex gap-3 rounded-xl border border-slate-200 bg-white px-4 py-3 text-base">
+              <li key={etape} className="flex gap-3 rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-base">
                 <span className="font-display font-bold text-[#377CF3]">{index + 1}.</span>
                 <span className="text-slate-800">{etape}</span>
               </li>
@@ -305,14 +305,14 @@ export default function FormationIAuServiceDuBatimentPage() {
         </div>
       </section>
 
-      <section className="border-b border-slate-200 bg-white px-4 py-14">
+      <section className="border-b border-slate-200 bg-white px-4 py-8 md:py-10">
         <div className="mx-auto max-w-3xl">
           <h2 className="font-display text-2xl font-bold text-slate-900 md:text-3xl">Ce que vous emportez</h2>
-          <ul className="mt-8 grid gap-3 sm:grid-cols-2">
+          <ul className="mt-5 grid gap-2 sm:grid-cols-2">
             {LIVRABLES.map((item) => (
               <li
                 key={item}
-                className="rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-base font-medium text-slate-800"
+                className="rounded-xl border border-slate-200 bg-slate-50 px-4 py-2.5 text-base font-medium text-slate-800"
               >
                 {item}
               </li>
@@ -323,21 +323,21 @@ export default function FormationIAuServiceDuBatimentPage() {
 
       <section
         id="tarifs-modalites"
-        className="scroll-mt-24 border-b border-slate-200 bg-white px-4 py-14"
+        className="scroll-mt-24 border-b border-slate-200 bg-white px-4 py-8 md:py-10"
         aria-labelledby="tarifs-modalites-title"
       >
         <div className="mx-auto max-w-4xl">
           <h2 id="tarifs-modalites-title" className="font-display text-2xl font-bold text-slate-900 md:text-3xl">
             Format et tarifs
           </h2>
-          <div className="mt-8 grid gap-6 md:grid-cols-2">
-            <article className="rounded-2xl border border-slate-200 bg-slate-50 p-6">
+          <div className="mt-5 grid gap-4 md:grid-cols-2">
+            <article className="rounded-2xl border border-slate-200 bg-slate-50 p-5">
               <h3 className="font-display text-lg font-semibold text-slate-900">Intra-entreprise</h3>
-              <p className="mt-4 font-display text-xl font-bold text-[#377CF3]">
+              <p className="mt-3 font-display text-xl font-bold text-[#377CF3]">
                 {libelleTarifIntraParSession(GRILLE.intraHT)}
                 <MentionTvaAsterisque />
               </p>
-              <ul className="mt-4 list-disc space-y-1 pl-5 text-base text-slate-700">
+              <ul className="mt-3 list-disc space-y-1 pl-5 text-base text-slate-700">
                 <li>{SESSION_DUREE_LIBELLE}</li>
                 <li>
                   {FORMATION.effectifMin} à {FORMATION.effectifMax} participants
@@ -346,26 +346,26 @@ export default function FormationIAuServiceDuBatimentPage() {
                 <li>Programme adaptable aux besoins de l’équipe</li>
               </ul>
             </article>
-            <article className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+            <article className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
               <h3 className="font-display text-lg font-semibold text-slate-900">Interentreprises</h3>
               {GRILLE.interHT != null ? (
-                <p className="mt-4 font-display text-xl font-bold text-[#377CF3]">
+                <p className="mt-3 font-display text-xl font-bold text-[#377CF3]">
                   {libelleTarifInterParParticipant(GRILLE.interHT)}
                   <MentionTvaAsterisque />
                 </p>
               ) : null}
-              <ul className="mt-4 list-disc space-y-1 pl-5 text-base text-slate-700">
+              <ul className="mt-3 list-disc space-y-1 pl-5 text-base text-slate-700">
                 <li>{SESSION_DUREE_LIBELLE}</li>
                 <li>Dates selon le calendrier disponible</li>
                 <li>Session maintenue sous réserve d’un nombre minimum d’inscrits</li>
               </ul>
             </article>
           </div>
-          <p className="mt-6 text-sm leading-relaxed text-slate-600">
+          <p className="mt-4 text-sm leading-relaxed text-slate-600">
             {MENTION_ABONNEMENTS_IA_HORS_FORFAIT}
           </p>
-          <MentionTVA className="mt-3" />
-          <p className="mt-3 text-sm leading-relaxed text-slate-600">
+          <MentionTVA className="mt-2" />
+          <p className="mt-2 text-sm leading-relaxed text-slate-600">
             Financement possible par votre OPCO selon les critères, plafonds et budgets en vigueur. Un reste à
             charge peut s’appliquer.{' '}
             <Link href={LINKS.financement} className={OFC_LINK}>
@@ -376,27 +376,27 @@ export default function FormationIAuServiceDuBatimentPage() {
         </div>
       </section>
 
-      <section className="border-b border-slate-200 bg-slate-50 px-4 py-14">
-        <div className="mx-auto grid max-w-4xl items-center gap-8 md:grid-cols-[140px_minmax(0,1fr)]">
+      <section className="border-b border-slate-200 bg-slate-50 px-4 py-8 md:py-10">
+        <div className="mx-auto grid max-w-4xl items-center gap-5 md:grid-cols-[120px_minmax(0,1fr)]">
           <Image
             src={PORTRAIT.src}
             alt={PORTRAIT.alt}
             title={PORTRAIT.title}
             width={PORTRAIT.width}
             height={PORTRAIT.height}
-            className="mx-auto h-28 w-28 rounded-full object-cover ring-4 ring-white"
-            sizes="112px"
+            className="mx-auto h-24 w-24 rounded-full object-cover ring-4 ring-white"
+            sizes="96px"
           />
           <div>
             <h2 className="font-display text-2xl font-bold text-slate-900 md:text-3xl">
               Une formation conçue pour les professionnels du BTP
             </h2>
-            <p className="mt-4 text-base leading-relaxed text-slate-700">
+            <p className="mt-3 text-base leading-relaxed text-slate-700">
               Laure Olivié, formatrice en IA générative appliquée au BTP, s’appuie sur une expérience du
               bâtiment et des travaux publics. Organisme OFC Création d’Entreprise, certifié Qualiopi. Références
               vérifiables : FFB Grand Paris, CSFE, CNAM Entreprise, Lefebvre Dalloz.
             </p>
-            <p className="mt-4 flex flex-wrap gap-x-4 gap-y-2 text-base">
+            <p className="mt-3 flex flex-wrap gap-x-4 gap-y-2 text-base">
               <Link href={LINKS.aPropos} className={OFC_LINK}>
                 Page À propos — Laure Olivié
               </Link>
@@ -417,16 +417,21 @@ export default function FormationIAuServiceDuBatimentPage() {
         compact
         publicCible={FORMATION.public}
       />
-      <FAQSection items={FAQ_BATIMENT} title="Questions fréquentes" id="faq-niv-01" />
+      <FAQSection
+        items={FAQ_BATIMENT}
+        title="Questions fréquentes"
+        id="faq-niv-01"
+        className="border-b border-slate-200 bg-slate-50 px-4 py-8 md:py-10"
+      />
 
-      <section className="bg-[#377CF3] px-4 py-14 text-white">
+      <section className="bg-[#377CF3] px-4 py-8 md:py-10 text-white">
         <div className="mx-auto max-w-2xl text-center">
           <h2 className="font-display text-2xl font-bold md:text-3xl">Étudions les besoins de votre équipe</h2>
-          <p className="mt-4 text-lg text-blue-100">
+          <p className="mt-3 text-lg text-blue-100">
             Un rendez-vous de 30 minutes permet de définir vos cas d’usage, le nombre de participants et les
             possibilités de financement.
           </p>
-          <div className="mt-8 flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:flex-wrap sm:justify-center">
+          <div className="mt-5 flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:flex-wrap sm:justify-center">
             <Link
               href={LINKS.prendreRdv}
               className="inline-flex min-h-11 items-center justify-center rounded-xl bg-white px-6 py-3 font-semibold text-[#377CF3]"
@@ -440,7 +445,7 @@ export default function FormationIAuServiceDuBatimentPage() {
               Demander le programme
             </a>
           </div>
-          <p className="mt-6 text-sm text-blue-100">{SITE_CONFIG.email}</p>
+          <p className="mt-4 text-sm text-blue-100">{SITE_CONFIG.email}</p>
         </div>
       </section>
     </div>

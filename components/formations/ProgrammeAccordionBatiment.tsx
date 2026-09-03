@@ -41,7 +41,7 @@ const MODULES = [
 
 export function ProgrammeAccordionBatiment() {
   return (
-    <div className="mt-8 space-y-3">
+    <div className="mt-5 space-y-2">
       {MODULES.map((mod, index) => (
         <details
           key={mod.title}
