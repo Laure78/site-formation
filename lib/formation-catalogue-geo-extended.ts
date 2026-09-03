@@ -49,8 +49,14 @@ export const FORMATION_CATALOGUE_GEO_EXTENDED: Record<
       'Utiliser ChatGPT et Claude pour rédiger des devis, emails, comptes rendus, trames de DOE et contenus professionnels — avec méthode de prompt et contrôle des résultats.',
     documentsBtp: ['Devis et désignations', 'Comptes rendus de chantier', 'DOE et PV de réception', 'Emails clients et fournisseurs'],
     outilsIa: ['ChatGPT', 'Claude AI'],
-    dureeReponse: '',
-    livrables: ['Modèles de prompts réutilisables', 'Premiers livrables sur vos documents', 'Checklist de validation humaine'],
+    dureeReponse:
+      '4 heures en présentiel en Île-de-France. Intra-entreprise : 4 à 12 participants dans les locaux de l’entreprise. Interentreprises selon calendrier, sous réserve d’un nombre minimum d’inscrits.',
+    livrables: [
+      'Bibliothèque de prompts BTP',
+      'Trames de devis, comptes rendus, DOE et PV',
+      'Checklist de validation humaine',
+      'Certificat de réalisation',
+    ],
     debutants:
       'Oui — aucun prérequis IA. Savoir utiliser un ordinateur et le français écrit suffit. Idéal comme première formation IA BTP.',
     propresDossiers: COMMON_PROPRES_DOSSIERS,

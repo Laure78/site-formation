@@ -3,9 +3,7 @@ import { Poppins } from 'next/font/google';
 import { CONTACT } from '@/lib/constants';
 import { OFC_IDENTITE } from '@/lib/ofc-identite';
 import { LINKS } from '@/lib/internal-links';
-import {
-  getInfosPratiquesForCatalogue,
-} from '@/lib/infos-pratiques-catalogue';
+import { getInfosPratiquesForCatalogue } from '@/lib/infos-pratiques-catalogue';
 import type { InfosPratiquesFormation } from '@/lib/infos-pratiques-types';
 import { QUALIOPI_INDICATEUR1_LABELS } from '@/lib/qualiopi-indicateur1-labels';
 
@@ -20,6 +18,13 @@ const poppins = Poppins({
 type InfosPratiquesProps = {
   formation: InfosPratiquesFormation;
   className?: string;
+  /**
+   * Mode compact (fiches commerciales) : titre unifié + contenu dans un accordéon
+   * HTML natif — toutes les sections réglementaires restent présentes.
+   */
+  compact?: boolean;
+  /** Public cible affiché en tête du bloc (optionnel, hors grille labels audit). */
+  publicCible?: string;
 };
 
 type DlItemProps = {
@@ -50,7 +55,12 @@ function ListItems({ items }: { items: readonly string[] }) {
  * Bloc « Informations réglementaires » — Indicateur 1 Qualiopi (11 sections audit + modalité pédagogique).
  * Charte OFC : #377CF3 · #F2F2F2 · Poppins · arrondis 8px.
  */
-export function InfosPratiques({ formation, className = '' }: InfosPratiquesProps) {
+export function InfosPratiques({
+  formation,
+  className = '',
+  compact = false,
+  publicCible,
+}: InfosPratiquesProps) {
   const {
     formationTitle,
     programmeRef,
@@ -72,6 +82,128 @@ export function InfosPratiques({ formation, className = '' }: InfosPratiquesProp
 
   const labels = QUALIOPI_INDICATEUR1_LABELS;
 
+  const body = (
+    <>
+      <dl className={compact ? 'mt-4' : 'mt-6'}>
+        {publicCible ? (
+          <DlItem term="Public">
+            <p>{publicCible}</p>
+          </DlItem>
+        ) : null}
+
+        <DlItem term={labels.prerequis}>
+          <p>{prerequis}</p>
+        </DlItem>
+
+        <DlItem term={labels.objectifs}>
+          <ListItems items={objectifs} />
+        </DlItem>
+
+        <DlItem term={labels.contenu}>
+          <ListItems items={contenu} />
+          <p className="mt-3">
+            <Link
+              href={programmePdfUrl}
+              className="font-medium text-[#377CF3] underline-offset-2 hover:underline"
+            >
+              Télécharger le programme officiel (PDF)
+            </Link>
+          </p>
+        </DlItem>
+
+        <DlItem term={labels.duree}>
+          <p>{duree}</p>
+        </DlItem>
+
+        <DlItem term={labels.modalitePedagogique}>
+          <p>{modalitePedagogique}</p>
+        </DlItem>
+
+        <DlItem term={labels.modalitesAcces}>
+          <p>{modalitesAcces}</p>
+        </DlItem>
+
+        <DlItem term={labels.delaisAcces}>
+          <p>{delaiAcces}</p>
+        </DlItem>
+
+        <DlItem term={labels.tarif}>
+          <p>{tarif}</p>
+        </DlItem>
+
+        <DlItem term={labels.contact}>
+          <p>
+            <a
+              href={`mailto:${CONTACT.email}`}
+              className="font-medium text-[#377CF3] underline-offset-2 hover:underline"
+            >
+              {CONTACT.email}
+            </a>
+            {' · '}
+            <a
+              href={`tel:${CONTACT.phone}`}
+              className="font-medium text-[#377CF3] underline-offset-2 hover:underline"
+            >
+              {CONTACT.phoneDisplay}
+            </a>
+            {' · '}
+            {OFC_IDENTITE.raisonSociale}, {CONTACT.address}.
+          </p>
+        </DlItem>
+
+        <DlItem term={labels.methodes}>
+          <ListItems items={methodes} />
+        </DlItem>
+
+        <DlItem term={labels.evaluation}>
+          <ListItems items={modalitesEvaluation} />
+        </DlItem>
+
+        <DlItem term={labels.handicap}>
+          <div
+            className="rounded-lg border border-[#377CF3]/20 bg-white p-4"
+            role="note"
+            aria-label={labels.handicap}
+          >
+            <p className="text-slate-800">{accessibiliteHandicap}</p>
+            <p className="mt-3">
+              <Link
+                href={LINKS.accessibiliteHandicap}
+                className="font-medium text-[#377CF3] underline-offset-2 hover:underline"
+              >
+                Accessibilité des formations — parcours d&apos;aménagement
+              </Link>
+            </p>
+          </div>
+        </DlItem>
+      </dl>
+
+      <p className="mt-6 text-center text-xs text-slate-500">
+        Programme mis à jour le {dateMaj} — {programmeVersion} · Référence {programmeRef}
+      </p>
+
+      <p className="mt-4 text-center text-xs leading-relaxed text-slate-600">
+        Avant votre inscription : consultez le{' '}
+        <Link href={LINKS.livretAccueilStagiaire} className="font-medium text-[#377CF3] hover:underline">
+          livret d&apos;accueil
+        </Link>
+        , le{' '}
+        <Link href={LINKS.reglementInterieur} className="font-medium text-[#377CF3] hover:underline">
+          règlement intérieur
+        </Link>{' '}
+        et notre{' '}
+        <Link href={LINKS.reclamations} className="font-medium text-[#377CF3] hover:underline">
+          procédure de réclamation
+        </Link>
+        .
+      </p>
+    </>
+  );
+
+  const heading = compact
+    ? 'Informations pratiques et réglementaires'
+    : `Informations réglementaires — ${formationTitle}`;
+
   return (
     <section
       id="informations-pratiques"
@@ -81,129 +213,63 @@ export function InfosPratiques({ formation, className = '' }: InfosPratiquesProp
       <div
         className={`mx-auto max-w-4xl rounded-lg bg-[#F2F2F2] px-5 py-8 md:px-8 md:py-10 ${poppins.className}`}
       >
-        <header>
-          <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#377CF3]">
-            Indicateur 1 Qualiopi — information du public
-          </p>
-          <h2 id="infos-pratiques-heading" className="mt-2 text-2xl font-bold text-[#377CF3] md:text-3xl">
-            Informations réglementaires — {formationTitle}
-          </h2>
-          <p className="mt-2 text-sm text-slate-500">Référence programme : {programmeRef}</p>
-        </header>
-
-        <dl className="mt-6">
-          <DlItem term={labels.prerequis}>
-            <p>{prerequis}</p>
-          </DlItem>
-
-          <DlItem term={labels.objectifs}>
-            <ListItems items={objectifs} />
-          </DlItem>
-
-          <DlItem term={labels.contenu}>
-            <ListItems items={contenu} />
-            <p className="mt-3">
-              <Link
-                href={programmePdfUrl}
-                className="font-medium text-[#377CF3] underline-offset-2 hover:underline"
-              >
-                Télécharger le programme officiel (PDF)
-              </Link>
-            </p>
-          </DlItem>
-
-          <DlItem term={labels.duree}>
-            <p>{duree}</p>
-          </DlItem>
-
-          <DlItem term={labels.modalitePedagogique}>
-            <p>{modalitePedagogique}</p>
-          </DlItem>
-
-          <DlItem term={labels.modalitesAcces}>
-            <p>{modalitesAcces}</p>
-          </DlItem>
-
-          <DlItem term={labels.delaisAcces}>
-            <p>{delaiAcces}</p>
-          </DlItem>
-
-          <DlItem term={labels.tarif}>
-            <p>{tarif}</p>
-          </DlItem>
-
-          <DlItem term={labels.contact}>
-            <p>
-              <a
-                href={`mailto:${CONTACT.email}`}
-                className="font-medium text-[#377CF3] underline-offset-2 hover:underline"
-              >
-                {CONTACT.email}
-              </a>
-              {' · '}
-              <a
-                href={`tel:${CONTACT.phone}`}
-                className="font-medium text-[#377CF3] underline-offset-2 hover:underline"
-              >
-                {CONTACT.phoneDisplay}
-              </a>
-              {' · '}
-              {OFC_IDENTITE.raisonSociale}, {CONTACT.address}.
-            </p>
-          </DlItem>
-
-          <DlItem term={labels.methodes}>
-            <ListItems items={methodes} />
-          </DlItem>
-
-          <DlItem term={labels.evaluation}>
-            <ListItems items={modalitesEvaluation} />
-          </DlItem>
-
-          <DlItem term={labels.handicap}>
-            <div
-              className="rounded-lg border border-[#377CF3]/20 bg-white p-4"
-              role="note"
-              aria-label={labels.handicap}
-            >
-              <p className="text-slate-800">{accessibiliteHandicap}</p>
-              <p className="mt-3">
-                <Link
-                  href={LINKS.accessibiliteHandicap}
-                  className="font-medium text-[#377CF3] underline-offset-2 hover:underline"
-                >
-                  Accessibilité des formations — parcours d&apos;aménagement
-                </Link>
+        {compact ? (
+          <details className="group">
+            <summary className="flex min-h-11 cursor-pointer list-none items-start justify-between gap-4 marker:content-none [&::-webkit-details-marker]:hidden">
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#377CF3]">
+                  Indicateur 1 Qualiopi — information du public
+                </p>
+                <h2 id="infos-pratiques-heading" className="mt-2 text-2xl font-bold text-[#377CF3] md:text-3xl">
+                  {heading}
+                </h2>
+                <p className="mt-2 text-sm text-slate-500">
+                  Référence {programmeRef} · {formationTitle}
+                </p>
+              </div>
+              <span className="mt-2 shrink-0 text-sm font-semibold text-[#377CF3] group-open:hidden">
+                Afficher
+              </span>
+              <span className="mt-2 hidden shrink-0 text-sm font-semibold text-[#377CF3] group-open:inline">
+                Masquer
+              </span>
+            </summary>
+            {body}
+          </details>
+        ) : (
+          <>
+            <header>
+              <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#377CF3]">
+                Indicateur 1 Qualiopi — information du public
               </p>
-            </div>
-          </DlItem>
-        </dl>
-
-        <p className="mt-6 text-center text-xs text-slate-500">
-          Programme mis à jour le {dateMaj} — {programmeVersion}
-        </p>
-
-        <p className="mt-4 text-center text-xs leading-relaxed text-slate-600">
-          Avant votre inscription : consultez le{' '}
-          <Link href={LINKS.livretAccueilStagiaire} className="font-medium text-[#377CF3] hover:underline">
-            livret d&apos;accueil
-          </Link>
-          , le{' '}
-          <Link href={LINKS.reglementInterieur} className="font-medium text-[#377CF3] hover:underline">
-            règlement intérieur
-          </Link>{' '}
-          et notre{' '}
-          <Link href={LINKS.reclamations} className="font-medium text-[#377CF3] hover:underline">
-            procédure de réclamation
-          </Link>
-          .
-        </p>
+              <h2 id="infos-pratiques-heading" className="mt-2 text-2xl font-bold text-[#377CF3] md:text-3xl">
+                {heading}
+              </h2>
+              <p className="mt-2 text-sm text-slate-500">Référence programme : {programmeRef}</p>
+            </header>
+            {body}
+          </>
+        )}
       </div>
     </section>
   );
 }
 
 /** Wrapper catalogue — données dérivées de `getInfosPratiquesForCatalogue`. */
-export function CatalogueInfosPratiques({ programmeRef }: { programmeRef: string }) {
-  return <InfosPratiques formation={getInfosPratiquesForCatalogue(programmeRef)} />;
+export function CatalogueInfosPratiques({
+  programmeRef,
+  compact = false,
+  publicCible,
+}: {
+  programmeRef: string;
+  compact?: boolean;
+  publicCible?: string;
+}) {
+  return (
+    <InfosPratiques
+      formation={getInfosPratiquesForCatalogue(programmeRef)}
+      compact={compact}
+      publicCible={publicCible}
+    />
+  );
 }

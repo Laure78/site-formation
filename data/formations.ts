@@ -81,11 +81,11 @@ export const FORMATIONS: readonly Formation[] = [
     accroche:
       'Fondamentaux ChatGPT et IA générative pour TPE, PME du bâtiment et fonctions support — devis, DOE et communication sur vos documents réels.',
     objectifs: [
-      'Maîtriser les outils IA adaptés aux métiers du BTP pour automatiser les tâches chronophages (mails, devis, documents, communication)',
-      'Générer des devis techniques conformes aux DTU et règles professionnelles, adaptés à son métier',
-      'Rédiger des documents réglementaires (DOE, PV de réception, fiches techniques, rapports de fin de chantier) avec l’IA',
-      'Créer du contenu professionnel pour valoriser son expertise BTP sur les réseaux sociaux et auprès de ses clients',
-      'Appliquer les bonnes pratiques RGPD dans l’utilisation de l’IA pour sécuriser les données entreprise et clients',
+      'Formuler une demande précise à une IA (ChatGPT, Claude) pour des documents du BTP',
+      'Préparer et structurer une première version de devis, soumise au contrôle du professionnel',
+      'Transformer des notes en compte rendu, trame de DOE ou de PV — avec relecture humaine',
+      'Préparer des emails et contenus professionnels à partir de cas métier',
+      'Anonymiser les documents et appliquer les règles de confidentialité avant tout usage de l’IA',
     ],
     public:
       'Dirigeants BTP (gros œuvre, second œuvre, étanchéité, bardage, couverture, électricité, plomberie, peinture, VRD, TP), chargés d’affaires, conducteurs de travaux, techniciens bureau d’études, assistantes administratives et fonctions support',

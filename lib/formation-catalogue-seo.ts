@@ -37,13 +37,13 @@ const QUALIOPI_MENTION =
 
 export const FORMATION_CATALOGUE_SEO: Record<FormationCatalogueCode, FormationCatalogueSeoConfig> = {
   'NIV-01': {
-    metaTitle: 'Formation IA BTP : devis & productivité',
-    h1: 'Formation IA BTP : devis, emails et productivité',
+    metaTitle: 'Formation IA BTP : devis et chantier',
+    h1: 'Formation IA BTP : gagnez du temps sur vos devis et documents de chantier',
     subtitle:
-      'Automatisez devis, comptes rendus, DOE et communication avec ChatGPT et Claude — sur vos documents réels.',
+      'Apprenez à utiliser ChatGPT et Claude pour préparer vos devis, emails, comptes rendus, DOE et contenus professionnels. Formation pratique sur vos propres documents BTP.',
     metaDescription:
-      'Formation IA pour le BTP en 4 h : devis, emails, DOE et contenus pro avec ChatGPT et Claude. Présentiel IDF, Qualiopi, financement OPCO selon éligibilité.',
-    enBref: `La formation IA BTP pour artisans et PME apprend à utiliser ChatGPT et Claude pour rédiger des devis, des comptes rendus, des DOE et du contenu professionnel. Session ${SESSION_DUREE_LIBELLE} en présentiel en Île-de-France par ${QUALIOPI_MENTION}.`,
+      'Formation IA pour le BTP en 4 h : devis, emails, comptes rendus et DOE avec ChatGPT et Claude. Présentiel IDF, Qualiopi, financement OPCO selon éligibilité.',
+    enBref: `Formation IA BTP de niveau débutant (${SESSION_DUREE_LIBELLE}, présentiel Île-de-France) : ChatGPT et Claude pour préparer devis, emails, comptes rendus, DOE et PV. L’IA assiste ; le professionnel valide prix, métrés et références techniques. ${QUALIOPI_MENTION}.`,
     publicTargets: [
       'Artisans et dirigeants de TPE/PME du bâtiment et des travaux publics',
       'Conducteurs de travaux et chefs de chantier',

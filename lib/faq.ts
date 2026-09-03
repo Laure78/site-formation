@@ -717,28 +717,28 @@ export const FAQ_FORMATION_IA_APPELS_OFFRES_LANDING: FAQItem[] = [
 /** FAQ — formation NIV-01 (bâtiment & TP) — page pilier catalogue */
 export const FAQ_BATIMENT: FAQItem[] = [
   {
-    q: 'Je suis artisan du bâtiment sans compétence informatique : cette formation est-elle faisable ?',
-    a: `Oui : la formation niveau 1 part de zéro prérequis technique et se déroule en ${SESSION_DUREE_LIBELLE} de présentiel. Vous travaillez sur vos devis, emails et comptes rendus réels avec des trames guidées — pas besoin de savoir « coder ». Seuls prérequis : ordinateur, smartphone, connexion internet et bonne maîtrise du français. Aucun abonnement IA payant requis : les versions gratuites suffisent.`,
+    q: 'Cette formation est-elle adaptée aux débutants ?',
+    a: `Oui. Aucun prérequis en intelligence artificielle. Il faut un ordinateur, une connexion internet et une bonne maîtrise du français. La session de ${SESSION_DUREE_LIBELLE} s’adresse aux artisans, dirigeants, conducteurs de travaux, chargés d’affaires, bureaux d’études et fonctions support. Les versions gratuites de ChatGPT ou Claude suffisent.`,
   },
   {
-    q: 'Combien coûte la formation IA niveau 1 et est-ce finançable OPCO en 2026 ?',
-    a: `${libelleTarifsDualCourt(4)} (${SESSION_DUREE_LIBELLE}, jusqu'à ${EFFECTIF_GROUPE_MAX} participants en intra). ${FINANCEMENT_FORMULATION_PRUDENTE} Organisme Qualiopi. Guide : <a href="${LINKS.financement}">financement Constructys formation IA BTP</a>.`,
+    q: 'Peut-on travailler sur les documents de notre entreprise ?',
+    a: 'Oui. Les exercices peuvent porter sur vos devis, comptes rendus, DOE, PV ou emails. Les documents doivent être anonymisés avant toute utilisation dans un outil d’intelligence artificielle. Si vous ne pouvez pas apporter de dossier, des cas types du BTP sont proposés.',
   },
   {
-    q: 'Faut-il payer ChatGPT ou Claude pour suivre la formation niveau 1 ?',
-    a: `Non : aucun prérequis IA ni abonnement payant pour le niveau 1 — les versions gratuites de ChatGPT, Claude AI, Gemini ou Perplexity suffisent. Un compte payant (Claude Pro, ChatGPT Plus) est seulement recommandé pour aller plus loin ensuite. Pour les marchés publics ou l'industrialisation Claude, voir la <a href="${LINKS.formationAO}">formation appels d'offres</a> ou le <a href="${LINKS.formationMaitriserClaudeAiBtp}">parcours Claude AI BTP</a>.`,
+    q: 'Faut-il un abonnement payant à ChatGPT ou Claude ?',
+    a: 'Non. Pour ce niveau débutant, les versions gratuites suffisent. Un abonnement payant n’est pas inclus dans le tarif et n’est pas exigé pour suivre la session. Vous pourrez décider plus tard, selon vos volumes de documents.',
   },
   {
-    q: 'On perd combien de temps sur l\'administratif qu\'on pourrait récupérer ?',
-    a: `Les stagiaires constatent souvent 3 à 5 h gagnées par semaine sur devis, relances et CR — selon volume et discipline de relecture. La formation enseigne la méthode et les garde-fous (données sensibles, chiffres à vérifier), pas une promesse automatique. Voir aussi <a href="/ia-devis-batiment">IA devis bâtiment</a>.`,
+    q: 'La formation peut-elle être financée par Constructys ?',
+    a: `${FINANCEMENT_FORMULATION_COURTE} Les critères, plafonds et budgets dépendent de votre dossier. Aucun accord OPCO n’est promis à l’avance. Organisme certifié Qualiopi — actions de formation.`,
   },
   {
-    q: 'Qu\'est-ce que je repars concrètement après 4 heures ?',
-    a: `Trames de devis et emails, bibliothèque de prompts par type de tâche, check-lists de relecture et certificat de réalisation. Objectifs détaillés sur la fiche <a href="${LINKS.formationIaBtpNiveau1BatimentTp}">formation niveau 1 bâtiment & travaux publics</a> et le <a href="/formations">catalogue formations</a>.`,
+    q: 'Quelle différence entre intra et interentreprises ?',
+    a: `En intra-entreprise : ${libelleTarifIntraParSession(TARIF_INTRA_4H_HT)}, ${SESSION_DUREE_LIBELLE}, 4 à ${EFFECTIF_GROUPE_MAX} participants, dans vos locaux, programme adaptable à l’équipe. En interentreprises : ${libelleTarifInterParParticipant(TARIF_INTER_4H_HT_FROM)}, dates selon calendrier, session maintenue sous réserve d’un nombre minimum d’inscrits.`,
   },
   {
-    q: 'La formation couvre-t-elle les appels d\'offres et le CCTP ?',
-    a: `La formation niveau 1 pose les bases (lecture aidée, plan de réponse, formulations). Pour analyser un DCE complet et rédiger un mémoire technique avec Cowork, le parcours dédié est la <a href="${LINKS.formationAO}">formation appels d'offres BTP</a>.`,
+    q: 'L’IA peut-elle garantir la conformité d’un devis ou d’un DOE ?',
+    a: 'Non. L’IA n’assure aucune conformité technique, réglementaire ou contractuelle. Elle aide à structurer une première version. Les prix, quantités, métrés, références DTU et la décision de diffuser un document restent sous la responsabilité du professionnel.',
   },
 ];
 

@@ -29,10 +29,10 @@ export const INFOS_PRATIQUES_HANDICAP_ENCART =
 /** Grandes parties du programme — titres modules (fiches catalogue). */
 export const PROGRAMME_CONTENU_CATALOGUE: Record<FormationCode, readonly string[]> = {
   'NIV-01': [
-    'Module 1 — Les fondamentaux de l’IA pour le BTP',
-    'Module 2 — Devis et chiffrage assistés par l’IA',
-    'Module 3 — Documents réglementaires et gestion de chantier avec l’IA',
-    'Module 4 — Communication digitale et visibilité du professionnel BTP',
+    'Module 1 — Comprendre et utiliser l’IA',
+    'Module 2 — Devis et chiffrage',
+    'Module 3 — Documents de chantier',
+    'Module 4 — Communication professionnelle',
   ],
   'NIV-02': [
     'Accueil, cadrage et positionnement (15 min)',

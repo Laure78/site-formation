@@ -47,7 +47,7 @@ export const FORMATIONS_CATALOG_SCHEMA: FormationCatalogEntry[] = [
     path: '/formations/ia-batiment-travaux-publics',
     name: "L'IA au service des pros du bâtiment et des travaux publics",
     description:
-      "Formation niveau 1 — 4 h : IA pour bâtiment et travaux publics, devis, chantier, documents et administratif. Qualiopi, Constructys.",
+      "Formation niveau 1 — 4 h : ChatGPT et Claude pour préparer devis, emails, comptes rendus, DOE et PV. Qualiopi, Constructys. Validation humaine obligatoire.",
     teaches: teachesFromCatalogueDisplay('NIV-01'),
     occupationalCategory: 'BTP, Bâtiment, Travaux Publics',
   },
