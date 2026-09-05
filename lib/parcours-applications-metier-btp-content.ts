@@ -45,22 +45,70 @@ export type ApplicationMetierNiveauUx = {
   heroFacts: string;
   /** Badge hero optionnel (sinon progressionLabel). */
   heroBadge?: string;
-  /** Résultats de la journée (3 max). */
+  /** Libellé CTA hero (défaut : Parler de mon projet). */
+  ctaHeroLabel?: string;
+  /** Titre section résultat (défaut N1). */
+  resultatJourneeTitle?: string;
+  /** Résultats de la journée (4 max). */
   resultatJournee: readonly string[];
+  /** Titre section cas d’usage. */
+  casUsageTitle?: string;
   /** Cartes cas d’usage (6 max) — titre + une phrase. */
   casUsageCards: readonly { title: string; text: string }[];
-  /** Bloc « Une application métier, concrètement ? » */
-  definitionApp: {
+  /** Bloc « Une application métier, concrètement ? » (N1). */
+  definitionApp?: {
     intro: string;
     points: readonly string[];
   };
-  avant: readonly string[];
-  apres: readonly string[];
+  /** Comparaison niveaux (ex. N1 vs N2). */
+  comparison?: {
+    title: string;
+    left: { title: string; subtitle?: string; items: readonly string[] };
+    right: { title: string; subtitle?: string; items: readonly string[] };
+  };
+  avant?: readonly string[];
+  apres?: readonly string[];
+  /** Exemple de workflow métier (N2). */
+  workflow?: {
+    title: string;
+    steps: readonly string[];
+    caption: string;
+  };
+  /** Concepts métier expliqués simplement (N2). */
+  concepts?: {
+    title: string;
+    items: readonly { title: string; text: string }[];
+  };
   pourQui: readonly string[];
   pourQuiHighlight: string;
-  /** Timeline programme simplifiée (alignée sur modules officiels, sans inventer de durées). */
-  programmeSteps: readonly { label: string; title: string; text: string }[];
+  /** Phrase courte sous la liste (ex. « pas besoin de coder »). */
+  pourQuiNote?: string;
+  /** Timeline programme simplifiée (alignée sur modules officiels). */
+  programmeSteps: readonly {
+    label: string;
+    title: string;
+    text: string;
+    duree?: string;
+  }[];
+  livrablesTitle?: string;
   livrables: readonly string[];
+  livrablesNote?: string;
+  /** IA vs validation humaine (N2+). */
+  iaValidation?: {
+    title: string;
+    rows: readonly { ia: string; humain: string }[];
+  };
+  /** Bloc formatrice court. */
+  formatrice?: {
+    title: string;
+    role: string;
+    paragraphs: readonly string[];
+  };
+  ctaFinal?: {
+    title: string;
+    text: string;
+    label: string;
+  };
 };
 
 export const PARCOURS_APPLICATIONS_METIER = {
@@ -284,6 +332,7 @@ export const APPLICATION_METIER_NIVEAU_1: ApplicationMetierNiveauConfig = {
       'Chargés d’affaires',
       'Responsables métier ou référents digitaux',
     ],
+    pourQuiNote: 'Aucune compétence en programmation n’est nécessaire.',
     pourQuiHighlight:
       'Vous devez surtout connaître votre métier et venir avec un problème concret à résoudre.',
     programmeSteps: [
@@ -330,18 +379,18 @@ export const APPLICATION_METIER_NIVEAU_2: ApplicationMetierNiveauConfig = {
   duree: '7 h',
   progressionLabel: 'Niveau 2 — CONNECTER',
   progressionTagline: 'Je transforme mon prototype en application métier connectée.',
-  metaTitle: 'Application métier BTP connectée : niveau 2',
+  metaTitle: 'Application métier BTP connectée avec l’IA | Niveau 2',
   metaDescription:
-    'Formation IA appliquée au bâtiment : développer une application métier BTP connectée (BDD, utilisateurs, API). 7 h, Qualiopi, financement selon éligibilité.',
-  h1: 'Développer une application métier BTP connectée',
+    'Formation de 7 h pour connecter votre application métier BTP : données, utilisateurs, workflows et services externes. Niveau 2 en Île-de-France.',
+  h1: 'Développez une application métier BTP connectée',
   subtitle:
-    'Transformer un prototype en application capable de gérer des données, plusieurs utilisateurs et des services externes.',
+    'Faites évoluer votre prototype avec une base de données, des utilisateurs, des workflows et des services connectés.',
   positionnement:
     'Passer du prototype à une application métier connectée : base de données, utilisateurs, workflows et services externes.',
   prerequis:
     'Avoir suivi le niveau 1 ou maîtriser les compétences équivalentes (prototype, cahier des charges, premières fonctionnalités).',
   promesseRealiste:
-    'Chaque participant fait évoluer son prototype vers une application connectée avec données persistantes et accès utilisateurs.',
+    'Le Niveau 2 vise une application fonctionnelle et connectée. La mise en production à grande échelle peut nécessiter une validation technique complémentaire.',
   objectifs: [
     'Structurer une base de données métier (tables, relations, statuts, historique)',
     'Gérer l’authentification, les rôles et les droits',
@@ -402,40 +451,207 @@ export const APPLICATION_METIER_NIVEAU_2: ApplicationMetierNiveauConfig = {
       ],
     },
   ],
-  casUsageExemples: [
-    {
-      title: 'Site web professionnel',
-      items: [
-        'Formulaires, demande de devis, calendrier',
-        'Prise de rendez-vous, messagerie, espace client',
-      ],
-    },
-    {
-      title: 'Application devis et métrés',
-      items: ['Clients, ouvrages, quantités, prix', 'Calculs, marges, génération du devis'],
-    },
-    {
-      title: 'Application de trésorerie',
-      items: ['Encaissements, décaissements, échéances', 'Prévisions et alertes'],
-    },
-    {
-      title: 'CRM BTP',
-      items: ['Prospects, rendez-vous, devis, relances', 'Affaires et suivi commercial'],
-    },
-    {
-      title: 'Communication digitale',
-      items: [
-        'Photos chantier, bibliothèque de contenus',
-        'Calendrier éditorial, validation et suivi',
-      ],
-    },
-  ],
   faq: [
     {
-      q: 'Les cas d’usage (CRM, trésorerie…) sont-ils des modules obligatoires ?',
-      a: 'Non : ce sont des exemples illustrant les compétences transversales enseignées. Vous appliquez la méthode à votre propre processus métier.',
+      q: 'Faut-il avoir suivi le Niveau 1 ?',
+      a: 'Oui, ou disposer déjà d’un prototype, d’un cahier des charges et de premières fonctionnalités équivalentes.',
+    },
+    {
+      q: 'Faut-il savoir coder ?',
+      a: 'Non. La formation s’appuie sur le développement assisté par l’IA. Vous devez surtout connaître votre processus métier et votre prototype.',
+    },
+    {
+      q: 'Puis-je travailler sur mon propre prototype ?',
+      a: 'Oui. C’est l’objectif : faire évoluer votre outil (ou un cas métier proche) vers une application connectée.',
+    },
+    {
+      q: 'Qu’est-ce qu’une application « connectée » ?',
+      a: 'Une application qui stocke durablement vos données, gère plusieurs utilisateurs, fait avancer un processus (workflow) et peut échanger avec d’autres services.',
+    },
+    {
+      q: 'Quels services peut-on connecter ?',
+      a: 'Selon votre besoin : calendrier, formulaires, messagerie, notifications, ou d’autres services externes utiles à votre processus BTP.',
+    },
+    {
+      q: 'Peut-on obtenir un financement OPCO ?',
+      a: 'Prise en charge possible selon l’éligibilité de l’entreprise et les règles applicables. Les plafonds peuvent être inférieurs au tarif de la formation.',
+    },
+    {
+      q: 'Quelle différence entre Niveau 2 et Niveau 3 ?',
+      a: 'Le Niveau 2 connecte données, utilisateurs et workflows. Le Niveau 3 ajoute des fonctions IA avancées, automatise davantage et prépare le déploiement.',
     },
   ],
+  ux: {
+    heroFacts: '7 h · 1 à 8 participants · Intra-entreprise · Île-de-France',
+    heroBadge: 'Applications métier BTP · Niveau 2 — Connecter',
+    ctaHeroLabel: 'Parler de mon application',
+    resultatJourneeTitle: 'Passez du prototype à une application connectée',
+    resultatJournee: [
+      'Stocker vos données métier',
+      'Gérer plusieurs utilisateurs',
+      'Automatiser votre workflow',
+      'Connecter vos outils existants',
+    ],
+    casUsageTitle: 'Ce que votre application peut commencer à gérer',
+    casUsageCards: [
+      {
+        title: 'CRM BTP',
+        text: 'Prospects → rendez-vous → devis → relance → commande.',
+      },
+      {
+        title: 'Devis & métrés',
+        text: 'Centraliser affaires, quantités, devis et statuts.',
+      },
+      {
+        title: 'Chantier',
+        text: 'Affaires → préparation → travaux → contrôle → réception.',
+      },
+      {
+        title: 'Trésorerie',
+        text: 'Suivre factures, échéances, encaissements et alertes.',
+      },
+      {
+        title: 'Documents',
+        text: 'Générer comptes rendus, fiches chantier ou rapports.',
+      },
+      {
+        title: 'Équipes',
+        text: 'Donner des accès différents selon les utilisateurs.',
+      },
+    ],
+    comparison: {
+      title: 'Vous avez déjà le prototype. Maintenant, connectez-le.',
+      left: {
+        title: 'Niveau 1',
+        subtitle: 'Prototype',
+        items: ['Interfaces', 'Fonctions principales', 'Cahier des charges', 'Première version'],
+      },
+      right: {
+        title: 'Niveau 2',
+        subtitle: 'Application connectée',
+        items: [
+          'Base de données',
+          'Comptes utilisateurs',
+          'Rôles',
+          'Automatisations',
+          'Services externes',
+        ],
+      },
+    },
+    workflow: {
+      title: 'Exemple : connecter votre processus commercial',
+      steps: ['Prospect', 'Rendez-vous', 'Devis', 'Relance', 'Commande', 'Chantier'],
+      caption:
+        'Chaque étape peut mettre à jour les données, déclencher une action ou générer un document.',
+    },
+    concepts: {
+      title: 'Les briques d’une application connectée',
+      items: [
+        {
+          title: 'Base de données',
+          text: 'Vos clients, affaires, devis et chantiers sont enregistrés durablement.',
+        },
+        {
+          title: 'Utilisateurs',
+          text: 'Chaque collaborateur possède son accès.',
+        },
+        {
+          title: 'Rôles',
+          text: 'Un conducteur de travaux ne voit pas forcément les mêmes fonctions qu’un administrateur.',
+        },
+        {
+          title: 'Workflow',
+          text: 'Votre application suit les différentes étapes de votre processus.',
+        },
+        {
+          title: 'Connexion',
+          text: 'Votre application peut échanger avec un calendrier, une messagerie ou un autre service.',
+        },
+      ],
+    },
+    pourQui: [
+      'Dirigeants de PME BTP',
+      'Conducteurs de travaux',
+      'Chargés d’affaires',
+      'Responsables métier / digital / BE',
+    ],
+    pourQuiHighlight:
+      'Prérequis : avoir suivi le Niveau 1 ou disposer déjà d’un prototype, d’un cahier des charges et de premières fonctionnalités.',
+    programmeSteps: [
+      {
+        label: '01',
+        title: 'Structurer les données',
+        text: 'Tables, champs, relations, statuts et historique.',
+        duree: '1 h 15',
+      },
+      {
+        label: '02',
+        title: 'Gérer les utilisateurs',
+        text: 'Authentification, comptes, rôles et droits.',
+        duree: '1 h',
+      },
+      {
+        label: '03',
+        title: 'Créer le workflow',
+        text: 'Transformer votre processus métier en étapes et actions.',
+        duree: '1 h',
+      },
+      {
+        label: '04',
+        title: 'Connecter des services',
+        text: 'Calendrier, formulaires, messagerie, notifications et API.',
+        duree: '1 h 15',
+      },
+      {
+        label: '05',
+        title: 'Automatiser',
+        text: 'Déclencher certaines actions selon les événements de l’application.',
+        duree: '1 h',
+      },
+      {
+        label: '06',
+        title: 'Générer des documents',
+        text: 'Devis, rapports, comptes rendus, fiches chantier ou PDF.',
+        duree: '1 h',
+      },
+      {
+        label: '07',
+        title: 'Tester et sécuriser',
+        text: 'Contrôler les accès, données, erreurs et comportements.',
+        duree: '30 min',
+      },
+    ],
+    livrablesTitle: 'Vous repartez avec une application plus complète',
+    livrables: [
+      'Données métier persistantes',
+      'Gestion des utilisateurs et rôles',
+      'Workflow connecté',
+      'Automatisations et génération documentaire',
+    ],
+    livrablesNote:
+      'Le Niveau 2 vise une application fonctionnelle et connectée. La mise en production à grande échelle peut nécessiter une validation technique complémentaire.',
+    iaValidation: {
+      title: 'L’IA accélère le développement. Vous gardez le contrôle.',
+      rows: [
+        { ia: 'Proposer un schéma de données', humain: 'Valider les règles métier' },
+        { ia: 'Aider à connecter un service', humain: 'Vérifier confidentialité et droits' },
+        { ia: 'Générer un document', humain: 'Contrôler le contenu avant utilisation' },
+      ],
+    },
+    formatrice: {
+      title: 'Laure Olivié',
+      role: 'Formatrice IA spécialisée BTP',
+      paragraphs: [
+        'Plus de 10 ans d’expérience terrain dans les travaux publics et la conduite de chantier.',
+        'J’accompagne les PME du BTP à créer des outils métier utiles, avec validation humaine sur les résultats sensibles.',
+      ],
+    },
+    ctaFinal: {
+      title: 'Vous avez déjà un prototype à faire évoluer ?',
+      text: 'Présentez-moi votre outil et le processus que vous souhaitez connecter.',
+      label: 'Réserver une visio de 30 minutes',
+    },
+  },
 };
 
 export const APPLICATION_METIER_NIVEAU_3: ApplicationMetierNiveauConfig = {

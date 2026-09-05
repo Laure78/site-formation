@@ -63,8 +63,8 @@ const PHOTO_BY_CODE: Record<string, (typeof PHOTOS)[keyof typeof PHOTOS]> = {
   'NIV-04': PHOTOS.formationNiv04MaitriserClaudeAiBtp2026,
   'NIV-05': PHOTOS.formationNiv05IaMaitriseOeuvre2026,
   'NIV-06': PHOTOS.formationNiv06CursorBtp2026,
-  'NIV-07': PHOTOS.formationNiv06CursorBtp2026,
-  'NIV-08': PHOTOS.formationNiv06CursorBtp2026,
+  'NIV-07': PHOTOS.formationNiv07ApplicationConnectee2026,
+  'NIV-08': PHOTOS.formationNiv08ApplicationAvancee2026,
 };
 
 const PROFILE_TAGS_BY_CODE: Record<

@@ -143,6 +143,31 @@ export const EVALUATION_NIV04 = [
   'Feuille d\'émargement signée par demi-journée ; attestation individuelle de fin de formation et certificat de réalisation.',
 ] as const;
 
+/** Évaluations parcours applications métier — distinctes de NIV-04 (Claude). */
+export const EVALUATION_NIV06 = [
+  'Évaluation en amont : vérification des prérequis, recueil des attentes et identification du problème métier à traiter.',
+  'Évaluation des acquis : mise en situation continue — cadrage du besoin, cahier des charges, conception d’interface et prototype fonctionnel, avec validation individuelle par la formatrice.',
+  'Auto-positionnement de sortie permettant de mesurer la progression sur chacun des objectifs.',
+  'Évaluation de la satisfaction : questionnaire à chaud en fin de session, suivi d’un questionnaire à froid à J+30.',
+  'Feuille d’émargement signée par demi-journée ; attestation individuelle de fin de formation et certificat de réalisation.',
+] as const;
+
+export const EVALUATION_NIV07 = [
+  'Évaluation en amont : vérification des prérequis (prototype / cahier des charges) et recueil des attentes.',
+  'Évaluation des acquis : mise en situation continue — structuration des données métier, utilisateurs et rôles, workflow, connexion de services, tests et validation du fonctionnement, avec feedback de la formatrice.',
+  'Auto-positionnement de sortie permettant de mesurer la progression sur chacun des objectifs.',
+  'Évaluation de la satisfaction : questionnaire à chaud en fin de session, suivi d’un questionnaire à froid à J+30.',
+  'Feuille d’émargement signée par demi-journée ; attestation individuelle de fin de formation et certificat de réalisation.',
+] as const;
+
+export const EVALUATION_NIV08 = [
+  'Évaluation en amont : vérification des prérequis (application connectée / autonomie technique) et recueil des attentes.',
+  'Évaluation des acquis : mise en situation continue — intégration de briques IA, workflows avec contrôle humain, automatisations, sécurisation et préparation au déploiement, avec validation individuelle par la formatrice.',
+  'Auto-positionnement de sortie permettant de mesurer la progression sur chacun des objectifs.',
+  'Évaluation de la satisfaction : questionnaire à chaud en fin de session, suivi d’un questionnaire à froid à J+30.',
+  'Feuille d’émargement signée par demi-journée ; attestation individuelle de fin de formation et certificat de réalisation.',
+] as const;
+
 export const PREREQUIS_NIV06 =
   'Aucune compétence préalable en programmation. Une pratique courante de l’intelligence artificielle générative est recommandée. Ordinateur portable avec connexion internet. Jeu de données professionnelles anonymisées recommandé.';
 
@@ -336,8 +361,12 @@ export function getInfosPratiquesForCatalogue(ref: string): InfosPratiquesFormat
             ? [...EVALUATION_NIV03]
             : code === 'NIV-04'
               ? [...EVALUATION_NIV04]
-              : code === 'NIV-06' || code === 'NIV-07' || code === 'NIV-08'
-                ? [...EVALUATION_NIV04]
+              : code === 'NIV-06'
+                ? [...EVALUATION_NIV06]
+                : code === 'NIV-07'
+                  ? [...EVALUATION_NIV07]
+                  : code === 'NIV-08'
+                    ? [...EVALUATION_NIV08]
               : code === 'NIV-05'
                 ? [...EVALUATION_NIV05]
                 : [...QUALIOPI_EVALUATION_STANDARD],

@@ -50,7 +50,7 @@ export function ApplicationMetierFormationHero({ config, stepBadge, formationHin
 
         <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center">
           <ApplicationMetierRdvCta
-            label="Parler de mon projet"
+            label={config.ux?.ctaHeroLabel ?? 'Parler de mon projet'}
             origin={`application-metier-${config.slug}-hero`}
             formationHint={formationHint}
           />

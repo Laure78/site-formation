@@ -675,6 +675,24 @@ export const PHOTOS = {
     width: 1200,
     height: 800,
   },
+  formationNiv07ApplicationConnectee2026: {
+    src: '/images/formation-ia-architecture-claude-presentiel-groupe.jpg',
+    alt: 'Formation application métier BTP connectée avec l’IA — Niveau 2',
+    description:
+      'Parcours applications métier BTP niveau 2 : données, utilisateurs, workflows et services connectés — session 7 h.',
+    title: 'Applications métier BTP connectée — niveau 2',
+    width: 1200,
+    height: 800,
+  },
+  formationNiv08ApplicationAvancee2026: {
+    src: '/images/formation-ia-architecture-claude-presentiel-groupe.jpg',
+    alt: 'Formation application métier BTP avancée avec l’IA — Niveau 3',
+    description:
+      'Parcours applications métier BTP niveau 3 : IA, automatisations et industrialisation — session 7 h.',
+    title: 'Applications métier BTP avancée — niveau 3',
+    width: 1200,
+    height: 800,
+  },
 
 };
 

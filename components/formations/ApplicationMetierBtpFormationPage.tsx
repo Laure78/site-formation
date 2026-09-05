@@ -45,6 +45,7 @@ export function ApplicationMetierBtpFormationPage({ config }: Props) {
   const ux = config.ux;
   const hint = formationHint(config);
   const effectifLabel = libelleEffectifFormation(formation);
+  const programmeHasDurees = Boolean(ux?.programmeSteps?.some((s) => s.duree));
 
   return (
     <main>
@@ -62,7 +63,8 @@ export function ApplicationMetierBtpFormationPage({ config }: Props) {
         <section className="border-b border-slate-100 bg-[#F8FAFC] px-4 py-10 md:py-12">
           <div className="mx-auto max-w-3xl">
             <h2 className="font-display text-xl font-bold text-slate-900 md:text-2xl">
-              À la fin de la journée, vous aurez construit un premier prototype
+              {ux.resultatJourneeTitle ??
+                'À la fin de la journée, vous aurez construit un premier prototype'}
             </h2>
             <ul className="mt-5 space-y-2.5">
               {ux.resultatJournee.map((item) => (
@@ -74,17 +76,61 @@ export function ApplicationMetierBtpFormationPage({ config }: Props) {
                 </li>
               ))}
             </ul>
-            <p className="mt-4 text-sm text-slate-600">{config.promesseRealiste}</p>
+            {!ux.livrablesNote ? (
+              <p className="mt-4 text-sm text-slate-600">{config.promesseRealiste}</p>
+            ) : null}
           </div>
         </section>
       ) : null}
 
-      {/* 3 — Cas d’usage */}
+      {/* 3 — Comparaison N1 / N2 (si définie) */}
+      {ux?.comparison ? (
+        <section className="bg-white px-4 py-12" aria-labelledby="comparaison-niveaux">
+          <div className="mx-auto max-w-3xl">
+            <h2
+              id="comparaison-niveaux"
+              className="font-display text-xl font-bold text-slate-900 md:text-2xl"
+            >
+              {ux.comparison.title}
+            </h2>
+            <div className="mt-6 grid gap-4 sm:grid-cols-2">
+              <div className="rounded-xl border border-slate-200 p-5">
+                <p className="text-xs font-bold uppercase tracking-wide text-slate-500">
+                  {ux.comparison.left.title}
+                </p>
+                {ux.comparison.left.subtitle ? (
+                  <p className="mt-1 font-semibold text-slate-900">{ux.comparison.left.subtitle}</p>
+                ) : null}
+                <ul className="mt-3 space-y-2 text-sm text-slate-700">
+                  {ux.comparison.left.items.map((item) => (
+                    <li key={item}>• {item}</li>
+                  ))}
+                </ul>
+              </div>
+              <div className="rounded-xl border border-[var(--accent)]/30 bg-[var(--accent-soft)]/40 p-5">
+                <p className="text-xs font-bold uppercase tracking-wide text-[var(--accent)]">
+                  {ux.comparison.right.title}
+                </p>
+                {ux.comparison.right.subtitle ? (
+                  <p className="mt-1 font-semibold text-slate-900">{ux.comparison.right.subtitle}</p>
+                ) : null}
+                <ul className="mt-3 space-y-2 text-sm text-slate-800">
+                  {ux.comparison.right.items.map((item) => (
+                    <li key={item}>• {item}</li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+      ) : null}
+
+      {/* 4 — Cas d’usage */}
       {ux ? (
         <section className="bg-white px-4 py-12 md:py-14" aria-labelledby="cas-usage">
           <div className="mx-auto max-w-3xl">
             <h2 id="cas-usage" className="font-display text-xl font-bold text-slate-900 md:text-2xl">
-              Que pouvez-vous commencer à créer ?
+              {ux.casUsageTitle ?? 'Que pouvez-vous commencer à créer ?'}
             </h2>
             <ul className="mt-6 grid gap-3 sm:grid-cols-2">
               {ux.casUsageCards.map((card) => (
@@ -124,8 +170,50 @@ export function ApplicationMetierBtpFormationPage({ config }: Props) {
         </section>
       ) : null}
 
-      {/* 4 — Définition */}
-      {ux ? (
+      {/* 5 — Workflow */}
+      {ux?.workflow ? (
+        <section className="border-t border-slate-100 bg-[#F8FAFC] px-4 py-12" aria-labelledby="workflow">
+          <div className="mx-auto max-w-3xl">
+            <h2 id="workflow" className="font-display text-xl font-bold text-slate-900 md:text-2xl">
+              {ux.workflow.title}
+            </h2>
+            <ol className="mt-6 flex flex-wrap items-center gap-2 text-sm font-semibold uppercase tracking-wide text-slate-800">
+              {ux.workflow.steps.map((step, i) => (
+                <li key={step} className="flex items-center gap-2">
+                  <span className="rounded-lg border border-slate-200 bg-white px-3 py-2">{step}</span>
+                  {i < ux.workflow!.steps.length - 1 ? (
+                    <span className="text-[var(--accent)]" aria-hidden>
+                      →
+                    </span>
+                  ) : null}
+                </li>
+              ))}
+            </ol>
+            <p className="mt-4 max-w-prose text-sm text-slate-600">{ux.workflow.caption}</p>
+          </div>
+        </section>
+      ) : null}
+
+      {/* 6 — Concepts métier OU définition N1 */}
+      {ux?.concepts ? (
+        <section className="bg-white px-4 py-12" aria-labelledby="concepts">
+          <div className="mx-auto max-w-3xl">
+            <h2 id="concepts" className="font-display text-xl font-bold text-slate-900 md:text-2xl">
+              {ux.concepts.title}
+            </h2>
+            <ul className="mt-6 space-y-3">
+              {ux.concepts.items.map((item) => (
+                <li key={item.title} className="rounded-xl border border-slate-200 px-4 py-3.5">
+                  <p className="text-xs font-bold uppercase tracking-wide text-[var(--accent)]">
+                    {item.title}
+                  </p>
+                  <p className="mt-1 text-sm text-slate-700">{item.text}</p>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+      ) : ux?.definitionApp ? (
         <section className="border-t border-slate-100 bg-[#F2F2F2] px-4 py-12" aria-labelledby="def-app">
           <div className="mx-auto max-w-3xl">
             <h2 id="def-app" className="font-display text-xl font-bold text-slate-900 md:text-2xl">
@@ -153,8 +241,8 @@ export function ApplicationMetierBtpFormationPage({ config }: Props) {
         </section>
       )}
 
-      {/* 5 — Avant / après */}
-      {ux ? (
+      {/* 7 — Avant / après (N1) */}
+      {ux?.avant && ux?.apres ? (
         <section className="bg-white px-4 py-12" aria-labelledby="avant-apres">
           <div className="mx-auto max-w-3xl">
             <h2 id="avant-apres" className="font-display text-xl font-bold text-slate-900 md:text-2xl">
@@ -184,7 +272,7 @@ export function ApplicationMetierBtpFormationPage({ config }: Props) {
         </section>
       ) : null}
 
-      {/* 6 — Pour qui */}
+      {/* 8 — Pour qui */}
       <section className="border-t border-slate-100 bg-[#F8FAFC] px-4 py-12" aria-labelledby="pour-qui">
         <div className="mx-auto max-w-3xl">
           <h2 id="pour-qui" className="font-display text-xl font-bold text-slate-900 md:text-2xl">
@@ -202,9 +290,9 @@ export function ApplicationMetierBtpFormationPage({ config }: Props) {
                   </li>
                 ))}
               </ul>
-              <p className="mt-4 text-sm text-slate-600">
-                Aucune compétence en programmation n&apos;est nécessaire.
-              </p>
+              {ux.pourQuiNote ? (
+                <p className="mt-4 text-sm text-slate-600">{ux.pourQuiNote}</p>
+              ) : null}
               <p className="mt-3 rounded-xl border-2 border-[var(--accent)]/25 bg-white p-4 text-sm font-semibold text-slate-900">
                 {ux.pourQuiHighlight}
               </p>
@@ -220,7 +308,7 @@ export function ApplicationMetierBtpFormationPage({ config }: Props) {
         </div>
       </section>
 
-      {/* 7 — Programme */}
+      {/* 9 — Programme */}
       <section id="programme" className="scroll-mt-24 bg-white px-4 py-12 md:py-14" aria-labelledby="programme-title">
         <div className="mx-auto max-w-3xl">
           <h2 id="programme-title" className="font-display text-xl font-bold text-slate-900 md:text-2xl">
@@ -231,11 +319,18 @@ export function ApplicationMetierBtpFormationPage({ config }: Props) {
             <ol className="mt-8 space-y-5">
               {ux.programmeSteps.map((step) => (
                 <li key={step.label} className="flex gap-4 border-l-2 border-[var(--accent)]/40 pl-4">
-                  <div>
-                    <p className="text-xs font-bold uppercase tracking-wide text-[var(--accent)]">
-                      {step.label}
-                    </p>
-                    <p className="mt-1 font-semibold text-slate-900">{step.title}</p>
+                  <div className="min-w-0 flex-1">
+                    <div className="flex flex-wrap items-baseline justify-between gap-2">
+                      <p className="text-xs font-bold uppercase tracking-wide text-[var(--accent)]">
+                        {step.duree ? `${step.label} — ${step.title}` : step.label}
+                      </p>
+                      {step.duree ? (
+                        <p className="text-xs font-semibold text-slate-500">{step.duree}</p>
+                      ) : null}
+                    </div>
+                    {!step.duree ? (
+                      <p className="mt-1 font-semibold text-slate-900">{step.title}</p>
+                    ) : null}
                     <p className="mt-1 text-sm text-slate-600">{step.text}</p>
                   </div>
                 </li>
@@ -243,33 +338,37 @@ export function ApplicationMetierBtpFormationPage({ config }: Props) {
             </ol>
           ) : null}
 
-          <div className="mt-10 space-y-4">
-            <h3 className="text-sm font-semibold uppercase tracking-wide text-slate-500">
-              Modules et durées (programme officiel)
-            </h3>
-            {config.modules.map((mod, i) => (
-              <div key={mod.title} className="rounded-xl border border-slate-200 bg-slate-50/80 px-4 py-3">
-                <p className="font-semibold text-slate-900">
-                  <span className="text-[var(--accent)]">{i + 1}.</span> {mod.title}{' '}
-                  <span className="font-normal text-slate-500">— {mod.duree}</span>
-                </p>
-                <ul className="mt-1 space-y-0.5 text-sm text-slate-600">
-                  {mod.items.map((item) => (
-                    <li key={item}>• {item}</li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
+          {programmeHasDurees ? (
+            <p className="mt-6 text-sm font-semibold text-slate-800">Total : 7 heures.</p>
+          ) : (
+            <div className="mt-10 space-y-4">
+              <h3 className="text-sm font-semibold uppercase tracking-wide text-slate-500">
+                Modules et durées (programme officiel)
+              </h3>
+              {config.modules.map((mod, i) => (
+                <div key={mod.title} className="rounded-xl border border-slate-200 bg-slate-50/80 px-4 py-3">
+                  <p className="font-semibold text-slate-900">
+                    <span className="text-[var(--accent)]">{i + 1}.</span> {mod.title}{' '}
+                    <span className="font-normal text-slate-500">— {mod.duree}</span>
+                  </p>
+                  <ul className="mt-1 space-y-0.5 text-sm text-slate-600">
+                    {mod.items.map((item) => (
+                      <li key={item}>• {item}</li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+          )}
         </div>
       </section>
 
-      {/* 8 — Livrables */}
+      {/* 10 — Livrables */}
       {ux ? (
         <section className="border-t border-slate-100 bg-[#F2F2F2] px-4 py-12" aria-labelledby="repartez">
           <div className="mx-auto max-w-3xl">
             <h2 id="repartez" className="font-display text-xl font-bold text-slate-900 md:text-2xl">
-              Vous repartez avec
+              {ux.livrablesTitle ?? 'Vous repartez avec'}
             </h2>
             <ul className="mt-5 grid gap-2 sm:grid-cols-2">
               {ux.livrables.map((item) => (
@@ -281,6 +380,9 @@ export function ApplicationMetierBtpFormationPage({ config }: Props) {
                 </li>
               ))}
             </ul>
+            {ux.livrablesNote ? (
+              <p className="mt-4 text-sm text-slate-600">{ux.livrablesNote}</p>
+            ) : null}
           </div>
         </section>
       ) : (
@@ -296,7 +398,36 @@ export function ApplicationMetierBtpFormationPage({ config }: Props) {
         </section>
       )}
 
-      {/* 9 — Parcours N1→N2→N3 */}
+      {/* 11 — IA / validation humaine */}
+      {ux?.iaValidation ? (
+        <section className="bg-white px-4 py-12" aria-labelledby="ia-humain">
+          <div className="mx-auto max-w-3xl">
+            <h2 id="ia-humain" className="font-display text-xl font-bold text-slate-900 md:text-2xl">
+              {ux.iaValidation.title}
+            </h2>
+            <div className="mt-6 overflow-x-auto">
+              <table className="w-full min-w-[20rem] border-collapse text-left text-sm">
+                <thead>
+                  <tr className="border-b border-slate-200">
+                    <th className="py-2 pr-4 font-semibold text-slate-900">L’IA peut</th>
+                    <th className="py-2 font-semibold text-slate-900">Vous validez</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {ux.iaValidation.rows.map((row) => (
+                    <tr key={row.ia} className="border-b border-slate-100">
+                      <td className="py-3 pr-4 text-slate-700">{row.ia}</td>
+                      <td className="py-3 text-slate-700">{row.humain}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+      ) : null}
+
+      {/* 12 — Parcours N1→N2→N3 */}
       <section className="bg-white px-4 py-12" aria-labelledby="parcours-niveaux">
         <div className="mx-auto max-w-3xl">
           <h2 id="parcours-niveaux" className="font-display text-xl font-bold text-slate-900 md:text-2xl">
@@ -322,7 +453,7 @@ export function ApplicationMetierBtpFormationPage({ config }: Props) {
 
       <ApplicationMetierParcoursContinueSection step={parcoursStep} />
 
-      {/* 10 — Tarif (une seule fois) */}
+      {/* 13 — Tarif (une seule fois) */}
       <section id="tarif" className="scroll-mt-24 border-t border-slate-100 bg-[#F8FAFC] px-4 py-12">
         <div className="mx-auto max-w-3xl">
           <h2 className="font-display text-xl font-bold text-slate-900 md:text-2xl">Tarif</h2>
@@ -333,6 +464,9 @@ export function ApplicationMetierBtpFormationPage({ config }: Props) {
             Jusqu&apos;à {formation.effectifMax} participants · {effectifLabel}. Formation organisée
             pour votre entreprise.
           </p>
+          <p className="mt-3 text-sm text-slate-700">
+            Prise en charge possible par votre OPCO selon éligibilité.
+          </p>
           <div className="mt-6">
             <ApplicationMetierRdvCta
               label="Parler de mon projet"
@@ -340,18 +474,7 @@ export function ApplicationMetierBtpFormationPage({ config }: Props) {
               formationHint={hint}
             />
           </div>
-        </div>
-      </section>
-
-      {/* 11 — Financement */}
-      <section className="bg-white px-4 py-10">
-        <div className="mx-auto max-w-3xl">
-          <h2 className="font-display text-lg font-bold text-slate-900">Financement</h2>
-          <p className="mt-3 max-w-prose text-sm leading-relaxed text-slate-700">
-            Prise en charge possible par votre OPCO selon votre éligibilité et les règles applicables.
-            Les plafonds peuvent être inférieurs au tarif de la formation.
-          </p>
-          <p className="mt-3 text-sm">
+          <p className="mt-4 text-sm">
             <Link href={LINKS.financement} className={OFC_LINK}>
               En savoir plus sur le financement Constructys / OPCO
             </Link>
@@ -359,23 +482,41 @@ export function ApplicationMetierBtpFormationPage({ config }: Props) {
         </div>
       </section>
 
-      {/* 12 — Preuves */}
+      {/* 14 — Preuves */}
       <section className="border-t border-slate-100 bg-[#F2F2F2] px-4 py-10">
         <div className="mx-auto max-w-3xl">
           <h2 className="font-display text-lg font-bold text-slate-900">Pourquoi cette formation</h2>
           <ul className="mt-4 space-y-2 text-sm text-slate-700">
             <li>• Organisme de formation certifié Qualiopi</li>
             <li>• {formatVolumeProsFormesBtpLibelle()} — satisfaction {PREUVES.satisfaction}</li>
-            <li>• Exercices réalisés sur les situations métier des participants</li>
-            <li>
-              • Présentiel en Île-de-France (Guyancourt / Yvelines) — développement assisté par l’IA,
-              pas une formation « développeur »
-            </li>
+            <li>• Références BTP : FFB, CSFE, CNAM Entreprise, Le Moniteur Formations</li>
           </ul>
         </div>
       </section>
 
-      {/* 13 — Infos pratiques / Qualiopi / PDF (indexable, bas de page) */}
+      {/* 15 — Formatrice */}
+      {ux?.formatrice ? (
+        <section className="bg-white px-4 py-10" aria-labelledby="formatrice">
+          <div className="mx-auto max-w-3xl">
+            <h2 id="formatrice" className="font-display text-lg font-bold text-slate-900">
+              {ux.formatrice.title}
+            </h2>
+            <p className="mt-1 text-sm font-medium text-slate-600">{ux.formatrice.role}</p>
+            {ux.formatrice.paragraphs.map((p) => (
+              <p key={p} className="mt-3 max-w-prose text-sm text-slate-700">
+                {p}
+              </p>
+            ))}
+            <p className="mt-4 text-sm">
+              <Link href={LINKS.aPropos} className={OFC_LINK}>
+                Découvrir Laure Olivié
+              </Link>
+            </p>
+          </div>
+        </section>
+      ) : null}
+
+      {/* 16 — Infos pratiques / Qualiopi / PDF */}
       <section className="bg-white px-4 py-10" aria-labelledby="infos-reglementaires">
         <div className="mx-auto max-w-3xl">
           <h2 id="infos-reglementaires" className="font-display text-lg font-bold text-slate-900">
@@ -396,30 +537,30 @@ export function ApplicationMetierBtpFormationPage({ config }: Props) {
       <FormationProgrammePdfSection catalogueRef={config.ref} />
       <CatalogueInfosPratiques programmeRef={config.ref} />
 
-      {/* 14 — FAQ */}
+      {/* 17 — FAQ */}
       <div className={OFC_SEC.muted}>
         <div className="mx-auto max-w-3xl">
           <FAQSection
             items={[...config.faq]}
             title="Questions fréquentes"
-            subtitle="Prototypage, outils, financement, organisation."
+            subtitle="Prérequis, application connectée, financement, parcours."
           />
         </div>
       </div>
 
-      {/* 15 — CTA final */}
+      {/* 18 — CTA final */}
       <section className="bg-white px-4 py-14">
         <div className="mx-auto max-w-2xl text-center">
           <h2 className="font-display text-2xl font-bold text-slate-900">
-            Vous avez une idée d&apos;outil pour votre entreprise ?
+            {ux?.ctaFinal?.title ?? 'Vous avez une idée d’outil pour votre entreprise ?'}
           </h2>
           <p className="mt-3 text-slate-600">
-            Présentez-moi votre besoin. Nous vérifierons ensemble si ce parcours correspond à votre
-            projet.
+            {ux?.ctaFinal?.text ??
+              'Présentez-moi votre besoin. Nous vérifierons ensemble si ce parcours correspond à votre projet.'}
           </p>
           <div className="mt-8 flex justify-center">
             <ApplicationMetierRdvCta
-              label="Réserver une visio de 30 minutes"
+              label={ux?.ctaFinal?.label ?? 'Réserver une visio de 30 minutes'}
               origin={`application-metier-${config.slug}-footer`}
               formationHint={hint}
             />
