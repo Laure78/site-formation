@@ -44,7 +44,7 @@ export const CONTACT_AFTER_SEND_STEPS = [
 export const CONTACT_CALENDLY_TITLE = 'Vous préférez en parler directement ?' as const;
 
 export const CONTACT_CALENDLY_TEXT =
-  'Réservez un échange de 30 minutes pour présenter votre contexte et identifier la suite pertinente.' as const;
+  'Choisissez un créneau de 30 minutes pour présenter votre contexte et identifier la suite pertinente.' as const;
 
 export const CONTACT_COORDINATES_INTRO =
   `Si vous préférez un contact direct, voici les coordonnées professionnelles. Formations en présentiel — ${IDF_ZONE_INTERVENTION}.` as const;

@@ -351,7 +351,7 @@ export const DIAGNOSTIC_TEST_PROFILES: DiagnosticTestProfile[] = [
     expectedTraining: 'appels_offres',
   },
   {
-    name: 'CAS 3 — Dirigeant artisan',
+    name: 'CAS 3 — Dirigeant de TPE',
     answers: {
       role: 'artisan_tpe',
       tasks: ['devis_preparer', 'admin_emails', 'com_relance_devis'],

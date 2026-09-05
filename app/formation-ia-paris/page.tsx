@@ -367,7 +367,7 @@ export default function FormationIaParisPage() {
             <p className="mt-4 text-base leading-relaxed text-slate-600 md:text-lg">
               Preuves : , organisme certifié Qualiopi (actions de formation), instructrice
               LinkedIn Learning. Interventions avec FFB Grand Paris, {CSFE_NOM_COMPLET}, UMB-FFB, CNAM
-              Entreprise et Lefebvre Dalloz. En savoir plus sur{' '}
+              Entreprise et Le Moniteur Formations. En savoir plus sur{' '}
               <Link href={LINKS.aPropos} className={OFC_LINK} title="À propos de Laure Olivié">
                 Laure Olivié et OFC Création d&apos;Entreprise
               </Link>

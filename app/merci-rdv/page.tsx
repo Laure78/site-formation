@@ -1,41 +1,45 @@
 import Link from 'next/link';
-import { RdvLink } from '@/components/RdvLink';
-import { CheckCircle, Mail, Home, Calendar, ClipboardList, BookOpen } from 'lucide-react';
+import { CheckCircle, Mail, Home, BookOpen, Calendar } from 'lucide-react';
 import { createPageMetadata } from '@/lib/seo';
+import { LINKS } from '@/lib/internal-links';
+import { buildGoogleCalendarUrl, formatRdvDateLong, formatRdvTime } from '@/lib/rdv-datetime';
+import { CONTACT } from '@/lib/constants';
 
 export const metadata = createPageMetadata({
   title: 'Rendez-vous confirmé',
   description:
-    "Votre rendez-vous est enregistré. Vous recevez un email de confirmation avec le lieu et les horaires convenus avec Laure Olivié.",
+    'Votre rendez-vous est enregistré. Vous recevez un email de confirmation avec le lieu et les horaires convenus avec Laure Olivié.',
   path: '/merci-rdv',
   keywords: ['confirmation rendez-vous formation'],
   robots: { index: false, follow: false },
 });
 
-function formatRDVDisplay(startIso: string): string {
-  try {
-    const d = new Date(startIso);
-    return d.toLocaleDateString('fr-FR', {
-      weekday: 'long',
-      day: 'numeric',
-      month: 'long',
-      year: 'numeric',
-      hour: '2-digit',
-      minute: '2-digit',
-    });
-  } catch {
-    return '';
-  }
-}
-
 export default async function MerciRDVPage({
   searchParams,
 }: {
-  searchParams: Promise<{ t?: string; start?: string }>;
+  searchParams: Promise<{ t?: string; start?: string; prenom?: string; m?: string }>;
 }) {
-  const { t, start } = await searchParams;
-  const hasToken = !!t?.trim();
-  const rdvDisplay = start?.trim() ? formatRDVDisplay(start.trim()) : '';
+  const { start, prenom, m } = await searchParams;
+  const firstName = prenom?.trim() || '';
+  const startIso = start?.trim() || '';
+  const manageToken = m?.trim() || '';
+
+  const dateLabel = startIso ? formatRdvDateLong(startIso) : '';
+  const timeLabel = startIso ? formatRdvTime(startIso) : '';
+  const endIso = startIso
+    ? new Date(new Date(startIso).getTime() + 30 * 60_000).toISOString()
+    : '';
+
+  const googleCalUrl = startIso
+    ? buildGoogleCalendarUrl({
+        title: 'Rendez-vous Laure Olivié — Formation IA BTP',
+        startIso,
+        endIso,
+        details: 'Échange découverte formation IA pour le BTP',
+      })
+    : null;
+
+  const manageUrl = manageToken ? `/rdv/${manageToken}` : null;
 
   return (
     <div className="min-h-[60vh] bg-slate-50 px-4 py-16">
@@ -47,77 +51,90 @@ export default async function MerciRDVPage({
             </div>
           </div>
           <h1 className="mt-6 text-center font-display text-2xl font-bold text-slate-900 md:text-3xl">
-            Rendez-vous demandé avec succès !
+            Votre rendez-vous est confirmé
           </h1>
-          <p className="mt-3 flex items-center justify-center gap-2 text-slate-600">
-            <CheckCircle size={18} strokeWidth={1.5} className="shrink-0 text-emerald-500" />
-            Votre réservation a bien été enregistrée
+          <p className="mt-3 text-center text-slate-600">
+            Merci{firstName ? ` ${firstName}` : ''}.
           </p>
-          {rdvDisplay && (
-            <div className="mt-6 rounded-xl border-2 border-[var(--accent)] bg-[var(--accent-soft)] p-4 text-center">
-              <p className="text-sm font-medium text-slate-600">Votre rendez-vous</p>
-              <p className="mt-1 font-display text-lg font-bold capitalize text-slate-900">
-                {rdvDisplay}
+
+          {dateLabel && (
+            <div className="mt-6 rounded-xl border-2 border-[var(--accent)] bg-[var(--accent-soft)] p-5 text-center">
+              <p className="text-sm font-medium text-slate-600">
+                Votre rendez-vous avec Laure Olivié est bien enregistré pour :
               </p>
+              <p className="mt-2 font-display text-lg font-bold capitalize text-slate-900">
+                {dateLabel}
+              </p>
+              <p className="mt-1 font-display text-lg font-bold text-slate-900">à {timeLabel}</p>
               <p className="mt-1 text-sm text-slate-600">(30 minutes)</p>
             </div>
           )}
+
           <p className="mt-6 text-center text-slate-600">
-            Merci pour votre confiance. Vous recevrez une confirmation par email
-            dans les plus brefs délais. En cas de changement, n&apos;hésitez pas
-            à me contacter.
+            Vous allez recevoir un email de confirmation avec toutes les informations utiles.
+          </p>
+          <p className="mt-4 text-center text-sm leading-relaxed text-slate-600">
+            Pour préparer notre échange, vous pouvez simplement réfléchir au processus ou à la tâche
+            qui vous fait perdre le plus de temps aujourd&apos;hui.
           </p>
 
-          {hasToken && (
-            <div className="mt-8 rounded-xl border-2 border-[var(--accent)] bg-[var(--accent-soft)] p-6">
-              <p className="font-semibold text-slate-900">
-                Complétez notre questionnaire pour mieux préparer notre échange
-              </p>
-              <p className="mt-2 text-sm text-slate-600">
-                Répondez en 2 minutes à quelques questions sur votre entreprise et vos besoins.
-              </p>
-              <Link
-                href={`/questionnaire/${t}`}
-                className="mt-4 inline-flex items-center gap-2 rounded-xl bg-[var(--accent)] px-6 py-3 font-semibold text-white hover:bg-blue-700"
-              >
-                <ClipboardList size={20} strokeWidth={1.5} />
-                Remplir le questionnaire
-              </Link>
-            </div>
-          )}
-
-          <div className="mt-8 rounded-xl border-2 border-slate-200 bg-slate-50 p-6">
-            <p className="font-semibold text-slate-900">
-              Une question avant notre échange ?
-            </p>
-            <div className="mt-4 flex flex-wrap justify-center gap-6">
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:justify-center">
+            {googleCalUrl && (
               <a
-                href="mailto:laureolivie@yahoo.fr"
-                className="flex items-center gap-2 text-[var(--accent)] font-medium hover:underline"
+                href={googleCalUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex min-h-11 items-center justify-center gap-2 rounded-xl bg-[var(--accent)] px-5 font-semibold text-white hover:bg-blue-700"
               >
-                <Mail size={20} strokeWidth={1.5} />
-                laureolivie@yahoo.fr
+                <Calendar size={18} strokeWidth={1.5} />
+                Ajouter au calendrier
               </a>
-            </div>
+            )}
+            {manageUrl && (
+              <>
+                <Link
+                  href={`${manageUrl}?action=modifier`}
+                  className="inline-flex min-h-11 items-center justify-center rounded-xl border border-slate-200 px-5 font-semibold text-slate-800 hover:bg-slate-50"
+                >
+                  Modifier le rendez-vous
+                </Link>
+                <Link
+                  href={`${manageUrl}?action=annuler`}
+                  className="inline-flex min-h-11 items-center justify-center rounded-xl border border-slate-200 px-5 font-semibold text-slate-800 hover:bg-slate-50"
+                >
+                  Annuler le rendez-vous
+                </Link>
+              </>
+            )}
+          </div>
+
+          <div className="mt-8 rounded-xl border border-slate-200 bg-slate-50 p-6 text-center">
+            <p className="font-semibold text-slate-900">Une question avant notre échange ?</p>
+            <a
+              href={`mailto:${CONTACT.email}`}
+              className="mt-3 inline-flex items-center gap-2 font-medium text-[var(--accent)] hover:underline"
+            >
+              <Mail size={18} strokeWidth={1.5} />
+              {CONTACT.email}
+            </a>
           </div>
         </div>
 
         <div className="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:flex-wrap sm:justify-center">
           <Link
-            href="/formations"
+            href={LINKS.formations}
             className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-[var(--accent)] px-8 py-4 font-semibold text-white hover:bg-blue-700 sm:w-auto"
           >
             <BookOpen size={20} strokeWidth={1.5} />
             Voir le catalogue formations
           </Link>
           <Link
-            href="/"
+            href={LINKS.home}
             className="inline-flex w-full items-center justify-center gap-2 rounded-xl border-2 border-[var(--accent)] bg-white px-8 py-4 font-semibold text-[var(--accent)] hover:bg-[var(--accent-soft)] sm:w-auto"
           >
             <Home size={20} strokeWidth={1.5} />
             Retour à l&apos;accueil
           </Link>
-          <RdvLink className="inline-flex w-full items-center justify-center gap-2 rounded-xl border-2 border-[var(--accent)] bg-white px-8 py-4 font-semibold text-[var(--accent)] hover:bg-[var(--accent-soft)] sm:w-auto" />
         </div>
       </div>
     </div>

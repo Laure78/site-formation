@@ -6,9 +6,9 @@ import {
   ALT_LOGO_FFB_GRAND_PARIS_IDF,
   ALT_LOGO_FFB_OFFICIEL,
   ALT_LOGO_IFRB,
-  ALT_LOGO_LEFEBVRE_DALLOZ,
+  ALT_LOGO_MONITEUR_FORMATIONS,
   ALT_LOGO_UMB_FFB,
-  LOGO_LEFEBVRE_DALLOZ,
+  LOGO_MONITEUR_FORMATIONS,
   LOGO_UMB_FFB,
   PARTNER_WEBSITES,
 } from '@/lib/client-logos';
@@ -264,22 +264,21 @@ export const PARTENAIRES_PAGE_SECTIONS: PartenairePageSection[] = [
     ],
   },
   {
-    id: 'lefebvre-dalloz',
-    h2: 'Lefebvre Dalloz',
-    subtitle: 'Lefebvre Dalloz Formation',
-    officialHref: PARTNER_WEBSITES.lefebvreDalloz,
-    officialLabel: 'Site officiel Lefebvre Dalloz Formation',
+    id: 'moniteur-formations',
+    h2: 'Le Moniteur Formations',
+    subtitle: 'Formations professionnelles pour le BTP et la construction',
+    officialHref: PARTNER_WEBSITES.moniteurFormations,
+    officialLabel: 'Site officiel Le Moniteur Formations',
     logo: {
-      src: LOGO_LEFEBVRE_DALLOZ.src,
-      alt: ALT_LOGO_LEFEBVRE_DALLOZ,
-      width: LOGO_LEFEBVRE_DALLOZ.width,
-      height: LOGO_LEFEBVRE_DALLOZ.height,
+      src: LOGO_MONITEUR_FORMATIONS.src,
+      alt: ALT_LOGO_MONITEUR_FORMATIONS,
+      width: LOGO_MONITEUR_FORMATIONS.width,
+      height: LOGO_MONITEUR_FORMATIONS.height,
     },
     paragraphs: [
       <>
-        Lefebvre Dalloz Formation est un organisme de formation continue (droit,
-        fiscalité, métiers). Les publics croisent souvent les fonctions support, RH et
-        juridiques, y compris dans des entreprises en lien avec le bâtiment.
+        Le Moniteur Formations est un organisme de formation continue dédié aux
+        professionnels de la construction et des travaux publics (catalogue Infopro Digital).
       </>,
       <>
         J’y ai animé des interventions IA orientées usages professionnels : structurer un
@@ -287,14 +286,14 @@ export const PARTENAIRES_PAGE_SECTIONS: PartenairePageSection[] = [
         présentiel, sur le programme qu’ils organisent.
       </>,
       <>
-        Lefebvre Dalloz fixe le calendrier, le public et le lieu ; j’apporte le volet IA
-        appliquée (rédaction, structuration, limites). Ce n’est pas une formation juridique
-        OFC, ni un module « droit du travail » déguisé : quand le sujet touche au BTP, on
-        reste sur les écrits de bureau que les participants doivent produire.
+        Le Moniteur Formations fixe le calendrier, le public et le lieu ; j’apporte le volet
+        IA appliquée (rédaction, structuration, limites). Ce n’est pas une formation
+        juridique OFC : quand le sujet touche au BTP, on reste sur les écrits de bureau que
+        les participants doivent produire.
       </>,
       <>
-        Ce n’est pas une co-édition de catalogue ni une marque blanche. Lefebvre Dalloz
-        programme ; j’anime en tant que formatrice OFC.
+        Ce n’est pas une co-édition de catalogue ni une marque blanche. Le Moniteur
+        Formations programme ; j’anime en tant que formatrice OFC.
       </>,
     ],
   },

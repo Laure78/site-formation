@@ -304,7 +304,7 @@ export default function FormationIABTPSaintQuentinYvelinesPage() {
             </p>
             <p>
               Pour les chefs d&apos;entreprise non salariés, des dispositifs complémentaires peuvent
-              exister (ex. FAFCEA) : renseignez-vous auprès de votre Chambre des Métiers et de l&apos;Artisanat
+              exister (ex. FAFCEA) : renseignez-vous auprès de votre chambre consulaire (CMA)
               des Yvelines.
             </p>
           </div>
@@ -433,7 +433,7 @@ export default function FormationIABTPSaintQuentinYvelinesPage() {
           </p>
           <p className="mt-4 text-sm text-slate-600">
             <strong className="text-slate-800">Références :</strong> FFB Grand Paris · FFB Île-de-France
-            (78/91/95) · FFB Île-de-France Est · CSFE · CNAM Entreprise · Lefebvre Dalloz
+            (78/91/95) · FFB Île-de-France Est · CSFE · CNAM Entreprise · Le Moniteur Formations
           </p>
           <p className="mt-2 text-sm text-slate-600">
             Satisfaction {formatNoteSatisfactionAffichageComplet()} ·

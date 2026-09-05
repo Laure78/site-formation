@@ -11,7 +11,7 @@ import {
   LAURE_OLIVIE_LINKEDIN_LEARNING_COURSES,
 } from '@/lib/laure-olivie-profile';
 import { LINKEDIN_LEARNING_INSTRUCTOR_HREF } from '@/lib/linkedin-learning-a-propos-embeds';
-import { PARTNER_WEBSITES, LOGO_UMB_FFB, LOGO_LEFEBVRE_DALLOZ } from '@/lib/client-logos';
+import { PARTNER_WEBSITES, LOGO_UMB_FFB, LOGO_MONITEUR_FORMATIONS } from '@/lib/client-logos';
 import type { FAQItem } from '@/lib/faq';
 
 export const A_PROPOS_PAGE_H1 = 'Laure Olivié, formatrice IA spécialisée dans le BTP' as const;
@@ -33,7 +33,7 @@ export function getAProposPagePersonDescription(): string {
 }
 
 export const A_PROPOS_POSITIONNEMENT = [
-  `Après une expérience de chargée de formation au CNFPT Grande Couronne (2009-2019) et la direction d'ALIA BTP, entreprise de travaux publics et revêtements (2017-2024), j'ai structuré OFC Création d'Entreprise en 2022 autour de formations IA pour le BTP.`,
+  `Après une expérience de chargée de formation au CNFPT Grande Couronne (2009-2019), la direction d'ALIA BTP, entreprise de travaux publics et revêtements (2017-2024), et une activité de formatrice indépendante (2019-2022) en création d'entreprise et marketing digital (CPF), j'ai structuré OFC Création d'Entreprise en 2022 autour de formations IA pour le BTP.`,
   `Je forme en présentiel en Île-de-France des dirigeants, conducteurs de travaux et fonctions support sur leurs documents réels : devis, comptes rendus, DCE et mémoires techniques. Chaque production de l'IA est relue avant envoi ou décision.`,
 ] as const;
 
@@ -62,6 +62,11 @@ export const A_PROPOS_PARCOURS = [
     period: '2017 – 2024',
     title: 'Direction d’ALIA BTP — travaux publics & revêtements',
     text: 'Fondation et gestion d’une PME francilienne : chantiers, équipes, commercial et pilotage d’activité.',
+  },
+  {
+    period: '2019 – 2022',
+    title: 'Formatrice indépendante — création d’entreprise & marketing digital',
+    text: 'Formations finançables CPF : création d’entreprise et marketing digital, en indépendante, avant la spécialisation IA BTP avec OFC.',
   },
   {
     period: '2022 – auj.',
@@ -152,12 +157,12 @@ export const A_PROPOS_REFERENCES_LOGOS = [
     height: 72,
   },
   {
-    id: 'lefebvre',
-    name: 'Lefebvre Dalloz',
-    src: LOGO_LEFEBVRE_DALLOZ.src,
-    alt: LOGO_LEFEBVRE_DALLOZ.alt,
-    width: LOGO_LEFEBVRE_DALLOZ.width,
-    height: LOGO_LEFEBVRE_DALLOZ.height,
+    id: 'moniteur-formations',
+    name: 'Le Moniteur Formations',
+    src: LOGO_MONITEUR_FORMATIONS.src,
+    alt: LOGO_MONITEUR_FORMATIONS.alt,
+    width: LOGO_MONITEUR_FORMATIONS.width,
+    height: LOGO_MONITEUR_FORMATIONS.height,
   },
 ] as const;
 

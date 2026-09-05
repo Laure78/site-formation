@@ -20,12 +20,27 @@ export function AProposLinkedInSection() {
       <ul className="mt-6 space-y-4">
         {A_PROPOS_LINKEDIN_COURSES.map((course) => (
           <li
-            key={course.title}
+            key={course.href}
             className="rounded-xl border border-[#E2E8F0] bg-white p-5 shadow-sm"
           >
-            <h3 className="font-semibold text-[#0F172A]">{course.title}</h3>
+            <h3 className="font-semibold text-[#0F172A]">
+              <ExternalLinkAnchor
+                href={course.href}
+                className="text-[#0F172A] hover:text-[#377CF3] hover:underline"
+              >
+                {course.title}
+              </ExternalLinkAnchor>
+            </h3>
             <p className="mt-1 text-sm text-[#64748B]">
               {course.duration} · {course.topics}
+            </p>
+            <p className="mt-3">
+              <ExternalLinkAnchor
+                href={course.href}
+                className="text-sm font-medium text-[#377CF3] underline"
+              >
+                Voir le cours sur LinkedIn Learning
+              </ExternalLinkAnchor>
             </p>
           </li>
         ))}

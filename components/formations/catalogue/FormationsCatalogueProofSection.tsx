@@ -8,7 +8,8 @@ import {
   ALT_LOGO_CSFE,
   ALT_LOGO_FFB_OFFICIEL,
   ALT_LOGO_FFB_GRAND_PARIS_IDF,
-  ALT_LOGO_LEFEBVRE_DALLOZ,
+  ALT_LOGO_MONITEUR_FORMATIONS,
+  LOGO_MONITEUR_FORMATIONS,
   PARTNER_WEBSITES,
 } from '@/lib/client-logos';
 import { OFC_LINK } from '@/lib/ofc-interaction-classes';
@@ -36,11 +37,11 @@ const PROOF_LOGOS = [
     height: 120,
   },
   {
-    src: '/images/partenaires/logo-lefebvre-dalloz-partenaire-formation-ia-btp.webp',
-    alt: ALT_LOGO_LEFEBVRE_DALLOZ,
-    href: PARTNER_WEBSITES.lefebvreDalloz,
-    width: 293,
-    height: 60,
+    src: LOGO_MONITEUR_FORMATIONS.src,
+    alt: ALT_LOGO_MONITEUR_FORMATIONS,
+    href: PARTNER_WEBSITES.moniteurFormations,
+    width: LOGO_MONITEUR_FORMATIONS.width,
+    height: LOGO_MONITEUR_FORMATIONS.height,
   },
 ] as const;
 

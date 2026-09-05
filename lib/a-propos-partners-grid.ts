@@ -3,11 +3,11 @@ import {
   ALT_LOGO_CSFE,
   ALT_LOGO_FFB_OFFICIEL,
   ALT_LOGO_IFRB,
-  ALT_LOGO_LEFEBVRE_DALLOZ,
+  ALT_LOGO_MONITEUR_FORMATIONS,
   ALT_LOGO_LINKEDIN_LEARNING,
   ALT_LOGO_ARFAB,
   ALT_LOGO_UMB_FFB,
-  LOGO_LEFEBVRE_DALLOZ,
+  LOGO_MONITEUR_FORMATIONS,
   LOGO_LINKEDIN_LEARNING,
   LOGO_UMB_FFB,
   PARTNER_WEBSITES,
@@ -24,7 +24,7 @@ export type AProposPartner = {
 };
 
 export const A_PROPOS_PARTNERS_FACTUAL_SENTENCE =
-  "Laure Olivié a animé des formations IA pour les pros du BTP pour la FFB Grand Paris, la FFB Île-de-France Est, la FFB Île-de-France Ouest (78-91-95), la FFB Artisans, la Chambre Syndicale Française de l'Étanchéité (CSFE), le CNAM Entreprise, Lefebvre Dalloz, l'IFRB 77 et ARFAB." as const;
+  "Laure Olivié a animé des formations IA pour les pros du BTP pour la FFB Grand Paris, la FFB Île-de-France Est, la FFB Île-de-France Ouest (78-91-95), la FFB, la Chambre Syndicale Française de l'Étanchéité (CSFE), le CNAM Entreprise, Le Moniteur Formations, l'IFRB 77 et ARFAB." as const;
 
 export const A_PROPOS_PARTNERS_GRID: AProposPartner[] = [
   {
@@ -49,7 +49,7 @@ export const A_PROPOS_PARTNERS_GRID: AProposPartner[] = [
     alt: ALT_LOGO_FFB_OFFICIEL,
   },
   {
-    name: 'FFB Artisans',
+    name: 'FFB',
     subtitle: 'Fédération Française du Bâtiment',
     href: 'https://www.ffbatiment.fr',
     logo: '/images/partenaires/logo-ffb-partenaire-formation-ia-btp.webp',
@@ -77,11 +77,11 @@ export const A_PROPOS_PARTNERS_GRID: AProposPartner[] = [
     alt: ALT_LOGO_CNAM_ENTREPRISES,
   },
   {
-    name: 'Lefebvre Dalloz',
-    subtitle: 'Formation juridique et métier',
-    href: 'https://www.lefebvre-dalloz-formation.fr/',
-    logo: LOGO_LEFEBVRE_DALLOZ.src,
-    alt: ALT_LOGO_LEFEBVRE_DALLOZ,
+    name: 'Le Moniteur Formations',
+    subtitle: 'Formations BTP et construction',
+    href: PARTNER_WEBSITES.moniteurFormations,
+    logo: LOGO_MONITEUR_FORMATIONS.src,
+    alt: ALT_LOGO_MONITEUR_FORMATIONS,
   },
   {
     name: 'IFRB (77, 78, 91, 95)',

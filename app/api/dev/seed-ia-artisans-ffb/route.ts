@@ -67,7 +67,7 @@ async function insertLesson(
   return error.message;
 }
 
-/** Seed local — crée la formation FFB artisans à partir des PDF du dépôt. */
+/** Seed local — crée la formation FFB bâtiment à partir des PDF du dépôt. */
 export async function GET(request: Request) {
   if (process.env.NODE_ENV !== 'development') {
     return NextResponse.json({ error: 'Développement uniquement.' }, { status: 404 });
@@ -96,9 +96,9 @@ export async function GET(request: Request) {
     .from('courses')
     .insert({
       slug: SLUG,
-      title: "L'IA au service des artisans du bâtiment",
+      title: "L'IA au service des professionnels du bâtiment",
       description:
-        "Session FFB — artisans du bâtiment (tous corps d'état). Formation 4 h : fondamentaux IA, devis & chiffrage, gestion de chantier, visibilité en ligne (CapCut). Qualiopi — financement OPCO possible selon éligibilité.",
+        "Session FFB — professionnels du bâtiment (tous corps d'état). Formation 4 h : fondamentaux IA, devis & chiffrage, gestion de chantier, visibilité en ligne (CapCut). Qualiopi — financement OPCO possible selon éligibilité.",
       objectifs:
         "Comprendre les apports concrets de l'IA dans les métiers du BTP · Utiliser l'IA pour automatiser et accélérer les tâches administratives · Générer des devis, emails et comptes rendus grâce à l'IA · Créer du contenu efficace pour développer sa visibilité en ligne · Appliquer les bonnes pratiques de confidentialité et de sécurité",
       prerequis:
@@ -152,7 +152,7 @@ export async function GET(request: Request) {
     {
       moduleId: m0,
       lesson: {
-        title: "Programme officiel — L'IA au service des artisans du bâtiment",
+        title: "Programme officiel — L'IA au service des professionnels du bâtiment",
         type: 'pdf',
         content_url: `${BASE}/programme-ia-artisans-batiment.pdf`,
         order_index: 0,

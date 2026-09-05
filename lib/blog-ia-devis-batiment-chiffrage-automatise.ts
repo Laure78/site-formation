@@ -216,7 +216,7 @@ Ne réécris pas le devis, signale uniquement les manques.`,
       content: `
 <p>Le module chiffrage est intégré à la formation IA pour les pros du BTP de 4 heures : méthode en 5 étapes, prompts prêts à l'emploi, vérification anti-oubli et intégration à vos outils.</p>
 <p>Sessions exclusivement en présentiel, en Île-de-France. Financement possible via Constructys selon barèmes en vigueur.</p>
-<p>Références : FFB Grand Paris, FFB Île-de-France, CSFE, CNAM Île-de-France, Lefebvre Dalloz — ${formatProsFormesEtNoteQualiopi()}</p>
+<p>Références : FFB Grand Paris, FFB Île-de-France, CSFE, CNAM Île-de-France, Le Moniteur Formations — ${formatProsFormesEtNoteQualiopi()}</p>
 <p class="mt-4">Pour aller plus loin : <a href="${LINKS.formations}" class="font-medium text-[var(--accent)] underline hover:no-underline">catalogue des formations IA appliquées au bâtiment</a>, <a href="${LINKS.financement}" class="font-medium text-[var(--accent)] underline hover:no-underline">financement Constructys formation IA appliquée au bâtiment</a>, ou <a href="${LINKS.prendreRdv}" class="font-medium text-[var(--accent)] underline hover:no-underline">diagnostic IA BTP gratuit</a>.</p>`,
     },
     {
@@ -224,7 +224,7 @@ Ne réécris pas le devis, signale uniquement les manques.`,
       content: `
 <p class="text-sm text-slate-600">Laure Olivié — Formatrice IA pour les pros du BTP, OFC Création d'Entreprise<br/>
 Organisme certifié Qualiopi · SIRET 905 244 281 00010 · NDA 11788515078<br/>
-<a href="mailto:laureolivie@yahoo.fr" class="text-[var(--accent)] underline">laureolivie@yahoo.fr</a> · www.laureolivie.fr</p>
+<a href="mailto:contact@laureolivie.fr" class="text-[var(--accent)] underline">contact@laureolivie.fr</a> · www.laureolivie.fr</p>
 <p class="mt-4"><a href="/prendre-rendez-vous">Réservez votre visio découverte gratuite</a></p>`,
     },
   ],

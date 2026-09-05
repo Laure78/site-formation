@@ -99,6 +99,26 @@ export function trackContactFormError(errorType: string): void {
   });
 }
 
+/** Parcours RDV natif — démarrage (sans PII). */
+export function trackRdvFormStarted(): void {
+  sendGa4Event('contact_form_started', { page_path: getPagePath(), form: 'rdv' });
+}
+
+/** Parcours RDV natif — étapes 1–2 validées (sans PII). */
+export function trackRdvFormCompleted(): void {
+  sendGa4Event('contact_form_completed', { page_path: getPagePath(), form: 'rdv' });
+}
+
+/** Créneau sélectionné (avant confirmation serveur). */
+export function trackAppointmentSelected(): void {
+  sendGa4Event('appointment_selected', { page_path: getPagePath() });
+}
+
+/** RDV confirmé côté serveur. */
+export function trackAppointmentConfirmed(): void {
+  sendGa4Event('appointment_confirmed', { page_path: getPagePath() });
+}
+
 /** Infère le type de ressource à partir de l’URL / nom de fichier. */
 export function classifyPdfDownload(
   href: string,

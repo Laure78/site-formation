@@ -101,7 +101,7 @@ export const PHOTOS = {
     height: 682,
   },
 
-  /** À propos — Les Rencontres des Artisans FFB (atelier IA bâtiment) */
+  /** À propos — Rencontres FFB (atelier IA bâtiment) */
   rencontresArtisansIaFfbBtp: {
     src: '/images/rencontres-artisans-ia-ffb-btp.jpg',
     alt: "Atelier FFB en salle : participants aux ordinateurs, formatrice auprès d'un stagiaire",

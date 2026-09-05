@@ -22,7 +22,7 @@ export function ClaudeBtpConversionCta() {
         "Jusqu'à 24 € HT/h/stagiaire (plafonds Constructys)",
         'Entreprises < 11 sal. : prise en charge salaires (15 € HT/h)',
       ]}
-      footnote={`FFB Grand Paris, FFB IDF, CSFE, CNAM, Lefebvre Dalloz · +$· `}
+      footnote={`FFB Grand Paris, FFB IDF, CSFE, CNAM, Le Moniteur Formations · +$· `}
       primaryCta={{ href: calendlyClaudeBtpGuideUrl('bottom-cta'), label: CTA_RDV_LABEL }}
       secondaryCta={{ href: LINKS.contact, label: 'Contact formation IA appliquée au bâtiment', external: false }}
     />

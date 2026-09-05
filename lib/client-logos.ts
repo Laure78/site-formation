@@ -45,20 +45,25 @@ export const LOGO_ACTIVATEUR_FRANCE_NUM = {
   height: 826,
 } as const;
 export const ALT_LOGO_CNAM_ENTREPRISES = 'Logo CNAM Entreprises' as const;
-export const ALT_LOGO_LEFEBVRE_DALLOZ = 'Logo Lefebvre Dalloz Formation' as const;
-export const ALT_LOGO_ARFAB = 'Logo ARFAB — formation artisans du bâtiment' as const;
+export const ALT_LOGO_MONITEUR_FORMATIONS =
+  'Logo Le Moniteur Les Formations — partenaire formation IA BTP' as const;
+/** @deprecated Alias — préférer `ALT_LOGO_MONITEUR_FORMATIONS`. */
+export const ALT_LOGO_LEFEBVRE_DALLOZ = ALT_LOGO_MONITEUR_FORMATIONS;
+export const ALT_LOGO_ARFAB = 'Logo ARFAB — formation pros du bâtiment' as const;
 export const ALT_LOGO_IFRB =
   "Logo IFRB — Institut de Formation Régional du Bâtiment Yvelines, Essonne, Val-d'Oise" as const;
 /** @deprecated Alias — préférer `ALT_LOGO_IFRB`. */
 export const ALT_LOGO_IFRB_77 = ALT_LOGO_IFRB;
 
-/** Logo Lefebvre Dalloz Formation. */
-export const LOGO_LEFEBVRE_DALLOZ = {
-  src: '/images/partenaires/logo-lefebvre-dalloz-partenaire-formation-ia-btp.webp',
-  alt: ALT_LOGO_LEFEBVRE_DALLOZ,
-  width: 293,
-  height: 60,
+/** Logo Le Moniteur Les Formations (ex-référence Lefebvre Dalloz sur le site). */
+export const LOGO_MONITEUR_FORMATIONS = {
+  src: '/images/partenaires/logo-moniteur-les-formations.webp',
+  alt: ALT_LOGO_MONITEUR_FORMATIONS,
+  width: 432,
+  height: 184,
 } as const;
+/** @deprecated Alias — préférer `LOGO_MONITEUR_FORMATIONS`. */
+export const LOGO_LEFEBVRE_DALLOZ = LOGO_MONITEUR_FORMATIONS;
 
 /** Cadre uniforme — grille « Ils me font confiance » (header Partenaires). */
 export const PARTNER_LOGO_BAND_CELL = {
@@ -88,7 +93,9 @@ export const PARTNER_WEBSITES = {
   ffb: 'https://www.ffbatiment.fr',
   csfe: 'https://www.csfe.fr/',
   cnamIdf: 'https://www.cnam-idf.fr/',
-  lefebvreDalloz: 'https://www.lefebvre-dalloz-formation.fr/',
+  moniteurFormations: 'https://formations.lemoniteur.fr/',
+  /** @deprecated Alias — préférer `moniteurFormations`. */
+  lefebvreDalloz: 'https://formations.lemoniteur.fr/',
   umbFfb: 'https://www.ffbatiment.fr/organisation-ffb/unions-syndicats-metier/umb-ffb',
   ifrb: 'https://www.ifrb-78-91-95.fr/',
   arfab: 'https://www.arfab.fr/',
@@ -112,14 +119,14 @@ export const CLIENT_LOGOS_MARQUEE: ClientLogoItem[] = [
   },
   {
     id: 'ffb-artisan',
-    name: 'FFB Artisan',
+    name: 'FFB',
     alt: ALT_LOGO_FFB_OFFICIEL,
     src: '/images/partenaires/logo-ffb-partenaire-formation-ia-btp.webp',
     width: 200,
     height: 80,
     href: PARTNER_WEBSITES.ffb,
     linkTitle: 'Site officiel FFB — Fédération Française du Bâtiment',
-    caption: 'FFB Artisan',
+    caption: 'FFB',
   },
   {
     id: 'ffb-grand-paris-idf',
@@ -169,7 +176,7 @@ export const CLIENT_LOGOS_MARQUEE: ClientLogoItem[] = [
     width: 160,
     height: 64,
     href: PARTNER_WEBSITES.arfab,
-    linkTitle: 'Site officiel ARFAB — formation artisans du bâtiment',
+    linkTitle: 'Site officiel ARFAB — formation pros du bâtiment',
   },
   {
     id: 'ifrb',

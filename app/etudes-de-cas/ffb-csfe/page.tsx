@@ -265,7 +265,7 @@ export default function EtudeDeCasFfbCsfePage() {
               
                 quality={75}/>
               <figcaption className="px-4 py-3 text-center text-xs text-slate-500 md:px-10">
-                « Les Rencontres des Artisans » — L&apos;IA au service des équipes du bâtiment
+                « Les Rencontres FFB » — L&apos;IA au service des équipes du bâtiment
                 (intervention réseau FFB).
               </figcaption>
             </figure>

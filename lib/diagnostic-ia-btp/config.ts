@@ -23,7 +23,7 @@ export const DIAGNOSTIC_ROLES: readonly {
   label: string;
 }[] = [
   { id: 'dirigeant', label: 'Dirigeant / gérant' },
-  { id: 'artisan_tpe', label: 'Artisan / TPE' },
+  { id: 'artisan_tpe', label: 'Dirigeant de TPE' },
   { id: 'charge_affaires', label: "Chargé d'affaires" },
   { id: 'etudes_prix', label: 'Études de prix / bureau d\'études' },
   { id: 'conducteur_travaux', label: 'Conducteur de travaux' },

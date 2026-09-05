@@ -1349,7 +1349,17 @@ const nextConfig: NextConfig = {
       },
       {
         source: '/images/partenaires/lefebvre-dalloz.png',
-        destination: '/images/partenaires/logo-lefebvre-dalloz-partenaire-formation-ia-btp.webp',
+        destination: '/images/partenaires/logo-moniteur-les-formations.webp',
+        permanent: true,
+      },
+      {
+        source: '/images/partenaires/logo-lefebvre-dalloz-partenaire-formation-ia-btp.webp',
+        destination: '/images/partenaires/logo-moniteur-les-formations.webp',
+        permanent: true,
+      },
+      {
+        source: '/images/partenaires/logo-lefebvre-dalloz-partenaire-formation-ia-btp.png',
+        destination: '/images/partenaires/logo-moniteur-les-formations.webp',
         permanent: true,
       },
       {

@@ -26,7 +26,7 @@ export const LAURE_OLIVIE_CLIENT_REFERENCES = [
   'CAPEB',
   'CSFE',
   'CNAM Entreprise (Île-de-France)',
-  'Lefebvre Dalloz',
+  'Le Moniteur Formations',
 ] as const;
 
 export const LAURE_OLIVIE_IA_TOOLS = [
@@ -68,11 +68,13 @@ export const LAURE_OLIVIE_LINKEDIN_LEARNING_COURSES = [
     duration: '35 min',
     topics:
       'fondamentaux IA, devis chantier, assistant GPT, recrutement, communication',
+    href: 'https://www.linkedin.com/learning/l-ia-pour-le-btp-des-solutions-concretes-pour-vos-chantiers',
   },
   {
-    title: "L'IA pour les artisans et TPE : recruter sa main-d'œuvre efficacement",
+    title: "L'IA pour les TPE et PME : recruter sa main-d'œuvre efficacement",
     duration: '16 min',
     topics: "annonces d'emploi, tri CV, entretien, fidélisation, QCM pré-qualification",
+    href: 'https://www.linkedin.com/learning/l-ia-pour-les-artisans-et-tpe-recruter-sa-main-d-oeuvre-efficacement',
   },
 ] as const;
 
@@ -90,6 +92,11 @@ export const LAURE_OLIVIE_PARCOURS_TIMELINE = [
     period: '2017-2024',
     title: 'Dirigeante ALIA BTP — travaux publics & revêtements (Guyancourt)',
     body: `Fondation et direction d'une PME de **terrassement, voirie et revêtements extérieurs** (SIRET 853 687 317 00018). **Management chantier** : suivi performance, délais, aléas. **Recrutement** : tests préalables à l'embauche, formation équipes (sécurité, EPI, sensibilisation IA BTP). **Commercial** : prospection, partenariats, suivi client. **Digital & SEO** : site vitrine, netlinking, ligne éditoriale, réseaux sociaux. **Apprentissage clé** : un outil n'est adopté que s'il fait gagner du temps dès la première semaine.`,
+  },
+  {
+    period: '2019-2022',
+    title: 'Formatrice indépendante — création d’entreprise & marketing digital (CPF)',
+    body: `Activité de **formatrice indépendante** : formations **création d'entreprise** et **marketing digital**, accessibles via le **CPF**. **Apprentissage clé** : animer des parcours adultes finançables, avant de recentrer l'offre sur l'IA appliquée au BTP avec OFC.`,
   },
   {
     period: '2021',

@@ -182,7 +182,7 @@ export function FormationIaMetierBody({
         <strong>Formatrice IA spécialisée BTP</strong> — plus de{' '}
         {formatNoteSatisfactionAffichageComplet()} (satisfaction Qualiopi).
         SIRET 905 244 281 00010 — NDA 11788515078.
-        Siège : 6 rue Henri Dunant, 78280 Guyancourt — laureolivie@yahoo.fr.
+        Siège : 6 rue Henri Dunant, 78280 Guyancourt — contact@laureolivie.fr.
       </p>
 
       <h2 className="font-display text-xl font-semibold text-slate-900">

@@ -16,13 +16,19 @@ export function PartenaireReferenceCard({ reference }: Props) {
       className="scroll-mt-24 flex h-full flex-col rounded-xl border border-[#E2E8F0] bg-white p-5 shadow-sm"
       aria-labelledby={`${reference.id}-name`}
     >
-      <div className="mb-4 flex h-16 items-center justify-center rounded-lg bg-[#F8FAFC] px-4">
+      <div
+        className={`mb-4 flex items-center justify-center rounded-lg bg-[#F8FAFC] px-4 ${
+          reference.logo.imageClassName ? 'h-24' : 'h-16'
+        }`}
+      >
         <Image
           src={reference.logo.src}
           alt={reference.logo.alt}
           width={reference.logo.width}
           height={reference.logo.height}
-          className="max-h-12 w-auto max-w-full object-contain"
+          className={`w-auto max-w-full object-contain ${
+            reference.logo.imageClassName ?? 'max-h-12'
+          }`.trim()}
           sizes="160px"
           loading="lazy"
           quality={70}

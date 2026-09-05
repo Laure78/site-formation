@@ -62,7 +62,7 @@ export const APPLICATION_METIER_PARCOURS_STEPS: readonly ApplicationMetierParcou
     ref: 'NIV-06',
     path: LINKS.formationApplicationMetierBtpNiveau1,
     shortLabel: 'CONCEVOIR',
-    learningPathSubtitle: 'Créer le prototype',
+    learningPathSubtitle: 'Créer un prototype',
     stepBadge: 'Niveau 1 sur 3 — CONCEVOIR',
     cardTitle: 'Créer sa première application métier BTP avec l’IA',
     cardTeaser: 'Transformer un besoin métier en prototype fonctionnel.',
@@ -92,7 +92,7 @@ export const APPLICATION_METIER_PARCOURS_STEPS: readonly ApplicationMetierParcou
     ref: 'NIV-07',
     path: LINKS.formationApplicationMetierBtpNiveau2,
     shortLabel: 'CONNECTER',
-    learningPathSubtitle: 'Connecter données et utilisateurs',
+    learningPathSubtitle: 'Connecter données, utilisateurs et services',
     stepBadge: 'Niveau 2 sur 3 — CONNECTER',
     cardTitle: 'Développer une application métier BTP connectée',
     cardTeaser:
@@ -123,7 +123,7 @@ export const APPLICATION_METIER_PARCOURS_STEPS: readonly ApplicationMetierParcou
     ref: 'NIV-08',
     path: LINKS.formationApplicationMetierBtpNiveau3,
     shortLabel: 'INDUSTRIALISER',
-    learningPathSubtitle: 'Intégrer IA et automatisations',
+    learningPathSubtitle: 'Intégrer IA, automatisations et déploiement',
     stepBadge: 'Niveau 3 sur 3 — INTÉGRER L’IA ET INDUSTRIALISER',
     cardTitle: 'Développer une application métier BTP avancée avec l’IA',
     cardTeaser:

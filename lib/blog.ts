@@ -1593,7 +1593,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
         type: 'html',
         title: 'À propos de l\'auteure',
         content:
-          `<p>Laure Olivié est formatrice IA &amp; ChatGPT spécialisée BTP. Références : FFB, Lefebvre Dalloz, CNAM. Satisfaction publiée : ${formatNoteSatisfactionAffichageComplet()}. Certifiée Qualiopi, ses formations sont éligibles à un financement selon dossier (Constructys).</p>`,
+          `<p>Laure Olivié est formatrice IA &amp; ChatGPT spécialisée BTP. Références : FFB, Le Moniteur Formations, CNAM. Satisfaction publiée : ${formatNoteSatisfactionAffichageComplet()}. Certifiée Qualiopi, ses formations sont éligibles à un financement selon dossier (Constructys).</p>`,
       },
       {
         type: 'cta',

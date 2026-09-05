@@ -438,7 +438,7 @@ export default function FormationIAAppelsOffreBTPPage() {
           <h2 className="font-display text-2xl font-bold text-slate-900 md:text-3xl">Public et prérequis</h2>
           <p className="mt-3 text-base text-slate-700">
             Dirigeants de PME du BTP, responsables d’affaires, chargés d’études, conducteurs de travaux,
-            responsables appels d’offres et artisans répondant déjà à des consultations.
+            responsables appels d’offres et entreprises répondant déjà à des consultations.
           </p>
           <div className="mt-5 grid gap-4 md:grid-cols-2">
             <div className="rounded-xl border border-slate-200 bg-slate-50 p-4">
@@ -532,7 +532,7 @@ export default function FormationIAAppelsOffreBTPPage() {
             <p className="mt-3 text-base leading-relaxed text-slate-700">
               Laure Olivié, OFC Création d’Entreprise (Qualiopi). Expérience du bâtiment et des travaux publics,
               spécialisation IA appliquée aux métiers du BTP. Références : FFB Grand Paris, CSFE, CNAM Entreprise,
-              Lefebvre Dalloz.
+              Le Moniteur Formations.
             </p>
             <p className="mt-3 flex flex-wrap gap-x-4 gap-y-2 text-base">
               <Link href={LINKS.aPropos} className={OFC_LINK}>

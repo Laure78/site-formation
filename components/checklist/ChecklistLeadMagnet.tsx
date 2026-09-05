@@ -17,7 +17,7 @@ const SECTEURS = [
   { value: '', label: '— Sélectionner —' },
   { value: 'btp', label: 'BTP / Bâtiment' },
   { value: 'travaux_publics', label: 'Travaux publics' },
-  { value: 'artisanat', label: 'Artisanat' },
+  { value: 'artisanat', label: 'Métiers du bâtiment' },
   { value: 'autre', label: 'Autre' },
 ] as const;
 

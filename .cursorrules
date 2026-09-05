@@ -5,7 +5,7 @@
 - CSS : **Tailwind CSS**
 - Polices : Inter, Outfit (charger depuis Google Fonts)
 - Langage : **Français uniquement**
-- Cible : Artisans et PME du BTP (Île-de-France, France)
+- Cible : TPE, PME et professionnels du BTP (Île-de-France, France)
 
 ## Charte Graphique OFC Création d'Entreprise
 - **Couleur primaire** : Bleu `#377CF3`
@@ -33,7 +33,7 @@
 - Formations intra-entreprise en français uniquement
 - Thèmes : productivité IA, devis/chiffrage, appels d'offres (DCE/mémoire technique), réseaux sociaux, communication
 - **Tarif session catalogue** : 1 200 € HT forfaitaire — session unique, max 12 participants
-- **Public cible** : Artisans, conducteurs de travaux, chefs d'entreprise, fonctions support
+- **Public cible** : Dirigeants et équipes BTP, conducteurs de travaux, chefs d'entreprise, fonctions support
 
 ## Clients Clés (à mentionner)
 - FFB Grand Paris
@@ -41,10 +41,10 @@
 - FFB Île-de-France Est
 - CSFE
 - CNAM Entreprise
-- Lefebvre Dalloz
+- Le Moniteur Formations
 
 ## Contact & Communication
-- **Email professionnel** : laureolivie@yahoo.fr
+- **Email professionnel** : contact@laureolivie.fr
 - **Site web** : www.laureolivie.fr
 - **Calendly** : https://calendly.com/formation-ia-artisans-btp-appel-decouverte/appel_decouverte_formation
 - **CTA principal** : "Prendre un rendez-vous découverte" ou "Appel découverte" (vers Calendly)
@@ -60,9 +60,9 @@
   - Formation IA appliquée au bâtiment
   - Formation IA pour les pros du BTP
   - ChatGPT bâtiment
-  - IA artisan
+  - IA pour TPE BTP
   - Formation IA Île-de-France
-  - ChatGPT artisans BTP
+  - ChatGPT TPE PME BTP
   - Productivité IA construction
 
 ## Netlinking interne laureolivie.fr — règles absolues
@@ -124,7 +124,7 @@ OFC Création d'Entreprise
 SIRET 905 244 281 00010
 NDA 11788515078
 6 rue Henri Dunant, 78280 Guyancourt
-laureolivie@yahoo.fr
+contact@laureolivie.fr
 www.laureolivie.fr
 ```
 
@@ -148,7 +148,7 @@ Placer dans le footer de chaque page + page dédiée "Mentions légales".
 6. **Prendre RDV** : Intégration Calendly ou redirection
 
 ## Règles de Génération de Contenu
-- **Ton** : Professionnel, accessible, orienté artisans/PME BTP
+- **Ton** : Professionnel, accessible, orienté TPE/PME BTP
 - **Vocabulaire** : Adapter au secteur BTP (chantier, devis, CCTP, DCE, conducteur de travaux)
 - **Pas de jargon marketing** : Rester honnête et transparent
 - **Cas d'usage concrets** : Exemples tirés du BTP (automatiser un devis, générer une offre, créer du contenu réseaux sociaux)
@@ -177,7 +177,7 @@ Placer dans le footer de chaque page + page dédiée "Mentions légales".
 - Ne JAMAIS écrire « financement garanti » : toujours « financement OPCO possible selon éligibilité »
 - Le logo Qualiopi n'apparaît JAMAIS seul : toujours via le composant `<QualiopiBadge />` (visuel Certifopac avec mention catégorie intégrée — pas de texte dupliqué sous le logo)
 - Le logo Qualiopi et les mentions OPCO ne doivent JAMAIS apparaître dans la section BeWork
-- Toute fiche formation affiche obligatoirement : prérequis, objectifs, durée, tarif, modalités et méthodes, modalités d'évaluation, délai d'accès, accessibilité handicap (référente : Laure Olivié, laureolivie@yahoo.fr), date de mise à jour + version
+- Toute fiche formation affiche obligatoirement : prérequis, objectifs, durée, tarif, modalités et méthodes, modalités d'évaluation, délai d'accès, accessibilité handicap (référente : Laure Olivié, contact@laureolivie.fr), date de mise à jour + version
 - Indicateurs de résultats : uniquement depuis `config/qualiopi.ts`, toujours sourcés et datés
 - Terminologie : « certificat de réalisation » (pas « attestation de formation » seule)
 - Footer obligatoire : SIRET 905 244 281 00010 + NDA 11788515078 + « Cet enregistrement ne vaut pas agrément de l'État »

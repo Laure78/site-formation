@@ -9,13 +9,12 @@ import { getCatalogueFormationsCount } from '@/lib/formations-catalogue-display'
 import { getHeaderNav } from '@/lib/header-nav';
 import { LINKS } from '@/lib/internal-links';
 import {
-  NAV_ENTREPRISE,
+  NAV_FORMATIONS_FOOTER,
   NAV_IDF,
-  NAV_LEGAL,
+  NAV_LEGAL_BAR,
   NAV_METIERS,
-  NAV_REGLEMENTAIRE,
+  NAV_ORGANISME,
   NAV_RESSOURCES,
-  NAV_SERVICES,
 } from '@/lib/nav';
 import { PHOTOS, SITE_LOGO_ALT, SITE_LOGO_TITLE } from '@/lib/photos';
 import { QUALIOPI_LEGAL } from '@/lib/qualiopi-info';
@@ -55,6 +54,8 @@ export const SITE = {
   cta: {
     href: LINKS.prendreRdv,
     label: 'Réservez votre visio découverte gratuite',
+    /** CTA footer — libellé court conversion. */
+    footerLabel: 'Prendre rendez-vous',
     /** @deprecated Conservé pour compat — identique à `label`. */
     labelCompact: 'Réservez votre visio découverte gratuite',
   },
@@ -72,11 +73,11 @@ export const SITE = {
   nav: {
     header: getHeaderNav(),
     footer: {
-      entreprise: NAV_ENTREPRISE,
-      services: NAV_SERVICES,
+      formations: NAV_FORMATIONS_FOOTER,
       ressources: NAV_RESSOURCES,
-      reglementaire: NAV_REGLEMENTAIRE,
-      legal: NAV_LEGAL,
+      organisme: NAV_ORGANISME,
+      legal: NAV_LEGAL_BAR,
+      /** Conservés pour exports / outils — non rendus dans le footer principal. */
       metiers: NAV_METIERS,
       idf: NAV_IDF,
     },
@@ -93,12 +94,13 @@ export const SITE = {
     googleMaps: SITE_CONFIG.googleMapsUrl,
   },
   footer: {
-    bannerTitle: 'Formations IA pour les pros du BTP & ChatGPT entreprise',
-    bannerGuideLabel: 'Guide Conducteur de travaux — PDF gratuit →',
-    bannerCatalogueLabel: 'Catalogue',
-    brandDescription: 'IA pour PME du bâtiment et équipes BTP, méthode terrain.',
-    exploreMetiersTitle: 'Formations IA par métier',
-    exploreIdfTitle: 'Formations en Île-de-France',
+    identitySubtitle: 'Formatrice IA pour le BTP',
+    identityIntro:
+      'Formations pratiques en intelligence artificielle pour les entreprises du bâtiment et des travaux publics.',
+    useCasesLine: 'Devis · Chantiers · Appels d’offres · Productivité',
+    locationLine: 'Guyancourt · Yvelines · Île-de-France',
+    geoSentence:
+      'Laure Olivié accompagne les entreprises du bâtiment et des travaux publics dans l’utilisation concrète de l’intelligence artificielle pour les devis, les chantiers et les appels d’offres.',
     accessibiliteLabel:
       'Accessibilité des formations — besoins d’aménagement et référente handicap',
   },

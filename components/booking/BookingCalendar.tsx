@@ -1,14 +1,13 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { useRouter } from 'next/navigation';
 import { ChevronLeft, ChevronRight, Clock } from 'lucide-react';
 import { getBusySlots } from '@/app/actions/appointments';
 import { getAvailabilities } from '@/app/actions/availabilities';
 import { getBookingSettings } from '@/app/actions/booking-settings';
 import { QualificationForm } from './QualificationForm';
 
-const DUREE_CRENEAU_MINUTES = 30;
+export const DUREE_CRENEAU_MINUTES = 30;
 const INTERVALLE_MINUTES = 0;
 
 function formatDateISO(d: Date): string {
@@ -76,8 +75,23 @@ function formatMonthYear(date: Date): string {
   return date.toLocaleDateString('fr-FR', { month: 'long', year: 'numeric' });
 }
 
-export function BookingCalendar() {
-  const router = useRouter();
+type BookingCalendarProps = {
+  /** legacy : calendrier puis QualificationForm ; confirm : créneau + bouton Confirmer */
+  mode?: 'legacy' | 'confirm';
+  qualificationSummary?: string;
+  submitting?: boolean;
+  onConfirmSlot?: (startIso: string, endIso: string) => void | Promise<void>;
+  /** true s’il reste des créneaux dans la fenêtre ; false si aucun */
+  onAvailabilityState?: (hasSlots: boolean | null) => void;
+};
+
+export function BookingCalendar({
+  mode = 'legacy',
+  qualificationSummary,
+  submitting = false,
+  onConfirmSlot,
+  onAvailabilityState,
+}: BookingCalendarProps = {}) {
   const [viewMonth, setViewMonth] = useState<Date>(() => {
     const d = new Date();
     d.setDate(1);
@@ -201,6 +215,15 @@ export function BookingCalendar() {
     }
     return total;
   })();
+
+  useEffect(() => {
+    if (!onAvailabilityState) return;
+    if (totalAvailableInWindow < 0) {
+      onAvailabilityState(null);
+      return;
+    }
+    onAvailabilityState(totalAvailableInWindow > 0);
+  }, [totalAvailableInWindow, onAvailabilityState]);
 
   const goPrev = () => {
     if (isViewMonthBeforeCurrent()) return;
@@ -344,8 +367,41 @@ export function BookingCalendar() {
         </div>
       )}
 
-      {/* Formulaire de qualification */}
-      {selectedSlot && (
+      {/* Mode confirm : infos déjà saisies + CTA */}
+      {mode === 'confirm' && selectedSlot && (
+        <div className="rounded-xl border border-slate-200 bg-slate-50 p-4 sm:p-5">
+          {qualificationSummary && (
+            <p className="text-sm text-slate-600">
+              Réservation pour <span className="font-semibold text-slate-900">{qualificationSummary}</span>
+            </p>
+          )}
+          <p className="mt-1 text-sm text-slate-600">
+            Créneau :{' '}
+            <span className="font-semibold capitalize text-slate-900">
+              {new Date(selectedSlot).toLocaleDateString('fr-FR', {
+                weekday: 'long',
+                day: 'numeric',
+                month: 'long',
+                hour: '2-digit',
+                minute: '2-digit',
+              })}
+            </span>
+          </p>
+          <button
+            type="button"
+            disabled={submitting}
+            onClick={() =>
+              onConfirmSlot?.(selectedSlot, addMinutes(selectedSlot, DUREE_CRENEAU_MINUTES))
+            }
+            className="mt-4 flex min-h-12 w-full items-center justify-center rounded-xl bg-[var(--accent)] px-6 text-base font-semibold text-white hover:bg-blue-700 disabled:opacity-60 sm:w-auto"
+          >
+            {submitting ? 'Confirmation…' : 'Confirmer mon rendez-vous'}
+          </button>
+        </div>
+      )}
+
+      {/* Formulaire de qualification legacy */}
+      {mode === 'legacy' && selectedSlot && (
         <QualificationForm
           slotIso={selectedSlot}
           endAtIso={addMinutes(selectedSlot, DUREE_CRENEAU_MINUTES)}

@@ -1,17 +1,15 @@
 import { Suspense } from 'react';
-import Image from 'next/image';
 import Link from 'next/link';
 import { JsonLd } from '@/components/JsonLd';
 import { createPageMetadata, getFAQSchema, SITE_CONFIG } from '@/lib/seo';
 import { LINKS } from '@/lib/internal-links';
-import { SITE_LOGO_ALT } from '@/lib/photos';
 import ConnexionClient from './ConnexionClient';
 
 export const revalidate = 3600;
 
 const META_TITLE = 'Connexion formation IA BTP : espace apprenant';
 const META_DESCRIPTION =
-  'Connexion à l’espace apprenant OFC : formation IA pour le BTP, supports ChatGPT BTP, Claude et suivi Qualiopi. Artisans et PME — Île-de-France.';
+  'Connexion à l’espace apprenant OFC : formation IA pour le BTP, supports ChatGPT BTP, Claude et suivi Qualiopi. TPE, PME — Île-de-France.';
 
 export const metadata = createPageMetadata({
   title: META_TITLE,
@@ -99,22 +97,11 @@ export default function ConnexionPage() {
         {/* Colonne SEO / GEO — contenu indexable */}
         <section
           aria-labelledby="connexion-seo-title"
-          className="flex flex-col justify-center px-6 py-12 md:px-10 lg:px-14"
+          className="flex flex-col justify-start px-6 pb-12 pt-6 md:px-10 md:pt-8 lg:px-14"
         >
-            <Image
-              src="/logo-lo.svg"
-              alt={SITE_LOGO_ALT}
-              width={72}
-              height={72}
-              className="h-16 w-16"
-              sizes="72px"
-              priority
-              quality={75}
-            />
-
           <h1
             id="connexion-seo-title"
-            className="mt-8 font-display text-3xl font-bold tracking-tight text-slate-900 md:text-4xl"
+            className="font-display text-3xl font-bold tracking-tight text-slate-900 md:text-4xl"
           >
             Bienvenue sur votre espace de formation IA &amp; BTP
           </h1>
@@ -135,12 +122,12 @@ export default function ConnexionPage() {
             <li>
               <strong className="font-semibold text-slate-900">Public</strong>
               {' — '}
-              artisans, TPE et PME du BTP en Île-de-France (Guyancourt / sessions présentiel).
+              dirigeants et équipes BTP, TPE et PME en Île-de-France (Guyancourt / sessions présentiel).
             </li>
             <li>
               <strong className="font-semibold text-slate-900">Outils</strong>
               {' — '}
-              ChatGPT, Claude AI et NotebookLM appliqués au chantier, devis et administratif.
+              ChatGPT et Claude AI appliqués au chantier, devis et administratif.
             </li>
           </ul>
 

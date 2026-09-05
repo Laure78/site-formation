@@ -211,7 +211,7 @@ export default function FormateurIaBtpPage() {
             <p className="mt-4 text-base leading-relaxed text-slate-600 md:text-lg">
               .
               Organisme certifié Qualiopi — actions de formation. {FINANCEMENT_FORMULATION_PRUDENTE} Références : FFB
-              Grand Paris, {CSFE_NOM_COMPLET}, CNAM Entreprise, Lefebvre Dalloz, instructrice LinkedIn Learning.
+              Grand Paris, {CSFE_NOM_COMPLET}, CNAM Entreprise, Le Moniteur Formations, instructrice LinkedIn Learning.
             </p>
             <p className="mt-4 text-base leading-relaxed text-slate-600">
               Parcours détaillé sur la page{' '}

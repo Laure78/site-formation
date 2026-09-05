@@ -23,8 +23,8 @@ import { formatNoteSatisfactionAffichageComplet } from '@/lib/data/indicateurs-r
 import { RenvoiFicheCatalogue } from '@/components/qualiopi/RenvoiFicheCatalogue';
 
 export const revalidate = 3600;
-export const metadata = createMetierBtpPageMetadata('artisans', {
-  title: 'Formation IA artisans BTP — ChatGPT',
+export const metadata = createMetierBtpPageMetadata('TPE & PME', {
+  title: 'Formation IA TPE & PME BTP — ChatGPT',
   description:
     'Formation IA ChatGPT pour BTP : devis, emails, CR chantier en 4h. Organisme certifié Qualiopi. Financement possible selon éligibilité. TPE, PME et professionnels du bâtiment.',
   path: '/formation-ia-artisans-btp',

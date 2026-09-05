@@ -714,7 +714,7 @@ export const FAQ_FORMATION_IA_APPELS_OFFRES_LANDING: FAQItem[] = [
 export const FAQ_BATIMENT: FAQItem[] = [
   {
     q: 'Cette formation est-elle adaptée aux débutants ?',
-    a: `Oui. Aucun prérequis en intelligence artificielle. Il faut un ordinateur, une connexion internet et une bonne maîtrise du français. La session de ${SESSION_DUREE_LIBELLE} s’adresse aux artisans, dirigeants, conducteurs de travaux, chargés d’affaires, bureaux d’études et fonctions support. Les versions gratuites de ChatGPT ou Claude suffisent.`,
+    a: `Oui. Aucun prérequis en intelligence artificielle. Il faut un ordinateur, une connexion internet et une bonne maîtrise du français. La session de ${SESSION_DUREE_LIBELLE} s’adresse aux dirigeants et équipes BTP, conducteurs de travaux, chargés d’affaires, bureaux d’études et fonctions support. Les versions gratuites de ChatGPT ou Claude suffisent.`,
   },
   {
     q: 'Peut-on travailler sur les documents de notre entreprise ?',
@@ -894,7 +894,7 @@ export const FAQ_AUTEUR: FAQItem[] = [
   },
   {
     q: "Proposez-vous des formations LinkedIn Learning ?",
-    a: 'Oui. Intervenante LinkedIn Learning : « <a href="https://www.linkedin.com/learning/l-ia-pour-le-btp-des-solutions-concretes-pour-vos-chantiers" target="_blank" rel="noopener noreferrer">L\'IA pour le BTP, des solutions concrètes pour vos chantiers</a> » et « <a href="https://www.linkedin.com/learning/l-ia-pour-les-artisans-et-tpe-recruter-sa-main-d-oeuvre-efficacement" target="_blank" rel="noopener noreferrer">L\'IA pour les artisans et TPE : Recruter sa main-d\'œuvre efficacement</a> ». Formations complémentaires au <a href="/formations">catalogue OFC</a>.',
+    a: 'Oui. Intervenante LinkedIn Learning : « <a href="https://www.linkedin.com/learning/l-ia-pour-le-btp-des-solutions-concretes-pour-vos-chantiers" target="_blank" rel="noopener noreferrer">L\'IA pour le BTP, des solutions concrètes pour vos chantiers</a> » et « <a href="https://www.linkedin.com/learning/l-ia-pour-les-artisans-et-tpe-recruter-sa-main-d-oeuvre-efficacement" target="_blank" rel="noopener noreferrer">L\'IA pour les TPE et PME : Recruter sa main-d\'œuvre efficacement</a> ». Formations complémentaires au <a href="/formations">catalogue OFC</a>.',
   },
 ];
 

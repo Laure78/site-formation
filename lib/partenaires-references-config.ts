@@ -9,10 +9,10 @@ import {
   ALT_LOGO_FFB_GRAND_PARIS_IDF,
   ALT_LOGO_FFB_OFFICIEL,
   ALT_LOGO_IFRB,
-  ALT_LOGO_LEFEBVRE_DALLOZ,
+  ALT_LOGO_MONITEUR_FORMATIONS,
   ALT_LOGO_LINKEDIN_LEARNING,
   ALT_LOGO_UMB_FFB,
-  LOGO_LEFEBVRE_DALLOZ,
+  LOGO_MONITEUR_FORMATIONS,
   LOGO_LINKEDIN_LEARNING,
   LOGO_UMB_FFB,
   PARTNER_WEBSITES,
@@ -58,6 +58,8 @@ export type PartenaireReferenceLogo = {
   alt: string;
   width: number;
   height: number;
+  /** Classes Tailwind (ex. scale) — logos avec beaucoup de padding interne. */
+  imageClassName?: string;
 };
 
 export type PartenaireReference = {
@@ -196,7 +198,7 @@ export const PARTENAIRES_REFERENCES: readonly PartenaireReference[] = [
   },
   {
     id: 'ffb-artisans',
-    name: 'FFB Artisans',
+    name: 'FFB',
     category: 'btp',
     organizationType: 'Fédération BTP',
     relationshipLabel: 'Intervention déléguée',
@@ -208,8 +210,8 @@ export const PARTENAIRES_REFERENCES: readonly PartenaireReference[] = [
     },
     officialUrl: PARTNER_WEBSITES.ffb,
     interventionSummary:
-      'Interventions IA pour des adhérents artisans du bâtiment, dans le cadre de sessions convoquées par la fédération.',
-    audiences: ['Artisans et dirigeants TPE'],
+      'Interventions IA pour des adhérents du bâtiment, dans le cadre de sessions convoquées par la fédération.',
+    audiences: ['Dirigeants et équipes TPE'],
     topics: [],
     deliveryModes: DELIVERY,
     locations: LOCATIONS,
@@ -298,8 +300,8 @@ export const PARTENAIRES_REFERENCES: readonly PartenaireReference[] = [
     },
     officialUrl: PARTNER_WEBSITES.arfab,
     interventionSummary:
-      'Formations IA animées pour des artisans du bâtiment via l’association ARFAB.',
-    audiences: ['Artisans du bâtiment'],
+      'Formations IA animées pour des professionnels du bâtiment via l’association ARFAB.',
+    audiences: ['Professionnels du bâtiment'],
     topics: [],
     deliveryModes: DELIVERY,
     locations: LOCATIONS,
@@ -327,22 +329,22 @@ export const PARTENAIRES_REFERENCES: readonly PartenaireReference[] = [
     displayOrder: 10,
   },
   {
-    id: 'lefebvre-dalloz',
-    name: 'Lefebvre Dalloz Formation',
-    shortName: 'Lefebvre Dalloz',
+    id: 'moniteur-formations',
+    name: 'Le Moniteur Formations',
+    shortName: 'Moniteur Formations',
     category: 'autres',
     organizationType: 'Institut de formation',
     relationshipLabel: 'Formatrice invitée',
     logo: {
-      src: LOGO_LEFEBVRE_DALLOZ.src,
-      alt: ALT_LOGO_LEFEBVRE_DALLOZ,
-      width: LOGO_LEFEBVRE_DALLOZ.width,
-      height: LOGO_LEFEBVRE_DALLOZ.height,
+      src: LOGO_MONITEUR_FORMATIONS.src,
+      alt: ALT_LOGO_MONITEUR_FORMATIONS,
+      width: LOGO_MONITEUR_FORMATIONS.width,
+      height: LOGO_MONITEUR_FORMATIONS.height,
     },
-    officialUrl: PARTNER_WEBSITES.lefebvreDalloz,
+    officialUrl: PARTNER_WEBSITES.moniteurFormations,
     interventionSummary:
-      'Interventions IA orientées usages professionnels : structuration de documents, prompts et relecture avant envoi.',
-    audiences: ['Fonctions support', 'RH', 'Profils juridiques et administratifs'],
+      'Interventions IA orientées usages professionnels BTP : structuration de documents, prompts et relecture avant envoi.',
+    audiences: ['Fonctions support', 'RH', 'Profils techniques et administratifs'],
     topics: ['Structuration document', 'Prompts', 'Relecture'],
     deliveryModes: DELIVERY,
     locations: LOCATIONS,
@@ -359,6 +361,7 @@ export const PARTENAIRES_REFERENCES: readonly PartenaireReference[] = [
       alt: ALT_LOGO_LINKEDIN_LEARNING,
       width: LOGO_LINKEDIN_LEARNING.width,
       height: LOGO_LINKEDIN_LEARNING.height,
+      imageClassName: 'max-h-[4.5rem] scale-[1.85]',
     },
     officialUrl: SCHEMA_LINKEDIN_LEARNING_INSTRUCTOR_URL,
     interventionSummary:

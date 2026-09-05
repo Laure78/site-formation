@@ -4,8 +4,7 @@
  */
 import { BEWORK_APP_PATHS } from '@/lib/external-site-urls';
 import { LINKS } from '@/lib/internal-links';
-import { SITE_CONFIG } from '@/lib/seo';
-import { FORMATIONS, formationHref } from '@/data/formations';
+import { formationHref } from '@/data/formations';
 import { getPublishedFormations } from '@/lib/formation-catalogue-visibility';
 
 export type NavItem = {
@@ -15,25 +14,106 @@ export type NavItem = {
   title?: string;
 };
 
-/** Colonne Entreprise */
-export const NAV_ENTREPRISE: readonly NavItem[] = [
-  { href: LINKS.aPropos, label: 'À propos' },
-  { href: LINKS.avisClients, label: 'Avis clients' },
-  { href: LINKS.partenaires, label: 'Partenaires' },
+/** Colonne Formations IA BTP — liens stratégiques uniquement (pas de codes NIV). */
+export const NAV_FORMATIONS_FOOTER: readonly NavItem[] = [
+  { href: LINKS.formations, label: 'Toutes les formations' },
   {
-    href: LINKS.bework,
-    label: 'BeWork — solutions IA sur mesure BTP',
-    title: 'BeWork — solutions IA sur mesure pour le BTP',
+    href: LINKS.iaDevis,
+    label: 'IA pour les devis et le chiffrage',
+    title: 'Formation et méthode IA — devis et chiffrage bâtiment',
   },
-  { href: LINKS.contact, label: 'Contact' },
-  { href: LINKS.prendreRdv, label: 'Réservez votre visio découverte gratuite' },
   {
-    href: SITE_CONFIG.linkedinProfileUrl,
-    label: 'LinkedIn',
-    title: 'Profil LinkedIn — Laure Olivié',
+    href: LINKS.formationConduiteTravauxSuiviChantier,
+    label: 'IA pour la conduite de chantier',
+    title: 'Formation IA — conduite de travaux et suivi de chantier',
+  },
+  {
+    href: LINKS.formationAO,
+    label: 'IA pour les appels d’offres',
+    title: 'Formation IA — appels d’offres et DCE BTP',
+  },
+  {
+    href: LINKS.parcoursApplicationsMetierBtp,
+    label: 'Applications métier BTP',
+    title: 'Parcours — créer ses applications métier BTP avec l’IA',
+  },
+  {
+    href: LINKS.financement,
+    label: 'Financement des formations',
+    title: 'Financement OPCO Constructys — formation IA BTP',
   },
 ];
 
+/** Colonne Ressources BTP — max. 7 liens. */
+export const NAV_RESSOURCES: readonly NavItem[] = [
+  { href: LINKS.blog, label: 'Blog IA BTP' },
+  {
+    href: `${LINKS.ressources}#guides-pdf`,
+    label: 'Guides pratiques',
+    title: 'Guides PDF gratuits — formation IA pour le BTP',
+  },
+  { href: LINKS.diagnostic, label: 'Diagnostic IA BTP' },
+  { href: LINKS.casUsage, label: 'Cas d’usage' },
+  { href: LINKS.etudesCasHub, label: 'Études de cas' },
+  {
+    href: BEWORK_APP_PATHS.lexique,
+    label: 'Lexique BTP',
+    title: 'Lexique BTP — parcours, flashcards et quiz',
+  },
+  {
+    href: LINKS.promptsIaConducteurTravaux,
+    label: 'Prompts IA',
+    title: '20 prompts IA — conducteur de travaux',
+  },
+];
+
+/** Colonne Organisme de formation. */
+export const NAV_ORGANISME: readonly NavItem[] = [
+  { href: LINKS.aPropos, label: 'À propos' },
+  { href: LINKS.avisClients, label: 'Avis clients' },
+  { href: LINKS.partenaires, label: 'Partenaires' },
+  { href: LINKS.contact, label: 'Contact' },
+  { href: LINKS.accessibiliteHandicap, label: 'Accessibilité & handicap' },
+  { href: LINKS.indicateursResultats, label: 'Indicateurs de résultats' },
+  {
+    href: LINKS.qualiopi,
+    label: 'Certification Qualiopi',
+    title: 'Organisme certifié Qualiopi — actions de formation',
+  },
+];
+
+/** Barre légale inférieure. */
+export const NAV_LEGAL_BAR: readonly NavItem[] = [
+  { href: LINKS.cgv, label: 'CGV' },
+  { href: LINKS.mentionsLegales, label: 'Mentions légales' },
+  { href: LINKS.politiqueConfidentialite, label: 'Confidentialité' },
+  { href: LINKS.reglementInterieur, label: 'Règlement intérieur' },
+  { href: LINKS.reclamations, label: 'Réclamations' },
+];
+
+/** @deprecated Alias — préférer `NAV_ORGANISME`. */
+export const NAV_ENTREPRISE: readonly NavItem[] = NAV_ORGANISME;
+
+/** @deprecated Alias — préférer `NAV_LEGAL_BAR`. */
+export const NAV_LEGAL: readonly NavItem[] = NAV_LEGAL_BAR;
+
+/** @deprecated Conservé pour compat — non affiché dans le footer principal. */
+export const NAV_REGLEMENTAIRE: readonly NavItem[] = [
+  { href: LINKS.livretAccueilStagiaire, label: "Livret d'accueil du stagiaire" },
+  { href: LINKS.reglementInterieur, label: 'Règlement intérieur' },
+  { href: LINKS.reclamations, label: 'Réclamations' },
+  { href: LINKS.accessibiliteHandicap, label: 'Accessibilité et handicap' },
+  {
+    href: LINKS.certificatQualiopi,
+    label: 'Certificat Qualiopi (PDF)',
+    title: 'Télécharger le certificat Qualiopi OFC',
+  },
+];
+
+/**
+ * Catalogue complet — non affiché dans le footer principal (évite le sitemap).
+ * Conservé pour exports / outils éventuels.
+ */
 export function getNavServices(at: Date = new Date()): readonly NavItem[] {
   return [
     { href: LINKS.formations, label: 'Catalogue' },
@@ -53,10 +133,7 @@ export function getNavServices(at: Date = new Date()): readonly NavItem[] {
   ];
 }
 
-/**
- * Colonne Services — catalogue & parcours.
- * Conducteur / TPE-PME / Paris : uniquement dans NAV_METIERS / NAV_IDF (une ancre par URL).
- */
+/** @deprecated Préférer `NAV_FORMATIONS_FOOTER` dans le footer. */
 export const NAV_SERVICES: readonly NavItem[] = getNavServices();
 
 function shortTitle(titre: string): string {
@@ -64,48 +141,7 @@ function shortTitle(titre: string): string {
   return `${titre.slice(0, 34)}…`;
 }
 
-/** Colonne Ressources */
-export const NAV_RESSOURCES: readonly NavItem[] = [
-  { href: LINKS.blog, label: 'Blog' },
-  { href: LINKS.diagnostic, label: 'Diagnostic' },
-  { href: LINKS.checklist, label: 'Checklist' },
-  {
-    href: BEWORK_APP_PATHS.lexique,
-    label: 'Lexique BTP gratuit',
-    title: 'Lexique & apprentissage BTP — parcours, flashcards et quiz (BeWork)',
-  },
-  { href: LINKS.skillIaConducteurTravaux, label: 'Guide Conducteur de travaux (PDF)' },
-  { href: LINKS.promptsIaConducteurTravaux, label: '20 prompts IA conducteur de travaux' },
-  { href: LINKS.etudesCas, label: 'Étude de cas' },
-  { href: LINKS.casUsage, label: "Cas d'usage" },
-];
-
-/** Colonne Informations réglementaires — indicateur 1 Qualiopi (une ancre par URL dans le footer). */
-export const NAV_REGLEMENTAIRE: readonly NavItem[] = [
-  { href: LINKS.livretAccueilStagiaire, label: "Livret d'accueil du stagiaire" },
-  { href: LINKS.reglementInterieur, label: 'Règlement intérieur' },
-  { href: LINKS.reclamations, label: 'Réclamations' },
-  { href: LINKS.accessibiliteHandicap, label: 'Accessibilité et handicap' },
-  {
-    href: LINKS.certificatQualiopi,
-    label: 'Certificat Qualiopi (PDF)',
-    title: 'Télécharger le certificat Qualiopi OFC',
-  },
-];
-
-/** Colonne Légal — textes / URLs inchangés */
-export const NAV_LEGAL: readonly NavItem[] = [
-  { href: LINKS.cgv, label: 'CGV' },
-  { href: LINKS.mentionsLegales, label: 'Mentions légales' },
-  { href: LINKS.politiqueConfidentialite, label: 'Confidentialité' },
-  { href: LINKS.informationsReglementaires, label: 'Informations réglementaires' },
-  { href: LINKS.annuaireHandicap, label: 'Annuaire handicap' },
-  { href: LINKS.indicateursResultats, label: 'Indicateurs de résultats' },
-  { href: LINKS.qualiopi, label: 'Organisme certifié Qualiopi' },
-  { href: '/llms.txt', label: 'llms.txt' },
-];
-
-/** Bandeau « Formations IA par métier » */
+/** Bandeau « Formations IA par métier » — hors footer principal. */
 export const NAV_METIERS: readonly NavItem[] = [
   { href: LINKS.formationConducteurTravaux, label: 'Conducteur de travaux' },
   { href: LINKS.formationIaMetreurEconomisteConstruction, label: 'Métreur & économiste' },
@@ -123,7 +159,7 @@ export const NAV_METIERS: readonly NavItem[] = [
   { href: LINKS.formationIaAssistanteTravaux, label: 'Assistante travaux' },
 ];
 
-/** Bandeau « Formations en Île-de-France » */
+/** Bandeau « Formations en Île-de-France » — hors footer principal. */
 export const NAV_IDF: readonly NavItem[] = [
   { href: LINKS.formationIaBtpYvelines78, label: 'Yvelines (78)' },
   { href: LINKS.formationIaBtpEssonne91, label: 'Essonne (91)' },

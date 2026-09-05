@@ -1,57 +1,97 @@
 /**
- * Contenu page `/prendre-rendez-vous` — source UX (pas de catalogues ni tarifs).
+ * Contenu page `/prendre-rendez-vous` — UX conversion + SEO (source unique).
+ * Ne pas inventer de chiffres : preuves via `lib/constants` / indicateurs.
  */
-import { CONTACT } from '@/lib/constants';
+import { CONTACT, PREUVES } from '@/lib/constants';
 import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
 import { LINKS } from '@/lib/internal-links';
+import { formatVolumeProsFormesBtpLibelle } from '@/lib/data/indicateurs-resultats';
 
 export type PrendreRdvFaqItem = { q: string; a: string };
+
+export const PRENDRE_RDV_DUREE_MINUTES = 30;
 
 export const PRENDRE_RDV_PAGE_TITLE = 'Prendre rendez-vous | Formation IA BTP';
 
 export const PRENDRE_RDV_META_DESCRIPTION =
-  'Réservez un échange de 30 minutes avec Laure Olivié pour présenter votre projet de formation IA appliquée au BTP.';
+  'Réservez 30 min avec Laure Olivié : formation IA pour le BTP, devis, chantiers, appels d’offres. Visio gratuite, sans engagement.';
 
-export const PRENDRE_RDV_H1 =
-  'Réserver un échange sur votre projet de formation IA BTP';
+export const PRENDRE_RDV_H1 = 'Parlons de vos usages IA dans le BTP';
 
 export const PRENDRE_RDV_SUBTITLE =
-  '30 minutes en visio ou par téléphone pour préciser votre besoin et identifier la suite adaptée.';
+  '30 minutes pour identifier les tâches que l’IA peut réellement vous faire gagner du temps.';
 
-export const PRENDRE_RDV_REASSURANCE = 'Gratuit · Sans engagement · 30 minutes';
+export const PRENDRE_RDV_USE_CASES_LINE =
+  'Devis · Chantiers · Appels d’offres · Administratif · Commercial';
 
-export const PRENDRE_RDV_AGENDA_POINTS = [
+export const PRENDRE_RDV_CTA_PRIMARY = 'Choisir mon créneau';
+export const PRENDRE_RDV_CTA_SECONDARY = 'Voir les formations';
+
+export const PRENDRE_RDV_REASSURANCE = `Visio découverte gratuite · ${PRENDRE_RDV_DUREE_MINUTES} minutes · Sans engagement`;
+
+/** Preuves compactes — uniquement des faits sourcés sur le site. */
+export const PRENDRE_RDV_PROOFS = [
+  formatVolumeProsFormesBtpLibelle(),
+  'Spécialiste IA appliquée au BTP',
+  'Organisme de formation certifié Qualiopi',
+] as const;
+
+export const PRENDRE_RDV_AUDIENCE_TITLE = 'Ce rendez-vous est utile si vous souhaitez…';
+
+export const PRENDRE_RDV_AUDIENCE_CARDS = [
+  { title: 'Gagner du temps sur les devis', text: 'Rédaction, chiffrage, relecture.' },
+  { title: 'Analyser plus vite un DCE', text: 'Go / No Go et pièces clés.' },
+  { title: 'Préparer vos CR de chantier', text: 'Structurer et accélérer la rédaction.' },
+  { title: 'Améliorer vos mémoires techniques', text: 'Cadre, arguments, clarté.' },
+  { title: 'Former vos équipes à l’IA', text: 'Usages concrets, métier par métier.' },
+  { title: 'Automatiser des tâches répétitives', text: 'Emails, admin, suivi.' },
+] as const;
+
+export const PRENDRE_RDV_PROCESS_TITLE = `En ${PRENDRE_RDV_DUREE_MINUTES} minutes, nous faisons le point sur votre besoin`;
+
+export const PRENDRE_RDV_PROCESS_STEPS = [
   {
-    title: 'Profils et effectif',
-    text: 'Qui former, combien de personnes, et quel niveau d’usage de l’IA aujourd’hui.',
+    n: '1',
+    title: 'Vos tâches chronophages',
+    text: 'Identifier les processus qui vous font perdre du temps.',
   },
   {
-    title: 'Usages prioritaires',
-    text: 'Tâches, documents et situations métier sur lesquelles vous voulez gagner du temps.',
+    n: '2',
+    title: 'Les usages IA pertinents',
+    text: 'Voir ce qui peut réellement être accéléré ou automatisé.',
   },
   {
-    title: 'Contraintes du projet',
-    text: 'Format souhaité, calendrier, lieu et contraintes opérationnelles.',
+    n: '3',
+    title: 'La prochaine étape',
+    text: 'Identifier la formation ou la solution la plus adaptée.',
   },
 ] as const;
+
+export const PRENDRE_RDV_FORM_TITLE = 'Réserver en 1 à 2 minutes';
+export const PRENDRE_RDV_FORM_SUBTITLE =
+  'Quelques choix rapides, puis votre créneau. Pas de questionnaire interminable.';
+
+/** Conservé pour FAQ / SEO bas de page — plus affiché avant le formulaire. */
+export const PRENDRE_RDV_AGENDA_POINTS = PRENDRE_RDV_PROCESS_STEPS.map((s) => ({
+  title: s.title,
+  text: s.text,
+}));
 
 export const PRENDRE_RDV_CHECKLIST = [
   'Votre métier ou activité',
   'Les profils concernés',
   'Le problème principal à traiter',
   'La période souhaitée',
-  'Un éventuel besoin d’aménagement',
 ] as const;
 
 export const PRENDRE_RDV_APRES = [
-  'Une confirmation est envoyée par Calendly à l’adresse indiquée.',
-  'Le lien de visioconférence ou la modalité téléphonique figure dans l’invitation.',
-  'Vous pouvez reprogrammer ou annuler depuis l’invitation Calendly.',
-  'La suite est définie après l’échange selon le besoin.',
+  'Confirmation et lien visio (ou appel) par email.',
+  'Modification ou annulation via les liens de l’email.',
+  'Rappel la veille à 15 h (heure de Paris), sauf réservation le jour même.',
 ] as const;
 
 export const PRENDRE_RDV_DEVIS_FORMULATION =
-  'Si le besoin est suffisamment défini, un programme et un devis pourront ensuite être préparés.';
+  'Si le besoin est clair, un programme et un devis peuvent ensuite être préparés.';
 
 export const PRENDRE_RDV_EMAIL = CONTACT.email;
 
@@ -59,20 +99,29 @@ export const PRENDRE_RDV_CALENDLY_URL = CALENDLY_BOOKING_URL;
 
 export const PRENDRE_RDV_CONTACT_HREF = LINKS.contact;
 
+export const PRENDRE_RDV_FORMATIONS_HREF = LINKS.formations;
+
 export const PRENDRE_RDV_PRIVACY_HREF = LINKS.politiqueConfidentialite;
 
-/** FAQ visible — 3 questions max. */
+/** Ancre formulaire / créneau */
+export const PRENDRE_RDV_FORM_ANCHOR = 'agenda';
+
+/** GEO discret (bas de page) — Laure, BTP, Guyancourt / IDF. */
+export const PRENDRE_RDV_GEO_NOTE =
+  `Laure Olivié — formatrice IA appliquée au BTP (OFC Création d’Entreprise, Guyancourt, Yvelines). Échanges en visio partout en France ; présentiel en Île-de-France. Satisfaction ${PREUVES.satisfaction}.`;
+
+/** FAQ visible — 3 questions max, sous le formulaire. */
 export const FAQ_PRENDRE_RDV_PAGE: readonly PrendreRdvFaqItem[] = [
   {
     q: 'Le rendez-vous est-il gratuit ?',
-    a: 'Oui. L’échange de 30 minutes est gratuit et sans engagement d’achat.',
+    a: `Oui. L’échange de ${PRENDRE_RDV_DUREE_MINUTES} minutes est gratuit et sans engagement.`,
   },
   {
     q: 'Comment se déroule l’échange ?',
-    a: 'Vous choisissez un créneau, puis nous échangeons en visioconférence ou par téléphone. Nous précisons votre besoin et la suite possible. Aucun document confidentiel n’est nécessaire pour ce premier échange.',
+    a: 'Vous indiquez votre besoin en 1 à 2 minutes, choisissez un créneau, puis nous échangeons en visioconférence ou par téléphone. Aucun document confidentiel n’est nécessaire.',
   },
   {
     q: 'Que faire si aucun créneau ne me convient ?',
-    a: `Utilisez la page <a href="${LINKS.contact}">Contact</a> pour envoyer votre demande, ou écrivez à <a href="mailto:${CONTACT.email}">${CONTACT.email}</a>.`,
+    a: `Utilisez la page <a href="${LINKS.contact}">Contact</a> ou écrivez à <a href="mailto:${CONTACT.email}">${CONTACT.email}</a>.`,
   },
 ];

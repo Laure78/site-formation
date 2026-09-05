@@ -73,6 +73,10 @@ export function getAProposUnifiedJsonLd(): Record<string, unknown> {
         identifier: '85368731700018',
       },
       {
+        '@type': 'Organization',
+        name: 'Formatrice indépendante — création d’entreprise & marketing digital CPF (2019-2022)',
+      },
+      {
         '@type': 'EducationalOrganization',
         name: 'CNAM Paris — Master Stratégie d\'entreprise (2021)',
       },

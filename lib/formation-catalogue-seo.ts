@@ -45,7 +45,7 @@ export const FORMATION_CATALOGUE_SEO: Record<FormationCatalogueCode, FormationCa
       'Formation IA pour le BTP en 4 h : devis, emails, comptes rendus et DOE avec ChatGPT et Claude. Présentiel IDF, Qualiopi, financement OPCO selon éligibilité.',
     enBref: `Formation IA BTP de niveau débutant (${SESSION_DUREE_LIBELLE}, présentiel Île-de-France) : ChatGPT et Claude pour préparer devis, emails, comptes rendus, DOE et PV. L’IA assiste ; le professionnel valide prix, métrés et références techniques. ${QUALIOPI_MENTION}.`,
     publicTargets: [
-      'Artisans et dirigeants de TPE/PME du bâtiment et des travaux publics',
+      'Dirigeants et équipes de TPE/PME du bâtiment et des travaux publics',
       'Conducteurs de travaux et chefs de chantier',
       'Chargés d\'affaires et techniciens bureau d\'études',
       'Assistantes administratives et fonctions support du BTP',
@@ -69,7 +69,7 @@ export const FORMATION_CATALOGUE_SEO: Record<FormationCatalogueCode, FormationCa
       'Dirigeants de PME du BTP',
       'Responsables d’affaires et chargés d’études',
       'Conducteurs de travaux et responsables appels d’offres',
-      'Artisans répondant déjà à des consultations',
+      'Professionnels répondant déjà à des consultations',
     ],
     iaLimits: [
       { iaAide: 'Synthétiser une pièce et extraire des exigences', validationHumaine: 'Valider l’interprétation contractuelle' },
@@ -209,5 +209,5 @@ export function getFormationCatalogueSeo(ref: FormationCatalogueCode): Formation
 
 /** Bloc autorité E-E-A-T — harmonisé sur toutes les fiches catalogue. */
 export function getFormationCatalogueAutoriteParagraph(programmeUpdatedAt: string): string {
-  return `Laure Olivié, formatrice IA générative spécialisée BTP (+10 ans de terrain en travaux publics et conduite de chantier), dispense cette formation via OFC Création d'Entreprise (organisme certifié Qualiopi). ${formatVolumeProsFormesBtpLibelle()} — satisfaction ${formatNoteSatisfactionAffichageComplet()} (${indicateursResultats.periodeReference}). Programme mis à jour le ${programmeUpdatedAt}. Références : FFB Grand Paris, FFB Île-de-France, CSFE, CNAM Entreprise, Lefebvre Dalloz.`;
+  return `Laure Olivié, formatrice IA générative spécialisée BTP (+10 ans de terrain en travaux publics et conduite de chantier), dispense cette formation via OFC Création d'Entreprise (organisme certifié Qualiopi). ${formatVolumeProsFormesBtpLibelle()} — satisfaction ${formatNoteSatisfactionAffichageComplet()} (${indicateursResultats.periodeReference}). Programme mis à jour le ${programmeUpdatedAt}. Références : FFB Grand Paris, FFB Île-de-France, CSFE, CNAM Entreprise, Le Moniteur Formations.`;
 }

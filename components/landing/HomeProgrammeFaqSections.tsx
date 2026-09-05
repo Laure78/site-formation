@@ -161,7 +161,7 @@ export function HomeProgrammeFaqSections() {
                 Pour les <strong>PME BTP et TPE</strong> du bâtiment : annonces, tri de CV, entretiens,
                 fidélisation. Cours{' '}
                 <strong>
-                  L&apos;IA pour les artisans et TPE&nbsp;: Recruter sa main-d&apos;œuvre efficacement
+                  L&apos;IA pour les TPE et PME&nbsp;: Recruter sa main-d&apos;œuvre efficacement
                 </strong>{' '}
                 — accédez à la vidéo et au programme sur{' '}
                 <a

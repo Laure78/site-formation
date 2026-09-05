@@ -126,7 +126,7 @@ export const FORMATIONS: readonly Formation[] = [
       'Réutiliser une méthode de travail (trames, prompts, contrôles humains) sur les prochains dossiers',
     ],
     public:
-      'Dirigeants de PME du BTP, responsables d’affaires, chargés d’études, conducteurs de travaux, responsables appels d’offres et artisans répondant déjà à des consultations',
+      'Dirigeants de PME du BTP, responsables d’affaires, chargés d’études, conducteurs de travaux, responsables appels d’offres et entreprises répondant déjà à des consultations',
     casUsage: 'DCE, checklist de chiffrage, mémoire technique',
     pdfProgramme:
       '/formations/ia-appels-offre-btp/Programme_IA_AO_DCE_MT_ClaudePro_OFC.pdf',

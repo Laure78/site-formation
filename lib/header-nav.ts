@@ -63,9 +63,8 @@ function buildFormationsNavChildren(at: Date): HeaderNavLink[] {
   };
 
   return [
-    parcoursItem,
     ...catalogueCore.map(formationNavLink),
-    { href: LINKS.formationPlateforme, label: 'Espace apprenant' },
+    parcoursItem,
   ];
 }
 
@@ -125,6 +124,17 @@ function aProposNavActive(pathname: string): boolean {
   );
 }
 
+function financementNavActive(pathname: string): boolean {
+  return pathname === LINKS.financement || pathname.startsWith('/financement-constructys');
+}
+
+/** Ancres réelles de `app/financement-constructys-formation-ia-btp/page.tsx`. */
+const FINANCEMENT_CHILDREN: readonly HeaderNavLink[] = [
+  { href: `${LINKS.financement}#essentiel-title`, label: 'L’essentiel Constructys' },
+  { href: `${LINKS.financement}#etapes-financement`, label: 'Demander la prise en charge' },
+  { href: `${LINKS.financement}#qui-fait-quoi-title`, label: 'Qui fait quoi' },
+];
+
 /** Ancres réelles de `app/partenaires/page.tsx`. */
 const PARTENAIRES_SECTION_CHILDREN: readonly HeaderNavLink[] = [
   { href: `${LINKS.partenaires}#references-btp`, label: 'Réseaux BTP' },
@@ -166,16 +176,19 @@ const BASE_HEADER_NAV: readonly HeaderNavItem[] = [
     footer: { href: LINKS.formations, label: 'Toutes les formations' },
   },
   {
+    id: 'financement',
+    label: 'Financement',
+    href: LINKS.financement,
+    isActive: financementNavActive,
+    children: FINANCEMENT_CHILDREN,
+    footer: { href: LINKS.financement, label: 'Financement des formations' },
+  },
+  {
     id: 'ressources',
     label: 'Ressources',
     href: LINKS.ressources,
     isActive: ressourcesNavActive,
     children: [
-      {
-        href: LINKS.blog,
-        label: 'Blog',
-        title: 'Articles IA BTP — devis, chantier, appels d’offres',
-      },
       {
         href: LINKS.ressourcesTutos,
         label: 'Tutos',
@@ -185,6 +198,11 @@ const BASE_HEADER_NAV: readonly HeaderNavItem[] = [
         href: `${LINKS.ressources}#guides-pdf`,
         label: 'Guides',
         title: 'Guides PDF gratuits par métier — conducteur, dirigeant, AO…',
+      },
+      {
+        href: LINKS.blog,
+        label: 'Blog',
+        title: 'Articles IA BTP — devis, chantier, appels d’offres',
       },
     ],
     footer: { href: LINKS.ressources, label: 'Toutes les ressources' },

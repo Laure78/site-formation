@@ -57,71 +57,46 @@ export default function RessourcesTutosIndexPage() {
       <JsonLd id="schema-tutos-index-collection" schema={collectionJsonLd} />
 
       <section className="border-b border-slate-200 bg-[#F8FAFC]">
-        <div className="mx-auto max-w-7xl px-4 pb-10 pt-4 md:pb-14 md:pt-6">
-          <div className="grid gap-10 lg:grid-cols-2 lg:items-start lg:gap-12">
+        <div className="mx-auto max-w-7xl px-4 py-4 md:py-5">
+          <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between sm:gap-6">
             <div className="min-w-0">
-              <p className="mt-2 text-xs font-semibold uppercase tracking-[0.22em] text-[#377CF3]">
-                Index des parcours gratuits
+              <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[#377CF3]">
+                Index des parcours gratuits · {TUTOS.length} tutos
               </p>
-              <h1 className="mt-3 font-display text-3xl font-bold leading-tight text-slate-900 md:text-4xl lg:text-[2.5rem]">
+              <h1 className="mt-1.5 font-display text-2xl font-bold leading-tight text-slate-900 md:text-3xl">
                 Tous les tutos PDF IA BTP (Claude et ChatGPT)
               </h1>
-              <p className="mt-4 max-w-none text-lg leading-relaxed text-slate-700">
-                Clique sur un tuto pour ouvrir la page web complète (étapes + FAQ) ou télécharge
-                directement le PDF. Sans inscription — OFC Création d&apos;Entreprise · Qualiopi.
+              <p className="mt-1.5 max-w-3xl text-sm leading-relaxed text-slate-600 md:text-base">
+                Page web ou PDF direct — sans inscription.
               </p>
-              <div className="mt-6 flex flex-wrap gap-3 text-sm">
-                <Link
-                  href={LINKS.ressources}
-                  className="inline-flex items-center gap-2 rounded-full border border-white bg-white px-4 py-2 font-medium text-slate-700 shadow-sm hover:border-[#377CF3] hover:text-[#377CF3]"
-                >
-                  <ArrowRight size={16} className="rotate-180" aria-hidden />
-                  Hub ressources général
-                </Link>
-                <Link
-                  href={LINKS.financement}
-                  className="inline-flex items-center gap-2 rounded-full border border-white bg-white px-4 py-2 font-medium text-slate-700 shadow-sm hover:border-[#377CF3] hover:text-[#377CF3]"
-                >
-                  Financement formation IA pour le BTP
-                </Link>
-              </div>
             </div>
-            <aside
-              aria-label="Synthèse de l&apos;index tutos"
-              className="rounded-2xl border border-slate-200/90 bg-white p-6 shadow-sm lg:sticky lg:top-28 xl:top-32"
-            >
-              <p className="text-sm font-semibold text-[#377CF3]">En un coup d&apos;œil</p>
-              <ul className="mt-4 space-y-3 text-sm leading-relaxed text-slate-700">
-                <li>
-                  <strong className="text-slate-900">{TUTOS.length} parcours</strong> avec page dédiée et fichier PDF
-                  aligné dessus.
-                </li>
-                <li>
-                  Quatre rubriques : marchés publics, chantier &amp; livrables, prévention &amp; conformité,
-                  productivité — repères aussi en jetons sous le titre ci-dessous.
-                </li>
-                <li>
-                  Même périmètre sur le{' '}
-                  <Link href={LINKS.skillIaConducteurTravaux} className="font-medium text-[#377CF3] hover:underline">
-                    guide PDF conducteurs de travaux
-                  </Link>
-                  {' '}
-                  (ressource compilée séparément).
-                </li>
-              </ul>
-            </aside>
+            <div className="flex shrink-0 flex-wrap gap-2 text-sm">
+              <Link
+                href={LINKS.ressources}
+                className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-white px-3 py-1.5 font-medium text-slate-700 shadow-sm hover:border-[#377CF3] hover:text-[#377CF3]"
+              >
+                <ArrowRight size={14} className="rotate-180" aria-hidden />
+                Hub ressources
+              </Link>
+              <Link
+                href={LINKS.financement}
+                className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-white px-3 py-1.5 font-medium text-slate-700 shadow-sm hover:border-[#377CF3] hover:text-[#377CF3]"
+              >
+                Financement
+              </Link>
+            </div>
           </div>
         </div>
       </section>
 
-      <section className="py-14 md:py-20">
+      <section id="liste-tutos" className="scroll-mt-24 py-6 md:py-8">
         <div className="mx-auto max-w-7xl px-4">
           <h2 className="sr-only">
             Liste des {TUTOS.length} tutoriels répartis en {TUTO_CATEGORY_ORDER.length} rubriques
           </h2>
           <nav
             aria-label="Accès rapide aux rubriques de tutos"
-            className="mb-14 flex flex-wrap gap-2"
+            className="mb-6 flex flex-wrap gap-2"
           >
             {TUTO_CATEGORY_ORDER.map((id) => {
               const meta = TUTO_CATEGORY_META[id];
@@ -143,11 +118,12 @@ export default function RessourcesTutosIndexPage() {
             tutos={TUTOS}
             badgeMode="indexed"
             readLinkLabel="Ouvrir la page du tuto"
+            compact
           />
         </div>
       </section>
 
-      <section className="border-t border-slate-200 bg-white py-12">
+      <section className="border-t border-slate-200 bg-white py-10">
         <div className="mx-auto max-w-3xl px-4 text-center">
           <p className="text-slate-700">
             Ces tutos complètent une{' '}

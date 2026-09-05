@@ -27,8 +27,8 @@ const PAGE_URL = `${SITE_CONFIG.url.replace(/\/$/, '')}${PATH}`;
 
 const COURSE_1 = {
   id: 'cours-1',
-  name: "L'IA pour les artisans et TPE : recruter sa main-d'œuvre efficacement",
-  tocLabel: "Cours 1 — L'IA pour les artisans et TPE : recruter",
+  name: "L'IA pour les TPE et PME : recruter sa main-d'œuvre efficacement",
+  tocLabel: "Cours 1 — L'IA pour les TPE et PME : recruter",
   url: 'https://www.linkedin.com/learning/l-ia-pour-les-artisans-et-tpe-recruter-sa-main-d-oeuvre-efficacement',
   public:
     'Dirigeants de TPE et PME du BTP qui peinent à recruter (maçons, électriciens, plombiers, couvreurs…).',
@@ -335,8 +335,7 @@ export default function FormationsLinkedInLearningPage() {
               </p>
               <p>
                 Les actions de formation OFC Création d&apos;Entreprise sont dispensées par un organisme certifié Qualiopi.
-                Interventions et partenariats : FFB Grand Paris · CSFE · UMB-FFB · CNAM · Lefebvre
-                Dalloz.
+                Interventions et partenariats : FFB Grand Paris · CSFE · UMB-FFB · CNAM · Le Moniteur Formations.
               </p>
               <p>
                 <a
@@ -570,7 +569,7 @@ export default function FormationsLinkedInLearningPage() {
               </p>
               <p className="mt-3">
                 10 ans de terrain BTP (Dirigeante d&apos;une entreprise de Travaux Publics dans les Yvelines) · formatrice IA depuis 2022. OFC Création d&apos;Entreprise —
-                Qualiopi. {formatProsFormesEtNoteQualiopi()}. Partenaires : FFB Grand Paris, CSFE, UMB-FFB, CNAM, Lefebvre Dalloz.
+                Qualiopi. {formatProsFormesEtNoteQualiopi()}. Partenaires : FFB Grand Paris, CSFE, UMB-FFB, CNAM, Le Moniteur Formations.
               </p>
             </div>
           </div>

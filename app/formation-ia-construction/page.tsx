@@ -131,7 +131,7 @@ export default function FormationIaConstructionPage() {
 
           <p className="mt-6 text-sm text-slate-600">
             <strong></strong> · Partenaires : FFB Grand Paris, CSFE,
-            UMB-FFB, CNAM Entreprise, Lefebvre Dalloz
+            UMB-FFB, CNAM Entreprise, Le Moniteur Formations
           </p>
         </header>
 
@@ -297,7 +297,7 @@ export default function FormationIaConstructionPage() {
                 <strong></strong>
               </li>
               <li>
-                Partenaires : FFB Grand Paris, CSFE, UMB-FFB, CNAM Entreprise, Lefebvre Dalloz
+                Partenaires : FFB Grand Paris, CSFE, UMB-FFB, CNAM Entreprise, Le Moniteur Formations
               </li>
             </ul>
           </div>

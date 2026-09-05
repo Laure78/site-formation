@@ -36,6 +36,31 @@ export type ApplicationMetierNiveauConfig = {
   modules: readonly ApplicationMetierModule[];
   casUsageExemples?: readonly ApplicationMetierCasUsage[];
   faq: readonly { q: string; a: string }[];
+  /** Enrichissement UX fiche (optionnel — N1 en priorité). */
+  ux?: ApplicationMetierNiveauUx;
+};
+
+export type ApplicationMetierNiveauUx = {
+  /** Ligne facts hero : « 7 h · 1 à 8 participants · … » */
+  heroFacts: string;
+  /** Badge hero optionnel (sinon progressionLabel). */
+  heroBadge?: string;
+  /** Résultats de la journée (3 max). */
+  resultatJournee: readonly string[];
+  /** Cartes cas d’usage (6 max) — titre + une phrase. */
+  casUsageCards: readonly { title: string; text: string }[];
+  /** Bloc « Une application métier, concrètement ? » */
+  definitionApp: {
+    intro: string;
+    points: readonly string[];
+  };
+  avant: readonly string[];
+  apres: readonly string[];
+  pourQui: readonly string[];
+  pourQuiHighlight: string;
+  /** Timeline programme simplifiée (alignée sur modules officiels, sans inventer de durées). */
+  programmeSteps: readonly { label: string; title: string; text: string }[];
+  livrables: readonly string[];
 };
 
 export const PARCOURS_APPLICATIONS_METIER = {
@@ -95,18 +120,18 @@ export const APPLICATION_METIER_NIVEAU_1: ApplicationMetierNiveauConfig = {
   duree: '7 h',
   progressionLabel: 'Niveau 1 — CONCEVOIR',
   progressionTagline: 'Je transforme un problème métier en prototype.',
-  metaTitle: 'Créer application métier BTP IA : niveau 1',
+  metaTitle: 'Créer une application métier BTP avec l’IA | Niveau 1',
   metaDescription:
-    'Formation IA pour le BTP : créer une application métier avec l’IA, du besoin au prototype fonctionnel. 7 h, présentiel, Qualiopi, financement selon éligibilité.',
-  h1: 'Créer sa première application métier BTP avec l’IA',
+    'Formation pratique de 7 h pour créer votre premier prototype d’application métier BTP avec l’IA. Intra-entreprise en Île-de-France. Qualiopi.',
+  h1: 'Créez votre première application métier BTP avec l’IA',
   subtitle:
-    'Découvrir la méthode pour transformer un problème métier en prototype fonctionnel — sans compétence préalable en programmation.',
+    'Transformez un problème concret de votre entreprise en premier prototype fonctionnel, sans être développeur.',
   positionnement:
     'Découvrir la méthode permettant de transformer un problème métier en prototype fonctionnel, avec le développement assisté par l’intelligence artificielle.',
   prerequis:
     'Aucune compétence préalable en programmation. Une pratique courante de l’intelligence artificielle générative est recommandée.',
   promesseRealiste:
-    'Chaque participant développe un prototype fonctionnel ou le socle de son application métier.',
+    'Chaque participant développe un prototype fonctionnel ou le socle de son application métier — pas une application industrielle complète.',
   objectifs: [
     'Identifier un processus pouvant être digitalisé',
     'Analyser un point de douleur métier',
@@ -168,14 +193,133 @@ export const APPLICATION_METIER_NIVEAU_1: ApplicationMetierNiveauConfig = {
   ],
   faq: [
     {
-      q: 'Vais-je repartir avec une application terminée ?',
-      a: 'Non : en 7 heures, l’objectif est un prototype fonctionnel ou le socle de votre application métier — pas une application professionnelle complète.',
+      q: 'Faut-il savoir coder ?',
+      a: 'Non. Aucune compétence préalable en programmation n’est exigée. Une pratique courante de l’IA générative est recommandée.',
+    },
+    {
+      q: 'Que peut-on créer en une journée ?',
+      a: 'Un prototype fonctionnel ou le socle de votre application métier — pas une application professionnelle complète déployée en production.',
+    },
+    {
+      q: 'Quelle différence entre le Niveau 1 et le Niveau 2 ?',
+      a: 'Le Niveau 1 sert à concevoir et prototyper. Le Niveau 2 connecte données, utilisateurs et services pour faire évoluer le prototype.',
+    },
+    {
+      q: 'Puis-je travailler sur mon propre projet ?',
+      a: 'Oui. Vous venez avec un problème métier concret de votre entreprise : c’est la matière première de la journée.',
     },
     {
       q: 'Quels outils sont utilisés ?',
-      a: 'La formation enseigne le développement assisté par l’IA et les outils de développement IA du moment, sans dépendre d’un logiciel particulier. La compétence reste transférable si les outils évoluent.',
+      a: 'La formation enseigne le développement assisté par l’IA et les assistants de développement du moment, sans dépendre d’un logiciel particulier. La compétence reste transférable si les outils évoluent.',
+    },
+    {
+      q: 'La formation peut-elle être financée par un OPCO ?',
+      a: 'Prise en charge possible selon l’éligibilité de l’entreprise et les barèmes Constructys en vigueur. Les plafonds peuvent être inférieurs au tarif de la formation.',
+    },
+    {
+      q: 'La formation est-elle organisée dans nos locaux ?',
+      a: 'Oui : format intra-entreprise, en présentiel en Île-de-France, pour votre équipe (1 à 8 participants).',
     },
   ],
+  ux: {
+    heroFacts: '7 h · 1 à 8 participants · Intra-entreprise · Île-de-France',
+    heroBadge: 'Applications métier BTP · Niveau 1 — Concevoir',
+    resultatJournee: [
+      'Définir votre besoin métier',
+      'Structurer les fonctions de votre application',
+      'Créer et tester un premier prototype fonctionnel',
+    ],
+    casUsageCards: [
+      {
+        title: 'Devis & métrés',
+        text: 'Transformer une saisie métier en outil de préparation de devis.',
+      },
+      {
+        title: 'Chantier',
+        text: 'Centraliser informations, actions ou réserves d’un chantier.',
+      },
+      {
+        title: 'Trésorerie',
+        text: 'Créer un tableau de suivi adapté à l’activité de l’entreprise.',
+      },
+      {
+        title: 'Commercial',
+        text: 'Structurer un mini CRM pour prospects, devis et relances.',
+      },
+      {
+        title: 'Documents',
+        text: 'Générer plus rapidement certains documents récurrents.',
+      },
+      {
+        title: 'Suivi métier',
+        text: 'Remplacer un fichier Excel devenu difficile à maintenir.',
+      },
+    ],
+    definitionApp: {
+      intro:
+        'Une application métier est un outil conçu autour de votre façon de travailler. Elle peut remplacer un fichier Excel, centraliser des informations ou automatiser certaines étapes d’un processus.',
+      points: [
+        'Vous partez de votre besoin réel.',
+        'Vous n’apprenez pas à coder pour devenir développeur.',
+        'Vous apprenez à construire un outil utile à votre entreprise avec l’aide de l’IA.',
+      ],
+    },
+    avant: [
+      'Fichiers Excel dispersés',
+      'Doubles saisies',
+      'Informations difficiles à retrouver',
+      'Tâches répétitives',
+      'Outils génériques mal adaptés',
+    ],
+    apres: [
+      'Besoin métier cadré',
+      'Données structurées',
+      'Fonctionnalités prioritaires définies',
+      'Premier prototype créé',
+      'Plan d’amélioration identifié',
+    ],
+    pourQui: [
+      'Dirigeants de PME / TPE du BTP',
+      'Conducteurs de travaux',
+      'Chargés d’affaires',
+      'Responsables métier ou référents digitaux',
+    ],
+    pourQuiHighlight:
+      'Vous devez surtout connaître votre métier et venir avec un problème concret à résoudre.',
+    programmeSteps: [
+      {
+        label: '01 — IDENTIFIER',
+        title: 'Identifier',
+        text: 'Choisir un problème métier réellement utile à résoudre.',
+      },
+      {
+        label: '02 — CADRER',
+        title: 'Cadrer',
+        text: 'Définir les utilisateurs, données, règles et fonctionnalités.',
+      },
+      {
+        label: '03 — CONCEVOIR',
+        title: 'Concevoir',
+        text: 'Transformer le besoin en cahier des charges simple.',
+      },
+      {
+        label: '04 — PROTOTYPER',
+        title: 'Prototyper',
+        text: 'Construire les premières interfaces et fonctionnalités avec l’IA.',
+      },
+      {
+        label: '05 — TESTER',
+        title: 'Tester',
+        text: 'Tester le prototype, corriger les erreurs et préparer la suite.',
+      },
+    ],
+    livrables: [
+      'Votre cahier des charges simplifié',
+      'La structure de votre application',
+      'Votre premier prototype',
+      'Une méthode pour continuer à l’améliorer',
+    ],
+  },
 };
 
 export const APPLICATION_METIER_NIVEAU_2: ApplicationMetierNiveauConfig = {

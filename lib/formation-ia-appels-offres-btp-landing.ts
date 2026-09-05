@@ -71,7 +71,7 @@ export const FORMATION_IA_APPELS_OFFRES_BTP_CONFIG: SeoClusterPageConfig = {
     'Conducteurs de travaux impliqués dans les AO',
     'Responsables appels d\'offres',
     'Dirigeants PME BTP',
-    'Artisans et entreprises de second œuvre (menuiserie, étanchéité, etc.)',
+    'TPE/PME et entreprises de second œuvre (menuiserie, étanchéité, etc.)',
     'Assistants commerciaux et administratifs AO',
   ],
   specialSection: {

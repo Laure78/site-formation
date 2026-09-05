@@ -89,14 +89,17 @@ export function TutosGroupedByCategory({
   tutos,
   badgeMode,
   readLinkLabel = 'Lire le tuto',
+  compact = false,
 }: {
   tutos: ReadonlyArray<TutoData>;
   badgeMode: BadgeMode;
   /** Libellé du bouton principal (page tutos vs hub ressources). */
   readLinkLabel?: string;
+  /** En-têtes de rubrique plus courts (index `/ressources/tutos`). */
+  compact?: boolean;
 }) {
   return (
-    <div className="space-y-16 md:space-y-20">
+    <div className={compact ? 'space-y-10 md:space-y-12' : 'space-y-16 md:space-y-20'}>
       {TUTO_CATEGORY_ORDER.map((catId) => {
         const meta = TUTO_CATEGORY_META[catId];
         const items = tutos.filter((t) => t.category === catId);
@@ -106,24 +109,41 @@ export function TutosGroupedByCategory({
           <section
             key={catId}
             id={meta.sectionId}
-            className="scroll-mt-36"
+            className={compact ? 'scroll-mt-28' : 'scroll-mt-36'}
             aria-labelledby={`${meta.sectionId}-heading`}
           >
-            <div className="mb-8 flex flex-col gap-4 rounded-2xl border border-slate-200/80 bg-white p-6 md:flex-row md:items-end md:justify-between">
-              <div className="max-w-3xl">
-                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#377CF3]">Rubrique</p>
-                <h2
-                  id={`${meta.sectionId}-heading`}
-                  className="mt-2 font-display text-2xl font-bold text-slate-900 md:text-3xl"
-                >
-                  {meta.title}
-                </h2>
-                <p className="mt-2 text-sm leading-relaxed text-slate-600 md:text-base">{meta.description}</p>
+            {compact ? (
+              <div className="mb-4 flex flex-wrap items-baseline justify-between gap-2">
+                <div>
+                  <h2
+                    id={`${meta.sectionId}-heading`}
+                    className="font-display text-xl font-bold text-slate-900 md:text-2xl"
+                  >
+                    {meta.title}
+                  </h2>
+                  <p className="mt-0.5 text-sm text-slate-600">{meta.description}</p>
+                </div>
+                <p className="shrink-0 text-sm font-semibold text-[#377CF3]">
+                  {items.length} tuto{items.length > 1 ? 's' : ''}
+                </p>
               </div>
-              <p className="shrink-0 rounded-full bg-[#377CF3]/10 px-4 py-1.5 text-sm font-semibold text-[#377CF3]">
-                {items.length} tuto{items.length > 1 ? 's' : ''}
-              </p>
-            </div>
+            ) : (
+              <div className="mb-8 flex flex-col gap-4 rounded-2xl border border-slate-200/80 bg-white p-6 md:flex-row md:items-end md:justify-between">
+                <div className="max-w-3xl">
+                  <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#377CF3]">Rubrique</p>
+                  <h2
+                    id={`${meta.sectionId}-heading`}
+                    className="mt-2 font-display text-2xl font-bold text-slate-900 md:text-3xl"
+                  >
+                    {meta.title}
+                  </h2>
+                  <p className="mt-2 text-sm leading-relaxed text-slate-600 md:text-base">{meta.description}</p>
+                </div>
+                <p className="shrink-0 rounded-full bg-[#377CF3]/10 px-4 py-1.5 text-sm font-semibold text-[#377CF3]">
+                  {items.length} tuto{items.length > 1 ? 's' : ''}
+                </p>
+              </div>
+            )}
             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {items.map((tuto, indexInCat) => (
                 <TutoCard

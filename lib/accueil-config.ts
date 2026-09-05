@@ -13,9 +13,9 @@ import {
   ALT_LOGO_CNAM_ENTREPRISES,
   ALT_LOGO_CSFE,
   ALT_LOGO_FFB_OFFICIEL,
-  ALT_LOGO_LEFEBVRE_DALLOZ,
+  ALT_LOGO_MONITEUR_FORMATIONS,
   CLIENT_LOGOS_MARQUEE,
-  LOGO_LEFEBVRE_DALLOZ,
+  LOGO_MONITEUR_FORMATIONS,
   PARTNER_WEBSITES,
 } from '@/lib/client-logos';
 
@@ -55,14 +55,14 @@ export const ACCUEIL_LOGOS_PARTENAIRES = [
     linkTitle: 'Site officiel CNAM Entreprises Île-de-France',
   },
   {
-    id: 'lefebvre-accueil',
-    name: 'Lefebvre Dalloz',
-    alt: ALT_LOGO_LEFEBVRE_DALLOZ,
-    src: LOGO_LEFEBVRE_DALLOZ.src,
-    width: LOGO_LEFEBVRE_DALLOZ.width,
-    height: LOGO_LEFEBVRE_DALLOZ.height,
-    href: PARTNER_WEBSITES.lefebvreDalloz,
-    linkTitle: 'Site officiel Lefebvre Dalloz Formation',
+    id: 'moniteur-accueil',
+    name: 'Le Moniteur Formations',
+    alt: ALT_LOGO_MONITEUR_FORMATIONS,
+    src: LOGO_MONITEUR_FORMATIONS.src,
+    width: LOGO_MONITEUR_FORMATIONS.width,
+    height: LOGO_MONITEUR_FORMATIONS.height,
+    href: PARTNER_WEBSITES.moniteurFormations,
+    linkTitle: 'Site officiel Le Moniteur Formations',
   },
 ] as const;
 

@@ -544,7 +544,7 @@ export default function FormationIaBtpPillarPage() {
                 <strong>{formatNoteSatisfactionAffichageComplet()}</strong>
               </li>
               <li>
-                Clients : FFB Grand Paris, FFB Île-de-France, CSFE, CNAM Entreprise, Lefebvre Dalloz
+                Clients : FFB Grand Paris, FFB Île-de-France, CSFE, CNAM Entreprise, Le Moniteur Formations
               </li>
             </ul>
           </Reveal>
@@ -561,7 +561,7 @@ export default function FormationIaBtpPillarPage() {
           </p>
           <p>
             Depuis 2022, elle forme les équipes des fédérations (FFB Grand Paris, FFB IDF, FFB IDF Est), des institutions
-            (CNAM Entreprise, Lefebvre Dalloz, CSFE) et des PME d&apos;Île-de-France sur Claude AI (outil principal) et
+            (CNAM Entreprise, Le Moniteur Formations, CSFE) et des PME d&apos;Île-de-France sur Claude AI (outil principal) et
             ChatGPT (usages administratifs et comparaison) —
             devis, DCE, CCTP, CR chantier, DOE, PPSPS et mémoires techniques. <strong>Instructrice LinkedIn Learning</strong>{' '}
             (deux cours publiés en 2026).

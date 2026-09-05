@@ -76,8 +76,8 @@ export const SCHEMA_PERSON_AFFILIATIONS: ReadonlyArray<{
     url: 'https://www.cnam-idf.fr/',
   },
   {
-    name: 'Lefebvre Dalloz',
-    url: 'https://www.lefebvre-dalloz-formation.fr/',
+    name: 'Le Moniteur Formations',
+    url: 'https://formations.lemoniteur.fr/',
   },
 ] as const;
 

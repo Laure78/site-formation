@@ -31,7 +31,7 @@ export function FormationsCatalogueMidCta() {
               <span className="text-white/40" aria-hidden>
                 ·
               </span>
-              <span>✓ FFB · CSFE · CNAM · Lefebvre Dalloz</span>
+              <span>✓ FFB · CSFE · CNAM · Le Moniteur Formations</span>
             </p>
           </div>
           <div className="flex flex-col gap-4">

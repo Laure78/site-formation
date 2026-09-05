@@ -114,6 +114,56 @@ export async function createCalendarEvent(params: CreateCalendarEventParams): Pr
   }
 }
 
+/** Annule un événement Google Calendar (soft delete). */
+export async function cancelCalendarEvent(eventId: string): Promise<{ ok: boolean; error?: string }> {
+  const { client, calendarId, error } = getCalendarClient();
+  if (!client || !calendarId) return { ok: false, error: error ?? 'Config manquante' };
+  try {
+    await client.events.delete({
+      calendarId,
+      eventId,
+      sendUpdates: 'all',
+    });
+    return { ok: true };
+  } catch (e) {
+    const msg = e instanceof Error ? e.message : 'Erreur inconnue';
+    console.error('[Google Calendar] cancel', e);
+    return { ok: false, error: msg };
+  }
+}
+
+/** Met à jour date/heure d’un événement (report). Remet Meet si déjà présent. */
+export async function updateCalendarEvent(params: {
+  eventId: string;
+  startAt: string;
+  endAt: string;
+  title?: string;
+  description?: string;
+}): Promise<{ ok: boolean; meetLink?: string; error?: string }> {
+  const { client, calendarId, error } = getCalendarClient();
+  if (!client || !calendarId) return { ok: false, error: error ?? 'Config manquante' };
+  try {
+    const res = await client.events.patch({
+      calendarId,
+      eventId: params.eventId,
+      requestBody: {
+        ...(params.title ? { summary: params.title } : {}),
+        ...(params.description ? { description: params.description } : {}),
+        start: { dateTime: params.startAt, timeZone: 'Europe/Paris' },
+        end: { dateTime: params.endAt, timeZone: 'Europe/Paris' },
+      },
+      sendUpdates: 'all',
+    });
+    const meetLink = res.data.conferenceData?.entryPoints?.find((e) => e.entryPointType === 'video')
+      ?.uri as string | undefined;
+    return { ok: true, meetLink };
+  } catch (e) {
+    const msg = e instanceof Error ? e.message : 'Erreur inconnue';
+    console.error('[Google Calendar] update', e);
+    return { ok: false, error: msg };
+  }
+}
+
 /**
  * Teste la connexion Google Calendar — pour diagnostic admin.
  * Vérifie que les variables sont définies et que l'accès au calendrier fonctionne.

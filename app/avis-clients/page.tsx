@@ -114,7 +114,7 @@ export default async function AvisClientsPage() {
               Ce sont nos clients qui en parlent le mieux
             </h2>
             <p className="mt-4 max-w-3xl text-slate-600 md:text-lg">
-              Entreprises du BTP, artisans, conducteurs de travaux, responsables formation et professionnels
+              Entreprises du BTP, TPE et PME, conducteurs de travaux, responsables formation et professionnels
               du secteur partagent leur expérience de{' '}
               <strong className="font-semibold text-slate-800">formation intelligence artificielle BTP</strong>{' '}
               en présentiel avec Laure Olivié, formatrice certifiée Qualiopi — sessions intra-entreprise en

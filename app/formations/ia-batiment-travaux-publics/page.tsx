@@ -73,7 +73,7 @@ const HERO_FACTS = [
 ] as const;
 
 const PUBLIC_CIBLE_COURT =
-  'Artisans, dirigeants, conducteurs de travaux, chargés d’affaires, bureaux d’études et fonctions support du BTP.';
+  'Dirigeants, conducteurs de travaux, chargés d’affaires, bureaux d’études et fonctions support du BTP.';
 
 const PROBLEMES = [
   {
@@ -394,7 +394,7 @@ export default function FormationIAuServiceDuBatimentPage() {
             <p className="mt-3 text-base leading-relaxed text-slate-700">
               Laure Olivié, formatrice en IA générative appliquée au BTP, s’appuie sur une expérience du
               bâtiment et des travaux publics. Organisme OFC Création d’Entreprise, certifié Qualiopi. Références
-              vérifiables : FFB Grand Paris, CSFE, CNAM Entreprise, Lefebvre Dalloz.
+              vérifiables : FFB Grand Paris, CSFE, CNAM Entreprise, Le Moniteur Formations.
             </p>
             <p className="mt-3 flex flex-wrap gap-x-4 gap-y-2 text-base">
               <Link href={LINKS.aPropos} className={OFC_LINK}>
