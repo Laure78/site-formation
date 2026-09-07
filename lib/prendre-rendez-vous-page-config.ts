@@ -24,8 +24,9 @@ export const PRENDRE_RDV_SUBTITLE =
 export const PRENDRE_RDV_USE_CASES_LINE =
   'Devis · Chantiers · Appels d’offres · Administratif · Commercial';
 
-export const PRENDRE_RDV_CTA_PRIMARY = 'Choisir mon créneau';
-export const PRENDRE_RDV_CTA_SECONDARY = 'Voir les formations';
+export const PRENDRE_RDV_CTA_PRIMARY = 'Choisir mon créneau' as const;
+export const PRENDRE_RDV_CTA_SECONDARY = 'Voir les formations' as const;
+export const PRENDRE_RDV_CTA_NATIVE = 'Réserver via le formulaire du site' as const;
 
 export const PRENDRE_RDV_REASSURANCE = `Visio découverte gratuite · ${PRENDRE_RDV_DUREE_MINUTES} minutes · Sans engagement`;
 
@@ -67,9 +68,13 @@ export const PRENDRE_RDV_PROCESS_STEPS = [
   },
 ] as const;
 
-export const PRENDRE_RDV_FORM_TITLE = 'Réserver en 1 à 2 minutes';
+export const PRENDRE_RDV_FORM_TITLE = 'Autre option : formulaire du site';
 export const PRENDRE_RDV_FORM_SUBTITLE =
-  'Quelques choix rapides, puis votre créneau. Pas de questionnaire interminable.';
+  'Si vous préférez ne pas utiliser Calendly, indiquez votre besoin ici puis choisissez un créneau.';
+
+export const PRENDRE_RDV_CALENDLY_SECTION_TITLE = 'Réserver votre créneau';
+export const PRENDRE_RDV_CALENDLY_SECTION_SUBTITLE =
+  'Accès direct à mon agenda Calendly — choisissez le jour et l’heure qui vous conviennent.';
 
 /** Conservé pour FAQ / SEO bas de page — plus affiché avant le formulaire. */
 export const PRENDRE_RDV_AGENDA_POINTS = PRENDRE_RDV_PROCESS_STEPS.map((s) => ({
@@ -103,8 +108,11 @@ export const PRENDRE_RDV_FORMATIONS_HREF = LINKS.formations;
 
 export const PRENDRE_RDV_PRIVACY_HREF = LINKS.politiqueConfidentialite;
 
-/** Ancre formulaire / créneau */
-export const PRENDRE_RDV_FORM_ANCHOR = 'agenda';
+/** Ancre agenda Calendly (CTA principal). */
+export const PRENDRE_RDV_FORM_ANCHOR = 'calendly';
+
+/** Ancre formulaire natif (option secondaire). */
+export const PRENDRE_RDV_NATIVE_FORM_ANCHOR = 'agenda-site';
 
 /** GEO discret (bas de page) — Laure, BTP, Guyancourt / IDF. */
 export const PRENDRE_RDV_GEO_NOTE =

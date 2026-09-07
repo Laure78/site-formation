@@ -14,8 +14,11 @@ import {
   PRENDRE_RDV_APRES,
   PRENDRE_RDV_AUDIENCE_CARDS,
   PRENDRE_RDV_AUDIENCE_TITLE,
+  PRENDRE_RDV_CALENDLY_SECTION_SUBTITLE,
+  PRENDRE_RDV_CALENDLY_SECTION_TITLE,
   PRENDRE_RDV_CALENDLY_URL,
   PRENDRE_RDV_CONTACT_HREF,
+  PRENDRE_RDV_CTA_NATIVE,
   PRENDRE_RDV_CTA_PRIMARY,
   PRENDRE_RDV_CTA_SECONDARY,
   PRENDRE_RDV_DEVIS_FORMULATION,
@@ -27,6 +30,7 @@ import {
   PRENDRE_RDV_GEO_NOTE,
   PRENDRE_RDV_H1,
   PRENDRE_RDV_META_DESCRIPTION,
+  PRENDRE_RDV_NATIVE_FORM_ANCHOR,
   PRENDRE_RDV_PAGE_TITLE,
   PRENDRE_RDV_PRIVACY_HREF,
   PRENDRE_RDV_PROCESS_STEPS,
@@ -139,20 +143,20 @@ export default function PrendreRendezVousPage() {
 
           <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center">
             <a
-              href={`#${PRENDRE_RDV_FORM_ANCHOR}`}
+              href={calendlyUrl}
+              target="_blank"
+              rel="noopener noreferrer"
               className={`${OFC_CTA_PRIMARY} inline-flex min-h-12 w-full items-center justify-center px-6 sm:w-auto`}
+              data-calendly
+              data-cta-position="hero"
             >
               {PRENDRE_RDV_CTA_PRIMARY}
             </a>
             <a
-              href={calendlyUrl}
-              target="_blank"
-              rel="noopener noreferrer"
+              href={`#${PRENDRE_RDV_FORM_ANCHOR}`}
               className={`${OFC_CTA_SECONDARY} inline-flex min-h-12 w-full items-center justify-center px-6 sm:w-auto`}
-              data-calendly
-              data-cta-position="hero"
             >
-              Ouvrir Calendly
+              Voir l’agenda ici
             </a>
             <Link
               href={PRENDRE_RDV_FORMATIONS_HREF}
@@ -221,45 +225,63 @@ export default function PrendreRendezVousPage() {
         </div>
       </section>
 
-      {/* ——— Formulaire RDV natif ——— */}
+      {/* ——— Agenda Calendly (accès principal) ——— */}
       <section
-        className="scroll-mt-24 border-t border-slate-100 bg-[#F8FAFC]"
         id={PRENDRE_RDV_FORM_ANCHOR}
-        aria-labelledby="rdv-agenda"
+        className="scroll-mt-24 border-t border-slate-100 bg-[#F8FAFC]"
+        aria-labelledby="rdv-calendly"
       >
         <div className={`${OFC_SECTION_INNER} max-w-3xl py-12 md:py-16`}>
-          <h2 id="rdv-agenda" className="font-display text-xl font-bold text-slate-900 md:text-2xl">
+          <h2 id="rdv-calendly" className="font-display text-xl font-bold text-slate-900 md:text-2xl">
+            {PRENDRE_RDV_CALENDLY_SECTION_TITLE}
+          </h2>
+          <p className="mt-2 max-w-prose text-sm text-slate-600">
+            {PRENDRE_RDV_CALENDLY_SECTION_SUBTITLE}
+          </p>
+          <p className="mt-4">
+            <a
+              href={calendlyUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`${OFC_CTA_PRIMARY} inline-flex min-h-12 items-center justify-center px-6`}
+              data-calendly
+              data-cta-position="inline"
+            >
+              {PRENDRE_RDV_CTA_PRIMARY} sur Calendly
+            </a>
+          </p>
+          <div className="mt-8">
+            <PrendreRdvAgenda />
+          </div>
+        </div>
+      </section>
+
+      {/* ——— Formulaire RDV natif (secondaire) ——— */}
+      <section
+        className="scroll-mt-24 border-t border-slate-100 bg-white"
+        id={PRENDRE_RDV_NATIVE_FORM_ANCHOR}
+        aria-labelledby="rdv-agenda"
+      >
+        <div className={`${OFC_SECTION_INNER} max-w-3xl py-12 md:py-14`}>
+          <h2 id="rdv-agenda" className="font-display text-lg font-bold text-slate-900 md:text-xl">
             {PRENDRE_RDV_FORM_TITLE}
           </h2>
           <p className="mt-2 max-w-prose text-sm text-slate-600">{PRENDRE_RDV_FORM_SUBTITLE}</p>
+          <p className="mt-3 text-sm">
+            <a href={`#${PRENDRE_RDV_FORM_ANCHOR}`} className={OFC_LINK}>
+              Revenir à Calendly
+            </a>
+            {' · '}
+            <span className="text-slate-500">{PRENDRE_RDV_CTA_NATIVE}</span>
+          </p>
           <div className="mx-auto mt-8 max-w-[720px]">
             <RdvBookingFlowIsland />
           </div>
         </div>
       </section>
 
-      {/* ——— Agenda Calendly (toujours accessible) ——— */}
-      <section
-        id="calendly"
-        className="scroll-mt-24 border-t border-slate-100 bg-white"
-        aria-labelledby="rdv-calendly"
-      >
-        <div className={`${OFC_SECTION_INNER} max-w-3xl py-12 md:py-14`}>
-          <h2 id="rdv-calendly" className="font-display text-xl font-bold text-slate-900 md:text-2xl">
-            Préférez Calendly ?
-          </h2>
-          <p className="mt-2 max-w-prose text-sm text-slate-600">
-            Vous pouvez aussi choisir un créneau directement dans mon agenda Calendly (nouvel onglet
-            ou affichage ci-dessous).
-          </p>
-          <div className="mt-6">
-            <PrendreRdvAgenda />
-          </div>
-        </div>
-      </section>
-
       {/* ——— Après / secours ——— */}
-      <section className="bg-[#F8FAFC]" aria-labelledby="rdv-apres">
+      <section className="border-t border-slate-100 bg-[#F8FAFC]" aria-labelledby="rdv-apres">
         <div className={`${OFC_SECTION_INNER} max-w-3xl py-12 md:py-14`}>
           <h2 id="rdv-apres" className="font-display text-lg font-bold text-slate-900 md:text-xl">
             Après la réservation

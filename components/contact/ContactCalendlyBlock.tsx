@@ -34,19 +34,19 @@ export function ContactCalendlyBlock() {
         <Link
           href={LINKS.prendreRdv}
           onClick={() => trackContactCtaClick('rdv')}
-          className="inline-flex min-h-[44px] items-center justify-center gap-2 rounded-xl bg-[#377CF3] px-6 py-3 text-base font-semibold text-white hover:bg-[#2563EB] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#377CF3]"
+          className="inline-flex min-h-[44px] items-center justify-center gap-2 rounded-xl border border-[#CBD5E1] bg-white px-6 py-3 text-base font-semibold text-[#0F172A] hover:border-[#377CF3]"
         >
-          <Calendar className="h-5 w-5" aria-hidden />
-          Réserver un créneau
+          Page rendez-vous
         </Link>
         <a
           href={calendlyUrl}
           target="_blank"
           rel="noopener noreferrer"
           onClick={() => trackContactCtaClick('rdv')}
-          className="inline-flex min-h-[44px] items-center justify-center rounded-xl border border-[#CBD5E1] bg-white px-6 py-3 text-base font-semibold text-[#0F172A] hover:border-[#377CF3]"
+          className="inline-flex min-h-[44px] items-center justify-center gap-2 rounded-xl bg-[#377CF3] px-6 py-3 text-base font-semibold text-white hover:bg-[#2563EB] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#377CF3]"
           data-calendly
         >
+          <Calendar className="h-5 w-5" aria-hidden />
           Ouvrir Calendly
         </a>
       </div>
@@ -56,7 +56,7 @@ export function ContactCalendlyBlock() {
           onClick={() => trackContactCtaClick('rdv')}
           className="font-medium text-[#377CF3] underline"
         >
-          Afficher l’agenda Calendly sur la page rendez-vous
+          Afficher l’agenda sur la page rendez-vous
         </a>
       </p>
     </section>
