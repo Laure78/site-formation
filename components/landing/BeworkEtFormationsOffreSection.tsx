@@ -20,7 +20,7 @@ import { FormationCatalogueTitle } from '@/components/formations/FormationCatalo
 import { MentionFinancement } from '@/components/MentionFinancement';
 
 /**
- * Accueil : catalogue OFC (5 formations) — ancre #offre-formations.
+ * Accueil : catalogue OFC (8 formations) — ancre #offre-formations.
  */
 export function BeworkEtFormationsOffreSection() {
   const formations = getFormationsCatalogue();

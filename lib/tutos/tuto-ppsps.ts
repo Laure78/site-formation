@@ -321,13 +321,13 @@ Génère le PPSPS complet en Word. Inclus la table des matières, l'organigramme
   cta: {
     eyebrow: "ENVIE D'ALLER PLUS LOIN ?",
     title: 'On le construit ensemble',
-    subtitle: 'Atelier individuel ou en équipe — financement possible selon éligibilité (Constructys / OPCO)',
+    subtitle: 'Atelier en groupe — financement possible selon éligibilité (Constructys / OPCO)',
     programTitle: 'Programme « Niveau 2 — Conducteurs de travaux »',
     programItems: [
       'On construit ton skill PPSPS sur tes vrais chantiers',
       'Calibrage sur tes risques métier et tes coordinateurs SPS',
       'Un skill opérationnel à la fin de la session',
-      'Format individuel ou équipe (session catalogue 4 h, présentiel Île-de-France)',
+      'Session catalogue 4 h en groupe, présentiel Île-de-France',
     ],
   },
 };

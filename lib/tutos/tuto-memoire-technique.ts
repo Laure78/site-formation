@@ -347,13 +347,13 @@ Et change le ton de la section "valeur ajoutée" : je ne veux pas du tout sonner
   cta: {
     eyebrow: "ENVIE D'ALLER PLUS VITE ?",
     title: 'On le construit ensemble',
-    subtitle: 'Atelier individuel ou en équipe — financement possible selon éligibilité (Constructys / OPCO)',
+    subtitle: 'Atelier en groupe — financement possible selon éligibilité (Constructys / OPCO)',
     programTitle: 'Programme « Niveau 2 — Skills BTP »',
     programItems: [
       'On construit ton skill mémoire technique en direct',
       'Calibrage sur tes vrais DCE et tes vrais mémoires',
       'Un skill opérationnel à la fin de la session',
-      'Format individuel (1h30) ou équipe (session catalogue 4 h, présentiel Île-de-France)',
+      'Session catalogue 4 h en groupe, présentiel Île-de-France',
     ],
   },
 };

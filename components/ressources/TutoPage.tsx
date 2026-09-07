@@ -465,7 +465,7 @@ export function TutoPage({ tuto }: { tuto: TutoData }) {
             </p>
           ) : (
             <p className="mt-8 text-sm text-slate-600">
-              Atelier individuel ou en équipe — Qualiopi · financement possible selon éligibilité
+              Atelier en groupe — Qualiopi · financement possible selon éligibilité
               (Constructys / OPCO) ·{' '}
               <Link
                 href={LINKS.financement}

@@ -8,11 +8,11 @@ export type ContentUpdatedDate = `${number}-${string}-${string}`;
 
 /** Pages piliers — clé = chemin absolu du site. */
 export const PILLAR_PAGE_CONTENT_UPDATED_AT = {
-  '/formations': '2026-04-18',
+  '/formations': '2026-09-07',
   '/formation-ia-btp-ile-de-france': '2026-04-18',
   '/claude-ai-btp': '2026-04-18',
   '/financement-constructys-formation-ia-btp': '2026-09-02',
-  '/prendre-rendez-vous': '2026-09-02',
+  '/prendre-rendez-vous': '2026-09-07',
 } as const satisfies Record<string, ContentUpdatedDate>;
 
 export type PillarPagePath = keyof typeof PILLAR_PAGE_CONTENT_UPDATED_AT;

@@ -119,7 +119,7 @@ const FAQ_ITEMS = [
   },
   {
     q: 'Comment financer la formation ?',
-    a: "OFC Création d'Entreprise est un organisme certifié Qualiopi ; le financement Constructys dépend de votre statut, de votre branche et des règles du plan de développement des compétences. Nous étudions votre dossier avec vous — aucun engagement de prise en charge à 100 % sans analyse d'éligibilité.",
+    a: "OFC Création d'Entreprise est un organisme certifié Qualiopi ; le financement Constructys dépend de votre statut, de votre branche et des règles du plan de développement des compétences. Nous étudions votre dossier avec vous — aucune garantie de prise en charge intégrale sans analyse d'éligibilité.",
   },
   {
     q: 'Mes clients verront-ils que j’utilise ChatGPT ?',

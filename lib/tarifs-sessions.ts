@@ -215,13 +215,14 @@ export const MODALITE_INTRA_ENTREPRISE = 'intra-entreprise, dans vos locaux' as 
 
 export const PERIMETRE_FORMATIONS_COURT = MODALITE_POSITIONNEMENT;
 
+/** Référence commerciale : présentiel IDF, groupe, intra ou inter. */
 export const PERIMETRE_FORMATIONS_STANDARD =
-  `Sessions ${MODALITE_INTRA_ENTREPRISE} (${IDF_ZONE_INTERVENTION}) — ${MODALITE_POSITIONNEMENT}.`;
+  `Présentiel uniquement en Île-de-France (${IDF_ZONE_INTERVENTION}) — sessions en groupe, en intra-entreprise dans les locaux de l’entreprise ou en inter-entreprises selon les sessions programmées. Pas de formation à distance, individuelle ou hors Île-de-France.`;
 
 export const MODALITE_FORMATIONS_STANDARD = PERIMETRE_FORMATIONS_STANDARD;
 
 export const MODALITE_FORMATIONS_PRESENTIEL =
-  `Sessions ${MODALITE_INTRA_ENTREPRISE} et interentreprises en présentiel — ${MODALITE_POSITIONNEMENT}.`;
+  `Sessions en groupe, en ${MODALITE_INTRA_ENTREPRISE} ou en interentreprises — ${MODALITE_POSITIONNEMENT}.`;
 
 export const EXIGENCE_CLAUDE_PRO_NIVEAU_AVANCE =
   'Un abonnement Claude AI Pro actif par participant, à souscrire par l\'entreprise avant la session — non inclus dans le forfait (abonnement payant selon l\'outil utilisé).';

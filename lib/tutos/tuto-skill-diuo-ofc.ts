@@ -281,13 +281,13 @@ précautions d’intervention en toiture, et liste ce qui me manque.`,
     eyebrow: 'ENVIE D’ALLER PLUS LOIN ?',
     title: 'On le construit ensemble',
     subtitle:
-      'Atelier individuel ou en équipe — financement possible selon éligibilité (Constructys / OPCO)',
+      'Atelier en groupe — financement possible selon éligibilité (Constructys / OPCO)',
     programTitle: 'Programme « Niveau 2 — Dirigeants & QHSE »',
     programItems: [
       'On construit ton skill ensemble, sur tes vrais dossiers de chantier.',
       'On le calibre sur les attentes de ton coordonnateur SPS et de tes lots.',
       'Tu repars avec un skill opérationnel, utilisable dès la prochaine réception.',
-      'Format individuel ou équipe — 4 à 14 h, en présentiel en Île-de-France.',
+      'Formation en groupe — 4 à 14 h, présentiel Île-de-France',
     ],
   },
 };

@@ -81,7 +81,7 @@ export const LINKS = {
   /** @deprecated Alias → pilier `/claude-ai-btp` (section travaux publics). */
   formationClaudeAiTravauxPublics: '/claude-ai-btp',
 
-  // Tier 2 — Formations (catalogue officiel — 5 parcours)
+  // Tier 2 — Formations (catalogue officiel — 8 parcours)
   /** Niveau 1 — bâtiment & travaux publics (programme PDF) */
   formationIaBtpNiveau1BatimentTp: '/formations/ia-batiment-travaux-publics',
   /** Niveau 2 — appels d'offre BTP (programme PDF) — alias historique « AO » */
@@ -217,7 +217,7 @@ export const LINKS = {
   formationIaMaconPaysagisteBtp: '/formation-ia-macon-paysagiste-btp',
   /** Landing SEO distincte de `/formation-ia-conducteur-de-travaux-btp` */
   formationIaConducteurTravauxLanding: '/formation-ia-conducteur-travaux',
-  /** Landing catalogue PME (hors les 5 sessions NIV-01 à NIV-05) */
+  /** Landing catalogue PME (hors les sessions catalogue NIV-01 à NIV-08) */
   formationPmeBtp: '/formations/ia-pme-btp',
 
   /** Page présentation BeWork sur laureolivie.fr (site officiel : bework.fr) */

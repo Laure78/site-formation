@@ -1,6 +1,9 @@
 import Link from 'next/link';
 import { AccueilHeroVideo } from '@/components/landing/AccueilHeroVideo';
-import { getAccueilHeroReassuranceLine } from '@/lib/accueil-config';
+import {
+  getAccueilHeroModalitesLine,
+  getAccueilHeroReassuranceLine,
+} from '@/lib/accueil-config';
 import { LINKS } from '@/lib/internal-links';
 import {
   OFC_CTA_PRIMARY,
@@ -16,7 +19,7 @@ const HERO_ASIDE_LINK = {
   title: PHOTOS.heroAccueilFormationIABtpEchange2026.title,
 } as const;
 
-/** Hero accueil — promesse, preuve compacte, double CTA. */
+/** Hero accueil — promesse, modalités visibles, double CTA. */
 export function AccueilHeroSection() {
   return (
     <section className={`${OFC_SEC.hero} relative overflow-hidden`}>
@@ -31,7 +34,10 @@ export function AccueilHeroSection() {
               Gagnez du temps sur vos devis, DCE, comptes rendus, documents de chantier et appels
               d&apos;offres grâce à l&apos;intelligence artificielle.
             </p>
-            <p className="mt-4 text-sm font-medium text-slate-600 md:text-base">
+            <p className="mt-3 text-sm font-semibold text-slate-800 md:text-[0.95rem]">
+              {getAccueilHeroModalitesLine()}
+            </p>
+            <p className="mt-2 text-sm font-medium text-slate-600 md:text-base">
               {getAccueilHeroReassuranceLine()}
             </p>
             <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
@@ -40,14 +46,14 @@ export function AccueilHeroSection() {
                 data-cta="formations"
                 className={`${OFC_CTA_PRIMARY} inline-flex min-h-11 w-full items-center justify-center px-6 py-3 sm:w-auto`}
               >
-                Découvrir les formations
+                Former mon équipe
               </Link>
               <Link
                 href={LINKS.contact}
                 data-cta="contact-besoin"
                 className={`${OFC_CTA_SECONDARY} inline-flex min-h-11 w-full items-center justify-center px-6 py-3 sm:w-auto`}
               >
-                Parler de mon besoin
+                Demander un devis pour mon équipe
               </Link>
             </div>
           </div>

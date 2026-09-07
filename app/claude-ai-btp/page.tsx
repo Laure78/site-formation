@@ -133,7 +133,7 @@ const faqItems = [
   },
   {
     q: "Claude AI est-il finançable dans le cadre d'une formation BTP ?",
-    a: "La formation à son usage peut faire l'objet d'une prise en charge à 100 % selon éligibilité. OFC Création d'Entreprise propose une formation IA appliquée au bâtiment finançable par Constructys selon éligibilité (plafond indicatif : 24 € HT/heure/stagiaire) dans le cadre du Plan de Développement des Compétences 2026. Les entreprises de moins de 11 salariés peuvent également bénéficier d'une prise en charge partielle des salaires pendant la formation (15 € HT/h), selon conditions en vigueur.",
+    a: "Prise en charge possible par votre OPCO selon éligibilité, plafonds et accord de financement. Un reste à charge peut s’appliquer.",
   },
   {
     q: 'Combien de temps faut-il pour être opérationnel sur Claude AI ?',
@@ -141,7 +141,7 @@ const faqItems = [
   },
   {
     q: 'Où suivre une formation Claude AI BTP en Île-de-France (Paris, Yvelines, Essonne) ?',
-    a: "OFC Création d'Entreprise anime des formations IA appliquées au bâtiment exclusivement en présentiel intra-entreprise, dans vos locaux en Île-de-France (Paris, Yvelines, Essonne, Hauts-de-Seine, etc.).",
+    a: "OFC Création d'Entreprise anime des formations IA appliquées au bâtiment en présentiel en Île-de-France (Paris, Yvelines, Essonne, Hauts-de-Seine, etc.), en intra-entreprise ou en inter-entreprises selon les sessions.",
   },
   {
     q: 'Proposez-vous une formation Claude AI BTP à Paris, Saint-Quentin-en-Yvelines ou en Essonne (Les Ulis, Morangis, Longjumeau) ?',

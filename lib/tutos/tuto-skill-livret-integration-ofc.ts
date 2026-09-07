@@ -311,13 +311,13 @@ et les lignes de signature.`,
     eyebrow: "ENVIE D'ALLER PLUS LOIN ?",
     title: 'On le construit ensemble',
     subtitle:
-      'Atelier individuel ou en équipe — financement OPCO possible selon éligibilité (Constructys / OPCO)',
+      'Atelier en groupe — financement OPCO possible selon éligibilité (Constructys / OPCO)',
     programTitle: 'Programme « Niveau 2 — Dirigeants & QHSE »',
     programItems: [
       "On construit ton skill Livret d'intégration en direct, sur tes vrais documents",
       'On le calibre sur tes postes, tes EPI et tes consignes de chantier',
       'Tu repars avec la compétence active et un livret déjà généré',
-      'Format individuel ou équipe — 4 à 14 h, en présentiel en Île-de-France.',
+      'Formation en groupe — 4 à 14 h, présentiel Île-de-France',
     ],
   },
 };

@@ -36,7 +36,7 @@ export const SITEMAP_CORE_STATIC_PATHS = [
 ] as const;
 
 /**
- * Sessions catalogue (5 NIV) + landing PME — les « 6 formations » sous `/formations/…`.
+ * Sessions catalogue (8 NIV) + landing PME — les « 8 formations » sous `/formations/…`.
  * Les landings géo (Morangis, Longjumeau, SQY) et la plateforme restent dans le bloc marketing.
  */
 export function getSitemapCatalogueFormationPaths(): string[] {

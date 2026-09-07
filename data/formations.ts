@@ -1,5 +1,5 @@
 /**
- * Source de vérité — 5 parcours catalogue OFC (prix, durée, effectifs, contenus).
+ * Source de vérité — 8 parcours catalogue OFC (prix, durée, effectifs, contenus).
  * Ne plus dupliquer ces valeurs en dur dans le JSX / FAQ / lib.
  */
 
@@ -179,7 +179,7 @@ export const FORMATIONS: readonly Formation[] = [
     niveauLabel: 'Avancé',
     duree: '4 h',
     horaires: '9h00 – 13h00',
-    effectifMin: 1,
+    effectifMin: 2,
     effectifMax: 8,
     prixHT: 1200,
     accroche:
@@ -253,7 +253,7 @@ export const FORMATIONS: readonly Formation[] = [
     niveauLabel: 'Niveau 1 — Concevoir',
     duree: '7 h',
     horaires: 'journée complète ou organisation à convenir',
-    effectifMin: 1,
+    effectifMin: 2,
     effectifMax: 8,
     prixHT: TARIF_APPLICATION_METIER_BTP_NIV1_HT,
     tarifParcoursAppMetier: 'niveau-1',
@@ -293,7 +293,7 @@ export const FORMATIONS: readonly Formation[] = [
     niveauLabel: 'Niveau 2 — Connecter',
     duree: '7 h',
     horaires: 'journée complète ou organisation à convenir',
-    effectifMin: 1,
+    effectifMin: 2,
     effectifMax: 8,
     prixHT: TARIF_APPLICATION_METIER_BTP_NIV2_HT,
     tarifParcoursAppMetier: 'niveau-2',
@@ -333,7 +333,7 @@ export const FORMATIONS: readonly Formation[] = [
     niveauLabel: 'Niveau 3 — Industrialiser',
     duree: '7 h',
     horaires: 'journée complète ou organisation à convenir',
-    effectifMin: 1,
+    effectifMin: 2,
     effectifMax: 8,
     prixHT: TARIF_APPLICATION_METIER_BTP_NIV3_HT,
     tarifParcoursAppMetier: 'niveau-3',

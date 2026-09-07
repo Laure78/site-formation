@@ -8,6 +8,7 @@ import {
 } from '@/components/formations/CataloguePriceBadge';
 import { FormationProgrammePdfDownloadBanner } from '@/components/formations/FormationProgrammePdfDownloadBanner';
 import { FormationProgrammePdfViewer } from '@/components/formations/FormationProgrammePdfViewer';
+import { TrainingDeliveryInfo } from '@/components/formations/TrainingDeliveryInfo';
 import { getFormationCatalogueByRef } from '@/lib/formations-catalogue-display';
 
 /**
@@ -69,7 +70,7 @@ export function FormationCourseHero({
   summaryTitle?: string;
   summaryIcon?: LucideIcon;
   summaryItems: string[];
-  /** Réf catalogue — affiche le tarif en évidence sous le titre (NIV-01 à NIV-05). */
+  /** Réf catalogue — affiche le tarif en évidence sous le titre (NIV-01 à NIV-08). */
   catalogueRef?: string;
   programmePdfAfterHero?: boolean;
   /** Remplace « ← Retour au catalogue » (ex. lien vers le parcours). */
@@ -114,15 +115,20 @@ export function FormationCourseHero({
               <p className="mt-2 text-lg font-medium text-slate-700">{subtitle}</p>
             ) : null}
             {catalogueEntry ? (
-              <div className="mt-5">
+              <div className="mt-5 space-y-3">
                 <CataloguePriceBadge
                   level={catalogueEntry.level}
                   duree={catalogueEntry.duree}
                   variant="hero"
                   labelOverride={catalogueEntry.tarifParcoursLabel}
                 />
+                <TrainingDeliveryInfo variant="inline" />
               </div>
-            ) : null}
+            ) : (
+              <div className="mt-5">
+                <TrainingDeliveryInfo variant="inline" />
+              </div>
+            )}
             <div className="mt-6 max-w-xl text-slate-600 [&_strong]:font-semibold [&_a]:font-medium [&_a]:text-[var(--accent)] [&_a]:hover:underline">
               {children}
             </div>

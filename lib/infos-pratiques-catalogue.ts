@@ -1,5 +1,5 @@
 /**
- * Données « Informations pratiques » — 5 parcours catalogue (Indicateur 1 Qualiopi).
+ * Données « Informations pratiques » — 8 parcours catalogue (Indicateur 1 Qualiopi).
  * Source : `data/formations.ts`, `config/qualiopi.ts`, programmes des fiches catalogue.
  */
 
@@ -8,6 +8,7 @@ import {
   QUALIOPI_DELAI_ACCES_EXACT,
   QUALIOPI_MODALITES_ACCES_EXACT,
 } from '@/config/qualiopi';
+import { CONTACT } from '@/lib/constants';
 import {
   QUALIOPI_EVALUATION_STANDARD,
   QUALIOPI_METHODES_STANDARD,
@@ -24,7 +25,7 @@ export const MODALITE_PEDAGOGIQUE_CATALOGUE =
 
 /** Encart accessibilité handicap — texte réglementaire affiché dans le composant. */
 export const INFOS_PRATIQUES_HANDICAP_ENCART =
-  "Chaque besoin d'aménagement est étudié au cas par cas. Laure Olivié, référente handicap, étudie avec vous les adaptations possibles (matériel, rythme, supports, accès aux locaux) avant l'entrée en formation. Aucune solution n'est garantie avant cette étude. Contact : 06 95 66 18 18 — contact@laureolivie.fr";
+  `Chaque besoin d'aménagement est étudié au cas par cas. Laure Olivié, référente handicap, étudie avec vous les adaptations possibles (matériel, rythme, supports, accès aux locaux) avant l'entrée en formation. Aucune solution n'est garantie avant cette étude. Contact : ${CONTACT.phoneDisplay} — ${CONTACT.email}`;
 
 /** Grandes parties du programme — titres modules (fiches catalogue). */
 export const PROGRAMME_CONTENU_CATALOGUE: Record<FormationCode, readonly string[]> = {
@@ -97,7 +98,7 @@ const PREREQUIS_NIV01 =
   'Savoir utiliser un ordinateur et un smartphone. Bonne maîtrise du français écrit et oral. Aucun prérequis IA ni abonnement payant : les versions gratuites suffisent. Un compte payant (Claude Pro, ChatGPT Plus) est seulement recommandé pour aller plus loin ensuite.';
 
 const MODALITES_ACCES_NIV01 =
-  "Inscription sur demande auprès d'OFC (contact@laureolivie.fr — 06 95 66 18 18) : analyse du besoin → acceptation du devis → signature de la convention de formation → demande de prise en charge OPCO → convocation. Un questionnaire de positionnement est adressé à chaque participant avant la session.";
+  `Inscription sur demande auprès d'OFC (${CONTACT.email} — ${CONTACT.phoneDisplay}) : analyse du besoin → acceptation du devis → signature de la convention de formation → demande de prise en charge OPCO → convocation. Un questionnaire de positionnement est adressé à chaque participant avant la session.`;
 
 const DELAI_ACCES_NIV01 =
   "Inscription jusqu'à 15 jours calendaires avant le démarrage, sous réserve des disponibilités de la formatrice et du client. Ce délai correspond au minimum exigé par les OPCO pour l'instruction d'une demande de prise en charge. Le délai exact est confirmé lors de la demande de formation.";
@@ -109,7 +110,7 @@ export const PREREQUIS_NIV02 =
   "Formation de niveau 2 : bases d'une IA générative acquises, ou avoir suivi la session « L'IA au service des professionnels du BTP » (niveau 1). Connaître le fonctionnement général d'un appel d'offres. Abonnement professionnel à l'outil utilisé pendant la session (Claude AI Pro avec Cowork installé selon le programme) — non inclus dans le tarif. En intra-entreprise : dossier fil rouge sélectionné avec l'entreprise (DCE représentatif, ancien devis, trame de mémoire technique si disponible), documents anonymisés.";
 
 export const MODALITES_ACCES_NIV02 =
-  "Inscription sur demande auprès d'OFC (contact@laureolivie.fr — 06 95 66 18 18) : entretien d'analyse du besoin et vérification des prérequis → devis et programme personnalisé → convention de formation signée → demande de prise en charge OPCO → convocation des participants. Un questionnaire de positionnement est adressé à chaque participant avant la session.";
+  `Inscription sur demande auprès d'OFC (${CONTACT.email} — ${CONTACT.phoneDisplay}) : entretien d'analyse du besoin et vérification des prérequis → devis et programme personnalisé → convention de formation signée → demande de prise en charge OPCO → convocation des participants. Un questionnaire de positionnement est adressé à chaque participant avant la session.`;
 
 export const DELAI_ACCES_NIV02 =
   "Inscription jusqu'à 15 jours calendaires avant le démarrage, sous réserve des disponibilités de la formatrice et du client. Ce délai correspond au minimum exigé par les OPCO pour l'instruction d'une demande de prise en charge. Le délai exact est confirmé lors de la demande de formation.";
@@ -130,7 +131,7 @@ export const MODALITE_PEDAGOGIQUE_NIV04 =
   'Action de formation au sens de l\'art. L6313-1 du Code du travail — 100 % présentiel — intra-entreprise, dans vos locaux — 70 % pratique / 30 % théorie';
 
 export const MODALITES_ACCES_NIV04 =
-  "Inscription sur demande auprès d'OFC (contact@laureolivie.fr — 06 95 66 18 18) : entretien d'analyse du besoin et vérification des prérequis → devis et programme personnalisé → convention de formation signée → demande de prise en charge OPCO → convocation des participants. Un recueil des attentes est adressé à chaque participant avant la session.";
+  `Inscription sur demande auprès d'OFC (${CONTACT.email} — ${CONTACT.phoneDisplay}) : entretien d'analyse du besoin et vérification des prérequis → devis et programme personnalisé → convention de formation signée → demande de prise en charge OPCO → convocation des participants. Un recueil des attentes est adressé à chaque participant avant la session.`;
 
 export const DELAI_ACCES_NIV04 =
   "Inscription jusqu'à 15 jours calendaires avant le démarrage, sous réserve des disponibilités de la formatrice et du client. Ce délai correspond au minimum exigé par les OPCO pour l'instruction d'une demande de prise en charge. Le délai exact est confirmé lors de la demande de formation.";
@@ -203,7 +204,7 @@ export const MODALITE_PEDAGOGIQUE_NIV05 =
   'Action de formation au sens de l\'art. L6313-1 du Code du travail — 100 % présentiel — alternance théorie courte / ateliers pratiques sur cas réels MOE — 70 % pratique / 30 % théorie';
 
 export const MODALITES_ACCES_NIV05 =
-  "Inscription sur demande auprès d'OFC (contact@laureolivie.fr — 06 95 66 18 18) : entretien d'analyse du besoin et vérification des prérequis → devis et programme personnalisé → convention de formation signée → demande de prise en charge OPCO → convocation des participants. Un recueil des attentes est adressé à chaque participant avant la session.";
+  `Inscription sur demande auprès d'OFC (${CONTACT.email} — ${CONTACT.phoneDisplay}) : entretien d'analyse du besoin et vérification des prérequis → devis et programme personnalisé → convention de formation signée → demande de prise en charge OPCO → convocation des participants. Un recueil des attentes est adressé à chaque participant avant la session.`;
 
 export const DELAI_ACCES_NIV05 =
   "Inscription jusqu'à 15 jours calendaires avant le démarrage, sous réserve des disponibilités de la formatrice et du client. Ce délai correspond au minimum exigé par les OPCO pour l'instruction d'une demande de prise en charge. Le délai exact est confirmé lors de la demande de formation.";

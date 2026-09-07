@@ -40,6 +40,7 @@ function buildNotificationHtml(data: ContactFormInput, meta: { pageUrl: string; 
     ['Participants (approx.)', data.participants],
     ['Fonctions des participants', data.participantRole],
     ['Lieu / département', data.location],
+    ['Format (intra / inter)', data.format],
     ['Période envisagée', data.period],
     ['Formation / thème', data.formationTheme],
     ['Formation évoquée (URL)', data.formationHint],

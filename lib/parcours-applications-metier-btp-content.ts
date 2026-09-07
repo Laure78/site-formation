@@ -41,7 +41,7 @@ export type ApplicationMetierNiveauConfig = {
 };
 
 export type ApplicationMetierNiveauUx = {
-  /** Ligne facts hero : « 7 h · 1 à 8 participants · … » */
+  /** Ligne facts hero : « 7 h · jusqu’à 8 participants · … » */
   heroFacts: string;
   /** Badge hero optionnel (sinon progressionLabel). */
   heroBadge?: string;
@@ -266,11 +266,11 @@ export const APPLICATION_METIER_NIVEAU_1: ApplicationMetierNiveauConfig = {
     },
     {
       q: 'La formation est-elle organisée dans nos locaux ?',
-      a: 'Oui : format intra-entreprise, en présentiel en Île-de-France, pour votre équipe (1 à 8 participants).',
+      a: 'Oui : format intra-entreprise, en présentiel en Île-de-France, pour votre équipe (jusqu’à 8 participants).',
     },
   ],
   ux: {
-    heroFacts: '7 h · 1 à 8 participants · Intra-entreprise · Île-de-France',
+    heroFacts: '7 h · jusqu’à 8 participants · Intra-entreprise · Île-de-France',
     heroBadge: 'Applications métier BTP · Niveau 1 — Concevoir',
     resultatJournee: [
       'Définir votre besoin métier',
@@ -482,7 +482,7 @@ export const APPLICATION_METIER_NIVEAU_2: ApplicationMetierNiveauConfig = {
     },
   ],
   ux: {
-    heroFacts: '7 h · 1 à 8 participants · Intra-entreprise · Île-de-France',
+    heroFacts: '7 h · jusqu’à 8 participants · Intra-entreprise · Île-de-France',
     heroBadge: 'Applications métier BTP · Niveau 2 — Connecter',
     ctaHeroLabel: 'Parler de mon application',
     resultatJourneeTitle: 'Passez du prototype à une application connectée',

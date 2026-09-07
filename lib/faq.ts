@@ -32,6 +32,7 @@ import {
   FINANCEMENT_FORMULATION_CATALOGUE,
   FINANCEMENT_PAGE_LINK_LABEL,
   FINANCEMENT_FAQ_PARTIELLE_CORPS,
+  FINANCEMENT_PRISE_EN_CHARGE_100_SELON_ELIGIBILITE,
 } from '@/lib/financement-copy';
 import { formatProsFormesEtNoteQualiopi } from '@/lib/data/indicateurs-resultats-helpers';
 import { formatNoteSatisfactionAffichageComplet } from '@/lib/data/indicateurs-resultats';
@@ -113,6 +114,18 @@ export const FAQ_ITEMS_HOME: readonly FAQItem[] = [
   {
     q: 'Où se déroulent les formations ?',
     a: `${MODALITE_FORMATIONS_STANDARD} Couverture : ${IDF_ZONE_INTERVENTION}.`,
+  },
+  {
+    q: 'Intervenez-vous partout en France ?',
+    a: 'Non. Les formations sont actuellement réalisées exclusivement en présentiel en Île-de-France.',
+  },
+  {
+    q: 'Proposez-vous des formations à distance ?',
+    a: 'Non. Les formations sont exclusivement réalisées en présentiel.',
+  },
+  {
+    q: 'Puis-je suivre une formation individuellement ?',
+    a: 'Non. Les formations sont destinées aux groupes et aux entreprises, en intra ou en inter-entreprises.',
   },
   {
     q: 'Une prise en charge par un OPCO est-elle possible ?',
@@ -349,7 +362,7 @@ export const FAQ_TARIFS: FAQItem[] = [
   },
   {
     q: "Comment financer ma formation IA ?",
-    a: 'Via l\'OPCO Constructys pour les entreprises du BTP, selon éligibilité. 100 % de prise en charge possible selon dossier (plafond pédagogique indicatif : 24 € HT/heure/stagiaire, soit 96 € HT pour 4 h). Les entreprises de moins de 11 salariés peuvent également bénéficier d\'une prise en charge partielle des salaires (15 € HT/heure). Page dédiée : <a href="/financement-constructys-formation-ia-btp">financement Constructys formation IA pour le BTP</a>.',
+    a: `Via l'OPCO Constructys pour les entreprises du BTP, selon éligibilité. ${FINANCEMENT_PRISE_EN_CHARGE_100_SELON_ELIGIBILITE} Plafond pédagogique indicatif : 24 € HT/heure/stagiaire, soit 96 € HT pour 4 h. Les entreprises de moins de 11 salariés peuvent également bénéficier d'une prise en charge partielle des salaires (15 € HT/heure), selon conditions. Page dédiée : <a href="/financement-constructys-formation-ia-btp">financement Constructys formation IA pour le BTP</a>.`,
   },
   {
     q: "Faut-il avancer des frais ?",
@@ -411,7 +424,7 @@ export const FAQ_FINANCEMENT_IA_BTP: FAQItem[] = [
   },
   {
     q: "Constructys finance-t-il les formations en présentiel ?",
-    a: `Oui. Les formations catalogue OFC se déroulent exclusivement en présentiel intra-entreprise, dans vos locaux en Île-de-France. ${FINANCEMENT_FORMULATION_PRUDENTE} Je vous fournis le programme détaillé et le devis nécessaires à votre demande de prise en charge — page <a href="/financement-constructys-formation-ia-btp">financement Constructys formation IA pour les pros du BTP</a>.`,
+    a: `Oui. Les formations catalogue OFC se déroulent en présentiel en Île-de-France, en intra-entreprise ou en inter-entreprises selon les sessions. ${FINANCEMENT_FORMULATION_PRUDENTE} Je vous fournis le programme détaillé et le devis nécessaires à votre demande de prise en charge — page <a href="/financement-constructys-formation-ia-btp">financement Constructys formation IA pour les pros du BTP</a>.`,
   },
   {
     q: "Que se passe-t-il si ma demande est déposée en retard ?",
@@ -566,7 +579,7 @@ export const FAQ_FORMATION_IA_BTP_YVELINES_LANDING: FAQItem[] = [
 export const FAQ_IA_BTP_PARIS: FAQItem[] = [
   {
     q: "Où se déroule la formation IA appliquée au bâtiment à Paris ?",
-    a: `La formation se déroule exclusivement en présentiel intra-entreprise, dans vos locaux — ${IDF_ZONE_INTERVENTION}. ${MODALITE_FORMATIONS_STANDARD} Voir <a href="/formation-ia-btp-ile-de-france">formation IA appliquée au bâtiment Île-de-France</a> et le <a href="/formations">catalogue</a>.`,
+    a: `La formation se déroule en présentiel — ${IDF_ZONE_INTERVENTION} — en intra-entreprise ou en inter-entreprises selon les sessions. ${MODALITE_FORMATIONS_STANDARD} Voir <a href="/formation-ia-btp-ile-de-france">formation IA appliquée au bâtiment Île-de-France</a> et le <a href="/formations">catalogue</a>.`,
   },
   {
     q: "La formation IA Paris est-elle finançable ?",

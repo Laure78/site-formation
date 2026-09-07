@@ -34,6 +34,6 @@ export const MEDIA_CONFIG = {
   ctaPhrases: [
     'Découvrez ma formation IA appliquée au bâtiment — Financement possible selon éligibilité.',
     'Réservez un échange de 30 minutes gratuit pour une formation sur-mesure.',
-    '100 % de prise en charge possible selon éligibilité. Gagnez du temps sur vos devis et emails.',
+    'Prise en charge possible par votre OPCO selon éligibilité. Gagnez du temps sur vos devis et emails.',
   ],
 } as const;

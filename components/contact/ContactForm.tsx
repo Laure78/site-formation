@@ -27,6 +27,11 @@ import {
   trackContactCtaClick,
 } from '@/lib/ga4-analytics';
 import { ContactFormationHint } from '@/components/landing/ContactFormationHint';
+import {
+  FORMATION_FORMAT_OPTIONS,
+  HORS_IDF_MESSAGE,
+  IDF_DEPARTEMENT_OPTIONS,
+} from '@/lib/business-delivery';
 
 const fieldClass =
   'mt-1 w-full rounded-lg border border-[#CBD5E1] bg-white px-4 py-2.5 text-[#0F172A] focus:border-[#377CF3] focus:outline-none focus:ring-2 focus:ring-[#377CF3]/30';
@@ -47,6 +52,7 @@ export function ContactForm() {
   const [subject, setSubject] = useState<ContactSubjectValue>(
     isValidSubject(objetParam) ? objetParam : 'devis',
   );
+  const [locationDept, setLocationDept] = useState('');
   const [submitting, setSubmitting] = useState(false);
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -85,6 +91,7 @@ export function ContactForm() {
       participants: fd.get('participants') || '',
       participantRole: fd.get('participantRole') || '',
       location: fd.get('location') || '',
+      format: fd.get('format') || '',
       period: fd.get('period') || '',
       formationTheme: fd.get('formationTheme') || '',
       formationHint: formationHintParam || fd.get('formationHint') || '',
@@ -282,6 +289,59 @@ export function ContactForm() {
           ) : null}
         </div>
 
+        <div className="grid gap-5 sm:grid-cols-2">
+          <div>
+            <label htmlFor={`${formId}-location`} className="block text-sm font-medium text-[#0F172A]">
+              Localisation de la formation
+            </label>
+            <select
+              id={`${formId}-location`}
+              name="location"
+              value={locationDept}
+              onChange={(e) => setLocationDept(e.target.value)}
+              className={fieldClass}
+            >
+              <option value="">Choisir…</option>
+              {IDF_DEPARTEMENT_OPTIONS.map((opt) => (
+                <option key={opt.value} value={opt.label}>
+                  {opt.label}
+                </option>
+              ))}
+            </select>
+            {locationDept.includes('Hors') ? (
+              <p className="mt-2 text-sm text-amber-800">{HORS_IDF_MESSAGE}</p>
+            ) : null}
+          </div>
+          <div>
+            <label htmlFor={`${formId}-participants`} className="block text-sm font-medium text-[#0F172A]">
+              Nombre de participants
+            </label>
+            <input
+              id={`${formId}-participants`}
+              name="participants"
+              type="number"
+              min={2}
+              max={50}
+              inputMode="numeric"
+              className={fieldClass}
+              placeholder="Ex. 6"
+            />
+          </div>
+          <div className="sm:col-span-2">
+            <label htmlFor={`${formId}-format`} className="block text-sm font-medium text-[#0F172A]">
+              Format
+            </label>
+            <select id={`${formId}-format`} name="format" className={fieldClass} defaultValue="">
+              <option value="">Choisir…</option>
+              {FORMATION_FORMAT_OPTIONS.map((opt) => (
+                <option key={opt.value} value={opt.value}>
+                  {opt.label}
+                </option>
+              ))}
+            </select>
+          </div>
+        </div>
+
         <div>
           <label htmlFor={`${formId}-message`} className="block text-sm font-medium text-[#0F172A]">
             Votre besoin <span className="text-[#DC2626]">*</span>
@@ -330,36 +390,12 @@ export function ContactForm() {
               />
             </div>
             <div>
-              <label htmlFor={`${formId}-participants`} className="block text-sm font-medium text-[#0F172A]">
-                Nombre approximatif de participants
-              </label>
-              <input
-                id={`${formId}-participants`}
-                name="participants"
-                type="text"
-                maxLength={80}
-                className={fieldClass}
-              />
-            </div>
-            <div>
               <label htmlFor={`${formId}-participantRole`} className="block text-sm font-medium text-[#0F172A]">
                 Fonction des participants
               </label>
               <input
                 id={`${formId}-participantRole`}
                 name="participantRole"
-                type="text"
-                maxLength={120}
-                className={fieldClass}
-              />
-            </div>
-            <div>
-              <label htmlFor={`${formId}-location`} className="block text-sm font-medium text-[#0F172A]">
-                Département ou lieu souhaité
-              </label>
-              <input
-                id={`${formId}-location`}
-                name="location"
                 type="text"
                 maxLength={120}
                 className={fieldClass}

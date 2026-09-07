@@ -101,7 +101,7 @@ export const FORMATION_CHATGPT_BTP_CONFIG: SeoClusterPageConfig = {
     'Emails professionnels et relances clients',
     'Prompts adaptés aux métiers du bâtiment',
   ],
-  primaryCtaLabel: 'Demander une formation ChatGPT BTP',
+  primaryCtaLabel: 'Demander un devis ChatGPT BTP pour mon équipe',
   midCtaTitle: 'Parler de votre besoin ChatGPT BTP',
   midCtaSubtitle:
     '30 minutes pour identifier vos cas d\'usage prioritaires : devis, CR, administratif ou appels d\'offres.',

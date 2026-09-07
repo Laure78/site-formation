@@ -326,13 +326,13 @@ onglet « points à vérifier » avec les quantités estimées et les incohéren
     eyebrow: 'ENVIE D\'ALLER PLUS LOIN ?',
     title: 'On le construit ensemble',
     subtitle:
-      'Atelier individuel ou en équipe — prise en charge Constructys / OPCO selon éligibilité',
+      'Atelier en groupe — prise en charge Constructys / OPCO selon éligibilité',
     programTitle: 'Programme « Niveau 2 — Conducteurs de travaux : créer ses skills IA de chantier »',
     programItems: [
       'On construit ton skill Métré ensemble, sur tes vrais dossiers, pendant la session.',
       'Calibrage sur tes ratios, tes unités et ta décomposition — aucune solution générique.',
       'Tu repars opérationnel : skill activé, premier métré contrôlé, méthode transmise à ton équipe.',
-      'Format individuel ou équipe — 4 à 14 h, en présentiel en Île-de-France.',
+      'Formation en groupe — 4 à 14 h, présentiel Île-de-France',
     ],
   },
 };

@@ -1,5 +1,5 @@
 /**
- * JSON-LD `Course` — catalogue officiel (NIV-01 à NIV-06).
+ * JSON-LD `Course` — catalogue officiel (NIV-01 à NIV-08).
  * Données fixes : `lib/schema-constants.ts`, `lib/internal-links.ts`, `lib/tarifs-sessions.ts`.
  * Objectifs pédagogiques (`teaches`) : source `lib/formations-catalogue-display.ts`.
  */
@@ -304,7 +304,7 @@ function mapEducationalLevelSchema(level: 'Débutant' | 'Avancé'): 'Beginner' |
   return level === 'Débutant' ? 'Beginner' : 'Advanced';
 }
 
-/** JSON-LD `Course` enrichi — fiches catalogue NIV-01 à NIV-05 (Rich Results). */
+/** JSON-LD `Course` enrichi — fiches catalogue NIV-01 à NIV-08 (Rich Results). */
 export function buildFormationCatalogueRichCourseJsonLd(
   config: FormationCatalogueRichCourseConfig
 ): Record<string, unknown> {

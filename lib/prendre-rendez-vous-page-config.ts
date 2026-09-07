@@ -116,9 +116,9 @@ export const PRENDRE_RDV_NATIVE_FORM_ANCHOR = 'agenda-site';
 
 /** GEO discret (bas de page) — Laure, BTP, Guyancourt / IDF. */
 export const PRENDRE_RDV_GEO_NOTE =
-  `Laure Olivié — formatrice IA appliquée au BTP (OFC Création d’Entreprise, Guyancourt, Yvelines). Échanges en visio partout en France ; présentiel en Île-de-France. Satisfaction ${PREUVES.satisfaction}.`;
+  `Laure Olivié — formatrice IA appliquée au BTP (OFC Création d’Entreprise, Guyancourt, Yvelines). Formations exclusivement en présentiel en Île-de-France, pour des groupes, en intra ou en inter-entreprises. L’échange découverte peut se faire en visioconférence. Satisfaction ${PREUVES.satisfaction}.`;
 
-/** FAQ visible — 3 questions max, sous le formulaire. */
+/** FAQ visible — sous le formulaire. */
 export const FAQ_PRENDRE_RDV_PAGE: readonly PrendreRdvFaqItem[] = [
   {
     q: 'Le rendez-vous est-il gratuit ?',
@@ -126,7 +126,11 @@ export const FAQ_PRENDRE_RDV_PAGE: readonly PrendreRdvFaqItem[] = [
   },
   {
     q: 'Comment se déroule l’échange ?',
-    a: 'Vous indiquez votre besoin en 1 à 2 minutes, choisissez un créneau, puis nous échangeons en visioconférence ou par téléphone. Aucun document confidentiel n’est nécessaire.',
+    a: 'Vous précisez d’abord le département, l’effectif et le format recherché, puis vous choisissez un créneau. L’échange a lieu en visioconférence ou par téléphone. Aucun document confidentiel n’est nécessaire.',
+  },
+  {
+    q: 'Proposez-vous des formations hors Île-de-France ou à distance ?',
+    a: 'Non. Les formations sont actuellement proposées uniquement en présentiel en Île-de-France, pour des groupes, en intra ou en inter-entreprises.',
   },
   {
     q: 'Que faire si aucun créneau ne me convient ?',

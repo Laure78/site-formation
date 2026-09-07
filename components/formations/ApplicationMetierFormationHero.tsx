@@ -5,6 +5,7 @@ import {
 } from '@/lib/tarifs-applications-metier-btp';
 import { MentionTvaAsterisque } from '@/components/MentionTVA';
 import { ApplicationMetierRdvCta } from '@/components/formations/ApplicationMetierRdvCta';
+import { TrainingDeliveryInfo } from '@/components/formations/TrainingDeliveryInfo';
 import {
   APPLICATION_METIER_PARCOURS_MOTHER,
 } from '@/lib/application-metier-btp-parcours-nav';
@@ -40,6 +41,7 @@ export function ApplicationMetierFormationHero({ config, stepBadge, formationHin
           {config.subtitle}
         </p>
         <p className="mt-3 text-sm font-medium text-slate-700">{facts}</p>
+        <TrainingDeliveryInfo variant="inline" className="mt-2" />
 
         <p className="mt-5 font-display text-2xl font-bold text-slate-900 sm:text-3xl">
           {montant}
@@ -50,7 +52,7 @@ export function ApplicationMetierFormationHero({ config, stepBadge, formationHin
 
         <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center">
           <ApplicationMetierRdvCta
-            label={config.ux?.ctaHeroLabel ?? 'Parler de mon projet'}
+            label={config.ux?.ctaHeroLabel ?? 'Demander un devis pour mon équipe'}
             origin={`application-metier-${config.slug}-hero`}
             formationHint={formationHint}
           />

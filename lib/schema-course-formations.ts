@@ -39,7 +39,7 @@ function teachesFromCatalogueDisplay(ref: string): string[] {
   return [...entry.objectifs];
 }
 
-/** Données alignées sur le catalogue (NIV-01 → NIV-06). */
+/** Données alignées sur le catalogue (NIV-01 → NIV-08). */
 export const FORMATIONS_CATALOG_SCHEMA: FormationCatalogEntry[] = [
   {
     ref: 'NIV-01',

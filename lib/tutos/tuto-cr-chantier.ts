@@ -329,13 +329,13 @@ Génère le CR de chantier au format Word de mon entreprise. Marque clairement l
   cta: {
     eyebrow: "ENVIE D'ALLER PLUS LOIN ?",
     title: 'On le construit ensemble',
-    subtitle: 'Atelier individuel ou en équipe — financement possible selon éligibilité (Constructys / OPCO)',
+    subtitle: 'Atelier en groupe — financement possible selon éligibilité (Constructys / OPCO)',
     programTitle: 'Programme « Niveau 2 — Skills BTP »',
     programItems: [
       'On construit ton skill CR sur tes vrais chantiers',
       'Calibrage sur ton vocabulaire et ta façon de dicter',
       'Un skill opérationnel à la fin de la session',
-      'Format individuel (1h30) ou équipe conducteurs (session catalogue 4 h, présentiel Île-de-France)',
+      'Session catalogue 4 h en groupe, présentiel Île-de-France',
     ],
   },
 };

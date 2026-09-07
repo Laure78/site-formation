@@ -309,13 +309,13 @@ export const TUTO_DISPATCH_BTP: TutoData = {
   cta: {
     eyebrow: "ENVIE D'ALLER PLUS LOIN ?",
     title: "On l'installe ensemble",
-    subtitle: 'Atelier individuel ou en équipe — financement possible selon éligibilité (Constructys / OPCO)',
+    subtitle: 'Atelier en groupe — financement possible selon éligibilité (Constructys / OPCO)',
     programTitle: "Module « L'IA au service du BTP » — 4h",
     programItems: [
       'Setup Dispatch en direct sur ton PC et ton téléphone',
       'Calibrage sur tes vraies tâches admin du quotidien',
       'Tu repars opérationnel le soir même',
-      'Format individuel ou équipe — Qualiopi — Finançable par Constructys selon éligibilité',
+      'Session catalogue en groupe (présentiel Île-de-France)',
     ],
   },
 };

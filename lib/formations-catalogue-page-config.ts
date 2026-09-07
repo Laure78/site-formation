@@ -106,7 +106,7 @@ export const CATALOGUE_METHODE_ETAPES = [
 ] as const;
 
 export const CATALOGUE_HERO_REASSURANCE =
-  `OFC certifié Qualiopi · Formations en entreprise · Île-de-France` as const;
+  `OFC certifié Qualiopi · Présentiel Île-de-France · Groupe · Intra & inter` as const;
 
 export const CATALOGUE_HERO_SUBTITLE =
   'Choisissez un parcours selon votre niveau et vos usages : devis, appels d’offres, chantier, maîtrise d’œuvre ou déploiement de l’IA.' as const;

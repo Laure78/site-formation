@@ -46,6 +46,15 @@ export const contactFormSchema = z.object({
   participants: z.string().trim().max(80, 'Valeur trop longue.').optional().or(z.literal('')),
   participantRole: z.string().trim().max(120, 'Valeur trop longue.').optional().or(z.literal('')),
   location: z.string().trim().max(120, 'Valeur trop longue.').optional().or(z.literal('')),
+  format: z
+    .string()
+    .trim()
+    .optional()
+    .or(z.literal(''))
+    .refine(
+      (v) => !v || v === 'intra' || v === 'inter' || v === 'indetermine',
+      'Format invalide.',
+    ),
   period: z.string().trim().max(120, 'Valeur trop longue.').optional().or(z.literal('')),
   formationTheme: z.string().trim().max(200, 'Valeur trop longue.').optional().or(z.literal('')),
   formationHint: z.string().trim().max(200).optional().or(z.literal('')),

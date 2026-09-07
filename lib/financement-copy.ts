@@ -3,9 +3,12 @@
  * Ne pas promettre un financement garanti — toujours conditionner à l'éligibilité.
  */
 
-/** Formulation marketing — prise en charge intégrale possible selon dossier OPCO. */
+/**
+ * Ancien libellé « 100 % » — conservé comme alias vers la formulation prudente
+ * pour ne pas casser les imports, sans promesse absolue.
+ */
 export const FINANCEMENT_PRISE_EN_CHARGE_100_SELON_ELIGIBILITE =
-  '100 % de prise en charge possible selon éligibilité (Constructys / plan de développement des compétences).';
+  'Prise en charge possible par votre OPCO selon éligibilité, plafonds et accord de financement. Un reste à charge peut s’appliquer.';
 
 /** Formulation SEO / badges — Constructys sans promesse de prise en charge. */
 export const FINANCEMENT_CONSTRUCTYS_FORMULATION =
@@ -13,7 +16,7 @@ export const FINANCEMENT_CONSTRUCTYS_FORMULATION =
 
 /** Formulation prudente — paragraphes juridiques détaillés, pages financement et tarifs */
 export const FINANCEMENT_FORMULATION_PRUDENTE =
-  `${FINANCEMENT_PRISE_EN_CHARGE_100_SELON_ELIGIBILITE} Plafonds et reste à charge selon barèmes Constructys, effectif et dossier en vigueur.`;
+  `${FINANCEMENT_PRISE_EN_CHARGE_100_SELON_ELIGIBILITE} Plafonds selon barèmes Constructys, effectif et dossier en vigueur.`;
 
 /** Formulation courte — meta, badges, accroches commerciales (sans promesse de 100 %). */
 export const FINANCEMENT_FORMULATION_COURTE =
@@ -50,4 +53,4 @@ export const FINANCEMENT_CONSTRUCTYS_PLAFONDS_COURT =
  * Le href est injecté côté `lib/faq.ts` via LINKS.financement.
  */
 export const FINANCEMENT_FAQ_PARTIELLE_CORPS =
-  `Oui : ${FINANCEMENT_PRISE_EN_CHARGE_100_SELON_ELIGIBILITE} Plafond pédagogique indicatif : 24 € HT/heure/stagiaire (96 € HT pour 4 h) — au-delà d'un certain effectif, un reste à charge peut s'appliquer selon barèmes et dossier.`;
+  `Oui : ${FINANCEMENT_PRISE_EN_CHARGE_100_SELON_ELIGIBILITE} Plafond pédagogique indicatif : 24 € HT/heure/stagiaire (96 € HT pour 4 h) — selon barèmes et dossier.`;

@@ -2,6 +2,7 @@
  * Données page d'accueil — source unique, valeurs issues du code existant (jamais inventées).
  */
 import { getFormationByCode } from '@/data/formations';
+import { BUSINESS_DELIVERY } from '@/lib/business-delivery';
 import { isFormationCataloguePublished } from '@/lib/formation-catalogue-visibility';
 import {
   formatNoteSatisfactionSur5,
@@ -24,6 +25,11 @@ const FORMATION_HREF_BY_CODE = {
   'NIV-02': LINKS.formationAO,
   'NIV-03': LINKS.formationConduiteTravauxSuiviChantier,
 } as const;
+
+/** Ligne compacte hero — modalités commerciales (filtre immédiat). */
+export function getAccueilHeroModalitesLine(): string {
+  return BUSINESS_DELIVERY.compact;
+}
 
 /** Ligne compacte hero — indicateurs réels (Qualiopi, IDF). */
 export function getAccueilHeroReassuranceLine(): string {

@@ -315,13 +315,13 @@ Ré-enregistre la nouvelle version sous le même nom.`,
   cta: {
     eyebrow: "ENVIE D'ALLER PLUS LOIN ?",
     title: "On l'installe ensemble",
-    subtitle: 'Atelier individuel ou en équipe — financement possible selon éligibilité (Constructys / OPCO)',
+    subtitle: 'Atelier en groupe — financement possible selon éligibilité (Constructys / OPCO)',
     programTitle: 'Programme « Niveau 2 — DCE & Mémoire Technique »',
     programItems: [
       'On installe Claude in Chrome sur ton poste',
       'On paramètre tes critères et tes plateformes en direct',
       'On enregistre ton raccourci de veille automatique',
-      'Format individuel ou équipe (session catalogue 4 h, présentiel Île-de-France)',
+      'Session catalogue 4 h en groupe, présentiel Île-de-France',
     ],
   },
 };

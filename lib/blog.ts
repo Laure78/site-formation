@@ -755,7 +755,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
       {
         type: 'cta',
         content:
-          'Formez votre équipe à l\'IA pour les appels d\'offres et les mémoires techniques — en présentiel Île-de-France, sur vos DCE anonymisés. 100 % de prise en charge possible selon éligibilité.',
+          'Formez votre équipe à l\'IA pour les appels d\'offres et les mémoires techniques — en présentiel Île-de-France, sur vos DCE anonymisés. Prise en charge possible par votre OPCO selon éligibilité.',
         formationHref: '/formations/ia-appels-offre-btp',
       },
     ],
@@ -1191,7 +1191,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
         title: 'FAQ — Financement formation IA appliquée au bâtiment et Constructys',
         content: [
           'Constructys finance-t-il les formations à l’IA ? — Oui, lorsque l’action entre dans le cadre du développement des compétences et des priorités de branche (y compris le numérique et l’innovation), sous réserve d’éligibilité et de budget. Vérifiez toujours le catalogue et les notes en vigueur.',
-          'Peut-on viser une prise en charge à 100 % du coût pédagogique ? — C’est possible pour certaines TPE et situations ; pour d’autres structures, un reste à charge existe. La réponse est toujours individuelle.',
+          'Peut-on viser une prise en charge élevée du coût pédagogique selon éligibilité ? — C’est possible pour certaines TPE et situations ; pour d’autres structures, un reste à charge existe. La réponse est toujours individuelle.',
           'Les entreprises de plus de cinquante salariés ont-elles des solutions ? — Oui, via le PDC et votre interlocuteur OPCO Constructys ; le montage se fait selon éligibilité et barèmes en vigueur.',
           'Quel délai pour monter un dossier ? — Comptez en pratique deux à trois semaines avant la date souhaitée pour sécuriser la validation, en plus du délai légal minimum de quinze jours pour le dépôt lorsqu’il s’applique.',
           'Pourquoi privilégier Qualiopi ? — La certification Qualiopi est un gage de qualité de processus ; elle est souvent requise ou fortement recommandée pour les financements professionnels et rassure les financeurs.',

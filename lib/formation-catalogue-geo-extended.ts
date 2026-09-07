@@ -1,5 +1,5 @@
 /**
- * Sections GEO explicites — fiches catalogue NIV-01 à NIV-06.
+ * Sections GEO explicites — fiches catalogue NIV-01 à NIV-08.
  * Réponses factuelles pour moteurs IA ; alignées sur le contenu visible.
  */
 import type { FormationCatalogueCode } from '@/lib/formation-catalogue-visibility';

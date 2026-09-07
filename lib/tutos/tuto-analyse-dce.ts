@@ -309,13 +309,13 @@ Génère ma fiche d'analyse standardisée. Cite la page exacte du DCE pour chaqu
   cta: {
     eyebrow: "ENVIE D'ALLER PLUS LOIN ?",
     title: 'On le construit ensemble',
-    subtitle: 'Atelier individuel ou en équipe — financement possible selon éligibilité (Constructys / OPCO)',
+    subtitle: 'Atelier en groupe — financement possible selon éligibilité (Constructys / OPCO)',
     programTitle: 'Programme « Niveau 2 — DCE & Mémoire Technique »',
     programItems: [
       'On construit ton skill analyse DCE en direct',
       'Calibrage sur tes vrais marchés et tes vrais critères',
       'Un skill opérationnel à la fin de la session',
-      'Format individuel (1h30) ou équipe (session catalogue 4 h, présentiel Île-de-France)',
+      'Session catalogue 4 h en groupe, présentiel Île-de-France',
     ],
   },
 };

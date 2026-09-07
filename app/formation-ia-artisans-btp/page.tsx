@@ -115,7 +115,7 @@ const FAQ_ITEMS = [
   },
   {
     q: 'La formation ChatGPT pour entreprises BTP est-elle finançable ?',
-    a: "Oui. La formation IA est dispensée par un organisme certifié Qualiopi et peut faire l'objet d'une prise en charge à 100 % selon éligibilité (Constructys ou votre OPCO). Plafond pédagogique indicatif : 24 € HT/heure/stagiaire selon barèmes et dossier.",
+    a: "Prise en charge possible par votre OPCO selon éligibilité, plafonds et accord de financement. Un reste à charge peut s’appliquer.",
   },
 ];
 

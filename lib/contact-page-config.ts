@@ -11,7 +11,7 @@ export const CONTACT_PAGE_SUBTITLE =
   'Décrivez les profils à former, les tâches concernées et vos contraintes. Vous recevrez une réponse adaptée à votre projet.' as const;
 
 export const CONTACT_PAGE_PROOF_LINE =
-  'OFC certifié Qualiopi · Formations pour les professionnels du BTP · Île-de-France' as const;
+  'OFC certifié Qualiopi · Présentiel Île-de-France · Groupe · Intra & inter' as const;
 
 export const CONTACT_PAGE_META_TITLE = 'Contact et devis formation IA BTP | Laure Olivié' as const;
 

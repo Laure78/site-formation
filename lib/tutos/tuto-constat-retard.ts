@@ -311,13 +311,13 @@ Génère le courrier de constat de retard en Word A4, à ma charte, prêt à imp
   cta: {
     eyebrow: "ENVIE D'ALLER PLUS LOIN ?",
     title: 'On le construit ensemble',
-    subtitle: 'Atelier individuel ou en équipe — financement possible selon éligibilité (Constructys / OPCO)',
+    subtitle: 'Atelier en groupe — financement possible selon éligibilité (Constructys / OPCO)',
     programTitle: 'Programme « Niveau 2 — Conducteurs de travaux »',
     programItems: [
       'On construit tes skills CR + Constat + Email MOE en direct',
       'Calibrage sur tes vrais chantiers et tes types de marchés',
       'Des skills opérationnels à la fin de la session',
-      'Format individuel ou équipe conducteurs (session catalogue 4 h, présentiel Île-de-France)',
+      'Session catalogue 4 h en groupe, présentiel Île-de-France',
     ],
   },
 };

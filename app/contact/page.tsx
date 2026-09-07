@@ -7,6 +7,7 @@ import { ContactFormSection } from '@/components/contact/ContactFormSection';
 import { ContactAfterSendInfo } from '@/components/contact/ContactAfterSendInfo';
 import { ContactCalendlyBlock } from '@/components/contact/ContactCalendlyBlock';
 import { ContactCoordinates } from '@/components/contact/ContactCoordinates';
+import { TrainingDeliveryInfo } from '@/components/formations/TrainingDeliveryInfo';
 import {
   CONTACT_FOOTER_LINKS,
   CONTACT_PAGE_META_DESCRIPTION,
@@ -50,6 +51,7 @@ export default function ContactPage() {
 
         <div className="grid gap-10 lg:grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)] lg:items-start">
           <div className="rounded-2xl border border-[#E2E8F0] bg-white p-6 shadow-sm sm:p-8">
+            <TrainingDeliveryInfo variant="checklist" className="mb-6" />
             <ContactFormSection />
           </div>
           <div className="space-y-6">

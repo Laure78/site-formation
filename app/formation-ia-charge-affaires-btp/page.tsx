@@ -465,7 +465,7 @@ export default function FormationIaChargeAffairesBtpPage() {
             cohérence avec la DPGF et critères d&apos;attribution.
           </p>
 
-          <p className="mt-6 font-medium text-slate-900">Les formations se déroulent exclusivement en présentiel intra-entreprise, dans vos locaux en Île-de-France.</p>
+          <p className="mt-6 font-medium text-slate-900">Les formations se déroulent en présentiel en Île-de-France, en intra-entreprise ou en inter-entreprises selon les sessions.</p>
           <ul className="mt-3 list-disc space-y-2 pl-6 text-slate-700">
             <li>
               Dans vos locaux ou sur site ({IDF_ZONE_INTERVENTION})
@@ -602,7 +602,7 @@ export default function FormationIaChargeAffairesBtpPage() {
           <p>Laure Olivié — Formatrice IA pour les pros du BTP, OFC Création d&apos;Entreprise</p>
           <p>Organisme certifié Qualiopi · SIRET 905 244 281 00010 · NDA 11788515078</p>
           <p>
-            contact@laureolivie.fr ·{' '}
+            laureolivie@yahoo.fr ·{' '}
             <a href="/" className="underline">
               www.laureolivie.fr
             </a>
