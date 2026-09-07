@@ -30,7 +30,15 @@ export const metadata = createPageMetadata({
   appendAuthorSuffix: false,
 });
 
-export default function ContactPage() {
+type ContactPageProps = {
+  searchParams: Promise<{ objet?: string; formation?: string }>;
+};
+
+export default async function ContactPage({ searchParams }: ContactPageProps) {
+  const params = await searchParams;
+  const initialObjet = typeof params.objet === 'string' ? params.objet : null;
+  const formationHint = typeof params.formation === 'string' ? params.formation : null;
+
   return (
     <>
       <JsonLd id="schema-contact-page" schema={getContactPageJsonLd()} />
@@ -44,21 +52,24 @@ export default function ContactPage() {
         />
       </div>
 
-      <ContactPageHero />
+      <ContactPageHero compact />
 
-      <div className="mx-auto max-w-6xl space-y-14 px-4 pb-16 sm:px-6 lg:px-8">
-        <ContactPathCards />
-
-        <div className="grid gap-10 lg:grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)] lg:items-start">
+      <div className="mx-auto max-w-6xl space-y-12 px-4 pb-16 pt-2 sm:px-6 lg:px-8">
+        {/* Formulaire en premier — visible sans scroller depuis #contact-form */}
+        <div
+          id="contact-form"
+          className="scroll-mt-20 grid gap-8 lg:grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)] lg:items-start"
+        >
           <div className="rounded-2xl border border-[#E2E8F0] bg-white p-6 shadow-sm sm:p-8">
             <TrainingDeliveryInfo variant="checklist" className="mb-6" />
-            <ContactFormSection />
+            <ContactFormSection initialObjet={initialObjet} formationHint={formationHint} />
           </div>
           <div className="space-y-6">
             <ContactAfterSendInfo />
           </div>
         </div>
 
+        <ContactPathCards />
         <ContactCalendlyBlock />
         <ContactCoordinates />
 

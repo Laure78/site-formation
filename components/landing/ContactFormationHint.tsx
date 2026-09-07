@@ -1,10 +1,7 @@
 'use client';
 
-import { useSearchParams } from 'next/navigation';
-
 /** Bandeau optionnel « formation évoquée » depuis `?formation=` (contact). */
-export function ContactFormationHint() {
-  const formationHint = useSearchParams().get('formation');
+export function ContactFormationHint({ formationHint }: { formationHint?: string | null }) {
   if (!formationHint) return null;
 
   return (

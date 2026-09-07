@@ -2,7 +2,6 @@
 
 import { useCallback, useEffect, useId, useRef, useState } from 'react';
 import Link from 'next/link';
-import { useSearchParams } from 'next/navigation';
 import { submitContactFormAction } from '@/app/actions/contact';
 import {
   CONTACT_FORM_NEED_EXAMPLE,
@@ -37,20 +36,23 @@ const fieldClass =
   'mt-1 w-full rounded-lg border border-[#CBD5E1] bg-white px-4 py-2.5 text-[#0F172A] focus:border-[#377CF3] focus:outline-none focus:ring-2 focus:ring-[#377CF3]/30';
 const fieldErrorClass = 'border-[#DC2626] focus:border-[#DC2626] focus:ring-[#DC2626]/30';
 
-function isValidSubject(value: string | null): value is ContactSubjectValue {
+function isValidSubject(value: string | null | undefined): value is ContactSubjectValue {
   return CONTACT_SUBJECT_VALUES.includes(value as ContactSubjectValue);
 }
 
-export function ContactForm() {
+type ContactFormProps = {
+  initialObjet?: string | null;
+  formationHint?: string | null;
+};
+
+export function ContactForm({ initialObjet, formationHint }: ContactFormProps) {
   const formId = useId();
   const errorSummaryId = `${formId}-errors`;
   const statusId = `${formId}-status`;
-  const searchParams = useSearchParams();
-  const objetParam = searchParams.get('objet');
-  const formationHintParam = searchParams.get('formation');
+  const formationHintParam = formationHint ?? null;
 
   const [subject, setSubject] = useState<ContactSubjectValue>(
-    isValidSubject(objetParam) ? objetParam : 'devis',
+    isValidSubject(initialObjet) ? initialObjet : 'devis',
   );
   const [locationDept, setLocationDept] = useState('');
   const [submitting, setSubmitting] = useState(false);
@@ -134,8 +136,7 @@ export function ContactForm() {
   if (success) {
     return (
       <div
-        id="contact-form"
-        className="scroll-mt-24 rounded-2xl border border-[#BFDBFE] bg-[#EFF6FF] p-6 sm:p-8"
+        className="rounded-2xl border border-[#BFDBFE] bg-[#EFF6FF] p-6 sm:p-8"
         role="status"
         aria-live="polite"
       >
@@ -157,13 +158,13 @@ export function ContactForm() {
   const showExtraHint = subject === 'devis' || subject === 'intra' || subject === 'federation';
 
   return (
-    <div id="contact-form" className="scroll-mt-24">
+    <div>
       <h2 className="font-display text-2xl font-bold tracking-tight text-[#0F172A] md:text-3xl">
         {CONTACT_FORM_TITLE}
       </h2>
 
       <div className="mt-3">
-        <ContactFormationHint />
+        <ContactFormationHint formationHint={formationHintParam} />
       </div>
 
       {error ? (

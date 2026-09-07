@@ -1,19 +1,14 @@
 'use client';
 
-import { Suspense } from 'react';
-import { useSearchParams } from 'next/navigation';
 import { ContactForm } from '@/components/contact/ContactForm';
 
-function ContactFormWithKey() {
-  const searchParams = useSearchParams();
-  const key = `${searchParams.get('objet') ?? 'devis'}-${searchParams.get('formation') ?? ''}`;
-  return <ContactForm key={key} />;
-}
+type Props = {
+  initialObjet?: string | null;
+  formationHint?: string | null;
+};
 
-export function ContactFormSection() {
-  return (
-    <Suspense fallback={<p className="text-sm text-[#64748B]">Chargement du formulaire…</p>}>
-      <ContactFormWithKey />
-    </Suspense>
-  );
+/** Formulaire contact — props serveur, sans Suspense / useSearchParams. */
+export function ContactFormSection({ initialObjet, formationHint }: Props) {
+  const key = `${initialObjet ?? 'devis'}-${formationHint ?? ''}`;
+  return <ContactForm key={key} initialObjet={initialObjet} formationHint={formationHint} />;
 }
