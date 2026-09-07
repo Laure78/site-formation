@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import dynamic from 'next/dynamic';
 import { FAQSection } from '@/components/landing/FAQSection';
 import { RdvBookingFlowIsland } from '@/components/prendre-rendez-vous/RdvBookingFlowIsland';
+import { RdvStickyMobileCta } from '@/components/prendre-rendez-vous/RdvStickyMobileCta';
 import { JsonLd } from '@/components/JsonLd';
 import { createPageMetadata, getFAQSchema } from '@/lib/seo';
 import { SCHEMA_PUBLIC_SITE_URL } from '@/lib/schema-constants';
@@ -35,14 +35,6 @@ import {
   PRENDRE_RDV_USE_CASES_LINE,
 } from '@/lib/prendre-rendez-vous-page-config';
 import { getPillarPageContentUpdatedAt } from '@/lib/content-updated-at';
-
-const RdvStickyMobileCta = dynamic(
-  () =>
-    import('@/components/prendre-rendez-vous/RdvStickyMobileCta').then((m) => ({
-      default: m.RdvStickyMobileCta,
-    })),
-  { ssr: false },
-);
 
 export const revalidate = 3600;
 
