@@ -91,11 +91,21 @@ export function trackContactFormSuccess(subject: string): void {
   });
 }
 
-/** Formulaire contact — erreur d’envoi (message générique uniquement). */
-export function trackContactFormError(errorType: string): void {
+/** Formulaire contact — erreur d’envoi (code technique, sans PII). */
+export function trackContactFormError(errorCode: string): void {
   sendGa4Event('contact_form_error', {
     page_path: getPagePath(),
-    error_type: errorType.slice(0, 80),
+    error_type: errorCode.slice(0, 40),
+  });
+}
+
+/** CTA page contact — devis / RDV / email / téléphone (sans PII). */
+export function trackContactCtaClick(
+  cta: 'devis' | 'rdv' | 'email' | 'phone' | 'path_devis' | 'path_rdv',
+): void {
+  sendGa4Event('contact_cta_click', {
+    page_path: getPagePath(),
+    cta,
   });
 }
 

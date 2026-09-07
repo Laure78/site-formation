@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
 import { submitContactFormAction } from '@/app/actions/contact';
 import {
+  CONTACT_FORM_NEED_EXAMPLE,
   CONTACT_FORM_NEED_PLACEHOLDER,
   CONTACT_FORM_RGPD_NOTICE,
   CONTACT_FORM_SENSITIVE_HINT,
@@ -15,6 +16,7 @@ import {
 import {
   CONTACT_SUBJECT_LABELS,
   CONTACT_SUBJECT_VALUES,
+  parseContactFormPayload,
   type ContactSubjectValue,
 } from '@/lib/contact-form-validation';
 import { LINKS } from '@/lib/internal-links';
@@ -22,6 +24,7 @@ import {
   trackContactFormError,
   trackContactFormStart,
   trackContactFormSuccess,
+  trackContactCtaClick,
 } from '@/lib/ga4-analytics';
 import { ContactFormationHint } from '@/components/landing/ContactFormationHint';
 
@@ -49,14 +52,12 @@ export function ContactForm() {
   const [error, setError] = useState<string | null>(null);
   const [fieldErrors, setFieldErrors] = useState<Record<string, string>>({});
   const [started, setStarted] = useState(false);
-  const formStartedAtRef = useRef<number>(Date.now());
+  const formStartedAtRef = useRef<number>(0);
   const formRef = useRef<HTMLFormElement>(null);
 
   useEffect(() => {
-    if (isValidSubject(objetParam)) {
-      setSubject(objetParam);
-    }
-  }, [objetParam]);
+    formStartedAtRef.current = Date.now();
+  }, []);
 
   const handleStart = useCallback(() => {
     if (!started) {
@@ -91,6 +92,18 @@ export function ContactForm() {
       formStartedAt: formStartedAtRef.current,
     };
 
+    const clientParsed = parseContactFormPayload(payload);
+    if (!clientParsed.success) {
+      setSubmitting(false);
+      setError('Vérifiez les champs du formulaire.');
+      setFieldErrors(clientParsed.fieldErrors);
+      trackContactFormError('client_validation');
+      const firstKey = Object.keys(clientParsed.fieldErrors)[0];
+      const el = formRef.current?.querySelector(`[name="${firstKey}"]`) as HTMLElement | null;
+      el?.focus();
+      return;
+    }
+
     const result = await submitContactFormAction(payload);
     setSubmitting(false);
 
@@ -101,7 +114,7 @@ export function ContactForm() {
       return;
     }
 
-    trackContactFormError(result.error);
+    trackContactFormError(result.errorCode ?? 'server_error');
     setError(result.error);
     if (result.fieldErrors) {
       setFieldErrors(result.fieldErrors);
@@ -121,9 +134,20 @@ export function ContactForm() {
       >
         <p className="font-semibold text-[#0F172A]">{CONTACT_FORM_SUCCESS}</p>
         <p className="mt-3 text-sm text-[#475569]">{CONTACT_FORM_SUCCESS_CALENDLY}</p>
+        <p className="mt-4">
+          <Link
+            href={LINKS.prendreRdv}
+            onClick={() => trackContactCtaClick('rdv')}
+            className="inline-flex min-h-[44px] items-center font-semibold text-[#377CF3] underline"
+          >
+            Réserver un échange de 30 minutes
+          </Link>
+        </p>
       </div>
     );
   }
+
+  const showExtraHint = subject === 'devis' || subject === 'intra' || subject === 'federation';
 
   return (
     <div id="contact-form" className="scroll-mt-24">
@@ -131,7 +155,9 @@ export function ContactForm() {
         {CONTACT_FORM_TITLE}
       </h2>
 
-      <ContactFormationHint />
+      <div className="mt-3">
+        <ContactFormationHint />
+      </div>
 
       {error ? (
         <div
@@ -174,6 +200,7 @@ export function ContactForm() {
               type="text"
               required
               autoComplete="name"
+              maxLength={120}
               aria-invalid={Boolean(fieldErrors.name)}
               aria-describedby={fieldErrors.name ? `${formId}-name-error` : undefined}
               className={`${fieldClass} ${fieldErrors.name ? fieldErrorClass : ''}`}
@@ -196,6 +223,7 @@ export function ContactForm() {
               required
               autoComplete="email"
               inputMode="email"
+              maxLength={254}
               aria-invalid={Boolean(fieldErrors.email)}
               aria-describedby={fieldErrors.email ? `${formId}-email-error` : undefined}
               className={`${fieldClass} ${fieldErrors.email ? fieldErrorClass : ''}`}
@@ -218,6 +246,7 @@ export function ContactForm() {
             type="text"
             required
             autoComplete="organization"
+            maxLength={200}
             aria-invalid={Boolean(fieldErrors.company)}
             aria-describedby={fieldErrors.company ? `${formId}-company-error` : undefined}
             className={`${fieldClass} ${fieldErrors.company ? fieldErrorClass : ''}`}
@@ -262,11 +291,15 @@ export function ContactForm() {
             name="message"
             required
             rows={5}
+            maxLength={5000}
             placeholder={CONTACT_FORM_NEED_PLACEHOLDER}
             aria-invalid={Boolean(fieldErrors.message)}
-            aria-describedby={`${formId}-message-hint${fieldErrors.message ? ` ${formId}-message-error` : ''}`}
+            aria-describedby={`${formId}-message-example ${formId}-message-hint${fieldErrors.message ? ` ${formId}-message-error` : ''}`}
             className={`${fieldClass} resize-y ${fieldErrors.message ? fieldErrorClass : ''}`}
           />
+          <p id={`${formId}-message-example`} className="mt-1 text-xs text-[#64748B]">
+            {CONTACT_FORM_NEED_EXAMPLE}
+          </p>
           <p id={`${formId}-message-hint`} className="mt-1 text-xs text-[#64748B]">
             {CONTACT_FORM_SENSITIVE_HINT}
           </p>
@@ -280,6 +313,7 @@ export function ContactForm() {
         <details className="rounded-lg border border-[#E2E8F0] bg-[#F8FAFC] p-4">
           <summary className="cursor-pointer text-sm font-medium text-[#0F172A]">
             Informations complémentaires (facultatif)
+            {showExtraHint ? ' — utile pour un devis' : ''}
           </summary>
           <div className="mt-4 grid gap-4 sm:grid-cols-2">
             <div>
@@ -291,6 +325,7 @@ export function ContactForm() {
                 name="phone"
                 type="tel"
                 autoComplete="tel"
+                maxLength={30}
                 className={fieldClass}
               />
             </div>
@@ -298,31 +333,61 @@ export function ContactForm() {
               <label htmlFor={`${formId}-participants`} className="block text-sm font-medium text-[#0F172A]">
                 Nombre approximatif de participants
               </label>
-              <input id={`${formId}-participants`} name="participants" type="text" className={fieldClass} />
+              <input
+                id={`${formId}-participants`}
+                name="participants"
+                type="text"
+                maxLength={80}
+                className={fieldClass}
+              />
             </div>
             <div>
               <label htmlFor={`${formId}-participantRole`} className="block text-sm font-medium text-[#0F172A]">
                 Fonction des participants
               </label>
-              <input id={`${formId}-participantRole`} name="participantRole" type="text" className={fieldClass} />
+              <input
+                id={`${formId}-participantRole`}
+                name="participantRole"
+                type="text"
+                maxLength={120}
+                className={fieldClass}
+              />
             </div>
             <div>
               <label htmlFor={`${formId}-location`} className="block text-sm font-medium text-[#0F172A]">
                 Département ou lieu souhaité
               </label>
-              <input id={`${formId}-location`} name="location" type="text" className={fieldClass} />
+              <input
+                id={`${formId}-location`}
+                name="location"
+                type="text"
+                maxLength={120}
+                className={fieldClass}
+              />
             </div>
             <div>
               <label htmlFor={`${formId}-period`} className="block text-sm font-medium text-[#0F172A]">
                 Période envisagée
               </label>
-              <input id={`${formId}-period`} name="period" type="text" className={fieldClass} />
+              <input
+                id={`${formId}-period`}
+                name="period"
+                type="text"
+                maxLength={120}
+                className={fieldClass}
+              />
             </div>
             <div className="sm:col-span-2">
               <label htmlFor={`${formId}-formationTheme`} className="block text-sm font-medium text-[#0F172A]">
                 Formation ou thème concerné
               </label>
-              <input id={`${formId}-formationTheme`} name="formationTheme" type="text" className={fieldClass} />
+              <input
+                id={`${formId}-formationTheme`}
+                name="formationTheme"
+                type="text"
+                maxLength={200}
+                className={fieldClass}
+              />
             </div>
           </div>
         </details>
@@ -332,7 +397,7 @@ export function ContactForm() {
         ) : null}
 
         <p className="text-xs leading-relaxed text-[#64748B]">
-          {CONTACT_FORM_RGPD_NOTICE}{' '}
+          {CONTACT_FORM_RGPD_NOTICE.replace(' Consultez la politique de confidentialité.', '')}{' '}
           <Link href={LINKS.politiqueConfidentialite} className="font-medium text-[#377CF3] underline">
             Politique de confidentialité
           </Link>

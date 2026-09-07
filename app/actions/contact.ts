@@ -20,7 +20,7 @@ const MAX_BODY_BYTES = 12_000;
 
 export type ContactFormActionResult =
   | { ok: true; message: string }
-  | { ok: false; error: string; fieldErrors?: Record<string, string> };
+  | { ok: false; error: string; errorCode?: string; fieldErrors?: Record<string, string> };
 
 async function getClientIp(): Promise<string> {
   const h = await headers();
@@ -83,12 +83,17 @@ export async function submitContactFormAction(
 ): Promise<ContactFormActionResult> {
   const rawSize = JSON.stringify(payload ?? {}).length;
   if (rawSize > MAX_BODY_BYTES) {
-    return { ok: false, error: 'Message trop volumineux.' };
+    return { ok: false, error: 'Message trop volumineux.', errorCode: 'payload_too_large' };
   }
 
   const parsed = parseContactFormPayload(payload);
   if (!parsed.success) {
-    return { ok: false, error: 'Vérifiez les champs du formulaire.', fieldErrors: parsed.fieldErrors };
+    return {
+      ok: false,
+      error: 'Vérifiez les champs du formulaire.',
+      errorCode: 'validation',
+      fieldErrors: parsed.fieldErrors,
+    };
   }
 
   const data = parsed.data;
@@ -107,7 +112,9 @@ export async function submitContactFormAction(
   if (!rlIp.ok) {
     return {
       ok: false,
-      error: 'Trop de demandes envoyées récemment. Réessayez dans quelques minutes ou contactez-nous par téléphone.',
+      error:
+        'Trop de demandes envoyées récemment. Réessayez dans quelques minutes ou contactez-nous par téléphone.',
+      errorCode: 'rate_limit_ip',
     };
   }
 
@@ -115,13 +122,19 @@ export async function submitContactFormAction(
   if (!rlEmail.ok) {
     return {
       ok: false,
-      error: 'Une demande a déjà été envoyée récemment avec cette adresse email. Patience ou contact direct par téléphone.',
+      error:
+        'Une demande a déjà été envoyée récemment avec cette adresse email. Patience ou contact direct par téléphone.',
+      errorCode: 'rate_limit_email',
     };
   }
 
   if (!resend) {
     console.error('[submitContactForm] RESEND_API_KEY manquante');
-    return { ok: false, error: 'Envoi temporairement indisponible. Utilisez le téléphone ou l’email direct.' };
+    return {
+      ok: false,
+      error: 'Envoi temporairement indisponible. Utilisez le téléphone ou l’email direct.',
+      errorCode: 'resend_missing',
+    };
   }
 
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.laureolivie.fr';
@@ -165,7 +178,7 @@ export async function submitContactFormAction(
 
   if (notifyError) {
     console.error('[submitContactForm] notify', notifyError);
-    return { ok: false, error: 'L’envoi a échoué. Réessayez ou contactez-nous par téléphone.' };
+    return { ok: false, error: 'L’envoi a échoué. Réessayez ou contactez-nous par téléphone.', errorCode: 'notify_failed' };
   }
 
   const { error: confirmError } = await resend.emails.send({

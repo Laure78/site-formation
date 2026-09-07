@@ -20,14 +20,18 @@ export const CONTACT_PAGE_META_DESCRIPTION =
 
 export const CONTACT_FORM_TITLE = 'Décrivez votre projet' as const;
 
-export const CONTACT_FORM_NEED_PLACEHOLDER =
+/** Aide visible sous le champ besoin (distincte du placeholder). */
+export const CONTACT_FORM_NEED_EXAMPLE =
   'Exemple : 6 conducteurs de travaux à former sur les comptes rendus, les CCTP et les courriers de chantier, dans les Yvelines.' as const;
+
+export const CONTACT_FORM_NEED_PLACEHOLDER =
+  'Décrivez brièvement les profils, les tâches et le contexte…' as const;
 
 export const CONTACT_FORM_SENSITIVE_HINT =
   'Ne transmettez pas de document confidentiel ou de donnée personnelle sensible dans ce formulaire.' as const;
 
 export const CONTACT_FORM_RGPD_NOTICE =
-  'Les informations transmises sont utilisées uniquement pour répondre à votre demande.' as const;
+  'Les informations transmises sont utilisées uniquement pour répondre à votre demande. Consultez la politique de confidentialité.' as const;
 
 export const CONTACT_FORM_SUCCESS =
   'Votre demande a bien été envoyée. Je reviendrai vers vous après lecture de votre projet.' as const;
@@ -44,7 +48,7 @@ export const CONTACT_AFTER_SEND_STEPS = [
 export const CONTACT_CALENDLY_TITLE = 'Vous préférez en parler directement ?' as const;
 
 export const CONTACT_CALENDLY_TEXT =
-  'Choisissez un créneau de 30 minutes pour présenter votre contexte et identifier la suite pertinente.' as const;
+  'Réservez un échange de 30 minutes pour présenter votre contexte et identifier la suite pertinente.' as const;
 
 export const CONTACT_COORDINATES_INTRO =
   `Si vous préférez un contact direct, voici les coordonnées professionnelles. Formations en présentiel — ${IDF_ZONE_INTERVENTION}.` as const;
@@ -61,13 +65,15 @@ export const CONTACT_PATH_CARDS = [
     text: 'Transmettez les informations essentielles pour recevoir un devis et un programme adaptés.',
     cta: 'Remplir le formulaire',
     href: '?objet=devis#contact-form',
+    track: 'path_devis' as const,
   },
   {
     id: 'rdv',
     title: 'Vous souhaitez être conseillé',
     text: 'Réservez un échange de 30 minutes pour identifier le parcours pertinent.',
     cta: 'Voir les créneaux',
-    href: '#contact-calendly',
+    href: '#contact-rdv',
+    track: 'path_rdv' as const,
   },
 ] as const;
 
@@ -80,7 +86,7 @@ export const CONTACT_PHONE_DISPLAY = CONTACT.phoneDisplay;
 export const CONTACT_LOCATION_LABEL = 'Guyancourt · Île-de-France' as const;
 
 export const CONTACT_FOOTER_LINKS = [
-  { href: LINKS.formations, label: 'Catalogue des formations IA BTP' },
-  { href: LINKS.financement, label: 'Financement OPCO Constructys' },
-  { href: LINKS.aPropos, label: 'À propos de Laure Olivié' },
+  { href: LINKS.formations, label: 'Catalogue des formations' },
+  { href: LINKS.financement, label: 'Financement Constructys' },
+  { href: LINKS.aPropos, label: 'À propos' },
 ] as const;

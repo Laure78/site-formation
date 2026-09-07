@@ -200,10 +200,13 @@ export default function PolitiqueConfidentialitePage() {
               <tbody className="text-slate-600">
                 <tr>
                   <td className="border border-slate-200 px-4 py-3">
-                    Gestion des demandes d&apos;information et de contact
+                    Gestion des demandes d&apos;information et de contact (formulaire /contact,
+                    emails)
                   </td>
                   <td className="border border-slate-200 px-4 py-3">
-                    Consentement + intérêt légitime
+                    Mesures précontractuelles (art. 6.1.b) et intérêt légitime (art. 6.1.f) —
+                    répondre à une demande professionnelle. Pas d&apos;inscription marketing
+                    automatique.
                   </td>
                 </tr>
                 <tr>
@@ -314,6 +317,11 @@ export default function PolitiqueConfidentialitePage() {
               Qualiopi.
             </li>
             <li>
+              <strong>Mesures précontractuelles :</strong> Le traitement est
+              nécessaire pour répondre à votre demande avant un éventuel contrat
+              de formation (formulaire de contact, prise de rendez-vous).
+            </li>
+            <li>
               <strong>Consentement :</strong> Vous avez donné votre accord
               explicite pour le traitement de vos données pour une finalité
               spécifique.
@@ -348,7 +356,8 @@ export default function PolitiqueConfidentialitePage() {
             Vos données peuvent être transmises à : Organismes de financement
             (OPCO, notamment Constructys pour le BTP),
             partenaires techniques (hébergeur, plateforme pédagogique en ligne,
-            messagerie, CRM), autorités compétentes (DREETS, administration
+            messagerie transactionnelle pour les formulaires de contact et de
+            rendez-vous, CRM), autorités compétentes (DREETS, administration
             fiscale, Qualiopi, autorités judiciaires sur réquisition),
             prestataires (expert-comptable, prestataires de paiement).
           </p>

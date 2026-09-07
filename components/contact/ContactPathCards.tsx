@@ -1,6 +1,9 @@
+'use client';
+
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 import { CONTACT_PATH_CARDS } from '@/lib/contact-page-config';
+import { trackContactCtaClick } from '@/lib/ga4-analytics';
 
 export function ContactPathCards() {
   return (
@@ -22,6 +25,7 @@ export function ContactPathCards() {
             <p className="mt-5">
               <Link
                 href={card.href}
+                onClick={() => trackContactCtaClick(card.track)}
                 className="inline-flex min-h-[44px] items-center gap-2 font-semibold text-[#377CF3] hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#377CF3]"
               >
                 {card.cta}

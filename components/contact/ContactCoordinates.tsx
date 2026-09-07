@@ -1,3 +1,5 @@
+'use client';
+
 import Link from 'next/link';
 import { Mail, MapPin, Phone } from 'lucide-react';
 import {
@@ -9,6 +11,7 @@ import {
   CONTACT_RECLAMATION_LINE,
 } from '@/lib/contact-page-config';
 import { LINKS } from '@/lib/internal-links';
+import { trackContactCtaClick } from '@/lib/ga4-analytics';
 
 export function ContactCoordinates() {
   return (
@@ -28,6 +31,7 @@ export function ContactCoordinates() {
             <br />
             <a
               href={`mailto:${CONTACT_PRIMARY_EMAIL}`}
+              onClick={() => trackContactCtaClick('email')}
               className="font-medium text-[#377CF3] underline"
             >
               {CONTACT_PRIMARY_EMAIL}
@@ -41,6 +45,7 @@ export function ContactCoordinates() {
             <br />
             <a
               href={`tel:${CONTACT_PHONE}`}
+              onClick={() => trackContactCtaClick('phone')}
               aria-label={`Appeler au ${CONTACT_PHONE_DISPLAY}`}
               className="font-medium text-[#377CF3] underline"
             >
