@@ -126,7 +126,7 @@ export const FAQ_PRENDRE_RDV_PAGE: readonly PrendreRdvFaqItem[] = [
   },
   {
     q: 'Comment se déroule l’échange ?',
-    a: 'Vous précisez d’abord le département, l’effectif et le format recherché, puis vous choisissez un créneau. L’échange a lieu en visioconférence ou par téléphone. Aucun document confidentiel n’est nécessaire.',
+    a: 'Vous choisissez un créneau sur Calendly (ou via le formulaire du site), puis nous échangeons en visioconférence ou par téléphone. Aucun document confidentiel n’est nécessaire.',
   },
   {
     q: 'Proposez-vous des formations hors Île-de-France ou à distance ?',

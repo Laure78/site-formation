@@ -4,7 +4,6 @@ import { FAQSection } from '@/components/landing/FAQSection';
 import { RdvBookingFlowIsland } from '@/components/prendre-rendez-vous/RdvBookingFlowIsland';
 import { PrendreRdvAgenda } from '@/components/prendre-rendez-vous/PrendreRdvAgenda';
 import { RdvStickyMobileCta } from '@/components/prendre-rendez-vous/RdvStickyMobileCta';
-import { RdvCommercialFilter } from '@/components/prendre-rendez-vous/RdvCommercialFilter';
 import { TrainingDeliveryInfo } from '@/components/formations/TrainingDeliveryInfo';
 import { JsonLd } from '@/components/JsonLd';
 import { BUSINESS_DELIVERY } from '@/lib/business-delivery';
@@ -147,8 +146,11 @@ export default function PrendreRendezVousPage() {
 
           <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center">
             <a
-              href="#filtre-rdv"
+              href={calendlyUrl}
+              target="_blank"
+              rel="noopener noreferrer"
               className={`${OFC_CTA_PRIMARY} inline-flex min-h-12 w-full items-center justify-center px-6 sm:w-auto`}
+              data-calendly
               data-cta-position="hero"
             >
               {PRENDRE_RDV_CTA_PRIMARY}
@@ -180,6 +182,38 @@ export default function PrendreRendezVousPage() {
           </ul>
         </div>
       </header>
+
+      {/* ——— Agenda Calendly (accès direct) ——— */}
+      <section
+        id={PRENDRE_RDV_FORM_ANCHOR}
+        className="scroll-mt-24 border-t border-slate-100 bg-[#F8FAFC]"
+        aria-labelledby="rdv-calendly"
+      >
+        <div className={`${OFC_SECTION_INNER} max-w-3xl py-12 md:py-16`}>
+          <TrainingDeliveryInfo showBody className="mb-8" />
+          <h2 id="rdv-calendly" className="font-display text-xl font-bold text-slate-900 md:text-2xl">
+            {PRENDRE_RDV_CALENDLY_SECTION_TITLE}
+          </h2>
+          <p className="mt-2 max-w-prose text-sm text-slate-600">
+            {PRENDRE_RDV_CALENDLY_SECTION_SUBTITLE}
+          </p>
+          <p className="mt-4">
+            <a
+              href={calendlyUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`${OFC_CTA_PRIMARY} inline-flex min-h-12 items-center justify-center px-6`}
+              data-calendly
+              data-cta-position="inline"
+            >
+              {PRENDRE_RDV_CTA_PRIMARY} sur Calendly
+            </a>
+          </p>
+          <div className="mt-8">
+            <PrendreRdvAgenda />
+          </div>
+        </div>
+      </section>
 
       {/* ——— À qui ——— */}
       <section className="border-t border-slate-100 bg-[#F2F2F2]" aria-labelledby="rdv-audience">
@@ -226,44 +260,6 @@ export default function PrendreRendezVousPage() {
         </div>
       </section>
 
-      {/* ——— Filtre commercial + agenda Calendly ——— */}
-      <section
-        id="filtre-rdv"
-        className="scroll-mt-24 border-t border-slate-100 bg-[#F8FAFC]"
-        aria-labelledby="rdv-filtre"
-      >
-        <div className={`${OFC_SECTION_INNER} max-w-3xl py-12 md:py-16`}>
-          <h2 id="rdv-filtre" className="sr-only">
-            Qualification avant réservation
-          </h2>
-          <RdvCommercialFilter>
-            <div id={PRENDRE_RDV_FORM_ANCHOR} className="scroll-mt-24 space-y-6">
-              <div>
-                <h2 id="rdv-calendly" className="font-display text-xl font-bold text-slate-900 md:text-2xl">
-                  {PRENDRE_RDV_CALENDLY_SECTION_TITLE}
-                </h2>
-                <p className="mt-2 max-w-prose text-sm text-slate-600">
-                  {PRENDRE_RDV_CALENDLY_SECTION_SUBTITLE}
-                </p>
-                <p className="mt-4">
-                  <a
-                    href={calendlyUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={`${OFC_CTA_PRIMARY} inline-flex min-h-12 items-center justify-center px-6`}
-                    data-calendly
-                    data-cta-position="inline"
-                  >
-                    {PRENDRE_RDV_CTA_PRIMARY} sur Calendly
-                  </a>
-                </p>
-              </div>
-              <PrendreRdvAgenda />
-            </div>
-          </RdvCommercialFilter>
-        </div>
-      </section>
-
       {/* ——— Formulaire RDV natif (secondaire) ——— */}
       <section
         className="scroll-mt-24 border-t border-slate-100 bg-white"
@@ -271,14 +267,13 @@ export default function PrendreRendezVousPage() {
         aria-labelledby="rdv-agenda"
       >
         <div className={`${OFC_SECTION_INNER} max-w-3xl py-12 md:py-14`}>
-          <TrainingDeliveryInfo className="mb-6" />
           <h2 id="rdv-agenda" className="font-display text-lg font-bold text-slate-900 md:text-xl">
             {PRENDRE_RDV_FORM_TITLE}
           </h2>
           <p className="mt-2 max-w-prose text-sm text-slate-600">{PRENDRE_RDV_FORM_SUBTITLE}</p>
           <p className="mt-3 text-sm">
-            <a href="#filtre-rdv" className={OFC_LINK}>
-              Revenir au filtre et à Calendly
+            <a href={`#${PRENDRE_RDV_FORM_ANCHOR}`} className={OFC_LINK}>
+              Revenir à Calendly
             </a>
             {' · '}
             <span className="text-slate-500">{PRENDRE_RDV_CTA_NATIVE}</span>
