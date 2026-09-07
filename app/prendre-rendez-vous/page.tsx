@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { FAQSection } from '@/components/landing/FAQSection';
 import { RdvBookingFlowIsland } from '@/components/prendre-rendez-vous/RdvBookingFlowIsland';
+import { PrendreRdvAgenda } from '@/components/prendre-rendez-vous/PrendreRdvAgenda';
 import { RdvStickyMobileCta } from '@/components/prendre-rendez-vous/RdvStickyMobileCta';
 import { JsonLd } from '@/components/JsonLd';
 import { createPageMetadata, getFAQSchema } from '@/lib/seo';
@@ -13,6 +14,7 @@ import {
   PRENDRE_RDV_APRES,
   PRENDRE_RDV_AUDIENCE_CARDS,
   PRENDRE_RDV_AUDIENCE_TITLE,
+  PRENDRE_RDV_CALENDLY_URL,
   PRENDRE_RDV_CONTACT_HREF,
   PRENDRE_RDV_CTA_PRIMARY,
   PRENDRE_RDV_CTA_SECONDARY,
@@ -35,6 +37,7 @@ import {
   PRENDRE_RDV_USE_CASES_LINE,
 } from '@/lib/prendre-rendez-vous-page-config';
 import { getPillarPageContentUpdatedAt } from '@/lib/content-updated-at';
+import { buildCalendlyUrlWithUtm } from '@/lib/calendly';
 
 export const revalidate = 3600;
 
@@ -63,6 +66,12 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default function PrendreRendezVousPage() {
   const faqSchema = getFAQSchema([...FAQ_PRENDRE_RDV_PAGE]);
+  const calendlyUrl = buildCalendlyUrlWithUtm({
+    baseUrl: PRENDRE_RDV_CALENDLY_URL,
+    utmSource: 'site',
+    utmMedium: 'cta',
+    utmCampaign: 'prendre-rendez-vous-hero',
+  });
 
   const pageGraph = {
     '@context': 'https://schema.org',
@@ -135,9 +144,19 @@ export default function PrendreRendezVousPage() {
             >
               {PRENDRE_RDV_CTA_PRIMARY}
             </a>
+            <a
+              href={calendlyUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`${OFC_CTA_SECONDARY} inline-flex min-h-12 w-full items-center justify-center px-6 sm:w-auto`}
+              data-calendly
+              data-cta-position="hero"
+            >
+              Ouvrir Calendly
+            </a>
             <Link
               href={PRENDRE_RDV_FORMATIONS_HREF}
-              className={`${OFC_CTA_SECONDARY} inline-flex min-h-12 w-full items-center justify-center px-6 sm:w-auto`}
+              className={`${OFC_LINK} inline-flex min-h-12 items-center justify-center text-sm font-semibold sm:ml-1`}
             >
               {PRENDRE_RDV_CTA_SECONDARY}
             </Link>
@@ -202,7 +221,7 @@ export default function PrendreRendezVousPage() {
         </div>
       </section>
 
-      {/* ——— Formulaire (îlot client différé) ——— */}
+      {/* ——— Formulaire RDV natif ——— */}
       <section
         className="scroll-mt-24 border-t border-slate-100 bg-[#F8FAFC]"
         id={PRENDRE_RDV_FORM_ANCHOR}
@@ -219,8 +238,28 @@ export default function PrendreRendezVousPage() {
         </div>
       </section>
 
+      {/* ——— Agenda Calendly (toujours accessible) ——— */}
+      <section
+        id="calendly"
+        className="scroll-mt-24 border-t border-slate-100 bg-white"
+        aria-labelledby="rdv-calendly"
+      >
+        <div className={`${OFC_SECTION_INNER} max-w-3xl py-12 md:py-14`}>
+          <h2 id="rdv-calendly" className="font-display text-xl font-bold text-slate-900 md:text-2xl">
+            Préférez Calendly ?
+          </h2>
+          <p className="mt-2 max-w-prose text-sm text-slate-600">
+            Vous pouvez aussi choisir un créneau directement dans mon agenda Calendly (nouvel onglet
+            ou affichage ci-dessous).
+          </p>
+          <div className="mt-6">
+            <PrendreRdvAgenda />
+          </div>
+        </div>
+      </section>
+
       {/* ——— Après / secours ——— */}
-      <section className="bg-white" aria-labelledby="rdv-apres">
+      <section className="bg-[#F8FAFC]" aria-labelledby="rdv-apres">
         <div className={`${OFC_SECTION_INNER} max-w-3xl py-12 md:py-14`}>
           <h2 id="rdv-apres" className="font-display text-lg font-bold text-slate-900 md:text-xl">
             Après la réservation
@@ -232,7 +271,7 @@ export default function PrendreRendezVousPage() {
           </ul>
           <p className="mt-3 text-sm text-slate-600">{PRENDRE_RDV_DEVIS_FORMULATION}</p>
 
-          <div className="mt-10 rounded-2xl border border-slate-200 bg-slate-50 p-5 sm:p-6">
+          <div className="mt-10 rounded-2xl border border-slate-200 bg-white p-5 sm:p-6">
             <h3 className="font-display text-base font-bold text-slate-900">
               Aucun créneau ne vous convient ?
             </h3>
