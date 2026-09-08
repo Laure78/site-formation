@@ -39,6 +39,7 @@ const FORMATION_NAV_LABELS: Record<string, string> = {
   'NIV-06': 'Application métier — niveau 1',
   'NIV-07': 'Application métier — niveau 2',
   'NIV-08': 'Application métier — niveau 3',
+  'NIV-09': 'Assistants IA personnalisés',
 };
 
 const APPLICATION_METIER_CODES = new Set(['NIV-06', 'NIV-07', 'NIV-08']);

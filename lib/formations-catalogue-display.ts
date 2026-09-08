@@ -8,6 +8,7 @@ import {
   FORMATIONS_COUNT,
   formationHref,
   getFormationByCode,
+  isFormationSurDevis,
   libelleEffectifFormation,
   libelleEffectifMaxFormation,
   type Formation,
@@ -49,6 +50,7 @@ export type FormationCatalogueEntry = {
     | 'maitrise-oeuvre'
     | 'cursor-btp'
     | 'applications-metier-btp'
+    | 'assistants-ia'
   >;
   comparatif: {
     publicLabel: string;
@@ -65,6 +67,7 @@ const PHOTO_BY_CODE: Record<string, (typeof PHOTOS)[keyof typeof PHOTOS]> = {
   'NIV-06': PHOTOS.formationNiv06CursorBtp2026,
   'NIV-07': PHOTOS.formationNiv07ApplicationConnectee2026,
   'NIV-08': PHOTOS.formationNiv08ApplicationAvancee2026,
+  'NIV-09': PHOTOS.formationNiv09AssistantsIaPersonnalisesBtp2026,
 };
 
 const PROFILE_TAGS_BY_CODE: Record<
@@ -79,6 +82,7 @@ const PROFILE_TAGS_BY_CODE: Record<
   'NIV-06': ['applications-metier-btp'],
   'NIV-07': ['applications-metier-btp'],
   'NIV-08': ['applications-metier-btp'],
+  'NIV-09': ['assistants-ia'],
 };
 
 function toCatalogueEntry(f: Formation): FormationCatalogueEntry {
@@ -108,7 +112,9 @@ function toCatalogueEntry(f: Formation): FormationCatalogueEntry {
     prixHT: f.prixHT,
     tarifParcoursLabel: f.tarifParcoursAppMetier
       ? libelleTarifApplicationMetierBtp(f.tarifParcoursAppMetier)
-      : undefined,
+      : isFormationSurDevis(f)
+        ? 'Sur devis'
+        : undefined,
     effectifMin: f.effectifMin,
     effectifMax: f.effectifMax,
     profileTags: PROFILE_TAGS_BY_CODE[f.code] ?? [],

@@ -113,6 +113,8 @@ export const LINKS = {
   formationIaMaitriseOeuvre: '/formations/ia-maitrise-oeuvre',
   pdfProgrammeIaMaitriseOeuvre:
     '/formations/ia-maitrise-oeuvre/programme_OFC_IA_MOE_4h.pdf',
+  /** NIV-09 — Assistants IA personnalisés pour les métiers du BTP (Usages IA) */
+  formationAssistantsIaPersonnalisesBtp: '/formations/assistants-ia-personnalises-btp',
   pdfProgrammeIaBtpNiveau1BatimentTp: '/formations/pdf/programme-niveau-1-ia-batiment-travaux-publics.pdf',
   pdfProgrammeIaBtpNiveau2AppelsOffre: PDF_PROGRAMME_NIV02_AO_BTP,
   /** Alias explicite — même fichier que `pdfProgrammeIaBtpNiveau2AppelsOffre` */

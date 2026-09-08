@@ -34,10 +34,14 @@ const CATALOGUE_REF_BY_PATH: Record<string, string> = {
   [LINKS.formationApplicationMetierBtpNiveau1]: 'NIV-06',
   [LINKS.formationApplicationMetierBtpNiveau2]: 'NIV-07',
   [LINKS.formationApplicationMetierBtpNiveau3]: 'NIV-08',
+  [LINKS.formationAssistantsIaPersonnalisesBtp]: 'NIV-09',
 };
 
 function priceSpecDescription(ref: string): string {
   const f = getFormationByCode(ref);
+  if (f && f.prixHT <= 0) {
+    return 'Session intra ou interentreprises — tarif sur devis';
+  }
   if (f?.tarifParcoursAppMetier) {
     return `Session intra-entreprise — ${libelleTarifApplicationMetierBtp(f.tarifParcoursAppMetier)} (ensemble du groupe, HT)`;
   }
@@ -51,7 +55,7 @@ function priceSpecDescription(ref: string): string {
 }
 
 const PRICE_SPEC_DESCRIPTION_BY_REF: Record<string, string> = Object.fromEntries(
-  (['NIV-01', 'NIV-02', 'NIV-03', 'NIV-04', 'NIV-05', 'NIV-06', 'NIV-07', 'NIV-08'] as const).map((ref) => [
+  (['NIV-01', 'NIV-02', 'NIV-03', 'NIV-04', 'NIV-05', 'NIV-06', 'NIV-07', 'NIV-08', 'NIV-09'] as const).map((ref) => [
     ref,
     priceSpecDescription(ref),
   ])
@@ -84,12 +88,13 @@ export type CatalogueCourseJsonLdConfig = {
     | typeof LINKS.formationIaMaitriseOeuvre
     | typeof LINKS.formationApplicationMetierBtpNiveau1
     | typeof LINKS.formationApplicationMetierBtpNiveau2
-    | typeof LINKS.formationApplicationMetierBtpNiveau3;
+    | typeof LINKS.formationApplicationMetierBtpNiveau3
+    | typeof LINKS.formationAssistantsIaPersonnalisesBtp;
   name: string;
   description: string;
   price?: number;
   keywords: readonly string[];
-  courseCode: 'NIV-01' | 'NIV-02' | 'NIV-03' | 'NIV-04' | 'NIV-05' | 'NIV-06' | 'NIV-07' | 'NIV-08';
+  courseCode: 'NIV-01' | 'NIV-02' | 'NIV-03' | 'NIV-04' | 'NIV-05' | 'NIV-06' | 'NIV-07' | 'NIV-08' | 'NIV-09';
   educationalLevel: 'Beginner' | 'Advanced';
 };
 
@@ -102,7 +107,8 @@ export type FormationCatalogueRichCourseConfig = {
     | typeof LINKS.formationIaMaitriseOeuvre
     | typeof LINKS.formationApplicationMetierBtpNiveau1
     | typeof LINKS.formationApplicationMetierBtpNiveau2
-    | typeof LINKS.formationApplicationMetierBtpNiveau3;
+    | typeof LINKS.formationApplicationMetierBtpNiveau3
+    | typeof LINKS.formationAssistantsIaPersonnalisesBtp;
   name: string;
   description: string;
   price?: number;
@@ -271,6 +277,31 @@ export const FORMATION_RICH_COURSE_NIV08: FormationCatalogueRichCourseConfig = {
   teaches: teachesFromCatalogue('NIV-08'),
 };
 
+export const CATALOGUE_COURSE_ASSISTANTS_IA_NIV09: CatalogueCourseJsonLdConfig = {
+  path: LINKS.formationAssistantsIaPersonnalisesBtp,
+  name: getFormationByCode('NIV-09')!.titre,
+  description: `${getFormationByCode('NIV-09')!.accroche} Session ${getFormationByCode('NIV-09')!.duree}, présentiel Île-de-France, Qualiopi.`,
+  price: prixCatalogue('NIV-09'),
+  keywords: [
+    'assistants IA BTP',
+    'GPT ChatGPT BTP',
+    'Gemini Gems BTP',
+    'projets Claude BTP',
+    'formation assistants IA',
+  ],
+  courseCode: 'NIV-09',
+  educationalLevel: 'Advanced',
+};
+
+export const FORMATION_RICH_COURSE_NIV09: FormationCatalogueRichCourseConfig = {
+  path: LINKS.formationAssistantsIaPersonnalisesBtp,
+  name: CATALOGUE_COURSE_ASSISTANTS_IA_NIV09.name,
+  description: CATALOGUE_COURSE_ASSISTANTS_IA_NIV09.description,
+  price: prixCatalogue('NIV-09'),
+  educationalLevel: 'Avancé',
+  teaches: teachesFromCatalogue('NIV-09'),
+};
+
 function buildCatalogueOffer(
   catalogueRef: string,
   courseUrl: string,
@@ -362,6 +393,7 @@ export function buildCatalogueCourseJsonLd(
     'NIV-06': FORMATION_RICH_COURSE_NIV06,
     'NIV-07': FORMATION_RICH_COURSE_NIV07,
     'NIV-08': FORMATION_RICH_COURSE_NIV08,
+    'NIV-09': FORMATION_RICH_COURSE_NIV09,
   };
   const rich = richByCode[config.courseCode];
   if (!rich) {
@@ -406,6 +438,10 @@ export function buildCatalogueCourseApplicationMetierJsonLd(
     'NIV-08': FORMATION_RICH_COURSE_NIV08,
   } as const;
   return buildFormationCatalogueRichCourseJsonLd(richByRef[ref]);
+}
+
+export function buildCatalogueCourseAssistantsIaNiv09JsonLd(): Record<string, unknown> {
+  return buildFormationCatalogueRichCourseJsonLd(FORMATION_RICH_COURSE_NIV09);
 }
 
 /** @deprecated Utiliser buildCatalogueCourseApplicationMetierJsonLd('NIV-06') */

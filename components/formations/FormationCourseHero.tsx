@@ -21,7 +21,7 @@ export function FormationProgrammePdfSection({
   catalogueRef: string;
 }) {
   const catalogueEntry = getFormationCatalogueByRef(catalogueRef);
-  if (!catalogueEntry) return null;
+  if (!catalogueEntry?.programmePdfHref?.trim()) return null;
   return (
     <>
       <FormationProgrammePdfDownloadBanner

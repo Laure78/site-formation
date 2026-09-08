@@ -2,6 +2,7 @@ import { CatalogueInfosPratiques } from '@/components/InfosPratiques';
 import { FormationProgrammePdfSection } from '@/components/formations/FormationCourseHero';
 import { FormationTarifsModalitesSection } from '@/components/formations/FormationTarifsModalitesSection';
 import type { FormationCatalogueCode } from '@/lib/formation-catalogue-visibility';
+import { getFormationByCode } from '@/data/formations';
 
 /**
  * Suite Indicateur 1 Qualiopi — immédiatement après `#programme` sur les fiches catalogue.
@@ -12,10 +13,13 @@ export function FormationCatalogueIndicateur1Suite({
 }: {
   programmeRef: FormationCatalogueCode;
 }) {
+  const formation = getFormationByCode(programmeRef);
+  const hasProgrammePdf = Boolean(formation?.pdfProgramme?.trim());
+
   return (
     <>
       <FormationTarifsModalitesSection catalogueRef={programmeRef} />
-      <FormationProgrammePdfSection catalogueRef={programmeRef} />
+      {hasProgrammePdf ? <FormationProgrammePdfSection catalogueRef={programmeRef} /> : null}
       <CatalogueInfosPratiques programmeRef={programmeRef} />
     </>
   );

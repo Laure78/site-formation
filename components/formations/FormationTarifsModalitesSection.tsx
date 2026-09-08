@@ -1,5 +1,5 @@
 import type { FormationCatalogueCode } from '@/lib/formation-catalogue-visibility';
-import { getFormationByCode } from '@/data/formations';
+import { getFormationByCode, isFormationSurDevis } from '@/data/formations';
 import { FINANCEMENT_FORMULATION_PRUDENTE } from '@/lib/financement-copy';
 import {
   getTarifGrilleFromDureeLibelle,
@@ -18,7 +18,12 @@ type Props = {
  */
 export function FormationTarifsModalitesSection({ catalogueRef }: Props) {
   const formation = getFormationByCode(catalogueRef)!;
-  const grille = getTarifGrilleFromDureeLibelle(formation.duree);
+  const surDevis = isFormationSurDevis(formation);
+  const grille = surDevis ? null : getTarifGrilleFromDureeLibelle(formation.duree);
+  const effectifLabel =
+    formation.effectifMin === formation.effectifMax
+      ? `${formation.effectifMax} participants`
+      : `${formation.effectifMin} à ${formation.effectifMax} participants`;
 
   return (
     <section
@@ -39,13 +44,12 @@ export function FormationTarifsModalitesSection({ catalogueRef }: Props) {
               supports pédagogiques, les livrables et les évaluations prévues dans le programme.
             </p>
             <p className="mt-4 font-display text-xl font-bold text-[#377CF3]">
-              {libelleTarifIntraParSession(grille.intraHT, grille.intraFrom)}
+              {surDevis || !grille
+                ? 'Sur devis'
+                : libelleTarifIntraParSession(grille.intraHT, grille.intraFrom)}
             </p>
             <p className="mt-2 text-sm text-slate-600">
-              Effectif : {formation.effectifMin === formation.effectifMax
-                ? `${formation.effectifMax} participants`
-                : `${formation.effectifMin} à ${formation.effectifMax} participants`}
-              . Durée : {formation.duree}.
+              Effectif : {effectifLabel}. Durée : {formation.duree}.
             </p>
           </div>
 
@@ -55,7 +59,15 @@ export function FormationTarifsModalitesSection({ catalogueRef }: Props) {
               Le tarif est fixé par participant. Les dates sont proposées selon le calendrier des sessions
               ouvertes.
             </p>
-            {grille.interHT != null ? (
+            {surDevis ? (
+              <>
+                <p className="mt-4 font-display text-xl font-bold text-[#377CF3]">Sur devis</p>
+                <p className="mt-2 text-sm text-slate-600">
+                  Vous pouvez vous inscrire à une session collective interentreprises. Aucun
+                  accompagnement individuel n&apos;est proposé.
+                </p>
+              </>
+            ) : grille?.interHT != null ? (
               <>
                 <p className="mt-4 font-display text-xl font-bold text-[#377CF3]">
                   {libelleTarifInterParParticipant(grille.interHT)}

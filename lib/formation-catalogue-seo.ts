@@ -201,6 +201,26 @@ export const FORMATION_CATALOGUE_SEO: Record<FormationCatalogueCode, FormationCa
       { iaAide: 'Automatiser un workflow IA', validationHumaine: 'Point de contrôle humain sur les résultats sensibles' },
     ],
   },
+  'NIV-09': {
+    metaTitle: 'Formation assistants IA BTP : ChatGPT, Gemini, Claude',
+    h1: 'Créer des assistants IA personnalisés pour les métiers du BTP',
+    subtitle:
+      'Configurez des assistants adaptés à votre poste. Réutilisez vos consignes, vos modèles et vos documents pour vos tâches récurrentes.',
+    metaDescription:
+      'Créez vos assistants IA métier avec ChatGPT, Gemini et Claude. Formation IA pour le BTP, 4 h en présentiel Île-de-France (intra ou inter).',
+    enBref: `Formation assistants IA pour le BTP (${SESSION_DUREE_LIBELLE}, présentiel Île-de-France) : configurer des assistants personnalisés et d’équipe avec ChatGPT, Gemini et Claude — sans développer d’application. Bases de l’IA requises. ${QUALIOPI_MENTION}.`,
+    publicTargets: [
+      'Dirigeants de TPE/PME du BTP',
+      'Conducteurs de travaux et chargés d’affaires',
+      'Équipes administratives, commerciales et fonctions support',
+    ],
+    iaLimits: [
+      { iaAide: 'Configurer un assistant avec consignes et ton', validationHumaine: 'Valider les instructions et les sorties' },
+      { iaAide: 'Centraliser modèles et documents métier', validationHumaine: 'Contrôler confidentialité et anonymisation' },
+      { iaAide: 'Structurer une bibliothèque de prompts', validationHumaine: 'Sélectionner les prompts réellement utiles' },
+      { iaAide: 'Préparer un assistant transverse', validationHumaine: 'Vérifier le partage selon l’outil et l’abonnement' },
+    ],
+  },
 };
 
 export function getFormationCatalogueSeo(ref: FormationCatalogueCode): FormationCatalogueSeoConfig {

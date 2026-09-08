@@ -25,7 +25,8 @@ export type CatalogueBesoinId =
   | 'appels-offres'
   | 'chantier'
   | 'maitrise-oeuvre'
-  | 'deployer';
+  | 'deployer'
+  | 'assistants';
 
 export type CatalogueBesoinOption = {
   id: CatalogueBesoinId;
@@ -69,8 +70,14 @@ export const CATALOGUE_BESOIN_OPTIONS: readonly CatalogueBesoinOption[] = [
   {
     id: 'deployer',
     label: 'Créer ou déployer des outils IA',
-    description: 'Claude avancé et applications métier',
-    targetRefs: ['NIV-04', 'NIV-06', 'NIV-07', 'NIV-08'],
+    description: 'Assistants, Claude avancé et applications métier',
+    targetRefs: ['NIV-09', 'NIV-04', 'NIV-06', 'NIV-07', 'NIV-08'],
+  },
+  {
+    id: 'assistants',
+    label: 'Créer des assistants IA métier',
+    description: 'GPTs, Gems et projets Claude pour les tâches récurrentes',
+    targetRefs: ['NIV-09'],
   },
 ] as const;
 

@@ -591,6 +591,46 @@ export const FAQ_IA_BTP_PARIS: FAQItem[] = [
   },
 ];
 
+/** FAQ Formation assistants IA personnalisés BTP — NIV-09 */
+export const FAQ_ASSISTANTS_IA_NIV09: FAQItem[] = [
+  {
+    q: 'Faut-il déjà savoir utiliser l’IA ?',
+    a: `Oui. Bases de l’IA requises. Avoir suivi la <a href="${LINKS.formationIaBtpNiveau1BatimentTp}">formation Fondamentaux IA BTP</a> ou utiliser régulièrement un outil d’IA générative.`,
+  },
+  {
+    q: 'Quels outils sont abordés ?',
+    a: 'ChatGPT (GPTs), Gemini (Gems) et Claude (projets). Les fonctions de configuration et de partage diffèrent selon les plateformes et les abonnements.',
+  },
+  {
+    q: 'Faut-il un abonnement payant ?',
+    a: 'Cela dépend des outils retenus pour les ateliers. Les comptes et abonnements nécessaires sont précisés avant validation du devis. Les abonnements éventuels ne sont pas inclus dans le tarif de formation.',
+  },
+  {
+    q: 'Peut-on travailler sur les documents de son entreprise ?',
+    a: 'Oui. Les documents doivent être anonymisés si besoin. Toute réponse de l’IA reste à vérifier par un professionnel avant usage.',
+  },
+  {
+    q: 'Les assistants peuvent-ils être partagés avec les collègues ?',
+    a: 'Selon l’outil et l’abonnement. Le partage d’équipe n’est pas identique sur ChatGPT, Gemini et Claude. La formation montre les possibilités disponibles pour le groupe.',
+  },
+  {
+    q: 'Cette formation apprend-elle à créer une application ?',
+    a: `Non. Elle appartient au parcours Usages IA BTP : configurer des assistants pour ses tâches métier. Pour concevoir une application métier, voir le <a href="${LINKS.parcoursApplicationsMetierBtp}">parcours Création d’applications BTP</a>.`,
+  },
+  {
+    q: 'Peut-on s’inscrire seul ?',
+    a: 'Vous pouvez vous inscrire à une session collective interentreprises. Aucun accompagnement individuel n’est proposé.',
+  },
+  {
+    q: 'Où se déroule la formation ?',
+    a: 'Présentiel uniquement en Île-de-France, en entreprise ou dans une salle adaptée.',
+  },
+  {
+    q: 'Un financement est-il possible ?',
+    a: `${FINANCEMENT_FORMULATION_PRUDENTE} Tarif sur devis. Voir aussi <a href="${LINKS.financement}">financement Constructys formation IA BTP</a>.`,
+  },
+];
+
 /** FAQ Formation Maîtriser Claude AI — NIV-04 */
 export const FAQ_MAITRISER_CLAUDE_NIV04: FAQItem[] = [
   {

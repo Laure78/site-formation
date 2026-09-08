@@ -117,6 +117,15 @@ export const FORMATIONS_CATALOG_SCHEMA: FormationCatalogEntry[] = [
     teaches: teachesFromCatalogueDisplay('NIV-08'),
     occupationalCategory: 'BTP, IA intégrée, applications métier avancées',
   },
+  {
+    ref: 'NIV-09',
+    level: 'AVANCÉ',
+    path: '/formations/assistants-ia-personnalises-btp',
+    name: getFormationByCode('NIV-09')!.titre,
+    description: `${getFormationByCode('NIV-09')!.accroche} Qualiopi — tarif sur devis.`,
+    teaches: teachesFromCatalogueDisplay('NIV-09'),
+    occupationalCategory: 'BTP, assistants IA, productivité documentaire',
+  },
 ];
 
 const DURATION_ISO = FORMATION_COURSE_DURATION_ISO;
@@ -142,8 +151,13 @@ function buildCatalogOffer(
       return getTarifApplicationMetierBtpHt(f.tarifParcoursAppMetier);
     }
     if (f && f.prixHT > 0) return f.prixHT;
+    if (f && f.prixHT <= 0) return undefined;
     return tarifHtDepuisBadgeCatalogue(entry.level);
   })();
+  if (offer.price == null) {
+    offer.description = 'Session intra ou interentreprises — tarif sur devis';
+    delete offer.price;
+  }
   return offer;
 }
 

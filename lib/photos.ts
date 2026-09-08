@@ -693,6 +693,15 @@ export const PHOTOS = {
     width: 1200,
     height: 800,
   },
+  formationNiv09AssistantsIaPersonnalisesBtp2026: {
+    src: '/images/formation-sensibilisation-assistants-ia-btp.png',
+    alt: 'Formation assistants IA personnalisés BTP — ChatGPT, Gemini, Claude',
+    description:
+      'Affiche formation « Créer des assistants IA personnalisés pour les métiers du BTP » : GPTs, Gems et projets Claude — 4 h, présentiel Île-de-France.',
+    title: 'Assistants IA personnalisés pour les métiers du BTP',
+    width: 1024,
+    height: 682,
+  },
 
 };
 

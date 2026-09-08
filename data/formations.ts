@@ -1,5 +1,5 @@
 /**
- * Source de vérité — 8 parcours catalogue OFC (prix, durée, effectifs, contenus).
+ * Source de vérité — parcours catalogue OFC (prix, durée, effectifs, contenus).
  * Ne plus dupliquer ces valeurs en dur dans le JSX / FAQ / lib.
  */
 
@@ -43,6 +43,10 @@ export type Formation = {
   horaires?: string;
   effectifMin: number;
   effectifMax: number;
+  /**
+   * Prix forfaitaire HT session intra. `0` = affichage « Sur devis »
+   * (pas de montant catalogue validé).
+   */
   prixHT: number;
   accroche: string;
   objectifs: string[];
@@ -356,6 +360,44 @@ export const FORMATIONS: readonly Formation[] = [
     programmeUpdatedAt: '01/09/2026',
     image: '/images/formation-ia-architecture-claude-presentiel-groupe.jpg',
   },
+  {
+    code: 'NIV-09',
+    slug: 'assistants-ia-personnalises-btp',
+    titre: 'Créer des assistants IA personnalisés pour les métiers du BTP',
+    promesse:
+      'Créez des assistants IA adaptés à votre poste et aux tâches récurrentes de votre équipe. Formation pratique de 4 heures en présentiel en Île-de-France.',
+    casUsageCourts: [
+      'Configurer un assistant métier',
+      'Organiser une bibliothèque de prompts',
+      'Préparer un assistant d’équipe',
+    ],
+    gamme: 'appliquer-metier',
+    theme: 'assistants-automatisation',
+    niveau: 2,
+    niveauLabel: 'Assistants IA',
+    duree: '4 h',
+    horaires: 'demi-journée (à convenir)',
+    effectifMin: 6,
+    effectifMax: 12,
+    prixHT: 0,
+    accroche:
+      'Configurez des assistants adaptés à votre poste. Réutilisez vos consignes, vos modèles et vos documents pour vos tâches récurrentes — ChatGPT, Gemini et Claude.',
+    objectifs: [
+      'Configurer des assistants adaptés à son poste',
+      'Comparer les possibilités de ChatGPT, Gemini et Claude',
+      'Organiser une base de connaissances et une bibliothèque de prompts',
+      'Tester les réponses et améliorer les instructions',
+      'Préparer un assistant transverse pour les besoins de l’équipe',
+    ],
+    public:
+      'Dirigeants, conducteurs de travaux, chargés d’affaires, équipes administratives, commerciales et fonctions support du BTP',
+    casUsage: 'GPTs, Gems, projets Claude — assistants métier et d’équipe',
+    /** PDF corrigé à fournir — ne pas exposer de téléchargement tant que vide. */
+    pdfProgramme: '',
+    programmeVersion: 'Version 1',
+    programmeUpdatedAt: '08/09/2026',
+    image: '/images/formation-sensibilisation-assistants-ia-btp.png',
+  },
 ] as const;
 
 export type FormationCode = (typeof FORMATIONS)[number]['code'];
@@ -363,8 +405,8 @@ export type FormationSlug = (typeof FORMATIONS)[number]['slug'];
 
 export const FORMATIONS_COUNT = FORMATIONS.length;
 
-/** Plage de numérotation catalogue — 8 formations (NIV-01 … NIV-08). */
-export const CATALOGUE_NIV_RANGE = 'NIV-01 à NIV-08' as const;
+/** Plage de numérotation catalogue — NIV-01 … NIV-09. */
+export const CATALOGUE_NIV_RANGE = 'NIV-01 à NIV-09' as const;
 
 export function getFormationByCode(code: string): Formation | undefined {
   return FORMATIONS.find((f) => f.code === code);
@@ -403,7 +445,12 @@ export function formatPrixHt(amount: number): string {
   return new Intl.NumberFormat('fr-FR').format(amount);
 }
 
+export function isFormationSurDevis(f: Pick<Formation, 'prixHT'>): boolean {
+  return f.prixHT <= 0;
+}
+
 export function libellePrixSessionHt(f: Pick<Formation, 'prixHT'>): string {
+  if (isFormationSurDevis(f)) return 'Sur devis';
   return `${formatPrixHt(f.prixHT)} € HT par session (intra-entreprise)`;
 }
 

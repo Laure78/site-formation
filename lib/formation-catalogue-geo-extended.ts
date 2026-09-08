@@ -1,9 +1,9 @@
 /**
- * Sections GEO explicites — fiches catalogue NIV-01 à NIV-08.
+ * Sections GEO explicites — fiches catalogue.
  * Réponses factuelles pour moteurs IA ; alignées sur le contenu visible.
  */
 import type { FormationCatalogueCode } from '@/lib/formation-catalogue-visibility';
-import { getFormationByCode, libelleDureeFormation } from '@/data/formations';
+import { getFormationByCode, isFormationSurDevis, libelleDureeFormation } from '@/data/formations';
 import { LINKS } from '@/lib/internal-links';
 import { MODALITE_PEDAGOGIQUE_CATALOGUE } from '@/lib/infos-pratiques-catalogue';
 import { getFormationCatalogueByRef } from '@/lib/formations-catalogue-display';
@@ -244,6 +244,37 @@ export const FORMATION_CATALOGUE_GEO_EXTENDED: Record<
       { href: LINKS.formationMaitriserClaudeAiBtp, label: 'Maîtriser Claude pour le BTP' },
     ],
   },
+  'NIV-09': {
+    queApprendre:
+      'Configurer des assistants IA adaptés à son poste, comparer ChatGPT, Gemini et Claude, organiser une bibliothèque de prompts et préparer un assistant transverse pour l’équipe — sans créer d’application métier.',
+    documentsBtp: [
+      'Comptes rendus de chantier',
+      'Pièces de DCE (RC, CCTP)',
+      'Modèles de mémoire technique',
+      'Courriers, devis et documents internes',
+    ],
+    outilsIa: ['ChatGPT (GPTs)', 'Gemini (Gems)', 'Claude (projets)'],
+    dureeReponse: '',
+    livrables: [
+      'Au moins deux assistants personnalisés adaptés au poste',
+      'Un assistant transverse, partageable selon l’outil et l’abonnement',
+      'Une bibliothèque de prompts organisée par thème',
+      'Supports pédagogiques via l’espace de formation',
+      'Attestation individuelle de formation',
+    ],
+    debutants:
+      'Non — bases de l’IA requises. Avoir suivi la formation Fondamentaux IA BTP ou utiliser régulièrement un outil d’IA générative.',
+    propresDossiers:
+      'Oui — documents métier anonymisés si besoin (RC, CCTP, fiches techniques, modèles internes). Vérification humaine des réponses obligatoire.',
+    iaRemplacePro: COMMON_IA_NON,
+    deroulement: `${MODALITE_PEDAGOGIQUE_CATALOGUE}. 80 % pratique — deux modules de 2 heures (assistants métier puis assistant d’équipe).`,
+    clusterMaillage: [
+      ...CLUSTER_BASE,
+      { href: LINKS.formationIaBtpNiveau1BatimentTp, label: 'Formation Fondamentaux IA BTP' },
+      { href: LINKS.formationAO, label: 'Formation IA appels d’offres BTP' },
+      { href: LINKS.formationConduiteTravauxSuiviChantier, label: 'Formation IA conduite de travaux' },
+    ],
+  },
 };
 
 /** Injecte la durée depuis `data/formations.ts`. */
@@ -255,8 +286,11 @@ export function getFormationCatalogueGeoExtended(
   const entry = getFormationCatalogueByRef(ref);
   const duree = libelleDureeFormation(formation);
   const effectif = entry?.effectif ?? '';
+  const tarifMention = isFormationSurDevis(formation)
+    ? 'Tarif sur devis — financement OPCO selon éligibilité.'
+    : 'Tarif au forfait session — financement OPCO selon éligibilité.';
   return {
     ...base,
-    dureeReponse: `${duree} en présentiel intra-entreprise (${effectif}). Tarif au forfait session — financement OPCO selon éligibilité.`,
+    dureeReponse: `${duree} en présentiel intra-entreprise (${effectif}). ${tarifMention}`,
   };
 }

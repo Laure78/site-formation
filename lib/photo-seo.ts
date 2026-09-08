@@ -46,6 +46,7 @@ const CATALOGUE_VISUEL_BY_REF: Record<string, SitePhotoAsset> = {
   'NIV-06': PHOTOS.formationNiv06CursorBtp2026,
   'NIV-07': PHOTOS.formationNiv07ApplicationConnectee2026,
   'NIV-08': PHOTOS.formationNiv08ApplicationAvancee2026,
+  'NIV-09': PHOTOS.formationNiv09AssistantsIaPersonnalisesBtp2026,
 };
 
 export function getFormationCatalogueImageObjectJsonLd(

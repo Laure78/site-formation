@@ -6,7 +6,16 @@ import { FORMATIONS, CATALOGUE_NIV_RANGE, type Formation } from '@/data/formatio
 import { LINKS } from '@/lib/internal-links';
 import { clampMetaDescription } from '@/lib/meta-description';
 
-export type FormationCatalogueCode = 'NIV-01' | 'NIV-02' | 'NIV-03' | 'NIV-04' | 'NIV-05' | 'NIV-06' | 'NIV-07' | 'NIV-08';
+export type FormationCatalogueCode =
+  | 'NIV-01'
+  | 'NIV-02'
+  | 'NIV-03'
+  | 'NIV-04'
+  | 'NIV-05'
+  | 'NIV-06'
+  | 'NIV-07'
+  | 'NIV-08'
+  | 'NIV-09';
 
 /** Date de première publication (YYYY-MM-DD, inclusive, fuseau Europe/Paris). */
 export const FORMATION_CATALOGUE_PUBLISH_FROM: Partial<

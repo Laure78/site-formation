@@ -38,6 +38,7 @@ const PROFILE_ICONS = {
   'NIV-06': Code2,
   'NIV-07': Code2,
   'NIV-08': Code2,
+  'NIV-09': Cpu,
 } as const;
 
 function buildProfiles(formations: FormationCatalogueEntry[]) {

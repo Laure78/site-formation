@@ -1,9 +1,9 @@
 /**
- * Données « Informations pratiques » — 8 parcours catalogue (Indicateur 1 Qualiopi).
+ * Données « Informations pratiques » — parcours catalogue (Indicateur 1 Qualiopi).
  * Source : `data/formations.ts`, `config/qualiopi.ts`, programmes des fiches catalogue.
  */
 
-import { getFormationByCode, type FormationCode } from '@/data/formations';
+import { getFormationByCode, isFormationSurDevis, type FormationCode } from '@/data/formations';
 import {
   QUALIOPI_DELAI_ACCES_EXACT,
   QUALIOPI_MODALITES_ACCES_EXACT,
@@ -18,6 +18,7 @@ import type { InfosPratiquesFormation } from '@/lib/infos-pratiques-types';
 import { assertInfosPratiquesCompletes } from '@/lib/assert-infos-pratiques';
 import { libelleTarifsCarteCatalogue, parseDureeHeures, MENTIONS_TVA_INTRA_COURTE, PREREQUIS_NIVEAU_2 } from '@/lib/tarifs-sessions';
 import { libelleTarifApplicationMetierBtp } from '@/lib/tarifs-applications-metier-btp';
+import { LINKS } from '@/lib/internal-links';
 
 /** Modalité pédagogique fixe — toutes les actions catalogue OFC. */
 export const MODALITE_PEDAGOGIQUE_CATALOGUE =
@@ -91,6 +92,10 @@ export const PROGRAMME_CONTENU_CATALOGUE: Record<FormationCode, readonly string[
     'Module 5 — Automatiser un processus complet (1 h)',
     'Module 6 — Fiabiliser et sécuriser (1 h)',
     'Module 7 — Déployer et maintenir (30 min)',
+  ],
+  'NIV-09': [
+    'Module 1 — Créer ses assistants IA métier (2 h)',
+    'Module 2 — Préparer un assistant d’équipe et organiser ses ressources (2 h)',
   ],
 };
 
@@ -200,6 +205,27 @@ export const DELAI_ACCES_NIV06 = DELAI_ACCES_NIV04;
 export const PREREQUIS_NIV05 =
   "Aisance avec les outils numériques courants — aucun prérequis IA. Abonnements Claude Pro et ChatGPT Plus actifs sur le poste de chaque participant (environ 18 à 20 € HT / mois chacun, à la charge de l'entreprise). Chaque participant apporte ses dossiers techniques, OS, CR et DCE réels.";
 
+/** Prérequis NIV-09 — assistants IA (lien initiation via URL interne). */
+export const PREREQUIS_NIV09 =
+  `Avoir suivi la formation Fondamentaux IA BTP ou utiliser régulièrement un outil d’IA générative. Voir la formation d’initiation : ${LINKS.formationIaBtpNiveau1BatimentTp}. Ordinateur portable et accès personnel aux outils utilisés pendant les ateliers. Les comptes et abonnements nécessaires sont précisés selon les outils retenus, avant validation du devis — hors tarif de formation.`;
+
+export const DELAI_ACCES_NIV09 =
+  'Inscription jusqu’à 7 jours avant la session, selon les disponibilités.';
+
+export const MODALITE_PEDAGOGIQUE_NIV09 =
+  'Présentiel uniquement en Île-de-France — en entreprise ou dans une salle adaptée. Intra ou interentreprises. Groupe de 6 à 12 participants. 80 % de pratique / 20 % de théorie.';
+
+export const MODALITES_ACCES_NIV09 =
+  'Formation collective en intra ou interentreprises. Pour une seule personne : inscription possible à une session collective interentreprises. Aucun accompagnement individuel n’est proposé.';
+
+const EVALUATION_NIV09 = [
+  'Positionnement initial en début de formation',
+  'Évaluation pendant les exercices (formative)',
+  'QCM de fin de formation',
+  'Questionnaire de satisfaction',
+  'Attestation individuelle de formation',
+] as const;
+
 export const MODALITE_PEDAGOGIQUE_NIV05 =
   'Action de formation au sens de l\'art. L6313-1 du Code du travail — 100 % présentiel — alternance théorie courte / ateliers pratiques sur cas réels MOE — 70 % pratique / 30 % théorie';
 
@@ -278,11 +304,15 @@ function prerequisPourRef(ref: FormationCode): string {
   if (ref === 'NIV-06') return PREREQUIS_NIV06;
   if (ref === 'NIV-07') return PREREQUIS_NIV07;
   if (ref === 'NIV-08') return PREREQUIS_NIV08;
+  if (ref === 'NIV-09') return PREREQUIS_NIV09;
   return PREREQUIS_NIVEAU_2.join(' ');
 }
 
 function tarifPourRef(ref: FormationCode): string {
   const formation = getFormationByCode(ref);
+  if (formation && isFormationSurDevis(formation)) {
+    return `Sur devis (intra et inter). ${MENTIONS_TVA_INTRA_COURTE}`;
+  }
   if (formation?.tarifParcoursAppMetier) {
     return `${libelleTarifApplicationMetierBtp(formation.tarifParcoursAppMetier)} ${MENTIONS_TVA_INTRA_COURTE}`;
   }
@@ -328,12 +358,14 @@ export function getInfosPratiquesForCatalogue(ref: string): InfosPratiquesFormat
                 ? MODALITES_ACCES_NIV07
                 : code === 'NIV-08'
                   ? MODALITES_ACCES_NIV08
+                  : code === 'NIV-09'
+                    ? MODALITES_ACCES_NIV09
             : code === 'NIV-05'
               ? MODALITES_ACCES_NIV05
               : stripLabelPrefix(QUALIOPI_MODALITES_ACCES_EXACT, /^Modalités d'accès\s*:\s*/i)
     ),
     delaiAcces: sanitizeInfosPratiquesText(
-      code === 'NIV-01' || code === 'NIV-02' || code === 'NIV-03' || code === 'NIV-04' || code === 'NIV-05' || code === 'NIV-06' || code === 'NIV-07' || code === 'NIV-08'
+      code === 'NIV-01' || code === 'NIV-02' || code === 'NIV-03' || code === 'NIV-04' || code === 'NIV-05' || code === 'NIV-06' || code === 'NIV-07' || code === 'NIV-08' || code === 'NIV-09'
         ? code === 'NIV-02'
           ? DELAI_ACCES_NIV02
           : code === 'NIV-03'
@@ -346,6 +378,8 @@ export function getInfosPratiquesForCatalogue(ref: string): InfosPratiquesFormat
                   ? DELAI_ACCES_NIV07
                   : code === 'NIV-08'
                     ? DELAI_ACCES_NIV08
+                    : code === 'NIV-09'
+                      ? DELAI_ACCES_NIV09
               : code === 'NIV-05'
                 ? DELAI_ACCES_NIV05
                 : DELAI_ACCES_NIV01
@@ -368,6 +402,8 @@ export function getInfosPratiquesForCatalogue(ref: string): InfosPratiquesFormat
                   ? [...EVALUATION_NIV07]
                   : code === 'NIV-08'
                     ? [...EVALUATION_NIV08]
+                    : code === 'NIV-09'
+                      ? [...EVALUATION_NIV09]
               : code === 'NIV-05'
                 ? [...EVALUATION_NIV05]
                 : [...QUALIOPI_EVALUATION_STANDARD],
@@ -384,6 +420,8 @@ export function getInfosPratiquesForCatalogue(ref: string): InfosPratiquesFormat
                 ? MODALITE_PEDAGOGIQUE_NIV07
                 : code === 'NIV-08'
                   ? MODALITE_PEDAGOGIQUE_NIV08
+                  : code === 'NIV-09'
+                    ? MODALITE_PEDAGOGIQUE_NIV09
             : code === 'NIV-05'
               ? MODALITE_PEDAGOGIQUE_NIV05
               : MODALITE_PEDAGOGIQUE_CATALOGUE,
@@ -412,6 +450,8 @@ export function getFormationOutilsAbonnementsAvantDevis(ref: string): string {
     case 'NIV-07':
     case 'NIV-08':
       return 'Outils : ordinateur portable avec connexion internet. Aucun abonnement IA payant obligatoire indiqué au programme — les éventuels abonnements restent hors forfait.';
+    case 'NIV-09':
+      return 'ChatGPT (GPTs), Gemini (Gems) et Claude (projets) selon les ateliers retenus. Les conditions de création et de partage diffèrent selon les plateformes et les abonnements. Les abonnements éventuels ne sont pas inclus dans le tarif. Les comptes et abonnements nécessaires sont précisés selon les outils retenus, avant validation du devis.';
     default:
       return 'Les éventuels abonnements payants aux outils d’intelligence artificielle ne sont pas inclus dans le tarif, sauf mention contraire dans le devis.';
   }
