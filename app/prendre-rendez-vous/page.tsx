@@ -10,17 +10,15 @@ import { BUSINESS_DELIVERY } from '@/lib/business-delivery';
 import { createPageMetadata, getFAQSchema } from '@/lib/seo';
 import { SCHEMA_PUBLIC_SITE_URL } from '@/lib/schema-constants';
 import { OFC_SEC, OFC_SECTION_INNER } from '@/lib/ofc-section-classes';
-import { OFC_CTA_PRIMARY, OFC_CTA_SECONDARY, OFC_LINK } from '@/lib/ofc-interaction-classes';
+import { OFC_LINK } from '@/lib/ofc-interaction-classes';
 import {
   FAQ_PRENDRE_RDV_PAGE,
   PRENDRE_RDV_APRES,
   PRENDRE_RDV_AUDIENCE_CARDS,
   PRENDRE_RDV_AUDIENCE_TITLE,
-  PRENDRE_RDV_CALENDLY_SECTION_SUBTITLE,
   PRENDRE_RDV_CALENDLY_SECTION_TITLE,
   PRENDRE_RDV_CONTACT_HREF,
   PRENDRE_RDV_CTA_NATIVE,
-  PRENDRE_RDV_CTA_PRIMARY,
   PRENDRE_RDV_CTA_SECONDARY,
   PRENDRE_RDV_DEVIS_FORMULATION,
   PRENDRE_RDV_EMAIL,
@@ -39,7 +37,6 @@ import {
   PRENDRE_RDV_PROOFS,
   PRENDRE_RDV_REASSURANCE,
   PRENDRE_RDV_SUBTITLE,
-  PRENDRE_RDV_USE_CASES_LINE,
 } from '@/lib/prendre-rendez-vous-page-config';
 import { getPillarPageContentUpdatedAt } from '@/lib/content-updated-at';
 
@@ -124,37 +121,36 @@ export default function PrendreRendezVousPage() {
     <main className="min-h-[80vh] pb-20 md:pb-0">
       <JsonLd id="schema-prendre-rendez-vous" data={pageGraph} />
 
-      {/* ——— Hero compact ——— */}
-      <header className={OFC_SEC.whiteMesh}>
-        <div className={`${OFC_SECTION_INNER} max-w-2xl pb-10 pt-10 md:pb-14 md:pt-14`}>
-          <h1 className="font-display text-[1.75rem] font-bold leading-tight tracking-tight text-slate-900 sm:text-4xl">
+      {/* ——— Haut de page : intro courte + agenda Calendly ——— */}
+      <header
+        id={PRENDRE_RDV_FORM_ANCHOR}
+        className={`${OFC_SEC.whiteMesh} scroll-mt-24`}
+        aria-labelledby="rdv-calendly-heading"
+      >
+        <div className={`${OFC_SECTION_INNER} max-w-4xl pb-10 pt-8 md:pb-12 md:pt-10`}>
+          <h1
+            id="rdv-calendly-heading"
+            className="font-display text-[1.75rem] font-bold leading-tight tracking-tight text-slate-900 sm:text-4xl"
+          >
             {PRENDRE_RDV_H1}
           </h1>
-          <p className="mt-3 max-w-xl text-base leading-snug text-slate-600 sm:text-lg">
+          <p className="mt-3 max-w-2xl text-base leading-snug text-slate-600 sm:text-lg">
             {PRENDRE_RDV_SUBTITLE}
           </p>
-          <p className="mt-3 text-sm font-medium text-slate-700">{PRENDRE_RDV_USE_CASES_LINE}</p>
-          <p className="mt-3 text-sm font-semibold text-slate-800">{BUSINESS_DELIVERY.compact}</p>
+          <p className="mt-2 text-sm font-medium text-slate-600">{PRENDRE_RDV_REASSURANCE}</p>
+          <p className="mt-1 text-sm font-semibold text-slate-800">{BUSINESS_DELIVERY.compact}</p>
 
-          <p className="mt-4 text-sm font-medium text-slate-600">{PRENDRE_RDV_REASSURANCE}</p>
-
-          <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center">
-            <a
-              href={`#${PRENDRE_RDV_FORM_ANCHOR}`}
-              className={`${OFC_CTA_PRIMARY} inline-flex min-h-12 w-full items-center justify-center px-6 sm:w-auto`}
-              data-cta-position="hero"
-            >
-              {PRENDRE_RDV_CTA_PRIMARY}
-            </a>
-            <Link
-              href={PRENDRE_RDV_FORMATIONS_HREF}
-              className={`${OFC_CTA_SECONDARY} inline-flex min-h-12 w-full items-center justify-center px-6 sm:w-auto`}
-            >
-              {PRENDRE_RDV_CTA_SECONDARY}
-            </Link>
+          <div className="mt-6">
+            <h2 className="sr-only">{PRENDRE_RDV_CALENDLY_SECTION_TITLE}</h2>
+            <PrendreRdvAgenda />
           </div>
 
-          {/* Preuves — 3 max, CSS only */}
+          <p className="mt-4 text-center text-sm text-slate-600">
+            <Link href={PRENDRE_RDV_FORMATIONS_HREF} className={OFC_LINK}>
+              {PRENDRE_RDV_CTA_SECONDARY}
+            </Link>
+          </p>
+
           <ul className="mt-8 flex flex-col gap-2 border-t border-slate-200 pt-6 text-sm text-slate-600 sm:flex-row sm:flex-wrap sm:gap-x-6 sm:gap-y-2">
             {PRENDRE_RDV_PROOFS.map((item) => (
               <li key={item} className="flex items-start gap-2">
@@ -163,28 +159,10 @@ export default function PrendreRendezVousPage() {
               </li>
             ))}
           </ul>
+
+          <TrainingDeliveryInfo showBody className="mt-8" />
         </div>
       </header>
-
-      {/* ——— Agenda Calendly intégré (affiché directement) ——— */}
-      <section
-        id={PRENDRE_RDV_FORM_ANCHOR}
-        className="scroll-mt-24 border-t border-slate-100 bg-[#F8FAFC]"
-        aria-labelledby="rdv-calendly"
-      >
-        <div className={`${OFC_SECTION_INNER} max-w-4xl py-10 md:py-14`}>
-          <TrainingDeliveryInfo showBody className="mb-6" />
-          <h2 id="rdv-calendly" className="font-display text-xl font-bold text-slate-900 md:text-2xl">
-            {PRENDRE_RDV_CALENDLY_SECTION_TITLE}
-          </h2>
-          <p className="mt-2 max-w-prose text-sm text-slate-600">
-            {PRENDRE_RDV_CALENDLY_SECTION_SUBTITLE}
-          </p>
-          <div className="mt-6">
-            <PrendreRdvAgenda />
-          </div>
-        </div>
-      </section>
 
       {/* ——— À qui ——— */}
       <section className="border-t border-slate-100 bg-[#F2F2F2]" aria-labelledby="rdv-audience">
