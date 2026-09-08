@@ -105,6 +105,10 @@ const TUTO_DISPATCH: MaillageLink = {
   href: LINKS.tutoDispatchBtp,
   label: 'Tuto PDF — Dispatch BTP (terrain → bureau)',
 };
+const TUTO_SKILL_PIC: MaillageLink = {
+  href: LINKS.tutoSkillPic,
+  label: 'Tuto — skill Claude pour préparer un PIC',
+};
 
 /**
  * Config par chemin canonique (`/ressources/...`).
@@ -166,7 +170,7 @@ export const MAILLAGE_RESSOURCES_BY_PATH: Readonly<Record<string, MaillageRessou
     pilier: PILIER_CDT,
     soeurs: [
       TUTO_DOE,
-      TUTO_PV,
+      TUTO_SKILL_PIC,
       {
         href: LINKS.etudesCasCrVocalChantier,
         label: 'Étude de cas — compte rendu vocal de chantier',
@@ -175,11 +179,21 @@ export const MAILLAGE_RESSOURCES_BY_PATH: Readonly<Record<string, MaillageRessou
   },
   [LINKS.tutoDoeDossierOuvragesExecutes]: {
     pilier: PILIER_CDT,
-    soeurs: [TUTO_DIUO, TUTO_PV],
+    soeurs: [TUTO_DIUO, TUTO_SKILL_PIC],
   },
   [LINKS.tutoSkillDiuoOfc]: {
     pilier: PILIER_CDT,
-    soeurs: [TUTO_DOE, TUTO_PPSPS],
+    soeurs: [TUTO_DOE, TUTO_SKILL_PIC],
+  },
+  [LINKS.tutoSkillPic]: {
+    pilier: PILIER_CDT,
+    soeurs: [TUTO_CR, TUTO_DOE],
+    blog: [
+      {
+        href: LINKS.blogGuideSkillIaConducteurTravaux,
+        label: 'Article — guide skill IA conducteur de travaux',
+      },
+    ],
   },
   [LINKS.tutoPvLeveeReserves]: {
     pilier: PILIER_CDT,

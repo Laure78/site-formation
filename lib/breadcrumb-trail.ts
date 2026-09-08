@@ -60,6 +60,7 @@ const RESSOURCES_TITLES: Record<string, string> = {
   '/ressources/guide-charge-affaires-ofc': 'Guide chargé d’affaires BTP × IA — 12 cas Claude',
   '/ressources/guide-repondre-ao-btp-ofc-2026':
     'Répondre AO BTP — méthode en 5 étapes (éd. 2026)',
+  '/ressources/tuto-skill-pic': 'Skill PIC',
   ...Object.fromEntries(TUTOS.map((t) => [`/ressources/${t.slug}`, t.shortTitle])),
 };
 

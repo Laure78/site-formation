@@ -464,6 +464,29 @@ function buildSpecialEntries(): RessourceCatalogEntry[] {
       status: 'actif',
       safetyLevel: 'general',
     },
+    {
+      id: 'tuto-skill-pic',
+      title: 'Créer un skill Claude pour préparer un PIC',
+      shortDescription:
+        'Tutoriel : créer un skill Claude pour organiser les infos chantier, préparer une trame PIC et repérer les points à vérifier — validation professionnelle requise.',
+      resourceType: 'tutoriel',
+      format: 'Page web',
+      topic: 'Chantier et livrables',
+      needs: ['chantier', 'ia-assistants'],
+      audiences: ['conducteur-travaux', 'chef-chantier', 'assistant-travaux'],
+      useCases: ['Préparer un PIC', 'Créer un skill Claude', 'Checklist infos chantier'],
+      isFree: true,
+      requiresRegistration: false,
+      viewUrl: LINKS.tutoSkillPic,
+      featured: false,
+      external: false,
+      sortOrder: 95,
+      primaryAction: primaryActionForType('tutoriel'),
+      status: 'actif',
+      safetyLevel: 'verification_professionnelle',
+      publishedAt: '2026-09-08',
+      updatedAt: '2026-09-08',
+    },
   ];
 }
 
@@ -513,7 +536,7 @@ export function getRessourcesCounts() {
   return {
     total: catalog.length,
     guides: catalog.filter((r) => r.resourceType === 'guide').length,
-    tutoriels: TUTOS.length,
+    tutoriels: catalog.filter((r) => r.resourceType === 'tutoriel').length,
     skills: BIBLIOTHEQUE_SKILLS_COUNT,
     skillsBework: BIBLIOTHEQUE_BEWORK_COUNT,
     lexiqueTermes: RESSOURCES_LEXIQUE.termCount,

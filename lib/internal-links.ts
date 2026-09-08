@@ -327,6 +327,8 @@ export const LINKS = {
   tutoSkillMetreExcelOfc: '/ressources/tuto-skill-metre-excel-ofc',
   /** PDF — tuto skill métré Excel OFC */
   pdfTutoSkillMetreExcelOfc: '/ressources/pdf/tuto-skill-metre-excel-ofc.pdf',
+  /** Tuto web — skill Claude pour préparer un PIC (sans PDF) */
+  tutoSkillPic: '/ressources/tuto-skill-pic',
   tutoPvLeveeReserves: '/ressources/tuto-pv-levee-reserves',
 
   /** AO BTP — landing SEO cluster (fiche catalogue : `formationAO`) */

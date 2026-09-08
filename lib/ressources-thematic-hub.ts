@@ -69,6 +69,7 @@ export const RESSOURCES_THEMATIC_BLOCKS: readonly RessourceThematicBlock[] = [
     tutos: [
       { label: 'Lexique BTP — parcours « Sur le chantier au quotidien »', href: BEWORK_APP_PATHS.lexique },
       { label: 'Tuto — compte rendu de chantier', href: LINKS.tutoCrChantier },
+      { label: 'Tuto — skill Claude pour préparer un PIC', href: LINKS.tutoSkillPic },
       { label: 'Tuto — dossier DOE', href: LINKS.tutoDoeDossierOuvragesExecutes },
       { label: 'Tuto — pièces DIUO pour le SPS', href: LINKS.tutoSkillDiuoOfc },
       { label: 'Tuto — PV levée de réserves', href: LINKS.tutoPvLeveeReserves },
