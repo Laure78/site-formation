@@ -101,14 +101,20 @@ export function InfosPratiques({
 
         <DlItem term={labels.contenu}>
           <ListItems items={contenu} />
-          <p className="mt-3">
-            <Link
-              href={programmePdfUrl}
-              className="font-medium text-[#377CF3] underline-offset-2 hover:underline"
-            >
-              Télécharger le programme officiel (PDF)
-            </Link>
-          </p>
+          {programmePdfUrl ? (
+            <p className="mt-3">
+              <Link
+                href={programmePdfUrl}
+                className="font-medium text-[#377CF3] underline-offset-2 hover:underline"
+              >
+                Télécharger le programme officiel (PDF)
+              </Link>
+            </p>
+          ) : (
+            <p className="mt-3 text-slate-600">
+              Le programme PDF officiel sera disponible prochainement. Demandez-le avec votre devis.
+            </p>
+          )}
         </DlItem>
 
         <DlItem term={labels.duree}>

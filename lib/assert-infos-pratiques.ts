@@ -35,7 +35,9 @@ export function assertInfosPratiquesCompletes(
   const prerequis = nonEmptyText(props.prerequis, 'Prérequis');
   const objectifs = nonEmptyList(props.objectifs, 'Objectifs');
   const contenu = nonEmptyList(props.contenu, 'Contenu de la formation');
-  const programmePdfUrl = nonEmptyText(props.programmePdfUrl, 'programme PDF');
+  /** PDF optionnel : chaîne vide autorisée tant qu’aucun programme corrigé n’est publié. */
+  const programmePdfUrl =
+    typeof props.programmePdfUrl === 'string' ? props.programmePdfUrl.trim() : '';
   const duree = nonEmptyText(props.duree, 'Durée');
   const modalitesAcces = nonEmptyText(props.modalitesAcces, "Modalités d'accès");
   const delaiAcces = nonEmptyText(props.delaiAcces, "Délais d'accès");

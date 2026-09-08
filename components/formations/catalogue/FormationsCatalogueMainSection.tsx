@@ -63,8 +63,8 @@ export function FormationsCatalogueMainSection({ formations, besoinOptions }: Pr
         </h2>
         <p className="mt-3 max-w-2xl text-sm leading-relaxed text-slate-600 md:text-base">
           Formations du parcours Usages IA BTP (niveaux et prérequis propres à chaque fiche) : devis,
-          appels d&apos;offres, chantier, maîtrise d&apos;œuvre et Claude. Distinct du parcours Création
-          d&apos;applications BTP.
+          appels d&apos;offres, chantier, maîtrise d&apos;œuvre, Claude et assistants IA. Distinct du
+          parcours Création d&apos;applications BTP.
         </p>
 
         <div className="mt-8 grid gap-6 lg:grid-cols-2">

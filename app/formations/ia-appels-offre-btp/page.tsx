@@ -358,6 +358,10 @@ export default function FormationIAAppelsOffreBTPPage() {
             <Link href={LINKS.formationIaBtpNiveau1BatimentTp} className={OFC_LINK}>
               formation IA BTP niveau 1
             </Link>
+            . Pour créer des assistants réutilisables sur DCE et mémoire :{' '}
+            <Link href={LINKS.formationAssistantsIaPersonnalisesBtp} className={OFC_LINK}>
+              formation assistants IA personnalisés BTP
+            </Link>
             . Pour le cadre marchés publics :{' '}
             <Link href={LINKS.formationIaMarchePublicTravaux} className={OFC_LINK}>
               formation IA marché public de travaux

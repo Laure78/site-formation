@@ -269,10 +269,10 @@ export const FORMATION_CATALOGUE_GEO_EXTENDED: Record<
     iaRemplacePro: COMMON_IA_NON,
     deroulement: `${MODALITE_PEDAGOGIQUE_CATALOGUE}. 80 % pratique — deux modules de 2 heures (assistants métier puis assistant d’équipe).`,
     clusterMaillage: [
-      ...CLUSTER_BASE,
-      { href: LINKS.formationIaBtpNiveau1BatimentTp, label: 'Formation Fondamentaux IA BTP' },
-      { href: LINKS.formationAO, label: 'Formation IA appels d’offres BTP' },
-      { href: LINKS.formationConduiteTravauxSuiviChantier, label: 'Formation IA conduite de travaux' },
+      { href: LINKS.claudeAiBtp, label: 'Guide Claude AI pour le BTP' },
+      { href: LINKS.formationMaitriserClaudeAiBtp, label: 'Formation Maîtriser Claude pour le BTP' },
+      { href: LINKS.formationChatgptBtp, label: 'Formation ChatGPT BTP' },
+      { href: LINKS.avisClients, label: 'Avis clients formation IA BTP' },
     ],
   },
 };

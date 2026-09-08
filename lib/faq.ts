@@ -595,7 +595,7 @@ export const FAQ_IA_BTP_PARIS: FAQItem[] = [
 export const FAQ_ASSISTANTS_IA_NIV09: FAQItem[] = [
   {
     q: 'Faut-il déjà savoir utiliser l’IA ?',
-    a: `Oui. Bases de l’IA requises. Avoir suivi la <a href="${LINKS.formationIaBtpNiveau1BatimentTp}">formation Fondamentaux IA BTP</a> ou utiliser régulièrement un outil d’IA générative.`,
+    a: 'Oui. Bases de l’IA requises. Avoir suivi la formation Fondamentaux IA BTP ou utiliser régulièrement un outil d’IA générative.',
   },
   {
     q: 'Quels outils sont abordés ?',
@@ -615,7 +615,7 @@ export const FAQ_ASSISTANTS_IA_NIV09: FAQItem[] = [
   },
   {
     q: 'Cette formation apprend-elle à créer une application ?',
-    a: `Non. Elle appartient au parcours Usages IA BTP : configurer des assistants pour ses tâches métier. Pour concevoir une application métier, voir le <a href="${LINKS.parcoursApplicationsMetierBtp}">parcours Création d’applications BTP</a>.`,
+    a: 'Non. Elle appartient au parcours Usages IA BTP : configurer des assistants pour ses tâches métier. Le parcours Création d’applications BTP est distinct.',
   },
   {
     q: 'Peut-on s’inscrire seul ?',

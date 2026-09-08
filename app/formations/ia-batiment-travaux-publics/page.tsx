@@ -283,6 +283,10 @@ export default function FormationIAuServiceDuBatimentPage() {
             <Link href={LINKS.formationAO} className={OFC_LINK}>
               formation IA appels d&apos;offres BTP
             </Link>
+            . Pour configurer des assistants réutilisables après les bases, voir la{' '}
+            <Link href={LINKS.formationAssistantsIaPersonnalisesBtp} className={OFC_LINK}>
+              formation assistants IA personnalisés pour le BTP
+            </Link>
             .
           </p>
         </div>

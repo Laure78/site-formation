@@ -18,7 +18,6 @@ import type { InfosPratiquesFormation } from '@/lib/infos-pratiques-types';
 import { assertInfosPratiquesCompletes } from '@/lib/assert-infos-pratiques';
 import { libelleTarifsCarteCatalogue, parseDureeHeures, MENTIONS_TVA_INTRA_COURTE, PREREQUIS_NIVEAU_2 } from '@/lib/tarifs-sessions';
 import { libelleTarifApplicationMetierBtp } from '@/lib/tarifs-applications-metier-btp';
-import { LINKS } from '@/lib/internal-links';
 
 /** Modalité pédagogique fixe — toutes les actions catalogue OFC. */
 export const MODALITE_PEDAGOGIQUE_CATALOGUE =
@@ -207,7 +206,7 @@ export const PREREQUIS_NIV05 =
 
 /** Prérequis NIV-09 — assistants IA (lien initiation via URL interne). */
 export const PREREQUIS_NIV09 =
-  `Avoir suivi la formation Fondamentaux IA BTP ou utiliser régulièrement un outil d’IA générative. Voir la formation d’initiation : ${LINKS.formationIaBtpNiveau1BatimentTp}. Ordinateur portable et accès personnel aux outils utilisés pendant les ateliers. Les comptes et abonnements nécessaires sont précisés selon les outils retenus, avant validation du devis — hors tarif de formation.`;
+  'Avoir suivi la formation Fondamentaux IA BTP (fiche catalogue niveau 1 — bâtiment & travaux publics) ou utiliser régulièrement un outil d’IA générative. Ordinateur portable et accès personnel aux outils utilisés pendant les ateliers. Les comptes et abonnements nécessaires sont précisés selon les outils retenus, avant validation du devis — hors tarif de formation.';
 
 export const DELAI_ACCES_NIV09 =
   'Inscription jusqu’à 7 jours avant la session, selon les disponibilités.';

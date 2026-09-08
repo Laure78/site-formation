@@ -5,8 +5,7 @@ import { FormationHeroPhoto } from '@/components/formations/FormationCourseHero'
 import { FormationCatalogueIndicateur1Suite } from '@/components/formations/FormationCatalogueIndicateur1Suite';
 import { FormationCatalogueGeoSections } from '@/components/formations/FormationCatalogueGeoSections';
 import { FormationHeroOutilsNote } from '@/components/formations/FormationHeroOutilsNote';
-import { CtaRdv, CTA_RDV_LABEL } from '@/components/CtaRdv';
-import { IndicateursResultatsLink } from '@/components/formation/IndicateursResultatsLink';
+import { CtaRdv } from '@/components/CtaRdv';
 import { createPageMetadata, getFAQSchema } from '@/lib/seo';
 import { FAQ_ASSISTANTS_IA_NIV09 } from '@/lib/faq';
 import { FINANCEMENT_FORMULATION_PRUDENTE } from '@/lib/financement-copy';
@@ -15,7 +14,7 @@ import { LINKS } from '@/lib/internal-links';
 import { buildCatalogueCourseAssistantsIaNiv09JsonLd } from '@/lib/schema-catalogue-course-jsonld';
 import { getFormationCatalogueSeo } from '@/lib/formation-catalogue-seo';
 import { getFormationByCode, libelleEffectifFormation } from '@/data/formations';
-import { OFC_CTA_PRIMARY, OFC_CTA_SECONDARY, OFC_LINK } from '@/lib/ofc-interaction-classes';
+import { OFC_CTA_PRIMARY, OFC_LINK } from '@/lib/ofc-interaction-classes';
 import {
   ASSISTANTS_IA_BENEFICES,
   ASSISTANTS_IA_EXEMPLES,
@@ -116,8 +115,8 @@ export default function FormationAssistantsIaPersonnalisesBtpPage() {
               </Link>
               <CtaRdv
                 origin="formation-assistants-ia-niv09-hero"
-                label={CTA_RDV_LABEL}
-                className={`${OFC_CTA_SECONDARY} inline-flex min-h-11 w-full items-center justify-center px-6 py-3 sm:w-auto`}
+                variant="secondary"
+                className="inline-flex min-h-11 w-full items-center justify-center px-6 py-3 sm:w-auto"
               />
             </div>
             <p className="mt-2 text-sm">
@@ -144,7 +143,7 @@ export default function FormationAssistantsIaPersonnalisesBtpPage() {
         </div>
       </section>
 
-      <FormationCatalogueGeoSections catalogueRef="NIV-09" />
+      <FormationCatalogueGeoSections catalogueRef="NIV-09" etudeDeCasHref="" />
 
       <section className="border-b border-slate-200 bg-slate-50 px-4 py-8 md:py-10">
         <div className="mx-auto max-w-3xl">
@@ -325,19 +324,9 @@ export default function FormationAssistantsIaPersonnalisesBtpPage() {
             Prise en charge possible par les OPCO selon éligibilité et accord du financeur.
           </p>
           <FormationHeroOutilsNote catalogueRef="NIV-09" className="mt-5" />
-          <div className="mt-6 flex flex-col gap-3 sm:flex-row">
-            <Link
-              href={DEVIS_HREF}
-              className={`${OFC_CTA_PRIMARY} inline-flex min-h-11 items-center justify-center px-6 py-3`}
-            >
-              Demander un devis
-            </Link>
-            <CtaRdv
-              origin="formation-assistants-ia-niv09-modalites"
-              label={CTA_RDV_LABEL}
-              className={`${OFC_CTA_SECONDARY} inline-flex min-h-11 items-center justify-center px-6 py-3`}
-            />
-          </div>
+          <p className="mt-4 text-base text-slate-700">
+            Pour obtenir un devis ou échanger sur votre projet, utilisez les boutons en tête de page.
+          </p>
         </div>
       </section>
 
@@ -352,35 +341,12 @@ export default function FormationAssistantsIaPersonnalisesBtpPage() {
 
       <section className="border-b border-slate-200 bg-slate-50 px-4 py-8 md:py-10">
         <div className="mx-auto max-w-3xl">
-          <h2 className="font-display text-2xl font-bold text-slate-900">Continuer votre parcours</h2>
-          <ul className="mt-4 space-y-2 text-base">
-            <li>
-              <Link href={LINKS.formationIaBtpNiveau1BatimentTp} className={OFC_LINK}>
-                Formation Fondamentaux IA BTP
-              </Link>
-            </li>
-            <li>
-              <Link href={LINKS.formationAO} className={OFC_LINK}>
-                Formation IA appels d&apos;offres BTP
-              </Link>
-            </li>
-            <li>
-              <Link href={LINKS.formationConduiteTravauxSuiviChantier} className={OFC_LINK}>
-                Formation IA conduite de travaux
-              </Link>
-            </li>
-            <li>
-              <Link href={LINKS.parcoursApplicationsMetierBtp} className={OFC_LINK}>
-                Parcours Création d&apos;applications BTP
-              </Link>
-            </li>
-            <li>
-              <IndicateursResultatsLink />
-            </li>
-          </ul>
-          <p className="mt-6 text-sm text-slate-600">
+          <h2 className="font-display text-2xl font-bold text-slate-900">Contact</h2>
+          <p className="mt-3 text-base text-slate-700">
             Laure Olivié, formatrice IA pour le BTP — ancienne dirigeante d&apos;entreprise de travaux publics,
-            avec 7 ans d&apos;expérience.{' '}
+            avec 7 ans d&apos;expérience.
+          </p>
+          <p className="mt-4 text-sm text-slate-600">
             <a href="mailto:laureolivie@yahoo.fr" className={OFC_LINK}>
               laureolivie@yahoo.fr
             </a>{' '}

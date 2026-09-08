@@ -46,7 +46,7 @@ export type CatalogueGammeSection = {
 };
 
 const QUALIOPI_OFFERS: CatalogueOffer[] = (
-  ['NIV-01', 'NIV-02', 'NIV-03', 'NIV-04', 'NIV-05', 'NIV-06', 'NIV-07', 'NIV-08'] as const
+  ['NIV-01', 'NIV-02', 'NIV-03', 'NIV-04', 'NIV-05', 'NIV-06', 'NIV-07', 'NIV-08', 'NIV-09'] as const
 ).map(
   (code) => {
     const f = getFormationByCode(code)!;
@@ -178,20 +178,6 @@ const COMPLEMENTARY_OFFERS: readonly CatalogueOffer[] = [
     gamme: 'deployer',
     theme: 'strategie-adoption',
     seoIntent: 'formation IA entreprise bâtiment',
-  },
-  {
-    id: 'assistants-metier',
-    title: 'Créer des assistants IA personnalisés pour les métiers du BTP',
-    shortPromise:
-      'Créez des assistants IA adaptés à votre poste et aux tâches récurrentes de votre équipe. Formation pratique de 4 heures en présentiel en Île-de-France.',
-    audience: 'Dirigeants, conducteurs de travaux, chargés d’affaires, équipes admin et support BTP',
-    durationLabel: '4 h',
-    useCases: ['Assistant métier personnalisé', 'Assistant transverse d’équipe', 'Bibliothèque de prompts'],
-    href: LINKS.formationAssistantsIaPersonnalisesBtp,
-    kind: 'landing',
-    gamme: 'appliquer-metier',
-    theme: 'assistants-automatisation',
-    seoIntent: 'formation assistants IA BTP',
   },
   {
     id: 'workflows-automation',
@@ -340,7 +326,7 @@ function buildDeployerGammeThemes(): CatalogueThemeGroup[] {
 export const CATALOGUE_MATURITE_STEPS = [
   { label: 'Découvrir l’IA', href: LINKS.formationIaBtpNiveau1BatimentTp },
   { label: 'Appliquer à son métier', href: LINKS.formations },
-  { label: 'Créer un assistant', href: LINKS.prendreRdv },
+  { label: 'Créer un assistant', href: LINKS.formationAssistantsIaPersonnalisesBtp },
   { label: 'Automatiser un processus', href: LINKS.prendreRdv },
   { label: 'Applications métier BTP', href: LINKS.parcoursApplicationsMetierBtp },
   { label: 'Déployer & gouverner', href: LINKS.formationPmeBtp },

@@ -223,6 +223,13 @@ export default function FormationIaConduiteTravauxSuiviChantierPage() {
             className="font-medium text-[var(--accent)] hover:underline"
           >
             niveau 1
+          </Link>
+          , de la{' '}
+          <Link
+            href={LINKS.formationAssistantsIaPersonnalisesBtp}
+            className="font-medium text-[var(--accent)] hover:underline"
+          >
+            formation assistants IA personnalisés BTP
           </Link>{' '}
           ou du parcours{' '}
           <Link

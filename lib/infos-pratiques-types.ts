@@ -6,6 +6,7 @@ export type InfosPratiquesFormation = {
   prerequis: string;
   objectifs: string[];
   contenu: string[];
+  /** URL du programme PDF — chaîne vide si le PDF corrigé n’est pas encore publié. */
   programmePdfUrl: string;
   duree: string;
   modalitesAcces: string;

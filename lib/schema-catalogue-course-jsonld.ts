@@ -1,5 +1,5 @@
 /**
- * JSON-LD `Course` — catalogue officiel (NIV-01 à NIV-08).
+ * JSON-LD `Course` — catalogue officiel (NIV-01 à NIV-09).
  * Données fixes : `lib/schema-constants.ts`, `lib/internal-links.ts`, `lib/tarifs-sessions.ts`.
  * Objectifs pédagogiques (`teaches`) : source `lib/formations-catalogue-display.ts`.
  */
