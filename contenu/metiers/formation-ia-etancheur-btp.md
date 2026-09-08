@@ -19,7 +19,7 @@
 Formation IA pour Étancheurs BTP — Appels d’Offres, Mémoires Techniques & Comptes Rendus
 
 **Hero :** OFC · Partenariat **CSFE** (étanchéité) · Qualiopi · Constructys  
-**CTA #1 :** Réservez votre visio découverte gratuite
+**CTA #1 :** Échanger sur votre projet de formation
 
 ---
 

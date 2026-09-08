@@ -8,9 +8,9 @@ export type ApplicationMetierStepIndex = 1 | 2 | 3;
 
 export const APPLICATION_METIER_PARCOURS_MOTHER = {
   path: LINKS.parcoursApplicationsMetierBtp,
-  backLabel: '← Voir le parcours complet',
+  backLabel: '← Voir le parcours Création d’applications BTP',
   breadcrumbParcoursLabel: 'Parcours',
-  breadcrumbMotherLabel: 'Applications métier BTP',
+  breadcrumbMotherLabel: 'Création d’applications BTP',
   linkCatalogueLabel: 'Voir le catalogue des formations IA BTP',
 } as const;
 

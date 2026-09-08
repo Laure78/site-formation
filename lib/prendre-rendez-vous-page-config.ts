@@ -24,6 +24,7 @@ export const PRENDRE_RDV_SUBTITLE =
 export const PRENDRE_RDV_USE_CASES_LINE =
   'Devis · Chantiers · Appels d’offres · Administratif · Commercial';
 
+/** CTA principal — ancre vers l’agenda Calendly intégré (#calendly). */
 export const PRENDRE_RDV_CTA_PRIMARY = 'Choisir mon créneau' as const;
 export const PRENDRE_RDV_CTA_SECONDARY = 'Voir les formations' as const;
 export const PRENDRE_RDV_CTA_NATIVE = 'Réserver via le formulaire du site' as const;
@@ -116,7 +117,7 @@ export const PRENDRE_RDV_NATIVE_FORM_ANCHOR = 'agenda-site';
 
 /** GEO discret (bas de page) — Laure, BTP, Guyancourt / IDF. */
 export const PRENDRE_RDV_GEO_NOTE =
-  `Laure Olivié — formatrice IA appliquée au BTP (OFC Création d’Entreprise, Guyancourt, Yvelines). Formations exclusivement en présentiel en Île-de-France, pour des groupes, en intra ou en inter-entreprises. L’échange découverte peut se faire en visioconférence. Satisfaction ${PREUVES.satisfaction}.`;
+  `Laure Olivié — formatrice IA appliquée au BTP (OFC Création d’Entreprise, Guyancourt, Yvelines). Formations exclusivement en présentiel en Île-de-France, en groupe (intra ou interentreprises). Vous pouvez vous inscrire à une session collective interentreprises ; aucun accompagnement individuel n’est proposé. L’échange découverte (30 minutes) peut se faire en visioconférence. Satisfaction ${PREUVES.satisfaction}.`;
 
 /** FAQ visible — sous le formulaire. */
 export const FAQ_PRENDRE_RDV_PAGE: readonly PrendreRdvFaqItem[] = [
@@ -126,11 +127,11 @@ export const FAQ_PRENDRE_RDV_PAGE: readonly PrendreRdvFaqItem[] = [
   },
   {
     q: 'Comment se déroule l’échange ?',
-    a: 'Vous choisissez un créneau sur Calendly (ou via le formulaire du site), puis nous échangeons en visioconférence ou par téléphone. Aucun document confidentiel n’est nécessaire.',
+    a: `Vous choisissez un créneau sur Calendly (ou via le formulaire du site), puis nous échangeons en visioconférence (${PRENDRE_RDV_DUREE_MINUTES} minutes) ou par téléphone. Les formations restent en présentiel. Aucun document confidentiel n’est nécessaire.`,
   },
   {
     q: 'Proposez-vous des formations hors Île-de-France ou à distance ?',
-    a: 'Non. Les formations sont actuellement proposées uniquement en présentiel en Île-de-France, pour des groupes, en intra ou en inter-entreprises.',
+    a: 'Non. Les formations sont actuellement proposées uniquement en présentiel en Île-de-France, en groupe, en intra ou en inter-entreprises. Vous pouvez vous inscrire à une session collective interentreprises ; aucun accompagnement individuel n’est proposé.',
   },
   {
     q: 'Que faire si aucun créneau ne me convient ?',

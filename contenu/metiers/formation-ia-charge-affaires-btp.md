@@ -19,7 +19,7 @@
 Formation IA pour Chargés d’Affaires BTP — Appels d’Offres, Chiffrage & Relation Client
 
 **Hero :** OFC · Qualiopi · Constructys · 1 500+ pros formés ·   
-**CTA #1 :** Réservez votre visio découverte gratuite
+**CTA #1 :** Échanger sur votre projet de formation
 
 ---
 

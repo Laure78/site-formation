@@ -217,7 +217,7 @@ export const PERIMETRE_FORMATIONS_COURT = MODALITE_POSITIONNEMENT;
 
 /** Référence commerciale : présentiel IDF, groupe, intra ou inter. */
 export const PERIMETRE_FORMATIONS_STANDARD =
-  `Présentiel uniquement en Île-de-France (${IDF_ZONE_INTERVENTION}) — sessions en groupe, en intra-entreprise dans les locaux de l’entreprise ou en inter-entreprises selon les sessions programmées. Pas de formation à distance, individuelle ou hors Île-de-France.`;
+  `Présentiel uniquement en Île-de-France (${IDF_ZONE_INTERVENTION}) — sessions en groupe, en intra-entreprise dans les locaux de l’entreprise ou en inter-entreprises selon les dates programmées et les places disponibles. Vous pouvez vous inscrire à une session collective interentreprises. Aucun accompagnement individuel n’est proposé. Pas de formation à distance ou hors Île-de-France.`;
 
 export const MODALITE_FORMATIONS_STANDARD = PERIMETRE_FORMATIONS_STANDARD;
 

@@ -773,7 +773,7 @@ export function getPersonSchema() {
     image: `${SITE_CONFIG.url}/images/laure-olivie-formatrice-ia-btp-qualiopi.webp`,
     jobTitle: 'Formatrice IA spécialisée BTP',
     alternateName: ['Laure Olivié', 'Laure Olivie'],
-    description: `Formatrice IA spécialisée BTP depuis fin 2021, basée à Guyancourt (78). ${formatNoteSatisfactionAffichageComplet()}. 10 ans de terrain BTP (conductrice de travaux). Instructrice LinkedIn Learning. Certification Qualiopi. Réseau FFB Grand Paris, CSFE, UMB-FFB.`,
+    description: `Formatrice IA spécialisée BTP depuis fin 2021, basée à Guyancourt (78). ${formatNoteSatisfactionAffichageComplet()}. Ancienne dirigeante d’une entreprise de travaux publics, 7 ans d’expérience dans le BTP. Instructrice LinkedIn Learning. Certification Qualiopi. Réseau FFB Grand Paris, CSFE, UMB-FFB.`,
     knowsAbout: [
       'Formation IA pour le BTP',
       'Formation ChatGPT entreprise BTP',
@@ -830,12 +830,12 @@ export function getPersonSchema() {
     alumniOf: {
       '@type': 'EducationalOrganization',
       name: 'Formation professionnelle BTP et travaux publics',
-      description: '10 ans de terrain BTP (conduite de chantier et travaux publics)',
+      description: '7 ans d’expérience dans le BTP (ancienne dirigeante d’une entreprise de travaux publics)',
     },
     award: [
       'Formatrice LinkedIn Learning 2024',
       `Note moyenne ${formatNoteSatisfactionAffichageComplet()}`,
-      '10 ans de terrain BTP · formatrice IA spécialisée BTP depuis fin 2021',
+      '7 ans d’expérience dans le BTP · formatrice IA spécialisée BTP depuis fin 2021',
     ],
     url: SITE_CONFIG.url,
     email: SITE_CONFIG.email, ...(siteHasPublicPhone() ? { telephone: SITE_CONFIG.phone } : {}),

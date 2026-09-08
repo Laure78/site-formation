@@ -137,7 +137,7 @@ export default function ConnexionPage() {
               Laure Olivié
             </Link>
             {' — '}
-            dirigeante BTP &amp; formatrice IA —{' '}
+            ancienne dirigeante d’une entreprise de travaux publics &amp; formatrice IA —{' '}
             <Link href={LINKS.formations} className="font-medium text-[#377CF3] hover:underline">
               catalogue formation IA pour le BTP
             </Link>

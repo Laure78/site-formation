@@ -34,8 +34,8 @@ export const NAV_FORMATIONS_FOOTER: readonly NavItem[] = [
   },
   {
     href: LINKS.parcoursApplicationsMetierBtp,
-    label: 'Applications métier BTP',
-    title: 'Parcours — créer ses applications métier BTP avec l’IA',
+    label: 'Création d’applications BTP',
+    title: 'Parcours Création d’applications BTP avec l’IA',
   },
   {
     href: LINKS.financement,
@@ -119,8 +119,8 @@ export function getNavServices(at: Date = new Date()): readonly NavItem[] {
     { href: LINKS.formations, label: 'Catalogue' },
     {
       href: LINKS.parcoursApplicationsMetierBtp,
-      label: 'Parcours applications métier BTP',
-      title: 'Créer ses applications métier BTP avec l’IA — parcours 21 h',
+      label: 'Parcours Création d’applications BTP',
+      title: 'Création d’applications BTP avec l’IA — parcours 21 h',
     },
     { href: LINKS.formationPlateforme, label: 'Espace apprenant' },
     ...getPublishedFormations(at).map((f) => ({

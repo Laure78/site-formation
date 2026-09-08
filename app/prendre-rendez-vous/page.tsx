@@ -18,7 +18,6 @@ import {
   PRENDRE_RDV_AUDIENCE_TITLE,
   PRENDRE_RDV_CALENDLY_SECTION_SUBTITLE,
   PRENDRE_RDV_CALENDLY_SECTION_TITLE,
-  PRENDRE_RDV_CALENDLY_URL,
   PRENDRE_RDV_CONTACT_HREF,
   PRENDRE_RDV_CTA_NATIVE,
   PRENDRE_RDV_CTA_PRIMARY,
@@ -43,7 +42,6 @@ import {
   PRENDRE_RDV_USE_CASES_LINE,
 } from '@/lib/prendre-rendez-vous-page-config';
 import { getPillarPageContentUpdatedAt } from '@/lib/content-updated-at';
-import { buildCalendlyUrlWithUtm } from '@/lib/calendly';
 
 export const revalidate = 3600;
 
@@ -72,12 +70,6 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default function PrendreRendezVousPage() {
   const faqSchema = getFAQSchema([...FAQ_PRENDRE_RDV_PAGE]);
-  const calendlyUrl = buildCalendlyUrlWithUtm({
-    baseUrl: PRENDRE_RDV_CALENDLY_URL,
-    utmSource: 'site',
-    utmMedium: 'cta',
-    utmCampaign: 'prendre-rendez-vous-hero',
-  });
 
   const pageGraph = {
     '@context': 'https://schema.org',
@@ -144,32 +136,23 @@ export default function PrendreRendezVousPage() {
           <p className="mt-3 text-sm font-medium text-slate-700">{PRENDRE_RDV_USE_CASES_LINE}</p>
           <p className="mt-3 text-sm font-semibold text-slate-800">{BUSINESS_DELIVERY.compact}</p>
 
+          <p className="mt-4 text-sm font-medium text-slate-600">{PRENDRE_RDV_REASSURANCE}</p>
+
           <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center">
             <a
-              href={calendlyUrl}
-              target="_blank"
-              rel="noopener noreferrer"
+              href={`#${PRENDRE_RDV_FORM_ANCHOR}`}
               className={`${OFC_CTA_PRIMARY} inline-flex min-h-12 w-full items-center justify-center px-6 sm:w-auto`}
-              data-calendly
               data-cta-position="hero"
             >
               {PRENDRE_RDV_CTA_PRIMARY}
             </a>
-            <a
-              href={`#${PRENDRE_RDV_FORM_ANCHOR}`}
-              className={`${OFC_CTA_SECONDARY} inline-flex min-h-12 w-full items-center justify-center px-6 sm:w-auto`}
-            >
-              Voir l’agenda ici
-            </a>
             <Link
               href={PRENDRE_RDV_FORMATIONS_HREF}
-              className={`${OFC_LINK} inline-flex min-h-12 items-center justify-center text-sm font-semibold sm:ml-1`}
+              className={`${OFC_CTA_SECONDARY} inline-flex min-h-12 w-full items-center justify-center px-6 sm:w-auto`}
             >
               {PRENDRE_RDV_CTA_SECONDARY}
             </Link>
           </div>
-
-          <p className="mt-4 text-sm font-medium text-slate-600">{PRENDRE_RDV_REASSURANCE}</p>
 
           {/* Preuves — 3 max, CSS only */}
           <ul className="mt-8 flex flex-col gap-2 border-t border-slate-200 pt-6 text-sm text-slate-600 sm:flex-row sm:flex-wrap sm:gap-x-6 sm:gap-y-2">
@@ -183,33 +166,21 @@ export default function PrendreRendezVousPage() {
         </div>
       </header>
 
-      {/* ——— Agenda Calendly (accès direct) ——— */}
+      {/* ——— Agenda Calendly intégré (affiché directement) ——— */}
       <section
         id={PRENDRE_RDV_FORM_ANCHOR}
         className="scroll-mt-24 border-t border-slate-100 bg-[#F8FAFC]"
         aria-labelledby="rdv-calendly"
       >
-        <div className={`${OFC_SECTION_INNER} max-w-3xl py-12 md:py-16`}>
-          <TrainingDeliveryInfo showBody className="mb-8" />
+        <div className={`${OFC_SECTION_INNER} max-w-4xl py-10 md:py-14`}>
+          <TrainingDeliveryInfo showBody className="mb-6" />
           <h2 id="rdv-calendly" className="font-display text-xl font-bold text-slate-900 md:text-2xl">
             {PRENDRE_RDV_CALENDLY_SECTION_TITLE}
           </h2>
           <p className="mt-2 max-w-prose text-sm text-slate-600">
             {PRENDRE_RDV_CALENDLY_SECTION_SUBTITLE}
           </p>
-          <p className="mt-4">
-            <a
-              href={calendlyUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={`${OFC_CTA_PRIMARY} inline-flex min-h-12 items-center justify-center px-6`}
-              data-calendly
-              data-cta-position="inline"
-            >
-              {PRENDRE_RDV_CTA_PRIMARY} sur Calendly
-            </a>
-          </p>
-          <div className="mt-8">
+          <div className="mt-6">
             <PrendreRdvAgenda />
           </div>
         </div>

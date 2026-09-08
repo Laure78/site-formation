@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useSyncExternalStore } from 'react';
 import {
   CALENDLY_BOOKING_URL,
   CALENDLY_SCRIPT_READY_EVENT,
@@ -10,8 +10,48 @@ import { useCookieConsent } from '@/hooks/useCookieConsent';
 import { writeCookieConsent } from '@/lib/cookie-consent';
 import { CALENDLY_INLINE_DEFAULT_HEIGHT_PX } from '@/lib/calendly-embed-config';
 
+const CALENDLY_WIDGET_SRC = 'https://assets.calendly.com/assets/external/widget.js';
+
+function subscribeCalendlyReady(onStoreChange: () => void) {
+  window.addEventListener(CALENDLY_SCRIPT_READY_EVENT, onStoreChange);
+  return () => window.removeEventListener(CALENDLY_SCRIPT_READY_EVENT, onStoreChange);
+}
+
+function getCalendlyReadySnapshot() {
+  return Boolean(
+    (typeof window !== 'undefined' && window.__calendlyReady) ||
+      window.Calendly?.initInlineWidget,
+  );
+}
+
+function getCalendlyReadyServerSnapshot() {
+  return false;
+}
+
+function ensureCalendlyScript(): void {
+  if (typeof window === 'undefined') return;
+  if (window.Calendly?.initInlineWidget) {
+    (window as Window & { __calendlyReady?: boolean }).__calendlyReady = true;
+    window.dispatchEvent(new CustomEvent(CALENDLY_SCRIPT_READY_EVENT));
+    return;
+  }
+  const existing = document.getElementById('calendly-widget-js');
+  if (existing) return;
+
+  const script = document.createElement('script');
+  script.id = 'calendly-widget-js';
+  script.src = CALENDLY_WIDGET_SRC;
+  script.async = true;
+  script.onload = () => {
+    (window as Window & { __calendlyReady?: boolean }).__calendlyReady = true;
+    window.dispatchEvent(new CustomEvent(CALENDLY_SCRIPT_READY_EVENT));
+  };
+  document.body.appendChild(script);
+}
+
 /**
  * Widget Calendly inline via widget.js — uniquement après consentement cookies.
+ * Charge le script si besoin (page `/prendre-rendez-vous`).
  */
 export function CalendlyConsentInline({
   campaign = 'prendre-rendez-vous-page',
@@ -22,22 +62,28 @@ export function CalendlyConsentInline({
 }) {
   const consent = useCookieConsent();
   const containerRef = useRef<HTMLDivElement>(null);
-  const [ready, setReady] = useState(false);
-  const [mounted, setMounted] = useState(false);
+  const initializedRef = useRef(false);
+
+  const isClient = useSyncExternalStore(
+    () => () => {},
+    () => true,
+    () => false,
+  );
+  const ready = useSyncExternalStore(
+    subscribeCalendlyReady,
+    getCalendlyReadySnapshot,
+    getCalendlyReadyServerSnapshot,
+  );
 
   useEffect(() => {
-    setMounted(true);
-    if (typeof window !== 'undefined' && window.__calendlyReady) {
-      setReady(true);
-    }
-    const onReady = () => setReady(true);
-    window.addEventListener(CALENDLY_SCRIPT_READY_EVENT, onReady);
-    return () => window.removeEventListener(CALENDLY_SCRIPT_READY_EVENT, onReady);
-  }, []);
+    if (consent !== 'accepted') return;
+    ensureCalendlyScript();
+  }, [consent]);
 
   useEffect(() => {
     if (consent !== 'accepted' || !ready || !containerRef.current) return;
     if (!window.Calendly?.initInlineWidget) return;
+    if (initializedRef.current) return;
 
     const el = containerRef.current;
     el.innerHTML = '';
@@ -51,9 +97,10 @@ export function CalendlyConsentInline({
       url,
       parentElement: el,
     });
+    initializedRef.current = true;
   }, [consent, ready, campaign]);
 
-  if (!mounted) {
+  if (!isClient || consent === null) {
     return (
       <div
         className="flex items-center justify-center rounded-xl border border-slate-200 bg-slate-50 text-sm text-slate-500"

@@ -67,6 +67,6 @@ export const DEFAULT_INTERNAL_LINKS = {
 /** CTAs par bloc */
 export const CTA_BLOCKS = [
   { label: 'Découvrir la formation IA pour les pros du BTP', href: '/formations', variant: 'primary' as const },
-  { label: 'Réservez votre visio découverte gratuite', href: LINKS.prendreRdv, variant: 'secondary' as const },
+  { label: 'Échanger sur votre projet de formation', href: LINKS.prendreRdv, variant: 'secondary' as const },
   { label: 'Télécharger le guide', href: '/ressources', variant: 'outline' as const },
 ] as const;

@@ -12,6 +12,16 @@ import { SCHEMA_CONTACT } from '@/lib/schema-constants';
 export const LAURE_OLIVIE_EXPERTISE_TAGLINE =
   'Expertise unique : IA générative × réalités terrain BTP — gestion de chantier, appels d\'offres, DCE, DOE, mémoires techniques.' as const;
 
+/** Expérience BTP — formulation canonique (ne pas écrire « 7 ans de conduite de travaux »). */
+export const LAURE_OLIVIE_EXPERIENCE_BTP_ANS = 7 as const;
+
+/** Phrase de référence — biographies, FAQ, schémas. */
+export const LAURE_OLIVIE_BIO_REFERENCE =
+  'Ancienne dirigeante d’une entreprise de travaux publics, Laure Olivié s’appuie sur 7 ans d’expérience dans le BTP pour former les équipes aux usages concrets de l’intelligence artificielle.' as const;
+
+/** Mention courte (cartes, stats, méta). */
+export const LAURE_OLIVIE_EXPERIENCE_BTP_COURTE = '7 ans d’expérience dans le BTP' as const;
+
 /** Résidence professionnelle (CV). Siège OFC : Guyancourt (78). */
 export const LAURE_OLIVIE_RESIDENCE = 'Saint-Quentin-en-Yvelines (78)' as const;
 
@@ -90,8 +100,8 @@ export const LAURE_OLIVIE_PARCOURS_TIMELINE = [
   },
   {
     period: '2017-2024',
-    title: 'Dirigeante ALIA BTP — travaux publics & revêtements (Guyancourt)',
-    body: `Fondation et direction d'une PME de **terrassement, voirie et revêtements extérieurs** (SIRET 853 687 317 00018). **Management chantier** : suivi performance, délais, aléas. **Recrutement** : tests préalables à l'embauche, formation équipes (sécurité, EPI, sensibilisation IA BTP). **Commercial** : prospection, partenariats, suivi client. **Digital & SEO** : site vitrine, netlinking, ligne éditoriale, réseaux sociaux. **Apprentissage clé** : un outil n'est adopté que s'il fait gagner du temps dès la première semaine.`,
+    title: 'Ancienne dirigeante ALIA BTP — travaux publics & revêtements (Guyancourt)',
+    body: `Fondation et direction (jusqu’en 2024) d'une PME de **terrassement, voirie et revêtements extérieurs** (SIRET 853 687 317 00018). **Management chantier** : suivi performance, délais, aléas. **Recrutement** : tests préalables à l'embauche, formation équipes (sécurité, EPI, sensibilisation IA BTP). **Commercial** : prospection, partenariats, suivi client. **Digital & SEO** : site vitrine, netlinking, ligne éditoriale, réseaux sociaux. **Apprentissage clé** : un outil n'est adopté que s'il fait gagner du temps dès la première semaine.`,
   },
   {
     period: '2019-2022',
@@ -134,26 +144,26 @@ export const LAURE_OLIVIE_PARCOURS_CONDENSE = LAURE_OLIVIE_PARCOURS_TIMELINE.map
 
 /** Bio courte — encart formations (E-E-A-T, angle pédagogie & terrain). */
 export function getLaureOlivieFormationPortraitParagraph(contextLine?: string): string {
-  const base = `Formatrice IA générative spécialiste BTP depuis 2022, Laure Olivié s'appuie sur 10 ans de terrain BTP (conductrice de travaux, dirigeante d'ALIA BTP 2017-2024), une expérience de chargée de formation au CNFPT (2009-2019) et le rôle d'instructrice LinkedIn Learning. ${formatNoteSatisfactionAffichageComplet()} sur les sessions OFC (${getStatsFreshnessLabel()}). Outils : ${LAURE_OLIVIE_IA_TOOLS.slice(0, 3).join(', ')} et ${LAURE_OLIVIE_IA_TOOLS[3]} — devis, DCE, CCTP, CR chantier et mémoires techniques. OFC Création d'Entreprise est certifié Qualiopi (NDA ${SCHEMA_CONTACT.nda}), finançable Constructys selon éligibilité.`;
+  const base = `${LAURE_OLIVIE_BIO_REFERENCE} Elle s’appuie aussi sur une expérience de chargée de formation au CNFPT (2009-2019) et le rôle d’instructrice LinkedIn Learning. ${formatNoteSatisfactionAffichageComplet()} sur les sessions OFC (${getStatsFreshnessLabel()}). Outils : ${LAURE_OLIVIE_IA_TOOLS.slice(0, 3).join(', ')} et ${LAURE_OLIVIE_IA_TOOLS[3]} — devis, DCE, CCTP, CR chantier et mémoires techniques. OFC Création d'Entreprise est certifié Qualiopi (NDA ${SCHEMA_CONTACT.nda}), finançable Constructys selon éligibilité.`;
   return contextLine ? `${contextLine} ${base}` : base;
 }
 
 /** Bio blog — angle expertise éditoriale & références institutionnelles. */
 export function getLaureOlivieArticleAuthorBio(): string {
-  return `Après 10 ans de terrain BTP (conduite de travaux et direction d'entreprise en Île-de-France), Laure Olivié est formatrice IA générative spécialiste BTP depuis 2022. OFC Création d'Entreprise est certifié Qualiopi — ${formatNoteSatisfactionAffichageComplet()}. Partenaires FFB, CAPEB et CSFE. Instructrice LinkedIn Learning.`;
+  return `${LAURE_OLIVIE_BIO_REFERENCE} OFC Création d'Entreprise est certifié Qualiopi — ${formatNoteSatisfactionAffichageComplet()}. Partenaires FFB, CAPEB et CSFE. Instructrice LinkedIn Learning.`;
 }
 
 /** Bio auteure fiches formation — angle crédibilité & lien /a-propos. */
 export function getLaureOlivieAuthorBioBody(): string {
-  return `est formatrice IA générative spécialiste BTP et fondatrice d'OFC Création d'Entreprise, organisme certifié Qualiopi (NDA ${SCHEMA_CONTACT.nda}). Parcours : CNFPT (formation e-learning, 2009-2019), dirigeante ALIA BTP (2017-2024), instructrice LinkedIn Learning. ${formatNoteSatisfactionAffichageComplet()} (${getStatsFreshnessLabel()}). Outils enseignés : ${LAURE_OLIVIE_IA_TOOLS.join(', ')}.`;
+  return `est formatrice IA générative spécialiste BTP et fondatrice d'OFC Création d'Entreprise, organisme certifié Qualiopi (NDA ${SCHEMA_CONTACT.nda}). Parcours : CNFPT (formation e-learning, 2009-2019), ancienne dirigeante ALIA BTP (2017-2024), instructrice LinkedIn Learning. ${formatNoteSatisfactionAffichageComplet()} (${getStatsFreshnessLabel()}). Outils enseignés : ${LAURE_OLIVIE_IA_TOOLS.join(', ')}.`;
 }
 
 /** Description JSON-LD Person — schémas globaux. */
 export function getLaureOlivieSchemaPersonDescription(): string {
-  return `Formatrice IA spécialisée BTP. Après 10 ans de terrain comme conductrice de travaux et direction d'ALIA BTP (2017-2024). Instructrice LinkedIn Learning, organisme certifié Qualiopi. ${formatNoteSatisfactionAffichageComplet()}. Partenaires : FFB Grand Paris, CSFE, UMB-FFB.`;
+  return `${LAURE_OLIVIE_BIO_REFERENCE} Instructrice LinkedIn Learning, organisme certifié Qualiopi. ${formatNoteSatisfactionAffichageComplet()}. Partenaires : FFB Grand Paris, CSFE, UMB-FFB.`;
 }
 
 /** Intro E-E-A-T page /a-propos — angle mission & double compétence. */
 export function getLaureOlivieEeatIntro(): string {
-  return `Je suis Laure Olivié, formatrice IA générative spécialiste BTP depuis 2022 — après 10 ans de terrain BTP (conduite de travaux et direction d'ALIA BTP), et une première expérience de chargée de formation au CNFPT (2009-2019). J'accompagne les équipes BTP sur leurs tâches réelles : comptes rendus, devis, appels d'offres, DCE, DOE, PPSPS et coordination chantier. ${formatNoteSatisfactionAffichageComplet()} sur les sessions OFC. Mon approche croise le terrain BTP, la pédagogie adulte et la certification Qualiopi — pas la tech pour la tech.`;
+  return `Je suis Laure Olivié, formatrice IA générative spécialiste BTP depuis 2022. Ancienne dirigeante d’une entreprise de travaux publics, je m’appuie sur ${LAURE_OLIVIE_EXPERIENCE_BTP_ANS} ans d’expérience dans le BTP, et sur une première expérience de chargée de formation au CNFPT (2009-2019), pour former les équipes aux usages concrets de l’intelligence artificielle. J'accompagne les professionnels du BTP sur leurs tâches réelles : comptes rendus, devis, appels d'offres, DCE, DOE, PPSPS et coordination chantier. ${formatNoteSatisfactionAffichageComplet()} sur les sessions OFC. Mon approche croise le terrain BTP, la pédagogie adulte et la certification Qualiopi — pas la tech pour la tech.`;
 }

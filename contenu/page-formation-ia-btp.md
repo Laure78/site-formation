@@ -138,7 +138,7 @@ La formation IA appliquée au bâtiment est une **formation pratique** : vous tr
 
 **Texte** : En 30 minutes de visio gratuite, vérifiez votre situation et ce que l’OPCO peut prendre en charge pour votre entreprise.
 
-**Bouton** : Réservez votre visio découverte gratuite → *(lien Calendly)*
+**Bouton** : Échanger sur votre projet de formation → *(lien Calendly)*
 
 ---
 

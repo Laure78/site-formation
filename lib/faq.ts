@@ -104,7 +104,7 @@ export const FAQ_ITEMS_HOME: readonly FAQItem[] = [
   {
     q: 'Faut-il déjà savoir utiliser une IA ?',
     a:
-      "Non. La formation est conçue pour des professionnels du bâtiment et des travaux publics sans formation informatique. Seuls prérequis : savoir naviguer sur internet et disposer d'un ordinateur. Tout est expliqué pas à pas, en travaillant sur vos documents réels.",
+      'La formation de niveau débutant ne nécessite aucune pratique préalable de l’IA. Les autres formations demandent des connaissances ou une expérience précisées sur chaque programme. Prérequis matériels : savoir naviguer sur internet et disposer d’un ordinateur.',
   },
   {
     q: 'Peut-on travailler sur les documents de notre entreprise ?',
@@ -125,7 +125,7 @@ export const FAQ_ITEMS_HOME: readonly FAQItem[] = [
   },
   {
     q: 'Puis-je suivre une formation individuellement ?',
-    a: 'Non. Les formations sont destinées aux groupes et aux entreprises, en intra ou en inter-entreprises.',
+    a: 'Vous pouvez vous inscrire à une session collective interentreprises. Aucun accompagnement individuel n’est proposé. Les sessions interentreprises sont proposées selon les dates programmées et les places disponibles.',
   },
   {
     q: 'Une prise en charge par un OPCO est-elle possible ?',
@@ -179,11 +179,11 @@ export const FAQ_ITEMS: readonly FAQItem[] = [
   },
   {
     q: "La formation se fait-elle en présentiel ?",
-    a: `Oui. ${MODALITE_FORMATIONS_STANDARD} Couverture : ${IDF_ZONE_INTERVENTION}. Pour cadrer votre format : <a href="${LINKS.prendreRdv}">Réservez votre visio découverte gratuite</a> ou <a href="/contact">contact</a>.`,
+    a: `Oui. ${MODALITE_FORMATIONS_STANDARD} Couverture : ${IDF_ZONE_INTERVENTION}. Pour cadrer votre format : <a href="${LINKS.prendreRdv}">Échanger sur votre projet de formation</a> ou <a href="/contact">contact</a>.`,
   },
   {
     q: 'Où se déroulent les formations catalogue ?',
-    a: `Sessions OFC : présentiel uniquement · Île-de-France uniquement (intra-entreprise, dans vos locaux, ${IDF_ZONE_INTERVENTION}). L'échange préalable de 30 min (visio ou téléphone) sert uniquement à cadrer votre projet — voir <a href="${LINKS.prendreRdv}">Réservez votre visio découverte gratuite</a>.`,
+    a: `Sessions OFC : présentiel uniquement · Île-de-France uniquement (intra-entreprise, dans vos locaux, ${IDF_ZONE_INTERVENTION}). L'échange préalable de 30 min (visio ou téléphone) sert uniquement à cadrer votre projet — voir <a href="${LINKS.prendreRdv}">Échanger sur votre projet de formation</a>.`,
   },
   {
     q: "Comment mesurer le ROI de la formation IA ?",
@@ -224,7 +224,7 @@ export const FAQ_GEO: FAQItem[] = [
   },
   {
     q: "Quels sont les prérequis pour une formation ChatGPT BTP ?",
-    a: 'Aucun prérequis technique pour suivre une formation ChatGPT BTP. Conçue pour dirigeants de TPE/PME, conducteurs de travaux et équipes support sans compétence informatique. Méthode 100 % pratique : travail sur vos vrais documents (devis, emails, comptes rendus chantier). Action de formation OFC — organisme certifié Qualiopi — entrée par <a href="/formation-ia-artisans-btp">ChatGPT pour entreprises BTP</a> ou <a href="/formations">catalogue</a>.',
+    a: 'La formation de niveau débutant ne nécessite aucune pratique préalable de l’IA. Les autres formations demandent des connaissances ou une expérience précisées sur chaque programme. Méthode 100 % pratique : travail sur vos vrais documents (devis, emails, comptes rendus chantier). Action de formation OFC — organisme certifié Qualiopi — entrée par <a href="/formation-ia-artisans-btp">ChatGPT pour entreprises BTP</a> ou <a href="/formations">catalogue</a>.',
   },
   {
     q: "Combien de temps pour automatiser des devis BTP avec l'IA ?",
@@ -293,7 +293,7 @@ export const FAQ_FORMATIONS: FAQItem[] = [
   },
   {
     q: 'Comment choisir la bonne formation IA pour le BTP pour mon entreprise ?',
-    a: `Le choix dépend de votre fonction et de votre niveau. L&apos;équipe débute ou couvre à la fois chantier bâtiment et travaux publics : <a href="${LINKS.formationIaBtpNiveau1BatimentTp}">L&apos;IA au service des pros du bâtiment et des travaux publics</a>. Pour la réponse aux marchés, mémoires techniques et DCE : <a href="${LINKS.formationAO}">L&apos;IA appliquée aux appels d&apos;offres BTP</a>. Pour piloter vos chantiers (CCTP, CR, PPSPS, réception) : <a href="${LINKS.formationConduiteTravauxSuiviChantier}">L&apos;IA appliquée à la conduite de travaux</a>. Pour industrialiser Claude (Projets, Skills, Cowork, connecteurs, Claude Code) et installer des skills métier sur les appels d&apos;offres, le chantier ou le juridique : <a href="${LINKS.formationMaitriserClaudeAiBtp}">Maîtriser Claude AI pour le BTP — Chat, Cowork &amp; Code</a>. Pour la maîtrise d&apos;œuvre d&apos;exécution (DCE, CR, OS, réserves) : <a href="${LINKS.formationIaMaitriseOeuvre}">L&apos;IA au service des maîtres d&apos;œuvre</a>. Pour transformer vos processus en applications métier : <a href="${LINKS.parcoursApplicationsMetierBtp}">parcours applications métier BTP avec l&apos;IA</a>. Un diagnostic gratuit de 30 minutes en visio permet de cibler le parcours — <a href="${LINKS.prendreRdv}">Réservez votre visio découverte gratuite</a> ou <a href="${LINKS.contact}">contact</a>.`,
+    a: `Le choix dépend de votre fonction et de votre niveau. L&apos;équipe débute ou couvre à la fois chantier bâtiment et travaux publics : <a href="${LINKS.formationIaBtpNiveau1BatimentTp}">L&apos;IA au service des pros du bâtiment et des travaux publics</a>. Pour la réponse aux marchés, mémoires techniques et DCE : <a href="${LINKS.formationAO}">L&apos;IA appliquée aux appels d&apos;offres BTP</a>. Pour piloter vos chantiers (CCTP, CR, PPSPS, réception) : <a href="${LINKS.formationConduiteTravauxSuiviChantier}">L&apos;IA appliquée à la conduite de travaux</a>. Pour industrialiser Claude (Projets, Skills, Cowork, connecteurs, Claude Code) et installer des skills métier sur les appels d&apos;offres, le chantier ou le juridique : <a href="${LINKS.formationMaitriserClaudeAiBtp}">Maîtriser Claude AI pour le BTP — Chat, Cowork &amp; Code</a>. Pour la maîtrise d&apos;œuvre d&apos;exécution (DCE, CR, OS, réserves) : <a href="${LINKS.formationIaMaitriseOeuvre}">L&apos;IA au service des maîtres d&apos;œuvre</a>. Pour transformer vos processus en applications métier : <a href="${LINKS.parcoursApplicationsMetierBtp}">parcours applications métier BTP avec l&apos;IA</a>. Un diagnostic gratuit de 30 minutes en visio permet de cibler le parcours — <a href="${LINKS.prendreRdv}">Échanger sur votre projet de formation</a> ou <a href="${LINKS.contact}">contact</a>.`,
   },
   {
     q: 'Qu\'apporte la formation Maîtriser Claude AI pour le BTP (niveau 2) ?',
@@ -396,7 +396,7 @@ export const FAQ_FINANCEMENT: FAQItem[] = [
   },
   {
     q: "Quels documents fournir pour le financement ?",
-    a: 'Programme de formation détaillé, devis du prestataire, convention de formation, liste des participants, attestation FFB (si adhérent), justificatifs d\'effectif. Je vous accompagne pour monter le dossier : <a href="/contact">contact</a> ou <a href="${LINKS.prendreRdv}">Réservez votre visio découverte gratuite</a>.',
+    a: 'Programme de formation détaillé, devis du prestataire, convention de formation, liste des participants, attestation FFB (si adhérent), justificatifs d\'effectif. Je vous accompagne pour monter le dossier : <a href="/contact">contact</a> ou <a href="${LINKS.prendreRdv}">Échanger sur votre projet de formation</a>.',
   },
 ];
 
@@ -479,7 +479,7 @@ export const FAQ_A_PROPOS: FAQItem[] = [
   },
   {
     q: "Quelle est votre expérience dans le BTP ?",
-    a: 'Formatrice IA spécialisée BTP depuis 2022, avec 10 ans de terrain BTP (conductrice de travaux) auprès de TPE, PME et équipes du bâtiment et des travaux publics. Méthode 100 % opérationnelle — <a href="/a-propos#clients-partenaires">clients et partenaires</a>, <a href="/blog">articles et ressources</a>.',
+    a: 'Ancienne dirigeante d’une entreprise de travaux publics, Laure Olivié s’appuie sur 7 ans d’expérience dans le BTP pour former les équipes aux usages concrets de l’intelligence artificielle — formatrice IA spécialisée BTP depuis 2022. Méthode 100 % opérationnelle — <a href="/a-propos#clients-partenaires">clients et partenaires</a>, <a href="/blog">articles et ressources</a>.',
   },
 ];
 
@@ -511,7 +511,7 @@ export const FAQ_IA_BTP_YVELINES: FAQItem[] = [
   },
   {
     q: "Combien de temps dure la formation ?",
-    a: 'Le format le plus courant est une session de 4 heures, adaptée au rythme des entreprises du BTP et aux règles de financement Constructys. Des formats de sensibilisation (2 h) ou d\'approfondissement peuvent être étudiés selon votre projet — <a href="${LINKS.prendreRdv}">Réservez votre visio découverte gratuite</a>.',
+    a: 'Le format le plus courant est une session de 4 heures, adaptée au rythme des entreprises du BTP et aux règles de financement Constructys. Des formats de sensibilisation (2 h) ou d\'approfondissement peuvent être étudiés selon votre projet — <a href="${LINKS.prendreRdv}">Échanger sur votre projet de formation</a>.',
   },
   {
     q: "La formation IA appliquée au bâtiment est-elle financement possible selon éligibilité (Constructys) dans les Yvelines ?",
@@ -539,7 +539,7 @@ export const FAQ_IA_BTP_SAINT_QUENTIN_YVELINES: FAQItem[] = [
   },
   {
     q: "Combien de temps dure la formation ?",
-    a: 'Le format le plus courant est une session de 4 heures, adaptée au rythme des entreprises du BTP et aux règles de financement Constructys. Des formats de sensibilisation (2 h) ou d\'approfondissement peuvent être étudiés selon votre projet — <a href="${LINKS.prendreRdv}">Réservez votre visio découverte gratuite</a>.',
+    a: 'Le format le plus courant est une session de 4 heures, adaptée au rythme des entreprises du BTP et aux règles de financement Constructys. Des formats de sensibilisation (2 h) ou d\'approfondissement peuvent être étudiés selon votre projet — <a href="${LINKS.prendreRdv}">Échanger sur votre projet de formation</a>.',
   },
   {
     q: "La formation IA pour les pros du BTP est-elle financement possible selon éligibilité (Constructys) dans les Yvelines ?",
@@ -565,7 +565,7 @@ export const FAQ_FORMATION_IA_BTP_YVELINES_LANDING: FAQItem[] = [
   {
     q: 'La formation est-elle disponible le samedi ?',
     a:
-      `Les créneaux les plus courants sont en semaine (journée ou demi-journée), pour s'aligner sur les habitudes des équipes terrain et du bureau d'études. Un samedi peut être étudié au cas par cas pour une session intra (contraintes d'atelier, planning chargé), sous réserve de disponibilité — le plus simple est d'en parler lors d'un <a href="${LINKS.prendreRdv}">Réservez votre visio découverte gratuite</a> ou via <a href="/contact">contact</a>.`,
+      `Les créneaux les plus courants sont en semaine (journée ou demi-journée), pour s'aligner sur les habitudes des équipes terrain et du bureau d'études. Un samedi peut être étudié au cas par cas pour une session intra (contraintes d'atelier, planning chargé), sous réserve de disponibilité — le plus simple est d'en parler lors d'un <a href="${LINKS.prendreRdv}">Échanger sur votre projet de formation</a> ou via <a href="/contact">contact</a>.`,
   },
   {
     q: 'Comment se déroule une session intra-entreprise à Versailles ?',
@@ -727,7 +727,7 @@ export const FAQ_FORMATION_IA_APPELS_OFFRES_LANDING: FAQItem[] = [
 export const FAQ_BATIMENT: FAQItem[] = [
   {
     q: 'Cette formation est-elle adaptée aux débutants ?',
-    a: `Oui. Aucun prérequis en intelligence artificielle. Il faut un ordinateur, une connexion internet et une bonne maîtrise du français. La session de ${SESSION_DUREE_LIBELLE} s’adresse aux dirigeants et équipes BTP, conducteurs de travaux, chargés d’affaires, bureaux d’études et fonctions support. Les versions gratuites de ChatGPT ou Claude suffisent.`,
+    a: `Oui. La formation de niveau débutant ne nécessite aucune pratique préalable de l’IA. Il faut un ordinateur, une connexion internet et une bonne maîtrise du français. Les autres formations demandent des connaissances ou une expérience précisées sur chaque programme. La session de ${SESSION_DUREE_LIBELLE} s’adresse aux dirigeants et équipes BTP, conducteurs de travaux, chargés d’affaires, bureaux d’études et fonctions support. Les versions gratuites de ChatGPT ou Claude suffisent au niveau débutant.`,
   },
   {
     q: 'Peut-on travailler sur les documents de notre entreprise ?',
@@ -843,7 +843,7 @@ export const FAQ_CHECKLIST_PROMPTS: FAQItem[] = [
   },
   {
     q: "La formation est-elle finançable ?",
-    a: `Oui. Formation IA pour les pros du BTP financement possible selon éligibilité. Prenez rendez-vous pour un devis personnalisé : <a href="${LINKS.prendreRdv}">Réservez votre visio découverte gratuite</a> ou <a href="/contact">contact</a>.`,
+    a: `Oui. Formation IA pour les pros du BTP financement possible selon éligibilité. Prenez rendez-vous pour un devis personnalisé : <a href="${LINKS.prendreRdv}">Échanger sur votre projet de formation</a> ou <a href="/contact">contact</a>.`,
   },
 ];
 
@@ -887,7 +887,7 @@ export const FAQ_BLOG: FAQItem[] = [
   },
   {
     q: "Les formations sont-elles finançables ?",
-    a: 'Oui, financement possible via Constructys ou votre OPCO selon éligibilité. Prenez rendez-vous pour un devis personnalisé — <a href="${LINKS.prendreRdv}">Réservez votre visio découverte gratuite</a> et <a href="/formations">catalogue</a>.',
+    a: 'Oui, financement possible via Constructys ou votre OPCO selon éligibilité. Prenez rendez-vous pour un devis personnalisé — <a href="${LINKS.prendreRdv}">Échanger sur votre projet de formation</a> et <a href="/formations">catalogue</a>.',
   },
   {
     q: "Comment accéder aux formations IA pour le BTP ?",
@@ -899,7 +899,7 @@ export const FAQ_BLOG: FAQItem[] = [
 export const FAQ_AUTEUR: FAQItem[] = [
   {
     q: "Quelle est votre expérience dans le BTP ?",
-    a: 'Formatrice IA spécialisée BTP depuis 2022 · 10 ans de terrain BTP (conducteurs de travaux, TPE/PME bâtiment et TP) — voir <a href="/a-propos">à propos</a> et <a href="/blog">articles</a>.',
+    a: 'Ancienne dirigeante d’une entreprise de travaux publics, Laure Olivié s’appuie sur 7 ans d’expérience dans le BTP pour former les équipes aux usages concrets de l’intelligence artificielle (formatrice IA depuis 2022) — voir <a href="/a-propos">à propos</a> et <a href="/blog">articles</a>.',
   },
   {
     q: "Où intervenez-vous pour les formations ?",

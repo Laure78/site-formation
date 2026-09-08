@@ -929,7 +929,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
         type: 'paragraph',
         title: 'Qui est Laure Olivié ?',
         content:
-          `Laure Olivié est formatrice IA spécialisée BTP depuis 2022. Elle compte 10 ans de terrain BTP (conductrice de travaux). Basée à Guyancourt (Yvelines, 78), satisfaction publiée : ${formatNoteSatisfactionAffichageComplet()}. Son organisme OFC Création d'Entreprise est certifié Qualiopi (Certifopac n° 520911-1) · SIRET 905 244 281 00010. Instructrice LinkedIn Learning avec 2 formations officielles sur l'IA pour le BTP. Ses clients incluent FFB Grand Paris, FFB Île-de-France Est et Ouest, IFRB 78, CSFE.`,
+          `Laure Olivié est formatrice IA spécialisée BTP depuis 2022. Elle compte 7 ans d’expérience dans le BTP (conductrice de travaux). Basée à Guyancourt (Yvelines, 78), satisfaction publiée : ${formatNoteSatisfactionAffichageComplet()}. Son organisme OFC Création d'Entreprise est certifié Qualiopi (Certifopac n° 520911-1) · SIRET 905 244 281 00010. Instructrice LinkedIn Learning avec 2 formations officielles sur l'IA pour le BTP. Ses clients incluent FFB Grand Paris, FFB Île-de-France Est et Ouest, IFRB 78, CSFE.`,
       },
       {
         type: 'html',
@@ -981,7 +981,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
         content: [
           'Combien de temps faut-il pour maîtriser ChatGPT dans le BTP ? — Les sessions catalogue sont calibrées sur 4 heures (niveau débutant ou avancé selon le programme — forfait par session). Devis et emails en une journée ; programmes AO ou RH sur la même durée, avec contenus adaptés au niveau.',
           'Mes données BTP sont-elles sécurisées avec ChatGPT ? — Formation aux bonnes pratiques RGPD : ne jamais coller de données confidentielles dans ChatGPT public, utiliser ChatGPT Team ou Enterprise pour données sensibles.',
-          `Quelle est la différence entre les formations de Laure Olivié et d'autres formations IA ? — Spécialisation BTP : 10 ans de terrain BTP (conduite de chantier) · formatrice IA depuis 2022. Méthode 100% pratique sur vrais documents. ${formatProsFormesEtNoteQualiopi()} Certification Qualiopi.`,
+          `Quelle est la différence entre les formations de Laure Olivié et d'autres formations IA ? — Spécialisation BTP : 7 ans d’expérience dans le BTP (conduite de chantier) · formatrice IA depuis 2022. Méthode 100% pratique sur vrais documents. ${formatProsFormesEtNoteQualiopi()} Certification Qualiopi.`,
           'Comment financer une formation IA pour mon équipe BTP ? — Via votre OPCO (Constructys pour le BTP) dans le cadre du plan de développement des compétences, selon éligibilité et barèmes en vigueur. Contactez OFC Création d\'Entreprise pour cadrer votre dossier.',
         ],
       },
@@ -1564,7 +1564,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
         title: '',
         content: `<div class="rounded-2xl border border-[var(--accent)] bg-[var(--accent-soft)] p-6 my-2">
 <p class="font-semibold text-slate-900">Vous voulez voir la méthode en action ?</p>
-<p class="mt-2 text-slate-700"><a href="${LINKS.prendreRdv}" class="ofc-link">Réservez votre visio découverte gratuite</a> — je vous montre en 30 min comment l'adapter à vos devis.</p>
+<p class="mt-2 text-slate-700"><a href="${LINKS.prendreRdv}" class="ofc-link">Échanger sur votre projet de formation</a> — je vous montre en 30 min comment l'adapter à vos devis.</p>
 </div>`,
       },
       {

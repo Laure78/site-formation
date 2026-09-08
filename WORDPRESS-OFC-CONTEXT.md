@@ -22,7 +22,7 @@ FFB Grand Paris · FFB Île-de-France · CSFE · CNAM Entreprise · Lefebvre Dal
 
 ## CTA de conversion (UNIQUE)
 
-- Texte : « Réservez votre visio découverte gratuite »
+- Texte : « Échanger sur votre projet de formation »
 - Action : lien Calendly de Laure Olivié
 - Présent sur chaque page : en haut, au milieu, en bas
 - Ne jamais mettre d'autre CTA ou lien concurrent

@@ -95,7 +95,7 @@ export const PROGRAMME_CONTENU_CATALOGUE: Record<FormationCode, readonly string[
 };
 
 const PREREQUIS_NIV01 =
-  'Savoir utiliser un ordinateur et un smartphone. Bonne maîtrise du français écrit et oral. Aucun prérequis IA ni abonnement payant : les versions gratuites suffisent. Un compte payant (Claude Pro, ChatGPT Plus) est seulement recommandé pour aller plus loin ensuite.';
+  'Savoir utiliser un ordinateur et un smartphone. Bonne maîtrise du français écrit et oral. La formation de niveau débutant ne nécessite aucune pratique préalable de l’IA ni abonnement payant : les versions gratuites suffisent. Un compte payant (Claude Pro, ChatGPT Plus) est seulement recommandé pour aller plus loin ensuite — non inclus dans le tarif.';
 
 const MODALITES_ACCES_NIV01 =
   `Inscription sur demande auprès d'OFC (${CONTACT.email} — ${CONTACT.phoneDisplay}) : analyse du besoin → acceptation du devis → signature de la convention de formation → demande de prise en charge OPCO → convocation. Un questionnaire de positionnement est adressé à chaque participant avant la session.`;
@@ -391,3 +391,29 @@ export function getInfosPratiquesForCatalogue(ref: string): InfosPratiquesFormat
     dateMaj: formation.programmeUpdatedAt,
   });
 }
+
+/**
+ * Résumé outils / abonnements à afficher avant le premier CTA « Demander un devis ».
+ * Source : prérequis confirmés des programmes — ne pas inventer de formule payante.
+ */
+export function getFormationOutilsAbonnementsAvantDevis(ref: string): string {
+  switch (ref) {
+    case 'NIV-01':
+      return 'Outils : ordinateur et smartphone. Versions gratuites de ChatGPT ou Claude suffisantes. Aucun abonnement payant requis ni inclus dans le tarif.';
+    case 'NIV-02':
+      return 'Outils : abonnement professionnel à l’outil utilisé (Claude AI Pro avec Cowork selon le programme) — non inclus dans le tarif, à la charge de l’entreprise.';
+    case 'NIV-03':
+      return 'Outils : ordinateur. Compte Claude Pro recommandé — non inclus dans le tarif s’il est souscrit.';
+    case 'NIV-04':
+      return 'Outils : abonnement Claude Pro actif (environ 18 € HT / mois, à la charge de l’entreprise) avec l’option « Exécution de code » — non inclus dans le tarif.';
+    case 'NIV-05':
+      return 'Outils : abonnements Claude Pro et ChatGPT Plus actifs sur le poste de chaque participant (environ 18 à 20 € HT / mois chacun, à la charge de l’entreprise) — non inclus dans le tarif.';
+    case 'NIV-06':
+    case 'NIV-07':
+    case 'NIV-08':
+      return 'Outils : ordinateur portable avec connexion internet. Aucun abonnement IA payant obligatoire indiqué au programme — les éventuels abonnements restent hors forfait.';
+    default:
+      return 'Les éventuels abonnements payants aux outils d’intelligence artificielle ne sont pas inclus dans le tarif, sauf mention contraire dans le devis.';
+  }
+}
+

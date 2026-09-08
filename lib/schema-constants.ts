@@ -130,7 +130,7 @@ export const SCHEMA_PERSON_LAURE = {
   name: 'Laure Olivié',
   jobTitle: 'Formatrice IA pour les professionnels du BTP',
   description:
-    "10 ans d'expérience terrain comme conductrice de travaux. Forme les professionnels du BTP à l'IA appliquée à leurs documents réels, en présentiel en Île-de-France.",
+    "Ancienne dirigeante d’une entreprise de travaux publics, Laure Olivié s’appuie sur 7 ans d’expérience dans le BTP pour former les équipes aux usages concrets de l’intelligence artificielle, en présentiel en Île-de-France.",
 } as const;
 
 /** Thématiques Person — schéma global layout (entité Laure Olivié). */

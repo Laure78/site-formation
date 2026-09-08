@@ -31,6 +31,7 @@ import {
   formatVolumeProsFormesBtpLibelle,
 } from '@/lib/data/indicateurs-resultats';
 import { OFC_CTA_PRIMARY, OFC_CTA_SECONDARY, OFC_LINK } from '@/lib/ofc-interaction-classes';
+import { FormationHeroOutilsNote } from '@/components/formations/FormationHeroOutilsNote';
 
 const CATALOGUE_SEO = getFormationCatalogueSeo('NIV-02');
 const FORMATION = getFormationByCode('NIV-02')!;
@@ -201,6 +202,8 @@ export default function FormationIAAppelsOffreBTPPage() {
                 </p>
               ) : null}
             </div>
+
+            <FormationHeroOutilsNote catalogueRef="NIV-02" className="mt-5" />
 
             <div className="mt-5 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
               <Link

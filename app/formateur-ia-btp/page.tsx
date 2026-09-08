@@ -51,11 +51,11 @@ export const metadata = buildMetadata({
 const FAQ_FORMATEUR: FAQItem[] = [
   {
     q: 'Comment choisir un formateur IA pour le BTP ?',
-    a: `Privilégiez un profil qui connaît le chantier (devis, DCE, CCTP, mémoire technique) et qui forme en présentiel sur vos documents — pas une formation IA généraliste. Vérifiez Qualiopi, les références professionnelles (fédérations, OPCO) et la possibilité d'un financement selon éligibilité. Laure Olivié combine 10 ans de terrain BTP et une pratique IA depuis 2022.`,
+    a: `Privilégiez un profil qui connaît le chantier (devis, DCE, CCTP, mémoire technique) et qui forme en présentiel sur vos documents — pas une formation IA généraliste. Vérifiez Qualiopi, les références professionnelles (fédérations, OPCO) et la possibilité d'un financement selon éligibilité. Laure Olivié combine 7 ans d’expérience dans le BTP et une pratique IA depuis 2022.`,
   },
   {
     q: 'Formateur IA bâtiment ou formatrice : quelle différence ?',
-    a: `La requête « formateur IA » désigne souvent le prestataire, homme ou femme. Laure Olivié est formatrice IA spécialisée bâtiment et construction : c'est le même métier, avec une expertise BTP concrète (Dirigeante d'une entreprise de Travaux Publics dans les Yvelines). Le choix se joue sur le terrain, la méthode et les preuves — pas sur le genre du titre.`,
+    a: `La requête « formateur IA » désigne souvent le prestataire, homme ou femme. Laure Olivié est formatrice IA spécialisée bâtiment et construction : c'est le même métier, avec une expertise BTP concrète (Ancienne dirigeante d’une entreprise de travaux publics). Le choix se joue sur le terrain, la méthode et les preuves — pas sur le genre du titre.`,
   },
   {
     q: 'Intervenez-vous à Paris intra-muros ?',
@@ -103,7 +103,7 @@ export default function FormateurIaBtpPage() {
               <p>
                 En Île-de-France, Laure Olivié forme les professionnels du BTP à l&apos;intelligence artificielle
                 appliquée à leurs documents réels — devis, DCE, mémoires techniques, comptes rendus de chantier.
-                Dirigeante d&apos;une entreprise de Travaux Publics dans les Yvelines, elle intervient via OFC
+                Ancienne dirigeante d’une entreprise de travaux publics, elle intervient via OFC
                 Création d&apos;Entreprise, organisme certifié Qualiopi, en présentiel uniquement, en intra ou en
                 inter. </p>
             </EnBref>
@@ -117,13 +117,13 @@ export default function FormateurIaBtpPage() {
         <section className={OFC_SEC.muted} aria-labelledby="profil-rare">
           <div className="mx-auto max-w-4xl">
             <h2 id="profil-rare" className="font-display text-2xl font-bold text-slate-900 md:text-3xl">
-              Un profil rare : 10 ans de terrain BTP + expertise IA
+              Un profil rare : 7 ans d’expérience dans le BTP + expertise IA
             </h2>
             <p className="mt-4 text-base leading-relaxed text-slate-600 md:text-lg">
-              Avant de former à ChatGPT et Claude AI, Laure Olivié a été <strong>conductrice de travaux</strong>{' '}
-              (ex-ALIA BTP) : plannings, sous-traitance, suivi de chantier, pression des délais. Aujourd&apos;hui
-              dirigeante de {SITE_CONFIG.legalName}, elle forme depuis 2022 des TPE et PME du BTP — un formateur /
-              une formatrice qui parle le langage du terrain, pas seulement celui des outils.
+              Avant de former à ChatGPT et Claude AI, Laure Olivié a dirigé une entreprise de travaux
+              publics (ex-ALIA BTP) : plannings, sous-traitance, suivi de chantier, pression des délais.
+              Aujourd&apos;hui fondatrice de {SITE_CONFIG.legalName}, elle forme depuis 2022 des TPE et PME
+              du BTP — une formatrice qui parle le langage du terrain, pas seulement celui des outils.
             </p>
           </div>
         </section>

@@ -19,7 +19,7 @@
 Formation IA pour Peintres en Bâtiment — Devis, Métré & Communication Client
 
 **Hero :** OFC · Qualiopi · Constructys · 1 500+ pros ·   
-**CTA #1 :** Réservez votre visio découverte gratuite
+**CTA #1 :** Échanger sur votre projet de formation
 
 ---
 

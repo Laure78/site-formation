@@ -16,7 +16,7 @@ export type AuthorBioProps = {
 };
 
 const BIO_LINES = [
-  'Plus de 10 ans de terrain BTP, dont une expérience comme conductrice de travaux.',
+  'Ancienne dirigeante d’une entreprise de travaux publics, 7 ans d’expérience dans le BTP.',
   'Instructrice officielle LinkedIn Learning — cours IA appliqués au bâtiment.',
   "OFC Création d'Entreprise, organisme certifié Qualiopi — formations en présentiel, Île-de-France uniquement.",
 ] as const;

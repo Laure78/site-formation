@@ -59,11 +59,12 @@ export function FormationsCatalogueMainSection({ formations, besoinOptions }: Pr
 
       <section className="mt-14 scroll-mt-24" aria-labelledby="catalogue-formations-liste">
         <h2 id="catalogue-formations-liste" className="font-display text-2xl font-bold text-ofc-ink md:text-3xl">
-          Les formations disponibles
+          Parcours Usages IA BTP
         </h2>
         <p className="mt-3 max-w-2xl text-sm leading-relaxed text-slate-600 md:text-base">
-          {formations.length} formations catalogue — devis, appels d&apos;offres, chantier, maîtrise
-          d&apos;œuvre, Claude et applications métier. Détails pédagogiques sur chaque fiche.
+          Formations du parcours Usages IA BTP (niveaux et prérequis propres à chaque fiche) : devis,
+          appels d&apos;offres, chantier, maîtrise d&apos;œuvre et Claude. Distinct du parcours Création
+          d&apos;applications BTP.
         </p>
 
         <div className="mt-8 grid gap-6 lg:grid-cols-2">
@@ -80,11 +81,13 @@ export function FormationsCatalogueMainSection({ formations, besoinOptions }: Pr
         {apps.length > 0 ? (
           <div className="mt-12 scroll-mt-24" id="parcours-applications-metier">
             <h2 className="font-display text-xl font-bold text-ofc-ink md:text-2xl">
-              Parcours applications métier BTP
+              Parcours Création d’applications BTP
             </h2>
             <p className="mt-3 max-w-3xl text-sm leading-relaxed text-slate-600 md:text-base">
-              Progression N1 → N2 → N3 ({PARCOURS_APPLICATIONS_METIER.parcoursCompletDuree}).{' '}
-              {PARCOURS_APPLICATIONS_METIER.promesse} Chaque niveau a sa propre fiche et ses prérequis.
+              Progression N1 → N2 → N3 au sein de ce parcours uniquement (
+              {PARCOURS_APPLICATIONS_METIER.parcoursCompletDuree}). {PARCOURS_APPLICATIONS_METIER.promesse}{' '}
+              Les niveaux s’appliquent à Création d’applications BTP — ils ne prolongent pas le parcours
+              Usages IA BTP. Chaque fiche précise ses prérequis.
             </p>
             <p className="mt-2 text-sm text-slate-600">
               <Link href={LINKS.parcoursApplicationsMetierBtp} className={OFC_LINK}>

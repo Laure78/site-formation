@@ -2,24 +2,16 @@
 
 import { useEffect, useState } from 'react';
 import {
-  PRENDRE_RDV_CALENDLY_URL,
   PRENDRE_RDV_CTA_PRIMARY,
   PRENDRE_RDV_FORM_ANCHOR,
 } from '@/lib/prendre-rendez-vous-page-config';
-import { buildCalendlyUrlWithUtm } from '@/lib/calendly';
 
 /**
- * CTA sticky mobile — ouvre Calendly directement.
- * Masqué dès que la section Calendly (#calendly) est visible.
+ * CTA sticky mobile — ancre vers l’agenda Calendly intégré (#calendly).
+ * Masqué dès que la section est visible.
  */
 export function RdvStickyMobileCta() {
   const [show, setShow] = useState(false);
-  const calendlyUrl = buildCalendlyUrlWithUtm({
-    baseUrl: PRENDRE_RDV_CALENDLY_URL,
-    utmSource: 'site',
-    utmMedium: 'cta',
-    utmCampaign: 'prendre-rendez-vous-sticky',
-  });
 
   useEffect(() => {
     const target = document.getElementById(PRENDRE_RDV_FORM_ANCHOR);
@@ -56,11 +48,8 @@ export function RdvStickyMobileCta() {
       style={{ paddingBottom: 'max(0.75rem, env(safe-area-inset-bottom))' }}
     >
       <a
-        href={calendlyUrl}
-        target="_blank"
-        rel="noopener noreferrer"
+        href={`#${PRENDRE_RDV_FORM_ANCHOR}`}
         className="flex min-h-12 w-full items-center justify-center rounded-xl bg-[var(--accent)] px-4 text-base font-semibold text-white"
-        data-calendly
         data-cta-position="sticky-mobile"
       >
         {PRENDRE_RDV_CTA_PRIMARY}

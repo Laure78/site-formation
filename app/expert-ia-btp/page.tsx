@@ -67,7 +67,7 @@ export default function ExpertIABTPPage() {
               <p className="mt-6 max-w-2xl text-lg leading-relaxed text-blue-50">
                 Formatrice spécialisée dans l&apos;intégration de l&apos;intelligence artificielle générative (ChatGPT, Claude)
                 dans les entreprises du bâtiment et des travaux publics.
-                Formatrice IA depuis 2022 · 10 ans de terrain BTP. LinkedIn Learning Instructor officielle.
+                Formatrice IA depuis 2022 · 7 ans d’expérience dans le BTP. LinkedIn Learning Instructor officielle.
               </p>
               <div className="mt-8 flex flex-wrap gap-4">
                 <div className="rounded-xl bg-white/10 px-6 py-3 backdrop-blur-sm">
@@ -79,7 +79,7 @@ export default function ExpertIABTPPage() {
                   <p className="text-sm text-blue-100">Organisme certifié</p>
                 </div>
                 <div className="rounded-xl bg-white/10 px-6 py-3 backdrop-blur-sm">
-                  <p className="text-3xl font-bold text-white">10 ans</p>
+                  <p className="text-3xl font-bold text-white">7 ans</p>
                   <p className="text-sm text-blue-100">de terrain BTP</p>
                 </div>
               </div>
@@ -128,7 +128,7 @@ export default function ExpertIABTPPage() {
                     </li>
                     <li className="flex gap-2">
                       <CheckCircle size={20} className="shrink-0 text-[var(--accent)]" />
-                      <span><strong>10 ans de terrain BTP</strong> · formatrice IA depuis 2022</span>
+                      <span><strong>7 ans d’expérience dans le BTP</strong> · formatrice IA depuis 2022</span>
                     </li>
                   </ul>
                 </div>

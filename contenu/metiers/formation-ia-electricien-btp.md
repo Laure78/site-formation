@@ -21,7 +21,7 @@ Formation IA pour Électriciens BTP — Devis, SAV & Emails Automatisés en Île
 **Sous-texte hero :** OFC Création d’Entreprise · Qualiopi · Financement Constructys selon dossier · Sessions Île-de-France  
 **Chiffres :** plus de 1 500 professionnels formés ·  · Qualiopi  
 
-**CTA Calendly #1 :** Réservez votre visio découverte gratuite
+**CTA Calendly #1 :** Échanger sur votre projet de formation
 
 ---
 

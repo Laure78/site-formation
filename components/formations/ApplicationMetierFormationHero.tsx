@@ -11,6 +11,7 @@ import {
 } from '@/lib/application-metier-btp-parcours-nav';
 import { OFC_LINK } from '@/lib/ofc-interaction-classes';
 import type { ApplicationMetierNiveauConfig } from '@/lib/parcours-applications-metier-btp-content';
+import { FormationHeroOutilsNote } from '@/components/formations/FormationHeroOutilsNote';
 
 type Props = {
   config: ApplicationMetierNiveauConfig;
@@ -31,7 +32,7 @@ export function ApplicationMetierFormationHero({ config, stepBadge, formationHin
         </Link>
 
         <p className="mt-5 inline-flex rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-slate-700">
-          {config.ux?.heroBadge ?? `Applications métier BTP · ${config.progressionLabel}`}
+          {config.ux?.heroBadge ?? `Création d’applications BTP · ${config.progressionLabel}`}
         </p>
 
         <h1 className="mt-4 font-display text-[1.65rem] font-bold leading-tight tracking-tight text-slate-900 sm:text-4xl">
@@ -50,6 +51,8 @@ export function ApplicationMetierFormationHero({ config, stepBadge, formationHin
         </p>
         <p className="mt-1 text-sm text-slate-600">Tarif pour l’ensemble du groupe.</p>
 
+        <FormationHeroOutilsNote catalogueRef={config.ref} className="mt-5" />
+
         <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center">
           <ApplicationMetierRdvCta
             label={config.ux?.ctaHeroLabel ?? 'Demander un devis pour mon équipe'}
@@ -64,9 +67,9 @@ export function ApplicationMetierFormationHero({ config, stepBadge, formationHin
           </a>
         </div>
 
-        <p className="mt-4 text-sm text-slate-500">
+        <p className="mt-4 text-sm">
           <Link href={APPLICATION_METIER_PARCOURS_MOTHER.path} className={OFC_LINK}>
-            Voir le parcours Niveau 1 → Niveau 2 → Niveau 3
+            Voir le parcours Création d’applications BTP (N1 → N2 → N3)
           </Link>
         </p>
         <p className="sr-only">{stepBadge}</p>

@@ -23,9 +23,10 @@ export function AccueilFormatriceSection() {
             Une formatrice spécialisée dans les usages IA du BTP
           </h2>
           <p className={`${OFC_TYPE_BODY} mt-4 text-slate-600`}>
-            Laure Olivié forme les équipes du bâtiment et des travaux publics depuis fin 2021, après
-            plus de dix ans de terrain en conduite de travaux. Approche 100&nbsp;% opérationnelle :
-            vos documents réels, des méthodes applicables dès le lendemain.
+            Ancienne dirigeante d’une entreprise de travaux publics, Laure Olivié s’appuie sur 7 ans
+            d’expérience dans le BTP pour former les équipes aux usages concrets de l’intelligence
+            artificielle. Approche 100&nbsp;% opérationnelle : vos documents réels, des méthodes
+            applicables dès le lendemain.
           </p>
           <p className="mt-3 text-sm text-slate-500">
             Références : {LAURE_OLIVIE_CLIENT_REFERENCES_SHORT}.

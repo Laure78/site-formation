@@ -21,7 +21,7 @@ const DEFAULT_LINKS: AllerPlusLoinLink[] = [
   { href: LINKS.blog, label: 'Articles et guides' },
   {
     href: CTA_RDV_HREF,
-    label: 'Réservez votre visio découverte gratuite',
+    label: 'Échanger sur votre projet de formation',
     origin: 'aller-plus-loin',
   },
   { href: LINKS.financement, label: 'Financement Constructys' },

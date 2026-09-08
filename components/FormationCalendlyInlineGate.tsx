@@ -25,11 +25,12 @@ export function FormationCalendlyInlineGate() {
           id="formation-calendly-heading"
           className="font-display text-2xl font-bold tracking-tight text-slate-900 md:text-3xl"
         >
-          {isCatalogue ? 'Réserver ma session' : 'Réservez votre visio découverte gratuite'}
+          Échanger sur votre projet de formation
         </h2>
         <p className="mx-auto mt-3 max-w-2xl text-slate-600 md:text-lg">
-          Choisissez un créneau de 30 minutes pour cadrer votre besoin (formation IA appliquée au
-          bâtiment, financement Constructys, format intra-entreprise, dans vos locaux).
+          Rendez-vous découverte de 30 minutes, en visioconférence si vous le souhaitez, pour cadrer
+          votre besoin. Les formations restent en présentiel en Île-de-France (financement Constructys
+          selon éligibilité, format intra ou interentreprises selon le programme).
         </p>
         <div className="mt-8 flex justify-center">
           <CtaRdv origin={origin} />

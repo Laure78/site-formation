@@ -7,8 +7,8 @@ import { trackCtaRdvClick } from '@/lib/cta-analytics';
 import { LINKS } from '@/lib/internal-links';
 import { OFC_CTA_PRIMARY, OFC_CTA_SECONDARY, OFC_LINK } from '@/lib/ofc-interaction-classes';
 
-/** Libellé unique — tous les CTA RDV site (jamais surchargé via props). */
-export const CTA_RDV_LABEL = 'Réservez votre visio découverte gratuite' as const;
+/** Libellé unique — tous les CTA RDV / découverte (jamais surchargé via props). */
+export const CTA_RDV_LABEL = 'Échanger sur votre projet de formation' as const;
 
 export const CTA_RDV_HREF = LINKS.prendreRdv;
 
@@ -29,8 +29,8 @@ export type CtaRdvProps = Omit<
 };
 
 /**
- * CTA RDV unique — `/prendre-rendez-vous`, libellé « Réservez votre visio découverte gratuite ».
- * Calendly inline réservé à la page `/prendre-rendez-vous`.
+ * CTA RDV unique — `/prendre-rendez-vous`, libellé « Échanger sur votre projet de formation ».
+ * Calendly inline réservé à la page `/prendre-rendez-vous` (30 min, visioconférence possible).
  */
 export function CtaRdv({
   variant = 'primary',

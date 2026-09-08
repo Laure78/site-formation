@@ -353,7 +353,7 @@ export default function FormationIaParisPage() {
               Pourquoi se former avec Laure Olivié
             </h2>
             <p className="mt-4 text-base leading-relaxed text-slate-600 md:text-lg">
-              Laure Olivié forme à l&apos;IA pour le BTP depuis 2022, après près de 10 ans de terrain comme
+              Laure Olivié forme à l&apos;IA pour le BTP depuis 2022, après 7 ans d’expérience dans le BTP comme
               dirigeante d&apos;une entreprise de Travaux Publics dans les Yvelines. Elle connaît le rythme
               d&apos;un devis, d&apos;un DCE et d&apos;un compte rendu sous pression — et construit les
               sessions pour que ChatGPT serve ces documents, pas l&apos;inverse.

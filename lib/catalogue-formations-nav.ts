@@ -69,7 +69,7 @@ const ALL_CATALOGUE_FORMATIONS_NAV_LINKS: CatalogueFormationNavLink[] = [
   },
   {
     href: LINKS.parcoursApplicationsMetierBtp,
-    label: 'Parcours applications métier BTP avec l’IA',
+    label: 'Parcours Création d’applications BTP',
     icon: Code2,
     pages: [
       { href: LINKS.formationApplicationMetierBtpNiveau1, label: 'Niveau 1 — premier prototype' },

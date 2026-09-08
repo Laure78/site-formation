@@ -205,7 +205,7 @@ export function HomeProgrammeFaqSections() {
               <Citation
                 className="mt-6"
                 variant="formatrice"
-                quote="Formatrice IA spécialisée BTP depuis fin 2021, après 10 ans de terrain BTP comme conductrice de travaux. Mon objectif : zéro théorie, 100 % pratique. Vous repartez avec des outils opérationnels dès le lendemain."
+                quote="Ancienne dirigeante d’une entreprise de travaux publics, je m’appuie sur 7 ans d’expérience dans le BTP pour former les équipes aux usages concrets de l’intelligence artificielle. Mon objectif : zéro théorie, 100 % pratique. Vous repartez avec des outils opérationnels dès le lendemain."
                 author="Laure Olivié"
                 role="Formatrice IA BTP — OFC Création d'Entreprise"
               />
@@ -221,7 +221,7 @@ export function HomeProgrammeFaqSections() {
                 {[
                   {
                     icon: GraduationCap,
-                    title: '10 ans de terrain BTP',
+                    title: '7 ans d’expérience dans le BTP',
                     desc: 'Spécialisation métiers du bâtiment, TP, génie civil.',
                   },
                   {

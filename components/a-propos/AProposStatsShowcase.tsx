@@ -14,8 +14,8 @@ const STATS = [
   },
   {
     Icon: Award,
-    value: '10 ans',
-    label: 'Terrain BTP',
+    value: '7 ans',
+    label: 'Expérience BTP',
   },
   {
     Icon: GraduationCap,

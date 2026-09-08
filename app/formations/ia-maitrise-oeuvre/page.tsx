@@ -358,7 +358,7 @@ export default function FormationIaMaitriseOeuvrePage() {
                 </span>
               </p>
               <p className="mt-3 text-sm leading-relaxed text-slate-600">
-                Fondatrice d&apos;OFC Création d&apos;Entreprise. Dirigeante d&apos;une entreprise de Travaux Publics dans les Yvelines (ALIA BTP,
+                Fondatrice d&apos;OFC Création d&apos;Entreprise. Ancienne dirigeante d’une entreprise de travaux publics (ALIA BTP,
                 2017-2024). Organisme certifié Qualiopi.
               </p>
               <Link
@@ -377,7 +377,7 @@ export default function FormationIaMaitriseOeuvrePage() {
           id="contact"
           className="mt-12 scroll-mt-24 rounded-2xl border border-[var(--accent)] bg-[#377CF3] p-6 text-white md:p-8"
         >
-          <h2 className="font-display text-2xl font-bold">Réservez votre session</h2>
+          <h2 className="font-display text-2xl font-bold">Échanger sur votre projet de formation</h2>
           <p className="mt-4 text-white/90">
             Demandez un devis ou planifiez votre session intra-entreprise, dans vos locaux — réponse sous 24 h ouvrées.
           </p>

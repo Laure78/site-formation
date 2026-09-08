@@ -112,18 +112,18 @@ export type ApplicationMetierNiveauUx = {
 };
 
 export const PARCOURS_APPLICATIONS_METIER = {
-  metaTitle: 'Parcours applications métier BTP : 21 h IA',
+  metaTitle: 'Création d’applications BTP : parcours 21 h',
   metaDescription:
-    'Parcours formation applications métier BTP en 3 niveaux (21 h) : créer, connecter et industrialiser une application avec l’IA. Formation IA pour le BTP, Qualiopi.',
-  h1: 'Créer ses applications métier BTP avec l’intelligence artificielle',
+    'Parcours Création d’applications BTP en 3 niveaux (21 h) : créer, connecter et industrialiser une application avec l’IA. Formation IA pour le BTP, Qualiopi.',
+  h1: 'Création d’applications BTP avec l’intelligence artificielle',
   messagePrincipal:
     'Vos processus métier reposent encore sur des fichiers Excel, des e-mails et des tâches manuelles ?',
   promesse:
     'Apprenez à transformer vos besoins métier en applications grâce à l’intelligence artificielle.',
   sousPromesse:
-    'Un parcours progressif de 21 heures pour apprendre à concevoir, connecter et faire évoluer ses propres applications métier.',
+    'Un parcours progressif de 21 heures — distinct du parcours Usages IA BTP — pour concevoir, connecter et faire évoluer ses propres applications métier.',
   intro:
-    'Devis, métrés, appels d’offres, chantier, trésorerie, prospection, communication, documents, planning, relation client : le parcours enseigne une méthode commune — sans viser le métier de développeur professionnel.',
+    'Devis, métrés, appels d’offres, chantier, trésorerie, prospection, communication, documents, planning, relation client : le parcours Création d’applications BTP enseigne une méthode commune — sans viser le métier de développeur professionnel.',
   parcoursCompletDuree: '21 h',
   parcoursCompletPromesse:
     'Le participant développe progressivement une application métier plus aboutie et acquiert une méthode lui permettant de créer et faire évoluer ses propres outils.',
@@ -642,7 +642,7 @@ export const APPLICATION_METIER_NIVEAU_2: ApplicationMetierNiveauConfig = {
       title: 'Laure Olivié',
       role: 'Formatrice IA spécialisée BTP',
       paragraphs: [
-        'Plus de 10 ans d’expérience terrain dans les travaux publics et la conduite de chantier.',
+        '7 ans d’expérience dans le BTP, dont la direction d’une entreprise de travaux publics.',
         'J’accompagne les PME du BTP à créer des outils métier utiles, avec validation humaine sur les résultats sensibles.',
       ],
     },

@@ -9,6 +9,7 @@ import {
 import { FormationProgrammePdfDownloadBanner } from '@/components/formations/FormationProgrammePdfDownloadBanner';
 import { FormationProgrammePdfViewer } from '@/components/formations/FormationProgrammePdfViewer';
 import { TrainingDeliveryInfo } from '@/components/formations/TrainingDeliveryInfo';
+import { FormationHeroOutilsNote } from '@/components/formations/FormationHeroOutilsNote';
 import { getFormationCatalogueByRef } from '@/lib/formations-catalogue-display';
 
 /**
@@ -143,6 +144,9 @@ export function FormationCourseHero({
                   </li>
                 ))}
               </ul>
+            ) : null}
+            {catalogueRef ? (
+              <FormationHeroOutilsNote catalogueRef={catalogueRef} className="mt-6 max-w-xl" />
             ) : null}
             <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">{ctas}</div>
             {footerLinks ? (

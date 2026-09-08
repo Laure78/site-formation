@@ -57,8 +57,8 @@ function buildFormationsNavChildren(at: Date): HeaderNavLink[] {
 
   const parcoursItem: HeaderNavLink = {
     href: LINKS.parcoursApplicationsMetierBtp,
-    label: 'Parcours applications métier BTP',
-    title: 'Créer ses applications métier BTP avec l’IA — parcours 21 h',
+    label: 'Parcours Création d’applications BTP',
+    title: 'Création d’applications BTP avec l’IA — parcours 21 h',
     children: applicationMetier.map(formationNavLink),
   };
 

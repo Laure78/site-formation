@@ -328,8 +328,8 @@ export function FormationSeoClusterLanding({
           <p className="mt-4 leading-relaxed text-slate-600">
             Laure Olivié, formatrice certifiée Qualiopi, accompagne depuis 2021 les professionnels du
             bâtiment et des travaux publics sur l&apos;intelligence artificielle appliquée au terrain :
-            chantier, appels d&apos;offres, administratif et communication. Plus de dix ans
-            d&apos;expérience en conduite de travaux et travaux publics.
+            chantier, appels d&apos;offres, administratif et communication. Ancienne dirigeante d&apos;une
+            entreprise de travaux publics, elle s&apos;appuie sur 7 ans d&apos;expérience dans le BTP.
           </p>
           <div className="mt-8">
             <LaureOlivieFormationPortrait />

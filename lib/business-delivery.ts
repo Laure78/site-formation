@@ -1,6 +1,7 @@
 /**
  * Règles commerciales de livraison des formations OFC — source unique.
- * Présentiel IDF · groupe · intra & inter. Pas de distanciel / individuel / hors IDF.
+ * Présentiel IDF · groupe · intra & inter. Pas de distanciel / accompagnement individuel / hors IDF.
+ * L’inscription d’une personne à une session collective interentreprises est autorisée.
  */
 import { IDF_DEPARTEMENTS_LISTE, IDF_ZONE_INTERVENTION, PREUVES } from '@/lib/constants';
 import { FORMATIONS_COUNT } from '@/data/formations';
@@ -17,14 +18,14 @@ export const BUSINESS_DELIVERY = {
   headline: 'Formations en présentiel uniquement en Île-de-France',
   /** Phrase complète de cadrage commercial. */
   body:
-    'Sessions en groupe, en intra-entreprise ou en inter-entreprises. Pas de formation à distance, individuelle ou hors Île-de-France.',
+    'Sessions en groupe, en intra-entreprise ou en inter-entreprises. Vous pouvez vous inscrire à une session collective interentreprises. Aucun accompagnement individuel n’est proposé. Pas de formation à distance ou hors Île-de-France.',
   /** Ligne compacte hero / bandeaux. */
   compact: 'Présentiel uniquement • Île-de-France • Groupe • Intra & inter',
   /** Variante avec séparateurs middle dots (UI dense). */
   compactDots: 'Présentiel uniquement · Île-de-France · Formation en groupe · Intra & inter',
   /** Phrase longue (fiches, FAQ). */
   standard:
-    'Présentiel uniquement en Île-de-France — en intra-entreprise dans les locaux de l’entreprise ou en inter-entreprises selon les sessions programmées.',
+    'Présentiel uniquement en Île-de-France — en intra-entreprise dans les locaux de l’entreprise ou en inter-entreprises selon les dates programmées et les places disponibles.',
   /** Effectif sans minimum inventé. */
   effectifGroupe:
     'Formation en groupe — effectif selon la formation et le format choisi.',
@@ -57,7 +58,7 @@ export const BUSINESS_DELIVERY_FAQ = [
   },
   {
     q: 'Puis-je suivre une formation individuellement ?',
-    a: 'Non. Les formations sont destinées aux groupes et aux entreprises, en intra ou en inter-entreprises.',
+    a: 'Vous pouvez vous inscrire à une session collective interentreprises. Aucun accompagnement individuel n’est proposé. Les sessions interentreprises sont proposées selon les dates programmées et les places disponibles.',
   },
   {
     q: 'Dans quels départements intervenez-vous ?',

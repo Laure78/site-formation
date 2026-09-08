@@ -209,5 +209,5 @@ export function getFormationCatalogueSeo(ref: FormationCatalogueCode): Formation
 
 /** Bloc autorité E-E-A-T — harmonisé sur toutes les fiches catalogue. */
 export function getFormationCatalogueAutoriteParagraph(programmeUpdatedAt: string): string {
-  return `Laure Olivié, formatrice IA générative spécialisée BTP (+10 ans de terrain en travaux publics et conduite de chantier), dispense cette formation via OFC Création d'Entreprise (organisme certifié Qualiopi). ${formatVolumeProsFormesBtpLibelle()} — satisfaction ${formatNoteSatisfactionAffichageComplet()} (${indicateursResultats.periodeReference}). Programme mis à jour le ${programmeUpdatedAt}. Références : FFB Grand Paris, FFB Île-de-France, CSFE, CNAM Entreprise, Le Moniteur Formations.`;
+  return `Laure Olivié, formatrice IA générative spécialisée BTP (7 ans d’expérience dans le BTP), dispense cette formation via OFC Création d'Entreprise (organisme certifié Qualiopi). ${formatVolumeProsFormesBtpLibelle()} — satisfaction ${formatNoteSatisfactionAffichageComplet()} (${indicateursResultats.periodeReference}). Programme mis à jour le ${programmeUpdatedAt}. Références : FFB Grand Paris, FFB Île-de-France, CSFE, CNAM Entreprise, Le Moniteur Formations.`;
 }

@@ -14,6 +14,7 @@ import {
   Users,
 } from 'lucide-react';
 import { IndicateursResultatsLink } from '@/components/formation/IndicateursResultatsLink';
+import { CTA_RDV_LABEL } from '@/components/CtaRdv';
 import { getStatsFreshnessLabel, siteStats } from '@/lib/constants';
 import {
   QUALIOPI_FICHE_META,
@@ -130,7 +131,7 @@ export function InformationsReglementaires(props: InfosQualiopiProps) {
             <p>{validated.modalitesAcces}</p>
             <p className="mt-3">
               <Link href={LINKS.prendreRdv} className="font-medium text-[#377CF3] hover:underline">
-                Prendre rendez-vous
+                {CTA_RDV_LABEL}
               </Link>{' '}
               ou{' '}
               <Link href={LINKS.contact} className="font-medium text-[#377CF3] hover:underline">
