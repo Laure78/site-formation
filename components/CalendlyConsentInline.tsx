@@ -1,57 +1,18 @@
 'use client';
 
-import { useEffect, useRef, useSyncExternalStore } from 'react';
+import { useSyncExternalStore } from 'react';
 import {
   CALENDLY_BOOKING_URL,
-  CALENDLY_SCRIPT_READY_EVENT,
+  buildCalendlyInlineIframeUrl,
   buildCalendlyUrlWithUtm,
 } from '@/lib/calendly';
 import { useCookieConsent } from '@/hooks/useCookieConsent';
 import { writeCookieConsent } from '@/lib/cookie-consent';
 import { CALENDLY_INLINE_DEFAULT_HEIGHT_PX } from '@/lib/calendly-embed-config';
 
-const CALENDLY_WIDGET_SRC = 'https://assets.calendly.com/assets/external/widget.js';
-
-function subscribeCalendlyReady(onStoreChange: () => void) {
-  window.addEventListener(CALENDLY_SCRIPT_READY_EVENT, onStoreChange);
-  return () => window.removeEventListener(CALENDLY_SCRIPT_READY_EVENT, onStoreChange);
-}
-
-function getCalendlyReadySnapshot() {
-  return Boolean(
-    (typeof window !== 'undefined' && window.__calendlyReady) ||
-      window.Calendly?.initInlineWidget,
-  );
-}
-
-function getCalendlyReadyServerSnapshot() {
-  return false;
-}
-
-function ensureCalendlyScript(): void {
-  if (typeof window === 'undefined') return;
-  if (window.Calendly?.initInlineWidget) {
-    (window as Window & { __calendlyReady?: boolean }).__calendlyReady = true;
-    window.dispatchEvent(new CustomEvent(CALENDLY_SCRIPT_READY_EVENT));
-    return;
-  }
-  const existing = document.getElementById('calendly-widget-js');
-  if (existing) return;
-
-  const script = document.createElement('script');
-  script.id = 'calendly-widget-js';
-  script.src = CALENDLY_WIDGET_SRC;
-  script.async = true;
-  script.onload = () => {
-    (window as Window & { __calendlyReady?: boolean }).__calendlyReady = true;
-    window.dispatchEvent(new CustomEvent(CALENDLY_SCRIPT_READY_EVENT));
-  };
-  document.body.appendChild(script);
-}
-
 /**
- * Widget Calendly inline via widget.js — uniquement après consentement cookies.
- * Charge le script si besoin (page `/prendre-rendez-vous`).
+ * Agenda Calendly inline (iframe) — après consentement cookies.
+ * L’iframe est plus fiable que widget.js (pas de course au chargement du script).
  */
 export function CalendlyConsentInline({
   campaign = 'prendre-rendez-vous-page',
@@ -61,50 +22,26 @@ export function CalendlyConsentInline({
   heightPx?: number;
 }) {
   const consent = useCookieConsent();
-  const containerRef = useRef<HTMLDivElement>(null);
-  const initializedRef = useRef(false);
-
   const isClient = useSyncExternalStore(
     () => () => {},
     () => true,
     () => false,
   );
-  const ready = useSyncExternalStore(
-    subscribeCalendlyReady,
-    getCalendlyReadySnapshot,
-    getCalendlyReadyServerSnapshot,
-  );
 
-  useEffect(() => {
-    if (consent !== 'accepted') return;
-    ensureCalendlyScript();
-  }, [consent]);
+  const bookingUrl = buildCalendlyUrlWithUtm({
+    baseUrl: CALENDLY_BOOKING_URL,
+    utmSource: 'site',
+    utmMedium: 'cta',
+    utmCampaign: campaign,
+  });
+  const iframeSrc = buildCalendlyInlineIframeUrl(bookingUrl);
 
-  useEffect(() => {
-    if (consent !== 'accepted' || !ready || !containerRef.current) return;
-    if (!window.Calendly?.initInlineWidget) return;
-    if (initializedRef.current) return;
-
-    const el = containerRef.current;
-    el.innerHTML = '';
-    const url = buildCalendlyUrlWithUtm({
-      baseUrl: CALENDLY_BOOKING_URL,
-      utmSource: 'site',
-      utmMedium: 'cta',
-      utmCampaign: campaign,
-    });
-    window.Calendly.initInlineWidget({
-      url,
-      parentElement: el,
-    });
-    initializedRef.current = true;
-  }, [consent, ready, campaign]);
-
-  if (!isClient || consent === null) {
+  if (!isClient) {
     return (
       <div
         className="flex items-center justify-center rounded-xl border border-slate-200 bg-slate-50 text-sm text-slate-500"
         style={{ minHeight: heightPx }}
+        aria-busy="true"
       >
         Chargement de l’agenda…
       </div>
@@ -113,10 +50,12 @@ export function CalendlyConsentInline({
 
   if (consent !== 'accepted') {
     return (
-      <div className="rounded-xl border border-slate-200 bg-slate-50 p-6 text-center">
+      <div
+        className="rounded-xl border border-slate-200 bg-slate-50 p-6 text-center"
+        style={{ minHeight: heightPx }}
+      >
         <p className="text-slate-700">
-          Pour afficher l’agenda Calendly, acceptez les cookies et services tiers via le bandeau en bas
-          de page.
+          Pour afficher l’agenda Calendly, acceptez les cookies et services tiers.
         </p>
         <div className="mt-4 flex flex-col items-center justify-center gap-3 sm:flex-row">
           <button
@@ -127,10 +66,12 @@ export function CalendlyConsentInline({
             Accepter et afficher l’agenda
           </button>
           <a
-            href={CALENDLY_BOOKING_URL}
+            href={bookingUrl}
             target="_blank"
             rel="noopener noreferrer"
             className="text-sm font-semibold text-[var(--accent)] hover:underline"
+            data-calendly
+            data-cta-position="inline"
           >
             Ouvrir Calendly dans un nouvel onglet
           </a>
@@ -141,11 +82,19 @@ export function CalendlyConsentInline({
 
   return (
     <div
-      ref={containerRef}
       className="calendly-inline-widget w-full overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm"
       style={{ minWidth: 320, height: heightPx }}
       data-calendly
       data-cta-position="inline"
-    />
+    >
+      <iframe
+        src={iframeSrc}
+        title="Réserver un créneau Calendly — formation IA BTP"
+        className="h-full w-full border-0"
+        loading="eager"
+        referrerPolicy="no-referrer-when-downgrade"
+        allow="payment"
+      />
+    </div>
   );
 }
