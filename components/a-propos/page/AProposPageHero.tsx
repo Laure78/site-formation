@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { Calendar } from 'lucide-react';
+import { LinkedInPresenceCard } from '@/components/linkedin/LinkedInPresenceCard';
 import {
   A_PROPOS_PAGE_H1,
   A_PROPOS_PAGE_PROOF_LINE,
@@ -36,14 +37,15 @@ export function AProposPageHero() {
             >
               Voir les formations
             </Link>
-        <Link
-          href="#contact-cta"
-          className="inline-flex min-h-[44px] items-center justify-center gap-2 rounded-xl border border-[#CBD5E1] bg-white px-6 py-3 text-base font-semibold text-[#0F172A] hover:border-[#377CF3] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#377CF3]"
-        >
-          <Calendar className="h-5 w-5 shrink-0" aria-hidden />
-          Réserver un échange
-        </Link>
+            <Link
+              href="#contact-cta"
+              className="inline-flex min-h-[44px] items-center justify-center gap-2 rounded-xl border border-[#CBD5E1] bg-white px-6 py-3 text-base font-semibold text-[#0F172A] hover:border-[#377CF3] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#377CF3]"
+            >
+              <Calendar className="h-5 w-5 shrink-0" aria-hidden />
+              Réserver un échange
+            </Link>
           </div>
+          <LinkedInPresenceCard variant="inline" className="mt-6" />
         </div>
         <figure className="mx-auto w-full max-w-[280px] lg:mx-0 lg:justify-self-end">
           <Image

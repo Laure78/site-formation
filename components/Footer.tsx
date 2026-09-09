@@ -4,6 +4,10 @@ import { LinkedInIcon } from '@/components/icons/LinkedInIcon';
 import { ExternalLinkAnchor } from '@/components/ExternalLink';
 import { QualiopiCertificationNotice } from '@/components/QualiopiCertificationNotice';
 import { ReferentHandicapBlock } from '@/components/formation/ReferentHandicapBlock';
+import {
+  LINKEDIN_FOLLOWERS_FOOTER_LABEL,
+  LINKEDIN_PROFILE_ARIA,
+} from '@/lib/linkedin-profile';
 import { SITE } from '@/lib/site';
 import {
   NAV_FORMATIONS_FOOTER,
@@ -196,17 +200,18 @@ export function Footer() {
               </p>
             </div>
 
-            <div className="flex shrink-0 items-center gap-2">
-              <a
+            <div className="flex shrink-0 flex-col items-start gap-2 sm:items-end">
+              <ExternalLinkAnchor
                 href={social.linkedin}
-                target="_blank"
-                rel="me noopener"
-                title="Profil LinkedIn — Laure Olivié, formatrice IA BTP"
-                aria-label="Profil LinkedIn de Laure Olivié — formatrice IA pour les professionnels du BTP"
-                className="flex h-10 w-10 items-center justify-center rounded-lg bg-[#377CF3] text-white transition-colors hover:bg-[#2d66d6] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#377CF3]"
+                title={LINKEDIN_PROFILE_ARIA.footer}
+                aria-label={LINKEDIN_PROFILE_ARIA.footer}
+                className="inline-flex min-h-[44px] items-center gap-2 rounded-lg px-1 text-sm font-semibold text-[#377CF3] transition-colors hover:text-[#2d66d6] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#377CF3]"
               >
-                <LinkedInIcon className="h-4 w-4" />
-              </a>
+                <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-[#377CF3] text-white">
+                  <LinkedInIcon className="h-4 w-4" />
+                </span>
+                {LINKEDIN_FOLLOWERS_FOOTER_LABEL}
+              </ExternalLinkAnchor>
               <Link
                 href={links.home}
                 className="text-xs text-slate-500 underline-offset-2 hover:text-[#377CF3] hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#377CF3]"

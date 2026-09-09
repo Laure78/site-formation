@@ -1,4 +1,8 @@
-import { SCHEMA_CONTACT } from '@/lib/schema-constants';
+import {
+  SCHEMA_CONTACT,
+  SCHEMA_LINKEDIN_LEARNING_INSTRUCTOR_URL,
+  SCHEMA_LINKEDIN_PROFILE_URL,
+} from '@/lib/schema-constants';
 
 /**
  * JSON-LD @graph (LocalBusiness + Person) — page d’accueil uniquement.
@@ -36,7 +40,7 @@ export const HOME_PAGE_GRAPH_JSON_LD = {
       priceRange: '€€',
       openingHours: 'Mo-Fr 09:00-18:00',
       sameAs: [
-        'https://fr.linkedin.com/in/laure-olivie',
+        SCHEMA_LINKEDIN_PROFILE_URL,
         'https://annuaire-entreprises.data.gouv.fr/entreprise/905244281',
       ],
     },
@@ -47,10 +51,7 @@ export const HOME_PAGE_GRAPH_JSON_LD = {
       jobTitle: 'Formatrice IA spécialisée BTP',
       url: 'https://www.laureolivie.fr/a-propos',
       worksFor: { '@id': 'https://www.laureolivie.fr/#business' },
-      sameAs: [
-        'https://fr.linkedin.com/in/laure-olivie',
-        'https://www.linkedin.com/learning/instructors/laure-olivie',
-      ],
+      sameAs: [SCHEMA_LINKEDIN_PROFILE_URL, SCHEMA_LINKEDIN_LEARNING_INSTRUCTOR_URL],
     },
   ],
 };

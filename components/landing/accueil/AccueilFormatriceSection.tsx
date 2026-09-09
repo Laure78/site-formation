@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { ProfilePhoto } from '@/components/landing/ProfilePhoto';
+import { LinkedInPresenceCard } from '@/components/linkedin/LinkedInPresenceCard';
 import { LINKS } from '@/lib/internal-links';
 import { LAURE_OLIVIE_CLIENT_REFERENCES_SHORT } from '@/lib/laure-olivie-profile';
 import {
@@ -10,7 +11,7 @@ import {
 } from '@/lib/ofc-interaction-classes';
 import { OFC_SEC } from '@/lib/ofc-section-classes';
 
-/** Formatrice — portrait court, CTA vers À propos. */
+/** Formatrice — portrait court, CTA vers À propos + présence LinkedIn. */
 export function AccueilFormatriceSection() {
   return (
     <section className={OFC_SEC.white} aria-labelledby="accueil-formatrice">
@@ -42,6 +43,7 @@ export function AccueilFormatriceSection() {
               Formateur IA pour le BTP — profil détaillé
             </Link>
           </p>
+          <LinkedInPresenceCard className="mt-8" />
         </div>
       </div>
     </section>

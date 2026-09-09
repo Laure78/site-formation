@@ -8,6 +8,8 @@ import { getLaureOlivieSchemaPersonDescription } from '@/lib/laure-olivie-profil
 import {
   SCHEMA_CONTACT,
   SCHEMA_GEO,
+  SCHEMA_LINKEDIN_LEARNING_INSTRUCTOR_URL,
+  SCHEMA_LINKEDIN_PROFILE_URL,
   SCHEMA_OPENING_HOURS,
   SCHEMA_ORGANIZATION_OFC,
   SCHEMA_PUBLIC_SITE_URL,
@@ -56,7 +58,7 @@ export function getAProposLocalBusinessJsonLd(): Record<string, unknown> {
     currenciesAccepted: 'EUR',
     openingHours: SCHEMA_OPENING_HOURS,
     sameAs: [
-      'https://fr.linkedin.com/in/laure-olivie',
+      SCHEMA_LINKEDIN_PROFILE_URL,
       'https://www.malt.fr/profile/laureoli',
       'https://annuaire-entreprises.data.gouv.fr/entreprise/905244281',
     ],
@@ -121,8 +123,8 @@ export const A_PROPOS_PERSON_SCRIPT_JSON_LD: Record<string, unknown> = {
     addressCountry: 'FR',
   },
   sameAs: [
-    'https://fr.linkedin.com/in/laure-olivie',
-    'https://www.linkedin.com/learning/instructors/laure-olivie',
+    SCHEMA_LINKEDIN_PROFILE_URL,
+    SCHEMA_LINKEDIN_LEARNING_INSTRUCTOR_URL,
   ],
   alumniOf: {
     '@type': 'Organization',

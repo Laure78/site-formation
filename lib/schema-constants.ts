@@ -14,7 +14,9 @@ export const SCHEMA_PUBLIC_SITE_URL: string =
   (typeof process !== 'undefined' && process.env.NEXT_PUBLIC_SITE_URL) ||
   'https://www.laureolivie.fr';
 
-/** Profil LinkedIn — sameAs Person / Organization (entité Laure Olivié). */
+/** Profil LinkedIn — sameAs Person / Organization (entité Laure Olivié).
+ * Abonnés (chiffre manuel) : `lib/linkedin-profile.ts`.
+ */
 export const SCHEMA_LINKEDIN_PROFILE_URL = 'https://www.linkedin.com/in/laure-olivie/' as const;
 
 /** Page instructeur LinkedIn Learning (URL canonique — pluriel « instructors »). */

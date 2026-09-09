@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { AccueilHeroVideo } from '@/components/landing/AccueilHeroVideo';
+import { LinkedInFollowersLink } from '@/components/linkedin/LinkedInFollowersLink';
 import {
   getAccueilHeroModalitesLine,
   getAccueilHeroReassuranceLine,
@@ -56,6 +57,9 @@ export function AccueilHeroSection() {
                 Demander un devis pour mon équipe
               </Link>
             </div>
+            <p className="mt-4">
+              <LinkedInFollowersLink />
+            </p>
           </div>
 
           <aside className="accueil-hero-aside mt-8 w-full min-w-0 md:mt-0 lg:justify-self-end">

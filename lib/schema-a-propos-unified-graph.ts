@@ -10,6 +10,7 @@ import {
   SCHEMA_CONTACT,
   SCHEMA_GEO,
   SCHEMA_GOOGLE_BUSINESS_PROFILE_URL,
+  SCHEMA_LINKEDIN_PROFILE_URL,
   SCHEMA_OPENING_HOURS,
   SCHEMA_ORGANIZATION_OFC,
   SCHEMA_PERSON_SAME_AS,
@@ -142,7 +143,7 @@ export function getAProposUnifiedJsonLd(): Record<string, unknown> {
     currenciesAccepted: 'EUR',
     openingHours: SCHEMA_OPENING_HOURS,
     sameAs: [
-      'https://fr.linkedin.com/in/laure-olivie',
+      SCHEMA_LINKEDIN_PROFILE_URL,
       'https://www.malt.fr/profile/laureoli',
       'https://annuaire-entreprises.data.gouv.fr/entreprise/905244281',
     ],

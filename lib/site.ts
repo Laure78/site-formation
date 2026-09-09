@@ -9,6 +9,11 @@ import { getCatalogueFormationsCount } from '@/lib/formations-catalogue-display'
 import { getHeaderNav } from '@/lib/header-nav';
 import { LINKS } from '@/lib/internal-links';
 import {
+  LINKEDIN_FOLLOWERS_COUNT,
+  LINKEDIN_FOLLOWERS_FOOTER_LABEL,
+  LINKEDIN_FOLLOWERS_LABEL,
+} from '@/lib/linkedin-profile';
+import {
   NAV_FORMATIONS_FOOTER,
   NAV_IDF,
   NAV_LEGAL_BAR,
@@ -90,6 +95,9 @@ export const SITE = {
   },
   social: {
     linkedin: SITE_CONFIG.linkedinProfileUrl,
+    linkedinFollowersCount: LINKEDIN_FOLLOWERS_COUNT,
+    linkedinFollowersLabel: LINKEDIN_FOLLOWERS_LABEL,
+    linkedinFollowersFooterLabel: LINKEDIN_FOLLOWERS_FOOTER_LABEL,
     googleBusiness: SCHEMA_GOOGLE_BUSINESS_PROFILE_URL,
     googleMaps: SITE_CONFIG.googleMapsUrl,
   },
