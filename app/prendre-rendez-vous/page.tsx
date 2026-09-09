@@ -10,7 +10,7 @@ import { BUSINESS_DELIVERY } from '@/lib/business-delivery';
 import { createPageMetadata, getFAQSchema } from '@/lib/seo';
 import { SCHEMA_PUBLIC_SITE_URL } from '@/lib/schema-constants';
 import { OFC_SECTION_INNER } from '@/lib/ofc-section-classes';
-import { OFC_LINK } from '@/lib/ofc-interaction-classes';
+import { OFC_CTA_SECONDARY, OFC_LINK } from '@/lib/ofc-interaction-classes';
 import {
   FAQ_PRENDRE_RDV_PAGE,
   PRENDRE_RDV_APRES,
