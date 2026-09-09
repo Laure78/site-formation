@@ -16,7 +16,7 @@ import {
 } from '@/data/formations';
 import { IDF_ZONE_INTERVENTION } from '@/lib/constants';
 import { FINANCEMENT_FORMULATION_PRUDENTE } from '@/lib/financement-copy';
-import { getCatalogueFormationsCount } from '@/lib/formations-catalogue-display';
+import { getCatalogueFormationsCount } from '@/lib/formation-catalogue-visibility';
 
 /** Durées catalogue reconnues pour la grille tarifaire. */
 export type TarifDureeHeures = 2 | 4 | 7 | 14;
