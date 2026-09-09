@@ -16,9 +16,15 @@ import {
 import { getFormationCatalogueByRef } from '@/lib/formations-catalogue-display';
 import type { InfosPratiquesFormation } from '@/lib/infos-pratiques-types';
 import { assertInfosPratiquesCompletes } from '@/lib/assert-infos-pratiques';
-import { libelleTarifsCarteCatalogue, parseDureeHeures, MENTIONS_TVA_INTRA_COURTE, PREREQUIS_NIVEAU_2 } from '@/lib/tarifs-sessions';
+import {
+  getTarifGrilleFromDureeLibelle,
+  libelleTarifIntraParSession,
+  libelleTarifsCarteCatalogue,
+  parseDureeHeures,
+  MENTIONS_TVA_INTRA_COURTE,
+  PREREQUIS_NIVEAU_2,
+} from '@/lib/tarifs-sessions';
 import { libelleTarifApplicationMetierBtp } from '@/lib/tarifs-applications-metier-btp';
-
 /** Modalité pédagogique fixe — toutes les actions catalogue OFC. */
 export const MODALITE_PEDAGOGIQUE_CATALOGUE =
   'Présentiel — Île-de-France uniquement (intra-entreprise, dans vos locaux)' as const;
@@ -93,8 +99,10 @@ export const PROGRAMME_CONTENU_CATALOGUE: Record<FormationCode, readonly string[
     'Module 7 — Déployer et maintenir (30 min)',
   ],
   'NIV-09': [
-    'Module 1 — Créer ses assistants IA métier (2 h)',
-    'Module 2 — Préparer un assistant d’équipe et organiser ses ressources (2 h)',
+    'Module 1 — Littératie IA & cadre AI Act (1 h 15)',
+    'Module 2 — Fonctionnalités clés de ChatGPT et de Claude (1 h 45)',
+    'Module 3 — Bien prompter : de la demande floue au résultat fiable (1 h 45)',
+    'Module 4 — Créer son assistant IA métier (2 h 15)',
   ],
 };
 
@@ -206,16 +214,16 @@ export const PREREQUIS_NIV05 =
 
 /** Prérequis NIV-09 — assistants IA (lien initiation via URL interne). */
 export const PREREQUIS_NIV09 =
-  'Avoir suivi la formation Fondamentaux IA BTP (fiche catalogue niveau 1 — bâtiment & travaux publics) ou utiliser régulièrement un outil d’IA générative. Ordinateur portable et accès personnel aux outils utilisés pendant les ateliers. Les comptes et abonnements nécessaires sont précisés selon les outils retenus, avant validation du devis — hors tarif de formation.';
+  'Abonnement payant ChatGPT Plus ou Claude Pro actif sur le poste de chaque participant (un des deux outils suffit ; les deux sont abordés en session) — non inclus dans le tarif, à la charge de l’entreprise. Ordinateur portable. Avoir suivi la formation Fondamentaux IA BTP ou utiliser régulièrement un outil d’IA générative.';
 
 export const DELAI_ACCES_NIV09 =
-  'Inscription jusqu’à 7 jours avant la session, selon les disponibilités.';
+  'Sous 15 jours à 2 mois selon disponibilités, après signature de la convention.';
 
 export const MODALITE_PEDAGOGIQUE_NIV09 =
-  'Présentiel uniquement en Île-de-France — en entreprise ou dans une salle adaptée. Intra ou interentreprises. Groupe de 6 à 12 participants. 80 % de pratique / 20 % de théorie.';
+  'Présentiel uniquement en Île-de-France — intra-entreprise sur site (locaux de l’entreprise) ou salle adaptée. Groupe de 6 à 10 participants. 80 % de pratique / 20 % de théorie.';
 
 export const MODALITES_ACCES_NIV09 =
-  'Formation collective en intra ou interentreprises. Pour une seule personne : inscription possible à une session collective interentreprises. Aucun accompagnement individuel n’est proposé.';
+  'Formation collective en intra-entreprise. Pour une seule personne : inscription possible à une session collective interentreprises sur devis. Aucun accompagnement individuel n’est proposé.';
 
 const EVALUATION_NIV09 = [
   'Positionnement initial en début de formation',
@@ -316,11 +324,16 @@ function tarifPourRef(ref: FormationCode): string {
     return `${libelleTarifApplicationMetierBtp(formation.tarifParcoursAppMetier)} ${MENTIONS_TVA_INTRA_COURTE}`;
   }
   const entry = getFormationCatalogueByRef(ref);
-  if (!entry) {
+  if (!formation || !entry) {
     throw new Error(`[getInfosPratiquesForCatalogue] Référence inconnue : ${ref}`);
   }
+  const grille = getTarifGrilleFromDureeLibelle(formation.duree);
+  const effectif = entry.effectif.toLowerCase();
+  if (formation.prixHT > 0 && formation.prixHT !== grille.intraHT) {
+    return `Intra-entreprise : ${libelleTarifIntraParSession(formation.prixHT)} (${effectif}) · Interentreprises : sur devis. ${MENTIONS_TVA_INTRA_COURTE}`;
+  }
   const tarifs = libelleTarifsCarteCatalogue(parseDureeHeures(entry.duree));
-  return `Intra-entreprise : ${tarifs.intra} (${entry.effectif.toLowerCase()})${tarifs.inter ? ` · Interentreprises : ${tarifs.inter}` : ''}. ${MENTIONS_TVA_INTRA_COURTE}`;
+  return `Intra-entreprise : ${tarifs.intra} (${effectif})${tarifs.inter ? ` · Interentreprises : ${tarifs.inter}` : ''}. ${MENTIONS_TVA_INTRA_COURTE}`;
 }
 
 export function getInfosPratiquesForCatalogue(ref: string): InfosPratiquesFormation {
@@ -450,7 +463,7 @@ export function getFormationOutilsAbonnementsAvantDevis(ref: string): string {
     case 'NIV-08':
       return 'Outils : ordinateur portable avec connexion internet. Aucun abonnement IA payant obligatoire indiqué au programme — les éventuels abonnements restent hors forfait.';
     case 'NIV-09':
-      return 'ChatGPT (GPTs), Gemini (Gems) et Claude (projets) selon les ateliers retenus. Les conditions de création et de partage diffèrent selon les plateformes et les abonnements. Les abonnements éventuels ne sont pas inclus dans le tarif. Les comptes et abonnements nécessaires sont précisés selon les outils retenus, avant validation du devis.';
+      return 'Abonnement payant obligatoire : ChatGPT Plus ou Claude Pro sur le poste de chaque participant (un des deux suffit ; les deux sont pratiqués en atelier). Non inclus dans le tarif de formation — à la charge de l’entreprise.';
     default:
       return 'Les éventuels abonnements payants aux outils d’intelligence artificielle ne sont pas inclus dans le tarif, sauf mention contraire dans le devis.';
   }

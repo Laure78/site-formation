@@ -202,23 +202,23 @@ export const FORMATION_CATALOGUE_SEO: Record<FormationCatalogueCode, FormationCa
     ],
   },
   'NIV-09': {
-    metaTitle: 'Formation assistants IA BTP : ChatGPT, Gemini, Claude',
+    metaTitle: 'Formation assistants IA BTP : ChatGPT et Claude',
     h1: 'Créer des assistants IA personnalisés pour les métiers du BTP',
     subtitle:
-      'Configurez des assistants adaptés à votre poste. Réutilisez vos consignes, vos modèles et vos documents pour vos tâches récurrentes.',
+      'Configurez des assistants adaptés à votre poste avec ChatGPT et Claude. Réutilisez vos consignes, vos modèles et vos documents pour vos tâches récurrentes.',
     metaDescription:
-      'Créez vos assistants IA métier avec ChatGPT, Gemini et Claude. Formation IA pour le BTP, 4 h en présentiel Île-de-France (intra ou inter).',
-    enBref: `Formation assistants IA pour le BTP (${SESSION_DUREE_LIBELLE}, présentiel Île-de-France) : configurer des assistants personnalisés et d’équipe avec ChatGPT, Gemini et Claude — sans développer d’application. Bases de l’IA requises. ${QUALIOPI_MENTION}.`,
+      'Créez vos assistants IA métier avec ChatGPT et Claude. Formation IA pour le BTP, 7 h en présentiel Île-de-France, intra-entreprise.',
+    enBref: `Formation assistants IA pour le BTP (7 h, présentiel Île-de-France) : littératie IA, fonctionnalités ChatGPT et Claude, prompting et création d’assistants métier — sans développer d’application. Abonnement ChatGPT Plus ou Claude Pro requis. ${QUALIOPI_MENTION}.`,
     publicTargets: [
-      'Dirigeants de TPE/PME du BTP',
-      'Conducteurs de travaux et chargés d’affaires',
-      'Équipes administratives, commerciales et fonctions support',
+      'Assistant(e)s travaux et fonctions support du BTP',
+      'Comptabilité et direction administrative et financière',
+      'Dirigeants, conducteurs de travaux et chargés d’affaires',
     ],
     iaLimits: [
       { iaAide: 'Configurer un assistant avec consignes et ton', validationHumaine: 'Valider les instructions et les sorties' },
       { iaAide: 'Centraliser modèles et documents métier', validationHumaine: 'Contrôler confidentialité et anonymisation' },
       { iaAide: 'Structurer une bibliothèque de prompts', validationHumaine: 'Sélectionner les prompts réellement utiles' },
-      { iaAide: 'Préparer un assistant transverse', validationHumaine: 'Vérifier le partage selon l’outil et l’abonnement' },
+      { iaAide: 'Comparer ChatGPT et Claude sur une tâche', validationHumaine: 'Choisir l’outil adapté au besoin' },
     ],
   },
 };

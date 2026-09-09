@@ -246,28 +246,28 @@ export const FORMATION_CATALOGUE_GEO_EXTENDED: Record<
   },
   'NIV-09': {
     queApprendre:
-      'Configurer des assistants IA adaptés à son poste, comparer ChatGPT, Gemini et Claude, organiser une bibliothèque de prompts et préparer un assistant transverse pour l’équipe — sans créer d’application métier.',
+      'Littératie IA et AI Act, fonctionnalités clés de ChatGPT et Claude, méthode de prompting fiable, et création d’un assistant IA métier adapté à son poste — sans créer d’application.',
     documentsBtp: [
       'Comptes rendus de chantier',
-      'Pièces de DCE (RC, CCTP)',
-      'Modèles de mémoire technique',
-      'Courriers, devis et documents internes',
+      'Courriers et relances',
+      'Modèles internes et trames',
+      'Notes et synthèses administratives',
     ],
-    outilsIa: ['ChatGPT (GPTs)', 'Gemini (Gems)', 'Claude (projets)'],
+    outilsIa: ['ChatGPT (Plus)', 'Claude (Pro)'],
     dureeReponse: '',
     livrables: [
-      'Au moins deux assistants personnalisés adaptés au poste',
-      'Un assistant transverse, partageable selon l’outil et l’abonnement',
-      'Une bibliothèque de prompts organisée par thème',
-      'Supports pédagogiques via l’espace de formation',
+      'Un assistant métier personnalisé testé sur une tâche réelle',
+      'Méthode de prompt + 3 à 5 prompts validés',
+      'Panorama pratique ChatGPT et Claude',
+      'Supports via l’espace de formation',
       'Attestation individuelle de formation',
     ],
     debutants:
-      'Non — bases de l’IA requises. Avoir suivi la formation Fondamentaux IA BTP ou utiliser régulièrement un outil d’IA générative.',
+      'Abonnement payant ChatGPT Plus ou Claude Pro requis. Avoir suivi la formation Fondamentaux IA BTP ou utiliser régulièrement un outil d’IA générative.',
     propresDossiers:
-      'Oui — documents métier anonymisés si besoin (RC, CCTP, fiches techniques, modèles internes). Vérification humaine des réponses obligatoire.',
+      'Oui — documents métier anonymisés si besoin. Vérification humaine des réponses obligatoire.',
     iaRemplacePro: COMMON_IA_NON,
-    deroulement: `${MODALITE_PEDAGOGIQUE_CATALOGUE}. 80 % pratique — deux modules de 2 heures (assistants métier puis assistant d’équipe).`,
+    deroulement: `${MODALITE_PEDAGOGIQUE_CATALOGUE}. 80 % pratique — journée de 7 heures, quatre modules (littératie IA, outils, prompting, assistant métier).`,
     clusterMaillage: [
       { href: LINKS.claudeAiBtp, label: 'Guide Claude AI pour le BTP' },
       { href: LINKS.formationMaitriserClaudeAiBtp, label: 'Formation Maîtriser Claude pour le BTP' },

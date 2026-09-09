@@ -13,8 +13,10 @@ import { getFormationCatalogueVisuel } from '@/lib/formations-catalogue-display'
 import { LINKS } from '@/lib/internal-links';
 import { buildCatalogueCourseAssistantsIaNiv09JsonLd } from '@/lib/schema-catalogue-course-jsonld';
 import { getFormationCatalogueSeo } from '@/lib/formation-catalogue-seo';
-import { getFormationByCode, libelleEffectifFormation } from '@/data/formations';
+import { getFormationByCode, libelleEffectifFormation, libellePrixSessionHt } from '@/data/formations';
 import { OFC_CTA_PRIMARY, OFC_LINK } from '@/lib/ofc-interaction-classes';
+import { MENTIONS_TVA_INTRA_COURTE } from '@/lib/tarifs-sessions';
+import { MentionTvaAsterisque } from '@/components/MentionTVA';
 import {
   ASSISTANTS_IA_BENEFICES,
   ASSISTANTS_IA_EXEMPLES,
@@ -33,6 +35,7 @@ const FORMATION = getFormationByCode('NIV-09')!;
 const CATALOGUE_VISUEL = getFormationCatalogueVisuel('NIV-09');
 const DEVIS_HREF = assistantsIaDevisHref(FORMATION.titre);
 const EFFECTIF_LIBELLE = libelleEffectifFormation(FORMATION);
+const PRIX_LIBELLE = libellePrixSessionHt(FORMATION);
 
 export const metadata = createPageMetadata({
   title: CATALOGUE_SEO.metaTitle,
@@ -42,9 +45,8 @@ export const metadata = createPageMetadata({
   path: LINKS.formationAssistantsIaPersonnalisesBtp,
   keywords: [
     'formation assistants IA BTP',
-    'GPT ChatGPT BTP',
-    'Gemini Gems BTP',
-    'projets Claude BTP',
+    'ChatGPT Plus BTP',
+    'Claude Pro BTP',
     'formation IA pour le BTP',
     'assistants IA métier',
   ],
@@ -72,7 +74,7 @@ export default function FormationAssistantsIaPersonnalisesBtpPage() {
               Catalogue des formations IA pour le BTP
             </Link>
             <p className="mt-3 inline-flex rounded-full border border-[#377CF3]/25 bg-[#377CF3]/5 px-3 py-1 text-sm font-semibold text-[#377CF3]">
-              Usages IA BTP · Assistants IA · 4 heures
+              Usages IA BTP · Assistants IA · 7 heures
             </p>
             <h1 className="mt-3 font-display text-3xl font-bold tracking-tight text-slate-900 md:text-4xl">
               {CATALOGUE_SEO.h1}
@@ -101,8 +103,13 @@ export default function FormationAssistantsIaPersonnalisesBtpPage() {
               ))}
             </ul>
 
-            <p className="mt-4 font-display text-xl font-bold text-[#377CF3]">Sur devis</p>
-            <p className="mt-1 text-sm text-slate-600">{EFFECTIF_LIBELLE} · {FINANCEMENT_FORMULATION_PRUDENTE}</p>
+            <p className="mt-4 font-display text-xl font-bold text-[#377CF3]">
+              {PRIX_LIBELLE}
+              <MentionTvaAsterisque />
+            </p>
+            <p className="mt-1 text-sm text-slate-600">
+              {EFFECTIF_LIBELLE} · {MENTIONS_TVA_INTRA_COURTE} · {FINANCEMENT_FORMULATION_PRUDENTE}
+            </p>
 
             <FormationHeroOutilsNote catalogueRef="NIV-09" className="mt-5" />
 
@@ -168,14 +175,15 @@ export default function FormationAssistantsIaPersonnalisesBtpPage() {
           </h2>
           <p className="mt-3 text-base leading-relaxed text-slate-700">{FORMATION.public}.</p>
           <p className="mt-4 text-base leading-relaxed text-slate-700">
-            Prérequis : avoir suivi la{' '}
+            Prérequis : abonnement payant ChatGPT Plus ou Claude Pro sur chaque poste (un des deux suffit ;
+            non inclus dans le tarif). Avoir suivi la{' '}
             <Link href={LINKS.formationIaBtpNiveau1BatimentTp} className={OFC_LINK}>
               formation Fondamentaux IA BTP
             </Link>{' '}
             ou utiliser régulièrement un outil d&apos;IA générative.
           </p>
           <p className="mt-3 text-base leading-relaxed text-slate-700">
-            Matériel : un ordinateur portable et un accès personnel aux outils utilisés pendant les ateliers.
+            Matériel : un ordinateur portable et un accès personnel à ChatGPT ou Claude pendant les ateliers.
           </p>
         </div>
       </section>
@@ -319,7 +327,11 @@ export default function FormationAssistantsIaPersonnalisesBtpPage() {
             Pour les demandes d&apos;une seule personne : vous pouvez vous inscrire à une session collective
             interentreprises. Aucun accompagnement individuel n&apos;est proposé.
           </p>
-          <p className="mt-3 text-base font-semibold text-slate-900">Tarif : Sur devis</p>
+          <p className="mt-3 text-base font-semibold text-slate-900">
+            Tarif intra-entreprise : {PRIX_LIBELLE}
+            <MentionTvaAsterisque />
+          </p>
+          <p className="mt-2 text-base leading-relaxed text-slate-700">{MENTIONS_TVA_INTRA_COURTE}</p>
           <p className="mt-2 text-base leading-relaxed text-slate-700">
             Prise en charge possible par les OPCO selon éligibilité et accord du financeur.
           </p>

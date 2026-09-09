@@ -6,8 +6,9 @@ import {
   libelleTarifInterParParticipant,
   libelleTarifIntraParSession,
   MENTION_ABONNEMENTS_IA_HORS_FORFAIT,
+  MENTIONS_TVA_INTRA_COURTE,
 } from '@/lib/tarifs-sessions';
-import { MentionTVA } from '@/components/MentionTVA';
+import { MentionTVA, MentionTvaAsterisque } from '@/components/MentionTVA';
 
 type Props = {
   catalogueRef: FormationCatalogueCode;
@@ -19,7 +20,9 @@ type Props = {
 export function FormationTarifsModalitesSection({ catalogueRef }: Props) {
   const formation = getFormationByCode(catalogueRef)!;
   const surDevis = isFormationSurDevis(formation);
-  const grille = surDevis ? null : getTarifGrilleFromDureeLibelle(formation.duree);
+  const grille = getTarifGrilleFromDureeLibelle(formation.duree);
+  const intraHT = formation.prixHT > 0 ? formation.prixHT : grille.intraHT;
+  const customIntra = formation.prixHT > 0 && formation.prixHT !== grille.intraHT;
   const effectifLabel =
     formation.effectifMin === formation.effectifMax
       ? `${formation.effectifMax} participants`
@@ -44,13 +47,19 @@ export function FormationTarifsModalitesSection({ catalogueRef }: Props) {
               supports pédagogiques, les livrables et les évaluations prévues dans le programme.
             </p>
             <p className="mt-4 font-display text-xl font-bold text-[#377CF3]">
-              {surDevis || !grille
-                ? 'Sur devis'
-                : libelleTarifIntraParSession(grille.intraHT, grille.intraFrom)}
+              {surDevis ? (
+                'Sur devis'
+              ) : (
+                <>
+                  {libelleTarifIntraParSession(intraHT)}
+                  <MentionTvaAsterisque />
+                </>
+              )}
             </p>
             <p className="mt-2 text-sm text-slate-600">
               Effectif : {effectifLabel}. Durée : {formation.duree}.
             </p>
+            <p className="mt-2 text-sm text-slate-600">{MENTIONS_TVA_INTRA_COURTE}</p>
           </div>
 
           <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
@@ -59,7 +68,7 @@ export function FormationTarifsModalitesSection({ catalogueRef }: Props) {
               Le tarif est fixé par participant. Les dates sont proposées selon le calendrier des sessions
               ouvertes.
             </p>
-            {surDevis ? (
+            {surDevis || customIntra ? (
               <>
                 <p className="mt-4 font-display text-xl font-bold text-[#377CF3]">Sur devis</p>
                 <p className="mt-2 text-sm text-slate-600">
@@ -67,10 +76,11 @@ export function FormationTarifsModalitesSection({ catalogueRef }: Props) {
                   accompagnement individuel n&apos;est proposé.
                 </p>
               </>
-            ) : grille?.interHT != null ? (
+            ) : grille.interHT != null ? (
               <>
                 <p className="mt-4 font-display text-xl font-bold text-[#377CF3]">
                   {libelleTarifInterParParticipant(grille.interHT)}
+                  <MentionTvaAsterisque />
                 </p>
                 <p className="mt-2 text-sm text-slate-600">
                   Session maintenue sous réserve d&apos;un nombre minimum d&apos;inscrits.

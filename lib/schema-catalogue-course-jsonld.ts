@@ -284,10 +284,10 @@ export const CATALOGUE_COURSE_ASSISTANTS_IA_NIV09: CatalogueCourseJsonLdConfig =
   price: prixCatalogue('NIV-09'),
   keywords: [
     'assistants IA BTP',
-    'GPT ChatGPT BTP',
-    'Gemini Gems BTP',
-    'projets Claude BTP',
+    'ChatGPT Plus BTP',
+    'Claude Pro BTP',
     'formation assistants IA',
+    'prompting BTP',
   ],
   courseCode: 'NIV-09',
   educationalLevel: 'Advanced',

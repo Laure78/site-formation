@@ -36,6 +36,7 @@ import {
 } from '@/lib/financement-copy';
 import { formatProsFormesEtNoteQualiopi } from '@/lib/data/indicateurs-resultats-helpers';
 import { formatNoteSatisfactionAffichageComplet } from '@/lib/data/indicateurs-resultats';
+import { getFormationByCode } from '@/data/formations';
 
 export type FAQItem = { q: string; a: string };
 
@@ -595,15 +596,15 @@ export const FAQ_IA_BTP_PARIS: FAQItem[] = [
 export const FAQ_ASSISTANTS_IA_NIV09: FAQItem[] = [
   {
     q: 'Faut-il déjà savoir utiliser l’IA ?',
-    a: 'Oui. Bases de l’IA requises. Avoir suivi la formation Fondamentaux IA BTP ou utiliser régulièrement un outil d’IA générative.',
+    a: 'Oui. Avoir suivi la formation Fondamentaux IA BTP ou utiliser régulièrement un outil d’IA générative. Un abonnement payant ChatGPT Plus ou Claude Pro est requis.',
   },
   {
     q: 'Quels outils sont abordés ?',
-    a: 'ChatGPT (GPTs), Gemini (Gems) et Claude (projets). Les fonctions de configuration et de partage diffèrent selon les plateformes et les abonnements.',
+    a: 'ChatGPT et Claude. Les fonctionnalités de configuration et de partage diffèrent selon les plateformes et les abonnements.',
   },
   {
     q: 'Faut-il un abonnement payant ?',
-    a: 'Cela dépend des outils retenus pour les ateliers. Les comptes et abonnements nécessaires sont précisés avant validation du devis. Les abonnements éventuels ne sont pas inclus dans le tarif de formation.',
+    a: 'Oui. ChatGPT Plus ou Claude Pro sur le poste de chaque participant (un des deux suffit). Les abonnements ne sont pas inclus dans le tarif de formation.',
   },
   {
     q: 'Peut-on travailler sur les documents de son entreprise ?',
@@ -611,7 +612,7 @@ export const FAQ_ASSISTANTS_IA_NIV09: FAQItem[] = [
   },
   {
     q: 'Les assistants peuvent-ils être partagés avec les collègues ?',
-    a: 'Selon l’outil et l’abonnement. Le partage d’équipe n’est pas identique sur ChatGPT, Gemini et Claude. La formation montre les possibilités disponibles pour le groupe.',
+    a: 'Selon l’outil et l’abonnement. Le partage d’équipe n’est pas identique sur ChatGPT et Claude. La formation montre les possibilités disponibles pour le groupe.',
   },
   {
     q: 'Cette formation apprend-elle à créer une application ?',
@@ -619,15 +620,15 @@ export const FAQ_ASSISTANTS_IA_NIV09: FAQItem[] = [
   },
   {
     q: 'Peut-on s’inscrire seul ?',
-    a: 'Vous pouvez vous inscrire à une session collective interentreprises. Aucun accompagnement individuel n’est proposé.',
+    a: 'Vous pouvez vous inscrire à une session collective interentreprises sur devis. Aucun accompagnement individuel n’est proposé.',
   },
   {
     q: 'Où se déroule la formation ?',
-    a: 'Présentiel uniquement en Île-de-France, en entreprise ou dans une salle adaptée.',
+    a: 'Présentiel uniquement en Île-de-France, en intra-entreprise dans les locaux de l’entreprise.',
   },
   {
-    q: 'Un financement est-il possible ?',
-    a: `${FINANCEMENT_FORMULATION_PRUDENTE} Tarif sur devis. Voir aussi <a href="${LINKS.financement}">financement Constructys formation IA BTP</a>.`,
+    q: 'Combien coûte la session et un financement est-il possible ?',
+    a: `Intra-entreprise : ${libelleTarifIntraParSession(getFormationByCode('NIV-09')!.prixHT)} (groupe). ${MENTIONS_TVA_REGIMES_COURT} ${FINANCEMENT_FORMULATION_PRUDENTE} Voir aussi <a href="${LINKS.financement}">financement Constructys formation IA BTP</a>.`,
   },
 ];
 

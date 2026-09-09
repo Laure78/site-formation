@@ -11,10 +11,16 @@ import {
   isFormationSurDevis,
   libelleEffectifFormation,
   libelleEffectifMaxFormation,
+  libellePrixSessionHt,
   type Formation,
 } from '@/data/formations';
 import { isFormationCataloguePublished } from '@/lib/formation-catalogue-visibility';
-import { formatTarifHt, libelleTarifsCarteCatalogue, parseDureeHeures, MENTIONS_TVA_REGIMES_COURT } from '@/lib/tarifs-sessions';
+import {
+  getTarifGrilleFromDureeLibelle,
+  libelleTarifsCarteCatalogue,
+  parseDureeHeures,
+  MENTIONS_TVA_REGIMES_COURT,
+} from '@/lib/tarifs-sessions';
 import { libelleTarifApplicationMetierBtp } from '@/lib/tarifs-applications-metier-btp';
 
 export type CatalogueLevel = 'DÉBUTANT' | 'AVANCÉ';
@@ -114,7 +120,12 @@ function toCatalogueEntry(f: Formation): FormationCatalogueEntry {
       ? libelleTarifApplicationMetierBtp(f.tarifParcoursAppMetier)
       : isFormationSurDevis(f)
         ? 'Sur devis'
-        : undefined,
+        : (() => {
+            const grille = getTarifGrilleFromDureeLibelle(f.duree);
+            return f.prixHT > 0 && f.prixHT !== grille.intraHT
+              ? libellePrixSessionHt(f)
+              : undefined;
+          })(),
     effectifMin: f.effectifMin,
     effectifMax: f.effectifMax,
     profileTags: PROFILE_TAGS_BY_CODE[f.code] ?? [],
