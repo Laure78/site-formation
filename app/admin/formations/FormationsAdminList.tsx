@@ -18,6 +18,7 @@ import {
   RefreshCw,
 } from 'lucide-react';
 import { SyncCatalogueLmsButton } from './SyncCatalogueLmsButton';
+import { EnrollLaureAllButton } from './EnrollLaureAllButton';
 
 export type AdminFormationCard = {
   id: string;
@@ -113,6 +114,7 @@ export function FormationsAdminList({
           </p>
         </div>
         <div className="flex shrink-0 flex-col gap-2 sm:flex-row sm:items-start">
+          <EnrollLaureAllButton />
           <SyncCatalogueLmsButton />
           <Link
             href="/admin/formations/nouveau"

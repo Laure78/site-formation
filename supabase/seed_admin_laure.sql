@@ -26,13 +26,13 @@ BEGIN
 
   RAISE NOTICE 'Profil mis à jour : laureolivie@yahoo.fr est maintenant admin.';
 
-  -- Inscrire en tant qu'apprenant sur toutes les formations publiées
-  FOR cid IN SELECT id FROM public.courses WHERE published = true
+  -- Inscrire en tant qu'apprenant sur TOUTES les formations (publiées ou non)
+  FOR cid IN SELECT id FROM public.courses
   LOOP
     INSERT INTO public.enrollments (user_id, course_id, progress_percent)
     VALUES (uid, cid, 0)
     ON CONFLICT (user_id, course_id) DO NOTHING;
   END LOOP;
 
-  RAISE NOTICE 'Inscriptions ajoutées à toutes les formations publiées.';
+  RAISE NOTICE 'Inscriptions ajoutées à toutes les formations.';
 END $$;
