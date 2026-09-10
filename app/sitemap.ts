@@ -116,6 +116,7 @@ function getAdditionalMarketingRoutes(baseUrl: string): MetadataRoute.Sitemap {
     { path: '/ressources/guide-rh-btp-ia-ofc', priority: 0.85, changeFrequency: 'weekly' },
     { path: '/ressources/guide-charge-affaires-ofc', priority: 0.85, changeFrequency: 'weekly' },
     { path: '/ressources/guide-repondre-ao-btp-ofc-2026', priority: 0.85, changeFrequency: 'weekly' },
+    { path: LINKS.evenementRepondreAoBtp5Etapes, priority: 0.9, changeFrequency: 'weekly' },
     { path: LINKS.tutoSkillPic, priority: 0.85, changeFrequency: 'monthly' },
     { path: '/formation-ia-btp-ile-de-france', priority: 0.9, changeFrequency: 'weekly' },
     /** Pilier SEO Paris — priorité 0.9 (alignée `SITEMAP_PRIORITY.metier` via applySeoPriorityRules). */

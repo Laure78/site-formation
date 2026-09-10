@@ -4,6 +4,7 @@ import { Download, Calendar, Check } from 'lucide-react';
 import { JsonLd } from '@/components/JsonLd';
 import { MaillageRessourceFromConfig } from '@/app/components/MaillageRessource';
 import { DisclaimerGains } from '@/components/formation/DisclaimerGains';
+import { EvenementAoBtpPromoEncart } from '@/components/evenements/EvenementAoBtpPromoEncart';
 import { SOCIAL_PROOF } from '@/lib/constants';
 import { LINKS } from '@/lib/internal-links';
 import { getMaillageRessourceConfig } from '@/lib/maillage-ressources';
@@ -16,6 +17,9 @@ const FILE_HREF = LINKS.pdfGuideRepondreAoBtpOfc2026;
 const CANONICAL = `${SITE_CONFIG.url.replace(/\/$/, '')}${PATH}`;
 const FILE_URL = `${SITE_CONFIG.url.replace(/\/$/, '')}${FILE_HREF}`;
 const THUMB = RESSOURCES_MINIATURES.guideRepondreAo;
+
+/** ISR — masque l’encart événement après le 5 nov. 2026. */
+export const revalidate = 3600;
 
 const META_TITLE = 'IA appels d’offres BTP : méthode en 5 étapes';
 const META_DESCRIPTION =
@@ -209,6 +213,8 @@ export default function GuideRepondreAoBtpOfc2026Page() {
           </figure>
         </div>
       </section>
+
+      <EvenementAoBtpPromoEncart placement="guide-ao" variant="compact" />
 
       <section className="mx-auto max-w-7xl px-4 py-14 md:py-16" aria-labelledby="en-bref-repondre-ao">
         <h2 id="en-bref-repondre-ao" className="font-display text-2xl font-bold text-slate-900">

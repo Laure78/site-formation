@@ -73,6 +73,8 @@ const STATIC_PAGE_TITLES: Record<string, string> = {
   '/formation-ia-btp-paris': 'Formation IA BTP Paris',
   '/formation-ia-paris': 'Formation IA à Paris',
   '/formateur-ia-btp': 'Formateur IA BTP',
+  '/evenements/repondre-appel-offres-btp-5-etapes':
+    'Webinaire appels d’offres BTP — méthode en 5 étapes',
   '/partenaires': 'Partenaires',
   '/claude-ai-btp': 'Claude AI BTP',
   '/formations-linkedin-learning': 'Formations LinkedIn Learning',

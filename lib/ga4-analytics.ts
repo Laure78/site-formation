@@ -7,6 +7,7 @@
  * - `cta_rdv_click` (paramètres : origin, page_path)
  * - `download_guide` (paramètres : guide_type, file_name, page_path)
  * - `blog_read_complete` (paramètres : article_slug, page_path)
+ * - `eventbrite_click` (paramètres : origin, page_path, event_slug) — clic billetterie ≠ inscription confirmée
  *
  * Enregistrer les paramètres personnalisés comme dimensions (Admin → Définitions personnalisées).
  */
@@ -74,6 +75,17 @@ export function trackDownloadGuide(params: {
 export function trackBlogReadComplete(articleSlug: string, pagePath?: string): void {
   sendGa4Event('blog_read_complete', {
     article_slug: articleSlug,
+    page_path: pagePath ?? getPagePath(),
+  });
+}
+
+/**
+ * Clic vers billetterie Eventbrite (mesure d’intention — pas une inscription confirmée).
+ */
+export function trackEventbriteClick(origin: string, eventSlug: string, pagePath?: string): void {
+  sendGa4Event('eventbrite_click', {
+    origin,
+    event_slug: eventSlug,
     page_path: pagePath ?? getPagePath(),
   });
 }

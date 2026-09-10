@@ -7,11 +7,15 @@ import { RessourcesGuidesPdfSection } from '@/components/ressources/RessourcesGu
 import { RessourcesHubLibrary } from '@/components/ressources/RessourcesHubLibrary';
 import { RessourcesDisclaimerSection } from '@/components/ressources/RessourcesDisclaimerSection';
 import { RessourcesFinalCta } from '@/components/ressources/RessourcesFinalCta';
+import { EvenementAoBtpPromoEncart } from '@/components/evenements/EvenementAoBtpPromoEncart';
 import { buildRessourcesHubJsonLd } from '@/lib/schema-ressources-hub-jsonld';
 import { getFeaturedRessources, getRessourcesCatalog } from '@/lib/ressources-catalog';
 import { LINKS } from '@/lib/internal-links';
 
 const PATH = LINKS.ressources;
+
+/** ISR — masque l’encart événement après le 5 nov. 2026. */
+export const revalidate = 3600;
 
 export const metadata: Metadata = createPageMetadata({
   title: 'Ressources IA BTP gratuites | Guides, tutos et outils',
@@ -67,6 +71,8 @@ export default async function RessourcesIndexPage({ searchParams }: PageProps) {
       <JsonLd id="schema-ressources-hub" data={hubJsonLd} />
 
       <RessourcesHubHero />
+
+      <EvenementAoBtpPromoEncart placement="ressources" variant="compact" />
 
       <RessourcesFeaturedSection resources={featured} />
 

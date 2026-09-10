@@ -32,6 +32,7 @@ import {
 } from '@/lib/data/indicateurs-resultats';
 import { OFC_CTA_PRIMARY, OFC_CTA_SECONDARY, OFC_LINK } from '@/lib/ofc-interaction-classes';
 import { FormationHeroOutilsNote } from '@/components/formations/FormationHeroOutilsNote';
+import { EvenementAoBtpPromoEncart } from '@/components/evenements/EvenementAoBtpPromoEncart';
 
 const CATALOGUE_SEO = getFormationCatalogueSeo('NIV-02');
 const FORMATION = getFormationByCode('NIV-02')!;
@@ -39,6 +40,9 @@ const GRILLE = getTarifGrilleFromDureeLibelle(FORMATION.duree);
 const CATALOGUE_VISUEL = getFormationCatalogueVisuel('NIV-02');
 const PORTRAIT = PHOTOS.portraitPro2026;
 const PDF_HREF = LINKS.pdfProgrammeFormationAoBtpDetail2026;
+
+/** ISR — masque l’encart événement après le 5 nov. 2026 sans rebuild manuel. */
+export const revalidate = 3600;
 
 const MAIL_PROGRAMME = `mailto:${SITE_CONFIG.email}?subject=${encodeURIComponent('Demande de programme — formation IA appels d’offres BTP (NIV-02)')}`;
 
@@ -247,6 +251,8 @@ export default function FormationIAAppelsOffreBTPPage() {
           </div>
         </div>
       </section>
+
+      <EvenementAoBtpPromoEncart placement="formation-ao" variant="compact" />
 
       <section className="border-b border-slate-200 bg-[#F2F2F2] px-4 py-5" aria-label="Preuves et indicateurs">
         <div className="mx-auto max-w-6xl">

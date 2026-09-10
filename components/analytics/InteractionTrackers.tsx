@@ -2,7 +2,12 @@
 
 import { useEffect } from 'react';
 import { toRdvCalendlyPosition } from '@/lib/calendly-analytics';
-import { classifyPdfDownload, sendGa4Event, trackDownloadGuide } from '@/lib/ga4-analytics';
+import {
+  classifyPdfDownload,
+  sendGa4Event,
+  trackDownloadGuide,
+  trackEventbriteClick,
+} from '@/lib/ga4-analytics';
 
 function isPdfDownloadLink(anchor: HTMLAnchorElement): boolean {
   const href = anchor.getAttribute('href') ?? '';
@@ -16,8 +21,19 @@ function isPdfDownloadLink(anchor: HTMLAnchorElement): boolean {
   }
 }
 
+function isEventbriteLink(anchor: HTMLAnchorElement): boolean {
+  const href = anchor.getAttribute('href') ?? '';
+  if (!href) return false;
+  try {
+    return new URL(href, window.location.origin).hostname.includes('eventbrite.');
+  } catch {
+    return href.toLowerCase().includes('eventbrite.');
+  }
+}
+
 /**
- * Écouteurs GA4 unifiés (Calendly + PDF) — un seul composant client au lieu de deux.
+ * Écouteurs GA4 unifiés (Calendly + PDF + Eventbrite) — un seul composant client.
+ * `eventbrite_click` mesure l’intention (clic) ; l’inscription confirmée reste côté Eventbrite.
  */
 export function InteractionTrackers() {
   useEffect(() => {
@@ -35,6 +51,13 @@ export function InteractionTrackers() {
           file_name,
           page_path: window.location.pathname,
         });
+        return;
+      }
+
+      if (anchor && isEventbriteLink(anchor)) {
+        // Évite le double comptage si le CTA dédié a déjà émis l’événement.
+        if (anchor.dataset?.eventbriteOrigin) return;
+        trackEventbriteClick('outbound-link', 'unknown');
         return;
       }
 

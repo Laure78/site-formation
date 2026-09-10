@@ -114,7 +114,7 @@ export const FAQ_ITEMS_HOME: readonly FAQItem[] = [
   },
   {
     q: 'Où se déroulent les formations ?',
-    a: `${MODALITE_FORMATIONS_STANDARD} Couverture : ${IDF_ZONE_INTERVENTION}.`,
+    a: `${MODALITE_FORMATIONS_STANDARD} Couverture : ${IDF_ZONE_INTERVENTION}. Des événements ponctuels en ligne peuvent être proposés séparément — voir chaque fiche.`,
   },
   {
     q: 'Intervenez-vous partout en France ?',
@@ -122,7 +122,7 @@ export const FAQ_ITEMS_HOME: readonly FAQItem[] = [
   },
   {
     q: 'Proposez-vous des formations à distance ?',
-    a: 'Non. Les formations sont exclusivement réalisées en présentiel.',
+    a: 'Les formations en entreprise sont proposées en présentiel en Île-de-France. Des événements ponctuels en ligne sont également programmés. Consultez leurs modalités sur chaque fiche.',
   },
   {
     q: 'Puis-je suivre une formation individuellement ?',

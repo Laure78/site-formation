@@ -11,6 +11,7 @@ import { AccueilRessourcesSection } from '@/components/landing/accueil/AccueilRe
 import { AccueilBeworkBandeau } from '@/components/landing/accueil/AccueilBeworkBandeau';
 import { AccueilFaqSection } from '@/components/landing/accueil/AccueilFaqSection';
 import { AccueilCtaFinalSection } from '@/components/landing/accueil/AccueilCtaFinalSection';
+import { EvenementAoBtpPromoEncart } from '@/components/evenements/EvenementAoBtpPromoEncart';
 import { buildMetadata } from '@/lib/seo';
 import { buildHomeFAQPageJsonLd } from '@/lib/faq';
 import { JsonLd } from '@/components/JsonLd';
@@ -69,6 +70,7 @@ export default function HomePage() {
   return (
     <div>
       <AccueilHeroSection />
+      <EvenementAoBtpPromoEncart placement="accueil" />
       <AccueilPreuveSocialeCompact />
       <AccueilProblemesMetierSection />
       <AccueilFormationsPrioritairesSection />
