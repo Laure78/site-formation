@@ -746,6 +746,56 @@ async function clickLessonByTitle(page: Page, title: string): Promise<boolean> {
  * Après connexion : laisse l’utilisateur ouvrir une formation, capture le réseau,
  * puis tente de parcourir les leçons détectées.
  */
+
+async function listFormationsFromAdminPage(page: Page, adminUrl: string): Promise<
+  Array<{ uuid: string; title: string; href: string }>
+> {
+  const listUrl = new URL('/formations', adminUrl).toString();
+  await page.goto(listUrl, { waitUntil: 'networkidle', timeout: 90_000 }).catch(async () => {
+    await page.goto(listUrl, { waitUntil: 'domcontentloaded', timeout: 60_000 });
+  });
+  await sleep(1500);
+  const rows = (await page.evaluate(`(() => {
+    const out = [];
+    const seen = new Set();
+    for (const a of document.querySelectorAll('a[href*="/formations/"]')) {
+      const href = a.href.split('?')[0];
+      const m = href.match(/\\/formations\\/([0-9a-f-]{36})\\/?$/i) || href.match(/\\/formations\\/([0-9a-f-]{36})/i);
+      if (!m) continue;
+      if (seen.has(m[1])) continue;
+      // Ignorer liens éditeur
+      if (/\\/editor\\//i.test(href)) continue;
+      seen.add(m[1]);
+      const text = (a.textContent || '').replace(/\\s+/g, ' ').trim();
+      if (text.length < 3) continue;
+      out.push({ uuid: m[1], title: text, href: href.endsWith('/') ? href : href + '/' });
+    }
+    return out;
+  })()`)) as Array<{ uuid: string; title: string; href: string }>;
+  return rows.map((r) => ({
+    ...r,
+    title: cleanFormationTitle(r.title),
+  }));
+}
+
+function formationAlreadyExported(formation: TeachizyFormation): boolean {
+  const slug = slugify(formation.title);
+  const dir = path.join(exportRoot(), slug);
+  if (!fs.existsSync(dir)) return false;
+  // Reprise : au moins un fichier support ou liens.json
+  const walk = (d: string): boolean => {
+    for (const name of fs.readdirSync(d)) {
+      const p = path.join(d, name);
+      const st = fs.statSync(p);
+      if (st.isDirectory() && walk(p)) return true;
+      if (/\\.(pdf|xlsx|xls)$/i.test(name) || name === 'liens.json') return true;
+    }
+    return false;
+  };
+  return walk(dir);
+}
+
+
 export async function runBrowserExport(
   options: BrowserExportOptions,
   seedFormations?: TeachizyFormation[]
@@ -786,123 +836,109 @@ export async function runBrowserExport(
     console.log('Session locale réutilisée. Si vous êtes déconnecté, relancez avec --login.\n');
   }
 
-  // Reprendre l’URL formation du manifeste précédent si disponible
-  const prevManifest = readJson<{ formations?: Array<{ sourcePageUrl?: string | null }> }>(
-    path.join(exportRoot(), 'manifest.json')
-  );
-  const prevFormationUrl = prevManifest?.formations?.[0]?.sourcePageUrl;
-  if (prevFormationUrl && formationUuidFromUrl(prevFormationUrl)) {
-    console.log(`Ouverture de la formation connue : ${prevFormationUrl}`);
-    await activePage.goto(prevFormationUrl, { waitUntil: 'networkidle', timeout: 60_000 }).catch(() => undefined);
-    await sleep(800);
-  }
-
-  // Ne pas forcer d’URL admin inventée : laisser l’utilisateur ouvrir Formations > Contenu.
-
-  console.log('\n=== Inventaire ===');
-  console.log('Dans le navigateur : ouvrez la liste de vos formations (menu Formations),');
-  console.log('puis la formation à exporter (onglet Contenu). Dépliez les chapitres si besoin.');
-  if (formationUuidFromUrl(activePage.url())) {
-    console.log('(Une page formation est déjà ouverte — vérifiez l’onglet Contenu puis confirmez.)');
-  }
-  await waitForEnterOrFile(
-    'Structure formation visible',
-    path.join(authDir(), 'continue-inventory')
-  );
-
-  await ensurePage();
-  await expandCollapsed(activePage).catch(() => undefined);
-  await sleep(500);
-
+  const multi = options.maxFormations > 1;
   let formations: TeachizyFormation[] = seedFormations ? structuredClone(seedFormations) : [];
 
-  // Enrichir depuis le réseau capturé (payloads type API documentée)
-  for (const cap of jsonBucket) {
-    const parsed = tryParseTrainingsPayload(cap.body);
-    if (parsed?.length) {
-      for (const f of parsed) {
-        if (!formations.some((x) => x.sourceId === f.sourceId || x.title === f.title)) {
-          formations.push(f);
-        }
-      }
+  if (multi || !options.formationFilter) {
+    // Mode multi / défaut élargi : lister toutes les formations admin
+    console.log('\n=== Liste des formations (admin) ===');
+    await ensurePage();
+    const listed = await listFormationsFromAdminPage(activePage, options.adminUrl);
+    console.log(`${listed.length} formation(s) détectée(s) sur /formations`);
+    for (const row of listed.slice(0, 5)) console.log(` - ${row.title}`);
+    if (listed.length > 5) console.log(` - … +${listed.length - 5} autres`);
+
+    if (!hasState) {
+      await waitForEnterOrFile(
+        'Confirmer pour lancer l’export de toutes les formations listées',
+        path.join(authDir(), 'continue-inventory')
+      );
+    } else {
+      console.log('Session OK — démarrage automatique de l’export multi-formations.\n');
     }
-    const data = (cap.body as { data?: unknown })?.data;
-    if (Array.isArray(data) && data[0] && typeof data[0] === 'object' && 'type' in (data[0] as object) && 'order' in (data[0] as object)) {
-      // Associer aux formations sans items encore
-      const { modules, rootLessons } = parseItemsToModules(data);
-      const target =
-        formations.find((f) => f.modules.length === 0 && f.rootLessons.length === 0) ||
-        formations[formations.length - 1];
-      if (target && target.modules.length === 0 && target.rootLessons.length === 0) {
-        target.modules = modules;
-        target.rootLessons = rootLessons;
-        target.sourcePageUrl = stripSensitiveUrl(activePage.url());
-      } else if (!target && modules.length + rootLessons.length > 0) {
-        formations.push({
-          sourceId: `page-${Date.now()}`,
-          title: (await activePage.title().catch(() => '')) || 'Formation (page courante)',
-          sourcePageUrl: stripSensitiveUrl(activePage.url()),
-          modules,
-          rootLessons,
+
+    let rows = listed;
+    if (options.formationFilter) {
+      const q = options.formationFilter.toLowerCase();
+      rows = rows.filter(
+        (r) => r.title.toLowerCase().includes(q) || r.uuid.toLowerCase().includes(q)
+      );
+    }
+    rows = rows.slice(0, Math.max(1, options.maxFormations));
+
+    formations = [];
+    for (let i = 0; i < rows.length; i++) {
+      const row = rows[i];
+      console.log(`\n[${i + 1}/${rows.length}] Inventaire : ${row.title}`);
+      await ensurePage();
+      jsonBucket.length = 0;
+      await activePage
+        .goto(row.href, { waitUntil: 'networkidle', timeout: 90_000 })
+        .catch(async () => {
+          await activePage.goto(row.href, { waitUntil: 'domcontentloaded', timeout: 60_000 });
         });
-      }
+      await sleep(800);
+      await expandCollapsed(activePage).catch(() => undefined);
+      let formation = await inventoryContentTree(activePage);
+      formation.sourceId = row.uuid;
+      formation.title = cleanFormationTitle(row.title || formation.title);
+      formation.sourcePageUrl = stripSensitiveUrl(row.href);
+      formations.push(formation);
+      const nLessons =
+        formation.rootLessons.length +
+        formation.modules.reduce((acc, m) => acc + m.lessons.length, 0);
+      console.log(`   → ${formation.modules.length} modules, ${nLessons} leçons`);
     }
-  }
-
-  // Recharger la page Contenu pour capturer les XHR, puis inventaire DOM filtré
-  if (formations.length === 0 || formations.every((f) => f.modules.length === 0 && f.rootLessons.length === 0)) {
-    console.log('Inventaire depuis la page Contenu (filtre menu admin)…');
-    await activePage.reload({ waitUntil: 'networkidle', timeout: 60_000 }).catch(() => undefined);
-    await sleep(1000);
-    // Retenter le parse API après reload
-    for (const cap of jsonBucket) {
-      const data = (cap.body as { data?: unknown })?.data;
-      if (
-        Array.isArray(data) &&
-        data[0] &&
-        typeof data[0] === 'object' &&
-        'type' in (data[0] as object) &&
-        'order' in (data[0] as object)
-      ) {
-        const { modules, rootLessons } = parseItemsToModules(data);
-        const uuid = formationUuidFromUrl(activePage.url());
-        formations = [
-          {
-            sourceId: uuid || `page-${Date.now()}`,
-            title: cleanFormationTitle((await activePage.title().catch(() => '')) || 'Formation'),
-            sourcePageUrl: stripSensitiveUrl(activePage.url()),
-            modules,
-            rootLessons,
-          },
-        ];
-        break;
-      }
-    }
-  }
-
-  if (formations.length === 0 || formations.every((f) => f.modules.length === 0 && f.rootLessons.length === 0)) {
-    formations = [await inventoryContentTree(activePage)];
   } else {
-    // Nettoyer le titre si seed API / réseau
+    // Mode une formation (filtre) : comportement guidé historique
+    const prevManifest = readJson<{ formations?: Array<{ sourcePageUrl?: string | null }> }>(
+      path.join(exportRoot(), 'manifest.json')
+    );
+    const prevFormationUrl = prevManifest?.formations?.[0]?.sourcePageUrl;
+    if (prevFormationUrl && formationUuidFromUrl(prevFormationUrl)) {
+      console.log(`Ouverture de la formation connue : ${prevFormationUrl}`);
+      await activePage
+        .goto(prevFormationUrl, { waitUntil: 'networkidle', timeout: 60_000 })
+        .catch(() => undefined);
+      await sleep(800);
+    }
+
+    console.log('\n=== Inventaire ===');
+    console.log('Dans le navigateur : ouvrez Formations → formation → Contenu.');
+    await waitForEnterOrFile(
+      'Structure formation visible',
+      path.join(authDir(), 'continue-inventory')
+    );
+
+    await ensurePage();
+    await expandCollapsed(activePage).catch(() => undefined);
+    await sleep(500);
+
+    formations = seedFormations ? structuredClone(seedFormations) : [];
+    if (formations.length === 0 || formations.every((f) => f.modules.length === 0 && f.rootLessons.length === 0)) {
+      console.log('Inventaire depuis la page Contenu…');
+      await activePage.reload({ waitUntil: 'networkidle', timeout: 60_000 }).catch(() => undefined);
+      await sleep(800);
+      formations = [await inventoryContentTree(activePage)];
+    }
     for (const f of formations) {
       f.title = cleanFormationTitle(f.title);
       if (!f.sourcePageUrl) f.sourcePageUrl = stripSensitiveUrl(activePage.url());
     }
-  }
-
-  if (options.formationFilter) {
-    const q = options.formationFilter.toLowerCase();
-    formations = formations.filter(
-      (f) => f.title.toLowerCase().includes(q) || f.sourceId.toLowerCase().includes(q)
-    );
-    if (!formations.length) {
-      await browser.close();
-      throw new Error(`Aucune formation ne correspond au filtre « ${options.formationFilter} ».`);
+    if (options.formationFilter) {
+      const q = options.formationFilter.toLowerCase();
+      formations = formations.filter(
+        (f) => f.title.toLowerCase().includes(q) || f.sourceId.toLowerCase().includes(q)
+      );
+      if (!formations.length) {
+        await browser.close();
+        throw new Error(`Aucune formation ne correspond au filtre « ${options.formationFilter} ».`);
+      }
     }
+    formations = formations.slice(0, Math.max(1, options.maxFormations));
   }
 
-  formations = formations.slice(0, Math.max(1, options.maxFormations));
-  console.log(`Formations retenues (${formations.length}) :`);
+  console.log(`\nFormations retenues (${formations.length}) :`);
   for (const f of formations) {
     const nLessons =
       f.rootLessons.length + f.modules.reduce((acc, m) => acc + m.lessons.length, 0);
@@ -916,9 +952,40 @@ export async function runBrowserExport(
   }
 
   const fingerprints = loadFingerprints();
-  console.log('\n=== Téléchargement PDF (1re formation / filtre) ===');
+  console.log(
+    multi
+      ? `\n=== Téléchargement multi-formations (${formations.length}) ===`
+      : '\n=== Téléchargement des supports ==='
+  );
 
-  for (const formation of formations) {
+  const progressPath = path.join(exportRoot(), 'manifest-progress.json');
+  const prevFull = readJson<{ formations?: TeachizyFormation[] }>(
+    path.join(exportRoot(), 'manifest.json')
+  );
+
+  for (let fi = 0; fi < formations.length; fi++) {
+    const formation = formations[fi];
+    if (multi && formationAlreadyExported(formation)) {
+      const prev =
+        prevFull?.formations?.find(
+          (f) =>
+            f.sourceId === formation.sourceId ||
+            slugify(f.title) === slugify(formation.title)
+        ) ?? null;
+      if (prev) {
+        formations[fi] = prev;
+        console.log(
+          `\n[${fi + 1}/${formations.length}] ↷ Reprise manifeste existant : ${formation.title}`
+        );
+      } else {
+        console.log(
+          `\n[${fi + 1}/${formations.length}] ↷ Déjà sur disque (inventaire seul) : ${formation.title}`
+        );
+      }
+      continue;
+    }
+
+    console.log(`\n[${fi + 1}/${formations.length}] Formation : ${formation.title}`);
     const formationSlug = slugify(formation.title);
     const lessons: Array<{
       moduleOrder: number;
@@ -952,10 +1019,11 @@ export async function runBrowserExport(
           : null;
 
       if (editorUrl) {
-        await activePage.goto(editorUrl, { waitUntil: 'networkidle', timeout: 90_000 }).catch(async () => {
-          await activePage.goto(editorUrl, { waitUntil: 'domcontentloaded', timeout: 60_000 });
-        });
-        await sleep(REQUEST_DELAY_MS + 500);
+        await activePage
+          .goto(editorUrl, { waitUntil: 'domcontentloaded', timeout: 90_000 })
+          .catch(() => undefined);
+        await activePage.waitForLoadState('networkidle', { timeout: 20_000 }).catch(() => undefined);
+        await sleep(REQUEST_DELAY_MS + 400);
       } else {
         const formationUrl = formation.sourcePageUrl;
         if (formationUrl) {
@@ -1067,8 +1135,15 @@ export async function runBrowserExport(
       lesson.pdfs = lesson.assets.filter((a) => a.kind === 'pdf');
 
       saveFingerprints(fingerprints);
-      saveFingerprints(fingerprints);
     }
+
+    // Sauvegarde progressive (reprise / crash)
+    writeJson(progressPath, {
+      updatedAt: new Date().toISOString(),
+      doneIndex: fi + 1,
+      total: formations.length,
+      formations,
+    });
   }
 
   await context.storageState({ path: storageStatePath() }).catch(() => undefined);

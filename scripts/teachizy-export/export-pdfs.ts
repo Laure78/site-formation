@@ -59,11 +59,12 @@ Options :
   --inventory              Inventaire seul (pas de téléchargement)
   --formation <titre>      Filtrer une formation (correspondance partielle)
   --max-formations <n>     Nombre de formations (défaut : 1)
-  --all                    Toutes les formations (après validation d’une première)
+  --all                    Toutes les formations (headless + reprise auto)
+  --headed                 Forcer le navigateur visible (y compris avec --all)
   --login                  Forcer une nouvelle connexion (ignore la session locale)
   --admin-url <url>        Console admin (défaut : ${DEFAULT_ADMIN_URL})
   --store-url <url>        Espace apprenant (défaut : ${DEFAULT_STORE_URL})
-  --headed / --headless    Navigateur visible (défaut) ou non
+  --headless               Navigateur non visible
 
 Variables optionnelles (.env.local) :
   TEACHIZY_API_KEY         Clé API officielle (structure formations/leçons uniquement — pas les PDF)
@@ -80,7 +81,12 @@ Variables optionnelles (.env.local) :
   const maxFormations = all
     ? 999
     : Number(argValue(args, '--max-formations') ?? '1') || 1;
-  const headed = !hasFlag(args, '--headless');
+  // Multi-formations : headless par défaut (plus stable). Forcer l’UI avec --headed.
+  const headed = hasFlag(args, '--headed')
+    ? true
+    : hasFlag(args, '--headless')
+      ? false
+      : !all;
   const adminUrl =
     argValue(args, '--admin-url') ||
     process.env.TEACHIZY_ADMIN_URL ||
