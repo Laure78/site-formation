@@ -9,10 +9,8 @@ import {
   Users,
   Menu,
   X,
-  BarChart3,
   TrendingUp,
   ShieldCheck,
-  Settings,
   Clock,
   ExternalLink,
   LogOut,
@@ -28,8 +26,6 @@ const nav = [
   { href: '/admin/apprenants', label: 'Apprenants', icon: Users },
   { href: '/admin/progression', label: 'Progression', icon: TrendingUp },
   { href: '/admin/qualite', label: 'Qualiopi / Qualité', icon: ShieldCheck },
-  { href: '/admin/media-dashboard', label: 'Article de blog automatisé', icon: BarChart3 },
-  { href: '/admin/parametres', label: 'Paramètres', icon: Settings },
 ];
 
 export function AdminSidebar() {

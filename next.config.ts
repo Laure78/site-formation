@@ -25,6 +25,7 @@ const formationIaLegacyRedirects = () =>
   }));
 
 const nextConfig: NextConfig = {
+  serverExternalPackages: ['unpdf', 'mammoth'],
   experimental: {
     optimizePackageImports: ['lucide-react', '@supabase/supabase-js'],
   },

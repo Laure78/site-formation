@@ -3,6 +3,10 @@
 # scratch / artefacts locaux
 /.tmp
 
+# Export Teachizy (PDF + session navigateur — ne jamais committer)
+/.teachizy-auth/
+/teachizy-export/
+
 # dependencies
 /node_modules
 /.pnp

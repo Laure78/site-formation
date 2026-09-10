@@ -18,6 +18,8 @@
     "media:publish": "npx tsx scripts/publish.ts",
     "agent:index": "npx tsx scripts/index-knowledge.ts",
     "import:teachizy": "npx tsx scripts/import-teachizy.ts",
+    "teachizy:export": "npx tsx scripts/teachizy-export/export-pdfs.ts",
+    "teachizy:prepare-import": "npx tsx scripts/teachizy-export/prepare-import-dry-run.ts",
     "audit:qualiopi-liens": "node scripts/audit-liens-qualiopi.mjs",
     "audit:qualiopi-fiches": "npx tsx scripts/audit-qualiopi-fiches-formations.ts",
     "programmes:applications-metier": "npx tsx scripts/generate-programmes-applications-metier.ts",
@@ -40,6 +42,7 @@
     "googleapis": "^171.4.0",
     "gray-matter": "^4.0.3",
     "lucide-react": "^0.577.0",
+    "mammoth": "^1.12.2",
     "next": "16.1.6",
     "next-mdx-remote": "^6.0.0",
     "openai": "^6.27.0",
@@ -49,6 +52,7 @@
     "remark-gfm": "^4.0.1",
     "resend": "^6.9.3",
     "stripe": "^20.4.1",
+    "unpdf": "^1.8.1",
     "zod": "^3.25.76"
   },
   "devDependencies": {
@@ -60,6 +64,7 @@
     "eslint": "^9",
     "eslint-config-next": "16.1.6",
     "pdfkit": "^0.20.2",
+    "playwright": "^1.63.0",
     "tailwindcss": "^4",
     "typescript": "^5"
   }

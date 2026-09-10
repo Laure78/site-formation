@@ -2,6 +2,9 @@
 
 Guide pour migrer le contenu pédagogique Teachizy vers la plateforme de formation laureolivie.fr.
 
+> **Récupération automatique des PDF** : voir [`docs/TEACHIZY-EXPORT-PDF.md`](./TEACHIZY-EXPORT-PDF.md)  
+> (`npm run teachizy:export` puis `npm run teachizy:prepare-import`).
+
 ## Structure mise en place
 
 ### 1. Dossier des PDF
