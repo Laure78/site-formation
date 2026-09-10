@@ -51,7 +51,7 @@ export const metadata = buildMetadata({
     url: event.image.src,
     width: event.image.width,
     height: event.image.height,
-    alt: 'Webinaire appels d’offres BTP : méthode en 5 étapes avec l’IA, Laure Olivié',
+    alt: event.image.alt,
   },
   robots: {
     index: true,
@@ -101,71 +101,86 @@ export default function EvenementRepondreAoBtpPage() {
 
       {/* Hero */}
       <section className={`${OFC_SEC.hero} text-slate-900`} aria-labelledby="evenement-ao-h1">
-        <div className={OFC_SECTION_INNER}>
-          <p className="inline-flex rounded-md bg-[#377CF3]/10 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-[#377CF3]">
-            {actif ? event.badge : 'Événement terminé'}
-          </p>
-          <h1 id="evenement-ao-h1" className={`${OFC_TYPE_HERO} mt-4 max-w-3xl`}>
-            {event.name}
-          </h1>
-          <p className="mt-4 max-w-2xl text-base leading-relaxed text-slate-700 md:text-lg">
-            {event.intro}
-          </p>
+        <div className={`${OFC_SECTION_INNER} grid gap-10 lg:grid-cols-2 lg:items-center`}>
+          <div className="min-w-0">
+            <p className="inline-flex rounded-md bg-[#377CF3]/10 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-[#377CF3]">
+              {actif ? event.badge : 'Événement terminé'}
+            </p>
+            <h1 id="evenement-ao-h1" className={`${OFC_TYPE_HERO} mt-4 max-w-3xl`}>
+              {event.name}
+            </h1>
+            <p className="mt-4 max-w-2xl text-base leading-relaxed text-slate-700 md:text-lg">
+              {event.intro}
+            </p>
 
-          <dl className="mt-8 grid gap-3 text-sm text-slate-800 sm:grid-cols-2 md:max-w-2xl">
-            <div>
-              <dt className="font-semibold text-slate-500">Date</dt>
-              <dd>{event.dateLabel}</dd>
-            </div>
-            <div>
-              <dt className="font-semibold text-slate-500">Horaires</dt>
-              <dd>{event.timeLabel}</dd>
-            </div>
-            <div>
-              <dt className="font-semibold text-slate-500">Format</dt>
-              <dd>{event.formatLabel}</dd>
-            </div>
-            <div>
-              <dt className="font-semibold text-slate-500">Animé par</dt>
-              <dd>{event.host}</dd>
-            </div>
-            <div className="sm:col-span-2">
-              <dt className="font-semibold text-slate-500">Tarif</dt>
-              <dd>{event.tarifLibelle}</dd>
-            </div>
-          </dl>
+            <dl className="mt-8 grid gap-3 text-sm text-slate-800 sm:grid-cols-2">
+              <div>
+                <dt className="font-semibold text-slate-500">Date</dt>
+                <dd>{event.dateLabel}</dd>
+              </div>
+              <div>
+                <dt className="font-semibold text-slate-500">Horaires</dt>
+                <dd>{event.timeLabel}</dd>
+              </div>
+              <div>
+                <dt className="font-semibold text-slate-500">Format</dt>
+                <dd>{event.formatLabel}</dd>
+              </div>
+              <div>
+                <dt className="font-semibold text-slate-500">Animé par</dt>
+                <dd>{event.host}</dd>
+              </div>
+              <div className="sm:col-span-2">
+                <dt className="font-semibold text-slate-500">Tarif</dt>
+                <dd>{event.tarifLibelle}</dd>
+              </div>
+            </dl>
 
-          <div className="mt-8 flex flex-wrap gap-3">
-            {actif ? (
-              <>
-                <EventbriteCtaLink
-                  origin="evenement-ao-btp-hero"
+            <div className="mt-8 flex flex-wrap gap-3">
+              {actif ? (
+                <>
+                  <EventbriteCtaLink
+                    origin="evenement-ao-btp-hero"
+                    className={`${OFC_CTA_PRIMARY} inline-flex min-h-11 items-center justify-center px-6 py-3`}
+                  />
+                  <a
+                    href="#programme"
+                    className={`${OFC_CTA_SECONDARY} inline-flex min-h-11 items-center justify-center px-6 py-3`}
+                  >
+                    {event.ctaSecondary}
+                  </a>
+                </>
+              ) : (
+                <Link
+                  href={event.related.formationAo}
                   className={`${OFC_CTA_PRIMARY} inline-flex min-h-11 items-center justify-center px-6 py-3`}
-                />
-                <a
-                  href="#programme"
-                  className={`${OFC_CTA_SECONDARY} inline-flex min-h-11 items-center justify-center px-6 py-3`}
                 >
-                  {event.ctaSecondary}
-                </a>
-              </>
+                  Découvrir la formation appels d’offres
+                </Link>
+              )}
+            </div>
+            {actif ? (
+              <p className="mt-3 text-sm text-slate-600">{event.inscriptionMention}</p>
             ) : (
-              <Link
-                href={event.related.formationAo}
-                className={`${OFC_CTA_PRIMARY} inline-flex min-h-11 items-center justify-center px-6 py-3`}
-              >
-                Découvrir la formation appels d’offres
-              </Link>
+              <p className="mt-3 text-sm text-slate-600">
+                Cet événement en ligne est terminé. La formation catalogue reste disponible en
+                présentiel en Île-de-France.
+              </p>
             )}
           </div>
-          {actif ? (
-            <p className="mt-3 text-sm text-slate-600">{event.inscriptionMention}</p>
-          ) : (
-            <p className="mt-3 text-sm text-slate-600">
-              Cet événement en ligne est terminé. La formation catalogue reste disponible en
-              présentiel en Île-de-France.
-            </p>
-          )}
+
+          <figure className="mx-auto w-full max-w-2xl lg:mx-0 lg:justify-self-end">
+            <Image
+              src={event.image.src}
+              alt={event.image.alt}
+              width={event.image.width}
+              height={event.image.height}
+              className="h-auto w-full rounded-2xl object-contain shadow-[0_20px_48px_-16px_rgba(0,0,0,0.2)] ring-1 ring-slate-200"
+              sizes="(max-width: 1024px) 90vw, 640px"
+              priority
+              title={'title' in event.image ? event.image.title : undefined}
+            />
+          </figure>
         </div>
       </section>
 

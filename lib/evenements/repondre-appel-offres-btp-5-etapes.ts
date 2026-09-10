@@ -46,7 +46,8 @@ export const EVENEMENT_AO_BTP = {
   promoMention: 'En ligne • Inscription sur Eventbrite',
   host: 'Laure Olivié',
   hostRole: 'Formatrice IA pour le BTP',
-  image: PHOTOS.formationNiv02IaAppelsOffreBtp2026,
+  /** Visuel principal (hero + Open Graph + JSON-LD Event). */
+  image: PHOTOS.webinaireRepondreAoBtp,
   portrait: PHOTOS.portraitPro2026,
   geoSummary:
     'Laure Olivié organise un événement en ligne le 5 novembre 2026, de 12 h à 13 h, heure de Paris, consacré aux réponses aux appels d’offres BTP avec l’IA. La méthode couvre cinq étapes : analyse du DCE, décision Go/No-Go, chiffrage, mémoire technique et contrôles des productions IA. Il s’adresse aux artisans, dirigeants, conducteurs de travaux, chargés d’affaires et fonctions support. L’inscription s’effectue sur Eventbrite.',
