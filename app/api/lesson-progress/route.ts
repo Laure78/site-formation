@@ -1,5 +1,6 @@
 import { createClient } from '@/lib/supabase/server';
 import { NextResponse } from 'next/server';
+import { userHasLessonAccess } from '@/lib/lms-access';
 
 export async function POST(request: Request) {
   const supabase = await createClient();
@@ -8,6 +9,11 @@ export async function POST(request: Request) {
 
   const { lessonId, completed } = await request.json();
   if (!lessonId) return NextResponse.json({ error: 'lessonId requis' }, { status: 400 });
+
+  const allowed = await userHasLessonAccess(supabase, user.id, lessonId);
+  if (!allowed) {
+    return NextResponse.json({ error: 'Accès refusé' }, { status: 403 });
+  }
 
   const { error: upsertError } = await supabase
     .from('lesson_progress')

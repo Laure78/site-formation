@@ -7,7 +7,10 @@ export default async function AdminLayout({
 }: { children: React.ReactNode }) {
   const access = await requireAdminAccess();
   if (!access.ok) {
-    redirect(access.reason === 'unauthenticated' ? '/auth/connexion?next=/admin' : '/espace-apprenant');
+    if (access.reason === 'unauthenticated') {
+      redirect('/auth/connexion?next=/admin');
+    }
+    redirect('/espace-apprenant?admin=denied');
   }
 
   return (

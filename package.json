@@ -27,6 +27,7 @@
     "test:seo-titles": "npx tsx scripts/assert-branded-titles.ts",
     "test:indicateurs": "npx tsx scripts/assert-indicateurs-resultats.ts",
     "test:ressources": "npx tsx scripts/assert-ressources-catalog.ts",
+    "test:auth-access": "npx tsx scripts/assert-admin-access.ts",
     "check:internal-links": "npx tsx scripts/check-internal-links.ts",
     "indexnow": "npx tsx scripts/indexnow-submit.ts",
     "indexnow:changed": "npx tsx scripts/indexnow-notify-changed.ts"

@@ -5,7 +5,8 @@ import { createPageMetadata, getFAQSchema, SITE_CONFIG } from '@/lib/seo';
 import { LINKS } from '@/lib/internal-links';
 import ConnexionClient from './ConnexionClient';
 
-export const revalidate = 3600;
+/** Query ?reset= / ?error= doivent être lus à chaque requête (pas de cache HTML). */
+export const dynamic = 'force-dynamic';
 
 const META_TITLE = 'Connexion formation IA BTP : espace apprenant';
 const META_DESCRIPTION =
@@ -87,7 +88,15 @@ if (faqSchema) {
   (faqSchema as Record<string, unknown>)['@id'] = `${SITE_CONFIG.url}${LINKS.authConnexion}#faq`;
 }
 
-export default function ConnexionPage() {
+export default async function ConnexionPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ reset?: string; error?: string; next?: string }>;
+}) {
+  const params = await searchParams;
+  const resetOk = params.reset === 'ok';
+  const authError = params.error === 'auth';
+
   return (
     <div className="min-h-screen bg-[#F8FAFC]">
       <JsonLd id="schema-auth-connexion" schema={getConnexionPageJsonLd()} />
@@ -165,6 +174,24 @@ export default function ConnexionPage() {
           className="flex items-center justify-center border-t border-slate-200 bg-white px-6 py-12 md:px-10 lg:border-l lg:border-t-0 lg:px-14"
         >
           <div className="w-full max-w-md">
+            {resetOk ? (
+              <p
+                className="mb-4 rounded-xl border border-emerald-200 bg-emerald-50 px-4 py-3 text-sm font-medium text-emerald-900"
+                role="status"
+              >
+                Mot de passe mis à jour. Vous pouvez vous connecter ci-dessous avec votre nouvel
+                identifiant.
+              </p>
+            ) : null}
+            {authError ? (
+              <p
+                className="mb-4 rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm font-medium text-red-800"
+                role="alert"
+              >
+                Lien de connexion invalide ou expiré. Utilisez « Mot de passe oublié » pour en
+                recevoir un nouveau.
+              </p>
+            ) : null}
             <Suspense
               fallback={
                 <div className="animate-pulse rounded-2xl border border-slate-200 bg-slate-50 p-8 text-slate-500">

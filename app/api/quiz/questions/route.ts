@@ -1,5 +1,6 @@
 import { createClient } from '@/lib/supabase/server';
 import { NextRequest } from 'next/server';
+import { userHasLessonAccess } from '@/lib/lms-access';
 
 /**
  * GET /api/quiz/questions?lessonId=xxx
@@ -13,16 +14,10 @@ export async function GET(request: NextRequest) {
   const lessonId = request.nextUrl.searchParams.get('lessonId');
   if (!lessonId) return Response.json({ error: 'lessonId requis' }, { status: 400 });
 
-  // Vérifier accès au cours (inscrit ou admin)
-  const { data: lesson } = await supabase.from('lessons').select('module_id').eq('id', lessonId).single();
+  const { data: lesson } = await supabase.from('lessons').select('id').eq('id', lessonId).maybeSingle();
   if (!lesson) return Response.json({ error: 'Leçon non trouvée' }, { status: 404 });
 
-  const { data: mod } = await supabase.from('modules').select('course_id').eq('id', lesson.module_id).single();
-  if (!mod) return Response.json({ error: 'Module non trouvé' }, { status: 404 });
-
-  const { data: enrollment } = await supabase.from('enrollments').select('id').eq('user_id', user.id).eq('course_id', mod.course_id).single();
-  const { data: profile } = await supabase.from('profiles').select('role').eq('id', user.id).single();
-  const hasAccess = enrollment || (profile?.role === 'admin' || profile?.role === 'formateur');
+  const hasAccess = await userHasLessonAccess(supabase, user.id, lessonId);
   if (!hasAccess) return Response.json({ error: 'Accès refusé' }, { status: 403 });
 
   const { data: questions } = await supabase

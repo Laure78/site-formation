@@ -1,12 +1,26 @@
 'use client';
 
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 import Link from 'next/link';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { Eye, EyeOff } from 'lucide-react';
 import { createClient } from '@/lib/supabase/client';
 import { LINKS } from '@/lib/internal-links';
 import { resolvePostLoginRedirect } from './actions';
+
+function mapAuthError(message: string): string {
+  const m = message.toLowerCase();
+  if (m.includes('invalid login') || m.includes('invalid credentials')) {
+    return 'Email ou mot de passe incorrect.';
+  }
+  if (m.includes('email not confirmed')) {
+    return 'Compte non confirmé. Vérifiez vos emails ou contactez le formateur.';
+  }
+  if (m.includes('too many requests') || m.includes('rate limit')) {
+    return 'Trop de tentatives. Réessayez dans quelques minutes.';
+  }
+  return 'Connexion impossible. Vérifiez vos identifiants ou réessayez.';
+}
 
 export default function ConnexionClient() {
   const router = useRouter();
@@ -15,9 +29,20 @@ export default function ConnexionClient() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
+  const urlError = useMemo(() => {
+    if (searchParams.get('error') === 'auth') {
+      return 'Lien de connexion invalide ou expiré. Réessayez ou utilisez « Mot de passe oublié ».';
+    }
+    if (searchParams.get('reset') === 'ok') {
+      return null;
+    }
+    return null;
+  }, [searchParams]);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
   const [resetSent, setResetSent] = useState(false);
+  const displayError = error ?? urlError;
+  const resetOk = searchParams.get('reset') === 'ok';
 
   const handleResetPassword = async (e: React.MouseEvent) => {
     e.preventDefault();
@@ -29,13 +54,15 @@ export default function ConnexionClient() {
     setLoading(true);
     try {
       const supabase = createClient();
+      // PKCE : le code doit passer par /auth/callback avant /auth/reset-password
       const { error: err } = await supabase.auth.resetPasswordForEmail(email, {
-        redirectTo: `${window.location.origin}/auth/reset-password`,
+        redirectTo: `${window.location.origin}/auth/callback?next=${encodeURIComponent('/auth/reset-password')}`,
       });
       if (err) throw err;
       setResetSent(true);
-    } catch (err) {
-      setError(err instanceof Error ? err.message : 'Erreur');
+    } catch {
+      // Message générique : ne pas révéler si l’email existe
+      setResetSent(true);
     } finally {
       setLoading(false);
     }
@@ -47,13 +74,16 @@ export default function ConnexionClient() {
     setLoading(true);
     try {
       const supabase = createClient();
-      const { error: err } = await supabase.auth.signInWithPassword({ email, password });
+      const { error: err } = await supabase.auth.signInWithPassword({
+        email: email.trim(),
+        password,
+      });
       if (err) throw err;
       const destination = await resolvePostLoginRedirect(nextParam);
       router.push(destination);
       router.refresh();
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'Erreur de connexion');
+      setError(mapAuthError(err instanceof Error ? err.message : ''));
     } finally {
       setLoading(false);
     }
@@ -64,7 +94,8 @@ export default function ConnexionClient() {
       <div className="rounded-2xl border border-slate-200 bg-white p-8 shadow-sm">
         <h2 className="font-display text-2xl font-bold text-slate-900">Email envoyé</h2>
         <p className="mt-4 text-slate-600">
-          Vérifiez votre boîte mail pour réinitialiser votre mot de passe.
+          Si un compte existe pour cette adresse, vous recevrez un lien pour réinitialiser votre mot de
+          passe.
         </p>
         <button
           type="button"
@@ -81,9 +112,15 @@ export default function ConnexionClient() {
     <div className="rounded-2xl border border-slate-200 bg-white p-8 shadow-[0_8px_30px_rgba(15,23,42,0.08)]">
       <h2 className="font-display text-3xl font-bold text-slate-900">Connexion</h2>
 
-      {error && (
+      {resetOk && (
+        <p className="mt-4 rounded-lg bg-emerald-50 p-3 text-sm text-emerald-800" role="status">
+          Mot de passe mis à jour. Vous pouvez vous connecter.
+        </p>
+      )}
+
+      {displayError && (
         <p className="mt-4 rounded-lg bg-red-50 p-3 text-sm text-red-700" role="alert">
-          {error}
+          {displayError}
         </p>
       )}
 

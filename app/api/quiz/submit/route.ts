@@ -26,7 +26,9 @@ export async function POST(request: NextRequest) {
     .eq('user_id', user.id)
     .eq('course_id', module.course_id)
     .single();
-  if (!enrollment) return NextResponse.json({ error: 'Accès refusé' }, { status: 403 });
+  const { data: profile } = await supabase.from('profiles').select('role').eq('id', user.id).maybeSingle();
+  const isStaff = profile?.role === 'admin' || profile?.role === 'formateur';
+  if (!enrollment && !isStaff) return NextResponse.json({ error: 'Accès refusé' }, { status: 403 });
 
   const { data: questions } = await supabase
     .from('quiz_questions')

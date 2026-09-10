@@ -80,6 +80,26 @@ Sur Teachizy, toutes les leçons ne sont **pas** des diaporamas PDF :
 
 L’export PDF ne récupère que les fichiers PDF réellement présents.
 
+## Suite : préparation d’import (simulation)
+
+Après un export complet :
+
+```bash
+npm run teachizy:prepare-import
+```
+
+Produits :
+- `teachizy-export/import-prep/config-draft.json` — brouillon modules / PDF / Excel / liens
+- `teachizy-export/import-prep/simulation-report.txt` — actions envisagées
+
+Copier les fichiers vers `public/formations/<slug>/` **sans écraser** l’existant :
+
+```bash
+npm run teachizy:prepare-import -- --apply-files
+```
+
+**Aucune écriture BDD** à cette étape. L’import LMS (`npm run import:teachizy`) reste manuel après validation du brouillon.
+
 ## Fichiers produits
 
 ```

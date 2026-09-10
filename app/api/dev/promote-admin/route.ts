@@ -2,6 +2,7 @@ import { NextResponse } from 'next/server';
 import { createClient } from '@/lib/supabase/server';
 import { createAdminClient } from '@/lib/supabase/admin';
 import { isAdmin } from '@/lib/auth';
+import { canAccessAdmin, isAllowedAdminEmail } from '@/lib/admin-access';
 
 /** Bootstrap local uniquement — promotion admin du compte connecté (via service role). */
 export async function GET(request: Request) {
@@ -20,10 +21,25 @@ export async function GET(request: Request) {
     return NextResponse.redirect(loginUrl);
   }
 
+  // Jamais promouvoir un email hors allowlist, même en local.
+  if (!isAllowedAdminEmail(user.email)) {
+    return NextResponse.json(
+      {
+        error: 'Cet email n’est pas autorisé pour la promotion admin.',
+        hint: 'Ajoutez-le à ADMIN_ALLOWED_EMAILS dans .env.local, ou connectez-vous avec le compte admin légitime.',
+      },
+      { status: 403 }
+    );
+  }
+
   const { data: profile } = await supabase.from('profiles').select('role, full_name').eq('id', user.id).single();
 
-  if (profile && isAdmin(profile.role as 'apprenant' | 'formateur' | 'admin')) {
+  if (profile && canAccessAdmin(profile, user.email)) {
     return NextResponse.redirect(new URL('/admin', request.url));
+  }
+
+  if (profile && isAdmin(profile.role as 'apprenant' | 'formateur' | 'admin') && !canAccessAdmin(profile, user.email)) {
+    return NextResponse.redirect(new URL('/espace-apprenant', request.url));
   }
 
   // Service role requis : le trigger RLS bloque l’auto-promotion via le client user
