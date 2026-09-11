@@ -35,7 +35,7 @@ export function PartnersGrid() {
               key={partner.name}
               href={partner.href}
               title={`Site officiel ${partner.name}`}
-              className={`${OFC_CARD} group flex h-full flex-col justify-between p-6 transition-[transform,box-shadow] duration-300 hover:-translate-y-1 motion-reduce:transition-none motion-reduce:hover:translate-y-0`}
+              className={`${OFC_CARD} group flex h-full flex-col justify-between p-6`}
             >
               <div className="flex h-28 items-center justify-center">
                 <Image

@@ -36,14 +36,15 @@
   --radius-ofc-md: 0.75rem;
   --radius-ofc-lg: 1rem;
   --radius-ofc-xl: 1.25rem;
-  --radius-ofc-card: 1rem;
+  --radius-ofc-card: 1.25rem; /* 20px — cartes premium */
   --radius-ofc-pill: 9999px;
 
   /* ——— Ombres (shadow-ofc-md…) ——— */
-  --shadow-ofc-sm: 0 1px 2px rgba(15, 23, 42, 0.04);
+  --shadow-ofc-sm: 0 2px 4px rgba(15, 23, 42, 0.03), 0 10px 30px rgba(15, 23, 42, 0.07);
   --shadow-ofc-md: 0 4px 16px -4px rgba(15, 23, 42, 0.08);
   --shadow-ofc-lg: 0 12px 32px -12px rgba(15, 23, 42, 0.1);
   --shadow-ofc-accent: 0 8px 24px -8px rgba(55, 124, 243, 0.22);
+  --shadow-ofc-card-hover: 0 8px 18px rgba(15, 23, 42, 0.08), 0 22px 45px rgba(55, 124, 243, 0.13);
 
   /* ——— Durées animation ——— */
   --duration-ofc-fast: 150ms;
@@ -796,16 +797,23 @@
   }
 
   .ofc-benefit-card {
+    border-radius: var(--radius-ofc-card);
+    box-shadow: var(--shadow-ofc-sm);
     transition:
-      transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-      box-shadow 0.3s ease,
-      border-color 0.3s ease;
+      transform 250ms ease-out,
+      box-shadow 250ms ease-out,
+      border-color 250ms ease-out;
+    will-change: transform;
   }
 
   .ofc-benefit-card:hover {
-    transform: translateY(-4px);
-    border-color: rgba(55, 124, 243, 0.35);
-    box-shadow: 0 18px 40px -14px rgba(55, 124, 243, 0.22);
+    transform: translateY(-6px) scale(1.01);
+    border-color: rgba(55, 124, 243, 0.55);
+    box-shadow: var(--shadow-ofc-card-hover);
+  }
+
+  .ofc-benefit-card:active {
+    transform: translateY(-1px) scale(0.98);
   }
 
   .ofc-benefit-card:hover .ofc-benefit-icon {
@@ -819,10 +827,13 @@
   .ofc-howto-step {
     position: relative;
     overflow: hidden;
+    border-radius: var(--radius-ofc-card);
+    box-shadow: var(--shadow-ofc-sm);
     transition:
-      transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-      box-shadow 0.3s ease,
-      border-color 0.3s ease;
+      transform 250ms ease-out,
+      box-shadow 250ms ease-out,
+      border-color 250ms ease-out;
+    will-change: transform;
   }
 
   .ofc-howto-step::before {
@@ -840,9 +851,13 @@
   }
 
   .ofc-howto-step:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 16px 36px -12px rgba(55, 124, 243, 0.18);
-    border-color: rgba(55, 124, 243, 0.25);
+    transform: translateY(-6px) scale(1.01);
+    box-shadow: var(--shadow-ofc-card-hover);
+    border-color: rgba(55, 124, 243, 0.55);
+  }
+
+  .ofc-howto-step:active {
+    transform: translateY(-1px) scale(0.98);
   }
 
   .ofc-howto-step:hover::before {
@@ -852,6 +867,10 @@
   .ofc-gain-card {
     position: relative;
     overflow: hidden;
+    transition:
+      transform 250ms ease-out,
+      box-shadow 250ms ease-out;
+    will-change: transform;
   }
 
   .ofc-gain-card::after {
@@ -873,16 +892,24 @@
   }
 
   .ofc-gain-card:hover {
-    transform: translateY(-3px);
+    transform: translateY(-6px) scale(1.01);
+  }
+
+  .ofc-gain-card:active {
+    transform: translateY(-1px) scale(0.98);
   }
 
   .ofc-cas-usage-card {
     position: relative;
     overflow: hidden;
+    border-radius: var(--radius-ofc-card);
+    box-shadow: var(--shadow-ofc-sm);
     transition:
-      transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-      box-shadow 0.35s ease,
-      border-color 0.35s ease;
+      transform 250ms ease-out,
+      box-shadow 250ms ease-out,
+      border-color 250ms ease-out;
+    will-change: transform;
+    -webkit-tap-highlight-color: transparent;
   }
 
   .ofc-cas-usage-card::before {
@@ -900,9 +927,26 @@
   }
 
   .ofc-cas-usage-card:hover {
-    transform: translateY(-4px);
-    border-color: rgba(55, 124, 243, 0.4);
-    box-shadow: 0 20px 44px -16px rgba(55, 124, 243, 0.28);
+    transform: translateY(-6px) scale(1.01);
+    border-color: rgba(55, 124, 243, 0.55);
+    box-shadow: var(--shadow-ofc-card-hover);
+  }
+
+  .ofc-cas-usage-card:active {
+    transform: translateY(-1px) scale(0.98);
+  }
+
+  .ofc-cas-usage-card:focus-visible {
+    outline: 3px solid rgba(55, 124, 243, 0.35);
+    outline-offset: 4px;
+  }
+
+  .ofc-cas-usage-card .ofc-card__arrow {
+    transition: transform 250ms ease-out;
+  }
+
+  .ofc-cas-usage-card:hover .ofc-card__arrow {
+    transform: translateX(4px);
   }
 
   .ofc-cas-usage-card:hover::before {
@@ -930,9 +974,17 @@
   }
 
   .ofc-benefit-card:hover,
+  .ofc-benefit-card:active,
   .ofc-howto-step:hover,
+  .ofc-howto-step:active,
   .ofc-gain-card:hover,
-  .ofc-cas-usage-card:hover {
+  .ofc-gain-card:active,
+  .ofc-cas-usage-card:hover,
+  .ofc-cas-usage-card:active {
+    transform: none !important;
+  }
+
+  .ofc-cas-usage-card:hover .ofc-card__arrow {
     transform: none !important;
   }
 
@@ -951,22 +1003,45 @@
 /* ——— Micro-interactions OFC (cartes · CTA · liens) ——— */
 @layer components {
   .ofc-card {
-    @apply rounded-ofc-card border bg-white shadow-ofc-sm;
-    border-color: color-mix(in srgb, var(--ofc-color-ink) 12%, transparent);
-    @apply transition-[transform,box-shadow,border-color] duration-150 ease-out;
+    border-radius: var(--radius-ofc-card);
+    border: 1px solid rgba(15, 23, 42, 0.08);
+    background: #ffffff;
+    box-shadow: var(--shadow-ofc-sm);
+    color: inherit;
+    text-decoration: none;
+    outline: none;
+    transition:
+      transform 250ms ease-out,
+      box-shadow 250ms ease-out,
+      border-color 250ms ease-out;
+    will-change: transform;
+    -webkit-tap-highlight-color: transparent;
   }
 
   .ofc-card:hover {
-    @apply -translate-y-0.5 border-ofc-accent;
-    box-shadow: var(--shadow-ofc-accent);
+    transform: translateY(-6px) scale(1.01);
+    border-color: rgba(55, 124, 243, 0.55);
+    box-shadow: var(--shadow-ofc-card-hover);
   }
 
   .ofc-card:active {
-    @apply translate-y-0 border-ofc-accent/90 shadow-ofc-sm;
+    transform: translateY(-1px) scale(0.98);
+    box-shadow: 0 3px 10px rgba(15, 23, 42, 0.1);
   }
 
   .ofc-card:focus-visible {
-    @apply outline outline-2 outline-offset-2 outline-ofc-accent;
+    outline: 3px solid rgba(55, 124, 243, 0.35);
+    outline-offset: 4px;
+    border-color: rgba(55, 124, 243, 0.55);
+  }
+
+  /** Flèche discrète — glisse à droite au survol de la carte parente. */
+  .ofc-card__arrow {
+    transition: transform 250ms ease-out;
+  }
+
+  .ofc-card:hover .ofc-card__arrow {
+    transform: translateX(4px);
   }
 
   /** Cartes maillage interne sur fond gris OFC. */
@@ -1568,6 +1643,10 @@
 @media (prefers-reduced-motion: reduce) {
   .ofc-card:hover,
   .ofc-card:active {
+    transform: none;
+  }
+
+  .ofc-card:hover .ofc-card__arrow {
     transform: none;
   }
 

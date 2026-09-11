@@ -24,8 +24,11 @@ export const OFC_TYPE_LABEL = 'ofc-type-label';
 export const OFC_READ_WIDTH = 'ofc-read-width';
 export const OFC_READ_WIDTH_WIDE = 'ofc-read-width-wide';
 
-/** Cartes formations, métiers, articles — lift −2px + bordure #377CF3 + ombre douce (150 ms). */
+/** Cartes formations, métiers, articles — relief premium, lift −6px, halo bleu (250 ms). */
 export const OFC_CARD = 'ofc-card';
+
+/** Flèche de carte — glisse à droite au survol (`.ofc-card:hover .ofc-card__arrow`). */
+export const OFC_CARD_ARROW = 'ofc-card__arrow';
 
 /** Cartes-liens sur fond gris OFC — hérite du lift `.ofc-card`. */
 export const OFC_CARD_MUTED = 'ofc-card ofc-card-muted';

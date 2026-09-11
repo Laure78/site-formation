@@ -2,7 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowRight, GraduationCap } from 'lucide-react';
 import { RevealShell, RevealGroupShell } from '@/components/motion/RevealShell';
-import { OFC_CAS_USAGE_CARD } from '@/lib/ofc-interaction-classes';
+import { OFC_CARD_ARROW, OFC_CAS_USAGE_CARD } from '@/lib/ofc-interaction-classes';
 import { OFC_SEC } from '@/lib/ofc-section-classes';
 import { LINKS } from '@/lib/internal-links';
 import { PHOTOS } from '@/lib/photos';
@@ -77,7 +77,7 @@ export function AccueilCasUsageIaVisuels() {
             <Link
               href={LINKS.formations}
               title="Catalogue des formations IA pour le BTP — organisme certifié Qualiopi, présentiel Île-de-France"
-              className={`${OFC_CAS_USAGE_CARD} group flex flex-col overflow-hidden rounded-2xl border border-slate-200/80 bg-white shadow-[0_12px_32px_-20px_rgba(15,23,42,0.14)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#377CF3]`}
+              className={`${OFC_CAS_USAGE_CARD} group flex flex-col overflow-hidden rounded-2xl border border-slate-200/80 bg-white`}
             >
               <figure className="flex flex-col">
                 <div className="relative aspect-[4/3] w-full overflow-hidden bg-slate-50 sm:aspect-[16/10]">
@@ -98,7 +98,7 @@ export function AccueilCasUsageIaVisuels() {
                   </p>
                   <p className="mt-2 inline-flex items-center justify-center gap-1 text-[0.7rem] font-semibold text-[#377CF3] sm:text-xs">
                     Voir le catalogue
-                    <ArrowRight className="h-3.5 w-3.5 shrink-0 transition group-hover:translate-x-0.5" aria-hidden />
+                    <ArrowRight className={`${OFC_CARD_ARROW} h-3.5 w-3.5 shrink-0`} aria-hidden />
                   </p>
                 </figcaption>
               </figure>
@@ -124,7 +124,7 @@ export function AccueilCasUsageIaVisuels() {
                   key={item.photo.src}
                   href={item.href}
                   title={item.linkLabel}
-                  className={`${OFC_CAS_USAGE_CARD} group flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200/80 bg-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#377CF3]`}
+                  className={`${OFC_CAS_USAGE_CARD} group flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200/80 bg-white`}
                 >
                   <figure className="flex h-full flex-col">
                     <div className="relative aspect-square w-full overflow-hidden bg-slate-50">
@@ -144,7 +144,7 @@ export function AccueilCasUsageIaVisuels() {
                       <p className="flex-1 text-[0.7rem] leading-relaxed text-slate-600 sm:text-xs">{item.caption}</p>
                       <p className="mt-auto inline-flex items-center gap-1 pt-1 text-[0.7rem] font-semibold text-[#377CF3] sm:text-xs">
                         {item.badge}
-                        <ArrowRight className="h-3 w-3 shrink-0 transition group-hover:translate-x-0.5" aria-hidden />
+                        <ArrowRight className={`${OFC_CARD_ARROW} h-3 w-3 shrink-0`} aria-hidden />
                       </p>
                     </figcaption>
                   </figure>

@@ -75,7 +75,7 @@ export function FormationsBesoinSelector({ options, activeBesoinId, onSelectBeso
                 window.history.replaceState(null, '', `${url.pathname}${url.search}${url.hash}`);
               }}
               aria-pressed={isActive}
-              className={`${OFC_CARD} flex h-full flex-col p-4 text-left transition ${
+              className={`${OFC_CARD} flex h-full flex-col p-4 text-left ${
                 isActive ? 'ring-2 ring-ofc-accent ring-offset-2' : ''
               }`}
             >

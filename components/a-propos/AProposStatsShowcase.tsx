@@ -5,6 +5,7 @@ import { Reveal, RevealGroup } from '@/components/motion/Reveal';
 import { formatNoteSatisfactionSur5 } from '@/lib/data/indicateurs-resultats';
 import { getStatsFreshnessLabel } from '@/lib/readability-presets';
 import { IndicateursResultatsLink } from '@/components/formation/IndicateursResultatsLink';
+import { OFC_CARD } from '@/lib/ofc-interaction-classes';
 
 const STATS = [
   {
@@ -57,7 +58,7 @@ export function AProposStatsShowcase() {
           {STATS.map(({ Icon, value, label }) => (
             <div
               key={label}
-              className="group relative overflow-hidden rounded-2xl border border-[#D4E3FC] bg-white/90 p-5 text-center shadow-[0_8px_28px_rgba(55,124,243,0.08)] transition-[transform,box-shadow,border-color] duration-300 hover:-translate-y-1 hover:border-[#377CF3]/40 hover:shadow-[0_16px_40px_rgba(55,124,243,0.14)] motion-reduce:transition-none motion-reduce:hover:translate-y-0"
+              className={`${OFC_CARD} group relative overflow-hidden bg-white/90 p-5 text-center`}
             >
               <div
                 className="mx-auto flex h-11 w-11 items-center justify-center rounded-full bg-[#377CF3]/10 text-[#377CF3] transition-transform duration-300 group-hover:scale-110 motion-reduce:transition-none motion-reduce:group-hover:scale-100"
@@ -65,8 +66,12 @@ export function AProposStatsShowcase() {
               >
                 <Icon className="h-5 w-5" strokeWidth={1.75} />
               </div>
-              <p className="mt-3 font-display text-3xl font-bold leading-none text-[#1E40AF] md:text-4xl">{value}</p>
-              <p className="mt-2 text-xs font-medium uppercase tracking-wide text-[#64748B] md:text-[13px]">{label}</p>
+              <p className="mt-3 font-display text-3xl font-bold leading-none text-[#1E40AF] md:text-4xl">
+                {value}
+              </p>
+              <p className="mt-2 text-xs font-medium uppercase tracking-wide text-[#64748B] md:text-[13px]">
+                {label}
+              </p>
             </div>
           ))}
         </RevealGroup>

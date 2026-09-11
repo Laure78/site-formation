@@ -12,7 +12,7 @@ export function GoogleReviewCard({ review }: GoogleReviewCardProps) {
 
   return (
     <article
-      className={`${OFC_CARD} flex h-full flex-col rounded-2xl border border-slate-200/80 bg-white p-6 shadow-sm`}
+      className={`${OFC_CARD} flex h-full flex-col p-6`}
     >
       <header className="flex items-start gap-4">
         <div

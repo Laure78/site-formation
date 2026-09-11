@@ -72,7 +72,7 @@ export function PillarStatGrid({
           return (
             <div
               key={row.label}
-              className={`${OFC_CARD} group rounded-[16px] bg-[#F8FAFC] p-4 transition-[transform,box-shadow,border-color] duration-300 hover:-translate-y-1 hover:border-[#BFDBFE] hover:shadow-[0_14px_36px_rgba(55,124,243,0.12)] motion-reduce:transition-none motion-reduce:hover:translate-y-0 md:p-5`}
+              className={`${OFC_CARD} group rounded-[16px] bg-[#F8FAFC] p-4 md:p-5`}
             >
               <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[#377CF3]/15 text-[#377CF3] transition-transform duration-300 group-hover:scale-110 motion-reduce:transition-none motion-reduce:group-hover:scale-100">
                 <Icon className="h-6 w-6" strokeWidth={1.75} aria-hidden />

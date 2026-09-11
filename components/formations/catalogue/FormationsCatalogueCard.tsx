@@ -33,7 +33,7 @@ export function FormationsCatalogueCard({
   return (
     <article
       id={catalogueCardAnchorId(entry.ref)}
-      className={`${OFC_CARD} flex h-full scroll-mt-28 flex-col p-6 transition ${
+      className={`${OFC_CARD} flex h-full scroll-mt-28 flex-col p-6 ${
         highlighted ? 'ring-2 ring-ofc-accent ring-offset-2' : ''
       } ${dimmed ? 'opacity-45' : ''}`}
     >

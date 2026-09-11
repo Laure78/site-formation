@@ -10,9 +10,8 @@ import {
   Mail,
 } from 'lucide-react';
 import { ACCUEIL_CAS_USAGE_RESULTATS } from '@/lib/accueil-config';
-import { OFC_TYPE_H2 } from '@/lib/ofc-interaction-classes';
+import { OFC_CARD, OFC_CARD_ARROW, OFC_TYPE_H2 } from '@/lib/ofc-interaction-classes';
 import { OFC_SEC } from '@/lib/ofc-section-classes';
-import styles from './AccueilResultatsConcretsSection.module.css';
 
 const ICONS_BY_ID: Record<(typeof ACCUEIL_CAS_USAGE_RESULTATS)[number]['id'], LucideIcon> = {
   dce: FileSearch,
@@ -23,12 +22,7 @@ const ICONS_BY_ID: Record<(typeof ACCUEIL_CAS_USAGE_RESULTATS)[number]['id'], Lu
   emails: Mail,
 };
 
-const CARD_LAYOUT = [
-  'group flex h-full min-h-[11.5rem] flex-col gap-3 p-5 sm:p-6',
-  'bg-white text-inherit no-underline',
-].join(' ');
-
-/** Résultats concrets — 6 cas d'usage orientés bénéfice, cartes liens. */
+/** Résultats concrets — 6 cas d'usage orientés bénéfice, cartes liens (design system OFC_CARD). */
 export function AccueilResultatsConcretsSection() {
   return (
     <section className={OFC_SEC.white} aria-labelledby="accueil-resultats-concrets">
@@ -44,7 +38,7 @@ export function AccueilResultatsConcretsSection() {
                 <Link
                   href={item.href}
                   aria-label={item.ariaLabel}
-                  className={`${styles.card} ${CARD_LAYOUT}`}
+                  className={`${OFC_CARD} group flex h-full min-h-[11.5rem] flex-col gap-3 p-5 sm:p-6`}
                 >
                   <span
                     className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-ofc-accent-soft text-ofc-accent"
@@ -72,7 +66,7 @@ export function AccueilResultatsConcretsSection() {
 
                   <span className="mt-auto flex items-center justify-between gap-2 pt-1 text-sm font-semibold text-ofc-accent">
                     Découvrir
-                    <ArrowRight className={`${styles.arrow} h-4 w-4 shrink-0`} aria-hidden />
+                    <ArrowRight className={`${OFC_CARD_ARROW} h-4 w-4 shrink-0`} aria-hidden />
                   </span>
                 </Link>
               </li>

@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 import { getAccueilCartesProblemesMetier } from '@/lib/accueil-config';
-import { OFC_CARD, OFC_LINK, OFC_TYPE_H2 } from '@/lib/ofc-interaction-classes';
+import { OFC_CARD, OFC_CARD_ARROW, OFC_LINK, OFC_TYPE_H2 } from '@/lib/ofc-interaction-classes';
 import { OFC_SEC } from '@/lib/ofc-section-classes';
 
 /** Entrée par problème métier — 4 cartes scannables. */
@@ -36,7 +36,7 @@ export function AccueilProblemesMetierSection() {
               </ul>
               <span className={`mt-5 inline-flex items-center gap-1 text-sm font-semibold ${OFC_LINK}`}>
                 Voir la formation adaptée
-                <ArrowRight className="h-4 w-4 transition group-hover:translate-x-0.5" aria-hidden />
+                <ArrowRight className={`${OFC_CARD_ARROW} h-4 w-4`} aria-hidden />
               </span>
             </Link>
           ))}
