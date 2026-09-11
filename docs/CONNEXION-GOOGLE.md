@@ -44,7 +44,13 @@ Le bouton « Continuer avec Google » ne fonctionne pas. Cela signifie que Googl
 2. **Site URL** : `https://www.laureolivie.fr` (ou votre URL de production)
 3. **Redirect URLs** : ajoutez :
    - `https://www.laureolivie.fr/auth/callback`
+   - `https://www.laureolivie.fr/auth/confirm`
+   - `https://www.laureolivie.fr/auth/reset-password`
    - `http://localhost:3000/auth/callback`
+   - `http://localhost:3000/auth/confirm`
+   - `http://localhost:3000/auth/reset-password`
+
+> Mot de passe oublié : voir aussi `docs/RESET-PASSWORD.md` (template email `token_hash`).
 
 ---
 

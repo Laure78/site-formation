@@ -38,7 +38,9 @@ export async function GET(request: NextRequest) {
 
   const { data, error } = await supabase.auth.exchangeCodeForSession(code);
   if (error || !data.user) {
-    return NextResponse.redirect(`${origin}/auth/connexion?error=auth`);
+    // Souvent : lien ouvert dans un autre navigateur (code_verifier PKCE absent).
+    const recoveryHint = nextRaw?.includes('reset-password') ? '&reason=recovery' : '';
+    return NextResponse.redirect(`${origin}/auth/connexion?error=auth${recoveryHint}`);
   }
 
   const { data: profile } = await supabase

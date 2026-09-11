@@ -196,21 +196,73 @@ export const ACCUEIL_METHODE_ETAPES = [
   { n: '04', titre: 'Vos équipes repartent avec des usages directement réutilisables.' },
 ] as const;
 
+/**
+ * Cas d’usage « résultats concrets » — liens uniques sur l’accueil
+ * (jamais deux fois la même URL sur la page ; destinations déjà utilisées
+ * ailleurs sur l’accueil évitées : formationAO, NIV-01, NIV-03 catalogue, iaDevis…).
+ */
 export const ACCUEIL_CAS_USAGE_RESULTATS = [
-  { titre: 'Analyser un DCE', phrase: 'Synthétiser RC, CCTP et CCAP pour cadrer votre réponse.' },
-  { titre: 'Préparer un devis', phrase: 'Structurer désignations et libellés à partir de vos modèles.' },
   {
+    id: 'dce',
+    titre: 'Analyser un DCE',
+    phrase: 'Synthétiser RC, CCTP et CCAP pour cadrer votre réponse.',
+    tags: ['RC', 'CCTP', 'CCAP'] as const,
+    href: LINKS.formationIaAppelsOffresBtp,
+    ariaLabel: 'Analyser un DCE — découvrir la formation IA appels d’offres BTP',
+  },
+  {
+    id: 'devis',
+    titre: 'Préparer un devis',
+    phrase: 'Structurer désignations et libellés à partir de vos modèles.',
+    tags: ['Désignations', 'Quantitatif'] as const,
+    href: LINKS.formationIaEtudesPrixChiffrageBtp,
+    ariaLabel: 'Préparer un devis — découvrir la formation IA devis et chiffrage BTP',
+  },
+  {
+    id: 'cr',
     titre: 'Rédiger un compte rendu de chantier',
     phrase: 'Transformer vos notes terrain en CR clair, prêt à relire.',
+    tags: ['Notes terrain → CR'] as const,
+    href: LINKS.formationConducteurTravaux,
+    ariaLabel:
+      'Rédiger un compte rendu de chantier — découvrir la formation IA conducteur de travaux',
   },
   {
+    id: 'memoire',
     titre: 'Structurer un mémoire technique',
     phrase: 'Organiser vos arguments et preuves pour l’appel d’offres.',
+    tags: ['Exigences', 'Moyens', 'Preuves'] as const,
+    /** Page dédiée mémoire (cluster AO) — évite un 2ᵉ lien vers formationAO / landing AO. */
+    href: LINKS.iaMemoireTechnique,
+    ariaLabel:
+      'Structurer un mémoire technique — découvrir la méthode IA mémoire technique BTP',
   },
-  { titre: 'Préparer un DOE', phrase: 'Assembler et structurer les pièces de fin de chantier.' },
   {
+    id: 'doe',
+    titre: 'Préparer un DOE',
+    phrase: 'Assembler et structurer les pièces de fin de chantier.',
+    tags: ['Pièces', 'Contrôle', 'Classement'] as const,
+    /**
+     * Tuto DOE dédié (200).
+     * La landing `/formation-ia-conducteur-travaux` redirige en 308 vers
+     * `/formation-ia-conducteur-de-travaux` (déjà utilisée par la carte CR) ;
+     * le catalogue NIV-03 est déjà lié ailleurs sur l’accueil.
+     */
+    href: LINKS.tutoDoeDossierOuvragesExecutes,
+    ariaLabel: 'Préparer un DOE — découvrir le tuto DOE dossier des ouvrages exécutés',
+  },
+  {
+    id: 'emails',
     titre: 'Rédiger emails et courriers',
     phrase: 'Accélérer relances, courriers et échanges clients.',
+    tags: ['Rédaction', 'Relance', 'Synthèse'] as const,
+    /**
+     * Landing ChatGPT BTP (emails / admin) — NIV-01 déjà lié ailleurs sur l’accueil
+     * (problèmes métier + formations prioritaires).
+     */
+    href: LINKS.formationChatgptBtp,
+    ariaLabel:
+      'Rédiger emails et courriers — découvrir la formation ChatGPT pour le BTP',
   },
 ] as const;
 

@@ -1,8 +1,34 @@
+import Link from 'next/link';
+import type { LucideIcon } from 'lucide-react';
+import {
+  ArrowRight,
+  ClipboardList,
+  FileSearch,
+  FileSpreadsheet,
+  FileText,
+  FolderOpen,
+  Mail,
+} from 'lucide-react';
 import { ACCUEIL_CAS_USAGE_RESULTATS } from '@/lib/accueil-config';
 import { OFC_TYPE_H2 } from '@/lib/ofc-interaction-classes';
 import { OFC_SEC } from '@/lib/ofc-section-classes';
+import styles from './AccueilResultatsConcretsSection.module.css';
 
-/** Résultats concrets — 6 cas d'usage orientés bénéfice. */
+const ICONS_BY_ID: Record<(typeof ACCUEIL_CAS_USAGE_RESULTATS)[number]['id'], LucideIcon> = {
+  dce: FileSearch,
+  devis: FileSpreadsheet,
+  cr: ClipboardList,
+  memoire: FileText,
+  doe: FolderOpen,
+  emails: Mail,
+};
+
+const CARD_LAYOUT = [
+  'group flex h-full min-h-[11.5rem] flex-col gap-3 p-5 sm:p-6',
+  'bg-white text-inherit no-underline',
+].join(' ');
+
+/** Résultats concrets — 6 cas d'usage orientés bénéfice, cartes liens. */
 export function AccueilResultatsConcretsSection() {
   return (
     <section className={OFC_SEC.white} aria-labelledby="accueil-resultats-concrets">
@@ -10,18 +36,48 @@ export function AccueilResultatsConcretsSection() {
         <h2 id="accueil-resultats-concrets" className={`${OFC_TYPE_H2} text-center`}>
           Ce que vos équipes peuvent faire avec l&apos;IA
         </h2>
-        <ul className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {ACCUEIL_CAS_USAGE_RESULTATS.map((item) => (
-            <li
-              key={item.titre}
-              className="rounded-2xl border border-ofc-border-strong/70 bg-[#F8FAFC] p-5"
-            >
-              <h3 className="font-display text-base font-bold text-ofc-ink md:text-lg">
-                {item.titre}
-              </h3>
-              <p className="mt-2 text-sm leading-relaxed text-slate-600">{item.phrase}</p>
-            </li>
-          ))}
+        <ul className="mt-10 grid list-none grid-cols-1 items-stretch gap-5 py-1 sm:grid-cols-2 lg:grid-cols-3">
+          {ACCUEIL_CAS_USAGE_RESULTATS.map((item) => {
+            const Icon = ICONS_BY_ID[item.id];
+            return (
+              <li key={item.id} className="min-w-0">
+                <Link
+                  href={item.href}
+                  aria-label={item.ariaLabel}
+                  className={`${styles.card} ${CARD_LAYOUT}`}
+                >
+                  <span
+                    className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-ofc-accent-soft text-ofc-accent"
+                    aria-hidden
+                  >
+                    <Icon className="h-5 w-5" strokeWidth={1.75} />
+                  </span>
+
+                  <h3 className="font-display text-base font-bold leading-snug text-ofc-ink md:text-lg">
+                    {item.titre}
+                  </h3>
+
+                  <p className="text-sm leading-relaxed text-slate-600">{item.phrase}</p>
+
+                  <div className="flex flex-wrap gap-1.5">
+                    {item.tags.map((tag) => (
+                      <span
+                        key={tag}
+                        className="rounded-md border border-ofc-border bg-[#F8FAFC] px-2 py-0.5 text-[0.65rem] font-medium tracking-wide text-slate-500"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+
+                  <span className="mt-auto flex items-center justify-between gap-2 pt-1 text-sm font-semibold text-ofc-accent">
+                    Découvrir
+                    <ArrowRight className={`${styles.arrow} h-4 w-4 shrink-0`} aria-hidden />
+                  </span>
+                </Link>
+              </li>
+            );
+          })}
         </ul>
       </div>
     </section>

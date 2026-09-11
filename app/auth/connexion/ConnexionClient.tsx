@@ -31,6 +31,9 @@ export default function ConnexionClient() {
   const [showPassword, setShowPassword] = useState(false);
   const urlError = useMemo(() => {
     if (searchParams.get('error') === 'auth') {
+      if (searchParams.get('reason') === 'recovery') {
+        return 'Lien de réinitialisation invalide, expiré ou ouvert dans un autre navigateur. Redemandez un lien et ouvrez-le dans le même navigateur.';
+      }
       return 'Lien de connexion invalide ou expiré. Réessayez ou utilisez « Mot de passe oublié ».';
     }
     if (searchParams.get('reset') === 'ok') {
@@ -54,9 +57,10 @@ export default function ConnexionClient() {
     setLoading(true);
     try {
       const supabase = createClient();
-      // PKCE : le code doit passer par /auth/callback avant /auth/reset-password
-      const { error: err } = await supabase.auth.resetPasswordForEmail(email, {
-        redirectTo: `${window.location.origin}/auth/callback?next=${encodeURIComponent('/auth/reset-password')}`,
+      // PKCE : échange du code côté page reset (même navigateur = code_verifier OK).
+      // Après config du template Supabase (token_hash), le lien mène à /auth/confirm.
+      const { error: err } = await supabase.auth.resetPasswordForEmail(email.trim(), {
+        redirectTo: `${window.location.origin}/auth/reset-password`,
       });
       if (err) throw err;
       setResetSent(true);

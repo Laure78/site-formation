@@ -18,15 +18,44 @@ export default function ResetPasswordPage() {
     const supabase = createClient();
 
     (async () => {
-      const { data } = await supabase.auth.getSession();
-      if (cancelled) return;
-      if (!data.session) {
-        setError('Lien de réinitialisation invalide ou expiré. Demandez un nouveau lien.');
-        setSessionReady(false);
-      } else {
-        setSessionReady(true);
+      try {
+        // PKCE : le code arrive parfois sur cette page (redirectTo direct).
+        const url = new URL(window.location.href);
+        const code = url.searchParams.get('code');
+        if (code) {
+          const { error: exchangeError } = await supabase.auth.exchangeCodeForSession(code);
+          url.searchParams.delete('code');
+          window.history.replaceState({}, '', url.pathname + url.search);
+          if (exchangeError) {
+            if (!cancelled) {
+              setError(
+                'Lien expiré, déjà utilisé, ou ouvert dans un autre navigateur. Redemandez un lien « Mot de passe oublié » et ouvrez-le dans le même navigateur.'
+              );
+              setSessionReady(false);
+              setChecking(false);
+            }
+            return;
+          }
+        }
+
+        const { data } = await supabase.auth.getSession();
+        if (cancelled) return;
+        if (!data.session) {
+          setError(
+            'Lien de réinitialisation invalide ou expiré. Demandez un nouveau lien depuis la connexion.'
+          );
+          setSessionReady(false);
+        } else {
+          setSessionReady(true);
+        }
+      } catch {
+        if (!cancelled) {
+          setError('Impossible de valider le lien. Demandez un nouveau lien « Mot de passe oublié ».');
+          setSessionReady(false);
+        }
+      } finally {
+        if (!cancelled) setChecking(false);
       }
-      setChecking(false);
     })();
 
     return () => {
@@ -55,7 +84,6 @@ export default function ResetPasswordPage() {
       const { error: err } = await supabase.auth.updateUser({ password });
       if (err) throw err;
       await supabase.auth.signOut();
-      // Navigation pleine page pour garantir cookies + message reset=ok
       window.location.assign('/auth/connexion?reset=ok');
       return;
     } catch {
