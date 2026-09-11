@@ -6,6 +6,9 @@ import { LINKS } from '@/lib/internal-links';
 import { getInfosPratiquesForCatalogue } from '@/lib/infos-pratiques-catalogue';
 import type { InfosPratiquesFormation } from '@/lib/infos-pratiques-types';
 import { QUALIOPI_INDICATEUR1_LABELS } from '@/lib/qualiopi-indicateur1-labels';
+import { QuestionnairePositionnementLien } from '@/components/formation/QuestionnairePositionnementLien';
+import { QuestionnaireSatisfactionLien } from '@/components/formation/QuestionnaireSatisfactionLien';
+import { AvisGoogleLien } from '@/components/formation/AvisGoogleLien';
 
 export type { InfosPratiquesFormation } from '@/lib/infos-pratiques-types';
 
@@ -127,6 +130,7 @@ export function InfosPratiques({
 
         <DlItem term={labels.modalitesAcces}>
           <p>{modalitesAcces}</p>
+          <QuestionnairePositionnementLien />
         </DlItem>
 
         <DlItem term={labels.delaisAcces}>
@@ -163,6 +167,8 @@ export function InfosPratiques({
 
         <DlItem term={labels.evaluation}>
           <ListItems items={modalitesEvaluation} />
+          <QuestionnaireSatisfactionLien />
+          <AvisGoogleLien />
         </DlItem>
 
         <DlItem term={labels.handicap}>

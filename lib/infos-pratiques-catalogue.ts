@@ -16,6 +16,7 @@ import {
 import { getFormationCatalogueByRef } from '@/lib/formations-catalogue-display';
 import type { InfosPratiquesFormation } from '@/lib/infos-pratiques-types';
 import { assertInfosPratiquesCompletes } from '@/lib/assert-infos-pratiques';
+import { withQuestionnairePositionnementMention } from '@/lib/questionnaire-positionnement';
 import {
   getTarifGrilleFromDureeLibelle,
   libelleTarifIntraParSession,
@@ -357,24 +358,26 @@ export function getInfosPratiquesForCatalogue(ref: string): InfosPratiquesFormat
     contenu: [...contenu],
     programmePdfUrl: formation.pdfProgramme,
     duree: libelleDureeInfosPratiques(formation),
-    modalitesAcces: sanitizeInfosPratiquesText(
-      code === 'NIV-01'
-        ? MODALITES_ACCES_NIV01
-        : code === 'NIV-02'
-          ? MODALITES_ACCES_NIV02
-          : code === 'NIV-04'
-            ? MODALITES_ACCES_NIV04
-            : code === 'NIV-06'
-              ? MODALITES_ACCES_NIV06
-              : code === 'NIV-07'
-                ? MODALITES_ACCES_NIV07
-                : code === 'NIV-08'
-                  ? MODALITES_ACCES_NIV08
-                  : code === 'NIV-09'
-                    ? MODALITES_ACCES_NIV09
-            : code === 'NIV-05'
-              ? MODALITES_ACCES_NIV05
-              : stripLabelPrefix(QUALIOPI_MODALITES_ACCES_EXACT, /^Modalités d'accès\s*:\s*/i)
+    modalitesAcces: withQuestionnairePositionnementMention(
+      sanitizeInfosPratiquesText(
+        code === 'NIV-01'
+          ? MODALITES_ACCES_NIV01
+          : code === 'NIV-02'
+            ? MODALITES_ACCES_NIV02
+            : code === 'NIV-04'
+              ? MODALITES_ACCES_NIV04
+              : code === 'NIV-06'
+                ? MODALITES_ACCES_NIV06
+                : code === 'NIV-07'
+                  ? MODALITES_ACCES_NIV07
+                  : code === 'NIV-08'
+                    ? MODALITES_ACCES_NIV08
+                    : code === 'NIV-09'
+                      ? MODALITES_ACCES_NIV09
+                      : code === 'NIV-05'
+                        ? MODALITES_ACCES_NIV05
+                        : stripLabelPrefix(QUALIOPI_MODALITES_ACCES_EXACT, /^Modalités d'accès\s*:\s*/i)
+      )
     ),
     delaiAcces: sanitizeInfosPratiquesText(
       code === 'NIV-01' || code === 'NIV-02' || code === 'NIV-03' || code === 'NIV-04' || code === 'NIV-05' || code === 'NIV-06' || code === 'NIV-07' || code === 'NIV-08' || code === 'NIV-09'

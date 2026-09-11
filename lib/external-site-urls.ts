@@ -24,6 +24,10 @@ export const EXTERNAL_SITE_URLS = {
   servicePublicMdph: 'https://www.service-public.fr/particuliers/vosdroits/F16575',
   /** Mon Parcours Handicap — portail public d'information. */
   monParcoursHandicap: 'https://www.monparcourshandicap.gouv.fr/',
+  /** Questionnaire de positionnement pré-formation (Tally) — toutes les sessions IA BTP. */
+  questionnairePositionnement: 'https://tally.so/r/mVK6Ay',
+  /** Questionnaire de satisfaction à chaud (Tally) — toutes les sessions IA BTP. */
+  questionnaireSatisfaction: 'https://tally.so/r/3NNq7l',
 } as const;
 
 /** Chemins utiles sur app.laureolivie.fr */

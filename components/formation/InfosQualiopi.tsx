@@ -31,6 +31,9 @@ import { QUALIOPI_INDICATEUR1_LABELS } from '@/lib/qualiopi-indicateur1-labels';
 import { FormationPartenairesMention } from '@/components/formations/FormationPartenairesMention';
 import { MentionTVA, MentionTvaAsterisque } from '@/components/MentionTVA';
 import { MentionFinancement } from '@/components/MentionFinancement';
+import { QuestionnairePositionnementLien } from '@/components/formation/QuestionnairePositionnementLien';
+import { QuestionnaireSatisfactionLien } from '@/components/formation/QuestionnaireSatisfactionLien';
+import { AvisGoogleLien } from '@/components/formation/AvisGoogleLien';
 
 function asList(items: string | readonly string[]): readonly string[] {
   return typeof items === 'string' ? [items] : items;
@@ -129,6 +132,7 @@ export function InformationsReglementaires(props: InfosQualiopiProps) {
 
           <QualiopiItem icon={Calendar} title={`5. ${labels.modalitesAcces}`}>
             <p>{validated.modalitesAcces}</p>
+            <QuestionnairePositionnementLien />
             <p className="mt-3">
               <Link href={LINKS.prendreRdv} className="font-medium text-[#377CF3] hover:underline">
                 {CTA_RDV_LABEL}
@@ -170,6 +174,8 @@ export function InformationsReglementaires(props: InfosQualiopiProps) {
                 <li key={line}>{line}</li>
               ))}
             </ul>
+            <QuestionnaireSatisfactionLien />
+            <AvisGoogleLien />
           </QualiopiItem>
 
           <QualiopiItem icon={Accessibility} title={`10. ${labels.handicap}`}>

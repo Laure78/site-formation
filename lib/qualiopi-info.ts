@@ -46,6 +46,7 @@ import {
   PREREQUIS_NIV05,
 } from '@/lib/infos-pratiques-catalogue';
 import type { FormationCode } from '@/data/formations';
+import { withQuestionnairePositionnementMention } from '@/lib/questionnaire-positionnement';
 
 /** Identité juridique OFC — réexport (définition : `lib/ofc-identite.ts`). */
 export { OFC_IDENTITE } from '@/lib/ofc-identite';
@@ -202,13 +203,15 @@ export function getInfosQualiopiForCatalogue(ref: string): InfosQualiopiProps {
     programmePdfHref: formation.pdfProgramme,
     duree: entry.duree,
     dureeJours: '0,5 jour (session unique)',
-    modalitesAcces: isNiv02
-      ? MODALITES_ACCES_NIV02
-      : isNiv04
-        ? MODALITES_ACCES_NIV04
-        : isNiv05
-          ? MODALITES_ACCES_NIV05
-          : QUALIOPI_MODALITES_ACCES_EXACT,
+    modalitesAcces: withQuestionnairePositionnementMention(
+      isNiv02
+        ? MODALITES_ACCES_NIV02
+        : isNiv04
+          ? MODALITES_ACCES_NIV04
+          : isNiv05
+            ? MODALITES_ACCES_NIV05
+            : QUALIOPI_MODALITES_ACCES_EXACT
+    ),
     delaiAcces: isNiv02
       ? DELAI_ACCES_NIV02
       : isNiv03
