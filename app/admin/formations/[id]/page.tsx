@@ -40,6 +40,8 @@ export default async function AdminFormationEditPage({
             programme: c.programme,
             price: course.price ?? 0,
             published: course.published ?? false,
+            sessionEndsOn: (course as { session_ends_on?: string | null }).session_ends_on ?? null,
+            sessionCancelled: Boolean((course as { session_cancelled?: boolean }).session_cancelled),
           }}
         />
       </div>

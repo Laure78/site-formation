@@ -4,6 +4,8 @@ import Link from 'next/link';
 import { User, BookOpen, ChevronLeft } from 'lucide-react';
 import { ResetProgressionButton } from './ResetProgressionButton';
 import { SupprimerInscriptionButton } from './SupprimerInscriptionButton';
+import { SatisfactionJ1TestButton } from './SatisfactionJ1TestButton';
+import { formatSatisfactionReminderAdminLabel } from '@/lib/satisfaction-reminder-logic';
 
 export default async function AdminApprenantProfilPage({
   params,
@@ -22,8 +24,24 @@ export default async function AdminApprenantProfilPage({
 
   const { data: enrollments } = await supabase
     .from('enrollments')
-    .select('id, course_id, progress_percent, created_at, courses(id, title, slug, duration_hours)')
+    .select(
+      'id, course_id, progress_percent, created_at, status, courses(id, title, slug, duration_hours, session_ends_on, session_cancelled)'
+    )
     .eq('user_id', id);
+
+  const enrollmentIds = (enrollments ?? []).map((e) => e.id as string);
+  const { data: emailEvents } =
+    enrollmentIds.length > 0
+      ? await supabase
+          .from('enrollment_email_events')
+          .select('enrollment_id, status, sent_at, last_error')
+          .eq('email_type', 'satisfaction_j1')
+          .in('enrollment_id', enrollmentIds)
+      : { data: [] };
+
+  const eventByEnrollment = Object.fromEntries(
+    (emailEvents ?? []).map((ev) => [ev.enrollment_id as string, ev])
+  );
 
   const { data: lessonProgress } = await supabase
     .from('lesson_progress')
@@ -86,6 +104,23 @@ export default async function AdminApprenantProfilPage({
               const slug = c?.slug ?? '';
               const completedLessons = (lessonProgress ?? []).length;
               const satisfactionForCourse = (satisfaction ?? []).find((s) => s.course_id === e.course_id);
+              const courseMeta = c as {
+                title?: string;
+                slug?: string;
+                session_ends_on?: string | null;
+                session_cancelled?: boolean;
+              } | null;
+              const ev = eventByEnrollment[e.id] as
+                | { status?: string; sent_at?: string | null; last_error?: string | null }
+                | undefined;
+              const reminder = formatSatisfactionReminderAdminLabel({
+                sessionEndsOn: courseMeta?.session_ends_on ?? null,
+                sessionCancelled: Boolean(courseMeta?.session_cancelled),
+                enrollmentStatus: (e as { status?: string }).status || 'active',
+                eventStatus: (ev?.status as 'pending' | 'sending' | 'sent' | 'failed' | null) ?? null,
+                sentAt: ev?.sent_at ?? null,
+                lastError: ev?.last_error ?? null,
+              });
               return (
                 <div
                   key={e.id}
@@ -117,6 +152,22 @@ export default async function AdminApprenantProfilPage({
                       />
                     </div>
                     <span className="text-sm font-medium text-slate-700">{e.progress_percent}%</span>
+                  </div>
+                  <div className="mt-4 rounded-xl bg-slate-50 p-4">
+                    <p className="text-sm font-medium text-slate-700">Satisfaction — relance J+1</p>
+                    <p
+                      className={`mt-1 text-sm ${
+                        reminder.tone === 'ok'
+                          ? 'text-emerald-700'
+                          : reminder.tone === 'error'
+                            ? 'text-rose-700'
+                            : 'text-slate-600'
+                      }`}
+                    >
+                      {reminder.tone === 'ok' ? '✅ ' : reminder.tone === 'error' ? '⚠️ ' : '⏳ '}
+                      {reminder.label}
+                    </p>
+                    <SatisfactionJ1TestButton enrollmentId={e.id} />
                   </div>
                   {satisfactionForCourse && (
                     <div className="mt-4 rounded-xl bg-slate-50 p-4">

@@ -2,9 +2,11 @@ import { Resend } from 'resend';
 import {
   InvitationApprenantEmail,
   invitationEmailSubject,
+  invitationEmailSubjectNewFormation,
   invitationEmailText,
 } from '@/emails/InvitationApprenantEmail';
 import { LINKS } from '@/lib/internal-links';
+import { CONTACT } from '@/lib/constants';
 
 function siteBaseUrl(): string {
   return (
@@ -27,9 +29,7 @@ export async function sendInvitationEmail(params: {
   formationTitle: string;
   token: string;
   firstName?: string | null;
-  /** Mot de passe temporaire — envoyé une seule fois, jamais stocké. */
-  temporaryPassword?: string | null;
-  /** Compte déjà actif : pas de réinitialisation de mot de passe. */
+  /** Compte déjà actif : email « nouvelle formation », sans lien de création MDP. */
   accountAlreadyActive?: boolean;
 }): Promise<{ ok: true } | { ok: false; error: string }> {
   const apiKey = process.env.RESEND_API_KEY;
@@ -43,29 +43,27 @@ export async function sendInvitationEmail(params: {
 
   const inviteUrl = buildInviteUrl(params.token);
   const loginUrl = buildLoginUrl();
+  const payload = {
+    formationTitle: params.formationTitle,
+    inviteUrl,
+    loginUrl,
+    email: params.to,
+    accountAlreadyActive: Boolean(params.accountAlreadyActive),
+    firstName: params.firstName,
+  };
+
+  const subject = params.accountAlreadyActive
+    ? invitationEmailSubjectNewFormation(params.formationTitle)
+    : invitationEmailSubject(params.formationTitle);
+
   const resend = new Resend(apiKey);
   const { error } = await resend.emails.send({
     from,
+    replyTo: CONTACT.email,
     to: params.to,
-    subject: invitationEmailSubject(params.formationTitle),
-    react: InvitationApprenantEmail({
-      formationTitle: params.formationTitle,
-      inviteUrl,
-      loginUrl,
-      email: params.to,
-      temporaryPassword: params.temporaryPassword,
-      accountAlreadyActive: params.accountAlreadyActive,
-      firstName: params.firstName,
-    }),
-    text: invitationEmailText({
-      formationTitle: params.formationTitle,
-      inviteUrl,
-      loginUrl,
-      email: params.to,
-      temporaryPassword: params.temporaryPassword,
-      accountAlreadyActive: params.accountAlreadyActive,
-      firstName: params.firstName,
-    }),
+    subject,
+    react: InvitationApprenantEmail(payload),
+    text: invitationEmailText(payload),
   });
 
   if (error) {

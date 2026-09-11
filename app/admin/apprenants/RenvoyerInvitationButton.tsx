@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { Mail } from 'lucide-react';
 
@@ -20,16 +20,19 @@ export function RenvoyerInvitationButton({ invitation }: { invitation: Invitatio
   const router = useRouter();
   const [loading, setLoading] = useState(false);
   const [msg, setMsg] = useState<string | null>(null);
+  const submittingRef = useRef(false);
 
   const course = Array.isArray(invitation.courses)
     ? invitation.courses[0]
     : invitation.courses;
 
   const handleResend = async () => {
+    if (submittingRef.current || loading) return;
     if (!invitation.formation_id) {
       setMsg('Formation manquante');
       return;
     }
+    submittingRef.current = true;
     setLoading(true);
     setMsg(null);
     try {
@@ -50,12 +53,13 @@ export function RenvoyerInvitationButton({ invitation }: { invitation: Invitatio
         setMsg(data.error ?? 'Erreur');
         return;
       }
-      setMsg('Email renvoyé (nouveau mot de passe)');
+      setMsg(`✅ Invitation envoyée à ${invitation.email}`);
       router.refresh();
     } catch {
       setMsg('Erreur réseau');
     } finally {
       setLoading(false);
+      submittingRef.current = false;
     }
   };
 
@@ -69,9 +73,9 @@ export function RenvoyerInvitationButton({ invitation }: { invitation: Invitatio
         title={course?.title ? `Renvoyer — ${course.title}` : 'Renvoyer l’invitation'}
       >
         <Mail size={14} />
-        {loading ? '…' : 'Renvoyer'}
+        {loading ? 'Envoi en cours…' : 'Renvoyer l’invitation'}
       </button>
-      {msg && <span className="text-xs text-slate-500">{msg}</span>}
+      {msg && <span className="max-w-[220px] text-right text-xs text-slate-600">{msg}</span>}
     </div>
   );
 }

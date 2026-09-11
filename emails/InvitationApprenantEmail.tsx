@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { SCHEMA_CONTACT, SCHEMA_GEO } from '@/lib/schema-constants';
+import { OFC_IDENTITE } from '@/lib/ofc-identite';
 import { INVITATION_TTL_DAYS_LABEL } from '@/lib/invitation-token';
 
 export type InvitationApprenantEmailProps = {
@@ -7,16 +8,17 @@ export type InvitationApprenantEmailProps = {
   inviteUrl: string;
   loginUrl: string;
   email: string;
-  temporaryPassword?: string | null;
-  /** Compte déjà actif : pas de nouveau mot de passe, connexion avec identifiants existants. */
+  /** Compte déjà actif : pas de création de mot de passe, connexion habituelle. */
   accountAlreadyActive?: boolean;
   firstName?: string | null;
 };
 
+const ACCENT = '#377CF3';
+
 /** Mentions légales pied de page email (source SCHEMA_*). */
 export function invitationEmailLegalFooter(): string {
   return [
-    "OFC Création d'Entreprise",
+    OFC_IDENTITE.raisonSociale,
     `SIRET ${SCHEMA_CONTACT.siretFormatted}`,
     `NDA ${SCHEMA_CONTACT.nda}`,
     `${SCHEMA_GEO.streetAddress}, ${SCHEMA_GEO.postalCode} ${SCHEMA_GEO.addressLocality}`,
@@ -26,69 +28,99 @@ export function invitationEmailLegalFooter(): string {
   ].join(' · ');
 }
 
-export function invitationEmailSubject(formationTitle: string): string {
-  return `Votre accès à la formation ${formationTitle}`;
+export function invitationEmailSubject(_formationTitle?: string): string {
+  return 'Votre accès à votre espace de formation – Laure Olivié';
+}
+
+export function invitationEmailSubjectNewFormation(formationTitle: string): string {
+  return `Nouvelle formation disponible : ${formationTitle}`;
+}
+
+function greeting(firstName?: string | null): string {
+  const clean = firstName?.trim();
+  return clean ? `Bonjour ${clean},` : 'Bonjour,';
 }
 
 export function invitationEmailText(props: InvitationApprenantEmailProps): string {
-  const hello = props.firstName ? `Bonjour ${props.firstName},` : 'Bonjour,';
+  const hello = greeting(props.firstName);
   const legal = invitationEmailLegalFooter();
-  const lines = [
-    hello,
-    '',
-    `Vous êtes invité(e) à accéder à la formation « ${props.formationTitle} » sur la plateforme Laure Olivié.`,
-    '',
-  ];
 
-  if (props.temporaryPassword) {
-    lines.push(
-      'Vos identifiants de connexion :',
-      `Email : ${props.email}`,
-      `Mot de passe temporaire : ${props.temporaryPassword}`,
+  if (props.accountAlreadyActive) {
+    return [
+      hello,
       '',
-      `Connectez-vous ici : ${props.loginUrl}`,
+      `Une nouvelle formation est disponible dans votre espace : « ${props.formationTitle} ».`,
       '',
-      'Après connexion, changez ce mot de passe temporaire pour plus de sécurité.',
-      ''
-    );
-  } else if (props.accountAlreadyActive) {
-    lines.push(
-      'Votre compte est déjà actif. Connectez-vous avec vos identifiants habituels :',
+      'Connectez-vous avec votre adresse email et votre mot de passe habituels :',
       props.loginUrl,
       '',
-      'Vous avez été inscrit(e) à cette nouvelle formation.',
-      ''
-    );
-  } else {
-    lines.push(
-      `Créez votre mot de passe via ce lien (valable ${INVITATION_TTL_DAYS_LABEL} jours) :`,
-      props.inviteUrl,
-      ''
-    );
+      `Identifiant : ${props.email}`,
+      '',
+      'Bien cordialement,',
+      '',
+      'Laure Olivié',
+      'Formatrice IA pour le BTP',
+      OFC_IDENTITE.raisonSociale,
+      'https://www.laureolivie.fr/',
+      '',
+      legal,
+    ].join('\n');
   }
 
-  lines.push(
-    'Si vous n’êtes pas à l’origine de cette demande, ignorez cet email.',
+  return [
+    hello,
     '',
-    legal
-  );
-  return lines.join('\n');
+    'Votre accès à la plateforme de formation Laure Olivié est disponible.',
+    '',
+    'Vous pouvez maintenant accéder à votre espace apprenant et retrouver les ressources liées à votre formation.',
+    '',
+    'Votre identifiant',
+    props.email,
+    '',
+    'Votre identifiant correspond à l’adresse email utilisée lors de votre inscription.',
+    '',
+    'Première connexion',
+    `Pour créer votre mot de passe (lien valable ${INVITATION_TTL_DAYS_LABEL} jours), ouvrez :`,
+    props.inviteUrl,
+    '',
+    'Une fois votre mot de passe créé, connectez-vous sur :',
+    'https://www.laureolivie.fr/auth/connexion',
+    '',
+    `Conservez votre identifiant : ${props.email}`,
+    '',
+    'Bien cordialement,',
+    '',
+    'Laure Olivié',
+    'Formatrice IA pour le BTP',
+    OFC_IDENTITE.raisonSociale,
+    'https://www.laureolivie.fr/',
+    '',
+    legal,
+  ].join('\n');
 }
 
-/** Template React Email (inline styles) — compatible Resend `react:`. */
+const btnPrimary = {
+  display: 'inline-block',
+  backgroundColor: ACCENT,
+  color: '#FFFFFF',
+  textDecoration: 'none',
+  fontWeight: 600,
+  fontSize: 16,
+  padding: '14px 28px',
+  borderRadius: 10,
+} as const;
+
+/** Template React Email — jamais de mot de passe en clair. */
 export function InvitationApprenantEmail({
   formationTitle,
   inviteUrl,
   loginUrl,
   email,
-  temporaryPassword,
   accountAlreadyActive,
   firstName,
 }: InvitationApprenantEmailProps) {
-  const hello = firstName ? `Bonjour ${firstName},` : 'Bonjour,';
+  const hello = greeting(firstName);
   const legal = invitationEmailLegalFooter();
-  const hasPassword = Boolean(temporaryPassword);
-  const useExistingAccount = Boolean(accountAlreadyActive && !hasPassword);
 
   return (
     <html lang="fr">
@@ -116,140 +148,133 @@ export function InvitationApprenantEmail({
                     <tr>
                       <td style={{ padding: '32px 28px' }}>
                         <p style={{ margin: '0 0 16px', fontSize: 16, lineHeight: '24px' }}>{hello}</p>
-                        <p style={{ margin: '0 0 16px', fontSize: 16, lineHeight: '24px' }}>
-                          Vous êtes invité(e) à accéder à la formation{' '}
-                          <strong>{formationTitle}</strong> sur la plateforme Laure Olivié.
-                        </p>
 
-                        {hasPassword ? (
+                        {accountAlreadyActive ? (
                           <>
-                            <p style={{ margin: '0 0 12px', fontSize: 16, lineHeight: '24px' }}>
-                              Voici vos identifiants pour vous connecter :
+                            <p style={{ margin: '0 0 16px', fontSize: 16, lineHeight: '24px' }}>
+                              Une nouvelle formation est disponible dans votre espace :{' '}
+                              <strong>« {formationTitle} »</strong>.
                             </p>
-                            <table
-                              width="100%"
-                              cellPadding={0}
-                              cellSpacing={0}
-                              role="presentation"
+                            <p style={{ margin: '0 0 8px', fontSize: 14, color: '#64748b' }}>
+                              Identifiant
+                            </p>
+                            <p
                               style={{
-                                margin: '0 0 20px',
-                                backgroundColor: '#F8FAFC',
-                                border: '1px solid #E2E8F0',
-                                borderRadius: 10,
+                                margin: '0 0 24px',
+                                fontSize: 16,
+                                fontWeight: 600,
+                                wordBreak: 'break-all',
                               }}
                             >
-                              <tbody>
-                                <tr>
-                                  <td style={{ padding: '16px 18px' }}>
-                                    <p style={{ margin: '0 0 8px', fontSize: 13, color: '#64748b' }}>
-                                      Email
-                                    </p>
-                                    <p
-                                      style={{
-                                        margin: '0 0 14px',
-                                        fontSize: 16,
-                                        fontWeight: 600,
-                                        wordBreak: 'break-all',
-                                      }}
-                                    >
-                                      {email}
-                                    </p>
-                                    <p style={{ margin: '0 0 8px', fontSize: 13, color: '#64748b' }}>
-                                      Mot de passe temporaire
-                                    </p>
-                                    <p
-                                      style={{
-                                        margin: 0,
-                                        fontSize: 18,
-                                        fontWeight: 700,
-                                        letterSpacing: '0.04em',
-                                        fontFamily: 'ui-monospace, Menlo, Consolas, monospace',
-                                        color: '#0F172A',
-                                      }}
-                                    >
-                                      {temporaryPassword}
-                                    </p>
-                                  </td>
-                                </tr>
-                              </tbody>
-                            </table>
+                              {email}
+                            </p>
                             <p style={{ margin: '0 0 24px', textAlign: 'center' }}>
-                              <a
-                                href={loginUrl}
-                                style={{
-                                  display: 'inline-block',
-                                  backgroundColor: '#377CF3',
-                                  color: '#FFFFFF',
-                                  textDecoration: 'none',
-                                  fontWeight: 600,
-                                  fontSize: 16,
-                                  padding: '14px 28px',
-                                  borderRadius: 10,
-                                }}
-                              >
-                                Se connecter à mon espace
+                              <a href={loginUrl} style={btnPrimary}>
+                                Accéder à mon espace
                               </a>
                             </p>
                             <p style={{ margin: 0, fontSize: 14, lineHeight: '22px', color: '#475569' }}>
-                              Après votre première connexion, changez ce mot de passe temporaire pour plus de
-                              sécurité. Page de connexion :{' '}
-                              <span style={{ wordBreak: 'break-all' }}>{loginUrl}</span>
-                            </p>
-                          </>
-                        ) : useExistingAccount ? (
-                          <>
-                            <p style={{ margin: '0 0 16px', fontSize: 16, lineHeight: '24px' }}>
-                              Votre compte est déjà actif. Vous avez été inscrit(e) à cette
-                              formation — connectez-vous avec vos identifiants habituels.
-                            </p>
-                            <p style={{ margin: '0 0 24px', textAlign: 'center' }}>
-                              <a
-                                href={loginUrl}
-                                style={{
-                                  display: 'inline-block',
-                                  backgroundColor: '#377CF3',
-                                  color: '#FFFFFF',
-                                  textDecoration: 'none',
-                                  fontWeight: 600,
-                                  fontSize: 16,
-                                  padding: '14px 28px',
-                                  borderRadius: 10,
-                                }}
-                              >
-                                Accéder à mon espace
-                              </a>
+                              Connectez-vous avec votre mot de passe habituel. En cas d&apos;oubli,
+                              utilisez « Mot de passe oublié » sur la page de connexion.
                             </p>
                           </>
                         ) : (
                           <>
-                            <p style={{ margin: '0 0 24px', fontSize: 16, lineHeight: '24px' }}>
-                              Créez votre mot de passe pour activer votre compte. Ce lien expire dans{' '}
-                              {INVITATION_TTL_DAYS_LABEL} jours.
+                            <p style={{ margin: '0 0 16px', fontSize: 16, lineHeight: '24px' }}>
+                              Votre accès à la plateforme de formation Laure Olivié est disponible.
                             </p>
-                            <p style={{ margin: '0 0 28px', textAlign: 'center' }}>
-                              <a
-                                href={inviteUrl}
-                                style={{
-                                  display: 'inline-block',
-                                  backgroundColor: '#377CF3',
-                                  color: '#FFFFFF',
-                                  textDecoration: 'none',
-                                  fontWeight: 600,
-                                  fontSize: 16,
-                                  padding: '14px 28px',
-                                  borderRadius: 10,
-                                }}
-                              >
+                            <p style={{ margin: '0 0 20px', fontSize: 16, lineHeight: '24px' }}>
+                              Vous pouvez maintenant accéder à votre espace apprenant et retrouver les
+                              ressources liées à votre formation
+                              {formationTitle ? (
+                                <>
+                                  {' '}
+                                  <strong>« {formationTitle} »</strong>
+                                </>
+                              ) : null}
+                              .
+                            </p>
+
+                            <p
+                              style={{
+                                margin: '0 0 8px',
+                                fontSize: 13,
+                                fontWeight: 600,
+                                letterSpacing: '0.06em',
+                                textTransform: 'uppercase',
+                                color: ACCENT,
+                              }}
+                            >
+                              Votre identifiant
+                            </p>
+                            <p
+                              style={{
+                                margin: '0 0 8px',
+                                fontSize: 18,
+                                fontWeight: 700,
+                                wordBreak: 'break-all',
+                              }}
+                            >
+                              {email}
+                            </p>
+                            <p style={{ margin: '0 0 24px', fontSize: 14, lineHeight: '22px', color: '#64748b' }}>
+                              Votre identifiant correspond à l&apos;adresse email utilisée lors de votre
+                              inscription.
+                            </p>
+
+                            <p
+                              style={{
+                                margin: '0 0 8px',
+                                fontSize: 13,
+                                fontWeight: 600,
+                                letterSpacing: '0.06em',
+                                textTransform: 'uppercase',
+                                color: ACCENT,
+                              }}
+                            >
+                              Première connexion
+                            </p>
+                            <p style={{ margin: '0 0 20px', fontSize: 16, lineHeight: '24px' }}>
+                              Cliquez sur le bouton ci-dessous afin de créer votre mot de passe (lien
+                              valable {INVITATION_TTL_DAYS_LABEL} jours, usage unique).
+                            </p>
+                            <p style={{ margin: '0 0 20px', textAlign: 'center' }}>
+                              <a href={inviteUrl} style={btnPrimary}>
                                 Créer mon mot de passe
                               </a>
                             </p>
-                            <p style={{ margin: 0, fontSize: 13, lineHeight: '20px', color: '#64748b' }}>
-                              Si le bouton ne fonctionne pas, copiez ce lien dans votre navigateur :
+                            <p style={{ margin: '0 0 16px', fontSize: 13, lineHeight: '20px', color: '#64748b' }}>
+                              Si le bouton ne fonctionne pas, copiez ce lien :
                               <br />
                               <span style={{ wordBreak: 'break-all' }}>{inviteUrl}</span>
                             </p>
+                            <p style={{ margin: '0 0 16px', fontSize: 15, lineHeight: '22px' }}>
+                              Une fois votre mot de passe créé, connectez-vous sur{' '}
+                              <a href={loginUrl} style={{ color: ACCENT }}>
+                                laureolivie.fr
+                              </a>
+                              .
+                            </p>
+                            <p style={{ margin: 0, fontSize: 15, lineHeight: '22px' }}>
+                              Conservez votre identifiant : <strong>{email}</strong>
+                            </p>
                           </>
                         )}
+
+                        <p style={{ margin: '28px 0 4px', fontSize: 16, lineHeight: '24px' }}>
+                          Bien cordialement,
+                        </p>
+                        <p style={{ margin: '12px 0 0', fontSize: 16, lineHeight: '24px' }}>
+                          <strong>Laure Olivié</strong>
+                          <br />
+                          Formatrice IA pour le BTP
+                          <br />
+                          {OFC_IDENTITE.raisonSociale}
+                          <br />
+                          <a href="https://www.laureolivie.fr/" style={{ color: ACCENT }}>
+                            www.laureolivie.fr
+                          </a>
+                        </p>
                       </td>
                     </tr>
                     <tr>

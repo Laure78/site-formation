@@ -16,6 +16,8 @@ interface Props {
     programme?: string;
     price?: number;
     published: boolean;
+    sessionEndsOn?: string | null;
+    sessionCancelled?: boolean;
   };
 }
 
@@ -29,6 +31,8 @@ export function CourseEditForm({ courseId, initial }: Props) {
     String(initial.price != null && initial.price > 0 ? initial.price : TARIF_INTRA_4H_HT)
   );
   const [published, setPublished] = useState(initial.published);
+  const [sessionEndsOn, setSessionEndsOn] = useState(initial.sessionEndsOn || '');
+  const [sessionCancelled, setSessionCancelled] = useState(Boolean(initial.sessionCancelled));
   const [loading, setLoading] = useState(false);
   const [saved, setSaved] = useState(false);
 
@@ -47,6 +51,8 @@ export function CourseEditForm({ courseId, initial }: Props) {
           programme: programme || null,
           price: parseFloat(price) || 0,
           published,
+          session_ends_on: sessionEndsOn.trim() || null,
+          session_cancelled: sessionCancelled,
         })
         .eq('id', courseId);
       setSaved(true);
@@ -136,6 +142,29 @@ export function CourseEditForm({ courseId, initial }: Props) {
             className="rounded border-slate-300"
           />
           <span className="text-sm font-medium text-slate-700">Publiée</span>
+        </label>
+        <div>
+          <label className="block text-sm font-medium text-slate-700">
+            Date de fin de session
+          </label>
+          <input
+            type="date"
+            value={sessionEndsOn}
+            onChange={(e) => setSessionEndsOn(e.target.value)}
+            className="mt-1 w-full max-w-xs rounded-lg border border-slate-300 px-4 py-2 focus:border-[var(--accent)] focus:outline-none focus:ring-2 focus:ring-[var(--accent)]/20"
+          />
+          <p className="mt-1 text-xs text-slate-500">
+            Relance automatique questionnaire + avis Google le lendemain (J+1, fuseau Paris).
+          </p>
+        </div>
+        <label className="flex items-center gap-2">
+          <input
+            type="checkbox"
+            checked={sessionCancelled}
+            onChange={(e) => setSessionCancelled(e.target.checked)}
+            className="rounded border-slate-300"
+          />
+          <span className="text-sm font-medium text-slate-700">Session annulée (pas de relance)</span>
         </label>
         <button
           type="button"

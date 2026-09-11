@@ -86,7 +86,8 @@ export function ImportApprenantsForm({ courses }: Props) {
             <code className="rounded bg-slate-100 px-1">email</code>,{' '}
             <code className="rounded bg-slate-100 px-1">prenom</code>,{' '}
             <code className="rounded bg-slate-100 px-1">nom</code>. Max 50 lignes. Chaque ligne envoie un
-            email d’invitation avec <strong>identifiants + mot de passe temporaire</strong>.
+            email d’invitation avec <strong>identifiant (= email) + lien pour créer le mot de passe</strong>.
+            Aucun mot de passe n’est envoyé en clair.
           </p>
         </div>
         <button
@@ -163,7 +164,7 @@ export function ImportApprenantsForm({ courses }: Props) {
           </p>
           {result.invited > 0 ? (
             <p className="mt-1 text-sm text-emerald-800">
-              Chaque apprenant reçoit un email avec ses identifiants et un mot de passe temporaire.
+              Chaque apprenant reçoit un email avec son identifiant (email) et un lien sécurisé pour créer son mot de passe.
             </p>
           ) : null}
           {result.errors.length > 0 && (

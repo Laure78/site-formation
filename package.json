@@ -28,6 +28,8 @@
     "test:indicateurs": "npx tsx scripts/assert-indicateurs-resultats.ts",
     "test:ressources": "npx tsx scripts/assert-ressources-catalog.ts",
     "test:auth-access": "npx tsx scripts/assert-admin-access.ts",
+    "test:satisfaction-j1": "npx tsx scripts/assert-satisfaction-j1.ts",
+    "test:invitation-secure": "npx tsx scripts/assert-invitation-no-temp-password.ts",
     "check:internal-links": "npx tsx scripts/check-internal-links.ts",
     "indexnow": "npx tsx scripts/indexnow-submit.ts",
     "indexnow:changed": "npx tsx scripts/indexnow-notify-changed.ts"

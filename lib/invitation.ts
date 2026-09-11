@@ -7,7 +7,6 @@ import {
   invitationExpiresAt,
 } from '@/lib/invitation-token';
 import { sendInvitationEmail } from '@/lib/send-invitation-email';
-import { generateInvitePassword } from '@/lib/password-policy';
 import { randomBytes } from 'crypto';
 
 /** Plafond de renvois d’email par chaîne d’invitation (anti-spam Resend). */
@@ -25,8 +24,6 @@ export const inviteApprenantSchema = z.object({
   formationId: z.string().uuid('Formation invalide'),
   action: z.enum(['create', 'resend']).default('create'),
   invitationId: z.string().uuid().optional(),
-  /** Envoie un mot de passe temporaire dans l’email (défaut : oui). */
-  includePassword: z.boolean().default(true),
 });
 
 export type InviteApprenantInput = z.infer<typeof inviteApprenantSchema>;
@@ -213,43 +210,6 @@ async function updateApprenantProfileNames(params: {
     .neq('role', 'formateur');
 }
 
-async function setUserPassword(
-  userId: string,
-  password: string
-): Promise<{ ok: true } | { ok: false; error: string }> {
-  const admin = createAdminClient();
-  const { error: pwdError } = await admin.auth.admin.updateUserById(userId, {
-    password,
-    email_confirm: true,
-  });
-  if (pwdError) {
-    console.error('[setUserPassword] update failed');
-    return { ok: false, error: 'Impossible de définir le mot de passe temporaire.' };
-  }
-  return { ok: true };
-}
-
-async function activateApprenantProfile(params: {
-  userId: string;
-  firstName: string;
-  lastName: string;
-}): Promise<void> {
-  const admin = createAdminClient();
-  const fullName = `${params.firstName} ${params.lastName}`.trim();
-  await admin
-    .from('profiles')
-    .update({
-      account_status: 'active',
-      first_name: params.firstName,
-      last_name: params.lastName,
-      full_name: fullName || null,
-      updated_at: new Date().toISOString(),
-    })
-    .eq('id', params.userId)
-    .neq('role', 'admin')
-    .neq('role', 'formateur');
-}
-
 async function markInvitationAccepted(invitationId: string): Promise<void> {
   const admin = createAdminClient();
   await admin
@@ -268,9 +228,9 @@ async function revokeInvitation(invitationId: string): Promise<void> {
 }
 
 /**
- * Envoie l’email puis finalise le compte (mot de passe, activation, inscription).
- * L’email part avant toute modification du mot de passe pour éviter un compte
- * bloqué si Resend échoue. Un compte déjà actif n’a jamais son mot de passe réécrit.
+ * Envoie l’email d’invitation (lien sécurisé, sans mot de passe en clair),
+ * inscrit à la formation, et finalise selon le statut du compte.
+ * Un compte déjà actif : email « nouvelle formation », pas de reset MDP.
  */
 async function deliverInvitationCredentials(params: {
   invitationId: string;
@@ -282,18 +242,14 @@ async function deliverInvitationCredentials(params: {
   formationTitle: string;
   userId: string;
   accountStatus: string | null;
-  includePassword: boolean;
 }): Promise<{ ok: true } | { ok: false; error: string; code?: 'email' | 'auth' }> {
   const isActive = params.accountStatus === 'active';
-  const sendPassword = params.includePassword && !isActive;
-  const temporaryPassword = sendPassword ? generateInvitePassword() : null;
 
   const sent = await sendInvitationEmail({
     to: params.email,
     formationTitle: params.formationTitle,
     token: params.token,
     firstName: params.firstName,
-    temporaryPassword,
     accountAlreadyActive: isActive,
   });
 
@@ -302,22 +258,8 @@ async function deliverInvitationCredentials(params: {
     return { ok: false, error: 'Échec d’envoi de l’email', code: 'email' };
   }
 
-  if (sendPassword && temporaryPassword) {
-    const pwd = await setUserPassword(params.userId, temporaryPassword);
-    if (!pwd.ok) {
-      // Email déjà parti : ne pas révoquer l’invitation (l’apprenant a reçu le MDP).
-      console.error('[deliverInvitationCredentials] password set failed after email sent');
-      return { ok: false, error: pwd.error, code: 'auth' };
-    }
-    await activateApprenantProfile({
-      userId: params.userId,
-      firstName: params.firstName,
-      lastName: params.lastName,
-    });
-    await enrollUserInFormation(params.userId, params.formationId);
-    await markInvitationAccepted(params.invitationId);
-    return { ok: true };
-  }
+  // Inscription dès l’invitation (visibilité admin) — upsert idempotent.
+  await enrollUserInFormation(params.userId, params.formationId);
 
   if (isActive) {
     await updateApprenantProfileNames({
@@ -325,12 +267,16 @@ async function deliverInvitationCredentials(params: {
       firstName: params.firstName,
       lastName: params.lastName,
     });
-    await enrollUserInFormation(params.userId, params.formationId);
     await markInvitationAccepted(params.invitationId);
     return { ok: true };
   }
 
-  // Flux lien d’activation (includePassword=false) : invitation reste pending.
+  // Nouveau compte / invited : invitation reste pending jusqu’à création du MDP via le lien.
+  await updateApprenantProfileNames({
+    userId: params.userId,
+    firstName: params.firstName,
+    lastName: params.lastName,
+  });
   return { ok: true };
 }
 
@@ -379,16 +325,16 @@ async function createInvitationRow(params: {
 }
 
 /**
- * Crée une invitation + envoie l’email (lien + mot de passe temporaire),
+ * Crée une invitation + envoie l’email (lien sécurisé de création de mot de passe),
  * ou indique « déjà invité ».
- * action=resend : révoque l’ancien token, génère un nouveau MDP, renvoie l’email.
+ * action=resend : révoque l’ancien token, génère un nouveau lien, renvoie l’email.
+ * Jamais de mot de passe temporaire en clair.
  */
 export async function inviteOrResendApprenant(
   input: InviteApprenantInput,
   invitedBy: string
 ): Promise<InviteApprenantResult> {
   const admin = createAdminClient();
-  const includePassword = input.includePassword !== false;
   const formationTitle = await getFormationTitle(input.formationId);
   if (!formationTitle) {
     return { ok: false, error: 'Formation introuvable', code: 'not_found' };
@@ -479,7 +425,6 @@ export async function inviteOrResendApprenant(
       formationTitle,
       userId,
       accountStatus: (await getAccountStatus(userId)) ?? accountStatus,
-      includePassword,
     });
     if (!delivered.ok) {
       return { ok: false, error: delivered.error, code: delivered.code };
@@ -533,7 +478,6 @@ export async function inviteOrResendApprenant(
     formationTitle,
     userId,
     accountStatus: (await getAccountStatus(userId)) ?? accountStatus,
-    includePassword,
   });
   if (!delivered.ok) {
     return { ok: false, error: delivered.error, code: delivered.code };
@@ -572,7 +516,6 @@ export async function requestNewInvitationLink(emailRaw: string): Promise<void> 
         formationId: inv.formation_id,
         action: 'resend',
         invitationId: inv.id,
-        includePassword: true,
       },
       inv.invited_by || inv.user_id || inv.id
     );
