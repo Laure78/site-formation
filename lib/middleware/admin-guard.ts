@@ -1,4 +1,5 @@
 import { createServerClient } from '@supabase/ssr';
+import { createClient as createSupabaseClient } from '@supabase/supabase-js';
 import { NextResponse, type NextRequest } from 'next/server';
 import { canAccessAdmin } from '@/lib/admin-access';
 import { isAdmin, type UserRole } from '@/lib/auth';
@@ -13,6 +14,32 @@ function loginRedirect(request: NextRequest): NextResponse {
   loginUrl.search = '';
   loginUrl.searchParams.set('next', request.nextUrl.pathname + request.nextUrl.search);
   return NextResponse.redirect(loginUrl);
+}
+
+async function resolveRole(
+  userId: string,
+  sessionClient: ReturnType<typeof createServerClient>
+): Promise<UserRole> {
+  const serviceKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
+  const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
+  if (serviceKey && url) {
+    try {
+      const admin = createSupabaseClient(url, serviceKey, {
+        auth: { autoRefreshToken: false, persistSession: false },
+      });
+      const { data } = await admin.from('profiles').select('role').eq('id', userId).maybeSingle();
+      if (data?.role) return data.role as UserRole;
+    } catch {
+      // fallback session client
+    }
+  }
+
+  const { data: profile } = await sessionClient
+    .from('profiles')
+    .select('role')
+    .eq('id', userId)
+    .maybeSingle();
+  return (profile?.role ?? 'apprenant') as UserRole;
 }
 
 /**
@@ -50,13 +77,7 @@ export async function enforceAdminAccess(request: NextRequest): Promise<NextResp
     return loginRedirect(request);
   }
 
-  const { data: profile } = await supabase
-    .from('profiles')
-    .select('role')
-    .eq('id', user.id)
-    .maybeSingle();
-
-  const role = (profile?.role ?? 'apprenant') as UserRole;
+  const role = await resolveRole(user.id, supabase);
 
   if (!canAccessAdmin({ role }, user.email)) {
     if (isAdminApiPath(request.nextUrl.pathname)) {

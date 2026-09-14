@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import type { ComponentPropsWithoutRef, ReactNode } from 'react';
+import { CTA_RDV_LABEL } from '@/components/CtaRdv';
 import { trackCtaRdvClick } from '@/lib/cta-analytics';
 import { LINKS } from '@/lib/internal-links';
 
@@ -11,11 +12,11 @@ type AccueilPrendreRdvLinkProps = Omit<ComponentPropsWithoutRef<'a'>, 'href' | '
   children?: ReactNode;
 };
 
-/** Lien RDV accueil — libellé « Prendre rendez-vous » + suivi GA4. */
+/** Lien RDV accueil — libellé CTA unifié + suivi GA4. */
 export function AccueilPrendreRdvLink({
   origin,
   className = '',
-  children = 'Prendre rendez-vous',
+  children = CTA_RDV_LABEL,
   onClick,
   ...rest
 }: AccueilPrendreRdvLinkProps) {
@@ -26,7 +27,7 @@ export function AccueilPrendreRdvLink({
       href={LINKS.prendreRdv}
       data-cta="rdv"
       className={className || undefined}
-      aria-label="Prendre rendez-vous"
+      aria-label={CTA_RDV_LABEL}
       onClick={(event) => {
         const pagePath =
           typeof window !== 'undefined' ? window.location.pathname : pathname || 'unknown';

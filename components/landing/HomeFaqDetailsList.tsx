@@ -1,5 +1,4 @@
 import { FAQAnswer } from '@/components/landing/FAQAnswer';
-import { OFC_CARD } from '@/lib/ofc-interaction-classes';
 import type { FAQItem } from '@/lib/faq';
 
 type HomeFaqDetailsListProps = {
@@ -7,30 +6,27 @@ type HomeFaqDetailsListProps = {
 };
 
 /**
- * FAQ accueil — HTML sémantique SSR (toutes les réponses dans le DOM pour l’indexation).
- * Remplace l’accordéon client : pas de JS requis, contenu léger.
+ * FAQ accueil — HTML sémantique SSR (réponses dans le DOM pour l’indexation).
+ * Style accordéon premium, contenu léger sans JS.
  */
 export function HomeFaqDetailsList({ items }: HomeFaqDetailsListProps) {
   return (
-    <div className="space-y-3">
+    <div className="divide-y divide-ofc-border border-y border-ofc-border">
       {items.map((item, index) => (
-        <details
-          key={item.q}
-          className={`${OFC_CARD} group rounded-xl p-5 open:shadow-sm`}
-          open={index === 0}
-        >
-          <summary className="cursor-pointer list-none font-medium text-slate-900 [&::-webkit-details-marker]:hidden">
-            <span className="flex items-center justify-between gap-4">
+        <details key={item.q} className="ofc-faq-item group" open={index === 0}>
+          <summary>
+            <span className="flex items-start justify-between gap-4">
               <span>{item.q}</span>
               <span
-                className="shrink-0 text-xs font-semibold uppercase tracking-wide text-[var(--accent)]"
+                className="mt-1 flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-ofc-border text-sm font-semibold text-ofc-accent transition group-open:bg-ofc-accent group-open:text-white"
                 aria-hidden
               >
-                {index === 0 ? '−' : '+'}
+                <span className="group-open:hidden">+</span>
+                <span className="hidden group-open:inline">−</span>
               </span>
             </span>
           </summary>
-          <div className="mt-4 border-t border-slate-100 pt-4 text-base leading-relaxed text-slate-600">
+          <div className="pb-6 text-base leading-relaxed text-ofc-ink-muted md:text-lg">
             <FAQAnswer content={item.a} />
           </div>
         </details>

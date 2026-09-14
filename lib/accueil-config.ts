@@ -36,6 +36,16 @@ export function getAccueilHeroReassuranceLine(): string {
   return `${formatVolumeProsFormesBtp()} professionnels formés · ${formatNoteSatisfactionSur5()} de satisfaction · Qualiopi · Île-de-France`;
 }
 
+/** Preuves hero — items séparés pour une ligne visuelle premium. */
+export function getAccueilHeroProofItems(): readonly { value: string; label: string }[] {
+  return [
+    { value: formatVolumeProsFormesBtp(), label: 'professionnels formés' },
+    { value: formatNoteSatisfactionSur5(), label: 'de satisfaction' },
+    { value: 'Qualiopi', label: 'organisme certifié' },
+    { value: 'Île-de-France', label: 'interventions' },
+  ] as const;
+}
+
 /** Logos partenaires autorisés sur l'accueil (max 6). */
 export const ACCUEIL_LOGOS_PARTENAIRES = [
   CLIENT_LOGOS_MARQUEE.find((l) => l.id === 'ffb-grand-paris-idf')!,
@@ -75,6 +85,7 @@ export const ACCUEIL_LOGOS_PARTENAIRES = [
 export type AccueilCarteProbleme = {
   id: string;
   titre: string;
+  description: string;
   points: readonly string[];
   href: string;
 };
@@ -89,6 +100,7 @@ export function getAccueilCartesProblemesMetier(): readonly AccueilCarteProbleme
     {
       id: 'devis',
       titre: 'Devis & chiffrage',
+      description: 'Accélérer la préparation et la structuration de vos devis.',
       points: [
         'Préparer les désignations',
         'Structurer les devis',
@@ -100,6 +112,7 @@ export function getAccueilCartesProblemesMetier(): readonly AccueilCarteProbleme
     {
       id: 'chantier',
       titre: 'Chantier',
+      description: 'Gagner du temps sur le suivi et les documents de chantier.',
       points: [
         'Rédiger les comptes rendus',
         'Préparer les PPSPS',
@@ -111,6 +124,7 @@ export function getAccueilCartesProblemesMetier(): readonly AccueilCarteProbleme
     {
       id: 'ao',
       titre: "Appels d'offres",
+      description: 'Lire plus vite les dossiers et préparer des réponses solides.',
       points: [
         'Analyser les DCE',
         'Comparer CCTP, CCAP et DPGF',
@@ -122,6 +136,7 @@ export function getAccueilCartesProblemesMetier(): readonly AccueilCarteProbleme
     {
       id: 'admin',
       titre: 'Administratif',
+      description: 'Automatiser les écrits et synthèses du quotidien.',
       points: [
         'Rédiger les emails',
         'Préparer les courriers',
@@ -177,13 +192,11 @@ export const ACCUEIL_DOCUMENTS_EXEMPLES = [
   'CCTP',
   'CCAP',
   'DPGF',
-  'devis',
-  'comptes rendus',
+  'Devis',
   'PPSPS',
   'DOE',
-  'mémoires techniques',
-  'emails',
-  'procédures internes',
+  'CR chantier',
+  'Mémoire technique',
 ] as const;
 
 export const ACCUEIL_METHODE_ETAPES = [
@@ -191,9 +204,9 @@ export const ACCUEIL_METHODE_ETAPES = [
   { n: '02', titre: 'Nous identifions les tâches chronophages.' },
   {
     n: '03',
-    titre: 'Nous construisons les méthodes et assistants IA pendant la formation.',
+    titre: 'Nous construisons les méthodes et assistants IA.',
   },
-  { n: '04', titre: 'Vos équipes repartent avec des usages directement réutilisables.' },
+  { n: '04', titre: 'Vos équipes repartent avec des usages réutilisables.' },
 ] as const;
 
 /**
@@ -270,16 +283,19 @@ export const ACCUEIL_RESSOURCES = [
   {
     titre: 'Guide conducteur de travaux',
     phrase: 'PDF gratuit — skills IA pour DCE, PPSPS, CR et DOE.',
+    category: 'Guide',
     href: LINKS.guideConducteurTravauxIaBtp,
   },
   {
     titre: 'Analyser un DCE avec l’IA',
     phrase: 'Méthode et cas d’usage pour décrypter un dossier de consultation.',
+    category: 'Méthode',
     href: LINKS.iaAnalyseDce,
   },
   {
     titre: 'Compte rendu de chantier avec l’IA',
     phrase: 'Modèle et bonnes pratiques pour vos CR de chantier.',
+    category: 'Tutoriel',
     href: LINKS.iaCompteRenduChantier,
   },
 ] as const;

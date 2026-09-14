@@ -12,7 +12,8 @@ import {
   tarifLabelForEntry,
 } from '@/lib/formations-catalogue-display';
 import { PERIMETRE_FORMATIONS_COURT } from '@/lib/tarifs-sessions';
-import { OFC_CARD, OFC_CTA_PRIMARY, OFC_CTA_SECONDARY } from '@/lib/ofc-interaction-classes';
+import { Badge } from '@/components/ui/Badge';
+import { OFC_CARD, OFC_CTA_PRIMARY, OFC_CTA_SECONDARY, OFC_TYPE_H3 } from '@/lib/ofc-interaction-classes';
 
 type Props = {
   entry: FormationCatalogueEntry;
@@ -33,14 +34,12 @@ export function FormationsCatalogueCard({
   return (
     <article
       id={catalogueCardAnchorId(entry.ref)}
-      className={`${OFC_CARD} flex h-full scroll-mt-28 flex-col p-6 ${
-        highlighted ? 'ring-2 ring-ofc-accent ring-offset-2' : ''
+      className={`${OFC_CARD} flex h-full scroll-mt-28 flex-col p-6 sm:p-7 md:p-8 ${
+        highlighted ? 'border-ofc-accent/40 shadow-ofc-md ring-1 ring-ofc-accent/25' : ''
       } ${dimmed ? 'opacity-45' : ''}`}
     >
       <div className="flex flex-wrap items-center gap-2">
-        <span className="rounded-full bg-[#EFF6FF] px-2.5 py-1 text-[11px] font-bold uppercase tracking-wide text-[#377CF3]">
-          {catalogueGammeLabel(entry.gamme)}
-        </span>
+        <Badge className="bg-ofc-accent-soft text-ofc-accent">{catalogueGammeLabel(entry.gamme)}</Badge>
         <span
           className={`rounded-full px-2.5 py-1 text-[11px] font-bold uppercase tracking-wide ${
             isDebutant ? 'bg-emerald-100 text-emerald-800' : 'bg-orange-100 text-orange-800'
@@ -50,16 +49,16 @@ export function FormationsCatalogueCard({
         </span>
       </div>
 
-      <h3 className="mt-4 font-display text-lg font-bold leading-snug text-ofc-ink md:text-xl">
+      <h3 className={`${OFC_TYPE_H3} mt-5`}>
         <Link href={entry.href} className="hover:text-ofc-accent">
           {entry.title}
         </Link>
       </h3>
 
-      <p className="mt-3 text-sm leading-relaxed text-slate-600 md:text-base">{entry.promesse}</p>
+      <p className="mt-3 text-sm leading-relaxed text-ofc-ink-muted md:text-base">{entry.promesse}</p>
 
-      <p className="mt-4 text-sm text-slate-600">
-        <span className="font-semibold text-slate-800">Pour qui ? </span>
+      <p className="mt-4 text-sm text-ofc-ink-muted">
+        <span className="font-semibold text-ofc-ink">Pour qui ? </span>
         {publicLine}
       </p>
 
@@ -67,41 +66,41 @@ export function FormationsCatalogueCard({
         {tags.map((tag) => (
           <li
             key={tag}
-            className="rounded-full border border-slate-200 bg-slate-50 px-2.5 py-1 text-xs font-medium text-slate-700"
+            className="rounded-full border border-ofc-border bg-[var(--ofc-color-canvas)] px-2.5 py-1 text-xs font-medium text-ofc-ink-muted"
           >
             {tag}
           </li>
         ))}
       </ul>
 
-      <dl className="mt-5 grid grid-cols-2 gap-x-4 gap-y-2 border-t border-slate-100 pt-4 text-sm">
+      <dl className="mt-5 grid grid-cols-2 gap-x-4 gap-y-2 border-t border-ofc-border pt-4 text-sm">
         <div>
-          <dt className="text-xs font-semibold uppercase tracking-wide text-slate-500">Durée</dt>
-          <dd className="mt-0.5 flex items-center gap-1 text-slate-700">
+          <dt className="text-xs font-semibold uppercase tracking-wide text-ofc-ink-subtle">Durée</dt>
+          <dd className="mt-0.5 flex items-center gap-1 text-ofc-ink-muted">
             <Clock className="h-3.5 w-3.5 shrink-0 text-ofc-accent" aria-hidden />
             {entry.duree}
           </dd>
         </div>
         <div>
-          <dt className="text-xs font-semibold uppercase tracking-wide text-slate-500">Effectif</dt>
-          <dd className="mt-0.5 flex items-center gap-1 text-slate-700">
+          <dt className="text-xs font-semibold uppercase tracking-wide text-ofc-ink-subtle">Effectif</dt>
+          <dd className="mt-0.5 flex items-center gap-1 text-ofc-ink-muted">
             <Users className="h-3.5 w-3.5 shrink-0 text-ofc-accent" aria-hidden />
             {entry.effectif}
           </dd>
         </div>
         <div className="col-span-2">
-          <dt className="text-xs font-semibold uppercase tracking-wide text-slate-500">Format</dt>
-          <dd className="mt-0.5 text-slate-700">{PERIMETRE_FORMATIONS_COURT}</dd>
+          <dt className="text-xs font-semibold uppercase tracking-wide text-ofc-ink-subtle">Format</dt>
+          <dd className="mt-0.5 text-ofc-ink-muted">{PERIMETRE_FORMATIONS_COURT}</dd>
         </div>
         <div className="col-span-2">
-          <dt className="text-xs font-semibold uppercase tracking-wide text-slate-500">Tarif</dt>
-          <dd className="mt-0.5 text-slate-700">
+          <dt className="text-xs font-semibold uppercase tracking-wide text-ofc-ink-subtle">Tarif</dt>
+          <dd className="mt-0.5 text-ofc-ink-muted">
             {entry.tarifParcoursLabel ?? tarifLabelForEntry(entry)}
           </dd>
         </div>
       </dl>
 
-      <div className="mt-6 flex flex-col gap-2">
+      <div className="mt-7 flex flex-col gap-2">
         <Link
           href={entry.href}
           className={`${OFC_CTA_PRIMARY} inline-flex min-h-11 items-center justify-center px-5 py-3 text-sm`}

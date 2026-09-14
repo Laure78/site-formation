@@ -33,7 +33,11 @@ assert.equal(isAdmin('formateur'), true);
 
 const customAllow = parseAllowedAdminEmails('alice@ofc.fr, bob@ofc.fr');
 assert.equal(customAllow.has('alice@ofc.fr'), true);
-assert.equal(customAllow.has('laureolivie@yahoo.fr'), false);
+assert.equal(
+  customAllow.has('laureolivie@yahoo.fr'),
+  true,
+  'email fondatrice toujours inclus en secours'
+);
 
 const runtimeAllow = parseAllowedAdminEmails(process.env.ADMIN_ALLOWED_EMAILS);
 const adminEmail = [...runtimeAllow][0];

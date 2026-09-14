@@ -78,9 +78,9 @@ export function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-slate-200 bg-[#F8FAFC] text-slate-700">
-      <div className="mx-auto max-w-6xl px-4 py-10 md:py-12">
-        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-12 lg:gap-x-8 lg:gap-y-10">
+    <footer className="border-t border-ofc-border bg-[var(--ofc-color-canvas)] text-ofc-ink-muted">
+      <div className="mx-auto max-w-[80rem] px-4 py-14 md:px-6 md:py-16 lg:px-8">
+        <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-12 lg:gap-x-10 lg:gap-y-12">
           {/* Colonne 1 — Identité */}
           <div className="sm:col-span-2 lg:col-span-4">
             <div className="flex items-center gap-3">
@@ -93,19 +93,19 @@ export function Footer() {
                 className="h-9 w-auto"
               />
               <div>
-                <p className="font-display text-lg font-bold text-slate-900">{SITE.name}</p>
-                <p className="text-sm font-medium text-[#377CF3]">{copy.identitySubtitle}</p>
+                <p className="font-display text-lg font-bold tracking-tight text-ofc-ink">{SITE.name}</p>
+                <p className="text-sm font-medium text-ofc-accent">{copy.identitySubtitle}</p>
               </div>
             </div>
 
-            <p className="mt-4 max-w-md text-sm leading-relaxed text-slate-600">
+            <p className="mt-5 max-w-md text-sm leading-relaxed text-ofc-ink-muted">
               {copy.identityIntro}
             </p>
-            <p className="mt-2 text-xs font-medium tracking-wide text-slate-500">
+            <p className="mt-2 text-xs font-medium tracking-wide text-ofc-ink-subtle">
               {copy.useCasesLine}
             </p>
-            <p className="mt-3 text-sm leading-relaxed text-slate-600">{copy.geoSentence}</p>
-            <p className="mt-2 text-sm text-slate-500">{copy.locationLine}</p>
+            <p className="mt-3 text-sm leading-relaxed text-ofc-ink-muted">{copy.geoSentence}</p>
+            <p className="mt-2 text-sm text-ofc-ink-subtle">{copy.locationLine}</p>
 
             <ul className="mt-4 space-y-1 text-sm">
               <li>

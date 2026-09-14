@@ -19,6 +19,7 @@ export const OFC_TYPE_LEAD = 'ofc-type-lead ofc-read-width';
 export const OFC_TYPE_BODY = 'ofc-type-body ofc-read-width';
 export const OFC_TYPE_CAPTION = 'ofc-type-caption';
 export const OFC_TYPE_LABEL = 'ofc-type-label';
+export const OFC_EYEBROW = 'ofc-eyebrow';
 
 /** Largeur de lecture */
 export const OFC_READ_WIDTH = 'ofc-read-width';

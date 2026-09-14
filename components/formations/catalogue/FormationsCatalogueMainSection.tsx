@@ -58,16 +58,16 @@ export function FormationsCatalogueMainSection({ formations, besoinOptions }: Pr
       />
 
       <section className="mt-14 scroll-mt-24" aria-labelledby="catalogue-formations-liste">
-        <h2 id="catalogue-formations-liste" className="font-display text-2xl font-bold text-ofc-ink md:text-3xl">
+        <h2 id="catalogue-formations-liste" className="ofc-type-h2 text-ofc-ink text-balance">
           Parcours Usages IA BTP
         </h2>
-        <p className="mt-3 max-w-2xl text-sm leading-relaxed text-slate-600 md:text-base">
+        <p className="mt-4 max-w-2xl text-sm leading-relaxed text-ofc-ink-muted md:text-base">
           Formations du parcours Usages IA BTP (niveaux et prérequis propres à chaque fiche) : devis,
           appels d&apos;offres, chantier, maîtrise d&apos;œuvre, Claude et assistants IA. Distinct du
           parcours Création d&apos;applications BTP.
         </p>
 
-        <div className="mt-8 grid gap-6 lg:grid-cols-2">
+        <div className="mt-10 grid gap-6 lg:grid-cols-2">
           {core.map((entry) => (
             <FormationsCatalogueCard
               key={entry.ref}

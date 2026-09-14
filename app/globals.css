@@ -24,32 +24,53 @@
   --color-ofc-accent-hover: #2d66d6;
   --color-ofc-accent-soft: #eff6ff;
   --color-ofc-surface: #f2f2f2;
-  --color-ofc-ink: #0f172a;
-  --color-ofc-ink-muted: #475569;
-  --color-ofc-ink-subtle: #64748b;
-  --color-ofc-border: rgba(15, 23, 42, 0.08);
+  --color-ofc-canvas: #f7f9fc;
+  --color-ofc-ink: #0b1220;
+  --color-ofc-ink-muted: #42526b;
+  --color-ofc-ink-subtle: #8190a8;
+  --color-ofc-border: rgba(45, 75, 130, 0.1);
   --color-ofc-border-strong: rgba(15, 23, 42, 0.14);
+  --color-ofc-card: #ffffff;
+  --color-ofc-success: #059669;
   --color-ofc-on-accent: #ffffff;
+
+  /* Alias sémantiques demandés (miroir des tokens OFC) */
+  --color-primary: #377cf3;
+  --color-primary-hover: #2d66d6;
+  --color-text: #0b1220;
+  --color-text-muted: #42526b;
+  --color-background: #ffffff;
+  --color-background-secondary: #f7f9fc;
+  --color-border: rgba(45, 75, 130, 0.1);
+  --color-card: #ffffff;
+  --color-success: #059669;
 
   /* ——— Rayons (rounded-ofc-card, rounded-ofc-pill…) ——— */
   --radius-ofc-sm: 0.5rem;
-  --radius-ofc-md: 0.75rem;
-  --radius-ofc-lg: 1rem;
-  --radius-ofc-xl: 1.25rem;
-  --radius-ofc-card: 1.25rem; /* 20px — cartes premium */
+  --radius-ofc-md: 0.625rem;
+  --radius-ofc-lg: 0.9375rem;
+  --radius-ofc-xl: 1.125rem;
+  --radius-ofc-card: 1.25rem;
   --radius-ofc-pill: 9999px;
+  --radius-sm: 0.5rem;
+  --radius-md: 0.625rem;
+  --radius-lg: 0.9375rem;
+  --radius-xl: 1.125rem;
 
-  /* ——— Ombres (shadow-ofc-md…) ——— */
-  --shadow-ofc-sm: 0 2px 4px rgba(15, 23, 42, 0.03), 0 10px 30px rgba(15, 23, 42, 0.07);
-  --shadow-ofc-md: 0 4px 16px -4px rgba(15, 23, 42, 0.08);
-  --shadow-ofc-lg: 0 12px 32px -12px rgba(15, 23, 42, 0.1);
-  --shadow-ofc-accent: 0 8px 24px -8px rgba(55, 124, 243, 0.22);
-  --shadow-ofc-card-hover: 0 8px 18px rgba(15, 23, 42, 0.08), 0 22px 45px rgba(55, 124, 243, 0.13);
+  /* ——— Ombres (shadow-ofc-md…) — premium discret façon BeWork ——— */
+  --shadow-ofc-sm: 0 1px 2px rgba(15, 23, 42, 0.04), 0 4px 16px rgba(15, 23, 42, 0.04);
+  --shadow-ofc-md: 0 4px 14px rgba(15, 23, 42, 0.06);
+  --shadow-ofc-lg: 0 12px 32px rgba(15, 23, 42, 0.08);
+  --shadow-ofc-accent: 0 10px 28px -10px rgba(55, 124, 243, 0.35);
+  --shadow-ofc-card-hover: 0 2px 8px rgba(15, 23, 42, 0.05), 0 12px 28px rgba(30, 58, 95, 0.08);
+  --shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.04);
+  --shadow-md: 0 4px 14px rgba(15, 23, 42, 0.06);
+  --shadow-lg: 0 12px 32px rgba(15, 23, 42, 0.08);
 
   /* ——— Durées animation ——— */
-  --duration-ofc-fast: 150ms;
-  --duration-ofc-base: 300ms;
-  --duration-ofc-slow: 450ms;
+  --duration-ofc-fast: 180ms;
+  --duration-ofc-base: 250ms;
+  --duration-ofc-slow: 350ms;
 }
 
 @layer base {
@@ -59,11 +80,14 @@
     --ofc-color-accent-hover: var(--color-ofc-accent-hover);
     --ofc-color-accent-soft: var(--color-ofc-accent-soft);
     --ofc-color-surface: var(--color-ofc-surface);
+    --ofc-color-canvas: var(--color-ofc-canvas);
     --ofc-color-ink: var(--color-ofc-ink);
     --ofc-color-ink-muted: var(--color-ofc-ink-muted);
     --ofc-color-ink-subtle: var(--color-ofc-ink-subtle);
     --ofc-color-border: var(--color-ofc-border);
     --ofc-color-border-strong: var(--color-ofc-border-strong);
+    --ofc-color-card: var(--color-ofc-card);
+    --ofc-color-success: var(--color-ofc-success);
     --ofc-color-on-accent: var(--color-ofc-on-accent);
 
     /* Legacy — conserver pour le code existant (→ tokens sémantiques) */
@@ -77,16 +101,19 @@
     --ofc-blue: var(--ofc-color-accent);
     --ofc-blue-hover: var(--ofc-color-accent-hover);
 
-    --site-header-height: 4.25rem;
+    --site-header-height: 4rem;
 
     /* Header desktop : barre actions + menu (2 lignes) */
-    --site-header-height-lg: 7rem;
+    --site-header-height-lg: 6.5rem;
 
-    /* Espacement sections — base 4 px, cible DA 96–160 px desktop */
-    --ofc-section-py: 4rem;
-    --ofc-section-py-md: 6rem;
-    --ofc-section-py-lg: 7rem;
-    --ofc-section-py-xl: 8.75rem;
+    /* Conteneur site — aligné BeWork (1280px) */
+    --ofc-site-max-width: 80rem;
+
+    /* Espacement sections — respiration premium 48–160 px */
+    --ofc-section-py: 3.5rem; /* ~56px mobile */
+    --ofc-section-py-md: 5rem; /* ~80px tablette */
+    --ofc-section-py-lg: 7.5rem; /* ~120px desktop */
+    --ofc-section-py-xl: 9rem; /* ~144px large */
 
     /* Motion */
     --ofc-duration-fast: var(--duration-ofc-fast);
@@ -109,8 +136,8 @@
 
   @media (min-width: 1280px) {
     :root {
-      --ofc-section-py-lg: 8rem;
-      --ofc-section-py-xl: 10rem;
+      --ofc-section-py-lg: 8.75rem; /* 140px */
+      --ofc-section-py-xl: 10rem; /* 160px */
     }
   }
 
@@ -163,29 +190,40 @@
   font-family: var(--font-display), ui-sans-serif, system-ui, sans-serif;
 }
 
-/* ——— Échelle typographique OFC (DA : hero marqué, corps 17–18 px, lecture 65–75 car.) ——— */
+/* ——— Échelle typographique OFC — hiérarchie premium (esprit BeWork, identité LO) ——— */
 .ofc-type-hero {
   font-family: var(--font-display), ui-sans-serif, system-ui, sans-serif;
-  font-size: clamp(2.125rem, 1.65rem + 1.75vw, 3.5rem);
-  line-height: 1.1;
-  letter-spacing: -0.02em;
-  font-weight: 700;
+  font-size: clamp(2.5rem, 1.4rem + 4.2vw, 5.5rem);
+  line-height: 1.02;
+  letter-spacing: -0.04em;
+  font-weight: 800;
 }
 
 .ofc-type-h2 {
   font-family: var(--font-display), ui-sans-serif, system-ui, sans-serif;
-  font-size: clamp(1.75rem, 1.45rem + 0.9vw, 2.5rem);
-  line-height: 1.15;
-  letter-spacing: -0.015em;
-  font-weight: 700;
+  font-size: clamp(1.85rem, 1.2rem + 2vw, 3.25rem);
+  line-height: 1.08;
+  letter-spacing: -0.035em;
+  font-weight: 800;
 }
 
 .ofc-type-h3 {
   font-family: var(--font-display), ui-sans-serif, system-ui, sans-serif;
-  font-size: clamp(1.375rem, 1.2rem + 0.5vw, 1.75rem);
-  line-height: 1.25;
-  letter-spacing: -0.01em;
+  font-size: clamp(1.25rem, 1.1rem + 0.6vw, 1.625rem);
+  line-height: 1.2;
+  letter-spacing: -0.02em;
   font-weight: 700;
+}
+
+.ofc-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ofc-color-ink-subtle);
 }
 
 .ofc-type-lead {
@@ -1004,40 +1042,40 @@
 @layer components {
   .ofc-card {
     border-radius: var(--radius-ofc-card);
-    border: 1px solid rgba(15, 23, 42, 0.08);
-    background: #ffffff;
+    border: 1px solid var(--ofc-color-border);
+    background: var(--ofc-color-card);
     box-shadow: var(--shadow-ofc-sm);
     color: inherit;
     text-decoration: none;
     outline: none;
     transition:
-      transform 250ms ease-out,
-      box-shadow 250ms ease-out,
-      border-color 250ms ease-out;
+      transform var(--ofc-duration-base) var(--ofc-ease-out),
+      box-shadow var(--ofc-duration-base) var(--ofc-ease-out),
+      border-color var(--ofc-duration-base) var(--ofc-ease-out);
     will-change: transform;
     -webkit-tap-highlight-color: transparent;
   }
 
   .ofc-card:hover {
-    transform: translateY(-6px) scale(1.01);
-    border-color: rgba(55, 124, 243, 0.55);
+    transform: translateY(-4px);
+    border-color: rgba(55, 124, 243, 0.28);
     box-shadow: var(--shadow-ofc-card-hover);
   }
 
   .ofc-card:active {
-    transform: translateY(-1px) scale(0.98);
-    box-shadow: 0 3px 10px rgba(15, 23, 42, 0.1);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-ofc-sm);
   }
 
   .ofc-card:focus-visible {
     outline: 3px solid rgba(55, 124, 243, 0.35);
     outline-offset: 4px;
-    border-color: rgba(55, 124, 243, 0.55);
+    border-color: rgba(55, 124, 243, 0.45);
   }
 
   /** Flèche discrète — glisse à droite au survol de la carte parente. */
   .ofc-card__arrow {
-    transition: transform 250ms ease-out;
+    transition: transform var(--ofc-duration-base) var(--ofc-ease-out);
   }
 
   .ofc-card:hover .ofc-card__arrow {
@@ -1054,26 +1092,27 @@
   }
 
   .ofc-cta-primary {
-    @apply inline-flex min-h-11 items-center justify-center rounded-ofc-lg bg-ofc-accent px-8 py-4 text-base font-semibold text-white;
-    @apply transition-[transform,background-color,box-shadow] duration-150 ease-out;
-    @apply hover:bg-ofc-accent-hover hover:shadow-ofc-accent;
+    @apply inline-flex min-h-11 items-center justify-center rounded-ofc-pill bg-ofc-accent px-8 py-3.5 text-base font-semibold text-white;
+    box-shadow: var(--shadow-ofc-accent);
+    @apply transition-[transform,background-color,box-shadow] duration-200 ease-out;
+    @apply hover:bg-ofc-accent-hover;
     @apply active:scale-[0.98];
     @apply focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ofc-accent;
   }
 
   .ofc-cta-primary-pill {
     @apply inline-flex min-h-11 items-center justify-center rounded-ofc-pill bg-ofc-accent px-7 py-3 text-center text-[0.95rem] font-semibold text-white;
-    @apply shadow-ofc-accent ring-2 ring-ofc-accent/90 ring-offset-2 ring-offset-ofc-accent-soft;
-    @apply transition-[transform,background-color,box-shadow] duration-150 ease-out;
+    box-shadow: var(--shadow-ofc-accent);
+    @apply transition-[transform,background-color,box-shadow] duration-200 ease-out;
     @apply hover:bg-ofc-accent-hover;
     @apply active:scale-[0.97];
     @apply focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ofc-accent;
   }
 
   .ofc-cta-secondary {
-    @apply inline-flex min-h-11 items-center justify-center rounded-ofc-lg border-2 border-ofc-accent bg-white px-8 py-4 text-base font-semibold text-ofc-accent;
-    @apply transition-[transform,background-color,border-color] duration-150 ease-out;
-    @apply hover:border-ofc-accent-hover hover:bg-ofc-surface;
+    @apply inline-flex min-h-11 items-center justify-center rounded-ofc-pill border border-ofc-border-strong bg-white px-8 py-3.5 text-base font-semibold text-ofc-ink;
+    @apply transition-[transform,background-color,border-color,color] duration-200 ease-out;
+    @apply hover:border-ofc-accent hover:text-ofc-accent;
     @apply active:scale-[0.98];
     @apply focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ofc-accent;
   }
@@ -1132,22 +1171,22 @@
 
   /* Header sticky — hauteur fixe (zéro CLS), compression visuelle au scroll */
   .site-header {
-    @apply sticky top-0 z-50 border-b border-[var(--header-border)] bg-white/95 backdrop-blur-md;
+    @apply sticky top-0 z-50 border-b border-[var(--header-border)] bg-white/90 backdrop-blur-md;
     @apply transition-[background-color,box-shadow,border-color,backdrop-filter] duration-200 ease-out;
-    @apply supports-[backdrop-filter]:bg-white/88;
+    @apply supports-[backdrop-filter]:bg-white/80;
     height: auto;
     min-height: var(--site-header-height);
   }
 
   .site-header[data-compact='true'] {
-    @apply border-slate-200/90 bg-white/72 shadow-[0_8px_30px_-12px_rgba(15,23,42,0.12)];
-    @apply supports-[backdrop-filter]:bg-white/65 supports-[backdrop-filter]:backdrop-blur-lg;
+    @apply border-slate-200/80 bg-white/75 shadow-[0_8px_30px_-16px_rgba(15,23,42,0.1)];
+    @apply supports-[backdrop-filter]:bg-white/70 supports-[backdrop-filter]:backdrop-blur-lg;
   }
 
   .site-header__inner {
-    @apply mx-auto flex max-w-[1400px] min-w-0 items-center justify-between gap-2 px-3 sm:gap-4 sm:px-8;
+    @apply mx-auto flex max-w-[80rem] min-w-0 items-center justify-between gap-2 px-4 sm:gap-4 sm:px-6 lg:px-8;
     @apply py-2.5 transition-[transform,padding] duration-200 ease-out motion-reduce:transition-none;
-    @apply lg:grid lg:grid-cols-[auto_minmax(0,1fr)_auto_auto] lg:grid-rows-[auto_auto] lg:items-center lg:gap-x-4 lg:gap-y-3 lg:py-3;
+    @apply lg:grid lg:grid-cols-[auto_minmax(0,1fr)_auto_auto] lg:grid-rows-[auto_auto] lg:items-center lg:gap-x-4 lg:gap-y-2 lg:py-2.5;
   }
 
   .site-header__brand {
@@ -1175,9 +1214,9 @@
   }
 
   .site-header__nav-pill {
-    @apply mx-1 hidden min-w-0 flex-1 items-center justify-start gap-1.5 overflow-x-auto rounded-2xl border border-slate-200/70 bg-white/80 px-2.5 py-2 shadow-[0_1px_3px_rgba(15,23,42,0.06)] backdrop-blur-sm [scrollbar-width:none] sm:gap-2 sm:px-3;
-    @apply transition-[padding,box-shadow] duration-200 ease-out motion-reduce:transition-none;
-    @apply lg:col-span-4 lg:col-start-1 lg:row-start-2 lg:mx-0 lg:flex lg:w-full lg:max-w-none lg:flex-nowrap lg:items-stretch lg:justify-between lg:gap-2 lg:overflow-visible lg:rounded-2xl lg:px-4 lg:py-2.5 xl:gap-2.5 xl:px-5 xl:py-3;
+    @apply mx-1 hidden min-w-0 flex-1 items-center justify-start gap-1 overflow-x-auto rounded-ofc-xl border border-ofc-border bg-white/70 px-2 py-1.5 shadow-none backdrop-blur-sm [scrollbar-width:none] sm:gap-1.5 sm:px-2.5;
+    @apply transition-[padding,box-shadow,border-color] duration-200 ease-out motion-reduce:transition-none;
+    @apply lg:col-span-4 lg:col-start-1 lg:row-start-2 lg:mx-0 lg:flex lg:w-full lg:max-w-none lg:flex-nowrap lg:items-stretch lg:justify-between lg:gap-1.5 lg:overflow-visible lg:rounded-ofc-xl lg:border-ofc-border lg:px-3 lg:py-1.5 xl:gap-2 xl:px-4;
   }
 
   .site-header__nav-pill > * {
@@ -1456,7 +1495,7 @@
   }
 
   .ofc-section--muted {
-    background-color: var(--ofc-color-surface);
+    background-color: var(--ofc-color-canvas);
   }
 
   .ofc-section--soft {
@@ -1469,12 +1508,63 @@
   }
 
   .ofc-section--hero-bg {
-    background: linear-gradient(
-      180deg,
-      var(--ofc-color-surface) 0%,
-      #f5f9ff 42%,
-      #ffffff 100%
-    );
+    background:
+      radial-gradient(ellipse 80% 60% at 85% 15%, rgba(55, 124, 243, 0.1), transparent 55%),
+      radial-gradient(ellipse 50% 40% at 10% 80%, rgba(55, 124, 243, 0.06), transparent 50%),
+      linear-gradient(180deg, var(--ofc-color-canvas) 0%, #f5f8ff 45%, #ffffff 100%);
+  }
+
+  .ofc-container {
+    @apply mx-auto w-full max-w-[80rem] px-4 sm:px-6 lg:px-8;
+  }
+
+  .ofc-badge {
+    @apply inline-flex items-center rounded-ofc-pill border border-ofc-border bg-white/80 px-3.5 py-1.5 text-xs font-semibold uppercase tracking-[0.14em] text-ofc-ink-subtle backdrop-blur-sm;
+  }
+
+  .ofc-stat {
+    @apply text-center;
+  }
+
+  .ofc-stat__value {
+    font-family: var(--font-display), ui-sans-serif, system-ui, sans-serif;
+    @apply text-lg font-extrabold tracking-tight text-ofc-ink sm:text-xl;
+  }
+
+  .ofc-stat__label {
+    @apply mt-0.5 text-xs font-medium text-ofc-ink-subtle sm:text-sm;
+  }
+
+  .ofc-process-step {
+    @apply relative rounded-ofc-card border border-ofc-border bg-white p-6 shadow-ofc-sm;
+  }
+
+  .ofc-process-step__n {
+    font-family: var(--font-display), ui-sans-serif, system-ui, sans-serif;
+    @apply text-3xl font-extrabold tracking-tight text-ofc-accent;
+  }
+
+  .ofc-faq-item {
+    @apply border-b border-ofc-border;
+  }
+
+  .ofc-faq-item summary {
+    cursor: pointer;
+    list-style: none;
+    padding-block: 1.5rem;
+    font-family: var(--font-display), ui-sans-serif, system-ui, sans-serif;
+    font-size: clamp(1.125rem, 1rem + 0.4vw, 1.25rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--ofc-color-ink);
+  }
+
+  .ofc-faq-item summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .ofc-faq-item[open] summary {
+    color: var(--ofc-color-accent);
   }
 
   .ofc-section--mesh {
@@ -1575,11 +1665,11 @@
   }
 
   .ofc-section-inner {
-    @apply mx-auto max-w-6xl;
+    @apply mx-auto w-full max-w-[80rem];
   }
 
   .ofc-section-inner--wide {
-    @apply max-w-7xl;
+    @apply max-w-[90rem];
   }
 
   /* Panneaux internes — rythme sans section supplémentaire */

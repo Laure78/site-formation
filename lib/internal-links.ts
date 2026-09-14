@@ -232,6 +232,8 @@ export const LINKS = {
   formationPlateforme: '/formations/plateforme',
   /** Connexion espace apprenant LMS (indexable SEO/GEO) */
   authConnexion: '/auth/connexion',
+  /** Entrée connexion administrateur / formateur (noindex) */
+  accesAdmin: '/acces-admin',
   diagnostic: '/diagnostic-ia-btp',
   outilsIaBtp: '/outils-ia-btp',
   /** Sélecteur interactif — cas d'usage IA par métier BTP */

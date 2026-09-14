@@ -22,10 +22,28 @@ function mapAuthError(message: string): string {
   return 'Connexion impossible. Vérifiez vos identifiants ou réessayez.';
 }
 
-export default function ConnexionClient() {
+/** Détecte une intention admin depuis ?next= (sans importer le module serveur admin-access). */
+function isAdminNextPath(next: string | null | undefined): boolean {
+  if (!next) return false;
+  const pathname = next.split('?')[0] ?? next;
+  return pathname === '/admin' || pathname.startsWith('/admin/');
+}
+
+type ConnexionClientProps = {
+  /** Forcer la destination post-login (ex. page /acces-admin). */
+  forcedNext?: string;
+  /** Affiche le libellé / UX « administrateur » même sans ?next=. */
+  adminMode?: boolean;
+};
+
+export default function ConnexionClient({
+  forcedNext,
+  adminMode = false,
+}: ConnexionClientProps) {
   const router = useRouter();
   const searchParams = useSearchParams();
-  const nextParam = searchParams.get('next');
+  const nextParam = forcedNext ?? searchParams.get('next');
+  const isAdminLogin = adminMode || isAdminNextPath(nextParam);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
@@ -114,7 +132,14 @@ export default function ConnexionClient() {
 
   return (
     <div className="rounded-2xl border border-slate-200 bg-white p-8 shadow-[0_8px_30px_rgba(15,23,42,0.08)]">
-      <h2 className="font-display text-3xl font-bold text-slate-900">Connexion</h2>
+      <h2 className="font-display text-3xl font-bold text-slate-900">
+        {isAdminLogin ? 'Connexion administrateur' : 'Connexion'}
+      </h2>
+      {isAdminLogin ? (
+        <p className="mt-2 text-sm text-slate-600">
+          Espace réservé aux formateurs et administrateurs de la plateforme.
+        </p>
+      ) : null}
 
       {resetOk && (
         <p className="mt-4 rounded-lg bg-emerald-50 p-3 text-sm text-emerald-800" role="status">
@@ -173,7 +198,7 @@ export default function ConnexionClient() {
           disabled={loading}
           className="w-full rounded-xl bg-[#377CF3] py-3.5 font-semibold text-white transition-colors hover:bg-[#2A6BD9] disabled:opacity-50"
         >
-          {loading ? 'Connexion…' : 'Se connecter'}
+          {loading ? 'Connexion…' : isAdminLogin ? 'Accéder à l’admin' : 'Se connecter'}
         </button>
       </form>
 
@@ -187,22 +212,33 @@ export default function ConnexionClient() {
         </button>
       </p>
 
-      <p className="mt-6 text-center text-sm text-slate-600">
-        Pas encore de compte ?{' '}
-        <Link href="/auth/inscription" className="font-medium text-[#377CF3] hover:underline">
-          S&apos;inscrire
-        </Link>
-      </p>
-      <p className="mt-2 text-center text-sm text-slate-500">
-        Formateur ?{' '}
-        <Link href="/acces-admin" className="font-medium text-[#377CF3] hover:underline">
-          Accès admin
-        </Link>
-        {' · '}
-        <Link href={LINKS.formations} className="font-medium text-[#377CF3] hover:underline">
-          Catalogue formations
-        </Link>
-      </p>
+      {isAdminLogin ? (
+        <p className="mt-6 text-center text-sm text-slate-500">
+          Stagiaire ?{' '}
+          <Link href={LINKS.authConnexion} className="font-medium text-[#377CF3] hover:underline">
+            Connexion espace apprenant
+          </Link>
+        </p>
+      ) : (
+        <>
+          <p className="mt-6 text-center text-sm text-slate-600">
+            Pas encore de compte ?{' '}
+            <Link href="/auth/inscription" className="font-medium text-[#377CF3] hover:underline">
+              S&apos;inscrire
+            </Link>
+          </p>
+          <p className="mt-2 text-center text-sm text-slate-500">
+            Formateur ?{' '}
+            <Link href={LINKS.accesAdmin} className="font-medium text-[#377CF3] hover:underline">
+              Accès admin
+            </Link>
+            {' · '}
+            <Link href={LINKS.formations} className="font-medium text-[#377CF3] hover:underline">
+              Catalogue formations
+            </Link>
+          </p>
+        </>
+      )}
     </div>
   );
 }

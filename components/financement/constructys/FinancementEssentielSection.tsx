@@ -1,4 +1,5 @@
 import { FINANCEMENT_BAREMES_NOTE } from '@/lib/financement-constructys-page-config';
+import { OFC_CARD, OFC_TYPE_H2, OFC_TYPE_H3 } from '@/lib/ofc-interaction-classes';
 
 const ESSENTIEL = [
   {
@@ -26,24 +27,18 @@ const ESSENTIEL = [
 export function FinancementEssentielSection() {
   return (
     <section aria-labelledby="essentiel-title" className="scroll-mt-24">
-      <h2
-        id="essentiel-title"
-        className="font-display text-2xl font-bold tracking-tight text-[#0F172A] md:text-3xl"
-      >
+      <h2 id="essentiel-title" className={OFC_TYPE_H2}>
         L’essentiel en 30 secondes
       </h2>
-      <ul className="mt-6 grid gap-4 sm:grid-cols-2">
+      <ul className="mt-8 grid gap-5 sm:grid-cols-2">
         {ESSENTIEL.map((item) => (
-          <li
-            key={item.titre}
-            className="rounded-xl border border-[#E2E8F0] bg-white p-5 shadow-sm"
-          >
-            <h3 className="text-base font-bold text-[#377CF3]">{item.titre}</h3>
-            <p className="mt-2 text-sm leading-relaxed text-[#475569]">{item.texte}</p>
+          <li key={item.titre} className={`${OFC_CARD} p-6`}>
+            <h3 className={`${OFC_TYPE_H3} text-ofc-accent`}>{item.titre}</h3>
+            <p className="mt-3 text-sm leading-relaxed text-ofc-ink-muted md:text-base">{item.texte}</p>
           </li>
         ))}
       </ul>
-      <p className="mt-4 text-sm italic text-[#64748B]">{FINANCEMENT_BAREMES_NOTE}</p>
+      <p className="mt-5 text-sm italic text-ofc-ink-subtle">{FINANCEMENT_BAREMES_NOTE}</p>
     </section>
   );
 }

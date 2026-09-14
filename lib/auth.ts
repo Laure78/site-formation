@@ -13,12 +13,13 @@ export interface Profile {
 
 export async function getProfile(userId: string) {
   const supabase = await createClient();
-  const { data } = await supabase
+  const { data, error } = await supabase
     .from('profiles')
     .select('*')
     .eq('id', userId)
-    .single();
-  return data as Profile | null;
+    .maybeSingle();
+  if (error || !data) return null;
+  return data as Profile;
 }
 
 export async function getRole(userId: string): Promise<UserRole> {

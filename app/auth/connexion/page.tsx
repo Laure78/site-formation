@@ -88,6 +88,12 @@ if (faqSchema) {
   (faqSchema as Record<string, unknown>)['@id'] = `${SITE_CONFIG.url}${LINKS.authConnexion}#faq`;
 }
 
+function isAdminNextPath(next: string | null | undefined): boolean {
+  if (!next) return false;
+  const pathname = next.split('?')[0] ?? next;
+  return pathname === '/admin' || pathname.startsWith('/admin/');
+}
+
 export default async function ConnexionPage({
   searchParams,
 }: {
@@ -96,6 +102,7 @@ export default async function ConnexionPage({
   const params = await searchParams;
   const resetOk = params.reset === 'ok';
   const authError = params.error === 'auth';
+  const adminIntent = isAdminNextPath(params.next);
 
   return (
     <div className="min-h-screen bg-[#F8FAFC]">
@@ -112,65 +119,84 @@ export default async function ConnexionPage({
             id="connexion-seo-title"
             className="font-display text-3xl font-bold tracking-tight text-slate-900 md:text-4xl"
           >
-            Bienvenue sur votre espace de formation IA &amp; BTP
+            {adminIntent
+              ? 'Connexion administrateur — plateforme formation IA BTP'
+              : 'Bienvenue sur votre espace de formation IA & BTP'}
           </h1>
 
-          <p className="mt-5 max-w-xl text-base leading-relaxed text-slate-600 md:text-lg">
-            Cette plateforme vous donne accès à des ressources concrètes pour intégrer
-            l&apos;intelligence artificielle dans le quotidien des entreprises du BTP :
-            prompts prêts à l&apos;emploi, fiches méthodes, outils et cas pratiques 100&nbsp;%
-            terrain.
-          </p>
+          {adminIntent ? (
+            <>
+              <p className="mt-5 max-w-xl text-base leading-relaxed text-slate-600 md:text-lg">
+                Accédez à l&apos;espace de gestion des formations, des apprenants et du suivi
+                Qualiopi. Réservé aux formateurs et administrateurs OFC Création d&apos;Entreprise.
+              </p>
+              <p className="mt-6 text-sm text-slate-500">
+                Stagiaire ?{' '}
+                <Link href={LINKS.authConnexion} className="font-medium text-[#377CF3] hover:underline">
+                  Connexion espace apprenant
+                </Link>
+              </p>
+            </>
+          ) : (
+            <>
+              <p className="mt-5 max-w-xl text-base leading-relaxed text-slate-600 md:text-lg">
+                Cette plateforme vous donne accès à des ressources concrètes pour intégrer
+                l&apos;intelligence artificielle dans le quotidien des entreprises du BTP :
+                prompts prêts à l&apos;emploi, fiches méthodes, outils et cas pratiques 100&nbsp;%
+                terrain.
+              </p>
 
-          <ul className="mt-6 max-w-xl space-y-2 text-sm leading-relaxed text-slate-700 md:text-base">
-            <li>
-              <strong className="font-semibold text-slate-900">Formation dispensée par un organisme certifié Qualiopi</strong>
-              {' — '}
-              financement OPCO Constructys possible selon éligibilité.
-            </li>
-            <li>
-              <strong className="font-semibold text-slate-900">Public</strong>
-              {' — '}
-              dirigeants et équipes BTP, TPE et PME en Île-de-France (Guyancourt / sessions présentiel).
-            </li>
-            <li>
-              <strong className="font-semibold text-slate-900">Outils</strong>
-              {' — '}
-              ChatGPT et Claude AI appliqués au chantier, devis et administratif.
-            </li>
-          </ul>
+              <ul className="mt-6 max-w-xl space-y-2 text-sm leading-relaxed text-slate-700 md:text-base">
+                <li>
+                  <strong className="font-semibold text-slate-900">Formation dispensée par un organisme certifié Qualiopi</strong>
+                  {' — '}
+                  financement OPCO Constructys possible selon éligibilité.
+                </li>
+                <li>
+                  <strong className="font-semibold text-slate-900">Public</strong>
+                  {' — '}
+                  dirigeants et équipes BTP, TPE et PME en Île-de-France (Guyancourt / sessions présentiel).
+                </li>
+                <li>
+                  <strong className="font-semibold text-slate-900">Outils</strong>
+                  {' — '}
+                  ChatGPT et Claude AI appliqués au chantier, devis et administratif.
+                </li>
+              </ul>
 
-          <p className="mt-6 max-w-xl text-sm text-slate-600">
-            Formations animées par{' '}
-            <Link href={LINKS.aPropos} className="font-medium text-[#377CF3] hover:underline">
-              Laure Olivié
-            </Link>
-            {' — '}
-            ancienne dirigeante d’une entreprise de travaux publics &amp; formatrice IA —{' '}
-            <Link href={LINKS.formations} className="font-medium text-[#377CF3] hover:underline">
-              catalogue formation IA pour le BTP
-            </Link>
-            .
-          </p>
+              <p className="mt-6 max-w-xl text-sm text-slate-600">
+                Formations animées par{' '}
+                <Link href={LINKS.aPropos} className="font-medium text-[#377CF3] hover:underline">
+                  Laure Olivié
+                </Link>
+                {' — '}
+                ancienne dirigeante d’une entreprise de travaux publics &amp; formatrice IA —{' '}
+                <Link href={LINKS.formations} className="font-medium text-[#377CF3] hover:underline">
+                  catalogue formation IA pour le BTP
+                </Link>
+                .
+              </p>
 
-          <p className="mt-3 max-w-xl text-sm text-slate-500">
-            Financement :{' '}
-            <Link
-              href={LINKS.financement}
-              className="font-medium text-[#377CF3] hover:underline"
-            >
-              guide Constructys formation IA BTP
-            </Link>
-            {' · '}
-            <Link href={LINKS.prendreRdv} className="font-medium text-[#377CF3] hover:underline">
-              appel découverte
-            </Link>
-          </p>
+              <p className="mt-3 max-w-xl text-sm text-slate-500">
+                Financement :{' '}
+                <Link
+                  href={LINKS.financement}
+                  className="font-medium text-[#377CF3] hover:underline"
+                >
+                  guide Constructys formation IA BTP
+                </Link>
+                {' · '}
+                <Link href={LINKS.prendreRdv} className="font-medium text-[#377CF3] hover:underline">
+                  appel découverte
+                </Link>
+              </p>
+            </>
+          )}
         </section>
 
         {/* Colonne formulaire */}
         <section
-          aria-label="Formulaire de connexion"
+          aria-label={adminIntent ? 'Formulaire de connexion administrateur' : 'Formulaire de connexion'}
           className="flex items-center justify-center border-t border-slate-200 bg-white px-6 py-12 md:px-10 lg:border-l lg:border-t-0 lg:px-14"
         >
           <div className="w-full max-w-md">
@@ -199,31 +225,33 @@ export default async function ConnexionPage({
                 </div>
               }
             >
-              <ConnexionClient />
+              <ConnexionClient adminMode={adminIntent} />
             </Suspense>
           </div>
         </section>
       </div>
 
-      {/* FAQ indexable sous la ligne de flottaison */}
-      <section
-        aria-labelledby="connexion-faq-title"
-        className="border-t border-slate-200 bg-white px-6 py-12 md:px-10 md:py-16"
-      >
-        <div className="mx-auto max-w-3xl">
-          <h2 id="connexion-faq-title" className="font-display text-2xl font-bold text-slate-900">
-            Questions fréquentes — espace apprenant
-          </h2>
-          <dl className="mt-8 space-y-5">
-            {FAQ.map(({ q, a }) => (
-              <div key={q} className="rounded-xl border border-slate-200 bg-[#F8FAFC] p-5">
-                <dt className="font-semibold text-slate-900">{q}</dt>
-                <dd className="mt-2 text-sm leading-relaxed text-slate-600">{a}</dd>
-              </div>
-            ))}
-          </dl>
-        </div>
-      </section>
+      {/* FAQ indexable sous la ligne de flottaison — version apprenant uniquement */}
+      {!adminIntent ? (
+        <section
+          aria-labelledby="connexion-faq-title"
+          className="border-t border-slate-200 bg-white px-6 py-12 md:px-10 md:py-16"
+        >
+          <div className="mx-auto max-w-3xl">
+            <h2 id="connexion-faq-title" className="font-display text-2xl font-bold text-slate-900">
+              Questions fréquentes — espace apprenant
+            </h2>
+            <dl className="mt-8 space-y-5">
+              {FAQ.map(({ q, a }) => (
+                <div key={q} className="rounded-xl border border-slate-200 bg-[#F8FAFC] p-5">
+                  <dt className="font-semibold text-slate-900">{q}</dt>
+                  <dd className="mt-2 text-sm leading-relaxed text-slate-600">{a}</dd>
+                </div>
+              ))}
+            </dl>
+          </div>
+        </section>
+      ) : null}
     </div>
   );
 }

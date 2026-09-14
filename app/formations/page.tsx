@@ -79,7 +79,7 @@ export default function FormationsPage() {
       <JsonLd id="schema-formations-page-graph" schema={buildFormationsPageUnifiedGraphJsonLd()} />
       <FormationsCatalogueHero />
 
-      <div className="mx-auto max-w-6xl px-4 pb-20 pt-8 md:pt-10">
+      <div className="mx-auto max-w-[80rem] px-4 pb-20 pt-10 sm:px-6 md:pt-14 lg:px-8">
         <FormationsCatalogueMainSection formations={coreFormations} besoinOptions={besoinOptions} />
         <FormationsCatalogueComparison formations={coreFormations} />
         <FormationsCataloguePracticalInfoSection />

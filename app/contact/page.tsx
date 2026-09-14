@@ -43,7 +43,7 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
     <>
       <JsonLd id="schema-contact-page" schema={getContactPageJsonLd()} />
 
-      <div className="mx-auto max-w-6xl px-4 pt-6 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-[80rem] px-4 pt-6 sm:px-6 lg:px-8">
         <Breadcrumb
           items={[
             { label: 'Accueil', href: LINKS.home },
@@ -54,13 +54,13 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
 
       <ContactPageHero compact />
 
-      <div className="mx-auto max-w-6xl space-y-12 px-4 pb-16 pt-2 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-[80rem] space-y-14 px-4 pb-20 pt-2 sm:px-6 lg:px-8">
         {/* Formulaire en premier — visible sans scroller depuis #contact-form */}
         <div
           id="contact-form"
           className="scroll-mt-20 grid gap-8 lg:grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)] lg:items-start"
         >
-          <div className="rounded-2xl border border-[#E2E8F0] bg-white p-6 shadow-sm sm:p-8">
+          <div className="ofc-card p-6 sm:p-8 md:p-10">
             <TrainingDeliveryInfo variant="checklist" className="mb-6" />
             <ContactFormSection initialObjet={initialObjet} formationHint={formationHint} />
           </div>
@@ -73,7 +73,7 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
         <ContactCalendlyBlock />
         <ContactCoordinates />
 
-        <nav aria-label="Liens utiles" className="border-t border-[#E2E8F0] pt-8">
+        <nav aria-label="Liens utiles" className="border-t border-ofc-border pt-8">
           <ul className="flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:gap-x-8">
             {CONTACT_FOOTER_LINKS.map((link) => (
               <li key={link.href}>

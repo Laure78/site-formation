@@ -10,13 +10,22 @@ export const OFC_TOKEN_PREFIX = 'ofc' as const;
 
 /** Couleurs sémantiques (alias legacy `--accent` conservés dans globals.css) */
 export const OFC_COLORS = {
+  primary: 'var(--color-primary)',
+  primaryHover: 'var(--color-primary-hover)',
   accent: 'var(--ofc-color-accent)',
   accentHover: 'var(--ofc-color-accent-hover)',
   accentSoft: 'var(--ofc-color-accent-soft)',
   surface: 'var(--ofc-color-surface)',
+  canvas: 'var(--ofc-color-canvas)',
   ink: 'var(--ofc-color-ink)',
   inkMuted: 'var(--ofc-color-ink-muted)',
-  border: 'var(--ofc-color-border)',
+  text: 'var(--color-text)',
+  textMuted: 'var(--color-text-muted)',
+  background: 'var(--color-background)',
+  backgroundSecondary: 'var(--color-background-secondary)',
+  border: 'var(--color-border)',
+  card: 'var(--color-card)',
+  success: 'var(--color-success)',
   borderStrong: 'var(--ofc-color-border-strong)',
   onAccent: 'var(--ofc-color-on-accent)',
 } as const;
@@ -31,19 +40,19 @@ export const OFC_SECTION_SPACE = {
 
 /** Rayons — préférer les classes Tailwind `rounded-ofc-*` */
 export const OFC_RADIUS = {
-  sm: 'var(--radius-ofc-sm)',
-  md: 'var(--radius-ofc-md)',
-  lg: 'var(--radius-ofc-lg)',
-  xl: 'var(--radius-ofc-xl)',
+  sm: 'var(--radius-sm)',
+  md: 'var(--radius-md)',
+  lg: 'var(--radius-lg)',
+  xl: 'var(--radius-xl)',
   card: 'var(--radius-ofc-card)',
   pill: 'var(--radius-ofc-pill)',
 } as const;
 
 /** Ombres */
 export const OFC_SHADOW = {
-  sm: 'var(--shadow-ofc-sm)',
-  md: 'var(--shadow-ofc-md)',
-  lg: 'var(--shadow-ofc-lg)',
+  sm: 'var(--shadow-sm)',
+  md: 'var(--shadow-md)',
+  lg: 'var(--shadow-lg)',
   accent: 'var(--shadow-ofc-accent)',
 } as const;
 
@@ -60,4 +69,9 @@ export const OFC_MOTION = {
 export const OFC_READ_WIDTH = {
   prose: 'var(--ofc-read-width)',
   proseWide: 'var(--ofc-read-width-wide)',
+} as const;
+
+/** Largeur max site */
+export const OFC_LAYOUT = {
+  siteMaxWidth: 'var(--ofc-site-max-width)',
 } as const;

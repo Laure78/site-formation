@@ -54,7 +54,7 @@ export default function AProposPage() {
 
       <AProposPageHero />
 
-      <div className="mx-auto max-w-6xl space-y-14 px-4 pb-16 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-[80rem] space-y-16 px-4 pb-20 sm:px-6 md:space-y-20 lg:px-8">
         <AProposPositionnementSection />
         <AProposApportsSection />
         <AProposParcoursSection />
@@ -70,9 +70,9 @@ export default function AProposPage() {
         />
       </div>
 
-      <div className="border-t border-[#E2E8F0] bg-[#F8FAFC] px-4 py-8">
-        <div className="mx-auto max-w-6xl">
-          <Link href="/" className="font-medium text-[#377CF3] hover:underline">
+      <div className="border-t border-ofc-border bg-[var(--ofc-color-canvas)] px-4 py-10 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-[80rem]">
+          <Link href="/" className="font-medium text-ofc-accent hover:underline">
             ← Retour à l&apos;accueil
           </Link>
           <div className="mt-8">
@@ -84,7 +84,7 @@ export default function AProposPage() {
               ]}
             />
           </div>
-          <p className="mt-8 text-xs text-[#64748B]">
+          <p className="mt-8 text-xs text-ofc-ink-subtle">
             OFC Création d&apos;Entreprise — SIRET {SCHEMA_CONTACT.siretFormatted} · NDA{' '}
             {SCHEMA_CONTACT.nda}
           </p>

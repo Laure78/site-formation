@@ -1,4 +1,5 @@
 import { createClient } from '@/lib/supabase/server';
+import { createAdminClient } from '@/lib/supabase/admin';
 import { getProfile, isAdmin, type Profile, type UserRole } from '@/lib/auth';
 
 /**
@@ -12,7 +13,10 @@ export function parseAllowedAdminEmails(
   envValue: string | undefined = process.env.ADMIN_ALLOWED_EMAILS
 ): Set<string> {
   const fromEnv = envValue?.trim();
-  const raw = fromEnv || DEFAULT_ADMIN_LOGIN_EMAIL;
+  // Toujours inclure l’email fondatrice en secours (en plus de la liste env).
+  const raw = fromEnv
+    ? `${fromEnv},${DEFAULT_ADMIN_LOGIN_EMAIL}`
+    : DEFAULT_ADMIN_LOGIN_EMAIL;
   return new Set(
     raw
       .split(',')
@@ -21,11 +25,10 @@ export function parseAllowedAdminEmails(
   );
 }
 
-const ALLOWED_ADMIN_EMAILS = parseAllowedAdminEmails();
-
 export function isAllowedAdminEmail(email: string | null | undefined): boolean {
   if (!email) return false;
-  return ALLOWED_ADMIN_EMAILS.has(email.trim().toLowerCase());
+  // Relit l’env à chaque appel (évite un Set figé au chargement du module / build).
+  return parseAllowedAdminEmails().has(email.trim().toLowerCase());
 }
 
 /**
@@ -96,6 +99,27 @@ export type AdminAccessResult =
   | { ok: true; userId: string; profile: Profile; email: string }
   | { ok: false; reason: AdminAccessDeniedReason };
 
+/**
+ * Lit le profil de façon fiable pour les décisions d’accès admin.
+ * Préfère le service role (évite faux négatif RLS / .single() silencieux).
+ */
+export async function getProfileForAccessCheck(userId: string): Promise<Profile | null> {
+  if (process.env.SUPABASE_SERVICE_ROLE_KEY) {
+    try {
+      const admin = createAdminClient();
+      const { data, error } = await admin
+        .from('profiles')
+        .select('*')
+        .eq('id', userId)
+        .maybeSingle();
+      if (!error && data) return data as Profile;
+    } catch {
+      // fallback client session ci-dessous
+    }
+  }
+  return getProfile(userId);
+}
+
 /** Vérifie session + droits admin (server components, actions, routes API). */
 export async function requireAdminAccess(): Promise<AdminAccessResult> {
   const supabase = await createClient();
@@ -107,7 +131,7 @@ export async function requireAdminAccess(): Promise<AdminAccessResult> {
     return { ok: false, reason: 'unauthenticated' };
   }
 
-  const profile = await getProfile(user.id);
+  const profile = await getProfileForAccessCheck(user.id);
   if (!canAccessAdmin(profile, user.email)) {
     return { ok: false, reason: 'forbidden' };
   }

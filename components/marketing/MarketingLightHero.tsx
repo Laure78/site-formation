@@ -4,6 +4,9 @@ import type { LucideIcon } from 'lucide-react';
 import type { ReactNode } from 'react';
 import { ContentUpdatedLine } from '@/components/seo/ContentUpdatedLine';
 import { IndicateursResultatsLink } from '@/components/formation/IndicateursResultatsLink';
+import { Badge } from '@/components/ui/Badge';
+import { OFC_TYPE_HERO, OFC_TYPE_LEAD } from '@/lib/ofc-interaction-classes';
+import { OFC_SEC } from '@/lib/ofc-section-classes';
 
 export type MarketingLightHeroStat = {
   icon: LucideIcon;
@@ -70,19 +73,23 @@ function HeroVisualBlock({
       width={visual.width}
       height={visual.height}
       priority={priority}
-      className={shape === 'circle' ? 'h-auto w-full object-contain' : 'h-auto w-full rounded-[0.85rem] object-cover'}
+      className={
+        shape === 'circle'
+          ? 'h-auto w-full object-contain'
+          : 'h-auto w-full rounded-[1.05rem] object-cover'
+      }
       sizes="(max-width: 1024px) 280px, 360px"
-    
-      quality={75}/>
+      quality={75}
+    />
   );
 
   const shell =
     shape === 'circle' ? (
-      <div className="overflow-hidden rounded-full shadow-[0_20px_48px_-16px_rgba(55,124,243,0.22)] ring-4 ring-white">
+      <div className="overflow-hidden rounded-full shadow-ofc-lg ring-4 ring-white">
         {image}
       </div>
     ) : (
-      <div className="overflow-hidden rounded-2xl bg-white/95 p-1 shadow-[0_20px_50px_-24px_rgba(15,23,42,0.25)] ring-1 ring-slate-200/80">
+      <div className="ofc-card overflow-hidden bg-white/95 p-1.5">
         {image}
       </div>
     );
@@ -92,7 +99,7 @@ function HeroVisualBlock({
       <Link
         href={href}
         title={linkTitle ?? visual.alt}
-        className="block transition hover:opacity-95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#377CF3]"
+        className="block transition hover:-translate-y-1 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#377CF3]"
       >
         {shell}
       </Link>
@@ -103,7 +110,8 @@ function HeroVisualBlock({
 }
 
 /**
- * Hero marketing sobre — fond #F2F2F2, stats en cartes, visuel à droite (pages ressources, formations, financement).
+ * Hero marketing premium — canvas aéré, typo forte, visuel à droite.
+ * Utilisé sur catalogue, ressources, etc.
  */
 export function MarketingLightHero({
   eyebrow,
@@ -123,48 +131,43 @@ export function MarketingLightHero({
   extraVisual,
 }: MarketingLightHeroProps) {
   return (
-    <section className="relative overflow-hidden border-b border-slate-200 bg-[#F2F2F2]">
-      <div
-        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_100%_-10%,rgba(55,124,243,0.14),transparent_55%)]"
-        aria-hidden
-      />
-      <div className="relative mx-auto max-w-7xl px-4 pb-12 pt-10 md:pb-16 md:pt-14">
-        <div className="grid items-center gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(240px,320px)] lg:gap-12 xl:grid-cols-[minmax(0,1fr)_360px]">
+    <section className={`${OFC_SEC.hero} relative overflow-hidden`}>
+      <div className="relative mx-auto max-w-[80rem]">
+        <div className="grid items-center gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(260px,380px)] lg:gap-14">
           <div className="min-w-0">
-            <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[#377CF3]">{eyebrow}</p>
-            <h1
-              id={titleId}
-              className="mt-3 max-w-4xl font-display text-3xl font-bold leading-tight tracking-tight text-slate-900 md:text-4xl lg:text-[2.65rem]"
-            >
+            <Badge>{eyebrow}</Badge>
+            <h1 id={titleId} className={`${OFC_TYPE_HERO} mt-5 max-w-[18ch]`}>
               {title}
             </h1>
             {contentUpdatedAt ? <ContentUpdatedLine date={contentUpdatedAt} /> : null}
-            <div className="mt-4 max-w-3xl text-lg leading-relaxed text-slate-700">{description}</div>
+            <div className={`${OFC_TYPE_LEAD} mt-5 max-w-2xl text-ofc-ink-muted`}>{description}</div>
 
             {stats && stats.length > 0 ? (
               <>
-                <ul className="mt-8 grid gap-3 sm:grid-cols-2 sm:gap-4 lg:grid-cols-2 xl:grid-cols-4">
+                <ul className="mt-8 grid gap-3 sm:grid-cols-2 sm:gap-4 xl:grid-cols-4">
                   {stats.map((stat) => {
                     const Icon = stat.icon;
                     const content = (
                       <>
-                        <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#377CF3]/10 text-[#377CF3]">
+                        <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-ofc-accent-soft text-ofc-accent">
                           <Icon size={20} aria-hidden />
                         </span>
                         <div>
-                          <p className="font-display text-xl font-bold text-slate-900">{stat.value}</p>
-                          <p className="text-xs text-slate-600">{stat.label}</p>
+                          <p className="font-display text-xl font-extrabold tracking-tight text-ofc-ink">
+                            {stat.value}
+                          </p>
+                          <p className="text-xs text-ofc-ink-subtle">{stat.label}</p>
                         </div>
                       </>
                     );
                     const cardClass =
-                      'flex w-full items-center gap-3 rounded-2xl border border-white/80 bg-white/90 px-4 py-3 shadow-sm backdrop-blur-sm';
+                      'ofc-card flex w-full items-center gap-3 px-4 py-3';
                     return (
                       <li key={stat.label}>
                         {stat.href ? (
                           <Link
                             href={stat.href}
-                            className={`${cardClass} transition hover:border-[#377CF3]/40 hover:shadow-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#377CF3]`}
+                            className={`${cardClass} transition hover:border-ofc-accent/40 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#377CF3]`}
                           >
                             {content}
                           </Link>
@@ -184,17 +187,21 @@ export function MarketingLightHero({
             {quickLinks && quickLinks.length > 0 ? (
               <nav
                 aria-label={quickNavAriaLabel}
-                className="mt-8 flex flex-wrap items-center gap-2 rounded-2xl border border-slate-200/80 bg-white/80 p-3 shadow-sm backdrop-blur-sm md:p-4"
+                className="ofc-card mt-8 flex flex-wrap items-center gap-2 p-3 md:p-4"
               >
-                <span className="px-1 text-xs font-semibold uppercase tracking-[0.14em] text-slate-500 md:text-sm">
+                <span className="px-1 text-xs font-semibold uppercase tracking-[0.14em] text-ofc-ink-subtle md:text-sm">
                   {quickNavLabel}
                 </span>
                 {quickLinks.map((link, index) => (
                   <span key={link.href} className="flex items-center gap-2">
-                    {index > 0 ? <span className="hidden text-slate-300 sm:inline" aria-hidden>·</span> : null}
+                    {index > 0 ? (
+                      <span className="hidden text-ofc-border-strong sm:inline" aria-hidden>
+                        ·
+                      </span>
+                    ) : null}
                     <Link
                       href={link.href}
-                      className="rounded-full border border-slate-200 bg-white px-3 py-1.5 text-sm font-medium text-[#377CF3] shadow-sm transition hover:border-[#377CF3] hover:bg-[#377CF3]/5"
+                      className="rounded-full border border-ofc-border bg-white px-3 py-1.5 text-sm font-medium text-ofc-accent transition hover:border-ofc-accent"
                     >
                       {link.label}
                     </Link>
@@ -204,7 +211,7 @@ export function MarketingLightHero({
             ) : null}
           </div>
 
-          <aside className="mx-auto flex w-full max-w-[280px] shrink-0 flex-col gap-5 lg:mx-0 lg:max-w-none xl:max-w-[360px]">
+          <aside className="mx-auto flex w-full max-w-[300px] shrink-0 flex-col gap-5 lg:mx-0 lg:max-w-none">
             <HeroVisualBlock
               visual={heroVisual}
               shape={visualShape}
