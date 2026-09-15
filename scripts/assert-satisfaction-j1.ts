@@ -154,6 +154,6 @@ assert.ok(text.includes(QUESTIONNAIRE_SATISFACTION_URL));
 assert.ok(text.includes(SCHEMA_GOOGLE_REVIEW_SUBMIT_URL));
 assert.equal(QUESTIONNAIRE_SATISFACTION_URL, 'https://tally.so/r/3NNq7l');
 assert.equal(QUESTIONNAIRE_POSITIONNEMENT_URL, 'https://tally.so/r/mVK6Ay');
-assert.equal(SCHEMA_GOOGLE_REVIEW_SUBMIT_URL, 'https://maps.app.goo.gl/a7zv5sXwvv4cF6cS6');
+assert.equal(SCHEMA_GOOGLE_REVIEW_SUBMIT_URL, 'https://maps.app.goo.gl/hUQhnvEERki5RjHw5');
 
 console.log('OK — assert-satisfaction-j1');

@@ -8,6 +8,7 @@ import { YouTubeOrVideoEmbed } from '@/components/YouTubeOrVideoEmbed';
 import { SatisfactionSurvey } from '@/components/SatisfactionSurvey';
 import { QuestionnairePositionnementBanner } from '@/components/espace-apprenant/QuestionnairePositionnementBanner';
 import { QuestionnaireSatisfactionBanner } from '@/components/espace-apprenant/QuestionnaireSatisfactionBanner';
+import { AvisGoogleBanner } from '@/components/espace-apprenant/AvisGoogleBanner';
 import { isSpreadsheetUrl, lienButtonLabel } from '@/lib/lesson-types';
 
 interface LessonResource {
@@ -203,6 +204,7 @@ export function CourseViewer({ course, modules, completedLessonIds, enrollmentId
             <div className="mb-4 space-y-3">
               <QuestionnairePositionnementBanner compact />
               {progressPercent >= 50 ? <QuestionnaireSatisfactionBanner compact /> : null}
+              {progressPercent >= 50 ? <AvisGoogleBanner compact /> : null}
             </div>
             <div className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm md:p-8">
               <div className="flex items-center gap-2 text-sm text-slate-500">
@@ -369,6 +371,7 @@ export function CourseViewer({ course, modules, completedLessonIds, enrollmentId
             {progressPercent >= 100 && (
               <div className="mx-auto mt-10 max-w-2xl space-y-6">
                 <QuestionnaireSatisfactionBanner />
+                <AvisGoogleBanner />
                 <SatisfactionSurvey courseId={course.id} courseTitle={course.title} onSubmitted={() => router.refresh()} />
                 <div className="rounded-2xl border border-slate-200 bg-white p-6">
                   <p className="font-semibold text-slate-900">Formation terminée</p>

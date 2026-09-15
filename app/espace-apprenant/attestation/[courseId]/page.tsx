@@ -6,6 +6,7 @@ import Link from 'next/link';
 import { ArrowLeft } from 'lucide-react';
 import { PrintButton } from '@/components/PrintButton';
 import { QuestionnaireSatisfactionBanner } from '@/components/espace-apprenant/QuestionnaireSatisfactionBanner';
+import { AvisGoogleBanner } from '@/components/espace-apprenant/AvisGoogleBanner';
 
 export default async function AttestationPage({
   params,
@@ -93,8 +94,9 @@ export default async function AttestationPage({
         </div>
       </div>
 
-      <div className="mt-8 print:hidden">
+      <div className="mt-8 space-y-4 print:hidden">
         <QuestionnaireSatisfactionBanner />
+        <AvisGoogleBanner />
       </div>
 
       <p className="mt-6 text-center text-sm text-slate-500 print:hidden">

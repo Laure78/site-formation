@@ -14,7 +14,9 @@ import { QUESTIONNAIRE_POSITIONNEMENT_URL } from '@/lib/questionnaire-positionne
 import { QUESTIONNAIRE_SATISFACTION_URL } from '@/lib/questionnaire-satisfaction';
 import { QuestionnairePositionnementBanner } from '@/components/espace-apprenant/QuestionnairePositionnementBanner';
 import { QuestionnaireSatisfactionBanner } from '@/components/espace-apprenant/QuestionnaireSatisfactionBanner';
+import { AvisGoogleBanner } from '@/components/espace-apprenant/AvisGoogleBanner';
 import { ExternalLinkAnchor } from '@/components/ExternalLink';
+import { SCHEMA_GOOGLE_REVIEW_SUBMIT_URL } from '@/lib/schema-constants';
 
 type Tab = 'mes' | 'attente' | 'offres';
 
@@ -79,6 +81,7 @@ export function ApprenantFormationsBoard({
         <div className="mt-6 space-y-4">
           <QuestionnairePositionnementBanner />
           <QuestionnaireSatisfactionBanner />
+          <AvisGoogleBanner />
         </div>
       ) : null}
 
@@ -184,6 +187,13 @@ export function ApprenantFormationsBoard({
                         className="text-sm font-medium text-slate-600 hover:text-[#377CF3] hover:underline"
                       >
                         Évaluation
+                      </ExternalLinkAnchor>
+                      <ExternalLinkAnchor
+                        href={SCHEMA_GOOGLE_REVIEW_SUBMIT_URL}
+                        title="Déposer un avis Google"
+                        className="text-sm font-medium text-slate-600 hover:text-[#377CF3] hover:underline"
+                      >
+                        Avis Google
                       </ExternalLinkAnchor>
                       <Link
                         href={ficheHref}
