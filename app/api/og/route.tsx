@@ -23,15 +23,17 @@ export async function GET(request: Request) {
       >
         <div
           style={{
+            display: 'flex',
             color: '#D4E3FC',
             fontSize: '24px',
             marginBottom: '20px',
           }}
         >
-          {category} · Laure Olivié — OFC Création d&apos;Entreprise
+          {`${category} · Laure Olivié — OFC Création d'Entreprise`}
         </div>
         <div
           style={{
+            display: 'flex',
             color: 'white',
             fontSize: '56px',
             fontWeight: 'bold',
@@ -42,13 +44,14 @@ export async function GET(request: Request) {
         </div>
         <div
           style={{
+            display: 'flex',
             color: 'white',
             fontSize: '20px',
             marginTop: '40px',
             opacity: 0.8,
           }}
         >
-          {`Qualiopi · Finançable par Constructys selon éligibilité · $`}
+          Qualiopi · Finançable par Constructys selon éligibilité
         </div>
       </div>
     ),
