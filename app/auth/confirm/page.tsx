@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
 import type { EmailOtpType } from '@supabase/supabase-js';
 import { createClient } from '@/lib/supabase/client';
-import { sanitizeInternalPath } from '@/lib/admin-access';
+import { sanitizeInternalPath } from '@/lib/sanitize-internal-path';
 
 /**
  * Confirmation email (recovery / signup) via token_hash — sans PKCE.

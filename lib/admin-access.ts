@@ -1,6 +1,9 @@
 import { createClient } from '@/lib/supabase/server';
 import { createAdminClient } from '@/lib/supabase/admin';
 import { getProfile, isAdmin, type Profile, type UserRole } from '@/lib/auth';
+import { sanitizeInternalPath } from '@/lib/sanitize-internal-path';
+
+export { sanitizeInternalPath };
 
 /**
  * Fallback liste blanche si ADMIN_ALLOWED_EMAILS est absent.
@@ -50,23 +53,6 @@ export function canAccessAdmin(
 /** Chemins réservés à l’admin (redirection post-login). */
 export function isAdminOnlyPath(pathname: string): boolean {
   return pathname === '/admin' || pathname.startsWith('/admin/') || pathname.startsWith('/api/admin');
-}
-
-/** Chemins internes sûrs pour redirection post-login (?next=). */
-export function sanitizeInternalPath(raw: string | null | undefined): string | null {
-  if (!raw) return null;
-  const path = raw.trim();
-  if (!path.startsWith('/') || path.startsWith('//')) return null;
-  if (path.includes('@') || path.includes('\\') || /^https?:/i.test(path)) return null;
-
-  const qIndex = path.indexOf('?');
-  const pathname = qIndex >= 0 ? path.slice(0, qIndex) : path;
-  if (!/^\/[\w\-./%]*$/.test(pathname)) return null;
-
-  // Évite les boucles sur les pages d’auth (sauf reset-password).
-  if (pathname.startsWith('/auth/') && pathname !== '/auth/reset-password') return null;
-
-  return path;
 }
 
 /**

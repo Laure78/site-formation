@@ -1,6 +1,6 @@
 import { createServerClient } from '@supabase/ssr';
 import { NextRequest, NextResponse } from 'next/server';
-import { sanitizeInternalPath } from '@/lib/admin-access';
+import { sanitizeInternalPath } from '@/lib/sanitize-internal-path';
 import { LINKS } from '@/lib/internal-links';
 
 function buildLogoutRedirect(request: NextRequest): NextResponse {
