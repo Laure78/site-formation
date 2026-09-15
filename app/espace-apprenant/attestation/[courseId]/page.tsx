@@ -5,6 +5,7 @@ import { getProfile } from '@/lib/auth';
 import Link from 'next/link';
 import { ArrowLeft } from 'lucide-react';
 import { PrintButton } from '@/components/PrintButton';
+import { QuestionnaireSatisfactionBanner } from '@/components/espace-apprenant/QuestionnaireSatisfactionBanner';
 
 export default async function AttestationPage({
   params,
@@ -90,6 +91,10 @@ export default async function AttestationPage({
             <p className="text-xs text-slate-500">SIRET 905 244 281 00010</p>
           </div>
         </div>
+      </div>
+
+      <div className="mt-8 print:hidden">
+        <QuestionnaireSatisfactionBanner />
       </div>
 
       <p className="mt-6 text-center text-sm text-slate-500 print:hidden">

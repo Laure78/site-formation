@@ -7,6 +7,7 @@ import { Check, ChevronRight, Play, FileText, LayoutList, Lock, Menu, ExternalLi
 import { YouTubeOrVideoEmbed } from '@/components/YouTubeOrVideoEmbed';
 import { SatisfactionSurvey } from '@/components/SatisfactionSurvey';
 import { QuestionnairePositionnementBanner } from '@/components/espace-apprenant/QuestionnairePositionnementBanner';
+import { QuestionnaireSatisfactionBanner } from '@/components/espace-apprenant/QuestionnaireSatisfactionBanner';
 import { isSpreadsheetUrl, lienButtonLabel } from '@/lib/lesson-types';
 
 interface LessonResource {
@@ -199,7 +200,10 @@ export function CourseViewer({ course, modules, completedLessonIds, enrollmentId
       <main className="flex-1 p-4 pt-24 lg:ml-72 lg:p-8 lg:pt-8">
         {selectedLesson ? (
           <div className="mx-auto max-w-4xl">
-            <QuestionnairePositionnementBanner compact className="mb-4" />
+            <div className="mb-4 space-y-3">
+              <QuestionnairePositionnementBanner compact />
+              {progressPercent >= 50 ? <QuestionnaireSatisfactionBanner compact /> : null}
+            </div>
             <div className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm md:p-8">
               <div className="flex items-center gap-2 text-sm text-slate-500">
                 <span>{(allLessons.find((l) => l.id === selectedLessonId) as { moduleTitle?: string })?.moduleTitle}</span>
@@ -364,6 +368,7 @@ export function CourseViewer({ course, modules, completedLessonIds, enrollmentId
 
             {progressPercent >= 100 && (
               <div className="mx-auto mt-10 max-w-2xl space-y-6">
+                <QuestionnaireSatisfactionBanner />
                 <SatisfactionSurvey courseId={course.id} courseTitle={course.title} onSubmitted={() => router.refresh()} />
                 <div className="rounded-2xl border border-slate-200 bg-white p-6">
                   <p className="font-semibold text-slate-900">Formation terminée</p>

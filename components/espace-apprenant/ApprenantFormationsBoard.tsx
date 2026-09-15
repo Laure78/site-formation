@@ -11,7 +11,9 @@ import {
 } from '@/lib/espace-apprenant-formations-display';
 import { LINKS } from '@/lib/internal-links';
 import { QUESTIONNAIRE_POSITIONNEMENT_URL } from '@/lib/questionnaire-positionnement';
+import { QUESTIONNAIRE_SATISFACTION_URL } from '@/lib/questionnaire-satisfaction';
 import { QuestionnairePositionnementBanner } from '@/components/espace-apprenant/QuestionnairePositionnementBanner';
+import { QuestionnaireSatisfactionBanner } from '@/components/espace-apprenant/QuestionnaireSatisfactionBanner';
 import { ExternalLinkAnchor } from '@/components/ExternalLink';
 
 type Tab = 'mes' | 'attente' | 'offres';
@@ -74,8 +76,9 @@ export function ApprenantFormationsBoard({
       </div>
 
       {formations.length > 0 ? (
-        <div className="mt-6">
+        <div className="mt-6 space-y-4">
           <QuestionnairePositionnementBanner />
+          <QuestionnaireSatisfactionBanner />
         </div>
       ) : null}
 
@@ -174,6 +177,13 @@ export function ApprenantFormationsBoard({
                         className="text-sm font-medium text-slate-600 hover:text-[#377CF3] hover:underline"
                       >
                         Positionnement
+                      </ExternalLinkAnchor>
+                      <ExternalLinkAnchor
+                        href={QUESTIONNAIRE_SATISFACTION_URL}
+                        title="Questionnaire d’évaluation Tally"
+                        className="text-sm font-medium text-slate-600 hover:text-[#377CF3] hover:underline"
+                      >
+                        Évaluation
                       </ExternalLinkAnchor>
                       <Link
                         href={ficheHref}
