@@ -2,10 +2,11 @@
 
 import { useMemo, useState } from 'react';
 import Link from 'next/link';
-import { useRouter, useSearchParams } from 'next/navigation';
+import { useSearchParams } from 'next/navigation';
 import { Eye, EyeOff } from 'lucide-react';
 import { createClient } from '@/lib/supabase/client';
 import { LINKS } from '@/lib/internal-links';
+import { sanitizeInternalPath } from '@/lib/sanitize-internal-path';
 import { resolvePostLoginRedirect } from './actions';
 
 function mapAuthError(message: string): string {
@@ -20,6 +21,15 @@ function mapAuthError(message: string): string {
     return 'Trop de tentatives. Réessayez dans quelques minutes.';
   }
   return 'Connexion impossible. Vérifiez vos identifiants ou réessayez.';
+}
+
+function errorMessage(err: unknown): string {
+  if (err instanceof Error) return err.message;
+  if (err && typeof err === 'object' && 'message' in err) {
+    const msg = (err as { message: unknown }).message;
+    if (typeof msg === 'string') return msg;
+  }
+  return '';
 }
 
 /** Détecte une intention admin depuis ?next= (sans importer le module serveur admin-access). */
@@ -40,7 +50,6 @@ export default function ConnexionClient({
   forcedNext,
   adminMode = false,
 }: ConnexionClientProps) {
-  const router = useRouter();
   const searchParams = useSearchParams();
   const nextParam = forcedNext ?? searchParams.get('next');
   const isAdminLogin = adminMode || isAdminNextPath(nextParam);
@@ -101,12 +110,27 @@ export default function ConnexionClient({
         password,
       });
       if (err) throw err;
-      const destination = await resolvePostLoginRedirect(nextParam);
-      router.push(destination);
-      router.refresh();
+
+      // Fallback immédiat : la server action peut ne pas encore voir la session (cookies).
+      const fallback =
+        sanitizeInternalPath(nextParam) ??
+        (isAdminLogin ? '/admin' : '/espace-apprenant');
+
+      let destination = fallback;
+      try {
+        const resolved = await resolvePostLoginRedirect(nextParam);
+        // Si la session n’est pas encore visible serveur → resterait sur /auth/connexion (effet « rien ne se passe »).
+        if (resolved && !resolved.startsWith('/auth/connexion')) {
+          destination = resolved;
+        }
+      } catch {
+        // garder fallback
+      }
+
+      // Navigation dure : le middleware lit bien les cookies de session.
+      window.location.assign(destination);
     } catch (err) {
-      setError(mapAuthError(err instanceof Error ? err.message : ''));
-    } finally {
+      setError(mapAuthError(errorMessage(err)));
       setLoading(false);
     }
   };
