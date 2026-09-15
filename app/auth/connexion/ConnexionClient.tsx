@@ -1,36 +1,12 @@
 'use client';
 
-import { useMemo, useState } from 'react';
+import { useMemo, useState, useTransition } from 'react';
 import Link from 'next/link';
-import { useSearchParams } from 'next/navigation';
+import { useSearchParams, unstable_rethrow } from 'next/navigation';
 import { Eye, EyeOff } from 'lucide-react';
 import { createClient } from '@/lib/supabase/client';
 import { LINKS } from '@/lib/internal-links';
-import { sanitizeInternalPath } from '@/lib/sanitize-internal-path';
-import { resolvePostLoginRedirect } from './actions';
-
-function mapAuthError(message: string): string {
-  const m = message.toLowerCase();
-  if (m.includes('invalid login') || m.includes('invalid credentials')) {
-    return 'Email ou mot de passe incorrect.';
-  }
-  if (m.includes('email not confirmed')) {
-    return 'Compte non confirmé. Vérifiez vos emails ou contactez le formateur.';
-  }
-  if (m.includes('too many requests') || m.includes('rate limit')) {
-    return 'Trop de tentatives. Réessayez dans quelques minutes.';
-  }
-  return 'Connexion impossible. Vérifiez vos identifiants ou réessayez.';
-}
-
-function errorMessage(err: unknown): string {
-  if (err instanceof Error) return err.message;
-  if (err && typeof err === 'object' && 'message' in err) {
-    const msg = (err as { message: unknown }).message;
-    if (typeof msg === 'string') return msg;
-  }
-  return '';
-}
+import { loginWithPassword } from './actions';
 
 /** Détecte une intention admin depuis ?next= (sans importer le module serveur admin-access). */
 function isAdminNextPath(next: string | null | undefined): boolean {
@@ -69,10 +45,12 @@ export default function ConnexionClient({
     return null;
   }, [searchParams]);
   const [error, setError] = useState<string | null>(null);
-  const [loading, setLoading] = useState(false);
   const [resetSent, setResetSent] = useState(false);
+  const [isPending, startTransition] = useTransition();
+  const [resetLoading, setResetLoading] = useState(false);
   const displayError = error ?? urlError;
   const resetOk = searchParams.get('reset') === 'ok';
+  const loading = isPending || resetLoading;
 
   const handleResetPassword = async (e: React.MouseEvent) => {
     e.preventDefault();
@@ -81,58 +59,34 @@ export default function ConnexionClient({
       return;
     }
     setError(null);
-    setLoading(true);
+    setResetLoading(true);
     try {
       const supabase = createClient();
-      // PKCE : échange du code côté page reset (même navigateur = code_verifier OK).
-      // Après config du template Supabase (token_hash), le lien mène à /auth/confirm.
       const { error: err } = await supabase.auth.resetPasswordForEmail(email.trim(), {
         redirectTo: `${window.location.origin}/auth/reset-password`,
       });
       if (err) throw err;
       setResetSent(true);
     } catch {
-      // Message générique : ne pas révéler si l’email existe
       setResetSent(true);
     } finally {
-      setLoading(false);
+      setResetLoading(false);
     }
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setError(null);
-    setLoading(true);
-    try {
-      const supabase = createClient();
-      const { error: err } = await supabase.auth.signInWithPassword({
-        email: email.trim(),
-        password,
-      });
-      if (err) throw err;
-
-      // Fallback immédiat : la server action peut ne pas encore voir la session (cookies).
-      const fallback =
-        sanitizeInternalPath(nextParam) ??
-        (isAdminLogin ? '/admin' : '/espace-apprenant');
-
-      let destination = fallback;
+    startTransition(async () => {
       try {
-        const resolved = await resolvePostLoginRedirect(nextParam);
-        // Si la session n’est pas encore visible serveur → resterait sur /auth/connexion (effet « rien ne se passe »).
-        if (resolved && !resolved.startsWith('/auth/connexion')) {
-          destination = resolved;
-        }
-      } catch {
-        // garder fallback
+        const result = await loginWithPassword(email, password, nextParam);
+        // redirect() ne revient pas ; si on arrive ici, c’est une erreur métier.
+        if (result?.error) setError(result.error);
+      } catch (err) {
+        unstable_rethrow(err);
+        setError('Connexion impossible. Réessayez dans quelques secondes.');
       }
-
-      // Navigation dure : le middleware lit bien les cookies de session.
-      window.location.assign(destination);
-    } catch (err) {
-      setError(mapAuthError(errorMessage(err)));
-      setLoading(false);
-    }
+    });
   };
 
   if (resetSent) {
