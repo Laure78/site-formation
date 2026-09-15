@@ -2,6 +2,10 @@ import * as React from 'react';
 import { SCHEMA_CONTACT, SCHEMA_GEO } from '@/lib/schema-constants';
 import { OFC_IDENTITE } from '@/lib/ofc-identite';
 import { INVITATION_TTL_DAYS_LABEL } from '@/lib/invitation-token';
+import {
+  QUESTIONNAIRE_POSITIONNEMENT_LABEL,
+  QUESTIONNAIRE_POSITIONNEMENT_URL,
+} from '@/lib/questionnaire-positionnement';
 
 export type InvitationApprenantEmailProps = {
   formationTitle: string;
@@ -56,6 +60,9 @@ export function invitationEmailText(props: InvitationApprenantEmailProps): strin
       '',
       `Identifiant : ${props.email}`,
       '',
+      'Avant la session, merci de remplir le questionnaire de positionnement (≈ 2 min) :',
+      QUESTIONNAIRE_POSITIONNEMENT_URL,
+      '',
       'Bien cordialement,',
       '',
       'Laure Olivié',
@@ -87,6 +94,9 @@ export function invitationEmailText(props: InvitationApprenantEmailProps): strin
     'https://www.laureolivie.fr/auth/connexion',
     '',
     `Conservez votre identifiant : ${props.email}`,
+    '',
+    'Avant la session, merci de remplir le questionnaire de positionnement (≈ 2 min) :',
+    QUESTIONNAIRE_POSITIONNEMENT_URL,
     '',
     'Bien cordialement,',
     '',
@@ -173,9 +183,16 @@ export function InvitationApprenantEmail({
                                 Accéder à mon espace
                               </a>
                             </p>
-                            <p style={{ margin: 0, fontSize: 14, lineHeight: '22px', color: '#475569' }}>
+                            <p style={{ margin: '0 0 16px', fontSize: 14, lineHeight: '22px', color: '#475569' }}>
                               Connectez-vous avec votre mot de passe habituel. En cas d&apos;oubli,
                               utilisez « Mot de passe oublié » sur la page de connexion.
+                            </p>
+                            <p style={{ margin: '0 0 8px', fontSize: 14, lineHeight: '22px', color: '#475569' }}>
+                              Avant la session, merci de remplir le{' '}
+                              <a href={QUESTIONNAIRE_POSITIONNEMENT_URL} style={{ color: ACCENT }}>
+                                {QUESTIONNAIRE_POSITIONNEMENT_LABEL}
+                              </a>{' '}
+                              (≈ 2 min).
                             </p>
                           </>
                         ) : (
@@ -255,8 +272,15 @@ export function InvitationApprenantEmail({
                               </a>
                               .
                             </p>
-                            <p style={{ margin: 0, fontSize: 15, lineHeight: '22px' }}>
+                            <p style={{ margin: '0 0 16px', fontSize: 15, lineHeight: '22px' }}>
                               Conservez votre identifiant : <strong>{email}</strong>
+                            </p>
+                            <p style={{ margin: 0, fontSize: 15, lineHeight: '22px' }}>
+                              Avant la session, merci de remplir le{' '}
+                              <a href={QUESTIONNAIRE_POSITIONNEMENT_URL} style={{ color: ACCENT }}>
+                                {QUESTIONNAIRE_POSITIONNEMENT_LABEL}
+                              </a>{' '}
+                              (≈ 2 min).
                             </p>
                           </>
                         )}

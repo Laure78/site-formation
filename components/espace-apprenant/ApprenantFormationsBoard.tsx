@@ -10,6 +10,9 @@ import {
   type ApprenantFormationCard,
 } from '@/lib/espace-apprenant-formations-display';
 import { LINKS } from '@/lib/internal-links';
+import { QUESTIONNAIRE_POSITIONNEMENT_URL } from '@/lib/questionnaire-positionnement';
+import { QuestionnairePositionnementBanner } from '@/components/espace-apprenant/QuestionnairePositionnementBanner';
+import { ExternalLinkAnchor } from '@/components/ExternalLink';
 
 type Tab = 'mes' | 'attente' | 'offres';
 
@@ -69,6 +72,12 @@ export function ApprenantFormationsBoard({
           );
         })}
       </div>
+
+      {formations.length > 0 ? (
+        <div className="mt-6">
+          <QuestionnairePositionnementBanner />
+        </div>
+      ) : null}
 
       <div className="mt-6 space-y-4">
         {tab !== 'mes' ? (
@@ -159,6 +168,13 @@ export function ApprenantFormationsBoard({
                     </div>
 
                     <div className="mt-5 flex flex-wrap items-center justify-end gap-3">
+                      <ExternalLinkAnchor
+                        href={QUESTIONNAIRE_POSITIONNEMENT_URL}
+                        title="Questionnaire de positionnement Tally"
+                        className="text-sm font-medium text-slate-600 hover:text-[#377CF3] hover:underline"
+                      >
+                        Positionnement
+                      </ExternalLinkAnchor>
                       <Link
                         href={ficheHref}
                         className="text-sm font-medium text-slate-600 hover:text-[#377CF3] hover:underline"

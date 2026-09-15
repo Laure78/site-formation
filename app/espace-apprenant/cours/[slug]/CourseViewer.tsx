@@ -6,6 +6,7 @@ import { useRouter } from 'next/navigation';
 import { Check, ChevronRight, Play, FileText, LayoutList, Lock, Menu, ExternalLink, Link2, Table2 } from 'lucide-react';
 import { YouTubeOrVideoEmbed } from '@/components/YouTubeOrVideoEmbed';
 import { SatisfactionSurvey } from '@/components/SatisfactionSurvey';
+import { QuestionnairePositionnementBanner } from '@/components/espace-apprenant/QuestionnairePositionnementBanner';
 import { isSpreadsheetUrl, lienButtonLabel } from '@/lib/lesson-types';
 
 interface LessonResource {
@@ -198,6 +199,7 @@ export function CourseViewer({ course, modules, completedLessonIds, enrollmentId
       <main className="flex-1 p-4 pt-24 lg:ml-72 lg:p-8 lg:pt-8">
         {selectedLesson ? (
           <div className="mx-auto max-w-4xl">
+            <QuestionnairePositionnementBanner compact className="mb-4" />
             <div className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm md:p-8">
               <div className="flex items-center gap-2 text-sm text-slate-500">
                 <span>{(allLessons.find((l) => l.id === selectedLessonId) as { moduleTitle?: string })?.moduleTitle}</span>
@@ -377,9 +379,12 @@ export function CourseViewer({ course, modules, completedLessonIds, enrollmentId
             )}
           </div>
         ) : (
-          <div className="flex min-h-[400px] flex-col items-center justify-center rounded-2xl border-2 border-dashed border-slate-200 bg-white">
-            <Lock size={48} strokeWidth={1} className="text-slate-300" />
-            <p className="mt-4 font-medium text-slate-600">Sélectionne une leçon dans le menu</p>
+          <div className="mx-auto max-w-4xl space-y-4">
+            <QuestionnairePositionnementBanner compact />
+            <div className="flex min-h-[400px] flex-col items-center justify-center rounded-2xl border-2 border-dashed border-slate-200 bg-white">
+              <Lock size={48} strokeWidth={1} className="text-slate-300" />
+              <p className="mt-4 font-medium text-slate-600">Sélectionne une leçon dans le menu</p>
+            </div>
           </div>
         )}
       </main>
