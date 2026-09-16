@@ -4,7 +4,6 @@ import { createPageMetadata, SITE_CONFIG } from '@/lib/seo';
 import { getFaqCataloguePage } from '@/lib/faq';
 import { PHOTOS } from '@/lib/photos';
 import { buildFormationsPageUnifiedGraphJsonLd } from '@/lib/schema-formations-page-graph';
-import { getCatalogueFormationsCount } from '@/lib/formations-catalogue-display';
 import {
   CATALOGUE_PAGE_TITLE,
   getCatalogueBesoinOptions,
@@ -26,7 +25,6 @@ const baseUrl = SITE_CONFIG.url.replace(/\/$/, '');
 export const revalidate = 3600;
 
 export async function generateMetadata(): Promise<Metadata> {
-  const catalogueCount = getCatalogueFormationsCount();
   const metaDescription = getCataloguePageMetaDescriptionShort();
 
   return {
@@ -50,10 +48,10 @@ export async function generateMetadata(): Promise<Metadata> {
       ],
       robots: { index: true, follow: true },
       image: {
-        url: PHOTOS.formationIaBtpSalleInteractive2026.src,
-        width: 1200,
-        height: 630,
-        alt: `Formations IA pour les professionnels du BTP — ${catalogueCount} parcours catalogue`,
+        url: PHOTOS.formationsCatalogueHero2026.src,
+        width: PHOTOS.formationsCatalogueHero2026.width,
+        height: PHOTOS.formationsCatalogueHero2026.height,
+        alt: PHOTOS.formationsCatalogueHero2026.alt,
       },
     }),
     alternates: {

@@ -18,7 +18,7 @@ import { LINKS } from '@/lib/internal-links';
 import { TARIF_SESSION_FORFAIT_HT } from '@/lib/tarifs-sessions';
 import { getLaureOlivieSchemaPersonDescription } from '@/lib/laure-olivie-profile';
 import { PHOTOS } from '@/lib/photos';
-import { buildHomeHeroImageObjectNode, HOME_HERO_IMAGE_OBJECT_ID } from '@/lib/schema-image-objects';
+import { buildHomeHeroImageObjectNode, buildHomeTerrainImageObjectNodes, HOME_HERO_IMAGE_OBJECT_ID } from '@/lib/schema-image-objects';
 import { formatNoteSatisfactionAffichageComplet } from '@/lib/data/indicateurs-resultats';
 import { buildSchemaAggregateRating } from '@/lib/schema-aggregate-rating';
 
@@ -40,6 +40,7 @@ export function buildHomeUnifiedGraphJsonLd(): Record<string, unknown> {
   const dateModified = new Date().toISOString().split('T')[0];
 
   const priceStr = String(TARIF_SESSION_FORFAIT_HT);
+  const terrainImageNodes = buildHomeTerrainImageObjectNodes();
 
   return {
     '@context': 'https://schema.org',
@@ -136,6 +137,7 @@ export function buildHomeUnifiedGraphJsonLd(): Record<string, unknown> {
         sameAs: [SCHEMA_LINKEDIN_PROFILE_URL, 'https://www.linkedin.com/learning/instructors/laure-olivie'],
       },
       buildHomeHeroImageObjectNode(),
+      ...terrainImageNodes,
       {
         '@type': 'WebPage',
         '@id': webpageId,
@@ -144,6 +146,10 @@ export function buildHomeUnifiedGraphJsonLd(): Record<string, unknown> {
         isPartOf: { '@id': websiteId },
         about: { '@id': courseId },
         primaryImageOfPage: { '@id': imageHeroId },
+        image: [
+          { '@id': imageHeroId },
+          ...terrainImageNodes.map((node) => ({ '@id': node['@id'] as string })),
+        ],
         datePublished: '2024-01-01',
         dateModified,
         inLanguage: 'fr-FR',

@@ -58,6 +58,44 @@ export function buildHomeHeroImageObjectNode(): Record<string, unknown> {
   };
 }
 
+/** ImageObjects du triptyque visuel accueil (chantier / documents / bureau). */
+export function buildHomeTerrainImageObjectNodes(): Record<string, unknown>[] {
+  const terrainPhotos = [
+    {
+      id: 'image-accueil-chantier-ia',
+      photo: PHOTOS.accueilIaChantierLaptopPlansBtp2026,
+    },
+    {
+      id: 'image-accueil-documents-reels',
+      photo: PHOTOS.accueilEquipeBtpPlansTabletteIa2026,
+    },
+    {
+      id: 'image-accueil-bureau-chantier',
+      photo: PHOTOS.accueilFormatriceIaBtpBureauChantier2026,
+    },
+  ] as const;
+
+  return terrainPhotos.map(({ id, photo }) => {
+    const contentUrl = `${base}${photo.src}`;
+    return {
+      '@type': 'ImageObject',
+      '@id': `${base}/#${id}`,
+      url: contentUrl,
+      contentUrl,
+      name: photo.alt,
+      caption: photo.title,
+      description: photo.description ?? photo.alt,
+      creditText: HOME_HERO_IMAGE_CREDIT,
+      license: `${base}/mentions-legales`,
+      acquireLicensePage: `${base}/contact`,
+      copyrightNotice: `© ${year} OFC Création d'Entreprise`,
+      creator: imageCreatorOrg,
+      width: photo.width,
+      height: photo.height,
+    };
+  });
+}
+
 export function buildHomePageImageObjectsJsonLd() {
   return {
     '@context': 'https://schema.org',
@@ -80,6 +118,7 @@ export function buildHomePageImageObjectsJsonLd() {
         creator: imageCreatorOrg,
         author: { '@type': 'Person', name: 'Laure Olivié' },
       },
+      ...buildHomeTerrainImageObjectNodes(),
     ],
   };
 }

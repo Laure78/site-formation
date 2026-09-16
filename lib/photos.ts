@@ -482,13 +482,15 @@ export const PHOTOS = {
     height: 1024,
   },
 
-  /** Page catalogue /formations — hero bannière (Laure Olivié, affiche formation IA BTP) */
+  /** Page catalogue /formations — hero bannière (compétences BTP, devis & chantier) */
   formationsCatalogueHero2026: {
-    src: '/images/formation-ia-btp-catalogue-hero-laure-olivie.webp',
-    alt: 'Affiche catalogue Formation IA pour le BTP : portrait Laure Olivié, 4 h présentiel',
-    title: 'Catalogue formations IA pour le BTP — Laure Olivié, OFC Création d\'Entreprise Qualiopi',
+    src: '/images/formations-catalogue-hero-competences-btp.webp',
+    alt: 'Catalogue formations IA BTP : plans, devis et chantier — compétences concrètes',
+    title: 'Formations IA pour le BTP — présentiel Île-de-France, OFC Qualiopi',
+    description:
+      'Bannière catalogue laureolivie.fr : formatrice et pro BTP autour de plans et devis — formations, devis et chantier. Compétences concrètes pour faire avancer vos projets.',
     width: 1024,
-    height: 1024,
+    height: 768,
   },
 
   /** Page financement Constructys — bannière hero plafonds OPCO 2026 */
@@ -557,6 +559,38 @@ export const PHOTOS = {
     title: 'Formation entreprise sur mesure — réseau FFB, financement OPCO selon éligibilité',
     width: 1024,
     height: 682,
+  },
+
+  /**
+   * Accueil 2026 — triptyque visuel (chantier / documents / bureau).
+   * Placement : problèmes métier, différenciation méthode, résultats / catalogue.
+   */
+  accueilIaChantierLaptopPlansBtp2026: {
+    src: '/images/accueil-ia-chantier-laptop-plans-btp.webp',
+    alt: 'Conducteur casqué analyse plans et laptop sur chantier — formation IA BTP',
+    title: 'IA sur chantier : plans, rapports et documents en formation présentielle Île-de-France',
+    description:
+      'Professionnel du BTP en EPI consulte plans et ordinateur portable sur un chantier actif — usage typique enseigné en formation IA pour le BTP (CR, suivi, synthèse documentaire).',
+    width: 1024,
+    height: 576,
+  },
+  accueilEquipeBtpPlansTabletteIa2026: {
+    src: '/images/accueil-equipe-btp-plans-tablette-ia.webp',
+    alt: 'Équipe BTP lit un plan et une tablette sur chantier — formation IA appliquée au bâtiment',
+    title: 'Travail sur documents réels : plan papier et outil numérique en session OFC',
+    description:
+      'Deux professionnels du bâtiment comparent un plan papier et une tablette sur chantier — méthode de formation IA appliquée au bâtiment sur les vrais dossiers de l’entreprise.',
+    width: 1024,
+    height: 576,
+  },
+  accueilFormatriceIaBtpBureauChantier2026: {
+    src: '/images/accueil-formatrice-ia-btp-bureau-chantier.webp',
+    alt: 'Professionnelle BTP avec laptop, chantier en arrière-plan — formation IA pour les pros du BTP',
+    title: 'Du bureau au chantier : parcours formation IA pour les pros du BTP, Qualiopi',
+    description:
+      'Cadre BTP avec ordinateur portable, chantier en fond — illustration du passage des outils IA du bureau à la pratique terrain en formation IA pour les pros du BTP (OFC, Qualiopi).',
+    width: 1024,
+    height: 576,
   },
 
   /**
@@ -631,40 +665,40 @@ export const PHOTOS = {
     height: 1024,
   },
   formationNiv02IaAppelsOffreBtp2026: {
-    src: '/images/formation-ia-appels-offres-btp.webp',
-    alt: "Affiche L'IA appliquée aux appels d'offres BTP — niveau avancé, Laure Olivié",
+    src: '/images/formation-appels-offres-btp-dce-memoire.webp',
+    alt: 'Formation appels d’offres BTP : analyse DCE et mémoire technique avec l’IA',
     description:
-      "Affiche « L'IA appliquée aux appels d'offres BTP » : analyse DCE, mémoire technique, Claude AI Pro et Cowork — 4 h, niveau avancé. Laure Olivié Qualiopi.",
-    title: "Niveau 2 · L'IA appliquée aux appels d'offres BTP",
+      'Affiche formation IA appels d’offres BTP : DCE, analyse et mémoire technique — collaboration bureau et terrain. Session présentiel Île-de-France, OFC Qualiopi.',
+    title: 'Appels d’offres BTP — DCE, analyse et mémoire technique',
     width: 1024,
-    height: 1024,
+    height: 768,
   },
   formationNiv03IaConduiteTravaux2026: {
-    src: '/images/formation-ia-conduite-travaux-btp.webp',
-    alt: "Affiche L'IA appliquée à la conduite de travaux — niveau avancé, Laure Olivié",
+    src: '/images/formation-conducteur-travaux-suivi-doe.webp',
+    alt: 'Formation conducteur de travaux : suivi chantier, compte rendu et DOE avec l’IA',
     description:
-      "Affiche « L'IA appliquée à la conduite de travaux » : CCTP, CR, PPSPS, DOE et skills Claude BTP — 4 h, 8 participants max. Laure Olivié Qualiopi.",
-    title: "Niveau 2 · L'IA appliquée à la conduite de travaux",
+      'Affiche formation IA conducteur de travaux : suivi chantier, compte rendu et DOE sur tablette et plans. Méthode terrain en présentiel Île-de-France, OFC Qualiopi.',
+    title: 'Conducteur de travaux — suivi chantier, CR et DOE',
     width: 1024,
-    height: 1024,
+    height: 768,
   },
   formationNiv04MaitriserClaudeAiBtp2026: {
-    src: '/images/formation-claude-ai-btp-catalogue.webp',
-    alt: 'Affiche Maîtriser Claude AI pour le BTP — Chat, Cowork & Code',
+    src: '/images/formation-maitriser-claude-ai-btp.webp',
+    alt: 'Formation Claude AI BTP : Projects, skills et assistants sur documents chantier',
     description:
-      'Affiche « Maîtriser Claude AI pour le BTP — Chat, Cowork & Code » : Projets, Skills métier, Cowork, connecteurs et Claude Code. 4 h, niveau avancé. Laure Olivié, OFC Qualiopi.',
-    title: 'Niveau 2 · Maîtriser Claude AI pour le BTP — Chat, Cowork & Code',
+      'Affiche Maîtriser Claude pour le BTP : Projects, compétences, assistants IA et résultats — plans, CCTP, devis et suivi de chantier. Session 4 h, OFC Qualiopi.',
+    title: 'Maîtriser Claude pour le BTP — Projects, skills et assistants',
     width: 1024,
-    height: 1024,
+    height: 768,
   },
   formationNiv05IaMaitriseOeuvre2026: {
-    src: '/images/formation-ia-maitrise-oeuvre-btp.webp',
-    alt: "Affiche L'IA au service des maîtres d'œuvre — modules MOE, Laure Olivié",
+    src: '/images/formation-maitrise-oeuvre-cr-reception.webp',
+    alt: 'Formation maîtrise d’œuvre BTP : CR, ordres de service et réception chantier',
     description:
-      "Affiche « L'IA au service des maîtres d'œuvre » : analyse DCE, comptes rendus, OS et réserves — 4 h, maîtrise d'œuvre d'exécution. Laure Olivié, OFC Qualiopi.",
-    title: "Niveau 2 · L'IA au service des maîtres d'œuvre",
+      'Affiche formation IA maîtrise d’œuvre : comptes rendus, ordres de service et réception chantier. Du projet à la réception — présentiel Île-de-France, OFC Qualiopi.',
+    title: 'Maîtrise d’œuvre — CR, OS et réception chantier',
     width: 1024,
-    height: 1024,
+    height: 768,
   },
   formationNiv06CursorBtp2026: {
     src: '/images/formation-ia-architecture-claude-presentiel-groupe.jpg',
@@ -694,13 +728,13 @@ export const PHOTOS = {
     height: 800,
   },
   formationNiv09AssistantsIaPersonnalisesBtp2026: {
-    src: '/images/formation-sensibilisation-assistants-ia-btp.png',
-    alt: 'Formation assistants IA personnalisés BTP — ChatGPT, Gemini, Claude',
+    src: '/images/formation-assistants-ia-personnalises-btp.webp',
+    alt: 'Formation assistants IA BTP : prompts, modèles et workflows devis et chantier',
     description:
-      'Affiche formation « Créer des assistants IA personnalisés pour les métiers du BTP » : GPTs, Gems et projets Claude — 4 h, présentiel Île-de-France.',
-    title: 'Assistants IA personnalisés pour les métiers du BTP',
+      'Affiche formation assistants IA personnalisés pour les métiers du BTP : bibliothèque de prompts, assistant IA BTP et modèles de documents (devis, CR, emails). Présentiel IDF, OFC Qualiopi.',
+    title: 'Assistants IA personnalisés BTP — prompts, modèles et workflows',
     width: 1024,
-    height: 682,
+    height: 768,
   },
 
   /**

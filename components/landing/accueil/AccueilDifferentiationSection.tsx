@@ -1,3 +1,4 @@
+import { AccueilSectionPhoto } from '@/components/landing/accueil/AccueilSectionPhoto';
 import { Badge } from '@/components/ui/Badge';
 import { ProcessStep } from '@/components/ui/ProcessStep';
 import { Section } from '@/components/ui/Section';
@@ -6,9 +7,12 @@ import {
   ACCUEIL_DOCUMENTS_EXEMPLES,
   ACCUEIL_METHODE_ETAPES,
 } from '@/lib/accueil-config';
+import { PHOTOS } from '@/lib/photos';
 
 /** Différenciation — formation sur vos vrais documents. */
 export function AccueilDifferentiationSection() {
+  const photo = PHOTOS.accueilEquipeBtpPlansTabletteIa2026;
+
   return (
     <Section tone="canvas" aria-labelledby="accueil-differentiation">
       <SectionHeader
@@ -18,6 +22,11 @@ export function AccueilDifferentiationSection() {
         title="Une formation basée sur vos vrais documents"
         description="Les participants travaillent directement à partir des documents et processus de leur entreprise."
         className="mx-auto"
+      />
+      <AccueilSectionPhoto
+        photo={photo}
+        className="mx-auto mt-10 max-w-4xl"
+        caption="Plan papier et tablette : on forme sur vos dossiers réels (DCE, devis, CR), pas sur des cas génériques."
       />
       <ul
         className="mt-10 flex flex-wrap justify-center gap-2.5"

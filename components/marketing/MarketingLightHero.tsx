@@ -78,7 +78,7 @@ function HeroVisualBlock({
           ? 'h-auto w-full object-contain'
           : 'h-auto w-full rounded-[1.05rem] object-cover'
       }
-      sizes="(max-width: 1024px) 280px, 360px"
+      sizes="(max-width: 1024px) 90vw, 380px"
       quality={75}
     />
   );
