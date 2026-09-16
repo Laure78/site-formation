@@ -859,7 +859,14 @@ export default function BeworkPage() {
               1 journée.
             </p>
             <p className="mt-3">
-              Financement OPCO possible selon éligibilité · exonéré de TVA (art. 261-4-4°-a du CGI).
+              <Link
+                href={LINKS.financement}
+                className="font-semibold text-[#1D4ED8] underline underline-offset-2 hover:text-[#1E40AF]"
+                title="Financement OPCO Constructys — formation IA"
+              >
+                Financement OPCO possible selon éligibilité
+              </Link>
+              {' · '}exonéré de TVA (art. 261-4-4°-a du CGI).
             </p>
           </aside>
         </div>
