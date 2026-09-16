@@ -76,7 +76,7 @@ export const FAQ_IA_BTP_METIERS_CHANTIER_SEO: readonly FAQItem[] = [
   {
     q: "Comment utiliser l'IA pour la gestion administrative ?",
     a:
-      "Emails, relances, modèles de courriers, synthèses de réunion, brouillons de rapports et classement d'informations — avec anonymisation et bonnes pratiques de confidentialité enseignées en session. Idéal pour dirigeants, conducteurs de travaux et fonctions support. Point d'entrée : <a href=\"/formation-ia-artisans-btp\">ChatGPT pour entreprises BTP</a>, <a href=\"/checklist-ia-btp\">checklist prompts IA BTP</a> et <a href=\"/formations\">catalogue Qualiopi</a>.",
+      "Emails, relances, modèles de courriers, synthèses de réunion, brouillons de rapports et classement d'informations — avec anonymisation et bonnes pratiques de confidentialité enseignées en session. Idéal pour dirigeants, conducteurs de travaux et fonctions support. Point d'entrée : <a href=\"/formations/ia-batiment-travaux-publics\">ChatGPT pour entreprises BTP</a>, <a href=\"/checklist-ia-btp\">checklist prompts IA BTP</a> et <a href=\"/formations\">catalogue Qualiopi</a>.",
   },
   {
     q: "La formation convient-elle aux PME du BTP et aux équipes terrain ?",
@@ -160,7 +160,7 @@ export function buildHomeFAQPageJsonLd(): Record<string, unknown> {
 export const FAQ_ITEMS: readonly FAQItem[] = [
   {
     q: "Comment utiliser ChatGPT dans une entreprise du bâtiment ?",
-    a: `On part de vos documents réels (devis, CR chantier, emails) : prompts adaptés au vocabulaire BTP, relecture humaine et bonnes pratiques confidentialité. Le <a href="/formations">catalogue formations IA appliquées au bâtiment</a> et la page <a href="/formation-ia-artisans-btp">ChatGPT pour entreprises BTP</a> vous donnent des trames pour l'<a href="/ia-devis-batiment">IA devis bâtiment</a>, l'<a href="${LINKS.formationConducteurTravaux}">IA gestion chantier</a> et l'automatisation administrative — sans prérequis technique.`,
+    a: `On part de vos documents réels (devis, CR chantier, emails) : prompts adaptés au vocabulaire BTP, relecture humaine et bonnes pratiques confidentialité. Le <a href="/formations">catalogue formations IA appliquées au bâtiment</a> et la page <a href="/formations/ia-batiment-travaux-publics">ChatGPT pour entreprises BTP</a> vous donnent des trames pour l'<a href="/ia-devis-batiment">IA devis bâtiment</a>, l'<a href="${LINKS.formationConducteurTravaux}">IA gestion chantier</a> et l'automatisation administrative — sans prérequis technique.`,
   },
   {
     q: "Comment gagner du temps administratif dans le BTP avec l'IA ?",
@@ -225,7 +225,7 @@ export const FAQ_GEO: FAQItem[] = [
   },
   {
     q: "Quels sont les prérequis pour une formation ChatGPT BTP ?",
-    a: 'La formation de niveau débutant ne nécessite aucune pratique préalable de l’IA. Les autres formations demandent des connaissances ou une expérience précisées sur chaque programme. Méthode 100 % pratique : travail sur vos vrais documents (devis, emails, comptes rendus chantier). Action de formation OFC — organisme certifié Qualiopi — entrée par <a href="/formation-ia-artisans-btp">ChatGPT pour entreprises BTP</a> ou <a href="/formations">catalogue</a>.',
+    a: 'La formation de niveau débutant ne nécessite aucune pratique préalable de l’IA. Les autres formations demandent des connaissances ou une expérience précisées sur chaque programme. Méthode 100 % pratique : travail sur vos vrais documents (devis, emails, comptes rendus chantier). Action de formation OFC — organisme certifié Qualiopi — entrée par <a href="/formations/ia-batiment-travaux-publics">ChatGPT pour entreprises BTP</a> ou <a href="/formations">catalogue</a>.',
   },
   {
     q: "Combien de temps pour automatiser des devis BTP avec l'IA ?",
@@ -382,7 +382,7 @@ export const FAQ_OFFRES: FAQItem[] = [
   },
   {
     q: "Les formations sont-elles adaptées aux dirigeants et équipes du BTP ?",
-    a: `Oui. Mes formations sont conçues pour des professionnels du BTP sans prérequis technique. On travaille sur vos vrais documents : devis, emails, comptes rendus. Méthode 100 % pratique — voir <a href="/formation-ia-artisans-btp">ChatGPT pour entreprises BTP</a> et <a href="${LINKS.formationConducteurTravaux}">IA conducteur de travaux</a>.`,
+    a: `Oui. Mes formations sont conçues pour des professionnels du BTP sans prérequis technique. On travaille sur vos vrais documents : devis, emails, comptes rendus. Méthode 100 % pratique — voir <a href="/formations/ia-batiment-travaux-publics">ChatGPT pour entreprises BTP</a> et <a href="${LINKS.formationConducteurTravaux}">IA conducteur de travaux</a>.`,
   },
 ];
 
@@ -520,7 +520,7 @@ export const FAQ_IA_BTP_YVELINES: FAQItem[] = [
   },
   {
     q: "Quelle différence avec une formation généraliste sur ChatGPT ?",
-    a: 'La formation est calibrée pour le BTP : vocabulaire du bâtiment (CCTP, DTU, mémoire technique, comptes rendus de chantier), exercices sur vos vrais documents, méthodes éprouvées avec des entreprises du secteur. Voir aussi <a href="/formation-ia-artisans-btp">ChatGPT pour entreprises BTP</a>.',
+    a: 'La formation est calibrée pour le BTP : vocabulaire du bâtiment (CCTP, DTU, mémoire technique, comptes rendus de chantier), exercices sur vos vrais documents, méthodes éprouvées avec des entreprises du secteur. Voir aussi <a href="/formations/ia-batiment-travaux-publics">ChatGPT pour entreprises BTP</a>.',
   },
   {
     q: "Puis-je former plusieurs personnes en même temps ?",
@@ -548,7 +548,7 @@ export const FAQ_IA_BTP_SAINT_QUENTIN_YVELINES: FAQItem[] = [
   },
   {
     q: "Quelle différence avec une formation généraliste sur ChatGPT ?",
-    a: 'La formation est calibrée pour le BTP : vocabulaire du bâtiment (CCTP, DTU, mémoire technique, comptes rendus de chantier), exercices sur vos vrais documents, méthodes éprouvées avec des entreprises du secteur. Voir aussi <a href="/formation-ia-artisans-btp">ChatGPT pour entreprises BTP</a>.',
+    a: 'La formation est calibrée pour le BTP : vocabulaire du bâtiment (CCTP, DTU, mémoire technique, comptes rendus de chantier), exercices sur vos vrais documents, méthodes éprouvées avec des entreprises du secteur. Voir aussi <a href="/formations/ia-batiment-travaux-publics">ChatGPT pour entreprises BTP</a>.',
   },
   {
     q: "Puis-je former plusieurs personnes en même temps ?",

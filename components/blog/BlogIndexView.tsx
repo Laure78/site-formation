@@ -197,7 +197,7 @@ export function BlogIndexView({
             <Link href="/claude-ai-btp" className="text-sm font-medium text-[#377CF3] hover:underline">
               Claude AI BTP
             </Link>
-            <Link href="/formation-ia-artisans-btp" className="text-sm font-medium text-[#377CF3] hover:underline">
+            <Link href="/formations/ia-batiment-travaux-publics" className="text-sm font-medium text-[#377CF3] hover:underline">
               ChatGPT pour entreprises BTP
             </Link>
             <Link href="/ia-devis-batiment" className="text-sm font-medium text-[#377CF3] hover:underline">

@@ -9,26 +9,42 @@ export function normalizeEnBref(value?: string | string[] | null): string[] | nu
   return items.length ? items : null;
 }
 
+function isEnBrefSectionTitle(title?: string | null): boolean {
+  return title?.trim().toLowerCase() === 'en bref';
+}
+
 /** « En bref » — frontmatter MDX/JSON ou section legacy titre « En bref ». */
 export function resolveArticleEnBref(article: Pick<BlogArticle, 'enBref' | 'sections'>): string[] | null {
   const fromField = normalizeEnBref(article.enBref);
   if (fromField) return fromField;
 
   const section = article.sections.find(
-    (s) => s.type === 'list' && s.title?.trim().toLowerCase() === 'en bref',
+    (s) =>
+      isEnBrefSectionTitle(s.title) &&
+      (s.type === 'list' || s.type === 'definition' || s.type === 'paragraph'),
   );
-  if (!section || !Array.isArray(section.content)) return null;
+  if (!section) return null;
 
-  return normalizeEnBref(section.content.filter((x): x is string => typeof x === 'string'));
+  if (typeof section.content === 'string') {
+    return normalizeEnBref(section.content);
+  }
+  if (Array.isArray(section.content)) {
+    return normalizeEnBref(section.content.filter((x): x is string => typeof x === 'string'));
+  }
+  return null;
 }
 
-/** Retire la section liste « En bref » du corps si affichée sous le H1. */
+/** Retire la section « En bref » du corps si affichée sous le H1. */
 export function filterArticleSectionsForDisplay(
   sections: BlogArticle['sections'],
   enBrefUnderH1: string[] | null,
 ): BlogArticle['sections'] {
   if (!enBrefUnderH1?.length) return sections;
   return sections.filter(
-    (s) => !(s.type === 'list' && s.title?.trim().toLowerCase() === 'en bref'),
+    (s) =>
+      !(
+        isEnBrefSectionTitle(s.title) &&
+        (s.type === 'list' || s.type === 'definition' || s.type === 'paragraph')
+      ),
   );
 }

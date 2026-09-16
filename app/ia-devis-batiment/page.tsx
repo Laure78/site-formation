@@ -557,7 +557,7 @@ export default function IADevisBatimentPage() {
           </h2>
           <ul className="mt-4 flex flex-wrap gap-4">
             <li>
-              <Link href="/formation-ia-artisans-btp" className="text-[var(--accent)] hover:underline">
+              <Link href="/formations/ia-batiment-travaux-publics" className="text-[var(--accent)] hover:underline">
                 ChatGPT pour entreprises BTP
               </Link>
             </li>
@@ -585,7 +585,7 @@ export default function IADevisBatimentPage() {
         <AllerPlusLoin
           links={[
             { href: '/formations', label: 'Formation IA Constructys' },
-            { href: '/formation-ia-artisans-btp', label: 'ChatGPT pour entreprises BTP' },
+            { href: '/formations/ia-batiment-travaux-publics', label: 'ChatGPT pour entreprises BTP' },
             { href: LINKS.formationConducteurTravaux, label: 'IA conducteur de travaux' },
             { href: '/blog', label: 'Articles et guides' },
             { href: LINKS.prendreRdv, label: CTA_RDV_LABEL },

@@ -249,7 +249,6 @@ const ROUTE_SOURCE_FILES: Record<string, readonly string[]> = {
   '/ia-analyse-dce-btp': ['app/ia-analyse-dce-btp/page.tsx'],
   '/ia-memoire-technique-btp': ['app/ia-memoire-technique-btp/page.tsx'],
   '/ia-compte-rendu-chantier': ['app/ia-compte-rendu-chantier/page.tsx'],
-  '/formation-ia-artisans-btp': ['app/formation-ia-artisans-btp/page.tsx'],
   '/formation-ia-marche-public-travaux': [
     'app/formation-ia-marche-public-travaux/page.tsx',
     'lib/formation-ia-marche-public-config.ts',

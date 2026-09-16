@@ -337,7 +337,7 @@ export function FormationCityPage({
             <AllerPlusLoin
               links={[
                 { href: '/formations', label: 'Formation IA pour les pros du BTP' },
-                { href: '/formation-ia-artisans-btp', label: 'IA pour votre métier dans le bâtiment' },
+                { href: '/formations/ia-batiment-travaux-publics', label: 'IA pour votre métier dans le bâtiment' },
                 { href: diagnosticUrl, label: 'Échanger sur vos besoins (30 min)' },
               ]}
             />

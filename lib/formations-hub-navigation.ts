@@ -33,6 +33,6 @@ export const FORMATIONS_HUB_PAR_BESOIN: readonly FormationsHubNavItem[] = [
 
 /** Outils IA réellement enseignés — pas de pages doublons ChatGPT/Claude séparées. */
 export const FORMATIONS_HUB_PAR_OUTIL: readonly FormationsHubNavItem[] = [
-  { href: LINKS.chatgptArtisans, label: 'ChatGPT pour le BTP' },
+  { href: LINKS.formationIaBtpNiveau1BatimentTp, label: 'ChatGPT pour le BTP' },
   { href: LINKS.formationMaitriserClaudeAiBtp, label: 'Claude AI & Cowork' },
 ];

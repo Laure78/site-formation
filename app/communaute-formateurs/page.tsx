@@ -193,7 +193,7 @@ export default function CommunauteFormateursPage() {
         <AllerPlusLoin
           variant="compact"
           links={[
-            { href: '/formation-ia-artisans-btp', label: 'ChatGPT pour entreprises BTP' },
+            { href: '/formations/ia-batiment-travaux-publics', label: 'ChatGPT pour entreprises BTP' },
             { href: '/diagnostic-ia-btp', label: 'Diagnostic IA BTP gratuit' },
             { href: '/checklist-ia-btp', label: 'Checklist prompts ChatGPT BTP' },
           ]}

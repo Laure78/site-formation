@@ -23,12 +23,12 @@ export const PILLAR_PAGES = [
     keywords: ['intelligence artificielle bâtiment', 'IA BTP', 'IA construction'],
   },
   {
-    id: 'chatgpt-artisans',
-    path: '/formation-ia-artisans-btp',
+    id: 'chatgpt-entreprises-btp',
+    path: '/formations/ia-batiment-travaux-publics',
     title: 'ChatGPT pour entreprises du bâtiment — Guide pratique',
-    description: 'Utiliser ChatGPT pour devis, emails, CR chantier. Plombiers, électriciens, maçons, PME BTP. Formation 4h.',
+    description: 'Utiliser ChatGPT pour devis, emails, CR chantier. PME BTP, conducteurs de travaux. Formation 4h.',
     h1: 'ChatGPT pour entreprises du bâtiment',
-    keywords: ['ChatGPT PME BTP', 'ChatGPT plombier', 'ChatGPT bâtiment'],
+    keywords: ['ChatGPT PME BTP', 'ChatGPT bâtiment', 'formation IA TPE PME'],
   },
   {
     id: 'ia-entreprises-btp',
@@ -60,7 +60,7 @@ export function getPillarPathForCluster(clusterId: string): string {
 export const DEFAULT_INTERNAL_LINKS = {
   formation: { path: '/formations', anchor: 'formation IA pour le BTP' },
   prendreRdv: { path: LINKS.prendreRdv, anchor: 'prendre rendez-vous' },
-  chatgptArtisans: { path: '/formation-ia-artisans-btp', anchor: 'ChatGPT pour entreprises BTP' },
+  chatgptArtisans: { path: LINKS.chatgptArtisans, anchor: 'ChatGPT pour entreprises BTP' },
   iaDevis: { path: '/ia-devis-batiment', anchor: 'IA devis bâtiment' },
 } as const;
 

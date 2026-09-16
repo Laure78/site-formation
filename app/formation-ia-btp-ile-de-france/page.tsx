@@ -26,6 +26,7 @@ import { getCatalogueFormationsCount, getFormationsCatalogue } from '@/lib/forma
 import { FormationsCatalogueInteractive } from '@/components/formations/FormationsCatalogueInteractive';
 import { RelatedLinks } from '@/components/RelatedLinks';
 import { LIBELLE_EFFECTIF_GROUPE_NIV02 } from '@/lib/tarifs-sessions';
+import { FORMATION_IA_BTP_METIERS } from '@/lib/formation-ia-btp-pillar-content';
 
 import { RenvoiFicheCatalogue } from '@/components/qualiopi/RenvoiFicheCatalogue';
 
@@ -215,6 +216,30 @@ export default function FormationIaBtpIleDeFrancePage() {
           </div>
         </section>
 
+        <section className={OFC_SEC.white} aria-labelledby="metiers-idf-heading">
+          <div className="mx-auto max-w-4xl">
+            <h2 id="metiers-idf-heading" className="font-display text-2xl font-bold text-slate-900 md:text-3xl">
+              Formations IA par métier du BTP
+            </h2>
+            <p className="mt-4 text-base leading-relaxed text-slate-600 md:text-lg">
+              Depuis ce pilier Île-de-France, accédez aux landings métier prioritaires. Les pages département
+              (75, 77, 78, 91, 92, 93, 94, 95) sont listées juste après, dans le maillage géo.
+            </p>
+            <ul className="mt-6 grid gap-3 sm:grid-cols-2">
+              {FORMATION_IA_BTP_METIERS.map((l) => (
+                <li key={l.href}>
+                  <Link
+                    href={l.href}
+                    className="block rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm font-medium text-slate-800 shadow-sm hover:border-[#377CF3]/40"
+                  >
+                    {l.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+
         <section className={OFC_SEC.mutedCompact}>
           <div className="mx-auto max-w-4xl rounded-2xl border border-[#377CF3]/25 bg-[#377CF3] px-6 py-8 text-white md:px-10 md:py-10">
             <h2 className="font-display text-xl font-bold md:text-2xl">
@@ -259,7 +284,13 @@ export default function FormationIaBtpIleDeFrancePage() {
           </div>
         </section>
 
-        <RelatedLinks path={LINKS.formationIleDeFrance} />
+        <RelatedLinks
+          path={LINKS.formationIleDeFrance}
+          excludeHrefs={[
+            LINKS.formationIaParis,
+            ...FORMATION_IA_BTP_METIERS.map((m) => m.href),
+          ]}
+        />
 
         <FAQSection
           id="faq-idf"

@@ -199,7 +199,7 @@ export default function IAConducteurTravauxPage() {
               </Link>
             </li>
             <li>
-              <Link href="/formation-ia-artisans-btp" className="text-[var(--accent)] hover:underline">
+              <Link href="/formations/ia-batiment-travaux-publics" className="text-[var(--accent)] hover:underline">
                 ChatGPT pour entreprises BTP
               </Link>
             </li>

@@ -1094,7 +1094,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
       {
         type: 'cta',
         content: 'Formation ChatGPT pour devis BTP — 4h pratiques. Automatisez vos devis en 2-5 minutes. Financement possible selon éligibilité.',
-        formationHref: '/formation-ia-artisans-btp',
+        formationHref: '/formations/ia-batiment-travaux-publics',
       },
     ],
     relatedSlugs: ['formation-ia-btp-guide-complet-2026', 'financer-formation-ia-btp-constructys'],

@@ -430,7 +430,7 @@ export default function CasUsageIABTPPage() {
             </Link>
 
             <Link
-              href="/formation-ia-artisans-btp"
+              href="/formations/ia-batiment-travaux-publics"
               className="group rounded-2xl border border-slate-200 bg-slate-50 p-6 transition-all hover:border-[var(--accent)] hover:shadow-md"
             >
               <h3 className="font-semibold text-slate-900 group-hover:text-[var(--accent)]">

@@ -18,11 +18,11 @@ export const FORMATION_IA_BTP_DEFINITION =
 
 export const FORMATION_IA_BTP_METIERS = [
   { href: LINKS.formationConducteurTravaux, label: 'Conducteur de travaux' },
-  { href: '/formation-ia-charge-affaires-btp', label: 'Chargé d\'affaires' },
-  { href: '/formation-ia-dirigeant-btp', label: 'Dirigeant de PME BTP' },
-  { href: '/formation-ia-artisans-btp', label: 'TPE & PME du bâtiment' },
-  { href: '/formation-ia-assistante-administrative-btp', label: 'Assistant(e) administrative' },
-  { href: '/formation-ia-assistante-gestion-btp', label: 'Assistant(e) de gestion' },
+  { href: LINKS.formationChargeAffairesBtp, label: "Chargé d'affaires" },
+  { href: LINKS.formationIaDirigeantBtp, label: 'Dirigeant de PME BTP' },
+  { href: LINKS.formationIaDirigeantPmeBtp, label: 'Chef de TPE du bâtiment' },
+  { href: LINKS.formationIaAssistanteBtp, label: 'Assistant(e) administrative' },
+  { href: LINKS.formationIaAssistanteGestionBtp, label: 'Assistant(e) de gestion' },
 ] as const;
 
 const DEPT_LABELS: Record<string, string> = {

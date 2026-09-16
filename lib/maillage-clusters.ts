@@ -261,7 +261,7 @@ const METIER_CLUSTER: Record<string, MetierClusterEntry> = {
   },
   [LINKS.formationIaDirigeantBtp]: {
     path: LINKS.formationIaDirigeantBtp,
-    close: [LINKS.formationChargeAffairesBtp, LINKS.chatgptArtisans],
+    close: [LINKS.formationChargeAffairesBtp, LINKS.formationIaDirigeantPmeBtp],
     catalogue: {
       href: LINKS.formationIaBtpNiveau1BatimentTp,
       label: 'Session catalogue — L’IA au service du bâtiment (NIV-01)',
@@ -376,19 +376,6 @@ const METIER_CLUSTER: Record<string, MetierClusterEntry> = {
     },
     hubAnchor: 'Formation IA BTP — hub par métier',
   },
-  [LINKS.chatgptArtisans]: {
-    path: LINKS.chatgptArtisans,
-    close: [LINKS.formationIaDirigeantBtp, LINKS.formationIaDirigeantPmeBtp],
-    catalogue: {
-      href: LINKS.formationIaBtpNiveau1BatimentTp,
-      label: 'Catalogue — formation IA pour TPE & PME du bâtiment',
-    },
-    blog: {
-      href: LINKS.blog5CasUsageChatgptBtp,
-      label: "5 cas d'usage de ChatGPT pour les entreprises du bâtiment",
-    },
-    hubAnchor: 'Hub formation IA — métiers et lots BTP',
-  },
 };
 
 const METIER_LABELS: Record<string, string> = {
@@ -405,7 +392,6 @@ const METIER_LABELS: Record<string, string> = {
   [LINKS.formationIaCharpentierMenuisierBtp]: 'Formation IA charpentier & menuisier bois',
   [LINKS.formationIaMaconBtp]: 'Formation IA maçon & maçonnerie',
   [LINKS.formationIaCouvreurBtp]: 'Formation IA couvreur zingueur',
-  [LINKS.chatgptArtisans]: 'Formation IA TPE & PME du bâtiment',
   [LINKS.formationIaDirigeantPmeBtp]: 'Formation IA dirigeant opérationnel PME BTP',
 };
 
@@ -790,7 +776,6 @@ export function getClusterRelatedLinks(path: string): ClusterPageConfig | null {
   if (
     /^\/formation-ia-.+-btp$/.test(normalized) ||
     normalized === LINKS.formationIaEtancheur ||
-    normalized === LINKS.chatgptArtisans ||
     normalized === LINKS.formateurIaBtp
   ) {
     return {

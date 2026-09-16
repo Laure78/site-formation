@@ -70,7 +70,7 @@ export default function InstallPWAPage() {
           Accueil
         </Link>
         <Link
-          href="/formation-ia-artisans-btp"
+          href="/formations/ia-batiment-travaux-publics"
           className="inline-flex items-center gap-2 rounded-xl border border-slate-300 px-8 py-4 font-semibold text-slate-700 hover:bg-slate-50"
         >
           ChatGPT pour entreprises BTP

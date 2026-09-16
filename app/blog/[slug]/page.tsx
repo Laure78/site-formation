@@ -449,7 +449,7 @@ export default async function BlogArticlePage({ params }: Props) {
                       Catalogue formations
                     </Link>
                     <Link
-                      href="/formation-ia-artisans-btp"
+                      href="/formations/ia-batiment-travaux-publics"
                       className="inline-block rounded-xl border-2 border-white/60 px-6 py-2 font-semibold text-white hover:bg-white/10"
                     >
                       ChatGPT pour entreprises BTP

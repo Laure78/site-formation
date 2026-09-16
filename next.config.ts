@@ -450,25 +450,35 @@ const nextConfig: NextConfig = {
         destination: '/formations/ia-appels-offre-btp#parcours-lms',
         permanent: true,
       },
-      // Ancienne URL Elementor (WordPress) + ancienne route site — canonique : /formation-ia-artisans-btp
+      // Ancienne URL « artisans » (étiquette éditoriale interdite) + Elementor WP → NIV-01
+      {
+        source: '/formation-ia-artisans-btp',
+        destination: '/formations/ia-batiment-travaux-publics',
+        permanent: true,
+      },
+      {
+        source: '/formation-ia-artisans-btp/',
+        destination: '/formations/ia-batiment-travaux-publics',
+        permanent: true,
+      },
       {
         source: '/elementor-2487',
-        destination: '/formation-ia-artisans-btp',
+        destination: '/formations/ia-batiment-travaux-publics',
         permanent: true,
       },
       {
         source: '/elementor-2487/',
-        destination: '/formation-ia-artisans-btp',
+        destination: '/formations/ia-batiment-travaux-publics',
         permanent: true,
       },
       {
         source: '/chatgpt-artisans-btp',
-        destination: '/formation-ia-artisans-btp',
+        destination: '/formations/ia-batiment-travaux-publics',
         permanent: true,
       },
       {
         source: '/chatgpt-artisans-btp/',
-        destination: '/formation-ia-artisans-btp',
+        destination: '/formations/ia-batiment-travaux-publics',
         permanent: true,
       },
       // Anciennes URLs WordPress (Hello World, catégorie par défaut) — consolidation SEO

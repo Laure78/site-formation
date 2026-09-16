@@ -70,7 +70,7 @@ const FAQ = [
   },
   {
     q: 'À qui s’adresse-t-il ?',
-    a: 'Aux artisans, dirigeants, conducteurs de travaux, chargés d’affaires et fonctions support du BTP.',
+    a: 'Aux dirigeants, conducteurs de travaux, chargés d’affaires et fonctions support du BTP.',
   },
   {
     q: 'Quel est le tarif ?',

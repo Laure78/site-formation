@@ -151,8 +151,8 @@ export const LINKS = {
   formationIaBtpValDeMarne94: '/formation-ia-btp-val-de-marne-94',
   formationIaBtpValDoise95: '/formation-ia-btp-val-doise-95',
 
-  // Tier 2 — Cas d'usage
-  chatgptArtisans: '/formation-ia-artisans-btp',
+  // Tier 2 — Cas d'usage (ex-/formation-ia-artisans-btp → 301 NIV-01)
+  chatgptArtisans: '/formations/ia-batiment-travaux-publics',
   /** Landing SEO — formation IA travaux publics */
   formationIaTravauxPublics: '/formation-ia-travaux-publics',
   iaDevis: '/ia-devis-batiment',

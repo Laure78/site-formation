@@ -26,7 +26,7 @@ const ALL_CATALOGUE_FORMATIONS_NAV_LINKS: CatalogueFormationNavLink[] = [
     label: "L'IA au service des pros du bâtiment et des travaux publics",
     icon: Building2,
     pages: [
-      { href: LINKS.chatgptArtisans, label: 'TPE & PME du bâtiment' },
+      { href: LINKS.formationIaDirigeantPmeBtp, label: 'TPE & PME du bâtiment' },
       { href: LINKS.formationIaDirigeantBtp, label: 'Dirigeant PME' },
       { href: LINKS.formationElectricienBtp, label: 'Électricien' },
       { href: LINKS.formationPlombierBtp, label: 'Plombier' },
