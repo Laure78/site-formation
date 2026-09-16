@@ -11,6 +11,7 @@ export const metadata = createPageMetadata({
   description:
     "Installez l'application formation Laure Olivié sur mobile : cours et messages sans App Store. Léger et rapide. Suivez vos modules IA BTP depuis le terrain.",
   path: '/install-pwa',
+  robots: { index: false, follow: true },
 });
 
 const faqSchema = getFAQSchema(FAQ_INSTALL_PWA);

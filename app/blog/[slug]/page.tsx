@@ -63,6 +63,7 @@ const BLOG_SECTION_ANCHOR_OVERRIDES: Record<string, Record<string, string>> = {
     'Les gains mesurés': 'les-gains',
     'Par où commencer ?': 'par-ou-commencer',
     "Prompts devis et chiffrage — prêts à l'emploi": 'prompts-devis',
+    FAQ: 'faq',
     'Questions fréquentes': 'faq',
   },
 };

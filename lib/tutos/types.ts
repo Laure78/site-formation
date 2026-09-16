@@ -72,8 +72,37 @@ export type TutoStep = {
   blocks: TutoBlock[];
 };
 
-/** Question/réponse FAQ — texte exact du PDF. */
-export type TutoFaqItem = { q: string; a: string };
+/** Question/réponse FAQ — texte exact du PDF (ou enrichi pour le SEO). */
+export type TutoFaqItem = {
+  q: string;
+  /** Réponse directe (1–2 phrases) — affichée en premier ; seule source schema si pas de `aDetail`. */
+  a: string;
+  /** Développement optionnel sous la réponse directe. */
+  aDetail?: string;
+};
+
+/** Ligne d’un tableau sommaire type (ex. pièces DOE). */
+export type TutoSommaireRow = {
+  piece: string;
+  contenu: string;
+  qui: string;
+};
+
+/** Tableau HTML optionnel (modèle / checklist). */
+export type TutoSommaireTable = {
+  title: string;
+  intro?: string;
+  headers: readonly [string, string, string];
+  rows: readonly TutoSommaireRow[];
+  /** Libellé CTA sous le tableau (télécharge le PDF du tuto). */
+  downloadLabel?: string;
+};
+
+/** Exemples par lot (H2 + H3). */
+export type TutoLotsExamples = {
+  title: string;
+  lots: readonly { title: string; body: string }[];
+};
 
 /** Données complètes d'un tuto Ressource. */
 export type TutoData = {
@@ -128,6 +157,18 @@ export type TutoData = {
   /** Section FAQ : titre + items (texte exact du PDF) */
   faqTitle: string;
   faq: TutoFaqItem[];
+
+  /** Tableau sommaire type — rendu avant les étapes (optionnel). */
+  sommaireTable?: TutoSommaireTable;
+  /** Exemples par lot — rendu après le sommaire (optionnel). */
+  lotsExamples?: TutoLotsExamples;
+  /** Libellé du bouton de téléchargement hero (défaut : PDF/Word). */
+  heroDownloadLabel?: string;
+  /**
+   * Libellé CTA final Calendly / RDV (OFC uniquement).
+   * Si absent : libellé standard via CtaButton.
+   */
+  finalCtaLabel?: string;
 
   /** Bloc CTA final reproduisant la dernière page du PDF */
   cta: {

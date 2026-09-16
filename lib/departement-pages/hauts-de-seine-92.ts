@@ -1,7 +1,5 @@
 import { LINKS } from '@/lib/internal-links';
 import type { DepartementPageData } from '@/lib/departement-pages/types';
-import { buildDeptMetaDescription } from '@/lib/meta-description';
-import { buildIdfDeptPageTitle } from '@/lib/seo-geo-keywords';
 
 export const DEPARTEMENT_HAUTS_DE_SEINE_92: DepartementPageData = {
   code: '92',
@@ -48,16 +46,33 @@ export const DEPARTEMENT_HAUTS_DE_SEINE_92: DepartementPageData = {
     label: "L'IA au service des maîtres d'œuvre",
     description: 'DCE, CR chantier, réserves — cœur de métier du 92 tertiaire.',
   },
-  metaTitle: buildIdfDeptPageTitle('Hauts-de-Seine', '92'),
-  metaDescription: buildDeptMetaDescription(
-    'Hauts-de-Seine',
-    '92',
-    'Nanterre, Boulogne-Billancourt et Issy-les-Moulineaux',
-  ),
+  metaTitle: 'Formation IA BTP Hauts-de-Seine (92)',
+  metaDescription:
+    'Formation IA pour le BTP en présentiel dans le 92 : session intra ou inter en Île-de-France. Qualiopi, prise en charge OPCO/Constructys selon éligibilité.',
   keywords: [
     'formation IA pour les pros du BTP 92',
     'formation ChatGPT Hauts-de-Seine',
     'formation IA Nanterre',
     'formation IA Boulogne',
+  ],
+  sectionGeoLocale: {
+    title:
+      'Formation IA BTP à Boulogne-Billancourt, Vanves, Nanterre et dans tout le 92',
+    body:
+      "Dans les Hauts-de-Seine, les entreprises du bâtiment (généralistes, second œuvre, maîtrise d'œuvre) enchaînent dossiers tertiaires, rénovation et délais courts. La formation se déroule en intra dans vos locaux — Boulogne-Billancourt, Vanves, Nanterre ou ailleurs dans le 92 — ou en session inter en Île-de-France, sur vos documents réels (devis, CR, extraits CCTP).",
+  },
+  liensPrioritaires: [
+    {
+      href: LINKS.formationIleDeFrance,
+      label: 'Formation IA BTP Île-de-France',
+    },
+    {
+      href: LINKS.claudeAiBtp,
+      label: 'Formation Claude AI pour le BTP',
+    },
+    {
+      href: LINKS.financement,
+      label: 'Financement Constructys formation IA BTP',
+    },
   ],
 };

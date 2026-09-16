@@ -7,27 +7,23 @@ export const TUTO_DOE_DOSSIER_OUVRAGES_EXECUTES: TutoData = {
   pdfFile: 'tuto-doe-dossier-ouvrages-executes.pdf',
 
   eyebrow: 'TUTO OFFERT PAR LAURE OLIVIÉ',
-  title: 'Crée ton skill DOE — Dossier des Ouvrages Exécutés',
-  shortTitle: 'Skill DOE',
+  title: 'Modèle DOE gratuit : dossier des ouvrages exécutés + méthode IA',
+  shortTitle: 'Modèle DOE gratuit',
   subtitle:
-    'Le tutoriel pas à pas pour assembler ton DOE en 30 minutes — au lieu de 2 week-ends.',
+    'Sommaire type, exemples par lot et tutoriel pas à pas pour assembler ton DOE avec l’IA — au lieu de deux week-ends de montage manuel.',
 
-  metaTitle:
-    'Tuto skill DOE BTP : assembler ton dossier ouvrages exécutés en 30 min',
+  metaTitle: 'Modèle DOE gratuit + tuto IA BTP',
   metaDescription:
-    "Crée ton skill Claude pour assembler ton DOE BTP en 30 minutes au lieu de 2 week-ends. Tutoriel pas à pas gratuit.",
+    "Modèle de DOE gratuit et méthode pour constituer le dossier des ouvrages exécutés avec l'IA : pièces, sommaire type, prompts prêts à l'emploi. Tuto BTP gratuit.",
   keywords: [
     'DOE BTP',
     'dossier ouvrages exécutés',
+    'modèle DOE gratuit',
     'skill Claude DOE',
     'tuto DOE',
     'modèle DOE BTP',
-    'NF P03-001',
-    'CCAG Travaux DOE',
     'réception chantier DOE',
     'DOE numérique BTP',
-    'DOE BIM',
-    'Consuel',
     'conducteur de travaux',
     'maître d\'œuvre',
     'IA BTP',
@@ -39,17 +35,20 @@ export const TUTO_DOE_DOSSIER_OUVRAGES_EXECUTES: TutoData = {
     'Constructys',
   ],
   ogImageAlt:
-    'Tuto Skill DOE — dossier des ouvrages exécutés BTP en 30 min avec Claude, par Laure Olivié',
+    'Modèle DOE gratuit et méthode IA — dossier des ouvrages exécutés BTP, par Laure Olivié',
 
   publishedAt: '2026-05-09',
-  updatedAt: '2026-05-09',
+  updatedAt: '2026-05-16',
 
   cardSummary:
-    "Assemble ton DOE en 30 minutes au lieu de 2 week-ends : sommaire 8 chapitres, classement pièces, détection des manques, page de garde Word + dossier zippé conforme tes exigences MOE.",
+    "Modèle de DOE gratuit : sommaire type, pièces à fournir, exemples par lot et méthode IA pour assembler le dossier avant la réception.",
 
   heroImage: PHOTOS.tutoDoeHero2026,
 
   totalTimeMinutes: 30,
+
+  heroDownloadLabel: 'Télécharger le modèle DOE',
+  finalCtaLabel: 'Réservez votre visio découverte gratuite',
 
   heroLearnPoints: [
     "La structure standardisée d'un DOE conforme",
@@ -57,6 +56,73 @@ export const TUTO_DOE_DOSSIER_OUVRAGES_EXECUTES: TutoData = {
     'Le prompt exact à donner à Claude',
     "Comment l'utiliser à chaque fin de chantier",
   ],
+
+  sommaireTable: {
+    title: 'Exemple de sommaire DOE (modèle gratuit)',
+    intro:
+      'Voici une trame de pièces courantes sur un chantier BTP. Adapte-la au CCTP / CCAP de ton marché et aux demandes du maître d’œuvre : chaque chantier a ses spécificités.',
+    headers: ['Pièce', 'Contenu', 'Qui la fournit'],
+    downloadLabel: 'Télécharger le modèle DOE',
+    rows: [
+      {
+        piece: 'Plans d’exécution conformes',
+        contenu:
+          'Plans à jour de l’ouvrage réalisé (récolement, annotations d’exécution, variantes validées).',
+        qui: 'Entreprise titulaire / bureau d’études selon le lot',
+      },
+      {
+        piece: 'Notes de calcul',
+        contenu:
+          'Justificatifs de dimensionnement et hypothèses retenues pour les ouvrages concernés.',
+        qui: 'Bureau d’études ou entreprise selon le marché',
+      },
+      {
+        piece: 'Fiches techniques et PV d’essais',
+        contenu:
+          'Fiches produits, procès-verbaux d’essais, de mise en service ou de contrôle liés au lot.',
+        qui: 'Entreprise, fabricants, organismes de contrôle',
+      },
+      {
+        piece: 'Notices d’entretien et de maintenance',
+        contenu:
+          'Notices d’utilisation, périodicités d’entretien, consignes pour l’exploitant.',
+        qui: 'Fabricants / entreprise (assemblage du dossier)',
+      },
+      {
+        piece: 'Garanties et certificats',
+        contenu:
+          'Garanties fabricants, attestations et certificats exigés par le marché (gaz, électrique, etc.).',
+        qui: 'Fabricants, installateurs, organismes compétents',
+      },
+      {
+        piece: 'PV de réception',
+        contenu:
+          'Procès-verbal de réception (avec ou sans réserves) et pièces associées à la clôture.',
+        qui: 'Maître d’œuvre / maître d’ouvrage, cosigné avec l’entreprise',
+      },
+    ],
+  },
+
+  lotsExamples: {
+    title: 'Exemple de DOE par lot',
+    lots: [
+      {
+        title: 'Menuiserie',
+        body:
+          'Pour un lot menuiserie, le dossier regroupe souvent les plans de pose conformes, les fiches techniques des menuiseries et vitrages, les notices d’entretien, les garanties fabricant et les éventuels PV de mise en œuvre ou de contrôle d’étanchéité. Classe les pièces par bâtiment / niveau / ouverture pour faciliter la relecture du maître d’œuvre.',
+      },
+      {
+        title: 'Électricité',
+        body:
+          'Sur un lot électrique, on retrouve typiquement les schémas unifilaires à jour, les fiches des tableaux et appareillages, les PV de contrôles et de mise sous tension, les notices d’exploitation et les attestations exigées au marché. Vérifie que les dénominations des circuits collent aux plans remis à la réception.',
+      },
+      {
+        title: 'VRD / aménagement',
+        body:
+          'En VRD et aménagements extérieurs, le DOE s’appuie souvent sur les plans de récolement des réseaux, les notes et profils utiles, les fiches matériaux (enrobés, canalisations, regards), les PV d’essais ou de compactage quand ils sont demandés, et les notices d’entretien des équipements (éclairage, arrosage, etc.).',
+      },
+    ],
+  },
 
   introTitle: 'Pourquoi un skill DOE ?',
   introBlocks: [
@@ -290,31 +356,31 @@ Génère le DOE complet selon ma trame standard. Signale-moi d'abord les pièces
     },
   ],
 
-  faqTitle: 'Questions fréquentes',
+  faqTitle: 'FAQ DOE',
   faq: [
     {
-      q: "Le DOE généré par IA est-il conforme à la réglementation ?",
-      a: "Oui. Ce qui compte juridiquement, c'est le contenu du DOE, pas l'outil utilisé pour l'assembler. Le skill reprend les standards BTP (norme NF P03-001 marchés privés, CCAG Travaux marchés publics). C'est toi qui valides et qui signes — donc toi qui engages la responsabilité de l'entreprise.",
+      q: "Qu'est-ce qu'un DOE en BTP ?",
+      a: "Le DOE, ou Dossier des Ouvrages Exécutés, est le dossier remis en fin de chantier pour décrire l'ouvrage réellement construit.",
+      aDetail:
+        "Il regroupe en pratique les plans conformes à l'exécution, les fiches techniques, les PV d'essais, les notices d'entretien, les garanties et les pièces de réception. Son contenu précis dépend du marché et des demandes du maître d'œuvre : le CCTP et le CCAP restent la référence.",
     },
     {
-      q: 'Que se passe-t-il s\'il manque des pièces le jour de la remise ?',
-      a: "Le maître d'œuvre peut refuser le DOE et reporter la réception. C'est tout l'intérêt de demander à Claude de signaler les manques en amont : tu as le temps de faire les relances aux fabricants et sous-traitants. Sans le skill, on découvre souvent les manques au moment de l'assemblage final — donc trop tard.",
+      q: 'Où trouver un modèle de DOE gratuit ?',
+      a: 'Sur cette page : tu disposes d’un sommaire type gratuit, d’exemples par lot et du PDF tuto à télécharger.',
+      aDetail:
+        "Le modèle sert de trame de démarrage. Adapte-le ensuite à ton métier, à tes lots et aux exigences de chaque maître d'œuvre. Le tutoriel ci-dessous montre comment accélérer l'assemblage avec un skill Claude, sans remplacer ta validation métier.",
     },
     {
-      q: 'Faut-il remettre le DOE en papier ou en numérique ?',
-      a: "Cela dépend du marché. Sur le public, c'est de plus en plus du DOE numérique (PDF structuré + dossier zippé). Sur le privé, certains MOE imposent encore le papier. Le skill génère les deux versions à partir des mêmes pièces — tu choisis le format de sortie selon ton client.",
+      q: 'Quelle différence entre DOE et DIUO ?',
+      a: "Le DOE documente l'ouvrage exécuté pour l'exploitation et la maintenance. Le DIUO concerne la sécurité des interventions ultérieures sur l'ouvrage.",
+      aDetail:
+        "Le DIUO est porté par le coordonnateur SPS ; le DOE est constitué par l'entreprise (souvent avec ses sous-traitants) pour le maître d'ouvrage / maître d'œuvre. Les deux dossiers sont distincts, même s'ils sont souvent remis autour de la réception. Pour préparer ta liasse DIUO, vois aussi le tuto dédié pièces DIUO.",
     },
     {
-      q: 'Et le DOE BIM ?',
-      a: "Si ton chantier a un cahier des charges BIM, le DOE prend la forme d'une maquette numérique enrichie. Le skill ne génère pas la maquette en elle-même, mais il peut produire le carnet d'attributs (fiches techniques, garanties, contacts SAV) qui s'attache aux objets BIM. Précise dans ton prompt « format BIM Carnet d'attributs ».",
-    },
-    {
-      q: 'Combien de temps prend l\'assemblage la première fois ?',
-      a: "30 à 45 minutes la première fois, en suivant ce tuto et avec les pièces déjà collectées. Comparé aux 2 week-ends que coûte un DOE fait à la main, c'est une économie majeure. Les fois suivantes, comptez 20 minutes par chantier.",
-    },
-    {
-      q: 'Mes données techniques chantier sont-elles confidentielles ?',
-      a: "Sur Claude Pro, Anthropic ne réutilise pas tes données pour entraîner ses modèles. Pour les chantiers sensibles (sites classés défense, hôpitaux, sites industriels avec confidentialité contractuelle), vérifie quand même que ton marché autorise l'usage d'outils IA externes — certains MOE l'interdisent explicitement.",
+      q: 'Peut-on préparer un DOE avec l’IA ?',
+      a: "Oui pour structurer, classer et mettre en forme — non pour remplacer ton expertise ni ta responsabilité de validation.",
+      aDetail:
+        "L'IA t'aide à générer un sommaire, repérer les pièces manquantes et produire une page de garde propre à partir des documents que tu fournis. Tu restes signataire : tu relis, tu corriges et tu remets le dossier. C'est exactement l'approche du skill présenté dans les étapes ci-dessous.",
     },
   ],
 

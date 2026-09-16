@@ -1021,7 +1021,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
         type: 'paragraph',
         title: 'Pourquoi utiliser ChatGPT pour vos devis BTP ?',
         content:
-          "Une entreprise du BTP passe souvent une demi-journée en routine pour rédiger un devis détaillé. Avec ChatGPT et une trame rodée, un premier devis structuré sort en moins d'une heure — selon la complexité. L'IA rédige les descriptifs techniques et structure le bordereau ; le devis reste à valider et personnaliser (prix, quantités, engagements).",
+          `Une entreprise du BTP passe souvent une demi-journée en routine pour rédiger un devis détaillé. Avec ChatGPT et une trame rodée, un premier devis structuré sort en moins d'une heure — selon la complexité. L'IA rédige les descriptifs techniques et structure le bordereau ; le devis reste à valider et personnaliser (prix, quantités, engagements). Pour la méthode complète (5 étapes, prompts et rôle du logiciel métier), voir <a href="${LINKS.blogIaDevisBatimentChiffrageAutomatise}" class="text-[var(--accent)] font-medium underline">IA devis bâtiment : chiffrage automatisé</a>.`,
       },
       {
         type: 'list',
@@ -1097,7 +1097,11 @@ export const BLOG_ARTICLES: BlogArticle[] = [
         formationHref: '/formations/ia-batiment-travaux-publics',
       },
     ],
-    relatedSlugs: ['formation-ia-btp-guide-complet-2026', 'financer-formation-ia-btp-constructys'],
+    relatedSlugs: [
+      'ia-devis-batiment-chiffrage-automatise',
+      'formation-ia-btp-guide-complet-2026',
+      'financer-formation-ia-btp-constructys',
+    ],
   },
 
   // Financement Constructys — réécriture SEO 2026 (sans emojis)

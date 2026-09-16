@@ -68,11 +68,14 @@ export function buildRessourceTutoJsonLd(tuto: TutoData): Record<string, unknown
     graph.push({
       '@type': 'FAQPage',
       '@id': `${url}#faq`,
-      mainEntity: tuto.faq.map((it) => ({
-        '@type': 'Question',
-        name: it.q,
-        acceptedAnswer: { '@type': 'Answer', text: it.a },
-      })),
+      mainEntity: tuto.faq.map((it) => {
+        const answerText = [it.a, it.aDetail].filter(Boolean).join(' ').replace(/\s+/g, ' ').trim();
+        return {
+          '@type': 'Question',
+          name: it.q,
+          acceptedAnswer: { '@type': 'Answer', text: answerText },
+        };
+      }),
     });
   }
 

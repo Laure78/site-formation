@@ -1,16 +1,17 @@
 {
-  "generatedAt": "2026-08-30T20:20:32.394Z",
+  "generatedAt": "2026-09-16T18:22:52.036Z",
   "rows": [
     {
       "url": "/a-propos",
       "file": "app/a-propos/page.tsx",
-      "title": "Laure Olivié — formatrice IA BTP Qualiopi | Laure Olivié",
-      "titleFinal": "Laure Olivié — formatrice IA BTP Qualiopi | Laure Olivié",
-      "titleLen": 56,
-      "segLen": 41,
+      "title": "—",
+      "titleFinal": "—",
+      "titleLen": 0,
+      "segLen": 0,
       "desc": "—",
       "descLen": 0,
       "problems": [
+        "title source non extrait",
         "description source non extraite"
       ],
       "helper": true,
@@ -32,17 +33,18 @@
     {
       "url": "/accessibilite-handicap",
       "file": "app/accessibilite-handicap/page.tsx",
-      "title": "Accessibilité handicap — formations BTP",
-      "titleFinal": "Accessibilité handicap — formations BTP | Laure Olivié",
-      "titleLen": 54,
-      "segLen": 39,
-      "desc": "Accessibilité handicap OFC : référente Laure Olivié, adaptations en formation IA pour le BTP. Contact dès l'inscription, acteurs mobilisables (AGEFIPH, Cap Emploi, MDPH) selon besoin.",
-      "descLen": 183,
+      "title": "—",
+      "titleFinal": "—",
+      "titleLen": 0,
+      "segLen": 0,
+      "desc": "—",
+      "descLen": 0,
       "problems": [
-        "desc trop longue (183)"
+        "title source non extrait",
+        "description source non extraite"
       ],
       "helper": true,
-      "finalFlag": false
+      "finalFlag": true
     },
     {
       "url": "/achat/succes",
@@ -213,32 +215,8 @@
       "skipFix": true
     },
     {
-      "url": "/admin/media-dashboard",
-      "file": "app/admin/media-dashboard/page.tsx",
-      "title": "(generateMetadata dynamique / absent)",
-      "titleLen": 0,
-      "desc": "(dynamique / absent)",
-      "descLen": 0,
-      "problems": [
-        "metadata non-statique (generateMetadata ou absent)"
-      ],
-      "skipFix": true
-    },
-    {
       "url": "/admin",
       "file": "app/admin/page.tsx",
-      "title": "(generateMetadata dynamique / absent)",
-      "titleLen": 0,
-      "desc": "(dynamique / absent)",
-      "descLen": 0,
-      "problems": [
-        "metadata non-statique (generateMetadata ou absent)"
-      ],
-      "skipFix": true
-    },
-    {
-      "url": "/admin/parametres",
-      "file": "app/admin/parametres/page.tsx",
       "title": "(generateMetadata dynamique / absent)",
       "titleLen": 0,
       "desc": "(dynamique / absent)",
@@ -337,16 +315,28 @@
       "finalFlag": false
     },
     {
+      "url": "/auth/confirm",
+      "file": "app/auth/confirm/page.tsx",
+      "title": "(generateMetadata dynamique / absent)",
+      "titleLen": 0,
+      "desc": "(dynamique / absent)",
+      "descLen": 0,
+      "problems": [
+        "metadata non-statique (generateMetadata ou absent)"
+      ],
+      "skipFix": true
+    },
+    {
       "url": "/auth/connexion",
       "file": "app/auth/connexion/page.tsx",
       "title": "Connexion formation IA BTP : espace apprenant",
       "titleFinal": "Connexion formation IA BTP : espace apprenant | Laure Olivié",
       "titleLen": 60,
       "segLen": 45,
-      "desc": "Connexion à l’espace apprenant OFC : formation IA pour le BTP, supports ChatGPT BTP, Claude et suivi Qualiopi. Artisans et PME — Île-de-France.",
-      "descLen": 143,
+      "desc": "Connexion à l’espace apprenant OFC : formation IA pour le BTP, supports ChatGPT BTP, Claude et suivi Qualiopi. TPE, PME — Île-de-France.",
+      "descLen": 136,
       "problems": [
-        "desc trop courte (143)",
+        "desc trop courte (136)",
         "sans descriptionFinal — enrich peut modifier"
       ],
       "helper": true,
@@ -392,13 +382,16 @@
     {
       "url": "/bework",
       "file": "app/bework/page.tsx",
-      "title": "BeWork — plateforme BTP sur mesure | Laure Olivié",
-      "titleFinal": "BeWork — plateforme BTP sur mesure | Laure Olivié",
-      "titleLen": 49,
-      "segLen": 34,
-      "desc": "BeWork construit la plateforme de votre entreprise BTP, connecte vos logiciels existants et automatise vos processus. Étude de votre besoin sur bework.fr.",
-      "descLen": 154,
-      "problems": [],
+      "title": "BeWork — créer avec l’IA sans savoir coder",
+      "titleFinal": "BeWork — créer avec l’IA sans savoir coder | Laure Olivié",
+      "titleLen": 57,
+      "segLen": 42,
+      "desc": "Formation BeWork : créez sites, apps et outils avec l’IA sans programmer. Parcours 7 h (300 €) ou 14 h (600 €). Détails sur bework.fr.",
+      "descLen": 134,
+      "problems": [
+        "desc trop courte (134)",
+        "sans descriptionFinal — enrich peut modifier"
+      ],
       "helper": true,
       "finalFlag": false
     },
@@ -582,7 +575,7 @@
         "description source non extraite"
       ],
       "helper": true,
-      "finalFlag": false
+      "finalFlag": true
     },
     {
       "url": "/cours/[slug]",
@@ -603,14 +596,16 @@
     {
       "url": "/diagnostic-ia-btp",
       "file": "app/diagnostic-ia-btp/page.tsx",
-      "title": "Diagnostic IA BTP gratuit — Test 60 secondes",
-      "titleFinal": "Diagnostic IA BTP gratuit — Test 60 secondes | Laure Olivié",
-      "titleLen": 59,
-      "segLen": 44,
-      "desc": "Évaluez où l'IA peut vous faire gagner du temps sur vos devis et l'administratif. Diagnostic BTP gratuit, résultat personnalisé. Lancez le test.",
-      "descLen": 144,
+      "title": "Diagnostic IA BTP gratuit | Identifiez vos gains de temps",
+      "titleFinal": "Diagnostic IA BTP gratuit | Identifiez vos | Laure Olivié",
+      "titleLen": 57,
+      "segLen": 57,
+      "desc": "Réalisez gratuitement votre diagnostic IA BTP. Identifiez vos tâches automatisables, vos cas d\\",
+      "descLen": 95,
       "problems": [
-        "desc trop courte (144)",
+        "title segment trop long (57>45) → troncature",
+        "desc trop courte (95)",
+        "pas de ponctuation finale",
         "sans descriptionFinal — enrich peut modifier"
       ],
       "helper": true,
@@ -665,6 +660,21 @@
       "skipFix": true
     },
     {
+      "url": "/etudes-de-cas/compte-rendu-vocal-chantier-btp",
+      "file": "app/etudes-de-cas/compte-rendu-vocal-chantier-btp/page.tsx",
+      "title": "Étude de cas CR vocal chantier — IA BTP",
+      "titleFinal": "Étude de cas CR vocal chantier — IA BTP | Laure Olivié",
+      "titleLen": 54,
+      "segLen": 39,
+      "desc": "—",
+      "descLen": 0,
+      "problems": [
+        "description source non extraite"
+      ],
+      "helper": true,
+      "finalFlag": true
+    },
+    {
       "url": "/etudes-de-cas/ffb-csfe",
       "file": "app/etudes-de-cas/ffb-csfe/page.tsx",
       "title": "Étude de cas FFB & CSFE — formation IA BTP",
@@ -675,6 +685,36 @@
       "descLen": 0,
       "problems": [
         "description source non extraite"
+      ],
+      "helper": true,
+      "finalFlag": true
+    },
+    {
+      "url": "/etudes-de-cas",
+      "file": "app/etudes-de-cas/page.tsx",
+      "title": "Études de cas formation IA BTP",
+      "titleFinal": "Études de cas formation IA BTP | Laure Olivié",
+      "titleLen": 45,
+      "segLen": 30,
+      "desc": "—",
+      "descLen": 0,
+      "problems": [
+        "description source non extraite"
+      ],
+      "helper": true,
+      "finalFlag": true
+    },
+    {
+      "url": "/evenements/repondre-appel-offres-btp-5-etapes",
+      "file": "app/evenements/repondre-appel-offres-btp-5-etapes/page.tsx",
+      "title": "Webinaire appels d’offres BTP – 5 novembre 2026",
+      "titleFinal": "Webinaire appels d’offres BTP – 5 novembre | Laure Olivié",
+      "titleLen": 57,
+      "segLen": 47,
+      "desc": "Le 5 novembre 2026, de 12 h à 13 h, découvrez les 5 étapes pour répondre à un appel d’offres BTP avec l’IA. Événement en ligne — formation IA pour le BTP.",
+      "descLen": 154,
+      "problems": [
+        "title segment trop long (47>45) → troncature"
       ],
       "helper": true,
       "finalFlag": true
@@ -695,13 +735,14 @@
     {
       "url": "/financement-constructys-formation-ia-btp",
       "file": "app/financement-constructys-formation-ia-btp/page.tsx",
-      "title": "Financement Constructys IA BTP 2026",
-      "titleFinal": "Financement Constructys IA BTP 2026 | Laure Olivié",
-      "titleLen": 50,
-      "segLen": 35,
+      "title": "—",
+      "titleFinal": "—",
+      "titleLen": 0,
+      "segLen": 0,
       "desc": "—",
       "descLen": 0,
       "problems": [
+        "title source non extrait",
         "description source non extraite"
       ],
       "helper": true,
@@ -830,21 +871,6 @@
       ],
       "helper": true,
       "finalFlag": true
-    },
-    {
-      "url": "/formation-ia-artisans-btp",
-      "file": "app/formation-ia-artisans-btp/page.tsx",
-      "title": "Formation IA artisans BTP — ChatGPT",
-      "titleFinal": "Formation IA artisans BTP — ChatGPT | Laure Olivié",
-      "titleLen": 50,
-      "segLen": 35,
-      "desc": "Formation IA ChatGPT pour BTP : devis, emails, CR chantier en 4h. Organisme certifié Qualiopi. Financement possible selon éligibilité. TPE, PME et professionnels du bâtiment.",
-      "descLen": 174,
-      "problems": [
-        "desc trop longue (174)"
-      ],
-      "helper": true,
-      "finalFlag": false
     },
     {
       "url": "/formation-ia-assistante-administrative-btp",
@@ -1553,10 +1579,10 @@
       "titleFinal": "Formation IA à Paris — Présentiel BTP | Laure Olivié",
       "titleLen": 52,
       "segLen": 37,
-      "desc": "Formation IA à Paris : 4h en présentiel pour maîtriser ChatGPT sur vos devis, DCE et comptes rendus. Qualiopi, $. Réservez votre visio.",
-      "descLen": 135,
+      "desc": "Formation IA à Paris : 4h en présentiel pour maîtriser ChatGPT sur vos devis, DCE et comptes rendus. Qualiopi, financement possible selon éligibilité. Prendre rendez-vous.",
+      "descLen": 171,
       "problems": [
-        "desc trop courte (135)"
+        "desc trop longue (171)"
       ],
       "helper": true,
       "finalFlag": true
@@ -1720,8 +1746,56 @@
       "skipFix": true
     },
     {
-      "url": "/formations/cursor-btp",
-      "file": "app/formations/cursor-btp/page.tsx",
+      "url": "/formations/application-metier-btp-niveau-1",
+      "file": "app/formations/application-metier-btp-niveau-1/page.tsx",
+      "title": "—",
+      "titleFinal": "—",
+      "titleLen": 0,
+      "segLen": 0,
+      "desc": "—",
+      "descLen": 0,
+      "problems": [
+        "title source non extrait",
+        "description source non extraite"
+      ],
+      "helper": true,
+      "finalFlag": true
+    },
+    {
+      "url": "/formations/application-metier-btp-niveau-2",
+      "file": "app/formations/application-metier-btp-niveau-2/page.tsx",
+      "title": "—",
+      "titleFinal": "—",
+      "titleLen": 0,
+      "segLen": 0,
+      "desc": "—",
+      "descLen": 0,
+      "problems": [
+        "title source non extrait",
+        "description source non extraite"
+      ],
+      "helper": true,
+      "finalFlag": true
+    },
+    {
+      "url": "/formations/application-metier-btp-niveau-3",
+      "file": "app/formations/application-metier-btp-niveau-3/page.tsx",
+      "title": "—",
+      "titleFinal": "—",
+      "titleLen": 0,
+      "segLen": 0,
+      "desc": "—",
+      "descLen": 0,
+      "problems": [
+        "title source non extrait",
+        "description source non extraite"
+      ],
+      "helper": true,
+      "finalFlag": true
+    },
+    {
+      "url": "/formations/assistants-ia-personnalises-btp",
+      "file": "app/formations/assistants-ia-personnalises-btp/page.tsx",
       "title": "—",
       "titleFinal": "—",
       "titleLen": 0,
@@ -1832,6 +1906,22 @@
       "finalFlag": true
     },
     {
+      "url": "/formations/ia-etudes-prix-chiffrage-btp",
+      "file": "app/formations/ia-etudes-prix-chiffrage-btp/page.tsx",
+      "title": "—",
+      "titleFinal": "—",
+      "titleLen": 0,
+      "segLen": 0,
+      "desc": "—",
+      "descLen": 0,
+      "problems": [
+        "title source non extrait",
+        "description source non extraite"
+      ],
+      "helper": true,
+      "finalFlag": true
+    },
+    {
       "url": "/formations/ia-maitrise-oeuvre",
       "file": "app/formations/ia-maitrise-oeuvre/page.tsx",
       "title": "—",
@@ -1850,10 +1940,10 @@
     {
       "url": "/formations/ia-pme-btp",
       "file": "app/formations/ia-pme-btp/page.tsx",
-      "title": "Formation IA PME BTP — Dirigeants Bâtiment",
-      "titleFinal": "Formation IA PME BTP — Dirigeants Bâtiment | Laure Olivié",
-      "titleLen": 57,
-      "segLen": 42,
+      "title": "Déployer l’IA dans une PME BTP",
+      "titleFinal": "Déployer l’IA dans une PME BTP | Laure Olivié",
+      "titleLen": 45,
+      "segLen": 30,
       "desc": "—",
       "descLen": 0,
       "problems": [
@@ -1881,13 +1971,14 @@
     {
       "url": "/formations",
       "file": "app/formations/page.tsx",
-      "title": "Catalogue formations IA pour le BTP",
-      "titleFinal": "Catalogue formations IA pour le BTP | Laure Olivié",
-      "titleLen": 50,
-      "segLen": 35,
+      "title": "—",
+      "titleFinal": "—",
+      "titleLen": 0,
+      "segLen": 0,
       "desc": "—",
       "descLen": 0,
       "problems": [
+        "title source non extrait",
         "description source non extraite"
       ],
       "helper": true,
@@ -2026,14 +2117,15 @@
     {
       "url": "/indicateurs-resultats",
       "file": "app/indicateurs-resultats/page.tsx",
-      "title": "Indicateurs de résultats — OFC formation BTP",
-      "titleFinal": "Indicateurs de résultats — OFC formation BTP | Laure Olivié",
-      "titleLen": 59,
-      "segLen": 44,
-      "desc": "${formatIndicateurSatisfactionLibelle()}. Questionnaires à chaud — indicateur 2 Qualiopi, OFC Création d'Entreprise.",
-      "descLen": 116,
+      "title": "—",
+      "titleFinal": "—",
+      "titleLen": 0,
+      "segLen": 0,
+      "desc": "—",
+      "descLen": 0,
       "problems": [
-        "desc trop courte (116)"
+        "title source non extrait",
+        "description source non extraite"
       ],
       "helper": true,
       "finalFlag": true
@@ -2191,14 +2283,32 @@
     {
       "url": "/",
       "file": "app/page.tsx",
-      "title": "Formation IA pour le BTP en Île-de-France",
-      "titleFinal": "Formation IA pour le BTP en Île-de-France | Laure Olivié",
-      "titleLen": 56,
-      "segLen": 41,
-      "desc": "Formation IA pour le BTP en présentiel IDF : devis, DCE et CR. Qualiopi, Constructys selon éligibilité. Laure Olivié — ${formatNoteSatisfactionAffichageComplet()}. Visio découverte.",
-      "descLen": 181,
+      "title": "Formation IA BTP | Devis, chantier & appels d'offres",
+      "titleFinal": "Formation IA BTP | Devis, chantier & appels | Laure Olivié",
+      "titleLen": 58,
+      "segLen": 52,
+      "desc": "Formations IA pour les professionnels du BTP : devis, DCE, conduite de travaux, comptes rendus et appels d\\",
+      "descLen": 107,
       "problems": [
-        "desc trop longue (181)"
+        "title segment trop long (52>45) → troncature",
+        "desc trop courte (107)",
+        "pas de ponctuation finale"
+      ],
+      "helper": true,
+      "finalFlag": true
+    },
+    {
+      "url": "/parcours/applications-metier-btp",
+      "file": "app/parcours/applications-metier-btp/page.tsx",
+      "title": "—",
+      "titleFinal": "—",
+      "titleLen": 0,
+      "segLen": 0,
+      "desc": "—",
+      "descLen": 0,
+      "problems": [
+        "title source non extrait",
+        "description source non extraite"
       ],
       "helper": true,
       "finalFlag": true
@@ -2250,19 +2360,18 @@
     {
       "url": "/prendre-rendez-vous",
       "file": "app/prendre-rendez-vous/page.tsx",
-      "title": "Prendre rendez-vous : appel découverte formation IA BTP",
-      "titleFinal": "Prendre rendez-vous : appel découverte | Laure Olivié",
-      "titleLen": 53,
-      "segLen": 55,
-      "desc": "Formation IA pour le BTP : réservez un appel découverte gratuit de 30 min. Visio Calendly, devis Qualiopi et financement Constructys.",
-      "descLen": 133,
+      "title": "—",
+      "titleFinal": "—",
+      "titleLen": 0,
+      "segLen": 0,
+      "desc": "—",
+      "descLen": 0,
       "problems": [
-        "title segment trop long (55>45) → troncature",
-        "desc trop courte (133)",
-        "sans descriptionFinal — enrich peut modifier"
+        "title source non extrait",
+        "description source non extraite"
       ],
       "helper": true,
-      "finalFlag": false
+      "finalFlag": true
     },
     {
       "url": "/prompts-ia-conducteur-travaux",
@@ -2305,6 +2414,22 @@
         "metadata non-statique (generateMetadata ou absent)"
       ],
       "skipFix": true
+    },
+    {
+      "url": "/rdv/[token]",
+      "file": "app/rdv/[token]/page.tsx",
+      "title": "Gérer mon rendez-vous",
+      "titleFinal": "Gérer mon rendez-vous | Laure Olivié",
+      "titleLen": 36,
+      "segLen": 21,
+      "desc": "Modifier ou annuler votre rendez-vous avec Laure Olivié — formation IA pour le BTP.",
+      "descLen": 83,
+      "problems": [
+        "desc trop courte (83)",
+        "sans descriptionFinal — enrich peut modifier"
+      ],
+      "helper": true,
+      "finalFlag": false
     },
     {
       "url": "/reclamations",
@@ -2350,7 +2475,7 @@
         "description source non extraite"
       ],
       "helper": true,
-      "finalFlag": false
+      "finalFlag": true
     },
     {
       "url": "/ressources/bibliotheque-prompts-btp-par-metier",
@@ -2556,14 +2681,31 @@
     {
       "url": "/ressources",
       "file": "app/ressources/page.tsx",
-      "title": "Ressources IA BTP : appels d’offres & tutos",
-      "titleFinal": "Ressources IA BTP : appels d’offres & tutos | Laure Olivié",
+      "title": "Ressources IA BTP gratuites | Guides, tutos et outils",
+      "titleFinal": "Ressources IA BTP gratuites | Guides, tutos | Laure Olivié",
       "titleLen": 58,
-      "segLen": 43,
-      "desc": "Tutos gratuits appels d’offres, DCE et chantier. Formation IA pour le BTP en Île-de-France : guides PDF, lexique et skills Claude. Sans inscription.",
-      "descLen": 148,
+      "segLen": 53,
+      "desc": "Guides, tutoriels, prompts et outils gratuits pour utiliser l’IA dans le BTP : DCE, mémoire technique, chantier, PPSPS, DOE et productivité.",
+      "descLen": 140,
       "problems": [
-        "desc trop courte (148)"
+        "title segment trop long (53>45) → troncature",
+        "desc trop courte (140)"
+      ],
+      "helper": true,
+      "finalFlag": true
+    },
+    {
+      "url": "/ressources/tuto-skill-pic",
+      "file": "app/ressources/tuto-skill-pic/page.tsx",
+      "title": "—",
+      "titleFinal": "—",
+      "titleLen": 0,
+      "segLen": 0,
+      "desc": "—",
+      "descLen": 0,
+      "problems": [
+        "title source non extrait",
+        "description source non extraite"
       ],
       "helper": true,
       "finalFlag": true
@@ -2586,14 +2728,16 @@
     {
       "url": "/",
       "file": "app/page.tsx",
-      "title": "Formation IA pour le BTP en Île-de-France",
-      "titleFinal": "Formation IA pour le BTP en Île-de-France | Laure Olivié",
-      "titleLen": 56,
-      "segLen": 41,
-      "desc": "Formation IA pour le BTP en présentiel IDF : devis, DCE et CR. Qualiopi, Constructys selon éligibilité. Laure Olivié — ${formatNoteSatisfactionAffichageComplet()}. Visio découverte.",
-      "descLen": 181,
+      "title": "Formation IA BTP | Devis, chantier & appels d'offres",
+      "titleFinal": "Formation IA BTP | Devis, chantier & appels | Laure Olivié",
+      "titleLen": 58,
+      "segLen": 52,
+      "desc": "Formations IA pour les professionnels du BTP : devis, DCE, conduite de travaux, comptes rendus et appels d\\",
+      "descLen": 107,
       "problems": [
-        "desc trop longue (181)"
+        "title segment trop long (52>45) → troncature",
+        "desc trop courte (107)",
+        "pas de ponctuation finale"
       ],
       "helper": true,
       "finalFlag": true
@@ -2601,13 +2745,14 @@
     {
       "url": "/a-propos",
       "file": "app/a-propos/page.tsx",
-      "title": "Laure Olivié — formatrice IA BTP Qualiopi | Laure Olivié",
-      "titleFinal": "Laure Olivié — formatrice IA BTP Qualiopi | Laure Olivié",
-      "titleLen": 56,
-      "segLen": 41,
+      "title": "—",
+      "titleFinal": "—",
+      "titleLen": 0,
+      "segLen": 0,
       "desc": "—",
       "descLen": 0,
       "problems": [
+        "title source non extrait",
         "description source non extraite"
       ],
       "helper": true,
@@ -2616,17 +2761,18 @@
     {
       "url": "/accessibilite-handicap",
       "file": "app/accessibilite-handicap/page.tsx",
-      "title": "Accessibilité handicap — formations BTP",
-      "titleFinal": "Accessibilité handicap — formations BTP | Laure Olivié",
-      "titleLen": 54,
-      "segLen": 39,
-      "desc": "Accessibilité handicap OFC : référente Laure Olivié, adaptations en formation IA pour le BTP. Contact dès l'inscription, acteurs mobilisables (AGEFIPH, Cap Emploi, MDPH) selon besoin.",
-      "descLen": 183,
+      "title": "—",
+      "titleFinal": "—",
+      "titleLen": 0,
+      "segLen": 0,
+      "desc": "—",
+      "descLen": 0,
       "problems": [
-        "desc trop longue (183)"
+        "title source non extrait",
+        "description source non extraite"
       ],
       "helper": true,
-      "finalFlag": false
+      "finalFlag": true
     },
     {
       "url": "/achat/succes",
@@ -2809,30 +2955,6 @@
       "skipFix": true
     },
     {
-      "url": "/admin/media-dashboard",
-      "file": "app/admin/media-dashboard/page.tsx",
-      "title": "(generateMetadata dynamique / absent)",
-      "titleLen": 0,
-      "desc": "(dynamique / absent)",
-      "descLen": 0,
-      "problems": [
-        "metadata non-statique (generateMetadata ou absent)"
-      ],
-      "skipFix": true
-    },
-    {
-      "url": "/admin/parametres",
-      "file": "app/admin/parametres/page.tsx",
-      "title": "(generateMetadata dynamique / absent)",
-      "titleLen": 0,
-      "desc": "(dynamique / absent)",
-      "descLen": 0,
-      "problems": [
-        "metadata non-statique (generateMetadata ou absent)"
-      ],
-      "skipFix": true
-    },
-    {
       "url": "/admin/pipeline",
       "file": "app/admin/pipeline/page.tsx",
       "title": "(generateMetadata dynamique / absent)",
@@ -2921,16 +3043,28 @@
       "finalFlag": false
     },
     {
+      "url": "/auth/confirm",
+      "file": "app/auth/confirm/page.tsx",
+      "title": "(generateMetadata dynamique / absent)",
+      "titleLen": 0,
+      "desc": "(dynamique / absent)",
+      "descLen": 0,
+      "problems": [
+        "metadata non-statique (generateMetadata ou absent)"
+      ],
+      "skipFix": true
+    },
+    {
       "url": "/auth/connexion",
       "file": "app/auth/connexion/page.tsx",
       "title": "Connexion formation IA BTP : espace apprenant",
       "titleFinal": "Connexion formation IA BTP : espace apprenant | Laure Olivié",
       "titleLen": 60,
       "segLen": 45,
-      "desc": "Connexion à l’espace apprenant OFC : formation IA pour le BTP, supports ChatGPT BTP, Claude et suivi Qualiopi. Artisans et PME — Île-de-France.",
-      "descLen": 143,
+      "desc": "Connexion à l’espace apprenant OFC : formation IA pour le BTP, supports ChatGPT BTP, Claude et suivi Qualiopi. TPE, PME — Île-de-France.",
+      "descLen": 136,
       "problems": [
-        "desc trop courte (143)",
+        "desc trop courte (136)",
         "sans descriptionFinal — enrich peut modifier"
       ],
       "helper": true,
@@ -2959,6 +3093,22 @@
         "metadata non-statique (generateMetadata ou absent)"
       ],
       "skipFix": true
+    },
+    {
+      "url": "/bework",
+      "file": "app/bework/page.tsx",
+      "title": "BeWork — créer avec l’IA sans savoir coder",
+      "titleFinal": "BeWork — créer avec l’IA sans savoir coder | Laure Olivié",
+      "titleLen": 57,
+      "segLen": 42,
+      "desc": "Formation BeWork : créez sites, apps et outils avec l’IA sans programmer. Parcours 7 h (300 €) ou 14 h (600 €). Détails sur bework.fr.",
+      "descLen": 134,
+      "problems": [
+        "desc trop courte (134)",
+        "sans descriptionFinal — enrich peut modifier"
+      ],
+      "helper": true,
+      "finalFlag": false
     },
     {
       "url": "/bework/plateforme",
@@ -3127,7 +3277,7 @@
         "description source non extraite"
       ],
       "helper": true,
-      "finalFlag": false
+      "finalFlag": true
     },
     {
       "url": "/cours/[slug]",
@@ -3148,14 +3298,16 @@
     {
       "url": "/diagnostic-ia-btp",
       "file": "app/diagnostic-ia-btp/page.tsx",
-      "title": "Diagnostic IA BTP gratuit — Test 60 secondes",
-      "titleFinal": "Diagnostic IA BTP gratuit — Test 60 secondes | Laure Olivié",
-      "titleLen": 59,
-      "segLen": 44,
-      "desc": "Évaluez où l'IA peut vous faire gagner du temps sur vos devis et l'administratif. Diagnostic BTP gratuit, résultat personnalisé. Lancez le test.",
-      "descLen": 144,
+      "title": "Diagnostic IA BTP gratuit | Identifiez vos gains de temps",
+      "titleFinal": "Diagnostic IA BTP gratuit | Identifiez vos | Laure Olivié",
+      "titleLen": 57,
+      "segLen": 57,
+      "desc": "Réalisez gratuitement votre diagnostic IA BTP. Identifiez vos tâches automatisables, vos cas d\\",
+      "descLen": 95,
       "problems": [
-        "desc trop courte (144)",
+        "title segment trop long (57>45) → troncature",
+        "desc trop courte (95)",
+        "pas de ponctuation finale",
         "sans descriptionFinal — enrich peut modifier"
       ],
       "helper": true,
@@ -3210,6 +3362,36 @@
       "skipFix": true
     },
     {
+      "url": "/etudes-de-cas",
+      "file": "app/etudes-de-cas/page.tsx",
+      "title": "Études de cas formation IA BTP",
+      "titleFinal": "Études de cas formation IA BTP | Laure Olivié",
+      "titleLen": 45,
+      "segLen": 30,
+      "desc": "—",
+      "descLen": 0,
+      "problems": [
+        "description source non extraite"
+      ],
+      "helper": true,
+      "finalFlag": true
+    },
+    {
+      "url": "/etudes-de-cas/compte-rendu-vocal-chantier-btp",
+      "file": "app/etudes-de-cas/compte-rendu-vocal-chantier-btp/page.tsx",
+      "title": "Étude de cas CR vocal chantier — IA BTP",
+      "titleFinal": "Étude de cas CR vocal chantier — IA BTP | Laure Olivié",
+      "titleLen": 54,
+      "segLen": 39,
+      "desc": "—",
+      "descLen": 0,
+      "problems": [
+        "description source non extraite"
+      ],
+      "helper": true,
+      "finalFlag": true
+    },
+    {
       "url": "/etudes-de-cas/ffb-csfe",
       "file": "app/etudes-de-cas/ffb-csfe/page.tsx",
       "title": "Étude de cas FFB & CSFE — formation IA BTP",
@@ -3225,15 +3407,31 @@
       "finalFlag": true
     },
     {
+      "url": "/evenements/repondre-appel-offres-btp-5-etapes",
+      "file": "app/evenements/repondre-appel-offres-btp-5-etapes/page.tsx",
+      "title": "Webinaire appels d’offres BTP – 5 novembre 2026",
+      "titleFinal": "Webinaire appels d’offres BTP – 5 novembre | Laure Olivié",
+      "titleLen": 57,
+      "segLen": 47,
+      "desc": "Le 5 novembre 2026, de 12 h à 13 h, découvrez les 5 étapes pour répondre à un appel d’offres BTP avec l’IA. Événement en ligne — formation IA pour le BTP.",
+      "descLen": 154,
+      "problems": [
+        "title segment trop long (47>45) → troncature"
+      ],
+      "helper": true,
+      "finalFlag": true
+    },
+    {
       "url": "/financement-constructys-formation-ia-btp",
       "file": "app/financement-constructys-formation-ia-btp/page.tsx",
-      "title": "Financement Constructys IA BTP 2026",
-      "titleFinal": "Financement Constructys IA BTP 2026 | Laure Olivié",
-      "titleLen": 50,
-      "segLen": 35,
+      "title": "—",
+      "titleFinal": "—",
+      "titleLen": 0,
+      "segLen": 0,
       "desc": "—",
       "descLen": 0,
       "problems": [
+        "title source non extrait",
         "description source non extraite"
       ],
       "helper": true,
@@ -3317,21 +3515,6 @@
       ],
       "helper": true,
       "finalFlag": true
-    },
-    {
-      "url": "/formation-ia-artisans-btp",
-      "file": "app/formation-ia-artisans-btp/page.tsx",
-      "title": "Formation IA artisans BTP — ChatGPT",
-      "titleFinal": "Formation IA artisans BTP — ChatGPT | Laure Olivié",
-      "titleLen": 50,
-      "segLen": 35,
-      "desc": "Formation IA ChatGPT pour BTP : devis, emails, CR chantier en 4h. Organisme certifié Qualiopi. Financement possible selon éligibilité. TPE, PME et professionnels du bâtiment.",
-      "descLen": 174,
-      "problems": [
-        "desc trop longue (174)"
-      ],
-      "helper": true,
-      "finalFlag": false
     },
     {
       "url": "/formation-ia-assistante-administrative-btp",
@@ -4027,10 +4210,10 @@
       "titleFinal": "Formation IA à Paris — Présentiel BTP | Laure Olivié",
       "titleLen": 52,
       "segLen": 37,
-      "desc": "Formation IA à Paris : 4h en présentiel pour maîtriser ChatGPT sur vos devis, DCE et comptes rendus. Qualiopi, $. Réservez votre visio.",
-      "descLen": 135,
+      "desc": "Formation IA à Paris : 4h en présentiel pour maîtriser ChatGPT sur vos devis, DCE et comptes rendus. Qualiopi, financement possible selon éligibilité. Prendre rendez-vous.",
+      "descLen": 171,
       "problems": [
-        "desc trop courte (135)"
+        "desc trop longue (171)"
       ],
       "helper": true,
       "finalFlag": true
@@ -4190,13 +4373,14 @@
     {
       "url": "/formations",
       "file": "app/formations/page.tsx",
-      "title": "Catalogue formations IA pour le BTP",
-      "titleFinal": "Catalogue formations IA pour le BTP | Laure Olivié",
-      "titleLen": 50,
-      "segLen": 35,
+      "title": "—",
+      "titleFinal": "—",
+      "titleLen": 0,
+      "segLen": 0,
       "desc": "—",
       "descLen": 0,
       "problems": [
+        "title source non extrait",
         "description source non extraite"
       ],
       "helper": true,
@@ -4215,8 +4399,56 @@
       "skipFix": true
     },
     {
-      "url": "/formations/cursor-btp",
-      "file": "app/formations/cursor-btp/page.tsx",
+      "url": "/formations/application-metier-btp-niveau-1",
+      "file": "app/formations/application-metier-btp-niveau-1/page.tsx",
+      "title": "—",
+      "titleFinal": "—",
+      "titleLen": 0,
+      "segLen": 0,
+      "desc": "—",
+      "descLen": 0,
+      "problems": [
+        "title source non extrait",
+        "description source non extraite"
+      ],
+      "helper": true,
+      "finalFlag": true
+    },
+    {
+      "url": "/formations/application-metier-btp-niveau-2",
+      "file": "app/formations/application-metier-btp-niveau-2/page.tsx",
+      "title": "—",
+      "titleFinal": "—",
+      "titleLen": 0,
+      "segLen": 0,
+      "desc": "—",
+      "descLen": 0,
+      "problems": [
+        "title source non extrait",
+        "description source non extraite"
+      ],
+      "helper": true,
+      "finalFlag": true
+    },
+    {
+      "url": "/formations/application-metier-btp-niveau-3",
+      "file": "app/formations/application-metier-btp-niveau-3/page.tsx",
+      "title": "—",
+      "titleFinal": "—",
+      "titleLen": 0,
+      "segLen": 0,
+      "desc": "—",
+      "descLen": 0,
+      "problems": [
+        "title source non extrait",
+        "description source non extraite"
+      ],
+      "helper": true,
+      "finalFlag": true
+    },
+    {
+      "url": "/formations/assistants-ia-personnalises-btp",
+      "file": "app/formations/assistants-ia-personnalises-btp/page.tsx",
       "title": "—",
       "titleFinal": "—",
       "titleLen": 0,
@@ -4327,6 +4559,22 @@
       "finalFlag": true
     },
     {
+      "url": "/formations/ia-etudes-prix-chiffrage-btp",
+      "file": "app/formations/ia-etudes-prix-chiffrage-btp/page.tsx",
+      "title": "—",
+      "titleFinal": "—",
+      "titleLen": 0,
+      "segLen": 0,
+      "desc": "—",
+      "descLen": 0,
+      "problems": [
+        "title source non extrait",
+        "description source non extraite"
+      ],
+      "helper": true,
+      "finalFlag": true
+    },
+    {
       "url": "/formations/ia-maitrise-oeuvre",
       "file": "app/formations/ia-maitrise-oeuvre/page.tsx",
       "title": "—",
@@ -4345,10 +4593,10 @@
     {
       "url": "/formations/ia-pme-btp",
       "file": "app/formations/ia-pme-btp/page.tsx",
-      "title": "Formation IA PME BTP — Dirigeants Bâtiment",
-      "titleFinal": "Formation IA PME BTP — Dirigeants Bâtiment | Laure Olivié",
-      "titleLen": 57,
-      "segLen": 42,
+      "title": "Déployer l’IA dans une PME BTP",
+      "titleFinal": "Déployer l’IA dans une PME BTP | Laure Olivié",
+      "titleLen": 45,
+      "segLen": 30,
       "desc": "—",
       "descLen": 0,
       "problems": [
@@ -4454,14 +4702,15 @@
     {
       "url": "/indicateurs-resultats",
       "file": "app/indicateurs-resultats/page.tsx",
-      "title": "Indicateurs de résultats — OFC formation BTP",
-      "titleFinal": "Indicateurs de résultats — OFC formation BTP | Laure Olivié",
-      "titleLen": 59,
-      "segLen": 44,
-      "desc": "${formatIndicateurSatisfactionLibelle()}. Questionnaires à chaud — indicateur 2 Qualiopi, OFC Création d'Entreprise.",
-      "descLen": 116,
+      "title": "—",
+      "titleFinal": "—",
+      "titleLen": 0,
+      "segLen": 0,
+      "desc": "—",
+      "descLen": 0,
       "problems": [
-        "desc trop courte (116)"
+        "title source non extrait",
+        "description source non extraite"
       ],
       "helper": true,
       "finalFlag": true
@@ -4565,6 +4814,22 @@
       "finalFlag": false
     },
     {
+      "url": "/parcours/applications-metier-btp",
+      "file": "app/parcours/applications-metier-btp/page.tsx",
+      "title": "—",
+      "titleFinal": "—",
+      "titleLen": 0,
+      "segLen": 0,
+      "desc": "—",
+      "descLen": 0,
+      "problems": [
+        "title source non extrait",
+        "description source non extraite"
+      ],
+      "helper": true,
+      "finalFlag": true
+    },
+    {
       "url": "/partenaires",
       "file": "app/partenaires/page.tsx",
       "title": "—",
@@ -4611,19 +4876,18 @@
     {
       "url": "/prendre-rendez-vous",
       "file": "app/prendre-rendez-vous/page.tsx",
-      "title": "Prendre rendez-vous : appel découverte formation IA BTP",
-      "titleFinal": "Prendre rendez-vous : appel découverte | Laure Olivié",
-      "titleLen": 53,
-      "segLen": 55,
-      "desc": "Formation IA pour le BTP : réservez un appel découverte gratuit de 30 min. Visio Calendly, devis Qualiopi et financement Constructys.",
-      "descLen": 133,
+      "title": "—",
+      "titleFinal": "—",
+      "titleLen": 0,
+      "segLen": 0,
+      "desc": "—",
+      "descLen": 0,
       "problems": [
-        "title segment trop long (55>45) → troncature",
-        "desc trop courte (133)",
-        "sans descriptionFinal — enrich peut modifier"
+        "title source non extrait",
+        "description source non extraite"
       ],
       "helper": true,
-      "finalFlag": false
+      "finalFlag": true
     },
     {
       "url": "/prompts-ia-conducteur-travaux",
@@ -4668,6 +4932,22 @@
       "skipFix": true
     },
     {
+      "url": "/rdv/[token]",
+      "file": "app/rdv/[token]/page.tsx",
+      "title": "Gérer mon rendez-vous",
+      "titleFinal": "Gérer mon rendez-vous | Laure Olivié",
+      "titleLen": 36,
+      "segLen": 21,
+      "desc": "Modifier ou annuler votre rendez-vous avec Laure Olivié — formation IA pour le BTP.",
+      "descLen": 83,
+      "problems": [
+        "desc trop courte (83)",
+        "sans descriptionFinal — enrich peut modifier"
+      ],
+      "helper": true,
+      "finalFlag": false
+    },
+    {
       "url": "/reclamations",
       "file": "app/reclamations/page.tsx",
       "title": "Réclamations | Laure Olivié",
@@ -4700,14 +4980,15 @@
     {
       "url": "/ressources",
       "file": "app/ressources/page.tsx",
-      "title": "Ressources IA BTP : appels d’offres & tutos",
-      "titleFinal": "Ressources IA BTP : appels d’offres & tutos | Laure Olivié",
+      "title": "Ressources IA BTP gratuites | Guides, tutos et outils",
+      "titleFinal": "Ressources IA BTP gratuites | Guides, tutos | Laure Olivié",
       "titleLen": 58,
-      "segLen": 43,
-      "desc": "Tutos gratuits appels d’offres, DCE et chantier. Formation IA pour le BTP en Île-de-France : guides PDF, lexique et skills Claude. Sans inscription.",
-      "descLen": 148,
+      "segLen": 53,
+      "desc": "Guides, tutoriels, prompts et outils gratuits pour utiliser l’IA dans le BTP : DCE, mémoire technique, chantier, PPSPS, DOE et productivité.",
+      "descLen": 140,
       "problems": [
-        "desc trop courte (148)"
+        "title segment trop long (53>45) → troncature",
+        "desc trop courte (140)"
       ],
       "helper": true,
       "finalFlag": true
@@ -4726,7 +5007,7 @@
         "description source non extraite"
       ],
       "helper": true,
-      "finalFlag": false
+      "finalFlag": true
     },
     {
       "url": "/ressources/bibliotheque-skills",
@@ -4824,6 +5105,22 @@
       ],
       "helper": true,
       "finalFlag": false
+    },
+    {
+      "url": "/ressources/tuto-skill-pic",
+      "file": "app/ressources/tuto-skill-pic/page.tsx",
+      "title": "—",
+      "titleFinal": "—",
+      "titleLen": 0,
+      "segLen": 0,
+      "desc": "—",
+      "descLen": 0,
+      "problems": [
+        "title source non extrait",
+        "description source non extraite"
+      ],
+      "helper": true,
+      "finalFlag": true
     }
   ]
 }

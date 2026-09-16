@@ -219,8 +219,8 @@ export const LINKS = {
   formationIaCloturisteBtp: '/formation-ia-cloturiste-btp',
   formationIaGeometreTp: '/formation-ia-geometre-tp',
   formationIaMaconPaysagisteBtp: '/formation-ia-macon-paysagiste-btp',
-  /** Landing SEO distincte de `/formation-ia-conducteur-de-travaux-btp` */
-  formationIaConducteurTravauxLanding: '/formation-ia-conducteur-travaux',
+  /** Canonique SEO — formation IA conducteur de travaux */
+  formationIaConducteurTravauxLanding: '/formation-ia-conducteur-de-travaux',
   /** Landing catalogue PME (hors les sessions catalogue NIV-01 à NIV-08) */
   formationPmeBtp: '/formations/ia-pme-btp',
 
@@ -372,6 +372,8 @@ export const LINKS = {
   blogChatgptPeintreBatiment: '/blog/chatgpt-peintre-batiment',
   /** Article — IA devis bâtiment et chiffrage automatisé */
   blogIaDevisBatimentChiffrageAutomatise: '/blog/ia-devis-batiment-chiffrage-automatise',
+  /** Article MDX — DOE et PV de réception avec l’IA */
+  blogDoePvReceptionIaBtp: '/blog/doe-pv-reception-ia-btp',
   /** Article — devis ChatGPT BTP en ~20 minutes (méthode terrain) */
   blogDevisBtpChatgpt20Minutes: '/blog/devis-btp-chatgpt-20-minutes',
   /** Article — méthode ChatGPT devis BTP pas à pas 2026 */

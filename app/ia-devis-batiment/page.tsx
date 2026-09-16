@@ -149,7 +149,7 @@ const FAQ_IA_DEVIS_BATIMENT = [
   },
   {
     q: "Combien de temps peut-on gagner sur un devis avec l'IA ?",
-    a: "En pratique, un premier devis structuré en moins d'une heure, contre une demi-journée en routine — selon la complexité du chantier et la qualité du prompt. L'IA structure ; vous relisez et ajustez les PU. Le <a href=\"/blog/ia-devis-batiment-chiffrage-automatise\">guide chiffrage automatisé IA devis bâtiment</a> reprend des exemples par métier (électricité, plomberie, maçonnerie).",
+    a: `En pratique, un premier devis structuré en moins d'une heure, contre une demi-journée en routine — selon la complexité du chantier et la qualité du prompt. L'IA structure ; vous relisez et ajustez les PU. Pour le détail outil par outil, voir <a href="${LINKS.blogIaDevisBatimentChiffrageAutomatise}#faq">logiciel de devis BTP avec l'IA</a>.`,
   },
   {
     q: "Faut-il une formation pour utiliser l'IA sur les devis ?",

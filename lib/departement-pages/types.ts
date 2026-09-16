@@ -32,4 +32,15 @@ export type DepartementPageData = {
   keywords?: string[];
   metaTitle?: string;
   metaDescription?: string;
+  /**
+   * Section H2 géo locale (villes citées) — optionnelle.
+   * `link` uniquement si la cible est une page distincte (pas de redirect vers self).
+   */
+  sectionGeoLocale?: {
+    title: string;
+    body: string;
+    link?: { href: string; label: string };
+  };
+  /** Maillage prioritaire (ex. pilier IDF + Claude + financement) — max 3, sans doublon. */
+  liensPrioritaires?: readonly { href: string; label: string }[];
 };

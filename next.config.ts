@@ -87,7 +87,15 @@ const nextConfig: NextConfig = {
       },
       {
         source: '/llms.txt',
-        headers: [{ key: 'Content-Type', value: 'text/plain; charset=utf-8' }],
+        headers: [
+          { key: 'Content-Type', value: 'text/plain; charset=utf-8' },
+          { key: 'X-Robots-Tag', value: 'noindex, nofollow' },
+        ],
+      },
+      {
+        /** Tous les PDF sous /public — hors index Google, téléchargement inchangé. */
+        source: '/:path*.pdf',
+        headers: [{ key: 'X-Robots-Tag', value: 'noindex, nofollow' }],
       },
       {
         source: '/invitation/:path*',

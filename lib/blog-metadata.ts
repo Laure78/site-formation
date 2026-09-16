@@ -19,7 +19,7 @@ const OG = {
   alt: 'Blog formation IA BTP — conseils ChatGPT et Claude pour le chantier',
 } as const;
 
-/** Pages liste blog indexables (index, follow). */
+/** Pages liste blog indexables (index, follow) — page 1 uniquement. */
 const BLOG_LISTING_ROBOTS: Metadata['robots'] = {
   index: true,
   follow: true,
@@ -30,6 +30,12 @@ const BLOG_LISTING_ROBOTS: Metadata['robots'] = {
     'max-image-preview': 'large',
     'max-video-preview': -1,
   },
+};
+
+/** Pagination `/blog/page/[n]` (n ≥ 2) — hors index, liens suivis. */
+const BLOG_PAGINATION_ROBOTS: Metadata['robots'] = {
+  index: false,
+  follow: true,
 };
 
 function withPagination(
@@ -50,7 +56,7 @@ function withPagination(
  * Métadonnées index `/blog` et `/blog/page/N`.
  * - canonical auto-référencé via `path` (jamais forcé vers `/blog` sur les pages ≥ 2)
  * - title paginé via `joinTitleSegments` + `buildBrandedTitle` (≤ 60 car.)
- * - robots index,follow explicites
+ * - robots : index,follow sur `/blog` ; noindex,follow sur `/blog/page/N` (N ≥ 2)
  * - `pagination.previous` / `pagination.next` → `<link rel="prev|next">`
  */
 export function getBlogIndexMetadata(path: string, pageNum: number): Metadata {
@@ -75,7 +81,7 @@ export function getBlogIndexMetadata(path: string, pageNum: number): Metadata {
     keywords: null,
     appendAuthorSuffix: false,
     image: OG,
-    robots: BLOG_LISTING_ROBOTS,
+    robots: isFirst ? BLOG_LISTING_ROBOTS : BLOG_PAGINATION_ROBOTS,
   });
 
   return withPagination(meta, pageNum, totalPages, blogIndexListingHref);

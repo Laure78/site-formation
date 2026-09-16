@@ -46,6 +46,7 @@ export async function generateMetadata({
   return createPageMetadata({
     title: tuto.metaTitle,
     description: tuto.metaDescription,
+    descriptionFinal: true,
     path: `/ressources/${tuto.slug}`,
     openGraphType: 'article',
     article: {
@@ -56,6 +57,8 @@ export async function generateMetadata({
     },
     image: ogImageFor(tuto),
     appendAuthorSuffix: false,
+    openGraphTitle: tuto.metaTitle,
+    openGraphDescription: tuto.metaDescription,
   });
 }
 

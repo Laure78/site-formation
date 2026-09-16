@@ -159,6 +159,8 @@ export const GSC_EXCLUDED_SITEMAP_PATHS = new Set<string>([
   '/formations/ia-btp-lyon',
   '/formation-chatgpt-artisan-electricien',
   '/formation-ia-conducteur-travaux-btp',
+  '/formation-ia-conducteur-travaux',
+  '/formation-ia-conducteur-de-travaux-btp',
   '/repondre-appels-offres-ia-btp',
   '/formations/ia-btp-yvelines-78',
   '/auteur/laure-olivie',

@@ -140,8 +140,9 @@ function getAdditionalMarketingRoutes(baseUrl: string): MetadataRoute.Sitemap {
     { path: LINKS.qualiopi, priority: 0.55, changeFrequency: 'yearly' },
     { path: LINKS.indicateursResultats, priority: 0.5, changeFrequency: 'yearly' },
     { path: LINKS.accessibiliteHandicap, priority: 0.5, changeFrequency: 'yearly' },
-    { path: '/install-pwa', priority: 0.7, changeFrequency: 'monthly' },
+    // /install-pwa : noindex (hors sitemap)
     { path: '/ressources/tutos', priority: 0.88, changeFrequency: 'weekly' },
+    { path: LINKS.guideSkillIaConducteurTravaux, priority: 0.85, changeFrequency: 'monthly' },
   ];
 
   return entries.map((e) => ({
@@ -174,7 +175,7 @@ function buildBlogSitemapEntries(baseUrl: string): MetadataRoute.Sitemap {
     }))
   );
 
-  // Pagination `/blog/page/[n]` : indexable mais exclue du sitemap (faible valeur crawl).
+  // Pagination `/blog/page/[n]` : noindex + exclue du sitemap (faible valeur crawl).
 
   for (const id of Object.keys(BLOG_CATEGORIES) as BlogCategoryId[]) {
     const pathSlug = BLOG_CATEGORY_PATH_SLUGS[id];
@@ -358,7 +359,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     if (SITEMAP_EXCLUDED_LOW_VALUE_PATHS.has(pathOnly)) return false;
     // Pagination blog principale : jamais poussée dans le sitemap
     if (/^\/blog\/page\/\d+$/.test(pathOnly)) return false;
-    // Fichiers statiques : jamais dans le sitemap HTML
+    // Fichiers statiques / ancres : jamais dans le sitemap HTML
+    if (pathOnly.includes('#')) return false;
     if (/\.(txt|pdf)$/i.test(pathOnly)) return false;
     return true;
   });

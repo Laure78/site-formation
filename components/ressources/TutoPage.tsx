@@ -7,18 +7,18 @@ import { MaillageRessourceFromConfig } from '@/app/components/MaillageRessource'
 import { CopyPromptButton } from '@/components/CopyPromptButton';
 import { CtaButton } from '@/components/CtaButton';
 import { SITE_CONFIG } from '@/lib/seo';
-import { SOCIAL_PROOF } from '@/lib/constants';
 import { PHOTOS } from '@/lib/photos';
 import { LINKS } from '@/lib/internal-links';
 import { EXTERNAL_SITE_URLS } from '@/lib/external-site-urls';
 import { getMaillageRessourceConfig } from '@/lib/maillage-ressources';
 import { buildRessourceTutoJsonLd } from '@/lib/schema-ressource-tuto-jsonld';
 import { FINANCEMENT_STAT_LABEL, FINANCEMENT_STAT_VAL } from '@/lib/financement-copy';
-import type { TutoBlock, TutoData, TutoStep } from '@/lib/tutos/types';
+import type { TutoBlock, TutoData, TutoLotsExamples, TutoSommaireTable, TutoStep } from '@/lib/tutos/types';
 import { tutoDownloadLabel } from '@/lib/tutos/types';
 import { computeHeroLearnAnchorIds } from '@/lib/tutos/hero-anchors';
 import { formatNoteSatisfactionSur5 } from '@/lib/data/indicateurs-resultats';
 import { getTutoEnBref } from '@/lib/tutos/en-bref';
+import { OFC_CTA_PRIMARY } from '@/lib/ofc-interaction-classes';
 
 function pdfUrlFor(tuto: TutoData): string {
   return `/ressources/pdf/${tuto.pdfFile}`;
@@ -162,10 +162,111 @@ function CtaStat({ value, label }: { value: string; label: string }) {
   );
 }
 
+function SommaireTableSection({
+  table,
+  pdfUrl,
+}: {
+  table: TutoSommaireTable;
+  pdfUrl: string;
+}) {
+  const [hPiece, hContenu, hQui] = table.headers;
+  return (
+    <section
+      className="border-t border-slate-200 bg-white py-12 md:py-16"
+      aria-labelledby="sommaire-doe"
+    >
+      <div className="mx-auto max-w-4xl px-4">
+        <h2
+          id="sommaire-doe"
+          className="scroll-mt-28 font-display text-2xl font-bold text-slate-900 md:text-3xl"
+        >
+          {table.title}
+        </h2>
+        {table.intro ? (
+          <p className="mt-4 text-slate-700 leading-relaxed">{table.intro}</p>
+        ) : null}
+        <div className="mt-8 overflow-x-auto rounded-2xl border border-slate-200 shadow-sm">
+          <table className="min-w-full border-collapse text-left text-sm md:text-[0.95rem]">
+            <thead>
+              <tr className="bg-[#377CF3] text-white">
+                <th scope="col" className="px-4 py-3 font-semibold sm:px-5">
+                  {hPiece}
+                </th>
+                <th scope="col" className="px-4 py-3 font-semibold sm:px-5">
+                  {hContenu}
+                </th>
+                <th scope="col" className="px-4 py-3 font-semibold sm:px-5">
+                  {hQui}
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              {table.rows.map((row) => (
+                <tr
+                  key={row.piece}
+                  className="border-t border-slate-200 odd:bg-white even:bg-[#F8FAFC]"
+                >
+                  <th
+                    scope="row"
+                    className="px-4 py-3.5 align-top font-semibold text-slate-900 sm:px-5"
+                  >
+                    {row.piece}
+                  </th>
+                  <td className="px-4 py-3.5 align-top text-slate-700 leading-relaxed sm:px-5">
+                    {row.contenu}
+                  </td>
+                  <td className="px-4 py-3.5 align-top text-slate-700 leading-relaxed sm:px-5">
+                    {row.qui}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <div className="mt-8">
+          <DownloadButton
+            href={pdfUrl}
+            variant="primary"
+            label={table.downloadLabel ?? 'Télécharger le modèle DOE'}
+          />
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function LotsExamplesSection({ lots }: { lots: TutoLotsExamples }) {
+  return (
+    <section
+      className="border-t border-slate-200 bg-white py-12 md:py-16"
+      aria-labelledby="exemples-doe-par-lot"
+    >
+      <div className="mx-auto max-w-4xl px-4">
+        <h2
+          id="exemples-doe-par-lot"
+          className="scroll-mt-28 font-display text-2xl font-bold text-slate-900 md:text-3xl"
+        >
+          {lots.title}
+        </h2>
+        <div className="mt-8 space-y-8">
+          {lots.lots.map((lot) => (
+            <div key={lot.title}>
+              <h3 className="font-display text-lg font-semibold text-slate-900 md:text-xl">
+                {lot.title}
+              </h3>
+              <p className="mt-3 text-slate-700 leading-relaxed">{lot.body}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 /** Page complète d'un tuto Ressource — reproduit fidèlement la mise en page du PDF source. */
 export function TutoPage({ tuto }: { tuto: TutoData }) {
   const pdfUrl = pdfUrlFor(tuto);
-  const downloadLabel = tutoDownloadLabel(tuto.pdfFile);
+  const downloadLabel = tuto.heroDownloadLabel ?? tutoDownloadLabel(tuto.pdfFile);
   const graph = buildRessourceTutoJsonLd(tuto);
   const heroAnchors = computeHeroLearnAnchorIds(tuto);
   const tutoPath = `${LINKS.ressources}/${tuto.slug}`;
@@ -284,6 +385,12 @@ export function TutoPage({ tuto }: { tuto: TutoData }) {
         </div>
       </section>
 
+      {tuto.sommaireTable ? (
+        <SommaireTableSection table={tuto.sommaireTable} pdfUrl={pdfUrl} />
+      ) : null}
+
+      {tuto.lotsExamples ? <LotsExamplesSection lots={tuto.lotsExamples} /> : null}
+
       {/* Section intro */}
       <section className="bg-[#F8FAFC] py-12 md:py-16" aria-labelledby={`intro-${tuto.slug}`}>
         <div className="mx-auto max-w-4xl px-4">
@@ -328,7 +435,10 @@ export function TutoPage({ tuto }: { tuto: TutoData }) {
                 <h3 className="font-display text-lg font-semibold text-slate-900 md:text-xl">
                   {it.q}
                 </h3>
-                <p className="mt-3 text-slate-700 leading-relaxed">{it.a}</p>
+                <p className="mt-3 font-medium text-slate-800 leading-relaxed">{it.a}</p>
+                {it.aDetail ? (
+                  <p className="mt-2 text-slate-700 leading-relaxed">{it.aDetail}</p>
+                ) : null}
               </div>
             ))}
           </div>
@@ -438,6 +548,16 @@ export function TutoPage({ tuto }: { tuto: TutoData }) {
                 {tuto.cta.primaryLabel ?? 'Réserver un appel de cadrage BeWork'}
                 <ArrowRight size={18} aria-hidden />
               </a>
+            ) : tuto.finalCtaLabel ? (
+              <Link
+                href={LINKS.prendreRdv}
+                data-cta="rdv"
+                className={`${OFC_CTA_PRIMARY} inline-flex items-center justify-center gap-2 rounded-xl px-6 py-3.5 text-[0.95rem] font-semibold shadow-sm`}
+                aria-label={tuto.finalCtaLabel}
+              >
+                {tuto.finalCtaLabel}
+                <ArrowRight size={18} aria-hidden />
+              </Link>
             ) : (
               <CtaButton
                 origin={`ressources-tuto-${tuto.slug}-rdv`}
@@ -447,9 +567,11 @@ export function TutoPage({ tuto }: { tuto: TutoData }) {
               href={pdfUrl}
               variant="outline"
               label={
-                tuto.pdfFile.toLowerCase().endsWith('.docx')
-                  ? 'Re-télécharger le Word'
-                  : 'Re-télécharger le PDF'
+                tuto.heroDownloadLabel
+                  ? 'Re-télécharger le modèle DOE'
+                  : tuto.pdfFile.toLowerCase().endsWith('.docx')
+                    ? 'Re-télécharger le Word'
+                    : 'Re-télécharger le PDF'
               }
             />
           </div>

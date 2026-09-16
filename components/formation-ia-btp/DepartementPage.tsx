@@ -92,16 +92,26 @@ export function DepartementPage({ data }: { data: DepartementPageData }) {
   const faqSchema = getFAQSchema([...data.faqLocale]);
   const sisterLinks = getGeoSisterDepartmentLinks(data.slug, 4, GEO_DEPARTMENT_EXTENDED);
   const clusterExcludes = getClusterRelatedHrefs(data.path);
+  const prioritaireHrefs = (data.liensPrioritaires ?? []).map((l) => l.href);
   const utilityLinks = [
     ...getFormationCatalogueCore().filter(
-      (l) => !clusterExcludes.includes(l.href) && l.href !== data.metierPertinent.href,
+      (l) =>
+        !clusterExcludes.includes(l.href) &&
+        l.href !== data.metierPertinent.href &&
+        !prioritaireHrefs.includes(l.href),
     ).slice(0, 3),
     {
       href: data.metierPertinent.href,
       title: data.metierPertinent.label,
       description: data.metierPertinent.description,
     },
-  ].filter((l) => l.href !== data.path);
+  ].filter((l) => l.href !== data.path && !prioritaireHrefs.includes(l.href));
+
+  const prioritaireLinks = (data.liensPrioritaires ?? []).map((l) => ({
+    href: l.href,
+    title: l.label,
+    description: '',
+  }));
 
   return (
     <div className="bg-white text-slate-900">
@@ -152,8 +162,33 @@ export function DepartementPage({ data }: { data: DepartementPageData }) {
         </div>
       </section>
 
+      {data.sectionGeoLocale ? (
+        <section className={OFC_SEC.white}>
+          <div className="mx-auto max-w-4xl">
+            <h2 className="font-display text-2xl font-bold text-slate-900 md:text-3xl">
+              {data.sectionGeoLocale.title}
+            </h2>
+            <p className="mt-4 text-base leading-relaxed text-slate-700 md:text-lg">
+              {data.sectionGeoLocale.body}
+              {data.sectionGeoLocale.link ? (
+                <>
+                  {' '}
+                  <Link
+                    href={data.sectionGeoLocale.link.href}
+                    className="font-medium text-[#377CF3] underline hover:no-underline"
+                  >
+                    {data.sectionGeoLocale.link.label}
+                  </Link>
+                  .
+                </>
+              ) : null}
+            </p>
+          </div>
+        </section>
+      ) : null}
+
       {/* 4. Tissu BTP local */}
-      <section className={OFC_SEC.white}>
+      <section className={data.sectionGeoLocale ? OFC_SEC.muted : OFC_SEC.white}>
         <div className="mx-auto max-w-4xl">
           <h2 className="font-display text-2xl font-bold text-slate-900 md:text-3xl">
             Tissu BTP local
@@ -165,7 +200,7 @@ export function DepartementPage({ data }: { data: DepartementPageData }) {
       </section>
 
       {/* 5. 2 cas d’usage locaux */}
-      <section className={OFC_SEC.muted}>
+      <section className={data.sectionGeoLocale ? OFC_SEC.white : OFC_SEC.muted}>
         <div className="mx-auto max-w-4xl">
           <h2 className="font-display text-2xl font-bold text-slate-900 md:text-3xl">
             2 cas d&apos;usage prioritaires {locatif}
@@ -179,7 +214,7 @@ export function DepartementPage({ data }: { data: DepartementPageData }) {
       </section>
 
       {/* 6. CTA Calendly */}
-      <section className={OFC_SEC.white}>
+      <section className={data.sectionGeoLocale ? OFC_SEC.muted : OFC_SEC.white}>
         <div className="mx-auto max-w-4xl">
           <div className="rounded-2xl border border-[#377CF3]/25 bg-[#F2F2F2] p-6 md:p-8">
             <h2 className="font-display text-xl font-bold text-slate-900 md:text-2xl">
@@ -220,6 +255,15 @@ export function DepartementPage({ data }: { data: DepartementPageData }) {
       <TemoignagesRegion />
 
       {/* 12. Liens utiles + cluster IDF */}
+      {prioritaireLinks.length > 0 ? (
+        <ContextualLinksSection
+          id="maillage-pilier-dept"
+          title="Pour aller plus loin"
+          subtitle="Page régionale, Claude AI et financement Constructys."
+          links={prioritaireLinks}
+        />
+      ) : null}
+
       <ContextualLinksSection
         id="maillage-formation-ia-btp"
         title="Liens utiles"
@@ -243,6 +287,7 @@ export function DepartementPage({ data }: { data: DepartementPageData }) {
               data.metierPertinent.href,
               ...sisterLinks.map((l) => l.href),
               ...clusterExcludes,
+              ...prioritaireHrefs,
             ],
           })}
         />

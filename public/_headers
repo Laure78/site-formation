@@ -1,0 +1,26 @@
+# Cloudflare Pages — en-têtes HTTP (ignoré sur Vercel / Railway / Next standalone).
+# En production laureolivie.fr (Next.js via next.config headers()), c’est next.config qui prime.
+# Ce fichier est un filet si un déploiement Cloudflare Pages est utilisé.
+# Cloudflare Pages : `*` = un segment ; on empile les profondeurs pour couvrir l’arborescence PDF.
+
+/*.pdf
+  X-Robots-Tag: noindex, nofollow
+
+/*/*.pdf
+  X-Robots-Tag: noindex, nofollow
+
+/*/*/*.pdf
+  X-Robots-Tag: noindex, nofollow
+
+/*/*/*/*.pdf
+  X-Robots-Tag: noindex, nofollow
+
+/*/*/*/*/*.pdf
+  X-Robots-Tag: noindex, nofollow
+
+/*/*/*/*/*/*.pdf
+  X-Robots-Tag: noindex, nofollow
+
+/llms.txt
+  Content-Type: text/plain; charset=utf-8
+  X-Robots-Tag: noindex, nofollow

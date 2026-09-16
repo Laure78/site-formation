@@ -18,10 +18,12 @@ import { EXTERNAL_SITE_URLS } from '@/lib/external-site-urls';
 export const FINANCEMENT_PAGE_H1 =
   'Financer votre formation IA BTP avec Constructys en 2026' as const;
 
-export const FINANCEMENT_PAGE_META_TITLE = 'Financement Constructys formation IA BTP 2026 | OFC' as const;
+/** Segment title — suffixe « | Laure Olivié » ajouté par buildTitle (total 57 car.). */
+export const FINANCEMENT_PAGE_META_TITLE =
+  'Formation IA BTP : financement Constructys' as const;
 
 export const FINANCEMENT_PAGE_META_DESCRIPTION =
-  'Financement Constructys d’une formation IA BTP en 2026 : plafonds, délai eGestion, reste à charge et changement de paiement dès le 1er octobre.' as const;
+  'Financer votre formation IA BTP avec Constructys : conditions, plafonds et démarches pas à pas. Prise en charge selon éligibilité, organisme certifié Qualiopi.' as const;
 
 /** Sources officielles Constructys — URLs stables. */
 export const CONSTRUCTYS_SOURCES = {

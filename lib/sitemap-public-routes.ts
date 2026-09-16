@@ -16,6 +16,8 @@ function uniqPaths(paths: readonly string[]): string[] {
   for (const raw of paths) {
     const p = normSitemapPath(raw);
     if (!p || seen.has(p) || GSC_EXCLUDED_SITEMAP_PATHS.has(p)) continue;
+    // Pas de fichiers, pas d’ancres
+    if (p.includes('#') || /\.(pdf|txt)$/i.test(p)) continue;
     seen.add(p);
     out.push(p);
   }

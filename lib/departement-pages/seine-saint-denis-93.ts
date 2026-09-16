@@ -1,7 +1,5 @@
 import { LINKS } from '@/lib/internal-links';
 import type { DepartementPageData } from '@/lib/departement-pages/types';
-import { buildDeptMetaDescription } from '@/lib/meta-description';
-import { buildIdfDeptPageTitle } from '@/lib/seo-geo-keywords';
 
 export const DEPARTEMENT_SEINE_SAINT_DENIS_93: DepartementPageData = {
   code: '93',
@@ -50,16 +48,33 @@ export const DEPARTEMENT_SEINE_SAINT_DENIS_93: DepartementPageData = {
     label: 'Formation IA maçon BTP',
     description: 'Gros œuvre et marchés structurants — enjeu fort en Seine-Saint-Denis.',
   },
-  metaTitle: buildIdfDeptPageTitle('Seine-Saint-Denis', '93'),
-  metaDescription: buildDeptMetaDescription(
-    'Seine-Saint-Denis',
-    '93',
-    'Bobigny, Saint-Denis et Montreuil',
-  ),
+  metaTitle: 'Formation IA BTP Seine-Saint-Denis (93)',
+  metaDescription:
+    'Formation IA pour le BTP en présentiel dans le 93 : session intra ou inter en Île-de-France. Qualiopi, prise en charge OPCO/Constructys selon éligibilité.',
   keywords: [
     'formation IA appliquée au bâtiment 93',
     'formation ChatGPT Seine-Saint-Denis',
     'formation IA Saint-Denis',
     'formation IA Montreuil',
+  ],
+  sectionGeoLocale: {
+    title:
+      'Formation IA BTP à Saint-Ouen-sur-Seine, Saint-Denis, Montreuil et tout le 93',
+    body:
+      "En Seine-Saint-Denis, les entreprises de travaux (gros œuvre, TP, second œuvre) et les équipes qui répondent aux marchés publics ont besoin d'une méthode courte sur l'écrit de chantier. La session se fait en intra dans vos locaux — Saint-Ouen-sur-Seine, Saint-Denis, Montreuil ou ailleurs dans le 93 — ou en inter en Île-de-France, sur vos DCE, CR et situations de travaux.",
+  },
+  liensPrioritaires: [
+    {
+      href: LINKS.formationIleDeFrance,
+      label: 'Formation IA BTP Île-de-France',
+    },
+    {
+      href: LINKS.claudeAiBtp,
+      label: 'Formation Claude AI pour le BTP',
+    },
+    {
+      href: LINKS.financement,
+      label: 'Financement Constructys formation IA BTP',
+    },
   ],
 };

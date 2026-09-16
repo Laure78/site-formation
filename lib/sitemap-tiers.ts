@@ -21,8 +21,10 @@ export const SITEMAP_PRIORITY = {
 export const SITEMAP_TIER1_STATIC_PATHS = [
   LINKS.home,
   LINKS.formations,
+  LINKS.parcoursApplicationsMetierBtp,
   LINKS.financement,
   LINKS.aPropos,
+  LINKS.avisClients,
   LINKS.blog,
   LINKS.contact,
 ] as const;

@@ -12,9 +12,9 @@ export const TUTO_DISPATCH_BTP: TutoData = {
   subtitle:
     "Le tutoriel pas à pas pour utiliser Dispatch — la nouvelle fonctionnalité de Claude qui transforme ton téléphone en télécommande de ton PC.",
 
-  metaTitle: 'Tuto Dispatch Claude BTP : ton téléphone pilote ton PC',
+  metaTitle: 'Claude Dispatch : tuto pour le BTP',
   metaDescription:
-    "Dispatch Claude BTP : transforme ton téléphone en télécommande de ton PC depuis le chantier. Tuto pas à pas + 8 commandes vocales. Gratuit.",
+    "Claude Dispatch expliqué simplement : à quoi il sert et comment l'utiliser sur vos dossiers de chantier, DCE et comptes rendus. Tuto BTP gratuit et prompts.",
   keywords: [
     'Dispatch Claude',
     'Claude Dispatch BTP',

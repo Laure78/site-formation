@@ -178,8 +178,17 @@ export const MAILLAGE_RESSOURCES_BY_PATH: Readonly<Record<string, MaillageRessou
     ],
   },
   [LINKS.tutoDoeDossierOuvragesExecutes]: {
-    pilier: PILIER_CDT,
-    soeurs: [TUTO_DIUO, TUTO_SKILL_PIC],
+    pilier: {
+      href: LINKS.formationConduiteTravauxSuiviChantier,
+      label: 'Formation IA conduite de travaux et suivi de chantier',
+    },
+    soeurs: [TUTO_PV, TUTO_DIUO],
+    blog: [
+      {
+        href: LINKS.blogDoePvReceptionIaBtp,
+        label: 'Article — DOE et PV de réception avec l’IA',
+      },
+    ],
   },
   [LINKS.tutoSkillDiuoOfc]: {
     pilier: PILIER_CDT,

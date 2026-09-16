@@ -8,9 +8,9 @@ import { formatProsFormesEtNoteQualiopi } from '@/lib/data/indicateurs-resultats
 export const blogArticleIaDevisBatimentChiffrageAutomatise: BlogArticle = {
   slug: 'ia-devis-batiment-chiffrage-automatise',
   title: 'IA et devis bâtiment : automatiser le chiffrage BTP sans page blanche',
-  seoTitle: 'IA devis bâtiment : chiffrage BTP structuré',
+  seoTitle: "Devis BTP avec l'IA : méthode en 5 étapes",
   description:
-    "Rédigez vos devis BTP avec l'IA : premier devis structuré en moins d'une heure vs demi-journée. Méthode en 5 étapes, prompts ChatGPT. Finançable par Constructys selon éligibilité.",
+    "Rédiger un devis BTP avec l'IA en 5 étapes : métré, bibliothèque de prix, prompts ChatGPT et Claude testés en formation. Formation IA BTP par Laure Olivié.",
   date: '2026-04-27',
   readingTime: '12 min',
   keywords: [
@@ -32,19 +32,24 @@ export const blogArticleIaDevisBatimentChiffrageAutomatise: BlogArticle = {
   coverImage: '/images/laure-olivie-formatrice-ia-btp-qualiopi.webp',
   faq: [
     {
-      question: "L'IA peut-elle remplacer mon logiciel de devis (Batigest, Codial, Mediabat) ?",
+      question: "Quel logiciel permet de créer des devis BTP rapidement avec l'IA ?",
       answer:
-        "Non. L'IA prépare et structure vos devis, mais votre logiciel métier reste indispensable pour la bibliothèque de prix, le suivi commercial et la facturation.",
+        "Aucun logiciel unique ne remplace à lui seul votre outil de devis : on combine le logiciel métier habituel (Batigest, Codial, Mediabat, Excel, etc.) avec un assistant IA généraliste (ChatGPT, Claude) pour le métré, la rédaction des libellés et la vérification. L'IA prépare la trame ; le logiciel conserve bibliothèque de prix, totaux, suivi commercial et facturation.",
+    },
+    {
+      question: "L'IA peut-elle chiffrer un devis toute seule ?",
+      answer:
+        "Non. L'IA structure le devis (lots, libellés, quantités proposées, checklist d'oublis), mais les prix unitaires, la marge et le chiffrage définitif restent ceux de l'entreprise. Vous validez toujours avant envoi client.",
+    },
+    {
+      question: 'Comment structurer un devis avec ChatGPT ?',
+      answer:
+        "Briefer le chantier en langage naturel, charger votre trame (colonnes et lots), demander une décomposition poste par poste avec colonnes de prix vides, faire contrôler les oublis, puis coller le résultat dans votre logiciel pour saisir vos PU et finaliser. La méthode en 5 étapes est détaillée dans le corps de cet article.",
     },
     {
       question: "Mes données client sont-elles confidentielles si j'utilise ChatGPT ?",
       answer:
         "Oui avec les bons réglages et les bonnes offres. Pour les dossiers sensibles, privilégiez une offre professionnelle et évitez d'envoyer des données nominatives inutiles.",
-    },
-    {
-      question: "Puis-je faire chiffrer un devis directement par l'IA sans donner mes prix ?",
-      answer:
-        "L'IA peut proposer des fourchettes mais ne doit pas remplacer votre chiffrage réel. Elle structure le devis ; vous renseignez les prix unitaires selon votre bibliothèque.",
     },
     {
       question: "Combien de temps faut-il pour devenir autonome sur l'IA pour les devis ?",
@@ -201,14 +206,27 @@ Ne réécris pas le devis, signale uniquement les manques.`,
     },
     {
       type: 'html',
-      title: "FAQ — Questions fréquentes sur l'IA pour devis bâtiment",
+      title: 'FAQ',
       content: `
-<h3 class="font-display text-lg font-semibold text-slate-900">L'IA peut-elle remplacer mon logiciel de devis ?</h3>
-<p class="mt-2">Non. Elle accélère la préparation et la vérification, mais votre logiciel reste le socle de gestion et de facturation.</p>
-<h3 class="font-display mt-6 text-lg font-semibold text-slate-900">Mes données client sont-elles confidentielles ?</h3>
-<p class="mt-2">Oui avec les bons paramétrages et une offre adaptée ; pour les dossiers sensibles, privilégiez un cadre professionnel sécurisé.</p>
-<h3 class="font-display mt-6 text-lg font-semibold text-slate-900">Puis-je laisser l'IA fixer les prix ?</h3>
-<p class="mt-2">Non. L'IA structure, mais vos prix unitaires et marges doivent rester pilotés par votre entreprise.</p>`,
+<h3 class="font-display text-lg font-semibold text-slate-900">Quel logiciel permet de créer des devis BTP rapidement avec l'IA ?</h3>
+<p class="mt-2">Aucun logiciel unique ne remplace à lui seul votre outil de devis : on combine le logiciel métier habituel avec un assistant IA généraliste (ChatGPT, Claude) pour le métré, la rédaction des libellés et la vérification. L'IA prépare la trame ; le logiciel conserve bibliothèque de prix, totaux, suivi commercial et facturation.</p>
+<div class="mt-4 overflow-x-auto rounded-xl border border-slate-200">
+<table class="min-w-full text-left text-sm text-slate-700">
+<thead class="bg-slate-100"><tr><th class="px-3 py-2">Outil</th><th class="px-3 py-2">Usage dans le devis</th><th class="px-3 py-2">Point de vigilance</th></tr></thead>
+<tbody>
+<tr class="border-t border-slate-200"><td class="px-3 py-2 font-medium">Logiciel de devis BTP (Batigest, Codial, Mediabat, etc.)</td><td class="px-3 py-2">Bibliothèque de prix, totaux, export client, suivi commercial et facturation</td><td class="px-3 py-2">Reste le référentiel chiffré de l'entreprise ; ne pas le remplacer par un chat IA</td></tr>
+<tr class="border-t border-slate-200"><td class="px-3 py-2 font-medium">ChatGPT</td><td class="px-3 py-2">Trame de postes, libellés techniques, variantes, checklist anti-oublis</td><td class="px-3 py-2">Laisser les colonnes de prix vides ; relecture métier obligatoire</td></tr>
+<tr class="border-t border-slate-200"><td class="px-3 py-2 font-medium">Claude</td><td class="px-3 py-2">Même usage : structuration, rédaction longue, contrôle de cohérence</td><td class="px-3 py-2">Idem : pas de PU inventés ; valider quantités et références</td></tr>
+<tr class="border-t border-slate-200"><td class="px-3 py-2 font-medium">Tableur (Excel / Sheets)</td><td class="px-3 py-2">Métré intermédiaire, imports de lignes avant bascule dans le logiciel</td><td class="px-3 py-2">Risque d'erreurs de formules ; contrôler unités et totaux</td></tr>
+</tbody>
+</table>
+</div>
+<h3 class="font-display mt-8 text-lg font-semibold text-slate-900">L'IA peut-elle chiffrer un devis toute seule ?</h3>
+<p class="mt-2">Non. Elle structure le devis — lots, libellés, propositions de quantités, points à vérifier — mais le prix reste celui de l'entreprise. Vous saisissez vos prix unitaires et votre marge dans votre logiciel avant envoi client.</p>
+<p class="mt-2">Demander à l'IA de « inventer » des PU expose à des écarts et à des engagements non maîtrisés. Le bon réflexe : colonnes de prix vides + grille tarifaire interne.</p>
+<h3 class="font-display mt-8 text-lg font-semibold text-slate-900">Comment structurer un devis avec ChatGPT ?</h3>
+<p class="mt-2">Briefer le chantier en français courant, coller votre trame (colonnes et lots), demander une décomposition poste par poste avec prix vides, puis faire une passe anti-oublis avant export.</p>
+<p class="mt-2">Ensuite, reportez les lignes dans votre logiciel de devis, renseignez vos PU, vérifiez TVA et conditions, et validez. Les 5 étapes et les prompts prêts à l'emploi sont plus haut dans cet article.</p>`,
     },
     {
       type: 'html',

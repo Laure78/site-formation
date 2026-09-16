@@ -29,9 +29,9 @@ export const TUTO_EN_BREF: Readonly<Record<string, readonly string[]>> = {
     'Outil : skill Claude, à lancer après la visite ou la réunion.',
   ],
   'tuto-doe-dossier-ouvrages-executes': [
-    'Vous assemblez un DOE (Dossier des Ouvrages Exécutés) sur une structure standardisée, chantier par chantier.',
-    'Le tuto vise une constitution en environ 30 minutes, contre l’équivalent de deux week-ends de montage manuel.',
-    'Outil : skill Claude dédié au DOE.',
+    'Le DOE (Dossier des Ouvrages Exécutés) rassemble les pièces qui décrivent l’ouvrage réellement construit : plans conformes, fiches, PV, notices et garanties.',
+    'Il se remet généralement à la réception des travaux, souvent comme condition de solde et de clôture du chantier.',
+    'Cette page propose un modèle de sommaire gratuit, des exemples par lot, une méthode IA pour assembler le dossier, et le PDF à télécharger.',
   ],
   'tuto-skill-diuo-ofc': [
     'Vous préparez la liasse de pièces DIUO à transmettre au coordonnateur SPS (plans, sécurité permanente, accès, notices).',

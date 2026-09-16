@@ -280,9 +280,9 @@ function getBeworkPageJsonLd() {
       {
         '@type': 'VideoObject',
         '@id': `${pageUrl}#video`,
-        name: VIDEOS.beworkArtisanCreerAvecIa.title,
+        name: VIDEOS.beworkVideoPub.title,
         description: META_DESCRIPTION,
-        contentUrl: `${SITE_CONFIG.url}${VIDEOS.beworkArtisanCreerAvecIa.src}`,
+        contentUrl: `${SITE_CONFIG.url}${VIDEOS.beworkVideoPub.src}`,
         embedUrl: pageUrl,
         inLanguage: 'fr-FR',
         uploadDate: '2026-09-16',

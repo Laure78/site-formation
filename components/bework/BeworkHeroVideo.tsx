@@ -14,7 +14,7 @@ type Props = {
  * Contrôles visibles, lecture au clic.
  */
 export function BeworkHeroVideo({
-  videoKey = 'beworkArtisanCreerAvecIa',
+  videoKey = 'beworkVideoPub',
   className = '',
   showCaption = false,
 }: Props) {
