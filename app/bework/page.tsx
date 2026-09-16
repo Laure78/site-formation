@@ -332,75 +332,93 @@ export default function BeworkPage() {
         className="relative overflow-hidden border-b border-slate-200 bg-gradient-to-br from-[#EFF6FF] via-white to-[#DBEAFE]/50 px-4 py-14 md:py-20"
       >
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(29,78,216,0.08),transparent_55%)]" aria-hidden />
-        <div className="relative mx-auto max-w-4xl text-center">
-          <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#1D4ED8]">
-            BeWork — Apprendre aujourd’hui, créer demain
-          </p>
-          <p className="mt-2 text-sm font-medium text-[#64748B]">Formation progressive</p>
-          <h1
-            id="bework-hero-title"
-            className="mt-4 font-display text-3xl font-bold tracking-tight text-[#0F172A] md:text-5xl"
-          >
-            Sans savoir coder.
-            <span className="mt-1 block text-[#1D4ED8]">Créez ce que vous imaginez.</span>
-          </h1>
-          <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-[#475569] md:text-lg">
-            Donnez vie à votre idée avec l’IA. Apprenez à construire votre propre projet, étape par
-            étape, sans connaissances en programmation.
-          </p>
-          <ul className="mx-auto mt-6 max-w-xl space-y-2 text-left text-sm text-[#334155] md:text-base">
-            <li className="flex gap-2">
-              <Check className="mt-0.5 h-4 w-4 shrink-0 text-[#1D4ED8]" aria-hidden />
-              <span>
-                <strong className="font-semibold">1 journée (7 h)</strong> — apprendre à commencer et
-                lancer un premier projet.
-              </span>
-            </li>
-            <li className="flex gap-2">
-              <Check className="mt-0.5 h-4 w-4 shrink-0 text-[#1D4ED8]" aria-hidden />
-              <span>
-                <strong className="font-semibold">2 journées (14 h)</strong> — approfondir et
-                construire plus loin.
-              </span>
-            </li>
-          </ul>
-          <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
-            <CtaFormation label="S’inscrire" href={BEWORK_PARTICIPER} />
-            <a
-              href="#parcours"
-              className="inline-flex items-center justify-center gap-2 rounded-lg border border-[#1D4ED8] bg-white px-6 py-3 text-sm font-semibold text-[#1D4ED8] transition-colors hover:bg-[#EFF6FF]"
+        <div className="relative mx-auto grid max-w-6xl items-center gap-10 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:gap-14">
+          <div className="min-w-0 text-left">
+            <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#1D4ED8]">
+              BeWork — Apprendre aujourd’hui, créer demain
+            </p>
+            <p className="mt-2 text-sm font-medium text-[#64748B]">Formation progressive</p>
+            <h1
+              id="bework-hero-title"
+              className="mt-4 font-display text-3xl font-bold tracking-tight text-[#0F172A] md:text-4xl xl:text-5xl"
             >
-              Voir les programmes
-            </a>
-          </div>
-          <p className="mt-4 text-sm text-[#64748B]">7 h ou 14 h · 6 à 8 participants · selon votre besoin</p>
-          <BeworkHeroVideo className="mt-10" />
-          <div className="mt-6 flex justify-center">
-            <CtaFormation label="S’inscrire à une session" href={BEWORK_PARTICIPER} />
-          </div>
-          <p className="mx-auto mt-6 max-w-2xl text-sm leading-relaxed text-[#475569]">
-            Aucun prérequis en programmation. Vous partez de zéro et repartez avec une méthode, un
-            environnement prêt et une première création fonctionnelle.
-          </p>
-          <div className="mx-auto mt-10 grid max-w-3xl gap-4 sm:grid-cols-3">
-            {HERO_PILLARS.map(({ icon: Icon, title, desc }) => (
-              <div
-                key={title}
-                className="rounded-xl border border-slate-200/80 bg-white/80 px-4 py-4 text-left shadow-sm backdrop-blur-sm"
+              Sans savoir coder.
+              <span className="mt-1 block text-[#1D4ED8]">Créez ce que vous imaginez.</span>
+            </h1>
+            <p className="mt-5 max-w-xl text-base leading-relaxed text-[#475569] md:text-lg">
+              Donnez vie à votre idée avec l’IA. Apprenez à construire votre propre projet, étape par
+              étape, sans connaissances en programmation.
+            </p>
+            <p className="mt-3 max-w-xl text-sm leading-relaxed text-[#475569]">
+              Formation proposée par{' '}
+              <ExternalLinkAnchor
+                href={BEWORK_SITE}
+                title="Site officiel BeWork — https://www.bework.fr/ (nouvel onglet)"
+                className="font-semibold text-[#1D4ED8] underline underline-offset-2 hover:text-[#1E40AF]"
               >
-                <Icon className="h-5 w-5 text-[#1D4ED8]" strokeWidth={1.75} aria-hidden />
-                <p className="mt-2 text-sm font-semibold text-[#0F172A]">{title}</p>
-                <p className="mt-1 text-xs text-[#64748B]">{desc}</p>
-              </div>
-            ))}
+                BeWork (www.bework.fr)
+              </ExternalLinkAnchor>
+              .
+            </p>
+            <ul className="mt-6 max-w-xl space-y-2 text-sm text-[#334155] md:text-base">
+              <li className="flex gap-2">
+                <Check className="mt-0.5 h-4 w-4 shrink-0 text-[#1D4ED8]" aria-hidden />
+                <span>
+                  <strong className="font-semibold">1 journée (7 h)</strong> — apprendre à commencer et
+                  lancer un premier projet.
+                </span>
+              </li>
+              <li className="flex gap-2">
+                <Check className="mt-0.5 h-4 w-4 shrink-0 text-[#1D4ED8]" aria-hidden />
+                <span>
+                  <strong className="font-semibold">2 journées (14 h)</strong> — approfondir et
+                  construire plus loin.
+                </span>
+              </li>
+            </ul>
+            <div className="mt-8 flex flex-wrap items-center gap-3">
+              <CtaFormation label="S’inscrire" href={BEWORK_PARTICIPER} />
+              <a
+                href="#parcours"
+                className="inline-flex items-center justify-center gap-2 rounded-lg border border-[#1D4ED8] bg-white px-6 py-3 text-sm font-semibold text-[#1D4ED8] transition-colors hover:bg-[#EFF6FF]"
+              >
+                Voir les programmes
+              </a>
+            </div>
+            <p className="mt-4 text-sm text-[#64748B]">
+              7 h ou 14 h · 6 à 8 participants · selon votre besoin
+            </p>
+            <p className="mt-6 max-w-xl text-sm leading-relaxed text-[#475569]">
+              Aucun prérequis en programmation. Vous partez de zéro et repartez avec une méthode, un
+              environnement prêt et une première création fonctionnelle.
+            </p>
+            <div className="mt-8 grid gap-3 sm:grid-cols-3">
+              {HERO_PILLARS.map(({ icon: Icon, title, desc }) => (
+                <div
+                  key={title}
+                  className="rounded-xl border border-slate-200/80 bg-white/80 px-4 py-4 text-left shadow-sm backdrop-blur-sm"
+                >
+                  <Icon className="h-5 w-5 text-[#1D4ED8]" strokeWidth={1.75} aria-hidden />
+                  <p className="mt-2 text-sm font-semibold text-[#0F172A]">{title}</p>
+                  <p className="mt-1 text-xs text-[#64748B]">{desc}</p>
+                </div>
+              ))}
+            </div>
+            <p className="mt-8 text-xs leading-relaxed text-[#64748B]">
+              {QUALIOPI_BEWORK_DISTINCTION}{' '}
+              <Link href={LINKS.formations} className="font-medium text-[#1D4ED8] hover:underline">
+                Formations IA BTP — organisme certifié Qualiopi
+              </Link>
+              .
+            </p>
           </div>
-          <p className="mt-8 text-xs leading-relaxed text-[#64748B]">
-            {QUALIOPI_BEWORK_DISTINCTION}{' '}
-            <Link href={LINKS.formations} className="font-medium text-[#1D4ED8] hover:underline">
-              Formations IA BTP — organisme certifié Qualiopi
-            </Link>
-            .
-          </p>
+
+          <div className="flex min-w-0 flex-col items-center lg:items-end">
+            <BeworkHeroVideo className="lg:mx-0" />
+            <div className="mt-5">
+              <CtaFormation label="S’inscrire à une session" href={BEWORK_PARTICIPER} />
+            </div>
+          </div>
         </div>
       </section>
 
