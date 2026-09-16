@@ -24,9 +24,9 @@ import { OFC_SEC, OFC_SECTION_INNER } from '@/lib/ofc-section-classes';
 const PATH = EVENEMENT_AO_BTP.path;
 const event = EVENEMENT_AO_BTP;
 
-const META_TITLE = 'Webinaire appels d’offres BTP – 5 novembre 2026';
+const META_TITLE = 'Webinaire AO BTP — 5 novembre 2026';
 const META_DESCRIPTION =
-  'Le 5 novembre 2026, de 12 h à 13 h, découvrez les 5 étapes pour répondre à un appel d’offres BTP avec l’IA. Événement en ligne — formation IA pour le BTP.';
+  'Webinaire AO BTP du 5 novembre 2026 (12 h–13 h) : 5 étapes pour répondre avec l’IA. Formation IA pour le BTP — événement en ligne, inscription Eventbrite.';
 
 export const revalidate = 3600;
 

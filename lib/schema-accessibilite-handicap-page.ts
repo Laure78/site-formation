@@ -17,7 +17,7 @@ export const ACCESSIBILITE_HANDICAP_PAGE_TITLE =
   'Accessibilité et handicap des formations | OFC';
 
 export const ACCESSIBILITE_HANDICAP_PAGE_DESCRIPTION =
-  'Besoin d’un aménagement pour suivre une formation IA BTP ? Découvrez le parcours proposé et contactez la référente handicap d’OFC.';
+  'Aménagements handicap pour suivre une formation IA pour le BTP : parcours adapté et référente handicap OFC. Contactez Laure Olivié avant la session IDF.';
 
 export function getAccessibiliteHandicapPageJsonLd(): Record<string, unknown> {
   return {

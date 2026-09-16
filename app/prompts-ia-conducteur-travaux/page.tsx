@@ -15,7 +15,7 @@ export const revalidate = 3600;
 
 const PAGE_TITLE = '20 prompts IA pour conducteur de travaux | Laure Olivié';
 const PAGE_DESCRIPTION =
-  '20 prompts IA conducteur de travaux BTP : CR, PPSPS, réserves, courriers MOE. Copier-coller ChatGPT et Claude — formation IA pour le BTP.';
+  '20 prompts IA conducteur de travaux : CR, PPSPS, réserves, courriers MOE. Copier-coller ChatGPT/Claude — formation IA pour le BTP, usages concrets IDF.';
 
 const FORMATION_LINKS = [
   {

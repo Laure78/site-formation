@@ -25,7 +25,7 @@ export const A_PROPOS_PAGE_PROOF_LINE =
 export const A_PROPOS_PAGE_META_TITLE = 'Laure Olivié | Formatrice IA spécialisée BTP' as const;
 
 export const A_PROPOS_PAGE_META_DESCRIPTION =
-  'Découvrez le parcours de Laure Olivié, formatrice spécialisée dans l’IA appliquée aux devis, chantiers et appels d’offres des entreprises du BTP.' as const;
+  'Laure Olivié, formatrice : formation IA pour le BTP sur devis, chantiers et appels d’offres. Parcours terrain BTP, Qualiopi, présentiel Île-de-France.' as const;
 
 /** Description JSON-LD Person — page À propos uniquement (facts vérifiés). */
 export function getAProposPagePersonDescription(): string {

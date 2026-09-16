@@ -639,12 +639,24 @@ export const FAQ_MAITRISER_CLAUDE_NIV04: FAQItem[] = [
     a: `Il structure l'usage en entreprise : Projets partagés, bibliothèque de skills, Cowork supervisé, connecteurs messagerie/drive/agenda et premières automatisations Claude Code. En 4 h le matin, vous repartez avec des workflows réutilisables — pas seulement des prompts isolés. Public : référents IA, dirigeants, responsables digitaux, chargés d'affaires et conducteurs de travaux déjà à l'aise avec Claude Pro. Voir le <a href="${LINKS.claudeAiBtp}">guide Claude AI BTP</a>.`,
   },
   {
+    q: 'Claude est-il adapté aux documents BTP (DCE, CCTP) ?',
+    a: `Oui pour l'analyse et la synthèse de documents longs (DCE, CCTP, CCAP). Claude Projects aide à organiser une base par marché ou client. La validation technique et les engagements restent humains — l'IA structure, vous décidez.`,
+  },
+  {
+    q: 'Quelle différence entre Claude et ChatGPT pour le BTP ?',
+    a: `Claude excelle sur les documents volumineux et Projects. ChatGPT sur les formats courts et la réactivité. Cette session oriente selon vos usages ; le <a href="${LINKS.claudeAiBtp}">guide Claude AI BTP</a> détaille les interfaces.`,
+  },
+  {
     q: 'Pourquoi la formation Maîtriser Claude est-elle le matin uniquement ?',
     a: `La session dure 4 h (9h00–13h00) pour enchaîner accueil, 4 modules techniques et clôture sans couper la concentration. Format présentiel en Île-de-France, intra-entreprise, dans vos locaux — formation catalogue niveau avancé.`,
   },
   {
     q: 'Cowork et Claude Code : est-ce que l\'IA envoie des mails ou des docs sans mon accord ?',
     a: `Non : Cowork et Claude Code fonctionnent en mode supervisé — vous validez chaque livrable avant envoi client ou marché. La session intègre une checklist RGPD, marchés publics et données clients. Les connecteurs (messagerie, drive, agenda) sont paramétrés avec ces garde-fous.`,
+  },
+  {
+    q: 'Mes DCE confidentiels peuvent-ils être uploadés ?',
+    a: `Selon votre abonnement et votre politique interne. La formation aborde les règles de confidentialité avant tout dépôt — anonymisation, périmètre d'accès et données marchés publics.`,
   },
   {
     q: 'Quelle différence entre Maîtriser Claude AI et la formation appels d\'offres ?',
@@ -660,7 +672,7 @@ export const FAQ_MAITRISER_CLAUDE_NIV04: FAQItem[] = [
   },
   {
     q: 'Quels skills Claude sont abordés pendant la formation ?',
-    a: `Selon vos besoins et dossiers réels : la session installe une bibliothèque de skills BTP réutilisables (Projet chantier, dossier d'AO, suivi de travaux, automatisation administrative). Chaque skill est créé, testé et partagé sur les postes pendant la <a href="${LINKS.formationMaitriserClaudeAiBtp}">formation Maîtriser Claude AI pour le BTP — Chat, Cowork & Code</a>.`,
+    a: `Selon vos besoins et dossiers réels : la session installe une bibliothèque de skills BTP réutilisables (Projet chantier, dossier d'AO, suivi de travaux, automatisation administrative). Chaque skill est créé, testé et partagé sur les postes pendant la session NIV-04.`,
   },
 ];
 

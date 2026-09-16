@@ -14,7 +14,7 @@ export const PRENDRE_RDV_DUREE_MINUTES = 30;
 export const PRENDRE_RDV_PAGE_TITLE = 'Prendre rendez-vous | Formation IA BTP';
 
 export const PRENDRE_RDV_META_DESCRIPTION =
-  'Réservez 30 min avec Laure Olivié : formation IA pour le BTP, devis, chantiers, appels d’offres. Visio gratuite, sans engagement.';
+  'Réservez 30 min avec Laure Olivié : formation IA pour le BTP, devis, chantiers et appels d’offres. Visio découverte gratuite, sans engagement. Qualiopi.';
 
 export const PRENDRE_RDV_H1 = 'Parlons de vos usages IA dans le BTP';
 

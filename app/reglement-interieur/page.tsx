@@ -14,7 +14,7 @@ const PAGE_PATH = LINKS.reglementInterieur;
 const PAGE_URL = siteAbsoluteUrl(PAGE_PATH);
 const PAGE_TITLE = 'Règlement intérieur | Laure Olivié';
 const PAGE_DESCRIPTION =
-  "Règlement intérieur applicable aux stagiaires d'OFC Création d'Entreprise, organisme de formation en présentiel Île-de-France : discipline, sécurité, IA et réclamations.";
+  'Règlement intérieur OFC applicable aux stagiaires : discipline, sécurité, IA et réclamations. Qualiopi — formation IA pour le BTP en présentiel en IDF.';
 
 export const metadata = createPageMetadata({
   title: PAGE_TITLE,

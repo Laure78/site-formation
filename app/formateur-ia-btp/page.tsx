@@ -23,8 +23,8 @@ const PATH = '/formateur-ia-btp';
 
 /** Segment sans suffixe — `buildMetadata` ajoute « | Laure Olivié ». */
 const META_TITLE = 'Formateur IA bâtiment Île-de-France';
-/** 156 car. — intention « formateur » + IDF, sans ellipse */
-const META_DESCRIPTION = `Formateur IA BTP Île-de-France : Laure Olivié forme vos équipes en présentiel sur devis, DCE et chantier. Qualiopi, OFC. RDV découverte.`;
+/** 153 car. — intention « formateur » + IDF, sans ellipse */
+const META_DESCRIPTION = `Formateur IA BTP en Île-de-France : Laure Olivié anime une formation IA pour le BTP sur devis, DCE et chantier. Qualiopi OFC, présentiel. RDV découverte.`;
 
 export const metadata = buildMetadata({
   title: META_TITLE,

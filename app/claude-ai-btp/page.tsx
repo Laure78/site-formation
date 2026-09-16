@@ -28,7 +28,8 @@ const heroVisuel = PHOTOS.claudeBtpGuideHero2026;
 export const metadata = createPageMetadata({
   title: 'Claude AI pour le BTP : Chat, Cowork, Code, Chrome',
   description:
-    'Guide Claude AI pour le BTP : interfaces Chat, Cowork, Code et Chrome. Prompts chantier, DCE, CR. Usages concrets, présentiel IDF.',
+    'Guide Claude AI pour le BTP : Chat, Cowork, Code et Chrome. Prompts chantier, DCE et CR. Formation IA pour le BTP, usages concrets, présentiel Île-de-France.',
+  descriptionFinal: true,
   path: PATH,
   keywords: null,
   openGraphType: 'website',

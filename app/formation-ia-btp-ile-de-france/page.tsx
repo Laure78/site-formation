@@ -36,8 +36,8 @@ const PATH = '/formation-ia-btp-ile-de-france';
 
 /** Segment sans suffixe — `buildMetadata` ajoute « | Laure Olivié » (total ≤ 60). */
 const META_TITLE = 'Formation IA BTP Île-de-France';
-/** 152 caractères — phrase complète, sans ellipse */
-const META_DESCRIPTION = `Formation IA pour le BTP en Île-de-France : devis, DCE et CR. Présentiel, Qualiopi, Constructys selon éligibilité. Visio découverte.`;
+/** 155 caractères — phrase complète, sans ellipse */
+const META_DESCRIPTION = `Formation IA pour le BTP en Île-de-France : devis, DCE et CR en présentiel. Qualiopi, financement OPCO possible selon éligibilité. Visio découverte 30 min.`;
 
 export const metadata = buildMetadata({
   title: META_TITLE,

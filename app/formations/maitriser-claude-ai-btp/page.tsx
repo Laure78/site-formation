@@ -40,8 +40,10 @@ import { formatNoteSatisfactionSur5 , formatNoteSatisfactionAffichageComplet } f
 import { IndicateursResultatsLink } from '@/components/formation/IndicateursResultatsLink';
 import { FormationCatalogueGeoSections } from '@/components/formations/FormationCatalogueGeoSections';
 import { getFormationCatalogueSeo } from '@/lib/formation-catalogue-seo';
+import { FORMATION_CLAUDE_BTP_CONFIG } from '@/lib/formation-claude-btp-landing';
 
 const CATALOGUE_SEO = getFormationCatalogueSeo('NIV-04');
+const CLAUDE_LANDING = FORMATION_CLAUDE_BTP_CONFIG;
 
 const FORMATION = getFormationByCode('NIV-04')!;
 const PATH = LINKS.formationMaitriserClaudeAiBtp;
@@ -62,6 +64,12 @@ export const metadata = createPageMetadata({
   path: PATH,
   keywords: [
     'formation Claude AI BTP',
+    'formation Claude BTP',
+    'Claude AI BTP',
+    'Claude bâtiment',
+    'Claude appels d\'offres',
+    'Claude DCE',
+    'Claude Projects BTP',
     'Maîtriser Claude entreprise BTP',
     'Claude Code BTP',
     'Cowork Skills Claude',
@@ -229,11 +237,43 @@ export default function FormationMaitriserClaudeAiBtpPage() {
         </p>
       </FormationCourseHero>
 
+      <section id="introduction" className="scroll-mt-24 border-b border-slate-200 bg-slate-50 px-4 py-16">
+        <div className="mx-auto max-w-4xl">
+          <h2 className="font-display text-2xl font-bold text-slate-900">
+            Pourquoi Claude AI pour le BTP
+          </h2>
+          {CLAUDE_LANDING.introParagraphs.map((p) => (
+            <p key={p.slice(0, 48)} className="mt-4 leading-relaxed text-slate-600">
+              {p}
+            </p>
+          ))}
+        </div>
+      </section>
+
+      <section id="cas-usage" className="scroll-mt-24 border-b border-slate-200 bg-white px-4 py-16">
+        <div className="mx-auto max-w-4xl">
+          <h2 className="font-display text-2xl font-bold text-slate-900">
+            {CLAUDE_LANDING.useCasesTitle}
+          </h2>
+          <ul className="mt-8 grid gap-4 sm:grid-cols-2">
+            {CLAUDE_LANDING.useCases.map((item) => (
+              <li
+                key={item.title}
+                className="rounded-xl border border-slate-200 bg-slate-50 p-4"
+              >
+                <strong className="text-slate-900">{item.title}</strong>
+                <p className="mt-1 text-sm leading-relaxed text-slate-600">{item.body}</p>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
       <FormationCatalogueGeoSections
         catalogueRef="NIV-04"
         ressourcesGratuites={[
-          { href: LINKS.claudeAiBtp, label: 'Guide Claude AI pour le BTP' },
-          { href: LINKS.formationMaitriserClaudeAiBtp, label: 'Formation Claude pour le bâtiment' },
+          { href: LINKS.formationIaAppelsOffresBtp, label: 'Formation IA appels d’offres BTP' },
+          { href: LINKS.formationChatgptBtp, label: 'Formation ChatGPT pour le BTP' },
         ]}
       />
 
@@ -292,11 +332,19 @@ export default function FormationMaitriserClaudeAiBtpPage() {
             enchaîner accueil, 4 modules techniques et clôture sans coupure — 70&nbsp;% de pratique sur vos
             documents réels.
           </p>
+          <ul className="mt-4 grid gap-2 sm:grid-cols-2 text-slate-700">
+            {CLAUDE_LANDING.publicTargets.map((target) => (
+              <li key={target} className="flex gap-2">
+                <Users className="mt-0.5 h-5 w-5 shrink-0 text-[var(--accent)]" strokeWidth={1.5} />
+                <span>{target}</span>
+              </li>
+            ))}
+          </ul>
           <ul className="mt-4 space-y-2 text-slate-700">
             <li className="flex gap-2">
               <Users className="mt-0.5 h-5 w-5 shrink-0 text-[var(--accent)]" strokeWidth={1.5} />
               <span>
-                <strong>Public :</strong> {FORMATION.public}.
+                <strong>Public catalogue :</strong> {FORMATION.public}.
               </span>
             </li>
             <li className="flex gap-2">

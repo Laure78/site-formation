@@ -31,7 +31,7 @@ import { RenvoiFicheCatalogue } from '@/components/qualiopi/RenvoiFicheCatalogue
 export const revalidate = 3600;
 const PATH = '/formation-ia-assistante-gestion-btp';
 
-const SEO_TITLE = 'Formation IA assistante gestion BTP — factures & relances impayés';
+const SEO_TITLE = 'Formation IA assistante gestion BTP';
 
 const BASE_URL = SITE_CONFIG.url.replace(/\/$/, '');
 
@@ -68,7 +68,8 @@ const COURSE_JSON_LD: Record<string, unknown> = {
 export const metadata = createMetierBtpPageMetadata('assistante gestion', {
   title: SEO_TITLE,
   description:
-    'Formation ChatGPT et Claude AI pour assistantes de gestion BTP : facturation, relances impayés, DGD, sous-traitance. Qualiopi. RDV gratuit.',
+    'Formation IA pour le BTP destinée aux assistantes de gestion : factures, relances impayés, DGD et sous-traitance. Présentiel en Île-de-France, Qualiopi.',
+  descriptionFinal: true,
   path: PATH,
   keywords: [
     'formation IA assistante de gestion BTP',

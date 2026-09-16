@@ -19,9 +19,9 @@ import { PHOTOS } from '@/lib/photos';
 import { buildHomeUnifiedGraphJsonLd } from '@/lib/schema-home-unified-graph';
 
 /** Segment sans suffixe — `buildMetadata` ajoute « | Laure Olivié ». */
-const HOME_META_TITLE = "Formation IA BTP | Devis, chantier & appels d'offres";
+const HOME_META_TITLE = 'Formation IA BTP : devis et chantier';
 const HOME_META_DESCRIPTION =
-  'Formations IA pour les professionnels du BTP : devis, DCE, conduite de travaux, comptes rendus et appels d\'offres. Une approche directement applicable en entreprise.';
+  'Formation IA pour le BTP : devis, DCE, conduite de travaux et comptes rendus. Présentiel Île-de-France, Qualiopi, financement OPCO possible selon éligibilité.';
 
 const HOME_FAQ_PAGE_JSON_LD = buildHomeFAQPageJsonLd();
 

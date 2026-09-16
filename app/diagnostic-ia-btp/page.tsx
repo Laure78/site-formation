@@ -10,9 +10,10 @@ import { LINKS } from '@/lib/internal-links';
 export const revalidate = 3600;
 
 export const metadata = createPageMetadata({
-  title: 'Diagnostic IA BTP gratuit | Identifiez vos gains de temps',
+  title: 'Diagnostic IA BTP gratuit',
   description:
-    'Réalisez gratuitement votre diagnostic IA BTP. Identifiez vos tâches automatisables, vos cas d\'usage prioritaires et le parcours IA adapté à votre entreprise.',
+    "Diagnostic IA BTP gratuit : tâches automatisables, cas d'usage prioritaires et parcours adapté. Formation IA pour le BTP pour votre entreprise — Qualiopi.",
+  descriptionFinal: true,
   path: '/diagnostic-ia-btp',
   appendAuthorSuffix: false,
   keywords: [

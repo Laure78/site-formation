@@ -35,7 +35,7 @@ const PAGE_PATH = LINKS.livretAccueilStagiaire;
 const PAGE_URL = siteAbsoluteUrl(PAGE_PATH);
 const PAGE_TITLE = "Livret d'accueil du stagiaire | Laure Olivié";
 const PAGE_DESCRIPTION =
-  "Livret d'accueil du stagiaire : formation IA BTP en présentiel en Île-de-France. Déroulement de la formation, évaluation, accessibilité et contacts OFC Création d'Entreprise.";
+  "Livret d'accueil stagiaire OFC : déroulement, évaluation, accessibilité et contacts. Formation IA pour le BTP en présentiel en Île-de-France — Qualiopi.";
 
 export const metadata = createPageMetadata({
   title: PAGE_TITLE,

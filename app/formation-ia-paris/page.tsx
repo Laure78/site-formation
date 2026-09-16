@@ -26,7 +26,7 @@ const PAGE_URL = `${SITE_CONFIG.url.replace(/\/$/, '')}${PATH}`;
 /** Titre exact demandé — `buildMetadata` conserve le suffixe via titleAbsolute. */
 const META_TITLE_ABSOLUTE = 'Formation IA à Paris — Présentiel BTP | Laure Olivié';
 const META_DESCRIPTION =
-  `Formation IA à Paris : 4h en présentiel pour maîtriser ChatGPT sur vos devis, DCE et comptes rendus. Qualiopi, financement possible selon éligibilité. Prendre rendez-vous.`;
+  'Formation IA pour le BTP à Paris : 4 h présentiel pour ChatGPT sur devis, DCE et comptes rendus. Qualiopi, financement OPCO possible selon éligibilité.';
 
 export const metadata = buildMetadata({
   title: 'Formation IA à Paris — Présentiel BTP',

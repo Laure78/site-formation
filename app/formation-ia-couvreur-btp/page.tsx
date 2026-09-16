@@ -26,7 +26,7 @@ const PATH = '/formation-ia-couvreur-btp';
 /** Segment avant suffixe — total avec « | Laure Olivié » = 53 car. (≤ 60). */
 const SEO_TITLE = 'Formation IA couvreur-zingueur BTP IDF';
 const SEO_DESCRIPTION =
-  "Formation IA pour couvreurs-zingueurs en Île-de-France : devis toiture, CR de chantier, DTU et appels d'offres. Présentiel — organisme certifié Qualiopi. Visio découverte.";
+  "Formation IA pour le BTP : couvreurs-zingueurs en IDF — devis toiture, CR chantier, DTU et appels d'offres. Présentiel Qualiopi. Visio découverte 30 min.";
 
 export const metadata = createPageMetadata({
   title: SEO_TITLE,

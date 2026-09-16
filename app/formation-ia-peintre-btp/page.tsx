@@ -7,7 +7,7 @@ export const revalidate = 3600;
 const PATH = '/formation-ia-peintre-btp';
 
 const SEO_DESCRIPTION =
-  'Formation IA pour le BTP : ChatGPT aide le peintre sur devis surfaces, relances SAV et CR de visite. Présentiel IDF — organisme certifié Qualiopi, finançable par Constructys selon éligibilité.';
+  'Formation IA pour le BTP : ChatGPT pour devis surfaces, relances SAV et CR peintre. Présentiel IDF, Qualiopi, financement OPCO possible selon éligibilité.';
 
 export const metadata = createMetierBtpPageMetadata('peintre', {
   title: 'Formation IA peintre BTP en Île-de-France',

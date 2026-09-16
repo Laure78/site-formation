@@ -16,7 +16,7 @@ export const CONTACT_PAGE_PROOF_LINE =
 export const CONTACT_PAGE_META_TITLE = 'Contact et devis formation IA BTP | Laure Olivié' as const;
 
 export const CONTACT_PAGE_META_DESCRIPTION =
-  'Demandez un devis ou réservez un échange pour une formation IA dédiée aux entreprises du BTP en Île-de-France.' as const;
+  'Contactez Laure Olivié pour devis ou échange : formation IA pour le BTP en Île-de-France. Présentiel Qualiopi, financement OPCO possible selon éligibilité.' as const;
 
 export const CONTACT_FORM_TITLE = 'Décrivez votre projet' as const;
 

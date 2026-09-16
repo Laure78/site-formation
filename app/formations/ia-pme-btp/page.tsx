@@ -29,7 +29,7 @@ const HERO_RESUME = [
 ];
 
 const PAGE_META_DESCRIPTION =
-  'Déployer l’IA dans une PME BTP : cartographie des usages, charte et plan 90 jours. Parcours 7 h ou 14 h, présentiel IDF, Qualiopi, financement OPCO selon éligibilité.';
+  'Formation IA pour le BTP : déployer l’IA en PME — usages, charte, plan 90 jours. Parcours 7 ou 14 h, IDF, Qualiopi, financement OPCO possible selon éligibilité.';
 
 export const metadata = createPageMetadata({
   title: 'Déployer l’IA dans une PME BTP',

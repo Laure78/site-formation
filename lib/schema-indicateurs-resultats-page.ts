@@ -17,7 +17,7 @@ export const INDICATEURS_RESULTATS_PAGE_TITLE =
   'Indicateurs de résultats des formations | OFC';
 
 export const INDICATEURS_RESULTATS_PAGE_DESCRIPTION =
-  'Consultez les résultats des formations OFC : satisfaction à chaud, méthode de calcul, période et périmètre.';
+  'Indicateurs de résultats OFC : satisfaction à chaud, méthode de calcul et période. Transparence Qualiopi sur la formation IA pour le BTP en Île-de-France.';
 
 export function getIndicateursResultatsPageJsonLd(): Record<string, unknown> {
   return {

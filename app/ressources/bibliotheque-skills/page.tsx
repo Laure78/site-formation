@@ -19,15 +19,15 @@ const PATH = LINKS.bibliothequeSkills;
 const CANONICAL = `${SITE_CONFIG.url.replace(/\/$/, '')}${PATH}`;
 
 const PAGE_META_DESCRIPTION =
-  'Claude AI BTP — bibliothèque skills gratuits : CR, DCE, mémoire technique, PPSPS et DOE au format .skill. OFC Qualiopi, présentiel IDF. Téléchargez maintenant.';
+  'Bibliothèque skills Claude gratuits pour le BTP : CR, DCE, mémoire, PPSPS et DOE (.skill). Formation IA pour le BTP — téléchargement, organisme Qualiopi.';
 
 export const metadata: Metadata = createPageMetadata({
-  title: 'Bibliothèque skills Claude BTP — téléchargement .skill & .md',
+  title: 'Bibliothèque skills Claude BTP',
   description: PAGE_META_DESCRIPTION,
   descriptionFinal: true,
   path: PATH,
   openGraphType: 'website',
-  openGraphTitle: 'Bibliothèque skills Claude BTP — .skill & .md gratuits',
+  openGraphTitle: 'Bibliothèque skills Claude BTP',
   openGraphDescription: PAGE_META_DESCRIPTION,
   appendAuthorSuffix: false,
 });

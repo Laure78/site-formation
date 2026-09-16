@@ -12,7 +12,7 @@ export const revalidate = 3600;
 
 const PAGE_TITLE = 'Réclamations | Laure Olivié';
 const PAGE_DESCRIPTION =
-  "Vous souhaitez déposer une réclamation auprès d'OFC Création d'Entreprise, organisme de formation ? Canaux, délai de réponse (48 h et 15 jours ouvrés), traitement et voies de recours.";
+  'Déposez une réclamation OFC : canaux, délais (48 h et 15 jours ouvrés) et recours. Organisme Qualiopi — formation IA pour le BTP en présentiel en IDF.';
 
 export const metadata = createPageMetadata({
   title: PAGE_TITLE,

@@ -34,7 +34,7 @@ export const PARTENAIRES_PAGE_CLARIFICATION =
 export const PARTENAIRES_PAGE_META_TITLE = 'Références formation IA BTP | Laure Olivié' as const;
 
 export const PARTENAIRES_PAGE_META_DESCRIPTION =
-  'Découvrez les réseaux, fédérations et organismes pour lesquels Laure Olivié anime des formations pratiques à l’IA appliquée au BTP.' as const;
+  'Références FFB, CSFE et partenaires : Laure Olivié anime une formation IA pour le BTP concrète auprès des réseaux et fédérations du bâtiment en Île-de-France.' as const;
 
 export type PartenaireOrganizationCategory = 'btp' | 'autres';
 
