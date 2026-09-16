@@ -228,6 +228,10 @@ export const LINKS = {
   bework: '/bework',
   /** Point d'entrée indexable vers la plateforme app.laureolivie.fr */
   beworkPlateforme: '/bework/plateforme',
+  /** Programme PDF BeWork — parcours 7 h */
+  pdfProgrammeBework7h: '/bework/programme-bework-parcours-7h.pdf',
+  /** Programme PDF BeWork — parcours 14 h */
+  pdfProgrammeBework14h: '/bework/programme-bework-parcours-14h.pdf',
   /** Point d'entrée indexable vers l'espace apprenant OFC (stagiaires) */
   formationPlateforme: '/formations/plateforme',
   /** Connexion espace apprenant LMS (indexable SEO/GEO) */

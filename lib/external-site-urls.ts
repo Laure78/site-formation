@@ -10,6 +10,8 @@ export const EXTERNAL_SITE_URLS = {
   beworkFormation: 'https://www.bework.fr/formation',
   /** FAQ formation BeWork. */
   beworkFaq: 'https://www.bework.fr/faq',
+  /** Demande de place / inscription session BeWork. */
+  beworkParticiper: 'https://www.bework.fr/contact#participer',
   /** Plateforme BeWork — connexion espace entreprise (sous-domaine Laure Olivié). */
   beworkApp: 'https://app.laureolivie.fr/',
   /** Legacy Teachizy — import contenus uniquement (scripts/import-teachizy). */

@@ -18,8 +18,8 @@ export function AccueilBeworkAccordionSection() {
           summaryLabelExpanded="Masquer BeWork"
           preview={
             <p className="mb-4 text-sm leading-relaxed text-slate-600">
-              Formation progressive distincte des actions de formation de l&apos;organisme certifié
-              Qualiopi — créer sites, apps et outils avec l’IA, sans programmer.
+              Formation « Construisez votre projet avec l’IA » (marque OFC) — 7 h ou 14 h, distincte du
+              catalogue IA BTP. Financement OPCO possible selon éligibilité.
             </p>
           }
         >

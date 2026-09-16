@@ -59,7 +59,7 @@ Un contenu = une seule marque. Ne jamais les mélanger sur une même page/sectio
 
 ⦿ **OFC Création d'Entreprise** — formation IA/ChatGPT pour le BTP. Bleu `#377CF3`. Voix Laure, 1re personne. Qualiopi/Constructys/OPCO. Calendly : `https://calendly.com/formation-ia-artisans-btp-appel-decouverte/appel_decouverte_formation`. Île-de-France.
 
-⦿ **BeWork** (bework.fr) — formation progressive pour **créer avec l’IA sans savoir coder** : sites, applications et outils numériques (7 h / 300 € ou 14 h / 600 €), présentiel ou visio. Bleu `#1D4ED8`. Voix collective nous/on. Positionnement : « Apprendre aujourd’hui, créer demain » / « Sans savoir coder. Créez ce que vous imaginez. ». CTA : « Découvrir la formation » / « Participer ». **Offre distincte, non éligible OPCO** : le logo Qualiopi et les mentions OPCO/OFC ne doivent JAMAIS apparaître dans la section BeWork. Ne pas confondre avec les formations IA BTP Qualiopi d’OFC.
+⦿ **BeWork** (bework.fr) — marque d’**OFC Création d'Entreprise** : formation progressive « Construisez votre projet avec l’IA » (7 h / 300 € ou 14 h / 600 €), présentiel ou visio, 6–8 participants. Bleu `#1D4ED8`. Voix collective nous/on. Positionnement : « Apprendre aujourd’hui, créer demain » / « Sans savoir coder. Créez ce que vous imaginez. ». CTA : « S’inscrire » → `bework.fr/contact#participer`. Programmes PDF : `lib/bework-programmes.ts` / `public/bework/`. Distincte du catalogue IA BTP ; financement OPCO possible selon éligibilité. Sur les pages marketing BeWork, ne pas dupliquer le logo Qualiopi hors mentions légales / PDF programme — renvoyer vers le footer OFC si besoin.
 
 ## Skills
 

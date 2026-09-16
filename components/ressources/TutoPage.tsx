@@ -456,8 +456,9 @@ export function TutoPage({ tuto }: { tuto: TutoData }) {
 
           {tuto.cta.brand === 'bework' ? (
             <p className="mt-8 text-sm text-slate-600">
-              BeWork — formation pour créer avec l’IA sans savoir coder, distincte des actions de
-              formation Qualiopi, non éligible OPCO. En savoir plus sur{' '}
+              BeWork — marque d’OFC Création d’Entreprise : formation pour créer avec l’IA sans savoir
+              coder, distincte du catalogue IA BTP. Financement OPCO possible selon éligibilité. En
+              savoir plus sur{' '}
               <Link href={LINKS.bework} className="text-[#377CF3] hover:underline">
                 la page BeWork
               </Link>

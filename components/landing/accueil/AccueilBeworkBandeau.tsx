@@ -4,6 +4,7 @@ import { ExternalLinkAnchor } from '@/components/ExternalLink';
 import { BeworkHeroVideo } from '@/components/bework/BeworkHeroVideo';
 import { EXTERNAL_SITE_URLS } from '@/lib/external-site-urls';
 import { LINKS } from '@/lib/internal-links';
+import { QUALIOPI_BEWORK_DISTINCTION } from '@/config/qualiopi';
 
 /**
  * Accueil — mise en avant BeWork (offre distincte des formations Qualiopi OFC).
@@ -40,6 +41,13 @@ export function AccueilBeworkBandeau() {
                 <div>
                   <p className="font-semibold text-[#0F172A]">1 journée · 7 h · 300 €</p>
                   <p className="text-sm text-[#64748B]">Apprendre à commencer et lancer un premier projet</p>
+                  <a
+                    href={LINKS.pdfProgrammeBework7h}
+                    download="programme-bework-parcours-7h.pdf"
+                    className="mt-1 inline-flex text-xs font-semibold text-[#1D4ED8] hover:underline"
+                  >
+                    Télécharger le programme PDF (7 h)
+                  </a>
                 </div>
               </li>
               <li className="flex gap-3 rounded-xl border border-[#BFDBFE] bg-white px-4 py-3 shadow-sm">
@@ -47,30 +55,36 @@ export function AccueilBeworkBandeau() {
                 <div>
                   <p className="font-semibold text-[#0F172A]">2 journées · 14 h · 600 €</p>
                   <p className="text-sm text-[#64748B]">Approfondir et construire plus loin</p>
+                  <a
+                    href={LINKS.pdfProgrammeBework14h}
+                    download="programme-bework-parcours-14h.pdf"
+                    className="mt-1 inline-flex text-xs font-semibold text-[#1D4ED8] hover:underline"
+                  >
+                    Télécharger le programme PDF (14 h)
+                  </a>
                 </div>
               </li>
             </ul>
 
             <div className="mt-8 flex flex-wrap gap-3">
-              <Link
-                href={LINKS.bework}
+              <ExternalLinkAnchor
+                href={EXTERNAL_SITE_URLS.beworkParticiper}
+                title="S’inscrire à une session BeWork sur bework.fr (nouvel onglet)"
                 className="inline-flex items-center justify-center gap-2 rounded-lg bg-[#1D4ED8] px-6 py-3 text-sm font-semibold text-white shadow-[0_4px_16px_rgba(29,78,216,0.18)] transition-colors hover:bg-[#1E40AF]"
               >
-                Découvrir BeWork
+                S’inscrire
                 <ArrowRight className="h-4 w-4 shrink-0" aria-hidden />
-              </Link>
-              <ExternalLinkAnchor
-                href={EXTERNAL_SITE_URLS.beworkFormation}
-                title="Sessions et inscription BeWork sur bework.fr (nouvel onglet)"
+              </ExternalLinkAnchor>
+              <Link
+                href={LINKS.bework}
                 className="inline-flex items-center justify-center rounded-lg border border-[#1D4ED8] bg-white px-5 py-3 text-sm font-semibold text-[#1D4ED8] transition-colors hover:bg-[#EFF6FF]"
               >
-                Voir les sessions sur bework.fr
-              </ExternalLinkAnchor>
+                Découvrir BeWork
+              </Link>
             </div>
 
             <p className="mt-5 text-xs leading-relaxed text-[#64748B]">
-              Offre distincte des formations IA BTP de l’organisme certifié Qualiopi OFC Création
-              d’Entreprise — non éligible OPCO.
+              {QUALIOPI_BEWORK_DISTINCTION}
             </p>
           </div>
 

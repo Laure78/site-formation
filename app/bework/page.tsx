@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { ArrowUpRight, Check, Monitor, Users, Sparkles } from 'lucide-react';
+import { ArrowUpRight, Check, Download, Monitor, Users, Sparkles } from 'lucide-react';
 import { ExternalLinkAnchor } from '@/components/ExternalLink';
 import { JsonLd } from '@/components/JsonLd';
 import { BeworkHeroVideo } from '@/components/bework/BeworkHeroVideo';
@@ -7,6 +7,7 @@ import { createPageMetadata, SITE_CONFIG } from '@/lib/seo';
 import { EXTERNAL_SITE_URLS } from '@/lib/external-site-urls';
 import { LINKS } from '@/lib/internal-links';
 import { QUALIOPI_BEWORK_DISTINCTION } from '@/config/qualiopi';
+import { BEWORK_PARCOURS, BEWORK_PARCOURS_LIST } from '@/lib/bework-programmes';
 import { VIDEOS } from '@/lib/videos';
 
 export const revalidate = 3600;
@@ -14,6 +15,7 @@ export const revalidate = 3600;
 const BEWORK_SITE = EXTERNAL_SITE_URLS.bework;
 const BEWORK_FORMATION = EXTERNAL_SITE_URLS.beworkFormation;
 const BEWORK_FAQ = EXTERNAL_SITE_URLS.beworkFaq;
+const BEWORK_PARTICIPER = EXTERNAL_SITE_URLS.beworkParticiper;
 
 const META_TITLE = 'BeWork — créer avec l’IA sans savoir coder';
 const META_DESCRIPTION =
@@ -230,9 +232,9 @@ function getBeworkPageJsonLd() {
       {
         '@type': 'Course',
         '@id': `${BEWORK_FORMATION}#course`,
-        name: 'Créer avec l’IA sans savoir coder',
+        name: 'Construisez votre projet avec l’IA',
         description:
-          'Formation progressive BeWork : 1 journée (7 h) pour apprendre à commencer, ou 2 journées (14 h) pour construire plus loin — sans prérequis en programmation.',
+          'Formation progressive BeWork (marque OFC) : 1 journée (7 h) pour apprendre à commencer, ou 2 journées (14 h) pour construire plus loin et publier — sans prérequis en programmation.',
         url: BEWORK_FORMATION,
         provider: { '@id': `${BEWORK_SITE}#organization` },
         inLanguage: 'fr-FR',
@@ -240,27 +242,27 @@ function getBeworkPageJsonLd() {
         hasCourseInstance: [
           {
             '@type': 'CourseInstance',
-            name: 'Apprendre à commencer',
+            name: BEWORK_PARCOURS['7h'].intitule,
             courseMode: ['onsite', 'online'],
             duration: 'PT7H',
             offers: {
               '@type': 'Offer',
-              price: '300',
+              price: String(BEWORK_PARCOURS['7h'].tarifHt),
               priceCurrency: 'EUR',
-              url: BEWORK_FORMATION,
+              url: BEWORK_PARTICIPER,
               availability: 'https://schema.org/InStock',
             },
           },
           {
             '@type': 'CourseInstance',
-            name: 'Construire plus loin',
+            name: BEWORK_PARCOURS['14h'].intitule,
             courseMode: ['onsite', 'online'],
             duration: 'PT14H',
             offers: {
               '@type': 'Offer',
-              price: '600',
+              price: String(BEWORK_PARCOURS['14h'].tarifHt),
               priceCurrency: 'EUR',
-              url: BEWORK_FORMATION,
+              url: BEWORK_PARTICIPER,
               availability: 'https://schema.org/InStock',
             },
           },
@@ -363,11 +365,19 @@ export default function BeworkPage() {
             </li>
           </ul>
           <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
-            <CtaFormation />
-            <CtaFormation label="Voir le programme" href={BEWORK_FORMATION} variant="secondary" />
+            <CtaFormation label="S’inscrire" href={BEWORK_PARTICIPER} />
+            <a
+              href="#parcours"
+              className="inline-flex items-center justify-center gap-2 rounded-lg border border-[#1D4ED8] bg-white px-6 py-3 text-sm font-semibold text-[#1D4ED8] transition-colors hover:bg-[#EFF6FF]"
+            >
+              Voir les programmes
+            </a>
           </div>
-          <p className="mt-4 text-sm text-[#64748B]">7 h ou 14 h selon votre besoin</p>
-          <BeworkHeroVideo className="mx-auto mt-10 max-w-3xl" />
+          <p className="mt-4 text-sm text-[#64748B]">7 h ou 14 h · 6 à 8 participants · selon votre besoin</p>
+          <BeworkHeroVideo className="mt-10" />
+          <div className="mt-6 flex justify-center">
+            <CtaFormation label="S’inscrire à une session" href={BEWORK_PARTICIPER} />
+          </div>
           <p className="mx-auto mt-6 max-w-2xl text-sm leading-relaxed text-[#475569]">
             Aucun prérequis en programmation. Vous partez de zéro et repartez avec une méthode, un
             environnement prêt et une première création fonctionnelle.
@@ -552,7 +562,7 @@ export default function BeworkPage() {
             ))}
           </ul>
           <div className="mt-8 flex flex-wrap gap-3">
-            <CtaFormation variant="light" />
+            <CtaFormation label="S’inscrire" href={BEWORK_PARTICIPER} variant="light" />
             <CtaFormation label="Voir les démonstrations" href={BEWORK_SITE} variant="secondary" className="!border-white/40 !bg-transparent !text-white hover:!bg-white/10" />
           </div>
         </div>
@@ -721,85 +731,82 @@ export default function BeworkPage() {
             et construire davantage.
           </p>
           <div className="mt-8 grid gap-6 lg:grid-cols-2">
-            <article className="flex flex-col rounded-2xl border border-slate-200 bg-white p-6 shadow-sm md:p-8">
-              <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#64748B]">
-                1 jour
-              </p>
-              <h3 className="mt-2 font-display text-2xl font-bold text-[#0F172A]">
-                Apprendre à commencer
-              </h3>
-              <p className="mt-4 flex items-baseline gap-2">
-                <span className="font-display text-4xl font-bold text-[#1D4ED8]">300 €</span>
-                <span className="text-sm text-[#64748B]">par participant · 7 h</span>
-              </p>
-              <p className="mt-4 text-sm leading-relaxed text-[#475569]">
-                Une journée complète pour comprendre la méthode, préparer votre environnement, créer
-                une première version, apprendre à modifier, tester et corriger.
-              </p>
-              <ul className="mt-5 flex-1 space-y-2">
-                {[
-                  'Parcours complet du Jour 1',
-                  'Mise en pratique guidée',
-                  'Première création fonctionnelle',
-                  'Méthode pour tester et corriger',
-                  'Plan pour continuer après la journée',
-                ].map((item) => (
-                  <li key={item} className="flex gap-2 text-sm text-[#334155]">
-                    <Check className="mt-0.5 h-4 w-4 shrink-0 text-[#1D4ED8]" aria-hidden />
-                    {item}
-                  </li>
-                ))}
-              </ul>
-              <p className="mt-5 text-sm font-semibold text-[#0F172A]">
-                Vous repartez en sachant comment commencer.
-              </p>
-              <CtaFormation label="Choisir 1 journée" className="mt-6 w-full sm:w-auto" />
-            </article>
-
-            <article className="relative flex flex-col rounded-2xl border-2 border-[#1D4ED8] bg-white p-6 shadow-[0_8px_30px_rgba(29,78,216,0.12)] md:p-8">
-              <p className="absolute -top-3 left-6 rounded-full bg-[#1D4ED8] px-3 py-1 text-xs font-semibold text-white">
-                Recommandé pour aller plus loin
-              </p>
-              <p className="mt-2 text-xs font-semibold uppercase tracking-[0.14em] text-[#1D4ED8]">
-                2 jours
-              </p>
-              <h3 className="mt-2 font-display text-2xl font-bold text-[#0F172A]">
-                Construire plus loin
-              </h3>
-              <p className="mt-4 flex items-baseline gap-2">
-                <span className="font-display text-4xl font-bold text-[#1D4ED8]">600 €</span>
-                <span className="text-sm text-[#64748B]">par participant · 14 h</span>
-              </p>
-              <p className="mt-4 text-sm leading-relaxed text-[#475569]">
-                Le parcours du Jour 1, puis une deuxième journée pour pratiquer davantage, approfondir
-                votre projet et gagner en autonomie.
-              </p>
-              <ul className="mt-5 flex-1 space-y-2">
-                {[
-                  'Tout le parcours 7 h',
-                  'Une journée supplémentaire de pratique',
-                  'Projet plus approfondi',
-                  'Fonctionnalités supplémentaires',
-                  'Tests, corrections et accompagnement renforcé',
-                ].map((item) => (
-                  <li key={item} className="flex gap-2 text-sm text-[#334155]">
-                    <Check className="mt-0.5 h-4 w-4 shrink-0 text-[#1D4ED8]" aria-hidden />
-                    {item}
-                  </li>
-                ))}
-              </ul>
-              <p className="mt-5 text-sm font-semibold text-[#0F172A]">
-                Vous avez le temps de construire, tester, corriger et aller plus loin.
-              </p>
-              <CtaFormation label="Choisir 2 journées" className="mt-6 w-full sm:w-auto" />
-            </article>
+            {BEWORK_PARCOURS_LIST.map((parcours) => {
+              const featured = parcours.id === '14h';
+              return (
+                <article
+                  key={parcours.id}
+                  className={
+                    featured
+                      ? 'relative flex flex-col rounded-2xl border-2 border-[#1D4ED8] bg-white p-6 shadow-[0_8px_30px_rgba(29,78,216,0.12)] md:p-8'
+                      : 'flex flex-col rounded-2xl border border-slate-200 bg-white p-6 shadow-sm md:p-8'
+                  }
+                >
+                  {featured ? (
+                    <p className="absolute -top-3 left-6 rounded-full bg-[#1D4ED8] px-3 py-1 text-xs font-semibold text-white">
+                      Recommandé pour aller plus loin
+                    </p>
+                  ) : null}
+                  <p
+                    className={`text-xs font-semibold uppercase tracking-[0.14em] ${featured ? 'mt-2 text-[#1D4ED8]' : 'text-[#64748B]'}`}
+                  >
+                    {parcours.id === '7h' ? '1 jour' : '2 jours'}
+                  </p>
+                  <h3 className="mt-2 font-display text-2xl font-bold text-[#0F172A]">
+                    {parcours.title}
+                  </h3>
+                  <p className="mt-2 text-sm leading-snug text-[#64748B]">{parcours.intitule}</p>
+                  <p className="mt-4 flex flex-wrap items-baseline gap-2">
+                    <span className="font-display text-4xl font-bold text-[#1D4ED8]">
+                      {parcours.tarifLabel}
+                    </span>
+                    <span className="text-sm text-[#64748B]">
+                      par participant · {parcours.dureeLabel} · {parcours.effectif}
+                    </span>
+                  </p>
+                  <p className="mt-4 text-sm leading-relaxed text-[#475569]">
+                    {parcours.id === '7h'
+                      ? 'Une journée complète pour comprendre la méthode, préparer votre environnement, créer une première version, apprendre à modifier, tester et corriger.'
+                      : 'Le parcours du Jour 1, puis une deuxième journée pour pratiquer davantage, approfondir votre projet, le publier et gagner en autonomie.'}
+                  </p>
+                  <ul className="mt-5 flex-1 space-y-2">
+                    {parcours.highlights.map((item) => (
+                      <li key={item} className="flex gap-2 text-sm text-[#334155]">
+                        <Check className="mt-0.5 h-4 w-4 shrink-0 text-[#1D4ED8]" aria-hidden />
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                  <p className="mt-5 text-sm font-semibold text-[#0F172A]">{parcours.outcome}</p>
+                  <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+                    <CtaFormation
+                      label={parcours.id === '7h' ? 'Choisir 1 journée' : 'Choisir 2 journées'}
+                      href={BEWORK_PARTICIPER}
+                      className="w-full sm:w-auto"
+                    />
+                    <a
+                      href={parcours.pdfHref}
+                      download={parcours.pdfDownloadName}
+                      className="inline-flex w-full items-center justify-center gap-2 rounded-lg border border-[#1D4ED8] bg-white px-6 py-3 text-sm font-semibold text-[#1D4ED8] transition-colors hover:bg-[#EFF6FF] sm:w-auto"
+                    >
+                      <Download className="h-4 w-4 shrink-0" aria-hidden />
+                      Programme PDF ({parcours.dureeLabel})
+                    </a>
+                  </div>
+                </article>
+              );
+            })}
           </div>
           <aside className="mt-8 rounded-xl border border-dashed border-[#BFDBFE] bg-white px-5 py-4 text-sm leading-relaxed text-[#475569]">
             <p className="font-semibold text-[#0F172A]">Pas encore sûr de vouloir faire 2 jours ?</p>
             <p className="mt-1">
-              Commencez par la première journée à 300 €. Si vous souhaitez continuer, ajoutez
-              simplement le deuxième jour pour 300 € supplémentaires. Vous ne perdez rien à commencer
-              par 1 journée.
+              Commencez par la première journée à {BEWORK_PARCOURS['7h'].tarifLabel}. Si vous
+              souhaitez continuer, ajoutez simplement le deuxième jour pour{' '}
+              {BEWORK_PARCOURS['7h'].tarifLabel} supplémentaires. Vous ne perdez rien à commencer par
+              1 journée.
+            </p>
+            <p className="mt-3">
+              Financement OPCO possible selon éligibilité · exonéré de TVA (art. 261-4-4°-a du CGI).
             </p>
           </aside>
         </div>
@@ -864,7 +871,7 @@ export default function BeworkPage() {
             claire pour continuer.
           </p>
           <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
-            <CtaFormation variant="light" />
+            <CtaFormation label="S’inscrire" href={BEWORK_PARTICIPER} variant="light" />
             <CtaFormation
               label="Voir les démonstrations"
               href={BEWORK_SITE}
