@@ -8,7 +8,7 @@ import { EXTERNAL_SITE_URLS } from '@/lib/external-site-urls';
 import { LINKS } from '@/lib/internal-links';
 import { QUALIOPI_BEWORK_DISTINCTION } from '@/config/qualiopi';
 import { BEWORK_PARCOURS, BEWORK_PARCOURS_LIST } from '@/lib/bework-programmes';
-import { VIDEOS } from '@/lib/videos';
+import { BEWORK_PAGE_GALLERY_VIDEOS, VIDEOS } from '@/lib/videos';
 
 export const revalidate = 3600;
 
@@ -462,10 +462,45 @@ export default function BeworkPage() {
         </div>
       </section>
 
+      {/* Vidéos BeWork — format 9:16 */}
+      <section
+        id="videos"
+        aria-labelledby="bework-videos"
+        className="border-b border-slate-200 bg-[#F8FAFC] px-4 py-12 md:py-16"
+      >
+        <div className="mx-auto max-w-6xl">
+          <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#1D4ED8]">
+            En images
+          </p>
+          <h2
+            id="bework-videos"
+            className="mt-2 font-display text-2xl font-bold text-[#0F172A] md:text-3xl"
+          >
+            Voir BeWork en action.
+          </h2>
+          <p className="mt-4 max-w-3xl text-[15px] leading-relaxed text-[#475569] md:text-base">
+            Deux autres aperçus de la formation — format vertical, comme sur mobile. Site officiel :{' '}
+            <ExternalLinkAnchor
+              href={BEWORK_SITE}
+              title="Site officiel BeWork — https://www.bework.fr/ (nouvel onglet)"
+              className="font-semibold text-[#1D4ED8] underline underline-offset-2 hover:text-[#1E40AF]"
+            >
+              BeWork (www.bework.fr)
+            </ExternalLinkAnchor>
+            .
+          </p>
+          <div className="mt-10 grid justify-items-center gap-10 sm:grid-cols-2 sm:gap-8">
+            {BEWORK_PAGE_GALLERY_VIDEOS.map((key) => (
+              <BeworkHeroVideo key={key} videoKey={key} showCaption className="sm:mx-0" />
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Métiers */}
       <section
         aria-labelledby="bework-metiers"
-        className="border-b border-slate-200 bg-[#F8FAFC] px-4 py-12 md:py-16"
+        className="border-b border-slate-200 bg-white px-4 py-12 md:py-16"
       >
         <div className="mx-auto max-w-4xl text-center">
           <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#1D4ED8]">
@@ -500,7 +535,7 @@ export default function BeworkPage() {
       {/* Intelligences */}
       <section
         aria-labelledby="bework-ia"
-        className="border-b border-slate-200 bg-white px-4 py-12 md:py-16"
+        className="border-b border-slate-200 bg-[#F8FAFC] px-4 py-12 md:py-16"
       >
         <div className="mx-auto max-w-6xl">
           <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#1D4ED8]">

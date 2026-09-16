@@ -53,20 +53,16 @@ function formationNavLink(formation: (typeof FORMATIONS)[number]): HeaderNavLink
 
 function buildFormationsNavChildren(at: Date): HeaderNavLink[] {
   const published = getPublishedFormations(at);
-  const applicationMetier = published.filter((f) => APPLICATION_METIER_CODES.has(f.code));
+  /** Niveaux apps métier retirés du dropdown — remplacés par BeWork. */
   const catalogueCore = published.filter((f) => !APPLICATION_METIER_CODES.has(f.code));
 
-  const parcoursItem: HeaderNavLink = {
-    href: LINKS.parcoursApplicationsMetierBtp,
-    label: 'Parcours Création d’applications BTP',
-    title: 'Création d’applications BTP avec l’IA — parcours 21 h',
-    children: applicationMetier.map(formationNavLink),
+  const beworkItem: HeaderNavLink = {
+    href: LINKS.bework,
+    label: 'Construisez votre projet avec l’IA — BeWork',
+    title: 'BeWork — formation créer avec l’IA sans savoir coder (7 h ou 14 h)',
   };
 
-  return [
-    ...catalogueCore.map(formationNavLink),
-    parcoursItem,
-  ];
+  return [...catalogueCore.map(formationNavLink), beworkItem];
 }
 
 function pathMatches(pathname: string, href: string): boolean {
@@ -77,6 +73,9 @@ function pathMatches(pathname: string, href: string): boolean {
 
 function formationsNavActive(pathname: string): boolean {
   if (pathname === LINKS.formations || pathname.startsWith(`${LINKS.formations}/`)) {
+    return true;
+  }
+  if (pathname === LINKS.bework || pathname.startsWith(`${LINKS.bework}/`)) {
     return true;
   }
   if (pathname === LINKS.parcoursApplicationsMetierBtp || pathname.startsWith(`${LINKS.parcoursApplicationsMetierBtp}/`)) {

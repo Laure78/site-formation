@@ -33,9 +33,9 @@ export const NAV_FORMATIONS_FOOTER: readonly NavItem[] = [
     title: 'Formation IA — appels d’offres et DCE BTP',
   },
   {
-    href: LINKS.parcoursApplicationsMetierBtp,
-    label: 'Création d’applications BTP',
-    title: 'Parcours Création d’applications BTP avec l’IA',
+    href: LINKS.bework,
+    label: 'Construisez votre projet avec l’IA — BeWork',
+    title: 'BeWork — formation créer avec l’IA sans savoir coder',
   },
   {
     href: LINKS.financement,
