@@ -14,7 +14,8 @@ const CATALOGUE_NIV01 = getFormationByCode('NIV-01')!;
 export const metadata = createPageMetadata({
   title: 'Formation IA Longjumeau (91) — ChatGPT',
   description:
-    'Formation IA pour le BTP à Longjumeau et en Essonne (91) : devis, emails, ChatGPT en 4h. Qualiopi, Constructys. Visio découverte gratuite.',
+    'Formation IA pour le BTP à Longjumeau et en Essonne (91) : devis, emails, ChatGPT en 4 h. Qualiopi, Constructys. Visio découverte gratuite pour PME BTP.',
+  descriptionFinal: true,
   path: '/formations/ia-btp-longjumeau',
   keywords: [
     'formation IA pour les pros du BTP Longjumeau',

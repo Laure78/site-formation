@@ -27,7 +27,8 @@ import { getMaillageRessourceConfig } from '@/lib/maillage-ressources';
 export const metadata = createPageMetadata({
   title: "Guide Maître d'Œuvre × IA — 12 missions | Laure Olivié",
   description:
-    'Guide gratuit : les 12 missions de maîtrise d\'œuvre classées IA / mixte / humain, limites, checklist et méthode. Formation IA BTP Qualiopi (Île-de-France).',
+    "Guide gratuit maîtrise d'œuvre × IA : 12 missions classées IA/mixte/humain, checklist et méthode. Formation IA pour le BTP, Qualiopi, Île-de-France 78.",
+  descriptionFinal: true,
   path: GUIDE_MOE_IA_PATH,
   openGraphType: 'article',
   openGraphTitle: "Guide Maître d'Œuvre × IA — 12 missions MOE",

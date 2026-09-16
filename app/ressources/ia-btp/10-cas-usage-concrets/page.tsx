@@ -27,7 +27,8 @@ import { JsonLd } from '@/components/JsonLd';
 export const metadata = createPageMetadata({
   title: 'IA dans le BTP : 10 cas d\'usage concrets (2026)',
   description:
-    "Dix cas d'usage IA dans le BTP avec exemples et ROI : devis, appels d'offres, chantier. Guide 2026 pour décideurs. Lisez et priorisez vos actions.",
+    "Dix cas d'usage IA dans le BTP avec exemples et ROI : devis, appels d’offres, chantier. Guide 2026. ChatGPT BTP pour prioriser vos actions concrètes PME.",
+  descriptionFinal: true,
   path: '/ressources/ia-btp/10-cas-usage-concrets',
   keywords: [
     'IA dans le BTP',

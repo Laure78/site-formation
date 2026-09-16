@@ -17,7 +17,8 @@ export const revalidate = 3600;
 export const metadata = createPageMetadata({
   title: 'Formation IA devis BTP — session présentiel',
   description:
-    'Formation IA pour automatiser vos devis BTP avec ChatGPT. Session présentiel IDF, méthode et templates. Financement OPCO possible selon éligibilité.',
+    'Formation IA pour le BTP : automatisez vos devis bâtiment avec ChatGPT. Session présentiel IDF et templates. Financement OPCO possible selon éligibilité.',
+  descriptionFinal: true,
   path: '/ia-devis-batiment',
   appendAuthorSuffix: false,
   keywords: [

@@ -36,7 +36,8 @@ const FAQ_ITEMS = [
 export const metadata = createPageMetadata({
   title: "Cas d'usage IA BTP — par métier",
   description:
-    "Cas d'usage concrets de l'IA dans le BTP par métier : documents générés, gains de temps, prompts ChatGPT et Claude. Diagnostic IA gratuit.",
+    "Cas d'usage IA par métier BTP : documents générés, gains de temps, prompts ChatGPT et Claude. ChatGPT BTP, diagnostic gratuit. Qualiopi, Île-de-France.",
+  descriptionFinal: true,
   path: PATH,
   keywords: [
     'cas usage IA BTP',

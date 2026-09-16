@@ -7,7 +7,8 @@ const PATH = '/formation-ia-conducteur-engins-tp';
 export const metadata = createPageMetadata({
   title: 'Formation IA conducteur engins TP — ChatGPT',
   description:
-    "Formation IA pour conducteurs d'engins TP : rapports terrassement, suivi cubature, sécurité chantier. Organisme certifié Qualiopi. Financement possible selon éligibilité.",
+    "Formation IA pour le BTP — conducteurs d'engins TP : rapports terrassement, cubature, sécurité. Qualiopi. Financement OPCO possible selon éligibilité.",
+  descriptionFinal: true,
   path: PATH,
   keywords: [
     'formation IA conducteur engins TP',

@@ -47,7 +47,8 @@ const HERO_RESUME = [
 export const metadata = createPageMetadata({
   title: 'Formation IA BTP SQY (78) — ChatGPT',
   description:
-    'Formation IA pour le BTP à Saint-Quentin-en-Yvelines (78) : ChatGPT, devis, CR chantier. Qualiopi, Constructys. Visio découverte gratuite.',
+    'Formation IA pour le BTP à Saint-Quentin-en-Yvelines (78) : ChatGPT, devis, CR chantier. Qualiopi, Constructys. Visio découverte gratuite pour PME BTP.',
+  descriptionFinal: true,
   path: PATH,
   keywords: [
     'formation IA appliquée au bâtiment Saint-Quentin-en-Yvelines',

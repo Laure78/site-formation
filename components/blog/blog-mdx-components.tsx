@@ -16,10 +16,12 @@ const proseBlockquote =
 
 /**
  * Composants MDX — passés à `compileMDX` (next-mdx-remote RSC).
+ * Les `#` MDX ne doivent jamais produire un 2ᵉ H1 (le hero article l’émet déjà) :
+ * on rétrograde en H2 visuel.
  */
 export function getBlogMdxComponents(): MDXComponents {
   return {
-    h1: (props) => <h1 className="sr-only" {...props} />,
+    h1: ({ className, ...props }) => <h2 className={proseH2} {...props} />,
     h2: ({ className, ...props }) => <h2 className={proseH2} {...props} />,
     h3: ({ className, ...props }) => <h3 className={proseH3} {...props} />,
     p: ({ className, ...props }) => <p className={proseP} {...props} />,

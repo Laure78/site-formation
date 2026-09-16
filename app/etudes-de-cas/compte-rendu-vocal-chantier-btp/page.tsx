@@ -10,7 +10,7 @@ import { formatNoteSatisfactionAffichageComplet } from '@/lib/data/indicateurs-r
 const PATH = LINKS.etudesCasCrVocalChantier;
 
 const PAGE_META_DESCRIPTION =
-  'Étude de cas : compte rendu de chantier vocal avec l’IA — PME gros œuvre IDF. Méthode, gains de temps et validation humaine. Laure Olivié, Qualiopi.';
+  'Étude de cas : CR vocal de chantier avec l’IA — PME gros œuvre IDF. Méthode, gains de temps et validation humaine. ChatGPT BTP, Qualiopi, Laure Olivié.';
 
 export const metadata = createPageMetadata({
   title: 'Étude de cas CR vocal chantier — IA BTP',

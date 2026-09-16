@@ -21,7 +21,8 @@ const CANONICAL = `${SITE_CONFIG.url.replace(/\/$/, '')}${PATH}`;
 export const metadata = createPageMetadata({
   title: 'Guide conducteur travaux — PDF Claude',
   description:
-    'Formation IA pour le BTP : guide PDF gratuit conducteur — DCE, PPSPS, CR, DOE. 6 tutos Claude, prompts inclus.',
+    'Formation IA pour le BTP : guide PDF gratuit conducteur de travaux — DCE, PPSPS, CR, DOE. Six tutos Claude, prompts inclus. Téléchargement immédiat PDF.',
+  descriptionFinal: true,
   path: PATH,
   keywords: [
     'skill IA BTP',

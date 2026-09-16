@@ -22,7 +22,8 @@ const PATH = '/formation-ia-canalisateur-tp';
 export const metadata = createPageMetadata({
   title: 'Formation IA Canalisateur TP Île-de-France',
   description:
-    'Automatisez vos devis canalisations, rapports de chantier, conformité normes. Organisme certifié Qualiopi. Financement possible selon éligibilité.',
+    'Formation IA pour le BTP canalisateur TP : devis, rapports chantier, conformité. Qualiopi. Financement OPCO possible selon éligibilité. Île-de-France.',
+  descriptionFinal: true,
   path: PATH,
   keywords: [
     'formation IA canalisateur',

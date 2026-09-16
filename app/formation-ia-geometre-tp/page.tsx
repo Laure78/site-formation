@@ -22,7 +22,8 @@ const PATH = '/formation-ia-geometre-tp';
 export const metadata = createPageMetadata({
   title: 'Formation IA Géomètre TP Île-de-France',
   description:
-    'Automatisez rapports levés topographiques, devis, documentation technique. Organisme certifié Qualiopi. Financement possible selon éligibilité.',
+    'Formation IA pour le BTP — géomètre TP : rapports levés, devis, docs techniques. Qualiopi. Financement OPCO possible selon éligibilité. Île-de-France.',
+  descriptionFinal: true,
   path: PATH,
   keywords: [
     'formation IA géomètre',
