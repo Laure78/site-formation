@@ -179,10 +179,8 @@ export function buildFinancementConstructysImageObjectJsonLd() {
     url: contentUrl,
     contentUrl,
     name: p.alt,
-    caption:
-      p.title ??
-      'Financement Constructys / OPCO possible selon éligibilité — formation IA pour le BTP, OFC Qualiopi.',
-    description: p.alt,
+    caption: p.title,
+    description: p.description ?? p.alt,
     creditText: HOME_HERO_IMAGE_CREDIT,
     license: `${base}/mentions-legales`,
     acquireLicensePage: `${base}/contact`,

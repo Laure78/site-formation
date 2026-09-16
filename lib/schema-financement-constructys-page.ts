@@ -8,6 +8,7 @@ import { getPillarPageContentUpdatedAt } from '@/lib/content-updated-at';
 import { SCHEMA_CONTACT, SCHEMA_GEO } from '@/lib/schema-constants';
 import { SITE_CONFIG, getArticleSchema, getFAQSchema } from '@/lib/seo';
 import { buildFinancementConstructysImageObjectJsonLd } from '@/lib/schema-image-objects';
+import { PHOTOS } from '@/lib/photos';
 import {
   FINANCEMENT_ETAPES,
   FINANCEMENT_PAGE_H1,
@@ -42,7 +43,7 @@ export function getFinancementConstructysUnifiedJsonLd(): Record<string, unknown
     datePublished: '2026-01-15',
     dateModified: getPillarPageContentUpdatedAt('/financement-constructys-formation-ia-btp'),
     authorName: SITE_CONFIG.name,
-    image: '/images/financement-constructys-formation-ia-btp-hero.webp',
+    image: PHOTOS.financementConstructysHero2026.src,
   });
   const article = stripJsonLdContext(articleRaw as Record<string, unknown>);
   article['@id'] = `${pageUrl}#article`;

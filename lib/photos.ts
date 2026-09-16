@@ -493,13 +493,35 @@ export const PHOTOS = {
     height: 768,
   },
 
-  /** Page financement Constructys — bannière hero plafonds OPCO 2026 */
+  /** Page financement Constructys — hero (préparation dossier / devis OPCO) */
   financementConstructysHero2026: {
     src: '/images/financement-constructys-formation-ia-btp-hero.webp',
-    alt: "Affiche Constructys finance votre formation IA BTP — plafonds 2026 et portrait Laure",
-    title: 'Financement Constructys 2026 — formation IA pour le BTP, plafonds et OFC Qualiopi',
+    alt: 'Dirigeant BTP prépare le financement Constructys d’une formation IA pour le BTP',
+    title: 'Financement Constructys 2026 — plafonds OPCO, devis et dossier eGestion',
+    description:
+      'Professionnel du BTP consulte documents de financement et formation IA : dispositifs Constructys, élaboration du dossier et compétences durables — OFC Qualiopi, présentiel Île-de-France.',
     width: 1024,
-    height: 1024,
+    height: 768,
+  },
+  /** Financement Constructys — checklist OPCO + devis formation */
+  financementConstructysChecklistDevis2026: {
+    src: '/images/financement-constructys-checklist-devis-opco.webp',
+    alt: 'Checklist OPCO et devis formation IA pour le BTP sur ordinateur portable',
+    title: 'Étapes financement : éligibilité, documents, prise en charge et suivi Constructys',
+    description:
+      'Bureau BTP : checklist financement OPCO (éligibilité, documents, demande, suivi) et devis formation IA pour le BTP à télécharger — casque et plans sur le bureau.',
+    width: 1024,
+    height: 768,
+  },
+  /** Financement Constructys — session formation présentiel (illustration partenaires compétences) */
+  financementConstructysSessionFormation2026: {
+    src: '/images/financement-constructys-session-formation-ia-btp.webp',
+    alt: 'Session formation IA pour le BTP en salle — Constructys, compétences BTP',
+    title: 'Formation IA BTP en présentiel — anticipation, formation et accompagnement compétences',
+    description:
+      'Groupe en session formation IA pour le BTP : écran « L’IA au service du BTP », plans sur table et chantier en fond — illustration du partenariat compétences Constructys / OFC Qualiopi.',
+    width: 1024,
+    height: 768,
   },
 
   /** Page d'accueil — hero header (portrait Laure, dashboard IA BTP, manuel formation) */

@@ -1,12 +1,21 @@
+import { AccueilSectionPhoto } from '@/components/landing/accueil/AccueilSectionPhoto';
 import { FINANCEMENT_ETAPES } from '@/lib/financement-constructys-page-config';
+import { PHOTOS } from '@/lib/photos';
 import { OFC_TYPE_H2 } from '@/lib/ofc-interaction-classes';
 
 export function FinancementEtapesSection() {
+  const photo = PHOTOS.financementConstructysChecklistDevis2026;
+
   return (
     <section id="etapes-financement" aria-labelledby="etapes-title" className="scroll-mt-24">
       <h2 id="etapes-title" className={OFC_TYPE_H2}>
         Comment demander la prise en charge ?
       </h2>
+      <AccueilSectionPhoto
+        photo={photo}
+        className="mx-auto mt-8 max-w-3xl"
+        caption="Checklist OPCO et devis : préparez les pièces avant le dépôt eGestion (15 jours calendaires minimum)."
+      />
       <ol className="mt-8 grid gap-5 sm:grid-cols-2">
         {FINANCEMENT_ETAPES.map((etape) => (
           <li key={etape.n} className="ofc-process-step">

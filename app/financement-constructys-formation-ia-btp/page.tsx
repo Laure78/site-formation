@@ -5,6 +5,7 @@ import {
   FINANCEMENT_PAGE_META_DESCRIPTION,
   FINANCEMENT_PAGE_META_TITLE,
 } from '@/lib/financement-constructys-page-config';
+import { PHOTOS } from '@/lib/photos';
 import {
   FinancementConstructysHero,
   FinancementConstructysCta,
@@ -23,6 +24,8 @@ import { AllerPlusLoin } from '@/components/AllerPlusLoin';
 import { LINKS } from '@/lib/internal-links';
 import Link from 'next/link';
 
+const HERO = PHOTOS.financementConstructysHero2026;
+
 export const metadata = createPageMetadata({
   title: FINANCEMENT_PAGE_META_TITLE,
   titleAbsolute: FINANCEMENT_PAGE_META_TITLE,
@@ -33,6 +36,12 @@ export const metadata = createPageMetadata({
   appendAuthorSuffix: false,
   openGraphTitle: FINANCEMENT_PAGE_META_TITLE,
   openGraphDescription: FINANCEMENT_PAGE_META_DESCRIPTION,
+  image: {
+    url: HERO.src,
+    width: HERO.width,
+    height: HERO.height,
+    alt: HERO.alt,
+  },
 });
 
 export default function FinancementConstructysPage() {

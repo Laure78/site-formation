@@ -1,4 +1,6 @@
+import { AccueilSectionPhoto } from '@/components/landing/accueil/AccueilSectionPhoto';
 import { FINANCEMENT_BAREMES_NOTE } from '@/lib/financement-constructys-page-config';
+import { PHOTOS } from '@/lib/photos';
 import { OFC_CARD, OFC_TYPE_H2, OFC_TYPE_H3 } from '@/lib/ofc-interaction-classes';
 
 const ESSENTIEL = [
@@ -25,11 +27,18 @@ const ESSENTIEL = [
 ] as const;
 
 export function FinancementEssentielSection() {
+  const photo = PHOTOS.financementConstructysSessionFormation2026;
+
   return (
     <section aria-labelledby="essentiel-title" className="scroll-mt-24">
       <h2 id="essentiel-title" className={OFC_TYPE_H2}>
         L’essentiel en 30 secondes
       </h2>
+      <AccueilSectionPhoto
+        photo={photo}
+        className="mx-auto mt-8 max-w-3xl"
+        caption="Formation IA pour le BTP en présentiel : le financement Constructys accompagne les compétences, sous réserve d’éligibilité."
+      />
       <ul className="mt-8 grid gap-5 sm:grid-cols-2">
         {ESSENTIEL.map((item) => (
           <li key={item.titre} className={`${OFC_CARD} p-6`}>
