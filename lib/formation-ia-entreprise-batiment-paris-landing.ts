@@ -1,5 +1,5 @@
 /**
- * Landing `/formation-ia-entreprise-batiment-paris` — SEO local intra-entreprise.
+ * Landing `/formation-ia-btp-paris` — SEO local intra-entreprise.
  */
 import { FINANCEMENT_FORMULATION_PRUDENTE } from '@/lib/financement-copy';
 import { IDF_ZONE_INTERVENTION } from '@/lib/constants';
@@ -7,7 +7,7 @@ import { LINKS } from '@/lib/internal-links';
 import type { SeoClusterPageConfig } from '@/lib/seo-cluster-landing-types';
 
 export const FORMATION_IA_ENTREPRISE_BATIMENT_PARIS_PATH =
-  '/formation-ia-entreprise-batiment-paris' as const;
+  '/formation-ia-btp-paris' as const;
 
 export const FORMATION_IA_ENTREPRISE_BATIMENT_PARIS_CONFIG: SeoClusterPageConfig = {
   path: FORMATION_IA_ENTREPRISE_BATIMENT_PARIS_PATH,

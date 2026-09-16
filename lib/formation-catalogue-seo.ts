@@ -101,13 +101,13 @@ export const FORMATION_CATALOGUE_SEO: Record<FormationCatalogueCode, FormationCa
     ],
   },
   'NIV-04': {
-    metaTitle: 'Formation Claude BTP | Projects & Cowork',
-    h1: 'Maîtriser Claude pour le BTP : Projects, Cowork et Skills',
+    metaTitle: 'Formation Claude AI BTP | Projects & Cowork',
+    h1: 'Formation Claude AI BTP : Projects, Cowork et Skills',
     subtitle:
       'Exploitez l’écosystème Claude (Projects, Cowork, Skills, connecteurs) sur vos documents BTP — formation avancée distincte du parcours applications métier.',
     metaDescription:
-      'Formation Claude BTP : Projects, Cowork, Skills et connecteurs sur vos dossiers chantier. 4 h présentiel IDF, Qualiopi, financement OPCO selon éligibilité.',
-    enBref: `La formation Claude BTP apprend à structurer des Projets Claude, créer des Skills métier, déléguer la production documentaire à Cowork et connecter Claude à la messagerie et au drive. ${SESSION_DUREE_LIBELLE} en présentiel — ${QUALIOPI_MENTION}. Distincte du parcours applications métier BTP.`,
+      'Formation Claude AI BTP : Projects, Cowork, Skills et connecteurs sur vos dossiers chantier. 4 h présentiel IDF, Qualiopi, financement OPCO selon éligibilité.',
+    enBref: `La Formation Claude AI BTP apprend à structurer des Projets Claude, créer des Skills métier, déléguer la production documentaire à Cowork et connecter Claude à la messagerie et au drive. ${SESSION_DUREE_LIBELLE} en présentiel — ${QUALIOPI_MENTION}. Distincte du parcours applications métier BTP.`,
     publicTargets: [
       'Référents IA et responsables digitaux',
       'Dirigeants souhaitant industrialiser l\'usage de Claude',

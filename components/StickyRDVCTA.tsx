@@ -30,7 +30,7 @@ export function StickyRDVCTA() {
   if (isStickyBlogMetierRdvPath(pathname)) return null;
   if (!visible) return null;
 
-  if (pathname === '/prendre-rdv' || pathname === '/prendre-rendez-vous') return null;
+  if (pathname === '/prendre-rdv' || pathname === '/prendre-rdv') return null;
 
   const isContactPage = pathname === '/contact';
 

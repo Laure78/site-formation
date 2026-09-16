@@ -15,13 +15,13 @@ import {
   CALENDLY_EMBED_URL,
 } from '@/lib/calendly';
 
-/** `popup` conservé pour compatibilité — redirige vers `/prendre-rendez-vous`. */
+/** `popup` conservé pour compatibilité — redirige vers `/prendre-rdv`. */
 export type CalendlyEmbedType = 'popup' | 'inline' | 'link';
 
 type CtaPosition = 'hero' | 'middle' | 'footer' | 'inline' | 'floating' | 'unknown';
 
 export type CalendlyEmbedProps = {
-  /** @deprecated Ignoré hors mode `inline` — Calendly réservé à `/prendre-rendez-vous`. */
+  /** @deprecated Ignoré hors mode `inline` — Calendly réservé à `/prendre-rdv`. */
   url?: string;
   type?: CalendlyEmbedType;
   buttonText?: string;
@@ -87,8 +87,8 @@ function CalendlyInlineBody({
 }
 
 /**
- * Widget Calendly — mode `inline` uniquement (réservé à `/prendre-rendez-vous`).
- * Les autres types délèguent à {@link CtaButton} vers `/prendre-rendez-vous`.
+ * Widget Calendly — mode `inline` uniquement (réservé à `/prendre-rdv`).
+ * Les autres types délèguent à {@link CtaButton} vers `/prendre-rdv`.
  */
 export function CalendlyEmbed({
   url,

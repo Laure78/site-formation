@@ -15,9 +15,9 @@ import { formatTarifHt, TARIF_SESSION_FORFAIT_HT } from '@/lib/tarifs-sessions';
 
 export const revalidate = 3600;
 export const metadata = createPageMetadata({
-  title: 'Formation IA Devis BTP — Auto Devis Bâtiment',
+  title: 'Formation IA devis BTP — session présentiel',
   description:
-    'Formation IA pour automatiser vos devis BTP avec ChatGPT. Méthode, prompts, templates. Premier devis structuré en moins d\'une heure. Finançable par Constructys selon éligibilité.',
+    'Formation IA pour automatiser vos devis BTP avec ChatGPT. Session présentiel IDF, méthode et templates. Financement OPCO possible selon éligibilité.',
   path: '/ia-devis-batiment',
   appendAuthorSuffix: false,
   keywords: [
@@ -177,7 +177,8 @@ export default function IADevisBatimentPage() {
 
       <article>
         <h1 className="font-display text-4xl font-bold tracking-tight text-slate-900 md:text-5xl">
-          IA devis BTP : <span className="text-[var(--accent)]">automatiser devis bâtiment</span>
+          Formation IA devis BTP :{' '}
+          <span className="text-[var(--accent)]">session présentiel</span>
         </h1>
         <p className="mt-6 text-xl text-slate-600">
           L&apos;IA devis BTP permet d&apos;{' '}

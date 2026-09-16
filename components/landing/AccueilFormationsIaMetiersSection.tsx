@@ -25,15 +25,15 @@ const CLUSTER_BLOCKS = [
     Icon: FileSearch,
   },
   {
-    href: LINKS.formationClaudeBtp,
-    title: 'Claude AI pour le BTP',
-    desc: 'Analyse documentaire, DCE, documents longs et assistants métier.',
+    href: LINKS.formationMaitriserClaudeAiBtp,
+    title: 'Formation Claude AI BTP',
+    desc: 'Projects, Cowork, Skills et connecteurs sur vos documents chantier.',
     Icon: Building2,
   },
   {
-    href: LINKS.formationIaEntrepriseBatimentParis,
-    title: 'Formation IA en entreprise à Paris et en Île-de-France',
-    desc: 'Formation intra adaptée aux équipes et aux processus de l\'entreprise.',
+    href: LINKS.formationIaBtpParis,
+    title: 'Formation IA BTP à Paris',
+    desc: 'Session présentiel dans vos locaux — devis, DCE et CR.',
     Icon: MapPin,
   },
 ] as const;

@@ -131,7 +131,7 @@ export const FORMATION_IA_APPELS_OFFRES_BTP_CONFIG: SeoClusterPageConfig = {
   catalogueLabel: 'NIV-02 — Répondre aux appels d\'offres avec l\'IA',
   relatedLinks: [
     { href: LINKS.formationChatgptBtp, label: 'Formation ChatGPT pour le BTP' },
-    { href: LINKS.formationClaudeBtp, label: 'Formation Claude pour le bâtiment' },
+    { href: LINKS.formationMaitriserClaudeAiBtp, label: 'Formation Claude pour le bâtiment' },
     { href: LINKS.iaAnalyseDce, label: 'Analyser un DCE avec l\'IA' },
     { href: LINKS.iaMemoireTechnique, label: 'Mémoire technique BTP avec l\'IA' },
     { href: '/formation-ia-btp', label: 'Formation IA pour le BTP — pilier' },

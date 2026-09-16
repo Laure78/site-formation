@@ -6,7 +6,7 @@ type Props = Omit<CtaRdvProps, 'origin'> & {
   origin?: string;
 };
 
-/** CTA « Visio découverte gratuite » — vers `/prendre-rendez-vous`. */
+/** CTA « Visio découverte gratuite » — vers `/prendre-rdv`. */
 export function VisioDecouverteCalendlyLink({
   className = '',
   origin = 'visio-decouverte-link',

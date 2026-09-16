@@ -78,7 +78,7 @@ export async function cancelAppointmentByToken(
         replyTo: CONTACT.email,
         to: appt.client_email,
         subject: 'Votre rendez-vous a été annulé',
-        html: `<p>Bonjour,</p><p>Votre rendez-vous prévu le <strong>${formatRdvDateTimeLong(appt.start_at)}</strong> a bien été annulé.</p><p>Pour reprendre contact : <a href="https://www.laureolivie.fr/prendre-rendez-vous">réserver un nouveau créneau</a>.</p><p>Laure Olivié</p>`,
+        html: `<p>Bonjour,</p><p>Votre rendez-vous prévu le <strong>${formatRdvDateTimeLong(appt.start_at)}</strong> a bien été annulé.</p><p>Pour reprendre contact : <a href="https://www.laureolivie.fr/prendre-rdv">réserver un nouveau créneau</a>.</p><p>Laure Olivié</p>`,
       });
       await resend.emails.send({
         from: FROM_EMAIL,

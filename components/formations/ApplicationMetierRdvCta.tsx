@@ -16,7 +16,7 @@ type Props = {
 };
 
 /**
- * CTA RDV fiche applications métier — libellé local + hint formation pour `/prendre-rendez-vous`.
+ * CTA RDV fiche applications métier — libellé local + hint formation pour `/prendre-rdv`.
  * Ne modifie pas le libellé global de {@link CtaRdv}.
  */
 export function ApplicationMetierRdvCta({

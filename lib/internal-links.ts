@@ -27,7 +27,7 @@ export const LINKS = {
   /** Article — cours gratuits Anthropic Academy (Claude AI) pour CDT & PME BTP */
   blogCoursGratuitsClaudeAiPmeBtp: '/blog/cours-gratuits-claude-ai-conducteur-travaux-pme-btp',
   /** Article — 8 usages IA terrain pour conducteur de travaux BTP */
-  blogIaConducteurTravauxUsages: '/blog/ia-conducteur-travaux-usages',
+  blogIaConducteurTravauxUsages: '/blog/comment-ia-gagne-5h-conducteurs-travaux',
   /** Article — financer une formation IA pour les pros du BTP via Constructys */
   blogFinancerFormationIaBtpConstructys: '/blog/financer-formation-ia-btp-constructys',
   /** Article — subrogation Constructys, trésorerie & eGestion J-15 (2026) */
@@ -45,11 +45,12 @@ export const LINKS = {
   partenaires: '/partenaires',
   contact: '/contact',
   financement: '/financement-constructys-formation-ia-btp',
-  prendreRdv: '/prendre-rendez-vous',
-  /** @deprecated Alias — utiliser `prendreRdv` (plus d’ancre `/#rdv`). */
-  accueilRdv: '/prendre-rendez-vous',
-  /** Alias historique — URL legacy ; redirection 301 vers `prendreRdv` (ne pas utiliser dans les liens internes). */
-  prendreRdvLegacy: '/prendre-rdv',
+  /** Canonique RDV — URL courte ; `/prendre-rendez-vous` → 301. */
+  prendreRdv: '/prendre-rdv',
+  /** @deprecated Alias — utiliser `prendreRdv`. */
+  accueilRdv: '/prendre-rdv',
+  /** @deprecated Ancienne URL longue — 301 vers `prendreRdv`. */
+  prendreRdvLegacy: '/prendre-rendez-vous',
   /**
    * Ancien pilier `/formation-ia-btp` (308 → catalogue).
    * Canonique : `/formations` — préférer `LINKS.formations` pour les nouveaux liens.
@@ -59,27 +60,26 @@ export const LINKS = {
   formationIaConstruction: '/formation-ia-construction',
   /** Cluster SEO — formation ChatGPT BTP (outil) */
   formationChatgptBtp: '/formation-chatgpt-btp',
-  /** Cluster SEO — formation IA conducteur de travaux (métier) */
+  /** Cluster SEO — formation IA conducteur de travaux (métier) — canon `-btp` */
   formationIaConducteurDeTravaux: '/formation-ia-conducteur-de-travaux',
   /** Cluster SEO — formation IA appels d'offres BTP (processus AO/DCE) */
   formationIaAppelsOffresBtp: '/formation-ia-appels-offres-btp',
-  /** Cluster SEO — formation Claude BTP (outil Claude AI) */
-  formationClaudeBtp: '/formation-claude-btp',
-  /** Cluster SEO local — formation IA intra entreprise bâtiment Paris / IDF */
-  formationIaEntrepriseBatimentParis: '/formation-ia-entreprise-batiment-paris',
+  /** @deprecated Doublon — 301 → `formationMaitriserClaudeAiBtp` */
+  formationClaudeBtp: '/formations/maitriser-claude-ai-btp',
+  /** @deprecated Doublon Paris — 301 → `formationIaBtpParis` */
+  formationIaEntrepriseBatimentParis: '/formation-ia-btp-paris',
   /** Pilier SEO cluster — formation IA pour le BTP (page maîtresse) */
-  formationIaBtpPillar: '/formation-ia-btp',
+  formationIaBtpPillar: '/formations',
   /** Guide Claude AI — Anthropic, interfaces, prompts BTP */
   claudeAiBtp: '/claude-ai-btp',
   /**
-   * @deprecated Anciennes landings SEO — 308 → pilier `/claude-ai-btp`.
-   * Fiche produit : `formationMaitriserClaudeAiBtp`.
+   * @deprecated Anciennes landings SEO — préférer `claudeAiBtp` (guide) ou `formationMaitriserClaudeAiBtp` (fiche).
    */
-  formationClaudeAiBtp: '/claude-ai-btp',
-  /** @deprecated Alias → pilier `/claude-ai-btp` (section bâtiment). */
-  formationClaudeAiBatiment: '/claude-ai-btp',
-  /** @deprecated Alias → pilier `/claude-ai-btp` (section travaux publics). */
-  formationClaudeAiTravauxPublics: '/claude-ai-btp',
+  formationClaudeAiBtp: '/formations/maitriser-claude-ai-btp',
+  /** Landing différenciée bâtiment — exemples devis, CR, DOE */
+  formationClaudeAiBatiment: '/formation-claude-ai-batiment',
+  /** Landing différenciée TP — DCE, CCTP, PPSPS, métrés */
+  formationClaudeAiTravauxPublics: '/formation-claude-ai-travaux-publics',
 
   // Tier 2 — Formations (catalogue officiel)
   /** Niveau 1 — bâtiment & travaux publics (programme PDF) */
@@ -102,7 +102,7 @@ export const LINKS = {
    * @deprecated Ancienne fiche Cursor — 301 → `parcoursApplicationsMetierBtp`.
    * Ne pas utiliser dans les nouveaux liens internes.
    */
-  formationCursorBtp: '/formations/cursor-btp',
+  formationCursorBtp: '/parcours/applications-metier-btp',
   /** Landing thématique — études de prix et chiffrage (fiche catalogue : NIV-02) */
   formationIaEtudesPrixChiffrageBtp: '/formations/ia-etudes-prix-chiffrage-btp',
   /** NIV-04 — Maîtriser Claude AI pour le BTP (catalogue) */
@@ -162,7 +162,7 @@ export const LINKS = {
   iaMemoireTechnique: '/ia-memoire-technique-btp',
   /** Méthode transactionnelle — comptes rendus de chantier avec l'IA */
   iaCompteRenduChantier: '/ia-compte-rendu-chantier',
-  /** Canonique SEO — formation IA conducteur de travaux (ancien `/formation-ia-conducteur-de-travaux-btp` → 301) */
+  /** Canonique SEO — formation IA conducteur de travaux */
   iaConducteurTravaux: '/formation-ia-conducteur-de-travaux',
   /** Alias canonique — même URL que `formationConducteurTravaux` */
   iaCDT: '/formation-ia-conducteur-de-travaux',
@@ -303,7 +303,8 @@ export const LINKS = {
   pdfGuideRepondreAoBtpOfc2026: '/ressources/pdf/guide-repondre-ao-btp-ofc-2026.pdf',
   pdfTutoSkillAnalyseCcap: '/ressources/pdf/tuto-skill-analyse-ccap-bework.pdf',
   /** Landing SEO du tutoriel Skill IA (canonical vers la ressource) */
-  guideSkillIaConducteurTravaux: '/guide-skill-ia-conducteur-travaux',
+  /** @deprecated 301 → article blog Skill IA */
+  guideSkillIaConducteurTravaux: '/blog/guide-skill-ia-conducteur-travaux-btp',
   /** Hub Ressources — index général (tutos, guides…) */
   ressources: '/ressources',
   /** Index ressources IA BTP (guides & articles) */
@@ -367,7 +368,8 @@ export const LINKS = {
   /** Article — NotebookLM + Claude sur DCE (cluster AO/DCE) */
   blogAnalyseDceNotebooklm: '/blog/analyse-dce-notebooklm-claude-btp',
   /** Article — chiffrage CCTP/BPU (cluster AO/DCE) */
-  blogChiffrageCctpBpu: '/blog/chiffrage-cctp-bpu-appels-offres-btp',
+  /** @deprecated Article absorbé — 301 → fiche AO catalogue */
+  blogChiffrageCctpBpu: '/formations/ia-appels-offre-btp',
   /** Article MDX — ChatGPT peintre bâtiment (devis, métré, relances) */
   blogChatgptPeintreBatiment: '/blog/chatgpt-peintre-batiment',
   /** Article — IA devis bâtiment et chiffrage automatisé */
@@ -375,7 +377,8 @@ export const LINKS = {
   /** Article MDX — DOE et PV de réception avec l’IA */
   blogDoePvReceptionIaBtp: '/blog/doe-pv-reception-ia-btp',
   /** Article — devis ChatGPT BTP en ~20 minutes (méthode terrain) */
-  blogDevisBtpChatgpt20Minutes: '/blog/devis-btp-chatgpt-20-minutes',
+  /** @deprecated 301 → article ChatGPT devis (même intention) */
+  blogDevisBtpChatgpt20Minutes: '/blog/chatgpt-devis-btp-methode-2026',
   /** Article — méthode ChatGPT devis BTP pas à pas 2026 */
   blogChatgptDevisBtpMethode2026: '/blog/chatgpt-devis-btp-methode-2026',
   /** Article MDX — 7 leviers ChatGPT productivité BTP */

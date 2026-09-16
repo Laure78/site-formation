@@ -6,7 +6,7 @@ import { isFormationCalendlyInlinePath } from '@/lib/formation-calendly-path';
 
 /**
  * Bandeau conversion avant le footer — pages formation & landings métier.
- * Redirige vers `/prendre-rendez-vous` (Calendly réservé à cette page).
+ * Redirige vers `/prendre-rdv` (Calendly réservé à cette page).
  */
 export function FormationCalendlyInlineGate() {
   const pathname = usePathname();

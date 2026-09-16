@@ -29,8 +29,8 @@ export type CtaRdvProps = Omit<
 };
 
 /**
- * CTA RDV unique — `/prendre-rendez-vous`, libellé « Échanger sur votre projet de formation ».
- * Calendly inline réservé à la page `/prendre-rendez-vous` (30 min, visioconférence possible).
+ * CTA RDV unique — `/prendre-rdv`, libellé « Échanger sur votre projet de formation ».
+ * Calendly inline réservé à la page `/prendre-rdv` (30 min, visioconférence possible).
  */
 export function CtaRdv({
   variant = 'primary',

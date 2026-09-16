@@ -144,7 +144,7 @@ export const RESSOURCES_THEMATIC_BLOCKS: readonly RessourceThematicBlock[] = [
       { label: 'Guide RH du BTP × IA — 18 cas d’usage (PDF)', href: LINKS.guideRhBtpIaOfc },
       { label: 'Catalogue des formations IA pour le BTP', href: LINKS.formations },
       { label: 'Diagnostic IA BTP (gratuit)', href: LINKS.diagnostic },
-      { label: 'Tutoriel landing — Skill IA conducteur', href: LINKS.guideSkillIaConducteurTravaux },
+      { label: 'Tutoriel landing — Skill IA conducteur', href: LINKS.blogGuideSkillIaConducteurTravaux },
     ],
     articles: [{ label: 'Guide — formation IA pour le BTP (article long)', href: LINKS.blogFormationIaBtpGuide2026 }],
     blogCategory: 'financement',

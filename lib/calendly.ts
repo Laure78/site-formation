@@ -3,7 +3,7 @@ import { LINKS } from '@/lib/internal-links';
 /**
  * Prise de RDV via Calendly — visio découverte.
  * Surcharge possible : NEXT_PUBLIC_CALENDLY_URL dans .env.local
- * Usage interne : réservé à `/prendre-rendez-vous` (embed Calendly).
+ * Usage interne : réservé à `/prendre-rdv` (embed Calendly).
  */
 export const CALENDLY_BOOKING_URL =
   process.env.NEXT_PUBLIC_CALENDLY_URL ??
@@ -78,7 +78,7 @@ export function buildCalendlyInlineIframeUrl(bookingUrl: string): string {
   return u.href;
 }
 
-/** Lien CTA site — redirige vers `/prendre-rendez-vous` (Calendly réservé à cette page). */
+/** Lien CTA site — redirige vers `/prendre-rdv` (Calendly réservé à cette page). */
 export function buildSiteCalendlyCtaUrl(_campaign: string): string {
   return LINKS.prendreRdv;
 }

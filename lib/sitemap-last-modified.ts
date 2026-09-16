@@ -122,18 +122,18 @@ const ROUTE_SOURCE_FILES: Record<string, readonly string[]> = {
   '/claude-ai-btp': ['app/claude-ai-btp/page.tsx'],
   '/formation-ia-btp': ['app/formation-ia-btp/page.tsx', 'lib/formation-ia-btp-pillar-faq.ts'],
   '/formation-chatgpt-btp': ['app/formation-chatgpt-btp/page.tsx', 'lib/formation-chatgpt-btp-landing.ts'],
-  '/formation-ia-conducteur-de-travaux': [
-    'app/formation-ia-conducteur-de-travaux/page.tsx',
-    'lib/formation-ia-conducteur-de-travaux-landing.ts',
+  '/formation-ia-conducteur-de-travaux-btp': [
+    'app/formation-ia-conducteur-de-travaux-btp/page.tsx',
+    'lib/formation-ia-conducteur-de-travaux-btp-landing.ts',
   ],
   '/formation-ia-appels-offres-btp': [
     'app/formation-ia-appels-offres-btp/page.tsx',
     'lib/formation-ia-appels-offres-btp-landing.ts',
   ],
-  '/formation-claude-btp': ['app/formation-claude-btp/page.tsx', 'lib/formation-claude-btp-landing.ts'],
-  '/formation-ia-entreprise-batiment-paris': [
-    'app/formation-ia-entreprise-batiment-paris/page.tsx',
-    'lib/formation-ia-entreprise-batiment-paris-landing.ts',
+  '/formations/maitriser-claude-ai-btp': ['app/formations/maitriser-claude-ai-btp/page.tsx', 'lib/formations/maitriser-claude-ai-btp-landing.ts'],
+  '/formation-ia-btp-paris': [
+    'app/formation-ia-btp-paris/page.tsx',
+    'lib/formation-ia-btp-paris-landing.ts',
   ],
   '/outils/cas-usage-ia-btp': ['app/outils/cas-usage-ia-btp/page.tsx'],
   '/outils-ia-btp': ['app/outils-ia-btp/page.tsx'],
@@ -205,7 +205,7 @@ const ROUTE_SOURCE_FILES: Record<string, readonly string[]> = {
     'app/evenements/repondre-appel-offres-btp-5-etapes/page.tsx',
     'lib/evenements/repondre-appel-offres-btp-5-etapes.ts',
   ],
-  '/prendre-rendez-vous': ['app/prendre-rendez-vous/page.tsx'],
+  '/prendre-rdv': ['app/prendre-rdv/page.tsx'],
   '/diagnostic-ia-btp': ['app/diagnostic-ia-btp/page.tsx'],
   '/checklist-ia-btp': ['app/checklist-ia-btp/page.tsx'],
   '/communaute-formateurs': ['app/communaute-formateurs/page.tsx'],

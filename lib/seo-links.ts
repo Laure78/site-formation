@@ -14,7 +14,7 @@ export const INTERNAL_LINKS = {
     path: LINKS.formations,
     anchors: ['formation IA pour les pros du BTP', 'catalogue formations IA', 'formations IA bâtiment'],
   },
-  /** Prise de RDV — page interne `/prendre-rendez-vous` */
+  /** Prise de RDV — page interne `/prendre-rdv` */
   prendreRdv: {
     path: LINKS.prendreRdv,
     anchors: ['prendre rendez-vous', 'réserver un RDV gratuit', 'devis personnalisé formation'],

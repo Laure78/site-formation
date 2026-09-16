@@ -26,9 +26,9 @@ const PATH = '/claude-ai-btp';
 const heroVisuel = PHOTOS.claudeBtpGuideHero2026;
 
 export const metadata = createPageMetadata({
-  title: 'Claude AI BTP : Chat, Cowork, Code, Chrome',
+  title: 'Claude AI pour le BTP : Chat, Cowork, Code, Chrome',
   description:
-    `Guide Claude AI BTP : Chat, Cowork, Code & Chrome. Prompts chantier, DCE, CR. Qualiopi, IDF. $`,
+    'Guide Claude AI pour le BTP : interfaces Chat, Cowork, Code et Chrome. Prompts chantier, DCE, CR. Usages concrets, présentiel IDF.',
   path: PATH,
   keywords: null,
   openGraphType: 'website',
@@ -613,7 +613,7 @@ export default function ClaudeAiBtpPillarPage() {
                   </p>
                   <div className="mt-6 flex flex-wrap gap-3">
                     <Link
-                      href={LINKS.guideSkillIaConducteurTravaux}
+                      href={LINKS.blogGuideSkillIaConducteurTravaux}
                       className="inline-flex items-center rounded-xl bg-[#377CF3] px-5 py-3 text-sm font-semibold text-white transition hover:bg-blue-700"
                     >
                       Voir le tutoriel SEO

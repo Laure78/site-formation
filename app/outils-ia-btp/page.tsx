@@ -45,13 +45,8 @@ const ARTICLES_OUTILS = [
     badge: 'Prompts',
   },
   {
-    titre: 'Comment protéger les données de votre entreprise BTP quand vous utilisez l’IA',
-    href: '/blog/confidentialite-donnees-ia-btp',
-    badge: 'Confidentialité',
-  },
-  {
     titre: 'Sécurité données ChatGPT en entreprise BTP : bonnes pratiques',
-    href: '/blog/securite-donnees-chatgpt-btp',
+    href: LINKS.blogSecuriteDonneesChatgptBtp,
     badge: 'ChatGPT & RGPD',
   },
   {
@@ -70,8 +65,8 @@ const ARTICLES_OUTILS = [
     badge: 'Cas d’usage',
   },
   {
-    titre: 'IA pour conducteur de travaux : usages et limites',
-    href: '/blog/ia-conducteur-travaux-chatgpt',
+    titre: 'Comment l’IA fait gagner 5 h aux conducteurs de travaux',
+    href: LINKS.blogCommentIaGagne5hConducteursTravaux,
     badge: 'Chantier',
   },
 ] as const;
@@ -161,10 +156,10 @@ export default function OutilsIABTPPage() {
                   <td className="px-4 py-3" colSpan={2}>
                     Paramètres compte, offres entreprise et DPA à valider selon votre politique interne. Voir l’article{' '}
                     <Link
-                      href="/blog/confidentialite-donnees-ia-btp"
+                      href={LINKS.blogSecuriteDonneesChatgptBtp}
                       className="font-medium text-[var(--accent)] underline hover:no-underline"
                     >
-                      confidentialité et données en BTP
+                      sécurité des données ChatGPT en BTP
                     </Link>
                     .
                   </td>

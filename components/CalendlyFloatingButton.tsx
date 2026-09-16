@@ -4,11 +4,11 @@ import { usePathname } from 'next/navigation';
 import { CTA_RDV_LABEL, CtaRdv } from '@/components/CtaRdv';
 import { isStickyBlogMetierRdvPath } from '@/lib/sticky-blog-metier-rdv-path';
 
-/** Bouton flottant bas à droite — prise de RDV via `/prendre-rendez-vous`. */
+/** Bouton flottant bas à droite — prise de RDV via `/prendre-rdv`. */
 export function CalendlyFloatingButton() {
   const pathname = usePathname();
 
-  if (pathname === '/prendre-rdv' || pathname === '/prendre-rendez-vous') return null;
+  if (pathname === '/prendre-rdv' || pathname === '/prendre-rdv') return null;
 
   const positionClass = isStickyBlogMetierRdvPath(pathname)
     ? 'bottom-32 right-6 md:bottom-28'

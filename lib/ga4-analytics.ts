@@ -53,7 +53,7 @@ export function getPagePath(): string {
   return window.location.pathname;
 }
 
-/** Conversion — clic CTA prise de RDV (vers `/prendre-rendez-vous`). */
+/** Conversion — clic CTA prise de RDV (vers `/prendre-rdv`). */
 export function trackCtaRdvClick(origin: string, pagePath: string): void {
   sendGa4Event('cta_rdv_click', { origin, page_path: pagePath });
 }

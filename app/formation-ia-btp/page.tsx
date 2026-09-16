@@ -646,12 +646,12 @@ export default function FormationIaBtpPillarPage() {
               </Link>
             </li>
             <li>
-              <Link href={LINKS.formationClaudeBtp} className="text-slate-700 hover:underline">
+              <Link href={LINKS.formationMaitriserClaudeAiBtp} className="text-slate-700 hover:underline">
                 Formation Claude pour le bâtiment
               </Link>
             </li>
             <li>
-              <Link href={LINKS.formationIaEntrepriseBatimentParis} className="text-slate-700 hover:underline">
+              <Link href={LINKS.formationIaBtpParis} className="text-slate-700 hover:underline">
                 Formation IA BTP en Île-de-France — intra entreprise Paris
               </Link>
             </li>

@@ -164,13 +164,13 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
-        source: '/prendre-rdv',
-        destination: '/prendre-rendez-vous',
+        source: '/prendre-rendez-vous',
+        destination: '/prendre-rdv',
         permanent: true,
       },
       {
-        source: '/prendre-rdv/',
-        destination: '/prendre-rendez-vous',
+        source: '/prendre-rendez-vous/',
+        destination: '/prendre-rdv',
         permanent: true,
       },
       {
@@ -242,35 +242,26 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
+        source: '/formation-claude-btp',
+        destination: '/formations/maitriser-claude-ai-btp',
+        permanent: true,
+      },
+      {
+        source: '/formation-claude-btp/:path*',
+        destination: '/formations/maitriser-claude-ai-btp',
+        permanent: true,
+      },
+      {
         source: '/formation-claude-ai-btp',
-        destination: '/claude-ai-btp',
+        destination: '/formations/maitriser-claude-ai-btp',
         permanent: true,
       },
       {
         source: '/formation-claude-ai-btp/:path*',
-        destination: '/claude-ai-btp',
+        destination: '/formations/maitriser-claude-ai-btp',
         permanent: true,
       },
-      {
-        source: '/formation-claude-ai-batiment',
-        destination: '/claude-ai-btp',
-        permanent: true,
-      },
-      {
-        source: '/formation-claude-ai-batiment/:path*',
-        destination: '/claude-ai-btp',
-        permanent: true,
-      },
-      {
-        source: '/formation-claude-ai-travaux-publics',
-        destination: '/claude-ai-btp',
-        permanent: true,
-      },
-      {
-        source: '/formation-claude-ai-travaux-publics/:path*',
-        destination: '/claude-ai-btp',
-        permanent: true,
-      },
+      // Landings bâtiment / TP différenciées — plus de 301 vers le guide (pages recréées).
       { source: '/offres', destination: '/formations', permanent: true },
       { source: '/formation-ia-et-chatgpt', destination: '/formations', permanent: true },
       {
@@ -586,8 +577,16 @@ const nextConfig: NextConfig = {
       // Articles renommés (lsr-*) — redirection vers nouveau slug
       { source: '/blog/lsr-analyse-dce-notebooklm-claude-btp', destination: '/blog/analyse-dce-notebooklm-claude-btp', statusCode: 301 },
       { source: '/blog/lsr-go-no-go-rentabilite-appels-offres-btp', destination: '/blog/go-no-go-rentabilite-appels-offres-btp', statusCode: 301 },
-      { source: '/blog/lsr-memoire-technique-claude-projet-btp', destination: '/blog/memoire-technique-claude-projet-btp', statusCode: 301 },
-      { source: '/blog/lsr-chiffrage-cctp-bpu-appels-offres-btp', destination: '/blog/chiffrage-cctp-bpu-appels-offres-btp', statusCode: 301 },
+      { source: '/blog/lsr-memoire-technique-claude-projet-btp', destination: '/formations/ia-appels-offre-btp', statusCode: 301 },
+      { source: '/blog/lsr-chiffrage-cctp-bpu-appels-offres-btp', destination: '/formations/ia-appels-offre-btp', statusCode: 301 },
+      { source: '/blog/chiffrage-cctp-bpu-appels-offres-btp', destination: '/formations/ia-appels-offre-btp', permanent: true },
+      { source: '/blog/memoire-technique-claude-projet-btp', destination: '/formations/ia-appels-offre-btp', permanent: true },
+      { source: '/blog/devis-btp-chatgpt-20-minutes', destination: '/blog/chatgpt-devis-btp-methode-2026', permanent: true },
+      { source: '/guide-skill-ia-conducteur-travaux', destination: '/blog/guide-skill-ia-conducteur-travaux-btp', permanent: true },
+      { source: '/guide-skill-ia-conducteur-travaux/', destination: '/blog/guide-skill-ia-conducteur-travaux-btp', permanent: true },
+      { source: '/formation-ia-entreprise-batiment-paris', destination: '/formation-ia-btp-paris', permanent: true },
+      { source: '/formation-ia-entreprise-batiment-paris/', destination: '/formation-ia-btp-paris', permanent: true },
+      { source: '/formations/formation-claude-ia-btp', destination: '/formations/maitriser-claude-ai-btp', permanent: true },
 
       // Blog : fusion SEO (doublons sémantiques — audit avril 2026)
       {

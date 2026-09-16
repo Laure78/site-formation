@@ -95,7 +95,7 @@ function getAdditionalMarketingRoutes(baseUrl: string): MetadataRoute.Sitemap {
     { path: '/outils-ia-btp', priority: 0.9, changeFrequency: 'monthly' },
     { path: '/outils/cas-usage-ia-btp', priority: 0.88, changeFrequency: 'monthly' },
     { path: '/claude-ai-btp', priority: 0.9, changeFrequency: 'monthly' },
-    { path: '/prendre-rendez-vous', priority: 0.95, changeFrequency: 'weekly' },
+    { path: LINKS.prendreRdv, priority: 0.95, changeFrequency: 'weekly' },
     { path: '/diagnostic-ia-btp', priority: 0.9, changeFrequency: 'weekly' },
     { path: '/checklist-ia-btp', priority: 0.9, changeFrequency: 'weekly' },
     { path: '/communaute-formateurs', priority: 0.85, changeFrequency: 'weekly' },
@@ -123,12 +123,14 @@ function getAdditionalMarketingRoutes(baseUrl: string): MetadataRoute.Sitemap {
     { path: '/formation-ia-paris', priority: SITEMAP_PRIORITY.metier, changeFrequency: 'weekly' },
     { path: LINKS.formateurIaBtp, priority: 0.88, changeFrequency: 'monthly' },
     { path: '/formation-ia-construction', priority: 0.92, changeFrequency: 'monthly' },
-    { path: '/formation-ia-btp', priority: 0.95, changeFrequency: 'weekly' },
+    { path: LINKS.formations, priority: 0.95, changeFrequency: 'weekly' },
     { path: LINKS.formationChatgptBtp, priority: 0.92, changeFrequency: 'monthly' },
     { path: LINKS.formationIaConducteurDeTravaux, priority: 0.92, changeFrequency: 'monthly' },
     { path: LINKS.formationIaAppelsOffresBtp, priority: 0.92, changeFrequency: 'monthly' },
-    { path: LINKS.formationClaudeBtp, priority: 0.92, changeFrequency: 'monthly' },
-    { path: LINKS.formationIaEntrepriseBatimentParis, priority: 0.9, changeFrequency: 'weekly' },
+    { path: LINKS.formationMaitriserClaudeAiBtp, priority: 0.92, changeFrequency: 'monthly' },
+    { path: LINKS.formationClaudeAiBatiment, priority: 0.88, changeFrequency: 'monthly' },
+    { path: LINKS.formationClaudeAiTravauxPublics, priority: 0.88, changeFrequency: 'monthly' },
+    { path: LINKS.formationIaBtpParis, priority: 0.9, changeFrequency: 'weekly' },
     { path: '/formations/ia-btp-saint-quentin-en-yvelines', priority: 0.88, changeFrequency: 'weekly' },
     { path: '/formations/ia-btp-morangis', priority: 0.88, changeFrequency: 'weekly' },
     { path: '/formations/ia-btp-longjumeau', priority: 0.88, changeFrequency: 'weekly' },
@@ -142,7 +144,7 @@ function getAdditionalMarketingRoutes(baseUrl: string): MetadataRoute.Sitemap {
     { path: LINKS.accessibiliteHandicap, priority: 0.5, changeFrequency: 'yearly' },
     // /install-pwa : noindex (hors sitemap)
     { path: '/ressources/tutos', priority: 0.88, changeFrequency: 'weekly' },
-    { path: LINKS.guideSkillIaConducteurTravaux, priority: 0.85, changeFrequency: 'monthly' },
+    { path: LINKS.blogGuideSkillIaConducteurTravaux, priority: 0.85, changeFrequency: 'monthly' },
   ];
 
   return entries.map((e) => ({

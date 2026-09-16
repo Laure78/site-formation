@@ -30,9 +30,9 @@ export function ClaudeAiBtpHero() {
         </>
       }
       metaLine={`Temps de lecture estimé : environ ${READING_MINUTES} minutes`}
-      tags={['ClaudeAI', 'BTP', 'Formation', 'IA chantier', 'Qualiopi', 'Constructys']}
+      tags={['ClaudeAI', 'BTP', 'Guide', 'IA chantier', 'Qualiopi', 'Constructys']}
       primaryCta={{ href: calendlyClaudeBtpGuideUrl('hero'), label: 'Visio découverte gratuite' }}
-      secondaryCta={{ href: LINKS.diagnostic, label: 'Diagnostic IA BTP', external: false }}
+      secondaryCta={{ href: LINKS.formationMaitriserClaudeAiBtp, label: 'Formation Claude AI BTP en Île-de-France', external: false }}
       sideImage={{
         src: HERO_VISUAL.src,
         alt: HERO_VISUAL.alt,

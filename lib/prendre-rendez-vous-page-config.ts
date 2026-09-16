@@ -1,5 +1,5 @@
 /**
- * Contenu page `/prendre-rendez-vous` — UX conversion + SEO (source unique).
+ * Contenu page `/prendre-rdv` — UX conversion + SEO (source unique).
  * Ne pas inventer de chiffres : preuves via `lib/constants` / indicateurs.
  */
 import { CONTACT, PREUVES } from '@/lib/constants';

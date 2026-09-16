@@ -1,11 +1,11 @@
 /**
- * Landing `/formation-claude-btp` — cluster SEO outil Claude AI.
+ * Landing `/formations/maitriser-claude-ai-btp` — cluster SEO outil Claude AI.
  */
 import { FINANCEMENT_FORMULATION_PRUDENTE } from '@/lib/financement-copy';
 import { LINKS } from '@/lib/internal-links';
 import type { SeoClusterPageConfig } from '@/lib/seo-cluster-landing-types';
 
-export const FORMATION_CLAUDE_BTP_PATH = '/formation-claude-btp' as const;
+export const FORMATION_CLAUDE_BTP_PATH = '/formations/maitriser-claude-ai-btp' as const;
 
 export const FORMATION_CLAUDE_BTP_CONFIG: SeoClusterPageConfig = {
   path: FORMATION_CLAUDE_BTP_PATH,

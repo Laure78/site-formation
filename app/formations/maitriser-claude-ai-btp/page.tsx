@@ -233,7 +233,7 @@ export default function FormationMaitriserClaudeAiBtpPage() {
         catalogueRef="NIV-04"
         ressourcesGratuites={[
           { href: LINKS.claudeAiBtp, label: 'Guide Claude AI pour le BTP' },
-          { href: LINKS.formationClaudeBtp, label: 'Formation Claude pour le bâtiment' },
+          { href: LINKS.formationMaitriserClaudeAiBtp, label: 'Formation Claude pour le bâtiment' },
         ]}
       />
 
@@ -411,7 +411,9 @@ export default function FormationMaitriserClaudeAiBtpPage() {
                 href: LINKS.prendreRdv, label: CTA_RDV_LABEL,
               },
               { href: LINKS.financement, label: 'Financement Constructys' },
-              { href: LINKS.claudeAiBtp, label: 'Guide Claude AI BTP' },
+              { href: LINKS.claudeAiBtp, label: 'Guide Claude AI pour le BTP' },
+              { href: LINKS.formationClaudeAiBatiment, label: 'Claude AI appliqué au bâtiment' },
+              { href: LINKS.formationClaudeAiTravauxPublics, label: 'Claude AI pour les travaux publics' },
             ]}
           />
         </div>

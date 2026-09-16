@@ -123,7 +123,7 @@ export function FormationSeoClusterLanding({
   const courseJsonLd = buildCourseJsonLd(config);
   const breadcrumbJsonLd = getBreadcrumbSchema([
     { name: 'Accueil', path: LINKS.home },
-    { name: 'Formations IA BTP', path: '/formation-ia-btp' },
+    { name: 'Formations IA BTP', path: LINKS.formations },
     { name: config.h1, path: config.path },
   ]);
 

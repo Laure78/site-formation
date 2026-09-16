@@ -489,7 +489,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
         type: 'html',
         title: 'Claude sur laureolivie.fr',
         content:
-          `<p class="text-slate-600">Pour le guide pratique (interfaces, prompts) : <a href="${LINKS.claudeAiBtp}" class="text-[var(--accent)] font-medium underline">page pilier Claude AI BTP</a>. Les formations restent multi-outils : ChatGPT et Claude AI se complètent. Pour le programme Qualiopi Claude : <a href="${LINKS.formationMaitriserClaudeAiBtp}" class="text-[var(--accent)] font-medium underline">Maîtriser Claude AI pour le BTP</a>. Sur le devis en conditions réelles, voir aussi mon article sur le <a href="${LINKS.blogDevisBtpChatgpt20Minutes}" class="text-[var(--accent)] font-medium underline">devis ChatGPT BTP en 20 minutes</a>.</p>`,
+          `<p class="text-slate-600">Pour le guide pratique (interfaces, prompts) : <a href="${LINKS.claudeAiBtp}" class="text-[var(--accent)] font-medium underline">guide Claude AI pour le BTP</a>. Les formations restent multi-outils : ChatGPT et Claude AI se complètent. Pour le programme Qualiopi Claude : <a href="${LINKS.formationMaitriserClaudeAiBtp}" class="text-[var(--accent)] font-medium underline">formation Claude AI BTP en Île-de-France</a>. Sur le devis avec ChatGPT seul, voir <a href="${LINKS.blogChatgptDevisBtpMethode2026}" class="text-[var(--accent)] font-medium underline">ChatGPT devis BTP : prompts et contrôle PU</a>.</p>`,
       },
       {
         type: 'paragraph',
@@ -997,10 +997,10 @@ export const BLOG_ARTICLES: BlogArticle[] = [
   // Article GEO #2 : ChatGPT pour devis BTP — Méthode 2026
   {
     slug: 'chatgpt-devis-btp-methode-2026',
-    seoTitle: 'ChatGPT devis BTP : méthode pas à pas',
-    title: 'ChatGPT pour générer un devis BTP : méthode pas à pas (2026)',
+    seoTitle: 'ChatGPT devis BTP : prompts et contrôle PU',
+    title: 'ChatGPT devis BTP : prompts, bordereau et contrôle des prix unitaires',
     description:
-      'Devis structuré vite : descriptif, quantitatif, bordereau, puis contrôle de vos PU. Session 4 h Qualiopi ; Constructys. Diagnostic gratuit 30 min.',
+      'ChatGPT pour devis BTP : préparer le brief, générer le bordereau, contrôler vos PU. Distinct de la méthode IA complète. Qualiopi, Constructys selon éligibilité.',
     date: '2026-03-17',
     keywords: [
       'ChatGPT devis BTP',
@@ -1078,7 +1078,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
       {
         type: 'html',
         title: 'Formation ChatGPT pour devis BTP : comment aller plus loin ?',
-        content: `<p class="text-slate-600 leading-relaxed">Laure Olivié forme les dirigeants et équipes du BTP à automatiser leurs devis avec ChatGPT. La <a href="${LINKS.formationIaBtpNiveau1BatimentTp}" class="text-[var(--accent)] font-medium underline">formation IA bâtiment &amp; travaux publics</a> (session 4 h), certifiée Qualiopi, financement possible selon éligibilité (Constructys, OPCO), reprend ces prompts sur vos documents. ${formatProsFormesEtNoteQualiopi()} Présentiel uniquement · Île-de-France uniquement. Le cas chronométré est détaillé dans <a href="${LINKS.blogDevisBtpChatgpt20Minutes}" class="text-[var(--accent)] font-medium underline">devis ChatGPT BTP en 20 minutes</a>. La formation inclut : création de prompts personnalisés pour votre métier et intégration dans votre workflow.</p>`,
+        content: `<p class="text-slate-600 leading-relaxed">Laure Olivié forme les dirigeants et équipes du BTP à automatiser leurs devis avec ChatGPT. La <a href="${LINKS.formationIaBtpNiveau1BatimentTp}" class="text-[var(--accent)] font-medium underline">formation IA bâtiment &amp; travaux publics</a> (session 4 h), certifiée Qualiopi, financement possible selon éligibilité (Constructys, OPCO), reprend ces prompts sur vos documents. ${formatProsFormesEtNoteQualiopi()} Présentiel uniquement · Île-de-France uniquement. Pour la méthode pilier (5 étapes, logiciels métier), voir <a href="${LINKS.blogIaDevisBatimentChiffrageAutomatise}" class="text-[var(--accent)] font-medium underline">IA devis bâtiment : chiffrage automatisé</a>.</p>`,
       },
       {
         type: 'faq',

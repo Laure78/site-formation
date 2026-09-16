@@ -11,7 +11,7 @@ export type CtaButtonProps = Omit<CtaRdvProps, 'variant'> & {
   label?: string;
   /** @deprecated Ignoré — libellé fixe via {@link CtaRdv}. */
   compactLabel?: string;
-  /** @deprecated Ignoré — destination fixe `/prendre-rendez-vous`. */
+  /** @deprecated Ignoré — destination fixe `/prendre-rdv`. */
   href?: string;
   /** @deprecated Ignoré — contenu fixe via {@link CtaRdv}. */
   children?: ReactNode;
