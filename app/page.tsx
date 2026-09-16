@@ -74,12 +74,12 @@ export default function HomePage() {
       <AccueilPreuveSocialeCompact />
       <AccueilProblemesMetierSection />
       <AccueilFormationsPrioritairesSection />
+      <AccueilBeworkBandeau />
       <AccueilDifferentiationSection />
       <AccueilResultatsConcretsSection />
       <AccueilFinancementSection />
       <AccueilFormatriceSection />
       <AccueilRessourcesSection />
-      <AccueilBeworkBandeau />
       <AccueilFaqSection />
       <AccueilCtaFinalSection />
 

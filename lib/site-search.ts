@@ -207,11 +207,12 @@ function buildStaticPages(): SiteSearchEntry[] {
     },
     {
       id: 'page-bework',
-      title: 'BeWork — solutions IA sur mesure BTP',
-      description: 'Applications, automatisations, assistants et plateformes métier pour le BTP.',
+      title: 'BeWork — créer avec l’IA sans savoir coder',
+      description:
+        'Formation progressive 7 h ou 14 h : apprendre à créer sites, apps et outils avec l’IA, sans programmation.',
       href: LINKS.bework,
       kind: 'page',
-      keywords: 'bework solutions ia applications automatisations assistants plateforme métier',
+      keywords: 'bework formation ia créer sans coder 7h 14h applications sites outils métier',
     },
   ];
 }

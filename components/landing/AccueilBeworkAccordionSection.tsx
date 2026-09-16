@@ -14,11 +14,12 @@ export function AccueilBeworkAccordionSection() {
         <Accordion
           id="offre-bework"
           defaultOpen={false}
-          summaryLabel="Découvrir BeWork — solutions IA sur mesure BTP"
+          summaryLabel="Découvrir BeWork — créer avec l’IA sans savoir coder"
           summaryLabelExpanded="Masquer BeWork"
           preview={
             <p className="mb-4 text-sm leading-relaxed text-slate-600">
-              Service distinct des actions de formation de l'organisme certifié Qualiopi — solutions IA sur mesure pour le BTP.
+              Formation progressive distincte des actions de formation de l&apos;organisme certifié
+              Qualiopi — créer sites, apps et outils avec l’IA, sans programmer.
             </p>
           }
         >
@@ -27,27 +28,27 @@ export function AccueilBeworkAccordionSection() {
             className="scroll-mt-28 rounded-2xl border border-[#1D4ED8]/25 bg-gradient-to-br from-[#EFF6FF] via-white to-[#DBEAFE]/40 px-6 py-7 shadow-[0_4px_16px_rgba(29,78,216,0.08)] md:px-8 md:py-8"
           >
             <p className="text-[0.65rem] font-semibold uppercase tracking-[0.16em] text-[#1D4ED8]">
-              BeWork · Solutions IA sur mesure BTP
+              BeWork · Apprendre aujourd’hui, créer demain
             </p>
             <h3
               id="offre-bework-title"
               className="mt-3 font-display text-xl font-bold tracking-tight text-[#1E3A8A] md:text-2xl"
             >
-              Imaginez ce que l&apos;IA pourrait faire pour votre entreprise
+              Sans savoir coder. Créez ce que vous imaginez.
             </h3>
             <p className="mt-3 max-w-3xl text-base leading-relaxed text-[#1E3A8A]/90">
-              BeWork conçoit des solutions IA autour de vos métiers et outils : applications, automatisations,
-              assistants et plateformes métier.
+              Formation progressive : 7 h (300 €) pour apprendre à commencer, 14 h (600 €) pour
+              construire plus loin — en petit groupe, présentiel ou visio.
             </p>
             <p className="mt-2 max-w-3xl text-base font-semibold italic leading-relaxed text-[#1D4ED8]">
-              La technologie construite autour de votre entreprise.
+              Vous n’apprenez pas à tout savoir. Vous apprenez à savoir commencer.
             </p>
             <p className="mt-4 max-w-3xl text-sm leading-relaxed text-[#475569]">
               {QUALIOPI_BEWORK_DISTINCTION}
             </p>
             <Link
               href={LINKS.bework}
-              title="BeWork — solutions IA sur mesure pour le BTP"
+              title="BeWork — créer avec l’IA sans savoir coder"
               className="mt-5 inline-flex items-center gap-1 text-sm font-semibold text-[#1D4ED8] transition-colors hover:text-[#1E40AF] hover:underline"
             >
               Découvrir BeWork →

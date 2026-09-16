@@ -56,7 +56,7 @@ const FAQ = [
   },
   {
     q: 'Quelle est la différence avec bework.fr ?',
-    a: 'bework.fr présente l\'offre BeWork (solutions IA sur mesure pour le BTP). app.laureolivie.fr est l\'espace de connexion pour utiliser votre environnement une fois déployé.',
+    a: 'bework.fr présente la formation BeWork (créer avec l\'IA sans savoir coder). app.laureolivie.fr est l\'espace de connexion pour utiliser votre environnement plateforme une fois déployé.',
   },
   {
     q: 'Où trouver le lexique BTP gratuit ?',
@@ -278,7 +278,7 @@ export default function BeworkPlateformePage() {
             <ExternalLinkAnchor
               href={EXTERNAL_SITE_URLS.bework}
               className="font-semibold underline underline-offset-2 hover:text-white"
-              title="Parler de mon besoin sur bework.fr"
+              title="Formation BeWork sur bework.fr"
             >
               bework.fr
             </ExternalLinkAnchor>

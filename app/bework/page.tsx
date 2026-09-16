@@ -1,20 +1,23 @@
-import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowUpRight, Lock, ShieldCheck, Server, Eye } from 'lucide-react';
+import { ArrowUpRight, Check, Monitor, Users, Sparkles } from 'lucide-react';
 import { ExternalLinkAnchor } from '@/components/ExternalLink';
 import { JsonLd } from '@/components/JsonLd';
+import { BeworkHeroVideo } from '@/components/bework/BeworkHeroVideo';
 import { createPageMetadata, SITE_CONFIG } from '@/lib/seo';
 import { EXTERNAL_SITE_URLS } from '@/lib/external-site-urls';
 import { LINKS } from '@/lib/internal-links';
-import { BEWORK_GALLERY_SECTIONS, BEWORK_PHOTO_HERO, type BeworkPhoto } from '@/lib/bework-photos';
+import { QUALIOPI_BEWORK_DISTINCTION } from '@/config/qualiopi';
+import { VIDEOS } from '@/lib/videos';
 
 export const revalidate = 3600;
-const BEWORK_SITE = EXTERNAL_SITE_URLS.bework;
 
-const META_TITLE = 'BeWork — plateforme BTP sur mesure | Laure Olivié';
+const BEWORK_SITE = EXTERNAL_SITE_URLS.bework;
+const BEWORK_FORMATION = EXTERNAL_SITE_URLS.beworkFormation;
+const BEWORK_FAQ = EXTERNAL_SITE_URLS.beworkFaq;
+
+const META_TITLE = 'BeWork — créer avec l’IA sans savoir coder';
 const META_DESCRIPTION =
-  'BeWork construit la plateforme de votre entreprise BTP, connecte vos logiciels existants et automatise vos processus. Étude de votre besoin sur bework.fr.';
-const OG_IMAGE_ALT = BEWORK_PHOTO_HERO.alt;
+  'Formation BeWork : créez sites, apps et outils avec l’IA sans programmer. Parcours 7 h (300 €) ou 14 h (600 €). Détails sur bework.fr.';
 
 export const metadata = createPageMetadata({
   title: META_TITLE,
@@ -25,53 +28,172 @@ export const metadata = createPageMetadata({
   openGraphTitle: META_TITLE,
   openGraphDescription: META_DESCRIPTION,
   openGraphType: 'website',
-  image: {
-    url: BEWORK_PHOTO_HERO.src,
-    width: BEWORK_PHOTO_HERO.width,
-    height: BEWORK_PHOTO_HERO.height,
-    alt: OG_IMAGE_ALT,
-  },
 });
 
-const REASSURANCE_BADGES = [
-  { icon: Lock, label: 'Accès par rôles' },
-  { icon: Eye, label: 'Environnements privés' },
-  { icon: Server, label: 'Infrastructure européenne' },
-  { icon: ShieldCheck, label: 'RGPD' },
+const HERO_PILLARS = [
+  { icon: Sparkles, title: 'Une pratique concrète', desc: 'Vous manipulez' },
+  { icon: Users, title: 'Un accompagnement direct', desc: 'En petit groupe' },
+  { icon: Monitor, title: 'Une première création', desc: 'Dès le Jour 1' },
 ] as const;
 
-const METHODE = [
-  { step: '01', title: 'Comprendre', desc: 'Votre organisation, vos métiers, vos équipes et vos logiciels.' },
-  { step: '02', title: 'Concevoir', desc: 'Votre plateforme, vos modules et vos processus.' },
-  { step: '03', title: 'Connecter', desc: 'Étudier les possibilités d\u2019intégration avec votre environnement existant.' },
-  { step: '04', title: 'Construire', desc: 'Développer votre environnement BeWork.' },
-  { step: '05', title: 'Déployer', desc: 'Mettre la solution en place dans votre entreprise.' },
-  { step: '06', title: 'Former', desc: 'Former réellement les collaborateurs jusqu\u2019à l\u2019usage quotidien.' },
-  { step: '07', title: 'Faire évoluer', desc: 'Faire évoluer la plateforme avec votre entreprise.' },
+const DEMOS = [
+  {
+    title: 'Messagerie',
+    desc: 'Échangez, collaborez, centralisez vos messages.',
+    preview: 'Sophie Martin · RDV confirmé',
+  },
+  {
+    title: 'Agenda',
+    desc: 'Organisez vos événements et vos équipes.',
+    preview: 'Semaine type — RDV Sophie',
+  },
+  {
+    title: 'Réservation',
+    desc: 'Acceptez des réservations en quelques clics.',
+    preview: '09:00 · 10:30 · 14:00',
+  },
+  {
+    title: 'CRM',
+    desc: 'Suivez prospects et opportunités.',
+    preview: 'Atelier Nova · 4 200 € · Prospect',
+  },
+  {
+    title: 'Tableau de bord',
+    desc: 'Suivez vos données en temps réel.',
+    preview: 'Demandes 128 · Réponse 94 %',
+  },
+  {
+    title: 'Espace client',
+    desc: 'Documents partagés et validations.',
+    preview: 'Progression 72 %',
+  },
 ] as const;
 
-const ROLES = [
-  { role: 'Direction', desc: 'Vue globale : chantiers, finances, alertes.' },
-  { role: 'Conducteur de travaux', desc: 'Suivi chantier, documents, équipes, commandes.' },
-  { role: 'Chargé d\u2019affaires', desc: 'Devis, marchés, situations, relation client.' },
-  { role: 'Administratif', desc: 'Facturation, fournisseurs, contrôles, paiements.' },
+const METIERS = [
+  'Artisan',
+  'Indépendant',
+  'Commerce',
+  'Restaurant',
+  'Agence',
+  'Immobilier',
+  'Entreprise',
+  'Porteur de projet',
 ] as const;
 
-const SUR_MESURE = [
-  { title: 'Analyse documentaire', desc: 'Lire, synthétiser et extraire l\u2019information utile de vos documents BTP.' },
-  { title: 'Recherche intelligente', desc: 'Retrouver une information sans connaître son emplacement.' },
-  { title: 'Assistants spécialisés', desc: 'Devis, comptes rendus, CCTP, DOE.' },
-  { title: 'Automatisations complexes', desc: 'Workflows avancés sur vos processus les plus spécifiques.' },
-  { title: 'Applications métier', desc: 'Outils que les logiciels standards ne couvrent pas.' },
-  { title: 'Traitement de données', desc: 'Exploiter vos données chantier, financières et opérationnelles.' },
+const INTELLIGENCES = [
+  {
+    step: '01',
+    title: 'IA de conception',
+    desc: 'Clarifier l’ambition, les usages et les priorités.',
+    tags: ['Besoin', 'Idées', 'Priorités'],
+  },
+  {
+    step: '02',
+    title: 'IA de structuration',
+    desc: 'Organiser le projet pour avancer étape par étape.',
+    tags: ['Parcours', 'Écrans', 'Fonctions'],
+  },
+  {
+    step: '03',
+    title: 'IA de création',
+    desc: 'Transformer le plan en résultat visible et manipulable.',
+    tags: ['Interface', 'Contenu', 'Actions'],
+  },
+  {
+    step: '04',
+    title: 'IA de vérification',
+    desc: 'Tester, repérer les incohérences et sécuriser les évolutions.',
+    tags: ['Tests', 'Cohérence', 'Corrections'],
+  },
+  {
+    step: '05',
+    title: 'IA d’amélioration',
+    desc: 'Affiner l’expérience et préparer les prochaines versions.',
+    tags: ['Clarté', 'Fluidité', 'Progression'],
+  },
 ] as const;
 
-const CTA_USE_CASES = [
-  'Automatiser un processus',
-  'Exploiter vos documents',
-  'Créer un outil métier',
-  'Connecter vos logiciels',
-  'Créer une plateforme',
+const JOUR1_POINTS = [
+  {
+    title: 'Démonstrations concrètes',
+    desc: 'Voir réellement ce qu’il est possible de construire.',
+  },
+  {
+    title: 'Petit groupe',
+    desc: 'Un accompagnement plus proche.',
+  },
+  {
+    title: 'Pratique sur vos idées',
+    desc: 'Passez immédiatement à l’expérimentation.',
+  },
+  {
+    title: 'Méthode réutilisable',
+    desc: 'Continuez après la journée.',
+  },
+] as const;
+
+const COMPETENCES = [
+  {
+    step: '01',
+    title: 'Structurer une idée',
+    desc: 'Transformer un besoin en projet clair.',
+  },
+  {
+    step: '02',
+    title: 'Formuler une demande',
+    desc: 'Expliquer précisément ce que vous voulez obtenir.',
+  },
+  {
+    step: '03',
+    title: 'Lancer une première création',
+    desc: 'Passer de l’idée à une première version concrète.',
+  },
+  {
+    step: '04',
+    title: 'Tester et corriger',
+    desc: 'Identifier ce qui fonctionne et ce qui doit évoluer.',
+  },
+  {
+    step: '05',
+    title: 'Améliorer',
+    desc: 'Ajouter, modifier et affiner progressivement.',
+  },
+  {
+    step: '06',
+    title: 'Continuer',
+    desc: 'Être capable de poursuivre son projet après la formation.',
+  },
+] as const;
+
+const FAQ_ITEMS = [
+  {
+    q: 'Faut-il savoir coder ?',
+    a: 'Non. La formation est conçue pour des personnes qui ne viennent pas du développement informatique.',
+  },
+  {
+    q: 'Est-ce adapté aux débutants ?',
+    a: 'Oui. BeWork part du principe que vous n’avez pas besoin d’être développeur. Le parcours est pensé pour débuter clairement, sans jargon inutile.',
+  },
+  {
+    q: 'Quelle différence entre 7 h et 14 h ?',
+    a: 'Tout le monde commence par la même première journée. Les 7 h vous apprennent à commencer et à continuer seul. Les 14 h ajoutent une deuxième journée pour pratiquer davantage et construire plus loin.',
+  },
+  {
+    q: 'Puis-je commencer par 1 jour et prolonger ensuite ?',
+    a: 'Oui. Commencez par la première journée à 300 €. Si vous souhaitez aller plus loin, ajoutez simplement le deuxième jour pour 300 € supplémentaires.',
+  },
+  {
+    q: 'Que peut-on créer ?',
+    a: 'Sites, applications, systèmes de réservation, CRM, agendas, tableaux de bord, messageries, espaces clients, outils métier ou prototypes — selon votre idée et votre niveau de départ.',
+  },
+  {
+    q: 'Dois-je venir avec mon ordinateur ?',
+    a: 'Oui. La formation est pratique et doit idéalement être suivie depuis votre propre ordinateur.',
+  },
+  {
+    q: 'Que vais-je savoir faire après ?',
+    a: 'Après 7 h : structurer un besoin, lancer une première création, modifier, tester, corriger et continuer. Après 14 h : davantage de pratique et un projet plus abouti. Vous ne repartirez pas développeur — vous repartirez capable de progresser.',
+  },
 ] as const;
 
 function getBeworkPageJsonLd() {
@@ -87,6 +209,7 @@ function getBeworkPageJsonLd() {
         description: META_DESCRIPTION,
         inLanguage: 'fr-FR',
         isPartOf: { '@id': `${SITE_CONFIG.url}/#website` },
+        about: { '@id': `${BEWORK_SITE}#organization` },
       },
       {
         '@type': 'BreadcrumbList',
@@ -96,428 +219,671 @@ function getBeworkPageJsonLd() {
         ],
       },
       {
-        '@type': 'ProfessionalService',
+        '@type': 'Organization',
         '@id': `${BEWORK_SITE}#organization`,
         name: 'BeWork',
         url: BEWORK_SITE,
-        slogan: 'La plateforme construite autour de votre entreprise BTP',
+        slogan: 'Apprendre aujourd’hui, créer demain',
         description: META_DESCRIPTION,
-        areaServed: ['FR', 'BE', 'CH', 'LU'],
         sameAs: [BEWORK_SITE],
+      },
+      {
+        '@type': 'Course',
+        '@id': `${BEWORK_FORMATION}#course`,
+        name: 'Créer avec l’IA sans savoir coder',
+        description:
+          'Formation progressive BeWork : 1 journée (7 h) pour apprendre à commencer, ou 2 journées (14 h) pour construire plus loin — sans prérequis en programmation.',
+        url: BEWORK_FORMATION,
+        provider: { '@id': `${BEWORK_SITE}#organization` },
+        inLanguage: 'fr-FR',
+        educationalLevel: 'Débutant',
+        hasCourseInstance: [
+          {
+            '@type': 'CourseInstance',
+            name: 'Apprendre à commencer',
+            courseMode: ['onsite', 'online'],
+            duration: 'PT7H',
+            offers: {
+              '@type': 'Offer',
+              price: '300',
+              priceCurrency: 'EUR',
+              url: BEWORK_FORMATION,
+              availability: 'https://schema.org/InStock',
+            },
+          },
+          {
+            '@type': 'CourseInstance',
+            name: 'Construire plus loin',
+            courseMode: ['onsite', 'online'],
+            duration: 'PT14H',
+            offers: {
+              '@type': 'Offer',
+              price: '600',
+              priceCurrency: 'EUR',
+              url: BEWORK_FORMATION,
+              availability: 'https://schema.org/InStock',
+            },
+          },
+        ],
+      },
+      {
+        '@type': 'FAQPage',
+        '@id': `${pageUrl}#faq`,
+        mainEntity: FAQ_ITEMS.map(({ q, a }) => ({
+          '@type': 'Question',
+          name: q,
+          acceptedAnswer: { '@type': 'Answer', text: a },
+        })),
+      },
+      {
+        '@type': 'VideoObject',
+        '@id': `${pageUrl}#video`,
+        name: VIDEOS.beworkArtisanCreerAvecIa.title,
+        description: META_DESCRIPTION,
+        contentUrl: `${SITE_CONFIG.url}${VIDEOS.beworkArtisanCreerAvecIa.src}`,
+        embedUrl: pageUrl,
+        inLanguage: 'fr-FR',
+        uploadDate: '2026-09-16',
       },
     ],
   };
 }
 
-function GalleryGrid({ photos, columns = 3 }: { photos: BeworkPhoto[]; columns?: 2 | 3 }) {
-  const colClass = columns === 2 ? 'sm:grid-cols-2' : 'sm:grid-cols-2 lg:grid-cols-3';
-  return (
-    <div className={`mt-8 grid gap-5 ${colClass}`}>
-      {photos.map((photo) => (
-        <figure
-          key={photo.src}
-          className="overflow-hidden rounded-xl border border-slate-200/90 bg-white shadow-sm"
-        >
-          <div className="relative aspect-[3/2] w-full overflow-hidden bg-[#EFF6FF]">
-            <Image
-              src={photo.src}
-              alt={photo.alt}
-              fill
-              className="object-cover object-top"
-              sizes="(min-width: 1024px) 360px, 50vw"
-            
-              quality={70}
-              loading="lazy"/>
-          </div>
-          {photo.caption ? (
-            <figcaption className="border-t border-slate-100 px-3 py-2 text-xs text-[#64748B]">
-              {photo.caption}
-            </figcaption>
-          ) : null}
-        </figure>
-      ))}
-    </div>
-  );
-}
+function CtaFormation({
+  label = 'Découvrir la formation',
+  href = BEWORK_FORMATION,
+  variant = 'primary',
+  className = '',
+}: {
+  label?: string;
+  href?: string;
+  variant?: 'primary' | 'secondary' | 'light';
+  className?: string;
+}) {
+  const styles =
+    variant === 'primary'
+      ? 'bg-[#1D4ED8] text-white hover:bg-[#1E40AF]'
+      : variant === 'light'
+        ? 'bg-white text-[#1D4ED8] hover:bg-[#EFF6FF]'
+        : 'border border-[#1D4ED8] bg-white text-[#1D4ED8] hover:bg-[#EFF6FF]';
 
-function CtaBework({ className = '' }: { className?: string }) {
   return (
     <ExternalLinkAnchor
-      href={BEWORK_SITE}
-      title="BeWork — parler de mon besoin sur bework.fr (nouvel onglet)"
-      className={`inline-flex items-center justify-center gap-2 rounded-lg bg-[#377CF3] px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#2A6BD9] ${className}`}
+      href={href}
+      title={`${label} — bework.fr (nouvel onglet)`}
+      className={`inline-flex items-center justify-center gap-2 rounded-lg px-6 py-3 text-sm font-semibold transition-colors ${styles} ${className}`}
     >
-      Parler de mon besoin
+      {label}
       <ArrowUpRight className="h-4 w-4 shrink-0" aria-hidden />
     </ExternalLinkAnchor>
   );
 }
 
-const galerieConstruire = BEWORK_GALLERY_SECTIONS.find((s) => s.id === 'suivi-chantier');
-const galerieConnecter = BEWORK_GALLERY_SECTIONS.find((s) => s.id === 'bureau-chantier');
-const galeriePlanning = BEWORK_GALLERY_SECTIONS.find((s) => s.id === 'planning-reporting');
-
-const photosConstruire = [
-  ...(galerieConstruire?.photos ?? []),
-  ...(galeriePlanning?.photos.filter((p) => p.caption?.toLowerCase().includes('gantt')) ?? []),
-  ...(BEWORK_GALLERY_SECTIONS.find((s) => s.id === 'maitre-oeuvre')?.photos.filter((p) =>
-    p.caption?.toLowerCase().includes('plans et dossiers'),
-  ) ?? []),
-];
-
-const photosConnecter = galerieConnecter?.photos.slice(0, 3) ?? [];
-
 export default function BeworkPage() {
   return (
-    <div className="min-h-screen bg-[#F2F2F2]">
+    <div className="min-h-screen bg-[#F8FAFC]">
       <JsonLd id="schema-bework-page" schema={getBeworkPageJsonLd()} />
 
-      {/* 1. Hero */}
+      {/* Hero */}
       <section
         aria-labelledby="bework-hero-title"
-        className="border-b border-slate-200 bg-white px-4 py-14 md:py-20"
+        className="relative overflow-hidden border-b border-slate-200 bg-gradient-to-br from-[#EFF6FF] via-white to-[#DBEAFE]/50 px-4 py-14 md:py-20"
       >
-        <div className="mx-auto grid max-w-6xl items-center gap-10 lg:grid-cols-2 lg:gap-14">
-          <div className="min-w-0">
-            <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#64748B]">
-              Construire · Connecter · Automatiser
-            </p>
-            <p className="mt-1 text-sm font-medium text-[#377CF3]">
-              Une solution sur mesure pensée pour le BTP
-            </p>
-            <h1
-              id="bework-hero-title"
-              className="mt-4 font-display text-3xl font-bold tracking-tight text-[#0F172A] md:text-4xl"
-            >
-              La plateforme construite autour de votre entreprise&nbsp;BTP.
-            </h1>
-            <p className="mt-5 text-base leading-relaxed text-[#475569] md:text-lg">
-              Centralisez vos chantiers, vos équipes, vos documents et votre gestion dans un
-              environnement conçu pour votre organisation. BeWork peut également connecter vos
-              logiciels existants et automatiser vos processus.
-            </p>
-            <p className="mt-3 text-sm font-medium italic text-[#334155]">
-              Vous gardez ce qui fonctionne. Nous construisons ce qui manque et faisons travailler
-              l&apos;ensemble ensemble.
-            </p>
-            <ul className="mt-6 flex flex-wrap gap-2">
-              {REASSURANCE_BADGES.map(({ icon: Icon, label }) => (
-                <li
-                  key={label}
-                  className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-[#FAFBFD] px-3 py-1.5 text-xs font-medium text-[#334155]"
-                >
-                  <Icon className="h-3.5 w-3.5 shrink-0 text-[#377CF3]" strokeWidth={1.75} aria-hidden />
-                  {label}
-                </li>
-              ))}
-            </ul>
-            <div className="mt-8 flex flex-wrap gap-3">
-              <CtaBework />
-              <Link
-                href={LINKS.formations}
-                className="inline-flex items-center justify-center rounded-lg border border-[#377CF3] bg-white px-6 py-3 text-sm font-semibold text-[#377CF3] hover:bg-[#EFF6FF]"
-              >
-                Formations IA — organisme certifié Qualiopi
-              </Link>
-            </div>
-            <p className="mt-4 text-sm text-[#64748B]">
-              Déjà client ?{' '}
-              <Link href={LINKS.beworkPlateforme} className="font-medium text-[#377CF3] hover:underline">
-                Accéder à la plateforme
-              </Link>
-            </p>
-            <p className="mt-2 text-xs text-[#64748B]">
-              Service distinct des{' '}
-              <Link href={LINKS.formations} className="font-medium text-[#377CF3] hover:underline">
-                formations dispensées par un organisme certifié Qualiopi
-              </Link>{' '}
-              proposées par Laure Olivié sur ce site.
-            </p>
-          </div>
-
-          <figure className="overflow-hidden rounded-xl border border-slate-200/90 shadow-[0_4px_16px_rgba(55,124,243,0.08)]">
-            <Image
-              src={BEWORK_PHOTO_HERO.src}
-              alt={BEWORK_PHOTO_HERO.alt}
-              title="BeWork — chantiers, planning, GED, commandes, finance et équipes connectés à vos outils"
-              width={BEWORK_PHOTO_HERO.width}
-              height={BEWORK_PHOTO_HERO.height}
-              className="h-auto w-full"
-              priority
-              sizes="(min-width: 1024px) 560px, 100vw"
-            
-              quality={75}/>
-            {BEWORK_PHOTO_HERO.caption ? (
-              <figcaption className="border-t border-slate-100 bg-[#0F172A] px-4 py-3 text-center text-sm leading-snug text-white">
-                {BEWORK_PHOTO_HERO.caption}
-              </figcaption>
-            ) : null}
-          </figure>
-        </div>
-      </section>
-
-      {/* 2. Verbatim */}
-      <section aria-labelledby="bework-verbatim" className="border-b border-slate-200 px-4 py-12 md:py-16">
-        <div className="mx-auto max-w-3xl">
-          <h2
-            id="bework-verbatim"
-            className="font-display text-2xl font-bold text-[#0F172A] md:text-3xl"
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(29,78,216,0.08),transparent_55%)]" aria-hidden />
+        <div className="relative mx-auto max-w-4xl text-center">
+          <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#1D4ED8]">
+            BeWork — Apprendre aujourd’hui, créer demain
+          </p>
+          <p className="mt-2 text-sm font-medium text-[#64748B]">Formation progressive</p>
+          <h1
+            id="bework-hero-title"
+            className="mt-4 font-display text-3xl font-bold tracking-tight text-[#0F172A] md:text-5xl"
           >
-            Votre logiciel ne correspond pas à votre façon de travailler&nbsp;?
-          </h2>
-          <p className="mt-5 text-[15px] leading-relaxed text-[#475569] md:text-base">
-            Les mêmes informations ressaisies dans plusieurs outils. Des documents éparpillés entre
-            emails, serveurs et applications. Des logiciels qui ne communiquent pas. Un Excel de
-            suivi devenu indispensable — et fragile.
+            Sans savoir coder.
+            <span className="mt-1 block text-[#1D4ED8]">Créez ce que vous imaginez.</span>
+          </h1>
+          <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-[#475569] md:text-lg">
+            Donnez vie à votre idée avec l’IA. Apprenez à construire votre propre projet, étape par
+            étape, sans connaissances en programmation.
           </p>
-          <p className="mt-4 text-sm font-semibold text-[#334155]">
-            Notre réponse&nbsp;: nous construisons la plateforme autour de votre façon de travailler.
-            Pas l&apos;inverse.
-          </p>
-        </div>
-      </section>
-
-      {/* 3. Construire */}
-      <section
-        aria-labelledby="bework-construire"
-        className="border-b border-slate-200 bg-white px-4 py-12 md:py-16"
-      >
-        <div className="mx-auto max-w-6xl">
-          <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#377CF3]">
-            Construire
-          </p>
-          <h2
-            id="bework-construire"
-            className="mt-2 font-display text-2xl font-bold text-[#0F172A] md:text-3xl"
-          >
-            Tout votre fonctionnement au même endroit.
-          </h2>
-          <p className="mt-4 max-w-3xl text-[15px] leading-relaxed text-[#475569] md:text-base">
-            Le problème n&apos;est pas de manquer d&apos;outils. C&apos;est qu&apos;ils ne
-            travaillent pas ensemble. Chantiers, documents, planning, gestion, achats et pilotage
-            réunis dans un seul environnement&nbsp;: affaires, avancement, échéances, équipes et
-            informations importantes, sans fichiers perdus ni appels pour savoir où en est le
-            dossier.
-          </p>
-          {photosConstruire.length > 0 ? <GalleryGrid photos={photosConstruire} /> : null}
-        </div>
-      </section>
-
-      {/* 4. Connecter */}
-      <section
-        aria-labelledby="bework-connecter"
-        className="border-b border-slate-200 bg-[#F8FAFC] px-4 py-12 md:py-16"
-      >
-        <div className="mx-auto max-w-6xl">
-          <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#377CF3]">
-            Connecter
-          </p>
-          <h2
-            id="bework-connecter"
-            className="mt-2 font-display text-2xl font-bold text-[#0F172A] md:text-3xl"
-          >
-            Vous avez déjà vos logiciels. BeWork peut les faire travailler ensemble.
-          </h2>
-          <p className="mt-4 max-w-3xl text-[15px] leading-relaxed text-[#475569] md:text-base">
-            Notre objectif n&apos;est pas de tout remplacer. Nous étudions comment connecter ce que
-            vous utilisez déjà&nbsp;: gestion BTP, comptabilité, trésorerie, messagerie, documents,
-            planning. L&apos;information circule entre le bureau et le chantier, les données sont
-            centralisées, la double saisie disparaît.
-          </p>
-          <p className="mt-3 text-xs italic text-[#64748B]">
-            Toutes les intégrations ne sont pas systématiquement disponibles — les possibilités sont
-            étudiées au cas par cas.
-          </p>
-          {photosConnecter.length > 0 ? <GalleryGrid photos={photosConnecter} /> : null}
-        </div>
-      </section>
-
-      {/* 5. Automatiser */}
-      <section
-        aria-labelledby="bework-automatiser"
-        className="border-b border-slate-200 bg-white px-4 py-12 md:py-16"
-      >
-        <div className="mx-auto max-w-3xl">
-          <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#377CF3]">
-            Automatiser
-          </p>
-          <h2
-            id="bework-automatiser"
-            className="mt-2 font-display text-2xl font-bold text-[#0F172A] md:text-3xl"
-          >
-            Automatisez ce qui se répète tous les jours.
-          </h2>
-          <p className="mt-4 text-[15px] leading-relaxed text-[#475569] md:text-base">
-            Lorsqu&apos;une action peut être automatisée de manière fiable, BeWork crée le processus
-            correspondant. Un devis accepté ouvre le chantier, initialise le budget, prépare les
-            dossiers, génère les premières tâches et informe les collaborateurs concernés.
-          </p>
-          <p className="mt-3 text-[15px] leading-relaxed text-[#475569] md:text-base">
-            Chaque entreprise fonctionne différemment&nbsp;: les automatisations sont construites
-            autour de vos propres processus, pas d&apos;un modèle générique.
-          </p>
-        </div>
-      </section>
-
-      {/* 6. Sur mesure */}
-      <section
-        aria-labelledby="bework-sur-mesure"
-        className="border-b border-slate-200 bg-[#F8FAFC] px-4 py-12 md:py-16"
-      >
-        <div className="mx-auto max-w-6xl">
-          <h2
-            id="bework-sur-mesure"
-            className="font-display text-2xl font-bold text-[#0F172A] md:text-3xl"
-          >
-            Et si votre besoin va plus loin&nbsp;?
-          </h2>
-          <p className="mt-4 max-w-3xl text-[15px] leading-relaxed text-[#475569] md:text-base">
-            Certaines entreprises ont des besoins qu&apos;aucun logiciel standard ne couvre. BeWork
-            développe alors les outils spécifiques nécessaires.
-          </p>
-          <ul className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {SUR_MESURE.map(({ title, desc }) => (
-              <li
-                key={title}
-                className="rounded-xl border border-slate-200/90 bg-white px-5 py-4 shadow-sm"
-              >
-                <h3 className="font-semibold text-[#0F172A]">{title}</h3>
-                <p className="mt-1.5 text-sm leading-relaxed text-[#475569]">{desc}</p>
-              </li>
-            ))}
+          <ul className="mx-auto mt-6 max-w-xl space-y-2 text-left text-sm text-[#334155] md:text-base">
+            <li className="flex gap-2">
+              <Check className="mt-0.5 h-4 w-4 shrink-0 text-[#1D4ED8]" aria-hidden />
+              <span>
+                <strong className="font-semibold">1 journée (7 h)</strong> — apprendre à commencer et
+                lancer un premier projet.
+              </span>
+            </li>
+            <li className="flex gap-2">
+              <Check className="mt-0.5 h-4 w-4 shrink-0 text-[#1D4ED8]" aria-hidden />
+              <span>
+                <strong className="font-semibold">2 journées (14 h)</strong> — approfondir et
+                construire plus loin.
+              </span>
+            </li>
           </ul>
-          <p className="mt-8 max-w-3xl text-[15px] leading-relaxed text-[#475569] md:text-base">
-            Nous utilisons la technologie adaptée au problème à résoudre.{' '}
-            <strong className="font-semibold text-[#334155]">
-              L&apos;IA n&apos;est pas le produit&nbsp;: c&apos;est l&apos;un des outils que nous
-              pouvons utiliser pour construire la bonne solution.
-            </strong>
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
+            <CtaFormation />
+            <CtaFormation label="Voir le programme" href={BEWORK_FORMATION} variant="secondary" />
+          </div>
+          <p className="mt-4 text-sm text-[#64748B]">7 h ou 14 h selon votre besoin</p>
+          <BeworkHeroVideo className="mx-auto mt-10 max-w-3xl" />
+          <p className="mx-auto mt-6 max-w-2xl text-sm leading-relaxed text-[#475569]">
+            Aucun prérequis en programmation. Vous partez de zéro et repartez avec une méthode, un
+            environnement prêt et une première création fonctionnelle.
           </p>
-          <p className="mt-3 text-sm font-medium text-[#64748B]">
-            France · Belgique · Suisse romande · Luxembourg.
-          </p>
-        </div>
-      </section>
-
-      {/* 7. Rôles */}
-      <section
-        aria-labelledby="bework-roles"
-        className="border-b border-slate-200 bg-white px-4 py-12 md:py-16"
-      >
-        <div className="mx-auto max-w-6xl">
-          <h2
-            id="bework-roles"
-            className="font-display text-2xl font-bold text-[#0F172A] md:text-3xl"
-          >
-            Chacun voit ce qui lui est utile.
-          </h2>
-          <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {ROLES.map(({ role, desc }) => (
+          <div className="mx-auto mt-10 grid max-w-3xl gap-4 sm:grid-cols-3">
+            {HERO_PILLARS.map(({ icon: Icon, title, desc }) => (
               <div
-                key={role}
-                className="rounded-xl border border-slate-200/90 bg-[#FAFBFD] px-5 py-4 shadow-sm"
+                key={title}
+                className="rounded-xl border border-slate-200/80 bg-white/80 px-4 py-4 text-left shadow-sm backdrop-blur-sm"
               >
-                <h3 className="font-semibold text-[#0F172A]">{role}</h3>
-                <p className="mt-1.5 text-sm leading-relaxed text-[#475569]">{desc}</p>
+                <Icon className="h-5 w-5 text-[#1D4ED8]" strokeWidth={1.75} aria-hidden />
+                <p className="mt-2 text-sm font-semibold text-[#0F172A]">{title}</p>
+                <p className="mt-1 text-xs text-[#64748B]">{desc}</p>
               </div>
             ))}
           </div>
-          <p className="mt-6 max-w-3xl text-[15px] leading-relaxed text-[#475569]">
-            La complexité reste invisible. Nous concevons des interfaces simples et accompagnons vos
-            collaborateurs jusqu&apos;à l&apos;utilisation réelle au quotidien.
+          <p className="mt-8 text-xs leading-relaxed text-[#64748B]">
+            {QUALIOPI_BEWORK_DISTINCTION}{' '}
+            <Link href={LINKS.formations} className="font-medium text-[#1D4ED8] hover:underline">
+              Formations IA BTP — organisme certifié Qualiopi
+            </Link>
+            .
           </p>
         </div>
       </section>
 
-      {/* 8. Méthode */}
+      {/* Démos */}
       <section
-        aria-labelledby="bework-methode"
-        className="border-b border-slate-200 bg-[#F8FAFC] px-4 py-12 md:py-16"
+        id="possibilites"
+        aria-labelledby="bework-demos"
+        className="border-b border-slate-200 bg-white px-4 py-12 md:py-16"
       >
         <div className="mx-auto max-w-6xl">
-          <h2
-            id="bework-methode"
-            className="font-display text-2xl font-bold text-[#0F172A] md:text-3xl"
-          >
-            Nous ne livrons pas simplement un logiciel.
-          </h2>
-          <p className="mt-3 max-w-3xl text-[15px] leading-relaxed text-[#475569]">
-            Nous accompagnons vos équipes jusqu&apos;à son utilisation réelle au quotidien.
+          <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#1D4ED8]">
+            Des exemples concrets
           </p>
-          <ol className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-7">
-            {METHODE.map(({ step, title, desc }) => (
+          <h2
+            id="bework-demos"
+            className="mt-2 font-display text-2xl font-bold text-[#0F172A] md:text-3xl"
+          >
+            Ce que vous pourrez créer pendant la formation.
+          </h2>
+          <p className="mt-4 max-w-3xl text-[15px] leading-relaxed text-[#475569] md:text-base">
+            Des projets utiles, concrets et adaptés à vos besoins — guidés pas à pas. Interfaces et
+            données présentées à titre illustratif.
+          </p>
+          <ul className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {DEMOS.map(({ title, desc, preview }) => (
+              <li
+                key={title}
+                className="flex flex-col rounded-xl border border-slate-200/90 bg-[#F8FAFC] p-5 shadow-sm"
+              >
+                <h3 className="font-semibold text-[#0F172A]">{title}</h3>
+                <p className="mt-1.5 flex-1 text-sm leading-relaxed text-[#475569]">{desc}</p>
+                <p className="mt-4 rounded-lg border border-dashed border-[#BFDBFE] bg-white px-3 py-2 font-mono text-xs text-[#1E40AF]">
+                  {preview}
+                </p>
+              </li>
+            ))}
+          </ul>
+          <div className="mt-8">
+            <CtaFormation label="Explorer les démonstrations" href={BEWORK_SITE} variant="secondary" />
+          </div>
+        </div>
+      </section>
+
+      {/* Métiers */}
+      <section
+        aria-labelledby="bework-metiers"
+        className="border-b border-slate-200 bg-[#F8FAFC] px-4 py-12 md:py-16"
+      >
+        <div className="mx-auto max-w-4xl text-center">
+          <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#1D4ED8]">
+            Projection
+          </p>
+          <h2
+            id="bework-metiers"
+            className="mt-2 font-display text-2xl font-bold text-[#0F172A] md:text-3xl"
+          >
+            Votre métier vous donne les idées.
+            <span className="mt-1 block">Imaginez ce que vous pourriez construire.</span>
+          </h2>
+          <ul className="mt-8 flex flex-wrap justify-center gap-2">
+            {METIERS.map((metier) => (
+              <li
+                key={metier}
+                className="rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-medium text-[#334155]"
+              >
+                {metier}
+              </li>
+            ))}
+          </ul>
+          <p className="mx-auto mt-6 max-w-xl text-sm leading-relaxed text-[#475569] md:text-base">
+            Et si l’outil qui manque à votre métier était celui que vous alliez créer ?
+          </p>
+          <div className="mt-6">
+            <CtaFormation label="Voir à qui s’adresse la formation" href={BEWORK_FORMATION} variant="secondary" />
+          </div>
+        </div>
+      </section>
+
+      {/* Intelligences */}
+      <section
+        aria-labelledby="bework-ia"
+        className="border-b border-slate-200 bg-white px-4 py-12 md:py-16"
+      >
+        <div className="mx-auto max-w-6xl">
+          <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#1D4ED8]">
+            Intelligence collective
+          </p>
+          <h2
+            id="bework-ia"
+            className="mt-2 font-display text-2xl font-bold text-[#0F172A] md:text-3xl"
+          >
+            Plusieurs intelligences spécialisées.
+            <span className="mt-1 block text-[#1D4ED8]">Une seule direction : votre projet.</span>
+          </h2>
+          <p className="mt-4 max-w-3xl text-[15px] leading-relaxed text-[#475569] md:text-base">
+            Chaque étape ne demande pas la même expertise. BeWork vous apprend à mobiliser la bonne
+            intelligence pour concevoir, structurer, créer, vérifier et améliorer — sans transformer
+            la formation en cours technique.
+          </p>
+          <ol className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
+            {INTELLIGENCES.map(({ step, title, desc, tags }) => (
               <li
                 key={step}
-                className="rounded-xl border border-slate-200/90 bg-white px-4 py-4 shadow-sm"
+                className="rounded-xl border border-slate-200/90 bg-[#F8FAFC] px-4 py-4 shadow-sm"
               >
-                <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#377CF3]">
+                <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#1D4ED8]">
                   {step}
                 </p>
                 <h3 className="mt-2 font-semibold text-[#0F172A]">{title}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-[#475569]">{desc}</p>
+                <ul className="mt-3 flex flex-wrap gap-1.5">
+                  {tags.map((tag) => (
+                    <li
+                      key={tag}
+                      className="rounded bg-[#EFF6FF] px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-[#1D4ED8]"
+                    >
+                      {tag}
+                    </li>
+                  ))}
+                </ul>
               </li>
             ))}
           </ol>
-        </div>
-      </section>
-
-      {/* 9. Données */}
-      <section className="border-b border-slate-200 bg-white px-4 py-10 md:py-12">
-        <div className="mx-auto flex max-w-4xl flex-wrap items-center justify-center gap-6 text-center">
-          {REASSURANCE_BADGES.map(({ icon: Icon, label }) => (
-            <span
-              key={label}
-              className="inline-flex items-center gap-2 text-sm font-medium text-[#334155]"
-            >
-              <Icon className="h-5 w-5 shrink-0 text-[#377CF3]" strokeWidth={1.75} aria-hidden />
-              {label}
-            </span>
-          ))}
-        </div>
-        <p className="mx-auto mt-4 max-w-xl text-center text-sm font-semibold text-[#334155]">
-          Vos données restent les vôtres.
-        </p>
-      </section>
-
-      {/* 10. CTA final */}
-      <section aria-labelledby="bework-cta" className="px-4 py-14 md:py-20">
-        <div className="mx-auto max-w-4xl rounded-2xl bg-[#377CF3] px-6 py-10 text-center text-white md:px-12 md:py-14">
-          <h2
-            id="bework-cta"
-            className="font-display text-2xl font-bold md:text-3xl"
-          >
-            Montrez-nous comment votre entreprise fonctionne.
-          </h2>
-          <p className="mx-auto mt-4 max-w-xl text-base leading-relaxed text-white/90">
-            Vous n&apos;avez pas besoin de savoir quelle technologie utiliser. Expliquez-nous comment
-            vous travaillez aujourd&apos;hui, les outils que vous utilisez et ce que vous aimeriez
-            améliorer. Nous étudierons comment construire l&apos;environnement adapté.
+          <p className="mt-8 max-w-3xl text-[15px] leading-relaxed text-[#475569]">
+            Vous gardez la vision et les décisions.{' '}
+            <strong className="font-semibold text-[#334155]">
+              Les intelligences spécialisées vous aident à avancer avec méthode.
+            </strong>
           </p>
-          <ul className="mx-auto mt-6 flex max-w-lg flex-wrap justify-center gap-2 text-sm text-white/80">
-            {CTA_USE_CASES.map((uc) => (
-              <li
-                key={uc}
-                className="rounded-full border border-white/30 px-3 py-1"
-              >
-                {uc}
+        </div>
+      </section>
+
+      {/* Jour 1 */}
+      <section
+        aria-labelledby="bework-jour1"
+        className="border-b border-slate-200 bg-[#0F172A] px-4 py-12 text-white md:py-16"
+      >
+        <div className="mx-auto max-w-6xl">
+          <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#93C5FD]">
+            Jour 1 · Parcours commun
+          </p>
+          <h2
+            id="bework-jour1"
+            className="mt-2 font-display text-2xl font-bold md:text-3xl"
+          >
+            Pas une journée à écouter.
+            <span className="mt-1 block text-[#93C5FD]">Une journée à créer.</span>
+          </h2>
+          <p className="mt-4 max-w-3xl text-[15px] leading-relaxed text-white/80 md:text-base">
+            Une expérience pratique pour découvrir comment transformer vos idées en projets
+            numériques grâce à l’intelligence artificielle.
+          </p>
+          <ul className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {JOUR1_POINTS.map(({ title, desc }) => (
+              <li key={title} className="rounded-xl border border-white/15 bg-white/5 px-5 py-4">
+                <h3 className="font-semibold text-white">{title}</h3>
+                <p className="mt-1.5 text-sm leading-relaxed text-white/70">{desc}</p>
               </li>
             ))}
           </ul>
-          <ExternalLinkAnchor
-            href={BEWORK_SITE}
-            title="BeWork — parler de mon besoin sur bework.fr"
-            className="mt-8 inline-flex items-center justify-center gap-2 rounded-lg bg-white px-8 py-3.5 text-sm font-semibold text-[#377CF3] transition-colors hover:bg-[#EFF6FF]"
+          <div className="mt-8 flex flex-wrap gap-3">
+            <CtaFormation variant="light" />
+            <CtaFormation label="Voir les démonstrations" href={BEWORK_SITE} variant="secondary" className="!border-white/40 !bg-transparent !text-white hover:!bg-white/10" />
+          </div>
+        </div>
+      </section>
+
+      {/* Jour 1 / Jour 2 */}
+      <section
+        aria-labelledby="bework-parcours"
+        className="border-b border-slate-200 bg-white px-4 py-12 md:py-16"
+      >
+        <div className="mx-auto max-w-6xl">
+          <h2
+            id="bework-parcours"
+            className="font-display text-2xl font-bold text-[#0F172A] md:text-3xl"
           >
-            Parler de mon besoin
-            <ArrowUpRight className="h-4 w-4 shrink-0" aria-hidden />
-          </ExternalLinkAnchor>
-          <p className="mt-6 text-sm text-white/80">
-            Vous cherchez plutôt à former vos équipes à l&apos;IA ?{' '}
+            Et si vous voulez aller plus loin ?
+          </h2>
+          <p className="mt-3 max-w-3xl text-[15px] leading-relaxed text-[#475569]">
+            La première journée vous apprend à commencer. La deuxième vous donne le temps de
+            construire davantage.
+          </p>
+          <div className="mt-8 grid gap-6 md:grid-cols-2">
+            <div className="rounded-xl border border-slate-200 bg-[#F8FAFC] p-6">
+              <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#1D4ED8]">
+                Jour 1 · Commencer
+              </p>
+              <ol className="mt-4 flex flex-wrap items-center gap-2 text-sm font-medium text-[#334155]">
+                {['Comprendre', 'Préparer', 'Créer', 'Modifier', 'Tester'].map((step, i, arr) => (
+                  <li key={step} className="inline-flex items-center gap-2">
+                    <span className="rounded-lg bg-white px-3 py-1.5 shadow-sm">{step}</span>
+                    {i < arr.length - 1 ? (
+                      <span className="text-[#94A3B8]" aria-hidden>
+                        →
+                      </span>
+                    ) : null}
+                  </li>
+                ))}
+              </ol>
+            </div>
+            <div className="rounded-xl border border-[#BFDBFE] bg-[#EFF6FF] p-6">
+              <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#1D4ED8]">
+                Jour 2 · Construire plus loin
+              </p>
+              <ol className="mt-4 flex flex-wrap items-center gap-2 text-sm font-medium text-[#334155]">
+                {['Structurer', 'Ajouter des fonctions', 'Approfondir', 'Tester', 'Corriger', 'Améliorer'].map(
+                  (step, i, arr) => (
+                    <li key={step} className="inline-flex items-center gap-2">
+                      <span className="rounded-lg bg-white px-3 py-1.5 shadow-sm">{step}</span>
+                      {i < arr.length - 1 ? (
+                        <span className="text-[#93C5FD]" aria-hidden>
+                          →
+                        </span>
+                      ) : null}
+                    </li>
+                  ),
+                )}
+              </ol>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Compétences */}
+      <section
+        aria-labelledby="bework-competences"
+        className="border-b border-slate-200 bg-[#F8FAFC] px-4 py-12 md:py-16"
+      >
+        <div className="mx-auto max-w-6xl">
+          <h2
+            id="bework-competences"
+            className="font-display text-2xl font-bold text-[#0F172A] md:text-3xl"
+          >
+            Vous ne repartirez pas développeur.
+            <span className="mt-1 block text-[#1D4ED8]">
+              Vous repartirez avec les bases pour commencer.
+            </span>
+          </h2>
+          <p className="mt-4 max-w-3xl text-[15px] leading-relaxed text-[#475569] md:text-base">
+            Une journée ne fait pas de vous un expert technique. Elle vous donne les repères, la
+            méthode et les bons réflexes pour transformer une idée en premier projet et continuer à
+            avancer.
+          </p>
+          <ol className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {COMPETENCES.map(({ step, title, desc }) => (
+              <li
+                key={step}
+                className="rounded-xl border border-slate-200/90 bg-white px-5 py-4 shadow-sm"
+              >
+                <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#1D4ED8]">
+                  {step}
+                </p>
+                <h3 className="mt-2 font-semibold text-[#0F172A]">{title}</h3>
+                <p className="mt-1.5 text-sm leading-relaxed text-[#475569]">{desc}</p>
+              </li>
+            ))}
+          </ol>
+          <p className="mt-8 text-lg font-semibold text-[#0F172A]">
+            Vous n’apprenez pas à tout savoir.
+            <span className="mt-1 block text-[#1D4ED8]">Vous apprenez à savoir commencer.</span>
+          </p>
+        </div>
+      </section>
+
+      {/* Modalités */}
+      <section
+        aria-labelledby="bework-modalites"
+        className="border-b border-slate-200 bg-white px-4 py-12 md:py-16"
+      >
+        <div className="mx-auto max-w-6xl">
+          <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#1D4ED8]">
+            Modalités
+          </p>
+          <h2
+            id="bework-modalites"
+            className="mt-2 font-display text-2xl font-bold text-[#0F172A] md:text-3xl"
+          >
+            Deux façons de participer.
+          </h2>
+          <p className="mt-3 max-w-3xl text-[15px] leading-relaxed text-[#475569]">
+            Présentiel ou visio : la modalité change, pas l’ambition ni le parcours choisi.
+          </p>
+          <div className="mt-8 grid gap-6 md:grid-cols-2">
+            <div className="rounded-xl border-2 border-[#1D4ED8] bg-[#EFF6FF] p-6">
+              <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#1D4ED8]">
+                Recommandé
+              </p>
+              <h3 className="mt-2 text-xl font-bold text-[#0F172A]">Présentiel</h3>
+              <p className="mt-3 text-sm leading-relaxed text-[#475569]">
+                Une expérience directe, en petit groupe, avec un accompagnement attentif tout au long
+                de la pratique.
+              </p>
+            </div>
+            <div className="rounded-xl border border-slate-200 bg-[#F8FAFC] p-6">
+              <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#64748B]">
+                Sessions dédiées
+              </p>
+              <h3 className="mt-2 text-xl font-bold text-[#0F172A]">Visio</h3>
+              <p className="mt-3 text-sm leading-relaxed text-[#475569]">
+                Le même parcours pédagogique à distance, lors de sessions prévues pour faciliter les
+                échanges et le partage d’écran.
+              </p>
+            </div>
+          </div>
+          <div className="mt-6">
+            <CtaFormation label="Comparer les modalités" href={BEWORK_FORMATION} variant="secondary" />
+          </div>
+        </div>
+      </section>
+
+      {/* Tarifs */}
+      <section
+        id="parcours"
+        aria-labelledby="bework-tarifs"
+        className="border-b border-slate-200 bg-[#F8FAFC] px-4 py-12 md:py-16"
+      >
+        <div className="mx-auto max-w-6xl">
+          <h2
+            id="bework-tarifs"
+            className="font-display text-2xl font-bold text-[#0F172A] md:text-3xl"
+          >
+            Un même point de départ.
+            <span className="mt-1 block">À vous de choisir jusqu’où aller.</span>
+          </h2>
+          <p className="mt-3 max-w-3xl text-[15px] leading-relaxed text-[#475569]">
+            Commencez tous par la même première journée, puis poursuivez si vous souhaitez approfondir
+            et construire davantage.
+          </p>
+          <div className="mt-8 grid gap-6 lg:grid-cols-2">
+            <article className="flex flex-col rounded-2xl border border-slate-200 bg-white p-6 shadow-sm md:p-8">
+              <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#64748B]">
+                1 jour
+              </p>
+              <h3 className="mt-2 font-display text-2xl font-bold text-[#0F172A]">
+                Apprendre à commencer
+              </h3>
+              <p className="mt-4 flex items-baseline gap-2">
+                <span className="font-display text-4xl font-bold text-[#1D4ED8]">300 €</span>
+                <span className="text-sm text-[#64748B]">par participant · 7 h</span>
+              </p>
+              <p className="mt-4 text-sm leading-relaxed text-[#475569]">
+                Une journée complète pour comprendre la méthode, préparer votre environnement, créer
+                une première version, apprendre à modifier, tester et corriger.
+              </p>
+              <ul className="mt-5 flex-1 space-y-2">
+                {[
+                  'Parcours complet du Jour 1',
+                  'Mise en pratique guidée',
+                  'Première création fonctionnelle',
+                  'Méthode pour tester et corriger',
+                  'Plan pour continuer après la journée',
+                ].map((item) => (
+                  <li key={item} className="flex gap-2 text-sm text-[#334155]">
+                    <Check className="mt-0.5 h-4 w-4 shrink-0 text-[#1D4ED8]" aria-hidden />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+              <p className="mt-5 text-sm font-semibold text-[#0F172A]">
+                Vous repartez en sachant comment commencer.
+              </p>
+              <CtaFormation label="Choisir 1 journée" className="mt-6 w-full sm:w-auto" />
+            </article>
+
+            <article className="relative flex flex-col rounded-2xl border-2 border-[#1D4ED8] bg-white p-6 shadow-[0_8px_30px_rgba(29,78,216,0.12)] md:p-8">
+              <p className="absolute -top-3 left-6 rounded-full bg-[#1D4ED8] px-3 py-1 text-xs font-semibold text-white">
+                Recommandé pour aller plus loin
+              </p>
+              <p className="mt-2 text-xs font-semibold uppercase tracking-[0.14em] text-[#1D4ED8]">
+                2 jours
+              </p>
+              <h3 className="mt-2 font-display text-2xl font-bold text-[#0F172A]">
+                Construire plus loin
+              </h3>
+              <p className="mt-4 flex items-baseline gap-2">
+                <span className="font-display text-4xl font-bold text-[#1D4ED8]">600 €</span>
+                <span className="text-sm text-[#64748B]">par participant · 14 h</span>
+              </p>
+              <p className="mt-4 text-sm leading-relaxed text-[#475569]">
+                Le parcours du Jour 1, puis une deuxième journée pour pratiquer davantage, approfondir
+                votre projet et gagner en autonomie.
+              </p>
+              <ul className="mt-5 flex-1 space-y-2">
+                {[
+                  'Tout le parcours 7 h',
+                  'Une journée supplémentaire de pratique',
+                  'Projet plus approfondi',
+                  'Fonctionnalités supplémentaires',
+                  'Tests, corrections et accompagnement renforcé',
+                ].map((item) => (
+                  <li key={item} className="flex gap-2 text-sm text-[#334155]">
+                    <Check className="mt-0.5 h-4 w-4 shrink-0 text-[#1D4ED8]" aria-hidden />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+              <p className="mt-5 text-sm font-semibold text-[#0F172A]">
+                Vous avez le temps de construire, tester, corriger et aller plus loin.
+              </p>
+              <CtaFormation label="Choisir 2 journées" className="mt-6 w-full sm:w-auto" />
+            </article>
+          </div>
+          <aside className="mt-8 rounded-xl border border-dashed border-[#BFDBFE] bg-white px-5 py-4 text-sm leading-relaxed text-[#475569]">
+            <p className="font-semibold text-[#0F172A]">Pas encore sûr de vouloir faire 2 jours ?</p>
+            <p className="mt-1">
+              Commencez par la première journée à 300 €. Si vous souhaitez continuer, ajoutez
+              simplement le deuxième jour pour 300 € supplémentaires. Vous ne perdez rien à commencer
+              par 1 journée.
+            </p>
+          </aside>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section
+        id="faq"
+        aria-labelledby="bework-faq"
+        className="border-b border-slate-200 bg-white px-4 py-12 md:py-16"
+      >
+        <div className="mx-auto max-w-3xl">
+          <h2
+            id="bework-faq"
+            className="font-display text-2xl font-bold text-[#0F172A] md:text-3xl"
+          >
+            Des questions ?
+            <span className="mt-1 block text-[#1D4ED8]">C’est normal.</span>
+          </h2>
+          <p className="mt-3 text-sm text-[#64748B]">
+            Les réponses essentielles avant de demander une place.{' '}
+            <ExternalLinkAnchor
+              href={BEWORK_FAQ}
+              className="font-medium text-[#1D4ED8] hover:underline"
+              title="FAQ complète BeWork (nouvel onglet)"
+            >
+              Voir toute la FAQ
+            </ExternalLinkAnchor>
+          </p>
+          <div className="mt-8 space-y-2">
+            {FAQ_ITEMS.map(({ q, a }, index) => (
+              <details
+                key={q}
+                className="group rounded-xl border border-[#E2E8F0] bg-[#F8FAFC] px-4 open:bg-white open:shadow-sm"
+                open={index === 0}
+              >
+                <summary className="cursor-pointer list-none py-4 text-[17px] font-bold text-[#0F172A] [&::-webkit-details-marker]:hidden">
+                  {q}
+                </summary>
+                <p className="border-t border-slate-100 pb-4 pt-3 text-sm leading-relaxed text-[#475569]">
+                  {a}
+                </p>
+              </details>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA final */}
+      <section aria-labelledby="bework-cta" className="px-4 py-14 md:py-20">
+        <div className="mx-auto max-w-4xl rounded-2xl bg-[#1D4ED8] px-6 py-10 text-center text-white md:px-12 md:py-14">
+          <p className="text-xs font-semibold uppercase tracking-[0.16em] text-white/70">
+            Apprendre — Créer — Avancer
+          </p>
+          <h2 id="bework-cta" className="mt-3 font-display text-2xl font-bold md:text-3xl">
+            Une journée pour apprendre à commencer.
+            <span className="mt-1 block">Deux pour construire plus loin.</span>
+          </h2>
+          <p className="mx-auto mt-4 max-w-xl text-base leading-relaxed text-white/90">
+            En 7 h, apprenez à transformer une idée en premier projet concret. Prolongez à 14 h si
+            vous souhaitez pratiquer davantage. Dans les deux cas, vous repartez avec une méthode
+            claire pour continuer.
+          </p>
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
+            <CtaFormation variant="light" />
+            <CtaFormation
+              label="Voir les démonstrations"
+              href={BEWORK_SITE}
+              variant="secondary"
+              className="!border-white/40 !bg-transparent !text-white hover:!bg-white/10"
+            />
+          </div>
+          <ul className="mx-auto mt-8 flex max-w-lg flex-wrap justify-center gap-x-6 gap-y-2 text-sm text-white/80">
+            <li>7 h ou 14 h — parcours progressif</li>
+            <li>En petit groupe</li>
+            <li>Une méthode claire et applicable</li>
+          </ul>
+          <p className="mt-8 text-sm text-white/75">
+            Vous cherchez plutôt une formation IA pour le BTP (organisme certifié Qualiopi)&nbsp;?{' '}
             <Link
               href={LINKS.formations}
               className="font-semibold underline underline-offset-2 hover:text-white"
             >
-              Catalogue formations dispensées par un organisme certifié Qualiopi
+              Catalogue formations
             </Link>
             {' · '}
             <Link
@@ -525,6 +891,15 @@ export default function BeworkPage() {
               className="font-semibold underline underline-offset-2 hover:text-white"
             >
               Contacter Laure Olivié
+            </Link>
+          </p>
+          <p className="mt-4 text-sm text-white/70">
+            Déjà client plateforme&nbsp;?{' '}
+            <Link
+              href={LINKS.beworkPlateforme}
+              className="font-semibold underline underline-offset-2 hover:text-white"
+            >
+              Accéder à la plateforme
             </Link>
           </p>
         </div>

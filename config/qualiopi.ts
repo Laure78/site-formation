@@ -58,7 +58,7 @@ export const QUALIOPI_CERTIFICAT_REALISATION =
   "Certificat de réalisation et attestation de fin de formation délivrés à l'issue de la session.";
 
 export const QUALIOPI_BEWORK_DISTINCTION =
-  "BeWork est un service de solutions IA sur mesure pour le BTP (conception, déploiement, accompagnement), distinct des actions de formation de l'organisme certifié Qualiopi OFC Création d'Entreprise. Il n'est pas éligible aux financements OPCO.";
+  "BeWork propose une formation pratique pour créer avec l'IA sans savoir coder (bework.fr), distincte des actions de formation de l'organisme certifié Qualiopi OFC Création d'Entreprise. Elle n'est pas éligible aux financements OPCO.";
 
 export const QUALIOPI_SATISFACTION_SOURCING = PREUVES_MENTION_SOURCE;
 

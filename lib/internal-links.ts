@@ -224,7 +224,7 @@ export const LINKS = {
   /** Landing catalogue PME (hors les sessions catalogue NIV-01 à NIV-08) */
   formationPmeBtp: '/formations/ia-pme-btp',
 
-  /** Page présentation BeWork sur laureolivie.fr (site officiel : bework.fr) */
+  /** Page présentation BeWork (formation créer avec l’IA) — site officiel : bework.fr */
   bework: '/bework',
   /** Point d'entrée indexable vers la plateforme app.laureolivie.fr */
   beworkPlateforme: '/bework/plateforme',

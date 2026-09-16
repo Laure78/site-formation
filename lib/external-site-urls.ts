@@ -4,8 +4,12 @@
  */
 
 export const EXTERNAL_SITE_URLS = {
-  /** BeWork — solutions IA sur mesure pour le BTP (site dédié). */
+  /** BeWork — formation « créer avec l’IA sans savoir coder » (site dédié). */
   bework: 'https://www.bework.fr/',
+  /** Page formation BeWork (parcours 7 h / 14 h). */
+  beworkFormation: 'https://www.bework.fr/formation',
+  /** FAQ formation BeWork. */
+  beworkFaq: 'https://www.bework.fr/faq',
   /** Plateforme BeWork — connexion espace entreprise (sous-domaine Laure Olivié). */
   beworkApp: 'https://app.laureolivie.fr/',
   /** Legacy Teachizy — import contenus uniquement (scripts/import-teachizy). */
