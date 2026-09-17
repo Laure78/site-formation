@@ -328,7 +328,7 @@ async function createInvitationRow(params: {
     .single();
 
   if (insertError || !inserted) {
-    console.error('[createInvitationRow] insert failed');
+    console.error('[createInvitationRow] insert failed', insertError?.message ?? insertError);
     return null;
   }
   return { id: inserted.id, token };

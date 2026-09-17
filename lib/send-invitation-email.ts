@@ -33,11 +33,15 @@ export async function sendInvitationEmail(params: {
   accountAlreadyActive?: boolean;
 }): Promise<{ ok: true } | { ok: false; error: string }> {
   const apiKey = process.env.RESEND_API_KEY;
-  const from = process.env.EMAIL_FROM || process.env.INVITATION_FROM_EMAIL;
-  if (!apiKey || !from) {
+  const from =
+    process.env.EMAIL_FROM?.trim() ||
+    process.env.INVITATION_FROM_EMAIL?.trim() ||
+    process.env.RESEND_FROM_EMAIL?.trim() ||
+    'Laure Olivié <noreply@laureolivie.fr>';
+  if (!apiKey) {
     return {
       ok: false,
-      error: 'RESEND_API_KEY et EMAIL_FROM (ou INVITATION_FROM_EMAIL) doivent être configurés.',
+      error: 'RESEND_API_KEY doit être configuré.',
     };
   }
 
