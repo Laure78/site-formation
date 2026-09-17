@@ -21,9 +21,13 @@ export function BeworkHeroVideo({
   const video = VIDEOS[videoKey];
   const width = video.width ?? 1080;
   const height = video.height ?? 1920;
+  const isLandscape = width >= height;
+  const maxWidthClass = isLandscape
+    ? 'max-w-[min(100%,560px)]'
+    : 'max-w-[min(100%,360px)]';
 
   return (
-    <figure className={`mx-auto w-full max-w-[min(100%,360px)] ${className}`}>
+    <figure className={`mx-auto w-full ${maxWidthClass} ${className}`}>
       <div
         className="overflow-hidden rounded-xl border border-slate-200/90 bg-[#0F172A] shadow-[0_8px_30px_rgba(29,78,216,0.12)]"
         style={{ aspectRatio: `${width} / ${height}` }}

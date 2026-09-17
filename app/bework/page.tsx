@@ -280,12 +280,12 @@ function getBeworkPageJsonLd() {
       {
         '@type': 'VideoObject',
         '@id': `${pageUrl}#video`,
-        name: VIDEOS.beworkVideoPub.title,
+        name: VIDEOS.beworkPromo.title,
         description: META_DESCRIPTION,
-        contentUrl: `${SITE_CONFIG.url}${VIDEOS.beworkVideoPub.src}`,
+        contentUrl: `${SITE_CONFIG.url}${VIDEOS.beworkPromo.src}`,
         embedUrl: pageUrl,
         inLanguage: 'fr-FR',
-        uploadDate: '2026-09-16',
+        uploadDate: '2026-09-17',
       },
     ],
   };
@@ -415,7 +415,7 @@ export default function BeworkPage() {
           </div>
 
           <div className="flex min-w-0 flex-col items-center lg:items-end">
-            <BeworkHeroVideo className="lg:mx-0" />
+            <BeworkHeroVideo videoKey="beworkPromo" className="lg:mx-0" />
             <div className="mt-5">
               <CtaFormation label="S’inscrire à une session" href={BEWORK_PARTICIPER} />
             </div>
