@@ -7,7 +7,7 @@ import { createPageMetadata, SITE_CONFIG } from '@/lib/seo';
 import { EXTERNAL_SITE_URLS } from '@/lib/external-site-urls';
 import { LINKS } from '@/lib/internal-links';
 import { QUALIOPI_BEWORK_DISTINCTION } from '@/config/qualiopi';
-import { BEWORK_PARCOURS, BEWORK_PARCOURS_LIST } from '@/lib/bework-programmes';
+import { BEWORK_PARCOURS, BEWORK_PARCOURS_LIST, BEWORK_FORMATION_TITRE } from '@/lib/bework-programmes';
 import { BEWORK_PAGE_GALLERY_VIDEOS, VIDEOS } from '@/lib/videos';
 
 export const revalidate = 3600;
@@ -17,9 +17,9 @@ const BEWORK_FORMATION = EXTERNAL_SITE_URLS.beworkFormation;
 const BEWORK_FAQ = EXTERNAL_SITE_URLS.beworkFaq;
 const BEWORK_PARTICIPER = EXTERNAL_SITE_URLS.beworkParticiper;
 
-const META_TITLE = 'BeWork — créer avec l’IA sans savoir coder';
+const META_TITLE = 'BeWork — Développement web avec l’IA';
 const META_DESCRIPTION =
-  'Formation BeWork : créez sites, apps et outils avec l’IA sans programmer. Parcours 7 h (300 €) ou 14 h (600 €). Détails sur bework.fr.';
+  'Formation BeWork : développement web avec l’IA sans savoir coder. Parcours 7 h (300 €) ou 14 h (600 €). Détails sur bework.fr.';
 
 export const metadata = createPageMetadata({
   title: META_TITLE,
@@ -232,9 +232,9 @@ function getBeworkPageJsonLd() {
       {
         '@type': 'Course',
         '@id': `${BEWORK_FORMATION}#course`,
-        name: 'Construisez votre projet avec l’IA',
+        name: BEWORK_FORMATION_TITRE,
         description:
-          'Formation progressive BeWork (marque OFC) : 1 journée (7 h) pour apprendre à commencer, ou 2 journées (14 h) pour construire plus loin et publier — sans prérequis en programmation.',
+          'Formation progressive BeWork (marque OFC) : développement web avec l’IA sans savoir coder — 1 journée (7 h) pour commencer, ou 2 journées (14 h) pour construire plus loin et publier.',
         url: BEWORK_FORMATION,
         provider: { '@id': `${BEWORK_SITE}#organization` },
         inLanguage: 'fr-FR',
@@ -342,12 +342,13 @@ export default function BeworkPage() {
               id="bework-hero-title"
               className="mt-4 font-display text-3xl font-bold tracking-tight text-[#0F172A] md:text-4xl xl:text-5xl"
             >
-              Sans savoir coder.
-              <span className="mt-1 block text-[#1D4ED8]">Créez ce que vous imaginez.</span>
+              Développement web avec l’IA
+              <span className="mt-1 block text-[#1D4ED8]">— sans savoir coder</span>
             </h1>
             <p className="mt-5 max-w-xl text-base leading-relaxed text-[#475569] md:text-lg">
-              Donnez vie à votre idée avec l’IA. Apprenez à construire votre propre projet, étape par
-              étape, sans connaissances en programmation.
+              Créer un site, une application ou un outil métier avec l’intelligence artificielle.
+              Apprenez à construire votre propre projet, étape par étape, sans connaissances en
+              programmation.
             </p>
             <p className="mt-3 max-w-xl text-sm leading-relaxed text-[#475569]">
               Formation proposée par{' '}

@@ -53,10 +53,16 @@ function formationNavLink(formation: (typeof FORMATIONS)[number]): HeaderNavLink
 
 function buildFormationsNavChildren(at: Date): HeaderNavLink[] {
   const published = getPublishedFormations(at);
-  /** Niveaux apps métier retirés du dropdown — relai BeWork (entrée menu dédiée). */
+  /** Niveaux apps métier retirés du dropdown — remplacés par BeWork. */
   const catalogueCore = published.filter((f) => !APPLICATION_METIER_CODES.has(f.code));
 
-  return catalogueCore.map(formationNavLink);
+  const beworkItem: HeaderNavLink = {
+    href: LINKS.bework,
+    label: 'Développement web avec l’IA — BeWork',
+    title: 'BeWork — Développement web avec l’IA — sans savoir coder (7 h ou 14 h)',
+  };
+
+  return [...catalogueCore.map(formationNavLink), beworkItem];
 }
 
 function pathMatches(pathname: string, href: string): boolean {
@@ -69,6 +75,9 @@ function formationsNavActive(pathname: string): boolean {
   if (pathname === LINKS.formations || pathname.startsWith(`${LINKS.formations}/`)) {
     return true;
   }
+  if (pathname === LINKS.bework || pathname.startsWith(`${LINKS.bework}/`)) {
+    return true;
+  }
   if (pathname === LINKS.parcoursApplicationsMetierBtp || pathname.startsWith(`${LINKS.parcoursApplicationsMetierBtp}/`)) {
     return true;
   }
@@ -76,10 +85,6 @@ function formationsNavActive(pathname: string): boolean {
     return true;
   }
   return catalogueFormationNavContainsPath(pathname);
-}
-
-function beworkNavActive(pathname: string): boolean {
-  return pathname === LINKS.bework || pathname.startsWith(`${LINKS.bework}/`);
 }
 
 function ressourcesNavActive(pathname: string): boolean {
@@ -226,13 +231,6 @@ const BASE_HEADER_NAV: readonly HeaderNavItem[] = [
       { href: LINKS.avisClients, label: 'Avis clients' },
     ],
     footer: { href: LINKS.aPropos, label: "L'organisme de formation" },
-  },
-  {
-    id: 'bework',
-    label: 'BeWork',
-    href: LINKS.bework,
-    dropdownAlign: 'end',
-    isActive: beworkNavActive,
   },
   {
     id: 'contact',

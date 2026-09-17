@@ -14,12 +14,12 @@ export function AccueilBeworkAccordionSection() {
         <Accordion
           id="offre-bework"
           defaultOpen={false}
-          summaryLabel="Découvrir BeWork — créer avec l’IA sans savoir coder"
+          summaryLabel="Découvrir BeWork — Développement web avec l’IA sans savoir coder"
           summaryLabelExpanded="Masquer BeWork"
           preview={
             <p className="mb-4 text-sm leading-relaxed text-slate-600">
-              Formation « Construisez votre projet avec l’IA » (marque OFC) — 7 h ou 14 h, distincte du
-              catalogue IA BTP. Financement OPCO possible selon éligibilité.
+              Formation « Développement web avec l’IA — sans savoir coder » (marque OFC) — 7 h ou
+              14 h, distincte du catalogue IA BTP. Financement OPCO possible selon éligibilité.
             </p>
           }
         >
@@ -34,7 +34,7 @@ export function AccueilBeworkAccordionSection() {
               id="offre-bework-title"
               className="mt-3 font-display text-xl font-bold tracking-tight text-[#1E3A8A] md:text-2xl"
             >
-              Sans savoir coder. Créez ce que vous imaginez.
+              Développement web avec l’IA — sans savoir coder
             </h3>
             <p className="mt-3 max-w-3xl text-base leading-relaxed text-[#1E3A8A]/90">
               Formation progressive : 7 h (300 €) pour apprendre à commencer, 14 h (600 €) pour
@@ -48,7 +48,7 @@ export function AccueilBeworkAccordionSection() {
             </p>
             <Link
               href={LINKS.bework}
-              title="BeWork — créer avec l’IA sans savoir coder"
+              title="BeWork — Développement web avec l’IA — sans savoir coder"
               className="mt-5 inline-flex items-center gap-1 text-sm font-semibold text-[#1D4ED8] transition-colors hover:text-[#1E40AF] hover:underline"
             >
               Découvrir BeWork →

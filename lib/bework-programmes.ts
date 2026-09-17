@@ -6,6 +6,10 @@
 
 export const BEWORK_PROGRAMME_VERSION = 'Version 1 — septembre 2026' as const;
 
+/** Titre court du programme (couverture PDF). */
+export const BEWORK_FORMATION_TITRE =
+  'Développement web avec l’IA — sans savoir coder' as const;
+
 export type BeworkParcoursId = '7h' | '14h';
 
 export type BeworkParcours = {
@@ -26,9 +30,9 @@ export type BeworkParcours = {
 export const BEWORK_PARCOURS = {
   '7h': {
     id: '7h',
-    title: 'Apprendre à commencer',
+    title: BEWORK_FORMATION_TITRE,
     intitule:
-      'Construisez votre projet avec l’IA — parcours 7 heures : de l’idée à la première version fonctionnelle',
+      'Développement web avec l’IA, sans savoir coder — de l’idée à une première version fonctionnelle',
     dureeLabel: '7 h',
     joursLabel: '1 journée',
     tarifHt: 300,
@@ -37,11 +41,11 @@ export const BEWORK_PARCOURS = {
     pdfHref: '/bework/programme-bework-parcours-7h.pdf',
     pdfDownloadName: 'programme-bework-parcours-7h.pdf',
     highlights: [
-      'Parcours complet du Jour 1',
-      'Mise en pratique guidée (70 % pratique)',
-      'Première création fonctionnelle',
-      'Méthode pour tester et corriger',
-      'Plan pour continuer après la journée',
+      'Cadrer et préparer son projet',
+      'Méthode de prompting structurée',
+      'Première version fonctionnelle (70 % pratique)',
+      'Tester, corriger et sauvegarder',
+      'Feuille de route pour continuer après la journée',
     ],
     outcome: 'Vous repartez en sachant comment commencer.',
   },

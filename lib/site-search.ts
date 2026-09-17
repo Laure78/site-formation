@@ -207,12 +207,12 @@ function buildStaticPages(): SiteSearchEntry[] {
     },
     {
       id: 'page-bework',
-      title: 'BeWork — créer avec l’IA sans savoir coder',
+      title: 'BeWork — Développement web avec l’IA — sans savoir coder',
       description:
-        'Formation progressive 7 h ou 14 h : apprendre à créer sites, apps et outils avec l’IA, sans programmation.',
+        'Formation progressive 7 h ou 14 h : développement web avec l’IA sans programmation — sites, apps et outils métier.',
       href: LINKS.bework,
       kind: 'page',
-      keywords: 'bework formation ia créer sans coder 7h 14h applications sites outils métier',
+      keywords: 'bework formation ia développement web sans coder 7h 14h applications sites outils métier',
     },
   ];
 }

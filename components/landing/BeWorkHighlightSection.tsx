@@ -17,7 +17,8 @@ type Props = {
 };
 
 /**
- * Mise en avant BeWork — formation « créer avec l’IA sans savoir coder », distincte des formations OFC Qualiopi.
+ * Mise en avant BeWork — formation « Développement web avec l’IA — sans savoir coder »,
+ * distincte des formations OFC catalogue IA BTP.
  */
 export function BeWorkHighlightSection({ id, surface = 'band' }: Props) {
   const isCard = surface === 'card';
@@ -39,7 +40,7 @@ export function BeWorkHighlightSection({ id, surface = 'band' }: Props) {
         <div className="grid items-center gap-8 lg:grid-cols-2 lg:gap-10">
           <div className="min-w-0">
             <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#5A5A5A]">
-              BeWork · Créer avec l’IA
+              BeWork · Développement web avec l’IA
             </p>
             <p className="mt-1 text-sm font-medium text-[#1D4ED8]">Sans savoir coder</p>
 
@@ -47,7 +48,7 @@ export function BeWorkHighlightSection({ id, surface = 'band' }: Props) {
               id={headingId}
               className="mt-4 font-display text-2xl font-bold tracking-tight text-[#1A1A1A] md:text-3xl"
             >
-              Apprenez à créer ce que vous imaginez
+              Développement web avec l’IA — sans savoir coder
               {id ? (
                 <span className="a-propos-title-accent mt-3 block h-1 rounded-full bg-[#1D4ED8]" aria-hidden />
               ) : null}
@@ -93,7 +94,9 @@ export function BeWorkHighlightSection({ id, surface = 'band' }: Props) {
             <ul className="mt-5 space-y-3 text-sm text-[#334155]">
               <li className="rounded-lg border border-slate-200/80 bg-white/80 px-4 py-3">
                 <strong className="font-semibold text-[#0F172A]">1 journée · 7 h · 300 €</strong>
-                <span className="mt-1 block text-[#64748B]">Apprendre à commencer</span>
+                <span className="mt-1 block text-[#64748B]">
+                  Développement web avec l’IA — sans savoir coder
+                </span>
               </li>
               <li className="rounded-lg border border-[#BFDBFE] bg-white px-4 py-3 shadow-sm">
                 <strong className="font-semibold text-[#0F172A]">2 journées · 14 h · 600 €</strong>

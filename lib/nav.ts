@@ -34,8 +34,8 @@ export const NAV_FORMATIONS_FOOTER: readonly NavItem[] = [
   },
   {
     href: LINKS.bework,
-    label: 'Construisez votre projet avec l’IA — BeWork',
-    title: 'BeWork — formation créer avec l’IA sans savoir coder',
+    label: 'Développement web avec l’IA — BeWork',
+    title: 'BeWork — Développement web avec l’IA — sans savoir coder',
   },
   {
     href: LINKS.financement,

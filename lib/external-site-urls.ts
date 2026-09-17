@@ -4,7 +4,7 @@
  */
 
 export const EXTERNAL_SITE_URLS = {
-  /** BeWork — formation « créer avec l’IA sans savoir coder » (site dédié). */
+  /** BeWork — formation « Développement web avec l’IA — sans savoir coder » (site dédié). */
   bework: 'https://www.bework.fr/',
   /** Page formation BeWork (parcours 7 h / 14 h). */
   beworkFormation: 'https://www.bework.fr/formation',
