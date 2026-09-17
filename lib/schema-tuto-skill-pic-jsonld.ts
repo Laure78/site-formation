@@ -17,12 +17,14 @@ import {
   TUTO_SKILL_PIC_STEPS,
   TUTO_SKILL_PIC_UPDATED_AT,
 } from '@/lib/tuto-skill-pic-content';
+import { RESSOURCES_MINIATURES } from '@/lib/ressources-miniatures';
 
 export function buildTutoSkillPicJsonLd(): Record<string, unknown> {
   const base = SCHEMA_PUBLIC_SITE_URL.replace(/\/$/, '');
   const pageUrl = `${base}${TUTO_SKILL_PIC_PATH}`;
   const orgId = `${base}/#organization`;
   const personId = `${base}/#laure-olivie`;
+  const imageUrl = `${base}${RESSOURCES_MINIATURES.tutoSkillPic.src}`;
 
   return {
     '@context': 'https://schema.org',
@@ -56,6 +58,12 @@ export function buildTutoSkillPicJsonLd(): Record<string, unknown> {
         dateModified: TUTO_SKILL_PIC_UPDATED_AT,
         author: { '@id': personId },
         publisher: { '@id': orgId },
+        image: {
+          '@type': 'ImageObject',
+          url: imageUrl,
+          width: RESSOURCES_MINIATURES.tutoSkillPic.width,
+          height: RESSOURCES_MINIATURES.tutoSkillPic.height,
+        },
         mainEntityOfPage: { '@type': 'WebPage', '@id': `${pageUrl}#webpage` },
       },
       {

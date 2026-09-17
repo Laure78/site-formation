@@ -226,8 +226,6 @@ export const LINKS = {
 
   /** Page présentation BeWork (formation créer avec l’IA) — site officiel : bework.fr */
   bework: '/bework',
-  /** Point d'entrée indexable vers la plateforme app.laureolivie.fr */
-  beworkPlateforme: '/bework/plateforme',
   /** Programme PDF BeWork — parcours 7 h */
   pdfProgrammeBework7h: '/bework/programme-bework-parcours-7h.pdf',
   /** Programme PDF BeWork — parcours 14 h */

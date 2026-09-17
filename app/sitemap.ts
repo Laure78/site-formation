@@ -85,7 +85,6 @@ function getAdditionalMarketingRoutes(baseUrl: string): MetadataRoute.Sitemap {
     // N'inclure QUE des URLs canoniques répondant en 200. Jamais d'URL redirigée (3xx) ni de fichier statique (.txt/.pdf).
     { path: LINKS.partenaires, priority: 0.88, changeFrequency: 'monthly' },
     { path: LINKS.bework, priority: 0.88, changeFrequency: 'monthly' },
-    { path: LINKS.beworkPlateforme, priority: 0.9, changeFrequency: 'weekly' },
     { path: LINKS.formationPlateforme, priority: 0.9, changeFrequency: 'weekly' },
     { path: LINKS.etudesCasHub, priority: 0.82, changeFrequency: 'monthly' },
     { path: LINKS.etudesCasFfbCsfe, priority: 0.82, changeFrequency: 'monthly' },

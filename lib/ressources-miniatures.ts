@@ -103,4 +103,10 @@ export const RESSOURCES_MINIATURES = {
     width: 1024,
     height: 576,
   },
+  tutoSkillPic: {
+    src: `${BASE}/miniature-tuto-skill-pic.jpg`,
+    alt: 'Créer un skill Claude PIC — tuto offert PDF gratuit, formation IA pour le BTP',
+    width: 1024,
+    height: 1024,
+  },
 } as const satisfies Record<string, RessourceMiniature>;

@@ -1,9 +1,11 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { BookOpen, MonitorPlay, ShieldCheck } from 'lucide-react';
+import { ExternalLinkAnchor } from '@/components/ExternalLink';
 import { FormationPlateformeConnexionButton } from '@/components/formation/FormationPlateformeConnexionButton';
 import { JsonLd } from '@/components/JsonLd';
 import { createPageMetadata, getFAQSchema, SITE_CONFIG } from '@/lib/seo';
+import { EXTERNAL_SITE_URLS } from '@/lib/external-site-urls';
 import { LINKS } from '@/lib/internal-links';
 import { PHOTOS } from '@/lib/photos';
 
@@ -210,9 +212,13 @@ export default function FormationPlateformePage() {
           </p>
           <p className="mt-6 text-sm text-white/80">
             Besoin d&apos;une formation en présentiel ? Consultez le catalogue — organisme certifié Qualiopi ou{' '}
-            <Link href={LINKS.beworkPlateforme} className="font-semibold underline underline-offset-2 hover:text-white">
+            <ExternalLinkAnchor
+              href={EXTERNAL_SITE_URLS.beworkApp}
+              title="Plateforme BeWork — app.laureolivie.fr (nouvel onglet)"
+              className="font-semibold underline underline-offset-2 hover:text-white"
+            >
               la plateforme BeWork (MOEX)
-            </Link>
+            </ExternalLinkAnchor>
             .
           </p>
         </div>

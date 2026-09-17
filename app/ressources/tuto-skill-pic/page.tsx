@@ -7,6 +7,7 @@ import { MaillageRessourceFromConfig } from '@/app/components/MaillageRessource'
 import { getMaillageRessourceConfig } from '@/lib/maillage-ressources';
 import { createPageMetadata, SITE_CONFIG } from '@/lib/seo';
 import { buildTutoSkillPicJsonLd } from '@/lib/schema-tuto-skill-pic-jsonld';
+import { RESSOURCES_MINIATURES } from '@/lib/ressources-miniatures';
 import {
   TUTO_SKILL_PIC_CHECKLIST,
   TUTO_SKILL_PIC_EXEMPLE,
@@ -19,6 +20,7 @@ import {
 } from '@/lib/tuto-skill-pic-content';
 
 const PATH = TUTO_SKILL_PIC_PATH;
+const PIC_IMAGE = RESSOURCES_MINIATURES.tutoSkillPic;
 
 export const metadata: Metadata = createPageMetadata({
   title: TUTO_SKILL_PIC_META.title,
@@ -29,6 +31,12 @@ export const metadata: Metadata = createPageMetadata({
   openGraphTitle: TUTO_SKILL_PIC_META.ogTitle,
   openGraphDescription: TUTO_SKILL_PIC_META.ogDescription,
   appendAuthorSuffix: false,
+  image: {
+    url: PIC_IMAGE.src,
+    width: PIC_IMAGE.width,
+    height: PIC_IMAGE.height,
+    alt: PIC_IMAGE.alt,
+  },
   article: {
     publishedTime: '2026-09-08',
     modifiedTime: '2026-09-08',

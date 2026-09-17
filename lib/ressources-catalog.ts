@@ -12,7 +12,7 @@ import { RESSOURCES_LEXIQUE } from '@/lib/ressources-lexique';
 import { RESSOURCES_GUIDES, type RessourceGuideFonctionId } from '@/lib/ressources-guides';
 import { TUTOS, type TutoCategoryId, type TutoData } from '@/lib/tutos';
 import { tutoDownloadLabel } from '@/lib/tutos/types';
-import type { RessourceMiniature } from '@/lib/ressources-miniatures';
+import { RESSOURCES_MINIATURES, type RessourceMiniature } from '@/lib/ressources-miniatures';
 
 /** Besoin métier — filtres hub. */
 export type RessourceNeedId =
@@ -478,6 +478,7 @@ function buildSpecialEntries(): RessourceCatalogEntry[] {
       isFree: true,
       requiresRegistration: false,
       viewUrl: LINKS.tutoSkillPic,
+      image: RESSOURCES_MINIATURES.tutoSkillPic,
       featured: false,
       external: false,
       sortOrder: 95,

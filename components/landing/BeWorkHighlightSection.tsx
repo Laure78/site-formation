@@ -81,9 +81,13 @@ export function BeWorkHighlightSection({ id, surface = 'band' }: Props) {
             </div>
             <p className="mt-4 text-sm text-[#64748B]">
               Déjà client plateforme ?{' '}
-              <Link href={LINKS.beworkPlateforme} className="font-medium text-[#1D4ED8] hover:underline">
+              <ExternalLinkAnchor
+                href={EXTERNAL_SITE_URLS.beworkApp}
+                title="Plateforme BeWork — app.laureolivie.fr (nouvel onglet)"
+                className="font-medium text-[#1D4ED8] hover:underline"
+              >
                 Accéder à la plateforme
-              </Link>
+              </ExternalLinkAnchor>
             </p>
           </div>
 

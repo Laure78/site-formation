@@ -7,7 +7,7 @@ import { createPageMetadata, SITE_CONFIG } from '@/lib/seo';
 import { EXTERNAL_SITE_URLS } from '@/lib/external-site-urls';
 import { LINKS } from '@/lib/internal-links';
 import { QUALIOPI_BEWORK_DISTINCTION } from '@/config/qualiopi';
-import { BEWORK_PARCOURS, BEWORK_PARCOURS_LIST, BEWORK_FORMATION_TITRE } from '@/lib/bework-programmes';
+import { BEWORK_PARCOURS, BEWORK_PARCOURS_LIST, BEWORK_FORMATION_TITRE, BEWORK_MODULES_JOUR1, BEWORK_MODULES_JOUR2 } from '@/lib/bework-programmes';
 import { BEWORK_PAGE_GALLERY_VIDEOS, VIDEOS } from '@/lib/videos';
 
 export const revalidate = 3600;
@@ -873,6 +873,102 @@ export default function BeworkPage() {
         </div>
       </section>
 
+      {/* Modules détaillés */}
+      <section
+        id="modules"
+        aria-labelledby="bework-modules"
+        className="border-b border-slate-200 bg-white px-4 py-12 md:py-16"
+      >
+        <div className="mx-auto max-w-6xl">
+          <h2
+            id="bework-modules"
+            className="font-display text-2xl font-bold text-[#0F172A] md:text-3xl"
+          >
+            Le détail des modules
+          </h2>
+          <p className="mt-3 max-w-3xl text-[15px] leading-relaxed text-[#475569]">
+            Contenu pédagogique issu des programmes officiels BeWork. Le parcours 7&nbsp;h couvre le
+            Jour&nbsp;1. Le parcours 14&nbsp;h reprend le Jour&nbsp;1 puis ajoute le Jour&nbsp;2
+            (publication et poursuite du projet).
+          </p>
+
+          <div className="mt-10 space-y-12">
+            {[BEWORK_MODULES_JOUR1, BEWORK_MODULES_JOUR2].map((jour) => (
+              <div key={jour.id}>
+                <div className="flex flex-wrap items-end justify-between gap-3 border-b border-[#BFDBFE] pb-4">
+                  <div>
+                    <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#1D4ED8]">
+                      {jour.label} · {jour.dureeLabel}
+                      {jour.id === 'jour2' ? ' · parcours 14 h uniquement' : ' · parcours 7 h et 14 h'}
+                    </p>
+                    <h3 className="mt-2 font-display text-xl font-bold text-[#0F172A] md:text-2xl">
+                      {jour.subtitle}
+                    </h3>
+                  </div>
+                </div>
+
+                <ol className="mt-6 grid gap-4 lg:grid-cols-2">
+                  {jour.modules.map((module) => (
+                    <li
+                      key={`${jour.id}-m${module.number}`}
+                      className="rounded-2xl border border-slate-200 bg-[#F8FAFC] p-5 md:p-6"
+                    >
+                      <p className="text-xs font-semibold uppercase tracking-[0.12em] text-[#1D4ED8]">
+                        Module {module.number}
+                      </p>
+                      <h4 className="mt-2 font-display text-lg font-bold text-[#0F172A]">
+                        {module.title}
+                      </h4>
+                      <ul className="mt-4 space-y-4">
+                        {module.sequences.map((sequence) => (
+                          <li key={sequence.title}>
+                            <p className="text-sm font-semibold text-[#0F172A]">{sequence.title}</p>
+                            <ul className="mt-2 space-y-1.5">
+                              {sequence.points.map((point) => (
+                                <li
+                                  key={point}
+                                  className="flex gap-2 text-sm leading-relaxed text-[#475569]"
+                                >
+                                  <Check
+                                    className="mt-0.5 h-4 w-4 shrink-0 text-[#1D4ED8]"
+                                    aria-hidden
+                                  />
+                                  <span>{point}</span>
+                                </li>
+                              ))}
+                            </ul>
+                          </li>
+                        ))}
+                      </ul>
+                    </li>
+                  ))}
+                </ol>
+              </div>
+            ))}
+          </div>
+
+          <p className="mt-10 text-sm text-[#64748B]">
+            Programmes complets à télécharger :{' '}
+            <a
+              href={BEWORK_PARCOURS['7h'].pdfHref}
+              download={BEWORK_PARCOURS['7h'].pdfDownloadName}
+              className="font-semibold text-[#1D4ED8] underline underline-offset-2 hover:text-[#1E40AF]"
+            >
+              PDF 7&nbsp;h
+            </a>
+            {' · '}
+            <a
+              href={BEWORK_PARCOURS['14h'].pdfHref}
+              download={BEWORK_PARCOURS['14h'].pdfDownloadName}
+              className="font-semibold text-[#1D4ED8] underline underline-offset-2 hover:text-[#1E40AF]"
+            >
+              PDF 14&nbsp;h
+            </a>
+            .
+          </p>
+        </div>
+      </section>
+
       {/* FAQ */}
       <section
         id="faq"
@@ -963,12 +1059,13 @@ export default function BeworkPage() {
           </p>
           <p className="mt-4 text-sm text-white/70">
             Déjà client plateforme&nbsp;?{' '}
-            <Link
-              href={LINKS.beworkPlateforme}
+            <ExternalLinkAnchor
+              href={EXTERNAL_SITE_URLS.beworkApp}
+              title="Plateforme BeWork — app.laureolivie.fr (nouvel onglet)"
               className="font-semibold underline underline-offset-2 hover:text-white"
             >
               Accéder à la plateforme
-            </Link>
+            </ExternalLinkAnchor>
           </p>
         </div>
       </section>
