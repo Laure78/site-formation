@@ -5,6 +5,7 @@
 import { catalogueFormationNavContainsPath } from '@/lib/catalogue-formations-nav';
 import { FORMATIONS, formationHref } from '@/data/formations';
 import { getPublishedFormations } from '@/lib/formation-catalogue-visibility';
+import { CATALOGUE_MENU_LABELS } from '@/lib/formations-catalogue-page-config';
 import { LINKS } from '@/lib/internal-links';
 
 export type HeaderNavLink = {
@@ -31,15 +32,10 @@ export type HeaderNavItem = {
 
 /** Libellés courts du catalogue — une entrée par code NIV. */
 const FORMATION_NAV_LABELS: Record<string, string> = {
-  'NIV-01': "Les bases de l'IA",
-  'NIV-02': "IA et appels d'offres",
-  'NIV-03': 'IA et conduite de travaux',
-  'NIV-04': 'Maîtriser Claude AI',
-  'NIV-05': "IA et maîtrise d'œuvre",
+  ...CATALOGUE_MENU_LABELS,
   'NIV-06': 'Application métier — niveau 1',
   'NIV-07': 'Application métier — niveau 2',
   'NIV-08': 'Application métier — niveau 3',
-  'NIV-09': 'Assistants IA personnalisés',
 };
 
 const APPLICATION_METIER_CODES = new Set(['NIV-06', 'NIV-07', 'NIV-08']);

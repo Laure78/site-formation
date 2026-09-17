@@ -23,7 +23,7 @@ export type CatalogueFormationNavLink = {
 const ALL_CATALOGUE_FORMATIONS_NAV_LINKS: CatalogueFormationNavLink[] = [
   {
     href: LINKS.formationIaBtpNiveau1BatimentTp,
-    label: "L'IA au service des pros du bâtiment et des travaux publics",
+    label: "Les bases de l'IA",
     icon: Building2,
     pages: [
       { href: LINKS.formationIaDirigeantPmeBtp, label: 'TPE & PME du bâtiment' },
@@ -38,7 +38,7 @@ const ALL_CATALOGUE_FORMATIONS_NAV_LINKS: CatalogueFormationNavLink[] = [
   },
   {
     href: LINKS.formationAO,
-    label: "L'IA appliquée aux appels d'offres BTP",
+    label: "IA et appels d'offres",
     icon: FileText,
     pages: [
       { href: LINKS.formationChargeAffairesBtp, label: "Chargé d'affaires" },
@@ -48,7 +48,7 @@ const ALL_CATALOGUE_FORMATIONS_NAV_LINKS: CatalogueFormationNavLink[] = [
   },
   {
     href: LINKS.formationConduiteTravauxSuiviChantier,
-    label: "L'IA appliquée à la conduite de travaux",
+    label: 'IA et conduite de travaux',
     icon: HardHat,
     pages: [
       { href: LINKS.formationConducteurTravaux, label: 'Conducteur de travaux' },
@@ -59,23 +59,23 @@ const ALL_CATALOGUE_FORMATIONS_NAV_LINKS: CatalogueFormationNavLink[] = [
   },
   {
     href: LINKS.formationMaitriserClaudeAiBtp,
-    label: 'Maîtriser Claude AI pour le BTP — Chat, Cowork & Code',
+    label: 'Maîtriser Claude AI',
     icon: FileText,
   },
   {
     href: LINKS.formationIaMaitriseOeuvre,
-    label: "L'IA au service des maîtres d'œuvre",
+    label: "IA et maîtrise d'œuvre",
     icon: Landmark,
   },
   {
-    href: LINKS.parcoursApplicationsMetierBtp,
-    label: 'Parcours Création d’applications BTP',
+    href: LINKS.formationAssistantsIaPersonnalisesBtp,
+    label: 'Assistants IA personnalisés',
+    icon: FileText,
+  },
+  {
+    href: LINKS.bework,
+    label: 'Développement web avec l’IA — BeWork',
     icon: Code2,
-    pages: [
-      { href: LINKS.formationApplicationMetierBtpNiveau1, label: 'Niveau 1 — premier prototype' },
-      { href: LINKS.formationApplicationMetierBtpNiveau2, label: 'Niveau 2 — application connectée' },
-      { href: LINKS.formationApplicationMetierBtpNiveau3, label: 'Niveau 3 — IA et automatisations' },
-    ],
   },
 ];
 

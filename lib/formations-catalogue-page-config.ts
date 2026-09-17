@@ -12,11 +12,37 @@ import {
 import { CATALOGUE_ALL_OFFERS, type CatalogueOffer } from '@/lib/formations-catalogue-architecture';
 import { FINANCEMENT_FORMULATION_CATALOGUE } from '@/lib/financement-copy';
 
-/** Toutes les formations catalogue publiées (NIV-01 … NIV-08 selon dates). */
+/** Codes hors offre catalogue publique (remplacés par BeWork). */
+export const CATALOGUE_APP_METIER_REFS = ['NIV-06', 'NIV-07', 'NIV-08'] as const;
+
+/** Libellés courts — alignés sur le menu Formations. */
+export const CATALOGUE_MENU_LABELS: Record<string, string> = {
+  'NIV-01': "Les bases de l'IA",
+  'NIV-02': "IA et appels d'offres",
+  'NIV-03': 'IA et conduite de travaux',
+  'NIV-04': 'Maîtriser Claude AI',
+  'NIV-05': "IA et maîtrise d'œuvre",
+  'NIV-09': 'Assistants IA personnalisés',
+};
+
+/** Ordre d’affichage catalogue public (hors BeWork). */
+export const CATALOGUE_PUBLIC_REFS = [
+  'NIV-01',
+  'NIV-02',
+  'NIV-03',
+  'NIV-04',
+  'NIV-05',
+  'NIV-09',
+] as const;
+
+/** Formations catalogue publiques (NIV-01…05 + NIV-09) — sans applications métier. */
 export function getCataloguePageCoreFormations(
   at: Date = new Date(),
 ): FormationCatalogueEntry[] {
-  return getFormationsCatalogue(at);
+  const byRef = new Map(getFormationsCatalogue(at).map((f) => [f.ref, f]));
+  return CATALOGUE_PUBLIC_REFS.map((ref) => byRef.get(ref)).filter(
+    (f): f is FormationCatalogueEntry => Boolean(f),
+  );
 }
 
 export type CatalogueBesoinId =
@@ -70,8 +96,8 @@ export const CATALOGUE_BESOIN_OPTIONS: readonly CatalogueBesoinOption[] = [
   {
     id: 'deployer',
     label: 'Créer ou déployer des outils IA',
-    description: 'Assistants, Claude avancé et applications métier',
-    targetRefs: ['NIV-09', 'NIV-04', 'NIV-06', 'NIV-07', 'NIV-08'],
+    description: 'Assistants et Claude avancé pour le BTP',
+    targetRefs: ['NIV-09', 'NIV-04'],
   },
   {
     id: 'assistants',
@@ -165,9 +191,7 @@ export function getCatalogueApplicationsMetierFormations(
 export function getCatalogueCoreWithoutApplications(
   at: Date = new Date(),
 ): FormationCatalogueEntry[] {
-  return getFormationsCatalogue(at).filter(
-    (f) => f.ref !== 'NIV-06' && f.ref !== 'NIV-07' && f.ref !== 'NIV-08',
-  );
+  return getCataloguePageCoreFormations(at);
 }
 
 /** Offres sur demande / sans fiche Qualiopi catalogue. */
