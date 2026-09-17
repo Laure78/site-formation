@@ -135,12 +135,12 @@ export default async function AdminApprenantsPage() {
           </p>
         </div>
         <div className="flex flex-wrap items-center gap-3">
-          {(courses ?? []).length > 0 ? <InviterForm courses={courses ?? []} /> : null}
           <ExportApprenantsButton />
         </div>
       </div>
 
-      <div className="mt-8">
+      <div className="mt-8 grid gap-6 lg:grid-cols-2">
+        {(courses ?? []).length > 0 ? <InviterForm courses={courses ?? []} /> : null}
         <ImportApprenantsForm courses={courses ?? []} />
       </div>
 

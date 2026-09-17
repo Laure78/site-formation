@@ -46,12 +46,32 @@ DO $$ BEGIN
   END IF;
 END $$;
 
-ALTER TABLE public.invitations
-  ALTER COLUMN formation_id DROP NOT NULL;
+DO $$ BEGIN
+  IF EXISTS (
+    SELECT 1 FROM information_schema.columns
+    WHERE table_schema = 'public' AND table_name = 'invitations' AND column_name = 'formation_id'
+  ) THEN
+    ALTER TABLE public.invitations ALTER COLUMN formation_id DROP NOT NULL;
+  END IF;
+END $$;
 
--- Email citext
-ALTER TABLE public.invitations
-  ALTER COLUMN email TYPE citext USING lower(email::text)::citext;
+-- Avant citext : la policy invitee référence email (sinon ERROR 0A000)
+DROP POLICY IF EXISTS "Invitations: invitee can update accepted_at" ON public.invitations;
+
+-- Email citext (idempotent si déjà citext)
+DO $$ BEGIN
+  IF EXISTS (
+    SELECT 1
+    FROM information_schema.columns
+    WHERE table_schema = 'public'
+      AND table_name = 'invitations'
+      AND column_name = 'email'
+      AND udt_name <> 'citext'
+  ) THEN
+    ALTER TABLE public.invitations
+      ALTER COLUMN email TYPE citext USING lower(email::text)::citext;
+  END IF;
+END $$;
 
 -- Remplir token_hash / status : les anciens tokens en clair sont RÉVOQUÉS
 -- (forcer un renvoi d’invitation — plus sûr que de conserver des liens déjà exposés)

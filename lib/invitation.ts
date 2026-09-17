@@ -304,7 +304,7 @@ async function createInvitationRow(params: {
   lastName: string;
   userId: string;
   sentCount: number;
-}): Promise<{ id: string; token: string } | null> {
+}): Promise<{ id: string; token: string } | { error: string }> {
   const admin = createAdminClient();
   const token = generateInvitationToken();
   const tokenHash = hashInvitationToken(token);
@@ -329,7 +329,7 @@ async function createInvitationRow(params: {
 
   if (insertError || !inserted) {
     console.error('[createInvitationRow] insert failed', insertError?.message ?? insertError);
-    return null;
+    return { error: insertError?.message ?? 'insert_failed' };
   }
   return { id: inserted.id, token };
 }
@@ -421,8 +421,11 @@ export async function inviteOrResendApprenant(
       userId,
       sentCount: nextCount,
     });
-    if (!created) {
-      return { ok: false, error: 'Échec de création de l’invitation' };
+    if ('error' in created) {
+      return {
+        ok: false,
+        error: `Échec de création de l’invitation${created.error ? ` (${created.error})` : ''}`,
+      };
     }
 
     const delivered = await deliverInvitationCredentials({
@@ -474,8 +477,11 @@ export async function inviteOrResendApprenant(
     userId,
     sentCount: 1,
   });
-  if (!created) {
-    return { ok: false, error: 'Échec de création de l’invitation' };
+  if ('error' in created) {
+    return {
+      ok: false,
+      error: `Échec de création de l’invitation${created.error ? ` (${created.error})` : ''}`,
+    };
   }
 
   const delivered = await deliverInvitationCredentials({
