@@ -134,6 +134,7 @@ const ROUTE_SOURCE_FILES: Record<string, readonly string[]> = {
   '/formation-ia-btp-paris': [
     'app/formation-ia-btp-paris/page.tsx',
     'lib/formation-ia-btp-paris-landing.ts',
+    'lib/departement-pages/paris-75.ts',
   ],
   '/outils/cas-usage-ia-btp': ['app/outils/cas-usage-ia-btp/page.tsx'],
   '/outils-ia-btp': ['app/outils-ia-btp/page.tsx'],
@@ -142,10 +143,6 @@ const ROUTE_SOURCE_FILES: Record<string, readonly string[]> = {
     'lib/departement-pages/index.ts',
   ],
   '/formation-ia-paris': ['app/formation-ia-paris/page.tsx'],
-  '/formation-ia-btp-paris': [
-    'app/formation-ia-btp-paris/page.tsx',
-    'lib/departement-pages/paris-75.ts',
-  ],
   '/formation-ia-btp-seine-et-marne-77': [
     'app/formation-ia-btp-seine-et-marne-77/page.tsx',
     'lib/departement-pages/seine-et-marne-77.ts',
@@ -179,9 +176,6 @@ const ROUTE_SOURCE_FILES: Record<string, readonly string[]> = {
   '/formations/ia-btp-saint-quentin-en-yvelines': [
     'app/formations/ia-btp-saint-quentin-en-yvelines/page.tsx',
     'lib/formation-cities.ts',
-  ],
-  '/formation-ia-conducteur-de-travaux-btp': [
-    'app/formation-ia-conducteur-de-travaux-btp/page.tsx',
   ],
   '/formation-ia-metreur-economiste-construction': [
     'app/formation-ia-metreur-economiste-construction/page.tsx',

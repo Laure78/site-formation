@@ -9,6 +9,8 @@ type TrainingCardProps = {
   benefice: string;
   niveau?: string;
   duree: string;
+  publicCible?: string;
+  format?: string;
   benefices?: readonly string[];
   featured?: boolean;
   ctaLabel?: string;
@@ -22,6 +24,8 @@ export function TrainingCard({
   benefice,
   niveau,
   duree,
+  publicCible,
+  format,
   benefices,
   featured = false,
   ctaLabel = 'Découvrir la formation',
@@ -50,7 +54,23 @@ export function TrainingCard({
         ) : null}
       </div>
       <h3 className={`${OFC_TYPE_H3} mt-4`}>{titre}</h3>
-      <p className="mt-3 flex-1 text-sm leading-relaxed text-ofc-ink-muted md:text-base">{benefice}</p>
+      <p className="mt-3 text-sm leading-relaxed text-ofc-ink-muted md:text-base">{benefice}</p>
+      {publicCible || format ? (
+        <dl className="mt-4 space-y-2 text-sm text-ofc-ink-muted">
+          {publicCible ? (
+            <div>
+              <dt className="inline font-semibold text-ofc-ink">Public&nbsp;: </dt>
+              <dd className="inline">{publicCible}</dd>
+            </div>
+          ) : null}
+          {format ? (
+            <div>
+              <dt className="inline font-semibold text-ofc-ink">Format&nbsp;: </dt>
+              <dd className="inline">{format}</dd>
+            </div>
+          ) : null}
+        </dl>
+      ) : null}
       {benefices?.length ? (
         <ul className="mt-4 space-y-2 text-sm text-ofc-ink-muted">
           {benefices.slice(0, 3).map((b) => (
@@ -63,12 +83,14 @@ export function TrainingCard({
           ))}
         </ul>
       ) : null}
-      <Link
-        href={href}
-        className={`${OFC_CTA_PRIMARY} mt-7 inline-flex min-h-11 w-full items-center justify-center px-5 py-3 text-sm sm:w-auto`}
-      >
-        {ctaLabel}
-      </Link>
+      <div className="mt-auto pt-7">
+        <Link
+          href={href}
+          className={`${OFC_CTA_PRIMARY} inline-flex min-h-11 w-full items-center justify-center px-5 py-3 text-sm sm:w-auto`}
+        >
+          {ctaLabel}
+        </Link>
+      </div>
     </Card>
   );
 }

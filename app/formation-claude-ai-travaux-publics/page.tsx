@@ -3,7 +3,7 @@ import { JsonLd } from '@/components/JsonLd';
 import { RdvLink } from '@/components/RdvLink';
 import { createPageMetadata, getBreadcrumbSchema } from '@/lib/seo';
 import { LINKS } from '@/lib/internal-links';
-import { OFC_LINK, OFC_CTA_PRIMARY } from '@/lib/ofc-interaction-classes';
+import { OFC_LINK } from '@/lib/ofc-interaction-classes';
 import { OFC_SEC, OFC_SECTION_INNER } from '@/lib/ofc-section-classes';
 
 export const revalidate = 3600;
@@ -67,9 +67,7 @@ export default function FormationClaudeAiTravauxPublicsPage() {
             .
           </p>
           <div className="mt-8">
-            <RdvLink className={OFC_CTA_PRIMARY} origin="formation-claude-ai-travaux-publics">
-              Réserver votre visio découverte gratuite
-            </RdvLink>
+            <RdvLink origin="formation-claude-ai-travaux-publics" />
           </div>
         </div>
       </header>

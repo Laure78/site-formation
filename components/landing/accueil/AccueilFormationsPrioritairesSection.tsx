@@ -6,7 +6,7 @@ import { getAccueilFormationsPrioritaires } from '@/lib/accueil-config';
 import { LINKS } from '@/lib/internal-links';
 import { OFC_LINK } from '@/lib/ofc-interaction-classes';
 
-/** Quatre formations prioritaires — cartes premium. */
+/** Formations prioritaires — usages opérationnels BTP. */
 export function AccueilFormationsPrioritairesSection() {
   const formations = getAccueilFormationsPrioritaires();
 
@@ -22,7 +22,7 @@ export function AccueilFormationsPrioritairesSection() {
         titleId="accueil-formations-prioritaires"
         eyebrow="Catalogue"
         title="Choisissez votre formation IA BTP"
-        description="Des parcours concrets, calibrés pour les équipes du bâtiment et des travaux publics."
+        description="Des parcours concrets pour apprendre à utiliser l’IA sur vos documents et process métier."
         className="mx-auto"
       />
       <div className="mt-12 grid gap-6 md:grid-cols-2">
@@ -34,13 +34,15 @@ export function AccueilFormationsPrioritairesSection() {
             benefice={f.benefice}
             niveau={f.niveau}
             duree={f.duree}
+            publicCible={f.publicCible}
+            format={f.format}
             featured={index === 0}
           />
         ))}
       </div>
       <p className="mt-12 text-center">
         <Link href={LINKS.formations} className={`${OFC_LINK} text-base font-semibold`}>
-          Voir toutes les formations →
+          Voir le catalogue complet →
         </Link>
       </p>
     </Section>

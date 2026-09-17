@@ -100,7 +100,7 @@ export const FAQ_IA_BTP_METIERS_CHANTIER_SEO: readonly FAQItem[] = [
 export const FAQ_ITEMS_HOME: readonly FAQItem[] = [
   {
     q: "À qui s'adressent les formations IA BTP ?",
-    a: `Dirigeants d'entreprise BTP, conducteurs de travaux, chargés d'affaires, responsables appels d'offres, responsables administratifs, responsables formation et fonctions support des PME et ETI du bâtiment et des travaux publics. Voir le <a href="${LINKS.formations}">catalogue des formations IA BTP</a>.`,
+    a: `Dirigeants d'entreprise BTP, conducteurs de travaux, chargés d'affaires, responsables appels d'offres, responsables administratifs, responsables formation et fonctions support des PME et ETI du bâtiment et des travaux publics. Voir la section <a href="#offre-formations">Choisissez votre formation IA BTP</a> ci-dessus.`,
   },
   {
     q: 'Faut-il déjà savoir utiliser une IA ?',
@@ -130,7 +130,7 @@ export const FAQ_ITEMS_HOME: readonly FAQItem[] = [
   },
   {
     q: 'Une prise en charge par un OPCO est-elle possible ?',
-    a: `${FINANCEMENT_FORMULATION_PRUDENTE} Détails et plafonds : <a href="${LINKS.financement}">${FINANCEMENT_PAGE_LINK_LABEL}</a>.`,
+    a: `${FINANCEMENT_FORMULATION_PRUDENTE} Voir la section <a href="#accueil-financement">Formation professionnelle et financement</a> ci-dessus, puis le détail des plafonds sur la page dédiée.`,
   },
 ];
 

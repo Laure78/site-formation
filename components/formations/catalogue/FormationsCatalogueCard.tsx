@@ -49,7 +49,7 @@ export function FormationsCatalogueCard({
           <Image
             src={visuel.src}
             alt={visuel.alt}
-            title={visuel.title}
+            title={'title' in visuel && typeof visuel.title === 'string' ? visuel.title : undefined}
             fill
             className="object-cover object-center"
             sizes="(max-width: 1024px) 100vw, 50vw"

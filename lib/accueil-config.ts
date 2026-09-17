@@ -9,7 +9,6 @@ import {
   formatVolumeProsFormesBtp,
 } from '@/lib/data/indicateurs-resultats';
 import { LINKS } from '@/lib/internal-links';
-import { PARCOURS_APPLICATIONS_METIER } from '@/lib/parcours-applications-metier-btp-content';
 import {
   ALT_LOGO_CNAM_ENTREPRISES,
   ALT_LOGO_CSFE,
@@ -24,7 +23,11 @@ const FORMATION_HREF_BY_CODE = {
   'NIV-01': LINKS.formationIaBtpNiveau1BatimentTp,
   'NIV-02': LINKS.formationAO,
   'NIV-03': LINKS.formationConduiteTravauxSuiviChantier,
+  'NIV-04': LINKS.formationMaitriserClaudeAiBtp,
 } as const;
+
+/** Format catalogue affiché sur les cartes accueil (présentiel IDF). */
+const ACCUEIL_FORMAT_FORMATION = 'Présentiel · Île-de-France' as const;
 
 /** Ligne compacte hero — modalités commerciales (filtre immédiat). */
 export function getAccueilHeroModalitesLine(): string {
@@ -86,64 +89,47 @@ export type AccueilCarteProbleme = {
   id: string;
   titre: string;
   description: string;
-  points: readonly string[];
-  href: string;
 };
 
-/** Entrée par problème métier — liens vers pages dédiées existantes. */
+/**
+ * Usages IA BTP — cartes visuelles (sans lien) pour éviter les doublons d’URL
+ * avec la section formations et les résultats concrets.
+ */
 export function getAccueilCartesProblemesMetier(): readonly AccueilCarteProbleme[] {
-  const chantierHref = isFormationCataloguePublished('NIV-03')
-    ? LINKS.formationConduiteTravauxSuiviChantier
-    : LINKS.iaCompteRenduChantier;
-
   return [
     {
-      id: 'devis',
-      titre: 'Devis & chiffrage',
-      description: 'Accélérer la préparation et la structuration de vos devis.',
-      points: [
-        'Préparer les désignations',
-        'Structurer les devis',
-        'Identifier les oublis',
-        'Faciliter le quantitatif et le chiffrage',
-      ],
-      href: LINKS.iaDevis,
-    },
-    {
-      id: 'chantier',
-      titre: 'Chantier',
-      description: 'Gagner du temps sur le suivi et les documents de chantier.',
-      points: [
-        'Rédiger les comptes rendus',
-        'Préparer les PPSPS',
-        'Suivre les réserves',
-        'Préparer les DOE',
-      ],
-      href: chantierHref,
-    },
-    {
       id: 'ao',
-      titre: "Appels d'offres",
-      description: 'Lire plus vite les dossiers et préparer des réponses solides.',
-      points: [
-        'Analyser les DCE',
-        'Comparer CCTP, CCAP et DPGF',
-        'Identifier les contraintes',
-        'Préparer les mémoires techniques',
-      ],
-      href: LINKS.formationAO,
+      titre: 'DCE et appels d’offres',
+      description:
+        'Analyser et synthétiser les documents d’un dossier de consultation.',
+    },
+    {
+      id: 'chiffrage',
+      titre: 'Chiffrage',
+      description:
+        'Exploiter plus rapidement les informations nécessaires à la préparation d’un chiffrage.',
+    },
+    {
+      id: 'cr',
+      titre: 'Comptes rendus de chantier',
+      description:
+        'Transformer des notes, informations ou retranscriptions en documents structurés.',
+    },
+    {
+      id: 'documents',
+      titre: 'Documents chantier',
+      description:
+        'Préparer courriers, synthèses, procédures et documents professionnels.',
     },
     {
       id: 'admin',
       titre: 'Administratif',
-      description: 'Automatiser les écrits et synthèses du quotidien.',
-      points: [
-        'Rédiger les emails',
-        'Préparer les courriers',
-        'Relancer les clients',
-        'Synthétiser les documents',
-      ],
-      href: LINKS.formationIaBtpNiveau1BatimentTp,
+      description: 'Rédiger, reformuler et synthétiser plus rapidement.',
+    },
+    {
+      id: 'communication',
+      titre: 'Communication',
+      description: 'Créer des contenus adaptés à l’activité de l’entreprise.',
     },
   ] as const;
 }
@@ -154,12 +140,23 @@ export type AccueilFormationCarte = {
   benefice: string;
   niveau?: string;
   duree: string;
+  publicCible: string;
+  format: string;
   href: string;
 };
 
-/** Quatre formations prioritaires — données catalogue + parcours applications métier. */
+/** Public court pour cartes accueil (extrait du champ catalogue). */
+function publicCibleCourt(publicComplet: string): string {
+  const first = publicComplet.split(',')[0]?.trim() ?? publicComplet;
+  return first.length > 90 ? `${first.slice(0, 87)}…` : first;
+}
+
+/**
+ * Formations prioritaires — usages opérationnels BTP uniquement
+ * (NIV-01 à NIV-04). Pas de parcours applications métier (relai BeWork).
+ */
 export function getAccueilFormationsPrioritaires(): readonly AccueilFormationCarte[] {
-  const codes = ['NIV-01', 'NIV-02', 'NIV-03'] as const;
+  const codes = ['NIV-01', 'NIV-02', 'NIV-03', 'NIV-04'] as const;
   const cartes: AccueilFormationCarte[] = [];
 
   for (const code of codes) {
@@ -172,19 +169,13 @@ export function getAccueilFormationsPrioritaires(): readonly AccueilFormationCar
       benefice: f.promesse,
       niveau: f.niveauLabel,
       duree: f.duree,
+      publicCible: publicCibleCourt(f.public),
+      format: ACCUEIL_FORMAT_FORMATION,
       href: FORMATION_HREF_BY_CODE[code],
     });
   }
 
-  cartes.push({
-    titre: PARCOURS_APPLICATIONS_METIER.h1,
-    benefice: PARCOURS_APPLICATIONS_METIER.promesse,
-    niveau: 'Parcours',
-    duree: PARCOURS_APPLICATIONS_METIER.parcoursCompletDuree,
-    href: LINKS.parcoursApplicationsMetierBtp,
-  });
-
-  return cartes.slice(0, 4);
+  return cartes;
 }
 
 export const ACCUEIL_DOCUMENTS_EXEMPLES = [

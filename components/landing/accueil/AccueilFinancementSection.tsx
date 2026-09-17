@@ -9,13 +9,13 @@ import { OFC_CTA_PRIMARY } from '@/lib/ofc-interaction-classes';
 /** Financement — bloc visuel, formulation Qualiopi prudente. */
 export function AccueilFinancementSection() {
   return (
-    <Section tone="canvas" aria-labelledby="accueil-financement">
+    <Section id="accueil-financement" tone="canvas" aria-labelledby="accueil-financement-title" className="scroll-mt-24">
       <div className="ofc-card mx-auto max-w-4xl overflow-hidden p-0">
         <div className="grid md:grid-cols-[1.1fr_0.9fr]">
           <div className="p-8 md:p-12">
             <Badge>Financement</Badge>
             <SectionHeader
-              titleId="accueil-financement"
+              titleId="accueil-financement-title"
               title="Formation professionnelle et financement"
               description={undefined}
               className="mt-4 max-w-xl"

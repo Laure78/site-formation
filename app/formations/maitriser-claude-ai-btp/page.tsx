@@ -6,6 +6,7 @@ import { Calendar, Users, Check, Download } from 'lucide-react';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
 import { ContextualLinksSection } from '@/components/layout/ContextualLinksSection';
 import { FormationCatalogueIndicateur1Suite } from '@/components/formations/FormationCatalogueIndicateur1Suite';
+import { FormationBeworkPasserelle } from '@/components/formations/FormationBeworkPasserelle';
 import { getFormationNiv04Related } from '@/lib/contextual-internal-links';
 import { RdvLink } from '@/components/RdvLink';
 import { buildSiteCalendlyCtaUrl } from '@/lib/calendly';
@@ -333,7 +334,7 @@ export default function FormationMaitriserClaudeAiBtpPage() {
             documents réels.
           </p>
           <ul className="mt-4 grid gap-2 sm:grid-cols-2 text-slate-700">
-            {CLAUDE_LANDING.publicTargets.map((target) => (
+            {(CLAUDE_LANDING.publicTargets ?? []).map((target) => (
               <li key={target} className="flex gap-2">
                 <Users className="mt-0.5 h-5 w-5 shrink-0 text-[var(--accent)]" strokeWidth={1.5} />
                 <span>{target}</span>
@@ -440,7 +441,11 @@ export default function FormationMaitriserClaudeAiBtpPage() {
           links={getFormationNiv04Related().filter((l) => !getClusterRelatedHrefs(LINKS.formationMaitriserClaudeAiBtp).includes(l.href))}
           tone="muted"
         />
+      </div>
 
+      <FormationBeworkPasserelle />
+
+      <div className="mx-auto max-w-4xl px-4 pb-12">
         <div className="mt-10 flex flex-wrap gap-4">
           <RdvLink
             campaign="formations-maitriser-claude-ai-btp-footer"
