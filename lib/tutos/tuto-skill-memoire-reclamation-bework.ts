@@ -36,7 +36,7 @@ export const TUTO_SKILL_MEMOIRE_RECLAMATION_BEWORK: TutoData = {
     "OFC Création d'Entreprise",
   ],
   ogImageAlt:
-    'Professionnelle BTP, mémoire de réclamation marché — ChatGPT BTP créances et délais',
+    'Créer un skill Mémoire de réclamation — tuto offert PDF gratuit, formation IA BTP',
 
   publishedAt: '2026-07-31',
   updatedAt: '2026-07-31',

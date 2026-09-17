@@ -38,7 +38,7 @@ export const TUTO_PPSPS: TutoData = {
     'Constructys',
   ],
   ogImageAlt:
-    'Formatrice casque et gilet sur chantier — tuto skill Claude PPSPS formation IA Île-de-France',
+    'Créer un skill PPSPS — tuto offert PDF gratuit, formation IA pour le BTP',
 
   publishedAt: '2026-05-09',
   updatedAt: '2026-05-09',

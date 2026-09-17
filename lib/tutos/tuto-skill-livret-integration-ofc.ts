@@ -37,7 +37,7 @@ export const TUTO_SKILL_LIVRET_INTEGRATION_OFC: TutoData = {
     'Constructys',
   ],
   ogImageAlt:
-    'Laure Olivié, livret d’accueil du nouvel arrivant — skill Claude intégration BTP',
+    'Créer un skill livret d’intégration — tuto offert PDF gratuit, formation IA BTP',
 
   publishedAt: '2026-08-06',
   updatedAt: '2026-08-07',

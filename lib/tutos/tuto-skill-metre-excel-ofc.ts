@@ -1,4 +1,5 @@
 import type { TutoData } from './types';
+import { RESSOURCES_MINIATURES } from '@/lib/ressources-miniatures';
 
 export const TUTO_SKILL_METRE_EXCEL_OFC: TutoData = {
   slug: 'tuto-skill-metre-excel-ofc',
@@ -33,7 +34,7 @@ export const TUTO_SKILL_METRE_EXCEL_OFC: TutoData = {
     'Constructys',
   ],
   ogImageAlt:
-    'Métré Excel BTP traçable avec Claude — skill quantités DPGF formation IA pour le BTP',
+    'Créer un skill métré Excel — tuto offert PDF gratuit, formation IA pour le BTP',
 
   publishedAt: '2026-09-02',
   updatedAt: '2026-09-02',
@@ -42,6 +43,8 @@ export const TUTO_SKILL_METRE_EXCEL_OFC: TutoData = {
     'Crée un skill Claude qui produit un classeur Excel de métré par lot : formules visibles, coefficients de pertes, récap DPGF et onglet points à vérifier — 45 minutes au lieu de 1 à 2 jours.',
 
   totalTimeMinutes: 45,
+
+  heroImage: RESSOURCES_MINIATURES.tutoSkillMetreExcel,
 
   heroLearnPoints: [
     'Activer la fonction skills dans Claude — 5 minutes, une seule fois',

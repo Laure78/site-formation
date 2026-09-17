@@ -16,13 +16,14 @@ import {
   type MissionMoeTag,
 } from '@/lib/guide-moe-ia-content';
 import { LINKS } from '@/lib/internal-links';
-import { PHOTOS } from '@/lib/photos';
+import { RESSOURCES_MINIATURES } from '@/lib/ressources-miniatures';
 import { buildGuideMoeIaUnifiedGraphJsonLd } from '@/lib/schema-guide-moe-ia-jsonld';
 import { FINANCEMENT_FORMULATION_COURTE } from '@/lib/financement-copy';
 import { createPageMetadata } from '@/lib/seo';
 import { MaillageRessourceFromConfig } from '@/app/components/MaillageRessource';
 import { getMaillageRessourceConfig } from '@/lib/maillage-ressources';
 
+const THUMB = RESSOURCES_MINIATURES.guideMoeIa;
 
 export const metadata = createPageMetadata({
   title: "Guide Maître d'Œuvre × IA — 12 missions | Laure Olivié",
@@ -35,10 +36,10 @@ export const metadata = createPageMetadata({
   openGraphDescription:
     'Classifiez vos missions MOE (IA, mixte, humain), créez vos skills Claude et libérez du temps administratif — guide PDF gratuit.',
   image: {
-    url: PHOTOS.formationNiv05IaMaitriseOeuvre2026.src,
-    width: PHOTOS.formationNiv05IaMaitriseOeuvre2026.width,
-    height: PHOTOS.formationNiv05IaMaitriseOeuvre2026.height,
-    alt: "Guide maîtrise d'œuvre BTP — 12 missions MOE classées IA, mixte et humain",
+    url: THUMB.src,
+    width: THUMB.width,
+    height: THUMB.height,
+    alt: THUMB.alt,
   },
   appendAuthorSuffix: false,
 });
@@ -109,15 +110,15 @@ export default function GuideMaitriseOeuvreIaPage() {
           <figure className="mx-auto w-full max-w-[320px] lg:mx-0 lg:justify-self-end">
             <div className="overflow-hidden rounded-2xl shadow-[0_20px_48px_-16px_rgba(0,0,0,0.25)] ring-4 ring-white/30">
               <Image
-                src={PHOTOS.formationNiv05IaMaitriseOeuvre2026.src}
-                alt="Guide maîtrise d'œuvre BTP — 12 missions MOE avec skills Claude, PDF gratuit"
-                width={PHOTOS.formationNiv05IaMaitriseOeuvre2026.width}
-                height={PHOTOS.formationNiv05IaMaitriseOeuvre2026.height}
+                src={THUMB.src}
+                alt={THUMB.alt}
+                width={THUMB.width}
+                height={THUMB.height}
                 className="h-auto w-full object-cover"
                 sizes="(max-width: 1024px) 320px, 360px"
                 priority
-              
-                quality={75}/>
+                quality={75}
+              />
             </div>
           </figure>
         </div>

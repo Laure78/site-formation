@@ -270,6 +270,7 @@ export const RESSOURCES_GUIDES: readonly RessourceGuideEntry[] = [
     fileKind: 'pdf',
     downloadLabel: 'Télécharger le PDF',
     primaryActionLabel: 'Consulter le guide',
+    thumbnail: RESSOURCES_MINIATURES.guideMoeIa,
   },
   {
     href: LINKS.guideRhBtpIaOfc,

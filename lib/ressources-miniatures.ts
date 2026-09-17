@@ -21,15 +21,15 @@ export const RESSOURCES_MINIATURES = {
   },
   guideRepondreAo: {
     src: `${BASE}/miniature-guide-repondre-ao-btp.jpg`,
-    alt: 'Répondre à un appel d’offres dans le BTP — guide méthode AO, prompts et mémoire technique',
-    width: 1200,
-    height: 900,
+    alt: 'Guide : répondre à un appel d’offres BTP avec l’IA — méthode AO formation BTP',
+    width: 1024,
+    height: 768,
   },
   guideClaude: {
     src: `${BASE}/miniature-guide-claude-btp.jpg`,
-    alt: 'Guide Claude BTP Projets Skills MCP pour administratif chantier — formation IA appliquée au bâtiment',
-    width: 959,
-    height: 1200,
+    alt: 'Guide Claude BTP — Projets, Skills et connecteurs, formation IA pour le BTP',
+    width: 1024,
+    height: 576,
   },
   guideChargeAffaires: {
     src: `${BASE}/miniature-guide-charge-affaires.jpg`,
@@ -67,6 +67,13 @@ export const RESSOURCES_MINIATURES = {
     width: 1024,
     height: 576,
   },
+  guideMoeIa: {
+    src: `${BASE}/miniature-guide-moe-ia.jpg`,
+    alt: 'Guide Maître d’Œuvre × IA — 12 missions à confier à Claude, formation IA BTP',
+    width: 1024,
+    height: 576,
+  },
+
   nfP03001: {
     src: `${BASE}/miniature-nf-p-03-001.jpg`,
     alt: 'Schéma NF P 03-001 marchés privés de travaux — cadre admin BTP formation IA chantier',
@@ -81,9 +88,9 @@ export const RESSOURCES_MINIATURES = {
   },
   memoireReclamation: {
     src: `${BASE}/miniature-memoire-reclamation.jpg`,
-    alt: 'Professionnelle BTP, mémoire de réclamation marché — ChatGPT BTP créances et délais',
-    width: 1200,
-    height: 675,
+    alt: 'Créer un skill Mémoire de réclamation — tuto offert PDF gratuit, formation IA BTP',
+    width: 1024,
+    height: 1024,
   },
   tutoDiuo: {
     src: `${BASE}/miniature-tuto-diuo.jpg`,
@@ -93,19 +100,25 @@ export const RESSOURCES_MINIATURES = {
   },
   tutoPpsps: {
     src: `${BASE}/miniature-tuto-ppsps.jpg`,
-    alt: 'Formatrice casque et gilet sur chantier — tuto skill Claude PPSPS formation IA Île-de-France',
-    width: 1200,
-    height: 675,
+    alt: 'Créer un skill PPSPS — tuto offert PDF gratuit, formation IA pour le BTP',
+    width: 1024,
+    height: 1024,
   },
   tutoLivretIntegration: {
     src: `${BASE}/miniature-tuto-livret-integration.jpg`,
-    alt: 'Laure Olivié, livret d’accueil du nouvel arrivant — skill Claude intégration BTP',
+    alt: 'Créer un skill livret d’intégration — tuto offert PDF gratuit, formation IA BTP',
     width: 1024,
-    height: 576,
+    height: 1024,
   },
   tutoSkillPic: {
     src: `${BASE}/miniature-tuto-skill-pic.jpg`,
     alt: 'Créer un skill Claude PIC — tuto offert PDF gratuit, formation IA pour le BTP',
+    width: 1024,
+    height: 1024,
+  },
+  tutoSkillMetreExcel: {
+    src: `${BASE}/miniature-tuto-skill-metre-excel.jpg`,
+    alt: 'Créer un skill métré Excel — tuto offert PDF gratuit, formation IA pour le BTP',
     width: 1024,
     height: 1024,
   },
