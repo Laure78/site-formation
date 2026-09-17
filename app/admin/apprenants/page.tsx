@@ -1,4 +1,5 @@
 import { createClient } from '@/lib/supabase/server';
+import { createAdminClient } from '@/lib/supabase/admin';
 import Link from 'next/link';
 import { InviterForm } from './InviterForm';
 import { ImportApprenantsForm } from './ImportApprenantsForm';
@@ -7,6 +8,8 @@ import { RenvoyerInvitationButton } from './RenvoyerInvitationButton';
 
 export default async function AdminApprenantsPage() {
   const supabase = await createClient();
+  // Invitations : service role pour éviter un tableau vide si RLS admin flanche
+  const adminDb = createAdminClient();
   const [
     { data: profiles },
     { data: courses },
@@ -22,7 +25,7 @@ export default async function AdminApprenantsPage() {
     supabase.from('courses').select('id, title').eq('published', true).order('title'),
     supabase.from('enrollments').select('user_id, course_id, progress_percent, courses(title)'),
     supabase.from('session_logs').select('user_id, started_at').order('started_at', { ascending: false }),
-    supabase
+    adminDb
       .from('invitations')
       .select('id, email, first_name, last_name, formation_id, status, sent_count, expires_at, created_at, accepted_at')
       .in('status', ['pending', 'expired', 'accepted'])
@@ -125,6 +128,8 @@ export default async function AdminApprenantsPage() {
     };
   };
 
+  const pendingInvitations = (invitations ?? []).filter((inv) => inv.status !== 'accepted');
+
   return (
     <div className="p-4 md:p-8">
       <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
@@ -138,6 +143,46 @@ export default async function AdminApprenantsPage() {
           <ExportApprenantsButton />
         </div>
       </div>
+
+      {pendingInvitations.length > 0 ? (
+        <section
+          className="mt-6 rounded-2xl border border-amber-200 bg-amber-50 p-5"
+          aria-labelledby="invitations-a-renvoyer"
+        >
+          <h2 id="invitations-a-renvoyer" className="font-display text-lg font-semibold text-slate-900">
+            Invitations à renvoyer
+          </h2>
+          <p className="mt-1 text-sm text-amber-900/80">
+            Compte créé mais mot de passe pas encore défini — cliquez pour renvoyer un nouvel email
+            d’activation.
+          </p>
+          <ul className="mt-4 space-y-3">
+            {pendingInvitations.slice(0, 12).map((inv) => {
+              const title = inv.formation_id ? courseTitleById[inv.formation_id] ?? '—' : '—';
+              const name = [inv.first_name, inv.last_name].filter(Boolean).join(' ') || inv.email;
+              return (
+                <li
+                  key={inv.id}
+                  className="flex flex-col gap-3 rounded-xl border border-amber-200/80 bg-white px-4 py-3 sm:flex-row sm:items-center sm:justify-between"
+                >
+                  <div className="min-w-0">
+                    <p className="font-medium text-slate-900">{name}</p>
+                    <p className="truncate text-sm text-slate-600">{inv.email}</p>
+                    <p className="mt-0.5 text-xs text-slate-500">{title}</p>
+                  </div>
+                  <RenvoyerInvitationButton
+                    variant="primary"
+                    invitation={{
+                      ...inv,
+                      courses: { title },
+                    }}
+                  />
+                </li>
+              );
+            })}
+          </ul>
+        </section>
+      ) : null}
 
       <div className="mt-8 grid gap-6 lg:grid-cols-2">
         {(courses ?? []).length > 0 ? <InviterForm courses={courses ?? []} /> : null}

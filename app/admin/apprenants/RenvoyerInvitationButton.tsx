@@ -2,7 +2,7 @@
 
 import { useRef, useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { Mail } from 'lucide-react';
+import { Loader2, Mail } from 'lucide-react';
 
 type InvitationRow = {
   id: string;
@@ -16,15 +16,19 @@ type InvitationRow = {
   courses?: { title?: string } | { title?: string }[] | null;
 };
 
-export function RenvoyerInvitationButton({ invitation }: { invitation: InvitationRow }) {
+type Props = {
+  invitation: InvitationRow;
+  /** Style plus visible (bandeau « à renvoyer »). */
+  variant?: 'default' | 'primary';
+};
+
+export function RenvoyerInvitationButton({ invitation, variant = 'default' }: Props) {
   const router = useRouter();
   const [loading, setLoading] = useState(false);
   const [msg, setMsg] = useState<string | null>(null);
   const submittingRef = useRef(false);
 
-  const course = Array.isArray(invitation.courses)
-    ? invitation.courses[0]
-    : invitation.courses;
+  const course = Array.isArray(invitation.courses) ? invitation.courses[0] : invitation.courses;
 
   const handleResend = async () => {
     if (submittingRef.current || loading) return;
@@ -48,34 +52,54 @@ export function RenvoyerInvitationButton({ invitation }: { invitation: Invitatio
           invitationId: invitation.id,
         }),
       });
-      const data = await res.json();
-      if (!res.ok) {
-        setMsg(data.error ?? 'Erreur');
+      let data: { error?: string; status?: string } = {};
+      try {
+        data = await res.json();
+      } catch {
+        setMsg(`Réponse invalide (HTTP ${res.status})`);
         return;
       }
-      setMsg(`✅ Invitation envoyée à ${invitation.email}`);
+      if (!res.ok) {
+        setMsg(data.error ?? `Erreur HTTP ${res.status}`);
+        return;
+      }
+      setMsg(`Invitation renvoyée à ${invitation.email}`);
       router.refresh();
-    } catch {
-      setMsg('Erreur réseau');
+    } catch (err) {
+      setMsg(err instanceof Error ? err.message : 'Connexion impossible');
     } finally {
       setLoading(false);
       submittingRef.current = false;
     }
   };
 
+  const btnClass =
+    variant === 'primary'
+      ? 'inline-flex items-center gap-2 rounded-xl bg-[var(--accent)] px-4 py-2.5 text-sm font-semibold text-white hover:opacity-95 disabled:opacity-50'
+      : 'inline-flex items-center gap-1.5 rounded-lg border border-[var(--accent)] bg-white px-3 py-1.5 text-sm font-semibold text-[var(--accent)] hover:bg-[var(--accent-soft)] disabled:opacity-50';
+
   return (
-    <div className="flex flex-col items-end gap-1">
+    <div className={`flex flex-col gap-1 ${variant === 'primary' ? 'items-start' : 'items-end'}`}>
       <button
         type="button"
         onClick={handleResend}
         disabled={loading}
-        className="inline-flex items-center gap-1.5 rounded-lg border border-slate-200 px-3 py-1.5 text-sm font-medium text-slate-700 hover:bg-slate-50 disabled:opacity-50"
+        className={btnClass}
         title={course?.title ? `Renvoyer — ${course.title}` : 'Renvoyer l’invitation'}
       >
-        <Mail size={14} />
+        {loading ? <Loader2 size={16} className="animate-spin" aria-hidden /> : <Mail size={16} aria-hidden />}
         {loading ? 'Envoi en cours…' : 'Renvoyer l’invitation'}
       </button>
-      {msg && <span className="max-w-[220px] text-right text-xs text-slate-600">{msg}</span>}
+      {msg ? (
+        <span
+          className={`max-w-[280px] text-xs ${
+            msg.startsWith('Invitation renvoyée') ? 'text-emerald-700' : 'text-rose-700'
+          } ${variant === 'primary' ? 'text-left' : 'text-right'}`}
+          role="status"
+        >
+          {msg}
+        </span>
+      ) : null}
     </div>
   );
 }
