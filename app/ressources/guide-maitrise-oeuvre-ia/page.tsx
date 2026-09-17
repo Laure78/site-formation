@@ -16,6 +16,7 @@ import {
   type MissionMoeTag,
 } from '@/lib/guide-moe-ia-content';
 import { LINKS } from '@/lib/internal-links';
+import { PHOTOS } from '@/lib/photos';
 import { RESSOURCES_MINIATURES } from '@/lib/ressources-miniatures';
 import { buildGuideMoeIaUnifiedGraphJsonLd } from '@/lib/schema-guide-moe-ia-jsonld';
 import { FINANCEMENT_FORMULATION_COURTE } from '@/lib/financement-copy';
