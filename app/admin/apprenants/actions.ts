@@ -5,7 +5,135 @@ import { createClient } from '@/lib/supabase/server';
 import { requireAdminAccess } from '@/lib/admin-access';
 import { inviteApprenantSchema, inviteOrResendApprenant } from '@/lib/invitation';
 import { parseApprenantsCsv } from '@/lib/parse-apprenants-csv';
+import { namesFromEmail, parseApprenantEmails } from '@/lib/parse-apprenant-emails';
 import { checkRateLimit } from '@/lib/rate-limit';
+
+export type InviteBatchResult = {
+  treated: number;
+  sent: number;
+  alreadyInvited: number;
+  invalid: string[];
+  duplicatesInInput: string[];
+  errors: string[];
+};
+
+/**
+ * Invitation en lot : emails (lignes / virgules / ;) + formation.
+ * Ne bloque pas tout le lot si une adresse échoue.
+ */
+export async function inviteApprenantsBatchAction(
+  emailsRaw: string,
+  courseId: string
+): Promise<InviteBatchResult | null> {
+  const supabase = await createClient();
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+  if (!user) return null;
+  const admin = await requireAdminAccess();
+  if (!admin.ok) return null;
+
+  const rl = checkRateLimit(`admin-invite-batch:${user.id}`, 10, 10 * 60_000);
+  if (!rl.ok) {
+    return {
+      treated: 0,
+      sent: 0,
+      alreadyInvited: 0,
+      invalid: [],
+      duplicatesInInput: [],
+      errors: ['Trop d’envois récents. Réessayez dans quelques minutes.'],
+    };
+  }
+
+  const courseParsed = z.string().uuid().safeParse(courseId);
+  if (!courseParsed.success) {
+    return {
+      treated: 0,
+      sent: 0,
+      alreadyInvited: 0,
+      invalid: [],
+      duplicatesInInput: [],
+      errors: ['Identifiant de formation invalide'],
+    };
+  }
+
+  const { data: course } = await supabase
+    .from('courses')
+    .select('id')
+    .eq('id', courseParsed.data)
+    .eq('published', true)
+    .maybeSingle();
+  if (!course) {
+    return {
+      treated: 0,
+      sent: 0,
+      alreadyInvited: 0,
+      invalid: [],
+      duplicatesInInput: [],
+      errors: ['Formation introuvable ou non publiée'],
+    };
+  }
+
+  if (emailsRaw.length > 50_000) {
+    return {
+      treated: 0,
+      sent: 0,
+      alreadyInvited: 0,
+      invalid: [],
+      duplicatesInInput: [],
+      errors: ['Liste d’emails trop volumineuse'],
+    };
+  }
+
+  const parsed = parseApprenantEmails(emailsRaw);
+  const errors: string[] = [];
+  let sent = 0;
+  let alreadyInvited = 0;
+
+  if (parsed.valid.length > 80) {
+    return {
+      treated: 0,
+      sent: 0,
+      alreadyInvited: 0,
+      invalid: parsed.invalid,
+      duplicatesInInput: parsed.duplicatesInInput,
+      errors: ['Maximum 80 emails par envoi. Découpez la liste.'],
+    };
+  }
+
+  for (const email of parsed.valid) {
+    const names = namesFromEmail(email);
+    const input = inviteApprenantSchema.safeParse({
+      email,
+      firstName: names.firstName,
+      lastName: names.lastName,
+      formationId: courseParsed.data,
+      action: 'create',
+    });
+    if (!input.success) {
+      errors.push(`${email} : ${input.error.issues[0]?.message ?? 'données invalides'}`);
+      continue;
+    }
+
+    const result = await inviteOrResendApprenant(input.data, admin.userId);
+    if (!result.ok) {
+      errors.push(`${email} : ${result.error}`);
+    } else if (result.status === 'cree' || result.status === 'renvoye') {
+      sent++;
+    } else if (result.status === 'deja_invite') {
+      alreadyInvited++;
+    }
+  }
+
+  return {
+    treated: parsed.valid.length + parsed.invalid.length,
+    sent,
+    alreadyInvited,
+    invalid: parsed.invalid,
+    duplicatesInInput: parsed.duplicatesInInput,
+    errors,
+  };
+}
 
 export async function importApprenantsAction(
   csvText: string,

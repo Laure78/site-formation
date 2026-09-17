@@ -19,8 +19,18 @@ export const inviteApprenantSchema = z.object({
     .email('Email invalide')
     .max(254)
     .transform((v) => v.toLowerCase()),
-  firstName: z.string().trim().min(1, 'Prénom requis').max(80),
-  lastName: z.string().trim().min(1, 'Nom requis').max(80),
+  firstName: z
+    .string()
+    .trim()
+    .max(80)
+    .optional()
+    .transform((v) => (v && v.length > 0 ? v : 'Apprenant')),
+  lastName: z
+    .string()
+    .trim()
+    .max(80)
+    .optional()
+    .transform((v) => (v && v.length > 0 ? v : '—')),
   formationId: z.string().uuid('Formation invalide'),
   action: z.enum(['create', 'resend']).default('create'),
   invitationId: z.string().uuid().optional(),

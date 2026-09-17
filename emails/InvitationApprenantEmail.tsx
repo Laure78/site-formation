@@ -257,7 +257,7 @@ export function InvitationApprenantEmail({
                             </p>
                             <p style={{ margin: '0 0 20px', textAlign: 'center' }}>
                               <a href={inviteUrl} style={btnPrimary}>
-                                Créer mon mot de passe
+                                Activer mon espace de formation
                               </a>
                             </p>
                             <p style={{ margin: '0 0 16px', fontSize: 13, lineHeight: '20px', color: '#64748b' }}>
