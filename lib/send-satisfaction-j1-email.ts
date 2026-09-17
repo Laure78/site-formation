@@ -1,4 +1,5 @@
 import { Resend } from 'resend';
+import { render } from '@react-email/render';
 import { CONTACT } from '@/lib/constants';
 import {
   SatisfactionJ1Email,
@@ -8,12 +9,12 @@ import {
 import { QUESTIONNAIRE_SATISFACTION_URL } from '@/lib/questionnaire-satisfaction';
 import { SCHEMA_GOOGLE_REVIEW_SUBMIT_URL } from '@/lib/schema-constants';
 
-function fromAddress(): string | null {
+function fromAddress(): string {
   return (
     process.env.EMAIL_FROM?.trim() ||
     process.env.INVITATION_FROM_EMAIL?.trim() ||
     process.env.RESEND_FROM_EMAIL?.trim() ||
-    null
+    'Laure Olivié <noreply@laureolivie.fr>'
   );
 }
 
@@ -30,10 +31,10 @@ export async function sendSatisfactionJ1Email(
 ): Promise<{ ok: true } | { ok: false; error: string }> {
   const apiKey = process.env.RESEND_API_KEY;
   const from = fromAddress();
-  if (!apiKey || !from) {
+  if (!apiKey) {
     return {
       ok: false,
-      error: 'RESEND_API_KEY et EMAIL_FROM (ou INVITATION_FROM_EMAIL / RESEND_FROM_EMAIL) requis.',
+      error: 'RESEND_API_KEY requis.',
     };
   }
 
@@ -45,18 +46,25 @@ export async function sendSatisfactionJ1Email(
     googleReviewUrl: SCHEMA_GOOGLE_REVIEW_SUBMIT_URL,
   };
 
-  const resend = new Resend(apiKey);
-  const { error } = await resend.emails.send({
-    from,
-    replyTo: CONTACT.email,
-    to: params.to,
-    subject: satisfactionJ1EmailSubject(),
-    react: SatisfactionJ1Email(payload),
-    text: satisfactionJ1EmailText(payload),
-  });
+  try {
+    const html = await render(SatisfactionJ1Email(payload));
+    const resend = new Resend(apiKey);
+    const { error } = await resend.emails.send({
+      from,
+      replyTo: CONTACT.email,
+      to: params.to,
+      subject: satisfactionJ1EmailSubject(),
+      html,
+      text: satisfactionJ1EmailText(payload),
+    });
 
-  if (error) {
-    return { ok: false, error: error.message };
+    if (error) {
+      return { ok: false, error: error.message };
+    }
+    return { ok: true };
+  } catch (e) {
+    const msg = e instanceof Error ? e.message : 'Erreur d’envoi email';
+    console.error('[sendSatisfactionJ1Email]', msg);
+    return { ok: false, error: msg };
   }
-  return { ok: true };
 }

@@ -1,4 +1,5 @@
 import { Resend } from 'resend';
+import { render } from '@react-email/render';
 import {
   InvitationApprenantEmail,
   invitationEmailSubject,
@@ -60,18 +61,25 @@ export async function sendInvitationEmail(params: {
     ? invitationEmailSubjectNewFormation(params.formationTitle)
     : invitationEmailSubject(params.formationTitle);
 
-  const resend = new Resend(apiKey);
-  const { error } = await resend.emails.send({
-    from,
-    replyTo: CONTACT.email,
-    to: params.to,
-    subject,
-    react: InvitationApprenantEmail(payload),
-    text: invitationEmailText(payload),
-  });
+  try {
+    const html = await render(InvitationApprenantEmail(payload));
+    const resend = new Resend(apiKey);
+    const { error } = await resend.emails.send({
+      from,
+      replyTo: CONTACT.email,
+      to: params.to,
+      subject,
+      html,
+      text: invitationEmailText(payload),
+    });
 
-  if (error) {
-    return { ok: false, error: error.message };
+    if (error) {
+      return { ok: false, error: error.message };
+    }
+    return { ok: true };
+  } catch (e) {
+    const msg = e instanceof Error ? e.message : 'Erreur d’envoi email';
+    console.error('[sendInvitationEmail]', msg);
+    return { ok: false, error: msg };
   }
-  return { ok: true };
 }
