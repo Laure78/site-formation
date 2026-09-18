@@ -660,12 +660,12 @@ export const PHOTOS = {
     height: 629,
   },
 
-  /** BeWork — bureau-chantier : plans, casque et poste de travail (site bework.fr) */
+  /** BeWork — bureau : Apprendre aujourd’hui, créer demain */
   beworkHeroBureauChantier: {
     src: '/images/bework-hero-bureau-chantier-plans.png',
-    alt: "Collaboratrice BeWork au bureau avec plans de chantier et casque BTP",
+    alt: 'BeWork — Apprendre aujourd’hui, créer demain, collaboratrice au laptop',
     width: 1024,
-    height: 576,
+    height: 768,
   },
 
   /** BeWork — visuel produit : solutions IA, DOE, situations, tableau de bord */

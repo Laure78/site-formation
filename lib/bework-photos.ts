@@ -149,10 +149,10 @@ export const BEWORK_GALLERY_SECTIONS: {
       },
       {
         src: '/images/bework-hero-bureau-chantier-plans.png',
-        alt: 'Collaboratrice BeWork au bureau avec plans et casque BTP, documents chantier',
+        alt: 'BeWork — Apprendre aujourd’hui, créer demain, collaboratrice au laptop',
         width: 1024,
-        height: 576,
-        caption: 'Bureau-chantier — plans et dossiers travaux',
+        height: 768,
+        caption: 'Apprendre aujourd’hui, créer demain',
       },
     ],
   },
