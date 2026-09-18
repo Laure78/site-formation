@@ -217,20 +217,12 @@ export function HeaderNavSimpleLink({
   icon?: ReactNode;
 }) {
   const active = headerNavItemIsActive(item, pathname);
-  const beworkAccent = item.id === 'bework';
   return (
-    <div
-      className={`${triggerClass(active, true)} w-full ${
-        beworkAccent ? 'header-nav-trigger--bework' : ''
-      }`}
-    >
+    <div className={`${triggerClass(active, true)} w-full`}>
       <Link
         href={item.href}
         aria-current={active ? 'page' : undefined}
-        className={`header-nav-trigger__link ${
-          beworkAccent ? 'text-[#1D4ED8]' : ''
-        }`}
-        title={beworkAccent ? 'Créer avec l’IA sans savoir coder' : undefined}
+        className="header-nav-trigger__link"
       >
         {icon}
         {item.label}

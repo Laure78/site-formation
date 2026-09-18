@@ -13,7 +13,7 @@ import {
 } from '@/lib/ofc-interaction-classes';
 import { OFC_SEC } from '@/lib/ofc-section-classes';
 
-/** Hero accueil — formations BTP en premier, BeWork en secondaire. */
+/** Hero accueil — formations BTP en premier, création avec l’IA en secondaire. */
 export function AccueilHeroSection() {
   const proofs = getAccueilHeroProofItems();
 
@@ -47,10 +47,10 @@ export function AccueilHeroSection() {
               </a>
               <a
                 href="#creation-avec-ia"
-                data-cta="bework-anchor"
+                data-cta="creation-avec-ia"
                 className={`${OFC_CTA_SECONDARY} inline-flex min-h-11 w-full items-center justify-center px-6 py-3 sm:w-auto`}
               >
-                Découvrir BeWork
+                Créer avec l&apos;IA sans coder
               </a>
             </div>
             <ul
