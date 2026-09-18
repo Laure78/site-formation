@@ -29,7 +29,7 @@ pip install python-docx Pillow --break-system-packages -q # si nécessaire
 python3 scripts/generate_cr.py cr_data.json /chemin/sortie/CR.docx
 ```
 
-Sur BeWork, le script est invoqué automatiquement après production du JSON ; chemin skill : `skills/3dmanager-cr-chantier/`.
+Sur la plateforme, le script est invoqué automatiquement après production du JSON ; chemin skill : `skills/3dmanager-cr-chantier/`.
 
 Le rendu (couleurs, logo, polices, mentions légales) est centralisé dans le **bloc CHARTE** en tête de `scripts/generate_cr.py`. La charte officielle 3D MANAGER y est intégrée : anthracite `#2A2A2A` (bandeaux foncés, texte fort), rouge de marque `#CC2A2A` (le « D », accents), fonds clairs `#F2F2F2`. Le logo officiel détouré (fond transparent) est dans `assets/logo_3dmanager.png` et s'affiche en blanc sur le bandeau anthracite. **Un bandeau noir `#000000` pleine largeur (≈ 0,25 cm) court sous le bandeau logo + titre** comme liséré d'accent (hauteur réglable via `LISERE_HEIGHT_CM` / `set_row_height` dans `add_charte_banner`). Le pied de page reprend la qualification (BET TCE · ISO 9001) et le réseau d'agences (Siège · Atlantique · Aquitaine · Méditerranée · Île-de-France). Seules les coordonnées (email / site) sont en repli à confirmer avec la société.
 

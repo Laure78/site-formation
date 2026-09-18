@@ -3,7 +3,7 @@
  * Source unique pour cartes, filtres, compteurs et JSON-LD.
  */
 import {
-  BIBLIOTHEQUE_BEWORK_COUNT,
+  BIBLIOTHEQUE_IMPORT_COUNT,
   BIBLIOTHEQUE_SKILLS_COUNT,
   BIBLIOTHEQUE_TUTO_COUNT,
 } from '@/lib/bibliotheque-skills';
@@ -164,7 +164,7 @@ const TUTO_HUB_DESCRIPTIONS: Partial<Record<string, string>> = {
     'Rédiger un courrier de réserves ou constat de retard structuré — relecture avant envoi recommandée.',
   'tuto-dispatch-btp':
     'Utiliser Dispatch (Anthropic) pour piloter le PC bureau depuis le terrain — prérequis, limites et validation des actions (à vérifier).',
-  'tuto-skill-memoire-reclamation-bework':
+  'tuto-skill-memoire-reclamation':
     'Préparer une réclamation structurée (faits, fondement, chiffrage) — contrôle juridique et délais à vérifier.',
   'tuto-skill-livret-integration-ofc':
     'Générer un livret d’accueil à partir de vos documents internes — sécurité, EPI et parcours d’intégration à valider.',
@@ -211,7 +211,7 @@ const TUTO_SAFETY: Partial<Record<string, RessourceSafetyLevel>> = {
   'tuto-constat-retard': 'verification_professionnelle',
   'tuto-pv-levee-reserves': 'verification_professionnelle',
   'tuto-skill-diuo-ofc': 'verification_professionnelle',
-  'tuto-skill-memoire-reclamation-bework': 'verification_professionnelle',
+  'tuto-skill-memoire-reclamation': 'verification_professionnelle',
   'tuto-skill-chiffrage-devis-ofc': 'verification_professionnelle',
 };
 
@@ -542,7 +542,7 @@ export function getRessourcesCounts() {
     guides: catalog.filter((r) => r.resourceType === 'guide').length,
     tutoriels: catalog.filter((r) => r.resourceType === 'tutoriel').length,
     skills: BIBLIOTHEQUE_SKILLS_COUNT,
-    skillsBework: BIBLIOTHEQUE_BEWORK_COUNT,
+    skillsImport: BIBLIOTHEQUE_IMPORT_COUNT,
     lexiqueTermes: RESSOURCES_LEXIQUE.termCount,
     modeles: catalog.filter((r) => r.resourceType === 'modele-fichier').length,
     outils: catalog.filter((r) => r.resourceType === 'outil').length,

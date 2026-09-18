@@ -8,7 +8,7 @@ import { Calendar, Users, Check, Download } from 'lucide-react';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
 import { ContextualLinksSection } from '@/components/layout/ContextualLinksSection';
 import { FormationCatalogueIndicateur1Suite } from '@/components/formations/FormationCatalogueIndicateur1Suite';
-import { FormationBeworkPasserelle } from '@/components/formations/FormationBeworkPasserelle';
+import { FormationDevWebPasserelle } from '@/components/formations/FormationDevWebPasserelle';
 import { FORMATION_NIV03_RELATED } from '@/lib/contextual-internal-links';
 import { RdvLink } from '@/components/RdvLink';
 import { buildSiteCalendlyCtaUrl } from '@/lib/calendly';
@@ -419,7 +419,7 @@ export default function FormationIaConduiteTravauxSuiviChantierPage() {
         />
       </div>
 
-      <FormationBeworkPasserelle />
+      <FormationDevWebPasserelle />
 
       <div className="mx-auto max-w-4xl px-4 pb-12">
         <div className="mt-10 flex flex-wrap gap-4">

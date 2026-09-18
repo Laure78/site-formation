@@ -8,7 +8,7 @@ import { AccueilResultatsConcretsSection } from '@/components/landing/accueil/Ac
 import { AccueilFinancementSection } from '@/components/landing/accueil/AccueilFinancementSection';
 import { AccueilFormatriceSection } from '@/components/landing/accueil/AccueilFormatriceSection';
 import { AccueilRessourcesSection } from '@/components/landing/accueil/AccueilRessourcesSection';
-import { AccueilBeworkBandeau } from '@/components/landing/accueil/AccueilBeworkBandeau';
+import { AccueilDevWebIaBandeau } from '@/components/landing/accueil/AccueilDevWebIaBandeau';
 import { AccueilFaqSection } from '@/components/landing/accueil/AccueilFaqSection';
 import { AccueilCtaFinalSection } from '@/components/landing/accueil/AccueilCtaFinalSection';
 import { EvenementAoBtpPromoEncart } from '@/components/evenements/EvenementAoBtpPromoEncart';
@@ -74,7 +74,7 @@ export default function HomePage() {
       <AccueilPreuveSocialeCompact />
       <AccueilProblemesMetierSection />
       <AccueilFormationsPrioritairesSection />
-      <AccueilBeworkBandeau />
+      <AccueilDevWebIaBandeau />
       <AccueilDifferentiationSection />
       <AccueilResultatsConcretsSection />
       <AccueilFinancementSection />

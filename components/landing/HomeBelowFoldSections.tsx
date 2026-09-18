@@ -23,20 +23,6 @@ export const HomePrincipalSections = dynamic(
     })),
 );
 
-export const BeworkEtFormationsOffreSection = dynamic(
-  () =>
-    import('@/components/landing/BeworkEtFormationsOffreSection').then((m) => ({
-      default: m.BeworkEtFormationsOffreSection,
-    })),
-);
-
-export const AccueilBeworkAccordionSection = dynamic(
-  () =>
-    import('@/components/landing/AccueilBeworkAccordionSection').then((m) => ({
-      default: m.AccueilBeworkAccordionSection,
-    })),
-);
-
 export const HomeGuideConducteurTravauxSection = dynamic(
   () =>
     import('@/components/landing/HomeGuideConducteurTravauxSection').then((m) => ({

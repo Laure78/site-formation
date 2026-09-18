@@ -15,7 +15,7 @@ const BLOCKED_PATH_PREFIXES = [
 
 const BLOCKED_EXACT = new Set([
   '/merci-rdv',
-  '/outils/verification-dtu-bework',
+  '/outils/verification-dtu-devis',
   '/ressources/guide-conducteur-de-travaux/merci',
 ]);
 

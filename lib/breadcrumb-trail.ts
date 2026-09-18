@@ -81,7 +81,7 @@ const STATIC_PAGE_TITLES: Record<string, string> = {
   '/checklist-ia-btp': 'Checklist IA BTP',
   '/outils-ia-btp': 'Outils IA BTP',
   '/outils/cas-usage-ia-btp': "Cas d'usage IA par métier",
-  '/outils/verification-dtu-bework': 'Prototype DTU BeWork',
+  '/outils/verification-dtu-devis': 'Prototype DTU × devis',
   '/ia-analyse-dce-btp': "Analyse DCE avec l'IA",
   '/ia-memoire-technique-btp': "Mémoire technique avec l'IA",
   '/ia-compte-rendu-chantier': 'Compte rendu de chantier avec l\'IA',

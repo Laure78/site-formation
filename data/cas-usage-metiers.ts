@@ -212,7 +212,7 @@ export const CAS_USAGE_METIERS: readonly MetierCasUsage[] = [
         gainTemps: 'Temps divisé par ~5',
         tutoSkill: {
           libelle: 'Tuto Skill — mémoire de réclamation',
-          href: LINKS.tutoSkillMemoireReclamationBework,
+          href: LINKS.tutoSkillMemoireReclamation,
         },
       },
       {

@@ -3,10 +3,10 @@ name: bework-memoire-technique-ao
 description: Rédige ou structure un mémoire technique pour AO bailleurs sociaux / marchés publics, côté entreprise de gros œuvre. Déclencher pour mémoire technique, MT, candidature AO, réponse RC valeur technique, bailleur HLM.
 ---
 
-# Skill BeWork — Mémoire technique AO (gros œuvre / bailleurs)
+# Skill OFC — Mémoire technique AO (gros œuvre / bailleurs)
 
 ## Contexte
-Tu aides le Beworker à préparer un **mémoire technique** pour une entreprise de **gros œuvre / maçonnerie** répondant à un **marché public de bailleur** (logements collectifs / sociaux).
+Tu aides le assistant travaux à préparer un **mémoire technique** pour une entreprise de **gros œuvre / maçonnerie** répondant à un **marché public de bailleur** (logements collectifs / sociaux).
 
 Complément du skill « contrôle mémoire technique » (audit) : ici tu **rédiges / structures** le livrable, tu ne notes pas.
 

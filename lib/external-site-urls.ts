@@ -4,16 +4,8 @@
  */
 
 export const EXTERNAL_SITE_URLS = {
-  /** BeWork — formation « Développement web avec l’IA — sans savoir coder » (site dédié). */
-  bework: 'https://www.bework.fr/',
-  /** Page formation BeWork (parcours 7 h / 14 h). */
-  beworkFormation: 'https://www.bework.fr/formation',
-  /** FAQ formation BeWork. */
-  beworkFaq: 'https://www.bework.fr/faq',
-  /** Demande de place / inscription session BeWork. */
-  beworkParticiper: 'https://www.bework.fr/contact#participer',
-  /** Plateforme BeWork — connexion espace entreprise (sous-domaine Laure Olivié). */
-  beworkApp: 'https://app.laureolivie.fr/',
+  /** Espace apprenant / lexique BTP — app.laureolivie.fr */
+  platformApp: 'https://app.laureolivie.fr/',
   /** Legacy Teachizy — import contenus uniquement (scripts/import-teachizy). */
   teachizyFormation: 'https://formation-ia-chatgpt.teachizy.fr/',
   /** OPCO Constructys — conditions et actualités financement formation BTP. */
@@ -37,8 +29,8 @@ export const EXTERNAL_SITE_URLS = {
 } as const;
 
 /** Chemins utiles sur app.laureolivie.fr */
-export const BEWORK_APP_PATHS = {
-  login: `${EXTERNAL_SITE_URLS.beworkApp}auth/connexion`,
-  signup: `${EXTERNAL_SITE_URLS.beworkApp}auth/inscription`,
-  lexique: `${EXTERNAL_SITE_URLS.beworkApp}lexique`,
+export const PLATFORM_APP_PATHS = {
+  login: `${EXTERNAL_SITE_URLS.platformApp}auth/connexion`,
+  signup: `${EXTERNAL_SITE_URLS.platformApp}auth/inscription`,
+  lexique: `${EXTERNAL_SITE_URLS.platformApp}lexique`,
 } as const;

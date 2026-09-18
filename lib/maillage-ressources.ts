@@ -70,7 +70,7 @@ const TUTO_TRI_DCE: MaillageLink = {
   label: 'Tuto PDF — trier un DCE avec Claude in Chrome',
 };
 const TUTO_MEMOIRE_RECLAMATION: MaillageLink = {
-  href: LINKS.tutoSkillMemoireReclamationBework,
+  href: LINKS.tutoSkillMemoireReclamation,
   label: 'Tuto — skill mémoire de réclamation',
 };
 const TUTO_CR: MaillageLink = {
@@ -170,7 +170,7 @@ export const MAILLAGE_RESSOURCES_BY_PATH: Readonly<Record<string, MaillageRessou
       },
     ],
   },
-  [LINKS.tutoSkillMemoireReclamationBework]: {
+  [LINKS.tutoSkillMemoireReclamation]: {
     pilier: PILIER_AO,
     soeurs: [TUTO_MEMOIRE, TUTO_ANALYSE_DCE],
     blog: [

@@ -1,13 +1,12 @@
 import type { TutoData } from './types';
 import { RESSOURCES_MINIATURES } from '@/lib/ressources-miniatures';
-import { EXTERNAL_SITE_URLS } from '@/lib/external-site-urls';
 
-export const TUTO_SKILL_MEMOIRE_RECLAMATION_BEWORK: TutoData = {
-  slug: 'tuto-skill-memoire-reclamation-bework',
+export const TUTO_SKILL_MEMOIRE_RECLAMATION: TutoData = {
+  slug: 'tuto-skill-memoire-reclamation',
   category: 'marches-et-veille',
   pdfFile: 'tuto-skill-memoire-reclamation-bework.pdf',
 
-  eyebrow: 'TUTO OFFERT PAR BEWORK',
+  eyebrow: 'TUTO OFFERT PAR OFC',
   title: 'Crée ton skill Mémoire de réclamation',
   shortTitle: 'Skill Mémoire de réclamation',
   subtitle:
@@ -31,7 +30,6 @@ export const TUTO_SKILL_MEMOIRE_RECLAMATION_BEWORK: TutoData = {
     'ChatGPT BTP',
     'Claude BTP',
     'formation IA pour le BTP',
-    'BeWork',
     'Laure Olivié',
     "OFC Création d'Entreprise",
   ],
@@ -280,17 +278,15 @@ et rappelle-moi le délai pour le transmettre.`,
   ],
 
   cta: {
-    eyebrow: 'PAS LE TEMPS DE LE FAIRE VOUS-MÊME ?',
-    title: 'Faire appel à un Assistant Travaux BeWork',
-    subtitle: 'Solutions IA sur mesure pour le BTP',
-    programTitle: 'Assistant travaux BTP · Relais dossiers chantier · Augmenté par l’IA',
+    eyebrow: "ENVIE D'ALLER PLUS LOIN ?",
+    title: 'On le construit ensemble en formation',
+    subtitle: 'Atelier en groupe — financement possible selon éligibilité (Constructys / OPCO)',
+    programTitle: 'Programme « Niveau 2 — DCE & Mémoire Technique »',
     programItems: [
-      'Vous nous envoyez les pièces du litige (OS, CR, courriers, chiffrage).',
-      'On reconstitue la chronologie, on chiffre le préjudice, on rédige le mémoire conforme.',
-      'Vous transmettez un dossier opposable dans les délais, sans y passer la journée.',
+      'Méthode réclamation et contentieux administratif sur vos dossiers',
+      'Construction du skill mémoire de réclamation en direct',
+      'Calibrage sur vos marchés et vos pièces réelles',
+      'Session catalogue 4 h en groupe, présentiel Île-de-France',
     ],
-    brand: 'bework',
-    primaryHref: EXTERNAL_SITE_URLS.bework,
-    primaryLabel: 'Réserver un appel de cadrage de 20 minutes sur bework.fr',
   },
 };

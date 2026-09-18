@@ -5,7 +5,7 @@ import { OFC_CTA_SECONDARY, OFC_LINK } from '@/lib/ofc-interaction-classes';
 /**
  * Passerelle discrète — création avec l’IA sans savoir coder (fiche NIV-10).
  */
-export function FormationBeworkPasserelle() {
+export function FormationDevWebPasserelle() {
   return (
     <section className="border-b border-slate-200 bg-slate-50 px-4 py-8 md:py-10">
       <div className="mx-auto max-w-3xl rounded-2xl border border-slate-200 bg-white p-6 md:p-8">

@@ -1,5 +1,5 @@
 /**
- * Types pour l’outil prototype « Vérification DTU × devis » (BeWork / test interne).
+ * Types pour l’outil prototype « Vérification DTU × devis » (test interne).
  * Les textes métier sont des reformulations maison ; aucune reproduction de DTU officiels.
  */
 

@@ -170,12 +170,32 @@ const nextConfig: NextConfig = {
       },
       {
         source: '/bework/plateforme',
-        destination: '/bework',
+        destination: '/formations/developpement-web-ia-sans-coder',
         permanent: true,
       },
       {
         source: '/bework/plateforme/',
-        destination: '/bework',
+        destination: '/formations/developpement-web-ia-sans-coder',
+        permanent: true,
+      },
+      {
+        source: '/outils/verification-dtu-bework',
+        destination: '/outils/verification-dtu-devis',
+        permanent: true,
+      },
+      {
+        source: '/outils/verification-dtu-bework/:path*',
+        destination: '/outils/verification-dtu-devis',
+        permanent: true,
+      },
+      {
+        source: '/api/verification-dtu-bework/:path*',
+        destination: '/api/verification-dtu-devis/:path*',
+        permanent: true,
+      },
+      {
+        source: '/ressources/tuto-skill-memoire-reclamation-bework',
+        destination: '/ressources/tuto-skill-memoire-reclamation',
         permanent: true,
       },
       {

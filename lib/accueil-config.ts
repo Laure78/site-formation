@@ -153,7 +153,7 @@ function publicCibleCourt(publicComplet: string): string {
 
 /**
  * Formations prioritaires — usages opérationnels BTP uniquement
- * (NIV-01 à NIV-04). Pas de parcours applications métier (relai BeWork).
+ * (NIV-01 à NIV-04). Pas de parcours applications métier hors catalogue publié.
  */
 export function getAccueilFormationsPrioritaires(): readonly AccueilFormationCarte[] {
   const codes = ['NIV-01', 'NIV-02', 'NIV-03', 'NIV-04'] as const;

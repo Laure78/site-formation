@@ -59,10 +59,6 @@ const FAQ = [
     q: 'Je n’ai pas encore de compte — que faire ?',
     a: 'Les accès sont créés ou communiqués par OFC après votre inscription à une session. Pour une nouvelle formation, consultez le catalogue ou prenez rendez-vous pour cadrer votre besoin.',
   },
-  {
-    q: 'Quelle est la différence avec BeWork (app.laureolivie.fr) ?',
-    a: 'L’espace apprenant OFC héberge les contenus pédagogiques et supports de formation IA BTP. BeWork (app.laureolivie.fr) est l’espace entreprise des solutions IA métier BTP — deux services distincts.',
-  },
 ] as const;
 
 function getPlateformePageJsonLd() {
@@ -213,11 +209,11 @@ export default function FormationPlateformePage() {
           <p className="mt-6 text-sm text-white/80">
             Besoin d&apos;une formation en présentiel ? Consultez le catalogue — organisme certifié Qualiopi ou{' '}
             <ExternalLinkAnchor
-              href={EXTERNAL_SITE_URLS.beworkApp}
-              title="Plateforme BeWork — app.laureolivie.fr (nouvel onglet)"
+              href={EXTERNAL_SITE_URLS.platformApp}
+              title="Lexique et outils — app.laureolivie.fr (nouvel onglet)"
               className="font-semibold underline underline-offset-2 hover:text-white"
             >
-              la plateforme BeWork (MOEX)
+              l’espace app.laureolivie.fr (lexique BTP)
             </ExternalLinkAnchor>
             .
           </p>

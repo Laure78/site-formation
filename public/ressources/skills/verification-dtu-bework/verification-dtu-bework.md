@@ -1,13 +1,13 @@
 ---
 name: verification-dtu-bework
-description: Rapproche chaque ligne d'un devis BTP du DTU (Document Technique Unifié) qui l'encadre, sans jamais reproduire le texte officiel. Produit un tableau d'analyse "Ligne devis / Ouvrage détecté / DTU probable / Articles à vérifier / Niveau confiance" et un rapport Word aux couleurs BeWork (bework.fr). Déclencher ce skill dès que l'utilisateur mentionne — "vérifier les DTU", "à quel DTU correspond cette ligne", "DTU concerné", "DTU applicable", "rapprocher devis et DTU", "norme à vérifier sur ce devis", "quel DTU pour [ouvrage]", "AFNOR CSTB DTU", "contrôle normatif d'un devis", "article DTU à vérifier", "fiche DTU par ligne". Déclencher AUSSI quand l'utilisateur colle un devis BTP, un DPGF ou une liste de prestations et demande la conformité normative, l'identification des DTU concernés ou un repérage des articles à contrôler. Compatible tous corps d'état : gros œuvre, second œuvre, revêtements, étanchéité, couverture, menuiserie, plâtrerie, peinture, plomberie, chauffage, électricité, isolation.
+description: Rapproche chaque ligne d'un devis BTP du DTU (Document Technique Unifié) qui l'encadre, sans jamais reproduire le texte officiel. Produit un tableau d'analyse "Ligne devis / Ouvrage détecté / DTU probable / Articles à vérifier / Niveau confiance" et un rapport Word aux couleurs OFC (laureolivie.fr). Déclencher ce skill dès que l'utilisateur mentionne — "vérifier les DTU", "à quel DTU correspond cette ligne", "DTU concerné", "DTU applicable", "rapprocher devis et DTU", "norme à vérifier sur ce devis", "quel DTU pour [ouvrage]", "AFNOR CSTB DTU", "contrôle normatif d'un devis", "article DTU à vérifier", "fiche DTU par ligne". Déclencher AUSSI quand l'utilisateur colle un devis BTP, un DPGF ou une liste de prestations et demande la conformité normative, l'identification des DTU concernés ou un repérage des articles à contrôler. Compatible tous corps d'état : gros œuvre, second œuvre, revêtements, étanchéité, couverture, menuiserie, plâtrerie, peinture, plomberie, chauffage, électricité, isolation.
 ---
 
-# Skill : Vérification DTU × Devis (BeWork)
+# Skill : Vérification DTU × Devis (OFC)
 
 ## CONTEXTE D'UTILISATION
 
-Ce skill produit un outil interne BeWork (partenaire administratif BTP — bework.fr) qui rapproche chaque ligne d'un devis du DTU (Document Technique Unifié) qui l'encadre. Objectif : permettre à un conducteur de travaux, métreur ou dirigeant BTP de vérifier rapidement la conformité normative d'un devis sans avoir à acheter et lire les 110+ DTU.
+Ce skill produit un outil interne OFC (partenaire administratif BTP — laureolivie.fr) qui rapproche chaque ligne d'un devis du DTU (Document Technique Unifié) qui l'encadre. Objectif : permettre à un conducteur de travaux, métreur ou dirigeant BTP de vérifier rapidement la conformité normative d'un devis sans avoir à acheter et lire les 110+ DTU.
 
 **Cas d'usage typiques** :
 - Contrôle d'un devis sous-traitant avant signature
@@ -33,13 +33,13 @@ Le rapport Word généré contient un **encadré d'avertissement légal en page 
 
 ## DÉCLENCHEUR DU SKILL
 
-Activer dès que Laure (ou un utilisateur BeWork) :
+Activer dès que Laure (ou un utilisateur OFC) :
 - colle un devis, un DPGF ou une liste de prestations BTP
 - demande "à quel DTU correspond cette ligne ?"
 - demande "vérifie les DTU de ce devis"
 - prépare un mémoire technique et veut sourcer les normes
 - mentionne un litige et veut identifier le DTU à invoquer
-- veut un rapport "Vérification DTU" pour un client BeWork
+- veut un rapport "Vérification DTU" pour un client OFC
 
 Ne PAS déclencher pour :
 - Une simple demande d'explication sur un DTU (répondre en conversationnel)
@@ -132,7 +132,7 @@ Présenter immédiatement le tableau dans la conversation, format markdown :
 
 Format compact, lisible directement. Si le devis fait plus de 10 lignes, ne pas tout afficher dans le chat — produire seulement les 5 premières et orienter vers le Word.
 
-#### Sortie 2 : Rapport Word BeWork (sur demande ou par défaut si > 5 lignes)
+#### Sortie 2 : Rapport Word OFC (sur demande ou par défaut si > 5 lignes)
 
 Construire un JSON conforme au format attendu par le script (cf. exemple plus bas), l'écrire dans `/home/claude/dtu_input_[client].json`, puis appeler :
 
@@ -157,7 +157,7 @@ Copier les deux fichiers vers `/mnt/user-data/outputs/` et les présenter via `p
  "client": "Entreprise Dupont SARL",
  "projet": "Lot 04 — Revêtements sols / Rénovation Paris 11",
  "date": "15/05/2026",
- "redacteur": "BeWork",
+ "redacteur": "OFC",
  "lignes": [
  {
  "ligne_devis": "Libellé exact de la ligne du devis",
@@ -196,10 +196,10 @@ Contient ~75 DTU parmi les plus utilisés en bâtiment, structurés ainsi :
 
 Pour enrichir la base : ajouter une entrée dans le fichier JSON en suivant le format existant. Ne PAS y mettre de texte officiel — uniquement des reformulations maison.
 
-## CHARTE BEWORK OFFICIELLE (alignée bework.fr, mai 2026)
+## CHARTE OFC OFFICIELLE (alignée laureolivie.fr, mai 2026)
 
 ```
-BLUE = #1D4ED8 (Tailwind blue-700 — couleur officielle site bework.fr)
+BLUE = #1D4ED8 (Tailwind blue-700 — couleur officielle site laureolivie.fr)
 LIGHT_BLUE = #DBEAFE (bordures fines, fond bandeaux)
 DARK = #0F172A (texte principal, slate-900)
 GRAY = #64748B (texte secondaire, slate-500)
@@ -207,7 +207,7 @@ LIGHT_GRAY = #F1F5F9 (fond encadrés, alternance ligne)
 FONT = Century Gothic (fallback Calibri)
 ```
 
-**Logo officiel** : `/mnt/skills/user/verification-dtu-bework/assets/BeWork_logo_officiel.jpg` (style blueprint, ratio 3:1, à utiliser tel quel, ne pas recréer). Source : https://www.bework.fr/BeWork.logo.blueprint.png
+**Logo officiel** : `/mnt/skills/user/verification-dtu-bework/assets/OFC_logo_officiel.jpg` (style blueprint, ratio 3:1, à utiliser tel quel, ne pas recréer). Source : https://www.laureolivie.fr/OFC.logo.blueprint.png
 
 **Mentions interdites dans le rapport** (rappel) :
 - ❌ "Laure Olivié", "OFC", "Qualiopi", "NDA", "SIRET 905…"
@@ -217,10 +217,10 @@ FONT = Century Gothic (fallback Calibri)
 **Mentions obligatoires** :
 - ✅ Header : logo blueprint officiel (image, pas de texte stylé)
 - ✅ Tagline : "Assistants travaux augmentés par l'IA" (toujours au PLURIEL)
-- ✅ Footer : "BeWork — Assistants travaux augmentés par l'IA · bework.fr — Relais bureau-chantier BTP"
+- ✅ Footer : "OFC — Assistants travaux augmentés par l'IA · laureolivie.fr — Relais bureau-chantier BTP"
 - ✅ Encadré avertissement légal page 1 (AFNOR / CSTB)
 - ✅ Signature finale : "Un assistant travaux à vos côtés pour tenir le rythme du chantier." (slogan principal du site)
-- ✅ Pour les CTA : "Faire appel à un Beworker" (pas "Assistant Travaux BeWork")
+- ✅ Pour les CTA : "Faire appel à un assistant travaux" (pas "Assistant Travaux OFC")
 - ✅ Stats : "3 à 5 jours opérationnel / 0 recrutement / 100% supervisé en France"
 
 ## CONVENTION DE NOMMAGE

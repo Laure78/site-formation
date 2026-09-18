@@ -9,7 +9,6 @@ import { CtaButton } from '@/components/CtaButton';
 import { SITE_CONFIG } from '@/lib/seo';
 import { PHOTOS } from '@/lib/photos';
 import { LINKS } from '@/lib/internal-links';
-import { EXTERNAL_SITE_URLS } from '@/lib/external-site-urls';
 import { getMaillageRessourceConfig } from '@/lib/maillage-ressources';
 import { buildRessourceTutoJsonLd } from '@/lib/schema-ressource-tuto-jsonld';
 import { FINANCEMENT_STAT_LABEL, FINANCEMENT_STAT_VAL } from '@/lib/financement-copy';
@@ -490,20 +489,7 @@ export function TutoPage({ tuto }: { tuto: TutoData }) {
             </ul>
           </div>
 
-          {tuto.cta.brand === 'bework' ? (
-            <div className="mt-8 grid gap-6 rounded-2xl border border-slate-200 bg-[#F8FAFC] p-6 md:grid-cols-[1fr_auto] md:items-center">
-              <div>
-                <h3 className="font-display text-xl font-bold text-[#377CF3]">BeWork</h3>
-                <p className="text-slate-700">Solutions IA sur mesure pour le BTP</p>
-              </div>
-              <div className="grid grid-cols-3 gap-4 md:grid-cols-1 md:gap-3">
-                <CtaStat value="3–5 j" label="Opérationnel" />
-                <CtaStat value="0" label="Recrutement à faire" />
-                <CtaStat value="100 %" label="Piloté en France" />
-              </div>
-            </div>
-          ) : (
-            <div className="mt-8 grid gap-6 rounded-2xl border border-slate-200 bg-[#F8FAFC] p-6 md:grid-cols-[1fr_auto] md:items-center">
+          <div className="mt-8 grid gap-6 rounded-2xl border border-slate-200 bg-[#F8FAFC] p-6 md:grid-cols-[1fr_auto] md:items-center">
               <div>
                 <h3 className="font-display text-xl font-bold text-[#377CF3]">Laure Olivié</h3>
                 <p className="text-slate-700">Formatrice IA × BTP</p>
@@ -535,20 +521,9 @@ export function TutoPage({ tuto }: { tuto: TutoData }) {
                 <CtaStat value={FINANCEMENT_STAT_VAL} label={FINANCEMENT_STAT_LABEL} />
               </div>
             </div>
-          )}
 
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-            {tuto.cta.brand === 'bework' ? (
-              <a
-                href={tuto.cta.primaryHref ?? EXTERNAL_SITE_URLS.bework}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#377CF3] px-6 py-3.5 text-[0.95rem] font-semibold text-white shadow-sm transition-transform hover:scale-[1.02] hover:bg-[#2d66d6] active:scale-[0.98]"
-              >
-                {tuto.cta.primaryLabel ?? 'Réserver un appel de cadrage BeWork'}
-                <ArrowRight size={18} aria-hidden />
-              </a>
-            ) : tuto.finalCtaLabel ? (
+            {tuto.finalCtaLabel ? (
               <Link
                 href={LINKS.prendreRdv}
                 data-cta="rdv"
@@ -576,18 +551,7 @@ export function TutoPage({ tuto }: { tuto: TutoData }) {
             />
           </div>
 
-          {tuto.cta.brand === 'bework' ? (
-            <p className="mt-8 text-sm text-slate-600">
-              BeWork — marque d’OFC Création d’Entreprise : formation pour créer avec l’IA sans savoir
-              coder, distincte du catalogue IA BTP. Financement OPCO possible selon éligibilité. En
-              savoir plus sur{' '}
-              <Link href={LINKS.formationDeveloppementWebIaSansCoder} className="text-[#377CF3] hover:underline">
-                la page BeWork
-              </Link>
-              .
-            </p>
-          ) : (
-            <p className="mt-8 text-sm text-slate-600">
+          <p className="mt-8 text-sm text-slate-600">
               Atelier en groupe — Qualiopi · financement possible selon éligibilité
               (Constructys / OPCO) ·{' '}
               <Link
@@ -597,8 +561,7 @@ export function TutoPage({ tuto }: { tuto: TutoData }) {
                 voir le financement
               </Link>
               .
-            </p>
-          )}
+          </p>
         </div>
       </section>
     </div>

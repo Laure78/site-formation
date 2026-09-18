@@ -26,7 +26,7 @@ const TUTO_SHORT_SUMMARY: Record<string, string> = {
   'tuto-skill-diuo-ofc': 'Prépare ta liasse DIUO (pièces SPS) lot par lot.',
   'tuto-skill-livret-integration-ofc':
     "Génère un livret d'intégration BTP (sécurité, EPI, parcours J1/S1/M1).",
-  'tuto-skill-memoire-reclamation-bework':
+  'tuto-skill-memoire-reclamation':
     'Monte un mémoire de réclamation CCAG chiffré et dans les délais.',
   'tuto-pv-levee-reserves': 'PV de levée de réserves prêts à signer.',
   'tuto-ppsps': 'PPSPS complet à partir de 10 lignes de description chantier.',
