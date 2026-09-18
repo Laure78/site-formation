@@ -152,7 +152,7 @@ export function libelleTarifsGrilleLigne(dureeHeures: TarifDureeHeures): string 
 }
 
 /** Durées affichées sur la grille catalogue `/formations`. */
-export const GRILLE_TARIFS_CATALOGUE_DUREES: readonly TarifDureeHeures[] = [4, 7, 14];
+export const GRILLE_TARIFS_CATALOGUE_DUREES: readonly TarifDureeHeures[] = [4];
 
 /** Mention abonnements IA hors forfait. */
 export const MENTION_ABONNEMENTS_IA_HORS_FORFAIT =

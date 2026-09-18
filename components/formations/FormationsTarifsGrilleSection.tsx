@@ -8,10 +8,7 @@ import {
   libelleTarifInterParParticipant,
   libelleTarifIntraParSession,
   MENTION_ABONNEMENTS_IA_HORS_FORFAIT,
-  TARIF_INTRA_SENSIBILISATION_2H_HT,
   TARIF_INTER_4H_HT_FROM,
-  TARIF_INTER_7H_HT_FROM,
-  TARIF_INTER_14H_HT_FROM,
 } from '@/lib/tarifs-sessions';
 import { MentionTVA } from '@/components/MentionTVA';
 
@@ -30,8 +27,7 @@ export function FormationsTarifsGrilleSection() {
       </h2>
       <p className="mt-3 max-w-3xl text-sm leading-relaxed text-[#64748B]">
         Deux formats : session réservée pour votre entreprise (tarif forfaitaire) ou inscription
-        individuelle en interentreprises (tarif par participant). Parcours sur mesure 7 h et 14 h
-        pour le déploiement IA en entreprise. {FINANCEMENT_FORMULATION_PRUDENTE}
+        individuelle en interentreprises (tarif par participant). {FINANCEMENT_FORMULATION_PRUDENTE}
       </p>
 
       <div className="mt-8 grid gap-6 md:grid-cols-2">
@@ -72,12 +68,6 @@ export function FormationsTarifsGrilleSection() {
             <li>
               <strong>4 heures :</strong> {libelleTarifInterParParticipant(TARIF_INTER_4H_HT_FROM)}.
             </li>
-            <li>
-              <strong>7 heures :</strong> {libelleTarifInterParParticipant(TARIF_INTER_7H_HT_FROM)}.
-            </li>
-            <li>
-              <strong>14 heures :</strong> {libelleTarifInterParParticipant(TARIF_INTER_14H_HT_FROM)}.
-            </li>
             <li>Dates et lieux communiqués selon le calendrier des sessions.</li>
             <li>Session maintenue sous réserve d&apos;un nombre minimum d&apos;inscrits.</li>
           </ul>
@@ -91,8 +81,7 @@ export function FormationsTarifsGrilleSection() {
       </div>
 
       <p className="mt-6 text-xs leading-relaxed text-[#64748B]">
-        Sensibilisation 2 h (intra uniquement) :{' '}
-        {libelleTarifIntraParSession(TARIF_INTRA_SENSIBILISATION_2H_HT)}. {MENTION_ABONNEMENTS_IA_HORS_FORFAIT}
+        {MENTION_ABONNEMENTS_IA_HORS_FORFAIT}
       </p>
       <MentionTVA className="mt-3 max-w-3xl" />
     </section>

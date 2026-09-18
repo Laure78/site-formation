@@ -10,13 +10,9 @@ import {
   PERIMETRE_FORMATIONS_COURT,
   type TarifDureeHeures,
 } from '@/lib/tarifs-sessions';
-import {
-  libelleTarifApplicationMetierBtp,
-  TARIF_SESSION_INTRA_MENTION,
-} from '@/lib/tarifs-applications-metier-btp';
 import { OFC_CTA_SECONDARY, OFC_LINK } from '@/lib/ofc-interaction-classes';
 
-const GRILLE_DUREES: readonly TarifDureeHeures[] = [2, 4, 7, 14];
+const GRILLE_DUREES: readonly TarifDureeHeures[] = [4];
 
 /** Tarifs et modalités — une seule section centralisée. */
 export function FormationsCataloguePracticalInfoSection() {
@@ -47,7 +43,7 @@ export function FormationsCataloguePracticalInfoSection() {
             {GRILLE_DUREES.map((duree, i) => (
               <tr key={duree} className={i % 2 === 0 ? 'bg-white' : 'bg-slate-50'}>
                 <th scope="row" className="px-4 py-3 font-medium text-ofc-ink">
-                  {duree === 2 ? 'Sensibilisation 2 h' : `${duree} h`}
+                  {`${duree} h`}
                 </th>
                 <td className="px-4 py-3 text-slate-700">
                   {libelleTarifsGrilleLigne(duree)}
@@ -57,16 +53,6 @@ export function FormationsCataloguePracticalInfoSection() {
             ))}
           </tbody>
         </table>
-      </div>
-
-      <div className="mt-6 rounded-xl border border-slate-200 bg-slate-50 p-5 text-sm text-slate-700">
-        <p className="font-semibold text-ofc-ink">Parcours applications métier (7 h / niveau)</p>
-        <ul className="mt-2 list-inside list-disc space-y-1">
-          <li>N1 Concevoir — {libelleTarifApplicationMetierBtp('niveau-1')}</li>
-          <li>N2 Connecter — {libelleTarifApplicationMetierBtp('niveau-2')}</li>
-          <li>N3 Industrialiser — {libelleTarifApplicationMetierBtp('niveau-3')}</li>
-        </ul>
-        <p className="mt-2 text-xs text-slate-500">{TARIF_SESSION_INTRA_MENTION}</p>
       </div>
 
       <dl className="mt-8 grid gap-6 sm:grid-cols-2">
