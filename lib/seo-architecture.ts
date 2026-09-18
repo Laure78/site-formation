@@ -8,11 +8,18 @@ import { LINKS } from '@/lib/internal-links';
 export const PILLAR_PAGES = [
   {
     id: 'formation-ia-btp',
-    path: '/formations',
-    title: 'Formation IA BTP — Programmes et financement OPCO',
-    description: 'Formations IA certifiées Qualiopi pour le BTP. Devis, appels d\'offres, RH. Financement possible selon éligibilité (Constructys, OPCO). Île-de-France, Yvelines, Guyancourt.',
-    h1: 'Formation IA pour les pros du BTP : programmes et financement',
-    keywords: ['formation IA appliquée au bâtiment', 'formation ChatGPT BTP', 'formation intelligence artificielle bâtiment'],
+    path: '/formation-ia-btp',
+    title: 'Formation IA BTP : maîtriser l’IA bâtiment | Laure Olivié',
+    description:
+      'Formation IA BTP et formation IA bâtiment : Claude et ChatGPT sur devis, DCE, CCTP et chantier. Qualiopi, présentiel Île-de-France. Financement OPCO selon éligibilité.',
+    h1: 'Formation IA BTP : maîtriser l’intelligence artificielle dans le bâtiment',
+    keywords: [
+      'formation IA BTP',
+      'formation IA bâtiment',
+      'formation IA pour le BTP',
+      'formation ChatGPT BTP',
+      'formation intelligence artificielle bâtiment',
+    ],
   },
   {
     id: 'intelligence-artificielle-batiment',
@@ -51,14 +58,14 @@ export const BLOG_CLUSTERS = [
 /** Mapping cluster → pillar path pour internal linking */
 export function getPillarPathForCluster(clusterId: string): string {
   const cluster = BLOG_CLUSTERS.find((c) => c.id === clusterId);
-  if (!cluster) return '/formations';
+  if (!cluster) return LINKS.formationIaBtpPillar;
   const pillar = PILLAR_PAGES.find((p) => p.id === cluster.pillarId);
-  return pillar?.path ?? '/formations';
+  return pillar?.path ?? LINKS.formationIaBtpPillar;
 }
 
 /** Liens internes par défaut pour les articles (URLs canoniques) */
 export const DEFAULT_INTERNAL_LINKS = {
-  formation: { path: '/formations', anchor: 'formation IA pour le BTP' },
+  formation: { path: LINKS.formationIaBtpPillar, anchor: 'formation IA pour le BTP' },
   prendreRdv: { path: LINKS.prendreRdv, anchor: 'prendre rendez-vous' },
   chatgptArtisans: { path: LINKS.chatgptArtisans, anchor: 'ChatGPT pour entreprises BTP' },
   iaDevis: { path: '/ia-devis-batiment', anchor: 'IA devis bâtiment' },
@@ -66,7 +73,11 @@ export const DEFAULT_INTERNAL_LINKS = {
 
 /** CTAs par bloc */
 export const CTA_BLOCKS = [
-  { label: 'Découvrir la formation IA pour les pros du BTP', href: '/formations', variant: 'primary' as const },
+  {
+    label: 'Découvrir la formation IA pour les pros du BTP',
+    href: LINKS.formationIaBtpPillar,
+    variant: 'primary' as const,
+  },
   { label: 'Échanger sur votre projet de formation', href: LINKS.prendreRdv, variant: 'secondary' as const },
   { label: 'Télécharger le guide', href: '/ressources', variant: 'outline' as const },
 ] as const;

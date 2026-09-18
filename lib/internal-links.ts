@@ -52,10 +52,10 @@ export const LINKS = {
   /** @deprecated Ancienne URL longue — 301 vers `prendreRdv`. */
   prendreRdvLegacy: '/prendre-rendez-vous',
   /**
-   * Ancien pilier `/formation-ia-btp` (308 → catalogue).
-   * Canonique : `/formations` — préférer `LINKS.formations` pour les nouveaux liens.
+   * Page pilier SEO « formation IA BTP » / « formation IA bâtiment ».
+   * Distincte du catalogue `/formations` (liste des programmes).
    */
-  formationIaBtp: '/formations',
+  formationIaBtp: '/formation-ia-btp',
   /** Landing SEO cluster — formation IA entreprises de construction (ETI, EG, MOE, BET) */
   formationIaConstruction: '/formation-ia-construction',
   /** Cluster SEO — formation ChatGPT BTP (outil) */
@@ -68,8 +68,8 @@ export const LINKS = {
   formationClaudeBtp: '/formations/maitriser-claude-ai-btp',
   /** @deprecated Doublon Paris — 301 → `formationIaBtpParis` */
   formationIaEntrepriseBatimentParis: '/formation-ia-btp-paris',
-  /** Pilier SEO cluster — formation IA pour le BTP (page maîtresse) */
-  formationIaBtpPillar: '/formations',
+  /** Pilier SEO — formation IA BTP / formation IA bâtiment (page maîtresse) */
+  formationIaBtpPillar: '/formation-ia-btp',
   /** Guide Claude AI — Anthropic, interfaces, prompts BTP */
   claudeAiBtp: '/claude-ai-btp',
   /**
@@ -240,6 +240,11 @@ export const LINKS = {
   authConnexion: '/auth/connexion',
   /** Entrée connexion administrateur / formateur (noindex) */
   accesAdmin: '/acces-admin',
+  /** Espace productivité personnel admin / formateur (privé, hors SEO) */
+  adminMonEspace: '/admin/mon-espace',
+  adminMonEspaceNotes: '/admin/mon-espace/notes',
+  adminMonEspaceTaches: '/admin/mon-espace/taches',
+  adminMonEspaceFavoris: '/admin/mon-espace/favoris',
   diagnostic: '/diagnostic-ia-btp',
   outilsIaBtp: '/outils-ia-btp',
   /** Sélecteur interactif — cas d'usage IA par métier BTP */

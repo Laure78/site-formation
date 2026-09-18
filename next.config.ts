@@ -448,7 +448,7 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       { source: '/merci-devis', destination: '/contact', permanent: true },
-      { source: '/formation-ia-btp', destination: '/formations', permanent: true },
+      // /formation-ia-btp = page pilier SEO (200) — ne plus rediriger vers /formations
       {
         source: '/documents/checklist-10-prompts-chatgpt-btp',
         destination: '/checklist-ia-btp',

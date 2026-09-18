@@ -113,7 +113,7 @@ export const FORMATION_CLAUDE_BTP_CONFIG: SeoClusterPageConfig = {
     { href: LINKS.claudeAiBtp, label: 'Guide Claude AI BTP — Chat, Cowork, Code' },
     { href: LINKS.formationChatgptBtp, label: 'Formation ChatGPT pour le BTP' },
     { href: LINKS.formationIaAppelsOffresBtp, label: 'Formation IA appels d\'offres BTP' },
-    { href: LINKS.formationConducteurTravaux, label: 'IA pour les conducteurs de travaux' },
+    { href: LINKS.formationIaBtpPillar, label: 'Formation IA BTP — page pilier' },
     { href: LINKS.formations, label: 'Catalogue formations IA BTP' },
   ],
 };

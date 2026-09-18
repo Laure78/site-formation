@@ -21,7 +21,7 @@ import { buildHomeUnifiedGraphJsonLd } from '@/lib/schema-home-unified-graph';
 /** Segment sans suffixe — `buildMetadata` ajoute « | Laure Olivié ». */
 const HOME_META_TITLE = 'Formation IA BTP : devis et chantier';
 const HOME_META_DESCRIPTION =
-  'Formation IA pour le BTP : devis, DCE, conduite de travaux et comptes rendus. Présentiel Île-de-France, Qualiopi, financement OPCO possible selon éligibilité.';
+  'Formation IA pour le BTP et formation IA bâtiment : devis, DCE, chantier. Présentiel Île-de-France, Qualiopi, financement OPCO possible selon éligibilité.';
 
 const HOME_FAQ_PAGE_JSON_LD = buildHomeFAQPageJsonLd();
 

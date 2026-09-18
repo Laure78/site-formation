@@ -113,7 +113,7 @@ export const FORMATION_CHATGPT_BTP_CONFIG: SeoClusterPageConfig = {
   catalogueHref: LINKS.formationIaBtpNiveau1BatimentTp,
   catalogueLabel: 'NIV-01 — L\'IA au service du bâtiment et des travaux publics',
   relatedLinks: [
-    { href: '/formation-ia-btp', label: 'Formation IA pour le BTP — page pilier' },
+    { href: LINKS.formationIaBtpPillar, label: 'Formation IA pour le BTP — page pilier' },
     { href: LINKS.formationConducteurTravaux, label: 'IA pour les conducteurs de travaux' },
     { href: LINKS.formationIaAppelsOffresBtp, label: 'Formation IA appels d\'offres BTP' },
     { href: LINKS.formationMaitriserClaudeAiBtp, label: 'Formation Claude pour le bâtiment' },
