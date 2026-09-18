@@ -40,7 +40,10 @@ export function AccueilFormationsPrioritairesSection() {
           />
         ))}
       </div>
-      <p className="mt-12 text-center">
+      <p className="mt-12 flex flex-col items-center gap-3 text-center sm:flex-row sm:justify-center sm:gap-8">
+        <Link href={LINKS.formationIaBtpPillar} className={`${OFC_LINK} text-base font-semibold`}>
+          Qu&apos;est-ce qu&apos;une formation IA BTP ? →
+        </Link>
         <Link href={LINKS.formations} className={`${OFC_LINK} text-base font-semibold`}>
           Voir le catalogue complet →
         </Link>

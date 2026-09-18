@@ -448,7 +448,6 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       { source: '/merci-devis', destination: '/contact', permanent: true },
-      { source: '/formation-ia-btp', destination: '/formations', permanent: true },
       {
         source: '/documents/checklist-10-prompts-chatgpt-btp',
         destination: '/checklist-ia-btp',

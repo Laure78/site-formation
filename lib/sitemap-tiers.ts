@@ -20,6 +20,7 @@ export const SITEMAP_PRIORITY = {
 /** Pages statiques principales — priorité 1.0 */
 export const SITEMAP_TIER1_STATIC_PATHS = [
   LINKS.home,
+  LINKS.formationIaBtpPillar,
   LINKS.formations,
   LINKS.parcoursApplicationsMetierBtp,
   LINKS.financement,

@@ -206,4 +206,4 @@ export function getCataloguePageMetaDescriptionShort(at: Date = new Date()): str
   return 'Formation IA pour le BTP : devis, DCE, appels d’offres, conduite de travaux, maîtrise d’œuvre et outils métier.';
 }
 
-export const CATALOGUE_PAGE_TITLE = 'Formations IA BTP | Devis, chantier et appels d’offres';
+export const CATALOGUE_PAGE_TITLE = 'Catalogue formations IA BTP | Devis et AO';

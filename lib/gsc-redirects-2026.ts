@@ -175,8 +175,6 @@ export const GSC_EXCLUDED_SITEMAP_PATHS = new Set<string>([
   // Anciennes URLs villes hub redirigées 308 vers /formations/ia-btp-[ville] (cf. next.config.ts)
   '/formation-ia/btp-paris',
   '/formation-ia-btp-paris-2026',
-  // 308 → /formations (next.config.ts) — ne pas indexer dans le sitemap
-  '/formation-ia-btp',
   // Fichier texte public, pas une page HTML
   '/llms.txt',
   '/ia-conducteur-travaux',

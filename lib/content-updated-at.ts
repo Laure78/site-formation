@@ -8,6 +8,7 @@ export type ContentUpdatedDate = `${number}-${string}-${string}`;
 
 /** Pages piliers — clé = chemin absolu du site. */
 export const PILLAR_PAGE_CONTENT_UPDATED_AT = {
+  '/formation-ia-btp': '2026-09-18',
   '/formations': '2026-09-07',
   '/formation-ia-btp-ile-de-france': '2026-04-18',
   '/claude-ai-btp': '2026-04-18',
