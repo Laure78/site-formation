@@ -65,7 +65,7 @@ const JOURNEE_ETAPES = [
 ] as const;
 
 /**
- * Accueil — transition Formation IA BTP → création avec l’IA (NIV-10).
+ * Accueil — transition formations IA pour le BTP → création avec l’IA (NIV-10).
  * Un seul lien interne vers la fiche formation sur la page d’accueil.
  */
 export function AccueilBeworkBandeau() {
@@ -188,11 +188,11 @@ export function AccueilBeworkBandeau() {
             <div className="min-w-0">
               <div className="overflow-hidden rounded-xl border border-slate-200/90 bg-slate-100 shadow-[0_8px_30px_rgba(55,124,243,0.08)]">
                 <Image
-                  src={PHOTOS.formationNiv06CursorBtp2026.src}
-                  alt="Formation développement avec l’IA — créer un site ou un outil métier sans coder"
-                  title="Développement web avec l’IA — sans savoir coder"
-                  width={PHOTOS.formationNiv06CursorBtp2026.width}
-                  height={PHOTOS.formationNiv06CursorBtp2026.height}
+                  src={PHOTOS.formationNiv10DevWebIaHero2026.src}
+                  alt={PHOTOS.formationNiv10DevWebIaHero2026.alt}
+                  title={PHOTOS.formationNiv10DevWebIaHero2026.title}
+                  width={PHOTOS.formationNiv10DevWebIaHero2026.width}
+                  height={PHOTOS.formationNiv10DevWebIaHero2026.height}
                   className="h-auto w-full object-cover"
                   sizes="(max-width: 1024px) 100vw, 560px"
                 />
