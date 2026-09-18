@@ -8,6 +8,7 @@ const chipClass =
 /** Maillage SEO compact — liens thématiques sans liste exhaustive. */
 export function FormationsCatalogueMaillageSection() {
   const links = [
+    { href: LINKS.formationIaBtpPillar, label: 'Formation IA BTP — guide complet' },
     { href: LINKS.formationParis, label: 'Formation IA BTP à Paris' },
     { href: LINKS.iaDevis, label: 'IA devis bâtiment' },
     { href: LINKS.iaAnalyseDce, label: 'Analyser un DCE avec l’IA' },

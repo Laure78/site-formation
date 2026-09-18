@@ -51,11 +51,8 @@ export const LINKS = {
   accueilRdv: '/prendre-rdv',
   /** @deprecated Ancienne URL longue — 301 vers `prendreRdv`. */
   prendreRdvLegacy: '/prendre-rendez-vous',
-  /**
-   * Ancien pilier `/formation-ia-btp` (308 → catalogue).
-   * Canonique : `/formations` — préférer `LINKS.formations` pour les nouveaux liens.
-   */
-  formationIaBtp: '/formations',
+  /** Pilier SEO — formation IA BTP / formation IA bâtiment (intention principale). */
+  formationIaBtp: '/formation-ia-btp',
   /** Landing SEO cluster — formation IA entreprises de construction (ETI, EG, MOE, BET) */
   formationIaConstruction: '/formation-ia-construction',
   /** Cluster SEO — formation ChatGPT BTP (outil) */
@@ -68,8 +65,8 @@ export const LINKS = {
   formationClaudeBtp: '/formations/maitriser-claude-ai-btp',
   /** @deprecated Doublon Paris — 301 → `formationIaBtpParis` */
   formationIaEntrepriseBatimentParis: '/formation-ia-btp-paris',
-  /** Pilier SEO cluster — formation IA pour le BTP (page maîtresse) */
-  formationIaBtpPillar: '/formations',
+  /** Alias — même URL que `formationIaBtp` (page pilier formation IA BTP). */
+  formationIaBtpPillar: '/formation-ia-btp',
   /** Guide Claude AI — Anthropic, interfaces, prompts BTP */
   claudeAiBtp: '/claude-ai-btp',
   /**

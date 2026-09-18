@@ -15,6 +15,18 @@ import {
   siteHasPublicPhone,
 } from '@/lib/seo';
 import { getFaqFormationIaBtpPillar } from '@/lib/formation-ia-btp-pillar-faq';
+import {
+  FORMATION_IA_BTP_PILLAR_DESCRIPTION,
+  FORMATION_IA_BTP_PILLAR_H1,
+  FORMATION_IA_BTP_PILLAR_TITLE,
+  FORMATION_IA_BTP_CAS_USAGE,
+  FORMATION_IA_BTP_EN_BREF,
+  FORMATION_IA_BATIMENT_DEFINITION,
+  FORMATION_IA_BTP_DEFINITION,
+} from '@/lib/formation-ia-btp-pillar-content';
+import { ShortAnswerBlock } from '@/components/landing/ShortAnswerBlock';
+import { ContentUpdatedLine } from '@/components/seo/ContentUpdatedLine';
+import { getPillarPageContentUpdatedAt } from '@/lib/content-updated-at';
 import { PHOTOS } from '@/lib/photos';
 import { PROOF } from '@/lib/proof';
 import { QUALIOPI_CERTIFICAT_REALISATION } from '@/config/qualiopi';
@@ -27,16 +39,15 @@ const PATH = '/formation-ia-btp';
 const ogImage = PHOTOS.formationIaBtpOgPortrait2026;
 
 
-const FORMATION_IA_BTP_META_DESCRIPTION = `Formation IA pour le BTP en Île-de-France : ChatGPT pour devis, AO et chantier. Qualiopi, Constructys selon éligibilité. Visio découverte.`;
-
 export const metadata = createPageMetadata({
-  title: 'Formation IA bâtiment IDF — ChatGPT 2026',
-  description: FORMATION_IA_BTP_META_DESCRIPTION,
+  title: 'Formation IA BTP : IA appliquée au bâtiment',
+  titleAbsolute: FORMATION_IA_BTP_PILLAR_TITLE,
+  description: FORMATION_IA_BTP_PILLAR_DESCRIPTION,
   descriptionFinal: true,
   path: PATH,
   appendAuthorSuffix: false,
-  openGraphTitle: 'Formation IA pour les pros du BTP Île-de-France — ChatGPT 2026',
-  openGraphDescription: FORMATION_IA_BTP_META_DESCRIPTION,
+  openGraphTitle: FORMATION_IA_BTP_PILLAR_TITLE,
+  openGraphDescription: FORMATION_IA_BTP_PILLAR_DESCRIPTION,
   image: {
     url: ogImage.src,
     width: ogImage.width,
@@ -44,19 +55,20 @@ export const metadata = createPageMetadata({
     alt: ogImage.alt,
   },
   keywords: [
+    'formation IA BTP',
+    'formation IA bâtiment',
     'formation IA pour le BTP',
+    'formation intelligence artificielle BTP',
     'formation ChatGPT BTP',
-    'formation intelligence artificielle bâtiment',
-    'Qualiopi',
-    'OPCO Constructys',
-    'Île-de-France',
-    'Grand Paris',
+    'formatrice IA BTP',
+    'organisme de formation IA BTP',
     'Laure Olivié',
+    'Qualiopi',
+    'Île-de-France',
   ],
 });
 
-const courseName =
-  'Formation IA pour les pros du BTP — ChatGPT pour le Bâtiment en Île-de-France';
+const courseName = 'Formation IA BTP — intelligence artificielle appliquée au bâtiment';
 
 const courseBase = getCourseSchema({
   name: courseName,
@@ -149,17 +161,32 @@ export default function FormationIaBtpPillarPage() {
               OFC Création d&apos;Entreprise · organisme certifié Qualiopi · Constructys
             </p>
             <h1 className="mt-4 font-display text-3xl font-bold tracking-tight text-slate-900 md:text-4xl lg:text-[2.75rem] lg:leading-tight">
-              Formation IA appliquée au bâtiment — ChatGPT pour le Bâtiment en Île-de-France
+              {FORMATION_IA_BTP_PILLAR_H1}
             </h1>
+            <ContentUpdatedLine
+              date={getPillarPageContentUpdatedAt('/formation-ia-btp')}
+              className="mt-3 text-sm text-slate-600"
+            />
             <p className="mt-4 text-base font-semibold text-slate-800">
               {formatNoteSatisfactionSur5()} · organisme certifié Qualiopi
             </p>
             <div className="mx-auto mt-8 max-w-2xl space-y-6 text-left md:mx-0">
+              <ShortAnswerBlock>{FORMATION_IA_BTP_EN_BREF}</ShortAnswerBlock>
               <BlocCtaHaut />
             </div>
             <nav aria-label="Sommaire de la page" className="not-prose mx-auto mt-10 max-w-2xl rounded-xl border border-slate-200 bg-white p-5 text-left text-sm md:mx-0">
               <p className="font-semibold text-slate-900">Sommaire</p>
               <ul className="mt-3 list-inside list-disc space-y-1.5 text-[var(--accent)] marker:text-[var(--accent)]">
+                <li>
+                  <a href="#definitions" className="text-slate-700 underline-offset-2 hover:underline">
+                    Formation IA BTP et formation IA bâtiment — définitions
+                  </a>
+                </li>
+                <li>
+                  <a href="#cas-usage" className="text-slate-700 underline-offset-2 hover:underline">
+                    Cas d&apos;usage IA en entreprise du bâtiment
+                  </a>
+                </li>
                 <li>
                   <a href="#probleme" className="text-slate-700 underline-offset-2 hover:underline">
                     Pourquoi les PME du bâtiment perdent du temps sur l&apos;administratif
@@ -213,7 +240,61 @@ export default function FormationIaBtpPillarPage() {
       </header>
 
       <article className="mx-auto max-w-3xl px-4 py-14 prose prose-slate max-w-none prose-headings:font-display prose-a:text-[var(--accent)]">
-        <section id="probleme" className="not-prose scroll-mt-24">
+        <section id="definitions" className="not-prose scroll-mt-24">
+          <Reveal as="div" className="space-y-5 text-base leading-relaxed text-slate-700">
+            <h2 className="font-display text-2xl font-bold text-slate-900">
+              Qu&apos;est-ce qu&apos;une formation IA BTP — et une formation IA bâtiment ?
+            </h2>
+            <p>{FORMATION_IA_BTP_DEFINITION}</p>
+            <p>{FORMATION_IA_BATIMENT_DEFINITION}</p>
+            <aside
+              className="rounded-xl border border-slate-200 bg-slate-50 p-5 text-sm text-slate-800"
+              aria-label="À retenir"
+            >
+              <p className="font-display font-semibold text-slate-900">À retenir</p>
+              <p className="mt-2">
+                Laure Olivié forme les professionnels du BTP via OFC Création d&apos;Entreprise (Qualiopi) :
+                présentiel Île-de-France, travail sur vos documents, financement OPCO possible selon éligibilité —
+                pas de promesse de prise en charge garantie.
+              </p>
+            </aside>
+          </Reveal>
+        </section>
+
+        <section id="cas-usage" className="not-prose mt-16 scroll-mt-24">
+          <Reveal>
+            <h2 className="font-display text-2xl font-bold text-slate-900">
+              Cas d&apos;usage : intelligence artificielle dans le BTP
+            </h2>
+            <p className="mt-4 text-slate-700 leading-relaxed">
+              Réponses directes aux questions les plus fréquentes des dirigeants et conducteurs de travaux — chaque
+              bloc est autonome pour faciliter la lecture et l&apos;extraction d&apos;information.
+            </p>
+          </Reveal>
+          <RevealGroup className="mt-8 space-y-8" staggerMs={40}>
+            {FORMATION_IA_BTP_CAS_USAGE.map((item) => (
+              <div key={item.question} className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+                <h3 className="font-display text-lg font-semibold text-slate-900">{item.question}</h3>
+                <p className="mt-3 text-slate-700 leading-relaxed">{item.reponse}</p>
+                {item.exemple ? (
+                  <p className="mt-3 rounded-lg bg-slate-50 p-4 text-sm text-slate-700">
+                    <strong className="text-slate-900">Exemple BTP — </strong>
+                    {item.exemple.replace(/^Exemple BTP\s*:\s*/i, '')}
+                  </p>
+                ) : null}
+                {item.href && item.hrefLabel ? (
+                  <p className="mt-3">
+                    <Link href={item.href} className="font-semibold text-[var(--accent)] hover:underline">
+                      {item.hrefLabel}
+                    </Link>
+                  </p>
+                ) : null}
+              </div>
+            ))}
+          </RevealGroup>
+        </section>
+
+        <section id="probleme" className="not-prose mt-16 scroll-mt-24">
           <Reveal as="div" className="space-y-5 text-base leading-relaxed text-slate-700">
           <h2 className="font-display text-2xl font-bold text-slate-900">
             Pourquoi les PME du bâtiment perdent du temps sur l&apos;administratif
@@ -627,7 +708,7 @@ export default function FormationIaBtpPillarPage() {
 
         <section className="not-prose mt-16 border-t border-slate-200 pt-12">
           <h2 className="font-display text-2xl font-bold text-slate-900">
-            Formations IA spécialisées — cluster SEO
+            Formations IA spécialisées par thème
           </h2>
           <ul className="mt-4 list-inside list-disc space-y-2 text-[var(--accent)] marker:text-[var(--accent)]">
             <li>
