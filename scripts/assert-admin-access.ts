@@ -38,6 +38,11 @@ assert.equal(
   true,
   'email fondatrice toujours inclus en secours'
 );
+assert.equal(
+  parseAllowedAdminEmails(undefined).has('contact@laureolivie.fr'),
+  true,
+  'contact@laureolivie.fr dans allowlist par défaut'
+);
 
 const runtimeAllow = parseAllowedAdminEmails(process.env.ADMIN_ALLOWED_EMAILS);
 const adminEmail = [...runtimeAllow][0];

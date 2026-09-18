@@ -9,17 +9,20 @@ export { sanitizeInternalPath };
  * Fallback liste blanche si ADMIN_ALLOWED_EMAILS est absent.
  * Ne suffit jamais seul : le rôle `admin` en base est toujours exigé (voir canAccessAdmin).
  */
-const DEFAULT_ADMIN_LOGIN_EMAIL = 'laureolivie@yahoo.fr';
+const DEFAULT_ADMIN_LOGIN_EMAILS = [
+  'laureolivie@yahoo.fr',
+  'contact@laureolivie.fr',
+] as const;
 
 /** Emails autorisés à accéder à /admin (liste blanche, défense en profondeur). */
 export function parseAllowedAdminEmails(
   envValue: string | undefined = process.env.ADMIN_ALLOWED_EMAILS
 ): Set<string> {
   const fromEnv = envValue?.trim();
-  // Toujours inclure l’email fondatrice en secours (en plus de la liste env).
+  // Toujours inclure les emails fondatrice en secours (en plus de la liste env).
   const raw = fromEnv
-    ? `${fromEnv},${DEFAULT_ADMIN_LOGIN_EMAIL}`
-    : DEFAULT_ADMIN_LOGIN_EMAIL;
+    ? `${fromEnv},${DEFAULT_ADMIN_LOGIN_EMAILS.join(',')}`
+    : DEFAULT_ADMIN_LOGIN_EMAILS.join(',');
   return new Set(
     raw
       .split(',')

@@ -101,6 +101,11 @@ export default async function AccesAdminPage() {
               <strong className="font-semibold">{profile?.role ?? 'profil introuvable'}</strong>
             </p>
             <p className="mt-2 text-sm text-amber-900">
+              L&apos;espace admin exige le rôle <strong>admin</strong> (ou formateur) en base.
+              Compte autorisé : <strong>laureolivie@yahoo.fr</strong> ou{' '}
+              <strong>contact@laureolivie.fr</strong> — après promotion du rôle dans Supabase.
+            </p>
+            <p className="mt-2 text-sm text-amber-900">
               Support :{' '}
               <a
                 href={`mailto:${SCHEMA_CONTACT.email}`}
