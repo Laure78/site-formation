@@ -61,6 +61,10 @@ const TUTO_METRE_EXCEL: MaillageLink = {
   href: LINKS.tutoSkillMetreExcelOfc,
   label: 'Tuto PDF — skill métré Excel',
 };
+const TUTO_CHIFFRAGE_DEVIS: MaillageLink = {
+  href: LINKS.tutoSkillChiffrageDevisOfc,
+  label: 'Tuto PDF — skill chiffrage de devis',
+};
 const TUTO_TRI_DCE: MaillageLink = {
   href: LINKS.tutoTriDceClaudeChrome,
   label: 'Tuto PDF — trier un DCE avec Claude in Chrome',
@@ -138,7 +142,17 @@ export const MAILLAGE_RESSOURCES_BY_PATH: Readonly<Record<string, MaillageRessou
   },
   [LINKS.tutoSkillMetreExcelOfc]: {
     pilier: PILIER_ETUDES_PRIX,
-    soeurs: [TUTO_ANALYSE_DCE, TUTO_MEMOIRE],
+    soeurs: [TUTO_CHIFFRAGE_DEVIS, TUTO_ANALYSE_DCE],
+    blog: [
+      {
+        href: LINKS.blogChiffrageCctpBpu,
+        label: 'Article — chiffrage CCTP et BPU sur appels d’offres BTP',
+      },
+    ],
+  },
+  [LINKS.tutoSkillChiffrageDevisOfc]: {
+    pilier: PILIER_ETUDES_PRIX,
+    soeurs: [TUTO_METRE_EXCEL, TUTO_ANALYSE_DCE],
     blog: [
       {
         href: LINKS.blogChiffrageCctpBpu,

@@ -170,6 +170,8 @@ const TUTO_HUB_DESCRIPTIONS: Partial<Record<string, string>> = {
     'Générer un livret d’accueil à partir de vos documents internes — sécurité, EPI et parcours d’intégration à valider.',
   'tuto-skill-metre-excel-ofc':
     'Créer un skill Claude pour produire un classeur Excel de métré par lot — formules et coefficients à contrôler.',
+  'tuto-skill-chiffrage-devis-ofc':
+    'Créer un skill Claude pour transformer un métré en devis Word/Excel — BPU, coefficients et TVA à contrôler.',
   'tuto-skill-diuo-ofc':
     'Préparer la liasse DIUO pour le coordonnateur SPS : plans, notices et checklist fourni / manquant.',
 };
@@ -210,6 +212,7 @@ const TUTO_SAFETY: Partial<Record<string, RessourceSafetyLevel>> = {
   'tuto-pv-levee-reserves': 'verification_professionnelle',
   'tuto-skill-diuo-ofc': 'verification_professionnelle',
   'tuto-skill-memoire-reclamation-bework': 'verification_professionnelle',
+  'tuto-skill-chiffrage-devis-ofc': 'verification_professionnelle',
 };
 
 const GUIDE_STATUS: Partial<Record<string, RessourceStatus>> = {

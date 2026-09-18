@@ -338,6 +338,10 @@ export const LINKS = {
   tutoSkillMetreExcelOfc: '/ressources/tuto-skill-metre-excel-ofc',
   /** PDF — tuto skill métré Excel OFC */
   pdfTutoSkillMetreExcelOfc: '/ressources/pdf/tuto-skill-metre-excel-ofc.pdf',
+  /** Tuto — skill chiffrage de devis BTP (BPU, coefficients, TVA) */
+  tutoSkillChiffrageDevisOfc: '/ressources/tuto-skill-chiffrage-devis-ofc',
+  /** PDF — tuto skill chiffrage de devis OFC */
+  pdfTutoSkillChiffrageDevisOfc: '/ressources/pdf/tuto-skill-chiffrage-devis-ofc.pdf',
   /** Tuto web — skill Claude pour préparer un PIC (sans PDF) */
   tutoSkillPic: '/ressources/tuto-skill-pic',
   tutoPvLeveeReserves: '/ressources/tuto-pv-levee-reserves',

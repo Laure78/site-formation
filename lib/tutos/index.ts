@@ -20,11 +20,13 @@ import { TUTO_SKILL_DIUO_OFC } from './tuto-skill-diuo-ofc';
 import { TUTO_SKILL_LIVRET_INTEGRATION_OFC } from './tuto-skill-livret-integration-ofc';
 import { TUTO_SKILL_MEMOIRE_RECLAMATION_BEWORK } from './tuto-skill-memoire-reclamation-bework';
 import { TUTO_SKILL_METRE_EXCEL_OFC } from './tuto-skill-metre-excel-ofc';
+import { TUTO_SKILL_CHIFFRAGE_DEVIS_OFC } from './tuto-skill-chiffrage-devis-ofc';
 
 export const TUTOS: ReadonlyArray<TutoData> = [
   TUTO_MEMOIRE_TECHNIQUE,
   TUTO_ANALYSE_DCE,
   TUTO_SKILL_METRE_EXCEL_OFC,
+  TUTO_SKILL_CHIFFRAGE_DEVIS_OFC,
   TUTO_TRI_DCE_CLAUDE_CHROME,
   TUTO_SKILL_MEMOIRE_RECLAMATION_BEWORK,
   TUTO_CR_CHANTIER,

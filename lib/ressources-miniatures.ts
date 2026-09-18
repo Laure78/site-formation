@@ -122,4 +122,10 @@ export const RESSOURCES_MINIATURES = {
     width: 1024,
     height: 1024,
   },
+  tutoSkillChiffrageDevis: {
+    src: `${BASE}/miniature-tuto-skill-chiffrage-devis.jpg`,
+    alt: 'Créer un skill chiffrage de devis BTP — tuto offert PDF gratuit, formation IA pour le BTP',
+    width: 1024,
+    height: 1024,
+  },
 } as const satisfies Record<string, RessourceMiniature>;

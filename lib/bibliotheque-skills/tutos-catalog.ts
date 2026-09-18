@@ -18,6 +18,8 @@ const TUTO_SHORT_SUMMARY: Record<string, string> = {
   'tuto-memoire-technique': 'Crée un skill qui rédige tes mémoires techniques BTP.',
   'tuto-analyse-dce': 'Analyse un DCE et produis une fiche Go / No Go en minutes.',
   'tuto-skill-metre-excel-ofc': 'Métré Excel traçable : formules, DPGF et points à vérifier.',
+  'tuto-skill-chiffrage-devis-ofc':
+    'Devis BTP chiffré : BPU, coefficients, TVA et mise en page Word/Excel.',
   'tuto-tri-dce-claude-chrome': 'Veille DCE automatique sur BOAMP avec Claude in Chrome.',
   'tuto-cr-chantier': 'Dictée vocale → compte rendu de chantier formaté.',
   'tuto-doe-dossier-ouvrages-executes': 'Assemble un DOE structuré sans y passer le week-end.',

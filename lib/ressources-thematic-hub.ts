@@ -35,6 +35,7 @@ export const RESSOURCES_THEMATIC_BLOCKS: readonly RessourceThematicBlock[] = [
       { label: 'Tuto PDF — skill Analyse CCAP', href: LINKS.pdfTutoSkillAnalyseCcap },
       { label: 'Tuto — skill mémoire technique', href: LINKS.tutoMemoireTechnique },
       { label: 'Tuto — skill métré Excel', href: LINKS.tutoSkillMetreExcelOfc },
+      { label: 'Tuto — skill chiffrage de devis', href: LINKS.tutoSkillChiffrageDevisOfc },
       { label: 'Tuto — skill mémoire de réclamation', href: LINKS.tutoSkillMemoireReclamationBework },
       { label: 'Tuto — analyse de DCE', href: LINKS.tutoAnalyseDce },
       { label: 'Tuto — tri DCE (Claude in Chrome)', href: LINKS.tutoTriDceClaudeChrome },
