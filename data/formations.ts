@@ -436,7 +436,7 @@ export const FORMATIONS: readonly Formation[] = [
       '/formations/developpement-web-ia-sans-coder/programme-ofc-developpement-web-ia-7h.pdf',
     programmeVersion: 'Version 1',
     programmeUpdatedAt: '18/09/2026',
-    image: '/images/bework-hero-bureau-chantier-plans.png',
+    image: '/images/formation-ia-architecture-claude-presentiel-groupe.jpg',
   },
 ] as const;
 

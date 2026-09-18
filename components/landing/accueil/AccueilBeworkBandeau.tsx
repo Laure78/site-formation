@@ -1,11 +1,12 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { ArrowRight, Check } from 'lucide-react';
-import { BeworkHeroVideo } from '@/components/bework/BeworkHeroVideo';
 import { LINKS } from '@/lib/internal-links';
 import {
   TARIF_INTER_DEV_WEB_IA_HT,
 } from '@/lib/formation-developpement-web-ia-content';
 import { formatTarifHt } from '@/lib/tarifs-sessions';
+import { PHOTOS } from '@/lib/photos';
 
 const TRANSITION_STEPS = [
   'Se former à l’IA',
@@ -185,7 +186,17 @@ export function AccueilBeworkBandeau() {
             </div>
 
             <div className="min-w-0">
-              <BeworkHeroVideo />
+              <div className="overflow-hidden rounded-xl border border-slate-200/90 bg-slate-100 shadow-[0_8px_30px_rgba(55,124,243,0.08)]">
+                <Image
+                  src={PHOTOS.formationNiv06CursorBtp2026.src}
+                  alt="Formation développement avec l’IA — créer un site ou un outil métier sans coder"
+                  title="Développement web avec l’IA — sans savoir coder"
+                  width={PHOTOS.formationNiv06CursorBtp2026.width}
+                  height={PHOTOS.formationNiv06CursorBtp2026.height}
+                  className="h-auto w-full object-cover"
+                  sizes="(max-width: 1024px) 100vw, 560px"
+                />
+              </div>
               <p className="mt-3 text-center text-xs text-[#64748B]">
                 Présentiel ou visio · Petit groupe · Première version, pas une app de production
               </p>
