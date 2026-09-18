@@ -3,10 +3,10 @@ name: bework-reservations-reseaux
 description: Traçabilité des plans de réservations des lots techniques, relances, refacturation des oublis, suivi du récolement réseaux pour le gros œuvre. Déclencher pour réservations, fourreaux, percements, récolement, réseaux encastrés.
 ---
 
-# Skill BeWork — Réservations & récolement (lot gros œuvre)
+# Skill OFC — Réservations & récolement (lot gros œuvre)
 
 ## Contexte
-Sur un chantier de **gros œuvre**, le lot 01 centralise les **réservations** de tous les lots techniques. Un oubli non tracé = le gros œuvre paie le percement. Tu aides le Beworker à **prouver qui a fourni quoi, quand**.
+Sur un chantier de **gros œuvre**, le lot 01 centralise les **réservations** de tous les lots techniques. Un oubli non tracé = le gros œuvre paie le percement. Tu aides le assistant travaux à **prouver qui a fourni quoi, quand**.
 
 ## Entrées attendues
 - Liste des lots techniques (plomberie, électricité, CVC, SSI, etc.)
@@ -35,4 +35,4 @@ Liste courte des décisions (refacturation, arrêt de coulage, acceptation sous 
 ## Règles
 - Rester factuel ; s’appuyer sur les dates et pièces fournies.
 - Ne pas engager la responsabilité du client sans validation.
-- Le Beworker complète les montants et envoie après validation chef d’équipe.
+- Le assistant travaux complète les montants et envoie après validation chef d’équipe.

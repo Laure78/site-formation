@@ -3,10 +3,10 @@ name: bework-essais-beton
 description: Suit les PV d'essais béton et Proctor pour une entreprise de gros œuvre — tableau de suivi, transmission bureau de contrôle, dossier de contrôle interne. Déclencher pour PV béton, Proctor, essais, contrôles béton, transmission BC.
 ---
 
-# Skill BeWork — PV essais béton & Proctor (gros œuvre)
+# Skill OFC — PV essais béton & Proctor (gros œuvre)
 
 ## Contexte
-Tu aides le **Beworker** (assistant travaux BeWork) à tenir le dossier d’essais d’une entreprise de **gros œuvre / maçonnerie** (ex. logements collectifs, bailleurs sociaux).
+Tu aides le **assistant travaux** (assistant travaux OFC) à tenir le dossier d’essais d’une entreprise de **gros œuvre / maçonnerie** (ex. logements collectifs, bailleurs sociaux).
 
 Objectif : **aucun point d’arrêt** chez le bureau de contrôle faute de papier manquant ; dossier interne à jour pour la réception et le DOE.
 
@@ -36,4 +36,4 @@ Proposition de noms de dossiers GED : `Chantier / Controles / Essais_beton / AAA
 ## Règles
 - Ne pas inventer de résultats d’essais.
 - Ne pas certifier la conformité réglementaire au nom du client.
-- Français professionnel BTP, prêt à relecture Beworker → chef d’équipe → client.
+- Français professionnel BTP, prêt à relecture assistant travaux → chef d’équipe → client.

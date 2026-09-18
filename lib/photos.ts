@@ -651,32 +651,6 @@ export const PHOTOS = {
     height: 682,
   },
 
-  /** BeWork — solutions IA sur mesure BTP (support casque, site bework.fr) */
-  beworkHeroRelaisAdministratif: {
-    src: '/images/bework-relais-administratif-chantier-support.webp',
-    alt: "Collaboratrice BeWork au casque — solutions IA chantier BTP, poste avec plans et écran",
-    title: 'BeWork — solutions IA sur mesure BTP, service complémentaire aux formations OFC',
-    width: 1024,
-    height: 629,
-  },
-
-  /** Formation création avec l’IA — bureau / plans chantier */
-  beworkHeroBureauChantier: {
-    src: '/images/bework-hero-bureau-chantier-plans.png',
-    alt: 'Création avec l’IA — collaboratrice au laptop, plans de chantier, formation sans coder',
-    title: 'Développement web avec l’IA — sans savoir coder',
-    width: 1024,
-    height: 768,
-  },
-
-  /** BeWork — visuel produit : solutions IA, DOE, situations, tableau de bord */
-  beworkRelaisMarchesTravaux: {
-    src: '/images/bework-relais-marches-travaux-bureau-chantier.png',
-    alt: "BeWork — solutions IA sur mesure BTP, chantiers, documents et outils métier",
-    width: 1024,
-    height: 1024,
-  },
-
   /** Cartes catalogue niveau 1 et niveau 2 — affiches promotionnelles par formation (juin 2026). */
   formationNiv01IaBatimentTravauxPublics2026: {
     src: '/images/formation-ia-batiment-travaux-publics.webp',

@@ -68,7 +68,7 @@ const JOURNEE_ETAPES = [
  * Accueil — transition Formation IA BTP → création avec l’IA (NIV-10).
  * Un seul lien interne vers la fiche formation sur la page d’accueil.
  */
-export function AccueilBeworkBandeau() {
+export function AccueilDevWebIaBandeau() {
   const tarifLabel = formatTarifHt(TARIF_INTER_DEV_WEB_IA_HT);
 
   return (

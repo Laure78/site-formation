@@ -7,7 +7,7 @@ export type AlertesOptions = {
 };
 
 /**
- * Alertes de complétude (codes du cahier BeWork) — heuristiques locales, sans chiffrage normatif.
+ * Alertes de complétude — heuristiques locales, sans chiffrage normatif.
  */
 export function buildAlertes(line: string, match: DtuRecord | null, opts: AlertesOptions): string[] {
   const alertes: string[] = [];

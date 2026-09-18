@@ -57,7 +57,7 @@
   --radius-lg: 0.9375rem;
   --radius-xl: 1.125rem;
 
-  /* ——— Ombres (shadow-ofc-md…) — premium discret façon BeWork ——— */
+  /* ——— Ombres (shadow-ofc-md…) — premium discret ——— */
   --shadow-ofc-sm: 0 1px 2px rgba(15, 23, 42, 0.04), 0 4px 16px rgba(15, 23, 42, 0.04);
   --shadow-ofc-md: 0 4px 14px rgba(15, 23, 42, 0.06);
   --shadow-ofc-lg: 0 12px 32px rgba(15, 23, 42, 0.08);
@@ -106,7 +106,7 @@
     /* Header desktop : barre actions + menu (2 lignes) */
     --site-header-height-lg: 6.5rem;
 
-    /* Conteneur site — aligné BeWork (1280px) */
+    /* Conteneur site (1280px) */
     --ofc-site-max-width: 80rem;
 
     /* Espacement sections — respiration premium 48–160 px */
@@ -190,7 +190,7 @@
   font-family: var(--font-display), ui-sans-serif, system-ui, sans-serif;
 }
 
-/* ——— Échelle typographique OFC — hiérarchie premium (esprit BeWork, identité LO) ——— */
+/* ——— Échelle typographique OFC — hiérarchie premium ——— */
 .ofc-type-hero {
   font-family: var(--font-display), ui-sans-serif, system-ui, sans-serif;
   font-size: clamp(2.5rem, 1.4rem + 4.2vw, 5.5rem);

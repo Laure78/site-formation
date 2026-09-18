@@ -32,7 +32,7 @@ import {
 } from '@/lib/data/indicateurs-resultats';
 import { OFC_CTA_PRIMARY, OFC_CTA_SECONDARY, OFC_LINK } from '@/lib/ofc-interaction-classes';
 import { FormationHeroOutilsNote } from '@/components/formations/FormationHeroOutilsNote';
-import { FormationBeworkPasserelle } from '@/components/formations/FormationBeworkPasserelle';
+import { FormationDevWebPasserelle } from '@/components/formations/FormationDevWebPasserelle';
 import { EvenementAoBtpPromoEncart } from '@/components/evenements/EvenementAoBtpPromoEncart';
 
 const CATALOGUE_SEO = getFormationCatalogueSeo('NIV-02');
@@ -579,7 +579,7 @@ export default function FormationIAAppelsOffreBTPPage() {
         className="border-b border-slate-200 bg-slate-50 px-4 py-8 md:py-10"
       />
 
-      <FormationBeworkPasserelle />
+      <FormationDevWebPasserelle />
 
       <section className="bg-[#377CF3] px-4 py-8 md:py-10 text-white">
         <div className="mx-auto max-w-2xl text-center">

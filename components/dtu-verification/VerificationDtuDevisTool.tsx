@@ -21,7 +21,7 @@ function todayFr(): string {
   return `${dd}/${mm}/${yyyy}`;
 }
 
-export function VerificationDtuBeworkTool() {
+export function VerificationDtuDevisTool() {
   const dtus = useMemo(() => (baseFile as DtuBaseFile).dtus, []);
   const [raw, setRaw] = useState('');
   const [client, setClient] = useState('');
@@ -54,7 +54,7 @@ export function VerificationDtuBeworkTool() {
       client: client.trim() || 'Client non renseigné',
       projet: projet.trim() || 'Projet non renseigné',
       date: todayFr(),
-      redacteur: 'BeWork',
+      redacteur: 'OFC Création d\'Entreprise',
       lignes: rows,
       memo_paragraphs:
         memoParagraphs ??
@@ -66,7 +66,7 @@ export function VerificationDtuBeworkTool() {
         }),
     };
     try {
-      const res = await fetch('/api/verification-dtu-bework/docx', {
+      const res = await fetch('/api/verification-dtu-devis/docx', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload),
@@ -211,10 +211,10 @@ export function VerificationDtuBeworkTool() {
               onClick={downloadDocx}
               disabled={exporting}
               className={`rounded-xl border-2 px-6 py-3 font-semibold text-white hover:opacity-90 disabled:opacity-60 ${
-                exporting ? 'border-slate-400 bg-slate-400' : 'border-[#1D4ED8] bg-[#1D4ED8]'
+                exporting ? 'border-slate-400 bg-slate-400' : 'border-[#377CF3] bg-[#377CF3]'
               }`}
             >
-              {exporting ? 'Génération…' : 'Télécharger le rapport Word (charte BeWork)'}
+              {exporting ? 'Génération…' : 'Télécharger le rapport Word (charte OFC)'}
             </button>
           )}
         </div>
@@ -409,11 +409,12 @@ export function VerificationDtuBeworkTool() {
 
       <footer className="border-t border-slate-200 pt-8 text-center text-sm text-slate-600">
         <p>
-          Intégration future : dépôt devis sur{' '}
-          <a href="https://www.bework.fr" className="font-semibold text-[#377CF3] underline">
-            bework.fr
-          </a>{' '}
-          et livrables client — ce prototype locale ne transmet aucune donnée à un tiers.
+          Prototype local — aucune donnée n’est transmise à un tiers. Pour une mise en production dans votre
+          organisation,{' '}
+          <Link href={LINKS.contact} className="font-semibold text-[#377CF3] underline-offset-2 hover:underline">
+            contactez OFC
+          </Link>
+          .
         </p>
         <p className="mt-4">
           <Link href={LINKS.outilsIaBtp} className="font-semibold text-[#377CF3] underline-offset-2 hover:underline">

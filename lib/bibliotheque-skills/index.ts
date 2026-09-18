@@ -9,7 +9,7 @@ import {
 import { RESSOURCES_TUTO_SKILLS } from './tutos-catalog';
 import { SKILL_INSTALL_TUTORIAL } from './tutorial';
 
-export type BibliothequeSkillSource = 'bework' | 'tuto-ofc';
+export type BibliothequeSkillSource = 'import' | 'tuto-ofc';
 
 export type BibliothequeSkillEntry = {
   id: string;
@@ -25,12 +25,12 @@ export type BibliothequeSkillEntry = {
   hasAssets?: boolean;
 };
 
-const BEWORK_SKILLS: BibliothequeSkillEntry[] = manifest.skills.map((s) => ({
+const IMPORT_SKILLS: BibliothequeSkillEntry[] = manifest.skills.map((s) => ({
   id: s.id,
   name: getSkillDisplayName(s.id, s.name),
   summary: getSkillShortDescription(s.id, s.description.slice(0, 120) + '…'),
   category: getSkillCategory(s.id),
-  source: 'bework' as const,
+  source: 'import' as const,
   mdUrl: s.mdUrl,
   skillMdUrl: s.skillMdUrl,
   skillUrl: s.skillUrl,
@@ -47,10 +47,12 @@ const TUTO_SKILLS: BibliothequeSkillEntry[] = RESSOURCES_TUTO_SKILLS.map((t) => 
   pdfUrl: t.pdfUrl,
 }));
 
-export const BIBLIOTHEQUE_SKILLS: BibliothequeSkillEntry[] = [...BEWORK_SKILLS, ...TUTO_SKILLS];
+export const BIBLIOTHEQUE_SKILLS: BibliothequeSkillEntry[] = [...IMPORT_SKILLS, ...TUTO_SKILLS];
 
 export const BIBLIOTHEQUE_SKILLS_COUNT = BIBLIOTHEQUE_SKILLS.length;
-export const BIBLIOTHEQUE_BEWORK_COUNT = BEWORK_SKILLS.length;
+export const BIBLIOTHEQUE_IMPORT_COUNT = IMPORT_SKILLS.length;
+/** @deprecated Préférer `BIBLIOTHEQUE_IMPORT_COUNT`. */
+export const BIBLIOTHEQUE_BEWORK_COUNT = BIBLIOTHEQUE_IMPORT_COUNT;
 export const BIBLIOTHEQUE_TUTO_COUNT = TUTO_SKILLS.length;
 
 export { SKILL_LIBRARY_CATEGORIES, SKILL_INSTALL_TUTORIAL, getSkillCategory };

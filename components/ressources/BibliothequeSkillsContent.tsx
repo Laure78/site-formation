@@ -12,7 +12,7 @@ import {
   Sparkles,
 } from 'lucide-react';
 import {
-  BIBLIOTHEQUE_BEWORK_COUNT,
+  BIBLIOTHEQUE_IMPORT_COUNT,
   BIBLIOTHEQUE_SKILLS,
   BIBLIOTHEQUE_TUTO_COUNT,
   SKILL_INSTALL_TUTORIAL,
@@ -38,7 +38,7 @@ function matchesSearch(skill: BibliothequeSkillEntry, query: string): boolean {
 }
 
 function SkillCard({ skill }: { skill: BibliothequeSkillEntry }) {
-  const isBework = skill.source === 'bework';
+  const isImportSkill = skill.source === 'import';
   const categoryLabel = SKILL_LIBRARY_CATEGORIES.find((c) => c.id === skill.category)?.label;
 
   return (
@@ -46,10 +46,10 @@ function SkillCard({ skill }: { skill: BibliothequeSkillEntry }) {
       <div className="flex flex-wrap items-center gap-2">
         <span
           className={`rounded-full px-2.5 py-0.5 text-[0.65rem] font-bold uppercase tracking-wide ${
-            isBework ? 'bg-[#EFF6FF] text-[#377CF3]' : 'bg-emerald-50 text-emerald-800'
+            isImportSkill ? 'bg-[#EFF6FF] text-[#377CF3]' : 'bg-emerald-50 text-emerald-800'
           }`}
         >
-          {isBework ? 'Import .skill' : 'Tuto PDF'}
+          {isImportSkill ? 'Import .skill' : 'Tuto PDF'}
         </span>
         {categoryLabel && (
           <span className="text-[0.65rem] font-medium text-slate-400">{categoryLabel}</span>
@@ -66,7 +66,7 @@ function SkillCard({ skill }: { skill: BibliothequeSkillEntry }) {
       )}
 
       <div className="mt-4 flex flex-wrap gap-2 border-t border-slate-100 pt-4">
-        {isBework && skill.skillUrl ? (
+        {isImportSkill && skill.skillUrl ? (
           <>
             <a
               href={skill.skillUrl}
@@ -146,7 +146,7 @@ export function BibliothequeSkillsContent() {
     });
   }, [activeCategory, sourceFilter, search]);
 
-  const beworkFiltered = useMemo(() => filtered.filter((s) => s.source === 'bework'), [filtered]);
+  const importFiltered = useMemo(() => filtered.filter((s) => s.source === 'import'), [filtered]);
   const tutoFiltered = useMemo(() => filtered.filter((s) => s.source === 'tuto-ofc'), [filtered]);
 
   const countsByCategory = useMemo(() => {
@@ -183,7 +183,7 @@ export function BibliothequeSkillsContent() {
             {(
               [
                 { id: 'all' as const, label: `Tous (${BIBLIOTHEQUE_SKILLS.length})` },
-                { id: 'bework' as const, label: `Prêts à importer (${BIBLIOTHEQUE_BEWORK_COUNT})` },
+                { id: 'import' as const, label: `Prêts à importer (${BIBLIOTHEQUE_IMPORT_COUNT})` },
                 { id: 'tuto-ofc' as const, label: `Tutos création (${BIBLIOTHEQUE_TUTO_COUNT})` },
               ] as const
             ).map(({ id, label }) => (
@@ -272,11 +272,11 @@ export function BibliothequeSkillsContent() {
               <h3 className="mb-4 flex items-center gap-2 font-display text-lg font-bold text-slate-900">
                 <Package className="h-5 w-5 text-[#377CF3]" aria-hidden />
                 Prêts à importer
-                <span className="text-sm font-normal text-slate-500">({beworkFiltered.length})</span>
+                <span className="text-sm font-normal text-slate-500">({importFiltered.length})</span>
               </h3>
               <SkillGrid
-                skills={beworkFiltered}
-                emptyMessage="Aucun skill BeWork pour ces filtres."
+                skills={importFiltered}
+                emptyMessage="Aucun skill prêt à importer pour ces filtres."
               />
             </div>
             <div>

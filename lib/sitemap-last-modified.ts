@@ -269,7 +269,7 @@ const ROUTE_SOURCE_FILES: Record<string, readonly string[]> = {
   '/reclamations': ['app/reclamations/page.tsx'],
   '/annuaire-handicap': ['app/annuaire-handicap/page.tsx'],
   '/install-pwa': ['app/install-pwa/page.tsx'],
-  '/bework': ['app/bework/page.tsx', 'lib/bework-photos.ts', 'lib/bework-programmes.ts'],
+  '/bework': ['app/bework/page.tsx'],
   '/formations/plateforme': ['app/formations/plateforme/page.tsx', 'lib/external-site-urls.ts'],
 };
 

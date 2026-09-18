@@ -67,9 +67,6 @@ function formationsNavActive(pathname: string): boolean {
   if (pathname === LINKS.formationDeveloppementWebIaSansCoder) {
     return true;
   }
-  if (pathname === LINKS.bework || pathname.startsWith(`${LINKS.bework}/`)) {
-    return true;
-  }
   if (pathname === LINKS.parcoursApplicationsMetierBtp || pathname.startsWith(`${LINKS.parcoursApplicationsMetierBtp}/`)) {
     return true;
   }

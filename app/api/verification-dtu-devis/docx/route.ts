@@ -21,7 +21,7 @@ import type { LigneAnalyse, RapportDtuPayload } from '@/lib/dtu-verification/typ
 
 export const runtime = 'nodejs';
 
-const BLUE = '1D4ED8';
+const BLUE = '377CF3';
 const LIGHT_BLUE = 'DBEAFE';
 const DARK = '0F172A';
 const LIGHT_GRAY = 'F1F5F9';
@@ -58,7 +58,7 @@ function parsePayload(body: unknown): RapportDtuPayload | null {
     client: o.client.slice(0, 200),
     projet: o.projet.slice(0, 300),
     date: o.date.slice(0, 32),
-    redacteur: typeof o.redacteur === 'string' ? o.redacteur.slice(0, 80) : 'BeWork',
+    redacteur: typeof o.redacteur === 'string' ? o.redacteur.slice(0, 80) : 'OFC Création d\'Entreprise',
     lignes: o.lignes as LigneAnalyse[],
     memo_paragraphs,
   };
@@ -79,12 +79,7 @@ function cell(children: Paragraph[], shaded = false): TableCell {
 }
 
 function readLogoBuffer(): Buffer | null {
-  try {
-    const p = path.join(process.cwd(), 'public', 'images', 'bework-logo-blueprint-delegation-administrative-btp.png');
-    return fs.readFileSync(p);
-  } catch {
-    return null;
-  }
+  return null;
 }
 
 export async function POST(req: Request): Promise<Response> {
@@ -115,7 +110,7 @@ export async function POST(req: Request): Promise<Response> {
           ]
         : [
             new TextRun({
-              text: 'BeWork',
+              text: 'OFC Création d\'Entreprise',
               bold: true,
               color: BLUE,
               size: 52,
@@ -127,7 +122,7 @@ export async function POST(req: Request): Promise<Response> {
       spacing: { after: 160 },
       children: [
         new TextRun({
-          text: 'Assistants travaux augmentés par l’IA',
+          text: 'Formation IA pour le BTP',
           color: DARK,
           bold: true,
           size: 22,
@@ -140,7 +135,7 @@ export async function POST(req: Request): Promise<Response> {
     alignment: AlignmentType.CENTER,
     children: [
       new TextRun({
-        text: 'BeWork — Assistants travaux augmentés par l’IA · bework.fr — Relais bureau-chantier BTP',
+        text: 'OFC Création d’Entreprise · Formation IA BTP · laureolivie.fr',
         bold: true,
         color: BLUE,
         size: 16,
@@ -434,7 +429,7 @@ export async function POST(req: Request): Promise<Response> {
             children: [
               new TextRun({
                 text:
-                  'Pour aller plus loin : parler de votre besoin sur bework.fr — BeWork étudie la solution adaptée.',
+                  'Pour aller plus loin : contactez OFC Création d’Entreprise pour cadrer votre besoin (formation ou usage IA métier).',
                 size: 16,
                 color: DARK,
               }),

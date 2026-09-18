@@ -2,7 +2,7 @@
  * Navigation footer — source unique des listes de liens.
  * Une seule ancre par URL sur l’ensemble du footer (pas de doublon entre colonnes).
  */
-import { BEWORK_APP_PATHS } from '@/lib/external-site-urls';
+import { PLATFORM_APP_PATHS } from '@/lib/external-site-urls';
 import { LINKS } from '@/lib/internal-links';
 import { formationHref } from '@/data/formations';
 import { getPublishedFormations } from '@/lib/formation-catalogue-visibility';
@@ -56,7 +56,7 @@ export const NAV_RESSOURCES: readonly NavItem[] = [
   { href: LINKS.casUsage, label: 'Cas d’usage' },
   { href: LINKS.etudesCasHub, label: 'Études de cas' },
   {
-    href: BEWORK_APP_PATHS.lexique,
+    href: PLATFORM_APP_PATHS.lexique,
     label: 'Lexique BTP',
     title: 'Lexique BTP — parcours, flashcards et quiz',
   },

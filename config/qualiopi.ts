@@ -57,8 +57,10 @@ export const QUALIOPI_FINANCEMENT_FORMULATION =
 export const QUALIOPI_CERTIFICAT_REALISATION =
   "Certificat de réalisation et attestation de fin de formation délivrés à l'issue de la session.";
 
-export const QUALIOPI_BEWORK_DISTINCTION =
-  "BeWork est une marque d'OFC Création d'Entreprise (organisme certifié Qualiopi — actions de formation). Formation « Développement web avec l'IA — sans savoir coder », distincte du catalogue IA BTP. Financement OPCO possible selon éligibilité.";
+export const QUALIOPI_DEV_WEB_IA_DISTINCTION =
+  "La formation « Développement web avec l'IA — sans savoir coder » est distincte du catalogue IA BTP (organisme certifié Qualiopi — actions de formation). Financement OPCO possible selon éligibilité.";
+/** @deprecated Préférer `QUALIOPI_DEV_WEB_IA_DISTINCTION`. */
+export const QUALIOPI_BEWORK_DISTINCTION = QUALIOPI_DEV_WEB_IA_DISTINCTION;
 
 export const QUALIOPI_SATISFACTION_SOURCING = PREUVES_MENTION_SOURCE;
 

@@ -228,12 +228,6 @@ export const LINKS = {
   /** Landing catalogue PME (hors les sessions catalogue NIV-01 à NIV-08) */
   formationPmeBtp: '/formations/ia-pme-btp',
 
-  /** Page présentation BeWork (formation créer avec l’IA) — site officiel : bework.fr */
-  bework: '/bework',
-  /** Programme PDF BeWork — parcours 7 h */
-  pdfProgrammeBework7h: '/bework/programme-bework-parcours-7h.pdf',
-  /** Programme PDF BeWork — parcours 14 h */
-  pdfProgrammeBework14h: '/bework/programme-bework-parcours-14h.pdf',
   /** Point d'entrée indexable vers l'espace apprenant OFC (stagiaires) */
   formationPlateforme: '/formations/plateforme',
   /** Connexion espace apprenant LMS (indexable SEO/GEO) */
@@ -244,8 +238,8 @@ export const LINKS = {
   outilsIaBtp: '/outils-ia-btp',
   /** Sélecteur interactif — cas d'usage IA par métier BTP */
   casUsageIaMetierBtp: '/outils/cas-usage-ia-btp',
-  /** Prototype noindex — test rapprochement devis / DTU (charte rapport BeWork) */
-  verificationDtuBeworkTest: '/outils/verification-dtu-bework',
+  /** Prototype noindex — test rapprochement devis / DTU */
+  verificationDtuDevis: '/outils/verification-dtu-devis',
   checklist: '/checklist-ia-btp',
   /** Lead magnet — 3 skills Claude AI BTP (fichier texte) */
   downloadClaudeSkillsBtp: '/downloads/3-skills-claude-ai-btp.txt',
@@ -333,10 +327,10 @@ export const LINKS = {
   tutoSkillLivretIntegrationOfc: '/ressources/tuto-skill-livret-integration-ofc',
   /** PDF — tuto skill livret d'intégration OFC */
   pdfTutoSkillLivretIntegrationOfc: '/ressources/pdf/tuto-skill-livret-integration-ofc.pdf',
-  /** Tuto — skill mémoire de réclamation (BeWork) */
-  tutoSkillMemoireReclamationBework: '/ressources/tuto-skill-memoire-reclamation-bework',
-  /** PDF — tuto skill mémoire de réclamation BeWork */
-  pdfTutoSkillMemoireReclamationBework:
+  /** Tuto — skill mémoire de réclamation */
+  tutoSkillMemoireReclamation: '/ressources/tuto-skill-memoire-reclamation',
+  /** PDF — tuto skill mémoire de réclamation */
+  pdfTutoSkillMemoireReclamation:
     '/ressources/pdf/tuto-skill-memoire-reclamation-bework.pdf',
   /** Tuto — skill métré Excel (quantités traçables, DPGF) */
   tutoSkillMetreExcelOfc: '/ressources/tuto-skill-metre-excel-ofc',

@@ -1,13 +1,13 @@
-import { BEWORK_APP_PATHS } from '@/lib/external-site-urls';
+import { PLATFORM_APP_PATHS } from '@/lib/external-site-urls';
 
 /** Lexique BTP interactif (app.laureolivie.fr) — source unique pour /ressources et JSON-LD */
 export const RESSOURCES_LEXIQUE = {
-  url: BEWORK_APP_PATHS.lexique,
+  url: PLATFORM_APP_PATHS.lexique,
   title: 'Lexique & apprentissage BTP',
   heading: 'Lexique BTP gratuit — vocabulaire chantier & marchés publics',
   description:
-    'Comprendre le vocabulaire des marchés publics et du chantier : parcours guidés, dictionnaire de 146 termes, flashcards et quiz. Gratuit, sans inscription — ressource pédagogique BeWork signée Laure Olivié (OFC, Qualiopi).',
-  schemaName: 'Lexique & apprentissage BTP — BeWork',
+    'Comprendre le vocabulaire des marchés publics et du chantier : parcours guidés, dictionnaire de 146 termes, flashcards et quiz. Gratuit, sans inscription — ressource pédagogique signée Laure Olivié (OFC, Qualiopi).',
+  schemaName: 'Lexique & apprentissage BTP — OFC',
   schemaDescription:
     'Lexique BTP interactif : 146 définitions (DCE, CCTP, OS, PPSPS, RE2020…), 9 parcours pédagogiques, flashcards et quiz de révision. Gratuit, accessible sur app.laureolivie.fr.',
   termCount: 146,

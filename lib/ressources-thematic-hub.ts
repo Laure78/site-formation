@@ -5,7 +5,7 @@
 import type { BlogCategoryId } from '@/lib/blog';
 import { blogCategoryListingHref } from '@/lib/blog-index-urls';
 import { LINKS } from '@/lib/internal-links';
-import { BEWORK_APP_PATHS } from '@/lib/external-site-urls';
+import { PLATFORM_APP_PATHS } from '@/lib/external-site-urls';
 import { RESSOURCES_HUB_PILIERS } from '@/lib/maillage-ressources';
 
 export type RessourceThematicLink = { readonly label: string; readonly href: string };
@@ -31,12 +31,12 @@ export const RESSOURCES_THEMATIC_BLOCKS: readonly RessourceThematicBlock[] = [
       'Priorité marchés publics et privés : DCE, CCAP, mémoire technique et veille — tutos gratuits, fiche catalogue NIV-02 et méthodes blog pour PME BTP en Île-de-France.',
     pilier: RESSOURCES_HUB_PILIERS['marches-et-veille'],
     tutos: [
-      { label: 'Lexique BTP — parcours « Décrypter le DCE »', href: BEWORK_APP_PATHS.lexique },
+      { label: 'Lexique BTP — parcours « Décrypter le DCE »', href: PLATFORM_APP_PATHS.lexique },
       { label: 'Tuto PDF — skill Analyse CCAP', href: LINKS.pdfTutoSkillAnalyseCcap },
       { label: 'Tuto — skill mémoire technique', href: LINKS.tutoMemoireTechnique },
       { label: 'Tuto — skill métré Excel', href: LINKS.tutoSkillMetreExcelOfc },
       { label: 'Tuto — skill chiffrage de devis', href: LINKS.tutoSkillChiffrageDevisOfc },
-      { label: 'Tuto — skill mémoire de réclamation', href: LINKS.tutoSkillMemoireReclamationBework },
+      { label: 'Tuto — skill mémoire de réclamation', href: LINKS.tutoSkillMemoireReclamation },
       { label: 'Tuto — analyse de DCE', href: LINKS.tutoAnalyseDce },
       { label: 'Tuto — tri DCE (Claude in Chrome)', href: LINKS.tutoTriDceClaudeChrome },
     ],
@@ -68,7 +68,7 @@ export const RESSOURCES_THEMATIC_BLOCKS: readonly RessourceThematicBlock[] = [
       'Comptes rendus, DOE, DIUO (pièces SPS), PV de levée de réserves, constats — contenus téléchargeables et pages métiers associées.',
     pilier: RESSOURCES_HUB_PILIERS['chantier-livrables'],
     tutos: [
-      { label: 'Lexique BTP — parcours « Sur le chantier au quotidien »', href: BEWORK_APP_PATHS.lexique },
+      { label: 'Lexique BTP — parcours « Sur le chantier au quotidien »', href: PLATFORM_APP_PATHS.lexique },
       { label: 'Tuto — compte rendu de chantier', href: LINKS.tutoCrChantier },
       { label: 'Tuto — skill Claude pour préparer un PIC', href: LINKS.tutoSkillPic },
       { label: 'Tuto — dossier DOE', href: LINKS.tutoDoeDossierOuvragesExecutes },

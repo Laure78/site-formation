@@ -5,7 +5,7 @@ description: Prépare un dossier d'intervention BTP (DT/DICT, autorisations de v
 
 # Dossier d'intervention & démarches préalables
 
-Liste les pièces obligatoires avant intervention, les démarches réglementaires et les manques à combler. Format checklist actionnable pour le conducteur de travaux et le Beworker.
+Liste les pièces obligatoires avant intervention, les démarches réglementaires et les manques à combler. Format checklist actionnable pour le conducteur de travaux et le assistant travaux.
 
 ## Cas gros œuvre (prioritaire si le brief le mentionne)
 Couvrir explicitement :

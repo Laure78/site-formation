@@ -12,7 +12,7 @@ export const SKILL_LIBRARY_CATEGORIES = [
 
 export type SkillLibraryCategoryId = (typeof SKILL_LIBRARY_CATEGORIES)[number]['id'];
 
-/** Classement manuel par id skill (source BeWork). */
+/** Classement manuel par id skill (bibliothèque .skill). */
 export const SKILL_CATEGORY_BY_ID: Record<string, SkillLibraryCategoryId> = {
   'verification-dtu-bework': 'specialise',
   '3dmanager-cr-chantier': 'chantier',
@@ -37,7 +37,7 @@ export const SKILL_CATEGORY_BY_ID: Record<string, SkillLibraryCategoryId> = {
   'assistant-travaux': 'financier-admin',
 };
 
-/** Libellés lisibles (catalogue BeWork). */
+/** Libellés lisibles (catalogue skills). */
 export const SKILL_DISPLAY_NAMES: Record<string, string> = {
   'verification-dtu-bework': 'Vérification DTU × devis',
   '3dmanager-cr-chantier': 'CR chantier — charte 3D MANAGER',
