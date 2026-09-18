@@ -1,10 +1,11 @@
 /**
- * JSON-LD `Course` — catalogue officiel (NIV-01 à NIV-09).
+ * JSON-LD `Course` — catalogue officiel (NIV-01 à NIV-10).
  * Données fixes : `lib/schema-constants.ts`, `lib/internal-links.ts`, `lib/tarifs-sessions.ts`.
  * Objectifs pédagogiques (`teaches`) : source `lib/formations-catalogue-display.ts`.
  */
 import { getFormationByCode, libelleEffectifFormation, libelleEffectifMaxFormation } from '@/data/formations';
 import { getFormationCatalogueByRef } from '@/lib/formations-catalogue-display';
+import { TARIF_INTER_DEV_WEB_IA_HT } from '@/lib/formation-developpement-web-ia-content';
 import { LINKS } from '@/lib/internal-links';
 import { getTarifApplicationMetierBtpHt, libelleTarifApplicationMetierBtp } from '@/lib/tarifs-applications-metier-btp';
 import { getFormationCatalogueImageObjectJsonLd } from '@/lib/photo-seo';
@@ -35,6 +36,7 @@ const CATALOGUE_REF_BY_PATH: Record<string, string> = {
   [LINKS.formationApplicationMetierBtpNiveau2]: 'NIV-07',
   [LINKS.formationApplicationMetierBtpNiveau3]: 'NIV-08',
   [LINKS.formationAssistantsIaPersonnalisesBtp]: 'NIV-09',
+  [LINKS.formationDeveloppementWebIaSansCoder]: 'NIV-10',
 };
 
 function priceSpecDescription(ref: string): string {
@@ -55,13 +57,14 @@ function priceSpecDescription(ref: string): string {
 }
 
 const PRICE_SPEC_DESCRIPTION_BY_REF: Record<string, string> = Object.fromEntries(
-  (['NIV-01', 'NIV-02', 'NIV-03', 'NIV-04', 'NIV-05', 'NIV-06', 'NIV-07', 'NIV-08', 'NIV-09'] as const).map((ref) => [
+  (['NIV-01', 'NIV-02', 'NIV-03', 'NIV-04', 'NIV-05', 'NIV-06', 'NIV-07', 'NIV-08', 'NIV-09', 'NIV-10'] as const).map((ref) => [
     ref,
     priceSpecDescription(ref),
   ])
 );
 
 function prixCatalogue(ref: string): number | undefined {
+  if (ref === 'NIV-10') return TARIF_INTER_DEV_WEB_IA_HT;
   const f = getFormationByCode(ref);
   if (!f) return undefined;
   if (f.tarifParcoursAppMetier) {
@@ -89,12 +92,13 @@ export type CatalogueCourseJsonLdConfig = {
     | typeof LINKS.formationApplicationMetierBtpNiveau1
     | typeof LINKS.formationApplicationMetierBtpNiveau2
     | typeof LINKS.formationApplicationMetierBtpNiveau3
-    | typeof LINKS.formationAssistantsIaPersonnalisesBtp;
+    | typeof LINKS.formationAssistantsIaPersonnalisesBtp
+    | typeof LINKS.formationDeveloppementWebIaSansCoder;
   name: string;
   description: string;
   price?: number;
   keywords: readonly string[];
-  courseCode: 'NIV-01' | 'NIV-02' | 'NIV-03' | 'NIV-04' | 'NIV-05' | 'NIV-06' | 'NIV-07' | 'NIV-08' | 'NIV-09';
+  courseCode: 'NIV-01' | 'NIV-02' | 'NIV-03' | 'NIV-04' | 'NIV-05' | 'NIV-06' | 'NIV-07' | 'NIV-08' | 'NIV-09' | 'NIV-10';
   educationalLevel: 'Beginner' | 'Advanced';
 };
 
@@ -108,7 +112,8 @@ export type FormationCatalogueRichCourseConfig = {
     | typeof LINKS.formationApplicationMetierBtpNiveau1
     | typeof LINKS.formationApplicationMetierBtpNiveau2
     | typeof LINKS.formationApplicationMetierBtpNiveau3
-    | typeof LINKS.formationAssistantsIaPersonnalisesBtp;
+    | typeof LINKS.formationAssistantsIaPersonnalisesBtp
+    | typeof LINKS.formationDeveloppementWebIaSansCoder;
   name: string;
   description: string;
   price?: number;
@@ -381,6 +386,31 @@ export function buildFormationCatalogueRichCourseJsonLd(
 }
 
 /** Construit le JSON-LD `Course` complet pour une fiche catalogue (legacy — composant générique). */
+
+export const CATALOGUE_COURSE_DEV_WEB_IA_NIV10: CatalogueCourseJsonLdConfig = {
+  path: LINKS.formationDeveloppementWebIaSansCoder,
+  name: getFormationByCode('NIV-10')!.titre,
+  description: `${getFormationByCode('NIV-10')!.accroche} Session ${getFormationByCode('NIV-10')!.duree}, Qualiopi.`,
+  price: prixCatalogue('NIV-10'),
+  keywords: [
+    'formation créer application avec IA',
+    'formation développement avec IA',
+    'formation IA sans coder',
+    'formation no-code IA',
+  ],
+  courseCode: 'NIV-10',
+  educationalLevel: 'Beginner',
+};
+
+export const FORMATION_RICH_COURSE_NIV10: FormationCatalogueRichCourseConfig = {
+  path: LINKS.formationDeveloppementWebIaSansCoder,
+  name: CATALOGUE_COURSE_DEV_WEB_IA_NIV10.name,
+  description: CATALOGUE_COURSE_DEV_WEB_IA_NIV10.description,
+  price: prixCatalogue('NIV-10'),
+  educationalLevel: 'Débutant',
+  teaches: teachesFromCatalogue('NIV-10'),
+};
+
 export function buildCatalogueCourseJsonLd(
   config: CatalogueCourseJsonLdConfig
 ): Record<string, unknown> {
@@ -394,6 +424,7 @@ export function buildCatalogueCourseJsonLd(
     'NIV-07': FORMATION_RICH_COURSE_NIV07,
     'NIV-08': FORMATION_RICH_COURSE_NIV08,
     'NIV-09': FORMATION_RICH_COURSE_NIV09,
+    'NIV-10': FORMATION_RICH_COURSE_NIV10,
   };
   const rich = richByCode[config.courseCode];
   if (!rich) {
@@ -447,4 +478,8 @@ export function buildCatalogueCourseAssistantsIaNiv09JsonLd(): Record<string, un
 /** @deprecated Utiliser buildCatalogueCourseApplicationMetierJsonLd('NIV-06') */
 export function buildCatalogueCourseCursorBtpNiv06JsonLd(): Record<string, unknown> {
   return buildCatalogueCourseApplicationMetierJsonLd('NIV-06');
+}
+
+export function buildCatalogueCourseDeveloppementWebIaNiv10JsonLd(): Record<string, unknown> {
+  return buildFormationCatalogueRichCourseJsonLd(FORMATION_RICH_COURSE_NIV10);
 }

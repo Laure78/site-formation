@@ -660,10 +660,11 @@ export const PHOTOS = {
     height: 629,
   },
 
-  /** BeWork — bureau : Apprendre aujourd’hui, créer demain */
+  /** Formation création avec l’IA — bureau / plans chantier */
   beworkHeroBureauChantier: {
     src: '/images/bework-hero-bureau-chantier-plans.png',
-    alt: 'BeWork — Apprendre aujourd’hui, créer demain, collaboratrice au laptop',
+    alt: 'Création avec l’IA — collaboratrice au laptop, plans de chantier, formation sans coder',
+    title: 'Développement web avec l’IA — sans savoir coder',
     width: 1024,
     height: 768,
   },

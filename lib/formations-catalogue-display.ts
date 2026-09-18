@@ -74,6 +74,7 @@ const PHOTO_BY_CODE: Record<string, (typeof PHOTOS)[keyof typeof PHOTOS]> = {
   'NIV-07': PHOTOS.formationNiv07ApplicationConnectee2026,
   'NIV-08': PHOTOS.formationNiv08ApplicationAvancee2026,
   'NIV-09': PHOTOS.formationNiv09AssistantsIaPersonnalisesBtp2026,
+  'NIV-10': PHOTOS.beworkHeroBureauChantier,
 };
 
 const PROFILE_TAGS_BY_CODE: Record<
@@ -89,6 +90,7 @@ const PROFILE_TAGS_BY_CODE: Record<
   'NIV-07': ['applications-metier-btp'],
   'NIV-08': ['applications-metier-btp'],
   'NIV-09': ['assistants-ia'],
+  'NIV-10': ['applications-metier-btp'],
 };
 
 function toCatalogueEntry(f: Formation): FormationCatalogueEntry {
@@ -116,16 +118,18 @@ function toCatalogueEntry(f: Formation): FormationCatalogueEntry {
     theme: f.theme,
     objectifs: [...f.objectifs],
     prixHT: f.prixHT,
-    tarifParcoursLabel: f.tarifParcoursAppMetier
-      ? libelleTarifApplicationMetierBtp(f.tarifParcoursAppMetier)
-      : isFormationSurDevis(f)
-        ? 'Sur devis'
-        : (() => {
-            const grille = getTarifGrilleFromDureeLibelle(f.duree);
-            return f.prixHT > 0 && f.prixHT !== grille.intraHT
-              ? libellePrixSessionHt(f)
-              : undefined;
-          })(),
+    tarifParcoursLabel: f.code === 'NIV-10'
+      ? 'Inter : 300 € HT / participant · Intra sur devis'
+      : f.tarifParcoursAppMetier
+        ? libelleTarifApplicationMetierBtp(f.tarifParcoursAppMetier)
+        : isFormationSurDevis(f)
+          ? 'Sur devis'
+          : (() => {
+              const grille = getTarifGrilleFromDureeLibelle(f.duree);
+              return f.prixHT > 0 && f.prixHT !== grille.intraHT
+                ? libellePrixSessionHt(f)
+                : undefined;
+            })(),
     effectifMin: f.effectifMin,
     effectifMax: f.effectifMax,
     profileTags: PROFILE_TAGS_BY_CODE[f.code] ?? [],

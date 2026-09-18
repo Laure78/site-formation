@@ -398,6 +398,46 @@ export const FORMATIONS: readonly Formation[] = [
     programmeUpdatedAt: '08/09/2026',
     image: '/images/formation-sensibilisation-assistants-ia-btp.png',
   },
+  {
+    code: 'NIV-10',
+    slug: 'developpement-web-ia-sans-coder',
+    titre: 'Développement web avec l’IA — sans savoir coder',
+    promesse:
+      'Créer un site, une application ou un outil métier avec l’intelligence artificielle — 7 h, sans prérequis en programmation.',
+    casUsageCourts: [
+      'Cadrer un projet numérique',
+      'Créer une première version avec l’IA',
+      'Tester, corriger et poursuivre',
+    ],
+    gamme: 'deployer',
+    theme: 'outils-applications',
+    niveau: 1,
+    niveauLabel: 'Création avec l’IA',
+    duree: '7 h',
+    horaires: '09h00 – 12h30 / 13h30 – 17h00',
+    effectifMin: 6,
+    effectifMax: 8,
+    /** 0 = pas de forfait session catalogue ; inter 300 € / participant géré côté NIV-10. */
+    prixHT: 0,
+    accroche:
+      'Une idée. Une journée. Une première version fonctionnelle. Formation pratique pour créer avec l’IA, sans savoir coder.',
+    objectifs: [
+      'Cadrer un projet numérique à partir d’une idée ou d’un besoin',
+      'Structurer le périmètre fonctionnel d’une première version',
+      'Utiliser une méthode de prompting structurée',
+      'Créer une première version fonctionnelle sans écrire directement de code',
+      'Tester, corriger et sauvegarder son projet',
+      'Définir une feuille de route pour poursuivre après la formation',
+    ],
+    public:
+      'Entrepreneurs, indépendants, artisans, commerçants, salariés, porteurs de projet et personnes en reconversion',
+    casUsage: 'Site, application ou outil métier — première version assistée par IA',
+    pdfProgramme:
+      '/formations/developpement-web-ia-sans-coder/programme-ofc-developpement-web-ia-7h.pdf',
+    programmeVersion: 'Version 1',
+    programmeUpdatedAt: '18/09/2026',
+    image: '/images/bework-hero-bureau-chantier-plans.png',
+  },
 ] as const;
 
 export type FormationCode = (typeof FORMATIONS)[number]['code'];
@@ -405,8 +445,8 @@ export type FormationSlug = (typeof FORMATIONS)[number]['slug'];
 
 export const FORMATIONS_COUNT = FORMATIONS.length;
 
-/** Plage de numérotation catalogue — NIV-01 … NIV-09. */
-export const CATALOGUE_NIV_RANGE = 'NIV-01 à NIV-09' as const;
+/** Plage de numérotation catalogue — NIV-01 … NIV-10. */
+export const CATALOGUE_NIV_RANGE = 'NIV-01 à NIV-10' as const;
 
 export function getFormationByCode(code: string): Formation | undefined {
   return FORMATIONS.find((f) => f.code === code);

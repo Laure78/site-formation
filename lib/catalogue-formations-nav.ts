@@ -73,8 +73,8 @@ const ALL_CATALOGUE_FORMATIONS_NAV_LINKS: CatalogueFormationNavLink[] = [
     icon: FileText,
   },
   {
-    href: LINKS.bework,
-    label: 'Développement web avec l’IA — BeWork',
+    href: LINKS.formationDeveloppementWebIaSansCoder,
+    label: 'Développement web avec l’IA',
     icon: Code2,
   },
 ];

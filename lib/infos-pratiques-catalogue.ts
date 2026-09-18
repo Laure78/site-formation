@@ -105,6 +105,12 @@ export const PROGRAMME_CONTENU_CATALOGUE: Record<FormationCode, readonly string[
     'Module 3 — Bien prompter : de la demande floue au résultat fiable (1 h 45)',
     'Module 4 — Créer son assistant IA métier (2 h 15)',
   ],
+  'NIV-10': [
+    'Module 1 — Cadrer et préparer son projet',
+    'Module 2 — Structurer son projet et guider efficacement l’IA',
+    'Module 3 — Construire une première version',
+    'Module 4 — Tester, corriger et poursuivre son projet',
+  ],
 };
 
 const PREREQUIS_NIV01 =
@@ -234,6 +240,25 @@ const EVALUATION_NIV09 = [
   'Attestation individuelle de formation',
 ] as const;
 
+export const PREREQUIS_NIV10 =
+  'Savoir utiliser un ordinateur et naviguer sur Internet. Adresse email. Pouvoir installer des applications. Abonnement actif à ChatGPT ou Claude AI — non inclus dans le prix de la formation. Accès vérifiés avant la session. Aucun prérequis en programmation ou en création de site.';
+
+export const DELAI_ACCES_NIV10 = DELAI_ACCES_NIV09;
+
+export const MODALITE_PEDAGOGIQUE_NIV10 =
+  'Action de formation — présentiel, classe virtuelle ou intra-entreprise sur demande — 70 % pratique / 30 % apports méthodologiques — chaque participant travaille sur son propre projet avec un cas pratique fil rouge.';
+
+export const MODALITES_ACCES_NIV10 =
+  `Inscription sur demande auprès d'OFC (${CONTACT.email} — ${CONTACT.phoneDisplay}) : questionnaire d’analyse du besoin et de positionnement → devis ou inscription inter → convention de formation → demande de prise en charge OPCO selon éligibilité → convocation.`;
+
+const EVALUATION_NIV10 = [
+  'Évaluation en amont : questionnaire d’analyse du besoin et de positionnement.',
+  'Évaluation des acquis : à travers le projet réalisé par le participant (cadrage, première version, tests et corrections).',
+  'En fin de formation : présentation de la production, évaluation des acquis, questionnaire de satisfaction.',
+  'Enquête à froid à 3 mois.',
+  'Feuille d’émargement ; certificat de réalisation.',
+] as const;
+
 export const MODALITE_PEDAGOGIQUE_NIV05 =
   'Action de formation au sens de l\'art. L6313-1 du Code du travail — 100 % présentiel — alternance théorie courte / ateliers pratiques sur cas réels MOE — 70 % pratique / 30 % théorie';
 
@@ -313,10 +338,14 @@ function prerequisPourRef(ref: FormationCode): string {
   if (ref === 'NIV-07') return PREREQUIS_NIV07;
   if (ref === 'NIV-08') return PREREQUIS_NIV08;
   if (ref === 'NIV-09') return PREREQUIS_NIV09;
+  if (ref === 'NIV-10') return PREREQUIS_NIV10;
   return PREREQUIS_NIVEAU_2.join(' ');
 }
 
 function tarifPourRef(ref: FormationCode): string {
+  if (ref === 'NIV-10') {
+    return `Inter-entreprises : 300 € HT par participant. Intra-entreprise : sur devis. ${MENTIONS_TVA_INTRA_COURTE}`;
+  }
   const formation = getFormationByCode(ref);
   if (formation && isFormationSurDevis(formation)) {
     return `Sur devis (intra et inter). ${MENTIONS_TVA_INTRA_COURTE}`;
@@ -374,13 +403,15 @@ export function getInfosPratiquesForCatalogue(ref: string): InfosPratiquesFormat
                     ? MODALITES_ACCES_NIV08
                     : code === 'NIV-09'
                       ? MODALITES_ACCES_NIV09
-                      : code === 'NIV-05'
-                        ? MODALITES_ACCES_NIV05
-                        : stripLabelPrefix(QUALIOPI_MODALITES_ACCES_EXACT, /^Modalités d'accès\s*:\s*/i)
+                      : code === 'NIV-10'
+                        ? MODALITES_ACCES_NIV10
+                        : code === 'NIV-05'
+                          ? MODALITES_ACCES_NIV05
+                          : stripLabelPrefix(QUALIOPI_MODALITES_ACCES_EXACT, /^Modalités d'accès\s*:\s*/i)
       )
     ),
     delaiAcces: sanitizeInfosPratiquesText(
-      code === 'NIV-01' || code === 'NIV-02' || code === 'NIV-03' || code === 'NIV-04' || code === 'NIV-05' || code === 'NIV-06' || code === 'NIV-07' || code === 'NIV-08' || code === 'NIV-09'
+      code === 'NIV-01' || code === 'NIV-02' || code === 'NIV-03' || code === 'NIV-04' || code === 'NIV-05' || code === 'NIV-06' || code === 'NIV-07' || code === 'NIV-08' || code === 'NIV-09' || code === 'NIV-10'
         ? code === 'NIV-02'
           ? DELAI_ACCES_NIV02
           : code === 'NIV-03'
@@ -395,6 +426,8 @@ export function getInfosPratiquesForCatalogue(ref: string): InfosPratiquesFormat
                     ? DELAI_ACCES_NIV08
                     : code === 'NIV-09'
                       ? DELAI_ACCES_NIV09
+                      : code === 'NIV-10'
+                        ? DELAI_ACCES_NIV10
               : code === 'NIV-05'
                 ? DELAI_ACCES_NIV05
                 : DELAI_ACCES_NIV01
@@ -419,6 +452,8 @@ export function getInfosPratiquesForCatalogue(ref: string): InfosPratiquesFormat
                     ? [...EVALUATION_NIV08]
                     : code === 'NIV-09'
                       ? [...EVALUATION_NIV09]
+                      : code === 'NIV-10'
+                        ? [...EVALUATION_NIV10]
               : code === 'NIV-05'
                 ? [...EVALUATION_NIV05]
                 : [...QUALIOPI_EVALUATION_STANDARD],
@@ -437,6 +472,8 @@ export function getInfosPratiquesForCatalogue(ref: string): InfosPratiquesFormat
                   ? MODALITE_PEDAGOGIQUE_NIV08
                   : code === 'NIV-09'
                     ? MODALITE_PEDAGOGIQUE_NIV09
+                    : code === 'NIV-10'
+                      ? MODALITE_PEDAGOGIQUE_NIV10
             : code === 'NIV-05'
               ? MODALITE_PEDAGOGIQUE_NIV05
               : MODALITE_PEDAGOGIQUE_CATALOGUE,
@@ -467,6 +504,8 @@ export function getFormationOutilsAbonnementsAvantDevis(ref: string): string {
       return 'Outils : ordinateur portable avec connexion internet. Aucun abonnement IA payant obligatoire indiqué au programme — les éventuels abonnements restent hors forfait.';
     case 'NIV-09':
       return 'Abonnement payant obligatoire : ChatGPT Plus ou Claude Pro sur le poste de chaque participant (un des deux suffit ; les deux sont pratiqués en atelier). Non inclus dans le tarif de formation — à la charge de l’entreprise.';
+    case 'NIV-10':
+      return 'Outils : ordinateur. Abonnement actif à ChatGPT ou Claude AI requis — non inclus dans le prix de la formation, à la charge du participant ou de l’entreprise.';
     default:
       return 'Les éventuels abonnements payants aux outils d’intelligence artificielle ne sont pas inclus dans le tarif, sauf mention contraire dans le devis.';
   }

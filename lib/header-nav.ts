@@ -49,16 +49,9 @@ function formationNavLink(formation: (typeof FORMATIONS)[number]): HeaderNavLink
 
 function buildFormationsNavChildren(at: Date): HeaderNavLink[] {
   const published = getPublishedFormations(at);
-  /** Niveaux apps métier retirés du dropdown — remplacés par BeWork. */
+  /** Niveaux apps métier (NIV-06–08) retirés du dropdown — offre créée via NIV-10. */
   const catalogueCore = published.filter((f) => !APPLICATION_METIER_CODES.has(f.code));
-
-  const beworkItem: HeaderNavLink = {
-    href: LINKS.bework,
-    label: 'Développement web avec l’IA — BeWork',
-    title: 'BeWork — Développement web avec l’IA — sans savoir coder (7 h ou 14 h)',
-  };
-
-  return [...catalogueCore.map(formationNavLink), beworkItem];
+  return catalogueCore.map(formationNavLink);
 }
 
 function pathMatches(pathname: string, href: string): boolean {
@@ -69,6 +62,9 @@ function pathMatches(pathname: string, href: string): boolean {
 
 function formationsNavActive(pathname: string): boolean {
   if (pathname === LINKS.formations || pathname.startsWith(`${LINKS.formations}/`)) {
+    return true;
+  }
+  if (pathname === LINKS.formationDeveloppementWebIaSansCoder) {
     return true;
   }
   if (pathname === LINKS.bework || pathname.startsWith(`${LINKS.bework}/`)) {

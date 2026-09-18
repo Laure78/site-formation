@@ -117,6 +117,10 @@ export const LINKS = {
   formationAssistantsIaPersonnalisesBtp: '/formations/assistants-ia-personnalises-btp',
   pdfProgrammeAssistantsIaPersonnalisesBtp:
     '/formations/assistants-ia-personnalises-btp/programme_OFC_AssistantsIA_BTP_intra_7h.pdf',
+  /** NIV-10 — Développement web avec l’IA — sans savoir coder */
+  formationDeveloppementWebIaSansCoder: '/formations/developpement-web-ia-sans-coder',
+  pdfProgrammeDeveloppementWebIaSansCoder:
+    '/formations/developpement-web-ia-sans-coder/programme-ofc-developpement-web-ia-7h.pdf',
   pdfProgrammeIaBtpNiveau1BatimentTp: '/formations/pdf/programme-niveau-1-ia-batiment-travaux-publics.pdf',
   pdfProgrammeIaBtpNiveau2AppelsOffre: PDF_PROGRAMME_NIV02_AO_BTP,
   /** Alias explicite — même fichier que `pdfProgrammeIaBtpNiveau2AppelsOffre` */

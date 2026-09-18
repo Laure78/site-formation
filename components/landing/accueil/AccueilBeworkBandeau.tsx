@@ -1,15 +1,17 @@
 import Link from 'next/link';
 import { ArrowRight, Check } from 'lucide-react';
 import { BeworkHeroVideo } from '@/components/bework/BeworkHeroVideo';
-import { QUALIOPI_BEWORK_DISTINCTION } from '@/config/qualiopi';
-import { BEWORK_PARCOURS } from '@/lib/bework-programmes';
 import { LINKS } from '@/lib/internal-links';
+import {
+  TARIF_INTER_DEV_WEB_IA_HT,
+} from '@/lib/formation-developpement-web-ia-content';
+import { formatTarifHt } from '@/lib/tarifs-sessions';
 
 const TRANSITION_STEPS = [
   'Se former à l’IA',
   'Identifier un besoin',
   'Créer son outil',
-  'BeWork',
+  'Première version',
 ] as const;
 
 const EXEMPLES_PROJETS = [
@@ -62,22 +64,21 @@ const JOURNEE_ETAPES = [
 ] as const;
 
 /**
- * Accueil — transition Formation IA BTP → BeWork (créer avec l’IA).
- * Un seul lien interne vers `/bework` sur la page d’accueil.
+ * Accueil — transition Formation IA BTP → création avec l’IA (NIV-10).
+ * Un seul lien interne vers la fiche formation sur la page d’accueil.
  */
 export function AccueilBeworkBandeau() {
-  const parcours7h = BEWORK_PARCOURS['7h'];
+  const tarifLabel = formatTarifHt(TARIF_INTER_DEV_WEB_IA_HT);
 
   return (
     <>
-      {/* Transition visuelle */}
       <section
         className="border-y border-ofc-border bg-ofc-canvas px-4 py-12 md:py-16"
-        aria-labelledby="accueil-bework-transition"
+        aria-labelledby="accueil-dev-web-ia-transition"
       >
         <div className="mx-auto max-w-3xl text-center">
           <h2
-            id="accueil-bework-transition"
+            id="accueil-dev-web-ia-transition"
             className="font-display text-2xl font-bold tracking-tight text-ofc-ink md:text-3xl"
           >
             Et si l’IA pouvait aussi vous aider à créer vos propres outils&nbsp;?
@@ -90,7 +91,7 @@ export function AccueilBeworkBandeau() {
             sans être développeur.
           </p>
           <p className="mt-3 text-base font-medium text-ofc-ink md:text-lg">
-            C’est précisément l’objectif de BeWork.
+            C’est précisément l’objectif de cette formation.
           </p>
 
           <ol className="mt-10 flex flex-col items-stretch gap-3 sm:flex-row sm:flex-wrap sm:items-center sm:justify-center sm:gap-2">
@@ -99,7 +100,7 @@ export function AccueilBeworkBandeau() {
                 <span
                   className={`rounded-lg px-3 py-2 text-xs font-semibold uppercase tracking-[0.08em] sm:text-[0.7rem] ${
                     index === TRANSITION_STEPS.length - 1
-                      ? 'bg-[#1D4ED8] text-white'
+                      ? 'bg-[#377CF3] text-white'
                       : 'border border-ofc-border bg-white text-ofc-ink'
                   }`}
                 >
@@ -116,26 +117,26 @@ export function AccueilBeworkBandeau() {
         </div>
       </section>
 
-      {/* Section BeWork dédiée */}
       <section
-        id="bework"
+        id="creation-avec-ia"
         className="scroll-mt-24 border-b border-[#BFDBFE] bg-gradient-to-br from-[#EFF6FF] via-white to-[#DBEAFE]/70 px-4 py-14 md:py-20"
-        aria-labelledby="accueil-bework"
+        aria-labelledby="accueil-dev-web-ia"
       >
         <div className="mx-auto max-w-6xl">
           <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-14">
             <div className="min-w-0">
-              <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#1D4ED8]">
+              <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#377CF3]">
                 Aller plus loin avec l’IA
               </p>
               <h2
-                id="accueil-bework"
+                id="accueil-dev-web-ia"
                 className="mt-3 font-display text-3xl font-bold tracking-tight text-[#0F172A] md:text-4xl"
               >
-                Vous avez une idée&nbsp;? Apprenez à la transformer en outil avec BeWork.
+                Vous avez une idée&nbsp;? Apprenez à la transformer en outil avec l’IA.
               </h2>
               <p className="mt-4 text-base leading-relaxed text-[#475569] md:text-lg">
-                BeWork vous apprend à créer avec l’intelligence artificielle, même sans savoir coder.
+                Formation de Laure Olivié : créer un site, une application ou un outil métier avec
+                l’intelligence artificielle, même sans savoir coder.
               </p>
               <p className="mt-3 text-base leading-relaxed text-[#475569]">
                 Vous partez d’une idée ou d’un besoin concret. Vous apprenez à le cadrer, créer une
@@ -144,41 +145,42 @@ export function AccueilBeworkBandeau() {
 
               <ul className="mt-6 space-y-3">
                 <li className="flex gap-3 rounded-xl border border-slate-200/90 bg-white/90 px-4 py-3 shadow-sm">
-                  <Check className="mt-0.5 h-5 w-5 shrink-0 text-[#1D4ED8]" aria-hidden />
+                  <Check className="mt-0.5 h-5 w-5 shrink-0 text-[#377CF3]" aria-hidden />
                   <div>
                     <p className="font-semibold text-[#0F172A]">
-                      {parcours7h.joursLabel} · {parcours7h.dureeLabel} · {parcours7h.tarifLabel}
+                      1 journée · 7 h · {tarifLabel} / participant
                     </p>
-                    <p className="text-sm text-[#64748B]">{parcours7h.outcome}</p>
+                    <p className="text-sm text-[#64748B]">
+                      Inter-entreprises · Intra-entreprise sur devis
+                    </p>
                   </div>
                 </li>
                 <li className="flex gap-3 rounded-xl border border-[#BFDBFE] bg-white px-4 py-3 shadow-sm">
-                  <Check className="mt-0.5 h-5 w-5 shrink-0 text-[#1D4ED8]" aria-hidden />
+                  <Check className="mt-0.5 h-5 w-5 shrink-0 text-[#377CF3]" aria-hidden />
                   <div>
-                    <p className="font-semibold text-[#0F172A]">
-                      {BEWORK_PARCOURS['14h'].joursLabel} · {BEWORK_PARCOURS['14h'].dureeLabel} ·{' '}
-                      {BEWORK_PARCOURS['14h'].tarifLabel}
+                    <p className="font-semibold text-[#0F172A]">70 % pratique · 6 à 8 participants</p>
+                    <p className="text-sm text-[#64748B]">
+                      Présentiel, classe virtuelle ou intra sur demande
                     </p>
-                    <p className="text-sm text-[#64748B]">{BEWORK_PARCOURS['14h'].outcome}</p>
                   </div>
                 </li>
               </ul>
 
               <div className="mt-8">
                 <Link
-                  href={LINKS.bework}
-                  className="inline-flex items-center justify-center gap-2 rounded-lg bg-[#1D4ED8] px-6 py-3 text-sm font-semibold text-white shadow-[0_4px_16px_rgba(29,78,216,0.18)] transition-colors hover:bg-[#1E40AF]"
+                  href={LINKS.formationDeveloppementWebIaSansCoder}
+                  className="inline-flex items-center justify-center gap-2 rounded-lg bg-[#377CF3] px-6 py-3 text-sm font-semibold text-white shadow-[0_4px_16px_rgba(55,124,243,0.18)] transition-colors hover:bg-[#2A6BD9]"
                 >
-                  Découvrir BeWork
+                  Voir la formation
                   <ArrowRight className="h-4 w-4 shrink-0" aria-hidden />
                 </Link>
-                <p className="mt-3 text-sm font-medium text-[#1D4ED8]">
+                <p className="mt-3 text-sm font-medium text-[#377CF3]">
                   Créer avec l’IA sans savoir coder
                 </p>
               </div>
 
               <p className="mt-5 text-xs leading-relaxed text-[#64748B]">
-                {QUALIOPI_BEWORK_DISTINCTION}
+                Prise en charge par un OPCO possible selon l’éligibilité de l’entreprise et du dossier.
               </p>
             </div>
 
@@ -190,7 +192,6 @@ export function AccueilBeworkBandeau() {
             </div>
           </div>
 
-          {/* Exemples de projets possibles */}
           <div className="mt-16 border-t border-[#BFDBFE]/80 pt-12">
             <h3 className="text-center font-display text-2xl font-bold text-[#0F172A] md:text-3xl">
               Que pourriez-vous créer&nbsp;?
@@ -212,15 +213,13 @@ export function AccueilBeworkBandeau() {
             </div>
           </div>
 
-          {/* Parcours journée 7 h */}
           <div className="mt-16 border-t border-[#BFDBFE]/80 pt-12">
             <h3 className="text-center font-display text-2xl font-bold text-[#0F172A] md:text-3xl">
               Une journée pour passer de l’idée au premier prototype
             </h3>
             <p className="mx-auto mt-3 max-w-2xl text-center text-sm leading-relaxed text-[#64748B] md:text-base">
-              Parcours {parcours7h.dureeLabel} «&nbsp;{parcours7h.title}&nbsp;» : vous repartez avec
-              une première version et une méthode pour continuer — pas une application complète prête
-              pour la production.
+              Parcours 7&nbsp;h : vous repartez avec une première version et une méthode pour
+              continuer — pas une application complète prête pour la production.
             </p>
             <ol className="mx-auto mt-10 max-w-xl space-y-0">
               {JOURNEE_ETAPES.map((etape, index) => (
@@ -231,11 +230,11 @@ export function AccueilBeworkBandeau() {
                       aria-hidden
                     />
                   ) : null}
-                  <span className="relative z-[1] flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#1D4ED8] text-[0.65rem] font-bold text-white">
+                  <span className="relative z-[1] flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#377CF3] text-[0.65rem] font-bold text-white">
                     {index === 0 || index === JOURNEE_ETAPES.length - 1 ? '●' : index}
                   </span>
                   <div className="min-w-0 pt-1">
-                    <p className="text-xs font-semibold uppercase tracking-[0.12em] text-[#1D4ED8]">
+                    <p className="text-xs font-semibold uppercase tracking-[0.12em] text-[#377CF3]">
                       {etape.label}
                     </p>
                     <p className="mt-1 text-base font-medium text-[#0F172A]">{etape.titre}</p>

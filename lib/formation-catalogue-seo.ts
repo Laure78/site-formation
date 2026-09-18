@@ -221,6 +221,26 @@ export const FORMATION_CATALOGUE_SEO: Record<FormationCatalogueCode, FormationCa
       { iaAide: 'Comparer ChatGPT et Claude sur une tâche', validationHumaine: 'Choisir l’outil adapté au besoin' },
     ],
   },
+  'NIV-10': {
+    metaTitle: 'Formation développement avec l’IA sans savoir coder',
+    h1: 'Développement web avec l’IA — sans savoir coder',
+    subtitle:
+      'Créer un site, une application ou un outil métier avec l’intelligence artificielle',
+    metaDescription:
+      'Apprenez à créer une première version de site, d’application ou d’outil métier avec l’IA. Formation pratique de 7 h, sans prérequis en programmation.',
+    enBref: `Formation pratique de 7 h : cadrer un projet, créer une première version avec l’IA, tester et corriger — sans savoir coder. Une idée, une journée, une première version fonctionnelle. ${QUALIOPI_MENTION}.`,
+    publicTargets: [
+      'Entrepreneurs, indépendants, artisans et commerçants',
+      'Salariés et porteurs de projet',
+      'Personnes en reconversion',
+    ],
+    iaLimits: [
+      { iaAide: 'Générer une première version à partir d’un besoin cadré', validationHumaine: 'Valider le périmètre et les fonctionnalités' },
+      { iaAide: 'Proposer des corrections et améliorations', validationHumaine: 'Tester et décider des changements' },
+      { iaAide: 'Structurer des instructions (prompts)', validationHumaine: 'Contrôler le résultat à chaque étape' },
+      { iaAide: 'Aider à sauvegarder et documenter', validationHumaine: 'Garder la responsabilité du projet' },
+    ],
+  },
 };
 
 export function getFormationCatalogueSeo(ref: FormationCatalogueCode): FormationCatalogueSeoConfig {

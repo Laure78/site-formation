@@ -126,6 +126,15 @@ export const FORMATIONS_CATALOG_SCHEMA: FormationCatalogEntry[] = [
     teaches: teachesFromCatalogueDisplay('NIV-09'),
     occupationalCategory: 'BTP, assistants IA, productivité documentaire',
   },
+  {
+    ref: 'NIV-10',
+    level: 'DÉBUTANT',
+    path: '/formations/developpement-web-ia-sans-coder',
+    name: getFormationByCode('NIV-10')!.titre,
+    description: `${getFormationByCode('NIV-10')!.accroche} Qualiopi.`,
+    teaches: teachesFromCatalogueDisplay('NIV-10'),
+    occupationalCategory: 'Création numérique, no-code IA, outils métier',
+  },
 ];
 
 const DURATION_ISO = FORMATION_COURSE_DURATION_ISO;

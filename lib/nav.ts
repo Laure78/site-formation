@@ -33,9 +33,9 @@ export const NAV_FORMATIONS_FOOTER: readonly NavItem[] = [
     title: 'Formation IA — appels d’offres et DCE BTP',
   },
   {
-    href: LINKS.bework,
-    label: 'Développement web avec l’IA — BeWork',
-    title: 'BeWork — Développement web avec l’IA — sans savoir coder',
+    href: LINKS.formationDeveloppementWebIaSansCoder,
+    label: 'Développement web avec l’IA',
+    title: 'Développement web avec l’IA — sans savoir coder',
   },
   {
     href: LINKS.financement,

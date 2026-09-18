@@ -46,7 +46,7 @@ export function AccueilHeroSection() {
                 Découvrir les formations
               </a>
               <a
-                href="#bework"
+                href="#creation-avec-ia"
                 data-cta="bework-anchor"
                 className={`${OFC_CTA_SECONDARY} inline-flex min-h-11 w-full items-center justify-center px-6 py-3 sm:w-auto`}
               >

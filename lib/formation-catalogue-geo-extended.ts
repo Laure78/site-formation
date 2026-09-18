@@ -275,6 +275,37 @@ export const FORMATION_CATALOGUE_GEO_EXTENDED: Record<
       { href: LINKS.avisClients, label: 'Avis clients formation IA BTP' },
     ],
   },
+  'NIV-10': {
+    queApprendre:
+      'Cadrer un projet numérique, guider l’IA avec des instructions structurées, construire une première version fonctionnelle de site, d’application ou d’outil métier, puis tester, corriger et définir une feuille de route — sans écrire de code.',
+    documentsBtp: [
+      'Cahier des besoins et périmètre fonctionnel',
+      'Parcours utilisateur et écrans',
+      'Scénarios de test',
+      'Feuille de route post-formation',
+    ],
+    outilsIa: ['ChatGPT', 'Claude', 'Environnement de développement assisté par IA'],
+    dureeReponse: '',
+    livrables: [
+      'Projet cadré et périmètre fonctionnel défini',
+      'Première architecture et première version construite',
+      'Méthode de prompting, de test et de correction',
+      'Projet sauvegardé + feuille de route pour continuer',
+      'Certificat de réalisation',
+    ],
+    debutants:
+      'Aucun prérequis en programmation. Savoir utiliser un ordinateur et Internet ; abonnement ChatGPT ou Claude actif (hors tarif de formation).',
+    propresDossiers:
+      'Oui — chaque participant travaille sur son propre projet (idée de site, d’application ou d’outil métier).',
+    iaRemplacePro: COMMON_IA_NON,
+    deroulement: `${MODALITE_PEDAGOGIQUE_CATALOGUE}. 70 % pratique — journée de 7 heures, quatre modules (cadrage, structuration, construction, tests/corrections), cas pratique fil rouge.`,
+    clusterMaillage: [
+      ...CLUSTER_BASE,
+      { href: LINKS.contact, label: 'Contacter Laure Olivié' },
+      { href: LINKS.accessibiliteHandicap, label: 'Accessibilité handicap' },
+      { href: LINKS.formationPlateforme, label: 'Espace de formation laureolivie.fr' },
+    ],
+  },
 };
 
 /** Injecte la durée depuis `data/formations.ts`. */

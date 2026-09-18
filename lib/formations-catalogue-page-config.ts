@@ -12,7 +12,7 @@ import {
 import { CATALOGUE_ALL_OFFERS, type CatalogueOffer } from '@/lib/formations-catalogue-architecture';
 import { FINANCEMENT_FORMULATION_CATALOGUE } from '@/lib/financement-copy';
 
-/** Codes hors offre catalogue publique (remplacés par BeWork). */
+/** Codes hors offre catalogue publique (remplacés par NIV-10 — création avec l’IA). */
 export const CATALOGUE_APP_METIER_REFS = ['NIV-06', 'NIV-07', 'NIV-08'] as const;
 
 /** Libellés courts — alignés sur le menu Formations. */
@@ -23,9 +23,10 @@ export const CATALOGUE_MENU_LABELS: Record<string, string> = {
   'NIV-04': 'Maîtriser Claude AI',
   'NIV-05': "IA et maîtrise d'œuvre",
   'NIV-09': 'Assistants IA personnalisés',
+  'NIV-10': 'Développement web avec l’IA',
 };
 
-/** Ordre d’affichage catalogue public (hors BeWork). */
+/** Ordre d’affichage catalogue public (hors apps métier N1–N3). */
 export const CATALOGUE_PUBLIC_REFS = [
   'NIV-01',
   'NIV-02',
@@ -33,6 +34,7 @@ export const CATALOGUE_PUBLIC_REFS = [
   'NIV-04',
   'NIV-05',
   'NIV-09',
+  'NIV-10',
 ] as const;
 
 /** Formations catalogue publiques (NIV-01…05 + NIV-09) — sans applications métier. */
@@ -96,8 +98,8 @@ export const CATALOGUE_BESOIN_OPTIONS: readonly CatalogueBesoinOption[] = [
   {
     id: 'deployer',
     label: 'Créer ou déployer des outils IA',
-    description: 'Assistants et Claude avancé pour le BTP',
-    targetRefs: ['NIV-09', 'NIV-04'],
+    description: 'Assistants, création de site/app avec l’IA, Claude avancé',
+    targetRefs: ['NIV-10', 'NIV-09', 'NIV-04'],
   },
   {
     id: 'assistants',

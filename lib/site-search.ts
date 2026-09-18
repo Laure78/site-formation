@@ -206,13 +206,13 @@ function buildStaticPages(): SiteSearchEntry[] {
       keywords: 'diagnostic audit ia',
     },
     {
-      id: 'page-bework',
-      title: 'BeWork — Développement web avec l’IA — sans savoir coder',
+      id: 'page-dev-web-ia',
+      title: 'Développement web avec l’IA — sans savoir coder',
       description:
-        'Formation progressive 7 h ou 14 h : développement web avec l’IA sans programmation — sites, apps et outils métier.',
-      href: LINKS.bework,
+        'Formation 7 h : créer un site, une application ou un outil métier avec l’IA, sans prérequis en programmation.',
+      href: LINKS.formationDeveloppementWebIaSansCoder,
       kind: 'page',
-      keywords: 'bework formation ia développement web sans coder 7h 14h applications sites outils métier',
+      keywords: 'formation ia développement web sans coder 7h applications sites outils métier no-code',
     },
   ];
 }

@@ -581,7 +581,7 @@ export function TutoPage({ tuto }: { tuto: TutoData }) {
               BeWork — marque d’OFC Création d’Entreprise : formation pour créer avec l’IA sans savoir
               coder, distincte du catalogue IA BTP. Financement OPCO possible selon éligibilité. En
               savoir plus sur{' '}
-              <Link href={LINKS.bework} className="text-[#377CF3] hover:underline">
+              <Link href={LINKS.formationDeveloppementWebIaSansCoder} className="text-[#377CF3] hover:underline">
                 la page BeWork
               </Link>
               .

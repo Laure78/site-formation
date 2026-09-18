@@ -154,6 +154,16 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
+        source: '/bework',
+        destination: '/formations/developpement-web-ia-sans-coder',
+        permanent: true,
+      },
+      {
+        source: '/bework/:path*',
+        destination: '/formations/developpement-web-ia-sans-coder',
+        permanent: true,
+      },
+      {
         source: '/video/formations-ia-btp',
         destination: '/formations',
         permanent: true,

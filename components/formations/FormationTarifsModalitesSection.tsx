@@ -1,6 +1,7 @@
 import type { FormationCatalogueCode } from '@/lib/formation-catalogue-visibility';
 import { getFormationByCode, isFormationSurDevis } from '@/data/formations';
 import { FINANCEMENT_FORMULATION_PRUDENTE } from '@/lib/financement-copy';
+import { TARIF_INTER_DEV_WEB_IA_HT } from '@/lib/formation-developpement-web-ia-content';
 import {
   getTarifGrilleFromDureeLibelle,
   libelleTarifInterParParticipant,
@@ -23,6 +24,7 @@ export function FormationTarifsModalitesSection({ catalogueRef }: Props) {
   const grille = getTarifGrilleFromDureeLibelle(formation.duree);
   const intraHT = formation.prixHT > 0 ? formation.prixHT : grille.intraHT;
   const customIntra = formation.prixHT > 0 && formation.prixHT !== grille.intraHT;
+  const isDevWebIa = catalogueRef === 'NIV-10';
   const effectifLabel =
     formation.effectifMin === formation.effectifMax
       ? `${formation.effectifMax} participants`
@@ -47,7 +49,7 @@ export function FormationTarifsModalitesSection({ catalogueRef }: Props) {
               supports pédagogiques, les livrables et les évaluations prévues dans le programme.
             </p>
             <p className="mt-4 font-display text-xl font-bold text-[#377CF3]">
-              {surDevis ? (
+              {surDevis || isDevWebIa ? (
                 'Sur devis'
               ) : (
                 <>
@@ -68,7 +70,17 @@ export function FormationTarifsModalitesSection({ catalogueRef }: Props) {
               Le tarif est fixé par participant. Les dates sont proposées selon le calendrier des sessions
               ouvertes.
             </p>
-            {surDevis || customIntra ? (
+            {isDevWebIa ? (
+              <>
+                <p className="mt-4 font-display text-xl font-bold text-[#377CF3]">
+                  {libelleTarifInterParParticipant(TARIF_INTER_DEV_WEB_IA_HT, false)}
+                  <MentionTvaAsterisque />
+                </p>
+                <p className="mt-2 text-sm text-slate-600">
+                  Session maintenue sous réserve d&apos;un nombre minimum d&apos;inscrits.
+                </p>
+              </>
+            ) : surDevis || customIntra ? (
               <>
                 <p className="mt-4 font-display text-xl font-bold text-[#377CF3]">Sur devis</p>
                 <p className="mt-2 text-sm text-slate-600">
@@ -95,7 +107,10 @@ export function FormationTarifsModalitesSection({ catalogueRef }: Props) {
         </div>
 
         <p className="mt-6 text-sm leading-relaxed text-slate-600">{MENTION_ABONNEMENTS_IA_HORS_FORFAIT}</p>
-        <p className="mt-3 text-sm leading-relaxed text-slate-600">{FINANCEMENT_FORMULATION_PRUDENTE}</p>
+        <p className="mt-3 text-sm leading-relaxed text-slate-600">
+          Prise en charge par un OPCO possible selon l&apos;éligibilité de l&apos;entreprise et du dossier.
+        </p>
+        <p className="mt-2 text-sm leading-relaxed text-slate-600">{FINANCEMENT_FORMULATION_PRUDENTE}</p>
         <MentionTVA className="mt-4 max-w-3xl" />
       </div>
     </section>
