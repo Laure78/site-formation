@@ -18,7 +18,7 @@ export function AccueilBeworkAccordionSection() {
           preview={
             <p className="mb-4 text-sm leading-relaxed text-slate-600">
               Formation « Développement web avec l’IA — sans savoir coder » — 7 h, distincte du
-              catalogue IA BTP. Financement OPCO possible selon éligibilité.
+              catalogue IA pour le BTP. Financement OPCO possible selon éligibilité.
             </p>
           }
         >

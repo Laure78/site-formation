@@ -54,7 +54,7 @@ export function HomeProgrammeFaqSections() {
             Programme détaillé des formations
           </h3>
           <p className="mt-3 text-sm text-slate-600">
-            catalogue &amp; programmes PDF — articles et guides IA BTP · Claude AI BTP · mémoire technique · IA
+            catalogue &amp; programmes PDF — articles et guides IA pour le BTP · Claude pour le BTP · mémoire technique · IA
             conducteur de travaux
           </p>
           <p className="mt-3 max-w-none text-base leading-relaxed text-slate-600 md:text-lg">
@@ -207,7 +207,7 @@ export function HomeProgrammeFaqSections() {
                 variant="formatrice"
                 quote="Ancienne dirigeante d’une entreprise de travaux publics, je m’appuie sur 7 ans d’expérience dans le BTP pour former les équipes aux usages concrets de l’intelligence artificielle. Mon objectif : zéro théorie, 100 % pratique. Vous repartez avec des outils opérationnels dès le lendemain."
                 author="Laure Olivié"
-                role="Formatrice IA BTP — OFC Création d'Entreprise"
+                role="Formatrice IA pour le BTP — OFC Création d'Entreprise"
               />
               <p className="mt-4 text-base leading-relaxed text-slate-600">
                 Vous cherchez un formateur IA pour le bâtiment ou la construction ? Découvrez{' '}

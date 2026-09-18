@@ -196,7 +196,7 @@ const COMPLEMENTARY_OFFERS: readonly CatalogueOffer[] = [
   },
   {
     id: 'referent-ia',
-    title: 'Former un référent IA BTP',
+    title: 'Former un référent IA pour le BTP',
     shortPromise:
       'Parcours transversal : distinguer assistant, workflow, automatisation et application métier — accompagner l’adoption.',
     audience: 'Référents IA, responsables digitaux, managers',
@@ -207,7 +207,7 @@ const COMPLEMENTARY_OFFERS: readonly CatalogueOffer[] = [
     kind: 'sur-demande',
     gamme: 'deployer',
     theme: 'strategie-adoption',
-    seoIntent: 'formation référent IA BTP',
+    seoIntent: 'formation référent IA pour le BTP',
   },
 ];
 

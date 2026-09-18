@@ -32,7 +32,7 @@ const CLUSTER_BLOCKS = [
   },
   {
     href: LINKS.formationIaBtpParis,
-    title: 'Formation IA BTP à Paris',
+    title: 'Formation IA pour le BTP à Paris',
     desc: 'Session présentiel dans vos locaux — devis, DCE et CR.',
     Icon: MapPin,
   },

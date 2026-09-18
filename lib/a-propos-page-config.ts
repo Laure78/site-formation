@@ -66,11 +66,11 @@ export const A_PROPOS_PARCOURS = [
   {
     period: '2019 – 2022',
     title: 'Formatrice indépendante — création d’entreprise & marketing digital',
-    text: 'Formations finançables CPF : création d’entreprise et marketing digital, en indépendante, avant la spécialisation IA BTP avec OFC.',
+    text: 'Formations finançables CPF : création d’entreprise et marketing digital, en indépendante, avant la spécialisation IA pour le BTP avec OFC.',
   },
   {
     period: '2022 – auj.',
-    title: 'OFC Création d’Entreprise — formatrice IA BTP',
+    title: 'OFC Création d’Entreprise — formatrice IA pour le BTP',
     text: 'Sessions courtes en présentiel pour entreprises du bâtiment et des travaux publics. Organisme certifié Qualiopi (actions de formation).',
   },
   {
@@ -181,7 +181,7 @@ export const A_PROPOS_LINKEDIN_COURSES = LAURE_OLIVIE_LINKEDIN_LEARNING_COURSES;
 export const FAQ_A_PROPOS_PAGE: FAQItem[] = [
   {
     q: 'Quels professionnels du BTP formez-vous ?',
-    a: 'Dirigeants de TPE/PME, conducteurs de travaux, chefs de chantier, fonctions support et équipes administratives — selon le programme choisi dans le catalogue formations IA BTP.',
+    a: 'Dirigeants de TPE/PME, conducteurs de travaux, chefs de chantier, fonctions support et équipes administratives — selon le programme choisi dans le catalogue formations IA pour le BTP.',
   },
   {
     q: 'Où se déroulent les formations ?',

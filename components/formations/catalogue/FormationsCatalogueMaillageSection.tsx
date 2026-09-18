@@ -8,13 +8,13 @@ const chipClass =
 /** Maillage SEO compact — liens thématiques sans liste exhaustive. */
 export function FormationsCatalogueMaillageSection() {
   const links = [
-    { href: LINKS.formationIaBtpPillar, label: 'Formation IA BTP — page pilier' },
-    { href: LINKS.formationParis, label: 'Formation IA BTP à Paris' },
+    { href: LINKS.formationIaBtpPillar, label: 'Formation IA pour le BTP — page pilier' },
+    { href: LINKS.formationParis, label: 'Formation IA pour le BTP à Paris' },
     { href: LINKS.iaDevis, label: 'IA devis bâtiment' },
     { href: LINKS.iaAnalyseDce, label: 'Analyser un DCE avec l’IA' },
     { href: LINKS.formationConducteurTravaux, label: 'IA conducteur de travaux' },
     { href: LINKS.financement, label: 'Financement Constructys' },
-    { href: LINKS.ressources, label: 'Ressources IA BTP' },
+    { href: LINKS.ressources, label: 'Ressources IA pour le BTP' },
     { href: LINKS.aPropos, label: 'À propos de Laure Olivié' },
   ] as const;
 

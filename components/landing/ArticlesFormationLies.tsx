@@ -52,7 +52,7 @@ export function ArticlesFormationLies() {
     <section className={OFC_SEC.mutedMesh}>
       <div className="mx-auto max-w-6xl">
         <h3 className="text-center font-display text-2xl font-bold text-slate-900 md:text-3xl">
-          Articles liés aux formations IA BTP
+          Articles liés aux formations IA pour le BTP
         </h3>
         <div className="mt-10 grid gap-8 md:grid-cols-3">
           {ARTICLES.map((a) => (
@@ -93,7 +93,7 @@ export function ArticlesFormationLies() {
                     <Image
                       src={PHOTOS.siteAvatar.src}
                       alt={PHOTOS.siteAvatar.alt}
-                      title="Laure Olivié — profil LinkedIn, formatrice IA BTP OFC Qualiopi"
+                      title="Laure Olivié — profil LinkedIn, formatrice IA pour le BTP OFC Qualiopi"
                       width={36}
                       height={36}
                       loading="lazy"

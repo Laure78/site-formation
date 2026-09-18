@@ -24,7 +24,7 @@ export function AccueilHeroSection() {
           <div className="accueil-hero-content min-w-0">
             <Badge>Formatrice IA spécialisée BTP</Badge>
             <h1 className={`${OFC_TYPE_HERO} mt-5 max-w-[16ch]`}>
-              Formations IA BTP pour les professionnels du bâtiment
+              Formations IA pour les professionnels du BTP
             </h1>
             <p className={`${OFC_TYPE_LEAD} mt-5 max-w-xl font-semibold text-ofc-ink`}>
               Apprenez à utiliser l&apos;intelligence artificielle sur vos vrais besoins métier.

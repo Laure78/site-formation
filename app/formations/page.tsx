@@ -38,7 +38,7 @@ export async function generateMetadata(): Promise<Metadata> {
       openGraphTitle: CATALOGUE_PAGE_TITLE,
       openGraphDescription: metaDescription,
       keywords: [
-        'formation IA BTP',
+        'formation IA pour le BTP',
         'formation ChatGPT BTP',
         'intelligence artificielle bâtiment',
         'Claude BTP',

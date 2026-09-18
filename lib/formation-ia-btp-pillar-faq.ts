@@ -10,19 +10,19 @@ export function getFaqFormationIaBtpPillar(at: Date = new Date()): FAQItem[] {
 
   return [
     {
-      q: 'Qu’est-ce qu’une formation IA BTP ?',
+      q: 'Qu’est-ce qu’une formation IA pour le BTP ?',
       a:
         `Une session professionnelle en présentiel, certifiée Qualiopi, pour apprendre à utiliser Claude AI et ChatGPT sur vos documents BTP : devis, DCE, CCTP, comptes rendus, courriers. Travail sur vos cas réels, relecture humaine obligatoire. Voir le <a href="${LINKS.formations}">catalogue des ${count} formations</a>.`,
     },
     {
       q: 'Qu’est-ce qu’une formation IA bâtiment ?',
       a:
-        'C’est la même intention : une formation en intelligence artificielle appliquée aux métiers du bâtiment (et des travaux publics). Chez OFC, « formation IA BTP » et « formation IA bâtiment » désignent des sessions concrètes sur devis, chantiers et appels d’offres — pas un cours théorique sur l’IA en général.',
+        'C’est la même intention : une formation en intelligence artificielle appliquée aux métiers du bâtiment (et des travaux publics). Chez OFC, « formation IA pour le BTP » et « formation IA bâtiment » désignent des sessions concrètes sur devis, chantiers et appels d’offres — pas un cours théorique sur l’IA en général.',
     },
     {
-      q: 'Quelle différence entre une formation IA généraliste et une formation IA spécialisée BTP ?',
+      q: 'Quelle différence entre une formation IA généraliste et une formation IA spécialisée pour le BTP ?',
       a:
-        'Une formation IA généraliste parle souvent marketing, productivité bureau ou code. Une formation IA spécialisée BTP part de vos pièces de marché (DCE, CCTP, CCAP), de vos devis, de vos CR chantier et de votre vocabulaire métier. Les exercices portent sur vos documents ; le jugement technique et la signature restent humains.',
+        'Une formation IA généraliste parle souvent marketing, productivité bureau ou code. Une formation spécialisée pour le BTP part de vos pièces de marché (DCE, CCTP, CCAP), de vos devis, de vos CR chantier et de votre vocabulaire métier. Les exercices portent sur vos documents ; le jugement technique et la signature restent humains.',
     },
     {
       q: 'Comment utiliser l’intelligence artificielle dans une entreprise du bâtiment ?',
@@ -53,12 +53,12 @@ export function getFaqFormationIaBtpPillar(at: Date = new Date()): FAQItem[] {
     {
       q: 'Comment utiliser ChatGPT dans le bâtiment ?',
       a:
-        `ChatGPT sert surtout à la rédaction et à la structuration : devis type, emails, CR, brouillons de mémoire. Formation dédiée : <a href="${LINKS.formationChatgptBtp}">formation ChatGPT BTP</a>. Toujours anonymiser les données sensibles avant envoi.`,
+        `ChatGPT sert surtout à la rédaction et à la structuration : devis type, emails, CR, brouillons de mémoire. Formation dédiée : <a href="${LINKS.formationChatgptBtp}">formation ChatGPT pour le BTP</a>. Toujours anonymiser les données sensibles avant envoi.`,
     },
     {
       q: 'Comment utiliser Claude dans le BTP ?',
       a:
-        `Claude (outil principal en session chez OFC) est adapté aux documents longs (DCE, CCTP) et aux Projects / Skills pour industrialiser des prompts métier. Guide : <a href="${LINKS.claudeAiBtp}">Claude AI BTP</a> · formation catalogue : <a href="${LINKS.formationMaitriserClaudeAiBtp}">Maîtriser Claude pour le BTP</a>.`,
+        `Claude (outil principal en session chez OFC) est adapté aux documents longs (DCE, CCTP) et aux Projects / Skills pour industrialiser des prompts métier. Guide : <a href="${LINKS.claudeAiBtp}">Claude AI pour le BTP</a> · formation catalogue : <a href="${LINKS.formationMaitriserClaudeAiBtp}">Maîtriser Claude pour le BTP</a>.`,
     },
     {
       q: 'Faut-il être bon en informatique pour suivre cette formation ?',
@@ -68,12 +68,12 @@ export function getFaqFormationIaBtpPillar(at: Date = new Date()): FAQItem[] {
     {
       q: 'Où se déroulent les sessions ?',
       a:
-        `Sessions intra-entreprise, dans vos locaux — présentiel uniquement · Île-de-France uniquement. Détail par département sur <a href="${LINKS.formationIleDeFrance}">formation IA BTP Île-de-France</a>.`,
+        `Sessions intra-entreprise, dans vos locaux — présentiel uniquement · Île-de-France uniquement. Détail par département sur <a href="${LINKS.formationIleDeFrance}">formation IA pour le BTP en Île-de-France</a>.`,
     },
     {
       q: 'Comment financer avec Constructys ou mon OPCO ?',
       a:
-        `Les formations Qualiopi OFC peuvent faire l’objet d’une prise en charge Constructys ou OPCO selon votre statut, branche et barèmes en vigueur — jamais garantie à 100 %. Guide : <a href="${LINKS.financement}">financement Constructys formation IA BTP</a>.`,
+        `Les formations Qualiopi OFC peuvent faire l’objet d’une prise en charge Constructys ou OPCO selon votre statut, branche et barèmes en vigueur — jamais garantie à 100 %. Guide : <a href="${LINKS.financement}">financement Constructys formation IA pour le BTP</a>.`,
     },
     {
       q: 'Quelle formation choisir : devis, appels d’offres ou chantier ?',

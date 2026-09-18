@@ -117,7 +117,7 @@ export const FORMATION_CHATGPT_BTP_CONFIG: SeoClusterPageConfig = {
     { href: LINKS.formationConducteurTravaux, label: 'IA pour les conducteurs de travaux' },
     { href: LINKS.formationIaAppelsOffresBtp, label: 'Formation IA appels d\'offres BTP' },
     { href: LINKS.formationMaitriserClaudeAiBtp, label: 'Formation Claude pour le bâtiment' },
-    { href: LINKS.formationIaBtpParis, label: 'Formation IA BTP en Île-de-France' },
+    { href: LINKS.formationIaBtpParis, label: 'Formation IA pour le BTP en Île-de-France' },
     { href: LINKS.aPropos, label: 'Laure Olivié — à propos' },
   ],
 };

@@ -55,13 +55,13 @@ export const metadata = createPageMetadata({
     alt: ogImage.alt,
   },
   keywords: [
-    'formation IA BTP',
-    'formation IA bâtiment',
     'formation IA pour le BTP',
+    'formation IA bâtiment',
+    'formation IA appliquée au bâtiment',
     'formation ChatGPT BTP',
     'formation intelligence artificielle bâtiment',
-    'organisme de formation IA BTP',
-    'formatrice IA BTP',
+    'organisme de formation IA pour le BTP',
+    'formatrice IA spécialisée BTP',
     'Qualiopi',
     'OPCO Constructys',
     'Île-de-France',
@@ -69,7 +69,7 @@ export const metadata = createPageMetadata({
   ],
 });
 
-const courseName = 'Formation IA BTP — intelligence artificielle appliquée au bâtiment';
+const courseName = 'Formation IA pour le BTP — intelligence artificielle appliquée au bâtiment';
 
 const courseBase = getCourseSchema({
   name: courseName,
@@ -103,7 +103,7 @@ const courseJsonLd = {
     url: `${SITE_CONFIG.url}/a-propos/`,
   },
   about: [
-    { '@type': 'Thing', name: 'Formation IA BTP' },
+    { '@type': 'Thing', name: 'Formation IA pour le BTP' },
     { '@type': 'Thing', name: 'Formation IA bâtiment' },
     { '@type': 'Thing', name: 'Intelligence artificielle appliquée au BTP' },
   ],
@@ -111,7 +111,7 @@ const courseJsonLd = {
 
 const breadcrumbJsonLd = getBreadcrumbSchema([
   { name: 'Accueil', path: '/' },
-  { name: 'Formation IA BTP', path: PATH },
+  { name: 'Formation IA pour le BTP', path: PATH },
 ]);
 
 const webPageJsonLd = {
@@ -207,7 +207,7 @@ export default function FormationIaBtpPillarPage() {
               <ul className="mt-3 list-inside list-disc space-y-1.5 text-[var(--accent)] marker:text-[var(--accent)]">
                 <li>
                   <a href="#definition" className="text-slate-700 underline-offset-2 hover:underline">
-                    Qu&apos;est-ce qu&apos;une formation IA BTP ?
+                    Qu&apos;est-ce qu&apos;une formation IA pour le BTP ?
                   </a>
                 </li>
                 <li>
@@ -276,13 +276,14 @@ export default function FormationIaBtpPillarPage() {
         <section id="definition" className="not-prose scroll-mt-24">
           <Reveal as="div" className="space-y-5 text-base leading-relaxed text-slate-700">
             <h2 className="font-display text-2xl font-bold text-slate-900">
-              Qu&apos;est-ce qu&apos;une formation IA BTP ?
+              Qu&apos;est-ce qu&apos;une formation IA pour le BTP ?
             </h2>
             <p>{FORMATION_IA_BTP_DEFINITION}</p>
             <p>
-              Sur cette page, <strong>formation IA BTP</strong> et <strong>formation IA bâtiment</strong>{' '}
-              désignent la même intention de recherche : former les professionnels du bâtiment à
-              l&apos;intelligence artificielle appliquée à leurs métiers — pas une formation bâtiment
+              Sur cette page, <strong>formation IA pour le BTP</strong> et{' '}
+              <strong>formation IA bâtiment</strong> désignent la même intention de
+              recherche : former les professionnels du bâtiment à l&apos;intelligence
+              artificielle appliquée à leurs métiers — pas une formation bâtiment
               générique sans IA.
             </p>
           </Reveal>
@@ -781,7 +782,7 @@ export default function FormationIaBtpPillarPage() {
             </li>
             <li>
               <Link href={LINKS.formationIaBtpParis} className="text-slate-700 hover:underline">
-                Formation IA BTP en Île-de-France — intra entreprise Paris
+                Formation IA pour le BTP en Île-de-France — intra entreprise Paris
               </Link>
             </li>
           </ul>
@@ -839,7 +840,10 @@ export default function FormationIaBtpPillarPage() {
       <RenvoiFicheCatalogue programmeRef="NIV-01" contexte="pour les professionnels du BTP" />
 
       <div className="mx-auto max-w-3xl px-4 pb-8">
-        <FAQSection items={faqItems} title="Questions fréquentes — formation IA BTP et formation IA bâtiment" />
+        <FAQSection
+          items={faqItems}
+          title="Questions fréquentes — formation IA pour le BTP et formation IA bâtiment"
+        />
       </div>
 
       <div className="border-t border-slate-200 bg-slate-50 px-4 py-12">
@@ -849,8 +853,8 @@ export default function FormationIaBtpPillarPage() {
               { href: LINKS.blogFormationIaBtpGuide2026, label: 'Guide blog : formation IA appliquée au bâtiment 2026' },
               { href: LINKS.formationParis, label: 'Formation IA pour le BTP Paris' },
               { href: LINKS.formationYvelines, label: 'Formation IA pour les pros du BTP Yvelines (78)' },
-              { href: LINKS.diagnostic, label: 'Diagnostic IA BTP gratuit' },
-              { href: LINKS.checklist, label: 'Checklist IA BTP' },
+              { href: LINKS.diagnostic, label: 'Diagnostic IA pour le BTP (gratuit)' },
+              { href: LINKS.checklist, label: 'Checklist IA pour le BTP' },
             ]}
           />
         </div>

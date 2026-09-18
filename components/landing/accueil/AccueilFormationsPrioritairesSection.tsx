@@ -21,7 +21,7 @@ export function AccueilFormationsPrioritairesSection() {
         align="center"
         titleId="accueil-formations-prioritaires"
         eyebrow="Catalogue"
-        title="Choisissez votre formation IA BTP"
+        title="Choisissez votre formation IA pour le BTP"
         description="Des parcours concrets pour apprendre à utiliser l’IA sur vos documents et process métier."
         className="mx-auto"
       />
@@ -42,7 +42,7 @@ export function AccueilFormationsPrioritairesSection() {
       </div>
       <p className="mt-12 flex flex-col items-center gap-3 text-center sm:flex-row sm:justify-center sm:gap-6">
         <Link href={LINKS.formationIaBtpPillar} className={`${OFC_LINK} text-base font-semibold`}>
-          Qu&apos;est-ce qu&apos;une formation IA BTP ? →
+          Qu&apos;est-ce qu&apos;une formation IA pour le BTP ? →
         </Link>
         <Link href={LINKS.formations} className={`${OFC_LINK} text-base font-semibold`}>
           Voir le catalogue complet →

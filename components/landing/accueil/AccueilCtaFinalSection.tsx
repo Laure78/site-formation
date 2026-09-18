@@ -4,7 +4,7 @@ import { CTASection } from '@/components/ui/CTASection';
 export function AccueilCtaFinalSection() {
   return (
     <CTASection
-      eyebrow="Formation IA BTP"
+      eyebrow="Formation IA pour le BTP"
       titleId="accueil-cta-final"
       origin="accueil-cta-final"
       title="Vous voulez identifier les usages IA les plus utiles pour votre entreprise ?"

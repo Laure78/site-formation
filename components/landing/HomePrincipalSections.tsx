@@ -19,7 +19,7 @@ const cards = [
   {
     href: '#offre-formations',
     title: 'Voir le catalogue',
-    desc: 'IA BTP Qualiopi — devis, chantier, appels d\u2019offres',
+    desc: 'IA pour le BTP Qualiopi — devis, chantier, appels d\u2019offres',
     Icon: GraduationCap,
   },
   {
@@ -42,7 +42,7 @@ const cards = [
   },
   {
     href: LINKS.blog,
-    title: 'Blog IA BTP',
+    title: 'Blog IA pour le BTP',
     desc: 'Guides ChatGPT, Claude, devis, mémoires techniques',
     Icon: BookOpen,
   },

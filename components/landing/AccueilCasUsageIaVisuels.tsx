@@ -11,7 +11,7 @@ const CAS_USAGE_VISUELS = [
   {
     photo: PHOTOS.accueilIaAppliqueeChantierBtp2026,
     title: 'IA appliquée au chantier',
-    caption: 'Planification intelligente, rapports automatisés et contrôle documentaire — Laure Olivié formatrice IA BTP.',
+    caption: 'Planification intelligente, rapports automatisés et contrôle documentaire — Laure Olivié, formatrice IA pour le BTP.',
     href: '#guide-conducteur-travaux',
     linkLabel: 'Guide conducteur de travaux (PDF gratuit)',
     /** Badge visible — doit coller à la destination (ancre guide PDF, pas tuto). */
@@ -131,7 +131,7 @@ export function AccueilCasUsageIaVisuels() {
                       <Image
                         src={item.photo.src}
                         alt={item.photo.alt}
-                        title={`Cas d'usage formation IA BTP — ${item.title}`}
+                        title={`Cas d'usage formation IA pour le BTP — ${item.title}`}
                         fill
                         loading="lazy"
                         className="ofc-cas-usage-image object-cover"

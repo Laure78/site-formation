@@ -16,14 +16,14 @@ import { OFC_CTA_PRIMARY, OFC_CTA_SECONDARY } from '@/lib/ofc-interaction-classe
 export function FormationsCatalogueHero() {
   return (
     <MarketingLightHero
-      eyebrow="Catalogue formations IA BTP"
+      eyebrow="Catalogue formations IA pour le BTP"
       title={CATALOGUE_POSITIONNEMENT.h1}
       titleId="formations-catalogue-hero-h1"
       contentUpdatedAt={getPillarPageContentUpdatedAt('/formations')}
       description={
         <>
           <span className="block font-semibold text-slate-800">
-            Des formations IA BTP 100 % en présentiel en Île-de-France
+            Des formations IA pour le BTP 100 % en présentiel en Île-de-France
           </span>
           <span className="mt-2 block">
             J’interviens auprès des entreprises et professionnels du BTP dans le cadre de formations

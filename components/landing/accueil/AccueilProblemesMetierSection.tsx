@@ -24,7 +24,7 @@ const ICONS: Record<string, LucideIcon> = {
   communication: Megaphone,
 };
 
-/** Usages IA BTP — cartes visuelles + CTA vers la section formations. */
+/** Usages IA pour le BTP — cartes visuelles + CTA vers la section formations. */
 export function AccueilProblemesMetierSection() {
   const cartes = getAccueilCartesProblemesMetier();
   const photo = PHOTOS.accueilIaChantierLaptopPlansBtp2026;

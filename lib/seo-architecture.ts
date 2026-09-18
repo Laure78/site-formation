@@ -9,14 +9,14 @@ export const PILLAR_PAGES = [
   {
     id: 'formation-ia-btp',
     path: '/formation-ia-btp',
-    title: 'Formation IA BTP : maîtriser l’IA bâtiment | Laure Olivié',
+    title: 'Formation IA pour le BTP : IA bâtiment | Laure Olivié',
     description:
-      'Formation IA BTP et formation IA bâtiment : Claude et ChatGPT sur devis, DCE, CCTP et chantier. Qualiopi, présentiel Île-de-France. Financement OPCO selon éligibilité.',
-    h1: 'Formation IA BTP : maîtriser l’intelligence artificielle dans le bâtiment',
+      'Formation IA pour le BTP et formation IA bâtiment : Claude et ChatGPT sur devis, DCE et chantier. Qualiopi, présentiel Île-de-France. Financement OPCO selon éligibilité.',
+    h1: 'Formation IA pour le BTP : maîtriser l’intelligence artificielle dans le bâtiment',
     keywords: [
-      'formation IA BTP',
-      'formation IA bâtiment',
       'formation IA pour le BTP',
+      'formation IA bâtiment',
+      'formation IA appliquée au bâtiment',
       'formation ChatGPT BTP',
       'formation intelligence artificielle bâtiment',
     ],
@@ -27,7 +27,7 @@ export const PILLAR_PAGES = [
     title: 'Intelligence artificielle bâtiment — Guide complet',
     description: 'L\'IA au service du bâtiment. ChatGPT, automatisation, gains de productivité pour les professionnels du BTP et les entreprises.',
     h1: 'L\'intelligence artificielle au service du bâtiment',
-    keywords: ['intelligence artificielle bâtiment', 'IA BTP', 'IA construction'],
+    keywords: ['intelligence artificielle bâtiment', 'IA pour le BTP', 'IA construction'],
   },
   {
     id: 'chatgpt-entreprises-btp',
@@ -49,7 +49,7 @@ export const PILLAR_PAGES = [
 
 export const BLOG_CLUSTERS = [
   { id: 'ia-artisans', path: '/blog/ia-artisans', name: 'IA pour entreprises BTP', pillarId: 'chatgpt-artisans' },
-  { id: 'ia-btp', path: '/blog/ia-btp', name: 'IA BTP', pillarId: 'intelligence-artificielle-batiment' },
+  { id: 'ia-btp', path: '/blog/ia-btp', name: 'IA pour le BTP', pillarId: 'intelligence-artificielle-batiment' },
   { id: 'chatgpt-btp', path: '/blog/chatgpt-btp', name: 'ChatGPT BTP', pillarId: 'chatgpt-artisans' },
   { id: 'automatisation-entreprises', path: '/blog/automatisation-entreprises', name: 'Automatisation entreprises', pillarId: 'ia-entreprises-btp' },
   { id: 'outils-ia', path: '/blog/outils-ia', name: 'Outils IA', pillarId: 'ia-entreprises-btp' },
