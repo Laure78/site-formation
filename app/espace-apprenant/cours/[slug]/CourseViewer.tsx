@@ -14,6 +14,8 @@ import {
   ExternalLink,
   Link2,
   BookOpen,
+  Download,
+  FileSpreadsheet,
 } from 'lucide-react';
 import { YouTubeOrVideoEmbed } from '@/components/YouTubeOrVideoEmbed';
 import { LessonMediaPreview } from '@/components/lms/LessonMediaPreview';
@@ -21,6 +23,10 @@ import { SatisfactionSurvey } from '@/components/SatisfactionSurvey';
 import { QuestionnairePositionnementBanner } from '@/components/espace-apprenant/QuestionnairePositionnementBanner';
 import { QuestionnaireSatisfactionBanner } from '@/components/espace-apprenant/QuestionnaireSatisfactionBanner';
 import { AvisGoogleBanner } from '@/components/espace-apprenant/AvisGoogleBanner';
+import {
+  isSpreadsheetResource,
+  spreadsheetDownloadUrl,
+} from '@/lib/lesson-types';
 
 interface LessonResource {
   id: string;
@@ -75,8 +81,58 @@ export function CourseViewer({
   const resList = selectedLessonId ? (lessonResources[selectedLessonId] ?? []) : [];
   const pdfResources = resList.filter((r) => r.file_type === 'pdf');
   const linkResources = resList.filter(
-    (r) => r.file_type === 'link' || (!r.file_type && r.file_url?.startsWith('http'))
+    (r) =>
+      !isSpreadsheetResource({
+        fileUrl: r.file_url,
+        fileType: r.file_type,
+        title: r.title,
+      }) &&
+      (r.file_type === 'link' || (!r.file_type && r.file_url?.startsWith('http')))
   );
+
+  // Bases Excel du module courant (toutes leçons du module) — affichées sous le titre module
+  const currentModule = modules.find((m) =>
+    (m.lessons ?? []).some((l) => l.id === selectedLessonId)
+  );
+  const moduleSpreadsheetResources = (() => {
+    if (!currentModule) return [] as LessonResource[];
+    const seen = new Set<string>();
+    const list: LessonResource[] = [];
+    for (const lesson of currentModule.lessons ?? []) {
+      for (const r of lessonResources[lesson.id] ?? []) {
+        if (
+          !isSpreadsheetResource({
+            fileUrl: r.file_url,
+            fileType: r.file_type,
+            title: r.title,
+          })
+        ) {
+          continue;
+        }
+        const key = r.file_url;
+        if (seen.has(key)) continue;
+        seen.add(key);
+        list.push(r);
+      }
+      if (
+        lesson.type === 'lien' &&
+        lesson.content_url &&
+        isSpreadsheetResource({ fileUrl: lesson.content_url, title: lesson.title })
+      ) {
+        const key = lesson.content_url;
+        if (!seen.has(key)) {
+          seen.add(key);
+          list.push({
+            id: `lesson-${lesson.id}`,
+            title: lesson.title,
+            file_url: lesson.content_url,
+            file_type: 'xlsx',
+          });
+        }
+      }
+    }
+    return list;
+  })();
 
   useEffect(() => {
     setSelectedPdfIndex(0);
@@ -258,15 +314,46 @@ export function CourseViewer({
             </div>
             <div className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm md:p-8">
               <div className="flex items-center gap-2 text-sm text-slate-500">
-                <span>
-                  {
-                    (allLessons.find((l) => l.id === selectedLessonId) as { moduleTitle?: string })
-                      ?.moduleTitle
-                  }
-                </span>
+                <span>{currentModule?.title ?? 'Module'}</span>
                 <ChevronRight size={16} strokeWidth={1.5} />
                 <span className="font-medium text-slate-700">{selectedLesson.title}</span>
               </div>
+
+              {moduleSpreadsheetResources.length > 0 ? (
+                <div className="mt-4 space-y-2">
+                  <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">
+                    Base de prompts Excel
+                  </p>
+                  {moduleSpreadsheetResources.map((r) => {
+                    const href = spreadsheetDownloadUrl(r.file_url);
+                    const isDirectFile =
+                      /\.(xlsx|xls|csv)(\?|$)/i.test(r.file_url) ||
+                      r.file_url.startsWith('/');
+                    return (
+                      <a
+                        key={r.id}
+                        href={href}
+                        download={isDirectFile ? true : undefined}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-3 rounded-xl border border-emerald-200 bg-emerald-50 px-4 py-3 text-sm font-semibold text-emerald-900 transition-colors hover:bg-emerald-100"
+                      >
+                        <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-white text-emerald-700 shadow-sm ring-1 ring-emerald-100">
+                          <FileSpreadsheet size={20} strokeWidth={1.5} />
+                        </span>
+                        <span className="min-w-0 flex-1 truncate">
+                          {r.title || 'Télécharger la base de prompts'}
+                        </span>
+                        <span className="inline-flex shrink-0 items-center gap-1.5 text-emerald-800">
+                          <Download size={16} strokeWidth={1.75} />
+                          Télécharger
+                        </span>
+                      </a>
+                    );
+                  })}
+                </div>
+              ) : null}
+
               <h2 className="mt-4 font-display text-2xl font-bold text-slate-900">
                 {selectedLesson.title}
               </h2>
