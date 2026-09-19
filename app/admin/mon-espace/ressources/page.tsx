@@ -4,19 +4,13 @@ import { redirect } from 'next/navigation';
 import { createClient } from '@/lib/supabase/server';
 import { requireOrganisationAdminAccess } from '@/lib/admin-access';
 import { LINKS } from '@/lib/internal-links';
-import {
-  getResources,
-  searchNotesAndResources,
-} from '@/lib/admin/mon-espace/notes-ressources';
+import { getResources } from '@/lib/admin/mon-espace/notes-ressources';
 import {
   RESOURCE_CATEGORIES,
   type WorkspaceResourceCategory,
 } from '@/lib/admin/mon-espace/types';
 import { MonEspaceSubnav } from '@/components/admin/mon-espace/MonEspaceSubnav';
-import {
-  CrossSearchResults,
-  OrganisationSearchBar,
-} from '@/components/admin/mon-espace/OrganisationSearchBar';
+import { OrganisationSearchBar } from '@/components/admin/mon-espace/OrganisationSearchBar';
 import {
   ResourceCreateForm,
   ResourcesList,
@@ -49,11 +43,6 @@ export default async function OrganisationRessourcesPage({
 
   let migrationMissing = false;
   let resources: Awaited<ReturnType<typeof getResources>> = [];
-  let cross = {
-    query: '',
-    notes: [] as Awaited<ReturnType<typeof searchNotesAndResources>>['notes'],
-    resources: [] as Awaited<ReturnType<typeof searchNotesAndResources>>['resources'],
-  };
 
   try {
     resources = await getResources(supabase, access.userId, {
@@ -61,9 +50,6 @@ export default async function OrganisationRessourcesPage({
       favoritesOnly,
       query,
     });
-    if (query) {
-      cross = await searchNotesAndResources(supabase, access.userId, query);
-    }
   } catch {
     migrationMissing = true;
   }
@@ -71,7 +57,12 @@ export default async function OrganisationRessourcesPage({
   function hrefWith(patch: Record<string, string | null>) {
     const next = new URLSearchParams();
     const q = patch.q !== undefined ? patch.q : query || null;
-    const cat = patch.categorie !== undefined ? patch.categorie : category === 'all' ? null : category;
+    const cat =
+      patch.categorie !== undefined
+        ? patch.categorie
+        : category === 'all'
+          ? null
+          : category;
     const fav =
       patch.favoris !== undefined
         ? patch.favoris
@@ -160,15 +151,6 @@ export default async function OrganisationRessourcesPage({
               </Link>
             ))}
           </div>
-
-          {query ? (
-            <CrossSearchResults
-              query={cross.query || query}
-              notes={cross.notes}
-              resources={cross.resources}
-              current="ressources"
-            />
-          ) : null}
 
           <ResourceCreateForm />
           <ResourcesList resources={resources} />

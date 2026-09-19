@@ -7,7 +7,6 @@ import {
   CheckSquare,
   ClipboardList,
   FileText,
-  FolderOpen,
   Mail,
   Receipt,
   Star,
@@ -83,12 +82,6 @@ function ChecklistRow({
 }
 
 const ADMIN_FOLLOWUPS = [
-  {
-    label: 'Suivi administratif',
-    href: LINKS.adminMonEspaceSuivi,
-    icon: FolderOpen,
-    hint: 'Checklist sessions',
-  },
   {
     label: 'Dossiers apprenants',
     href: '/admin/apprenants',
@@ -405,8 +398,8 @@ export function OrganisationDashboard({ data }: { data: OrganisationDashboardDat
           <OrgCardHeader
             title="Relances & administratif"
             description="Actions récurrentes"
-            actionHref={LINKS.adminMonEspaceSuivi}
-            actionLabel="Suivi"
+            actionHref="/admin/apprenants"
+            actionLabel="Apprenants"
           />
           <ul className="grid gap-2 sm:grid-cols-2">
             {ADMIN_FOLLOWUPS.map((item) => {

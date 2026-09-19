@@ -5,9 +5,7 @@ const items = [
   { href: LINKS.adminMonEspace, label: 'Tableau de bord', exact: true },
   { href: LINKS.adminMonEspaceAgenda, label: 'Agenda', exact: false },
   { href: LINKS.adminMonEspaceListes, label: 'Mes listes', exact: false },
-  { href: LINKS.adminMonEspaceSuivi, label: 'Suivi admin', exact: false },
   { href: LINKS.adminMonEspaceTaches, label: 'Tâches', exact: false },
-  { href: LINKS.adminMonEspaceNotes, label: 'Notes', exact: false },
   { href: LINKS.adminMonEspaceRessources, label: 'Ressources', exact: false },
   { href: LINKS.adminMonEspaceFavoris, label: 'Favoris', exact: false },
 ] as const;
