@@ -3,7 +3,18 @@
 import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import { Check, ChevronRight, Play, FileText, LayoutList, Lock, Menu, ExternalLink, Link2 } from 'lucide-react';
+import {
+  Check,
+  ChevronLeft,
+  ChevronRight,
+  Play,
+  FileText,
+  LayoutList,
+  Menu,
+  ExternalLink,
+  Link2,
+  BookOpen,
+} from 'lucide-react';
 import { YouTubeOrVideoEmbed } from '@/components/YouTubeOrVideoEmbed';
 import { LessonMediaPreview } from '@/components/lms/LessonMediaPreview';
 import { SatisfactionSurvey } from '@/components/SatisfactionSurvey';
@@ -45,66 +56,90 @@ interface Props {
   lessonResources?: Record<string, LessonResource[]>;
 }
 
-export function CourseViewer({ course, modules, completedLessonIds, enrollmentId, userId, progressPercent, lessonResources = {} }: Props) {
+export function CourseViewer({
+  course,
+  modules,
+  completedLessonIds,
+  enrollmentId,
+  progressPercent,
+  lessonResources = {},
+}: Props) {
   const router = useRouter();
   const allLessons = modules.flatMap((m) => m.lessons.map((l) => ({ ...l, moduleTitle: m.title })));
   const firstLesson = allLessons[0];
   const [selectedLessonId, setSelectedLessonId] = useState<string | null>(firstLesson?.id ?? null);
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [selectedPdfIndex, setSelectedPdfIndex] = useState(0);
-  const [hasAutoMarked, setHasAutoMarked] = useState(false);
   const selectedLesson = allLessons.find((l) => l.id === selectedLessonId);
 
   const resList = selectedLessonId ? (lessonResources[selectedLessonId] ?? []) : [];
   const pdfResources = resList.filter((r) => r.file_type === 'pdf');
-  const linkResources = resList.filter((r) => r.file_type === 'link' || (!r.file_type && r.file_url?.startsWith('http')));
+  const linkResources = resList.filter(
+    (r) => r.file_type === 'link' || (!r.file_type && r.file_url?.startsWith('http'))
+  );
 
   useEffect(() => {
     setSelectedPdfIndex(0);
-    setHasAutoMarked(false);
   }, [selectedLessonId]);
 
-  const markComplete = async () => {
-    if (!selectedLessonId || !enrollmentId) return;
+  const markCompleteQuietly = async (lessonId: string) => {
+    if (!enrollmentId) return;
     try {
-      const res = await fetch('/api/lesson-progress', {
+      await fetch('/api/lesson-progress', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ lessonId: selectedLessonId, completed: true }),
+        body: JSON.stringify({ lessonId, completed: true }),
       });
-      if (res.ok) {
-        router.refresh();
-      }
-    } catch {}
+      router.refresh();
+    } catch {
+      /* ignore */
+    }
   };
 
-  const nextLesson = allLessons[allLessons.findIndex((l) => l.id === selectedLessonId) + 1];
+  const currentIndex = allLessons.findIndex((l) => l.id === selectedLessonId);
+  const prevLesson = currentIndex > 0 ? allLessons[currentIndex - 1] : null;
+  const nextLesson =
+    currentIndex >= 0 && currentIndex < allLessons.length - 1
+      ? allLessons[currentIndex + 1]
+      : null;
 
-  // Progression auto : marquer comme terminée après 5 secondes de consultation
+  // Progression silencieuse : après 5 s de consultation (sans bouton)
   const viewedRef = useRef<Set<string>>(new Set());
   useEffect(() => {
-    if (!selectedLessonId || !enrollmentId || completedLessonIds.includes(selectedLessonId)) return;
+    if (!selectedLessonId || !enrollmentId || completedLessonIds.includes(selectedLessonId)) {
+      return;
+    }
     if (viewedRef.current.has(selectedLessonId)) return;
     const t = setTimeout(() => {
       viewedRef.current.add(selectedLessonId);
-      markComplete();
+      void markCompleteQuietly(selectedLessonId);
     }, 5000);
     return () => clearTimeout(t);
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- mark on lesson change only
   }, [selectedLessonId, enrollmentId, completedLessonIds]);
 
   const icon = (type: string) => {
     switch (type) {
-      case 'video': return <Play size={16} strokeWidth={1.5} />;
-      case 'pdf': return <FileText size={16} strokeWidth={1.5} />;
-      case 'lien': return <Table2 size={16} strokeWidth={1.5} />;
-      case 'quiz': return <LayoutList size={16} strokeWidth={1.5} />;
-      default: return <FileText size={16} strokeWidth={1.5} />;
+      case 'video':
+        return <Play size={16} strokeWidth={1.5} />;
+      case 'pdf':
+        return <FileText size={16} strokeWidth={1.5} />;
+      case 'lien':
+        return <Link2 size={16} strokeWidth={1.5} />;
+      case 'quiz':
+        return <LayoutList size={16} strokeWidth={1.5} />;
+      default:
+        return <FileText size={16} strokeWidth={1.5} />;
     }
+  };
+
+  const goToLesson = (id: string) => {
+    setSelectedLessonId(id);
+    setSidebarOpen(false);
   };
 
   return (
     <div className="flex">
-      {/* Mobile: sélecteur de leçon (dropdown) — masqué sur desktop car sidebar visible */}
       <div className="fixed left-0 right-0 top-16 z-20 border-b border-slate-200 bg-white px-4 py-3 lg:hidden">
         <select
           value={selectedLessonId ?? ''}
@@ -119,7 +154,6 @@ export function CourseViewer({ course, modules, completedLessonIds, enrollmentId
         </select>
       </div>
 
-      {/* Bouton ouvrir sidebar sur mobile */}
       <button
         type="button"
         onClick={() => setSidebarOpen(true)}
@@ -129,7 +163,6 @@ export function CourseViewer({ course, modules, completedLessonIds, enrollmentId
         <Menu size={24} strokeWidth={1.5} />
       </button>
 
-      {/* Overlay sidebar mobile */}
       {sidebarOpen && (
         <div
           className="fixed inset-0 z-30 bg-black/50 lg:hidden"
@@ -137,7 +170,6 @@ export function CourseViewer({ course, modules, completedLessonIds, enrollmentId
         />
       )}
 
-      {/* Sidebar */}
       <aside
         className={`fixed left-0 top-0 z-40 h-screen w-72 overflow-y-auto border-r border-slate-200 bg-white transition-transform lg:translate-x-0 ${
           sidebarOpen ? 'translate-x-0' : '-translate-x-full'
@@ -145,21 +177,39 @@ export function CourseViewer({ course, modules, completedLessonIds, enrollmentId
       >
         <div className="border-b border-slate-200 p-4">
           <div className="flex items-center justify-between">
-            <Link href="/espace-apprenant/mes-formations" className="text-sm text-[var(--accent)] hover:underline">← Mes formations</Link>
-            <button type="button" onClick={() => setSidebarOpen(false)} className="rounded p-2 lg:hidden" aria-label="Fermer">
+            <Link
+              href="/espace-apprenant/mes-formations"
+              className="text-sm text-[var(--accent)] hover:underline"
+            >
+              ← Mes formations
+            </Link>
+            <button
+              type="button"
+              onClick={() => setSidebarOpen(false)}
+              className="rounded p-2 lg:hidden"
+              aria-label="Fermer"
+            >
               ×
             </button>
           </div>
           <h1 className="mt-2 font-display text-lg font-bold text-slate-900">{course.title}</h1>
           <div className="mt-2 h-2 w-full overflow-hidden rounded-full bg-slate-100">
-            <div className="h-full rounded-full bg-[var(--accent)]" style={{ width: `${progressPercent}%` }} />
+            <div
+              className="h-full rounded-full bg-[var(--accent)]"
+              style={{ width: `${progressPercent}%` }}
+            />
           </div>
-          <p className="mt-1 text-xs text-slate-500">{progressPercent}% complété</p>
+          <p className="mt-1 text-xs text-slate-500">{progressPercent}% consulté</p>
+          <p className="mt-2 text-xs text-slate-500">
+            Toutes les leçons sont accessibles librement.
+          </p>
         </div>
         <nav className="p-2">
           {modules.map((m) => (
             <div key={m.id} className="mb-4">
-              <p className="mb-2 px-2 text-xs font-semibold uppercase tracking-wider text-slate-500">{m.title}</p>
+              <p className="mb-2 px-2 text-xs font-semibold uppercase tracking-wider text-slate-500">
+                {m.title}
+              </p>
               <ul className="space-y-0.5">
                 {(m.lessons ?? []).map((l) => {
                   const isCompleted = completedLessonIds.includes(l.id);
@@ -168,12 +218,11 @@ export function CourseViewer({ course, modules, completedLessonIds, enrollmentId
                     <li key={l.id}>
                       <button
                         type="button"
-                        onClick={() => {
-                          setSelectedLessonId(l.id);
-                          setSidebarOpen(false);
-                        }}
+                        onClick={() => goToLesson(l.id)}
                         className={`flex w-full items-center gap-2 rounded-lg px-3 py-2 text-left text-sm transition-colors ${
-                          isSelected ? 'bg-[var(--accent-soft)] font-medium text-[var(--accent)]' : 'text-slate-700 hover:bg-slate-100'
+                          isSelected
+                            ? 'bg-[var(--accent-soft)] font-medium text-[var(--accent)]'
+                            : 'text-slate-700 hover:bg-slate-100'
                         }`}
                       >
                         {isCompleted ? (
@@ -184,9 +233,11 @@ export function CourseViewer({ course, modules, completedLessonIds, enrollmentId
                           </span>
                         )}
                         <span className="truncate">{l.title}</span>
-                        {l.duration_minutes && (
-                          <span className="ml-auto text-xs text-slate-400">{l.duration_minutes} min</span>
-                        )}
+                        {l.duration_minutes ? (
+                          <span className="ml-auto text-xs text-slate-400">
+                            {l.duration_minutes} min
+                          </span>
+                        ) : null}
                       </button>
                     </li>
                   );
@@ -197,7 +248,6 @@ export function CourseViewer({ course, modules, completedLessonIds, enrollmentId
         </nav>
       </aside>
 
-      {/* Contenu principal */}
       <main className="flex-1 p-4 pt-24 lg:ml-72 lg:p-8 lg:pt-8">
         {selectedLesson ? (
           <div className="mx-auto max-w-4xl">
@@ -208,11 +258,18 @@ export function CourseViewer({ course, modules, completedLessonIds, enrollmentId
             </div>
             <div className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm md:p-8">
               <div className="flex items-center gap-2 text-sm text-slate-500">
-                <span>{(allLessons.find((l) => l.id === selectedLessonId) as { moduleTitle?: string })?.moduleTitle}</span>
+                <span>
+                  {
+                    (allLessons.find((l) => l.id === selectedLessonId) as { moduleTitle?: string })
+                      ?.moduleTitle
+                  }
+                </span>
                 <ChevronRight size={16} strokeWidth={1.5} />
                 <span className="font-medium text-slate-700">{selectedLesson.title}</span>
               </div>
-              <h2 className="mt-4 font-display text-2xl font-bold text-slate-900">{selectedLesson.title}</h2>
+              <h2 className="mt-4 font-display text-2xl font-bold text-slate-900">
+                {selectedLesson.title}
+              </h2>
 
               <div className="mt-8 min-h-[200px]">
                 {selectedLesson.type === 'video' && selectedLesson.content_url ? (
@@ -224,15 +281,19 @@ export function CourseViewer({ course, modules, completedLessonIds, enrollmentId
                 ) : selectedLesson.type === 'texte' && selectedLesson.content_text ? (
                   <div
                     className="prose prose-slate max-w-none rounded-xl border border-slate-200 bg-white p-6"
-                    dangerouslySetInnerHTML={{ __html: selectedLesson.content_text.replace(/\n/g, '<br />') }}
+                    dangerouslySetInnerHTML={{
+                      __html: selectedLesson.content_text.replace(/\n/g, '<br />'),
+                    }}
                   />
                 ) : selectedLesson.type === 'texte' ? (
                   <div className="rounded-xl bg-slate-100 p-12 text-center">
                     <p className="text-slate-500">Aucun contenu texte pour cette leçon</p>
                   </div>
-                ) : (selectedLesson.type === 'pdf' && (selectedLesson.content_url || pdfResources.length > 0)) ? (
+                ) : selectedLesson.type === 'pdf' &&
+                  (selectedLesson.content_url || pdfResources.length > 0) ? (
                   (() => {
-                    const mainPdfUrl = selectedLesson.content_url ?? pdfResources[selectedPdfIndex]?.file_url;
+                    const mainPdfUrl =
+                      selectedLesson.content_url ?? pdfResources[selectedPdfIndex]?.file_url;
                     return (
                       <div className="space-y-3">
                         {pdfResources.length > 1 && !selectedLesson.content_url && (
@@ -242,7 +303,11 @@ export function CourseViewer({ course, modules, completedLessonIds, enrollmentId
                                 key={r.id}
                                 type="button"
                                 onClick={() => setSelectedPdfIndex(i)}
-                                className={`shrink-0 rounded-lg px-3 py-1.5 text-sm font-medium ${i === selectedPdfIndex ? 'bg-[var(--accent)] text-white' : 'bg-white text-slate-600 hover:bg-slate-100'}`}
+                                className={`shrink-0 rounded-lg px-3 py-1.5 text-sm font-medium ${
+                                  i === selectedPdfIndex
+                                    ? 'bg-[var(--accent)] text-white'
+                                    : 'bg-white text-slate-600 hover:bg-slate-100'
+                                }`}
                               >
                                 {r.title}
                               </button>
@@ -306,25 +371,28 @@ export function CourseViewer({ course, modules, completedLessonIds, enrollmentId
               )}
 
               <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between md:mt-8">
-                <button
-                  type="button"
-                  onClick={markComplete}
-                  disabled={completedLessonIds.includes(selectedLesson.id) || !enrollmentId}
-                  className="flex items-center gap-2 rounded-xl bg-[var(--accent)] px-6 py-3 font-semibold text-white hover:bg-blue-700 disabled:opacity-50"
-                >
-                  <Check size={20} strokeWidth={1.5} />
-                  {completedLessonIds.includes(selectedLesson.id) ? 'Terminée' : 'Marquer comme terminée'}
-                </button>
-                {nextLesson && (
+                {prevLesson ? (
                   <button
                     type="button"
-                    onClick={() => setSelectedLessonId(nextLesson.id)}
+                    onClick={() => goToLesson(prevLesson.id)}
                     className="flex items-center gap-2 rounded-xl border border-slate-300 px-6 py-3 font-semibold text-slate-700 hover:bg-slate-50"
+                  >
+                    <ChevronLeft size={20} strokeWidth={1.5} />
+                    Leçon précédente
+                  </button>
+                ) : (
+                  <span />
+                )}
+                {nextLesson ? (
+                  <button
+                    type="button"
+                    onClick={() => goToLesson(nextLesson.id)}
+                    className="flex items-center gap-2 rounded-xl bg-[var(--accent)] px-6 py-3 font-semibold text-white hover:bg-blue-700"
                   >
                     Leçon suivante
                     <ChevronRight size={20} strokeWidth={1.5} />
                   </button>
-                )}
+                ) : null}
               </div>
             </div>
 
@@ -332,10 +400,16 @@ export function CourseViewer({ course, modules, completedLessonIds, enrollmentId
               <div className="mx-auto mt-10 max-w-2xl space-y-6">
                 <QuestionnaireSatisfactionBanner />
                 <AvisGoogleBanner />
-                <SatisfactionSurvey courseId={course.id} courseTitle={course.title} onSubmitted={() => router.refresh()} />
+                <SatisfactionSurvey
+                  courseId={course.id}
+                  courseTitle={course.title}
+                  onSubmitted={() => router.refresh()}
+                />
                 <div className="rounded-2xl border border-slate-200 bg-white p-6">
                   <p className="font-semibold text-slate-900">Formation terminée</p>
-                  <p className="mt-1 text-sm text-slate-600">Téléchargez votre attestation de suivi.</p>
+                  <p className="mt-1 text-sm text-slate-600">
+                    Téléchargez votre attestation de suivi.
+                  </p>
                   <Link
                     href={`/espace-apprenant/attestation/${course.id}`}
                     className="mt-4 inline-flex items-center gap-2 rounded-xl bg-[var(--accent)] px-5 py-2.5 font-medium text-white hover:bg-[var(--accent)]/90"
@@ -350,8 +424,10 @@ export function CourseViewer({ course, modules, completedLessonIds, enrollmentId
           <div className="mx-auto max-w-4xl space-y-4">
             <QuestionnairePositionnementBanner compact />
             <div className="flex min-h-[400px] flex-col items-center justify-center rounded-2xl border-2 border-dashed border-slate-200 bg-white">
-              <Lock size={48} strokeWidth={1} className="text-slate-300" />
-              <p className="mt-4 font-medium text-slate-600">Sélectionne une leçon dans le menu</p>
+              <BookOpen size={48} strokeWidth={1} className="text-slate-300" />
+              <p className="mt-4 font-medium text-slate-600">
+                Sélectionnez une leçon dans le menu
+              </p>
             </div>
           </div>
         )}
