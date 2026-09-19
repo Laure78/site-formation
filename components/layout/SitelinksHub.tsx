@@ -31,7 +31,11 @@ const ICONS: Record<string, LucideIcon> = {
  */
 export function SitelinksHub() {
   const pathname = usePathname();
-  if (pathname?.startsWith('/admin') || pathname?.startsWith('/demo/')) {
+  if (
+    pathname?.startsWith('/admin') ||
+    pathname?.startsWith('/demo/') ||
+    pathname?.startsWith('/outils/demo-')
+  ) {
     return null;
   }
 

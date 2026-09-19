@@ -159,6 +159,11 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
+        source: '/demo/cursor-ffb-home',
+        destination: '/outils/demo-cursor-vitrine-ffb',
+        permanent: false,
+      },
+      {
         source: '/bework/:path*',
         destination: '/formations/developpement-web-ia-sans-coder',
         permanent: true,
