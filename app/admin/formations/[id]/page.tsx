@@ -45,10 +45,12 @@ export default async function AdminFormationEditPage({
           }}
         />
       </div>
-      <div className="mt-8 flex items-start justify-between">
+      <div id="modules" className="mt-8 flex scroll-mt-24 items-start justify-between">
         <div>
           <h2 className="font-display text-lg font-semibold text-slate-900">Modules et leçons</h2>
-          <p className="text-sm text-slate-500">Ajoutez des modules, puis des leçons (vidéos, slides PDF, texte).</p>
+          <p className="text-sm text-slate-500">
+            Cliquez sur une leçon pour la modifier (vidéo, PDF, texte, quiz).
+          </p>
         </div>
         <Link
           href={`/admin/formations/${id}/modules/nouveau`}
@@ -82,13 +84,30 @@ export default async function AdminFormationEditPage({
                     Modifier
                   </Link>
                 </div>
-                <ul className="mt-4 space-y-2 pl-8">
-                  {((m.lessons as { id: string; title: string; type: string }[]) ?? []).map((l) => (
-                    <li key={l.id} className="flex items-center gap-2 text-sm text-slate-600">
-                      <span className="rounded bg-slate-100 px-1.5 py-0.5 text-xs">{l.type}</span>
-                      {l.title}
-                    </li>
-                  ))}
+                <ul className="mt-4 space-y-2 pl-2 sm:pl-8">
+                  {(((m.lessons as { id: string; title: string; type: string; order_index?: number }[]) ?? [])
+                    .slice()
+                    .sort((a, b) => (a.order_index ?? 0) - (b.order_index ?? 0))
+                  ).length === 0 ? (
+                    <li className="text-sm text-slate-400">Aucune leçon dans ce module.</li>
+                  ) : (
+                    ((m.lessons as { id: string; title: string; type: string; order_index?: number }[]) ?? [])
+                      .slice()
+                      .sort((a, b) => (a.order_index ?? 0) - (b.order_index ?? 0))
+                      .map((l) => (
+                        <li key={l.id}>
+                          <Link
+                            href={`/admin/formations/${id}/modules/${m.id}/lecons/${l.id}`}
+                            className="flex items-center gap-2 rounded-lg px-2 py-1.5 text-sm text-slate-700 transition-colors hover:bg-slate-50 hover:text-[#0F766E]"
+                          >
+                            <span className="rounded bg-slate-100 px-1.5 py-0.5 text-xs font-medium uppercase text-slate-600">
+                              {l.type}
+                            </span>
+                            <span className="font-medium">{l.title}</span>
+                          </Link>
+                        </li>
+                      ))
+                  )}
                 </ul>
                 <Link
                   href={`/admin/formations/${id}/modules/${m.id}/lecons/nouvelle`}

@@ -500,10 +500,14 @@ export function FormationsAdminList({
                   <Tag size={15} strokeWidth={1.5} className="text-slate-400" />
                   {f.priceLabel}
                 </span>
-                <span className="inline-flex items-center gap-1.5">
+                <Link
+                  href={`/admin/formations/${f.id}#modules`}
+                  className="inline-flex items-center gap-1.5 font-medium text-slate-700 hover:text-[#0F766E] hover:underline"
+                  title="Voir les leçons"
+                >
                   <BookOpen size={15} strokeWidth={1.5} className="text-slate-400" />
                   {f.lessonCount} leçon{f.lessonCount === 1 ? '' : 's'}
-                </span>
+                </Link>
                 <span className="inline-flex items-center gap-1.5">
                   <Users size={15} strokeWidth={1.5} className="text-slate-400" />
                   {f.learnerCount} apprenant{f.learnerCount === 1 ? '' : 's'}
