@@ -1,6 +1,6 @@
 'use client';
 
-import { useMemo, useState } from 'react';
+import { useMemo, useState, useTransition } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import {
@@ -15,10 +15,13 @@ import {
   Users,
   ShoppingCart,
   ArrowUpDown,
+  ArrowUp,
+  ArrowDown,
   RefreshCw,
 } from 'lucide-react';
 import { SyncCatalogueLmsButton } from './SyncCatalogueLmsButton';
 import { EnrollLaureAllButton } from './EnrollLaureAllButton';
+import { reorderFormationsAction } from './actions';
 
 export type AdminFormationCard = {
   id: string;
@@ -32,6 +35,7 @@ export type AdminFormationCard = {
   lessonCount: number;
   learnerCount: number;
   catalogueRef: string | null;
+  displayOrder: number;
 };
 
 function formatFrDate(iso: string): string {
@@ -48,8 +52,18 @@ function formatFrDate(iso: string): string {
 
 type SortKey = 'ordre' | 'title' | 'updated' | 'created';
 
+function moveItem<T>(list: T[], from: number, to: number): T[] {
+  if (from === to || from < 0 || to < 0 || from >= list.length || to >= list.length) {
+    return list;
+  }
+  const next = [...list];
+  const [item] = next.splice(from, 1);
+  next.splice(to, 0, item!);
+  return next;
+}
+
 export function FormationsAdminList({
-  formations,
+  formations: initialFormations,
   catalogueTotal,
   missingCount,
   missingLabels,
@@ -59,14 +73,34 @@ export function FormationsAdminList({
   missingCount: number;
   missingLabels: string;
 }) {
+  const [ordered, setOrdered] = useState(initialFormations);
   const [query, setQuery] = useState('');
   const [status, setStatus] = useState<'tous' | 'publiee' | 'cachee'>('tous');
   const [sortBy, setSortBy] = useState<SortKey>('ordre');
   const [sortAsc, setSortAsc] = useState(true);
+  const [dragId, setDragId] = useState<string | null>(null);
+  const [message, setMessage] = useState<string | null>(null);
+  const [pending, startTransition] = useTransition();
+
+  const canReorder = sortBy === 'ordre' && !query.trim() && status === 'tous';
+
+  const persistOrder = (next: AdminFormationCard[]) => {
+    setOrdered(next);
+    setMessage(null);
+    startTransition(async () => {
+      const result = await reorderFormationsAction(next.map((f) => f.id));
+      if (!result.ok) {
+        setMessage(result.error);
+        setOrdered(initialFormations);
+        return;
+      }
+      setMessage('Ordre enregistré');
+    });
+  };
 
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase();
-    let list = formations.filter((f) => {
+    let list = ordered.filter((f) => {
       if (status === 'publiee' && !f.published) return false;
       if (status === 'cachee' && f.published) return false;
       if (!q) return true;
@@ -77,17 +111,38 @@ export function FormationsAdminList({
       );
     });
 
-    list = [...list].sort((a, b) => {
-      let cmp = 0;
-      if (sortBy === 'title') cmp = a.title.localeCompare(b.title, 'fr');
-      else if (sortBy === 'updated') cmp = a.updatedAt.localeCompare(b.updatedAt);
-      else if (sortBy === 'created') cmp = a.createdAt.localeCompare(b.createdAt);
-      else cmp = 0; // ordre d'affichage = ordre reçu
-      return sortAsc ? cmp : -cmp;
-    });
+    if (sortBy !== 'ordre') {
+      list = [...list].sort((a, b) => {
+        let cmp = 0;
+        if (sortBy === 'title') cmp = a.title.localeCompare(b.title, 'fr');
+        else if (sortBy === 'updated') cmp = a.updatedAt.localeCompare(b.updatedAt);
+        else if (sortBy === 'created') cmp = a.createdAt.localeCompare(b.createdAt);
+        return sortAsc ? cmp : -cmp;
+      });
+    } else if (!sortAsc) {
+      list = [...list].reverse();
+    }
 
     return list;
-  }, [formations, query, status, sortBy, sortAsc]);
+  }, [ordered, query, status, sortBy, sortAsc]);
+
+  const moveById = (id: string, direction: -1 | 1) => {
+    if (!canReorder || pending) return;
+    const from = ordered.findIndex((f) => f.id === id);
+    if (from < 0) return;
+    const to = from + direction;
+    if (to < 0 || to >= ordered.length) return;
+    persistOrder(moveItem(ordered, from, to));
+  };
+
+  const onDropOn = (targetId: string) => {
+    if (!canReorder || !dragId || dragId === targetId || pending) return;
+    const from = ordered.findIndex((f) => f.id === dragId);
+    const to = ordered.findIndex((f) => f.id === targetId);
+    setDragId(null);
+    if (from < 0 || to < 0) return;
+    persistOrder(moveItem(ordered, from, to));
+  };
 
   return (
     <div className="p-4 md:p-8">
@@ -96,22 +151,35 @@ export function FormationsAdminList({
           <h1 className="font-display text-2xl font-bold tracking-tight text-slate-900 md:text-3xl">
             Vos formations{' '}
             <span className="font-semibold text-slate-500">
-              ({formations.length} / ∞)
+              ({ordered.length} / ∞)
             </span>
           </h1>
           <p className="mt-2 max-w-2xl text-sm leading-relaxed text-slate-500">
-            L&apos;ordre d&apos;affichage par défaut de vos formations sera le même dans votre{' '}
-            <Link href="/formations" className="font-medium text-[#0F766E] hover:underline">
-              page catalogue
-            </Link>
-            .
+            Glissez-déposez ou utilisez les flèches pour réordonner (tri « Ordre
+            d&apos;affichage », sans filtre). L&apos;ordre est enregistré
+            automatiquement.
             <br />
-            Les {catalogueTotal} parcours du site doivent exister ici pour l&apos;espace apprenant —{' '}
+            Les {catalogueTotal} parcours du site doivent exister ici pour l&apos;espace
+            apprenant —{' '}
             <Link href="/espace-apprenant" className="font-medium text-[#0F766E] hover:underline">
               espace apprenant
             </Link>
             .
           </p>
+          {message ? (
+            <p
+              className={`mt-2 text-sm ${
+                message === 'Ordre enregistré' ? 'text-emerald-700' : 'text-rose-700'
+              }`}
+              role="status"
+            >
+              {pending ? 'Enregistrement…' : message}
+            </p>
+          ) : pending ? (
+            <p className="mt-2 text-sm text-slate-500" role="status">
+              Enregistrement…
+            </p>
+          ) : null}
         </div>
         <div className="flex shrink-0 flex-col gap-2 sm:flex-row sm:items-start">
           <EnrollLaureAllButton />
@@ -132,6 +200,13 @@ export function FormationsAdminList({
           Utilisez <em>Sync catalogue /formations → LMS</em>.
         </div>
       )}
+
+      {!canReorder ? (
+        <p className="mt-4 rounded-lg border border-sky-100 bg-sky-50 px-3 py-2 text-sm text-sky-900">
+          Pour déplacer les formations : choisissez le tri « Ordre d&apos;affichage », statut
+          « Tous », et videz le filtre de recherche.
+        </p>
+      ) : null}
 
       {/* Filtres */}
       <div className="mt-6 flex flex-col gap-3 lg:flex-row lg:flex-wrap lg:items-end">
@@ -197,7 +272,7 @@ export function FormationsAdminList({
       <div className="mt-6 space-y-4">
         {filtered.length === 0 ? (
           <div className="rounded-2xl border border-dashed border-slate-200 bg-white px-6 py-16 text-center text-slate-500">
-            {formations.length === 0 ? (
+            {ordered.length === 0 ? (
               <>
                 Aucune formation. Utilisez le bouton de synchronisation catalogue.
                 <div className="mt-4 flex justify-center">
@@ -209,22 +284,65 @@ export function FormationsAdminList({
             )}
           </div>
         ) : (
-          filtered.map((f) => (
+          filtered.map((f, index) => (
             <article
               key={f.id}
-              className="overflow-hidden rounded-2xl border border-slate-200/80 bg-white shadow-[0_1px_3px_rgba(15,23,42,0.06)]"
+              draggable={canReorder && !pending}
+              onDragStart={() => setDragId(f.id)}
+              onDragEnd={() => setDragId(null)}
+              onDragOver={(e) => {
+                if (!canReorder) return;
+                e.preventDefault();
+              }}
+              onDrop={(e) => {
+                e.preventDefault();
+                onDropOn(f.id);
+              }}
+              className={`overflow-hidden rounded-2xl border bg-white shadow-[0_1px_3px_rgba(15,23,42,0.06)] transition ${
+                dragId === f.id
+                  ? 'border-[#0F766E] opacity-70 ring-2 ring-[#0F766E]/20'
+                  : 'border-slate-200/80'
+              }`}
             >
               <div className="flex flex-col gap-4 p-4 sm:flex-row sm:items-start sm:gap-5 sm:p-5">
                 <div className="flex items-start gap-3 sm:gap-4">
-                  <button
-                    type="button"
-                    className="mt-6 hidden shrink-0 cursor-grab text-slate-300 hover:text-slate-500 sm:block"
-                    aria-label="Réordonner (bientôt)"
-                    title="Réordonner — bientôt disponible"
-                    disabled
-                  >
-                    <GripHorizontal size={20} strokeWidth={1.75} />
-                  </button>
+                  <div className="mt-4 flex shrink-0 flex-col items-center gap-1">
+                    <button
+                      type="button"
+                      className={`cursor-grab text-slate-300 hover:text-slate-500 active:cursor-grabbing ${
+                        canReorder ? '' : 'cursor-not-allowed opacity-40'
+                      }`}
+                      aria-label="Glisser pour réordonner"
+                      title={
+                        canReorder
+                          ? 'Glisser pour réordonner'
+                          : 'Activez le tri « Ordre d’affichage » sans filtre'
+                      }
+                      disabled={!canReorder || pending}
+                    >
+                      <GripHorizontal size={20} strokeWidth={1.75} />
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => moveById(f.id, -1)}
+                      disabled={!canReorder || pending || index === 0}
+                      className="rounded p-0.5 text-slate-400 hover:bg-slate-100 hover:text-slate-700 disabled:opacity-30"
+                      aria-label="Monter"
+                      title="Monter"
+                    >
+                      <ArrowUp size={16} strokeWidth={1.75} />
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => moveById(f.id, 1)}
+                      disabled={!canReorder || pending || index === filtered.length - 1}
+                      className="rounded p-0.5 text-slate-400 hover:bg-slate-100 hover:text-slate-700 disabled:opacity-30"
+                      aria-label="Descendre"
+                      title="Descendre"
+                    >
+                      <ArrowDown size={16} strokeWidth={1.75} />
+                    </button>
+                  </div>
                   <div className="relative h-[72px] w-[72px] shrink-0 overflow-hidden rounded-xl bg-slate-100 sm:h-20 sm:w-20">
                     {f.imageUrl ? (
                       <Image
@@ -233,9 +351,9 @@ export function FormationsAdminList({
                         fill
                         className="object-cover"
                         sizes="80px"
-                      
                         quality={70}
-                        loading="lazy"/>
+                        loading="lazy"
+                      />
                     ) : (
                       <div className="flex h-full w-full items-center justify-center bg-gradient-to-br from-slate-100 to-slate-200 text-xs font-semibold text-slate-400">
                         LO
@@ -262,10 +380,15 @@ export function FormationsAdminList({
                       {f.published ? 'Publiée' : 'Cachée'}
                     </span>
                     <p className="text-xs text-slate-500">
-                      Créée le <strong className="font-semibold text-slate-700">{formatFrDate(f.createdAt)}</strong>
+                      Créée le{' '}
+                      <strong className="font-semibold text-slate-700">
+                        {formatFrDate(f.createdAt)}
+                      </strong>
                       {' · '}
                       Modifiée le{' '}
-                      <strong className="font-semibold text-slate-700">{formatFrDate(f.updatedAt)}</strong>
+                      <strong className="font-semibold text-slate-700">
+                        {formatFrDate(f.updatedAt)}
+                      </strong>
                     </p>
                     {f.catalogueRef ? (
                       <span className="rounded bg-slate-100 px-1.5 py-0.5 text-[11px] font-medium text-slate-600">

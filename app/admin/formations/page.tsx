@@ -9,7 +9,8 @@ export default async function AdminFormationsPage() {
 
   const { data: courses } = await supabase
     .from('courses')
-    .select('id, slug, title, image_url, price, published, created_at, updated_at')
+    .select('id, slug, title, image_url, price, published, created_at, updated_at, display_order')
+    .order('display_order', { ascending: true })
     .order('created_at', { ascending: false });
 
   const courseIds = (courses ?? []).map((c) => c.id);
@@ -65,6 +66,7 @@ export default async function AdminFormationsPage() {
       lessonCount: lessonsByCourse.get(c.id) ?? 0,
       learnerCount: learnersByCourse.get(c.id) ?? 0,
       catalogueRef: cat?.ref ?? null,
+      displayOrder: Number((c as { display_order?: number }).display_order ?? 0),
     };
   });
 
