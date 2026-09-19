@@ -28,6 +28,19 @@ import {
   spreadsheetDownloadUrl,
 } from '@/lib/lesson-types';
 
+/** Modules / leçons d’intro : pas de CTA fin de formation ni avis Google. */
+function isIntroductionPart(moduleTitle?: string | null, lessonTitle?: string | null): boolean {
+  const hay = `${moduleTitle ?? ''} ${lessonTitle ?? ''}`.toLowerCase();
+  return (
+    /\bintroduc/.test(hay) ||
+    /\bintroduction\b/.test(hay) ||
+    /\baccueil\b/.test(hay) ||
+    /\bbienvenue\b/.test(hay) ||
+    /\bpr[ée]sentation\b/.test(hay)
+  );
+}
+
+
 interface LessonResource {
   id: string;
   title: string;
@@ -309,8 +322,14 @@ export function CourseViewer({
           <div className="mx-auto max-w-4xl">
             <div className="mb-4 space-y-3">
               <QuestionnairePositionnementBanner compact />
-              {progressPercent >= 50 ? <QuestionnaireSatisfactionBanner compact /> : null}
-              {progressPercent >= 50 ? <AvisGoogleBanner compact /> : null}
+              {!isIntroductionPart(currentModule?.title, selectedLesson.title) &&
+              progressPercent >= 50 ? (
+                <QuestionnaireSatisfactionBanner compact />
+              ) : null}
+              {!isIntroductionPart(currentModule?.title, selectedLesson.title) &&
+              progressPercent >= 50 ? (
+                <AvisGoogleBanner compact />
+              ) : null}
             </div>
             <div className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm md:p-8">
               <div className="flex items-center gap-2 text-sm text-slate-500">
