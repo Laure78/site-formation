@@ -32,31 +32,43 @@ export default async function MonEspaceTachesPage() {
   const done = all.filter((t) => t.done);
 
   return (
-    <div className="p-4 md:p-8">
-      <p className="text-sm text-slate-500">Organisation · admin uniquement</p>
-      <h1 className="mt-1 font-display text-2xl font-bold text-slate-900">Tâches</h1>
-      <p className="mt-2 text-slate-600">
+    <div className="px-4 py-6 md:px-8 md:py-8 lg:px-10 lg:py-9">
+      <p className="text-xs font-medium uppercase tracking-[0.06em] text-slate-400">
+        Organisation · admin
+      </p>
+      <h1 className="mt-1.5 font-display text-2xl font-bold tracking-tight text-slate-900 md:text-[1.75rem]">
+        Tâches
+      </h1>
+      <p className="mt-2 text-sm leading-relaxed text-slate-500">
         Liste globale et backlog (hors colonnes d&apos;agenda).
       </p>
 
       <MonEspaceSubnav pathname={LINKS.adminMonEspaceTaches} />
 
-      <div className="mt-6 grid gap-3 sm:grid-cols-3">
-        <div className="rounded-xl border border-slate-200 bg-white px-4 py-3 shadow-sm">
-          <p className="text-xs font-semibold uppercase tracking-wide text-slate-400">Ouvertes</p>
+      <div className="mt-7 grid gap-3 sm:grid-cols-3">
+        <div className="rounded-2xl border border-slate-200/70 bg-white px-4 py-3.5 shadow-[0_1px_2px_rgba(15,23,42,0.04)]">
+          <p className="text-[11px] font-semibold uppercase tracking-wide text-slate-400">
+            Ouvertes
+          </p>
           <p className="mt-1 font-display text-2xl font-bold text-slate-900">{open.length}</p>
         </div>
-        <div className="rounded-xl border border-slate-200 bg-white px-4 py-3 shadow-sm">
-          <p className="text-xs font-semibold uppercase tracking-wide text-slate-400">Terminées</p>
+        <div className="rounded-2xl border border-slate-200/70 bg-white px-4 py-3.5 shadow-[0_1px_2px_rgba(15,23,42,0.04)]">
+          <p className="text-[11px] font-semibold uppercase tracking-wide text-slate-400">
+            Terminées
+          </p>
           <p className="mt-1 font-display text-2xl font-bold text-slate-900">{done.length}</p>
         </div>
-        <div className="rounded-xl border border-slate-200 bg-white px-4 py-3 shadow-sm">
-          <p className="text-xs font-semibold uppercase tracking-wide text-slate-400">Backlog</p>
-          <p className="mt-1 font-display text-2xl font-bold text-slate-900">{backlog.length}</p>
+        <div className="rounded-2xl border border-slate-200/70 bg-white px-4 py-3.5 shadow-[0_1px_2px_rgba(15,23,42,0.04)]">
+          <p className="text-[11px] font-semibold uppercase tracking-wide text-slate-400">
+            Backlog
+          </p>
+          <p className="mt-1 font-display text-2xl font-bold text-slate-900">
+            {backlog.length}
+          </p>
         </div>
       </div>
 
-      <section className="mt-8 rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
+      <section className="mt-8 rounded-2xl border border-slate-200/70 bg-white p-5 shadow-[0_1px_2px_rgba(15,23,42,0.04)]">
         <h2 className="font-display text-lg font-semibold text-slate-900">Backlog</h2>
         <p className="mt-1 text-sm text-slate-500">
           Tâches sans colonne agenda — à planifier plus tard.

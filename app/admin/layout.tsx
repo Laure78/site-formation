@@ -16,9 +16,9 @@ export default async function AdminLayout({
   const showOrganisation = canAccessOrganisation(access.profile, access.email);
 
   return (
-    <div className="min-h-screen bg-[#F7F9FC]">
+    <div className="flex min-h-screen bg-[#F7F9FC]">
       <AdminSidebar showOrganisation={showOrganisation} />
-      <main className="min-h-screen pl-14 lg:pl-[280px]">
+      <main className="min-h-screen min-w-0 flex-1 overflow-x-hidden pt-16 lg:pt-0">
         {children}
       </main>
     </div>

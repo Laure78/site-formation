@@ -109,7 +109,7 @@ export function AdminSidebar({
       ) : null}
 
       <aside
-        className={`fixed left-0 top-0 z-40 flex h-screen w-[280px] flex-col border-r border-slate-200/80 bg-[#F4F6F8] transition-transform duration-200 lg:translate-x-0 ${
+        className={`fixed inset-y-0 left-0 z-40 flex w-[280px] shrink-0 flex-col border-r border-slate-200/80 bg-[#F4F6F8] transition-transform duration-200 lg:static lg:z-0 lg:h-auto lg:min-h-screen lg:translate-x-0 ${
           open ? 'translate-x-0' : '-translate-x-full'
         }`}
       >
