@@ -5,6 +5,7 @@ import { useRouter, useParams } from 'next/navigation';
 import Link from 'next/link';
 import { createClient } from '@/lib/supabase/client';
 import { FileUploadButton } from '@/components/FileUploadButton';
+import { LessonMediaPreview } from '@/components/lms/LessonMediaPreview';
 import { Trash2 } from 'lucide-react';
 import { LESSON_TYPES, lessonUsesContentUrl, type LessonTypeValue } from '@/lib/lesson-types';
 
@@ -115,155 +116,173 @@ export default function ModifierLeconPage() {
   return (
     <div className="p-4 md:p-8">
       <Link
-        href={`/admin/formations/${courseId}/modules/${moduleId}`}
+        href={`/admin/formations/${courseId}`}
         className="text-sm text-[var(--accent)] hover:underline"
       >
-        ← Retour au module
+        ← Retour à la formation
       </Link>
       <h1 className="mt-6 font-display text-2xl font-bold">Modifier la leçon</h1>
 
       {error && (
         <div className="mt-4 rounded-lg bg-red-50 p-4 text-red-700">{error}</div>
       )}
-      <form onSubmit={handleSubmit} className="mt-6 max-w-xl space-y-6">
-        <div>
-          <label className="block text-sm font-medium text-slate-700">Titre</label>
-          <input
-            type="text"
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
-            required
-            className="mt-1 w-full rounded-lg border border-slate-300 px-4 py-3 focus:border-[var(--accent)] focus:outline-none focus:ring-2 focus:ring-[var(--accent)]/20"
-          />
-        </div>
-        <div>
-          <label className="block text-sm font-medium text-slate-700">Type</label>
-          <select
-            value={type}
-            onChange={(e) => setType(e.target.value as LessonTypeValue)}
-            className="mt-1 w-full rounded-lg border border-slate-300 px-4 py-3 focus:border-[var(--accent)] focus:outline-none focus:ring-2 focus:ring-[var(--accent)]/20"
-          >
-            {LESSON_TYPES.map((t) => (
-              <option key={t.value} value={t.value}>
-                {t.label}
-              </option>
-            ))}
-          </select>
-        </div>
-        {type === 'texte' && (
+
+      <div className="mt-6 grid gap-8 xl:grid-cols-[minmax(0,28rem)_minmax(0,1fr)]">
+        <form onSubmit={handleSubmit} className="space-y-6">
           <div>
-            <label className="block text-sm font-medium text-slate-700">
-              Contenu texte
-            </label>
-            <textarea
-              value={contentText}
-              onChange={(e) => setContentText(e.target.value)}
-              rows={8}
+            <label className="block text-sm font-medium text-slate-700">Titre</label>
+            <input
+              type="text"
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
+              required
               className="mt-1 w-full rounded-lg border border-slate-300 px-4 py-3 focus:border-[var(--accent)] focus:outline-none focus:ring-2 focus:ring-[var(--accent)]/20"
             />
           </div>
-        )}
-        {type === 'video' && (
-          <div className="space-y-2">
-            <label className="block text-sm font-medium text-slate-700">
-              Lien YouTube ou URL vidéo
-            </label>
-            <input
-              type="text"
-              value={contentUrl}
-              onChange={(e) => setContentUrl(e.target.value)}
-              placeholder="https://www.youtube.com/watch?v=... ou https://youtu.be/..."
-              className="w-full rounded-lg border border-slate-300 px-4 py-3 focus:border-[var(--accent)] focus:outline-none focus:ring-2 focus:ring-[var(--accent)]/20"
-            />
+          <div>
+            <label className="block text-sm font-medium text-slate-700">Type</label>
+            <select
+              value={type}
+              onChange={(e) => setType(e.target.value as LessonTypeValue)}
+              className="mt-1 w-full rounded-lg border border-slate-300 px-4 py-3 focus:border-[var(--accent)] focus:outline-none focus:ring-2 focus:ring-[var(--accent)]/20"
+            >
+              {LESSON_TYPES.map((t) => (
+                <option key={t.value} value={t.value}>
+                  {t.label}
+                </option>
+              ))}
+            </select>
           </div>
-        )}
-        {type === 'pdf' && (
-          <div className="space-y-2">
-            <label className="block text-sm font-medium text-slate-700">
-              Slides PDF : déposer un fichier ou coller une URL
-            </label>
-            <div className="flex gap-2">
-              <input
-                type="text"
-                value={contentUrl}
-                onChange={(e) => setContentUrl(e.target.value)}
-                placeholder="https://... ou /formations/.../mon-fichier.pdf"
-                className="flex-1 rounded-lg border border-slate-300 px-4 py-3 focus:border-[var(--accent)] focus:outline-none focus:ring-2 focus:ring-[var(--accent)]/20"
-              />
-              <FileUploadButton
-                accept=".pdf,application/pdf"
-                onUrl={(url) => setContentUrl(url)}
-              />
-            </div>
-          </div>
-        )}
-        {type === 'lien' && (
-          <div className="space-y-4">
-            <div className="space-y-2">
-              <label className="block text-sm font-medium text-slate-700">
-                Lien Excel / Google Sheets / Google Docs
-              </label>
-              <input
-                type="url"
-                value={contentUrl}
-                onChange={(e) => setContentUrl(e.target.value)}
-                placeholder="https://docs.google.com/spreadsheets/… ou /document/…"
-                className="w-full rounded-lg border border-slate-300 px-4 py-3 focus:border-[var(--accent)] focus:outline-none focus:ring-2 focus:ring-[var(--accent)]/20"
-              />
-              <p className="text-xs text-slate-500">
-                Partage « Toute personne disposant du lien ». Sheets, Docs, Excel Online, OneDrive…
-              </p>
-            </div>
+          {type === 'texte' && (
             <div>
               <label className="block text-sm font-medium text-slate-700">
-                Texte d’aide (optionnel)
+                Contenu texte
               </label>
               <textarea
                 value={contentText}
                 onChange={(e) => setContentText(e.target.value)}
-                rows={3}
+                rows={8}
                 className="mt-1 w-full rounded-lg border border-slate-300 px-4 py-3 focus:border-[var(--accent)] focus:outline-none focus:ring-2 focus:ring-[var(--accent)]/20"
               />
             </div>
+          )}
+          {type === 'video' && (
+            <div className="space-y-2">
+              <label className="block text-sm font-medium text-slate-700">
+                Lien YouTube ou URL vidéo
+              </label>
+              <input
+                type="text"
+                value={contentUrl}
+                onChange={(e) => setContentUrl(e.target.value)}
+                placeholder="https://www.youtube.com/watch?v=... ou https://youtu.be/..."
+                className="w-full rounded-lg border border-slate-300 px-4 py-3 focus:border-[var(--accent)] focus:outline-none focus:ring-2 focus:ring-[var(--accent)]/20"
+              />
+            </div>
+          )}
+          {type === 'pdf' && (
+            <div className="space-y-2">
+              <label className="block text-sm font-medium text-slate-700">
+                Slides PDF : déposer un fichier ou coller une URL
+              </label>
+              <div className="flex gap-2">
+                <input
+                  type="text"
+                  value={contentUrl}
+                  onChange={(e) => setContentUrl(e.target.value)}
+                  placeholder="https://... ou /formations/.../mon-fichier.pdf"
+                  className="flex-1 rounded-lg border border-slate-300 px-4 py-3 focus:border-[var(--accent)] focus:outline-none focus:ring-2 focus:ring-[var(--accent)]/20"
+                />
+                <FileUploadButton
+                  accept=".pdf,application/pdf"
+                  onUrl={(url) => setContentUrl(url)}
+                />
+              </div>
+            </div>
+          )}
+          {type === 'lien' && (
+            <div className="space-y-4">
+              <div className="space-y-2">
+                <label className="block text-sm font-medium text-slate-700">
+                  Lien Excel / Google Sheets / Google Docs
+                </label>
+                <input
+                  type="url"
+                  value={contentUrl}
+                  onChange={(e) => setContentUrl(e.target.value)}
+                  placeholder="https://docs.google.com/spreadsheets/… ou /document/…"
+                  className="w-full rounded-lg border border-slate-300 px-4 py-3 focus:border-[var(--accent)] focus:outline-none focus:ring-2 focus:ring-[var(--accent)]/20"
+                />
+                <p className="text-xs text-slate-500">
+                  Partage « Toute personne disposant du lien ». Sheets, Docs, Excel Online, OneDrive…
+                </p>
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-slate-700">
+                  Texte d’aide (optionnel)
+                </label>
+                <textarea
+                  value={contentText}
+                  onChange={(e) => setContentText(e.target.value)}
+                  rows={3}
+                  className="mt-1 w-full rounded-lg border border-slate-300 px-4 py-3 focus:border-[var(--accent)] focus:outline-none focus:ring-2 focus:ring-[var(--accent)]/20"
+                />
+              </div>
+            </div>
+          )}
+          <div>
+            <label className="block text-sm font-medium text-slate-700">
+              Durée (minutes)
+            </label>
+            <input
+              type="number"
+              min="0"
+              value={duration}
+              onChange={(e) => setDuration(e.target.value)}
+              className="mt-1 w-full rounded-lg border border-slate-300 px-4 py-3 focus:border-[var(--accent)] focus:outline-none focus:ring-2 focus:ring-[var(--accent)]/20"
+            />
           </div>
-        )}
-        <div>
-          <label className="block text-sm font-medium text-slate-700">
-            Durée (minutes)
-          </label>
-          <input
-            type="number"
-            min="0"
-            value={duration}
-            onChange={(e) => setDuration(e.target.value)}
-            className="mt-1 w-full rounded-lg border border-slate-300 px-4 py-3 focus:border-[var(--accent)] focus:outline-none focus:ring-2 focus:ring-[var(--accent)]/20"
+          <div className="flex flex-wrap items-center gap-4">
+            <button
+              type="submit"
+              disabled={loading}
+              className="rounded-xl bg-[var(--accent)] px-6 py-3 font-semibold text-white hover:bg-blue-700 disabled:opacity-50"
+            >
+              {loading ? 'Enregistrement…' : 'Enregistrer'}
+            </button>
+            <Link
+              href={`/admin/formations/${courseId}/modules/${moduleId}`}
+              className="rounded-xl border border-slate-300 px-6 py-3 font-semibold text-slate-700 hover:bg-slate-50"
+            >
+              Annuler
+            </Link>
+            <button
+              type="button"
+              onClick={handleDelete}
+              disabled={loading}
+              className="ml-auto flex items-center gap-2 rounded-xl border border-red-200 bg-red-50 px-6 py-3 font-semibold text-red-700 hover:bg-red-100 disabled:opacity-50"
+            >
+              <Trash2 size={18} strokeWidth={1.5} />
+              Supprimer la leçon
+            </button>
+          </div>
+        </form>
+
+        <aside className="min-w-0 space-y-3">
+          <h2 className="font-display text-lg font-semibold text-slate-900">
+            Aperçu fichier / visionneuse
+          </h2>
+          <p className="text-sm text-slate-500">
+            Visualisez le PDF, la vidéo ou le lien tel que l’apprenant le verra.
+          </p>
+          <LessonMediaPreview
+            type={type}
+            contentUrl={contentUrl}
+            contentText={contentText}
+            title={title || 'Leçon'}
           />
-        </div>
-        <div className="flex flex-wrap items-center gap-4">
-          <button
-            type="submit"
-            disabled={loading}
-            className="rounded-xl bg-[var(--accent)] px-6 py-3 font-semibold text-white hover:bg-blue-700 disabled:opacity-50"
-          >
-            {loading ? 'Enregistrement…' : 'Enregistrer'}
-          </button>
-          <Link
-            href={`/admin/formations/${courseId}/modules/${moduleId}`}
-            className="rounded-xl border border-slate-300 px-6 py-3 font-semibold text-slate-700 hover:bg-slate-50"
-          >
-            Annuler
-          </Link>
-          <button
-            type="button"
-            onClick={handleDelete}
-            disabled={loading}
-            className="ml-auto flex items-center gap-2 rounded-xl border border-red-200 bg-red-50 px-6 py-3 font-semibold text-red-700 hover:bg-red-100 disabled:opacity-50"
-          >
-            <Trash2 size={18} strokeWidth={1.5} />
-            Supprimer la leçon
-          </button>
-        </div>
-      </form>
+        </aside>
+      </div>
     </div>
   );
 }

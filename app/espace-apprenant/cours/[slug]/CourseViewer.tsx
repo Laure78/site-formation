@@ -3,13 +3,13 @@
 import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import { Check, ChevronRight, Play, FileText, LayoutList, Lock, Menu, ExternalLink, Link2, Table2 } from 'lucide-react';
+import { Check, ChevronRight, Play, FileText, LayoutList, Lock, Menu, ExternalLink, Link2 } from 'lucide-react';
 import { YouTubeOrVideoEmbed } from '@/components/YouTubeOrVideoEmbed';
+import { LessonMediaPreview } from '@/components/lms/LessonMediaPreview';
 import { SatisfactionSurvey } from '@/components/SatisfactionSurvey';
 import { QuestionnairePositionnementBanner } from '@/components/espace-apprenant/QuestionnairePositionnementBanner';
 import { QuestionnaireSatisfactionBanner } from '@/components/espace-apprenant/QuestionnaireSatisfactionBanner';
 import { AvisGoogleBanner } from '@/components/espace-apprenant/AvisGoogleBanner';
-import { isSpreadsheetUrl, lienButtonLabel } from '@/lib/lesson-types';
 
 interface LessonResource {
   id: string;
@@ -234,9 +234,9 @@ export function CourseViewer({ course, modules, completedLessonIds, enrollmentId
                   (() => {
                     const mainPdfUrl = selectedLesson.content_url ?? pdfResources[selectedPdfIndex]?.file_url;
                     return (
-                      <div className="overflow-hidden rounded-xl border border-slate-200 bg-white">
+                      <div className="space-y-3">
                         {pdfResources.length > 1 && !selectedLesson.content_url && (
-                          <div className="flex gap-2 border-b border-slate-200 bg-slate-50 p-2 overflow-x-auto">
+                          <div className="flex gap-2 overflow-x-auto rounded-xl border border-slate-200 bg-slate-50 p-2">
                             {pdfResources.map((r, i) => (
                               <button
                                 key={r.id}
@@ -249,23 +249,13 @@ export function CourseViewer({ course, modules, completedLessonIds, enrollmentId
                             ))}
                           </div>
                         )}
-                        {mainPdfUrl && (
-                          <>
-                            <iframe
-                              src={`${mainPdfUrl}#view=FitH`}
-                              title={selectedLesson.title}
-                              className="h-[50vh] w-full md:h-[70vh]"
-                            />
-                            <a
-                              href={mainPdfUrl}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="block border-t border-slate-200 bg-slate-50 px-4 py-3 text-center text-sm font-medium text-[var(--accent)] hover:bg-slate-100"
-                            >
-                              Ouvrir le PDF dans un nouvel onglet
-                            </a>
-                          </>
-                        )}
+                        {mainPdfUrl ? (
+                          <LessonMediaPreview
+                            type="pdf"
+                            contentUrl={mainPdfUrl}
+                            title={selectedLesson.title}
+                          />
+                        ) : null}
                       </div>
                     );
                   })()
@@ -274,42 +264,12 @@ export function CourseViewer({ course, modules, completedLessonIds, enrollmentId
                     <p className="text-slate-500">Aucun PDF configuré pour cette leçon</p>
                   </div>
                 ) : selectedLesson.type === 'lien' ? (
-                  <div className="rounded-2xl border border-slate-200 bg-white p-8 shadow-sm">
-                    <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[var(--accent-soft)] text-[var(--accent)]">
-                      <Table2 size={24} strokeWidth={1.5} />
-                    </div>
-                    <h3 className="mt-4 font-display text-xl font-semibold text-slate-900">
-                      {selectedLesson.content_url && isSpreadsheetUrl(selectedLesson.content_url)
-                        ? 'Tableau Excel / Google Sheets'
-                        : selectedLesson.content_url?.includes('document')
-                          ? 'Document Google Docs'
-                          : 'Lien ressource'}
-                    </h3>
-                    {selectedLesson.content_text ? (
-                      <p className="mt-3 text-sm leading-relaxed text-slate-600 whitespace-pre-wrap">
-                        {selectedLesson.content_text}
-                      </p>
-                    ) : (
-                      <p className="mt-3 text-sm text-slate-600">
-                        Ouvrez le tableau pour consulter ou copier les prompts et ressources.
-                      </p>
-                    )}
-                    {selectedLesson.content_url ? (
-                      <a
-                        href={selectedLesson.content_url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="mt-6 inline-flex items-center gap-2 rounded-xl bg-[var(--accent)] px-6 py-3 font-semibold text-white hover:bg-blue-700"
-                      >
-                        <ExternalLink size={18} strokeWidth={1.5} />
-                        {lienButtonLabel(selectedLesson.content_url)}
-                      </a>
-                    ) : (
-                      <p className="mt-6 rounded-lg bg-amber-50 px-4 py-3 text-sm text-amber-800">
-                        Lien non configuré — l’administrateur doit coller l’URL du tableau dans cette leçon.
-                      </p>
-                    )}
-                  </div>
+                  <LessonMediaPreview
+                    type="lien"
+                    contentUrl={selectedLesson.content_url}
+                    contentText={selectedLesson.content_text}
+                    title={selectedLesson.title}
+                  />
                 ) : selectedLesson.type === 'quiz' ? (
                   <div className="rounded-xl bg-slate-100 p-12 text-center">
                     <p className="text-slate-500">Quiz (à implémenter)</p>

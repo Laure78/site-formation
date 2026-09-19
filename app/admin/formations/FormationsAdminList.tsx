@@ -433,7 +433,12 @@ export function FormationsAdminList({
                     ) : null}
                   </div>
                   <h2 className="mt-2 text-lg font-bold leading-snug text-slate-900 sm:text-xl">
-                    {f.title}
+                    <Link
+                      href={`/admin/formations/${f.id}`}
+                      className="hover:text-[#0F766E] hover:underline"
+                    >
+                      {f.title}
+                    </Link>
                   </h2>
                 </div>
 
