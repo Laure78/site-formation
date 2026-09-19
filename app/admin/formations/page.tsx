@@ -1,10 +1,11 @@
-import { createClient } from '@/lib/supabase/server';
+import { createAdminClient } from '@/lib/supabase/admin';
 import { FORMATIONS_CATALOGUE } from '@/lib/formations-catalogue-display';
 import { formatTarifHt } from '@/lib/tarifs-sessions';
 import { FormationsAdminList, type AdminFormationCard } from './FormationsAdminList';
 
 export default async function AdminFormationsPage() {
-  const supabase = await createClient();
+  // Service role : évite l’échec silencieux si une policy courses ↔ profiles boucle (RLS).
+  const supabase = createAdminClient();
 
   const { data: courses } = await supabase
     .from('courses')
