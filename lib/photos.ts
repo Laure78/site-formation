@@ -735,66 +735,82 @@ export const PHOTOS = {
   /** NIV-10 — Développement web avec l’IA — sans savoir coder (visuel hero / catalogue) */
   formationNiv10DevWebIaHero2026: {
     src: '/images/formation-developpement-web-ia-sans-coder/01-hero-developpement-web-ia.webp',
-    alt: 'Formation développement web avec l’IA sans coder — créer un site ou un outil métier',
+    alt: 'Participant au laptop — formation développement web avec l’IA sans savoir coder',
     description:
-      'Affiche formation Développement web avec l’IA — sans savoir coder : site, application ou outil métier. Session 7 h, OFC Qualiopi.',
-    title: 'Développement web avec l’IA — sans savoir coder',
+      'Affiche hero de la formation Qualiopi « Développement web avec l’IA — sans savoir coder » (NIV-10, OFC Création d’Entreprise / Laure Olivié) : participant concentré sur un ordinateur portable. Objectif : créer un site, une application ou un outil métier avec l’intelligence artificielle, sans écrire le code soi-même. Session 7 h, inter 300 € HT/participant, financement OPCO possible selon éligibilité.',
+    title: 'Vos idées. Des solutions concrètes.',
     width: 819,
     height: 1024,
   },
   formationNiv10DevWebIaPublic2026: {
     src: '/images/formation-developpement-web-ia-sans-coder/02-public-pour-qui.webp',
-    alt: 'Public de la formation : entrepreneurs, salariés, porteurs de projet, reconversion',
-    title: 'Pour qui — formation création avec l’IA',
+    alt: 'Public cible : entrepreneurs, salariés, porteurs de projet — IA sans coder',
+    description:
+      'Infographie « Pour qui ? » de la formation développement web avec l’IA sans savoir coder : entrepreneurs, indépendants, artisans, commerçants, salariés en quête d’autonomie, demandeurs d’emploi en réorientation et porteurs de projet. Aucun prérequis en programmation. Organisme OFC, Laure Olivié.',
+    title: 'De l’idée au concret — public de la formation',
     width: 819,
     height: 1024,
   },
   formationNiv10DevWebIaMethode2026: {
     src: '/images/formation-developpement-web-ia-sans-coder/03-methode-etapes.webp',
-    alt: 'Méthode en 5 étapes : cadrer, concevoir avec l’IA, créer, tester, mettre en ligne',
-    title: 'Construire votre projet étape par étape',
+    alt: 'Méthode 5 étapes : cadrer, concevoir avec l’IA, créer, tester, mettre en ligne',
+    description:
+      'Infographie pédagogique « Construire votre projet étape par étape » : cadrer l’idée, utiliser l’IA pour concevoir, créer un site ou un outil métier, tester la première version, puis mettre en ligne. Méthode de la formation développement web avec l’IA sans savoir coder (7 h, Laure Olivié / OFC Qualiopi).',
+    title: 'Ce que vous allez apprendre — méthode simple',
     width: 819,
     height: 1024,
   },
   formationNiv10DevWebIaPratique2026: {
     src: '/images/formation-developpement-web-ia-sans-coder/04-formation-pratique.webp',
-    alt: 'Formation pratique 7 h, 6 à 8 participants, 70 % de pratique, OPCO selon éligibilité',
-    title: 'Apprendre en faisant — formation pratique',
+    alt: 'Formation pratique 7 h, 6–8 participants, 70 % pratique — IA sans coder',
+    description:
+      'Visuel « Apprendre en faisant » : journée de 7 h, groupe de 6 à 8 participants, 70 % de pratique, prise en charge OPCO possible selon éligibilité. Chaque stagiaire avance sur son propre projet (idée → prototype → tests → mise en ligne). Formation développement web avec l’IA, OFC Qualiopi.',
+    title: 'Petit groupe, maximum de pratique',
     width: 819,
     height: 1024,
   },
   formationNiv10DevWebIaFormats2026: {
     src: '/images/formation-developpement-web-ia-sans-coder/05-formats-flexibles.webp',
-    alt: 'Formats : présentiel, classe virtuelle, intra-entreprise — même programme',
-    title: 'Formats flexibles — présentiel, virtuel, intra',
+    alt: 'Formats formation IA sans coder : présentiel, classe virtuelle, intra-entreprise',
+    description:
+      'Infographie des formats de la formation « Développement web avec l’IA — sans savoir coder » : présentiel (format privilégié), classe virtuelle à dates dédiées, intra-entreprise sur demande. Même programme Qualiopi quel que soit le format — OFC Création d’Entreprise, Laure Olivié.',
+    title: 'À vous de choisir — même programme',
     width: 819,
     height: 1024,
   },
   formationNiv10DevWebIaOutils2026: {
     src: '/images/formation-developpement-web-ia-sans-coder/06-outils-projet.webp',
-    alt: 'Outils requis : ordinateur, ChatGPT ou Claude, navigateur, connexion Internet',
-    title: 'Travaillez sur votre propre projet',
+    alt: 'Bureau avec laptop — outils ChatGPT, Claude, Notion pour créer sans coder',
+    description:
+      'Bureau de travail avec ordinateur portable listant ChatGPT, Claude, Notion et Make : prérequis outils de la formation développement web avec l’IA sans savoir coder (ordinateur, abonnement ChatGPT ou Claude non inclus, navigateur, connexion Internet). Chaque participant travaille sur son propre projet.',
+    title: 'Des outils simples pour des résultats réels',
     width: 819,
     height: 1024,
   },
   formationNiv10DevWebIaResultats2026: {
     src: '/images/formation-developpement-web-ia-sans-coder/07-resultats-concrets.webp',
-    alt: 'Livrables : première version, supports, accès plateforme, méthode d’autonomie',
-    title: 'Résultats concrets après la formation',
+    alt: 'Livrables : première version, supports, plateforme, méthode d’autonomie',
+    description:
+      'Infographie des résultats de la formation développement web avec l’IA sans savoir coder : première version fonctionnelle du projet, supports et fiches méthodologiques, accès à la plateforme de formation sans limitation de durée, méthode pour progresser en autonomie. OFC Qualiopi / Laure Olivié.',
+    title: 'Des bases solides pour faire grandir votre projet',
     width: 819,
     height: 1024,
   },
   formationNiv10DevWebIaApres2026: {
     src: '/images/formation-developpement-web-ia-sans-coder/08-et-apres.webp',
-    alt: 'Après la formation : site, outil métier, application ou nouvelles opportunités',
-    title: 'Aujourd’hui vous apprenez, demain vous créez',
+    alt: 'Après la formation IA sans coder : site, outil métier, app, opportunités',
+    description:
+      'Visuel « Aujourd’hui vous apprenez. Demain vous créez. » : participant devant un dashboard projet. Après la formation développement web avec l’IA sans savoir coder — site d’entreprise, outil métier, application clients ou nouvelles opportunités professionnelles. L’IA au service de vos projets (OFC / Laure Olivié).',
+    title: 'L’IA au service de vos projets',
     width: 819,
     height: 1024,
   },
   formationNiv10DevWebIaCta2026: {
     src: '/images/formation-developpement-web-ia-sans-coder/09-cta-apprendre-creer.webp',
-    alt: 'Apprendre aujourd’hui, créer demain — compétences, projets, opportunités',
-    title: 'Apprendre aujourd’hui. Créer demain.',
+    alt: 'CTA formation IA sans coder : compétences, projets, opportunités',
+    description:
+      'Affiche de conversion « Apprendre aujourd’hui. Créer demain. » pour la formation Qualiopi développement web avec l’IA sans savoir coder : nouvelles compétences, nouveaux projets, nouvelles opportunités. Appel à l’action « Passer à l’action » — inscription ou session intra, OFC Création d’Entreprise / Laure Olivié.',
+    title: 'Passer à l’action — s’inscrire à la formation',
     width: 819,
     height: 1024,
   },
