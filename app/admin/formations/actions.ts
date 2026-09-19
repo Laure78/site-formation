@@ -45,3 +45,43 @@ export async function reorderFormationsAction(
   revalidatePath('/admin/formations');
   return { ok: true };
 }
+
+/**
+ * Supprime définitivement une formation LMS (cours + modules / leçons / inscriptions en cascade).
+ */
+export async function deleteFormationAction(
+  courseId: string
+): Promise<{ ok: true; title: string } | { ok: false; error: string }> {
+  const access = await requireAdminAccess();
+  if (!access.ok) {
+    return { ok: false, error: 'Accès refusé' };
+  }
+
+  if (!courseId || typeof courseId !== 'string') {
+    return { ok: false, error: 'Identifiant manquant' };
+  }
+
+  const supabase = createAdminClient();
+
+  const { data: course, error: fetchError } = await supabase
+    .from('courses')
+    .select('id, title')
+    .eq('id', courseId)
+    .maybeSingle();
+
+  if (fetchError) {
+    return { ok: false, error: fetchError.message };
+  }
+  if (!course) {
+    return { ok: false, error: 'Formation introuvable' };
+  }
+
+  const { error: deleteError } = await supabase.from('courses').delete().eq('id', courseId);
+  if (deleteError) {
+    return { ok: false, error: deleteError.message };
+  }
+
+  revalidatePath('/admin/formations');
+  revalidatePath('/espace-apprenant');
+  return { ok: true, title: course.title };
+}

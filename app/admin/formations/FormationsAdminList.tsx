@@ -1,8 +1,9 @@
 'use client';
 
-import { useMemo, useState, useTransition } from 'react';
+import { useEffect, useMemo, useState, useTransition } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import {
   Plus,
   GripHorizontal,
@@ -18,10 +19,11 @@ import {
   ArrowUp,
   ArrowDown,
   RefreshCw,
+  Trash2,
 } from 'lucide-react';
 import { SyncCatalogueLmsButton } from './SyncCatalogueLmsButton';
 import { EnrollLaureAllButton } from './EnrollLaureAllButton';
-import { reorderFormationsAction } from './actions';
+import { deleteFormationAction, reorderFormationsAction } from './actions';
 
 export type AdminFormationCard = {
   id: string;
@@ -73,6 +75,7 @@ export function FormationsAdminList({
   missingCount: number;
   missingLabels: string;
 }) {
+  const router = useRouter();
   const [ordered, setOrdered] = useState(initialFormations);
   const [query, setQuery] = useState('');
   const [status, setStatus] = useState<'tous' | 'publiee' | 'cachee'>('tous');
@@ -81,8 +84,39 @@ export function FormationsAdminList({
   const [dragId, setDragId] = useState<string | null>(null);
   const [message, setMessage] = useState<string | null>(null);
   const [pending, startTransition] = useTransition();
+  const [deletingId, setDeletingId] = useState<string | null>(null);
+
+  useEffect(() => {
+    setOrdered(initialFormations);
+  }, [initialFormations]);
 
   const canReorder = sortBy === 'ordre' && !query.trim() && status === 'tous';
+
+  const deleteFormation = (f: AdminFormationCard) => {
+    if (pending || deletingId) return;
+    const learners =
+      f.learnerCount > 0
+        ? `\n\nAttention : ${f.learnerCount} apprenant(s) inscrit(s) seront désinscrits.`
+        : '';
+    const ok = window.confirm(
+      `Supprimer définitivement « ${f.title} » ?\n\nModules, leçons et inscriptions liés seront aussi supprimés.${learners}\n\nCette action est irréversible.`
+    );
+    if (!ok) return;
+
+    setDeletingId(f.id);
+    setMessage(null);
+    startTransition(async () => {
+      const result = await deleteFormationAction(f.id);
+      setDeletingId(null);
+      if (!result.ok) {
+        setMessage(result.error);
+        return;
+      }
+      setOrdered((prev) => prev.filter((item) => item.id !== f.id));
+      setMessage(`Formation « ${result.title} » supprimée`);
+      router.refresh();
+    });
+  };
 
   const persistOrder = (next: AdminFormationCard[]) => {
     setOrdered(next);
@@ -169,15 +203,17 @@ export function FormationsAdminList({
           {message ? (
             <p
               className={`mt-2 text-sm ${
-                message === 'Ordre enregistré' ? 'text-emerald-700' : 'text-rose-700'
+                message === 'Ordre enregistré' || message.includes('supprimée')
+                  ? 'text-emerald-700'
+                  : 'text-rose-700'
               }`}
               role="status"
             >
-              {pending ? 'Enregistrement…' : message}
+              {pending && deletingId ? 'Suppression…' : pending ? 'Enregistrement…' : message}
             </p>
           ) : pending ? (
             <p className="mt-2 text-sm text-slate-500" role="status">
-              Enregistrement…
+              {deletingId ? 'Suppression…' : 'Enregistrement…'}
             </p>
           ) : null}
         </div>
@@ -408,6 +444,17 @@ export function FormationsAdminList({
                   >
                     modifier
                   </Link>
+                  <button
+                    type="button"
+                    onClick={() => deleteFormation(f)}
+                    disabled={pending || deletingId === f.id}
+                    className="inline-flex items-center justify-center gap-1.5 rounded-lg border border-rose-200 bg-white px-3 py-2 text-sm font-semibold text-rose-700 transition-colors hover:bg-rose-50 disabled:opacity-50"
+                    title="Supprimer la formation"
+                    aria-label={`Supprimer ${f.title}`}
+                  >
+                    <Trash2 size={16} strokeWidth={1.75} />
+                    {deletingId === f.id ? '…' : 'supprimer'}
+                  </button>
                   <div className="flex items-center gap-0.5 text-slate-400">
                     <Link
                       href={`/cours/${f.slug}`}
