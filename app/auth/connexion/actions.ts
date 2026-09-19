@@ -2,8 +2,7 @@
 
 import { redirect } from 'next/navigation';
 import { createClient } from '@/lib/supabase/server';
-import { getProfile } from '@/lib/auth';
-import { resolvePostAuthPath } from '@/lib/admin-access';
+import { getProfileForAccessCheck, resolvePostAuthPath } from '@/lib/admin-access';
 import { sanitizeInternalPath } from '@/lib/sanitize-internal-path';
 
 function mapAuthError(message: string): string {
@@ -29,7 +28,7 @@ export async function resolvePostLoginRedirect(nextRaw: string | null): Promise<
 
   if (!user) return '/auth/connexion';
 
-  const profile = await getProfile(user.id);
+  const profile = await getProfileForAccessCheck(user.id);
   return resolvePostAuthPath(nextRaw, profile, user.email);
 }
 
@@ -65,7 +64,7 @@ export async function loginWithPassword(
     return { error: 'Connexion impossible. Réessayez.' };
   }
 
-  const profile = await getProfile(user.id);
+  const profile = await getProfileForAccessCheck(user.id);
   const destination = resolvePostAuthPath(nextRaw, profile, user.email);
   const safe =
     sanitizeInternalPath(destination) ??
