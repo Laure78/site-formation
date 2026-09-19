@@ -1,4 +1,7 @@
+'use client';
+
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { Mail, Phone } from 'lucide-react';
 import { LinkedInIcon } from '@/components/icons/LinkedInIcon';
 import { ExternalLinkAnchor } from '@/components/ExternalLink';
@@ -74,6 +77,9 @@ function FooterNavColumn({
 
 /** Footer site unique — données depuis `lib/site.ts` et `lib/nav.ts`. */
 export function Footer() {
+  const pathname = usePathname();
+  if (pathname?.startsWith('/admin')) return null;
+
   const { footer: copy, links, social } = SITE;
   const year = new Date().getFullYear();
 

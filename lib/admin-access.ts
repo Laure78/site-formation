@@ -128,6 +128,36 @@ export async function requireAdminAccess(): Promise<AdminAccessResult> {
   return { ok: true, userId: user.id, profile: profile!, email: user.email };
 }
 
+/**
+ * Accès section Organisation (`/admin/mon-espace`) :
+ * uniquement le rôle `admin` + email allowlist — les formateurs sont exclus.
+ */
+export function canAccessOrganisation(
+  profile: Pick<Profile, 'role'> | null | undefined,
+  email: string | null | undefined
+): boolean {
+  if (!profile?.role || profile.role !== 'admin') return false;
+  return isAllowedAdminEmail(email);
+}
+
+export async function requireOrganisationAdminAccess(): Promise<AdminAccessResult> {
+  const supabase = await createClient();
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+
+  if (!user?.email) {
+    return { ok: false, reason: 'unauthenticated' };
+  }
+
+  const profile = await getProfileForAccessCheck(user.id);
+  if (!canAccessOrganisation(profile, user.email)) {
+    return { ok: false, reason: 'forbidden' };
+  }
+
+  return { ok: true, userId: user.id, profile: profile!, email: user.email };
+}
+
 export function adminAccessDeniedMessage(reason: AdminAccessDeniedReason): string {
   if (reason === 'unauthenticated') return 'Non authentifié';
   return 'Accès réservé aux administrateurs autorisés';

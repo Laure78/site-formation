@@ -2,17 +2,21 @@ import Link from 'next/link';
 import { LINKS } from '@/lib/internal-links';
 
 const items = [
-  { href: LINKS.adminMonEspace, label: 'Agenda', exact: true },
-  { href: LINKS.adminMonEspaceNotes, label: 'Notes', exact: false },
+  { href: LINKS.adminMonEspace, label: 'Tableau de bord', exact: true },
+  { href: LINKS.adminMonEspaceAgenda, label: 'Agenda', exact: false },
+  { href: LINKS.adminMonEspaceListes, label: 'Mes listes', exact: false },
+  { href: LINKS.adminMonEspaceSuivi, label: 'Suivi admin', exact: false },
   { href: LINKS.adminMonEspaceTaches, label: 'Tâches', exact: false },
+  { href: LINKS.adminMonEspaceNotes, label: 'Notes', exact: false },
+  { href: LINKS.adminMonEspaceRessources, label: 'Ressources', exact: false },
   { href: LINKS.adminMonEspaceFavoris, label: 'Favoris', exact: false },
 ] as const;
 
 export function MonEspaceSubnav({ pathname }: { pathname: string }) {
   return (
     <nav
-      className="mt-4 flex flex-wrap gap-1 border-b border-slate-200"
-      aria-label="Sections Mon espace"
+      className="mt-6 -mx-1 flex gap-1 overflow-x-auto px-1 pb-1"
+      aria-label="Sections Organisation"
     >
       {items.map(({ href, label, exact }) => {
         const active = exact ? pathname === href : pathname.startsWith(href);
@@ -20,14 +24,13 @@ export function MonEspaceSubnav({ pathname }: { pathname: string }) {
           <Link
             key={href}
             href={href}
-            className={`relative px-3 py-2.5 text-sm font-semibold transition-colors ${
-              active ? 'text-[var(--accent)]' : 'text-slate-500 hover:text-slate-800'
+            className={`shrink-0 rounded-full px-3.5 py-2 text-sm font-medium transition-colors ${
+              active
+                ? 'bg-[#377CF3] text-white shadow-sm shadow-blue-500/20'
+                : 'bg-white text-slate-600 ring-1 ring-slate-200/80 hover:bg-slate-50 hover:text-slate-900'
             }`}
           >
             {label}
-            {active ? (
-              <span className="absolute inset-x-2 -bottom-px h-0.5 rounded-full bg-[var(--accent)]" />
-            ) : null}
           </Link>
         );
       })}

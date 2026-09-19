@@ -5,6 +5,7 @@
 import assert from 'node:assert/strict';
 import {
   canAccessAdmin,
+  canAccessOrganisation,
   isAdminOnlyPath,
   parseAllowedAdminEmails,
   resolvePostAuthPath,
@@ -26,6 +27,21 @@ assert.equal(
   canAccessAdmin({ role: 'formateur' }, 'autre@example.com'),
   true,
   'formateur → OK sans allowlist email'
+);
+assert.equal(
+  canAccessOrganisation({ role: 'formateur' }, 'autre@example.com'),
+  false,
+  'formateur → Organisation refusée'
+);
+assert.equal(
+  canAccessOrganisation({ role: 'apprenant' }, 'laureolivie@yahoo.fr'),
+  false,
+  'apprenant → Organisation refusée'
+);
+assert.equal(
+  canAccessOrganisation({ role: 'admin' }, 'intrus-hors-liste@example.com'),
+  false,
+  'admin hors allowlist → Organisation refusée'
 );
 assert.equal(isAdmin('apprenant'), false);
 assert.equal(isAdmin('admin'), true);
@@ -51,6 +67,11 @@ assert.equal(
   canAccessAdmin({ role: 'admin' }, adminEmail),
   true,
   'admin + email allowlist courant → OK'
+);
+assert.equal(
+  canAccessOrganisation({ role: 'admin' }, adminEmail),
+  true,
+  'admin + allowlist → Organisation OK'
 );
 
 // --- Sanitization / open redirect ---

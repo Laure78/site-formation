@@ -1,6 +1,6 @@
 import { redirect } from 'next/navigation';
 import { AdminSidebar } from '@/components/AdminSidebar';
-import { requireAdminAccess } from '@/lib/admin-access';
+import { canAccessOrganisation, requireAdminAccess } from '@/lib/admin-access';
 
 export default async function AdminLayout({
   children,
@@ -13,10 +13,12 @@ export default async function AdminLayout({
     redirect('/espace-apprenant?admin=denied');
   }
 
+  const showOrganisation = canAccessOrganisation(access.profile, access.email);
+
   return (
-    <div className="min-h-screen bg-slate-50">
-      <AdminSidebar />
-      <main className="min-h-screen pl-14 lg:pl-64">
+    <div className="min-h-screen bg-[#F7F9FC]">
+      <AdminSidebar showOrganisation={showOrganisation} />
+      <main className="min-h-screen pl-14 lg:pl-[280px]">
         {children}
       </main>
     </div>

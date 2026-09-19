@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { redirect } from 'next/navigation';
 import { createClient } from '@/lib/supabase/server';
-import { requireAdminAccess } from '@/lib/admin-access';
+import { requireOrganisationAdminAccess } from '@/lib/admin-access';
 import { LINKS } from '@/lib/internal-links';
 import { getFavorites } from '@/lib/admin/mon-espace/queries';
 import { MonEspaceSubnav } from '@/components/admin/mon-espace/MonEspaceSubnav';
@@ -10,6 +10,7 @@ import { Trash2 } from 'lucide-react';
 
 const SUGGESTIONS = [
   { label: 'Dashboard admin', href: '/admin' },
+  { label: 'Organisation', href: LINKS.adminMonEspace },
   { label: 'Apprenants', href: '/admin/apprenants' },
   { label: 'Formations', href: '/admin/formations' },
   { label: 'Disponibilités', href: '/admin/disponibilites' },
@@ -18,12 +19,12 @@ const SUGGESTIONS = [
 ] as const;
 
 export default async function MonEspaceFavorisPage() {
-  const access = await requireAdminAccess();
+  const access = await requireOrganisationAdminAccess();
   if (!access.ok) {
     if (access.reason === 'unauthenticated') {
       redirect(`${LINKS.authConnexion}?next=${LINKS.adminMonEspaceFavoris}`);
     }
-    redirect('/espace-apprenant?admin=denied');
+    redirect('/admin?organisation=denied');
   }
 
   const supabase = await createClient();
@@ -31,7 +32,7 @@ export default async function MonEspaceFavorisPage() {
 
   return (
     <div className="p-4 md:p-8">
-      <p className="text-sm text-slate-500">Mon espace · personnel</p>
+      <p className="text-sm text-slate-500">Organisation · admin uniquement</p>
       <h1 className="mt-1 font-display text-2xl font-bold text-slate-900">Favoris</h1>
       <p className="mt-2 text-slate-600">
         Raccourcis vers des pages internes de la plateforme (liens commençant par /).

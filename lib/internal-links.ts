@@ -251,9 +251,13 @@ export const LINKS = {
   accesAdmin: '/acces-admin',
   /** Espace productivité personnel admin / formateur (privé, hors SEO) */
   adminMonEspace: '/admin/mon-espace',
+  adminMonEspaceAgenda: '/admin/mon-espace/agenda',
   adminMonEspaceNotes: '/admin/mon-espace/notes',
   adminMonEspaceTaches: '/admin/mon-espace/taches',
   adminMonEspaceFavoris: '/admin/mon-espace/favoris',
+  adminMonEspaceRessources: '/admin/mon-espace/ressources',
+  adminMonEspaceSuivi: '/admin/mon-espace/suivi-administratif',
+  adminMonEspaceListes: '/admin/mon-espace/listes',
   diagnostic: '/diagnostic-ia-btp',
   outilsIaBtp: '/outils-ia-btp',
   /** Sélecteur interactif — cas d'usage IA par métier BTP */

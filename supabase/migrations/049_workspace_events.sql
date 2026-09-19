@@ -15,7 +15,9 @@ create table if not exists public.workspace_events (
       'formation',
       'administratif',
       'prospection',
+      'facturation',
       'contenu',
+      'rendez-vous',
       'personnel',
       'autre'
     )),

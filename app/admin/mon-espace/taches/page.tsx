@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { redirect } from 'next/navigation';
 import { createClient } from '@/lib/supabase/server';
-import { requireAdminAccess } from '@/lib/admin-access';
+import { requireOrganisationAdminAccess } from '@/lib/admin-access';
 import { LINKS } from '@/lib/internal-links';
 import { getAllTasks, getBacklogTasks } from '@/lib/admin/mon-espace/queries';
 import { MonEspaceSubnav } from '@/components/admin/mon-espace/MonEspaceSubnav';
@@ -14,12 +14,12 @@ import {
 import { Trash2 } from 'lucide-react';
 
 export default async function MonEspaceTachesPage() {
-  const access = await requireAdminAccess();
+  const access = await requireOrganisationAdminAccess();
   if (!access.ok) {
     if (access.reason === 'unauthenticated') {
       redirect(`${LINKS.authConnexion}?next=${LINKS.adminMonEspaceTaches}`);
     }
-    redirect('/espace-apprenant?admin=denied');
+    redirect('/admin?organisation=denied');
   }
 
   const supabase = await createClient();
@@ -33,7 +33,7 @@ export default async function MonEspaceTachesPage() {
 
   return (
     <div className="p-4 md:p-8">
-      <p className="text-sm text-slate-500">Mon espace · personnel</p>
+      <p className="text-sm text-slate-500">Organisation · admin uniquement</p>
       <h1 className="mt-1 font-display text-2xl font-bold text-slate-900">Tâches</h1>
       <p className="mt-2 text-slate-600">
         Liste globale et backlog (hors colonnes d&apos;agenda).

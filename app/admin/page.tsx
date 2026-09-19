@@ -3,7 +3,13 @@ import { createClient } from '@/lib/supabase/server';
 import { Users, BookOpen, TrendingUp, Euro, MessageCircle, Clock, Target } from 'lucide-react';
 import { DashboardCharts } from './DashboardCharts';
 
-export default async function AdminDashboardPage() {
+export default async function AdminDashboardPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ organisation?: string }>;
+}) {
+  const params = await searchParams;
+  const organisationDenied = params.organisation === 'denied';
   const supabase = await createClient();
 
   const [
@@ -86,6 +92,15 @@ export default async function AdminDashboardPage() {
 
   return (
     <div className="p-4 md:p-8">
+      {organisationDenied ? (
+        <div
+          className="mb-6 rounded-xl border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-900"
+          role="status"
+        >
+          Accès à <strong>Organisation</strong> réservé aux administrateurs (rôle admin + email
+          autorisé). Les comptes formateur n’y ont pas accès.
+        </div>
+      ) : null}
       <h1 className="font-display text-2xl font-bold text-slate-900">Dashboard</h1>
       <p className="mt-1 text-slate-600">Vue d&apos;ensemble de la plateforme</p>
 

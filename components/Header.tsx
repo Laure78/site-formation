@@ -52,7 +52,7 @@ const MOBILE_NAV_ICON: Record<string, LucideIcon> = {
 const HEADER_COMPACT_ON_PX = 120;
 const HEADER_COMPACT_OFF_PX = 48;
 
-/** Header site unique — rendu depuis `app/layout.tsx` sur toutes les routes. */
+/** Header site unique — rendu depuis `app/layout.tsx` (masqué sur /admin). */
 export function Header() {
   const pathname = usePathname();
   const headerNav = getHeaderNav();
@@ -193,6 +193,10 @@ export function Header() {
       document.removeEventListener('mousedown', onPointerDown);
     };
   }, [openId]);
+
+  if (pathname?.startsWith('/admin')) {
+    return null;
+  }
 
   return (
     <>

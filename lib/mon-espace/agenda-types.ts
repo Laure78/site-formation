@@ -5,7 +5,9 @@ export type AgendaEventCategory =
   | 'formation'
   | 'administratif'
   | 'prospection'
+  | 'facturation'
   | 'contenu'
+  | 'rendez-vous'
   | 'personnel'
   | 'autre';
 
@@ -35,10 +37,22 @@ export const AGENDA_CATEGORIES: {
     barClass: 'bg-amber-400',
   },
   {
+    id: 'facturation',
+    label: 'Facturation',
+    chipClass: 'bg-teal-50 text-teal-900 border-teal-200',
+    barClass: 'bg-teal-400',
+  },
+  {
     id: 'contenu',
     label: 'Contenu',
     chipClass: 'bg-violet-50 text-violet-800 border-violet-200',
     barClass: 'bg-violet-400',
+  },
+  {
+    id: 'rendez-vous',
+    label: 'Rendez-vous',
+    chipClass: 'bg-orange-50 text-orange-900 border-orange-200',
+    barClass: 'bg-orange-400',
   },
   {
     id: 'personnel',
@@ -55,7 +69,7 @@ export const AGENDA_CATEGORIES: {
 ];
 
 export function getCategoryMeta(category: AgendaEventCategory) {
-  return AGENDA_CATEGORIES.find((c) => c.id === category) ?? AGENDA_CATEGORIES[5]!;
+  return AGENDA_CATEGORIES.find((c) => c.id === category) ?? AGENDA_CATEGORIES[AGENDA_CATEGORIES.length - 1]!;
 }
 
 export type WorkspaceEvent = {

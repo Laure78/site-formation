@@ -2,13 +2,19 @@
 
 import { revalidatePath } from 'next/cache';
 import { createClient } from '@/lib/supabase/server';
-import { requireAdminAccess } from '@/lib/admin-access';
+import { requireOrganisationAdminAccess } from '@/lib/admin-access';
 import { LINKS } from '@/lib/internal-links';
+import {
+  RESOURCE_CATEGORIES,
+  RESOURCE_KINDS,
+  type WorkspaceResourceCategory,
+  type WorkspaceResourceKind,
+} from '@/lib/admin/mon-espace/types';
 
 const BASE = LINKS.adminMonEspace;
 
 async function requireOwner() {
-  const access = await requireAdminAccess();
+  const access = await requireOrganisationAdminAccess();
   if (!access.ok) {
     throw new Error(
       access.reason === 'unauthenticated' ? 'Non authentifié' : 'Accès interdit'
@@ -20,9 +26,12 @@ async function requireOwner() {
 
 function revalidateMonEspace() {
   revalidatePath(BASE);
-  revalidatePath(`${BASE}/notes`);
+  revalidatePath(LINKS.adminMonEspaceAgenda);
+  revalidatePath(LINKS.adminMonEspaceNotes);
+  revalidatePath(LINKS.adminMonEspaceRessources);
   revalidatePath(`${BASE}/taches`);
   revalidatePath(`${BASE}/favoris`);
+  revalidatePath(LINKS.adminMonEspaceSuivi);
 }
 
 export async function addTaskAction(formData: FormData) {
@@ -148,6 +157,24 @@ export async function deleteNoteAction(formData: FormData) {
   revalidateMonEspace();
 }
 
+export async function toggleNoteFavoriteAction(formData: FormData) {
+  const { supabase, ownerId } = await requireOwner();
+  const id = String(formData.get('id') ?? '');
+  const pinned = String(formData.get('pinned') ?? '') === 'true';
+  if (!id) return;
+
+  await supabase
+    .from('workspace_notes')
+    .update({
+      pinned: !pinned,
+      updated_at: new Date().toISOString(),
+    })
+    .eq('id', id)
+    .eq('owner_id', ownerId);
+
+  revalidateMonEspace();
+}
+
 export async function addFavoriteAction(formData: FormData) {
   const { supabase, ownerId } = await requireOwner();
   const label = String(formData.get('label') ?? '').trim();
@@ -176,5 +203,102 @@ export async function deleteFavoriteAction(formData: FormData) {
     .eq('id', id)
     .eq('owner_id', ownerId);
 
+  revalidateMonEspace();
+}
+
+const VALID_KINDS = new Set(RESOURCE_KINDS.map((k) => k.id));
+const VALID_CATEGORIES = new Set(RESOURCE_CATEGORIES.map((c) => c.id));
+
+function parseResourceForm(formData: FormData) {
+  const title = String(formData.get('title') ?? '').trim();
+  const description = String(formData.get('description') ?? '').trim();
+  const linkRaw = String(formData.get('link') ?? '').trim();
+  const kindRaw = String(formData.get('kind') ?? 'url').trim();
+  const categoryRaw = String(formData.get('category') ?? 'autre').trim();
+  const isFavorite = String(formData.get('is_favorite') ?? '') === 'true';
+
+  if (!title) throw new Error('Le titre est obligatoire');
+
+  const kind = (
+    VALID_KINDS.has(kindRaw as WorkspaceResourceKind) ? kindRaw : 'url'
+  ) as WorkspaceResourceKind;
+  const category = (
+    VALID_CATEGORIES.has(categoryRaw as WorkspaceResourceCategory)
+      ? categoryRaw
+      : 'autre'
+  ) as WorkspaceResourceCategory;
+
+  return {
+    title,
+    description,
+    link: linkRaw || null,
+    kind,
+    category,
+    is_favorite: isFavorite,
+  };
+}
+
+export async function createResourceAction(formData: FormData) {
+  const { supabase, ownerId } = await requireOwner();
+  const payload = parseResourceForm(formData);
+
+  const { error } = await supabase.from('workspace_resources').insert({
+    owner_id: ownerId,
+    ...payload,
+    sort_order: 0,
+  });
+
+  if (error) throw new Error(error.message);
+  revalidateMonEspace();
+}
+
+export async function updateResourceAction(formData: FormData) {
+  const { supabase, ownerId } = await requireOwner();
+  const id = String(formData.get('id') ?? '').trim();
+  if (!id) throw new Error('Ressource introuvable');
+
+  const payload = parseResourceForm(formData);
+
+  const { error } = await supabase
+    .from('workspace_resources')
+    .update({ ...payload, updated_at: new Date().toISOString() })
+    .eq('id', id)
+    .eq('owner_id', ownerId);
+
+  if (error) throw new Error(error.message);
+  revalidateMonEspace();
+}
+
+export async function deleteResourceAction(formData: FormData) {
+  const { supabase, ownerId } = await requireOwner();
+  const id = String(formData.get('id') ?? '').trim();
+  if (!id) return;
+
+  const { error } = await supabase
+    .from('workspace_resources')
+    .delete()
+    .eq('id', id)
+    .eq('owner_id', ownerId);
+
+  if (error) throw new Error(error.message);
+  revalidateMonEspace();
+}
+
+export async function toggleResourceFavoriteAction(formData: FormData) {
+  const { supabase, ownerId } = await requireOwner();
+  const id = String(formData.get('id') ?? '').trim();
+  const isFavorite = String(formData.get('is_favorite') ?? '') === 'true';
+  if (!id) return;
+
+  const { error } = await supabase
+    .from('workspace_resources')
+    .update({
+      is_favorite: !isFavorite,
+      updated_at: new Date().toISOString(),
+    })
+    .eq('id', id)
+    .eq('owner_id', ownerId);
+
+  if (error) throw new Error(error.message);
   revalidateMonEspace();
 }
