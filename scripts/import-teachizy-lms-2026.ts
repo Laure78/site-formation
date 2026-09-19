@@ -188,7 +188,7 @@ async function main() {
           slug,
           title: f.title,
           description: `Import Teachizy 2026 — supports PDF, Excel et liens. Source : ${f.sourceId}`,
-          published: false,
+          published: true,
           price: 0,
           category: 'teachizy-2026',
           duration_hours: 4,
