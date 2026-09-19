@@ -1,6 +1,6 @@
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
-import { createClient } from '@/lib/supabase/server';
+import { createAdminClient } from '@/lib/supabase/admin';
 import { ArrowLeft, Plus, GripVertical } from 'lucide-react';
 import { CourseEditForm } from './CourseEditForm';
 
@@ -8,7 +8,7 @@ export default async function AdminFormationEditPage({
   params,
 }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
-  const supabase = await createClient();
+  const supabase = createAdminClient();
   const { data: course } = await supabase.from('courses').select('*').eq('id', id).single();
   if (!course) notFound();
 

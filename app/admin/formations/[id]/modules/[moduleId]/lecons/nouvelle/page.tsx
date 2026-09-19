@@ -1,5 +1,5 @@
 import { notFound } from 'next/navigation';
-import { createClient } from '@/lib/supabase/server';
+import { createAdminClient } from '@/lib/supabase/admin';
 import { NouvelleLeconForm } from './NouvelleLeconForm';
 
 export default async function NouvelleLeconPage({
@@ -8,7 +8,7 @@ export default async function NouvelleLeconPage({
   params: Promise<{ id: string; moduleId: string }>;
 }) {
   const { id: courseId, moduleId } = await params;
-  const supabase = await createClient();
+  const supabase = createAdminClient();
 
   const [{ data: course }, { data: module }] = await Promise.all([
     supabase.from('courses').select('id, title').eq('id', courseId).maybeSingle(),

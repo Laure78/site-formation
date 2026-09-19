@@ -1,6 +1,6 @@
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
-import { createClient } from '@/lib/supabase/server';
+import { createAdminClient } from '@/lib/supabase/admin';
 import { ArrowLeft, Plus } from 'lucide-react';
 import { ModuleEditForm } from './ModuleEditForm';
 import { LessonListItem } from './LessonListItem';
@@ -11,7 +11,7 @@ export default async function AdminModuleEditPage({
   params: Promise<{ id: string; moduleId: string }>;
 }) {
   const { id: courseId, moduleId } = await params;
-  const supabase = await createClient();
+  const supabase = createAdminClient();
 
   const { data: module } = await supabase
     .from('modules')

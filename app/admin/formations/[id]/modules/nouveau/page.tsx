@@ -1,5 +1,5 @@
 import { notFound } from 'next/navigation';
-import { createClient } from '@/lib/supabase/server';
+import { createAdminClient } from '@/lib/supabase/admin';
 import { NouveauModuleForm } from './NouveauModuleForm';
 
 export default async function NouveauModulePage({
@@ -8,7 +8,7 @@ export default async function NouveauModulePage({
   params: Promise<{ id: string }>;
 }) {
   const { id: courseId } = await params;
-  const supabase = await createClient();
+  const supabase = createAdminClient();
 
   const { data: course } = await supabase
     .from('courses')
