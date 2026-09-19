@@ -371,6 +371,7 @@ export function buildBreadcrumbTrail(pathname: string): BreadcrumbHrefCrumb[] {
   const pathNorm = (pathname || '/').replace(/\/$/, '') || '/';
   if (pathNorm === '/') return [];
   if (pathNorm.startsWith('/admin')) return [];
+  if (pathNorm.startsWith('/demo/')) return [];
 
   const parcoursAppMetier = applicationMetierBtpParcoursTrail(pathNorm);
   if (parcoursAppMetier) return parcoursAppMetier;

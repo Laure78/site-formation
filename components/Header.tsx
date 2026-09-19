@@ -194,7 +194,7 @@ export function Header() {
     };
   }, [openId]);
 
-  if (pathname?.startsWith('/admin')) {
+  if (pathname?.startsWith('/admin') || pathname?.startsWith('/demo/')) {
     return null;
   }
 

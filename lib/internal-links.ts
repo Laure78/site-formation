@@ -264,6 +264,8 @@ export const LINKS = {
   casUsageIaMetierBtp: '/outils/cas-usage-ia-btp',
   /** Prototype noindex — test rapprochement devis / DTU (charte rapport BeWork) */
   verificationDtuBeworkTest: '/outils/verification-dtu-bework',
+  /** Démo interne noindex — reconstitution visuelle type home fédérale BTP (Cursor) */
+  demoCursorFfbHome: '/demo/cursor-ffb-home',
   checklist: '/checklist-ia-btp',
   /** Lead magnet — 3 skills Claude AI BTP (fichier texte) */
   downloadClaudeSkillsBtp: '/downloads/3-skills-claude-ai-btp.txt',

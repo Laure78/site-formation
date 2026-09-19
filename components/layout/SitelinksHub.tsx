@@ -1,4 +1,7 @@
+'use client';
+
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import {
   Calendar,
   Coins,
@@ -24,8 +27,14 @@ const ICONS: Record<string, LucideIcon> = {
 
 /**
  * Maillage interne vers les sections clés — présent sur toutes les pages (avant le footer).
+ * Masqué sur /admin et /demo (pages hors chrome site).
  */
 export function SitelinksHub() {
+  const pathname = usePathname();
+  if (pathname?.startsWith('/admin') || pathname?.startsWith('/demo/')) {
+    return null;
+  }
+
   const items = getSiteNavHubItems().map(({ href, title, description }) => ({
     href,
     title,

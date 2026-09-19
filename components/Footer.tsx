@@ -78,7 +78,7 @@ function FooterNavColumn({
 /** Footer site unique — données depuis `lib/site.ts` et `lib/nav.ts`. */
 export function Footer() {
   const pathname = usePathname();
-  if (pathname?.startsWith('/admin')) return null;
+  if (pathname?.startsWith('/admin') || pathname?.startsWith('/demo/')) return null;
 
   const { footer: copy, links, social } = SITE;
   const year = new Date().getFullYear();
