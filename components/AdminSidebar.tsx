@@ -15,12 +15,14 @@ import {
   ExternalLink,
   LogOut,
   LogIn,
+  CalendarDays,
 } from 'lucide-react';
 import { LINKS } from '@/lib/internal-links';
 import { adminSignOutAction } from '@/app/admin/actions';
 
 const nav = [
   { href: '/admin', label: 'Dashboard', icon: LayoutDashboard },
+  { href: LINKS.adminMonEspace, label: 'Mon espace', icon: CalendarDays },
   { href: '/admin/disponibilites', label: 'Disponibilités', icon: Clock },
   { href: '/admin/formations', label: 'Formations', icon: BookOpen },
   { href: '/admin/apprenants', label: 'Apprenants', icon: Users },
@@ -82,7 +84,8 @@ export function AdminSidebar() {
               href={href}
               onClick={() => setOpen(false)}
               className={`flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium transition-colors ${
-                pathname === href || (href !== '/admin' && pathname.startsWith(href))
+                pathname === href ||
+                (href !== '/admin' && pathname.startsWith(href))
                   ? 'bg-[var(--accent-soft)] text-[var(--accent)]'
                   : 'text-slate-700 hover:bg-slate-100'
               }`}

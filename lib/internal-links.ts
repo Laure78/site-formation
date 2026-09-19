@@ -236,8 +236,17 @@ export const LINKS = {
   pdfProgrammeBework14h: '/bework/programme-bework-parcours-14h.pdf',
   /** Point d'entrée indexable vers l'espace apprenant OFC (stagiaires) */
   formationPlateforme: '/formations/plateforme',
+  /** Espace apprenant LMS (après connexion) */
+  espaceApprenant: '/espace-apprenant',
   /** Connexion espace apprenant LMS (indexable SEO/GEO) */
   authConnexion: '/auth/connexion',
+  /** Espace productivité personnel apprenant (privé) */
+  monEspace: '/mon-espace',
+  monEspaceAgenda: '/mon-espace/agenda',
+  monEspaceTaches: '/mon-espace/taches',
+  monEspaceNotes: '/mon-espace/notes',
+  monEspaceRessources: '/mon-espace/ressources',
+  monEspaceFavoris: '/mon-espace/favoris',
   /** Entrée connexion administrateur / formateur (noindex) */
   accesAdmin: '/acces-admin',
   /** Espace productivité personnel admin / formateur (privé, hors SEO) */

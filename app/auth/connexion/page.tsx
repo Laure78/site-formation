@@ -8,7 +8,7 @@ import ConnexionClient from './ConnexionClient';
 /** Query ?reset= / ?error= doivent être lus à chaque requête (pas de cache HTML). */
 export const dynamic = 'force-dynamic';
 
-const META_TITLE = 'Connexion formation IA BTP : espace apprenant';
+const META_TITLE = 'Connexion formation IA pour le BTP : espace apprenant';
 const META_DESCRIPTION =
   'Connexion à l’espace apprenant OFC : formation IA pour le BTP, supports ChatGPT BTP, Claude et suivi Qualiopi. TPE, PME — Île-de-France.';
 
@@ -66,7 +66,7 @@ function getConnexionPageJsonLd() {
       },
       {
         '@type': 'WebApplication',
-        name: 'Espace apprenant — Formation IA BTP',
+        name: 'Espace apprenant — formation IA pour le BTP',
         url: pageUrl,
         applicationCategory: 'EducationalApplication',
         operatingSystem: 'Web',
@@ -120,8 +120,8 @@ export default async function ConnexionPage({
             className="font-display text-3xl font-bold tracking-tight text-slate-900 md:text-4xl"
           >
             {adminIntent
-              ? 'Connexion administrateur — plateforme formation IA BTP'
-              : 'Bienvenue sur votre espace de formation IA & BTP'}
+              ? 'Connexion administrateur — plateforme OFC'
+              : 'Bienvenue sur votre espace de formation IA pour le BTP'}
           </h1>
 
           {adminIntent ? (
@@ -183,7 +183,7 @@ export default async function ConnexionPage({
                   href={LINKS.financement}
                   className="font-medium text-[#377CF3] hover:underline"
                 >
-                  guide Constructys formation IA BTP
+                  guide Constructys formation IA pour le BTP
                 </Link>
                 {' · '}
                 <Link href={LINKS.prendreRdv} className="font-medium text-[#377CF3] hover:underline">
