@@ -1,6 +1,7 @@
 import { redirect } from 'next/navigation';
+import { LINKS } from '@/lib/internal-links';
 
-/** Pipeline retiré de l’admin pour simplifier l’interface. */
-export default function PipelinePage() {
-  redirect('/admin');
+/** Ancien pipeline → Prospection */
+export default function PipelineRedirect() {
+  redirect(LINKS.adminProspection);
 }

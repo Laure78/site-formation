@@ -258,6 +258,14 @@ export const LINKS = {
   adminMonEspaceRessources: '/admin/mon-espace/ressources',
   adminMonEspaceSuivi: '/admin/mon-espace/suivi-administratif',
   adminMonEspaceListes: '/admin/mon-espace/listes',
+  /** Mini-CRM prospection B2B (admin only) */
+  adminProspection: '/admin/prospection',
+  adminProspectionProspects: '/admin/prospection/prospects',
+  adminProspectionEntreprises: '/admin/prospection/entreprises',
+  adminProspectionCampagnes: '/admin/prospection/campagnes',
+  adminProspectionEmails: '/admin/prospection/emails',
+  adminProspectionRelances: '/admin/prospection/relances',
+  adminProspectionModeles: '/admin/prospection/modeles',
   diagnostic: '/diagnostic-ia-btp',
   outilsIaBtp: '/outils-ia-btp',
   /** Sélecteur interactif — cas d'usage IA par métier BTP */

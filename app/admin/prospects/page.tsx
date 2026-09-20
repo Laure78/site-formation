@@ -1,6 +1,7 @@
 import { redirect } from 'next/navigation';
+import { LINKS } from '@/lib/internal-links';
 
-/** Prospects CRM retirés de l’admin pour simplifier l’interface. */
-export default function AdminProspectsPage() {
-  redirect('/admin');
+/** Ancienne route CRM → nouveau module Prospection */
+export default function AdminProspectsRedirect() {
+  redirect(LINKS.adminProspectionProspects);
 }

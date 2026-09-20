@@ -16,6 +16,7 @@ import {
   LogOut,
   CalendarDays,
   Home,
+  Target,
 } from 'lucide-react';
 import { LINKS } from '@/lib/internal-links';
 import { adminSignOutAction } from '@/app/admin/actions';
@@ -23,6 +24,7 @@ import { adminSignOutAction } from '@/app/admin/actions';
 const NAV_PILOTAGE = [
   { href: '/admin', label: 'Dashboard', icon: LayoutDashboard, exact: true },
   { href: LINKS.adminMonEspace, label: 'Organisation', icon: CalendarDays, exact: false },
+  { href: LINKS.adminProspection, label: 'Prospection', icon: Target, exact: false },
 ] as const;
 
 const NAV_PLATFORM = [
@@ -78,7 +80,7 @@ function NavLink({
 export function AdminSidebar({
   showOrganisation = false,
 }: {
-  /** Section Organisation : admin allowlist uniquement (jamais formateur / apprenant). */
+  /** Section Organisation + Prospection : admin allowlist uniquement. */
   showOrganisation?: boolean;
 }) {
   const pathname = usePathname();
@@ -87,7 +89,10 @@ export function AdminSidebar({
 
   const pilotageItems = showOrganisation
     ? NAV_PILOTAGE
-    : NAV_PILOTAGE.filter((item) => item.href !== LINKS.adminMonEspace);
+    : NAV_PILOTAGE.filter(
+        (item) =>
+          item.href !== LINKS.adminMonEspace && item.href !== LINKS.adminProspection
+      );
 
   return (
     <>
