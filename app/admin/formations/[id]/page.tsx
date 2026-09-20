@@ -72,11 +72,21 @@ export default async function AdminFormationEditPage({
               </Link>
             </div>
           ) : (
-            (modules ?? []).map((m) => (
+            (modules ?? []).map((m) => {
+              const lessonsSorted = (
+                (m.lessons as { id: string; title: string; type: string; order_index?: number }[]) ?? []
+              )
+                .slice()
+                .sort((a, b) => (a.order_index ?? 0) - (b.order_index ?? 0));
+
+              return (
               <div key={m.id} className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
                 <div className="flex items-center gap-3">
                   <GripVertical size={20} strokeWidth={1.5} className="cursor-move text-slate-400" />
                   <h3 className="font-semibold text-slate-900">{m.title}</h3>
+                  <span className="text-xs text-slate-400">
+                    {lessonsSorted.length} leçon{lessonsSorted.length === 1 ? '' : 's'}
+                  </span>
                   <Link
                     href={`/admin/formations/${id}/modules/${m.id}`}
                     className="ml-auto text-sm text-[var(--accent)] hover:underline"
@@ -85,28 +95,22 @@ export default async function AdminFormationEditPage({
                   </Link>
                 </div>
                 <ul className="mt-4 space-y-2 pl-2 sm:pl-8">
-                  {(((m.lessons as { id: string; title: string; type: string; order_index?: number }[]) ?? [])
-                    .slice()
-                    .sort((a, b) => (a.order_index ?? 0) - (b.order_index ?? 0))
-                  ).length === 0 ? (
+                  {lessonsSorted.length === 0 ? (
                     <li className="text-sm text-slate-400">Aucune leçon dans ce module.</li>
                   ) : (
-                    ((m.lessons as { id: string; title: string; type: string; order_index?: number }[]) ?? [])
-                      .slice()
-                      .sort((a, b) => (a.order_index ?? 0) - (b.order_index ?? 0))
-                      .map((l) => (
-                        <li key={l.id}>
-                          <Link
-                            href={`/admin/formations/${id}/modules/${m.id}/lecons/${l.id}`}
-                            className="flex items-center gap-2 rounded-lg px-2 py-1.5 text-sm text-slate-700 transition-colors hover:bg-slate-50 hover:text-[#0F766E]"
-                          >
-                            <span className="rounded bg-slate-100 px-1.5 py-0.5 text-xs font-medium uppercase text-slate-600">
-                              {l.type}
-                            </span>
-                            <span className="font-medium">{l.title}</span>
-                          </Link>
-                        </li>
-                      ))
+                    lessonsSorted.map((l) => (
+                      <li key={l.id}>
+                        <Link
+                          href={`/admin/formations/${id}/modules/${m.id}/lecons/${l.id}`}
+                          className="flex items-center gap-2 rounded-lg px-2 py-1.5 text-sm text-slate-700 transition-colors hover:bg-slate-50 hover:text-[#0F766E]"
+                        >
+                          <span className="rounded bg-slate-100 px-1.5 py-0.5 text-xs font-medium uppercase text-slate-600">
+                            {l.type}
+                          </span>
+                          <span className="font-medium">{l.title}</span>
+                        </Link>
+                      </li>
+                    ))
                   )}
                 </ul>
                 <Link
@@ -117,7 +121,8 @@ export default async function AdminFormationEditPage({
                   Ajouter une leçon
                 </Link>
               </div>
-            ))
+              );
+            })
           )}
         </div>
       </div>

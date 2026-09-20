@@ -5,12 +5,15 @@ import { useRouter } from 'next/navigation';
 import {
   addProspectNoteAction,
   markEmailSentAction,
+  markProspectContactedAction,
   scheduleRelanceAction,
   updateProspectStatutAction,
 } from '@/app/admin/prospection/actions';
-import { EMAIL_TYPES, PROSPECTION_STATUTS } from '@/lib/prospection/constants';
+import { EMAIL_TYPES, PROSPECTION_STATUTS, statutLabel } from '@/lib/prospection/constants';
 import type { ProspectRow, ProspectingTemplateRow } from '@/lib/prospection/types';
 import { fillTemplate } from '@/lib/prospection/email-ai';
+
+const RELANCE_PRESETS = [3, 5, 7, 15] as const;
 
 export function ProspectQuickActions({
   prospect,
@@ -23,6 +26,8 @@ export function ProspectQuickActions({
   const [pending, startTransition] = useTransition();
   const [note, setNote] = useState('');
   const [showEmail, setShowEmail] = useState(false);
+  const [showContacted, setShowContacted] = useState(false);
+  const [customRelance, setCustomRelance] = useState('');
   const [subject, setSubject] = useState('');
   const [body, setBody] = useState('');
   const [emailType, setEmailType] = useState('premier_contact');
@@ -106,6 +111,14 @@ export function ProspectQuickActions({
         <button
           type="button"
           disabled={pending}
+          onClick={() => setShowContacted(true)}
+          className="rounded-lg border border-slate-200 px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-50"
+        >
+          Marquer comme contacté
+        </button>
+        <button
+          type="button"
+          disabled={pending}
           onClick={() =>
             run(
               () =>
@@ -127,16 +140,6 @@ export function ProspectQuickActions({
           type="button"
           disabled={pending}
           onClick={() =>
-            run(() => scheduleRelanceAction(prospect.id, 5), 'Relance dans 5 jours')
-          }
-          className="rounded-lg border border-slate-200 px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-50"
-        >
-          Programmer relance J+5
-        </button>
-        <button
-          type="button"
-          disabled={pending}
-          onClick={() =>
             run(() => updateProspectStatutAction(prospect.id, 'opportunite'), 'Passé en opportunité')
           }
           className="rounded-lg border border-slate-200 px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-50"
@@ -149,7 +152,10 @@ export function ProspectQuickActions({
           onChange={(e) => {
             const v = e.target.value;
             if (!v) return;
-            run(() => updateProspectStatutAction(prospect.id, v), 'Statut mis à jour');
+            run(
+              () => updateProspectStatutAction(prospect.id, v),
+              `Statut → ${statutLabel(v)}`
+            );
             e.target.value = '';
           }}
         >
@@ -160,6 +166,53 @@ export function ProspectQuickActions({
             </option>
           ))}
         </select>
+      </div>
+
+      <div className="rounded-xl border border-slate-200 bg-white p-3">
+        <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">
+          Prochaine relance
+        </p>
+        <p className="mt-1 text-sm text-slate-700">
+          {prospect.prochaine_relance_at
+            ? new Date(prospect.prochaine_relance_at).toLocaleString('fr-FR')
+            : 'Non planifiée'}
+          {prospect.relance_motif ? ` — ${prospect.relance_motif}` : ''}
+        </p>
+        <div className="mt-2 flex flex-wrap gap-2">
+          {RELANCE_PRESETS.map((d) => (
+            <button
+              key={d}
+              type="button"
+              disabled={pending}
+              onClick={() =>
+                run(() => scheduleRelanceAction(prospect.id, d), `Relance dans ${d} jours`)
+              }
+              className="rounded-lg border border-slate-200 px-2.5 py-1.5 text-xs font-medium text-slate-700 hover:bg-slate-50"
+            >
+              J+{d}
+            </button>
+          ))}
+          <input
+            type="datetime-local"
+            value={customRelance}
+            onChange={(e) => setCustomRelance(e.target.value)}
+            className="rounded-lg border border-slate-200 px-2 py-1 text-xs"
+          />
+          <button
+            type="button"
+            disabled={pending || !customRelance}
+            onClick={() => {
+              const iso = new Date(customRelance).toISOString();
+              run(
+                () => scheduleRelanceAction(prospect.id, 0, 'Date choisie', iso),
+                'Relance planifiée'
+              );
+            }}
+            className="rounded-lg border border-slate-200 px-2.5 py-1.5 text-xs font-medium hover:bg-slate-50"
+          >
+            Choisir une date
+          </button>
+        </div>
       </div>
 
       <div className="flex flex-wrap gap-2">
@@ -200,6 +253,53 @@ export function ProspectQuickActions({
           Note
         </button>
       </div>
+
+      {showContacted ? (
+        <div className="rounded-2xl border border-slate-200 bg-slate-50 p-4">
+          <h3 className="font-semibold text-slate-900">Vous venez de contacter ce prospect</h3>
+          <p className="mt-1 text-sm text-slate-600">Programmer une relance dans :</p>
+          <div className="mt-3 flex flex-wrap gap-2">
+            {RELANCE_PRESETS.map((d) => (
+              <button
+                key={d}
+                type="button"
+                disabled={pending}
+                onClick={() => {
+                  setShowContacted(false);
+                  run(
+                    () => markProspectContactedAction(prospect.id, d),
+                    `Contacté · relance J+${d}`
+                  );
+                }}
+                className="rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm font-medium"
+              >
+                {d} jours
+              </button>
+            ))}
+            <button
+              type="button"
+              disabled={pending}
+              onClick={() => {
+                setShowContacted(false);
+                run(
+                  () => markProspectContactedAction(prospect.id, null),
+                  'Contacté · pas de relance'
+                );
+              }}
+              className="rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm font-medium"
+            >
+              Pas de relance
+            </button>
+            <button
+              type="button"
+              onClick={() => setShowContacted(false)}
+              className="text-sm text-slate-500 hover:underline"
+            >
+              Annuler
+            </button>
+          </div>
+        </div>
+      ) : null}
 
       {showEmail ? (
         <div className="space-y-3 rounded-2xl border border-slate-200 bg-slate-50 p-4">

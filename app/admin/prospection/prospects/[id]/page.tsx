@@ -80,14 +80,85 @@ export default async function ProspectDetailPage({
         <Info label="Téléphone" value={prospect.telephone} href={prospect.telephone ? `tel:${prospect.telephone}` : undefined} />
         <Info label="LinkedIn" value={prospect.linkedin_url} href={prospect.linkedin_url ?? undefined} />
         <Info label="Type" value={typeStructureLabel(prospect.type_structure)} />
+        <Info label="Type de prospect" value={prospect.prospect_type} />
         <Info label="Département" value={prospect.departement} />
+        <Info label="Nom département" value={prospect.department_name} />
         <Info label="Ville" value={prospect.ville} />
+        <Info label="Région" value={prospect.region} />
+        <Info label="Source" value={prospect.source_prospect} />
+        <Info
+          label="Dernier contact"
+          value={
+            prospect.dernier_contact_at
+              ? new Date(prospect.dernier_contact_at).toLocaleString('fr-FR')
+              : null
+          }
+        />
+        <Info
+          label="Prochaine relance"
+          value={
+            prospect.prochaine_relance_at
+              ? `${new Date(prospect.prochaine_relance_at).toLocaleString('fr-FR')}${
+                  prospect.relance_motif ? ` — ${prospect.relance_motif}` : ''
+                }`
+              : null
+          }
+        />
       </div>
+
+      {prospect.source_metadata && Object.keys(prospect.source_metadata).length > 0 ? (
+        <section className="rounded-2xl border border-slate-200/80 bg-white p-5 shadow-sm">
+          <h3 className="font-display text-base font-semibold text-slate-900">
+            Source de l’import
+          </h3>
+          <dl className="mt-3 grid gap-2 text-sm sm:grid-cols-2">
+            {prospect.source_metadata.event ? (
+              <>
+                <dt className="text-slate-500">Événement</dt>
+                <dd className="font-medium text-slate-800">
+                  {String(prospect.source_metadata.event)}
+                </dd>
+              </>
+            ) : null}
+            {prospect.source_metadata.organizer ? (
+              <>
+                <dt className="text-slate-500">Organisateur</dt>
+                <dd className="font-medium text-slate-800">
+                  {String(prospect.source_metadata.organizer)}
+                </dd>
+              </>
+            ) : null}
+            {prospect.source_metadata.location ? (
+              <>
+                <dt className="text-slate-500">Lieu</dt>
+                <dd className="font-medium text-slate-800">
+                  {String(prospect.source_metadata.location)}
+                </dd>
+              </>
+            ) : null}
+            {prospect.source_metadata.event_date ? (
+              <>
+                <dt className="text-slate-500">Date</dt>
+                <dd className="font-medium text-slate-800">
+                  {new Date(String(prospect.source_metadata.event_date)).toLocaleDateString(
+                    'fr-FR'
+                  )}
+                </dd>
+              </>
+            ) : null}
+          </dl>
+          {prospect.tags && prospect.tags.length > 0 ? (
+            <p className="mt-3 text-xs text-slate-500">
+              Tags : {prospect.tags.join(' · ')}
+            </p>
+          ) : null}
+        </section>
+      ) : null}
 
       <ProspectQuickActions prospect={prospect} templates={templates} />
 
       <section>
-        <h3 className="font-display text-lg font-semibold text-slate-900">Timeline</h3>
+        <h3 className="font-display text-lg font-semibold text-slate-900">Suivi</h3>
         <ol className="mt-4 space-y-4 border-l-2 border-slate-200 pl-4">
           {timeline.length === 0 ? (
             <li className="text-sm text-slate-500">Aucun historique pour l’instant.</li>

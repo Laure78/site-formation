@@ -18,19 +18,8 @@ export default async function ProspectionLayout({
 
   return (
     <div className="p-4 md:p-8">
-      <div className="min-w-0">
-        <p className="text-xs font-semibold uppercase tracking-wide text-[#377CF3]">
-          Admin · Prospection
-        </p>
-        <h1 className="mt-1 font-display text-2xl font-bold tracking-tight text-slate-900 md:text-3xl">
-          Prospection
-        </h1>
-        <p className="mt-2 max-w-2xl text-sm text-slate-500">
-          Mini-CRM B2B : prospects, emails, relances — réservé administrateur.
-        </p>
-      </div>
       <ProspectionSubnavBridge />
-      <div className="mt-6">{children}</div>
+      <div className="mt-4">{children}</div>
     </div>
   );
 }

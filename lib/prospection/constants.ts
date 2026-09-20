@@ -25,6 +25,7 @@ export const TYPE_STRUCTURES = [
   { value: 'federation', label: 'Fédération professionnelle' },
   { value: 'cci', label: 'CCI' },
   { value: 'cma', label: 'CMA' },
+  { value: 'france_num', label: 'France Num' },
   { value: 'organisme_formation', label: 'Organisme de formation' },
   { value: 'autre', label: 'Autre' },
 ] as const;
@@ -102,4 +103,94 @@ export function statutBadgeClass(value: string | null | undefined): string {
     rose: 'bg-rose-50 text-rose-800',
   };
   return map[tone] ?? map.slate!;
+}
+
+export const NEXT_ACTION_TYPES = [
+  { value: 'envoyer_premier_email', label: 'Envoyer premier email' },
+  { value: 'relancer', label: 'Relancer' },
+  { value: 'preparer_rdv', label: 'Préparer RDV' },
+  { value: 'envoyer_proposition', label: 'Envoyer proposition' },
+  { value: 'recontacter', label: 'Recontacter' },
+  { value: 'attendre_reponse', label: 'Attendre réponse' },
+  { value: 'traiter_reponse', label: 'Traiter la réponse' },
+  { value: 'autre', label: 'Autre' },
+] as const;
+
+export type NextActionType = (typeof NEXT_ACTION_TYPES)[number]['value'];
+
+/** Segments prédéfinis (filtres enregistrés). */
+export const PRESET_SEGMENTS = [
+  {
+    id: 'btp-78',
+    name: 'Entreprises BTP 78',
+    filters: { typeGroup: 'btp', dept: '78' },
+  },
+  {
+    id: 'btp-91',
+    name: 'Entreprises BTP 91',
+    filters: { typeGroup: 'btp', dept: '91' },
+  },
+  {
+    id: 'cci-idf',
+    name: 'CCI Île-de-France',
+    filters: { type: 'cci' },
+  },
+  {
+    id: 'cma-idf',
+    name: 'CMA Île-de-France',
+    filters: { type: 'cma' },
+  },
+  {
+    id: 'ffb-idf',
+    name: 'FFB Île-de-France',
+    filters: { type: 'ffb' },
+  },
+  {
+    id: 'france-num',
+    name: 'France Num',
+    filters: { type: 'france_num' },
+  },
+  {
+    id: 'jamais-contactes',
+    name: 'Prospects jamais contactés',
+    filters: { statut: 'a_contacter', sansContact: '1' },
+  },
+  {
+    id: 'relances-retard',
+    name: 'Relances en retard',
+    filters: { relance: 'retard' },
+  },
+  {
+    id: 'sans-action',
+    name: 'Sans prochaine action',
+    filters: { sansAction: '1' },
+  },
+] as const;
+
+export const TYPE_FILTER_GROUPS = [
+  { value: '', label: 'Toutes les cibles' },
+  { value: 'btp', label: 'BTP' },
+  { value: 'ffb', label: 'FFB' },
+  { value: 'cci', label: 'CCI' },
+  { value: 'cma', label: 'CMA' },
+  { value: 'france_num', label: 'France Num' },
+  { value: 'autres', label: 'Autres' },
+] as const;
+
+export function typesForGroup(group: string | undefined): string[] | null {
+  if (!group) return null;
+  if (group === 'btp') {
+    return ['entreprise_btp', 'pme_btp', 'eti_btp', 'grand_groupe_btp'];
+  }
+  if (group === 'ffb') return ['ffb', 'federation'];
+  if (group === 'cci') return ['cci'];
+  if (group === 'cma') return ['cma'];
+  if (group === 'france_num') return ['france_num'];
+  if (group === 'autres') return ['organisme_formation', 'autre'];
+  return null;
+}
+
+export function nextActionLabel(type: string | null | undefined, fallback?: string | null) {
+  if (fallback?.trim()) return fallback.trim();
+  return NEXT_ACTION_TYPES.find((t) => t.value === type)?.label ?? '—';
 }

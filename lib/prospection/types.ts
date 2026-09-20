@@ -20,6 +20,14 @@ export type ProspectRow = {
   besoins_identifies: string[] | null;
   formations_interessees: string[] | null;
   source_prospect: string | null;
+  source_metadata: Record<string, unknown> | null;
+  tags: string[] | null;
+  prospect_type: string | null;
+  department_name: string | null;
+  relance_motif: string | null;
+  next_action: string | null;
+  next_action_type: string | null;
+  next_action_at: string | null;
   notes_crm: string | null;
   statut: ProspectionStatut | string | null;
   dernier_contact_at: string | null;
@@ -71,6 +79,12 @@ export type ProspectFilters = {
   q?: string;
   statut?: string;
   typeStructure?: string;
+  /** Groupe BTP / FFB / CCI… */
+  typeGroup?: string;
   departement?: string;
-  relance?: 'aujourdhui' | 'retard' | 'semaine' | 'plus_tard';
+  relance?: 'aujourdhui' | 'retard' | 'semaine' | 'plus_tard' | 'demain';
+  sansAction?: boolean;
+  sansContact?: boolean;
+  page?: number;
+  pageSize?: number;
 };

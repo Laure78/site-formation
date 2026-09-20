@@ -1,14 +1,29 @@
 import type { SupabaseClient } from '@supabase/supabase-js';
+import { CONTACT } from '@/lib/constants';
+import { typesForGroup } from './constants';
 import type { ProspectFilters, ProspectRow, ProspectingActionRow, ProspectingEmailRow, ProspectingTemplateRow } from './types';
 
 const PROSPECT_SELECT = `
   id, prenom, nom, email, telephone, entreprise, fonction,
   linkedin_url, site_web, ville, departement, region, type_structure,
   taille_entreprise, corps_metier, effectif_approx, besoins_identifies,
-  formations_interessees, source_prospect, notes_crm, statut,
+  formations_interessees, source_prospect, source_metadata, tags,
+  prospect_type, department_name, relance_motif, notes_crm, statut,
   dernier_contact_at, prochaine_relance_at, company_id,
+  next_action, next_action_type, next_action_at,
   date_creation, date_modification, updated_at
 `;
+
+/** Emails internes — exclus du CRM (tests RDV, compte admin). */
+const EXCLUDED_CRM_EMAILS = new Set([CONTACT.email.toLowerCase()]);
+
+function isExcludedCrmProspect(email: string | null | undefined): boolean {
+  return Boolean(email && EXCLUDED_CRM_EMAILS.has(email.trim().toLowerCase()));
+}
+
+function withoutExcludedCrmProspects<T extends { email?: string | null }>(rows: T[]): T[] {
+  return rows.filter((r) => !isExcludedCrmProspect(r.email));
+}
 
 function startOfDay(d = new Date()) {
   const x = new Date(d);
@@ -35,15 +50,28 @@ export async function listProspects(
   supabase: SupabaseClient,
   filters: ProspectFilters = {}
 ): Promise<ProspectRow[]> {
+  const pageSize = filters.pageSize ?? 50;
+  const page = Math.max(1, filters.page ?? 1);
+  const from = (page - 1) * pageSize;
+  const to = from + pageSize - 1;
+
   let query = supabase
     .from('prospects')
     .select(PROSPECT_SELECT)
+    .order('next_action_at', { ascending: true, nullsFirst: false })
     .order('date_creation', { ascending: false })
-    .limit(500);
+    .range(from, to);
 
   if (filters.statut) query = query.eq('statut', filters.statut);
   if (filters.typeStructure) query = query.eq('type_structure', filters.typeStructure);
   if (filters.departement) query = query.eq('departement', filters.departement);
+
+  const groupTypes = typesForGroup(filters.typeGroup);
+  if (groupTypes) query = query.in('type_structure', groupTypes);
+
+  if (filters.sansContact) {
+    query = query.is('dernier_contact_at', null);
+  }
 
   if (filters.relance === 'aujourdhui') {
     query = query
@@ -54,6 +82,13 @@ export async function listProspects(
       .not('prochaine_relance_at', 'is', null)
       .lt('prochaine_relance_at', startOfDay().toISOString())
       .not('statut', 'in', '("client","pas_interesse")');
+  } else if (filters.relance === 'demain') {
+    const d0 = startOfDay();
+    d0.setDate(d0.getDate() + 1);
+    const d1 = endOfDay(d0);
+    query = query
+      .gte('prochaine_relance_at', d0.toISOString())
+      .lte('prochaine_relance_at', d1.toISOString());
   } else if (filters.relance === 'semaine') {
     query = query
       .gte('prochaine_relance_at', startOfDay().toISOString())
@@ -65,7 +100,18 @@ export async function listProspects(
   const { data, error } = await query;
   if (error) throw error;
 
-  let rows = (data ?? []) as ProspectRow[];
+  let rows = withoutExcludedCrmProspects((data ?? []) as ProspectRow[]);
+
+  if (filters.sansAction) {
+    rows = rows.filter(
+      (p) =>
+        !p.next_action?.trim() &&
+        !p.prochaine_relance_at &&
+        p.statut !== 'client' &&
+        p.statut !== 'pas_interesse'
+    );
+  }
+
   const q = filters.q?.trim().toLowerCase();
   if (q) {
     rows = rows.filter((p) => {
@@ -74,6 +120,7 @@ export async function listProspects(
         p.nom,
         p.email,
         p.entreprise,
+        p.fonction,
         p.ville,
         p.departement,
         p.telephone,
@@ -140,9 +187,11 @@ export async function listTemplates(
 export async function getDashboardStats(supabase: SupabaseClient) {
   const { data, error } = await supabase
     .from('prospects')
-    .select('id, statut, prochaine_relance_at, dernier_contact_at');
+    .select(
+      'id, email, statut, prochaine_relance_at, dernier_contact_at, next_action, next_action_at'
+    );
   if (error) throw error;
-  const rows = data ?? [];
+  const rows = withoutExcludedCrmProspects(data ?? []);
   const byStatut = (s: string) => rows.filter((r) => r.statut === s).length;
   const todayStart = startOfDay().toISOString();
   const todayEnd = endOfDay().toISOString();
@@ -167,11 +216,111 @@ export async function getDashboardStats(supabase: SupabaseClient) {
     aRelancer: byStatut('a_relancer') + byStatut('relance'),
     reponses: byStatut('reponse_recue'),
     rdv: byStatut('rdv_prevu'),
-    opportunites: byStatut('opportunite') + byStatut('proposition_envoyee'),
+    propositions: byStatut('proposition_envoyee'),
+    opportunites: byStatut('opportunite'),
     clients: byStatut('client'),
     relancesAujourdhui,
     relancesRetard,
+    relancesAFaire: relancesAujourdhui + relancesRetard,
+    rdvAVenir: byStatut('rdv_prevu'),
+    sansAction: rows.filter(
+      (r) =>
+        !r.next_action &&
+        !r.prochaine_relance_at &&
+        r.statut !== 'client' &&
+        r.statut !== 'pas_interesse'
+    ).length,
   };
+}
+
+export type NextActionItem = ProspectRow & {
+  actionLabel: string;
+  actionKind: 'relance' | 'premier_contact' | 'reponse' | 'rdv';
+};
+
+/** Actions prioritaires pour le tableau de bord. */
+export async function listProchainesActions(
+  supabase: SupabaseClient,
+  limit = 12
+): Promise<NextActionItem[]> {
+  const prospects = await listProspects(supabase, {});
+  const todayStart = startOfDay();
+  const todayEnd = endOfDay();
+  const items: NextActionItem[] = [];
+
+  for (const p of prospects) {
+    if (p.statut === 'client' || p.statut === 'pas_interesse') continue;
+
+    const relanceAt = p.prochaine_relance_at
+      ? new Date(p.prochaine_relance_at)
+      : null;
+    const isRelanceDue =
+      relanceAt &&
+      relanceAt <= todayEnd &&
+      p.statut !== 'client';
+
+    if (isRelanceDue) {
+      const isToday =
+        relanceAt >= todayStart && relanceAt <= todayEnd;
+      items.push({
+        ...p,
+        actionKind: 'relance',
+        actionLabel: isToday
+          ? 'Relance aujourd’hui'
+          : relanceAt < todayStart
+            ? 'Relance en retard'
+            : 'Relance',
+      });
+      continue;
+    }
+
+    if (p.statut === 'reponse_recue') {
+      items.push({
+        ...p,
+        actionKind: 'reponse',
+        actionLabel: 'Réponse à traiter',
+      });
+      continue;
+    }
+
+    if (p.statut === 'rdv_prevu') {
+      items.push({
+        ...p,
+        actionKind: 'rdv',
+        actionLabel: 'RDV à préparer',
+      });
+      continue;
+    }
+
+    if (p.statut === 'a_contacter') {
+      items.push({
+        ...p,
+        actionKind: 'premier_contact',
+        actionLabel: 'Premier contact',
+      });
+    }
+  }
+
+  const priority: Record<NextActionItem['actionKind'], number> = {
+    relance: 0,
+    reponse: 1,
+    rdv: 2,
+    premier_contact: 3,
+  };
+
+  items.sort((a, b) => {
+    const pa = priority[a.actionKind] - priority[b.actionKind];
+    if (pa !== 0) return pa;
+    const da = a.prochaine_relance_at
+      ? new Date(a.prochaine_relance_at).getTime()
+      : Number.MAX_SAFE_INTEGER;
+    const db = b.prochaine_relance_at
+      ? new Date(b.prochaine_relance_at).getTime()
+      : Number.MAX_SAFE_INTEGER;
+    return da - db;
+  });
+
+  return items.slice(0, limit);
 }
 
 export async function listRelances(
@@ -185,7 +334,7 @@ export async function listRelances(
     .order('prochaine_relance_at', { ascending: true })
     .limit(200);
   if (error) throw error;
-  return (data ?? []) as ProspectRow[];
+  return withoutExcludedCrmProspects((data ?? []) as ProspectRow[]);
 }
 
 export async function listRecentEmails(supabase: SupabaseClient, limit = 40) {

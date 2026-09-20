@@ -9,6 +9,8 @@ import {
   typeStructureLabel,
 } from '@/lib/prospection/constants';
 import { StatutBadge } from '@/components/admin/prospection/StatutBadge';
+import { ImportProspectsJson } from '@/components/admin/prospection/ImportProspectsJson';
+import { ImportProspectsCsv } from '@/components/admin/prospection/ImportProspectsCsv';
 
 export default async function ProspectsListPage({
   searchParams,
@@ -30,12 +32,16 @@ export default async function ProspectsListPage({
         <h2 className="font-display text-lg font-semibold text-slate-900">
           Prospects ({prospects.length})
         </h2>
-        <Link
-          href={`${LINKS.adminProspectionProspects}/nouveau`}
-          className="rounded-xl bg-[#377CF3] px-4 py-2.5 text-sm font-semibold text-white hover:bg-[#2A6BD9]"
-        >
-          + Ajouter
-        </Link>
+        <div className="flex flex-wrap items-center gap-2">
+          <ImportProspectsJson />
+          <ImportProspectsCsv />
+          <Link
+            href={`${LINKS.adminProspectionProspects}/nouveau`}
+            className="rounded-xl bg-[#377CF3] px-4 py-2.5 text-sm font-semibold text-white hover:bg-[#2A6BD9]"
+          >
+            + Ajouter
+          </Link>
+        </div>
       </div>
 
       <form className="grid gap-3 rounded-2xl border border-slate-200/80 bg-white p-4 shadow-sm md:grid-cols-4">

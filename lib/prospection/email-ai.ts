@@ -78,6 +78,11 @@ export function buildAiPromptContext(prospect: ProspectRow, historySummary: stri
       '',
       'Angle CMA : artisans, simplicité, devis, admin, communication, apprentissage pratique.'
     );
+  } else if (structure === 'france_num' || structure.includes('france_num')) {
+    lines.push(
+      '',
+      'Angle France Num : activateurs, accompagnement TPE/PME à la transformation numérique, partenariats réseau, formations pratiques IA métier (BTP).'
+    );
   } else {
     lines.push(
       '',
