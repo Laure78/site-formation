@@ -9,7 +9,7 @@ import { CatalogueInfosPratiques } from '@/components/InfosPratiques';
 import { MentionTVA, MentionTvaAsterisque } from '@/components/MentionTVA';
 import { ShortAnswerBlock } from '@/components/landing/ShortAnswerBlock';
 import { IndicateursResultatsLink } from '@/components/formation/IndicateursResultatsLink';
-import { createPageMetadata, getFAQSchema, SITE_CONFIG } from '@/lib/seo';
+import { createPageMetadata, getFAQSchema } from '@/lib/seo';
 import { FAQ_APPELS_OFFRE } from '@/lib/faq';
 import {
   SESSION_DUREE_LIBELLE,
@@ -34,6 +34,8 @@ import { OFC_CTA_PRIMARY, OFC_CTA_SECONDARY, OFC_LINK } from '@/lib/ofc-interact
 import { FormationHeroOutilsNote } from '@/components/formations/FormationHeroOutilsNote';
 import { FormationBeworkPasserelle } from '@/components/formations/FormationBeworkPasserelle';
 import { EvenementAoBtpPromoEncart } from '@/components/evenements/EvenementAoBtpPromoEncart';
+import { TrainingFinalCta, TrainingObjectives, TrainingQuickFacts } from '@/components/formations/training';
+import { trainingCategoryBadge, trainingDevisHref } from '@/lib/training-page-helpers';
 
 const CATALOGUE_SEO = getFormationCatalogueSeo('NIV-02');
 const FORMATION = getFormationByCode('NIV-02')!;
@@ -44,8 +46,6 @@ const PDF_HREF = LINKS.pdfProgrammeFormationAoBtpDetail2026;
 
 /** ISR — masque l’encart événement après le 5 nov. 2026 sans rebuild manuel. */
 export const revalidate = 3600;
-
-const MAIL_PROGRAMME = `mailto:${SITE_CONFIG.email}?subject=${encodeURIComponent('Demande de programme — formation IA appels d’offres BTP (NIV-02)')}`;
 
 export const metadata = createPageMetadata({
   title: CATALOGUE_SEO.metaTitle,
@@ -169,8 +169,13 @@ export default function FormationIAAppelsOffreBTPPage() {
             <Link href={LINKS.formations} className={`${OFC_LINK} text-sm`}>
               Catalogue des formations IA pour le BTP
             </Link>
-            <p className="mt-3 inline-flex rounded-full border border-[#377CF3]/25 bg-[#377CF3]/5 px-3 py-1 text-sm font-semibold text-[#377CF3]">
-              Niveau 2 · Appels d’offres BTP · 4 heures
+            <p className="mt-3 inline-flex flex-wrap gap-2">
+              <span className="rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-bold uppercase tracking-wide text-slate-700">
+                {trainingCategoryBadge('usages-ia-btp')}
+              </span>
+              <span className="rounded-full bg-[#377CF3]/10 px-3 py-1 text-xs font-bold uppercase tracking-wide text-[#377CF3]">
+                Niveau 2 · Appels d’offres · 4 heures
+              </span>
             </p>
             <h1
               id="formation-niv-02-h1"
@@ -253,6 +258,30 @@ export default function FormationIAAppelsOffreBTPPage() {
         </div>
       </section>
 
+      <TrainingQuickFacts
+        facts={[
+          { label: 'Durée', value: FORMATION.duree },
+          { label: 'Format', value: 'Présentiel' },
+          { label: 'Lieu', value: 'Île-de-France' },
+          {
+            label: 'Effectif',
+            value: `${FORMATION.effectifMin} à ${FORMATION.effectifMax} participants`,
+          },
+          { label: 'Niveau', value: 'Intermédiaire' },
+          { label: 'Public', value: FORMATION.public },
+          {
+            label: 'Tarif',
+            value: `Intra ${libelleTarifIntraParSession(GRILLE.intraHT)} · Inter dès ${libelleTarifInterParParticipant(GRILLE.interHT!)}`,
+          },
+        ]}
+      />
+
+      <TrainingObjectives
+        objectives={RESULTATS}
+        title="À l’issue de la formation, vous saurez…"
+        description="En quatre heures, l’entreprise construit une méthode guidée pour analyser un DCE, sécuriser la préparation de son chiffrage et structurer un mémoire technique avec l’aide de l’IA — pas une offre prête à déposer sans contrôle humain."
+      />
+
       <EvenementAoBtpPromoEncart placement="formation-ao" variant="compact" />
 
       <section className="border-b border-slate-200 bg-[#F2F2F2] px-4 py-5" aria-label="Preuves et indicateurs">
@@ -291,29 +320,6 @@ export default function FormationIAAppelsOffreBTPPage() {
               </article>
             ))}
           </div>
-        </div>
-      </section>
-
-      <section className="border-b border-slate-200 bg-slate-50 px-4 py-8 md:py-10">
-        <div className="mx-auto max-w-3xl">
-          <h2 className="font-display text-2xl font-bold text-slate-900 md:text-3xl">
-            Après la formation, vous saurez…
-          </h2>
-          <ul className="mt-5 space-y-2">
-            {RESULTATS.map((item) => (
-              <li
-                key={item}
-                className="rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-base text-slate-800"
-              >
-                {item}
-              </li>
-            ))}
-          </ul>
-          <p className="mt-4 text-base leading-relaxed text-slate-700">
-            En quatre heures, l’entreprise construit une méthode guidée pour analyser un DCE, sécuriser la
-            préparation de son chiffrage et structurer un mémoire technique avec l’aide de l’IA — pas une offre
-            prête à déposer sans contrôle humain.
-          </p>
         </div>
       </section>
 
@@ -581,45 +587,13 @@ export default function FormationIAAppelsOffreBTPPage() {
 
       <FormationBeworkPasserelle />
 
-      <section className="bg-[#377CF3] px-4 py-8 md:py-10 text-white">
-        <div className="mx-auto max-w-2xl text-center">
-          <h2 className="font-display text-2xl font-bold md:text-3xl">
-            Analysez un dossier réel avec votre équipe
-          </h2>
-          <p className="mt-3 text-lg text-blue-100">
-            Lors d’un rendez-vous de 30 minutes, nous vérifions vos objectifs, vos prérequis et le dossier qui
-            pourra servir de fil rouge pendant la formation.
-          </p>
-          <div className="mt-5 flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:flex-wrap sm:justify-center">
-            <Link
-              href={LINKS.prendreRdv}
-              className="inline-flex min-h-11 items-center justify-center rounded-xl bg-white px-6 py-3 font-semibold text-[#377CF3]"
-            >
-              Prendre rendez-vous
-            </Link>
-            <a
-              href={MAIL_PROGRAMME}
-              className="inline-flex min-h-11 items-center justify-center rounded-xl border-2 border-white px-6 py-3 font-semibold text-white"
-            >
-              Demander le programme
-            </a>
-          </div>
-          <p className="mt-4 text-sm text-blue-100">{SITE_CONFIG.email}</p>
-          <p className="mt-3 text-sm text-blue-100">
-            <Link href={LINKS.tutoAnalyseDce} className="underline hover:text-white">
-              Tutoriel analyser un DCE
-            </Link>
-            {' · '}
-            <Link href={LINKS.guideRepondreAoBtpOfc2026} className="underline hover:text-white">
-              Guide répondre aux AO
-            </Link>
-            {' · '}
-            <Link href={LINKS.ressources} className="underline hover:text-white">
-              Ressources
-            </Link>
-          </p>
-        </div>
-      </section>
+      <TrainingFinalCta
+        devisHref={trainingDevisHref(FORMATION.titre)}
+        title="Analysez un dossier réel avec votre équipe"
+        description="Lors d’un rendez-vous de 30 minutes, nous vérifions vos objectifs, vos prérequis et le dossier qui pourra servir de fil rouge pendant la formation."
+        secondaryHref={LINKS.prendreRdv}
+        secondaryLabel="Échanger sur votre projet"
+      />
     </div>
   );
 }

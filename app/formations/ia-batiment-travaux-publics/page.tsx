@@ -9,7 +9,7 @@ import { CatalogueInfosPratiques } from '@/components/InfosPratiques';
 import { MentionTVA, MentionTvaAsterisque } from '@/components/MentionTVA';
 import { ShortAnswerBlock } from '@/components/landing/ShortAnswerBlock';
 import { IndicateursResultatsLink } from '@/components/formation/IndicateursResultatsLink';
-import { createPageMetadata, getFAQSchema, SITE_CONFIG } from '@/lib/seo';
+import { createPageMetadata, getFAQSchema } from '@/lib/seo';
 import { FAQ_BATIMENT } from '@/lib/faq';
 import {
   SESSION_DUREE_LIBELLE,
@@ -33,14 +33,14 @@ import {
 import { OFC_CTA_PRIMARY, OFC_CTA_SECONDARY, OFC_LINK } from '@/lib/ofc-interaction-classes';
 import { FormationHeroOutilsNote } from '@/components/formations/FormationHeroOutilsNote';
 import { FormationBeworkPasserelle } from '@/components/formations/FormationBeworkPasserelle';
+import { TrainingFinalCta, TrainingObjectives, TrainingQuickFacts } from '@/components/formations/training';
+import { trainingCategoryBadge, trainingDevisHref } from '@/lib/training-page-helpers';
 
 const CATALOGUE_SEO = getFormationCatalogueSeo('NIV-01');
 const FORMATION = getFormationByCode('NIV-01')!;
 const GRILLE = getTarifGrilleFromDureeLibelle(FORMATION.duree);
 const CATALOGUE_VISUEL = getFormationCatalogueVisuel('NIV-01');
 const PORTRAIT = PHOTOS.portraitPro2026;
-
-const MAIL_PROGRAMME = `mailto:${SITE_CONFIG.email}?subject=${encodeURIComponent('Demande de programme — formation IA BTP (NIV-01)')}`;
 
 export const metadata = createPageMetadata({
   title: CATALOGUE_SEO.metaTitle,
@@ -129,8 +129,13 @@ export default function FormationIAuServiceDuBatimentPage() {
             <Link href={LINKS.formations} className={`${OFC_LINK} text-sm`}>
               Catalogue des formations IA pour le BTP
             </Link>
-            <p className="mt-3 inline-flex rounded-full border border-[#377CF3]/25 bg-[#377CF3]/5 px-3 py-1 text-sm font-semibold text-[#377CF3]">
-              Niveau 1 · Débutant · 4 heures
+            <p className="mt-3 inline-flex flex-wrap gap-2">
+              <span className="rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-bold uppercase tracking-wide text-slate-700">
+                {trainingCategoryBadge('usages-ia-btp')}
+              </span>
+              <span className="rounded-full bg-[#377CF3]/10 px-3 py-1 text-xs font-bold uppercase tracking-wide text-[#377CF3]">
+                Niveau 1 · Débutant
+              </span>
             </p>
             <h1
               id="formation-niv-01-h1"
@@ -212,6 +217,30 @@ export default function FormationIAuServiceDuBatimentPage() {
         </div>
       </section>
 
+      <TrainingQuickFacts
+        facts={[
+          { label: 'Durée', value: FORMATION.duree },
+          { label: 'Format', value: 'Présentiel' },
+          { label: 'Lieu', value: 'Île-de-France' },
+          {
+            label: 'Effectif',
+            value: `${FORMATION.effectifMin} à ${FORMATION.effectifMax} participants`,
+          },
+          { label: 'Niveau', value: 'Débutant' },
+          { label: 'Public', value: PUBLIC_CIBLE_COURT },
+          {
+            label: 'Tarif',
+            value: `Intra ${libelleTarifIntraParSession(GRILLE.intraHT)} · Inter dès ${libelleTarifInterParParticipant(GRILLE.interHT!)}`,
+          },
+        ]}
+      />
+
+      <TrainingObjectives
+        objectives={RESULTATS}
+        title="À l’issue de la formation, vous saurez…"
+        description="Vous apprenez à préparer et structurer une première version de devis, soumise au contrôle du professionnel. L’IA n’établit ni les prix, ni les métrés, ni la conformité aux DTU."
+      />
+
       <section className="border-b border-slate-200 bg-[#F2F2F2] px-4 py-5" aria-label="Preuves et indicateurs">
         <div className="mx-auto max-w-6xl">
           <ul className="flex flex-wrap gap-x-5 gap-y-1.5 text-sm text-slate-700 md:text-base">
@@ -248,26 +277,6 @@ export default function FormationIAuServiceDuBatimentPage() {
               </article>
             ))}
           </div>
-        </div>
-      </section>
-
-      <section className="border-b border-slate-200 bg-slate-50 px-4 py-8 md:py-10">
-        <div className="mx-auto max-w-3xl">
-          <h2 className="font-display text-2xl font-bold text-slate-900 md:text-3xl">Après 4 heures, vous saurez…</h2>
-          <ul className="mt-5 space-y-2">
-            {RESULTATS.map((item) => (
-              <li
-                key={item}
-                className="rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-base text-slate-800"
-              >
-                {item}
-              </li>
-            ))}
-          </ul>
-          <p className="mt-4 text-base leading-relaxed text-slate-700">
-            Vous apprenez à préparer et structurer une première version de devis, soumise au contrôle du
-            professionnel. L’IA n’établit ni les prix, ni les métrés, ni la conformité aux DTU.
-          </p>
         </div>
       </section>
 
@@ -434,30 +443,13 @@ export default function FormationIAuServiceDuBatimentPage() {
 
       <FormationBeworkPasserelle />
 
-      <section className="bg-[#377CF3] px-4 py-8 md:py-10 text-white">
-        <div className="mx-auto max-w-2xl text-center">
-          <h2 className="font-display text-2xl font-bold md:text-3xl">Étudions les besoins de votre équipe</h2>
-          <p className="mt-3 text-lg text-blue-100">
-            Un rendez-vous de 30 minutes permet de définir vos cas d’usage, le nombre de participants et les
-            possibilités de financement.
-          </p>
-          <div className="mt-5 flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:flex-wrap sm:justify-center">
-            <Link
-              href={LINKS.prendreRdv}
-              className="inline-flex min-h-11 items-center justify-center rounded-xl bg-white px-6 py-3 font-semibold text-[#377CF3]"
-            >
-              Prendre rendez-vous
-            </Link>
-            <a
-              href={MAIL_PROGRAMME}
-              className="inline-flex min-h-11 items-center justify-center rounded-xl border-2 border-white px-6 py-3 font-semibold text-white"
-            >
-              Demander le programme
-            </a>
-          </div>
-          <p className="mt-4 text-sm text-blue-100">{SITE_CONFIG.email}</p>
-        </div>
-      </section>
+      <TrainingFinalCta
+        devisHref={trainingDevisHref(FORMATION.titre)}
+        title="Parlons de votre projet de formation"
+        description="Un échange de 30 minutes pour définir vos cas d’usage, le nombre de participants et les possibilités de financement."
+        secondaryHref={LINKS.prendreRdv}
+        secondaryLabel="Échanger sur votre projet"
+      />
     </div>
   );
 }

@@ -22,6 +22,7 @@ import {
   MENTIONS_TVA_REGIMES_COURT,
 } from '@/lib/tarifs-sessions';
 import { libelleTarifApplicationMetierBtp } from '@/lib/tarifs-applications-metier-btp';
+import { libelleTarifLancementDevWebIa } from '@/lib/formation-developpement-web-ia-content';
 
 export type CatalogueLevel = 'DÉBUTANT' | 'AVANCÉ';
 
@@ -119,7 +120,7 @@ function toCatalogueEntry(f: Formation): FormationCatalogueEntry {
     objectifs: [...f.objectifs],
     prixHT: f.prixHT,
     tarifParcoursLabel: f.code === 'NIV-10'
-      ? 'Inter : 300 € HT / participant · Intra sur devis'
+      ? `${libelleTarifLancementDevWebIa()} · Intra sur devis`
       : f.tarifParcoursAppMetier
         ? libelleTarifApplicationMetierBtp(f.tarifParcoursAppMetier)
         : isFormationSurDevis(f)

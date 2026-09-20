@@ -20,6 +20,8 @@ function programmeDownloadDescription(catalogueRef: string, formationTitle: stri
       return "Téléchargez le programme officiel (PDF) de la formation L'IA au service des maîtres d'œuvre — MOEX, DCE, CR chantier et réserves.";
     case 'NIV-09':
       return 'Téléchargez le programme officiel (PDF) de la formation assistants IA personnalisés BTP — ChatGPT et Claude, 7 h.';
+    case 'NIV-10':
+      return 'Téléchargez le programme officiel (PDF) de la formation Développement web avec l’IA — sans savoir coder, 7 h.';
     default:
       return `Téléchargez le programme officiel (PDF) — ${formationTitle}.`;
   }
@@ -31,6 +33,7 @@ const PDF_DOWNLOAD_NAMES: Partial<Record<string, string>> = {
   'NIV-04': 'programme_OFC_Maitriser_Claude_BTP.pdf',
   'NIV-05': 'programme_OFC_IA_MOE_4h.pdf',
   'NIV-09': 'programme_OFC_AssistantsIA_BTP_intra_7h.pdf',
+  'NIV-10': 'programme-ofc-developpement-web-ia-7h.pdf',
 };
 
 /**

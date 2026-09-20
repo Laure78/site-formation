@@ -1,20 +1,20 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { Check, Download, Mail, Phone } from 'lucide-react';
+import { Download } from 'lucide-react';
 import { JsonLd } from '@/components/JsonLd';
 import { QualiopiLogoInline } from '@/components/QualiopiLogo';
 import {
   FormationCourseHero,
 } from '@/components/formations/FormationCourseHero';
 import { FormationCatalogueIndicateur1Suite } from '@/components/formations/FormationCatalogueIndicateur1Suite';
+import { TrainingFinalCta, TrainingObjectives, TrainingQuickFacts } from '@/components/formations/training';
+import { trainingDevisHref } from '@/lib/training-page-helpers';
 import { LINKS } from '@/lib/internal-links';
 import { PHOTOS } from '@/lib/photos';
 import { createPageMetadata, SITE_CONFIG } from '@/lib/seo';
-import { SOCIAL_PROOF, CONTACT } from '@/lib/constants';
 import {
   libelleTarifsDualCourt,
   MENTIONS_TVA_REGIMES_COURT,
-  TARIF_SESSION_AVANCE_HT,
 } from '@/lib/tarifs-sessions';
 import {
   getFormationByCode,
@@ -42,8 +42,6 @@ const FORMATION = getFormationByCode('NIV-05')!;
 const PATH = LINKS.formationIaMaitriseOeuvre;
 const PDF_HREF = FORMATION.pdfProgramme;
 const PDF_DOWNLOAD_NAME = 'programme_OFC_IA_MOE_4h.pdf';
-const PHONE_DISPLAY = CONTACT.phoneDisplay;
-const PHONE_TEL = CONTACT.phone;
 
 const DUREE_LIBELLE = libelleDureeFormation(FORMATION);
 const EFFECTIF_LIBELLE = libelleEffectifFormation(FORMATION);
@@ -181,7 +179,7 @@ export default function FormationIaMaitriseOeuvrePage() {
         ctas={
           <>
             <a
-              href="#contact"
+              href={trainingDevisHref(FORMATION.titre)}
               className="rounded-xl bg-[var(--accent)] px-6 py-3.5 text-center font-semibold text-white hover:bg-blue-600"
             >
               Demander un devis
@@ -217,6 +215,20 @@ export default function FormationIaMaitriseOeuvrePage() {
           ChatGPT Plus requis sur chaque poste.
         </p>
       </FormationCourseHero>
+
+      <TrainingQuickFacts
+        facts={[
+          { label: 'Durée', value: DUREE_LIBELLE },
+          { label: 'Format', value: 'Présentiel' },
+          { label: 'Lieu', value: 'Île-de-France' },
+          { label: 'Effectif', value: EFFECTIF_LIBELLE },
+          { label: 'Niveau', value: FORMATION.niveauLabel },
+          { label: 'Public', value: FORMATION.public },
+          { label: 'Tarif', value: TARIFS_DUAL },
+        ]}
+      />
+
+      <TrainingObjectives objectives={FORMATION.objectifs} />
 
       <FormationCatalogueGeoSections
         catalogueRef="NIV-05"
@@ -291,16 +303,9 @@ export default function FormationIaMaitriseOeuvrePage() {
         <section className="mt-12">
           <h2 className="font-display text-2xl font-bold text-slate-900">Objectifs pédagogiques</h2>
           <p className="mt-4 text-slate-700 leading-relaxed">
-            À l&apos;issue de la formation, les participants seront capables de :
+            À l&apos;issue de la formation, les participants seront capables d&apos;appliquer l&apos;IA aux
+            documents de maîtrise d&apos;œuvre d&apos;exécution — avec validation humaine systématique.
           </p>
-          <ul className="mt-4 space-y-2 text-slate-700">
-            {FORMATION.objectifs.map((o) => (
-              <li key={o} className="flex gap-2">
-                <Check className="mt-0.5 h-5 w-5 shrink-0 text-[var(--accent)]" strokeWidth={1.5} />
-                {o}
-              </li>
-            ))}
-          </ul>
         </section>
 
         <section className="mt-12 rounded-2xl border border-[var(--accent)] bg-[var(--accent-soft)] p-6 md:p-8">
@@ -372,37 +377,15 @@ export default function FormationIaMaitriseOeuvrePage() {
         </section>
 
         <RelatedLinks path={PATH} className="mt-12 !px-0" tone="transparent" />
-
-        <section
-          id="contact"
-          className="mt-12 scroll-mt-24 rounded-2xl border border-[var(--accent)] bg-[#377CF3] p-6 text-white md:p-8"
-        >
-          <h2 className="font-display text-2xl font-bold">Échanger sur votre projet de formation</h2>
-          <p className="mt-4 text-white/90">
-            Demandez un devis ou planifiez votre session intra-entreprise, dans vos locaux — réponse sous 24 h ouvrées.
-          </p>
-          <div className="mt-6 flex flex-col gap-4 sm:flex-row sm:flex-wrap">
-            <a
-              href={`mailto:${SITE_CONFIG.email}?subject=Devis%20formation%20IA%20ma%C3%AEtrise%20d%27%C5%93uvre`}
-              className="inline-flex items-center justify-center gap-2 rounded-xl bg-white px-6 py-3.5 font-semibold text-[#377CF3] hover:bg-[#F2F2F2]"
-            >
-              <Mail size={20} strokeWidth={1.5} aria-hidden />
-              {SITE_CONFIG.email}
-            </a>
-            <a
-              href={`tel:${PHONE_TEL}`}
-              className="inline-flex items-center justify-center gap-2 rounded-xl border-2 border-white/80 px-6 py-3.5 font-semibold text-white hover:bg-white/10"
-            >
-              <Phone size={20} strokeWidth={1.5} aria-hidden />
-              {PHONE_DISPLAY}
-            </a>
-          </div>
-          <p className="mt-6 flex flex-wrap items-center gap-2 text-sm text-white/90">
-            Organisme certifié Qualiopi
-            <QualiopiLogoInline heightPx={20} alt="" />
-          </p>
-        </section>
       </div>
+
+      <TrainingFinalCta
+        devisHref={trainingDevisHref(FORMATION.titre)}
+        title="Parlons de votre projet de formation"
+        description="Demandez un devis ou planifiez votre session intra-entreprise, dans vos locaux — réponse sous 24 h ouvrées."
+        secondaryHref={LINKS.prendreRdv}
+        secondaryLabel="Échanger sur votre projet"
+      />
     </div>
   );
 }

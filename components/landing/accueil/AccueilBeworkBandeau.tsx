@@ -3,6 +3,7 @@ import Image from 'next/image';
 import { ArrowRight, Check } from 'lucide-react';
 import { LINKS } from '@/lib/internal-links';
 import {
+  DEV_WEB_IA_PRIX_LANCEMENT_LABEL,
   TARIF_INTER_DEV_WEB_IA_HT,
 } from '@/lib/formation-developpement-web-ia-content';
 import { formatTarifHt } from '@/lib/tarifs-sessions';
@@ -149,7 +150,7 @@ export function AccueilBeworkBandeau() {
                   <Check className="mt-0.5 h-5 w-5 shrink-0 text-[#377CF3]" aria-hidden />
                   <div>
                     <p className="font-semibold text-[#0F172A]">
-                      1 journée · 7 h · {tarifLabel} / participant
+                      {DEV_WEB_IA_PRIX_LANCEMENT_LABEL} · 1 journée · 7 h · {tarifLabel} / participant
                     </p>
                     <p className="text-sm text-[#64748B]">
                       Inter-entreprises · Intra-entreprise sur devis

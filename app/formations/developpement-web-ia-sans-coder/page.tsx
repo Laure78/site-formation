@@ -1,8 +1,8 @@
 import Link from 'next/link';
 import {
-  ArrowRight,
   Check,
   Clock,
+  Download,
   Layers,
   PencilRuler,
   Rocket,
@@ -15,7 +15,10 @@ import { JsonLd } from '@/components/JsonLd';
 import { FormationCatalogueIndicateur1Suite } from '@/components/formations/FormationCatalogueIndicateur1Suite';
 import { FormationHeroOutilsNote } from '@/components/formations/FormationHeroOutilsNote';
 import { DevWebIaSectionVisual } from '@/components/formations/DevWebIaSectionVisual';
+import { DevWebIaPrixLancementCard } from '@/components/formations/DevWebIaPrixLancementCard';
 import { OfcYouTubeEmbed } from '@/components/ui/OfcYouTubeEmbed';
+import { TrainingFinalCta, TrainingObjectives, TrainingQuickFacts } from '@/components/formations/training';
+import { trainingCategoryBadge } from '@/lib/training-page-helpers';
 import { createPageMetadata, getFAQSchema } from '@/lib/seo';
 import { getFormationCatalogueVisuel } from '@/lib/formations-catalogue-display';
 import { LINKS } from '@/lib/internal-links';
@@ -23,7 +26,6 @@ import { buildCatalogueCourseDeveloppementWebIaNiv10JsonLd } from '@/lib/schema-
 import { getFormationCatalogueSeo } from '@/lib/formation-catalogue-seo';
 import { getFormationByCode, libelleEffectifFormation } from '@/data/formations';
 import {
-  OFC_CTA_PRIMARY,
   OFC_CTA_SECONDARY,
   OFC_EYEBROW,
   OFC_LINK,
@@ -37,6 +39,7 @@ import { MentionTvaAsterisque } from '@/components/MentionTVA';
 import { PHOTOS } from '@/lib/photos';
 import { VIDEOS } from '@/lib/videos';
 import {
+  DEV_WEB_IA_BADGE_NOUVELLE,
   DEV_WEB_IA_ESPACE,
   DEV_WEB_IA_EVALUATION,
   DEV_WEB_IA_FAQ,
@@ -47,12 +50,14 @@ import {
   DEV_WEB_IA_OBJECTIFS,
   DEV_WEB_IA_PEDAGOGIE,
   DEV_WEB_IA_PREREQUIS,
+  DEV_WEB_IA_PRIX_LANCEMENT_LABEL,
   DEV_WEB_IA_PUBLIC,
   DEV_WEB_IA_SUBTITLE,
   TARIF_INTER_DEV_WEB_IA_HT,
   devWebIaDevisHref,
   devWebIaInscriptionHref,
 } from '@/lib/formation-developpement-web-ia-content';
+import { FINANCEMENT_FORMULATION_COURTE } from '@/lib/financement-copy';
 
 const CATALOGUE_SEO = getFormationCatalogueSeo('NIV-10');
 const FORMATION = getFormationByCode('NIV-10')!;
@@ -70,7 +75,6 @@ const V = {
   outils: PHOTOS.formationNiv10DevWebIaOutils2026,
   resultats: PHOTOS.formationNiv10DevWebIaResultats2026,
   apres: PHOTOS.formationNiv10DevWebIaApres2026,
-  cta: PHOTOS.formationNiv10DevWebIaCta2026,
 } as const;
 
 const JOURNEE_STEPS = [
@@ -89,14 +93,15 @@ export const metadata = createPageMetadata({
   descriptionFinal: true,
   path: LINKS.formationDeveloppementWebIaSansCoder,
   keywords: [
-    'formation créer application avec IA',
-    'formation développement avec IA',
-    'formation créer site avec IA',
+    'formation développement web IA',
+    'formation créer une application avec IA',
+    'formation créer un site avec IA',
+    'développement web avec intelligence artificielle',
+    'créer une application sans coder avec IA',
+    'formation vibe coding',
+    'formation Cursor IA',
+    'formation Claude Code débutant',
     'formation IA sans coder',
-    'formation no-code IA',
-    'créer un outil métier avec IA',
-    'formation ChatGPT création application',
-    'formation Claude création application',
   ],
   image: {
     url: CATALOGUE_VISUEL.src,
@@ -124,7 +129,15 @@ export default function FormationDeveloppementWebIaSansCoderPage() {
 
           <div className="mt-6 grid items-start gap-10 lg:grid-cols-[minmax(0,1.15fr)_minmax(280px,0.85fr)] lg:gap-12">
             <div className="min-w-0">
-              <p className={OFC_EYEBROW}>Création avec l’IA · 7 heures</p>
+              <div className="flex flex-wrap items-center gap-2">
+                <span className="rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-bold uppercase tracking-wide text-slate-700">
+                  {trainingCategoryBadge('creation-ia')}
+                </span>
+                <p className={OFC_EYEBROW}>7 heures</p>
+                <span className="rounded-full bg-[#377CF3] px-2.5 py-1 text-[0.65rem] font-bold uppercase tracking-[0.12em] text-white">
+                  {DEV_WEB_IA_BADGE_NOUVELLE}
+                </span>
+              </div>
               <h1
                 id="dev-web-ia-h1"
                 className="mt-3 font-display text-[clamp(1.85rem,4vw,2.75rem)] font-bold leading-[1.12] tracking-tight text-ofc-ink"
@@ -132,6 +145,12 @@ export default function FormationDeveloppementWebIaSansCoderPage() {
                 {CATALOGUE_SEO.h1}
               </h1>
               <p className={`${OFC_TYPE_LEAD} mt-4 text-ofc-ink-muted`}>{DEV_WEB_IA_SUBTITLE}</p>
+
+              {/* Tarif visible immédiatement (mobile inclus) */}
+              <DevWebIaPrixLancementCard
+                className="mt-6"
+                formationTitle={FORMATION.titre}
+              />
 
               <div className="mt-8 space-y-1 border-l-4 border-[#377CF3] pl-5">
                 <p className="font-display text-2xl font-bold tracking-tight text-ofc-ink md:text-3xl">
@@ -169,19 +188,14 @@ export default function FormationDeveloppementWebIaSansCoderPage() {
               <FormationHeroOutilsNote catalogueRef="NIV-10" className="mt-6" />
 
               <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-                <Link
-                  href={INSCRIPTION_HREF}
-                  className={`${OFC_CTA_PRIMARY} inline-flex min-h-11 items-center justify-center gap-2 px-6 py-3`}
+                <a
+                  href={LINKS.pdfProgrammeDeveloppementWebIaSansCoder}
+                  download="programme-ofc-developpement-web-ia-7h.pdf"
+                  className={`${OFC_CTA_SECONDARY} inline-flex min-h-11 items-center justify-center gap-2 px-6 py-3`}
                 >
-                  S&apos;inscrire à la formation
-                  <ArrowRight className="h-4 w-4 shrink-0" aria-hidden />
-                </Link>
-                <Link
-                  href={DEVIS_HREF}
-                  className={`${OFC_CTA_SECONDARY} inline-flex min-h-11 items-center justify-center px-6 py-3`}
-                >
-                  Demander une session intra
-                </Link>
+                  <Download className="h-4 w-4 shrink-0" aria-hidden />
+                  Télécharger le programme
+                </a>
                 <Link
                   href={LINKS.contact}
                   className={`${OFC_LINK} inline-flex min-h-11 items-center text-sm`}
@@ -209,10 +223,18 @@ export default function FormationDeveloppementWebIaSansCoderPage() {
                 }}
               />
               <div className="rounded-2xl border border-slate-200/90 bg-white p-5 shadow-[0_8px_30px_rgba(15,23,42,0.04)]">
-                <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#377CF3]">
-                  En résumé
+                <div className="flex flex-wrap items-center gap-2">
+                  <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#377CF3]">
+                    En résumé
+                  </p>
+                  <span className="rounded-full bg-[#377CF3]/10 px-2 py-0.5 text-[0.6rem] font-bold uppercase tracking-[0.12em] text-[#377CF3]">
+                    {DEV_WEB_IA_BADGE_NOUVELLE}
+                  </span>
+                </div>
+                <p className="mt-3 text-xs font-semibold uppercase tracking-[0.14em] text-[#377CF3]">
+                  {DEV_WEB_IA_PRIX_LANCEMENT_LABEL}
                 </p>
-                <p className="mt-3 font-display text-2xl font-bold text-ofc-ink">
+                <p className="mt-1.5 font-display text-2xl font-bold text-ofc-ink">
                   {formatTarifHt(TARIF_INTER_DEV_WEB_IA_HT)} € HT
                   <span className="ml-1 text-base font-semibold text-ofc-ink-muted">
                     / participant
@@ -220,14 +242,13 @@ export default function FormationDeveloppementWebIaSansCoderPage() {
                   <MentionTvaAsterisque />
                 </p>
                 <p className="mt-1 text-sm text-ofc-ink-muted">
-                  Inter-entreprises · Intra sur devis
+                  Interentreprises · Intra sur devis
                 </p>
                 <p className="mt-3 text-sm leading-relaxed text-ofc-ink-muted">
                   {MENTIONS_TVA_INTRA_COURTE}
                 </p>
                 <p className="mt-2 text-sm leading-relaxed text-ofc-ink-muted">
-                  Prise en charge par un OPCO possible selon l&apos;éligibilité de l&apos;entreprise
-                  et du dossier.
+                  {FINANCEMENT_FORMULATION_COURTE}
                 </p>
                 <p className="mt-4 text-sm">
                   <a href="#informations-pratiques" className={OFC_LINK}>
@@ -236,9 +257,25 @@ export default function FormationDeveloppementWebIaSansCoderPage() {
                 </p>
               </div>
             </aside>
-          </div>
-        </div>
+          </div>        </div>
       </section>
+
+      <TrainingQuickFacts
+        facts={[
+          { label: 'Durée', value: FORMATION.duree },
+          { label: 'Format', value: 'Présentiel' },
+          { label: 'Lieu', value: 'Île-de-France' },
+          { label: 'Effectif', value: EFFECTIF_LIBELLE },
+          { label: 'Niveau', value: 'Débutant' },
+          { label: 'Public', value: DEV_WEB_IA_PUBLIC.join(', ') },
+          {
+            label: 'Tarif',
+            value: `${DEV_WEB_IA_PRIX_LANCEMENT_LABEL} · ${formatTarifHt(TARIF_INTER_DEV_WEB_IA_HT)} € HT / participant`,
+          },
+        ]}
+      />
+
+      <TrainingObjectives objectives={DEV_WEB_IA_OBJECTIFS} />
 
       {/* Public + formats */}
       <section className={OFC_SEC.white} aria-labelledby="public-prerequis-title">
@@ -417,29 +454,6 @@ export default function FormationDeveloppementWebIaSansCoderPage() {
               title={V.outils.title}
             />
           </div>
-        </div>
-      </section>
-
-      {/* Objectifs */}
-      <section className={OFC_SEC.white} aria-labelledby="objectifs-title">
-        <div className={`${OFC_SECTION_INNER} max-w-5xl`}>
-          <h2 id="objectifs-title" className={OFC_TYPE_H2}>
-            Objectifs pédagogiques
-          </h2>
-          <p className="mt-3 max-w-2xl text-base text-ofc-ink-muted">
-            À l&apos;issue de la formation, le participant sera capable de :
-          </p>
-          <ul className="mt-8 grid gap-3 sm:grid-cols-2">
-            {DEV_WEB_IA_OBJECTIFS.map((item) => (
-              <li
-                key={item}
-                className="flex gap-3 border-b border-slate-200/80 pb-3 text-base text-ofc-ink last:border-0 sm:last:border-b"
-              >
-                <Check className="mt-0.5 h-5 w-5 shrink-0 text-[#377CF3]" aria-hidden />
-                <span>{item}</span>
-              </li>
-            ))}
-          </ul>
         </div>
       </section>
 
@@ -625,54 +639,16 @@ export default function FormationDeveloppementWebIaSansCoderPage() {
         </div>
       </section>
 
-      {/* CTA final illustré */}
-      <section className={OFC_SEC.soft} aria-labelledby="cta-final-title">
-        <div className={`${OFC_SECTION_INNER} max-w-6xl`}>
-          <div className="grid items-center gap-10 lg:grid-cols-[minmax(260px,360px)_minmax(0,1fr)]">
-            <DevWebIaSectionVisual
-              className="mx-auto w-full max-w-sm lg:mx-0"
-              src={V.cta.src}
-              alt={V.cta.alt}
-              width={V.cta.width}
-              height={V.cta.height}
-              title={V.cta.title}
-            />
-            <div className="rounded-2xl bg-[#377CF3] px-6 py-10 text-center sm:px-10 lg:text-left">
-              <h2
-                id="cta-final-title"
-                className="font-display text-2xl font-bold text-white md:text-3xl"
-              >
-                Vous avez une idée de site, d&apos;application ou d&apos;outil métier&nbsp;?
-              </h2>
-              <p className="mt-3 text-base leading-relaxed text-white/90">
-                Apprenez à construire votre première version avec l&apos;IA, sans savoir coder.
-              </p>
-              <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row lg:justify-start">
-                <Link
-                  href={INSCRIPTION_HREF}
-                  className="inline-flex min-h-11 items-center justify-center rounded-lg bg-white px-6 py-3 text-sm font-semibold text-[#377CF3] transition-colors hover:bg-slate-50"
-                >
-                  S&apos;inscrire à la formation
-                </Link>
-                <Link
-                  href={DEVIS_HREF}
-                  className="inline-flex min-h-11 items-center justify-center rounded-lg border border-white/40 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-white/10"
-                >
-                  Demander une session intra-entreprise
-                </Link>
-                <Link
-                  href={LINKS.financement}
-                  className="text-sm font-medium text-white/90 underline-offset-4 hover:underline"
-                >
-                  Voir les possibilités de financement
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       <FAQSection id="faq" title="Questions fréquentes" items={DEV_WEB_IA_FAQ} />
+
+      <TrainingFinalCta
+        devisHref={DEVIS_HREF}
+        title="Vous avez une idée de site, d’application ou d’outil métier ?"
+        description="Apprenez à construire votre première version avec l’IA, sans savoir coder. Interentreprises ou session intra-entreprise."
+        primaryLabel="Demander un devis"
+        secondaryHref={INSCRIPTION_HREF}
+        secondaryLabel="S’inscrire à la formation"
+      />
     </div>
   );
 }

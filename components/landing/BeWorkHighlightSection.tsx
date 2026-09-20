@@ -83,8 +83,10 @@ export function BeWorkHighlightSection({ id, surface = 'band' }: Props) {
             </p>
             <ul className="mt-5 space-y-3 text-sm text-[#334155]">
               <li className="rounded-lg border border-slate-200/80 bg-white/80 px-4 py-3">
-                <strong className="font-semibold text-[#0F172A]">7 h · 300 € HT / participant</strong>
-                <span className="mt-1 block text-[#64748B]">Inter-entreprises · Intra sur devis</span>
+                <strong className="font-semibold text-[#0F172A]">
+                  Prix de lancement · 7 h · 300 € HT / participant
+                </strong>
+                <span className="mt-1 block text-[#64748B]">Interentreprises · Intra sur devis</span>
               </li>
               <li className="rounded-lg border border-[#BFDBFE] bg-white px-4 py-3 shadow-sm">
                 <strong className="font-semibold text-[#0F172A]">Sans prérequis en code</strong>

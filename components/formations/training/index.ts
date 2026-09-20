@@ -1,0 +1,10 @@
+export { TrainingSection } from '@/components/formations/training/TrainingSection';
+export { TrainingHero } from '@/components/formations/training/TrainingHero';
+export { TrainingQuickFacts } from '@/components/formations/training/TrainingQuickFacts';
+export { TrainingObjectives } from '@/components/formations/training/TrainingObjectives';
+export { TrainingProgram } from '@/components/formations/training/TrainingProgram';
+export { TrainingPractice } from '@/components/formations/training/TrainingPractice';
+export { TrainingDeliverables } from '@/components/formations/training/TrainingDeliverables';
+export { TrainingTrainer } from '@/components/formations/training/TrainingTrainer';
+export { TrainingFinalCta } from '@/components/formations/training/TrainingFinalCta';
+export { TrainingFAQ } from '@/components/formations/training/TrainingFAQ';

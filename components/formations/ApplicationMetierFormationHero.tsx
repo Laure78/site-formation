@@ -9,6 +9,7 @@ import { TrainingDeliveryInfo } from '@/components/formations/TrainingDeliveryIn
 import {
   APPLICATION_METIER_PARCOURS_MOTHER,
 } from '@/lib/application-metier-btp-parcours-nav';
+import { trainingCategoryBadge } from '@/lib/training-page-helpers';
 import { OFC_LINK } from '@/lib/ofc-interaction-classes';
 import type { ApplicationMetierNiveauConfig } from '@/lib/parcours-applications-metier-btp-content';
 import { FormationHeroOutilsNote } from '@/components/formations/FormationHeroOutilsNote';
@@ -31,9 +32,14 @@ export function ApplicationMetierFormationHero({ config, stepBadge, formationHin
           {APPLICATION_METIER_PARCOURS_MOTHER.backLabel}
         </Link>
 
-        <p className="mt-5 inline-flex rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-slate-700">
-          {config.ux?.heroBadge ?? `Création d’applications BTP · ${config.progressionLabel}`}
-        </p>
+        <div className="mt-5 flex flex-wrap gap-2">
+          <p className="inline-flex rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-slate-700">
+            {trainingCategoryBadge('applications-metier')}
+          </p>
+          <p className="inline-flex rounded-full bg-[#377CF3]/10 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-[#377CF3]">
+            {config.ux?.heroBadge ?? config.progressionLabel}
+          </p>
+        </div>
 
         <h1 className="mt-4 font-display text-[1.65rem] font-bold leading-tight tracking-tight text-slate-900 sm:text-4xl">
           {config.h1}

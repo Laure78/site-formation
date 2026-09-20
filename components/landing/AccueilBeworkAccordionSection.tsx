@@ -36,8 +36,9 @@ export function AccueilBeworkAccordionSection() {
               Développement web avec l’IA — sans savoir coder
             </h3>
             <p className="mt-3 max-w-3xl text-base leading-relaxed text-[#1E3A8A]/90">
-              Formation pratique de 7 h (300 € HT inter) pour créer une première version de site,
-              d’application ou d’outil métier avec l’IA — en petit groupe, présentiel ou visio.
+              Formation pratique de 7 h — prix de lancement 300 € HT inter — pour créer une première
+              version de site, d’application ou d’outil métier avec l’IA — en petit groupe, présentiel
+              ou visio.
             </p>
             <p className="mt-2 max-w-3xl text-base font-semibold italic leading-relaxed text-[#377CF3]">
               Vous n’apprenez pas à tout savoir. Vous apprenez à savoir commencer.

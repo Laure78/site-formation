@@ -36,6 +36,8 @@ import { getFormationCatalogueVisuel } from '@/lib/formations-catalogue-display'
 import {
   FormationCourseHero,
 } from '@/components/formations/FormationCourseHero';
+import { TrainingFinalCta, TrainingObjectives, TrainingQuickFacts } from '@/components/formations/training';
+import { trainingDevisHref } from '@/lib/training-page-helpers';
 import { buildCatalogueCourseConduiteTravauxNiv03JsonLd } from '@/lib/schema-catalogue-course-jsonld';
 import { formatNoteSatisfactionSur5 , formatNoteSatisfactionAffichageComplet } from '@/lib/data/indicateurs-resultats'
 import { getStatsFreshnessLabel, siteStats } from '@/lib/constants';
@@ -243,6 +245,23 @@ export default function FormationIaConduiteTravauxSuiviChantierPage() {
         </p>
       </FormationCourseHero>
 
+      <TrainingQuickFacts
+        facts={[
+          { label: 'Durée', value: SESSION_DUREE_LIBELLE },
+          { label: 'Format', value: 'Présentiel' },
+          { label: 'Lieu', value: 'Île-de-France' },
+          { label: 'Effectif', value: LIBELLE_EFFECTIF_GROUPE_NIV03 },
+          { label: 'Niveau', value: 'Avancé' },
+          {
+            label: 'Public',
+            value: 'Conducteurs de travaux, chefs de chantier, responsables et assistants travaux',
+          },
+          { label: 'Tarif', value: TARIFS_DUAL },
+        ]}
+      />
+
+      <TrainingObjectives objectives={OBJECTIFS_PEDAGOGIQUES} />
+
       <FormationCatalogueGeoSections
         catalogueRef="NIV-03"
         ressourcesGratuites={[
@@ -362,14 +381,6 @@ export default function FormationIaConduiteTravauxSuiviChantierPage() {
             En 2026, la bibliothèque de skills donne accès à plus de 20 skills Claude dédiés au pilotage chantier
             (donnée interne programme OFC, avril 2026).
           </p>
-          <ul className="mt-4 space-y-2 text-slate-700">
-            {OBJECTIFS_PEDAGOGIQUES.map((o) => (
-              <li key={o} className="flex gap-2">
-                <Check className="mt-0.5 h-5 w-5 shrink-0 text-[var(--accent)]" strokeWidth={1.5} />
-                {o}
-              </li>
-            ))}
-          </ul>
           <p className="mt-4 text-sm leading-relaxed text-slate-500">{GAINS_TEMPS_MENTION_PRUDENCE}</p>
         </section>
 
@@ -421,17 +432,15 @@ export default function FormationIaConduiteTravauxSuiviChantierPage() {
 
       <FormationBeworkPasserelle />
 
-      <div className="mx-auto max-w-4xl px-4 pb-12">
-        <div className="mt-10 flex flex-wrap gap-4">
-          <RdvLink
-            campaign="formations-ia-conduite-travaux-footer"
-            ctaPosition="footer"
-            ctaId="footer-rdv"
-            variant="primary"
-            className="rounded-xl px-6 py-3.5"
-           />
-        </div>
+      <TrainingFinalCta
+        devisHref={trainingDevisHref('Formation IA conducteur de travaux : suivi chantier, CR et DOE')}
+        title="Parlons de votre projet de formation"
+        description="Organisez une session pour vos conducteurs de travaux : devis, effectif et financement OPCO possible selon éligibilité."
+        secondaryHref={LINKS.prendreRdv}
+        secondaryLabel="Échanger sur votre projet"
+      />
 
+      <div className="mx-auto max-w-4xl px-4 pb-12">
         <div className="mt-10">
           <AllerPlusLoin
             links={[

@@ -8,11 +8,20 @@ import {
   cataloguePublicOneLine,
 } from '@/lib/formations-catalogue-page-config';
 import {
-  catalogueGammeLabel,
   catalogueNiveauLabel,
   tarifLabelForEntry,
 } from '@/lib/formations-catalogue-display';
-import { PERIMETRE_FORMATIONS_COURT } from '@/lib/tarifs-sessions';
+import {
+  DEV_WEB_IA_BADGE_NOUVEAU,
+  DEV_WEB_IA_DUREE_COURTE,
+  DEV_WEB_IA_PRIX_LANCEMENT_LABEL,
+  TARIF_INTER_DEV_WEB_IA_HT,
+} from '@/lib/formation-developpement-web-ia-content';
+import {
+  trainingCategoryBadge,
+  type TrainingParcoursKind,
+} from '@/lib/training-page-helpers';
+import { PERIMETRE_FORMATIONS_COURT, formatTarifHt } from '@/lib/tarifs-sessions';
 import { Badge } from '@/components/ui/Badge';
 import { OFC_CARD, OFC_CTA_PRIMARY, OFC_CTA_SECONDARY, OFC_TYPE_H3 } from '@/lib/ofc-interaction-classes';
 
@@ -21,6 +30,12 @@ type Props = {
   highlighted?: boolean;
   dimmed?: boolean;
 };
+
+function parcoursKindForRef(ref: string): TrainingParcoursKind {
+  if (ref === 'NIV-06' || ref === 'NIV-07' || ref === 'NIV-08') return 'applications-metier';
+  if (ref === 'NIV-10') return 'creation-ia';
+  return 'usages-ia-btp';
+}
 
 /** Carte catalogue — une formation, un CTA principal. */
 export function FormationsCatalogueCard({
@@ -31,17 +46,20 @@ export function FormationsCatalogueCard({
   const tags = catalogueCasUsageTags(entry);
   const publicLine = cataloguePublicOneLine(entry.comparatif.publicLabel);
   const isDebutant = entry.level === 'DÉBUTANT';
+  const isDevWebIa = entry.ref === 'NIV-10';
+  const parcoursLabel = trainingCategoryBadge(parcoursKindForRef(entry.ref));
   const visuel = entry.visuel;
   const caption =
     'description' in visuel && typeof visuel.description === 'string'
       ? visuel.description
       : undefined;
+  const cardHighlighted = highlighted || isDevWebIa;
 
   return (
     <article
       id={catalogueCardAnchorId(entry.ref)}
-      className={`${OFC_CARD} flex h-full scroll-mt-28 flex-col overflow-hidden p-0 ${
-        highlighted ? 'border-ofc-accent/40 shadow-ofc-md ring-1 ring-ofc-accent/25' : ''
+      className={`${OFC_CARD} flex h-full min-h-[32rem] scroll-mt-28 flex-col overflow-hidden p-0 ${
+        cardHighlighted ? 'border-ofc-accent/40 shadow-ofc-md ring-1 ring-ofc-accent/25' : ''
       } ${dimmed ? 'opacity-45' : ''}`}
     >
       <figure className="relative">
@@ -56,22 +74,40 @@ export function FormationsCatalogueCard({
             quality={75}
           />
         </div>
+        {isDevWebIa ? (
+          <span className="absolute left-3 top-3 rounded-full bg-[#377CF3] px-2.5 py-1 text-[0.65rem] font-bold uppercase tracking-[0.12em] text-white shadow-sm">
+            {DEV_WEB_IA_BADGE_NOUVEAU}
+          </span>
+        ) : null}
         {caption ? <figcaption className="sr-only">{caption}</figcaption> : null}
       </figure>
 
       <div className="flex flex-1 flex-col p-6 sm:p-7 md:p-8">
         <div className="flex flex-wrap items-center gap-2">
-          <Badge className="bg-ofc-accent-soft text-ofc-accent">{catalogueGammeLabel(entry.gamme)}</Badge>
-          <span
-            className={`rounded-full px-2.5 py-1 text-[11px] font-bold uppercase tracking-wide ${
-              isDebutant ? 'bg-emerald-100 text-emerald-800' : 'bg-orange-100 text-orange-800'
-            }`}
-          >
-            {catalogueNiveauLabel(entry.ref)}
-          </span>
+          <Badge className="bg-ofc-accent-soft text-ofc-accent">{parcoursLabel}</Badge>
+          {isDevWebIa ? (
+            <span className="rounded-full bg-[#377CF3]/10 px-2.5 py-1 text-[11px] font-bold uppercase tracking-wide text-[#377CF3]">
+              {DEV_WEB_IA_BADGE_NOUVEAU}
+            </span>
+          ) : (
+            <span
+              className={`rounded-full px-2.5 py-1 text-[11px] font-bold uppercase tracking-wide ${
+                isDebutant ? 'bg-emerald-100 text-emerald-800' : 'bg-orange-100 text-orange-800'
+              }`}
+            >
+              {catalogueNiveauLabel(entry.ref)}
+            </span>
+          )}
         </div>
 
-        <h3 className={`${OFC_TYPE_H3} mt-5 text-ofc-ink`}>{entry.title}</h3>
+        {isDevWebIa ? (
+          <>
+            <h3 className={`${OFC_TYPE_H3} mt-5 text-ofc-ink`}>Développement web avec l’IA</h3>
+            <p className="mt-1 text-base font-semibold text-[#377CF3]">Sans savoir coder</p>
+          </>
+        ) : (
+          <h3 className={`${OFC_TYPE_H3} mt-5 text-ofc-ink`}>{entry.title}</h3>
+        )}
 
         <p className="mt-3 text-sm leading-relaxed text-ofc-ink-muted md:text-base">{entry.promesse}</p>
 
@@ -91,12 +127,12 @@ export function FormationsCatalogueCard({
           ))}
         </ul>
 
-        <dl className="mt-5 grid grid-cols-2 gap-x-4 gap-y-2 border-t border-ofc-border pt-4 text-sm">
+        <dl className="mt-auto grid grid-cols-2 gap-x-4 gap-y-2 border-t border-ofc-border pt-4 text-sm">
           <div>
             <dt className="text-xs font-semibold uppercase tracking-wide text-ofc-ink-subtle">Durée</dt>
             <dd className="mt-0.5 flex items-center gap-1 text-ofc-ink-muted">
               <Clock className="h-3.5 w-3.5 shrink-0 text-ofc-accent" aria-hidden />
-              {entry.duree}
+              {isDevWebIa ? DEV_WEB_IA_DUREE_COURTE : entry.duree}
             </dd>
           </div>
           <div>
@@ -112,8 +148,18 @@ export function FormationsCatalogueCard({
           </div>
           <div className="col-span-2">
             <dt className="text-xs font-semibold uppercase tracking-wide text-ofc-ink-subtle">Tarif</dt>
-            <dd className="mt-0.5 text-ofc-ink-muted">
-              {entry.tarifParcoursLabel ?? tarifLabelForEntry(entry)}
+            <dd className="mt-0.5 font-semibold text-ofc-ink">
+              {isDevWebIa ? (
+                <>
+                  <span className="text-[#377CF3]">{DEV_WEB_IA_PRIX_LANCEMENT_LABEL}</span>
+                  <br />
+                  <span className="font-normal text-ofc-ink-muted">
+                    {formatTarifHt(TARIF_INTER_DEV_WEB_IA_HT)} € HT / participant
+                  </span>
+                </>
+              ) : (
+                (entry.tarifParcoursLabel ?? tarifLabelForEntry(entry))
+              )}
             </dd>
           </div>
         </dl>

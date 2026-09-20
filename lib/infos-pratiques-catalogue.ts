@@ -26,6 +26,7 @@ import {
   PREREQUIS_NIVEAU_2,
 } from '@/lib/tarifs-sessions';
 import { libelleTarifApplicationMetierBtp } from '@/lib/tarifs-applications-metier-btp';
+import { libelleTarifLancementDevWebIa } from '@/lib/formation-developpement-web-ia-content';
 /** Modalité pédagogique fixe — toutes les actions catalogue OFC. */
 export const MODALITE_PEDAGOGIQUE_CATALOGUE =
   'Présentiel — Île-de-France uniquement (intra-entreprise, dans vos locaux)' as const;
@@ -344,7 +345,7 @@ function prerequisPourRef(ref: FormationCode): string {
 
 function tarifPourRef(ref: FormationCode): string {
   if (ref === 'NIV-10') {
-    return `Inter-entreprises : 300 € HT par participant. Intra-entreprise : sur devis. ${MENTIONS_TVA_INTRA_COURTE}`;
+    return `Inter-entreprises : ${libelleTarifLancementDevWebIa()}. Intra-entreprise : sur devis. ${MENTIONS_TVA_INTRA_COURTE}`;
   }
   const formation = getFormationByCode(ref);
   if (formation && isFormationSurDevis(formation)) {

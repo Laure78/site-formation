@@ -9,6 +9,7 @@ import {
   indicateursResultats,
 } from '@/lib/data/indicateurs-resultats';
 import { SESSION_DUREE_LIBELLE } from '@/lib/tarifs-sessions';
+import { TARIF_INTER_DEV_WEB_IA_HT } from '@/lib/formation-developpement-web-ia-content';
 
 export type FormationIaLimitRow = {
   iaAide: string;
@@ -222,13 +223,13 @@ export const FORMATION_CATALOGUE_SEO: Record<FormationCatalogueCode, FormationCa
     ],
   },
   'NIV-10': {
-    metaTitle: 'Formation développement avec l’IA sans savoir coder',
+    metaTitle: 'Formation développement web IA sans coder',
     h1: 'Développement web avec l’IA — sans savoir coder',
     subtitle:
-      'Créer un site, une application ou un outil métier avec l’intelligence artificielle',
+      'Créer un site, une application ou un outil métier avec l’intelligence artificielle.',
     metaDescription:
-      'Apprenez à créer une première version de site, d’application ou d’outil métier avec l’IA. Formation pratique de 7 h, sans prérequis en programmation.',
-    enBref: `Formation pratique de 7 h : cadrer un projet, créer une première version avec l’IA, tester et corriger — sans savoir coder. Une idée, une journée, une première version fonctionnelle. ${QUALIOPI_MENTION}.`,
+      'Formation développement web IA : créez un site ou une application avec l’IA sans coder. Prix de lancement 300 € HT, 7 h pratiques.',
+    enBref: `Formation pratique de 7 h : cadrer un projet, créer une première version avec l’IA, tester et corriger — sans savoir coder. Prix de lancement ${TARIF_INTER_DEV_WEB_IA_HT} € HT / participant. Une idée, une journée, une première version fonctionnelle. ${QUALIOPI_MENTION}.`,
     publicTargets: [
       'Entrepreneurs, indépendants, artisans et commerçants',
       'Salariés et porteurs de projet',

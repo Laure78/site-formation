@@ -5,7 +5,9 @@ import { FormationHeroPhoto } from '@/components/formations/FormationCourseHero'
 import { FormationCatalogueIndicateur1Suite } from '@/components/formations/FormationCatalogueIndicateur1Suite';
 import { FormationCatalogueGeoSections } from '@/components/formations/FormationCatalogueGeoSections';
 import { FormationHeroOutilsNote } from '@/components/formations/FormationHeroOutilsNote';
+import { TrainingFinalCta, TrainingObjectives, TrainingQuickFacts } from '@/components/formations/training';
 import { CtaRdv } from '@/components/CtaRdv';
+import { trainingCategoryBadge } from '@/lib/training-page-helpers';
 import { createPageMetadata, getFAQSchema } from '@/lib/seo';
 import { FAQ_ASSISTANTS_IA_NIV09 } from '@/lib/faq';
 import { FINANCEMENT_FORMULATION_PRUDENTE } from '@/lib/financement-copy';
@@ -73,8 +75,13 @@ export default function FormationAssistantsIaPersonnalisesBtpPage() {
             <Link href={LINKS.formations} className={`${OFC_LINK} text-sm`}>
               Catalogue des formations IA pour le BTP
             </Link>
-            <p className="mt-3 inline-flex rounded-full border border-[#377CF3]/25 bg-[#377CF3]/5 px-3 py-1 text-sm font-semibold text-[#377CF3]">
-              Usages IA BTP · Assistants IA · 7 heures
+            <p className="mt-3 inline-flex flex-wrap gap-2">
+              <span className="rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-bold uppercase tracking-wide text-slate-700">
+                {trainingCategoryBadge('usages-ia-btp')}
+              </span>
+              <span className="rounded-full bg-[#377CF3]/10 px-3 py-1 text-xs font-bold uppercase tracking-wide text-[#377CF3]">
+                Assistants IA · formation pratique
+              </span>
             </p>
             <h1 className="mt-3 font-display text-3xl font-bold tracking-tight text-slate-900 md:text-4xl">
               {CATALOGUE_SEO.h1}
@@ -149,6 +156,20 @@ export default function FormationAssistantsIaPersonnalisesBtpPage() {
           </div>
         </div>
       </section>
+
+      <TrainingQuickFacts
+        facts={[
+          { label: 'Durée', value: FORMATION.duree },
+          { label: 'Format', value: 'Présentiel' },
+          { label: 'Lieu', value: 'Île-de-France' },
+          { label: 'Effectif', value: EFFECTIF_LIBELLE },
+          { label: 'Niveau', value: 'Formation pratique' },
+          { label: 'Public', value: FORMATION.public },
+          { label: 'Tarif', value: PRIX_LIBELLE },
+        ]}
+      />
+
+      <TrainingObjectives objectives={ASSISTANTS_IA_OBJECTIFS} />
 
       <FormationCatalogueGeoSections catalogueRef="NIV-09" etudeDeCasHref="" />
 
@@ -351,21 +372,7 @@ export default function FormationAssistantsIaPersonnalisesBtpPage() {
         className="border-b border-slate-200 bg-white"
       />
 
-      <section className="border-b border-slate-200 bg-slate-50 px-4 py-8 md:py-10">
-        <div className="mx-auto max-w-3xl">
-          <h2 className="font-display text-2xl font-bold text-slate-900">Contact</h2>
-          <p className="mt-3 text-base text-slate-700">
-            Laure Olivié, formatrice IA pour le BTP — ancienne dirigeante d&apos;entreprise de travaux publics,
-            avec 7 ans d&apos;expérience.
-          </p>
-          <p className="mt-4 text-sm text-slate-600">
-            <a href="mailto:contact@laureolivie.fr" className={OFC_LINK}>
-              contact@laureolivie.fr
-            </a>{' '}
-            · 06 95 66 18 18
-          </p>
-        </div>
-      </section>
+      <TrainingFinalCta devisHref={DEVIS_HREF} />
     </div>
   );
 }

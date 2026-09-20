@@ -1,17 +1,21 @@
 import { CatalogueInfosPratiques } from '@/components/InfosPratiques';
 import { FormationProgrammePdfSection } from '@/components/formations/FormationCourseHero';
 import { FormationTarifsModalitesSection } from '@/components/formations/FormationTarifsModalitesSection';
+import { TrainingTrainer } from '@/components/formations/training/TrainingTrainer';
 import type { FormationCatalogueCode } from '@/lib/formation-catalogue-visibility';
 import { getFormationByCode } from '@/data/formations';
 
 /**
- * Suite Indicateur 1 Qualiopi — immédiatement après `#programme` sur les fiches catalogue.
- * Ordre audit : tarifs → programme officiel PDF → informations réglementaires (11 sections).
+ * Suite Indicateur 1 Qualiopi — tarifs → formatrice → PDF → infos réglementaires.
+ * Ordre aligné gabarit commun fiches formation.
  */
 export function FormationCatalogueIndicateur1Suite({
   programmeRef,
+  showTrainer = true,
 }: {
   programmeRef: FormationCatalogueCode;
+  /** Désactiver si la page affiche déjà TrainingTrainer. */
+  showTrainer?: boolean;
 }) {
   const formation = getFormationByCode(programmeRef);
   const hasProgrammePdf = Boolean(formation?.pdfProgramme?.trim());
@@ -19,6 +23,7 @@ export function FormationCatalogueIndicateur1Suite({
   return (
     <>
       <FormationTarifsModalitesSection catalogueRef={programmeRef} />
+      {showTrainer ? <TrainingTrainer /> : null}
       {hasProgrammePdf ? <FormationProgrammePdfSection catalogueRef={programmeRef} /> : null}
       <CatalogueInfosPratiques programmeRef={programmeRef} />
     </>

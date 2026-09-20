@@ -8,7 +8,9 @@ import { ApplicationMetierTarifBlock } from '@/components/formations/Application
 import { ApplicationMetierLearningPath } from '@/components/formations/ApplicationMetierLearningPath';
 import { ApplicationMetierParcoursContinueSection } from '@/components/formations/ApplicationMetierParcoursContinueSection';
 import { ApplicationMetierRdvCta } from '@/components/formations/ApplicationMetierRdvCta';
-import { getFormationByCode, libelleEffectifFormation } from '@/data/formations';
+import { TrainingFinalCta, TrainingObjectives, TrainingQuickFacts } from '@/components/formations/training';
+import { getFormationByCode, libelleEffectifFormation, libellePrixSessionHt } from '@/data/formations';
+import { trainingCategoryBadge } from '@/lib/training-page-helpers';
 import { getFAQSchema } from '@/lib/seo';
 import { LINKS } from '@/lib/internal-links';
 import { OFC_LINK } from '@/lib/ofc-interaction-classes';
@@ -45,6 +47,7 @@ export function ApplicationMetierBtpFormationPage({ config }: Props) {
   const ux = config.ux;
   const hint = formationHint(config);
   const effectifLabel = libelleEffectifFormation(formation);
+  const prixLabel = libellePrixSessionHt(formation);
   const programmeHasDurees = Boolean(ux?.programmeSteps?.some((s) => s.duree));
 
   return (
@@ -57,6 +60,20 @@ export function ApplicationMetierBtpFormationPage({ config }: Props) {
         stepBadge={parcoursStep.stepBadge}
         formationHint={hint}
       />
+
+      <TrainingQuickFacts
+        facts={[
+          { label: 'Durée', value: formation.duree },
+          { label: 'Format', value: 'Présentiel' },
+          { label: 'Lieu', value: 'Île-de-France' },
+          { label: 'Effectif', value: effectifLabel },
+          { label: 'Niveau', value: `${trainingCategoryBadge('applications-metier')} — ${config.progressionLabel}` },
+          { label: 'Public', value: formation.public },
+          { label: 'Tarif', value: prixLabel },
+        ]}
+      />
+
+      <TrainingObjectives objectives={formation.objectifs} />
 
       {/* 2 — Résultat journée */}
       {ux ? (
@@ -549,30 +566,17 @@ export function ApplicationMetierBtpFormationPage({ config }: Props) {
       </div>
 
       {/* 18 — CTA final */}
-      <section className="bg-white px-4 py-14">
-        <div className="mx-auto max-w-2xl text-center">
-          <h2 className="font-display text-2xl font-bold text-slate-900">
-            {ux?.ctaFinal?.title ?? 'Vous avez une idée d’outil pour votre entreprise ?'}
-          </h2>
-          <p className="mt-3 text-slate-600">
-            {ux?.ctaFinal?.text ??
-              'Présentez-moi votre besoin. Nous vérifierons ensemble si ce parcours correspond à votre projet.'}
-          </p>
-          <div className="mt-8 flex justify-center">
-            <ApplicationMetierRdvCta
-              label={ux?.ctaFinal?.label ?? 'Réserver une visio de 30 minutes'}
-              origin={`application-metier-${config.slug}-footer`}
-              formationHint={hint}
-            />
-          </div>
-          <p className="mt-3 text-sm font-medium text-slate-600">Gratuit · Sans engagement</p>
-          <p className="mt-6 text-sm">
-            <Link href={LINKS.ressources} className={OFC_LINK}>
-              Ressources IA BTP
-            </Link>
-          </p>
-        </div>
-      </section>
+      <TrainingFinalCta
+        devisHref={`${LINKS.contact}?objet=devis&formation=${encodeURIComponent(formation.titre)}`}
+        title={ux?.ctaFinal?.title ?? 'Parlons de votre projet de formation'}
+        description={
+          ux?.ctaFinal?.text ??
+          'Vous souhaitez organiser cette formation pour votre équipe ? Échangeons sur vos besoins et le format adapté.'
+        }
+        primaryLabel="Demander un devis"
+        secondaryHref={LINKS.prendreRdv}
+        secondaryLabel="Échanger sur votre projet"
+      />
     </main>
   );
 }

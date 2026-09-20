@@ -3,15 +3,21 @@
  * Source programme 7 h — Laure Olivié / OFC Création d’Entreprise.
  */
 import { LINKS } from '@/lib/internal-links';
+import { FINANCEMENT_FORMULATION_PRUDENTE } from '@/lib/financement-copy';
 
 export const DEV_WEB_IA_PATH = LINKS.formationDeveloppementWebIaSansCoder;
 export const DEV_WEB_IA_CODE = 'NIV-10' as const;
 
-/** Tarif interentreprises — source programme. */
+/** Tarif interentreprises — source unique (prix de lancement). */
 export const TARIF_INTER_DEV_WEB_IA_HT = 300;
 
+/** Libellés commerciaux — pas de prix barré ni de date de fin fictive. */
+export const DEV_WEB_IA_BADGE_NOUVELLE = 'Nouvelle formation' as const;
+export const DEV_WEB_IA_BADGE_NOUVEAU = 'Nouveau' as const;
+export const DEV_WEB_IA_PRIX_LANCEMENT_LABEL = 'Prix de lancement' as const;
+
 export const DEV_WEB_IA_SUBTITLE =
-  'Créer un site, une application ou un outil métier avec l’intelligence artificielle' as const;
+  'Créer un site, une application ou un outil métier avec l’intelligence artificielle.' as const;
 
 export const DEV_WEB_IA_HOOK = {
   line1: 'Une idée.',
@@ -24,6 +30,17 @@ export const DEV_WEB_IA_HERO_FACTS = [
   '9h00 – 12h30 · 13h30 – 17h00',
   '6 à 8 participants',
   '70 % pratique · 30 % méthodologie',
+] as const;
+
+/** Ligne durée courte (hero / cartes). */
+export const DEV_WEB_IA_DUREE_COURTE = '7 h · 1 journée' as const;
+
+export const DEV_WEB_IA_INCLUS_TARIF = [
+  'l’animation de la formation',
+  'les supports pédagogiques',
+  'l’accès aux ressources prévues',
+  'les exercices pratiques',
+  'les évaluations prévues dans le programme',
 ] as const;
 
 export const DEV_WEB_IA_FORMATS = [
@@ -184,10 +201,19 @@ export const DEV_WEB_IA_FAQ = [
     a: 'Présentiel, classe virtuelle, ou intra-entreprise sur demande. Groupe de 6 à 8 participants.',
   },
   {
-    q: 'Comment est tarifée la formation ?',
-    a: 'Inter-entreprises : 300 € HT par participant. Intra-entreprise : sur devis. Prise en charge par un OPCO possible selon l’éligibilité de l’entreprise et du dossier.',
+    q: 'Quel est le tarif de la formation ?',
+    a: `Le prix de lancement de la formation interentreprises est de ${TARIF_INTER_DEV_WEB_IA_HT} € HT par participant pour une journée de 7 heures. Les sessions intra-entreprise font l’objet d’un devis adapté au besoin de l’entreprise. Une prise en charge par un OPCO peut être possible selon l’éligibilité, les plafonds applicables et l’accord de financement.`,
   },
 ] as const;
+
+/** Libellé tarif catalogue / résumés — cohérent partout. */
+export function libelleTarifLancementDevWebIa(): string {
+  return `${DEV_WEB_IA_PRIX_LANCEMENT_LABEL} : ${TARIF_INTER_DEV_WEB_IA_HT} € HT / participant`;
+}
+
+export function mentionFinancementDevWebIa(): string {
+  return FINANCEMENT_FORMULATION_PRUDENTE;
+}
 
 export function devWebIaDevisHref(formationTitle: string): string {
   return `${LINKS.contact}?objet=devis&formation=${encodeURIComponent(formationTitle)}`;
