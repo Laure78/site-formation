@@ -12,10 +12,10 @@ import {
 } from 'lucide-react';
 import { FAQSection } from '@/components/landing/FAQSection';
 import { JsonLd } from '@/components/JsonLd';
-import { FormationHeroPhoto } from '@/components/formations/FormationCourseHero';
 import { FormationCatalogueIndicateur1Suite } from '@/components/formations/FormationCatalogueIndicateur1Suite';
 import { FormationHeroOutilsNote } from '@/components/formations/FormationHeroOutilsNote';
 import { DevWebIaSectionVisual } from '@/components/formations/DevWebIaSectionVisual';
+import { OfcYouTubeEmbed } from '@/components/ui/OfcYouTubeEmbed';
 import { createPageMetadata, getFAQSchema } from '@/lib/seo';
 import { getFormationCatalogueVisuel } from '@/lib/formations-catalogue-display';
 import { LINKS } from '@/lib/internal-links';
@@ -35,6 +35,7 @@ import { OFC_SEC, OFC_SECTION_INNER } from '@/lib/ofc-section-classes';
 import { MENTIONS_TVA_INTRA_COURTE, formatTarifHt } from '@/lib/tarifs-sessions';
 import { MentionTvaAsterisque } from '@/components/MentionTVA';
 import { PHOTOS } from '@/lib/photos';
+import { VIDEOS } from '@/lib/videos';
 import {
   DEV_WEB_IA_ESPACE,
   DEV_WEB_IA_EVALUATION,
@@ -56,6 +57,7 @@ import {
 const CATALOGUE_SEO = getFormationCatalogueSeo('NIV-10');
 const FORMATION = getFormationByCode('NIV-10')!;
 const CATALOGUE_VISUEL = getFormationCatalogueVisuel('NIV-10');
+const HERO_VIDEO = VIDEOS.formationDevWebIaSansCoder2026;
 const DEVIS_HREF = devWebIaDevisHref(FORMATION.titre);
 const INSCRIPTION_HREF = devWebIaInscriptionHref();
 const EFFECTIF_LIBELLE = libelleEffectifFormation(FORMATION);
@@ -190,17 +192,21 @@ export default function FormationDeveloppementWebIaSansCoderPage() {
             </div>
 
             <aside className="min-w-0 space-y-5">
-              <FormationHeroPhoto
-                src={CATALOGUE_VISUEL.src}
-                alt={CATALOGUE_VISUEL.alt}
-                width={CATALOGUE_VISUEL.width}
-                height={CATALOGUE_VISUEL.height}
-                title={
-                  'title' in CATALOGUE_VISUEL && typeof CATALOGUE_VISUEL.title === 'string'
-                    ? CATALOGUE_VISUEL.title
-                    : undefined
-                }
+              <OfcYouTubeEmbed
+                youtubeId={HERO_VIDEO.youtubeId}
+                title={HERO_VIDEO.title}
+                caption={HERO_VIDEO.caption}
                 priority
+                poster={{
+                  src: CATALOGUE_VISUEL.src,
+                  alt: CATALOGUE_VISUEL.alt,
+                  width: CATALOGUE_VISUEL.width,
+                  height: CATALOGUE_VISUEL.height,
+                  title:
+                    'title' in CATALOGUE_VISUEL && typeof CATALOGUE_VISUEL.title === 'string'
+                      ? CATALOGUE_VISUEL.title
+                      : undefined,
+                }}
               />
               <div className="rounded-2xl border border-slate-200/90 bg-white p-5 shadow-[0_8px_30px_rgba(15,23,42,0.04)]">
                 <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#377CF3]">
