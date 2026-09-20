@@ -1,4 +1,4 @@
-/** Vidéos statiques servies depuis `/public/videos`. */
+/** Vidéos site — fichiers `/public/videos` ou embeds YouTube. */
 
 export type SiteVideo = {
   src: string;
@@ -7,12 +7,15 @@ export type SiteVideo = {
   height?: number;
   /** Légende courte sous le lecteur (page BeWork). */
   caption?: string;
+  /** ID YouTube si la source est un embed (hero accueil, etc.). */
+  youtubeId?: string;
 };
 
 export const VIDEOS = {
   /** Hero page d'accueil — présentation formation IA BTP (Laure Olivié). */
   accueilHeroLaureOlivie2026: {
-    src: '/videos/accueil-hero-laureolivie.mp4',
+    src: 'https://youtu.be/TfSNa-4Sc5E',
+    youtubeId: 'TfSNa-4Sc5E',
     title: 'Formation IA pour le BTP — présentiel Île-de-France, Laure Olivié',
   },
   /** Page BeWork — deuxième exemple formation (format 9:16). */

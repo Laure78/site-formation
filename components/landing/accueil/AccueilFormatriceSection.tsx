@@ -15,9 +15,9 @@ import {
 export function AccueilFormatriceSection() {
   return (
     <Section tone="white" aria-labelledby="accueil-formatrice">
-      <div className="grid items-center gap-12 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:gap-16">
-        <div className="mx-auto w-full max-w-sm lg:mx-0">
-          <div className="ofc-card overflow-hidden p-2">
+      <div className="grid items-center gap-10 lg:grid-cols-[minmax(0,16rem)_minmax(0,1fr)] lg:gap-14">
+        <div className="mx-auto w-full max-w-[15rem] lg:mx-0">
+          <div className="overflow-hidden rounded-xl p-1 ring-1 ring-ofc-border/70">
             <ProfilePhoto title="Laure Olivié — formatrice IA pour le BTP, OFC Création d'Entreprise" />
           </div>
         </div>

@@ -10,9 +10,9 @@ import type { LucideIcon } from 'lucide-react';
 import { AccueilSectionPhoto } from '@/components/landing/accueil/AccueilSectionPhoto';
 import { Card } from '@/components/ui/Card';
 import { Section } from '@/components/ui/Section';
-import { SectionHeader } from '@/components/ui/SectionHeader';
+import { Eyebrow } from '@/components/ui/Eyebrow';
 import { getAccueilCartesProblemesMetier } from '@/lib/accueil-config';
-import { OFC_CTA_SECONDARY, OFC_TYPE_H3 } from '@/lib/ofc-interaction-classes';
+import { OFC_CTA_SECONDARY, OFC_TYPE_H2, OFC_TYPE_H3 } from '@/lib/ofc-interaction-classes';
 import { PHOTOS } from '@/lib/photos';
 
 const ICONS: Record<string, LucideIcon> = {
@@ -24,26 +24,32 @@ const ICONS: Record<string, LucideIcon> = {
   communication: Megaphone,
 };
 
-/** Usages IA pour le BTP — cartes visuelles + CTA vers la section formations. */
+/** Usages IA pour le BTP — photo compacte en ancrage + cartes. */
 export function AccueilProblemesMetierSection() {
   const cartes = getAccueilCartesProblemesMetier();
   const photo = PHOTOS.accueilIaChantierLaptopPlansBtp2026;
 
   return (
     <Section tone="canvas" aria-labelledby="accueil-problemes-metier">
-      <SectionHeader
-        align="center"
-        titleId="accueil-problemes-metier"
-        eyebrow="Usages métier"
-        title="L’IA appliquée à vos métiers du BTP"
-        description="Des usages concrets pour gagner du temps sur vos documents et process quotidiens — avant de choisir la formation adaptée."
-        className="mx-auto"
-      />
-      <AccueilSectionPhoto
-        photo={photo}
-        className="mx-auto mt-10 max-w-4xl"
-        caption="Sur chantier : croiser plans, notes et outils IA pour accélérer CR, suivi et synthèse — avec validation métier."
-      />
+      <div className="grid items-end gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,22.5rem)] lg:gap-12">
+        <div className="min-w-0 max-w-2xl">
+          <Eyebrow>Usages métier</Eyebrow>
+          <h2 id="accueil-problemes-metier" className={`${OFC_TYPE_H2} mt-4`}>
+            L’IA appliquée à vos métiers du BTP
+          </h2>
+          <p className="mt-4 text-base leading-relaxed text-ofc-ink-muted md:text-lg">
+            Des usages concrets pour gagner du temps sur vos documents et process quotidiens — avant
+            de choisir la formation adaptée.
+          </p>
+        </div>
+        <AccueilSectionPhoto
+          photo={photo}
+          size="md"
+          className="mx-auto lg:mx-0 lg:justify-self-end"
+          caption="Sur chantier : croiser plans, notes et outils IA — avec validation métier."
+        />
+      </div>
+
       <div className="mt-12 grid gap-5 sm:grid-cols-2 xl:grid-cols-3 xl:gap-6">
         {cartes.map((carte) => {
           const Icon = ICONS[carte.id];

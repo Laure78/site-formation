@@ -185,19 +185,22 @@ export function AccueilBeworkBandeau() {
               </p>
             </div>
 
-            <div className="min-w-0">
-              <div className="overflow-hidden rounded-xl border border-slate-200/90 bg-slate-100 shadow-[0_8px_30px_rgba(55,124,243,0.08)]">
-                <Image
-                  src={PHOTOS.formationNiv10DevWebIaHero2026.src}
-                  alt={PHOTOS.formationNiv10DevWebIaHero2026.alt}
-                  title={PHOTOS.formationNiv10DevWebIaHero2026.title}
-                  width={PHOTOS.formationNiv10DevWebIaHero2026.width}
-                  height={PHOTOS.formationNiv10DevWebIaHero2026.height}
-                  className="h-auto w-full object-cover"
-                  sizes="(max-width: 1024px) 100vw, 560px"
-                />
+            <div className="mx-auto w-full max-w-sm min-w-0 lg:mx-0 lg:max-w-md lg:justify-self-end">
+              <div className="overflow-hidden rounded-xl bg-slate-100 ring-1 ring-[#BFDBFE]/90">
+                <div className="relative aspect-[4/3] w-full">
+                  <Image
+                    src={PHOTOS.formationNiv10DevWebIaHero2026.src}
+                    alt={PHOTOS.formationNiv10DevWebIaHero2026.alt}
+                    title={PHOTOS.formationNiv10DevWebIaHero2026.title}
+                    width={PHOTOS.formationNiv10DevWebIaHero2026.width}
+                    height={PHOTOS.formationNiv10DevWebIaHero2026.height}
+                    className="h-full w-full object-cover"
+                    sizes="(max-width: 1024px) 80vw, 360px"
+                    quality={70}
+                  />
+                </div>
               </div>
-              <p className="mt-3 text-center text-xs text-[#64748B]">
+              <p className="mt-2.5 text-center text-xs text-[#64748B] lg:text-left">
                 Présentiel ou visio · Petit groupe · Première version, pas une app de production
               </p>
             </div>

@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { PHOTOS } from '@/lib/photos';
 import { VIDEOS } from '@/lib/videos';
 
@@ -13,17 +13,18 @@ type Props = {
 };
 
 /**
- * Hero accueil — poster prioritaire (LCP mobile) ; vidéo uniquement desktop lg+, après idle.
- * Évite le téléchargement du MP4 (~4 Mo) sur mobile / 4G lente (PageSpeed).
+ * Hero accueil — poster prioritaire (LCP) ; embed YouTube après idle.
+ * Respecte prefers-reduced-motion (poster seul).
  */
 export function AccueilHeroVideo({ className }: Props) {
   const [showVideo, setShowVideo] = useState(false);
-  const videoRef = useRef<HTMLVideoElement>(null);
+  const youtubeId = VIDEO.youtubeId;
 
   useEffect(() => {
-    const desktop = window.matchMedia('(min-width: 1024px)');
+    if (!youtubeId) return;
+
     const motionOk = window.matchMedia('(prefers-reduced-motion: no-preference)');
-    if (!desktop.matches || !motionOk.matches) return;
+    if (!motionOk.matches) return;
 
     const enable = () => setShowVideo(true);
 
@@ -34,30 +35,30 @@ export function AccueilHeroVideo({ className }: Props) {
 
     const timer = setTimeout(enable, 2000);
     return () => clearTimeout(timer);
-  }, []);
+  }, [youtubeId]);
 
-  useEffect(() => {
-    if (!showVideo || !videoRef.current) return;
-    void videoRef.current.play().catch(() => {
-      /* autoplay bloqué — le poster reste visible */
-    });
-  }, [showVideo]);
+  if (showVideo && youtubeId) {
+    const embedSrc = new URL(`https://www.youtube-nocookie.com/embed/${youtubeId}`);
+    embedSrc.searchParams.set('autoplay', '1');
+    embedSrc.searchParams.set('mute', '1');
+    embedSrc.searchParams.set('loop', '1');
+    embedSrc.searchParams.set('playlist', youtubeId);
+    embedSrc.searchParams.set('rel', '0');
+    embedSrc.searchParams.set('playsinline', '1');
+    embedSrc.searchParams.set('modestbranding', '1');
 
-  if (showVideo) {
     return (
-      <video
-        ref={videoRef}
-        className={className}
-        muted
-        loop
-        playsInline
-        preload="auto"
-        poster={POSTER.src}
-        aria-label={VIDEO.title}
-        title={VIDEO.title}
-      >
-        <source src={VIDEO.src} type="video/mp4" />
-      </video>
+      <div className={`relative overflow-hidden bg-black ${className ?? ''}`}>
+        <iframe
+          src={embedSrc.toString()}
+          title={VIDEO.title}
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowFullScreen
+          loading="lazy"
+          referrerPolicy="strict-origin-when-cross-origin"
+          className="absolute inset-0 h-full w-full border-0"
+        />
+      </div>
     );
   }
 

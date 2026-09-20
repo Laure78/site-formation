@@ -30,7 +30,7 @@ export function ProfilePhoto({ alt, title, priority = false }: Props) {
   }
 
   return (
-    <PortraitLinkedInLink className="block overflow-hidden rounded-2xl bg-white shadow-lg transition-opacity hover:opacity-95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent)]">
+    <PortraitLinkedInLink className="block overflow-hidden rounded-lg bg-white transition-opacity hover:opacity-95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent)]">
       <Image
         src={PROFILE.src}
         alt={altText}
@@ -38,9 +38,9 @@ export function ProfilePhoto({ alt, title, priority = false }: Props) {
         width={PROFILE.width}
         height={PROFILE.height}
         className="h-auto w-full object-contain"
-        sizes="(max-width: 768px) 100vw, 384px"
+        sizes="(max-width: 768px) 60vw, 240px"
         priority={priority}
-        quality={priority ? 75 : 70}
+        quality={priority ? 75 : 68}
         loading={priority ? undefined : 'lazy'}
         onError={() => setError(true)}
       />

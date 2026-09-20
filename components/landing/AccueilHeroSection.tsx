@@ -65,9 +65,9 @@ export function AccueilHeroSection() {
             </ul>
           </div>
 
-          <aside className="accueil-hero-aside mt-10 w-full min-w-0 md:mt-0 lg:justify-self-end">
-            <div className="ofc-card overflow-hidden bg-white/95 p-1.5 lg:max-w-none">
-              <AccueilHeroVideo className="aspect-[4/3] h-auto w-full rounded-[1.05rem] object-cover sm:aspect-[16/10] lg:aspect-[4/3]" />
+          <aside className="accueil-hero-aside mt-10 w-full min-w-0 md:mt-0 md:max-w-sm md:justify-self-end lg:max-w-none">
+            <div className="overflow-hidden rounded-xl bg-white/95 p-1 ring-1 ring-ofc-border/70">
+              <AccueilHeroVideo className="aspect-[4/3] h-auto w-full rounded-[0.9rem] object-cover" />
             </div>
           </aside>
         </div>

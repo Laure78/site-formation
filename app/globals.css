@@ -281,7 +281,7 @@
 @media (min-width: 768px) {
   .accueil-hero-fold {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(300px, 42%);
+    grid-template-columns: minmax(0, 1fr) minmax(260px, 34%);
     gap: 2rem;
     align-items: center;
   }
@@ -289,16 +289,16 @@
 
 @media (min-width: 1024px) {
   .accueil-hero-fold {
-    grid-template-columns: minmax(0, 1fr) minmax(380px, 46%);
-    gap: 2.75rem;
+    grid-template-columns: minmax(0, 1fr) minmax(300px, 380px);
+    gap: 2.5rem;
     align-items: center;
   }
 }
 
 @media (min-width: 1280px) {
   .accueil-hero-fold {
-    grid-template-columns: minmax(0, 1fr) minmax(440px, 520px);
-    gap: 3.5rem;
+    grid-template-columns: minmax(0, 1fr) minmax(320px, 400px);
+    gap: 3rem;
     align-items: start;
   }
 }
