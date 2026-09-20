@@ -157,7 +157,7 @@ Consultez les documents :
 - `RAPPORT-SEO-COMPLET.md` — Rapport détaillé
 
 **Besoin d'assistance technique ?**
-- Email : laureolivie@yahoo.fr
+- Email : contact@laureolivie.fr
 - Téléphone : 06 95 66 18 18
 
 ---

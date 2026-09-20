@@ -15,8 +15,8 @@ import { isAdmin } from '../lib/auth';
 
 // --- Rôles / droits admin ---
 
-assert.equal(canAccessAdmin(null, 'laureolivie@yahoo.fr'), false, 'sans profil → refusé');
-assert.equal(canAccessAdmin({ role: 'apprenant' }, 'laureolivie@yahoo.fr'), false, 'apprenant → refusé');
+assert.equal(canAccessAdmin(null, 'contact@laureolivie.fr'), false, 'sans profil → refusé');
+assert.equal(canAccessAdmin({ role: 'apprenant' }, 'contact@laureolivie.fr'), false, 'apprenant → refusé');
 assert.equal(canAccessAdmin({ role: 'admin' }, null), false, 'admin sans email → refusé');
 assert.equal(
   canAccessAdmin({ role: 'admin' }, 'intrus-hors-liste@example.com'),
@@ -34,7 +34,7 @@ assert.equal(
   'formateur → Organisation refusée'
 );
 assert.equal(
-  canAccessOrganisation({ role: 'apprenant' }, 'laureolivie@yahoo.fr'),
+  canAccessOrganisation({ role: 'apprenant' }, 'contact@laureolivie.fr'),
   false,
   'apprenant → Organisation refusée'
 );
@@ -50,7 +50,7 @@ assert.equal(isAdmin('formateur'), true);
 const customAllow = parseAllowedAdminEmails('alice@ofc.fr, bob@ofc.fr');
 assert.equal(customAllow.has('alice@ofc.fr'), true);
 assert.equal(
-  customAllow.has('laureolivie@yahoo.fr'),
+  customAllow.has('contact@laureolivie.fr'),
   true,
   'email fondatrice toujours inclus en secours'
 );

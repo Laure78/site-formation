@@ -359,8 +359,8 @@ export default function FormationAssistantsIaPersonnalisesBtpPage() {
             avec 7 ans d&apos;expérience.
           </p>
           <p className="mt-4 text-sm text-slate-600">
-            <a href="mailto:laureolivie@yahoo.fr" className={OFC_LINK}>
-              laureolivie@yahoo.fr
+            <a href="mailto:contact@laureolivie.fr" className={OFC_LINK}>
+              contact@laureolivie.fr
             </a>{' '}
             · 06 95 66 18 18
           </p>

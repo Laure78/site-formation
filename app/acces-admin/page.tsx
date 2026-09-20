@@ -102,7 +102,7 @@ export default async function AccesAdminPage() {
             </p>
             <p className="mt-2 text-sm text-amber-900">
               L&apos;espace admin exige le rôle <strong>admin</strong> (ou formateur) en base.
-              Compte autorisé : <strong>laureolivie@yahoo.fr</strong> ou{' '}
+              Compte autorisé : <strong>contact@laureolivie.fr</strong> ou{' '}
               <strong>contact@laureolivie.fr</strong> — après promotion du rôle dans Supabase.
             </p>
             <p className="mt-2 text-sm text-amber-900">

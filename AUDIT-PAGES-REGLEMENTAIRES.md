@@ -19,7 +19,7 @@
 ### Précisions importantes
 
 #### Procédure de réclamation
-- Contenu complet : objet, mode de saisine (email `laureolivie@yahoo.fr`), chronologie (accusé / instruction / recours), amélioration continue, documents connexes.
+- Contenu complet : objet, mode de saisine (email `contact@laureolivie.fr`), chronologie (accusé / instruction / recours), amélioration continue, documents connexes.
 - Cross-liens depuis `/reclamations` vers CGV, règlement intérieur, indicateurs de résultats, accessibilité handicap.
 - Présent dans le sitemap (`app/sitemap.ts`, priorité 0,45).
 - **Pas de PDF** de procédure dans `public/`.
