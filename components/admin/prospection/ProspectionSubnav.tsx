@@ -9,6 +9,7 @@ const items = [
   { href: LINKS.adminProspectionEmails, label: 'Emails', exact: false },
   { href: LINKS.adminProspectionRelances, label: 'Relances', exact: false },
   { href: LINKS.adminProspectionModeles, label: "Modèles d'emails", exact: false },
+  { href: LINKS.adminProspectionAnnuaires, label: 'Annuaires', exact: false },
 ] as const;
 
 export function ProspectionSubnav({ pathname }: { pathname: string }) {

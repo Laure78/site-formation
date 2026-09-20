@@ -33,6 +33,8 @@ export type ProspectRow = {
   dernier_contact_at: string | null;
   prochaine_relance_at: string | null;
   company_id: string | null;
+  source_directory_id: string | null;
+  source_directory_company_id: string | null;
   date_creation: string;
   date_modification: string | null;
   updated_at: string | null;

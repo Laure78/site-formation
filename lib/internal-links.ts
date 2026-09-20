@@ -266,6 +266,7 @@ export const LINKS = {
   adminProspectionEmails: '/admin/prospection/emails',
   adminProspectionRelances: '/admin/prospection/relances',
   adminProspectionModeles: '/admin/prospection/modeles',
+  adminProspectionAnnuaires: '/admin/prospection/annuaires',
   diagnostic: '/diagnostic-ia-btp',
   outilsIaBtp: '/outils-ia-btp',
   /** Sélecteur interactif — cas d'usage IA par métier BTP */

@@ -11,6 +11,7 @@ const PROSPECT_SELECT = `
   prospect_type, department_name, relance_motif, notes_crm, statut,
   dernier_contact_at, prochaine_relance_at, company_id,
   next_action, next_action_type, next_action_at,
+  source_directory_id, source_directory_company_id,
   date_creation, date_modification, updated_at
 `;
 

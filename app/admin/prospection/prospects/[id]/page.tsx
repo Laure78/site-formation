@@ -30,6 +30,26 @@ export default async function ProspectDetailPage({
     listTemplates(supabase),
   ]);
 
+  let sourceDirectory: { id: string; name: string; category: string | null } | null = null;
+  let sourceCompany: { id: string; company_name: string; source_page: number | null } | null =
+    null;
+  if (prospect.source_directory_id) {
+    const { data: dir } = await supabase
+      .from('prospecting_directories')
+      .select('id, name, category')
+      .eq('id', prospect.source_directory_id)
+      .maybeSingle();
+    sourceDirectory = dir;
+  }
+  if (prospect.source_directory_company_id) {
+    const { data: co } = await supabase
+      .from('prospecting_directory_companies')
+      .select('id, company_name, source_page')
+      .eq('id', prospect.source_directory_company_id)
+      .maybeSingle();
+    sourceCompany = co;
+  }
+
   type TimelineItem = {
     at: string;
     title: string;
@@ -105,6 +125,35 @@ export default async function ProspectDetailPage({
           }
         />
       </div>
+
+      {sourceDirectory ? (
+        <section className="rounded-2xl border border-slate-200/80 bg-white p-5 shadow-sm">
+          <h3 className="font-display text-base font-semibold text-slate-900">
+            Source du prospect
+          </h3>
+          <p className="mt-2 text-sm text-slate-700">{sourceDirectory.name}</p>
+          <p className="text-xs text-slate-500">
+            {[sourceDirectory.category, 'FFB'].filter(Boolean).join(' · ')}
+            {sourceCompany?.source_page ? ` · page ${sourceCompany.source_page}` : ''}
+          </p>
+          <div className="mt-3 flex flex-wrap gap-2">
+            <Link
+              href={`${LINKS.adminProspectionAnnuaires}/${sourceDirectory.id}`}
+              className="rounded-lg border border-slate-200 px-3 py-1.5 text-sm font-medium text-[#377CF3] hover:bg-blue-50"
+            >
+              Voir l’annuaire
+            </Link>
+            {sourceCompany ? (
+              <Link
+                href={`${LINKS.adminProspectionAnnuaires}/${sourceDirectory.id}/entreprises?q=${encodeURIComponent(sourceCompany.company_name)}`}
+                className="rounded-lg border border-slate-200 px-3 py-1.5 text-sm font-medium text-slate-700 hover:bg-slate-50"
+              >
+                Voir dans l’annuaire
+              </Link>
+            ) : null}
+          </div>
+        </section>
+      ) : null}
 
       {prospect.source_metadata && Object.keys(prospect.source_metadata).length > 0 ? (
         <section className="rounded-2xl border border-slate-200/80 bg-white p-5 shadow-sm">
