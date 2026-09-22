@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Link from 'next/link';
 import {
   Check,
@@ -15,7 +16,9 @@ import { JsonLd } from '@/components/JsonLd';
 import { FormationCatalogueIndicateur1Suite } from '@/components/formations/FormationCatalogueIndicateur1Suite';
 import { FormationHeroOutilsNote } from '@/components/formations/FormationHeroOutilsNote';
 import { DevWebIaSectionVisual } from '@/components/formations/DevWebIaSectionVisual';
+import { DevWebIaBeworkInformations } from '@/components/formations/DevWebIaBeworkInformations';
 import { DevWebIaPrixLancementCard } from '@/components/formations/DevWebIaPrixLancementCard';
+import { ExternalLinkAnchor } from '@/components/ExternalLink';
 import { OfcYouTubeEmbed } from '@/components/ui/OfcYouTubeEmbed';
 import { TrainingFinalCta, TrainingObjectives, TrainingQuickFacts } from '@/components/formations/training';
 import { trainingCategoryBadge } from '@/lib/training-page-helpers';
@@ -58,6 +61,8 @@ import {
   devWebIaInscriptionHref,
 } from '@/lib/formation-developpement-web-ia-content';
 import { FINANCEMENT_FORMULATION_COURTE } from '@/lib/financement-copy';
+import { BEWORK_LOGO, BEWORK_SUBTAGLINE } from '@/lib/bework-brand';
+import { EXTERNAL_SITE_URLS } from '@/lib/external-site-urls';
 
 const CATALOGUE_SEO = getFormationCatalogueSeo('NIV-10');
 const FORMATION = getFormationByCode('NIV-10')!;
@@ -130,6 +135,20 @@ export default function FormationDeveloppementWebIaSansCoderPage() {
           <div className="mt-6 grid items-start gap-10 lg:grid-cols-[minmax(0,1.15fr)_minmax(280px,0.85fr)] lg:gap-12">
             <div className="min-w-0">
               <div className="flex flex-wrap items-center gap-2">
+                <ExternalLinkAnchor
+                  href={EXTERNAL_SITE_URLS.bework}
+                  title="BeWork — bework.fr (nouvel onglet)"
+                  className="inline-flex items-center rounded-full border border-slate-200 bg-white px-2.5 py-1.5 shadow-sm"
+                >
+                  <Image
+                    src={BEWORK_LOGO.src}
+                    alt={BEWORK_LOGO.alt}
+                    width={BEWORK_LOGO.width}
+                    height={BEWORK_LOGO.height}
+                    className="h-6 w-auto max-w-[120px] object-contain"
+                    priority
+                  />
+                </ExternalLinkAnchor>
                 <span className="rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-bold uppercase tracking-wide text-slate-700">
                   {trainingCategoryBadge('creation-ia')}
                 </span>
@@ -138,6 +157,9 @@ export default function FormationDeveloppementWebIaSansCoderPage() {
                   {DEV_WEB_IA_BADGE_NOUVELLE}
                 </span>
               </div>
+              <p className="mt-2 text-xs font-semibold uppercase tracking-[0.12em] text-[#1D4ED8]">
+                {BEWORK_SUBTAGLINE} · Parcours BeWork
+              </p>
               <h1
                 id="dev-web-ia-h1"
                 className="mt-3 font-display text-[clamp(1.85rem,4vw,2.75rem)] font-bold leading-[1.12] tracking-tight text-ofc-ink"
@@ -276,6 +298,8 @@ export default function FormationDeveloppementWebIaSansCoderPage() {
       />
 
       <TrainingObjectives objectives={DEV_WEB_IA_OBJECTIFS} />
+
+      <DevWebIaBeworkInformations />
 
       {/* Public + formats */}
       <section className={OFC_SEC.white} aria-labelledby="public-prerequis-title">
