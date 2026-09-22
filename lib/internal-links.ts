@@ -267,6 +267,11 @@ export const LINKS = {
   adminProspectionRelances: '/admin/prospection/relances',
   adminProspectionModeles: '/admin/prospection/modeles',
   adminProspectionAnnuaires: '/admin/prospection/annuaires',
+  /** Cockpit opérationnel — sessions de formation */
+  adminSessions: '/admin/sessions',
+  adminSessionsNouvelle: '/admin/sessions/nouvelle',
+  adminSessionsDashboard: '/admin/sessions/tableau-de-bord',
+  adminSessionsEntreprises: '/admin/sessions/entreprises',
   diagnostic: '/diagnostic-ia-btp',
   outilsIaBtp: '/outils-ia-btp',
   /** Sélecteur interactif — cas d'usage IA par métier BTP */

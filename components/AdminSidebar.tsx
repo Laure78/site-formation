@@ -17,6 +17,7 @@ import {
   CalendarDays,
   Home,
   Target,
+  ClipboardList,
 } from 'lucide-react';
 import { LINKS } from '@/lib/internal-links';
 import { adminSignOutAction } from '@/app/admin/actions';
@@ -30,6 +31,7 @@ const NAV_PILOTAGE = [
 const NAV_PLATFORM = [
   { href: '/admin/disponibilites', label: 'Disponibilités', icon: Clock },
   { href: '/admin/formations', label: 'Formations', icon: BookOpen },
+  { href: LINKS.adminSessions, label: 'Sessions de formation', icon: ClipboardList },
   { href: '/admin/apprenants', label: 'Apprenants', icon: Users },
   { href: '/admin/progression', label: 'Progression', icon: TrendingUp },
   { href: '/admin/qualite', label: 'Qualiopi / Qualité', icon: ShieldCheck },
