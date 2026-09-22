@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { UserPlus } from 'lucide-react';
 
-/** Inscrit contact@laureolivie.fr sur toutes les formations LMS existantes. */
+/** Inscrit laureolivie@yahoo.fr sur toutes les formations LMS existantes. */
 export function EnrollLaureAllButton() {
   const router = useRouter();
   const [loading, setLoading] = useState(false);

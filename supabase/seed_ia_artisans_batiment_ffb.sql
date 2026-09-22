@@ -183,7 +183,7 @@ Demi-journée 9h–13h · Présentiel Île-de-France · 12 participants max.',
   insert into public.enrollments (user_id, course_id, progress_percent)
   select id, cid, 0
   from auth.users
-  where lower(email) = 'contact@laureolivie.fr'
+  where lower(email) = 'laureolivie@yahoo.fr'
   limit 1
   on conflict (user_id, course_id) do nothing;
 end $$;

@@ -119,7 +119,7 @@ Formatrice IA pour le BTP — méthode terrain, prompts utiles. [À propos](/a-p
 ## CTA fin {#cta-fin}
 
 Bandeau pleine largeur **#377CF3** — **Réservez votre visio** — **CTA #3**  
-contact@laureolivie.fr · 06 95 66 18 18
+laureolivie@yahoo.fr · 06 95 66 18 18
 
 ---
 

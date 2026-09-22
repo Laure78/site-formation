@@ -12,7 +12,7 @@ import {
 
 /** Contact public du site (email, téléphone, adresse) — source unique UI / contenus. */
 export const CONTACT = {
-  email: 'contact@laureolivie.fr',
+  email: 'laureolivie@yahoo.fr',
   phone: '+33695661818',
   phoneDisplay: '06 95 66 18 18',
   address: '6 rue Henri Dunant, 78280 Guyancourt',

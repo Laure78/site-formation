@@ -62,10 +62,10 @@ export default function MentionsLegalesPage() {
           <p className="mt-2">
             Email :{' '}
             <a
-              href="mailto:contact@laureolivie.fr"
+              href="mailto:laureolivie@yahoo.fr"
               className="text-[var(--accent)] hover:underline"
             >
-              contact@laureolivie.fr
+              laureolivie@yahoo.fr
             </a>
           </p>
         </section>
@@ -125,10 +125,10 @@ export default function MentionsLegalesPage() {
             <li>
               Par email :{' '}
               <a
-                href="mailto:contact@laureolivie.fr"
+                href="mailto:laureolivie@yahoo.fr"
                 className="text-[var(--accent)] hover:underline"
               >
-                contact@laureolivie.fr
+                laureolivie@yahoo.fr
               </a>
             </li>
             <li>
@@ -249,10 +249,10 @@ export default function MentionsLegalesPage() {
             <li>
               Email :{' '}
               <a
-                href="mailto:contact@laureolivie.fr"
+                href="mailto:laureolivie@yahoo.fr"
                 className="text-[var(--accent)] hover:underline"
               >
-                contact@laureolivie.fr
+                laureolivie@yahoo.fr
               </a>
             </li>
             <li>Adresse : 6 Rue Henri Dunant, 78280 Guyancourt</li>
