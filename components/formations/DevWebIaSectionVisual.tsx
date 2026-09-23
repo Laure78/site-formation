@@ -1,4 +1,7 @@
-import Image from 'next/image';
+import {
+  PhotoThumbnailLightbox,
+  type PhotoThumbnailLightboxProps,
+} from '@/components/ui/PhotoThumbnailLightbox';
 
 type DevWebIaSectionVisualProps = {
   src: string;
@@ -6,14 +9,16 @@ type DevWebIaSectionVisualProps = {
   width: number;
   height: number;
   title?: string;
+  /** Description longue — lightbox uniquement (légende section conservée ailleurs). */
+  description?: string;
   priority?: boolean;
   className?: string;
-  sizes?: string;
+  /** Légende sous la miniature (défaut : title). */
+  caption?: string;
 };
 
 /**
- * Cadre visuel portrait cohérent pour les illustrations NIV-10
- * (carrousel « Développement web avec l’IA — sans savoir coder »).
+ * Illustration NIV-10 — miniature compacte + lightbox (fichier source inchangé).
  */
 export function DevWebIaSectionVisual({
   src,
@@ -21,25 +26,22 @@ export function DevWebIaSectionVisual({
   width,
   height,
   title,
+  description,
   priority,
   className = '',
-  sizes = '(max-width: 768px) 92vw, 360px',
+  caption,
 }: DevWebIaSectionVisualProps) {
-  return (
-    <figure
-      className={`overflow-hidden rounded-2xl border border-slate-200/90 bg-white shadow-[0_12px_40px_rgba(15,23,42,0.08)] ${className}`}
-    >
-      <Image
-        src={src}
-        alt={alt}
-        title={title}
-        width={width}
-        height={height}
-        className="h-auto w-full object-cover"
-        sizes={sizes}
-        priority={priority}
-        quality={82}
-      />
-    </figure>
-  );
+  const lightboxProps: PhotoThumbnailLightboxProps = {
+    src,
+    alt,
+    width,
+    height,
+    title,
+    caption: caption ?? title,
+    detail: description,
+    priority,
+    className,
+  };
+
+  return <PhotoThumbnailLightbox {...lightboxProps} />;
 }

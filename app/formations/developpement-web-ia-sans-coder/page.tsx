@@ -16,6 +16,7 @@ import { JsonLd } from '@/components/JsonLd';
 import { FormationCatalogueIndicateur1Suite } from '@/components/formations/FormationCatalogueIndicateur1Suite';
 import { FormationHeroOutilsNote } from '@/components/formations/FormationHeroOutilsNote';
 import { DevWebIaSectionVisual } from '@/components/formations/DevWebIaSectionVisual';
+import { PhotoThumbnailGallery } from '@/components/ui/PhotoThumbnailLightbox';
 import { DevWebIaBeworkInformations } from '@/components/formations/DevWebIaBeworkInformations';
 import { DevWebIaPrixLancementCard } from '@/components/formations/DevWebIaPrixLancementCard';
 import { ExternalLinkAnchor } from '@/components/ExternalLink';
@@ -87,6 +88,24 @@ const V = {
   resultats: PHOTOS.formationNiv10DevWebIaResultats2026,
   apres: PHOTOS.formationNiv10DevWebIaApres2026,
 } as const;
+
+const NIV10_ILLUSTRATIONS_GALLERY = [
+  V.public,
+  V.formats,
+  V.methode,
+  V.pratique,
+  V.outils,
+  V.resultats,
+  V.apres,
+].map((photo) => ({
+  src: photo.src,
+  alt: photo.alt,
+  width: photo.width,
+  height: photo.height,
+  title: photo.title,
+  caption: photo.title,
+  detail: photo.description,
+}));
 
 const JOURNEE_STEPS = [
   { time: '09h00', label: 'Cadrer', detail: 'Idée, utilisateurs, besoin' },
@@ -318,6 +337,23 @@ export default function FormationDeveloppementWebIaSansCoderPage() {
         ]}
       />
 
+      <section className={OFC_SEC.mutedCompact} aria-labelledby="niv10-illustrations-title">
+        <div className={`${OFC_SECTION_INNER} max-w-6xl`}>
+          <h2 id="niv10-illustrations-title" className={OFC_TYPE_H2}>
+            Illustrations de la formation
+          </h2>
+          <p className="mt-2 max-w-2xl text-sm text-ofc-ink-muted">
+            Cliquez sur une miniature pour afficher l’infographie en grand. Les légendes détaillées
+            restent disponibles dans chaque section ci-dessous.
+          </p>
+          <PhotoThumbnailGallery
+            className="mt-6"
+            items={NIV10_ILLUSTRATIONS_GALLERY}
+            ariaLabel="Miniatures des infographies de la formation"
+          />
+        </div>
+      </section>
+
       <TrainingObjectives objectives={DEV_WEB_IA_OBJECTIFS} />
 
       <DevWebIaBeworkInformations />
@@ -350,23 +386,25 @@ export default function FormationDeveloppementWebIaSansCoderPage() {
               </p>
             </div>
             <DevWebIaSectionVisual
-              className="order-1 mx-auto w-full max-w-sm lg:order-2 lg:mx-0 lg:justify-self-end"
+              className="order-1 shrink-0 lg:order-2"
               src={V.public.src}
               alt={V.public.alt}
               width={V.public.width}
               height={V.public.height}
               title={V.public.title}
+              description={V.public.description}
             />
           </div>
 
-          <div className="mt-14 grid items-start gap-10 lg:grid-cols-2">
+          <div className="mt-14 flex flex-col gap-8 lg:flex-row lg:items-start">
             <DevWebIaSectionVisual
-              className="mx-auto w-full max-w-sm lg:mx-0"
+              className="shrink-0"
               src={V.formats.src}
               alt={V.formats.alt}
               width={V.formats.width}
               height={V.formats.height}
               title={V.formats.title}
+              description={V.formats.description}
             />
             <div>
               <h3 className={OFC_TYPE_H3}>À vous de choisir votre format</h3>
@@ -413,12 +451,13 @@ export default function FormationDeveloppementWebIaSansCoderPage() {
               </ol>
             </div>
             <DevWebIaSectionVisual
-              className="mx-auto w-full max-w-sm lg:mx-0"
+              className="shrink-0 lg:justify-self-end"
               src={V.methode.src}
               alt={V.methode.alt}
               width={V.methode.width}
               height={V.methode.height}
               title={V.methode.title}
+              description={V.methode.description}
             />
           </div>
         </div>
@@ -429,12 +468,13 @@ export default function FormationDeveloppementWebIaSansCoderPage() {
         <div className={`${OFC_SECTION_INNER} max-w-6xl`}>
           <div className="grid items-center gap-10 lg:grid-cols-2">
             <DevWebIaSectionVisual
-              className="order-2 mx-auto w-full max-w-sm lg:order-1 lg:mx-0"
+              className="order-2 shrink-0 lg:order-1"
               src={V.pratique.src}
               alt={V.pratique.alt}
               width={V.pratique.width}
               height={V.pratique.height}
               title={V.pratique.title}
+              description={V.pratique.description}
             />
             <div className="order-1 lg:order-2">
               <p className={OFC_EYEBROW}>Une formation pratique</p>
@@ -491,12 +531,13 @@ export default function FormationDeveloppementWebIaSansCoderPage() {
               </p>
             </div>
             <DevWebIaSectionVisual
-              className="mx-auto w-full max-w-sm lg:mx-0 lg:justify-self-end"
+              className="shrink-0 lg:justify-self-end"
               src={V.outils.src}
               alt={V.outils.alt}
               width={V.outils.width}
               height={V.outils.height}
               title={V.outils.title}
+              description={V.outils.description}
             />
           </div>
         </div>
@@ -603,12 +644,13 @@ export default function FormationDeveloppementWebIaSansCoderPage() {
         <div className={`${OFC_SECTION_INNER} max-w-6xl`}>
           <div className="grid items-start gap-10 lg:grid-cols-[minmax(260px,360px)_minmax(0,1fr)]">
             <DevWebIaSectionVisual
-              className="mx-auto w-full max-w-sm lg:mx-0"
+              className="shrink-0"
               src={V.resultats.src}
               alt={V.resultats.alt}
               width={V.resultats.width}
               height={V.resultats.height}
               title={V.resultats.title}
+              description={V.resultats.description}
             />
             <div>
               <h2 id="livrables-title" className={OFC_TYPE_H2}>
@@ -659,12 +701,13 @@ export default function FormationDeveloppementWebIaSansCoderPage() {
               </ul>
             </div>
             <DevWebIaSectionVisual
-              className="mx-auto w-full max-w-sm lg:mx-0 lg:justify-self-end"
+              className="shrink-0 lg:justify-self-end"
               src={V.apres.src}
               alt={V.apres.alt}
               width={V.apres.width}
               height={V.apres.height}
               title={V.apres.title}
+              description={V.apres.description}
             />
           </div>
         </div>
