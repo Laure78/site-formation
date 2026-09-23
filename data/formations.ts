@@ -403,7 +403,7 @@ export const FORMATIONS: readonly Formation[] = [
     slug: 'developpement-web-ia-sans-coder',
     titre: 'Développement web avec l’IA — sans savoir coder',
     promesse:
-      'Créer un site, une application ou un outil métier avec l’intelligence artificielle — 7 h, sans prérequis en programmation.',
+      'Créer un site, une application ou un outil métier avec l’intelligence artificielle — parcours 7 h ou 14 h, sans prérequis en programmation.',
     casUsageCourts: [
       'Cadrer un projet numérique',
       'Créer une première version avec l’IA',
@@ -413,8 +413,8 @@ export const FORMATIONS: readonly Formation[] = [
     theme: 'outils-applications',
     niveau: 1,
     niveauLabel: 'Création avec l’IA',
-    duree: '7 h',
-    horaires: '09h00 – 12h30 / 13h30 – 17h00',
+    duree: '7 h ou 14 h',
+    horaires: '09h00 – 12h30 / 13h30 – 17h00 (par journée)',
     effectifMin: 6,
     effectifMax: 8,
     /** 0 = pas de forfait session catalogue ; inter 300 € / participant géré côté NIV-10. */

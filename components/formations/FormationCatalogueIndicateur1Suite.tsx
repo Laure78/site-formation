@@ -1,4 +1,5 @@
 import { CatalogueInfosPratiques } from '@/components/InfosPratiques';
+import { DevWebIaProgrammesPdfSection } from '@/components/formations/DevWebIaProgrammesPdfSection';
 import { FormationProgrammePdfSection } from '@/components/formations/FormationCourseHero';
 import { FormationTarifsModalitesSection } from '@/components/formations/FormationTarifsModalitesSection';
 import { TrainingTrainer } from '@/components/formations/training/TrainingTrainer';
@@ -24,7 +25,11 @@ export function FormationCatalogueIndicateur1Suite({
     <>
       <FormationTarifsModalitesSection catalogueRef={programmeRef} />
       {showTrainer ? <TrainingTrainer /> : null}
-      {hasProgrammePdf ? <FormationProgrammePdfSection catalogueRef={programmeRef} /> : null}
+      {programmeRef === 'NIV-10' ? (
+        <DevWebIaProgrammesPdfSection />
+      ) : hasProgrammePdf ? (
+        <FormationProgrammePdfSection catalogueRef={programmeRef} />
+      ) : null}
       <CatalogueInfosPratiques programmeRef={programmeRef} />
     </>
   );

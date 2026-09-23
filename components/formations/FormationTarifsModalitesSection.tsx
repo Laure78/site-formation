@@ -4,6 +4,7 @@ import { FINANCEMENT_FORMULATION_PRUDENTE } from '@/lib/financement-copy';
 import {
   DEV_WEB_IA_INCLUS_TARIF,
   DEV_WEB_IA_PRIX_LANCEMENT_LABEL,
+  TARIF_INTER_DEV_WEB_IA_14H_HT,
   TARIF_INTER_DEV_WEB_IA_HT,
 } from '@/lib/formation-developpement-web-ia-content';
 import {
@@ -55,7 +56,7 @@ export function FormationTarifsModalitesSection({ catalogueRef }: Props) {
                 <p className="mt-2 text-sm text-slate-600">
                   {effectifLabel}
                   <br />
-                  7 heures
+                  7 h ou 14 h (2 journées pour le parcours 14 h)
                 </p>
                 <p className="mt-3 text-sm leading-relaxed text-slate-600">
                   Le tarif est forfaitaire pour l&apos;ensemble du groupe. Il comprend l&apos;animation, les
@@ -96,8 +97,14 @@ export function FormationTarifsModalitesSection({ catalogueRef }: Props) {
                 <p className="mt-2 font-display text-2xl font-bold text-[#377CF3]">
                   {formatTarifHt(TARIF_INTER_DEV_WEB_IA_HT)} € HT par participant
                   <MentionTvaAsterisque />
+                  <span className="mt-1 block text-lg font-bold text-slate-800">
+                    {formatTarifHt(TARIF_INTER_DEV_WEB_IA_14H_HT)} € HT par participant — parcours 14 h
+                    <MentionTvaAsterisque />
+                  </span>
                 </p>
-                <p className="mt-2 text-sm font-medium text-slate-700">7 heures de formation.</p>
+                <p className="mt-2 text-sm font-medium text-slate-700">
+                  7 h (1 journée) ou 14 h (2 journées).
+                </p>
                 <p className="mt-4 text-sm font-semibold text-slate-900">Le tarif comprend :</p>
                 <ul className="mt-2 list-disc space-y-1 pl-5 text-sm leading-relaxed text-slate-600">
                   {DEV_WEB_IA_INCLUS_TARIF.map((item) => (

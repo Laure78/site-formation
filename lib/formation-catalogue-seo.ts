@@ -8,8 +8,11 @@ import {
   formatVolumeProsFormesBtpLibelle,
   indicateursResultats,
 } from '@/lib/data/indicateurs-resultats';
-import { SESSION_DUREE_LIBELLE } from '@/lib/tarifs-sessions';
-import { TARIF_INTER_DEV_WEB_IA_HT } from '@/lib/formation-developpement-web-ia-content';
+import { SESSION_DUREE_LIBELLE, formatTarifHt } from '@/lib/tarifs-sessions';
+import {
+  TARIF_INTER_DEV_WEB_IA_14H_HT,
+  TARIF_INTER_DEV_WEB_IA_HT,
+} from '@/lib/formation-developpement-web-ia-content';
 
 export type FormationIaLimitRow = {
   iaAide: string;
@@ -228,8 +231,8 @@ export const FORMATION_CATALOGUE_SEO: Record<FormationCatalogueCode, FormationCa
     subtitle:
       'Créer un site, une application ou un outil métier avec l’intelligence artificielle.',
     metaDescription:
-      'Formation développement web IA : créez un site ou une application avec l’IA sans coder. Prix de lancement 300 € HT, 7 h pratiques.',
-    enBref: `Formation pratique de 7 h : cadrer un projet, créer une première version avec l’IA, tester et corriger — sans savoir coder. Prix de lancement ${TARIF_INTER_DEV_WEB_IA_HT} € HT / participant. Une idée, une journée, une première version fonctionnelle. ${QUALIOPI_MENTION}.`,
+      'Formation développement web IA : créez un site ou une app sans coder. Parcours 7 h (300 € HT) ou 14 h (600 € HT), pratique Qualiopi.',
+    enBref: `Formation pratique 7 h ou 14 h : cadrer un projet, créer avec l’IA, tester et corriger — sans savoir coder. Inter : ${formatTarifHt(TARIF_INTER_DEV_WEB_IA_HT)} € HT (7 h) · ${formatTarifHt(TARIF_INTER_DEV_WEB_IA_14H_HT)} € HT (14 h) / participant. ${QUALIOPI_MENTION}.`,
     publicTargets: [
       'Entrepreneurs, indépendants, artisans et commerçants',
       'Salariés et porteurs de projet',

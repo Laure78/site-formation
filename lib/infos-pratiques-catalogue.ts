@@ -107,10 +107,15 @@ export const PROGRAMME_CONTENU_CATALOGUE: Record<FormationCode, readonly string[
     'Module 4 — Créer son assistant IA métier (2 h 15)',
   ],
   'NIV-10': [
-    'Module 1 — Cadrer et préparer son projet',
-    'Module 2 — Structurer son projet et guider efficacement l’IA',
-    'Module 3 — Construire une première version',
-    'Module 4 — Tester, corriger et poursuivre son projet',
+    'Jour 1 — Module 1 : Cadrer et préparer son projet',
+    'Jour 1 — Module 2 : Structurer son projet et guider efficacement l’IA',
+    'Jour 1 — Module 3 : Construire une première version',
+    'Jour 1 — Module 4 : Tester, corriger et poursuivre son projet',
+    'Jour 2 (parcours 14 h) — Diagnostiquer et prioriser les améliorations',
+    'Jour 2 (parcours 14 h) — Améliorer et enrichir le projet',
+    'Jour 2 (parcours 14 h) — Préparer et publier le projet',
+    'Jour 2 (parcours 14 h) — Visibilité et contrôle du projet publié',
+    'Jour 2 (parcours 14 h) — Tests finaux et feuille de route',
   ],
 };
 
@@ -315,6 +320,9 @@ function sanitizeInfosPratiquesText(text: string): string {
 }
 
 function libelleDureeInfosPratiques(f: NonNullable<ReturnType<typeof getFormationByCode>>): string {
+  if (f.code === 'NIV-10') {
+    return '7 heures (1 journée) ou 14 heures (2 journées) — 09h00 – 12h30 / 13h30 – 17h00 par journée';
+  }
   let label = f.duree.replace(/\b4 h\b/, '4 heures').replace(/\b(\d+) h\b/, '$1 heures');
   if (f.horaires) {
     const horaires = f.horaires

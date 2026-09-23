@@ -49,13 +49,19 @@ import {
   DEV_WEB_IA_FORMATS,
   DEV_WEB_IA_HOOK,
   DEV_WEB_IA_LIVRABLES,
+  DEV_WEB_IA_LIVRABLES_14H,
   DEV_WEB_IA_MODULES,
+  DEV_WEB_IA_MODULES_JOUR2,
   DEV_WEB_IA_OBJECTIFS,
   DEV_WEB_IA_PEDAGOGIE,
   DEV_WEB_IA_PREREQUIS,
   DEV_WEB_IA_PRIX_LANCEMENT_LABEL,
   DEV_WEB_IA_PUBLIC,
   DEV_WEB_IA_SUBTITLE,
+  DEV_WEB_IA_DUREE_COURTE,
+  DEV_WEB_IA_PDF_14H_HREF,
+  DEV_WEB_IA_PDF_7H_HREF,
+  TARIF_INTER_DEV_WEB_IA_14H_HT,
   TARIF_INTER_DEV_WEB_IA_HT,
   devWebIaDevisHref,
   devWebIaInscriptionHref,
@@ -152,7 +158,7 @@ export default function FormationDeveloppementWebIaSansCoderPage() {
                 <span className="rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-bold uppercase tracking-wide text-slate-700">
                   {trainingCategoryBadge('creation-ia')}
                 </span>
-                <p className={OFC_EYEBROW}>7 heures</p>
+                <p className={OFC_EYEBROW}>7 h ou 14 h</p>
                 <span className="rounded-full bg-[#377CF3] px-2.5 py-1 text-[0.65rem] font-bold uppercase tracking-[0.12em] text-white">
                   {DEV_WEB_IA_BADGE_NOUVELLE}
                 </span>
@@ -195,7 +201,7 @@ export default function FormationDeveloppementWebIaSansCoderPage() {
               <ul className="mt-8 flex flex-wrap gap-x-6 gap-y-3 text-sm font-medium text-ofc-ink">
                 <li className="inline-flex items-center gap-2">
                   <Clock className="h-4 w-4 text-[#377CF3]" aria-hidden />
-                  7 h · 9h00 – 17h00
+                  {DEV_WEB_IA_DUREE_COURTE} · 9h00 – 17h00
                 </li>
                 <li className="inline-flex items-center gap-2">
                   <Users className="h-4 w-4 text-[#377CF3]" aria-hidden />
@@ -211,12 +217,20 @@ export default function FormationDeveloppementWebIaSansCoderPage() {
 
               <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
                 <a
-                  href={LINKS.pdfProgrammeDeveloppementWebIaSansCoder}
+                  href={DEV_WEB_IA_PDF_7H_HREF}
                   download="programme-ofc-developpement-web-ia-7h.pdf"
                   className={`${OFC_CTA_SECONDARY} inline-flex min-h-11 items-center justify-center gap-2 px-6 py-3`}
                 >
                   <Download className="h-4 w-4 shrink-0" aria-hidden />
-                  Télécharger le programme
+                  Programme 7 h (PDF)
+                </a>
+                <a
+                  href={DEV_WEB_IA_PDF_14H_HREF}
+                  download="programme-ofc-developpement-web-ia-14h.pdf"
+                  className={`${OFC_CTA_SECONDARY} inline-flex min-h-11 items-center justify-center gap-2 px-6 py-3`}
+                >
+                  <Download className="h-4 w-4 shrink-0" aria-hidden />
+                  Programme 14 h (PDF)
                 </a>
                 <Link
                   href={LINKS.contact}
@@ -259,7 +273,14 @@ export default function FormationDeveloppementWebIaSansCoderPage() {
                 <p className="mt-1.5 font-display text-2xl font-bold text-ofc-ink">
                   {formatTarifHt(TARIF_INTER_DEV_WEB_IA_HT)} € HT
                   <span className="ml-1 text-base font-semibold text-ofc-ink-muted">
-                    / participant
+                    / participant · 7 h
+                  </span>
+                  <MentionTvaAsterisque />
+                </p>
+                <p className="mt-2 font-display text-xl font-bold text-ofc-ink">
+                  {formatTarifHt(TARIF_INTER_DEV_WEB_IA_14H_HT)} € HT
+                  <span className="ml-1 text-base font-semibold text-ofc-ink-muted">
+                    / participant · 14 h
                   </span>
                   <MentionTvaAsterisque />
                 </p>
@@ -291,8 +312,8 @@ export default function FormationDeveloppementWebIaSansCoderPage() {
           { label: 'Niveau', value: 'Débutant' },
           { label: 'Public', value: DEV_WEB_IA_PUBLIC.join(', ') },
           {
-            label: 'Tarif',
-            value: `${DEV_WEB_IA_PRIX_LANCEMENT_LABEL} · ${formatTarifHt(TARIF_INTER_DEV_WEB_IA_HT)} € HT / participant`,
+            label: 'Tarif inter',
+            value: `${formatTarifHt(TARIF_INTER_DEV_WEB_IA_HT)} € HT (7 h) · ${formatTarifHt(TARIF_INTER_DEV_WEB_IA_14H_HT)} € HT (14 h) / participant`,
           },
         ]}
       />
@@ -371,11 +392,11 @@ export default function FormationDeveloppementWebIaSansCoderPage() {
           <div className="grid items-start gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(260px,360px)]">
             <div>
               <h2 id="parcours-journee-title" className={OFC_TYPE_H2}>
-                Une journée, de l’idée à la première version
+                Jour 1 — de l’idée à la première version
               </h2>
               <p className="mt-3 max-w-2xl text-base text-ofc-ink-muted">
-                Quatre temps pédagogiques — vous avancez sur votre propre projet, pas sur un cas
-                générique.
+                Parcours 7 h ou première journée du parcours 14 h — quatre temps pédagogiques sur votre
+                propre projet.
               </p>
               <ol className="mt-10 grid gap-4 sm:grid-cols-2">
                 {JOURNEE_STEPS.map((step, index) => (
@@ -426,7 +447,7 @@ export default function FormationDeveloppementWebIaSansCoderPage() {
               </p>
               <ul className="mt-8 grid gap-3 sm:grid-cols-2">
                 {[
-                  '7 h / 1 journée',
+                  DEV_WEB_IA_DUREE_COURTE,
                   EFFECTIF_LIBELLE,
                   '70 % de pratique',
                   'OPCO selon éligibilité',
@@ -485,7 +506,7 @@ export default function FormationDeveloppementWebIaSansCoderPage() {
       <section id="programme" className={`${OFC_SEC.mutedMesh} scroll-mt-24`} aria-labelledby="programme-title">
         <div className={`${OFC_SECTION_INNER} max-w-4xl`}>
           <h2 id="programme-title" className={OFC_TYPE_H2}>
-            Programme — 4 modules
+            Programme Jour 1 — 4 modules
           </h2>
           <p className="mt-3 max-w-2xl text-base text-ofc-ink-muted">
             Un fil rouge : votre projet. Démonstrations, ateliers guidés, travail individuel, tests et
@@ -525,6 +546,56 @@ export default function FormationDeveloppementWebIaSansCoderPage() {
         </div>
       </section>
 
+      <section
+        id="programme-14h"
+        className={`${OFC_SEC.white} scroll-mt-24`}
+        aria-labelledby="programme-14h-title"
+      >
+        <div className={`${OFC_SECTION_INNER} max-w-4xl`}>
+          <p className={OFC_EYEBROW}>Parcours 14 h · Jour 2</p>
+          <h2 id="programme-14h-title" className={`${OFC_TYPE_H2} mt-2`}>
+            Finaliser, publier et faire évoluer son projet
+          </h2>
+          <p className="mt-3 max-w-2xl text-base text-ofc-ink-muted">
+            Deuxième journée (7 h) : reprise de votre projet du Jour 1, améliorations, mise en ligne et
+            bases de visibilité — tarif inter {formatTarifHt(TARIF_INTER_DEV_WEB_IA_14H_HT)} € HT / participant
+            pour l’ensemble des 14 h.
+          </p>
+          <div className="mt-10 space-y-0">
+            {DEV_WEB_IA_MODULES_JOUR2.map((module) => (
+              <article
+                key={module.number}
+                className="relative border-b border-slate-200 py-8 last:border-0"
+              >
+                <h3 className={OFC_TYPE_H3}>
+                  Module {module.number} — {module.title}
+                </h3>
+                <ul className="mt-4 columns-1 gap-x-8 space-y-2 sm:columns-2">
+                  {module.points.map((point) => (
+                    <li
+                      key={point}
+                      className="break-inside-avoid text-base leading-relaxed text-ofc-ink-muted before:mr-2 before:text-[#377CF3] before:content-['·']"
+                    >
+                      {point}
+                    </li>
+                  ))}
+                </ul>
+              </article>
+            ))}
+          </div>
+          <p className="mt-6">
+            <a
+              href={DEV_WEB_IA_PDF_14H_HREF}
+              download="programme-ofc-developpement-web-ia-14h.pdf"
+              className={`${OFC_CTA_SECONDARY} inline-flex min-h-11 items-center gap-2 px-5 py-3`}
+            >
+              <Download className="h-4 w-4 shrink-0" aria-hidden />
+              Télécharger le programme complet 14 h (PDF)
+            </a>
+          </p>
+        </div>
+      </section>
+
       <FormationCatalogueIndicateur1Suite programmeRef="NIV-10" />
 
       {/* Livrables + résultats */}
@@ -541,10 +612,13 @@ export default function FormationDeveloppementWebIaSansCoderPage() {
             />
             <div>
               <h2 id="livrables-title" className={OFC_TYPE_H2}>
-                À la fin de la journée, vous repartez avec
+                À la fin du parcours, vous repartez avec
               </h2>
+              <p className="mt-3 text-sm text-ofc-ink-muted">
+                Livrables Jour 1 (7 h) ; le parcours 14 h ajoute publication en ligne et consolidation.
+              </p>
               <ul className="mt-8 grid gap-3 sm:grid-cols-2">
-                {DEV_WEB_IA_LIVRABLES.map((item) => (
+                {DEV_WEB_IA_LIVRABLES_14H.map((item) => (
                   <li
                     key={item}
                     className="flex items-start gap-3 rounded-xl bg-white/90 px-4 py-3.5 text-base font-medium text-ofc-ink shadow-[0_1px_0_rgba(15,23,42,0.04)]"
@@ -668,7 +742,7 @@ export default function FormationDeveloppementWebIaSansCoderPage() {
       <TrainingFinalCta
         devisHref={DEVIS_HREF}
         title="Vous avez une idée de site, d’application ou d’outil métier ?"
-        description="Apprenez à construire votre première version avec l’IA, sans savoir coder. Interentreprises ou session intra-entreprise."
+        description="Apprenez à construire votre première version avec l’IA, sans savoir coder. Parcours 7 h ou 14 h — interentreprises ou session intra-entreprise."
         primaryLabel="Demander un devis"
         secondaryHref={INSCRIPTION_HREF}
         secondaryLabel="S’inscrire à la formation"

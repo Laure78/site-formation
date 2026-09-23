@@ -1,15 +1,24 @@
 /**
  * Contenu — formation « Développement web avec l’IA — sans savoir coder » (NIV-10).
- * Source programme 7 h — Laure Olivié / OFC Création d’Entreprise.
+ * Parcours 7 h / 14 h — alignés `lib/bework-programmes.ts`.
  */
 import { LINKS } from '@/lib/internal-links';
 import { FINANCEMENT_FORMULATION_PRUDENTE } from '@/lib/financement-copy';
+import { BEWORK_MODULES_JOUR2, BEWORK_PARCOURS } from '@/lib/bework-programmes';
+import { formatTarifHt } from '@/lib/tarifs-sessions';
 
 export const DEV_WEB_IA_PATH = LINKS.formationDeveloppementWebIaSansCoder;
 export const DEV_WEB_IA_CODE = 'NIV-10' as const;
 
-/** Tarif interentreprises — source unique (prix de lancement). */
-export const TARIF_INTER_DEV_WEB_IA_HT = 300;
+/** Tarifs inter — source unique (alignés BeWork / OFC). */
+export const TARIF_INTER_DEV_WEB_IA_HT = BEWORK_PARCOURS['7h'].tarifHt;
+export const TARIF_INTER_DEV_WEB_IA_14H_HT = BEWORK_PARCOURS['14h'].tarifHt;
+
+export const DEV_WEB_IA_PARCOURS_7H = BEWORK_PARCOURS['7h'];
+export const DEV_WEB_IA_PARCOURS_14H = BEWORK_PARCOURS['14h'];
+
+export const DEV_WEB_IA_PDF_7H_HREF = LINKS.pdfProgrammeDeveloppementWebIaSansCoder;
+export const DEV_WEB_IA_PDF_14H_HREF = LINKS.pdfProgrammeDeveloppementWebIaSansCoder14h;
 
 /** Libellés commerciaux — pas de prix barré ni de date de fin fictive. */
 export const DEV_WEB_IA_BADGE_NOUVELLE = 'Nouvelle formation' as const;
@@ -26,14 +35,14 @@ export const DEV_WEB_IA_HOOK = {
 } as const;
 
 export const DEV_WEB_IA_HERO_FACTS = [
-  '7 heures — 1 journée',
+  '7 h (1 journée) ou 14 h (2 journées)',
   '9h00 – 12h30 · 13h30 – 17h00',
   '6 à 8 participants',
   '70 % pratique · 30 % méthodologie',
 ] as const;
 
 /** Ligne durée courte (hero / cartes). */
-export const DEV_WEB_IA_DUREE_COURTE = '7 h · 1 journée' as const;
+export const DEV_WEB_IA_DUREE_COURTE = '7 h ou 14 h' as const;
 
 export const DEV_WEB_IA_INCLUS_TARIF = [
   'l’animation de la formation',
@@ -148,6 +157,15 @@ export const DEV_WEB_IA_MODULES: readonly DevWebIaModule[] = [
   },
 ];
 
+/** Programme Jour 2 — parcours 14 h uniquement. */
+export const DEV_WEB_IA_MODULES_JOUR2: readonly DevWebIaModule[] = BEWORK_MODULES_JOUR2.modules.map(
+  (m) => ({
+    number: m.number,
+    title: m.title,
+    points: m.sequences.flatMap((s) => s.points),
+  }),
+);
+
 export const DEV_WEB_IA_LIVRABLES = [
   'votre projet cadré',
   'votre périmètre fonctionnel défini',
@@ -157,6 +175,13 @@ export const DEV_WEB_IA_LIVRABLES = [
   'une méthode de test et de correction',
   'votre projet sauvegardé',
   'une feuille de route pour continuer',
+] as const;
+
+export const DEV_WEB_IA_LIVRABLES_14H = [
+  ...DEV_WEB_IA_LIVRABLES,
+  'un projet enrichi et testé en profondeur',
+  'une version publiée en ligne (selon avancement du participant)',
+  'des bases de référencement et de contrôle post-publication',
 ] as const;
 
 export const DEV_WEB_IA_PEDAGOGIE = [
@@ -201,14 +226,18 @@ export const DEV_WEB_IA_FAQ = [
     a: 'Présentiel, classe virtuelle, ou intra-entreprise sur demande. Groupe de 6 à 8 participants.',
   },
   {
+    q: 'Quelle durée choisir — 7 h ou 14 h ?',
+    a: `Le parcours <strong>7 h</strong> (1 journée) couvre le Jour 1 : cadrage, première version, tests et feuille de route — ${formatTarifHt(TARIF_INTER_DEV_WEB_IA_HT)} € HT / participant. Le parcours <strong>14 h</strong> (2 journées) reprend le Jour 1 puis approfondit : améliorer le projet, publier en ligne et bases de référencement — ${formatTarifHt(TARIF_INTER_DEV_WEB_IA_14H_HT)} € HT / participant. Vous pouvez commencer en 7 h et prolonger en 14 h selon les dates ouvertes.`,
+  },
+  {
     q: 'Quel est le tarif de la formation ?',
-    a: `Le prix de lancement de la formation interentreprises est de ${TARIF_INTER_DEV_WEB_IA_HT} € HT par participant pour une journée de 7 heures. Les sessions intra-entreprise font l’objet d’un devis adapté au besoin de l’entreprise. Une prise en charge par un OPCO peut être possible selon l’éligibilité, les plafonds applicables et l’accord de financement.`,
+    a: `Inter-entreprises : ${formatTarifHt(TARIF_INTER_DEV_WEB_IA_HT)} € HT / participant (7 h) · ${formatTarifHt(TARIF_INTER_DEV_WEB_IA_14H_HT)} € HT / participant (14 h). Intra-entreprise : sur devis. Prise en charge par un OPCO possible selon l’éligibilité, les plafonds applicables et l’accord de financement.`,
   },
 ] as const;
 
 /** Libellé tarif catalogue / résumés — cohérent partout. */
 export function libelleTarifLancementDevWebIa(): string {
-  return `${DEV_WEB_IA_PRIX_LANCEMENT_LABEL} : ${TARIF_INTER_DEV_WEB_IA_HT} € HT / participant`;
+  return `${DEV_WEB_IA_PRIX_LANCEMENT_LABEL} : ${formatTarifHt(TARIF_INTER_DEV_WEB_IA_HT)} € HT / participant (7 h) · ${formatTarifHt(TARIF_INTER_DEV_WEB_IA_14H_HT)} € HT / participant (14 h)`;
 }
 
 export function mentionFinancementDevWebIa(): string {

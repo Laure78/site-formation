@@ -121,6 +121,8 @@ export const LINKS = {
   formationDeveloppementWebIaSansCoder: '/formations/developpement-web-ia-sans-coder',
   pdfProgrammeDeveloppementWebIaSansCoder:
     '/formations/developpement-web-ia-sans-coder/programme-ofc-developpement-web-ia-7h.pdf',
+  pdfProgrammeDeveloppementWebIaSansCoder14h:
+    '/formations/developpement-web-ia-sans-coder/programme-ofc-developpement-web-ia-14h.pdf',
   pdfProgrammeIaBtpNiveau1BatimentTp: '/formations/pdf/programme-niveau-1-ia-batiment-travaux-publics.pdf',
   pdfProgrammeIaBtpNiveau2AppelsOffre: PDF_PROGRAMME_NIV02_AO_BTP,
   /** Alias explicite — même fichier que `pdfProgrammeIaBtpNiveau2AppelsOffre` */
