@@ -3,11 +3,11 @@ import { createClient } from '@supabase/supabase-js';
 import { createAdminClient } from '@/lib/supabase/admin';
 import { canAccessAdmin } from '@/lib/admin-access';
 
-const TARGET_EMAIL = 'laureolivie@yahoo.fr';
+const TARGET_EMAIL = 'contact@laureolivie.fr';
 const FULL_NAME = 'Laure Olivié';
 
 /**
- * Bootstrap local uniquement : crée / répare le compte admin yahoo.fr.
+ * Bootstrap local uniquement : crée / répare le compte admin contact@laureolivie.fr.
  * POST { "password": "..." } — NODE_ENV=development uniquement.
  */
 export async function POST(request: Request) {

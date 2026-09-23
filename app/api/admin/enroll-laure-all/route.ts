@@ -9,7 +9,7 @@ import { checkRateLimit, clientIpFromRequest } from '@/lib/rate-limit';
 
 /**
  * POST /api/admin/enroll-laure-all
- * Inscrit laureolivie@yahoo.fr sur toutes les formations existantes.
+ * Inscrit contact@laureolivie.fr sur toutes les formations existantes.
  * Les futures formations restent couvertes par le trigger SQL + enroll à la création.
  *
  * Utilise la session admin (RLS autorise admin/formateur sur enrollments).
