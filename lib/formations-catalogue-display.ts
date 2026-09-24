@@ -170,10 +170,37 @@ export function getFormationCatalogueVisuel(ref: string) {
   return entry.visuel;
 }
 
-/** Niveau pédagogique affiché (libellé source `data/formations.ts`). */
+/** Niveau pédagogique affiché — toujours « Niveau 1 » ou « Niveau 2 ». */
 export function catalogueNiveauLabel(ref: string): string {
   const f = getFormationByCode(ref);
-  return f?.niveauLabel ?? (f?.niveau === 1 ? 'Niveau 1' : 'Niveau 2');
+  return f?.niveau === 1 ? 'Niveau 1' : 'Niveau 2';
+}
+
+/** Badge niveau catalogue — « NIVEAU 1 · FONDAMENTAUX » ou « NIVEAU 2 · PERFECTIONNEMENT ». */
+export function catalogueNiveauBadgeLabel(ref: string): string {
+  const f = getFormationByCode(ref);
+  return f?.niveau === 1
+    ? 'Niveau 1 · Fondamentaux'
+    : 'Niveau 2 · Perfectionnement';
+}
+
+/** Catégorie thématique secondaire (optionnelle, affichée sous le badge niveau). */
+export function catalogueThemeSecondaryLabel(ref: string): string | null {
+  const f = getFormationByCode(ref);
+  if (!f?.theme) return null;
+  const THEME_LABELS: Record<string, string> = {
+    'appels-offres-etudes': 'Appels d\u2019offres',
+    'chantier-travaux': 'Chantier',
+    'maitrise-oeuvre': 'Maîtrise d\u2019œuvre',
+    'outils-applications': ref === 'NIV-10' ? 'Création avec l\u2019IA' : 'Claude',
+    'assistants-automatisation': 'Assistants IA',
+    'administratif': 'Administratif',
+    'gestion-contractuelle': 'Gestion contractuelle',
+    'commercial': 'Commercial',
+    'transformation-ia': 'Transformation IA',
+    'strategie-adoption': 'Stratégie IA',
+  };
+  return THEME_LABELS[f.theme] ?? null;
 }
 
 export function catalogueGammeLabel(gamme: FormationCatalogueEntry['gamme']): string {
@@ -193,11 +220,9 @@ export function isCatalogueNiveau1(ref: string): boolean {
   return getFormationByCode(ref)?.niveau === 1;
 }
 
-/** Ligne hero / carte : « Niveau 1 · Débutant » ou « Niveau 2 · Avancé ». */
-export function catalogueNiveauEtLevel(ref: string, level: CatalogueLevel): string {
-  const niveau = catalogueNiveauLabel(ref);
-  const levelLabel = level === 'DÉBUTANT' ? 'Débutant' : 'Avancé';
-  return `${niveau} · ${levelLabel}`;
+/** Ligne hero / carte : « Niveau 1 · Fondamentaux » ou « Niveau 2 · Perfectionnement ». */
+export function catalogueNiveauEtLevel(ref: string, _level: CatalogueLevel): string {
+  return catalogueNiveauBadgeLabel(ref);
 }
 
 /** Libellé lien UI — titre officiel (sans code NIV-XX ni version). */

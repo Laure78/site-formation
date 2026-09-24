@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { Clock, FileText, Users } from 'lucide-react';
+import { ArrowRight, Check, Clock, FileText, Users } from 'lucide-react';
 import type { FormationCatalogueEntry } from '@/lib/formations-catalogue-display';
 import {
   catalogueCasUsageTags,
@@ -8,7 +8,8 @@ import {
   cataloguePublicOneLine,
 } from '@/lib/formations-catalogue-page-config';
 import {
-  catalogueNiveauLabel,
+  catalogueNiveauBadgeLabel,
+  catalogueThemeSecondaryLabel,
   tarifLabelForEntry,
 } from '@/lib/formations-catalogue-display';
 import {
@@ -17,13 +18,8 @@ import {
   DEV_WEB_IA_PRIX_LANCEMENT_LABEL,
   TARIF_INTER_DEV_WEB_IA_HT,
 } from '@/lib/formation-developpement-web-ia-content';
-import {
-  trainingCategoryBadge,
-  type TrainingParcoursKind,
-} from '@/lib/training-page-helpers';
-import { PERIMETRE_FORMATIONS_COURT, formatTarifHt } from '@/lib/tarifs-sessions';
-import { Badge } from '@/components/ui/Badge';
-import { OFC_CARD, OFC_CTA_PRIMARY, OFC_CTA_SECONDARY, OFC_TYPE_H3 } from '@/lib/ofc-interaction-classes';
+import { formatTarifHt } from '@/lib/tarifs-sessions';
+import { OFC_CARD, OFC_CTA_PRIMARY, OFC_LINK } from '@/lib/ofc-interaction-classes';
 
 type Props = {
   entry: FormationCatalogueEntry;
@@ -31,13 +27,7 @@ type Props = {
   dimmed?: boolean;
 };
 
-function parcoursKindForRef(ref: string): TrainingParcoursKind {
-  if (ref === 'NIV-06' || ref === 'NIV-07' || ref === 'NIV-08') return 'applications-metier';
-  if (ref === 'NIV-10') return 'creation-ia';
-  return 'usages-ia-btp';
-}
-
-/** Carte catalogue — une formation, un CTA principal. */
+/** Carte catalogue — structure homogène avec badge niveau primaire. */
 export function FormationsCatalogueCard({
   entry,
   highlighted = false,
@@ -45,32 +35,33 @@ export function FormationsCatalogueCard({
 }: Props) {
   const tags = catalogueCasUsageTags(entry);
   const publicLine = cataloguePublicOneLine(entry.comparatif.publicLabel);
-  const isDebutant = entry.level === 'DÉBUTANT';
+  const isNiveau1 = entry.ref === 'NIV-01';
   const isDevWebIa = entry.ref === 'NIV-10';
-  const parcoursLabel = trainingCategoryBadge(parcoursKindForRef(entry.ref));
+  const niveauBadge = catalogueNiveauBadgeLabel(entry.ref);
+  const themeLabel = catalogueThemeSecondaryLabel(entry.ref);
   const visuel = entry.visuel;
   const caption =
     'description' in visuel && typeof visuel.description === 'string'
       ? visuel.description
       : undefined;
-  const cardHighlighted = highlighted || isDevWebIa;
 
   return (
     <article
       id={catalogueCardAnchorId(entry.ref)}
-      className={`${OFC_CARD} flex h-full min-h-[32rem] scroll-mt-28 flex-col overflow-hidden p-0 ${
-        cardHighlighted ? 'border-ofc-accent/40 shadow-ofc-md ring-1 ring-ofc-accent/25' : ''
+      className={`${OFC_CARD} flex h-full min-h-[28rem] scroll-mt-28 flex-col overflow-hidden p-0 ${
+        highlighted ? 'border-ofc-accent/40 shadow-ofc-md ring-1 ring-ofc-accent/25' : ''
       } ${dimmed ? 'opacity-45' : ''}`}
     >
+      {/* Image */}
       <figure className="relative">
-        <div className="relative aspect-[4/3] overflow-hidden bg-slate-100">
+        <div className="relative aspect-[16/9] overflow-hidden bg-slate-100">
           <Image
             src={visuel.src}
             alt={visuel.alt}
             title={'title' in visuel && typeof visuel.title === 'string' ? visuel.title : undefined}
             fill
             className="object-cover object-center"
-            sizes="(max-width: 1024px) 100vw, 50vw"
+            sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
             quality={75}
           />
         </div>
@@ -82,105 +73,102 @@ export function FormationsCatalogueCard({
         {caption ? <figcaption className="sr-only">{caption}</figcaption> : null}
       </figure>
 
-      <div className="flex flex-1 flex-col p-6 sm:p-7 md:p-8">
+      <div className="flex flex-1 flex-col p-5 sm:p-6">
+        {/* Badge niveau (primaire) + catégorie thématique (secondaire) */}
         <div className="flex flex-wrap items-center gap-2">
-          <Badge className="bg-ofc-accent-soft text-ofc-accent">{parcoursLabel}</Badge>
-          {isDevWebIa ? (
-            <span className="rounded-full bg-[#377CF3]/10 px-2.5 py-1 text-[11px] font-bold uppercase tracking-wide text-[#377CF3]">
-              {DEV_WEB_IA_BADGE_NOUVEAU}
+          <span
+            className={`rounded-full px-3 py-1 text-[11px] font-bold uppercase tracking-wide ${
+              isNiveau1
+                ? 'bg-emerald-50 text-emerald-700 ring-1 ring-emerald-200'
+                : 'bg-blue-50 text-blue-700 ring-1 ring-blue-200'
+            }`}
+          >
+            {niveauBadge}
+          </span>
+          {themeLabel ? (
+            <span className="rounded-full bg-slate-100 px-2.5 py-1 text-[11px] font-medium text-slate-600">
+              {themeLabel}
             </span>
-          ) : (
-            <span
-              className={`rounded-full px-2.5 py-1 text-[11px] font-bold uppercase tracking-wide ${
-                isDebutant ? 'bg-emerald-100 text-emerald-800' : 'bg-orange-100 text-orange-800'
-              }`}
-            >
-              {catalogueNiveauLabel(entry.ref)}
-            </span>
-          )}
+          ) : null}
         </div>
 
-        {isDevWebIa ? (
-          <>
-            <h3 className={`${OFC_TYPE_H3} mt-5 text-ofc-ink`}>Développement web avec l’IA</h3>
-            <p className="mt-1 text-base font-semibold text-[#377CF3]">Sans savoir coder</p>
-          </>
-        ) : (
-          <h3 className={`${OFC_TYPE_H3} mt-5 text-ofc-ink`}>{entry.title}</h3>
-        )}
+        {/* Titre */}
+        <h3 className="mt-4 font-display text-lg font-bold leading-snug text-ofc-ink">
+          {entry.title}
+        </h3>
 
-        <p className="mt-3 text-sm leading-relaxed text-ofc-ink-muted md:text-base">{entry.promesse}</p>
+        {/* Bénéfice principal */}
+        <p className="mt-2 text-sm leading-relaxed text-ofc-ink-muted">
+          {entry.promesse}
+        </p>
 
-        <p className="mt-4 text-sm text-ofc-ink-muted">
-          <span className="font-semibold text-ofc-ink">Pour qui ? </span>
+        {/* Public */}
+        <p className="mt-3 text-sm text-ofc-ink-muted">
+          <span className="font-semibold text-ofc-ink">Pour : </span>
           {publicLine}
         </p>
 
-        <ul className="mt-4 flex flex-wrap gap-2" aria-label="Cas d'usage">
+        {/* Objectifs / cas d'usage (max 3) */}
+        <ul className="mt-3 space-y-1" aria-label="Objectifs clés">
           {tags.map((tag) => (
             <li
               key={tag}
-              className="rounded-full border border-ofc-border bg-[var(--ofc-color-canvas)] px-2.5 py-1 text-xs font-medium text-ofc-ink-muted"
+              className="flex items-start gap-2 text-sm text-ofc-ink-muted"
             >
+              <Check className="mt-0.5 h-3.5 w-3.5 shrink-0 text-ofc-accent" aria-hidden />
               {tag}
             </li>
           ))}
         </ul>
 
-        <dl className="mt-auto grid grid-cols-2 gap-x-4 gap-y-2 border-t border-ofc-border pt-4 text-sm">
-          <div>
-            <dt className="text-xs font-semibold uppercase tracking-wide text-ofc-ink-subtle">Durée</dt>
-            <dd className="mt-0.5 flex items-center gap-1 text-ofc-ink-muted">
-              <Clock className="h-3.5 w-3.5 shrink-0 text-ofc-accent" aria-hidden />
+        {/* Infos pratiques — poussées en bas */}
+        <div className="mt-auto space-y-3 border-t border-slate-100 pt-4">
+          <div className="flex flex-wrap items-center gap-x-5 gap-y-1 text-sm text-ofc-ink-muted">
+            <span className="inline-flex items-center gap-1.5">
+              <Clock className="h-3.5 w-3.5 text-ofc-accent" aria-hidden />
               {isDevWebIa ? DEV_WEB_IA_DUREE_COURTE : entry.duree}
-            </dd>
-          </div>
-          <div>
-            <dt className="text-xs font-semibold uppercase tracking-wide text-ofc-ink-subtle">Effectif</dt>
-            <dd className="mt-0.5 flex items-center gap-1 text-ofc-ink-muted">
-              <Users className="h-3.5 w-3.5 shrink-0 text-ofc-accent" aria-hidden />
+            </span>
+            <span className="inline-flex items-center gap-1.5">
+              <Users className="h-3.5 w-3.5 text-ofc-accent" aria-hidden />
               {entry.effectif}
-            </dd>
+            </span>
           </div>
-          <div className="col-span-2">
-            <dt className="text-xs font-semibold uppercase tracking-wide text-ofc-ink-subtle">Format</dt>
-            <dd className="mt-0.5 text-ofc-ink-muted">{PERIMETRE_FORMATIONS_COURT}</dd>
-          </div>
-          <div className="col-span-2">
-            <dt className="text-xs font-semibold uppercase tracking-wide text-ofc-ink-subtle">Tarif</dt>
-            <dd className="mt-0.5 font-semibold text-ofc-ink">
-              {isDevWebIa ? (
-                <>
-                  <span className="text-[#377CF3]">{DEV_WEB_IA_PRIX_LANCEMENT_LABEL}</span>
-                  <br />
-                  <span className="font-normal text-ofc-ink-muted">
-                    {formatTarifHt(TARIF_INTER_DEV_WEB_IA_HT)} € HT / participant
-                  </span>
-                </>
-              ) : (
-                (entry.tarifParcoursLabel ?? tarifLabelForEntry(entry))
-              )}
-            </dd>
-          </div>
-        </dl>
 
-        <div className="mt-7 flex flex-col gap-2">
-          <Link
-            href={entry.href}
-            className={`${OFC_CTA_PRIMARY} inline-flex min-h-11 items-center justify-center px-5 py-3 text-sm`}
-          >
-            Voir la formation
-          </Link>
-          {entry.programmePdfHref ? (
-            <a
-              href={entry.programmePdfHref}
-              download
-              className={`${OFC_CTA_SECONDARY} inline-flex min-h-11 items-center justify-center gap-2 px-5 py-3 text-sm`}
+          <p className="text-sm font-semibold text-ofc-ink">
+            {isDevWebIa ? (
+              <>
+                <span className="text-[#377CF3]">{DEV_WEB_IA_PRIX_LANCEMENT_LABEL}</span>
+                {' · '}
+                <span className="font-normal text-ofc-ink-muted">
+                  {formatTarifHt(TARIF_INTER_DEV_WEB_IA_HT)} € HT / participant
+                </span>
+              </>
+            ) : (
+              (entry.tarifParcoursLabel ?? tarifLabelForEntry(entry))
+            )}
+          </p>
+
+          {/* CTA principal + lien PDF */}
+          <div className="flex flex-col gap-2">
+            <Link
+              href={entry.href}
+              className={`${OFC_CTA_PRIMARY} inline-flex min-h-11 items-center justify-center gap-2 px-5 py-3 text-sm`}
             >
-              <FileText className="h-4 w-4 shrink-0" aria-hidden />
-              Programme PDF
-            </a>
-          ) : null}
+              Découvrir la formation
+              <ArrowRight className="h-4 w-4" aria-hidden />
+            </Link>
+            {entry.programmePdfHref ? (
+              <a
+                href={entry.programmePdfHref}
+                download
+                className={`${OFC_LINK} inline-flex items-center justify-center gap-1.5 py-2 text-sm`}
+              >
+                <FileText className="h-3.5 w-3.5" aria-hidden />
+                Programme PDF
+                <span aria-hidden>→</span>
+              </a>
+            ) : null}
+          </div>
         </div>
       </div>
     </article>
