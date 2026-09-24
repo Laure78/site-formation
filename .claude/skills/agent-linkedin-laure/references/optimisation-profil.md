@@ -24,7 +24,7 @@
 Structure : [ce qu'elle fait] + [cible BTP] + [preuve/différenciateur], < 220 caractères.
 
 Exemples :
-↳ « Je forme les pros du BTP à l'IA et ChatGPT · 10 ans de terrain avant la formation · plus de 1 500 professionnels formés · Qualiopi »
+↳ « Je forme les pros du BTP à l'IA et ChatGPT · 7 ans de terrain avant la formation · plus de 1 500 professionnels formés · Qualiopi »
 ↳ « Dirigeante d'une entreprise de Travaux Publics dans les Yvelines devenue formatrice IA pour le BTP · Je rends l'IA utile sur le chantier ·  »
 ↳ « Formatrice IA du BTP (OFC) · Fondatrice BeWork · Du terrain, pas de la théorie · 1 500+ pros formés »
 
@@ -36,7 +36,7 @@ Règles :
 ## Section Infos / About
 
 ⦿ ligne 1 = hook (visible avant le « voir plus »)
-↳ « J'ai conduit des chantiers pendant 10 ans avant de former à l'IA. Ça change tout. »
+↳ « J'ai dirigé une entreprise de travaux publics pendant 7 ans avant de former à l'IA. Ça change tout. »
 ⦿ preuve : parcours ALIA BTP + 1 500+ pros + Qualiopi + LinkedIn Learning
 ⦿ offre : ce que fait OFC (formations IA présentiel Île-de-France), puis BeWork en fondatrice
 ⦿ CTA : lien Calendly OFC (appel découverte formation)

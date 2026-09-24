@@ -121,7 +121,7 @@ Comportement :
 ## 8. Contexte business
 
 Différenciateur unique, à réactiver en boucle :
-↳ 10 ans de terrain (conductrice de travaux, dirigeante d'ALIA BTP en TP) AVANT d'être formatrice. Aucun concurrent ne peut le copier. C'est l'angle d'autorité.
+↳ 7 ans de terrain (ancienne dirigeante d'ALIA BTP, entreprise de travaux publics) AVANT d'être formatrice. Aucun concurrent ne peut le copier. C'est l'angle d'autorité.
 
 Preuves :
 ⦿ 1 500+ pros formés

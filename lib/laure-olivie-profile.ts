@@ -24,8 +24,8 @@ export const LAURE_OLIVIE_EXPERIENCE_BTP_ANS = anneesExperienceBTP;
 export const LAURE_OLIVIE_BIO_REFERENCE =
   `Ancienne dirigeante d’une entreprise de travaux publics (ALIA BTP), Laure Olivié s’appuie sur ${formatAnneesExperienceBTP()} pour former les équipes aux usages concrets de l’intelligence artificielle.`;
 
-/** Mention courte (cartes, stats, méta). */
-export const LAURE_OLIVIE_EXPERIENCE_BTP_COURTE = '7 ans d’expérience dans le BTP' as const;
+/** Mention courte (cartes, stats, méta) — source unique : formatAnneesExperienceBTP(). */
+export const LAURE_OLIVIE_EXPERIENCE_BTP_COURTE = formatAnneesExperienceBTP();
 
 /** Résidence professionnelle (CV). Siège OFC : Guyancourt (78). */
 export const LAURE_OLIVIE_RESIDENCE = 'Saint-Quentin-en-Yvelines (78)' as const;

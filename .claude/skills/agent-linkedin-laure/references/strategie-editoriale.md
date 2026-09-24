@@ -3,7 +3,7 @@
 ## Les 4 piliers de contenu
 
 ⦿ A — Autorité terrain
-↳ 10 ans de chantier avant la formation, dirigeante d'ALIA BTP, conductrice de travaux
+↳ 7 ans de chantier avant la formation, dirigeante d'ALIA BTP (entreprise de travaux publics)
 ↳ anecdotes réelles, erreurs vécues, coûts évités, ce que le terrain t'a appris
 ↳ le pilier que personne ne peut copier → à réactiver en boucle
 
@@ -60,7 +60,7 @@
 
 ⦿ A Autorité terrain
 ↳ « L'erreur de chantier qui m'a coûté X et ce qu'elle m'a appris »
-↳ « Ce que 10 ans de conduite de travaux m'ont appris sur [sujet] »
+↳ « Ce que 7 ans dans les travaux publics m'ont appris sur [sujet] »
 ↳ « Personne ne t'explique ça en formation. Le terrain, si. »
 
 ⦿ B Méthode & valeur
