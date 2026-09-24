@@ -211,30 +211,7 @@ export default function FormationDeveloppementWebIaSansCoderPage() {
                 </p>
               </div>
 
-              <p className="mt-5 max-w-xl text-base leading-relaxed text-ofc-ink-muted">
-                Pas un logiciel complet prêt pour la production : une première version fonctionnelle,
-                une méthode de travail, des tests, des corrections et une feuille de route pour
-                continuer.
-              </p>
-
-              <ul className="mt-8 flex flex-wrap gap-x-6 gap-y-3 text-sm font-medium text-ofc-ink">
-                <li className="inline-flex items-center gap-2">
-                  <Clock className="h-4 w-4 text-[#377CF3]" aria-hidden />
-                  {DEV_WEB_IA_DUREE_COURTE} · 9h00 – 17h00
-                </li>
-                <li className="inline-flex items-center gap-2">
-                  <Users className="h-4 w-4 text-[#377CF3]" aria-hidden />
-                  {EFFECTIF_LIBELLE}
-                </li>
-                <li className="inline-flex items-center gap-2">
-                  <Wrench className="h-4 w-4 text-[#377CF3]" aria-hidden />
-                  70 % pratique
-                </li>
-              </ul>
-
-              <FormationHeroOutilsNote catalogueRef="NIV-10" className="mt-6" />
-
-              <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+              <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
                 <a
                   href={DEV_WEB_IA_PDF_7H_HREF}
                   download="programme-ofc-developpement-web-ia-7h.pdf"
@@ -258,6 +235,29 @@ export default function FormationDeveloppementWebIaSansCoderPage() {
                   Voir les prochaines dates
                 </Link>
               </div>
+
+              <p className="mt-5 max-w-xl text-base leading-relaxed text-ofc-ink-muted">
+                Pas un logiciel complet prêt pour la production : une première version fonctionnelle,
+                une méthode de travail, des tests, des corrections et une feuille de route pour
+                continuer.
+              </p>
+
+              <ul className="mt-6 flex flex-wrap gap-x-6 gap-y-3 text-sm font-medium text-ofc-ink">
+                <li className="inline-flex items-center gap-2">
+                  <Clock className="h-4 w-4 text-[#377CF3]" aria-hidden />
+                  {DEV_WEB_IA_DUREE_COURTE} · 9h00 – 17h00
+                </li>
+                <li className="inline-flex items-center gap-2">
+                  <Users className="h-4 w-4 text-[#377CF3]" aria-hidden />
+                  {EFFECTIF_LIBELLE}
+                </li>
+                <li className="inline-flex items-center gap-2">
+                  <Wrench className="h-4 w-4 text-[#377CF3]" aria-hidden />
+                  70 % pratique
+                </li>
+              </ul>
+
+              <FormationHeroOutilsNote catalogueRef="NIV-10" className="mt-6" />
             </div>
 
             <aside className="min-w-0 space-y-5">
