@@ -5,8 +5,8 @@ import { Section } from '@/components/ui/Section';
 import { Eyebrow } from '@/components/ui/Eyebrow';
 import { LINKS } from '@/lib/internal-links';
 import { LAURE_OLIVIE_CLIENT_REFERENCES_SHORT } from '@/lib/laure-olivie-profile';
-import {
 import { formatAnneesExperienceBTP } from '@/lib/data/indicateurs-resultats';
+import {
   OFC_CTA_PRIMARY,
   OFC_LINK,
   OFC_TYPE_H2,

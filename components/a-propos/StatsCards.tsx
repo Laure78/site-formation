@@ -8,7 +8,7 @@ const STATS = [
   { icon: Clock3, value: formatAnneesExperienceBTPCourt(), label: 'EXPÉRIENCE BTP', ring: 'bg-[#EFF6FF]' },
   { icon: Award, value: 'Qualiopi', label: 'CERTIFIÉE', ring: 'bg-[#D1FAE5]' },
   { icon: GraduationCap, value: 'LinkedIn Learning', label: 'INSTRUCTRICE', ring: 'bg-[#EFF6FF]' },
-] as const;
+];
 
 export function StatsCards() {
   return (

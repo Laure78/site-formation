@@ -56,7 +56,7 @@ Ordre recommandé :
 ## Expérience
 
 ⦿ décris le bénéfice, pas l'intitulé
-↳ « Conductrice de travaux / Dirigeante ALIA BTP » → « J'ai piloté des chantiers TP et dirigé une entreprise. Le terrain qui nourrit chaque formation. »
+↳ « Ancienne dirigeante d’une entreprise de travaux publics (ALIA BTP) » → « J'ai piloté des chantiers TP et dirigé une entreprise. Le terrain qui nourrit chaque formation. »
 ⦿ ne masque JAMAIS ALIA BTP : c'est la preuve du différenciateur
 ⦿ OFC en poste actuel principal, BeWork en fondation parallèle
 

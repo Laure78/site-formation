@@ -51,7 +51,7 @@ export function siteOrganizationProofSnippet(): string {
   return `Satisfaction ${formatNoteSatisfactionAffichageComplet()}.`;
 }
 
-/** Description Person par défaut — 7 ans d’expérience BTP + note sourcée. */
+/** Description Person par défaut — expérience BTP (source : anneesExperienceBTP) + note sourcée. */
 export function sitePersonProofDescription(baseDescription: string): string {
   return `${baseDescription} ${formatNoteSatisfactionAffichageComplet()}.`;
 }

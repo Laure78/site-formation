@@ -643,7 +643,7 @@ export const APPLICATION_METIER_NIVEAU_2: ApplicationMetierNiveauConfig = {
       title: 'Laure Olivié',
       role: 'Formatrice IA spécialisée BTP',
       paragraphs: [
-        '${formatAnneesExperienceBTP()}, dont la direction d’une entreprise de travaux publics (ALIA BTP).',
+        `${formatAnneesExperienceBTP()}, dont la direction d’une entreprise de travaux publics (ALIA BTP).`,
         'J’accompagne les PME du BTP à créer des outils métier utiles, avec validation humaine sur les résultats sensibles.',
       ],
     },

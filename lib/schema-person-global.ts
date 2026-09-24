@@ -25,7 +25,7 @@ export type PersonLaureSchemaNodeOptions = {
 
 /**
  * Nœud JSON-LD `Person` — Laure Olivié.
- * Doctrine : formatrice IA · 7 ans d’expérience dans le BTP · présentiel IDF.
+ * Doctrine : formatrice IA · expérience BTP (source : anneesExperienceBTP) · présentiel IDF.
  * Injecté via layout (`GlobalSiteJsonLd`) et page `/a-propos`.
  */
 export function buildPersonLaureSchemaNode(

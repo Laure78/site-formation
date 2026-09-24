@@ -267,7 +267,7 @@ export default function FormationIaBtpIleDeFrancePage() {
               Pourquoi Laure Olivié
             </h2>
             <p className="mt-4 text-base leading-relaxed text-slate-600 md:text-lg">
-              Formatrice IA spécialisée BTP depuis 2022, après ${formatAnneesExperienceBTP()} comme ancienne dirigeante d’une entreprise de travaux publics (ALIA
+              Formatrice IA spécialisée BTP depuis 2022, après {formatAnneesExperienceBTP()} comme ancienne dirigeante d’une entreprise de travaux publics (ALIA
               BTP). Références : FFB Grand Paris, {CSFE_NOM_COMPLET}, CNAM Entreprise, instructrice LinkedIn Learning.
               Méthode 100 % pratique, présentiel en Île-de-France.
             </p>

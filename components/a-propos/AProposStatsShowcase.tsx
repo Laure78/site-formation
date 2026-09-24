@@ -28,7 +28,7 @@ const STATS = [
     value: 'Qualiopi',
     label: 'Certifiée jusqu’en jan. 2028',
   },
-] as const;
+];
 
 /**
  * Bandeau chiffres clés — apparition au scroll (page /a-propos).

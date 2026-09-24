@@ -6,7 +6,6 @@ import { FormationHeroPhoto } from '@/components/formations/FormationHeroPhoto';
 import { CataloguePriceBadge } from '@/components/formations/CataloguePriceBadge';
 import { FormationHeroOutilsNote } from '@/components/formations/FormationHeroOutilsNote';
 import { getFormationCatalogueByRef } from '@/lib/formations-catalogue-display';
-import { LINKS } from '@/lib/internal-links';
 import { OFC_CTA_PRIMARY, OFC_CTA_SECONDARY, OFC_LINK } from '@/lib/ofc-interaction-classes';
 import { cn } from '@/lib/cn';
 
