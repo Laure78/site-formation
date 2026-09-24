@@ -133,7 +133,7 @@ export function buildHomeUnifiedGraphJsonLd(): Record<string, unknown> {
           'Formation professionnelle Qualiopi',
           'Conduite de travaux',
         ],
-        alumniOf: { '@type': 'Organization', name: 'Conductrice de travaux ALIA BTP' },
+        alumniOf: { '@type': 'Organization', name: 'ALIA BTP — entreprise de travaux publics' },
         sameAs: [SCHEMA_LINKEDIN_PROFILE_URL, 'https://www.linkedin.com/learning/instructors/laure-olivie'],
       },
       buildHomeHeroImageObjectNode(),

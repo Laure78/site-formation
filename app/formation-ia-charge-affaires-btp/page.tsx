@@ -457,7 +457,7 @@ export default function FormationIaChargeAffairesBtpPage() {
             Formation BTP-02 — IA et appels d&apos;offres BTP : avancé
           </h3>
           <p className="mt-2 text-sm text-slate-600">
-            Référence : BTP-02 · Avancé · 4 h · {libelleTarifsDualCourt(4)} ·{' '}
+            Référence : BTP-02 · Niveau 2 · 4 h · {libelleTarifsDualCourt(4)} ·{' '}
             {EFFECTIF_GROUPE_MAX} participants max
           </p>
           <p className="mt-4 text-slate-600 leading-relaxed">

@@ -22,7 +22,7 @@ export const formationsData = Object.fromEntries(
     {
       name: f.titre,
       ref: f.code,
-      level: f.niveau === 1 ? 'Débutant' : 'Avancé',
+      level: f.niveau === 1 ? 'Fondamentaux' : 'Perfectionnement',
       duration: 'PT4H',
       price: f.prixHT,
       description: f.accroche,

@@ -277,8 +277,8 @@ export const DEDICATED_FORMATION_COURSE_PATHS = [
 
 export type DedicatedFormationCoursePath = (typeof DEDICATED_FORMATION_COURSE_PATHS)[number];
 
-function niveauCatalogueToFr(level: NiveauCatalogue): 'Débutant' | 'Avancé' {
-  return level === 'DÉBUTANT' ? 'Débutant' : 'Avancé';
+function niveauCatalogueToFr(level: NiveauCatalogue): 'Fondamentaux' | 'Perfectionnement' {
+  return level === 'DÉBUTANT' ? 'Fondamentaux' : 'Perfectionnement';
 }
 
 function buildDedicatedFormationCourseObject(opts: {

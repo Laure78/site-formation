@@ -49,7 +49,7 @@ export function buildCatalogFormationCoursePageSchema(
       description,
       path: entry.path,
       courseCode: entry.ref,
-      educationalLevel: entry.level === 'DÉBUTANT' ? 'Débutant' : 'Avancé',
+      educationalLevel: entry.level === 'DÉBUTANT' ? 'Fondamentaux' : 'Perfectionnement',
       teaches: entry.teaches,
       organizationId: `${base}/#organization`,
       instructorName: SCHEMA_PERSON_LAURE.name,

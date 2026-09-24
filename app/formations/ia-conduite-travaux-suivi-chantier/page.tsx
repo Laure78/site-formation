@@ -177,7 +177,7 @@ export default function FormationIaConduiteTravauxSuiviChantierPage() {
       <FormationCourseHero
         catalogueRef="NIV-03"
         programmePdfAfterHero={false}
-        refLine={`Intra · inter · présentiel en Île-de-France · ${SESSION_DUREE_LIBELLE} · Niveau 2 · Avancé`}
+        refLine={`Intra · inter · présentiel en Île-de-France · ${SESSION_DUREE_LIBELLE} · Niveau 2 · Perfectionnement`}
         title={CATALOGUE_SEO.h1}
         subtitle={CATALOGUE_SEO.subtitle}
         badges={['Skills Claude BTP', 'Suivi chantier', 'Organisme Qualiopi']}
@@ -251,7 +251,7 @@ export default function FormationIaConduiteTravauxSuiviChantierPage() {
           { label: 'Format', value: 'Présentiel' },
           { label: 'Lieu', value: 'Île-de-France' },
           { label: 'Effectif', value: LIBELLE_EFFECTIF_GROUPE_NIV03 },
-          { label: 'Niveau', value: 'Avancé' },
+          { label: 'Niveau', value: 'Niveau 2' },
           {
             label: 'Public',
             value: 'Conducteurs de travaux, chefs de chantier, responsables et assistants travaux',

@@ -37,7 +37,7 @@ export const A_PROPOS_OFFRE_CLIENTS = LAURE_OLIVIE_CLIENT_REFERENCES;
 export const A_PROPOS_TIMELINE = LAURE_OLIVIE_PARCOURS_TIMELINE;
 
 export const A_PROPOS_AUTORITE_PARAGRAPHS = [
-  `Parcours terrain BTP : conductrice de travaux et direction d'entreprise (ALIA BTP, 2017-2024), puis structuration d'**OFC Création d'Entreprise** en 2022 — organisme certifié **Qualiopi** (NDA ${SCHEMA_CONTACT.nda}, SIRET ${SCHEMA_CONTACT.siretFormatted}). Les sessions restent en **présentiel, Île-de-France uniquement**, sur documents réels (DCE, devis, CR, mémoire technique).`,
+  `Parcours terrain BTP : ancienne dirigeante d'une entreprise de travaux publics (ALIA BTP, 2017-2024), puis structuration d'**OFC Création d'Entreprise** en 2022 — organisme certifié **Qualiopi** (NDA ${SCHEMA_CONTACT.nda}, SIRET ${SCHEMA_CONTACT.siretFormatted}). Les sessions restent en **présentiel, Île-de-France uniquement**, sur documents réels (DCE, devis, CR, mémoire technique).`,
   `**Instructrice officielle LinkedIn Learning** — cours publics vérifiables sur ChatGPT et l'IA appliquée au bâtiment, complémentaires aux formations OFC sur site ou en salle partenaire.`,
   `Interventions et références auprès de **FFB Grand Paris**, **CSFE**, **UMB-FFB**, **CNAM Entreprise**, **Le Moniteur Formations** et **CAPEB** — cadres de confiance pour des sessions finançables **Constructys** selon éligibilité.`,
   `Indicateurs consolidés (${getStatsFreshnessLabel()}) : **${formatNoteSatisfactionAffichageComplet()}**. Les retours portent sur le gain de temps administratif, la clarté des livrables et la montée en compétence sans jargon — preuve sociale alignée sur le profil LinkedIn public.`,

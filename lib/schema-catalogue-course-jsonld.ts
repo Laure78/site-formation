@@ -117,7 +117,7 @@ export type FormationCatalogueRichCourseConfig = {
   name: string;
   description: string;
   price?: number;
-  educationalLevel: 'Débutant' | 'Avancé';
+  educationalLevel: 'Fondamentaux' | 'Perfectionnement';
   teaches: readonly string[];
 };
 
@@ -148,7 +148,7 @@ export const FORMATION_RICH_COURSE_NIV01: FormationCatalogueRichCourseConfig = {
   name: CATALOGUE_COURSE_IA_BTP_NIV01.name,
   description: CATALOGUE_COURSE_IA_BTP_NIV01.description,
   price: prixCatalogue('NIV-01'),
-  educationalLevel: 'Débutant',
+  educationalLevel: 'Fondamentaux',
   teaches: teachesFromCatalogue('NIV-01'),
 };
 
@@ -157,7 +157,7 @@ export const FORMATION_RICH_COURSE_NIV02: FormationCatalogueRichCourseConfig = {
   name: CATALOGUE_COURSE_IA_AO_NIV02.name,
   description: CATALOGUE_COURSE_IA_AO_NIV02.description,
   price: prixCatalogue('NIV-02'),
-  educationalLevel: 'Avancé',
+  educationalLevel: 'Perfectionnement',
   teaches: teachesFromCatalogue('NIV-02'),
 };
 
@@ -177,7 +177,7 @@ export const FORMATION_RICH_COURSE_NIV03: FormationCatalogueRichCourseConfig = {
   name: CATALOGUE_COURSE_CONDUITE_TRAVAUX_NIV03.name,
   description: CATALOGUE_COURSE_CONDUITE_TRAVAUX_NIV03.description,
   price: prixCatalogue('NIV-03'),
-  educationalLevel: 'Avancé',
+  educationalLevel: 'Perfectionnement',
   teaches: teachesFromCatalogue('NIV-03'),
 };
 
@@ -196,7 +196,7 @@ export const FORMATION_RICH_COURSE_NIV04: FormationCatalogueRichCourseConfig = {
   name: CATALOGUE_COURSE_MAITRISER_CLAUDE_NIV04.name,
   description: CATALOGUE_COURSE_MAITRISER_CLAUDE_NIV04.description,
   price: prixCatalogue('NIV-04'),
-  educationalLevel: 'Avancé',
+  educationalLevel: 'Perfectionnement',
   teaches: teachesFromCatalogue('NIV-04'),
 };
 
@@ -216,7 +216,7 @@ export const FORMATION_RICH_COURSE_NIV05: FormationCatalogueRichCourseConfig = {
   name: CATALOGUE_COURSE_MAITRISE_OEUVRE_NIV05.name,
   description: CATALOGUE_COURSE_MAITRISE_OEUVRE_NIV05.description,
   price: prixCatalogue('NIV-05'),
-  educationalLevel: 'Avancé',
+  educationalLevel: 'Perfectionnement',
   teaches: teachesFromCatalogue('NIV-05'),
 };
 
@@ -240,7 +240,7 @@ export const FORMATION_RICH_COURSE_NIV06: FormationCatalogueRichCourseConfig = {
   name: CATALOGUE_COURSE_APPLICATION_METIER_NIV06.name,
   description: CATALOGUE_COURSE_APPLICATION_METIER_NIV06.description,
   price: prixCatalogue('NIV-06'),
-  educationalLevel: 'Avancé',
+  educationalLevel: 'Perfectionnement',
   teaches: teachesFromCatalogue('NIV-06'),
 };
 
@@ -259,7 +259,7 @@ export const FORMATION_RICH_COURSE_NIV07: FormationCatalogueRichCourseConfig = {
   name: CATALOGUE_COURSE_APPLICATION_METIER_NIV07.name,
   description: CATALOGUE_COURSE_APPLICATION_METIER_NIV07.description,
   price: prixCatalogue('NIV-07'),
-  educationalLevel: 'Avancé',
+  educationalLevel: 'Perfectionnement',
   teaches: teachesFromCatalogue('NIV-07'),
 };
 
@@ -278,7 +278,7 @@ export const FORMATION_RICH_COURSE_NIV08: FormationCatalogueRichCourseConfig = {
   name: CATALOGUE_COURSE_APPLICATION_METIER_NIV08.name,
   description: CATALOGUE_COURSE_APPLICATION_METIER_NIV08.description,
   price: prixCatalogue('NIV-08'),
-  educationalLevel: 'Avancé',
+  educationalLevel: 'Perfectionnement',
   teaches: teachesFromCatalogue('NIV-08'),
 };
 
@@ -303,7 +303,7 @@ export const FORMATION_RICH_COURSE_NIV09: FormationCatalogueRichCourseConfig = {
   name: CATALOGUE_COURSE_ASSISTANTS_IA_NIV09.name,
   description: CATALOGUE_COURSE_ASSISTANTS_IA_NIV09.description,
   price: prixCatalogue('NIV-09'),
-  educationalLevel: 'Avancé',
+  educationalLevel: 'Perfectionnement',
   teaches: teachesFromCatalogue('NIV-09'),
 };
 
@@ -336,8 +336,8 @@ function buildCatalogueOffer(
   return offer;
 }
 
-function mapEducationalLevelSchema(level: 'Débutant' | 'Avancé'): 'Beginner' | 'Advanced' {
-  return level === 'Débutant' ? 'Beginner' : 'Advanced';
+function mapEducationalLevelSchema(level: 'Fondamentaux' | 'Perfectionnement'): 'Beginner' | 'Advanced' {
+  return level === 'Fondamentaux' ? 'Beginner' : 'Advanced';
 }
 
 /** JSON-LD `Course` enrichi — fiches catalogue NIV-01 à NIV-08 (Rich Results). */
@@ -412,7 +412,7 @@ export const FORMATION_RICH_COURSE_NIV10: FormationCatalogueRichCourseConfig = {
   name: CATALOGUE_COURSE_DEV_WEB_IA_NIV10.name,
   description: CATALOGUE_COURSE_DEV_WEB_IA_NIV10.description,
   price: prixCatalogue('NIV-10'),
-  educationalLevel: 'Débutant',
+  educationalLevel: 'Fondamentaux',
   teaches: teachesFromCatalogue('NIV-10'),
 };
 
@@ -441,7 +441,7 @@ export function buildCatalogueCourseJsonLd(
     name: config.name,
     description: config.description,
     price: config.price,
-    educationalLevel: config.educationalLevel === 'Beginner' ? 'Débutant' : 'Avancé',
+    educationalLevel: config.educationalLevel === 'Beginner' ? 'Fondamentaux' : 'Perfectionnement',
   });
 }
 

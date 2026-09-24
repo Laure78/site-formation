@@ -88,7 +88,7 @@ export function FormationCourseHero({
     ...(catalogueEntry
       ? [
           {
-            label: catalogueEntry.level === 'DÉBUTANT' ? 'Débutant' : 'Avancé',
+            label: catalogueEntry.level === 'DÉBUTANT' ? 'Niveau 1' : 'Niveau 2',
             variant: 'level' as const,
           },
         ]

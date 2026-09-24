@@ -80,7 +80,7 @@ export function FormationsComparisonTable({
                         : 'bg-[#FED7AA] text-[#C2410C]'
                     }`}
                   >
-                    {row.level === 'DÉBUTANT' ? 'Débutant' : 'Avancé'}
+                    {row.level === 'DÉBUTANT' ? 'Niveau 1' : 'Niveau 2'}
                   </span>
                 </td>
                 <td className="px-[18px] py-3 align-top text-[#64748B]">{row.comparatif.publicLabel}</td>
@@ -128,7 +128,7 @@ export function FormationsComparisonTable({
                     : 'bg-[#FED7AA] text-[#C2410C]'
                 }`}
               >
-                {row.level === 'DÉBUTANT' ? 'Débutant' : 'Avancé'}
+                {row.level === 'DÉBUTANT' ? 'Niveau 1' : 'Niveau 2'}
               </span>
               <span className="font-medium text-[#334155]"> · Durée : </span>
               {row.duree}

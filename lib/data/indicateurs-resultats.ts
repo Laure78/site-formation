@@ -171,6 +171,25 @@ export function assertIndicateursResultatsCoherents(
 
 assertIndicateursResultatsCoherents();
 
+// ---------------------------------------------------------------------------
+// Expérience BTP de Laure Olivié — source unique (ne pas coder en dur ailleurs)
+// ---------------------------------------------------------------------------
+
+/** Années d'expérience BTP de Laure Olivié (ALIA BTP, 2017-2024). */
+export const anneesExperienceBTP = 7 as const;
+
+/** Libellé affiché : « 7 ans d'expérience dans le BTP ». */
+export function formatAnneesExperienceBTP(): string {
+  return `${anneesExperienceBTP} ans d'expérience dans le BTP`;
+}
+
+/** Libellé court pour badges/stats : « 7 ans ». */
+export function formatAnneesExperienceBTPCourt(): string {
+  return `${anneesExperienceBTP} ans`;
+}
+
+// ---------------------------------------------------------------------------
+
 /** Volume cumulé formé — affichage FR avec espace milliers (ex. « 1 592 »). */
 export function formatVolumeProsFormesBtp(): string {
   return indicateursResultats.volumeProsFormesBtp.toLocaleString('fr-FR');
