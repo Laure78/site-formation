@@ -5,6 +5,7 @@
 
 import { LINKS } from '@/lib/internal-links';
 import type { ApplicationMetierBtpTarifKey } from '@/lib/tarifs-applications-metier-btp';
+import { formatAnneesExperienceBTP } from '@/lib/data/indicateurs-resultats';
 
 export type ApplicationMetierModule = {
   title: string;
@@ -642,7 +643,7 @@ export const APPLICATION_METIER_NIVEAU_2: ApplicationMetierNiveauConfig = {
       title: 'Laure Olivié',
       role: 'Formatrice IA spécialisée BTP',
       paragraphs: [
-        '7 ans d’expérience dans le BTP, dont la direction d’une entreprise de travaux publics.',
+        '${formatAnneesExperienceBTP()}, dont la direction d’une entreprise de travaux publics (ALIA BTP).',
         'J’accompagne les PME du BTP à créer des outils métier utiles, avec validation humaine sur les résultats sensibles.',
       ],
     },

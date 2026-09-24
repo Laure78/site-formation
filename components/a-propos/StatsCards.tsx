@@ -1,11 +1,11 @@
 import { Award, Clock3, GraduationCap, Users } from 'lucide-react';
 import { OFC_CARD } from '@/lib/ofc-interaction-classes';
-import { formatNoteSatisfactionSur5 } from '@/lib/data/indicateurs-resultats';
+import { formatNoteSatisfactionSur5, formatAnneesExperienceBTP, formatAnneesExperienceBTPCourt } from '@/lib/data/indicateurs-resultats';
 import { IndicateursResultatsLink } from '@/components/formation/IndicateursResultatsLink';
 
 const STATS = [
   { icon: Users, value: formatNoteSatisfactionSur5(), label: 'SATISFACTION', ring: 'bg-[#EFF6FF]' },
-  { icon: Clock3, value: '7 ans', label: 'EXPÉRIENCE BTP', ring: 'bg-[#EFF6FF]' },
+  { icon: Clock3, value: formatAnneesExperienceBTPCourt(), label: 'EXPÉRIENCE BTP', ring: 'bg-[#EFF6FF]' },
   { icon: Award, value: 'Qualiopi', label: 'CERTIFIÉE', ring: 'bg-[#D1FAE5]' },
   { icon: GraduationCap, value: 'LinkedIn Learning', label: 'INSTRUCTRICE', ring: 'bg-[#EFF6FF]' },
 ] as const;

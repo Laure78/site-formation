@@ -5,19 +5,24 @@
  * @see CV Laure Olivié — Formatrice IA & ChatGPT (juin 2026)
  */
 import { getStatsFreshnessLabel } from '@/lib/constants';
-import { formatNoteSatisfactionAffichageComplet } from '@/lib/data/indicateurs-resultats';
+import {
+  anneesExperienceBTP,
+  formatAnneesExperienceBTP,
+  formatAnneesExperienceBTPCourt,
+  formatNoteSatisfactionAffichageComplet,
+} from '@/lib/data/indicateurs-resultats';
 import { SCHEMA_CONTACT } from '@/lib/schema-constants';
 
 /** Accroche CV — expertise croisée IA × terrain BTP. */
 export const LAURE_OLIVIE_EXPERTISE_TAGLINE =
   'Expertise unique : IA générative × réalités terrain BTP — gestion de chantier, appels d\'offres, DCE, DOE, mémoires techniques.' as const;
 
-/** Expérience BTP — formulation canonique (ne pas écrire « 7 ans de conduite de travaux »). */
-export const LAURE_OLIVIE_EXPERIENCE_BTP_ANS = 7 as const;
+/** Expérience BTP — source unique : `anneesExperienceBTP` dans `indicateurs-resultats.ts`. */
+export const LAURE_OLIVIE_EXPERIENCE_BTP_ANS = anneesExperienceBTP;
 
 /** Phrase de référence — biographies, FAQ, schémas. */
 export const LAURE_OLIVIE_BIO_REFERENCE =
-  'Ancienne dirigeante d’une entreprise de travaux publics, Laure Olivié s’appuie sur 7 ans d’expérience dans le BTP pour former les équipes aux usages concrets de l’intelligence artificielle.' as const;
+  `Ancienne dirigeante d’une entreprise de travaux publics (ALIA BTP), Laure Olivié s’appuie sur ${formatAnneesExperienceBTP()} pour former les équipes aux usages concrets de l’intelligence artificielle.`;
 
 /** Mention courte (cartes, stats, méta). */
 export const LAURE_OLIVIE_EXPERIENCE_BTP_COURTE = '7 ans d’expérience dans le BTP' as const;

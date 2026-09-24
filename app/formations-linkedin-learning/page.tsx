@@ -21,6 +21,7 @@ import {
 } from '@/lib/schema-constants';
 import { createPageMetadata, SITE_CONFIG } from '@/lib/seo';
 import { formatProsFormesEtNoteQualiopi } from '@/lib/data/indicateurs-resultats-helpers';
+import { formatAnneesExperienceBTP } from '@/lib/data/indicateurs-resultats';
 
 const PATH = '/formations-linkedin-learning';
 const PAGE_URL = `${SITE_CONFIG.url.replace(/\/$/, '')}${PATH}`;
@@ -322,7 +323,7 @@ export default function FormationsLinkedInLearningPage() {
               <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#377CF3]">En bref</p>
               <p className="mt-3 text-base leading-relaxed text-slate-700 md:text-lg">
                 Ancienne dirigeante d’une entreprise de travaux publics (ex-ALIA BTP), Laure Olivié
-                s’appuie sur 7 ans d’expérience dans le BTP pour former les équipes aux usages concrets
+                s’appuie sur {formatAnneesExperienceBTP()} pour former les équipes aux usages concrets
                 de l’intelligence artificielle. Instructrice LinkedIn Learning et formatrice IA depuis
                 2022, elle a publié 2 formations en français sur l&apos;IA appliquée au bâtiment.{' '}
                 {formatProsFormesEtNoteQualiopi()}.
@@ -570,7 +571,7 @@ export default function FormationsLinkedInLearningPage() {
                 Formatrice IA spécialisée BTP · Instructrice LinkedIn Learning
               </p>
               <p className="mt-3">
-                Ancienne dirigeante d’une entreprise de travaux publics, 7 ans d’expérience dans le BTP · formatrice IA depuis 2022. OFC Création d&apos;Entreprise —
+                Ancienne dirigeante d’une entreprise de travaux publics, {formatAnneesExperienceBTP()} · formatrice IA depuis 2022. OFC Création d&apos;Entreprise —
                 Qualiopi. {formatProsFormesEtNoteQualiopi()}. Partenaires : FFB Grand Paris, CSFE, UMB-FFB, CNAM, Le Moniteur Formations.
               </p>
             </div>

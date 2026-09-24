@@ -16,6 +16,7 @@ import { CSFE_NOM_COMPLET } from '@/lib/csfe';
 import { OFC_LINK } from '@/lib/ofc-interaction-classes';
 import { OFC_SEC } from '@/lib/ofc-section-classes';
 import { FINANCEMENT_FORMULATION_PRUDENTE } from '@/lib/financement-copy';
+import { formatAnneesExperienceBTP } from '@/lib/data/indicateurs-resultats';
 
 export const revalidate = 3600;
 
@@ -51,7 +52,7 @@ export const metadata = buildMetadata({
 const FAQ_FORMATEUR: FAQItem[] = [
   {
     q: 'Comment choisir un formateur IA pour le BTP ?',
-    a: `Privilégiez un profil qui connaît le chantier (devis, DCE, CCTP, mémoire technique) et qui forme en présentiel sur vos documents — pas une formation IA généraliste. Vérifiez Qualiopi, les références professionnelles (fédérations, OPCO) et la possibilité d'un financement selon éligibilité. Laure Olivié combine 7 ans d’expérience dans le BTP et une pratique IA depuis 2022.`,
+    a: `Privilégiez un profil qui connaît le chantier (devis, DCE, CCTP, mémoire technique) et qui forme en présentiel sur vos documents — pas une formation IA généraliste. Vérifiez Qualiopi, les références professionnelles (fédérations, OPCO) et la possibilité d'un financement selon éligibilité. Laure Olivié combine ${formatAnneesExperienceBTP()} et une pratique IA depuis 2022.`,
   },
   {
     q: 'Formateur IA bâtiment ou formatrice : quelle différence ?',
@@ -117,7 +118,7 @@ export default function FormateurIaBtpPage() {
         <section className={OFC_SEC.muted} aria-labelledby="profil-rare">
           <div className="mx-auto max-w-4xl">
             <h2 id="profil-rare" className="font-display text-2xl font-bold text-slate-900 md:text-3xl">
-              Un profil rare : 7 ans d’expérience dans le BTP + expertise IA
+              Un profil rare : {formatAnneesExperienceBTP()} + expertise IA
             </h2>
             <p className="mt-4 text-base leading-relaxed text-slate-600 md:text-lg">
               Avant de former à ChatGPT et Claude AI, Laure Olivié a dirigé une entreprise de travaux

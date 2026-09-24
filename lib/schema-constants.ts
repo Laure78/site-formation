@@ -8,6 +8,7 @@
 import { siteStats, CONTACT, SOCIAL_PROOF } from '@/lib/constants';
 import { OFC_IDENTITE } from '@/lib/ofc-identite';
 import { SITE_HEADER_LOGO_SRC } from '@/lib/photos';
+import { formatAnneesExperienceBTP } from '@/lib/data/indicateurs-resultats';
 
 /** URL canonique du site (alignée sur NEXT_PUBLIC_SITE_URL en prod). */
 export const SCHEMA_PUBLIC_SITE_URL: string =
@@ -131,7 +132,7 @@ export const SCHEMA_PERSON_LAURE = {
   name: 'Laure Olivié',
   jobTitle: 'Formatrice IA pour les professionnels du BTP',
   description:
-    "Ancienne dirigeante d’une entreprise de travaux publics, Laure Olivié s’appuie sur 7 ans d’expérience dans le BTP pour former les équipes aux usages concrets de l’intelligence artificielle, en présentiel en Île-de-France.",
+    "Ancienne dirigeante d’une entreprise de travaux publics, Laure Olivié s’appuie sur ${formatAnneesExperienceBTP()} pour former les équipes aux usages concrets de l’intelligence artificielle, en présentiel en Île-de-France.",
 } as const;
 
 /** Thématiques Person — schéma global layout (entité Laure Olivié). */

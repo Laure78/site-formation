@@ -40,6 +40,7 @@ import { RevealShell, RevealGroupShell } from '@/components/motion/RevealShell';
 import { GoogleReviewsSection } from '@/components/landing/GoogleReviewsSection';
 import { HomeDeferredLinkedInLearning } from '@/components/landing/HomeDeferredLinkedInLearning';
 import { DeferredHomeFooterCalendly } from '@/components/landing/DeferredHomeFooterCalendly';
+import { formatAnneesExperienceBTP } from '@/lib/data/indicateurs-resultats';
 
 export function HomeProgrammeFaqSections() {
   return (
@@ -205,7 +206,7 @@ export function HomeProgrammeFaqSections() {
               <Citation
                 className="mt-6"
                 variant="formatrice"
-                quote="Ancienne dirigeante d’une entreprise de travaux publics, je m’appuie sur 7 ans d’expérience dans le BTP pour former les équipes aux usages concrets de l’intelligence artificielle. Mon objectif : zéro théorie, 100 % pratique. Vous repartez avec des outils opérationnels dès le lendemain."
+                quote="Ancienne dirigeante d’une entreprise de travaux publics, je m’appuie sur ${formatAnneesExperienceBTP()} pour former les équipes aux usages concrets de l’intelligence artificielle. Mon objectif : zéro théorie, 100 % pratique. Vous repartez avec des outils opérationnels dès le lendemain."
                 author="Laure Olivié"
                 role="Formatrice IA pour le BTP — OFC Création d'Entreprise"
               />
@@ -221,7 +222,7 @@ export function HomeProgrammeFaqSections() {
                 {[
                   {
                     icon: GraduationCap,
-                    title: '7 ans d’expérience dans le BTP',
+                    title: formatAnneesExperienceBTP(),
                     desc: 'Spécialisation métiers du bâtiment, TP, génie civil.',
                   },
                   {

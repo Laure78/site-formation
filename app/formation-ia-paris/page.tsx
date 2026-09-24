@@ -15,8 +15,7 @@ import { OFC_LINK } from '@/lib/ofc-interaction-classes';
 import { OFC_SEC } from '@/lib/ofc-section-classes';
 import { voirAussiIdfProps } from '@/lib/voir-aussi';
 
-import { formatNoteSatisfactionSur5 , formatNoteSatisfactionAffichageComplet } from '@/lib/data/indicateurs-resultats'
-import { RenvoiFicheCatalogue } from '@/components/qualiopi/RenvoiFicheCatalogue';
+import { formatNoteSatisfactionSur5, formatNoteSatisfactionAffichageComplet, formatAnneesExperienceBTP } from '@/lib/data/indicateurs-resultats';import { RenvoiFicheCatalogue } from '@/components/qualiopi/RenvoiFicheCatalogue';
 
 export const revalidate = 3600;
 
@@ -353,7 +352,7 @@ export default function FormationIaParisPage() {
               Pourquoi se former avec Laure Olivié
             </h2>
             <p className="mt-4 text-base leading-relaxed text-slate-600 md:text-lg">
-              Laure Olivié forme à l&apos;IA pour le BTP depuis 2022, après 7 ans d’expérience dans le BTP comme
+              Laure Olivié forme à l&apos;IA pour le BTP depuis 2022, après {formatAnneesExperienceBTP()} comme
               dirigeante d&apos;une entreprise de Travaux Publics dans les Yvelines. Elle connaît le rythme
               d&apos;un devis, d&apos;un DCE et d&apos;un compte rendu sous pression — et construit les
               sessions pour que ChatGPT serve ces documents, pas l&apos;inverse.

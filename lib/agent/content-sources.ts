@@ -15,6 +15,7 @@ import { FINANCEMENT_FORMULATION_COURTE } from '@/lib/financement-copy';
 import { BLOG_ARTICLES } from '@/lib/blog';
 import { CSFE_NOM_LIBRE } from '@/lib/csfe';
 import { LINKS } from '@/lib/internal-links';
+import { formatAnneesExperienceBTP } from '@/lib/data/indicateurs-resultats';
 
 export interface ContentChunk {
   url: string;
@@ -39,7 +40,7 @@ const FORMATIONS_DATA = [
 ];
 
 const PAGES_DATA: { path: string; title: string; content: string }[] = [
-  { path: '/', title: 'Accueil', content: 'Formation IA pour le BTP. Gagnez 3 à 5h par semaine sur devis, chiffrages, emails et CR chantier. financement possible selon éligibilité (Constructys, OPCO). Laure Olivié, formatrice IA, ancienne dirigeante d’une entreprise de travaux publics, 7 ans d’expérience dans le BTP. Basée à Guyancourt (Yvelines). Formations présentiel uniquement · Île-de-France uniquement.' },
+  { path: '/', title: 'Accueil', content: 'Formation IA pour le BTP. Gagnez 3 à 5h par semaine sur devis, chiffrages, emails et CR chantier. financement possible selon éligibilité (Constructys, OPCO). Laure Olivié, formatrice IA, ancienne dirigeante d’une entreprise de travaux publics, ${formatAnneesExperienceBTP()}. Basée à Guyancourt (Yvelines). Formations présentiel uniquement · Île-de-France uniquement.' },
   { path: '/a-propos', title: 'À propos', content: 'Laure Olivié — Formatrice IA spécialisée BTP. OFC Création d\'Entreprise, certification Qualiopi. Partenaires : FFB, CSFE, LinkedIn Learning, Constructys.' },
   {
     path: '/etudes-de-cas/ffb-csfe',

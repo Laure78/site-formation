@@ -2,7 +2,7 @@
 
 import { Award, GraduationCap, ShieldCheck, Star } from 'lucide-react';
 import { Reveal, RevealGroup } from '@/components/motion/Reveal';
-import { formatNoteSatisfactionSur5 } from '@/lib/data/indicateurs-resultats';
+import { formatNoteSatisfactionSur5, formatAnneesExperienceBTP, formatAnneesExperienceBTPCourt } from '@/lib/data/indicateurs-resultats';
 import { getStatsFreshnessLabel } from '@/lib/readability-presets';
 import { IndicateursResultatsLink } from '@/components/formation/IndicateursResultatsLink';
 import { OFC_CARD } from '@/lib/ofc-interaction-classes';
@@ -15,7 +15,7 @@ const STATS = [
   },
   {
     Icon: Award,
-    value: '7 ans',
+    value: formatAnneesExperienceBTPCourt(),
     label: 'Expérience BTP',
   },
   {
