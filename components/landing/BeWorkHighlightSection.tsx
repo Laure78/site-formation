@@ -91,7 +91,7 @@ export function BeWorkHighlightSection({ id, surface = 'band' }: Props) {
               <li className="rounded-lg border border-[#BFDBFE] bg-white px-4 py-3 shadow-sm">
                 <strong className="font-semibold text-[#0F172A]">Sans prérequis en code</strong>
                 <span className="mt-1 block text-[#64748B]">
-                  Présentiel, classe virtuelle ou intra sur demande
+                  Présentiel · Île-de-France · inter ou intra sur devis
                 </span>
               </li>
             </ul>

@@ -106,7 +106,7 @@ export const GEO_FORMATION_PARIS_75: GeoFormationPageProps = {
   },
   h1: 'Formation IA bâtiment et construction à Paris',
   heroIntro:
-    'Pour les entreprises et chantiers parisiens (intra-muros) : devis, DCE et CR en présentiel dans vos locaux — Qualiopi, Constructys selon éligibilité.',
+    'Pour les entreprises et chantiers parisiens (intra-muros) : devis, DCE et CR en présentiel, intra ou inter — Qualiopi, Constructys selon éligibilité.',
   conversionLink: {
     href: LINKS.formationIaBtpNiveau1BatimentTp,
     label: 'Voir la fiche formation catalogue (session 4 h, tarifs & financement)',

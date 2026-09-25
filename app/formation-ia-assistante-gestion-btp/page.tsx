@@ -489,7 +489,7 @@ export default function FormationIaAssistanteGestionBtpPage() {
           <p className="mt-6 font-medium text-slate-900">Les formations se déroulent exclusivement en présentiel, en Île-de-France :</p>
           <ul className="mt-3 list-disc space-y-2 pl-6 text-slate-700">
             <li>
-              En <strong>intra</strong> dans vos locaux (Île-de-France)
+              En <strong>intra</strong> (dans vos locaux) ou <strong>inter</strong> (Île-de-France)
             </li>
             <li>
               En <strong>inter</strong> en Île-de-France (Paris, Versailles, Nanterre, Créteil)

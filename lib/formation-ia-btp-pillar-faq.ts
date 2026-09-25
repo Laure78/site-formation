@@ -32,7 +32,7 @@ export function getFaqFormationIaBtpPillar(at: Date = new Date()): FAQItem[] {
     {
       q: 'Quels métiers du BTP peuvent utiliser l’IA ?',
       a:
-        'Dirigeants et artisans de TPE/PME, conducteurs de travaux, chargés d’affaires, métreurs, assistants administratifs et de gestion, responsables formation, équipes appels d’offres. Le prérequis est de savoir utiliser un ordinateur et le français écrit — pas d’être développeur.',
+        'Dirigeants de TPE et PME du bâtiment, conducteurs de travaux, chargés d’affaires, métreurs, assistants administratifs et de gestion, responsables formation, équipes appels d’offres. Le prérequis est de savoir utiliser un ordinateur et le français écrit — pas d’être développeur.',
     },
     {
       q: 'Quelle formation IA pour un conducteur de travaux ?',
@@ -68,7 +68,7 @@ export function getFaqFormationIaBtpPillar(at: Date = new Date()): FAQItem[] {
     {
       q: 'Où se déroulent les sessions ?',
       a:
-        `Sessions intra-entreprise, dans vos locaux — présentiel uniquement · Île-de-France uniquement. Détail par département sur <a href="${LINKS.formationIleDeFrance}">formation IA pour le BTP en Île-de-France</a>.`,
+        `Sessions intra (dans vos locaux) ou inter — présentiel uniquement · Île-de-France uniquement. Détail par département sur <a href="${LINKS.formationIleDeFrance}">formation IA pour le BTP en Île-de-France</a>.`,
     },
     {
       q: 'Comment financer avec Constructys ou mon OPCO ?',

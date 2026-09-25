@@ -374,7 +374,7 @@ export function FormationIaBtpDepartementLanding({ config }: { config: Formation
         id={`faq-formation-ia-dept-${config.deptCode}`}
         items={config.faq.slice(3)}
         title={`FAQ — formation IA appliquée au bâtiment ${crumbDept}`}
-        subtitle="Intra-entreprise, dans vos locaux — présentiel, financement et calendrier."
+        subtitle="Intra ou inter — présentiel, financement et calendrier."
       />
 
       <div className="mx-auto max-w-4xl px-4">

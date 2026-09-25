@@ -78,7 +78,7 @@ const HERO_BADGES = [
 const HERO_RESUME = [
   `Session ${DUREE_LIBELLE} — maîtrise d'œuvre d'exécution, 5 modules opérationnels avec introduction à Claude.`,
   `Forfait ${PRIX_LIBELLE}. ${MENTIONS_TVA_REGIMES_COURT}`,
-  `${EFFECTIF_LIBELLE.charAt(0).toUpperCase() + EFFECTIF_LIBELLE.slice(1)} — intra-entreprise, dans vos locaux, présentiel Île-de-France.`,
+  `${EFFECTIF_LIBELLE.charAt(0).toUpperCase() + EFFECTIF_LIBELLE.slice(1)} — intra (dans vos locaux) ou inter, présentiel Île-de-France.`,
   `${FINANCEMENT_FORMULATION_PRUDENTE} ${FINANCEMENT_CONSTRUCTYS_PLAFONDS_COURT} Les abonnements Claude Pro et ChatGPT Plus ne sont pas inclus.`,
 ];
 
@@ -318,7 +318,7 @@ export default function FormationIaMaitriseOeuvrePage() {
               <strong>Public :</strong> {FORMATION.public}.
             </li>
             <li>
-              <strong>Modalité :</strong> présentiel intra-entreprise, dans vos locaux. 70&nbsp;% pratique
+              <strong>Modalité :</strong> présentiel intra (dans vos locaux) ou inter. 70&nbsp;% pratique
               / 30&nbsp;% théorie.
             </li>
             <li>
@@ -382,7 +382,7 @@ export default function FormationIaMaitriseOeuvrePage() {
       <TrainingFinalCta
         devisHref={trainingDevisHref(FORMATION.titre)}
         title="Parlons de votre projet de formation"
-        description="Demandez un devis ou planifiez votre session intra-entreprise, dans vos locaux — réponse sous 24 h ouvrées."
+        description="Demandez un devis ou planifiez votre session intra (dans vos locaux) ou inter — réponse sous 24 h ouvrées."
         secondaryHref={LINKS.prendreRdv}
         secondaryLabel="Échanger sur votre projet"
       />

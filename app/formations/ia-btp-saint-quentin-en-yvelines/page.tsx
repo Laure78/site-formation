@@ -146,7 +146,7 @@ export default function FormationIABTPSaintQuentinYvelinesPage() {
             <p>
               <strong className="text-slate-900">OFC Création d&apos;Entreprise est installé à Guyancourt</strong>, au
               cœur de SQY : pour une entreprise du secteur, cela veut dire une intervenante disponible pour des
-              sessions <strong>intra</strong> dans vos locaux ou sur chantier, avec une logistique simple et des
+              sessions <strong>intra</strong> (dans vos locaux) ou <strong>inter</strong>, avec une logistique simple et des
               créneaux adaptés aux contraintes terrain en Île-de-France.
             </p>
             <p>
@@ -406,7 +406,7 @@ export default function FormationIABTPSaintQuentinYvelinesPage() {
             </div>
             <div className="rounded-2xl border border-slate-200 bg-slate-50 p-6">
               <h3 className="font-display text-lg font-semibold text-slate-900">
-                Session intra-entreprise, dans vos locaux
+                Session intra (dans vos locaux) ou inter
               </h3>
               <p className="mt-3 text-slate-600">
                 Pour de petits groupes, les sessions organisées avec la FFB Île-de-France peuvent convenir.

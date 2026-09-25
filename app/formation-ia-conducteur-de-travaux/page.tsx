@@ -12,7 +12,7 @@ import {
   FORMATION_COURSE_MODE_ONSITE,
 } from '@/lib/schema-formation-course-jsonld';
 import { SCHEMA_ORGANIZATION_OFC, SCHEMA_PUBLIC_SITE_URL } from '@/lib/schema-constants';
-import { TARIF_FORFAIT_DEBUTANT_HT } from '@/lib/tarifs-sessions';
+import { SESSION_DUREE_LIBELLE, TARIF_FORFAIT_DEBUTANT_HT } from '@/lib/tarifs-sessions';
 import {
   CONDUCTEUR_FAQ_EXTRA,
   CONDUCTEUR_PROMPTS,
@@ -196,6 +196,7 @@ function ConducteurDeTravauxExtraSections() {
           </Link>
         </p>
       </section>
+
     </>
   );
 }

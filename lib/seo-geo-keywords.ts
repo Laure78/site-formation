@@ -157,7 +157,7 @@ const DEPT_META_SHORT_QUALIOPI_EXTRA = new Set(['Yvelines', 'Essonne', "Val-d'Oi
 /**
  * Meta description pages `/formation-ia-btp-*` — patron 150–160 car., phrase complète.
  * Patron : « Formation IA pour le BTP [locatif] : devis, DCE et comptes rendus sur vos documents.
- * Présentiel dans vos locaux, [organisme ]Qualiopi. Visio découverte [de] 30 min. »
+ * Présentiel, intra ou inter, [organisme ]Qualiopi. Visio découverte [de] 30 min. »
  */
 export function buildFormationIaBtpDeptMetaDescription(
   deptCode: string,
@@ -170,7 +170,7 @@ export function buildFormationIaBtpDeptMetaDescription(
     DEPT_META_SHORT_QUALIOPI_EXTRA.has(grammar.nom);
 
   let qualiopi = useShortQualiopi ? 'Qualiopi' : 'organisme Qualiopi';
-  let presentiel = 'Présentiel dans vos locaux';
+  let presentiel = 'Présentiel, intra ou inter';
   let visio = 'Visio découverte de 30 min.';
 
   const compose = () =>
@@ -182,7 +182,7 @@ export function buildFormationIaBtpDeptMetaDescription(
     text = compose();
   }
   if (text.length > 160) {
-    presentiel = 'Présentiel intra';
+    presentiel = 'Présentiel intra/inter';
     text = compose();
   }
   return text;

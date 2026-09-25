@@ -150,7 +150,7 @@ export function AccueilBeworkBandeau() {
                   <Check className="mt-0.5 h-5 w-5 shrink-0 text-[#377CF3]" aria-hidden />
                   <div>
                     <p className="font-semibold text-[#0F172A]">
-                      {DEV_WEB_IA_PRIX_LANCEMENT_LABEL} · 1 journée · 7 h · {tarifLabel} / participant
+                      {DEV_WEB_IA_PRIX_LANCEMENT_LABEL} · 1 journée · 7 h · {tarifLabel} € HT / participant
                     </p>
                     <p className="text-sm text-[#64748B]">
                       Inter-entreprises · Intra-entreprise sur devis
@@ -162,7 +162,7 @@ export function AccueilBeworkBandeau() {
                   <div>
                     <p className="font-semibold text-[#0F172A]">70 % pratique · 6 à 8 participants</p>
                     <p className="text-sm text-[#64748B]">
-                      Présentiel, classe virtuelle ou intra sur demande
+                      Présentiel · Île-de-France · inter ou intra sur devis
                     </p>
                   </div>
                 </li>
@@ -186,23 +186,29 @@ export function AccueilBeworkBandeau() {
               </p>
             </div>
 
-            <div className="mx-auto w-full max-w-sm min-w-0 lg:mx-0 lg:max-w-md lg:justify-self-end">
-              <div className="overflow-hidden rounded-xl bg-slate-100 ring-1 ring-[#BFDBFE]/90">
-                <div className="relative aspect-[4/3] w-full">
-                  <Image
-                    src={PHOTOS.formationNiv10DevWebIaHero2026.src}
-                    alt={PHOTOS.formationNiv10DevWebIaHero2026.alt}
-                    title={PHOTOS.formationNiv10DevWebIaHero2026.title}
-                    width={PHOTOS.formationNiv10DevWebIaHero2026.width}
-                    height={PHOTOS.formationNiv10DevWebIaHero2026.height}
-                    className="h-full w-full object-cover"
-                    sizes="(max-width: 1024px) 80vw, 360px"
-                    quality={70}
-                  />
-                </div>
-              </div>
-              <p className="mt-2.5 text-center text-xs text-[#64748B] lg:text-left">
-                Présentiel ou visio · Petit groupe · Première version, pas une app de production
+            <div className="flex flex-col items-center lg:items-end lg:justify-self-end">
+              <Link
+                href={LINKS.formationDeveloppementWebIaSansCoder}
+                title="Voir la fiche — Développement web avec l’IA sans savoir coder"
+                className="group inline-flex flex-col items-center gap-2 rounded-xl border border-[#BFDBFE]/90 bg-white p-2 shadow-sm transition hover:border-[#377CF3]/40 hover:shadow-[0_4px_16px_rgba(55,124,243,0.12)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#377CF3]"
+              >
+                <Image
+                  src={PHOTOS.formationNiv10DevWebIaHero2026.src}
+                  alt={PHOTOS.formationNiv10DevWebIaHero2026.alt}
+                  title={PHOTOS.formationNiv10DevWebIaHero2026.title}
+                  width={PHOTOS.formationNiv10DevWebIaHero2026.width}
+                  height={PHOTOS.formationNiv10DevWebIaHero2026.height}
+                  className="h-auto w-24 rounded-lg object-cover transition group-hover:opacity-90 sm:w-28"
+                  sizes="112px"
+                  quality={70}
+                />
+                <span className="inline-flex items-center gap-1 text-xs font-semibold text-[#377CF3]">
+                  Voir la formation
+                  <ArrowRight className="h-3.5 w-3.5 shrink-0" aria-hidden />
+                </span>
+              </Link>
+              <p className="mt-2.5 max-w-[11rem] text-center text-[0.65rem] leading-snug text-[#64748B] lg:text-right">
+                Présentiel · Île-de-France · Première version, pas une app de production
               </p>
             </div>
           </div>

@@ -60,7 +60,7 @@ const FAQ_FORMATEUR: FAQItem[] = [
   },
   {
     q: 'Intervenez-vous à Paris intra-muros ?',
-    a: `Oui. Sessions en présentiel à Paris (intra-entreprise, dans vos locaux) pour les entreprises et chantiers parisiens. Pour la petite et grande couronne, voir aussi la couverture ${IDF_ZONE_INTERVENTION}.`,
+    a: `Oui. Sessions en présentiel à Paris (intra ou inter) pour les entreprises et chantiers parisiens. Pour la petite et grande couronne, voir aussi la couverture ${IDF_ZONE_INTERVENTION}.`,
   },
   {
     q: 'Formez-vous en construction / travaux publics aussi ?',
@@ -186,7 +186,7 @@ export default function FormateurIaBtpPage() {
               Où intervient votre formatrice IA BTP
             </h2>
             <p className="mt-4 text-base leading-relaxed text-slate-600 md:text-lg">
-              Présentiel uniquement · Île-de-France uniquement. Sessions <strong>intra</strong> dans vos locaux ou{' '}
+              Présentiel uniquement · Île-de-France uniquement. Sessions <strong>intra</strong> (dans vos locaux) ou{' '}
               <strong>inter</strong> en salle — {IDF_ZONE_INTERVENTION}. Détail région :{' '}
               <Link href={LINKS.formationIleDeFrance} className={OFC_LINK}>
                 couverture présentiel francilienne

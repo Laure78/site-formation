@@ -53,15 +53,15 @@ export const DEV_WEB_IA_INCLUS_TARIF = [
 ] as const;
 
 export const DEV_WEB_IA_FORMATS = [
-  'Présentiel',
-  'Classe virtuelle',
-  'Intra-entreprise sur demande',
+  'Présentiel · Île-de-France',
+  'Inter-entreprises (sessions programmées)',
+  'Intra-entreprise sur devis',
 ] as const;
 
 export const DEV_WEB_IA_PUBLIC = [
   'Entrepreneurs',
   'Indépendants',
-  'Artisans',
+  'TPE et PME du bâtiment',
   'Commerçants',
   'Salariés',
   'Porteurs de projet',
@@ -223,7 +223,7 @@ export const DEV_WEB_IA_FAQ = [
   },
   {
     q: 'Quels formats sont proposés ?',
-    a: 'Présentiel, classe virtuelle, ou intra-entreprise sur demande. Groupe de 6 à 8 participants.',
+    a: 'Présentiel uniquement, en Île-de-France : inter-entreprises ou intra-entreprise sur devis. Groupe de 6 à 8 participants.',
   },
   {
     q: 'Quelle durée choisir — 7 h ou 14 h ?',

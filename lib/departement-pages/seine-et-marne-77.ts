@@ -11,7 +11,7 @@ export const DEPARTEMENT_SEINE_ET_MARNE_77: DepartementPageData = {
   path: '/formation-ia-btp-seine-et-marne-77',
   slug: 'seine-et-marne-77',
   accroche:
-    "Formation IA pour le BTP en présentiel en Seine-et-Marne (77), intra-entreprise, dans vos locaux, sur vos devis et dossiers réels. Le 77 est le plus vaste département francilien : la session est pensée pour des équipes parfois dispersées entre l'ouest urbain (Marne-la-Vallée, Sénart, Melun, Meaux) et l'est plus étendu.",
+    "Formation IA pour le BTP en présentiel en Seine-et-Marne (77), intra-entreprise (dans vos locaux) ou inter, sur vos devis et dossiers réels. Le 77 est le plus vaste département francilien : la session est pensée pour des équipes parfois dispersées entre l'ouest urbain (Marne-la-Vallée, Sénart, Melun, Meaux) et l'est plus étendu.",
   villes: [
     'Melun',
     'Meaux',
@@ -32,7 +32,7 @@ export const DEPARTEMENT_SEINE_ET_MARNE_77: DepartementPageData = {
   faqLocale: [
     {
       q: "Vous déplacez-vous jusqu'à Melun, Meaux ou Marne-la-Vallée ?",
-      a: "Oui, en intra dans vos locaux partout en Seine-et-Marne. Pour l'ouest du département (Sénart, Val d'Europe), la logistique est courante ; pour l'est (Provins, Coulommiers, Fontainebleau), on cadre souvent une journée dédiée ou des demi-journées.",
+      a: "Oui, en intra (dans vos locaux) ou inter partout en Seine-et-Marne. Pour l'ouest du département (Sénart, Val d'Europe), la logistique est courante ; pour l'est (Provins, Coulommiers, Fontainebleau), on cadre souvent une journée dédiée ou des demi-journées.",
     },
     {
       q: 'Le 77 étant étendu, y a-t-il des frais de déplacement ?',

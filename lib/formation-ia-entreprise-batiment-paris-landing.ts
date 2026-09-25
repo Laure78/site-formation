@@ -33,12 +33,12 @@ export const FORMATION_IA_ENTREPRISE_BATIMENT_PARIS_CONFIG: SeoClusterPageConfig
   },
   h1: 'Formation IA pour les entreprises du bâtiment à Paris',
   subtitle:
-    'Formations intra-entreprise à Paris, en petite couronne et en Île-de-France — directement dans vos locaux, adaptées à vos équipes et à vos process.',
+    'Formations intra-entreprise à Paris, en petite couronne et en Île-de-France — en intra (dans vos locaux) ou inter, adaptées à vos équipes et à vos process.',
   shortAnswer:
-    `Formation IA intra entreprise bâtiment Paris et ${IDF_ZONE_INTERVENTION} : ChatGPT, Claude, appels d'offres, chantier et administratif. Qualiopi, présentiel dans vos locaux.`,
+    `Formation IA intra entreprise bâtiment Paris et ${IDF_ZONE_INTERVENTION} : ChatGPT, Claude, appels d'offres, chantier et administratif. Qualiopi, présentiel, intra ou inter.`,
   introParagraphs: [
     'Les entreprises du bâtiment à Paris et en Île-de-France font former leurs équipes en intra : direction, conducteurs de travaux, appels d\'offres, administratif et bureaux d\'études — sur leurs documents et leurs outils.',
-    'La session se déroule dans vos locaux ou en salle en région parisienne. Le contenu est calibré sur vos cas : devis, DCE, comptes rendus, mémoires techniques ou courriers récurrents.',
+    'La session se déroule en intra (dans vos locaux) ou en inter en région parisienne. Le contenu est calibré sur vos cas : devis, DCE, comptes rendus, mémoires techniques ou courriers récurrents.',
     'OFC Création d\'Entreprise intervient dans Paris (75), les Hauts-de-Seine (92), Seine-Saint-Denis (93), Val-de-Marne (94), Val-d\'Oise (95), Yvelines (78), Essonne (91) et Seine-et-Marne (77).',
   ],
   useCasesTitle: 'Thématiques couvertes en formation intra',
@@ -67,7 +67,7 @@ export const FORMATION_IA_ENTREPRISE_BATIMENT_PARIS_CONFIG: SeoClusterPageConfig
     id: 'local',
     title: 'Intervention à Paris et en Île-de-France',
     paragraphs: [
-      'Formations en intra dans vos locaux à Paris et en petite couronne, ou en salle selon votre organisation. Déplacements en grande couronne (78, 91, 77, 95) sur devis.',
+      'Formations en intra (dans vos locaux) ou inter à Paris et en petite couronne, ou en salle selon votre organisation. Déplacements en grande couronne (78, 91, 77, 95) sur devis.',
       'Modalité exclusivement en présentiel — pas de formation à distance pour les actions Qualiopi catalogue.',
     ],
   },

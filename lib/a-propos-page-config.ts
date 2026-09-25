@@ -185,7 +185,7 @@ export const FAQ_A_PROPOS_PAGE: FAQItem[] = [
   },
   {
     q: 'Où se déroulent les formations ?',
-    a: `En présentiel en Île-de-France (${IDF_ZONE_INTERVENTION}) : sessions intra-entreprise dans vos locaux ou interventions convoquées par un réseau.`,
+    a: `En présentiel en Île-de-France (${IDF_ZONE_INTERVENTION}) : sessions intra (dans vos locaux) ou inter ou interventions convoquées par un réseau.`,
   },
   {
     q: 'Comment choisir une formation ?',

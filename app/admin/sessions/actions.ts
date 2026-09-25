@@ -121,6 +121,14 @@ export async function updateSessionStatusAction(formData: FormData) {
     action: 'status_updated',
     details: { status },
   });
+  if (status === 'terminee' || status === 'cloturee') {
+    const { enrollSessionParticipantsForSatisfaction } = await import(
+      '@/lib/training-ops/satisfaction/service'
+    );
+    await enrollSessionParticipantsForSatisfaction(sessionId).catch((e) => {
+      console.error('[satisfaction] enroll on status', e);
+    });
+  }
   revalidateSession(sessionId);
 }
 

@@ -577,7 +577,7 @@ export default function ClaudeAiBtpPillarPage() {
                     Formation en Île-de-France
                   </h2>
                   <p className="max-w-md text-sm text-[#64748B]">
-                    Sessions intra-entreprise, dans vos locaux — programme catalogue (organisme certifié Qualiopi), présentiel IDF (devis, DCE, CR, mémoires techniques).
+                    Sessions intra (dans vos locaux) ou inter — programme catalogue (organisme certifié Qualiopi), présentiel IDF (devis, DCE, CR, mémoires techniques).
                   </p>
                 </div>
                 <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">

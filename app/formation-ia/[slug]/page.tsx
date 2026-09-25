@@ -15,11 +15,11 @@ import {
   FormationIaMetierBody,
   FormationIaVilleBody,
 } from '@/components/formation-ia/FormationIaSlugContent';
+import { FormationIaMetierDynamicTemplate } from '@/components/formation-ia-metier/FormationIaMetierDynamicTemplate';
+import { getFormationIaHubMetierRichConfig } from '@/lib/formation-ia-hub-metier-rich';
 
 export const revalidate = 3600;
 type Props = { params: Promise<{ slug: string }> };
-
-// ISR : HTML mis en cache au edge et revalidé toutes les heures (3600 s)
 
 export function generateStaticParams() {
   return FORMATION_IA_ALL_SLUGS.map((slug) => ({ slug }));
@@ -27,6 +27,20 @@ export function generateStaticParams() {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
+  const rich = getFormationIaHubMetierRichConfig(slug);
+  if (rich) {
+    return createPageMetadata({
+      title: rich.seoTitle,
+      description: rich.seoDescription,
+      path: rich.path,
+      keywords: rich.keywords,
+      appendAuthorSuffix: false,
+      openGraphType: 'website',
+      image: rich.ogImage,
+      robots: { index: true, follow: true },
+    });
+  }
+
   const entry = getFormationIaEntry(slug);
   if (!entry) return {};
   const path = `/formation-ia/${slug}`;
@@ -43,6 +57,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function FormationIaSlugPage({ params }: Props) {
   const { slug } = await params;
+  const rich = getFormationIaHubMetierRichConfig(slug);
+  if (rich) {
+    return <FormationIaMetierDynamicTemplate config={rich} />;
+  }
+
   const entry = getFormationIaEntry(slug);
   if (!entry) notFound();
 

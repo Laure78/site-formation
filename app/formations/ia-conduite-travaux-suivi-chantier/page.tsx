@@ -234,12 +234,12 @@ export default function FormationIaConduiteTravauxSuiviChantierPage() {
           >
             formation assistants IA personnalisés BTP
           </Link>{' '}
-          ou du parcours{' '}
+          ou après la{' '}
           <Link
             href={LINKS.formationConducteurTravaux}
             className="font-medium text-[var(--accent)] hover:underline"
           >
-            conducteur de travaux
+            formation IA pour conducteurs de travaux
           </Link>
           . {CLAUDE_PRO_RECOMMANDE_NIV03}
         </p>
@@ -265,7 +265,6 @@ export default function FormationIaConduiteTravauxSuiviChantierPage() {
       <FormationCatalogueGeoSections
         catalogueRef="NIV-03"
         ressourcesGratuites={[
-          { href: LINKS.formationIaConducteurTravauxLanding, label: 'Guide IA conducteur de travaux BTP' },
           { href: LINKS.promptsIaConducteurTravaux, label: '20 prompts IA conducteur de travaux' },
         ]}
       />
@@ -344,7 +343,7 @@ export default function FormationIaConduiteTravauxSuiviChantierPage() {
               <Calendar className="mt-0.5 h-5 w-5 shrink-0 text-[var(--accent)]" strokeWidth={1.5} />
               <span>
                 <strong>Format :</strong> session unique <strong>{SESSION_DUREE_LIBELLE}</strong> en demi-journée
-                (9h00–13h00 ou 13h30–17h30). intra-entreprise, dans vos locaux, exclusivement en présentiel en Île-de-France. Forfait{' '}
+                (9h00–13h00 ou 13h30–17h30). intra ou inter, exclusivement en présentiel en Île-de-France. Forfait{' '}
                 <strong>{TARIFS_DUAL}</strong> — {LIBELLE_EFFECTIF_GROUPE_NIV03}.
               </span>
             </li>
@@ -425,7 +424,11 @@ export default function FormationIaConduiteTravauxSuiviChantierPage() {
       <ContextualLinksSection
           title="Pages associées"
           subtitle="niveau 1 — productivité, fiche conducteur de travaux, financement OPCO."
-          links={FORMATION_NIV03_RELATED.filter((l) => !getClusterRelatedHrefs(LINKS.formationConduiteTravauxSuiviChantier).includes(l.href))}
+          links={FORMATION_NIV03_RELATED.filter(
+            (l) =>
+              !getClusterRelatedHrefs(LINKS.formationConduiteTravauxSuiviChantier).includes(l.href) &&
+              l.href !== LINKS.formationConducteurTravaux,
+          )}
           tone="muted"
         />
       </div>

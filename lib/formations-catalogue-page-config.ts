@@ -201,9 +201,9 @@ export function getCatalogueSurDemandeOffers(): readonly CatalogueOffer[] {
   return CATALOGUE_ALL_OFFERS.filter((o) => o.kind === 'sur-demande');
 }
 
-export const CATALOGUE_PAGE_TITLE = 'Catalogue formations IA pour le BTP | Programmes';
+export const CATALOGUE_PAGE_TITLE = 'Catalogue des formations IA BTP en Île-de-France';
 
 export function getCataloguePageMetaDescriptionShort(at: Date = new Date()): string {
   void at;
-  return 'Catalogue formations IA pour le BTP : devis, DCE, AO, chantier et Claude. Qualiopi, présentiel Île-de-France. Financement OPCO selon éligibilité.';
+  return 'Catalogue formations IA BTP en Île-de-France : devis, appels d\'offres, chantier et Claude. Programmes Qualiopi, présentiel, financement OPCO selon éligibilité.';
 }

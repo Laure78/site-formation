@@ -184,7 +184,7 @@ export const FAQ_ITEMS: readonly FAQItem[] = [
   },
   {
     q: 'Où se déroulent les formations catalogue ?',
-    a: `Sessions OFC : présentiel uniquement · Île-de-France uniquement (intra-entreprise, dans vos locaux, ${IDF_ZONE_INTERVENTION}). L'échange préalable de 30 min (visio ou téléphone) sert uniquement à cadrer votre projet — voir <a href="${LINKS.prendreRdv}">Échanger sur votre projet de formation</a>.`,
+    a: `Sessions OFC : présentiel uniquement · Île-de-France uniquement (intra (dans vos locaux) ou inter — ${IDF_ZONE_INTERVENTION}). L'échange préalable de 30 min (visio ou téléphone) sert uniquement à cadrer votre projet — voir <a href="${LINKS.prendreRdv}">Échanger sur votre projet de formation</a>.`,
   },
   {
     q: "Comment mesurer le ROI de la formation IA ?",
@@ -504,7 +504,7 @@ export const FAQ_PRENDRE_RDV: FAQItem[] = [
 export const FAQ_IA_BTP_YVELINES: FAQItem[] = [
   {
     q: 'La formation se déroule-t-elle en présentiel à Versailles ou dans les Yvelines ?',
-    a: 'Oui. Sessions exclusivement en présentiel, en intra dans vos locaux ou sur chantier dans les Yvelines (78). Le siège OFC est à Guyancourt : pas de frais de déplacement supplémentaires pour les entreprises du 78. Voir <a href="/formation-ia-btp-ile-de-france">formation IA appliquée au bâtiment Île-de-France</a> et le <a href="/formations">catalogue</a>.',
+    a: 'Oui. Sessions exclusivement en présentiel, en intra (dans vos locaux) ou inter dans les Yvelines (78). Le siège OFC est à Guyancourt : pas de frais de déplacement supplémentaires pour les entreprises du 78. Voir <a href="/formation-ia-btp-ile-de-france">formation IA appliquée au bâtiment Île-de-France</a> et le <a href="/formations">catalogue</a>.',
   },
   {
     q: "Faut-il des compétences informatiques pour suivre cette formation ?",
@@ -532,7 +532,7 @@ export const FAQ_IA_BTP_YVELINES: FAQItem[] = [
 export const FAQ_IA_BTP_SAINT_QUENTIN_YVELINES: FAQItem[] = [
   {
     q: 'Intervenez-vous dans toute la communauté d’agglomération de Saint-Quentin-en-Yvelines ?',
-    a: 'Oui. Sessions exclusivement en présentiel, en intra dans vos locaux ou sur chantier (Guyancourt, Montigny-le-Bretonneux, Trappes, Élancourt, Maurepas, La Verrière, Coignières, Magny-les-Hameaux, etc.). Le siège OFC est à Guyancourt : pas de frais de déplacement supplémentaires pour les entreprises du 78. Voir <a href="/formation-ia-btp-yvelines-78">formation IA pour les pros du BTP Yvelines (78)</a> et le <a href="/formations">catalogue formations</a>.',
+    a: 'Oui. Sessions exclusivement en présentiel, en intra (dans vos locaux) ou inter (Guyancourt, Montigny-le-Bretonneux, Trappes, Élancourt, Maurepas, La Verrière, Coignières, Magny-les-Hameaux, etc.). Le siège OFC est à Guyancourt : pas de frais de déplacement supplémentaires pour les entreprises du 78. Voir <a href="/formation-ia-btp-yvelines-78">formation IA pour les pros du BTP Yvelines (78)</a> et le <a href="/formations">catalogue formations</a>.',
   },
   {
     q: "Faut-il des compétences informatiques pour suivre cette formation ?",
@@ -561,7 +561,7 @@ export const FAQ_FORMATION_IA_BTP_YVELINES_LANDING: FAQItem[] = [
   {
     q: 'Vous intervenez à domicile dans le 78 ?',
     a:
-      "Oui. Les sessions se déroulent exclusivement en présentiel, en intra dans vos locaux ou sur votre chantier dans tout le département des Yvelines (78). Je suis basée à Guyancourt (Saint-Quentin-en-Yvelines) : pour les entreprises du 78, il n'y a pas de frais de déplacement supplémentaires. Voir <a href=\"/formation-ia-btp-yvelines\">formation IA pour le BTP Yvelines (78)</a> et le <a href=\"/formations\">catalogue formations</a>.",
+      "Oui. Les sessions se déroulent exclusivement en présentiel, en intra (dans vos locaux) ou inter dans tout le département des Yvelines (78). Je suis basée à Guyancourt (Saint-Quentin-en-Yvelines) : pour les entreprises du 78, il n'y a pas de frais de déplacement supplémentaires. Voir <a href=\"/formation-ia-btp-yvelines\">formation IA pour le BTP Yvelines (78)</a> et le <a href=\"/formations\">catalogue formations</a>.",
   },
   {
     q: 'La formation est-elle disponible le samedi ?',
@@ -571,7 +571,7 @@ export const FAQ_FORMATION_IA_BTP_YVELINES_LANDING: FAQItem[] = [
   {
     q: 'Comment se déroule une session intra-entreprise à Versailles ?',
     a:
-      'Les sessions ont lieu en intra-entreprise, dans vos locaux en Île-de-France (Yvelines, Paris, etc.). Format : 4 h sur vos documents réels — devis, CCTP, courriers. ' +
+      'Les sessions ont lieu en intra (dans vos locaux) ou inter en Île-de-France (Yvelines, Paris, etc.). Format : 4 h sur vos documents réels — devis, CCTP, courriers. ' +
       MODALITE_FORMATIONS_STANDARD +
       ' Consultez <a href="/formation-ia-btp-ile-de-france">formation IA pour les pros du BTP Île-de-France</a> et le <a href="/formations">catalogue</a>.',
   },
@@ -648,7 +648,7 @@ export const FAQ_MAITRISER_CLAUDE_NIV04: FAQItem[] = [
   },
   {
     q: 'Pourquoi la formation Maîtriser Claude est-elle le matin uniquement ?',
-    a: `La session dure 4 h (9h00–13h00) pour enchaîner accueil, 4 modules techniques et clôture sans couper la concentration. Format présentiel en Île-de-France, intra-entreprise, dans vos locaux — formation catalogue niveau avancé.`,
+    a: `La session dure 4 h (9h00–13h00) pour enchaîner accueil, 4 modules techniques et clôture sans couper la concentration. Format présentiel en Île-de-France, intra ou inter — formation catalogue niveau avancé.`,
   },
   {
     q: 'Cowork et Claude Code : est-ce que l\'IA envoie des mails ou des docs sans mon accord ?',
@@ -848,7 +848,7 @@ export const FAQ_TRAVAUX_PUBLICS: FAQItem[] = [
 export const FAQ_FORMATION_VILLE: FAQItem[] = [
   {
     q: "Où se déroule la formation IA pour les pros du BTP ?",
-    a: `En présentiel uniquement, intra-entreprise dans vos locaux — ${IDF_ZONE_INTERVENTION}. Sessions adaptées à votre équipe — <a href="/formations">catalogue formations IA pour les pros du BTP</a> et <a href="/formation-ia-btp-ile-de-france">Île-de-France</a>.`,
+    a: `En présentiel uniquement, intra (dans vos locaux) ou inter — ${IDF_ZONE_INTERVENTION}. Sessions adaptées à votre équipe — <a href="/formations">catalogue formations IA pour les pros du BTP</a> et <a href="/formation-ia-btp-ile-de-france">Île-de-France</a>.`,
   },
   {
     q: "La formation est-elle finançable ?",

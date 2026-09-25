@@ -33,6 +33,7 @@ import {
   updateSessionStatusAction,
   updateSupportAction,
 } from '../actions';
+import { SessionSatisfactionPanel } from '@/components/admin/satisfaction/SessionSatisfactionPanel';
 
 const TONE: Record<string, string> = {
   slate: 'bg-slate-100 text-slate-700',
@@ -278,6 +279,7 @@ export default async function SessionDetailPage({
 
         {tab === 'participants' ? (
           <div className="space-y-6">
+            <SessionSatisfactionPanel sessionId={id} />
             <form action={addParticipantAction} className="grid gap-3 rounded-xl border border-slate-100 bg-slate-50 p-4 sm:grid-cols-3">
               <input type="hidden" name="sessionId" value={id} />
               <input type="hidden" name="companyId" value={session.company_id ?? ''} />

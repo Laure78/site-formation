@@ -11,6 +11,8 @@
     "sitemap:dates": "node scripts/generate-sitemap-dates.mjs",
     "audit:sitemap": "node scripts/audit-sitemap-routes.mjs",
     "check:sitemap": "node scripts/check-sitemap.mjs",
+    "check:meta": "node scripts/check-meta-lengths.mjs",
+    "check:training-satisfaction": "node scripts/assert-training-satisfaction-workflow.mjs",
     "skills:build": "node scripts/build-bibliotheque-skills.mjs",
     "start": "next start",
     "lint": "eslint",

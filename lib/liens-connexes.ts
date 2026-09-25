@@ -81,7 +81,7 @@ function departementPrefere(path: string): LienConnexe {
   return {
     href: VOIR_AUSSI_DEPT_DEFAUT.href,
     label: VOIR_AUSSI_DEPT_DEFAUT.label,
-    description: 'Siège OFC à Guyancourt — intra-entreprise, dans vos locaux en Yvelines.',
+    description: 'Siège OFC à Guyancourt — intra (dans vos locaux) ou inter en Yvelines.',
   };
 }
 

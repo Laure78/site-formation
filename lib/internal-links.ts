@@ -212,6 +212,8 @@ export const LINKS = {
   formationIaMarchePublicEtancheite: '/formation-ia-marche-public-etancheite',
   // Variants suffixées maintenues comme cibles canoniques après dédup mai 2026
   formationIaPlatriste: '/formation-ia-plaquiste-btp',
+  /** Hub SEO réécrit — plâtrerie, cloisons, faux plafonds */
+  formationIaHubPlatrerieCloisons: '/formation-ia/platrerie-cloisons-faux-plafonds',
   formationIaPeintreBatiment: '/formation-ia-peintre-btp',
   formationIaSolierRevetements: '/formation-ia-solier-revetements',
   formationIaPaysagiste: '/formation-ia-paysagiste-btp',
@@ -274,6 +276,8 @@ export const LINKS = {
   adminSessionsNouvelle: '/admin/sessions/nouvelle',
   adminSessionsDashboard: '/admin/sessions/tableau-de-bord',
   adminSessionsEntreprises: '/admin/sessions/entreprises',
+  /** Cockpit satisfaction & avis Google (sessions opérationnelles) */
+  adminSatisfaction: '/admin/satisfaction',
   diagnostic: '/diagnostic-ia-btp',
   outilsIaBtp: '/outils-ia-btp',
   /** Sélecteur interactif — cas d'usage IA par métier BTP */

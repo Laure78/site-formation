@@ -216,7 +216,7 @@ export default function DemoCursorFfbHomePage() {
           >
             <h2 className="text-3xl font-bold tracking-tight">Nos outils</h2>
             <p className="mt-3 max-w-xs text-sm leading-relaxed text-white/95">
-              Pour les artisans et entrepreneurs du bâtiment
+              Pour les TPE et PME du bâtiment
             </p>
             <button
               type="button"

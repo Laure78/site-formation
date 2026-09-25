@@ -24,7 +24,7 @@ export const FORMATION_IA_BTP_DEFINITION =
 export const FORMATION_IA_BTP_A_RETENIR = [
   'Qui : Laure Olivié — formatrice en IA spécialisée dans le BTP, OFC Création d’Entreprise (Qualiopi).',
   'Quoi : formations pratiques Claude / ChatGPT sur documents métier du BTP.',
-  'Pour qui : dirigeants, artisans, TPE/PME, conducteurs de travaux, chargés d’affaires, fonctions support.',
+  'Pour qui : dirigeants de TPE et PME du bâtiment, conducteurs de travaux, chargés d’affaires, fonctions support.',
   'Où : présentiel uniquement en Île-de-France (intra ou inter-entreprises).',
   'Cas d’usage : devis, appels d’offres (DCE/CCTP/CCAP), mémoire technique, CR chantier.',
 ] as const;

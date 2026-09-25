@@ -93,7 +93,7 @@ const courseJsonLd = {
   audience: {
     '@type': 'Audience',
     audienceType:
-      "Professionnels du BTP — dirigeants, artisans, TPE/PME, conducteurs de travaux, chargés d'affaires, fonctions support",
+      "Professionnels du BTP — dirigeants de TPE et PME du bâtiment, conducteurs de travaux, chargés d'affaires, fonctions support",
   },
   instructor: {
     '@type': 'Person',
@@ -702,7 +702,7 @@ export default function FormationIaBtpPillarPage() {
           </p>
           <p>
             <strong>Basée à Guyancourt (78)</strong>, elle intervient sur toute l&apos;Île-de-France (Paris, 78, 91, 92,
-            93, 94, 95) en intra entreprise, et anime des sessions intra-entreprise, dans vos locaux, en Île-de-France.
+            93, 94, 95) en intra entreprise, et anime des sessions intra (dans vos locaux) ou inter, en Île-de-France.
           </p>
           <p className="flex flex-wrap gap-x-3 gap-y-1">
             <Link href={LINKS.aPropos} className="font-semibold text-[var(--accent)] hover:underline">

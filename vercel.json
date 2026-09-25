@@ -11,6 +11,10 @@
     {
       "path": "/api/cron/satisfaction-j1",
       "schedule": "0 7,8 * * *"
+    },
+    {
+      "path": "/api/cron/training-satisfaction",
+      "schedule": "0 8 * * *"
     }
   ]
 }

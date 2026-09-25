@@ -114,12 +114,12 @@ export const BEWORK_COMPETENCES_REPARTIE = [
 
 export const BEWORK_MODALITES = [
   {
-    title: 'Présentiel',
-    desc: 'Expérience directe en petit groupe, accompagnement attentif tout au long de la pratique.',
+    title: 'Inter-entreprises',
+    desc: 'Sessions programmées en petit groupe, présentiel en Île-de-France.',
   },
   {
-    title: 'Visio',
-    desc: 'Même parcours pédagogique à distance, sessions dédiées avec partage d’écran.',
+    title: 'Intra-entreprise',
+    desc: 'Session dédiée sur devis, dans vos locaux en Île-de-France.',
   },
 ] as const;
 

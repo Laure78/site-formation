@@ -63,12 +63,12 @@ export const FORMATION_CATALOGUE_SEO: Record<FormationCatalogueCode, FormationCa
     ],
   },
   'NIV-02': {
-    metaTitle: 'Formation IA appels d’offres BTP | DCE et mémoire',
+    metaTitle: 'Formation IA appels d’offres BTP | DCE',
     h1: 'Formation IA appels d’offres BTP : analyser un DCE et préparer son mémoire technique',
     subtitle:
       'Apprenez à extraire les exigences d’un DCE, préparer les points de contrôle du chiffrage et structurer un mémoire technique avec l’aide de l’IA. Atelier pratique sur un dossier réel de l’entreprise.',
     metaDescription:
-      'Formation IA pour le BTP : analyser un DCE, préparer le chiffrage et structurer un mémoire technique avec l’IA. 4 h, présentiel en Île-de-France.',
+      'Formation IA appels d’offres BTP : analyser un DCE, préparer le chiffrage et rédiger un mémoire technique avec l’IA. 4 h présentiel Île-de-France, Qualiopi.',
     enBref: `La formation IA appels d’offres BTP construit une méthode guidée pour analyser un DCE, préparer une checklist de chiffrage et structurer un mémoire technique avec l’aide de l’IA. ${SESSION_DUREE_LIBELLE} en présentiel sur un dossier fil rouge — ${QUALIOPI_MENTION}. L’IA assiste l’analyse ; le chiffrage et les engagements restent à valider par le professionnel.`,
     publicTargets: [
       'Dirigeants de PME du BTP',
@@ -84,12 +84,12 @@ export const FORMATION_CATALOGUE_SEO: Record<FormationCatalogueCode, FormationCa
     ],
   },
   'NIV-03': {
-    metaTitle: 'Formation IA conducteur de travaux | Chantier',
-    h1: 'Formation IA conducteur de travaux : suivi chantier, CR et DOE',
+    metaTitle: 'Formation IA suivi de chantier : CR, CCTP',
+    h1: 'Formation IA suivi de chantier : CR, CCTP et DOE',
     subtitle:
       'Analysez vos CCTP, produisez vos comptes rendus et organisez le suivi du chantier jusqu\'à la réception avec ChatGPT et Claude.',
     metaDescription:
-      'Formation IA pour les pros du BTP : CCTP, comptes rendus, PPSPS, réserves et DOE avec Claude. 4 h présentiel, Qualiopi, financement OPCO selon éligibilité.',
+      'Formation IA suivi de chantier : CR, CCTP et DOE avec Claude sur vos documents BTP. 4 h présentiel Île-de-France, Qualiopi, financement OPCO selon éligibilité.',
     enBref: `La formation IA pour conducteurs de travaux apprend à utiliser ChatGPT et Claude pour analyser un CCTP, préparer un compte rendu, suivre les actions, gérer les réserves et structurer un DOE. Session ${SESSION_DUREE_LIBELLE} en présentiel — ${QUALIOPI_MENTION}.`,
     publicTargets: [
       'Conducteurs de travaux',
@@ -232,10 +232,10 @@ export const FORMATION_CATALOGUE_SEO: Record<FormationCatalogueCode, FormationCa
     subtitle:
       'Créer un site, une application ou un outil métier avec l’intelligence artificielle.',
     metaDescription:
-      'Formation développement web IA : créez un site ou une app sans coder. Parcours 7 h (300 € HT) ou 14 h (600 € HT), pratique Qualiopi.',
+      'Formation développement web avec l’IA sans coder : créez votre site ou application. Parcours 7 h (300 € HT) ou 14 h, présentiel Île-de-France, Qualiopi.',
     enBref: `Formation pratique 7 h ou 14 h : cadrer un projet, créer avec l’IA, tester et corriger — sans savoir coder. Inter : ${formatTarifHt(TARIF_INTER_DEV_WEB_IA_HT)} € HT (7 h) · ${formatTarifHt(TARIF_INTER_DEV_WEB_IA_14H_HT)} € HT (14 h) / participant. ${QUALIOPI_MENTION}.`,
     publicTargets: [
-      'Entrepreneurs, indépendants, artisans et commerçants',
+      'Entrepreneurs, indépendants, commerçants et TPE et PME du bâtiment',
       'Salariés et porteurs de projet',
       'Personnes en reconversion',
     ],

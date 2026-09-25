@@ -123,7 +123,7 @@ export const METREUR_ECONOMISTE_FAQ: readonly FAQItem[] = [
   },
   {
     q: 'La formation se déroule-t-elle en visio ?',
-    a: 'Non — présentiel uniquement en Île-de-France (intra-entreprise, dans vos locaux). La visio découverte sert uniquement au cadrage commercial, pas à la session certifiante.',
+    a: 'Non — présentiel uniquement en Île-de-France (intra (dans vos locaux) ou inter). La visio découverte sert uniquement au cadrage commercial, pas à la session certifiante.',
   },
   {
     q: 'Financement OPCO / Constructys possible ?',

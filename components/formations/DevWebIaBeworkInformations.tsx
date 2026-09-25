@@ -13,7 +13,6 @@ import {
   BEWORK_JOUR2_FLOW,
   BEWORK_JOURNEE_PRATIQUE,
   BEWORK_METIERS_IDEES,
-  BEWORK_MODALITES,
   BEWORK_PROJECT_EXAMPLES,
 } from '@/lib/bework-formation-marketing';
 import {
@@ -294,18 +293,20 @@ export function DevWebIaBeworkInformations() {
       <section className={OFC_SEC.mutedCompact} aria-labelledby="bework-modalites-title">
         <div className={`${OFC_SECTION_INNER} max-w-4xl`}>
           <h2 id="bework-modalites-title" className={OFC_TYPE_H2}>
-            Deux façons de participer
+            Modalités de participation
           </h2>
           <p className="mt-3 text-base text-ofc-ink-muted">
-            Présentiel ou visio : la modalité change, pas l&apos;ambition ni le parcours choisi.
+            Présentiel uniquement · Île-de-France · inter ou intra sur devis.
           </p>
           <ul className="mt-8 grid gap-6 sm:grid-cols-2">
-            {BEWORK_MODALITES.map((m) => (
-              <li key={m.title} className="rounded-2xl border border-slate-200 bg-white p-6">
-                <h3 className={OFC_TYPE_H3}>{m.title}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-ofc-ink-muted">{m.desc}</p>
-              </li>
-            ))}
+            <li className="rounded-2xl border border-slate-200 bg-white p-6">
+              <h3 className={OFC_TYPE_H3}>Inter-entreprises</h3>
+              <p className="mt-3 text-sm leading-relaxed text-ofc-ink-muted">Sessions programmées en petit groupe, présentiel en Île-de-France.</p>
+            </li>
+            <li className="rounded-2xl border border-slate-200 bg-white p-6">
+              <h3 className={OFC_TYPE_H3}>Intra-entreprise</h3>
+              <p className="mt-3 text-sm leading-relaxed text-ofc-ink-muted">Session dédiée sur devis, dans vos locaux en Île-de-France.</p>
+            </li>
           </ul>
         </div>
       </section>

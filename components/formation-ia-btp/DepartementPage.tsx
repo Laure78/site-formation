@@ -71,7 +71,7 @@ export function DepartementPage({ data }: { data: DepartementPageData }) {
   };
   const locatif = deptLocatif(grammar);
   const deptLabel = `${data.nom} (${data.code})`;
-  const h1 = `Formation IA BTP ${deptLabel} — présentiel dans vos locaux`;
+  const h1 = `Formation IA BTP ${deptLabel} — présentiel, intra ou inter`;
   const campaign = `dept-${data.code}`;
 
   const metaDescription =
@@ -298,7 +298,7 @@ export function DepartementPage({ data }: { data: DepartementPageData }) {
         <div className="mx-auto max-w-2xl text-center">
           <h2 className="font-display text-2xl font-bold md:text-3xl">Réserver un créneau découverte</h2>
           <p className="mt-4 text-lg text-blue-100 md:text-xl">
-            30 minutes pour cadrer votre besoin {locatif} ({data.code}) — en présentiel, intra-entreprise, dans vos locaux
+            30 minutes pour cadrer votre besoin {locatif} ({data.code}) — en présentiel, intra (dans vos locaux) ou inter
             selon vos contraintes.
           </p>
           <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">

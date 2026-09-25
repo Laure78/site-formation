@@ -66,7 +66,6 @@ export function buildGuideMoeIaUnifiedGraphJsonLd(): Record<string, unknown> {
         url: `${base}${LINKS.formationIaMaitriseOeuvre}`,
         hasCourseInstance: [
           { '@type': 'CourseInstance', courseMode: 'onsite', inLanguage: 'fr-FR' },
-          { '@type': 'CourseInstance', courseMode: 'online', inLanguage: 'fr-FR' },
         ],
       },
       {

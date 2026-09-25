@@ -138,11 +138,11 @@ const FAQ_ITEMS = [
   },
   {
     q: 'La formation se fait-elle sur nos dossiers réels ?',
-    a: "Oui. En intra-entreprise, dans vos locaux (présentiel Île-de-France), on travaille de préférence sur vos devis, DCE et mémoires — anonymisés si besoin — pour que les gains soient immédiatement applicables.",
+    a: "Oui. En intra (dans vos locaux) ou inter (présentiel Île-de-France), on travaille de préférence sur vos devis, DCE et mémoires — anonymisés si besoin — pour que les gains soient immédiatement applicables.",
   },
   {
     q: 'Où intervenez-vous en Île-de-France ?',
-    a: `Présentiel uniquement : ${IDF_ZONE_INTERVENTION} — intra-entreprise, dans vos locaux.`,
+    a: `Présentiel uniquement : ${IDF_ZONE_INTERVENTION} — intra ou inter.`,
   },
   {
     q: "Comment l'IA aide-t-elle un chargé d'affaires au quotidien ?",
@@ -468,7 +468,7 @@ export default function FormationIaChargeAffairesBtpPage() {
           <p className="mt-6 font-medium text-slate-900">Les formations se déroulent en présentiel en Île-de-France, en intra-entreprise ou en inter-entreprises selon les sessions.</p>
           <ul className="mt-3 list-disc space-y-2 pl-6 text-slate-700">
             <li>
-              Dans vos locaux ou sur site ({IDF_ZONE_INTERVENTION})
+              Intra (dans vos locaux) ou inter ({IDF_ZONE_INTERVENTION})
             </li>
           </ul>
           <p className="mt-6">

@@ -211,7 +211,7 @@ export const LIBELLE_EFFECTIF_GROUPE = `Groupe de ${EFFECTIF_GROUPE_MAX} partici
 
 export const MODALITE_POSITIONNEMENT = 'présentiel uniquement · Île-de-France uniquement';
 
-export const MODALITE_INTRA_ENTREPRISE = 'intra-entreprise, dans vos locaux' as const;
+export const MODALITE_INTRA_ENTREPRISE = 'intra (dans vos locaux) ou inter' as const;
 
 export const PERIMETRE_FORMATIONS_COURT = MODALITE_POSITIONNEMENT;
 

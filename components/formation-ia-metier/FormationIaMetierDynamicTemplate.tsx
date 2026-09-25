@@ -1,13 +1,15 @@
+import Link from 'next/link';
 import { CtaRdv } from '@/components/CtaRdv';
-import { JsonLd } from '@/components/JsonLd';
+import { BreadcrumbJsonLd } from '@/components/seo/BreadcrumbJsonLd';
+import { FormationMetierJsonLd } from '@/components/seo/FormationMetierJsonLd';
 import { ProfilePhoto } from '@/components/landing/ProfilePhoto';
-import { getCourseSchema, getFAQSchema, SITE_CONFIG } from '@/lib/seo';
+import { SITE_CONFIG } from '@/lib/seo';
 import { LINKS } from '@/lib/internal-links';
-import { SOCIAL_PROOF } from '@/lib/constants';
 import type { FormationIaMetierDynamicConfig } from '@/lib/formation-ia-metier-dynamic-types';
 import { MetierIdfPresentielLine } from '@/components/formation-ia-metier/MetierIdfPresentielLine';
 import { LiensConnexes } from '@/components/LiensConnexes';
 import { PreuveSociale } from '@/components/PreuveSociale';
+import { TARIF_FORFAIT_DEBUTANT_HT } from '@/lib/tarifs-sessions';
 
 function SectionCtaVisio({ className = '' }: { className?: string }) {
   return (
@@ -26,31 +28,45 @@ export function FormationIaMetierDynamicTemplate({
 }: {
   config: FormationIaMetierDynamicConfig;
 }) {
-  const courseJson = getCourseSchema({
-    name: config.courseName,
-    description: config.courseDescription,
-    path: config.path,
-    providerName: SITE_CONFIG.legalName,
-    instructorName: SITE_CONFIG.name,
-    teaches: config.courseTeaches,
-    educationalLevel: 'Professionnel',
-    timeRequired: 'PT4H',
-    areaServed: ['Île-de-France', 'France'],
-  });
+  const faqItems = config.faq.map((item) => ({
+    question: item.q,
+    answer: item.a.replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim(),
+  }));
 
-  const faqSchema = getFAQSchema(config.faq);
+  const breadcrumbFinal =
+    config.breadcrumbMetierShort ?? config.breadcrumbMetierLabel;
 
   return (
     <div className="bg-white text-slate-900">
-      <JsonLd id={`schema-course-metier-dyn-${config.slug}`} schema={courseJson} />
-      <JsonLd id={`schema-faq-metier-dyn-${config.slug}`} schema={faqSchema} />
+      <FormationMetierJsonLd
+        metierLabel={config.breadcrumbMetierLabel}
+        path={config.path}
+        courseName={config.courseName}
+        courseDescription={config.courseDescription}
+        duration="PT4H"
+        price={TARIF_FORFAIT_DEBUTANT_HT}
+        level="Professionnel"
+        teaches={config.courseTeaches}
+        faqItems={faqItems}
+        scriptId={`schema-formation-metier-dyn-${config.slug}`}
+        catalogueProgrammeRef="NIV-01"
+      />
+      <BreadcrumbJsonLd
+        id={`schema-breadcrumb-metier-dyn-${config.slug}`}
+        items={[
+          { name: 'Accueil', url: '/' },
+          { name: 'Formation IA BTP', url: LINKS.formationIaBtp },
+          { name: breadcrumbFinal, url: config.path },
+        ]}
+      />
 
       {/* Hero */}
       <section className="border-b border-slate-200 bg-white px-4 py-12 md:py-16">
         <div className="mx-auto max-w-4xl">
           <MetierIdfPresentielLine className="mb-4" />
           <h1 className="font-display text-3xl font-bold leading-tight tracking-tight text-slate-900 md:text-4xl lg:text-[2.35rem]">
-            Formation IA pour {config.h1MetierPluriel} — Gagnez du temps sur devis, admin et chantier
+            {config.h1Override ??
+              `Formation IA pour ${config.h1MetierPluriel} — Gagnez du temps sur devis, admin et chantier`}
           </h1>
           <PreuveSociale className="mt-6" />
           <p className="mt-6 text-lg leading-relaxed text-slate-600">
@@ -140,6 +156,25 @@ export function FormationIaMetierDynamicTemplate({
           </ol>
         </div>
       </section>
+
+      {config.maillageInterne ? (
+        <section className="border-b border-slate-200 bg-white px-4 py-10 md:py-12">
+          <div className="mx-auto max-w-4xl">
+            <h2 className="font-display text-xl font-bold text-slate-900 md:text-2xl">
+              Aller plus loin sur le site
+            </h2>
+            <ul className="mt-6 space-y-3 text-slate-700">
+              {config.maillageInterne.map((link) => (
+                <li key={link.href}>
+                  <Link href={link.href} className="font-medium text-[#377CF3] underline hover:no-underline">
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+      ) : null}
 
       {/* Résultats */}
       <section className="border-b border-slate-200 bg-white px-4 py-14 md:py-16">

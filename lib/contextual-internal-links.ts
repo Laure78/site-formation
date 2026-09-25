@@ -38,7 +38,7 @@ export const GEO_DEPARTMENT_LINKS: (ContextualLinkCard & { slug: string })[] = [
     slug: 'yvelines-78',
     href: LINKS.formationIaBtpYvelines78,
     title: 'Yvelines (78)',
-    description: 'Versailles, Guyancourt, Saint-Quentin-en-Yvelines — intra-entreprise, dans vos locaux.',
+    description: 'Versailles, Guyancourt, Saint-Quentin-en-Yvelines — intra (dans vos locaux) ou inter.',
   },
   {
     slug: 'essonne-91',
@@ -68,7 +68,7 @@ export const GEO_DEPARTMENT_LINKS: (ContextualLinkCard & { slug: string })[] = [
     slug: 'seine-et-marne-77',
     href: LINKS.formationIaBtpSeineEtMarne77,
     title: 'Seine-et-Marne (77)',
-    description: 'Melun, Meaux, Marne-la-Vallée — intra-entreprise, dans vos locaux.',
+    description: 'Melun, Meaux, Marne-la-Vallée — intra (dans vos locaux) ou inter.',
   },
 ];
 
@@ -167,7 +167,7 @@ export const FORMATION_NIV01_RELATED: ContextualLinkCard[] = [
   {
     href: LINKS.formationIleDeFrance,
     title: 'Formation IA Île-de-France',
-    description: 'Interventions intra dans vos locaux franciliens.',
+    description: 'Interventions intra (dans vos locaux) ou inter franciliens.',
   },
   {
     href: LINKS.blogFormationIaBtpGuide2026,
@@ -228,7 +228,7 @@ export const CONDUCTEUR_TRAVAUX_RELATED: ContextualLinkCard[] = [
   {
     href: LINKS.formationIleDeFrance,
     title: 'Formation IA Île-de-France',
-    description: 'Intra dans vos locaux — Guyancourt → IDF.',
+    description: 'Intra ou inter — Guyancourt → IDF.',
   },
 ];
 
@@ -254,8 +254,8 @@ export const FORMATION_NIV03_RELATED: ContextualLinkCard[] = [
   },
   {
     href: LINKS.formationConducteurTravaux,
-    title: 'Landing conducteur de travaux',
-    description: 'Cas d’usage terrain et visio découverte.',
+    title: 'Formation IA pour conducteurs de travaux',
+    description: 'Cas d’usage terrain, prompts et visio découverte.',
   },
   {
     href: LINKS.formationAO,

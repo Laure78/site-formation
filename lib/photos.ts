@@ -746,7 +746,7 @@ export const PHOTOS = {
     src: '/images/formation-developpement-web-ia-sans-coder/02-public-pour-qui.webp',
     alt: 'Public cible : entrepreneurs, salariés, porteurs de projet — IA sans coder',
     description:
-      'Infographie « Pour qui ? » de la formation développement web avec l’IA sans savoir coder : entrepreneurs, indépendants, artisans, commerçants, salariés en quête d’autonomie, demandeurs d’emploi en réorientation et porteurs de projet. Aucun prérequis en programmation. Organisme OFC, Laure Olivié.',
+      'Infographie « Pour qui ? » de la formation développement web avec l’IA sans savoir coder : entrepreneurs, indépendants, commerçants, TPE et PME du bâtiment, salariés en quête d’autonomie, demandeurs d’emploi en réorientation et porteurs de projet. Aucun prérequis en programmation. Organisme OFC, Laure Olivié.',
     title: 'De l’idée au concret — public de la formation',
     width: 819,
     height: 1024,
@@ -771,9 +771,9 @@ export const PHOTOS = {
   },
   formationNiv10DevWebIaFormats2026: {
     src: '/images/formation-developpement-web-ia-sans-coder/05-formats-flexibles.webp',
-    alt: 'Formats formation IA sans coder : présentiel, classe virtuelle, intra-entreprise',
+    alt: 'Formats formation IA sans coder : présentiel, inter-entreprises, intra-entreprise',
     description:
-      'Infographie des formats de la formation « Développement web avec l’IA — sans savoir coder » : présentiel (format privilégié), classe virtuelle à dates dédiées, intra-entreprise sur demande. Même programme Qualiopi quel que soit le format — OFC Création d’Entreprise, Laure Olivié.',
+      'Infographie des formats de la formation « Développement web avec l’IA — sans savoir coder » : présentiel en Île-de-France, inter-entreprises à dates programmées, intra-entreprise sur devis. Même programme Qualiopi quel que soit le format — OFC Création d’Entreprise, Laure Olivié.',
     title: 'À vous de choisir — même programme',
     width: 819,
     height: 1024,

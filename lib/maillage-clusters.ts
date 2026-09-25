@@ -158,7 +158,7 @@ function buildGeoSatelliteLinks(slug: string): RelatedLinkItem[] {
     links.push({
       href: d.href,
       label: d.long,
-      description: `Page locale ${d.short} — intra dans vos locaux.`,
+      description: `Page locale ${d.short} — intra (dans vos locaux) ou inter.`,
     });
   }
   const metier = GEO_METIER_BY_DEPT[slug];
@@ -714,7 +714,7 @@ export function getClusterRelatedLinks(path: string): ClusterPageConfig | null {
         {
           href: LINKS.formationIaBtpHautsDeSeine92,
           label: 'Formation IA BTP Hauts-de-Seine (92)',
-          description: 'Département voisin — intra dans vos locaux.',
+          description: 'Département voisin — intra (dans vos locaux) ou inter.',
         },
         {
           href: LINKS.formationIaBtpSeineSaintDenis93,

@@ -430,7 +430,7 @@ export const FORMATIONS: readonly Formation[] = [
       'Définir une feuille de route pour poursuivre après la formation',
     ],
     public:
-      'Entrepreneurs, indépendants, artisans, commerçants, salariés, porteurs de projet et personnes en reconversion',
+      'Entrepreneurs, indépendants, commerçants, TPE et PME du bâtiment, salariés, porteurs de projet et personnes en reconversion',
     casUsage: 'Site, application ou outil métier — première version assistée par IA',
     pdfProgramme:
       '/formations/developpement-web-ia-sans-coder/programme-ofc-developpement-web-ia-7h.pdf',

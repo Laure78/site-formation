@@ -20,13 +20,13 @@ export const revalidate = 3600;
 export const metadata: Metadata = createPageMetadata({
   title: 'Ressources IA BTP : guides et tutos',
   description:
-    'Guides, tutoriels et prompts gratuits pour la formation IA pour le BTP : DCE, mémoire technique, chantier, PPSPS et DOE — ressources OFC Qualiopi IDF.',
+    'Guides, tutoriels et prompts IA gratuits pour le BTP : analyser un DCE, mémoire technique, devis, chantier et DOE. Ressources OFC Qualiopi Île-de-France.',
   descriptionFinal: true,
   path: PATH,
   openGraphType: 'website',
   openGraphTitle: 'Ressources IA BTP : guides et tutos',
   openGraphDescription:
-    'Guides, tutoriels et prompts gratuits pour la formation IA pour le BTP : DCE, mémoire technique, chantier, PPSPS et DOE — ressources OFC Qualiopi IDF.',
+    'Guides, tutoriels et prompts IA gratuits pour le BTP : analyser un DCE, mémoire technique, devis, chantier et DOE. Ressources OFC Qualiopi Île-de-France.',
   appendAuthorSuffix: false,
   image: {
     url: '/images/ressources-gratuites-ia-btp-hero.png',

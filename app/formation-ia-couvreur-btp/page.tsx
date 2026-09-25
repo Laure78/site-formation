@@ -133,7 +133,7 @@ const FAQ_ITEMS = [
   {
     question: 'Quelle durée et quel format ?',
     answer:
-      'Session catalogue de 4 h, en présentiel uniquement, en Île-de-France uniquement : intra-entreprise, dans vos locaux. Le contenu s’appuie sur vos documents réels (devis toiture, CR, DTU 40.x, AO).',
+      'Session catalogue de 4 h, en présentiel uniquement, en Île-de-France uniquement : intra (dans vos locaux) ou inter. Le contenu s’appuie sur vos documents réels (devis toiture, CR, DTU 40.x, AO).',
   },
   {
     question: "L'IA sait-elle lire un plan de toiture ?",

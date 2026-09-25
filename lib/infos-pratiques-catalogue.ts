@@ -29,7 +29,7 @@ import { libelleTarifApplicationMetierBtp } from '@/lib/tarifs-applications-meti
 import { libelleTarifLancementDevWebIa } from '@/lib/formation-developpement-web-ia-content';
 /** Modalité pédagogique fixe — toutes les actions catalogue OFC. */
 export const MODALITE_PEDAGOGIQUE_CATALOGUE =
-  'Présentiel — Île-de-France uniquement (intra-entreprise, dans vos locaux)' as const;
+  'Présentiel — Île-de-France uniquement (intra-entreprise (dans vos locaux) ou inter)' as const;
 
 /** Encart accessibilité handicap — texte réglementaire affiché dans le composant. */
 export const INFOS_PRATIQUES_HANDICAP_ENCART =
@@ -153,7 +153,7 @@ export const PREREQUIS_NIV04 =
   "Formation de niveau avancé : utilisation régulière de Claude déjà acquise. Abonnement Claude Pro actif (environ 18 € HT / mois, à la charge de l'entreprise) avec l'option « Exécution de code » activée. Chaque participant apporte ses propres pièces de chantier (CCTP, CCAP, modèles, dossiers).";
 
 export const MODALITE_PEDAGOGIQUE_NIV04 =
-  'Action de formation au sens de l\'art. L6313-1 du Code du travail — 100 % présentiel — intra-entreprise, dans vos locaux — 70 % pratique / 30 % théorie';
+  'Action de formation au sens de l\'art. L6313-1 du Code du travail — 100 % présentiel — intra ou inter — 70 % pratique / 30 % théorie';
 
 export const MODALITES_ACCES_NIV04 =
   `Inscription sur demande auprès d'OFC (${CONTACT.email} — ${CONTACT.phoneDisplay}) : entretien d'analyse du besoin et vérification des prérequis → devis et programme personnalisé → convention de formation signée → demande de prise en charge OPCO → convocation des participants. Un recueil des attentes est adressé à chaque participant avant la session.`;
@@ -252,7 +252,7 @@ export const PREREQUIS_NIV10 =
 export const DELAI_ACCES_NIV10 = DELAI_ACCES_NIV09;
 
 export const MODALITE_PEDAGOGIQUE_NIV10 =
-  'Action de formation — présentiel, classe virtuelle ou intra-entreprise sur demande — 70 % pratique / 30 % apports méthodologiques — chaque participant travaille sur son propre projet avec un cas pratique fil rouge.';
+  'Action de formation — présentiel uniquement (Île-de-France), inter ou intra-entreprise sur devis — 70 % pratique / 30 % apports méthodologiques — chaque participant travaille sur son propre projet avec un cas pratique fil rouge.';
 
 export const MODALITES_ACCES_NIV10 =
   `Inscription sur demande auprès d'OFC (${CONTACT.email} — ${CONTACT.phoneDisplay}) : questionnaire d’analyse du besoin et de positionnement → devis ou inscription inter → convention de formation → demande de prise en charge OPCO selon éligibilité → convocation.`;

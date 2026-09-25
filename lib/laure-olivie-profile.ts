@@ -121,7 +121,7 @@ export const LAURE_OLIVIE_PARCOURS_TIMELINE = [
   {
     period: '2022',
     title: 'Formatrice IA générative · création d\'OFC Création d\'Entreprise (SASU)',
-    body: `Lancement de l'activité **formatrice IA spécialiste BTP** et structuration juridique d'**OFC Création d'Entreprise** — sessions courtes (4 h), intra-entreprise, dans vos locaux, exclusivement en **présentiel en Île-de-France**. Programmes : « L'IA au service du Bâtiment », appels d'offres, assistants métier. ${LAURE_OLIVIE_PROMPTS_DELIVERY} **Apprentissage clé** : Qualiopi et financement OPCO imposent une pédagogie claire et mesurable.`,
+    body: `Lancement de l'activité **formatrice IA spécialiste BTP** et structuration juridique d'**OFC Création d'Entreprise** — sessions courtes (4 h), intra ou inter, exclusivement en **présentiel en Île-de-France**. Programmes : « L'IA au service du Bâtiment », appels d'offres, assistants métier. ${LAURE_OLIVIE_PROMPTS_DELIVERY} **Apprentissage clé** : Qualiopi et financement OPCO imposent une pédagogie claire et mesurable.`,
   },
   {
     period: '2023',
@@ -136,7 +136,7 @@ export const LAURE_OLIVIE_PARCOURS_TIMELINE = [
   {
     period: '2026',
     title: 'Satisfaction mesurée · indicateurs Qualiopi publiés',
-    body: `Chiffres consolidés sur les sessions OFC (${LAURE_OLIVIE_STATS_FRESHNESS}) : ${formatNoteSatisfactionAffichageComplet()} — questionnaires de fin de formation. Parcours intra-entreprise, dans vos locaux en Île-de-France, financement **Constructys** selon éligibilité.`,
+    body: `Chiffres consolidés sur les sessions OFC (${LAURE_OLIVIE_STATS_FRESHNESS}) : ${formatNoteSatisfactionAffichageComplet()} — questionnaires de fin de formation. Parcours intra ou inter en Île-de-France, financement **Constructys** selon éligibilité.`,
   },
 ] as const;
 

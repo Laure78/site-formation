@@ -429,6 +429,11 @@ Propose STRUCTURE de métré (postes) : doublages, cloisons, habillages, renfort
   showAuthorBio: true,
   authorBioClosingLine: 'Elle forme les équipes plaque de plâtre et second œuvre sur des usages IA sécurisés.',
   relatedMetierLinks: [
+    {
+      href: LINKS.formationIaHubPlatrerieCloisons,
+      title: 'Hub plâtrerie, cloisons & faux plafonds',
+      description: 'Page détaillée lot plâtrerie — DTU 25, métrés, coordination.',
+    },
     { href: '/formation-ia-peintre-btp', title: 'Formation IA peintre bâtiment', description: 'Finitions après plaquiste.' },
     { href: '/formation-ia-electricien-btp', title: 'Formation IA électricien BTP', description: 'Réservations et passages de lots.' },
     { href: '/formation-ia-macon-btp', title: 'Formation IA maçon BTP', description: 'Gros œuvre et interfaces structure.' },

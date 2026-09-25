@@ -9,7 +9,7 @@ export const DEPARTEMENT_HAUTS_DE_SEINE_92: DepartementPageData = {
   path: '/formation-ia-btp-hauts-de-seine-92',
   slug: 'hauts-de-seine-92',
   accroche:
-    "Formation IA pour le BTP en présentiel dans les Hauts-de-Seine (92), intra-entreprise, dans vos locaux. Département de donneurs d'ordre et de tertiaire : la session cible la productivité sur l'écrit contractuel, les mémoires techniques et la conduite de travaux — Nanterre, La Défense, Boulogne, Issy.",
+    "Formation IA pour le BTP en présentiel dans les Hauts-de-Seine (92), intra-entreprise (dans vos locaux) ou inter. Département de donneurs d'ordre et de tertiaire : la session cible la productivité sur l'écrit contractuel, les mémoires techniques et la conduite de travaux — Nanterre, La Défense, Boulogne, Issy.",
   villes: [
     'Nanterre',
     'Boulogne-Billancourt',
@@ -30,7 +30,7 @@ export const DEPARTEMENT_HAUTS_DE_SEINE_92: DepartementPageData = {
   faqLocale: [
     {
       q: 'Faites-vous des sessions à La Défense ou Boulogne-Billancourt ?',
-      a: 'Oui, en intra dans vos locaux, partout dans les Hauts-de-Seine — Nanterre, Issy, Courbevoie et Levallois inclus. Depuis Guyancourt, une demi-journée se planifie sans difficulté majeure.',
+      a: 'Oui, en intra (dans vos locaux) ou inter, partout dans les Hauts-de-Seine — Nanterre, Issy, Courbevoie et Levallois inclus. Depuis Guyancourt, une demi-journée se planifie sans difficulté majeure.',
     },
     {
       q: "La formation convient-elle à un maître d'œuvre ?",
@@ -59,7 +59,7 @@ export const DEPARTEMENT_HAUTS_DE_SEINE_92: DepartementPageData = {
     title:
       'Formation IA BTP à Boulogne-Billancourt, Vanves, Nanterre et dans tout le 92',
     body:
-      "Dans les Hauts-de-Seine, les entreprises du bâtiment (généralistes, second œuvre, maîtrise d'œuvre) enchaînent dossiers tertiaires, rénovation et délais courts. La formation se déroule en intra dans vos locaux — Boulogne-Billancourt, Vanves, Nanterre ou ailleurs dans le 92 — ou en session inter en Île-de-France, sur vos documents réels (devis, CR, extraits CCTP).",
+      "Dans les Hauts-de-Seine, les entreprises du bâtiment (généralistes, second œuvre, maîtrise d'œuvre) enchaînent dossiers tertiaires, rénovation et délais courts. La formation se déroule en intra (dans vos locaux) ou inter — Boulogne-Billancourt, Vanves, Nanterre ou ailleurs dans le 92 — ou en session inter en Île-de-France, sur vos documents réels (devis, CR, extraits CCTP).",
   },
   liensPrioritaires: [
     {

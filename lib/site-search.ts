@@ -101,7 +101,7 @@ function buildStaticPages(): SiteSearchEntry[] {
     {
       id: 'page-idf',
       title: 'Formation IA BTP Île-de-France',
-      description: 'Présentiel intra-entreprise, dans vos locaux — tous départements franciliens.',
+      description: 'Présentiel intra (dans vos locaux) ou inter — tous départements franciliens.',
       href: LINKS.formationIleDeFrance,
       kind: 'page',
       keywords: 'ile de france paris 75 78 91 92 93 94 95 77',

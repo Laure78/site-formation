@@ -863,7 +863,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
         type: 'paragraph',
         title: 'Pour qui est faite cette méthode ?',
         content:
-          'Professionnels du BTP, PME du BTP, conducteurs de travaux, responsables appels d’offres ou direction technique : si vous répondez régulièrement à des marchés publics ou privés, structurer la rédaction avec l’IA est un levier fort — à condition d’imposer une discipline interne (données, confidentialité, relecture). En Île-de-France, les sessions se déroulent en présentiel intra-entreprise, dans vos locaux. Pour le détail des lieux et modalités, voir la page « Formation IA pour le BTP en Île-de-France ».',
+          'Professionnels du BTP, PME du BTP, conducteurs de travaux, responsables appels d’offres ou direction technique : si vous répondez régulièrement à des marchés publics ou privés, structurer la rédaction avec l’IA est un levier fort — à condition d’imposer une discipline interne (données, confidentialité, relecture). En Île-de-France, les sessions se déroulent en présentiel, intra ou inter. Pour le détail des lieux et modalités, voir la page « Formation IA pour le BTP en Île-de-France ».',
       },
       {
         type: 'html',
@@ -873,7 +873,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
           '<ul class="mt-4 list-disc pl-6 text-slate-600">' +
           '<li><a href="/blog/ia-memoire-technique-appel-offres-guide-2026">IA mémoire technique appel d’offres — guide complet 2026</a></li>' +
           '<li><a href="/formations/ia-appels-offre-btp">Formation « Répondre aux appels d’offres avec l’IA »</a> (Qualiopi, OPCO Constructys)</li>' +
-          '<li><a href="/formation-ia-btp-ile-de-france">Formation IA pour les pros du BTP en Île-de-France</a> — sessions intra-entreprise, dans vos locaux</li>' +
+          '<li><a href="/formation-ia-btp-ile-de-france">Formation IA pour les pros du BTP en Île-de-France</a> — sessions intra (dans vos locaux) ou inter</li>' +
           '</ul>',
       },
       {
@@ -973,7 +973,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
         type: 'paragraph',
         title: 'Où se déroulent les formations IA pour le BTP en 2026 ?',
         content:
-          'Laure Olivié anime des formations présentiel uniquement · Île-de-France uniquement. Basée à Guyancourt (78), elle couvre Paris (75), Yvelines (78), Seine-et-Marne (77), Essonne (91), Hauts-de-Seine (92), Val-de-Marne (94), Seine-Saint-Denis (93), Val-d\'Oise (95) — intra-entreprise, dans vos locaux.',
+          'Laure Olivié anime des formations présentiel uniquement · Île-de-France uniquement. Basée à Guyancourt (78), elle couvre Paris (75), Yvelines (78), Seine-et-Marne (77), Essonne (91), Hauts-de-Seine (92), Val-de-Marne (94), Seine-Saint-Denis (93), Val-d\'Oise (95) — intra ou inter.',
       },
       {
         type: 'faq',
@@ -1396,7 +1396,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
       {
         type: 'html',
         title: 'Comment se former à l’automatisation des comptes rendus de chantier',
-        content: `<p class="text-slate-600 leading-relaxed">OFC Création d'Entreprise propose une formation IA pour les pros du BTP de 4 heures, certifiée Qualiopi, avec un module dédié aux comptes rendus : prompts personnalisés, exercices sur vos documents réels, modèles réutilisables et rappels sur la confidentialité. Le cas d'usage dédié est sur la page <a href="${LINKS.iaCompteRenduChantier}" class="text-[var(--accent)] font-medium underline">IA compte-rendu de chantier</a> ; pour le gain de temps côté conduite de travaux, voir aussi comment <a href="${LINKS.blogCommentIaGagne5hConducteursTravaux}" class="text-[var(--accent)] font-medium underline">l'IA fait gagner 5 h aux conducteurs de travaux</a>. Sessions en présentiel en Île-de-France ; formations intra dans vos locaux possibles sur devis. Financement : vos droits à la formation et les dispositifs entreprise (dont Constructys) sont mobilisables selon les barèmes et plafonds en vigueur au moment du dossier — jusqu'à 24 € HT par heure et par stagiaire dans le cadre du plan de développement des compétences lorsque les conditions sont réunies.</p>`,
+        content: `<p class="text-slate-600 leading-relaxed">OFC Création d'Entreprise propose une formation IA pour les pros du BTP de 4 heures, certifiée Qualiopi, avec un module dédié aux comptes rendus : prompts personnalisés, exercices sur vos documents réels, modèles réutilisables et rappels sur la confidentialité. Le cas d'usage dédié est sur la page <a href="${LINKS.iaCompteRenduChantier}" class="text-[var(--accent)] font-medium underline">IA compte-rendu de chantier</a> ; pour le gain de temps côté conduite de travaux, voir aussi comment <a href="${LINKS.blogCommentIaGagne5hConducteursTravaux}" class="text-[var(--accent)] font-medium underline">l'IA fait gagner 5 h aux conducteurs de travaux</a>. Sessions en présentiel en Île-de-France ; formations intra (dans vos locaux) ou inter sur devis. Financement : vos droits à la formation et les dispositifs entreprise (dont Constructys) sont mobilisables selon les barèmes et plafonds en vigueur au moment du dossier — jusqu'à 24 € HT par heure et par stagiaire dans le cadre du plan de développement des compétences lorsque les conditions sont réunies.</p>`,
       },
       {
         type: 'paragraph',
@@ -1795,7 +1795,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
         type: 'paragraph',
         title: 'Se former à l’analyse de CCTP avec l’IA',
         content:
-          `OFC Création d'Entreprise propose une formation IA pour le BTP de 4 heures, certifiée Qualiopi, avec un module appels d'offres et analyse de DCE : méthode en cinq étapes sur vos documents, prompts personnalisés selon votre corps de métier, confidentialité et choix d'outil. Sessions en présentiel en Île-de-France ; formations intra dans vos locaux sur devis. Partenaires et références : FFB Grand Paris, FFB Île-de-France (78, 91, 95), FFB Île-de-France Est, CSFE, CNAM Entreprise. ${formatProsFormesEtNoteQualiopi()}`,
+          `OFC Création d'Entreprise propose une formation IA pour le BTP de 4 heures, certifiée Qualiopi, avec un module appels d'offres et analyse de DCE : méthode en cinq étapes sur vos documents, prompts personnalisés selon votre corps de métier, confidentialité et choix d'outil. Sessions en présentiel en Île-de-France ; formations intra ou inter sur devis. Partenaires et références : FFB Grand Paris, FFB Île-de-France (78, 91, 95), FFB Île-de-France Est, CSFE, CNAM Entreprise. ${formatProsFormesEtNoteQualiopi()}`,
       },
       {
         type: 'html',

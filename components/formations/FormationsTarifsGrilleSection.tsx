@@ -34,7 +34,7 @@ export function FormationsTarifsGrilleSection() {
         <article className="flex flex-col rounded-2xl border border-[#E2E8F0] bg-[#F8FAFC] p-6">
           <h3 className="font-display text-xl font-semibold text-[#0F172A]">Formation intra-entreprise</h3>
           <p className="mt-3 text-sm leading-relaxed text-[#475569]">
-            Une formation organisée exclusivement pour votre entreprise, dans vos locaux en Île-de-France.
+            Une formation organisée exclusivement pour votre entreprise, dans vos locaux, en Île-de-France.
             Le tarif est forfaitaire pour l&apos;ensemble du groupe.
           </p>
           <ul className="mt-4 flex-1 space-y-2 text-sm text-[#334155]">

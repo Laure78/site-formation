@@ -38,15 +38,15 @@ function faqGeoBase(grammar: DeptGrammar, code: string, villes: string): FAQItem
   return [
     {
       q: `Intervenez-vous dans tout le département ${d} ?`,
-      a: `Oui. Intra dans vos locaux ou sur site ${locatif}, selon calendrier. Siège à Guyancourt (78) — déplacements vers ${villes} courants. Zones éloignées : journée bloquée ou demi-journées.`,
+      a: `Oui. Intra en intra (dans vos locaux) ou inter ${locatif}, selon calendrier. Siège à Guyancourt (78) — déplacements vers ${villes} courants. Zones éloignées : journée bloquée ou demi-journées.`,
     },
     {
       q: 'Comment se déroule une session intra-entreprise pour mon équipe ?',
-      a: `Session réservée à votre entreprise, 4 h intra-entreprise dans vos locaux, sur vos devis, CCTP et courriers — format privilégié des PME du ${code}.`,
+      a: `Session réservée à votre entreprise, 4 h intra (dans vos locaux) ou inter, sur vos devis, CCTP et courriers — format privilégié des PME du ${code}.`,
     },
     {
       q: 'Les formations ont-elles lieu en présentiel dans le département ?',
-      a: "Présentiel uniquement · Île-de-France uniquement — intra-entreprise, dans vos locaux. Exercices sur vos documents réels (devis, CCTP, courriers).",
+      a: "Présentiel uniquement · Île-de-France uniquement — intra (dans vos locaux) ou inter. Exercices sur vos documents réels (devis, CCTP, courriers).",
     },
     {
       q: 'Y a-t-il des frais de déplacement facturés pour une session dans mon département ?',
@@ -137,7 +137,7 @@ export const FORMATION_IA_BTP_YVELINES_78: FormationIaBtpDeptLandingConfig = {
   ],
   solutionTitle: 'Formation IA BTP 4 h, Qualiopi, centrée sur vos documents',
   solutionBody: [
-    `Format standard 4 h, présentiel intra-entreprise, dans vos locaux IDF. Alternance démo, exercice guidé, pratique sur vos devis, courriers et CR. Siège Guyancourt : logistique simple pour Versailles, Poissy, Mantes.`,
+    `Format standard 4 h, présentiel intra (dans vos locaux) ou inter IDF. Alternance démo, exercice guidé, pratique sur vos devis, courriers et CR. Siège Guyancourt : logistique simple pour Versailles, Poissy, Mantes.`,
     `Financement Constructys possible selon éligibilité — plafonds nationaux, pièces pédagogiques cohérentes Qualiopi fournies pour le dossier OPCO.`,
     `Montée progressive : courriers et relances d'abord, puis DCE et mémoires quand l'équipe maîtrise la relecture humaine.`,
     `Directions multi-chantiers : volet standardisation des consignes — mêmes prompts CR, mêmes grilles de relecture.`,
@@ -232,12 +232,12 @@ function buildDeptConfig(opts: {
     solutionTitle: `Formation IA BTP ${deptCode} : 4 h, résultats opérationnels`,
     solutionBody: [
       `${OFC} pour ${avecArticle} (${deptCode}) : 4 h, vos documents réels, zéro jargon startup. Devis, mails, synthèses, brouillons mémoires — itérations guidées.`,
-      `Siège Guyancourt (78) : déplacements IDF réalistes ${opts.temoignageZone}. Présentiel intra-entreprise, dans vos locaux uniquement.`,
+      `Siège Guyancourt (78) : déplacements IDF réalistes ${opts.temoignageZone}. Présentiel intra (dans vos locaux) ou inter uniquement.`,
       `Catalogue NIV-01 (bases), NIV-02 (appels d'offres), NIV-03 (conduite de travaux), NIV-04 (Maîtriser Claude AI) et NIV-05 (maîtres d'œuvre). Programmes PDF sur chaque fiche.`,
       `Repartez avec modèles réutilisables et feuille de route 15 jours — quoi tester, quoi mesurer, comment partager en équipe.`,
     ],
     villesTitle: `Villes et bassins d'emploi ${de} (${deptCode}) (indicatif)`,
-    villesIntro: `Intra dans vos locaux ou sur site. Villes représentatives ${de} (${deptCode}) — liste non exhaustive. Court échange pour confirmer logistique.`,
+    villesIntro: `Intra en intra (dans vos locaux) ou inter. Villes représentatives ${de} (${deptCode}) — liste non exhaustive. Court échange pour confirmer logistique.`,
     villesFooter: [
       `Enjeux locaux : ${opts.perimetre}. Exemples d'atelier adaptés à votre mix public/privé.`,
       `Vue régionale : page formation IA Île-de-France et catalogue des formations.`,
@@ -272,7 +272,7 @@ function faqSeineEtMarne77(): FAQItem[] {
     if (index === 0) {
       return {
         ...item,
-        a: `Oui. Intra dans vos locaux ou sur site en Seine-et-Marne (77), selon calendrier. Siège à Guyancourt (78) : l'ouest du 77 (Marne-la-Vallée, Sénart, Melun, Meaux) est en général accessible sous 30 à 45 min ; l'est du département (Provins, Coulommiers, Fontainebleau, Nemours) mobilise plutôt une journée bloquée ou des demi-journées.`,
+        a: `Oui. Intra en intra (dans vos locaux) ou inter en Seine-et-Marne (77), selon calendrier. Siège à Guyancourt (78) : l'ouest du 77 (Marne-la-Vallée, Sénart, Melun, Meaux) est en général accessible sous 30 à 45 min ; l'est du département (Provins, Coulommiers, Fontainebleau, Nemours) mobilise plutôt une journée bloquée ou des demi-journées.`,
       };
     }
     if (index === 6) {
@@ -341,13 +341,13 @@ export const FORMATION_IA_BTP_SEINE_ET_MARNE_77: FormationIaBtpDeptLandingConfig
   solutionTitle: 'Formation IA BTP 77 : 4 h, résultats opérationnels',
   solutionBody: [
     `${OFC} pour la Seine-et-Marne : 4 h, vos documents réels, zéro jargon startup. Devis, mails, synthèses, brouillons de mémoires — itérations guidées.`,
-    `Siège Guyancourt (78) : déplacements réalistes vers l'ouest du 77 (Marne-la-Vallée, Sénart, Melun) ; pour l'est (Provins, Coulommiers, Fontainebleau), journée bloquée ou demi-journées. Présentiel intra-entreprise, dans vos locaux uniquement.`,
+    `Siège Guyancourt (78) : déplacements réalistes vers l'ouest du 77 (Marne-la-Vallée, Sénart, Melun) ; pour l'est (Provins, Coulommiers, Fontainebleau), journée bloquée ou demi-journées. Présentiel intra (dans vos locaux) ou inter uniquement.`,
     `Catalogue NIV-01 (bases), NIV-02 (appels d'offres), NIV-03 (conduite de travaux). Programmes PDF sur chaque fiche.`,
     `Repartez avec modèles réutilisables et feuille de route 15 jours — quoi tester, quoi mesurer, comment partager en équipe.`,
   ],
   villesTitle: "Villes et bassins d'emploi de la Seine-et-Marne (77) (indicatif)",
   villesIntro:
-    'Intra dans vos locaux ou sur site. Villes et bassins fréquents dans le 77 — liste non exhaustive. Échange 30 min pour confirmer faisabilité et logistique.',
+    'Intra en intra (dans vos locaux) ou inter. Villes et bassins fréquents dans le 77 — liste non exhaustive. Échange 30 min pour confirmer faisabilité et logistique.',
   villesFooter: [
     `Enjeux locaux : pôle de Marne-la-Vallée / Val d'Europe, logistique de Sénart, rénovation énergétique, logements collectifs, marchés publics des intercommunalités (Melun Val de Seine, Marne et Gondoire, Paris-Vallée de la Marne, Grand Paris Sud). Ateliers adaptés à votre mix public / privé.`,
     `Vue régionale : page formation IA Île-de-France et catalogue des formations.`,

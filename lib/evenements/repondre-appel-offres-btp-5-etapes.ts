@@ -28,10 +28,10 @@ export const EVENEMENT_AO_BTP = {
   path: LINKS.evenementRepondreAoBtp5Etapes,
   name: 'Répondre à un appel d’offres dans le BTP : la méthode en 5 étapes',
   shortTitle: 'Appels d’offres BTP : méthode en 5 étapes',
-  badge: 'Événement en ligne • 5 novembre 2026',
+  badge: 'Événement gratuit · hors formation • 5 novembre 2026',
   dateLabel: 'Jeudi 5 novembre 2026',
   timeLabel: 'De 12 h à 13 h, heure de Paris',
-  formatLabel: 'En ligne',
+  formatLabel: 'Événement gratuit · hors formation',
   durationLabel: '1 heure',
   startDateIso: '2026-11-05T12:00:00+01:00',
   endDateIso: '2026-11-05T13:00:00+01:00',
@@ -43,18 +43,18 @@ export const EVENEMENT_AO_BTP = {
   ctaPrimary: 'Je réserve ma place sur Eventbrite',
   ctaSecondary: 'Découvrir le programme',
   inscriptionMention: 'Inscription et paiement sur Eventbrite.',
-  promoMention: 'En ligne • Inscription sur Eventbrite',
+  promoMention: 'Événement gratuit · hors formation • Inscription sur Eventbrite',
   host: 'Laure Olivié',
   hostRole: 'Formatrice IA pour le BTP',
   /** Visuel principal (hero + Open Graph + JSON-LD Event). */
   image: PHOTOS.webinaireRepondreAoBtp,
   portrait: PHOTOS.portraitPro2026,
   geoSummary:
-    'Laure Olivié organise un événement en ligne le 5 novembre 2026, de 12 h à 13 h, heure de Paris, consacré aux réponses aux appels d’offres BTP avec l’IA. La méthode couvre cinq étapes : analyse du DCE, décision Go/No-Go, chiffrage, mémoire technique et contrôles des productions IA. Il s’adresse aux artisans, dirigeants, conducteurs de travaux, chargés d’affaires et fonctions support. L’inscription s’effectue sur Eventbrite.',
+    'Laure Olivié organise un événement en ligne le 5 novembre 2026, de 12 h à 13 h, heure de Paris, consacré aux réponses aux appels d’offres BTP avec l’IA. La méthode couvre cinq étapes : analyse du DCE, décision Go/No-Go, chiffrage, mémoire technique et contrôles des productions IA. Il s’adresse aux dirigeants de TPE et PME du bâtiment, conducteurs de travaux, chargés d’affaires et fonctions support. L’inscription s’effectue sur Eventbrite.',
   intro:
     'Du DCE au mémoire technique, découvrez une méthode pour structurer votre réponse avec l’IA. En une heure, identifiez les étapes clés, les points de contrôle et les outils à réutiliser sur vos dossiers.',
   pourQui:
-    'Vous préparez les réponses aux appels d’offres de votre entreprise ? Cet événement s’adresse aux artisans, dirigeants, conducteurs de travaux, chargés d’affaires et fonctions support du BTP.',
+    'Vous préparez les réponses aux appels d’offres de votre entreprise ? Cet événement s’adresse aux dirigeants de TPE et PME du bâtiment, conducteurs de travaux, chargés d’affaires et fonctions support du BTP.',
   formatrice:
     'Laure Olivié est formatrice en intelligence artificielle appliquée au BTP. Ancienne dirigeante d’une entreprise de travaux publics, elle accompagne les professionnels dans leurs usages de l’IA : devis, appels d’offres et suivi de chantier. Elle a fondé OFC Création d’Entreprise, organisme de formation certifié Qualiopi.',
   etapes: [

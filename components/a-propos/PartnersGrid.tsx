@@ -75,7 +75,7 @@ export function PartnersGrid() {
                     'Programme IA orienté terrain BTP',
                     'Cas concrets devis et chantiers',
                     'Accompagnement dossier Constructys',
-                    'Format intra-entreprise, dans vos locaux entreprise',
+                    'Format intra (dans vos locaux) ou inter entreprise',
                     'Sessions — organisme certifié Qualiopi en présentiel',
                   ].map((point) => (
                     <span key={point} className="flex items-start gap-2 text-sm text-[#334155]">

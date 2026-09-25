@@ -364,7 +364,7 @@ export const CATALOGUE_GAMMES: readonly CatalogueGammeSection[] = [
 
 /** Positionnement catalogue — blocs GEO citables. */
 export const CATALOGUE_POSITIONNEMENT = {
-  h1: 'Formations IA pour les professionnels du BTP',
+  h1: 'Catalogue des formations IA BTP en Île-de-France',
   promesseDocuments:
     'Apprenez à utiliser l’IA sur vos vrais documents et vos vrais processus : DCE, CCTP, CCAP, devis, comptes rendus, études de prix, suivi de chantier et appels d’offres.',
   promesseLivrables:

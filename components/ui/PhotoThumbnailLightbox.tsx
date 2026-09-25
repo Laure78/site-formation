@@ -20,11 +20,11 @@ export type PhotoThumbnailLightboxProps = {
   thumbnailHeight?: number;
 };
 
-const DEFAULT_THUMB_W = 120;
-const DEFAULT_THUMB_H = 90;
+const DEFAULT_THUMB_W = 96;
+const DEFAULT_THUMB_H = 72;
 
 /**
- * Miniature compacte (~120×90) — ouverture en lightbox (qualité source conservée).
+ * Miniature compacte (~96×72) — ouverture en lightbox (qualité source conservée).
  */
 export function PhotoThumbnailLightbox({
   src,

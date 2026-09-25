@@ -9,7 +9,7 @@ export const DEPARTEMENT_SEINE_SAINT_DENIS_93: DepartementPageData = {
   path: '/formation-ia-btp-seine-saint-denis-93',
   slug: 'seine-saint-denis-93',
   accroche:
-    "Formation IA pour le BTP en présentiel en Seine-Saint-Denis (93), intra-entreprise, dans vos locaux. Territoire de grands chantiers et de marchés publics : la session met l'accent sur la réponse aux marchés, le gros œuvre / TP et la production documentaire de chantier à forte cadence — Bobigny, Saint-Denis, Montreuil, Aubervilliers.",
+    "Formation IA pour le BTP en présentiel en Seine-Saint-Denis (93), intra-entreprise (dans vos locaux) ou inter. Territoire de grands chantiers et de marchés publics : la session met l'accent sur la réponse aux marchés, le gros œuvre / TP et la production documentaire de chantier à forte cadence — Bobigny, Saint-Denis, Montreuil, Aubervilliers.",
   villes: [
     'Bobigny',
     'Saint-Denis',
@@ -32,7 +32,7 @@ export const DEPARTEMENT_SEINE_SAINT_DENIS_93: DepartementPageData = {
   faqLocale: [
     {
       q: 'Vous déplacez-vous à Saint-Denis ou Montreuil ?',
-      a: 'Oui, en intra dans vos locaux, partout en Seine-Saint-Denis — Bobigny, Aubervilliers, Pantin, Noisy-le-Grand inclus. La logistique depuis Guyancourt se cadre au devis après le RDV découverte.',
+      a: 'Oui, en intra (dans vos locaux) ou inter, partout en Seine-Saint-Denis — Bobigny, Aubervilliers, Pantin, Noisy-le-Grand inclus. La logistique depuis Guyancourt se cadre au devis après le RDV découverte.',
     },
     {
       q: 'La formation est-elle utile pour les marchés publics du Grand Paris ?',
@@ -61,7 +61,7 @@ export const DEPARTEMENT_SEINE_SAINT_DENIS_93: DepartementPageData = {
     title:
       'Formation IA BTP à Saint-Ouen-sur-Seine, Saint-Denis, Montreuil et tout le 93',
     body:
-      "En Seine-Saint-Denis, les entreprises de travaux (gros œuvre, TP, second œuvre) et les équipes qui répondent aux marchés publics ont besoin d'une méthode courte sur l'écrit de chantier. La session se fait en intra dans vos locaux — Saint-Ouen-sur-Seine, Saint-Denis, Montreuil ou ailleurs dans le 93 — ou en inter en Île-de-France, sur vos DCE, CR et situations de travaux.",
+      "En Seine-Saint-Denis, les entreprises de travaux (gros œuvre, TP, second œuvre) et les équipes qui répondent aux marchés publics ont besoin d'une méthode courte sur l'écrit de chantier. La session se fait en intra (dans vos locaux) ou inter — Saint-Ouen-sur-Seine, Saint-Denis, Montreuil ou ailleurs dans le 93 — ou en inter en Île-de-France, sur vos DCE, CR et situations de travaux.",
   },
   liensPrioritaires: [
     {

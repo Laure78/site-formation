@@ -222,7 +222,7 @@ export default function CGVPage() {
           </h2>
           <p className="mt-4">
             <strong>Présentiel en Île-de-France uniquement :</strong> lieu indiqué dans la
-            convention (intra-entreprise, dans vos locaux du Client en Île-de-France),
+            convention (intra (dans vos locaux) ou inter du Client en Île-de-France),
             horaires dans la convocation (7 jours avant), matériel fourni.{' '}
             <strong>Présentiel uniquement · Île-de-France uniquement</strong> pour les
             sessions catalogue OFC.

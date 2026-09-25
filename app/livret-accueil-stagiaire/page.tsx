@@ -209,7 +209,7 @@ export default function LivretAccueilStagiairePage() {
           <H2 id="vos-formations">Vos formations</H2>
           <div className="mt-4 space-y-4 leading-relaxed">
             <p>
-              Modalité : {MODALITE_FORMATIONS_PRESENTIEL} Sessions en intra-entreprise, dans vos locaux en
+              Modalité : {MODALITE_FORMATIONS_PRESENTIEL} Sessions en intra (dans vos locaux) ou inter en
               Île-de-France.
             </p>
             <p>

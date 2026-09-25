@@ -69,7 +69,7 @@ export function GeoFormationPage(props: GeoFormationPageProps) {
 
   const metaDescription = geoMetaDescription(departement, code, villes);
 
-  const defaultH1 = `Formation IA BTP ${deptLabel} — Présentiel dans vos locaux`;
+  const defaultH1 = `Formation IA BTP ${deptLabel} — Présentiel, intra ou inter`;
   const defaultIntro =
     "Devis, comptes rendus, appels d'offres et administratif : session 4 h sur vos documents réels — ChatGPT et Claude AI, organisme certifié Qualiopi.";
 
@@ -153,7 +153,7 @@ export function GeoFormationPage(props: GeoFormationPageProps) {
           </h2>
           <p className="mt-4 text-base leading-relaxed text-slate-700 md:text-lg">
             <strong>Laure Olivié</strong> intervient dans tout le département {deptPreposition} ({code}) :
-            sessions <strong>intra-entreprise, dans vos locaux</strong> (proche de{' '}
+            sessions <strong>intra (dans vos locaux) ou inter</strong> (proche de{' '}
             {villePrincipale}). Siège {SITE_CONFIG.legalName} à Guyancourt — déplacements Île-de-France
             précisés au devis, sans surprise.
           </p>
@@ -170,7 +170,7 @@ export function GeoFormationPage(props: GeoFormationPageProps) {
             Villes et bassins couverts {deptPreposition} ({code})
           </h2>
           <p className="mt-4 text-base leading-relaxed text-slate-700 md:text-lg">
-            Liste indicative — intra-entreprise dans vos locaux ou sur site. Échange gratuit de 30 min pour
+            Liste indicative — intra (dans vos locaux) ou inter ou sur site. Échange gratuit de 30 min pour
             confirmer la logistique.
           </p>
           <ul className="mt-8 grid gap-3 sm:grid-cols-2">
@@ -185,7 +185,7 @@ export function GeoFormationPage(props: GeoFormationPageProps) {
             ))}
           </ul>
           <p className="mt-6 text-base leading-relaxed text-slate-600">
-            Formations <strong>intra-entreprise, dans vos locaux</strong> en
+            Formations <strong>intra (dans vos locaux) ou inter</strong> en
             Île-de-France — créneaux souvent disponibles à proximité de {villePrincipale}.
           </p>
         </div>

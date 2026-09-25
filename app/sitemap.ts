@@ -3,10 +3,10 @@ import { createClient } from '@supabase/supabase-js';
 import { SITE_CONFIG } from '@/lib/seo';
 import { LINKS } from '@/lib/internal-links';
 import { getAllArticles, BLOG_CATEGORIES, type BlogCategoryId } from '@/lib/blog';
-// FORMATION_IA_ALL_SLUGS retiré : pages hub noindex, hors sitemap
+import { getFormationIaHubMetierSitemapPaths } from '@/lib/formation-ia-hub-metier-rich';
 import { computeBlogListing } from '@/lib/blog-index-query';
 import { BLOG_CATEGORY_PATH_SLUGS } from '@/lib/blog-index-urls';
-import { GSC_EXCLUDED_SITEMAP_PATHS, GSC_HUB_MERGED_SLUGS } from '@/lib/gsc-redirects-2026';
+import { GSC_EXCLUDED_SITEMAP_PATHS } from '@/lib/gsc-redirects-2026';
 import { TUTOS } from '@/lib/tutos';
 import {
   getSitemapCatalogueFormationPaths,
@@ -312,8 +312,15 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.8 as const,
   }));
 
-  // /formation-ia/[slug] (secteur) : noindex jusqu'à réécriture — exclu du sitemap
-  const formationIaHub: MetadataRoute.Sitemap = [];
+  // Hubs métier réécrits (indexables) ; les autres `/formation-ia/[slug]` restent noindex
+  const formationIaHub: MetadataRoute.Sitemap = getFormationIaHubMetierSitemapPaths().map(
+    (path) => ({
+      url: `${baseUrl}${path}`,
+      lastModified: resolveSitemapLastModified(path),
+      changeFrequency: 'monthly' as const,
+      priority: 0.86 as const,
+    }),
+  );
 
   const deptLandings: MetadataRoute.Sitemap = getSitemapDepartementPaths().map((path) => ({
     url: `${baseUrl}${path}`,

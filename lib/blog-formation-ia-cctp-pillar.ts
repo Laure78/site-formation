@@ -173,7 +173,7 @@ export const blogArticleFormationIaCctpAnalyseDceBtp: BlogArticle = {
       title: 'Foire aux questions',
       content: `
 <h3 class="font-display text-lg font-semibold text-slate-900">Combien coûte une formation IA CCTP ?</h3>
-<p class="mt-2">Le tarif dépend du format intra-entreprise, dans vos locaux. Je prépare un devis après un échange court.</p>
+<p class="mt-2">Le tarif dépend du format intra (dans vos locaux) ou inter. Je prépare un devis après un échange court.</p>
 <h3 class="font-display mt-6 text-lg font-semibold text-slate-900">Quel niveau IA faut-il avant la formation ?</h3>
 <p class="mt-2">Aucun : je pars des réglages de base et des exemples réels.</p>
 <h3 class="font-display mt-6 text-lg font-semibold text-slate-900">Constructys finance-t-il la formation IA CCTP ?</h3>
