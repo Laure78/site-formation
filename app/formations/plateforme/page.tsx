@@ -20,6 +20,7 @@ export const metadata = createPageMetadata({
   titleAbsolute: META_TITLE,
   description: META_DESCRIPTION,
   path: LINKS.formationPlateforme,
+  robots: { index: false, follow: true },
   appendAuthorSuffix: false,
   openGraphTitle: META_TITLE,
   openGraphDescription: META_DESCRIPTION,

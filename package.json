@@ -10,6 +10,7 @@
     "build": "node scripts/generate-sitemap-dates.mjs && node scripts/build-bibliotheque-skills.mjs && NODE_OPTIONS=--max-old-space-size=4096 next build",
     "sitemap:dates": "node scripts/generate-sitemap-dates.mjs",
     "audit:sitemap": "node scripts/audit-sitemap-routes.mjs",
+    "check:sitemap": "node scripts/check-sitemap.mjs",
     "skills:build": "node scripts/build-bibliotheque-skills.mjs",
     "start": "next start",
     "lint": "eslint",

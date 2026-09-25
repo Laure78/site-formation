@@ -13,6 +13,7 @@ export const metadata = createPageMetadata({
   description:
     "Rejoignez une communauté de formateurs qui partagent prospection et développement d'activité. 4 200+ membres. Trouvez vos premiers clients.",
   path: '/communaute-formateurs',
+  robots: { index: false, follow: true },
   keywords: [
     'trouver clients formateur',
     'communauté formateurs',

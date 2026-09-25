@@ -32,11 +32,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const path = `/formation-ia/${slug}`;
   if (entry.kind === 'metier' && entry.metier) {
     const { title, description, keywords } = buildMetierMetadata(entry.metier, path);
-    return createPageMetadata({ title, description, path, keywords });
+    return createPageMetadata({ title, description, path, keywords, robots: { index: false, follow: true } });
   }
   if (entry.kind === 'ville' && entry.ville) {
     const { title, description, keywords } = buildVilleMetadata(entry.ville, path);
-    return createPageMetadata({ title, description, path, keywords });
+    return createPageMetadata({ title, description, path, keywords, robots: { index: false, follow: true } });
   }
   return {};
 }

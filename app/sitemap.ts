@@ -3,7 +3,7 @@ import { createClient } from '@supabase/supabase-js';
 import { SITE_CONFIG } from '@/lib/seo';
 import { LINKS } from '@/lib/internal-links';
 import { getAllArticles, BLOG_CATEGORIES, type BlogCategoryId } from '@/lib/blog';
-import { FORMATION_IA_ALL_SLUGS } from '@/lib/seo-formation-ia-hub-data';
+// FORMATION_IA_ALL_SLUGS retiré : pages hub noindex, hors sitemap
 import { computeBlogListing } from '@/lib/blog-index-query';
 import { BLOG_CATEGORY_PATH_SLUGS } from '@/lib/blog-index-urls';
 import { GSC_EXCLUDED_SITEMAP_PATHS, GSC_HUB_MERGED_SLUGS } from '@/lib/gsc-redirects-2026';
@@ -85,7 +85,7 @@ function getAdditionalMarketingRoutes(baseUrl: string): MetadataRoute.Sitemap {
     // N'inclure QUE des URLs canoniques répondant en 200. Jamais d'URL redirigée (3xx) ni de fichier statique (.txt/.pdf).
     { path: LINKS.partenaires, priority: 0.88, changeFrequency: 'monthly' },
     { path: LINKS.formationDeveloppementWebIaSansCoder, priority: 0.9, changeFrequency: 'monthly' },
-    { path: LINKS.formationPlateforme, priority: 0.9, changeFrequency: 'weekly' },
+    // /formations/plateforme : noindex (hors sitemap)
     { path: LINKS.etudesCasHub, priority: 0.82, changeFrequency: 'monthly' },
     { path: LINKS.etudesCasFfbCsfe, priority: 0.82, changeFrequency: 'monthly' },
     { path: LINKS.etudesCasCrVocalChantier, priority: 0.8, changeFrequency: 'monthly' },
@@ -97,7 +97,7 @@ function getAdditionalMarketingRoutes(baseUrl: string): MetadataRoute.Sitemap {
     { path: LINKS.prendreRdv, priority: 0.95, changeFrequency: 'weekly' },
     { path: '/diagnostic-ia-btp', priority: 0.9, changeFrequency: 'weekly' },
     { path: '/checklist-ia-btp', priority: 0.9, changeFrequency: 'weekly' },
-    { path: '/communaute-formateurs', priority: 0.85, changeFrequency: 'weekly' },
+    // /communaute-formateurs : noindex (hors sitemap)
     { path: '/formation-ia-travaux-publics', priority: 0.9, changeFrequency: 'monthly' },
     { path: '/ressources', priority: 0.92, changeFrequency: 'weekly' },
     { path: LINKS.formationsLinkedInLearning, priority: 0.9, changeFrequency: 'monthly' },
@@ -261,6 +261,18 @@ const SITEMAP_EXCLUDED_LOW_VALUE_PATHS = new Set<string>([
 ]);
 
 /**
+ * Préfixes exclus du sitemap : toute URL commençant par l'un de ces préfixes
+ * est filtrée (ex. /cours/* — canonical redirigé vers les fiches catalogue).
+ */
+const SITEMAP_EXCLUDED_PREFIXES = ['/cours/'] as const;
+
+/** Pages noindex exclues du sitemap. */
+const SITEMAP_NOINDEX_PATHS = new Set<string>([
+  '/communaute-formateurs',
+  '/formations/plateforme',
+]);
+
+/**
  * Sitemap App Router — `/sitemap.xml` (MetadataRoute.Sitemap).
  * `lastModified` : date de contenu réelle (carte git générée au build, date article,
  * Supabase, tuto, mtime) — jamais la date de build runtime.
@@ -300,16 +312,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.8 as const,
   }));
 
-  const formationIaHub: MetadataRoute.Sitemap = FORMATION_IA_ALL_SLUGS.filter(
-    (slug) =>
-      !GSC_HUB_MERGED_SLUGS.has(slug) &&
-      !GSC_EXCLUDED_SITEMAP_PATHS.has(`/formation-ia/${slug}`)
-  ).map((slug) => ({
-    url: `${baseUrl}/formation-ia/${slug}`,
-    lastModified: resolveSitemapLastModified(`/formation-ia/${slug}`),
-    changeFrequency: 'monthly' as const,
-    priority: slug === 'btp-paris' ? 0.93 : 0.86,
-  }));
+  // /formation-ia/[slug] (secteur) : noindex jusqu'à réécriture — exclu du sitemap
+  const formationIaHub: MetadataRoute.Sitemap = [];
 
   const deptLandings: MetadataRoute.Sitemap = getSitemapDepartementPaths().map((path) => ({
     url: `${baseUrl}${path}`,
@@ -328,7 +332,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const blogEntries = buildBlogSitemapEntries(baseUrl);
   const additional = getAdditionalMarketingRoutes(baseUrl);
   const compliance = getComplianceSitemapRoutes(baseUrl);
-  const coursEntries = await getCoursSitemapEntries(baseUrl);
+  // coursEntries retiré : /cours/* exclu du sitemap (canonical vers fiches catalogue)
 
   const tutosRessources: MetadataRoute.Sitemap = TUTOS.map((tuto) => ({
     url: `${baseUrl}/ressources/${tuto.slug}`,
@@ -350,7 +354,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...blogEntries,
     ...additional,
     ...compliance,
-    ...coursEntries,
+    // coursEntries exclus : canonical redirigé vers les fiches catalogue
     ...tutosRessources,
   ]).map((entry) => applySeoPriorityRules(baseUrl, entry));
 
@@ -358,6 +362,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     const pathOnly = normUrl(e.url.replace(baseUrl, '') || '/');
     if (GSC_EXCLUDED_SITEMAP_PATHS.has(pathOnly)) return false;
     if (SITEMAP_EXCLUDED_LOW_VALUE_PATHS.has(pathOnly)) return false;
+    if (SITEMAP_NOINDEX_PATHS.has(pathOnly)) return false;
+    if (SITEMAP_EXCLUDED_PREFIXES.some((pfx) => pathOnly.startsWith(pfx))) return false;
     // Pagination blog principale : jamais poussée dans le sitemap
     if (/^\/blog\/page\/\d+$/.test(pathOnly)) return false;
     // Fichiers statiques / ancres : jamais dans le sitemap HTML
