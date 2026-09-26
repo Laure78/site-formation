@@ -40,11 +40,19 @@ type Props = {
   content: CatalogueFormationPageContent;
   /** Accordéon ou liste programme — spécifique à la formation. */
   programme: ReactNode;
-  faqItems: readonly FAQItem[];
+  faqItems?: readonly FAQItem[];
   faqSectionId: string;
   h1Id: string;
   /** Ex. encart événement AO sur NIV-02. */
   afterObjectives?: ReactNode;
+  /** Sections spécifiques après « Ce que vous emportez » (ex. NIV-04). */
+  afterDeliverables?: ReactNode;
+  /** Hero entièrement custom (ex. NIV-10 BeWork) — remplace le hero catalogue standard. */
+  customHero?: ReactNode;
+  /** Remplace la section « Format et tarifs » (tarifs 7 h / 14 h BeWork, etc.). */
+  tariffsSection?: ReactNode;
+  /** Contenu après la section programme (ex. Jour 2 — parcours 14 h). */
+  programmeSupplement?: ReactNode;
 };
 
 const PORTRAIT = PHOTOS.portraitPro2026;
@@ -56,6 +64,10 @@ export function CatalogueFormationPageTemplate({
   faqSectionId,
   h1Id,
   afterObjectives,
+  afterDeliverables,
+  customHero,
+  tariffsSection,
+  programmeSupplement,
 }: Props) {
   const ref = content.programmeRef;
   const FORMATION = getFormationByCode(ref)!;
@@ -71,8 +83,13 @@ export function CatalogueFormationPageTemplate({
     content.instructorBody ??
     'Laure Olivié, formatrice en IA générative appliquée au BTP, s’appuie sur une expérience du bâtiment et des travaux publics. Organisme OFC Création d’Entreprise, certifié Qualiopi. Références vérifiables : FFB Grand Paris, CSFE, CNAM Entreprise, Le Moniteur Formations.';
 
+  const objectivesTitle = content.objectivesTitle ?? 'Après cette formation, vous saurez…';
+  const programmeHeading =
+    content.programmeHeading ?? `Programme — ${SESSION_DUREE_LIBELLE}`;
+
   return (
     <>
+      {customHero ?? (
       <section className="border-b border-slate-200 bg-white px-4 py-8 md:py-10">
         <div className="mx-auto grid max-w-6xl items-start gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(240px,360px)] lg:gap-8">
           <div className="min-w-0">
@@ -95,7 +112,10 @@ export function CatalogueFormationPageTemplate({
             </h1>
             <p className="mt-3 max-w-2xl text-lg leading-relaxed text-slate-700">{CATALOGUE_SEO.subtitle}</p>
             {content.heroPublicLine ? (
-              <p className="mt-2 max-w-2xl text-base text-slate-600">{content.heroPublicLine}</p>
+              <p className="mt-2 max-w-2xl text-base text-slate-600">
+                <span className="font-semibold text-slate-800">Public : </span>
+                {content.heroPublicLine}
+              </p>
             ) : null}
 
             <ul className="mt-5 grid gap-2 sm:grid-cols-2">
@@ -168,32 +188,35 @@ export function CatalogueFormationPageTemplate({
           </div>
         </div>
       </section>
+      )}
 
       <TrainingQuickFacts
-        facts={[
-          { label: 'Durée', value: FORMATION.duree },
-          { label: 'Format', value: 'Présentiel' },
-          { label: 'Lieu', value: 'Île-de-France' },
-          {
-            label: 'Effectif',
-            value: `${FORMATION.effectifMin} à ${FORMATION.effectifMax} participants`,
-          },
-          { label: 'Niveau', value: content.quickFactsLevel },
-          { label: 'Public', value: FORMATION.public },
-          {
-            label: 'Tarif',
-            value: `Intra ${libelleTarifIntraParSession(GRILLE.intraHT)}${
-              GRILLE.interHT != null
-                ? ` · Inter dès ${libelleTarifInterParParticipant(GRILLE.interHT)}`
-                : ''
-            }`,
-          },
-        ]}
+        facts={
+          content.quickFactsOverride ?? [
+            { label: 'Durée', value: FORMATION.duree },
+            { label: 'Format', value: 'Présentiel' },
+            { label: 'Lieu', value: 'Île-de-France' },
+            {
+              label: 'Effectif',
+              value: `${FORMATION.effectifMin} à ${FORMATION.effectifMax} participants`,
+            },
+            { label: 'Niveau', value: content.quickFactsLevel },
+            { label: 'Public', value: FORMATION.public },
+            {
+              label: 'Tarif',
+              value: `Intra ${libelleTarifIntraParSession(GRILLE.intraHT)}${
+                GRILLE.interHT != null
+                  ? ` · Inter dès ${libelleTarifInterParParticipant(GRILLE.interHT)}`
+                  : ''
+              }`,
+            },
+          ]
+        }
       />
 
       <TrainingObjectives
         objectives={content.outcomes}
-        title="Après cette formation, vous saurez…"
+        title={objectivesTitle}
         description={content.outcomesDescription}
       />
 
@@ -273,7 +296,7 @@ export function CatalogueFormationPageTemplate({
       <section id="programme" className="scroll-mt-24 border-b border-slate-200 bg-white px-4 py-8 md:py-10">
         <div className="mx-auto max-w-4xl">
           <h2 className="font-display text-2xl font-bold text-slate-900 md:text-3xl">
-            Programme — {SESSION_DUREE_LIBELLE}
+            {programmeHeading}
           </h2>
           <p className="mt-2 max-w-2xl text-base text-slate-600">{content.programIntro}</p>
           {programme}
@@ -292,6 +315,8 @@ export function CatalogueFormationPageTemplate({
           ) : null}
         </div>
       </section>
+
+      {programmeSupplement}
 
       {content.workflow && content.workflow.length > 0 ? (
         <section className="border-b border-slate-200 bg-slate-50 px-4 py-8 md:py-10">
@@ -330,6 +355,8 @@ export function CatalogueFormationPageTemplate({
           </ul>
         </div>
       </section>
+
+      {afterDeliverables}
 
       {content.iaLimits && content.iaLimits.length > 0 ? (
         <section className="border-b border-slate-200 bg-[#F2F2F2] px-4 py-8 md:py-10">
@@ -387,64 +414,66 @@ export function CatalogueFormationPageTemplate({
         </section>
       ) : null}
 
-      <section
-        id="tarifs-modalites"
-        className="scroll-mt-24 border-b border-slate-200 bg-white px-4 py-8 md:py-10"
-        aria-labelledby="tarifs-modalites-title"
-      >
-        <div className="mx-auto max-w-4xl">
-          <h2 id="tarifs-modalites-title" className="font-display text-2xl font-bold text-slate-900 md:text-3xl">
-            Format et tarifs
-          </h2>
-          <div className="mt-5 grid gap-4 md:grid-cols-2">
-            <article className="rounded-2xl border border-slate-200 bg-slate-50 p-5">
-              <h3 className="font-display text-lg font-semibold text-slate-900">Intra-entreprise</h3>
-              <p className="mt-3 font-display text-xl font-bold text-[#377CF3]">
-                {libelleTarifIntraParSession(GRILLE.intraHT)}
-                <MentionTvaAsterisque />
-              </p>
-              <ul className="mt-3 list-disc space-y-1 pl-5 text-base text-slate-700">
-                <li>{SESSION_DUREE_LIBELLE}</li>
-                <li>
-                  {FORMATION.effectifMin} à {FORMATION.effectifMax} participants
-                </li>
-                <li>Dans les locaux de l’entreprise</li>
-                <li>Programme adaptable aux besoins de l’équipe</li>
-                {content.intraExtraBullets?.map((b) => (
-                  <li key={b}>{b}</li>
-                ))}
-              </ul>
-            </article>
-            <article className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
-              <h3 className="font-display text-lg font-semibold text-slate-900">Interentreprises</h3>
-              {GRILLE.interHT != null ? (
+      {tariffsSection ?? (
+        <section
+          id="tarifs-modalites"
+          className="scroll-mt-24 border-b border-slate-200 bg-white px-4 py-8 md:py-10"
+          aria-labelledby="tarifs-modalites-title"
+        >
+          <div className="mx-auto max-w-4xl">
+            <h2 id="tarifs-modalites-title" className="font-display text-2xl font-bold text-slate-900 md:text-3xl">
+              Format et tarifs
+            </h2>
+            <div className="mt-5 grid gap-4 md:grid-cols-2">
+              <article className="rounded-2xl border border-slate-200 bg-slate-50 p-5">
+                <h3 className="font-display text-lg font-semibold text-slate-900">Intra-entreprise</h3>
                 <p className="mt-3 font-display text-xl font-bold text-[#377CF3]">
-                  {libelleTarifInterParParticipant(GRILLE.interHT)}
+                  {libelleTarifIntraParSession(GRILLE.intraHT)}
                   <MentionTvaAsterisque />
                 </p>
-              ) : null}
-              <ul className="mt-3 list-disc space-y-1 pl-5 text-base text-slate-700">
-                <li>{SESSION_DUREE_LIBELLE}</li>
-                <li>Dates selon le calendrier disponible</li>
-                <li>Session maintenue sous réserve d’un nombre minimum d’inscrits</li>
-                {content.interExtraBullets?.map((b) => (
-                  <li key={b}>{b}</li>
-                ))}
-              </ul>
-            </article>
+                <ul className="mt-3 list-disc space-y-1 pl-5 text-base text-slate-700">
+                  <li>{SESSION_DUREE_LIBELLE}</li>
+                  <li>
+                    {FORMATION.effectifMin} à {FORMATION.effectifMax} participants
+                  </li>
+                  <li>Dans les locaux de l’entreprise</li>
+                  <li>Programme adaptable aux besoins de l’équipe</li>
+                  {content.intraExtraBullets?.map((b) => (
+                    <li key={b}>{b}</li>
+                  ))}
+                </ul>
+              </article>
+              <article className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+                <h3 className="font-display text-lg font-semibold text-slate-900">Interentreprises</h3>
+                {GRILLE.interHT != null ? (
+                  <p className="mt-3 font-display text-xl font-bold text-[#377CF3]">
+                    {libelleTarifInterParParticipant(GRILLE.interHT)}
+                    <MentionTvaAsterisque />
+                  </p>
+                ) : null}
+                <ul className="mt-3 list-disc space-y-1 pl-5 text-base text-slate-700">
+                  <li>{SESSION_DUREE_LIBELLE}</li>
+                  <li>Dates selon le calendrier disponible</li>
+                  <li>Session maintenue sous réserve d’un nombre minimum d’inscrits</li>
+                  {content.interExtraBullets?.map((b) => (
+                    <li key={b}>{b}</li>
+                  ))}
+                </ul>
+              </article>
+            </div>
+            <p className="mt-4 text-sm leading-relaxed text-slate-600">{MENTION_ABONNEMENTS_IA_HORS_FORFAIT}</p>
+            <MentionTVA className="mt-2" />
+            <p className="mt-2 text-sm leading-relaxed text-slate-600">
+              Financement possible par votre OPCO selon les critères, plafonds et budgets en vigueur. Un reste à charge
+              peut s’appliquer.{' '}
+              <Link href={LINKS.financement} className={OFC_LINK}>
+                Financement Constructys — formation IA pour le BTP
+              </Link>
+              .
+            </p>
           </div>
-          <p className="mt-4 text-sm leading-relaxed text-slate-600">{MENTION_ABONNEMENTS_IA_HORS_FORFAIT}</p>
-          <MentionTVA className="mt-2" />
-          <p className="mt-2 text-sm leading-relaxed text-slate-600">
-            Financement possible par votre OPCO selon les critères, plafonds et budgets en vigueur. Un reste à charge
-            peut s’appliquer.{' '}
-            <Link href={LINKS.financement} className={OFC_LINK}>
-              Financement Constructys — formation IA pour le BTP
-            </Link>
-            .
-          </p>
-        </div>
-      </section>
+        </section>
+      )}
 
       <section className="border-b border-slate-200 bg-slate-50 px-4 py-8 md:py-10">
         <div className="mx-auto grid max-w-4xl items-center gap-5 md:grid-cols-[120px_minmax(0,1fr)]">
@@ -484,20 +513,23 @@ export function CatalogueFormationPageTemplate({
 
       <CatalogueFormationRelated items={related} />
 
-      <FAQSection
-        items={faqItems}
-        title="Questions fréquentes"
-        id={faqSectionId}
-        className="border-b border-slate-200 bg-slate-50 px-4 py-8 md:py-10"
-      />
+      {faqItems && faqItems.length > 0 ? (
+        <FAQSection
+          items={faqItems}
+          title="Questions fréquentes"
+          id={faqSectionId}
+          className="border-b border-slate-200 bg-slate-50 px-4 py-8 md:py-10"
+        />
+      ) : null}
 
-      <FormationBeworkPasserelle />
+      {content.showBeworkPasserelle !== false ? <FormationBeworkPasserelle /> : null}
 
       <TrainingFinalCta
-        devisHref={trainingDevisHref(FORMATION.titre)}
+        devisHref={content.finalCta.devisHref ?? trainingDevisHref(FORMATION.titre)}
         title={content.finalCta.title}
         description={content.finalCta.description}
-        secondaryHref={LINKS.prendreRdv}
+        primaryLabel={content.finalCta.primaryLabel}
+        secondaryHref={content.finalCta.secondaryHref ?? LINKS.prendreRdv}
         secondaryLabel={content.finalCta.secondaryLabel ?? 'Échanger sur votre projet de formation'}
       />
     </>
