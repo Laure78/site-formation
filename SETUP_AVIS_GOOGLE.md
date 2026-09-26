@@ -23,10 +23,10 @@ Les fichiers créés :
    - Nom : "Site Formation IA BTP"
    - Cliquer "Créer"
 
-3. **Activer l'API Places**
+3. **Activer les API Places**
    - Menu gauche → "API et services" → "Bibliothèque"
-   - Chercher "Places API"
-   - Cliquer dessus et "Activer"
+   - Activer **Places API (New)** (recommandé — utilisée en priorité par le site)
+   - Activer aussi **Places API** (legacy) en repli si besoin
 
 4. **Créer une clé API**
    - Menu gauche → "API et services" → "Identifiants"
@@ -37,7 +37,7 @@ Les fichiers créés :
 5. **Sécuriser la clé (IMPORTANT)**
    - Cliquer sur "Restreindre la clé"
    - Dans "Restrictions d'API" → Sélectionner "Restreindre la clé"
-   - Cocher uniquement "Places API"
+   - Cocher **Places API (New)** et/ou **Places API**
    - Cliquer "Enregistrer"
 
 
@@ -86,7 +86,9 @@ Sauvegarder : `Ctrl+O` puis `Entrée`, puis `Ctrl+X`
 npm run dev
 ```
 
-Ouvrir http://localhost:3000 et vérifier que les avis s'affichent.
+Ouvrir http://localhost:3000/avis-clients et vérifier la section « Les avis Google ».
+
+Endpoint interne (JSON, sans clé API) : `GET /api/google-reviews` — cache 6 h.
 
 ## 🌐 Déploiement en production
 

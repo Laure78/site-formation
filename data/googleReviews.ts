@@ -34,6 +34,9 @@ export type GoogleReviewEntry = {
   source: GoogleReviewSource;
   optionalCompany?: string;
   optionalRole?: string;
+  profilePhotoUrl?: string;
+  authorUrl?: string;
+  relativeTime?: string;
 };
 
 /** Avis Google saisis manuellement — ne pas inventer d’entrées. */

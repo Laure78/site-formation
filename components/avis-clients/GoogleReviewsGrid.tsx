@@ -11,9 +11,11 @@ const PAGE_SIZE = 6;
 
 type GoogleReviewsGridProps = {
   reviews: GoogleReviewEntry[];
+  /** Ne pas afficher le fallback « avis indisponibles » (section Google dédiée). */
+  hideEmptyFallback?: boolean;
 };
 
-export function GoogleReviewsGrid({ reviews }: GoogleReviewsGridProps) {
+export function GoogleReviewsGrid({ reviews, hideEmptyFallback = false }: GoogleReviewsGridProps) {
   const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
 
   const shown = reviews.slice(0, visibleCount);
@@ -24,6 +26,7 @@ export function GoogleReviewsGrid({ reviews }: GoogleReviewsGridProps) {
   }, [reviews.length]);
 
   if (reviews.length === 0) {
+    if (hideEmptyFallback) return null;
     return (
       <div className="rounded-2xl border border-slate-200 bg-white p-8 text-center shadow-sm md:p-12">
         <p className="text-slate-700">
@@ -48,7 +51,7 @@ export function GoogleReviewsGrid({ reviews }: GoogleReviewsGridProps) {
 
   return (
     <>
-      <div className="grid gap-6 sm:grid-cols-2">
+      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {shown.map((review) => (
           <div key={review.id}>
             <GoogleReviewCard review={review} />
