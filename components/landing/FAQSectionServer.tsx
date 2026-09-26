@@ -2,7 +2,7 @@ import { ChevronDown } from 'lucide-react';
 import type { FAQItem } from '@/lib/faq';
 import { FAQAnswer } from '@/components/landing/FAQAnswer';
 
-import { OFC_SEC } from '@/lib/ofc-section-classes';
+import { OFC_SEC, OFC_SECTION_INNER } from '@/lib/ofc-section-classes';
 
 const LINK_CLASS =
   '[&_a]:font-medium [&_a]:text-[var(--accent)] [&_a]:underline [&_a]:underline-offset-2 [&_a]:decoration-slate-300 [&_a]:transition-colors hover:[&_a]:decoration-[var(--accent)]';
@@ -14,6 +14,8 @@ type FAQSectionServerProps = {
   id?: string;
   /** Remplace les classes de section par défaut (ex. espacement plus compact). */
   className?: string;
+  /** `wide` : conteneur aligné pages pilier (max ~1280 px). */
+  layout?: 'default' | 'wide';
 };
 
 /**
@@ -25,10 +27,13 @@ export function FAQSectionServer({
   subtitle,
   id = 'faq',
   className,
+  layout = 'default',
 }: FAQSectionServerProps) {
+  const innerClass = layout === 'wide' ? OFC_SECTION_INNER : 'mx-auto max-w-3xl';
+
   return (
     <section id={id} className={className ?? OFC_SEC.muted}>
-      <div className="mx-auto max-w-3xl">
+      <div className={innerClass}>
         <div className="inline-flex items-center gap-2 rounded-full bg-[var(--accent)] px-4 py-2 text-sm font-medium text-white">
           <span>FAQ</span>
         </div>

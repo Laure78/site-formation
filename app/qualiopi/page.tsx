@@ -6,6 +6,8 @@ import { LINKS } from '@/lib/internal-links';
 import { EXTERNAL_AUTHORITY_LINKS } from '@/lib/seo-links';
 import { ExternalLinkAnchor } from '@/components/ExternalLink';
 import { ANNUAIRE_ENTREPRISES_OFC_URL } from '@/lib/schema-constants';
+import { OFC_SECTION_INNER } from '@/lib/ofc-section-classes';
+import { Breadcrumb } from '@/components/Breadcrumb';
 
 export const revalidate = 3600;
 
@@ -18,61 +20,75 @@ export const metadata = createPageMetadata({
 
 export default function QualiopiPage() {
   return (
-    <div className="mx-auto max-w-3xl px-4 py-16">
-      <h1 className="font-display text-3xl font-bold text-slate-900 md:text-4xl">
-        Notre certification Qualiopi
-      </h1>
+    <div className="px-4 py-10 sm:px-6 md:py-12 lg:px-8">
+      <div className={OFC_SECTION_INNER}>
+        <Breadcrumb
+          className="mb-6 text-sm"
+          items={[
+            { label: 'Accueil', href: LINKS.home },
+            { label: 'Certification Qualiopi', href: LINKS.qualiopi },
+          ]}
+        />
 
-      <div className="mt-10">
-        <QualiopiBadge size="lg" />
-      </div>
+        <div className="lg:grid lg:grid-cols-[minmax(220px,17rem)_minmax(0,1fr)] lg:items-start lg:gap-10 xl:grid-cols-[minmax(240px,19rem)_minmax(0,1fr)] xl:gap-14">
+          <div className="flex justify-center lg:justify-start">
+            <QualiopiBadge size="lg" />
+          </div>
 
-      <article className="mt-10 space-y-6 text-slate-700">
-        <p>
-          {QUALIOPI_LEGAL.raisonSociale} est certifié Qualiopi au titre de la catégorie{' '}
-          <strong>Actions de formation</strong>. Certificat n° {QUALIOPI_LEGAL.certificatNumero} délivré par
-          Certifopac, valable {QUALIOPI_LEGAL.certificatValidite}.
-        </p>
+          <div className="min-w-0 mt-8 lg:mt-0">
+            <h1 className="font-display text-3xl font-bold text-slate-900 md:text-4xl">
+              Notre certification Qualiopi
+            </h1>
 
-        <p className="rounded-lg border border-slate-200 bg-slate-50 p-4 text-sm italic text-slate-600">
-          Organisme de formation enregistré sous le n° {QUALIOPI_LEGAL.nda} auprès du préfet de région
-          Île-de-France. Cet enregistrement ne vaut pas agrément de l&apos;État.
-        </p>
+            <article className="mt-6 space-y-5 text-base leading-relaxed text-slate-700 md:mt-8">
+              <p>
+                {QUALIOPI_LEGAL.raisonSociale} est certifié Qualiopi au titre de la catégorie{' '}
+                <strong>Actions de formation</strong>. Certificat n° {QUALIOPI_LEGAL.certificatNumero}{' '}
+                délivré par Certifopac, valable {QUALIOPI_LEGAL.certificatValidite}.
+              </p>
 
-        <div className="flex flex-wrap gap-4">
-          <a
-            href={QUALIOPI_LEGAL.certificatPdfHref}
-            className="inline-flex rounded-xl bg-[#377CF3] px-5 py-3 text-sm font-semibold text-white hover:bg-[#2d66d6]"
-            download
-          >
-            {QUALIOPI_LEGAL.certificatPdfLabel}
-          </a>
-          <Link
-            href={LINKS.indicateursResultats}
-            className="inline-flex rounded-xl border border-[#377CF3] px-5 py-3 text-sm font-semibold text-[#377CF3] hover:bg-[#EFF6FF]"
-          >
-            Indicateurs de résultats
-          </Link>
+              <p className="rounded-lg border border-slate-200 bg-slate-50 p-4 text-sm italic text-slate-600">
+                Organisme de formation enregistré sous le n° {QUALIOPI_LEGAL.nda} auprès du préfet de
+                région Île-de-France. Cet enregistrement ne vaut pas agrément de l&apos;État.
+              </p>
+
+              <div className="flex flex-wrap gap-3 sm:gap-4">
+                <a
+                  href={QUALIOPI_LEGAL.certificatPdfHref}
+                  className="inline-flex rounded-xl bg-[#377CF3] px-5 py-3 text-sm font-semibold text-white hover:bg-[#2d66d6]"
+                  download
+                >
+                  {QUALIOPI_LEGAL.certificatPdfLabel}
+                </a>
+                <Link
+                  href={LINKS.indicateursResultats}
+                  className="inline-flex rounded-xl border border-[#377CF3] px-5 py-3 text-sm font-semibold text-[#377CF3] hover:bg-[#EFF6FF]"
+                >
+                  Indicateurs de résultats
+                </Link>
+              </div>
+
+              <p className="text-sm leading-relaxed">
+                <ExternalLinkAnchor
+                  href={ANNUAIRE_ENTREPRISES_OFC_URL}
+                  title="Fiche OFC — Annuaire des Entreprises"
+                  className="font-medium text-[#377CF3] hover:underline"
+                >
+                  Vérifier l&apos;organisme sur l&apos;Annuaire des Entreprises
+                </ExternalLinkAnchor>
+                {' · '}
+                <ExternalLinkAnchor
+                  href={EXTERNAL_AUTHORITY_LINKS.dataGouvQualiopi.href}
+                  title={EXTERNAL_AUTHORITY_LINKS.dataGouvQualiopi.title}
+                  className="font-medium text-[#377CF3] hover:underline"
+                >
+                  Vérifier la certification Qualiopi
+                </ExternalLinkAnchor>
+              </p>
+            </article>
+          </div>
         </div>
-
-        <p className="text-sm">
-          <ExternalLinkAnchor
-            href={ANNUAIRE_ENTREPRISES_OFC_URL}
-            title="Fiche OFC — Annuaire des Entreprises"
-            className="font-medium text-[#377CF3] hover:underline"
-          >
-            Vérifier l&apos;organisme sur l&apos;Annuaire des Entreprises
-          </ExternalLinkAnchor>
-          {' · '}
-          <ExternalLinkAnchor
-            href={EXTERNAL_AUTHORITY_LINKS.dataGouvQualiopi.href}
-            title={EXTERNAL_AUTHORITY_LINKS.dataGouvQualiopi.title}
-            className="font-medium text-[#377CF3] hover:underline"
-          >
-            Vérifier la certification Qualiopi
-          </ExternalLinkAnchor>
-        </p>
-      </article>
+      </div>
     </div>
   );
 }

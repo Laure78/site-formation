@@ -5,7 +5,7 @@ import {
   type RelatedLinkItem,
 } from '@/lib/maillage-clusters';
 import { OFC_CARD_MUTED } from '@/lib/ofc-interaction-classes';
-import { OFC_SEC } from '@/lib/ofc-section-classes';
+import { OFC_SEC, OFC_SECTION_INNER } from '@/lib/ofc-section-classes';
 
 type RelatedLinksProps = {
   /** Chemin canonique de la page courante (ex. `/formation-ia-btp-yvelines-78`). */
@@ -20,6 +20,8 @@ type RelatedLinksProps = {
   className?: string;
   /** Hrefs déjà présents ailleurs sur la page — exclus pour éviter le doublon. */
   excludeHrefs?: string[];
+  /** Conteneur large (pages pilier SEO). */
+  layout?: 'default' | 'wide';
 };
 
 /**
@@ -35,6 +37,7 @@ export function RelatedLinks({
   tone = 'muted',
   className = '',
   excludeHrefs = [],
+  layout = 'default',
 }: RelatedLinksProps) {
   const cluster = linksProp
     ? { title: title ?? 'Pour aller plus loin', subtitle, links: linksProp }
@@ -55,7 +58,15 @@ export function RelatedLinks({
 
   return (
     <section id={id} className={`${sectionTone} scroll-mt-24 ${className}`} aria-labelledby={`${id}-title`}>
-      <div className={tone === 'transparent' ? '' : 'mx-auto max-w-4xl px-4'}>
+      <div
+        className={
+          tone === 'transparent'
+            ? ''
+            : layout === 'wide'
+              ? OFC_SECTION_INNER
+              : 'mx-auto max-w-4xl px-4'
+        }
+      >
         <h2 id={`${id}-title`} className="font-display text-2xl font-bold text-slate-900 md:text-3xl">
           {title ?? cluster.title}
         </h2>

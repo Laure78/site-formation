@@ -15,6 +15,8 @@ import {
   ACCESSIBILITE_HANDICAP_PAGE_TITLE,
   getAccessibiliteHandicapPageJsonLd,
 } from '@/lib/schema-accessibilite-handicap-page';
+import { Breadcrumb } from '@/components/Breadcrumb';
+import { OFC_SECTION_INNER } from '@/lib/ofc-section-classes';
 
 export const revalidate = 3600;
 
@@ -132,50 +134,88 @@ export default function AccessibiliteHandicapPage() {
   const mailtoHref = `mailto:${CONTACT.email}?subject=${encodeURIComponent(MAIL_SUBJECT)}`;
 
   return (
-    <div className={`mx-auto max-w-4xl px-4 py-14 md:py-16 ${poppins.className}`}>
-      <JsonLd
-        id="schema-accessibilite-handicap"
-        schema={getAccessibiliteHandicapPageJsonLd()}
-      />
+    <div className={`px-4 py-10 sm:px-6 md:py-12 lg:px-8 ${poppins.className}`}>
+      <div className={OFC_SECTION_INNER}>
+        <JsonLd
+          id="schema-accessibilite-handicap"
+          schema={getAccessibiliteHandicapPageJsonLd()}
+        />
 
-      {/* Hero */}
-      <header className="max-w-3xl">
-        <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#377CF3]">
-          {OFC_IDENTITE.raisonSociale} — actions de formation
-        </p>
-        <h1 className="mt-2 text-3xl font-bold text-slate-900 md:text-4xl">
-          Accessibilité des formations et besoins d&apos;aménagement
-        </h1>
-        <p className="mt-4 text-slate-600">
-          Vous avez besoin d&apos;un aménagement pour suivre une formation ? Contactez la référente
-          handicap afin d&apos;étudier les solutions possibles avec vous.
-        </p>
-        <p className="mt-3 text-sm text-slate-600">
-          Échange confidentiel · Étude individualisée · Orientation si nécessaire
-        </p>
-        <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-          <a
-            href={mailtoHref}
-            className="inline-flex min-h-11 items-center justify-center gap-2 rounded-lg bg-[#377CF3] px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-[#2d66d6] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#377CF3]"
-          >
-            <Mail className="h-4 w-4 shrink-0" aria-hidden />
-            Contacter la référente handicap
-          </a>
-          <a
-            href="#essentiel"
-            className="inline-flex min-h-11 items-center justify-center rounded-lg border-2 border-[#377CF3] px-5 py-2.5 text-sm font-semibold text-[#377CF3] transition hover:bg-[#EFF6FF] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#377CF3]"
-          >
-            Voir les étapes
-          </a>
-        </div>
-        <p className="mt-6 text-sm text-slate-600">
-          Cette page concerne l&apos;accessibilité des <strong>actions de formation</strong> — pas
-          l&apos;accessibilité numérique du site internet, qui fait l&apos;objet d&apos;une démarche
-          distincte et n&apos;a pas fait l&apos;objet d&apos;audit de conformité RGAA publié.
-        </p>
-      </header>
+        <Breadcrumb
+          className="mb-6 text-sm"
+          items={[
+            { label: 'Accueil', href: LINKS.home },
+            { label: 'Accessibilité & handicap', href: LINKS.accessibiliteHandicap },
+          ]}
+        />
 
-      <article className="mt-12 space-y-10 rounded-lg bg-[#F2F2F2] px-5 py-8 md:space-y-12 md:px-8 md:py-10">
+        {/* Hero */}
+        <header className="lg:grid lg:grid-cols-[minmax(0,1.35fr)_minmax(260px,20rem)] lg:items-start lg:gap-10 xl:gap-12">
+          <div className="min-w-0">
+            <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#377CF3]">
+              {OFC_IDENTITE.raisonSociale} — actions de formation
+            </p>
+            <h1 className="mt-2 text-3xl font-bold text-slate-900 md:text-4xl">
+              Accessibilité des formations et besoins d&apos;aménagement
+            </h1>
+            <p className="mt-4 text-slate-600">
+              Vous avez besoin d&apos;un aménagement pour suivre une formation ? Contactez la référente
+              handicap afin d&apos;étudier les solutions possibles avec vous.
+            </p>
+            <p className="mt-3 text-sm text-slate-600">
+              Échange confidentiel · Étude individualisée · Orientation si nécessaire
+            </p>
+            <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+              <a
+                href={mailtoHref}
+                className="inline-flex min-h-11 items-center justify-center gap-2 rounded-lg bg-[#377CF3] px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-[#2d66d6] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#377CF3]"
+              >
+                <Mail className="h-4 w-4 shrink-0" aria-hidden />
+                Contacter la référente handicap
+              </a>
+              <a
+                href="#essentiel"
+                className="inline-flex min-h-11 items-center justify-center rounded-lg border-2 border-[#377CF3] px-5 py-2.5 text-sm font-semibold text-[#377CF3] transition hover:bg-[#EFF6FF] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#377CF3]"
+              >
+                Voir les étapes
+              </a>
+            </div>
+            <p className="mt-6 text-sm text-slate-600">
+              Cette page concerne l&apos;accessibilité des <strong>actions de formation</strong> — pas
+              l&apos;accessibilité numérique du site internet, qui fait l&apos;objet d&apos;une démarche
+              distincte et n&apos;a pas fait l&apos;objet d&apos;audit de conformité RGAA publié.
+            </p>
+          </div>
+
+          <aside
+            className="mt-8 rounded-xl border border-[#377CF3]/25 bg-[#EFF6FF]/60 p-5 lg:mt-0"
+            aria-labelledby="hero-referente-title"
+          >
+            <h2 id="hero-referente-title" className="text-sm font-bold text-slate-900">
+              {QUALIOPI_REFERENT_HANDICAP.nom}
+            </h2>
+            <p className="mt-1 text-xs text-slate-600">{QUALIOPI_REFERENT_HANDICAP.role}</p>
+            <div className="mt-4 flex flex-col gap-2 text-sm">
+              <a
+                href={mailtoHref}
+                className="inline-flex items-center gap-2 font-medium text-[#377CF3] underline-offset-2 hover:underline"
+              >
+                <Mail className="h-4 w-4 shrink-0" aria-hidden />
+                {CONTACT.email}
+              </a>
+              <a
+                href={`tel:${CONTACT.phone}`}
+                aria-label={PHONE_ARIA}
+                className="inline-flex items-center gap-2 font-medium text-[#377CF3] underline-offset-2 hover:underline"
+              >
+                <Phone className="h-4 w-4 shrink-0" aria-hidden />
+                {CONTACT.phoneDisplay}
+              </a>
+            </div>
+          </aside>
+        </header>
+
+        <article className="mt-10 space-y-10 rounded-lg bg-[#F2F2F2] px-5 py-8 md:mt-12 md:space-y-12 md:px-8 md:py-10 lg:px-10">
         {/* L'essentiel */}
         <Section id="essentiel" title="L'essentiel">
           <ul className="list-disc space-y-2 pl-5">
@@ -209,7 +249,7 @@ export default function AccessibiliteHandicapPage() {
 
         {/* Comment faire une demande */}
         <Section id="comment-faire-demande" title="Comment faire une demande ?">
-          <ol className="space-y-5">
+          <ol className="space-y-5 lg:grid lg:grid-cols-2 lg:gap-x-8 lg:gap-y-5 lg:space-y-0">
             {ETAPES_DEMANDE.map((etape, index) => (
               <li key={etape.title} className="flex gap-4">
                 <span
@@ -278,7 +318,7 @@ export default function AccessibiliteHandicapPage() {
             peuvent être utiles selon votre situation ; nous pouvons vous orienter, sans garantie
             d&apos;éligibilité ni de financement.
           </p>
-          <ul className="space-y-4">
+          <ul className="grid gap-4 lg:grid-cols-2">
             {ACTEURS.map((acteur) => (
               <li key={acteur.name} className="rounded-lg border border-slate-200/80 bg-white p-4">
                 <p className="font-semibold text-slate-900">
@@ -389,7 +429,8 @@ export default function AccessibiliteHandicapPage() {
             </Link>
           </p>
         </Section>
-      </article>
+        </article>
+      </div>
     </div>
   );
 }
