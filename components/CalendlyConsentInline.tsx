@@ -1,5 +1,6 @@
 'use client';
 
+import type { CSSProperties } from 'react';
 import { useSyncExternalStore } from 'react';
 import {
   CALENDLY_BOOKING_URL,
@@ -17,10 +18,18 @@ import { CALENDLY_INLINE_DEFAULT_HEIGHT_PX } from '@/lib/calendly-embed-config';
 export function CalendlyConsentInline({
   campaign = 'prendre-rendez-vous-page',
   heightPx = CALENDLY_INLINE_DEFAULT_HEIGHT_PX,
+  containerStyle,
 }: {
   campaign?: string;
   heightPx?: number;
+  /** Hauteur viewport ou autre — évite une barre de défilement sur le conteneur parent. */
+  containerStyle?: CSSProperties;
 }) {
+  const frameStyle: CSSProperties = {
+    minWidth: 320,
+    height: heightPx,
+    ...containerStyle,
+  };
   const consent = useCookieConsent();
   const isClient = useSyncExternalStore(
     () => () => {},
@@ -40,7 +49,7 @@ export function CalendlyConsentInline({
     return (
       <div
         className="flex items-center justify-center rounded-xl border border-slate-200 bg-slate-50 text-sm text-slate-500"
-        style={{ minHeight: heightPx }}
+        style={{ minHeight: frameStyle.height ?? heightPx }}
         aria-busy="true"
       >
         Chargement de l’agenda…
@@ -52,7 +61,7 @@ export function CalendlyConsentInline({
     return (
       <div
         className="rounded-xl border border-slate-200 bg-slate-50 p-6 text-center"
-        style={{ minHeight: heightPx }}
+        style={{ minHeight: frameStyle.height ?? heightPx }}
       >
         <p className="text-slate-700">
           Pour afficher l’agenda Calendly, acceptez les cookies et services tiers.
@@ -83,7 +92,7 @@ export function CalendlyConsentInline({
   return (
     <div
       className="calendly-inline-widget w-full overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm"
-      style={{ minWidth: 320, height: heightPx }}
+      style={frameStyle}
       data-calendly
       data-cta-position="inline"
     >

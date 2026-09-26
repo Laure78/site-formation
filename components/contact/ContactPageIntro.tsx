@@ -55,7 +55,7 @@ export function ContactPageIntro() {
           className={`${OFC_CTA_SECONDARY} inline-flex min-h-10 items-center justify-center gap-2 px-5 py-2.5 text-sm`}
         >
           <Calendar className="h-4 w-4 shrink-0" aria-hidden />
-          Échange 30 min
+          Choisir un créneau
         </Link>
       </div>
 

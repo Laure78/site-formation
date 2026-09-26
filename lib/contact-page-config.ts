@@ -47,6 +47,12 @@ export const CONTACT_AFTER_SEND_STEPS = [
 
 export const CONTACT_CALENDLY_TITLE = 'Vous préférez en parler directement ?' as const;
 
+/** Titre au-dessus du widget inline (page Contact). */
+export const CONTACT_CALENDLY_INLINE_TITLE = 'Choisissez votre créneau de rendez-vous' as const;
+
+export const CONTACT_CALENDLY_INLINE_HINT =
+  'Visio découverte gratuite · 30 minutes · Sans engagement' as const;
+
 export const CONTACT_CALENDLY_TEXT =
   'Réservez un échange de 30 minutes pour présenter votre contexte et identifier la suite pertinente.' as const;
 

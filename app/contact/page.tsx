@@ -5,7 +5,7 @@ import { ContactPageIntro } from '@/components/contact/ContactPageIntro';
 import { ContactPathCards } from '@/components/contact/ContactPathCards';
 import { ContactFormSection } from '@/components/contact/ContactFormSection';
 import { ContactAfterSendInfo } from '@/components/contact/ContactAfterSendInfo';
-import { ContactCalendlyBlock } from '@/components/contact/ContactCalendlyBlock';
+import { ContactPageCalendlyPanel } from '@/components/contact/ContactPageCalendlyPanel';
 import {
   CONTACT_FOOTER_LINKS,
   CONTACT_PAGE_META_DESCRIPTION,
@@ -50,27 +50,34 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
           ]}
         />
 
-        <div
-          id="contact-form"
-          className="scroll-mt-[calc(var(--site-header-height,4rem)+0.5rem)] grid gap-6 lg:grid-cols-[minmax(0,0.92fr)_minmax(0,1.08fr)] lg:items-start lg:gap-8"
-        >
+        <div className="grid gap-6 lg:grid-cols-[minmax(0,0.92fr)_minmax(0,1.08fr)] lg:items-start lg:gap-8">
           <ContactPageIntro />
 
-          <div className="ofc-card min-w-0 p-5 sm:p-6 lg:sticky lg:top-[calc(var(--site-header-height,4rem)+0.75rem)] lg:max-h-[calc(100vh-var(--site-header-height,4rem)-1.5rem)] lg:overflow-y-auto">
+          <div className="ofc-card min-w-0 p-4 sm:p-5 lg:sticky lg:top-[calc(var(--site-header-height,4rem)+0.75rem)]">
+            <ContactPageCalendlyPanel />
+          </div>
+        </div>
+
+        <section
+          id="contact-form"
+          aria-labelledby="contact-form-section-title"
+          className="scroll-mt-[calc(var(--site-header-height,4rem)+0.5rem)] mt-8 border-t border-ofc-border pt-8 lg:mt-10 lg:pt-10"
+        >
+          <h2 id="contact-form-section-title" className="sr-only">
+            Formulaire de contact
+          </h2>
+          <div className="ofc-card mx-auto max-w-3xl p-5 sm:p-6">
             <ContactFormSection
               initialObjet={initialObjet}
               formationHint={formationHint}
               density="compact"
             />
-            <ContactAfterSendInfo compact className="mt-4 hidden lg:block" />
+            <ContactAfterSendInfo compact className="mt-4" />
           </div>
-        </div>
+        </section>
 
-        <ContactAfterSendInfo compact className="mt-6 lg:hidden" />
-
-        <div className="mt-10 space-y-10 border-t border-ofc-border pt-10 md:mt-12 md:pt-12">
+        <div className="mt-8 space-y-8 border-t border-ofc-border pt-8 md:mt-10 md:pt-10">
           <ContactPathCards />
-          <ContactCalendlyBlock />
 
           <nav aria-label="Liens utiles" className="border-t border-ofc-border pt-6">
             <ul className="flex flex-col gap-2 sm:flex-row sm:flex-wrap sm:gap-x-8">
