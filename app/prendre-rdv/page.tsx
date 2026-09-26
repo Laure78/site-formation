@@ -6,7 +6,6 @@ import { PrendreRdvAgenda } from '@/components/prendre-rendez-vous/PrendreRdvAge
 import { RdvStickyMobileCta } from '@/components/prendre-rendez-vous/RdvStickyMobileCta';
 import { TrainingDeliveryInfo } from '@/components/formations/TrainingDeliveryInfo';
 import { JsonLd } from '@/components/JsonLd';
-import { BUSINESS_DELIVERY } from '@/lib/business-delivery';
 import { createPageMetadata, getFAQSchema } from '@/lib/seo';
 import { SCHEMA_PUBLIC_SITE_URL } from '@/lib/schema-constants';
 import { OFC_SECTION_INNER } from '@/lib/ofc-section-classes';
@@ -121,46 +120,45 @@ export default function PrendreRendezVousPage() {
     <main className="min-h-[80vh] pb-20 md:pb-0">
       <JsonLd id="schema-prendre-rdv" data={pageGraph} />
 
-      {/* ——— Haut de page : intro courte + agenda Calendly ——— */}
+      {/* ——— Hero : titre minimal + calendrier prioritaire ——— */}
       <header
         id={PRENDRE_RDV_FORM_ANCHOR}
-        className="ofc-section--mesh relative scroll-mt-20 border-b border-slate-100 bg-white px-3 py-4 sm:px-4 md:py-5 lg:px-5"
+        className="scroll-mt-[calc(var(--site-header-height,4rem)+0.25rem)] border-b border-slate-100 bg-white px-4 pb-4 pt-2 sm:px-6 lg:px-8 lg:pb-5 lg:pt-3"
         aria-labelledby="rdv-calendly-heading"
       >
-        <div className="mx-auto max-w-6xl">
+        <div className="mx-auto w-full max-w-[80rem]">
           <h1
             id="rdv-calendly-heading"
-            className="font-display text-[1.65rem] font-bold leading-tight tracking-tight text-slate-900 sm:text-3xl md:text-4xl"
+            className="font-display text-[clamp(1.5rem,2.4vw,2rem)] font-bold leading-tight tracking-tight text-slate-900"
           >
             {PRENDRE_RDV_H1}
           </h1>
-          <p className="mt-2 max-w-3xl text-base leading-snug text-slate-600 sm:text-lg">
+          <p className="mt-1 max-w-2xl text-sm leading-snug text-slate-600 sm:text-[0.9375rem]">
             {PRENDRE_RDV_SUBTITLE}
           </p>
-          <p className="mt-1.5 text-sm font-medium text-slate-600">{PRENDRE_RDV_REASSURANCE}</p>
-          <p className="mt-1 text-sm font-semibold text-slate-800">{BUSINESS_DELIVERY.compact}</p>
 
-          <div className="mt-4">
+          <div className="mt-2 w-full sm:mt-3">
             <h2 className="sr-only">{PRENDRE_RDV_CALENDLY_SECTION_TITLE}</h2>
-            <PrendreRdvAgenda />
+            <PrendreRdvAgenda compactFooter />
           </div>
 
-          <p className="mt-3 text-sm text-slate-600">
-            <Link href={PRENDRE_RDV_FORMATIONS_HREF} className={OFC_LINK}>
-              {PRENDRE_RDV_CTA_SECONDARY}
-            </Link>
-          </p>
-
-          <ul className="mt-5 flex flex-col gap-2 border-t border-slate-200 pt-4 text-sm text-slate-600 sm:flex-row sm:flex-wrap sm:gap-x-6 sm:gap-y-2">
-            {PRENDRE_RDV_PROOFS.map((item) => (
-              <li key={item} className="flex items-start gap-2">
-                <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--accent)]" aria-hidden />
-                <span>{item}</span>
-              </li>
-            ))}
-          </ul>
-
-          <TrainingDeliveryInfo showBody className="mt-5" />
+          <div className="mt-4 space-y-3 border-t border-slate-100 pt-4 sm:mt-5">
+            <p className="text-xs font-medium text-slate-600 sm:text-sm">{PRENDRE_RDV_REASSURANCE}</p>
+            <ul className="flex flex-col gap-1.5 text-xs text-slate-600 sm:flex-row sm:flex-wrap sm:gap-x-5 sm:gap-y-1 sm:text-sm">
+              {PRENDRE_RDV_PROOFS.map((item) => (
+                <li key={item} className="flex items-center gap-2">
+                  <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--accent)]" aria-hidden />
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+            <TrainingDeliveryInfo variant="inline" className="text-slate-600" />
+            <p className="text-sm text-slate-600">
+              <Link href={PRENDRE_RDV_FORMATIONS_HREF} className={OFC_LINK}>
+                {PRENDRE_RDV_CTA_SECONDARY}
+              </Link>
+            </p>
+          </div>
         </div>
       </header>
 
