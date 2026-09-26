@@ -456,8 +456,8 @@ export const FAQ_FINANCEMENT_CONSTRUCTYS_PAGE: FAQItem[] = [
     a: 'Montants indicatifs selon l’effectif : 24 € HT/h/stagiaire (moins de 11 salariés, plafond journalier groupe intra 840 € HT) ou 19 € HT/h/stagiaire (11 salariés et plus en Bâtiment, plafond journalier 665 € HT). La prise en charge retenue est le minimum entre plafond horaire × durée × stagiaires, plafond de groupe et coût pédagogique facturé. Reste à charge possible.',
   },
   {
-    q: 'Qui règle la formation à partir du 1er octobre 2026 ?',
-    a: 'Pour les nouveaux dossiers concernés du 1er octobre au 31 décembre 2026 : OFC facture l’entreprise, l’entreprise règle la facture, puis demande le remboursement à Constructys avec les justificatifs. Le remboursement intervient sur la base du montant net de taxe. Dispositif transitoire annoncé par Constructys.',
+    q: 'Qui règle la formation dans le circuit transitoire ?',
+    a: 'Pour les dossiers concernés par le dispositif transitoire sans subrogation : OFC facture l’entreprise, l’entreprise règle la facture, puis demande le remboursement à Constructys avec les justificatifs. Le remboursement intervient sur la base du montant net de taxe. Vérifiez auprès de Constructys si votre dossier entre dans ce parcours.',
   },
   {
     q: 'OFC dépose-t-il le dossier dans eGestion ?',

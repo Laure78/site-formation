@@ -21,6 +21,10 @@ type OfcYouTubeEmbedProps = {
   /** Autoplay muet en boucle (hero ambient). Sinon : lecture au clic. */
   autoplay?: boolean;
   priority?: boolean;
+  /** Ratio du cadre vidéo (défaut 16:9). */
+  aspectClassName?: string;
+  /** Cadre ring + fond (désactivable si le parent fournit déjà le cadre). */
+  showFrame?: boolean;
 };
 
 /**
@@ -35,6 +39,8 @@ export function OfcYouTubeEmbed({
   className,
   autoplay = false,
   priority = false,
+  aspectClassName,
+  showFrame = true,
 }: OfcYouTubeEmbedProps) {
   const [playing, setPlaying] = useState(autoplay);
 
@@ -53,7 +59,13 @@ export function OfcYouTubeEmbed({
 
   return (
     <figure className={cn('w-full', className)}>
-      <div className="relative aspect-video overflow-hidden rounded-xl bg-ofc-canvas ring-1 ring-ofc-border/70">
+      <div
+        className={cn(
+          'relative overflow-hidden bg-ofc-canvas',
+          showFrame && 'rounded-xl ring-1 ring-ofc-border/70',
+          aspectClassName ?? 'aspect-video',
+        )}
+      >
         {playing ? (
           <iframe
             src={embedSrc.toString()}

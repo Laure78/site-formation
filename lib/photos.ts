@@ -49,7 +49,7 @@ export const PHOTOS = {
   
   // Photo avec panneau LinkedIn (portrait)
   linkedinPanel: {
-    src: '/images/laure-linkedin-panel.png',
+    src: '/images/laure-olivie-linkedin-learning-panneau.png',
     alt: "Laure Olivié devant un panneau LinkedIn Learning — instructrice formations IA pour le BTP",
     width: 770,
     height: 1024,
@@ -57,7 +57,7 @@ export const PHOTOS = {
   
   // Photo LinkedIn Learning portrait
   linkedinPortrait: {
-    src: '/images/laure-linkedin-portrait.png',
+    src: '/images/laure-olivie-linkedin-learning-portrait.png',
     alt: "Portrait Laure Olivié, formatrice en intelligence artificielle pour entreprises du bâtiment",
     width: 770,
     height: 1024,
@@ -65,7 +65,7 @@ export const PHOTOS = {
   
   // Photo studio fond clair (portrait)
   studioLight: {
-    src: '/images/laure-studio-light.png',
+    src: '/images/laure-olivie-studio-fond-clair.png',
     alt: "Laure Olivié en studio fond clair — session sur l'automatisation administrative en BTP",
     width: 912,
     height: 1024,
@@ -73,7 +73,7 @@ export const PHOTOS = {
   
   // Photo studio fond sombre
   studioDark: {
-    src: '/images/laure-studio-dark.png',
+    src: '/images/laure-olivie-studio-fond-sombre.png',
     alt: "Laure Olivié en studio fond sombre — instructrice LinkedIn Learning IA et ChatGPT",
     width: 1024,
     height: 682,
@@ -241,7 +241,7 @@ export const PHOTOS = {
   /** Hero page À propos — portrait circulaire IA & BTP (crane, ampoule, bâtiment) */
   aProposHero2026: {
     src: '/images/laure-olivie-a-propos-hero.jpg',
-    alt: "Portrait circulaire Laure Olivié sur fond bleu, avec icônes grue et bâtiment",
+    alt: "Laure Olivié, formatrice IA BTP — portrait page à propos, fond bleu OFC",
     title: 'Laure Olivié — formatrice IA spécialisée BTP, Qualiopi, Île-de-France',
     description:
       "Portrait Laure Olivié sur fond bleu OFC : formatrice intelligence artificielle et ChatGPT pour TPE, PME et professionnels du BTP — symboles chantier et innovation.",
@@ -252,7 +252,7 @@ export const PHOTOS = {
   /** Visuels formations 2026 */
   formationIATP2026: {
     src: '/images/formation-ia-tp.png',
-    alt: 'Portrait circulaire Laure Olivié sur fond bleu, avec icônes grue et bâtiment',
+    alt: "Session formation IA appliquée aux travaux publics et chantiers",
     width: 1024,
     height: 768,
   },
@@ -304,7 +304,7 @@ export const PHOTOS = {
   /** Fiche formation IA architecture / Claude — présentation en petit groupe, salle */
   formationIABtpArchiClaudePresentielGroupe2026: {
     src: '/images/formation-ia-architecture-claude-presentiel-groupe.jpg',
-    alt: "Formatrice animant une session en salle : écran avec schémas et plans techniques",
+    alt: "Formation Claude et IA en architecture : Laure Olivié anime un petit groupe en salle",
     width: 1024,
     height: 682,
   },
@@ -322,7 +322,7 @@ export const PHOTOS = {
   },
   btpFormationEcranIABTP2026: {
     src: '/images/btp-formation-ecran-ia-btp.png',
-    alt: 'Formatrice animant une session en salle : écran avec schémas et plans techniques',
+    alt: "Atelier IA BTP en salle : présentation sur écran avec schémas et plans techniques",
     width: 1024,
     height: 682,
   },

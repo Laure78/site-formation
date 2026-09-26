@@ -12,7 +12,7 @@ export const PILLAR_PAGE_CONTENT_UPDATED_AT = {
   '/formations': '2026-09-07',
   '/formation-ia-btp-ile-de-france': '2026-04-18',
   '/claude-ai-btp': '2026-04-18',
-  '/financement-constructys-formation-ia-btp': '2026-09-02',
+  '/financement-constructys-formation-ia-btp': '2026-09-26',
   '/prendre-rdv': '2026-09-16',
   '/prendre-rendez-vous': '2026-09-16',
 } as const satisfies Record<string, ContentUpdatedDate>;

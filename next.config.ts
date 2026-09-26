@@ -1476,6 +1476,26 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
+        source: '/images/laure-linkedin-panel.png',
+        destination: '/images/laure-olivie-linkedin-learning-panneau.png',
+        permanent: true,
+      },
+      {
+        source: '/images/laure-linkedin-portrait.png',
+        destination: '/images/laure-olivie-linkedin-learning-portrait.png',
+        permanent: true,
+      },
+      {
+        source: '/images/laure-studio-light.png',
+        destination: '/images/laure-olivie-studio-fond-clair.png',
+        permanent: true,
+      },
+      {
+        source: '/images/laure-studio-dark.png',
+        destination: '/images/laure-olivie-studio-fond-sombre.png',
+        permanent: true,
+      },
+      {
         source: '/images/conducteur-travaux-plans-chantier-btp.webp',
         destination: '/images/formation-ia-conducteur-travaux-plans.webp',
         permanent: true,

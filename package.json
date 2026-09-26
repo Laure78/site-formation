@@ -25,6 +25,7 @@
     "teachizy:export": "npx tsx scripts/teachizy-export/export-pdfs.ts",
     "teachizy:prepare-import": "npx tsx scripts/teachizy-export/prepare-import-dry-run.ts",
     "audit:qualiopi-liens": "node scripts/audit-liens-qualiopi.mjs",
+    "audit:images-seo": "node scripts/audit-images-seo.mjs --json tmp/audit-images-seo.json",
     "audit:qualiopi-fiches": "npx tsx scripts/audit-qualiopi-fiches-formations.ts",
     "programmes:applications-metier": "npx tsx scripts/generate-programmes-applications-metier.ts",
     "validate:schema": "npx tsx scripts/validate-schema-jsonld.mjs && npx tsx scripts/validate-formation-course-jsonld.mjs && node scripts/validate-article-faq-jsonld.mjs",

@@ -39,7 +39,7 @@ export function TrainingCard({
         className,
       )}
     >
-      <div className="flex flex-wrap items-center gap-2 text-xs font-semibold uppercase tracking-[0.12em] text-ofc-accent">
+      <div className="flex flex-wrap items-center gap-2 text-xs font-semibold text-ofc-accent">
         {niveau ? <span>{niveau}</span> : null}
         {niveau ? (
           <span className="text-ofc-ink-subtle" aria-hidden>

@@ -31,8 +31,8 @@ export function FinancementConstructysHero() {
             {FINANCEMENT_PAGE_H1}
           </h1>
           <p className={`${OFC_TYPE_LEAD} mx-auto mt-5 max-w-2xl text-ofc-ink-muted lg:mx-0`}>
-            Plafonds, délai de dépôt, reste à charge et nouveau circuit de remboursement à compter du
-            1<sup>er</sup> octobre 2026.
+            Plafonds, délai de dépôt, reste à charge et circuit de remboursement selon les modalités
+            Constructys en vigueur.
           </p>
           <p className="mt-3 text-sm font-medium text-ofc-ink-subtle">
             OFC certifié Qualiopi · Programme et devis fournis · Île-de-France

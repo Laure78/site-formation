@@ -1,6 +1,6 @@
 /**
  * Page `/financement-constructys-formation-ia-btp` — données UX (barèmes officiels Constructys 2026).
- * Sources : constructys.fr (modalités PDC juin 2026 + dispositif transitoire oct. 2026).
+ * Sources : constructys.fr (modalités PDC juin 2026 + dispositif transitoire de paiement).
  */
 import {
   TARIF_INTRA_4H_HT,
@@ -32,10 +32,9 @@ export const CONSTRUCTYS_SOURCES = {
     title: 'Modalités de participation financière 2026 — Constructys',
     org: 'Constructys',
   },
-  dispositifTransitoireOct2026: {
+  dispositifTransitoirePaiement: {
     href: 'https://www.constructys.fr/reforme-tva-paiement-des-formations-un-dispositif-transitoire-mis-en-place-a-compter-du-1er-octobre/',
-    title:
-      'Réforme TVA — dispositif transitoire pour le paiement des formations (à compter du 1er octobre 2026)',
+    title: 'Réforme TVA — dispositif transitoire pour le paiement des formations',
     org: 'Constructys',
   },
   egestion: {

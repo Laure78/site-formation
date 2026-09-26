@@ -49,7 +49,7 @@ export function HeaderMobileDrawer({
             <span className="relative h-9 w-9 shrink-0 overflow-hidden rounded-full ring-1 ring-slate-200/70">
               <Image
                 src={SITE.logo.src}
-                alt=""
+                alt={SITE.logo.alt}
                 fill
                 className={AUTHOR_HEADSHOT_IMAGE_CLASS}
                 sizes="36px"

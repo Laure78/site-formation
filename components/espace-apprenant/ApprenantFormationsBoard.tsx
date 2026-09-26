@@ -132,7 +132,7 @@ export function ApprenantFormationsBoard({
                     {f.imageUrl ? (
                       <Image
                         src={f.imageUrl}
-                        alt=""
+                        alt={`Visuel de la formation ${f.title}`}
                         fill
                         className="object-cover"
                         sizes="140px"

@@ -10,10 +10,10 @@ import {
   FinancementConstructysHero,
   FinancementConstructysCta,
 } from '@/components/financement/FinancementConstructysHero';
-import { FinancementOct2026Alert } from '@/components/financement/constructys/FinancementOct2026Alert';
+import { FinancementCircuitPaiementAlert } from '@/components/financement/constructys/FinancementCircuitPaiementAlert';
 import { FinancementEssentielSection } from '@/components/financement/constructys/FinancementEssentielSection';
 import { FinancementEstimationCards } from '@/components/financement/constructys/FinancementEstimationCards';
-import { FinancementAvantApresTable } from '@/components/financement/constructys/FinancementAvantApresTable';
+import { FinancementCircuitPaiementTable } from '@/components/financement/constructys/FinancementCircuitPaiementTable';
 import { FinancementEtapesSection } from '@/components/financement/constructys/FinancementEtapesSection';
 import { FinancementQuiFaitQuoiSection } from '@/components/financement/constructys/FinancementQuiFaitQuoiSection';
 import { FinancementTarifsSection } from '@/components/financement/constructys/FinancementTarifsSection';
@@ -55,10 +55,10 @@ export default function FinancementConstructysPage() {
 
       <div className="mx-auto max-w-[80rem] px-4 pb-20 sm:px-6 lg:px-8">
         <div className="space-y-16 md:space-y-20">
-          <FinancementOct2026Alert />
+          <FinancementCircuitPaiementAlert />
           <FinancementEssentielSection />
           <FinancementEstimationCards />
-          <FinancementAvantApresTable />
+          <FinancementCircuitPaiementTable />
           <FinancementEtapesSection />
           <FinancementQuiFaitQuoiSection />
           <FinancementTarifsSection />
@@ -66,7 +66,7 @@ export default function FinancementConstructysPage() {
           <FormationsFaqSection
             items={faqItems}
             title="Questions fréquentes"
-            subtitle="Réponses courtes sur l’éligibilité, les plafonds et le circuit de paiement 2026."
+            subtitle="Réponses courtes sur l’éligibilité, les plafonds et le circuit de paiement."
           />
           <FinancementSourcesSection />
         </div>

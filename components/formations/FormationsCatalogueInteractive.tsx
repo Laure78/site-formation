@@ -18,8 +18,9 @@ import {
 import type { FormationCatalogueEntry } from '@/lib/formations-catalogue-display';
 import {
   FORMATIONS_CATALOGUE,
-  catalogueNiveauLabel,
   catalogueNiveauEtLevel,
+  catalogueNiveauLabel,
+  isCatalogueNiveau1,
   sortFormationsCatalogue,
 } from '@/lib/formations-catalogue-display';
 import { CataloguePriceBadge } from '@/components/formations/CataloguePriceBadge';
@@ -62,7 +63,7 @@ function FormationCard({
 }) {
   const visuel = cours.visuel;
   const intraUrl = calendlyCatalogueUrl(`intra-${cours.slug}`);
-  const isDebutant = cours.level === 'DÉBUTANT';
+  const isNiveau1 = isCatalogueNiveau1(cours.ref);
 
   return (
     <div
@@ -89,12 +90,12 @@ function FormationCard({
             loading="lazy"/>
           <span
             className={`absolute right-0 top-0 rounded-full px-2.5 py-1 text-[10px] font-bold backdrop-blur-sm sm:px-3 sm:py-1.5 sm:text-xs ${
-              isDebutant
+              isNiveau1
                 ? 'bg-[#D1FAE5]/90 text-[#047857]'
                 : 'bg-[#FED7AA]/90 text-[#C2410C]'
             }`}
           >
-            {isDebutant ? 'DÉBUTANT' : 'AVANCÉ'}
+            {catalogueNiveauLabel(cours.ref)}
           </span>
           <CataloguePriceBadge
             level={cours.level}

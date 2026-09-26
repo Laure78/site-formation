@@ -4,6 +4,7 @@
 import { getFormationByCode } from '@/data/formations';
 import { BUSINESS_DELIVERY } from '@/lib/business-delivery';
 import { isFormationCataloguePublished } from '@/lib/formation-catalogue-visibility';
+import { catalogueNiveauLabel } from '@/lib/formations-catalogue-display';
 import {
   formatNoteSatisfactionSur5,
   formatVolumeProsFormesBtp,
@@ -167,7 +168,7 @@ export function getAccueilFormationsPrioritaires(): readonly AccueilFormationCar
       code,
       titre: f.titre,
       benefice: f.promesse,
-      niveau: f.niveauLabel,
+      niveau: catalogueNiveauLabel(code),
       duree: f.duree,
       publicCible: publicCibleCourt(f.public),
       format: ACCUEIL_FORMAT_FORMATION,
