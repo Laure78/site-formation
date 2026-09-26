@@ -32,8 +32,8 @@ import {
   IDF_DEPARTEMENT_OPTIONS,
 } from '@/lib/business-delivery';
 
-const fieldClass =
-  'mt-1 w-full rounded-lg border border-[#CBD5E1] bg-white px-4 py-2.5 text-[#0F172A] focus:border-[#377CF3] focus:outline-none focus:ring-2 focus:ring-[#377CF3]/30';
+const fieldClassBase =
+  'mt-1 w-full rounded-lg border border-[#CBD5E1] bg-white px-4 text-[#0F172A] focus:border-[#377CF3] focus:outline-none focus:ring-2 focus:ring-[#377CF3]/30';
 const fieldErrorClass = 'border-[#DC2626] focus:border-[#DC2626] focus:ring-[#DC2626]/30';
 
 function isValidSubject(value: string | null | undefined): value is ContactSubjectValue {
@@ -43,9 +43,12 @@ function isValidSubject(value: string | null | undefined): value is ContactSubje
 type ContactFormProps = {
   initialObjet?: string | null;
   formationHint?: string | null;
+  density?: 'default' | 'compact';
 };
 
-export function ContactForm({ initialObjet, formationHint }: ContactFormProps) {
+export function ContactForm({ initialObjet, formationHint, density = 'default' }: ContactFormProps) {
+  const compact = density === 'compact';
+  const fieldClass = `${fieldClassBase} ${compact ? 'py-2' : 'py-2.5'}`;
   const formId = useId();
   const errorSummaryId = `${formId}-errors`;
   const statusId = `${formId}-status`;
@@ -159,11 +162,17 @@ export function ContactForm({ initialObjet, formationHint }: ContactFormProps) {
 
   return (
     <div>
-      <h2 className="font-display text-2xl font-bold tracking-tight text-[#0F172A] md:text-3xl">
+      <h2
+        className={
+          compact
+            ? 'font-display text-xl font-bold tracking-tight text-[#0F172A]'
+            : 'font-display text-2xl font-bold tracking-tight text-[#0F172A] md:text-3xl'
+        }
+      >
         {CONTACT_FORM_TITLE}
       </h2>
 
-      <div className="mt-3">
+      <div className={compact ? 'mt-2' : 'mt-3'}>
         <ContactFormationHint formationHint={formationHintParam} />
       </div>
 
@@ -182,7 +191,7 @@ export function ContactForm({ initialObjet, formationHint }: ContactFormProps) {
         onSubmit={handleSubmit}
         onFocus={handleStart}
         noValidate
-        className="mt-6 space-y-5"
+        className={compact ? 'mt-4 space-y-4' : 'mt-6 space-y-5'}
         aria-describedby={error ? errorSummaryId : undefined}
       >
         <div aria-hidden="true" className="absolute -left-[9999px] h-0 w-0 overflow-hidden">
@@ -351,7 +360,7 @@ export function ContactForm({ initialObjet, formationHint }: ContactFormProps) {
             id={`${formId}-message`}
             name="message"
             required
-            rows={5}
+            rows={compact ? 3 : 5}
             maxLength={5000}
             placeholder={CONTACT_FORM_NEED_PLACEHOLDER}
             aria-invalid={Boolean(fieldErrors.message)}

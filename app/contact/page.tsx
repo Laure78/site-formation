@@ -1,13 +1,11 @@
 import Link from 'next/link';
 import { JsonLd } from '@/components/JsonLd';
 import { Breadcrumb } from '@/components/Breadcrumb';
-import { ContactPageHero } from '@/components/contact/ContactPageHero';
+import { ContactPageIntro } from '@/components/contact/ContactPageIntro';
 import { ContactPathCards } from '@/components/contact/ContactPathCards';
 import { ContactFormSection } from '@/components/contact/ContactFormSection';
 import { ContactAfterSendInfo } from '@/components/contact/ContactAfterSendInfo';
 import { ContactCalendlyBlock } from '@/components/contact/ContactCalendlyBlock';
-import { ContactCoordinates } from '@/components/contact/ContactCoordinates';
-import { TrainingDeliveryInfo } from '@/components/formations/TrainingDeliveryInfo';
 import {
   CONTACT_FOOTER_LINKS,
   CONTACT_PAGE_META_DESCRIPTION,
@@ -43,47 +41,49 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
     <>
       <JsonLd id="schema-contact-page" schema={getContactPageJsonLd()} />
 
-      <div className="mx-auto max-w-[80rem] px-4 pt-6 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-[80rem] px-4 pb-16 pt-3 sm:px-6 lg:px-8">
         <Breadcrumb
+          className="mb-3 text-sm"
           items={[
             { label: 'Accueil', href: LINKS.home },
             { label: 'Contact', href: LINKS.contact },
           ]}
         />
-      </div>
 
-      <ContactPageHero compact />
-
-      <div className="mx-auto max-w-[80rem] space-y-14 px-4 pb-20 pt-2 sm:px-6 lg:px-8">
-        {/* Formulaire en premier — visible sans scroller depuis #contact-form */}
         <div
           id="contact-form"
-          className="scroll-mt-20 grid gap-8 lg:grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)] lg:items-start"
+          className="scroll-mt-[calc(var(--site-header-height,4rem)+0.5rem)] grid gap-6 lg:grid-cols-[minmax(0,0.92fr)_minmax(0,1.08fr)] lg:items-start lg:gap-8"
         >
-          <div className="ofc-card p-6 sm:p-8 md:p-10">
-            <TrainingDeliveryInfo variant="checklist" className="mb-6" />
-            <ContactFormSection initialObjet={initialObjet} formationHint={formationHint} />
-          </div>
-          <div className="space-y-6">
-            <ContactAfterSendInfo />
+          <ContactPageIntro />
+
+          <div className="ofc-card min-w-0 p-5 sm:p-6 lg:sticky lg:top-[calc(var(--site-header-height,4rem)+0.75rem)] lg:max-h-[calc(100vh-var(--site-header-height,4rem)-1.5rem)] lg:overflow-y-auto">
+            <ContactFormSection
+              initialObjet={initialObjet}
+              formationHint={formationHint}
+              density="compact"
+            />
+            <ContactAfterSendInfo compact className="mt-4 hidden lg:block" />
           </div>
         </div>
 
-        <ContactPathCards />
-        <ContactCalendlyBlock />
-        <ContactCoordinates />
+        <ContactAfterSendInfo compact className="mt-6 lg:hidden" />
 
-        <nav aria-label="Liens utiles" className="border-t border-ofc-border pt-8">
-          <ul className="flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:gap-x-8">
-            {CONTACT_FOOTER_LINKS.map((link) => (
-              <li key={link.href}>
-                <Link href={link.href} className={OFC_LINK}>
-                  {link.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </nav>
+        <div className="mt-10 space-y-10 border-t border-ofc-border pt-10 md:mt-12 md:pt-12">
+          <ContactPathCards />
+          <ContactCalendlyBlock />
+
+          <nav aria-label="Liens utiles" className="border-t border-ofc-border pt-6">
+            <ul className="flex flex-col gap-2 sm:flex-row sm:flex-wrap sm:gap-x-8">
+              {CONTACT_FOOTER_LINKS.map((link) => (
+                <li key={link.href}>
+                  <Link href={link.href} className={OFC_LINK}>
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
+        </div>
       </div>
     </>
   );
