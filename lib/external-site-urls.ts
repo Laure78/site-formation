@@ -8,6 +8,8 @@ export const EXTERNAL_SITE_URLS = {
   bework: 'https://www.bework.fr/',
   /** Page formation BeWork (parcours 7 h / 14 h). */
   beworkFormation: 'https://www.bework.fr/formation',
+  /** Exemples interactifs — démonstrations BeWork. */
+  beworkDemonstrations: 'https://www.bework.fr/demonstrations',
   /** FAQ formation BeWork. */
   beworkFaq: 'https://www.bework.fr/faq',
   /** Demande de place / inscription session BeWork. */

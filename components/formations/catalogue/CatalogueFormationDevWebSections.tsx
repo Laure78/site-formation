@@ -1,10 +1,8 @@
 import Link from 'next/link';
 import { Check, Download } from 'lucide-react';
-import { DevWebIaBeworkInformations } from '@/components/formations/DevWebIaBeworkInformations';
 import { DevWebIaPrixLancementCard } from '@/components/formations/DevWebIaPrixLancementCard';
 import { DevWebIaSectionVisual } from '@/components/formations/DevWebIaSectionVisual';
-import { PhotoThumbnailGallery } from '@/components/ui/PhotoThumbnailLightbox';
-import { getFormationByCode, libelleEffectifFormation } from '@/data/formations';
+import { getFormationByCode } from '@/data/formations';
 import { OFC_CTA_SECONDARY, OFC_EYEBROW, OFC_LINK } from '@/lib/ofc-interaction-classes';
 import {
   FORMATION_CATALOGUE_H2,
@@ -18,8 +16,9 @@ import { OFC_TYPE_H3 } from '@/lib/ofc-interaction-classes';
 import { formatTarifHt } from '@/lib/tarifs-sessions';
 import { PHOTOS } from '@/lib/photos';
 import { LINKS } from '@/lib/internal-links';
+import { devWebIaProjectFormHref } from '@/lib/formation-developpement-web-ia-content';
+import { OFC_CTA_PRIMARY } from '@/lib/ofc-interaction-classes';
 import {
-  DEV_WEB_IA_DUREE_COURTE,
   DEV_WEB_IA_ESPACE,
   DEV_WEB_IA_EVALUATION,
   DEV_WEB_IA_FORMATS,
@@ -32,65 +31,23 @@ import {
 } from '@/lib/formation-developpement-web-ia-content';
 
 const FORMATION = getFormationByCode('NIV-10')!;
-const EFFECTIF_LIBELLE = libelleEffectifFormation(FORMATION);
 
 const V = {
   public: PHOTOS.formationNiv10DevWebIaPublic2026,
-  methode: PHOTOS.formationNiv10DevWebIaMethode2026,
-  pratique: PHOTOS.formationNiv10DevWebIaPratique2026,
-  formats: PHOTOS.formationNiv10DevWebIaFormats2026,
   outils: PHOTOS.formationNiv10DevWebIaOutils2026,
-  resultats: PHOTOS.formationNiv10DevWebIaResultats2026,
   apres: PHOTOS.formationNiv10DevWebIaApres2026,
 } as const;
 
-const NIV10_ILLUSTRATIONS_GALLERY = [
-  V.public,
-  V.formats,
-  V.methode,
-  V.pratique,
-  V.outils,
-  V.resultats,
-  V.apres,
-].map((photo) => ({
-  src: photo.src,
-  alt: photo.alt,
-  width: photo.width,
-  height: photo.height,
-  title: photo.title,
-  caption: photo.title,
-  detail: photo.description,
-}));
-
 const JOURNEE_STEPS = [
-  { time: '09h00', label: 'Cadrer', detail: 'Idée, utilisateurs, besoin' },
-  { time: 'Matin', label: 'Structurer', detail: 'Écrans, parcours, prompts' },
-  { time: 'Après-midi', label: 'Construire', detail: 'Première version avec l’IA' },
-  { time: '17h00', label: 'Tester', detail: 'Corrections + feuille de route' },
+  { time: '09h00', label: 'Cadrer', detail: 'Module 1' },
+  { time: 'Matin', label: 'Structurer', detail: 'Module 2' },
+  { time: 'Après-midi', label: 'Construire', detail: 'Module 3' },
+  { time: '17h00', label: 'Tester et clôturer', detail: 'Module 4' },
 ] as const;
 
 export function CatalogueFormationDevWebAfterObjectives() {
   return (
     <>
-<section className={FORMATION_CATALOGUE_SECTION_MUTED} aria-labelledby="niv10-illustrations-title">
-  <div className={FORMATION_CATALOGUE_INNER_MAX_6XL}>
-    <h2 id="niv10-illustrations-title" className={FORMATION_CATALOGUE_H2}>
-      Illustrations de la formation
-    </h2>
-    <p className="mt-2 max-w-2xl text-sm text-slate-600">
-      Cliquez sur une miniature pour afficher l’infographie en grand. Les légendes détaillées
-      restent disponibles dans chaque section ci-dessous.
-    </p>
-    <PhotoThumbnailGallery
-      className="mt-6"
-      items={NIV10_ILLUSTRATIONS_GALLERY}
-      ariaLabel="Miniatures des infographies de la formation"
-    />
-  </div>
-</section>
-
-<DevWebIaBeworkInformations />
-
 {/* Public + formats */}
 <section className={FORMATION_CATALOGUE_SECTION} aria-labelledby="public-prerequis-title">
   <div className={FORMATION_CATALOGUE_INNER_MAX_6XL}>
@@ -129,112 +86,43 @@ export function CatalogueFormationDevWebAfterObjectives() {
       />
     </div>
 
-    <div className="mt-14 flex flex-col gap-8 lg:flex-row lg:items-start">
-      <DevWebIaSectionVisual
-        className="shrink-0"
-        src={V.formats.src}
-        alt={V.formats.alt}
-        width={V.formats.width}
-        height={V.formats.height}
-        title={V.formats.title}
-        description={V.formats.description}
-      />
-      <div>
-        <h3 className={OFC_TYPE_H3}>À vous de choisir votre format</h3>
-        <p className="mt-3 text-base leading-relaxed text-slate-600">
-          Le même programme, quel que soit le format.
-        </p>
-        <ul className="mt-6 space-y-3">
-          {DEV_WEB_IA_FORMATS.map((item) => (
-            <li key={item} className="flex gap-3 text-base text-slate-800">
-              <Check className="mt-0.5 h-5 w-5 shrink-0 text-[#377CF3]" aria-hidden />
-              <span>{item}</span>
-            </li>
-          ))}
-        </ul>
-      </div>
-    </div>
+    <p className="mt-8 max-w-2xl text-base text-slate-600">
+      Formats proposés (inter ou intra, présentiel en Île-de-France) : détail et tarifs dans la
+      section{' '}
+      <a href="#tarifs-modalites" className={OFC_LINK}>
+        Format et tarifs
+      </a>
+      .
+    </p>
   </div>
 </section>
 
-{/* Méthode + parcours journée */}
+{/* Parcours journée — vue rapide uniquement */}
 <section className={FORMATION_CATALOGUE_SECTION_MUTED} aria-labelledby="parcours-journee-title">
   <div className={FORMATION_CATALOGUE_INNER_MAX_6XL}>
-    <div className="grid items-start gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(260px,360px)]">
-      <div>
-        <h2 id="parcours-journee-title" className={FORMATION_CATALOGUE_H2}>
-          Jour 1 — de l’idée à la première version
-        </h2>
-        <p className="mt-3 max-w-2xl text-base text-slate-600">
-          Parcours 7 h ou première journée du parcours 14 h — quatre temps pédagogiques sur votre
-          propre projet.
-        </p>
-        <ol className="mt-10 grid gap-4 sm:grid-cols-2">
-          {JOURNEE_STEPS.map((step, index) => (
-            <li key={step.label} className="relative">
-              <div className="relative rounded-2xl border border-slate-200/80 bg-white px-4 py-5">
-                <p className="text-xs font-semibold uppercase tracking-[0.12em] text-[#377CF3]">
-                  {index + 1}. {step.time}
-                </p>
-                <p className="mt-2 font-display text-lg font-bold text-slate-800">{step.label}</p>
-                <p className="mt-1 text-sm text-slate-600">{step.detail}</p>
-              </div>
-            </li>
-          ))}
-        </ol>
-      </div>
-      <DevWebIaSectionVisual
-        className="shrink-0 lg:justify-self-end"
-        src={V.methode.src}
-        alt={V.methode.alt}
-        width={V.methode.width}
-        height={V.methode.height}
-        title={V.methode.title}
-        description={V.methode.description}
-      />
-    </div>
-  </div>
-</section>
-
-{/* Formation pratique */}
-<section className={FORMATION_CATALOGUE_SECTION} aria-labelledby="pratique-title">
-  <div className={FORMATION_CATALOGUE_INNER_MAX_6XL}>
-    <div className="grid items-center gap-10 lg:grid-cols-2">
-      <DevWebIaSectionVisual
-        className="order-2 shrink-0 lg:order-1"
-        src={V.pratique.src}
-        alt={V.pratique.alt}
-        width={V.pratique.width}
-        height={V.pratique.height}
-        title={V.pratique.title}
-        description={V.pratique.description}
-      />
-      <div className="order-1 lg:order-2">
-        <p className={OFC_EYEBROW}>Une formation pratique</p>
-        <h2 id="pratique-title" className={`${FORMATION_CATALOGUE_H2} mt-3`}>
-          Apprendre en faisant
-        </h2>
-        <p className="mt-3 text-base leading-relaxed text-slate-600">
-          Petit groupe, maximum de pratique : vous repartez avec une première version de votre
-          projet, pas seulement des slides.
-        </p>
-        <ul className="mt-8 grid gap-3 sm:grid-cols-2">
-          {[
-            DEV_WEB_IA_DUREE_COURTE,
-            EFFECTIF_LIBELLE,
-            '70 % de pratique',
-            'OPCO selon éligibilité',
-          ].map((item) => (
-            <li
-              key={item}
-              className="rounded-xl border border-slate-200/90 bg-[#F2F2F2] px-4 py-3 text-sm font-semibold text-slate-800"
-            >
-              {item}
-            </li>
-          ))}
-        </ul>
-      </div>
-    </div>
+    <h2 id="parcours-journee-title" className={FORMATION_CATALOGUE_H2}>
+      Déroulé de la journée (7 h)
+    </h2>
+    <p className="mt-3 max-w-2xl text-base text-slate-600">
+      Quatre temps sur la journée — horaires indicatifs. Les activités détaillées sont dans le{' '}
+      <a href="#programme" className={OFC_LINK}>
+        programme en 4 modules
+      </a>
+      .
+    </p>
+    <ol className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      {JOURNEE_STEPS.map((step, index) => (
+        <li key={step.label} className="relative">
+          <div className="relative rounded-2xl border border-slate-200/80 bg-white px-4 py-5">
+            <p className="text-xs font-semibold uppercase tracking-[0.12em] text-[#377CF3]">
+              {index + 1}. {step.time}
+            </p>
+            <p className="mt-2 font-display text-lg font-bold text-slate-800">{step.label}</p>
+            <p className="mt-1 text-sm text-slate-600">{step.detail}</p>
+          </div>
+        </li>
+      ))}
+    </ol>
   </div>
 </section>
 
@@ -464,6 +352,14 @@ export function CatalogueFormationDevWebTariffsSection() {
         <p className="mt-4 text-sm text-slate-600">
           <Link href={LINKS.financement} className={OFC_LINK}>
             Financement OPCO possible selon éligibilité
+          </Link>
+        </p>
+        <p className="mt-6">
+          <Link
+            href={devWebIaProjectFormHref()}
+            className={`${OFC_CTA_PRIMARY} inline-flex min-h-11 items-center justify-center px-6 py-3`}
+          >
+            Demander une session intra-entreprise
           </Link>
         </p>
       </div>

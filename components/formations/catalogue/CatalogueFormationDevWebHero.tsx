@@ -1,29 +1,21 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { Clock, Download, Users, Wrench } from 'lucide-react';
+import { Clock, Users, Wrench } from 'lucide-react';
 import { ExternalLinkAnchor } from '@/components/ExternalLink';
 import { DevWebIaPrixLancementCard } from '@/components/formations/DevWebIaPrixLancementCard';
 import { FormationHeroOutilsNote } from '@/components/formations/FormationHeroOutilsNote';
 import { OfcYouTubeEmbed } from '@/components/ui/OfcYouTubeEmbed';
-import { MentionTvaAsterisque } from '@/components/MentionTVA';
 import { trainingCategoryBadge } from '@/lib/training-page-helpers';
 import { getFormationCatalogueVisuel } from '@/lib/formations-catalogue-display';
 import { getFormationCatalogueSeo } from '@/lib/formation-catalogue-seo';
 import { getFormationByCode, libelleEffectifFormation } from '@/data/formations';
-import { OFC_CTA_SECONDARY, OFC_EYEBROW, OFC_LINK } from '@/lib/ofc-interaction-classes';
-import { MENTIONS_TVA_INTRA_COURTE, formatTarifHt } from '@/lib/tarifs-sessions';
-import { FINANCEMENT_FORMULATION_COURTE } from '@/lib/financement-copy';
+import { OFC_EYEBROW, OFC_LINK } from '@/lib/ofc-interaction-classes';
 import { VIDEOS } from '@/lib/videos';
 import {
   DEV_WEB_IA_BADGE_NOUVELLE,
   DEV_WEB_IA_DUREE_COURTE,
   DEV_WEB_IA_HOOK,
-  DEV_WEB_IA_PDF_14H_HREF,
-  DEV_WEB_IA_PDF_7H_HREF,
-  DEV_WEB_IA_PRIX_LANCEMENT_LABEL,
   DEV_WEB_IA_SUBTITLE,
-  TARIF_INTER_DEV_WEB_IA_14H_HT,
-  TARIF_INTER_DEV_WEB_IA_HT,
 } from '@/lib/formation-developpement-web-ia-content';
 import { BEWORK_LOGO, BEWORK_SUBTAGLINE } from '@/lib/bework-brand';
 import { EXTERNAL_SITE_URLS } from '@/lib/external-site-urls';
@@ -80,7 +72,7 @@ export function CatalogueFormationDevWebHero() {
             </h1>
             <p className="mt-3 max-w-2xl text-lg leading-relaxed text-slate-700">{DEV_WEB_IA_SUBTITLE}</p>
 
-            <DevWebIaPrixLancementCard className="mt-6" formationTitle={FORMATION.titre} />
+            <DevWebIaPrixLancementCard className="mt-6" formationTitle={FORMATION.titre} showCtas={false} />
 
             <div className="mt-8 space-y-1 border-l-4 border-[#377CF3] pl-5">
               <p className="font-display text-2xl font-bold tracking-tight text-slate-900 md:text-3xl">
@@ -94,29 +86,7 @@ export function CatalogueFormationDevWebHero() {
               </p>
             </div>
 
-            <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-              <a
-                href={DEV_WEB_IA_PDF_7H_HREF}
-                download="programme-ofc-developpement-web-ia-7h.pdf"
-                className={`${OFC_CTA_SECONDARY} inline-flex min-h-11 items-center justify-center gap-2 px-6 py-3`}
-              >
-                <Download className="h-4 w-4 shrink-0" aria-hidden />
-                Programme 7 h (PDF)
-              </a>
-              <a
-                href={DEV_WEB_IA_PDF_14H_HREF}
-                download="programme-ofc-developpement-web-ia-14h.pdf"
-                className={`${OFC_CTA_SECONDARY} inline-flex min-h-11 items-center justify-center gap-2 px-6 py-3`}
-              >
-                <Download className="h-4 w-4 shrink-0" aria-hidden />
-                Programme 14 h (PDF)
-              </a>
-              <Link href={LINKS.contact} className={`${OFC_LINK} inline-flex min-h-11 items-center text-sm`}>
-                Voir les prochaines dates
-              </Link>
-            </div>
-
-            <p className="mt-5 max-w-xl text-base leading-relaxed text-slate-600">
+            <p className="mt-6 max-w-xl text-base leading-relaxed text-slate-600">
               Pas un logiciel complet prêt pour la production : une première version fonctionnelle, une méthode de
               travail, des tests, des corrections et une feuille de route pour continuer.
             </p>
@@ -156,35 +126,11 @@ export function CatalogueFormationDevWebHero() {
                     : undefined,
               }}
             />
-            <div className="rounded-2xl border border-slate-200 bg-slate-50 p-5 shadow-sm">
-              <div className="flex flex-wrap items-center gap-2">
-                <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#377CF3]">En résumé</p>
-                <span className="rounded-full bg-[#377CF3]/10 px-2 py-0.5 text-[0.6rem] font-bold uppercase tracking-[0.12em] text-[#377CF3]">
-                  {DEV_WEB_IA_BADGE_NOUVELLE}
-                </span>
-              </div>
-              <p className="mt-3 text-xs font-semibold uppercase tracking-[0.14em] text-[#377CF3]">
-                {DEV_WEB_IA_PRIX_LANCEMENT_LABEL}
-              </p>
-              <p className="mt-1.5 font-display text-2xl font-bold text-slate-900">
-                {formatTarifHt(TARIF_INTER_DEV_WEB_IA_HT)} € HT
-                <span className="ml-1 text-base font-semibold text-slate-600">/ participant · 7 h</span>
-                <MentionTvaAsterisque />
-              </p>
-              <p className="mt-2 font-display text-xl font-bold text-slate-900">
-                {formatTarifHt(TARIF_INTER_DEV_WEB_IA_14H_HT)} € HT
-                <span className="ml-1 text-base font-semibold text-slate-600">/ participant · 14 h</span>
-                <MentionTvaAsterisque />
-              </p>
-              <p className="mt-1 text-sm text-slate-600">Interentreprises · Intra sur devis</p>
-              <p className="mt-3 text-sm leading-relaxed text-slate-600">{MENTIONS_TVA_INTRA_COURTE}</p>
-              <p className="mt-2 text-sm leading-relaxed text-slate-600">{FINANCEMENT_FORMULATION_COURTE}</p>
-              <p className="mt-4 text-sm">
-                <a href="#informations-pratiques" className={OFC_LINK}>
-                  Informations réglementaires Qualiopi
-                </a>
-              </p>
-            </div>
+            <p className="text-sm">
+              <a href="#informations-pratiques" className={OFC_LINK}>
+                Informations réglementaires Qualiopi
+              </a>
+            </p>
           </aside>
         </div>
       </div>

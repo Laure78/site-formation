@@ -78,12 +78,40 @@ export const BEWORK_JOUR2_FLOW = [
   'Améliorer',
 ] as const;
 
-export const BEWORK_JOURNEE_PRATIQUE = [
-  { title: 'Démonstrations concrètes', desc: 'Voir ce qu’il est possible de construire.' },
-  { title: 'Petit groupe', desc: 'Accompagnement plus proche.' },
-  { title: 'Pratique sur vos idées', desc: 'Expérimentation immédiate sur votre projet.' },
-  { title: 'Méthode réutilisable', desc: 'Continuer après la journée.' },
-] as const;
+/** Sous-titre unique — ne pas dupliquer ailleurs dans la section Jour 1 (ex. photo + titre). */
+export const BEWORK_JOUR1_EYEBROW = 'Jour 1 · Parcours commun' as const;
+
+export const BEWORK_JOUR1_LEAD =
+  'Le Jour 1, vous cadrez votre idée, manipulez les outils, construisez une première version et la testez — avec un accompagnement en petit groupe.' as const;
+
+export type BeworkJourneePratiqueTone = 'blue' | 'violet' | 'peach' | 'mint';
+
+export const BEWORK_JOURNEE_PRATIQUE: ReadonlyArray<{
+  title: string;
+  desc: string;
+  tone: BeworkJourneePratiqueTone;
+}> = [
+  {
+    title: 'Cadrer son idée',
+    desc: 'Clarifier le besoin, les usages et ce que vous visez à l’issue de la journée.',
+    tone: 'blue',
+  },
+  {
+    title: 'Construire sur son ordinateur',
+    desc: 'Manipuler les outils et avancer sur votre projet, pas sur un exemple générique.',
+    tone: 'violet',
+  },
+  {
+    title: 'Tester et corriger',
+    desc: 'Vérifier ce qui fonctionne, repérer les écarts et ajuster avec le formateur.',
+    tone: 'peach',
+  },
+  {
+    title: 'Repartir avec une méthode',
+    desc: 'Une feuille de route pour continuer après la session, à votre rythme.',
+    tone: 'mint',
+  },
+];
 
 export const BEWORK_COMPETENCES_REPARTIE = [
   {

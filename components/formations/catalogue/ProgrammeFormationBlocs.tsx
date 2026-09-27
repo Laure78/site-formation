@@ -4,6 +4,8 @@ export type ProgrammeFormationBloc = {
   heading: string;
   /** Durée ou meta (ex. « 60 min · skills »). */
   meta?: string;
+  /** Objectif pédagogique du module — une phrase. */
+  objective?: string;
   objectifs: readonly string[];
   livrable?: string;
 };
@@ -51,7 +53,16 @@ export function ProgrammeFormationBlocs({
                 <span className="text-sm font-medium text-[#377CF3]">{bloc.meta}</span>
               ) : null}
             </div>
-            <ul className="mt-3 space-y-1.5 text-base text-slate-700">
+            {bloc.objective ? (
+              <p className="mt-3 text-base leading-relaxed text-slate-700">
+                <span className="font-semibold text-slate-900">Objectif : </span>
+                {bloc.objective}
+              </p>
+            ) : null}
+            <p className="mt-4 text-sm font-semibold uppercase tracking-[0.08em] text-slate-500">
+              Activités
+            </p>
+            <ul className="mt-2 space-y-1.5 text-base text-slate-700">
               {bloc.objectifs.map((o) => (
                 <li key={o} className="flex gap-2">
                   <span className="text-[#377CF3]" aria-hidden>
@@ -63,7 +74,8 @@ export function ProgrammeFormationBlocs({
             </ul>
             {bloc.livrable ? (
               <p className="mt-4 text-base text-slate-700">
-                <span className="font-semibold text-slate-900">Livrable :</span> {bloc.livrable}
+                <span className="font-semibold text-slate-900">Résultat attendu : </span>
+                {bloc.livrable}
               </p>
             ) : null}
           </article>

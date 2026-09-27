@@ -6,6 +6,8 @@ import type { TrainingParcoursKind } from '@/lib/training-page-helpers';
 import { LINKS } from '@/lib/internal-links';
 import { getFormationByCode } from '@/data/formations';
 import {
+  DEV_WEB_IA_LIVRABLES,
+  DEV_WEB_IA_OBJECTIFS,
   TARIF_INTER_DEV_WEB_IA_14H_HT,
   TARIF_INTER_DEV_WEB_IA_HT,
 } from '@/lib/formation-developpement-web-ia-content';
@@ -599,73 +601,27 @@ const NIV_10: CatalogueFormationPageContent = {
       texte: 'Slides, notes ou maquettes — sans version fonctionnelle ni feuille de route pour la suite.',
     },
   ],
-  outcomes: [
-    'Cadrer un projet numérique à partir d’une idée ou d’un besoin',
-    'Identifier les utilisateurs et les fonctionnalités principales',
-    'Structurer le périmètre fonctionnel d’une première version',
-    'Utiliser une méthode de prompting structurée',
-    'Créer une première version fonctionnelle sans écrire directement de code',
-    'Tester, corriger et sauvegarder son projet',
-    'Définir une feuille de route pour poursuivre après la formation',
-  ],
+  outcomes: DEV_WEB_IA_OBJECTIFS,
   outcomesDescription:
-    'Formation pratique BeWork : apprendre à construire une première version de site, application ou outil métier avec l’IA — validation et tests à chaque étape, sans promesse de produit « clé en main » en production.',
-  practicalCase: {
-    title: 'Jour 1 — de l’idée à la première version',
-    paragraphs: [
-      'Parcours 7 h ou première journée du parcours 14 h : vous travaillez sur votre propre projet, pas sur un cas fictif.',
-      'Quatre temps pédagogiques : cadrer, structurer, construire avec l’IA, tester et corriger.',
-    ],
-    steps: [
-      '09h00 — Cadrer : idée, utilisateurs, besoin',
-      'Matin — Structurer : écrans, parcours, prompts',
-      'Après-midi — Construire : première version avec l’IA',
-      '17h00 — Tester : corrections et feuille de route',
-    ],
-    note: 'L’abonnement ChatGPT ou Claude n’est pas compris dans le prix de la formation — vérifiez vos accès avant la session.',
-  },
-  deliverablesIntro: 'Livrables Jour 1 (7 h) ; le parcours 14 h ajoute publication en ligne et consolidation.',
-  deliverables: [
-    'Projet cadré et périmètre fonctionnel défini',
-    'Première architecture et version construite',
-    'Méthode de travail avec l’IA, tests et corrections',
-    'Projet sauvegardé et feuille de route pour la suite',
-    'Parcours 14 h : projet enrichi, bases de mise en ligne et visibilité',
-    'Certificat de réalisation',
-  ],
+    'Compétences visées sur la journée de 7 h — le déroulé détaillé et les activités par module figurent dans la section « Programme — 4 modules ».',
+  deliverablesIntro:
+    'À l’issue de la session de 7 h, vous repartez avec des éléments concrets sur votre projet (sans doublonner le programme module par module).',
+  deliverables: DEV_WEB_IA_LIVRABLES,
   iaLimits: [
     { iaAide: 'Générer une première version à partir d’un besoin cadré', validation: 'Valider le périmètre et les fonctionnalités' },
     { iaAide: 'Proposer des corrections et améliorations', validation: 'Tester et décider des changements' },
     { iaAide: 'Structurer des instructions (prompts)', validation: 'Contrôler le résultat à chaque étape' },
     { iaAide: 'Aider à sauvegarder et documenter', validation: 'Garder la responsabilité du projet' },
   ],
-  publicPrerequisites: [
-    {
-      title: 'Prérequis pédagogiques',
-      items: [
-        'Savoir utiliser un ordinateur et naviguer sur Internet',
-        'Aucun prérequis en programmation ou création de site',
-      ],
-    },
-    {
-      title: 'Prérequis techniques',
-      items: [
-        'Ordinateur, connexion, adresse email',
-        'Abonnement actif ChatGPT ou Claude AI (non inclus)',
-        'Applications installables sur l’ordinateur du participant',
-      ],
-    },
-  ],
   interExtraBullets: ['Parcours 7 h ou 14 h selon calendrier'],
   intraExtraBullets: ['Parcours 7 h ou 14 h · programme adaptable'],
   programIntro:
-    'Un fil rouge : votre projet. Démonstrations, ateliers guidés, travail individuel, tests et corrections — quatre modules sur la journée.',
-  programmeHeading: 'Programme Jour 1 — 4 modules',
+    'Session de 7 h sur votre propre projet : le déroulé officiel en quatre modules. Les activités détaillées figurent uniquement dans cette section.',
+  programmeHeading: 'Programme — 4 modules',
   objectivesTitle: 'Objectifs pédagogiques',
   instructorTitle: 'Apprendre à créer avec l’IA — encadré par Laure Olivié',
   instructorBody:
-    'Laure Olivié, formatrice IA et fondatrice d’OFC Création d’Entreprise (certifié Qualiopi). Parcours BeWork « Construisez votre projet avec l’IA » : méthode progressive, petits groupes, 70 % de pratique sur votre projet.',
-  instructorExtraLinks: [{ href: LINKS.bework, label: 'Découvrir BeWork' }],
+    'Laure Olivié, formatrice IA et fondatrice d’OFC Création d’Entreprise (certifié Qualiopi). Méthode progressive, petits groupes, 70 % de pratique sur le projet de chaque participant.',
   showBeworkPasserelle: false,
   finalCta: {
     title: 'Vous avez une idée de site, d’application ou d’outil métier ?',

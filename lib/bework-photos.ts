@@ -10,6 +10,15 @@ export type BeworkPhoto = {
   caption?: string;
 };
 
+/** Section accueil « Jour 1 » — visuel pédagogique NIV-10 (petit groupe, pratique). */
+export const BEWORK_JOUR1_SECTION_PHOTO: BeworkPhoto = {
+  src: '/images/formation-developpement-web-ia-sans-coder/04-formation-pratique.webp',
+  alt: 'Formation pratique en petit groupe — participant au laptop, visuel pédagogique',
+  width: 819,
+  height: 1024,
+  caption: 'Pratique sur votre projet — accompagnement en petit groupe',
+};
+
 /** Visuel hero — schéma plateforme centrale et connexion logiciels BTP */
 export const BEWORK_PHOTO_HERO: BeworkPhoto = {
   src: '/images/bework/bework-plateforme-centrale-connecter-logiciels-btp.gif',

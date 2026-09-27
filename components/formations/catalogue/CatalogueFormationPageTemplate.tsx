@@ -53,6 +53,10 @@ type Props = {
   tariffsSection?: ReactNode;
   /** Contenu après la section programme (ex. Jour 2 — parcours 14 h). */
   programmeSupplement?: ReactNode;
+  /** Contenu après le supplément programme (ex. exemples de projets NIV-10). */
+  afterProgrammeSupplement?: ReactNode;
+  /** Contenu juste avant « Format et tarifs » (ex. formulaire projet NIV-10). */
+  beforeTariffs?: ReactNode;
 };
 
 const PORTRAIT = PHOTOS.portraitPro2026;
@@ -68,6 +72,8 @@ export function CatalogueFormationPageTemplate({
   customHero,
   tariffsSection,
   programmeSupplement,
+  afterProgrammeSupplement,
+  beforeTariffs,
 }: Props) {
   const ref = content.programmeRef;
   const FORMATION = getFormationByCode(ref)!;
@@ -318,6 +324,8 @@ export function CatalogueFormationPageTemplate({
 
       {programmeSupplement}
 
+      {afterProgrammeSupplement}
+
       {content.workflow && content.workflow.length > 0 ? (
         <section className="border-b border-slate-200 bg-slate-50 px-4 py-8 md:py-10">
           <div className="mx-auto max-w-3xl">
@@ -413,6 +421,8 @@ export function CatalogueFormationPageTemplate({
           </div>
         </section>
       ) : null}
+
+      {beforeTariffs}
 
       {tariffsSection ?? (
         <section

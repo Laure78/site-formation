@@ -9,12 +9,10 @@ import {
   BEWORK_FAQ,
   BEWORK_HERO_PILLARS,
   BEWORK_IA_ETAPES,
-  BEWORK_JOUR1_FLOW,
-  BEWORK_JOUR2_FLOW,
-  BEWORK_JOURNEE_PRATIQUE,
   BEWORK_METIERS_IDEES,
   BEWORK_PROJECT_EXAMPLES,
 } from '@/lib/bework-formation-marketing';
+import { HomeJourneeBlock } from '@/components/bework/marketing/HomeJourneeBlock';
 import {
   BEWORK_HERO_INTRO,
   BEWORK_LOGO,
@@ -179,38 +177,11 @@ export function DevWebIaBeworkInformations() {
         </div>
       </section>
 
-      <section className={OFC_SEC.white} aria-labelledby="bework-journee-title">
-        <div className={`${OFC_SECTION_INNER} max-w-6xl`}>
-          <h2 id="bework-journee-title" className={OFC_TYPE_H2}>
-            Pas une journée à écouter. Une journée à créer.
-          </h2>
-          <ul className="mt-8 grid gap-4 sm:grid-cols-2">
-            {BEWORK_JOURNEE_PRATIQUE.map((item) => (
-              <li key={item.title} className="flex gap-3 rounded-xl border border-slate-200/80 p-4">
-                <Check className="mt-0.5 h-5 w-5 shrink-0 text-[#377CF3]" aria-hidden />
-                <div>
-                  <p className="font-semibold text-ofc-ink">{item.title}</p>
-                  <p className="mt-1 text-sm text-ofc-ink-muted">{item.desc}</p>
-                </div>
-              </li>
-            ))}
-          </ul>
-          <div className="mt-12 grid gap-8 lg:grid-cols-2">
-            <div className="rounded-2xl border border-slate-200 bg-[#F2F2F2]/50 p-6">
-              <h3 className={OFC_TYPE_H3}>Jour 1 · Commencer</h3>
-              <p className="mt-4 text-sm font-medium text-ofc-ink">
-                {BEWORK_JOUR1_FLOW.join(' → ')}
-              </p>
-            </div>
-            <div className="rounded-2xl border border-[#BFDBFE] bg-[#EFF6FF]/50 p-6">
-              <h3 className={OFC_TYPE_H3}>Jour 2 · Construire plus loin</h3>
-              <p className="mt-4 text-sm font-medium text-ofc-ink">
-                {BEWORK_JOUR2_FLOW.join(' → ')}
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
+      <HomeJourneeBlock
+        formationHref={EXTERNAL_SITE_URLS.beworkFormation}
+        demonstrationsHref={EXTERNAL_SITE_URLS.beworkDemonstrations}
+        externalLinks
+      />
 
       <section className={OFC_SEC.mutedMesh} aria-labelledby="bework-competences-title">
         <div className={`${OFC_SECTION_INNER} max-w-6xl`}>

@@ -1,12 +1,15 @@
+import { Download } from 'lucide-react';
 import { JsonLd } from '@/components/JsonLd';
+import { OFC_CTA_SECONDARY } from '@/lib/ofc-interaction-classes';
 import { CatalogueFormationPageTemplate } from '@/components/formations/catalogue/CatalogueFormationPageTemplate';
 import { CatalogueFormationDevWebHero } from '@/components/formations/catalogue/CatalogueFormationDevWebHero';
 import {
   CatalogueFormationDevWebAfterDeliverables,
   CatalogueFormationDevWebAfterObjectives,
-  CatalogueFormationDevWebProgrammeDay2,
   CatalogueFormationDevWebTariffsSection,
 } from '@/components/formations/catalogue/CatalogueFormationDevWebSections';
+import { DevWebIaProjectContactSection } from '@/components/formations/DevWebIaProjectContactSection';
+import { DevWebIaProjectExamplesSection } from '@/components/formations/DevWebIaProjectExamplesSection';
 import { ProgrammeFormationBlocs } from '@/components/formations/catalogue/ProgrammeFormationBlocs';
 import { createPageMetadata, getFAQSchema } from '@/lib/seo';
 import { getFormationCatalogueVisuel } from '@/lib/formations-catalogue-display';
@@ -14,24 +17,23 @@ import { LINKS } from '@/lib/internal-links';
 import { buildCatalogueCourseDeveloppementWebIaNiv10JsonLd } from '@/lib/schema-catalogue-course-jsonld';
 import { getFormationCatalogueSeo } from '@/lib/formation-catalogue-seo';
 import { getCatalogueFormationPageContent } from '@/lib/catalogue-formation-page-content';
-import { getFormationByCode } from '@/data/formations';
 import {
   DEV_WEB_IA_FAQ,
   DEV_WEB_IA_MODULES,
-  DEV_WEB_IA_PEDAGOGIE,
-  devWebIaDevisHref,
+  DEV_WEB_IA_PDF_7H_HREF,
   devWebIaInscriptionHref,
+  devWebIaProjectFormHref,
 } from '@/lib/formation-developpement-web-ia-content';
 
 const CATALOGUE_SEO = getFormationCatalogueSeo('NIV-10');
-const FORMATION = getFormationByCode('NIV-10')!;
 const CATALOGUE_VISUEL = getFormationCatalogueVisuel('NIV-10');
 
 const PAGE_CONTENT = {
   ...getCatalogueFormationPageContent('NIV-10'),
   finalCta: {
     ...getCatalogueFormationPageContent('NIV-10').finalCta,
-    devisHref: devWebIaDevisHref(FORMATION.titre),
+    devisHref: devWebIaProjectFormHref(),
+    primaryLabel: 'Parlez-moi de votre projet',
     secondaryHref: devWebIaInscriptionHref(),
   },
 };
@@ -78,16 +80,33 @@ export default function FormationDeveloppementWebIaSansCoderPage() {
         faqSectionId="faq"
         afterObjectives={<CatalogueFormationDevWebAfterObjectives />}
         programme={
-          <ProgrammeFormationBlocs
-            blocs={DEV_WEB_IA_MODULES.map((module) => ({
-              heading: module.title,
-              objectifs: module.points,
-            }))}
-            pedagogicalMethods={DEV_WEB_IA_PEDAGOGIE}
-            methodsTitle="Méthode pédagogique"
-          />
+          <>
+            <ProgrammeFormationBlocs
+              blocs={DEV_WEB_IA_MODULES.map((module) => ({
+                heading: `Module ${module.number} — ${module.title}`,
+                objective: module.objective,
+                objectifs: module.activities,
+                livrable: module.result,
+              }))}
+            />
+            <p className="mt-6">
+              <a
+                href={DEV_WEB_IA_PDF_7H_HREF}
+                download="programme-ofc-developpement-web-ia-7h.pdf"
+                className={`${OFC_CTA_SECONDARY} inline-flex min-h-11 items-center gap-2 px-5 py-3`}
+              >
+                <Download className="h-4 w-4 shrink-0" aria-hidden />
+                Télécharger le programme officiel 7 h (PDF)
+              </a>
+            </p>
+          </>
         }
-        programmeSupplement={<CatalogueFormationDevWebProgrammeDay2 />}
+        afterProgrammeSupplement={
+          <>
+            <DevWebIaProjectExamplesSection />
+            <DevWebIaProjectContactSection />
+          </>
+        }
         afterDeliverables={<CatalogueFormationDevWebAfterDeliverables />}
         tariffsSection={<CatalogueFormationDevWebTariffsSection />}
       />
