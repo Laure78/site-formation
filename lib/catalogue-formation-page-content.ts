@@ -568,7 +568,7 @@ const NIV_10: CatalogueFormationPageContent = {
   quickFactsLevel: 'Débutant',
   quickFactsOverride: [
     { label: 'Durée', value: '7 h ou 14 h' },
-    { label: 'Format', value: 'Présentiel' },
+    { label: 'Format', value: 'Présentiel ou visio (inter)' },
     { label: 'Lieu', value: 'Île-de-France' },
     { label: 'Effectif', value: '6 à 8 participants' },
     { label: 'Niveau', value: 'Débutant' },

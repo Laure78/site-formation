@@ -53,10 +53,104 @@ export const DEV_WEB_IA_INCLUS_TARIF = [
 ] as const;
 
 export const DEV_WEB_IA_FORMATS = [
-  'Présentiel · Île-de-France',
-  'Inter-entreprises (sessions programmées)',
-  'Intra-entreprise sur devis',
+  'Présentiel · Île-de-France (inter ou intra)',
+  'Visioconférence · sessions inter à dates dédiées',
+  'Inter-entreprises ou intra-entreprise sur devis',
 ] as const;
+
+export const DEV_WEB_IA_MODALITES_SECTION = {
+  eyebrow: 'Modalités',
+  title: 'Deux façons de participer.',
+  lead: 'Présentiel ou visio : la modalité change, pas l’ambition ni le parcours pédagogique de 7 h.',
+  compareLabel: 'Comparer les modalités',
+  compareHref: '#tarifs-modalites',
+} as const;
+
+/** Modalités de participation — présentiel et visio (parcours identique). */
+export const DEV_WEB_IA_MODALITES = [
+  {
+    id: 'presentiel',
+    title: 'Présentiel',
+    badge: 'Recommandé',
+    desc: 'En Île-de-France : inter-entreprises ou intra dans vos locaux. Petit groupe, accompagnement de proximité tout au long de la pratique.',
+  },
+  {
+    id: 'visio',
+    title: 'Visioconférence',
+    badge: 'Sessions dédiées',
+    desc: 'Même parcours pédagogique à distance, lors de sessions inter programmées — échanges et partage d’écran facilités.',
+  },
+] as const;
+
+/** Engagements qualité (marketing) — le détail réglementaire reste dans Informations Qualiopi. */
+export const DEV_WEB_IA_QUALIOPI_ENGAGEMENTS = [
+  {
+    num: '01',
+    title: 'Apprendre en pratiquant',
+    desc: 'Pédagogie active autour de votre projet : démonstrations courtes, ateliers guidés, production individuelle.',
+  },
+  {
+    num: '02',
+    title: 'Un accompagnement personnalisé',
+    desc: 'Groupes limités à 6 à 8 participants pour des allers-retours réguliers avec la formatrice.',
+  },
+  {
+    num: '03',
+    title: 'Une progression évaluée',
+    desc: 'Objectifs identifiés, évaluation des acquis via le projet réalisé et questionnaire de satisfaction.',
+  },
+  {
+    num: '04',
+    title: 'Des ressources pour continuer',
+    desc: 'Supports, fiches méthode et accès à l’espace apprenant pour poursuivre après la session.',
+  },
+] as const;
+
+export const DEV_WEB_IA_PARCOURS_INTRO = {
+  eyebrow: 'Choisissez votre parcours',
+  titleLine1: 'Un même point de départ.',
+  titleLine2: 'À vous de choisir jusqu’où aller.',
+  lead: 'Une première journée commune (7 h) pour cadrer, construire une première version et la tester. Une deuxième journée (7 h supplémentaires) pour améliorer, publier en ligne et poser les bases de visibilité.',
+} as const;
+
+export const DEV_WEB_IA_PARCOURS_MARKETING = {
+  '7h': {
+    label: 'Parcours 1 — 1 journée',
+    title: 'De l’idée à votre première création',
+    desc: 'Transformer votre idée en un premier projet testable avec l’IA — sans écrire le code vous-même.',
+    badge14h: null as string | null,
+  },
+  '14h': {
+    label: 'Parcours 2 — 2 journées',
+    title: 'De votre idée à votre projet en ligne',
+    desc: 'Reprendre le Jour 1, enrichir le projet, le publier et contrôler la version en ligne (bases de référencement si pertinent).',
+    badge14h: 'Comprend le parcours 7 h',
+  },
+} as const;
+
+export const DEV_WEB_IA_JOUR_RESUME = {
+  jour1: {
+    label: 'Jour 1',
+    closing: 'Jour 1 — Je construis ma première version.',
+    points: [
+      'Cadrer et préparer votre projet',
+      'Structurer et guider l’IA',
+      'Construire une première version',
+      'Tester, corriger et repartir avec une méthode',
+    ],
+  },
+  jour2: {
+    label: 'Jour 2',
+    closing: 'Jour 2 — Je finalise et je mets mon projet en ligne.',
+    points: [
+      'Reprise et amélioration du projet du Jour 1',
+      'Adaptation aux différents écrans',
+      'Préparation et mise en ligne',
+      'Bases du référencement web (si pertinent)',
+      'Tests de la version publiée et feuille de route',
+    ],
+  },
+} as const;
 
 export const DEV_WEB_IA_PUBLIC = [
   'Entrepreneurs',

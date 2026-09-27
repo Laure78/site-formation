@@ -6,8 +6,12 @@ import { CatalogueFormationDevWebHero } from '@/components/formations/catalogue/
 import {
   CatalogueFormationDevWebAfterDeliverables,
   CatalogueFormationDevWebAfterObjectives,
-  CatalogueFormationDevWebTariffsSection,
+  CatalogueFormationDevWebProgrammeDay2,
 } from '@/components/formations/catalogue/CatalogueFormationDevWebSections';
+import {
+  CatalogueFormationDevWebParcoursTarifsSection,
+  CatalogueFormationDevWebQualiopiEngagementSection,
+} from '@/components/formations/catalogue/CatalogueFormationDevWebMarketingSections';
 import { DevWebIaProjectContactSection } from '@/components/formations/DevWebIaProjectContactSection';
 import { DevWebIaProjectExamplesSection } from '@/components/formations/DevWebIaProjectExamplesSection';
 import { ProgrammeFormationBlocs } from '@/components/formations/catalogue/ProgrammeFormationBlocs';
@@ -101,6 +105,7 @@ export default function FormationDeveloppementWebIaSansCoderPage() {
             </p>
           </>
         }
+        programmeSupplement={<CatalogueFormationDevWebProgrammeDay2 />}
         afterProgrammeSupplement={
           <>
             <DevWebIaProjectExamplesSection />
@@ -108,7 +113,8 @@ export default function FormationDeveloppementWebIaSansCoderPage() {
           </>
         }
         afterDeliverables={<CatalogueFormationDevWebAfterDeliverables />}
-        tariffsSection={<CatalogueFormationDevWebTariffsSection />}
+        beforeTariffs={<CatalogueFormationDevWebQualiopiEngagementSection />}
+        tariffsSection={<CatalogueFormationDevWebParcoursTarifsSection />}
       />
     </div>
   );

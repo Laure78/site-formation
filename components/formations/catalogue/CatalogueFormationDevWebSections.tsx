@@ -1,5 +1,7 @@
 import Link from 'next/link';
 import { Check, Download } from 'lucide-react';
+import { HomeJourneeBlock } from '@/components/bework/marketing/HomeJourneeBlock';
+import { CatalogueFormationDevWebModalitesSection } from '@/components/formations/catalogue/CatalogueFormationDevWebMarketingSections';
 import { DevWebIaPrixLancementCard } from '@/components/formations/DevWebIaPrixLancementCard';
 import { DevWebIaSectionVisual } from '@/components/formations/DevWebIaSectionVisual';
 import { getFormationByCode } from '@/data/formations';
@@ -37,13 +39,6 @@ const V = {
   outils: PHOTOS.formationNiv10DevWebIaOutils2026,
   apres: PHOTOS.formationNiv10DevWebIaApres2026,
 } as const;
-
-const JOURNEE_STEPS = [
-  { time: '09h00', label: 'Cadrer', detail: 'Module 1' },
-  { time: 'Matin', label: 'Structurer', detail: 'Module 2' },
-  { time: 'Après-midi', label: 'Construire', detail: 'Module 3' },
-  { time: '17h00', label: 'Tester et clôturer', detail: 'Module 4' },
-] as const;
 
 export function CatalogueFormationDevWebAfterObjectives() {
   return (
@@ -87,8 +82,11 @@ export function CatalogueFormationDevWebAfterObjectives() {
     </div>
 
     <p className="mt-8 max-w-2xl text-base text-slate-600">
-      Formats proposés (inter ou intra, présentiel en Île-de-France) : détail et tarifs dans la
-      section{' '}
+      Présentiel ou visioconférence (inter) : voir{' '}
+      <a href="#modalites-participation" className={OFC_LINK}>
+        Modalités de participation
+      </a>
+      . Tarifs et inscription :{' '}
       <a href="#tarifs-modalites" className={OFC_LINK}>
         Format et tarifs
       </a>
@@ -97,34 +95,9 @@ export function CatalogueFormationDevWebAfterObjectives() {
   </div>
 </section>
 
-{/* Parcours journée — vue rapide uniquement */}
-<section className={FORMATION_CATALOGUE_SECTION_MUTED} aria-labelledby="parcours-journee-title">
-  <div className={FORMATION_CATALOGUE_INNER_MAX_6XL}>
-    <h2 id="parcours-journee-title" className={FORMATION_CATALOGUE_H2}>
-      Déroulé de la journée (7 h)
-    </h2>
-    <p className="mt-3 max-w-2xl text-base text-slate-600">
-      Quatre temps sur la journée — horaires indicatifs. Les activités détaillées sont dans le{' '}
-      <a href="#programme" className={OFC_LINK}>
-        programme en 4 modules
-      </a>
-      .
-    </p>
-    <ol className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-      {JOURNEE_STEPS.map((step, index) => (
-        <li key={step.label} className="relative">
-          <div className="relative rounded-2xl border border-slate-200/80 bg-white px-4 py-5">
-            <p className="text-xs font-semibold uppercase tracking-[0.12em] text-[#377CF3]">
-              {index + 1}. {step.time}
-            </p>
-            <p className="mt-2 font-display text-lg font-bold text-slate-800">{step.label}</p>
-            <p className="mt-1 text-sm text-slate-600">{step.detail}</p>
-          </div>
-        </li>
-      ))}
-    </ol>
-  </div>
-</section>
+<CatalogueFormationDevWebModalitesSection />
+
+<HomeJourneeBlock formationHref="#programme" demonstrationsHref="#projets-exemples" />
 
 {/* Prérequis / outils */}
 <section className={FORMATION_CATALOGUE_SECTION_MUTED} aria-labelledby="outils-title">
@@ -340,8 +313,9 @@ export function CatalogueFormationDevWebTariffsSection() {
         <h2 id="tarifs-modalites-title" className={FORMATION_CATALOGUE_H2}>
           Format et tarifs
         </h2>
-        <p className="mt-2 text-base text-slate-600">
-          Parcours 7 h ou 14 h — interentreprises ou intra-entreprise sur devis.
+        <p className="mt-2 max-w-2xl text-base text-slate-600">
+          Parcours 7 h ou 14 h — inter-entreprises (présentiel en Île-de-France ou visio à dates
+          dédiées) ou intra-entreprise sur devis (présentiel dans vos locaux).
         </p>
         <DevWebIaPrixLancementCard className="mt-6" formationTitle={FORMATION.titre} showCtas={false} />
         <ul className="mt-6 list-disc space-y-1 pl-5 text-base text-slate-700">
