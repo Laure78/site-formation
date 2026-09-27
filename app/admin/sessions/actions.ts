@@ -34,7 +34,7 @@ async function requireActor() {
   if (!access.ok) {
     throw new Error('Accès refusé');
   }
-  return access.user.id;
+  return access.userId;
 }
 
 function revalidateSession(sessionId: string) {
@@ -45,9 +45,8 @@ function revalidateSession(sessionId: string) {
 
 export async function syncProgramsAction() {
   await requireActor();
-  const n = await syncAllCataloguePrograms();
+  await syncAllCataloguePrograms();
   revalidatePath(LINKS.adminSessions);
-  return { ok: true as const, count: n };
 }
 
 export async function createSessionAction(formData: FormData) {
