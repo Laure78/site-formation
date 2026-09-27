@@ -6,7 +6,7 @@ export type TrainingQuickFact = {
 };
 
 type Props = {
-  facts: TrainingQuickFact[];
+  facts: readonly TrainingQuickFact[];
   title?: string;
 };
 
