@@ -232,8 +232,8 @@ export const FORMATION_CATALOGUE_SEO: Record<FormationCatalogueCode, FormationCa
     subtitle:
       'Créer un site, une application ou un outil métier avec l’intelligence artificielle.',
     metaDescription:
-      'Formation développement web avec l’IA sans coder : créez votre site ou application. Parcours 7 h (300 € HT) ou 14 h, présentiel Île-de-France, Qualiopi.',
-    enBref: `Formation pratique 7 h ou 14 h : cadrer un projet, créer avec l’IA, tester et corriger — sans savoir coder. Inter : ${formatTarifHt(TARIF_INTER_DEV_WEB_IA_HT)} € HT (7 h) · ${formatTarifHt(TARIF_INTER_DEV_WEB_IA_14H_HT)} € HT (14 h) / participant. ${QUALIOPI_MENTION}.`,
+      'Formation développement web avec l’IA sans coder : site ou app en 7 h ou 14 h. Présentiel IDF ou visio inter. Qualiopi, financement OPCO selon éligibilité.',
+    enBref: `Formation pratique 7 h ou 14 h : cadrer un projet, créer avec l’IA, tester et corriger — sans savoir coder. Présentiel en Île-de-France (recommandé) ou visioconférence en inter à dates dédiées. Inter : ${formatTarifHt(TARIF_INTER_DEV_WEB_IA_HT)} € HT (7 h) · ${formatTarifHt(TARIF_INTER_DEV_WEB_IA_14H_HT)} € HT (14 h) / participant. ${QUALIOPI_MENTION}.`,
     publicTargets: [
       'Entrepreneurs, indépendants, commerçants et TPE et PME du bâtiment',
       'Salariés et porteurs de projet',

@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { Clock, Users, Wrench } from 'lucide-react';
+import { Clock, MapPin, Users, Wrench } from 'lucide-react';
 import { ExternalLinkAnchor } from '@/components/ExternalLink';
 import { DevWebIaPrixLancementCard } from '@/components/formations/DevWebIaPrixLancementCard';
 import { FormationHeroOutilsNote } from '@/components/formations/FormationHeroOutilsNote';
@@ -95,6 +95,10 @@ export function CatalogueFormationDevWebHero() {
               <li className="inline-flex items-center gap-2">
                 <Clock className="h-4 w-4 text-[#377CF3]" aria-hidden />
                 {DEV_WEB_IA_DUREE_COURTE} · 9h00 – 17h00
+              </li>
+              <li className="inline-flex items-center gap-2">
+                <MapPin className="h-4 w-4 text-[#377CF3]" aria-hidden />
+                Présentiel IDF ou visio (inter)
               </li>
               <li className="inline-flex items-center gap-2">
                 <Users className="h-4 w-4 text-[#377CF3]" aria-hidden />

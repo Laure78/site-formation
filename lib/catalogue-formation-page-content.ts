@@ -562,6 +562,7 @@ const NIV_10: CatalogueFormationPageContent = {
   heroFacts: [
     '7 h (1 journée) ou 14 h (2 journées)',
     '9h00 – 12h30 · 13h30 – 17h00',
+    'Présentiel IDF ou visio (inter)',
     '6 à 8 participants',
     '70 % pratique · 30 % méthodologie',
   ],
@@ -626,7 +627,7 @@ const NIV_10: CatalogueFormationPageContent = {
   finalCta: {
     title: 'Vous avez une idée de site, d’application ou d’outil métier ?',
     description:
-      'Apprenez à construire votre première version avec l’IA, sans savoir coder. Parcours 7 h ou 14 h — interentreprises ou session intra-entreprise.',
+      'Apprenez à construire votre première version avec l’IA, sans savoir coder. Parcours 7 h ou 14 h — présentiel, visio inter ou intra sur devis.',
     primaryLabel: 'Demander un devis',
     secondaryLabel: 'S’inscrire à la formation',
   },

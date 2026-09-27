@@ -37,6 +37,7 @@ export const DEV_WEB_IA_HOOK = {
 export const DEV_WEB_IA_HERO_FACTS = [
   '7 h (1 journée) ou 14 h (2 journées)',
   '9h00 – 12h30 · 13h30 – 17h00',
+  'Présentiel IDF ou visio (inter)',
   '6 à 8 participants',
   '70 % pratique · 30 % méthodologie',
 ] as const;
