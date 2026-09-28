@@ -32,7 +32,7 @@ export const RESSOURCES_THEMATIC_BLOCKS: readonly RessourceThematicBlock[] = [
     pilier: RESSOURCES_HUB_PILIERS['marches-et-veille'],
     tutos: [
       { label: 'Lexique BTP — parcours « Décrypter le DCE »', href: BEWORK_APP_PATHS.lexique },
-      { label: 'Tuto PDF — skill Analyse CCAP', href: LINKS.pdfTutoSkillAnalyseCcap },
+      { label: 'Tuto — skill Analyse CCAP', href: LINKS.tutoSkillAnalyseCcapOfc },
       { label: 'Tuto — skill mémoire technique', href: LINKS.tutoMemoireTechnique },
       { label: 'Tuto — skill métré Excel', href: LINKS.tutoSkillMetreExcelOfc },
       { label: 'Tuto — skill chiffrage de devis', href: LINKS.tutoSkillChiffrageDevisOfc },

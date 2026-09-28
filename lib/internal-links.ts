@@ -345,7 +345,10 @@ export const LINKS = {
   evenementRepondreAoBtp5Etapes: '/evenements/repondre-appel-offres-btp-5-etapes',
   /** PDF gratuit — Guide répondre AO BTP OFC 2026 (~12 p.) */
   pdfGuideRepondreAoBtpOfc2026: '/ressources/pdf/guide-repondre-ao-btp-ofc-2026.pdf',
-  pdfTutoSkillAnalyseCcap: '/ressources/pdf/tuto-skill-analyse-ccap-bework.pdf',
+  /** Tuto — skill Analyse CCAP (OFC) */
+  tutoSkillAnalyseCcapOfc: '/ressources/tuto-skill-analyse-ccap-ofc',
+  pdfTutoSkillAnalyseCcap: '/ressources/pdf/tuto-skill-analyse-ccap-ofc.pdf',
+  pdfTutoSkillAnalyseCcapOfc: '/ressources/pdf/tuto-skill-analyse-ccap-ofc.pdf',
   /** Landing SEO du tutoriel Skill IA (canonical vers la ressource) */
   /** @deprecated 301 → article blog Skill IA */
   guideSkillIaConducteurTravaux: '/blog/guide-skill-ia-conducteur-travaux-btp',

@@ -172,6 +172,8 @@ const TUTO_HUB_DESCRIPTIONS: Partial<Record<string, string>> = {
     'Créer un skill Claude pour produire un classeur Excel de métré par lot — formules et coefficients à contrôler.',
   'tuto-skill-chiffrage-devis-ofc':
     'Créer un skill Claude pour transformer un métré en devis Word/Excel — BPU, coefficients et TVA à contrôler.',
+  'tuto-skill-analyse-ccap-ofc':
+    'Créer un skill Claude pour analyser un CCAP : clauses sensibles, impact chiffré et fiche Go / No Go.',
   'tuto-skill-diuo-ofc':
     'Préparer la liasse DIUO pour le coordonnateur SPS : plans, notices et checklist fourni / manquant.',
 };
@@ -213,6 +215,7 @@ const TUTO_SAFETY: Partial<Record<string, RessourceSafetyLevel>> = {
   'tuto-skill-diuo-ofc': 'verification_professionnelle',
   'tuto-skill-memoire-reclamation-bework': 'verification_professionnelle',
   'tuto-skill-chiffrage-devis-ofc': 'verification_professionnelle',
+  'tuto-skill-analyse-ccap-ofc': 'verification_professionnelle',
 };
 
 const GUIDE_STATUS: Partial<Record<string, RessourceStatus>> = {

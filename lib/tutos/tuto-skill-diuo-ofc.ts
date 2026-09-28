@@ -1,4 +1,5 @@
 import type { TutoData } from './types';
+import { RESSOURCES_MINIATURES } from '@/lib/ressources-miniatures';
 
 export const TUTO_SKILL_DIUO_OFC: TutoData = {
   slug: 'tuto-skill-diuo-ofc',
@@ -35,8 +36,7 @@ export const TUTO_SKILL_DIUO_OFC: TutoData = {
     "OFC Création d'Entreprise",
     'Constructys',
   ],
-  ogImageAlt:
-    'Professionnelle BTP, prépa DIUO pour le SPS — pièces lot chantier formation IA pour le BTP',
+  ogImageAlt: RESSOURCES_MINIATURES.tutoDiuo.alt,
 
   publishedAt: '2026-07-24',
   updatedAt: '2026-07-24',
@@ -46,12 +46,7 @@ export const TUTO_SKILL_DIUO_OFC: TutoData = {
 
   totalTimeMinutes: 30,
 
-  heroImage: {
-    src: '/images/ressources/miniatures/miniature-tuto-diuo.jpg',
-    alt: 'Professionnelle BTP, prépa DIUO pour le SPS — pièces lot chantier formation IA pour le BTP',
-    width: 1200,
-    height: 675,
-  },
+  heroImage: RESSOURCES_MINIATURES.tutoDiuo,
 
   heroLearnPoints: [
     'Réunir les pièces DIUO que le coordonnateur SPS attend de ton lot',

@@ -94,9 +94,9 @@ export const RESSOURCES_MINIATURES = {
   },
   tutoDiuo: {
     src: `${BASE}/miniature-tuto-diuo.jpg`,
-    alt: 'Professionnelle BTP, prépa DIUO pour le SPS — pièces lot chantier formation IA pour le BTP',
-    width: 1200,
-    height: 675,
+    alt: 'Tuto offert — Créer ton skill Prépa DIUO avec l’IA, Laure Olivié, formation BTP',
+    width: 1024,
+    height: 1024,
   },
   tutoPpsps: {
     src: `${BASE}/miniature-tuto-ppsps.jpg`,
