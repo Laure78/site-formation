@@ -407,7 +407,7 @@ export const FORMATIONS: readonly Formation[] = [
     casUsageCourts: [
       'Cadrer un projet numérique',
       'Créer une première version avec l’IA',
-      'Tester, corriger et poursuivre',
+      'Tester, corriger et pérenniser',
     ],
     gamme: 'deployer',
     theme: 'outils-applications',

@@ -1,14 +1,12 @@
 import { preload } from 'react-dom';
 import { AccueilHeroSection } from '@/components/landing/AccueilHeroSection';
 import { AccueilPreuveSocialeCompact } from '@/components/landing/accueil/AccueilPreuveSocialeCompact';
-import { AccueilProblemesMetierSection } from '@/components/landing/accueil/AccueilProblemesMetierSection';
+import { AccueilEntreeParBesoinSection } from '@/components/landing/accueil/AccueilEntreeParBesoinSection';
 import { AccueilFormationsPrioritairesSection } from '@/components/landing/accueil/AccueilFormationsPrioritairesSection';
-import { AccueilDifferentiationSection } from '@/components/landing/accueil/AccueilDifferentiationSection';
-import { AccueilResultatsConcretsSection } from '@/components/landing/accueil/AccueilResultatsConcretsSection';
+import { AccueilBeworkBandeau } from '@/components/landing/accueil/AccueilBeworkBandeau';
+import { AccueilMethodeResultatsSection } from '@/components/landing/accueil/AccueilMethodeResultatsSection';
 import { AccueilFinancementSection } from '@/components/landing/accueil/AccueilFinancementSection';
 import { AccueilFormatriceSection } from '@/components/landing/accueil/AccueilFormatriceSection';
-import { AccueilRessourcesSection } from '@/components/landing/accueil/AccueilRessourcesSection';
-import { AccueilBeworkBandeau } from '@/components/landing/accueil/AccueilBeworkBandeau';
 import { AccueilFaqSection } from '@/components/landing/accueil/AccueilFaqSection';
 import { AccueilCtaFinalSection } from '@/components/landing/accueil/AccueilCtaFinalSection';
 import { EvenementAoBtpPromoEncart } from '@/components/evenements/EvenementAoBtpPromoEncart';
@@ -72,14 +70,12 @@ export default function HomePage() {
       <AccueilHeroSection />
       <AccueilPreuveSocialeCompact />
       <EvenementAoBtpPromoEncart placement="accueil" />
-      <AccueilProblemesMetierSection />
+      <AccueilEntreeParBesoinSection />
       <AccueilFormationsPrioritairesSection />
       <AccueilBeworkBandeau />
-      <AccueilDifferentiationSection />
-      <AccueilResultatsConcretsSection />
+      <AccueilMethodeResultatsSection />
       <AccueilFinancementSection />
       <AccueilFormatriceSection />
-      <AccueilRessourcesSection />
       <AccueilFaqSection />
       <AccueilCtaFinalSection />
 

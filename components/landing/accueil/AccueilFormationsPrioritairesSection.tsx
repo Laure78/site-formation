@@ -4,9 +4,9 @@ import { Section } from '@/components/ui/Section';
 import { SectionHeader } from '@/components/ui/SectionHeader';
 import { getAccueilFormationsPrioritaires } from '@/lib/accueil-config';
 import { LINKS } from '@/lib/internal-links';
-import { OFC_LINK } from '@/lib/ofc-interaction-classes';
+import { OFC_CTA_SECONDARY } from '@/lib/ofc-interaction-classes';
 
-/** Formations prioritaires — usages opérationnels BTP. */
+/** Formations à la une — extrait du catalogue (NIV-01 à NIV-04). */
 export function AccueilFormationsPrioritairesSection() {
   const formations = getAccueilFormationsPrioritaires();
 
@@ -20,12 +20,12 @@ export function AccueilFormationsPrioritairesSection() {
       <SectionHeader
         align="center"
         titleId="accueil-formations-prioritaires"
-        eyebrow="Catalogue"
-        title="Choisissez votre formation IA pour le BTP"
-        description="Des parcours concrets pour apprendre à utiliser l’IA sur vos documents et process métier."
-        className="mx-auto"
+        eyebrow="Formations à la une"
+        title="Programmes IA les plus demandés"
+        description="Un aperçu du catalogue — durées, niveaux et programmes complets sur chaque fiche."
+        className="mx-auto max-w-2xl"
       />
-      <div className="mt-12 grid gap-6 md:grid-cols-2">
+      <div className="mt-12 grid items-stretch gap-6 md:grid-cols-2">
         {formations.map((f, index) => (
           <TrainingCard
             key={f.href}
@@ -37,15 +37,17 @@ export function AccueilFormationsPrioritairesSection() {
             publicCible={f.publicCible}
             format={f.format}
             featured={index === 0}
+            ctaLabel="Voir le programme"
+            className="h-full"
           />
         ))}
       </div>
-      <p className="mt-12 flex flex-col items-center gap-3 text-center sm:flex-row sm:justify-center sm:gap-6">
-        <Link href={LINKS.formationIaBtpPillar} className={`${OFC_LINK} text-base font-semibold`}>
-          Qu&apos;est-ce qu&apos;une formation IA pour le BTP ? →
-        </Link>
-        <Link href={LINKS.formations} className={`${OFC_LINK} text-base font-semibold`}>
-          Voir le catalogue complet →
+      <p className="mt-12 text-center">
+        <Link
+          href={LINKS.formations}
+          className={`${OFC_CTA_SECONDARY} inline-flex min-h-11 items-center justify-center px-8 py-3 text-base font-semibold`}
+        >
+          Voir toutes les formations
         </Link>
       </p>
     </Section>

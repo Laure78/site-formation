@@ -241,7 +241,7 @@ export const DEV_WEB_IA_MODULES: readonly DevWebIaProgrammeModule[] = [
   },
   {
     number: 4,
-    title: 'Tester, corriger et poursuivre son projet',
+    title: 'Tester, corriger et pérenniser son projet',
     objective:
       'Vérifier le résultat, corriger les écarts avec l’IA et préparer la suite en dehors de la session.',
     activities: [

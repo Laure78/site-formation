@@ -146,7 +146,7 @@ export const BEWORK_MODULES_JOUR1: BeworkJourProgramme = {
     },
     {
       number: 4,
-      title: 'Tester, corriger et poursuivre son projet',
+      title: 'Tester, corriger et pérenniser son projet',
       sequences: [
         {
           title: 'Tester, corriger et améliorer',

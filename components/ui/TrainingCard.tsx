@@ -28,7 +28,7 @@ export function TrainingCard({
   format,
   benefices,
   featured = false,
-  ctaLabel = 'Découvrir la formation',
+  ctaLabel = 'Voir le programme',
   className,
 }: TrainingCardProps) {
   return (
@@ -58,15 +58,15 @@ export function TrainingCard({
       {publicCible || format ? (
         <dl className="mt-4 space-y-2 text-sm text-ofc-ink-muted">
           {publicCible ? (
-            <div>
-              <dt className="inline font-semibold text-ofc-ink">Public&nbsp;: </dt>
-              <dd className="inline">{publicCible}</dd>
+            <div className="text-pretty">
+              <dt className="font-semibold text-ofc-ink">Public</dt>
+              <dd className="mt-0.5 leading-snug">{publicCible}</dd>
             </div>
           ) : null}
           {format ? (
-            <div>
-              <dt className="inline font-semibold text-ofc-ink">Format&nbsp;: </dt>
-              <dd className="inline">{format}</dd>
+            <div className="text-pretty">
+              <dt className="font-semibold text-ofc-ink">Format</dt>
+              <dd className="mt-0.5 leading-snug">{format}</dd>
             </div>
           ) : null}
         </dl>

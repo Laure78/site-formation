@@ -110,7 +110,7 @@ export const PROGRAMME_CONTENU_CATALOGUE: Record<FormationCode, readonly string[
     'Jour 1 — Module 1 : Cadrer et préparer son projet',
     'Jour 1 — Module 2 : Structurer son projet et guider efficacement l’IA',
     'Jour 1 — Module 3 : Construire une première version',
-    'Jour 1 — Module 4 : Tester, corriger et poursuivre son projet',
+    'Jour 1 — Module 4 : Tester, corriger et pérenniser son projet',
     'Jour 2 (parcours 14 h) — Diagnostiquer et prioriser les améliorations',
     'Jour 2 (parcours 14 h) — Améliorer et enrichir le projet',
     'Jour 2 (parcours 14 h) — Préparer et publier le projet',

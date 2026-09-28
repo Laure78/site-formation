@@ -100,37 +100,25 @@ export const FAQ_IA_BTP_METIERS_CHANTIER_SEO: readonly FAQItem[] = [
 export const FAQ_ITEMS_HOME: readonly FAQItem[] = [
   {
     q: "À qui s'adressent les formations IA BTP ?",
-    a: `Dirigeants d'entreprise BTP, conducteurs de travaux, chargés d'affaires, responsables appels d'offres, responsables administratifs, responsables formation et fonctions support des PME et ETI du bâtiment et des travaux publics. Voir la section <a href="#offre-formations">Choisissez votre formation IA BTP</a> ci-dessus.`,
+    a: `Dirigeants, conducteurs de travaux, chargés d'affaires, fonctions support et équipes des PME et ETI du bâtiment et des travaux publics. Utilisez la section <a href="#besoin-metier">Par où commencer ?</a> ou les <a href="#offre-formations">formations à la une</a>.`,
   },
   {
     q: 'Faut-il déjà savoir utiliser une IA ?',
     a:
-      'La formation de niveau débutant ne nécessite aucune pratique préalable de l’IA. Les autres formations demandent des connaissances ou une expérience précisées sur chaque programme. Prérequis matériels : savoir naviguer sur internet et disposer d’un ordinateur.',
+      'La formation de niveau débutant ne nécessite aucune pratique préalable. Les autres parcours précisent leurs prérequis sur chaque programme. Matériel : ordinateur et accès internet.',
   },
   {
     q: 'Peut-on travailler sur les documents de notre entreprise ?',
     a:
-      "Oui. Les participants travaillent à partir de leurs documents et processus (devis, DCE, CCTP, comptes rendus, mémoires techniques, emails) pour construire des méthodes et assistants IA réutilisables en entreprise, avec validation métier de votre côté.",
+      "Oui — devis, DCE, comptes rendus, mémoires techniques, emails : vous construisez des méthodes réutilisables avec validation métier de votre côté.",
   },
   {
-    q: 'Où se déroulent les formations ?',
-    a: `${MODALITE_FORMATIONS_STANDARD} Couverture : ${IDF_ZONE_INTERVENTION}. Des événements ponctuels en ligne peuvent être proposés séparément — voir chaque fiche.`,
-  },
-  {
-    q: 'Intervenez-vous partout en France ?',
-    a: 'Non. Les formations sont actuellement réalisées exclusivement en présentiel en Île-de-France.',
-  },
-  {
-    q: 'Proposez-vous des formations à distance ?',
-    a: 'Les formations en entreprise sont proposées en présentiel en Île-de-France. Des événements ponctuels en ligne sont également programmés. Consultez leurs modalités sur chaque fiche.',
-  },
-  {
-    q: 'Puis-je suivre une formation individuellement ?',
-    a: 'Vous pouvez vous inscrire à une session collective interentreprises. Aucun accompagnement individuel n’est proposé. Les sessions interentreprises sont proposées selon les dates programmées et les places disponibles.',
+    q: 'Où se déroulent les sessions ? Présentiel, visio, France entière ?',
+    a: `${MODALITE_FORMATIONS_STANDARD} Zone : ${IDF_ZONE_INTERVENTION}. Inscription possible en session inter-entreprises collective (pas d’accompagnement individuel). La formation <a href="${LINKS.formationDeveloppementWebIaSansCoder}">création avec l’IA sans coder</a> propose aussi des inter en visioconférence — détail sur sa fiche.`,
   },
   {
     q: 'Une prise en charge par un OPCO est-elle possible ?',
-    a: `${FINANCEMENT_FORMULATION_PRUDENTE} Voir la section <a href="#accueil-financement">Formation professionnelle et financement</a> ci-dessus, puis le détail des plafonds sur la page dédiée.`,
+    a: `${FINANCEMENT_FORMULATION_PRUDENTE} Voir <a href="#accueil-financement">Formation professionnelle et financement</a> et la page <a href="${LINKS.financement}">financement Constructys</a>.`,
   },
 ];
 

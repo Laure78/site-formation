@@ -1,4 +1,5 @@
 import { AccueilHeroVideo } from '@/components/landing/AccueilHeroVideo';
+import { AccueilPrendreRdvLink } from '@/components/landing/accueil/AccueilPrendreRdvLink';
 import { Badge } from '@/components/ui/Badge';
 import { Stat } from '@/components/ui/Stat';
 import {
@@ -13,7 +14,7 @@ import {
 } from '@/lib/ofc-interaction-classes';
 import { OFC_SEC } from '@/lib/ofc-section-classes';
 
-/** Hero accueil — formations BTP en premier, création avec l’IA en secondaire. */
+/** Hero accueil — formations IA BTP, double CTA clair. */
 export function AccueilHeroSection() {
   const proofs = getAccueilHeroProofItems();
 
@@ -23,35 +24,30 @@ export function AccueilHeroSection() {
         <div className="accueil-hero-fold">
           <div className="accueil-hero-content min-w-0">
             <Badge>Formatrice IA spécialisée BTP</Badge>
-            <h1 className={`${OFC_TYPE_HERO} mt-5 max-w-[16ch]`}>
+            <h1 className={`${OFC_TYPE_HERO} mt-5 max-w-[18ch]`}>
               Formations IA pour les professionnels du BTP
             </h1>
             <p className={`${OFC_TYPE_LEAD} mt-5 max-w-xl font-semibold text-ofc-ink`}>
-              Apprenez à utiliser l&apos;intelligence artificielle sur vos vrais besoins métier.
+              Devis, DCE, appels d&apos;offres et suivi de chantier&nbsp;: apprenez à utiliser
+              ChatGPT et Claude sur vos cas réels.
             </p>
-            <p className="mt-4 max-w-xl text-base leading-relaxed text-ofc-ink-muted md:text-[1.05rem]">
-              DCE, appels d&apos;offres, chiffrage, comptes rendus de chantier, documents,
-              administratif&nbsp;: découvrez comment utiliser ChatGPT, Claude et les outils d&apos;IA
-              pour gagner du temps au quotidien.
-            </p>
-            <p className="mt-4 max-w-xl text-sm font-medium text-ofc-ink-muted md:text-[0.95rem]">
+            <p className="mt-4 max-w-xl text-sm font-medium leading-relaxed text-ofc-ink-muted md:text-[0.95rem]">
               {getAccueilHeroModalitesLine()}
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
               <a
-                href="#offre-formations"
-                data-cta="formations"
+                href="#besoin-metier"
+                data-cta="trouver-formation"
                 className={`${OFC_CTA_PRIMARY} inline-flex min-h-11 w-full items-center justify-center px-6 py-3 sm:w-auto`}
               >
-                Découvrir les formations
+                Trouver ma formation
               </a>
-              <a
-                href="#creation-avec-ia"
-                data-cta="creation-avec-ia"
+              <AccueilPrendreRdvLink
+                origin="accueil-hero"
                 className={`${OFC_CTA_SECONDARY} inline-flex min-h-11 w-full items-center justify-center px-6 py-3 sm:w-auto`}
               >
-                Créer avec l&apos;IA sans coder
-              </a>
+                Échanger sur mon projet
+              </AccueilPrendreRdvLink>
             </div>
             <ul
               className="mt-10 grid max-w-2xl grid-cols-2 gap-4 border-t border-ofc-border pt-8 sm:grid-cols-4 sm:gap-6"

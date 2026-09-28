@@ -2,7 +2,7 @@ import Image from 'next/image';
 import { ExternalLinkAnchor } from '@/components/ExternalLink';
 import { Section } from '@/components/ui/Section';
 import { Eyebrow } from '@/components/ui/Eyebrow';
-import { ACCUEIL_LOGOS_PARTENAIRES } from '@/lib/accueil-config';
+import { ACCUEIL_LOGOS_PARTENAIRES, getAccueilHeroReassuranceLine } from '@/lib/accueil-config';
 import { PARTNER_LOGO_BAND_CELL } from '@/lib/client-logos';
 
 /** Bande preuve sociale légère — logos monochromes, sans carousel inaccessible. */
@@ -39,6 +39,9 @@ export function AccueilPreuveSocialeCompact() {
           </li>
         ))}
       </ul>
+      <p className="mx-auto mt-8 max-w-2xl text-center text-sm leading-relaxed text-ofc-ink-muted">
+        {getAccueilHeroReassuranceLine()}
+      </p>
     </Section>
   );
 }

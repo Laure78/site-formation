@@ -2,7 +2,6 @@
  * Données page d'accueil — source unique, valeurs issues du code existant (jamais inventées).
  */
 import { getFormationByCode } from '@/data/formations';
-import { BUSINESS_DELIVERY } from '@/lib/business-delivery';
 import { isFormationCataloguePublished } from '@/lib/formation-catalogue-visibility';
 import { catalogueNiveauLabel } from '@/lib/formations-catalogue-display';
 import {
@@ -10,6 +9,13 @@ import {
   formatVolumeProsFormesBtp,
 } from '@/lib/data/indicateurs-resultats';
 import { LINKS } from '@/lib/internal-links';
+import {
+  formatTarifHt,
+} from '@/lib/tarifs-sessions';
+import {
+  TARIF_INTER_DEV_WEB_IA_HT,
+} from '@/lib/formation-developpement-web-ia-content';
+import { catalogueCardAnchorId } from '@/lib/formations-catalogue-page-config';
 import {
   ALT_LOGO_CNAM_ENTREPRISES,
   ALT_LOGO_CSFE,
@@ -32,8 +38,131 @@ const ACCUEIL_FORMAT_FORMATION = 'Présentiel · Île-de-France' as const;
 
 /** Ligne compacte hero — modalités commerciales (filtre immédiat). */
 export function getAccueilHeroModalitesLine(): string {
-  return BUSINESS_DELIVERY.compact;
+  return 'Présentiel · Île-de-France · Vos documents réels · Organisme certifié Qualiopi';
 }
+
+/** Ligne tarif NIV-10 accueil — source `TARIF_INTER_DEV_WEB_IA_HT`. */
+export function getAccueilDevWebIaEssentialsLine(): string {
+  const tarif = formatTarifHt(TARIF_INTER_DEV_WEB_IA_HT);
+  return `7 h · ${tarif} € HT / participant (inter) · Présentiel IDF ou visio (inter)`;
+}
+
+/** Mise en avant accueil — formation NIV-10 (bloc compact). */
+export const ACCUEIL_DEV_WEB_IA_HIGHLIGHT = {
+  eyebrow: 'Nouvelle formation · Création avec l’IA',
+  title: 'Développement web avec l’IA — sans savoir coder',
+  lead:
+    'Partez d’un besoin concret et créez une première version testable d’un site ou d’un outil métier avec l’IA — sans écrire le code vous-même.',
+  audience:
+    'Pour les équipes et dirigeants du BTP, ainsi que les entrepreneurs et indépendants.',
+  examples: ['Outil de suivi', 'Espace client', 'Formulaire ou site vitrine'] as const,
+  promiseNote:
+    'Première version testable et méthode pour la faire évoluer — pas une application complète prête pour la production.',
+  ctaLabel: 'Découvrir la formation',
+} as const;
+
+export type AccueilEntreeBesoinCarte = {
+  id: string;
+  besoin: string;
+  publicLabel: string;
+  href: string;
+  linkLabel: string;
+};
+
+/** Entrée par besoin — liens uniques (éviter doublons d’URL sur l’accueil). */
+function catalogueFormationHref(code: 'NIV-01' | 'NIV-02' | 'NIV-03' | 'NIV-04' | 'NIV-10'): string {
+  return `${LINKS.formations}#${catalogueCardAnchorId(code)}`;
+}
+
+export function getAccueilEntreeParBesoinCartes(): readonly AccueilEntreeBesoinCarte[] {
+  return [
+    {
+      id: 'decouvrir',
+      besoin: 'Découvrir l’IA',
+      publicLabel: 'Premiers pas sur vos documents BTP',
+      href: catalogueFormationHref('NIV-01'),
+      linkLabel: 'Voir au catalogue',
+    },
+    {
+      id: 'ao',
+      besoin: 'Répondre aux appels d’offres',
+      publicLabel: 'DCE, chiffrage, mémoire technique',
+      href: catalogueFormationHref('NIV-02'),
+      linkLabel: 'Voir au catalogue',
+    },
+    {
+      id: 'devis',
+      besoin: 'Préparer les devis',
+      publicLabel: 'Études de prix et production chiffrée',
+      href: LINKS.formationIaEtudesPrixChiffrageBtp,
+      linkLabel: 'Voir le programme',
+    },
+    {
+      id: 'chantier',
+      besoin: 'Suivre les chantiers',
+      publicLabel: 'CR, suivi et fin de chantier',
+      href: catalogueFormationHref('NIV-03'),
+      linkLabel: 'Voir au catalogue',
+    },
+    {
+      id: 'claude',
+      besoin: 'Maîtriser Claude',
+      publicLabel: 'Projects, Cowork et Skills pour le BTP',
+      href: catalogueFormationHref('NIV-04'),
+      linkLabel: 'Voir au catalogue',
+    },
+    {
+      id: 'outil-ia',
+      besoin: 'Créer un outil avec l’IA',
+      publicLabel: 'Site, app ou outil métier sans coder',
+      href: catalogueFormationHref('NIV-10'),
+      linkLabel: 'Voir au catalogue',
+    },
+  ] as const;
+}
+
+export const ACCUEIL_PARCOURS_FORMATION_ETAPES = [
+  {
+    n: '1',
+    titre: 'Apporter un cas réel',
+    detail: 'Vos devis, DCE, CR ou processus — pas un exercice générique.',
+  },
+  {
+    n: '2',
+    titre: 'Pratiquer pendant la formation',
+    detail: 'Exercices guidés sur vos situations, avec relecture humaine systématique.',
+  },
+  {
+    n: '3',
+    titre: 'Repartir avec une méthode réutilisable',
+    detail: 'Prompts, trames et habitudes applicables dès le retour en entreprise.',
+  },
+] as const;
+
+/** Trois exemples — liens distincts du bloc « entrée par besoin » (devis → landing chiffrage). */
+export const ACCUEIL_METHODE_EXEMPLES = [
+  {
+    id: 'dce',
+    titre: 'Analyser un DCE',
+    phrase: 'Synthétiser RC, CCTP et CCAP pour cadrer votre réponse.',
+    href: LINKS.formationIaAppelsOffresBtp,
+    ariaLabel: 'Analyser un DCE — formation IA appels d’offres BTP',
+  },
+  {
+    id: 'cr',
+    titre: 'Structurer un compte rendu de chantier',
+    phrase: 'Transformer vos notes terrain en CR clair, prêt à relire.',
+    href: LINKS.formationConducteurTravaux,
+    ariaLabel: 'Compte rendu de chantier — formation IA conducteur de travaux',
+  },
+  {
+    id: 'devis',
+    titre: 'Préparer un devis',
+    phrase: 'Structurer désignations et libellés à partir de vos modèles.',
+    href: LINKS.iaDevis,
+    ariaLabel: 'Préparer un devis — méthode IA devis bâtiment',
+  },
+] as const;
 
 /** Ligne compacte hero — indicateurs réels (Qualiopi, IDF). */
 export function getAccueilHeroReassuranceLine(): string {
@@ -146,11 +275,13 @@ export type AccueilFormationCarte = {
   href: string;
 };
 
-/** Public court pour cartes accueil (extrait du champ catalogue). */
-function publicCibleCourt(publicComplet: string): string {
-  const first = publicComplet.split(',')[0]?.trim() ?? publicComplet;
-  return first.length > 90 ? `${first.slice(0, 87)}…` : first;
-}
+/** Public court — libellés dédiés (évite troncature du champ catalogue). */
+const ACCUEIL_PUBLIC_BY_CODE = {
+  'NIV-01': 'Dirigeants, équipes BTP et fonctions support',
+  'NIV-02': 'Chargés d’affaires, études de prix, réponse aux AO',
+  'NIV-03': 'Conducteurs de travaux et suivi de chantier',
+  'NIV-04': 'Profils à l’aise avec l’IA sur documents BTP',
+} as const satisfies Record<'NIV-01' | 'NIV-02' | 'NIV-03' | 'NIV-04', string>;
 
 /**
  * Formations prioritaires — usages opérationnels BTP uniquement
@@ -170,7 +301,7 @@ export function getAccueilFormationsPrioritaires(): readonly AccueilFormationCar
       benefice: f.promesse,
       niveau: catalogueNiveauLabel(code),
       duree: f.duree,
-      publicCible: publicCibleCourt(f.public),
+      publicCible: ACCUEIL_PUBLIC_BY_CODE[code],
       format: ACCUEIL_FORMAT_FORMATION,
       href: FORMATION_HREF_BY_CODE[code],
     });
