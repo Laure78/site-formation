@@ -30,10 +30,10 @@ const SLUG_OVERRIDES: Record<string, BlogIllustration> = {
     height: 675,
   },
   'analyser-ccap-ia-btp': {
-    src: '/images/ressources/miniatures/miniature-tuto-analyse-ccap.jpg',
-    alt: 'Professionnelle BTP, titre Analyse Express du CCAP — appels d’offres formation IA pour le BTP',
-    width: 1200,
-    height: 675,
+    src: '/images/ressources/miniatures/miniature-tuto-skill-analyse-ccap-ofc.jpg',
+    alt: 'Créer un skill Analyse CCAP — tuto offert PDF gratuit, formation IA pour le BTP',
+    width: 1024,
+    height: 1024,
   },
 };
 

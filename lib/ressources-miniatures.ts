@@ -81,10 +81,10 @@ export const RESSOURCES_MINIATURES = {
     height: 1200,
   },
   tutoAnalyseCcap: {
-    src: `${BASE}/miniature-tuto-analyse-ccap.jpg`,
-    alt: 'Professionnelle BTP, titre Analyse Express du CCAP — appels d’offres formation IA pour le BTP',
-    width: 1200,
-    height: 675,
+    src: `${BASE}/miniature-tuto-skill-analyse-ccap-ofc.jpg`,
+    alt: 'Créer un skill Analyse CCAP — tuto offert PDF gratuit, formation IA pour le BTP',
+    width: 1024,
+    height: 1024,
   },
   tutoAnalyseCctp: {
     src: `${BASE}/miniature-tuto-analyse-cctp.jpg`,
