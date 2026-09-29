@@ -163,7 +163,7 @@ Laure Olivié forme les équipes du BTP à une utilisation **responsable** de Ch
 **Bouton :** Réservez votre créneau  
 
 **CTA Calendly #3**  
-Contact : contact@laureolivie.fr · 06 95 66 18 18
+Contact : laureolivie@yahoo.fr · 06 95 66 18 18
 
 ---
 

@@ -1,7 +1,7 @@
 import type { SupabaseClient } from '@supabase/supabase-js';
 
 /** Email du compte formateur / admin à inscrire automatiquement aux formations LMS. */
-export const DEFAULT_LMS_ENROLL_EMAIL = 'contact@laureolivie.fr';
+export const DEFAULT_LMS_ENROLL_EMAIL = 'laureolivie@yahoo.fr';
 
 /**
  * Inscrit le compte Laure (ou un email fourni) à un cours.

@@ -2,11 +2,11 @@ import { NextResponse } from 'next/server';
 import { createAdminClient } from '@/lib/supabase/admin';
 import { enrollDefaultAdminOnAllCourses } from '@/lib/lms-auto-enroll';
 
-const TARGET_EMAIL = 'contact@laureolivie.fr';
+const TARGET_EMAIL = 'laureolivie@yahoo.fr';
 const FULL_NAME = 'Laure Olivié';
 
 /**
- * Bootstrap local uniquement : crée / répare le compte espace apprenant contact@.
+ * Bootstrap local uniquement : crée / répare le compte espace apprenant (email CONTACT).
  * POST { "password": "..." } — NODE_ENV=development uniquement.
  */
 export async function POST(request: Request) {

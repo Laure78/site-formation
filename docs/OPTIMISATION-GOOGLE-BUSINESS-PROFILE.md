@@ -24,7 +24,7 @@ Centre de formation
 - **Ville :** Guyancourt (Yvelines)  
 - **Région :** Île-de-France  
 - **Téléphone :** 06 95 66 18 18  
-- **Email :** contact@laureolivie.fr  
+- **Email :** laureolivie@yahoo.fr  
 
 ---
 

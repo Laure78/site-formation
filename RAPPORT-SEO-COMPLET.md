@@ -487,7 +487,7 @@ npx lighthouse https://www.laureolivie.fr --view
 **Questions ou besoin d'aide ?**
 
 Pour toute question sur les optimisations SEO :
-- **Email :** contact@laureolivie.fr
+- **Email :** laureolivie@yahoo.fr
 - **Téléphone :** 06 95 66 18 18
 
 **Ressources utiles :**

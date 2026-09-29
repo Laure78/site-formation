@@ -168,7 +168,7 @@ Conformes sur les 12 items. PDF téléchargeable (NIV-03 L.163–168, NIV-04 L.1
 | NDA 11788515078 + mention non-agrément État | ✅ | L.152–154 |
 | 6 rue Henri Dunant, 78280 Guyancourt | ❌ | Adresse absente — seulement « Guyancourt (78) » L.150 |
 | Téléphone | ✅ | L.133–139, L.198–204 |
-| Email contact@laureolivie.fr | ✅ | L.125–131 |
+| Email laureolivie@yahoo.fr | ✅ | L.125–131 |
 | Logo Qualiopi + périmètre | ✅ | `QualiopiCertificationNotice` L.172 |
 | Certificat PDF + data.gouv | ✅ | `QualiopiCertificationNotice` L.35–50 |
 
