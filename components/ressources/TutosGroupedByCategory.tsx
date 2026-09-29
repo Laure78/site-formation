@@ -25,6 +25,8 @@ function TutoCard({
 }) {
   const tutoUrl = `${LINKS.ressources}/${tuto.slug}`;
   const pdfUrl = `${LINKS.ressources}/pdf/${tuto.pdfFile}`;
+  const squareHero =
+    tuto.heroImage != null && tuto.heroImage.width === tuto.heroImage.height;
 
   return (
     <article className="group relative flex flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-0.5 hover:border-[#377CF3]/30 hover:shadow-[0_12px_40px_rgba(55,124,243,0.12)]">
@@ -37,12 +39,18 @@ function TutoCard({
           tabIndex={-1}
           aria-hidden
         >
-          <div className="relative aspect-video w-full overflow-hidden">
+          <div
+            className={`relative w-full overflow-hidden ${squareHero ? 'aspect-square' : 'aspect-video'}`}
+          >
             <Image
               src={tuto.heroImage.src}
               alt={tuto.heroImage.alt}
               fill
-              className="object-contain transition-transform duration-300 group-hover:scale-[1.02] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
+              className={
+                squareHero
+                  ? 'object-cover transition-transform duration-300 group-hover:scale-[1.02] motion-reduce:transition-none motion-reduce:group-hover:scale-100'
+                  : 'object-contain transition-transform duration-300 group-hover:scale-[1.02] motion-reduce:transition-none motion-reduce:group-hover:scale-100'
+              }
               sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
             
               quality={70}

@@ -99,7 +99,7 @@ export const RESSOURCES_MINIATURES = {
     height: 1024,
   },
   tutoDiuo: {
-    src: `${BASE}/miniature-tuto-diuo.jpg`,
+    src: `${BASE}/miniature-tuto-skill-diuo-ofc.jpg`,
     alt: 'Tuto offert — Créer ton skill Prépa DIUO avec l’IA, Laure Olivié, formation BTP',
     width: 1024,
     height: 1024,

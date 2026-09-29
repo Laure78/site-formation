@@ -281,7 +281,7 @@ export function TutoPage({ tuto }: { tuto: TutoData }) {
       <section className="border-b border-slate-200 bg-[#F2F2F2]" aria-labelledby={`hero-${tuto.slug}`}>
         <div className="mx-auto max-w-6xl px-4 pb-10 pt-8 md:pb-14 md:pt-10">
           <div className="grid items-start gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(240px,320px)] lg:gap-12 xl:grid-cols-[minmax(0,1fr)_360px]">
-            <div className="min-w-0">
+            <div className="order-2 min-w-0 lg:order-1">
               <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[#377CF3]">
                 {tuto.eyebrow}
               </p>
@@ -360,7 +360,7 @@ export function TutoPage({ tuto }: { tuto: TutoData }) {
             </div>
 
             {tuto.heroImage ? (
-              <figure className="mx-auto w-full max-w-md lg:mx-0 lg:max-w-none lg:sticky lg:top-28">
+              <figure className="order-1 mx-auto w-full max-w-xs sm:max-w-sm lg:order-2 lg:mx-0 lg:max-w-none lg:sticky lg:top-28">
                 <div
                   className={
                     tuto.heroImage.width > tuto.heroImage.height
