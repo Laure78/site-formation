@@ -349,6 +349,9 @@ export const LINKS = {
   tutoSkillAnalyseCcapOfc: '/ressources/tuto-skill-analyse-ccap-ofc',
   pdfTutoSkillAnalyseCcap: '/ressources/pdf/tuto-skill-analyse-ccap-ofc.pdf',
   pdfTutoSkillAnalyseCcapOfc: '/ressources/pdf/tuto-skill-analyse-ccap-ofc.pdf',
+  /** Tuto — skill Analyse CCTP (OFC) */
+  tutoSkillAnalyseCctpOfc: '/ressources/tuto-skill-analyse-cctp-ofc',
+  pdfTutoSkillAnalyseCctpOfc: '/ressources/pdf/tuto-skill-analyse-cctp-ofc.pdf',
   /** Landing SEO du tutoriel Skill IA (canonical vers la ressource) */
   /** @deprecated 301 → article blog Skill IA */
   guideSkillIaConducteurTravaux: '/blog/guide-skill-ia-conducteur-travaux-btp',

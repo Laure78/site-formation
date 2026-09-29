@@ -113,6 +113,14 @@ const TUTO_SKILL_PIC: MaillageLink = {
   href: LINKS.tutoSkillPic,
   label: 'Tuto — skill Claude pour préparer un PIC',
 };
+const TUTO_ANALYSE_CCAP: MaillageLink = {
+  href: LINKS.tutoSkillAnalyseCcapOfc,
+  label: 'Tuto — skill Analyse CCAP',
+};
+const TUTO_ANALYSE_CCTP: MaillageLink = {
+  href: LINKS.tutoSkillAnalyseCctpOfc,
+  label: 'Tuto — skill Analyse CCTP',
+};
 
 /**
  * Config par chemin canonique (`/ressources/...`).
@@ -132,7 +140,21 @@ export const MAILLAGE_RESSOURCES_BY_PATH: Readonly<Record<string, MaillageRessou
   },
   [LINKS.tutoAnalyseDce]: {
     pilier: PILIER_AO,
-    soeurs: [TUTO_MEMOIRE, TUTO_METRE_EXCEL],
+    soeurs: [TUTO_ANALYSE_CCTP, TUTO_ANALYSE_CCAP],
+    blog: [
+      {
+        href: LINKS.blogIaAnalyseCctpMethode,
+        label: 'Article — analyser un CCTP avec l’IA en 20 minutes',
+      },
+    ],
+  },
+  [LINKS.tutoSkillAnalyseCcapOfc]: {
+    pilier: PILIER_AO,
+    soeurs: [TUTO_ANALYSE_CCTP, TUTO_ANALYSE_DCE],
+  },
+  [LINKS.tutoSkillAnalyseCctpOfc]: {
+    pilier: PILIER_AO,
+    soeurs: [TUTO_ANALYSE_CCAP, TUTO_MEMOIRE],
     blog: [
       {
         href: LINKS.blogIaAnalyseCctpMethode,

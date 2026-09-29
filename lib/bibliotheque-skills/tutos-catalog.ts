@@ -22,6 +22,8 @@ const TUTO_SHORT_SUMMARY: Record<string, string> = {
     'Devis BTP chiffré : BPU, coefficients, TVA et mise en page Word/Excel.',
   'tuto-skill-analyse-ccap-ofc':
     'Analyse CCAP : pénalités, RG, paiement et synthèse Go / No Go.',
+  'tuto-skill-analyse-cctp-ofc':
+    'Analyse CCTP : exigences, prescriptions produit, normes et DPGF.',
   'tuto-tri-dce-claude-chrome': 'Veille DCE automatique sur BOAMP avec Claude in Chrome.',
   'tuto-cr-chantier': 'Dictée vocale → compte rendu de chantier formaté.',
   'tuto-doe-dossier-ouvrages-executes': 'Assemble un DOE structuré sans y passer le week-end.',

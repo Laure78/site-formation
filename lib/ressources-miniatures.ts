@@ -86,6 +86,12 @@ export const RESSOURCES_MINIATURES = {
     width: 1200,
     height: 675,
   },
+  tutoAnalyseCctp: {
+    src: `${BASE}/miniature-tuto-analyse-cctp.jpg`,
+    alt: 'Créer un skill Analyse CCTP — tuto offert PDF gratuit, formation IA pour le BTP',
+    width: 1024,
+    height: 1024,
+  },
   memoireReclamation: {
     src: `${BASE}/miniature-memoire-reclamation.jpg`,
     alt: 'Créer un skill Mémoire de réclamation — tuto offert PDF gratuit, formation IA BTP',

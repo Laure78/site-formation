@@ -33,6 +33,7 @@ export const RESSOURCES_THEMATIC_BLOCKS: readonly RessourceThematicBlock[] = [
     tutos: [
       { label: 'Lexique BTP — parcours « Décrypter le DCE »', href: BEWORK_APP_PATHS.lexique },
       { label: 'Tuto — skill Analyse CCAP', href: LINKS.tutoSkillAnalyseCcapOfc },
+      { label: 'Tuto — skill Analyse CCTP', href: LINKS.tutoSkillAnalyseCctpOfc },
       { label: 'Tuto — skill mémoire technique', href: LINKS.tutoMemoireTechnique },
       { label: 'Tuto — skill métré Excel', href: LINKS.tutoSkillMetreExcelOfc },
       { label: 'Tuto — skill chiffrage de devis', href: LINKS.tutoSkillChiffrageDevisOfc },

@@ -18,6 +18,11 @@ export const TUTO_EN_BREF: Readonly<Record<string, readonly string[]>> = {
     'Le tuto vise environ 20 minutes par CCAP, contre 2 à 3 heures de lecture manuelle.',
     'Outil : skill Claude — vous validez le verdict Go / No Go avant toute signature.',
   ],
+  'tuto-skill-analyse-cctp-ofc': [
+    'Vous créez un skill Claude qui dépouille un CCTP : exigences avec n° d’article, prescriptions produit, normes, points d’arrêt et croisement DPGF.',
+    'Le tuto vise environ 20 minutes de dépouillement par CCTP, contre une lecture en diagonale sur des dizaines de pages.',
+    'Outil : skill Claude — vous relisez les lignes qui engagent avant remise ou signature.',
+  ],
   'tuto-skill-metre-excel-ofc': [
     'Vous créez un skill Claude qui produit un classeur Excel de métré : formules visibles, onglets par lot, récap DPGF et points à vérifier.',
     'Le tuto vise environ 45 minutes par dossier (contrôle compris), contre 1 à 2 jours de métré manuel.',
