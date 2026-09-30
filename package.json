@@ -36,6 +36,7 @@
     "test:auth-access": "npx tsx scripts/assert-admin-access.ts",
     "test:satisfaction-j1": "npx tsx scripts/assert-satisfaction-j1.ts",
     "test:invitation-secure": "npx tsx scripts/assert-invitation-no-temp-password.ts",
+    "test:lms-automation": "npm run test:satisfaction-j1 && npm run test:invitation-secure && npm run check:training-satisfaction",
     "check:internal-links": "npx tsx scripts/check-internal-links.ts",
     "indexnow": "npx tsx scripts/indexnow-submit.ts",
     "indexnow:changed": "npx tsx scripts/indexnow-notify-changed.ts",

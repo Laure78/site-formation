@@ -1,16 +1,7 @@
 -- ============================================================
--- Automatisations LMS (invitations) + traçabilité invitations
--- Exécuter ce fichier EN ENTIER dans l’éditeur SQL Supabase.
--- Si vous n’avez créé que lms_automation_settings, lancer plutôt 067_lms_automation_complement.sql
+-- Complément 066 — à exécuter si seule la table lms_automation_settings a été créée
+-- (idempotent : safe à relancer)
 -- ============================================================
-
-CREATE TABLE IF NOT EXISTS public.lms_automation_settings (
-  id int PRIMARY KEY DEFAULT 1 CHECK (id = 1),
-  invitation_auto_enabled boolean NOT NULL DEFAULT true,
-  satisfaction_j1_enabled boolean NOT NULL DEFAULT true,
-  updated_at timestamptz NOT NULL DEFAULT now(),
-  updated_by uuid REFERENCES auth.users(id) ON DELETE SET NULL
-);
 
 INSERT INTO public.lms_automation_settings (id)
 VALUES (1)

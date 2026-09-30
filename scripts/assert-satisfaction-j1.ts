@@ -8,7 +8,6 @@ import {
 } from '../lib/satisfaction-reminder-logic';
 import { QUESTIONNAIRE_SATISFACTION_URL } from '../lib/questionnaire-satisfaction';
 import { QUESTIONNAIRE_POSITIONNEMENT_URL } from '../lib/questionnaire-positionnement';
-import { SCHEMA_GOOGLE_REVIEW_SUBMIT_URL } from '../lib/schema-constants';
 import {
   satisfactionJ1EmailSubject,
   satisfactionJ1EmailText,
@@ -151,9 +150,7 @@ const text = satisfactionJ1EmailText({
 assert.match(text, /^Bonjour,/);
 assert.doesNotMatch(text, /undefined|null/);
 assert.ok(text.includes(QUESTIONNAIRE_SATISFACTION_URL));
-assert.ok(text.includes(SCHEMA_GOOGLE_REVIEW_SUBMIT_URL));
+assert.doesNotMatch(text, /maps\.app\.goo\.gl|google/i);
 assert.equal(QUESTIONNAIRE_SATISFACTION_URL, 'https://tally.so/r/3NNq7l');
 assert.equal(QUESTIONNAIRE_POSITIONNEMENT_URL, 'https://tally.so/r/mVK6Ay');
-assert.equal(SCHEMA_GOOGLE_REVIEW_SUBMIT_URL, 'https://maps.app.goo.gl/hUQhnvEERki5RjHw5');
-
 console.log('OK — assert-satisfaction-j1');

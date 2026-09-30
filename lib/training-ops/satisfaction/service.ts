@@ -24,7 +24,7 @@ import {
 
 const SITE = process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, '') || 'https://www.laureolivie.fr';
 
-export function questionnaireLinkForToken(accessToken: string, publicUrl: string): string {
+export function questionnaireLinkForToken(accessToken: string, _publicUrl?: string): string {
   return `${SITE}/satisfaction/formation/${accessToken}`;
 }
 

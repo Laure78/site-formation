@@ -24,11 +24,14 @@ export default async function InvitationPage({
 
   if (invitation) {
     const admin = createAdminClient();
-    await admin
+    const { error: openErr } = await admin
       .from('invitations')
       .update({ opened_at: new Date().toISOString() })
       .eq('id', invitation.id)
       .is('opened_at', null);
+    if (openErr) {
+      console.error('[invitation] opened_at non enregistré (migration 067 ?)', openErr.message);
+    }
   }
 
   // RPC ne renvoie que pending non expirée → pas de distinction état (anti-énumération)

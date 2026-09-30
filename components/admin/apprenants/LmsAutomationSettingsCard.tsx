@@ -1,8 +1,10 @@
 'use client';
 
+import Link from 'next/link';
 import { useTransition } from 'react';
 import { saveLmsAutomationSettingsAction } from '@/app/admin/apprenants/actions';
 import type { LmsAutomationSettings } from '@/lib/lms-automation-settings';
+import { LINKS } from '@/lib/internal-links';
 
 export function LmsAutomationSettingsCard({ settings }: { settings: LmsAutomationSettings }) {
   const [pending, startTransition] = useTransition();
@@ -12,7 +14,11 @@ export function LmsAutomationSettingsCard({ settings }: { settings: LmsAutomatio
       <h2 className="font-display text-lg font-semibold text-slate-900">Automatisations LMS</h2>
       <p className="mt-1 text-sm text-slate-600">
         Invitations à l’ajout d’un participant de session · relance satisfaction J+1 (parcours LMS sans
-        session ops).
+        session ops). Questionnaire après formation, relances et avis Google :{' '}
+        <Link href={`${LINKS.adminSatisfaction}/parametres`} className="font-medium text-[#377CF3] hover:underline">
+          paramètres satisfaction
+        </Link>
+        .
       </p>
       <form
         className="mt-4 space-y-3"

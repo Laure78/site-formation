@@ -155,18 +155,43 @@ export async function addParticipantAction(formData: FormData) {
   const { inviteSessionPersonToLms } = await import(
     '@/lib/training-ops/invite-session-participant-lms'
   );
-  await inviteSessionPersonToLms({
-    sessionId,
-    person: {
-      id: person.id,
-      email: person.email,
-      first_name: person.first_name,
-      last_name: person.last_name,
-    },
-    invitedBy: actorId,
-  }).catch((e) => {
+  const { logSessionActivity } = await import('@/lib/training-ops/activity');
+  try {
+    const inviteResult = await inviteSessionPersonToLms({
+      sessionId,
+      person: {
+        id: person.id,
+        email: person.email,
+        first_name: person.first_name,
+        last_name: person.last_name,
+      },
+      invitedBy: actorId,
+    });
+    await logSessionActivity({
+      sessionId,
+      actorId,
+      action: 'lms_invitation',
+      details: {
+        person_id: person.id,
+        email: person.email,
+        ...(inviteResult.ok
+          ? { status: inviteResult.status, detail: inviteResult.detail ?? null }
+          : { error: inviteResult.error }),
+      },
+    });
+  } catch (e) {
     console.error('[addParticipant] invitation LMS', e);
-  });
+    await logSessionActivity({
+      sessionId,
+      actorId,
+      action: 'lms_invitation',
+      details: {
+        person_id: person.id,
+        email: person.email,
+        error: e instanceof Error ? e.message : 'Erreur invitation LMS',
+      },
+    });
+  }
 
   revalidateSession(sessionId);
 }
