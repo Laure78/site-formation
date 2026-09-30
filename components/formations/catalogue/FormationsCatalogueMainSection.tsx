@@ -1,10 +1,12 @@
 'use client';
 
 import { useMemo, useState } from 'react';
+import Link from 'next/link';
 import type { FormationCatalogueEntry } from '@/lib/formations-catalogue-display';
 import { CATALOGUE_MENU_LABELS } from '@/lib/formations-catalogue-page-config';
 import { FormationsCatalogueCard } from '@/components/formations/catalogue/FormationsCatalogueCard';
 import { useFormationsCatalogueBesoin } from '@/components/formations/catalogue/FormationsCatalogueBesoinContext';
+import { LINKS } from '@/lib/internal-links';
 
 type Props = {
   formations: FormationCatalogueEntry[];
@@ -47,12 +49,25 @@ export function FormationsCatalogueMainSection({ formations }: Props) {
   const showNiveau1 = niveauFilter === 'all' || niveauFilter === 'niveau-1';
   const showNiveau2 = niveauFilter === 'all' || niveauFilter === 'niveau-2';
 
+  function goToNiveau2() {
+    setNiveauFilter('niveau-2');
+    window.setTimeout(() => {
+      document.getElementById('catalogue-niveau-2')?.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start',
+      });
+    }, 80);
+  }
+
   return (
     <>
-      {/* Parcours niveaux — bloc visuel + filtre */}
+      {/* Parcours niveaux — cartes cliquables */}
       <div className="mt-0" id="catalogue-niveaux">
         <div className="grid gap-4 sm:grid-cols-2">
-          <div className="rounded-xl border border-emerald-200 bg-emerald-50/50 p-5">
+          <Link
+            href={LINKS.formationIaBtpNiveau1BatimentTp}
+            className="rounded-xl border border-emerald-200 bg-emerald-50/50 p-5 text-left transition hover:border-emerald-300 hover:bg-emerald-50 hover:shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-600"
+          >
             <p className="text-xs font-bold uppercase tracking-wide text-emerald-700">Niveau 1</p>
             <p className="mt-1 font-display text-base font-bold text-ofc-ink">
               Découvrir et prendre en main l&apos;IA
@@ -60,8 +75,12 @@ export function FormationsCatalogueMainSection({ formations }: Props) {
             <p className="mt-1 text-sm leading-relaxed text-slate-600">
               Pour comprendre les fondamentaux et utiliser l&apos;IA dans ses premières tâches professionnelles.
             </p>
-          </div>
-          <div className="rounded-xl border border-blue-200 bg-blue-50/50 p-5">
+          </Link>
+          <button
+            type="button"
+            onClick={goToNiveau2}
+            className="rounded-xl border border-blue-200 bg-blue-50/50 p-5 text-left transition hover:border-blue-300 hover:bg-blue-50 hover:shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#377CF3]"
+          >
             <p className="text-xs font-bold uppercase tracking-wide text-blue-700">Niveau 2</p>
             <p className="mt-1 font-display text-base font-bold text-ofc-ink">
               Appliquer l&apos;IA à son métier
@@ -69,7 +88,7 @@ export function FormationsCatalogueMainSection({ formations }: Props) {
             <p className="mt-1 text-sm leading-relaxed text-slate-600">
               Pour utiliser l&apos;IA sur des processus BTP précis : DCE, chantier, maîtrise d&apos;œuvre, assistants IA, Claude ou création d&apos;outils.
             </p>
-          </div>
+          </button>
         </div>
 
         {/* Filtre niveau */}

@@ -18,6 +18,7 @@ import {
 } from 'docx';
 import { NextResponse } from 'next/server';
 import type { LigneAnalyse, RapportDtuPayload } from '@/lib/dtu-verification/types';
+import { checkRateLimit, clientIpFromRequest } from '@/lib/rate-limit';
 
 export const runtime = 'nodejs';
 
@@ -88,6 +89,15 @@ function readLogoBuffer(): Buffer | null {
 }
 
 export async function POST(req: Request): Promise<Response> {
+  const ip = clientIpFromRequest(req);
+  const rl = checkRateLimit(`dtu-docx:${ip}`, 10, 60_000);
+  if (!rl.ok) {
+    return NextResponse.json(
+      { error: 'Trop de requêtes. Réessayez plus tard.' },
+      { status: 429, headers: { 'Retry-After': String(rl.retryAfterSec) } }
+    );
+  }
+
   let json: unknown;
   try {
     json = await req.json();
@@ -98,6 +108,9 @@ export async function POST(req: Request): Promise<Response> {
   const data = parsePayload(json);
   if (!data || data.lignes.length === 0) {
     return NextResponse.json({ error: 'Payload invalide ou aucune ligne' }, { status: 400 });
+  }
+  if (data.lignes.length > 200) {
+    return NextResponse.json({ error: 'Trop de lignes (max 200)' }, { status: 400 });
   }
 
   const logoBuf = readLogoBuffer();

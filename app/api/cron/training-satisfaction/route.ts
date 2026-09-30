@@ -5,15 +5,13 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { parisDateKey, parisHour } from '@/lib/rdv-datetime';
 import { runTrainingSatisfactionCron } from '@/lib/training-ops/satisfaction/service';
+import { assertCronAuthorized } from '@/lib/cron-auth';
 
 export const maxDuration = 120;
 
 export async function GET(req: NextRequest) {
-  const authHeader = req.headers.get('authorization');
-  const secret = process.env.CRON_SECRET;
-  if (secret && authHeader !== `Bearer ${secret}`) {
-    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
-  }
+  const denied = assertCronAuthorized(req);
+  if (denied) return denied;
 
   const force = req.nextUrl.searchParams.get('force') === '1';
   const hour = parisHour(new Date());
@@ -37,8 +35,7 @@ export async function GET(req: NextRequest) {
     const result = await runTrainingSatisfactionCron(todayParis);
     return NextResponse.json({ ok: true, todayParis, ...result });
   } catch (err) {
-    const message = err instanceof Error ? err.message : 'Erreur inconnue';
-    console.error('[training-satisfaction-cron]', message);
-    return NextResponse.json({ error: message }, { status: 500 });
+    console.error('[training-satisfaction-cron]', err instanceof Error ? err.message : err);
+    return NextResponse.json({ error: 'Erreur serveur' }, { status: 500 });
   }
 }

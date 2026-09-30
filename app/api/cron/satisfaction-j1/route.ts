@@ -12,15 +12,13 @@ import { NextRequest, NextResponse } from 'next/server';
 import { createClient } from '@supabase/supabase-js';
 import { parisDateKey, parisHour } from '@/lib/rdv-datetime';
 import { runSatisfactionJ1Reminders } from '@/lib/satisfaction-reminder';
+import { assertCronAuthorized } from '@/lib/cron-auth';
 
 export const maxDuration = 60;
 
 export async function GET(req: NextRequest) {
-  const authHeader = req.headers.get('authorization');
-  const secret = process.env.CRON_SECRET;
-  if (secret && authHeader !== `Bearer ${secret}`) {
-    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
-  }
+  const denied = assertCronAuthorized(req);
+  if (denied) return denied;
 
   const now = new Date();
   const force = req.nextUrl.searchParams.get('force') === '1';

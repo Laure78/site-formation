@@ -60,7 +60,7 @@ export function FormationsCatalogueCard({
             alt={visuel.alt}
             title={'title' in visuel && typeof visuel.title === 'string' ? visuel.title : undefined}
             fill
-            className="object-cover object-center"
+            className="object-contain object-center p-2"
             sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
             quality={75}
           />

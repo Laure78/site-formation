@@ -118,29 +118,6 @@ export function getCatalogueBesoinOptions(at: Date = new Date()): readonly Catal
   );
 }
 
-export const CATALOGUE_METHODE_ETAPES = [
-  {
-    n: '1',
-    titre: 'Cadrage',
-    texte: 'Identification des usages prioritaires de votre équipe.',
-  },
-  {
-    n: '2',
-    titre: 'Adaptation',
-    texte: 'Exercices sur vos documents et situations métier.',
-  },
-  {
-    n: '3',
-    titre: 'Pratique',
-    texte: 'Les participants pratiquent directement pendant la session.',
-  },
-  {
-    n: '4',
-    titre: 'Réutilisation',
-    texte: 'Méthodes et livrables applicables dès le retour en entreprise.',
-  },
-] as const;
-
 export const CATALOGUE_HERO_REASSURANCE =
   `OFC certifié Qualiopi · Présentiel Île-de-France · Groupe · Intra & inter` as const;
 

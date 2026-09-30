@@ -24,6 +24,12 @@ export async function POST(request: NextRequest) {
     { onConflict: 'user_id,course_id' }
   );
 
-  if (error) return new Response(JSON.stringify({ error: error.message }), { status: 500 });
+  if (error) {
+    console.error('[satisfaction]', error.message);
+    return new Response(JSON.stringify({ error: 'Erreur serveur' }), {
+      status: 500,
+      headers: { 'Content-Type': 'application/json' },
+    });
+  }
   return Response.json({ ok: true });
 }

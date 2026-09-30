@@ -61,12 +61,26 @@ export async function POST(request: Request) {
   if (error) return NextResponse.json({ error: error.message }, { status: 500 });
 
   if (Array.isArray(attachmentUrls) && attachmentUrls.length > 0) {
-    const atts = attachmentUrls.slice(0, 5).map((url: string, i: number) => ({
-      message_id: msg.id,
-      file_url: url,
-      file_name: `attachment-${i + 1}`,
-    }));
-    await supabase.from('message_attachments').insert(atts);
+    const atts = attachmentUrls
+      .filter((url: unknown): url is string => typeof url === 'string')
+      .map((url: string) => url.trim())
+      .filter((url: string) => {
+        try {
+          const u = new URL(url);
+          return u.protocol === 'https:' && u.hostname.endsWith('supabase.co') && u.pathname.includes('/storage/');
+        } catch {
+          return false;
+        }
+      })
+      .slice(0, 5)
+      .map((url: string, i: number) => ({
+        message_id: msg.id,
+        file_url: url.slice(0, 2000),
+        file_name: `attachment-${i + 1}`,
+      }));
+    if (atts.length > 0) {
+      await supabase.from('message_attachments').insert(atts);
+    }
   }
 
   return NextResponse.json(msg);

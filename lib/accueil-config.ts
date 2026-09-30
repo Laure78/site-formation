@@ -180,6 +180,23 @@ export function getAccueilHeroProofItems(): readonly { value: string; label: str
   ] as const;
 }
 
+/**
+ * Afficher le logo Le Moniteur Formations sur la bande partenaires de l’accueil.
+ * Passer à `false` pour le retirer sans autre modification de code.
+ */
+export const showLeMoniteur = true;
+
+const ACCUEIL_LOGO_LE_MONITEUR = {
+  id: 'moniteur-accueil',
+  name: 'Le Moniteur Formations',
+  alt: ALT_LOGO_MONITEUR_FORMATIONS,
+  src: LOGO_MONITEUR_FORMATIONS.src,
+  width: LOGO_MONITEUR_FORMATIONS.width,
+  height: LOGO_MONITEUR_FORMATIONS.height,
+  href: PARTNER_WEBSITES.moniteurFormations,
+  linkTitle: 'Site officiel Le Moniteur Formations',
+} as const;
+
 /** Logos partenaires autorisés sur l'accueil (max 6). */
 export const ACCUEIL_LOGOS_PARTENAIRES = [
   CLIENT_LOGOS_MARQUEE.find((l) => l.id === 'ffb-grand-paris-idf')!,
@@ -204,17 +221,8 @@ export const ACCUEIL_LOGOS_PARTENAIRES = [
     href: PARTNER_WEBSITES.cnamIdf,
     linkTitle: 'Site officiel CNAM Entreprises Île-de-France',
   },
-  {
-    id: 'moniteur-accueil',
-    name: 'Le Moniteur Formations',
-    alt: ALT_LOGO_MONITEUR_FORMATIONS,
-    src: LOGO_MONITEUR_FORMATIONS.src,
-    width: LOGO_MONITEUR_FORMATIONS.width,
-    height: LOGO_MONITEUR_FORMATIONS.height,
-    href: PARTNER_WEBSITES.moniteurFormations,
-    linkTitle: 'Site officiel Le Moniteur Formations',
-  },
-] as const;
+  ...(showLeMoniteur ? [ACCUEIL_LOGO_LE_MONITEUR] : []),
+];
 
 export type AccueilCarteProbleme = {
   id: string;

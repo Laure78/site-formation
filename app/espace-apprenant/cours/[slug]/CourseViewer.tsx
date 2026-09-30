@@ -27,7 +27,11 @@ import {
   isSpreadsheetResource,
   spreadsheetDownloadUrl,
 } from '@/lib/lesson-types';
+import { escapeHtml } from '@/lib/contact-form-validation';
 
+function plainTextToSafeHtml(text: string): string {
+  return escapeHtml(text).replace(/\n/g, '<br />');
+}
 /** Modules / leçons d’intro : pas de CTA fin de formation ni avis Google. */
 function isIntroductionPart(moduleTitle?: string | null, lessonTitle?: string | null): boolean {
   const hay = `${moduleTitle ?? ''} ${lessonTitle ?? ''}`.toLowerCase();
@@ -388,7 +392,7 @@ export function CourseViewer({
                   <div
                     className="prose prose-slate max-w-none rounded-xl border border-slate-200 bg-white p-6"
                     dangerouslySetInnerHTML={{
-                      __html: selectedLesson.content_text.replace(/\n/g, '<br />'),
+                      __html: plainTextToSafeHtml(selectedLesson.content_text),
                     }}
                   />
                 ) : selectedLesson.type === 'texte' ? (

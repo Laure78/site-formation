@@ -26,6 +26,7 @@ import {
   utcRangeForParisDate,
 } from '@/lib/rdv-datetime';
 import { labelsForBesoins } from '@/lib/rdv-form-options';
+import { assertCronAuthorized } from '@/lib/cron-auth';
 
 export const maxDuration = 60;
 
@@ -36,11 +37,8 @@ function siteBaseUrl(): string {
 }
 
 export async function GET(req: NextRequest) {
-  const authHeader = req.headers.get('authorization');
-  const secret = process.env.CRON_SECRET;
-  if (secret && authHeader !== `Bearer ${secret}`) {
-    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
-  }
+  const denied = assertCronAuthorized(req);
+  if (denied) return denied;
 
   const now = new Date();
   const force = req.nextUrl.searchParams.get('force') === '1';

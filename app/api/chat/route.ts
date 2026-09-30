@@ -9,6 +9,10 @@ import { embedText } from '@/lib/agent/embeddings';
 import { LINKS } from '@/lib/internal-links';
 import { SITE_CONFIG } from '@/lib/seo';
 import { buildSiteCalendlyCtaUrl } from '@/lib/calendly';
+import { checkRateLimit, clientIpFromRequest } from '@/lib/rate-limit';
+
+const MAX_MESSAGE_LENGTH = 2000;
+const MAX_HISTORY = 10;
 
 function getOpenAI() {
   const key = process.env.OPENAI_API_KEY;
@@ -46,13 +50,57 @@ function buildContext(chunks: { content: string; source_url: string; source_titl
     .join('\n\n---\n\n');
 }
 
+function sanitizeHistory(
+  raw: unknown
+): { role: 'user' | 'assistant'; content: string }[] {
+  if (!Array.isArray(raw)) return [];
+  const out: { role: 'user' | 'assistant'; content: string }[] = [];
+  for (const item of raw.slice(-MAX_HISTORY)) {
+    if (!item || typeof item !== 'object') continue;
+    const role = (item as { role?: unknown }).role;
+    const content = (item as { content?: unknown }).content;
+    if ((role !== 'user' && role !== 'assistant') || typeof content !== 'string') continue;
+    const trimmed = content.trim().slice(0, MAX_MESSAGE_LENGTH);
+    if (!trimmed) continue;
+    out.push({ role, content: trimmed });
+  }
+  return out;
+}
+
 export async function POST(req: NextRequest) {
   try {
-    const { message, conversationId, visitorId, messages: prevMessages } = await req.json();
+    const ip = clientIpFromRequest(req);
+    const rl = checkRateLimit(`chat:${ip}`, 20, 60_000);
+    if (!rl.ok) {
+      return NextResponse.json(
+        { error: 'Trop de messages. Réessayez dans un instant.' },
+        { status: 429, headers: { 'Retry-After': String(rl.retryAfterSec) } }
+      );
+    }
 
-    if (!message || typeof message !== 'string') {
+    const body = await req.json().catch(() => null);
+    if (!body || typeof body !== 'object') {
+      return NextResponse.json({ error: 'Corps invalide' }, { status: 400 });
+    }
+
+    const messageRaw = (body as { message?: unknown }).message;
+    if (typeof messageRaw !== 'string') {
       return NextResponse.json({ error: 'Message requis' }, { status: 400 });
     }
+    const message = messageRaw.trim().slice(0, MAX_MESSAGE_LENGTH);
+    if (!message) {
+      return NextResponse.json({ error: 'Message requis' }, { status: 400 });
+    }
+
+    const conversationId =
+      typeof (body as { conversationId?: unknown }).conversationId === 'string'
+        ? (body as { conversationId: string }).conversationId.slice(0, 64)
+        : undefined;
+    const visitorId =
+      typeof (body as { visitorId?: unknown }).visitorId === 'string'
+        ? (body as { visitorId: string }).visitorId.slice(0, 64)
+        : undefined;
+    const prevMessages = sanitizeHistory((body as { messages?: unknown }).messages);
 
     if (!process.env.OPENAI_API_KEY) {
       return NextResponse.json({ error: 'OpenAI non configuré' }, { status: 500 });
@@ -91,7 +139,7 @@ export async function POST(req: NextRequest) {
 
     const chatMessages: { role: 'user' | 'assistant' | 'system'; content: string }[] = [
       { role: 'system', content: SYSTEM_PROMPT + contextBlock },
-      ...(prevMessages || []).slice(-10),
+      ...prevMessages,
       { role: 'user', content: message },
     ];
 

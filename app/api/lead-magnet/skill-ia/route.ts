@@ -5,6 +5,8 @@ import { Resend } from 'resend';
 import { createClient } from '@/lib/supabase/server';
 import { SITE_CONFIG } from '@/lib/seo';
 import { SKILL_IA_LEAD_MAGNET } from '@/lib/lead-magnet-skill-ia';
+import { checkRateLimit, clientIpFromRequest } from '@/lib/rate-limit';
+import { escapeHtml } from '@/lib/contact-form-validation';
 
 export const runtime = 'nodejs';
 
@@ -26,6 +28,15 @@ type Body = {
 };
 
 export async function POST(req: Request) {
+  const ip = clientIpFromRequest(req);
+  const rlIp = checkRateLimit(`lead-magnet:ip:${ip}`, 5, 15 * 60_000);
+  if (!rlIp.ok) {
+    return NextResponse.json(
+      { success: false, error: 'Trop de demandes. Réessayez plus tard.' },
+      { status: 429, headers: { 'Retry-After': String(rlIp.retryAfterSec) } }
+    );
+  }
+
   let body: Body;
   try {
     body = (await req.json()) as Body;
@@ -33,9 +44,10 @@ export async function POST(req: Request) {
     return NextResponse.json({ success: false, error: 'Corps JSON invalide.' }, { status: 400 });
   }
 
-  const firstName = (body.firstName ?? '').trim();
-  const email = (body.email ?? '').trim().toLowerCase();
-  const company = (body.company ?? '').trim() || null;
+  const firstName = (body.firstName ?? '').trim().slice(0, 80);
+  const email = (body.email ?? '').trim().toLowerCase().slice(0, 254);
+  const companyRaw = (body.company ?? '').trim();
+  const company = companyRaw ? companyRaw.slice(0, 120) : null;
   const role = (body.role ?? '').trim();
   const consentRgpd = body.consentRgpd === true;
 
@@ -52,6 +64,14 @@ export async function POST(req: Request) {
     return NextResponse.json(
       { success: false, error: 'Vous devez accepter l’envoi du guide et des contenus associés.' },
       { status: 400 }
+    );
+  }
+
+  const rlEmail = checkRateLimit(`lead-magnet:email:${email}`, 3, 60 * 60_000);
+  if (!rlEmail.ok) {
+    return NextResponse.json(
+      { success: false, error: 'Trop de demandes pour cet e-mail.' },
+      { status: 429, headers: { 'Retry-After': String(rlEmail.retryAfterSec) } }
     );
   }
 
@@ -90,6 +110,7 @@ export async function POST(req: Request) {
   }
 
   const downloadUrl = `${baseUrl}${SKILL_IA_LEAD_MAGNET.pdfPublicPath}`;
+  const safeFirst = escapeHtml(firstName.split(/\s+/)[0] || firstName);
   const resendKey = process.env.RESEND_API_KEY;
   if (resendKey) {
     const resend = new Resend(resendKey);
@@ -99,7 +120,7 @@ export async function POST(req: Request) {
       to: email,
       subject: 'Votre guide — Créez votre 1er Skill IA (conducteur de travaux BTP)',
       html: `
-        <p>Bonjour ${firstName.split(/\s+/)[0]},</p>
+        <p>Bonjour ${safeFirst},</p>
         <p>Merci pour votre inscription. Voici votre guide <strong>Créez votre 1er Skill IA</strong> en pièce jointe (PDF).</p>
         <p>Vous y trouverez : l’anatomie d’un skill en 4 briques, un tutoriel en 7 étapes (30 min), 5 cas d’usage BTP et un template de paramétrage à copier-coller.</p>
         <p><a href="${downloadUrl}" style="display:inline-block;background:#377CF3;color:#fff;padding:12px 20px;border-radius:10px;text-decoration:none;font-weight:600;">Télécharger le PDF</a></p>

@@ -1,7 +1,6 @@
 import Image from 'next/image';
 import { ExternalLinkAnchor } from '@/components/ExternalLink';
 import { Section } from '@/components/ui/Section';
-import { Eyebrow } from '@/components/ui/Eyebrow';
 import { ACCUEIL_LOGOS_PARTENAIRES, getAccueilHeroReassuranceLine } from '@/lib/accueil-config';
 import { PARTNER_LOGO_BAND_CELL } from '@/lib/client-logos';
 
@@ -9,7 +8,6 @@ import { PARTNER_LOGO_BAND_CELL } from '@/lib/client-logos';
 export function AccueilPreuveSocialeCompact() {
   return (
     <Section tone="white" aria-labelledby="accueil-preuve-sociale" className="!py-10 md:!py-14">
-      <Eyebrow className="justify-center text-center">Ils me font confiance</Eyebrow>
       <h2 id="accueil-preuve-sociale" className="sr-only">
         Ils me font confiance
       </h2>
