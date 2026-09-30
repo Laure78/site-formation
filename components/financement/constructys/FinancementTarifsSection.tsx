@@ -13,21 +13,22 @@ export function FinancementTarifsSection() {
       </h2>
       <p className="mt-3 text-sm text-[#64748B]">
         Le tarif facturé par OFC, la participation estimée par Constructys et le reste à charge
-        éventuel sont trois montants distincts.
+        éventuel sont trois montants distincts. Les formations catalogue sont facturées HT par
+        participant.
       </p>
       <div className="mt-6 grid gap-4 sm:grid-cols-2">
         <article className="rounded-xl border border-[#E2E8F0] bg-white p-5 shadow-sm">
-          <h3 className="font-semibold text-[#0F172A]">Intra-entreprise</h3>
-          <p className="mt-2 text-2xl font-bold text-[#377CF3]">{FINANCEMENT_TARIFS_BLOC.intra}</p>
+          <h3 className="font-semibold text-[#0F172A]">Les bases de l&apos;IA (4 h)</h3>
+          <p className="mt-2 text-2xl font-bold text-[#377CF3]">{FINANCEMENT_TARIFS_BLOC.bases}</p>
           <p className="mt-2 text-sm text-[#64748B]">
-            Forfait par session · {FINANCEMENT_TARIFS_BLOC.duree} · max 12 participants
+            {FINANCEMENT_TARIFS_BLOC.duree} · 6 à 12 participants
           </p>
         </article>
         <article className="rounded-xl border border-[#E2E8F0] bg-white p-5 shadow-sm">
-          <h3 className="font-semibold text-[#0F172A]">Inter-entreprises</h3>
-          <p className="mt-2 text-2xl font-bold text-[#377CF3]">{FINANCEMENT_TARIFS_BLOC.inter}</p>
+          <h3 className="font-semibold text-[#0F172A]">Sessions métier (4 h)</h3>
+          <p className="mt-2 text-2xl font-bold text-[#377CF3]">{FINANCEMENT_TARIFS_BLOC.metier}</p>
           <p className="mt-2 text-sm text-[#64748B]">
-            Tarif par participant · {FINANCEMENT_TARIFS_BLOC.duree}
+            {FINANCEMENT_TARIFS_BLOC.duree} · 6 à 12 participants
           </p>
         </article>
       </div>

@@ -3,17 +3,18 @@
  * Sources : constructys.fr (modalités PDC juin 2026 + dispositif transitoire de paiement).
  */
 import {
-  TARIF_INTRA_4H_HT,
-  TARIF_INTER_4H_HT_FROM,
   SESSION_DUREE_LIBELLE,
   parseDureeHeures,
-  libelleTarifIntraParSession,
-  libelleTarifInterParParticipant,
   MENTIONS_TVA_REGIMES_COURT,
   PERIMETRE_FORMATIONS_COURT,
 } from '@/lib/tarifs-sessions';
 import { formatPrixHt } from '@/data/formations';
 import { EXTERNAL_SITE_URLS } from '@/lib/external-site-urls';
+import {
+  libelleTarifParticipantCatalogue,
+  TARIF_PARTICIPANT_NIV01_HT,
+  TARIF_PARTICIPANT_NIV02_HT,
+} from '@/lib/tarifs-catalogue-participant';
 
 export const FINANCEMENT_PAGE_H1 =
   'Financer votre formation IA BTP avec Constructys en 2026' as const;
@@ -99,7 +100,8 @@ export type FinancementEstimationExemple = {
 
 export function getFinancementEstimationExemples(): FinancementEstimationExemple[] {
   const duree = CONSTRUCTYS_DUREE_SESSION_H;
-  const tarif = TARIF_INTRA_4H_HT;
+  /** Tarif métier 4 h × participants = coût pédagogique facturé. */
+  const tarifParParticipant = TARIF_PARTICIPANT_NIV02_HT;
 
   const cas = [
     { id: 'tpe-6', tranche: CONSTRUCTYS_PLAFOND_TPE.label, ...CONSTRUCTYS_PLAFOND_TPE, participants: 6 },
@@ -108,12 +110,13 @@ export function getFinancementEstimationExemples(): FinancementEstimationExemple
   ] as const;
 
   return cas.map((c) => {
+    const tarifFactureHt = tarifParParticipant * c.participants;
     const priseEnChargeHt = calculPriseEnChargeIndicative({
       plafondHoraireHt: c.plafondHoraireHt,
       dureeHeures: duree,
       participants: c.participants,
       plafondGroupeJourHt: c.plafondGroupeJourHt,
-      coutPedagogiqueFactureHt: tarif,
+      coutPedagogiqueFactureHt: tarifFactureHt,
     });
     return {
       id: c.id,
@@ -122,8 +125,8 @@ export function getFinancementEstimationExemples(): FinancementEstimationExemple
       plafondHoraireHt: c.plafondHoraireHt,
       plafondGroupeJourHt: c.plafondGroupeJourHt,
       priseEnChargeHt,
-      tarifFactureHt: tarif,
-      resteAChargeHt: Math.max(0, tarif - priseEnChargeHt),
+      tarifFactureHt,
+      resteAChargeHt: Math.max(0, tarifFactureHt - priseEnChargeHt),
     };
   });
 }
@@ -177,8 +180,12 @@ export const FINANCEMENT_ENTREPRISE_REALISE = [
 ] as const;
 
 export const FINANCEMENT_TARIFS_BLOC = {
-  intra: libelleTarifIntraParSession(TARIF_INTRA_4H_HT),
-  inter: libelleTarifInterParParticipant(TARIF_INTER_4H_HT_FROM),
+  bases: libelleTarifParticipantCatalogue(TARIF_PARTICIPANT_NIV01_HT),
+  metier: libelleTarifParticipantCatalogue(TARIF_PARTICIPANT_NIV02_HT),
+  /** @deprecated Alias — sessions métier 4 h. */
+  intra: libelleTarifParticipantCatalogue(TARIF_PARTICIPANT_NIV02_HT),
+  /** @deprecated Alias — bases. */
+  inter: libelleTarifParticipantCatalogue(TARIF_PARTICIPANT_NIV01_HT),
   tva: MENTIONS_TVA_REGIMES_COURT,
   perimetre: PERIMETRE_FORMATIONS_COURT,
   duree: `${CONSTRUCTYS_DUREE_SESSION_H} h`,
