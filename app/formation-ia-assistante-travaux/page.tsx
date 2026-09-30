@@ -288,21 +288,15 @@ export default function FormationIaAssistanteTravauxPage() {
             ))}
           </ul>
           <p className="mt-6 text-slate-600 leading-relaxed">
-            Ce rôle n&apos;est ni la{' '}
+            Ce rôle n&apos;est pas la{' '}
             <Link
               href={LINKS.formationIaAssistanteBtp}
               className="font-semibold text-[var(--accent)] underline hover:no-underline"
             >
-              formation IA assistante administrative
+              formation IA assistante administrative &amp; gestion
             </Link>{' '}
-            (courriers / mails), ni la{' '}
-            <Link
-              href={LINKS.formationIaAssistanteGestionBtp}
-              className="font-semibold text-[var(--accent)] underline hover:no-underline"
-            >
-              formation IA assistante de gestion
-            </Link>{' '}
-            (facturation / impayés) : ici, on parle du suivi de marché et du chantier.
+            (courriers, facturation, DGD) : ici, on parle du suivi de marché et du chantier (PPSPS, CR, DOE,
+            DC4 opérationnel).
           </p>
         </section>
 
@@ -521,7 +515,6 @@ export default function FormationIaAssistanteTravauxPage() {
                 LINKS.formationIleDeFrance,
                 LINKS.guideAssistantsTravauxOfc,
                 LINKS.formationIaAssistanteBtp,
-                LINKS.formationIaAssistanteGestionBtp,
                 PATH,
               ].includes(l.href),
           )}

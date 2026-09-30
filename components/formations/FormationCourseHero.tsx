@@ -5,7 +5,7 @@ import { FormationProgrammePdfDownloadBanner } from '@/components/formations/For
 import { FormationProgrammePdfViewer } from '@/components/formations/FormationProgrammePdfViewer';
 import { FormationHeroPhoto } from '@/components/formations/FormationHeroPhoto';
 import { TrainingHero } from '@/components/formations/training/TrainingHero';
-import { getFormationCatalogueByRef } from '@/lib/formations-catalogue-display';
+import { catalogueNiveauLabel, getFormationCatalogueByRef } from '@/lib/formations-catalogue-display';
 import { LINKS } from '@/lib/internal-links';
 import {
   trainingCategoryBadge,
@@ -88,7 +88,7 @@ export function FormationCourseHero({
     ...(catalogueEntry
       ? [
           {
-            label: catalogueEntry.level === 'DÉBUTANT' ? 'Niveau 1' : 'Niveau 2',
+            label: catalogueNiveauLabel(catalogueEntry.ref),
             variant: 'level' as const,
           },
         ]

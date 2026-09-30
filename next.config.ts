@@ -309,6 +309,16 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
+        source: '/formation-ia-assistante-gestion-btp',
+        destination: '/formation-ia-assistante-administrative-btp',
+        permanent: true,
+      },
+      {
+        source: '/formation-ia-responsable-administratif-btp',
+        destination: '/formation-ia-assistante-administrative-btp',
+        permanent: true,
+      },
+      {
         source: '/formation-ia-conducteur-de-travaux-btp',
         destination: '/formation-ia-conducteur-de-travaux',
         permanent: true,

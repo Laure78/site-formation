@@ -8,11 +8,13 @@ import { formatNoteSatisfactionAffichageComplet } from '@/lib/data/indicateurs-r
 
 type Props = {
   title?: string;
+  body?: string;
 };
 
 /** Présentation courte Laure — secondaire par rapport au contenu formation. */
 export function TrainingTrainer({
   title = 'Une formation animée par Laure Olivié',
+  body,
 }: Props) {
   return (
     <TrainingSection id="formatrice" title={title} tone="white">
@@ -22,16 +24,15 @@ export function TrainingTrainer({
         </div>
         <div className="min-w-0">
           <p className="text-base leading-relaxed text-slate-700">
-            Formatrice IA pour le BTP, ancienne dirigeante d’entreprise de travaux publics.
-            Approche opérationnelle : vos documents réels, des méthodes applicables dès le
-            lendemain. Satisfaction {formatNoteSatisfactionAffichageComplet()}.
+            {body ??
+              `Formatrice IA pour le BTP, ancienne dirigeante d’entreprise de travaux publics. Approche opérationnelle : vos documents réels, des méthodes applicables dès le lendemain. Satisfaction ${formatNoteSatisfactionAffichageComplet()}.`}
           </p>
           <p className="mt-3 text-sm text-slate-500">
             Références : {LAURE_OLIVIE_CLIENT_REFERENCES_SHORT}.
           </p>
           <p className="mt-4 text-sm">
             <Link href={LINKS.aPropos} className={OFC_LINK}>
-              Découvrir le parcours de Laure Olivié
+              Découvrir le parcours
             </Link>
           </p>
         </div>

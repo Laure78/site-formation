@@ -117,7 +117,7 @@ export const PRENDRE_RDV_NATIVE_FORM_ANCHOR = 'agenda-site';
 
 /** GEO discret (bas de page) — Laure, BTP, Guyancourt / IDF. */
 export const PRENDRE_RDV_GEO_NOTE =
-  `Laure Olivié — formatrice IA appliquée au BTP (OFC Création d’Entreprise, Guyancourt, Yvelines). Formations exclusivement en présentiel en Île-de-France, en groupe (intra ou interentreprises). Vous pouvez vous inscrire à une session collective interentreprises ; aucun accompagnement individuel n’est proposé. L’échange découverte (30 minutes) peut se faire en visioconférence. Satisfaction ${PREUVES.satisfaction}.`;
+  `Laure Olivié — formatrice IA appliquée au BTP (OFC Création d’Entreprise, Guyancourt, Yvelines). Catalogue IA BTP exclusivement en présentiel en Île-de-France, en groupe (intra ou interentreprises). Vous pouvez vous inscrire à une session collective interentreprises ; aucun accompagnement individuel n’est proposé. Le parcours création avec l’IA sans coder peut proposer des inter en visioconférence (voir sa fiche). L’échange découverte (30 minutes) peut se faire en visioconférence. Satisfaction ${PREUVES.satisfaction}.`;
 
 /** FAQ visible — sous le formulaire. */
 export const FAQ_PRENDRE_RDV_PAGE: readonly PrendreRdvFaqItem[] = [
@@ -127,11 +127,11 @@ export const FAQ_PRENDRE_RDV_PAGE: readonly PrendreRdvFaqItem[] = [
   },
   {
     q: 'Comment se déroule l’échange ?',
-    a: `Vous choisissez un créneau sur Calendly (ou via le formulaire du site), puis nous échangeons en visioconférence (${PRENDRE_RDV_DUREE_MINUTES} minutes) ou par téléphone. Les formations restent en présentiel. Aucun document confidentiel n’est nécessaire.`,
+    a: `Vous choisissez un créneau sur Calendly (ou via le formulaire du site), puis nous échangeons en visioconférence (${PRENDRE_RDV_DUREE_MINUTES} minutes) ou par téléphone. Le catalogue IA BTP reste en présentiel ; le parcours création avec l’IA sans coder peut proposer des inter en visioconférence. Aucun document confidentiel n’est nécessaire.`,
   },
   {
     q: 'Proposez-vous des formations hors Île-de-France ou à distance ?',
-    a: 'Non. Les formations sont actuellement proposées uniquement en présentiel en Île-de-France, en groupe, en intra ou en inter-entreprises. Vous pouvez vous inscrire à une session collective interentreprises ; aucun accompagnement individuel n’est proposé.',
+    a: `Non pour le catalogue IA BTP : présentiel uniquement en Île-de-France, en groupe, en intra ou en inter-entreprises. Vous pouvez vous inscrire à une session collective interentreprises ; aucun accompagnement individuel n’est proposé. Exception : la formation <a href="${LINKS.formationDeveloppementWebIaSansCoder}">création avec l’IA sans coder</a> propose aussi des inter en visioconférence — détail sur sa fiche.`,
   },
   {
     q: 'Que faire si aucun créneau ne me convient ?',

@@ -237,9 +237,9 @@ export const MODALITE_INTRA_ENTREPRISE = 'intra (dans vos locaux) ou inter' as c
 
 export const PERIMETRE_FORMATIONS_COURT = MODALITE_POSITIONNEMENT;
 
-/** Référence commerciale : présentiel IDF, sessions collectives. */
+/** Référence commerciale catalogue IA BTP : présentiel IDF, sessions collectives. */
 export const PERIMETRE_FORMATIONS_STANDARD =
-  `Présentiel uniquement en Île-de-France (${IDF_ZONE_INTERVENTION}) — sessions collectives, dans les locaux de l’entreprise ou en inter-entreprises selon les dates programmées et les places disponibles. Vous pouvez vous inscrire à une session collective. Aucun accompagnement individuel n’est proposé. Pas de formation à distance ou hors Île-de-France.`;
+  `Présentiel uniquement en Île-de-France (${IDF_ZONE_INTERVENTION}) — sessions collectives, dans les locaux de l’entreprise ou en inter-entreprises selon les dates programmées et les places disponibles. Vous pouvez vous inscrire à une session collective. Aucun accompagnement individuel n’est proposé. Catalogue IA BTP : pas de formation à distance ni hors Île-de-France.`;
 
 export const MODALITE_FORMATIONS_STANDARD = PERIMETRE_FORMATIONS_STANDARD;
 

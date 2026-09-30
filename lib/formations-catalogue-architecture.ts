@@ -130,7 +130,7 @@ const COMPLEMENTARY_OFFERS: readonly CatalogueOffer[] = [
     audience: 'Assistants travaux, administratifs, RAF, secrétaires techniques',
     durationLabel: 'Sur mesure',
     useCases: ['Rédiger emails et courriers', 'Classer et synthétiser', 'Suivre les dossiers chantier'],
-    href: LINKS.formationIaResponsableAdministratifBtp,
+    href: LINKS.formationIaAssistanteBtp,
     kind: 'landing',
     gamme: 'appliquer-metier',
     theme: 'administratif',
@@ -267,7 +267,8 @@ function groupByTheme(offers: CatalogueOffer[]): CatalogueThemeGroup[] {
     },
     'outils-applications': {
       title: 'Outils & applications métier',
-      description: 'Applications métier avec le développement assisté par l’IA · Claude pour l’écosystème avancé.',
+      description:
+        'Concevoir, développer, tester et déployer ses propres applications et outils métier BTP avec l’IA (Niveau 3) · Claude pour l’écosystème avancé.',
     },
   };
 

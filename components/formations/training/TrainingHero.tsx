@@ -21,6 +21,11 @@ export type TrainingHeroCta = {
   primary?: boolean;
 };
 
+export type TrainingHeroFactCard = {
+  label: string;
+  value: string;
+};
+
 type Props = {
   title: ReactNode;
   titleId?: string;
@@ -30,12 +35,14 @@ type Props = {
   badges?: TrainingHeroBadge[];
   /** Ligne meta : « 4 h · Présentiel · Île-de-France · 8 participants max. » */
   metaLine?: string;
+  /** Mini-cartes clés (durée, niveau, format…). */
+  factCards?: readonly TrainingHeroFactCard[];
   /** Tarif libre (ex. prix de lancement) — sinon CataloguePriceBadge si catalogueRef. */
   priceSlot?: ReactNode;
   catalogueRef?: string;
   primaryCta?: TrainingHeroCta;
   secondaryCta?: TrainingHeroCta;
-  /** Lien texte discret (parcours, programme ancré). */
+  /** Lien texte discret (parcours, échange projet). */
   textLink?: { href: string; label: string };
   media?: ReactNode;
   summaryTitle?: string;
@@ -43,10 +50,13 @@ type Props = {
   className?: string;
   backHref?: string;
   backLabel?: string;
+  /** Note sous les CTA (financement, délai réponse). */
+  ctaNote?: ReactNode;
+  showQualiopiInfoLink?: boolean;
 };
 
 /**
- * Hero commun fiches formation — badges, H1, meta, tarif, 2 CTA max + lien discret.
+ * Hero commun fiches formation — badges, H1, fact cards, tarif, 2 CTA + lien discret.
  */
 export function TrainingHero({
   title,
@@ -55,6 +65,7 @@ export function TrainingHero({
   lead,
   badges,
   metaLine,
+  factCards,
   priceSlot,
   catalogueRef,
   primaryCta,
@@ -65,7 +76,9 @@ export function TrainingHero({
   summaryItems,
   className,
   backHref = LINKS.formations,
-  backLabel = 'Catalogue des formations',
+  backLabel = 'Catalogue des formations IA pour le BTP',
+  ctaNote,
+  showQualiopiInfoLink = true,
 }: Props) {
   const catalogueEntry = catalogueRef ? getFormationCatalogueByRef(catalogueRef) : undefined;
   const resolvedMedia =
@@ -87,7 +100,7 @@ export function TrainingHero({
 
   return (
     <section className={cn('border-b border-slate-200 bg-white px-4 py-10 md:py-14', className)}>
-      <div className="mx-auto max-w-[70rem]">
+      <div className="mx-auto max-w-[78rem]">
         <Link href={backHref} className={`${OFC_LINK} text-sm`}>
           {backLabel}
         </Link>
@@ -123,20 +136,38 @@ export function TrainingHero({
 
             <h1
               id={titleId}
-              className="mt-4 font-display text-[clamp(1.75rem,3.5vw,2.65rem)] font-bold leading-[1.12] tracking-tight text-slate-900"
+              className="mt-4 font-display text-[clamp(1.75rem,3.5vw,2.65rem)] font-bold leading-[1.12] tracking-tight text-slate-900 text-balance"
             >
               {title}
             </h1>
             {subtitle ? (
-              <p className="mt-3 max-w-xl text-lg font-medium leading-snug text-slate-700">{subtitle}</p>
+              <p className="mt-4 max-w-xl text-lg font-medium leading-snug text-slate-700">{subtitle}</p>
             ) : null}
             {lead ? (
-              <div className="mt-4 max-w-xl text-base leading-relaxed text-slate-600 [&_a]:font-medium [&_a]:text-[#377CF3] [&_a]:hover:underline [&_strong]:font-semibold">
+              <div className="mt-3 max-w-xl text-base leading-relaxed text-slate-600 [&_a]:font-medium [&_a]:text-[#377CF3] [&_a]:hover:underline [&_strong]:font-semibold">
                 {lead}
               </div>
             ) : null}
 
-            {metaLine ? (
+            {factCards && factCards.length > 0 ? (
+              <ul className="mt-6 grid grid-cols-2 gap-2 sm:grid-cols-3">
+                {factCards.map((card) => (
+                  <li
+                    key={card.label}
+                    className="rounded-xl border border-slate-200 bg-slate-50 px-3 py-2.5"
+                  >
+                    <p className="text-[0.65rem] font-semibold uppercase tracking-[0.12em] text-slate-500">
+                      {card.label}
+                    </p>
+                    <p className="mt-0.5 text-sm font-semibold leading-snug text-slate-900">
+                      {card.value}
+                    </p>
+                  </li>
+                ))}
+              </ul>
+            ) : null}
+
+            {metaLine && !(factCards && factCards.length > 0) ? (
               <p className="mt-5 text-sm font-medium text-slate-800">{metaLine}</p>
             ) : null}
 
@@ -170,7 +201,7 @@ export function TrainingHero({
                               : true,
                         }
                       : {})}
-                    className={`${OFC_CTA_PRIMARY} inline-flex min-h-11 items-center justify-center gap-2 px-6 py-3`}
+                    className={`${OFC_CTA_PRIMARY} inline-flex min-h-11 w-full items-center justify-center gap-2 px-6 py-3 sm:w-auto`}
                   >
                     {primaryCta.label}
                   </a>
@@ -186,7 +217,7 @@ export function TrainingHero({
                               : true,
                         }
                       : {})}
-                    className={`${OFC_CTA_SECONDARY} inline-flex min-h-11 items-center justify-center gap-2 px-6 py-3`}
+                    className={`${OFC_CTA_SECONDARY} inline-flex min-h-11 w-full items-center justify-center gap-2 px-6 py-3 sm:w-auto`}
                   >
                     {secondaryCta.download ? (
                       <Download className="h-4 w-4 shrink-0" aria-hidden />
@@ -197,16 +228,18 @@ export function TrainingHero({
               </div>
             )}
 
+            {ctaNote ? <div className="mt-3 text-sm text-slate-600">{ctaNote}</div> : null}
+
             {textLink ? (
-              <p className="mt-4 text-sm">
+              <p className="mt-3 text-sm">
                 <a href={textLink.href} className={OFC_LINK}>
                   {textLink.label}
                 </a>
               </p>
             ) : null}
 
-            {catalogueRef ? (
-              <p className="mt-3 text-sm">
+            {showQualiopiInfoLink && catalogueRef ? (
+              <p className="mt-2 text-sm">
                 <a href="#informations-pratiques" className={OFC_LINK}>
                   Informations réglementaires Qualiopi
                 </a>

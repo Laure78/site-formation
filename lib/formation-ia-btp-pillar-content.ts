@@ -35,7 +35,7 @@ export const FORMATION_IA_BTP_METIERS = [
   { href: LINKS.formationIaDirigeantBtp, label: 'Dirigeant de PME BTP' },
   { href: LINKS.formationIaDirigeantPmeBtp, label: 'Chef de TPE du bâtiment' },
   { href: LINKS.formationIaAssistanteBtp, label: 'Assistant(e) administrative' },
-  { href: LINKS.formationIaAssistanteGestionBtp, label: 'Assistant(e) de gestion' },
+  { href: LINKS.formationIaAssistanteBtp, label: 'Assistant(e) administratif / gestion' },
 ] as const;
 
 const DEPT_LABELS: Record<string, string> = {

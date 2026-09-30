@@ -6,7 +6,6 @@ import { PHOTOS } from '@/lib/photos';
 import { buildFormationsPageUnifiedGraphJsonLd } from '@/lib/schema-formations-page-graph';
 import {
   CATALOGUE_PAGE_TITLE,
-  getCatalogueBesoinOptions,
   getCataloguePageCoreFormations,
   getCataloguePageMetaDescriptionShort,
 } from '@/lib/formations-catalogue-page-config';
@@ -18,8 +17,6 @@ import { FormationsCatalogueConversionSection } from '@/components/formations/ca
 import { FormationsCatalogueProofSection } from '@/components/formations/catalogue/FormationsCatalogueProofSection';
 import { FormationsFaqSection } from '@/components/formations/FormationsFaqSection';
 import { FormationsCatalogueMaillageSection } from '@/components/formations/catalogue/FormationsCatalogueMaillageSection';
-import { FormationsCatalogueBesoinProvider } from '@/components/formations/catalogue/FormationsCatalogueBesoinContext';
-import { FormationsCatalogueBesoinSection } from '@/components/formations/catalogue/FormationsCatalogueBesoinSection';
 
 const baseUrl = SITE_CONFIG.url.replace(/\/$/, '');
 
@@ -70,7 +67,6 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default function FormationsPage() {
   const coreFormations = getCataloguePageCoreFormations();
-  const besoinOptions = getCatalogueBesoinOptions();
   const faqCatalogue = getFaqCataloguePage();
 
   return (
@@ -78,18 +74,15 @@ export default function FormationsPage() {
       <JsonLd id="schema-formations-page-graph" schema={buildFormationsPageUnifiedGraphJsonLd()} />
       <FormationsCatalogueHero />
 
-      <FormationsCatalogueBesoinProvider>
-        <div className="mx-auto max-w-[80rem] px-4 pb-20 pt-10 sm:px-6 md:pt-14 lg:px-8">
-          <FormationsCatalogueMainSection formations={coreFormations} />
-          <FormationsCatalogueApprochePratiqueSection />
-          <FormationsCatalogueSurDemandeSection />
-          <FormationsCatalogueConversionSection />
-          <FormationsCatalogueProofSection />
-          <FormationsCatalogueBesoinSection options={besoinOptions} />
-          <FormationsFaqSection items={faqCatalogue} title="Questions fréquentes" />
-          <FormationsCatalogueMaillageSection />
-        </div>
-      </FormationsCatalogueBesoinProvider>
+      <div className="mx-auto max-w-[80rem] px-4 pb-20 pt-10 sm:px-6 md:pt-14 lg:px-8">
+        <FormationsCatalogueMainSection formations={coreFormations} />
+        <FormationsCatalogueApprochePratiqueSection />
+        <FormationsCatalogueSurDemandeSection />
+        <FormationsCatalogueConversionSection />
+        <FormationsCatalogueProofSection />
+        <FormationsFaqSection items={faqCatalogue} title="Questions fréquentes" />
+        <FormationsCatalogueMaillageSection />
+      </div>
     </>
   );
 }

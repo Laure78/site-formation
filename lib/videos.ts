@@ -18,11 +18,11 @@ export const VIDEOS = {
     youtubeId: 'TfSNa-4Sc5E',
     title: 'Formation IA pour le BTP — présentiel Île-de-France, Laure Olivié',
   },
-  /** Page formation NIV-10 — outils de gestion BTP avec l’IA. */
+  /** Page formation NIV-10 — applications métier BTP avec l’IA. */
   formationDevWebIaSansCoder2026: {
     src: 'https://youtu.be/rJyZjZPLFpE',
     youtubeId: 'rJyZjZPLFpE',
-    title: 'Développer et concevoir ses propres outils de gestion BTP avec l’IA — sans coder — présentation formation',
+    title: 'Développer et déployer des applications métier BTP avec l’IA — sans coder — présentation formation',
     caption: 'Une idée, une journée, une première version fonctionnelle.',
   },
   /** Page BeWork — deuxième exemple formation (format 9:16). */

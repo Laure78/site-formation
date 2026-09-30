@@ -298,7 +298,7 @@ export const BEWORK_PARCOURS = {
     id: '7h',
     title: BEWORK_FORMATION_TITRE,
     intitule:
-      'Développer et concevoir ses propres outils de gestion BTP avec l’IA, sans savoir coder — de l’idée à une première version fonctionnelle',
+      'Développer et déployer des applications métier BTP avec l’IA, sans savoir coder — de l’idée à une première version fonctionnelle',
     dureeLabel: '7 h',
     joursLabel: '1 journée',
     tarifHt: 300,
@@ -319,7 +319,7 @@ export const BEWORK_PARCOURS = {
     id: '14h',
     title: 'Construire plus loin',
     intitule:
-      'Développer et concevoir ses propres outils de gestion BTP avec l’IA, sans savoir coder — de l’idée au projet publié et référencé',
+      'Développer et déployer des applications métier BTP avec l’IA, sans savoir coder — de l’idée au projet publié et référencé',
     dureeLabel: '14 h',
     joursLabel: '2 journées',
     tarifHt: 600,

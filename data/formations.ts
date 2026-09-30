@@ -13,7 +13,7 @@ import {
   TARIF_PARTICIPANT_NIV10_HT,
 } from '@/lib/tarifs-catalogue-participant';
 
-export type FormationNiveau = 1 | 2;
+export type FormationNiveau = 1 | 2 | 3;
 
 /** Gamme stratégique du catalogue — Découvrir · Appliquer par métier · Déployer. */
 export type FormationGamme = 'decouvrir' | 'appliquer-metier' | 'deployer';
@@ -414,18 +414,18 @@ export const FORMATIONS: readonly Formation[] = [
     code: 'NIV-10',
     slug: 'developpement-web-ia-sans-coder',
     titre:
-      'Développer et concevoir ses propres outils de gestion BTP avec l’IA — sans coder',
+      'Développer et déployer des applications métier BTP avec l’IA — sans coder',
     promesse:
-      'Créer un site, une application ou un outil métier avec l’intelligence artificielle — parcours 7 h ou 14 h, sans prérequis en programmation.',
+      'Concevoir, développer, tester et déployer une application ou un outil métier BTP avec l’IA — parcours 7 h ou 14 h, sans prérequis en programmation.',
     casUsageCourts: [
       'Cadrer un projet numérique',
       'Créer une première version avec l’IA',
-      'Tester, corriger et pérenniser',
+      'Tester, corriger et déployer',
     ],
     gamme: 'deployer',
     theme: 'outils-applications',
-    niveau: 2,
-    niveauLabel: 'Niveau 2',
+    niveau: 3,
+    niveauLabel: 'Niveau 3 — Création et déploiement',
     duree: '7 h',
     horaires: '09h00 – 12h30 / 13h30 – 17h00',
     effectifMin: 4,

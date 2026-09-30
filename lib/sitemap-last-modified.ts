@@ -182,7 +182,9 @@ const ROUTE_SOURCE_FILES: Record<string, readonly string[]> = {
     'lib/formation-ia-metreur-economiste-construction-landing.ts',
   ],
   '/formation-ia-dirigeant-btp': ['app/formation-ia-dirigeant-btp/page.tsx'],
-  '/formation-ia-assistante-gestion-btp': ['app/formation-ia-assistante-gestion-btp/page.tsx'],
+  '/formation-ia-assistante-administrative-btp': [
+    'app/formation-ia-assistante-administrative-btp/page.tsx',
+  ],
   '/formation-ia-assistante-travaux': ['app/formation-ia-assistante-travaux/page.tsx'],
   '/etudes-de-cas': ['app/etudes-de-cas/page.tsx'],
   '/etudes-de-cas/ffb-csfe': ['app/etudes-de-cas/ffb-csfe/page.tsx'],

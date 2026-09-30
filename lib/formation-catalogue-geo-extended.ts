@@ -291,7 +291,7 @@ export const FORMATION_CATALOGUE_GEO_EXTENDED: Record<
       'Certificat de réalisation',
     ],
     debutants:
-      'Aucun prérequis en programmation. Savoir utiliser un ordinateur et Internet ; abonnement ChatGPT ou Claude actif (hors tarif de formation).',
+      'Aucun prérequis en programmation. Une première utilisation de ChatGPT ou Claude est recommandée. Savoir utiliser un ordinateur et Internet ; abonnement ChatGPT ou Claude actif (hors tarif de formation).',
     propresDossiers:
       'Oui — chaque participant travaille sur son propre projet (idée de site, d’application ou d’outil métier).',
     iaRemplacePro: COMMON_IA_NON,

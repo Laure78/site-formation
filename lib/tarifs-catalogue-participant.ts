@@ -15,7 +15,7 @@ export const TARIF_PARTICIPANT_NIV05_HT = TARIF_PARTICIPANT_NIV02_HT;
 /** Créer des assistants IA personnalisés (NIV-09) — 7 h. */
 export const TARIF_PARTICIPANT_NIV09_HT = 200 as const;
 
-/** Outils de gestion BTP avec l’IA (NIV-10) — 7 h. */
+/** Applications métier BTP avec l’IA (NIV-10) — 7 h. */
 export const TARIF_PARTICIPANT_NIV10_HT = 300 as const;
 
 /** @deprecated Alias — préférer TARIF_PARTICIPANT_NIV02_HT. */

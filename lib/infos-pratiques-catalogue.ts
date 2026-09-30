@@ -244,7 +244,7 @@ const EVALUATION_NIV09 = [
 ] as const;
 
 export const PREREQUIS_NIV10 =
-  'Savoir utiliser un ordinateur et naviguer sur Internet. Adresse email. Pouvoir installer des applications. Abonnement actif à ChatGPT ou Claude AI — non inclus dans le prix de la formation. Accès vérifiés avant la session. Aucun prérequis en programmation ou en création de site.';
+  'Aucun prérequis en programmation. Une première utilisation de ChatGPT ou Claude est recommandée. Savoir utiliser un ordinateur et naviguer sur Internet ; adresse email ; pouvoir installer des applications ; abonnement actif à ChatGPT ou Claude AI — non inclus dans le prix de la formation. Accès vérifiés avant la session.';
 
 export const DELAI_ACCES_NIV10 = DELAI_ACCES_NIV09;
 

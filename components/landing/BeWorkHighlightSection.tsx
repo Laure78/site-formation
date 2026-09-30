@@ -15,7 +15,7 @@ type Props = {
 };
 
 /**
- * Mise en avant formation NIV-10 (outils de gestion BTP avec l’IA).
+ * Mise en avant formation NIV-10 (applications métier BTP avec l’IA).
  */
 export function BeWorkHighlightSection({ id, surface = 'band' }: Props) {
   const isCard = surface === 'card';

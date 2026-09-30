@@ -592,7 +592,7 @@ export default function FormationIaChargeAffairesBtpPage() {
               LINKS.formationIaDirigeantBtp,
               LINKS.blogIaMemoireTechniqueAppelOffresGuide2026,
               LINKS.blogIaDevisBatimentChiffrageAutomatise,
-              '/formation-ia-assistante-gestion-btp',
+              LINKS.formationIaAssistanteBtp,
             ]}
           />
 

@@ -307,8 +307,8 @@ export const MAILLAGE_RESSOURCES_BY_PATH: Readonly<Record<string, MaillageRessou
   },
   [LINKS.guideRhBtpIaOfc]: {
     pilier: {
-      href: LINKS.formationIaResponsableAdministratifBtp,
-      label: 'Formation IA responsable administratif BTP',
+      href: LINKS.formationIaAssistanteBtp,
+      label: 'Formation IA assistante administrative & gestion BTP',
     },
     soeurs: [
       {

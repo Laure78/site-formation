@@ -9,7 +9,7 @@ export function trainingCategoryBadge(kind: TrainingParcoursKind): string {
     case 'applications-metier':
       return 'Applications métier';
     case 'creation-ia':
-      return 'Création avec l’IA';
+      return 'Niveau 3 — Création et déploiement';
     default:
       return 'Usages IA BTP';
   }

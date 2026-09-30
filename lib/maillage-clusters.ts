@@ -300,7 +300,7 @@ const METIER_CLUSTER: Record<string, MetierClusterEntry> = {
   },
   [LINKS.formationIaAssistanteBtp]: {
     path: LINKS.formationIaAssistanteBtp,
-    close: [LINKS.formationIaAssistanteTravaux, LINKS.formationIaAssistanteGestionBtp],
+    close: [LINKS.formationIaAssistanteTravaux],
     catalogue: {
       href: LINKS.formationIaBtpNiveau1BatimentTp,
       label: 'Formation IA catalogue — administratif et chantier',
@@ -323,32 +323,6 @@ const METIER_CLUSTER: Record<string, MetierClusterEntry> = {
       label: 'Guide des assistants travaux — 12 missions IA',
     },
     hubAnchor: 'Hub formation IA — suivi de marché et chantier',
-  },
-  [LINKS.formationIaAssistanteGestionBtp]: {
-    path: LINKS.formationIaAssistanteGestionBtp,
-    close: [LINKS.formationIaAssistanteTravaux, LINKS.formationIaAssistanteBtp],
-    catalogue: {
-      href: LINKS.formationIaBtpNiveau1BatimentTp,
-      label: 'Session catalogue — IA pour le bureau et le chantier',
-    },
-    blog: {
-      href: '/blog/automatiser-emails-clients-btp-ia',
-      label: 'Emails, relances et facturation BTP assistés par l’IA',
-    },
-    hubAnchor: 'Hub métiers — formation IA back-office BTP',
-  },
-  [LINKS.formationIaResponsableAdministratifBtp]: {
-    path: LINKS.formationIaResponsableAdministratifBtp,
-    close: [LINKS.formationIaAssistanteBtp, LINKS.formationIaAssistanteGestionBtp],
-    catalogue: {
-      href: LINKS.formationIaBtpNiveau1BatimentTp,
-      label: 'NIV-01 — formation IA appliquée au bâtiment',
-    },
-    blog: {
-      href: '/blog/automatiser-emails-clients-btp-ia',
-      label: 'Automatiser les emails clients BTP avec l’IA',
-    },
-    hubAnchor: 'Hub formation IA — fonctions support et admin BTP',
   },
   [LINKS.formationIaCharpentierMenuisierBtp]: {
     path: LINKS.formationIaCharpentierMenuisierBtp,
@@ -385,10 +359,8 @@ const METIER_LABELS: Record<string, string> = {
   [LINKS.formationChargeAffairesBtp]: "Formation IA chargé d'affaires BTP",
   [LINKS.formationIaDirigeantBtp]: 'Formation IA dirigeant PME BTP',
   [LINKS.formationIaEtancheur]: 'Formation IA étancheur BTP',
-  [LINKS.formationIaAssistanteBtp]: 'Formation IA assistante administrative BTP',
+  [LINKS.formationIaAssistanteBtp]: 'Formation IA assistante administrative & gestion BTP',
   [LINKS.formationIaAssistanteTravaux]: 'Formation IA assistante travaux BTP',
-  [LINKS.formationIaAssistanteGestionBtp]: 'Formation IA assistante de gestion BTP',
-  [LINKS.formationIaResponsableAdministratifBtp]: 'Formation IA responsable administratif BTP',
   [LINKS.formationIaCharpentierMenuisierBtp]: 'Formation IA charpentier & menuisier bois',
   [LINKS.formationIaMaconBtp]: 'Formation IA maçon & maçonnerie',
   [LINKS.formationIaCouvreurBtp]: 'Formation IA couvreur zingueur',

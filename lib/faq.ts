@@ -166,11 +166,11 @@ export const FAQ_ITEMS: readonly FAQItem[] = [
   },
   {
     q: "La formation se fait-elle en présentiel ?",
-    a: `Oui. ${MODALITE_FORMATIONS_STANDARD} Couverture : ${IDF_ZONE_INTERVENTION}. Pour cadrer votre format : <a href="${LINKS.prendreRdv}">Échanger sur votre projet de formation</a> ou <a href="/contact">contact</a>.`,
+    a: `Oui pour le catalogue IA BTP. ${MODALITE_FORMATIONS_STANDARD} Couverture : ${IDF_ZONE_INTERVENTION}. La formation <a href="${LINKS.formationDeveloppementWebIaSansCoder}">création avec l’IA sans coder</a> propose aussi des inter en visioconférence — détail sur sa fiche. Pour cadrer votre format : <a href="${LINKS.prendreRdv}">Échanger sur votre projet de formation</a> ou <a href="/contact">contact</a>.`,
   },
   {
     q: 'Où se déroulent les formations catalogue ?',
-    a: `Sessions OFC : présentiel uniquement · Île-de-France uniquement (intra (dans vos locaux) ou inter — ${IDF_ZONE_INTERVENTION}). L'échange préalable de 30 min (visio ou téléphone) sert uniquement à cadrer votre projet — voir <a href="${LINKS.prendreRdv}">Échanger sur votre projet de formation</a>.`,
+    a: `Catalogue IA BTP : présentiel uniquement · Île-de-France uniquement (intra (dans vos locaux) ou inter — ${IDF_ZONE_INTERVENTION}). L'échange préalable de 30 min (visio ou téléphone) sert uniquement à cadrer votre projet — voir <a href="${LINKS.prendreRdv}">Échanger sur votre projet de formation</a>.`,
   },
   {
     q: "Comment mesurer le ROI de la formation IA ?",

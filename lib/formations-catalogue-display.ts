@@ -171,18 +171,20 @@ export function getFormationCatalogueVisuel(ref: string) {
   return entry.visuel;
 }
 
-/** Niveau pédagogique affiché — toujours « Niveau 1 » ou « Niveau 2 ». */
+/** Niveau pédagogique affiché — « Niveau 1 », « Niveau 2 » ou « Niveau 3 ». */
 export function catalogueNiveauLabel(ref: string): string {
   const f = getFormationByCode(ref);
-  return f?.niveau === 1 ? 'Niveau 1' : 'Niveau 2';
+  if (f?.niveau === 1) return 'Niveau 1';
+  if (f?.niveau === 3) return 'Niveau 3';
+  return 'Niveau 2';
 }
 
-/** Badge niveau catalogue — « NIVEAU 1 · FONDAMENTAUX » ou « NIVEAU 2 · PERFECTIONNEMENT ». */
+/** Badge niveau catalogue — Initiation / Perfectionnement / Création et déploiement. */
 export function catalogueNiveauBadgeLabel(ref: string): string {
   const f = getFormationByCode(ref);
-  return f?.niveau === 1
-    ? 'Niveau 1 · Fondamentaux'
-    : 'Niveau 2 · Perfectionnement';
+  if (f?.niveau === 1) return 'Niveau 1 · Initiation';
+  if (f?.niveau === 3) return 'Niveau 3 · Création et déploiement';
+  return 'Niveau 2 · Perfectionnement';
 }
 
 /** Catégorie thématique secondaire (optionnelle, affichée sous le badge niveau). */
@@ -193,7 +195,7 @@ export function catalogueThemeSecondaryLabel(ref: string): string | null {
     'appels-offres-etudes': 'Appels d\u2019offres',
     'chantier-travaux': 'Chantier',
     'maitrise-oeuvre': 'Maîtrise d\u2019œuvre',
-    'outils-applications': ref === 'NIV-10' ? 'Création avec l\u2019IA' : 'Claude',
+    'outils-applications': ref === 'NIV-10' ? 'Création et déploiement' : 'Claude',
     'assistants-automatisation': 'Assistants IA',
     'administratif': 'Administratif',
     'gestion-contractuelle': 'Gestion contractuelle',
@@ -221,7 +223,7 @@ export function isCatalogueNiveau1(ref: string): boolean {
   return getFormationByCode(ref)?.niveau === 1;
 }
 
-/** Ligne hero / carte : « Niveau 1 · Fondamentaux » ou « Niveau 2 · Perfectionnement ». */
+/** Ligne hero / carte : badge Initiation / Perfectionnement / Création et déploiement. */
 export function catalogueNiveauEtLevel(ref: string, _level: CatalogueLevel): string {
   return catalogueNiveauBadgeLabel(ref);
 }
@@ -240,9 +242,13 @@ export function formationCatalogueVersionLine(
   return `${entry.programmeVersion} · ${entry.programmeUpdatedAt}`;
 }
 
-/** Badge pédagogique affiché sur cartes accueil : NIVEAU 1 ou NIVEAU 2. */
+/** Badge pédagogique affiché sur cartes accueil : NIVEAU 1, 2 ou 3. */
 export function cataloguePedagogicalLevelBadge(ref: string): string {
   return catalogueNiveauLabel(ref).toUpperCase();
+}
+
+export function isCatalogueNiveau3(ref: string): boolean {
+  return getFormationByCode(ref)?.niveau === 3;
 }
 
 const LEVEL_ORDER: Record<CatalogueLevel, number> = { DÉBUTANT: 0, AVANCÉ: 1 };

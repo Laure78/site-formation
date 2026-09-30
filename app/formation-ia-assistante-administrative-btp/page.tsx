@@ -1,7 +1,7 @@
 import { FAQAnswer } from '@/components/landing/FAQAnswer';
 import { CTA_RDV_LABEL, CtaRdv } from '@/components/CtaRdv';
 import Link from 'next/link';
-import { ArrowRight, Check, Phone } from 'lucide-react';
+import { Check } from 'lucide-react';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
 import { PreuveSociale } from '@/components/PreuveSociale';
 import { LiensConnexes } from '@/components/LiensConnexes';
@@ -9,11 +9,9 @@ import { RelatedLinks } from '@/components/RelatedLinks';
 import { getClusterRelatedHrefs } from '@/lib/maillage-clusters';
 import { RdvLink } from '@/components/RdvLink';
 import { ShortAnswerBlock } from '@/components/landing/ShortAnswerBlock';
-import { createPageMetadata, getFAQSchema, sitePhoneDisplaySuffix } from '@/lib/seo';
+import { getFAQSchema, sitePhoneDisplaySuffix } from '@/lib/seo';
 import { SITE_CONFIG } from '@/lib/seo';
-import { buildSiteCalendlyCtaUrl } from '@/lib/calendly';
 import { PublicPhoneCta } from '@/components/PublicPhoneCta';
-import { SOCIAL_PROOF } from '@/lib/constants';
 import { JsonLd } from '@/components/JsonLd';
 import { LINKS } from '@/lib/internal-links';
 import { LaureOlivieFormationPortrait } from '@/components/laure-olivie/LaureOlivieFormationPortrait';
@@ -26,16 +24,19 @@ export const revalidate = 3600;
 const PATH = '/formation-ia-assistante-administrative-btp';
 
 export const metadata = createMetierBtpPageMetadata('assistante administrative', {
-  title: 'IA assistante admin BTP — courriers',
+  title: 'IA admin & gestion BTP — courriers',
   description:
-    'Formation IA pour assistantes administratives BTP : courriers, mails, suivi chantier, comptes rendus. Organisme certifié Qualiopi. Financement possible selon éligibilité.',
+    'Formation IA pour le BTP : assistantes admin et de gestion — courriers, facturation, relances, DGD, DC4. Présentiel IDF, Qualiopi, OPCO selon éligibilité.',
+  descriptionFinal: true,
   path: PATH,
   keywords: [
     'formation IA assistante administrative BTP',
+    'formation IA assistante de gestion BTP',
     'ChatGPT secrétariat bâtiment',
     'IA courriers professionnels BTP',
-    'formation IA Île-de-France',
-    'suivi chantier administratif IA',
+    'IA facturation BTP',
+    'IA relance impayés BTP',
+    'responsable administratif BTP IA',
     'OPCO Constructys',
     'Qualiopi BTP',
   ],
@@ -117,13 +118,43 @@ Tableau doit contenir :
 
 Format : 1-2 pages Excel, lisible pour patron.`;
 
+const PROMPT_DC4 = `Tu es assistante de gestion / responsable administratif pour une entreprise BTP, entreprise principale sur un marché [public/privé].
+Contrat de sous-traitance joint ci-dessous :
+[Collez le contrat ou ses éléments clés]
+Pré-remplis un formulaire DC4 (Acte Spécial de Sous-Traitance) avec les rubriques suivantes :
+A. Identification entreprise principale
+B. Identification sous-traitant (raison sociale, SIRET, adresse, n° URSSAF, assurance décennale, Probtp si BTP)
+C. Nature des prestations sous-traitées (descriptif précis + lot concerné)
+D. Montant TTC de la sous-traitance + taux TVA applicable (rappel : autoliquidation si sous-traitance BTP soumise au régime de l'article 283 du CGI)
+E. Modalités de paiement
+F. Modalités de règlement direct au sous-traitant si marché public
+Préciser toutes les rubriques où des informations manquent au contrat.`;
+
+const PROMPT_CONTROLE_FACTURE = `Tu es responsable administratif BTP. Aide-moi à contrôler cette facture fournisseur.
+
+Données :
+- Devis initial : [réf + montant HT + postes]
+- Bon de commande : [réf + montant]
+- BL reçu : [quantités / % livrés]
+- Facture : [réf + montant facturé]
+
+Produis :
+1. Tableau comparatif devis / commande / BL / facture (montants et % livrés)
+2. Liste des écarts à vérifier avant validation
+3. Questions à poser au fournisseur ou au conducteur si besoin
+N'invente aucune donnée absente. Rappelle que la validation comptable reste humaine.`;
+
 const FAQ_ITEMS = [
   {
     q: 'ChatGPT comprend-il les normes de facturation BTP (mentions légales, DEEE, TFPB, etc.) ?',
     a: "L'IA peut rappeler des listes de mentions courantes et structurer un brouillon. Les obligations exactes (TVA, assurances, déchets, formalités) dépendent de votre situation : validez toujours avec votre expert-comptable ou votre logiciel de facturation certifié.",
   },
   {
-    q: "L'IA va-t-elle remplacer les assistantes administratives ?",
+    q: "L'IA peut-elle pré-remplir un DC4 ou un DGD à ma place ?",
+    a: "Elle peut proposer une structure et pré-remplir des rubriques à partir du contrat ou des situations que vous fournissez — jamais signer ni remplacer le contrôle juridique et comptable. Les champs manquants doivent être signalés explicitement.",
+  },
+  {
+    q: "L'IA va-t-elle remplacer les assistantes administratives ou les RAF ?",
     a: "Non. L'IA accélère la rédaction et la mise en forme ; la relation avec les clients, l'historique de l'entreprise et le traitement des cas particuliers restent humains.",
   },
   {
@@ -143,10 +174,11 @@ const FAQ_ITEMS = [
 const SOMMAIRE = [
   { href: '#le-probleme', label: 'Le problème : paperasse, courriers et tâches répétitives' },
   { href: '#la-solution', label: 'La solution : l’IA pour vos tâches administratives' },
+  { href: '#usages-gestion', label: 'Usages gestion : facturation, DC4, DGD' },
+  { href: '#specificites-btp', label: 'Spécificités BTP : TVA, sous-traitance, paie' },
   { href: '#methode', label: 'Méthode pas à pas avec prompts ChatGPT' },
   { href: '#resultats', label: 'Résultats concrets et témoignages' },
-  { href: '#faq', label: 'FAQ — questions des assistantes administratives sur l’IA' },
-  { href: '#a-propos', label: 'Qui est Laure Olivié ?' },
+  { href: '#faq', label: 'FAQ — admin, gestion et RAF BTP' },
   { href: LINKS.prendreRdv, label: CTA_RDV_LABEL },
 ];
 
@@ -172,24 +204,26 @@ export default function FormationIaAssistanteAdministrativeBtpPage() {
       <article>
         <MetierIdfPresentielLine className="mb-4" />
         <h1 className="font-display text-4xl font-bold tracking-tight text-slate-900 md:text-5xl">
-          Formation IA assistante administrative BTP —{' '}
-          <span className="text-[var(--accent)]">courriers, mails et suivi chantier</span>
+          Formation IA assistante administrative &amp; gestion BTP —{' '}
+          <span className="text-[var(--accent)]">courriers, facturation et DGD</span>
         </h1>
         <PreuveSociale className="mt-6" />
         <p className="mt-6 text-xl text-slate-600">
-          Sessions en présentiel en Île-de-France — cette page cible l&apos;<strong>administratif relationnel et le suivi chantier</strong> : courriers
-          fournisseurs, mails clients, comptes rendus et synthèses — pas la facturation d&apos;avancement ni les
-          relances impayés (voir la{' '}
-          <Link href={LINKS.formationIaAssistanteGestionBtp} className="font-medium text-[var(--accent)] hover:underline">
-            formation IA assistante de gestion BTP
-          </Link>
-          ).
+          Sessions en présentiel en Île-de-France — pour les <strong>assistantes administratives</strong>,{' '}
+          <strong>assistantes de gestion</strong> et <strong>responsables administratifs (RAF)</strong> des PME
+          BTP : courriers, mails, relances, facturation d&apos;avancement, DC4, DGD, synthèses et suivi
+          bureau–chantier. Distinct de la{' '}
+          <Link href={LINKS.formationIaAssistanteTravaux} className="font-medium text-[var(--accent)] hover:underline">
+            formation IA assistante travaux
+          </Link>{' '}
+          (PPSPS, CR, DOE, suivi de marché).
         </p>
 
         <div className="mt-8">
           <ShortAnswerBlock>
-            L’IA aide à rédiger des brouillons de courriers, relances et comptes rendus ; vous gardez la validation du
-            fond, du ton et des obligations légales (facturation, paie, assurances). Relire avant tout envoi officiel.
+            L’IA aide à rédiger des brouillons de courriers, relances, situations d’avancement et synthèses ;
+            vous gardez la validation du fond, du ton et des obligations légales (facturation, paie, TVA,
+            sous-traitance). Relire avant tout envoi officiel.
           </ShortAnswerBlock>
         </div>
 
@@ -214,9 +248,10 @@ export default function FormationIaAssistanteAdministrativeBtpPage() {
             Le problème : paperasse, courriers et tâches répétitives
           </h2>
           <p className="mt-4 text-slate-600 leading-relaxed">
-            Vous êtes <strong>assistante administrative</strong> (ou équivalent) dans une <strong>PME BTP</strong> en
-            Île-de-France ou Grand Paris : facturation, relances, courriers, suivi fournisseurs, documentation chantier,
-            mails et dossiers divers.
+            Vous êtes <strong>assistante administrative</strong>, <strong>assistante de gestion</strong> ou{' '}
+            <strong>responsable administratif</strong> dans une <strong>PME BTP</strong> en Île-de-France ou Grand
+            Paris : facturation, relances, courriers, suivi fournisseurs, documentation chantier, mails et dossiers
+            divers.
           </p>
           <p className="mt-4 text-slate-600 leading-relaxed">La semaine charge souvent :</p>
           <ul className="mt-4 space-y-3">
@@ -287,6 +322,80 @@ export default function FormationIaAssistanteAdministrativeBtpPage() {
           </p>
         </aside>
 
+        <section id="usages-gestion" className="scroll-mt-24 mt-14">
+          <h2 className="font-display text-2xl font-bold text-slate-900">
+            Usages gestion : facturation, DC4, DGD et sous-traitance
+          </h2>
+          <p className="mt-4 text-slate-600 leading-relaxed">
+            Au-delà des courriers, le back-office BTP concentre des tâches chiffrées où l&apos;IA accélère la mise
+            en forme — sans accéder à votre logiciel ni signer à votre place :
+          </p>
+          <ol className="mt-6 list-decimal space-y-3 pl-5 text-slate-700 leading-relaxed">
+            <li>
+              <strong>Relance impayé gradée</strong> (rappel amiable → courrier formel → mise en demeure) à partir
+              de vos données de facturation.
+            </li>
+            <li>
+              <strong>Facturation d&apos;avancement</strong> : structure de situation mensuelle à partir des %
+              par lot que vous fournissez.
+            </li>
+            <li>
+              <strong>Pré-remplissage DC4</strong> à partir du contrat de sous-traitance, avec champs manquants
+              signalés.
+            </li>
+            <li>
+              <strong>Synthèse des attestations</strong> sous-traitants (URSSAF, Probtp, décennale) pour contrôle
+              documentaire.
+            </li>
+            <li>
+              <strong>DGD préformaté</strong> à partir des situations mensuelles et pièces jointes.
+            </li>
+            <li>
+              <strong>Contrôle facture / BL vs devis</strong> : tableau d&apos;écarts avant validation comptable.
+            </li>
+            <li>
+              <strong>Éléments variables de paie</strong> (heures sup., IH, paniers) depuis relevés — brouillon
+              uniquement.
+            </li>
+            <li>
+              <strong>Mémoire de réclamation</strong> ou montage de dossier (Qualibat / RGE) : plan et structure,
+              validation métier obligatoire.
+            </li>
+          </ol>
+        </section>
+
+        <section id="specificites-btp" className="scroll-mt-24 mt-14">
+          <h2 className="font-display text-2xl font-bold text-slate-900">
+            Spécificités BTP : TVA, sous-traitance, paie chantier
+          </h2>
+          <p className="mt-4 text-slate-600 leading-relaxed">
+            Des règles métier que l&apos;IA doit connaître pour être utile — et que la formation intègre dans les
+            prompts :
+          </p>
+          <ul className="mt-4 space-y-3 text-slate-700 leading-relaxed">
+            <li>
+              <strong>Autoliquidation TVA sous-traitance BTP</strong> (article 283-2 nonies du CGI) : un prompt mal
+              cadré peut produire une mention de TVA invalide.
+            </li>
+            <li>
+              <strong>Caisses congés payés BTP (CNETP / CIBTP)</strong> et <strong>Probtp</strong> : cotisations
+              spécifiques à rappeler dans les synthèses RH.
+            </li>
+            <li>
+              <strong>Intempéries (IH)</strong> et majorations d&apos;heures supplémentaires selon la convention
+              collective Bâtiment.
+            </li>
+            <li>
+              <strong>Retenue de garantie</strong> sur marchés publics : 5 %, libérée en deux tranches (réception /
+              DGD).
+            </li>
+          </ul>
+          <p className="mt-6 text-slate-600 leading-relaxed">
+            L&apos;IA propose ; l&apos;expert-comptable, le dirigeant ou le RAF valide avant envoi ou saisie
+            logicielle.
+          </p>
+        </section>
+
         <section id="methode" className="scroll-mt-24 mt-14">
           <h2 className="font-display text-2xl font-bold text-slate-900">
             Méthode pas à pas avec prompts ChatGPT
@@ -318,6 +427,20 @@ export default function FormationIaAssistanteAdministrativeBtpPage() {
           </h3>
           <pre className="mt-4 overflow-x-auto whitespace-pre-wrap rounded-xl bg-slate-100 p-4 text-sm text-slate-800 leading-relaxed">
             {PROMPT_TABLEAU_BORD}
+          </pre>
+
+          <h3 className="mt-8 font-display text-xl font-semibold text-slate-900">
+            Étape 5 : pré-remplissage DC4 (sous-traitance)
+          </h3>
+          <pre className="mt-4 overflow-x-auto whitespace-pre-wrap rounded-xl bg-slate-100 p-4 text-sm text-slate-800 leading-relaxed">
+            {PROMPT_DC4}
+          </pre>
+
+          <h3 className="mt-8 font-display text-xl font-semibold text-slate-900">
+            Étape 6 : contrôle facture / BL vs devis
+          </h3>
+          <pre className="mt-4 overflow-x-auto whitespace-pre-wrap rounded-xl bg-slate-100 p-4 text-sm text-slate-800 leading-relaxed">
+            {PROMPT_CONTROLE_FACTURE}
           </pre>
         </section>
 
@@ -384,7 +507,7 @@ export default function FormationIaAssistanteAdministrativeBtpPage() {
         </section>
 
         <section id="faq" className="scroll-mt-24 mt-14">
-          <h2 className="font-display text-2xl font-bold text-slate-900">FAQ — assistantes administratives BTP et IA</h2>
+          <h2 className="font-display text-2xl font-bold text-slate-900">FAQ — admin, gestion et RAF BTP</h2>
           <div className="mt-8 space-y-6">
             {FAQ_ITEMS.map(({ q, a }) => (
               <div key={q} className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
@@ -420,7 +543,7 @@ export default function FormationIaAssistanteAdministrativeBtpPage() {
 
         <section className="mt-14">
           <h2 className="font-display text-lg font-bold text-slate-900">
-            Formation IA assistante administrative BTP — Île-de-France & Grand Paris
+            Formation IA assistante administrative &amp; gestion BTP — Île-de-France &amp; Grand Paris
           </h2>
           <p className="mt-4 text-sm text-slate-600 leading-relaxed">
             OFC Création d’Entreprise · Organisme certifié Qualiopi · SIRET {SITE_CONFIG.siret} · NDA 11788515078 ·{' '}
@@ -432,15 +555,14 @@ export default function FormationIaAssistanteAdministrativeBtpPage() {
           path={PATH}
           className="mt-14 !px-0"
           tone="transparent"
-          excludeHrefs={[LINKS.formationIaAssistanteGestionBtp]}
+          excludeHrefs={[LINKS.formationIaAssistanteTravaux]}
         />
 
         <LiensConnexes
           currentPath={PATH}
           excludeHrefs={[
               ...getClusterRelatedHrefs(PATH),
-              LINKS.formationIaAssistanteGestionBtp,
-              LINKS.formationIaResponsableAdministratifBtp,
+              LINKS.formationIaAssistanteTravaux,
               LINKS.formations,
               LINKS.financement,
             ]}
@@ -448,7 +570,7 @@ export default function FormationIaAssistanteAdministrativeBtpPage() {
 
         <AllerPlusLoin
           links={[
-            { href: LINKS.formationIaAssistanteGestionBtp, label: 'Formation IA assistante de gestion BTP — facturation & relances impayés' },
+            { href: LINKS.formationIaAssistanteTravaux, label: 'Formation IA assistante travaux — PPSPS, CR, DOE' },
             { href: LINKS.formations, label: 'Catalogue formations IA pour les pros du BTP' },
             { href: LINKS.financement, label: 'Financement Constructys' },
             { href: LINKS.prendreRdv, label: CTA_RDV_LABEL },

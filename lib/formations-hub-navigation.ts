@@ -15,7 +15,7 @@ export const FORMATIONS_HUB_PAR_METIER: readonly FormationsHubNavItem[] = [
   { href: LINKS.formationConduiteTravauxSuiviChantier, label: 'Conducteur de travaux' },
   { href: LINKS.formationChargeAffairesBtp, label: 'Chargé d\'affaires' },
   { href: LINKS.formationIaMetreurEconomisteConstruction, label: 'Études de prix & métré' },
-  { href: LINKS.formationIaResponsableAdministratifBtp, label: 'Administratif BTP' },
+  { href: LINKS.formationIaAssistanteBtp, label: 'Administratif & gestion BTP' },
   { href: LINKS.formationIaMaitriseOeuvre, label: 'Maîtrise d\'œuvre' },
   { href: LINKS.formationIaBtpNiveau1BatimentTp, label: 'Équipes terrain & TPE' },
 ];

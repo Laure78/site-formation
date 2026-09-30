@@ -108,7 +108,7 @@ En **Île-de-France**, la densité de **coactivité** et les **accès chantier**
 2. **Données chantier confidentielles ?** Anonymiser ; éviter plans nominatifs.  
 3. **Qualiopi / Constructys ?** OFC Qualiopi.  
 4. **BTP-01 / BTP-04 ?** Préciser en visio le parcours catalogue.  
-5. **Distanciel ?** Possible selon format.  
+5. **Distanciel ?** Non pour le catalogue IA BTP (présentiel Île-de-France). Exception éventuelle : parcours création avec l’IA — voir fiche dédiée.  
 6. **Différence avec `/formation-ia-conducteur-travaux-btp/` ?** *(Ajuster selon votre stratégie URL — éviter duplication.)*
 
 ---

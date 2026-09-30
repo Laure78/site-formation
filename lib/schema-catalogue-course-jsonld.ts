@@ -398,17 +398,17 @@ export const CATALOGUE_COURSE_DEV_WEB_IA_NIV10: CatalogueCourseJsonLdConfig = {
   price: prixCatalogue('NIV-10'),
   keywords: [
     'formation IA pour le BTP',
-    'outils de gestion BTP avec IA',
+    'applications métier BTP avec IA',
     'formation créer une application avec IA',
     'formation créer un site avec IA',
     'créer une application sans coder avec IA',
     'formation vibe coding',
     'formation Cursor IA',
-    'formation Claude Code débutant',
     'formation IA sans coder',
+    'niveau 3 création et déploiement',
   ],
   courseCode: 'NIV-10',
-  educationalLevel: 'Beginner',
+  educationalLevel: 'Advanced',
 };
 
 export const FORMATION_RICH_COURSE_NIV10: FormationCatalogueRichCourseConfig = {
@@ -416,7 +416,7 @@ export const FORMATION_RICH_COURSE_NIV10: FormationCatalogueRichCourseConfig = {
   name: CATALOGUE_COURSE_DEV_WEB_IA_NIV10.name,
   description: CATALOGUE_COURSE_DEV_WEB_IA_NIV10.description,
   price: prixCatalogue('NIV-10'),
-  educationalLevel: 'Fondamentaux',
+  educationalLevel: 'Perfectionnement',
   teaches: teachesFromCatalogue('NIV-10'),
 };
 

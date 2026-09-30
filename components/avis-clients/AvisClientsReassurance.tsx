@@ -18,7 +18,7 @@ const REASSURANCE_BLOCKS = [
   {
     icon: Building2,
     title: 'Présentiel en entreprise',
-    text: `Sessions intra-entreprise sur site — ${IDF_ZONE_INTERVENTION} uniquement, pas de distanciel.`,
+    text: `Sessions intra-entreprise sur site — ${IDF_ZONE_INTERVENTION} uniquement. Catalogue IA BTP : pas de distanciel.`,
   },
   {
     icon: Award,

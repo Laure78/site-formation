@@ -111,9 +111,9 @@ const PAGES = [
   },
   {
     path: '/formations/developpement-web-ia-sans-coder',
-    titleSegment: 'Outils gestion BTP avec l\u2019IA : sans coder',
+    titleSegment: 'Créer une application BTP IA sans coder',
     description:
-      'Formation IA pour le BTP : concevez vos outils de gestion avec l\u2019IA en 7 h ou 14 h. Présentiel IDF ou visio inter. Qualiopi, financement OPCO selon éligibilité.',
+      'Formation IA pour le BTP : concevoir, développer et déployer une application métier sans coder. Créez vos propres outils de gestion adaptés à votre entreprise.',
   },
 ];
 

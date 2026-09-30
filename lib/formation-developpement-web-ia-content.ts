@@ -1,5 +1,5 @@
 /**
- * Contenu — formation NIV-10 (BeWork / outils de gestion BTP avec l’IA).
+ * Contenu — formation NIV-10 (BeWork / applications métier BTP avec l’IA).
  * Parcours 7 h / 14 h — alignés `lib/bework-programmes.ts`.
  */
 import { getFormationByCode } from '@/data/formations';
@@ -15,7 +15,7 @@ export const DEV_WEB_IA_CODE = 'NIV-10' as const;
 export const DEV_WEB_IA_FORMATION_TITRE = getFormationByCode('NIV-10')!.titre;
 
 /** Menus et libellés courts (catalogue, navigation). */
-export const DEV_WEB_IA_FORMATION_TITRE_COURT = 'Outils de gestion BTP avec l’IA' as const;
+export const DEV_WEB_IA_FORMATION_TITRE_COURT = 'Applications métier BTP avec l’IA' as const;
 
 /** Tarifs inter — source unique (alignés BeWork / OFC). */
 export const TARIF_INTER_DEV_WEB_IA_HT = BEWORK_PARCOURS['7h'].tarifHt;
@@ -33,7 +33,7 @@ export const DEV_WEB_IA_BADGE_NOUVEAU = 'Nouveau' as const;
 export const DEV_WEB_IA_PRIX_LANCEMENT_LABEL = 'Prix de lancement' as const;
 
 export const DEV_WEB_IA_SUBTITLE =
-  'Créer un site, une application ou un outil métier avec l’intelligence artificielle.' as const;
+  'Concevoir, développer, tester et déployer une application métier BTP avec l’IA, sans être développeur.' as const;
 
 export const DEV_WEB_IA_HERO_FACTS = [
   '7 h (1 journée)',

@@ -8,7 +8,6 @@ import { getFormationByCode } from '@/data/formations';
 import {
   DEV_WEB_IA_LIVRABLES,
   DEV_WEB_IA_OBJECTIFS,
-  TARIF_INTER_DEV_WEB_IA_14H_HT,
   TARIF_INTER_DEV_WEB_IA_HT,
 } from '@/lib/formation-developpement-web-ia-content';
 import { formatTarifHt } from '@/lib/tarifs-sessions';
@@ -27,6 +26,16 @@ export type CataloguePrerequisiteBlock = {
   items: readonly string[];
 };
 
+export type CatalogueProgramModule = {
+  title: string;
+  points: readonly string[];
+};
+
+export type CatalogueNavItem = {
+  href: string;
+  label: string;
+};
+
 export type CatalogueFormationPageContent = {
   programmeRef: FormationCatalogueCode;
   parcoursKind: TrainingParcoursKind;
@@ -34,11 +43,23 @@ export type CatalogueFormationPageContent = {
   /** Sous-titre hero (public ou prérequis courts). */
   heroPublicLine?: string;
   heroFacts: readonly string[];
+  /** Mini-cartes hero (durée, niveau, format…) — sinon dérivées des données formation. */
+  heroFactCards?: readonly { label: string; value: string }[];
+  /** Part de pratique affichée (ex. « 70 % »). */
+  practiceShare?: string;
+  /** Format court (ex. « Présentiel »). */
+  formatLabel?: string;
+  /** Lieu / zone (ex. « Île-de-France »). */
+  locationLabel?: string;
   quickFactsLevel: string;
+  /** Navigation interne sticky (ancres). */
+  navItems?: readonly CatalogueNavItem[];
   painPointsTitle: string;
   painPoints: readonly CataloguePainPoint[];
   outcomes: readonly string[];
   outcomesDescription: string;
+  /** Encadré pédagogique (ex. rôle IA vs professionnel). */
+  pedagogicalNote?: string;
   practicalCase?: {
     title: string;
     paragraphs: readonly string[];
@@ -49,10 +70,13 @@ export type CatalogueFormationPageContent = {
   iaLimits?: readonly { iaAide: string; validation: string }[];
   deliverablesIntro?: string;
   deliverables: readonly string[];
+  deliverablesTitle?: string;
   publicPrerequisites?: readonly CataloguePrerequisiteBlock[];
   intraExtraBullets?: readonly string[];
   interExtraBullets?: readonly string[];
   programIntro: string;
+  /** Modules programme — source unique pour l’accordéon. */
+  programModules?: readonly CatalogueProgramModule[];
   programLinks?: readonly CatalogueProgramLink[];
   instructorTitle?: string;
   instructorBody?: string;
@@ -64,6 +88,8 @@ export type CatalogueFormationPageContent = {
     primaryLabel?: string;
     devisHref?: string;
     secondaryHref?: string;
+    /** Note discrète sous les CTA (ex. « Rendez-vous découverte · 30 min »). */
+    note?: string;
   };
   pdfHref?: string;
   /** Titre bloc objectifs (défaut : « Après cette formation, vous saurez… »). */
@@ -76,6 +102,8 @@ export type CatalogueFormationPageContent = {
   showBeworkPasserelle?: boolean;
   /** Lien retour vers la landing SEO associée (maillage fiche ↔ landing). */
   seoLandingLink?: { href: string; label: string };
+  /** Afficher la barre de réassurance sous le hero (défaut true). */
+  showTrustBar?: boolean;
 };
 
 const DEFAULT_FINAL_CTA = {
@@ -85,25 +113,39 @@ const DEFAULT_FINAL_CTA = {
   secondaryLabel: 'Échanger sur votre projet de formation',
 } as const;
 
+const NIV_01_FORMATION = getFormationByCode('NIV-01')!;
+
 const NIV_01: CatalogueFormationPageContent = {
   programmeRef: 'NIV-01',
   parcoursKind: 'usages-ia-btp',
-  levelBadgeLabel: 'Niveau 1 · Débutant',
+  levelBadgeLabel: 'Niveau 1 · Débutant · Formation IA BTP',
   heroPublicLine:
     'Dirigeants, conducteurs de travaux, chargés d’affaires, bureaux d’études et fonctions support du BTP.',
   heroFacts: [
     '4 heures',
     '70 % de pratique',
-    `${getFormationByCode('NIV-01')!.effectifMin} à ${getFormationByCode('NIV-01')!.effectifMax} participants`,
+    `${NIV_01_FORMATION.effectifMin} à ${NIV_01_FORMATION.effectifMax} participants`,
     'Présentiel en Île-de-France',
   ],
+  practiceShare: '70 %',
+  formatLabel: 'Présentiel',
+  locationLabel: 'Île-de-France',
   quickFactsLevel: 'Débutant',
-  painPointsTitle: 'Vous perdez du temps sur ces tâches ?',
+  navItems: [
+    { href: '#programme', label: 'Programme' },
+    { href: '#objectifs', label: 'Objectifs' },
+    { href: '#pour-qui', label: 'Pour qui ?' },
+    { href: '#modalites', label: 'Modalités' },
+    { href: '#tarifs-modalites', label: 'Tarif' },
+    { href: '#formatrice', label: 'Formatrice' },
+    { href: '#faq-niv-01', label: 'FAQ' },
+  ],
+  painPointsTitle: 'Cette formation est faite pour vous si…',
   painPoints: [
-    { title: 'Devis', texte: 'Repartir d’une page blanche pour chaque devis ou désignation d’ouvrage.' },
-    { title: 'Comptes rendus', texte: 'Rédiger les comptes rendus après les réunions de chantier.' },
-    { title: 'DOE et PV', texte: 'Préparer les DOE, PV de réception et suivis de réserves.' },
-    { title: 'Emails clients', texte: 'Reformuler les emails et documents destinés aux clients ou fournisseurs.' },
+    { title: 'Devis', texte: 'Gagner du temps pour rédiger et structurer vos devis.' },
+    { title: 'Comptes rendus', texte: 'Transformer vos notes en comptes rendus structurés.' },
+    { title: 'Documents de chantier', texte: 'Préparer DOE, PV et suivis de réserves.' },
+    { title: 'Emails', texte: 'Rédiger et reformuler vos communications professionnelles.' },
   ],
   outcomes: [
     'Formuler une demande précise à une IA',
@@ -112,19 +154,22 @@ const NIV_01: CatalogueFormationPageContent = {
     'Créer une première structure de DOE ou de PV',
     'Contrôler et corriger une réponse générée par l’IA',
   ],
+  objectivesTitle: 'Après la formation, vous saurez…',
   outcomesDescription:
     'Vous apprenez à préparer et structurer une première version de devis, soumise au contrôle du professionnel. L’IA n’établit ni les prix, ni les métrés, ni la conformité aux DTU.',
+  pedagogicalNote: 'L’IA prépare et structure. Le professionnel contrôle et valide.',
   practicalCase: {
-    title: 'Travaillez sur vos propres documents',
+    title: 'Comment se déroule la formation ?',
     paragraphs: [
       'Les exercices peuvent être réalisés à partir de vos devis, comptes rendus, DOE, PV ou emails. Les documents doivent être anonymisés avant leur utilisation dans un outil d’intelligence artificielle.',
     ],
     steps: [
-      'Vous sélectionnez un document récurrent.',
-      'Vous construisez une méthode et un prompt.',
-      'Vous repartez avec une trame réutilisable.',
+      'Vous apportez un document ou un cas métier.',
+      'Vous apprenez à construire la méthode et le prompt.',
+      'Vous repartez avec une méthode réutilisable.',
     ],
   },
+  deliverablesTitle: 'Ce que vous emportez',
   deliverables: [
     'Bibliothèque de prompts BTP',
     'Trames de devis, comptes rendus, DOE et PV',
@@ -133,6 +178,45 @@ const NIV_01: CatalogueFormationPageContent = {
   ],
   programIntro:
     'Quatre modules d’une heure. 70 % de pratique. ChatGPT et Claude comme outils d’assistance — jamais comme substitut à votre expertise.',
+  programModules: [
+    {
+      title: 'Comprendre et utiliser l’IA',
+      points: [
+        'ChatGPT, Claude et principaux outils',
+        'Méthode de prompt (rôle, tâche, contexte)',
+        'Limites, erreurs fréquentes et relecture',
+        'Confidentialité et anonymisation des documents',
+      ],
+    },
+    {
+      title: 'Devis et chiffrage',
+      points: [
+        'Structurer une désignation d’ouvrage',
+        'Reformuler un devis et préparer des variantes',
+        'Créer une checklist de contrôle',
+        'Prix, quantités, métrés et références techniques : vérification par le professionnel',
+      ],
+    },
+    {
+      title: 'Documents de chantier',
+      points: [
+        'Comptes rendus',
+        'DOE',
+        'PV de réception',
+        'Levée de réserves',
+        'Emails de suivi',
+      ],
+    },
+    {
+      title: 'Communication professionnelle',
+      points: [
+        'Emails commerciaux',
+        'Présentation d’une réalisation',
+        'Contenus pour les réseaux sociaux',
+        'Calendrier éditorial simple',
+      ],
+    },
+  ],
   programLinks: [
     {
       prefix: 'Pour analyser un DCE et structurer un mémoire technique, voir la',
@@ -146,10 +230,14 @@ const NIV_01: CatalogueFormationPageContent = {
     },
   ],
   finalCta: {
-    title: 'Parlons de votre projet de formation',
+    title: 'Vous souhaitez former votre équipe à l’IA ?',
     description:
-      'Un échange de 30 minutes pour définir vos cas d’usage, le nombre de participants et les possibilités de financement.',
-    secondaryLabel: 'Échanger sur votre projet',
+      'Les besoins et cas d’usage de votre entreprise sont étudiés avant la session, pour adapter le programme à votre équipe.',
+    primaryLabel: 'Échanger sur votre projet de formation',
+    devisHref: LINKS.prendreRdv,
+    secondaryLabel: 'Demander un devis',
+    secondaryHref: undefined,
+    note: 'Rendez-vous découverte · 30 min',
   },
   pdfHref: LINKS.pdfProgrammeIaBtpNiveau1BatimentTp,
 };
@@ -566,7 +654,7 @@ const NIV_05: CatalogueFormationPageContent = {
 const NIV_10: CatalogueFormationPageContent = {
   programmeRef: 'NIV-10',
   parcoursKind: 'creation-ia',
-  levelBadgeLabel: 'BeWork · Niveau 2',
+  levelBadgeLabel: 'Niveau 3 — Création et déploiement',
   heroPublicLine:
     'Entrepreneurs, indépendants, TPE et PME du bâtiment, porteurs de projet — sans prérequis en programmation.',
   heroFacts: [
@@ -576,13 +664,16 @@ const NIV_10: CatalogueFormationPageContent = {
     '4 à 10 participants',
     '70 % pratique · 30 % méthodologie',
   ],
-  quickFactsLevel: 'Débutant',
+  quickFactsLevel: 'avancé — aucun prérequis en programmation',
   quickFactsOverride: [
     { label: 'Durée', value: '7 h' },
     { label: 'Format', value: 'Présentiel ou visio (inter)' },
     { label: 'Lieu', value: 'Île-de-France' },
     { label: 'Effectif', value: '4 à 10 participants' },
-    { label: 'Niveau', value: 'Débutant' },
+    {
+      label: 'Niveau',
+      value: 'avancé — aucun prérequis en programmation',
+    },
     {
       label: 'Public',
       value:

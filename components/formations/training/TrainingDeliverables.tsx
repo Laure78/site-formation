@@ -7,10 +7,10 @@ type Props = {
   description?: string;
 };
 
-/** Livrables / ce que le participant emporte — pas de promesse absente des données. */
+/** Livrables / ce que le participant emporte — cartes légères. */
 export function TrainingDeliverables({
   items,
-  title = 'Vous repartez avec',
+  title = 'Ce que vous emportez',
   description,
 }: Props) {
   if (items.length === 0) return null;
@@ -18,9 +18,12 @@ export function TrainingDeliverables({
     <TrainingSection id="livrables" title={title} description={description} tone="muted">
       <ul className="grid gap-3 sm:grid-cols-2">
         {items.map((item) => (
-          <li key={item} className="flex gap-3 text-sm leading-relaxed text-slate-800 md:text-[0.95rem]">
+          <li
+            key={item}
+            className="flex h-full gap-3 rounded-2xl border border-slate-200 bg-white px-4 py-4 md:px-5"
+          >
             <Check className="mt-0.5 h-5 w-5 shrink-0 text-[#377CF3]" strokeWidth={2} aria-hidden />
-            <span>{item}</span>
+            <span className="text-base font-medium leading-snug text-slate-800">{item}</span>
           </li>
         ))}
       </ul>

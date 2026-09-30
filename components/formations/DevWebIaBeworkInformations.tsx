@@ -267,12 +267,16 @@ export function DevWebIaBeworkInformations() {
             Modalités de participation
           </h2>
           <p className="mt-3 text-base text-ofc-ink-muted">
-            Présentiel uniquement · Île-de-France · inter ou intra sur devis.
+            Présentiel Île-de-France (recommandé) ou visioconférence en inter à dates dédiées · inter ou
+            intra sur devis.
           </p>
           <ul className="mt-8 grid gap-6 sm:grid-cols-2">
             <li className="rounded-2xl border border-slate-200 bg-white p-6">
               <h3 className={OFC_TYPE_H3}>Inter-entreprises</h3>
-              <p className="mt-3 text-sm leading-relaxed text-ofc-ink-muted">Sessions programmées en petit groupe, présentiel en Île-de-France.</p>
+              <p className="mt-3 text-sm leading-relaxed text-ofc-ink-muted">
+                Sessions programmées en petit groupe — présentiel en Île-de-France (recommandé) ou
+                visioconférence à dates dédiées.
+              </p>
             </li>
             <li className="rounded-2xl border border-slate-200 bg-white p-6">
               <h3 className={OFC_TYPE_H3}>Intra-entreprise</h3>

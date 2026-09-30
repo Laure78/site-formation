@@ -50,14 +50,14 @@ export const metadata = createPageMetadata({
   path: LINKS.formationDeveloppementWebIaSansCoder,
   keywords: [
     'formation IA pour le BTP',
-    'outils de gestion BTP avec IA',
+    'applications métier BTP avec IA',
     'formation créer une application avec IA',
     'formation créer un site avec IA',
     'créer une application sans coder avec IA',
     'formation vibe coding',
     'formation Cursor IA',
-    'formation Claude Code débutant',
     'formation IA sans coder',
+    'niveau 3 création et déploiement',
   ],
   image: {
     url: CATALOGUE_VISUEL.src,

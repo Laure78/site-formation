@@ -33,20 +33,20 @@ export type FederationParcoursNiveau = {
 export const FEDERATION_PARCOURS_TROIS_NIVEAUX: readonly FederationParcoursNiveau[] = [
   {
     niveau: 1,
-    title: 'Niveau 1 – Découvrir et utiliser l’IA dans son activité',
+    title: 'Niveau 1 — Initiation',
     formatLabel: '4 heures',
     description:
-      'Prise en main de ChatGPT et Claude. Applications concrètes : mails, devis, comptes rendus, documents chantier et premiers cas d’usage métier.',
+      'Découvrir et utiliser l’IA générative dans les tâches professionnelles du BTP : mails, devis, comptes rendus, documents chantier et premiers cas d’usage métier.',
     tarifHtParParticipant: TARIF_PARTICIPANT_NIV01_HT,
     programmeHref: LINKS.formationIaBtpNiveau1BatimentTp,
     programmeLabel: 'Programme niveau 1 — IA bâtiment et travaux publics',
   },
   {
     niveau: 2,
-    title: 'Niveau 2 – Créer ses assistants IA personnalisés',
+    title: 'Niveau 2 — Perfectionnement',
     formatLabel: '7 heures',
     description:
-      'Création d’assistants adaptés aux besoins de l’entreprise : devis, analyse de documents, préparation de chantier, appels d’offres, suivi client, etc.',
+      'Approfondir l’utilisation de l’IA, créer des assistants personnalisés et développer des workflows métier (devis, documents, appels d’offres, suivi client).',
     tarifHtParParticipant: TARIF_PARTICIPANT_NIV09_HT,
     programmeHref: LINKS.formationAssistantsIaPersonnalisesBtp,
     programmeLabel: 'Programme niveau 2 — assistants IA personnalisés BTP',
@@ -56,13 +56,13 @@ export const FEDERATION_PARCOURS_TROIS_NIVEAUX: readonly FederationParcoursNivea
     title: DEV_WEB_IA_FORMATION_TITRE,
     formatLabel: '7 heures ou 14 heures',
     description:
-      'Création d’un site, d’une application ou d’un outil métier grâce à l’IA.',
+      'Concevoir et déployer ses propres applications et outils métier BTP avec l’IA, sans être développeur.',
     note:
       'C’est notamment ce que nous avons évoqué lors de la démonstration réalisée par Mess sur le salon.',
     tarifHtParParticipant: TARIF_INTER_DEV_WEB_IA_HT,
     tarifSuffix: 'par jour',
     programmeHref: LINKS.formationDeveloppementWebIaSansCoder,
-    programmeLabel: 'Programme niveau 3 — outils de gestion BTP avec l’IA',
+    programmeLabel: 'Programme niveau 3 — création et déploiement d’applications métier BTP',
   },
 ] as const;
 

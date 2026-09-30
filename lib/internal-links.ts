@@ -120,7 +120,7 @@ export const LINKS = {
   formationAssistantsIaPersonnalisesBtp: '/formations/assistants-ia-personnalises-btp',
   pdfProgrammeAssistantsIaPersonnalisesBtp:
     '/formations/assistants-ia-personnalises-btp/programme_OFC_AssistantsIA_BTP_intra_7h.pdf',
-  /** NIV-10 — outils de gestion BTP avec l’IA (sans coder) */
+  /** NIV-10 — applications métier BTP avec l’IA (sans coder) */
   formationDeveloppementWebIaSansCoder: '/formations/developpement-web-ia-sans-coder',
   pdfProgrammeDeveloppementWebIaSansCoder:
     '/formations/developpement-web-ia-sans-coder/programme-ofc-developpement-web-ia-7h.pdf',
@@ -199,14 +199,14 @@ export const LINKS = {
   formationIaDirigeantBtp: '/formation-ia-dirigeant-btp',
   /** Chef TPE opérationnel — devis, admin quotidien */
   formationIaDirigeantPmeBtp: '/formation-ia-dirigeant-pme-btp',
-  /** Landing SEO — assistante administrative BTP (courriers, mails, suivi chantier) */
+  /** Landing SEO — assistante administrative & gestion BTP (courriers, facturation, DGD, RAF) */
   formationIaAssistanteBtp: '/formation-ia-assistante-administrative-btp',
   /** Landing SEO — assistante / assistant travaux BTP (marché, PPSPS, CR, DOE) */
   formationIaAssistanteTravaux: '/formation-ia-assistante-travaux',
-  /** Landing SEO — assistante de gestion BTP (facturation, relances, DGD) */
-  formationIaAssistanteGestionBtp: '/formation-ia-assistante-gestion-btp',
-  /** Landing SEO — responsable administratif / RAF BTP (devis, factures, mails, dossiers) */
-  formationIaResponsableAdministratifBtp: '/formation-ia-responsable-administratif-btp',
+  /** Alias → page admin & gestion (301 depuis /formation-ia-assistante-gestion-btp) */
+  formationIaAssistanteGestionBtp: '/formation-ia-assistante-administrative-btp',
+  /** Alias → page admin & gestion (301 depuis /formation-ia-responsable-administratif-btp) */
+  formationIaResponsableAdministratifBtp: '/formation-ia-assistante-administrative-btp',
   /** Page pilier SEO — étancheurs (partenaire CSFE) */
   formationIaEtancheur: '/formation-ia-etancheur',
   /** Cluster commande publique — pilier marché public de travaux */

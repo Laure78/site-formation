@@ -36,6 +36,7 @@ export function FormationsCatalogueCard({
   const tags = catalogueCasUsageTags(entry);
   const publicLine = cataloguePublicOneLine(entry.comparatif.publicLabel);
   const isNiveau1 = entry.ref === 'NIV-01';
+  const isNiveau3 = entry.ref === 'NIV-10';
   const isDevWebIa = entry.ref === 'NIV-10';
   const niveauBadge = catalogueNiveauBadgeLabel(entry.ref);
   const themeLabel = catalogueThemeSecondaryLabel(entry.ref);
@@ -80,7 +81,9 @@ export function FormationsCatalogueCard({
             className={`rounded-full px-3 py-1 text-[11px] font-bold uppercase tracking-wide ${
               isNiveau1
                 ? 'bg-emerald-50 text-emerald-700 ring-1 ring-emerald-200'
-                : 'bg-blue-50 text-blue-700 ring-1 ring-blue-200'
+                : isNiveau3
+                  ? 'bg-indigo-50 text-indigo-700 ring-1 ring-indigo-200'
+                  : 'bg-blue-50 text-blue-700 ring-1 ring-blue-200'
             }`}
           >
             {niveauBadge}
@@ -134,12 +137,12 @@ export function FormationsCatalogueCard({
             </span>
           </div>
 
-          <p className="text-sm font-semibold text-ofc-ink">
+          <p className="text-sm font-bold text-ofc-ink">
             {isDevWebIa ? (
               <>
                 <span className="text-[#377CF3]">{DEV_WEB_IA_PRIX_LANCEMENT_LABEL}</span>
                 {' · '}
-                <span className="font-normal text-ofc-ink-muted">
+                <span>
                   {formatTarifHt(TARIF_INTER_DEV_WEB_IA_HT)} € HT / participant
                 </span>
               </>

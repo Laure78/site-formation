@@ -1,6 +1,6 @@
 # Site Formation
 
-Site vitrine + plateforme de formations en ligne.
+Site vitrine + plateforme LMS (espace apprenant / admin).
 
 ## Fonctionnalités
 

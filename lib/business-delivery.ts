@@ -1,6 +1,7 @@
 /**
- * Règles commerciales de livraison des formations OFC — source unique.
+ * Règles commerciales de livraison — catalogue IA BTP (NIV-01 à NIV-09 / fiches métier).
  * Présentiel IDF · groupe · intra & inter. Pas de distanciel / accompagnement individuel / hors IDF.
+ * Exception : parcours « création avec l’IA sans coder » (NIV-10 / BeWork) — visio inter possible (voir fiche).
  * L’inscription d’une personne à une session collective interentreprises est autorisée.
  */
 import { IDF_DEPARTEMENTS_LISTE, IDF_ZONE_INTERVENTION, PREUVES } from '@/lib/constants';
@@ -9,16 +10,20 @@ import { FORMATIONS_COUNT } from '@/data/formations';
 /** Email commercial public — alias de CONTACT (voir `lib/constants.ts`). */
 export { CONTACT as BUSINESS_CONTACT } from '@/lib/constants';
 
+/** Exception modalité — création avec l’IA (hors catalogue IA BTP présentiel strict). */
+export const EXCEPTION_VISIO_CREATION_IA =
+  'Exception : le parcours « création avec l’IA sans coder » peut proposer des sessions inter en visioconférence — détail sur sa fiche.' as const;
+
 export const BUSINESS_DELIVERY = {
   mode: 'Présentiel uniquement',
   location: 'Île-de-France',
   audience: 'Formation en groupe',
   formats: ['Intra-entreprise', 'Inter-entreprises'] as const,
   /** Titre / accroche courte. */
-  headline: 'Formations en présentiel uniquement en Île-de-France',
-  /** Phrase complète de cadrage commercial. */
+  headline: 'Formations IA BTP en présentiel uniquement en Île-de-France',
+  /** Phrase complète de cadrage commercial (catalogue IA BTP). */
   body:
-    'Sessions en groupe, en intra-entreprise ou en inter-entreprises. Vous pouvez vous inscrire à une session collective interentreprises. Aucun accompagnement individuel n’est proposé. Pas de formation à distance ou hors Île-de-France.',
+    'Sessions en groupe, en intra-entreprise ou en inter-entreprises. Vous pouvez vous inscrire à une session collective interentreprises. Aucun accompagnement individuel n’est proposé. Catalogue IA BTP : pas de formation à distance ni hors Île-de-France. Exception : le parcours « création avec l’IA sans coder » peut proposer des inter en visioconférence (voir sa fiche).',
   /** Ligne compacte hero / bandeaux. */
   compact: 'Présentiel uniquement • Île-de-France • Groupe • Intra & inter',
   /** Variante avec séparateurs middle dots (UI dense). */
@@ -50,11 +55,11 @@ export const catalogStats = {
 export const BUSINESS_DELIVERY_FAQ = [
   {
     q: 'Intervenez-vous partout en France ?',
-    a: 'Non. Les formations sont actuellement réalisées exclusivement en présentiel en Île-de-France.',
+    a: 'Non. Le catalogue IA BTP est réalisé exclusivement en présentiel en Île-de-France.',
   },
   {
     q: 'Proposez-vous des formations à distance ?',
-    a: 'Non. Les formations sont exclusivement réalisées en présentiel.',
+    a: `Non pour le catalogue IA BTP (présentiel uniquement en Île-de-France). ${EXCEPTION_VISIO_CREATION_IA}`,
   },
   {
     q: 'Puis-je suivre une formation individuellement ?',
@@ -86,4 +91,4 @@ export const FORMATION_FORMAT_OPTIONS = [
 ] as const;
 
 export const HORS_IDF_MESSAGE =
-  'Les formations sont actuellement proposées uniquement en présentiel en Île-de-France.' as const;
+  'Le catalogue IA BTP est proposé uniquement en présentiel en Île-de-France. Le parcours création avec l’IA sans coder peut proposer des inter en visioconférence — voir sa fiche.' as const;

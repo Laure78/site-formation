@@ -143,7 +143,7 @@ export const BEWORK_COMPETENCES_REPARTIE = [
 export const BEWORK_MODALITES = [
   {
     title: 'Inter-entreprises',
-    desc: 'Sessions programmées en petit groupe, présentiel en Île-de-France.',
+    desc: 'Sessions programmées en petit groupe — présentiel en Île-de-France (recommandé) ou visioconférence à dates dédiées.',
   },
   {
     title: 'Intra-entreprise',
