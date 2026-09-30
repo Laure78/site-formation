@@ -1,9 +1,11 @@
 import type { FormationCatalogueCode } from '@/lib/formation-catalogue-visibility';
 import { getFormationByCode, isFormationSurDevis } from '@/data/formations';
 import { FINANCEMENT_FORMULATION_PRUDENTE } from '@/lib/financement-copy';
+import { DevWebIaTarifGroupeCard } from '@/components/formations/DevWebIaTarifGroupeCard';
 import {
   DEV_WEB_IA_INCLUS_TARIF,
   DEV_WEB_IA_PRIX_LANCEMENT_LABEL,
+  DEV_WEB_IA_TARIF_GROUPE_TITLE,
   TARIF_INTER_DEV_WEB_IA_14H_HT,
   TARIF_INTER_DEV_WEB_IA_HT,
 } from '@/lib/formation-developpement-web-ia-content';
@@ -49,20 +51,15 @@ export function FormationTarifsModalitesSection({ catalogueRef }: Props) {
 
         <div className="mt-6 grid gap-6 md:grid-cols-2">
           <div className="rounded-2xl border border-slate-200 bg-slate-50 p-6">
-            <h3 className="font-display text-lg font-semibold text-slate-900">Intra-entreprise</h3>
+            <h3 className="font-display text-lg font-semibold text-slate-900">
+              {isDevWebIa ? DEV_WEB_IA_TARIF_GROUPE_TITLE : 'Intra-entreprise'}
+            </h3>
             {isDevWebIa ? (
-              <>
-                <p className="mt-4 font-display text-xl font-bold text-[#377CF3]">Tarif sur devis</p>
-                <p className="mt-2 text-sm text-slate-600">
-                  {effectifLabel}
-                  <br />
-                  7 h ou 14 h (2 journées pour le parcours 14 h)
-                </p>
-                <p className="mt-3 text-sm leading-relaxed text-slate-600">
-                  Le tarif est forfaitaire pour l&apos;ensemble du groupe. Il comprend l&apos;animation, les
-                  supports pédagogiques, les livrables et les évaluations prévues dans le programme.
-                </p>
-              </>
+              <DevWebIaTarifGroupeCard
+                className="mt-4 border-0 bg-transparent p-0 shadow-none"
+                ctaVariant="secondary"
+                showTitle={false}
+              />
             ) : (
               <>
                 <p className="mt-3 text-sm leading-relaxed text-slate-600">

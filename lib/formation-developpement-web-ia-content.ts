@@ -25,14 +25,16 @@ export const DEV_WEB_IA_BADGE_NOUVELLE = 'Nouvelle formation' as const;
 export const DEV_WEB_IA_BADGE_NOUVEAU = 'Nouveau' as const;
 export const DEV_WEB_IA_PRIX_LANCEMENT_LABEL = 'Prix de lancement' as const;
 
+/** Tarif forfaitaire par groupe — fédérations, organisations pro, entreprises (hors parcours 7 h / 14 h individuels). */
+export const DEV_WEB_IA_TARIF_GROUPE_HT = 2000 as const;
+export const DEV_WEB_IA_TARIF_GROUPE_TITLE =
+  'Tarif groupe — Fédérations, organisations et entreprises' as const;
+export const DEV_WEB_IA_TARIF_GROUPE_DESCRIPTION =
+  'Organisez une session dédiée à vos adhérents ou à vos équipes.' as const;
+export const DEV_WEB_IA_TARIF_GROUPE_CTA = 'Demander une session groupe' as const;
+
 export const DEV_WEB_IA_SUBTITLE =
   'Créer un site, une application ou un outil métier avec l’intelligence artificielle.' as const;
-
-export const DEV_WEB_IA_HOOK = {
-  line1: 'Une idée.',
-  line2: 'Une journée.',
-  line3: 'Une première version fonctionnelle.',
-} as const;
 
 export const DEV_WEB_IA_HERO_FACTS = [
   '7 h (1 journée) ou 14 h (2 journées)',
@@ -54,9 +56,9 @@ export const DEV_WEB_IA_INCLUS_TARIF = [
 ] as const;
 
 export const DEV_WEB_IA_FORMATS = [
-  'Présentiel · Île-de-France (inter ou intra)',
+  'Présentiel · Île-de-France (inter ou session groupe)',
   'Visioconférence · sessions inter à dates dédiées',
-  'Inter-entreprises ou intra-entreprise sur devis',
+  'Fédérations, organisations professionnelles et entreprises : tarif groupe',
 ] as const;
 
 export const DEV_WEB_IA_MODALITES_SECTION = {
@@ -324,7 +326,7 @@ export const DEV_WEB_IA_FAQ = [
   },
   {
     q: 'Quels formats sont proposés ? Puis-je suivre la formation en visio ?',
-    a: 'Le présentiel en Île-de-France est privilégié (inter-entreprises ou intra-entreprise sur devis, 6 à 8 participants). Des sessions inter-entreprises en visioconférence sont aussi ouvertes à des dates dédiées, avec le même parcours de 7 h et des échanges adaptés au partage d’écran.',
+    a: `Le présentiel en Île-de-France est privilégié (inter-entreprises, 6 à 8 participants). Les fédérations, organisations professionnelles et entreprises peuvent organiser une session dédiée au tarif groupe (${formatTarifHt(DEV_WEB_IA_TARIF_GROUPE_HT)} € HT par groupe). Des sessions inter-entreprises en visioconférence sont aussi ouvertes à des dates dédiées, avec le même parcours de 7 h et des échanges adaptés au partage d’écran.`,
   },
   {
     q: 'L’abonnement ChatGPT ou Claude est-il inclus ?',
@@ -335,6 +337,10 @@ export const DEV_WEB_IA_FAQ = [
 /** Libellé tarif catalogue / résumés — cohérent partout. */
 export function libelleTarifLancementDevWebIa(): string {
   return `${DEV_WEB_IA_PRIX_LANCEMENT_LABEL} : ${formatTarifHt(TARIF_INTER_DEV_WEB_IA_HT)} € HT / participant (7 h) · ${formatTarifHt(TARIF_INTER_DEV_WEB_IA_14H_HT)} € HT / participant (14 h)`;
+}
+
+export function libelleTarifGroupeDevWebIa(): string {
+  return `Tarif groupe : ${formatTarifHt(DEV_WEB_IA_TARIF_GROUPE_HT)} € HT par groupe`;
 }
 
 export function mentionFinancementDevWebIa(): string {

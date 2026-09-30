@@ -14,7 +14,6 @@ import { VIDEOS } from '@/lib/videos';
 import {
   DEV_WEB_IA_BADGE_NOUVELLE,
   DEV_WEB_IA_DUREE_COURTE,
-  DEV_WEB_IA_HOOK,
   DEV_WEB_IA_SUBTITLE,
 } from '@/lib/formation-developpement-web-ia-content';
 import { BEWORK_LOGO, BEWORK_SUBTAGLINE } from '@/lib/bework-brand';
@@ -73,18 +72,6 @@ export function CatalogueFormationDevWebHero() {
             <p className="mt-3 max-w-2xl text-lg leading-relaxed text-slate-700">{DEV_WEB_IA_SUBTITLE}</p>
 
             <DevWebIaPrixLancementCard className="mt-6" formationTitle={FORMATION.titre} showCtas={false} />
-
-            <div className="mt-8 space-y-1 border-l-4 border-[#377CF3] pl-5">
-              <p className="font-display text-2xl font-bold tracking-tight text-slate-900 md:text-3xl">
-                {DEV_WEB_IA_HOOK.line1}
-              </p>
-              <p className="font-display text-2xl font-bold tracking-tight text-slate-900 md:text-3xl">
-                {DEV_WEB_IA_HOOK.line2}
-              </p>
-              <p className="font-display text-2xl font-bold tracking-tight text-[#377CF3] md:text-3xl">
-                {DEV_WEB_IA_HOOK.line3}
-              </p>
-            </div>
 
             <p className="mt-6 max-w-xl text-base leading-relaxed text-slate-600">
               Pas un logiciel complet prêt pour la production : une première version fonctionnelle, une méthode de

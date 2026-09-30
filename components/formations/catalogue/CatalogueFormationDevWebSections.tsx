@@ -18,7 +18,7 @@ import { OFC_TYPE_H3 } from '@/lib/ofc-interaction-classes';
 import { formatTarifHt } from '@/lib/tarifs-sessions';
 import { PHOTOS } from '@/lib/photos';
 import { LINKS } from '@/lib/internal-links';
-import { devWebIaProjectFormHref } from '@/lib/formation-developpement-web-ia-content';
+import { DEV_WEB_IA_TARIF_GROUPE_CTA, devWebIaProjectFormHref } from '@/lib/formation-developpement-web-ia-content';
 import { OFC_CTA_PRIMARY } from '@/lib/ofc-interaction-classes';
 import {
   DEV_WEB_IA_ESPACE,
@@ -315,7 +315,7 @@ export function CatalogueFormationDevWebTariffsSection() {
         </h2>
         <p className="mt-2 max-w-2xl text-base text-slate-600">
           Parcours 7 h ou 14 h — inter-entreprises (présentiel en Île-de-France ou visio à dates
-          dédiées) ou intra-entreprise sur devis (présentiel dans vos locaux).
+          dédiées) ou session groupe pour fédérations, organisations et entreprises.
         </p>
         <DevWebIaPrixLancementCard className="mt-6" formationTitle={FORMATION.titre} showCtas={false} />
         <ul className="mt-6 list-disc space-y-1 pl-5 text-base text-slate-700">
@@ -333,7 +333,7 @@ export function CatalogueFormationDevWebTariffsSection() {
             href={devWebIaProjectFormHref()}
             className={`${OFC_CTA_PRIMARY} inline-flex min-h-11 items-center justify-center px-6 py-3`}
           >
-            Demander une session intra-entreprise
+            {DEV_WEB_IA_TARIF_GROUPE_CTA}
           </Link>
         </p>
       </div>

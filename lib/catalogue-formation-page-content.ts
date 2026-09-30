@@ -8,6 +8,7 @@ import { getFormationByCode } from '@/data/formations';
 import {
   DEV_WEB_IA_LIVRABLES,
   DEV_WEB_IA_OBJECTIFS,
+  DEV_WEB_IA_TARIF_GROUPE_HT,
   TARIF_INTER_DEV_WEB_IA_14H_HT,
   TARIF_INTER_DEV_WEB_IA_HT,
 } from '@/lib/formation-developpement-web-ia-content';
@@ -582,6 +583,10 @@ const NIV_10: CatalogueFormationPageContent = {
       label: 'Tarif inter',
       value: `${formatTarifHt(TARIF_INTER_DEV_WEB_IA_HT)} € HT (7 h) · ${formatTarifHt(TARIF_INTER_DEV_WEB_IA_14H_HT)} € HT (14 h) / participant`,
     },
+    {
+      label: 'Tarif groupe',
+      value: `${formatTarifHt(DEV_WEB_IA_TARIF_GROUPE_HT)} € HT par groupe`,
+    },
   ],
   painPointsTitle: 'Vous avez une idée, mais elle reste au stade de projet ?',
   painPoints: [
@@ -615,7 +620,7 @@ const NIV_10: CatalogueFormationPageContent = {
     { iaAide: 'Aider à sauvegarder et documenter', validation: 'Garder la responsabilité du projet' },
   ],
   interExtraBullets: ['Parcours 7 h ou 14 h selon calendrier'],
-  intraExtraBullets: ['Parcours 7 h ou 14 h · programme adaptable'],
+  intraExtraBullets: ['Session dédiée · tarif groupe (fédérations, organisations, entreprises)'],
   programIntro:
     'Session de 7 h sur votre propre projet : le déroulé officiel en quatre modules. Les activités détaillées figurent uniquement dans cette section.',
   programmeHeading: 'Programme — 4 modules',
@@ -627,7 +632,7 @@ const NIV_10: CatalogueFormationPageContent = {
   finalCta: {
     title: 'Vous avez une idée de site, d’application ou d’outil métier ?',
     description:
-      'Apprenez à construire votre première version avec l’IA, sans savoir coder. Parcours 7 h ou 14 h — présentiel, visio inter ou intra sur devis.',
+      'Apprenez à construire votre première version avec l’IA, sans savoir coder. Parcours 7 h ou 14 h — présentiel, visio inter ou session groupe pour fédérations et entreprises.',
     primaryLabel: 'Demander un devis',
     secondaryLabel: 'S’inscrire à la formation',
   },

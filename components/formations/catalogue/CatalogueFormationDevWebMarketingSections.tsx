@@ -18,6 +18,7 @@ import { FINANCEMENT_FORMULATION_COURTE } from '@/lib/financement-copy';
 import { LINKS } from '@/lib/internal-links';
 import { formatTarifHt } from '@/lib/tarifs-sessions';
 import type { BeworkParcours, BeworkParcoursId } from '@/lib/bework-programmes';
+import { DevWebIaTarifGroupeCard } from '@/components/formations/DevWebIaTarifGroupeCard';
 import {
   DEV_WEB_IA_JOUR_RESUME,
   DEV_WEB_IA_MODALITES,
@@ -30,8 +31,8 @@ import {
   DEV_WEB_IA_PDF_7H_HREF,
   DEV_WEB_IA_QUALIOPI_ENGAGEMENTS,
   devWebIaInscriptionHref,
-  devWebIaProjectFormHref,
 } from '@/lib/formation-developpement-web-ia-content';
+import { MENTIONS_TVA_INTRA_COURTE } from '@/lib/tarifs-sessions';
 
 type DevWebParcoursMarketing = (typeof DEV_WEB_IA_PARCOURS_MARKETING)[BeworkParcoursId];
 
@@ -274,11 +275,14 @@ export function CatalogueFormationDevWebParcoursTarifsSection() {
           />
         </div>
 
+        <DevWebIaTarifGroupeCard className="mt-6" ctaVariant="secondary" />
+
         <p className="mt-6 text-sm text-slate-600">
-          Commencez par la journée à {formatTarifHt(DEV_WEB_IA_PARCOURS_7H.tarifHt)} € HT, ou choisissez
-          directement le parcours {DEV_WEB_IA_PARCOURS_14H.dureeLabel} à{' '}
-          {formatTarifHt(DEV_WEB_IA_PARCOURS_14H.tarifHt)} € HT. Intra-entreprise : sur devis.
+          Commencez par la journée à {formatTarifHt(DEV_WEB_IA_PARCOURS_7H.tarifHt)} € HT / participant, ou
+          choisissez directement le parcours {DEV_WEB_IA_PARCOURS_14H.dureeLabel} à{' '}
+          {formatTarifHt(DEV_WEB_IA_PARCOURS_14H.tarifHt)} € HT / participant.
         </p>
+        <p className="mt-2 text-xs leading-relaxed text-slate-600">{MENTIONS_TVA_INTRA_COURTE}</p>
         <p className="mt-2 text-sm text-slate-600">
           <Link href={LINKS.financement} className={OFC_LINK}>
             Financement OPCO possible selon éligibilité
@@ -299,15 +303,6 @@ export function CatalogueFormationDevWebParcoursTarifsSection() {
             inscriptionLabel="Demander une place (parcours 14 h)"
           />
         </div>
-
-        <p className="mt-8">
-          <Link
-            href={devWebIaProjectFormHref()}
-            className={`${OFC_CTA_PRIMARY} inline-flex min-h-11 items-center justify-center px-6 py-3`}
-          >
-            Demander une session intra-entreprise — {FORMATION.titre}
-          </Link>
-        </p>
       </div>
     </section>
   );
