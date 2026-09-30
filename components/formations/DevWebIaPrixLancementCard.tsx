@@ -13,7 +13,7 @@ import {
   devWebIaProjectFormHref,
 } from '@/lib/formation-developpement-web-ia-content';
 import { FINANCEMENT_FORMULATION_COURTE } from '@/lib/financement-copy';
-import { MENTIONS_TVA_INTRA_COURTE, formatTarifHt } from '@/lib/tarifs-sessions';
+import { formatTarifHt } from '@/lib/tarifs-sessions';
 import { MentionTvaAsterisque } from '@/components/MentionTVA';
 import { OFC_CTA_PRIMARY, OFC_CTA_SECONDARY } from '@/lib/ofc-interaction-classes';
 import { cn } from '@/lib/cn';
@@ -83,9 +83,12 @@ export function DevWebIaPrixLancementCard({ className, showCtas = true }: Props)
         ))}
       </div>
 
-      <DevWebIaTarifGroupeCard className="mt-4" showCta={false} headingLevel="p" />
-
-      <p className="mt-4 text-xs leading-relaxed text-ofc-ink-subtle">{MENTIONS_TVA_INTRA_COURTE}</p>
+      <DevWebIaTarifGroupeCard
+        className="mt-4"
+        showCta={false}
+        headingLevel="p"
+        showTvaFootnote
+      />
       <p className="mt-2 text-xs leading-relaxed text-ofc-ink-subtle">{FINANCEMENT_FORMULATION_COURTE}</p>
 
       {showCtas ? (

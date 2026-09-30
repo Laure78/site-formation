@@ -8,7 +8,7 @@ import { getFormationByCode } from '@/data/formations';
 import {
   DEV_WEB_IA_LIVRABLES,
   DEV_WEB_IA_OBJECTIFS,
-  DEV_WEB_IA_TARIF_GROUPE_HT,
+  DEV_WEB_IA_TARIF_GROUPE_LIBELLE,
   TARIF_INTER_DEV_WEB_IA_14H_HT,
   TARIF_INTER_DEV_WEB_IA_HT,
 } from '@/lib/formation-developpement-web-ia-content';
@@ -585,7 +585,7 @@ const NIV_10: CatalogueFormationPageContent = {
     },
     {
       label: 'Tarif groupe',
-      value: `${formatTarifHt(DEV_WEB_IA_TARIF_GROUPE_HT)} € HT par groupe`,
+      value: DEV_WEB_IA_TARIF_GROUPE_LIBELLE,
     },
   ],
   painPointsTitle: 'Vous avez une idée, mais elle reste au stade de projet ?',

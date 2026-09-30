@@ -25,8 +25,9 @@ export const DEV_WEB_IA_BADGE_NOUVELLE = 'Nouvelle formation' as const;
 export const DEV_WEB_IA_BADGE_NOUVEAU = 'Nouveau' as const;
 export const DEV_WEB_IA_PRIX_LANCEMENT_LABEL = 'Prix de lancement' as const;
 
-/** Tarif forfaitaire par groupe — fédérations, organisations pro, entreprises (hors parcours 7 h / 14 h individuels). */
-export const DEV_WEB_IA_TARIF_GROUPE_HT = 2000 as const;
+/** Session dédiée fédérations / organisations / entreprises — devis (hors parcours 7 h / 14 h individuels). */
+export const DEV_WEB_IA_TARIF_GROUPE_LIBELLE = 'Tarif sur devis' as const;
+export const DEV_WEB_IA_TARIF_GROUPE_BADGE = 'Tarif préférentiel' as const;
 export const DEV_WEB_IA_TARIF_GROUPE_TITLE =
   'Tarif groupe — Fédérations, organisations et entreprises' as const;
 export const DEV_WEB_IA_TARIF_GROUPE_DESCRIPTION =
@@ -326,7 +327,7 @@ export const DEV_WEB_IA_FAQ = [
   },
   {
     q: 'Quels formats sont proposés ? Puis-je suivre la formation en visio ?',
-    a: `Le présentiel en Île-de-France est privilégié (inter-entreprises, 6 à 8 participants). Les fédérations, organisations professionnelles et entreprises peuvent organiser une session dédiée au tarif groupe (${formatTarifHt(DEV_WEB_IA_TARIF_GROUPE_HT)} € HT par groupe). Des sessions inter-entreprises en visioconférence sont aussi ouvertes à des dates dédiées, avec le même parcours de 7 h et des échanges adaptés au partage d’écran.`,
+    a: `Le présentiel en Île-de-France est privilégié (inter-entreprises, 6 à 8 participants). Les fédérations, organisations professionnelles et entreprises peuvent organiser une session dédiée (${DEV_WEB_IA_TARIF_GROUPE_LIBELLE.toLowerCase()}, ${DEV_WEB_IA_TARIF_GROUPE_BADGE.toLowerCase()}). Des sessions inter-entreprises en visioconférence sont aussi ouvertes à des dates dédiées, avec le même parcours de 7 h et des échanges adaptés au partage d’écran.`,
   },
   {
     q: 'L’abonnement ChatGPT ou Claude est-il inclus ?',
@@ -340,7 +341,7 @@ export function libelleTarifLancementDevWebIa(): string {
 }
 
 export function libelleTarifGroupeDevWebIa(): string {
-  return `Tarif groupe : ${formatTarifHt(DEV_WEB_IA_TARIF_GROUPE_HT)} € HT par groupe`;
+  return `Tarif groupe : ${DEV_WEB_IA_TARIF_GROUPE_LIBELLE.toLowerCase()}`;
 }
 
 export function mentionFinancementDevWebIa(): string {
