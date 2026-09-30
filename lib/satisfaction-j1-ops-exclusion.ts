@@ -1,5 +1,15 @@
 import type { SupabaseClient } from '@supabase/supabase-js';
 
+type SessionParticipantPerson = { email: string; profile_id: string | null };
+
+function personFromJoin(value: unknown): SessionParticipantPerson | null {
+  if (value == null) return null;
+  const item = Array.isArray(value) ? value[0] : value;
+  if (!item || typeof item !== 'object') return null;
+  const o = item as SessionParticipantPerson;
+  return o;
+}
+
 /**
  * Inscriptions LMS dont la satisfaction post-formation est gérée par training_ops
  * (participant session lié au même course_id) — exclues du cron satisfaction-j1.
@@ -36,41 +46,23 @@ export async function enrollmentIdsExcludedFromSatisfactionJ1(
 
   const { data: participants, error: partErr } = await supabase
     .from('training_session_participants')
-    .select('session_id, person_id')
+    .select('session_id, status, person:training_people!inner(email, profile_id)')
     .in('session_id', sessionIds)
     .neq('status', 'annule');
   if (partErr) {
     console.error('[satisfaction-j1-ops-exclusion]', partErr.message);
     return excluded;
   }
-  if (!participants?.length) return excluded;
-
-  const personIds = [...new Set(participants.map((p) => p.person_id as string))];
-  const { data: people, error: peopleErr } = await supabase
-    .from('training_people')
-    .select('id, email, profile_id')
-    .in('id', personIds);
-  if (peopleErr) {
-    console.error('[satisfaction-j1-ops-exclusion]', peopleErr.message);
-    return excluded;
-  }
-
-  const personById = new Map(
-    (people ?? []).map((p) => [
-      p.id as string,
-      { email: String(p.email ?? ''), profile_id: (p.profile_id as string | null) ?? null },
-    ]),
-  );
 
   const enrollmentKey = (userId: string, courseId: string) => `${userId}:${courseId}`;
   const coveredKeys = new Set<string>();
 
-  for (const row of participants) {
+  for (const row of participants ?? []) {
     const courseId = sessionToCourse.get(row.session_id as string);
     if (!courseId) continue;
-    const person = personById.get(row.person_id as string);
+    const person = personFromJoin(row.person as unknown);
     if (!person) continue;
-    const email = person.email.trim().toLowerCase();
+    const email = person.email?.trim().toLowerCase();
     if (person.profile_id) {
       coveredKeys.add(enrollmentKey(person.profile_id, courseId));
     }
