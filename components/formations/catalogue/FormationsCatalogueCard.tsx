@@ -19,7 +19,7 @@ import {
   TARIF_INTER_DEV_WEB_IA_HT,
 } from '@/lib/formation-developpement-web-ia-content';
 import { formatTarifHt } from '@/lib/tarifs-sessions';
-import { OFC_CARD, OFC_CTA_PRIMARY, OFC_LINK } from '@/lib/ofc-interaction-classes';
+import { OFC_CARD, OFC_CARD_ARROW, OFC_CTA_PRIMARY, OFC_LINK } from '@/lib/ofc-interaction-classes';
 
 type Props = {
   entry: FormationCatalogueEntry;
@@ -27,7 +27,7 @@ type Props = {
   dimmed?: boolean;
 };
 
-/** Carte catalogue — structure homogène avec badge niveau primaire. */
+/** Carte catalogue — entièrement cliquable via Link absolu (href unique = entry.href). */
 export function FormationsCatalogueCard({
   entry,
   highlighted = false,
@@ -45,14 +45,25 @@ export function FormationsCatalogueCard({
     'description' in visuel && typeof visuel.description === 'string'
       ? visuel.description
       : undefined;
+  const titleId = `formation-card-title-${entry.ref}`;
 
   return (
     <article
       id={catalogueCardAnchorId(entry.ref)}
-      className={`${OFC_CARD} flex h-full min-h-[28rem] scroll-mt-28 flex-col overflow-hidden p-0 ${
+      className={`${OFC_CARD} relative flex h-full min-h-[28rem] cursor-pointer scroll-mt-28 flex-col overflow-hidden p-0 has-[[data-card-link]:focus-visible]:border-[rgba(55,124,243,0.45)] has-[[data-card-link]:focus-visible]:shadow-[0_0_0_3px_rgba(55,124,243,0.35)] ${
         highlighted ? 'border-ofc-accent/40 shadow-ofc-md ring-1 ring-ofc-accent/25' : ''
       } ${dimmed ? 'opacity-45' : ''}`}
     >
+      {/* Lien unique — couvre toute la carte ; PDF au-dessus (z-index) */}
+      <Link
+        href={entry.href}
+        data-card-link
+        aria-labelledby={titleId}
+        className="absolute inset-0 z-[1] rounded-[inherit] focus-visible:outline-none"
+      >
+        <span className="sr-only">Découvrir la formation</span>
+      </Link>
+
       {/* Image */}
       <figure className="relative">
         <div className="relative aspect-[16/9] overflow-hidden bg-slate-100">
@@ -74,7 +85,7 @@ export function FormationsCatalogueCard({
         {caption ? <figcaption className="sr-only">{caption}</figcaption> : null}
       </figure>
 
-      <div className="flex flex-1 flex-col p-5 sm:p-6">
+      <div className="relative flex flex-1 flex-col p-5 sm:p-6">
         {/* Badge niveau (primaire) + catégorie thématique (secondaire) */}
         <div className="flex flex-wrap items-center gap-2">
           <span
@@ -95,8 +106,11 @@ export function FormationsCatalogueCard({
           ) : null}
         </div>
 
-        {/* Titre */}
-        <h3 className="mt-4 font-display text-lg font-bold leading-snug text-ofc-ink">
+        {/* Titre — associé au lien carte via aria-labelledby */}
+        <h3
+          id={titleId}
+          className="mt-4 font-display text-lg font-bold leading-snug text-ofc-ink"
+        >
           {entry.title}
         </h3>
 
@@ -151,20 +165,20 @@ export function FormationsCatalogueCard({
             )}
           </p>
 
-          {/* CTA principal + lien PDF */}
+          {/* CTA visuel (pas de 2ᵉ lien) + PDF au-dessus du lien carte */}
           <div className="flex flex-col gap-2">
-            <Link
-              href={entry.href}
-              className={`${OFC_CTA_PRIMARY} inline-flex min-h-11 items-center justify-center gap-2 px-5 py-3 text-sm`}
+            <span
+              className={`${OFC_CTA_PRIMARY} pointer-events-none relative z-[2] inline-flex min-h-11 items-center justify-center gap-2 px-5 py-3 text-sm`}
+              aria-hidden="true"
             >
               Découvrir la formation
-              <ArrowRight className="h-4 w-4" aria-hidden />
-            </Link>
+              <ArrowRight className={`h-4 w-4 ${OFC_CARD_ARROW}`} aria-hidden />
+            </span>
             {entry.programmePdfHref ? (
               <a
                 href={entry.programmePdfHref}
                 download
-                className={`${OFC_LINK} inline-flex items-center justify-center gap-1.5 py-2 text-sm`}
+                className={`${OFC_LINK} relative z-[2] inline-flex items-center justify-center gap-1.5 py-2 text-sm`}
               >
                 <FileText className="h-3.5 w-3.5" aria-hidden />
                 Programme PDF

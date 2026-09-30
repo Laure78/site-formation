@@ -300,7 +300,7 @@ const METIER_CLUSTER: Record<string, MetierClusterEntry> = {
   },
   [LINKS.formationIaAssistanteBtp]: {
     path: LINKS.formationIaAssistanteBtp,
-    close: [LINKS.formationIaAssistanteTravaux],
+    close: [LINKS.formationIaAssistanteTravaux, LINKS.formationConducteurTravaux],
     catalogue: {
       href: LINKS.formationIaBtpNiveau1BatimentTp,
       label: 'Formation IA catalogue — administratif et chantier',

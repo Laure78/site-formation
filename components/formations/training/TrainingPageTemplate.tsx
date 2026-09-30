@@ -88,11 +88,13 @@ export function TrainingPageTemplate({
       { label: 'Format', value: content.formatLabel ?? 'Présentiel' },
       { label: 'Participants', value: effectifLabel },
       ...(content.practiceShare
-        ? [{ label: 'Pratique', value: content.practiceShare }]
+        ? [{ label: 'Part de pratique', value: content.practiceShare }]
         : []),
       {
-        label: 'Lieu',
-        value: content.locationLabel ?? 'Île-de-France',
+        label: content.formatLabel ? 'Présentiel / distanciel' : 'Lieu',
+        value: content.formatLabel
+          ? `${content.formatLabel}${content.locationLabel ? ` · ${content.locationLabel}` : ''}`
+          : (content.locationLabel ?? 'Île-de-France'),
       },
     ].slice(0, 6);
 

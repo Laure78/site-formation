@@ -20,7 +20,7 @@ const NIVEAU_TABS: { id: NiveauFilter; label: string }[] = [
   { id: 'niveau-3', label: 'Niveau 3' },
 ];
 
-/** Sélecteur + filtre niveau + grille — formations catalogue publiques. */
+/** Sélecteur + filtre niveau + grille — cartes catalogue entièrement cliquables. */
 export function FormationsCatalogueMainSection({ formations }: Props) {
   const [niveauFilter, setNiveauFilter] = useState<NiveauFilter>('all');
 
