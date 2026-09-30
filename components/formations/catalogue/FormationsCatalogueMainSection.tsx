@@ -1,17 +1,13 @@
 'use client';
 
-import { useCallback, useMemo, useState, useTransition } from 'react';
+import { useMemo, useState } from 'react';
 import type { FormationCatalogueEntry } from '@/lib/formations-catalogue-display';
-import {
-  CATALOGUE_MENU_LABELS,
-  type CatalogueBesoinOption,
-} from '@/lib/formations-catalogue-page-config';
+import { CATALOGUE_MENU_LABELS } from '@/lib/formations-catalogue-page-config';
 import { FormationsCatalogueCard } from '@/components/formations/catalogue/FormationsCatalogueCard';
-import { FormationsBesoinSelector } from '@/components/formations/catalogue/FormationsBesoinSelector';
+import { useFormationsCatalogueBesoin } from '@/components/formations/catalogue/FormationsCatalogueBesoinContext';
 
 type Props = {
   formations: FormationCatalogueEntry[];
-  besoinOptions: readonly CatalogueBesoinOption[];
 };
 
 type NiveauFilter = 'all' | 'niveau-1' | 'niveau-2';
@@ -23,21 +19,9 @@ const NIVEAU_TABS: { id: NiveauFilter; label: string }[] = [
 ];
 
 /** Sélecteur + filtre niveau + grille — formations catalogue publiques. */
-export function FormationsCatalogueMainSection({ formations, besoinOptions }: Props) {
-  const [, startTransition] = useTransition();
-  const [activeBesoinId, setActiveBesoinId] = useState<CatalogueBesoinOption['id'] | null>(null);
-  const [highlightedRefs, setHighlightedRefs] = useState<readonly string[]>([]);
+export function FormationsCatalogueMainSection({ formations }: Props) {
+  const { highlightedRefs } = useFormationsCatalogueBesoin();
   const [niveauFilter, setNiveauFilter] = useState<NiveauFilter>('all');
-
-  const onSelectBesoin = useCallback(
-    (id: CatalogueBesoinOption['id'] | null, targetRefs: readonly string[]) => {
-      startTransition(() => {
-        setActiveBesoinId(id);
-        setHighlightedRefs(targetRefs);
-      });
-    },
-    [],
-  );
 
   const core = useMemo(
     () =>
@@ -65,14 +49,8 @@ export function FormationsCatalogueMainSection({ formations, besoinOptions }: Pr
 
   return (
     <>
-      <FormationsBesoinSelector
-        options={besoinOptions}
-        activeBesoinId={activeBesoinId}
-        onSelectBesoin={onSelectBesoin}
-      />
-
       {/* Parcours niveaux — bloc visuel + filtre */}
-      <div className="mt-14" id="catalogue-niveaux">
+      <div className="mt-0" id="catalogue-niveaux">
         <div className="grid gap-4 sm:grid-cols-2">
           <div className="rounded-xl border border-emerald-200 bg-emerald-50/50 p-5">
             <p className="text-xs font-bold uppercase tracking-wide text-emerald-700">Niveau 1</p>

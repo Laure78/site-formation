@@ -22,13 +22,10 @@ import {
   catalogueNiveauLabel,
   isCatalogueNiveau1,
   sortFormationsCatalogue,
-  tarifLabelForEntry,
 } from '@/lib/formations-catalogue-display';
 import { CataloguePriceBadge } from '@/components/formations/CataloguePriceBadge';
 import { FormationCatalogueTitle } from '@/components/formations/FormationCatalogueTitle';
-import { MentionTvaAsterisque } from '@/components/MentionTVA';
 import { calendlyCatalogueUrl } from '@/lib/calendly';
-import { libelleTarifParticipantGrilleCatalogue } from '@/lib/tarifs-sessions';
 import { OFC_CARD, OFC_CTA_PRIMARY } from '@/lib/ofc-interaction-classes';
 
 const PROFILE_ICONS = {
@@ -101,7 +98,7 @@ function FormationCard({
           <CataloguePriceBadge
             level={cours.level}
             duree={cours.duree}
-            labelOverride={tarifLabelForEntry(cours)}
+            labelOverride={cours.tarifParcoursLabel}
             variant="overlay"
           />
         </div>
@@ -117,7 +114,7 @@ function FormationCard({
         <CataloguePriceBadge
           level={cours.level}
           duree={cours.duree}
-          labelOverride={tarifLabelForEntry(cours)}
+          labelOverride={cours.tarifParcoursLabel}
           variant="banner"
           className="mt-4"
         />
@@ -272,12 +269,6 @@ export function FormationsCatalogueInteractive({
           <h2 id="catalogue-formations-heading" className="sr-only">
             Catalogue : {catalogueCount} formations
           </h2>
-          <div className="flex flex-wrap items-center justify-center gap-3">
-            <span className="inline-flex rounded-full bg-[#EFF6FF] px-4 py-2 text-[13px] font-bold uppercase tracking-widest text-[#1E40AF]">
-              {libelleTarifParticipantGrilleCatalogue(4)}
-              <MentionTvaAsterisque />
-            </span>
-          </div>
         </div>
         <FormationsCatalogueCards
           formations={formations}

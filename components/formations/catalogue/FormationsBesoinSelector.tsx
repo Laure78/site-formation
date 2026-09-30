@@ -12,13 +12,20 @@ type Props = {
   options: readonly CatalogueBesoinOption[];
   activeBesoinId: CatalogueBesoinOption['id'] | null;
   onSelectBesoin: (id: CatalogueBesoinOption['id'] | null, targetRefs: readonly string[]) => void;
+  /** En bas de page : texte d’aide orienté remontée vers les fiches. */
+  placement?: 'top' | 'bottom';
 };
 
 /**
  * Sélecteur par besoin — ancres HTML utilisables sans JS ;
  * filtre / mise en évidence côté section catalogue.
  */
-export function FormationsBesoinSelector({ options, activeBesoinId, onSelectBesoin }: Props) {
+export function FormationsBesoinSelector({
+  options,
+  activeBesoinId,
+  onSelectBesoin,
+  placement = 'top',
+}: Props) {
   const liveId = useId();
 
   const selectBesoin = useCallback(
@@ -53,10 +60,12 @@ export function FormationsBesoinSelector({ options, activeBesoinId, onSelectBeso
       <h2 id="catalogue-besoin-heading" className="font-display text-2xl font-bold text-ofc-ink md:text-3xl">
         Quelle formation correspond à votre besoin ?
       </h2>
-      <p id={liveId} className="mt-2 text-sm text-slate-600" aria-live="polite">
+      <p id={liveId} className="mt-2 max-w-2xl text-sm leading-relaxed text-slate-600" aria-live="polite">
         {activeBesoinId
-          ? `Filtre actif : ${options.find((o) => o.id === activeBesoinId)?.label ?? activeBesoinId}`
-          : 'Sélectionnez un besoin pour mettre en avant les formations concernées.'}
+          ? `Filtre actif : ${options.find((o) => o.id === activeBesoinId)?.label ?? activeBesoinId}. Les fiches correspondantes sont mises en évidence dans le catalogue ci-dessus.`
+          : placement === 'bottom'
+            ? 'Sélectionnez un besoin : la page remonte vers les fiches concernées et les met en évidence.'
+            : 'Sélectionnez un besoin pour mettre en avant les formations concernées.'}
       </p>
       <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {options.map((option) => {

@@ -151,23 +151,6 @@ export function libelleTarifsGrilleLigne(dureeHeures: TarifDureeHeures): string 
   return `${label} : ${t.intra} (intra uniquement)`;
 }
 
-/** Tarif indicatif page catalogue `/formations` — participant uniquement (sans forfait groupe). */
-export function libelleTarifParticipantGrilleCatalogue(
-  dureeHeures: TarifDureeHeures = 4,
-): string {
-  const g = getTarifGrille(dureeHeures);
-  if (g.interHT != null) {
-    return libelleTarifInterParParticipant(g.interHT);
-  }
-  return libelleTarifInterParParticipant(TARIF_INTER_4H_HT_FROM);
-}
-
-/** Ligne grille catalogue — tarif par participant seul. */
-export function libelleTarifsGrilleLigneParticipant(dureeHeures: TarifDureeHeures): string {
-  const label = dureeHeures === 2 ? '2 heures' : `${dureeHeures} heures`;
-  return `${label} : ${libelleTarifParticipantGrilleCatalogue(dureeHeures)}`;
-}
-
 /** Durées affichées sur la grille catalogue `/formations`. */
 export const GRILLE_TARIFS_CATALOGUE_DUREES: readonly TarifDureeHeures[] = [4];
 

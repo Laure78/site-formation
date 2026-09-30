@@ -21,6 +21,8 @@ import { FormationsCatalogueConversionSection } from '@/components/formations/ca
 import { FormationsCatalogueProofSection } from '@/components/formations/catalogue/FormationsCatalogueProofSection';
 import { FormationsFaqSection } from '@/components/formations/FormationsFaqSection';
 import { FormationsCatalogueMaillageSection } from '@/components/formations/catalogue/FormationsCatalogueMaillageSection';
+import { FormationsCatalogueBesoinProvider } from '@/components/formations/catalogue/FormationsCatalogueBesoinContext';
+import { FormationsCatalogueBesoinSection } from '@/components/formations/catalogue/FormationsCatalogueBesoinSection';
 
 const baseUrl = SITE_CONFIG.url.replace(/\/$/, '');
 
@@ -79,18 +81,21 @@ export default function FormationsPage() {
       <JsonLd id="schema-formations-page-graph" schema={buildFormationsPageUnifiedGraphJsonLd()} />
       <FormationsCatalogueHero />
 
-      <div className="mx-auto max-w-[80rem] px-4 pb-20 pt-10 sm:px-6 md:pt-14 lg:px-8">
-        <FormationsCatalogueMainSection formations={coreFormations} besoinOptions={besoinOptions} />
-        <FormationsCatalogueApprochePratiqueSection />
-        <FormationsCatalogueComparison formations={coreFormations} />
-        <FormationsCataloguePracticalInfoSection />
-        <FormationsCatalogueMethodSection />
-        <FormationsCatalogueSurDemandeSection />
-        <FormationsCatalogueConversionSection />
-        <FormationsCatalogueProofSection />
-        <FormationsFaqSection items={faqCatalogue} title="Questions fréquentes" />
-        <FormationsCatalogueMaillageSection />
-      </div>
+      <FormationsCatalogueBesoinProvider>
+        <div className="mx-auto max-w-[80rem] px-4 pb-20 pt-10 sm:px-6 md:pt-14 lg:px-8">
+          <FormationsCatalogueMainSection formations={coreFormations} />
+          <FormationsCatalogueApprochePratiqueSection />
+          <FormationsCatalogueComparison formations={coreFormations} />
+          <FormationsCataloguePracticalInfoSection />
+          <FormationsCatalogueMethodSection />
+          <FormationsCatalogueSurDemandeSection />
+          <FormationsCatalogueConversionSection />
+          <FormationsCatalogueProofSection />
+          <FormationsCatalogueBesoinSection options={besoinOptions} />
+          <FormationsFaqSection items={faqCatalogue} title="Questions fréquentes" />
+          <FormationsCatalogueMaillageSection />
+        </div>
+      </FormationsCatalogueBesoinProvider>
     </>
   );
 }

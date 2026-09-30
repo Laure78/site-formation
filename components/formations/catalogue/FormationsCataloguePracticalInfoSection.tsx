@@ -13,7 +13,7 @@ import {
 } from '@/lib/parcours-federation-trois-niveaux';
 import { OFC_CTA_SECONDARY, OFC_LINK } from '@/lib/ofc-interaction-classes';
 
-/** Tarifs et modalités — une seule section centralisée. */
+/** Tarifs et modalités — une seule section centralisée (HT par participant). */
 export function FormationsCataloguePracticalInfoSection() {
   return (
     <section className="mt-16 scroll-mt-24" aria-labelledby="catalogue-infos-pratiques">
@@ -21,16 +21,14 @@ export function FormationsCataloguePracticalInfoSection() {
         Tarifs et modalités
       </h2>
       <p className="mt-3 max-w-3xl text-sm leading-relaxed text-slate-600 md:text-base">
-        {PERIMETRE_FORMATIONS_COURT} — zone {IDF_ZONE_INTERVENTION}. Tarifs HT par participant
-        (sessions convoquées, intra ou inter). Minimum {SESSION_CONVOQUEE_MIN_PARTICIPANTS}{' '}
-        participants pour une session convoquée par un réseau. Sur mesure sur devis.
+        {PERIMETRE_FORMATIONS_COURT} — zone {IDF_ZONE_INTERVENTION}. Tarifs HT par participant (sessions
+        convoquées, intra ou inter). Minimum {SESSION_CONVOQUEE_MIN_PARTICIPANTS} participants pour une
+        session convoquée par un réseau. Sur mesure sur devis.
       </p>
 
       <div className="mt-8 overflow-hidden rounded-2xl border border-slate-200">
         <table className="w-full text-left text-sm">
-          <caption className="sr-only">
-            Grille tarifaire HT par participant — parcours en 3 niveaux
-          </caption>
+          <caption className="sr-only">Grille tarifaire HT par participant — parcours en 3 niveaux</caption>
           <thead>
             <tr className="bg-ofc-accent text-white">
               <th scope="col" className="px-4 py-3 font-semibold">
@@ -52,10 +50,7 @@ export function FormationsCataloguePracticalInfoSection() {
                 </th>
                 <td className="px-4 py-3 text-slate-700">{niveau.formatLabel}</td>
                 <td className="px-4 py-3 text-slate-700">
-                  {libelleTarifFederationParParticipant(
-                    niveau.tarifHtParParticipant,
-                    niveau.tarifSuffix,
-                  )}
+                  {libelleTarifFederationParParticipant(niveau.tarifHtParParticipant, niveau.tarifSuffix)}
                   <MentionTvaAsterisque />
                 </td>
               </tr>
@@ -63,9 +58,10 @@ export function FormationsCataloguePracticalInfoSection() {
           </tbody>
         </table>
       </div>
-      <p className="mt-4 text-sm text-slate-600">
+
+      <p className="mt-4 max-w-3xl text-sm leading-relaxed text-slate-600">
         Détail pour les fédérations et réseaux :{' '}
-        <Link href={LINKS.partenaires} className={OFC_LINK}>
+        <Link href={`${LINKS.partenaires}#parcours-trois-niveaux`} className={OFC_LINK}>
           parcours en 3 niveaux sur la page Partenaires
         </Link>
         . Les autres fiches du catalogue affichent le tarif par participant sur chaque programme.

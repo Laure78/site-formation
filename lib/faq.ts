@@ -250,7 +250,7 @@ export const FAQ_CATALOGUE_PAGE: readonly FAQItem[] = [
   },
   {
     q: 'Combien de participants peuvent suivre une session ?',
-    a: `Les effectifs varient selon la fiche (généralement 4 à ${EFFECTIF_GROUPE_MAX} participants en intra). Le détail figure sur chaque programme et dans votre devis.`,
+    a: `Les effectifs varient selon la fiche (généralement 4 à ${EFFECTIF_GROUPE_MAX} participants). Minimum 6 participants pour une session convoquée par un réseau. Le détail figure sur chaque programme et dans votre devis.`,
   },
   {
     q: 'Une prise en charge OPCO est-elle possible ?',

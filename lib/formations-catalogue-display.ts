@@ -11,14 +11,13 @@ import {
   isFormationSurDevis,
   libelleEffectifFormation,
   libelleEffectifMaxFormation,
-  libellePrixSessionHt,
   type Formation,
-  type FormationCode,
 } from '@/data/formations';
 import { isFormationCataloguePublished } from '@/lib/formation-catalogue-visibility';
 import {
   getTarifGrilleFromDureeLibelle,
-  libelleTarifParticipantGrilleCatalogue,
+  libelleTarifInterParParticipant,
+  libelleTarifsCarteCatalogue,
   parseDureeHeures,
   MENTIONS_TVA_REGIMES_COURT,
 } from '@/lib/tarifs-sessions';
@@ -29,6 +28,27 @@ import {
 import { libelleTarifParticipantCatalogue } from '@/lib/tarifs-catalogue-participant';
 
 export type CatalogueLevel = 'DÉBUTANT' | 'AVANCÉ';
+
+/** Tarif affiché sur le catalogue public — HT par participant uniquement (pas de forfait groupe). */
+export function libelleTarifParcoursCatalogue(f: Formation): string {
+  if (f.code === 'NIV-10') {
+    return libelleTarifLancementDevWebIa();
+  }
+  if (f.tarifParticipantHt && f.tarifParticipantHt > 0) {
+    return libelleTarifParticipantCatalogue(f.tarifParticipantHt);
+  }
+  if (isFormationSurDevis(f)) {
+    return 'Sur devis';
+  }
+  const grille = getTarifGrilleFromDureeLibelle(f.duree);
+  if (grille.interHT != null) {
+    return libelleTarifInterParParticipant(grille.interHT);
+  }
+  if (f.tarifParcoursAppMetier && grille.interHT == null) {
+    return libelleTarifApplicationMetierBtp(f.tarifParcoursAppMetier);
+  }
+  return 'Sur devis';
+}
 
 export type FormationCatalogueEntry = {
   ref: string;
@@ -123,20 +143,7 @@ function toCatalogueEntry(f: Formation): FormationCatalogueEntry {
     theme: f.theme,
     objectifs: [...f.objectifs],
     prixHT: f.prixHT,
-    tarifParcoursLabel: f.code === 'NIV-10'
-      ? libelleTarifLancementDevWebIa()
-      : f.tarifParticipantHt
-        ? libelleTarifParticipantCatalogue(f.tarifParticipantHt)
-        : f.tarifParcoursAppMetier
-          ? libelleTarifApplicationMetierBtp(f.tarifParcoursAppMetier)
-          : isFormationSurDevis(f)
-            ? 'Sur devis'
-            : (() => {
-                const grille = getTarifGrilleFromDureeLibelle(f.duree);
-                return f.prixHT > 0 && f.prixHT !== grille.intraHT
-                  ? libellePrixSessionHt(f)
-                  : undefined;
-              })(),
+    tarifParcoursLabel: libelleTarifParcoursCatalogue(f),
     effectifMin: f.effectifMin,
     effectifMax: f.effectifMax,
     profileTags: PROFILE_TAGS_BY_CODE[f.code] ?? [],
@@ -267,24 +274,6 @@ export function sortFormationsCatalogue(
   });
 }
 
-/** Tarif affiché sur la page catalogue `/formations` — HT par participant (pas de forfait groupe). */
-export function libelleTarifPageCatalogue(ref: FormationCode | string): string {
-  const f = getFormationByCode(ref as FormationCode);
-  if (!f) {
-    throw new Error(`[libelleTarifPageCatalogue] Référence inconnue : ${ref}`);
-  }
-  if (f.code === 'NIV-10') {
-    return libelleTarifLancementDevWebIa();
-  }
-  if (f.tarifParticipantHt && f.tarifParticipantHt > 0) {
-    return libelleTarifParticipantCatalogue(f.tarifParticipantHt);
-  }
-  if (isFormationSurDevis(f)) {
-    return 'Sur devis';
-  }
-  return libelleTarifParticipantGrilleCatalogue(parseDureeHeures(f.duree));
-}
-
 export function tarifLabel(level: CatalogueLevel): string {
   const entry =
     FORMATIONS_CATALOGUE.find((e) =>
@@ -294,10 +283,19 @@ export function tarifLabel(level: CatalogueLevel): string {
 }
 
 function libelleTarifPourEntry(entry: FormationCatalogueEntry): string {
-  return `${libelleTarifPageCatalogue(entry.ref)} (${libelleEffectifMaxFormation(entry)}) — ${MENTIONS_TVA_REGIMES_COURT}`;
+  const label = entry.tarifParcoursLabel ?? tarifLabelForEntry(entry);
+  return `${label} (${libelleEffectifMaxFormation(entry)}) — ${MENTIONS_TVA_REGIMES_COURT}`;
 }
 
-/** Libellé tarif — page catalogue et cartes (participant uniquement). */
+/** Libellé tarif carte catalogue — HT par participant. */
 export function tarifLabelForEntry(entry: FormationCatalogueEntry): string {
-  return libelleTarifPageCatalogue(entry.ref);
+  if (entry.tarifParcoursLabel) {
+    return entry.tarifParcoursLabel;
+  }
+  const formation = getFormationByCode(entry.ref);
+  if (formation) {
+    return libelleTarifParcoursCatalogue(formation);
+  }
+  const tarifs = libelleTarifsCarteCatalogue(parseDureeHeures(entry.duree));
+  return tarifs.inter ?? tarifs.intra;
 }
