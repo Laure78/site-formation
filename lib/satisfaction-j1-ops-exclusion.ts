@@ -59,7 +59,9 @@ export async function enrollmentIdsExcludedFromSatisfactionJ1(
   for (const row of participants ?? []) {
     const courseId = sessionToCourse.get(row.session_id as string);
     if (!courseId) continue;
-    const person = personFromJoin(row.person as SessionParticipantPerson | SessionParticipantPerson[] | null);
+    const person = personFromJoin(
+      row.person as unknown as SessionParticipantPerson | SessionParticipantPerson[] | null,
+    );
     if (!person) continue;
     const email = person.email?.trim().toLowerCase();
     if (person.profile_id) {

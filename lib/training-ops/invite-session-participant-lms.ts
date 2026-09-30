@@ -6,6 +6,11 @@ export type InviteSessionPersonToLmsResult =
   | { ok: true; status: 'cree' | 'deja_invite' | 'renvoye' | 'skipped'; detail?: string }
   | { ok: false; error: string };
 
+function firstJoinedRow<T>(value: T | T[] | null | undefined): T | null {
+  if (value == null) return null;
+  return Array.isArray(value) ? (value[0] ?? null) : value;
+}
+
 function formatSessionDateFr(startsOn: string | null, endsOn: string | null): string | null {
   const key = endsOn ?? startsOn;
   if (!key) return null;
@@ -42,7 +47,12 @@ export async function inviteSessionPersonToLms(params: {
     return { ok: false, error: sErr?.message ?? 'Session introuvable' };
   }
 
-  const program = session.program as { course_id: string | null } | null;
+  const program = firstJoinedRow(
+    session.program as unknown as
+      | { course_id: string | null }
+      | { course_id: string | null }[]
+      | null,
+  );
   const courseId = program?.course_id ?? null;
   if (!courseId) {
     return { ok: true, status: 'skipped', detail: 'no_lms_course_linked' };
