@@ -3,12 +3,12 @@
  * Fichiers : `public/bework/programme-bework-parcours-*.pdf` (v1 — septembre 2026).
  * BeWork = marque d'OFC Création d'Entreprise (actions de formation).
  */
+import { getFormationByCode } from '@/data/formations';
 
 export const BEWORK_PROGRAMME_VERSION = 'Version 1 — septembre 2026' as const;
 
-/** Titre court du programme (couverture PDF). */
-export const BEWORK_FORMATION_TITRE =
-  'Développement web avec l’IA — sans savoir coder' as const;
+/** Titre officiel du programme (couverture PDF) — aligné NIV-10. */
+export const BEWORK_FORMATION_TITRE = getFormationByCode('NIV-10')!.titre;
 
 export type BeworkParcoursId = '7h' | '14h';
 
@@ -298,7 +298,7 @@ export const BEWORK_PARCOURS = {
     id: '7h',
     title: BEWORK_FORMATION_TITRE,
     intitule:
-      'Développement web avec l’IA, sans savoir coder — de l’idée à une première version fonctionnelle',
+      'Développer et concevoir ses propres outils de gestion BTP avec l’IA, sans savoir coder — de l’idée à une première version fonctionnelle',
     dureeLabel: '7 h',
     joursLabel: '1 journée',
     tarifHt: 300,
@@ -319,7 +319,7 @@ export const BEWORK_PARCOURS = {
     id: '14h',
     title: 'Construire plus loin',
     intitule:
-      'Développement web avec l’IA, sans savoir coder — de l’idée au projet publié et référencé',
+      'Développer et concevoir ses propres outils de gestion BTP avec l’IA, sans savoir coder — de l’idée au projet publié et référencé',
     dureeLabel: '14 h',
     joursLabel: '2 journées',
     tarifHt: 600,

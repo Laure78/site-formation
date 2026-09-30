@@ -349,7 +349,7 @@ export default function FormationAssistantsIaPersonnalisesBtpPage() {
             interentreprises. Aucun accompagnement individuel n&apos;est proposé.
           </p>
           <p className="mt-3 text-base font-semibold text-slate-900">
-            Tarif intra-entreprise : {PRIX_LIBELLE}
+            Tarif session (intra, inter ou convoquée) : {PRIX_LIBELLE}
             <MentionTvaAsterisque />
           </p>
           <p className="mt-2 text-base leading-relaxed text-slate-700">{MENTIONS_TVA_INTRA_COURTE}</p>

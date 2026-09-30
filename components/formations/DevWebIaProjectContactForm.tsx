@@ -25,7 +25,10 @@ import {
   trackContactFormSuccess,
   trackContactCtaClick,
 } from '@/lib/ga4-analytics';
-import { DEV_WEB_IA_CONTACT_SUBJECT } from '@/lib/formation-developpement-web-ia-content';
+import {
+  DEV_WEB_IA_CONTACT_SUBJECT,
+  DEV_WEB_IA_FORMATION_TITRE,
+} from '@/lib/formation-developpement-web-ia-content';
 
 const fieldClassBase =
   'mt-1 w-full rounded-lg border border-[#CBD5E1] bg-white px-4 text-[#0F172A] focus:border-[#377CF3] focus:outline-none focus:ring-2 focus:ring-[#377CF3]/30 py-2.5';
@@ -149,8 +152,8 @@ export function DevWebIaProjectContactForm({ initialProjectType }: Props) {
         Parlez-moi de votre projet
       </h2>
       <p className="mt-3 max-w-2xl text-base text-slate-600">
-        Décrivez ce que vous souhaitez construire pendant la formation « Développement web avec
-        l&apos;IA — sans savoir coder ». Réponse sous 48 heures ouvrées.
+        Décrivez ce que vous souhaitez construire pendant la formation « {DEV_WEB_IA_FORMATION_TITRE}
+        ». Réponse sous 48 heures ouvrées.
       </p>
 
       {error ? (

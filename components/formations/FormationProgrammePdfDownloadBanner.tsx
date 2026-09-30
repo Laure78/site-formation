@@ -1,4 +1,5 @@
 import { Download } from 'lucide-react';
+import { DEV_WEB_IA_FORMATION_TITRE } from '@/lib/formation-developpement-web-ia-content';
 
 type Props = {
   pdfHref: string;
@@ -21,7 +22,7 @@ function programmeDownloadDescription(catalogueRef: string, formationTitle: stri
     case 'NIV-09':
       return 'Téléchargez le programme officiel (PDF) de la formation assistants IA personnalisés BTP — ChatGPT et Claude, 7 h.';
     case 'NIV-10':
-      return 'Téléchargez le programme officiel (PDF) de la formation Développement web avec l’IA — sans savoir coder, 7 h.';
+      return `Téléchargez le programme officiel (PDF) de la formation ${DEV_WEB_IA_FORMATION_TITRE}, 7 h.`;
     default:
       return `Téléchargez le programme officiel (PDF) — ${formationTitle}.`;
   }

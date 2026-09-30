@@ -70,6 +70,7 @@ function prixCatalogue(ref: string): number | undefined {
   if (f.tarifParcoursAppMetier) {
     return getTarifApplicationMetierBtpHt(f.tarifParcoursAppMetier);
   }
+  if (f.tarifParticipantHt) return f.tarifParticipantHt;
   if (f.prixHT > 0) return f.prixHT;
   return undefined;
 }
@@ -393,10 +394,10 @@ export const CATALOGUE_COURSE_DEV_WEB_IA_NIV10: CatalogueCourseJsonLdConfig = {
   description: `${getFormationByCode('NIV-10')!.accroche} Session ${getFormationByCode('NIV-10')!.duree}, présentiel Île-de-France ou visio inter, Qualiopi.`,
   price: prixCatalogue('NIV-10'),
   keywords: [
-    'formation développement web IA',
+    'formation IA pour le BTP',
+    'outils de gestion BTP avec IA',
     'formation créer une application avec IA',
     'formation créer un site avec IA',
-    'développement web avec intelligence artificielle',
     'créer une application sans coder avec IA',
     'formation vibe coding',
     'formation Cursor IA',

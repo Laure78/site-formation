@@ -14,6 +14,7 @@ import {
 } from '@/lib/tarifs-sessions';
 import {
   TARIF_INTER_DEV_WEB_IA_HT,
+  DEV_WEB_IA_FORMATION_TITRE,
 } from '@/lib/formation-developpement-web-ia-content';
 import { catalogueCardAnchorId } from '@/lib/formations-catalogue-page-config';
 import {
@@ -50,7 +51,7 @@ export function getAccueilDevWebIaEssentialsLine(): string {
 /** Mise en avant accueil — formation NIV-10 (bloc compact). */
 export const ACCUEIL_DEV_WEB_IA_HIGHLIGHT = {
   eyebrow: 'Nouvelle formation · Création avec l’IA',
-  title: 'Développement web avec l’IA — sans savoir coder',
+  title: DEV_WEB_IA_FORMATION_TITRE,
   lead:
     'Partez d’un besoin concret et créez une première version testable d’un site ou d’un outil métier avec l’IA — sans écrire le code vous-même.',
   audience:

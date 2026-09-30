@@ -20,6 +20,7 @@ import {
   libelleTarifsDualCourt,
   MENTIONS_TVA_REGIMES_COURT,
 } from '@/lib/tarifs-sessions';
+import { libelleTarifParticipantCatalogue } from '@/lib/tarifs-catalogue-participant';
 import { getCatalogueFormationsCount } from '@/lib/formations-catalogue-display';
 import { isFormationCataloguePublished } from '@/lib/formation-catalogue-visibility';
 import { SOCIAL_PROOF, IDF_ZONE_INTERVENTION, CONTACT } from '@/lib/constants';
@@ -237,7 +238,7 @@ export const FAQ_CATALOGUE_PAGE: readonly FAQItem[] = [
   },
   {
     q: 'Quelle différence entre intra et interentreprises ?',
-    a: 'En intra-entreprise, la session est organisée pour votre équipe (forfait par session). En interentreprises, le tarif est calculé par participant. Le devis précise le format, l’effectif, la durée et le montant.',
+    a: 'Les tarifs affichés sur le catalogue sont exprimés en HT par participant (session convoquée, intra ou inter). Le devis précise le format, l’effectif, la durée et le montant.',
   },
   {
     q: 'Les formations peuvent-elles être adaptées à notre métier ?',
@@ -616,7 +617,7 @@ export const FAQ_ASSISTANTS_IA_NIV09: FAQItem[] = [
   },
   {
     q: 'Combien coûte la session et un financement est-il possible ?',
-    a: `Intra-entreprise : ${libelleTarifIntraParSession(getFormationByCode('NIV-09')!.prixHT)} (groupe). ${MENTIONS_TVA_REGIMES_COURT} ${FINANCEMENT_FORMULATION_PRUDENTE} Voir aussi <a href="${LINKS.financement}">financement Constructys formation IA BTP</a>.`,
+    a: `${libelleTarifParticipantCatalogue(getFormationByCode('NIV-09')!.tarifParticipantHt!)} — session convoquée ou inter (minimum 6 participants). ${MENTIONS_TVA_REGIMES_COURT} ${FINANCEMENT_FORMULATION_PRUDENTE} Voir aussi <a href="${LINKS.financement}">financement Constructys formation IA BTP</a>.`,
   },
 ];
 
@@ -784,7 +785,7 @@ export const FAQ_BATIMENT: FAQItem[] = [
   },
   {
     q: 'Quelle différence entre intra et interentreprises ?',
-    a: `En intra-entreprise : ${libelleTarifIntraParSession(TARIF_INTRA_4H_HT)}, ${SESSION_DUREE_LIBELLE}, 4 à ${EFFECTIF_GROUPE_MAX} participants, dans vos locaux, programme adaptable à l’équipe. En interentreprises : ${libelleTarifInterParParticipant(TARIF_INTER_4H_HT_FROM)}, dates selon calendrier, session maintenue sous réserve d’un nombre minimum d’inscrits.`,
+    a: `Session convoquée, intra ou inter : ${libelleTarifParticipantCatalogue(getFormationByCode('NIV-01')!.tarifParticipantHt!)} — ${SESSION_DUREE_LIBELLE}, 4 à ${EFFECTIF_GROUPE_MAX} participants (minimum 6 pour une session convoquée par un réseau). En intra : dans vos locaux, programme adaptable à l’équipe. En inter : dates selon calendrier, session maintenue sous réserve d’un nombre minimum d’inscrits.`,
   },
   {
     q: 'L’IA peut-elle garantir la conformité d’un devis ou d’un DOE ?',

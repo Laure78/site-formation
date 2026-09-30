@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import { ArrowRight, Download } from 'lucide-react';
-import { DevWebIaTarifGroupeCard } from '@/components/formations/DevWebIaTarifGroupeCard';
 import {
   DEV_WEB_IA_BADGE_NOUVELLE,
   DEV_WEB_IA_PARCOURS_14H,
@@ -8,30 +7,29 @@ import {
   DEV_WEB_IA_PDF_14H_HREF,
   DEV_WEB_IA_PDF_7H_HREF,
   DEV_WEB_IA_PRIX_LANCEMENT_LABEL,
-  DEV_WEB_IA_TARIF_GROUPE_CTA,
   devWebIaInscriptionHref,
   devWebIaProjectFormHref,
 } from '@/lib/formation-developpement-web-ia-content';
 import { FINANCEMENT_FORMULATION_COURTE } from '@/lib/financement-copy';
-import { formatTarifHt } from '@/lib/tarifs-sessions';
+import { formatTarifHt, MENTIONS_TVA_INTRA_COURTE } from '@/lib/tarifs-sessions';
 import { MentionTvaAsterisque } from '@/components/MentionTVA';
 import { OFC_CTA_PRIMARY, OFC_CTA_SECONDARY } from '@/lib/ofc-interaction-classes';
 import { cn } from '@/lib/cn';
 
 type Props = {
   className?: string;
-  /** Affiche les CTA inscription / session groupe (hero). */
+  /** Affiche les CTA inscription / projet. */
   showCtas?: boolean;
   /** @deprecated Conservé pour compatibilité des appels — non utilisé. */
   formationTitle?: string;
 };
 
 /**
- * Carte tarifs parcours 7 h / 14 h — NIV-10.
+ * Carte tarifs parcours 7 h / 14 h — NIV-10 (HT par participant).
  */
 export function DevWebIaPrixLancementCard({ className, showCtas = true }: Props) {
   const inscriptionHref = devWebIaInscriptionHref();
-  const sessionGroupeHref = devWebIaProjectFormHref();
+  const projetHref = devWebIaProjectFormHref();
 
   const parcours = [
     { data: DEV_WEB_IA_PARCOURS_7H, pdfHref: DEV_WEB_IA_PDF_7H_HREF, pdfName: 'programme-ofc-developpement-web-ia-7h.pdf' },
@@ -83,12 +81,7 @@ export function DevWebIaPrixLancementCard({ className, showCtas = true }: Props)
         ))}
       </div>
 
-      <DevWebIaTarifGroupeCard
-        className="mt-4"
-        showCta={false}
-        headingLevel="p"
-        showTvaFootnote
-      />
+      <p className="mt-4 text-xs leading-relaxed text-ofc-ink-subtle">{MENTIONS_TVA_INTRA_COURTE}</p>
       <p className="mt-2 text-xs leading-relaxed text-ofc-ink-subtle">{FINANCEMENT_FORMULATION_COURTE}</p>
 
       {showCtas ? (
@@ -101,10 +94,10 @@ export function DevWebIaPrixLancementCard({ className, showCtas = true }: Props)
             <ArrowRight className="h-4 w-4 shrink-0" aria-hidden />
           </Link>
           <Link
-            href={sessionGroupeHref}
+            href={projetHref}
             className={`${OFC_CTA_SECONDARY} inline-flex min-h-11 items-center justify-center px-5 py-3`}
           >
-            {DEV_WEB_IA_TARIF_GROUPE_CTA}
+            Parlez-moi de votre projet
           </Link>
         </div>
       ) : null}

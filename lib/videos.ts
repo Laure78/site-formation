@@ -18,11 +18,11 @@ export const VIDEOS = {
     youtubeId: 'TfSNa-4Sc5E',
     title: 'Formation IA pour le BTP — présentiel Île-de-France, Laure Olivié',
   },
-  /** Page formation NIV-10 — présentation Développement web avec l’IA. */
+  /** Page formation NIV-10 — outils de gestion BTP avec l’IA. */
   formationDevWebIaSansCoder2026: {
     src: 'https://youtu.be/rJyZjZPLFpE',
     youtubeId: 'rJyZjZPLFpE',
-    title: 'Développement web avec l’IA — sans savoir coder — présentation formation',
+    title: 'Développer et concevoir ses propres outils de gestion BTP avec l’IA — sans coder — présentation formation',
     caption: 'Une idée, une journée, une première version fonctionnelle.',
   },
   /** Page BeWork — deuxième exemple formation (format 9:16). */
@@ -44,7 +44,7 @@ export const VIDEOS = {
   /** Page BeWork — promo paysage (format 16:9). */
   beworkPromo: {
     src: '/videos/bework-promo.mp4',
-    title: 'BeWork — promo Développement web avec l’IA sans savoir coder',
+    title: 'BeWork — promo Outils de gestion BTP avec l’IA sans coder',
     width: 1920,
     height: 1080,
     caption: 'Promo BeWork — apprendre aujourd’hui, créer demain',

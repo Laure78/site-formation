@@ -16,6 +16,7 @@ import {
 import {
   DEV_WEB_IA_CONTACT_SUBJECT,
   DEV_WEB_IA_FORMATION_REFERENCE,
+  DEV_WEB_IA_FORMATION_TITRE,
   DEV_WEB_IA_PATH,
   DEV_WEB_IA_PROJECT_FORM_ID,
 } from '@/lib/formation-developpement-web-ia-content';
@@ -96,7 +97,7 @@ function buildConfirmationHtml(name: string): string {
   const firstName = name.trim().split(/\s+/)[0] || '';
   return `
     <p>Bonjour${firstName ? ` ${escapeHtml(firstName)}` : ''},</p>
-    <p>Je confirme la bonne réception de votre message concernant la formation « Développement web avec l’IA — sans savoir coder ».</p>
+    <p>Je confirme la bonne réception de votre message concernant la formation « ${escapeHtml(DEV_WEB_IA_FORMATION_TITRE)} ».</p>
     <p>Je reviendrai vers vous après lecture de votre projet.</p>
     <p>Laure Olivié<br/>OFC Création d'Entreprise</p>
   `;
@@ -210,7 +211,7 @@ export async function submitDevWebIaProjectContactAction(
     from: 'Laure Olivié <noreply@laureolivie.fr>',
     replyTo: SITE_CONFIG.email,
     to: data.email,
-    subject: 'Votre demande — Développement web avec l’IA (OFC)',
+    subject: `Votre demande — ${DEV_WEB_IA_FORMATION_TITRE} (OFC)`,
     html: buildConfirmationHtml(data.name),
   });
 

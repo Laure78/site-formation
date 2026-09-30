@@ -13,19 +13,20 @@ import {
   libelleEffectifMaxFormation,
   libellePrixSessionHt,
   type Formation,
+  type FormationCode,
 } from '@/data/formations';
 import { isFormationCataloguePublished } from '@/lib/formation-catalogue-visibility';
 import {
   getTarifGrilleFromDureeLibelle,
-  libelleTarifsCarteCatalogue,
+  libelleTarifParticipantGrilleCatalogue,
   parseDureeHeures,
   MENTIONS_TVA_REGIMES_COURT,
 } from '@/lib/tarifs-sessions';
 import { libelleTarifApplicationMetierBtp } from '@/lib/tarifs-applications-metier-btp';
 import {
-  libelleTarifGroupeDevWebIa,
   libelleTarifLancementDevWebIa,
 } from '@/lib/formation-developpement-web-ia-content';
+import { libelleTarifParticipantCatalogue } from '@/lib/tarifs-catalogue-participant';
 
 export type CatalogueLevel = 'DÉBUTANT' | 'AVANCÉ';
 
@@ -123,17 +124,19 @@ function toCatalogueEntry(f: Formation): FormationCatalogueEntry {
     objectifs: [...f.objectifs],
     prixHT: f.prixHT,
     tarifParcoursLabel: f.code === 'NIV-10'
-      ? `${libelleTarifLancementDevWebIa()} · ${libelleTarifGroupeDevWebIa()}`
-      : f.tarifParcoursAppMetier
-        ? libelleTarifApplicationMetierBtp(f.tarifParcoursAppMetier)
-        : isFormationSurDevis(f)
-          ? 'Sur devis'
-          : (() => {
-              const grille = getTarifGrilleFromDureeLibelle(f.duree);
-              return f.prixHT > 0 && f.prixHT !== grille.intraHT
-                ? libellePrixSessionHt(f)
-                : undefined;
-            })(),
+      ? libelleTarifLancementDevWebIa()
+      : f.tarifParticipantHt
+        ? libelleTarifParticipantCatalogue(f.tarifParticipantHt)
+        : f.tarifParcoursAppMetier
+          ? libelleTarifApplicationMetierBtp(f.tarifParcoursAppMetier)
+          : isFormationSurDevis(f)
+            ? 'Sur devis'
+            : (() => {
+                const grille = getTarifGrilleFromDureeLibelle(f.duree);
+                return f.prixHT > 0 && f.prixHT !== grille.intraHT
+                  ? libellePrixSessionHt(f)
+                  : undefined;
+              })(),
     effectifMin: f.effectifMin,
     effectifMax: f.effectifMax,
     profileTags: PROFILE_TAGS_BY_CODE[f.code] ?? [],
@@ -264,6 +267,24 @@ export function sortFormationsCatalogue(
   });
 }
 
+/** Tarif affiché sur la page catalogue `/formations` — HT par participant (pas de forfait groupe). */
+export function libelleTarifPageCatalogue(ref: FormationCode | string): string {
+  const f = getFormationByCode(ref as FormationCode);
+  if (!f) {
+    throw new Error(`[libelleTarifPageCatalogue] Référence inconnue : ${ref}`);
+  }
+  if (f.code === 'NIV-10') {
+    return libelleTarifLancementDevWebIa();
+  }
+  if (f.tarifParticipantHt && f.tarifParticipantHt > 0) {
+    return libelleTarifParticipantCatalogue(f.tarifParticipantHt);
+  }
+  if (isFormationSurDevis(f)) {
+    return 'Sur devis';
+  }
+  return libelleTarifParticipantGrilleCatalogue(parseDureeHeures(f.duree));
+}
+
 export function tarifLabel(level: CatalogueLevel): string {
   const entry =
     FORMATIONS_CATALOGUE.find((e) =>
@@ -273,15 +294,10 @@ export function tarifLabel(level: CatalogueLevel): string {
 }
 
 function libelleTarifPourEntry(entry: FormationCatalogueEntry): string {
-  const tarifs = libelleTarifsCarteCatalogue(parseDureeHeures(entry.duree));
-  const interPart = tarifs.inter ? ` · Interentreprises : ${tarifs.inter}` : '';
-  return `Intra-entreprise : ${tarifs.intra}${interPart} (${libelleEffectifMaxFormation(entry)}) — ${MENTIONS_TVA_REGIMES_COURT}`;
+  return `${libelleTarifPageCatalogue(entry.ref)} (${libelleEffectifMaxFormation(entry)}) — ${MENTIONS_TVA_REGIMES_COURT}`;
 }
 
-/** Libellé tarif carte catalogue */
+/** Libellé tarif — page catalogue et cartes (participant uniquement). */
 export function tarifLabelForEntry(entry: FormationCatalogueEntry): string {
-  const tarifs = libelleTarifsCarteCatalogue(parseDureeHeures(entry.duree));
-  return tarifs.inter
-    ? `Intra : ${tarifs.intra} · Inter : ${tarifs.inter}`
-    : `Intra : ${tarifs.intra}`;
+  return libelleTarifPageCatalogue(entry.ref);
 }

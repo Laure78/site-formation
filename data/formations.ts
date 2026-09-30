@@ -8,6 +8,10 @@ import {
   TARIF_APPLICATION_METIER_BTP_NIV2_HT,
   TARIF_APPLICATION_METIER_BTP_NIV3_HT,
 } from '@/lib/tarifs-applications-metier-btp';
+import {
+  TARIF_PARTICIPANT_NIV01_HT,
+  TARIF_PARTICIPANT_NIV09_HT,
+} from '@/lib/tarifs-catalogue-participant';
 
 export type FormationNiveau = 1 | 2;
 
@@ -44,10 +48,12 @@ export type Formation = {
   effectifMin: number;
   effectifMax: number;
   /**
-   * Prix forfaitaire HT session intra. `0` = affichage « Sur devis »
-   * (pas de montant catalogue validé).
+   * Prix forfaitaire HT session intra. `0` = pas de forfait session
+   * (voir `tarifParticipantHt` ou sur devis).
    */
   prixHT: number;
+  /** Tarif HT par participant (inter / session convoquée). */
+  tarifParticipantHt?: number;
   accroche: string;
   objectifs: string[];
   public: string;
@@ -81,7 +87,8 @@ export const FORMATIONS: readonly Formation[] = [
     horaires: '9h00 — 13h00',
     effectifMin: 4,
     effectifMax: 12,
-    prixHT: 1200,
+    prixHT: 0,
+    tarifParticipantHt: TARIF_PARTICIPANT_NIV01_HT,
     accroche:
       'Fondamentaux ChatGPT et IA générative pour TPE, PME du bâtiment et fonctions support — devis, DOE et communication sur vos documents réels.',
     objectifs: [
@@ -379,7 +386,8 @@ export const FORMATIONS: readonly Formation[] = [
     horaires: '09h00 — 12h00 / 13h00 — 17h00',
     effectifMin: 6,
     effectifMax: 10,
-    prixHT: 2000,
+    prixHT: 0,
+    tarifParticipantHt: TARIF_PARTICIPANT_NIV09_HT,
     accroche:
       'Configurez des assistants adaptés à votre poste avec ChatGPT et Claude. Réutilisez vos consignes, vos modèles et vos documents pour vos tâches récurrentes.',
     objectifs: [
@@ -401,7 +409,8 @@ export const FORMATIONS: readonly Formation[] = [
   {
     code: 'NIV-10',
     slug: 'developpement-web-ia-sans-coder',
-    titre: 'Développement web avec l’IA — sans savoir coder',
+    titre:
+      'Développer et concevoir ses propres outils de gestion BTP avec l’IA — sans coder',
     promesse:
       'Créer un site, une application ou un outil métier avec l’intelligence artificielle — parcours 7 h ou 14 h, sans prérequis en programmation.',
     casUsageCourts: [
@@ -485,11 +494,18 @@ export function formatPrixHt(amount: number): string {
   return new Intl.NumberFormat('fr-FR').format(amount);
 }
 
-export function isFormationSurDevis(f: Pick<Formation, 'prixHT'>): boolean {
-  return f.prixHT <= 0;
+export function isFormationSurDevis(
+  f: Pick<Formation, 'prixHT' | 'tarifParticipantHt'>,
+): boolean {
+  return f.prixHT <= 0 && !f.tarifParticipantHt;
 }
 
-export function libellePrixSessionHt(f: Pick<Formation, 'prixHT'>): string {
+export function libellePrixSessionHt(
+  f: Pick<Formation, 'prixHT' | 'tarifParticipantHt'>,
+): string {
+  if (f.tarifParticipantHt && f.tarifParticipantHt > 0) {
+    return `${formatPrixHt(f.tarifParticipantHt)} € HT par participant`;
+  }
   if (isFormationSurDevis(f)) return 'Sur devis';
   return `${formatPrixHt(f.prixHT)} € HT par session (intra-entreprise)`;
 }
@@ -498,7 +514,7 @@ export const FORMATION_NIV01 = getFormationByCode('NIV-01')!;
 export const FORMATION_NIV02 = getFormationByCode('NIV-02')!;
 
 /** Prix catalogue par niveau pédagogique (source FORMATIONS). */
-export const PRIX_NIVEAU_1_HT = FORMATION_NIV01.prixHT;
+export const PRIX_NIVEAU_1_HT = FORMATION_NIV01.tarifParticipantHt ?? TARIF_PARTICIPANT_NIV01_HT;
 export const PRIX_NIVEAU_2_HT = FORMATION_NIV02.prixHT;
 
 /** Effectif max absolu du catalogue (NIV-01). */

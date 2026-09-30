@@ -1,6 +1,7 @@
 import { getAllArticles } from '@/lib/blog';
 import { getFormationsCatalogue } from '@/lib/formations-catalogue-display';
 import { getCatalogueSiteSearchDescription } from '@/lib/formation-catalogue-visibility';
+import { DEV_WEB_IA_FORMATION_TITRE } from '@/lib/formation-developpement-web-ia-content';
 import { LINKS } from '@/lib/internal-links';
 import { RESSOURCES_THEMATIC_BLOCKS } from '@/lib/ressources-thematic-hub';
 import { TUTOS, TUTO_CATEGORY_META } from '@/lib/tutos';
@@ -207,12 +208,13 @@ function buildStaticPages(): SiteSearchEntry[] {
     },
     {
       id: 'page-dev-web-ia',
-      title: 'Développement web avec l’IA — sans savoir coder',
+      title: DEV_WEB_IA_FORMATION_TITRE,
       description:
         'Formation 7 h : créer un site, une application ou un outil métier avec l’IA, sans prérequis en programmation.',
       href: LINKS.formationDeveloppementWebIaSansCoder,
       kind: 'page',
-      keywords: 'formation ia développement web sans coder 7h applications sites outils métier no-code',
+      keywords:
+        'formation ia btp outils gestion sans coder 7h applications sites outils métier no-code',
     },
   ];
 }

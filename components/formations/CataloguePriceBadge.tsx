@@ -1,13 +1,9 @@
 import Link from 'next/link';
 import type { CatalogueLevel } from '@/lib/formations-catalogue-display';
 import {
-  getTarifGrille,
-  libelleTarifInterParParticipant,
-  libelleTarifIntraParSession,
-  libelleTarifsCarteCatalogue,
+  libelleTarifParticipantGrilleCatalogue,
   parseDureeHeures,
   type TarifDureeHeures,
-  TARIF_INTRA_4H_HT,
 } from '@/lib/tarifs-sessions';
 import { MentionTVA, MentionTvaAsterisque } from '@/components/MentionTVA';
 import { LINKS } from '@/lib/internal-links';
@@ -47,40 +43,26 @@ function resolveDureeHeures(duree?: string): TarifDureeHeures {
   return duree ? parseDureeHeures(duree) : 4;
 }
 
-function DualPriceContent({
+function ParticipantPriceContent({
   dureeHeures,
   compact = false,
 }: {
   dureeHeures: TarifDureeHeures;
   compact?: boolean;
 }) {
-  const { intra, inter } = libelleTarifsCarteCatalogue(dureeHeures);
+  const label = libelleTarifParticipantGrilleCatalogue(dureeHeures);
   if (compact) {
     return (
-      <>
-        <p className="text-[10px] font-semibold leading-tight">
-          Intra : {intra.replace(' par session', ' / session')}
-        </p>
-        {inter ? (
-          <p className="mt-0.5 text-[10px] font-medium leading-tight opacity-90">
-            Inter : {inter.replace('à partir de ', 'dès ')}
-          </p>
-        ) : null}
-      </>
+      <p className="text-[10px] font-semibold leading-tight">
+        {label.replace('à partir de ', 'dès ')}
+      </p>
     );
   }
   return (
-    <>
-      <p className="text-sm font-semibold leading-snug">
-        Intra-entreprise : {intra}
-        <MentionTvaAsterisque />
-      </p>
-      {inter ? (
-        <p className="mt-1 text-xs font-medium leading-snug opacity-90">
-          Interentreprises : {inter}
-        </p>
-      ) : null}
-    </>
+    <p className="text-sm font-semibold leading-snug">
+      {label}
+      <MentionTvaAsterisque />
+    </p>
   );
 }
 
@@ -136,7 +118,7 @@ export function CataloguePriceBadge({
       <div
         className={`absolute bottom-3 left-3 z-10 max-w-[85%] rounded-xl border px-2.5 py-2 shadow-[0_8px_24px_-8px_rgba(15,23,42,0.35)] backdrop-blur-sm ${colors.surface} ${className}`}
       >
-        <DualPriceContent dureeHeures={dureeHeures} compact />
+        <ParticipantPriceContent dureeHeures={dureeHeures} compact />
       </div>
     );
   }
@@ -144,52 +126,43 @@ export function CataloguePriceBadge({
   if (variant === 'banner') {
     return (
       <div className={`rounded-xl border px-4 py-3 ${colors.banner} ${className}`}>
-        <DualPriceContent dureeHeures={dureeHeures} />
+        <ParticipantPriceContent dureeHeures={dureeHeures} />
       </div>
     );
   }
 
   if (variant === 'hero') {
-    const g = getTarifGrille(dureeHeures);
+    const label = libelleTarifParticipantGrilleCatalogue(dureeHeures);
     return (
       <div
         className={`inline-flex flex-col gap-2 rounded-2xl border-2 px-5 py-4 shadow-sm ${colors.hero} ${className}`}
       >
-        <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-[#64748B]">Tarifs catalogue</p>
+        <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-[#64748B]">Tarif catalogue</p>
         <p className="font-display text-lg font-bold leading-snug text-[#0F172A] md:text-xl">
-          Intra-entreprise : {libelleTarifIntraParSession(g.intraHT, g.intraFrom)}
+          {label}
           <MentionTvaAsterisque />
         </p>
-        {g.interHT != null ? (
-          <p className="text-sm font-medium text-[#475569]">
-            Interentreprises : {libelleTarifInterParParticipant(g.interHT)}
-          </p>
-        ) : null}
       </div>
     );
   }
 
   if (variant === 'strip') {
-    const { intra, inter } = libelleTarifsCarteCatalogue(dureeHeures);
+    const label = libelleTarifParticipantGrilleCatalogue(dureeHeures);
     return (
       <span
-        className={`inline-flex flex-col gap-0.5 rounded-full border px-3 py-1.5 text-xs font-semibold shadow-sm backdrop-blur-sm ${colors.surface} ${className}`}
+        className={`inline-flex rounded-full border px-3 py-1.5 text-xs font-semibold shadow-sm backdrop-blur-sm ${colors.surface} ${className}`}
       >
-        <span>Intra : {intra}</span>
-        {inter ? <span className={`font-medium ${colors.muted}`}>Inter : {inter}</span> : null}
+        {label}
       </span>
     );
   }
 
-  const { intra, inter } = libelleTarifsCarteCatalogue(dureeHeures);
+  const label = libelleTarifParticipantGrilleCatalogue(dureeHeures);
   return (
     <span
       className={`inline-flex shrink-0 flex-col items-end rounded-xl border px-3 py-2 text-right text-xs shadow-sm ${colors.surface} ${className}`}
     >
-      <span className="font-semibold leading-snug">Intra : {intra}</span>
-      {inter ? (
-        <span className={`mt-0.5 font-medium leading-snug ${colors.muted}`}>Inter : {inter}</span>
-      ) : null}
+      <span className="font-semibold leading-snug">{label}</span>
     </span>
   );
 }
@@ -210,7 +183,7 @@ export function CatalogueTarifStrip({
     ? 'border-white/25 bg-white/10 text-white'
     : 'border-[#377CF3]/15 bg-white';
   const label = onAccent ? 'text-white/80' : 'text-[#64748B]';
-  const { intra, inter } = libelleTarifsCarteCatalogue(4);
+  const participant = libelleTarifParticipantGrilleCatalogue(4);
 
   return (
     <div className={className}>
@@ -219,10 +192,9 @@ export function CatalogueTarifStrip({
           Tarifs formations IA BTP
         </span>
         <span className={`text-sm font-semibold ${onAccent ? 'text-white' : 'text-[#0F172A]'}`}>
-          Intra : {intra}
+          {participant}
           <MentionTvaAsterisque className={onAccent ? 'text-white' : undefined} />
         </span>
-        <span className={`text-sm font-medium ${label}`}>Inter : {inter}</span>
       </div>
       {showMention ? (
         <MentionTVA className={`mt-3 max-w-3xl ${onAccent ? 'text-white/90' : ''}`.trim()} />

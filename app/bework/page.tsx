@@ -3,7 +3,7 @@ import { LINKS } from '@/lib/internal-links';
 
 /**
  * Ancienne landing BeWork — redirige vers la fiche catalogue OFC
- * « Développement web avec l’IA — sans savoir coder » (NIV-10).
+ * NIV-10 — outils de gestion BTP avec l’IA (sans coder).
  */
 export default function BeworkRedirectPage() {
   permanentRedirect(LINKS.formationDeveloppementWebIaSansCoder);

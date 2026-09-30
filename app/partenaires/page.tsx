@@ -10,6 +10,7 @@ import { PartenairesPageHero } from '@/components/partenaires/PartenairesPageHer
 import { PartenairesReassuranceBar } from '@/components/partenaires/PartenairesReassuranceBar';
 import { PartenairesReferencesSection } from '@/components/partenaires/PartenairesReferencesSection';
 import { PartenairesInterventionSection } from '@/components/partenaires/PartenairesInterventionSection';
+import { PartenairesParcoursTroisNiveauxSection } from '@/components/partenaires/PartenairesParcoursTroisNiveauxSection';
 import { PartenairesCadreSection } from '@/components/partenaires/PartenairesCadreSection';
 import { PartenairesCtaSection } from '@/components/partenaires/PartenairesCtaSection';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
@@ -65,6 +66,7 @@ export default function PartenairesPage() {
         />
 
         <PartenairesInterventionSection />
+        <PartenairesParcoursTroisNiveauxSection />
         <PartenairesCadreSection />
         <PartenairesCtaSection />
       </div>

@@ -8,6 +8,7 @@ import {
   FORMATION_NIV02,
   formatPrixHt,
 } from '@/data/formations';
+import { TARIF_PARTICIPANT_NIV01_HT } from '@/lib/tarifs-catalogue-participant';
 
 /** Plafond Constructys pédagogique indicatif : 24 € HT/h × 4 h */
 const PLAFOND_HT_PAR_STAGIAIRE_4H = 24 * 4;
@@ -16,13 +17,17 @@ function plafondGroupe(effectifMax: number): number {
   return PLAFOND_HT_PAR_STAGIAIRE_4H * effectifMax;
 }
 
+const NIV01_TARIF_PARTICIPANT =
+  FORMATION_NIV01.tarifParticipantHt ?? TARIF_PARTICIPANT_NIV01_HT;
+
 const ROWS = [
   {
-    formation: `Niveau 1 — ${formatPrixHt(FORMATION_NIV01.prixHT)} € HT`,
+    formation: `Niveau 1 — ${formatPrixHt(NIV01_TARIF_PARTICIPANT)} € HT / participant`,
     effectif: `${FORMATION_NIV01.effectifMax} participants`,
     priseEnCharge: (() => {
-      const plafond = plafondGroupe(FORMATION_NIV01.effectifMax);
-      return `jusqu’à ${formatPrixHt(plafond)} € HT → prise en charge possible du coût pédagogique`;
+      const plafondParStagiaire = PLAFOND_HT_PAR_STAGIAIRE_4H;
+      const resteParStagiaire = NIV01_TARIF_PARTICIPANT - plafondParStagiaire;
+      return `jusqu’à ${formatPrixHt(plafondParStagiaire)} € HT par participant → reste à charge indicatif ${formatPrixHt(resteParStagiaire)} € HT par participant`;
     })(),
   },
   {

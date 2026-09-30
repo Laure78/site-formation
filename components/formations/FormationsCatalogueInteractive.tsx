@@ -22,12 +22,13 @@ import {
   catalogueNiveauLabel,
   isCatalogueNiveau1,
   sortFormationsCatalogue,
+  tarifLabelForEntry,
 } from '@/lib/formations-catalogue-display';
 import { CataloguePriceBadge } from '@/components/formations/CataloguePriceBadge';
 import { FormationCatalogueTitle } from '@/components/formations/FormationCatalogueTitle';
 import { MentionTvaAsterisque } from '@/components/MentionTVA';
 import { calendlyCatalogueUrl } from '@/lib/calendly';
-import { libelleTarifsCarteCatalogue } from '@/lib/tarifs-sessions';
+import { libelleTarifParticipantGrilleCatalogue } from '@/lib/tarifs-sessions';
 import { OFC_CARD, OFC_CTA_PRIMARY } from '@/lib/ofc-interaction-classes';
 
 const PROFILE_ICONS = {
@@ -100,7 +101,7 @@ function FormationCard({
           <CataloguePriceBadge
             level={cours.level}
             duree={cours.duree}
-            labelOverride={cours.tarifParcoursLabel}
+            labelOverride={tarifLabelForEntry(cours)}
             variant="overlay"
           />
         </div>
@@ -116,7 +117,7 @@ function FormationCard({
         <CataloguePriceBadge
           level={cours.level}
           duree={cours.duree}
-          labelOverride={cours.tarifParcoursLabel}
+          labelOverride={tarifLabelForEntry(cours)}
           variant="banner"
           className="mt-4"
         />
@@ -272,21 +273,10 @@ export function FormationsCatalogueInteractive({
             Catalogue : {catalogueCount} formations
           </h2>
           <div className="flex flex-wrap items-center justify-center gap-3">
-            {(() => {
-              const tarifs = libelleTarifsCarteCatalogue(4);
-              return (
-                <>
-                  <span className="inline-flex rounded-full bg-[#EFF6FF] px-4 py-2 text-[13px] font-bold uppercase tracking-widest text-[#1E40AF]">
-                    Intra : {tarifs.intra}
-                    <MentionTvaAsterisque />
-                  </span>
-                  <span className="inline-flex rounded-full bg-[#D1FAE5] px-4 py-2 text-[13px] font-bold uppercase tracking-widest text-[#047857]">
-                    Inter : {tarifs.inter}
-                    <MentionTvaAsterisque />
-                  </span>
-                </>
-              );
-            })()}
+            <span className="inline-flex rounded-full bg-[#EFF6FF] px-4 py-2 text-[13px] font-bold uppercase tracking-widest text-[#1E40AF]">
+              {libelleTarifParticipantGrilleCatalogue(4)}
+              <MentionTvaAsterisque />
+            </span>
           </div>
         </div>
         <FormationsCatalogueCards

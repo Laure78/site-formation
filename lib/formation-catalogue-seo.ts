@@ -11,6 +11,7 @@ import {
 } from '@/lib/data/indicateurs-resultats';
 import { SESSION_DUREE_LIBELLE, formatTarifHt } from '@/lib/tarifs-sessions';
 import {
+  DEV_WEB_IA_FORMATION_TITRE,
   TARIF_INTER_DEV_WEB_IA_14H_HT,
   TARIF_INTER_DEV_WEB_IA_HT,
 } from '@/lib/formation-developpement-web-ia-content';
@@ -227,12 +228,12 @@ export const FORMATION_CATALOGUE_SEO: Record<FormationCatalogueCode, FormationCa
     ],
   },
   'NIV-10': {
-    metaTitle: 'Formation développement web IA sans coder',
-    h1: 'Développement web avec l’IA — sans savoir coder',
+    metaTitle: 'Outils gestion BTP avec l’IA : sans coder',
+    h1: DEV_WEB_IA_FORMATION_TITRE,
     subtitle:
       'Créer un site, une application ou un outil métier avec l’intelligence artificielle.',
     metaDescription:
-      'Formation développement web avec l’IA sans coder : site ou app en 7 h ou 14 h. Présentiel IDF ou visio inter. Qualiopi, financement OPCO selon éligibilité.',
+      'Formation IA pour le BTP : concevez vos outils de gestion avec l’IA en 7 h ou 14 h. Présentiel IDF ou visio inter. Qualiopi, financement OPCO selon éligibilité.',
     enBref: `Formation pratique 7 h ou 14 h : cadrer un projet, créer avec l’IA, tester et corriger — sans savoir coder. Présentiel en Île-de-France (recommandé) ou visioconférence en inter à dates dédiées. Inter : ${formatTarifHt(TARIF_INTER_DEV_WEB_IA_HT)} € HT (7 h) · ${formatTarifHt(TARIF_INTER_DEV_WEB_IA_14H_HT)} € HT (14 h) / participant. ${QUALIOPI_MENTION}.`,
     publicTargets: [
       'Entrepreneurs, indépendants, commerçants et TPE et PME du bâtiment',

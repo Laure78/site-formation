@@ -27,9 +27,12 @@ import {
 } from '@/lib/tarifs-sessions';
 import { libelleTarifApplicationMetierBtp } from '@/lib/tarifs-applications-metier-btp';
 import {
-  libelleTarifGroupeDevWebIa,
   libelleTarifLancementDevWebIa,
 } from '@/lib/formation-developpement-web-ia-content';
+import {
+  libelleTarifParticipantCatalogue,
+  SESSION_CONVOQUEE_MIN_PARTICIPANTS,
+} from '@/lib/tarifs-catalogue-participant';
 /** Modalité pédagogique fixe — toutes les actions catalogue OFC. */
 export const MODALITE_PEDAGOGIQUE_CATALOGUE =
   'Présentiel — Île-de-France uniquement (intra-entreprise (dans vos locaux) ou inter)' as const;
@@ -356,16 +359,20 @@ function prerequisPourRef(ref: FormationCode): string {
 
 function tarifPourRef(ref: FormationCode): string {
   if (ref === 'NIV-10') {
-    return `Inter-entreprises : ${libelleTarifLancementDevWebIa()}. ${libelleTarifGroupeDevWebIa()}. ${MENTIONS_TVA_INTRA_COURTE}`;
+    return `Inter-entreprises et sessions convoquées : ${libelleTarifLancementDevWebIa()} (HT par participant). Minimum 6 participants. ${MENTIONS_TVA_INTRA_COURTE}`;
   }
   const formation = getFormationByCode(ref);
+  const entry = formation ? getFormationCatalogueByRef(ref) : undefined;
+  if (formation?.tarifParticipantHt && entry) {
+    const effectif = entry.effectif.toLowerCase();
+    return `${libelleTarifParticipantCatalogue(formation.tarifParticipantHt)} (${effectif}). Minimum ${SESSION_CONVOQUEE_MIN_PARTICIPANTS} participants pour session convoquée. ${MENTIONS_TVA_INTRA_COURTE}`;
+  }
   if (formation && isFormationSurDevis(formation)) {
     return `Sur devis (intra et inter). ${MENTIONS_TVA_INTRA_COURTE}`;
   }
   if (formation?.tarifParcoursAppMetier) {
     return `${libelleTarifApplicationMetierBtp(formation.tarifParcoursAppMetier)} ${MENTIONS_TVA_INTRA_COURTE}`;
   }
-  const entry = getFormationCatalogueByRef(ref);
   if (!formation || !entry) {
     throw new Error(`[getInfosPratiquesForCatalogue] Référence inconnue : ${ref}`);
   }

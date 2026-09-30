@@ -4,7 +4,7 @@
  */
 
 export const EXTERNAL_SITE_URLS = {
-  /** BeWork — formation « Développement web avec l’IA — sans savoir coder » (site dédié). */
+  /** BeWork — formation NIV-10 outils de gestion BTP avec l’IA (site dédié). */
   bework: 'https://www.bework.fr/',
   /** Page formation BeWork (parcours 7 h / 14 h). */
   beworkFormation: 'https://www.bework.fr/formation',

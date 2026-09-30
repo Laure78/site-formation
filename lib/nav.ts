@@ -3,6 +3,10 @@
  * Une seule ancre par URL sur l’ensemble du footer (pas de doublon entre colonnes).
  */
 import { BEWORK_APP_PATHS } from '@/lib/external-site-urls';
+import {
+  DEV_WEB_IA_FORMATION_TITRE,
+  DEV_WEB_IA_FORMATION_TITRE_COURT,
+} from '@/lib/formation-developpement-web-ia-content';
 import { LINKS } from '@/lib/internal-links';
 import { formationHref } from '@/data/formations';
 import { getPublishedFormations } from '@/lib/formation-catalogue-visibility';
@@ -34,8 +38,8 @@ export const NAV_FORMATIONS_FOOTER: readonly NavItem[] = [
   },
   {
     href: LINKS.formationDeveloppementWebIaSansCoder,
-    label: 'Développement web avec l’IA',
-    title: 'Développement web avec l’IA — sans savoir coder',
+    label: DEV_WEB_IA_FORMATION_TITRE_COURT,
+    title: DEV_WEB_IA_FORMATION_TITRE,
   },
   {
     href: LINKS.financement,

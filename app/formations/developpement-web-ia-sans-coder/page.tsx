@@ -49,10 +49,10 @@ export const metadata = createPageMetadata({
   descriptionFinal: true,
   path: LINKS.formationDeveloppementWebIaSansCoder,
   keywords: [
-    'formation développement web IA',
+    'formation IA pour le BTP',
+    'outils de gestion BTP avec IA',
     'formation créer une application avec IA',
     'formation créer un site avec IA',
-    'développement web avec intelligence artificielle',
     'créer une application sans coder avec IA',
     'formation vibe coding',
     'formation Cursor IA',

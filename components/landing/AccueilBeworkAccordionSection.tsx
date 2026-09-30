@@ -3,6 +3,10 @@
 import Link from 'next/link';
 import { Accordion } from '@/components/readability/Accordion';
 import { OFC_SEC } from '@/lib/ofc-section-classes';
+import {
+  DEV_WEB_IA_FORMATION_TITRE,
+  DEV_WEB_IA_FORMATION_TITRE_COURT,
+} from '@/lib/formation-developpement-web-ia-content';
 import { LINKS } from '@/lib/internal-links';
 
 /** Accordion replié — formation création avec l’IA (NIV-10), fin de page accueil. */
@@ -13,11 +17,11 @@ export function AccueilBeworkAccordionSection() {
         <Accordion
           id="offre-dev-web-ia"
           defaultOpen={false}
-          summaryLabel="Voir la formation — Développement web avec l’IA sans savoir coder"
+          summaryLabel={`Voir la formation — ${DEV_WEB_IA_FORMATION_TITRE_COURT}`}
           summaryLabelExpanded="Masquer la formation"
           preview={
             <p className="mb-4 text-sm leading-relaxed text-slate-600">
-              Formation « Développement web avec l’IA — sans savoir coder » — 7 h, distincte du
+              Formation « {DEV_WEB_IA_FORMATION_TITRE} » — 7 h, distincte du
               catalogue IA pour le BTP. Financement OPCO possible selon éligibilité.
             </p>
           }
@@ -33,7 +37,7 @@ export function AccueilBeworkAccordionSection() {
               id="offre-dev-web-ia-title"
               className="mt-3 font-display text-xl font-bold tracking-tight text-[#1E3A8A] md:text-2xl"
             >
-              Développement web avec l’IA — sans savoir coder
+              {DEV_WEB_IA_FORMATION_TITRE}
             </h3>
             <p className="mt-3 max-w-3xl text-base leading-relaxed text-[#1E3A8A]/90">
               Formation pratique de 7 h — prix de lancement 300 € HT inter — pour créer une première
@@ -48,7 +52,7 @@ export function AccueilBeworkAccordionSection() {
             </p>
             <Link
               href={LINKS.formationDeveloppementWebIaSansCoder}
-              title="Développement web avec l’IA — sans savoir coder"
+              title={DEV_WEB_IA_FORMATION_TITRE}
               className="mt-5 inline-flex items-center gap-1 text-sm font-semibold text-[#377CF3] transition-colors hover:text-[#2A6BD9] hover:underline"
             >
               Voir la formation →

@@ -1,7 +1,8 @@
 /**
- * Contenu — formation « Développement web avec l’IA — sans savoir coder » (NIV-10).
+ * Contenu — formation NIV-10 (BeWork / outils de gestion BTP avec l’IA).
  * Parcours 7 h / 14 h — alignés `lib/bework-programmes.ts`.
  */
+import { getFormationByCode } from '@/data/formations';
 import { LINKS } from '@/lib/internal-links';
 import { FINANCEMENT_FORMULATION_PRUDENTE } from '@/lib/financement-copy';
 import { BEWORK_MODULES_JOUR2, BEWORK_PARCOURS } from '@/lib/bework-programmes';
@@ -9,6 +10,12 @@ import { formatTarifHt } from '@/lib/tarifs-sessions';
 
 export const DEV_WEB_IA_PATH = LINKS.formationDeveloppementWebIaSansCoder;
 export const DEV_WEB_IA_CODE = 'NIV-10' as const;
+
+/** Intitulé officiel catalogue / Qualiopi — source `data/formations.ts` (NIV-10). */
+export const DEV_WEB_IA_FORMATION_TITRE = getFormationByCode('NIV-10')!.titre;
+
+/** Menus et libellés courts (catalogue, navigation). */
+export const DEV_WEB_IA_FORMATION_TITRE_COURT = 'Outils de gestion BTP avec l’IA' as const;
 
 /** Tarifs inter — source unique (alignés BeWork / OFC). */
 export const TARIF_INTER_DEV_WEB_IA_HT = BEWORK_PARCOURS['7h'].tarifHt;
@@ -24,15 +31,6 @@ export const DEV_WEB_IA_PDF_14H_HREF = LINKS.pdfProgrammeDeveloppementWebIaSansC
 export const DEV_WEB_IA_BADGE_NOUVELLE = 'Nouvelle formation' as const;
 export const DEV_WEB_IA_BADGE_NOUVEAU = 'Nouveau' as const;
 export const DEV_WEB_IA_PRIX_LANCEMENT_LABEL = 'Prix de lancement' as const;
-
-/** Session dédiée fédérations / organisations / entreprises — devis (hors parcours 7 h / 14 h individuels). */
-export const DEV_WEB_IA_TARIF_GROUPE_LIBELLE = 'Tarif sur devis' as const;
-export const DEV_WEB_IA_TARIF_GROUPE_BADGE = 'Tarif préférentiel' as const;
-export const DEV_WEB_IA_TARIF_GROUPE_TITLE =
-  'Tarif groupe — Fédérations, organisations et entreprises' as const;
-export const DEV_WEB_IA_TARIF_GROUPE_DESCRIPTION =
-  'Organisez une session dédiée à vos adhérents ou à vos équipes.' as const;
-export const DEV_WEB_IA_TARIF_GROUPE_CTA = 'Demander une session groupe' as const;
 
 export const DEV_WEB_IA_SUBTITLE =
   'Créer un site, une application ou un outil métier avec l’intelligence artificielle.' as const;
@@ -57,9 +55,9 @@ export const DEV_WEB_IA_INCLUS_TARIF = [
 ] as const;
 
 export const DEV_WEB_IA_FORMATS = [
-  'Présentiel · Île-de-France (inter ou session groupe)',
+  'Présentiel · Île-de-France (inter-entreprises ou session convoquée par un réseau)',
   'Visioconférence · sessions inter à dates dédiées',
-  'Fédérations, organisations professionnelles et entreprises : tarif groupe',
+  'Tarif HT par participant — minimum 6 participants (sessions fédérations et entreprises : voir page Partenaires)',
 ] as const;
 
 export const DEV_WEB_IA_MODALITES_SECTION = {
@@ -327,7 +325,7 @@ export const DEV_WEB_IA_FAQ = [
   },
   {
     q: 'Quels formats sont proposés ? Puis-je suivre la formation en visio ?',
-    a: `Le présentiel en Île-de-France est privilégié (inter-entreprises, 6 à 8 participants). Les fédérations, organisations professionnelles et entreprises peuvent organiser une session dédiée (${DEV_WEB_IA_TARIF_GROUPE_LIBELLE.toLowerCase()}, ${DEV_WEB_IA_TARIF_GROUPE_BADGE.toLowerCase()}). Des sessions inter-entreprises en visioconférence sont aussi ouvertes à des dates dédiées, avec le même parcours de 7 h et des échanges adaptés au partage d’écran.`,
+    a: `Le présentiel en Île-de-France est privilégié (inter-entreprises, 6 à 8 participants). Les fédérations et réseaux convoquent des sessions au tarif HT par participant (minimum 6 inscrits) — détail sur ${LINKS.partenaires}. Des sessions inter-entreprises en visioconférence sont aussi ouvertes à des dates dédiées, avec le même parcours de 7 h et des échanges adaptés au partage d’écran.`,
   },
   {
     q: 'L’abonnement ChatGPT ou Claude est-il inclus ?',
@@ -340,10 +338,6 @@ export function libelleTarifLancementDevWebIa(): string {
   return `${DEV_WEB_IA_PRIX_LANCEMENT_LABEL} : ${formatTarifHt(TARIF_INTER_DEV_WEB_IA_HT)} € HT / participant (7 h) · ${formatTarifHt(TARIF_INTER_DEV_WEB_IA_14H_HT)} € HT / participant (14 h)`;
 }
 
-export function libelleTarifGroupeDevWebIa(): string {
-  return `Tarif groupe : ${DEV_WEB_IA_TARIF_GROUPE_LIBELLE.toLowerCase()}`;
-}
-
 export function mentionFinancementDevWebIa(): string {
   return FINANCEMENT_FORMULATION_PRUDENTE;
 }
@@ -351,8 +345,7 @@ export function mentionFinancementDevWebIa(): string {
 /** Ancre du formulaire projet sur la fiche NIV-10. */
 export const DEV_WEB_IA_PROJECT_FORM_ID = 'parlez-projet' as const;
 
-export const DEV_WEB_IA_CONTACT_SUBJECT =
-  'Demande d’information — Développement web avec l’IA — sans savoir coder' as const;
+export const DEV_WEB_IA_CONTACT_SUBJECT = `Demande d’information — ${DEV_WEB_IA_FORMATION_TITRE}`;
 
 export const DEV_WEB_IA_FORMATION_REFERENCE = 'NIV-10' as const;
 
@@ -366,5 +359,5 @@ export function devWebIaDevisHref(_formationTitle?: string): string {
 }
 
 export function devWebIaInscriptionHref(): string {
-  return `${LINKS.contact}?objet=inscription&formation=${encodeURIComponent('Développement web avec l’IA — sans savoir coder')}`;
+  return `${LINKS.contact}?objet=inscription&formation=${encodeURIComponent(DEV_WEB_IA_FORMATION_TITRE)}`;
 }

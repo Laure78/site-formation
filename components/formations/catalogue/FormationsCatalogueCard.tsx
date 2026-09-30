@@ -12,13 +12,7 @@ import {
   catalogueThemeSecondaryLabel,
   tarifLabelForEntry,
 } from '@/lib/formations-catalogue-display';
-import {
-  DEV_WEB_IA_BADGE_NOUVEAU,
-  DEV_WEB_IA_DUREE_COURTE,
-  DEV_WEB_IA_PRIX_LANCEMENT_LABEL,
-  TARIF_INTER_DEV_WEB_IA_HT,
-} from '@/lib/formation-developpement-web-ia-content';
-import { formatTarifHt } from '@/lib/tarifs-sessions';
+import { DEV_WEB_IA_BADGE_NOUVEAU, DEV_WEB_IA_DUREE_COURTE } from '@/lib/formation-developpement-web-ia-content';
 import { OFC_CARD, OFC_CTA_PRIMARY, OFC_LINK } from '@/lib/ofc-interaction-classes';
 
 type Props = {
@@ -134,19 +128,7 @@ export function FormationsCatalogueCard({
             </span>
           </div>
 
-          <p className="text-sm font-semibold text-ofc-ink">
-            {isDevWebIa ? (
-              <>
-                <span className="text-[#377CF3]">{DEV_WEB_IA_PRIX_LANCEMENT_LABEL}</span>
-                {' · '}
-                <span className="font-normal text-ofc-ink-muted">
-                  {formatTarifHt(TARIF_INTER_DEV_WEB_IA_HT)} € HT / participant
-                </span>
-              </>
-            ) : (
-              (entry.tarifParcoursLabel ?? tarifLabelForEntry(entry))
-            )}
-          </p>
+          <p className="text-sm font-semibold text-ofc-ink">{tarifLabelForEntry(entry)}</p>
 
           {/* CTA principal + lien PDF */}
           <div className="flex flex-col gap-2">

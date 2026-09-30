@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { DEV_WEB_IA_FORMATION_TITRE } from '@/lib/formation-developpement-web-ia-content';
 import { LINKS } from '@/lib/internal-links';
 import { OFC_CTA_SECONDARY, OFC_LINK } from '@/lib/ofc-interaction-classes';
 
@@ -13,7 +14,7 @@ export function FormationBeworkPasserelle() {
           Autre formation
         </p>
         <h2 className="mt-2 font-display text-xl font-bold text-slate-900 md:text-2xl">
-          Développement web avec l’IA — sans savoir coder
+          {DEV_WEB_IA_FORMATION_TITRE}
         </h2>
         <p className="mt-3 text-base leading-relaxed text-slate-700">
           Créer un site, une application ou un outil métier avec l’intelligence artificielle — 7&nbsp;h,

@@ -18,7 +18,6 @@ import { FINANCEMENT_FORMULATION_COURTE } from '@/lib/financement-copy';
 import { LINKS } from '@/lib/internal-links';
 import { formatTarifHt } from '@/lib/tarifs-sessions';
 import type { BeworkParcours, BeworkParcoursId } from '@/lib/bework-programmes';
-import { DevWebIaTarifGroupeCard } from '@/components/formations/DevWebIaTarifGroupeCard';
 import {
   DEV_WEB_IA_JOUR_RESUME,
   DEV_WEB_IA_MODALITES,
@@ -274,8 +273,6 @@ export function CatalogueFormationDevWebParcoursTarifsSection() {
             pdfName="programme-ofc-developpement-web-ia-14h.pdf"
           />
         </div>
-
-        <DevWebIaTarifGroupeCard className="mt-6" ctaVariant="secondary" />
 
         <p className="mt-6 text-sm text-slate-600">
           Commencez par la journée à {formatTarifHt(DEV_WEB_IA_PARCOURS_7H.tarifHt)} € HT / participant, ou

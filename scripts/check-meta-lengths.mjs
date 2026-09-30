@@ -111,9 +111,9 @@ const PAGES = [
   },
   {
     path: '/formations/developpement-web-ia-sans-coder',
-    titleSegment: 'Formation développement web IA sans coder',
+    titleSegment: 'Outils gestion BTP avec l\u2019IA : sans coder',
     description:
-      'Formation développement web avec l\u2019IA sans coder : créez votre site ou application. Parcours 7 h (300 € HT) ou 14 h, présentiel Île-de-France, Qualiopi.',
+      'Formation IA pour le BTP : concevez vos outils de gestion avec l\u2019IA en 7 h ou 14 h. Présentiel IDF ou visio inter. Qualiopi, financement OPCO selon éligibilité.',
   },
 ];
 

@@ -58,7 +58,7 @@ export function FormationsCatalogueComparison({ formations }: { formations: Form
                 </td>
                 <td className="px-4 py-3 align-top text-slate-700">{row.duree}</td>
                 <td className="px-4 py-3 align-top text-slate-700">
-                  {row.tarifParcoursLabel ?? tarifLabelForEntry(row)}
+                  {tarifLabelForEntry(row)}
                 </td>
                 <td className="px-4 py-3 align-top">
                   <Link href={row.href} className={`${OFC_CTA_SECONDARY} whitespace-nowrap px-3 py-2 text-xs`}>
@@ -90,7 +90,7 @@ export function FormationsCatalogueComparison({ formations }: { formations: Form
               <Link href={row.href}>{row.title}</Link>
             </h3>
             <p className="mt-2 text-slate-600">
-              {row.duree} · {row.tarifParcoursLabel ?? tarifLabelForEntry(row)}
+              {row.duree} · {tarifLabelForEntry(row)}
             </p>
             <Link
               href={row.href}

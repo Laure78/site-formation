@@ -8,7 +8,6 @@ import { getFormationByCode } from '@/data/formations';
 import {
   DEV_WEB_IA_LIVRABLES,
   DEV_WEB_IA_OBJECTIFS,
-  DEV_WEB_IA_TARIF_GROUPE_LIBELLE,
   TARIF_INTER_DEV_WEB_IA_14H_HT,
   TARIF_INTER_DEV_WEB_IA_HT,
 } from '@/lib/formation-developpement-web-ia-content';
@@ -580,12 +579,8 @@ const NIV_10: CatalogueFormationPageContent = {
         'Entrepreneurs, indépendants, TPE et PME du bâtiment, porteurs de projet, reconversion',
     },
     {
-      label: 'Tarif inter',
+      label: 'Tarif',
       value: `${formatTarifHt(TARIF_INTER_DEV_WEB_IA_HT)} € HT (7 h) · ${formatTarifHt(TARIF_INTER_DEV_WEB_IA_14H_HT)} € HT (14 h) / participant`,
-    },
-    {
-      label: 'Tarif groupe',
-      value: DEV_WEB_IA_TARIF_GROUPE_LIBELLE,
     },
   ],
   painPointsTitle: 'Vous avez une idée, mais elle reste au stade de projet ?',
@@ -620,7 +615,7 @@ const NIV_10: CatalogueFormationPageContent = {
     { iaAide: 'Aider à sauvegarder et documenter', validation: 'Garder la responsabilité du projet' },
   ],
   interExtraBullets: ['Parcours 7 h ou 14 h selon calendrier'],
-  intraExtraBullets: ['Session dédiée · tarif groupe (fédérations, organisations, entreprises)'],
+  intraExtraBullets: ['Sessions convoquées par un réseau : tarif HT par participant (min. 6)'],
   programIntro:
     'Session de 7 h sur votre propre projet : le déroulé officiel en quatre modules. Les activités détaillées figurent uniquement dans cette section.',
   programmeHeading: 'Programme — 4 modules',
@@ -632,7 +627,7 @@ const NIV_10: CatalogueFormationPageContent = {
   finalCta: {
     title: 'Vous avez une idée de site, d’application ou d’outil métier ?',
     description:
-      'Apprenez à construire votre première version avec l’IA, sans savoir coder. Parcours 7 h ou 14 h — présentiel, visio inter ou session groupe pour fédérations et entreprises.',
+      'Apprenez à construire votre première version avec l’IA, sans savoir coder. Parcours 7 h ou 14 h — présentiel, visio inter ou session convoquée par votre réseau (tarif par participant).',
     primaryLabel: 'Demander un devis',
     secondaryLabel: 'S’inscrire à la formation',
   },

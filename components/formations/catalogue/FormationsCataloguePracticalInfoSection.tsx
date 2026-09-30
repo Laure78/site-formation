@@ -5,14 +5,13 @@ import { QUALIOPI_DELAI_ACCES_EXACT } from '@/config/qualiopi';
 import { QUALIOPI_REFERENT_HANDICAP } from '@/lib/qualiopi-info';
 import { getCataloguePageFinancementLine } from '@/lib/formations-catalogue-page-config';
 import { IDF_ZONE_INTERVENTION } from '@/lib/constants';
+import { PERIMETRE_FORMATIONS_COURT } from '@/lib/tarifs-sessions';
+import { SESSION_CONVOQUEE_MIN_PARTICIPANTS } from '@/lib/tarifs-catalogue-participant';
 import {
-  libelleTarifsGrilleLigne,
-  PERIMETRE_FORMATIONS_COURT,
-  type TarifDureeHeures,
-} from '@/lib/tarifs-sessions';
+  FEDERATION_PARCOURS_TROIS_NIVEAUX,
+  libelleTarifFederationParParticipant,
+} from '@/lib/parcours-federation-trois-niveaux';
 import { OFC_CTA_SECONDARY, OFC_LINK } from '@/lib/ofc-interaction-classes';
-
-const GRILLE_DUREES: readonly TarifDureeHeures[] = [4];
 
 /** Tarifs et modalités — une seule section centralisée. */
 export function FormationsCataloguePracticalInfoSection() {
@@ -22,31 +21,41 @@ export function FormationsCataloguePracticalInfoSection() {
         Tarifs et modalités
       </h2>
       <p className="mt-3 max-w-3xl text-sm leading-relaxed text-slate-600 md:text-base">
-        {PERIMETRE_FORMATIONS_COURT} — zone {IDF_ZONE_INTERVENTION}. Intra au forfait par session ;
-        inter par participant lorsqu’indiqué. Sur mesure sur devis.
+        {PERIMETRE_FORMATIONS_COURT} — zone {IDF_ZONE_INTERVENTION}. Tarifs HT par participant
+        (sessions convoquées, intra ou inter). Minimum {SESSION_CONVOQUEE_MIN_PARTICIPANTS}{' '}
+        participants pour une session convoquée par un réseau. Sur mesure sur devis.
       </p>
 
       <div className="mt-8 overflow-hidden rounded-2xl border border-slate-200">
         <table className="w-full text-left text-sm">
-          <caption className="sr-only">Grille tarifaire indicative par durée</caption>
+          <caption className="sr-only">
+            Grille tarifaire HT par participant — parcours en 3 niveaux
+          </caption>
           <thead>
             <tr className="bg-ofc-accent text-white">
               <th scope="col" className="px-4 py-3 font-semibold">
-                Durée
+                Parcours
               </th>
               <th scope="col" className="px-4 py-3 font-semibold">
-                Grille
+                Format
+              </th>
+              <th scope="col" className="px-4 py-3 font-semibold">
+                Tarif HT / participant
               </th>
             </tr>
           </thead>
           <tbody>
-            {GRILLE_DUREES.map((duree, i) => (
-              <tr key={duree} className={i % 2 === 0 ? 'bg-white' : 'bg-slate-50'}>
+            {FEDERATION_PARCOURS_TROIS_NIVEAUX.map((niveau, i) => (
+              <tr key={niveau.niveau} className={i % 2 === 0 ? 'bg-white' : 'bg-slate-50'}>
                 <th scope="row" className="px-4 py-3 font-medium text-ofc-ink">
-                  {`${duree} h`}
+                  Niveau {niveau.niveau}
                 </th>
+                <td className="px-4 py-3 text-slate-700">{niveau.formatLabel}</td>
                 <td className="px-4 py-3 text-slate-700">
-                  {libelleTarifsGrilleLigne(duree)}
+                  {libelleTarifFederationParParticipant(
+                    niveau.tarifHtParParticipant,
+                    niveau.tarifSuffix,
+                  )}
                   <MentionTvaAsterisque />
                 </td>
               </tr>
@@ -54,6 +63,13 @@ export function FormationsCataloguePracticalInfoSection() {
           </tbody>
         </table>
       </div>
+      <p className="mt-4 text-sm text-slate-600">
+        Détail pour les fédérations et réseaux :{' '}
+        <Link href={LINKS.partenaires} className={OFC_LINK}>
+          parcours en 3 niveaux sur la page Partenaires
+        </Link>
+        . Les autres fiches du catalogue affichent le tarif par participant sur chaque programme.
+      </p>
 
       <dl className="mt-8 grid gap-6 sm:grid-cols-2">
         <div className="rounded-xl border border-slate-200 bg-white p-5">

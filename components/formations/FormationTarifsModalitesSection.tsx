@@ -1,14 +1,17 @@
 import type { FormationCatalogueCode } from '@/lib/formation-catalogue-visibility';
 import { getFormationByCode, isFormationSurDevis } from '@/data/formations';
 import { FINANCEMENT_FORMULATION_PRUDENTE } from '@/lib/financement-copy';
-import { DevWebIaTarifGroupeCard } from '@/components/formations/DevWebIaTarifGroupeCard';
 import {
   DEV_WEB_IA_INCLUS_TARIF,
   DEV_WEB_IA_PRIX_LANCEMENT_LABEL,
-  DEV_WEB_IA_TARIF_GROUPE_TITLE,
   TARIF_INTER_DEV_WEB_IA_14H_HT,
   TARIF_INTER_DEV_WEB_IA_HT,
 } from '@/lib/formation-developpement-web-ia-content';
+import { FEDERATION_PARCOURS_EFFECTIF_MIN } from '@/lib/parcours-federation-trois-niveaux';
+import { libelleTarifParticipantCatalogue } from '@/lib/tarifs-catalogue-participant';
+import { LINKS } from '@/lib/internal-links';
+import Link from 'next/link';
+import { OFC_LINK } from '@/lib/ofc-interaction-classes';
 import {
   getTarifGrilleFromDureeLibelle,
   libelleTarifInterParParticipant,
@@ -33,6 +36,8 @@ export function FormationTarifsModalitesSection({ catalogueRef }: Props) {
   const intraHT = formation.prixHT > 0 ? formation.prixHT : grille.intraHT;
   const customIntra = formation.prixHT > 0 && formation.prixHT !== grille.intraHT;
   const isDevWebIa = catalogueRef === 'NIV-10';
+  const tarifParticipantHt = formation.tarifParticipantHt;
+  const isTarifParticipant = tarifParticipantHt != null && tarifParticipantHt > 0;
   const effectifLabel =
     formation.effectifMin === formation.effectifMax
       ? `${formation.effectifMax} participants`
@@ -52,14 +57,54 @@ export function FormationTarifsModalitesSection({ catalogueRef }: Props) {
         <div className="mt-6 grid gap-6 md:grid-cols-2">
           <div className="rounded-2xl border border-slate-200 bg-slate-50 p-6">
             <h3 className="font-display text-lg font-semibold text-slate-900">
-              {isDevWebIa ? DEV_WEB_IA_TARIF_GROUPE_TITLE : 'Intra-entreprise'}
+              {isDevWebIa || isTarifParticipant ? 'Session convoquée ou intra' : 'Intra-entreprise'}
             </h3>
-            {isDevWebIa ? (
-              <DevWebIaTarifGroupeCard
-                className="mt-4 border-0 bg-transparent p-0 shadow-none"
-                ctaVariant="secondary"
-                showTitle={false}
-              />
+            {isTarifParticipant && !isDevWebIa ? (
+              <>
+                <p className="mt-3 text-sm leading-relaxed text-slate-600">
+                  Tarif HT par participant — pas de forfait groupe. Minimum{' '}
+                  {FEDERATION_PARCOURS_EFFECTIF_MIN} participants lorsque la session est organisée
+                  par un réseau ou une entreprise.
+                </p>
+                <p className="mt-4 font-display text-xl font-bold text-[#377CF3]">
+                  {libelleTarifParticipantCatalogue(tarifParticipantHt)}
+                  <MentionTvaAsterisque />
+                </p>
+                <p className="mt-2 text-sm text-slate-600">
+                  Effectif : {effectifLabel}. Durée : {formation.duree}.
+                </p>
+                <p className="mt-3 text-sm text-slate-600">
+                  Grille des 3 niveaux pour les fédérations :{' '}
+                  <Link href={LINKS.partenaires} className={OFC_LINK}>
+                    page Partenaires
+                  </Link>
+                  .
+                </p>
+              </>
+            ) : isDevWebIa ? (
+              <>
+                <p className="mt-3 text-sm leading-relaxed text-slate-600">
+                  Tarif HT par participant et par journée de formation — pas de forfait groupe.
+                  Minimum {FEDERATION_PARCOURS_EFFECTIF_MIN} participants lorsque la session est
+                  organisée par un réseau ou une entreprise.
+                </p>
+                <p className="mt-4 font-display text-xl font-bold text-[#377CF3]">
+                  {formatTarifHt(TARIF_INTER_DEV_WEB_IA_HT)} € HT / participant / jour (7 h)
+                  <MentionTvaAsterisque />
+                </p>
+                <p className="mt-2 font-display text-lg font-bold text-slate-800">
+                  {formatTarifHt(TARIF_INTER_DEV_WEB_IA_14H_HT)} € HT / participant — parcours 14 h
+                  (2 jours)
+                  <MentionTvaAsterisque />
+                </p>
+                <p className="mt-3 text-sm text-slate-600">
+                  Grille des 3 niveaux pour les fédérations :{' '}
+                  <Link href={LINKS.partenaires} className={OFC_LINK}>
+                    page Partenaires
+                  </Link>
+                  .
+                </p>
+              </>
             ) : (
               <>
                 <p className="mt-3 text-sm leading-relaxed text-slate-600">
@@ -113,6 +158,21 @@ export function FormationTarifsModalitesSection({ catalogueRef }: Props) {
                 </p>
                 <p className="mt-3 text-sm text-slate-600">
                   Session maintenue sous réserve d&apos;un nombre minimum d&apos;inscrits.
+                </p>
+              </>
+            ) : isTarifParticipant ? (
+              <>
+                <p className="mt-3 text-sm leading-relaxed text-slate-600">
+                  Même tarif HT par participant que pour une session intra ou convoquée. Dates selon
+                  le calendrier des sessions ouvertes.
+                </p>
+                <p className="mt-4 font-display text-xl font-bold text-[#377CF3]">
+                  {libelleTarifParticipantCatalogue(tarifParticipantHt!)}
+                  <MentionTvaAsterisque />
+                </p>
+                <p className="mt-2 text-sm text-slate-600">
+                  Session maintenue sous réserve d&apos;un nombre minimum d&apos;inscrits (
+                  {FEDERATION_PARCOURS_EFFECTIF_MIN} participants pour une session convoquée).
                 </p>
               </>
             ) : (

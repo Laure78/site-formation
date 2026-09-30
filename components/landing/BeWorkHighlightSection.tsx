@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { ArrowUpRight } from 'lucide-react';
+import { DEV_WEB_IA_FORMATION_TITRE } from '@/lib/formation-developpement-web-ia-content';
 import { LINKS } from '@/lib/internal-links';
 import { Reveal } from '@/components/motion/Reveal';
 import { OFC_SEC } from '@/lib/ofc-section-classes';
@@ -14,7 +15,7 @@ type Props = {
 };
 
 /**
- * Mise en avant formation « Développement web avec l’IA — sans savoir coder ».
+ * Mise en avant formation NIV-10 (outils de gestion BTP avec l’IA).
  */
 export function BeWorkHighlightSection({ id, surface = 'band' }: Props) {
   const isCard = surface === 'card';
@@ -44,7 +45,7 @@ export function BeWorkHighlightSection({ id, surface = 'band' }: Props) {
               id={headingId}
               className="mt-4 font-display text-2xl font-bold tracking-tight text-[#1A1A1A] md:text-3xl"
             >
-              Développement web avec l’IA — sans savoir coder
+              {DEV_WEB_IA_FORMATION_TITRE}
               {id ? (
                 <span className="a-propos-title-accent mt-3 block h-1 rounded-full bg-[#377CF3]" aria-hidden />
               ) : null}
