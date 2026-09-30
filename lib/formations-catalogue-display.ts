@@ -15,13 +15,8 @@ import {
 } from '@/data/formations';
 import { isFormationCataloguePublished } from '@/lib/formation-catalogue-visibility';
 import {
-  getTarifGrilleFromDureeLibelle,
-  libelleTarifInterParParticipant,
-  libelleTarifsCarteCatalogue,
-  parseDureeHeures,
   MENTIONS_TVA_REGIMES_COURT,
 } from '@/lib/tarifs-sessions';
-import { libelleTarifApplicationMetierBtp } from '@/lib/tarifs-applications-metier-btp';
 import {
   libelleTarifLancementDevWebIa,
 } from '@/lib/formation-developpement-web-ia-content';
@@ -29,23 +24,16 @@ import { libelleTarifParticipantCatalogue } from '@/lib/tarifs-catalogue-partici
 
 export type CatalogueLevel = 'DÉBUTANT' | 'AVANCÉ';
 
-/** Tarif affiché sur le catalogue public — HT par participant uniquement (pas de forfait groupe). */
+/** Tarif affiché sur le catalogue public — HT / participant uniquement. */
 export function libelleTarifParcoursCatalogue(f: Formation): string {
-  if (f.code === 'NIV-10') {
-    return libelleTarifLancementDevWebIa();
-  }
   if (f.tarifParticipantHt && f.tarifParticipantHt > 0) {
     return libelleTarifParticipantCatalogue(f.tarifParticipantHt);
   }
-  if (isFormationSurDevis(f)) {
+  if (f.code === 'NIV-10') {
+    return libelleTarifLancementDevWebIa();
+  }
+  if (isFormationSurDevis(f) || f.tarifParcoursAppMetier) {
     return 'Sur devis';
-  }
-  const grille = getTarifGrilleFromDureeLibelle(f.duree);
-  if (grille.interHT != null) {
-    return libelleTarifInterParParticipant(grille.interHT);
-  }
-  if (f.tarifParcoursAppMetier && grille.interHT == null) {
-    return libelleTarifApplicationMetierBtp(f.tarifParcoursAppMetier);
   }
   return 'Sur devis';
 }
@@ -287,7 +275,7 @@ function libelleTarifPourEntry(entry: FormationCatalogueEntry): string {
   return `${label} (${libelleEffectifMaxFormation(entry)}) — ${MENTIONS_TVA_REGIMES_COURT}`;
 }
 
-/** Libellé tarif carte catalogue — HT par participant. */
+/** Libellé tarif carte catalogue — HT / participant. */
 export function tarifLabelForEntry(entry: FormationCatalogueEntry): string {
   if (entry.tarifParcoursLabel) {
     return entry.tarifParcoursLabel;
@@ -296,6 +284,5 @@ export function tarifLabelForEntry(entry: FormationCatalogueEntry): string {
   if (formation) {
     return libelleTarifParcoursCatalogue(formation);
   }
-  const tarifs = libelleTarifsCarteCatalogue(parseDureeHeures(entry.duree));
-  return tarifs.inter ?? tarifs.intra;
+  return 'Sur devis';
 }

@@ -7,7 +7,6 @@ import { getFormationByCode, libelleEffectifFormation, libelleEffectifMaxFormati
 import { getFormationCatalogueByRef } from '@/lib/formations-catalogue-display';
 import { TARIF_INTER_DEV_WEB_IA_HT } from '@/lib/formation-developpement-web-ia-content';
 import { LINKS } from '@/lib/internal-links';
-import { getTarifApplicationMetierBtpHt, libelleTarifApplicationMetierBtp } from '@/lib/tarifs-applications-metier-btp';
 import { getFormationCatalogueImageObjectJsonLd } from '@/lib/photo-seo';
 import {
   SCHEMA_CONTACT,
@@ -41,19 +40,25 @@ const CATALOGUE_REF_BY_PATH: Record<string, string> = {
 
 function priceSpecDescription(ref: string): string {
   const f = getFormationByCode(ref);
+  if (f?.tarifParticipantHt && f.tarifParticipantHt > 0) {
+    const effectif =
+      f.effectifMin === f.effectifMax
+        ? libelleEffectifMaxFormation(f)
+        : libelleEffectifFormation(f);
+    return `Tarif HT / participant — ${effectif}`;
+  }
   if (f && f.prixHT <= 0) {
-    return 'Session intra ou interentreprises — tarif sur devis';
+    return 'Session collective — tarif sur devis (HT / participant)';
   }
   if (f?.tarifParcoursAppMetier) {
-    return `Session intra-entreprise — ${libelleTarifApplicationMetierBtp(f.tarifParcoursAppMetier)} (ensemble du groupe, HT)`;
+    return 'Session collective — tarif sur devis (HT / participant)';
   }
-  if (!f) return 'Forfait intra-entreprise — prix session groupe HT (non par participant)';
+  if (!f) return 'Tarif HT / participant';
   const effectif =
     f.effectifMin === f.effectifMax
       ? libelleEffectifMaxFormation(f)
       : libelleEffectifFormation(f);
-  const matin = f.horaires ? ', matin' : '';
-  return `Forfait intra-entreprise — ${effectif}${matin} — prix session groupe HT`;
+  return `Tarif HT / participant — ${effectif}`;
 }
 
 const PRICE_SPEC_DESCRIPTION_BY_REF: Record<string, string> = Object.fromEntries(
@@ -67,10 +72,8 @@ function prixCatalogue(ref: string): number | undefined {
   if (ref === 'NIV-10') return TARIF_INTER_DEV_WEB_IA_HT;
   const f = getFormationByCode(ref);
   if (!f) return undefined;
-  if (f.tarifParcoursAppMetier) {
-    return getTarifApplicationMetierBtpHt(f.tarifParcoursAppMetier);
-  }
   if (f.tarifParticipantHt) return f.tarifParticipantHt;
+  if (f.tarifParcoursAppMetier) return undefined;
   if (f.prixHT > 0) return f.prixHT;
   return undefined;
 }
@@ -137,7 +140,7 @@ export const CATALOGUE_COURSE_IA_AO_NIV02: CatalogueCourseJsonLdConfig = {
   path: LINKS.formationAO,
   name: "L'IA appliquée aux appels d'offres BTP",
   description:
-    'Formation IA appels d’offres BTP : méthode guidée pour analyser un DCE, préparer le chiffrage et structurer un mémoire technique avec l’IA. 4 h, présentiel Île-de-France, 8 à 12 participants.',
+    'Formation IA appels d’offres BTP : méthode guidée pour analyser un DCE, préparer le chiffrage et structurer un mémoire technique avec l’IA. 4 h, présentiel Île-de-France, 6 à 12 participants.',
   price: prixCatalogue('NIV-02'),
   keywords: ['formation IA appels d’offres BTP', 'DCE', 'mémoire technique', 'chiffrage BTP', 'CCTP', 'DPGF'],
   courseCode: 'NIV-02',

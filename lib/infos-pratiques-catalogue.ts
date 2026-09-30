@@ -3,7 +3,7 @@
  * Source : `data/formations.ts`, `config/qualiopi.ts`, programmes des fiches catalogue.
  */
 
-import { getFormationByCode, isFormationSurDevis, type FormationCode } from '@/data/formations';
+import { getFormationByCode, isFormationSurDevis, libelleEffectifFormation, type FormationCode } from '@/data/formations';
 import {
   QUALIOPI_DELAI_ACCES_EXACT,
   QUALIOPI_MODALITES_ACCES_EXACT,
@@ -18,20 +18,11 @@ import type { InfosPratiquesFormation } from '@/lib/infos-pratiques-types';
 import { assertInfosPratiquesCompletes } from '@/lib/assert-infos-pratiques';
 import { withQuestionnairePositionnementMention } from '@/lib/questionnaire-positionnement';
 import {
-  getTarifGrilleFromDureeLibelle,
-  libelleTarifIntraParSession,
-  libelleTarifsCarteCatalogue,
-  parseDureeHeures,
   MENTIONS_TVA_INTRA_COURTE,
   PREREQUIS_NIVEAU_2,
 } from '@/lib/tarifs-sessions';
-import { libelleTarifApplicationMetierBtp } from '@/lib/tarifs-applications-metier-btp';
-import {
-  libelleTarifLancementDevWebIa,
-} from '@/lib/formation-developpement-web-ia-content';
 import {
   libelleTarifParticipantCatalogue,
-  SESSION_CONVOQUEE_MIN_PARTICIPANTS,
 } from '@/lib/tarifs-catalogue-participant';
 /** Modalité pédagogique fixe — toutes les actions catalogue OFC. */
 export const MODALITE_PEDAGOGIQUE_CATALOGUE =
@@ -359,30 +350,25 @@ function prerequisPourRef(ref: FormationCode): string {
 
 function tarifPourRef(ref: FormationCode): string {
   if (ref === 'NIV-10') {
-    return `Inter-entreprises et sessions convoquées : ${libelleTarifLancementDevWebIa()} (HT par participant). Minimum 6 participants. ${MENTIONS_TVA_INTRA_COURTE}`;
+    const formation = getFormationByCode(ref)!;
+    return `${libelleTarifParticipantCatalogue(formation.tarifParticipantHt!)} (${libelleEffectifFormation(formation).toLowerCase()}). ${MENTIONS_TVA_INTRA_COURTE}`;
   }
   const formation = getFormationByCode(ref);
   const entry = formation ? getFormationCatalogueByRef(ref) : undefined;
   if (formation?.tarifParticipantHt && entry) {
     const effectif = entry.effectif.toLowerCase();
-    return `${libelleTarifParticipantCatalogue(formation.tarifParticipantHt)} (${effectif}). Minimum ${SESSION_CONVOQUEE_MIN_PARTICIPANTS} participants pour session convoquée. ${MENTIONS_TVA_INTRA_COURTE}`;
+    return `${libelleTarifParticipantCatalogue(formation.tarifParticipantHt)} (${effectif}). ${MENTIONS_TVA_INTRA_COURTE}`;
   }
   if (formation && isFormationSurDevis(formation)) {
-    return `Sur devis (intra et inter). ${MENTIONS_TVA_INTRA_COURTE}`;
+    return `Sur devis. ${MENTIONS_TVA_INTRA_COURTE}`;
   }
   if (formation?.tarifParcoursAppMetier) {
-    return `${libelleTarifApplicationMetierBtp(formation.tarifParcoursAppMetier)} ${MENTIONS_TVA_INTRA_COURTE}`;
+    return `Sur devis. ${MENTIONS_TVA_INTRA_COURTE}`;
   }
   if (!formation || !entry) {
     throw new Error(`[getInfosPratiquesForCatalogue] Référence inconnue : ${ref}`);
   }
-  const grille = getTarifGrilleFromDureeLibelle(formation.duree);
-  const effectif = entry.effectif.toLowerCase();
-  if (formation.prixHT > 0 && formation.prixHT !== grille.intraHT) {
-    return `Intra-entreprise : ${libelleTarifIntraParSession(formation.prixHT)} (${effectif}) · Interentreprises : sur devis. ${MENTIONS_TVA_INTRA_COURTE}`;
-  }
-  const tarifs = libelleTarifsCarteCatalogue(parseDureeHeures(entry.duree));
-  return `Intra-entreprise : ${tarifs.intra} (${effectif})${tarifs.inter ? ` · Interentreprises : ${tarifs.inter}` : ''}. ${MENTIONS_TVA_INTRA_COURTE}`;
+  return `Sur devis (${entry.effectif.toLowerCase()}). ${MENTIONS_TVA_INTRA_COURTE}`;
 }
 
 export function getInfosPratiquesForCatalogue(ref: string): InfosPratiquesFormation {

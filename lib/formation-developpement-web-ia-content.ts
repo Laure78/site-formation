@@ -36,15 +36,15 @@ export const DEV_WEB_IA_SUBTITLE =
   'Créer un site, une application ou un outil métier avec l’intelligence artificielle.' as const;
 
 export const DEV_WEB_IA_HERO_FACTS = [
-  '7 h (1 journée) ou 14 h (2 journées)',
+  '7 h (1 journée)',
   '9h00 – 12h30 · 13h30 – 17h00',
   'Présentiel IDF ou visio (inter)',
-  '6 à 8 participants',
+  '4 à 10 participants',
   '70 % pratique · 30 % méthodologie',
 ] as const;
 
 /** Ligne durée courte (hero / cartes). */
-export const DEV_WEB_IA_DUREE_COURTE = '7 h ou 14 h' as const;
+export const DEV_WEB_IA_DUREE_COURTE = '7 h' as const;
 
 export const DEV_WEB_IA_INCLUS_TARIF = [
   'l’animation de la formation',
@@ -57,7 +57,7 @@ export const DEV_WEB_IA_INCLUS_TARIF = [
 export const DEV_WEB_IA_FORMATS = [
   'Présentiel · Île-de-France (inter-entreprises ou session convoquée par un réseau)',
   'Visioconférence · sessions inter à dates dédiées',
-  'Tarif HT par participant — minimum 6 participants (sessions fédérations et entreprises : voir page Partenaires)',
+  'Tarif HT / participant — 4 à 10 participants',
 ] as const;
 
 export const DEV_WEB_IA_MODALITES_SECTION = {
@@ -94,7 +94,7 @@ export const DEV_WEB_IA_QUALIOPI_ENGAGEMENTS = [
   {
     num: '02',
     title: 'Un accompagnement personnalisé',
-    desc: 'Groupes limités à 6 à 8 participants pour des allers-retours réguliers avec la formatrice.',
+    desc: 'Groupes limités à 4 à 10 participants pour des allers-retours réguliers avec la formatrice.',
   },
   {
     num: '03',
@@ -325,7 +325,7 @@ export const DEV_WEB_IA_FAQ = [
   },
   {
     q: 'Quels formats sont proposés ? Puis-je suivre la formation en visio ?',
-    a: `Le présentiel en Île-de-France est privilégié (inter-entreprises, 6 à 8 participants). Les fédérations et réseaux convoquent des sessions au tarif HT par participant (minimum 6 inscrits) — détail sur ${LINKS.partenaires}. Des sessions inter-entreprises en visioconférence sont aussi ouvertes à des dates dédiées, avec le même parcours de 7 h et des échanges adaptés au partage d’écran.`,
+    a: `Le présentiel en Île-de-France est privilégié (inter-entreprises, 4 à 10 participants). Les fédérations et réseaux convoquent des sessions au tarif HT / participant (minimum 6 inscrits) — détail sur ${LINKS.partenaires}. Des sessions inter-entreprises en visioconférence sont aussi ouvertes à des dates dédiées, avec le même parcours de 7 h et des échanges adaptés au partage d’écran.`,
   },
   {
     q: 'L’abonnement ChatGPT ou Claude est-il inclus ?',
@@ -335,7 +335,7 @@ export const DEV_WEB_IA_FAQ = [
 
 /** Libellé tarif catalogue / résumés — cohérent partout. */
 export function libelleTarifLancementDevWebIa(): string {
-  return `${DEV_WEB_IA_PRIX_LANCEMENT_LABEL} : ${formatTarifHt(TARIF_INTER_DEV_WEB_IA_HT)} € HT / participant (7 h) · ${formatTarifHt(TARIF_INTER_DEV_WEB_IA_14H_HT)} € HT / participant (14 h)`;
+  return `${formatTarifHt(TARIF_INTER_DEV_WEB_IA_HT)} € HT / participant`;
 }
 
 export function mentionFinancementDevWebIa(): string {

@@ -302,8 +302,8 @@ export const BEWORK_PARCOURS = {
     dureeLabel: '7 h',
     joursLabel: '1 journée',
     tarifHt: 300,
-    tarifLabel: '300 €',
-    effectif: '6 à 8 participants',
+    tarifLabel: '300 € HT / participant',
+    effectif: '4 à 10 participants',
     pdfHref: '/bework/programme-bework-parcours-7h.pdf',
     pdfDownloadName: 'programme-bework-parcours-7h.pdf',
     highlights: [
@@ -323,8 +323,8 @@ export const BEWORK_PARCOURS = {
     dureeLabel: '14 h',
     joursLabel: '2 journées',
     tarifHt: 600,
-    tarifLabel: '600 €',
-    effectif: '6 à 8 participants',
+    tarifLabel: '600 € HT / participant',
+    effectif: '4 à 10 participants',
     pdfHref: '/bework/programme-bework-parcours-14h.pdf',
     pdfDownloadName: 'programme-bework-parcours-14h.pdf',
     highlights: [

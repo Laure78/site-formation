@@ -3,19 +3,25 @@ import { calendlyCatalogueUrl } from '@/lib/calendly';
 import { LINKS } from '@/lib/internal-links';
 import { FINANCEMENT_FORMULATION_PRUDENTE } from '@/lib/financement-copy';
 import {
-  getTarifGrille,
-  GRILLE_TARIFS_CATALOGUE_DUREES,
-  libelleTarifInterParParticipant,
-  libelleTarifIntraParSession,
+  getFormationsCatalogue,
+  sortFormationsCatalogue,
+} from '@/lib/formations-catalogue-display';
+import {
   MENTION_ABONNEMENTS_IA_HORS_FORFAIT,
-  TARIF_INTER_4H_HT_FROM,
 } from '@/lib/tarifs-sessions';
 import { MentionTVA } from '@/components/MentionTVA';
 
 /**
  * Section « Tarifs des formations IA pour le BTP » — page catalogue `/formations`.
+ * Affiche uniquement le tarif HT / participant + effectif.
  */
 export function FormationsTarifsGrilleSection() {
+  const formations = sortFormationsCatalogue(
+    getFormationsCatalogue().filter((f) =>
+      ['NIV-01', 'NIV-02', 'NIV-03', 'NIV-04', 'NIV-05', 'NIV-09', 'NIV-10'].includes(f.ref),
+    ),
+  );
+
   return (
     <section
       id="tarifs-formations-btp"
@@ -26,58 +32,47 @@ export function FormationsTarifsGrilleSection() {
         Tarifs des formations IA pour le BTP
       </h2>
       <p className="mt-3 max-w-3xl text-sm leading-relaxed text-[#64748B]">
-        Deux formats : session réservée pour votre entreprise (tarif forfaitaire) ou inscription
-        individuelle en interentreprises (tarif par participant). {FINANCEMENT_FORMULATION_PRUDENTE}
+        Chaque formation est proposée au tarif HT par participant. L&apos;effectif autorisé est
+        indiqué pour chaque parcours. {FINANCEMENT_FORMULATION_PRUDENTE}
       </p>
 
-      <div className="mt-8 grid gap-6 md:grid-cols-2">
-        <article className="flex flex-col rounded-2xl border border-[#E2E8F0] bg-[#F8FAFC] p-6">
-          <h3 className="font-display text-xl font-semibold text-[#0F172A]">Formation intra-entreprise</h3>
-          <p className="mt-3 text-sm leading-relaxed text-[#475569]">
-            Une formation organisée exclusivement pour votre entreprise, dans vos locaux, en Île-de-France.
-            Le tarif est forfaitaire pour l&apos;ensemble du groupe.
-          </p>
-          <ul className="mt-4 flex-1 space-y-2 text-sm text-[#334155]">
-            {GRILLE_TARIFS_CATALOGUE_DUREES.map((duree) => {
-              const g = getTarifGrille(duree);
-              return (
-                <li key={duree}>
-                  <strong>{duree} heures :</strong>{' '}
-                  {libelleTarifIntraParSession(g.intraHT, g.intraFrom)}.
-                </li>
-              );
-            })}
-            <li>Jusqu&apos;à 8 ou 12 participants selon le programme.</li>
-            <li>Programme adapté aux besoins et aux documents de l&apos;entreprise.</li>
-          </ul>
-          <Link
-            href={calendlyCatalogueUrl('devis-intra-formations')}
-            className="mt-6 inline-flex items-center justify-center rounded-xl bg-[#377CF3] px-5 py-3 text-center text-sm font-semibold text-white hover:bg-[#2A6BD9]"
+      <ul className="mt-8 divide-y divide-[#E2E8F0] rounded-2xl border border-[#E2E8F0] bg-[#F8FAFC]">
+        {formations.map((f) => (
+          <li
+            key={f.ref}
+            className="flex flex-col gap-1 px-5 py-4 sm:flex-row sm:items-baseline sm:justify-between sm:gap-4"
           >
-            Demander un devis intra-entreprise
-          </Link>
-        </article>
+            <div className="min-w-0">
+              <Link
+                href={f.href}
+                className="font-display text-sm font-semibold text-[#0F172A] hover:text-[#377CF3]"
+              >
+                {f.title}
+              </Link>
+              <p className="mt-0.5 text-xs text-[#64748B]">
+                {f.duree} · {f.effectif}
+              </p>
+            </div>
+            <p className="shrink-0 font-display text-base font-bold text-[#377CF3]">
+              {f.tarifParcoursLabel}
+            </p>
+          </li>
+        ))}
+      </ul>
 
-        <article className="flex flex-col rounded-2xl border border-[#E2E8F0] bg-white p-6 shadow-sm">
-          <h3 className="font-display text-xl font-semibold text-[#0F172A]">Formation interentreprises</h3>
-          <p className="mt-3 text-sm leading-relaxed text-[#475569]">
-            Une session réunissant des professionnels de plusieurs entreprises. Le tarif est calculé par
-            participant.
-          </p>
-          <ul className="mt-4 flex-1 space-y-2 text-sm text-[#334155]">
-            <li>
-              <strong>4 heures :</strong> {libelleTarifInterParParticipant(TARIF_INTER_4H_HT_FROM)}.
-            </li>
-            <li>Dates et lieux communiqués selon le calendrier des sessions.</li>
-            <li>Session maintenue sous réserve d&apos;un nombre minimum d&apos;inscrits.</li>
-          </ul>
-          <Link
-            href={LINKS.contact}
-            className="mt-6 inline-flex items-center justify-center rounded-xl border-2 border-[#377CF3] bg-white px-5 py-3 text-center text-sm font-semibold text-[#377CF3] hover:bg-[#EFF6FF]"
-          >
-            Voir les prochaines sessions
-          </Link>
-        </article>
+      <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+        <Link
+          href={calendlyCatalogueUrl('devis-formations')}
+          className="inline-flex items-center justify-center rounded-xl bg-[#377CF3] px-5 py-3 text-center text-sm font-semibold text-white hover:bg-[#2A6BD9]"
+        >
+          Demander un devis
+        </Link>
+        <Link
+          href={LINKS.contact}
+          className="inline-flex items-center justify-center rounded-xl border-2 border-[#377CF3] bg-white px-5 py-3 text-center text-sm font-semibold text-[#377CF3] hover:bg-[#EFF6FF]"
+        >
+          Voir les prochaines sessions
+        </Link>
       </div>
 
       <p className="mt-6 text-xs leading-relaxed text-[#64748B]">

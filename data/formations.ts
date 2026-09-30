@@ -4,13 +4,13 @@
  */
 
 import {
-  TARIF_APPLICATION_METIER_BTP_NIV1_HT,
-  TARIF_APPLICATION_METIER_BTP_NIV2_HT,
-  TARIF_APPLICATION_METIER_BTP_NIV3_HT,
-} from '@/lib/tarifs-applications-metier-btp';
-import {
   TARIF_PARTICIPANT_NIV01_HT,
+  TARIF_PARTICIPANT_NIV02_HT,
+  TARIF_PARTICIPANT_NIV03_HT,
+  TARIF_PARTICIPANT_NIV04_HT,
+  TARIF_PARTICIPANT_NIV05_HT,
   TARIF_PARTICIPANT_NIV09_HT,
+  TARIF_PARTICIPANT_NIV10_HT,
 } from '@/lib/tarifs-catalogue-participant';
 
 export type FormationNiveau = 1 | 2;
@@ -48,11 +48,11 @@ export type Formation = {
   effectifMin: number;
   effectifMax: number;
   /**
-   * Prix forfaitaire HT session intra. `0` = pas de forfait session
-   * (voir `tarifParticipantHt` ou sur devis).
+   * @deprecated Conservé pour compatibilité — toujours `0` pour le catalogue public.
+   * Utiliser `tarifParticipantHt` (tarif HT par participant).
    */
   prixHT: number;
-  /** Tarif HT par participant (inter / session convoquée). */
+  /** Tarif HT par participant — source d’affichage catalogue. */
   tarifParticipantHt?: number;
   accroche: string;
   objectifs: string[];
@@ -85,7 +85,7 @@ export const FORMATIONS: readonly Formation[] = [
     niveauLabel: 'Niveau 1',
     duree: '4 h',
     horaires: '9h00 — 13h00',
-    effectifMin: 4,
+    effectifMin: 6,
     effectifMax: 12,
     prixHT: 0,
     tarifParticipantHt: TARIF_PARTICIPANT_NIV01_HT,
@@ -123,9 +123,10 @@ export const FORMATIONS: readonly Formation[] = [
     niveauLabel: 'Niveau 2',
     duree: '4 h',
     horaires: '9h00 — 13h00 ou 13h30 — 17h30 (à convenir)',
-    effectifMin: 8,
+    effectifMin: 6,
     effectifMax: 12,
-    prixHT: 1200,
+    prixHT: 0,
+    tarifParticipantHt: TARIF_PARTICIPANT_NIV02_HT,
     accroche:
       'Atelier pratique sur un dossier fil rouge : analyser un DCE, préparer le chiffrage et structurer un mémoire technique avec l’IA.',
     objectifs: [
@@ -157,9 +158,10 @@ export const FORMATIONS: readonly Formation[] = [
     niveau: 2,
     niveauLabel: 'Niveau 2',
     duree: '4 h',
-    effectifMin: 4,
-    effectifMax: 8,
-    prixHT: 1200,
+    effectifMin: 6,
+    effectifMax: 12,
+    prixHT: 0,
+    tarifParticipantHt: TARIF_PARTICIPANT_NIV03_HT,
     accroche:
       'Pilotez vos chantiers avec l\'IA — bibliothèque de 20+ skills Claude, de l\'analyse du CCTP à la réception des travaux.',
     objectifs: [
@@ -190,9 +192,10 @@ export const FORMATIONS: readonly Formation[] = [
     niveauLabel: 'Niveau 2',
     duree: '4 h',
     horaires: '9h00 – 13h00',
-    effectifMin: 2,
-    effectifMax: 8,
-    prixHT: 1200,
+    effectifMin: 6,
+    effectifMax: 12,
+    prixHT: 0,
+    tarifParticipantHt: TARIF_PARTICIPANT_NIV04_HT,
     accroche:
       'Industrialisez Claude dans votre entreprise BTP : Projets, Skills métier, Cowork et connecteurs — sur vos documents réels.',
     objectifs: [
@@ -225,9 +228,10 @@ export const FORMATIONS: readonly Formation[] = [
     niveauLabel: 'Niveau 2',
     duree: '4 h',
     horaires: '9h00 – 13h00 ou 13h30 – 17h30',
-    effectifMin: 3,
-    effectifMax: 8,
-    prixHT: 1200,
+    effectifMin: 6,
+    effectifMax: 12,
+    prixHT: 0,
+    tarifParticipantHt: TARIF_PARTICIPANT_NIV05_HT,
     accroche:
       "Maîtrise d'œuvre d'exécution — analyse DCE, CR chantier, OS et suivi réserves avec ChatGPT et Claude.",
     objectifs: [
@@ -266,7 +270,7 @@ export const FORMATIONS: readonly Formation[] = [
     horaires: 'journée complète ou organisation à convenir',
     effectifMin: 2,
     effectifMax: 8,
-    prixHT: TARIF_APPLICATION_METIER_BTP_NIV1_HT,
+    prixHT: 0,
     tarifParcoursAppMetier: 'niveau-1',
     accroche:
       'Découvrir la méthode pour cadrer un besoin métier BTP et obtenir un prototype fonctionnel avec le développement assisté par l’IA — sans compétence préalable en programmation.',
@@ -306,7 +310,7 @@ export const FORMATIONS: readonly Formation[] = [
     horaires: 'journée complète ou organisation à convenir',
     effectifMin: 2,
     effectifMax: 8,
-    prixHT: TARIF_APPLICATION_METIER_BTP_NIV2_HT,
+    prixHT: 0,
     tarifParcoursAppMetier: 'niveau-2',
     accroche:
       'Structurer une base de données métier, gérer les accès, connecter des services et automatiser des actions — sur votre cas d’usage réel.',
@@ -346,7 +350,7 @@ export const FORMATIONS: readonly Formation[] = [
     horaires: 'journée complète ou organisation à convenir',
     effectifMin: 2,
     effectifMax: 8,
-    prixHT: TARIF_APPLICATION_METIER_BTP_NIV3_HT,
+    prixHT: 0,
     tarifParcoursAppMetier: 'niveau-3',
     accroche:
       'Intégrer l’IA dans une application métier existante : extraction, classification, génération, workflows automatisés — validation humaine obligatoire.',
@@ -422,12 +426,12 @@ export const FORMATIONS: readonly Formation[] = [
     theme: 'outils-applications',
     niveau: 2,
     niveauLabel: 'Niveau 2',
-    duree: '7 h ou 14 h',
-    horaires: '09h00 – 12h30 / 13h30 – 17h00 (par journée)',
-    effectifMin: 6,
-    effectifMax: 8,
-    /** 0 = pas de forfait session catalogue ; inter 300 € / participant géré côté NIV-10. */
+    duree: '7 h',
+    horaires: '09h00 – 12h30 / 13h30 – 17h00',
+    effectifMin: 4,
+    effectifMax: 10,
     prixHT: 0,
+    tarifParticipantHt: TARIF_PARTICIPANT_NIV10_HT,
     accroche:
       'Une idée. Une journée. Une première version fonctionnelle. Formation pratique pour créer avec l’IA, sans savoir coder.',
     objectifs: [
@@ -504,18 +508,18 @@ export function libellePrixSessionHt(
   f: Pick<Formation, 'prixHT' | 'tarifParticipantHt'>,
 ): string {
   if (f.tarifParticipantHt && f.tarifParticipantHt > 0) {
-    return `${formatPrixHt(f.tarifParticipantHt)} € HT par participant`;
+    return `${formatPrixHt(f.tarifParticipantHt)} € HT / participant`;
   }
   if (isFormationSurDevis(f)) return 'Sur devis';
-  return `${formatPrixHt(f.prixHT)} € HT par session (intra-entreprise)`;
+  return 'Sur devis';
 }
 
 export const FORMATION_NIV01 = getFormationByCode('NIV-01')!;
 export const FORMATION_NIV02 = getFormationByCode('NIV-02')!;
 
-/** Prix catalogue par niveau pédagogique (source FORMATIONS). */
+/** Prix catalogue par niveau pédagogique (source FORMATIONS) — HT / participant. */
 export const PRIX_NIVEAU_1_HT = FORMATION_NIV01.tarifParticipantHt ?? TARIF_PARTICIPANT_NIV01_HT;
-export const PRIX_NIVEAU_2_HT = FORMATION_NIV02.prixHT;
+export const PRIX_NIVEAU_2_HT = FORMATION_NIV02.tarifParticipantHt ?? TARIF_PARTICIPANT_NIV02_HT;
 
 /** Effectif max absolu du catalogue (NIV-01). */
 export const EFFECTIF_CATALOGUE_MAX = Math.max(...FORMATIONS.map((f) => f.effectifMax));
