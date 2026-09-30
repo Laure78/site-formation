@@ -1,5 +1,14 @@
 import type { SupabaseClient } from '@supabase/supabase-js';
 
+type SessionParticipantPerson = { email: string; profile_id: string | null };
+
+function personFromJoin(
+  person: SessionParticipantPerson | SessionParticipantPerson[] | null | undefined,
+): SessionParticipantPerson | null {
+  if (!person) return null;
+  return Array.isArray(person) ? (person[0] ?? null) : person;
+}
+
 /**
  * Inscriptions LMS dont la satisfaction post-formation est gérée par training_ops
  * (participant session lié au même course_id) — exclues du cron satisfaction-j1.
@@ -50,7 +59,8 @@ export async function enrollmentIdsExcludedFromSatisfactionJ1(
   for (const row of participants ?? []) {
     const courseId = sessionToCourse.get(row.session_id as string);
     if (!courseId) continue;
-    const person = row.person as { email: string; profile_id: string | null };
+    const person = personFromJoin(row.person as SessionParticipantPerson | SessionParticipantPerson[] | null);
+    if (!person) continue;
     const email = person.email?.trim().toLowerCase();
     if (person.profile_id) {
       coveredKeys.add(enrollmentKey(person.profile_id, courseId));
