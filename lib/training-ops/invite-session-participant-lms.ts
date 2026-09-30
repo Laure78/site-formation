@@ -6,11 +6,6 @@ export type InviteSessionPersonToLmsResult =
   | { ok: true; status: 'cree' | 'deja_invite' | 'renvoye' | 'skipped'; detail?: string }
   | { ok: false; error: string };
 
-function firstJoinedRow<T>(value: T | T[] | null | undefined): T | null {
-  if (value == null) return null;
-  return Array.isArray(value) ? (value[0] ?? null) : value;
-}
-
 function formatSessionDateFr(startsOn: string | null, endsOn: string | null): string | null {
   const key = endsOn ?? startsOn;
   if (!key) return null;
@@ -39,7 +34,7 @@ export async function inviteSessionPersonToLms(params: {
   const admin = createAdminClient();
   const { data: session, error: sErr } = await admin
     .from('training_sessions')
-    .select('starts_on, ends_on, program:training_programs(course_id)')
+    .select('starts_on, ends_on, program_id')
     .eq('id', params.sessionId)
     .maybeSingle();
 
@@ -47,13 +42,21 @@ export async function inviteSessionPersonToLms(params: {
     return { ok: false, error: sErr?.message ?? 'Session introuvable' };
   }
 
-  const program = firstJoinedRow(
-    session.program as unknown as
-      | { course_id: string | null }
-      | { course_id: string | null }[]
-      | null,
-  );
-  const courseId = program?.course_id ?? null;
+  const programId = session.program_id as string | null;
+  if (!programId) {
+    return { ok: true, status: 'skipped', detail: 'no_lms_course_linked' };
+  }
+
+  const { data: program, error: progErr } = await admin
+    .from('training_programs')
+    .select('course_id')
+    .eq('id', programId)
+    .maybeSingle();
+  if (progErr) {
+    return { ok: false, error: progErr.message };
+  }
+
+  const courseId = (program?.course_id as string | null) ?? null;
   if (!courseId) {
     return { ok: true, status: 'skipped', detail: 'no_lms_course_linked' };
   }
