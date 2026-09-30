@@ -16,10 +16,14 @@ import {
   TrainingPracticalInfo,
   TrainingPricing,
   TrainingProgram,
+  TrainingSection,
   TrainingTrainer,
   TrainingTrustBar,
 } from '@/components/formations/training';
-import type { CatalogueFormationPageContent } from '@/lib/catalogue-formation-page-content';
+import type {
+  CatalogueFormationPageContent,
+  CatalogueNavItem,
+} from '@/lib/catalogue-formation-page-content';
 import { getRelatedCatalogueFormations } from '@/lib/catalogue-formation-related';
 import { getFormationByCode, isFormationSurDevis } from '@/data/formations';
 import { getFormationCatalogueSeo } from '@/lib/formation-catalogue-seo';
@@ -35,7 +39,7 @@ import {
 
 type Props = {
   content: CatalogueFormationPageContent;
-  /** Accordéon ou liste programme — si absent, utilise content.programModules. */
+  /** Accordéon ou liste programme — si présent, prioritaire sur content.programModules. */
   programme?: ReactNode;
   faqItems?: readonly FAQItem[];
   faqSectionId?: string;
@@ -48,6 +52,29 @@ type Props = {
   afterProgrammeSupplement?: ReactNode;
   beforeTariffs?: ReactNode;
 };
+
+function buildDefaultNav(
+  content: CatalogueFormationPageContent,
+  faqSectionId: string,
+  hasFaq: boolean,
+): CatalogueNavItem[] {
+  const items: CatalogueNavItem[] = [
+    { href: '#programme', label: 'Programme' },
+    { href: '#objectifs', label: 'Objectifs' },
+    { href: '#pour-qui', label: 'Pour qui ?' },
+  ];
+  if (content.practicalCase) {
+    items.push({ href: '#modalites', label: 'Modalités' });
+  }
+  items.push(
+    { href: '#tarifs-modalites', label: 'Tarif' },
+    { href: '#formatrice', label: 'Formatrice' },
+  );
+  if (hasFaq) {
+    items.push({ href: `#${faqSectionId}`, label: 'FAQ' });
+  }
+  return items;
+}
 
 /**
  * Template de référence des fiches formation catalogue.
@@ -79,24 +106,24 @@ export function TrainingPageTemplate({
       : 'Sur devis';
   const effectifLabel = `${formation.effectifMin} à ${formation.effectifMax} participants`;
   const devisHref = trainingDevisHref(formation.titre);
+  const formatLabel = content.formatLabel ?? 'Présentiel';
+  const locationLabel = content.locationLabel ?? 'Île-de-France';
+  const hasFaq = Boolean(faqItems && faqItems.length > 0);
 
   const factCards =
     content.heroFactCards ??
     [
       { label: 'Durée', value: formation.duree },
       { label: 'Niveau', value: content.quickFactsLevel },
-      { label: 'Format', value: content.formatLabel ?? 'Présentiel' },
+      { label: 'Format', value: formatLabel },
       { label: 'Participants', value: effectifLabel },
       ...(content.practiceShare
         ? [{ label: 'Part de pratique', value: content.practiceShare }]
         : []),
-      {
-        label: content.formatLabel ? 'Présentiel / distanciel' : 'Lieu',
-        value: content.formatLabel
-          ? `${content.formatLabel}${content.locationLabel ? ` · ${content.locationLabel}` : ''}`
-          : (content.locationLabel ?? 'Île-de-France'),
-      },
+      { label: 'Lieu', value: locationLabel },
     ].slice(0, 6);
+
+  const navItems = content.navItems ?? buildDefaultNav(content, faqSectionId, hasFaq);
 
   const programmeHeading =
     content.programmeHeading ?? `Programme — ${formation.duree}`;
@@ -156,9 +183,7 @@ export function TrainingPageTemplate({
         />
       ) : null}
 
-      {content.navItems && content.navItems.length > 0 ? (
-        <TrainingNavigation items={content.navItems} />
-      ) : null}
+      {navItems.length > 0 ? <TrainingNavigation items={navItems} /> : null}
 
       <section className="border-b border-slate-200 bg-white px-4 py-6 md:py-8">
         <div className="mx-auto max-w-3xl">
@@ -172,7 +197,10 @@ export function TrainingPageTemplate({
         outcomes={content.outcomes}
         title={objectivesTitle}
         description={content.outcomesDescription}
-        pedagogicalNote={content.pedagogicalNote}
+        pedagogicalNote={
+          content.pedagogicalNote ??
+          'L’IA prépare et structure. Le professionnel contrôle et valide.'
+        }
       />
 
       {afterObjectives}
@@ -180,7 +208,7 @@ export function TrainingPageTemplate({
       <TrainingProgram
         title={programmeHeading}
         description={content.programIntro}
-        modules={content.programModules}
+        modules={programme ? undefined : content.programModules}
         programLinks={content.programLinks}
         pdfHref={programme || content.programModules ? undefined : pdfHref}
       >
@@ -199,9 +227,61 @@ export function TrainingPageTemplate({
         />
       ) : null}
 
+      {content.workflow && content.workflow.length > 0 ? (
+        <TrainingSection id="deroule" title="Déroulement type" tone="muted">
+          <ol className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            {content.workflow.map((step, index) => (
+              <li
+                key={step}
+                className="flex gap-3 rounded-2xl border border-slate-200 bg-white px-4 py-4"
+              >
+                <span
+                  className="font-display text-lg font-bold text-[#377CF3]"
+                  aria-hidden
+                >
+                  {String(index + 1).padStart(2, '0')}
+                </span>
+                <span className="text-base text-slate-800">{step}</span>
+              </li>
+            ))}
+          </ol>
+        </TrainingSection>
+      ) : null}
+
+      {content.iaLimits && content.iaLimits.length > 0 ? (
+        <TrainingSection
+          id="limites-ia"
+          title="Ce que l’IA aide — ce que vous validez"
+          tone="white"
+        >
+          <div className="overflow-x-auto rounded-2xl border border-slate-200">
+            <table className="min-w-full text-left text-sm md:text-base">
+              <thead className="bg-slate-50 text-slate-600">
+                <tr>
+                  <th scope="col" className="px-4 py-3 font-semibold">
+                    L’IA aide à…
+                  </th>
+                  <th scope="col" className="px-4 py-3 font-semibold">
+                    Vous validez…
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                {content.iaLimits.map((row) => (
+                  <tr key={row.iaAide} className="border-t border-slate-100">
+                    <td className="px-4 py-3 text-slate-800">{row.iaAide}</td>
+                    <td className="px-4 py-3 text-slate-800">{row.validation}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </TrainingSection>
+      ) : null}
+
       <TrainingDeliverables
         items={content.deliverables}
-        title={content.deliverablesTitle}
+        title={content.deliverablesTitle ?? 'Ce que vous emportez'}
         description={content.deliverablesIntro}
       />
 
@@ -238,7 +318,7 @@ export function TrainingPageTemplate({
           effectifLabel={effectifLabel}
           durationLabel={formation.duree}
           bullets={[
-            `${content.formatLabel ?? 'Présentiel'} — ${content.locationLabel ?? 'Île-de-France'}`,
+            `${formatLabel} — ${locationLabel}`,
             'Dans les locaux de l’entreprise ou session collective selon calendrier',
             'Programme adaptable aux besoins de l’équipe',
             ...(content.intraExtraBullets ?? []),
@@ -268,9 +348,7 @@ export function TrainingPageTemplate({
         </div>
       ) : null}
 
-      {faqItems && faqItems.length > 0 ? (
-        <TrainingFAQ items={faqItems} id={faqSectionId} />
-      ) : null}
+      {hasFaq ? <TrainingFAQ items={faqItems!} id={faqSectionId} /> : null}
 
       {content.showBeworkPasserelle !== false ? <FormationBeworkPasserelle /> : null}
 
@@ -284,7 +362,7 @@ export function TrainingPageTemplate({
         secondaryLabel={content.finalCta.secondaryLabel ?? 'Demander un devis'}
         title={content.finalCta.title}
         description={content.finalCta.description}
-        note={content.finalCta.note}
+        note={content.finalCta.note ?? 'Rendez-vous découverte · 30 min'}
       />
     </div>
   );

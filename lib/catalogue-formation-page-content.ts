@@ -1,5 +1,6 @@
 /**
- * Contenu éditorial des fiches catalogue Qualiopi — séparé de la présentation (`CatalogueFormationPageTemplate`).
+ * Contenu éditorial des fiches catalogue Qualiopi — séparé de la présentation
+ * (`TrainingPageTemplate` / facade `CatalogueFormationPageTemplate`).
  */
 import type { FormationCatalogueCode } from '@/lib/formation-catalogue-visibility';
 import type { TrainingParcoursKind } from '@/lib/training-page-helpers';
@@ -10,6 +11,11 @@ import {
   DEV_WEB_IA_OBJECTIFS,
   TARIF_INTER_DEV_WEB_IA_HT,
 } from '@/lib/formation-developpement-web-ia-content';
+import {
+  ASSISTANTS_IA_LIVRABLES,
+  ASSISTANTS_IA_MODULES,
+  ASSISTANTS_IA_OBJECTIFS,
+} from '@/lib/formation-assistants-ia-personnalises-btp-content';
 import { formatTarifHt } from '@/lib/tarifs-sessions';
 
 export type CataloguePainPoint = { title: string; texte: string };
@@ -107,10 +113,13 @@ export type CatalogueFormationPageContent = {
 };
 
 const DEFAULT_FINAL_CTA = {
-  title: 'Étudions les besoins de votre équipe',
+  title: 'Vous souhaitez former votre équipe à l’IA ?',
   description:
-    'Un échange permet de définir vos cas d’usage, le nombre de participants, le niveau, le format et les possibilités de financement.',
-  secondaryLabel: 'Échanger sur votre projet de formation',
+    'Les besoins et cas d’usage de votre entreprise sont étudiés avant la session, pour adapter le programme à votre équipe.',
+  primaryLabel: 'Échanger sur votre projet de formation',
+  devisHref: LINKS.prendreRdv,
+  secondaryLabel: 'Demander un devis',
+  note: 'Rendez-vous découverte · 30 min',
 } as const;
 
 const NIV_01_FORMATION = getFormationByCode('NIV-01')!;
@@ -256,6 +265,10 @@ const NIV_02: CatalogueFormationPageContent = {
     'Dossier fil rouge BTP',
   ],
   quickFactsLevel: 'Intermédiaire',
+  practiceShare: '75 %',
+  formatLabel: 'Présentiel',
+  locationLabel: 'Île-de-France',
+  pedagogicalNote: 'L’IA assiste l’analyse. Le chiffrage et les engagements restent à valider par le professionnel.',
   painPointsTitle: 'Vos réponses aux appels d’offres mobilisent trop de temps ?',
   painPoints: [
     {
@@ -286,15 +299,15 @@ const NIV_02: CatalogueFormationPageContent = {
   outcomesDescription:
     'En quatre heures, l’entreprise construit une méthode guidée pour analyser un DCE, sécuriser la préparation de son chiffrage et structurer un mémoire technique avec l’aide de l’IA — pas une offre prête à déposer sans contrôle humain.',
   practicalCase: {
-    title: 'Travaillez sur un véritable dossier de l’entreprise',
+    title: 'Comment se déroule la formation ?',
     paragraphs: [
       'Avant la session, l’entreprise sélectionne un DCE représentatif, un ancien devis et, si elle en dispose, une trame de mémoire technique. Ces documents servent de fil rouge pendant les exercices.',
       'La formation s’appuie sur un dossier fil rouge sélectionné avec l’entreprise avant la session. En interentreprises, des dossiers pédagogiques anonymisés peuvent être utilisés.',
     ],
     steps: [
-      'Sélection et anonymisation des documents.',
-      'Analyse guidée du dossier fil rouge.',
-      'Création d’une méthode réutilisable.',
+      'Vous apportez un dossier fil rouge anonymisé.',
+      'Vous construisez la méthode d’analyse et les prompts.',
+      'Vous repartez avec une méthode réutilisable.',
     ],
     note: 'Les documents doivent être anonymisés. Les informations sensibles, personnelles ou couvertes par une obligation de confidentialité ne doivent pas être déposées dans un outil IA sans cadre adapté.',
   },
@@ -387,6 +400,12 @@ const NIV_03: CatalogueFormationPageContent = {
     'Bibliothèque 20+ skills Claude BTP',
   ],
   quickFactsLevel: 'Niveau 2',
+  practiceShare: '70 %',
+  formatLabel: 'Présentiel',
+  locationLabel: 'Île-de-France',
+  pedagogicalNote: 'L’IA prépare et structure. Le professionnel contrôle et valide.',
+  objectivesTitle: 'Après la formation, vous saurez…',
+  deliverablesTitle: 'Ce que vous emportez',
   painPointsTitle: 'Vous perdez du temps sur le pilotage chantier ?',
   painPoints: [
     {
@@ -415,18 +434,19 @@ const NIV_03: CatalogueFormationPageContent = {
   outcomesDescription:
     'Formation IA appliquée à la conduite de travaux : industrialiser l’analyse CCTP/DPGF, la sécurité chantier, les comptes rendus et le DOE avec des skills Claude — validation humaine avant tout envoi.',
   practicalCase: {
-    title: 'Travaillez sur vos documents de chantier',
+    title: 'Comment se déroule la formation ?',
     paragraphs: [
       'Les exercices s’appuient sur vos CCTP, DPGF, modèles de CR, courriers ST ou dossiers de réception — anonymisés avant utilisation dans Claude.',
       'Un fil rouge chronologique : du démarrage à la réception sur un chantier type bâtiment.',
     ],
     steps: [
-      'Sélection et anonymisation de vos pièces.',
-      'Activation de la bibliothèque et test des skills sur le fil rouge.',
-      'Personnalisation des skills à votre charte et à vos lots.',
+      'Vous apportez des pièces de chantier anonymisées.',
+      'Vous activez et testez les skills sur le fil rouge.',
+      'Vous repartez avec des skills personnalisés.',
     ],
     note: 'Un compte Claude Pro est recommandé par participant (environ 18 € HT/mois, à souscrire par l’entreprise) — non inclus dans le tarif.',
   },
+  deliverablesTitle: 'Ce que vous emportez',
   deliverables: [
     'Accès à la bibliothèque 20+ skills Claude BTP (par phase de chantier)',
     'Skills opérationnels testés sur le fil rouge (CCTP, PPSPS, CR, DOE…)',
@@ -466,10 +486,10 @@ const NIV_03: CatalogueFormationPageContent = {
     },
   ],
   finalCta: {
-    title: 'Parlons de votre projet de formation',
+    ...DEFAULT_FINAL_CTA,
+    title: 'Vous souhaitez former vos conducteurs de travaux à l’IA ?',
     description:
-      'Organisez une session pour vos conducteurs de travaux : devis, effectif et financement OPCO possible selon éligibilité.',
-    secondaryLabel: 'Échanger sur votre projet',
+      'Organisez une session pour vos équipes travaux : devis, effectif et financement OPCO possible selon éligibilité.',
   },
   pdfHref: LINKS.pdfProgrammeConduiteTravauxNiv03,
   seoLandingLink: {
@@ -491,6 +511,12 @@ const NIV_04: CatalogueFormationPageContent = {
     'Présentiel en Île-de-France',
   ],
   quickFactsLevel: 'Niveau 2',
+  practiceShare: '70 %',
+  formatLabel: 'Présentiel',
+  locationLabel: 'Île-de-France',
+  pedagogicalNote: 'L’IA prépare et structure. Le professionnel contrôle et valide.',
+  objectivesTitle: 'Après la formation, vous saurez…',
+  deliverablesTitle: 'Ce que vous emportez',
   painPointsTitle: 'Vous voulez structurer Claude dans l’entreprise ?',
   painPoints: [
     {
@@ -573,6 +599,12 @@ const NIV_05: CatalogueFormationPageContent = {
     'Présentiel en Île-de-France',
   ],
   quickFactsLevel: 'Niveau 2',
+  practiceShare: '70 %',
+  formatLabel: 'Présentiel',
+  locationLabel: 'Île-de-France',
+  pedagogicalNote: 'L’IA prépare et structure. Le professionnel contrôle et valide.',
+  objectivesTitle: 'Après la formation, vous saurez…',
+  deliverablesTitle: 'Ce que vous emportez',
   painPointsTitle: 'La MOE d’exécution produit trop de documents ?',
   painPoints: [
     {
@@ -602,16 +634,17 @@ const NIV_05: CatalogueFormationPageContent = {
   outcomesDescription:
     'Formation IA pour la maîtrise d’œuvre d’exécution : DCE, CR, OS, réserves et GPA — avec Claude et ChatGPT, confidentialité des données chantier et validation humaine systématique.',
   practicalCase: {
-    title: 'Travaillez sur vos dossiers MOE',
+    title: 'Comment se déroule la formation ?',
     paragraphs: [
       'Ateliers sur vos DCE, CR, OS, listes de réserves ou courriers — anonymisés si besoin. Chaque module produit un livrable réutilisable dès le lendemain.',
     ],
     steps: [
-      'Import ou sélection d’un dossier fil rouge MOE.',
-      'Exercices guidés module par module.',
-      'Plan d’action individuel à 30 jours en clôture.',
+      'Vous apportez un dossier fil rouge MOE.',
+      'Vous travaillez module par module sur vos cas.',
+      'Vous repartez avec un plan d’action à 30 jours.',
     ],
   },
+  deliverablesTitle: 'Ce que vous emportez',
   deliverables: [
     'Mémo « Claude pour la maîtrise d’œuvre »',
     'Fiche-type d’analyse DCE (30 points)',
@@ -644,10 +677,10 @@ const NIV_05: CatalogueFormationPageContent = {
     },
   ],
   finalCta: {
-    title: 'Parlons de votre projet de formation',
+    ...DEFAULT_FINAL_CTA,
+    title: 'Vous souhaitez former votre équipe MOE à l’IA ?',
     description:
       'Demandez un devis ou planifiez votre session intra ou inter — réponse sous 48 h ouvrées.',
-    secondaryLabel: 'Échanger sur votre projet',
   },
 };
 
@@ -665,6 +698,11 @@ const NIV_10: CatalogueFormationPageContent = {
     '70 % pratique · 30 % méthodologie',
   ],
   quickFactsLevel: 'avancé — aucun prérequis en programmation',
+  practiceShare: '70 %',
+  formatLabel: 'Présentiel ou visio',
+  locationLabel: 'Île-de-France',
+  pedagogicalNote: 'L’IA génère une première version. Vous validez le périmètre, les tests et la responsabilité du projet.',
+  deliverablesTitle: 'Ce que vous emportez',
   quickFactsOverride: [
     { label: 'Durée', value: '7 h' },
     { label: 'Format', value: 'Présentiel ou visio (inter)' },
@@ -734,12 +772,93 @@ const NIV_10: CatalogueFormationPageContent = {
   },
 };
 
+const NIV_09: CatalogueFormationPageContent = {
+  programmeRef: 'NIV-09',
+  parcoursKind: 'usages-ia-btp',
+  levelBadgeLabel: 'Niveau 2 · Assistants IA · 7 heures',
+  heroPublicLine:
+    'Fonctions support et métiers du BTP : assistant(e)s travaux, comptabilité, DAF, dirigeants, conducteurs de travaux et chargés d’affaires.',
+  heroFacts: [
+    '7 heures',
+    '80 % de pratique',
+    '6 à 10 participants',
+    'Présentiel en Île-de-France',
+  ],
+  practiceShare: '80 %',
+  formatLabel: 'Présentiel',
+  locationLabel: 'Île-de-France',
+  quickFactsLevel: 'Niveau 2',
+  pedagogicalNote: 'L’IA prépare et structure. Le professionnel contrôle et valide.',
+  objectivesTitle: 'Après la formation, vous saurez…',
+  deliverablesTitle: 'Ce que vous emportez',
+  painPointsTitle: 'Cette formation est faite pour vous si…',
+  painPoints: [
+    {
+      title: 'Consignes à réécrire',
+      texte: 'Réutiliser ses instructions utiles sans les ressaisir à chaque échange.',
+    },
+    {
+      title: 'Documents hétérogènes',
+      texte: 'Harmoniser le ton et la structure des documents produits par l’équipe.',
+    },
+    {
+      title: 'Modèles dispersés',
+      texte: 'Centraliser modèles, documents et bonnes pratiques au même endroit.',
+    },
+    {
+      title: 'Résultats variables',
+      texte: 'Tester et améliorer les réponses de vos assistants par itérations.',
+    },
+  ],
+  outcomes: [...ASSISTANTS_IA_OBJECTIFS],
+  outcomesDescription:
+    'Créer et fiabiliser des assistants IA métier sur ChatGPT et Claude, avec confidentialité, vérification et traçabilité — validation humaine avant tout envoi.',
+  practicalCase: {
+    title: 'Comment se déroule la formation ?',
+    paragraphs: [
+      'Journée pratique sur vos cas réels d’assistanat. Chaque participant configure un assistant adapté à son poste.',
+    ],
+    steps: [
+      'Vous apportez une tâche récurrente de votre poste.',
+      'Vous configurez l’assistant (rôle, ton, documents, prompts).',
+      'Vous repartez avec un assistant testé et une méthode réutilisable.',
+    ],
+    note: 'Abonnement ChatGPT Plus ou Claude Pro requis — non inclus dans le tarif.',
+  },
+  deliverables: [...ASSISTANTS_IA_LIVRABLES],
+  programIntro:
+    'Quatre modules sur 7 h : littératie IA, fonctionnalités ChatGPT/Claude, méthode de prompt, création d’un assistant métier. 80 % de pratique.',
+  programModules: ASSISTANTS_IA_MODULES.map((m) => ({
+    title: m.heading.replace(/^Module \d+ — /, ''),
+    points: [...m.points, m.atelier],
+  })),
+  programLinks: [
+    {
+      prefix: 'Pour les bases IA, voir la',
+      href: LINKS.formationIaBtpNiveau1BatimentTp,
+      label: 'formation IA BTP niveau 1',
+    },
+    {
+      prefix: 'Pour industrialiser Claude en entreprise, voir la',
+      href: LINKS.formationMaitriserClaudeAiBtp,
+      label: 'formation Maîtriser Claude AI pour le BTP',
+    },
+  ],
+  finalCta: {
+    ...DEFAULT_FINAL_CTA,
+    title: 'Vous souhaitez créer des assistants IA pour votre équipe ?',
+    description:
+      'Échangeons sur vos postes, cas d’usage et le format intra adapté — financement OPCO possible selon éligibilité.',
+  },
+};
+
 const BY_REF: Partial<Record<FormationCatalogueCode, CatalogueFormationPageContent>> = {
   'NIV-01': NIV_01,
   'NIV-02': NIV_02,
   'NIV-03': NIV_03,
   'NIV-04': NIV_04,
   'NIV-05': NIV_05,
+  'NIV-09': NIV_09,
   'NIV-10': NIV_10,
 };
 
