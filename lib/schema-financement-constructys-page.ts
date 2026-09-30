@@ -16,8 +16,9 @@ import {
 } from '@/lib/financement-constructys-page-config';
 import {
   SESSION_DUREE_LIBELLE,
-  TARIF_SESSION_FORFAIT_HT,
 } from '@/lib/tarifs-sessions';
+import { TARIF_PARTICIPANT_NIV01_HT } from '@/lib/tarifs-catalogue-participant';
+import { FORMATION_COURSE_OFFER_CATEGORY } from '@/lib/schema-formation-course-jsonld';
 
 const PATH = '/financement-constructys-formation-ia-btp' as const;
 
@@ -124,9 +125,10 @@ export function getFinancementConstructysUnifiedJsonLd(): Record<string, unknown
     offers: [
       {
         '@type': 'Offer',
-        name: 'Session catalogue 4 h — intra-entreprise (forfait session)',
-        price: String(TARIF_SESSION_FORFAIT_HT),
+        name: `Session catalogue 4 h — ${FORMATION_COURSE_OFFER_CATEGORY}`,
+        price: String(TARIF_PARTICIPANT_NIV01_HT),
         priceCurrency: 'EUR',
+        category: FORMATION_COURSE_OFFER_CATEGORY,
         availability: 'https://schema.org/InStock',
         url: `${base}/formations`,
       },

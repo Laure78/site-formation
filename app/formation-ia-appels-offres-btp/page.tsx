@@ -25,9 +25,7 @@ export default function FormationIaAppelsOffresBtpPage() {
   return (
     <FormationSeoClusterLanding
       config={FORMATION_IA_APPELS_OFFRES_BTP_CONFIG}
-      afterUseCases={
-        <FormationIaAppelsOffresOperationalSections showCatalogueLink />
-      }
+      afterUseCases={<FormationIaAppelsOffresOperationalSections />}
       sommaireAfterUseCases={[
         { href: '#cas-pratique-dce-reel', label: 'Cas pratique — DCE et devis réels' },
         { href: '#promesse-formation', label: 'Ce que vous repartez avec' },

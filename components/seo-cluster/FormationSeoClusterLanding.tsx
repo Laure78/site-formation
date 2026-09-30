@@ -289,13 +289,23 @@ export function FormationSeoClusterLanding({
         ) : null}
 
         {config.catalogueHref ? (
-          <p className="mt-10 text-slate-600">
-            Programme détaillé :{' '}
-            <Link href={config.catalogueHref} className={`font-semibold ${OFC_LINK}`}>
-              {config.catalogueLabel ?? 'Voir la fiche catalogue'}
+          <aside
+            className="mt-10 rounded-2xl border border-[#377CF3]/25 bg-[#F2F2F2] px-6 py-5"
+            aria-label="Programme détaillé"
+          >
+            <p className="text-sm font-semibold uppercase tracking-wide text-[#377CF3]">
+              Programme catalogue Qualiopi
+            </p>
+            <p className="mt-2 text-base text-slate-700">
+              Objectifs, durée, tarifs et informations réglementaires sur la fiche programme.
+            </p>
+            <Link
+              href={config.catalogueHref}
+              className={`mt-3 inline-flex font-semibold ${OFC_LINK}`}
+            >
+              {config.catalogueLabel ?? 'Voir le programme détaillé'}
             </Link>
-            .
-          </p>
+          </aside>
         ) : null}
 
         <div className="mt-14">

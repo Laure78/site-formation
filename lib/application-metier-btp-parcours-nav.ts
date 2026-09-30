@@ -7,10 +7,10 @@ import { LINKS } from '@/lib/internal-links';
 export type ApplicationMetierStepIndex = 1 | 2 | 3;
 
 export const APPLICATION_METIER_PARCOURS_MOTHER = {
-  path: LINKS.parcoursApplicationsMetierBtp,
-  backLabel: '← Voir le parcours Création d’applications BTP',
-  breadcrumbParcoursLabel: 'Parcours',
-  breadcrumbMotherLabel: 'Création d’applications BTP',
+  path: LINKS.formations,
+  backLabel: '← Catalogue des formations',
+  breadcrumbParcoursLabel: 'Formations',
+  breadcrumbMotherLabel: 'Catalogue',
   linkCatalogueLabel: 'Voir le catalogue des formations IA BTP',
 } as const;
 
@@ -79,7 +79,7 @@ export const APPLICATION_METIER_PARCOURS_STEPS: readonly ApplicationMetierParcou
       primaryCta: 'Passer au niveau 2 →',
       primaryHref: LINKS.formationApplicationMetierBtpNiveau2,
       primaryAnchor: 'développer une application métier BTP connectée',
-      secondaryCta: 'Voir le parcours complet',
+      secondaryCta: 'Voir le catalogue',
       tertiaryLink: {
         label: 'Découvrir le niveau 3',
         href: LINKS.formationApplicationMetierBtpNiveau3,
@@ -115,7 +115,7 @@ export const APPLICATION_METIER_PARCOURS_STEPS: readonly ApplicationMetierParcou
       primaryCta: 'Passer au niveau 3 →',
       primaryHref: LINKS.formationApplicationMetierBtpNiveau3,
       primaryAnchor: 'application métier BTP avec intelligence artificielle',
-      secondaryCta: 'Voir le parcours complet',
+      secondaryCta: 'Voir le catalogue',
     },
   },
   {
@@ -138,7 +138,7 @@ export const APPLICATION_METIER_PARCOURS_STEPS: readonly ApplicationMetierParcou
     terminer: {
       title: 'Vous avez terminé les trois niveaux du parcours',
       text: 'Les trois niveaux permettent de passer progressivement du cadrage d’un besoin métier à une application connectée intégrant intelligence artificielle et automatisations.',
-      primaryCta: 'Voir le parcours complet',
+      primaryCta: 'Voir le catalogue',
       secondaryCta: 'Échanger sur votre projet d’application métier',
       secondaryCampaign: 'application-metier-btp-niveau-3-parcours-termine',
     },

@@ -11,15 +11,13 @@ import { IndicateursResultatsLink } from '@/components/formation/IndicateursResu
 import {
   SESSION_DUREE_LIBELLE,
   MENTION_ABONNEMENTS_IA_HORS_FORFAIT,
-  libelleTarifIntraParSession,
-  libelleTarifInterParParticipant,
-  getTarifGrilleFromDureeLibelle,
 } from '@/lib/tarifs-sessions';
+import { libelleTarifParticipantCatalogue } from '@/lib/tarifs-catalogue-participant';
 import { FINANCEMENT_FORMULATION_COURTE } from '@/lib/financement-copy';
 import { getFormationCatalogueVisuel } from '@/lib/formations-catalogue-display';
 import { LINKS } from '@/lib/internal-links';
 import { getFormationCatalogueSeo } from '@/lib/formation-catalogue-seo';
-import { getFormationByCode } from '@/data/formations';
+import { getFormationByCode, isFormationSurDevis } from '@/data/formations';
 import { PHOTOS } from '@/lib/photos';
 import {
   formatNoteSatisfactionAffichageComplet,
@@ -78,10 +76,15 @@ export function CatalogueFormationPageTemplate({
   const ref = content.programmeRef;
   const FORMATION = getFormationByCode(ref)!;
   const CATALOGUE_SEO = getFormationCatalogueSeo(ref);
-  const GRILLE = getTarifGrilleFromDureeLibelle(FORMATION.duree);
   const CATALOGUE_VISUEL = getFormationCatalogueVisuel(ref);
   const pdfHref = content.pdfHref ?? FORMATION.pdfProgramme;
   const related = getRelatedCatalogueFormations(ref);
+  const surDevis = isFormationSurDevis(FORMATION);
+  const tarifLabel =
+    FORMATION.tarifParticipantHt && FORMATION.tarifParticipantHt > 0
+      ? libelleTarifParticipantCatalogue(FORMATION.tarifParticipantHt)
+      : 'Sur devis';
+  const effectifLabel = `${FORMATION.effectifMin} à ${FORMATION.effectifMax} participants`;
 
   const instructorTitle =
     content.instructorTitle ?? 'Une formation conçue pour les professionnels du BTP';
@@ -137,15 +140,10 @@ export function CatalogueFormationPageTemplate({
 
             <div className="mt-4 space-y-1.5 text-base text-slate-800">
               <p>
-                Intra-entreprise : {libelleTarifIntraParSession(GRILLE.intraHT)}
-                <MentionTvaAsterisque />
+                {tarifLabel}
+                {!surDevis ? <MentionTvaAsterisque /> : null}
               </p>
-              {GRILLE.interHT != null ? (
-                <p>
-                  Interentreprises : {libelleTarifInterParParticipant(GRILLE.interHT)}
-                  <MentionTvaAsterisque />
-                </p>
-              ) : null}
+              <p>{effectifLabel}</p>
             </div>
 
             <FormationHeroOutilsNote catalogueRef={ref} className="mt-5" />
@@ -210,11 +208,7 @@ export function CatalogueFormationPageTemplate({
             { label: 'Public', value: FORMATION.public },
             {
               label: 'Tarif',
-              value: `Intra ${libelleTarifIntraParSession(GRILLE.intraHT)}${
-                GRILLE.interHT != null
-                  ? ` · Inter dès ${libelleTarifInterParParticipant(GRILLE.interHT)}`
-                  : ''
-              }`,
+              value: tarifLabel,
             },
           ]
         }
@@ -434,42 +428,25 @@ export function CatalogueFormationPageTemplate({
             <h2 id="tarifs-modalites-title" className="font-display text-2xl font-bold text-slate-900 md:text-3xl">
               Format et tarifs
             </h2>
-            <div className="mt-5 grid gap-4 md:grid-cols-2">
-              <article className="rounded-2xl border border-slate-200 bg-slate-50 p-5">
-                <h3 className="font-display text-lg font-semibold text-slate-900">Intra-entreprise</h3>
-                <p className="mt-3 font-display text-xl font-bold text-[#377CF3]">
-                  {libelleTarifIntraParSession(GRILLE.intraHT)}
-                  <MentionTvaAsterisque />
-                </p>
-                <ul className="mt-3 list-disc space-y-1 pl-5 text-base text-slate-700">
-                  <li>{SESSION_DUREE_LIBELLE}</li>
-                  <li>
-                    {FORMATION.effectifMin} à {FORMATION.effectifMax} participants
-                  </li>
-                  <li>Dans les locaux de l’entreprise</li>
-                  <li>Programme adaptable aux besoins de l’équipe</li>
-                  {content.intraExtraBullets?.map((b) => (
-                    <li key={b}>{b}</li>
-                  ))}
-                </ul>
-              </article>
-              <article className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
-                <h3 className="font-display text-lg font-semibold text-slate-900">Interentreprises</h3>
-                {GRILLE.interHT != null ? (
-                  <p className="mt-3 font-display text-xl font-bold text-[#377CF3]">
-                    {libelleTarifInterParParticipant(GRILLE.interHT)}
-                    <MentionTvaAsterisque />
-                  </p>
-                ) : null}
-                <ul className="mt-3 list-disc space-y-1 pl-5 text-base text-slate-700">
-                  <li>{SESSION_DUREE_LIBELLE}</li>
-                  <li>Dates selon le calendrier disponible</li>
-                  <li>Session maintenue sous réserve d’un nombre minimum d’inscrits</li>
-                  {content.interExtraBullets?.map((b) => (
-                    <li key={b}>{b}</li>
-                  ))}
-                </ul>
-              </article>
+            <div className="mt-5 rounded-2xl border border-slate-200 bg-slate-50 p-5">
+              <h3 className="font-display text-lg font-semibold text-slate-900">Tarif HT / participant</h3>
+              <p className="mt-3 font-display text-xl font-bold text-[#377CF3]">
+                {tarifLabel}
+                {!surDevis ? <MentionTvaAsterisque /> : null}
+              </p>
+              <p className="mt-2 text-base font-semibold text-slate-800">{effectifLabel}</p>
+              <ul className="mt-3 list-disc space-y-1 pl-5 text-base text-slate-700">
+                <li>{SESSION_DUREE_LIBELLE}</li>
+                <li>Présentiel — Île-de-France</li>
+                <li>Dans les locaux de l’entreprise ou session collective selon calendrier</li>
+                <li>Programme adaptable aux besoins de l’équipe</li>
+                {content.intraExtraBullets?.map((b) => (
+                  <li key={b}>{b}</li>
+                ))}
+                {content.interExtraBullets?.map((b) => (
+                  <li key={b}>{b}</li>
+                ))}
+              </ul>
             </div>
             <p className="mt-4 text-sm leading-relaxed text-slate-600">{MENTION_ABONNEMENTS_IA_HORS_FORFAIT}</p>
             <MentionTVA className="mt-2" />
@@ -522,6 +499,18 @@ export function CatalogueFormationPageTemplate({
       <CatalogueInfosPratiques programmeRef={ref} compact publicCible={FORMATION.public} />
 
       <CatalogueFormationRelated items={related} />
+
+      {content.seoLandingLink ? (
+        <div className="border-b border-slate-200 bg-white px-4 py-6 md:py-8">
+          <div className="mx-auto max-w-4xl">
+            <p className="text-base text-slate-700">
+              <Link href={content.seoLandingLink.href} className={`font-semibold ${OFC_LINK}`}>
+                ← {content.seoLandingLink.label}
+              </Link>
+            </p>
+          </div>
+        </div>
+      ) : null}
 
       {faqItems && faqItems.length > 0 ? (
         <FAQSection

@@ -12,7 +12,10 @@ import {
   SCHEMA_PUBLIC_SITE_URL,
 } from '@/lib/schema-constants';
 import { buildFormationFicheCourseJsonLd } from '@/lib/schema-formation-course-jsonld';
-import { TARIF_FORFAIT_DEBUTANT_HT } from '@/lib/tarifs-sessions';
+import {
+  libelleTarifParticipantCatalogue,
+  TARIF_PARTICIPANT_NIV01_HT,
+} from '@/lib/tarifs-catalogue-participant';
 
 export const FORMATION_IA_RESPONSABLE_ADMINISTRATIF_BTP_PATH =
   '/formation-ia-responsable-administratif-btp' as const;
@@ -186,7 +189,7 @@ export const RAF_BTP_FAQ = [
   },
   {
     q: 'Combien dure la session catalogue ?',
-    a: '4 heures en présentiel. Tarifs catalogue : intra 1 200 € HT par session · inter dès 300 € HT par participant. Le contenu est condensé sur des cas admin BTP concrets — pas un parcours e-learning de plusieurs jours.',
+    a: `4 heures en présentiel. Tarif catalogue : ${libelleTarifParticipantCatalogue(TARIF_PARTICIPANT_NIV01_HT)}. Le contenu est condensé sur des cas admin BTP concrets — pas un parcours e-learning de plusieurs jours.`,
   },
   {
     q: 'La formation est-elle finançable Constructys ?',
@@ -231,7 +234,7 @@ export function buildResponsableAdministratifBtpCourseJsonLd(): Record<string, u
     },
     offers: {
       '@type': 'Offer',
-      price: String(TARIF_FORFAIT_DEBUTANT_HT),
+      price: String(TARIF_PARTICIPANT_NIV01_HT),
       priceCurrency: 'EUR',
       availability: 'https://schema.org/InStock',
       url: buildSiteCalendlyCtaUrl('formation-ia-responsable-administratif-btp-schema-offer'),

@@ -236,13 +236,23 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
+        source: '/parcours/applications-metier-btp',
+        destination: '/formations/application-metier-btp-niveau-1',
+        permanent: true,
+      },
+      {
+        source: '/parcours/applications-metier-btp/:path*',
+        destination: '/formations/application-metier-btp-niveau-1',
+        permanent: true,
+      },
+      {
         source: '/formations/cursor-btp',
-        destination: '/parcours/applications-metier-btp',
+        destination: '/formations/application-metier-btp-niveau-1',
         permanent: true,
       },
       {
         source: '/formations/cursor-btp/:path*',
-        destination: '/parcours/applications-metier-btp',
+        destination: '/formations/application-metier-btp-niveau-1',
         permanent: true,
       },
 

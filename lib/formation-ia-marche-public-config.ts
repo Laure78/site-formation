@@ -183,7 +183,7 @@ Propose une structure de courrier ou de DGD (titres uniquement) : faits, pièces
     },
     {
       q: 'Où trouver le tarif et le programme détaillé ?',
-      a: 'Sur la fiche catalogue NIV-02 « L’IA appliquée aux appels d’offres BTP » : durée, forfait session, prérequis Claude Pro, livrables. Cette page pilier pose l’angle commande publique ; elle ne duplique pas le programme.',
+      a: 'Sur la fiche catalogue NIV-02 « L’IA appliquée aux appels d’offres BTP » : durée, tarif HT / participant, prérequis Claude Pro, livrables. Cette page pilier pose l’angle commande publique ; elle ne duplique pas le programme.',
     },
     {
       q: 'Le financement Constructys est-il garanti ?',

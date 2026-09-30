@@ -28,6 +28,7 @@ import { buildSiteCalendlyCtaUrl } from '@/lib/calendly';
 import { QUALIOPI_CERTIFICAT_REALISATION } from '@/config/qualiopi';
 import {
   FORMATION_COURSE_MODE_ONSITE,
+  FORMATION_COURSE_OFFER_CATEGORY,
   buildFormationCourseAreaServed,
   buildFormationCourseIdfPlace,
   buildFormationCourseInstances,
@@ -54,7 +55,7 @@ type Props = {
   courseDescription: string;
   /** Durée ISO 8601, ex. "PT4H" pour 4 heures, "PT7H" pour journée. */
   duration: string;
-  /** Prix HT de la session catalogue en EUR (forfait groupe). */
+  /** Prix HT par participant en EUR. */
   price: number;
   /**
    * Niveau pédagogique. Schema.org accepte une chaîne libre, mais
@@ -226,7 +227,7 @@ function buildCourseNode(params: {
       priceCurrency: 'EUR',
       availability: 'https://schema.org/InStock',
       url: buildSiteCalendlyCtaUrl('schema-formation-metier-course-offer'),
-      category: 'Formation professionnelle continue',
+      category: FORMATION_COURSE_OFFER_CATEGORY,
     },
     hasCourseInstance: buildFormationCourseInstances(duration),
   };

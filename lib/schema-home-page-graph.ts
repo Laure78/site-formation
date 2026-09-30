@@ -1,57 +1,32 @@
+/**
+ * JSON-LD @graph (legacy) — ne plus injecter sur l’accueil.
+ * Organization / Person : déclarés une fois dans le layout (`#organization`, `#laure-olivie`).
+ * @deprecated Préférer `buildHomeUnifiedGraphJsonLd()` + `GlobalSiteJsonLd`.
+ */
 import {
-  SCHEMA_CONTACT,
   SCHEMA_LINKEDIN_LEARNING_INSTRUCTOR_URL,
   SCHEMA_LINKEDIN_PROFILE_URL,
+  SCHEMA_PUBLIC_SITE_URL,
 } from '@/lib/schema-constants';
 
-/**
- * JSON-LD @graph (LocalBusiness + Person) — page d’accueil uniquement.
- */
+const BASE = SCHEMA_PUBLIC_SITE_URL.replace(/\/$/, '');
+
 export const HOME_PAGE_GRAPH_JSON_LD = {
   '@context': 'https://schema.org',
   '@graph': [
     {
-      '@type': 'LocalBusiness',
-      '@id': 'https://www.laureolivie.fr/#business',
-      name: "OFC Création d'Entreprise",
-      url: 'https://www.laureolivie.fr',
-      email: SCHEMA_CONTACT.email,
-      contactPoint: [
-        {
-          '@type': 'ContactPoint',
-          contactType: 'customer service',
-          email: SCHEMA_CONTACT.email,
-          availableLanguage: 'French',
-          areaServed: 'FR',
-        },
-      ],
-      address: {
-        '@type': 'PostalAddress',
-        streetAddress: '6 Rue Henri Dunant',
-        addressLocality: 'Guyancourt',
-        postalCode: '78280',
-        addressCountry: 'FR',
-      },
-      geo: {
-        '@type': 'GeoCoordinates',
-        latitude: 48.7739,
-        longitude: 2.0688,
-      },
-      priceRange: '€€',
-      openingHours: 'Mo-Fr 09:00-18:00',
-      sameAs: [
-        SCHEMA_LINKEDIN_PROFILE_URL,
-        'https://annuaire-entreprises.data.gouv.fr/entreprise/905244281',
-      ],
-    },
-    {
-      '@type': 'Person',
-      '@id': 'https://www.laureolivie.fr/#laure',
-      name: 'Laure Olivié',
-      jobTitle: 'Formatrice IA spécialisée BTP',
-      url: 'https://www.laureolivie.fr/a-propos',
-      worksFor: { '@id': 'https://www.laureolivie.fr/#business' },
-      sameAs: [SCHEMA_LINKEDIN_PROFILE_URL, SCHEMA_LINKEDIN_LEARNING_INSTRUCTOR_URL],
+      '@type': 'WebPage',
+      '@id': `${BASE}/#webpage-legacy`,
+      url: BASE,
+      name: 'Formation IA pour le BTP',
+      publisher: { '@id': `${BASE}/#organization` },
+      about: { '@id': `${BASE}/#laure-olivie` },
     },
   ],
-};
+} as const;
+
+/** Conservé pour imports éventuels — les sameAs Person live dans le layout. */
+export const HOME_PAGE_PERSON_SAME_AS = [
+  SCHEMA_LINKEDIN_PROFILE_URL,
+  SCHEMA_LINKEDIN_LEARNING_INSTRUCTOR_URL,
+] as const;

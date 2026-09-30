@@ -121,11 +121,6 @@ export const NAV_REGLEMENTAIRE: readonly NavItem[] = [
 export function getNavServices(at: Date = new Date()): readonly NavItem[] {
   return [
     { href: LINKS.formations, label: 'Catalogue' },
-    {
-      href: LINKS.parcoursApplicationsMetierBtp,
-      label: 'Parcours Création d’applications BTP',
-      title: 'Création d’applications BTP avec l’IA — parcours 21 h',
-    },
     { href: LINKS.formationPlateforme, label: 'Espace apprenant' },
     ...getPublishedFormations(at).map((f) => ({
       href: formationHref(f),

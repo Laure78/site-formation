@@ -9,11 +9,11 @@ import type { FAQItem } from '@/lib/faq';
 export const ETUDES_PRIX_CHIFFRAGE_PATH = LINKS.formationIaEtudesPrixChiffrageBtp;
 
 export const ETUDES_PRIX_SEO = {
-  title: 'Formation IA études de prix BTP',
+  title: 'Programme IA études de prix BTP (4 h)',
   description:
-    'Formation IA études de prix et chiffrage BTP : DPGF, DQE, métrés, BPU. L’IA assiste, vous validez. Présentiel IDF, Qualiopi, financement OPCO possible.',
+    "Programme IA études de prix BTP (4 h) : DPGF, métrés et BPU assistés par l'IA, validation métier obligatoire. Présentiel IDF, Qualiopi, OPCO selon éligibilité.",
   h1: 'Formation IA pour les études de prix et le chiffrage BTP',
-  openGraphTitle: 'Formation IA études de prix BTP — DPGF, métrés, chiffrage',
+  openGraphTitle: 'Programme IA études de prix BTP (4 h)',
 } as const;
 
 export const ETUDES_PRIX_EN_BREF = [

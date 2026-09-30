@@ -91,10 +91,10 @@ export default function FormationAssistantsIaPersonnalisesBtpPage() {
             </p>
             <p className="mt-2 text-base font-medium text-slate-800">{ASSISTANTS_IA_OUTILS}</p>
             <p className="mt-2 max-w-2xl text-base text-slate-600">
-              Formation du parcours Usages IA BTP : configurer des assistants pour ses tâches métier. Distinct du
-              parcours{' '}
-              <Link href={LINKS.parcoursApplicationsMetierBtp} className={OFC_LINK}>
-                Création d&apos;applications BTP
+              Formation du parcours Usages IA BTP : configurer des assistants pour ses tâches métier. Distinct des
+              formations{' '}
+              <Link href={LINKS.formationApplicationMetierBtpNiveau1} className={OFC_LINK}>
+                Création d&apos;applications métier BTP
               </Link>
               .
             </p>

@@ -116,7 +116,7 @@ export const carrouselAFormationArticle: BlogArticle = {
     {
       type: 'html',
       title: 'Lien avec le catalogue du site',
-      content: `<p class="text-slate-600 leading-relaxed">La <a href="${LINKS.formationIaBtpNiveau1BatimentTp}" class="text-[var(--accent)] font-medium underline">formation IA bâtiment &amp; travaux publics</a> (NIV-01) reprend ces grands enseignements dans le cadre catalogue actuel : forfait par session, session en 4 h, certification Qualiopi et financement possible via l’OPCO Constructys selon éligibilité. Pour les appels d’offres, voir la fiche NIV-02. Le panorama terrain est aussi dans mon article sur les <a href="${LINKS.blog7CasUsageIaBtp}" class="text-[var(--accent)] font-medium underline">7 cas d’usage IA dans le BTP</a>.</p>`,
+      content: `<p class="text-slate-600 leading-relaxed">La <a href="${LINKS.formationIaBtpNiveau1BatimentTp}" class="text-[var(--accent)] font-medium underline">formation IA bâtiment &amp; travaux publics</a> (NIV-01) reprend ces grands enseignements dans le cadre catalogue actuel : tarif HT / participant, session en 4 h, certification Qualiopi et financement possible via l’OPCO Constructys selon éligibilité. Pour les appels d’offres, voir la fiche NIV-02. Le panorama terrain est aussi dans mon article sur les <a href="${LINKS.blog7CasUsageIaBtp}" class="text-[var(--accent)] font-medium underline">7 cas d’usage IA dans le BTP</a>.</p>`,
     },
     {
       type: 'cta',

@@ -97,6 +97,6 @@ export const FORMATION_IA_DIRIGEANT_BTP_FAQ: FAQItem[] = [
   },
   {
     q: 'Quel budget prévoir pour une transformation IA « réaliste » ?',
-    a: 'Le budget combine formation certifiée (forfaits par session selon catalogue), temps interne de cadrage et éventuellement outils (licences pro). Évitez les fourchettes marketing : le point de départ est un échange pour dimensionner le périmètre — créneau Calendly « audit IA » gratuit.',
+    a: 'Le budget combine formation certifiée (tarifs HT / participant selon catalogue), temps interne de cadrage et éventuellement outils (licences pro). Évitez les fourchettes marketing : le point de départ est un échange pour dimensionner le périmètre — créneau Calendly « audit IA » gratuit.',
   },
 ];

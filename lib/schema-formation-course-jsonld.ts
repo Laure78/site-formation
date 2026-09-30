@@ -15,8 +15,7 @@ export const FORMATION_COURSE_AREA_IDF = 'Île-de-France';
 export const FORMATION_COURSE_IN_LANGUAGE = 'fr-FR';
 /** Qualiopi — libellé court pour Course.educationalCredentialAwarded. */
 export const FORMATION_COURSE_CREDENTIAL_AWARDED = 'Certificat de réalisation';
-/** Offre catalogue — forfait session intra-entreprise HT (prix groupe, non par participant). */
-export const FORMATION_COURSE_OFFER_CATEGORY = 'HT par session (intra-entreprise, forfait groupe)';
+export const FORMATION_COURSE_OFFER_CATEGORY = 'HT / participant';
 
 const FORBIDDEN_MODE_PATTERNS = [
   /\bBlended\b/i,

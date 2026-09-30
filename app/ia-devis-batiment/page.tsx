@@ -480,10 +480,16 @@ export default function IADevisBatimentPage() {
               ctaPosition="inline"
               className="inline-flex items-center justify-center gap-2 rounded-xl bg-[var(--accent)] px-8 py-4 text-center text-base font-semibold text-white shadow-md hover:bg-blue-600" />
             <Link
-              href={LINKS.formationIaBtpNiveau1BatimentTp}
+              href={LINKS.formationIaEtudesPrixChiffrageBtp}
               className="inline-flex items-center justify-center gap-2 rounded-xl border-2 border-[var(--accent)] bg-white px-8 py-4 text-center font-semibold text-[var(--accent)] hover:bg-white/90"
             >
-              Voir le programme NIV-01 (PDF sur la fiche)
+              Voir le programme détaillé
+            </Link>
+            <Link
+              href={LINKS.formationIaBtpNiveau1BatimentTp}
+              className="inline-flex items-center justify-center gap-2 rounded-xl border-2 border-slate-200 bg-white px-8 py-4 text-center font-semibold text-slate-800 hover:border-[var(--accent)]"
+            >
+              Voir aussi NIV-01 (bases IA BTP)
             </Link>
             <Link
               href="/financement-constructys-formation-ia-btp"

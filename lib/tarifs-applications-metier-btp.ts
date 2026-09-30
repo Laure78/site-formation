@@ -46,9 +46,9 @@ export function formatMontantHtApplicationMetier(amount: number): string {
   return `${new Intl.NumberFormat('fr-FR').format(amount)} € HT`;
 }
 
-/** Libellé standard — « X XXX € HT par session intra-entreprise ». */
-export function libelleTarifApplicationMetierBtp(key: ApplicationMetierBtpTarifKey): string {
-  return `${formatMontantHtApplicationMetier(getTarifApplicationMetierBtpHt(key))} par session intra-entreprise`;
+/** Libellé standard — parcours applications métier désormais sur devis. */
+export function libelleTarifApplicationMetierBtp(_key: ApplicationMetierBtpTarifKey): string {
+  return 'Sur devis — tarif HT / participant';
 }
 
 /** Montant seul — « X XXX € HT » (tableaux, calculs). */
@@ -56,12 +56,12 @@ export function libelleTarifApplicationMetierBtpCourt(key: ApplicationMetierBtpT
   return formatMontantHtApplicationMetier(getTarifApplicationMetierBtpHt(key));
 }
 
-/** Ligne durée + montant — ex. « 7 h — 1 800 € HT / session ». */
+/** Ligne durée + montant — sur devis. */
 export function libelleTarifApplicationMetierBtpDureeSession(
   duree: string,
-  key: ApplicationMetierBtpTarifKey,
+  _key: ApplicationMetierBtpTarifKey,
 ): string {
-  return `${duree} — ${formatMontantHtApplicationMetier(getTarifApplicationMetierBtpHt(key))} / session`;
+  return `${duree} — sur devis (HT / participant)`;
 }
 
 /** Formulation parcours complet — avantage 500 € HT. */
@@ -69,9 +69,9 @@ export function libelleAvantageParcoursApplicationMetierBtp(): string {
   return `Soit ${formatMontantHtApplicationMetier(ECONOMIE_PARCOURS_APPLICATION_METIER_HT)} d’avantage en choisissant le parcours complet.`;
 }
 
-/** Rappel modalité — session réservée par l’entreprise pour son équipe. */
+/** Rappel modalité — devis selon effectif. */
 export const TARIF_SESSION_INTRA_MENTION =
-  'Tarif par session intra-entreprise — l’entreprise réserve une session pour son équipe (ensemble du groupe).';
+  'Tarif HT / participant — devis personnalisé selon l’effectif et le niveau du parcours.';
 
 /** @deprecated Préférer {@link TARIF_SESSION_INTRA_MENTION}. */
 export const TARIF_FORFAIT_INTRA_MENTION = TARIF_SESSION_INTRA_MENTION;

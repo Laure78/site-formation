@@ -201,8 +201,8 @@ export function FormationIaDirigeantBtpLanding() {
             </h2>
             <div className="mt-6 space-y-4 text-slate-700 leading-relaxed">
               <p>
-                Le coût direct inclut les <strong className="text-slate-900">sessions (organisme certifié Qualiopi)</strong> (forfaits par
-                session selon le module) et le <strong className="text-slate-900">temps interne</strong> de cadrage
+                Le coût direct inclut les <strong className="text-slate-900">sessions (organisme certifié Qualiopi)</strong> (tarifs HT /
+                participant selon le module) et le <strong className="text-slate-900">temps interne</strong> de cadrage
                 et de conduite du changement — souvent sous-estimé. Les outils (licences pro, comptes entreprise)
                 s’ajoutent selon vos choix techniques.
               </p>

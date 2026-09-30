@@ -128,7 +128,7 @@ export const FORMATION_IA_APPELS_OFFRES_BTP_CONFIG: SeoClusterPageConfig = {
   campaignSlug: 'formation-ia-appels-offres-btp',
   programmeRef: 'NIV-02',
   catalogueHref: LINKS.formationAO,
-  catalogueLabel: 'NIV-02 — Répondre aux appels d\'offres avec l\'IA',
+  catalogueLabel: 'Voir le programme détaillé',
   relatedLinks: [
     { href: LINKS.formationChatgptBtp, label: 'Formation ChatGPT pour le BTP' },
     { href: LINKS.formationMaitriserClaudeAiBtp, label: 'Formation Claude pour le bâtiment' },

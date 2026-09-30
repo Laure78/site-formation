@@ -328,7 +328,7 @@ export const CATALOGUE_MATURITE_STEPS = [
   { label: 'Appliquer à son métier', href: LINKS.formations },
   { label: 'Créer un assistant', href: LINKS.formationAssistantsIaPersonnalisesBtp },
   { label: 'Automatiser un processus', href: LINKS.prendreRdv },
-  { label: 'Applications métier BTP', href: LINKS.parcoursApplicationsMetierBtp },
+  { label: 'Applications métier BTP', href: LINKS.formationApplicationMetierBtpNiveau1 },
   { label: 'Déployer & gouverner', href: LINKS.formationPmeBtp },
 ] as const;
 

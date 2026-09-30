@@ -21,7 +21,10 @@ import {
   clusterMaillageHtmlSection,
 } from '@/lib/ao-dce-cluster-links';
 import { SOCIAL_PROOF } from '@/lib/constants';
-import { libelleTarifsDualCourt } from '@/lib/tarifs-sessions';
+import {
+  libelleTarifParticipantCatalogue,
+  TARIF_PARTICIPANT_NIV01_HT,
+} from '@/lib/tarifs-catalogue-participant';
 import { FINANCEMENT_FORMULATION_PRUDENTE } from '@/lib/financement-copy';
 import {
   getAllMdxBlogSlugs,
@@ -951,7 +954,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
       {
         type: 'html',
         title: 'Combien coûte une formation IA pour les pros du BTP ?',
-        content: `<p class="text-slate-600 leading-relaxed">Les sessions catalogue sont calibrées sur 4 h : ${libelleTarifsDualCourt(4)}, jusqu'à 12 participants en intra. ${FINANCEMENT_FORMULATION_PRUDENTE} Barèmes indicatifs Constructys : 24€ HT/heure/stagiaire pour le coût pédagogique, 15€ HT/heure pour les salaires (entreprises de moins de 11 salariés). Le dossier doit être soumis 15 jours avant via la plateforme eGestion. Le montage OPCO est détaillé dans mon <a href="${LINKS.blogFinancerFormationIaBtpConstructys}" class="text-[var(--accent)] font-medium underline">guide Constructys pour financer une formation IA BTP</a>. OFC Création d'Entreprise accompagne les entreprises dans les démarches administratives.</p>`,
+        content: `<p class="text-slate-600 leading-relaxed">Les sessions catalogue sont calibrées sur 4 h : bases ${libelleTarifParticipantCatalogue(TARIF_PARTICIPANT_NIV01_HT)}, jusqu'à 12 participants. ${FINANCEMENT_FORMULATION_PRUDENTE} Barèmes indicatifs Constructys : 24€ HT/heure/stagiaire pour le coût pédagogique, 15€ HT/heure pour les salaires (entreprises de moins de 11 salariés). Le dossier doit être soumis 15 jours avant via la plateforme eGestion. Le montage OPCO est détaillé dans mon <a href="${LINKS.blogFinancerFormationIaBtpConstructys}" class="text-[var(--accent)] font-medium underline">guide Constructys pour financer une formation IA BTP</a>. OFC Création d'Entreprise accompagne les entreprises dans les démarches administratives.</p>`,
       },
       {
         type: 'paragraph',
@@ -979,7 +982,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
         type: 'faq',
         title: 'Questions fréquentes sur la formation IA pour les pros du BTP',
         content: [
-          'Combien de temps faut-il pour maîtriser ChatGPT dans le BTP ? — Les sessions catalogue sont calibrées sur 4 heures (niveau débutant ou avancé selon le programme — forfait par session). Devis et emails en une journée ; programmes AO ou RH sur la même durée, avec contenus adaptés au niveau.',
+          'Combien de temps faut-il pour maîtriser ChatGPT dans le BTP ? — Les sessions catalogue sont calibrées sur 4 heures (niveau débutant ou avancé selon le programme — tarif HT / participant). Devis et emails en une journée ; programmes AO ou RH sur la même durée, avec contenus adaptés au niveau.',
           'Mes données BTP sont-elles sécurisées avec ChatGPT ? — Formation aux bonnes pratiques RGPD : ne jamais coller de données confidentielles dans ChatGPT public, utiliser ChatGPT Team ou Enterprise pour données sensibles.',
           `Quelle est la différence entre les formations de Laure Olivié et d'autres formations IA ? — Spécialisation BTP : ${formatAnneesExperienceBTP()} (direction d’une entreprise de travaux publics) · formatrice IA depuis 2022. Méthode 100% pratique sur vrais documents. ${formatProsFormesEtNoteQualiopi()} Certification Qualiopi.`,
           'Comment financer une formation IA pour mon équipe BTP ? — Via votre OPCO (Constructys pour le BTP) dans le cadre du plan de développement des compétences, selon éligibilité et barèmes en vigueur. Contactez OFC Création d\'Entreprise pour cadrer votre dossier.',

@@ -70,9 +70,6 @@ function formationsNavActive(pathname: string): boolean {
   if (pathname === LINKS.bework || pathname.startsWith(`${LINKS.bework}/`)) {
     return true;
   }
-  if (pathname === LINKS.parcoursApplicationsMetierBtp || pathname.startsWith(`${LINKS.parcoursApplicationsMetierBtp}/`)) {
-    return true;
-  }
   if (pathname === LINKS.formationIaHub || pathname.startsWith(`${LINKS.formationIaHub}/`)) {
     return true;
   }

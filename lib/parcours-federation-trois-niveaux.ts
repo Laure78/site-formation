@@ -1,6 +1,6 @@
 /**
  * Parcours IA en 3 niveaux — sessions convoquées par fédérations, réseaux et entreprises.
- * Tarifs HT par participant (pas de forfait groupe).
+ * Tarifs HT / participant (catalogue).
  */
 import { LINKS } from '@/lib/internal-links';
 import {
@@ -8,11 +8,11 @@ import {
   TARIF_INTER_DEV_WEB_IA_HT,
 } from '@/lib/formation-developpement-web-ia-content';
 import {
+  libelleTarifParticipantCatalogue,
   SESSION_CONVOQUEE_MIN_PARTICIPANTS,
   TARIF_PARTICIPANT_NIV01_HT,
   TARIF_PARTICIPANT_NIV09_HT,
 } from '@/lib/tarifs-catalogue-participant';
-import { formatTarifHt } from '@/lib/tarifs-sessions';
 
 export const FEDERATION_PARCOURS_EFFECTIF_MIN = SESSION_CONVOQUEE_MIN_PARTICIPANTS;
 
@@ -70,9 +70,9 @@ export function libelleTarifFederationParParticipant(
   tarifHt: number,
   suffix?: string,
 ): string {
-  const base = `${formatTarifHt(tarifHt)} € HT par participant`;
+  const base = libelleTarifParticipantCatalogue(tarifHt);
   return suffix ? `${base} ${suffix}` : base;
 }
 
 export const FEDERATION_PARCOURS_INTRO =
-  'Tarifs HT par participant pour les sessions convoquées par un réseau ou une entreprise — sans forfait groupe. Minimum 6 participants par session.' as const;
+  'Tarifs HT / participant pour les sessions convoquées par un réseau ou une entreprise. Minimum 6 participants par session.' as const;

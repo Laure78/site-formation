@@ -18,7 +18,6 @@ import { OFC_SEC } from '@/lib/ofc-section-classes';
 import type { ApplicationMetierNiveauConfig } from '@/lib/parcours-applications-metier-btp-content';
 import { buildCatalogueCourseApplicationMetierJsonLd } from '@/lib/schema-catalogue-course-jsonld';
 import {
-  APPLICATION_METIER_PARCOURS_MOTHER,
   getApplicationMetierParcoursStepByRef,
 } from '@/lib/application-metier-btp-parcours-nav';
 import { PREUVES } from '@/lib/constants';
@@ -36,7 +35,7 @@ function formationHint(config: ApplicationMetierNiveauConfig): string {
  * Fiche formation parcours applications métier (N1–N3).
  * Server Component — JS client limité aux CTA RDV.
  *
- * Note tarif : ne pas utiliser `FormationTarifsModalitesSection` (grille 7 h générique = 1 800 €)
+ * Note tarif : parcours applications métier — sur devis (HT / participant).
  * pour N2/N3 — source unique `lib/tarifs-applications-metier-btp.ts`.
  */
 export function ApplicationMetierBtpFormationPage({ config }: Props) {
@@ -457,10 +456,6 @@ export function ApplicationMetierBtpFormationPage({ config }: Props) {
             <ApplicationMetierLearningPath currentStep={parcoursStep.step} />
           </div>
           <p className="mt-4 text-sm">
-            <Link href={APPLICATION_METIER_PARCOURS_MOTHER.path} className={OFC_LINK}>
-              Voir le parcours complet (21 h)
-            </Link>
-            {' · '}
             <Link href={LINKS.formations} className={OFC_LINK}>
               Catalogue formations
             </Link>

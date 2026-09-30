@@ -33,7 +33,7 @@ export function buildPersonLaureSchemaNode(
 ): Record<string, unknown> {
   const base = SCHEMA_SITE_ORG.url;
   const personId = options.personId ?? `${base}/#laure-olivie`;
-  const pageUrl = options.pageUrl ?? base;
+  const pageUrl = options.pageUrl ?? `${base}/a-propos`;
   const organizationId = options.organizationId ?? `${base}/#organization`;
   const affiliations =
     options.affiliationsScope === 'a-propos'
@@ -50,13 +50,11 @@ export function buildPersonLaureSchemaNode(
     url: pageUrl,
     image: schemaHeaderPersonImageUrl(),
     email: SCHEMA_SITE_ORG.email,
-    worksFor: {
-      '@type': 'Organization',
-      '@id': organizationId,
-      name: SCHEMA_SITE_ORG.legalName,
-    },
+    /** Organization déclarée dans le layout — référence par @id uniquement. */
+    worksFor: { '@id': organizationId },
     affiliation: buildPersonAffiliationSchemaNodes(affiliations),
     knowsAbout: [...SCHEMA_PERSON_KNOWS_ABOUT],
+    /** LinkedIn + LinkedIn Learning (+ YouTube si présent dans SCHEMA_PERSON_SAME_AS). */
     sameAs: [...SCHEMA_PERSON_SAME_AS],
     areaServed: {
       '@type': 'AdministrativeArea',

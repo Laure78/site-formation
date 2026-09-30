@@ -74,6 +74,8 @@ export type CatalogueFormationPageContent = {
   quickFactsOverride?: readonly { label: string; value: string }[];
   /** Passerelle vers NIV-10 — masquer sur la fiche BeWork elle-même. */
   showBeworkPasserelle?: boolean;
+  /** Lien retour vers la landing SEO associée (maillage fiche ↔ landing). */
+  seoLandingLink?: { href: string; label: string };
 };
 
 const DEFAULT_FINAL_CTA = {
@@ -92,7 +94,7 @@ const NIV_01: CatalogueFormationPageContent = {
   heroFacts: [
     '4 heures',
     '70 % de pratique',
-    `${getFormationByCode('NIV-01')!.effectifMin} à ${getFormationByCode('NIV-01')!.effectifMax} participants en intra`,
+    `${getFormationByCode('NIV-01')!.effectifMin} à ${getFormationByCode('NIV-01')!.effectifMax} participants`,
     'Présentiel en Île-de-France',
   ],
   quickFactsLevel: 'Débutant',
@@ -277,6 +279,10 @@ const NIV_02: CatalogueFormationPageContent = {
   instructorExtraLinks: [{ href: LINKS.qualiopi, label: 'Certification Qualiopi' }],
   finalCta: DEFAULT_FINAL_CTA,
   pdfHref: LINKS.pdfProgrammeFormationAoBtpDetail2026,
+  seoLandingLink: {
+    href: LINKS.formationIaAppelsOffresBtp,
+    label: 'Formation IA appels d’offres BTP — page thématique',
+  },
 };
 
 const NIV_03: CatalogueFormationPageContent = {
@@ -288,7 +294,7 @@ const NIV_03: CatalogueFormationPageContent = {
   heroFacts: [
     '4 heures',
     '70 % de pratique',
-    `${getFormationByCode('NIV-03')!.effectifMin} à ${getFormationByCode('NIV-03')!.effectifMax} participants en intra`,
+    `${getFormationByCode('NIV-03')!.effectifMin} à ${getFormationByCode('NIV-03')!.effectifMax} participants`,
     'Présentiel en Île-de-France',
     'Bibliothèque 20+ skills Claude BTP',
   ],
@@ -331,7 +337,7 @@ const NIV_03: CatalogueFormationPageContent = {
       'Activation de la bibliothèque et test des skills sur le fil rouge.',
       'Personnalisation des skills à votre charte et à vos lots.',
     ],
-    note: 'Un compte Claude Pro est recommandé par participant (environ 18 € HT/mois, à souscrire par l’entreprise) — non inclus dans le forfait.',
+    note: 'Un compte Claude Pro est recommandé par participant (environ 18 € HT/mois, à souscrire par l’entreprise) — non inclus dans le tarif.',
   },
   deliverables: [
     'Accès à la bibliothèque 20+ skills Claude BTP (par phase de chantier)',
@@ -378,6 +384,10 @@ const NIV_03: CatalogueFormationPageContent = {
     secondaryLabel: 'Échanger sur votre projet',
   },
   pdfHref: LINKS.pdfProgrammeConduiteTravauxNiv03,
+  seoLandingLink: {
+    href: LINKS.formationIaConducteurDeTravaux,
+    label: 'Formation IA conducteur de travaux — page thématique',
+  },
 };
 
 const NIV_04: CatalogueFormationPageContent = {
@@ -560,18 +570,18 @@ const NIV_10: CatalogueFormationPageContent = {
   heroPublicLine:
     'Entrepreneurs, indépendants, TPE et PME du bâtiment, porteurs de projet — sans prérequis en programmation.',
   heroFacts: [
-    '7 h (1 journée) ou 14 h (2 journées)',
+    '7 h (1 journée)',
     '9h00 – 12h30 · 13h30 – 17h00',
     'Présentiel IDF ou visio (inter)',
-    '6 à 8 participants',
+    '4 à 10 participants',
     '70 % pratique · 30 % méthodologie',
   ],
   quickFactsLevel: 'Débutant',
   quickFactsOverride: [
-    { label: 'Durée', value: '7 h ou 14 h' },
+    { label: 'Durée', value: '7 h' },
     { label: 'Format', value: 'Présentiel ou visio (inter)' },
     { label: 'Lieu', value: 'Île-de-France' },
-    { label: 'Effectif', value: '6 à 8 participants' },
+    { label: 'Effectif', value: '4 à 10 participants' },
     { label: 'Niveau', value: 'Débutant' },
     {
       label: 'Public',
@@ -580,7 +590,7 @@ const NIV_10: CatalogueFormationPageContent = {
     },
     {
       label: 'Tarif',
-      value: `${formatTarifHt(TARIF_INTER_DEV_WEB_IA_HT)} € HT (7 h) · ${formatTarifHt(TARIF_INTER_DEV_WEB_IA_14H_HT)} € HT (14 h) / participant`,
+      value: `${formatTarifHt(TARIF_INTER_DEV_WEB_IA_HT)} € HT / participant`,
     },
   ],
   painPointsTitle: 'Vous avez une idée, mais elle reste au stade de projet ?',

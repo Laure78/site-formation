@@ -72,12 +72,6 @@ export function ApplicationMetierFormationHero({ config, stepBadge, formationHin
             Voir le programme
           </a>
         </div>
-
-        <p className="mt-4 text-sm">
-          <Link href={APPLICATION_METIER_PARCOURS_MOTHER.path} className={OFC_LINK}>
-            Voir le parcours Création d’applications BTP (N1 → N2 → N3)
-          </Link>
-        </p>
         <p className="sr-only">{stepBadge}</p>
       </div>
     </header>

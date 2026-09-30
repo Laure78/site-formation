@@ -506,7 +506,7 @@ export function getFormationOutilsAbonnementsAvantDevis(ref: string): string {
     case 'NIV-06':
     case 'NIV-07':
     case 'NIV-08':
-      return 'Outils : ordinateur portable avec connexion internet. Aucun abonnement IA payant obligatoire indiqué au programme — les éventuels abonnements restent hors forfait.';
+      return 'Outils : ordinateur portable avec connexion internet. Aucun abonnement IA payant obligatoire indiqué au programme — les éventuels abonnements restent hors tarif.';
     case 'NIV-09':
       return 'Abonnement payant obligatoire : ChatGPT Plus ou Claude Pro sur le poste de chaque participant (un des deux suffit ; les deux sont pratiqués en atelier). Non inclus dans le tarif de formation — à la charge de l’entreprise.';
     case 'NIV-10':

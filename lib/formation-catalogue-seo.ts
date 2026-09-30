@@ -64,12 +64,12 @@ export const FORMATION_CATALOGUE_SEO: Record<FormationCatalogueCode, FormationCa
     ],
   },
   'NIV-02': {
-    metaTitle: 'Formation IA appels d’offres BTP | DCE',
+    metaTitle: 'Programme IA DCE & mémoire technique (4 h)',
     h1: 'Formation IA appels d’offres BTP : analyser un DCE et préparer son mémoire technique',
     subtitle:
       'Apprenez à extraire les exigences d’un DCE, préparer les points de contrôle du chiffrage et structurer un mémoire technique avec l’aide de l’IA. Atelier pratique sur un dossier réel de l’entreprise.',
     metaDescription:
-      'Formation IA appels d’offres BTP : analyser un DCE, préparer le chiffrage et rédiger un mémoire technique avec l’IA. 4 h présentiel Île-de-France, Qualiopi.',
+      "Programme IA DCE & mémoire technique (4 h) : méthode DCE, chiffrage et mémoire technique avec l'IA. Présentiel Île-de-France, Qualiopi, OPCO selon éligibilité.",
     enBref: `La formation IA appels d’offres BTP construit une méthode guidée pour analyser un DCE, préparer une checklist de chiffrage et structurer un mémoire technique avec l’aide de l’IA. ${SESSION_DUREE_LIBELLE} en présentiel sur un dossier fil rouge — ${QUALIOPI_MENTION}. L’IA assiste l’analyse ; le chiffrage et les engagements restent à valider par le professionnel.`,
     publicTargets: [
       'Dirigeants de PME du BTP',
@@ -85,12 +85,12 @@ export const FORMATION_CATALOGUE_SEO: Record<FormationCatalogueCode, FormationCa
     ],
   },
   'NIV-03': {
-    metaTitle: 'Formation IA suivi de chantier : CR, CCTP',
+    metaTitle: 'Programme IA suivi de chantier (4 h)',
     h1: 'Formation IA suivi de chantier : CR, CCTP et DOE',
     subtitle:
       'Analysez vos CCTP, produisez vos comptes rendus et organisez le suivi du chantier jusqu\'à la réception avec ChatGPT et Claude.',
     metaDescription:
-      'Formation IA suivi de chantier : CR, CCTP et DOE avec Claude sur vos documents BTP. 4 h présentiel Île-de-France, Qualiopi, financement OPCO selon éligibilité.',
+      "Programme IA suivi de chantier (4 h) : CR, CCTP, PPSPS et DOE assistés par l'IA sur vos dossiers BTP. Présentiel IDF, Qualiopi, OPCO selon éligibilité.",
     enBref: `La formation IA pour conducteurs de travaux apprend à utiliser ChatGPT et Claude pour analyser un CCTP, préparer un compte rendu, suivre les actions, gérer les réserves et structurer un DOE. Session ${SESSION_DUREE_LIBELLE} en présentiel — ${QUALIOPI_MENTION}.`,
     publicTargets: [
       'Conducteurs de travaux',

@@ -3,7 +3,6 @@ import {
   SCHEMA_CONTACT,
   SCHEMA_GEO,
   SCHEMA_ORGANIZATION_OFC,
-  SCHEMA_PERSON_LAURE,
   SCHEMA_PUBLIC_SITE_URL,
   buildIdfAreaServedSchemaEntities,
 } from '@/lib/schema-constants';
@@ -78,11 +77,8 @@ export function buildOrganizationOfcSchemaNode(
       },
     ],
     hasCredential: buildQualiopiCredentialSchema(),
-    founder: {
-      '@type': 'Person',
-      '@id': personId,
-      name: SCHEMA_PERSON_LAURE.name,
-    },
+    /** Person déclarée dans le layout — référence par @id uniquement. */
+    founder: { '@id': personId },
   };
 }
 

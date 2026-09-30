@@ -285,7 +285,7 @@ export const DEV_WEB_IA_PEDAGOGIE = [
   'Fil rouge sur le projet de chaque participant — pas sur un cas générique',
   'Courtes démonstrations, ateliers guidés puis travail individuel sur poste',
   'Tests et corrections en direct, avec échanges avec la formatrice',
-  'Petit groupe (6 à 8 participants) pour des allers-retours réguliers',
+  'Petit groupe (4 à 10 participants) pour des allers-retours réguliers',
 ] as const;
 
 export const DEV_WEB_IA_ESPACE = [

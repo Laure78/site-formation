@@ -1,18 +1,13 @@
-import Link from 'next/link';
 import type { CatalogueLevel } from '@/lib/formations-catalogue-display';
-import {
-  getFormationsCatalogue,
-  libelleTarifParcoursCatalogue,
-} from '@/lib/formations-catalogue-display';
-import { getFormationByCode } from '@/data/formations';
+import { libelleTarifParcoursCatalogue } from '@/lib/formations-catalogue-display';
+import { getFormationByCode, libelleEffectifFormation } from '@/data/formations';
 import { MentionTVA, MentionTvaAsterisque } from '@/components/MentionTVA';
 import { FINANCEMENT_FORMULATION_PRUDENTE } from '@/lib/financement-copy';
-import { libelleTarifParticipantCatalogue } from '@/lib/tarifs-catalogue-participant';
 import {
+  libelleTarifParticipantCatalogue,
   TARIF_PARTICIPANT_NIV01_HT,
   TARIF_PARTICIPANT_NIV02_HT,
 } from '@/lib/tarifs-catalogue-participant';
-import { libelleEffectifFormation } from '@/data/formations';
 
 export type CataloguePriceVariant = 'overlay' | 'pill' | 'banner' | 'hero' | 'strip';
 
@@ -151,9 +146,6 @@ export function CatalogueTarifStrip({
     ? 'border-white/25 bg-white/10 text-white'
     : 'border-[#377CF3]/15 bg-white';
   const label = onAccent ? 'text-white/80' : 'text-[#64748B]';
-  const formations = getFormationsCatalogue().filter((e) =>
-    ['NIV-01', 'NIV-02', 'NIV-09', 'NIV-10'].includes(e.ref),
-  );
 
   return (
     <div className={className}>
@@ -171,7 +163,6 @@ export function CatalogueTarifStrip({
           {libelleTarifParticipantCatalogue(TARIF_PARTICIPANT_NIV02_HT)} (sessions métier 4 h)
         </span>
       </div>
-      {formations.length === 0 ? null : null}
       {showMention ? (
         <MentionTVA className={`mt-3 max-w-3xl ${onAccent ? 'text-white/90' : ''}`.trim()} />
       ) : null}

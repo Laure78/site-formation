@@ -85,14 +85,14 @@ export function BeWorkHighlightSection({ id, surface = 'band' }: Props) {
             <ul className="mt-5 space-y-3 text-sm text-[#334155]">
               <li className="rounded-lg border border-slate-200/80 bg-white/80 px-4 py-3">
                 <strong className="font-semibold text-[#0F172A]">
-                  Prix de lancement · 7 h · 300 € HT / participant
+                  300 € HT / participant · 7 h · 4 à 10 participants
                 </strong>
-                <span className="mt-1 block text-[#64748B]">Interentreprises · Intra sur devis</span>
+                <span className="mt-1 block text-[#64748B]">Sessions collectives — présentiel Île-de-France</span>
               </li>
               <li className="rounded-lg border border-[#BFDBFE] bg-white px-4 py-3 shadow-sm">
                 <strong className="font-semibold text-[#0F172A]">Sans prérequis en code</strong>
                 <span className="mt-1 block text-[#64748B]">
-                  Présentiel · Île-de-France · inter ou intra sur devis
+                  Présentiel · Île-de-France · inter ou dans vos locaux
                 </span>
               </li>
             </ul>

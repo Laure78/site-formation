@@ -126,6 +126,17 @@ export default function FormationIaEtudesPrixChiffrageBtpPage() {
           contexte="pour les études de prix, le chiffrage assisté et les appels d’offres BTP"
         />
 
+        <aside
+          className="mt-10 rounded-2xl border border-[#377CF3]/25 bg-[#F2F2F2] px-6 py-5"
+          aria-label="Retour landing devis"
+        >
+          <p className="text-base text-slate-700">
+            <Link href={LINKS.iaDevis} className="font-semibold text-[var(--accent)] hover:underline">
+              ← Retour — IA devis bâtiment (landing)
+            </Link>
+          </p>
+        </aside>
+
         <div className="mt-12">
           <AllerPlusLoin links={[...ETUDES_PRIX_MAILLAGE]} />
         </div>

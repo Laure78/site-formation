@@ -111,7 +111,7 @@ export const FORMATION_IA_CONDUCTEUR_DE_TRAVAUX_CONFIG: SeoClusterPageConfig = {
   campaignSlug: 'formation-ia-conducteur-de-travaux',
   programmeRef: 'NIV-03',
   catalogueHref: LINKS.formationConduiteTravauxSuiviChantier,
-  catalogueLabel: 'Formation IA suivi de chantier : CR, CCTP et DOE',
+  catalogueLabel: 'Voir le programme détaillé',
   relatedLinks: [
     { href: LINKS.formationChatgptBtp, label: 'Formation ChatGPT pour le BTP' },
     { href: LINKS.formationIaAppelsOffresBtp, label: 'Formation IA appels d\'offres BTP' },

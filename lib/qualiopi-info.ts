@@ -16,12 +16,8 @@ import {
 import { OFC_IDENTITE } from '@/lib/ofc-identite';
 import { SCHEMA_CONTACT, SCHEMA_GEO } from '@/lib/schema-constants';
 import { SITE_CONFIG } from '@/lib/seo';
-import {
-  getTarifGrilleFromDureeLibelle,
-  libelleTarifIntraEntreprise,
-  libelleTarifInterEntreprise,
-  MODALITE_FORMATIONS_PRESENTIEL,
-} from '@/lib/tarifs-sessions';
+import { MODALITE_FORMATIONS_PRESENTIEL } from '@/lib/tarifs-sessions';
+import { libelleTarifParticipantCatalogue } from '@/lib/tarifs-catalogue-participant';
 import {
   FORMATIONS_CATALOGUE,
   type FormationCatalogueEntry,
@@ -167,14 +163,15 @@ function prerequisPourCatalogue(entry: FormationCatalogueEntry): string[] {
 }
 
 function tarifsPourCatalogue(entry: FormationCatalogueEntry): { inter: string; intra: string } {
+  const formation = getFormationByCode(entry.ref);
   const effectif = entry.effectif.toLowerCase();
-  const grille = getTarifGrilleFromDureeLibelle(entry.duree);
+  if (formation?.tarifParticipantHt && formation.tarifParticipantHt > 0) {
+    const label = `${libelleTarifParticipantCatalogue(formation.tarifParticipantHt)} (${effectif})`;
+    return { inter: label, intra: label };
+  }
   return {
-    inter:
-      grille.interHT != null
-        ? libelleTarifInterEntreprise(grille.interHT, effectif)
-        : 'Interentreprises : sur demande',
-    intra: libelleTarifIntraEntreprise(entry.prixHT, effectif),
+    inter: `Sur devis (${effectif})`,
+    intra: `Sur devis (${effectif})`,
   };
 }
 

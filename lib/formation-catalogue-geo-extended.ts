@@ -50,7 +50,7 @@ export const FORMATION_CATALOGUE_GEO_EXTENDED: Record<
     documentsBtp: ['Devis et désignations', 'Comptes rendus de chantier', 'DOE et PV de réception', 'Emails clients et fournisseurs'],
     outilsIa: ['ChatGPT', 'Claude AI'],
     dureeReponse:
-      '4 heures en présentiel en Île-de-France. Intra-entreprise : 4 à 12 participants dans les locaux de l’entreprise. Interentreprises selon calendrier, sous réserve d’un nombre minimum d’inscrits.',
+      '4 heures en présentiel en Île-de-France. 6 à 12 participants. Sessions collectives dans les locaux de l’entreprise ou selon calendrier.',
     livrables: [
       'Bibliothèque de prompts BTP',
       'Trames de devis, comptes rendus, DOE et PV',
@@ -128,7 +128,7 @@ export const FORMATION_CATALOGUE_GEO_EXTENDED: Record<
     deroulement: `${MODALITE_PEDAGOGIQUE_CATALOGUE}. 70 % pratique — fil rouge PME BTP du Projet au connecteur fiabilisé.`,
     clusterMaillage: [
       ...CLUSTER_BASE,
-      { href: LINKS.parcoursApplicationsMetierBtp, label: 'Parcours applications métier BTP avec l’IA' },
+      { href: LINKS.formationApplicationMetierBtpNiveau1, label: 'Créer sa première application métier BTP' },
       { href: LINKS.formationPmeBtp, label: 'Déployer l’IA dans une PME du BTP' },
       { href: LINKS.guideClaudeBtpOfc, label: 'Guide Claude BTP — Projects et Skills' },
     ],
@@ -178,7 +178,6 @@ export const FORMATION_CATALOGUE_GEO_EXTENDED: Record<
     deroulement: `${MODALITE_PEDAGOGIQUE_CATALOGUE}. 70 % pratique sur le poste du participant — session 7 h (niveau 1 du parcours applications métier).`,
     clusterMaillage: [
       ...CLUSTER_BASE,
-      { href: LINKS.parcoursApplicationsMetierBtp, label: 'Parcours applications métier BTP avec l’IA' },
       { href: LINKS.formationApplicationMetierBtpNiveau2, label: 'Application métier BTP connectée — niveau 2' },
       { href: LINKS.formationMaitriserClaudeAiBtp, label: 'Maîtriser Claude pour le BTP' },
       { href: LINKS.formationIaBtpNiveau1BatimentTp, label: 'Découvrir l’IA générative dans le BTP' },
@@ -209,7 +208,6 @@ export const FORMATION_CATALOGUE_GEO_EXTENDED: Record<
     deroulement: `${MODALITE_PEDAGOGIQUE_CATALOGUE}. 70 % pratique — session 7 h (niveau 2 du parcours applications métier).`,
     clusterMaillage: [
       ...CLUSTER_BASE,
-      { href: LINKS.parcoursApplicationsMetierBtp, label: 'Parcours applications métier BTP avec l’IA' },
       { href: LINKS.formationApplicationMetierBtpNiveau1, label: 'Créer sa première application métier BTP' },
       { href: LINKS.formationApplicationMetierBtpNiveau3, label: 'Application métier BTP avancée — niveau 3' },
     ],
@@ -239,7 +237,6 @@ export const FORMATION_CATALOGUE_GEO_EXTENDED: Record<
     deroulement: `${MODALITE_PEDAGOGIQUE_CATALOGUE}. 70 % pratique — session 7 h (niveau 3 du parcours applications métier).`,
     clusterMaillage: [
       ...CLUSTER_BASE,
-      { href: LINKS.parcoursApplicationsMetierBtp, label: 'Parcours applications métier BTP avec l’IA' },
       { href: LINKS.formationApplicationMetierBtpNiveau2, label: 'Application métier BTP connectée — niveau 2' },
       { href: LINKS.formationMaitriserClaudeAiBtp, label: 'Maîtriser Claude pour le BTP' },
     ],
@@ -319,9 +316,9 @@ export function getFormationCatalogueGeoExtended(
   const effectif = entry?.effectif ?? '';
   const tarifMention = isFormationSurDevis(formation)
     ? 'Tarif sur devis — financement OPCO selon éligibilité.'
-    : 'Tarif au forfait session — financement OPCO selon éligibilité.';
+    : 'Tarif HT / participant — financement OPCO selon éligibilité.';
   return {
     ...base,
-    dureeReponse: `${duree} en présentiel intra-entreprise (${effectif}). ${tarifMention}`,
+    dureeReponse: `${duree} en présentiel (${effectif}). ${tarifMention}`,
   };
 }

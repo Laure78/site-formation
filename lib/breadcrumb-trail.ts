@@ -9,10 +9,6 @@ import { TUTOS } from '@/lib/tutos';
 import { DEPARTEMENT_PAGES } from '@/lib/departement-pages';
 import { getFormationIaEntry } from '@/lib/seo-formation-ia-hub-data';
 import { LINKS } from '@/lib/internal-links';
-import {
-  APPLICATION_METIER_PARCOURS_MOTHER,
-  getApplicationMetierParcoursStepByPath,
-} from '@/lib/application-metier-btp-parcours-nav';
 
 export type BreadcrumbHrefCrumb = { label: string; href: string; link?: boolean };
 
@@ -30,7 +26,6 @@ const FORMATION_PATH_EXTRA_TITLES: Record<string, string> = {
     'Formation IA appliquée au bâtiment Saint-Quentin-en-Yvelines',
   '/formations/ia-pme-btp': 'Déployer l’IA dans une PME BTP',
   '/formations/ia-etudes-prix-chiffrage-btp': 'IA études de prix et chiffrage BTP',
-  '/parcours/applications-metier-btp': 'Applications métier BTP avec l’IA',
   '/formations/application-metier-btp-niveau-1': 'Créer sa première application métier BTP',
   '/formations/application-metier-btp-niveau-2': 'Application métier BTP connectée',
   '/formations/application-metier-btp-niveau-3': 'Application métier BTP avancée avec l’IA',
@@ -218,40 +213,7 @@ function blogTrail(pathNorm: string): BreadcrumbHrefCrumb[] {
   return fromAuto(pathNorm);
 }
 
-function applicationMetierBtpParcoursTrail(pathNorm: string): BreadcrumbHrefCrumb[] | null {
-  const parcoursPath = APPLICATION_METIER_PARCOURS_MOTHER.path;
-
-  if (pathNorm === parcoursPath) {
-    return [
-      { label: 'Accueil', href: '/' },
-      {
-        label: APPLICATION_METIER_PARCOURS_MOTHER.breadcrumbParcoursLabel,
-        href: parcoursPath,
-        link: false,
-      },
-      { label: APPLICATION_METIER_PARCOURS_MOTHER.breadcrumbMotherLabel, href: parcoursPath },
-    ];
-  }
-
-  const step = getApplicationMetierParcoursStepByPath(pathNorm);
-  if (!step) return null;
-
-  return [
-    { label: 'Accueil', href: '/' },
-    {
-      label: APPLICATION_METIER_PARCOURS_MOTHER.breadcrumbParcoursLabel,
-      href: parcoursPath,
-      link: false,
-    },
-    { label: APPLICATION_METIER_PARCOURS_MOTHER.breadcrumbMotherLabel, href: parcoursPath },
-    { label: step.breadcrumbLabel, href: pathNorm },
-  ];
-}
-
 function formationsTrail(pathNorm: string): BreadcrumbHrefCrumb[] {
-  const parcoursTrail = applicationMetierBtpParcoursTrail(pathNorm);
-  if (parcoursTrail) return parcoursTrail;
-
   if (pathNorm === '/formations') {
     return [
       { label: 'Accueil', href: '/' },
@@ -373,9 +335,6 @@ export function buildBreadcrumbTrail(pathname: string): BreadcrumbHrefCrumb[] {
   if (pathNorm.startsWith('/admin')) return [];
   if (pathNorm.startsWith('/demo/')) return [];
   if (pathNorm.startsWith('/outils/demo-')) return [];
-
-  const parcoursAppMetier = applicationMetierBtpParcoursTrail(pathNorm);
-  if (parcoursAppMetier) return parcoursAppMetier;
 
   if (pathNorm.startsWith('/formations')) {
     return formationsTrail(pathNorm);

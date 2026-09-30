@@ -22,7 +22,6 @@ export const SITEMAP_TIER1_STATIC_PATHS = [
   LINKS.home,
   LINKS.formationIaBtpPillar,
   LINKS.formations,
-  LINKS.parcoursApplicationsMetierBtp,
   LINKS.financement,
   LINKS.aPropos,
   LINKS.avisClients,

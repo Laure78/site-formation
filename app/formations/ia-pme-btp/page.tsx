@@ -162,8 +162,7 @@ export default function FormationDeployerIaPmeBtpPage() {
         <section id="tarifs" className="mt-14 scroll-mt-24 rounded-2xl border border-slate-200 bg-slate-50 p-6 md:p-8">
           <h2 className="font-display text-2xl font-bold text-slate-900">Tarifs 7 h / 14 h</h2>
           <p className="mt-3 text-sm text-slate-600">
-            Forfait intra-entreprise ou tarif par participant en interentreprises — devis personnalisé
-            selon effectif et niveau d’accompagnement.
+            Tarif HT / participant — devis personnalisé selon effectif et niveau d’accompagnement.
           </p>
           <ul className="mt-6 space-y-3 text-sm text-slate-700">
             <li>
@@ -198,7 +197,7 @@ export default function FormationDeployerIaPmeBtpPage() {
             links={[
               { href: LINKS.formations, label: 'Catalogue formations IA BTP' },
               { href: formationHref(getFormationByCode('NIV-01')!), label: 'Première étape — formation NIV-01 (4 h)' },
-              { href: LINKS.parcoursApplicationsMetierBtp, label: 'Parcours applications métier BTP avec l’IA' },
+              { href: LINKS.formationApplicationMetierBtpNiveau1, label: 'Créer sa première application métier BTP' },
               { href: LINKS.financement, label: 'Financement Constructys' },
               { href: LINKS.prendreRdv, label: CTA_RDV_LABEL },
             ]}
