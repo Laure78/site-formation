@@ -34,6 +34,8 @@ export const inviteApprenantSchema = z.object({
   formationId: z.string().uuid('Formation invalide'),
   action: z.enum(['create', 'resend']).default('create'),
   invitationId: z.string().uuid().optional(),
+  /** Date affichée dans l’email (ex. session ops). */
+  sessionDateLabel: z.string().trim().max(120).optional(),
 });
 
 export type InviteApprenantInput = z.infer<typeof inviteApprenantSchema>;
@@ -252,6 +254,7 @@ async function deliverInvitationCredentials(params: {
   formationTitle: string;
   userId: string;
   accountStatus: string | null;
+  sessionDateLabel?: string | null;
 }): Promise<{ ok: true } | { ok: false; error: string; code?: 'email' | 'auth' }> {
   const isActive = params.accountStatus === 'active';
 
@@ -260,13 +263,21 @@ async function deliverInvitationCredentials(params: {
     formationTitle: params.formationTitle,
     token: params.token,
     firstName: params.firstName,
+    lastName: params.lastName,
     accountAlreadyActive: isActive,
+    sessionDateLabel: params.sessionDateLabel ?? null,
   });
 
   if (!sent.ok) {
     await revokeInvitation(params.invitationId);
     return { ok: false, error: 'Échec d’envoi de l’email', code: 'email' };
   }
+
+  const admin = createAdminClient();
+  await admin
+    .from('invitations')
+    .update({ last_sent_at: new Date().toISOString() })
+    .eq('id', params.invitationId);
 
   // Inscription dès l’invitation (visibilité admin) — upsert idempotent.
   await enrollUserInFormation(params.userId, params.formationId);
@@ -310,6 +321,7 @@ async function createInvitationRow(params: {
   const tokenHash = hashInvitationToken(token);
   const expiresAt = invitationExpiresAt();
 
+  const sentAt = new Date().toISOString();
   const { data: inserted, error: insertError } = await admin
     .from('invitations')
     .insert({
@@ -323,6 +335,7 @@ async function createInvitationRow(params: {
       last_name: params.lastName,
       user_id: params.userId,
       sent_count: params.sentCount,
+      last_sent_at: sentAt,
     })
     .select('id')
     .single();
@@ -438,6 +451,7 @@ export async function inviteOrResendApprenant(
       formationTitle,
       userId,
       accountStatus: (await getAccountStatus(userId)) ?? accountStatus,
+      sessionDateLabel: input.sessionDateLabel,
     });
     if (!delivered.ok) {
       return { ok: false, error: delivered.error, code: delivered.code };
@@ -457,7 +471,11 @@ export async function inviteOrResendApprenant(
     .maybeSingle();
 
   if (existingPending) {
-    return { ok: true, status: 'deja_invite', invitationId: existingPending.id };
+    return {
+      ok: true,
+      status: 'deja_invite',
+      invitationId: existingPending.id,
+    };
   }
 
   await admin
@@ -494,6 +512,7 @@ export async function inviteOrResendApprenant(
     formationTitle,
     userId,
     accountStatus: (await getAccountStatus(userId)) ?? accountStatus,
+    sessionDateLabel: input.sessionDateLabel,
   });
   if (!delivered.ok) {
     return { ok: false, error: delivered.error, code: delivered.code };

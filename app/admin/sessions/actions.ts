@@ -151,6 +151,23 @@ export async function addParticipantAction(formData: FormData) {
     department: person.department,
     actorId,
   });
+
+  const { inviteSessionPersonToLms } = await import(
+    '@/lib/training-ops/invite-session-participant-lms'
+  );
+  await inviteSessionPersonToLms({
+    sessionId,
+    person: {
+      id: person.id,
+      email: person.email,
+      first_name: person.first_name,
+      last_name: person.last_name,
+    },
+    invitedBy: actorId,
+  }).catch((e) => {
+    console.error('[addParticipant] invitation LMS', e);
+  });
+
   revalidateSession(sessionId);
 }
 

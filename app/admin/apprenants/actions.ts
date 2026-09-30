@@ -7,6 +7,8 @@ import { inviteApprenantSchema, inviteOrResendApprenant } from '@/lib/invitation
 import { parseApprenantsCsv } from '@/lib/parse-apprenants-csv';
 import { namesFromEmail, parseApprenantEmails } from '@/lib/parse-apprenant-emails';
 import { checkRateLimit } from '@/lib/rate-limit';
+import { revalidatePath } from 'next/cache';
+import { saveLmsAutomationSettings } from '@/lib/lms-automation-settings';
 
 export type InviteBatchResult = {
   treated: number;
@@ -21,6 +23,23 @@ export type InviteBatchResult = {
  * Invitation en lot : emails (lignes / virgules / ;) + formation.
  * Ne bloque pas tout le lot si une adresse échoue.
  */
+export async function saveLmsAutomationSettingsAction(formData: FormData): Promise<void> {
+  const supabase = await createClient();
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+  if (!user) return;
+  const admin = await requireAdminAccess();
+  if (!admin.ok) return;
+
+  await saveLmsAutomationSettings({
+    invitationAutoEnabled: formData.get('invitation_auto_enabled') === 'on',
+    satisfactionJ1Enabled: formData.get('satisfaction_j1_enabled') === 'on',
+    updatedBy: admin.userId,
+  });
+  revalidatePath('/admin/apprenants');
+}
+
 export async function inviteApprenantsBatchAction(
   emailsRaw: string,
   courseId: string

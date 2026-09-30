@@ -15,6 +15,8 @@ export type InvitationApprenantEmailProps = {
   /** Compte déjà actif : pas de création de mot de passe, connexion habituelle. */
   accountAlreadyActive?: boolean;
   firstName?: string | null;
+  lastName?: string | null;
+  sessionDateLabel?: string | null;
 };
 
 const ACCENT = '#377CF3';
@@ -54,6 +56,7 @@ export function invitationEmailText(props: InvitationApprenantEmailProps): strin
       hello,
       '',
       `Une nouvelle formation est disponible dans votre espace : « ${props.formationTitle} ».`,
+      props.sessionDateLabel ? `Date de session : ${props.sessionDateLabel}.` : '',
       '',
       'Connectez-vous avec votre adresse email et votre mot de passe habituels :',
       props.loginUrl,
@@ -79,7 +82,8 @@ export function invitationEmailText(props: InvitationApprenantEmailProps): strin
     '',
     'Votre accès à la plateforme de formation Laure Olivié est disponible.',
     '',
-    'Vous pouvez maintenant accéder à votre espace apprenant et retrouver les ressources liées à votre formation.',
+    `Formation : « ${props.formationTitle || 'Formation'} ».`,
+    props.sessionDateLabel ? `Date de session : ${props.sessionDateLabel}.` : '',
     '',
     'Votre identifiant',
     props.email,
@@ -128,6 +132,7 @@ export function InvitationApprenantEmail({
   email,
   accountAlreadyActive,
   firstName,
+  sessionDateLabel,
 }: InvitationApprenantEmailProps) {
   const hello = greeting(firstName);
   const legal = invitationEmailLegalFooter();
@@ -165,6 +170,11 @@ export function InvitationApprenantEmail({
                               Une nouvelle formation est disponible dans votre espace :{' '}
                               <strong>« {formationTitle} »</strong>.
                             </p>
+                            {sessionDateLabel ? (
+                              <p style={{ margin: '0 0 16px', fontSize: 14, lineHeight: '22px', color: '#64748b' }}>
+                                Date de session : {sessionDateLabel}.
+                              </p>
+                            ) : null}
                             <p style={{ margin: '0 0 8px', fontSize: 14, color: '#64748b' }}>
                               Identifiant
                             </p>
@@ -211,6 +221,11 @@ export function InvitationApprenantEmail({
                               ) : null}
                               .
                             </p>
+                            {sessionDateLabel ? (
+                              <p style={{ margin: '0 0 20px', fontSize: 14, lineHeight: '22px', color: '#64748b' }}>
+                                Date de session : {sessionDateLabel}.
+                              </p>
+                            ) : null}
 
                             <p
                               style={{
@@ -257,7 +272,7 @@ export function InvitationApprenantEmail({
                             </p>
                             <p style={{ margin: '0 0 20px', textAlign: 'center' }}>
                               <a href={inviteUrl} style={btnPrimary}>
-                                Activer mon espace de formation
+                                Créer mon compte
                               </a>
                             </p>
                             <p style={{ margin: '0 0 16px', fontSize: 13, lineHeight: '20px', color: '#64748b' }}>

@@ -37,9 +37,13 @@ function fromAddress(settings: Awaited<ReturnType<typeof getSatisfactionSettings
   return `${name} <${addr}>`;
 }
 
+const siteBase = () =>
+  (process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, '') || 'https://www.laureolivie.fr');
+
 export type SendParticipantEmailParams = {
   kind: SatisfactionEmailKind;
   to: string;
+  participantSatisfactionId: string;
   vars: Omit<TemplateVars, 'lien_questionnaire' | 'lien_google' | 'organisme' | 'email_contact'>;
   questionnaireLink?: string;
 };
@@ -56,12 +60,17 @@ export async function sendParticipantSatisfactionEmail(
     return { ok: false, error: 'Modèle email désactivé.' };
   }
 
+  const googleDirect = getGoogleReviewUrl(settings);
+  const lienGoogle = params.kind.startsWith('google')
+    ? `${siteBase()}/api/google-review/click?ps=${params.participantSatisfactionId}`
+    : googleDirect;
+
   const fullVars: TemplateVars = {
     ...params.vars,
     organisme: defaultOrganismeLabel(),
     email_contact: settings.email_reply_to || CONTACT.email,
     lien_questionnaire: params.questionnaireLink ?? getQuestionnairePublicUrl(settings),
-    lien_google: getGoogleReviewUrl(settings),
+    lien_google: lienGoogle,
   };
 
   const subject = applyTemplateVars(template.subject, fullVars);

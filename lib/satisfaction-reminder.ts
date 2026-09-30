@@ -9,6 +9,8 @@ import {
 } from '@/lib/satisfaction-reminder-logic';
 import { sendSatisfactionJ1Email } from '@/lib/send-satisfaction-j1-email';
 import { parisDateKey } from '@/lib/rdv-datetime';
+import { getLmsAutomationSettings } from '@/lib/lms-automation-settings';
+import { enrollmentIdsExcludedFromSatisfactionJ1 } from '@/lib/satisfaction-j1-ops-exclusion';
 
 const EMAIL_TYPE = 'satisfaction_j1' as const;
 
@@ -74,6 +76,9 @@ export async function listSatisfactionJ1Candidates(
 
   if (!enrollments?.length) return [];
 
+  const lmsSettings = await getLmsAutomationSettings();
+  if (!lmsSettings.satisfaction_j1_enabled) return [];
+
   const userIds = [...new Set(enrollments.map((e) => e.user_id as string))];
   const enrollmentIds = enrollments.map((e) => e.id as string);
 
@@ -93,13 +98,28 @@ export async function listSatisfactionJ1Candidates(
   if (evErr) throw new Error(`[satisfaction-j1] select events: ${evErr.message}`);
 
   const profileById = new Map((profiles ?? []).map((p) => [p.id as string, p]));
+  const emailByUserId = new Map<string, string>();
+  for (const p of profiles ?? []) {
+    if (p.email) emailByUserId.set(p.id as string, String(p.email).trim());
+  }
   const eventsByEnrollment = new Map(
     (events ?? []).map((ev) => [ev.enrollment_id as string, ev.status as string])
+  );
+
+  const excludedEnrollmentIds = await enrollmentIdsExcludedFromSatisfactionJ1(
+    supabase,
+    enrollments.map((e) => ({
+      id: e.id as string,
+      user_id: e.user_id as string,
+      course_id: e.course_id as string,
+    })),
+    emailByUserId,
   );
 
   const out: SatisfactionJ1Candidate[] = [];
 
   for (const row of enrollments) {
+    if (excludedEnrollmentIds.has(row.id as string)) continue;
     const course = Array.isArray(row.courses) ? row.courses[0] : row.courses;
     const profile = profileById.get(row.user_id as string);
     if (!course || !profile) continue;

@@ -5,6 +5,8 @@ import { InviterForm } from './InviterForm';
 import { ImportApprenantsForm } from './ImportApprenantsForm';
 import { ExportApprenantsButton } from './ExportApprenantsButton';
 import { RenvoyerInvitationButton } from './RenvoyerInvitationButton';
+import { LmsAutomationSettingsCard } from '@/components/admin/apprenants/LmsAutomationSettingsCard';
+import { getLmsAutomationSettings } from '@/lib/lms-automation-settings';
 
 export default async function AdminApprenantsPage() {
   const supabase = await createClient();
@@ -129,6 +131,7 @@ export default async function AdminApprenantsPage() {
   };
 
   const pendingInvitations = (invitations ?? []).filter((inv) => inv.status !== 'accepted');
+  const lmsAutomation = await getLmsAutomationSettings().catch(() => null);
 
   return (
     <div className="p-4 md:p-8">
@@ -143,6 +146,8 @@ export default async function AdminApprenantsPage() {
           <ExportApprenantsButton />
         </div>
       </div>
+
+      {lmsAutomation ? <LmsAutomationSettingsCard settings={lmsAutomation} /> : null}
 
       {pendingInvitations.length > 0 ? (
         <section

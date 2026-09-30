@@ -1,5 +1,6 @@
 import { notFound } from 'next/navigation';
 import { createClient } from '@/lib/supabase/server';
+import { createAdminClient } from '@/lib/supabase/admin';
 import Link from 'next/link';
 import { User, BookOpen, ChevronLeft } from 'lucide-react';
 import { ResetProgressionButton } from './ResetProgressionButton';
@@ -15,7 +16,7 @@ export default async function AdminApprenantProfilPage({
 
   const { data: profile } = await supabase
     .from('profiles')
-    .select('id, full_name, first_name, last_name, email, created_at, role')
+    .select('id, full_name, first_name, last_name, email, created_at, role, account_status')
     .eq('id', id)
     .single();
 
@@ -59,7 +60,47 @@ export default async function AdminApprenantProfilPage({
     .select('course_id, note_globale, note_contenu, note_utilite, commentaire, created_at')
     .eq('user_id', id);
 
+  const adminDb = createAdminClient();
+  const emailKey = profile.email?.trim().toLowerCase() ?? '';
+  const { data: invitationsRaw } = emailKey
+    ? await adminDb
+        .from('invitations')
+        .select(
+          'id, status, formation_id, created_at, last_sent_at, opened_at, accepted_at, sent_count, expires_at',
+        )
+        .or(`user_id.eq.${id},email.eq.${emailKey}`)
+        .order('created_at', { ascending: false })
+        .limit(20)
+    : { data: [] };
+
+  const formationIds = [
+    ...new Set((invitationsRaw ?? []).map((i) => i.formation_id).filter(Boolean)),
+  ] as string[];
+  const { data: inviteCourses } =
+    formationIds.length > 0
+      ? await adminDb.from('courses').select('id, title').in('id', formationIds)
+      : { data: [] };
+  const titleByCourse = Object.fromEntries((inviteCourses ?? []).map((c) => [c.id, c.title]));
+  const invitations = (invitationsRaw ?? []).map((inv) => ({
+    ...inv,
+    courseTitle: titleByCourse[inv.formation_id as string] ?? 'Formation',
+  }));
+
+  const accountStatus = (profile as { account_status?: string }).account_status ?? 'active';
+  const compteCree = accountStatus === 'active';
+
   const name = [profile.first_name, profile.last_name].filter(Boolean).join(' ') || profile.full_name || profile.email || '—';
+
+  const fmtDt = (iso: string | null | undefined) =>
+    iso
+      ? new Date(iso).toLocaleString('fr-FR', {
+          day: '2-digit',
+          month: '2-digit',
+          year: 'numeric',
+          hour: '2-digit',
+          minute: '2-digit',
+        })
+      : '—';
 
   return (
     <div className="p-4 md:p-8">
@@ -88,6 +129,38 @@ export default async function AdminApprenantProfilPage({
             </p>
           </div>
         </div>
+      </div>
+
+      <div className="mt-8 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+        <h2 className="font-display text-lg font-semibold text-slate-900">Accès plateforme</h2>
+        <dl className="mt-4 grid gap-3 text-sm sm:grid-cols-2">
+          <div>
+            <dt className="text-slate-500">Compte créé</dt>
+            <dd className="font-medium text-slate-900">{compteCree ? 'Oui' : 'Non'}</dd>
+          </div>
+          <div>
+            <dt className="text-slate-500">Statut compte</dt>
+            <dd className="font-medium text-slate-900">{accountStatus}</dd>
+          </div>
+        </dl>
+        {(invitations ?? []).length > 0 ? (
+          <ul className="mt-4 divide-y divide-slate-100 rounded-xl border border-slate-100">
+            {invitations.map((inv) => {
+              return (
+                <li key={inv.id as string} className="px-4 py-3 text-sm">
+                  <p className="font-medium text-slate-900">{inv.courseTitle}</p>
+                  <p className="mt-1 text-slate-600">
+                    Statut : {inv.status as string} · Envoyée : {fmtDt(inv.last_sent_at ?? inv.created_at)}{' '}
+                    · Consultée : {inv.opened_at ? fmtDt(inv.opened_at as string) : 'Non'}
+                    {inv.accepted_at ? ` · Compte activé : ${fmtDt(inv.accepted_at as string)}` : ''}
+                  </p>
+                </li>
+              );
+            })}
+          </ul>
+        ) : (
+          <p className="mt-3 text-sm text-slate-500">Aucune invitation enregistrée pour cet apprenant.</p>
+        )}
       </div>
 
       <div className="mt-8">

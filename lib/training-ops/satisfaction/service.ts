@@ -263,6 +263,7 @@ export async function executeSendKind(
   const sendResult = await sendParticipantSatisfactionEmail({
     kind,
     to: ctx.email,
+    participantSatisfactionId: ctx.row.id,
     vars: {
       prenom: ctx.firstName,
       nom: ctx.lastName,

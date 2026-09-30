@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { SCHEMA_CONTACT, SCHEMA_GEO, SCHEMA_GOOGLE_REVIEW_SUBMIT_URL } from '@/lib/schema-constants';
+import { SCHEMA_CONTACT, SCHEMA_GEO } from '@/lib/schema-constants';
 import { OFC_IDENTITE } from '@/lib/ofc-identite';
 import { QUESTIONNAIRE_SATISFACTION_URL } from '@/lib/questionnaire-satisfaction';
 
@@ -8,7 +8,6 @@ export type SatisfactionJ1EmailProps = {
   nomFormation: string;
   dateFormation: string | null;
   questionnaireUrl?: string;
-  googleReviewUrl?: string;
 };
 
 export function satisfactionJ1EmailSubject(): string {
@@ -22,7 +21,6 @@ function greeting(prenom: string | null): string {
 
 export function satisfactionJ1EmailText(props: SatisfactionJ1EmailProps): string {
   const qUrl = props.questionnaireUrl ?? QUESTIONNAIRE_SATISFACTION_URL;
-  const gUrl = props.googleReviewUrl ?? SCHEMA_GOOGLE_REVIEW_SUBMIT_URL;
   const lines = [
     greeting(props.prenom),
     '',
@@ -35,14 +33,8 @@ export function satisfactionJ1EmailText(props: SatisfactionJ1EmailProps): string
     '',
     'Votre retour me permet d’améliorer continuellement mes formations et fait partie du suivi qualité de mon organisme de formation.',
     '',
-    'Je vous remercie de prendre quelques minutes pour répondre à ces deux demandes.',
-    '',
     'Questionnaire de satisfaction',
-    `Répondre au questionnaire : ${qUrl}`,
-    '',
-    'Votre avis Google',
-    'Si vous avez apprécié la formation, vous pouvez également partager votre expérience sur Google.',
-    `Déposer un avis : ${gUrl}`,
+    `Donner mon avis sur la formation : ${qUrl}`,
     '',
     'Merci pour votre participation et votre confiance.',
     '',
@@ -77,25 +69,12 @@ const BTN_PRIMARY = {
   borderRadius: 10,
 } as const;
 
-const BTN_SECONDARY = {
-  display: 'inline-block',
-  backgroundColor: '#FFFFFF',
-  color: ACCENT,
-  textDecoration: 'none',
-  fontWeight: 600,
-  fontSize: 16,
-  padding: '12px 26px',
-  borderRadius: 10,
-  border: `2px solid ${ACCENT}`,
-} as const;
-
-/** Template React Email — branding OFC, CTAs Tally + Google. */
+/** Template React Email — branding OFC, questionnaire uniquement (Google via training_ops). */
 export function SatisfactionJ1Email({
   prenom,
   nomFormation,
   dateFormation,
   questionnaireUrl = QUESTIONNAIRE_SATISFACTION_URL,
-  googleReviewUrl = SCHEMA_GOOGLE_REVIEW_SUBMIT_URL,
 }: SatisfactionJ1EmailProps) {
   return (
     <html lang="fr">
@@ -155,29 +134,13 @@ export function SatisfactionJ1Email({
                           fait partie du suivi qualité de mon organisme de formation.
                         </p>
                         <p style={{ margin: '0 0 24px', fontSize: 16, lineHeight: '24px' }}>
-                          Je vous remercie de prendre quelques minutes pour répondre à ces deux
-                          demandes.
+                          Je vous remercie de prendre quelques minutes pour répondre au questionnaire
+                          de satisfaction.
                         </p>
 
-                        <p style={{ margin: '0 0 8px', fontSize: 15, fontWeight: 600 }}>
-                          Questionnaire de satisfaction
-                        </p>
                         <p style={{ margin: '0 0 16px', textAlign: 'center' }}>
                           <a href={questionnaireUrl} style={BTN_PRIMARY}>
-                            Répondre au questionnaire
-                          </a>
-                        </p>
-
-                        <p style={{ margin: '24px 0 8px', fontSize: 15, fontWeight: 600 }}>
-                          Votre avis Google
-                        </p>
-                        <p style={{ margin: '0 0 8px', fontSize: 15, lineHeight: '22px', color: '#475569' }}>
-                          Si vous avez apprécié la formation, vous pouvez également partager votre
-                          expérience sur Google.
-                        </p>
-                        <p style={{ margin: '0 0 28px', textAlign: 'center' }}>
-                          <a href={googleReviewUrl} style={BTN_SECONDARY}>
-                            Déposer un avis Google
+                            Donner mon avis sur la formation
                           </a>
                         </p>
 

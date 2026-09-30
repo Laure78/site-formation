@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
 import { createClient } from '@/lib/supabase/server';
+import { createAdminClient } from '@/lib/supabase/admin';
 import { getInvitationByToken } from '@/lib/invitation';
 import { InvitationAcceptForm } from './InvitationAcceptForm';
 import { RequestNewLinkForm } from './RequestNewLinkForm';
@@ -20,6 +21,15 @@ export default async function InvitationPage({
   const { token } = await params;
   const supabase = await createClient();
   const invitation = await getInvitationByToken(supabase, token);
+
+  if (invitation) {
+    const admin = createAdminClient();
+    await admin
+      .from('invitations')
+      .update({ opened_at: new Date().toISOString() })
+      .eq('id', invitation.id)
+      .is('opened_at', null);
+  }
 
   // RPC ne renvoie que pending non expirée → pas de distinction état (anti-énumération)
   if (!invitation) {

@@ -18,9 +18,17 @@ import { QUESTIONNAIRE_SATISFACTION_URL } from '@/lib/questionnaire-satisfaction
 export function ParticipantSatisfactionActions({
   participantSatisfactionId,
   accessToken,
+  questionnaireStatus,
+  googleStatus,
+  questionnaireDisabled,
+  googleDisabled,
 }: {
   participantSatisfactionId: string;
   accessToken: string;
+  questionnaireStatus?: string;
+  googleStatus?: string;
+  questionnaireDisabled?: boolean;
+  googleDisabled?: boolean;
 }) {
   const router = useRouter();
   const [pending, startTransition] = useTransition();
@@ -36,28 +44,33 @@ export function ParticipantSatisfactionActions({
     });
   };
 
+  const qComplete = questionnaireStatus === 'complete';
+  const qBlocked = questionnaireDisabled || qComplete;
+  const gBlocked =
+    googleDisabled || googleStatus === 'termine' || googleStatus === 'non_eligible' || !qComplete;
+
   return (
     <div className="mt-6 flex flex-wrap gap-2">
       <button
         type="button"
-        disabled={pending}
-        className="rounded-lg bg-[#377CF3] px-3 py-2 text-xs font-semibold text-white"
+        disabled={pending || qBlocked}
+        className="rounded-lg bg-[#377CF3] px-3 py-2 text-xs font-semibold text-white disabled:opacity-50"
         onClick={() => run(() => manualSendQuestionnaireAction(participantSatisfactionId))}
       >
         Envoyer questionnaire
       </button>
       <button
         type="button"
-        disabled={pending}
-        className="rounded-lg border border-slate-200 px-3 py-2 text-xs font-medium"
+        disabled={pending || qBlocked}
+        className="rounded-lg border border-slate-200 px-3 py-2 text-xs font-medium disabled:opacity-50"
         onClick={() => run(() => manualSendQuestionnaireReminderAction(participantSatisfactionId, 1))}
       >
         Relancer questionnaire
       </button>
       <button
         type="button"
-        disabled={pending}
-        className="rounded-lg border border-slate-200 px-3 py-2 text-xs font-medium"
+        disabled={pending || qComplete}
+        className="rounded-lg border border-slate-200 px-3 py-2 text-xs font-medium disabled:opacity-50"
         onClick={() => run(() => markQuestionnaireCompleteAction(participantSatisfactionId))}
       >
         Marquer complété
@@ -82,8 +95,8 @@ export function ParticipantSatisfactionActions({
       </button>
       <button
         type="button"
-        disabled={pending}
-        className="rounded-lg border border-slate-200 px-3 py-2 text-xs font-medium"
+        disabled={pending || gBlocked}
+        className="rounded-lg border border-slate-200 px-3 py-2 text-xs font-medium disabled:opacity-50"
         onClick={() => run(() => manualSendGoogleAction(participantSatisfactionId))}
       >
         Envoyer avis Google

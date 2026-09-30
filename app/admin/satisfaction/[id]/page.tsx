@@ -38,6 +38,18 @@ export default async function ParticipantSatisfactionDetailPage({
     getEmailDeliveriesForParticipant(id).catch(() => []),
   ]);
 
+  const googleLinkClicked = timeline.some((ev) => ev.event_type === 'google_link_clicked');
+  const fmtDt = (iso: string | null | undefined) =>
+    iso
+      ? new Date(iso).toLocaleString('fr-FR', {
+          day: '2-digit',
+          month: '2-digit',
+          year: 'numeric',
+          hour: '2-digit',
+          minute: '2-digit',
+        })
+      : '—';
+
   return (
     <div className={`min-h-screen ${orgPageBg} px-4 py-8 md:px-8`}>
       <div className="mx-auto max-w-3xl space-y-6">
@@ -65,7 +77,50 @@ export default async function ParticipantSatisfactionDetailPage({
               <GoogleStatusBadge status={row.google_status} />
             </div>
           </div>
-          <ParticipantSatisfactionActions participantSatisfactionId={id} accessToken={row.access_token} />
+          <dl className="mt-6 grid gap-3 border-t border-slate-100 pt-4 text-sm sm:grid-cols-2">
+            <div>
+              <dt className="text-slate-500">Questionnaire envoyé</dt>
+              <dd>{fmtDt(row.questionnaire_first_sent_at)}</dd>
+            </div>
+            <div>
+              <dt className="text-slate-500">Relance(s) questionnaire</dt>
+              <dd>
+                {row.questionnaire_reminder_count > 0
+                  ? `${row.questionnaire_reminder_count} · dernier ${fmtDt(row.questionnaire_last_sent_at)}`
+                  : '—'}
+              </dd>
+            </div>
+            <div>
+              <dt className="text-slate-500">Questionnaire complété</dt>
+              <dd>
+                {row.questionnaire_completed_at ? `Oui · ${fmtDt(row.questionnaire_completed_at)}` : 'Non'}
+              </dd>
+            </div>
+            <div>
+              <dt className="text-slate-500">Demande Google envoyée</dt>
+              <dd>{fmtDt(row.google_first_sent_at)}</dd>
+            </div>
+            <div>
+              <dt className="text-slate-500">Relance Google</dt>
+              <dd>
+                {row.google_reminder_count > 0
+                  ? `${row.google_reminder_count} · ${fmtDt(row.google_last_sent_at)}`
+                  : '—'}
+              </dd>
+            </div>
+            <div>
+              <dt className="text-slate-500">Lien Google cliqué</dt>
+              <dd>{googleLinkClicked ? 'Oui' : 'Non'}</dd>
+            </div>
+          </dl>
+          <ParticipantSatisfactionActions
+            participantSatisfactionId={id}
+            accessToken={row.access_token}
+            questionnaireStatus={row.questionnaire_status}
+            googleStatus={row.google_status}
+            questionnaireDisabled={row.questionnaire_disabled}
+            googleDisabled={row.google_disabled}
+          />
         </OrgCard>
 
         <OrgCard>

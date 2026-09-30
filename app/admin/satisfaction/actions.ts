@@ -299,6 +299,7 @@ export async function sendTestSatisfactionEmailAction(templateKey: string, to: s
   const result = await sendParticipantSatisfactionEmail({
     kind,
     to,
+    participantSatisfactionId: '00000000-0000-4000-8000-000000000001',
     vars: {
       prenom: 'Test',
       nom: 'Admin',

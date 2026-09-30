@@ -7,7 +7,6 @@ import {
   satisfactionJ1EmailText,
 } from '@/emails/SatisfactionJ1Email';
 import { QUESTIONNAIRE_SATISFACTION_URL } from '@/lib/questionnaire-satisfaction';
-import { SCHEMA_GOOGLE_REVIEW_SUBMIT_URL } from '@/lib/schema-constants';
 
 function fromAddress(): string {
   return (
@@ -43,7 +42,6 @@ export async function sendSatisfactionJ1Email(
     nomFormation: params.nomFormation,
     dateFormation: params.dateFormation,
     questionnaireUrl: QUESTIONNAIRE_SATISFACTION_URL,
-    googleReviewUrl: SCHEMA_GOOGLE_REVIEW_SUBMIT_URL,
   };
 
   try {

@@ -30,6 +30,8 @@ export async function sendInvitationEmail(params: {
   formationTitle: string;
   token: string;
   firstName?: string | null;
+  lastName?: string | null;
+  sessionDateLabel?: string | null;
   /** Compte déjà actif : email « nouvelle formation », sans lien de création MDP. */
   accountAlreadyActive?: boolean;
 }): Promise<{ ok: true } | { ok: false; error: string }> {
@@ -55,6 +57,8 @@ export async function sendInvitationEmail(params: {
     email: params.to,
     accountAlreadyActive: Boolean(params.accountAlreadyActive),
     firstName: params.firstName,
+    lastName: params.lastName,
+    sessionDateLabel: params.sessionDateLabel ?? null,
   };
 
   const subject = params.accountAlreadyActive
