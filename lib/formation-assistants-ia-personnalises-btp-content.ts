@@ -1,13 +1,17 @@
 /**
  * Contenu centralisé — fiche catalogue NIV-09 assistants IA personnalisés BTP.
  */
+import { getFormationByCode, libelleEffectifFormation } from '@/data/formations';
 import { LINKS } from '@/lib/internal-links';
+
+const NIV_09 = getFormationByCode('NIV-09')!;
+const EFFECTIF_NIV09 = libelleEffectifFormation(NIV_09);
 
 export const ASSISTANTS_IA_HERO_FACTS = [
   '7 heures en présentiel (1 journée)',
   'Île-de-France uniquement',
   'Formation collective en intra-entreprise',
-  '6 à 10 participants',
+  EFFECTIF_NIV09,
   '80 % de pratique',
   'Abonnement ChatGPT Plus ou Claude Pro requis',
 ] as const;
@@ -116,7 +120,7 @@ export const ASSISTANTS_IA_PEDAGOGIE = [
 export const ASSISTANTS_IA_MODALITES = [
   'Présentiel uniquement en Île-de-France.',
   'Intra-entreprise, sur site dans les locaux de l’entreprise.',
-  'Groupe de 6 à 10 participants.',
+  `Groupe de ${EFFECTIF_NIV09}.`,
   'Journée de 7 heures (09h00 — 12h00 / 13h00 — 17h00).',
   'Dates à définir selon disponibilités.',
   'Délai d’accès : sous 15 jours à 2 mois après signature de la convention.',

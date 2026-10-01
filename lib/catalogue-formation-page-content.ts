@@ -781,7 +781,7 @@ const NIV_09: CatalogueFormationPageContent = {
   heroFacts: [
     '7 heures',
     '80 % de pratique',
-    '6 à 10 participants',
+    `${getFormationByCode('NIV-09')!.effectifMin} à ${getFormationByCode('NIV-09')!.effectifMax} participants`,
     'Présentiel en Île-de-France',
   ],
   practiceShare: '80 %',

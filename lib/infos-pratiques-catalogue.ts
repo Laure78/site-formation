@@ -230,7 +230,7 @@ export const DELAI_ACCES_NIV09 =
   'Sous 15 jours à 2 mois selon disponibilités, après signature de la convention.';
 
 export const MODALITE_PEDAGOGIQUE_NIV09 =
-  'Présentiel uniquement en Île-de-France — intra-entreprise sur site (locaux de l’entreprise) ou salle adaptée. Groupe de 6 à 10 participants. 80 % de pratique / 20 % de théorie.';
+  `Présentiel uniquement en Île-de-France — intra-entreprise sur site (locaux de l’entreprise) ou salle adaptée. Groupe de ${libelleEffectifFormation(getFormationByCode('NIV-09')!)}. 80 % de pratique / 20 % de théorie.`;
 
 export const MODALITES_ACCES_NIV09 =
   'Formation collective en intra-entreprise. Pour une seule personne : inscription possible à une session collective interentreprises sur devis. Aucun accompagnement individuel n’est proposé.';
