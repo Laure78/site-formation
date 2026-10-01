@@ -457,7 +457,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
       {
         type: 'cta',
         content:
-          `Vous voulez maîtriser ces techniques ? Découvrez ma formation IA pour les pros du BTP financement possible selon éligibilité — sessions de 4 h en pratique, prompts et relecture des devis inclus. +${formatProsFormesEtNoteQualiopi()}`,
+          `Vous voulez maîtriser ces techniques ? Découvrez ma formation IA pour les pros du BTP financement possible selon éligibilité — sessions de 4 h en pratique, prompts et relecture des devis inclus. ${formatProsFormesEtNoteQualiopi()}`,
         formationHref: '/formations',
       },
     ],

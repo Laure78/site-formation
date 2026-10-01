@@ -67,9 +67,8 @@ export const indicateursResultats = {
     'Somme des notes globales valides ÷ nombre de notes globales valides.',
 
   /**
-   * Volume cumulé — conservé pour d’autres surfaces historiques du site.
-   * Non publié sur `/indicateurs-resultats` : périmètre (personnes uniques vs participations,
-   * OFC direct vs sous-traitance) non documenté de façon vérifiable dans ce dépôt.
+   * Volume cumulé — non publié sur le site public (périmètre ambigu).
+   * Conservé pour usage interne / audit uniquement — ne pas afficher.
    */
   volumeProsFormesBtp: 1592,
   volumePublieSurPageIndicateurs: false as const,
@@ -190,12 +189,18 @@ export function formatAnneesExperienceBTPCourt(): string {
 
 // ---------------------------------------------------------------------------
 
-/** Volume cumulé formé — affichage FR avec espace milliers (ex. « 1 592 »). */
+/**
+ * @deprecated Effectif formé non publié sur le site (périmètre ambigu).
+ * Ne plus utiliser pour l’affichage public — préférer satisfaction / Qualiopi.
+ */
 export function formatVolumeProsFormesBtp(): string {
   return indicateursResultats.volumeProsFormesBtp.toLocaleString('fr-FR');
 }
 
-/** Libellé complet volume formé (ex. « 1 592 professionnels du BTP formés »). */
+/**
+ * @deprecated Effectif formé non publié sur le site (périmètre ambigu).
+ * Ne plus utiliser pour l’affichage public.
+ */
 export function formatVolumeProsFormesBtpLibelle(): string {
   return `${formatVolumeProsFormesBtp()} professionnels du BTP formés`;
 }

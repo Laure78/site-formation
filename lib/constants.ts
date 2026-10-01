@@ -6,7 +6,6 @@
 import {
   formatDateMiseAJourIndicateurs,
   formatNoteSatisfactionSur5,
-  formatVolumeProsFormesBtp,
   indicateursResultats,
 } from '@/lib/data/indicateurs-resultats';
 
@@ -41,7 +40,6 @@ export const IDF_ZONE_INTERVENTION =
 export const PREUVES = {
   satisfaction: formatNoteSatisfactionSur5(),
   repondants: indicateursResultats.nombreRepondants,
-  volumeFormes: formatVolumeProsFormesBtp(),
   periode: indicateursResultats.periodeReference,
   majAt: indicateursResultats.dateMiseAJour,
 } as const;
@@ -65,7 +63,7 @@ export const PREUVES_MENTION_SOURCE =
 
 /** Bloc « Fédérations & OPCO » — accueil, pour qui. */
 export const PREUVES_FEDERATIONS_OPCO =
-  `${formatVolumeProsFormesBtp()} professionnels du BTP formés — sessions animées avec FFB Grand Paris, CSFE et UMB-FFB.` as const;
+  'Sessions animées avec FFB Grand Paris, CSFE et UMB-FFB.' as const;
 
 export const siteStats = {
   noteMoyenneAffichee: PREUVES.satisfaction,

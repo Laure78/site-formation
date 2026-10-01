@@ -3,7 +3,6 @@ import type { ReactNode } from 'react';
 import {
   formatNoteSatisfactionAffichageComplet,
   formatNoteSatisfactionSur5,
-  formatVolumeProsFormesBtp,
 } from '@/lib/data/indicateurs-resultats';
 import { IndicateursResultatsLink } from '@/components/formation/IndicateursResultatsLink';
 import { LINKS } from '@/lib/internal-links';
@@ -38,11 +37,6 @@ const STATS_BASE: StatItem[] = [
     id: 'satisfaction',
     value: formatNoteSatisfactionSur5(),
     label: 'Satisfaction (Qualiopi)',
-  },
-  {
-    id: 'volume',
-    value: formatVolumeProsFormesBtp(),
-    label: 'professionnels formés BTP',
     href: LINKS.indicateursResultats,
   },
   { id: 'opco', value: 'OPCO', label: 'Financement possible' },
@@ -50,16 +44,17 @@ const STATS_BASE: StatItem[] = [
 
 /** Barre preuve conducteur de travaux — sous le H1 landing canonique. */
 export const CONDUCTEUR_TRAVAUX_HERO_PROOF_ITEMS: readonly ProofStatItem[] = [
-  { value: formatVolumeProsFormesBtp(), label: 'professionnels du BTP formés' },
   {
     value: formatNoteSatisfactionAffichageComplet(),
     href: LINKS.indicateursResultats,
   },
   { value: 'Organisme certifié Qualiopi', href: LINKS.qualiopi },
+  { value: 'Financement OPCO possible selon éligibilité' },
 ];
 
 /**
  * Bloc preuve sociale compact — satisfaction / OPCO (source `PREUVES`).
+ * Effectif formé non publié (périmètre non consolidé).
  */
 export function ProofStats({
   className = '',
@@ -137,7 +132,7 @@ export function ProofStats({
                     className={
                       isInverse
                         ? 'rounded-lg transition hover:bg-white/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white'
-                        : 'rounded-lg transition hover:bg-[#377CF3]/5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#377CF3]'
+                        : 'rounded-lg transition hover:bg-[#377CF3]/5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#377CF3]'
                     }
                   >
                     {cell}

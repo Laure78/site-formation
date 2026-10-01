@@ -2,7 +2,6 @@ import { IndicateursResultatsLink } from '@/components/formation/IndicateursResu
 import {
   formatNoteSatisfactionAffichageComplet,
   formatPeriodeReferenceAffichage,
-  formatVolumeProsFormesBtpLibelle,
 } from '@/lib/data/indicateurs-resultats';
 import { cn } from '@/lib/cn';
 
@@ -22,7 +21,6 @@ function defaultItems(programmeVersionLabel?: string): TrainingTrustItem[] {
   const items: TrainingTrustItem[] = [
     { label: 'Organisme certifié Qualiopi' },
     { label: 'Formation spécialisée BTP' },
-    { label: formatVolumeProsFormesBtpLibelle() },
     {
       label: `Satisfaction : ${formatNoteSatisfactionAffichageComplet()} (${formatPeriodeReferenceAffichage()})`,
     },

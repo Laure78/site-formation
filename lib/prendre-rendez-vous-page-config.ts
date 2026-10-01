@@ -5,7 +5,6 @@
 import { CONTACT, PREUVES } from '@/lib/constants';
 import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
 import { LINKS } from '@/lib/internal-links';
-import { formatVolumeProsFormesBtpLibelle } from '@/lib/data/indicateurs-resultats';
 
 export type PrendreRdvFaqItem = { q: string; a: string };
 
@@ -33,7 +32,7 @@ export const PRENDRE_RDV_REASSURANCE = `Visio découverte gratuite · ${PRENDRE_
 
 /** Preuves compactes — uniquement des faits sourcés sur le site. */
 export const PRENDRE_RDV_PROOFS = [
-  formatVolumeProsFormesBtpLibelle(),
+  `Satisfaction ${PREUVES.satisfaction}`,
   'Spécialiste IA appliquée au BTP',
   'Organisme de formation certifié Qualiopi',
 ] as const;

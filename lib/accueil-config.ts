@@ -4,10 +4,7 @@
 import { getFormationByCode } from '@/data/formations';
 import { isFormationCataloguePublished } from '@/lib/formation-catalogue-visibility';
 import { catalogueNiveauLabel } from '@/lib/formations-catalogue-display';
-import {
-  formatNoteSatisfactionSur5,
-  formatVolumeProsFormesBtp,
-} from '@/lib/data/indicateurs-resultats';
+import { formatNoteSatisfactionSur5 } from '@/lib/data/indicateurs-resultats';
 import { LINKS } from '@/lib/internal-links';
 import {
   formatTarifHt,
@@ -167,13 +164,12 @@ export const ACCUEIL_METHODE_EXEMPLES = [
 
 /** Ligne compacte hero — indicateurs réels (Qualiopi, IDF). */
 export function getAccueilHeroReassuranceLine(): string {
-  return `${formatVolumeProsFormesBtp()} professionnels formés · ${formatNoteSatisfactionSur5()} de satisfaction · Qualiopi · Île-de-France`;
+  return `${formatNoteSatisfactionSur5()} de satisfaction · Qualiopi · Île-de-France`;
 }
 
 /** Preuves hero — items séparés pour une ligne visuelle premium. */
 export function getAccueilHeroProofItems(): readonly { value: string; label: string }[] {
   return [
-    { value: formatVolumeProsFormesBtp(), label: 'professionnels formés' },
     { value: formatNoteSatisfactionSur5(), label: 'de satisfaction' },
     { value: 'Qualiopi', label: 'organisme certifié' },
     { value: 'Île-de-France', label: 'interventions' },

@@ -21,7 +21,6 @@ import {
   getApplicationMetierParcoursStepByRef,
 } from '@/lib/application-metier-btp-parcours-nav';
 import { PREUVES } from '@/lib/constants';
-import { formatVolumeProsFormesBtpLibelle } from '@/lib/data/indicateurs-resultats';
 
 type Props = {
   config: ApplicationMetierNiveauConfig;
@@ -500,7 +499,7 @@ export function ApplicationMetierBtpFormationPage({ config }: Props) {
           <h2 className="font-display text-lg font-bold text-slate-900">Pourquoi cette formation</h2>
           <ul className="mt-4 space-y-2 text-sm text-slate-700">
             <li>• Organisme de formation certifié Qualiopi</li>
-            <li>• {formatVolumeProsFormesBtpLibelle()} — satisfaction {PREUVES.satisfaction}</li>
+            <li>• Satisfaction {PREUVES.satisfaction}</li>
             <li>• Références BTP : FFB, CSFE, CNAM Entreprise, Le Moniteur Formations</li>
           </ul>
         </div>

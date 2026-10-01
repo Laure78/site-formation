@@ -6,7 +6,6 @@ import type { FormationCatalogueCode } from '@/lib/formation-catalogue-visibilit
 import {
   formatAnneesExperienceBTP,
   formatNoteSatisfactionAffichageComplet,
-  formatVolumeProsFormesBtpLibelle,
   indicateursResultats,
 } from '@/lib/data/indicateurs-resultats';
 import { SESSION_DUREE_LIBELLE, formatTarifHt } from '@/lib/tarifs-sessions';
@@ -255,5 +254,5 @@ export function getFormationCatalogueSeo(ref: FormationCatalogueCode): Formation
 
 /** Bloc autorité E-E-A-T — harmonisé sur toutes les fiches catalogue. */
 export function getFormationCatalogueAutoriteParagraph(programmeUpdatedAt: string): string {
-  return `Laure Olivié, formatrice IA générative spécialisée BTP (${formatAnneesExperienceBTP()}), dispense cette formation via OFC Création d'Entreprise (organisme certifié Qualiopi). ${formatVolumeProsFormesBtpLibelle()} — satisfaction ${formatNoteSatisfactionAffichageComplet()} (${indicateursResultats.periodeReference}). Programme mis à jour le ${programmeUpdatedAt}. Références : FFB Grand Paris, FFB Île-de-France, CSFE, CNAM Entreprise, Le Moniteur Formations.`;
+  return `Laure Olivié, formatrice IA générative spécialisée BTP (${formatAnneesExperienceBTP()}), dispense cette formation via OFC Création d'Entreprise (organisme certifié Qualiopi). Satisfaction ${formatNoteSatisfactionAffichageComplet()} (${indicateursResultats.periodeReference}). Programme mis à jour le ${programmeUpdatedAt}. Références : FFB Grand Paris, FFB Île-de-France, CSFE, CNAM Entreprise, Le Moniteur Formations.`;
 }

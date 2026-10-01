@@ -11,7 +11,7 @@ import { CSFE_NOM_LIBRE, CSFE_TITRE_PAGE } from '@/lib/csfe';
 import { LINKS } from '@/lib/internal-links';
 import { CaseStudyYoutubeThumbnails } from '@/components/landing/CaseStudyYoutubeThumbnails';
 import { DisclaimerGains } from '@/components/formation/DisclaimerGains';
-import { formatNoteSatisfactionAffichageComplet, formatVolumeProsFormesBtpLibelle } from '@/lib/data/indicateurs-resultats';
+import { formatNoteSatisfactionAffichageComplet } from '@/lib/data/indicateurs-resultats';
 
 const ETUDE_CAS_THUMBNAILS = [
   {
@@ -324,12 +324,6 @@ export default function EtudeDeCasFfbCsfePage() {
                       {formatNoteSatisfactionAffichageComplet()}
                     </p>
                     <p className="text-sm text-slate-600">satisfaction participants (questionnaires fin de session)</p>
-                  </li>
-                  <li>
-                    <p className="text-3xl font-bold text-[var(--accent)]">
-                      {formatVolumeProsFormesBtpLibelle()}
-                    </p>
-                    <p className="text-sm text-slate-600">depuis le lancement des sessions OFC</p>
                   </li>
                   <li>
                     <p className="text-3xl font-bold text-[var(--accent)]">Qualiopi</p>

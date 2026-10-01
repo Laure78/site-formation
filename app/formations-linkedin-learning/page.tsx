@@ -224,7 +224,7 @@ function buildPageJsonLd() {
           },
         ],
         sameAs: [...SCHEMA_PERSON_SAME_AS],
-        description: `Instructrice LinkedIn Learning et formatrice IA spécialisée BTP. ${formatProsFormesEtNoteQualiopi()}.`,
+        description: `Instructrice LinkedIn Learning et formatrice IA spécialisée BTP. ${formatProsFormesEtNoteQualiopi()}`,
       },
       {
         '@type': 'Organization',
@@ -326,7 +326,7 @@ export default function FormationsLinkedInLearningPage() {
                 s’appuie sur {formatAnneesExperienceBTP()} pour former les équipes aux usages concrets
                 de l’intelligence artificielle. Instructrice LinkedIn Learning et formatrice IA depuis
                 2022, elle a publié 2 formations en français sur l&apos;IA appliquée au bâtiment.{' '}
-                {formatProsFormesEtNoteQualiopi()}.
+                {formatProsFormesEtNoteQualiopi()}
               </p>
             </div>
 
@@ -572,7 +572,7 @@ export default function FormationsLinkedInLearningPage() {
               </p>
               <p className="mt-3">
                 Ancienne dirigeante d’une entreprise de travaux publics, {formatAnneesExperienceBTP()} · formatrice IA depuis 2022. OFC Création d&apos;Entreprise —
-                Qualiopi. {formatProsFormesEtNoteQualiopi()}. Partenaires : FFB Grand Paris, CSFE, UMB-FFB, CNAM, Le Moniteur Formations.
+                Qualiopi. {formatProsFormesEtNoteQualiopi()} Partenaires : FFB Grand Paris, CSFE, UMB-FFB, CNAM, Le Moniteur Formations.
               </p>
             </div>
           </div>

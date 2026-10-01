@@ -1,13 +1,10 @@
 /**
  * Helpers d'affichage / FAQ — indicateurs Qualiopi (indicateur 2).
- * Volume formé et satisfaction publiés sur le site.
+ * Note de satisfaction uniquement (effectif formé non publié — périmètre ambigu).
  */
-import {
-  formatNoteSatisfactionAffichageComplet,
-  formatVolumeProsFormesBtpLibelle,
-} from '@/lib/data/indicateurs-resultats-display';
+import { formatNoteSatisfactionAffichageComplet } from '@/lib/data/indicateurs-resultats-display';
 
-/** Ligne FAQ / meta : volume formé + note sourcée. */
+/** Ligne FAQ / meta : note sourcée (sans volume formé). */
 export function formatProsFormesEtNoteQualiopi(): string {
-  return `${formatVolumeProsFormesBtpLibelle()} — satisfaction ${formatNoteSatisfactionAffichageComplet()}.`;
+  return `Satisfaction ${formatNoteSatisfactionAffichageComplet()}.`;
 }
