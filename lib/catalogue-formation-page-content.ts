@@ -405,7 +405,6 @@ const NIV_03: CatalogueFormationPageContent = {
   locationLabel: 'Île-de-France',
   pedagogicalNote: 'L’IA prépare et structure. Le professionnel contrôle et valide.',
   objectivesTitle: 'Après la formation, vous saurez…',
-  deliverablesTitle: 'Ce que vous emportez',
   painPointsTitle: 'Vous perdez du temps sur le pilotage chantier ?',
   painPoints: [
     {
@@ -604,7 +603,6 @@ const NIV_05: CatalogueFormationPageContent = {
   locationLabel: 'Île-de-France',
   pedagogicalNote: 'L’IA prépare et structure. Le professionnel contrôle et valide.',
   objectivesTitle: 'Après la formation, vous saurez…',
-  deliverablesTitle: 'Ce que vous emportez',
   painPointsTitle: 'La MOE d’exécution produit trop de documents ?',
   painPoints: [
     {
