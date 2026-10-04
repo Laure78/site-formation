@@ -25,6 +25,7 @@ import { getLiensConnexesHrefs } from '@/lib/liens-connexes';
 import { getClusterRelatedHrefs } from '@/lib/maillage-clusters';
 import { formatNoteSatisfactionSur5 , formatNoteSatisfactionAffichageComplet } from '@/lib/data/indicateurs-resultats'
 import { PreuveSociale } from '@/components/PreuveSociale';
+import { VousEtesPlutotEncart } from '@/components/landing/VousEtesPlutotEncart';
 
 const OFC = "OFC Création d'Entreprise";
 
@@ -113,6 +114,13 @@ export function FormationIaMetierBtpLanding({ config }: { config: FormationIaMet
       <div className="mx-auto max-w-4xl px-4 py-12 md:py-16">
         <article>
           <MetierIdfPresentielLine className="mb-3" />
+          {config.sisterEncart ? (
+            <VousEtesPlutotEncart
+              currentAudience={config.sisterEncart.currentAudience}
+              href={config.sisterEncart.href}
+              linkLabel={config.sisterEncart.linkLabel}
+            />
+          ) : null}
           <p className="text-sm font-semibold uppercase tracking-wide text-[#377CF3]">
             {config.normeRef.replace(/^le |^la /i, '').trim()} · organisme certifié Qualiopi · Île-de-France
           </p>
@@ -285,7 +293,10 @@ export function FormationIaMetierBtpLanding({ config }: { config: FormationIaMet
             path={config.path}
             className="mt-14 !px-0"
             tone="transparent"
-            excludeHrefs={getLiensConnexesHrefs(config.path)}
+            excludeHrefs={[
+              ...getLiensConnexesHrefs(config.path),
+              ...(config.sisterEncart ? [config.sisterEncart.href] : []),
+            ]}
           />
 
           {relatedMetierLinks.length > 0 ? (
@@ -297,7 +308,9 @@ export function FormationIaMetierBtpLanding({ config }: { config: FormationIaMet
                 `Autres métiers du BTP où la formation IA appliquée au bâtiment est adaptée au vocabulaire terrain.`
               }
               links={relatedMetierLinks.filter(
-                (l) => !getClusterRelatedHrefs(config.path).includes(l.href),
+                (l) =>
+                  !getClusterRelatedHrefs(config.path).includes(l.href) &&
+                  l.href !== config.sisterEncart?.href,
               )}
               className="mt-14 !bg-transparent !py-0"
             />
@@ -315,7 +328,8 @@ export function FormationIaMetierBtpLanding({ config }: { config: FormationIaMet
             links={coreMetierLinks.filter(
               (l) =>
                 !getClusterRelatedHrefs(config.path).includes(l.href) &&
-                !getLiensConnexesHrefs(config.path).includes(l.href),
+                !getLiensConnexesHrefs(config.path).includes(l.href) &&
+                l.href !== config.sisterEncart?.href,
             )}
             tone="muted"
             className="mt-14"
@@ -378,7 +392,10 @@ export function FormationIaMetierBtpLanding({ config }: { config: FormationIaMet
 
           <LiensConnexes
             currentPath={config.path}
-            excludeHrefs={getClusterRelatedHrefs(config.path)}
+            excludeHrefs={[
+              ...getClusterRelatedHrefs(config.path),
+              ...(config.sisterEncart ? [config.sisterEncart.href] : []),
+            ]}
           />
 
           <section className="mt-14 border-t border-slate-200 pt-10 text-sm text-slate-600">

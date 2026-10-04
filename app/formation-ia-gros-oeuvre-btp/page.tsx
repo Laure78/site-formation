@@ -12,6 +12,8 @@ import { MetierIdfPresentielLine } from '@/components/formation-ia-metier/Metier
 import { PreuveSociale } from '@/components/PreuveSociale';
 import { LaureOlivieFormationPortrait } from '@/components/laure-olivie/LaureOlivieFormationPortrait';
 import { LiensConnexes } from '@/components/LiensConnexes';
+import { VousEtesPlutotEncart } from '@/components/landing/VousEtesPlutotEncart';
+import { LINKS } from '@/lib/internal-links';
 import { createPageMetadata } from '@/lib/seo';
 import { CtaButton } from '@/components/CtaButton';
 import { TARIF_FORFAIT_DEBUTANT_HT } from '@/lib/tarifs-sessions';
@@ -62,7 +64,7 @@ const SOMMAIRE = [
 ] as const;
 
 const ESSENTIEL = [
-  'Gros œuvre en Île-de-France : devis, DCE / CCTP lot 2, planning et CR — présentiel uniquement.',
+  'Entreprises de gros œuvre en Île-de-France : DCE, planning et coordination des lots — présentiel uniquement.',
   'Session 4 h · organisme certifié Qualiopi : brouillons encadrés, relecture humaine — l’IA ne tranche pas la conformité.',
   `${formatNoteSatisfactionAffichageComplet()}.`,
   'Financement OPCO Constructys possible selon éligibilité — sessions en présentiel uniquement.',
@@ -93,8 +95,13 @@ export default function FormationIaGrosOeuvreBtpPage() {
       <div className="mx-auto max-w-4xl px-4 py-12 md:py-16">
         <article>
           <MetierIdfPresentielLine className="mb-3" />
+          <VousEtesPlutotEncart
+            currentAudience="Cette page s’adresse aux entreprises de gros œuvre (DCE, planning, coordination des lots)."
+            href={LINKS.formationIaMaconBtp}
+            linkLabel="Formation IA maçon — devis, métrés et DTU 20.1"
+          />
           <p className="text-sm font-semibold uppercase tracking-wide text-[#377CF3]">
-            DTU 20.1 · organisme certifié Qualiopi · Île-de-France
+            DCE · planning · coordination des lots · Qualiopi · Île-de-France
           </p>
           <h1 className="font-display mt-4 text-3xl font-bold leading-tight tracking-tight text-slate-900 md:text-4xl lg:text-[2.35rem]">
             {FORMATION_IA_GROS_OEUVRE_BTP_H1}
@@ -103,8 +110,8 @@ export default function FormationIaGrosOeuvreBtpPage() {
           <PreuveSociale className="mt-6" />
 
           <p className="mt-6 text-lg leading-relaxed text-slate-600">
-            {OFC} — formation IA &amp; ChatGPT pour les entreprises de gros œuvre du BTP : devis, DCE, suivi de
-            chantier. Sessions en <strong className="text-slate-800">présentiel uniquement</strong> en Île-de-France
+            {OFC} — formation IA &amp; ChatGPT pour les entreprises de gros œuvre du BTP : DCE, planning,
+            coordination des lots. Sessions en <strong className="text-slate-800">présentiel uniquement</strong> en Île-de-France
             (4&nbsp;h), dispensées par un organisme certifié Qualiopi. Financement possible selon éligibilité.{' '}
             <strong className="text-slate-800">{formatNoteSatisfactionAffichageComplet()}</strong>.
           </p>
@@ -292,7 +299,7 @@ export default function FormationIaGrosOeuvreBtpPage() {
             showFullParcoursLink={false}
           />
 
-          <LiensConnexes currentPath={PATH} />
+          <LiensConnexes currentPath={PATH} excludeHrefs={[LINKS.formationIaMaconBtp]} />
 
           <section
             id="cta-final"

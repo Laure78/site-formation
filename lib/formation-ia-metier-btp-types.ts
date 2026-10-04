@@ -1,4 +1,5 @@
 import type { FAQItem } from '@/lib/faq';
+import type { InternalLinkPath } from '@/lib/internal-links';
 
 export type FormationIaMetierBtpConfig = {
   /** ex. etancheur — pour IDs JSON-LD */
@@ -41,4 +42,12 @@ export type FormationIaMetierBtpConfig = {
   liensUtilesIntro?: string;
   /** Puces « L’essentiel en 30 secondes » (3 à 5 phrases-clés déjà sur la page) */
   essentielItems?: readonly string[];
+  /** Titre HTML figé — ne pas remplacer par « Formation IA {métier} BTP en Île-de-France ». */
+  skipIdfTitleOverride?: boolean;
+  /** Encadré « Vous êtes plutôt… » — page sœur (un seul lien vers cette URL). */
+  sisterEncart?: {
+    currentAudience: string;
+    href: InternalLinkPath;
+    linkLabel: string;
+  };
 };

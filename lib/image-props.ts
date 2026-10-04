@@ -4,9 +4,9 @@ export const IMAGE_QUALITY_DEFAULT = 70;
 /** Hero / LCP — laisser Next.js à ~75 (pas de prop = défaut). */
 export const IMAGE_QUALITY_HERO = 75;
 
-/** Attribut `sizes` réutilisables — évite w=3840 sur vignettes. */
+/** `sizes` réutilisables. Miniatures : `width`/`height` sans `sizes` (évite src w=3840). */
 export const IMAGE_SIZES = {
-  logoHeader: '40px',
+  logoHeader: '48px',
   logoHeaderMobile: '36px',
   logoInline: '48px',
   logoLinkedInLearning: '160px',
@@ -18,7 +18,7 @@ export const IMAGE_SIZES = {
   avatarMd: '64px',
   avatarLg: '80px',
   avatarXl: '120px',
-  avatarProfile: '(max-width: 768px) 100vw, 384px',
+  avatarProfile: '384px',
   cardThird: '(max-width: 768px) 100vw, 33vw',
   cardHalf: '(max-width: 1024px) 100vw, 50vw',
   heroBg: '(max-width: 768px) 100vw, 100vw',

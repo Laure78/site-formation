@@ -3,6 +3,7 @@
 import Image from 'next/image';
 import { useState } from 'react';
 import { User } from 'lucide-react';
+import { IMAGE_QUALITY_DEFAULT, IMAGE_QUALITY_HERO } from '@/lib/image-props';
 import { PHOTOS } from '@/lib/photos';
 import { PortraitLinkedInLink } from '@/components/PortraitLinkedInLink';
 
@@ -35,12 +36,11 @@ export function ProfilePhoto({ alt, title, priority = false }: Props) {
         src={PROFILE.src}
         alt={altText}
         title={title ?? PROFILE.title}
-        width={PROFILE.width}
-        height={PROFILE.height}
+        width={384}
+        height={384}
         className="h-auto w-full object-contain"
-        sizes="(max-width: 768px) 60vw, 240px"
         priority={priority}
-        quality={priority ? 75 : 68}
+        quality={priority ? IMAGE_QUALITY_HERO : IMAGE_QUALITY_DEFAULT}
         loading={priority ? undefined : 'lazy'}
         onError={() => setError(true)}
       />

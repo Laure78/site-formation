@@ -10,9 +10,10 @@ export const FORMATION_IA_DIRIGEANT_BTP_PATH = '/formation-ia-dirigeant-btp';
 
 export function formationIaDirigeantBtpMetadata(): Metadata {
   return createPageMetadata({
-    title: 'Formation IA dirigeant BTP — ROI, équipes, Qualiopi',
+    title: "Formation IA direction d'entreprise BTP, IDF",
     description:
-      'Formation IA pour dirigeants de PME du bâtiment : ROI, productivité des équipes, projet IA 10–50 salariés. Qualiopi, Constructys. RDV gratuit.',
+      'Formation IA pour le BTP : dirigeants et CODIR (20 salariés et plus), pilotage et déploiement IA. Présentiel IDF, Qualiopi. Prenez un rendez-vous découverte.',
+    descriptionFinal: true,
     path: FORMATION_IA_DIRIGEANT_BTP_PATH,
     keywords: [
       'formation IA dirigeant BTP',

@@ -14,7 +14,7 @@ import { FormationMetierJsonLd } from '@/components/seo/FormationMetierJsonLd';
 import { AuthorBio } from '@/components/blog/AuthorBio';
 import { LaureOlivieFormationPortrait } from '@/components/laure-olivie/LaureOlivieFormationPortrait';
 import { buildSiteCalendlyCtaUrl } from '@/lib/calendly';
-import { LINKS } from '@/lib/internal-links';
+import { LINKS, type InternalLinkPath } from '@/lib/internal-links';
 import { SITE_CONFIG, sitePhoneDisplaySuffix } from '@/lib/seo';
 import { SOCIAL_PROOF } from '@/lib/constants';
 import { RenvoiFicheCatalogue } from '@/components/qualiopi/RenvoiFicheCatalogue';
@@ -23,6 +23,7 @@ import { MetierIdfPresentielLine } from '@/components/formation-ia-metier/Metier
 import { RelatedLinks } from '@/components/RelatedLinks';
 import { getClusterRelatedHrefs } from '@/lib/maillage-clusters';
 import { PreuveSociale } from '@/components/PreuveSociale';
+import { VousEtesPlutotEncart } from '@/components/landing/VousEtesPlutotEncart';
 
 type FAQItem = { question: string; answer: string };
 type Step = { title: string; prompt: string };
@@ -41,6 +42,11 @@ type Props = {
   level?: string;
   /** Lien interne vers une page sœur (anti-cannibalisation). */
   crossLink?: { href: string; label: string; before?: string };
+  sisterEncart?: {
+    currentAudience: string;
+    href: InternalLinkPath;
+    linkLabel: string;
+  };
 };
 
 export function FormationMetierB1Page({
@@ -55,6 +61,7 @@ export function FormationMetierB1Page({
   faqItems,
   level = 'Beginner',
   crossLink,
+  sisterEncart,
 }: Props) {
   const courseName = `Formation IA ${metierLabel} — ChatGPT BTP`;
   const slugId = metierLabel.toLowerCase().replace(/\s+/g, '-');
@@ -78,12 +85,19 @@ export function FormationMetierB1Page({
 
       <article>
         <MetierIdfPresentielLine className="mb-4" />
+        {sisterEncart ? (
+          <VousEtesPlutotEncart
+            currentAudience={sisterEncart.currentAudience}
+            href={sisterEncart.href}
+            linkLabel={sisterEncart.linkLabel}
+          />
+        ) : null}
         <h1 className="font-display text-4xl font-bold tracking-tight text-slate-900 md:text-5xl">{h1}</h1>
         <PreuveSociale className="mt-6" />
         <p className="mt-6 text-xl text-slate-600">
           Sessions en présentiel en Île-de-France — {heroParagraph}
         </p>
-        {crossLink ? (
+        {crossLink && crossLink.href !== sisterEncart?.href ? (
           <p className="mt-4 text-base text-slate-600">
             {crossLink.before ?? 'Page complémentaire :'}{' '}
             <Link href={crossLink.href} className="font-medium text-[var(--accent)] hover:underline">
@@ -210,7 +224,10 @@ export function FormationMetierB1Page({
           path={path}
           className="mt-14 !px-0"
           tone="transparent"
-          excludeHrefs={getLiensConnexesHrefs(path)}
+          excludeHrefs={[
+            ...getLiensConnexesHrefs(path),
+            ...(sisterEncart ? [sisterEncart.href] : []),
+          ]}
         />
 
         <section id="rdv" className="scroll-mt-24 mt-14 rounded-2xl bg-[var(--accent)] p-8 text-white md:p-10">
@@ -255,7 +272,8 @@ export function FormationMetierB1Page({
           links={getMetierLandingCoreLinks({ csfePartnership: false }).filter(
             (l) =>
               !getClusterRelatedHrefs(path).includes(l.href) &&
-              !getLiensConnexesHrefs(path).includes(l.href),
+              !getLiensConnexesHrefs(path).includes(l.href) &&
+              l.href !== sisterEncart?.href,
           )}
           tone="muted"
           className="mt-14"
@@ -263,7 +281,11 @@ export function FormationMetierB1Page({
 
         <LiensConnexes
           currentPath={path}
-          excludeHrefs={[...getClusterRelatedHrefs(path), LINKS.financement]}
+          excludeHrefs={[
+            ...getClusterRelatedHrefs(path),
+            LINKS.financement,
+            ...(sisterEncart ? [sisterEncart.href] : []),
+          ]}
         />
 
         <AllerPlusLoin

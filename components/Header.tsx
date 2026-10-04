@@ -4,6 +4,7 @@ import dynamic from 'next/dynamic';
 import Link from 'next/link';
 import Image from 'next/image';
 import { AUTHOR_HEADSHOT_IMAGE_CLASS } from '@/lib/author-headshot';
+import { IMAGE_QUALITY_DEFAULT } from '@/lib/image-props';
 import { usePathname } from 'next/navigation';
 import { useEffect, useRef, useState } from 'react';
 import {
@@ -216,12 +217,10 @@ export function Header() {
                 src={SITE.logo.src}
                 alt={SITE.logo.alt}
                 title={SITE.logo.title}
-                fill
+                width={48}
+                height={48}
                 className={AUTHOR_HEADSHOT_IMAGE_CLASS}
-                sizes="40px"
-                priority
-                fetchPriority="high"
-                quality={70}
+                quality={IMAGE_QUALITY_DEFAULT}
               />
             </span>
             <span className="sr-only">{SITE.name}</span>

@@ -1,17 +1,17 @@
 # laureolivie.fr — OFC Création d'Entreprise
 
-> Laure Olivié, formatrice IA spécialisée BTP. Formations ChatGPT et Claude AI pour les professionnels du bâtiment, de la construction et des travaux publics — en présentiel, en Île-de-France uniquement.
+> Laure Olivié, formatrice IA spécialisée BTP. Formations ChatGPT et Claude AI pour les professionnels du bâtiment, de la construction et des travaux publics, en présentiel en Île-de-France.
 
 ## À propos
 Laure Olivié est formatrice IA spécialisée BTP et fondatrice d'OFC Création d'Entreprise (organisme certifié Qualiopi, Guyancourt, Yvelines). Ancienne dirigeante d'une entreprise de travaux publics, forte de 7 ans d'expérience dans le BTP, elle forme les PME du bâtiment, dirigeants BTP, conducteurs de travaux, chargés d'affaires et maîtres d'œuvre à l'IA appliquée à leurs documents réels.
-- 1 592 professionnels formés
 - Satisfaction 4,45/5 (20 répondants, questionnaires à chaud, juillet 2025 – juin 2026) — détail : /indicateurs-resultats
 - Instructrice LinkedIn Learning (IA appliquée au BTP)
 
 ## Modalités
-- Présentiel uniquement, Paris et toute l'Île-de-France (75, 77, 78, 91, 92, 93, 94, 95)
+- Catalogue IA BTP : présentiel, Paris et toute l'Île-de-France (75, 77, 78, 91, 92, 93, 94, 95)
 - Intra-entreprise (dans vos locaux) et inter-entreprises
 - Sessions catalogue de 4 h ; parcours applications métier BTP 3 × 7 h
+- Exception : la formation « Développer des applications métier avec l'IA sans coder » (7 h) propose aussi des sessions inter en visioconférence — /formations/developpement-web-ia-sans-coder
 - Financement : prise en charge OPCO / Constructys selon éligibilité (jamais automatique)
 - Visio découverte gratuite de 30 min (cadrage, pas une formation) : /prendre-rdv
 
@@ -21,18 +21,20 @@ Laure Olivié est formatrice IA spécialisée BTP et fondatrice d'OFC Création 
 - Références : FFB Grand Paris, FFB Île-de-France (78/91/95), FFB IDF Est, CSFE, CNAM Entreprises, CAPEB, UMB-FFB
 
 ## Pages clés
-- /formation-ia-btp — Qu'est-ce qu'une formation IA pour le BTP (pilier)
-- /formations — Catalogue Qualiopi
-- /formations/ia-batiment-travaux-publics — Niveau 1 : devis, emails, productivité (4 h)
-- /formations/ia-appels-offre-btp — Appels d'offres : DCE et mémoire technique (4 h)
-- /formations/ia-conduite-travaux-suivi-chantier — Suivi de chantier, CR, DOE (4 h)
-- /formations/maitriser-claude-ai-btp — Claude AI avancé pour le BTP (4 h)
+- /formation-ia-btp — Formation IA pour le BTP (pilier)
 - /formation-ia-btp-ile-de-france — Formations par département francilien
-- /formation-ia-paris — Formation IA BTP à Paris
+- /formation-ia-paris — Formation IA BTP à Paris (bâtiment et construction)
+- /formations — Catalogue Qualiopi
+- /formations/ia-batiment-travaux-publics — Programme Niveau 1 : devis, emails, productivité (4 h)
+- /formations/ia-appels-offre-btp — Programme Niveau 2 : DCE et mémoire technique (4 h)
+- /formations/ia-conduite-travaux-suivi-chantier — Programme Niveau 2 : suivi de chantier, CR, DOE (4 h)
+- /formations/maitriser-claude-ai-btp — Formation Claude AI pour le BTP (4 h)
+- /formation-ia-appels-offres-btp — Formation IA appels d'offres BTP
+- /formation-ia-conducteur-de-travaux — Formation IA conducteur de travaux
+- /ia-devis-batiment — Formation IA devis et chiffrage BTP
 - /ia-analyse-dce-btp — Méthode : analyser un DCE avec l'IA
 - /ia-memoire-technique-btp — Méthode : mémoire technique avec l'IA
 - /ia-compte-rendu-chantier — Méthode : compte rendu de chantier avec l'IA
-- /ia-devis-batiment — Méthode : devis et chiffrage avec l'IA
 - /financement-constructys-formation-ia-btp — Financement Constructys / OPCO
 - /a-propos — Parcours de Laure Olivié
 - /blog — Articles IA × BTP

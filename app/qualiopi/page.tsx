@@ -16,7 +16,7 @@ export const metadata = createPageMetadata({
   description:
     'Qualiopi OFC Création d’Entreprise : certificat actions de formation, NDA et preuve publique. Formation IA pour le BTP. Réservez votre visio découverte.',
   descriptionFinal: true,
-  path: '/qualiopi',
+  path: LINKS.qualiopi,
 });
 
 export default function QualiopiPage() {
@@ -43,14 +43,42 @@ export default function QualiopiPage() {
 
             <article className="mt-6 space-y-5 text-base leading-relaxed text-slate-700 md:mt-8">
               <p>
-                {QUALIOPI_LEGAL.raisonSociale} est certifié Qualiopi au titre de la catégorie{' '}
-                <strong>Actions de formation</strong>. Certificat n° {QUALIOPI_LEGAL.certificatNumero}{' '}
-                délivré par Certifopac, valable {QUALIOPI_LEGAL.certificatValidite}.
+                {QUALIOPI_LEGAL.raisonSociale} ({QUALIOPI_LEGAL.formeJuridique}) est un organisme de
+                formation professionnelle. La marque Qualiopi atteste de la conformité du process
+                qualité pour la catégorie d’actions indiquée ci-dessous — elle ne constitue pas un
+                agrément de l’État. Les formations IA pour le BTP d’OFC sont dispensées en présentiel
+                en Île-de-France. Un financement OPCO est possible selon éligibilité.
               </p>
 
+              <dl className="divide-y divide-slate-200 overflow-hidden rounded-xl border border-slate-200 bg-white text-sm">
+                <div className="grid gap-1 px-4 py-3 sm:grid-cols-[11rem_minmax(0,1fr)] sm:gap-4">
+                  <dt className="font-semibold text-slate-900">Certificateur</dt>
+                  <dd>{QUALIOPI_LEGAL.organismeCertificateur}</dd>
+                </div>
+                <div className="grid gap-1 px-4 py-3 sm:grid-cols-[11rem_minmax(0,1fr)] sm:gap-4">
+                  <dt className="font-semibold text-slate-900">N° de certificat</dt>
+                  <dd>{QUALIOPI_LEGAL.certificatNumero}</dd>
+                </div>
+                <div className="grid gap-1 px-4 py-3 sm:grid-cols-[11rem_minmax(0,1fr)] sm:gap-4">
+                  <dt className="font-semibold text-slate-900">Dates de validité</dt>
+                  <dd>{QUALIOPI_LEGAL.certificatValidite}</dd>
+                </div>
+                <div className="grid gap-1 px-4 py-3 sm:grid-cols-[11rem_minmax(0,1fr)] sm:gap-4">
+                  <dt className="font-semibold text-slate-900">Périmètre</dt>
+                  <dd>{QUALIOPI_LEGAL.qualiopiCategoryMention}</dd>
+                </div>
+                <div className="grid gap-1 px-4 py-3 sm:grid-cols-[11rem_minmax(0,1fr)] sm:gap-4">
+                  <dt className="font-semibold text-slate-900">SIRET</dt>
+                  <dd>{QUALIOPI_LEGAL.siret}</dd>
+                </div>
+                <div className="grid gap-1 px-4 py-3 sm:grid-cols-[11rem_minmax(0,1fr)] sm:gap-4">
+                  <dt className="font-semibold text-slate-900">NDA</dt>
+                  <dd>{QUALIOPI_LEGAL.nda}</dd>
+                </div>
+              </dl>
+
               <p className="rounded-lg border border-slate-200 bg-slate-50 p-4 text-sm italic text-slate-600">
-                Organisme de formation enregistré sous le n° {QUALIOPI_LEGAL.nda} auprès du préfet de
-                région Île-de-France. Cet enregistrement ne vaut pas agrément de l&apos;État.
+                {QUALIOPI_LEGAL.ndaExactMention}
               </p>
 
               <div className="flex flex-wrap gap-3 sm:gap-4">
@@ -65,7 +93,7 @@ export default function QualiopiPage() {
                   href={LINKS.indicateursResultats}
                   className="inline-flex rounded-xl border border-[#377CF3] px-5 py-3 text-sm font-semibold text-[#377CF3] hover:bg-[#EFF6FF]"
                 >
-                  Indicateurs de résultats
+                  Indicateurs de résultats Qualiopi
                 </Link>
               </div>
 

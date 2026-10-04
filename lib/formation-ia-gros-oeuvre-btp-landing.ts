@@ -10,16 +10,16 @@ import { formatNoteSatisfactionAffichageComplet } from '@/lib/data/indicateurs-r
 
 export const FORMATION_IA_GROS_OEUVRE_BTP_PATH = '/formation-ia-gros-oeuvre-btp' as const;
 
-/** Segment title (suffixe `| Laure Olivié` ajouté par buildBrandedTitle). */
+/** Segment title (suffixe `| Laure Olivié` ajouté par buildTitle). ≤ 45 car. */
 export const FORMATION_IA_GROS_OEUVRE_BTP_META_TITLE =
-  'Formation IA gros œuvre BTP Île-de-France' as const;
+  'Formation IA gros œuvre : DCE, planning' as const;
 
 /** 150–160 car., phrase complète, commence par « Formation IA gros œuvre », finit par un CTA. */
 export const FORMATION_IA_GROS_OEUVRE_BTP_META_DESCRIPTION =
-  'Formation IA gros œuvre : formation IA pour le BTP — devis, DCE et suivi chantier. Présentiel Île-de-France, Qualiopi. Prenez un rendez-vous découverte.' as const;
+  'Formation IA pour le BTP — entreprises de gros œuvre : DCE, planning et coordination des lots. Présentiel IDF, Qualiopi. Prenez un rendez-vous découverte.' as const;
 
 export const FORMATION_IA_GROS_OEUVRE_BTP_H1 =
-  'Formation IA pour le gros œuvre en Île-de-France — devis, DCE et suivi de chantier' as const;
+  'Formation IA pour entreprises de gros œuvre — DCE, planning et coordination des lots' as const;
 
 export const FORMATION_IA_GROS_OEUVRE_CALENDLY_CAMPAIGN = 'gros-oeuvre-page' as const;
 
@@ -97,11 +97,6 @@ export const GROS_OEUVRE_INTERNAL_LINKS = [
     href: LINKS.formationIleDeFrance,
     title: 'Formation IA BTP Île-de-France',
     description: `Couverture géo ${IDF_ZONE_INTERVENTION} — présentiel uniquement.`,
-  },
-  {
-    href: LINKS.formationIaMaconBtp,
-    title: 'Formation IA maçon & maçonnerie',
-    description: 'Angle métier maçonnerie, DTU 20.1, métré et coulage.',
   },
   {
     href: LINKS.formationIaCharpentierMenuisierBtp,

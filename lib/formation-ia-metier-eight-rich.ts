@@ -34,38 +34,39 @@ function faqStandard(metierLabel: string): FAQItem[] {
 export const FORMATION_IA_METIER_MACON: FormationIaMetierBtpConfig = {
   id: 'macon',
   path: '/formation-ia-macon-btp',
-  h1: 'Formation IA maçon & maçonnerie — Île-de-France',
-  metaTitle: 'Formation IA maçon BTP — gros œuvre',
+  h1: 'Formation IA maçon — devis, métrés et DTU 20.1',
+  metaTitle: 'Formation IA maçon BTP : devis, DTU 20.1',
+  skipIdfTitleOverride: true,
   metaDescription:
-    'Formation IA pour les pros du BTP — maçons : DTU 20.1, métré béton/parpaing, ferraillage, DPGF, CCTP lot 2, planning. Qualiopi, présentiel Île-de-France.',
+    'Formation IA pour le BTP — maçons : devis, métrés et DTU 20.1 (pas le lot gros œuvre). Présentiel Île-de-France, Qualiopi. Prenez un rendez-vous découverte.',
   keywords: [
     'formation IA maçon BTP',
     'formation IA maçonnerie',
-    'ChatGPT gros œuvre',
+    'ChatGPT maçonnerie',
     'DTU 20.1',
     'métré béton parpaing',
     'ferraillage IA',
     'DPGF maçonnerie',
     'CCTP lot 2',
-    'mémoire technique gros œuvre',
+    'mémoire technique maçonnerie',
     'Qualiopi maçon',
   ],
   metierNom: 'maçons et entreprises de maçonnerie',
   metierNomTitre: 'maçon',
   normeRef: 'le DTU 20.1',
   essentielItems: [
-    'Gros œuvre, béton, coffrage, élévations — DTU 20.1, métré béton/parpaing, ferraillage, DPGF, planning gros œuvre, CCTP lot 2.',
-    'Session 4 h — organisme certifié Qualiopi : devis maçonnerie, métré assisté ([à valider par le métré]), CR de coulage, mémoires — relecture humaine obligatoire.',
+    'Métier maçon : devis, métrés béton/parpaing, ferraillage et DTU 20.1 — pas le pilotage DCE / planning multi-lots.',
+    'Session 4 h — organisme certifié Qualiopi : devis maçonnerie, métré assisté ([à valider par le métré]), CR de coulage — relecture humaine obligatoire.',
     'L’IA structure brouillons et tableaux ; elle ne remplace ni le métré ni la conformité normative.',
     'Financement Constructys selon éligibilité — présentiel Île-de-France uniquement, ateliers sur vos dossiers anonymisés.',
   ],
   problemParagraphs: [
-    `Les entreprises de maçonnerie et de gros œuvre enchaînent bétonnage, coffrage, ferraillage, élévations en parpaing ou béton banché, reprises et interfaces avec les autres lots : chaque dossier mobilise le ${'`'}DTU 20.1${'`'}, le CCTP lot 2, le DPGF et un planning gros œuvre à tenir face aux aléas.`,
-    `Le temps part aussi en rédaction : structure de devis maçonnerie, métré béton/parpaing à croiser avec les plans, comptes rendus de coulage, relances fournisseur béton, mémoires techniques pour appels d’offres. Sans méthode, on reformule tard le soir les mêmes postes de coffrage et de ferraillage.`,
+    `Les maçons et entreprises de maçonnerie enchaînent élévations, parpaing, béton, coffrage et ferraillage : chaque devis et chaque métré doit coller au ${'`'}DTU 20.1${'`'} et aux cotes relevées — sans confondre avec le lot gros œuvre (DCE, planning, coordination des lots).`,
+    `Le temps part aussi en rédaction : structure de devis maçonnerie, métré béton/parpaing à croiser avec les plans, comptes rendus de coulage, relances fournisseur béton. Sans méthode, on reformule tard le soir les mêmes postes de coffrage et de ferraillage.`,
     `Sur les marchés, une IA mal cadrée invente des volumes, des dosages ou des références DTU. La formation Qualiopi pose le cadre — prompts, sources, mention [à valider par le métré], relecture et confidentialité — sans remplacer le géomètre-métré ni le fascicule.`,
     `L’objectif des sessions ${OFC} est de gagner plusieurs heures par semaine sur la structure des documents (devis, CR, mémoires, mails), pas de chiffrer définitivement un ouvrage ni de valider un ferraillage à la place d’une personne compétente.`,
   ],
-  solutionIntro: `Les sessions combinent démonstration et ateliers sur vos cas (anonymisés). Vous apprenez à produire des brouillons pour devis maçonnerie, métré assisté (toujours avec [à valider par le métré]), CR de coulage, relances fournisseur béton, plans de mémoire technique gros œuvre et analyse de CCTP lot 2 — toujours avec validation métier et croisement du DTU 20.1.`,
+  solutionIntro: `Les sessions combinent démonstration et ateliers sur vos cas (anonymisés). Vous apprenez à produire des brouillons pour devis maçonnerie, métré assisté (toujours avec [à valider par le métré]), CR de coulage et relances fournisseur béton — avec validation métier et croisement du DTU 20.1.`,
   prompts: [
     {
       title: 'Structure de devis maçonnerie (postes, sans prix)',
@@ -124,25 +125,25 @@ Liste les exigences par sous-partie : performances béton, coffrage, ferraillage
       a: `Oui selon éligibilité et dossier : ${OFC} est certifié Qualiopi ; le financement OPCO Constructys suit les règles en vigueur pour les entreprises du BTP.`,
     },
     {
-      q: 'Quelle différence avec la formation catalogue BTP-01 ?',
-      a: `BTP-01 pose les bases communes ; cette page métier aligne exemples et prompts sur le devis maçonnerie, le métré, le coulage, le CCTP lot 2 et le planning gros œuvre.`,
+      q: 'Quelle différence avec la formation IA gros œuvre ?',
+      a: `Cette page vise le métier maçon (devis, métrés, DTU 20.1). La formation IA pour entreprises de gros œuvre cible le lot : DCE, planning et coordination des lots. Un encadré en tête de page permet de basculer.`,
     },
   ],
-  courseName: 'Formation IA maçon BTP — DTU 20.1, Qualiopi',
-  courseDescription: `${OFC} : formation IA et ChatGPT pour maçons — gros œuvre, béton, coffrage, métré, ferraillage, DPGF, CCTP lot 2, mémoires. Session 4 h — organisme certifié Qualiopi, financement possible selon éligibilité.`,
+  courseName: 'Formation IA maçon BTP — devis, métrés, DTU 20.1',
+  courseDescription: `${OFC} : formation IA et ChatGPT pour maçons — devis, métrés, DTU 20.1, ferraillage, CR de coulage. Session 4 h — organisme certifié Qualiopi, financement possible selon éligibilité.`,
   courseTeaches: [
     'ChatGPT pour maçons et maçonnerie BTP',
     'DTU 20.1 — usage documentaire assisté',
     'Devis et métré assisté ([à valider par le métré])',
     'CR de coulage et relances fournisseur béton',
-    'Mémoires techniques gros œuvre / CCTP lot 2',
+    'Mémoires techniques maçonnerie / CCTP lot 2',
     'Qualiopi — confidentialité des données chantier',
   ],
   ogImage: { ...COVER, alt: 'Formation IA pour le BTP — maçonnerie et gros œuvre' },
   coverImage: { ...COVER, alt: 'Session formation IA pour équipes gros œuvre' },
   showAuthorBio: true,
   authorBioClosingLine:
-    'Basée en Île-de-France, elle accompagne notamment les équipes de maçonnerie et de gros œuvre sur une IA utile au bureau et au chantier.',
+    'Basée en Île-de-France, elle accompagne notamment les maçons et entreprises de maçonnerie sur devis, métrés et DTU 20.1.',
   relatedMetierLinks: [
     {
       href: LINKS.formationIaCharpentierMenuisierBtp,
@@ -162,6 +163,12 @@ Liste les exigences par sous-partie : performances béton, coffrage, ferraillage
   ],
   liensUtilesIntro:
     'Métiers proches, catalogue Qualiopi, Claude AI BTP, financement Constructys et articles.',
+  sisterEncart: {
+    currentAudience:
+      'Cette page s’adresse aux maçons et entreprises de maçonnerie (devis, métrés, DTU 20.1).',
+    href: LINKS.formationIaGrosOeuvreBtp,
+    linkLabel: 'Formation IA pour entreprises de gros œuvre (DCE, planning, coordination des lots)',
+  },
 };
 
 export const FORMATION_IA_METIER_COUVREUR: FormationIaMetierBtpConfig = {

@@ -29,6 +29,7 @@ export function formationIaMetierBtpMetadata(config: FormationIaMetierBtpConfig)
       alt: `Formation IA appliquée au bâtiment ${config.metierNomTitre} — Qualiopi, Laure Olivié`,
     },
   });
+  if (config.skipIdfTitleOverride) return base;
   return withMetierBtpIdfTitle(base, config.metierNomTitre);
 }
 

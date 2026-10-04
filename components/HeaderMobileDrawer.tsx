@@ -5,6 +5,7 @@ import Image from 'next/image';
 import type { LucideIcon } from 'lucide-react';
 import { X } from 'lucide-react';
 import { AUTHOR_HEADSHOT_IMAGE_CLASS } from '@/lib/author-headshot';
+import { IMAGE_QUALITY_DEFAULT } from '@/lib/image-props';
 import { CtaButton } from '@/components/CtaButton';
 import { FormationPlateformeConnexionButton } from '@/components/formation/FormationPlateformeConnexionButton';
 import { HeaderMobileNavSection } from '@/components/nav/HeaderNavDropdown';
@@ -50,10 +51,10 @@ export function HeaderMobileDrawer({
               <Image
                 src={SITE.logo.src}
                 alt={SITE.logo.alt}
-                fill
+                width={36}
+                height={36}
                 className={AUTHOR_HEADSHOT_IMAGE_CLASS}
-                sizes="36px"
-                quality={70}
+                quality={IMAGE_QUALITY_DEFAULT}
                 loading="lazy"
               />
             </span>
