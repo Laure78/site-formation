@@ -13,7 +13,7 @@ export const LINKEDIN_PROFILE_URL = SCHEMA_LINKEDIN_PROFILE_URL;
  * Nombre d’abonnés LinkedIn — saisi manuellement par Laure.
  * Mettre à jour ici uniquement ; le libellé FR se recalcule.
  */
-export const LINKEDIN_FOLLOWERS_COUNT = 14_679;
+export const LINKEDIN_FOLLOWERS_COUNT = 14_708;
 
 /** Libellé FR avec espace fine insécable (ex. « 14 626 »). */
 export const LINKEDIN_FOLLOWERS_LABEL = new Intl.NumberFormat('fr-FR').format(

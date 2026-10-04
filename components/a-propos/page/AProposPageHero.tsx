@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { LinkedInPresenceCard } from '@/components/linkedin/LinkedInPresenceCard';
+import { LinkedInFollowersLink } from '@/components/linkedin/LinkedInFollowersLink';
 import { Badge } from '@/components/ui/Badge';
 import {
   A_PROPOS_PAGE_H1,
@@ -44,8 +44,8 @@ export function AProposPageHero() {
             >
               {CTA_RDV_LABEL}
             </Link>
+            <LinkedInFollowersLink variant="button" />
           </div>
-          <LinkedInPresenceCard variant="inline" className="mt-6" />
         </div>
         <figure className="mx-auto w-full max-w-[320px] lg:mx-0 lg:justify-self-end">
           <div className="ofc-card overflow-hidden p-1.5">

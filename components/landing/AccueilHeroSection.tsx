@@ -1,5 +1,6 @@
 import { AccueilHeroVideo } from '@/components/landing/AccueilHeroVideo';
 import { AccueilPrendreRdvLink } from '@/components/landing/accueil/AccueilPrendreRdvLink';
+import { LinkedInFollowersLink } from '@/components/linkedin/LinkedInFollowersLink';
 import { Badge } from '@/components/ui/Badge';
 import { Stat } from '@/components/ui/Stat';
 import {
@@ -48,6 +49,10 @@ export function AccueilHeroSection() {
               >
                 Échanger sur mon projet
               </AccueilPrendreRdvLink>
+              <LinkedInFollowersLink
+                variant="button"
+                className="w-full sm:w-auto"
+              />
             </div>
             <ul
               className="mt-10 grid max-w-2xl grid-cols-2 gap-4 border-t border-ofc-border pt-8 sm:grid-cols-4 sm:gap-6"

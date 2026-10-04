@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
+import { LinkedInFollowersLink } from '@/components/linkedin/LinkedInFollowersLink';
 import { MarketingLightHero } from '@/components/marketing/MarketingLightHero';
 import { PHOTOS } from '@/lib/photos';
 import { RESSOURCES_HUB_H1 } from '@/lib/ressources-catalog';
@@ -32,6 +33,7 @@ export function RessourcesHubHero() {
           >
             Voir les ressources populaires
           </Link>
+          <LinkedInFollowersLink variant="button" />
         </div>
       }
       heroVisual={PHOTOS.ressourcesIaBtpHero2026}
