@@ -19,7 +19,7 @@ CREATE TABLE IF NOT EXISTS public.training_satisfaction_settings (
   questionnaire_public_url text,
   email_from_name text NOT NULL DEFAULT 'Laure Olivié',
   email_from_address text,
-  email_reply_to text NOT NULL DEFAULT 'laureolivie@yahoo.fr',
+  email_reply_to text NOT NULL DEFAULT 'contact@laureolivie.fr',
   updated_at timestamptz NOT NULL DEFAULT now(),
   updated_by uuid REFERENCES auth.users(id) ON DELETE SET NULL
 );

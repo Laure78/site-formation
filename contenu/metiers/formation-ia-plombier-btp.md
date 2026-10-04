@@ -140,7 +140,7 @@ Laure Olivié accompagne les artisans et PME du BTP pour une IA **utile et respo
 ## CTA fin {#cta-fin}
 
 Pleine largeur bleu **#377CF3** — **Réservez votre visio** — **CTA #3**  
-laureolivie@yahoo.fr · 06 95 66 18 18
+contact@laureolivie.fr · 06 95 66 18 18
 
 ---
 

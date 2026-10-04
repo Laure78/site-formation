@@ -75,7 +75,7 @@ Lieu : PDF-BTP, 24 rue du Docteur Roux, 91160 Longjumeau · 7 participants.',
   insert into public.enrollments (user_id, course_id, progress_percent)
   select id, cid, 0
   from auth.users
-  where lower(email) = 'laureolivie@yahoo.fr'
+  where lower(email) = 'contact@laureolivie.fr'
   limit 1
   on conflict (user_id, course_id) do nothing;
 

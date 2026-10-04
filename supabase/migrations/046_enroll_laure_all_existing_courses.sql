@@ -1,4 +1,4 @@
--- Inscription de laureolivie@yahoo.fr sur TOUTES les formations existantes
+-- Inscription de contact@laureolivie.fr sur TOUTES les formations existantes
 -- + consolidation du trigger (futures formations).
 
 create or replace function public.enroll_laure_on_new_course()
@@ -12,7 +12,7 @@ declare
 begin
   select id into uid
   from auth.users
-  where lower(email) = 'laureolivie@yahoo.fr'
+  where lower(email) = 'contact@laureolivie.fr'
   limit 1;
 
   if uid is not null then
@@ -39,11 +39,11 @@ declare
 begin
   select id into uid
   from auth.users
-  where lower(email) = 'laureolivie@yahoo.fr'
+  where lower(email) = 'contact@laureolivie.fr'
   limit 1;
 
   if uid is null then
-    raise notice 'Utilisateur laureolivie@yahoo.fr introuvable dans auth.users — backfill ignoré.';
+    raise notice 'Utilisateur contact@laureolivie.fr introuvable dans auth.users — backfill ignoré.';
     return;
   end if;
 

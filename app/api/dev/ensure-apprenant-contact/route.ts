@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server';
 import { createAdminClient } from '@/lib/supabase/admin';
 import { enrollDefaultAdminOnAllCourses } from '@/lib/lms-auto-enroll';
 
-const TARGET_EMAIL = 'laureolivie@yahoo.fr';
+const TARGET_EMAIL = 'contact@laureolivie.fr';
 const FULL_NAME = 'Laure Olivié';
 
 /**

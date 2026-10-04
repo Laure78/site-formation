@@ -1,5 +1,5 @@
 /**
- * Promotion / création du compte admin laureolivie@yahoo.fr
+ * Promotion / création du compte admin contact@laureolivie.fr
  *
  * Prérequis dans .env.local :
  * - NEXT_PUBLIC_SUPABASE_URL
@@ -11,7 +11,7 @@
  */
 import { createClient } from '@supabase/supabase-js';
 
-const EMAIL = 'laureolivie@yahoo.fr';
+const EMAIL = 'contact@laureolivie.fr';
 const FULL_NAME = 'Laure Olivié';
 
 const args = new Set(process.argv.slice(2));

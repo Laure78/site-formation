@@ -39,7 +39,7 @@ FFB Grand Paris · FFB Île-de-France · CSFE · CNAM Entreprise · Lefebvre Dal
 ## Mentions légales (à inclure dans le footer)
 
 OFC Création d'Entreprise · SIRET 905 244 281 00010 · NDA 11788515078  
-6 rue Henri Dunant · 78280 Guyancourt · laureolivie@yahoo.fr · 06 95 66 18 18
+6 rue Henri Dunant · 78280 Guyancourt · contact@laureolivie.fr · 06 95 66 18 18
 
 ## Conventions SEO (OBLIGATOIRES)
 

@@ -1,4 +1,4 @@
--- Inscription LMS auto : priorité laureolivie@yahoo.fr (email public), repli yahoo historique.
+-- Inscription LMS auto : priorité contact@laureolivie.fr (email public), repli yahoo historique.
 
 create or replace function public.enroll_laure_on_new_course()
 returns trigger
@@ -11,13 +11,13 @@ declare
 begin
   select id into uid
   from auth.users
-  where lower(email) = 'laureolivie@yahoo.fr'
+  where lower(email) = 'contact@laureolivie.fr'
   limit 1;
 
   if uid is null then
     select id into uid
     from auth.users
-    where lower(email) = 'laureolivie@yahoo.fr'
+    where lower(email) = 'contact@laureolivie.fr'
     limit 1;
   end if;
 

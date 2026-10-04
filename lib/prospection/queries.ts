@@ -18,7 +18,7 @@ const PROSPECT_SELECT = `
 /** Emails internes — exclus du CRM (tests RDV, compte admin). */
 const EXCLUDED_CRM_EMAILS = new Set([
   CONTACT.email.toLowerCase(),
-  'laureolivie@yahoo.fr',
+  'contact@laureolivie.fr',
 ]);
 
 function isExcludedCrmProspect(email: string | null | undefined): boolean {

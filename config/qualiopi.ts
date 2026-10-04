@@ -49,7 +49,7 @@ export const QUALIOPI_MODALITES_ACCES_EXACT =
 
 /** Aligné sur `CONTACT` (`lib/constants.ts`) — pas d’import pour éviter cycle config ↔ constants. */
 export const QUALIOPI_ACCESSIBILITE_EXACT =
-  "Accessibilité : chaque besoin d'aménagement est étudié au cas par cas. Référente handicap : Laure Olivié (laureolivie@yahoo.fr · 06 95 66 18 18) — à contacter en amont de l'inscription afin d'étudier ensemble les aménagements possibles (pédagogiques, matériels, organisationnels). Aucune solution n'est garantie avant cette étude.";
+  "Accessibilité : chaque besoin d'aménagement est étudié au cas par cas. Référente handicap : Laure Olivié (contact@laureolivie.fr · 06 95 66 18 18) — à contacter en amont de l'inscription afin d'étudier ensemble les aménagements possibles (pédagogiques, matériels, organisationnels). Aucune solution n'est garantie avant cette étude.";
 
 export const QUALIOPI_FINANCEMENT_FORMULATION =
   'Organisme certifié Qualiopi. Financement OPCO possible selon éligibilité.';

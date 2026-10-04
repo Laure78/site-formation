@@ -97,7 +97,7 @@ Si vous voulez conserver une trace du contenu WordPress :
 
 1. Ouvrez **https://cloudflare.com**
 2. Cliquez sur **S’inscrire** (ou **Sign up**)
-3. Entrez votre email (ex. laureolivie@yahoo.fr) et un mot de passe
+3. Entrez votre email (ex. contact@laureolivie.fr) et un mot de passe
 4. Validez le compte via l’email reçu
 5. Connectez-vous sur **https://dash.cloudflare.com**
 
