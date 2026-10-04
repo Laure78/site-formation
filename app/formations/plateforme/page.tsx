@@ -4,7 +4,7 @@ import { BookOpen, MonitorPlay, ShieldCheck } from 'lucide-react';
 import { ExternalLinkAnchor } from '@/components/ExternalLink';
 import { FormationPlateformeConnexionButton } from '@/components/formation/FormationPlateformeConnexionButton';
 import { JsonLd } from '@/components/JsonLd';
-import { createPageMetadata, getFAQSchema, SITE_CONFIG } from '@/lib/seo';
+import { createPageMetadata, getFAQSchema, getBreadcrumbSchema, SITE_CONFIG } from '@/lib/seo';
 import { EXTERNAL_SITE_URLS } from '@/lib/external-site-urls';
 import { LINKS } from '@/lib/internal-links';
 import { PHOTOS } from '@/lib/photos';
@@ -69,7 +69,6 @@ const FAQ = [
 function getPlateformePageJsonLd() {
   const pageUrl = `${SITE_CONFIG.url}${LINKS.formationPlateforme}`;
   const appUrl = `${SITE_CONFIG.url}${LINKS.authConnexion}`;
-  /** Fil d’Ariane : uniquement via `GlobalBreadcrumbs` (évite un 2ᵉ BreadcrumbList). */
 
   return {
     '@context': 'https://schema.org',
@@ -109,11 +108,20 @@ if (faqSchema) {
   (faqSchema as Record<string, unknown>)['@id'] = `${SITE_CONFIG.url}${LINKS.formationPlateforme}#faq`;
 }
 
+const plateformeBreadcrumbJsonLd = getBreadcrumbSchema([
+  { name: 'Accueil', path: LINKS.home },
+  { name: 'Formations', path: LINKS.formations },
+  { name: 'Espace apprenant', path: LINKS.formationPlateforme },
+]);
+
 export default function FormationPlateformePage() {
   return (
     <div className="min-h-screen bg-[#F2F2F2]">
       <JsonLd id="schema-formation-plateforme" schema={getPlateformePageJsonLd()} />
       {faqSchema ? <JsonLd id="schema-faq-formation-plateforme" schema={faqSchema} /> : null}
+      {plateformeBreadcrumbJsonLd ? (
+        <JsonLd id="schema-breadcrumb-formation-plateforme" schema={plateformeBreadcrumbJsonLd} />
+      ) : null}
 
       <section
         aria-labelledby="formation-plateforme-title"

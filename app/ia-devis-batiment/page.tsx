@@ -483,7 +483,7 @@ export default function IADevisBatimentPage() {
               href={LINKS.formationIaEtudesPrixChiffrageBtp}
               className="inline-flex items-center justify-center gap-2 rounded-xl border-2 border-[var(--accent)] bg-white px-8 py-4 text-center font-semibold text-[var(--accent)] hover:bg-white/90"
             >
-              Voir le programme détaillé
+              Voir le programme
             </Link>
             <Link
               href={LINKS.formationIaBtpNiveau1BatimentTp}
@@ -536,17 +536,10 @@ export default function IADevisBatimentPage() {
             possible selon éligibilité.
           </p>
           <div className="mt-6 flex flex-wrap gap-4">
-            <Link
-              href={LINKS.formationParis}
-              className="inline-flex items-center gap-2 rounded-xl bg-white px-6 py-3 font-semibold text-[var(--accent)] hover:bg-blue-50"
-            >
-              Voir le programme
-              <ArrowRight size={20} strokeWidth={1.5} />
-            </Link>
             <RdvLink
               campaign="ia-devis"
               ctaPosition="footer"
-              className="inline-flex items-center gap-2 rounded-xl border-2 border-white px-6 py-3 font-semibold text-white hover:bg-white/10" />
+              className="inline-flex items-center gap-2 rounded-xl bg-white px-6 py-3 font-semibold text-[var(--accent)] hover:bg-blue-50" />
           </div>
         </section>
 

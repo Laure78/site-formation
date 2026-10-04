@@ -174,13 +174,21 @@ export function FormationSeoClusterLanding({
             {FINANCEMENT_FORMULATION_PRUDENTE}
           </p>
 
-          <div className="mt-8">
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
             <CalendlyEmbed
               type="link"
               ctaPosition="hero"
               campaign={`${config.campaignSlug}-intro`}
               className="inline-flex items-center rounded-lg bg-[#377CF3] px-6 py-3.5 font-semibold text-white hover:bg-blue-700"
              />
+            {config.catalogueHref ? (
+              <Link
+                href={config.catalogueHref}
+                className="inline-flex items-center rounded-lg border-2 border-[#377CF3] bg-white px-6 py-3.5 font-semibold text-[#377CF3] hover:bg-[#F2F2F2]"
+              >
+                {config.catalogueLabel ?? 'Voir le programme'}
+              </Link>
+            ) : null}
           </div>
         </header>
 
@@ -286,26 +294,6 @@ export function FormationSeoClusterLanding({
               ))}
             </ol>
           </section>
-        ) : null}
-
-        {config.catalogueHref ? (
-          <aside
-            className="mt-10 rounded-2xl border border-[#377CF3]/25 bg-[#F2F2F2] px-6 py-5"
-            aria-label="Programme détaillé"
-          >
-            <p className="text-sm font-semibold uppercase tracking-wide text-[#377CF3]">
-              Programme catalogue Qualiopi
-            </p>
-            <p className="mt-2 text-base text-slate-700">
-              Objectifs, durée, tarifs et informations réglementaires sur la fiche programme.
-            </p>
-            <Link
-              href={config.catalogueHref}
-              className={`mt-3 inline-flex font-semibold ${OFC_LINK}`}
-            >
-              {config.catalogueLabel ?? 'Voir le programme détaillé'}
-            </Link>
-          </aside>
         ) : null}
 
         <div className="mt-14">

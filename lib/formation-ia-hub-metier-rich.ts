@@ -12,7 +12,7 @@ const HUB_PLATRERIE: FormationIaMetierDynamicConfig = {
   path: '/formation-ia/platrerie-cloisons-faux-plafonds',
   seoTitle: 'Formation IA plâtrerie BTP : cloisons, DTU 25',
   seoDescription:
-    'Formation IA pour plâtrerie, cloisons et faux plafonds : DTU 25, métrés, CCTP, coordination lots. Qualiopi, présentiel Île-de-France, financement OPCO selon éligibilité.',
+    'Formation IA plâtrerie BTP : cloisons, faux plafonds et DTU 25 plus clairs, sous relecture métier. Formation IA pour le BTP. Présentiel IDF, Qualiopi.',
   keywords: [
     'formation IA plâtrerie BTP',
     'formation IA plaquiste',

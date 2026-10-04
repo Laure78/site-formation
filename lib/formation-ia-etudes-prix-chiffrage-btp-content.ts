@@ -12,7 +12,7 @@ export const ETUDES_PRIX_SEO = {
   title: 'Programme IA études de prix BTP (4 h)',
   description:
     "Programme IA études de prix BTP (4 h) : DPGF, métrés et BPU assistés par l'IA, validation métier obligatoire. Présentiel IDF, Qualiopi, OPCO selon éligibilité.",
-  h1: 'Formation IA pour les études de prix et le chiffrage BTP',
+  h1: 'Programme : études de prix et chiffrage BTP avec l’IA (4 h)',
   openGraphTitle: 'Programme IA études de prix BTP (4 h)',
 } as const;
 

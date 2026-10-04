@@ -14,7 +14,7 @@ export const TUTO_MEMOIRE_TECHNIQUE: TutoData = {
 
   metaTitle: 'Tuto skill Mémoire Technique BTP : assistant Claude AO',
   metaDescription:
-    "Mémoire technique BTP : crée ton skill Claude pour rédiger tes mémoires techniques en automatique. Tutoriel pas à pas gratuit.",
+    'Tuto mémoire technique BTP : créez un skill Claude pour rédiger vos mémoires AO, sous relecture métier. Formation IA pour le BTP. Présentiel IDF, Qualiopi.',
   keywords: [
     'mémoire technique BTP',
     'skill Claude mémoire technique',

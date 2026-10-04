@@ -14,7 +14,7 @@ export const TUTO_SKILL_PIC_UPDATED_AT = '2026-09-08';
 export const TUTO_SKILL_PIC_META = {
   title: 'Créer un skill Claude pour préparer un PIC | Laure Olivié',
   description:
-    'Apprenez à créer un skill Claude pour préparer votre plan d’installation de chantier : méthode, prompts à copier. Formation IA pour le BTP.',
+    'Tuto skill PIC : préparez votre plan d’installation de chantier avec Claude, sous contrôle métier. Formation IA pour le BTP. Présentiel IDF, Qualiopi.',
   ogTitle: 'Créer un skill Claude pour préparer un PIC',
   ogDescription:
     'Méthode pas à pas, prompts à copier et points de contrôle pour organiser les infos chantier avec un skill Claude. Formation IA pour le BTP.',

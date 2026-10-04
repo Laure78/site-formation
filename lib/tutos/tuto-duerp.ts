@@ -14,7 +14,7 @@ export const TUTO_DUERP: TutoData = {
 
   metaTitle: 'Tuto skill DUERP : rédige ton Document Unique en 30 min',
   metaDescription:
-    "DUERP BTP en 30 minutes : crée ton skill Claude pour rédiger ton Document Unique au lieu de 3 jours. Tutoriel pas à pas gratuit.",
+    'Tuto DUERP BTP : skill Claude pour structurer et prioriser votre Document Unique, sous validation métier. Formation IA pour le BTP. Présentiel IDF, Qualiopi.',
   keywords: [
     'DUERP BTP',
     'Document Unique Évaluation Risques Professionnels',

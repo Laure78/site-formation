@@ -13,7 +13,7 @@ export const FORMATION_CHATGPT_BTP_CONFIG: SeoClusterPageConfig = {
     title: 'Formation ChatGPT BTP | IA bâtiment',
     titleAbsolute: 'Formation ChatGPT BTP | IA pour les entreprises du bâtiment',
     description:
-      'Formation ChatGPT BTP en présentiel : devis, CR, emails et analyse documentaire pour les pros du bâtiment. Qualiopi, IDF. Visio découverte.',
+      'Formation ChatGPT BTP : devis, CR et analyse documentaire plus rapides au bureau, sous relecture métier. Formation IA pour le BTP. Présentiel IDF, Qualiopi.',
     openGraphTitle: 'Formation ChatGPT BTP | IA pour les entreprises du bâtiment',
     keywords: [
       'formation ChatGPT BTP',

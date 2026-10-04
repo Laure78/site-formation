@@ -1,5 +1,4 @@
 import type { ReactNode } from 'react';
-import Link from 'next/link';
 import { ShortAnswerBlock } from '@/components/landing/ShortAnswerBlock';
 import { FormationBeworkPasserelle } from '@/components/formations/FormationBeworkPasserelle';
 import { CatalogueFormationRelated } from '@/components/formations/catalogue/CatalogueFormationRelated';
@@ -30,7 +29,6 @@ import { getFormationCatalogueSeo } from '@/lib/formation-catalogue-seo';
 import type { FAQItem } from '@/lib/faq';
 import { FINANCEMENT_FORMULATION_COURTE } from '@/lib/financement-copy';
 import { LINKS } from '@/lib/internal-links';
-import { OFC_LINK } from '@/lib/ofc-interaction-classes';
 import { libelleTarifParticipantCatalogue } from '@/lib/tarifs-catalogue-participant';
 import {
   trainingCategoryBadge,
@@ -163,6 +161,7 @@ export function TrainingPageTemplate({
             </div>
           }
           catalogueRef={ref}
+          textLink={content.seoLandingLink}
           primaryCta={{ href: LINKS.contact, label: 'Demander un devis' }}
           secondaryCta={
             pdfHref
@@ -335,18 +334,6 @@ export function TrainingPageTemplate({
       <TrainingPracticalInfo programmeRef={ref} publicCible={formation.public} />
 
       {related.length > 0 ? <CatalogueFormationRelated items={related} /> : null}
-
-      {content.seoLandingLink ? (
-        <div className="border-b border-slate-200 bg-white px-4 py-6 md:py-8">
-          <div className="mx-auto max-w-[78rem]">
-            <p className="text-base text-slate-700">
-              <Link href={content.seoLandingLink.href} className={`font-semibold ${OFC_LINK}`}>
-                ← {content.seoLandingLink.label}
-              </Link>
-            </p>
-          </div>
-        </div>
-      ) : null}
 
       {hasFaq ? <TrainingFAQ items={faqItems!} id={faqSectionId} /> : null}
 

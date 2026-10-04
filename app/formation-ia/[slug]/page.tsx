@@ -32,6 +32,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     return createPageMetadata({
       title: rich.seoTitle,
       description: rich.seoDescription,
+      descriptionFinal: true,
       path: rich.path,
       keywords: rich.keywords,
       appendAuthorSuffix: false,

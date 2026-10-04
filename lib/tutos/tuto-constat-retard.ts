@@ -14,7 +14,7 @@ export const TUTO_CONSTAT_RETARD: TutoData = {
 
   metaTitle: 'Tuto skill Constat de retard BTP : courrier en 8 min Claude',
   metaDescription:
-    "Constat de retard BTP : crée ton skill Claude pour rédiger un courrier juridique de réserves en 8 minutes au lieu d'1h. Tuto gratuit.",
+    'Tuto constat de retard BTP : courrier de réserves plus rapide avec Claude AI, sous relecture métier. Formation IA pour le BTP. Présentiel IDF, Qualiopi.',
   keywords: [
     'constat de retard BTP',
     'courrier de réserves BTP',

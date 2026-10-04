@@ -51,7 +51,6 @@ function getAdditionalMarketingRoutes(baseUrl: string): MetadataRoute.Sitemap {
     LINKS.etudesCasFfbCsfe,
     LINKS.etudesCasCrVocalChantier,
     LINKS.formationIaEtudesPrixChiffrageBtp,
-    '/expert-ia-btp',
     '/outils-ia-btp',
     '/outils/cas-usage-ia-btp',
     '/claude-ai-btp',
@@ -81,15 +80,11 @@ function getAdditionalMarketingRoutes(baseUrl: string): MetadataRoute.Sitemap {
     '/formation-ia-btp-ile-de-france',
     '/formation-ia-paris',
     LINKS.formateurIaBtp,
-    '/formation-ia-construction',
     LINKS.formations,
     LINKS.formationChatgptBtp,
     LINKS.formationIaConducteurDeTravaux,
     LINKS.formationIaAppelsOffresBtp,
     LINKS.formationMaitriserClaudeAiBtp,
-    LINKS.formationClaudeAiBatiment,
-    LINKS.formationClaudeAiTravauxPublics,
-    LINKS.formationIaBtpParis,
     '/formations/ia-btp-saint-quentin-en-yvelines',
     '/formations/ia-btp-morangis',
     '/formations/ia-btp-longjumeau',
@@ -179,6 +174,18 @@ const SITEMAP_NOINDEX_PATHS = new Set<string>([
   '/formations/plateforme',
 ]);
 
+/** Sources 308 (cannibalisation oct. 2026) — ne plus pousser dans le sitemap. */
+const SITEMAP_REDIRECTED_CANNIBAL_PATHS = new Set<string>([
+  '/formation-ia-btp-paris',
+  '/formation-claude-ai-batiment',
+  '/formation-claude-ai-travaux-publics',
+  '/formation-ia-charpentier-menuisier-btp',
+  '/formation-ia/platrerie-cloisons-faux-plafonds',
+  '/expert-ia-btp',
+  '/formation-ia-construction',
+  '/blog/formation-ia-cctp-analyse-dce-btp',
+]);
+
 /**
  * Sitemap App Router — `/sitemap.xml` (MetadataRoute.Sitemap).
  * `lastModified` : date de contenu réelle (carte git générée au build, date article,
@@ -260,6 +267,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     if (GSC_EXCLUDED_SITEMAP_PATHS.has(pathOnly)) return false;
     if (SITEMAP_EXCLUDED_LOW_VALUE_PATHS.has(pathOnly)) return false;
     if (SITEMAP_NOINDEX_PATHS.has(pathOnly)) return false;
+    if (SITEMAP_REDIRECTED_CANNIBAL_PATHS.has(pathOnly)) return false;
     if (SITEMAP_EXCLUDED_PREFIXES.some((pfx) => pathOnly.startsWith(pfx))) return false;
     // Pagination blog principale : jamais poussée dans le sitemap
     if (/^\/blog\/page\/\d+$/.test(pathOnly)) return false;

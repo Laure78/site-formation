@@ -28,7 +28,7 @@ Laure Olivié est formatrice IA spécialisée BTP et fondatrice d'OFC Création 
 - /formations/ia-conduite-travaux-suivi-chantier — Suivi de chantier, CR, DOE (4 h)
 - /formations/maitriser-claude-ai-btp — Claude AI avancé pour le BTP (4 h)
 - /formation-ia-btp-ile-de-france — Formations par département francilien
-- /formation-ia-btp-paris — Formation IA BTP à Paris
+- /formation-ia-paris — Formation IA BTP à Paris
 - /ia-analyse-dce-btp — Méthode : analyser un DCE avec l'IA
 - /ia-memoire-technique-btp — Méthode : mémoire technique avec l'IA
 - /ia-compte-rendu-chantier — Méthode : compte rendu de chantier avec l'IA

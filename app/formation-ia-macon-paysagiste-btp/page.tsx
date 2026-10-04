@@ -25,7 +25,8 @@ const PATH = '/formation-ia-macon-paysagiste-btp';
 export const metadata = createMetierBtpPageMetadata('maçon paysagiste', {
   title: 'Formation IA maçon paysagiste BTP IDF',
   description:
-    'Automatisez vos devis dallage, terrasses, maçonnerie paysagère. Organisme certifié Qualiopi. Financement possible selon éligibilité.',
+    'Formation IA maçon paysagiste BTP : devis dallage et terrasses plus structurés, sous contrôle métier. Formation IA pour le BTP. Présentiel IDF, Qualiopi.',
+  descriptionFinal: true,
   path: PATH,
   keywords: [
     'formation IA maçon paysagiste',

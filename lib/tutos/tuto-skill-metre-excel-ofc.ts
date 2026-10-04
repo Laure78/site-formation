@@ -14,7 +14,7 @@ export const TUTO_SKILL_METRE_EXCEL_OFC: TutoData = {
 
   metaTitle: 'Tuto skill métré Excel BTP : quantités traçables en 45 min',
   metaDescription:
-    'Tuto skill métré Excel BTP : métré complet, formules visibles, récap DPGF en 45 min avec Claude. Formation IA pour le BTP, présentiel IDF, Qualiopi — tuto gratuit.',
+    'Tuto skill métré Excel BTP : quantités traçables, formules visibles et récap DPGF/BPU, sous contrôle. Formation IA pour le BTP. Présentiel IDF, Qualiopi.',
   keywords: [
     'métré Excel BTP',
     'skill Claude métré',

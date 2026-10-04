@@ -1616,7 +1616,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
       'Analyser un CCTP avec l\'IA : la méthode complète pour décortiquer un cahier des charges en 20 minutes',
     seoTitle: 'Analyse CCTP avec IA : méthode en 20 minutes',
     description:
-      'Cinq étapes pour lire un CCTP dense : PDF, prompts, normes, risques, croisement BPU. Formation AO Qualiopi ; Constructys. Voir la méthode.',
+      'Analyser un CCTP avec l’IA : méthode en 20 minutes pour extraire normes, risques et manques. ChatGPT BTP, sous relecture. Réservez votre visio découverte.',
     date: '2026-04-10',
     dateModified: '2026-04-10',
     keywords: [
@@ -1817,7 +1817,6 @@ export const BLOG_ARTICLES: BlogArticle[] = [
       },
     ],
     relatedSlugs: [
-      'formation-ia-cctp-analyse-dce-btp',
       'analyser-ccap-ia-btp',
       'analyse-dce-notebooklm-claude-btp',
       'chiffrage-cctp-bpu-appels-offres-btp',

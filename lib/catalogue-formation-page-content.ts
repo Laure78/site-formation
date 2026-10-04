@@ -382,7 +382,7 @@ const NIV_02: CatalogueFormationPageContent = {
   pdfHref: LINKS.pdfProgrammeFormationAoBtpDetail2026,
   seoLandingLink: {
     href: LINKS.formationIaAppelsOffresBtp,
-    label: 'Formation IA appels d’offres BTP — page thématique',
+    label: 'Pourquoi se former à l’IA pour les appels d’offres ?',
   },
 };
 
@@ -493,7 +493,7 @@ const NIV_03: CatalogueFormationPageContent = {
   pdfHref: LINKS.pdfProgrammeConduiteTravauxNiv03,
   seoLandingLink: {
     href: LINKS.formationIaConducteurDeTravaux,
-    label: 'Formation IA conducteur de travaux — page thématique',
+    label: 'Pourquoi se former à l’IA pour les conducteurs de travaux ?',
   },
 };
 

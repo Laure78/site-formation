@@ -29,9 +29,7 @@ export function FormationCalendlyInlineGate() {
         </h2>
         <p className="mx-auto mt-3 max-w-2xl text-slate-600 md:text-lg">
           Rendez-vous découverte de 30 minutes, en visioconférence si vous le souhaitez, pour cadrer
-          votre besoin. Le catalogue IA BTP reste en présentiel en Île-de-France ; le parcours création
-          avec l’IA sans coder peut proposer des inter en visioconférence (financement Constructys selon
-          éligibilité, format intra ou interentreprises selon le programme).
+          votre besoin. Le catalogue IA BTP est en présentiel, en Île-de-France.
         </p>
         <div className="mt-8 flex justify-center">
           <CtaRdv origin={origin} />

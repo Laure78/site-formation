@@ -18,6 +18,7 @@ export const metadata = createPageMetadata({
   title: CATALOGUE_SEO.metaTitle,
   titleAbsolute: `${CATALOGUE_SEO.metaTitle} | Laure Olivié`,
   description: CATALOGUE_SEO.metaDescription,
+  descriptionFinal: true,
   path: LINKS.formationIaMaitriseOeuvre,
   openGraphType: 'website',
   openGraphTitle: 'Formation IA maîtrise d\'œuvre MOEX — organisme certifié Qualiopi',

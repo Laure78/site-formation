@@ -55,7 +55,7 @@ export const FORMATION_IA_BTP_GEO_LINKS = [
     label: 'Formation IA pour le BTP — Île-de-France (pilier géo)',
   },
   ...FORMATION_IA_BTP_DEPT_LANDING_PATHS.map((path) => ({
-    href: path,
+    href: path === '/formation-ia-btp-paris' ? LINKS.formationIaParis : path,
     label: DEPT_LABELS[path] ?? path,
   })),
 ];

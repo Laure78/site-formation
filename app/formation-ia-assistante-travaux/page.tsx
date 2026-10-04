@@ -28,7 +28,7 @@ const GUIDE_THUMB = RESSOURCES_MINIATURES.guideAssistantsTravaux;
 /** Segment avant suffixe — total avec « | Laure Olivié » ≈ 52 car. (≤ 60). */
 const SEO_TITLE = 'Formation IA assistante travaux BTP';
 const SEO_DESCRIPTION =
-  'Formation IA pour le BTP : assistantes travaux en IDF — PPSPS, CR chantier, DOE, DC4 et suivi de marché. Présentiel Qualiopi. Visio découverte 30 min.';
+  'Formation IA assistante travaux : PPSPS, CR, DOE et DC4 plus rapides au bureau, sous validation métier. Formation IA pour le BTP. Présentiel IDF, Qualiopi.';
 
 export const metadata = createPageMetadata({
   title: SEO_TITLE,

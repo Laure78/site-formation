@@ -8,7 +8,8 @@
  *  - Course (provider référencé via @id)
  *  - FAQPage (optionnel, si la page contient une FAQ)
  *
- * Le fil d'Ariane visuel + BreadcrumbList JSON-LD sont gérés par `GlobalBreadcrumbs` (layout).
+ * Le fil d'Ariane visuel est dans `GlobalBreadcrumbs` (layout, sans JSON-LD).
+ * Le `BreadcrumbList` JSON-LD est émis par la page (`BreadcrumbJsonLd` / `getBreadcrumbSchema`).
  *
  * Source unique pour SIRET / NDA / adresse : `lib/schema-constants.ts`.
  * Remplace l'usage couplé de `<CourseSchema />` + `<FAQSchema />` sur ces pages

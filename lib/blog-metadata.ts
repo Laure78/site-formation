@@ -105,7 +105,13 @@ export function getBlogCategoryMetadata(
     excludeFeatured: false,
   });
 
+  const categoryDescriptions: Partial<Record<BlogCategoryId, string>> = {
+    chatgpt:
+      'ChatGPT et bonnes pratiques BTP : prompts, devis et DCE expliqués pour le chantier, sans jargon tech. Formation IA pour le BTP. Présentiel IDF, Qualiopi.',
+  };
+
   const categoryDescription =
+    categoryDescriptions[categoryId] ??
     `Catégorie « ${categoryLabel} » du blog IA BTP : devis, CCTP/DCE, appels d'offres, Constructys. Guides Laure Olivié, Qualiopi, présentiel Île-de-France.`;
 
   const meta = createPageMetadata({

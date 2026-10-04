@@ -58,7 +58,7 @@ export default function TutoSkillPicPage() {
     <div className="min-h-screen bg-white">
       <JsonLd id="schema-tuto-skill-pic" data={graph} />
 
-      {/* Introduction — fil d’Ariane via GlobalBreadcrumbs (layout) */}
+      {/* Introduction — fil d’Ariane visuel via GlobalBreadcrumbs ; JSON-LD BreadcrumbList dans le schéma page */}
       <header className="border-b border-slate-200 bg-[#F2F2F2]">
         <div className="mx-auto max-w-3xl px-4 py-10 md:py-14">
           <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#377CF3]">

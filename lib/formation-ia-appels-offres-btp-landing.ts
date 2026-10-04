@@ -18,7 +18,7 @@ export const FORMATION_IA_APPELS_OFFRES_BTP_CONFIG: SeoClusterPageConfig = {
     title: 'Formation IA Appels d\'Offres BTP | DCE & MT',
     titleAbsolute: 'Formation IA Appels d\'Offres BTP | DCE et Mémoire Technique',
     description:
-      'Formation IA appels d\'offres BTP : analyse DCE, CCTP, DPGF, chiffrage assisté et mémoire technique. ChatGPT et Claude. Qualiopi, IDF.',
+      'Formation IA appels d’offres BTP : DCE, CCTP et mémoire technique plus clairs, sous relecture métier. Formation IA pour le BTP. Présentiel IDF, Qualiopi.',
     openGraphTitle: 'Formation IA Appels d\'Offres BTP | DCE et Mémoire Technique',
     keywords: [
       'formation IA appels d\'offres BTP',
@@ -109,7 +109,7 @@ export const FORMATION_IA_APPELS_OFFRES_BTP_CONFIG: SeoClusterPageConfig = {
     },
     {
       q: 'Où voir le programme détaillé ?',
-      a: `Fiche catalogue NIV-02 : <a href="${LINKS.formationAO}">Répondre aux appels d'offres avec l'IA</a>.`,
+      a: 'Le bouton « Voir le programme » ouvre la fiche catalogue NIV-02 (durée, tarifs et informations réglementaires Qualiopi).',
     },
   ],
   courseName: 'Formation IA pour les appels d\'offres BTP',
@@ -128,7 +128,7 @@ export const FORMATION_IA_APPELS_OFFRES_BTP_CONFIG: SeoClusterPageConfig = {
   campaignSlug: 'formation-ia-appels-offres-btp',
   programmeRef: 'NIV-02',
   catalogueHref: LINKS.formationAO,
-  catalogueLabel: 'Voir le programme détaillé',
+  catalogueLabel: 'Voir le programme',
   relatedLinks: [
     { href: LINKS.formationChatgptBtp, label: 'Formation ChatGPT pour le BTP' },
     { href: LINKS.formationMaitriserClaudeAiBtp, label: 'Formation Claude pour le bâtiment' },

@@ -1,3 +1,4 @@
+import type { Metadata } from 'next';
 import { preload } from 'react-dom';
 import { AccueilHeroSection } from '@/components/landing/AccueilHeroSection';
 import { AccueilPreuveSocialeCompact } from '@/components/landing/accueil/AccueilPreuveSocialeCompact';
@@ -16,8 +17,9 @@ import { JsonLd } from '@/components/JsonLd';
 import { PHOTOS } from '@/lib/photos';
 import { buildHomeUnifiedGraphJsonLd } from '@/lib/schema-home-unified-graph';
 
-/** Segment sans suffixe — `buildMetadata` ajoute « | Laure Olivié ». */
-const HOME_META_TITLE = 'Formation IA BTP Île-de-France : devis, DCE';
+/** Titre HTML complet — 57 car., déjà signé, sans « | Laure Olivié ». */
+const HOME_META_TITLE_ABSOLUTE =
+  'Laure Olivié — formatrice IA pour le BTP en Île-de-France';
 const HOME_META_DESCRIPTION =
   'Formation IA pour le BTP : devis, DCE, comptes rendus et mémoires techniques avec ChatGPT et Claude. Présentiel Île-de-France, Qualiopi, OPCO selon éligibilité.';
 
@@ -27,8 +29,8 @@ preload(PHOTOS.heroAccueilFormationIABtpEchange2026.src, { as: 'image', fetchPri
 
 export const revalidate = 3600;
 
-export const metadata = buildMetadata({
-  title: HOME_META_TITLE,
+const homeMetadata = buildMetadata({
+  title: 'Formation IA pour le BTP',
   description: HOME_META_DESCRIPTION,
   descriptionFinal: true,
   path: '/',
@@ -63,6 +65,20 @@ export const metadata = buildMetadata({
     alt: PHOTOS.heroAccueilFormationIABtpEchange2026.alt,
   },
 });
+
+/** `title.absolute` : le helper `buildTitle` ajouterait sinon un second « | Laure Olivié ». */
+export const metadata: Metadata = {
+  ...homeMetadata,
+  title: { absolute: HOME_META_TITLE_ABSOLUTE },
+  openGraph: {
+    ...homeMetadata.openGraph,
+    title: HOME_META_TITLE_ABSOLUTE,
+  },
+  twitter: {
+    ...homeMetadata.twitter,
+    title: HOME_META_TITLE_ABSOLUTE,
+  },
+};
 
 export default function HomePage() {
   return (

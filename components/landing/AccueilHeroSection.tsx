@@ -25,8 +25,8 @@ export function AccueilHeroSection() {
         <div className="accueil-hero-fold">
           <div className="accueil-hero-content min-w-0">
             <Badge>Formatrice IA spécialisée BTP</Badge>
-            <h1 className={`${OFC_TYPE_HERO} mt-5 max-w-[18ch]`}>
-              Formations IA pour les professionnels du BTP
+            <h1 className={`${OFC_TYPE_HERO} mt-5 max-w-3xl`}>
+              Formations IA pour les professionnels du BTP en Île-de-France
             </h1>
             <p className={`${OFC_TYPE_LEAD} mt-5 max-w-xl font-semibold text-ofc-ink`}>
               Devis, DCE, appels d&apos;offres et suivi de chantier&nbsp;: apprenez à utiliser

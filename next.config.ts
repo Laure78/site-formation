@@ -635,6 +635,24 @@ const nextConfig: NextConfig = {
       { source: '/guide-skill-ia-conducteur-travaux/', destination: '/blog/guide-skill-ia-conducteur-travaux-btp', permanent: true },
       { source: '/formation-ia-entreprise-batiment-paris', destination: '/formation-ia-btp-paris', permanent: true },
       { source: '/formation-ia-entreprise-batiment-paris/', destination: '/formation-ia-btp-paris', permanent: true },
+
+      // Cannibalisation SEO — consolidation oct. 2026 (permanent: true = 308)
+      { source: '/formation-ia-btp-paris', destination: '/formation-ia-paris', permanent: true },
+      { source: '/formation-ia-btp-paris/', destination: '/formation-ia-paris', permanent: true },
+      { source: '/formation-claude-ai-batiment', destination: '/formations/maitriser-claude-ai-btp', permanent: true },
+      { source: '/formation-claude-ai-batiment/', destination: '/formations/maitriser-claude-ai-btp', permanent: true },
+      { source: '/formation-claude-ai-travaux-publics', destination: '/formations/maitriser-claude-ai-btp', permanent: true },
+      { source: '/formation-claude-ai-travaux-publics/', destination: '/formations/maitriser-claude-ai-btp', permanent: true },
+      { source: '/formation-ia-charpentier-menuisier-btp', destination: '/formation-ia-charpentier-btp', permanent: true },
+      { source: '/formation-ia-charpentier-menuisier-btp/', destination: '/formation-ia-charpentier-btp', permanent: true },
+      { source: '/formation-ia/platrerie-cloisons-faux-plafonds', destination: '/formation-ia-plaquiste-btp', permanent: true },
+      { source: '/formation-ia/platrerie-cloisons-faux-plafonds/', destination: '/formation-ia-plaquiste-btp', permanent: true },
+      { source: '/expert-ia-btp', destination: '/a-propos', permanent: true },
+      { source: '/expert-ia-btp/', destination: '/a-propos', permanent: true },
+      { source: '/formation-ia-construction', destination: '/formation-ia-btp', permanent: true },
+      { source: '/formation-ia-construction/', destination: '/formation-ia-btp', permanent: true },
+      { source: '/blog/formation-ia-cctp-analyse-dce-btp', destination: '/blog/analyser-cctp-ia-methode-complete-20-minutes', permanent: true },
+      { source: '/blog/formation-ia-cctp-analyse-dce-btp/', destination: '/blog/analyser-cctp-ia-methode-complete-20-minutes', permanent: true },
       { source: '/formations/formation-claude-ia-btp', destination: '/formations/maitriser-claude-ai-btp', permanent: true },
 
       // Blog : fusion SEO (doublons sémantiques — audit avril 2026)

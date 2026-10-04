@@ -15,33 +15,58 @@ import { OFC_LINK } from '@/lib/ofc-interaction-classes';
 import { OFC_SEC } from '@/lib/ofc-section-classes';
 import { voirAussiIdfProps } from '@/lib/voir-aussi';
 
-import { formatNoteSatisfactionSur5, formatNoteSatisfactionAffichageComplet, formatAnneesExperienceBTP } from '@/lib/data/indicateurs-resultats';import { RenvoiFicheCatalogue } from '@/components/qualiopi/RenvoiFicheCatalogue';
+import { formatNoteSatisfactionAffichageComplet, formatAnneesExperienceBTP } from '@/lib/data/indicateurs-resultats';
+import { RenvoiFicheCatalogue } from '@/components/qualiopi/RenvoiFicheCatalogue';
 
 export const revalidate = 3600;
 
 const PATH = '/formation-ia-paris';
 const PAGE_URL = `${SITE_CONFIG.url.replace(/\/$/, '')}${PATH}`;
 
-/** Titre exact demandé — `buildMetadata` conserve le suffixe via titleAbsolute. */
-const META_TITLE_ABSOLUTE = 'Formation IA à Paris — Présentiel BTP | Laure Olivié';
+/** 58 car. — suffixe inclus, ≤ 60. */
+const META_TITLE_ABSOLUTE = 'Formation IA BTP Paris : bâtiment, chantier | Laure Olivié';
+/** 152 car. */
 const META_DESCRIPTION =
-  'Formation IA pour le BTP à Paris : 4 h présentiel pour ChatGPT sur devis, DCE et comptes rendus. Qualiopi, financement OPCO possible selon éligibilité.';
+  'Formation IA BTP à Paris pour les entreprises du bâtiment et de la construction : devis, DCE, CR. Présentiel, Qualiopi. Réservez votre visio découverte.';
+
+const GEO_DEPT_LINKS = [
+  { href: LINKS.formationIaBtpYvelines78, label: 'Formation IA BTP Yvelines (78)' },
+  { href: LINKS.formationIaBtpSeineEtMarne77, label: 'Formation IA BTP Seine-et-Marne (77)' },
+  { href: LINKS.formationIaBtpEssonne91, label: 'Formation IA BTP Essonne (91)' },
+  { href: LINKS.formationIaBtpHautsDeSeine92, label: 'Formation IA BTP Hauts-de-Seine (92)' },
+  { href: LINKS.formationIaBtpSeineSaintDenis93, label: 'Formation IA BTP Seine-Saint-Denis (93)' },
+  { href: LINKS.formationIaBtpValDeMarne94, label: 'Formation IA BTP Val-de-Marne (94)' },
+  { href: LINKS.formationIaBtpValDoise95, label: 'Formation IA BTP Val-d’Oise (95)' },
+] as const;
+
+const GEO_PAGE_HREFS = [
+  LINKS.formationIleDeFrance,
+  ...GEO_DEPT_LINKS.map((l) => l.href),
+] as const;
+
+const ARRONDISSEMENTS_PARIS = [
+  'Paris 1er–4e (centre & Louvre)',
+  'Paris 11e–12e (Bastille, Nation)',
+  'Paris 13e–14e (Montparnasse, Olympiades)',
+  'Paris 15e–16e (Beaugrenelle, Trocadéro)',
+  'Paris 18e–20e (Montmartre, Belleville)',
+] as const;
 
 export const metadata = buildMetadata({
-  title: 'Formation IA à Paris — Présentiel BTP',
+  title: 'Formation IA BTP Paris : bâtiment, chantier',
   titleAbsolute: META_TITLE_ABSOLUTE,
   description: META_DESCRIPTION,
   descriptionFinal: true,
   path: PATH,
   openGraphType: 'website',
-  openGraphTitle: 'Formation IA à Paris — Présentiel BTP',
+  openGraphTitle: 'Formation IA BTP Paris : bâtiment, chantier',
   openGraphDescription: META_DESCRIPTION,
   keywords: [
-    'formation IA à Paris',
     'formation IA BTP Paris',
+    'formation IA à Paris',
     'formation ChatGPT Paris',
-    'formation intelligence artificielle Paris',
     'formation IA bâtiment Paris',
+    'formation IA construction Paris',
     'Qualiopi Constructys Paris',
   ],
   image: {
@@ -57,7 +82,7 @@ const COURSE_JSON_LD = {
   '@context': 'https://schema.org',
   '@type': 'Course',
   '@id': `${PAGE_URL}#course`,
-  name: 'Formation IA à Paris pour les professionnels du BTP',
+  name: 'Formation IA BTP à Paris — bâtiment et construction, en présentiel',
   description: META_DESCRIPTION,
   url: PAGE_URL,
   provider: {
@@ -91,24 +116,24 @@ const COURSE_JSON_LD = {
 
 const FAQ_PARIS: FAQItem[] = [
   {
-    q: 'Les sessions à Paris sont-elles uniquement en présentiel ?',
-    a: `Oui. Les sessions OFC se déroulent exclusivement en présentiel à Paris et en Île-de-France — intra ou inter. Les 4 heures portent sur vos documents de chantier : devis, DCE, mémoires ou comptes rendus, avec relecture métier de votre côté.`,
+    q: 'Intervenez-vous dans Paris intra-muros ?',
+    a: 'Oui. Les sessions ont lieu en présentiel à Paris, en intra (dans vos locaux) ou en inter — présentiel uniquement · Île-de-France uniquement. Arrondissements centre, est et ouest se traitent de la même façon. La petite et la grande couronne se cadrent aussi, selon le devis.',
+  },
+  {
+    q: 'Comment se passe une session intra à Paris ?',
+    a: 'Une demi-journée de 4 h sur vos documents réels, en petit groupe, avec des prompts adaptés à vos marchés parisiens (copropriété, site occupé, AO publics locaux). Les contraintes d’accès chantier et de coordination multi-intervenants sont prises en compte dans les exercices.',
   },
   {
     q: 'Qui peut suivre une formation ChatGPT Paris avec Laure Olivié ?',
-    a: `Les conducteurs de travaux, chargés d'affaires, assistantes travaux, dirigeants de PME BTP et fonctions support qui produisent devis, DCE, mémoires ou comptes rendus. Le public est francilien : ${IDF_ZONE_INTERVENTION}. Aucun prérequis technique avancé : un navigateur et vos dossiers suffisent.`,
+    a: `Les conducteurs de travaux, chargés d'affaires, assistantes travaux, dirigeants de PME du bâtiment, équipes d'entreprises générales, maîtres d'œuvre et fonctions support qui produisent devis, DCE, mémoires ou comptes rendus. Le public est francilien : ${IDF_ZONE_INTERVENTION}. Aucun prérequis technique avancé : un navigateur et vos dossiers suffisent.`,
   },
   {
     q: 'Sur quels documents travaille-t-on pendant les 4 heures ?',
     a: `Sur vos pièces réelles : devis, CCTP, DPGF, RC, mémoires techniques, CR de chantier et mails. L'objectif d'une formation IA BTP Paris n'est pas la théorie générique, mais une méthode applicable dès le lendemain matin, avec des modèles que vous pouvez partager en équipe.`,
   },
   {
-    q: 'La formation intelligence artificielle Paris est-elle finançable via Constructys ?',
-    a: `${FINANCEMENT_FORMULATION_PRUDENTE} Un devis et une estimation de prise en charge sont préparés après la visio découverte, selon votre statut et les barèmes en vigueur — jamais présentés comme acquis. Les délais de dépôt côté OPCO restent à votre charge.`,
-  },
-  {
-    q: 'Intervenez-vous seulement intramuros ou aussi en petite couronne ?',
-    a: `Les deux. Les sessions couvrent ${IDF_ZONE_INTERVENTION}. Pour une vue régionale complète, la page Île-de-France détaille les formats intra ou inter sur tout le bassin.`,
+    q: 'La formation est-elle finançable pour une entreprise parisienne ?',
+    a: `${FINANCEMENT_FORMULATION_PRUDENTE} Le barème n’est pas spécifique à Paris. Un devis et une estimation de prise en charge sont préparés après la visio découverte, selon votre statut — jamais présentés comme acquis. Les délais de dépôt côté OPCO restent à votre charge.`,
   },
   {
     q: 'Combien de professionnels avez-vous déjà formés ?',
@@ -119,7 +144,7 @@ const FAQ_PARIS: FAQItem[] = [
 const BREADCRUMB_JSON_LD = getBreadcrumbSchema([
   { name: 'Accueil', path: '/' },
   { name: 'Formations', path: LINKS.formations },
-  { name: 'Formation IA à Paris', path: PATH },
+  { name: 'Formation IA BTP à Paris', path: PATH },
 ]);
 
 const PROGRAMME_BLOCS = [
@@ -145,6 +170,19 @@ const PROGRAMME_BLOCS = [
   },
 ] as const;
 
+const PAGE_LINK_EXCLUDES = [
+  LINKS.formations,
+  LINKS.formationIleDeFrance,
+  LINKS.formationParis,
+  LINKS.formationIaBtpNiveau1BatimentTp,
+  LINKS.iaAnalyseDce,
+  LINKS.iaCompteRenduChantier,
+  LINKS.aPropos,
+  LINKS.financement,
+  LINKS.formationChargeAffairesBtp,
+  ...GEO_PAGE_HREFS,
+] as const;
+
 export default function FormationIaParisPage() {
   const faqSchema = getFAQSchema(FAQ_PARIS);
 
@@ -161,35 +199,36 @@ export default function FormationIaParisPage() {
               Présentiel · organisme certifié Qualiopi · Paris &amp; Île-de-France
             </p>
             <h1 className="mt-4 font-display text-3xl font-bold leading-tight text-slate-900 md:text-4xl lg:text-[2.5rem]">
-              Formation IA à Paris : maîtrisez ChatGPT sur vos dossiers de chantier
+              Formation IA BTP à Paris — bâtiment et construction, en présentiel
             </h1>
 
             <EnBref>
               <p>
-                Laure Olivié (OFC Création d&apos;Entreprise, Qualiopi) forme les équipes BTP à Paris et en
-                Île-de-France en présentiel uniquement : sessions de 4 heures sur vos devis, DCE et comptes
-                rendus.
+                Laure Olivié (OFC Création d&apos;Entreprise, Qualiopi) forme les équipes du bâtiment et de
+                la construction à Paris en présentiel : sessions de 4 heures sur vos devis, DCE et comptes
+                rendus — y compris en site occupé et copropriété.
               </p>
               <p>
-                Public : conducteurs de travaux, chargés d&apos;affaires, assistantes travaux, dirigeants et
-                fonctions support des PME du bâtiment et des travaux publics.
+                Public : dirigeants, conducteurs de travaux, chargés d&apos;affaires, entreprises générales,
+                maîtres d&apos;œuvre et fonctions support.
               </p>
               <p>
-                Financement OPCO
-                possible selon éligibilité — jamais présenté comme acquis.
+                Financement OPCO possible selon éligibilité — jamais présenté comme acquis.
               </p>
             </EnBref>
 
             <p className="mt-6 text-lg leading-relaxed text-slate-600">
-              La formation IA à Paris de Laure Olivié s&apos;adresse aux équipes qui produisent des documents
-              de chantier et d&apos;études au quotidien. En 4 heures de présentiel, vous travaillez ChatGPT et
-              Claude sur vos pièces réelles — pas sur des exemples fictifs. L&apos;organisme OFC Création
-              d&apos;Entreprise est certifié Qualiopi ; satisfaction {formatNoteSatisfactionAffichageComplet()}.
+              La formation IA BTP à Paris s&apos;adresse aux équipes qui produisent des documents de chantier
+              et d&apos;études au quotidien. En 4 heures de présentiel, vous travaillez ChatGPT et Claude sur
+              vos pièces réelles — pas sur des exemples fictifs. OFC Création d&apos;Entreprise est certifié
+              Qualiopi ; satisfaction {formatNoteSatisfactionAffichageComplet()}.
             </p>
             <p className="mt-4 text-base leading-relaxed text-slate-600 md:text-lg">
-              L&apos;objectif n&apos;est pas de « découvrir l&apos;IA » : c&apos;est de sécuriser la production
-              écrite sur vos marchés franciliens — devis sous délai, DCE à décoder, mémoire à rendre, compte
-              rendu à diffuser le jour même. Chaque sortie reste sous votre responsabilité métier.
+              Le bassin parisien intra-muros impose des contraintes spécifiques : site occupé, copropriétés,
+              accès chantiers et exigences patrimoniales (ABF sur certains secteurs). L&apos;objectif n&apos;est
+              pas de « découvrir l&apos;IA » : c&apos;est de sécuriser la production écrite — devis sous délai,
+              DCE à décoder, mémoire à rendre, compte rendu à diffuser le jour même. Chaque sortie reste sous
+              votre responsabilité métier.
             </p>
           </div>
         </section>
@@ -207,6 +246,13 @@ export default function FormationIaParisPage() {
               d&apos;œuvre ou au maître d&apos;ouvrage.
             </p>
             <p className="mt-4 text-base leading-relaxed text-slate-600 md:text-lg">
+              Paris concentre maîtres d&apos;œuvre, architectes et entreprises de construction ou de rénovation
+              sous fortes contraintes : copropriétés, chantiers en site occupé, accès difficiles, interlocuteurs
+              ABF. Les équipes y passent un temps considérable sur l&apos;écrit contractuel, les autorisations
+              et la coordination multi-intervenants. La densité des opérations rend la production documentaire
+              (devis, CR, mémoires) critique au quotidien.
+            </p>
+            <p className="mt-4 text-base leading-relaxed text-slate-600 md:text-lg">
               Une formation IA BTP Paris part de vos documents : devis en cours, DCE ouvert, mémoire à
               compléter, compte rendu du lundi. Vous apprenez à cadrer l&apos;outil, à poser les bonnes
               contraintes (ne rien inventer, signaler les manques, respecter le lot) et à garder la
@@ -214,31 +260,64 @@ export default function FormationIaParisPage() {
               sans mettre en danger un marché.
             </p>
             <p className="mt-4 text-base leading-relaxed text-slate-600 md:text-lg">
-              En Île-de-France, la pression sur les délais et le volume de pièces est particulière : coactivité,
-              sous-traitance, visas, DC4, situations. Une méthode IA sans ancrage BTP produit du texte
-              plausible mais hors contrat. Ici, chaque exercice est calibré pour rester utilisable après la
-              session — avec une checklist de contrôle avant diffusion.
-            </p>
-            <p className="mt-4 text-base leading-relaxed text-slate-600 md:text-lg">
               Le catalogue{' '}
               <Link href={LINKS.formations} className={OFC_LINK} title="Catalogue formations IA pour le BTP">
                 formations IA pour le BTP
               </Link>{' '}
-              décline ces usages en sessions intra ou inter — organisme certifié Qualiopi de 4 heures. Pour une vue sur
-              toute la région, la page{' '}
-              <Link
-                href={LINKS.formationIleDeFrance}
-                className={OFC_LINK}
-                title="Formation IA BTP Île-de-France"
-              >
-                formation IA BTP Île-de-France
-              </Link>{' '}
-              complète ce pilier parisien.
+              décline ces usages en sessions intra ou inter — organisme certifié Qualiopi de 4 heures.
             </p>
           </div>
         </section>
 
-        <section className={OFC_SEC.white} aria-labelledby="programme-4h">
+        <section className={OFC_SEC.white} aria-labelledby="construction-paris-public">
+          <div className="mx-auto max-w-4xl">
+            <h2
+              id="construction-paris-public"
+              className="font-display text-2xl font-bold text-slate-900 md:text-3xl"
+            >
+              Formation IA dans la construction à Paris : pour qui ?
+            </h2>
+            <p className="mt-4 text-base leading-relaxed text-slate-600 md:text-lg">
+              La session s&apos;adresse aux entreprises du bâtiment et de la construction implantées à Paris
+              ou qui y interviennent : TPE et PME de second œuvre, entreprises générales TCE, directions
+              travaux, bureaux d&apos;études et maîtres d&apos;œuvre. Le vocabulaire de la session suit vos
+              pièces — DCE volumineux, mémoires multi-lots, DPGF, CR de coordination — pas un modèle hors sol.
+            </p>
+            <p className="mt-4 text-base leading-relaxed text-slate-600 md:text-lg">
+              Profils les plus concernés : dirigeants,{' '}
+              <Link
+                href={LINKS.formationChargeAffairesBtp}
+                className={OFC_LINK}
+                title="Formation IA chargé d'affaires BTP"
+              >
+                chargés d&apos;affaires BTP
+              </Link>
+              , conducteurs de travaux, assistantes et assistants travaux, responsables études. Aucune
+              compétence informatique avancée n&apos;est exigée : un ordinateur, un navigateur et vos dossiers
+              anonymisés suffisent.
+            </p>
+            <p className="mt-4 text-base leading-relaxed text-slate-600 md:text-lg">
+              Ce n&apos;est pas fait pour un public hors BTP ni pour une formation théorique sur l&apos;IA en
+              général. Ici, chaque exercice reste collé à un livrable de chantier ou d&apos;appel d&apos;offres
+              parisien.
+            </p>
+            <h3 className="mt-8 font-display text-lg font-semibold text-slate-900">
+              Cas d&apos;usage sur les marchés parisiens
+            </h3>
+            <ul className="mt-4 list-disc space-y-3 pl-5 text-base leading-relaxed text-slate-600">
+              <li>
+                Analyser rapidement un DCE de marché parisien (CCTP, règlement de consultation) et structurer
+                un mémoire technique convaincant — avec relecture métier obligatoire avant envoi.
+              </li>
+              <li>
+                Produire des comptes rendus de chantier clairs malgré la complexité des interventions en site
+                occupé et le nombre d&apos;intervenants sur une même adresse.
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <section className={OFC_SEC.muted} aria-labelledby="programme-4h">
           <div className="mx-auto max-w-4xl">
             <h2 id="programme-4h" className="font-display text-2xl font-bold text-slate-900 md:text-3xl">
               Le programme : 4 heures, vos vrais documents
@@ -321,25 +400,44 @@ export default function FormationIaParisPage() {
             </h2>
             <p className="mt-4 text-base leading-relaxed text-slate-600 md:text-lg">
               Les sessions ont lieu en présentiel, intra ou inter — {IDF_ZONE_INTERVENTION}. Basée à
-              Guyancourt (78), Laure Olivié se déplace sur vos sites franciliens — bureaux d&apos;études, bases
-              travaux ou locaux de l&apos;entreprise.
+              Guyancourt (78), Laure Olivié se déplace sur vos sites parisiens — bureaux d&apos;études, bases
+              travaux ou locaux de l&apos;entreprise. Comptez typiquement 45 à 75 minutes depuis Guyancourt
+              selon l&apos;arrondissement et le trafic (temps indicatifs).
             </p>
             <p className="mt-4 text-base leading-relaxed text-slate-600 md:text-lg">
-              Le groupe reste homogène (même entreprise, mêmes modèles de documents). Le présentiel permet de corriger un prompt au moment où il dérape — ce qu&apos;un
-              tutoriel isolé ne fait pas.
+              Le groupe reste homogène (même entreprise, mêmes modèles de documents). Le présentiel permet de
+              corriger un prompt au moment où il dérape — ce qu&apos;un tutoriel isolé ne fait pas.
             </p>
-            <p className="mt-4 text-base leading-relaxed text-slate-600 md:text-lg">
-              Pour un besoin local détaillé sur la capitale, la page{' '}
+            <h3 className="mt-8 font-display text-lg font-semibold text-slate-900">
+              Arrondissements et bassins couverts
+            </h3>
+            <ul className="mt-4 grid gap-2 sm:grid-cols-2">
+              {ARRONDISSEMENTS_PARIS.map((zone) => (
+                <li key={zone} className="rounded-lg border border-slate-200 bg-[#F2F2F2] px-4 py-3 text-sm text-slate-700">
+                  {zone}
+                </li>
+              ))}
+            </ul>
+            <p className="mt-6 text-base leading-relaxed text-slate-600 md:text-lg">
+              Pour comparer les formats sur toute la région, voir la{' '}
               <Link
-                href={LINKS.formationParis}
+                href={LINKS.formationIleDeFrance}
                 className={OFC_LINK}
-                title="Formation IA BTP Paris (75)"
+                title="Formation IA BTP Île-de-France"
               >
-                formation IA BTP Paris (75)
-              </Link>{' '}
-              précise le bassin intramuros. Le pilier régional Île-de-France reste le point d&apos;entrée
-              pour comparer les huit départements — un seul besoin, deux niveaux de lecture.
+                formation IA BTP Île-de-France
+              </Link>
+              . Pages par département :
             </p>
+            <ul className="mt-4 grid gap-2 sm:grid-cols-2">
+              {GEO_DEPT_LINKS.map(({ href, label }) => (
+                <li key={href}>
+                  <Link href={href} className={OFC_LINK} title={label}>
+                    {label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </div>
         </section>
 
@@ -364,9 +462,9 @@ export default function FormationIaParisPage() {
               en forme, sans relâcher le contrôle contractuel.
             </p>
             <p className="mt-4 text-base leading-relaxed text-slate-600 md:text-lg">
-              Preuves : , organisme certifié Qualiopi (actions de formation), instructrice
-              LinkedIn Learning. Interventions avec FFB Grand Paris, {CSFE_NOM_COMPLET}, UMB-FFB, CNAM
-              Entreprise et Le Moniteur Formations. En savoir plus sur{' '}
+              Organisme certifié Qualiopi (actions de formation), instructrice LinkedIn Learning. Interventions
+              avec FFB Grand Paris, {CSFE_NOM_COMPLET}, UMB-FFB, CNAM Entreprise et Le Moniteur Formations. En
+              savoir plus sur{' '}
               <Link href={LINKS.aPropos} className={OFC_LINK} title="À propos de Laure Olivié">
                 Laure Olivié et OFC Création d&apos;Entreprise
               </Link>
@@ -422,15 +520,7 @@ export default function FormationIaParisPage() {
 
         <RelatedLinks
           path={PATH}
-          excludeHrefs={[
-            LINKS.formations,
-            LINKS.formationIleDeFrance,
-            LINKS.formationParis,
-            LINKS.iaAnalyseDce,
-            LINKS.iaCompteRenduChantier,
-            LINKS.aPropos,
-            LINKS.financement,
-          ]}
+          excludeHrefs={[...PAGE_LINK_EXCLUDES]}
         />
 
         <section id="rdv" className={`${OFC_SEC.accent} scroll-mt-24`}>
@@ -458,15 +548,7 @@ export default function FormationIaParisPage() {
           <VoirAussi
             {...voirAussiIdfProps({
               currentPath: PATH,
-              excludeHrefs: [
-                LINKS.formations,
-                LINKS.formationIleDeFrance,
-                LINKS.formationParis,
-                LINKS.iaAnalyseDce,
-                LINKS.iaCompteRenduChantier,
-                LINKS.aPropos,
-                LINKS.financement,
-              ],
+              excludeHrefs: [...PAGE_LINK_EXCLUDES],
             })}
           />
         </div>

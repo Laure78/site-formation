@@ -15,7 +15,7 @@ export const TUTO_PV_LEVEE_RESERVES: TutoData = {
   metaTitle:
     'Tuto skill PV levée de réserves BTP : 3 min au lieu de 30 avec Claude',
   metaDescription:
-    "PV de levée de réserves BTP : crée ton skill Claude pour rédiger un procès-verbal juridique en 3 minutes au lieu de 30. Tutoriel gratuit.",
+    'Tuto PV levée de réserves BTP : skill Claude pour un PV prêt à signer en trois minutes, sous contrôle. Formation IA pour le BTP. Présentiel IDF, Qualiopi.',
   keywords: [
     'PV levée de réserves',
     'levée de réserves BTP',

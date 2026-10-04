@@ -56,8 +56,8 @@ export const LINKS = {
    * Distincte du catalogue `/formations` (liste des programmes).
    */
   formationIaBtp: '/formation-ia-btp',
-  /** Landing SEO cluster — formation IA entreprises de construction (ETI, EG, MOE, BET) */
-  formationIaConstruction: '/formation-ia-construction',
+  /** @deprecated Doublon — 308 → `formationIaBtp` */
+  formationIaConstruction: '/formation-ia-btp',
   /** Cluster SEO — formation ChatGPT BTP (outil) */
   formationChatgptBtp: '/formation-chatgpt-btp',
   /** Cluster SEO — formation IA conducteur de travaux (métier) — canon `-btp` */
@@ -66,8 +66,8 @@ export const LINKS = {
   formationIaAppelsOffresBtp: '/formation-ia-appels-offres-btp',
   /** @deprecated Doublon — 301 → `formationMaitriserClaudeAiBtp` */
   formationClaudeBtp: '/formations/maitriser-claude-ai-btp',
-  /** @deprecated Doublon Paris — 301 → `formationIaBtpParis` */
-  formationIaEntrepriseBatimentParis: '/formation-ia-btp-paris',
+  /** @deprecated Doublon Paris — 308 → `formationIaParis` */
+  formationIaEntrepriseBatimentParis: '/formation-ia-paris',
   /** Pilier SEO — formation IA BTP / formation IA bâtiment (page maîtresse) */
   formationIaBtpPillar: '/formation-ia-btp',
   /** Guide Claude AI — Anthropic, interfaces, prompts BTP */
@@ -76,10 +76,10 @@ export const LINKS = {
    * @deprecated Anciennes landings SEO — préférer `claudeAiBtp` (guide) ou `formationMaitriserClaudeAiBtp` (fiche).
    */
   formationClaudeAiBtp: '/formations/maitriser-claude-ai-btp',
-  /** Landing différenciée bâtiment — exemples devis, CR, DOE */
-  formationClaudeAiBatiment: '/formation-claude-ai-batiment',
-  /** Landing différenciée TP — DCE, CCTP, PPSPS, métrés */
-  formationClaudeAiTravauxPublics: '/formation-claude-ai-travaux-publics',
+  /** @deprecated Doublon bâtiment — 308 → `formationMaitriserClaudeAiBtp` */
+  formationClaudeAiBatiment: '/formations/maitriser-claude-ai-btp',
+  /** @deprecated Doublon TP — 308 → `formationMaitriserClaudeAiBtp` */
+  formationClaudeAiTravauxPublics: '/formations/maitriser-claude-ai-btp',
 
   // Tier 2 — Formations (catalogue officiel)
   /** Niveau 1 — bâtiment & travaux publics (programme PDF) */
@@ -130,14 +130,14 @@ export const LINKS = {
   pdfProgrammeIaBtpNiveau2AppelsOffre: PDF_PROGRAMME_NIV02_AO_BTP,
   /** Alias explicite — même fichier que `pdfProgrammeIaBtpNiveau2AppelsOffre` */
   pdfProgrammeFormationAoBtpDetail2026: PDF_PROGRAMME_NIV02_AO_BTP,
-  /** Canonique geo Paris (75) — formation IA BTP Paris */
-  formationParis: '/formation-ia-btp-paris',
+  /** Canonique geo Paris — formation IA à Paris (présentiel BTP) */
+  formationParis: '/formation-ia-paris',
   /** Pilier SEO — Formation IA à Paris (présentiel BTP) */
   formationIaParis: '/formation-ia-paris',
   /** Hub zones IDF — 8 départements (pilier Île-de-France) */
   formationIaBtpIdfZones: '/formation-ia-btp-ile-de-france',
-  /** Canonique SEO — formation IA BTP Paris (75) */
-  formationIaBtpParis: '/formation-ia-btp-paris',
+  /** @deprecated Alias Paris — 308 → `formationIaParis` */
+  formationIaBtpParis: '/formation-ia-paris',
   /** Essonne (91) — pages locales SEO */
   formationMorangis: '/formations/ia-btp-morangis',
   formationLongjumeau: '/formations/ia-btp-longjumeau',
@@ -149,8 +149,8 @@ export const LINKS = {
   formationSaintQuentinYvelines: '/formations/ia-btp-saint-quentin-en-yvelines',
   /** Landing SEO local Yvelines (78) — pilier (l'ancien `/formation-ia-btp-yvelines` redirige en 308) */
   formationIABTPYvelines: '/formation-ia-btp-yvelines-78',
-  /** Alias historique — même URL que formationIaBtpParis */
-  formationIaBtpParis75: '/formation-ia-btp-paris',
+  /** Alias historique — même URL que `formationIaParis` */
+  formationIaBtpParis75: '/formation-ia-paris',
   /** Pages pilier SEO par département Île-de-France (+77) */
   formationIaBtpYvelines78: '/formation-ia-btp-yvelines-78',
   formationIaBtpSeineEtMarne77: '/formation-ia-btp-seine-et-marne-77',
@@ -183,8 +183,8 @@ export const LINKS = {
   formationChargeAffairesBtp: '/formation-ia-charge-affaires-btp',
   formationElectricienBtp: '/formation-ia-electricien-btp',
   formationPlombierBtp: '/formation-ia-plombier-btp',
-  /** Landing SEO — charpente, ossature bois, agencement & menuiserie (partenariat UMB-FFB) */
-  formationIaCharpentierMenuisierBtp: '/formation-ia-charpentier-menuisier-btp',
+  /** @deprecated Doublon bois — 308 → `formationIaCharpentierBtp` */
+  formationIaCharpentierMenuisierBtp: '/formation-ia-charpentier-btp',
   /** Landing métier — charpentier (DTU 31) */
   formationIaCharpentierBtp: '/formation-ia-charpentier-btp',
   /** Landing métier — menuisier bâtiment (DTU 36) */
@@ -215,8 +215,8 @@ export const LINKS = {
   formationIaMarchePublicEtancheite: '/formation-ia-marche-public-etancheite',
   // Variants suffixées maintenues comme cibles canoniques après dédup mai 2026
   formationIaPlatriste: '/formation-ia-plaquiste-btp',
-  /** Hub SEO réécrit — plâtrerie, cloisons, faux plafonds */
-  formationIaHubPlatrerieCloisons: '/formation-ia/platrerie-cloisons-faux-plafonds',
+  /** @deprecated Doublon hub plâtrerie — 308 → `formationIaPlatriste` */
+  formationIaHubPlatrerieCloisons: '/formation-ia-plaquiste-btp',
   formationIaPeintreBatiment: '/formation-ia-peintre-btp',
   formationIaSolierRevetements: '/formation-ia-solier-revetements',
   formationIaPaysagiste: '/formation-ia-paysagiste-btp',
@@ -420,8 +420,8 @@ export const LINKS = {
   blogIaMemoireTechniqueAppelOffresGuide2026: '/blog/ia-memoire-technique-appel-offres-guide-2026',
   /** @deprecated Préférer blogAnalyserCctpMethode20Min */
   blogIaAnalyseCctpMethode: '/blog/analyser-cctp-ia-methode-complete-20-minutes',
-  /** Article informationnel — comment analyser un DCE/CCTP avec l'IA (cluster AO/DCE) */
-  blogFormationIaCctpAnalyseDceBtp: '/blog/formation-ia-cctp-analyse-dce-btp',
+  /** @deprecated Doublon blog CCTP — 308 → `blogAnalyserCctpMethode20Min` */
+  blogFormationIaCctpAnalyseDceBtp: '/blog/analyser-cctp-ia-methode-complete-20-minutes',
   /** Article — NotebookLM + Claude sur DCE (cluster AO/DCE) */
   blogAnalyseDceNotebooklm: '/blog/analyse-dce-notebooklm-claude-btp',
   /** Article — chiffrage CCTP/BPU (cluster AO/DCE) */

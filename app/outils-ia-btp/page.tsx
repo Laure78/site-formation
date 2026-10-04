@@ -11,7 +11,8 @@ const PATH = '/outils-ia-btp';
 export const metadata = createPageMetadata({
   title: 'Outils IA BTP — Claude AI et ChatGPT',
   description:
-    'Claude AI (outil principal) et ChatGPT (usages admin) pour les pros du BTP : articles, tutoriels et bonnes pratiques. OFC, Qualiopi.',
+    'Outils IA BTP : Claude et ChatGPT pour devis, DCE et comptes rendus, avec relecture métier. Formation IA pour le BTP. Réservez votre visio découverte.',
+  descriptionFinal: true,
   path: PATH,
   keywords: [
     'outils IA BTP Claude ChatGPT',

@@ -64,7 +64,7 @@ export const FORMATION_CATALOGUE_SEO: Record<FormationCatalogueCode, FormationCa
   },
   'NIV-02': {
     metaTitle: 'Programme IA DCE & mémoire technique (4 h)',
-    h1: 'Formation IA appels d’offres BTP : analyser un DCE et préparer son mémoire technique',
+    h1: 'Programme Niveau 2 : analyser un DCE et préparer son mémoire technique (4 h)',
     subtitle:
       'Apprenez à extraire les exigences d’un DCE, préparer les points de contrôle du chiffrage et structurer un mémoire technique avec l’aide de l’IA. Atelier pratique sur un dossier réel de l’entreprise.',
     metaDescription:
@@ -85,7 +85,7 @@ export const FORMATION_CATALOGUE_SEO: Record<FormationCatalogueCode, FormationCa
   },
   'NIV-03': {
     metaTitle: 'Programme IA suivi de chantier (4 h)',
-    h1: 'Formation IA suivi de chantier : CR, CCTP et DOE',
+    h1: 'Programme Niveau 2 : suivi de chantier, CR et DOE avec l’IA (4 h)',
     subtitle:
       'Analysez vos CCTP, produisez vos comptes rendus et organisez le suivi du chantier jusqu\'à la réception avec ChatGPT et Claude.',
     metaDescription:
@@ -131,7 +131,7 @@ export const FORMATION_CATALOGUE_SEO: Record<FormationCatalogueCode, FormationCa
     subtitle:
       'Analysez les DCE, rédigez vos comptes rendus en quelques minutes et pilotez réserves et réception avec ChatGPT et Claude.',
     metaDescription:
-      'Formation IA appliquée au bâtiment pour maîtres d\'œuvre : DCE, CR chantier, OS et GPA. 4 h, ChatGPT et Claude, Qualiopi, financement OPCO selon éligibilité.',
+      'Formation IA maîtrise d’œuvre : DCE, CR, OS et réception plus rapides sur vos dossiers réels. Formation IA pour le BTP, 4 h. Présentiel IDF, Qualiopi.',
     enBref: `La formation IA pour maîtres d'œuvre apprend à analyser un DCE, rédiger un compte rendu de chantier, produire ordres de service et courriers MOE, et organiser le suivi des réserves avec l'IA. ${SESSION_DUREE_LIBELLE} en présentiel — ${QUALIOPI_MENTION}.`,
     publicTargets: [
       'Maîtres d\'œuvre d\'exécution (MOEX)',
@@ -212,7 +212,7 @@ export const FORMATION_CATALOGUE_SEO: Record<FormationCatalogueCode, FormationCa
     subtitle:
       'Configurez des assistants adaptés à votre poste avec ChatGPT et Claude. Réutilisez vos consignes, vos modèles et vos documents pour vos tâches récurrentes.',
     metaDescription:
-      'Créez vos assistants IA métier avec ChatGPT et Claude. Formation IA pour le BTP, 7 h en présentiel Île-de-France, intra-entreprise.',
+      'Formation assistants IA BTP : ChatGPT et Claude pour vos tâches récurrentes, sans coder. Formation IA pour le BTP, 7 h intra. Présentiel IDF, Qualiopi.',
     enBref: `Formation assistants IA pour le BTP (7 h, présentiel Île-de-France) : littératie IA, fonctionnalités ChatGPT et Claude, prompting et création d’assistants métier — sans développer d’application. Abonnement ChatGPT Plus ou Claude Pro requis. ${QUALIOPI_MENTION}.`,
     publicTargets: [
       'Assistant(e)s travaux et fonctions support du BTP',

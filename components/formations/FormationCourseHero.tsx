@@ -64,6 +64,7 @@ export function FormationCourseHero({
   catalogueRef,
   programmePdfAfterHero = true,
   backLink,
+  textLink,
 }: {
   refLine: string;
   title: React.ReactNode;
@@ -79,6 +80,7 @@ export function FormationCourseHero({
   catalogueRef?: string;
   programmePdfAfterHero?: boolean;
   backLink?: { href: string; label: string };
+  textLink?: { href: string; label: string };
 }) {
   void _SummaryIcon;
   const catalogueEntry = catalogueRef ? getFormationCatalogueByRef(catalogueRef) : undefined;
@@ -130,6 +132,7 @@ export function FormationCourseHero({
         summaryItems={summaryItems}
         backHref={backLink?.href ?? LINKS.formations}
         backLabel={backLink?.label ?? 'Catalogue des formations'}
+        textLink={textLink}
       />
       <div className="border-b border-slate-100 bg-white px-4 pb-10">
         <div className="mx-auto flex max-w-[70rem] flex-col gap-3 sm:flex-row sm:flex-wrap">

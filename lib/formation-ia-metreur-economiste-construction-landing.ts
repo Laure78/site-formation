@@ -19,7 +19,7 @@ export const FORMATION_IA_METREUR_ECONOMISTE_CONSTRUCTION_PATH =
 export const METREUR_ECONOMISTE_SEO = {
   title: 'Formation IA métreur économiste BTP IDF',
   description:
-    'Formation IA métreur économiste BTP : DPGF, DQE, métrés et BPU. Gagnez du temps sur le quantitatif. Présentiel IDF, Qualiopi, financement OPCO possible.',
+    'Formation IA métreur économiste : DPGF, DQE et métrés mieux contrôlés avant diffusion, sous relecture. Formation IA pour le BTP. Présentiel IDF, Qualiopi.',
   h1: 'Formation IA pour métreurs et économistes de la construction — Île-de-France',
   openGraphTitle: 'Formation IA métreur économiste BTP — DPGF, DQE, métrés',
 } as const;

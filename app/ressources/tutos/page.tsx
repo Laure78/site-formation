@@ -22,7 +22,7 @@ function pdfHref(pdfFile: string): string {
 export const metadata: Metadata = createPageMetadata({
   title: 'Tutos PDF IA BTP gratuits — Claude & DCE',
   description:
-    'Tutos PDF Claude & ChatGPT BTP : mémoire technique, analyse DCE, DOE, DUERP, PPSPS, chantier — gratuit. Formation IA appliquée au bâtiment — Laure Olivié.',
+    'Tutos PDF IA BTP : mémoire technique, DCE, DUERP et chantier, gratuits, actionnables, sans inscription. Formation IA pour le BTP. Présentiel IDF, Qualiopi.',
   path: PATH,
   openGraphType: 'website',
   appendAuthorSuffix: false,

@@ -174,7 +174,7 @@ export const FORMATION_IA_METIER_ELECTRICIEN: FormationIaMetierBtpConfig = {
   h1: 'Formation IA électricien BTP — ChatGPT, NF C 15-100 & Qualiopi',
   metaTitle: 'Formation IA électricien BTP — ChatGPT, tableau, CONSUEL',
   metaDescription:
-    'Formation IA & ChatGPT pour électriciens du BTP : devis, chantier, mémoires techniques. Session 4 h Qualiopi, finançable par Constructys selon éligibilité. NF C 15-100 respectée.',
+    'Formation IA électricien BTP : devis, CONSUEL et mémoires techniques plus sûrs, sous relecture métier. Formation IA pour le BTP. Présentiel IDF, Qualiopi.',
   keywords: [
     'formation IA électricien BTP',
     'ChatGPT électricien',

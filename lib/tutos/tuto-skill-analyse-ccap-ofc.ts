@@ -14,7 +14,7 @@ export const TUTO_SKILL_ANALYSE_CCAP_OFC: TutoData = {
 
   metaTitle: 'Tuto skill Analyse CCAP BTP : clauses à risque en 20 min',
   metaDescription:
-    'Tuto skill Analyse CCAP BTP : pénalités, retenue de garantie, paiement et révision avec Claude. Formation IA pour le BTP, présentiel IDF, Qualiopi — tuto gratuit.',
+    'Tuto skill analyse CCAP BTP : pénalités, paiement et clauses à risque CCAP, sous relecture métier. Formation IA pour le BTP. Présentiel IDF, Qualiopi.',
   keywords: [
     'analyser un CCAP',
     'CCAP marché public BTP',

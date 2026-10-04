@@ -111,8 +111,8 @@ export const FAQ_ITEMS_HOME: readonly FAQItem[] = [
       "Oui — devis, DCE, comptes rendus, mémoires techniques, emails : vous construisez des méthodes réutilisables avec validation métier de votre côté.",
   },
   {
-    q: 'Où se déroulent les sessions ? Présentiel, visio, France entière ?',
-    a: `${MODALITE_FORMATIONS_STANDARD} Zone : ${IDF_ZONE_INTERVENTION}. Inscription possible en session inter-entreprises collective (pas d’accompagnement individuel). La formation <a href="${LINKS.formationDeveloppementWebIaSansCoder}">création avec l’IA sans coder</a> propose aussi des inter en visioconférence — détail sur sa fiche.`,
+    q: 'Où se déroulent les sessions ?',
+    a: `Présentiel Île-de-France (75 à 95), intra ou inter ; une seule exception, la formation <a href="${LINKS.formationDeveloppementWebIaSansCoder}">création avec l’IA sans coder</a>, qui peut proposer des inter en visioconférence.`,
   },
   {
     q: 'Une prise en charge par un OPCO est-elle possible ?',
@@ -166,7 +166,7 @@ export const FAQ_ITEMS: readonly FAQItem[] = [
   },
   {
     q: "La formation se fait-elle en présentiel ?",
-    a: `Oui pour le catalogue IA BTP. ${MODALITE_FORMATIONS_STANDARD} Couverture : ${IDF_ZONE_INTERVENTION}. La formation <a href="${LINKS.formationDeveloppementWebIaSansCoder}">création avec l’IA sans coder</a> propose aussi des inter en visioconférence — détail sur sa fiche. Pour cadrer votre format : <a href="${LINKS.prendreRdv}">Échanger sur votre projet de formation</a> ou <a href="/contact">contact</a>.`,
+    a: `Oui. Le catalogue IA BTP est en présentiel, en Île-de-France. ${MODALITE_FORMATIONS_STANDARD} Couverture : ${IDF_ZONE_INTERVENTION}. Pour cadrer votre format : <a href="${LINKS.prendreRdv}">Échanger sur votre projet de formation</a> ou <a href="/contact">contact</a>.`,
   },
   {
     q: 'Où se déroulent les formations catalogue ?',

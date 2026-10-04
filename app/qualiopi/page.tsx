@@ -14,7 +14,8 @@ export const revalidate = 3600;
 export const metadata = createPageMetadata({
   title: 'Organisme certifié Qualiopi — OFC Création d\'Entreprise',
   description:
-    'OFC Création d\'Entreprise certifié Qualiopi (actions de formation) par Certifopac. Certificat téléchargeable, NDA 11788515078.',
+    'Qualiopi OFC Création d’Entreprise : certificat actions de formation, NDA et preuve publique. Formation IA pour le BTP. Réservez votre visio découverte.',
+  descriptionFinal: true,
   path: '/qualiopi',
 });
 

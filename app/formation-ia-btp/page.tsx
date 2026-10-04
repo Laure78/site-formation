@@ -535,11 +535,6 @@ export default function FormationIaBtpPillarPage() {
             coordination MOA/MOE. La formation s&apos;adapte à ces profils avec un vocabulaire
             corporate et des exercices sur vos dossiers réels.
           </p>
-          <p>
-            <Link href={LINKS.formationIaConstruction} className="font-semibold text-[var(--accent)] hover:underline">
-              Voir la page dédiée — Formation IA pour les entreprises de construction
-            </Link>
-          </p>
           </Reveal>
         </section>
 
@@ -780,22 +775,12 @@ export default function FormationIaBtpPillarPage() {
                 Formation Claude pour le bâtiment
               </Link>
             </li>
-            <li>
-              <Link href={LINKS.formationIaBtpParis} className="text-slate-700 hover:underline">
-                Formation IA pour le BTP en Île-de-France — intra entreprise Paris
-              </Link>
-            </li>
           </ul>
         </section>
 
         <section className="not-prose mt-16 border-t border-slate-200 pt-12">
           <h2 className="font-display text-2xl font-bold text-slate-900">Liens vers mes formations spécialisées</h2>
           <ul className="mt-4 list-inside list-disc space-y-2 text-[var(--accent)] marker:text-[var(--accent)]">
-            <li>
-              <Link href={LINKS.formationIaConstruction} className="text-slate-700 hover:underline">
-                Formation IA pour les entreprises de construction
-              </Link>
-            </li>
             <li>
               <Link href={LINKS.formationElectricienBtp} className="text-slate-700 hover:underline">
                 Formation IA pour l&apos;électricien

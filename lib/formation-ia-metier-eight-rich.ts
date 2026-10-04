@@ -170,7 +170,7 @@ export const FORMATION_IA_METIER_COUVREUR: FormationIaMetierBtpConfig = {
   h1: 'Formation IA couvreur zingueur — DTU 40, toiture & Qualiopi',
   metaTitle: 'Formation IA couvreur zingueur — toiture, zinguerie',
   metaDescription:
-    'Formation IA & ChatGPT pour couvreurs-zingueurs : devis, métrés toiture, mémoires techniques. Session 4 h — organisme certifié Qualiopi, finançable par Constructys selon éligibilité. DTU 40 respecté.',
+    'Formation IA couvreur-zingueur BTP : métrés toiture, devis et mémoires plus clairs, sous relecture métier. Formation IA pour le BTP. Présentiel IDF, Qualiopi.',
   keywords: [
     'formation IA couvreur zingueur',
     'formation IA couvreur BTP',
@@ -354,7 +354,7 @@ export const FORMATION_IA_METIER_PLAQUISTE: FormationIaMetierBtpConfig = {
   h1: 'Formation IA plaquiste plâtrier — cloisons, DTU 25 & Qualiopi',
   metaTitle: 'Formation IA plaquiste plâtrier — doublages, DTU 25',
   metaDescription:
-    'Formation IA plaquiste plâtrier : cloisons, doublages, isolation, DTU 25, devis linéaires, coordination lots. Qualiopi, Constructys.',
+    'Formation IA plaquiste plâtrier BTP : cloisons, DTU 25 et devis linéaires accélérés, sous contrôle métier. Formation IA pour le BTP. Présentiel IDF, Qualiopi.',
   keywords: [
     'formation IA plaquiste plâtrier',
     'formation IA plaquiste BTP',
@@ -429,11 +429,6 @@ Propose STRUCTURE de métré (postes) : doublages, cloisons, habillages, renfort
   showAuthorBio: true,
   authorBioClosingLine: 'Elle forme les équipes plaque de plâtre et second œuvre sur des usages IA sécurisés.',
   relatedMetierLinks: [
-    {
-      href: LINKS.formationIaHubPlatrerieCloisons,
-      title: 'Hub plâtrerie, cloisons & faux plafonds',
-      description: 'Page détaillée lot plâtrerie — DTU 25, métrés, coordination.',
-    },
     { href: '/formation-ia-peintre-btp', title: 'Formation IA peintre bâtiment', description: 'Finitions après plaquiste.' },
     { href: '/formation-ia-electricien-btp', title: 'Formation IA électricien BTP', description: 'Réservations et passages de lots.' },
     { href: '/formation-ia-macon-btp', title: 'Formation IA maçon BTP', description: 'Gros œuvre et interfaces structure.' },
@@ -447,7 +442,7 @@ export const FORMATION_IA_METIER_MENUISIER: FormationIaMetierBtpConfig = {
   h1: 'Formation IA menuisier bâtiment — DTU 36, pose & Qualiopi',
   metaTitle: 'Formation IA menuisier bâtiment — fenêtres, portes, DTU 36',
   metaDescription:
-    'Formation IA menuisier bâtiment : menuiseries extérieures et intérieures, DTU 36, devis, relevés, SAV. Qualiopi, Constructys.',
+    'Formation IA menuisier BTP : relevés, devis pose et DTU 36 mieux cadrés, sous votre validation métier. Formation IA pour le BTP. Présentiel IDF, Qualiopi.',
   keywords: [
     'formation IA menuisier bâtiment',
     'formation IA menuisier BTP',
@@ -623,7 +618,7 @@ export const FORMATION_IA_METIER_CHARPENTIER: FormationIaMetierBtpConfig = {
   h1: 'Formation IA charpentier — bois, DTU 31 & Qualiopi',
   metaTitle: 'Formation IA charpentier — ossatures, coupes, DTU 31',
   metaDescription:
-    'Formation IA charpentier : ossature bois, nomenclatures, plans de phasage, DTU 31, mémoires, interfaces couverture. Qualiopi, Constructys.',
+    'Formation IA charpentier BTP : nomenclatures, DTU 31 et mémoires plus rapides, sous contrôle métier. Formation IA pour le BTP. Présentiel IDF, Qualiopi.',
   keywords: [
     'formation IA charpentier',
     'formation IA charpentier BTP',
@@ -698,7 +693,7 @@ Propose STRUCTURE de tableau (colonnes + lignes types) pour reprise interne. Rap
   showAuthorBio: true,
   authorBioClosingLine: 'Elle accompagne les équipes charpente et ossature bois sur une IA utile au bureau et au chantier.',
   relatedMetierLinks: [
-    { href: LINKS.formationIaCharpentierMenuisierBtp, title: 'Formation IA charpentier & menuisier bois', description: 'Charpente, ossature, agencement — angle UMB-FFB, DTU 31.1/31.2.' },
+    { href: LINKS.formationIaMenuisierBtp, title: 'Formation IA menuisier bâtiment', description: 'Menuiseries, DTU 36, devis et pose — métier voisin du bois.' },
     { href: LINKS.formationIaCouvreurBtp, title: 'Formation IA couvreur zingueur', description: 'Interface toiture après structure.' },
     { href: '/formation-ia-macon-btp', title: 'Formation IA maçon BTP', description: 'Appuis, plots et reprises gros œuvre.' },
   ],

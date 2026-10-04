@@ -71,7 +71,8 @@ const COURSE_JSON_LD: Record<string, unknown> = {
 export const metadata = createMetierBtpPageMetadata('chargé d\'affaires', {
   title: SEO_TITLE,
   description:
-    "Formation IA pour chargés d'affaires BTP : chiffrage, DCE, mémoires techniques, relances. Présentiel Île-de-France — organisme certifié Qualiopi, Constructys possible. RDV gratuit.",
+    'Formation IA chargé d’affaires BTP : chiffrage, DCE et relances plus fluides, sous validation métier. Formation IA pour le BTP. Présentiel IDF, Qualiopi.',
+  descriptionFinal: true,
   path: PATH,
   keywords: [
     'formation IA chargé d\'affaires BTP',

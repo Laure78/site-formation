@@ -42,7 +42,7 @@ export function getAccueilHeroModalitesLine(): string {
 /** Ligne tarif NIV-10 accueil — source `TARIF_INTER_DEV_WEB_IA_HT`. */
 export function getAccueilDevWebIaEssentialsLine(): string {
   const tarif = formatTarifHt(TARIF_INTER_DEV_WEB_IA_HT);
-  return `7 h · ${tarif} € HT / participant (inter) · Présentiel IDF ou visio (inter)`;
+  return `7 h · ${tarif} € HT / participant (inter) · Présentiel Île-de-France`;
 }
 
 /** Mise en avant accueil — formation NIV-10 (bloc compact). */

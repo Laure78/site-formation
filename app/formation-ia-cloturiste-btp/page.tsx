@@ -25,7 +25,8 @@ const PATH = '/formation-ia-cloturiste-btp';
 export const metadata = createMetierBtpPageMetadata('clôturiste', {
   title: 'Formation IA Clôturiste BTP Île-de-France',
   description:
-    'Automatisez vos devis clôtures, portails, grillages. Organisme certifié Qualiopi. Financement possible selon éligibilité.',
+    'Formation IA clôturiste BTP : devis clôtures, portails et grillages plus rapides, sous relecture métier. Formation IA pour le BTP. Présentiel IDF, Qualiopi.',
+  descriptionFinal: true,
   path: PATH,
   keywords: [
     'formation IA clôturiste',

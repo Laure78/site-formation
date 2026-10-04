@@ -29,7 +29,8 @@ export const revalidate = 3600;
 export const metadata = createPageMetadata({
   title: 'Formation IA travaux publics — ChatGPT',
   description:
-    "Formation IA pour les travaux publics : planification TP, VRD, études de sol, appels d'offres publics, génie civil. Qualiopi, Constructys. RDV gratuit.",
+    'Formation IA travaux publics : VRD, planification TP et marchés publics accélérés, sous contrôle métier. Formation IA pour le BTP. Présentiel IDF, Qualiopi.',
+  descriptionFinal: true,
   path: '/formation-ia-travaux-publics',
   keywords: [
     'formation IA travaux publics',

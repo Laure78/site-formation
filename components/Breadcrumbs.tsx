@@ -19,13 +19,16 @@ type BreadcrumbsProps = {
   /** id du script JSON-LD (éviter les doublons sur une page). */
   jsonLdId?: string;
   className?: string;
+  /** Si true : fil visuel uniquement (le JSON-LD est fourni par la page). */
+  omitJsonLd?: boolean;
 };
 
 /**
- * Fil d'Ariane réutilisable — navigation visuelle + JSON-LD `BreadcrumbList`.
- * Liens internes via `<Link />` (App Router).
+ * Fil d'Ariane réutilisable — navigation visuelle.
+ * JSON-LD `BreadcrumbList` optionnel : sur le layout global, passer `omitJsonLd`
+ * pour laisser le schéma plus précis à chaque page.
  */
-export function Breadcrumbs({ items, jsonLdId, className }: BreadcrumbsProps) {
+export function Breadcrumbs({ items, jsonLdId, className, omitJsonLd = false }: BreadcrumbsProps) {
   if (items.length === 0) return null;
 
   const schemaItems: BreadcrumbListItem[] = items.map((item) => ({
@@ -73,7 +76,7 @@ export function Breadcrumbs({ items, jsonLdId, className }: BreadcrumbsProps) {
           })}
         </ol>
       </nav>
-      <JsonLd id={scriptId} schema={schema} />
+      {omitJsonLd ? null : <JsonLd id={scriptId} schema={schema} />}
     </>
   );
 }

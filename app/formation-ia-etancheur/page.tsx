@@ -26,11 +26,12 @@ const PAGE_URL = `${SITE_CONFIG.url.replace(/\/$/, '')}${PATH}`;
 
 const SEO_TITLE = 'Formation IA pour Étancheur — ChatGPT BTP';
 const SEO_DESCRIPTION =
-  "Formation IA dédiée aux entreprises d'étanchéité : devis, mémoires techniques, CCTP. Organisme certifié Qualiopi. Financement possible selon éligibilité. Partenaire CSFE.";
+  'Formation IA étancheur : devis, CCTP et mémoires techniques plus structurés, sous relecture métier. Formation IA pour le BTP. Présentiel IDF, Qualiopi.';
 
 export const metadata = createPageMetadata({
   title: SEO_TITLE,
   description: SEO_DESCRIPTION,
+  descriptionFinal: true,
   path: PATH,
   keywords: [
     'ChatGPT étancheur',

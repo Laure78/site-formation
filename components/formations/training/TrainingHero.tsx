@@ -140,6 +140,13 @@ export function TrainingHero({
             >
               {title}
             </h1>
+            {textLink ? (
+              <p className="mt-3 text-sm">
+                <Link href={textLink.href} className={OFC_LINK}>
+                  {textLink.label}
+                </Link>
+              </p>
+            ) : null}
             {subtitle ? (
               <p className="mt-4 max-w-xl text-lg font-medium leading-snug text-slate-700">{subtitle}</p>
             ) : null}
@@ -229,14 +236,6 @@ export function TrainingHero({
             )}
 
             {ctaNote ? <div className="mt-3 text-sm text-slate-600">{ctaNote}</div> : null}
-
-            {textLink ? (
-              <p className="mt-3 text-sm">
-                <a href={textLink.href} className={OFC_LINK}>
-                  {textLink.label}
-                </a>
-              </p>
-            ) : null}
 
             {showQualiopiInfoLink && catalogueRef ? (
               <p className="mt-2 text-sm">
