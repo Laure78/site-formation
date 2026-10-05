@@ -1,598 +1,545 @@
-import { FAQAnswer } from '@/components/landing/FAQAnswer';
-import { CTA_RDV_LABEL } from '@/components/CtaRdv';
 import Link from 'next/link';
-import { Check, FileText, Calculator, Clock, ArrowRight, Calendar } from 'lucide-react';
-import { AllerPlusLoin } from '@/components/AllerPlusLoin';
-import { RdvLink } from '@/components/RdvLink';
-import { LINKS } from '@/lib/internal-links';
-import { buildSiteCalendlyCtaUrl } from '@/lib/calendly';
-import { SCHEMA_PUBLIC_SITE_URL } from '@/lib/schema-constants';
-import { ShortAnswerBlock } from '@/components/landing/ShortAnswerBlock';
-import { createPageMetadata, getFAQSchema } from '@/lib/seo';
+import { ArrowRight, Check } from 'lucide-react';
+import { CtaRdv } from '@/components/CtaRdv';
+import { IaDevisFaqAccordion } from '@/components/ia-devis-batiment/IaDevisFaqAccordion';
+import { IaDevisHeroDemo } from '@/components/ia-devis-batiment/IaDevisHeroDemo';
+import { IaDevisPromptsAccordion } from '@/components/ia-devis-batiment/IaDevisPromptsAccordion';
 import { JsonLd } from '@/components/JsonLd';
-import { DEVIS_GAIN_TEMPS_LIBELLE } from '@/lib/gains-temps-copy';
-import { formatTarifHt, TARIF_SESSION_FORFAIT_HT } from '@/lib/tarifs-sessions';
+import { PreuveSociale } from '@/components/PreuveSociale';
+import { ProfilePhoto } from '@/components/landing/ProfilePhoto';
+import { CTASection } from '@/components/ui/CTASection';
+import { Section } from '@/components/ui/Section';
+import {
+  IA_DEVIS_ALLER_PLUS_LOIN,
+  IA_DEVIS_AVANT,
+  IA_DEVIS_AVEC,
+  IA_DEVIS_CHECKLIST,
+  IA_DEVIS_DEMO_NOTES,
+  IA_DEVIS_DEMO_POSTES,
+  IA_DEVIS_ERREURS,
+  IA_DEVIS_ETAPES,
+  IA_DEVIS_FAQ,
+  IA_DEVIS_FORMATION_FACTS,
+  IA_DEVIS_FORMATION_HIGHLIGHTS,
+  IA_DEVIS_FORMATION_HREF,
+  IA_DEVIS_HERO_BENEFICES,
+  IA_DEVIS_LIVRABLES,
+  IA_DEVIS_NE_DOIT_PAS,
+  IA_DEVIS_PATH,
+  IA_DEVIS_PEUT,
+  IA_DEVIS_PREUVES,
+  IA_DEVIS_PROBLEMES,
+  IA_DEVIS_REASSURANCE,
+  IA_DEVIS_SEO,
+} from '@/lib/ia-devis-batiment-content';
+import { IA_DEVIS_PROMPTS_PAR_METIER } from '@/lib/ia-devis-batiment-prompts';
+import { formatAnneesExperienceBTP } from '@/lib/data/indicateurs-resultats';
+import { LINKS } from '@/lib/internal-links';
+import {
+  OFC_CARD,
+  OFC_CTA_PRIMARY,
+  OFC_CTA_SECONDARY,
+  OFC_TYPE_H2,
+  OFC_TYPE_H3,
+} from '@/lib/ofc-interaction-classes';
+import { createPageMetadata, getBreadcrumbSchema, getFAQSchema } from '@/lib/seo';
 
 export const revalidate = 3600;
+
 export const metadata = createPageMetadata({
-  title: 'Formation IA devis BTP — session présentiel',
-  description:
-    'Formation IA pour le BTP : automatisez vos devis bâtiment avec ChatGPT. Session présentiel IDF et templates. Financement OPCO possible selon éligibilité.',
+  title: IA_DEVIS_SEO.title,
+  description: IA_DEVIS_SEO.description,
   descriptionFinal: true,
-  path: '/ia-devis-batiment',
-  appendAuthorSuffix: false,
+  path: IA_DEVIS_PATH,
   keywords: [
-    'IA devis automatique bâtiment',
     'IA devis bâtiment',
+    'IA devis BTP',
     'ChatGPT devis BTP',
-    'IA pour devis BTP',
-    'ChatGPT devis construction',
-    'automatiser devis bâtiment',
-    'devis IA BTP',
-    'financement formation IA OPCO Constructys',
+    'formation IA devis BTP',
+    'IA chiffrage bâtiment',
   ],
 });
 
-const DEFINITION = {
-  titre: "Qu'est-ce que l'IA devis automatique bâtiment ?",
-  court: "L'IA devis automatique bâtiment désigne l'utilisation de ChatGPT et outils similaires pour générer, structurer et accélérer la rédaction de devis et chiffrages dans le secteur du BTP : descriptifs techniques, quantités, prix, conditions générales.",
-  long: "Un devis bâtiment complet comprend généralement : un descriptif détaillé des prestations, les quantités et unités, les prix unitaires et totaux HT/TTC, les conditions de validité et de paiement. L'intelligence artificielle peut produire ces éléments à partir d'un brief succinct : type de chantier, corps de métier, superficie, options. Vous conservez la maîtrise des prix et des marges ; l'IA vous fait gagner le temps de rédaction et de mise en forme.",
-};
-
-const BENEFICES = [
-  {
-    icon: Clock,
-    titre: 'Gain de temps',
-    desc: `${DEVIS_GAIN_TEMPS_LIBELLE} L'IA structure le document ; vous ajustez les montants et les conditions.`,
-  },
-  {
-    icon: Calculator,
-    titre: 'Cohérence et variantes',
-    desc: "Générez facilement des variantes (avec/sans option, différents matériaux) pour proposer plusieurs options au client sans tout recopier.",
-  },
-  {
-    icon: FileText,
-    titre: 'Professionnalisme',
-    desc: "Descriptifs techniques clairs, formulations professionnelles, mise en page structurée. L'IA vous aide à renvoyer une image soignée.",
-  },
-];
-
-/** Prompts ChatGPT — devis BTP par métier (section SEO « ChatGPT devis BTP » / « IA devis bâtiment ») */
-const PROMPTS_PAR_METIER = [
-  {
-    label: 'Électricien',
-    prompt:
-      "Rédige un devis professionnel pour une entreprise d'électricité du bâtiment. Chantier : mise aux normes d'un tableau électrique et ajout de 8 circuits (éclairage, prises 16A, prises dédiées four). Précise un tableau avec 3 colonnes : désignation des fournitures (avec références types si génériques), main d'œuvre par poste, sous-totaux HT. Mentionne déplacement, diagnostic, mise en conformité NF C 15-100. TVA à 10 % pour la rénovation sur logement de plus de 2 ans. Ajoute validité du devis 30 jours, délais d'exécution indicatifs, conditions de paiement 30 % à la commande / solde à la réception. Ton : professionnel BTP, vocabulaire métier.",
-    resultat:
-      'Un devis structuré avec postes séparés fournitures / pose, ligne pour le tableau et les protections, mention des essais et réception, totaux HT et TTC avec TVA 10 %.',
-    temps: '1 h 30',
-  },
-  {
-    label: 'Plombier-chauffagiste',
-    prompt:
-      "Rédige un devis détaillé pour une rénovation complète de salle de bain (environ 8 m²) : dépose ancien carrelage et sanitaires, alimentations eau chaude / froide, évacuations, pose WC suspendu, meuble vasque, douche à l'italienne avec receveur à carreler, robinetterie entrée de gamme milieu de gamme. Inclus : fournitures listées par poste (à préciser « fournis par l'entreprise » ou « fournis par le client »), main d'œuvre par lot, délais, reprise des étanchéités et tests d'étanchéité. TVA 10 % rénovation. Validité 30 jours. Style : devis BTP clair, sans prix inventés — laisse des champs [PU HT] à compléter.",
-    resultat:
-      'Un devis multi-lots (dépose, réseaux, étanchéité, pose sanitaires, finitions) avec quantités indicatives et lignes à compléter pour le chiffrage réel.',
-    temps: '2 h',
-  },
-  {
-    label: 'Maçon',
-    prompt:
-      "Élabore un devis pour travaux de maçonnerie : fondations superficielles longrines pour extension 20 m², dalle isolée 10 cm avec treillis, élévation murs en parpaings creux de 20 cm avec chaînage et linteaux, ouvertures baies et portes. Détaille les unités (m³ béton, m² maçonnerie, tonnes ciment si pertinent), la main d'œuvre par phase, les sous-traitances éventuelles (étude géotechnique en hors-devis si besoin). Mentionne délais météo, reprises de liaison avec l'existant. TVA selon contexte neuf / rénovation (précise à compléter). Format : tableau par lot technique.",
-    resultat:
-      'Un chiffrage découpé par phases gros œuvre, avec vocabulaire CCTP-friendly (fondations, dalle, élévation) prêt à être complété par vos unitaires chantier.',
-    temps: '1 h 45',
-  },
-  {
-    label: 'Carreleur',
-    prompt:
-      "Rédige un devis pour pose de carrelage sol et mural en rénovation : 28 m² sol + 22 m² murs, format 60×60 cm, colle C2 selon DTU, joints cimentaires compatibles, découpe et chutes incluses. Précise : préparation des supports, primaire d'accrochage si nécessaire, pose collée, joints (largeur 2 mm), nettoyage. Tableau fournitures (colle, croisillons, joints) / main d'œuvre. TVA 10 % si rénovation logement éligible. Ajoute conditions de réception et garanties habituelles. Laisse les prix unitaires en [à compléter].",
-    resultat:
-      'Un devis aligné DTU 52.1 avec postes compréhensibles pour le client et lignes techniques pour votre bureau de prix.',
-    temps: '1 h 15',
-  },
-  {
-    label: 'Peintre',
-    prompt:
-      "Produis un devis pour travaux de peinture intérieure : préparation des supports (rebouchage léger, ponçage, lessivage), application d'un enduit de lissage sur zones irrégulières, puis deux couches de peinture acrylique sur murs et plafonds — surface totale environ 120 m² décomposée par pièce. Liste les produits par type (sous-couche, finition), le temps estimé par pièce, protections sol et mobilier. Précise finitions plinthes et raccords. TVA 10 % si rénovation. Format professionnel avec lignes [PU] à compléter.",
-    resultat:
-      'Un devis par pièce ou par surface avec phases préparation / finition, adapté aux réponses clients exigeants sur les produits.',
-    temps: '1 h 20',
-  },
-  {
-    label: 'Charpentier',
-    prompt:
-      "Rédige un devis pour réfection de charpente traditionnelle : dépose partielle de couverture, remplacement chevrons endommagés, liteaux, écran sous-toiture, voligeage si nécessaire — surface de toiture environ 90 m², pente 45 %. Inclus : calage sécurité chantier, évacuation gravats, liaison avec couvreur si sous-traitance (à mentionner). Détaille bois section / essences en [à préciser selon étude], quincaillerie, traitement fongicide si besoin. Ajoute délais, garanties décennale à rappeler côté coordination corps d'état. TVA selon opération. Ton : charpentier BTP.",
-    resultat:
-      'Un devis structuré bois / couverture avec lots techniques et rappels de coordination, prêt pour ajout de votre étude et prix fournisseurs bois.',
-    temps: '1 h 45',
-  },
-] as const;
-
-const CHECKLIST_DEVIS_IA = [
-  'Prix unitaires corrects : chaque PU et chaque quantité reflètent votre métreur / votre bordereau — pas les valeurs « plausibles » suggérées par l’IA.',
-  'TVA : taux et assiette adaptés au chantier (10 %, 20 %, exonération) et libellés conformes à votre situation.',
-  'Délais de paiement : acomptes, échéancier et pénalités de retard cohérents avec votre politique et le cadre légal.',
-  'Validité du devis : date limite d’acceptation explicite (souvent 30 jours) pour sécuriser votre prix.',
-  'Nom du client : raison sociale ou identité, adresse de facturation et du chantier si différente.',
-  'Coordonnées complètes : téléphone, email, SIRET, assurance décennale / RC pro selon activité.',
-  'Signature : mentions « Bon pour accord », date et paraphes prévus pour client et entreprise.',
-  'CGV : renvoi à vos conditions générales jointes ou résumé des clauses essentielles (réception, garanties, litiges).',
-];
-
-const ERREURS_IA_DEVIS = [
-  {
-    titre: 'Oublier les marges et la structure de coûts',
-    desc: "L'IA propose des lignes et des formulations ; elle ne connaît pas votre coefficient, vos frais fixes ni la concurrence locale. Si vous recopiez des montants « plausibles » sans les recalculer, vous perdez de la marge ou vous sous-évaluez la main d'œuvre.",
-  },
-  {
-    titre: 'Ne pas adapter le vocabulaire au métier et au client',
-    desc: "Un devis trop générique fait moins professionnel qu'un texte qui cite les bons matériaux, normes et unités (m², ml, forfait). Ajustez toujours le ton : particulier, syndic, marché public.",
-  },
-  {
-    titre: 'Envoyer sans relecture humaine',
-    desc: "Fautes, incohérences entre les postes, oublis de prestations incluses dans votre visite : l'IA ne remplace pas le passage sur chantier. Une relecture systématique évite les engagements hasardeux.",
-  },
-  {
-    titre: 'Coller des données sensibles dans ChatGPT « public »',
-    desc: "Plans détaillés, données clients, prix négociés fournisseurs : à traiter avec des outils adaptés (comptes entreprise, anonymisation) ou saisie manuelle des éléments confidentiels après génération du squelette.",
-  },
-  {
-    titre: 'Utiliser un prompt trop vague',
-    desc: "« Fais un devis pour un chantier » produit un texte médiocre. Précisez métier, surfaces, contexte neuf/rénovation, contraintes normatives et format attendu : c'est ce qui distingue un prompt utile pour un ChatGPT devis BTP d'un brouillon inutilisable.",
-  },
-];
-
-const FAQ_IA_DEVIS_BATIMENT = [
-  {
-    q: "L'IA peut-elle rédiger un devis BTP à ma place ?",
-    a: "Oui, en brouillon structuré — jamais en chiffrage définitif sans vous. ChatGPT et outils équivalents accélèrent la mise en forme (descriptifs, postes, TVA, conditions) à partir de votre brief métier ; vous restez seul juge des quantités, des prix unitaires et de la signature. C'est le cœur du module devis de la <a href=\"/formations/ia-batiment-travaux-publics\">formation NIV-01 — L'IA au service du Bâtiment Travaux Publics</a> : prompts par corps de métier, relecture et garde-fous confidentialité.",
-  },
-  {
-    q: "Combien de temps peut-on gagner sur un devis avec l'IA ?",
-    a: `En pratique, un premier devis structuré en moins d'une heure, contre une demi-journée en routine — selon la complexité du chantier et la qualité du prompt. L'IA structure ; vous relisez et ajustez les PU. Pour le détail outil par outil, voir <a href="${LINKS.blogIaDevisBatimentChiffrageAutomatise}#faq">logiciel de devis BTP avec l'IA</a>.`,
-  },
-  {
-    q: "Faut-il une formation pour utiliser l'IA sur les devis ?",
-    a: "Non pour un essai ponctuel ; oui pour l'ancrer en équipe sans erreurs coûteuses. Une session de 4 h suffit à maîtriser prompts, trames par métier, checklist TVA et règles de confidentialité — sans prérequis technique ni code. En intra-entreprise, l'objectif est de repartir avec des modèles réutilisables sur vos vrais documents, pas une démo générique déconnectée du terrain.",
-  },
-  {
-    q: "La formation IA devis est-elle finançable par l'OPCO ?",
-    a: "Oui, selon éligibilité et dossier monté dans les délais. Les sessions dispensées par un organisme certifié Qualiopi (module devis inclus) peuvent être prises en charge par Constructys ou votre OPCO BTP, dans la limite des plafonds horaires et du délai eGestion (15 jours calendaires avant la session). Le <a href=\"/financement-constructys-formation-ia-btp\">guide financement Constructys formation IA BTP</a> détaille les pièces, les plafonds 2026 et les erreurs qui font rejeter un dossier.",
-  },
-] as const;
-
 export default function IADevisBatimentPage() {
-  const faqSchema = getFAQSchema([...FAQ_IA_DEVIS_BATIMENT]);
+  const faqSchema = getFAQSchema([...IA_DEVIS_FAQ]);
+  const breadcrumbSchema = getBreadcrumbSchema([
+    { name: 'Accueil', path: '/' },
+    { name: 'IA devis bâtiment', path: IA_DEVIS_PATH },
+  ]);
 
   return (
-    <div className="mx-auto max-w-4xl px-4 py-16">
-      <JsonLd id="schema-faq-page" schema={faqSchema} />
-      <nav className="mb-8 text-sm text-slate-600">
-        <Link href="/" className="text-[var(--accent)] hover:underline">
-          Accueil
-        </Link>
-        {' / '}
-        <span className="text-slate-900">IA pour devis bâtiment</span>
-      </nav>
+    <>
+      <JsonLd id="schema-faq-ia-devis" schema={faqSchema} />
+      <JsonLd id="schema-breadcrumb-ia-devis" schema={breadcrumbSchema} />
 
-      <article>
-        <h1 className="font-display text-4xl font-bold tracking-tight text-slate-900 md:text-5xl">
-          Formation IA devis BTP :{' '}
-          <span className="text-[var(--accent)]">session présentiel</span>
-        </h1>
-        <p className="mt-6 text-xl text-slate-600">
-          L&apos;IA devis BTP permet d&apos;{' '}
-          <Link href={LINKS.formationParis} className="text-[var(--accent)] font-medium hover:underline">
-            automatiser devis bâtiment
-          </Link>
-          {' '}et structurer un premier devis en moins d&apos;une heure (vs demi-journée selon complexité). Descriptifs techniques, chiffrages, variantes : documents plus homogènes d&apos;un chantier à l&apos;autre. Découvrez ma{' '}
-          <Link href="/formations" className="text-[var(--accent)] font-medium hover:underline">
-            formation IA pour le BTP
-          </Link>
-          {' '}financement possible selon éligibilité.
+      {/* 1. Hero */}
+      <Section tone="soft" aria-labelledby="ia-devis-h1" className="!pt-10 md:!pt-14">
+        <div className="grid items-start gap-10 lg:grid-cols-2 lg:gap-12 xl:gap-16">
+          <div className="min-w-0">
+            <p className="inline-flex rounded-full bg-white px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.12em] text-[var(--accent)] ring-1 ring-[var(--accent)]/20">
+              Formation IA BTP • Devis &amp; chiffrage
+            </p>
+            <h1
+              id="ia-devis-h1"
+              className="mt-5 font-display text-3xl font-extrabold tracking-tight text-slate-900 text-balance md:text-4xl lg:text-[2.65rem] lg:leading-[1.15]"
+            >
+              {IA_DEVIS_SEO.h1}
+            </h1>
+            <p className="mt-5 max-w-xl text-base leading-relaxed text-slate-600 md:text-lg">
+              Apprenez à utiliser ChatGPT et l’IA pour préparer vos descriptifs, structurer vos
+              postes, créer des variantes et accélérer la rédaction de vos devis — tout en gardant
+              la maîtrise de vos prix et de vos marges.
+            </p>
+            <ul className="mt-6 space-y-2.5">
+              {IA_DEVIS_HERO_BENEFICES.map((item) => (
+                <li key={item} className="flex gap-2.5 text-sm font-medium text-slate-800 md:text-base">
+                  <span className="mt-0.5 shrink-0 text-[var(--accent)]" aria-hidden>
+                    →
+                  </span>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+              <CtaRdv
+                origin="ia-devis-hero"
+                className={`${OFC_CTA_PRIMARY} inline-flex min-h-12 items-center justify-center px-7 py-3`}
+              />
+              <Link
+                href="#formation-ia-devis"
+                className={`${OFC_CTA_SECONDARY} inline-flex min-h-12 items-center justify-center px-7 py-3`}
+              >
+                Découvrir la formation
+              </Link>
+            </div>
+            <p className="mt-5 text-sm leading-relaxed text-slate-500">{IA_DEVIS_REASSURANCE}</p>
+          </div>
+          <div className="min-w-0 lg:sticky lg:top-24">
+            <IaDevisHeroDemo />
+          </div>
+        </div>
+      </Section>
+
+      {/* 2. Barre de preuves */}
+      <section
+        className="border-y border-slate-200 bg-white"
+        aria-label="Éléments de réassurance"
+      >
+        <div className="mx-auto grid max-w-[1400px] gap-px bg-slate-100 px-4 sm:grid-cols-2 lg:grid-cols-4 sm:px-8">
+          {IA_DEVIS_PREUVES.map((item) => (
+            <div key={item.label} className="bg-white px-5 py-5 text-center sm:text-left">
+              <p className="text-sm font-semibold text-slate-900">{item.label}</p>
+              <p className="mt-1 text-xs leading-relaxed text-slate-500">{item.detail}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* 3. Problème métier */}
+      <Section tone="white" aria-labelledby="ia-devis-probleme">
+        <h2 id="ia-devis-probleme" className={OFC_TYPE_H2}>
+          Pourquoi les devis prennent-ils autant de temps&nbsp;?
+        </h2>
+        <p className="mt-4 max-w-2xl text-base leading-relaxed text-slate-600">
+          Entre la visite chantier et l’envoi du document, la rédaction concentre une grande partie
+          du temps : reprendre les notes, détailler les postes, reformuler, préparer des options.
+          C’est précisément là que l’IA peut aider — sans remplacer votre expertise.
+        </p>
+        <div className="mt-10 grid gap-4 sm:grid-cols-2">
+          {IA_DEVIS_PROBLEMES.map((card) => (
+            <article key={card.titre} className={`${OFC_CARD} rounded-2xl p-6`}>
+              <h3 className={`${OFC_TYPE_H3} text-lg`}>→ {card.titre}</h3>
+              <p className="mt-2 text-sm leading-relaxed text-slate-600">{card.desc}</p>
+            </article>
+          ))}
+        </div>
+        <p className="mt-10 max-w-2xl rounded-2xl border border-slate-200 bg-slate-50 px-5 py-4 text-base leading-relaxed text-slate-700">
+          L’IA ne remplace ni le métreur, ni le dirigeant, ni le logiciel de devis. Elle peut en
+          revanche accélérer considérablement la préparation et la rédaction.
+        </p>
+      </Section>
+
+      {/* 4. Avant / Avec l’IA */}
+      <Section tone="soft" aria-labelledby="ia-devis-avant-apres">
+        <h2 id="ia-devis-avant-apres" className={OFC_TYPE_H2}>
+          Ce que l’IA change dans la préparation d’un devis
+        </h2>
+        <div className="mt-10 grid gap-6 md:grid-cols-2">
+          <div className="rounded-2xl border border-slate-200 bg-white p-6 md:p-8">
+            <p className="text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">Avant</p>
+            <ul className="mt-5 space-y-3">
+              {IA_DEVIS_AVANT.map((item) => (
+                <li key={item} className="flex gap-3 text-sm text-slate-700 md:text-base">
+                  <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-slate-300" aria-hidden />
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="rounded-2xl border border-[var(--accent)]/30 bg-white p-6 md:p-8 shadow-[0_8px_24px_rgba(55,124,243,0.08)]">
+            <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[var(--accent)]">
+              Avec l’IA
+            </p>
+            <ul className="mt-5 space-y-3">
+              {IA_DEVIS_AVEC.map((item) => (
+                <li key={item} className="flex gap-3 text-sm font-medium text-slate-800 md:text-base">
+                  <Check
+                    className="mt-0.5 h-5 w-5 shrink-0 text-[var(--accent)]"
+                    strokeWidth={1.5}
+                    aria-hidden
+                  />
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+        <p className="mt-8 rounded-2xl border-2 border-[var(--accent)] bg-white px-5 py-4 text-center text-base font-semibold leading-relaxed text-slate-900 md:px-8">
+          Les prix, quantités, marges, contraintes techniques et engagements contractuels restent
+          sous la responsabilité de l’entreprise.
+        </p>
+      </Section>
+
+      {/* 5. Méthode en 4 étapes */}
+      <Section tone="white" aria-labelledby="ia-devis-methode">
+        <h2 id="ia-devis-methode" className={OFC_TYPE_H2}>
+          Comment préparer un devis BTP avec l’IA&nbsp;?
+        </h2>
+        <ol className="mt-10 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+          {IA_DEVIS_ETAPES.map((etape) => (
+            <li key={etape.n} className={`${OFC_CARD} relative rounded-2xl p-6`}>
+              <span className="font-display text-3xl font-extrabold text-[var(--accent)]/25">
+                {etape.n}
+              </span>
+              <h3 className="mt-3 font-display text-lg font-bold text-slate-900">{etape.titre}</h3>
+              <p className="mt-2 text-sm leading-relaxed text-slate-600">{etape.desc}</p>
+            </li>
+          ))}
+        </ol>
+      </Section>
+
+      {/* 6. Démonstration */}
+      <Section tone="soft" aria-labelledby="ia-devis-demo">
+        <h2 id="ia-devis-demo" className={OFC_TYPE_H2}>
+          Exemple : passer de notes chantier à une trame de devis
+        </h2>
+        <div className="mt-10 grid gap-6 lg:grid-cols-2">
+          <div className="rounded-2xl border border-slate-200 bg-white p-6 md:p-8">
+            <p className="text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">
+              Notes chantier
+            </p>
+            <ul className="mt-5 space-y-2.5 text-sm text-slate-700 md:text-base">
+              {IA_DEVIS_DEMO_NOTES.map((note) => (
+                <li key={note} className="flex gap-2.5">
+                  <span className="text-[var(--accent)]" aria-hidden>
+                    •
+                  </span>
+                  {note}
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="rounded-2xl border border-[var(--accent)]/25 bg-white p-6 md:p-8">
+            <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[var(--accent)]">
+              Devis structuré
+            </p>
+            <ol className="mt-5 space-y-2 text-sm text-slate-800 md:text-base">
+              {IA_DEVIS_DEMO_POSTES.map((poste, i) => (
+                <li key={poste}>
+                  <span className="font-semibold text-[var(--accent)]">
+                    {String(i + 1).padStart(2, '0')}.
+                  </span>{' '}
+                  {poste}
+                </li>
+              ))}
+            </ol>
+            <dl className="mt-6 grid gap-2 rounded-xl bg-slate-50 p-4 text-sm text-slate-600">
+              <div className="flex justify-between gap-3">
+                <dt>PU HT</dt>
+                <dd className="font-medium text-slate-800">[à compléter]</dd>
+              </div>
+              <div className="flex justify-between gap-3">
+                <dt>Quantité</dt>
+                <dd className="font-medium text-slate-800">[à vérifier]</dd>
+              </div>
+              <div className="flex justify-between gap-3">
+                <dt>TVA</dt>
+                <dd className="font-medium text-slate-800">[à déterminer selon opération]</dd>
+              </div>
+            </dl>
+          </div>
+        </div>
+      </Section>
+
+      {/* 7. Peut / Ne doit pas */}
+      <Section tone="white" aria-labelledby="ia-devis-limites">
+        <h2 id="ia-devis-limites" className={OFC_TYPE_H2}>
+          L’IA est un assistant. Pas un métreur automatique.
+        </h2>
+        <div className="mt-10 grid gap-6 md:grid-cols-2">
+          <div className="rounded-2xl border border-[var(--accent)]/25 bg-[var(--accent-soft)]/50 p-6 md:p-8">
+            <h3 className="font-display text-lg font-bold text-slate-900">Elle peut</h3>
+            <ul className="mt-5 space-y-3">
+              {IA_DEVIS_PEUT.map((item) => (
+                <li key={item} className="flex gap-2.5 text-sm text-slate-700 md:text-base">
+                  <span className="shrink-0 font-semibold text-[var(--accent)]" aria-hidden>
+                    →
+                  </span>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="rounded-2xl border border-slate-300 bg-slate-50 p-6 md:p-8">
+            <h3 className="font-display text-lg font-bold text-slate-900">Elle ne doit pas</h3>
+            <ul className="mt-5 space-y-3">
+              {IA_DEVIS_NE_DOIT_PAS.map((item) => (
+                <li key={item} className="flex gap-2.5 text-sm text-slate-700 md:text-base">
+                  <span className="shrink-0 font-semibold text-slate-500" aria-hidden>
+                    →
+                  </span>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </Section>
+
+      {/* 8. Formation */}
+      <Section
+        id="formation-ia-devis"
+        tone="soft"
+        aria-labelledby="ia-devis-formation"
+        className="scroll-mt-24"
+      >
+        <h2 id="ia-devis-formation" className={OFC_TYPE_H2}>
+          Apprenez à utiliser l’IA sur vos propres devis BTP
+        </h2>
+        <p className="mt-4 max-w-2xl text-base leading-relaxed text-slate-600">
+          La formation est conçue pour les professionnels du bâtiment qui souhaitent utiliser
+          concrètement l’intelligence artificielle dans leur activité. Les exercices peuvent
+          s’appuyer sur vos propres documents et vos situations métier.
         </p>
 
-        <div className="mt-8">
-          <ShortAnswerBlock>
-            L&apos;IA aide les entreprises du BTP à libérer du temps sur les devis, emails et comptes rendus. Une formation de 4 h suffit pour être opérationnel. Les gains varient selon l&apos;organisation et le niveau de pratique.
-          </ShortAnswerBlock>
-        </div>
-
-        {/* Bloc GEO : Réponse courte */}
-        <section className="mt-12 rounded-2xl border-2 border-[var(--accent)] bg-[var(--accent-soft)] p-6 md:p-8">
-          <h2 className="font-display text-xl font-bold text-slate-900">
-            En bref : IA devis automatique bâtiment
-          </h2>
-          <p className="mt-4 text-slate-700">{DEFINITION.court}</p>
-        </section>
-
-        {/* Définition */}
-        <section className="mt-16">
-          <h2 className="font-display text-2xl font-bold text-slate-900">
-            {DEFINITION.titre}
-          </h2>
-          <p className="mt-4 text-slate-600 leading-relaxed">{DEFINITION.long}</p>
-        </section>
-
-        {/* Bénéfices */}
-        <section className="mt-16">
-          <h2 className="font-display text-2xl font-bold text-slate-900">
-            Pourquoi utiliser l&apos;IA pour vos devis BTP ?
-          </h2>
-          <div className="mt-10 grid gap-6 md:grid-cols-3">
-            {BENEFICES.map(({ icon: Icon, titre, desc }) => (
-              <div
-                key={titre}
-                className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm"
-              >
-                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[var(--accent-soft)] text-[var(--accent)]">
-                  <Icon size={24} strokeWidth={1.5} />
-                </div>
-                <h3 className="mt-4 font-semibold text-slate-900">{titre}</h3>
-                <p className="mt-2 text-sm text-slate-600">{desc}</p>
-              </div>
-            ))}
+        <article className="mt-10 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-[0_8px_30px_rgba(15,23,42,0.06)]">
+          <div className="border-b border-slate-100 bg-[var(--accent)] px-6 py-5 text-white md:px-8">
+            <p className="text-xs font-semibold uppercase tracking-[0.14em] text-white/80">
+              Programme catalogue
+            </p>
+            <h3 className="mt-2 font-display text-xl font-bold md:text-2xl">
+              {IA_DEVIS_FORMATION_FACTS.titre}
+            </h3>
+            <p className="mt-2 max-w-2xl text-sm leading-relaxed text-white/90 md:text-base">
+              {IA_DEVIS_FORMATION_FACTS.promesse}
+            </p>
           </div>
-        </section>
-
-        {/* Exemple */}
-        <section className="mt-16 rounded-2xl border border-slate-200 bg-slate-50 p-6 md:p-8">
-          <h2 className="font-display text-2xl font-bold text-slate-900">
-            Exemple : devis carrelage avec l&apos;IA
-          </h2>
-          <p className="mt-4 text-slate-600">
-            Vous êtes carreleur. Vous indiquez à ChatGPT : « Devis pour 35 m² de
-            carrelage sol et mural, salle de bain, format 60x60, colle et joint
-            fournis. Main d&apos;œuvre + fournitures. TVA 10 %. » L&apos;IA génère
-            un descriptif structuré avec postes (décapage, préparation,
-            pose, joints), quantités, prix unitaires et total. Vous vérifiez et
-            ajustez selon vos tarifs réels. Pour apprendre à{' '}
-            <Link href={LINKS.formationParis} className="text-[var(--accent)] font-medium hover:underline">
-              utiliser ChatGPT dans le BTP
-            </Link>
-            , ma formation pratique vous donne les trames prêtes à l&apos;emploi.
-          </p>
-          <p className="mt-6 text-slate-600 leading-relaxed">
-            Sur les moteurs comme Google, les requêtes{' '}
-            <strong className="text-slate-800">ChatGPT devis BTP</strong> et{' '}
-            <strong className="text-slate-800">IA devis bâtiment</strong> regroupent des professionnels du BTP,
-            chefs d&apos;entreprise et conducteurs de travaux qui cherchent un gain de temps concret :
-            moins de blanc sur la page, des postes mieux structurés, des variantes pour négocier avec le
-            client. L&apos;objectif n&apos;est pas de &laquo; générer un prix &raquo; sans contrôle, mais
-            d&apos;obtenir un <strong className="text-slate-800">squelette professionnel</strong> (titres,
-            lots, unités, mentions TVA et délais) que vous complétez avec votre grille tarifaire et votre
-            visite technique. Les sections qui suivent détaillent des prompts par métier, une checklist
-            de relecture, les erreurs fréquentes — puis le déroulé d&apos;une formation en 4 h pour
-            ancrer ces réflexes dans votre équipe.
-          </p>
-        </section>
-
-        {/* Prompts par métier — SEO ChatGPT devis BTP / IA devis bâtiment */}
-        <section className="mt-20">
-          <h2 className="font-display text-2xl font-bold text-slate-900 md:text-3xl">
-            Prompts ChatGPT prêts à l&apos;emploi par corps de métier
-          </h2>
-          <p className="mt-4 text-slate-600 leading-relaxed">
-            Pour ranker sur des recherches comme{' '}
-            <strong className="text-slate-800">ChatGPT devis BTP</strong> ou{' '}
-            <strong className="text-slate-800">IA devis bâtiment</strong>, le critère décisif est la
-            qualité du brief : un prompt détaillé produit un brouillon de devis exploitable, que vous
-            complétez avec vos prix et votre marge. Ci-dessous, six exemples de prompts complets à
-            copier-coller dans ChatGPT (ou un outil équivalent), puis à adapter après relecture.
-          </p>
-          <p className="mt-3 text-slate-600 leading-relaxed">
-            Chaque bloc suit le même principe : l&apos;IA structure le document et le vocabulaire
-            métier ; vous restez seul juge des montants, des délais et de la conformité réglementaire.
-          </p>
-          <p className="mt-4 text-slate-600 leading-relaxed">
-            <strong className="text-slate-800">Méthode.</strong> Copiez le prompt dans une nouvelle
-            conversation, complétez les éléments entre crochets si j&apos;en ai laissés, puis imposez
-            le format souhaité : tableau pour séparer fournitures et main d&apos;œuvre, TVA à 10 % pour
-            une rénovation éligible, mentions de validité et de paiement. Relisez systématiquement : une
-            bonne pratique pour le <strong className="text-slate-800">devis intelligent bâtiment</strong>{' '}
-            consiste à enregistrer vos prompts validés comme modèles internes (texte, Notion ou fiche
-            Excel) afin d&apos;harmoniser les réponses de votre bureau des prix. Pour les marchés
-            sensibles ou les données personnelles, préférez un environnement professionnel (compte
-            entreprise, anonymisation des noms) plutôt que le collage brut de dossiers complets dans un
-            outil grand public.
-          </p>
-          <p className="mt-4 text-slate-600 leading-relaxed">
-            Les six métiers ci-dessous couvrent une large part des demandes en second œuvre et en
-            structure : <strong className="text-slate-800">électricien</strong> (tableau explicite
-            fournitures / main d&apos;œuvre / TVA 10 %),{' '}
-            <strong className="text-slate-800">plombier-chauffagiste</strong> (salle de bain rénovée),
-            <strong className="text-slate-800"> maçon</strong> (fondations, dalles, élévation),{' '}
-            <strong className="text-slate-800">carreleur</strong> (60×60, colle C2, joints),{' '}
-            <strong className="text-slate-800">peintre</strong> (préparation, deux couches),{' '}
-            <strong className="text-slate-800">charpentier</strong> (traditionnelle, chevrons,
-            coordination couverture). Adaptez les surfaces, les marques et les contraintes chantier à votre
-            réalité — le prompt est une base, pas une offre figée.
-          </p>
-          <div className="mt-10 space-y-12">
-            {PROMPTS_PAR_METIER.map((bloc) => (
-              <div
-                key={bloc.label}
-                className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm md:p-8"
-              >
-                <h3 className="font-display text-xl font-semibold text-slate-900">{bloc.label}</h3>
-                <div className="mt-4 space-y-3 text-slate-700">
-                  <p>
-                    <strong className="text-slate-900">Prompt :</strong>{' '}
-                    <span className="leading-relaxed">{bloc.prompt}</span>
-                  </p>
-                  <p>
-                    <strong className="text-slate-900">Résultat attendu :</strong>{' '}
-                    {bloc.resultat}
-                  </p>
-                  <p>
-                    <strong className="text-slate-900">Temps économisé :</strong>{' '}
-                    environ {bloc.temps} par rapport à une rédaction « à blanc » sans trame.
-                  </p>
-                </div>
+          <div className="grid gap-6 p-6 md:grid-cols-2 md:p-8">
+            <dl className="space-y-4 text-sm">
+              <div>
+                <dt className="font-semibold text-slate-500">Durée</dt>
+                <dd className="mt-1 text-slate-900">{IA_DEVIS_FORMATION_FACTS.duree}</dd>
               </div>
-            ))}
+              <div>
+                <dt className="font-semibold text-slate-500">Modalité</dt>
+                <dd className="mt-1 text-slate-900">{IA_DEVIS_FORMATION_FACTS.modalite}</dd>
+              </div>
+              <div>
+                <dt className="font-semibold text-slate-500">Public</dt>
+                <dd className="mt-1 text-slate-900">{IA_DEVIS_FORMATION_FACTS.public}</dd>
+              </div>
+              <div>
+                <dt className="font-semibold text-slate-500">Prérequis</dt>
+                <dd className="mt-1 text-slate-900">{IA_DEVIS_FORMATION_FACTS.prerequis}</dd>
+              </div>
+            </dl>
+            <dl className="space-y-4 text-sm">
+              <div>
+                <dt className="font-semibold text-slate-500">Tarif</dt>
+                <dd className="mt-1 text-slate-900">{IA_DEVIS_FORMATION_FACTS.tarif}</dd>
+              </div>
+              <div>
+                <dt className="font-semibold text-slate-500">Financement</dt>
+                <dd className="mt-1 text-slate-900">{IA_DEVIS_FORMATION_FACTS.financement}</dd>
+              </div>
+              <div>
+                <dt className="font-semibold text-slate-500">Lieu</dt>
+                <dd className="mt-1 text-slate-900">{IA_DEVIS_FORMATION_FACTS.lieu}</dd>
+              </div>
+              <div>
+                <dt className="font-semibold text-slate-500">Effectif</dt>
+                <dd className="mt-1 text-slate-900">{IA_DEVIS_FORMATION_FACTS.effectif}</dd>
+              </div>
+            </dl>
           </div>
-        </section>
-
-        {/* Checklist avant envoi */}
-        <section className="mt-20 rounded-2xl border border-slate-200 bg-slate-50 p-6 md:p-8">
-          <h2 className="font-display text-2xl font-bold text-slate-900 md:text-3xl">
-            Checklist avant d&apos;envoyer un devis généré par l&apos;IA
-          </h2>
-          <p className="mt-4 text-slate-600 leading-relaxed">
-            L&apos;<strong className="text-slate-800">IA devis bâtiment</strong> accélère la mise en
-            forme ; en revanche, la responsabilité du document signé reste entièrement la vôtre.
-            Avant d&apos;envoyer un devis issu d&apos;un modèle généré (y compris avec{' '}
-            <strong className="text-slate-800">ChatGPT pour devis BTP</strong>), cochez mentalement
-            ces huit points — ils évitent la majorité des litiges et des impasses commerciales.
-          </p>
-          <ul className="mt-8 space-y-4">
-            {CHECKLIST_DEVIS_IA.map((point, i) => (
-              <li key={i} className="flex gap-3 text-slate-700">
-                <Check
-                  className="mt-0.5 h-5 w-5 shrink-0 text-[var(--accent)]"
-                  strokeWidth={1.5}
-                  aria-hidden
-                />
-                <span className="leading-relaxed">{point}</span>
+          <ul className="grid gap-3 border-t border-slate-100 px-6 py-6 sm:grid-cols-2 md:px-8">
+            {IA_DEVIS_FORMATION_HIGHLIGHTS.map((item) => (
+              <li key={item} className="flex gap-2.5 text-sm font-medium text-slate-800">
+                <Check className="mt-0.5 h-5 w-5 shrink-0 text-[var(--accent)]" aria-hidden />
+                {item}
               </li>
             ))}
           </ul>
-          <p className="mt-8 text-slate-600 leading-relaxed">
-            Une relecture méthodique — idéalement par la personne qui signe ou par un second lecteur —
-            évite les oublis de mentions obligatoires, les incohérences entre quantités et libellés, ou
-            les taux de TVA appliqués à tort. Gardez une trace de la version envoyée (PDF horodaté ou
-            numéro de devis) pour tout suivi en cas de contestation ou d&apos;avenant. Selon votre
-            assurance décennale ou votre logiciel de gestion, vous pouvez compléter cette grille par des
-            contrôles supplémentaires : plans, fiches techniques produits, planning d&apos;intervention.
-          </p>
-        </section>
-
-        {/* Encadré CTA Calendly — milieu de page */}
-        <section
-          className="mt-20 rounded-2xl border-2 border-[var(--accent)] bg-[var(--accent-soft)] p-6 md:p-8"
-          aria-labelledby="ia-devis-cta-milieu-title"
-        >
-          <h2
-            id="ia-devis-cta-milieu-title"
-            className="font-display text-xl font-bold text-slate-900 md:text-2xl"
-          >
-            Vos devis BTP prennent trop de temps à rédiger ?
-          </h2>
-          <p className="mt-3 text-slate-700 leading-relaxed">
-            Visio découverte gratuite (30 min) : on passe en revue vos cas réels (prompts, trames,
-            financement OPCO) et on voit si la{' '}
+          <div className="flex flex-col gap-3 border-t border-slate-100 px-6 py-6 sm:flex-row sm:flex-wrap md:px-8">
             <Link
-              href={LINKS.formationIaBtpNiveau1BatimentTp}
-              className="font-medium text-[var(--accent)] hover:underline"
+              href={IA_DEVIS_FORMATION_HREF}
+              className={`${OFC_CTA_PRIMARY} inline-flex min-h-12 items-center justify-center gap-2 px-7 py-3`}
             >
-              formation NIV-01
-            </Link>{' '}
-            correspond à votre équipe.
-          </p>
-          <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-            <RdvLink
-              campaign="ia-devis"
-              ctaPosition="middle"
-              className="inline-flex items-center justify-center gap-2 rounded-xl bg-[var(--accent)] px-8 py-4 text-center font-semibold text-white shadow-md hover:bg-blue-600" />
-            <Link
-              href={LINKS.formationIaBtpNiveau1BatimentTp}
-              className="inline-flex items-center justify-center gap-2 rounded-xl border-2 border-[var(--accent)] bg-white px-6 py-4 text-center font-semibold text-[var(--accent)] hover:bg-white/90"
-            >
-              Voir la fiche NIV-01
+              Voir le programme de la formation
               <ArrowRight size={18} strokeWidth={1.5} aria-hidden />
             </Link>
+            <CtaRdv
+              origin="ia-devis-formation"
+              variant="secondary"
+              className={`${OFC_CTA_SECONDARY} inline-flex min-h-12 items-center justify-center px-7 py-3`}
+            />
           </div>
-        </section>
+        </article>
+      </Section>
 
-        {/* Erreurs fréquentes */}
-        <section className="mt-20">
-          <h2 className="font-display text-2xl font-bold text-slate-900 md:text-3xl">
-            Erreurs fréquentes quand on utilise l&apos;IA pour ses devis BTP
-          </h2>
-          <p className="mt-4 text-slate-600 leading-relaxed">
-            Sur le terrain, les entreprises qui réussissent avec l&apos;IA sur les devis sont celles
-            qui traitent l&apos;outil comme un <strong className="text-slate-800">assistant de
-            rédaction</strong>, pas comme un chiffreur automatique. Voici cinq écueils observés lors
-            des formations IA devis BTP, et comment les éviter pour sécuriser vos{' '}
-            <strong className="text-slate-800">devis intelligents bâtiment</strong>.
-          </p>
-          <p className="mt-4 text-slate-600 leading-relaxed">
-            Beaucoup de professionnels du BTP découvrent l&apos;<strong className="text-slate-800">IA devis
-            bâtiment</strong> par essai-erreur : le premier jet semble convaincant, puis un détail
-            (marge, norme, confidentialité) crée un problème en phase d&apos;exécution ou de relation
-            client. Anticiper ces erreurs permet de traiter l&apos;IA comme un{' '}
-            <strong className="text-slate-800">assistant de structuration</strong>, pas comme une
-            source de vérité sur les prix ou les obligations légales. En intra-entreprise, formalisez
-            une charte d&apos;usage : qui valide le devis, quelles données ne doivent jamais être
-            collées dans un prompt public, comment archiver les versions finales.
-          </p>
-          <div className="mt-10 space-y-6">
-            {ERREURS_IA_DEVIS.map((e) => (
-              <div
-                key={e.titre}
-                className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm"
+      {/* 9. Livrables */}
+      <Section tone="white" aria-labelledby="ia-devis-livrables">
+        <h2 id="ia-devis-livrables" className={OFC_TYPE_H2}>
+          À l’issue de la formation
+        </h2>
+        <div className="mt-10 grid gap-4 sm:grid-cols-2">
+          {IA_DEVIS_LIVRABLES.map((card) => (
+            <article key={card.titre} className={`${OFC_CARD} rounded-2xl p-6`}>
+              <h3 className="font-display text-lg font-bold text-slate-900">→ {card.titre}</h3>
+              <p className="mt-2 text-sm leading-relaxed text-slate-600">{card.desc}</p>
+            </article>
+          ))}
+        </div>
+      </Section>
+
+      {/* 10. Prompts SEO (descendu) */}
+      <Section tone="soft" aria-labelledby="ia-devis-prompts">
+        <h2 id="ia-devis-prompts" className={OFC_TYPE_H2}>
+          Exemples de prompts IA pour les devis BTP
+        </h2>
+        <p className="mt-4 max-w-2xl text-base leading-relaxed text-slate-600">
+          Des prompts prêts à adapter pour accélérer la rédaction et éviter de repartir d’une page
+          blanche. L’IA structure le document ; vous restez seul juge des montants, quantités et
+          mentions réglementaires.
+        </p>
+        <div className="mt-10">
+          <IaDevisPromptsAccordion prompts={IA_DEVIS_PROMPTS_PAR_METIER} />
+        </div>
+      </Section>
+
+      {/* 11. Checklist */}
+      <Section tone="white" aria-labelledby="ia-devis-checklist">
+        <h2 id="ia-devis-checklist" className={OFC_TYPE_H2}>
+          Avant d’envoyer un devis préparé avec l’IA
+        </h2>
+        <p className="mt-4 max-w-2xl text-base leading-relaxed text-slate-600">
+          L’IA accélère la préparation. La responsabilité du document signé reste entièrement la
+          vôtre. Aucune règle fiscale n’est appliquée automatiquement : le taux de TVA dépend de
+          l’opération.
+        </p>
+        <ul className="mt-10 grid gap-3 sm:grid-cols-2">
+          {IA_DEVIS_CHECKLIST.map((item) => (
+            <li
+              key={item}
+              className="flex min-h-12 items-start gap-3 rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm font-medium text-slate-800"
+            >
+              <span
+                className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded border border-slate-300 bg-white text-[10px] text-slate-400"
+                aria-hidden
               >
-                <h3 className="font-semibold text-slate-900">{e.titre}</h3>
-                <p className="mt-2 text-slate-600 leading-relaxed">{e.desc}</p>
-              </div>
-            ))}
-          </div>
-          <p className="mt-8 text-slate-600 leading-relaxed">
-            En résumé : un usage responsable du <strong className="text-slate-800">ChatGPT devis BTP</strong>{' '}
-            combine prompts précis, validation humaine systématique et protection des données sensibles.
-            Cette triple barrière préserve votre crédibilité auprès des clients et limite les écarts entre
-            le texte généré et la réalité chantier — ce qui est précisément l&apos;objectif d&apos;une
-            démarche d&apos;<strong className="text-slate-800">IA devis bâtiment</strong> professionnelle.
-          </p>
-        </section>
+                □
+              </span>
+              {item}
+            </li>
+          ))}
+        </ul>
+      </Section>
 
-        {/* Formation 4 h — CTA Calendly */}
-        <section className="mt-20 rounded-2xl border-2 border-[var(--accent)] bg-[var(--accent-soft)] p-6 md:p-10">
-          <h2 className="font-display text-2xl font-bold text-slate-900 md:text-3xl">
-            Formation IA devis BTP — ce que vous apprenez en 4 heures
-          </h2>
-          <p className="mt-4 text-slate-700 leading-relaxed">
-            La session <strong className="text-slate-900">« L&apos;IA au service du bâtiment »</strong>{' '}
-            inclut un module concret sur les devis et le chiffrage : construction de prompts par corps
-            de métier, relecture des brouillons, bonnes pratiques de confidentialité, et reprise de vos
-            propres modèles (Excel, PDF, texte). Vous repartez avec des trames réutilisables pour le{' '}
-            <strong className="text-slate-900">ChatGPT devis BTP</strong> au quotidien — sans remplacer
-            votre expertise, en renforçant votre{' '}
-            <strong className="text-slate-900">IA devis bâtiment</strong> maîtrisée.
-          </p>
-          <p className="mt-4 text-slate-700 leading-relaxed">
-            Le programme alterne démonstrations et ateliers : vous repartez avec des modèles de prompts
-            adaptés au BTP, une grille de contrôle avant signature, et des réponses à des cas réels
-            (petites rénovations, extensions, lots techniques). L&apos;objectif est de réduire le temps
-            passé sur la mise en forme tout en gardant la maîtrise des montants et des engagements
-            contractuels — pilier d&apos;une approche sérieuse de l&apos;IA en entreprise du bâtiment.
-          </p>
-          <ul className="mt-6 list-inside list-disc space-y-2 text-slate-700">
-            <li>Atelier sur vos cas réels : devis types, variantes, relances après envoi.</li>
-            <li>Rappels TVA, mentions légales et structure de document professionnelle.</li>
-            <li>Organisme certifié Qualiopi — financement OPCO Constructys selon éligibilité et dossier.</li>
-          </ul>
-          <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:flex-wrap">
-            <RdvLink
-              campaign="ia-devis"
-              ctaPosition="inline"
-              className="inline-flex items-center justify-center gap-2 rounded-xl bg-[var(--accent)] px-8 py-4 text-center text-base font-semibold text-white shadow-md hover:bg-blue-600" />
+      {/* 12. Erreurs */}
+      <Section tone="soft" aria-labelledby="ia-devis-erreurs">
+        <h2 id="ia-devis-erreurs" className={OFC_TYPE_H2}>
+          Erreurs à éviter
+        </h2>
+        <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {IA_DEVIS_ERREURS.map((card) => (
+            <article key={card.titre} className={`${OFC_CARD} rounded-2xl p-5`}>
+              <h3 className="font-display text-base font-bold text-slate-900">→ {card.titre}</h3>
+              <p className="mt-2 text-sm leading-relaxed text-slate-600">{card.desc}</p>
+            </article>
+          ))}
+        </div>
+      </Section>
+
+      {/* 13. Expertise */}
+      <Section tone="white" aria-labelledby="ia-devis-expertise">
+        <div className="grid items-center gap-10 lg:grid-cols-[minmax(0,14rem)_minmax(0,1fr)] lg:gap-12">
+          <div className="mx-auto w-full max-w-[14rem] lg:mx-0">
+            <div className="overflow-hidden rounded-xl p-1 ring-1 ring-slate-200">
+              <ProfilePhoto title="Laure Olivié — formatrice IA pour le BTP" />
+            </div>
+          </div>
+          <div className="min-w-0">
+            <h2 id="ia-devis-expertise" className={OFC_TYPE_H2}>
+              Une formation pensée pour les usages réels du BTP
+            </h2>
+            <p className="mt-4 text-lg font-semibold text-slate-900">Laure Olivié</p>
+            <p className="mt-1 text-[var(--accent)] font-medium">
+              Formatrice IA spécialisée BTP
+            </p>
+            <ul className="mt-4 space-y-1.5 text-sm leading-relaxed text-slate-600 md:text-base">
+              <li>OFC Création d’Entreprise</li>
+              <li>Organisme certifié Qualiopi</li>
+              <li>Interventions en Île-de-France</li>
+              <li>Ancienne dirigeante en travaux publics — {formatAnneesExperienceBTP()}</li>
+            </ul>
+            <div className="mt-8">
+              <PreuveSociale />
+            </div>
+          </div>
+        </div>
+      </Section>
+
+      {/* 14. FAQ */}
+      <Section tone="soft" aria-labelledby="ia-devis-faq">
+        <h2 id="ia-devis-faq" className={OFC_TYPE_H2}>
+          Questions fréquentes — IA et devis BTP
+        </h2>
+        <div className="mt-10">
+          <IaDevisFaqAccordion items={IA_DEVIS_FAQ} />
+        </div>
+      </Section>
+
+      {/* 15. CTA final */}
+      <CTASection
+        eyebrow="Formation IA devis BTP"
+        titleId="ia-devis-cta-final"
+        origin="ia-devis-cta-final"
+        title="Vous voulez gagner du temps sur vos devis avec l’IA ?"
+        description="Présentez-moi votre organisation actuelle et vos besoins. Nous identifierons les usages de l’IA réellement utiles à votre entreprise."
+        secondaryHref={LINKS.formations}
+        secondaryLabel="Voir toutes les formations IA BTP"
+      />
+
+      {/* 16. Pour aller plus loin */}
+      <Section tone="white" aria-labelledby="ia-devis-aller-plus-loin" className="!pt-8 !pb-16">
+        <h2 id="ia-devis-aller-plus-loin" className="font-display text-xl font-bold text-slate-900">
+          Pour aller plus loin
+        </h2>
+        <div className="mt-6 grid gap-4 md:grid-cols-3">
+          {IA_DEVIS_ALLER_PLUS_LOIN.map((card) => (
             <Link
-              href={LINKS.formationIaEtudesPrixChiffrageBtp}
-              className="inline-flex items-center justify-center gap-2 rounded-xl border-2 border-[var(--accent)] bg-white px-8 py-4 text-center font-semibold text-[var(--accent)] hover:bg-white/90"
+              key={card.href}
+              href={card.href}
+              className={`${OFC_CARD} group block rounded-2xl p-5 transition-colors hover:border-[var(--accent)]`}
             >
-              Voir le programme
+              <p className="font-semibold text-slate-900 group-hover:text-[var(--accent)]">
+                {card.label}
+              </p>
+              <p className="mt-2 text-sm leading-relaxed text-slate-600">{card.desc}</p>
             </Link>
-            <Link
-              href={LINKS.formationIaBtpNiveau1BatimentTp}
-              className="inline-flex items-center justify-center gap-2 rounded-xl border-2 border-slate-200 bg-white px-8 py-4 text-center font-semibold text-slate-800 hover:border-[var(--accent)]"
-            >
-              Voir aussi NIV-01 (bases IA BTP)
-            </Link>
-            <Link
-              href="/financement-constructys-formation-ia-btp"
-              className="inline-flex items-center justify-center gap-2 rounded-xl border border-slate-300 bg-white px-6 py-4 text-center font-medium text-slate-800 hover:border-[var(--accent)]"
-            >
-              Financement Constructys
-            </Link>
-          </div>
-          <p className="mt-6 text-sm text-slate-600">
-            Page de réservation :{' '}
-            <Link href={LINKS.prendreRdv} className="font-medium text-[var(--accent)] hover:underline">
-              {SCHEMA_PUBLIC_SITE_URL.replace(/\/$/, '')}
-              {LINKS.prendreRdv}
-            </Link>
-          </p>
-        </section>
-
-        {/* FAQ — IA et devis bâtiment */}
-        <section className="mt-20" aria-labelledby="faq-ia-devis-batiment-title">
-          <h2 id="faq-ia-devis-batiment-title" className="font-display text-2xl font-bold text-slate-900">
-            IA et devis bâtiment : questions fréquentes
-          </h2>
-          <div className="mt-8 space-y-6">
-            {FAQ_IA_DEVIS_BATIMENT.map(({ q, a }) => (
-              <div
-                key={q}
-                className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm"
-              >
-                <h3 className="font-semibold text-slate-900">{q}</h3>
-                <p className="mt-2 text-slate-600"><FAQAnswer content={a} /></p>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* CTA */}
-        <section className="mt-16 rounded-2xl bg-[var(--accent)] p-8 text-white">
-          <h2 className="font-display text-2xl font-bold">
-            Formation IA devis et chiffrage BTP — session 4 h
-          </h2>
-          <p className="mt-4 text-blue-100">
-            Module dédié dans la formation « L&apos;IA au service du bâtiment » : session 4 h de pratique sur
-            vos vrais devis. Forfait unique {formatTarifHt(TARIF_SESSION_FORFAIT_HT)}&nbsp;€&nbsp;HT — financement
-            possible selon éligibilité.
-          </p>
-          <div className="mt-6 flex flex-wrap gap-4">
-            <RdvLink
-              campaign="ia-devis"
-              ctaPosition="footer"
-              className="inline-flex items-center gap-2 rounded-xl bg-white px-6 py-3 font-semibold text-[var(--accent)] hover:bg-blue-50" />
-          </div>
-        </section>
-
-        {/* CTA RDV */}
-        <section className="mt-12 rounded-2xl border-2 border-[var(--accent)] bg-[var(--accent-soft)] p-6">
-          <p className="text-slate-800">
-            Vous souhaitez découvrir comment l&apos;IA peut faire gagner du temps à votre entreprise du BTP ?{' '}
-            <RdvLink campaign="ia-devis" ctaPosition="footer" className="font-semibold text-[var(--accent)] hover:underline" />
-          </p>
-        </section>
-
-        {/* Liens + Aller plus loin */}
-        <section className="mt-16 border-t border-slate-200 pt-12">
-          <h2 className="font-display text-lg font-semibold text-slate-900">
-            IA devis bâtiment : ressources complémentaires
-          </h2>
-          <ul className="mt-4 flex flex-wrap gap-4">
-            <li>
-              <Link href="/formations/ia-batiment-travaux-publics" className="text-[var(--accent)] hover:underline">
-                ChatGPT pour entreprises BTP
-              </Link>
-            </li>
-            <li>
-              <Link href={LINKS.formationConducteurTravaux} className="text-[var(--accent)] hover:underline">
-                IA conducteur de travaux
-              </Link>
-            </li>
-            <li>
-              <Link href="/formations" className="text-[var(--accent)] hover:underline">
-                Formation IA pour les pros du BTP
-              </Link>
-            </li>
-            <li>
-              <Link href="/blog" className="text-[var(--accent)] hover:underline">
-                Articles et guides blog
-              </Link>
-            </li>
-            <li>
-              <RdvLink campaign="ia-devis" className="text-[var(--accent)] hover:underline" />
-            </li>
-          </ul>
-        </section>
-
-        <AllerPlusLoin
-          links={[
-            { href: '/formations', label: 'Formation IA Constructys' },
-            { href: '/formations/ia-batiment-travaux-publics', label: 'ChatGPT pour entreprises BTP' },
-            { href: LINKS.formationConducteurTravaux, label: 'IA conducteur de travaux' },
-            { href: '/blog', label: 'Articles et guides' },
-            { href: LINKS.prendreRdv, label: CTA_RDV_LABEL },
-          ]}
-        />
-      </article>
-    </div>
+          ))}
+        </div>
+      </Section>
+    </>
   );
 }

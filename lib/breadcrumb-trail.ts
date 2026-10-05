@@ -80,6 +80,7 @@ const STATIC_PAGE_TITLES: Record<string, string> = {
   '/ia-analyse-dce-btp': "Analyse DCE avec l'IA",
   '/ia-memoire-technique-btp': "Mémoire technique avec l'IA",
   '/ia-compte-rendu-chantier': 'Compte rendu de chantier avec l\'IA',
+  '/ia-devis-batiment': 'IA devis bâtiment',
   '/diagnostic-ia-btp': 'Diagnostic IA BTP',
   '/prendre-rdv': 'Échanger sur votre projet de formation',
   '/contact': 'Contact',
