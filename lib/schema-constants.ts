@@ -34,7 +34,7 @@ export const SCHEMA_GOOGLE_BUSINESS_PROFILE_URL =
 
 /** Lien direct pour déposer un avis sur Google Business Profile. */
 export const SCHEMA_GOOGLE_REVIEW_SUBMIT_URL =
-  'https://maps.app.goo.gl/hUQhnvEERki5RjHw5' as const;
+  'https://g.page/r/CW5GeuAB5XBVEBM/review' as const;
 
 /** Fiche Google — consulter les avis (même URL Maps que la fiche établissement). */
 export const SCHEMA_GOOGLE_REVIEWS_VIEW_URL = SCHEMA_GOOGLE_BUSINESS_PROFILE_URL;

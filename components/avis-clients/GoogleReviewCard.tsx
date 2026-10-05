@@ -5,17 +5,19 @@ import Image from 'next/image';
 import type { GoogleReviewEntry } from '@/data/googleReviews';
 import { OFC_CARD } from '@/lib/ofc-interaction-classes';
 import { StarRating } from '@/components/avis-clients/StarRating';
+import { GoogleGLogo } from '@/components/avis-clients/GoogleGLogo';
 
 type GoogleReviewCardProps = {
   review: GoogleReviewEntry;
 };
 
-/** Carte avis Google — photo, étoiles, texte extensible. */
+/** Carte avis Google — photo/initiale, étoiles, texte extensible, logo Google discret. */
 export function GoogleReviewCard({ review }: GoogleReviewCardProps) {
   const [expanded, setExpanded] = useState(false);
   const textId = useId();
   const subtitle = [review.optionalRole, review.optionalCompany].filter(Boolean).join(' — ');
   const isLong = review.text.length > 280;
+  const dateLabel = review.relativeTime?.trim() || review.date;
 
   const toggle = useCallback(() => setExpanded((v) => !v), []);
 
@@ -45,6 +47,7 @@ export function GoogleReviewCard({ review }: GoogleReviewCardProps) {
               href={review.authorUrl}
               target="_blank"
               rel="noopener noreferrer"
+              aria-label={`Profil Google de ${review.author} (ouvre un nouvel onglet)`}
               className="font-semibold text-slate-900 hover:text-[var(--accent)]"
             >
               {review.author}
@@ -53,10 +56,7 @@ export function GoogleReviewCard({ review }: GoogleReviewCardProps) {
             <p className="font-semibold text-slate-900">{review.author}</p>
           )}
           {subtitle ? <p className="mt-0.5 text-sm text-slate-600">{subtitle}</p> : null}
-          <p className="mt-1 text-xs text-slate-500">
-            {review.date}
-            {review.relativeTime ? ` · ${review.relativeTime}` : null}
-          </p>
+          {dateLabel ? <p className="mt-1 text-xs text-slate-500">{dateLabel}</p> : null}
         </div>
       </header>
 
@@ -66,9 +66,7 @@ export function GoogleReviewCard({ review }: GoogleReviewCardProps) {
         <p
           id={textId}
           className={
-            expanded || !isLong
-              ? undefined
-              : 'line-clamp-[5] [overflow-wrap:anywhere]'
+            expanded || !isLong ? undefined : 'line-clamp-[5] [overflow-wrap:anywhere]'
           }
         >
           {review.text}
@@ -86,7 +84,8 @@ export function GoogleReviewCard({ review }: GoogleReviewCardProps) {
         ) : null}
       </blockquote>
 
-      <footer className="mt-5 border-t border-slate-100 pt-3">
+      <footer className="mt-5 flex items-center gap-2 border-t border-slate-100 pt-3">
+        <GoogleGLogo size={14} />
         <p className="text-xs font-medium text-slate-500">Avis Google</p>
       </footer>
     </article>

@@ -7,7 +7,8 @@ import { SCHEMA_GOOGLE_REVIEWS_VIEW_URL } from '@/lib/schema-constants';
 import { OFC_CTA_SECONDARY } from '@/lib/ofc-interaction-classes';
 import { ExternalLink } from 'lucide-react';
 
-const PAGE_SIZE = 6;
+/** Affiche 6 à 9 avis au chargement (Places API renvoie au plus ~5 avis). */
+const PAGE_SIZE = 9;
 
 type GoogleReviewsGridProps = {
   reviews: GoogleReviewEntry[];
