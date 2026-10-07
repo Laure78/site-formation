@@ -372,6 +372,11 @@ export function getMetierLandingCoreLinks(
   }
 
   links.push(
+    {
+      href: LINKS.formationIaBtp,
+      title: 'Formation IA pour le BTP',
+      description: 'Page pilier — programmes Claude / ChatGPT pour le bâtiment.',
+    },
     ...getFormationCatalogueCore(),
     {
       href: LINKS.claudeAiBtp,

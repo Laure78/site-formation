@@ -86,8 +86,6 @@ function getAdditionalMarketingRoutes(baseUrl: string): MetadataRoute.Sitemap {
     LINKS.formationIaAppelsOffresBtp,
     LINKS.formationMaitriserClaudeAiBtp,
     '/formations/ia-btp-saint-quentin-en-yvelines',
-    '/formations/ia-btp-morangis',
-    '/formations/ia-btp-longjumeau',
     '/formation-ia',
     '/formation-ia/faq',
     '/formations/ia-pme-btp',
@@ -174,7 +172,7 @@ const SITEMAP_NOINDEX_PATHS = new Set<string>([
   '/formations/plateforme',
 ]);
 
-/** Sources 308 (cannibalisation oct. 2026) — ne plus pousser dans le sitemap. */
+/** Sources 308 (cannibalisation) — ne plus pousser dans le sitemap. */
 const SITEMAP_REDIRECTED_CANNIBAL_PATHS = new Set<string>([
   '/formation-ia-btp-paris',
   '/formation-claude-ai-batiment',
@@ -184,6 +182,11 @@ const SITEMAP_REDIRECTED_CANNIBAL_PATHS = new Set<string>([
   '/expert-ia-btp',
   '/formation-ia-construction',
   '/blog/formation-ia-cctp-analyse-dce-btp',
+  '/formations/ia-btp-morangis',
+  '/formations/ia-btp-longjumeau',
+  '/formation-ia-solier-revetements',
+  '/formation-ia-conducteur-engins-tp',
+  '/formation-ia-entreprise-batiment-paris',
 ]);
 
 /**

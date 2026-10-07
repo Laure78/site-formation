@@ -3,11 +3,13 @@ import { CTA_RDV_LABEL } from '@/components/CtaRdv';
 import { ArrowRight, Check } from 'lucide-react';
 import { FAQAnswer } from '@/components/landing/FAQAnswer';
 import { ShortAnswerBlock } from '@/components/landing/ShortAnswerBlock';
+import { EnBref } from '@/app/components/EnBref';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
 import { LiensConnexes } from '@/components/LiensConnexes';
 import { getLiensConnexesHrefs } from '@/lib/liens-connexes';
 import { ContextualLinksSection } from '@/components/layout/ContextualLinksSection';
 import { getMetierLandingCoreLinks } from '@/lib/contextual-internal-links';
+import { buildMetierAllerPlusLoinLinks } from '@/lib/metier-aller-plus-loin';
 import { RdvLink } from '@/components/RdvLink';
 import { PublicPhoneCta } from '@/components/PublicPhoneCta';
 import { FormationMetierJsonLd } from '@/components/seo/FormationMetierJsonLd';
@@ -35,6 +37,8 @@ type Props = {
   h1: string;
   heroParagraph: string;
   shortAnswer: string;
+  /** Bloc GEO « En bref » — sinon dérivé de shortAnswer. */
+  enBref?: string;
   problemBullets: string[];
   useCases: UseCase[];
   steps: Step[];
@@ -55,6 +59,7 @@ export function FormationMetierB1Page({
   h1,
   heroParagraph,
   shortAnswer,
+  enBref,
   problemBullets,
   useCases,
   steps,
@@ -67,6 +72,9 @@ export function FormationMetierB1Page({
   const slugId = metierLabel.toLowerCase().replace(/\s+/g, '-');
   const slugFromPath = path.replace(/^\/+|\/$/g, '').replace(/\//g, '-');
   const allerPlusCalendlyHref = buildSiteCalendlyCtaUrl(`${slugFromPath}-aller-plus-loin`);
+  const enBrefText =
+    enBref ??
+    `Formation IA pour ${metierLabel} : utiliser ChatGPT ou Claude sur des tâches métier (devis, documents, suivi), en présentiel en Île-de-France. L’IA assiste ; le professionnel valide avant envoi ou décision.`;
 
   return (
     <div className="mx-auto max-w-4xl px-4 py-16">
@@ -93,6 +101,9 @@ export function FormationMetierB1Page({
           />
         ) : null}
         <h1 className="font-display text-4xl font-bold tracking-tight text-slate-900 md:text-5xl">{h1}</h1>
+        <EnBref className="mt-5">
+          <p>{enBrefText}</p>
+        </EnBref>
         <PreuveSociale className="mt-6" />
         <p className="mt-6 text-xl text-slate-600">
           Sessions en présentiel en Île-de-France — {heroParagraph}
@@ -289,10 +300,12 @@ export function FormationMetierB1Page({
         />
 
         <AllerPlusLoin
-          links={[
-            { href: LINKS.financement, label: 'Financement Constructys' },
-            { href: LINKS.prendreRdv, label: CTA_RDV_LABEL },
-          ].filter((l) => !getLiensConnexesHrefs(path).includes(l.href))}
+          links={buildMetierAllerPlusLoinLinks(
+            sisterEncart
+              ? [{ href: sisterEncart.href, label: sisterEncart.linkLabel }]
+              : [],
+            { rdvLabel: CTA_RDV_LABEL },
+          ).filter((l) => !getLiensConnexesHrefs(path).includes(l.href))}
         />
       </article>
     </div>

@@ -2,7 +2,9 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { LinkedInFollowersLink } from '@/components/linkedin/LinkedInFollowersLink';
 import { Badge } from '@/components/ui/Badge';
+import { EnBref } from '@/app/components/EnBref';
 import {
+  A_PROPOS_PAGE_EN_BREF,
   A_PROPOS_PAGE_H1,
   A_PROPOS_PAGE_PROOF_LINE,
   A_PROPOS_PAGE_SUBTITLE,
@@ -17,9 +19,12 @@ import {
 } from '@/lib/ofc-interaction-classes';
 import { OFC_SEC } from '@/lib/ofc-section-classes';
 import { CTA_RDV_LABEL } from '@/components/CtaRdv';
+import { ContentUpdatedLine } from '@/components/seo/ContentUpdatedLine';
+import { getPillarPageContentUpdatedAt } from '@/lib/content-updated-at';
 
 export function AProposPageHero() {
   const portrait = PHOTOS.aProposHero2026;
+  const updatedAt = getPillarPageContentUpdatedAt('/a-propos');
 
   return (
     <section className={`${OFC_SEC.hero} relative overflow-hidden`} aria-labelledby="a-propos-hero-title">
@@ -31,12 +36,16 @@ export function AProposPageHero() {
           </h1>
           <p className={`${OFC_TYPE_LEAD} mt-5 max-w-xl text-ofc-ink-muted`}>{A_PROPOS_PAGE_SUBTITLE}</p>
           <p className="mt-3 text-sm font-medium text-ofc-ink-subtle">{A_PROPOS_PAGE_PROOF_LINE}</p>
+          <EnBref className="mt-5 max-w-xl">
+            <p>{A_PROPOS_PAGE_EN_BREF}</p>
+          </EnBref>
+          <ContentUpdatedLine date={updatedAt} className="mt-3" />
           <div id="formations-cta" className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
             <Link
-              href={LINKS.formations}
+              href={LINKS.formationIaBtp}
               className={`${OFC_CTA_PRIMARY} inline-flex min-h-11 items-center justify-center px-6 py-3`}
             >
-              Voir les formations
+              Formation IA pour le BTP
             </Link>
             <Link
               href={LINKS.prendreRdv}

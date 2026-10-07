@@ -80,7 +80,7 @@ type Props = {
 const SITE_BASE = SCHEMA_PUBLIC_SITE_URL.replace(/\/$/, '');
 
 const ORGANIZATION_ID = `${SITE_BASE}/#organization`;
-const PERSON_LAURE_ID = `${SITE_BASE}/#person`;
+const PERSON_LAURE_ID = `${SITE_BASE}/#laure-olivie`;
 
 function absoluteUrl(path: string): string {
   if (path.startsWith('http')) return path;

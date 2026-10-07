@@ -147,7 +147,7 @@ export function buildConducteurTravauxLandingJsonLd(): Record<string, unknown> {
       },
       {
         '@type': 'Person',
-        '@id': `${base}/#person`,
+        '@id': `${base}/#laure-olivie`,
         name: SCHEMA_PERSON_LAURE.name,
         jobTitle: SCHEMA_PERSON_LAURE.jobTitle,
         url: base,
@@ -162,7 +162,7 @@ export function buildConducteurTravauxLandingJsonLd(): Record<string, unknown> {
           url: pageUrl,
           educationalLevel: 'Beginner',
           organizationId: `${base}/#organization`,
-          instructorId: `${base}/#person`,
+          instructorId: `${base}/#laure-olivie`,
         }),
         provider: {
           '@type': 'Organization',

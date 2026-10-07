@@ -82,7 +82,7 @@ export default function FormateurIaBtpPage() {
   const personSchema = {
     '@context': 'https://schema.org',
     ...buildPersonLaureSchemaNode({
-      personId: `${base}/formateur-ia-btp#person`,
+      personId: `${base}/#laure-olivie`,
       pageUrl: `${base}/formateur-ia-btp`,
       organizationId: `${base}/#organization`,
     }),
@@ -91,7 +91,7 @@ export default function FormateurIaBtpPage() {
     '@context': 'https://schema.org',
     ...buildOrganizationOfcSchemaNode({
       organizationId: `${base}/#organization`,
-      personId: `${base}/formateur-ia-btp#person`,
+      personId: `${base}/#laure-olivie`,
     }),
   };
   const faqSchema = getFAQSchema(FAQ_FORMATEUR);

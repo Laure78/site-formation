@@ -78,8 +78,9 @@ export default function AProposPage() {
           <div className="mt-8">
             <AllerPlusLoin
               links={[
+                { href: LINKS.formateurIaBtp, label: 'Formateur IA bâtiment en Île-de-France' },
+                { href: LINKS.formations, label: 'Catalogue des programmes IA pour le BTP' },
                 { href: LINKS.financement, label: 'Financement OPCO Constructys' },
-                { href: LINKS.formationsLinkedInLearning, label: 'Formations LinkedIn Learning' },
                 { href: LINKS.contact, label: 'Contact' },
               ]}
             />

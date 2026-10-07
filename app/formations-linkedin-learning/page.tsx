@@ -179,7 +179,7 @@ function CourseCard({ id, name, publicAudience, learn, url, image }: CourseCardP
 
 function buildPageJsonLd() {
   const base = SCHEMA_PUBLIC_SITE_URL.replace(/\/$/, '');
-  const personId = `${PAGE_URL}#person`;
+  const personId = `${base}/#laure-olivie`;
   const orgId = `${PAGE_URL}#organization`;
   
 

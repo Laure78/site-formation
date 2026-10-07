@@ -177,16 +177,7 @@ const nextConfig: NextConfig = {
         destination: '/formations',
         permanent: true,
       },
-      {
-        source: '/bework/plateforme',
-        destination: '/bework',
-        permanent: true,
-      },
-      {
-        source: '/bework/plateforme/',
-        destination: '/bework',
-        permanent: true,
-      },
+      // /bework/plateforme couvert par /bework/:path* → NIV-10 (pas de chaîne via /bework)
       {
         source: '/video/formations-ia-btp/:path*',
         destination: '/formations',
@@ -463,17 +454,17 @@ const nextConfig: NextConfig = {
       },
       {
         source: '/formation-ia-btp-paris-2026',
-        destination: '/formation-ia-btp-paris',
+        destination: '/formation-ia-paris',
         permanent: true,
       },
       {
         source: '/formation-ia-btp-paris-75',
-        destination: '/formation-ia-btp-paris',
+        destination: '/formation-ia-paris',
         permanent: true,
       },
       {
         source: '/formations/ia-btp-paris',
-        destination: '/formation-ia-btp-paris',
+        destination: '/formation-ia-paris',
         permanent: true,
       },
       { source: '/merci-devis', destination: '/contact', permanent: true },
@@ -633,8 +624,8 @@ const nextConfig: NextConfig = {
       { source: '/blog/devis-btp-chatgpt-20-minutes', destination: '/blog/chatgpt-devis-btp-methode-2026', permanent: true },
       { source: '/guide-skill-ia-conducteur-travaux', destination: '/blog/guide-skill-ia-conducteur-travaux-btp', permanent: true },
       { source: '/guide-skill-ia-conducteur-travaux/', destination: '/blog/guide-skill-ia-conducteur-travaux-btp', permanent: true },
-      { source: '/formation-ia-entreprise-batiment-paris', destination: '/formation-ia-btp-paris', permanent: true },
-      { source: '/formation-ia-entreprise-batiment-paris/', destination: '/formation-ia-btp-paris', permanent: true },
+      { source: '/formation-ia-entreprise-batiment-paris', destination: '/formation-ia-paris', permanent: true },
+      { source: '/formation-ia-entreprise-batiment-paris/', destination: '/formation-ia-paris', permanent: true },
 
       // Cannibalisation SEO — consolidation oct. 2026 (permanent: true = 308)
       { source: '/formation-ia-btp-paris', destination: '/formation-ia-paris', permanent: true },
@@ -718,7 +709,7 @@ const nextConfig: NextConfig = {
 
       // Anciennes URLs villes hub /formation-ia/btp-[ville] → fiche catalogue /formations/ia-btp-[ville]
       // (308 permanent). Uniquement les villes dont la page cible existe réellement.
-      { source: '/formation-ia/btp-paris', destination: '/formation-ia-btp-paris', permanent: true },
+      { source: '/formation-ia/btp-paris', destination: '/formation-ia-paris', permanent: true },
       {
         source: '/formation-ia/btp-saint-quentin-en-yvelines',
         destination: '/formations/ia-btp-saint-quentin-en-yvelines',

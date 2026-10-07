@@ -28,7 +28,7 @@ import { buildPersonLaureSchemaNode } from '@/lib/schema-person-global';
 const BASE = SCHEMA_PUBLIC_SITE_URL.replace(/\/$/, '');
 const PAGE_PATH = '/a-propos';
 const PAGE_URL = `${BASE}${PAGE_PATH}`;
-const PERSON_ID = `${PAGE_URL}#person`;
+const PERSON_ID = `${BASE}/#laure-olivie`;
 const ORGANIZATION_ID = `${BASE}/#organization`;
 const PROFILE_PAGE_ID = `${PAGE_URL}#profilepage`;
 const OFC_LOCAL_ID = `${PAGE_URL}#ofc-local-business`;
@@ -159,7 +159,7 @@ export function getAProposUnifiedJsonLd(): Record<string, unknown> {
     url: PAGE_URL,
     name: 'Laure Olivié — Formatrice IA spécialisée BTP',
     dateCreated: '2022-01-15T12:00:00+01:00',
-    dateModified: '2026-09-02T12:00:00+02:00',
+    dateModified: '2026-04-05T12:00:00+02:00',
     mainEntity: { '@id': PERSON_ID },
     speakable: {
       '@type': 'SpeakableSpecification',

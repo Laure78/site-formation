@@ -298,7 +298,7 @@ export function getMainCourseSchema() {
     url: `${SITE_CONFIG.url}/formations`,
     provider: {
       '@type': 'Person',
-      '@id': `${SITE_CONFIG.url}/#person`,
+      '@id': `${SITE_CONFIG.url}/#laure-olivie`,
       name: SITE_CONFIG.name,
       sameAs: SITE_CONFIG.url,
     },
@@ -351,7 +351,7 @@ export function getCourseSchema({
     description,
     path,
     organizationId: `${base}/#organization`,
-    instructorId: instructorName ? undefined : `${base}/#person`,
+    instructorId: instructorName ? undefined : `${base}/#laure-olivie`,
     instructorName: instructorName ?? SITE_CONFIG.name,
     teaches,
     courseCode,
@@ -553,7 +553,7 @@ export function getArticleSchema({
     dateModified: modIso,
     author: {
       '@type': 'Person',
-      '@id': `${SITE_CONFIG.url}/#person`,
+      '@id': `${SITE_CONFIG.url}/#laure-olivie`,
       name: authorName,
       url: `${SITE_CONFIG.url}/a-propos/`,
       jobTitle: 'Formatrice IA spécialisée BTP',
@@ -612,19 +612,9 @@ const BLOG_ARTICLE_AUTHOR_SAME_AS = [
 ] as const;
 
 /**
- * Schéma schema.org `Article` pour `/blog/[slug]` (rich results / GEO).
- * Dates en ISO 8601 ; image URL absolue.
+ * @deprecated Préférer `buildBlogPostingJsonLd` — délègue au même schéma BlogPosting.
  */
-export function buildBlogArticleJsonLd({
-  headline,
-  description,
-  slug,
-  datePublished,
-  dateModified,
-  imageUrl,
-  wordCount,
-  keywords,
-}: {
+export function buildBlogArticleJsonLd(args: {
   headline: string;
   description: string;
   slug: string;
@@ -634,59 +624,12 @@ export function buildBlogArticleJsonLd({
   wordCount?: number;
   keywords?: string[];
 }): Record<string, unknown> {
-  const base = SCHEMA_SITE_ORG.url;
-  const pageUrl = `${base}/blog/${slug}`;
-  const pubIso = dateToIso8601ForMeta(datePublished);
-  const modIso = dateToIso8601ForMeta(dateModified ?? datePublished);
-  const schema: Record<string, unknown> = {
-    '@context': 'https://schema.org',
-    '@type': 'Article',
-    headline,
-    description,
-    author: {
-      '@type': 'Person',
-      name: SCHEMA_SITE_ORG.personName,
-      url: `${base}/a-propos`,
-      jobTitle: 'Formatrice IA spécialisée BTP',
-      worksFor: {
-        '@type': 'Organization',
-        name: SCHEMA_SITE_ORG.legalName,
-        url: base,
-      },
-      sameAs: [...BLOG_ARTICLE_AUTHOR_SAME_AS],
-    },
-    publisher: {
-      '@type': 'Organization',
-      name: SCHEMA_SITE_ORG.legalName,
-      url: base,
-      logo: {
-        '@type': 'ImageObject',
-        url: siteOrganizationLogoAbsoluteUrl(),
-      },
-    },
-    datePublished: pubIso,
-    dateModified: modIso,
-    image: imageUrl,
-    /** URL canonique de la page article (GEO / rich results). */
-    mainEntityOfPage: {
-      '@type': 'WebPage',
-      '@id': pageUrl,
-    },
-    url: pageUrl,
-    inLanguage: 'fr',
-  };
-  if (wordCount != null && wordCount > 0) {
-    schema.wordCount = wordCount;
-  }
-  if (keywords?.length) {
-    schema.keywords = keywords.join(', ');
-  }
-  return schema;
+  return buildBlogPostingJsonLd(args);
 }
 
 /**
- * Schéma BlogPosting pour les articles `/blog/[slug]` (remplace Article sur ces pages).
- * Dates en ISO 8601 ; image URL absolue.
+ * Schéma BlogPosting pour les articles `/blog/[slug]`.
+ * Person / Organization référencés par `@id` canoniques (entité GEO).
  */
 /** Titre affiché dans le rich result (éviter dépassement SERP). */
 const BLOG_POSTING_HEADLINE_MAX = 60;
@@ -712,6 +655,8 @@ export function buildBlogPostingJsonLd({
 }): Record<string, unknown> {
   const baseRoot = SITE_CONFIG.url.replace(/\/$/, '');
   const pageUrl = `${baseRoot}/blog/${slug}`;
+  const personId = `${baseRoot}/#laure-olivie`;
+  const organizationId = `${baseRoot}/#organization`;
   const pubIso = dateToIso8601ForMeta(datePublished);
   const modIso = dateModified ? dateToIso8601ForMeta(dateModified) : pubIso;
   const headlineSafe =
@@ -721,6 +666,7 @@ export function buildBlogPostingJsonLd({
   const base: Record<string, unknown> = {
     '@context': 'https://schema.org',
     '@type': 'BlogPosting',
+    '@id': `${pageUrl}#blogposting`,
     headline: headlineSafe,
     description,
     image: imageUrl,
@@ -728,26 +674,30 @@ export function buildBlogPostingJsonLd({
     dateModified: modIso,
     author: {
       '@type': 'Person',
+      '@id': personId,
       name: SITE_CONFIG.name,
       url: `${baseRoot}/a-propos`,
       jobTitle: 'Formatrice IA pour le BTP',
-      worksFor: {
-        '@type': 'Organization',
-        name: SITE_CONFIG.legalName,
-      },
-      sameAs: LINKEDIN_PROFILE_URL,
+      worksFor: { '@id': organizationId },
+      sameAs: [...BLOG_ARTICLE_AUTHOR_SAME_AS],
     },
     publisher: {
       '@type': 'Organization',
+      '@id': organizationId,
       name: SITE_CONFIG.legalName,
+      url: baseRoot,
       logo: {
         '@type': 'ImageObject',
         url: `${baseRoot}/logo-lo.svg`,
       },
     },
-    mainEntityOfPage: pageUrl,
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': pageUrl,
+    },
+    url: pageUrl,
     articleSection: ARTICLE_SECTION_GEO,
-    keywords: mergeBlogPostingKeywords(keywords),
+    keywords: mergeBlogPostingKeywords(keywords).join(', '),
     inLanguage: 'fr',
     isPartOf: {
       '@type': 'Blog',
@@ -766,7 +716,7 @@ export function getPersonSchema() {
   return {
     '@context': 'https://schema.org',
     '@type': 'Person',
-    '@id': `${SITE_CONFIG.url}/#person`,
+    '@id': `${SITE_CONFIG.url}/#laure-olivie`,
     name: SITE_CONFIG.name,
     givenName: 'Laure',
     familyName: 'Olivié',
@@ -867,8 +817,8 @@ export function getCourseListSchema(
         name: c.title,
         description: c.description,
         url: `${SITE_CONFIG.url}${c.path}`,
-        provider: { '@type': 'Person', '@id': `${SITE_CONFIG.url}/#person`, name: SITE_CONFIG.name },
-        instructor: { '@type': 'Person', '@id': `${SITE_CONFIG.url}/#person`, name: SITE_CONFIG.name },
+        provider: { '@type': 'Person', '@id': `${SITE_CONFIG.url}/#laure-olivie`, name: SITE_CONFIG.name },
+        instructor: { '@type': 'Person', '@id': `${SITE_CONFIG.url}/#laure-olivie`, name: SITE_CONFIG.name },
         educationalLevel: 'Professionnel',
         inLanguage: 'fr-FR',
       },

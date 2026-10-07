@@ -97,7 +97,7 @@ const courseJsonLd = {
   },
   instructor: {
     '@type': 'Person',
-    '@id': `${SITE_CONFIG.url}/#person`,
+    '@id': `${SITE_CONFIG.url}/#laure-olivie`,
     name: SITE_CONFIG.name,
     jobTitle: 'Formatrice IA spécialisée BTP',
     url: `${SITE_CONFIG.url}/a-propos/`,
@@ -123,7 +123,7 @@ const webPageJsonLd = {
   description: FORMATION_IA_BTP_PILLAR_DESCRIPTION,
   dateModified: getPillarPageContentUpdatedAt('/formation-ia-btp'),
   isPartOf: { '@id': `${SITE_CONFIG.url}/#website` },
-  about: { '@id': `${SITE_CONFIG.url}/#person` },
+  about: { '@id': `${SITE_CONFIG.url}/#laure-olivie` },
   mainEntity: { '@id': `${SITE_CONFIG.url}${PATH}#course` },
 };
 

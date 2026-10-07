@@ -12,6 +12,7 @@ import { PublicPhoneCta } from '@/components/PublicPhoneCta';
 import { SOCIAL_PROOF } from '@/lib/constants';
 import { JsonLd } from '@/components/JsonLd';
 import { LINKS } from '@/lib/internal-links';
+import { buildMetierAllerPlusLoinLinks } from '@/lib/metier-aller-plus-loin';
 import { LaureOlivieFormationPortrait } from '@/components/laure-olivie/LaureOlivieFormationPortrait';
 
 import { RenvoiFicheCatalogue } from '@/components/qualiopi/RenvoiFicheCatalogue';
@@ -405,13 +406,13 @@ export default function FormationIaGeometreTpPage() {
         <LiensConnexes currentPath={LINKS.formationIaGeometreTp} />
 
         <AllerPlusLoin
-          links={[
-            { href: LINKS.formationIaBtpNiveau1BatimentTp, label: 'NIV-01 — Bâtiment & travaux publics' },
+          links={buildMetierAllerPlusLoinLinks(
+            [
             { href: LINKS.formationConducteurTravaux, label: 'Formation IA conducteur de travaux BTP' },
-            { href: '/formation-ia-charge-affaires-btp', label: 'Formation IA chargé d’affaires BTP' },
-            { href: '/financement-constructys-formation-ia-btp', label: 'Financement Constructys' },
-            { href: LINKS.prendreRdv, label: CTA_RDV_LABEL },
-          ]}
+            { href: LINKS.formationChargeAffairesBtp, label: "Formation IA chargé d'affaires BTP" },
+            ],
+            { rdvLabel: CTA_RDV_LABEL },
+          )}
         />
 
         <RenvoiFicheCatalogue programmeRef="NIV-01" />

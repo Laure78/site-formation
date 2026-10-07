@@ -8,10 +8,8 @@ import { AvisClientsFinalCta } from '@/components/avis-clients/AvisClientsFinalC
 import { StarRating } from '@/components/avis-clients/StarRating';
 import { createPageMetadata } from '@/lib/seo';
 import { LINKS } from '@/lib/internal-links';
-import { getFilledGoogleReviews } from '@/data/googleReviews';
 import { getAvisClientsPageData } from '@/lib/google-reviews-page';
 import { formatRating } from '@/lib/google-reviews';
-import { hasTrustindexWidget } from '@/lib/google-reviews-widget';
 import { SCHEMA_GOOGLE_REVIEWS_VIEW_URL } from '@/lib/schema-constants';
 import {
   OFC_CTA_PRIMARY,
@@ -36,12 +34,7 @@ export const metadata = createPageMetadata({
 });
 
 export default async function AvisClientsPage() {
-  const usingFreeWidget = hasTrustindexWidget();
-  /** Places API optionnelle — non appelée si le widget gratuit est configuré (évite la facturation Google). */
-  const { google, additionalReviews } = usingFreeWidget
-    ? { google: null, additionalReviews: getFilledGoogleReviews() }
-    : await getAvisClientsPageData();
-
+  const { google, additionalReviews } = await getAvisClientsPageData();
   const mapsUrl = google?.aggregate.googleUrl ?? SCHEMA_GOOGLE_REVIEWS_VIEW_URL;
 
   return (

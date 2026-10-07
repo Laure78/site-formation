@@ -14,7 +14,7 @@ export function getAProposPersonJsonLd(): Record<string, unknown> {
   return {
     '@context': 'https://schema.org',
     ...buildPersonLaureSchemaNode({
-      personId: `${PAGE_URL}#person`,
+      personId: `${BASE}/#laure-olivie`,
       pageUrl: PAGE_URL,
       organizationId: `${BASE}/#organization`,
       affiliationsScope: 'a-propos',

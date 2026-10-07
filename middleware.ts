@@ -13,6 +13,11 @@ export async function middleware(request: NextRequest) {
 
   const { pathname } = request.nextUrl;
 
+  // Sitemap / robots : sortie immédiate (évite 5xx / latence middleware sur crawl Google)
+  if (pathname === '/sitemap.xml' || pathname === '/robots.txt') {
+    return NextResponse.next();
+  }
+
   if (!isFormationPathPublished(pathname)) {
     return NextResponse.redirect(new URL(LINKS.formations, request.url));
   }

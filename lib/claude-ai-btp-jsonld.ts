@@ -34,7 +34,7 @@ export const CLAUDE_AI_BTP_WORD_COUNT = 3500;
 const CANONICAL = `${SITE_CONFIG.url.replace(/\/$/, '')}${PATH}`;
 const OG_IMAGE = `${SITE_CONFIG.url.replace(/\/$/, '')}${PHOTOS.claudeBtpGuideHero2026.src}`;
 
-const PERSON_ID = `${SITE_CONFIG.url.replace(/\/$/, '')}/a-propos#person`;
+const PERSON_ID = `${SITE_CONFIG.url.replace(/\/$/, '')}/#laure-olivie`;
 const ORG_ID = `${SITE_CONFIG.url.replace(/\/$/, '')}/#organization`;
 
 const ANCHOR_TUTORIAL = `${CANONICAL}#tutoriel-skill-claude-btp`;

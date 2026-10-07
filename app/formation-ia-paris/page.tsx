@@ -93,7 +93,7 @@ const COURSE_JSON_LD = {
   },
   instructor: {
     '@type': 'Person',
-    '@id': `${SITE_CONFIG.url.replace(/\/$/, '')}/#person`,
+    '@id': `${SITE_CONFIG.url.replace(/\/$/, '')}/#laure-olivie`,
     name: SITE_CONFIG.name,
   },
   inLanguage: 'fr',

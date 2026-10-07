@@ -1,5 +1,6 @@
 import { FAQAnswer } from '@/components/landing/FAQAnswer';
 import { LINKS } from '@/lib/internal-links';
+import { buildMetierAllerPlusLoinLinks } from '@/lib/metier-aller-plus-loin';
 import { CTA_RDV_LABEL, CtaRdv } from '@/components/CtaRdv';
 import Link from 'next/link';
 import { ArrowRight, Check, Phone } from 'lucide-react';
@@ -467,13 +468,13 @@ export default function FormationIaVitrierBtpPage() {
           />
 
         <AllerPlusLoin
-          links={[
-            { href: '/formations', label: 'Catalogue formations IA pour le BTP' },
-            { href: '/formation-ia-couvreur-btp', label: 'Formation IA couvreur BTP' },
-            { href: '/formation-ia-etancheur', label: 'Formation IA étancheur BTP' },
-            { href: '/financement-constructys-formation-ia-btp', label: 'Financement Constructys' },
-            { href: LINKS.prendreRdv, label: CTA_RDV_LABEL },
-          ]}
+          links={buildMetierAllerPlusLoinLinks(
+            [
+            { href: LINKS.formationIaCouvreurBtp, label: 'Formation IA couvreur BTP' },
+            { href: LINKS.formationIaEtancheur, label: 'Formation IA étancheur BTP' },
+            ],
+            { rdvLabel: CTA_RDV_LABEL },
+          )}
         />
 
         <RenvoiFicheCatalogue programmeRef="NIV-01" />

@@ -1,5 +1,6 @@
 import { FAQAnswer } from '@/components/landing/FAQAnswer';
 import { LINKS } from '@/lib/internal-links';
+import { buildMetierAllerPlusLoinLinks } from '@/lib/metier-aller-plus-loin';
 import { CTA_RDV_LABEL, CtaRdv } from '@/components/CtaRdv';
 import Link from 'next/link';
 import { ArrowRight, Check, Phone } from 'lucide-react';
@@ -389,13 +390,13 @@ export default function FormationIaPaysagisteBtpPage() {
           />
 
         <AllerPlusLoin
-          links={[
-            { href: '/formations', label: 'Catalogue formations IA pour les pros du BTP' },
-            { href: '/formation-ia-pisciniste-btp', label: 'Formation IA pisciniste BTP' },
-            { href: '/formation-ia-dirigeant-pme-btp', label: 'Formation IA dirigeant PME BTP' },
-            { href: '/financement-constructys-formation-ia-btp', label: 'Financement Constructys' },
-            { href: LINKS.prendreRdv, label: CTA_RDV_LABEL },
-          ]}
+          links={buildMetierAllerPlusLoinLinks(
+            [
+            { href: LINKS.formationIaPiscinisteBtp, label: 'Formation IA pisciniste BTP' },
+            { href: LINKS.formationIaDirigeantPmeBtp, label: 'Formation IA dirigeant PME BTP' },
+            ],
+            { rdvLabel: CTA_RDV_LABEL },
+          )}
         />
 
         <RenvoiFicheCatalogue programmeRef="NIV-01" />

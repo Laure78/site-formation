@@ -109,9 +109,10 @@ export function getCatalogueSurDemandeOffers(): readonly CatalogueOffer[] {
   return CATALOGUE_ALL_OFFERS.filter((o) => o.kind === 'sur-demande');
 }
 
-export const CATALOGUE_PAGE_TITLE = 'Catalogue des formations IA BTP en Île-de-France';
+/** Title catalogue — ne pas viser le head term du pilier `/formation-ia-btp`. */
+export const CATALOGUE_PAGE_TITLE = 'Catalogue des programmes IA pour le BTP | Laure Olivié';
 
 export function getCataloguePageMetaDescriptionShort(at: Date = new Date()): string {
   void at;
-  return 'Catalogue formations IA BTP en Île-de-France : devis, appels d\'offres, chantier et Claude. Programmes Qualiopi, présentiel, financement OPCO selon éligibilité.';
+  return 'Catalogue des programmes de formation IA pour le BTP : devis, appels d’offres, chantier et Claude. Fiches Qualiopi, présentiel IDF, financement OPCO selon éligibilité.';
 }

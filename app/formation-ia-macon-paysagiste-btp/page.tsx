@@ -1,5 +1,6 @@
 import { FAQAnswer } from '@/components/landing/FAQAnswer';
 import { LINKS } from '@/lib/internal-links';
+import { buildMetierAllerPlusLoinLinks } from '@/lib/metier-aller-plus-loin';
 import { CTA_RDV_LABEL, CtaRdv } from '@/components/CtaRdv';
 import Link from 'next/link';
 import { ArrowRight, Check, Phone } from 'lucide-react';
@@ -394,14 +395,14 @@ export default function FormationIaMaconPaysagisteBtpPage() {
           />
 
         <AllerPlusLoin
-          links={[
-            { href: '/formations', label: 'Catalogue formations IA pour le BTP' },
-            { href: '/formations/ia-appels-offre-btp', label: 'Formation IA appels d’offres BTP' },
-            { href: '/formation-ia-paysagiste-btp', label: 'Formation IA paysagiste BTP' },
-            { href: '/formation-ia-charge-affaires-btp', label: 'Formation IA chargé d’affaires BTP' },
-            { href: '/financement-constructys-formation-ia-btp', label: 'Financement Constructys' },
-            { href: LINKS.prendreRdv, label: CTA_RDV_LABEL },
-          ]}
+          links={buildMetierAllerPlusLoinLinks(
+            [
+            { href: LINKS.formationAO, label: "Formation IA appels d'offres BTP" },
+            { href: LINKS.formationIaPaysagiste, label: 'Formation IA paysagiste BTP' },
+            { href: LINKS.formationChargeAffairesBtp, label: "Formation IA chargé d'affaires BTP" },
+            ],
+            { rdvLabel: CTA_RDV_LABEL },
+          )}
         />
 
         <RenvoiFicheCatalogue programmeRef="NIV-01" />

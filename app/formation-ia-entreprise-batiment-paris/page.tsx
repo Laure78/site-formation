@@ -1,7 +1,7 @@
-import { redirect } from 'next/navigation';
+import { permanentRedirect } from 'next/navigation';
 import { LINKS } from '@/lib/internal-links';
 
-/** Doublon Paris — 301 vers le pilier départemental. */
+/** Doublon Paris — 301 direct vers le canon (sans chaîne). */
 export default function FormationIaEntrepriseBatimentParisLegacyRedirect() {
-  redirect(LINKS.formationIaBtpParis);
+  permanentRedirect(LINKS.formationIaParis);
 }

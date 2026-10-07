@@ -3,6 +3,7 @@ import { JsonLd } from '@/components/JsonLd';
 import { FAQSection } from '@/components/landing/FAQSection';
 import { SchemaHowTo } from '@/components/seo/SchemaHowTo';
 import { CalendlyEmbed } from '@/components/CalendlyEmbed';
+import { EnBref } from '@/app/components/EnBref';
 import { buildMetadata, getFAQSchema } from '@/lib/seo';
 import type { FAQItem } from '@/lib/faq';
 import { LINKS } from '@/lib/internal-links';
@@ -18,6 +19,9 @@ const META_TITLE = "Compte rendu de chantier avec l'IA";
 /** 151 car. — brief à 162, allégée pour ≤160 */
 const META_DESCRIPTION =
   "Rédigez vos comptes rendus de chantier avec l'IA à partir de notes ou d'une dictée : méthode et prompts BTP. Vous validez. Présentiel IDF. RDV gratuit.";
+
+const EN_BREF =
+  'Un compte rendu de chantier structure les faits, décisions et actions d’une réunion. L’IA peut transformer notes ou dictée en document structuré par lot — à condition d’interdire l’invention et de valider qui / quoi / quand avant diffusion.';
 
 export const metadata = buildMetadata({
   title: META_TITLE,
@@ -85,7 +89,7 @@ const FAQ_ITEMS: FAQItem[] = [
   },
   {
     q: 'Quelle formation pour automatiser les CR de chantier ?',
-    a: `Le catalogue formations IA pour le BTP couvre les cas chantier en présentiel en Île-de-France. ${FINANCEMENT_FORMULATION_PRUDENTE}`,
+    a: `La formation IA pour conducteurs de travaux couvre les comptes rendus et le suivi chantier en présentiel en Île-de-France. ${FINANCEMENT_FORMULATION_PRUDENTE}`,
   },
 ];
 
@@ -108,6 +112,9 @@ export default function IaCompteRenduChantierPage() {
             <h1 className="mt-6 font-display text-3xl font-bold leading-tight text-slate-900 md:text-4xl">
               Rédiger ses comptes rendus de chantier avec l&apos;IA
             </h1>
+            <EnBref className="mt-5">
+              <p>{EN_BREF}</p>
+            </EnBref>
             <p className="mt-6 text-lg leading-relaxed text-slate-600">
               Trois à cinq heures par semaine perdues sur les CR : l&apos;IA transforme des notes
               brutes en document clair. Vous validez et signez le sens métier avant diffusion —
@@ -132,6 +139,43 @@ export default function IaCompteRenduChantierPage() {
               Le flux type : capture terrain → structuration par lot → points non soldés → plan
               d&apos;actions → relecture → diffusion. L&apos;outil accélère ; le responsable de
               chantier reste garant du contenu.
+            </p>
+            <div className="mt-6 overflow-x-auto rounded-2xl border border-slate-200 bg-white">
+              <table className="min-w-full text-left text-sm text-slate-700">
+                <thead className="bg-[#F2F2F2] text-slate-900">
+                  <tr>
+                    <th className="px-4 py-3 font-semibold">Étape</th>
+                    <th className="px-4 py-3 font-semibold">Rôle de l&apos;IA</th>
+                    <th className="px-4 py-3 font-semibold">Votre contrôle</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr className="border-t border-slate-200">
+                    <td className="px-4 py-3 font-medium">Notes / dictée</td>
+                    <td className="px-4 py-3">Trier faits, décisions, risques</td>
+                    <td className="px-4 py-3">Fournir des notes réelles</td>
+                  </tr>
+                  <tr className="border-t border-slate-200">
+                    <td className="px-4 py-3 font-medium">Structure par lot</td>
+                    <td className="px-4 py-3">Organiser le document</td>
+                    <td className="px-4 py-3">Corriger les attributions</td>
+                  </tr>
+                  <tr className="border-t border-slate-200">
+                    <td className="px-4 py-3 font-medium">Plan d&apos;actions</td>
+                    <td className="px-4 py-3">Proposer qui / quoi / quand</td>
+                    <td className="px-4 py-3">Valider noms et dates</td>
+                  </tr>
+                  <tr className="border-t border-slate-200">
+                    <td className="px-4 py-3 font-medium">Diffusion</td>
+                    <td className="px-4 py-3">Reformuler avant envoi</td>
+                    <td className="px-4 py-3">Signature métier obligatoire</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p className="mt-4 text-sm leading-relaxed text-slate-500">
+              Les productions générées par l&apos;IA doivent être contrôlées avant diffusion aux
+              intervenants du chantier.
             </p>
           </div>
         </section>
@@ -216,13 +260,14 @@ export default function IaCompteRenduChantierPage() {
               Se former
             </h2>
             <p className="mt-4 text-base leading-relaxed text-slate-600">
-              Parcourir le{' '}
-              <Link href={LINKS.formations} className={OFC_LINK}>
-                catalogue des formations IA pour le BTP
+              La{' '}
+              <Link href={LINKS.formationIaConducteurDeTravaux} className={OFC_LINK}>
+                formation IA pour conducteurs de travaux
               </Link>{' '}
-              (présentiel Île-de-France). Pour le métier chantier, voir aussi la{' '}
-              <Link href={LINKS.formationConducteurTravaux} className={OFC_LINK}>
-                formation IA conducteur de travaux
+              travaille les comptes rendus et le suivi chantier en présentiel en Île-de-France.
+              Vue d&apos;ensemble :{' '}
+              <Link href={LINKS.formationIaBtp} className={OFC_LINK}>
+                formation IA pour le BTP
               </Link>
               . {FINANCEMENT_FORMULATION_PRUDENTE}
             </p>

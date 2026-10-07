@@ -43,4 +43,8 @@ export type DepartementPageData = {
   };
   /** Maillage prioritaire (ex. pilier IDF + Claude + financement) — max 3, sans doublon. */
   liensPrioritaires?: readonly { href: string; label: string }[];
+  /** H1 optionnel — sinon généré avec locatif + 3 villes (anti-doorway). */
+  h1?: string;
+  /** Bloc GEO « En bref » — sinon phrase type générée. */
+  enBref?: string;
 };

@@ -138,9 +138,12 @@ export const LINKS = {
   formationIaBtpIdfZones: '/formation-ia-btp-ile-de-france',
   /** @deprecated Alias Paris — 308 → `formationIaParis` */
   formationIaBtpParis: '/formation-ia-paris',
-  /** Essonne (91) — pages locales SEO */
-  formationMorangis: '/formations/ia-btp-morangis',
-  formationLongjumeau: '/formations/ia-btp-longjumeau',
+  /** Essonne (91) — canon département (villes Morangis/Longjumeau → 301) */
+  formationIaBtpEssonne91: '/formation-ia-btp-essonne-91',
+  /** @deprecated Doorway — 301 → `formationIaBtpEssonne91` */
+  formationMorangis: '/formation-ia-btp-essonne-91',
+  /** @deprecated Doorway — 301 → `formationIaBtpEssonne91` */
+  formationLongjumeau: '/formation-ia-btp-essonne-91',
   formationIleDeFrance: '/formation-ia-btp-ile-de-france',
   /** Landing SEO / E-E-A-T — formateur IA BTP (Laure Olivié) */
   formateurIaBtp: '/formateur-ia-btp',
@@ -154,7 +157,6 @@ export const LINKS = {
   /** Pages pilier SEO par département Île-de-France (+77) */
   formationIaBtpYvelines78: '/formation-ia-btp-yvelines-78',
   formationIaBtpSeineEtMarne77: '/formation-ia-btp-seine-et-marne-77',
-  formationIaBtpEssonne91: '/formation-ia-btp-essonne-91',
   formationIaBtpHautsDeSeine92: '/formation-ia-btp-hauts-de-seine-92',
   formationIaBtpSeineSaintDenis93: '/formation-ia-btp-seine-saint-denis-93',
   formationIaBtpValDeMarne94: '/formation-ia-btp-val-de-marne-94',
@@ -218,9 +220,11 @@ export const LINKS = {
   /** @deprecated Doublon hub plâtrerie — 308 → `formationIaPlatriste` */
   formationIaHubPlatrerieCloisons: '/formation-ia-plaquiste-btp',
   formationIaPeintreBatiment: '/formation-ia-peintre-btp',
-  formationIaSolierRevetements: '/formation-ia-solier-revetements',
+  /** @deprecated Doorway — 301 → hub `/formation-ia` */
+  formationIaSolierRevetements: '/formation-ia',
+  /** @deprecated Doorway — 301 → `formationIaTravauxPublics` */
+  formationIaConducteurEnginsTp: '/formation-ia-travaux-publics',
   formationIaPaysagiste: '/formation-ia-paysagiste-btp',
-  formationIaConducteurEnginsTp: '/formation-ia-conducteur-engins-tp',
   /** Landing SEO — chef de chantier travaux publics */
   formationIaChefChantierTp: '/formation-ia-chef-chantier-tp',
   formationIaCanalisateur: '/formation-ia-canalisateur-tp',

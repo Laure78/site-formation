@@ -12,6 +12,7 @@ import { PublicPhoneCta } from '@/components/PublicPhoneCta';
 import { SOCIAL_PROOF } from '@/lib/constants';
 import { JsonLd } from '@/components/JsonLd';
 import { LINKS } from '@/lib/internal-links';
+import { buildMetierAllerPlusLoinLinks } from '@/lib/metier-aller-plus-loin';
 import { LaureOlivieFormationPortrait } from '@/components/laure-olivie/LaureOlivieFormationPortrait';
 
 import { RenvoiFicheCatalogue } from '@/components/qualiopi/RenvoiFicheCatalogue';
@@ -407,13 +408,13 @@ export default function FormationIaCanalisateurTpPage() {
         <LiensConnexes currentPath={LINKS.formationIaCanalisateur} />
 
         <AllerPlusLoin
-          links={[
-            { href: LINKS.formationIaBtpNiveau1BatimentTp, label: 'NIV-01 — Bâtiment & travaux publics' },
-            { href: '/formations/ia-appels-offre-btp', label: 'Formation IA appels d’offres BTP' },
-            { href: '/formation-ia-chef-chantier-tp', label: 'Formation IA chef de chantier TP' },
-            { href: '/financement-constructys-formation-ia-btp', label: 'Financement Constructys' },
-            { href: LINKS.prendreRdv, label: CTA_RDV_LABEL },
-          ]}
+          links={buildMetierAllerPlusLoinLinks(
+            [
+            { href: LINKS.formationAO, label: "Formation IA appels d'offres BTP" },
+            { href: LINKS.formationIaChefChantierTp, label: 'Formation IA chef de chantier TP' },
+            ],
+            { rdvLabel: CTA_RDV_LABEL },
+          )}
         />
 
         <RenvoiFicheCatalogue programmeRef="NIV-01" />

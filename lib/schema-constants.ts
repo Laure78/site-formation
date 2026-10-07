@@ -126,6 +126,17 @@ export const SCHEMA_STATS = {
   noteSatisfaction: siteStats.noteMoyenneValeur,
 } as const;
 
+/**
+ * Fragment `@id` Person — entité unique Laure Olivié (GEO / Knowledge Graph).
+ * Toujours `https://www.laureolivie.fr/#laure-olivie` — ne plus utiliser `#person`.
+ */
+export const SCHEMA_PERSON_ID_FRAGMENT = 'laure-olivie' as const;
+
+/** `@id` absolu du nœud Person (layout + toutes les pages). */
+export function schemaPersonNodeId(baseUrl: string = SCHEMA_PUBLIC_SITE_URL): string {
+  return `${baseUrl.replace(/\/$/, '')}/#${SCHEMA_PERSON_ID_FRAGMENT}`;
+}
+
 /** Person — Laure Olivié (fragments réutilisables JSON-LD). */
 export const SCHEMA_PERSON_LAURE = {
   '@type': 'Person' as const,

@@ -13,7 +13,7 @@ export function getAProposOrganizationJsonLd(): Record<string, unknown> {
     '@context': 'https://schema.org',
     ...buildOrganizationOfcSchemaNode({
       organizationId: `${BASE}/#organization`,
-      personId: `${PAGE_URL}#person`,
+      personId: `${BASE}/#laure-olivie`,
     }),
   };
 }

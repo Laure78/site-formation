@@ -22,10 +22,15 @@ export const A_PROPOS_PAGE_SUBTITLE =
 export const A_PROPOS_PAGE_PROOF_LINE =
   'OFC certifié Qualiopi · Expérience en entreprise BTP · Instructrice LinkedIn Learning' as const;
 
-export const A_PROPOS_PAGE_META_TITLE = 'Laure Olivié | Formatrice IA spécialisée BTP' as const;
+/** Title entité (≠ `/formateur-ia-btp` qui cible la requête « formateur »). */
+export const A_PROPOS_PAGE_META_TITLE = 'Laure Olivié : formatrice IA pour le BTP' as const;
 
 export const A_PROPOS_PAGE_META_DESCRIPTION =
-  'Laure Olivié, formatrice IA spécialisée BTP : formation IA pour le BTP et formation IA bâtiment sur devis, chantiers et AO. Qualiopi, présentiel Île-de-France.' as const;
+  'Laure Olivié est formatrice en intelligence artificielle appliquée au BTP. Formation IA pour le BTP : devis, DCE, chantier. OFC Qualiopi, présentiel Île-de-France.' as const;
+
+/** Bloc GEO « En bref » — page auteur / entité. */
+export const A_PROPOS_PAGE_EN_BREF =
+  'Laure Olivié est formatrice en intelligence artificielle appliquée aux métiers du BTP. Via OFC Création d’Entreprise (organisme certifié Qualiopi), elle anime des formations en présentiel en Île-de-France sur Claude et ChatGPT : devis, appels d’offres, DCE et comptes rendus. Ancienne dirigeante d’une PME de travaux publics, elle s’adresse aux dirigeants, conducteurs de travaux et fonctions support.';
 
 /** Description JSON-LD Person — page À propos uniquement (facts vérifiés). */
 export function getAProposPagePersonDescription(): string {

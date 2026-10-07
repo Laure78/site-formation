@@ -98,8 +98,7 @@ const idfLinks = [
   { href: LINKS.formationYvelines, label: 'Yvelines (78)', sub: 'Se former à Claude près de Versailles' },
   { href: LINKS.formationSaintQuentinYvelines, label: 'Saint-Quentin-en-Yvelines', sub: 'Apprendre Claude Cowork · SQY' },
   { href: LINKS.formationIleDeFrance, label: 'Île-de-France', sub: 'Vue régionale & parcours IA BTP' },
-  { href: LINKS.formationMorangis, label: 'Morangis', sub: 'Session Claude en Essonne (91)' },
-  { href: LINKS.formationLongjumeau, label: 'Longjumeau', sub: 'Essonne (91) · découvrir Claude Chat' },
+  { href: LINKS.formationIaBtpEssonne91, label: 'Essonne (91)', sub: 'Sessions Claude — Morangis, Longjumeau et agglomération' },
 ] as const;
 
 const quickLinks = [

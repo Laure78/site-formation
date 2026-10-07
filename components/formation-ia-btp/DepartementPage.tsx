@@ -8,6 +8,7 @@ import { Breadcrumb } from '@/components/Breadcrumb';
 import { JsonLd } from '@/components/JsonLd';
 import { RdvLink } from '@/components/RdvLink';
 import { FAQSection } from '@/components/landing/FAQSection';
+import { EnBref } from '@/app/components/EnBref';
 import { RenvoiFicheCatalogue } from '@/components/qualiopi/RenvoiFicheCatalogue';
 import { ContextualLinksSection } from '@/components/layout/ContextualLinksSection';
 import { VoirAussi } from '@/components/VoirAussi';
@@ -71,8 +72,15 @@ export function DepartementPage({ data }: { data: DepartementPageData }) {
   };
   const locatif = deptLocatif(grammar);
   const deptLabel = `${data.nom} (${data.code})`;
-  const h1 = `Formation IA BTP ${deptLabel} — présentiel, intra ou inter`;
+  const villesHero = data.villes.slice(0, 3).join(', ');
+  /** H1 distinct par département — évite le clone doorway « Formation IA BTP {dept} ». */
+  const h1 =
+    data.h1 ??
+    `Formation IA pour le BTP ${locatif} (${data.code}) — ${villesHero}`;
   const campaign = `dept-${data.code}`;
+  const enBref =
+    data.enBref ??
+    `Formation IA pour le BTP ${locatif} (${data.code}) : sessions en présentiel (intra ou inter) pour dirigeants et équipes du bâtiment. Cas d’usage : devis, DCE, comptes rendus et appels d’offres sur documents réels. Organisme Qualiopi — financement OPCO possible selon éligibilité.`;
 
   const metaDescription =
     data.metaDescription ??
@@ -133,6 +141,9 @@ export function DepartementPage({ data }: { data: DepartementPageData }) {
           <h1 className="font-display mt-6 text-3xl font-bold leading-tight tracking-tight text-slate-900 md:text-4xl lg:text-[2.35rem]">
             {h1}
           </h1>
+          <EnBref className="mt-5">
+            <p>{enBref}</p>
+          </EnBref>
 
           {/* 2. Chapô */}
           <p className="mt-6 text-lg leading-relaxed text-slate-700 md:text-xl">{data.accroche}</p>

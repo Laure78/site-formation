@@ -3,6 +3,7 @@ import { JsonLd } from '@/components/JsonLd';
 import { FAQSection } from '@/components/landing/FAQSection';
 import { SchemaHowTo } from '@/components/seo/SchemaHowTo';
 import { CalendlyEmbed } from '@/components/CalendlyEmbed';
+import { EnBref } from '@/app/components/EnBref';
 import { buildMetadata, getFAQSchema } from '@/lib/seo';
 import type { FAQItem } from '@/lib/faq';
 import { LINKS } from '@/lib/internal-links';
@@ -17,6 +18,9 @@ const PATH = '/ia-analyse-dce-btp';
 const META_TITLE = 'IA et analyse de DCE dans le BTP';
 const META_DESCRIPTION =
   "Analysez un DCE (CCTP, CCAP, RC) plus vite avec l'IA : méthode pas à pas, points de vigilance et confidentialité. Formation présentiel IDF. RDV gratuit.";
+
+const EN_BREF =
+  'Un DCE, ou dossier de consultation des entreprises, regroupe les pièces transmises aux candidats d’un marché. L’IA (Claude ou ChatGPT) aide à extraire exigences, délais, pénalités et points de vigilance à partir du CCTP, du CCAP et du RC. La décision GO/NO GO et la validation commerciale restent humaines.';
 
 export const metadata = buildMetadata({
   title: META_TITLE,
@@ -77,7 +81,7 @@ const FAQ_ITEMS: FAQItem[] = [
   },
   {
     q: "Mes données d'appel d'offres sont-elles protégées ?",
-    a: "Ne déposez jamais un DCE sensible dans une IA grand public sans cadre. Préférez un environnement pro (ex. Claude Pro / entreprises) ou anonymisez. La formation couvre les pratiques adaptées aux dossiers clients.",
+    a: "Ne déposez jamais un DCE sensible dans une IA grand public sans cadre. Préférez un environnement pro (ex. Claude Pro / entreprises) ou anonymisez. La formation couvre les pratiques adaptées aux dossiers clients. Voir aussi les recommandations de la CNIL sur l'IA.",
   },
   {
     q: 'Combien de temps gagne-t-on sur un DCE ?',
@@ -85,7 +89,7 @@ const FAQ_ITEMS: FAQItem[] = [
   },
   {
     q: "Quelle formation pour analyser un DCE avec l'IA ?",
-    a: `La formation niveau 2 appels d'offres travaille sur vos vrais DCE en présentiel en Île-de-France. ${FINANCEMENT_FORMULATION_PRUDENTE}`,
+    a: `La formation IA dédiée aux appels d'offres BTP travaille sur vos vrais DCE en présentiel en Île-de-France. ${FINANCEMENT_FORMULATION_PRUDENTE}`,
   },
 ];
 
@@ -108,6 +112,9 @@ export default function IaAnalyseDceBtpPage() {
             <h1 className="mt-6 font-display text-3xl font-bold leading-tight text-slate-900 md:text-4xl">
               Analyser un DCE avec l&apos;IA : la méthode pour le BTP
             </h1>
+            <EnBref className="mt-5">
+              <p>{EN_BREF}</p>
+            </EnBref>
             <p className="mt-6 text-lg leading-relaxed text-slate-600">
               Un DCE, c&apos;est souvent des heures de lecture — et le risque de rater une clause
               éliminatoire. L&apos;IA ne décide pas à votre place : elle structure l&apos;analyse pour
@@ -116,23 +123,51 @@ export default function IaAnalyseDceBtpPage() {
           </div>
         </section>
 
-        <section className={OFC_SEC.muted} aria-labelledby="definition-analyse-dce">
+        <section className={OFC_SEC.muted} aria-labelledby="pieces-dce-ia">
           <div className="mx-auto max-w-4xl">
-            <h2 id="definition-analyse-dce" className="font-display text-2xl font-bold text-slate-900">
-              Qu&apos;est-ce qu&apos;analyser un DCE avec l&apos;IA ?
+            <h2 id="pieces-dce-ia" className="font-display text-2xl font-bold text-slate-900">
+              Pièces du DCE : ce que l&apos;IA peut aider à faire
             </h2>
-            <p className="mt-4 text-base leading-relaxed text-slate-700 md:text-lg">
-              <strong>
-                Analyser un DCE avec l&apos;IA, c&apos;est faire extraire, classer et croiser les
-                exigences des pièces d&apos;un appel d&apos;offres BTP pour préparer une décision
-                commerciale éclairée.
-              </strong>
-            </p>
             <p className="mt-4 text-base leading-relaxed text-slate-600">
-              On travaille notamment le <strong>CCTP</strong> (technique), le <strong>CCAP</strong>{' '}
-              (administratif / pénalités), le <strong>RC</strong> (critères et modalités) et, selon
-              les dossiers, la <strong>DPGF</strong>. L&apos;IA accélère la synthèse ; vous validez
-              chaque conclusion avant d&apos;engager l&apos;entreprise.
+              Un DCE, ou dossier de consultation des entreprises, regroupe les documents transmis aux
+              entreprises candidates. Voici le rôle typique de l&apos;IA — et la validation obligatoire.
+            </p>
+            <div className="mt-6 overflow-x-auto rounded-2xl border border-slate-200 bg-white">
+              <table className="min-w-full text-left text-sm text-slate-700">
+                <thead className="bg-[#F2F2F2] text-slate-900">
+                  <tr>
+                    <th className="px-4 py-3 font-semibold">Pièce</th>
+                    <th className="px-4 py-3 font-semibold">Aide possible de l&apos;IA</th>
+                    <th className="px-4 py-3 font-semibold">Validation nécessaire</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr className="border-t border-slate-200">
+                    <td className="px-4 py-3 font-medium">CCTP</td>
+                    <td className="px-4 py-3">Extraire exigences techniques, DTU, incohérences</td>
+                    <td className="px-4 py-3">Oui — contrôle métier</td>
+                  </tr>
+                  <tr className="border-t border-slate-200">
+                    <td className="px-4 py-3 font-medium">CCAP</td>
+                    <td className="px-4 py-3">Repérer délais, pénalités, assurances, variantes</td>
+                    <td className="px-4 py-3">Oui — impact contractuel</td>
+                  </tr>
+                  <tr className="border-t border-slate-200">
+                    <td className="px-4 py-3 font-medium">RC</td>
+                    <td className="px-4 py-3">Critères d&apos;attribution, pondération, pièces à remettre</td>
+                    <td className="px-4 py-3">Oui — stratégie d&apos;offre</td>
+                  </tr>
+                  <tr className="border-t border-slate-200">
+                    <td className="px-4 py-3 font-medium">DPGF / DQE</td>
+                    <td className="px-4 py-3">Structurer la lecture des postes (pas le chiffrage)</td>
+                    <td className="px-4 py-3">Oui — quantités et prix humains</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p className="mt-4 text-sm leading-relaxed text-slate-500">
+              Les productions générées par l&apos;IA doivent être contrôlées avant utilisation commerciale
+              ou contractuelle.
             </p>
           </div>
         </section>
@@ -214,6 +249,49 @@ export default function IaAnalyseDceBtpPage() {
           </div>
         </section>
 
+        <section className={OFC_SEC.white} aria-labelledby="sources-dce">
+          <div className="mx-auto max-w-4xl">
+            <h2 id="sources-dce" className="font-display text-2xl font-bold text-slate-900">
+              Sources
+            </h2>
+            <ul className="mt-4 list-disc space-y-2 pl-5 text-base leading-relaxed text-slate-600">
+              <li>
+                <a
+                  href="https://www.cnil.fr/fr/intelligence-artificielle"
+                  className={OFC_LINK}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  CNIL — Intelligence artificielle
+                </a>{' '}
+                (cadre et vigilance sur les traitements de données)
+              </li>
+              <li>
+                <a
+                  href="https://www.anthropic.com/claude"
+                  className={OFC_LINK}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Anthropic — Claude
+                </a>{' '}
+                (documentation éditeur)
+              </li>
+              <li>
+                <a
+                  href="https://openai.com/chatgpt"
+                  className={OFC_LINK}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  OpenAI — ChatGPT
+                </a>{' '}
+                (documentation éditeur)
+              </li>
+            </ul>
+          </div>
+        </section>
+
         <FAQSection
           id="faq-analyse-dce"
           title="FAQ"
@@ -227,13 +305,14 @@ export default function IaAnalyseDceBtpPage() {
               Se former
             </h2>
             <p className="mt-4 text-base leading-relaxed text-slate-600">
-              Pour parcourir l&apos;offre présentiel IDF :{' '}
-              <Link href={LINKS.formations} className={OFC_LINK}>
-                catalogue des formations IA pour le BTP
-              </Link>
-              . Session ciblée appels d&apos;offres :{' '}
-              <Link href={LINKS.formationAO} className={OFC_LINK}>
-                formation IA appels d&apos;offres BTP (niveau 2)
+              La{' '}
+              <Link href={LINKS.formationIaAppelsOffresBtp} className={OFC_LINK}>
+                formation IA dédiée aux appels d&apos;offres BTP
+              </Link>{' '}
+              permet de travailler cette méthode sur des dossiers réels, en présentiel en
+              Île-de-France. Vue d&apos;ensemble :{' '}
+              <Link href={LINKS.formationIaBtp} className={OFC_LINK}>
+                formation IA pour le BTP
               </Link>
               . {FINANCEMENT_FORMULATION_PRUDENTE}
             </p>

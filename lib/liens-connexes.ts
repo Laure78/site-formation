@@ -106,11 +106,18 @@ export function getLiensConnexesMetier(
     ...excludeHrefs.map(normPath),
   ]);
 
-  const deptPool: LienConnexe[] = DEPARTEMENT_PAGES.map((d) => ({
-    href: d.path,
-    label: `Formation IA BTP ${d.nom} (${d.code})`,
-    description: `Sessions présentiel — ${d.villes.slice(0, 3).join(', ')}.`,
-  }));
+  const deptPool: LienConnexe[] = [
+    {
+      href: LINKS.formationIaParis,
+      label: 'Formation IA BTP à Paris',
+      description: 'Présentiel Paris (75)',
+    },
+    ...DEPARTEMENT_PAGES.map((d) => ({
+      href: d.path,
+      label: `Formation IA BTP ${d.nom} (${d.code})`,
+      description: `Sessions présentiel — ${d.villes.slice(0, 3).join(', ')}.`,
+    })),
+  ];
 
   const pilier = pickFirstAvailable(getCataloguePilierLienConnexe(), [getCataloguePilierLienConnexe()], blocked);
   if (pilier) blocked.add(normPath(pilier.href));

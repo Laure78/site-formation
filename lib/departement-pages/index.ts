@@ -27,9 +27,8 @@ export {
   DEPARTEMENT_VAL_DOISE_95,
 };
 
-/** Registre des 8 pages département (Paris + 77–78–91–95). */
+/** Registre des pages département live (Paris = `/formation-ia-paris`, hors ce registre). */
 export const DEPARTEMENT_PAGES: readonly DepartementPageData[] = [
-  DEPARTEMENT_PARIS_75,
   DEPARTEMENT_SEINE_ET_MARNE_77,
   DEPARTEMENT_YVELINES_78,
   DEPARTEMENT_ESSONNE_91,

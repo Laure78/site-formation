@@ -13,7 +13,7 @@ import { SITE_CONFIG } from '@/lib/seo';
 
 const BASE = SITE_CONFIG.url.replace(/\/$/, '');
 const ORG_ID = `${BASE}/#organization`;
-const PERSON_ID = `${BASE}/a-propos#person`;
+const PERSON_ID = `${BASE}/#laure-olivie`;
 
 function resolveImageUrl(article: BlogArticle): string {
   if (article.coverImage?.startsWith('http')) return article.coverImage;

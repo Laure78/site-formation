@@ -101,6 +101,33 @@ export function gscRedirects2026April(): RedirectEntry[] {
       destination: FORMATION_CONDUCTEUR_TRAVAUX,
       permanent: true,
     },
+    // --- Doorway P2 (oct. 2026) — villes thin Essonne → département 91 ---
+    {
+      source: '/formations/ia-btp-morangis',
+      destination: '/formation-ia-btp-essonne-91',
+      permanent: true,
+    },
+    {
+      source: '/formations/ia-btp-longjumeau',
+      destination: '/formation-ia-btp-essonne-91',
+      permanent: true,
+    },
+    // --- Doorway métiers B1 (H1 générique / contenu minimal) ---
+    {
+      source: '/formation-ia-solier-revetements',
+      destination: '/formation-ia',
+      permanent: true,
+    },
+    {
+      source: '/formation-ia-conducteur-engins-tp',
+      destination: '/formation-ia-travaux-publics',
+      permanent: true,
+    },
+    {
+      source: '/indicateurs-de-resultats',
+      destination: '/indicateurs-resultats',
+      permanent: true,
+    },
     {
       source: '/repondre-appels-offres-ia-btp',
       destination: '/formations/ia-appels-offre-btp',
@@ -196,6 +223,13 @@ export const GSC_EXCLUDED_SITEMAP_PATHS = new Set<string>([
   '/formation-ia-paysagiste',
   '/formation-ia-peintre-batiment',
   '/formation-ia-platriste',
+  // Doorway P2 oct. 2026
+  '/formations/ia-btp-morangis',
+  '/formations/ia-btp-longjumeau',
+  '/formation-ia-solier-revetements',
+  '/formation-ia-conducteur-engins-tp',
+  '/indicateurs-de-resultats',
+  '/formation-ia-entreprise-batiment-paris',
   ...Array.from(GSC_HUB_MERGED_SLUGS).flatMap((slug) => [
     `/formation-ia/${slug}`,
     `/formation-ia-${slug}`,

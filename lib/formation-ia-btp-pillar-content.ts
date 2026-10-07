@@ -15,8 +15,9 @@ export const FORMATION_IA_BTP_PILLAR_DESCRIPTION =
 export const FORMATION_IA_BTP_PILLAR_H1 =
   'Formation IA pour le BTP : maîtriser l’intelligence artificielle dans le bâtiment';
 
+/** Bloc GEO « En bref » — 40–80 mots, citable sans le reste de la page. */
 export const FORMATION_IA_BTP_PILLAR_EN_BREF =
-  'Laure Olivié, formatrice en intelligence artificielle spécialisée dans le BTP, propose via OFC Création d’Entreprise (Qualiopi) des formations en présentiel en Île-de-France : Claude et ChatGPT appliqués aux devis, DCE, CCTP, mémoires techniques et comptes rendus de chantier — pour dirigeants, conducteurs de travaux et équipes du bâtiment.';
+  'Une formation IA pour le BTP apprend aux professionnels du bâtiment à utiliser des outils comme Claude ou ChatGPT sur leurs tâches métier : analyse de DCE, mémoires techniques, devis, comptes rendus et courriers. Objectif : accélérer le traitement de l’information tout en conservant la validation humaine. OFC Création d’Entreprise (Qualiopi) anime ces sessions en présentiel en Île-de-France.';
 
 export const FORMATION_IA_BTP_DEFINITION =
   'Une formation IA pour le BTP (aussi appelée formation IA bâtiment) est une session professionnelle en présentiel, certifiée Qualiopi, où les équipes du bâtiment et des travaux publics apprennent à utiliser Claude AI (outil principal) et ChatGPT (usages administratifs et comparaison) sur leurs documents réels : devis, DCE, CCTP, CCAP, comptes rendus de chantier et courriers. L’objectif est un gain de temps mesurable sur l’administratif, avec relecture humaine et validation terrain — jamais une promesse de financement garanti.';

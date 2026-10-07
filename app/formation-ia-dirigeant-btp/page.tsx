@@ -23,6 +23,7 @@ export default function FormationIaDirigeantBtpPage() {
       h1="Formation IA pour direction et CODIR BTP — entreprises de 20 salariés et plus"
       heroParagraph="Vous pilotez une entreprise de bâtiment de 20 salariés et plus : structurez la feuille de route IA, priorisez les cas d'usage à fort ROI et déployez une gouvernance claire — pas l'administratif quotidien du chef de TPE."
       shortAnswer="Page orientée pilotage et déploiement : cadrage, priorisation des usages, plan de formation des équipes et mesure d'impact. Pour le chef de TPE qui fait encore ses devis, relances et prospection, utilisez l'encadré en tête de page."
+      enBref="Formation IA pour dirigeants et CODIR d’entreprises BTP (20 salariés et plus) : cadrer une feuille de route, prioriser les cas d’usage et mesurer l’impact. Présentiel Île-de-France, organisme Qualiopi. Distincte de la formation chef de TPE centrée devis et prospection."
       problemBullets={[
         "Difficulté à prioriser les bons cas d'usage IA à l'échelle de l'entreprise.",
         "Manque de méthode pour embarquer l'équipe et le CODIR.",

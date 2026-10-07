@@ -3,6 +3,7 @@ import { JsonLd } from '@/components/JsonLd';
 import { FAQSection } from '@/components/landing/FAQSection';
 import { SchemaHowTo } from '@/components/seo/SchemaHowTo';
 import { CalendlyEmbed } from '@/components/CalendlyEmbed';
+import { EnBref } from '@/app/components/EnBref';
 import { buildMetadata, getFAQSchema } from '@/lib/seo';
 import type { FAQItem } from '@/lib/faq';
 import { LINKS } from '@/lib/internal-links';
@@ -17,6 +18,9 @@ const PATH = '/ia-memoire-technique-btp';
 const META_TITLE = "Mémoire technique BTP avec l'IA";
 const META_DESCRIPTION =
   "Rédigez un mémoire technique BTP gagnant avec l'IA : plan, méthodologie, moyens et références structurés. Vous validez le contenu. Présentiel IDF. RDV gratuit.";
+
+const EN_BREF =
+  'Le mémoire technique est le document dans lequel l’entreprise présente son organisation, ses moyens et sa méthodologie pour exécuter le marché. L’IA peut aider à préparer une trame alignée sur le RC et un premier jet — mais moyens, références et engagements doivent être vérifiés et adaptés avant remise.';
 
 export const metadata = buildMetadata({
   title: META_TITLE,
@@ -84,7 +88,7 @@ const FAQ_ITEMS: FAQItem[] = [
   },
   {
     q: 'Quelle formation pour rédiger des mémoires avec l\'IA ?',
-    a: `La formation IA appels d'offres BTP travaille la méthode en présentiel sur vos dossiers. ${FINANCEMENT_FORMULATION_PRUDENTE}`,
+    a: `La formation IA dédiée aux appels d'offres BTP travaille la méthode en présentiel sur vos dossiers. ${FINANCEMENT_FORMULATION_PRUDENTE}`,
   },
 ];
 
@@ -107,6 +111,9 @@ export default function IaMemoireTechniqueBtpPage() {
             <h1 className="mt-6 font-display text-3xl font-bold leading-tight text-slate-900 md:text-4xl">
               Rédiger un mémoire technique avec l&apos;IA (BTP)
             </h1>
+            <EnBref className="mt-5">
+              <p>{EN_BREF}</p>
+            </EnBref>
             <p className="mt-6 text-lg leading-relaxed text-slate-600">
               Le mémoire technique fait souvent la différence à la note. L&apos;IA aide à structurer
               et rédiger ; l&apos;expertise, les moyens et les références restent humains — vous
@@ -125,6 +132,42 @@ export default function IaMemoireTechniqueBtpPage() {
               <strong>accélère</strong> le premier jet. Elle <strong>n&apos;invente pas</strong> vos
               moyens ni vos références. Cette page explique la <em>méthode</em> ; la formation vend
               la session présentiel sur vos dossiers (voir bloc « Se former »).
+            </p>
+            <div className="mt-6 overflow-x-auto rounded-2xl border border-slate-200 bg-white">
+              <table className="min-w-full text-left text-sm text-slate-700">
+                <thead className="bg-[#F2F2F2] text-slate-900">
+                  <tr>
+                    <th className="px-4 py-3 font-semibold">Élément</th>
+                    <th className="px-4 py-3 font-semibold">Aide IA possible</th>
+                    <th className="px-4 py-3 font-semibold">Limite</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr className="border-t border-slate-200">
+                    <td className="px-4 py-3 font-medium">Plan aligné RC</td>
+                    <td className="px-4 py-3">Proposer une structure par critère</td>
+                    <td className="px-4 py-3">Vous validez la pondération</td>
+                  </tr>
+                  <tr className="border-t border-slate-200">
+                    <td className="px-4 py-3 font-medium">Méthodologie / moyens</td>
+                    <td className="px-4 py-3">Premier jet à compléter</td>
+                    <td className="px-4 py-3">Pas d&apos;invention de moyens</td>
+                  </tr>
+                  <tr className="border-t border-slate-200">
+                    <td className="px-4 py-3 font-medium">Références</td>
+                    <td className="px-4 py-3">Formuler à partir de faits fournis</td>
+                    <td className="px-4 py-3">Aucune référence fictive</td>
+                  </tr>
+                  <tr className="border-t border-slate-200">
+                    <td className="px-4 py-3 font-medium">Relecture évaluateur</td>
+                    <td className="px-4 py-3">Grille de notation critique</td>
+                    <td className="px-4 py-3">Pas une garantie d&apos;attribution</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p className="mt-4 text-sm leading-relaxed text-slate-500">
+              Les productions générées par l&apos;IA doivent être contrôlées avant remise du dossier.
             </p>
           </div>
         </section>
@@ -200,16 +243,12 @@ export default function IaMemoireTechniqueBtpPage() {
             </h2>
             <p className="mt-4 text-base leading-relaxed text-slate-600">
               Pour enchaîner analyse DCE et mémoire en atelier :{' '}
-              <Link href={LINKS.formationAO} className={OFC_LINK}>
-                formation IA appels d&apos;offres BTP (niveau 2)
+              <Link href={LINKS.formationIaAppelsOffresBtp} className={OFC_LINK}>
+                formation IA dédiée aux appels d&apos;offres BTP
               </Link>
               . Vue d&apos;ensemble :{' '}
-              <Link href={LINKS.formations} className={OFC_LINK}>
-                catalogue des formations IA pour le BTP
-              </Link>
-              . Voir aussi la{' '}
-              <Link href={LINKS.formationChargeAffairesBtp} className={OFC_LINK}>
-                formation IA pour chargés d&apos;affaires BTP
+              <Link href={LINKS.formationIaBtp} className={OFC_LINK}>
+                formation IA pour le BTP
               </Link>
               . {FINANCEMENT_FORMULATION_PRUDENTE}
             </p>
