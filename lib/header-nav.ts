@@ -13,6 +13,8 @@ export type HeaderNavLink = {
   label: string;
   /** Attribut HTML `title` (tooltip), optionnel. */
   title?: string;
+  /** Badge à droite (ex. « Niveau 1 ») — menu Formations. */
+  badge?: string;
   /** Sous-liens indentés (ex. niveaux d'un parcours). */
   children?: readonly HeaderNavLink[];
 };
@@ -41,9 +43,13 @@ const FORMATION_NAV_LABELS: Record<string, string> = {
 const APPLICATION_METIER_CODES = new Set(['NIV-06', 'NIV-07', 'NIV-08']);
 
 function formationNavLink(formation: (typeof FORMATIONS)[number]): HeaderNavLink {
+  const label = FORMATION_NAV_LABELS[formation.code] ?? formation.titre;
+  const niveauBadge = `Niveau ${formation.niveau}`;
   return {
     href: formationHref(formation),
-    label: FORMATION_NAV_LABELS[formation.code] ?? formation.titre,
+    label,
+    badge: niveauBadge,
+    title: `${label} — ${formation.niveauLabel}`,
   };
 }
 
@@ -156,10 +162,7 @@ const BASE_HEADER_NAV: readonly HeaderNavItem[] = [
     href: LINKS.formations,
     isActive: formationsNavActive,
     children: [
-      ...FORMATIONS.map((formation) => ({
-        href: formationHref(formation),
-        label: FORMATION_NAV_LABELS[formation.code] ?? formation.titre,
-      })),
+      ...FORMATIONS.map(formationNavLink),
       { href: LINKS.formationPlateforme, label: 'Espace apprenant' },
     ],
     footer: { href: LINKS.formations, label: 'Toutes les formations' },

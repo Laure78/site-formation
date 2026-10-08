@@ -48,7 +48,10 @@ function HeaderNavDropdownLinks({
                 childActive ? 'header-nav-dropdown-link--active' : ''
               }`}
             >
-              {child.label}
+              <span className="header-nav-dropdown-link__label">{child.label}</span>
+              {child.badge ? (
+                <span className="header-nav-dropdown-link__badge">{child.badge}</span>
+              ) : null}
             </Link>
             {hasNested ? (
               <ul className="header-nav-dropdown-nested">
@@ -97,7 +100,10 @@ function HeaderMobileNavLinks({
                   : 'header-mobile-submenu-link--idle'
               }`}
             >
-              {child.label}
+              <span className="header-mobile-submenu-link__label">{child.label}</span>
+              {child.badge ? (
+                <span className="header-mobile-submenu-link__badge">{child.badge}</span>
+              ) : null}
             </Link>
             {hasNested ? (
               <ul className="header-mobile-submenu-nested">
@@ -179,7 +185,7 @@ export function HeaderNavDropdown({
         <div
           id={panelId}
           data-header-dropdown=""
-          className={`header-nav-dropdown-panel absolute top-full z-[60] min-w-[16.5rem] max-w-[min(100vw-2rem,24rem)] pt-1 ${
+          className={`header-nav-dropdown-panel absolute top-full z-[60] min-w-[18.5rem] max-w-[min(100vw-2rem,26rem)] pt-1 ${
             alignEnd ? 'right-0' : 'left-0'
           }`}
           onMouseEnter={onOpen}
