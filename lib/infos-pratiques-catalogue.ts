@@ -249,13 +249,13 @@ export const PREREQUIS_NIV10 =
 export const DELAI_ACCES_NIV10 = DELAI_ACCES_NIV09;
 
 export const MODALITE_PEDAGOGIQUE_NIV10 =
-  'Action de formation — présentiel en Île-de-France uniquement (inter-entreprises ou intra) — 70 % pratique / 30 % apports méthodologiques — chaque participant travaille sur son projet d’ERP BTP avec un cas pratique fil rouge.';
+  'Action de formation — présentiel en Île-de-France (inter ou intra) ou visioconférence lors de sessions inter à dates dédiées — 70 % pratique / 30 % apports méthodologiques — chaque participant travaille sur son outil métier BTP avec un cas pratique fil rouge.';
 
 export const METHODES_NIV10 = [
-  'Présentiel en Île-de-France uniquement (inter-entreprises ou intra dans vos locaux)',
-  'Pédagogie active : exposés courts, démonstrations, ateliers guidés et production individuelle sur le projet d’ERP de chaque participant.',
+  'Présentiel en Île-de-France (inter ou intra) ou visioconférence lors de sessions inter à dates dédiées',
+  'Pédagogie active : exposés courts, démonstrations, ateliers guidés et production individuelle sur le projet de chaque participant.',
   'Supports pédagogiques remis selon convention (PDF, fiches méthode).',
-  'Moyens techniques : ordinateur par participant, connexion internet, abonnement ChatGPT ou Claude AI (non inclus dans le tarif).',
+  'Moyens techniques : ordinateur par participant, connexion internet, abonnement actif à ChatGPT ou Claude AI, à la charge du participant.',
 ] as const;
 
 export const MODALITES_ACCES_NIV10 =
@@ -357,7 +357,7 @@ function prerequisPourRef(ref: FormationCode): string {
 
 function tarifPourRef(ref: FormationCode): string {
   if (ref === 'NIV-10') {
-    return `300 € HT / participant (7 h) · 600 € HT / participant (14 h) — intra-entreprise sur devis. ${MENTIONS_TVA_INTRA_COURTE}`;
+    return `300 € HT / participant (parcours 7 h) · 600 € HT / participant (parcours 14 h) — 4 à 8 participants. ${MENTIONS_TVA_INTRA_COURTE}`;
   }
   const formation = getFormationByCode(ref);
   const entry = formation ? getFormationCatalogueByRef(ref) : undefined;
@@ -516,7 +516,7 @@ export function getFormationOutilsAbonnementsAvantDevis(ref: string): string {
     case 'NIV-09':
       return 'Abonnement payant obligatoire : ChatGPT Plus ou Claude Pro sur le poste de chaque participant (un des deux suffit ; les deux sont pratiqués en atelier). Non inclus dans le tarif de formation — à la charge de l’entreprise.';
     case 'NIV-10':
-      return 'Outils : ordinateur. Abonnement actif à ChatGPT ou Claude AI requis — non inclus dans le prix de la formation, à la charge du participant ou de l’entreprise.';
+      return 'Moyens techniques : ordinateur par participant, connexion internet, abonnement actif à ChatGPT ou Claude AI, à la charge du participant.';
     default:
       return 'Les éventuels abonnements payants aux outils d’intelligence artificielle ne sont pas inclus dans le tarif, sauf mention contraire dans le devis.';
   }

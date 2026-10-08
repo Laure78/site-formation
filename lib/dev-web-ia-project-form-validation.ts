@@ -1,29 +1,25 @@
 import { z } from 'zod';
 
 export const DEV_WEB_IA_PROJECT_TYPE_VALUES = [
-  'heures-paie',
-  'clients-commercial',
-  'visites-metres',
-  'devis-facturation',
-  'suivi-chantier',
-  'planning',
-  'achats-depenses',
-  'tableau-de-bord',
+  'suivi-devis',
+  'planning-interventions',
+  'tableau-bord-affaires',
+  'espace-client',
+  'fiches-metre',
+  'site-vitrine',
   'autre',
 ] as const;
 
 export type DevWebIaProjectTypeValue = (typeof DEV_WEB_IA_PROJECT_TYPE_VALUES)[number];
 
 export const DEV_WEB_IA_PROJECT_TYPE_LABELS: Record<DevWebIaProjectTypeValue, string> = {
-  'heures-paie': 'Relevé des heures et préparation de la paie',
-  'clients-commercial': 'Clients et suivi commercial',
-  'visites-metres': 'Visites et métrés',
-  'devis-facturation': 'Devis et suivi de facturation',
-  'suivi-chantier': 'Suivi de chantier',
-  planning: 'Planning',
-  'achats-depenses': 'Achats et dépenses',
-  'tableau-de-bord': 'Tableau de bord',
-  autre: 'Autre module d’ERP BTP',
+  'suivi-devis': 'Suivi des devis et relances',
+  'planning-interventions': 'Planning d’interventions chantier',
+  'tableau-bord-affaires': 'Tableau de bord affaires',
+  'espace-client': 'Espace client / maître d’ouvrage',
+  'fiches-metre': 'Fiches de métré',
+  'site-vitrine': 'Site vitrine de l’entreprise',
+  autre: 'Autre projet',
 };
 
 export const DEV_WEB_IA_FORMAT_VALUES = ['inter', 'intra', 'indetermine'] as const;

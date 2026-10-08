@@ -118,5 +118,9 @@ export const FORMATION_IA_CONDUCTEUR_DE_TRAVAUX_CONFIG: SeoClusterPageConfig = {
     { href: LINKS.formationClaudeBtp, label: 'Formation Claude pour le bâtiment' },
     { href: LINKS.formationIaBtpPillar, label: 'Formation IA pour le BTP — pilier' },
     { href: LINKS.iaCompteRenduChantier, label: 'Comptes rendus de chantier avec l\'IA' },
+    {
+      href: LINKS.formationDeveloppementWebIaSansCoder,
+      label: 'Créer des applications métier BTP avec l’IA',
+    },
   ],
 };

@@ -5,7 +5,10 @@
  */
 import { getFormationByCode, libelleEffectifFormation, libelleEffectifMaxFormation } from '@/data/formations';
 import { getFormationCatalogueByRef } from '@/lib/formations-catalogue-display';
-import { TARIF_INTER_DEV_WEB_IA_HT } from '@/lib/formation-developpement-web-ia-content';
+import {
+  TARIF_INTER_DEV_WEB_IA_14H_HT,
+  TARIF_INTER_DEV_WEB_IA_HT,
+} from '@/lib/formation-developpement-web-ia-content';
 import { LINKS } from '@/lib/internal-links';
 import { getFormationCatalogueImageObjectJsonLd } from '@/lib/photo-seo';
 import {
@@ -404,18 +407,16 @@ export function buildFormationCatalogueRichCourseJsonLd(
 
 export const CATALOGUE_COURSE_DEV_WEB_IA_NIV10: CatalogueCourseJsonLdConfig = {
   path: LINKS.formationDeveloppementWebIaSansCoder,
-  name: 'Créer son ERP BTP sur mesure et évolutif avec l’IA',
+  name: 'Créer des applications métier BTP avec l’IA',
   description:
-    'Formation pour dirigeants, responsables administratifs, conducteurs de travaux et fonctions support : structurer un projet d’ERP BTP et construire une première version testable avec l’IA, sans programmer. Présentiel Île-de-France uniquement. Qualiopi.',
+    'Formation IA pour le BTP : créez votre application métier (devis, chantiers, planning) avec l’IA, sans coder. 7 h ou 14 h, présentiel Île-de-France, Qualiopi.',
   price: prixCatalogue('NIV-10'),
   keywords: [
+    'formation IA sans coder BTP',
+    'créer une application métier BTP avec l’IA',
     'formation IA pour le BTP',
-    'formation ERP BTP avec l’IA',
-    'créer ERP BTP sur mesure',
-    'relevés heures chantier IA',
-    'formation IA sans coder',
     'ChatGPT BTP',
-    'niveau 3 création ERP BTP',
+    'outil métier BTP sans coder',
   ],
   courseCode: 'NIV-10',
   educationalLevel: 'Advanced',
@@ -428,9 +429,9 @@ export const FORMATION_RICH_COURSE_NIV10: FormationCatalogueRichCourseConfig = {
   price: prixCatalogue('NIV-10'),
   educationalLevel: 'Perfectionnement',
   audienceType:
-    'Dirigeants, responsables administratifs, conducteurs de travaux et fonctions support des TPE/PME du BTP',
+    'Dirigeants de TPE et PME du BTP, conducteurs de travaux, chargés d’affaires, fonctions support, indépendants du second œuvre',
   teaches: [
-    'Cartographier un processus de gestion et choisir le premier module d’ERP BTP',
+    'Cartographier un processus de gestion et choisir le premier outil métier à créer',
     'Structurer les données, les utilisateurs et leurs droits d’accès',
     'Guider l’IA pour construire et tester une première version',
     'Préparer les exports et organiser les évolutions de l’outil',
@@ -507,5 +508,34 @@ export function buildCatalogueCourseCursorBtpNiv06JsonLd(): Record<string, unkno
 }
 
 export function buildCatalogueCourseDeveloppementWebIaNiv10JsonLd(): Record<string, unknown> {
-  return buildFormationCatalogueRichCourseJsonLd(FORMATION_RICH_COURSE_NIV10);
+  const base = buildFormationCatalogueRichCourseJsonLd(FORMATION_RICH_COURSE_NIV10);
+  const courseUrl = `${SCHEMA_PUBLIC_SITE_URL.replace(/\/$/, '')}${LINKS.formationDeveloppementWebIaSansCoder}`;
+  const offer7h = buildCatalogueOffer('NIV-10', courseUrl, TARIF_INTER_DEV_WEB_IA_HT);
+  const offer14h = buildCatalogueOffer('NIV-10', courseUrl, TARIF_INTER_DEV_WEB_IA_14H_HT);
+  offer7h.name = 'Parcours 7 h';
+  offer7h.description = '300 € HT / participant — parcours 7 h — 4 à 8 participants';
+  offer14h.name = 'Parcours 14 h';
+  offer14h.description = '600 € HT / participant — parcours 14 h — 4 à 8 participants';
+
+  return {
+    ...base,
+    timeRequired: 'PT7H',
+    offers: [offer7h, offer14h],
+    hasCourseInstance: [
+      {
+        '@type': 'CourseInstance',
+        name: 'Présentiel inter ou intra — Île-de-France — 7 h',
+        courseMode: 'Onsite',
+        courseWorkload: 'PT7H',
+        location: { '@type': 'Place', name: 'Île-de-France' },
+      },
+      {
+        '@type': 'CourseInstance',
+        name: 'Présentiel inter ou intra — Île-de-France — 14 h',
+        courseMode: 'Onsite',
+        courseWorkload: 'PT14H',
+        location: { '@type': 'Place', name: 'Île-de-France' },
+      },
+    ],
+  };
 }

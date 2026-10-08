@@ -21,7 +21,7 @@ export const CATALOGUE_MENU_LABELS: Record<string, string> = {
   'NIV-03': 'IA et conduite de travaux',
   'NIV-04': 'Maîtriser Claude AI',
   'NIV-05': "IA et maîtrise d'œuvre",
-  'NIV-10': 'Créer son ERP BTP avec l’IA',
+  'NIV-10': 'Créer des applications métier BTP avec l’IA',
 };
 
 /** Ordre d’affichage catalogue public (hors apps métier N1–N3). */

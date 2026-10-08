@@ -69,7 +69,7 @@ export function DevWebIaErpModulesSection() {
       <div className={FORMATION_CATALOGUE_INNER_MAX_6XL}>
         <p className={OFC_EYEBROW}>Architecture modulaire</p>
         <h2 id="modules-erp-title" className={`${FORMATION_CATALOGUE_H2} mt-3`}>
-          Les modules que vous pourriez construire
+          Quelles applications métier BTP créer avec l&apos;IA sans coder&nbsp;?
         </h2>
         <p className="mt-3 max-w-3xl text-base leading-relaxed text-slate-600">
           Ces modules constituent des pistes d&apos;évolution. Pendant la formation, vous travaillez sur un

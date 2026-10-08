@@ -17,6 +17,7 @@ const EXACT: Record<string, string> = {
     "L'IA au service des pros du bâtiment et des travaux publics",
   '/formations/ia-appels-offre-btp': 'Formation IA appels d’offres BTP',
   '/formations/ia-conduite-travaux-suivi-chantier': "L'IA appliquée à la conduite de travaux",
+  '/formations/developpement-web-ia-sans-coder': 'Créer des applications métier BTP avec l’IA',
 };
 
 const FORMATION_PATH_EXTRA_TITLES: Record<string, string> = {

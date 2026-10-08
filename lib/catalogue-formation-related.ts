@@ -50,8 +50,9 @@ const RELATED_BY_REF: Record<FormationCatalogueCode, readonly RelatedCatalogueFo
     {
       href: LINKS.formationIaBtpNiveau1BatimentTp,
       title: getFormationByCode('NIV-01')!.titre,
-      teaser: 'Catalogue IA pour le BTP — parcours distinct BeWork / création avec l’IA.',
+      teaser: 'Niveau 1 — devis, emails et productivité avec l’IA, 4 h.',
     },
+    card('NIV-03', 'Suivi de chantier, comptes rendus et DOE avec l’IA.'),
   ],
 };
 

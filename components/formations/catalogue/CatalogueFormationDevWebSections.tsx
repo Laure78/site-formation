@@ -4,7 +4,7 @@ import { CatalogueFormationDevWebModalitesSection } from '@/components/formation
 import { DevWebIaPrixLancementCard } from '@/components/formations/DevWebIaPrixLancementCard';
 import { DevWebIaSectionVisual } from '@/components/formations/DevWebIaSectionVisual';
 import { getFormationByCode } from '@/data/formations';
-import { OFC_CTA_SECONDARY, OFC_EYEBROW, OFC_LINK } from '@/lib/ofc-interaction-classes';
+import { OFC_CTA_SECONDARY, OFC_EYEBROW, OFC_LINK, OFC_TYPE_H3 } from '@/lib/ofc-interaction-classes';
 import {
   FORMATION_CATALOGUE_H2,
   FORMATION_CATALOGUE_INNER_MAX_3XL,
@@ -13,12 +13,9 @@ import {
   FORMATION_CATALOGUE_SECTION,
   FORMATION_CATALOGUE_SECTION_MUTED,
 } from '@/lib/formation-catalogue-layout-classes';
-import { OFC_TYPE_H3 } from '@/lib/ofc-interaction-classes';
 import { formatTarifHt } from '@/lib/tarifs-sessions';
 import { PHOTOS } from '@/lib/photos';
 import { LINKS } from '@/lib/internal-links';
-import { devWebIaProjectFormHref } from '@/lib/formation-developpement-web-ia-content';
-import { OFC_CTA_PRIMARY } from '@/lib/ofc-interaction-classes';
 import {
   DEV_WEB_IA_ESPACE,
   DEV_WEB_IA_EVALUATION,
@@ -53,11 +50,11 @@ export function CatalogueFormationDevWebAfterObjectives() {
 >
   <div className={FORMATION_CATALOGUE_INNER_MAX_6XL}>
     <h2 id="public-prerequis-title" className={FORMATION_CATALOGUE_H2}>
-      Pour qui ?
+      Pour qui est la formation IA sans coder BTP&nbsp;?
     </h2>
     <p className="mt-3 max-w-2xl text-base text-slate-600">
-      Une formation pratique pour structurer votre projet d&apos;ERP BTP et amorcer une première version
-      avec l&apos;IA — sans savoir programmer.
+      Une formation pratique pour les PME du bâtiment : concevoir et construire une première version
+      d&apos;outil métier avec l&apos;IA — sans savoir programmer.
     </p>
 
     <div className="mt-10 grid items-start gap-10 lg:grid-cols-2">
@@ -112,12 +109,13 @@ export function CatalogueFormationDevWebAfterObjectives() {
   <div className={FORMATION_CATALOGUE_INNER_MAX_6XL}>
     <div className="grid items-start gap-10 lg:grid-cols-2">
       <div>
-        <p className={OFC_EYEBROW}>Des outils concrets</p>
+        <p className={OFC_EYEBROW}>Prérequis</p>
         <h2 id="outils-title" className={`${FORMATION_CATALOGUE_H2} mt-3`}>
-          Travaillez sur votre propre projet
+          Quels prérequis pour créer un ERP BTP avec l&apos;IA&nbsp;?
         </h2>
         <p className="mt-3 text-base leading-relaxed text-slate-600">
-          Ce qu&apos;il faut prévoir avant la session.
+          Ce qu&apos;il faut prévoir avant la session — abonnement ChatGPT ou Claude AI actif requis
+          (non inclus dans le tarif).
         </p>
         <ul className="mt-6 space-y-2.5">
           {DEV_WEB_IA_PREREQUIS.map((item) => (
@@ -209,9 +207,9 @@ export function CatalogueFormationDevWebAfterDeliverables() {
   <div className={FORMATION_CATALOGUE_INNER_MAX_6XL}>
     <div className="grid items-center gap-10 lg:grid-cols-2">
       <div>
-        <p className={OFC_EYEBROW}>Et après ?</p>
+        <p className={OFC_EYEBROW}>Après la session</p>
         <h2 id="apres-title" className={`${FORMATION_CATALOGUE_H2} mt-3`}>
-          Aujourd&apos;hui, vous apprenez. Demain, vous créez.
+          Que repartez-vous avec après la formation ERP BTP&nbsp;?
         </h2>
         <ul className="mt-6 space-y-3">
           {[
@@ -246,7 +244,7 @@ export function CatalogueFormationDevWebAfterDeliverables() {
     <div className="grid gap-12 lg:grid-cols-2">
       <div>
         <h2 id="methode-title" className={FORMATION_CATALOGUE_H2}>
-          Méthode pédagogique
+          Comment se déroule la formation ERP BTP avec l&apos;IA&nbsp;?
         </h2>
         <ul className="mt-6 space-y-3">
           {DEV_WEB_IA_PEDAGOGIE.map((item) => (
@@ -319,11 +317,11 @@ export function CatalogueFormationDevWebTariffsSection() {
     >
       <div className={FORMATION_CATALOGUE_INNER_MAX_4XL}>
         <h2 id="tarifs-modalites-title" className={FORMATION_CATALOGUE_H2}>
-          Format et tarifs
+          Combien coûtent les formats 7 h et 14 h&nbsp;?
         </h2>
         <p className="mt-2 max-w-2xl text-base text-slate-600">
-          Parcours 7 h ou 14 h — tarif HT par participant (inter-entreprises ou intra, présentiel en
-          Île-de-France, ou session convoquée par un réseau).
+          Formats 7 h ou 14 h — tarif HT par participant (inter-entreprises ou intra, présentiel en
+          Île-de-France uniquement).
         </p>
         <DevWebIaPrixLancementCard className="mt-6" formationTitle={FORMATION.titre} showCtas={false} />
         <ul className="mt-6 list-disc space-y-1 pl-5 text-base text-slate-700">
@@ -334,14 +332,6 @@ export function CatalogueFormationDevWebTariffsSection() {
         <p className="mt-4 text-sm text-slate-600">
           <Link href={LINKS.financement} className={OFC_LINK}>
             Financement OPCO possible selon éligibilité
-          </Link>
-        </p>
-        <p className="mt-6">
-          <Link
-            href={devWebIaProjectFormHref()}
-            className={`${OFC_CTA_PRIMARY} inline-flex min-h-11 items-center justify-center px-6 py-3`}
-          >
-            Parlez-moi de votre projet
           </Link>
         </p>
       </div>

@@ -413,13 +413,13 @@ export const FORMATIONS: readonly Formation[] = [
   {
     code: 'NIV-10',
     slug: 'developpement-web-ia-sans-coder',
-    titre: 'Créer son ERP BTP sur mesure et évolutif avec l’IA',
+    titre: 'Créer des applications métier BTP avec l’IA',
     promesse:
-      'Apprendre à créer son ERP BTP sur mesure et évolutif avec l’IA — parcours 7 h ou 14 h, sans prérequis en programmation.',
+      'Concevez votre ERP sur mesure, testez-le et faites-le évoluer — sans savoir coder. Parcours 7 h ou 14 h.',
     casUsageCourts: [
-      'Cadrer un projet d’ERP BTP',
-      'Amorcer un premier module avec l’IA',
-      'Tester et préparer les évolutions',
+      'Suivi des devis et relances',
+      'Planning d’interventions chantier',
+      'Tableau de bord affaires',
     ],
     gamme: 'deployer',
     theme: 'outils-applications',
@@ -432,9 +432,9 @@ export const FORMATIONS: readonly Formation[] = [
     prixHT: 0,
     tarifParticipantHt: TARIF_PARTICIPANT_NIV10_HT,
     accroche:
-      'Structurer votre projet d’ERP BTP et construire une première version testable avec l’IA, sans savoir programmer.',
+      'Créer un premier outil métier BTP avec l’IA, sans écrire de code — devis, planning, suivi chantier.',
     objectifs: [
-      'Cartographier un processus de gestion et choisir le premier module',
+      'Cartographier un processus de gestion et choisir le premier outil à créer',
       'Structurer les données, les utilisateurs et leurs droits d’accès',
       'Guider l’IA avec des consignes précises',
       'Construire et tester une première version sans écrire le code soi-même',
@@ -442,8 +442,8 @@ export const FORMATIONS: readonly Formation[] = [
       'Sauvegarder le projet et organiser ses évolutions',
     ],
     public:
-      'Dirigeants, responsables administratifs, conducteurs de travaux et fonctions support des TPE et PME du bâtiment et des travaux publics',
-    casUsage: 'ERP BTP sur mesure — première version assistée par IA',
+      'Dirigeants de TPE et PME du BTP · Conducteurs de travaux et chargés d’affaires · Assistant(e)s travaux et fonctions support du bâtiment · Indépendants du second œuvre',
+    casUsage: 'Outil métier BTP — première version assistée par IA',
     pdfProgramme:
       '/formations/developpement-web-ia-sans-coder/programme_OFC_Niveau3_Outils_Chantier_IA_7h_20261008.pdf',
     programmeVersion: 'Version 2',

@@ -226,17 +226,19 @@ export const FORMATION_CATALOGUE_SEO: Record<FormationCatalogueCode, FormationCa
     ],
   },
   'NIV-10': {
-    metaTitle: 'Formation ERP BTP sur mesure avec l’IA',
-    h1: 'Créer son ERP BTP sur mesure et évolutif avec l’IA',
+    metaTitle: 'Créer des applications métier BTP avec l’IA',
+    h1: 'Créer des applications métier BTP avec l’IA',
     subtitle:
-      'Devis, chantiers, planning, heures et suivi de gestion : apprenez à construire un outil adapté à votre entreprise, puis à le faire évoluer, sans savoir programmer.',
+      'Concevez votre ERP sur mesure, testez-le et faites-le évoluer — sans savoir coder.',
     metaDescription:
-      'Apprenez à créer un ERP BTP sur mesure avec l’IA : chantiers, planning et relevés d’heures. Formation IA pour le BTP en présentiel en Île-de-France.',
-    enBref: `Formation niveau 3 pour dirigeants et encadrement du BTP : structurer un projet d’ERP BTP et construire une première version testable avec l’IA, sans programmer. Présentiel Île-de-France uniquement. Inter : ${formatTarifHt(TARIF_INTER_DEV_WEB_IA_HT)} € HT (7 h) · ${formatTarifHt(TARIF_INTER_DEV_WEB_IA_14H_HT)} € HT (14 h) / participant — intra-entreprise sur devis. ${QUALIOPI_MENTION}.`,
+      'Formation IA pour le BTP : créez votre application métier (devis, chantiers, planning) avec l’IA, sans coder. 7 h ou 14 h, présentiel Île-de-France.',
+    enBref:
+      'La formation « Créer des applications métier BTP avec l’IA » d’OFC Création d’Entreprise (organisme certifié Qualiopi) apprend aux PME du bâtiment à concevoir un premier outil métier — devis, chantiers, planning — avec ChatGPT ou Claude, sans écrire de code. Parcours de 7 h (300 € HT/participant) ou 14 h (600 € HT/participant), 4 à 8 participants, 70 % de pratique, en présentiel en Île-de-France ou en visio inter à dates dédiées. Responsable pédagogique : Laure Olivié.',
     publicTargets: [
-      'Dirigeants de TPE/PME du bâtiment et des travaux publics',
-      'Responsables administratifs et fonctions support',
-      'Conducteurs de travaux',
+      'Dirigeants de TPE et PME du BTP',
+      'Conducteurs de travaux et chargés d’affaires',
+      'Assistant(e)s travaux et fonctions support du bâtiment',
+      'Indépendants du second œuvre',
     ],
     iaLimits: [
       { iaAide: 'Générer une première version à partir d’un besoin cadré', validationHumaine: 'Valider le périmètre et les fonctionnalités' },

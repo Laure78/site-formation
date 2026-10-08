@@ -13,8 +13,8 @@ export const DEV_WEB_IA_CODE = 'NIV-10' as const;
 /** Intitulé officiel catalogue / Qualiopi — source `data/formations.ts` (NIV-10). */
 export const DEV_WEB_IA_FORMATION_TITRE = getFormationByCode('NIV-10')!.titre;
 
-/** Menus et libellés courts (catalogue, navigation). */
-export const DEV_WEB_IA_FORMATION_TITRE_COURT = 'Créer son ERP BTP avec l’IA' as const;
+/** Menus et libellés courts (catalogue, navigation, breadcrumb, footer). */
+export const DEV_WEB_IA_FORMATION_TITRE_COURT = 'Créer des applications métier BTP avec l’IA' as const;
 
 /** Tarifs inter — source unique. */
 export const TARIF_INTER_DEV_WEB_IA_HT = BEWORK_PARCOURS['7h'].tarifHt;
@@ -37,32 +37,32 @@ export const DEV_WEB_IA_FINANCEMENT_MENTION =
   'Prise en charge OPCO/Constructys selon éligibilité — un reste à charge peut s’appliquer.' as const;
 
 export const DEV_WEB_IA_SUBTITLE =
-  'Devis, chantiers, planning, heures et suivi de gestion : apprenez à construire un outil adapté à votre entreprise, puis à le faire évoluer, sans savoir programmer.' as const;
+  'Concevez votre ERP sur mesure, testez-le et faites-le évoluer — sans savoir coder.' as const;
 
 export const DEV_WEB_IA_INTRO =
-  'Vos informations sont réparties entre Excel, les emails et plusieurs logiciels ? Cette formation vous apprend à structurer votre projet d’ERP BTP et à construire une première version avec l’IA. Vous commencez par votre besoin prioritaire. Vous ajoutez ensuite les modules utiles à votre activité.' as const;
+  'Une idée, une journée, une première version fonctionnelle. Vos informations sont réparties entre Excel, les emails et plusieurs logiciels ? Cette formation vous apprend à concevoir et construire une première version d’outil métier avec l’IA — devis, chantiers, planning — sans écrire de code.' as const;
 
 export const DEV_WEB_IA_ERP_DEFINITION =
-  'Un ERP est un outil qui centralise les informations et relie les fonctions de gestion de l’entreprise. « Sur mesure » signifie adapté à vos processus, vos utilisateurs et vos données. « Évolutif » signifie pouvoir ajouter des fonctions, tester les modifications et conserver les données existantes.' as const;
+  'Un outil métier centralise les informations utiles à votre activité. Vous commencez par un besoin prioritaire, puis vous enrichissez progressivement les fonctions, en testant chaque évolution.' as const;
 
 export const DEV_WEB_IA_HERO_REASSURANCES = [
   'Niveau 3 — création, dans une progression en trois niveaux',
-  'Vous commencez par un module prioritaire, puis vous enrichissez l’outil',
+  'Vous partez d’un besoin concret de votre entreprise',
   'Aucune compétence en programmation requise',
 ] as const;
 
 export const DEV_WEB_IA_HERO_FACTS = [
   '7 h (1 journée)',
   '9h00 – 12h30 · 13h30 – 17h00',
-  'Présentiel Île-de-France',
+  'Présentiel IDF ou visio inter',
   '4 à 8 participants',
   '70 % pratique · 30 % méthodologie',
 ] as const;
 
 export const DEV_WEB_IA_DUREE_COURTE = '7 h' as const;
 
-export const DEV_WEB_IA_CTA_PRIMARY_LABEL = 'Échanger sur mon projet d’ERP BTP' as const;
-export const DEV_WEB_IA_CTA_SECONDARY_LABEL = 'Découvrir le programme' as const;
+export const DEV_WEB_IA_CTA_PRIMARY_LABEL = 'Échanger sur votre projet de formation' as const;
+export const DEV_WEB_IA_CTA_SECONDARY_LABEL = 'Demander une place' as const;
 
 export const DEV_WEB_IA_INCLUS_TARIF = [
   'l’animation de la formation',
@@ -73,14 +73,15 @@ export const DEV_WEB_IA_INCLUS_TARIF = [
 ] as const;
 
 export const DEV_WEB_IA_FORMATS = [
-  'Présentiel en Île-de-France uniquement (inter-entreprises ou intra dans vos locaux)',
+  'Présentiel en Île-de-France (inter-entreprises ou intra dans vos locaux)',
+  'Visioconférence lors de sessions inter à dates dédiées',
   'Tarif HT / participant — 4 à 8 participants',
 ] as const;
 
 export const DEV_WEB_IA_MODALITES_SECTION = {
   eyebrow: 'Modalités',
-  title: 'Présentiel en Île-de-France uniquement.',
-  lead: 'Sessions en inter-entreprises à dates programmées, ou en intra dans vos locaux. Petit groupe (4 à 8), accompagnement de proximité tout au long de la pratique.',
+  title: 'Comment se déroule la journée : créer son outil métier BTP avec l’IA',
+  lead: 'Sessions en présentiel en Île-de-France (inter ou intra), ou en visioconférence lors de sessions inter à dates dédiées. Petit groupe (4 à 8), accompagnement de proximité tout au long de la pratique.',
   compareLabel: 'Voir les tarifs',
   compareHref: '#tarifs-modalites',
 } as const;
@@ -89,8 +90,14 @@ export const DEV_WEB_IA_MODALITES = [
   {
     id: 'presentiel',
     title: 'Présentiel',
-    badge: 'Île-de-France uniquement',
+    badge: 'Île-de-France',
     desc: 'En inter-entreprises à dates programmées, ou en intra dans vos locaux. Petit groupe (4 à 8), accompagnement de proximité tout au long de la pratique.',
+  },
+  {
+    id: 'visio',
+    title: 'Visioconférence',
+    badge: 'Sessions inter dédiées',
+    desc: 'Sessions inter-entreprises en visioconférence à dates dédiées. Même programme, même effectif (4 à 8), pratique sur votre propre projet.',
   },
 ] as const;
 
@@ -103,7 +110,7 @@ export const DEV_WEB_IA_QUALIOPI_ENGAGEMENTS = [
   {
     num: '02',
     title: 'Un accompagnement personnalisé',
-    desc: 'Groupes limités à 4 à 8 participants pour des allers-retours réguliers avec la formatrice.',
+    desc: 'Groupes limités à 4 à 8 participants pour des allers-retours pédagogiques réguliers.',
   },
   {
     num: '03',
@@ -118,24 +125,40 @@ export const DEV_WEB_IA_QUALIOPI_ENGAGEMENTS = [
 ] as const;
 
 export const DEV_WEB_IA_PARCOURS_INTRO = {
-  eyebrow: 'Choisissez votre parcours',
-  titleLine1: 'Un même point de départ.',
-  titleLine2: 'À vous de choisir jusqu’où aller.',
+  eyebrow: 'Formats 7 h et 14 h',
+  titleLine1: 'Combien coûtent les formats',
+  titleLine2: '7 h et 14 h ?',
   lead: 'Une première journée (7 h) pour cadrer le besoin, choisir un module et construire une première version testable. Une deuxième journée (7 h supplémentaires) pour approfondir, relier les fonctions utiles et préparer les conditions d’un déploiement progressif.',
 } as const;
 
 export const DEV_WEB_IA_PARCOURS_MARKETING = {
   '7h': {
-    label: 'Parcours 1 — 1 journée',
+    label: 'Format 7 h — 1 journée',
     title: 'Cadrer et amorcer votre ERP BTP',
     desc: 'Choisir un module prioritaire, définir écrans et données, construire une première version testable avec l’IA.',
     badge14h: null as string | null,
+    highlights: [
+      'Cadrer le besoin et choisir un module',
+      'Définir écrans, données et utilisateurs',
+      'Construire une première version avec l’IA',
+      'Tester un parcours simple',
+      'Préparer la feuille de route',
+    ],
+    outcome: 'Vous repartez avec une première version testable et une méthode.',
   },
   '14h': {
-    label: 'Parcours 2 — 2 journées',
+    label: 'Format 14 h — 2 journées',
     title: 'Approfondir et préparer l’évolution',
     desc: 'Reprendre le Jour 1, enrichir le module, travailler validations, exports et accès, puis poser la feuille de route.',
-    badge14h: 'Comprend le parcours 7 h',
+    badge14h: 'Comprend le format 7 h',
+    highlights: [
+      'Tout le format 7 h (Jour 1)',
+      'Approfondir le module ou relier un second module',
+      'Validations, exports et droits d’accès',
+      'Tests, sauvegarde et conditions de déploiement',
+      'Feuille de route d’évolution',
+    ],
+    outcome: 'Vous avez le temps d’approfondir, tester et préparer la suite.',
   },
 } as const;
 
@@ -164,16 +187,16 @@ export const DEV_WEB_IA_JOUR_RESUME = {
 } as const;
 
 export const DEV_WEB_IA_PUBLIC_PRINCIPAL =
-  'Dirigeants, responsables administratifs, conducteurs de travaux et fonctions support des TPE et PME du bâtiment et des travaux publics.' as const;
+  'Dirigeants de TPE et PME du BTP · Conducteurs de travaux et chargés d’affaires · Assistant(e)s travaux et fonctions support du bâtiment · Indépendants du second œuvre.' as const;
 
 export const DEV_WEB_IA_PUBLIC_EGALEMENT =
-  'Toute personne qui pilote ou organise la gestion de l’entreprise et souhaite structurer un outil de suivi adapté à ses processus.' as const;
+  'Toute personne qui pilote ou organise la gestion d’une entreprise du bâtiment et souhaite créer un outil métier adapté à ses processus.' as const;
 
 export const DEV_WEB_IA_PUBLIC = [
-  'Dirigeants TPE/PME BTP',
-  'Responsables administratifs',
-  'Conducteurs de travaux',
-  'Fonctions support',
+  'Dirigeants de TPE et PME du BTP',
+  'Conducteurs de travaux et chargés d’affaires',
+  'Assistant(e)s travaux et fonctions support',
+  'Indépendants du second œuvre',
 ] as const;
 
 export const DEV_WEB_IA_PREREQUIS = [
@@ -479,7 +502,7 @@ export const DEV_WEB_IA_LIVRABLES_14H = [
 export const DEV_WEB_IA_PEDAGOGIE = [
   'Fil rouge sur le projet d’ERP de chaque participant — pas sur un cas générique',
   'Courtes démonstrations, ateliers guidés puis travail individuel sur poste',
-  'Tests et corrections en direct, avec échanges avec la formatrice',
+  'Tests et corrections en direct, avec échanges pédagogiques pendant la session',
   'Petit groupe (4 à 8 participants) pour des allers-retours réguliers',
 ] as const;
 
@@ -534,7 +557,11 @@ export const DEV_WEB_IA_FAQ = [
   },
   {
     q: 'Où se déroule la formation ?',
-    a: 'Uniquement en présentiel en Île-de-France : en inter-entreprises à dates programmées, ou en intra dans vos locaux.',
+    a: 'En présentiel en Île-de-France (inter-entreprises ou intra dans vos locaux), ou en visioconférence lors de sessions inter à dates dédiées. Effectif : 4 à 8 participants.',
+  },
+  {
+    q: 'Quels formats sont proposés ?',
+    a: 'Deux formats : 7 h (300 € HT/participant) et 14 h (600 € HT/participant), en inter-entreprises (4 à 8 participants) ou en intra. Présentiel Île-de-France, ou visio inter à dates dédiées.',
   },
   {
     q: 'Dois-je apporter mon ordinateur ?',
@@ -559,16 +586,22 @@ export const DEV_WEB_IA_PROJECT_FORM_ID = 'parlez-projet' as const;
 export const DEV_WEB_IA_FORMATION_REFERENCE = 'NIV-10' as const;
 
 export const DEV_WEB_IA_CONTACT_SUBJECT =
-  `Demande d’information — Créer son ERP BTP avec l’IA (${DEV_WEB_IA_FORMATION_REFERENCE})` as const;
+  `Demande d’information — Applications métier BTP avec l’IA (${DEV_WEB_IA_FORMATION_REFERENCE})` as const;
 
 export function devWebIaProjectFormHref(): string {
   return `${DEV_WEB_IA_PATH}#${DEV_WEB_IA_PROJECT_FORM_ID}`;
 }
 
-export function devWebIaDevisHref(_formationTitle?: string): string {
-  return devWebIaProjectFormHref();
+/** CTA principal — appel découverte Calendly. */
+export function devWebIaPrimaryCtaHref(): string {
+  return LINKS.prendreRdv;
 }
 
+export function devWebIaDevisHref(_formationTitle?: string): string {
+  return LINKS.prendreRdv;
+}
+
+/** CTA secondaire — demander une place (contact). */
 export function devWebIaInscriptionHref(): string {
   return `${LINKS.contact}?objet=inscription&formation=${encodeURIComponent(DEV_WEB_IA_FORMATION_TITRE)}`;
 }

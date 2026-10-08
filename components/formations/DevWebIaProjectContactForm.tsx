@@ -48,7 +48,7 @@ export function DevWebIaProjectContactForm({ initialProjectType }: Props) {
   const formRef = useRef<HTMLFormElement>(null);
 
   const [projectType, setProjectType] = useState<DevWebIaProjectTypeValue>(
-    initialProjectType ?? 'heures-paie',
+    initialProjectType ?? 'suivi-devis',
   );
   const [format, setFormat] = useState<DevWebIaFormatValue>('indetermine');
   const [effectif, setEffectif] = useState<DevWebIaEffectifValue>('');
@@ -111,7 +111,7 @@ export function DevWebIaProjectContactForm({ initialProjectType }: Props) {
       trackContactFormSuccess(DEV_WEB_IA_CONTACT_SUBJECT);
       setSuccess(true);
       formRef.current?.reset();
-      setProjectType(initialProjectType ?? 'heures-paie');
+      setProjectType(initialProjectType ?? 'suivi-devis');
       setFormat('indetermine');
       setEffectif('');
       return;
@@ -155,7 +155,7 @@ export function DevWebIaProjectContactForm({ initialProjectType }: Props) {
         id="dev-web-ia-project-form-title"
         className="font-display text-2xl font-bold tracking-tight text-[#0F172A] md:text-3xl"
       >
-        Échanger sur mon projet d&apos;ERP BTP
+        Envoyer ma demande
       </h2>
       <p className="mt-3 max-w-2xl text-base text-slate-600">
         Décrivez le module prioritaire que vous souhaitez amorcer pendant la formation «{' '}

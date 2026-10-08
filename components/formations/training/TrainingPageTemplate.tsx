@@ -186,11 +186,14 @@ export function TrainingPageTemplate({
 
       {navItems.length > 0 ? <TrainingNavigation items={navItems} /> : null}
 
-      <section className="border-b border-slate-200 bg-white px-4 py-6 md:py-8">
-        <div className="mx-auto max-w-3xl">
-          <ShortAnswerBlock>{seo.enBref}</ShortAnswerBlock>
-        </div>
-      </section>
+      {/* Avec customHero (ex. NIV-10), le « En bref » GEO est déjà sous le H1. */}
+      {!customHero ? (
+        <section className="border-b border-slate-200 bg-white px-4 py-6 md:py-8">
+          <div className="mx-auto max-w-3xl">
+            <ShortAnswerBlock>{seo.enBref}</ShortAnswerBlock>
+          </div>
+        </section>
+      ) : null}
 
       <TrainingPainPoints
         title={content.painPointsTitle}
@@ -256,7 +259,7 @@ export function TrainingPageTemplate({
       {content.iaLimits && content.iaLimits.length > 0 ? (
         <TrainingSection
           id="limites-ia"
-          title="Ce que l’IA aide — ce que vous validez"
+          title={content.iaLimitsTitle ?? 'Ce que l’IA aide — ce que vous validez'}
           tone="white"
         >
           <div className="overflow-x-auto rounded-2xl border border-slate-200">

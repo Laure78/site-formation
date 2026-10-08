@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import { ArrowRight, Check, Download } from 'lucide-react';
-import { getFormationByCode } from '@/data/formations';
 import { MentionTvaAsterisque } from '@/components/MentionTVA';
 import {
   OFC_CTA_PRIMARY,
@@ -15,9 +14,11 @@ import {
   FORMATION_CATALOGUE_SECTION,
 } from '@/lib/formation-catalogue-layout-classes';
 import { LINKS } from '@/lib/internal-links';
-import { formatTarifHt } from '@/lib/tarifs-sessions';
-import type { BeworkParcours, BeworkParcoursId } from '@/lib/bework-programmes';
+import { formatTarifHt, MENTIONS_TVA_INTRA_COURTE } from '@/lib/tarifs-sessions';
+import type { BeworkParcoursId } from '@/lib/bework-programmes';
 import {
+  DEV_WEB_IA_CTA_PRIMARY_LABEL,
+  DEV_WEB_IA_CTA_SECONDARY_LABEL,
   DEV_WEB_IA_FINANCEMENT_MENTION,
   DEV_WEB_IA_JOUR_RESUME,
   DEV_WEB_IA_MODALITES,
@@ -32,12 +33,11 @@ import {
   PROGRAMME_PDF_14H,
   PROGRAMME_PDF_7H,
   devWebIaInscriptionHref,
+  devWebIaPrimaryCtaHref,
 } from '@/lib/formation-developpement-web-ia-content';
-import { MENTIONS_TVA_INTRA_COURTE } from '@/lib/tarifs-sessions';
 
 type DevWebParcoursMarketing = (typeof DEV_WEB_IA_PARCOURS_MARKETING)[BeworkParcoursId];
-
-const FORMATION = getFormationByCode('NIV-10')!;
+type DevWebParcoursTarif = typeof DEV_WEB_IA_PARCOURS_7H | typeof DEV_WEB_IA_PARCOURS_14H;
 
 export function CatalogueFormationDevWebModalitesSection() {
   const { eyebrow, title, lead, compareHref, compareLabel } = DEV_WEB_IA_MODALITES_SECTION;
@@ -96,8 +96,7 @@ export function CatalogueFormationDevWebQualiopiEngagementSection() {
         <div className="max-w-3xl">
           <p className={OFC_EYEBROW}>Qualiopi</p>
           <h2 id="qualiopi-engagement-title" className={FORMATION_CATALOGUE_H2}>
-            Une formation concrète.{' '}
-            <span className="text-[#377CF3]">Un engagement qualité.</span>
+            Formation Qualiopi : quel cadre pour créer un ERP BTP avec l&apos;IA&nbsp;?
           </h2>
           <p className="mt-4 text-base leading-relaxed text-slate-600">
             Cette formation est dispensée par <strong className="font-semibold text-slate-800">OFC Création
@@ -105,7 +104,7 @@ export function CatalogueFormationDevWebQualiopiEngagementSection() {
           </p>
           <p className="mt-2 text-base leading-relaxed text-slate-600">
             Un cadre pédagogique structuré pour apprendre, pratiquer et progresser sur votre propre projet
-            numérique.
+            d&apos;ERP BTP.
           </p>
         </div>
         <ol className="mt-10 grid gap-4 sm:grid-cols-2">
@@ -132,7 +131,7 @@ export function CatalogueFormationDevWebQualiopiEngagementSection() {
 
 type ParcoursCardProps = {
   parcoursId: BeworkParcoursId;
-  data: BeworkParcours;
+  data: DevWebParcoursTarif;
   marketing: DevWebParcoursMarketing;
   pdfHref: string;
   pdfName: string;
@@ -171,17 +170,24 @@ function ParcoursChoixCard({ data, marketing, pdfHref, pdfName }: ParcoursCardPr
         </li>
       </ul>
       <ul className="mt-5 flex-1 space-y-2">
-        {data.highlights.slice(0, 5).map((point) => (
+        {marketing.highlights.map((point) => (
           <li key={point} className="flex gap-2 text-sm text-slate-700">
             <Check className="mt-0.5 h-4 w-4 shrink-0 text-[#377CF3]" aria-hidden />
             <span>{point}</span>
           </li>
         ))}
       </ul>
+      <p className="mt-4 text-sm font-medium text-slate-800">{marketing.outcome}</p>
+      <Link
+        href={devWebIaInscriptionHref()}
+        className={`${OFC_CTA_SECONDARY} mt-5 inline-flex min-h-11 items-center justify-center rounded-lg px-4 py-3 text-sm`}
+      >
+        {DEV_WEB_IA_CTA_SECONDARY_LABEL}
+      </Link>
       <a
         href={pdfHref}
         download={pdfName}
-        className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-[#377CF3] hover:underline"
+        className="mt-3 inline-flex items-center gap-1.5 text-sm font-semibold text-[#377CF3] hover:underline"
       >
         <Download className="h-4 w-4 shrink-0" aria-hidden />
         Télécharger le programme PDF ({data.dureeLabel})
@@ -190,21 +196,10 @@ function ParcoursChoixCard({ data, marketing, pdfHref, pdfName }: ParcoursCardPr
   );
 }
 
-function JourParcoursCta({
-  jourKey,
-  tarifHt,
-  inscriptionLabel,
-}: {
-  jourKey: 'jour1' | 'jour2';
-  tarifHt: number;
-  inscriptionLabel: string;
-}) {
+function JourParcoursResume({ jourKey }: { jourKey: 'jour1' | 'jour2' }) {
   const jour = DEV_WEB_IA_JOUR_RESUME[jourKey];
   const pdfHref = jourKey === 'jour1' ? DEV_WEB_IA_PDF_7H_HREF : DEV_WEB_IA_PDF_14H_HREF;
-  const pdfName =
-    jourKey === 'jour1'
-      ? PROGRAMME_PDF_7H
-      : PROGRAMME_PDF_14H;
+  const pdfName = jourKey === 'jour1' ? PROGRAMME_PDF_7H : PROGRAMME_PDF_14H;
   const programmeAnchor = jourKey === 'jour1' ? '#programme' : '#programme-14h';
 
   return (
@@ -219,21 +214,15 @@ function JourParcoursCta({
       </ul>
       <p className="mt-5 font-display text-base font-bold text-slate-900">{jour.closing}</p>
       <div className="mt-5 flex flex-col gap-2">
-        <Link
-          href={devWebIaInscriptionHref()}
-          className={`${OFC_CTA_SECONDARY} inline-flex min-h-11 items-center justify-center gap-2 px-4 py-3 text-sm`}
-        >
-          {inscriptionLabel} — {formatTarifHt(tarifHt)} € HT
-          <ArrowRight className="h-4 w-4 shrink-0" aria-hidden />
-        </Link>
-        <Link href={programmeAnchor} className={`${OFC_LINK} text-center text-sm font-semibold`}>
-          {jourKey === 'jour1' ? 'Voir le programme 7 h' : 'Voir le programme 14 h (Jour 2)'}
+        <Link href={programmeAnchor} className={`${OFC_LINK} text-sm font-semibold`}>
+          {jourKey === 'jour1' ? 'Voir le détail du programme 7 h' : 'Voir le détail du programme 14 h'}
         </Link>
         <a
           href={pdfHref}
           download={pdfName}
-          className="text-center text-sm font-medium text-slate-600 hover:text-[#377CF3]"
+          className="inline-flex items-center gap-1.5 text-sm font-medium text-slate-600 hover:text-[#377CF3]"
         >
+          <Download className="h-4 w-4 shrink-0" aria-hidden />
           Télécharger le programme PDF
         </a>
       </div>
@@ -289,16 +278,23 @@ export function CatalogueFormationDevWebParcoursTarifsSection() {
         </p>
 
         <div className="mt-12 grid gap-6 lg:grid-cols-2">
-          <JourParcoursCta
-            jourKey="jour1"
-            tarifHt={DEV_WEB_IA_PARCOURS_7H.tarifHt}
-            inscriptionLabel="Demander une place"
-          />
-          <JourParcoursCta
-            jourKey="jour2"
-            tarifHt={DEV_WEB_IA_PARCOURS_14H.tarifHt}
-            inscriptionLabel="Demander une place (parcours 14 h)"
-          />
+          <JourParcoursResume jourKey="jour1" />
+          <JourParcoursResume jourKey="jour2" />
+        </div>
+        <div className="mt-10 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
+          <Link
+            href={devWebIaPrimaryCtaHref()}
+            className={`${OFC_CTA_PRIMARY} inline-flex min-h-11 items-center justify-center gap-2 rounded-lg px-6 py-3`}
+          >
+            {DEV_WEB_IA_CTA_PRIMARY_LABEL}
+            <ArrowRight className="h-4 w-4 shrink-0" aria-hidden />
+          </Link>
+          <Link
+            href={devWebIaInscriptionHref()}
+            className={`${OFC_CTA_SECONDARY} inline-flex min-h-11 items-center justify-center rounded-lg px-6 py-3`}
+          >
+            {DEV_WEB_IA_CTA_SECONDARY_LABEL}
+          </Link>
         </div>
       </div>
     </section>

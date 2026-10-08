@@ -2,6 +2,8 @@ import Link from 'next/link';
 import { ArrowRight, Download } from 'lucide-react';
 import {
   DEV_WEB_IA_BADGE_NOUVELLE,
+  DEV_WEB_IA_CTA_PRIMARY_LABEL,
+  DEV_WEB_IA_CTA_SECONDARY_LABEL,
   DEV_WEB_IA_FINANCEMENT_MENTION,
   DEV_WEB_IA_PARCOURS_14H,
   DEV_WEB_IA_PARCOURS_7H,
@@ -11,7 +13,7 @@ import {
   PROGRAMME_PDF_7H,
   DEV_WEB_IA_PRIX_LANCEMENT_LABEL,
   devWebIaInscriptionHref,
-  devWebIaProjectFormHref,
+  devWebIaPrimaryCtaHref,
 } from '@/lib/formation-developpement-web-ia-content';
 import { formatTarifHt, MENTIONS_TVA_INTRA_COURTE } from '@/lib/tarifs-sessions';
 import { MentionTvaAsterisque } from '@/components/MentionTVA';
@@ -30,8 +32,8 @@ type Props = {
  * Carte tarifs parcours 7 h / 14 h — NIV-10 (HT par participant).
  */
 export function DevWebIaPrixLancementCard({ className, showCtas = true }: Props) {
-  const inscriptionHref = devWebIaInscriptionHref();
-  const projetHref = devWebIaProjectFormHref();
+  const primaryHref = devWebIaPrimaryCtaHref();
+  const secondaryHref = devWebIaInscriptionHref();
 
   const parcours = [
     { data: DEV_WEB_IA_PARCOURS_7H, pdfHref: DEV_WEB_IA_PDF_7H_HREF, pdfName: PROGRAMME_PDF_7H },
@@ -89,17 +91,17 @@ export function DevWebIaPrixLancementCard({ className, showCtas = true }: Props)
       {showCtas ? (
         <div className="mt-5 flex flex-col gap-2.5 sm:flex-row sm:flex-wrap">
           <Link
-            href={inscriptionHref}
-            className={`${OFC_CTA_PRIMARY} inline-flex min-h-11 flex-1 items-center justify-center gap-2 px-5 py-3 sm:flex-none`}
+            href={primaryHref}
+            className={`${OFC_CTA_PRIMARY} inline-flex min-h-11 flex-1 items-center justify-center gap-2 rounded-lg px-5 py-3 sm:flex-none`}
           >
-            S&apos;inscrire à la formation
+            {DEV_WEB_IA_CTA_PRIMARY_LABEL}
             <ArrowRight className="h-4 w-4 shrink-0" aria-hidden />
           </Link>
           <Link
-            href={projetHref}
-            className={`${OFC_CTA_SECONDARY} inline-flex min-h-11 items-center justify-center px-5 py-3`}
+            href={secondaryHref}
+            className={`${OFC_CTA_SECONDARY} inline-flex min-h-11 items-center justify-center rounded-lg px-5 py-3`}
           >
-            Parlez-moi de votre projet
+            {DEV_WEB_IA_CTA_SECONDARY_LABEL}
           </Link>
         </div>
       ) : null}
