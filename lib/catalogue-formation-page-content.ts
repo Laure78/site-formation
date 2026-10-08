@@ -233,9 +233,9 @@ const NIV_01: CatalogueFormationPageContent = {
       label: 'formation IA appels d’offres BTP',
     },
     {
-      prefix: 'Pour configurer des assistants réutilisables après les bases, voir la',
-      href: LINKS.formationAssistantsIaPersonnalisesBtp,
-      label: 'formation assistants IA personnalisés pour le BTP',
+      prefix: 'Pour approfondir Claude (Projets, Skills, Cowork), voir la',
+      href: LINKS.formationMaitriserClaudeAiBtp,
+      label: 'formation Maîtriser Claude AI pour le BTP',
     },
   ],
   finalCta: {
@@ -364,9 +364,9 @@ const NIV_02: CatalogueFormationPageContent = {
       label: 'formation IA BTP niveau 1',
     },
     {
-      prefix: 'Pour créer des assistants réutilisables sur DCE et mémoire :',
-      href: LINKS.formationAssistantsIaPersonnalisesBtp,
-      label: 'formation assistants IA personnalisés BTP',
+      prefix: 'Pour approfondir Claude sur vos dossiers AO :',
+      href: LINKS.formationMaitriserClaudeAiBtp,
+      label: 'formation Maîtriser Claude AI pour le BTP',
     },
     {
       prefix: 'Pour le cadre marchés publics :',
@@ -479,9 +479,9 @@ const NIV_03: CatalogueFormationPageContent = {
       label: 'formation IA BTP niveau 1',
     },
     {
-      prefix: 'Pour des assistants réutilisables, voir la',
-      href: LINKS.formationAssistantsIaPersonnalisesBtp,
-      label: 'formation assistants IA personnalisés BTP',
+      prefix: 'Pour approfondir Claude (Skills, Cowork), voir la',
+      href: LINKS.formationMaitriserClaudeAiBtp,
+      label: 'formation Maîtriser Claude AI pour le BTP',
     },
   ],
   finalCta: {

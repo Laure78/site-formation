@@ -34,7 +34,6 @@ const CATALOGUE_REF_BY_PATH: Record<string, string> = {
   [LINKS.formationApplicationMetierBtpNiveau1]: 'NIV-06',
   [LINKS.formationApplicationMetierBtpNiveau2]: 'NIV-07',
   [LINKS.formationApplicationMetierBtpNiveau3]: 'NIV-08',
-  [LINKS.formationAssistantsIaPersonnalisesBtp]: 'NIV-09',
   [LINKS.formationDeveloppementWebIaSansCoder]: 'NIV-10',
 };
 
@@ -96,7 +95,7 @@ export type CatalogueCourseJsonLdConfig = {
     | typeof LINKS.formationApplicationMetierBtpNiveau1
     | typeof LINKS.formationApplicationMetierBtpNiveau2
     | typeof LINKS.formationApplicationMetierBtpNiveau3
-    | typeof LINKS.formationAssistantsIaPersonnalisesBtp
+    | typeof LINKS.formationAssistantsIaPersonnalisesBtpLegacy
     | typeof LINKS.formationDeveloppementWebIaSansCoder;
   name: string;
   description: string;
@@ -116,7 +115,7 @@ export type FormationCatalogueRichCourseConfig = {
     | typeof LINKS.formationApplicationMetierBtpNiveau1
     | typeof LINKS.formationApplicationMetierBtpNiveau2
     | typeof LINKS.formationApplicationMetierBtpNiveau3
-    | typeof LINKS.formationAssistantsIaPersonnalisesBtp
+    | typeof LINKS.formationAssistantsIaPersonnalisesBtpLegacy
     | typeof LINKS.formationDeveloppementWebIaSansCoder;
   name: string;
   description: string;
@@ -286,8 +285,9 @@ export const FORMATION_RICH_COURSE_NIV08: FormationCatalogueRichCourseConfig = {
   teaches: teachesFromCatalogue('NIV-08'),
 };
 
+/** @deprecated Page NIV-09 retirée — conservé pour imports legacy / PDF. */
 export const CATALOGUE_COURSE_ASSISTANTS_IA_NIV09: CatalogueCourseJsonLdConfig = {
-  path: LINKS.formationAssistantsIaPersonnalisesBtp,
+  path: LINKS.formationAssistantsIaPersonnalisesBtpLegacy,
   name: getFormationByCode('NIV-09')!.titre,
   description: `${getFormationByCode('NIV-09')!.accroche} Session ${getFormationByCode('NIV-09')!.duree}, présentiel Île-de-France, Qualiopi.`,
   price: prixCatalogue('NIV-09'),
@@ -302,8 +302,9 @@ export const CATALOGUE_COURSE_ASSISTANTS_IA_NIV09: CatalogueCourseJsonLdConfig =
   educationalLevel: 'Advanced',
 };
 
+/** @deprecated Page NIV-09 retirée. */
 export const FORMATION_RICH_COURSE_NIV09: FormationCatalogueRichCourseConfig = {
-  path: LINKS.formationAssistantsIaPersonnalisesBtp,
+  path: LINKS.formationAssistantsIaPersonnalisesBtpLegacy,
   name: CATALOGUE_COURSE_ASSISTANTS_IA_NIV09.name,
   description: CATALOGUE_COURSE_ASSISTANTS_IA_NIV09.description,
   price: prixCatalogue('NIV-09'),

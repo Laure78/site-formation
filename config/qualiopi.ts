@@ -59,7 +59,7 @@ export const QUALIOPI_CERTIFICAT_REALISATION =
 
 /** @deprecated Ancienne distinction BeWork — ne plus afficher sur le site. */
 export const QUALIOPI_BEWORK_DISTINCTION =
-  "Formation « Développer et déployer des applications métier BTP avec l'IA — sans coder » (OFC Création d'Entreprise, Qualiopi). Financement OPCO possible selon éligibilité.";
+  "Formation « Créer des applications métier BTP avec l'IA » (OFC Création d'Entreprise, Qualiopi). Financement OPCO possible selon éligibilité.";
 
 export const QUALIOPI_SATISFACTION_SOURCING = PREUVES_MENTION_SOURCE;
 

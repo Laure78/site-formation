@@ -18,7 +18,7 @@ import { MentionTVA } from '@/components/MentionTVA';
 export function FormationsTarifsGrilleSection() {
   const formations = sortFormationsCatalogue(
     getFormationsCatalogue().filter((f) =>
-      ['NIV-01', 'NIV-02', 'NIV-03', 'NIV-04', 'NIV-05', 'NIV-09', 'NIV-10'].includes(f.ref),
+      ['NIV-01', 'NIV-02', 'NIV-03', 'NIV-04', 'NIV-05', 'NIV-10'].includes(f.ref),
     ),
   );
 

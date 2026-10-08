@@ -436,6 +436,16 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
+        source: '/formations/assistants-ia-personnalises-btp',
+        destination: '/formations',
+        permanent: true,
+      },
+      {
+        source: '/formations/assistants-ia-personnalises-btp/',
+        destination: '/formations',
+        permanent: true,
+      },
+      {
         source: '/formations/ia-btp-ile-de-france',
         destination: '/formation-ia-btp-ile-de-france',
         permanent: true,

@@ -413,10 +413,9 @@ export const FORMATIONS: readonly Formation[] = [
   {
     code: 'NIV-10',
     slug: 'developpement-web-ia-sans-coder',
-    titre:
-      'Développer et déployer des applications métier BTP avec l’IA — sans coder',
+    titre: 'Créer des applications métier BTP avec l’IA',
     promesse:
-      'Concevoir, développer, tester et déployer une application ou un outil métier BTP avec l’IA — parcours 7 h ou 14 h, sans prérequis en programmation.',
+      'Créer une application ou un outil métier BTP avec l’IA — parcours 7 h ou 14 h, sans prérequis en programmation.',
     casUsageCourts: [
       'Cadrer un projet numérique',
       'Créer une première version avec l’IA',

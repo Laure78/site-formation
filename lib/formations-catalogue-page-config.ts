@@ -23,7 +23,6 @@ export const CATALOGUE_MENU_LABELS: Record<string, string> = {
   'NIV-03': 'IA et conduite de travaux',
   'NIV-04': 'Maîtriser Claude AI',
   'NIV-05': "IA et maîtrise d'œuvre",
-  'NIV-09': 'Assistants IA personnalisés',
   'NIV-10': DEV_WEB_IA_FORMATION_TITRE_COURT,
 };
 
@@ -34,7 +33,6 @@ export const CATALOGUE_PUBLIC_REFS = [
   'NIV-03',
   'NIV-04',
   'NIV-05',
-  'NIV-09',
   'NIV-10',
 ] as const;
 

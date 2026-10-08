@@ -315,8 +315,8 @@ export function CatalogueFormationDevWebTariffsSection() {
           Format et tarifs
         </h2>
         <p className="mt-2 max-w-2xl text-base text-slate-600">
-          Parcours 7 h ou 14 h — tarif HT par participant (inter-entreprises, présentiel en
-          Île-de-France ou visio à dates dédiées, ou session convoquée par un réseau).
+          Parcours 7 h ou 14 h — tarif HT par participant (inter-entreprises ou intra, présentiel en
+          Île-de-France, ou session convoquée par un réseau).
         </p>
         <DevWebIaPrixLancementCard className="mt-6" formationTitle={FORMATION.titre} showCtas={false} />
         <ul className="mt-6 list-disc space-y-1 pl-5 text-base text-slate-700">

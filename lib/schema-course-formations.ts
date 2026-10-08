@@ -118,15 +118,6 @@ export const FORMATIONS_CATALOG_SCHEMA: FormationCatalogEntry[] = [
     occupationalCategory: 'BTP, IA intégrée, applications métier avancées',
   },
   {
-    ref: 'NIV-09',
-    level: 'AVANCÉ',
-    path: '/formations/assistants-ia-personnalises-btp',
-    name: getFormationByCode('NIV-09')!.titre,
-    description: `${getFormationByCode('NIV-09')!.accroche} Qualiopi — tarif sur devis.`,
-    teaches: teachesFromCatalogueDisplay('NIV-09'),
-    occupationalCategory: 'BTP, assistants IA, productivité documentaire',
-  },
-  {
     ref: 'NIV-10',
     level: 'AVANCÉ',
     path: '/formations/developpement-web-ia-sans-coder',

@@ -46,7 +46,7 @@ export type CatalogueGammeSection = {
 };
 
 const QUALIOPI_OFFERS: CatalogueOffer[] = (
-  ['NIV-01', 'NIV-02', 'NIV-03', 'NIV-04', 'NIV-05', 'NIV-06', 'NIV-07', 'NIV-08', 'NIV-09', 'NIV-10'] as const
+  ['NIV-01', 'NIV-02', 'NIV-03', 'NIV-04', 'NIV-05', 'NIV-06', 'NIV-07', 'NIV-08', 'NIV-10'] as const
 ).map(
   (code) => {
     const f = getFormationByCode(code)!;
@@ -327,7 +327,7 @@ function buildDeployerGammeThemes(): CatalogueThemeGroup[] {
 export const CATALOGUE_MATURITE_STEPS = [
   { label: 'Découvrir l’IA', href: LINKS.formationIaBtpNiveau1BatimentTp },
   { label: 'Appliquer à son métier', href: LINKS.formations },
-  { label: 'Créer un assistant', href: LINKS.formationAssistantsIaPersonnalisesBtp },
+  { label: 'Maîtriser Claude AI', href: LINKS.formationMaitriserClaudeAiBtp },
   { label: 'Automatiser un processus', href: LINKS.prendreRdv },
   { label: 'Applications métier BTP', href: LINKS.formationApplicationMetierBtpNiveau1 },
   { label: 'Déployer & gouverner', href: LINKS.formationPmeBtp },

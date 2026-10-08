@@ -664,7 +664,7 @@ export const PHOTOS = {
   beworkHeroBureauChantier: {
     src: '/images/bework-hero-bureau-chantier-plans.png',
     alt: 'Création avec l’IA — collaboratrice au laptop, plans de chantier, formation sans coder',
-    title: 'Développer et déployer des applications métier BTP avec l’IA — sans coder',
+    title: 'Créer des applications métier BTP avec l’IA',
     width: 1024,
     height: 768,
   },
@@ -732,12 +732,12 @@ export const PHOTOS = {
     width: 1200,
     height: 800,
   },
-  /** NIV-10 — Développer et déployer des applications métier BTP avec l’IA — sans coder (visuel hero / catalogue) */
+  /** NIV-10 — Créer des applications métier BTP avec l’IA (visuel hero / catalogue) */
   formationNiv10DevWebIaHero2026: {
     src: '/images/formation-developpement-web-ia-sans-coder/01-hero-developpement-web-ia.webp',
     alt: 'Participant au laptop — formation applications métier BTP avec l’IA sans coder',
     description:
-      'Affiche hero de la formation Qualiopi « Développer et déployer des applications métier BTP avec l’IA — sans coder » (NIV-10, Niveau 3 — Création et déploiement, OFC Création d’Entreprise / Laure Olivié) : participant concentré sur un ordinateur portable. Objectif : concevoir et déployer une application ou un outil métier avec l’IA, sans écrire le code soi-même. Session 7 h, inter 300 € HT/participant, financement OPCO possible selon éligibilité.',
+      'Affiche hero de la formation Qualiopi « Créer des applications métier BTP avec l’IA » (NIV-10, Niveau 3 — Création et déploiement, OFC Création d’Entreprise / Laure Olivié) : participant concentré sur un ordinateur portable. Objectif : créer une application ou un outil métier avec l’IA, sans écrire le code soi-même. Session 7 h, inter 300 € HT/participant, financement OPCO possible selon éligibilité.',
     title: 'Vos idées. Des solutions concrètes.',
     width: 819,
     height: 1024,
@@ -773,7 +773,7 @@ export const PHOTOS = {
     src: '/images/formation-developpement-web-ia-sans-coder/05-formats-flexibles.webp',
     alt: 'Formats formation IA sans coder : présentiel, inter-entreprises, intra-entreprise',
     description:
-      'Infographie des formats de la formation « Développer et déployer des applications métier BTP avec l’IA — sans coder » : présentiel en Île-de-France, inter-entreprises à dates programmées, intra-entreprise sur devis. Même programme Qualiopi quel que soit le format — OFC Création d’Entreprise, Laure Olivié.',
+      'Infographie des formats de la formation « Créer des applications métier BTP avec l’IA » : présentiel en Île-de-France, inter-entreprises à dates programmées, intra-entreprise sur devis. Même programme Qualiopi quel que soit le format — OFC Création d’Entreprise, Laure Olivié.',
     title: 'À vous de choisir — même programme',
     width: 819,
     height: 1024,

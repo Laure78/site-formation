@@ -22,7 +22,7 @@ export const VIDEOS = {
   formationDevWebIaSansCoder2026: {
     src: 'https://youtu.be/rJyZjZPLFpE',
     youtubeId: 'rJyZjZPLFpE',
-    title: 'Développer et déployer des applications métier BTP avec l’IA — sans coder — présentation formation',
+    title: 'Créer des applications métier BTP avec l’IA — présentation formation',
     caption: 'Une idée, une journée, une première version fonctionnelle.',
   },
   /** Page BeWork — deuxième exemple formation (format 9:16). */

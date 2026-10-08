@@ -44,12 +44,12 @@ export const FEDERATION_PARCOURS_TROIS_NIVEAUX: readonly FederationParcoursNivea
   {
     niveau: 2,
     title: 'Niveau 2 — Perfectionnement',
-    formatLabel: '7 heures',
+    formatLabel: '4 à 7 heures',
     description:
-      'Approfondir l’utilisation de l’IA, créer des assistants personnalisés et développer des workflows métier (devis, documents, appels d’offres, suivi client).',
+      'Approfondir l’utilisation de l’IA sur les appels d’offres, la conduite de travaux, Claude AI et la maîtrise d’œuvre.',
     tarifHtParParticipant: TARIF_PARTICIPANT_NIV09_HT,
-    programmeHref: LINKS.formationAssistantsIaPersonnalisesBtp,
-    programmeLabel: 'Programme niveau 2 — assistants IA personnalisés BTP',
+    programmeHref: `${LINKS.formations}#catalogue-niveau-2`,
+    programmeLabel: 'Catalogue — formations niveau 2',
   },
   {
     niveau: 3,

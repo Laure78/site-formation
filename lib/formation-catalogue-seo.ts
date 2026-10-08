@@ -227,13 +227,13 @@ export const FORMATION_CATALOGUE_SEO: Record<FormationCatalogueCode, FormationCa
     ],
   },
   'NIV-10': {
-    metaTitle: 'Créer une application BTP IA sans coder',
+    metaTitle: 'Créer des applications métier BTP avec l’IA',
     h1: DEV_WEB_IA_FORMATION_TITRE,
     subtitle:
-      'Concevoir, développer, tester et déployer une application métier BTP avec l’IA, sans être développeur.',
+      'Créer, tester et déployer une application métier BTP avec l’IA, sans être développeur.',
     metaDescription:
-      'Formation IA pour le BTP : concevoir, développer et déployer une application métier sans coder. Créez vos propres outils de gestion adaptés à votre entreprise.',
-    enBref: `Formation niveau 3 — création et déploiement : cadrer un projet, créer avec l’IA, tester, corriger et déployer — sans savoir coder. Présentiel en Île-de-France uniquement (inter ou intra). Inter : ${formatTarifHt(TARIF_INTER_DEV_WEB_IA_HT)} € HT (7 h) · ${formatTarifHt(TARIF_INTER_DEV_WEB_IA_14H_HT)} € HT (14 h) / participant. ${QUALIOPI_MENTION}.`,
+      'Formation IA pour le BTP : créez des applications métier avec l’IA sans coder. Présentiel Île-de-France, Qualiopi. Parcours 7 h ou 14 h — inter ou intra.',
+    enBref: `Formation « Créer des applications métier BTP avec l’IA » (niveau 3) : cadrer un projet, créer avec l’IA, tester, corriger et déployer — sans savoir coder. Présentiel en Île-de-France uniquement (inter ou intra). Inter : ${formatTarifHt(TARIF_INTER_DEV_WEB_IA_HT)} € HT (7 h) · ${formatTarifHt(TARIF_INTER_DEV_WEB_IA_14H_HT)} € HT (14 h) / participant. ${QUALIOPI_MENTION}.`,
     publicTargets: [
       'Entrepreneurs, indépendants, commerçants et TPE et PME du bâtiment',
       'Salariés et porteurs de projet',

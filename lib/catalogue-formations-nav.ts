@@ -69,11 +69,6 @@ const ALL_CATALOGUE_FORMATIONS_NAV_LINKS: CatalogueFormationNavLink[] = [
     icon: Landmark,
   },
   {
-    href: LINKS.formationAssistantsIaPersonnalisesBtp,
-    label: 'Assistants IA personnalisés',
-    icon: FileText,
-  },
-  {
     href: LINKS.formationDeveloppementWebIaSansCoder,
     label: DEV_WEB_IA_FORMATION_TITRE_COURT,
     icon: Code2,

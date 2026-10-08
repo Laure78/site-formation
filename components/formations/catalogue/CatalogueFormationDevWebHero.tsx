@@ -64,7 +64,7 @@ export function CatalogueFormationDevWebHero() {
               </li>
               <li className="inline-flex items-center gap-2">
                 <MapPin className="h-4 w-4 text-[#377CF3]" aria-hidden />
-                Présentiel IDF ou visio (inter)
+                Présentiel Île-de-France
               </li>
               <li className="inline-flex items-center gap-2">
                 <Users className="h-4 w-4 text-[#377CF3]" aria-hidden />

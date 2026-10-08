@@ -40,7 +40,7 @@ const FORMATIONS_DATA = [
 ];
 
 const PAGES_DATA: { path: string; title: string; content: string }[] = [
-  { path: '/', title: 'Accueil', content: `Formation IA pour le BTP. Devis, DCE, appels d'offres et suivi de chantier avec ChatGPT et Claude. Présentiel · Île-de-France · documents réels · Qualiopi. financement possible selon éligibilité (Constructys, OPCO). Laure Olivié, formatrice IA, ${formatAnneesExperienceBTP()}. Guyancourt (Yvelines). Création avec l'IA : présentiel ou visio (inter) sur fiche dédiée.` },
+  { path: '/', title: 'Accueil', content: `Formation IA pour le BTP. Devis, DCE, appels d'offres et suivi de chantier avec ChatGPT et Claude. Présentiel · Île-de-France · documents réels · Qualiopi. financement possible selon éligibilité (Constructys, OPCO). Laure Olivié, formatrice IA, ${formatAnneesExperienceBTP()}. Guyancourt (Yvelines). Création avec l'IA : présentiel Île-de-France uniquement.` },
   { path: '/a-propos', title: 'À propos', content: 'Laure Olivié — Formatrice IA spécialisée BTP. OFC Création d\'Entreprise, certification Qualiopi. Partenaires : FFB, CSFE, LinkedIn Learning, Constructys.' },
   {
     path: '/etudes-de-cas/ffb-csfe',

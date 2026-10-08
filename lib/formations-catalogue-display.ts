@@ -13,7 +13,10 @@ import {
   libelleEffectifMaxFormation,
   type Formation,
 } from '@/data/formations';
-import { isFormationCataloguePublished } from '@/lib/formation-catalogue-visibility';
+import {
+  isFormationCataloguePublished,
+  isFormationCatalogueRetired,
+} from '@/lib/formation-catalogue-visibility';
 import {
   MENTIONS_TVA_REGIMES_COURT,
 } from '@/lib/tarifs-sessions';
@@ -144,9 +147,12 @@ function toCatalogueEntry(f: Formation): FormationCatalogueEntry {
 
 const ALL_FORMATIONS_CATALOGUE: FormationCatalogueEntry[] = FORMATIONS.map(toCatalogueEntry);
 
-/** Parcours visibles sur le site public (respecte les dates de publication). */
+/** Parcours visibles sur le site public (publication + hors retraités). */
 export function getFormationsCatalogue(at: Date = new Date()): FormationCatalogueEntry[] {
-  return ALL_FORMATIONS_CATALOGUE.filter((e) => isFormationCataloguePublished(e.ref, at));
+  return ALL_FORMATIONS_CATALOGUE.filter(
+    (e) =>
+      !isFormationCatalogueRetired(e.ref) && isFormationCataloguePublished(e.ref, at),
+  );
 }
 
 /** Nombre de parcours visibles — source pour copy SEO et listes catalogue. */

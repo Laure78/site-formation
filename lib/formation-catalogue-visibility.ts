@@ -50,8 +50,18 @@ export function isFormationPathPublished(pathname: string, at: Date = new Date()
   return true;
 }
 
+/** Formations retirées du catalogue public (page supprimée, 301 → /formations). */
+export const FORMATION_CATALOGUE_RETIRED = new Set<FormationCatalogueCode>(['NIV-09']);
+
+export function isFormationCatalogueRetired(code: string): boolean {
+  return FORMATION_CATALOGUE_RETIRED.has(code as FormationCatalogueCode);
+}
+
 export function getPublishedFormations(at: Date = new Date()): readonly Formation[] {
-  return FORMATIONS.filter((f) => isFormationCataloguePublished(f.code, at));
+  return FORMATIONS.filter(
+    (f) =>
+      !isFormationCatalogueRetired(f.code) && isFormationCataloguePublished(f.code, at),
+  );
 }
 
 /** Meta description page `/formations` — 25–160 car. (Bing / Google SERP). */
