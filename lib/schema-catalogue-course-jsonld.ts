@@ -394,7 +394,7 @@ export function buildFormationCatalogueRichCourseJsonLd(
 export const CATALOGUE_COURSE_DEV_WEB_IA_NIV10: CatalogueCourseJsonLdConfig = {
   path: LINKS.formationDeveloppementWebIaSansCoder,
   name: getFormationByCode('NIV-10')!.titre,
-  description: `${getFormationByCode('NIV-10')!.accroche} Session ${getFormationByCode('NIV-10')!.duree}, présentiel Île-de-France ou visio inter, Qualiopi.`,
+  description: `${getFormationByCode('NIV-10')!.accroche} Session ${getFormationByCode('NIV-10')!.duree}, présentiel Île-de-France uniquement, Qualiopi.`,
   price: prixCatalogue('NIV-10'),
   keywords: [
     'formation IA pour le BTP',

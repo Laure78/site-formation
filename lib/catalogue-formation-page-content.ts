@@ -691,21 +691,21 @@ const NIV_10: CatalogueFormationPageContent = {
   heroFacts: [
     '7 h (1 journée)',
     '9h00 – 12h30 · 13h30 – 17h00',
-    'Présentiel IDF ou visio (inter)',
-    '4 à 10 participants',
+    'Présentiel Île-de-France',
+    '4 à 8 participants',
     '70 % pratique · 30 % méthodologie',
   ],
   quickFactsLevel: 'avancé — aucun prérequis en programmation',
   practiceShare: '70 %',
-  formatLabel: 'Présentiel ou visio',
+  formatLabel: 'Présentiel',
   locationLabel: 'Île-de-France',
   pedagogicalNote: 'L’IA génère une première version. Vous validez le périmètre, les tests et la responsabilité du projet.',
   deliverablesTitle: 'Ce que vous emportez',
   quickFactsOverride: [
     { label: 'Durée', value: '7 h' },
-    { label: 'Format', value: 'Présentiel ou visio (inter)' },
+    { label: 'Format', value: 'Présentiel Île-de-France' },
     { label: 'Lieu', value: 'Île-de-France' },
-    { label: 'Effectif', value: '4 à 10 participants' },
+    { label: 'Effectif', value: '4 à 8 participants' },
     {
       label: 'Niveau',
       value: 'avancé — aucun prérequis en programmation',
@@ -764,7 +764,7 @@ const NIV_10: CatalogueFormationPageContent = {
   finalCta: {
     title: 'Vous avez une idée de site, d’application ou d’outil métier ?',
     description:
-      'Apprenez à construire votre première version avec l’IA, sans savoir coder. Parcours 7 h ou 14 h — présentiel, visio inter ou session convoquée par votre réseau (tarif par participant).',
+      'Apprenez à construire votre première version avec l’IA, sans savoir coder. Parcours 7 h ou 14 h — présentiel en Île-de-France ou session convoquée par votre réseau (tarif par participant).',
     primaryLabel: 'Demander un devis',
     secondaryLabel: 'S’inscrire à la formation',
   },

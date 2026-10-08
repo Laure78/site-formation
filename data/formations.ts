@@ -429,7 +429,7 @@ export const FORMATIONS: readonly Formation[] = [
     duree: '7 h',
     horaires: '09h00 – 12h30 / 13h30 – 17h00',
     effectifMin: 4,
-    effectifMax: 10,
+    effectifMax: 8,
     prixHT: 0,
     tarifParticipantHt: TARIF_PARTICIPANT_NIV10_HT,
     accroche:

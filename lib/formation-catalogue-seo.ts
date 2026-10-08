@@ -233,7 +233,7 @@ export const FORMATION_CATALOGUE_SEO: Record<FormationCatalogueCode, FormationCa
       'Concevoir, développer, tester et déployer une application métier BTP avec l’IA, sans être développeur.',
     metaDescription:
       'Formation IA pour le BTP : concevoir, développer et déployer une application métier sans coder. Créez vos propres outils de gestion adaptés à votre entreprise.',
-    enBref: `Formation niveau 3 — création et déploiement : cadrer un projet, créer avec l’IA, tester, corriger et déployer — sans savoir coder. Présentiel en Île-de-France (recommandé) ou visioconférence en inter à dates dédiées. Inter : ${formatTarifHt(TARIF_INTER_DEV_WEB_IA_HT)} € HT (7 h) · ${formatTarifHt(TARIF_INTER_DEV_WEB_IA_14H_HT)} € HT (14 h) / participant. ${QUALIOPI_MENTION}.`,
+    enBref: `Formation niveau 3 — création et déploiement : cadrer un projet, créer avec l’IA, tester, corriger et déployer — sans savoir coder. Présentiel en Île-de-France uniquement (inter ou intra). Inter : ${formatTarifHt(TARIF_INTER_DEV_WEB_IA_HT)} € HT (7 h) · ${formatTarifHt(TARIF_INTER_DEV_WEB_IA_14H_HT)} € HT (14 h) / participant. ${QUALIOPI_MENTION}.`,
     publicTargets: [
       'Entrepreneurs, indépendants, commerçants et TPE et PME du bâtiment',
       'Salariés et porteurs de projet',

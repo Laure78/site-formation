@@ -83,7 +83,7 @@ export function CatalogueFormationDevWebAfterObjectives() {
     </div>
 
     <p className="mt-8 max-w-2xl text-base text-slate-600">
-      Présentiel ou visioconférence (inter) : voir{' '}
+      Présentiel en Île-de-France : voir{' '}
       <a href="#modalites-participation" className={OFC_LINK}>
         Modalités de participation
       </a>

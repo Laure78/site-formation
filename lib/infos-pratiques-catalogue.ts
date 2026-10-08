@@ -249,7 +249,7 @@ export const PREREQUIS_NIV10 =
 export const DELAI_ACCES_NIV10 = DELAI_ACCES_NIV09;
 
 export const MODALITE_PEDAGOGIQUE_NIV10 =
-  'Action de formation — présentiel en Île-de-France (inter-entreprises ou intra sur devis) ; sessions inter-entreprises en visioconférence à dates dédiées — 70 % pratique / 30 % apports méthodologiques — chaque participant travaille sur son propre projet avec un cas pratique fil rouge.';
+  'Action de formation — présentiel en Île-de-France uniquement (inter-entreprises ou intra sur devis) — 70 % pratique / 30 % apports méthodologiques — chaque participant travaille sur son propre projet avec un cas pratique fil rouge.';
 
 export const MODALITES_ACCES_NIV10 =
   `Inscription sur demande auprès d'OFC (${CONTACT.email} — ${CONTACT.phoneDisplay}) : questionnaire d’analyse du besoin et de positionnement → devis ou inscription inter → convention de formation → demande de prise en charge OPCO selon éligibilité → convocation.`;

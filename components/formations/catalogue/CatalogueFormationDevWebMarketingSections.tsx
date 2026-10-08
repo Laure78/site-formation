@@ -63,7 +63,7 @@ export function CatalogueFormationDevWebModalitesSection() {
               </a>
             </p>
           </div>
-          <ul className="grid gap-4 sm:grid-cols-2">
+          <ul className="grid gap-4">
             {DEV_WEB_IA_MODALITES.map((item) => (
               <li
                 key={item.id}
