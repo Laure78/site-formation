@@ -413,13 +413,13 @@ export const FORMATIONS: readonly Formation[] = [
   {
     code: 'NIV-10',
     slug: 'developpement-web-ia-sans-coder',
-    titre: 'Créer des applications métier BTP avec l’IA',
+    titre: 'Créer son ERP BTP sur mesure et évolutif avec l’IA',
     promesse:
-      'Créer une application ou un outil métier BTP avec l’IA — parcours 7 h ou 14 h, sans prérequis en programmation.',
+      'Apprendre à créer son ERP BTP sur mesure et évolutif avec l’IA — parcours 7 h ou 14 h, sans prérequis en programmation.',
     casUsageCourts: [
-      'Cadrer un projet numérique',
-      'Créer une première version avec l’IA',
-      'Tester, corriger et déployer',
+      'Cadrer un projet d’ERP BTP',
+      'Amorcer un premier module avec l’IA',
+      'Tester et préparer les évolutions',
     ],
     gamme: 'deployer',
     theme: 'outils-applications',
@@ -432,18 +432,18 @@ export const FORMATIONS: readonly Formation[] = [
     prixHT: 0,
     tarifParticipantHt: TARIF_PARTICIPANT_NIV10_HT,
     accroche:
-      'Une idée. Une journée. Une première version fonctionnelle. Formation pratique pour créer avec l’IA, sans savoir coder.',
+      'Structurer votre projet d’ERP BTP et construire une première version testable avec l’IA, sans savoir programmer.',
     objectifs: [
-      'Cadrer un projet numérique à partir d’une idée ou d’un besoin',
-      'Structurer le périmètre fonctionnel d’une première version',
-      'Utiliser une méthode de prompting structurée',
-      'Créer une première version fonctionnelle sans écrire directement de code',
-      'Tester, corriger et sauvegarder son projet',
-      'Définir une feuille de route pour poursuivre après la formation',
+      'Cartographier un processus de gestion et choisir le premier module',
+      'Structurer les données, les utilisateurs et leurs droits d’accès',
+      'Guider l’IA avec des consignes précises',
+      'Construire et tester une première version sans écrire le code soi-même',
+      'Préparer les exports nécessaires',
+      'Sauvegarder le projet et organiser ses évolutions',
     ],
     public:
-      'Entrepreneurs, indépendants, commerçants, TPE et PME du bâtiment, salariés, porteurs de projet et personnes en reconversion',
-    casUsage: 'Site, application ou outil métier — première version assistée par IA',
+      'Dirigeants, responsables administratifs, conducteurs de travaux et fonctions support des TPE et PME du bâtiment et des travaux publics',
+    casUsage: 'ERP BTP sur mesure — première version assistée par IA',
     pdfProgramme:
       '/formations/developpement-web-ia-sans-coder/programme_OFC_Niveau3_Outils_Chantier_IA_7h_20261008.pdf',
     programmeVersion: 'Version 2',

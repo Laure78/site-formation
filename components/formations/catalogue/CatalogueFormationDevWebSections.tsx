@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import { Check, Download } from 'lucide-react';
-import { HomeJourneeBlock } from '@/components/bework/marketing/HomeJourneeBlock';
 import { CatalogueFormationDevWebModalitesSection } from '@/components/formations/catalogue/CatalogueFormationDevWebMarketingSections';
 import { DevWebIaPrixLancementCard } from '@/components/formations/DevWebIaPrixLancementCard';
 import { DevWebIaSectionVisual } from '@/components/formations/DevWebIaSectionVisual';
@@ -28,6 +27,8 @@ import {
   DEV_WEB_IA_PEDAGOGIE,
   DEV_WEB_IA_PREREQUIS,
   DEV_WEB_IA_PUBLIC,
+  DEV_WEB_IA_PUBLIC_EGALEMENT,
+  DEV_WEB_IA_PUBLIC_PRINCIPAL,
   DEV_WEB_IA_PDF_14H_HREF,
   PROGRAMME_PDF_14H,
   TARIF_INTER_DEV_WEB_IA_14H_HT,
@@ -45,19 +46,27 @@ export function CatalogueFormationDevWebAfterObjectives() {
   return (
     <>
 {/* Public + formats */}
-<section className={FORMATION_CATALOGUE_SECTION} aria-labelledby="public-prerequis-title">
+<section
+  id="pour-qui"
+  className={`${FORMATION_CATALOGUE_SECTION} scroll-mt-24`}
+  aria-labelledby="public-prerequis-title"
+>
   <div className={FORMATION_CATALOGUE_INNER_MAX_6XL}>
     <h2 id="public-prerequis-title" className={FORMATION_CATALOGUE_H2}>
-      Public et formats
+      Pour qui ?
     </h2>
     <p className="mt-3 max-w-2xl text-base text-slate-600">
-      Une formation pour passer de l&apos;idée au concret — sans savoir coder.
+      Une formation pratique pour structurer votre projet d&apos;ERP BTP et amorcer une première version
+      avec l&apos;IA — sans savoir programmer.
     </p>
 
     <div className="mt-10 grid items-start gap-10 lg:grid-cols-2">
       <div className="order-2 lg:order-1">
-        <h3 className={OFC_TYPE_H3}>Pour qui ?</h3>
-        <ul className="mt-4 flex flex-wrap gap-2">
+        <h3 className={OFC_TYPE_H3}>Public principal</h3>
+        <p className="mt-3 text-base leading-relaxed text-slate-700">{DEV_WEB_IA_PUBLIC_PRINCIPAL}</p>
+        <h3 className={`${OFC_TYPE_H3} mt-6`}>Également</h3>
+        <p className="mt-3 text-base leading-relaxed text-slate-700">{DEV_WEB_IA_PUBLIC_EGALEMENT}</p>
+        <ul className="mt-5 flex flex-wrap gap-2">
           {DEV_WEB_IA_PUBLIC.map((item) => (
             <li
               key={item}
@@ -68,7 +77,7 @@ export function CatalogueFormationDevWebAfterObjectives() {
           ))}
         </ul>
         <p className="mt-5 text-base font-semibold text-slate-800">
-          Aucun prérequis en programmation ou en création de site n&apos;est nécessaire.
+          Aucune compétence en programmation n&apos;est nécessaire.
         </p>
       </div>
       <DevWebIaSectionVisual
@@ -97,8 +106,6 @@ export function CatalogueFormationDevWebAfterObjectives() {
 </section>
 
 <CatalogueFormationDevWebModalitesSection />
-
-<HomeJourneeBlock formationHref="#programme" demonstrationsHref="#projets-exemples" />
 
 {/* Prérequis / outils */}
 <section className={FORMATION_CATALOGUE_SECTION_MUTED} aria-labelledby="outils-title">
@@ -153,12 +160,12 @@ export function CatalogueFormationDevWebProgrammeDay2() {
       <div className={FORMATION_CATALOGUE_INNER_MAX_4XL}>
         <p className={OFC_EYEBROW}>Parcours 14 h · Jour 2</p>
         <h2 id="programme-14h-title" className={`${FORMATION_CATALOGUE_H2} mt-2`}>
-          Finaliser, publier et faire évoluer son projet
+          Approfondir, relier et préparer le déploiement
         </h2>
         <p className="mt-3 max-w-2xl text-base text-slate-600">
-          Deuxième journée (7 h) : reprise de votre projet du Jour 1, améliorations, mise en ligne et bases de
-          visibilité — tarif inter {formatTarifHt(TARIF_INTER_DEV_WEB_IA_14H_HT)} € HT / participant pour
-          l’ensemble des 14 h.
+          Deuxième journée (7 h) : reprise de votre première version, approfondissement du module prioritaire
+          ou liaison d’un second module, validations, exports et feuille de route — tarif inter{' '}
+          {formatTarifHt(TARIF_INTER_DEV_WEB_IA_14H_HT)} € HT / participant pour l’ensemble des 14 h.
         </p>
         <div className="mt-10 space-y-0">
           {DEV_WEB_IA_MODULES_JOUR2.map((module) => (
@@ -208,10 +215,10 @@ export function CatalogueFormationDevWebAfterDeliverables() {
         </h2>
         <ul className="mt-6 space-y-3">
           {[
-            'Un site pour votre entreprise',
-            'Un outil métier pour gagner du temps',
-            'Une application pour vos clients',
-            'De nouvelles opportunités professionnelles',
+            'Un premier module d’ERP adapté à votre organisation',
+            'Une méthode pour ajouter des modules progressivement',
+            'Des exports préparés pour le bureau ou le gestionnaire de paie',
+            'Une feuille de route pour faire évoluer l’outil après la session',
           ].map((item) => (
             <li key={item} className="flex gap-3 text-base text-slate-800">
               <Check className="mt-0.5 h-5 w-5 shrink-0 text-[#377CF3]" aria-hidden />

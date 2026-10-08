@@ -1,25 +1,29 @@
 import { z } from 'zod';
 
 export const DEV_WEB_IA_PROJECT_TYPE_VALUES = [
-  'site-vitrine',
-  'suivi-commercial',
-  'planning-interventions',
+  'heures-paie',
+  'clients-commercial',
+  'visites-metres',
+  'devis-facturation',
+  'suivi-chantier',
+  'planning',
+  'achats-depenses',
   'tableau-de-bord',
-  'espace-client',
-  'reservation-ligne',
   'autre',
 ] as const;
 
 export type DevWebIaProjectTypeValue = (typeof DEV_WEB_IA_PROJECT_TYPE_VALUES)[number];
 
 export const DEV_WEB_IA_PROJECT_TYPE_LABELS: Record<DevWebIaProjectTypeValue, string> = {
-  'site-vitrine': 'Site vitrine',
-  'suivi-commercial': 'Suivi commercial',
-  'planning-interventions': 'Planning d’interventions',
+  'heures-paie': 'Relevé des heures et préparation de la paie',
+  'clients-commercial': 'Clients et suivi commercial',
+  'visites-metres': 'Visites et métrés',
+  'devis-facturation': 'Devis et suivi de facturation',
+  'suivi-chantier': 'Suivi de chantier',
+  planning: 'Planning',
+  'achats-depenses': 'Achats et dépenses',
   'tableau-de-bord': 'Tableau de bord',
-  'espace-client': 'Espace client',
-  'reservation-ligne': 'Réservation en ligne',
-  autre: 'Autre projet',
+  autre: 'Autre module d’ERP BTP',
 };
 
 export const DEV_WEB_IA_FORMAT_VALUES = ['inter', 'intra', 'indetermine'] as const;
@@ -30,6 +34,16 @@ export const DEV_WEB_IA_FORMAT_LABELS: Record<DevWebIaFormatValue, string> = {
   inter: 'Session interentreprises',
   intra: 'Session intra-entreprise',
   indetermine: 'Je ne sais pas encore',
+};
+
+export const DEV_WEB_IA_EFFECTIF_VALUES = ['', '1-10', '11-49', '50+'] as const;
+
+export type DevWebIaEffectifValue = (typeof DEV_WEB_IA_EFFECTIF_VALUES)[number];
+
+export const DEV_WEB_IA_EFFECTIF_LABELS: Record<Exclude<DevWebIaEffectifValue, ''>, string> = {
+  '1-10': '1 à 10 salariés',
+  '11-49': '11 à 49 salariés',
+  '50+': '50 salariés et plus',
 };
 
 const emailSchema = z
@@ -46,6 +60,10 @@ export const devWebIaProjectFormSchema = z.object({
   company: z.string().trim().max(200, 'Nom d’entreprise trop long.').optional().or(z.literal('')),
   phone: z.string().trim().max(30, 'Numéro trop long.').optional().or(z.literal('')),
   projectType: z.enum(DEV_WEB_IA_PROJECT_TYPE_VALUES, { message: 'Type de projet invalide.' }),
+  effectif: z
+    .enum(DEV_WEB_IA_EFFECTIF_VALUES, { message: 'Effectif invalide.' })
+    .optional()
+    .or(z.literal('')),
   message: z
     .string()
     .trim()

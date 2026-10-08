@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { ArrowRight, Download } from 'lucide-react';
 import {
   DEV_WEB_IA_BADGE_NOUVELLE,
+  DEV_WEB_IA_FINANCEMENT_MENTION,
   DEV_WEB_IA_PARCOURS_14H,
   DEV_WEB_IA_PARCOURS_7H,
   DEV_WEB_IA_PDF_14H_HREF,
@@ -12,7 +13,6 @@ import {
   devWebIaInscriptionHref,
   devWebIaProjectFormHref,
 } from '@/lib/formation-developpement-web-ia-content';
-import { FINANCEMENT_FORMULATION_COURTE } from '@/lib/financement-copy';
 import { formatTarifHt, MENTIONS_TVA_INTRA_COURTE } from '@/lib/tarifs-sessions';
 import { MentionTvaAsterisque } from '@/components/MentionTVA';
 import { OFC_CTA_PRIMARY, OFC_CTA_SECONDARY } from '@/lib/ofc-interaction-classes';
@@ -84,7 +84,7 @@ export function DevWebIaPrixLancementCard({ className, showCtas = true }: Props)
       </div>
 
       <p className="mt-4 text-xs leading-relaxed text-ofc-ink-subtle">{MENTIONS_TVA_INTRA_COURTE}</p>
-      <p className="mt-2 text-xs leading-relaxed text-ofc-ink-subtle">{FINANCEMENT_FORMULATION_COURTE}</p>
+      <p className="mt-2 text-xs leading-relaxed text-ofc-ink-subtle">{DEV_WEB_IA_FINANCEMENT_MENTION}</p>
 
       {showCtas ? (
         <div className="mt-5 flex flex-col gap-2.5 sm:flex-row sm:flex-wrap">

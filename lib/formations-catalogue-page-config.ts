@@ -11,8 +11,6 @@ import {
 } from '@/lib/data/indicateurs-resultats';
 import { CATALOGUE_ALL_OFFERS, type CatalogueOffer } from '@/lib/formations-catalogue-architecture';
 import { FINANCEMENT_FORMULATION_CATALOGUE } from '@/lib/financement-copy';
-import { DEV_WEB_IA_FORMATION_TITRE_COURT } from '@/lib/formation-developpement-web-ia-content';
-
 /** Codes hors offre catalogue publique (remplacés par NIV-10 — création avec l’IA). */
 export const CATALOGUE_APP_METIER_REFS = ['NIV-06', 'NIV-07', 'NIV-08'] as const;
 
@@ -23,7 +21,7 @@ export const CATALOGUE_MENU_LABELS: Record<string, string> = {
   'NIV-03': 'IA et conduite de travaux',
   'NIV-04': 'Maîtriser Claude AI',
   'NIV-05': "IA et maîtrise d'œuvre",
-  'NIV-10': DEV_WEB_IA_FORMATION_TITRE_COURT,
+  'NIV-10': 'Créer son ERP BTP avec l’IA',
 };
 
 /** Ordre d’affichage catalogue public (hors apps métier N1–N3). */

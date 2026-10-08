@@ -62,6 +62,8 @@ export type CatalogueFormationPageContent = {
   navItems?: readonly CatalogueNavItem[];
   painPointsTitle: string;
   painPoints: readonly CataloguePainPoint[];
+  /** Ancre de la section problèmes (défaut : `#pour-qui`). */
+  painPointsSectionId?: string;
   outcomes: readonly string[];
   outcomesDescription: string;
   /** Encadré pédagogique (ex. rôle IA vs professionnel). */
@@ -685,88 +687,74 @@ const NIV_05: CatalogueFormationPageContent = {
 const NIV_10: CatalogueFormationPageContent = {
   programmeRef: 'NIV-10',
   parcoursKind: 'creation-ia',
-  levelBadgeLabel: 'Niveau 3 — Création et déploiement',
+  levelBadgeLabel: 'Niveau 3 — Création · ERP BTP avec l’IA',
   heroPublicLine:
-    'Entrepreneurs, indépendants, TPE et PME du bâtiment, porteurs de projet — sans prérequis en programmation.',
+    'Dirigeants, responsables administratifs, conducteurs de travaux et fonctions support — sans prérequis en programmation.',
   heroFacts: [
     '7 h (1 journée)',
     '9h00 – 12h30 · 13h30 – 17h00',
-    'Présentiel Île-de-France',
+    'Présentiel Île-de-France uniquement',
     '4 à 8 participants',
     '70 % pratique · 30 % méthodologie',
   ],
-  quickFactsLevel: 'avancé — aucun prérequis en programmation',
+  quickFactsLevel: 'Niveau 3 — aucun prérequis en programmation',
   practiceShare: '70 %',
   formatLabel: 'Présentiel',
   locationLabel: 'Île-de-France',
-  pedagogicalNote: 'L’IA génère une première version. Vous validez le périmètre, les tests et la responsabilité du projet.',
+  pedagogicalNote:
+    'L’IA génère une première version. Vous validez le périmètre, les tests et la responsabilité du projet. Ce n’est pas un ERP complet prêt à l’exploitation.',
   deliverablesTitle: 'Ce que vous emportez',
+  /** Pas de section « problèmes » séparée — les bénéfices ERP portent le récit. */
+  painPointsTitle: '',
+  painPoints: [],
   quickFactsOverride: [
-    { label: 'Durée', value: '7 h' },
-    { label: 'Format', value: 'Présentiel Île-de-France' },
+    { label: 'Durée', value: '7 h ou 14 h' },
+    { label: 'Format', value: 'Présentiel Île-de-France uniquement' },
     { label: 'Lieu', value: 'Île-de-France' },
     { label: 'Effectif', value: '4 à 8 participants' },
     {
       label: 'Niveau',
-      value: 'avancé — aucun prérequis en programmation',
+      value: 'Niveau 3 — création',
     },
     {
       label: 'Public',
-      value:
-        'Entrepreneurs, indépendants, TPE et PME du bâtiment, porteurs de projet, reconversion',
+      value: 'Dirigeants, admin, conducteurs de travaux, fonctions support BTP',
     },
     {
       label: 'Tarif',
-      value: `${formatTarifHt(TARIF_INTER_DEV_WEB_IA_HT)} € HT / participant`,
-    },
-  ],
-  painPointsTitle: 'Vous avez une idée, mais elle reste au stade de projet ?',
-  painPoints: [
-    {
-      title: 'Idée floue',
-      texte: 'Difficile de passer du besoin métier à un périmètre clair pour une première version.',
-    },
-    {
-      title: 'Peur de coder',
-      texte: 'Pas le temps d’apprendre le développement web classique ni de déléguer à un prestataire.',
-    },
-    {
-      title: 'Outils IA',
-      texte: 'ChatGPT ou Claude sans méthode : des brouillons, peu de structure ni de livrable testable.',
-    },
-    {
-      title: 'Projet qui stagne',
-      texte: 'Slides, notes ou maquettes — sans version fonctionnelle ni feuille de route pour la suite.',
+      value: `${formatTarifHt(TARIF_INTER_DEV_WEB_IA_HT)} € HT / participant (7 h) · 600 € HT (14 h)`,
     },
   ],
   outcomes: DEV_WEB_IA_OBJECTIFS,
   outcomesDescription:
-    'Compétences visées sur la journée de 7 h — le déroulé détaillé et les activités par module figurent dans la section « Programme — 4 modules ».',
+    'Objectifs pédagogiques observables — le déroulé détaillé figure dans la section « Programme — 4 modules ».',
   deliverablesIntro:
-    'À l’issue de la session de 7 h, vous repartez avec des éléments concrets sur votre projet (sans doublonner le programme module par module).',
+    'À l’issue de la session, vous repartez avec une première version testable, une méthode et une feuille de route — pas un ERP prêt à l’exploitation.',
   deliverables: DEV_WEB_IA_LIVRABLES,
   iaLimits: [
     { iaAide: 'Générer une première version à partir d’un besoin cadré', validation: 'Valider le périmètre et les fonctionnalités' },
+    { iaAide: 'Proposer la structure des données et des écrans', validation: 'Contrôler la conformité à vos processus' },
     { iaAide: 'Proposer des corrections et améliorations', validation: 'Tester et décider des changements' },
     { iaAide: 'Structurer des instructions (prompts)', validation: 'Contrôler le résultat à chaque étape' },
+    { iaAide: 'Aider à préparer des exports', validation: 'Valider le format avec le destinataire' },
     { iaAide: 'Aider à sauvegarder et documenter', validation: 'Garder la responsabilité du projet' },
   ],
   interExtraBullets: ['Parcours 7 h ou 14 h selon calendrier'],
   intraExtraBullets: ['Sessions convoquées par un réseau : tarif HT par participant (min. 6)'],
   programIntro:
-    'Session de 7 h sur votre propre projet : le déroulé officiel en quatre modules. Les activités détaillées figurent uniquement dans cette section.',
+    'Session de 7 h sur votre projet d’ERP BTP : cadrage, premier module, construction assistée par l’IA, tests et feuille de route.',
   programmeHeading: 'Programme — 4 modules',
-  objectivesTitle: 'Objectifs pédagogiques',
+  objectivesTitle: 'Ce que vous apprenez',
   instructorTitle: 'Apprendre à créer avec l’IA — encadré par Laure Olivié',
   instructorBody:
-    'Laure Olivié, formatrice IA et fondatrice d’OFC Création d’Entreprise (certifié Qualiopi). Méthode progressive, petits groupes, 70 % de pratique sur le projet de chaque participant.',
+    'Laure Olivié, fondatrice d’OFC Création d’Entreprise (certifié Qualiopi), 7 ans d’expérience dans le BTP, ancienne dirigeante d’une entreprise de travaux publics en Île-de-France. Elle a elle-même créé ses outils et son site avec l’IA. Méthode progressive, petits groupes, 70 % de pratique.',
   showBeworkPasserelle: false,
   finalCta: {
-    title: 'Vous avez une idée de site, d’application ou d’outil métier ?',
+    title: 'Quel module d’ERP BTP voulez-vous amorcer en premier ?',
     description:
-      'Apprenez à construire votre première version avec l’IA, sans savoir coder. Parcours 7 h ou 14 h — présentiel en Île-de-France ou session convoquée par votre réseau (tarif par participant).',
-    primaryLabel: 'Demander un devis',
-    secondaryLabel: 'S’inscrire à la formation',
+      'Décrivez votre besoin prioritaire (heures, devis, chantier, planning…). On vérifie ensemble qu’il est réaliste pour une première version testable.',
+    primaryLabel: 'Échanger sur mon projet d’ERP BTP',
+    secondaryLabel: 'Découvrir le programme',
   },
 };
 

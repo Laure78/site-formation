@@ -17,6 +17,7 @@ type Props = {
   programmeSupplement?: ReactNode;
   afterProgrammeSupplement?: ReactNode;
   beforeTariffs?: ReactNode;
+  afterIaLimits?: ReactNode;
 };
 
 /**

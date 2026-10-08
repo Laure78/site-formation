@@ -12,8 +12,12 @@ import {
   CatalogueFormationDevWebParcoursTarifsSection,
   CatalogueFormationDevWebQualiopiEngagementSection,
 } from '@/components/formations/catalogue/CatalogueFormationDevWebMarketingSections';
+import { DevWebIaDonneesControleSection } from '@/components/formations/DevWebIaDonneesControleSection';
+import { DevWebIaErpBeneficesSection } from '@/components/formations/DevWebIaErpBeneficesSection';
+import { DevWebIaErpEvolutifSection } from '@/components/formations/DevWebIaErpEvolutifSection';
+import { DevWebIaErpModulesSection } from '@/components/formations/DevWebIaErpModulesSection';
+import { DevWebIaHeuresPaieSection } from '@/components/formations/DevWebIaHeuresPaieSection';
 import { DevWebIaProjectContactSection } from '@/components/formations/DevWebIaProjectContactSection';
-import { DevWebIaProjectExamplesSection } from '@/components/formations/DevWebIaProjectExamplesSection';
 import { ProgrammeFormationBlocs } from '@/components/formations/catalogue/ProgrammeFormationBlocs';
 import { createPageMetadata, getFAQSchema } from '@/lib/seo';
 import { getFormationCatalogueVisuel } from '@/lib/formations-catalogue-display';
@@ -22,11 +26,13 @@ import { buildCatalogueCourseDeveloppementWebIaNiv10JsonLd } from '@/lib/schema-
 import { getFormationCatalogueSeo } from '@/lib/formation-catalogue-seo';
 import { getCatalogueFormationPageContent } from '@/lib/catalogue-formation-page-content';
 import {
+  DEV_WEB_IA_CTA_PRIMARY_LABEL,
+  DEV_WEB_IA_CTA_SECONDARY_LABEL,
   DEV_WEB_IA_FAQ,
   DEV_WEB_IA_MODULES,
   DEV_WEB_IA_PDF_7H_HREF,
   PROGRAMME_PDF_7H,
-  devWebIaInscriptionHref,
+  devWebIaProgrammeHref,
   devWebIaProjectFormHref,
 } from '@/lib/formation-developpement-web-ia-content';
 
@@ -38,27 +44,28 @@ const PAGE_CONTENT = {
   finalCta: {
     ...getCatalogueFormationPageContent('NIV-10').finalCta,
     devisHref: devWebIaProjectFormHref(),
-    primaryLabel: 'Parlez-moi de votre projet',
-    secondaryHref: devWebIaInscriptionHref(),
+    primaryLabel: DEV_WEB_IA_CTA_PRIMARY_LABEL,
+    secondaryHref: devWebIaProgrammeHref(),
+    secondaryLabel: DEV_WEB_IA_CTA_SECONDARY_LABEL,
   },
 };
 
 export const metadata = createPageMetadata({
   title: CATALOGUE_SEO.metaTitle,
-  titleAbsolute: `${CATALOGUE_SEO.metaTitle} | Laure Olivié`,
+  titleAbsolute: CATALOGUE_SEO.metaTitle,
   description: CATALOGUE_SEO.metaDescription,
   descriptionFinal: true,
   path: LINKS.formationDeveloppementWebIaSansCoder,
+  openGraphTitle: CATALOGUE_SEO.metaTitle,
+  openGraphDescription: CATALOGUE_SEO.metaDescription,
   keywords: [
     'formation IA pour le BTP',
-    'applications métier BTP avec IA',
-    'formation créer une application avec IA',
-    'formation créer un site avec IA',
-    'créer une application sans coder avec IA',
-    'formation vibe coding',
-    'formation Cursor IA',
+    'formation ERP BTP avec l’IA',
+    'créer ERP BTP sur mesure',
+    'relevés heures chantier IA',
     'formation IA sans coder',
-    'niveau 3 création et déploiement',
+    'ChatGPT BTP',
+    'niveau 3 création ERP BTP',
   ],
   image: {
     url: CATALOGUE_VISUEL.src,
@@ -83,7 +90,14 @@ export default function FormationDeveloppementWebIaSansCoderPage() {
         h1Id="dev-web-ia-h1"
         faqItems={DEV_WEB_IA_FAQ}
         faqSectionId="faq"
-        afterObjectives={<CatalogueFormationDevWebAfterObjectives />}
+        afterObjectives={
+          <>
+            <DevWebIaErpBeneficesSection />
+            <DevWebIaErpModulesSection />
+            <DevWebIaHeuresPaieSection />
+            <CatalogueFormationDevWebAfterObjectives />
+          </>
+        }
         programme={
           <>
             <ProgrammeFormationBlocs
@@ -109,10 +123,11 @@ export default function FormationDeveloppementWebIaSansCoderPage() {
         programmeSupplement={<CatalogueFormationDevWebProgrammeDay2 />}
         afterProgrammeSupplement={
           <>
-            <DevWebIaProjectExamplesSection />
+            <DevWebIaErpEvolutifSection />
             <DevWebIaProjectContactSection />
           </>
         }
+        afterIaLimits={<DevWebIaDonneesControleSection />}
         afterDeliverables={<CatalogueFormationDevWebAfterDeliverables />}
         beforeTariffs={<CatalogueFormationDevWebQualiopiEngagementSection />}
         tariffsSection={<CatalogueFormationDevWebParcoursTarifsSection />}

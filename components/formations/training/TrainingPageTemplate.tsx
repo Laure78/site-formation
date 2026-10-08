@@ -49,6 +49,7 @@ type Props = {
   programmeSupplement?: ReactNode;
   afterProgrammeSupplement?: ReactNode;
   beforeTariffs?: ReactNode;
+  afterIaLimits?: ReactNode;
 };
 
 function buildDefaultNav(
@@ -91,6 +92,7 @@ export function TrainingPageTemplate({
   programmeSupplement,
   afterProgrammeSupplement,
   beforeTariffs,
+  afterIaLimits,
 }: Props) {
   const ref = content.programmeRef;
   const formation = getFormationByCode(ref)!;
@@ -190,7 +192,11 @@ export function TrainingPageTemplate({
         </div>
       </section>
 
-      <TrainingPainPoints title={content.painPointsTitle} items={content.painPoints} />
+      <TrainingPainPoints
+        title={content.painPointsTitle}
+        items={content.painPoints}
+        id={content.painPointsSectionId}
+      />
 
       <TrainingOutcomes
         outcomes={content.outcomes}
@@ -254,7 +260,7 @@ export function TrainingPageTemplate({
           tone="white"
         >
           <div className="overflow-x-auto rounded-2xl border border-slate-200">
-            <table className="min-w-full text-left text-sm md:text-base">
+            <table className="min-w-full w-full text-left text-sm md:text-base">
               <thead className="bg-slate-50 text-slate-600">
                 <tr>
                   <th scope="col" className="px-4 py-3 font-semibold">
@@ -277,6 +283,8 @@ export function TrainingPageTemplate({
           </div>
         </TrainingSection>
       ) : null}
+
+      {afterIaLimits}
 
       <TrainingDeliverables
         items={content.deliverables}

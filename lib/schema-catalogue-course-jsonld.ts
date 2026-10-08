@@ -122,6 +122,8 @@ export type FormationCatalogueRichCourseConfig = {
   price?: number;
   educationalLevel: 'Fondamentaux' | 'Perfectionnement';
   teaches: readonly string[];
+  /** Public cible schema.org `audience.audienceType` (optionnel). */
+  audienceType?: string;
 };
 
 export const CATALOGUE_COURSE_IA_BTP_NIV01: CatalogueCourseJsonLdConfig = {
@@ -373,6 +375,14 @@ export function buildFormationCatalogueRichCourseJsonLd(
   return {
     ...core,
     ...(courseImage ? { image: courseImage } : {}),
+    ...(config.audienceType
+      ? {
+          audience: {
+            '@type': 'Audience',
+            audienceType: config.audienceType,
+          },
+        }
+      : {}),
     provider: {
       '@type': 'Organization',
       '@id': organizationId,
@@ -394,19 +404,18 @@ export function buildFormationCatalogueRichCourseJsonLd(
 
 export const CATALOGUE_COURSE_DEV_WEB_IA_NIV10: CatalogueCourseJsonLdConfig = {
   path: LINKS.formationDeveloppementWebIaSansCoder,
-  name: getFormationByCode('NIV-10')!.titre,
-  description: `${getFormationByCode('NIV-10')!.accroche} Session ${getFormationByCode('NIV-10')!.duree}, présentiel Île-de-France uniquement, Qualiopi.`,
+  name: 'Créer son ERP BTP sur mesure et évolutif avec l’IA',
+  description:
+    'Formation pour dirigeants, responsables administratifs, conducteurs de travaux et fonctions support : structurer un projet d’ERP BTP et construire une première version testable avec l’IA, sans programmer. Présentiel Île-de-France uniquement. Qualiopi.',
   price: prixCatalogue('NIV-10'),
   keywords: [
     'formation IA pour le BTP',
-    'applications métier BTP avec IA',
-    'formation créer une application avec IA',
-    'formation créer un site avec IA',
-    'créer une application sans coder avec IA',
-    'formation vibe coding',
-    'formation Cursor IA',
+    'formation ERP BTP avec l’IA',
+    'créer ERP BTP sur mesure',
+    'relevés heures chantier IA',
     'formation IA sans coder',
-    'niveau 3 création et déploiement',
+    'ChatGPT BTP',
+    'niveau 3 création ERP BTP',
   ],
   courseCode: 'NIV-10',
   educationalLevel: 'Advanced',
@@ -418,7 +427,14 @@ export const FORMATION_RICH_COURSE_NIV10: FormationCatalogueRichCourseConfig = {
   description: CATALOGUE_COURSE_DEV_WEB_IA_NIV10.description,
   price: prixCatalogue('NIV-10'),
   educationalLevel: 'Perfectionnement',
-  teaches: teachesFromCatalogue('NIV-10'),
+  audienceType:
+    'Dirigeants, responsables administratifs, conducteurs de travaux et fonctions support des TPE/PME du BTP',
+  teaches: [
+    'Cartographier un processus de gestion et choisir le premier module d’ERP BTP',
+    'Structurer les données, les utilisateurs et leurs droits d’accès',
+    'Guider l’IA pour construire et tester une première version',
+    'Préparer les exports et organiser les évolutions de l’outil',
+  ],
 };
 
 export function buildCatalogueCourseJsonLd(

@@ -10,11 +10,14 @@ import {
   CONTACT_FORM_SUCCESS_CALENDLY,
 } from '@/lib/contact-page-config';
 import {
+  DEV_WEB_IA_EFFECTIF_LABELS,
+  DEV_WEB_IA_EFFECTIF_VALUES,
   DEV_WEB_IA_FORMAT_LABELS,
   DEV_WEB_IA_FORMAT_VALUES,
   DEV_WEB_IA_PROJECT_TYPE_LABELS,
   DEV_WEB_IA_PROJECT_TYPE_VALUES,
   parseDevWebIaProjectFormPayload,
+  type DevWebIaEffectifValue,
   type DevWebIaFormatValue,
   type DevWebIaProjectTypeValue,
 } from '@/lib/dev-web-ia-project-form-validation';
@@ -45,9 +48,10 @@ export function DevWebIaProjectContactForm({ initialProjectType }: Props) {
   const formRef = useRef<HTMLFormElement>(null);
 
   const [projectType, setProjectType] = useState<DevWebIaProjectTypeValue>(
-    initialProjectType ?? 'site-vitrine',
+    initialProjectType ?? 'heures-paie',
   );
   const [format, setFormat] = useState<DevWebIaFormatValue>('indetermine');
+  const [effectif, setEffectif] = useState<DevWebIaEffectifValue>('');
   const [submitting, setSubmitting] = useState(false);
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -81,6 +85,7 @@ export function DevWebIaProjectContactForm({ initialProjectType }: Props) {
       company: fd.get('company') || '',
       phone: fd.get('phone') || '',
       projectType: fd.get('projectType'),
+      effectif: fd.get('effectif') || '',
       message: fd.get('message'),
       format: fd.get('format'),
       website: fd.get('website') || '',
@@ -106,8 +111,9 @@ export function DevWebIaProjectContactForm({ initialProjectType }: Props) {
       trackContactFormSuccess(DEV_WEB_IA_CONTACT_SUBJECT);
       setSuccess(true);
       formRef.current?.reset();
-      setProjectType(initialProjectType ?? 'site-vitrine');
+      setProjectType(initialProjectType ?? 'heures-paie');
       setFormat('indetermine');
+      setEffectif('');
       return;
     }
 
@@ -149,11 +155,11 @@ export function DevWebIaProjectContactForm({ initialProjectType }: Props) {
         id="dev-web-ia-project-form-title"
         className="font-display text-2xl font-bold tracking-tight text-[#0F172A] md:text-3xl"
       >
-        Parlez-moi de votre projet
+        Échanger sur mon projet d&apos;ERP BTP
       </h2>
       <p className="mt-3 max-w-2xl text-base text-slate-600">
-        Décrivez ce que vous souhaitez construire pendant la formation « {DEV_WEB_IA_FORMATION_TITRE}
-        ». Réponse sous 48 heures ouvrées.
+        Décrivez le module prioritaire que vous souhaitez amorcer pendant la formation «{' '}
+        {DEV_WEB_IA_FORMATION_TITRE} ». Réponse sous 48 heures ouvrées.
       </p>
 
       {error ? (
@@ -315,6 +321,30 @@ export function DevWebIaProjectContactForm({ initialProjectType }: Props) {
               <p className="mt-1 text-sm text-[#DC2626]">{fieldErrors.format}</p>
             ) : null}
           </div>
+        </div>
+
+        <div>
+          <label htmlFor={`${formId}-effectif`} className="block text-sm font-medium text-[#0F172A]">
+            Effectif de l&apos;entreprise <span className="text-slate-500">(facultatif)</span>
+          </label>
+          <select
+            id={`${formId}-effectif`}
+            name="effectif"
+            value={effectif}
+            onChange={(e) => setEffectif(e.target.value as DevWebIaEffectifValue)}
+            aria-invalid={Boolean(fieldErrors.effectif)}
+            className={`${fieldClassBase} ${fieldErrors.effectif ? fieldErrorClass : ''}`}
+          >
+            <option value="">Non renseigné</option>
+            {DEV_WEB_IA_EFFECTIF_VALUES.filter((value) => value !== '').map((value) => (
+              <option key={value} value={value}>
+                {DEV_WEB_IA_EFFECTIF_LABELS[value]}
+              </option>
+            ))}
+          </select>
+          {fieldErrors.effectif ? (
+            <p className="mt-1 text-sm text-[#DC2626]">{fieldErrors.effectif}</p>
+          ) : null}
         </div>
 
         <div>

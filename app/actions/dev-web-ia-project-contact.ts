@@ -8,6 +8,7 @@ import { escapeHtml } from '@/lib/contact-form-validation';
 import { SITE_CONFIG } from '@/lib/seo';
 import { CONTACT_FORM_SUCCESS } from '@/lib/contact-page-config';
 import {
+  DEV_WEB_IA_EFFECTIF_LABELS,
   DEV_WEB_IA_FORMAT_LABELS,
   DEV_WEB_IA_PROJECT_TYPE_LABELS,
   parseDevWebIaProjectFormPayload,
@@ -42,12 +43,23 @@ async function getClientIp(): Promise<string> {
   return 'unknown';
 }
 
+function effectifLabel(data: DevWebIaProjectFormInput): string | null {
+  const value = data.effectif?.trim();
+  if (!value || value === '') return null;
+  if (value === '1-10' || value === '11-49' || value === '50+') {
+    return DEV_WEB_IA_EFFECTIF_LABELS[value];
+  }
+  return null;
+}
+
 function buildMessageBody(data: DevWebIaProjectFormInput): string {
   const projectLabel = DEV_WEB_IA_PROJECT_TYPE_LABELS[data.projectType];
   const formatLabel = DEV_WEB_IA_FORMAT_LABELS[data.format];
+  const effectif = effectifLabel(data);
   return [
     `Type de projet : ${projectLabel}`,
     `Format souhaité : ${formatLabel}`,
+    ...(effectif ? [`Effectif de l’entreprise : ${effectif}`] : []),
     `Formation : ${DEV_WEB_IA_CONTACT_SUBJECT} (${DEV_WEB_IA_FORMATION_REFERENCE})`,
     '',
     data.message,
@@ -61,10 +73,12 @@ function buildNotificationHtml(
   const projectLabel = DEV_WEB_IA_PROJECT_TYPE_LABELS[data.projectType];
   const formatLabel = DEV_WEB_IA_FORMAT_LABELS[data.format];
   const company = data.company?.trim() || 'Non renseignée';
+  const effectif = effectifLabel(data);
 
   const optionalFields: [string, string | undefined][] = [
     ['Téléphone', data.phone],
     ['Entreprise', data.company?.trim() || undefined],
+    ['Effectif', effectif ?? undefined],
   ];
   const optionalRows = optionalFields
     .filter((entry): entry is [string, string] => Boolean(entry[1]?.trim()))

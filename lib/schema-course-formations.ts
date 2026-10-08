@@ -121,10 +121,10 @@ export const FORMATIONS_CATALOG_SCHEMA: FormationCatalogEntry[] = [
     ref: 'NIV-10',
     level: 'AVANCÉ',
     path: '/formations/developpement-web-ia-sans-coder',
-    name: getFormationByCode('NIV-10')!.titre,
-    description: `${getFormationByCode('NIV-10')!.accroche} Qualiopi.`,
+    name: 'Créer son ERP BTP sur mesure et évolutif avec l’IA',
+    description: `${getFormationByCode('NIV-10')!.accroche} Présentiel Île-de-France uniquement. Qualiopi.`,
     teaches: teachesFromCatalogueDisplay('NIV-10'),
-    occupationalCategory: 'Création numérique, no-code IA, applications métier BTP',
+    occupationalCategory: 'ERP BTP, gestion chantier, no-code IA',
   },
 ];
 

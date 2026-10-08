@@ -104,15 +104,15 @@ export const PROGRAMME_CONTENU_CATALOGUE: Record<FormationCode, readonly string[
     'Module 4 — Créer son assistant IA métier (2 h 15)',
   ],
   'NIV-10': [
-    'Jour 1 — Module 1 : Cadrer et préparer son projet',
+    'Jour 1 — Module 1 : Cadrer et préparer son projet d’ERP BTP',
     'Jour 1 — Module 2 : Structurer son projet et guider efficacement l’IA',
     'Jour 1 — Module 3 : Construire une première version',
     'Jour 1 — Module 4 : Tester, corriger et pérenniser son projet',
     'Jour 2 (parcours 14 h) — Diagnostiquer et prioriser les améliorations',
     'Jour 2 (parcours 14 h) — Améliorer et enrichir le projet',
-    'Jour 2 (parcours 14 h) — Préparer et publier le projet',
-    'Jour 2 (parcours 14 h) — Visibilité et contrôle du projet publié',
-    'Jour 2 (parcours 14 h) — Tests finaux et feuille de route',
+    'Jour 2 (parcours 14 h) — Préparer validations, exports et accès',
+    'Jour 2 (parcours 14 h) — Partager l’outil avec l’équipe en conditions contrôlées',
+    'Jour 2 (parcours 14 h) — Tests, sauvegarde et feuille de route d’évolution',
   ],
 };
 
@@ -249,7 +249,14 @@ export const PREREQUIS_NIV10 =
 export const DELAI_ACCES_NIV10 = DELAI_ACCES_NIV09;
 
 export const MODALITE_PEDAGOGIQUE_NIV10 =
-  'Action de formation — présentiel en Île-de-France uniquement (inter-entreprises ou intra sur devis) — 70 % pratique / 30 % apports méthodologiques — chaque participant travaille sur son propre projet avec un cas pratique fil rouge.';
+  'Action de formation — présentiel en Île-de-France uniquement (inter-entreprises ou intra) — 70 % pratique / 30 % apports méthodologiques — chaque participant travaille sur son projet d’ERP BTP avec un cas pratique fil rouge.';
+
+export const METHODES_NIV10 = [
+  'Présentiel en Île-de-France uniquement (inter-entreprises ou intra dans vos locaux)',
+  'Pédagogie active : exposés courts, démonstrations, ateliers guidés et production individuelle sur le projet d’ERP de chaque participant.',
+  'Supports pédagogiques remis selon convention (PDF, fiches méthode).',
+  'Moyens techniques : ordinateur par participant, connexion internet, abonnement ChatGPT ou Claude AI (non inclus dans le tarif).',
+] as const;
 
 export const MODALITES_ACCES_NIV10 =
   `Inscription sur demande auprès d'OFC (${CONTACT.email} — ${CONTACT.phoneDisplay}) : questionnaire d’analyse du besoin et de positionnement → devis ou inscription inter → convention de formation → demande de prise en charge OPCO selon éligibilité → convocation.`;
@@ -350,8 +357,7 @@ function prerequisPourRef(ref: FormationCode): string {
 
 function tarifPourRef(ref: FormationCode): string {
   if (ref === 'NIV-10') {
-    const formation = getFormationByCode(ref)!;
-    return `${libelleTarifParticipantCatalogue(formation.tarifParticipantHt!)} (${libelleEffectifFormation(formation).toLowerCase()}). ${MENTIONS_TVA_INTRA_COURTE}`;
+    return `300 € HT / participant (7 h) · 600 € HT / participant (14 h) — intra-entreprise sur devis. ${MENTIONS_TVA_INTRA_COURTE}`;
   }
   const formation = getFormationByCode(ref);
   const entry = formation ? getFormationCatalogueByRef(ref) : undefined;
@@ -439,7 +445,7 @@ export function getInfosPratiquesForCatalogue(ref: string): InfosPratiquesFormat
         : stripLabelPrefix(QUALIOPI_DELAI_ACCES_EXACT, /^Délai d'accès\s*:\s*/i)
     ),
     tarif: tarifPourRef(code),
-    methodes: [...QUALIOPI_METHODES_STANDARD],
+    methodes: code === 'NIV-10' ? [...METHODES_NIV10] : [...QUALIOPI_METHODES_STANDARD],
     modalitesEvaluation:
       code === 'NIV-01'
         ? [...EVALUATION_NIV01]

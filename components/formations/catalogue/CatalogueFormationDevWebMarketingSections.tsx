@@ -14,11 +14,11 @@ import {
   FORMATION_CATALOGUE_INNER_MAX_6XL,
   FORMATION_CATALOGUE_SECTION,
 } from '@/lib/formation-catalogue-layout-classes';
-import { FINANCEMENT_FORMULATION_COURTE } from '@/lib/financement-copy';
 import { LINKS } from '@/lib/internal-links';
 import { formatTarifHt } from '@/lib/tarifs-sessions';
 import type { BeworkParcours, BeworkParcoursId } from '@/lib/bework-programmes';
 import {
+  DEV_WEB_IA_FINANCEMENT_MENTION,
   DEV_WEB_IA_JOUR_RESUME,
   DEV_WEB_IA_MODALITES,
   DEV_WEB_IA_MODALITES_SECTION,
@@ -284,10 +284,8 @@ export function CatalogueFormationDevWebParcoursTarifsSection() {
         <p className="mt-2 text-xs leading-relaxed text-slate-600">{MENTIONS_TVA_INTRA_COURTE}</p>
         <p className="mt-2 text-sm text-slate-600">
           <Link href={LINKS.financement} className={OFC_LINK}>
-            Financement OPCO possible selon éligibilité
+            {DEV_WEB_IA_FINANCEMENT_MENTION}
           </Link>
-          {' · '}
-          {FINANCEMENT_FORMULATION_COURTE}
         </p>
 
         <div className="mt-12 grid gap-6 lg:grid-cols-2">

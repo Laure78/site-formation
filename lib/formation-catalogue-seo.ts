@@ -10,7 +10,6 @@ import {
 } from '@/lib/data/indicateurs-resultats';
 import { SESSION_DUREE_LIBELLE, formatTarifHt } from '@/lib/tarifs-sessions';
 import {
-  DEV_WEB_IA_FORMATION_TITRE,
   TARIF_INTER_DEV_WEB_IA_14H_HT,
   TARIF_INTER_DEV_WEB_IA_HT,
 } from '@/lib/formation-developpement-web-ia-content';
@@ -227,22 +226,24 @@ export const FORMATION_CATALOGUE_SEO: Record<FormationCatalogueCode, FormationCa
     ],
   },
   'NIV-10': {
-    metaTitle: 'Créer des applications métier BTP avec l’IA',
-    h1: DEV_WEB_IA_FORMATION_TITRE,
+    metaTitle: 'Formation ERP BTP sur mesure avec l’IA',
+    h1: 'Créer son ERP BTP sur mesure et évolutif avec l’IA',
     subtitle:
-      'Créer, tester et déployer une application métier BTP avec l’IA, sans être développeur.',
+      'Devis, chantiers, planning, heures et suivi de gestion : apprenez à construire un outil adapté à votre entreprise, puis à le faire évoluer, sans savoir programmer.',
     metaDescription:
-      'Formation IA pour le BTP : créez des applications métier avec l’IA sans coder. Présentiel Île-de-France, Qualiopi. Parcours 7 h ou 14 h — inter ou intra.',
-    enBref: `Formation « Créer des applications métier BTP avec l’IA » (niveau 3) : cadrer un projet, créer avec l’IA, tester, corriger et déployer — sans savoir coder. Présentiel en Île-de-France uniquement (inter ou intra). Inter : ${formatTarifHt(TARIF_INTER_DEV_WEB_IA_HT)} € HT (7 h) · ${formatTarifHt(TARIF_INTER_DEV_WEB_IA_14H_HT)} € HT (14 h) / participant. ${QUALIOPI_MENTION}.`,
+      'Apprenez à créer un ERP BTP sur mesure avec l’IA : chantiers, planning et relevés d’heures. Formation IA pour le BTP en présentiel en Île-de-France.',
+    enBref: `Formation niveau 3 pour dirigeants et encadrement du BTP : structurer un projet d’ERP BTP et construire une première version testable avec l’IA, sans programmer. Présentiel Île-de-France uniquement. Inter : ${formatTarifHt(TARIF_INTER_DEV_WEB_IA_HT)} € HT (7 h) · ${formatTarifHt(TARIF_INTER_DEV_WEB_IA_14H_HT)} € HT (14 h) / participant — intra-entreprise sur devis. ${QUALIOPI_MENTION}.`,
     publicTargets: [
-      'Entrepreneurs, indépendants, commerçants et TPE et PME du bâtiment',
-      'Salariés et porteurs de projet',
-      'Personnes en reconversion',
+      'Dirigeants de TPE/PME du bâtiment et des travaux publics',
+      'Responsables administratifs et fonctions support',
+      'Conducteurs de travaux',
     ],
     iaLimits: [
       { iaAide: 'Générer une première version à partir d’un besoin cadré', validationHumaine: 'Valider le périmètre et les fonctionnalités' },
+      { iaAide: 'Proposer la structure des données et des écrans', validationHumaine: 'Contrôler la conformité à vos processus' },
       { iaAide: 'Proposer des corrections et améliorations', validationHumaine: 'Tester et décider des changements' },
       { iaAide: 'Structurer des instructions (prompts)', validationHumaine: 'Contrôler le résultat à chaque étape' },
+      { iaAide: 'Aider à préparer des exports', validationHumaine: 'Valider le format avec le destinataire (ex. gestionnaire de paie)' },
       { iaAide: 'Aider à sauvegarder et documenter', validationHumaine: 'Garder la responsabilité du projet' },
     ],
   },

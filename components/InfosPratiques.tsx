@@ -194,6 +194,15 @@ export function InfosPratiques({
         Programme mis à jour le {dateMaj} — {programmeVersion} · Référence {programmeRef}
       </p>
 
+      {programmeRef === 'NIV-10' ? (
+        <p className="mt-4 text-sm leading-relaxed text-slate-700">
+          <span className="font-semibold text-slate-900">Propriété intellectuelle — </span>
+          Le programme et les supports de cette formation sont la propriété d&apos;OFC Création
+          d&apos;Entreprise. Toute reproduction ou diffusion, totale ou partielle, sans autorisation
+          écrite est interdite.
+        </p>
+      ) : null}
+
       <p className="mt-4 text-center text-xs leading-relaxed text-slate-600">
         Avant votre inscription : consultez le{' '}
         <Link href={LINKS.livretAccueilStagiaire} className="font-medium text-[#377CF3] hover:underline">

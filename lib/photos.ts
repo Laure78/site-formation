@@ -735,19 +735,19 @@ export const PHOTOS = {
   /** NIV-10 — Créer des applications métier BTP avec l’IA (visuel hero / catalogue) */
   formationNiv10DevWebIaHero2026: {
     src: '/images/formation-developpement-web-ia-sans-coder/01-hero-developpement-web-ia.webp',
-    alt: 'Participant au laptop — formation applications métier BTP avec l’IA sans coder',
+    alt: 'Dirigeant BTP structurant son projet d’ERP chantier avec l’IA',
     description:
-      'Affiche hero de la formation Qualiopi « Créer des applications métier BTP avec l’IA » (NIV-10, Niveau 3 — Création et déploiement, OFC Création d’Entreprise / Laure Olivié) : participant concentré sur un ordinateur portable. Objectif : créer une application ou un outil métier avec l’IA, sans écrire le code soi-même. Session 7 h, inter 300 € HT/participant, financement OPCO possible selon éligibilité.',
-    title: 'Vos idées. Des solutions concrètes.',
+      'Affiche hero de la formation Qualiopi « Créer son ERP BTP sur mesure et évolutif avec l’IA » (NIV-10, Niveau 3, OFC / Laure Olivié) : structuration d’un outil de gestion BTP avec l’IA, sans programmer. Session 7 h, inter 300 € HT/participant, présentiel Île-de-France.',
+    title: 'Créer son ERP BTP avec l’IA',
     width: 819,
     height: 1024,
   },
   formationNiv10DevWebIaPublic2026: {
     src: '/images/formation-developpement-web-ia-sans-coder/02-public-pour-qui.webp',
-    alt: 'Public cible : entrepreneurs, salariés, porteurs de projet — IA sans coder',
+    alt: 'Dirigeants, admin et conducteurs de travaux du BTP',
     description:
-      'Infographie « Pour qui ? » de la formation applications métier BTP avec l’IA sans coder : entrepreneurs, indépendants, commerçants, TPE et PME du bâtiment, salariés en quête d’autonomie, demandeurs d’emploi en réorientation et porteurs de projet. Aucun prérequis en programmation. Organisme OFC, Laure Olivié.',
-    title: 'De l’idée au concret — public de la formation',
+      'Infographie « Pour qui ? » de la formation ERP BTP avec l’IA : dirigeants, responsables administratifs, conducteurs de travaux et fonctions support des TPE/PME du bâtiment et des TP. Aucun prérequis en programmation. Organisme OFC, Laure Olivié.',
+    title: 'Public de la formation ERP BTP',
     width: 819,
     height: 1024,
   },
@@ -780,9 +780,9 @@ export const PHOTOS = {
   },
   formationNiv10DevWebIaOutils2026: {
     src: '/images/formation-developpement-web-ia-sans-coder/06-outils-projet.webp',
-    alt: 'Bureau avec laptop — outils ChatGPT, Claude, Notion pour créer sans coder',
+    alt: 'Bureau avec laptop — outils ChatGPT et Claude pour créer sans coder',
     description:
-      'Bureau de travail avec ordinateur portable listant ChatGPT, Claude, Notion et Make : prérequis outils de la formation applications métier BTP avec l’IA sans coder (ordinateur, abonnement ChatGPT ou Claude non inclus, navigateur, connexion Internet). Chaque participant travaille sur son propre projet.',
+      'Bureau de travail avec ordinateur portable listant ChatGPT et Claude : prérequis outils de la formation outils de gestion BTP avec l’IA sans coder (ordinateur, abonnement ChatGPT ou Claude non inclus, navigateur, connexion Internet). Chaque participant travaille sur son propre projet.',
     title: 'Des outils simples pour des résultats réels',
     width: 819,
     height: 1024,

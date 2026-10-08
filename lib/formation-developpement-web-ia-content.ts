@@ -1,11 +1,10 @@
 /**
- * Contenu — formation NIV-10 (BeWork / applications métier BTP avec l’IA).
- * Parcours 7 h / 14 h — alignés `lib/bework-programmes.ts`.
+ * Contenu — formation NIV-10 : créer son ERP BTP sur mesure et évolutif avec l’IA.
+ * Parcours 7 h / 14 h — tarifs alignés `lib/bework-programmes.ts` (source tarifaire).
  */
 import { getFormationByCode } from '@/data/formations';
 import { LINKS } from '@/lib/internal-links';
-import { FINANCEMENT_FORMULATION_PRUDENTE } from '@/lib/financement-copy';
-import { BEWORK_MODULES_JOUR2, BEWORK_PARCOURS } from '@/lib/bework-programmes';
+import { BEWORK_PARCOURS } from '@/lib/bework-programmes';
 import { formatTarifHt } from '@/lib/tarifs-sessions';
 
 export const DEV_WEB_IA_PATH = LINKS.formationDeveloppementWebIaSansCoder;
@@ -15,9 +14,9 @@ export const DEV_WEB_IA_CODE = 'NIV-10' as const;
 export const DEV_WEB_IA_FORMATION_TITRE = getFormationByCode('NIV-10')!.titre;
 
 /** Menus et libellés courts (catalogue, navigation). */
-export const DEV_WEB_IA_FORMATION_TITRE_COURT = 'Créer des apps métier BTP avec l’IA' as const;
+export const DEV_WEB_IA_FORMATION_TITRE_COURT = 'Créer son ERP BTP avec l’IA' as const;
 
-/** Tarifs inter — source unique (alignés BeWork / OFC). */
+/** Tarifs inter — source unique. */
 export const TARIF_INTER_DEV_WEB_IA_HT = BEWORK_PARCOURS['7h'].tarifHt;
 export const TARIF_INTER_DEV_WEB_IA_14H_HT = BEWORK_PARCOURS['14h'].tarifHt;
 
@@ -27,17 +26,30 @@ export const DEV_WEB_IA_PARCOURS_14H = BEWORK_PARCOURS['14h'];
 export const DEV_WEB_IA_PDF_7H_HREF = LINKS.pdfProgrammeDeveloppementWebIaSansCoder;
 export const DEV_WEB_IA_PDF_14H_HREF = LINKS.pdfProgrammeDeveloppementWebIaSansCoder14h;
 
-/** Noms de téléchargement — changer ici si les PDF programmes sont renommés. */
 export const PROGRAMME_PDF_7H = 'programme_OFC_Niveau3_Outils_Chantier_IA_7h_20261008.pdf' as const;
 export const PROGRAMME_PDF_14H = 'programme_OFC_Niveau3_Outils_Chantier_IA_14h_20261008.pdf' as const;
 
-/** Libellés commerciaux — pas de prix barré ni de date de fin fictive. */
 export const DEV_WEB_IA_BADGE_NOUVELLE = 'Nouvelle formation' as const;
 export const DEV_WEB_IA_BADGE_NOUVEAU = 'Nouveau' as const;
 export const DEV_WEB_IA_PRIX_LANCEMENT_LABEL = 'Prix de lancement' as const;
 
+export const DEV_WEB_IA_FINANCEMENT_MENTION =
+  'Prise en charge OPCO/Constructys selon éligibilité — un reste à charge peut s’appliquer.' as const;
+
 export const DEV_WEB_IA_SUBTITLE =
-  'Créer, tester et déployer une application métier BTP avec l’IA, sans être développeur.' as const;
+  'Devis, chantiers, planning, heures et suivi de gestion : apprenez à construire un outil adapté à votre entreprise, puis à le faire évoluer, sans savoir programmer.' as const;
+
+export const DEV_WEB_IA_INTRO =
+  'Vos informations sont réparties entre Excel, les emails et plusieurs logiciels ? Cette formation vous apprend à structurer votre projet d’ERP BTP et à construire une première version avec l’IA. Vous commencez par votre besoin prioritaire. Vous ajoutez ensuite les modules utiles à votre activité.' as const;
+
+export const DEV_WEB_IA_ERP_DEFINITION =
+  'Un ERP est un outil qui centralise les informations et relie les fonctions de gestion de l’entreprise. « Sur mesure » signifie adapté à vos processus, vos utilisateurs et vos données. « Évolutif » signifie pouvoir ajouter des fonctions, tester les modifications et conserver les données existantes.' as const;
+
+export const DEV_WEB_IA_HERO_REASSURANCES = [
+  'Niveau 3 — création, dans une progression en trois niveaux',
+  'Vous commencez par un module prioritaire, puis vous enrichissez l’outil',
+  'Aucune compétence en programmation requise',
+] as const;
 
 export const DEV_WEB_IA_HERO_FACTS = [
   '7 h (1 journée)',
@@ -47,8 +59,10 @@ export const DEV_WEB_IA_HERO_FACTS = [
   '70 % pratique · 30 % méthodologie',
 ] as const;
 
-/** Ligne durée courte (hero / cartes). */
 export const DEV_WEB_IA_DUREE_COURTE = '7 h' as const;
+
+export const DEV_WEB_IA_CTA_PRIMARY_LABEL = 'Échanger sur mon projet d’ERP BTP' as const;
+export const DEV_WEB_IA_CTA_SECONDARY_LABEL = 'Découvrir le programme' as const;
 
 export const DEV_WEB_IA_INCLUS_TARIF = [
   'l’animation de la formation',
@@ -59,34 +73,32 @@ export const DEV_WEB_IA_INCLUS_TARIF = [
 ] as const;
 
 export const DEV_WEB_IA_FORMATS = [
-  'Présentiel · Île-de-France (inter-entreprises ou intra dans vos locaux)',
+  'Présentiel en Île-de-France uniquement (inter-entreprises ou intra dans vos locaux)',
   'Tarif HT / participant — 4 à 8 participants',
 ] as const;
 
 export const DEV_WEB_IA_MODALITES_SECTION = {
   eyebrow: 'Modalités',
-  title: 'Présentiel en Île-de-France.',
-  lead: 'Présentiel en Île-de-France : en inter-entreprises à dates programmées, ou en intra dans vos locaux. Petit groupe (4 à 8), accompagnement de proximité tout au long de la pratique.',
+  title: 'Présentiel en Île-de-France uniquement.',
+  lead: 'Sessions en inter-entreprises à dates programmées, ou en intra dans vos locaux. Petit groupe (4 à 8), accompagnement de proximité tout au long de la pratique.',
   compareLabel: 'Voir les tarifs',
   compareHref: '#tarifs-modalites',
 } as const;
 
-/** Modalités de participation — présentiel uniquement. */
 export const DEV_WEB_IA_MODALITES = [
   {
     id: 'presentiel',
     title: 'Présentiel',
-    badge: 'Île-de-France',
+    badge: 'Île-de-France uniquement',
     desc: 'En inter-entreprises à dates programmées, ou en intra dans vos locaux. Petit groupe (4 à 8), accompagnement de proximité tout au long de la pratique.',
   },
 ] as const;
 
-/** Engagements qualité (marketing) — le détail réglementaire reste dans Informations Qualiopi. */
 export const DEV_WEB_IA_QUALIOPI_ENGAGEMENTS = [
   {
     num: '01',
     title: 'Apprendre en pratiquant',
-    desc: 'Pédagogie active autour de votre projet : démonstrations courtes, ateliers guidés, production individuelle.',
+    desc: 'Pédagogie active autour de votre projet d’ERP : démonstrations courtes, ateliers guidés, production individuelle.',
   },
   {
     num: '02',
@@ -109,20 +121,20 @@ export const DEV_WEB_IA_PARCOURS_INTRO = {
   eyebrow: 'Choisissez votre parcours',
   titleLine1: 'Un même point de départ.',
   titleLine2: 'À vous de choisir jusqu’où aller.',
-  lead: 'Une première journée commune (7 h) pour cadrer, construire une première version et la tester. Une deuxième journée (7 h supplémentaires) pour améliorer, publier en ligne et poser les bases de visibilité.',
+  lead: 'Une première journée (7 h) pour cadrer le besoin, choisir un module et construire une première version testable. Une deuxième journée (7 h supplémentaires) pour approfondir, relier les fonctions utiles et préparer les conditions d’un déploiement progressif.',
 } as const;
 
 export const DEV_WEB_IA_PARCOURS_MARKETING = {
   '7h': {
     label: 'Parcours 1 — 1 journée',
-    title: 'De l’idée à votre première création',
-    desc: 'Transformer votre idée en un premier projet testable avec l’IA — sans écrire le code vous-même.',
+    title: 'Cadrer et amorcer votre ERP BTP',
+    desc: 'Choisir un module prioritaire, définir écrans et données, construire une première version testable avec l’IA.',
     badge14h: null as string | null,
   },
   '14h': {
     label: 'Parcours 2 — 2 journées',
-    title: 'De votre idée à votre projet en ligne',
-    desc: 'Reprendre le Jour 1, enrichir le projet, le publier et contrôler la version en ligne (bases de référencement si pertinent).',
+    title: 'Approfondir et préparer l’évolution',
+    desc: 'Reprendre le Jour 1, enrichir le module, travailler validations, exports et accès, puis poser la feuille de route.',
     badge14h: 'Comprend le parcours 7 h',
   },
 } as const;
@@ -130,35 +142,38 @@ export const DEV_WEB_IA_PARCOURS_MARKETING = {
 export const DEV_WEB_IA_JOUR_RESUME = {
   jour1: {
     label: 'Jour 1',
-    closing: 'Jour 1 — Je construis ma première version.',
+    closing: 'Jour 1 — Je cadre mon besoin et j’amorce mon premier module.',
     points: [
-      'Cadrer et préparer votre projet',
-      'Structurer et guider l’IA',
-      'Construire une première version',
-      'Tester, corriger et repartir avec une méthode',
+      'Cadrer le besoin et choisir un module',
+      'Définir les écrans, les données et les utilisateurs',
+      'Construire une première version avec l’IA',
+      'Tester un parcours simple et préparer la suite',
     ],
   },
   jour2: {
     label: 'Jour 2',
-    closing: 'Jour 2 — Je finalise et je mets mon projet en ligne.',
+    closing: 'Jour 2 — J’améliore, je relie et je prépare le déploiement.',
     points: [
-      'Reprise et amélioration du projet du Jour 1',
-      'Adaptation aux différents écrans',
-      'Préparation et mise en ligne',
-      'Bases du référencement web (si pertinent)',
-      'Tests de la version publiée et feuille de route',
+      'Reprendre et améliorer la première version',
+      'Approfondir le module ou relier un second module',
+      'Travailler validations, exports et accès',
+      'Tester, sauvegarder et préparer le déploiement',
+      'Construire une feuille de route d’évolution',
     ],
   },
 } as const;
 
+export const DEV_WEB_IA_PUBLIC_PRINCIPAL =
+  'Dirigeants, responsables administratifs, conducteurs de travaux et fonctions support des TPE et PME du bâtiment et des travaux publics.' as const;
+
+export const DEV_WEB_IA_PUBLIC_EGALEMENT =
+  'Toute personne qui pilote ou organise la gestion de l’entreprise et souhaite structurer un outil de suivi adapté à ses processus.' as const;
+
 export const DEV_WEB_IA_PUBLIC = [
-  'Entrepreneurs',
-  'Indépendants',
-  'TPE et PME du bâtiment',
-  'Commerçants',
-  'Salariés',
-  'Porteurs de projet',
-  'Personnes en reconversion',
+  'Dirigeants TPE/PME BTP',
+  'Responsables administratifs',
+  'Conducteurs de travaux',
+  'Fonctions support',
 ] as const;
 
 export const DEV_WEB_IA_PREREQUIS = [
@@ -170,15 +185,153 @@ export const DEV_WEB_IA_PREREQUIS = [
   'Avoir vérifié ses accès avant la formation',
 ] as const;
 
-/** Compétences visées — sans recopier les activités du programme (4 modules). */
+/** Objectifs pédagogiques observables — page marketing (PDF à aligner). */
 export const DEV_WEB_IA_OBJECTIFS = [
-  'Analyser un besoin et fixer un périmètre réaliste pour une première version',
-  'Organiser un projet (parcours utilisateur, écrans, priorités fonctionnelles)',
-  'Formuler des consignes exploitables par l’IA, étape par étape',
-  'Mobiliser les bons outils selon la tâche (assistant, environnement de création)',
-  'Obtenir une première version testable sans écrire le code soi-même',
-  'Appliquer une démarche de test, correction et sauvegarde sur son projet',
-  'Planifier la suite du projet après la session de formation',
+  'Cartographier un processus de gestion de votre entreprise',
+  'Choisir le premier module à construire',
+  'Structurer les données et les relations entre les modules',
+  'Définir les utilisateurs et leurs droits d’accès',
+  'Guider l’IA avec des consignes précises',
+  'Construire et tester une première version',
+  'Préparer les exports nécessaires',
+  'Sauvegarder le projet et organiser ses évolutions',
+] as const;
+
+export const DEV_WEB_IA_BENEFICES = [
+  {
+    title: 'Centraliser les informations',
+    texte: 'Rassembler au même endroit les données utiles à la gestion de l’entreprise.',
+  },
+  {
+    title: 'Limiter les doubles saisies',
+    texte: 'Réduire les ressaisies entre Excel, emails et logiciels séparés.',
+  },
+  {
+    title: 'Relier bureau et chantier',
+    texte: 'Faire circuler les informations entre le bureau et les équipes de terrain.',
+  },
+  {
+    title: 'Suivre heures et coûts',
+    texte: 'Suivre les heures et les coûts par chantier à partir des données saisies.',
+  },
+  {
+    title: 'Adapter écrans et validations',
+    texte: 'Définir les écrans et les circuits de validation selon votre organisation.',
+  },
+  {
+    title: 'Ajouter des modules',
+    texte: 'Enrichir l’outil au fil des besoins, module après module.',
+  },
+] as const;
+
+export type DevWebIaErpModule = {
+  id: string;
+  number: number;
+  title: string;
+  description: string;
+  highlighted?: boolean;
+};
+
+export const DEV_WEB_IA_ERP_MODULES: readonly DevWebIaErpModule[] = [
+  {
+    id: 'clients-commercial',
+    number: 1,
+    title: 'Clients et suivi commercial',
+    description: 'Contacts, prospects, échanges, opportunités et relances.',
+  },
+  {
+    id: 'visites-metres',
+    number: 2,
+    title: 'Visites et métrés',
+    description: 'Fiches de visite, photos, mesures et informations nécessaires au devis.',
+  },
+  {
+    id: 'devis-facturation',
+    number: 3,
+    title: 'Devis et suivi de facturation',
+    description:
+      'Bibliothèque de prestations, devis, suivi des situations et des règlements. Les fonctions de facturation nécessitent une vérification des exigences applicables avant utilisation réelle.',
+  },
+  {
+    id: 'suivi-chantier',
+    number: 4,
+    title: 'Suivi de chantier',
+    description: 'Avancement, comptes rendus, photos, documents, réserves et tâches.',
+  },
+  {
+    id: 'planning',
+    number: 5,
+    title: 'Planning',
+    description: 'Affectation des équipes, interventions, disponibilités et matériel.',
+  },
+  {
+    id: 'heures-paie',
+    number: 6,
+    title: 'Relevé des heures et préparation de la paie',
+    description:
+      'Saisie des heures par chantier, validation et récapitulatif pour préparer les éléments à transmettre au gestionnaire de paie.',
+    highlighted: true,
+  },
+  {
+    id: 'achats-depenses',
+    number: 7,
+    title: 'Achats et dépenses',
+    description: 'Commandes, fournisseurs, matériaux et dépenses affectées aux chantiers.',
+  },
+  {
+    id: 'tableau-de-bord',
+    number: 8,
+    title: 'Tableau de bord',
+    description:
+      'Heures prévues et réalisées, dépenses, avancement et indicateurs de gestion selon les données disponibles.',
+  },
+] as const;
+
+export const DEV_WEB_IA_HEURES_FONCTIONS = [
+  'Salarié, date et chantier',
+  'Horaires de début et de fin, pauses et durée travaillée',
+  'Répartition des heures entre plusieurs chantiers',
+  'Absences et commentaires',
+  'Éléments déclarés utiles à la préparation de la paie : paniers, déplacements et autres variables selon les règles de l’entreprise',
+  'Statuts : brouillon, soumis, validé, à corriger',
+  'Historique des modifications et des validations',
+  'Récapitulatif hebdomadaire ou mensuel',
+  'Export CSV ou Excel au format convenu avec le gestionnaire de paie',
+  'Imputation des heures validées au suivi des coûts du chantier',
+] as const;
+
+export const DEV_WEB_IA_HEURES_PARCOURS = [
+  'Saisie sur chantier',
+  'Contrôle',
+  'Validation',
+  'Export pour préparation de la paie',
+] as const;
+
+export const DEV_WEB_IA_EVOLUTIF_POINTS = [
+  {
+    title: 'Données partagées',
+    texte: 'Les modules s’appuient sur des données communes (chantiers, équipes, clients).',
+  },
+  {
+    title: 'Ajout progressif',
+    texte: 'Vous ajoutez des fonctions au fur et à mesure, sans tout reconstruire.',
+  },
+  {
+    title: 'Sauvegardes et versions',
+    texte: 'Vous conservez un historique des versions avant chaque évolution importante.',
+  },
+  {
+    title: 'Contrôle des accès',
+    texte: 'Vous définissez qui consulte, saisit ou valide selon le rôle.',
+  },
+  {
+    title: 'Tests après chaque évolution',
+    texte: 'Chaque modification est testée avant d’être utilisée par l’équipe.',
+  },
+  {
+    title: 'Hébergement et maintenance',
+    texte: 'Vous anticipez les coûts d’hébergement et la maintenance de l’outil.',
+  },
 ] as const;
 
 export type DevWebIaModule = {
@@ -195,91 +348,136 @@ export type DevWebIaProgrammeModule = {
   result: string;
 };
 
+/** Programme Jour 1 — intitulés officiels conservés, activités adaptées ERP BTP. */
 export const DEV_WEB_IA_MODULES: readonly DevWebIaProgrammeModule[] = [
   {
     number: 1,
     title: 'Cadrer et préparer son projet',
     objective:
-      'Clarifier le besoin, poser le périmètre de la première version et disposer d’un environnement prêt à l’emploi.',
+      'Clarifier le besoin d’ERP, choisir le premier module et disposer d’un environnement prêt à l’emploi.',
     activities: [
-      'Identifier les utilisateurs, le besoin métier et les fonctions prioritaires pour une V1',
-      'Définir le périmètre de la première version et ce qui pourra attendre',
-      'Préparer l’environnement : outils installés, comptes et accès vérifiés avant de produire',
-      'Repérer quel outil mobiliser selon la tâche (assistant IA, création, hébergement)',
+      'Cartographier le processus de gestion prioritaire (ex. relevés d’heures, devis, suivi chantier)',
+      'Identifier les utilisateurs (dirigeant, chef d’équipe, bureau) et leurs droits d’accès',
+      'Choisir le premier module à construire et ce qui pourra attendre',
+      'Préparer l’environnement : outils installés, comptes et accès vérifiés',
     ],
-    result:
-      'Un projet cadré, un périmètre de V1 acté et un poste prêt pour commencer à construire.',
+    result: 'Un besoin cadré, un module prioritaire choisi et un poste prêt pour construire.',
   },
   {
     number: 2,
     title: 'Structurer son projet et guider efficacement l’IA',
     objective:
-      'Organiser parcours, écrans et données, puis guider l’IA avec des consignes précises à chaque étape.',
+      'Organiser écrans, données et relations, puis guider l’IA avec des consignes précises.',
     activities: [
-      'Esquisser le parcours utilisateur et les écrans ou vues principales',
-      'Hiérarchiser les fonctionnalités et les données nécessaires à la V1',
+      'Définir les écrans, les données et les relations entre les éléments (chantier, salarié, devis…)',
+      'Esquisser le parcours utilisateur (ex. saisie des heures → validation → export)',
       'Découper le travail en étapes avec des demandes ciblées à l’IA',
       'Rédiger et ajuster des instructions structurées (contexte, objectif, contraintes, résultat attendu)',
     ],
-    result: 'Un périmètre fonctionnel clair et une méthode pour dialoguer efficacement avec l’IA.',
+    result: 'Une structure claire du module et une méthode pour dialoguer efficacement avec l’IA.',
   },
   {
     number: 3,
     title: 'Construire une première version',
     objective:
-      'Passer du cadrage à une première version manipulable, avec navigation et fonctions de base reliées.',
+      'Passer du cadrage à une première version manipulable du module prioritaire.',
     activities: [
-      'Structurer l’architecture du projet et l’ordre de construction des blocs',
+      'Structurer l’architecture du module et l’ordre de construction',
       'Générer une première version avec l’IA à partir du besoin structuré',
-      'Mettre en place navigation, formulaires simples et affichage des données utiles',
+      'Mettre en place navigation, formulaires et affichage des données utiles',
       'Appliquer les premières corrections constatées sur votre projet',
     ],
     result:
-      'Une première version testable, avec ses premières connexions — pas un logiciel achevé ni prêt pour la production.',
+      'Une première version testable du module — pas un ERP complet ni prêt pour l’exploitation.',
   },
   {
     number: 4,
     title: 'Tester, corriger et pérenniser son projet',
     objective:
-      'Vérifier le résultat, corriger les écarts avec l’IA et préparer la suite en dehors de la session.',
+      'Vérifier le résultat, préparer les exports et organiser la suite.',
     activities: [
-      'Construire un scénario de test sur les fonctions principales',
-      'Identifier les problèmes et formuler une demande de correction précise',
-      'Améliorer lisibilité et cohérence sans viser un logiciel « clé en main »',
-      'Sauvegarder le projet, respecter les précautions sur les données et rédiger une feuille de route',
+      'Construire un scénario de test sur le parcours principal',
+      'Vérifier qu’aucune donnée sensible (clients, salariés) n’est exposée',
+      'Préparer les exports nécessaires (ex. CSV pour le gestionnaire de paie)',
+      'Sauvegarder le projet et rédiger une feuille de route d’évolution',
     ],
     result:
-      'Une méthode de test et de correction, un projet sauvegardé et un plan pour continuer après la formation.',
+      'Une méthode de test, un projet sauvegardé et un plan pour faire évoluer l’outil après la formation.',
   },
 ];
 
-/** Programme Jour 2 — parcours 14 h uniquement. */
-export const DEV_WEB_IA_MODULES_JOUR2: readonly DevWebIaModule[] = BEWORK_MODULES_JOUR2.modules.map(
-  (m) => ({
-    number: m.number,
-    title: m.title,
-    points: m.sequences.flatMap((s) => s.points),
-  }),
-);
+/** Programme Jour 2 — parcours 14 h (pas de référencement site vitrine). */
+export const DEV_WEB_IA_MODULES_JOUR2: readonly DevWebIaModule[] = [
+  {
+    number: 1,
+    title: 'Diagnostiquer et prioriser les améliorations',
+    points: [
+      'Reprendre et tester la version du Jour 1',
+      'Identifier écarts, manques et priorités pour l’outil de gestion',
+      'Classer corrections nécessaires et évolutions secondaires',
+      'Organiser les prochaines étapes de la journée',
+    ],
+  },
+  {
+    number: 2,
+    title: 'Améliorer et enrichir le projet',
+    points: [
+      'Corriger les dysfonctionnements du module prioritaire',
+      'Approfondir le module ou amorcer un second module, selon l’avancement',
+      'Préserver les données déjà saisies lors des évolutions',
+      'Tester après chaque modification',
+    ],
+  },
+  {
+    number: 3,
+    title: 'Préparer validations, exports et accès',
+    points: [
+      'Travailler les circuits de validation (brouillon, soumis, validé)',
+      'Préparer les exports utiles au bureau ou au gestionnaire de paie',
+      'Définir les accès selon les rôles',
+      'Repérer les informations sensibles à ne pas exposer',
+    ],
+  },
+  {
+    number: 4,
+    title: 'Partager l’outil avec l’équipe en conditions contrôlées',
+    points: [
+      'Préparer le partage sécurisé de l’outil interne avec l’équipe',
+      'Vérifier l’affichage sur ordinateur et téléphone',
+      'Contrôler liens, formulaires et parcours principaux',
+      'Consigner les anomalies restantes avant un usage élargi',
+    ],
+  },
+  {
+    number: 5,
+    title: 'Tester, sauvegarder et préparer le déploiement',
+    points: [
+      'Parcourir le projet de bout en bout',
+      'Sauvegarder et conserver les versions',
+      'Élaborer une feuille de route d’évolution (modules suivants, tests, maintenance)',
+      'Présenter la version testée et les prochaines étapes',
+    ],
+  },
+];
 
 export const DEV_WEB_IA_LIVRABLES = [
   'Environnement de travail vérifié',
-  'Projet cadré et périmètre de la première version',
-  'Première version testable (non prête pour la production)',
+  'Projet d’ERP cadré et premier module priorisé',
+  'Première version testable (non prête pour l’exploitation)',
   'Méthode pour guider, tester et corriger avec l’IA',
-  'Projet sauvegardé et feuille de route personnelle',
+  'Projet sauvegardé et feuille de route d’évolution',
   'Certificat de réalisation',
 ] as const;
 
 export const DEV_WEB_IA_LIVRABLES_14H = [
   ...DEV_WEB_IA_LIVRABLES,
-  'un projet enrichi et testé en profondeur',
-  'une version publiée en ligne (selon avancement du participant)',
-  'des bases de référencement et de contrôle post-publication',
+  'un module approfondi ou un second module amorcé',
+  'validations, exports et accès travaillés',
+  'conditions d’un déploiement progressif préparées',
 ] as const;
 
 export const DEV_WEB_IA_PEDAGOGIE = [
-  'Fil rouge sur le projet de chaque participant — pas sur un cas générique',
+  'Fil rouge sur le projet d’ERP de chaque participant — pas sur un cas générique',
   'Courtes démonstrations, ateliers guidés puis travail individuel sur poste',
   'Tests et corrections en direct, avec échanges avec la formatrice',
   'Petit groupe (4 à 8 participants) pour des allers-retours réguliers',
@@ -299,62 +497,82 @@ export const DEV_WEB_IA_EVALUATION = [
   'Suivi : enquête à froid à 3 mois',
 ] as const;
 
+export const DEV_WEB_IA_DONNEES_CONTROLE = [
+  'On travaille avec des données fictives ou anonymisées pendant la session.',
+  'Vous apprenez à repérer ce qui ne doit jamais être exposé (coordonnées clients, données salariés, prix).',
+  'Vous restez propriétaire de votre outil et de son contenu.',
+] as const;
+
 export const DEV_WEB_IA_FAQ = [
   {
-    q: 'Faut-il savoir coder ? La formation convient-elle aux débutants ?',
-    a: 'Non. Aucun prérequis en programmation ou en création de site n’est nécessaire. Ce n’est pas un cursus de développement : vous apprenez à cadrer votre besoin, guider l’IA, tester le résultat et corriger — sans prétendre devenir développeur en une journée.',
+    q: 'Faut-il savoir coder ?',
+    a: 'Non. Aucun prérequis en programmation n’est nécessaire. Vous décrivez votre besoin, guidez l’IA, testez le résultat et corrigez — sans devenir développeur.',
   },
   {
-    q: 'Est-ce que je repars avec un logiciel prêt pour la production ?',
-    a: 'Non. En 7 h, l’objectif est une première version testable, cadrée et sauvegardée — pas un produit complet prêt pour la production. Vous repartez aussi avec une méthode et une feuille de route pour continuer.',
+    q: 'Peut-on commencer par les relevés d’heures ?',
+    a: 'Oui. Les relevés d’heures pour préparer la paie sont un module prioritaire fréquent. Pendant la formation, vous travaillez sur le périmètre adapté à votre niveau et à la durée choisie.',
   },
   {
-    q: 'Dois-je venir avec une idée de projet ?',
-    a: 'Oui, idéalement : même une idée floue permet de structurer un besoin et d’avancer concrètement sur votre cas. Si vous hésitez encore, nous pouvons partir d’un scénario pédagogique pour pratiquer la méthode.',
+    q: 'Peut-on faire évoluer son ERP après la formation ?',
+    a: 'Oui. Vous repartez avec une méthode et une feuille de route pour ajouter des modules, tester les modifications et conserver les données existantes.',
+  },
+  {
+    q: 'Peut-on importer des fichiers Excel ?',
+    a: 'Souvent, oui, selon le format de vos fichiers et le module construit. Les imports dépendent des outils utilisés ; nous voyons les options réalistes en session.',
+  },
+  {
+    q: 'Peut-on transmettre les heures au gestionnaire de paie ?',
+    a: 'Oui, via un export CSV ou Excel au format convenu. L’outil prépare les données ; les règles de calcul et les éléments de paie restent à paramétrer et à valider avec le gestionnaire de paie.',
+  },
+  {
+    q: 'L’ERP est-il prêt à être utilisé à la fin de la formation ?',
+    a: 'Non. Vous repartez avec une première version testable, une méthode et une feuille de route — pas un ERP complet, sécurisé et prêt à l’exploitation.',
+  },
+  {
+    q: 'Quels abonnements et frais faut-il prévoir ?',
+    a: 'Un abonnement ChatGPT ou Claude AI est requis pour la session (non inclus). Après la formation, l’hébergement d’un outil interne simple peut être gratuit ou de quelques euros par mois ; les options sont vues en session.',
+  },
+  {
+    q: 'Où se déroule la formation ?',
+    a: 'Uniquement en présentiel en Île-de-France : en inter-entreprises à dates programmées, ou en intra dans vos locaux.',
   },
   {
     q: 'Dois-je apporter mon ordinateur ?',
-    a: 'Oui. La session est pratique : vous travaillez sur votre propre poste. Prévoyez aussi un abonnement actif à ChatGPT ou Claude AI (non inclus dans le tarif) et vérifiez vos accès avant le jour J.',
+    a: 'Oui. La session est pratique : vous travaillez sur votre propre poste. Vérifiez vos accès ChatGPT ou Claude AI avant le jour J.',
   },
   {
-    q: 'Que peut-on raisonnablement créer en 7 h ?',
-    a: 'Une première version testable selon votre idée : site vitrine simple, petit outil métier, prototype (agenda, suivi clients, tableau de bord, messagerie interne, etc.). Le détail des activités est dans le programme en 4 modules ; la promesse reste une V1 à tester, pas un logiciel achevé.',
-  },
-  {
-    q: 'Quels formats sont proposés ?',
-    a: `Formation uniquement en présentiel en Île-de-France (inter-entreprises, 4 à 8 participants, ou intra dans vos locaux). Les fédérations et réseaux convoquent des sessions au tarif HT / participant (minimum 6 inscrits) — détail sur ${LINKS.partenaires}.`,
-  },
-  {
-    q: 'L’abonnement ChatGPT ou Claude est-il inclus ?',
-    a: 'Non. L’abonnement à ChatGPT ou Claude AI reste à votre charge et n’est pas compris dans le prix de la formation. Vérifiez vos accès avant la session.',
+    q: 'Peut-on connecter l’outil à tous nos logiciels ?',
+    a: 'Non, pas automatiquement. Les imports, exports et éventuelles connexions dépendent des outils que vous utilisez déjà. Nous restons factuels sur ce qui est réaliste pour votre cas.',
   },
 ] as const;
 
-/** Libellé tarif catalogue / résumés — cohérent partout. */
 export function libelleTarifLancementDevWebIa(): string {
   return `${formatTarifHt(TARIF_INTER_DEV_WEB_IA_HT)} € HT / participant`;
 }
 
 export function mentionFinancementDevWebIa(): string {
-  return FINANCEMENT_FORMULATION_PRUDENTE;
+  return DEV_WEB_IA_FINANCEMENT_MENTION;
 }
 
-/** Ancre du formulaire projet sur la fiche NIV-10. */
 export const DEV_WEB_IA_PROJECT_FORM_ID = 'parlez-projet' as const;
 
-export const DEV_WEB_IA_CONTACT_SUBJECT = `Demande d’information — ${DEV_WEB_IA_FORMATION_TITRE}`;
-
 export const DEV_WEB_IA_FORMATION_REFERENCE = 'NIV-10' as const;
+
+export const DEV_WEB_IA_CONTACT_SUBJECT =
+  `Demande d’information — Créer son ERP BTP avec l’IA (${DEV_WEB_IA_FORMATION_REFERENCE})` as const;
 
 export function devWebIaProjectFormHref(): string {
   return `${DEV_WEB_IA_PATH}#${DEV_WEB_IA_PROJECT_FORM_ID}`;
 }
 
-/** Devis / session intra / renseignements — formulaire dédié sur la fiche formation. */
 export function devWebIaDevisHref(_formationTitle?: string): string {
   return devWebIaProjectFormHref();
 }
 
 export function devWebIaInscriptionHref(): string {
   return `${LINKS.contact}?objet=inscription&formation=${encodeURIComponent(DEV_WEB_IA_FORMATION_TITRE)}`;
+}
+
+export function devWebIaProgrammeHref(): string {
+  return `${DEV_WEB_IA_PATH}#programme`;
 }
