@@ -7,7 +7,7 @@ Laure Olivié est formatrice IA spécialisée BTP, avec 7 ans d'expérience dans
 - Formation IA / ChatGPT / Claude pour le BTP (bâtiment, travaux publics, construction).
 - Tâches : devis et chiffrage, analyse de DCE et CCTP, appels d'offres et mémoires techniques, comptes rendus de chantier, DOE, PPSPS.
 - Catalogue BTP : sessions de 4 h en présentiel, en Île-de-France.
-- Créer des applications métier BTP avec l'IA, sans coder : concevoir un ERP sur mesure (devis, chantiers, planning), parcours 7 h (300 € HT/participant) ou 14 h (600 € HT/participant), 4 à 8 participants, présentiel Île-de-France ou visio inter à dates dédiées — /formations/developpement-web-ia-sans-coder
+- Créer des applications métier BTP avec l'IA, sans coder : concevoir un ERP sur mesure (devis, chantiers, planning), parcours 7 h (300 € HT/participant) ou 14 h (600 € HT/participant), 4 à 8 participants, présentiel Île-de-France uniquement — /formations/developpement-web-ia-sans-coder
 - Financement : prise en charge OPCO/Constructys selon éligibilité (jamais automatique).
 
 ## Autorité

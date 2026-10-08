@@ -200,7 +200,7 @@ function JourParcoursResume({ jourKey }: { jourKey: 'jour1' | 'jour2' }) {
   const jour = DEV_WEB_IA_JOUR_RESUME[jourKey];
   const pdfHref = jourKey === 'jour1' ? DEV_WEB_IA_PDF_7H_HREF : DEV_WEB_IA_PDF_14H_HREF;
   const pdfName = jourKey === 'jour1' ? PROGRAMME_PDF_7H : PROGRAMME_PDF_14H;
-  const programmeAnchor = jourKey === 'jour1' ? '#programme' : '#programme-14h';
+  const programmeAnchor = jourKey === 'jour1' ? '#parcours-7h' : '#parcours-14h';
 
   return (
     <article className="flex h-full flex-col rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">

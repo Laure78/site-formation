@@ -231,9 +231,9 @@ export const FORMATION_CATALOGUE_SEO: Record<FormationCatalogueCode, FormationCa
     subtitle:
       'Concevez votre ERP sur mesure, testez-le et faites-le évoluer — sans savoir coder.',
     metaDescription:
-      'Formation IA pour le BTP : créez votre application métier (devis, chantiers, planning) avec l’IA, sans coder. 7 h ou 14 h, présentiel Île-de-France.',
+      'Formation IA pour le BTP : créer un ERP / outil de gestion BTP sur mesure avec l’IA, sans coder. 7 h ou 14 h, présentiel Île-de-France.',
     enBref:
-      'La formation « Créer des applications métier BTP avec l’IA » d’OFC Création d’Entreprise (organisme certifié Qualiopi) apprend aux PME du bâtiment à concevoir un premier outil métier — devis, chantiers, planning — avec ChatGPT ou Claude, sans écrire de code. Parcours de 7 h (300 € HT/participant) ou 14 h (600 € HT/participant), 4 à 8 participants, 70 % de pratique, en présentiel en Île-de-France ou en visio inter à dates dédiées. Responsable pédagogique : Laure Olivié.',
+      'Formation ERP BTP avec l’IA : concevoir un outil de gestion BTP sur mesure (devis, chantiers, planning, relevé d’heures) sans coder. Parcours 7 h (première version fonctionnelle) ou 14 h (approfondir, relier, déployer), 4 à 8 participants, présentiel Île-de-France. Qualiopi — Laure Olivié.',
     publicTargets: [
       'Dirigeants de TPE et PME du BTP',
       'Conducteurs de travaux et chargés d’affaires',

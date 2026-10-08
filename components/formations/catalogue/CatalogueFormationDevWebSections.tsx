@@ -1,10 +1,10 @@
 import Link from 'next/link';
-import { Check, Download } from 'lucide-react';
+import { Check } from 'lucide-react';
 import { CatalogueFormationDevWebModalitesSection } from '@/components/formations/catalogue/CatalogueFormationDevWebMarketingSections';
 import { DevWebIaPrixLancementCard } from '@/components/formations/DevWebIaPrixLancementCard';
 import { DevWebIaSectionVisual } from '@/components/formations/DevWebIaSectionVisual';
 import { getFormationByCode } from '@/data/formations';
-import { OFC_CTA_SECONDARY, OFC_EYEBROW, OFC_LINK, OFC_TYPE_H3 } from '@/lib/ofc-interaction-classes';
+import { OFC_EYEBROW, OFC_LINK, OFC_TYPE_H3 } from '@/lib/ofc-interaction-classes';
 import {
   FORMATION_CATALOGUE_H2,
   FORMATION_CATALOGUE_INNER_MAX_3XL,
@@ -13,22 +13,17 @@ import {
   FORMATION_CATALOGUE_SECTION,
   FORMATION_CATALOGUE_SECTION_MUTED,
 } from '@/lib/formation-catalogue-layout-classes';
-import { formatTarifHt } from '@/lib/tarifs-sessions';
 import { PHOTOS } from '@/lib/photos';
 import { LINKS } from '@/lib/internal-links';
 import {
   DEV_WEB_IA_ESPACE,
   DEV_WEB_IA_EVALUATION,
   DEV_WEB_IA_FORMATS,
-  DEV_WEB_IA_MODULES_JOUR2,
   DEV_WEB_IA_PEDAGOGIE,
   DEV_WEB_IA_PREREQUIS,
   DEV_WEB_IA_PUBLIC,
   DEV_WEB_IA_PUBLIC_EGALEMENT,
   DEV_WEB_IA_PUBLIC_PRINCIPAL,
-  DEV_WEB_IA_PDF_14H_HREF,
-  PROGRAMME_PDF_14H,
-  TARIF_INTER_DEV_WEB_IA_14H_HT,
 } from '@/lib/formation-developpement-web-ia-content';
 
 const FORMATION = getFormationByCode('NIV-10')!;
@@ -145,57 +140,6 @@ export function CatalogueFormationDevWebAfterObjectives() {
 
 
     </>
-  );
-}
-
-export function CatalogueFormationDevWebProgrammeDay2() {
-  return (
-    <section
-      id="programme-14h"
-      className="scroll-mt-24 border-b border-slate-200 bg-white px-4 py-8 md:py-10"
-      aria-labelledby="programme-14h-title"
-    >
-      <div className={FORMATION_CATALOGUE_INNER_MAX_4XL}>
-        <p className={OFC_EYEBROW}>Parcours 14 h · Jour 2</p>
-        <h2 id="programme-14h-title" className={`${FORMATION_CATALOGUE_H2} mt-2`}>
-          Approfondir, relier et préparer le déploiement
-        </h2>
-        <p className="mt-3 max-w-2xl text-base text-slate-600">
-          Deuxième journée (7 h) : reprise de votre première version, approfondissement du module prioritaire
-          ou liaison d’un second module, validations, exports et feuille de route — tarif inter{' '}
-          {formatTarifHt(TARIF_INTER_DEV_WEB_IA_14H_HT)} € HT / participant pour l’ensemble des 14 h.
-        </p>
-        <div className="mt-10 space-y-0">
-          {DEV_WEB_IA_MODULES_JOUR2.map((module) => (
-            <article key={module.number} className="relative border-b border-slate-200 py-8 last:border-0">
-              <h3 className={OFC_TYPE_H3}>
-                Module {module.number} — {module.title}
-              </h3>
-              <ul className="mt-4 columns-1 gap-x-8 space-y-2 sm:columns-2">
-                {module.points.map((point) => (
-                  <li
-                    key={point}
-                    className="break-inside-avoid text-base leading-relaxed text-slate-600 before:mr-2 before:text-[#377CF3] before:content-['·']"
-                  >
-                    {point}
-                  </li>
-                ))}
-              </ul>
-            </article>
-          ))}
-        </div>
-        <p className="mt-6">
-          <a
-            href={DEV_WEB_IA_PDF_14H_HREF}
-            download={PROGRAMME_PDF_14H}
-            className={`${OFC_CTA_SECONDARY} inline-flex min-h-11 items-center gap-2 px-5 py-3`}
-          >
-            <Download className="h-4 w-4 shrink-0" aria-hidden />
-            Télécharger le programme complet 14 h (PDF)
-          </a>
-        </p>
-      </div>
-    </section>
   );
 }
 

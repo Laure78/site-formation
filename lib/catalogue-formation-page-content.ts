@@ -695,13 +695,13 @@ const NIV_10: CatalogueFormationPageContent = {
   heroFacts: [
     '7 h (1 journée)',
     '9h00 – 12h30 · 13h30 – 17h00',
-    'Présentiel IDF ou visio inter',
+    'Présentiel Île-de-France uniquement',
     '4 à 8 participants',
     '70 % pratique · 30 % méthodologie',
   ],
   quickFactsLevel: 'Niveau 3 — aucun prérequis en programmation',
   practiceShare: '70 %',
-  formatLabel: 'Présentiel ou visio inter',
+  formatLabel: 'Présentiel',
   locationLabel: 'Île-de-France',
   pedagogicalNote:
     'L’IA génère une première version. Vous validez le périmètre, les tests et la responsabilité du projet.',
@@ -710,7 +710,7 @@ const NIV_10: CatalogueFormationPageContent = {
   painPoints: [],
   quickFactsOverride: [
     { label: 'Durée', value: '7 h ou 14 h' },
-    { label: 'Format', value: 'Présentiel IDF ou visio inter' },
+    { label: 'Format', value: 'Présentiel Île-de-France uniquement' },
     { label: 'Lieu', value: 'Île-de-France' },
     { label: 'Effectif', value: '4 à 8 participants' },
     {
@@ -728,9 +728,9 @@ const NIV_10: CatalogueFormationPageContent = {
   ],
   outcomes: DEV_WEB_IA_OBJECTIFS,
   outcomesDescription:
-    'Objectifs pédagogiques observables — le déroulé détaillé figure dans la section « Programme — 4 modules ».',
+    'Objectifs pédagogiques observables — le déroulé détaillé figure dans la section programme (parcours 7 h ou 14 h).',
   deliverablesIntro:
-    'À l’issue de la session, vous repartez avec une première version testable, une méthode et une feuille de route.',
+    'À l’issue de la session, vous repartez avec une première version fonctionnelle, une méthode et une feuille de route.',
   deliverables: DEV_WEB_IA_LIVRABLES,
   iaLimitsTitle: 'IA et responsabilité : qui valide quoi ?',
   iaLimits: [
@@ -743,9 +743,8 @@ const NIV_10: CatalogueFormationPageContent = {
   ],
   interExtraBullets: ['Parcours 7 h ou 14 h selon calendrier'],
   intraExtraBullets: ['Sessions en présentiel dans vos locaux ou convocation réseau'],
-  programIntro:
-    'Session de 7 h sur votre outil métier BTP : cadrage, première version assistée par l’IA, tests et feuille de route.',
-  programmeHeading: 'Programme — 4 modules',
+  programIntro: '',
+  programmeHeading: 'Construire son ERP BTP avec l’IA',
   objectivesTitle: 'Ce que vous apprenez',
   instructorTitle: 'Qui conçoit et encadre la formation ?',
   instructorBody:

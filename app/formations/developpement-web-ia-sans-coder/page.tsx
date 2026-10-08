@@ -1,24 +1,19 @@
-import { Download } from 'lucide-react';
 import { JsonLd } from '@/components/JsonLd';
-import { OFC_CTA_SECONDARY } from '@/lib/ofc-interaction-classes';
 import { CatalogueFormationPageTemplate } from '@/components/formations/catalogue/CatalogueFormationPageTemplate';
 import { CatalogueFormationDevWebHero } from '@/components/formations/catalogue/CatalogueFormationDevWebHero';
-import {
-  CatalogueFormationDevWebAfterDeliverables,
-  CatalogueFormationDevWebAfterObjectives,
-  CatalogueFormationDevWebProgrammeDay2,
-} from '@/components/formations/catalogue/CatalogueFormationDevWebSections';
+import { CatalogueFormationDevWebAfterDeliverables, CatalogueFormationDevWebAfterObjectives } from '@/components/formations/catalogue/CatalogueFormationDevWebSections';
 import {
   CatalogueFormationDevWebParcoursTarifsSection,
   CatalogueFormationDevWebQualiopiEngagementSection,
 } from '@/components/formations/catalogue/CatalogueFormationDevWebMarketingSections';
+import { CatalogueFormationDevWebProgramme } from '@/components/formations/catalogue/CatalogueFormationDevWebProgramme';
+import { DevWebIaCasUsageSection } from '@/components/formations/DevWebIaCasUsageSection';
 import { DevWebIaDonneesControleSection } from '@/components/formations/DevWebIaDonneesControleSection';
 import { DevWebIaErpBeneficesSection } from '@/components/formations/DevWebIaErpBeneficesSection';
-import { DevWebIaErpEvolutifSection } from '@/components/formations/DevWebIaErpEvolutifSection';
 import { DevWebIaErpModulesSection } from '@/components/formations/DevWebIaErpModulesSection';
-import { DevWebIaHeuresPaieSection } from '@/components/formations/DevWebIaHeuresPaieSection';
+import { DevWebIaFilRougeSection } from '@/components/formations/DevWebIaFilRougeSection';
+import { DevWebIaFormatComparatifSection } from '@/components/formations/DevWebIaFormatComparatifSection';
 import { DevWebIaProjectContactSection } from '@/components/formations/DevWebIaProjectContactSection';
-import { ProgrammeFormationBlocs } from '@/components/formations/catalogue/ProgrammeFormationBlocs';
 import { createPageMetadata, getBreadcrumbSchema, getFAQSchema } from '@/lib/seo';
 import { LINKS } from '@/lib/internal-links';
 import { buildCatalogueCourseDeveloppementWebIaNiv10JsonLd } from '@/lib/schema-catalogue-course-jsonld';
@@ -29,9 +24,6 @@ import {
   DEV_WEB_IA_CTA_SECONDARY_LABEL,
   DEV_WEB_IA_FAQ,
   DEV_WEB_IA_FORMATION_TITRE_COURT,
-  DEV_WEB_IA_MODULES,
-  DEV_WEB_IA_PDF_7H_HREF,
-  PROGRAMME_PDF_7H,
   devWebIaInscriptionHref,
   devWebIaPrimaryCtaHref,
 } from '@/lib/formation-developpement-web-ia-content';
@@ -69,9 +61,15 @@ export const metadata = createPageMetadata({
   openGraphTitle: PAGE_TITLE,
   openGraphDescription: PAGE_DESCRIPTION,
   keywords: [
-    'créer des applications métier BTP avec l’IA',
-    'formation IA sans coder BTP',
-    'ERP BTP avec l’IA',
+    'formation ERP BTP avec IA',
+    'créer un ERP BTP',
+    'logiciel de gestion BTP sur mesure',
+    'outil de gestion BTP',
+    'créer son logiciel BTP avec IA',
+    'application métier BTP',
+    'ERP BTP sur mesure',
+    'formation IA BTP',
+    'développer un outil de gestion BTP sans coder',
     'formation IA pour le BTP',
     'ChatGPT BTP',
   ],
@@ -110,37 +108,16 @@ export default function FormationDeveloppementWebIaSansCoderPage() {
         afterObjectives={
           <>
             <DevWebIaErpBeneficesSection />
-            <DevWebIaErpModulesSection />
-            <DevWebIaHeuresPaieSection />
             <CatalogueFormationDevWebAfterObjectives />
+            <DevWebIaErpModulesSection />
           </>
         }
-        programme={
-          <>
-            <ProgrammeFormationBlocs
-              blocs={DEV_WEB_IA_MODULES.map((module) => ({
-                heading: `Module ${module.number} — ${module.title}`,
-                objective: module.objective,
-                objectifs: module.activities,
-                livrable: module.result,
-              }))}
-            />
-            <p className="mt-6">
-              <a
-                href={DEV_WEB_IA_PDF_7H_HREF}
-                download={PROGRAMME_PDF_7H}
-                className={`${OFC_CTA_SECONDARY} inline-flex min-h-11 items-center gap-2 px-5 py-3`}
-              >
-                <Download className="h-4 w-4 shrink-0" aria-hidden />
-                Télécharger le programme officiel 7 h (PDF)
-              </a>
-            </p>
-          </>
-        }
-        programmeSupplement={<CatalogueFormationDevWebProgrammeDay2 />}
+        programme={<CatalogueFormationDevWebProgramme />}
         afterProgrammeSupplement={
           <>
-            <DevWebIaErpEvolutifSection />
+            <DevWebIaCasUsageSection />
+            <DevWebIaFilRougeSection />
+            <DevWebIaFormatComparatifSection />
             <DevWebIaProjectContactSection />
           </>
         }

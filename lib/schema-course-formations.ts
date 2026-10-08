@@ -122,7 +122,7 @@ export const FORMATIONS_CATALOG_SCHEMA: FormationCatalogEntry[] = [
     level: 'AVANCÉ',
     path: '/formations/developpement-web-ia-sans-coder',
     name: 'Créer des applications métier BTP avec l’IA',
-    description: `${getFormationByCode('NIV-10')!.accroche} Présentiel Île-de-France ou visio inter. Qualiopi.`,
+    description: `${getFormationByCode('NIV-10')!.accroche} Présentiel Île-de-France uniquement. Qualiopi.`,
     teaches: teachesFromCatalogueDisplay('NIV-10'),
     occupationalCategory: 'Applications métier BTP, no-code IA',
   },
