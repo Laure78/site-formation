@@ -74,6 +74,9 @@ export default function FormationIaConduiteTravauxSuiviChantierPage() {
             catalogueRef="NIV-03"
             ressourcesGratuites={[
               { href: LINKS.promptsIaConducteurTravaux, label: '20 prompts IA conducteur de travaux' },
+              { href: LINKS.tutoPpsps, label: 'Tutoriel — structurer un PPSPS avec l’IA' },
+              { href: LINKS.tutoDoeDossierOuvragesExecutes, label: 'Tutoriel — assembler un DOE' },
+              { href: LINKS.tutoPvLeveeReserves, label: 'Tutoriel — PV de levée de réserves' },
             ]}
           />
         }

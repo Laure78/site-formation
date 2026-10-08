@@ -1,9 +1,10 @@
 import Link from 'next/link';
 import { ArrowRight, BookOpen, Scale, Shield } from 'lucide-react';
 import { RdvLink } from '@/components/RdvLink';
+import { EnBref } from '@/app/components/EnBref';
 import { LINKS } from '@/lib/internal-links';
 import { createPageMetadata } from '@/lib/seo';
-import { OFC_CARD } from '@/lib/ofc-interaction-classes';
+import { OFC_CARD, OFC_LINK } from '@/lib/ofc-interaction-classes';
 
 export const revalidate = 3600;
 const PATH = '/outils-ia-btp';
@@ -23,6 +24,9 @@ export const metadata = createPageMetadata({
   ],
 });
 
+const EN_BREF =
+  'Pour une entreprise du BTP, Claude et ChatGPT peuvent aider sur devis, DCE, mémoires techniques et comptes rendus. Claude convient souvent mieux aux documents longs ; ChatGPT reste utile pour l’administratif et la dictée mobile. Aucun outil n’est « le meilleur » hors contexte — la validation humaine reste obligatoire.';
+
 const ARTICLES_OUTILS = [
   {
     titre: 'Sélecteur IA par métier BTP (conducteur, chargé d\'affaires, dirigeant)',
@@ -36,29 +40,14 @@ const ARTICLES_OUTILS = [
     badge: 'Comparatif',
   },
   {
-    titre: 'Claude AI pour le BTP : les 5 interfaces expliquées et comment choisir la bonne',
-    href: '/blog/claude-ai-btp-5-interfaces-chat-cowork-code',
-    badge: 'Claude — Chat, Cowork, Code…',
-  },
-  {
-    titre: 'ChatGPT pour PME BTP : 10 prompts prêts à l’emploi par corps de métier',
-    href: '/blog/chatgpt-prompts-artisans-btp',
-    badge: 'Prompts',
+    titre: 'Claude AI pour le BTP : guide interfaces et usages',
+    href: LINKS.claudeAiBtp,
+    badge: 'Guide Claude',
   },
   {
     titre: 'Sécurité données ChatGPT en entreprise BTP : bonnes pratiques',
     href: LINKS.blogSecuriteDonneesChatgptBtp,
     badge: 'ChatGPT & RGPD',
-  },
-  {
-    titre: 'ChatGPT pour le BTP : guide complet',
-    href: '/blog/chatgpt-btp-guide-complet',
-    badge: 'Guide',
-  },
-  {
-    titre: 'Claude AI pour mémoire technique BTP : les 5 erreurs à ne pas commettre',
-    href: '/blog/claude-ai-memoire-technique-erreurs-btp',
-    badge: 'Appels d’offres',
   },
   {
     titre: "5 cas d'usage de ChatGPT pour les entreprises du bâtiment",
@@ -80,12 +69,15 @@ export default function OutilsIABTPPage() {
           <h1 className="font-display text-4xl font-bold text-white md:text-5xl">
             Outils IA pour le BTP : Claude AI et ChatGPT
           </h1>
+          <EnBref className="mt-6 max-w-3xl border-white/20 bg-white/95">
+            <p>{EN_BREF}</p>
+          </EnBref>
           <p className="mt-6 max-w-3xl text-lg leading-relaxed text-blue-50">
             En formation, <strong className="font-semibold text-white">Claude AI</strong> est l&apos;outil principal
             (niveaux 1 et 2) ; <strong className="font-semibold text-white">ChatGPT</strong> est cité en comparaison et
             pour les usages administratifs (niveau 1). Devis, courriers, mémoires techniques — méthode testée avec
-            Organisme certifié Qualiopi. Page dédiée{' '}
-            <Link href="/claude-ai-btp" className="font-semibold text-white underline decoration-white/80 hover:no-underline">
+            organisme certifié Qualiopi. Page dédiée{' '}
+            <Link href={LINKS.claudeAiBtp} className="font-semibold text-white underline decoration-white/80 hover:no-underline">
               Claude AI BTP
             </Link>
             .
@@ -96,15 +88,15 @@ export default function OutilsIABTPPage() {
       <section className="border-b border-slate-200 bg-white px-4 py-12">
         <div className="mx-auto max-w-5xl">
           <h2 className="font-display text-2xl font-bold text-slate-900 md:text-3xl">
-            Comparatif rapide (indicatif)
+            Comparatif rapide ChatGPT vs Claude pour le BTP
           </h2>
           <p className="mt-3 max-w-3xl text-slate-600">
-            Orientation rapide pour équipes terrain et bureau. Tarifs et fonctions évoluent — vérifiez les pages
-            officielles. <strong>Mise à jour : août 2026</strong> (révision trimestrielle).
+            Orientation selon le contexte métier — pas de classement absolu. Tarifs et fonctions évoluent : vérifiez
+            les pages officielles. <strong>Mise à jour : octobre 2026</strong> (révision trimestrielle).
           </p>
 
           <div className="mt-8 overflow-x-auto rounded-2xl border border-slate-200 shadow-sm">
-            <table className="w-full min-w-[520px] border-collapse text-left text-sm">
+            <table className="w-full min-w-[560px] border-collapse text-left text-sm">
               <caption className="sr-only">
                 Comparatif indicatif Claude AI et ChatGPT pour usage professionnel BTP
               </caption>
@@ -114,60 +106,102 @@ export default function OutilsIABTPPage() {
                     Critère
                   </th>
                   <th scope="col" className="px-4 py-3 font-semibold text-slate-900">
-                    Claude AI (Anthropic) — outil principal
+                    Claude AI (Anthropic)
                   </th>
                   <th scope="col" className="px-4 py-3 font-semibold text-slate-900">
-                    ChatGPT (OpenAI) — admin &amp; comparaison
+                    ChatGPT (OpenAI)
                   </th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-slate-100 bg-white text-slate-700">
                 <tr>
                   <th scope="row" className="px-4 py-3 font-medium text-slate-900">
-                    Rôle en formation OFC
+                    Analyse de documents (DCE, CCTP)
                   </th>
-                  <td className="px-4 py-3">Niveaux 1 et 2 — documents longs, DCE, mémoire, skills</td>
-                  <td className="px-4 py-3">Niveau 1 — emails, relances, trames admin, comparaison</td>
+                  <td className="px-4 py-3">Souvent à l’aise sur dossiers longs et multi-fichiers</td>
+                  <td className="px-4 py-3">Utile sur extraits ; attention aux limites de contexte</td>
                 </tr>
                 <tr>
                   <th scope="row" className="px-4 py-3 font-medium text-slate-900">
-                    Entrée de gamme
+                    Rédaction (CR, emails, trames)
                   </th>
-                  <td className="px-4 py-3">Gratuit avec plafonds ; bon pour textes longs</td>
-                  <td className="px-4 py-3">Compte gratuit avec limites ; usage courant pour tests</td>
+                  <td className="px-4 py-3">Ton posé, reformulation précision</td>
+                  <td className="px-4 py-3">Rapide pour admin et dictée mobile</td>
                 </tr>
                 <tr>
                   <th scope="row" className="px-4 py-3 font-medium text-slate-900">
-                    Offre pro (ordre de grandeur)
+                    Mémoire technique / AO
                   </th>
-                  <td className="px-4 py-3">Pro / équipe selon offre Anthropic</td>
-                  <td className="px-4 py-3">Abonnement individuel ou équipe (tarif public variable)</td>
+                  <td className="px-4 py-3">Brouillons et plans alignés RC — validation métier</td>
+                  <td className="px-4 py-3">Possible sur sections courtes — même validation</td>
                 </tr>
                 <tr>
                   <th scope="row" className="px-4 py-3 font-medium text-slate-900">
-                    Atouts fréquents en BTP
+                    Intégrations / workflows
                   </th>
-                  <td className="px-4 py-3">Fichiers longs, ton posé, brouillons de mémoires, Cowork &amp; Skills</td>
-                  <td className="px-4 py-3">Écosystème large, usage généraliste, rédaction admin rapide</td>
+                  <td className="px-4 py-3">Projects, Skills, Cowork (selon offre)</td>
+                  <td className="px-4 py-3">Écosystème large, apps et assistants</td>
                 </tr>
                 <tr>
                   <th scope="row" className="px-4 py-3 font-medium text-slate-900">
-                    Données &amp; conformité
+                    Confidentialité entreprise
                   </th>
                   <td className="px-4 py-3" colSpan={2}>
-                    Paramètres compte, offres entreprise et DPA à valider selon votre politique interne. Voir l’article{' '}
-                    <Link
-                      href={LINKS.blogSecuriteDonneesChatgptBtp}
-                      className="font-medium text-[var(--accent)] underline hover:no-underline"
-                    >
+                    Paramètres compte, offres pro/entreprise et DPA à valider selon votre politique. Voir{' '}
+                    <Link href={LINKS.blogSecuriteDonneesChatgptBtp} className={OFC_LINK}>
                       sécurité des données ChatGPT en BTP
                     </Link>
-                    .
+                    . Ne déposez pas un DCE sensible sans cadre adapté.
                   </td>
+                </tr>
+                <tr>
+                  <th scope="row" className="px-4 py-3 font-medium text-slate-900">
+                    Rôle en formation OFC
+                  </th>
+                  <td className="px-4 py-3">Outil principal — niveaux 1 et 2</td>
+                  <td className="px-4 py-3">Comparaison et usages admin (niveau 1)</td>
                 </tr>
               </tbody>
             </table>
           </div>
+          <p className="mt-4 text-sm text-slate-500">
+            Les productions générées par l&apos;IA doivent être contrôlées avant utilisation. Pour le détail
+            méthodologique :{' '}
+            <Link href={LINKS.blogComparatifChatgptClaudeGeminiBtp} className={OFC_LINK}>
+              comparatif ChatGPT vs Claude vs Gemini pour le BTP
+            </Link>
+            .
+          </p>
+        </div>
+      </section>
+
+      <section className="border-b border-slate-200 bg-[#F2F2F2] px-4 py-12" aria-labelledby="sources-outils">
+        <div className="mx-auto max-w-5xl">
+          <h2 id="sources-outils" className="font-display text-2xl font-bold text-slate-900">
+            Sources
+          </h2>
+          <ul className="mt-4 list-disc space-y-2 pl-5 text-base text-slate-600">
+            <li>
+              <a href="https://www.anthropic.com/claude" className={OFC_LINK} target="_blank" rel="noopener noreferrer">
+                Anthropic — Claude
+              </a>
+            </li>
+            <li>
+              <a href="https://openai.com/chatgpt" className={OFC_LINK} target="_blank" rel="noopener noreferrer">
+                OpenAI — ChatGPT
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://www.cnil.fr/fr/intelligence-artificielle"
+                className={OFC_LINK}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                CNIL — Intelligence artificielle
+              </a>
+            </li>
+          </ul>
         </div>
       </section>
 
@@ -209,7 +243,7 @@ export default function OutilsIABTPPage() {
 
           <div className="mt-12 grid gap-6 md:grid-cols-2">
             <Link
-              href="/blog/financer-formation-ia-btp-constructys"
+              href={LINKS.blogFinancerFormationIaBtpConstructys}
               className="flex gap-4 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition-colors hover:border-[var(--accent)]"
             >
               <Scale className="shrink-0 text-[var(--accent)]" size={28} strokeWidth={1.5} aria-hidden />
@@ -221,7 +255,7 @@ export default function OutilsIABTPPage() {
               </div>
             </Link>
             <Link
-              href="/ressources/ia-btp"
+              href={LINKS.ressourcesIaBtp}
               className="flex gap-4 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition-colors hover:border-[var(--accent)]"
             >
               <Shield className="shrink-0 text-[var(--accent)]" size={28} strokeWidth={1.5} aria-hidden />
@@ -233,15 +267,6 @@ export default function OutilsIABTPPage() {
               </div>
             </Link>
           </div>
-
-          <p className="mt-10 text-center text-xs text-slate-400">
-            <Link
-              href={LINKS.verificationDtuBeworkTest}
-              className="underline decoration-slate-300 underline-offset-2 hover:text-[var(--accent)]"
-            >
-              Prototype interne — rapprochement DTU × devis (non référencé)
-            </Link>
-          </p>
         </div>
       </section>
 
@@ -251,15 +276,15 @@ export default function OutilsIABTPPage() {
             Former vos équipes sur le terrain
           </h2>
           <p className="mt-4 text-lg text-slate-600">
-            Sessions courtes, ateliers pratiques Qualiopi — financement Constructys selon éligibilité.
+            Sessions courtes, ateliers pratiques Qualiopi — financement OPCO possible selon éligibilité.
           </p>
           <div className="mt-8 flex flex-col justify-center gap-4 sm:flex-row">
             <RdvLink className="inline-flex items-center justify-center rounded-xl bg-[var(--accent)] px-8 py-4 font-semibold text-white hover:bg-blue-700" />
             <Link
-              href="/formations"
+              href={LINKS.formationIaBtp}
               className="inline-flex items-center justify-center rounded-xl border-2 border-[var(--accent)] px-8 py-4 font-semibold text-[var(--accent)] hover:bg-[var(--accent-soft)]"
             >
-              Voir les formations
+              Formation IA pour le BTP
             </Link>
           </div>
         </div>

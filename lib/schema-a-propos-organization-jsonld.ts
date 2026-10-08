@@ -1,5 +1,6 @@
 /**
  * JSON-LD `Organization` — page /a-propos (extrait dédié, lié au nœud global `#organization`).
+ * @deprecated Préférer `getAProposUnifiedJsonLd()` — ne plus injecter en parallèle du unified graph.
  */
 
 import { buildOrganizationOfcSchemaNode } from '@/lib/schema-organization-global';

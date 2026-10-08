@@ -1,8 +1,6 @@
 import { createPageMetadata } from '@/lib/seo';
 import { JsonLd } from '@/components/JsonLd';
 import { getAProposUnifiedJsonLd } from '@/lib/schema-a-propos-unified-graph';
-import { getAProposPersonJsonLd } from '@/lib/schema-a-propos-person-jsonld';
-import { getAProposOrganizationJsonLd } from '@/lib/schema-a-propos-organization-jsonld';
 import {
   A_PROPOS_PAGE_META_DESCRIPTION,
   A_PROPOS_PAGE_META_TITLE,
@@ -48,8 +46,7 @@ export default function AProposPage() {
 
   return (
     <>
-      <JsonLd id="schema-a-propos-person" schema={getAProposPersonJsonLd()} />
-      <JsonLd id="schema-a-propos-organization" schema={getAProposOrganizationJsonLd()} />
+      {/* Un seul @graph page — Person/Organization déjà dans le layout (#laure-olivie / #organization). */}
       <JsonLd id="schema-a-propos-unified-graph" schema={getAProposUnifiedJsonLd()} />
 
       <AProposPageHero />

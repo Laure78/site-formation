@@ -159,7 +159,7 @@ export function getAProposUnifiedJsonLd(): Record<string, unknown> {
     url: PAGE_URL,
     name: 'Laure Olivié — Formatrice IA spécialisée BTP',
     dateCreated: '2022-01-15T12:00:00+01:00',
-    dateModified: '2026-04-05T12:00:00+02:00',
+    dateModified: '2026-04-07T12:00:00+02:00',
     mainEntity: { '@id': PERSON_ID },
     speakable: {
       '@type': 'SpeakableSpecification',

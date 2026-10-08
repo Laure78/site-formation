@@ -1,6 +1,7 @@
 /**
- * JSON-LD `Person` — page /a-propos (extrait dédié rich results / IA).
- * Coordonnées depuis `lib/schema-constants.ts` — ne pas dupliquer en dur.
+ * JSON-LD `Person` — page /a-propos (extrait dédié).
+ * @deprecated Préférer `getAProposUnifiedJsonLd()` (graph unique) + Person layout `#laure-olivie`.
+ * Conservé pour imports éventuels / tests — ne plus injecter en parallèle du unified graph.
  */
 
 import { getAProposPagePersonDescription } from '@/lib/a-propos-page-config';

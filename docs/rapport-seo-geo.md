@@ -274,3 +274,29 @@ Aucun 301 supplémentaire : ferrailleur, vitrier, pisciniste, clôturiste, canal
 
 - `/formation-ia-macon-paysagiste-btp` ≠ paysagiste ≠ maçon
 - `/formation-ia-dirigeant-btp` ≠ `/formation-ia-dirigeant-pme-btp`
+
+---
+
+# Appendice P3 suite — 2026-04-07
+
+## Pas de nouvelles pages P3 (PPSPS / DOE / planning)
+
+| Intention | Déjà couvert par | Décision |
+|-----------|------------------|----------|
+| PPSPS avec l’IA | `/ressources/tuto-ppsps` + blog CDT | **Ne pas créer** |
+| DOE avec l’IA | `/ressources/tuto-doe-dossier-ouvrages-executes` | **Ne pas créer** |
+| Levée de réserves | `/ressources/tuto-pv-levee-reserves` | **Ne pas créer** |
+| Planning chantier | usages dans CDT / blog | **Ne pas créer** sans angle distinct |
+
+Maillage ajouté : fiche NIV-03 → tutos PPSPS, DOE, PV réserves.
+
+## JSON-LD dédoublonné
+
+| Page | Avant | Après |
+|------|-------|-------|
+| `/a-propos` | Person + Organization + unified graph | **unified graph seul** |
+| `/formateur-ia-btp` | Person + Organization complets (+ layout) | **WebPage** (about `#laure-olivie`) + FAQ |
+
+## Comparatif outils
+
+`/outils-ia-btp` : En bref, tableau enrichi (DCE, rédaction, MT, intégrations, confidentialité), sources Anthropic / OpenAI / CNIL, liens via `LINKS`, CTA vers pilier.

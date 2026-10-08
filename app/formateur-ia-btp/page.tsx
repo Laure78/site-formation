@@ -5,8 +5,6 @@ import { FAQSection } from '@/components/landing/FAQSection';
 import { RelatedLinks } from '@/components/RelatedLinks';
 import { EnBref } from '@/app/components/EnBref';
 import { buildMetadata, getFAQSchema, SITE_CONFIG } from '@/lib/seo';
-import { buildPersonLaureSchemaNode } from '@/lib/schema-person-global';
-import { buildOrganizationOfcSchemaNode } from '@/lib/schema-organization-global';
 import { SCHEMA_PUBLIC_SITE_URL } from '@/lib/schema-constants';
 import type { FAQItem } from '@/lib/faq';
 import { IDF_ZONE_INTERVENTION } from '@/lib/constants';
@@ -79,27 +77,23 @@ const FAQ_FORMATEUR: FAQItem[] = [
 
 export default function FormateurIaBtpPage() {
   const base = SCHEMA_PUBLIC_SITE_URL.replace(/\/$/, '');
-  const personSchema = {
-    '@context': 'https://schema.org',
-    ...buildPersonLaureSchemaNode({
-      personId: `${base}/#laure-olivie`,
-      pageUrl: `${base}/formateur-ia-btp`,
-      organizationId: `${base}/#organization`,
-    }),
-  };
-  const organizationSchema = {
-    '@context': 'https://schema.org',
-    ...buildOrganizationOfcSchemaNode({
-      organizationId: `${base}/#organization`,
-      personId: `${base}/#laure-olivie`,
-    }),
-  };
   const faqSchema = getFAQSchema(FAQ_FORMATEUR);
+  /** WebPage uniquement — Person / Organization déjà dans le layout (#laure-olivie / #organization). */
+  const webPageSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    '@id': `${base}${PATH}/#webpage`,
+    url: `${base}${PATH}`,
+    name: META_TITLE,
+    description: META_DESCRIPTION,
+    isPartOf: { '@id': `${base}/#website` },
+    about: { '@id': `${base}/#laure-olivie` },
+    mainEntity: { '@id': `${base}/#laure-olivie` },
+  };
 
   return (
     <>
-      <JsonLd id="schema-formateur-ia-btp-person" schema={personSchema} />
-      <JsonLd id="schema-formateur-ia-btp-organization" schema={organizationSchema} />
+      <JsonLd id="schema-formateur-ia-btp-webpage" schema={webPageSchema} />
       {faqSchema ? <JsonLd id="schema-formateur-ia-btp-faq" schema={faqSchema} /> : null}
 
       <article>

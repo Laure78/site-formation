@@ -233,11 +233,12 @@ Tester après modifs : [Google Rich Results Test](https://search.google.com/test
 - Maillage silo méthodes → landings AO / CDT → pilier
 - BlogPosting branché sur `/blog/[slug]` + `@id` Person/Organization
 - Niches métiers : conservées ; maillage pilier systématique (`buildMetierAllerPlusLoinLinks`)
-- Restant optionnel : dédoublonnage JSON-LD page-level ; comparatif outils si manquant
+- Dédoublonnage JSON-LD `/a-propos` et `/formateur-ia-btp` ✅
+- Comparatif `/outils-ia-btp` enrichi ✅
 
 ## P3
 
-- Nouveaux articles PPSPS / DOE / planning / réserves **si** absence confirmée
+- Articles PPSPS / DOE / planning : **ne pas créer** — déjà couverts par tutos + blog CDT ; maillage NIV-03 → tutos ✅
 - Performance images LCP
 - Consolidation docs obsolètes (archivage)
 
