@@ -57,8 +57,9 @@ export const QUALIOPI_FINANCEMENT_FORMULATION =
 export const QUALIOPI_CERTIFICAT_REALISATION =
   "Certificat de réalisation et attestation de fin de formation délivrés à l'issue de la session.";
 
+/** @deprecated Ancienne distinction BeWork — ne plus afficher sur le site. */
 export const QUALIOPI_BEWORK_DISTINCTION =
-  "BeWork est une marque d'OFC Création d'Entreprise (organisme certifié Qualiopi — actions de formation). Formation « Développer et déployer des applications métier BTP avec l'IA — sans coder », distincte du catalogue IA BTP. Financement OPCO possible selon éligibilité.";
+  "Formation « Développer et déployer des applications métier BTP avec l'IA — sans coder » (OFC Création d'Entreprise, Qualiopi). Financement OPCO possible selon éligibilité.";
 
 export const QUALIOPI_SATISFACTION_SOURCING = PREUVES_MENTION_SOURCE;
 

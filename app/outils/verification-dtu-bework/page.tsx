@@ -7,7 +7,7 @@ export const revalidate = 3600;
 const PATH = LINKS.verificationDtuBeworkTest;
 
 export const metadata = createPageMetadata({
-  title: 'Prototype DTU × devis BeWork (noindex)',
+  title: 'Prototype DTU × devis (noindex)',
   description:
     'Espace de test interne sans indexation — rapprochement indicatif lignes de devis BTP et familles NF DTU. Formation IA pour le BTP Laure Olivié.',
   path: PATH,
@@ -26,7 +26,7 @@ const webPageJsonLd = {
   '@type': 'WebPage',
   '@id': `${canonical}#webpage`,
   url: canonical,
-  name: 'Prototype test — rapprochement devis / NF DTU (BeWork)',
+  name: 'Prototype test — rapprochement devis / NF DTU',
   description:
     'Prototype interne noindex : tableau de rapprochement et export Word indicatif, sans reproduction de textes normatifs officiels.',
   inLanguage: 'fr-FR',
@@ -48,12 +48,11 @@ export default function VerificationDtuBeworkTestPage() {
             Page de test · balise robots noindex
           </p>
           <h1 className="mt-3 font-display text-3xl font-bold leading-tight text-[#1A1A1A] md:text-4xl">
-            Prototype — vérification DTU × devis (parcours BeWork)
+            Prototype — vérification DTU × devis
           </h1>
           <p className="mt-4 max-w-3xl text-base leading-relaxed text-[#5A5A5A] md:text-lg">
             Outil hors production pour expérimenter le rapprochement ligne à ligne avec la base projet
-            (reformulations maisons uniquement). Aucun texte officiel DTU reproduit ; l’export Word applique une charte de
-            rapport proche du cahier BeWork (bleu #1D4ED8).
+            (reformulations maisons uniquement). Aucun texte officiel DTU reproduit.
           </p>
         </header>
       </div>

@@ -27,6 +27,10 @@ export const DEV_WEB_IA_PARCOURS_14H = BEWORK_PARCOURS['14h'];
 export const DEV_WEB_IA_PDF_7H_HREF = LINKS.pdfProgrammeDeveloppementWebIaSansCoder;
 export const DEV_WEB_IA_PDF_14H_HREF = LINKS.pdfProgrammeDeveloppementWebIaSansCoder14h;
 
+/** Noms de téléchargement — changer ici si les PDF programmes sont renommés. */
+export const PROGRAMME_PDF_7H = 'programme_OFC_Niveau3_Outils_Chantier_IA_7h_20261008.pdf' as const;
+export const PROGRAMME_PDF_14H = 'programme_OFC_Niveau3_Outils_Chantier_IA_14h_20261008.pdf' as const;
+
 /** Libellés commerciaux — pas de prix barré ni de date de fin fictive. */
 export const DEV_WEB_IA_BADGE_NOUVELLE = 'Nouvelle formation' as const;
 export const DEV_WEB_IA_BADGE_NOUVEAU = 'Nouveau' as const;

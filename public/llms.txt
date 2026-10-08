@@ -40,5 +40,11 @@ Laure Olivié est formatrice IA spécialisée BTP et fondatrice d'OFC Création 
 - /blog — Articles IA × BTP
 - /ressources — Guides et tutos PDF gratuits
 
+## Blog
+- /blog/application-releve-heures-btp — Application relevé d'heures BTP avec l'IA, sans coder (feuille d'heures chantier, pointage compagnons)
+- /blog/planning-chantier-sur-mesure-ia — Planning chantier sur mesure avec l'IA (affectation équipes et matériel)
+- /blog/ppsps-ia — PPSPS et IA : préparer une trame de plan de prévention à relire et valider
+- /formations/developpement-web-ia-sans-coder — Créer ses outils de chantier avec l'IA sans coder (7 h ou 14 h, présentiel Île-de-France)
+
 ## Contact
 Laure Olivié · OFC Création d'Entreprise · SIRET 905 244 281 00010 · NDA 11788515078 · 6 rue Henri Dunant, 78280 Guyancourt · contact@laureolivie.fr · 06 95 66 18 18 · www.laureolivie.fr

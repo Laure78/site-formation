@@ -1,7 +1,5 @@
-import Image from 'next/image';
 import Link from 'next/link';
 import { Clock, MapPin, Users, Wrench } from 'lucide-react';
-import { ExternalLinkAnchor } from '@/components/ExternalLink';
 import { DevWebIaPrixLancementCard } from '@/components/formations/DevWebIaPrixLancementCard';
 import { FormationHeroOutilsNote } from '@/components/formations/FormationHeroOutilsNote';
 import { OfcYouTubeEmbed } from '@/components/ui/OfcYouTubeEmbed';
@@ -16,8 +14,6 @@ import {
   DEV_WEB_IA_DUREE_COURTE,
   DEV_WEB_IA_SUBTITLE,
 } from '@/lib/formation-developpement-web-ia-content';
-import { BEWORK_LOGO, BEWORK_SUBTAGLINE } from '@/lib/bework-brand';
-import { EXTERNAL_SITE_URLS } from '@/lib/external-site-urls';
 import { LINKS } from '@/lib/internal-links';
 
 const CATALOGUE_SEO = getFormationCatalogueSeo('NIV-10');
@@ -26,7 +22,7 @@ const CATALOGUE_VISUEL = getFormationCatalogueVisuel('NIV-10');
 const HERO_VIDEO = VIDEOS.formationDevWebIaSansCoder2026;
 const EFFECTIF_LIBELLE = libelleEffectifFormation(FORMATION);
 
-/** Hero BeWork — aligné largeur / espacements fiche catalogue NIV-01. */
+/** Hero NIV-10 — applications métier BTP avec l’IA (sans coder). */
 export function CatalogueFormationDevWebHero() {
   return (
     <section className="border-b border-slate-200 bg-white px-4 py-8 md:py-10" aria-labelledby="dev-web-ia-h1">
@@ -38,20 +34,6 @@ export function CatalogueFormationDevWebHero() {
         <div className="mt-6 grid items-start gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(240px,360px)] lg:gap-8">
           <div className="min-w-0">
             <div className="flex flex-wrap items-center gap-2">
-              <ExternalLinkAnchor
-                href={EXTERNAL_SITE_URLS.bework}
-                title="BeWork — bework.fr (nouvel onglet)"
-                className="inline-flex items-center rounded-full border border-slate-200 bg-white px-2.5 py-1.5 shadow-sm"
-              >
-                <Image
-                  src={BEWORK_LOGO.src}
-                  alt={BEWORK_LOGO.alt}
-                  width={BEWORK_LOGO.width}
-                  height={BEWORK_LOGO.height}
-                  className="h-6 w-auto max-w-[120px] object-contain"
-                  priority
-                />
-              </ExternalLinkAnchor>
               <span className="rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-bold uppercase tracking-wide text-slate-700">
                 {trainingCategoryBadge('creation-ia')}
               </span>
@@ -60,9 +42,6 @@ export function CatalogueFormationDevWebHero() {
                 {DEV_WEB_IA_BADGE_NOUVELLE}
               </span>
             </div>
-            <p className="mt-2 text-xs font-semibold uppercase tracking-[0.12em] text-[#1D4ED8]">
-              {BEWORK_SUBTAGLINE} · Parcours BeWork
-            </p>
             <h1
               id="dev-web-ia-h1"
               className="mt-3 font-display text-3xl font-bold tracking-tight text-slate-900 md:text-4xl"

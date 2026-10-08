@@ -1,0 +1,199 @@
+---
+title: "Relevé d'heures BTP : créer sa propre application avec l'IA, sans coder"
+seoTitle: "Application relevé d'heures BTP sans coder"
+description: "Application relevé d'heures BTP : créez une feuille d'heures chantier avec l'IA, sans coder. Formation IA pour le BTP, présentiel en Île-de-France. Qualiopi."
+slug: application-releve-heures-btp
+publishedAt: "2026-10-08"
+updatedAt: "2026-10-08"
+cover: /images/bework-relais-administratif-chantier-support.webp
+coverAlt: "Relevé d'heures BTP — saisie des heures compagnons sur chantier avec une application créée à l'IA"
+keywords:
+  - application relevé d'heures BTP
+  - feuille d'heures chantier
+  - pointage compagnons
+  - IA relevé d'heures
+  - formation IA pour le BTP
+  - outil chantier sans coder
+readingTime: "9 min"
+relatedSlugs:
+  - planning-chantier-sur-mesure-ia
+  - ppsps-ia
+enBref:
+  - "Une application de relevé d'heures BTP permet au compagnon de saisir chantier, heures, déplacement et panier, puis au chef d'équipe de valider avant export vers le bureau."
+  - "Avec l'IA, une PME du bâtiment peut construire une première version testable sans écrire le code elle-même, en cadrant le besoin terrain et en testant sur une semaine réelle."
+  - "Les données des salariés imposent des précautions RGPD de base : données minimales, accès par profil, validation humaine avant la paie."
+faq:
+  - question: "Faut-il savoir coder pour créer une application de relevé d'heures BTP ?"
+    answer: "Non. L'IA écrit le code à partir de consignes en français ; vous décrivez le besoin chantier (compagnon, chef, bureau) et vous validez chaque étape. La formation « Créer ses outils de chantier avec l'IA » pose cette méthode en présentiel en Île-de-France."
+  - question: "Les compagnons peuvent-ils saisir leurs heures sur téléphone ?"
+    answer: "Oui, si l'outil est conçu pour être lisible sur mobile dès les tests. En session, on vérifie la saisie sur téléphone avec un scénario simple : une semaine, quelques compagnons, deux chantiers."
+  - question: "Peut-on exporter le relevé d'heures vers la paie ?"
+    answer: "Une première version peut produire un export Excel ou PDF mensuel pour le bureau. Le lien automatique avec un logiciel de paie demande souvent des développements et des contrôles supplémentaires après la formation."
+  - question: "Combien de temps pour une première version de relevé d'heures ?"
+    answer: "En une journée (7 h), l'objectif est une première version testable et sauvegardée, pas un logiciel de paie achevé. Le parcours 14 h permet d'enrichir, publier et préparer l'adoption par l'équipe."
+---
+
+*Temps de lecture · Publié le 08/10/2026 · Par Laure Olivié, formatrice IA BTP*
+
+Le lundi matin, le bureau relance le chef d'équipe : « Les heures de la semaine dernière ? ». Le chef d'équipe ouvre WhatsApp, un carnet, un Excel partagé… et reconstruit le pointage. Les paniers manquent, un déplacement est oublié, un compagnon a changé de chantier en milieu de journée. Résultat : ressaisie, erreurs de paie, retard de facturation. Voici comment une **application relevé d'heures BTP** créée avec l'IA — sans coder — peut remettre de l'ordre, à condition de rester réaliste sur le périmètre.
+
+## Pourquoi les feuilles d'heures papier ou Excel coûtent cher à une PME du BTP ?
+
+Dans une petite entreprise du bâtiment ou des travaux publics, le relevé d'heures n'est pas un détail administratif : c'est le lien entre le terrain, la paie et parfois la facturation. Quand ce lien repose sur le papier ou sur un tableur « bricolé », le coût se mesure en heures perdues et en litiges silencieux.
+
+**La ressaisie mange le temps du bureau.** Le compagnon note sur une feuille, le chef d'équipe recopié dans un message, l'assistante ou le dirigeant retape dans Excel. Chaque passage introduit une erreur possible : chantier mal orthographié, heures arrondies au feeling, jour décalé. Ce n'est pas un manque de sérieux : c'est un flux trop long pour le rythme du chantier.
+
+**Les erreurs de paie arrivent trop tard.** Un panier oublié, un déplacement non noté, une demi-journée sur un autre site : le compagnon le signale après le bulletin. Le chef d'équipe doit alors reconstituer la semaine. Le climat d'équipe en pâtit, et le bureau reprend le dossier à zéro.
+
+**Paniers et déplacements passent à la trappe.** Sur un relevé papier, ces lignes sont souvent en bas de page, mal lisibles, ou « à compléter ce soir ». Sur Excel, elles existent… si quelqu'un a pensé à la colonne. Or ce sont précisément ces éléments qui font débat en fin de mois.
+
+**La facturation attend le pointage.** Tant que les heures ne sont pas consolidées par chantier, difficile de croiser avancement, situations et coût de main-d'œuvre. Le conducteur de travaux ou le dirigeant pilote à l'œil. Une feuille d'heures chantier fiable n'est pas un gadget RH : c'est un outil de pilotage.
+
+Le problème n'est pas « Excel est mauvais ». Le problème, c'est qu'Excel et le papier ne guident pas le parcours : qui saisit, qui valide, qui exporte. Une application dédiée force cette clarté — à condition de la concevoir pour votre organisation, pas pour un logiciel générique de 200 fonctions.
+
+## Que doit contenir un relevé d'heures de chantier ?
+
+Avant de demander quoi que ce soit à l'IA, posez le contenu minimum d'un **pointage compagnons** utile. Trop d'entreprises partent sur un outil « complet » et n'obtiennent qu'une usine à gaz. Une V1 efficace tient souvent dans sept champs.
+
+1. **Compagnon** — nom ou identifiant interne (éviter le trop de données personnelles dès le départ).
+2. **Chantier** — libellé clair, idéalement choisi dans une liste (pas une saisie libre à chaque fois).
+3. **Date** — jour de travail.
+4. **Heures** — début / fin ou durée, selon votre habitude de paie.
+5. **Déplacement** — oui / non, ou forfait, selon vos accords.
+6. **Panier** — oui / non, ou type de panier.
+7. **Validation chef** — statut : à saisir / saisi / validé / renvoyé.
+
+Autour de ces champs, trois rôles structurent l'outil :
+
+- **Le compagnon** saisit (idéalement sur téléphone en fin de journée ou le matin suivant).
+- **Le chef d'équipe** (ou chef de chantier) contrôle et valide.
+- **Le bureau** exporte le mois, prépare la paie, archive.
+
+Si vous ajoutez trop tôt les notes libres, les photos, le matériel, les absences et le lien paie automatique, la première version n'arrive jamais. Cadrez : *« saisie des heures par compagnon et par chantier, avec validation chef, avant export mensuel »*. Le reste vient après.
+
+Ce cadrage est le même esprit que pour un [planning chantier sur mesure](/blog/planning-chantier-sur-mesure-ia) : un besoin terrain précis bat un logiciel « tout faire » mal adopté.
+
+## Comment créer l'application avec l'IA, étape par étape ?
+
+Voici la séquence que je fais pratiquer quand une équipe veut une **application relevé d'heures BTP** sans devenir développeur. L'IA génère une première version ; vous restez responsable du périmètre, des tests et de la conformité des données.
+
+### 1. Cadrer le besoin (30 à 45 minutes)
+
+Répondez par écrit, en phrases courtes :
+
+- Qui saisit ? Qui valide ? Qui exporte ?
+- Qu'est-ce qui manque le plus souvent aujourd'hui (panier, déplacement, changement de chantier) ?
+- Quel export voulez-vous en fin de mois (Excel, PDF, les deux) ?
+- Qu'est-ce qui est **hors** V1 (lien paie automatique, géolocalisation, photos) ?
+
+Sans ce cadrage, l'IA invente une appli générique qui ne ressemble pas à votre chantier.
+
+### 2. Dessiner le parcours compagnon / chef / bureau
+
+Sur une feuille ou un tableau blanc :
+
+1. Le compagnon ouvre l'outil → choisit le chantier → saisit les heures → indique panier / déplacement → enregistre.
+2. Le chef voit la liste du jour → valide ou renvoie avec un motif court.
+3. Le bureau filtre par mois → exporte → archive.
+
+Ce parcours devient la colonne vertébrale de vos consignes à l'IA. Sans parcours, vous obtiendrez des écrans isolés.
+
+### 3. Donner une consigne IA structurée
+
+Copiez-collez, puis adaptez les crochets à votre entreprise :
+
+```text
+Contexte : PME du BTP, 8 compagnons, 3 à 5 chantiers en parallèle.
+Objectif : créer une première version d'application web de relevé d'heures.
+Utilisateurs : compagnon (saisie mobile), chef d'équipe (validation), bureau (export mensuel).
+Écrans V1 :
+1) Liste des chantiers
+2) Formulaire de saisie : compagnon, chantier, date, heures début/fin, déplacement (oui/non), panier (oui/non)
+3) Tableau récapitulatif du jour pour le chef (valider / renvoyer)
+4) Export Excel mensuel pour le bureau
+Contraintes : interface lisible sur téléphone ; pas de géolocalisation ; pas de données sensibles (NIR, IBAN) ; libellés en français.
+Résultat attendu : application testable localement, avec navigation entre les écrans et données d'exemple (3 compagnons, 2 chantiers, 5 jours).
+```
+
+Travaillez **étape par étape** : d'abord la liste des chantiers, puis le formulaire, puis la validation, puis l'export. Une consigne trop large produit un résultat flou.
+
+### 4. Tester sur une semaine réelle (anonymisée)
+
+Scénario type : une semaine, 3 compagnons, 2 sites. Faites saisir le chef d'équipe comme s'il était sur le terrain. Vérifiez :
+
+- un compagnon change de chantier le mercredi ;
+- un panier oublié puis corrigé ;
+- une ligne renvoyée par le chef ;
+- l'export du vendredi soir.
+
+Corrigez avec l'IA en demandant des changements **précis** (« sur l'écran validation, afficher le motif de renvoi sous la ligne ») plutôt que « rends ça mieux ».
+
+### 5. Préparer l'export mensuel — et s'arrêter là pour la V1
+
+L'export Excel ou PDF suffit souvent pour démarrer. Le bureau garde son logiciel de paie. Vous gagnez déjà sur la qualité de la saisie et la validation. Brancher la paie automatiquement est un chantier suivant : règles, formats, responsabilités.
+
+<CTAInline
+  label="Construisez cet outil en formation — 7 h ou 14 h, présentiel en Île-de-France"
+  href="/formations/developpement-web-ia-sans-coder"
+  linkLabel="Voir la formation outils de chantier"
+  variant="primary"
+  campaign="blog-releve-heures-mid"
+/>
+
+## Quelles précautions sur les données des salariés ?
+
+Un relevé d'heures touche des **données personnelles** : identité, temps de travail, parfois éléments liés à la rémunération (panier, déplacement). L'IA accélère la construction de l'outil ; elle ne vous dispense pas des règles de base.
+
+**Données minimales.** Pour une V1, un prénom + initiale ou un identifiant interne suffit souvent. Évitez NIR, adresse personnelle, IBAN, documents d'identité. N'injectez pas de fichiers paie réels dans un assistant IA public.
+
+**Accès par profil.** Le compagnon voit ses lignes (ou celles de son équipe, selon votre organisation). Le chef valide. Le bureau exporte. Tout le monde ne doit pas tout voir.
+
+**Pas de données sensibles dans les consignes.** Quand vous travaillez avec ChatGPT ou Claude pour construire l'outil, utilisez des jeux d'essai anonymisés. Les vrais noms et les vrais bulletins restent hors des prompts.
+
+**Validation humaine avant paie.** L'outil prépare ; le responsable RH / paie / dirigeant valide. Même logique de prudence que pour un [PPSPS préparé avec l'IA](/blog/ppsps-ia) : l'outil aide, l'entreprise reste responsable.
+
+Ces précautions font partie du cadrage produit, pas d'un « détail juridique » à traiter après. Si votre V1 ignore les profils d'accès, vous construirez une dette difficile à corriger.
+
+## Application sur mesure ou logiciel du marché : que choisir ?
+
+Deux options honnêtes :
+
+**Le logiciel du marché** convient si vous voulez un écosystème déjà branché (paie, planning, facturation), une maintenance externe et des processus standards. Contrepartie : coût, paramétrage, fonctions inutiles, adoption parfois difficile sur les petites équipes.
+
+**L'application sur mesure créée avec l'IA** convient si votre besoin est étroit et récurrent : pointage simple, validation chef, export mensuel. Contrepartie : vous restez propriétaire de l'évolution, et la mise en production peut exiger des contrôles, un hébergement et des mesures de sécurité supplémentaires après la première version.
+
+La bonne question n'est pas « quel outil est le plus beau ? ». C'est : *quel outil mon chef d'équipe utilisera vraiment le vendredi soir ?* Une V1 limitée, testée sur vos chantiers, bat souvent un logiciel complet mal rempli.
+
+Planning et relevé se complètent : le planning dit où chacun va ; le relevé dit ce qui a été fait. Pour le plan de prévention, la même logique de trame assistée par l'IA s'applique avec les précautions de validation humaine.
+
+Pour situer cette création d'outil dans le parcours de formation OFC (niveau 3 — création et déploiement), consultez le [catalogue des formations IA pour le BTP](/formations).
+
+## Questions fréquentes
+
+### Faut-il savoir coder pour créer une application de relevé d'heures BTP ?
+
+Non. L'IA écrit le code à partir de consignes en français ; vous décrivez le besoin chantier (compagnon, chef, bureau) et vous validez chaque étape. La formation pose la méthode : cadrer, guider l'IA, tester, sauvegarder — pas devenir développeur en une journée.
+
+### Les compagnons peuvent-ils saisir leurs heures sur téléphone ?
+
+Oui, si l'outil est conçu pour être lisible sur mobile dès les tests. Vérifiez la taille des boutons, la liste des chantiers, et le temps de saisie (objectif : moins de deux minutes en fin de journée).
+
+### Peut-on exporter le relevé d'heures vers la paie ?
+
+Une première version peut produire un export Excel ou PDF mensuel pour le bureau. Le lien automatique avec un logiciel de paie demande souvent des développements et des contrôles supplémentaires — à traiter après une V1 stable.
+
+### Combien de temps pour une première version de relevé d'heures ?
+
+En 7 h, l'objectif est une première version testable et sauvegardée. Le parcours 14 h permet d'enrichir, publier et préparer l'adoption. Ce n'est pas un logiciel de paie clé en main livré le soir même.
+
+---
+
+En résumé : le coût des feuilles papier et des Excel n'est pas le prix du papier — c'est la ressaisie, les erreurs de paie et le retard de facturation. Une application de relevé d'heures, limitée au besoin réel, créée avec l'IA et testée sur une semaine de chantier, peut remettre le flux compagnon → chef → bureau dans le bon ordre. Ensuite seulement, on parle d'exports avancés et de branchements paie.
+
+<CTAInline
+  label="Construisez cet outil en formation — 7 h ou 14 h, présentiel en Île-de-France"
+  href="/formations/developpement-web-ia-sans-coder#parlez-projet"
+  linkLabel="Parler de mon projet relevé d'heures"
+  variant="soft"
+  campaign="blog-releve-heures-end"
+/>

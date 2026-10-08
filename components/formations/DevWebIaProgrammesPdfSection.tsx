@@ -4,6 +4,8 @@ import {
   DEV_WEB_IA_PARCOURS_7H,
   DEV_WEB_IA_PDF_14H_HREF,
   DEV_WEB_IA_PDF_7H_HREF,
+  PROGRAMME_PDF_14H,
+  PROGRAMME_PDF_7H,
 } from '@/lib/formation-developpement-web-ia-content';
 
 /**
@@ -14,12 +16,12 @@ export function DevWebIaProgrammesPdfSection() {
     {
       label: 'Parcours 7 h — 1 journée',
       href: DEV_WEB_IA_PDF_7H_HREF,
-      download: 'programme-ofc-developpement-web-ia-7h.pdf',
+      download: PROGRAMME_PDF_7H,
     },
     {
       label: 'Parcours 14 h — 2 journées',
       href: DEV_WEB_IA_PDF_14H_HREF,
-      download: 'programme-ofc-developpement-web-ia-14h.pdf',
+      download: PROGRAMME_PDF_14H,
     },
   ] as const;
 

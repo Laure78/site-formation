@@ -64,7 +64,7 @@ const collectionJsonLd = {
       '@id': `${CANONICAL}#howto`,
       name: 'Téléverser un skill Claude BTP (.skill)',
       description:
-        'Télécharger un skill depuis la bibliothèque BeWork et l\'importer dans Claude.ai ou Claude Code.',
+        'Télécharger un skill depuis la bibliothèque OFC et l\'importer dans Claude.ai ou Claude Code.',
       step: SKILL_INSTALL_TUTORIAL.steps.map((s) => ({
         '@type': 'HowToStep',
         position: s.n,
@@ -89,7 +89,7 @@ export default function BibliothequeSkillsPage() {
       <main className="mx-auto max-w-6xl px-4 py-10 md:py-12">
         <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm md:p-8">
           <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#377CF3]">
-            Ressource gratuite · BeWork
+            Ressource gratuite · OFC
           </p>
           <h1 className="font-display mt-2 text-3xl font-bold text-slate-900 md:text-4xl">
             Bibliothèque skills Claude BTP
@@ -142,11 +142,8 @@ export default function BibliothequeSkillsPage() {
 
       <footer className="border-t border-slate-200 bg-white px-4 py-8 text-center text-sm text-slate-600">
         <p>
-          Skills issus de{' '}
-          <a href="https://app.laureolivie.fr" className="font-semibold text-[#377CF3] hover:underline">
-            BeWork
-          </a>{' '}
-          — plateforme entreprises BTP. Contenus pédagogiques signés Laure Olivié (OFC, Qualiopi).
+          Contenus pédagogiques signés Laure Olivié — OFC Création d&apos;Entreprise, organisme certifié
+          Qualiopi.
         </p>
       </footer>
     </div>

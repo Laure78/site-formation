@@ -1,7 +1,5 @@
 import type { TutoData } from './types';
 import { RESSOURCES_MINIATURES } from '@/lib/ressources-miniatures';
-import { EXTERNAL_SITE_URLS } from '@/lib/external-site-urls';
-
 export const TUTO_SKILL_MEMOIRE_RECLAMATION_BEWORK: TutoData = {
   slug: 'tuto-skill-memoire-reclamation-bework',
   category: 'marches-et-veille',
@@ -31,7 +29,6 @@ export const TUTO_SKILL_MEMOIRE_RECLAMATION_BEWORK: TutoData = {
     'ChatGPT BTP',
     'Claude BTP',
     'formation IA pour le BTP',
-    'BeWork',
     'Laure Olivié',
     "OFC Création d'Entreprise",
   ],
@@ -281,16 +278,14 @@ et rappelle-moi le délai pour le transmettre.`,
 
   cta: {
     eyebrow: 'PAS LE TEMPS DE LE FAIRE VOUS-MÊME ?',
-    title: 'Faire appel à un Assistant Travaux BeWork',
-    subtitle: 'Solutions IA sur mesure pour le BTP',
-    programTitle: 'Assistant travaux BTP · Relais dossiers chantier · Augmenté par l’IA',
+    title: 'Appliquer cette méthode en formation',
+    subtitle: 'Formation IA pour le BTP — présentiel Île-de-France',
+    programTitle: 'Mémoires, réclamations et documents chantier avec l’IA',
     programItems: [
-      'Vous nous envoyez les pièces du litige (OS, CR, courriers, chiffrage).',
-      'On reconstitue la chronologie, on chiffre le préjudice, on rédige le mémoire conforme.',
-      'Vous transmettez un dossier opposable dans les délais, sans y passer la journée.',
+      'Vous travaillez sur vos pièces (OS, CR, courriers, chiffrage) en atelier.',
+      'Vous structurez la chronologie, le chiffrage et le mémoire conforme.',
+      'Vous repartez avec une méthode réutilisable sur vos dossiers.',
     ],
-    brand: 'bework',
-    primaryHref: EXTERNAL_SITE_URLS.bework,
-    primaryLabel: 'Réserver un appel de cadrage de 20 minutes sur bework.fr',
+    brand: 'ofc',
   },
 };

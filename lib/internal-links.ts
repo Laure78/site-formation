@@ -123,9 +123,12 @@ export const LINKS = {
   /** NIV-10 — applications métier BTP avec l’IA (sans coder) */
   formationDeveloppementWebIaSansCoder: '/formations/developpement-web-ia-sans-coder',
   pdfProgrammeDeveloppementWebIaSansCoder:
-    '/formations/developpement-web-ia-sans-coder/programme-ofc-developpement-web-ia-7h.pdf',
+    '/formations/developpement-web-ia-sans-coder/programme_OFC_Niveau3_Outils_Chantier_IA_7h_20261008.pdf',
   pdfProgrammeDeveloppementWebIaSansCoder14h:
-    '/formations/developpement-web-ia-sans-coder/programme-ofc-developpement-web-ia-14h.pdf',
+    '/formations/developpement-web-ia-sans-coder/programme_OFC_Niveau3_Outils_Chantier_IA_14h_20261008.pdf',
+  /** Programmes PDF — Outils chantier IA (7 h / 14 h) */
+  pdfProgrammeOutilsChantierIa7h: '/programmes/programme-outils-chantier-ia-7h.pdf',
+  pdfProgrammeOutilsChantierIa14h: '/programmes/programme-outils-chantier-ia-14h.pdf',
   pdfProgrammeIaBtpNiveau1BatimentTp: '/formations/pdf/programme-niveau-1-ia-batiment-travaux-publics.pdf',
   pdfProgrammeIaBtpNiveau2AppelsOffre: PDF_PROGRAMME_NIV02_AO_BTP,
   /** Alias explicite — même fichier que `pdfProgrammeIaBtpNiveau2AppelsOffre` */
@@ -458,6 +461,12 @@ export const LINKS = {
   blogCompteRenduChantierIa: '/blog/compte-rendu-chantier-ia-automatiser-gagner-temps',
   /** Article — 5 cas d'usage ChatGPT BTP (approfondissement CR / terrain) */
   blog5CasUsageChatgptBtp: '/blog/5-cas-usage-chatgpt-artisans-btp',
+  /** Article MDX — application relevé d'heures BTP avec l’IA (sans coder) */
+  blogApplicationReleveHeuresBtp: '/blog/application-releve-heures-btp',
+  /** Article MDX — planning chantier sur mesure avec l’IA */
+  blogPlanningChantierSurMesureIa: '/blog/planning-chantier-sur-mesure-ia',
+  /** Article MDX — PPSPS et IA (trame, précautions, validation) */
+  blogPpspsIa: '/blog/ppsps-ia',
   /**
    * @deprecated Alias → formationAO (NIV-02). Ancienne fiche CCTP supprimée (301/308).
    * Conservé pour éviter de casser les imports ; préférer `formationAO`.

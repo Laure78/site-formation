@@ -1,11 +1,9 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { BookOpen, MonitorPlay, ShieldCheck } from 'lucide-react';
-import { ExternalLinkAnchor } from '@/components/ExternalLink';
 import { FormationPlateformeConnexionButton } from '@/components/formation/FormationPlateformeConnexionButton';
 import { JsonLd } from '@/components/JsonLd';
 import { createPageMetadata, getFAQSchema, getBreadcrumbSchema, SITE_CONFIG } from '@/lib/seo';
-import { EXTERNAL_SITE_URLS } from '@/lib/external-site-urls';
 import { LINKS } from '@/lib/internal-links';
 import { PHOTOS } from '@/lib/photos';
 
@@ -59,10 +57,6 @@ const FAQ = [
   {
     q: 'Je n’ai pas encore de compte — que faire ?',
     a: 'Les accès sont créés ou communiqués par OFC après votre inscription à une session. Pour une nouvelle formation, consultez le catalogue ou prenez rendez-vous pour cadrer votre besoin.',
-  },
-  {
-    q: 'Quelle est la différence avec BeWork (app.laureolivie.fr) ?',
-    a: 'L’espace apprenant OFC héberge les contenus pédagogiques et supports de formation IA BTP. BeWork (app.laureolivie.fr) est l’espace entreprise des solutions IA métier BTP — deux services distincts.',
   },
 ] as const;
 
@@ -220,15 +214,11 @@ export default function FormationPlateformePage() {
             inscription.
           </p>
           <p className="mt-6 text-sm text-white/80">
-            Besoin d&apos;une formation en présentiel ? Consultez le catalogue — organisme certifié Qualiopi ou{' '}
-            <ExternalLinkAnchor
-              href={EXTERNAL_SITE_URLS.beworkApp}
-              title="Plateforme BeWork — app.laureolivie.fr (nouvel onglet)"
-              className="font-semibold underline underline-offset-2 hover:text-white"
-            >
-              la plateforme BeWork (MOEX)
-            </ExternalLinkAnchor>
-            .
+            Besoin d&apos;une formation en présentiel ? Consultez le{' '}
+            <Link href={LINKS.formations} className="font-semibold underline underline-offset-2 hover:text-white">
+              catalogue des formations IA pour le BTP
+            </Link>{' '}
+            — organisme certifié Qualiopi.
           </p>
         </div>
       </section>

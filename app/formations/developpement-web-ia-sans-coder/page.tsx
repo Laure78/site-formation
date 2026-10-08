@@ -25,6 +25,7 @@ import {
   DEV_WEB_IA_FAQ,
   DEV_WEB_IA_MODULES,
   DEV_WEB_IA_PDF_7H_HREF,
+  PROGRAMME_PDF_7H,
   devWebIaInscriptionHref,
   devWebIaProjectFormHref,
 } from '@/lib/formation-developpement-web-ia-content';
@@ -96,7 +97,7 @@ export default function FormationDeveloppementWebIaSansCoderPage() {
             <p className="mt-6">
               <a
                 href={DEV_WEB_IA_PDF_7H_HREF}
-                download="programme-ofc-developpement-web-ia-7h.pdf"
+                download={PROGRAMME_PDF_7H}
                 className={`${OFC_CTA_SECONDARY} inline-flex min-h-11 items-center gap-2 px-5 py-3`}
               >
                 <Download className="h-4 w-4 shrink-0" aria-hidden />

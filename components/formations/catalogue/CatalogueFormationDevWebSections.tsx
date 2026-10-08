@@ -29,6 +29,7 @@ import {
   DEV_WEB_IA_PREREQUIS,
   DEV_WEB_IA_PUBLIC,
   DEV_WEB_IA_PDF_14H_HREF,
+  PROGRAMME_PDF_14H,
   TARIF_INTER_DEV_WEB_IA_14H_HT,
 } from '@/lib/formation-developpement-web-ia-content';
 
@@ -181,7 +182,7 @@ export function CatalogueFormationDevWebProgrammeDay2() {
         <p className="mt-6">
           <a
             href={DEV_WEB_IA_PDF_14H_HREF}
-            download="programme-ofc-developpement-web-ia-14h.pdf"
+            download={PROGRAMME_PDF_14H}
             className={`${OFC_CTA_SECONDARY} inline-flex min-h-11 items-center gap-2 px-5 py-3`}
           >
             <Download className="h-4 w-4 shrink-0" aria-hidden />

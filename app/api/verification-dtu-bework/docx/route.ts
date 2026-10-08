@@ -59,7 +59,7 @@ function parsePayload(body: unknown): RapportDtuPayload | null {
     client: o.client.slice(0, 200),
     projet: o.projet.slice(0, 300),
     date: o.date.slice(0, 32),
-    redacteur: typeof o.redacteur === 'string' ? o.redacteur.slice(0, 80) : 'BeWork',
+    redacteur: typeof o.redacteur === 'string' ? o.redacteur.slice(0, 80) : 'OFC',
     lignes: o.lignes as LigneAnalyse[],
     memo_paragraphs,
   };
@@ -81,7 +81,7 @@ function cell(children: Paragraph[], shaded = false): TableCell {
 
 function readLogoBuffer(): Buffer | null {
   try {
-    const p = path.join(process.cwd(), 'public', 'images', 'bework-logo-blueprint-delegation-administrative-btp.png');
+    const p = path.join(process.cwd(), 'public', 'icon-192.png');
     return fs.readFileSync(p);
   } catch {
     return null;
@@ -123,12 +123,12 @@ export async function POST(req: Request): Promise<Response> {
             new ImageRun({
               type: 'png',
               data: logoBuf,
-              transformation: { width: 360, height: 106 },
+              transformation: { width: 96, height: 96 },
             }),
           ]
         : [
             new TextRun({
-              text: 'BeWork',
+              text: 'OFC',
               bold: true,
               color: BLUE,
               size: 52,
@@ -153,7 +153,7 @@ export async function POST(req: Request): Promise<Response> {
     alignment: AlignmentType.CENTER,
     children: [
       new TextRun({
-        text: 'BeWork — Assistants travaux augmentés par l’IA · bework.fr — Relais bureau-chantier BTP',
+        text: 'OFC Création d’Entreprise — formation IA pour le BTP · laureolivie.fr',
         bold: true,
         color: BLUE,
         size: 16,
@@ -447,7 +447,7 @@ export async function POST(req: Request): Promise<Response> {
             children: [
               new TextRun({
                 text:
-                  'Pour aller plus loin : parler de votre besoin sur bework.fr — BeWork étudie la solution adaptée.',
+                  'Pour aller plus loin : contact@laureolivie.fr — formation IA pour le BTP.',
                 size: 16,
                 color: DARK,
               }),

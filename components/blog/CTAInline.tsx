@@ -1,4 +1,5 @@
-import { Calendar } from 'lucide-react';
+import Link from 'next/link';
+import { ArrowRight, Calendar } from 'lucide-react';
 import { CalendlyEmbed } from '@/components/CalendlyEmbed';
 
 type Variant = 'primary' | 'soft' | 'outline';
@@ -10,19 +11,33 @@ const variantClass: Record<Variant, string> = {
   outline: 'border-2 border-[#377CF3] bg-white text-[#377CF3] hover:bg-blue-50',
 };
 
+const linkButtonClass: Record<Variant, string> = {
+  primary:
+    'inline-flex min-h-11 items-center justify-center gap-2 rounded-lg bg-white px-4 py-2.5 text-sm font-bold text-[#377CF3] shadow-sm hover:bg-slate-50',
+  soft: 'inline-flex min-h-11 items-center justify-center gap-2 rounded-lg bg-[#377CF3] px-4 py-2.5 text-sm font-bold text-white shadow-sm hover:bg-[#2d6ae0]',
+  outline:
+    'inline-flex min-h-11 items-center justify-center gap-2 rounded-lg bg-[#377CF3] px-4 py-2.5 text-sm font-bold text-white shadow-sm hover:bg-[#2d6ae0]',
+};
+
 /**
- * CTA Calendly inline pour articles MDX — lien nouvel onglet.
+ * CTA inline pour articles MDX — Calendly par défaut, ou lien interne si `href` est fourni.
  */
 export function CTAInline({
   label = 'Vous voulez appliquer cette méthode sur vos documents BTP ?',
   variant = 'primary',
   className = '',
   campaign = 'blog-mdx-inline',
+  href,
+  linkLabel = 'Découvrir la formation',
 }: {
   label?: string;
   variant?: Variant;
   className?: string;
   campaign?: string;
+  /** Lien interne (ex. fiche formation). Si absent → Calendly. */
+  href?: string;
+  /** Libellé du bouton quand `href` est défini. */
+  linkLabel?: string;
 }) {
   return (
     <div
@@ -33,13 +48,20 @@ export function CTAInline({
         <span>{label}</span>
       </p>
       <div className="flex flex-wrap gap-3">
-        <CalendlyEmbed
-          type="link"
-          variant="primary"
-          ctaPosition="middle"
-          campaign={campaign}
-          className="font-bold shadow-sm"
-        />
+        {href ? (
+          <Link href={href} className={linkButtonClass[variant]}>
+            {linkLabel}
+            <ArrowRight className="h-4 w-4 shrink-0" aria-hidden />
+          </Link>
+        ) : (
+          <CalendlyEmbed
+            type="link"
+            variant="primary"
+            ctaPosition="middle"
+            campaign={campaign}
+            className="font-bold shadow-sm"
+          />
+        )}
       </div>
     </div>
   );

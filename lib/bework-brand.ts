@@ -1,15 +1,16 @@
 /**
- * Identité visuelle BeWork — formation « créer avec l’IA sans savoir coder ».
- * Site officiel : bework.fr · marque d’OFC Création d’Entreprise.
+ * Ancienne identité BeWork — logo retiré du site.
+ * Conservé pour imports techniques hors UI marketing.
  */
 
-export const BEWORK_ACCENT = '#1D4ED8' as const;
+export const BEWORK_ACCENT = '#377CF3' as const;
 
+/** @deprecated Logo BeWork retiré — ne plus afficher. */
 export const BEWORK_LOGO = {
-  src: '/images/bework-logo-brand.png',
+  src: '/images/laure-avatar-bleu.webp',
   width: 1024,
-  height: 334,
-  alt: 'Logo BeWork — Apprendre aujourd’hui, créer demain',
+  height: 1024,
+  alt: 'Laure Olivié — formation IA pour le BTP',
 } as const;
 
 export const BEWORK_TAGLINE = 'Sans savoir coder. Créez ce que vous imaginez.' as const;

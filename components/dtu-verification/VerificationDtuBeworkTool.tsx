@@ -54,7 +54,7 @@ export function VerificationDtuBeworkTool() {
       client: client.trim() || 'Client non renseigné',
       projet: projet.trim() || 'Projet non renseigné',
       date: todayFr(),
-      redacteur: 'BeWork',
+      redacteur: 'OFC',
       lignes: rows,
       memo_paragraphs:
         memoParagraphs ??
@@ -214,7 +214,7 @@ export function VerificationDtuBeworkTool() {
                 exporting ? 'border-slate-400 bg-slate-400' : 'border-[#1D4ED8] bg-[#1D4ED8]'
               }`}
             >
-              {exporting ? 'Génération…' : 'Télécharger le rapport Word (charte BeWork)'}
+              {exporting ? 'Génération…' : 'Télécharger le rapport Word'}
             </button>
           )}
         </div>
@@ -409,11 +409,7 @@ export function VerificationDtuBeworkTool() {
 
       <footer className="border-t border-slate-200 pt-8 text-center text-sm text-slate-600">
         <p>
-          Intégration future : dépôt devis sur{' '}
-          <a href="https://www.bework.fr" className="font-semibold text-[#377CF3] underline">
-            bework.fr
-          </a>{' '}
-          et livrables client — ce prototype locale ne transmet aucune donnée à un tiers.
+          Prototype local — aucune donnée n&apos;est transmise à un tiers.
         </p>
         <p className="mt-4">
           <Link href={LINKS.outilsIaBtp} className="font-semibold text-[#377CF3] underline-offset-2 hover:underline">

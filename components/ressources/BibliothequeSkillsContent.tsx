@@ -276,7 +276,7 @@ export function BibliothequeSkillsContent() {
               </h3>
               <SkillGrid
                 skills={beworkFiltered}
-                emptyMessage="Aucun skill BeWork pour ces filtres."
+                emptyMessage="Aucun skill prêt à importer pour ces filtres."
               />
             </div>
             <div>

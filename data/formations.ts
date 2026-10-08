@@ -446,9 +446,9 @@ export const FORMATIONS: readonly Formation[] = [
       'Entrepreneurs, indépendants, commerçants, TPE et PME du bâtiment, salariés, porteurs de projet et personnes en reconversion',
     casUsage: 'Site, application ou outil métier — première version assistée par IA',
     pdfProgramme:
-      '/formations/developpement-web-ia-sans-coder/programme-ofc-developpement-web-ia-7h.pdf',
-    programmeVersion: 'Version 1',
-    programmeUpdatedAt: '18/09/2026',
+      '/formations/developpement-web-ia-sans-coder/programme_OFC_Niveau3_Outils_Chantier_IA_7h_20261008.pdf',
+    programmeVersion: 'Version 2',
+    programmeUpdatedAt: '08/10/2026',
     image: '/images/formation-ia-architecture-claude-presentiel-groupe.jpg',
   },
 ] as const;

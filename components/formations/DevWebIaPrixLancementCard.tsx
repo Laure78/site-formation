@@ -6,6 +6,8 @@ import {
   DEV_WEB_IA_PARCOURS_7H,
   DEV_WEB_IA_PDF_14H_HREF,
   DEV_WEB_IA_PDF_7H_HREF,
+  PROGRAMME_PDF_14H,
+  PROGRAMME_PDF_7H,
   DEV_WEB_IA_PRIX_LANCEMENT_LABEL,
   devWebIaInscriptionHref,
   devWebIaProjectFormHref,
@@ -32,8 +34,8 @@ export function DevWebIaPrixLancementCard({ className, showCtas = true }: Props)
   const projetHref = devWebIaProjectFormHref();
 
   const parcours = [
-    { data: DEV_WEB_IA_PARCOURS_7H, pdfHref: DEV_WEB_IA_PDF_7H_HREF, pdfName: 'programme-ofc-developpement-web-ia-7h.pdf' },
-    { data: DEV_WEB_IA_PARCOURS_14H, pdfHref: DEV_WEB_IA_PDF_14H_HREF, pdfName: 'programme-ofc-developpement-web-ia-14h.pdf' },
+    { data: DEV_WEB_IA_PARCOURS_7H, pdfHref: DEV_WEB_IA_PDF_7H_HREF, pdfName: PROGRAMME_PDF_7H },
+    { data: DEV_WEB_IA_PARCOURS_14H, pdfHref: DEV_WEB_IA_PDF_14H_HREF, pdfName: PROGRAMME_PDF_14H },
   ] as const;
 
   return (

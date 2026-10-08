@@ -29,6 +29,8 @@ import {
   DEV_WEB_IA_PDF_14H_HREF,
   DEV_WEB_IA_PDF_7H_HREF,
   DEV_WEB_IA_QUALIOPI_ENGAGEMENTS,
+  PROGRAMME_PDF_14H,
+  PROGRAMME_PDF_7H,
   devWebIaInscriptionHref,
 } from '@/lib/formation-developpement-web-ia-content';
 import { MENTIONS_TVA_INTRA_COURTE } from '@/lib/tarifs-sessions';
@@ -201,8 +203,8 @@ function JourParcoursCta({
   const pdfHref = jourKey === 'jour1' ? DEV_WEB_IA_PDF_7H_HREF : DEV_WEB_IA_PDF_14H_HREF;
   const pdfName =
     jourKey === 'jour1'
-      ? 'programme-ofc-developpement-web-ia-7h.pdf'
-      : 'programme-ofc-developpement-web-ia-14h.pdf';
+      ? PROGRAMME_PDF_7H
+      : PROGRAMME_PDF_14H;
   const programmeAnchor = jourKey === 'jour1' ? '#programme' : '#programme-14h';
 
   return (
@@ -263,14 +265,14 @@ export function CatalogueFormationDevWebParcoursTarifsSection() {
             data={DEV_WEB_IA_PARCOURS_7H}
             marketing={DEV_WEB_IA_PARCOURS_MARKETING['7h']}
             pdfHref={DEV_WEB_IA_PDF_7H_HREF}
-            pdfName="programme-ofc-developpement-web-ia-7h.pdf"
+            pdfName={PROGRAMME_PDF_7H}
           />
           <ParcoursChoixCard
             parcoursId="14h"
             data={DEV_WEB_IA_PARCOURS_14H}
             marketing={DEV_WEB_IA_PARCOURS_MARKETING['14h']}
             pdfHref={DEV_WEB_IA_PDF_14H_HREF}
-            pdfName="programme-ofc-developpement-web-ia-14h.pdf"
+            pdfName={PROGRAMME_PDF_14H}
           />
         </div>
 

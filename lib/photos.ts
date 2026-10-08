@@ -651,11 +651,11 @@ export const PHOTOS = {
     height: 682,
   },
 
-  /** BeWork — solutions IA sur mesure BTP (support casque, site bework.fr) */
+  /** Visuel support administratif chantier (IA BTP) */
   beworkHeroRelaisAdministratif: {
     src: '/images/bework-relais-administratif-chantier-support.webp',
-    alt: "Collaboratrice BeWork au casque — solutions IA chantier BTP, poste avec plans et écran",
-    title: 'BeWork — solutions IA sur mesure BTP, service complémentaire aux formations OFC',
+    alt: 'Collaboratrice au casque — support administratif chantier BTP, plans et écran',
+    title: 'Support administratif chantier BTP — formation IA OFC',
     width: 1024,
     height: 629,
   },
@@ -669,10 +669,10 @@ export const PHOTOS = {
     height: 768,
   },
 
-  /** BeWork — visuel produit : solutions IA, DOE, situations, tableau de bord */
+  /** Visuel bureau / chantier — documents et outils métier BTP */
   beworkRelaisMarchesTravaux: {
     src: '/images/bework-relais-marches-travaux-bureau-chantier.png',
-    alt: "BeWork — solutions IA sur mesure BTP, chantiers, documents et outils métier",
+    alt: 'Bureau et chantier BTP — documents, situations et outils métier',
     width: 1024,
     height: 1024,
   },
