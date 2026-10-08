@@ -482,15 +482,15 @@ export const PHOTOS = {
     height: 1024,
   },
 
-  /** Page catalogue /formations — hero bannière (compétences BTP, devis & chantier) */
+  /** Page catalogue /formations — hero affiche catalogue (IA BTP, présentiel IDF) */
   formationsCatalogueHero2026: {
-    src: '/images/formations-catalogue-hero-competences-btp.webp',
-    alt: 'Catalogue formations IA BTP : plans, devis et chantier — compétences concrètes',
-    title: 'Formations IA pour le BTP — présentiel Île-de-France, OFC Qualiopi',
+    src: '/images/formation-ia-btp-ile-de-france-catalogue-laure-olivie.webp',
+    alt: 'Catalogue formation IA pour le BTP — Laure Olivié, présentiel Île-de-France',
+    title: 'Formations IA pour le BTP — devis, chantier, appels d’offres · Île-de-France',
     description:
-      'Bannière catalogue laureolivie.fr : formatrice et pro BTP autour de plans et devis — formations, devis et chantier. Compétences concrètes pour faire avancer vos projets.',
-    width: 1024,
-    height: 768,
+      'Affiche catalogue laureolivie.fr : cinq formations IA pour le BTP (devis, DCE, chantier, Claude, applications métier), formatrice Laure Olivié, présentiel Île-de-France, Qualiopi.',
+    width: 819,
+    height: 1024,
   },
 
   /** Page financement Constructys — hero (préparation dossier / devis OPCO) */

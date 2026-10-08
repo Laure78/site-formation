@@ -24,7 +24,7 @@ export function FormationsCatalogueHero() {
   return (
     <section className={`${OFC_SEC.hero} relative overflow-hidden`} aria-labelledby="formations-catalogue-hero-h1">
       <div className="relative mx-auto max-w-[80rem]">
-        <div className="grid items-center gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(260px,380px)] lg:gap-14">
+        <div className="grid items-center gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(280px,420px)] lg:gap-14">
           <div className="min-w-0">
             <span className="ofc-badge bg-ofc-accent-soft text-ofc-accent">
               Catalogue formations IA pour le BTP
@@ -69,8 +69,8 @@ export function FormationsCatalogueHero() {
             </div>
           </div>
 
-          <aside className="mx-auto flex w-full max-w-[300px] shrink-0 flex-col gap-5 lg:mx-0 lg:max-w-none">
-            <div className="ofc-card overflow-hidden bg-white/95 p-1.5">
+          <aside className="mx-auto flex w-full max-w-[340px] shrink-0 flex-col gap-5 lg:mx-0 lg:max-w-none">
+            <div className="ofc-card overflow-hidden bg-white/95 p-1.5 shadow-sm">
               <Image
                 src={heroVisual.src}
                 alt={heroVisual.alt}
@@ -78,9 +78,9 @@ export function FormationsCatalogueHero() {
                 width={heroVisual.width}
                 height={heroVisual.height}
                 priority
-                className="h-auto w-full rounded-[1.05rem] object-cover"
-                sizes="(max-width: 1024px) 90vw, 380px"
-                quality={75}
+                className="h-auto w-full rounded-[1.05rem] object-contain"
+                sizes="(max-width: 1024px) 90vw, 420px"
+                quality={80}
               />
             </div>
           </aside>
