@@ -11,7 +11,7 @@ Laure Olivié est formatrice IA spécialisée BTP et fondatrice d'OFC Création 
 - Catalogue IA BTP : présentiel, Paris et toute l'Île-de-France (75, 77, 78, 91, 92, 93, 94, 95)
 - Intra-entreprise (dans vos locaux) et inter-entreprises
 - Sessions catalogue de 4 h ; parcours applications métier BTP 3 × 7 h
-- Exception : la formation « Développer des applications métier avec l'IA sans coder » (7 h) propose aussi des sessions inter en visioconférence — /formations/developpement-web-ia-sans-coder
+- Formation outils de chantier avec l'IA (7 h ou 14 h) : présentiel Île-de-France uniquement — /formations/developpement-web-ia-sans-coder
 - Financement : prise en charge OPCO / Constructys selon éligibilité (jamais automatique)
 - Visio découverte gratuite de 30 min (cadrage, pas une formation) : /prendre-rdv
 

@@ -1,7 +1,7 @@
 /**
  * Règles commerciales de livraison — catalogue IA BTP (NIV-01 à NIV-09 / fiches métier).
  * Présentiel IDF · groupe · intra & inter. Pas de distanciel / accompagnement individuel / hors IDF.
- * Exception visio (NIV-10) : uniquement sur la fiche `/formations/developpement-web-ia-sans-coder` et la FAQ accueil.
+ * NIV-10 (outils de chantier / création avec l’IA) : présentiel Île-de-France uniquement, comme le reste du catalogue.
  * L’inscription d’une personne à une session collective interentreprises est autorisée.
  */
 import { IDF_DEPARTEMENTS_LISTE, IDF_ZONE_INTERVENTION, PREUVES } from '@/lib/constants';

@@ -112,7 +112,7 @@ export const FAQ_ITEMS_HOME: readonly FAQItem[] = [
   },
   {
     q: 'Où se déroulent les sessions ?',
-    a: `Présentiel Île-de-France (75 à 95), intra ou inter ; une seule exception, la formation <a href="${LINKS.formationDeveloppementWebIaSansCoder}">création avec l’IA sans coder</a>, qui peut proposer des inter en visioconférence.`,
+    a: `Présentiel Île-de-France (75 à 95), intra ou inter — y compris la formation <a href="${LINKS.formationDeveloppementWebIaSansCoder}">création avec l’IA sans coder</a>.`,
   },
   {
     q: 'Une prise en charge par un OPCO est-elle possible ?',
