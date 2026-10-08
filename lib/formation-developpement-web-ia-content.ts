@@ -42,8 +42,8 @@ export const DEV_WEB_IA_SUBTITLE =
 export const DEV_WEB_IA_HERO_FACTS = [
   '7 h (1 journée)',
   '9h00 – 12h30 · 13h30 – 17h00',
-  'Présentiel IDF ou visio (inter)',
-  '4 à 10 participants',
+  'Présentiel Île-de-France',
+  '4 à 8 participants',
   '70 % pratique · 30 % méthodologie',
 ] as const;
 
@@ -59,32 +59,25 @@ export const DEV_WEB_IA_INCLUS_TARIF = [
 ] as const;
 
 export const DEV_WEB_IA_FORMATS = [
-  'Présentiel · Île-de-France (inter-entreprises ou session convoquée par un réseau)',
-  'Visioconférence · sessions inter à dates dédiées',
-  'Tarif HT / participant — 4 à 10 participants',
+  'Présentiel · Île-de-France (inter-entreprises ou intra dans vos locaux)',
+  'Tarif HT / participant — 4 à 8 participants',
 ] as const;
 
 export const DEV_WEB_IA_MODALITES_SECTION = {
   eyebrow: 'Modalités',
-  title: 'Deux façons de participer.',
-  lead: 'Présentiel ou visio : la modalité change, pas l’ambition ni le parcours pédagogique de 7 h.',
-  compareLabel: 'Comparer les modalités',
+  title: 'Présentiel en Île-de-France.',
+  lead: 'Présentiel en Île-de-France : en inter-entreprises à dates programmées, ou en intra dans vos locaux. Petit groupe (4 à 8), accompagnement de proximité tout au long de la pratique.',
+  compareLabel: 'Voir les tarifs',
   compareHref: '#tarifs-modalites',
 } as const;
 
-/** Modalités de participation — présentiel et visio (parcours identique). */
+/** Modalités de participation — présentiel uniquement. */
 export const DEV_WEB_IA_MODALITES = [
   {
     id: 'presentiel',
     title: 'Présentiel',
-    badge: 'Recommandé',
-    desc: 'En Île-de-France : inter-entreprises ou intra dans vos locaux. Petit groupe, accompagnement de proximité tout au long de la pratique.',
-  },
-  {
-    id: 'visio',
-    title: 'Visioconférence',
-    badge: 'Sessions dédiées',
-    desc: 'Même parcours pédagogique à distance, lors de sessions inter programmées — échanges et partage d’écran facilités.',
+    badge: 'Île-de-France',
+    desc: 'En inter-entreprises à dates programmées, ou en intra dans vos locaux. Petit groupe (4 à 8), accompagnement de proximité tout au long de la pratique.',
   },
 ] as const;
 
@@ -98,7 +91,7 @@ export const DEV_WEB_IA_QUALIOPI_ENGAGEMENTS = [
   {
     num: '02',
     title: 'Un accompagnement personnalisé',
-    desc: 'Groupes limités à 4 à 10 participants pour des allers-retours réguliers avec la formatrice.',
+    desc: 'Groupes limités à 4 à 8 participants pour des allers-retours réguliers avec la formatrice.',
   },
   {
     num: '03',
@@ -289,7 +282,7 @@ export const DEV_WEB_IA_PEDAGOGIE = [
   'Fil rouge sur le projet de chaque participant — pas sur un cas générique',
   'Courtes démonstrations, ateliers guidés puis travail individuel sur poste',
   'Tests et corrections en direct, avec échanges avec la formatrice',
-  'Petit groupe (4 à 10 participants) pour des allers-retours réguliers',
+  'Petit groupe (4 à 8 participants) pour des allers-retours réguliers',
 ] as const;
 
 export const DEV_WEB_IA_ESPACE = [
@@ -328,8 +321,8 @@ export const DEV_WEB_IA_FAQ = [
     a: 'Une première version testable selon votre idée : site vitrine simple, petit outil métier, prototype (agenda, suivi clients, tableau de bord, messagerie interne, etc.). Le détail des activités est dans le programme en 4 modules ; la promesse reste une V1 à tester, pas un logiciel achevé.',
   },
   {
-    q: 'Quels formats sont proposés ? Puis-je suivre la formation en visio ?',
-    a: `Le présentiel en Île-de-France est privilégié (inter-entreprises, 4 à 10 participants). Les fédérations et réseaux convoquent des sessions au tarif HT / participant (minimum 6 inscrits) — détail sur ${LINKS.partenaires}. Des sessions inter-entreprises en visioconférence sont aussi ouvertes à des dates dédiées, avec le même parcours de 7 h et des échanges adaptés au partage d’écran.`,
+    q: 'Quels formats sont proposés ?',
+    a: `Formation uniquement en présentiel en Île-de-France (inter-entreprises, 4 à 8 participants, ou intra dans vos locaux). Les fédérations et réseaux convoquent des sessions au tarif HT / participant (minimum 6 inscrits) — détail sur ${LINKS.partenaires}.`,
   },
   {
     q: 'L’abonnement ChatGPT ou Claude est-il inclus ?',
