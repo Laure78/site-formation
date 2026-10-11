@@ -106,6 +106,7 @@ export const RESSOURCES_THEMATIC_BLOCKS: readonly RessourceThematicBlock[] = [
     pilier: RESSOURCES_HUB_PILIERS['qse-conformite'],
     tutos: [
       { label: 'Tuto — skill PPSPS', href: LINKS.tutoPpsps },
+      { label: 'Tuto — skill SOGED', href: LINKS.tutoSkillSogedOfc },
       { label: 'Tuto — DUERP', href: LINKS.tutoDuerp },
       {
         label: "Tuto — skill livret d'intégration",
@@ -124,7 +125,10 @@ export const RESSOURCES_THEMATIC_BLOCKS: readonly RessourceThematicBlock[] = [
     title: 'Productivité & outils',
     description: 'Automatisation terrain-bureau (Dispatch), aide-mémoire et cluster Claude IA pour le BTP.',
     pilier: RESSOURCES_HUB_PILIERS['productivite-outils'],
-    tutos: [{ label: 'Tuto — Dispatch BTP (Anthropic)', href: LINKS.tutoDispatchBtp }],
+    tutos: [
+      { label: 'Tuto — skill préparation RDV client', href: LINKS.tutoSkillRdvClientOfc },
+      { label: 'Tuto — Dispatch BTP (Anthropic)', href: LINKS.tutoDispatchBtp },
+    ],
     guides: [
       { label: 'Guide Claude BTP — Projets, Skills, MCP (PDF)', href: LINKS.guideClaudeBtpOfc },
       { label: 'Bibliothèque skills Claude BTP — 21 téléchargements', href: LINKS.bibliothequeSkills },

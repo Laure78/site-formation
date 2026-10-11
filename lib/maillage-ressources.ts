@@ -85,6 +85,14 @@ const TUTO_DC4: MaillageLink = {
   href: LINKS.tutoSkillDc4Ofc,
   label: 'Tuto — skill DC4 sous-traitance',
 };
+const TUTO_SOGED: MaillageLink = {
+  href: LINKS.tutoSkillSogedOfc,
+  label: 'Tuto — skill SOGED',
+};
+const TUTO_RDV_CLIENT: MaillageLink = {
+  href: LINKS.tutoSkillRdvClientOfc,
+  label: 'Tuto — skill préparation RDV client',
+};
 const TUTO_CR: MaillageLink = {
   href: LINKS.tutoCrChantier,
   label: 'Tuto PDF — compte rendu de chantier',
@@ -277,14 +285,18 @@ export const MAILLAGE_RESSOURCES_BY_PATH: Readonly<Record<string, MaillageRessou
       href: LINKS.formationConducteurTravaux,
       label: 'Formation IA chantier : PPSPS et conduite de travaux',
     },
-    soeurs: [TUTO_DIUO, TUTO_DUERP],
+    soeurs: [TUTO_SOGED, TUTO_DUERP],
+  },
+  [LINKS.tutoSkillSogedOfc]: {
+    pilier: PILIER_CDT,
+    soeurs: [TUTO_PPSPS, TUTO_DUERP],
   },
   [LINKS.tutoDuerp]: {
     pilier: {
       href: LINKS.formationConducteurTravaux,
       label: 'Formation IA pour la prévention et le suivi chantier BTP',
     },
-    soeurs: [TUTO_PPSPS, TUTO_LIVRET_INTEGRATION],
+    soeurs: [TUTO_PPSPS, TUTO_SOGED],
   },
   [LINKS.tutoSkillLivretIntegrationOfc]: {
     pilier: {
@@ -300,16 +312,24 @@ export const MAILLAGE_RESSOURCES_BY_PATH: Readonly<Record<string, MaillageRessou
       },
     ],
   },
+  [LINKS.tutoSkillRdvClientOfc]: {
+    pilier: PILIER_CLAUDE,
+    soeurs: [
+      TUTO_DISPATCH,
+      TUTO_CHIFFRAGE_DEVIS,
+      {
+        href: LINKS.guideChargeAffairesOfc,
+        label: 'Guide chargé d’affaires BTP × IA',
+      },
+    ],
+  },
   [LINKS.tutoDispatchBtp]: {
     pilier: PILIER_CLAUDE,
     soeurs: [
+      TUTO_RDV_CLIENT,
       {
         href: LINKS.guideClaudeBtpOfc,
         label: 'Guide Claude BTP — Projets, Skills et MCP',
-      },
-      {
-        href: LINKS.bibliothequeSkills,
-        label: 'Bibliothèque de skills Claude pour le BTP',
       },
     ],
   },

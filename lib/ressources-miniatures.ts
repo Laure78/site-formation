@@ -140,6 +140,18 @@ export const RESSOURCES_MINIATURES = {
     width: 1024,
     height: 1024,
   },
+  tutoSoged: {
+    src: `${BASE}/miniature-tuto-skill-soged-ofc.jpg`,
+    alt: 'Créer un skill SOGED déchets chantier — tuto offert PDF gratuit, formation IA BTP',
+    width: 1024,
+    height: 1024,
+  },
+  tutoRdvClient: {
+    src: `${BASE}/miniature-tuto-skill-rdv-client-ofc.jpg`,
+    alt: 'Créer un skill préparation RDV client — tuto offert PDF gratuit, formation IA BTP',
+    width: 1200,
+    height: 675,
+  },
   tutoSkillMetreExcel: {
     src: `${BASE}/miniature-tuto-skill-metre-excel.jpg`,
     alt: 'Créer un skill métré Excel — tuto offert PDF gratuit, formation IA pour le BTP',

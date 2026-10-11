@@ -172,6 +172,10 @@ const TUTO_HUB_DESCRIPTIONS: Partial<Record<string, string>> = {
     'Recaler un planning chantier (chemin critique, aléas, note d’impact Excel) — dates et clauses à contrôler avant envoi.',
   'tuto-skill-dc4-ofc':
     'Préparer un DC4 (déclaration de sous-traitance) cohérent avec l’acte d’engagement — pièces et montants à contrôler avant envoi.',
+  'tuto-skill-soged-ofc':
+    'Rédiger un SOGED (gestion des déchets de chantier) aligné AGEC / REP / Trackdéchets — filières et tonnages à contrôler.',
+  'tuto-skill-rdv-client-ofc':
+    'Préparer un RDV client : brief contact, ordre du jour, arguments et trame de compte rendu — à adapter à chaque dossier.',
   'tuto-skill-livret-integration-ofc':
     'Générer un livret d’accueil à partir de vos documents internes — sécurité, EPI et parcours d’intégration à valider.',
   'tuto-skill-metre-excel-ofc':
@@ -225,6 +229,7 @@ const TUTO_SAFETY: Partial<Record<string, RessourceSafetyLevel>> = {
   'tuto-skill-recouvrement-rg-ofc': 'verification_professionnelle',
   'tuto-skill-planning-ofc': 'verification_professionnelle',
   'tuto-skill-dc4-ofc': 'verification_professionnelle',
+  'tuto-skill-soged-ofc': 'verification_professionnelle',
   'tuto-skill-chiffrage-devis-ofc': 'verification_professionnelle',
   'tuto-skill-analyse-ccap-ofc': 'verification_professionnelle',
   'tuto-skill-analyse-cctp-ofc': 'verification_professionnelle',

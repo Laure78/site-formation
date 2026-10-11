@@ -438,6 +438,14 @@ export const LINKS = {
   tutoSkillDc4Ofc: '/ressources/tuto-skill-dc4-ofc',
   /** PDF — tuto skill DC4 OFC */
   pdfTutoSkillDc4Ofc: '/ressources/pdf/tuto-skill-dc4-ofc.pdf',
+  /** Tuto — skill SOGED (gestion des déchets de chantier) */
+  tutoSkillSogedOfc: '/ressources/tuto-skill-soged-ofc',
+  /** PDF — tuto skill SOGED OFC */
+  pdfTutoSkillSogedOfc: '/ressources/pdf/tuto-skill-soged-ofc.pdf',
+  /** Tuto — skill préparation RDV client (OFC) */
+  tutoSkillRdvClientOfc: '/ressources/tuto-skill-rdv-client-ofc',
+  /** PDF — tuto skill RDV client OFC */
+  pdfTutoSkillRdvClientOfc: '/ressources/pdf/tuto-skill-rdv-client-ofc.pdf',
   /** Tuto — skill métré Excel (quantités traçables, DPGF) */
   tutoSkillMetreExcelOfc: '/ressources/tuto-skill-metre-excel-ofc',
   /** PDF — tuto skill métré Excel OFC */

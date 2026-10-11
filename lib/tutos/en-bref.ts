@@ -73,6 +73,16 @@ export const TUTO_EN_BREF: Readonly<Record<string, readonly string[]>> = {
     'Le tuto vise environ 12 minutes par DC4, contre environ 2 heures manuelles, avec mail de transmission à l’acheteur.',
     'Outil : skill Claude ; vous contrôlez montants, SIRET et RIB avant signature et envoi.',
   ],
+  'tuto-skill-soged-ofc': [
+    'Vous créez un skill Claude qui rédige un SOGED à partir de vos ratios, filières et du cadre AGEC / REP Bâtiment / Trackdéchets.',
+    'Le tuto vise environ 12 minutes par SOGED, contre environ 3 heures manuelles, avec livrable Word.',
+    'Outil : skill Claude ; vous relisez et signez — Trackdéchets reste sur la plateforme officielle.',
+  ],
+  'tuto-skill-rdv-client-ofc': [
+    'Vous créez un skill Claude qui produit brief contact, ordre du jour, questions de découverte et trame de compte rendu.',
+    'Le tuto vise environ 15 minutes de préparation par RDV, contre environ 2 heures manuelles.',
+    'Outil : skill Claude ; vous validez actions et date de relance avant envoi.',
+  ],
   'tuto-pv-levee-reserves': [
     'Le skill rédige un PV de levée de réserves à structure juridique, à partir de vos interventions et références.',
     'Gain annoncé : environ 3 minutes de rédaction assistée, au lieu d’environ 30 minutes.',

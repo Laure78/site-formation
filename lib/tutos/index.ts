@@ -22,6 +22,8 @@ import { TUTO_SKILL_MEMOIRE_RECLAMATION_BEWORK } from './tuto-skill-memoire-recl
 import { TUTO_SKILL_RECOUVREMENT_RG_OFC } from './tuto-skill-recouvrement-rg-ofc';
 import { TUTO_SKILL_PLANNING_OFC } from './tuto-skill-planning-ofc';
 import { TUTO_SKILL_DC4_OFC } from './tuto-skill-dc4-ofc';
+import { TUTO_SKILL_SOGED_OFC } from './tuto-skill-soged-ofc';
+import { TUTO_SKILL_RDV_CLIENT_OFC } from './tuto-skill-rdv-client-ofc';
 import { TUTO_SKILL_METRE_EXCEL_OFC } from './tuto-skill-metre-excel-ofc';
 import { TUTO_SKILL_CHIFFRAGE_DEVIS_OFC } from './tuto-skill-chiffrage-devis-ofc';
 import { TUTO_SKILL_ANALYSE_CCAP_OFC } from './tuto-skill-analyse-ccap-ofc';
@@ -44,9 +46,11 @@ export const TUTOS: ReadonlyArray<TutoData> = [
   TUTO_SKILL_DIUO_OFC,
   TUTO_PV_LEVEE_RESERVES,
   TUTO_PPSPS,
+  TUTO_SKILL_SOGED_OFC,
   TUTO_DUERP,
   TUTO_SKILL_LIVRET_INTEGRATION_OFC,
   TUTO_CONSTAT_RETARD,
+  TUTO_SKILL_RDV_CLIENT_OFC,
   TUTO_DISPATCH_BTP,
 ];
 

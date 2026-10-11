@@ -38,6 +38,10 @@ const TUTO_SHORT_SUMMARY: Record<string, string> = {
     'Recalage de planning chantier : chemin critique, aléas et note d’impact Excel.',
   'tuto-skill-dc4-ofc':
     'DC4 / acte spécial : rubriques, pièces, paiement direct et mail acheteur.',
+  'tuto-skill-soged-ofc':
+    'SOGED : plan déchets chantier, filières, AGEC, REP Bâtiment et Trackdéchets.',
+  'tuto-skill-rdv-client-ofc':
+    'Préparation RDV client : brief, ordre du jour, arguments et compte rendu.',
   'tuto-pv-levee-reserves': 'PV de levée de réserves prêts à signer.',
   'tuto-ppsps': 'PPSPS complet à partir de 10 lignes de description chantier.',
   'tuto-duerp': 'DUERP BTP avec plan d\'actions priorisé.',
