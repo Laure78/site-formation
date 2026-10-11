@@ -39,6 +39,7 @@ import { getFAQSchema, SITE_CONFIG, sitePhoneDisplaySuffix } from '@/lib/seo';
 export const revalidate = 3600;
 
 export const metadata = createMetierBtpPageMetadata('menuiserie', {
+  preferCustomTitle: true,
   title: MENUISERIE_SEO.title,
   description: MENUISERIE_SEO.description,
   descriptionFinal: true,

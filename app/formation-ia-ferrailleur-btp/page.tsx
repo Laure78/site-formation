@@ -23,7 +23,8 @@ export const revalidate = 3600;
 const PATH = '/formation-ia-ferrailleur-btp';
 
 export const metadata = createMetierBtpPageMetadata('ferrailleur', {
-  title: 'IA ferrailleur : plans, devis et bons de commande',
+  preferCustomTitle: true,
+  title: 'IA ferrailleur BTP : plans et devis',
   description:
     'Formation IA ferrailleur BTP : structurer plans, devis et bons de commande acier, sous relecture métier. Formation IA pour le BTP. Présentiel IDF, Qualiopi.',
   descriptionFinal: true,

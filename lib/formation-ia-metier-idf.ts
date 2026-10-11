@@ -40,10 +40,22 @@ export function withMetierBtpIdfTitle(
   };
 }
 
-/** Métadonnées page métier + titre IDF si ≤ 60 car. */
+type MetierBtpMetadataInput = Parameters<typeof buildMetadata>[0] & {
+  /**
+   * Conserve le title / titleAbsolute fourni (bénéfice + mot-clé).
+   * Sinon, si « Formation IA {métier} BTP en Île-de-France | Laure Olivié » tient
+   * en ≤ 60 car., ce titre IDF générique remplace le title custom.
+   */
+  preferCustomTitle?: boolean;
+};
+
+/** Métadonnées page métier + titre IDF si ≤ 60 car. (sauf `preferCustomTitle`). */
 export function createMetierBtpPageMetadata(
   metierNomTitre: string,
-  input: Parameters<typeof buildMetadata>[0],
+  input: MetierBtpMetadataInput,
 ): Metadata {
-  return withMetierBtpIdfTitle(buildMetadata(input), metierNomTitre);
+  const { preferCustomTitle, ...metadataInput } = input;
+  const meta = buildMetadata(metadataInput);
+  if (preferCustomTitle) return meta;
+  return withMetierBtpIdfTitle(meta, metierNomTitre);
 }

@@ -34,7 +34,7 @@ export const MENUISERIE_SOURCES_OFFICIELLES = [
 ] as const;
 
 export const MENUISERIE_SEO = {
-  title: 'IA menuiserie : intérieur, extérieur, agencement',
+  title: 'IA menuiserie : devis et agencement',
   description:
     'Formation IA menuiserie et agencement : devis, relevés, CCTP et suivi pose sous validation métier. Formation IA pour le BTP. Présentiel IDF, Qualiopi.',
   h1: 'Formation IA pour les entreprises de menuiserie et d’agencement',

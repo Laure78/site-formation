@@ -34,7 +34,8 @@ import { getFAQSchema, SITE_CONFIG, sitePhoneDisplaySuffix } from '@/lib/seo';
 
 export const revalidate = 3600;
 
-export const metadata = createMetierBtpPageMetadata('achats BTP', {
+export const metadata = createMetierBtpPageMetadata('achats', {
+  preferCustomTitle: true,
   title: ACHATS_SEO.title,
   description: ACHATS_SEO.description,
   descriptionFinal: true,

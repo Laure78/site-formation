@@ -36,6 +36,7 @@ import { getFAQSchema, SITE_CONFIG, sitePhoneDisplaySuffix } from '@/lib/seo';
 export const revalidate = 3600;
 
 export const metadata = createMetierBtpPageMetadata('QSE prévention', {
+  preferCustomTitle: true,
   title: QSE_PREVENTION_SEO.title,
   description: QSE_PREVENTION_SEO.description,
   descriptionFinal: true,

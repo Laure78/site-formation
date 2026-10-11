@@ -16,10 +16,10 @@ export const FORMATION_IA_APPELS_OFFRES_BTP_CONFIG: SeoClusterPageConfig = {
   path: FORMATION_IA_APPELS_OFFRES_BTP_PATH,
   seo: {
     title: 'IA appels d\'offres BTP : DCE et mémoire',
-    titleAbsolute: 'IA appels d\'offres BTP : DCE et mémoire technique | Laure Olivié',
+    titleAbsolute: 'IA appels d\'offres BTP : DCE et mémoire | Laure Olivié',
     description:
       'Formation IA appels d’offres BTP : DCE, CCTP et mémoire technique plus clairs, sous relecture métier. Formation IA pour le BTP. Présentiel IDF, Qualiopi.',
-    openGraphTitle: 'IA appels d\'offres BTP : DCE et mémoire technique',
+    openGraphTitle: 'IA appels d\'offres BTP : DCE et mémoire',
     keywords: [
       'formation IA appels d\'offres BTP',
       'formation ChatGPT appels d\'offres BTP',

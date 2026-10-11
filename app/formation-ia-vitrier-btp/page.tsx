@@ -23,9 +23,10 @@ export const revalidate = 3600;
 const PATH = '/formation-ia-vitrier-btp';
 
 export const metadata = createMetierBtpPageMetadata('vitrier', {
-  title: 'IA vitrier : devis vitrage et relevés BTP',
+  preferCustomTitle: true,
+  title: 'IA vitrier : devis vitrage et relevés',
   description:
-    'Formation IA vitrier BTP : devis vitrage, relevés et réponses clients plus clairs, sous contrôle. Formation IA pour le BTP. Présentiel IDF, Qualiopi.',
+    'Formation IA vitrier BTP : devis vitrage, relevés et réponses clients plus clairs, sous contrôle métier. Formation IA pour le BTP. Présentiel IDF, Qualiopi.',
   descriptionFinal: true,
   path: PATH,
   keywords: [

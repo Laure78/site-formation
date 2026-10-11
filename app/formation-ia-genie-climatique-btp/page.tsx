@@ -35,6 +35,7 @@ import { getFAQSchema, SITE_CONFIG, sitePhoneDisplaySuffix } from '@/lib/seo';
 export const revalidate = 3600;
 
 export const metadata = createMetierBtpPageMetadata('génie climatique', {
+  preferCustomTitle: true,
   title: GENIE_CLIMATIQUE_SEO.title,
   description: GENIE_CLIMATIQUE_SEO.description,
   descriptionFinal: true,

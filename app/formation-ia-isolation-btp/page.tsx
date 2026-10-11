@@ -36,6 +36,7 @@ import { getFAQSchema, SITE_CONFIG, sitePhoneDisplaySuffix } from '@/lib/seo';
 export const revalidate = 3600;
 
 export const metadata = createMetierBtpPageMetadata('isolation', {
+  preferCustomTitle: true,
   title: ISOLATION_SEO.title,
   description: ISOLATION_SEO.description,
   descriptionFinal: true,

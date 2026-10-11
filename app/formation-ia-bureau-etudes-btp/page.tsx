@@ -35,6 +35,7 @@ import { getFAQSchema, SITE_CONFIG, sitePhoneDisplaySuffix } from '@/lib/seo';
 export const revalidate = 3600;
 
 export const metadata = createMetierBtpPageMetadata("bureau d'études", {
+  preferCustomTitle: true,
   title: BUREAU_ETUDES_SEO.title,
   description: BUREAU_ETUDES_SEO.description,
   descriptionFinal: true,
