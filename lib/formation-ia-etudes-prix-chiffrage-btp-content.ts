@@ -9,16 +9,16 @@ import type { FAQItem } from '@/lib/faq';
 export const ETUDES_PRIX_CHIFFRAGE_PATH = LINKS.formationIaEtudesPrixChiffrageBtp;
 
 export const ETUDES_PRIX_SEO = {
-  title: 'Programme IA études de prix BTP (4 h)',
+  title: 'IA études de prix BTP : DPGF et chiffrage',
   description:
-    "Programme IA études de prix BTP (4 h) : DPGF, métrés et BPU assistés par l'IA, validation métier obligatoire. Présentiel IDF, Qualiopi, OPCO selon éligibilité.",
+    'Formation IA études de prix BTP : DPGF, métrés et BPU assistés, validation métier obligatoire. Formation IA pour le BTP. Présentiel IDF, Qualiopi.',
   h1: 'Programme : études de prix et chiffrage BTP avec l’IA (4 h)',
   openGraphTitle: 'Programme IA études de prix BTP (4 h)',
 } as const;
 
 export const ETUDES_PRIX_EN_BREF = [
-  `Session ${SESSION_DUREE_LIBELLE} en présentiel en Île-de-France : ChatGPT et Claude pour structurer métrés, quantitatifs, contrôles DPGF/DQE et vérification de bordereaux BPU.`,
-  'L’IA accélère la mise en forme, la relecture croisée et la détection d’incohérences — vous validez unités, ratios et sous-détail de prix avant diffusion.',
+  `Programme catalogue ${SESSION_DUREE_LIBELLE} en présentiel Île-de-France : ChatGPT et Claude pour structurer métrés, quantitatifs, contrôles DPGF/DQE et vérification de bordereaux BPU.`,
+  'Complète les landings métier : métreur (quotidien métrés/DPGF) et bureau d’études (lecture DCE / exigences) — ici, session structurée de chiffrage sous validation humaine.',
   `Organisme certifié Qualiopi — ${libelleTarifsDualCourt(4)} — financement OPCO possible selon éligibilité.`,
 ] as const;
 
@@ -38,6 +38,10 @@ export const ETUDES_PRIX_CAS_USAGE = [
   {
     titre: 'Préparer une synthèse DQE',
     desc: 'Produire une note de ratio et d’écarts pour réunion interne — validation humaine obligatoire.',
+  },
+  {
+    titre: 'Hypothèses et clarifications (angle BE)',
+    desc: 'Lister hypothèses de chiffrage et questions au MOE avant offre — complété sur la page bureau d’études.',
   },
 ] as const;
 

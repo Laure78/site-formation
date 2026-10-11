@@ -3,94 +3,83 @@ import { LINKS } from '@/lib/internal-links';
 import { buildMetierAllerPlusLoinLinks } from '@/lib/metier-aller-plus-loin';
 import { CTA_RDV_LABEL, CtaRdv } from '@/components/CtaRdv';
 import Link from 'next/link';
-import { ArrowRight, Check, Phone } from 'lucide-react';
+import { Check } from 'lucide-react';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
 import { PreuveSociale } from '@/components/PreuveSociale';
 import { LiensConnexes } from '@/components/LiensConnexes';
 import { RdvLink } from '@/components/RdvLink';
 import { ShortAnswerBlock } from '@/components/landing/ShortAnswerBlock';
-import { createPageMetadata, getFAQSchema, SITE_CONFIG, sitePhoneDisplaySuffix } from '@/lib/seo';
-import { buildSiteCalendlyCtaUrl } from '@/lib/calendly';
+import { getFAQSchema, SITE_CONFIG, sitePhoneDisplaySuffix } from '@/lib/seo';
 import { PublicPhoneCta } from '@/components/PublicPhoneCta';
-import { SOCIAL_PROOF } from '@/lib/constants';
 import { JsonLd } from '@/components/JsonLd';
 import { LaureOlivieFormationPortrait } from '@/components/laure-olivie/LaureOlivieFormationPortrait';
 import { MetierIdfPresentielLine } from '@/components/formation-ia-metier/MetierIdfPresentielLine';
 import { createMetierBtpPageMetadata } from '@/lib/formation-ia-metier-idf';
 
 import { RenvoiFicheCatalogue } from '@/components/qualiopi/RenvoiFicheCatalogue';
+import { DisclaimerGains } from '@/components/formation/DisclaimerGains';
 
 export const revalidate = 3600;
 const PATH = '/formation-ia-ferrailleur-btp';
 
 export const metadata = createMetierBtpPageMetadata('ferrailleur', {
-  title: 'Formation IA Ferrailleur BTP Île-de-France',
+  title: 'IA ferrailleur : plans, devis et bons de commande',
   description:
-    'Optimisez calculs d\'armatures, factures et devis acier-béton avec ChatGPT. Formation IA Qualiopi pour le BTP. Visio découverte gratuite.',
+    'Formation IA ferrailleur BTP : structurer plans, devis et bons de commande acier, sous relecture métier. Formation IA pour le BTP. Présentiel IDF, Qualiopi.',
+  descriptionFinal: true,
   path: PATH,
   keywords: [
     'formation IA ferrailleur BTP',
-    'ChatGPT armatures béton armé',
-    'IA tonnage acier ferraillage',
-    'devis ferraillage IA',
+    'ChatGPT ferraillage BTP',
+    'IA devis ferraillage',
+    'assistant IA armaturier',
     'formation IA Île-de-France BTP',
-    'armaturier assistant IA',
     'OPCO Constructys ferrailleur',
     'Qualiopi ferraillage',
   ],
   openGraphType: 'website',
 });
 
-const PROMPT_FERRAILLAGE = `"Calcule le tonnage d'armatures pour ce ferraillage béton :
+/** Prompt documentaire — pas de calcul de tonnage ni de chutes inventées par l’IA. */
+const PROMPT_FERRAILLAGE = `Tu es assistant documentaire pour un ferrailleur / armaturier BTP.
+À partir des éléments que je décris (extrait de plan BET, notes chantier), tu structures un dossier de travail — tu ne calcules pas de tonnage, tu n’inventes pas de diamètres, d’espacements ni de chutes.
 
-DALLE / ÉLÉMENT : [description : dalle, poteau, poutre, voile...]
-Dimensions : [longueur x largeur x épaisseur ou diamètre]
+ÉLÉMENT / ZONE : [dalle, poutre, poteau, voile…]
+SOURCE : [réf. plan BET / révision / date]
+DONNÉES FOURNIES PAR MOI (recopier, ne pas compléter) :
+- Diamètres / types : […]
+- Espacements / nappes : […]
+- Quantités ou tonnages déjà validés par moi ou le BET : […]
+- Points d’attention chantier : […]
 
-ARMATURES :
-- Lit inférieur : [diamètre HA + espacement l/l et t/t]
-- Lit supérieur : [diamètre HA + espacement l/l et t/t]
-- Chaînes/renforts : [HA + espacement + dimensions]
-- Armatures d'effort : [treillis ou armatures spéciales si applicable]
+LIVRABLES (brouillon uniquement) :
+1) Checklist des familles d’armatures à suivre (grille HA, chaînes, renforts…)
+2) Tableau vide à remplir : famille | diamètre | quantité/tonnage (à saisir) | fournisseur | statut
+3) Points de relecture avant commande (jonctions, surlongueurs, variantes)
+4) Brouillon de message fournisseur (sans prix ni quantités inventées)
 
-DONNÉES :
-- Masse volumique acier : 7,85 kg/dm³
-- Chutes estimées : 8% (scies, pliages) — à ajuster selon votre chantier
-- Prix unitaire acier : [X € le kg] en Île-de-France
-
-CALCULE :
-1) Tonnage brut par type d'armature
-2) Chutes appliquées
-3) Tonnage net à commander
-4) Coût matière total
-5) Ajoute frais de façonnage : [Y € la tonne]
-6) Devis final avec marge 25%
-
-Rappel : tonnage et conformité réglementaire engageant la responsabilité = validation par le professionnel ou le BET selon le projet."`;
+Rappel : tonnage, conformité Eurocode/DTU et engagement commercial = validation professionnelle / BET.`;
 
 const FAQ_ITEMS = [
   {
-    q: 'ChatGPT peut-il vraiment calculer le tonnage d’armatures sans erreur ?',
-    a: "Si vous fournissez des paramètres complets et cohérents (diamètres, espacements, dimensions), l'IA peut produire un brouillon de calcul géométrique utile. Elle peut aussi se tromper ou simplifier à l'excès. Les cas complexes (torsion, renforts particuliers, zones sismiques) exigent votre expertise : relisez systématiquement avant commande ou engagement.",
+    q: 'ChatGPT peut-il calculer le tonnage d’armatures à ma place ?',
+    a: 'Non de façon fiable pour un engagement. L’IA peut structurer une checklist et un tableau à partir des données que vous saisissez ; le tonnage, les chutes et la conformité restent à votre charge ou à celle du BET.',
   },
   {
-    q: 'L’IA connaît les règles DTU / Eurocodes pour les espacements d’armatures ?',
-    a: "Vous pouvez demander des rappels de principes et des références documentaires. Toujours croiser avec les textes en vigueur, les DTU / Eurocode 2 applicables et le plan de ferraillage validé. L'IA peut halluciner une règle : la validation par un professionnel reste obligatoire.",
+    q: 'À quoi sert l’IA pour un ferrailleur alors ?',
+    a: 'À gagner du temps sur la mise en forme : synthèse de plan décrit, brouillon de devis à partir de vos lignes, bons de commande structurés, suivi des variantes — toujours sous relecture métier.',
   },
   {
-    q: 'Comment gérer les chutes d’acier de façon réaliste ?',
-    a: "Indiquez un pourcentage de chutes dans le prompt (souvent 7 à 10 % selon façonnage et chantier). Ajustez selon votre retour d'expérience : l'IA applique ce que vous lui donnez, pas la réalité terrain à votre place.",
+    q: 'L’IA connaît les règles DTU / Eurocodes pour le ferraillage ?',
+    a: 'Elle peut reformuler des rappels généraux. Toujours croiser avec les textes en vigueur et le plan de ferraillage validé : l’IA peut halluciner une règle.',
   },
   {
     q: 'Et si le plan de ferraillage change en cours de chantier ?',
-    a: "Vous mettez à jour le prompt avec les nouvelles données : l'IA recalcule un brouillon rapidement. Vous validez les impacts sur tonnage, délais et avenants avant signature.",
+    a: 'Vous mettez à jour votre dossier documentaire (prompt + tableaux) avec les nouvelles données validées. L’IA aide à reformuler l’avenant ou le bon de commande — pas à recalculer à l’aveugle.',
   },
   {
-    q: 'Faut-il maîtriser la CAO ou le BIM pour utiliser l’IA ?',
-    a: "Non pour les usages texte : vous lisez le plan PDF, identifiez les armatures et saisissez les dimensions. Avec un abonnement adapté, certaines interfaces permettent d'appuyer l'analyse sur une image — toujours sous votre contrôle.",
-  },
-  {
-    q: 'Quel est le coût réel de ChatGPT pour un ferrailleur ?',
-    a: "Il existe une offre gratuite (limitée) et des abonnements payants selon les besoins (dont vision / fichiers). Comparez le coût mensuel au temps gagné sur les quantitatifs et devis.",
+    q: 'Quelle formation si je suis plutôt gros œuvre que ferraillage pur ?',
+    a: 'La formation IA gros œuvre BTP (lien en bas de page) couvre un angle plus large : béton, planning et documents de chantier. Ici l’angle reste ferraillage / armatures.',
   },
   {
     q: 'Ma formation IA est-elle finançable si je suis ferrailleur (OPCO BTP) ?',
@@ -99,8 +88,8 @@ const FAQ_ITEMS = [
 ];
 
 const SOMMAIRE = [
-  { href: '#le-probleme', label: 'Le problème : pourquoi les ferrailleurs perdent du temps' },
-  { href: '#la-solution', label: 'La solution : l’IA adaptée aux ferrailleurs' },
+  { href: '#le-probleme', label: 'Le problème : paperasse et plans à structurer' },
+  { href: '#la-solution', label: 'La solution : l’IA documentaire pour ferrailleurs' },
   { href: '#methode', label: 'Méthode pas à pas avec prompts ChatGPT' },
   { href: '#resultats', label: 'Résultats concrets et témoignages' },
   { href: '#faq', label: 'FAQ — questions des ferrailleurs sur l’IA' },
@@ -116,11 +105,11 @@ export default function FormationIaFerrailleurBtpPage() {
       <JsonLd id="schema-faq-page" schema={faqSchema} />
 
       <nav className="mb-8 text-sm text-slate-600">
-        <Link href="/" className="text-[var(--accent)] hover:underline">
+        <Link href={LINKS.home} className="text-[var(--accent)] hover:underline">
           Accueil
         </Link>
         {' / '}
-        <Link href="/formations" className="text-[var(--accent)] hover:underline">
+        <Link href={LINKS.formations} className="text-[var(--accent)] hover:underline">
           Formations
         </Link>
         {' / '}
@@ -131,19 +120,20 @@ export default function FormationIaFerrailleurBtpPage() {
         <MetierIdfPresentielLine className="mb-4" />
         <h1 className="font-display text-4xl font-bold tracking-tight text-slate-900 md:text-5xl">
           Formation IA pour ferrailleurs / armaturiers —{' '}
-          <span className="text-[var(--accent)]">gagnez environ 6 h par semaine</span>
+          <span className="text-[var(--accent)]">plans, devis et bons de commande</span>
         </h1>
         <PreuveSociale className="mt-6" />
         <p className="mt-6 text-xl text-slate-600">
-          Optimisez <strong>quantitatifs</strong>, <strong>factures</strong> et <strong>devis</strong> acier béton avec ChatGPT —{' '}
-          <strong>présentiel en Île-de-France</strong>. Formation dispensée par un organisme certifié <strong>Qualiopi</strong> — financement possible selon éligibilité.
+          Structurez <strong>synthèses de plans</strong>, <strong>brouillons de devis</strong> et{' '}
+          <strong>bons de commande</strong> acier avec ChatGPT — <strong>présentiel en Île-de-France</strong>. Formation
+          dispensée par un organisme certifié <strong>Qualiopi</strong> — financement OPCO possible selon éligibilité.
         </p>
 
         <div className="mt-8">
           <ShortAnswerBlock>
-            L’IA aide les ferrailleurs à structurer tonnages, tableaux et devis à partir de vos données ; elle ne remplace
-            ni le bureau d’études ni la validation des plans et des règles de ferraillage (Eurocodes, DTU applicables).
-            Temps gagné sur la mise en forme et les itérations — sous votre responsabilité technique.
+            L’IA aide les ferrailleurs à structurer dossiers, tableaux et devis à partir de vos données validées ; elle ne
+            remplace ni le bureau d’études ni le calcul de tonnage engageant, ni la conformité Eurocodes / DTU. Gain de
+            temps sur la mise en forme et les itérations — sous votre responsabilité technique.
           </ShortAnswerBlock>
         </div>
 
@@ -165,82 +155,71 @@ export default function FormationIaFerrailleurBtpPage() {
 
         <section id="le-probleme" className="scroll-mt-24 mt-14">
           <h2 className="font-display text-2xl font-bold text-slate-900">
-            Le problème : pourquoi les ferrailleurs perdent du temps
+            Le problème : paperasse et plans à structurer
           </h2>
           <p className="mt-4 text-slate-600 leading-relaxed">
-            Vous êtes ferrailleur, armaturier ou chef de ferraillage. Votre métier exige une grande précision : calcul du
-            tonnage d’acier, dimensionnement des armatures (HA, treillis, cadres), respect des diamètres et espacements,
-            pliage des barres, coupe d’armatures.
+            Vous êtes ferrailleur, armaturier ou chef de ferraillage. Sur chantier, la précision est non négociable :
+            diamètres, espacements, pliage, pose. Le tonnage engageant et la conformité restent du ressort du plan BET et
+            de votre validation — pas d’un outil grand public.
           </p>
           <p className="mt-4 text-slate-600 leading-relaxed">
-            Mais chaque semaine, c’est aussi : <strong>analyser les plans structure</strong> (souvent en PDF ou DWG),{' '}
-            <strong>calculer la quantité d’acier</strong> par niveau ou par élément, <strong>établir des factures et devis
-            détaillés</strong>, <strong>gérer les variations de prix</strong> de l’acier.
+            En parallèle, chaque semaine : <strong>lire les plans structure</strong> (PDF / DWG),{' '}
+            <strong>mettre en forme devis et factures</strong>, <strong>préparer bons de commande</strong>,{' '}
+            <strong>suivre variantes et avenants</strong> quand le plan évolue.
           </p>
           <p className="mt-4 text-slate-600 leading-relaxed">
-            <strong>Un ferrailleur passe souvent 7 à 10 heures par semaine</strong> sur les calculs quantitatifs et la
-            documentation, souvent le soir après la pose sur chantier.
+            C’est souvent ce travail documentaire — le soir après la pose — qui ralentit les dossiers, plus que la pose
+            elle-même. Une synthèse mal structurée ou un devis incomplet fait perdre du temps à toute l’équipe.
           </p>
           <p className="mt-4 text-slate-600 leading-relaxed">
-            Le pire ? <strong>Erreurs de calcul = surcoûts ou retards.</strong> Mal estimer le tonnage de cadres pour une
-            dalle, c’est soit sur-acheter, soit réapprovisionner en urgence. Un devis qui n’intègre pas les chutes (souvent 7
-            à 10 % du tonnage brut selon chantier), c’est de la marge perdue.
+            En Île-de-France et Grand Paris, les gros chantiers s’enchaînent. Sans trames stables, vous peinez à suivre
+            plusieurs dossiers en parallèle sans vous noyer dans l’administratif.
           </p>
           <p className="mt-4 text-slate-600 leading-relaxed">
-            En Île-de-France et Grand Paris, les gros chantiers arrivent régulièrement. Mais entre l’analyse des plans, le
-            calcul d’armatures et les factures à établir, vous ne pouvez parfois suivre que peu de gros dossiers en parallèle.{' '}
-            <strong>Vous pouvez laisser de l’argent sur la table par manque de temps administratif.</strong>
-          </p>
-          <p className="mt-4 text-slate-600 leading-relaxed">
-            <strong>La solution ?</strong> Utiliser l’IA comme assistant pour structurer tonnages, tableaux et devis plus
-            vite qu’à la main — tout en gardant la validation métier et le respect du plan de ferraillage validé.
+            <strong>La solution ?</strong> Utiliser l’IA comme assistant documentaire pour structurer plans décrits,
+            tableaux et brouillons de devis — tout en gardant le calcul de tonnage et la validation métier de votre côté.
           </p>
         </section>
 
         <section id="la-solution" className="scroll-mt-24 mt-14">
           <h2 className="font-display text-2xl font-bold text-slate-900">
-            La solution : l’IA adaptée aux ferrailleurs
+            La solution : l’IA documentaire pour ferrailleurs
           </h2>
           <p className="mt-4 text-slate-600 leading-relaxed">
-            ChatGPT peut servir d’assistant pour structurer quantitatifs, tonnages et brouillons de devis à partir des
-            paramètres que vous saisissez — pas pour se substituer au bureau d’études ni à la note de ferraillage signée
-            lorsque la réglementation l’exige.
+            ChatGPT sert d’assistant pour organiser checklists, tableaux et brouillons à partir des paramètres que vous
+            saisissez — pas pour se substituer au bureau d’études, ni pour inventer un tonnage ou des chutes.
           </p>
-          <p className="mt-4 font-medium text-slate-900">Quatre cas d’usage concrets observés en formation :</p>
+          <p className="mt-4 font-medium text-slate-900">Quatre cas d’usage concrets travaillés en formation :</p>
           <ul className="mt-6 space-y-4">
             <li className="flex gap-3 text-slate-700">
               <Check className="mt-0.5 h-5 w-5 shrink-0 text-[var(--accent)]" strokeWidth={1.5} />
               <span>
-                <strong>1. Analyser un plan de ferraillage et en extraire les quantités</strong> — vous disposez du plan BET
-                (PDF ou extrait). Vous décrivez l’élément : par exemple dalle 20 cm, 200 m², grillage HA10 espacé 20 cm en
-                l/l et t/t, chaînage HA16, etc. L’IA peut proposer un découpage en tonnages par famille (grillage, chaînes,
-                renforts) avec chutes indicatives (ex. 8 %) — à <strong>relire avant commande</strong>. Gain typique : environ
-                1 h à 1 h 30 par analyse selon dossiers.
+                <strong>1. Synthèse documentaire d’un plan de ferraillage</strong> — vous décrivez l’élément et les
+                armatures lues sur le plan BET. L’IA propose une checklist par famille (grillage, chaînes, renforts) et un
+                tableau à compléter avec vos quantités validées — à <strong>relire avant commande</strong>.
               </span>
             </li>
             <li className="flex gap-3 text-slate-700">
               <Check className="mt-0.5 h-5 w-5 shrink-0 text-[var(--accent)]" strokeWidth={1.5} />
               <span>
-                <strong>2. Structurer un devis ferraillage avec tarif tonnage</strong> — vous entrez tonnage et prix du kg
-                du jour. L’IA peut générer un brouillon : ventilation par diamètre (HA10, HA12, treillis…), coût matière,
-                main-d’œuvre (façonnage + pose), accessoires de chantier, totaux HT/TTC avec marges — souvent en une
-                quinzaine de minutes au lieu de plus d’une heure, sous votre validation.
+                <strong>2. Brouillon de devis à partir de vos lignes</strong> — vous fournissez tonnage / prix / postes déjà
+                validés. L’IA met en page la ventilation (diamètres, matière, façonnage, pose) — sous votre validation
+                commerciale et technique.
               </span>
             </li>
             <li className="flex gap-3 text-slate-700">
               <Check className="mt-0.5 h-5 w-5 shrink-0 text-[var(--accent)]" strokeWidth={1.5} />
               <span>
-                <strong>3. Suivre les variations de prix acier</strong> — vous centralisez votre tarif kg (ou barème) dans un
-                prompt ou modèle réutilisable : quand le cours change, vous mettez à jour une fois et vous recalculez vos
-                brouillons plus vite — sans oublier de revalider les hypothèses commerciales.
+                <strong>3. Mise à jour de barème et reformulation</strong> — vous centralisez votre tarif kg dans un modèle
+                réutilisable : quand le cours change, vous actualisez vos brouillons plus vite — sans oublier de revalider
+                les hypothèses.
               </span>
             </li>
             <li className="flex gap-3 text-slate-700">
               <Check className="mt-0.5 h-5 w-5 shrink-0 text-[var(--accent)]" strokeWidth={1.5} />
               <span>
-                <strong>4. Générer des bons de commande structurés</strong> — à partir du tonnage par type d’armature, l’IA
-                peut proposer un document prêt à envoyer à votre fournisseur habituel (diamètres, longueurs, quantités,
-                délai), en quelques minutes après relecture.
+                <strong>4. Bons de commande structurés</strong> — à partir des quantités que vous avez validées, l’IA
+                propose un document clair pour le fournisseur (diamètres, longueurs, quantités, délai), après relecture.
               </span>
             </li>
           </ul>
@@ -250,18 +229,18 @@ export default function FormationIaFerrailleurBtpPage() {
           <p className="font-medium text-slate-900">Aller plus loin</p>
           <p className="mt-2 text-slate-600">
             <CtaRdv variant="inline" origin="page-inline-rdv" className="font-semibold text-[var(--accent)] underline hover:no-underline" />{' '}
-            — Laure vous montre comment l’IA structure un quantitatif de ferraillage et un devis sur un cas type, financement
-            Constructys, programme 1 ou 2 jours.
+            — Laure vous montre comment l’IA structure un dossier ferraillage et un devis sur un cas type, financement
+            Constructys selon éligibilité, programme catalogue associé.
           </p>
         </aside>
 
         <section id="methode" className="scroll-mt-24 mt-14">
           <h2 className="font-display text-2xl font-bold text-slate-900">
-            Méthode pas à pas : automatiser le calcul d’armatures
+            Méthode pas à pas : structurer un dossier ferraillage avec l’IA
           </h2>
 
           <h3 className="mt-8 font-display text-xl font-semibold text-slate-900">
-            Étape 1 : créer votre template de calcul (prompt réutilisable)
+            Étape 1 : créer votre template documentaire (prompt réutilisable)
           </h3>
           <pre className="mt-4 overflow-x-auto whitespace-pre-wrap rounded-xl bg-slate-100 p-4 text-sm text-slate-800 leading-relaxed">
             {PROMPT_FERRAILLAGE}
@@ -271,24 +250,24 @@ export default function FormationIaFerrailleurBtpPage() {
             Étape 2 : récupérer le plan de ferraillage
           </h3>
           <p className="mt-3 text-slate-600 leading-relaxed">
-            Plan du BET : généralement PDF ou DWG avec les schémas par étage ou par élément. Vous en tirez les cotes et les
-            nappes d’armatures utiles à la description textuelle.
+            Plan du BET : généralement PDF ou DWG. Vous en tirez les éléments utiles à la description textuelle — sans
+            demander à l’IA d’inventer ce qui n’est pas sur le plan.
           </p>
 
           <h3 className="mt-8 font-display text-xl font-semibold text-slate-900">
             Étape 3 : remplir le prompt section par section
           </h3>
           <p className="mt-3 text-slate-600 leading-relaxed">
-            Vous listez chaque élément (dalles, poutres, poteaux…) avec ses armatures. Comptez souvent 10 à 15 minutes pour un
-            chantier simple — plus si le dossier est lourd.
+            Vous listez chaque élément (dalles, poutres, poteaux…) avec les armatures lues. Les quantités et tonnages
+            restent ceux que vous (ou le BET) avez validés.
           </p>
 
           <h3 className="mt-8 font-display text-xl font-semibold text-slate-900">
-            Étape 4 : générer tonnage et brouillon de devis
+            Étape 4 : générer checklist, tableau et brouillon de devis
           </h3>
           <p className="mt-3 text-slate-600 leading-relaxed">
-            L’IA produit des tableaux et des totaux à <strong>vérifier systématiquement</strong> (unités, recoupements,
-            surlongueurs, zones de jonction).
+            L’IA produit des tableaux et un brouillon à <strong>vérifier systématiquement</strong> (unités, recoupements,
+            surlongueurs, zones de jonction). Aucun total inventé ne doit partir tel quel en commande.
           </p>
 
           <h3 className="mt-8 font-display text-xl font-semibold text-slate-900">
@@ -303,76 +282,59 @@ export default function FormationIaFerrailleurBtpPage() {
         <section id="resultats" className="scroll-mt-24 mt-14">
           <h2 className="font-display text-2xl font-bold text-slate-900">Résultats concrets</h2>
           <p className="mt-4 text-slate-600 leading-relaxed">
-            Ordres de grandeur observés en formation avec des ferrailleurs en Île-de-France — variables selon l’entreprise et
-            le nombre de chantiers suivis :
+            Effets observés en formation avec des ferrailleurs en Île-de-France — variables selon l’entreprise et le volume
+            de dossiers. L’IA accélère surtout la mise en forme ; le calcul engageant reste humain.
           </p>
 
           <div className="mt-8 overflow-x-auto">
             <table className="w-full min-w-[560px] border-collapse text-left text-sm">
-              <caption className="sr-only">Temps avant et après usage de l’IA sur tâches courantes</caption>
+              <caption className="sr-only">Usages IA documentaires sur tâches ferraillage</caption>
               <thead>
                 <tr className="border-b border-slate-200 bg-slate-50">
                   <th className="p-3 font-semibold text-slate-900">Tâche</th>
-                  <th className="p-3 font-semibold text-slate-900">Avant IA</th>
-                  <th className="p-3 font-semibold text-slate-900">Après IA</th>
-                  <th className="p-3 font-semibold text-slate-900">Gain indicatif</th>
+                  <th className="p-3 font-semibold text-slate-900">Rôle de l’IA</th>
+                  <th className="p-3 font-semibold text-slate-900">Votre validation</th>
                 </tr>
               </thead>
               <tbody className="text-slate-700">
                 <tr className="border-b border-slate-100">
-                  <td className="p-3">Analyse plan de ferraillage</td>
-                  <td className="p-3">~1 h 30</td>
-                  <td className="p-3">~5 min</td>
-                  <td className="p-3">Fort</td>
+                  <td className="p-3">Synthèse plan de ferraillage</td>
+                  <td className="p-3">Checklist et structure</td>
+                  <td className="p-3">Lecture plan BET</td>
                 </tr>
                 <tr className="border-b border-slate-100">
-                  <td className="p-3">Calcul tonnage total</td>
-                  <td className="p-3">~1 h</td>
-                  <td className="p-3">~5 min</td>
-                  <td className="p-3">Fort</td>
+                  <td className="p-3">Tonnage / quantités</td>
+                  <td className="p-3">Tableau à compléter</td>
+                  <td className="p-3">Calcul métier / BET</td>
                 </tr>
                 <tr className="border-b border-slate-100">
-                  <td className="p-3">Génération devis ferraillage</td>
-                  <td className="p-3">~1 h 30</td>
-                  <td className="p-3">~15 min</td>
-                  <td className="p-3">Important</td>
+                  <td className="p-3">Brouillon devis ferraillage</td>
+                  <td className="p-3">Mise en page des postes</td>
+                  <td className="p-3">Prix, marges, engagement</td>
                 </tr>
                 <tr className="border-b border-slate-100">
-                  <td className="p-3">Approvisionnement (bons de commande)</td>
-                  <td className="p-3">~1 h</td>
-                  <td className="p-3">~10 min</td>
-                  <td className="p-3">Important</td>
+                  <td className="p-3">Bons de commande</td>
+                  <td className="p-3">Document structuré</td>
+                  <td className="p-3">Quantités et délais</td>
                 </tr>
-                <tr className="border-b border-slate-100">
-                  <td className="p-3">Mise à jour prix sur anciens devis</td>
-                  <td className="p-3">~45 min</td>
-                  <td className="p-3">Quelques min</td>
-                  <td className="p-3">Modéré à fort</td>
-                </tr>
-                <tr className="border-b border-slate-200 bg-slate-50 font-medium">
-                  <td className="p-3">Synthèse (ex. 3 à 4 chantiers / semaine)</td>
-                  <td className="p-3">Plusieurs heures</td>
-                  <td className="p-3">Réduit fortement</td>
-                  <td className="p-3">Variable (souvent plusieurs h / sem.)</td>
+                <tr className="border-b border-slate-200">
+                  <td className="p-3">Variantes / avenants</td>
+                  <td className="p-3">Reformulation claire</td>
+                  <td className="p-3">Impacts chantier</td>
                 </tr>
               </tbody>
             </table>
           </div>
-          <p className="mt-4 text-sm text-slate-500">
-            Les gains hebdomadaires dépendent du volume de dossiers et du temps de relecture que vous conservez. Aucun
-            résultat chiffré (CA, marge) n’est garanti.
-          </p>
+          <DisclaimerGains className="mt-4" />
           <p className="mt-6 text-slate-600 leading-relaxed">
-            <strong>Effet business possible (non garanti) :</strong> en libérant du temps sur le quantitatif et la paperasse,
-            certaines équipes peuvent suivre davantage de chantiers en parallèle ou réallouer des heures sur la pose — à
-            confirmer selon votre organisation.
+            En libérant du temps sur la paperasse, certaines équipes suivent plus sereinement plusieurs dossiers en
+            parallèle — à confirmer selon votre organisation. Aucun résultat CA ou marge n’est garanti.
           </p>
 
           <blockquote className="mt-10 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
             <p className="text-slate-700 italic leading-relaxed">
-              « Avant j’analysais les plans à la main, ça prenait des heures. Maintenant je structure le tonnage beaucoup plus
-              vite avec ChatGPT — j’ai pu enchaîner deux gros dossiers sans me noyer dans l’administratif. La différence sur
-              le temps passé, c’est très net. »
+              « Avant je perdais du temps à reformater plans et devis. Maintenant ChatGPT m’aide à structurer le dossier —
+              le tonnage, je le valide toujours de mon côté. Sur l’administratif, la différence est nette. »
             </p>
             <footer className="mt-4 text-sm font-medium text-slate-900">
               — Chef ferraillage, FFB Île-de-France (témoignage de formation)
@@ -399,12 +361,12 @@ export default function FormationIaFerrailleurBtpPage() {
           <h2 className="font-display text-2xl font-bold">Visio découverte gratuite (30 min)</h2>
           <p className="mt-4 text-blue-100 leading-relaxed">
             Ferrailleur, armaturier ou chef de ferraillage en Île-de-France : vérifier si l’IA vous fait gagner du temps sur
-            plans et quantitatifs — sans engagement.
+            la structuration des plans, devis et bons de commande — sans engagement.
           </p>
           <ul className="mt-6 space-y-2 text-blue-100">
-            <li>Comment ChatGPT peut structurer un plan de ferraillage décrit en direct (tonnage par famille d’armatures)</li>
+            <li>Comment ChatGPT structure un dossier ferraillage décrit en direct (checklist par famille d’armatures)</li>
             <li>Parcours type pour un brouillon de devis — toujours sous votre validation</li>
-            <li>Financement Constructys et format (1 ou 2 jours, inter / intra)</li>
+            <li>Financement Constructys selon éligibilité et format catalogue</li>
           </ul>
           <div className="mt-8 flex flex-wrap gap-4">
             <RdvLink
@@ -413,7 +375,7 @@ export default function FormationIaFerrailleurBtpPage() {
              />
             <PublicPhoneCta className="inline-flex items-center gap-2 rounded-xl border-2 border-white px-6 py-3 font-semibold text-white hover:bg-white/10" />
             <Link
-              href="/contact"
+              href={LINKS.contact}
               className="inline-flex items-center gap-2 rounded-xl border-2 border-white px-6 py-3 font-semibold text-white hover:bg-white/10"
             >
               Contact
@@ -440,13 +402,18 @@ export default function FormationIaFerrailleurBtpPage() {
 
         <LiensConnexes
           currentPath={PATH}
-          excludeHrefs={['/formations', '/formation-ia-charpentier-btp', '/formation-ia-macon-btp', '/financement-constructys-formation-ia-btp']}
+          excludeHrefs={[
+            LINKS.formations,
+            LINKS.formationIaGrosOeuvreBtp,
+            LINKS.formationIaMaconBtp,
+            LINKS.financement,
+          ]}
           />
 
         <AllerPlusLoin
           links={buildMetierAllerPlusLoinLinks(
             [
-            { href: LINKS.formationIaCharpentierBtp, label: 'Formation IA charpentier BTP' },
+            { href: LINKS.formationIaGrosOeuvreBtp, label: 'Formation IA gros œuvre BTP' },
             { href: LINKS.formationIaMaconBtp, label: 'Formation IA maçon BTP' },
             ],
             { rdvLabel: CTA_RDV_LABEL },

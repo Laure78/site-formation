@@ -8,44 +8,51 @@ export const FORMATION_IA_CHEF_CHANTIER_TP_PATH =
   '/formation-ia-chef-chantier-tp' as const;
 
 export const FORMATION_IA_CHEF_CHANTIER_TP_SEO = {
-  title: 'Formation IA Chef Chantier TP Île-de-France',
+  title: 'IA chef de chantier : rapport et coordination',
   description:
-    'Formation IA chef de chantier TP : rapports, mails ST, variations CCTP et PPSPS. Présentiel IDF, Qualiopi, Constructys selon éligibilité. Visio découverte.',
-  h1: 'Formation IA pour chefs de chantier TP',
+    'Formation IA chef de chantier : notes vocales en rapport journalier, suivi équipes et matériel. Formation IA pour le BTP. Présentiel IDF, Qualiopi.',
+  h1: 'Formation IA pour chefs de chantier (TP & chantier)',
 } as const;
 
 export const CHEF_CHANTIER_EN_BREF = [
-  'Cette formation vous apprend à utiliser ChatGPT et Claude comme assistants opérationnels : rapports d’avancement, coordination sous-traitants, variations CCTP et checklists sécurité.',
+  'Cette formation vous apprend à utiliser ChatGPT et Claude comme assistants opérationnels : notes vocales transformées en rapport journalier, coordination sous-traitants, besoins matériels, remontée des difficultés et checklists sécurité.',
   'L’IA ne remplace ni votre autorité de chantier ni les documents réglementaires (PPSPS, plans de prévention) : elle accélère la mise en forme — vous validez avant diffusion.',
   'Sessions en présentiel Île-de-France / Grand Paris, organisme Qualiopi ; financement OPCO Constructys possible selon éligibilité.',
 ] as const;
 
 export const CHEF_CHANTIER_USE_CASES = [
   {
-    title: 'Rapport d’avancement quotidien',
-    body: 'Transformer notes terrain (linéaires, m³, équipes, obstacles) en synthèse lisible pour MOA / MOE : avancement vs planning, points à escalader.',
+    title: 'Notes vocales → rapport journalier',
+    body: 'Dicter en fin de journée (équipes, linéaires, m³, aléas) puis structurer un rapport lisible pour MOA / MOE : avancement vs planning, points à escalader. Relecture obligatoire.',
   },
   {
-    title: 'Mails de coordination sous-traitants',
-    body: 'Relances, demandes d’action, interfaces lots : ton professionnel, dates et responsabilités explicites, prêt à relire et envoyer.',
+    title: 'Suivi des équipes et interfaces',
+    body: 'Synthèse des effectifs présents, qualifications, co-activité et relances ST : dates, responsabilités et prochaines actions — ton professionnel, prêt à relire.',
+  },
+  {
+    title: 'Besoins matériels et approvisionnement',
+    body: 'Transformer une liste orale ou un carnet en demande structurée (quantités, délais, zone) — sans inventer de stocks ni de prix fournisseurs.',
+  },
+  {
+    title: 'Remontée des difficultés terrain',
+    body: 'Formuler clairement obstacles, impacts planning et demandes d’arbitrage (gaz non prévu, accès, intempéries) pour la direction travaux ou le CDT.',
   },
   {
     title: 'Compte rendu de réunion chantier',
     body: 'Structurer décisions, actions, responsables et échéances à partir de notes ou d’une dictée — relecture humaine avant envoi.',
   },
-  {
-    title: 'Variation CCTP / demande de prolongation',
-    body: 'Brouillon d’analyse technique indicative, calculs à partir de vos PU, courrier factuel — validation direction et BE obligatoires.',
-  },
-  {
-    title: 'Rappels sécurité (complément PPSPS)',
-    body: 'Checklist opérationnelle affichable chantier : ne remplace jamais le PPSPS ni le plan de prévention du responsable désigné.',
-  },
-  {
-    title: 'Synthèse d’écarts planning',
-    body: 'Comparer situation prévue / réelle, formuler points de vigilance et messages aux équipes — à partir des chiffres que vous fournissez.',
-  },
 ] as const;
+
+/** Exemple pédagogique fictif — ne pas présenter comme un cas client réel. */
+export const CHEF_CHANTIER_EXEMPLE_FICTIF = {
+  titre: 'Exemple pédagogique fictif — journée canalisation EU',
+  contexte:
+    'Chef de chantier fictif, marché eau en zone périurbaine. Dictée brute : « 180 m posés, zone B à 70 %, apprenti + 2 canalisateurs, pluie le matin, regard gaz découvert — GrDF rappelé, équipe renvoyée sur zone A. Demain besoin 40 m PVC + jointures. »',
+  livrableIa:
+    'Rapport journalier structuré (avancement, équipes, sécurité, obstacles, besoins matériels, points à escalader) + brouillon de mail à la direction travaux.',
+  controleHumain:
+    'Vérifier linéaires et stocks réels, ne pas inventer d’incident, faire valider toute mention contractuelle ou sécurité avant envoi.',
+} as const;
 
 export const CHEF_CHANTIER_PUBLIC = [
   'Chefs de chantier travaux publics',
@@ -74,6 +81,22 @@ export const CHEF_CHANTIER_PROGRAMME = [
     body: 'Rapports d’avancement, mails ST, CR de réunion, variations CCTP, checklists sécurité complémentaires au PPSPS.',
   },
 ] as const;
+
+export const PROMPT_NOTES_VOCALES_CHEF = `Tu es assistant rédaction pour un chef de chantier TP en France.
+
+Voici la transcription (ou notes) de ma dictée de fin de journée — données fictives ou anonymisées :
+[Coller la dictée]
+
+Produis un RAPPORT JOURNALIER avec :
+1. Résumé avancement (linéaires / m³ / % vs prévu — uniquement chiffres fournis)
+2. Équipes présentes et rôles
+3. Besoins matériels remontés (liste, sans inventer de stocks)
+4. Difficultés / aléas et impacts potentiels
+5. Sécurité : faits mentionnés uniquement (pas d'incident inventé)
+6. Points à escalader (décision direction / MOE / concessionnaire)
+7. Prévision lendemain (si indiquée)
+
+Règles : ne pas inventer de quantités ; marquer [À CONFIRMER] si ambigu ; rappeler que le document est un brouillon sous validation du chef de chantier.`;
 
 export const PROMPT_RAPPORT_CHEF = `Crée un rapport d'avancement chantier TP pour ce jour (Grand Paris, marché public eau/TP) :
 
@@ -168,7 +191,7 @@ export const CHEF_CHANTIER_FAQ = [
   },
   {
     q: 'Comment financer la formation si je suis salarié ?',
-    a: `OFC Création d'Entreprise est certifiée Qualiopi et enregistrée Constructys. Financement OPCO possible selon éligibilité — voir le <a href="${LINKS.financement}">guide financement Constructys</a>.`,
+    a: "OFC Création d'Entreprise est certifiée Qualiopi et enregistrée Constructys. Financement OPCO possible selon éligibilité — le guide Constructys est lié en bas de page.",
   },
   {
     q: 'Métrés et % avancement : l’IA calcule-t-elle correctement ?',
@@ -177,6 +200,10 @@ export const CHEF_CHANTIER_FAQ = [
   {
     q: 'Demandes de prolongation de délai : peut-on utiliser l’IA ?',
     a: "Oui pour structurer un courrier : faits, causes, impacts, pièces à joindre — à relire et à faire valider selon votre organisation.",
+  },
+  {
+    q: 'Puis-je partir d’une note vocale pour le rapport journalier ?',
+    a: `Oui : dictez, transcrivez, puis structurez avec l’IA. L’étude de cas <a href="${LINKS.etudesCasCrVocalChantier}">compte rendu vocal de chantier</a> illustre la méthode ; le guide chef de chantier est lié en bas de page. Relecture obligatoire avant envoi.`,
   },
   {
     q: 'Faut-il être bon en informatique ou savoir coder ?',

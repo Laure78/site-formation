@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Calculator, FileSearch, Scale, Table2 } from 'lucide-react';
+import { Calculator, FileSearch, HelpCircle, Scale, Table2 } from 'lucide-react';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
 import { RdvLink } from '@/components/RdvLink';
 import { FAQSection } from '@/components/landing/FAQSection';
@@ -19,7 +19,7 @@ import {
   ETUDES_PRIX_CHIFFRAGE_PATH,
 } from '@/lib/formation-ia-etudes-prix-chiffrage-btp-content';
 
-const CAS_ICONS = [FileSearch, Table2, Scale, Calculator] as const;
+const CAS_ICONS = [FileSearch, Table2, Scale, Calculator, HelpCircle] as const;
 
 export const metadata = createPageMetadata({
   title: ETUDES_PRIX_SEO.title,
@@ -48,11 +48,11 @@ export default function FormationIaEtudesPrixChiffrageBtpPage() {
         refLine="Études de prix · Chiffrage · Présentiel IDF · Qualiopi"
         title={ETUDES_PRIX_SEO.h1}
         subtitle="DPGF, métrés, BPU et quantitatifs — l’IA assiste, le métreur valide"
-        badges={['Métreurs & économistes', 'Chargés d’affaires', 'Cas concrets']}
+        badges={['Métreurs & économistes', 'Bureaux d’études', 'Cas concrets']}
         summaryItems={[...ETUDES_PRIX_EN_BREF]}
         textLink={{
-          href: LINKS.iaDevis,
-          label: 'Pourquoi se former à l’IA pour les devis bâtiment ?',
+          href: LINKS.formationIaBureauEtudesBtp,
+          label: 'Page métier — IA pour bureaux d’études et études de prix',
         }}
         ctas={
           <>

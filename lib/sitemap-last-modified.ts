@@ -181,6 +181,46 @@ const ROUTE_SOURCE_FILES: Record<string, readonly string[]> = {
     'app/formation-ia-metreur-economiste-construction/page.tsx',
     'lib/formation-ia-metreur-economiste-construction-landing.ts',
   ],
+  '/formation-ia-bureau-etudes-btp': [
+    'app/formation-ia-bureau-etudes-btp/page.tsx',
+    'lib/formation-ia-bureau-etudes-btp-landing.ts',
+  ],
+  '/formation-ia-chef-chantier-tp': [
+    'app/formation-ia-chef-chantier-tp/page.tsx',
+    'lib/formation-ia-chef-chantier-tp-landing.ts',
+  ],
+  '/formation-ia-qse-prevention-btp': [
+    'app/formation-ia-qse-prevention-btp/page.tsx',
+    'lib/formation-ia-qse-prevention-btp-landing.ts',
+  ],
+  '/formation-ia-achats-approvisionnement-btp': [
+    'app/formation-ia-achats-approvisionnement-btp/page.tsx',
+    'lib/formation-ia-achats-approvisionnement-btp-landing.ts',
+  ],
+  '/formation-ia-genie-climatique-btp': [
+    'app/formation-ia-genie-climatique-btp/page.tsx',
+    'lib/formation-ia-genie-climatique-btp-landing.ts',
+  ],
+  '/formation-ia-metallerie-serrurerie-btp': [
+    'app/formation-ia-metallerie-serrurerie-btp/page.tsx',
+    'lib/formation-ia-metallerie-serrurerie-btp-landing.ts',
+  ],
+  '/formation-ia-isolation-btp': [
+    'app/formation-ia-isolation-btp/page.tsx',
+    'lib/formation-ia-isolation-btp-landing.ts',
+  ],
+  '/formation-ia-menuisier-btp': [
+    'app/formation-ia-menuisier-btp/page.tsx',
+    'lib/formation-ia-menuisier-btp-landing.ts',
+  ],
+  '/formation-ia-carreleur-btp': [
+    'app/formation-ia-carreleur-btp/page.tsx',
+    'lib/formation-ia-metier-eight-rich.ts',
+  ],
+  '/formation-ia-plaquiste-btp': [
+    'app/formation-ia-plaquiste-btp/page.tsx',
+    'lib/formation-ia-metier-eight-rich.ts',
+  ],
   '/formation-ia-dirigeant-btp': ['app/formation-ia-dirigeant-btp/page.tsx'],
   '/formation-ia-assistante-administrative-btp': [
     'app/formation-ia-assistante-administrative-btp/page.tsx',

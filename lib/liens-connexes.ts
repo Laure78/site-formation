@@ -65,6 +65,12 @@ function tachePreferee(path: string): LienConnexe {
   if (/plaquiste|menuisier|charpentier|couvreur/.test(p)) {
     return TACHES[3];
   }
+  if (/isolation|etancheur/.test(p)) {
+    return TACHES[2];
+  }
+  if (/carreleur|peintre/.test(p)) {
+    return TACHES[0];
+  }
   return TACHES[0];
 }
 

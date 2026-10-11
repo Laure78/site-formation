@@ -32,8 +32,12 @@ const OFC = "OFC Création d'Entreprise";
 function sommaireForConfig(config: FormationIaMetierBtpConfig) {
   const base: { href: string; label: string }[] = [
     { href: '#probleme', label: 'Le problème : charge documentaire et normes' },
-    { href: '#solution-ia', label: 'La solution IA : méthode et garde-fous' }, ...(config.casUsageConcrets && config.casUsageConcrets.length > 0
-      ? [{ href: '#cas-usage', label: 'Cinq cas d’usage concrets' } as const]
+    { href: '#solution-ia', label: 'La solution IA : méthode et garde-fous' },
+    ...(config.casUsageConcrets && config.casUsageConcrets.length > 0
+      ? [{ href: '#cas-usage', label: 'Cas d’usage concrets' } as const]
+      : []),
+    ...(config.exemplePedagogique
+      ? [{ href: '#exemple-fictif', label: 'Exemple pédagogique fictif' } as const]
       : []),
     { href: '#prompts', label: 'Prompts ChatGPT spécifiques métier' },
     { href: '#temoignage', label: 'Témoignage' },
@@ -214,17 +218,47 @@ export function FormationIaMetierBtpLanding({ config }: { config: FormationIaMet
           {config.casUsageConcrets && config.casUsageConcrets.length > 0 ? (
             <section id="cas-usage" className="scroll-mt-24 mt-14">
               <h2 className="font-display text-2xl font-bold text-slate-900 md:text-3xl">
-                Cinq cas d&apos;usage concrets
+                Cas d&apos;usage concrets
               </h2>
               <p className="mt-4 text-slate-600">
-                Exemples de tâches où les équipes gagnent du temps une fois les prompts et le cadre Qualiopi assimilés
-                — toujours avec relecture humaine.
+                Tâches documentaires spécifiques à votre métier — toujours avec relecture humaine avant envoi
+                client ou marché.
               </p>
               <ol className="mt-8 list-decimal space-y-4 pl-5 text-slate-700 leading-relaxed">
                 {config.casUsageConcrets.map((item, i) => (
                   <li key={i}>{item}</li>
                 ))}
               </ol>
+            </section>
+          ) : null}
+
+          {config.exemplePedagogique ? (
+            <section
+              id="exemple-fictif"
+              className="scroll-mt-24 mt-14 rounded-2xl border border-amber-200 bg-amber-50/60 p-6 md:p-8"
+            >
+              <p className="text-xs font-semibold uppercase tracking-wide text-amber-800">
+                Exemple pédagogique fictif
+              </p>
+              <h2 className="mt-2 font-display text-2xl font-bold text-slate-900">
+                {config.exemplePedagogique.titre}
+              </h2>
+              <p className="mt-4 leading-relaxed text-slate-700">{config.exemplePedagogique.contexte}</p>
+              <div className="mt-4 overflow-x-auto rounded-xl bg-white p-4 text-sm leading-relaxed text-slate-800 whitespace-pre-wrap">
+                {config.exemplePedagogique.livrableIa}
+              </div>
+              <h3 className="mt-6 font-display text-lg font-semibold text-slate-900">
+                Données nécessaires
+              </h3>
+              <ul className="mt-3 list-disc space-y-2 pl-5 text-slate-700">
+                {config.exemplePedagogique.donneesNecessaires.map((d) => (
+                  <li key={d}>{d}</li>
+                ))}
+              </ul>
+              <p className="mt-4 leading-relaxed text-slate-700">
+                <strong className="text-slate-900">Contrôle humain obligatoire :</strong>{' '}
+                {config.exemplePedagogique.controleHumain}
+              </p>
             </section>
           ) : null}
 

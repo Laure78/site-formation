@@ -15,11 +15,11 @@ export const FORMATION_IA_APPELS_OFFRES_BTP_PATH = '/formation-ia-appels-offres-
 export const FORMATION_IA_APPELS_OFFRES_BTP_CONFIG: SeoClusterPageConfig = {
   path: FORMATION_IA_APPELS_OFFRES_BTP_PATH,
   seo: {
-    title: 'Formation IA Appels d\'Offres BTP | DCE & MT',
-    titleAbsolute: 'Formation IA Appels d\'Offres BTP | DCE et Mémoire Technique',
+    title: 'IA appels d\'offres BTP : DCE et mémoire',
+    titleAbsolute: 'IA appels d\'offres BTP : DCE et mémoire technique | Laure Olivié',
     description:
       'Formation IA appels d’offres BTP : DCE, CCTP et mémoire technique plus clairs, sous relecture métier. Formation IA pour le BTP. Présentiel IDF, Qualiopi.',
-    openGraphTitle: 'Formation IA Appels d\'Offres BTP | DCE et Mémoire Technique',
+    openGraphTitle: 'IA appels d\'offres BTP : DCE et mémoire technique',
     keywords: [
       'formation IA appels d\'offres BTP',
       'formation ChatGPT appels d\'offres BTP',
@@ -42,11 +42,11 @@ export const FORMATION_IA_APPELS_OFFRES_BTP_CONFIG: SeoClusterPageConfig = {
       alt: 'Formation IA pour répondre aux appels d\'offres BTP — DCE, chiffrage et mémoire technique',
     },
   },
-  h1: 'Formation IA pour les Appels d\'Offres BTP',
+  h1: 'Formation IA pour les appels d\'offres BTP — process DCE et mémoire',
   subtitle:
-    'Analyse DCE, préparation du chiffrage, mémoire technique et assistants IA réutilisables — sur vos DCE et devis réels, avec ChatGPT et Claude.',
+    'Analyse DCE, préparation du chiffrage, mémoire technique et assistants IA réutilisables — sur vos DCE et devis réels (marchés privés et publics), avec ChatGPT et Claude.',
   shortAnswer:
-    'Formation IA appels d\'offres BTP : DCE complet (RC, CCTP, CCAP, DPGF, BPU), chiffrage assisté, mémoire technique, 8 assistants IA. 4 h présentiel, Qualiopi.',
+    'Formation IA appels d\'offres BTP : process DCE (RC, CCTP, CCAP, DPGF, BPU), chiffrage assisté, mémoire technique, 8 assistants IA. Pour l\'angle commande publique (CCAG-Travaux, dématérialisation), voir aussi la page marché public. 4 h présentiel, Qualiopi.',
   introParagraphs: [
     'Répondre à un appel d\'offres BTP demande de lire des centaines de pages, croiser RC, CCTP, CCAP et DPGF, préparer le chiffrage et produire un mémoire technique cohérent. L\'intelligence artificielle appels d\'offres BTP facilite l\'analyse et la structuration — pas la décision commerciale ni la validation finale du prix.',
     `Ce n'est pas une formation théorique : ${AO_FORMATION_CAS_PRATIQUE_QUOTE} ${AO_FORMATION_PERSONNALISATION}`,
@@ -102,6 +102,10 @@ export const FORMATION_IA_APPELS_OFFRES_BTP_CONFIG: SeoClusterPageConfig = {
     {
       q: 'L\'IA remplace-t-elle l\'expertise métier ?',
       a: 'Non. Elle accélère la lecture, la structuration et la rédaction. Le chiffrage, la stratégie commerciale, l\'interprétation contractuelle et la signature du dossier restent à votre charge.',
+    },
+    {
+      q: 'Quelle différence avec la formation IA marché public de travaux ?',
+      a: `Cette page couvre le <strong>processus appels d’offres / DCE</strong> (privé ou public) : analyse, chiffrage assisté, mémoire technique. Pour l’angle <a href="${LINKS.formationIaMarchePublicTravaux}">commande publique / marché public de travaux</a> (RC, CCAG-Travaux, dématérialisation, suite d’exécution), voir la page dédiée — même fiche catalogue NIV-02.`,
     },
     {
       q: 'Financement Constructys possible ?',

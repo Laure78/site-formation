@@ -188,18 +188,32 @@ export const LINKS = {
   iaCDT: '/formation-ia-conducteur-de-travaux',
   /** Landing SEO — métreur & économiste de la construction (DPGF, DQE, métrés) */
   formationIaMetreurEconomisteConstruction: '/formation-ia-metreur-economiste-construction',
+  /** Landing SEO — bureau d'études BTP (DCE, exigences, clarifications) */
+  formationIaBureauEtudesBtp: '/formation-ia-bureau-etudes-btp',
   /** Fiche SEO — formation IA conducteur de travaux BTP */
   formationConducteurTravaux: '/formation-ia-conducteur-de-travaux',
   /** Fiche SEO — formation IA chargé d'affaires BTP */
   formationChargeAffairesBtp: '/formation-ia-charge-affaires-btp',
   formationElectricienBtp: '/formation-ia-electricien-btp',
   formationPlombierBtp: '/formation-ia-plombier-btp',
+  /**
+   * Landing SEO — génie climatique / CVC / chauffagiste entreprise
+   * (intention distincte de `formationPlombierBtp` : sanitaire / DTU 60)
+   */
+  formationIaGenieClimatiqueBtp: '/formation-ia-genie-climatique-btp',
+  /**
+   * Landing SEO — métallerie & serrurerie bâtiment
+   * (distincte du hub thin `/formation-ia/metallerie-serrurerie` et de clôturiste / ferrailleur)
+   */
+  formationIaMetallerieSerrurerieBtp: '/formation-ia-metallerie-serrurerie-btp',
   /** @deprecated Doublon bois — 308 → `formationIaCharpentierBtp` */
   formationIaCharpentierMenuisierBtp: '/formation-ia-charpentier-btp',
   /** Landing métier — charpentier (DTU 31) */
   formationIaCharpentierBtp: '/formation-ia-charpentier-btp',
-  /** Landing métier — menuisier bâtiment (DTU 36) */
+  /** Landing métier — menuiserie int./ext. & agencement (URL historique conservée) */
   formationIaMenuisierBtp: '/formation-ia-menuisier-btp',
+  /** Alias sémantique — même URL que `formationIaMenuisierBtp` */
+  formationIaMenuiserieAgencementBtp: '/formation-ia-menuisier-btp',
   /** Landing métier — couvreur zingueur */
   formationIaCouvreurBtp: '/formation-ia-couvreur-btp',
   /** Landing métier — maçon / maçonnerie gros œuvre (DTU 20.1) */
@@ -225,9 +239,15 @@ export const LINKS = {
   /** Cluster commande publique — lot étanchéité (CSFE) */
   formationIaMarchePublicEtancheite: '/formation-ia-marche-public-etancheite',
   // Variants suffixées maintenues comme cibles canoniques après dédup mai 2026
+  /** Landing SEO — entreprise de carrelage / carreleur (URL conservée) */
+  formationIaCarreleurBtp: '/formation-ia-carreleur-btp',
   formationIaPlatriste: '/formation-ia-plaquiste-btp',
+  /** Alias sémantique plâtrerie — même URL que plaquiste */
+  formationIaPlatrerieBtp: '/formation-ia-plaquiste-btp',
   /** @deprecated Doublon hub plâtrerie — 308 → `formationIaPlatriste` */
   formationIaHubPlatrerieCloisons: '/formation-ia-plaquiste-btp',
+  /** Landing SEO — entreprise d’isolation (ITI / ITE / combles — aide documentaire) */
+  formationIaIsolationBtp: '/formation-ia-isolation-btp',
   formationIaPeintreBatiment: '/formation-ia-peintre-btp',
   /** @deprecated Doorway — 301 → hub `/formation-ia` */
   formationIaSolierRevetements: '/formation-ia',
@@ -236,6 +256,10 @@ export const LINKS = {
   formationIaPaysagiste: '/formation-ia-paysagiste-btp',
   /** Landing SEO — chef de chantier travaux publics */
   formationIaChefChantierTp: '/formation-ia-chef-chantier-tp',
+  /** Landing SEO — QSE & prévention BTP (aide documentaire, pas formation sécurité certifiée) */
+  formationIaQsePreventionBtp: '/formation-ia-qse-prevention-btp',
+  /** Landing SEO — achats & approvisionnement chantier (fournisseurs, pas chiffrage vente) */
+  formationIaAchatsApprovisionnementBtp: '/formation-ia-achats-approvisionnement-btp',
   formationIaCanalisateur: '/formation-ia-canalisateur-tp',
   formationIaFerrailleurBtp: '/formation-ia-ferrailleur-btp',
   formationIaVitrierBtp: '/formation-ia-vitrier-btp',

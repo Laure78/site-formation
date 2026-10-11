@@ -42,10 +42,10 @@ export const FORMATION_IA_MARCHE_PUBLIC_TRAVAUX: FormationIaMarchePublicConfig =
   id: 'travaux',
   path: '/formation-ia-marche-public-travaux',
   variant: 'pillar',
-  h1: "Formation IA marché public de travaux — répondre et gérer avec l'IA (présentiel Île-de-France)",
-  metaTitle: 'Formation IA marché public de travaux',
+  h1: "Formation IA marché public de travaux — commande publique avec l'IA (présentiel Île-de-France)",
+  metaTitle: 'IA marché public travaux : commande publique',
   metaDescription:
-    'Formation IA marché public de travaux : DCE, Go-NoGo, mémoire technique. Présentiel Île-de-France, Qualiopi. Financement Constructys selon éligibilité.',
+    'Formation IA marché public : commande publique, RC, CCAG-Travaux, mémoire. Formation IA pour le BTP. Présentiel IDF, Qualiopi, Constructys selon éligibilité.',
   keywords: [
     'formation IA marché public de travaux',
     'IA marchés publics BTP',
@@ -174,6 +174,10 @@ Propose une structure de courrier ou de DGD (titres uniquement) : faits, pièces
       a: 'C’est une session présentielle (Île-de-France) qui apprend à utiliser l’IA pour préparer et analyser un DCE de commande publique, structurer un Go-NoGo et un mémoire technique — sans remplacer chiffrage ni validation métier. Le programme catalogue associé est la fiche NIV-02 appels d’offres BTP (lien en tête de page).',
     },
     {
+      q: 'Quelle différence avec la page formation IA appels d’offres BTP ?',
+      a: `La <a href="${LINKS.formationIaAppelsOffresBtp}">page appels d’offres</a> couvre le process DCE / mémoire (privé et public). Ici l’angle est la <strong>commande publique</strong> : RC, CCAG-Travaux, dématérialisation, suite d’exécution. Même fiche catalogue NIV-02.`,
+    },
+    {
       q: 'L’IA peut-elle remplacer mon chiffrage BPU ou DPGF ?',
       a: 'Non. L’IA peut aider à lister des postes ambigus ou à préparer un tableau de contrôle. Les prix, ratios et engagements restent sous votre responsabilité professionnelle.',
     },
@@ -196,6 +200,7 @@ Propose une structure de courrier ou de DGD (titres uniquement) : faits, pièces
   ],
   inlineLinkHrefs: [
     LINKS.formationAO,
+    LINKS.formationIaAppelsOffresBtp,
     LINKS.formationIaMarchePublicEtancheite,
     LINKS.aPropos,
     LINKS.partenaires,

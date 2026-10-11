@@ -3,35 +3,29 @@ import { LINKS } from '@/lib/internal-links';
 import { buildMetierAllerPlusLoinLinks } from '@/lib/metier-aller-plus-loin';
 import { CTA_RDV_LABEL, CtaRdv } from '@/components/CtaRdv';
 import Link from 'next/link';
-import { ArrowRight, Check, Phone } from 'lucide-react';
+import { Check } from 'lucide-react';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
 import { PreuveSociale } from '@/components/PreuveSociale';
 import { LiensConnexes } from '@/components/LiensConnexes';
 import { RdvLink } from '@/components/RdvLink';
 import { ShortAnswerBlock } from '@/components/landing/ShortAnswerBlock';
-import {
-  createPageMetadata,
-  getFAQSchema,
-  SITE_CONFIG,
-  sitePhoneDisplaySuffix,
-} from '@/lib/seo';
-import { buildSiteCalendlyCtaUrl } from '@/lib/calendly';
+import { getFAQSchema, SITE_CONFIG, sitePhoneDisplaySuffix } from '@/lib/seo';
 import { PublicPhoneCta } from '@/components/PublicPhoneCta';
-import { SOCIAL_PROOF } from '@/lib/constants';
 import { JsonLd } from '@/components/JsonLd';
 import { LaureOlivieFormationPortrait } from '@/components/laure-olivie/LaureOlivieFormationPortrait';
 import { MetierIdfPresentielLine } from '@/components/formation-ia-metier/MetierIdfPresentielLine';
 import { createMetierBtpPageMetadata } from '@/lib/formation-ia-metier-idf';
 
 import { RenvoiFicheCatalogue } from '@/components/qualiopi/RenvoiFicheCatalogue';
+import { DisclaimerGains } from '@/components/formation/DisclaimerGains';
 
 export const revalidate = 3600;
 const PATH = '/formation-ia-vitrier-btp';
 
 export const metadata = createMetierBtpPageMetadata('vitrier', {
-  title: 'Formation IA vitrier miroitier BTP IDF',
+  title: 'IA vitrier : devis vitrage et relevés BTP',
   description:
-    'Formation IA vitrier BTP : devis vitrage, métrages et réponses clients plus rapides, sous contrôle. Formation IA pour le BTP. Présentiel IDF, Qualiopi.',
+    'Formation IA vitrier BTP : devis vitrage, relevés et réponses clients plus clairs, sous contrôle. Formation IA pour le BTP. Présentiel IDF, Qualiopi.',
   descriptionFinal: true,
   path: PATH,
   keywords: [
@@ -151,11 +145,11 @@ export default function FormationIaVitrierBtpPage() {
       <JsonLd id="schema-faq-page" schema={faqSchema} />
 
       <nav className="mb-8 text-sm text-slate-600">
-        <Link href="/" className="text-[var(--accent)] hover:underline">
+        <Link href={LINKS.home} className="text-[var(--accent)] hover:underline">
           Accueil
         </Link>
         {' / '}
-        <Link href="/formations" className="text-[var(--accent)] hover:underline">
+        <Link href={LINKS.formations} className="text-[var(--accent)] hover:underline">
           Formations
         </Link>
         {' / '}
@@ -166,12 +160,12 @@ export default function FormationIaVitrierBtpPage() {
         <MetierIdfPresentielLine className="mb-4" />
         <h1 className="font-display text-4xl font-bold tracking-tight text-slate-900 md:text-5xl">
           Formation IA pour vitriers miroitiers —{' '}
-          <span className="text-[var(--accent)]">gagnez environ 3 h par semaine</span>
+          <span className="text-[var(--accent)]">devis vitrage et relevés</span>
         </h1>
         <PreuveSociale className="mt-6" />
         <p className="mt-6 text-xl text-slate-600">
-          Automatisez <strong>devis vitrage</strong>, <strong>métrages</strong> et <strong>fiches techniques</strong> avec
-          ChatGPT — <strong>présentiel en Île-de-France</strong>. Formation dispensée par un organisme certifié <strong>Qualiopi</strong> — financement possible selon éligibilité.
+          Structurez <strong>devis vitrage</strong>, <strong>relevés</strong> et <strong>réponses clients</strong> avec
+          ChatGPT — <strong>présentiel en Île-de-France</strong>. Formation dispensée par un organisme certifié <strong>Qualiopi</strong> — financement OPCO possible selon éligibilité.
         </p>
 
         <div className="mt-8">
@@ -371,11 +365,12 @@ export default function FormationIaVitrierBtpPage() {
                   <td className="p-3">Synthèse hebdomadaire</td>
                   <td className="p-3">Plusieurs heures</td>
                   <td className="p-3">Réduit</td>
-                  <td className="p-3">Souvent ~3 h / sem. (variable)</td>
+                  <td className="p-3">Variable selon volume</td>
                 </tr>
               </tbody>
             </table>
           </div>
+          <DisclaimerGains className="mt-4" />
           <p className="mt-4 text-sm text-slate-500">
             Aucun gain d’heures ou de chiffre d’affaires n’est garanti : tout dépend de votre activité et de la rigueur de
             relecture.
@@ -437,7 +432,7 @@ export default function FormationIaVitrierBtpPage() {
              />
             <PublicPhoneCta className="inline-flex items-center gap-2 rounded-xl border-2 border-white px-6 py-3 font-semibold text-white hover:bg-white/10" />
             <Link
-              href="/contact"
+              href={LINKS.contact}
               className="inline-flex items-center gap-2 rounded-xl border-2 border-white px-6 py-3 font-semibold text-white hover:bg-white/10"
             >
               Contact
@@ -464,14 +459,19 @@ export default function FormationIaVitrierBtpPage() {
 
         <LiensConnexes
           currentPath={PATH}
-          excludeHrefs={['/formations', '/formation-ia-couvreur-btp', '/formation-ia-etancheur', '/financement-constructys-formation-ia-btp']}
+          excludeHrefs={[
+            LINKS.formations,
+            LINKS.formationIaMenuisierBtp,
+            LINKS.formationIaCouvreurBtp,
+            LINKS.financement,
+          ]}
           />
 
         <AllerPlusLoin
           links={buildMetierAllerPlusLoinLinks(
             [
+            { href: LINKS.formationIaMenuisierBtp, label: 'Formation IA menuisier BTP' },
             { href: LINKS.formationIaCouvreurBtp, label: 'Formation IA couvreur BTP' },
-            { href: LINKS.formationIaEtancheur, label: 'Formation IA étancheur BTP' },
             ],
             { rdvLabel: CTA_RDV_LABEL },
           )}

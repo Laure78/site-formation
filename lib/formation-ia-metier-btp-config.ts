@@ -436,8 +436,8 @@ Rédige un mail clair : rappel du périmètre, questions ouvertes (cotes, choix 
     },
     {
       href: LINKS.formationIaMenuisierBtp,
-      title: 'Formation IA menuisier bâtiment',
-      description: 'Focus menuiseries, pose et SAV — DTU 36, relevés et devis.',
+      title: 'Formation IA menuiserie & agencement',
+      description: 'Intérieur, extérieur, agencement — devis, relevés, suivi pose.',
     },
     {
       href: LINKS.formationIaCouvreurBtp,
@@ -462,50 +462,49 @@ export {
 
 /** Page dynamique : `app/formation-ia-[metier]-btp` — slugs additionnels dans `lib/formation-ia-metier-dynamic-registry`. */
 
-/** Plombier chauffagiste — PER, cuivre, DTU 60.11, MaPrimeRénov’ / CEE (2026) */
+/**
+ * Plomberie sanitaire — DTU 60.11, devis, SAV, dossiers aides.
+ * Le chauffage / CVC entreprise est porté par `/formation-ia-genie-climatique-btp`
+ * (éviter la cannibalisation SEO sur « chauffagiste »).
+ */
 export const FORMATION_IA_METIER_PLOMBIER: FormationIaMetierBtpConfig = {
   id: 'plombier',
   path: '/formation-ia-plombier-btp',
-  h1: 'Formation IA plombier chauffagiste — ChatGPT, DTU 60.11 & Qualiopi',
-  metaTitle: 'Formation IA plombier chauffagiste — BTP, Qualiopi',
+  h1: 'Formation IA pour les entreprises de plomberie sanitaire',
+  metaTitle: 'IA plomberie : devis sanitaire et DTU 60',
+  skipIdfTitleOverride: true,
   metaDescription:
-    'Formation IA plombier chauffagiste BTP en présentiel IDF : devis sanitaire, DTU 60 et dossiers aides. Qualiopi, Constructys selon éligibilité. RDV découverte.',
+    'Formation IA plomberie : devis sanitaire, évacuations, SAV et dossiers aides sous validation métier. Formation IA pour le BTP. Présentiel IDF, Qualiopi.',
   keywords: [
-    'formation IA plombier chauffagiste',
+    'formation IA plomberie',
     'formation IA plombier BTP',
-    'ChatGPT plomberie chauffage',
+    'ChatGPT devis sanitaire',
     'DTU 60.11',
+    'IA évacuations plomberie',
     'MaPrimeRénov IA',
-    'certificats économie énergie CEE',
-    'devis sanitaire IA',
-    'Qualiopi plombier',
+    'formation IA pour le BTP',
   ],
-  metierNom: 'plombiers chauffagistes',
-  metierNomTitre: 'plombier',
+  metierNom: 'entreprises de plomberie',
+  metierNomTitre: 'plomberie',
   normeRef: 'le DTU 60.11 et prescriptions sanitaires',
   essentielItems: [
-    'DTU 60.11, PER ou cuivre, évacuations, VMC double flux, chaudières et PAC — devis et rapports de dépannage.',
-    'Dossiers 2026 MaPrimeRénov’ et CEE : l’IA structure brouillons et listes de pièces, pas l’éligibilité ni les montants.',
-    'Session 4 h Qualiopi : prompts, relecture humaine, confidentialité — validation technique sur le terrain.',
-    'Financement Constructys selon éligibilité — présentiel Île-de-France, ateliers sur vos cas anonymisés.',
+    'Angle plomberie sanitaire : devis salle de bains, PER/cuivre, évacuations, rapports de dépannage, dossiers aides — sous validation métier.',
+    'Pour le génie climatique, le CVC et les entreprises chauffagistes : page dédiée (encart en tête de page).',
+    'Session catalogue Qualiopi — présentiel Île-de-France. Financement OPCO possible selon éligibilité.',
+    'L’IA structure brouillons et listes ; elle ne dimensionne pas et ne tranche pas l’éligibilité aux aides.',
   ],
   problemParagraphs: [
-    `Les entreprises de plomberie-chauffage enchaînent salle de bains, réseaux PER ou cuivre, évacuations, raccordements VMC double flux, chaudières à condensation et pompes à chaleur. Chaque dossier mobilise le ${'`'}DTU 60.11${'`'} (et fascicules associés), des notices fabricants et parfois des exigences DPE ou de rénovation énergétique — sans compter les courriers pour les aides et attestations.`,
-    `En 2026, les dossiers clients mêlent devis détaillés, relances SAV, comptes rendus de dépannage et demandes de précisions sur ${'`'}MaPrimeRénov’${'`'}, primes CEE ou éligibilité : l’IA peut aider à structurer des brouillons et des listes de pièces à fournir, jamais à substituer le conseiller financement, le décret en vigueur ou votre responsabilité sur la conformité.`,
-    `Sans méthode, on réécrit tard le soir les mêmes paragraphes sur diamètres d’évacuation, pentes ou matériaux — l’IA mal cadrée invente des références ou des montants d’aides. La formation Qualiopi encadre : prompts, relecture humaine, règles de confidentialité.`,
-    `L’objectif des sessions ${OFC} est de gagner du temps sur la mise en forme (devis, rapports, mails) tout en gardant la validation technique sur le terrain et dans les tableaux de vos logiciels.`,
+    `Les entreprises de plomberie enchaînent salles de bains, réseaux PER ou cuivre, évacuations et dépannages. Chaque dossier mobilise le ${'`'}DTU 60.11${'`'} (et fascicules associés), des notices fabricants et des courriers clients — sans compter les pièces pour les aides à la rénovation.`,
+    `Les devis sanitaires, relances SAV et comptes rendus d’intervention se réécrivent souvent le soir. L’IA mal cadrée invente des diamètres ou des montants d’aides : la formation Qualiopi impose données fournies, relecture et confidentialité.`,
+    `Les interfaces avec la VMC ou un lot chauffage restent documentaires ici (questions, listes) : le pilotage CVC / chauffagiste entreprise est traité sur la page génie climatique.`,
+    `L’objectif des sessions ${OFC} : gagner du temps sur la mise en forme (devis, rapports, mails) tout en gardant la validation technique sur le terrain.`,
   ],
-  solutionIntro: `Les sessions combinent démonstration et ateliers sur vos cas (anonymisés). Vous apprenez à produire des brouillons pour devis salle de bain, projets chaudière / PAC, rapports de dépannage et synthèses d’évacuation — toujours avec validation métier. Spécificité 2026 : l’expertise documentaire assistée pour les dossiers liés aux aides MaPrimeRénov’ et aux opérations relevant des certificats d’économie d’énergie (CEE) : l’IA aide à lister les formulations types, pièces jointes et questions à poser à un interlocuteur habilité — pas à garantir une éligibilité ou un montant.`,
+  solutionIntro: `Ateliers sur vos cas anonymisés : devis salle de bain, rapports de dépannage, synthèses d’évacuation et listes de pièces pour dossiers aides (MaPrimeRénov’, CEE) — sans garantir une éligibilité ni un montant. Validation métier systématique.`,
   prompts: [
     {
       title: 'Devis — rénovation salle de bain complète (postes)',
-      body: `Tu es plombier chauffagiste en France. Données : surface [X] m², remplacement baignoire/douche, meuble, robinetterie, évacuation existante [PER / cuivre / à préciser], présence VMC [simple flux / double flux / à créer].
+      body: `Tu assistes une entreprise de plomberie sanitaire en France. Données : surface [X] m², remplacement baignoire/douche, meuble, robinetterie, évacuation existante [PER / cuivre / à préciser], présence VMC [simple flux / double flux / à créer].
 Propose la STRUCTURE détaillée d’un devis (intitulés de postes, pas les prix) : dépose, alimentation, évacuation, étanchéité, raccordements, essais. Rappelle de croiser le DTU 60.11 et les fiches fabricants. Ne pas inventer de diamètres définitifs : [à dimensionner].`,
-    },
-    {
-      title: 'Devis — remplacement chaudière / PAC, mentions crédit d’impôt et aides (cadre)',
-      body: `Contexte : [type de logement], équipement cible [chaudière condensation / PAC air-eau], travaux associés [liste].
-Rédige la STRUCTURE d’un devis (sections + libellés) avec emplacements pour : description technique, options, délais, garanties. Ajoute un encadré « informations réglementaires et aides » avec formulations génériques invitant le client à vérifier auprès de l’administration ou de son conseiller MaPrimeRénov’ / opérateur CEE, sans chiffrer de prime ni d’éligibilité. Rappel : les montants et conditions 2026 sont hors périmètre du modèle.`,
     },
     {
       title: 'Rapport de dépannage (intervention)',
@@ -513,92 +512,93 @@ Rédige la STRUCTURE d’un devis (sections + libellés) avec emplacements pour 
 Rédige un rapport professionnel : contexte, diagnostic, interventions réalisées, pièces, essais, recommandations, suites éventuelles (devis séparé). Ton factuel. Ne pas attribuer de faute sans élément. Si une norme est citée sans référence : [à compléter].`,
     },
     {
-      title: 'Calcul / dimensionnement — évacuation (liste des entrées à vérifier)',
+      title: 'Évacuation — liste des entrées à vérifier (sans dimensionner)',
       body: `Sans donner un dimensionnement définitif, à partir de : [débit équipements, longueurs, pentes], liste les grandeurs à renseigner pour un calcul d’évacuation (diamètres, pentes, ventilations de colonnes, matériaux PER / PVC / cuivre selon usage). Format tableau : donnée / source habituelle / risque si omis. Terminer par : validation par logiciel ou méthode interne + DTU 60.11.`,
     },
     {
       title: 'Mail client — MaPrimeRénov’ / CEE : pièces et prochaines étapes (sans promesse)',
-      body: `Situation : [type de travaux], stade du dossier : [en cours / demande de complément].
-Rédige un mail clair listant les pièces souvent demandées (déclarations, attestations, fiches techniques) et les prochaines étapes, avec formulation prudente : aucune garantie d’éligibilité. Rappeler de vérifier les barèmes et textes officiels en vigueur. Ton professionnel.`,
+      body: `Situation : [type de travaux sanitaires], stade du dossier : [en cours / demande de complément].
+Rédige un mail clair listant les pièces souvent demandées et les prochaines étapes, avec formulation prudente : aucune garantie d’éligibilité. Rappeler de vérifier les barèmes et textes officiels en vigueur.`,
     },
     {
-      title: 'Synthèse — VMC double flux et interface avec le sanitaire (questions MOE)',
+      title: 'Interface sanitaire / VMC — questions MOE',
       body: `CCTP ou mail MOE (extrait anonymisé) : [TEXTE].
-Liste les points d’interface plomberie / VMC double flux (prises d’air, condensats, pénétrations) et 4–6 questions à poser au maître d’œuvre si le texte est incomplet. Ne pas conclure sur la conformité : renvoi DTU 60.11 et notices.`,
+Liste les points d’interface plomberie / VMC (prises d’air, condensats, pénétrations) et 4–6 questions si le texte est incomplet. Ne pas conclure sur la conformité. Pour le lot CVC / chauffage complet, renvoyer vers l’équipe génie climatique.`,
     },
   ],
   csfePartnership: false,
   testimonialQuote:
-    '« Les premiers jets de devis salle de bain et les rapports de dépannage sont plus homogènes — on relit avant envoi, surtout sur les aides et le CEE. »',
-  testimonialAttribution: 'Plombier-chauffagiste — IDF (retour OFC, anonymisé)',
+    '« Les premiers jets de devis salle de bain et les rapports de dépannage sont plus homogènes — on relit avant envoi, surtout sur les aides. »',
+  testimonialAttribution: 'Entreprise de plomberie — IDF (anonymisé)',
   faq: [
     {
+      q: 'Quelle différence avec la formation IA génie climatique / CVC ?',
+      a: `Ici : plomberie sanitaire (devis, évacuations, SAV, DTU 60). La page génie climatique / CVC / chauffagiste entreprise est liée en tête de page — CCTP par équipement, fiches techniques, DOE.`,
+    },
+    {
       q: 'L’IA peut-elle calculer une évacuation ou un dimensionnement à la place du DTU 60.11 ?',
-      a: `Non : le dimensionnement définitif et la conformité relèvent de votre qualification, de vos outils et de la lecture des fascicules. L’IA peut lister les entrées à vérifier et structurer un tableau de brouillon — à valider par une personne compétente.`,
+      a: `Non : le dimensionnement définitif et la conformité relèvent de votre qualification et des fascicules. L’IA liste les entrées à vérifier — validation par une personne compétente.`,
     },
     {
       q: 'Comment utiliser ChatGPT pour MaPrimeRénov’ et les CEE sans se tromper ?',
-      a: `Pour organiser des listes de pièces, reformuler des courriers ou préparer des questions à votre financeur ou délégataire — jamais pour afficher des montants ou éligibilités sans vérification sur les textes officiels et portails à jour. Les règles évoluent : la formation ${OFC} insiste sur la prudence et la relecture.`,
-    },
-    {
-      q: 'PER vs cuivre, VMC double flux, PAC : l’IA choisit-elle les matériaux ?',
-      a: `Non : ce sont des choix techniques et contractuels. L’IA peut aider à structurer un comparatif de critères ou des questions au fournisseur — pas à remplacer la notice ou le bureau d’études.`,
+      a: `Pour organiser des listes de pièces et reformuler des courriers — jamais pour afficher des montants ou éligibilités sans vérification sur les textes officiels. La formation ${OFC} insiste sur la prudence.`,
     },
     {
       q: 'Mes données clients et plans de salle de bain sont-elles protégées dans ChatGPT ?',
-      a: `Évitez les plans nominatifs complets dans un outil grand public sans cadre entreprise. Anonymisez, utilisez des extraits, ou des offres professionnelles sans entraînement — c’est enseigné en formation.`,
+      a: `Évitez les plans nominatifs complets dans un outil grand public sans cadre. Anonymisez ou utilisez des extraits — enseigné en session.`,
     },
     {
-      q: 'La formation IA plombier BTP est-elle financement possible selon éligibilité ?',
-      a: `Oui selon éligibilité : ${OFC} est certifié Qualiopi ; le financement OPCO Constructys suit les règles en vigueur pour les entreprises du BTP.`,
-    },
-    {
-      q: 'Quelle différence avec la formation « IA au service du bâtiment » (BTP-01) ?',
-      a: `BTP-01 pose les bases ; cette page métier aligne exemples et prompts sur le sanitaire, le chauffage, l’évacuation et les dossiers aides (MaPrimeRénov’, CEE) pour un vocabulaire plombier-chauffagiste.`,
+      q: 'Financement OPCO / Constructys ?',
+      a: `Financement OPCO possible selon éligibilité : ${OFC} est certifié Qualiopi.`,
     },
   ],
-  courseName: 'Formation IA plombier chauffagiste BTP — Qualiopi',
-  courseDescription: `${OFC} : formation IA et ChatGPT pour plombiers chauffagistes — devis, PER, cuivre, DTU 60.11, évacuation, VMC, chaudière, PAC. Aides MaPrimeRénov’ et CEE : structuration documentaire. Session 4 h, Qualiopi, financement possible selon éligibilité.`,
+  courseName: 'Formation IA plomberie sanitaire BTP — Qualiopi',
+  courseDescription: `${OFC} : formation IA pour entreprises de plomberie — devis sanitaire, DTU 60.11, évacuation, SAV, dossiers aides. Session catalogue, Qualiopi.`,
   courseTeaches: [
-    'ChatGPT pour plombiers chauffagistes BTP',
-    'Devis sanitaire et chauffage (relecture humaine)',
+    'ChatGPT pour plomberie sanitaire BTP',
+    'Devis sanitaire (relecture humaine)',
     'DTU 60.11 — usage documentaire assisté',
-    'Évacuation, VMC, chaudière, PAC — formulations et check-lists',
-    'MaPrimeRénov’ et CEE — brouillons prudents, pas de conseil fiscal',
+    'Évacuation et SAV — check-lists',
+    'MaPrimeRénov’ et CEE — brouillons prudents',
     'Qualiopi — confidentialité des données',
   ],
   ogImage: {
     url: '/images/formation-ia-intra-entreprise-batiment.webp',
     width: 1024,
     height: 571,
-    alt: 'Formation IA pour le BTP — plombiers chauffagistes, session avec Laure Olivié',
+    alt: 'Formation IA pour le BTP — plomberie sanitaire, session Qualiopi',
   },
   coverImage: {
     url: '/images/formation-ia-intra-entreprise-batiment.webp',
     width: 1024,
     height: 571,
-    alt: 'Atelier en entreprise — plomberie et chauffage, groupe autour de plans',
+    alt: 'Atelier en entreprise — plomberie sanitaire, groupe autour de plans',
   },
   showAuthorBio: true,
   authorBioClosingLine:
-    'Basée en Île-de-France, elle accompagne notamment les équipes plomberie-chauffage et les entreprises du second œuvre.',
+    'Basée en Île-de-France, elle accompagne les entreprises de plomberie et du second œuvre sur des usages IA documentaires.',
+  sisterEncart: {
+    currentAudience: 'une entreprise de plomberie sanitaire',
+    href: LINKS.formationIaGenieClimatiqueBtp,
+    linkLabel: 'la page formation IA génie climatique / CVC / chauffagiste',
+  },
   relatedMetierLinks: [
     {
-      href: '/formation-ia-electricien-btp',
+      href: LINKS.formationElectricienBtp,
       title: 'Formation IA électricien BTP',
-      description: 'Tableaux, NF C 15-100, CONSUEL — même approche IA encadrée Qualiopi.',
+      description: 'Tableaux, NF C 15-100, CONSUEL — lots techniques.',
     },
     {
-      href: '/formation-ia-carreleur-btp',
-      title: 'Formation IA carreleur',
-      description: 'Pièces d’eau, interfaces après réseaux — coordination lots.',
+      href: LINKS.formationIaCarreleurBtp,
+      title: 'Formation IA entreprise de carrelage',
+      description: 'Pièces d’eau — interfaces avant carrelage.',
     },
     {
-      href: '/formation-ia-dirigeant-btp',
+      href: LINKS.formationIaDirigeantBtp,
       title: 'Formation IA dirigeant BTP',
-      description: 'ROI, pilotage projet IA et déploiement équipes pour décideurs PME bâtiment.',
+      description: 'Pilotage IA pour décideurs PME bâtiment.',
     },
   ],
   liensUtilesIntro:
-    'Formations par métier proches, catalogue Qualiopi et ressources pour aller plus loin sur l’IA dans le BTP.',
+    'Métiers proches, catalogue Qualiopi et ressources IA BTP.',
 };

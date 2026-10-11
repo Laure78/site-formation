@@ -348,275 +348,427 @@ Propose la STRUCTURE du devis (postes, pas les prix) : préparation, primaires, 
   showAuthorBio: true,
   authorBioClosingLine: 'Elle accompagne les peintres et les entreprises de second œuvre sur des usages IA encadrés.',
   relatedMetierLinks: [
-    { href: '/formation-ia-plaquiste-btp', title: 'Formation IA plaquiste plâtrier', description: 'Cloisons et préparation avant peinture.' },
-    { href: '/formation-ia-carreleur-btp', title: 'Formation IA carreleur', description: 'Sol et murs — coordination finitions.' },
-    { href: '/formation-ia-menuisier-btp', title: 'Formation IA menuisier bâtiment', description: 'Menuiseries et interfaces avec les lots peinture.' },
+    {
+      href: LINKS.formationIaPlatrerieBtp,
+      title: 'Formation IA plâtrerie',
+      description: 'Cloisons et préparation avant peinture.',
+    },
+    {
+      href: LINKS.formationIaCarreleurBtp,
+      title: 'Formation IA entreprise de carrelage',
+      description: 'Sol et murs — coordination finitions.',
+    },
+    {
+      href: LINKS.formationIaIsolationBtp,
+      title: 'Formation IA entreprise d’isolation',
+      description: 'Dossiers et fiches produits — second œuvre thermique.',
+    },
   ],
-  liensUtilesIntro: 'Métiers proches, catalogue Qualiopi, Claude AI, financement, blog.',
+  liensUtilesIntro: 'Métiers de finition proches, catalogue Qualiopi, financement, ressources IA BTP.',
 };
 
 export const FORMATION_IA_METIER_PLAQUISTE: FormationIaMetierBtpConfig = {
   id: 'plaquiste',
   path: '/formation-ia-plaquiste-btp',
-  h1: 'Formation IA plaquiste plâtrier — cloisons, DTU 25 & Qualiopi',
-  metaTitle: 'Formation IA plaquiste plâtrier — doublages, DTU 25',
+  h1: 'Formation IA plâtrerie — cloisons, doublages et plafonds',
+  metaTitle: 'IA plâtrerie : cloisons et coordination',
+  skipIdfTitleOverride: true,
   metaDescription:
-    'Formation IA plaquiste plâtrier BTP : cloisons, DTU 25 et devis linéaires accélérés, sous contrôle métier. Formation IA pour le BTP. Présentiel IDF, Qualiopi.',
+    'Formation IA plâtrerie : cloisons, doublages, plafonds et interfaces de lots sous validation métier. Formation IA pour le BTP. Présentiel IDF, Qualiopi.',
   keywords: [
+    'formation IA plâtrerie',
     'formation IA plaquiste plâtrier',
     'formation IA plaquiste BTP',
     'ChatGPT plaque de plâtre',
+    'IA cloisons doublages',
     'DTU 25',
-    'devis cloisons IA',
-    'Qualiopi plaquiste',
+    'formation IA pour le BTP',
   ],
-  metierNom: 'plaquistes',
-  metierNomTitre: 'plaquiste',
+  metierNom: 'entreprises de plâtrerie et plaquistes',
+  metierNomTitre: 'plâtrerie',
   normeRef: 'le DTU 25',
+  essentielItems: [
+    'Angle plâtrerie entreprise : organiser les ouvrages (cloisons, doublages, plafonds), suivre les interfaces entre lots et les modifications — pas inventer des quantités ni des performances acoustiques.',
+    'Public : dirigeants, chargés d’affaires et équipes. Présentiel Île-de-France, Qualiopi. Financement OPCO possible selon éligibilité.',
+    'Ateliers sur NIV-01 (catalogue) ; l’IA ne valide ni l’acoustique ni la conformité DTU 25.',
+  ],
   problemParagraphs: [
-    `Les plaquistes gèrent linéaires de cloisons, doublages, détails acoustiques et passages de réseaux : le ${'`'}DTU 25${'`'} et les prescriptions acoustiques nourrissent les devis et les réponses techniques.`,
-    `La coordination avec électricité, plomberie et peinture multiplie les mails et les CR de réunion — sans méthode, tout part en retard le soir.`,
-    `L’IA sans cadre peut mélanger types de plaques ou performances acoustiques — la formation encadre relecture et sources.`,
-    `L’objectif : gagner du temps sur quantitatifs, mails et plans de mémoire, en gardant la validation sur le chantier.`,
+    `Les entreprises de plâtrerie pilotent cloisons, doublages, plafonds et habillages : le ${'`'}DTU 25${'`'} et les prescriptions de chantier structurent les devis, mais le vrai volume documentaire vient de l’organisation des ouvrages et des interfaces (électricité, plomberie, peinture, menuiseries).`,
+    `Chaque modification de cloison ou de réservation génère des mails, des CR et des mises à jour de planning — sans méthode, l’équipe resaisit le soir.`,
+    `L’IA sans cadre peut inventer des types de plaques, des performances acoustiques ou des linéaires : la formation impose données fournies, questions ouvertes et validation métier.`,
+    `L’objectif : accélérer l’organisation documentaire et le suivi des changements, pas remplacer le métré ni le contrôle chantier.`,
   ],
-  solutionIntro: `Vous travaillez sur métrés linéaires, listes de pièces et demandes de précisions MOE — avec des prompts adaptés au vocabulaire plaque, ossatures et joints.`,
+  solutionIntro: `Vous travaillez sur listes d’ouvrages, interfaces de lots et suivi des modifications — avec des prompts adaptés au vocabulaire plâtrerie / plaque, sans performance inventée.`,
   casUsageConcrets: [
-    'Structurer un devis cloison / doublage par niveau ou par zone à partir de plans ou de listes de pièces.',
-    'Préparer un mail de coordination avec l’électricien ou le plombier (réservations, passages).',
-    'Lister les questions à poser au MOE si l’acoustique ou les trémies sont mal décrites dans le CCTP.',
-    'Rédiger un CR de réunion chantier avec décisions et points bloquants.',
-    'Établir une check-list avant passage du peintre (ponçage joints, poussière, humidité).',
+    'Organiser les ouvrages plâtrerie par zone ou niveau (cloisons, doublages, plafonds, habillages) à partir d’une liste de pièces ou d’un extrait de plans — sans inventer de linéaires ni de hauteurs.',
+    'Cartographier les interfaces entre lots (réservations électricité / plomberie, passages, trémies) et préparer les questions aux autres corps d’état.',
+    'Suivre les modifications de cloison ou de plafond : journal « demande / impact / statut / source » à partir des mails et CR fournis — pour garder une trace avant chiffrage ou avenant.',
   ],
+  exemplePedagogique: {
+    titre: 'Réorganisation documentaire d’un étage de bureaux (fictif)',
+    contexte:
+      'Brief fictif : étage open space, liste fournie — 6 cloisons type A (hauteur indiquée 2,70 m), 2 doublages, 1 plafond suspendu zone réunion. Mail MOE : « déplacer la cloison entre open space et salle réunion de 80 cm vers le nord ; conserver le plafond réunion ». Aucun métré définitif ni performance acoustique fournis.',
+    livrableIa: `Tableau d’ouvrages (brouillon) :
+
+Confirmé (présent dans le brief) :
+| Ouvrage | Donnée | Source |
+| Cloisons type A | 6 unités, H = 2,70 m | Liste fournie |
+| Doublages | 2 | Liste fournie |
+| Plafond suspendu | Zone réunion | Liste fournie |
+| Modification | Déplacer cloison open space / réunion de 80 cm vers le nord | Mail MOE |
+| Contrainte | Conserver le plafond réunion | Mail MOE |
+
+À vérifier (absent) :
+| Point | Action |
+| Linéaires après déplacement | Relevé / plan à jour |
+| Type de plaque et ossature | CCTP / notice |
+| Performance acoustique | Ne pas inventer — demander la prescription |
+| Impact sur réservations élec. / plomberie | Coordination lots |
+| Quantités de joints / bandes | Chiffrage métier |`,
+    donneesNecessaires: [
+      'Liste d’ouvrages ou extrait de plans (anonymisé)',
+      'Hauteurs et typologies déjà validées en interne',
+      'Mails / CR de modification avec auteur et date',
+      'Extrait CCTP si exigences spécifiques (sans conclure à la conformité)',
+    ],
+    controleHumain:
+      'Le chargé d’affaires ou le conducteur valide l’impact sur quantités, planning et avenant ; aucune performance acoustique ou conformité DTU 25 n’est affirmée par l’IA.',
+  },
   prompts: [
     {
-      title: 'Métré cloisons — structure de postes (linéaires / surfaces)',
-      body: `Données : [PLAN ou liste pièces, hauteurs, types de cloisons].
-Propose STRUCTURE de métré (postes) : doublages, cloisons, habillages, renforts, joints. Renvoi DTU 25 — pas de quantités inventées.`,
+      title: 'Organisation des ouvrages — cloisons / doublages / plafonds',
+      body: `Données fournies uniquement : [LISTE PIÈCES OU ZONES, TYPES, HAUTEURS SI CONNUES].
+Produis un tableau ouvrage | zone | type | données confirmées | manques.
+Interdits : inventer linéaires, surfaces, performances acoustiques ou types de plaques absents.`,
     },
     {
-      title: 'Mail MOE — précision acoustique ou réservation',
-      body: `Problème : [SUJET]. Mail court, liste de questions ciblées, ton professionnel.`,
+      title: 'Interfaces entre lots — questions de coordination',
+      body: `Contexte plâtrerie : [ZONES]. Autres lots concernés : [ÉLEC / PLOMB / PEINTURE / …].
+Liste les interfaces probables et 5 questions max par lot, factuelles. Pas de solution technique inventée.`,
     },
     {
-      title: 'CR coordination — plusieurs lots',
-      body: `Notes : [NOTES]. Compte rendu structuré : décisions, interfaces, délais, responsables.`,
+      title: 'Suivi des modifications — journal',
+      body: `Mails / notes : [COLLER].
+Tableau : date | demande | impact ouvrages | statut (à chiffrer / validé / refusé) | source.
+Ne pas inventer d’avenant ni de quantités.`,
     },
     {
-      title: 'Devis détaillé par pièce — plâtre / cloisons',
-      body: `Liste pièces : [LISTE]. Structure détaillée des postes pour chiffrage interne (sans prix).`,
+      title: 'Mail coordination — réservation ou trémie',
+      body: `Problème : [SUJET]. Mail court, questions ciblées, ton professionnel. Pas d’engagement hors devis.`,
     },
     {
-      title: 'Réponse technique — CCTP cloison / doublage (questions)',
-      body: `Extrait : [TEXTE]. Liste d’exigences et questions si ambiguïté. Pas de conclusion de conformité.`,
+      title: 'Extrait CCTP — exigences documentaires (questions)',
+      body: `Extrait : [TEXTE]. Liste exigences mentionnées + questions si ambiguïté. Pas de conclusion de conformité au DTU 25.`,
     },
   ],
   csfePartnership: false,
-  testimonialQuote: '« Les mails avec l’électricien et les quantitatifs cloison sont plus clairs depuis qu’on structure avec des prompts. »',
-  testimonialAttribution: 'Plaquiste — 93 (anonymisé)',
+  testimonialQuote:
+    '« Les tableaux d’ouvrages et le suivi des déplacements de cloisons sont plus clairs — on vérifie toujours les linéaires sur plan. »',
+  testimonialAttribution: 'Entreprise de plâtrerie — 93 (anonymisé)',
   faq: [
     {
       q: 'L’IA peut-elle calculer les surfaces de plaque à la place du métré ?',
-      a: `Non : elle peut aider à structurer un tableau à partir de vos cotes — le relevé et le chiffrage définitif restent à vous.`,
+      a: `Non : elle structure un tableau à partir de vos cotes fournies — relevé et chiffrage restent métier.`,
     },
     {
-      q: 'Comment traiter l’acoustique dans les réponses aux MOE ?',
-      a: `Lister des questions et renvoyer aux prescriptions et avis techniques — pas d’affirmation sans pièce justificative.`,
+      q: 'Peut-elle valider l’acoustique d’une cloison ?',
+      a: `Non. Elle peut lister des questions et renvoyer aux prescriptions / avis techniques — jamais d’affirmation de performance sans pièce justificative.`,
+    },
+    {
+      q: 'Pourquoi cette page parle de plâtrerie et de plaquiste ?',
+      a: `Une seule URL couvre l’intention « formation IA plâtrerie » et le métier plaquiste / plâtrier : cloisons, doublages, plafonds. Pour le carrelage ou l’isolation, voir les pages dédiées.`,
     },
     {
       q: 'DTU 25 : ChatGPT suffit pour trancher ?',
       a: `Non : l’IA peut proposer un plan de lecture ; la conformité relève du fascicule et de votre équipe.`,
     },
-    ...faqStandard('plaquiste'),
+    ...faqStandard('plâtrerie'),
   ],
-  courseName: 'Formation IA plaquiste plâtrier BTP — Qualiopi',
-  courseDescription: `${OFC} : formation IA pour plaquistes — DTU 25, cloisons, devis, coordination. Session 4 h — organisme certifié Qualiopi, Constructys.`,
-  courseTeaches: ['ChatGPT pour plaquistes BTP', 'DTU 25', 'Devis cloisons', 'Qualiopi'],
-  ogImage: { ...COVER, alt: 'Formation IA pour le BTP — plaquiste et cloisons' },
-  coverImage: { ...COVER, alt: 'Plaquiste — formation IA entreprise' },
+  courseName: 'Formation IA plâtrerie & plaquiste BTP — Qualiopi',
+  courseDescription: `${OFC} : formation IA pour la plâtrerie — organisation des ouvrages, interfaces, suivi des modifications. Session catalogue — organisme certifié Qualiopi.`,
+  courseTeaches: [
+    'ChatGPT pour plâtrerie BTP',
+    'Organisation cloisons / doublages / plafonds',
+    'Suivi des modifications',
+    'Qualiopi',
+  ],
+  ogImage: { ...COVER, alt: 'Formation IA pour le BTP — plâtrerie et cloisons' },
+  coverImage: { ...COVER, alt: 'Plâtrerie — formation IA entreprise' },
   showAuthorBio: true,
-  authorBioClosingLine: 'Elle forme les équipes plaque de plâtre et second œuvre sur des usages IA sécurisés.',
+  authorBioClosingLine:
+    'Elle forme les entreprises de plâtrerie et les équipes plaque sur des usages IA documentaires, sous validation métier.',
   relatedMetierLinks: [
-    { href: '/formation-ia-peintre-btp', title: 'Formation IA peintre bâtiment', description: 'Finitions après plaquiste.' },
-    { href: '/formation-ia-electricien-btp', title: 'Formation IA électricien BTP', description: 'Réservations et passages de lots.' },
-    { href: '/formation-ia-macon-btp', title: 'Formation IA maçon BTP', description: 'Gros œuvre et interfaces structure.' },
+    {
+      href: LINKS.formationIaIsolationBtp,
+      title: 'Formation IA entreprise d’isolation',
+      description: 'Fiches produits, dossiers chantier — sans validation thermique par l’IA.',
+    },
+    {
+      href: LINKS.formationIaPeintreBatiment,
+      title: 'Formation IA peintre bâtiment',
+      description: 'Finitions après plâtrerie.',
+    },
+    {
+      href: LINKS.formationElectricienBtp,
+      title: 'Formation IA électricien BTP',
+      description: 'Réservations et passages de lots.',
+    },
   ],
-  liensUtilesIntro: 'Métiers proches, catalogue, Claude AI BTP, financement, blog.',
+  liensUtilesIntro: 'Métiers de finition proches, catalogue Qualiopi, financement, ressources IA BTP.',
+  sisterEncart: {
+    currentAudience: 'une entreprise de plâtrerie / plaquiste',
+    href: LINKS.formationIaCarreleurBtp,
+    linkLabel: 'la page formation IA entreprise de carrelage',
+  },
 };
 
+/**
+ * Config historique — la page `/formation-ia-menuisier-btp` rend désormais
+ * `lib/formation-ia-menuisier-btp-landing.ts` (intérieur / extérieur / agencement).
+ * Conservée pour exports et éventuels consommateurs du registre métier.
+ */
 export const FORMATION_IA_METIER_MENUISIER: FormationIaMetierBtpConfig = {
   id: 'menuisier',
   path: '/formation-ia-menuisier-btp',
-  h1: 'Formation IA menuisier bâtiment — DTU 36, pose & Qualiopi',
-  metaTitle: 'Formation IA menuisier bâtiment — fenêtres, portes, DTU 36',
+  h1: 'Formation IA pour les entreprises de menuiserie et d’agencement',
+  metaTitle: 'IA menuiserie : intérieur, extérieur, agencement',
+  skipIdfTitleOverride: true,
   metaDescription:
-    'Formation IA menuisier BTP : relevés, devis pose et DTU 36 mieux cadrés, sous votre validation métier. Formation IA pour le BTP. Présentiel IDF, Qualiopi.',
+    'Formation IA menuiserie et agencement : devis, relevés, CCTP et suivi pose sous validation métier. Formation IA pour le BTP. Présentiel IDF, Qualiopi.',
   keywords: [
-    'formation IA menuisier bâtiment',
-    'formation IA menuisier BTP',
-    'ChatGPT menuiserie',
-    'DTU 36',
-    'devis fenêtres IA',
-    'Qualiopi menuisier',
+    'formation IA entreprise de menuiserie',
+    'formation IA menuiserie intérieure',
+    'formation IA menuiserie extérieure',
+    'formation IA entreprise d’agencement',
+    'IA devis menuiserie agencement',
+    'formation IA pour le BTP',
   ],
-  metierNom: 'menuisiers',
-  metierNomTitre: 'menuisier',
-  normeRef: 'le DTU 36',
+  metierNom: 'entreprises de menuiserie et d’agencement',
+  metierNomTitre: 'menuiserie',
+  normeRef: 'les NF DTU 36.2 et 36.5',
+  essentielItems: [
+    'Menuiserie intérieure, extérieure et agencement — une page, trois sections documentaires distinctes.',
+    'Présentiel Île-de-France, Qualiopi. Distinct de la charpente / ossature.',
+    'L’IA ne valide ni mesures, ni plans de fabrication, ni performances.',
+  ],
   problemParagraphs: [
-    `Les menuisiers posent fenêtres, portes et ouvrants variés : le ${'`'}DTU 36${'`'}, les fiches fabricants et les prescriptions d’étanchéité et de désenfumage alourdissent les devis et les dossiers SAV.`,
-    `Relevés de cotes, délais fournisseurs et interfaces avec le second œuvre génèrent des flux de mails que l’on traite souvent tard.`,
-    `L’IA mal utilisée peut confondre typologie d’ouvrant ou performance thermique — d’où le cadre formation.`,
-    `L’objectif : accélérer la structure des devis, courriers et CR, sans remplacer le geste de pose ni la garantie décennale.`,
+    `Les entreprises de menuiserie et d’agencement jonglent entre relevés, devis, finitions, fournisseurs et suivi pose — détail des cas d’usage sur la landing dédiée.`,
   ],
-  solutionIntro: `Vous apprenez à produire des brouillons de devis structurés, des relances fournisseurs claires et des comptes rendus de pose — avec validation métier systématique.`,
+  solutionIntro: `La page publique détaille intérieur, extérieur, agencement et la gestion commune (AO, fournisseurs, assistants).`,
   casUsageConcrets: [
-    'Monter la structure d’un devis menuiseries + pose (dépose, fourniture, accessoires, finitions).',
-    'Rédiger une fiche de relevé de cotes (check-list) pour éviter les oublis en commande.',
-    'Préparer un mail SAV client (jeu, étanchéité, quincaillerie) avec ton professionnel.',
-    'Lister les questions à poser au MOE sur les performances thermiques ou les passages de réseaux.',
-    'Synthétiser une réponse à un marché privé ou public (lot menuiseries) avec plan de méthode.',
+    'Structurer devis et relevés à partir des données fournies.',
+    'Comparer offres fournisseurs sans inventer de performances.',
+    'Suivre fabrication, pose et réserves sous validation métier.',
   ],
   prompts: [
     {
-      title: 'Devis menuiseries — structure fourniture + pose',
-      body: `Données : [LISTE OUVRANTS, dimensions, finitions, dépose oui/non].
-STRUCTURE de devis (postes) sans prix. Rappels DTU 36 et notices — [à compléter] pour références produits exactes.`,
-    },
-    {
-      title: 'Fiche relevé de cotes — checklist',
-      body: `Type de chantier : [NEUF / RÉNO]. Propose une checklist de mesures et points de vigilance (aplomb, rejingot, appui, évacuations).`,
-    },
-    {
-      title: 'Mail fournisseur — délai ou relance commande',
-      body: `Contexte : [COMMANDE, date, retard]. Mail ferme et cordial, demande de date ferme, sans engagement juridique automatique.`,
-    },
-    {
-      title: 'CR pose — réserves et suites',
-      body: `Notes : [NOTES]. Compte rendu : travaux réalisés, réserves, photos à prévoir, prochaines étapes.`,
-    },
-    {
-      title: 'Mémoire technique — lot menuiseries',
-      body: `Critères : [LISTE]. Plan (titres + bullets) : méthode, calendrier, coordination, sécurité.`,
+      title: 'Voir la landing menuiserie & agencement',
+      body: `Les prompts opérationnels sont sur la page /formation-ia-menuisier-btp (landing dédiée).`,
     },
   ],
   csfePartnership: false,
-  testimonialQuote: '« Les devis menuiserie et les mails fournisseurs sont plus lisibles — on vérifie toujours les cotes. »',
-  testimonialAttribution: 'Menuisier poseur — IDF (anonymisé)',
+  testimonialQuote:
+    '« On structure devis intérieur, relevés fenêtres et briefs dressing sans mélanger avec la charpente. »',
+  testimonialAttribution: 'Entreprise de menuiserie-agencement — IDF (anonymisé)',
   faq: [
     {
-      q: 'L’IA peut-elle dimensionner mes menuiseries à la place du relevé ?',
-      a: `Non : le relevé et la validation restent terrain. L’IA aide à structurer les infos et les courriers.`,
+      q: 'L’IA peut-elle valider mes cotes ou performances ?',
+      a: `Non : relevé et validation restent métier. Voir la FAQ complète sur la landing.`,
     },
-    {
-      q: 'Comment gérer les SAV sans me tromper sur la garantie ?',
-      a: `Utiliser l’IA pour le ton et la structure — les engagements précis viennent de vos contrats et notices.`,
-    },
-    {
-      q: 'DTU 36 : puis-je demander à ChatGPT de trancher sur une pose ?',
-      a: `Non pour une décision technique : il peut lister des points de vigilance à vérifier dans le fascicule.`,
-    },
-    ...faqStandard('menuisier'),
+    ...faqStandard('menuiserie'),
   ],
-  courseName: 'Formation IA menuisier bâtiment BTP — Qualiopi',
-  courseDescription: `${OFC} : formation IA pour menuisiers — DTU 36, devis, pose, SAV. Session 4 h — organisme certifié Qualiopi, Constructys.`,
-  courseTeaches: ['ChatGPT pour menuisiers BTP', 'DTU 36', 'Devis et relevés', 'Qualiopi'],
-  ogImage: { ...COVER, alt: 'Formation IA pour les pros du BTP — menuiserie' },
-  coverImage: { ...COVER, alt: 'Menuisier bâtiment — formation IA' },
+  courseName: 'Formation IA menuiserie & agencement BTP — Qualiopi',
+  courseDescription: `${OFC} : formation IA pour menuiserie intérieure, extérieure et agencement — devis, relevés, suivi. Qualiopi.`,
+  courseTeaches: [
+    'ChatGPT / Claude pour menuiserie et agencement',
+    'Devis et relevés',
+    'Suivi pose et réserves',
+    'Qualiopi',
+  ],
+  ogImage: { ...COVER, alt: 'Formation IA pour le BTP — menuiserie et agencement' },
+  coverImage: { ...COVER, alt: 'Menuiserie et agencement — formation IA entreprise' },
   showAuthorBio: true,
-  authorBioClosingLine: 'Elle forme les poseurs et encadrants menuiserie sur l’IA au service du chiffrage et du relationnel client.',
+  authorBioClosingLine:
+    'Elle forme les entreprises de menuiserie et d’agencement sur des usages IA documentaires, distincts de la charpente.',
   relatedMetierLinks: [
-    { href: LINKS.formationIaCharpentierMenuisierBtp, title: 'Formation IA charpentier & menuisier bois', description: 'Charpente, ossature, agencement — partenariat UMB-FFB.' },
-    { href: '/formation-ia-macon-btp', title: 'Formation IA maçon BTP', description: 'Appuis et interfaces gros œuvre.' },
-    { href: LINKS.formationElectricienBtp, title: 'Formation IA électricien BTP', description: 'Réservations et passages.' },
+    {
+      href: LINKS.formationIaCharpentierBtp,
+      title: 'Formation IA charpentier BTP',
+      description: 'Charpente et ossature — intention distincte.',
+    },
+    {
+      href: LINKS.formationIaMetallerieSerrurerieBtp,
+      title: 'Formation IA métallerie & serrurerie',
+      description: 'Ouvrages métalliques et suivi pose.',
+    },
+    {
+      href: LINKS.formationIaCarreleurBtp,
+      title: 'Formation IA entreprise de carrelage',
+      description: 'Finitions sols / murs — coordination second œuvre.',
+    },
   ],
-  liensUtilesIntro: 'Métiers proches, catalogue, Claude AI, financement, blog.',
+  liensUtilesIntro: 'Métiers proches, catalogue, financement, ressources IA BTP.',
+  sisterEncart: {
+    currentAudience: 'une entreprise de menuiserie ou d’agencement',
+    href: LINKS.formationIaCharpentierBtp,
+    linkLabel: 'la page formation IA charpentier (ossature / charpente)',
+  },
 };
 
 export const FORMATION_IA_METIER_CARRELEUR: FormationIaMetierBtpConfig = {
   id: 'carreleur',
   path: '/formation-ia-carreleur-btp',
-  h1: 'Formation IA carreleur — pose collée, DTU 52 & Qualiopi',
-  metaTitle: 'Formation IA carreleur — grands formats, joints, DTU 52',
+  h1: 'Formation IA pour les entreprises de carrelage',
+  metaTitle: 'IA carrelage : devis, relevés et réserves',
+  skipIdfTitleOverride: true,
   metaDescription:
-    'Formation IA carreleur BTP en présentiel IDF : métrés, DTU 52, joints et devis réception. Qualiopi, Constructys selon éligibilité. Prenez RDV découverte.',
+    'Formation IA entreprise de carrelage : relevés, postes de préparation, devis et réserves sous validation. Formation IA pour le BTP. Présentiel IDF, Qualiopi.',
   keywords: [
+    'formation IA entreprise de carrelage',
     'formation IA carreleur',
     'formation IA carreleur BTP',
     'ChatGPT carrelage',
+    'IA devis carrelage',
     'DTU 52',
-    'devis pose carrelage IA',
-    'Qualiopi carreleur',
+    'formation IA pour le BTP',
   ],
-  metierNom: 'carreleurs',
-  metierNomTitre: 'carreleur',
+  metierNom: 'entreprises de carrelage et carreleurs',
+  metierNomTitre: 'carrelage',
   normeRef: 'le DTU 52',
+  essentielItems: [
+    'Angle entreprise de carrelage : structurer relevés fournis, postes de préparation, calepinage déjà établi, listes de fournitures, devis et réserves — sans inventer quantités ni taux de chute.',
+    'Public : dirigeants, chargés d’affaires et équipes. Présentiel Île-de-France, Qualiopi. Financement OPCO possible selon éligibilité.',
+    'Ateliers sur NIV-01 (catalogue) ; l’IA ne tranche pas la conformité DTU 52 ni les compatibilités colle / support.',
+  ],
   problemParagraphs: [
-    `Les carreleurs enchaînent métrés, calepinages, choix de colle et de joints, grands formats et pièces d’eau : le ${'`'}DTU 52${'`'} et les notices fabricants encadrent la pose, tandis que les clients veulent des délais clairs entre chape, étanchéité et finitions.`,
-    `Les imprévus (plans, niveaux, pentes d’évacuation gérées par d’autres lots) génèrent des mails et des CR de réunion le soir — sans méthode, tout repart en ressaisie manuelle.`,
-    `L’IA sans cadre peut inventer des temps de prise ou des compatibilités colle / support : la formation apprend à cadrer les prompts et à valider sur le terrain.`,
-    `L’objectif : accélérer la structure des devis, comptes rendus et réponses MOE, pas de remplacer le geste de pose.`,
+    `Les entreprises de carrelage enchaînent relevés, préparations de support, calepinages validés, commandes de fournitures et réceptions : le ${'`'}DTU 52${'`'} et les notices fabricants encadrent la pose, mais le volume documentaire (devis, réserves, mails lots) pèse sur le bureau.`,
+    `Quand le calepinage est déjà établi et les cotes fournies, l’enjeu n’est pas de « inventer » un métré : c’est de structurer postes de préparation, fournitures et réserves sans oublis.`,
+    `L’IA sans cadre invente chutes, temps de prise ou compatibilités produit : la formation impose données validées, séparateur confirmé / à vérifier, et validation métier.`,
+    `L’objectif : accélérer devis et documents de chantier, pas remplacer le geste de pose ni le contrôle support.`,
   ],
-  solutionIntro: `Ateliers sur métrés découpés, plannings indicatifs, mails clients sur joints ou choix de finition — avec rappel systématique : relecture humaine et fascicules à jour.`,
+  solutionIntro: `Ateliers sur relevés fournis, postes de préparation, listes de fournitures et rédaction de réserves — calepinage déjà établi côté entreprise, relecture humaine systématique.`,
   casUsageConcrets: [
-    'Structurer un devis carrelage sol / mur avec postes colle, joints, découpe, protection et reprise de plinthes.',
-    'Préparer un compte rendu après réception de support (chape, planéité, humidité résiduelle) avec réserves factuelles.',
-    'Lister les questions à poser au plombier ou au plaquiste si les pentes ou les cloisons ne sont pas alignées avec le calepinage.',
-    'Rédiger un mail client sur le choix de couleur de joint ou de format — sans garantir un rendu à la place des échantillons.',
-    'Monter un plan de mémoire technique pour un lot carrelage (méthode, délais, interfaces, déchets).',
+    'Transformer un relevé fourni (surfaces, formats, zones) en structure de postes de préparation (supports, ragréage si indiqué, protections) — sans inventer de quantités ni de taux de chute.',
+    'Préparer les lignes de devis et la liste de fournitures à partir d’un calepinage déjà établi en interne (formats, zones, plinthes) — uniquement les données validées.',
+    'Rédiger des réserves factuelles après visite support ou réception (constats, photos à prévoir, demandes aux autres lots) — sans conclure à la conformité technique.',
   ],
+  exemplePedagogique: {
+    titre: 'Devis documentaire — salle de bain (fictif, calepinage fourni)',
+    contexte:
+      'Dossier fictif : SDB 6,2 m² au sol (mesure fournie), faïence murale 14 m² (mesure fournie), format sol 60×60, faïence 30×60, calepinage validé en interne (joints droits). Brief : « Prévoir préparation support sol + plinthes assorties. » Aucun taux de chute ni notice colle fournis.',
+    livrableIa: `Brouillon documentaire :
+
+Confirmé :
+| Élément | Valeur | Source |
+| Surface sol | 6,2 m² | Relevé fourni |
+| Faïence murale | 14 m² | Relevé fourni |
+| Format sol | 60×60 | Brief / calepinage |
+| Format mur | 30×60 | Brief / calepinage |
+| Calepinage | Joints droits, validé interne | Entreprise |
+| Demandes | Préparation support sol + plinthes | Brief client |
+
+À vérifier :
+| Point | Action |
+| Nature et état du support | Visite / CR |
+| Produits colle / joint (réf.) | Notice fabricant — ne pas inventer |
+| Quantité de chutes | Calcul métier — interdit à l’IA |
+| Étanchéité sous carrelage (si pièce d’eau) | Lot / CCTP — hors affirmation IA |
+| Prix unitaires | Grille interne |`,
+    donneesNecessaires: [
+      'Relevé ou surfaces déjà mesurées',
+      'Calepinage validé (ou indication « non fourni »)',
+      'Formats et zones (sol / mur / plinthes)',
+      'Notes de visite support si disponibles',
+    ],
+    controleHumain:
+      'Le chargé d’affaires complète chutes, produits et prix ; aucune conformité DTU 52 ni compatibilité colle / support n’est affirmée par l’IA.',
+  },
   prompts: [
     {
-      title: 'Devis carrelage — structure postes (sans prix)',
-      body: `Données : [surfaces, formats, pièces d’eau oui/non, type de support].
-Propose STRUCTURE de devis : préparation, mise en œuvre, joints, protections, reprises. Renvoi DTU 52 et notices — pas de quantités inventées.`,
+      title: 'Postes de préparation — à partir du relevé fourni',
+      body: `Relevé / données validées : [COLLER].
+Liste les postes de préparation possibles UNIQUEMENT si évoqués ou logiquement à questionner (support, protection, plinthes…).
+Format : poste | données confirmées | à vérifier. Pas de quantités ni taux de chute inventés.`,
     },
     {
-      title: 'CR — visite support avant pose',
-      body: `Notes : [NOTES]. Compte rendu : constats, zones à traiter, demandes aux autres corps d’état, suites.`,
+      title: 'Devis + fournitures — calepinage déjà établi',
+      body: `Calepinage / formats / zones : [COLLER].
+Structure devis (désignations) + liste fournitures à confirmer (carreaux, plinthes, profilés…).
+Interdits : inventer chutes, PU, références produit absentes.`,
     },
     {
-      title: 'Questions MOE — CCTP carrelage ambigu',
-      body: `Extrait : [TEXTE]. Liste d’exigences et questions. Pas de conclusion de conformité.`,
+      title: 'Réserves — visite support ou réception',
+      body: `Notes terrain : [NOTES].
+CR : constats factuels, réserves, demandes aux autres lots, suites. Pas de conclusion de conformité.`,
     },
     {
-      title: 'Mail client — délai entre deux passes (ton pro)',
-      body: `Contexte : [TEXTE]. Rédige un mail qui rappelle les contraintes de séchage / prise sans chiffrer à la place du fabricant.`,
+      title: 'Questions lots — pentes / cloisons / niveaux',
+      body: `Contexte : [TEXTE]. Liste de questions au plombier, plaquiste ou MOE. Ton professionnel.`,
     },
     {
-      title: 'Mémoire technique — lot carrelage (plan)',
-      body: `Critères : [LISTE]. Plan (titres + bullets) : méthode, phasage, coordination, sécurité, environnement.`,
+      title: 'Extrait CCTP carrelage — exigences (questions)',
+      body: `Extrait : [TEXTE]. Exigences citées + questions. Pas de conclusion de conformité au DTU 52.`,
     },
   ],
   csfePartnership: false,
-  testimonialQuote: '« Les métrés structurés et les mails aux clients pour les joints sont moins longs à préparer. »',
-  testimonialAttribution: 'Carreleur — petite couronne (anonymisé)',
+  testimonialQuote:
+    '« On part du relevé et du calepinage déjà faits : l’IA aide à poser les postes et les réserves, pas à inventer les chutes. »',
+  testimonialAttribution: 'Entreprise de carrelage — petite couronne (anonymisé)',
   faq: [
     {
-      q: 'L’IA peut-elle calculer mes découpes ou mes chutes à la place du chantier ?',
-      a: `Non : elle peut aider à lister des postes à vérifier ; le relevé et le calepinage définitifs restent terrain.`,
+      q: 'L’IA peut-elle calculer mes découpes ou mes chutes ?',
+      a: `Non. Elle structure postes et listes à partir de vos données ; chutes et calepinage définitif restent métier.`,
     },
     {
-      q: 'Comment parler des temps de séchage sans me tromper ?',
-      a: `Renvoyer aux fiches produits et au planning réel du chantier — l’IA ne remplace pas la notice du fabricant.`,
+      q: 'Faut-il coller tout le calepinage dans l’outil ?',
+      a: `Préférez un extrait anonymisé (formats, zones, surfaces). Le calepinage graphique reste votre document de référence.`,
     },
     {
       q: 'DTU 52 : ChatGPT peut-il trancher sur une pose en pièce d’eau ?',
-      a: `Non pour une décision technique : il peut proposer un plan de lecture et des questions à vérifier dans le fascicule.`,
+      a: `Non pour une décision technique : plan de lecture et questions uniquement ; validation sur fascicule et chantier.`,
     },
-    ...faqStandard('carreleur'),
+    {
+      q: 'Lien avec plâtrerie ou isolation ?',
+      a: `Pages distinctes : la plâtrerie (cloisons / doublages) est reliée en tête de page ; l’isolation (fiches produits et dossiers) est dans les métiers proches en bas de page — pas les mêmes usages documentaires.`,
+    },
+    ...faqStandard('carrelage'),
   ],
-  courseName: 'Formation IA carreleur BTP — Qualiopi',
-  courseDescription: `${OFC} : formation IA pour carreleurs — DTU 52, métrés, joints, mémoires. Session 4 h — organisme certifié Qualiopi, Constructys.`,
-  courseTeaches: ['ChatGPT pour carreleurs BTP', 'DTU 52', 'Devis et réception', 'Qualiopi'],
-  ogImage: { ...COVER, alt: 'Formation IA appliquée au bâtiment — carrelage et pose' },
-  coverImage: { ...COVER, alt: 'Carreleur — formation IA entreprise' },
+  courseName: 'Formation IA entreprise de carrelage — Qualiopi',
+  courseDescription: `${OFC} : formation IA pour entreprises de carrelage — relevés, préparation, devis, réserves. Session catalogue — organisme certifié Qualiopi.`,
+  courseTeaches: [
+    'ChatGPT pour entreprises de carrelage',
+    'Postes de préparation et devis',
+    'Réserves et réception support',
+    'Qualiopi',
+  ],
+  ogImage: { ...COVER, alt: 'Formation IA appliquée au bâtiment — carrelage' },
+  coverImage: { ...COVER, alt: 'Entreprise de carrelage — formation IA' },
   showAuthorBio: true,
-  authorBioClosingLine: 'Elle forme les équipes carrelage sur des usages IA responsables et alignés sur le terrain.',
+  authorBioClosingLine:
+    'Elle forme les entreprises de carrelage sur des usages IA documentaires, sans substitution au contrôle chantier.',
   relatedMetierLinks: [
-    { href: '/formation-ia-plombier-btp', title: 'Formation IA plombier BTP', description: 'Pièces d’eau, pentes, interfaces avant carrelage.' },
-    { href: '/formation-ia-peintre-btp', title: 'Formation IA peintre bâtiment', description: 'Finitions et reprises après pose.' },
-    { href: '/formation-ia-plaquiste-btp', title: 'Formation IA plaquiste plâtrier', description: 'Cloisons et supports avant métrés.' },
+    {
+      href: LINKS.formationIaIsolationBtp,
+      title: 'Formation IA entreprise d’isolation',
+      description: 'Fiches produits et dossiers chantier.',
+    },
+    {
+      href: LINKS.formationPlombierBtp,
+      title: 'Formation IA plombier BTP',
+      description: 'Pièces d’eau et interfaces avant carrelage.',
+    },
+    {
+      href: LINKS.formationIaPeintreBatiment,
+      title: 'Formation IA peintre bâtiment',
+      description: 'Finitions et reprises après pose.',
+    },
   ],
-  liensUtilesIntro: 'Métiers proches, catalogue Qualiopi, Claude AI BTP, financement, blog.',
+  liensUtilesIntro: 'Métiers de finition proches, catalogue Qualiopi, financement, ressources IA BTP.',
+  sisterEncart: {
+    currentAudience: 'une entreprise de carrelage',
+    href: LINKS.formationIaPlatrerieBtp,
+    linkLabel: 'la page formation IA plâtrerie',
+  },
 };
 
 export const FORMATION_IA_METIER_CHARPENTIER: FormationIaMetierBtpConfig = {
@@ -700,11 +852,20 @@ Propose STRUCTURE de tableau (colonnes + lignes types) pour reprise interne. Rap
   showAuthorBio: true,
   authorBioClosingLine: 'Elle accompagne les équipes charpente et ossature bois sur une IA utile au bureau et au chantier.',
   relatedMetierLinks: [
-    { href: LINKS.formationIaMenuisierBtp, title: 'Formation IA menuisier bâtiment', description: 'Menuiseries, DTU 36, devis et pose — métier voisin du bois.' },
     { href: LINKS.formationIaCouvreurBtp, title: 'Formation IA couvreur zingueur', description: 'Interface toiture après structure.' },
-    { href: '/formation-ia-macon-btp', title: 'Formation IA maçon BTP', description: 'Appuis, plots et reprises gros œuvre.' },
+    { href: LINKS.formationIaMaconBtp, title: 'Formation IA maçon BTP', description: 'Appuis, plots et reprises gros œuvre.' },
+    {
+      href: LINKS.formationIaMetallerieSerrurerieBtp,
+      title: 'Formation IA métallerie & serrurerie',
+      description: 'Ouvrages métalliques — coordination second œuvre.',
+    },
   ],
   liensUtilesIntro: 'Métiers proches, catalogue, Claude AI BTP, financement, blog.',
+  sisterEncart: {
+    currentAudience: 'une entreprise de charpente / ossature',
+    href: LINKS.formationIaMenuisierBtp,
+    linkLabel: 'la page formation IA menuiserie & agencement',
+  },
 };
 
 export const FORMATION_IA_METIER_ASSISTANTE: FormationIaMetierBtpConfig = {

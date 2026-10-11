@@ -17,16 +17,16 @@ export const FORMATION_IA_METREUR_ECONOMISTE_CONSTRUCTION_PATH =
   '/formation-ia-metreur-economiste-construction' as const;
 
 export const METREUR_ECONOMISTE_SEO = {
-  title: 'Formation IA métreur économiste BTP IDF',
+  title: 'IA métreur BTP : DPGF, DQE et métrés',
   description:
-    'Formation IA métreur économiste : DPGF, DQE et métrés mieux contrôlés avant diffusion, sous relecture. Formation IA pour le BTP. Présentiel IDF, Qualiopi.',
-  h1: 'Formation IA pour métreurs et économistes de la construction — Île-de-France',
+    'Formation IA métreur économiste : DPGF, DQE et métrés contrôlés avant diffusion, sous relecture métier. Formation IA pour le BTP. Présentiel IDF, Qualiopi.',
+  h1: 'Formation IA pour métreurs et économistes de la construction',
   openGraphTitle: 'Formation IA métreur économiste BTP — DPGF, DQE, métrés',
 } as const;
 
 export const METREUR_ECONOMISTE_EN_BREF = [
-  'Session en présentiel uniquement en Île-de-France : ChatGPT et Claude pour structurer métrés, quantitatifs, minutes de métré, contrôles DPGF/DQE et vérification de bordereaux BPU — sans remplacer votre responsabilité chiffrage.',
-  'L’IA accélère la mise en forme, la relecture croisée et la détection d’incohérences ; vous validez unités, ratios et sous-détail de prix avant diffusion.',
+  'Session en présentiel Île-de-France : ChatGPT et Claude pour structurer métrés, quantitatifs, minutes de métré, contrôles DPGF/DQE et vérification de bordereaux BPU — sans remplacer votre responsabilité chiffrage.',
+  'Angle métreur : quantités et contrôles de bordereaux. Lecture DCE / exigences → page bureau d’études. Programme catalogue chiffrage → landing études de prix.',
   'Organisme certifié Qualiopi — financement OPCO possible selon éligibilité ; visio découverte gratuite pour cadrer votre besoin.',
 ] as const;
 
@@ -126,6 +126,10 @@ export const METREUR_ECONOMISTE_FAQ: readonly FAQItem[] = [
     a: 'Non — présentiel uniquement en Île-de-France (intra (dans vos locaux) ou inter). La visio découverte sert uniquement au cadrage commercial, pas à la session certifiante.',
   },
   {
+    q: 'Quelle différence avec le bureau d’études ou le programme études de prix ?',
+    a: 'Le bureau d’études (page dédiée) travaille la lecture DCE et les tableaux d’exigences. Le programme études de prix est la session catalogue structurée sur chiffrage. Ici : métrés, DPGF/DQE et BPU au quotidien du métreur.',
+  },
+  {
     q: 'Financement OPCO / Constructys possible ?',
     a: `Financement OPCO possible selon éligibilité (organisme certifié Qualiopi). Détails et plafonds sur la page <a href="${LINKS.financement}">financement Constructys formation IA BTP</a>.`,
   },
@@ -134,19 +138,19 @@ export const METREUR_ECONOMISTE_FAQ: readonly FAQItem[] = [
 export function getMetreurEconomisteRelated(at: Date = new Date()) {
   return [
     {
+      href: LINKS.formationIaBureauEtudesBtp,
+      title: "Formation IA bureau d'études BTP",
+      description: 'Analyse croisée DCE, tableaux d’exigences, clarifications.',
+    },
+    {
       href: LINKS.formationIaEtudesPrixChiffrageBtp,
-      title: 'Formation IA études de prix et chiffrage BTP',
-      description: 'Landing thématique — DPGF, métrés, BPU, quantitatifs.',
+      title: 'Programme IA études de prix et chiffrage BTP',
+      description: 'Session catalogue — DPGF, métrés, BPU, contrôles.',
     },
     {
       href: LINKS.formationAO,
       title: 'Formation NIV-02 — IA appels d’offres BTP',
-      description: 'DCE, mémoire technique, Claude AI Pro — catalogue Qualiopi.',
-    },
-    {
-      href: LINKS.iaAnalyseDce,
-      title: 'Analyser un DCE avec l’IA',
-      description: 'Méthode CCTP, CCAP, RC — tâche transactionnelle.',
+      description: 'DCE, mémoire technique — catalogue Qualiopi.',
     },
     {
       href: LINKS.formationIleDeFrance,

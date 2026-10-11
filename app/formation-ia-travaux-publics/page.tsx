@@ -1,7 +1,5 @@
 import Link from 'next/link';
-import { CTA_RDV_LABEL } from '@/components/CtaRdv';
 import { RdvLink } from '@/components/RdvLink';
-import { buildSiteCalendlyCtaUrl } from '@/lib/calendly';
 import {
   Sparkles,
   Route,
@@ -27,17 +25,18 @@ import { LINKS } from '@/lib/internal-links';
 
 export const revalidate = 3600;
 export const metadata = createPageMetadata({
-  title: 'Formation IA travaux publics — ChatGPT',
+  title: 'IA travaux publics : VRD et terrassement',
   description:
-    'Formation IA travaux publics : VRD, planification TP et marchés publics accélérés, sous contrôle métier. Formation IA pour le BTP. Présentiel IDF, Qualiopi.',
+    'Formation IA travaux publics : préparation chantier, VRD, situations et DOE sous contrôle métier. Formation IA pour le BTP. Présentiel IDF, Qualiopi.',
   descriptionFinal: true,
-  path: '/formation-ia-travaux-publics',
+  path: LINKS.formationIaTravauxPublics,
   keywords: [
     'formation IA travaux publics',
     'IA génie civil',
     'ChatGPT travaux publics',
     'formation IA TP',
     'VRD IA',
+    'terrassement IA',
     'OPCO travaux publics',
     'Constructys formation IA',
   ],
@@ -46,30 +45,41 @@ export const metadata = createPageMetadata({
 const CAS_USAGE = [
   {
     icon: Route,
-    title: 'Planification et pilotage TP',
-    text: "Structurer les jalons d'une opération routes ou infrastructures : synthèses de réunions de lancement, relances vers le maître d'ouvrage public, clarification des interfaces entre lots terrassement, enrobés et VRD.",
-  },
-  {
-    icon: Microscope,
-    title: 'Études de sol et données techniques',
-    text: "Transformer des rapports géotechniques ou des extraits d'études en synthèses exploitables pour l'équipe chantier — sans remplacer l'expert : gagner du temps sur la mise en forme et la diffusion.",
-  },
-  {
-    icon: Cable,
-    title: 'Suivi VRD et réseaux',
-    text: "Courriers techniques, comptes rendus de récolement, demandes d'information auprès des concessionnaires : modèles de textes adaptés aux contraintes des réseaux secs et humides en zone d'emprise.",
+    title: 'Préparation de chantier TP / VRD',
+    text: "Check-lists démarrage, phasage, interfaces lots (terrassement, réseaux, enrobés), ordre du jour de réunion de lancement et tableau d'actions — à partir de vos notes et extraits CCTP.",
   },
   {
     icon: Gavel,
-    title: "Appels d'offres publics",
-    text: "Lecture accélérée des DCE, identification des points sensibles (CCTP, clauses administratives), brouillons de mémoires techniques et de questions — dans le respect de vos procédures internes de validation.",
+    title: 'Consultations fournisseurs',
+    text: "Structurer demandes de prix, comparatifs de réponses et relances : postes, délais, hypothèses — sans inventer de tarifs ni se substituer à votre politique d'achats.",
   },
   {
     icon: FileBarChart,
-    title: 'Rapports de chantier & génie civil',
-    text: "Comptes rendus d'inspection ouvrages d'art, synthèses de levées, reporting d'avancement : des trames qui gardent la trace des décisions et sécurisent la communication avec la MOA et les contrôleurs.",
+    title: 'Rapports, suivi des actions et situations',
+    text: "Comptes rendus, reporting d'avancement, brouillons de situations de travaux à partir des quantités que vous fournissez — validation financière et contractuelle humaine obligatoire.",
+  },
+  {
+    icon: Cable,
+    title: 'Suivi VRD, réseaux et DOE',
+    text: "Courriers concessionnaires, notes de récolement, structure de DOE / DIUO : trames et listes de pièces — jamais une conformité automatique aux exigences du marché.",
+  },
+  {
+    icon: Microscope,
+    title: "Marchés publics et lecture de DCE",
+    text: "Synthèses d'exigences, points sensibles CCTP/CCAP, questions de clarification et esquisse de mémoire technique — sous vos procédures internes de validation.",
   },
 ];
+
+/** Exemple pédagogique fictif — ne pas présenter comme un cas client réel. */
+const EXEMPLE_FICTIF_TP = {
+  titre: 'Exemple pédagogique fictif — opération VRD voirie / réseaux',
+  contexte:
+    'PME TP fictive répond à une consultation pour réfection de voirie et réseaux secs. Le CCTP impose un phasage par zones et un DOE avec plans de récolement. L’équipe dispose de notes de visite et d’un extrait de DPGF.',
+  livrableIa:
+    'Check-list de préparation chantier, tableau actions (responsables / échéances), trame de situation mensuelle et sommaire DOE à compléter.',
+  controleHumain:
+    'Vérifier chaque exigence sur les pièces sources, les quantités et les prix ; aucune conformité DOE ni calcul de situation n’est « validée » par l’IA seule.',
+};
 
 const MODULES = [
   {
@@ -112,23 +122,23 @@ export default function FormationIATravauxPublicsLandingPage() {
             Formation IA travaux publics · Laure Olivié
           </p>
           <h1 className="mt-6 font-display text-3xl font-bold leading-tight md:text-4xl lg:text-5xl">
-            Formation IA &amp; ChatGPT pour les Travaux Publics — Routes, VRD, génie civil
+            Formation IA travaux publics — terrassement, VRD et génie civil
           </h1>
           <p className="mt-6 text-lg text-slate-300 md:text-xl">
-            L&apos;intelligence artificielle ne concerne pas seulement le bâtiment : elle entre dans
-            les bureaux d&apos;études, les directions travaux et les chantiers{' '}
-            <strong className="text-white">routes, infrastructures et réseaux</strong>. Cette
-            page présente une <strong className="text-white">formation IA travaux publics</strong>{' '}
-            pensée pour le terrain TP — pas pour un catalogue &quot;généraliste&quot; recyclé.
+            L&apos;intelligence artificielle entre dans les bureaux d&apos;études, les directions
+            travaux et les chantiers{' '}
+            <strong className="text-white">routes, terrassement, VRD et réseaux</strong>. Cette page
+            présente une <strong className="text-white">formation IA travaux publics</strong>{' '}
+            orientée préparation, consultations, reporting et DOE — avec contrôle métier obligatoire.
           </p>
           <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <Link
-              href="/contact"
+            <a
+              href="#contact-tp"
               className="inline-flex w-full items-center justify-center rounded-xl bg-[var(--accent)] px-8 py-4 font-semibold text-white transition-colors hover:bg-blue-600 sm:w-auto"
             >
-              Première formation IA dédiée aux travaux publics — demandez un devis
+              Contacter OFC — devis formation IA TP
               <ArrowRight className="ml-2 h-5 w-5" strokeWidth={1.5} aria-hidden />
-            </Link>
+            </a>
             <RdvLink className="inline-flex w-full items-center justify-center rounded-xl border-2 border-white/70 px-8 py-4 font-semibold text-white transition-colors hover:bg-white/10 sm:w-auto" />
           </div>
         </div>
@@ -170,8 +180,8 @@ export default function FormationIATravauxPublicsLandingPage() {
             Cas d&apos;usage IA dans les travaux publics
           </h2>
           <p className="mx-auto mt-4 max-w-3xl text-center text-slate-600">
-            Cinq exemples concrets — de la planification au reporting — pour une{' '}
-            <strong>IA génie civil</strong> et opérationnelle, alignée sur vos livrables.
+            Cinq exemples concrets — préparation, consultations, situations, DOE — pour une{' '}
+            <strong>IA génie civil</strong> opérationnelle, sous validation humaine.
           </p>
           <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {CAS_USAGE.map((item) => (
@@ -194,20 +204,34 @@ export default function FormationIATravauxPublicsLandingPage() {
         </div>
       </section>
 
+      <section className="border-b border-slate-200 bg-amber-50/80 px-4 py-14">
+        <div className="mx-auto max-w-3xl rounded-2xl border border-amber-200 bg-white p-6 md:p-8">
+          <p className="text-xs font-semibold uppercase tracking-wide text-amber-800">
+            Exemple pédagogique fictif
+          </p>
+          <h2 className="mt-2 font-display text-2xl font-bold text-slate-900 md:text-3xl">
+            {EXEMPLE_FICTIF_TP.titre}
+          </h2>
+          <p className="mt-4 leading-relaxed text-slate-700">{EXEMPLE_FICTIF_TP.contexte}</p>
+          <p className="mt-3 leading-relaxed text-slate-700">
+            <strong className="text-slate-900">Livrable assisté par l&apos;IA :</strong>{' '}
+            {EXEMPLE_FICTIF_TP.livrableIa}
+          </p>
+          <p className="mt-3 leading-relaxed text-slate-700">
+            <strong className="text-slate-900">Contrôle humain obligatoire :</strong>{' '}
+            {EXEMPLE_FICTIF_TP.controleHumain}
+          </p>
+        </div>
+      </section>
+
       <section className="border-b border-slate-200 bg-white px-4 py-14">
         <div className="mx-auto max-w-4xl">
           <h2 className="font-display text-2xl font-bold text-slate-900 md:text-3xl">
             Programme de la formation (vision TP)
           </h2>
           <p className="mt-4 text-slate-600">
-            Le parcours catalogue détaillé est présenté sur la fiche{' '}
-            <Link
-              href={LINKS.formationIaBtpNiveau1BatimentTp}
-              className="font-semibold text-[var(--accent)] underline-offset-2 hover:underline"
-            >
-              NIV-01 — L&apos;IA au service des pros du Bâtiment Travaux Publics
-            </Link>{' '}
-            (4 h, programme PDF). Voici la logique en six modules, pensée pour une{' '}
+            Le parcours catalogue détaillé (NIV-01 — 4 h, programme PDF) est rappelé en bas de page
+            via l&apos;encart Qualiopi. Voici la logique en six modules, pensée pour une{' '}
             <strong>formation IA TP</strong> exigeante.
           </p>
           <ol className="mt-10 space-y-6">
@@ -226,15 +250,6 @@ export default function FormationIATravauxPublicsLandingPage() {
               </li>
             ))}
           </ol>
-          <p className="mt-8 text-center">
-            <Link
-              href={`${LINKS.formationIaBtpNiveau1BatimentTp}#programme`}
-              className="inline-flex items-center gap-2 font-semibold text-[var(--accent)] hover:underline"
-            >
-              Voir le programme détaillé sur la fiche NIV-01
-              <ArrowRight className="h-4 w-4" strokeWidth={1.5} aria-hidden />
-            </Link>
-          </p>
         </div>
       </section>
 
@@ -300,7 +315,7 @@ export default function FormationIATravauxPublicsLandingPage() {
             <li className="flex gap-3 text-slate-700">
               <CheckCircle className="mt-0.5 h-5 w-5 shrink-0 text-emerald-600" strokeWidth={1.5} />
               <Link
-                href="/financement-constructys-formation-ia-btp"
+                href={LINKS.financement}
                 className="text-[var(--accent)] underline-offset-2 hover:underline"
               >
                 Guide financement Constructys — modalités et délais
@@ -313,22 +328,39 @@ export default function FormationIATravauxPublicsLandingPage() {
       <section className="border-b border-slate-200 bg-gradient-to-br from-slate-900 to-slate-800 px-4 py-16 text-white">
         <div className="mx-auto max-w-3xl text-center">
           <h2 className="font-display text-2xl font-bold md:text-3xl">
-            Première formation IA dédiée aux travaux publics — demandez un devis
+            Contacter OFC pour une formation IA travaux publics
           </h2>
           <p className="mt-4 text-lg text-slate-300">
             Décrivez votre structure (routes, VRD, génie civil, terrassement…) et le nombre de
-            participants : je reviens vers vous avec une proposition adaptée et les options de{' '}
-            <strong>prise en charge OPCO</strong>.
+            participants : proposition adaptée et options de{' '}
+            <strong>prise en charge OPCO selon éligibilité</strong>.
           </p>
           <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <Link
-              href="/contact"
+            <a
+              href="#contact-tp"
               className="inline-flex items-center justify-center rounded-xl bg-[var(--accent)] px-8 py-4 font-semibold text-white transition-colors hover:bg-blue-700"
             >
               Demander un devis
-            </Link>
+            </a>
             <RdvLink className="inline-flex items-center justify-center rounded-xl border-2 border-white/70 px-8 py-4 font-semibold text-white transition-colors hover:bg-white/10" />
           </div>
+        </div>
+      </section>
+
+      <section
+        id="contact-tp"
+        className="scroll-mt-24 border-b border-slate-200 bg-white px-4 py-10"
+      >
+        <div className="mx-auto flex max-w-3xl flex-col items-start gap-4 sm:flex-row sm:items-center sm:justify-between">
+          <p className="text-slate-700">
+            Écrivez à OFC ou réservez une visio découverte — sans engagement.
+          </p>
+          <Link
+            href={LINKS.contact}
+            className="inline-flex items-center justify-center rounded-xl bg-[var(--accent)] px-6 py-3 font-semibold text-white hover:bg-blue-700"
+          >
+            Formulaire de contact
+          </Link>
         </div>
       </section>
 
@@ -340,22 +372,33 @@ export default function FormationIATravauxPublicsLandingPage() {
 
       <div className="border-t border-slate-200 bg-slate-50 px-4 py-10">
         <div className="mx-auto max-w-4xl">
-          <Link href="/" className="font-medium text-[var(--accent)] hover:underline">
+          <Link href={LINKS.home} className="font-medium text-[var(--accent)] hover:underline">
             ← Accueil
           </Link>
           <span className="mx-2 text-slate-400">·</span>
-          <Link href="/formations" className="font-medium text-[var(--accent)] hover:underline">
+          <Link href={LINKS.formations} className="font-medium text-[var(--accent)] hover:underline">
             Catalogue formations
           </Link>
           <div className="mt-8">
-            <LiensConnexes currentPath={LINKS.formationIaTravauxPublics} excludeHrefs={[LINKS.formations]} />
+            <LiensConnexes
+              currentPath={LINKS.formationIaTravauxPublics}
+              excludeHrefs={[
+                LINKS.formations,
+                LINKS.formationIaBtpNiveau1BatimentTp,
+                LINKS.financement,
+                LINKS.contact,
+              ]}
+            />
             <AllerPlusLoin
               links={[
-                { href: LINKS.formationIaBtpNiveau1BatimentTp, label: 'Fiche catalogue NIV-01 (4 h, PDF)' },
-                { href: LINKS.financement, label: 'Financement Constructys' },
+                { href: LINKS.formationIaChefChantierTp, label: 'Formation IA chef de chantier TP' },
+                { href: LINKS.formationConducteurTravaux, label: 'Formation IA conducteur de travaux' },
                 { href: LINKS.formationAO, label: "IA appels d'offres BTP (NIV-02)" },
-                { href: '/blog', label: 'Blog IA BTP' },
-                { href: LINKS.prendreRdv, label: CTA_RDV_LABEL },
+                { href: LINKS.formationIaBureauEtudesBtp, label: "Formation IA bureau d'études BTP" },
+                {
+                  href: LINKS.formationIaAchatsApprovisionnementBtp,
+                  label: 'Formation IA achats & approvisionnement BTP',
+                },
               ]}
             />
           </div>

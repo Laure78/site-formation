@@ -68,8 +68,7 @@ export const FAQ_IA_BTP_METIERS_CHANTIER_SEO: readonly FAQItem[] = [
   },
   {
     q: "L'IA peut-elle aider à la sécurité sur chantier ?",
-    a:
-      "Elle peut aider à préparer des supports de sensibilisation, relire des consignes, structurer des check-lists QSE ou des comptes rendus d'incident — toujours sous validation d'un responsable et dans le respect du cadre légal. Elle ne remplace pas la prévention, les obligations du chef d'entreprise ni les expertises réglementaires. Les formations OFC restent centrées sur la productivité et la rédaction, pas sur un dispositif de prévention certifié à la place d'un organisme habilité.",
+    a: `Elle peut aider à préparer des supports de sensibilisation, relire des consignes, structurer des check-lists QSE ou des comptes rendus d'incident — toujours sous validation d'un responsable et dans le respect du cadre légal. Elle ne remplace pas la prévention, les obligations du chef d'entreprise ni les expertises réglementaires. Détail des usages documentaires : <a href="${LINKS.formationIaQsePreventionBtp}">formation IA QSE et prévention BTP</a>. Les formations OFC restent centrées sur la productivité et la rédaction, pas sur un dispositif de prévention certifié à la place d'un organisme habilité.`,
   },
   {
     q: "Comment utiliser l'IA pour la gestion administrative ?",
@@ -795,19 +794,19 @@ export const FAQ_BATIMENT: FAQItem[] = [
 export const FAQ_FORMATION_IA_TRAVAUX_PUBLICS_LANDING: FAQItem[] = [
   {
     q: "Pourquoi une formation « IA travaux publics » plutôt qu'une formation bâtiment générique ?",
-    a: `Les enjeux TP (VRD, terrassement, enrobés, ouvrages d'art, maître d'ouvrage public, marchés publics) diffèrent du seul gros œuvre : le niveau 1 du catalogue intègre désormais bâtiment et travaux publics dans une même session de 4 h, avec prompts et cas TP. Voir la fiche <a href="${LINKS.formationIaBtpNiveau1BatimentTp}">formation niveau 1</a> et la page <a href="/formation-ia-travaux-publics">formation IA travaux publics</a> (SEO).`,
+    a: `Les enjeux TP (VRD, terrassement, enrobés, ouvrages d'art, maître d'ouvrage public, marchés publics) diffèrent du seul gros œuvre : le niveau 1 du catalogue intègre bâtiment et travaux publics dans une même session de 4 h, avec prompts et cas TP. La fiche NIV-01 est rappelée en bas de cette page (encart Qualiopi).`,
   },
   {
     q: "Les entreprises de terrassement, enrobés ou VRD sont-elles financées comme le reste du BTP ?",
-    a: 'Si votre activité relève du périmètre BTP / travaux publics, les règles OPCO (notamment Constructys) s\'appliquent dans le cadre du plan de développement des compétences. Le montage de dossier et les plafonds dépendent de votre taille et du dispositif retenu — <a href="/financement-constructys-formation-ia-btp">guide financement Constructys</a> et <a href="/contact">contact</a> pour un devis.',
+    a: 'Si votre activité relève du périmètre BTP / travaux publics, les règles OPCO (notamment Constructys) s\'appliquent dans le cadre du plan de développement des compétences. Le montage de dossier et les plafonds dépendent de votre taille et du dispositif retenu — le guide financement est lié dans la section modalités ci-dessus.',
   },
   {
     q: "La formation couvre-t-elle à la fois les marchés publics et les dossiers privés ?",
-    a: 'Oui : la logique de consultation, de structuration de réponse et de relecture s\'applique aux deux contextes. Les marchés publics ajoutent des contraintes de forme et de délais que j\'intègre dans les ateliers — voir aussi <a href="/formations/ia-appels-offre-btp">formation IA appels d\'offres BTP</a>.',
+    a: 'Oui : la logique de consultation, de structuration de réponse et de relecture s\'applique aux deux contextes. Les marchés publics ajoutent des contraintes de forme et de délais intégrées dans les ateliers (préparation, situations, DOE).',
   },
   {
     q: "Quelle est la durée de la formation IA travaux publics ?",
-    a: `Je propose une session de 4 heures (niveau débutant), ${libelleTarifParticipantCatalogue(TARIF_PARTICIPANT_NIV01_HT)} (6 à ${EFFECTIF_GROUPE_MAX} participants). Le programme condense consultations / DCE, documents de chantier et bases d'industrialisation (templates, assistants) — <a href="${LINKS.formationIaBtpNiveau1BatimentTp}">programme niveau 1 (PDF sur la fiche)</a>.`,
+    a: `Je propose une session de 4 heures (niveau débutant), ${libelleTarifParticipantCatalogue(TARIF_PARTICIPANT_NIV01_HT)} (6 à ${EFFECTIF_GROUPE_MAX} participants). Le programme condense consultations / DCE, documents de chantier, situations et bases d'industrialisation — détail sur la fiche NIV-01 en bas de page.`,
   },
 ];
 

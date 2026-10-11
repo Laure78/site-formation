@@ -103,15 +103,21 @@ const PAGES_DATA: { path: string; title: string; content: string }[] = [
   },
   {
     path: '/formation-ia-plombier-btp',
-    title: 'Formation IA plombier chauffagiste BTP Île-de-France',
+    title: 'Formation IA plomberie sanitaire BTP Île-de-France',
     content:
       'Landing SEO : devis plomberie chauffage, diagnostics, mails SAV, synthèse DCE et mémoires techniques avec ChatGPT. Qualiopi, Constructys. Responsabilité gaz et marchés publics = validation pro. Laure Olivié, OFC.',
   },
   {
     path: '/formation-ia-plaquiste-btp',
-    title: 'Formation IA plaquiste plâtrier BTP Île-de-France',
+    title: 'Formation IA plâtrerie — cloisons, doublages, plafonds',
     content:
-      'Landing SEO : devis doublage BA13, métrages, variantes, briefs chantier, FAQ clients avec ChatGPT. Qualiopi, Constructys. Quantités et DTU = validation par le plaquiste. Laure Olivié.',
+      'Landing SEO : organisation des ouvrages plâtrerie, interfaces de lots, suivi des modifications avec ChatGPT. Qualiopi, Constructys. Quantités et acoustique = validation métier. Laure Olivié.',
+  },
+  {
+    path: '/formation-ia-isolation-btp',
+    title: 'Formation IA entreprise d’isolation BTP',
+    content:
+      'Landing SEO : fiches produits, exigences documentaires, devis et dossiers chantier isolation. Pas de validation thermique/acoustique/incendie par l’IA. Qualiopi, présentiel IDF. Laure Olivié.',
   },
   {
     path: '/formation-ia-peintre-btp',
@@ -121,9 +127,9 @@ const PAGES_DATA: { path: string; title: string; content: string }[] = [
   },
   {
     path: '/formation-ia-menuisier-btp',
-    title: 'Formation IA menuisier BTP Île-de-France',
+    title: 'Formation IA menuiserie & agencement — intérieur, extérieur',
     content:
-      'Landing SEO : devis menuiserie bois PVC alu, fiches techniques Uw/Rw depuis notices, variantes, briefs atelier avec ChatGPT. Qualiopi, Constructys. Cotes et prix = validation pro. Laure Olivié.',
+      'Landing SEO : menuiserie intérieure, extérieure et agencement — devis, relevés, CCTP, suivi pose, ChatGPT et Claude. Pas de validation de mesures ou performances par l’IA. Qualiopi, présentiel IDF. Laure Olivié.',
   },
   {
     path: '/formation-ia-dirigeant-pme-btp',
@@ -175,9 +181,9 @@ const PAGES_DATA: { path: string; title: string; content: string }[] = [
   },
   {
     path: '/formation-ia-carreleur-btp',
-    title: 'Formation IA carreleur faïencier BTP',
+    title: 'Formation IA entreprise de carrelage BTP',
     content:
-      'Landing SEO : devis carrelage, métrage, fiches techniques, variantes et FAQ client avec ChatGPT. Île-de-France. Qualiopi, Constructys. Barèmes, métrages définitifs et notices fabricants validés par le professionnel.',
+      'Landing SEO : relevés fournis, postes de préparation, calepinage établi, devis et réserves avec ChatGPT. Pas de chutes inventées. Qualiopi, présentiel IDF. Laure Olivié.',
   },
   {
     path: '/formation-ia-geometre-tp',

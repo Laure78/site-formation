@@ -15,8 +15,16 @@ export type FormationIaMetierBtpConfig = {
   normeRef: string;
   problemParagraphs: string[];
   solutionIntro: string;
-  /** Cinq cas d’usage concrets (section dédiée si renseigné) */
+  /** Cas d’usage concrets (section dédiée si renseigné) */
   casUsageConcrets?: string[];
+  /** Exemple pédagogique fictif — données fournies + contrôle humain */
+  exemplePedagogique?: {
+    titre: string;
+    contexte: string;
+    livrableIa: string;
+    donneesNecessaires: readonly string[];
+    controleHumain: string;
+  };
   prompts: { title: string; body: string }[];
   /** Bloc partenariat CSFE (uniquement étancheur) */
   csfePartnership: boolean;

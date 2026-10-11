@@ -403,9 +403,13 @@ export default function FormationIaCloturisteBtpPage() {
         <AllerPlusLoin
           links={buildMetierAllerPlusLoinLinks(
             [
-            { href: LINKS.formationIaMaconPaysagisteBtp, label: 'Formation IA maçon paysagiste BTP' },
-            { href: LINKS.formationIaPaysagiste, label: 'Formation IA paysagiste BTP' },
-            { href: LINKS.iaDevis, label: 'IA devis bâtiment' },
+              {
+                href: LINKS.formationIaMetallerieSerrurerieBtp,
+                label: 'Formation IA métallerie & serrurerie BTP',
+              },
+              { href: LINKS.formationIaMaconPaysagisteBtp, label: 'Formation IA maçon paysagiste BTP' },
+              { href: LINKS.formationIaPaysagiste, label: 'Formation IA paysagiste BTP' },
+              { href: LINKS.iaDevis, label: 'IA devis bâtiment' },
             ],
             { rdvLabel: CTA_RDV_LABEL },
           )}

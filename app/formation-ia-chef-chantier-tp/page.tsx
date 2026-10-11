@@ -16,6 +16,7 @@ import { MetierIdfPresentielLine } from '@/components/formation-ia-metier/Metier
 import { DisclaimerGains } from '@/components/formation/DisclaimerGains';
 import {
   CHEF_CHANTIER_EN_BREF,
+  CHEF_CHANTIER_EXEMPLE_FICTIF,
   CHEF_CHANTIER_FAQ,
   CHEF_CHANTIER_PREREQUIS,
   CHEF_CHANTIER_PROGRAMME,
@@ -25,6 +26,7 @@ import {
   FORMATION_IA_CHEF_CHANTIER_TP_SEO,
   PROMPT_ALERTES_CHEF,
   PROMPT_EMAILS_CHEF,
+  PROMPT_NOTES_VOCALES_CHEF,
   PROMPT_RAPPORT_CHEF,
   PROMPT_VARIATION_CHEF,
 } from '@/lib/formation-ia-chef-chantier-tp-landing';
@@ -52,14 +54,15 @@ export const metadata = createPageMetadata({
 });
 
 const SOMMAIRE = [
-  { href: '#cas-usage', label: 'Cas d’usage IA chef de chantier TP' },
+  { href: '#cas-usage', label: 'Cas d’usage IA chef de chantier' },
+  { href: '#exemple-fictif', label: 'Exemple pédagogique fictif' },
   { href: '#le-probleme', label: 'Coordination et documentation TP' },
   { href: '#public', label: 'Public & prérequis' },
   { href: '#programme', label: 'Ce que vous apprenez' },
   { href: '#methode', label: 'Méthode + prompts ChatGPT / Claude' },
   { href: '#resultats', label: 'Résultats concrets' },
   { href: '#faq', label: 'FAQ' },
-  { href: LINKS.prendreRdv, label: CTA_RDV_LABEL },
+  { href: '#rdv', label: 'Contacter OFC' },
 ];
 
 export default function FormationIaChefChantierTpPage() {
@@ -143,11 +146,11 @@ export default function FormationIaChefChantierTpPage() {
 
         <section id="cas-usage" className="scroll-mt-24 mt-14">
           <h2 className="font-display text-2xl font-bold text-slate-900">
-            Cas d&apos;usage concrets pour chefs de chantier TP
+            Cas d&apos;usage concrets pour chefs de chantier
           </h2>
           <p className="mt-4 leading-relaxed text-slate-600">
-            Remontés en tête de page : les situations que vous traitez au quotidien sur chantiers eau, VRD et
-            terrassement.
+            Situations du quotidien sur chantiers eau, VRD et terrassement — du vocal de fin de journée à la
+            remontée des difficultés.
           </p>
           <ul className="mt-6 space-y-5">
             {CHEF_CHANTIER_USE_CASES.map((item) => (
@@ -157,6 +160,27 @@ export default function FormationIaChefChantierTpPage() {
               </li>
             ))}
           </ul>
+        </section>
+
+        <section
+          id="exemple-fictif"
+          className="scroll-mt-24 mt-14 rounded-2xl border border-amber-200 bg-amber-50/60 p-6 md:p-8"
+        >
+          <p className="text-xs font-semibold uppercase tracking-wide text-amber-800">
+            Exemple pédagogique fictif
+          </p>
+          <h2 className="mt-2 font-display text-2xl font-bold text-slate-900">
+            {CHEF_CHANTIER_EXEMPLE_FICTIF.titre}
+          </h2>
+          <p className="mt-4 leading-relaxed text-slate-700">{CHEF_CHANTIER_EXEMPLE_FICTIF.contexte}</p>
+          <p className="mt-3 leading-relaxed text-slate-700">
+            <strong className="text-slate-900">Livrable assisté par l&apos;IA :</strong>{' '}
+            {CHEF_CHANTIER_EXEMPLE_FICTIF.livrableIa}
+          </p>
+          <p className="mt-3 leading-relaxed text-slate-700">
+            <strong className="text-slate-900">Contrôle humain obligatoire :</strong>{' '}
+            {CHEF_CHANTIER_EXEMPLE_FICTIF.controleHumain}
+          </p>
         </section>
 
         <section id="le-probleme" className="scroll-mt-24 mt-14">
@@ -238,28 +262,35 @@ export default function FormationIaChefChantierTpPage() {
           </h2>
 
           <h3 className="mt-8 font-display text-xl font-semibold text-slate-900">
-            Étape 1 : rapport d’avancement quotidien
+            Étape 1 : notes vocales → rapport journalier
+          </h3>
+          <pre className="mt-4 overflow-x-auto whitespace-pre-wrap rounded-xl bg-slate-100 p-4 text-sm leading-relaxed text-slate-800">
+            {PROMPT_NOTES_VOCALES_CHEF}
+          </pre>
+
+          <h3 className="mt-8 font-display text-xl font-semibold text-slate-900">
+            Étape 2 : rapport d’avancement (notes structurées)
           </h3>
           <pre className="mt-4 overflow-x-auto whitespace-pre-wrap rounded-xl bg-slate-100 p-4 text-sm leading-relaxed text-slate-800">
             {PROMPT_RAPPORT_CHEF}
           </pre>
 
           <h3 className="mt-8 font-display text-xl font-semibold text-slate-900">
-            Étape 2 : emails de coordination sous-traitants
+            Étape 3 : emails de coordination sous-traitants
           </h3>
           <pre className="mt-4 overflow-x-auto whitespace-pre-wrap rounded-xl bg-slate-100 p-4 text-sm leading-relaxed text-slate-800">
             {PROMPT_EMAILS_CHEF}
           </pre>
 
           <h3 className="mt-8 font-display text-xl font-semibold text-slate-900">
-            Étape 3 : gestion d’une variation CCTP
+            Étape 4 : gestion d’une variation CCTP
           </h3>
           <pre className="mt-4 overflow-x-auto whitespace-pre-wrap rounded-xl bg-slate-100 p-4 text-sm leading-relaxed text-slate-800">
             {PROMPT_VARIATION_CHEF}
           </pre>
 
           <h3 className="mt-8 font-display text-xl font-semibold text-slate-900">
-            Étape 4 : rappels sécurité (complément au PPSPS)
+            Étape 5 : rappels sécurité (complément au PPSPS)
           </h3>
           <pre className="mt-4 overflow-x-auto whitespace-pre-wrap rounded-xl bg-slate-100 p-4 text-sm leading-relaxed text-slate-800">
             {PROMPT_ALERTES_CHEF}
@@ -322,15 +353,10 @@ export default function FormationIaChefChantierTpPage() {
           </div>
           <DisclaimerGains className="mt-4" />
 
-          <blockquote className="mt-10 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-            <p className="italic leading-relaxed text-slate-700">
-              « J’avais moins de temps pour anticiper qu’écrire des mails. Les brouillons me font gagner du souffle sur
-              la coordination — je reste le seul à valider ce qui part. »
-            </p>
-            <footer className="mt-4 text-sm font-medium text-slate-900">
-              — Chef de chantier TP, témoignage de formation (FFB Île-de-France)
-            </footer>
-          </blockquote>
+          <p className="mt-6 text-sm leading-relaxed text-slate-600">
+            Les ordres de grandeur ci-dessus sont indicatifs. Aucun témoignage client n&apos;est inventé sur
+            cette page — l&apos;exemple pédagogique fictif ci-dessus illustre la méthode en atelier.
+          </p>
         </section>
 
         <section id="faq" className="scroll-mt-24 mt-14">
@@ -395,8 +421,9 @@ export default function FormationIaChefChantierTpPage() {
           links={[
             { href: LINKS.formationIaBtpNiveau1BatimentTp, label: 'NIV-01 — Bâtiment & travaux publics' },
             { href: LINKS.formationConducteurTravaux, label: 'Formation IA conducteur de travaux BTP' },
-            { href: LINKS.formationIaConducteurEnginsTp, label: 'Formation IA conducteur d’engins TP' },
-            { href: LINKS.financement, label: 'Financement Constructys' },
+            { href: LINKS.formationIaQsePreventionBtp, label: 'Formation IA QSE & prévention BTP' },
+            { href: LINKS.guideChefDeChantierOfc, label: 'Guide du chef de chantier — 6 skills Claude' },
+            { href: LINKS.financement, label: 'Financement Constructys formation IA BTP' },
           ]}
         />
 

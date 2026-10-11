@@ -109,7 +109,7 @@ const GEO_METIER_BY_DEPT: Record<string, RelatedLinkItem> = {
   },
   'val-de-marne-94': {
     href: LINKS.formationPlombierBtp,
-    label: 'Formation IA plombier chauffagiste',
+    label: 'Formation IA plomberie sanitaire',
     description: 'Devis sanitaire, DTU 60, dossiers aides.',
   },
   'val-doise-95': {
@@ -223,7 +223,7 @@ const METIER_CLUSTER: Record<string, MetierClusterEntry> = {
     catalogue: {
       href: LINKS.formationIaBtpNiveau1BatimentTp,
       label: 'Formation IA niveau 1 bâtiment & travaux publics',
-      description: 'Bases ChatGPT pour plomberie-chauffage et second œuvre.',
+      description: 'Bases ChatGPT pour plomberie et second œuvre.',
     },
     blog: {
       href: '/blog/ia-et-plombier-5-gains-de-temps-concrets',
@@ -350,11 +350,109 @@ const METIER_CLUSTER: Record<string, MetierClusterEntry> = {
     },
     hubAnchor: 'Formation IA BTP — hub par métier',
   },
+  [LINKS.formationIaBureauEtudesBtp]: {
+    path: LINKS.formationIaBureauEtudesBtp,
+    close: [LINKS.formationIaMetreurEconomisteConstruction, LINKS.formationChargeAffairesBtp],
+    catalogue: {
+      href: LINKS.formationIaEtudesPrixChiffrageBtp,
+      label: 'Programme IA études de prix et chiffrage BTP',
+      description: 'Landing thématique — DPGF, métrés, contrôles.',
+    },
+    blog: {
+      href: LINKS.iaAnalyseDce,
+      label: 'Méthode : analyser un DCE avec l’IA',
+    },
+    hubAnchor: 'Hub formation IA BTP — métiers études & chantier',
+  },
+  [LINKS.formationIaQsePreventionBtp]: {
+    path: LINKS.formationIaQsePreventionBtp,
+    close: [LINKS.formationIaChefChantierTp, LINKS.formationIaAssistanteTravaux],
+    catalogue: {
+      href: LINKS.formationIaBtpNiveau1BatimentTp,
+      label: 'Catalogue NIV-01 — IA au service du bâtiment & TP',
+      description: 'Session 4 h — bases documentaires BTP.',
+    },
+    blog: {
+      href: LINKS.blogPpspsIa,
+      label: 'Article — PPSPS et IA : méthode et précautions',
+    },
+    hubAnchor: 'Hub formation IA BTP — métiers chantier & QSE',
+  },
+  [LINKS.formationIaAchatsApprovisionnementBtp]: {
+    path: LINKS.formationIaAchatsApprovisionnementBtp,
+    close: [LINKS.formationChargeAffairesBtp, LINKS.formationIaChefChantierTp],
+    catalogue: {
+      href: LINKS.formationIaBtpNiveau1BatimentTp,
+      label: 'Catalogue NIV-01 — IA au service du bâtiment & TP',
+      description: 'Session 4 h — bases documentaires BTP.',
+    },
+    blog: {
+      href: LINKS.guideChargeAffairesOfc,
+      label: 'Guide chargé d’affaires — 12 cas Claude',
+    },
+    hubAnchor: 'Hub formation IA BTP — achats, affaires & chantier',
+  },
+  [LINKS.formationIaGenieClimatiqueBtp]: {
+    path: LINKS.formationIaGenieClimatiqueBtp,
+    close: [LINKS.formationChargeAffairesBtp, LINKS.formationIaAssistanteTravaux],
+    catalogue: {
+      href: LINKS.formationConducteurTravaux,
+      label: 'Formation IA conducteur de travaux BTP',
+      description: 'CR, DOE, suivi — lots techniques.',
+    },
+    blog: {
+      href: LINKS.iaAnalyseDce,
+      label: 'Méthode : analyser un DCE avec l’IA',
+    },
+    hubAnchor: 'Hub formation IA BTP — lots techniques & CVC',
+  },
+  [LINKS.formationIaMetallerieSerrurerieBtp]: {
+    path: LINKS.formationIaMetallerieSerrurerieBtp,
+    close: [LINKS.formationChargeAffairesBtp, LINKS.formationIaMenuisierBtp],
+    catalogue: {
+      href: LINKS.formationConducteurTravaux,
+      label: 'Formation IA conducteur de travaux BTP',
+      description: 'CR, réception, suivi chantier.',
+    },
+    blog: {
+      href: LINKS.iaDevis,
+      label: 'IA pour les devis bâtiment — méthode',
+    },
+    hubAnchor: 'Hub formation IA BTP — second œuvre & métallerie',
+  },
+  [LINKS.formationIaIsolationBtp]: {
+    path: LINKS.formationIaIsolationBtp,
+    close: [LINKS.formationChargeAffairesBtp, LINKS.formationIaPeintreBatiment],
+    catalogue: {
+      href: LINKS.formationConducteurTravaux,
+      label: 'Formation IA conducteur de travaux BTP',
+      description: 'CR, DOE, suivi — dossiers chantier.',
+    },
+    blog: {
+      href: LINKS.iaAnalyseDce,
+      label: 'Méthode : analyser un DCE avec l’IA',
+    },
+    hubAnchor: 'Hub formation IA BTP — finitions & isolation',
+  },
+  [LINKS.formationIaMenuisierBtp]: {
+    path: LINKS.formationIaMenuisierBtp,
+    close: [LINKS.formationChargeAffairesBtp, LINKS.formationIaMetreurEconomisteConstruction],
+    catalogue: {
+      href: LINKS.formationIaEtudesPrixChiffrageBtp,
+      label: 'Programme IA études de prix et chiffrage BTP',
+      description: 'Métrés, DPGF, contrôles — complémentaire aux devis menuiserie.',
+    },
+    blog: {
+      href: LINKS.iaCompteRenduChantier,
+      label: 'Méthode : comptes rendus de chantier avec l’IA',
+    },
+    hubAnchor: 'Hub formation IA BTP — menuiserie & second œuvre',
+  },
 };
 
 const METIER_LABELS: Record<string, string> = {
   [LINKS.formationElectricienBtp]: 'Formation IA électricien BTP',
-  [LINKS.formationPlombierBtp]: 'Formation IA plombier chauffagiste',
+  [LINKS.formationPlombierBtp]: 'Formation IA plomberie sanitaire',
   [LINKS.formationConducteurTravaux]: 'Formation IA conducteur de travaux',
   [LINKS.formationChargeAffairesBtp]: "Formation IA chargé d'affaires BTP",
   [LINKS.formationIaDirigeantBtp]: 'Formation IA dirigeant PME BTP',
@@ -365,6 +463,19 @@ const METIER_LABELS: Record<string, string> = {
   [LINKS.formationIaMaconBtp]: 'Formation IA maçon & maçonnerie',
   [LINKS.formationIaCouvreurBtp]: 'Formation IA couvreur zingueur',
   [LINKS.formationIaDirigeantPmeBtp]: 'Formation IA dirigeant opérationnel PME BTP',
+  [LINKS.formationIaBureauEtudesBtp]: "Formation IA bureau d'études BTP",
+  [LINKS.formationIaMetreurEconomisteConstruction]: 'Formation IA métreur & économiste',
+  [LINKS.formationIaChefChantierTp]: 'Formation IA chef de chantier TP',
+  [LINKS.formationIaQsePreventionBtp]: 'Formation IA QSE & prévention BTP',
+  [LINKS.formationIaAchatsApprovisionnementBtp]: 'Formation IA achats & approvisionnement BTP',
+  [LINKS.formationIaGenieClimatiqueBtp]: 'Formation IA génie climatique / CVC',
+  [LINKS.formationIaMetallerieSerrurerieBtp]: 'Formation IA métallerie & serrurerie',
+  [LINKS.formationIaIsolationBtp]: 'Formation IA entreprise d’isolation',
+  [LINKS.formationIaCarreleurBtp]: 'Formation IA entreprise de carrelage',
+  [LINKS.formationIaPlatriste]: 'Formation IA plâtrerie',
+  [LINKS.formationIaPeintreBatiment]: 'Formation IA peintre bâtiment',
+  [LINKS.formationIaMenuisierBtp]: 'Formation IA menuiserie & agencement',
+  [LINKS.formationIaTravauxPublics]: 'Formation IA travaux publics',
 };
 
 function buildMetierSatelliteLinks(path: string): RelatedLinkItem[] | null {
