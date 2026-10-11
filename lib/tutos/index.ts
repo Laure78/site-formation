@@ -19,6 +19,9 @@ import { TUTO_PV_LEVEE_RESERVES } from './tuto-pv-levee-reserves';
 import { TUTO_SKILL_DIUO_OFC } from './tuto-skill-diuo-ofc';
 import { TUTO_SKILL_LIVRET_INTEGRATION_OFC } from './tuto-skill-livret-integration-ofc';
 import { TUTO_SKILL_MEMOIRE_RECLAMATION_BEWORK } from './tuto-skill-memoire-reclamation-bework';
+import { TUTO_SKILL_RECOUVREMENT_RG_OFC } from './tuto-skill-recouvrement-rg-ofc';
+import { TUTO_SKILL_PLANNING_OFC } from './tuto-skill-planning-ofc';
+import { TUTO_SKILL_DC4_OFC } from './tuto-skill-dc4-ofc';
 import { TUTO_SKILL_METRE_EXCEL_OFC } from './tuto-skill-metre-excel-ofc';
 import { TUTO_SKILL_CHIFFRAGE_DEVIS_OFC } from './tuto-skill-chiffrage-devis-ofc';
 import { TUTO_SKILL_ANALYSE_CCAP_OFC } from './tuto-skill-analyse-ccap-ofc';
@@ -32,8 +35,11 @@ export const TUTOS: ReadonlyArray<TutoData> = [
   TUTO_SKILL_METRE_EXCEL_OFC,
   TUTO_SKILL_CHIFFRAGE_DEVIS_OFC,
   TUTO_TRI_DCE_CLAUDE_CHROME,
+  TUTO_SKILL_DC4_OFC,
   TUTO_SKILL_MEMOIRE_RECLAMATION_BEWORK,
+  TUTO_SKILL_RECOUVREMENT_RG_OFC,
   TUTO_CR_CHANTIER,
+  TUTO_SKILL_PLANNING_OFC,
   TUTO_DOE_DOSSIER_OUVRAGES_EXECUTES,
   TUTO_SKILL_DIUO_OFC,
   TUTO_PV_LEVEE_RESERVES,

@@ -34,10 +34,15 @@ export const RESSOURCES_THEMATIC_BLOCKS: readonly RessourceThematicBlock[] = [
       { label: 'Lexique BTP — parcours « Décrypter le DCE »', href: BEWORK_APP_PATHS.lexique },
       { label: 'Tuto — skill Analyse CCAP', href: LINKS.tutoSkillAnalyseCcapOfc },
       { label: 'Tuto — skill Analyse CCTP', href: LINKS.tutoSkillAnalyseCctpOfc },
+      { label: 'Tuto — skill DC4 sous-traitance', href: LINKS.tutoSkillDc4Ofc },
       { label: 'Tuto — skill mémoire technique', href: LINKS.tutoMemoireTechnique },
       { label: 'Tuto — skill métré Excel', href: LINKS.tutoSkillMetreExcelOfc },
       { label: 'Tuto — skill chiffrage de devis', href: LINKS.tutoSkillChiffrageDevisOfc },
       { label: 'Tuto — skill mémoire de réclamation', href: LINKS.tutoSkillMemoireReclamationBework },
+      {
+        label: 'Tuto — skill recouvrement & retenue de garantie',
+        href: LINKS.tutoSkillRecouvrementRgOfc,
+      },
       { label: 'Tuto — analyse de DCE', href: LINKS.tutoAnalyseDce },
       { label: 'Tuto — tri DCE (Claude in Chrome)', href: LINKS.tutoTriDceClaudeChrome },
     ],
@@ -71,6 +76,7 @@ export const RESSOURCES_THEMATIC_BLOCKS: readonly RessourceThematicBlock[] = [
     tutos: [
       { label: 'Lexique BTP — parcours « Sur le chantier au quotidien »', href: BEWORK_APP_PATHS.lexique },
       { label: 'Tuto — compte rendu de chantier', href: LINKS.tutoCrChantier },
+      { label: 'Tuto — skill planning chantier', href: LINKS.tutoSkillPlanningOfc },
       { label: 'Tuto — skill Claude pour préparer un PIC', href: LINKS.tutoSkillPic },
       { label: 'Tuto — dossier DOE', href: LINKS.tutoDoeDossierOuvragesExecutes },
       { label: 'Tuto — pièces DIUO pour le SPS', href: LINKS.tutoSkillDiuoOfc },

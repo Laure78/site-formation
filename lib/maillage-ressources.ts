@@ -73,6 +73,18 @@ const TUTO_MEMOIRE_RECLAMATION: MaillageLink = {
   href: LINKS.tutoSkillMemoireReclamationBework,
   label: 'Tuto — skill mémoire de réclamation',
 };
+const TUTO_RECOUVREMENT_RG: MaillageLink = {
+  href: LINKS.tutoSkillRecouvrementRgOfc,
+  label: 'Tuto — skill recouvrement & retenue de garantie',
+};
+const TUTO_PLANNING: MaillageLink = {
+  href: LINKS.tutoSkillPlanningOfc,
+  label: 'Tuto — skill planning chantier',
+};
+const TUTO_DC4: MaillageLink = {
+  href: LINKS.tutoSkillDc4Ofc,
+  label: 'Tuto — skill DC4 sous-traitance',
+};
 const TUTO_CR: MaillageLink = {
   href: LINKS.tutoCrChantier,
   label: 'Tuto PDF — compte rendu de chantier',
@@ -150,7 +162,11 @@ export const MAILLAGE_RESSOURCES_BY_PATH: Readonly<Record<string, MaillageRessou
   },
   [LINKS.tutoSkillAnalyseCcapOfc]: {
     pilier: PILIER_AO,
-    soeurs: [TUTO_ANALYSE_CCTP, TUTO_ANALYSE_DCE],
+    soeurs: [TUTO_ANALYSE_CCTP, TUTO_DC4],
+  },
+  [LINKS.tutoSkillDc4Ofc]: {
+    pilier: PILIER_AO,
+    soeurs: [TUTO_ANALYSE_CCAP, TUTO_ANALYSE_DCE],
   },
   [LINKS.tutoSkillAnalyseCctpOfc]: {
     pilier: PILIER_AO,
@@ -194,7 +210,7 @@ export const MAILLAGE_RESSOURCES_BY_PATH: Readonly<Record<string, MaillageRessou
   },
   [LINKS.tutoSkillMemoireReclamationBework]: {
     pilier: PILIER_AO,
-    soeurs: [TUTO_MEMOIRE, TUTO_ANALYSE_DCE],
+    soeurs: [TUTO_RECOUVREMENT_RG, TUTO_MEMOIRE],
     blog: [
       {
         href: LINKS.blogMemoireReclamationBtpIa,
@@ -202,16 +218,24 @@ export const MAILLAGE_RESSOURCES_BY_PATH: Readonly<Record<string, MaillageRessou
       },
     ],
   },
+  [LINKS.tutoSkillRecouvrementRgOfc]: {
+    pilier: PILIER_CLAUDE,
+    soeurs: [TUTO_MEMOIRE_RECLAMATION, TUTO_CONSTAT],
+  },
   [LINKS.tutoCrChantier]: {
     pilier: PILIER_CDT,
     soeurs: [
-      TUTO_DOE,
+      TUTO_PLANNING,
       TUTO_SKILL_PIC,
       {
         href: LINKS.etudesCasCrVocalChantier,
         label: 'Étude de cas — compte rendu vocal de chantier',
       },
     ],
+  },
+  [LINKS.tutoSkillPlanningOfc]: {
+    pilier: PILIER_CDT,
+    soeurs: [TUTO_CR, TUTO_CONSTAT],
   },
   [LINKS.tutoDoeDossierOuvragesExecutes]: {
     pilier: {

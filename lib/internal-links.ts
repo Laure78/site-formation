@@ -426,6 +426,18 @@ export const LINKS = {
   /** PDF — tuto skill mémoire de réclamation BeWork */
   pdfTutoSkillMemoireReclamationBework:
     '/ressources/pdf/tuto-skill-memoire-reclamation-bework.pdf',
+  /** Tuto — skill recouvrement & retenue de garantie (OFC) */
+  tutoSkillRecouvrementRgOfc: '/ressources/tuto-skill-recouvrement-rg-ofc',
+  /** Word — tuto skill recouvrement & RG OFC */
+  pdfTutoSkillRecouvrementRgOfc: '/ressources/pdf/tuto-skill-recouvrement-rg-ofc.docx',
+  /** Tuto — skill planning chantier (OFC) */
+  tutoSkillPlanningOfc: '/ressources/tuto-skill-planning-ofc',
+  /** PDF — tuto skill planning chantier OFC */
+  pdfTutoSkillPlanningOfc: '/ressources/pdf/tuto-skill-planning-ofc.pdf',
+  /** Tuto — skill DC4 déclaration de sous-traitance (OFC) */
+  tutoSkillDc4Ofc: '/ressources/tuto-skill-dc4-ofc',
+  /** PDF — tuto skill DC4 OFC */
+  pdfTutoSkillDc4Ofc: '/ressources/pdf/tuto-skill-dc4-ofc.pdf',
   /** Tuto — skill métré Excel (quantités traçables, DPGF) */
   tutoSkillMetreExcelOfc: '/ressources/tuto-skill-metre-excel-ofc',
   /** PDF — tuto skill métré Excel OFC */

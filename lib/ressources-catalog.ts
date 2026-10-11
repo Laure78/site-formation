@@ -166,6 +166,12 @@ const TUTO_HUB_DESCRIPTIONS: Partial<Record<string, string>> = {
     'Utiliser Dispatch (Anthropic) pour piloter le PC bureau depuis le terrain — prérequis, limites et validation des actions (à vérifier).',
   'tuto-skill-memoire-reclamation-bework':
     'Préparer une réclamation structurée (faits, fondement, chiffrage) — contrôle juridique et délais à vérifier.',
+  'tuto-skill-recouvrement-rg-ofc':
+    'Préparer relances d’impayés, garantie de paiement 1799-1 et libération de RG — validation professionnelle avant envoi.',
+  'tuto-skill-planning-ofc':
+    'Recaler un planning chantier (chemin critique, aléas, note d’impact Excel) — dates et clauses à contrôler avant envoi.',
+  'tuto-skill-dc4-ofc':
+    'Préparer un DC4 (déclaration de sous-traitance) cohérent avec l’acte d’engagement — pièces et montants à contrôler avant envoi.',
   'tuto-skill-livret-integration-ofc':
     'Générer un livret d’accueil à partir de vos documents internes — sécurité, EPI et parcours d’intégration à valider.',
   'tuto-skill-metre-excel-ofc':
@@ -216,6 +222,9 @@ const TUTO_SAFETY: Partial<Record<string, RessourceSafetyLevel>> = {
   'tuto-pv-levee-reserves': 'verification_professionnelle',
   'tuto-skill-diuo-ofc': 'verification_professionnelle',
   'tuto-skill-memoire-reclamation-bework': 'verification_professionnelle',
+  'tuto-skill-recouvrement-rg-ofc': 'verification_professionnelle',
+  'tuto-skill-planning-ofc': 'verification_professionnelle',
+  'tuto-skill-dc4-ofc': 'verification_professionnelle',
   'tuto-skill-chiffrage-devis-ofc': 'verification_professionnelle',
   'tuto-skill-analyse-ccap-ofc': 'verification_professionnelle',
   'tuto-skill-analyse-cctp-ofc': 'verification_professionnelle',

@@ -58,6 +58,21 @@ export const TUTO_EN_BREF: Readonly<Record<string, readonly string[]>> = {
     'Le tuto vise environ 45 minutes pour monter une réclamation solide, contre une journée manuelle ; le délai de 30 jours reste critique.',
     'Outil : skill Claude ; relecture humaine obligatoire avant transmission au maître d’ouvrage.',
   ],
+  'tuto-skill-recouvrement-rg-ofc': [
+    'Vous créez un skill Claude qui rédige mises en demeure, demandes de garantie de paiement (art. 1799-1) et libération de retenue de garantie.',
+    'Le tuto vise environ 15 minutes pour un dossier de relance argumenté, contre une demi-journée manuelle.',
+    'Outil : skill Claude ; distinction privé / public et relecture avant envoi en recommandé.',
+  ],
+  'tuto-skill-planning-ofc': [
+    'Vous créez un skill Claude qui lit votre planning, identifie le chemin critique et recale les phases après un aléa.',
+    'Le tuto vise environ 30 minutes de recalage, contre environ 5 heures manuelles, avec note d’impact et Excel.',
+    'Outil : skill Claude ; vous validez dates et clauses avant envoi à la MOA / au MOE.',
+  ],
+  'tuto-skill-dc4-ofc': [
+    'Vous créez un skill Claude qui remplit le DC4 officiel, contrôle la cohérence avec l’acte d’engagement et liste les pièces manquantes.',
+    'Le tuto vise environ 12 minutes par DC4, contre environ 2 heures manuelles, avec mail de transmission à l’acheteur.',
+    'Outil : skill Claude ; vous contrôlez montants, SIRET et RIB avant signature et envoi.',
+  ],
   'tuto-pv-levee-reserves': [
     'Le skill rédige un PV de levée de réserves à structure juridique, à partir de vos interventions et références.',
     'Gain annoncé : environ 3 minutes de rédaction assistée, au lieu d’environ 30 minutes.',

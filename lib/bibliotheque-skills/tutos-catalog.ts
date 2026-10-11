@@ -32,6 +32,12 @@ const TUTO_SHORT_SUMMARY: Record<string, string> = {
     "Génère un livret d'intégration BTP (sécurité, EPI, parcours J1/S1/M1).",
   'tuto-skill-memoire-reclamation-bework':
     'Monte un mémoire de réclamation CCAG chiffré et dans les délais.',
+  'tuto-skill-recouvrement-rg-ofc':
+    'Relances d’impayés, garantie 1799-1 et libération de retenue de garantie.',
+  'tuto-skill-planning-ofc':
+    'Recalage de planning chantier : chemin critique, aléas et note d’impact Excel.',
+  'tuto-skill-dc4-ofc':
+    'DC4 / acte spécial : rubriques, pièces, paiement direct et mail acheteur.',
   'tuto-pv-levee-reserves': 'PV de levée de réserves prêts à signer.',
   'tuto-ppsps': 'PPSPS complet à partir de 10 lignes de description chantier.',
   'tuto-duerp': 'DUERP BTP avec plan d\'actions priorisé.',

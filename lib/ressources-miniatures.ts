@@ -98,6 +98,12 @@ export const RESSOURCES_MINIATURES = {
     width: 1024,
     height: 1024,
   },
+  tutoRecouvrementRg: {
+    src: `${BASE}/miniature-tuto-skill-recouvrement-rg.jpg`,
+    alt: 'Créer un skill recouvrement et RG — tuto offert Word gratuit, formation IA BTP',
+    width: 1024,
+    height: 1024,
+  },
   tutoDiuo: {
     src: `${BASE}/miniature-tuto-skill-diuo-ofc.jpg`,
     alt: 'Tuto offert — Créer ton skill Prépa DIUO avec l’IA, Laure Olivié, formation BTP',
@@ -119,6 +125,18 @@ export const RESSOURCES_MINIATURES = {
   tutoSkillPic: {
     src: `${BASE}/miniature-tuto-skill-pic.jpg`,
     alt: 'Créer un skill Claude PIC — tuto offert PDF gratuit, formation IA pour le BTP',
+    width: 1024,
+    height: 1024,
+  },
+  tutoPlanning: {
+    src: `${BASE}/miniature-tuto-skill-planning-ofc.jpg`,
+    alt: 'Créer un skill planning chantier — tuto offert PDF gratuit, formation IA BTP',
+    width: 1024,
+    height: 1024,
+  },
+  tutoDc4: {
+    src: `${BASE}/miniature-tuto-skill-dc4-ofc.jpg`,
+    alt: 'Créer un skill DC4 sous-traitance — tuto offert PDF gratuit, formation IA BTP',
     width: 1024,
     height: 1024,
   },
