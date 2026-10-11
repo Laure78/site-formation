@@ -176,6 +176,8 @@ const TUTO_HUB_DESCRIPTIONS: Partial<Record<string, string>> = {
     'Rédiger un SOGED (gestion des déchets de chantier) aligné AGEC / REP / Trackdéchets — filières et tonnages à contrôler.',
   'tuto-skill-rdv-client-ofc':
     'Préparer un RDV client : brief contact, ordre du jour, arguments et trame de compte rendu — à adapter à chaque dossier.',
+  'tuto-skill-os-ofc':
+    'Analyser un ordre de service : écarts au marché, observations CCAG art. 3.8 et chiffrage — délai de 15 jours à respecter.',
   'tuto-skill-livret-integration-ofc':
     'Générer un livret d’accueil à partir de vos documents internes — sécurité, EPI et parcours d’intégration à valider.',
   'tuto-skill-metre-excel-ofc':
@@ -230,6 +232,7 @@ const TUTO_SAFETY: Partial<Record<string, RessourceSafetyLevel>> = {
   'tuto-skill-planning-ofc': 'verification_professionnelle',
   'tuto-skill-dc4-ofc': 'verification_professionnelle',
   'tuto-skill-soged-ofc': 'verification_professionnelle',
+  'tuto-skill-os-ofc': 'verification_professionnelle',
   'tuto-skill-chiffrage-devis-ofc': 'verification_professionnelle',
   'tuto-skill-analyse-ccap-ofc': 'verification_professionnelle',
   'tuto-skill-analyse-cctp-ofc': 'verification_professionnelle',

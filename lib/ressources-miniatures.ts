@@ -152,6 +152,12 @@ export const RESSOURCES_MINIATURES = {
     width: 1200,
     height: 675,
   },
+  tutoOs: {
+    src: `${BASE}/miniature-tuto-skill-os-ofc.jpg`,
+    alt: 'Créer un skill ordre de service — tuto offert PDF gratuit, formation IA BTP',
+    width: 1024,
+    height: 1024,
+  },
   tutoSkillMetreExcel: {
     src: `${BASE}/miniature-tuto-skill-metre-excel.jpg`,
     alt: 'Créer un skill métré Excel — tuto offert PDF gratuit, formation IA pour le BTP',

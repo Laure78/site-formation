@@ -42,6 +42,8 @@ const TUTO_SHORT_SUMMARY: Record<string, string> = {
     'SOGED : plan déchets chantier, filières, AGEC, REP Bâtiment et Trackdéchets.',
   'tuto-skill-rdv-client-ofc':
     'Préparation RDV client : brief, ordre du jour, arguments et compte rendu.',
+  'tuto-skill-os-ofc':
+    'Ordre de service : écarts, observations CCAG art. 3.8, chiffrage et délai 15 j.',
   'tuto-pv-levee-reserves': 'PV de levée de réserves prêts à signer.',
   'tuto-ppsps': 'PPSPS complet à partir de 10 lignes de description chantier.',
   'tuto-duerp': 'DUERP BTP avec plan d\'actions priorisé.',

@@ -446,6 +446,10 @@ export const LINKS = {
   tutoSkillRdvClientOfc: '/ressources/tuto-skill-rdv-client-ofc',
   /** PDF — tuto skill RDV client OFC */
   pdfTutoSkillRdvClientOfc: '/ressources/pdf/tuto-skill-rdv-client-ofc.pdf',
+  /** Tuto — skill ordre de service (OFC) */
+  tutoSkillOsOfc: '/ressources/tuto-skill-os-ofc',
+  /** PDF — tuto skill ordre de service OFC */
+  pdfTutoSkillOsOfc: '/ressources/pdf/tuto-skill-os-ofc.pdf',
   /** Tuto — skill métré Excel (quantités traçables, DPGF) */
   tutoSkillMetreExcelOfc: '/ressources/tuto-skill-metre-excel-ofc',
   /** PDF — tuto skill métré Excel OFC */

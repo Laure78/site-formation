@@ -83,6 +83,11 @@ export const TUTO_EN_BREF: Readonly<Record<string, readonly string[]>> = {
     'Le tuto vise environ 15 minutes de préparation par RDV, contre environ 2 heures manuelles.',
     'Outil : skill Claude ; vous validez actions et date de relance avant envoi.',
   ],
+  'tuto-skill-os-ofc': [
+    'Vous créez un skill Claude qui analyse un OS, rédige le courrier d’observations CCAG art. 3.8 et chiffre la plus-value.',
+    'Le tuto vise environ 5 minutes par OS, contre une après-midi manuelle, avec date butoir à J+15.',
+    'Outil : skill Claude ; vous contrôlez la date de réception, signez et envoyez dans les délais.',
+  ],
   'tuto-pv-levee-reserves': [
     'Le skill rédige un PV de levée de réserves à structure juridique, à partir de vos interventions et références.',
     'Gain annoncé : environ 3 minutes de rédaction assistée, au lieu d’environ 30 minutes.',

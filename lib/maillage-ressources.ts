@@ -93,6 +93,10 @@ const TUTO_RDV_CLIENT: MaillageLink = {
   href: LINKS.tutoSkillRdvClientOfc,
   label: 'Tuto — skill préparation RDV client',
 };
+const TUTO_OS: MaillageLink = {
+  href: LINKS.tutoSkillOsOfc,
+  label: 'Tuto — skill ordre de service',
+};
 const TUTO_CR: MaillageLink = {
   href: LINKS.tutoCrChantier,
   label: 'Tuto PDF — compte rendu de chantier',
@@ -243,7 +247,11 @@ export const MAILLAGE_RESSOURCES_BY_PATH: Readonly<Record<string, MaillageRessou
   },
   [LINKS.tutoSkillPlanningOfc]: {
     pilier: PILIER_CDT,
-    soeurs: [TUTO_CR, TUTO_CONSTAT],
+    soeurs: [TUTO_OS, TUTO_CR],
+  },
+  [LINKS.tutoSkillOsOfc]: {
+    pilier: PILIER_CDT,
+    soeurs: [TUTO_PLANNING, TUTO_CONSTAT, TUTO_MEMOIRE_RECLAMATION],
   },
   [LINKS.tutoDoeDossierOuvragesExecutes]: {
     pilier: {
