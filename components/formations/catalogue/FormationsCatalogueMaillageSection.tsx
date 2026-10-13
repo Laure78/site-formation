@@ -14,6 +14,7 @@ export function FormationsCatalogueMaillageSection() {
     { href: LINKS.iaAnalyseDce, label: 'Analyser un DCE avec l’IA' },
     { href: LINKS.formationConducteurTravaux, label: 'IA conducteur de travaux' },
     { href: LINKS.financement, label: 'Financement Constructys' },
+    { href: LINKS.skillsClaudeBtp, label: '5 skills Claude gratuits pour le BTP' },
     { href: LINKS.ressources, label: 'Ressources IA pour le BTP' },
     { href: LINKS.aPropos, label: 'À propos de Laure Olivié' },
   ] as const;

@@ -329,6 +329,10 @@ export const LINKS = {
   /** Ancien chemin démo (redirigé) */
   demoCursorFfbHomeLegacy: '/demo/cursor-ffb-home',
   checklist: '/checklist-ia-btp',
+  /** Landing — 5 skills Claude gratuits BTP (ZIP téléchargeables) */
+  skillsClaudeBtp: '/skills-claude-btp',
+  /** Pack ZIP — 5 skills Claude BTP + LISEZ-MOI */
+  skillsClaudeBtpPackComplet: '/skills/skills-claude-btp-pack-complet.zip',
   /** Lead magnet — 3 skills Claude AI BTP (fichier texte) */
   downloadClaudeSkillsBtp: '/downloads/3-skills-claude-ai-btp.txt',
   /** Alias canonique financement (aligné sur le guide OPCO principal) */

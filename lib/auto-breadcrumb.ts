@@ -14,6 +14,7 @@ const EXACT: Record<string, string> = {
   '/outils-ia-btp': 'Outils IA BTP',
   '/diagnostic-ia-btp': 'Diagnostic IA BTP',
   '/checklist-ia-btp': 'Checklist IA BTP',
+  '/skills-claude-btp': 'Skills Claude BTP',
   '/communaute-formateurs': 'Communauté formateurs',
   '/ressources/ia-btp': 'Ressources IA BTP',
 };
