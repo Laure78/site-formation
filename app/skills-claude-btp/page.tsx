@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import Link from 'next/link';
 import { Download, Package } from 'lucide-react';
 import { JsonLd } from '@/components/JsonLd';
@@ -69,18 +70,29 @@ const SKILLS = [
   },
 ] as const;
 
+const TUTO_IMAGE = {
+  src: '/images/tuto-importer-skill-claude-btp.jpg',
+  alt: 'Tuto Claude : Personnalisation, Compétences, importer un skill ZIP pour le BTP',
+  width: 682,
+  height: 1024,
+} as const;
+
 const INSTALL_STEPS = [
   {
-    name: 'Ouvrir les Skills dans Claude',
-    text: 'Sur claude.ai, ouvrez Paramètres → Skills (ou Fonctionnalités / Capacités → Skills).',
+    name: 'Se connecter à Claude',
+    text: 'Ouvrez claude.ai avec votre compte. Dans la barre de gauche, cliquez sur Personnalisation, puis sur Compétences.',
   },
   {
-    name: 'Importer le fichier .zip',
-    text: 'Cliquez sur Importer un skill et sélectionnez le fichier .zip du skill choisi (ou le pack complet, skill par skill).',
+    name: 'Ajouter une compétence',
+    text: 'Cliquez sur « + Ajouter une compétence », puis choisissez « Importer depuis un fichier ».',
   },
   {
-    name: 'Activer et utiliser',
-    text: 'Activez le skill, puis utilisez-le en joignant votre document (CCTP, CR, devis, courrier…).',
+    name: 'Sélectionner le fichier .zip',
+    text: 'Choisissez le .zip du skill téléchargé sur cette page (un skill à la fois — pas le pack entier d’un coup).',
+  },
+  {
+    name: 'Activer et tester',
+    text: 'Activez la compétence, puis testez-la en joignant votre document (CCTP, CR, devis, courrier…) dans le chat.',
   },
 ] as const;
 
@@ -128,9 +140,9 @@ export default function SkillsClaudeBtpPage() {
     <div className="min-h-screen bg-white">
       <JsonLd id="schema-skills-claude-btp-page" data={pageJsonLd} />
       <SchemaHowTo
-        name="Installer un skill Claude pour le BTP"
-        description="Importer un skill Claude (.zip) sur claude.ai en 3 étapes, puis l’utiliser en joignant un document métier BTP."
-        totalTime="PT3M"
+        name="Importer un skill Claude pour le BTP"
+        description="Importer un skill Claude (.zip) sur claude.ai via Personnalisation → Compétences, puis l’utiliser en joignant un document métier BTP."
+        totalTime="PT5M"
         steps={[...INSTALL_STEPS]}
       />
 
@@ -153,6 +165,14 @@ export default function SkillsClaudeBtpPage() {
               travaux, assistante, comptable et chargé d&apos;études de prix.
             </p>
           </div>
+          <p className="mt-6">
+            <a
+              href="#tuto-importer"
+              className="inline-flex min-h-11 items-center justify-center rounded-xl border border-[#377CF3] bg-white px-5 py-2.5 text-sm font-semibold text-[#377CF3] transition-colors hover:bg-[#EFF6FF] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#377CF3]"
+            >
+              Voir le tuto d&apos;import
+            </a>
+          </p>
         </div>
       </header>
 
@@ -215,18 +235,26 @@ export default function SkillsClaudeBtpPage() {
         </section>
 
         <section
-          id="installer"
-          className="border-y border-slate-200 bg-[#F2F2F2]"
+          id="tuto-importer"
+          className="scroll-mt-28 border-y border-slate-200 bg-[#F2F2F2]"
           aria-labelledby="installer-heading"
         >
           <div className="mx-auto max-w-5xl px-4 py-12 sm:px-6 md:py-16 lg:px-8">
+            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#377CF3]">
+              Mode d&apos;emploi
+            </p>
             <h2
               id="installer-heading"
-              className="font-display text-2xl font-bold tracking-tight text-slate-900 md:text-3xl"
+              className="mt-2 font-display text-2xl font-bold tracking-tight text-slate-900 md:text-3xl"
             >
-              Installer en 3 étapes
+              Tuto — Importer un skill dans Claude
             </h2>
-            <ol className="mt-8 space-y-5">
+            <p className="mt-3 max-w-2xl text-base leading-relaxed text-slate-600">
+              Une fois le .zip téléchargé, importez-le dans Claude en quelques clics. Le
+              même fichier SKILL.md fonctionne aussi avec ChatGPT (Custom GPT / projets).
+            </p>
+
+            <ol className="mt-8 space-y-4">
               {INSTALL_STEPS.map((step, index) => (
                 <li
                   key={step.name}
@@ -249,6 +277,22 @@ export default function SkillsClaudeBtpPage() {
                 </li>
               ))}
             </ol>
+
+            <figure className="mt-10 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+              <Image
+                src={TUTO_IMAGE.src}
+                alt={TUTO_IMAGE.alt}
+                width={TUTO_IMAGE.width}
+                height={TUTO_IMAGE.height}
+                className="h-auto w-full"
+                sizes="(max-width: 1024px) 100vw, 1024px"
+              />
+              <figcaption className="border-t border-slate-100 px-4 py-3 text-sm text-slate-600 md:px-5">
+                Infographie : créer, importer et utiliser un skill Claude (module formation
+                assistants IA).
+              </figcaption>
+            </figure>
+
             <p className="mt-6 text-sm leading-relaxed text-slate-600">
               Pour aller plus loin sur Claude dans le BTP&nbsp;:{' '}
               <Link

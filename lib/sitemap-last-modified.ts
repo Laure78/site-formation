@@ -244,7 +244,11 @@ const ROUTE_SOURCE_FILES: Record<string, readonly string[]> = {
   '/prendre-rdv': ['app/prendre-rdv/page.tsx'],
   '/diagnostic-ia-btp': ['app/diagnostic-ia-btp/page.tsx'],
   '/checklist-ia-btp': ['app/checklist-ia-btp/page.tsx'],
-  '/skills-claude-btp': ['app/skills-claude-btp/page.tsx', 'public/skills'],
+  '/skills-claude-btp': [
+    'app/skills-claude-btp/page.tsx',
+    'public/skills',
+    'public/images/tuto-importer-skill-claude-btp.jpg',
+  ],
   '/communaute-formateurs': ['app/communaute-formateurs/page.tsx'],
   '/formation-ia-travaux-publics': ['app/formation-ia-travaux-publics/page.tsx'],
   '/ressources': ['app/ressources/page.tsx', 'lib/tutos/index.ts'],
