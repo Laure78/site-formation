@@ -37,32 +37,67 @@ export const DEV_WEB_IA_FINANCEMENT_MENTION =
   'Prise en charge OPCO/Constructys selon éligibilité — un reste à charge peut s’appliquer.' as const;
 
 export const DEV_WEB_IA_SUBTITLE =
-  'Concevez votre ERP sur mesure, testez-le et faites-le évoluer — sans savoir coder.' as const;
+  'Concevez une application adaptée à votre entreprise, sans savoir coder.' as const;
 
 export const DEV_WEB_IA_INTRO =
-  'Une idée, une journée, une première version fonctionnelle. Vos informations sont réparties entre Excel, les emails et plusieurs logiciels ? Cette formation vous apprend à concevoir et construire une première version d’outil métier avec l’IA — devis, chantiers, planning — sans écrire de code.' as const;
+  'Planning, relevés d’heures, suivi de chantier, devis, CRM, tableaux de bord… Vous apprenez à transformer vos propres besoins métier en un outil fonctionnel et évolutif avec l’IA générative.' as const;
+
+export const DEV_WEB_IA_INTRO_CLARIFIER =
+  'Vous ne devenez pas développeur. Vous apprenez à piloter l’IA pour construire votre outil.' as const;
 
 export const DEV_WEB_IA_ERP_DEFINITION =
   'Un outil métier centralise les informations utiles à votre activité. Vous commencez par un besoin prioritaire, puis vous enrichissez progressivement les fonctions, en testant chaque évolution.' as const;
 
+export const DEV_WEB_IA_HERO_EYEBROW = 'Formation IA BTP — Niveau 3' as const;
+
+export const DEV_WEB_IA_HERO_BENEFIT_CARDS = [
+  {
+    num: '01',
+    title: 'Sur mesure',
+    texte: 'Un outil construit autour de vos processus, et non l’inverse.',
+  },
+  {
+    num: '02',
+    title: 'Autonome',
+    texte:
+      'Vous apprenez à modifier et faire évoluer votre outil sans dépendre systématiquement d’un prestataire.',
+  },
+  {
+    num: '03',
+    title: 'Économique',
+    texte:
+      'Évitez, lorsque le besoin le permet, l’accumulation de logiciels, d’abonnements ou de développements simples externalisés.',
+  },
+  {
+    num: '04',
+    title: 'Données sous contrôle',
+    texte:
+      'Apprenez à organiser les accès, les données et les règles de confidentialité de votre application.',
+  },
+] as const;
+
 export const DEV_WEB_IA_HERO_REASSURANCES = [
-  'Niveau 3 — création, dans une progression en trois niveaux',
-  'Vous partez d’un besoin concret de votre entreprise',
-  'Aucune compétence en programmation requise',
+  'Adapté à vos méthodes de travail',
+  'Évolutif selon vos besoins',
+  'Utilisable par vos équipes',
+  'Maîtrise accrue de vos données',
+  'Réduction des doubles saisies',
+  'Réduction potentielle des coûts liés à l’empilement de logiciels',
+  'Autonomie pour modifier et faire évoluer l’outil',
 ] as const;
 
 export const DEV_WEB_IA_HERO_FACTS = [
-  '7 h (1 journée)',
-  '9h00 – 12h30 · 13h30 – 17h00',
-  'Présentiel Île-de-France uniquement',
+  '7 h ou 14 h',
+  'Présentiel en Île-de-France',
   '4 à 8 participants',
-  '70 % pratique · 30 % méthodologie',
+  'Aucune compétence en programmation requise',
 ] as const;
 
-export const DEV_WEB_IA_DUREE_COURTE = '7 h' as const;
+export const DEV_WEB_IA_DUREE_COURTE = '7 h ou 14 h' as const;
 
-export const DEV_WEB_IA_CTA_PRIMARY_LABEL = 'Échanger sur votre projet de formation' as const;
-export const DEV_WEB_IA_CTA_SECONDARY_LABEL = 'Demander une place' as const;
+export const DEV_WEB_IA_CTA_PRIMARY_LABEL = 'Construire mon projet d’outil BTP' as const;
+export const DEV_WEB_IA_CTA_SECONDARY_LABEL = 'Voir le programme' as const;
+export const DEV_WEB_IA_CTA_FINAL_LABEL = 'Échanger sur mon projet' as const;
 
 export const DEV_WEB_IA_INCLUS_TARIF = [
   'l’animation de la formation',
@@ -159,7 +194,7 @@ export const DEV_WEB_IA_JOUR_RESUME = {
     label: 'Jour 1 — Construire la première version',
     closing: 'Jour 1 — Je cadre mon besoin et je construis mon premier module.',
     points: [
-      'Cadrage du projet d’ERP BTP',
+      'Cadrage du projet d’outil métier BTP',
       'Construction du premier module avec l’IA',
       'Règles de gestion',
       'Tests et feuille de route',
@@ -171,7 +206,7 @@ export const DEV_WEB_IA_JOUR_RESUME = {
     points: [
       'Diagnostiquer et prioriser les améliorations',
       'Améliorer et enrichir le module',
-      'Relier plusieurs modules',
+      'Relier plusieurs fonctions',
       'Préparer validations, exports et accès',
       'Tester et préparer le déploiement',
     ],
@@ -180,25 +215,25 @@ export const DEV_WEB_IA_JOUR_RESUME = {
 
 /** Introduction section programme (H2 + lead + formats). */
 export const DEV_WEB_IA_PROGRAMME_SECTION = {
-  title: 'Construire son ERP BTP avec l’IA',
+  title: 'Le parcours en étapes',
   paragraphs: [
     'Une formation pratique construite autour de votre propre projet.',
-    'Vous partez de vos méthodes de travail, de vos fichiers et de vos besoins pour concevoir progressivement un outil de gestion adapté à votre entreprise.',
+    'Vous partez de vos méthodes de travail et de vos besoins pour concevoir progressivement un outil métier adapté à votre entreprise.',
   ],
   formats: [
     {
       id: '7h' as const,
       label: 'Parcours 7 h',
-      summary: 'Concevoir et construire une première version fonctionnelle',
+      summary: 'Cadrer, construire, tester et préparer la suite',
     },
     {
       id: '14h' as const,
       label: 'Parcours 14 h',
-      summary: 'Approfondir, relier les modules et préparer le déploiement',
+      summary: 'Connecter, sécuriser et préparer le déploiement',
     },
   ],
   disclaimer:
-    'Le résultat dépend de votre niveau, de la complexité du projet, du nombre de fonctionnalités, des données disponibles et des intégrations nécessaires. La formation permet de concevoir une première version fonctionnelle et évolutive — pas un ERP complet terminé.',
+    'Le résultat dépend de votre niveau, de la complexité du projet, du nombre de fonctionnalités, des données disponibles et des intégrations nécessaires. La formation permet de concevoir une première version fonctionnelle et évolutive — pas un outil métier complet terminé.',
 } as const;
 
 export const DEV_WEB_IA_PUBLIC_PRINCIPAL =
@@ -262,6 +297,204 @@ export const DEV_WEB_IA_BENEFICES = [
   },
 ] as const;
 
+/** Comparatif logiciels standards vs outil métier — section conversion. */
+export const DEV_WEB_IA_COMPARATIF = {
+  title: 'Votre entreprise doit-elle s’adapter au logiciel… ou le logiciel à votre entreprise ?',
+  standards: {
+    title: 'Logiciels standards',
+    points: [
+      'Fonctionnalités parfois inutiles',
+      'Processus imposés',
+      'Informations réparties entre plusieurs outils',
+      'Multiplication possible des abonnements',
+      'Dépendance à l’éditeur pour certaines évolutions',
+      'Adaptations parfois limitées',
+    ],
+  },
+  metier: {
+    title: 'Votre outil métier',
+    points: [
+      'Fonctions choisies selon vos besoins',
+      'Écrans adaptés à vos utilisateurs',
+      'Règles correspondant à votre organisation',
+      'Évolution progressive',
+      'Automatisations ciblées',
+      'Maîtrise des accès et de l’architecture de vos données',
+    ],
+  },
+  closing:
+    'Vous commencez petit : une fonction utile. Puis vous faites évoluer votre outil au rythme de votre entreprise.',
+} as const;
+
+export const DEV_WEB_IA_AUTONOMIE = {
+  title: 'Vous ne repartez pas seulement avec un outil. Vous apprenez à le faire évoluer.',
+  lead: 'Le principal bénéfice de cette formation est l’autonomie.',
+  steps: [
+    'Expliquer votre besoin à l’IA',
+    'Transformer un processus métier en fonctionnalités',
+    'Générer une première version',
+    'Tester le résultat',
+    'Identifier une erreur',
+    'Demander une correction',
+    'Ajouter une fonctionnalité',
+    'Modifier une interface',
+    'Organiser les données',
+    'Faire évoluer progressivement l’application',
+  ],
+  highlight:
+    'L’objectif n’est pas de vous apprendre à coder. L’objectif est de vous apprendre à piloter l’IA pour construire et faire évoluer vos propres outils.',
+} as const;
+
+export const DEV_WEB_IA_ECONOMIQUE = {
+  title: 'Réduisez la dépendance aux logiciels multiples',
+  lead: 'Dans beaucoup de PME du BTP, les informations sont dispersées entre :',
+  outils: [
+    'Excel',
+    'Emails',
+    'WhatsApp',
+    'Logiciel de devis',
+    'Planning',
+    'Application de suivi de chantier',
+    'Outil RH',
+    'Documents partagés',
+  ],
+  coutsLead: 'Chaque outil supplémentaire peut ajouter :',
+  couts: [
+    'Un abonnement',
+    'Une nouvelle saisie',
+    'Une nouvelle interface',
+    'Une nouvelle formation',
+    'Une nouvelle dépendance',
+  ],
+  body: 'Avec l’IA, certaines fonctions internes simples peuvent aujourd’hui être regroupées dans un outil adapté à l’entreprise — pour des applications métier internes adaptées au besoin.',
+  caution:
+    'Un outil créé pendant la formation ne remplace pas systématiquement un logiciel métier réglementé, un logiciel de paie, un logiciel comptable ou une solution nécessitant des certifications spécifiques.',
+  punchline:
+    'Investissez dans votre capacité à construire vos outils, pas uniquement dans de nouveaux abonnements.',
+} as const;
+
+export const DEV_WEB_IA_DONNEES_AXES = [
+  {
+    title: 'Maîtrise des données',
+    texte: 'Comprendre où sont stockées les informations de l’application.',
+  },
+  {
+    title: 'Accès utilisateurs',
+    texte: 'Définir qui peut consulter, modifier ou valider chaque information.',
+  },
+  {
+    title: 'Données confidentielles',
+    texte: 'Identifier les données qui ne doivent pas être transmises à un modèle d’IA.',
+  },
+  {
+    title: 'Environnement adapté',
+    texte:
+      'Choisir les outils, services et paramètres appropriés au niveau de confidentialité attendu.',
+  },
+] as const;
+
+export const DEV_WEB_IA_DONNEES_PRUDENCE =
+  'Vous apprenez à identifier les données sensibles et à choisir une architecture et des outils adaptés au niveau de confidentialité attendu.' as const;
+
+export const DEV_WEB_IA_AVANT_APRES = {
+  title: 'Avant la formation / Après la formation',
+  avant: [
+    'Excel',
+    'Emails',
+    'Informations dispersées',
+    'Processus manuels',
+    'Doubles saisies',
+    'Logiciels qui ne correspondent pas toujours au fonctionnement de l’entreprise',
+  ],
+  apres: [
+    'Un besoin métier clairement défini',
+    'Une première application fonctionnelle',
+    'Des données structurées',
+    'Des processus intégrés',
+    'Une méthode pour continuer seul',
+    'Une feuille de route d’évolution',
+  ],
+} as const;
+
+export const DEV_WEB_IA_ACCESSIBLE = {
+  title: 'Vous utilisez déjà l’IA ? Vous pouvez apprendre à créer votre outil.',
+  lead: 'Pas besoin d’être développeur. Pas besoin de connaître un langage informatique. Pas besoin d’avoir déjà créé une application.',
+  prerequis: [
+    'Savoir utiliser un ordinateur',
+    'Naviguer sur Internet',
+    'Utiliser ChatGPT ou Claude',
+    'Avoir un besoin métier à résoudre',
+  ],
+  loop: 'Vous décrivez. L’IA génère. Vous testez. Vous corrigez. Vous améliorez.',
+} as const;
+
+export const DEV_WEB_IA_RESULTATS = {
+  title: 'À la fin de la formation, vous savez…',
+  items: [
+    'Transformer un besoin métier en application',
+    'Expliquer précisément une fonctionnalité à l’IA',
+    'Créer une première interface',
+    'Structurer les données',
+    'Créer des règles et validations',
+    'Tester une fonctionnalité',
+    'Corriger avec l’IA',
+    'Ajouter de nouvelles fonctions',
+    'Organiser la suite du développement',
+  ],
+  closing:
+    'Vous repartez avec une première version fonctionnelle de votre projet et surtout avec la méthode pour continuer à la faire évoluer.',
+  prudence:
+    'Une version créée pendant la formation est une première version testable et évolutive. Elle n’est pas automatiquement prête pour une utilisation en production.',
+} as const;
+
+export const DEV_WEB_IA_PROGRAMME_SCAN_7H = [
+  {
+    num: '1',
+    title: 'Cadrer',
+    texte: 'Transformer un problème métier en cahier des charges simple.',
+  },
+  {
+    num: '2',
+    title: 'Construire',
+    texte: 'Créer la première fonctionnalité avec l’IA.',
+  },
+  {
+    num: '3',
+    title: 'Tester',
+    texte: 'Vérifier les données, règles, droits et parcours utilisateurs.',
+  },
+  {
+    num: '4',
+    title: 'Faire évoluer',
+    texte: 'Corriger, améliorer et préparer le module suivant.',
+  },
+] as const;
+
+export const DEV_WEB_IA_PROGRAMME_SCAN_14H = [
+  {
+    num: '5',
+    title: 'Connecter',
+    texte: 'Relier plusieurs fonctions.',
+  },
+  {
+    num: '6',
+    title: 'Sécuriser',
+    texte: 'Structurer les accès, sauvegardes et données.',
+  },
+  {
+    num: '7',
+    title: 'Déployer',
+    texte: 'Préparer l’utilisation par plusieurs collaborateurs.',
+  },
+] as const;
+
+export const DEV_WEB_IA_CTA_FINAL = {
+  title: 'Quel outil votre entreprise construirait-elle si vous n’aviez plus besoin de savoir coder ?',
+  lead: 'Relevé d’heures ? Planning ? Suivi chantier ? CRM ? Tableau de bord ? Application métier complète ?',
+  closing: 'Commencez par le besoin qui vous fait perdre le plus de temps.',
+  facts: ['Formation en présentiel en Île-de-France', '7 h ou 14 h', '4 à 8 participants'],
+} as const;
+
 export type DevWebIaErpModule = {
   id: string;
   number: number;
@@ -272,122 +505,73 @@ export type DevWebIaErpModule = {
   disclaimer?: string;
 };
 
-/** Modules métier possibles de l’ERP — pistes fonctionnelles, pas un programme pédagogique obligatoire. */
+/** Exemples d’outils métier possibles — pistes fonctionnelles, pas un programme obligatoire. */
 export const DEV_WEB_IA_ERP_MODULES_SECTION = {
-  title: 'Choisissez les modules utiles à votre entreprise',
+  title: 'Ce que vous pouvez créer',
   subtitle:
-    'L’objectif n’est pas de tout construire en une journée. Vous identifiez les fonctions prioritaires puis développez progressivement votre ERP.',
-  note: 'Ces 8 briques sont des modules fonctionnels possibles d’un logiciel de gestion BTP sur mesure — pas 8 modules à réaliser pendant la formation.',
+    'Des applications métier BTP concrètes. Vous choisissez un besoin prioritaire et apprenez la méthode pour développer les suivants.',
+  note: 'Vous ne construisez pas ces 8 modules pendant la formation. Vous choisissez un besoin prioritaire et apprenez la méthode permettant de développer les suivants.',
 } as const;
 
 export const DEV_WEB_IA_ERP_MODULES: readonly DevWebIaErpModule[] = [
   {
-    id: 'clients-commercial',
+    id: 'heures-paie',
     number: 1,
-    title: 'Clients et suivi commercial',
-    description: 'Contacts, prospects, échanges, opportunités, relances et historique commercial.',
-    useCases: [
-      'Centraliser les coordonnées clients',
-      'Suivre les demandes de devis',
-      'Mémoriser les échanges',
-      'Programmer les relances',
-      'Suivre les opportunités commerciales',
-    ],
+    title: 'Relevé d’heures',
+    description: 'Saisie terrain → validation → export paie',
+    highlighted: true,
+    useCases: ['Saisie terrain', 'Validation', 'Export paie'],
   },
   {
-    id: 'visites-metres',
+    id: 'planning',
     number: 2,
-    title: 'Visites et métrés',
-    description: 'Préparer les visites chantier et centraliser les informations nécessaires au chiffrage.',
-    useCases: [
-      'Créer une fiche de visite',
-      'Enregistrer les dimensions',
-      'Ajouter des photos',
-      'Noter les contraintes d’accès',
-      'Préparer les informations nécessaires au devis',
-    ],
+    title: 'Planning',
+    description: 'Chantiers → équipes → affectations → disponibilités',
+    useCases: ['Chantiers', 'Équipes', 'Affectations', 'Disponibilités'],
+  },
+  {
+    id: 'suivi-chantier',
+    number: 3,
+    title: 'Suivi de chantier',
+    description: 'Avancement → photos → réserves → documents',
+    useCases: ['Avancement', 'Photos', 'Réserves', 'Documents'],
   },
   {
     id: 'devis-facturation',
-    number: 3,
-    title: 'Devis et suivi de facturation',
-    description:
-      'Structurer ses prestations, préparer ses devis et suivre les montants facturés ou restant à facturer.',
-    useCases: [
-      'Bibliothèque d’ouvrages et prestations',
-      'Création d’un devis',
-      'Calcul des quantités et montants',
-      'Suivi des devis acceptés ou refusés',
-      'Suivi des situations et règlements',
-    ],
+    number: 4,
+    title: 'Devis',
+    description: 'Prestations → quantités → prix → validation',
+    useCases: ['Prestations', 'Quantités', 'Prix', 'Validation'],
     disclaimer:
       'Les fonctions de facturation doivent être vérifiées au regard des obligations réglementaires et comptables applicables avant toute utilisation réelle.',
   },
   {
-    id: 'suivi-chantier',
-    number: 4,
-    title: 'Suivi de chantier',
-    description: 'Centraliser l’avancement du chantier et les informations terrain.',
-    useCases: [
-      'Suivi de l’avancement',
-      'Comptes rendus',
-      'Photos chantier',
-      'Documents et réserves',
-      'Tâches et observations du conducteur de travaux',
-    ],
-  },
-  {
-    id: 'planning',
+    id: 'visites-metres',
     number: 5,
-    title: 'Planning',
-    description: 'Organiser les équipes, les interventions et les moyens nécessaires aux chantiers.',
-    useCases: [
-      'Affectation des salariés',
-      'Planning hebdomadaire',
-      'Disponibilités',
-      'Matériel et interventions',
-      'Visualisation par chantier',
-    ],
+    title: 'Visites & métrés',
+    description: 'Photos → mesures → contraintes → préparation du devis',
+    useCases: ['Photos', 'Mesures', 'Contraintes', 'Préparation devis'],
   },
   {
-    id: 'heures-paie',
+    id: 'clients-commercial',
     number: 6,
-    title: 'Relevé des heures et préparation de la paie',
-    description:
-      'Saisir et valider les heures réalisées par chantier avant transmission au gestionnaire de paie.',
-    highlighted: true,
-    useCases: [
-      'Saisie quotidienne ou hebdomadaire',
-      'Heures par salarié et par chantier',
-      'Validation du chef d’équipe',
-      'Récapitulatif mensuel',
-      'Export pour le gestionnaire de paie',
-    ],
+    title: 'CRM BTP',
+    description: 'Prospect → visite → devis → relance → chantier',
+    useCases: ['Prospect', 'Visite', 'Devis', 'Relance', 'Chantier'],
   },
   {
     id: 'achats-depenses',
     number: 7,
-    title: 'Achats et dépenses',
-    description: 'Suivre les commandes, fournisseurs et dépenses affectées aux chantiers.',
-    useCases: [
-      'Fournisseurs et commandes',
-      'Matériaux et locations',
-      'Dépenses chantier',
-      'Comparaison budget / dépenses',
-    ],
+    title: 'Achats',
+    description: 'Fournisseurs → commandes → dépenses chantier',
+    useCases: ['Fournisseurs', 'Commandes', 'Dépenses chantier'],
   },
   {
     id: 'tableau-de-bord',
     number: 8,
     title: 'Tableau de bord',
-    description: 'Regrouper les indicateurs essentiels pour piloter l’activité.',
-    useCases: [
-      'Heures prévues / réalisées',
-      'Dépenses et avancement chantier',
-      'Devis en attente',
-      'Chiffre d’affaires suivi',
-      'Indicateurs par chantier',
-    ],
+    description: 'Heures → coûts → avancement → indicateurs',
+    useCases: ['Heures', 'Coûts', 'Avancement', 'Indicateurs'],
   },
 ] as const;
 
@@ -464,14 +648,14 @@ export type DevWebIaProgrammeModule = {
 export const DEV_WEB_IA_PARCOURS_7H_SECTION = {
   title: 'Parcours 7 h — Construire une première version fonctionnelle',
   intro:
-    'Une journée de travail sur votre propre projet d’ERP BTP. L’objectif est de cadrer votre besoin, choisir une fonction prioritaire, construire une première version utilisable et définir la suite du développement.',
+    'Une journée de travail sur votre propre projet d’outil métier BTP. L’objectif est de cadrer votre besoin, choisir une fonction prioritaire, construire une première version utilisable et définir la suite du développement.',
 } as const;
 
 /** Programme parcours 7 h / Jour 1 du parcours 14 h — 4 étapes. */
 export const DEV_WEB_IA_MODULES: readonly DevWebIaProgrammeModule[] = [
   {
     number: 1,
-    title: 'Cadrer son ERP BTP',
+    title: 'Cadrer son outil métier BTP',
     objective: 'Transformer un besoin métier en projet concret.',
     activities: [
       'Cartographier le processus actuel',
@@ -554,9 +738,9 @@ export const DEV_WEB_IA_MODULES: readonly DevWebIaProgrammeModule[] = [
 ];
 
 export const DEV_WEB_IA_PARCOURS_14H_SECTION = {
-  title: 'Parcours 14 h — Construire, approfondir et relier son ERP',
+  title: 'Parcours 14 h — Construire, approfondir et relier son outil',
   intro:
-    'Le parcours 14 h reprend l’intégralité du programme de 7 h puis ajoute une deuxième journée consacrée à l’amélioration de l’outil, aux connexions entre modules et à la préparation du déploiement.',
+    'Le parcours 14 h reprend l’intégralité du programme de 7 h puis ajoute une deuxième journée consacrée à l’amélioration de l’outil, aux connexions entre fonctions et à la préparation du déploiement.',
   jour1Label: 'Jour 1 — Construire la première version',
   jour1Duree: '7 h',
   jour2Label: 'Jour 2 — Approfondir et préparer le déploiement',
@@ -727,7 +911,7 @@ export const DEV_WEB_IA_FORMAT_COMPARATIF = {
 
 export const DEV_WEB_IA_LIVRABLES = [
   'Environnement de travail vérifié',
-  'Projet d’ERP BTP cadré et premier module priorisé',
+  'Projet d’outil métier BTP cadré et premier module priorisé',
   'Première version fonctionnelle (évolutive, non prête pour l’exploitation)',
   'Méthode pour guider, tester et corriger avec l’IA',
   'Projet sauvegardé et feuille de route d’évolution',
@@ -766,6 +950,7 @@ export const DEV_WEB_IA_DONNEES_CONTROLE = [
   'On travaille avec des données fictives ou anonymisées pendant la session.',
   'Vous apprenez à repérer ce qui ne doit jamais être exposé (coordonnées clients, données salariés, prix).',
   'Vous restez propriétaire de votre outil et de son contenu.',
+  DEV_WEB_IA_DONNEES_PRUDENCE,
 ] as const;
 
 export const DEV_WEB_IA_FAQ = [
@@ -778,8 +963,8 @@ export const DEV_WEB_IA_FAQ = [
     a: 'Oui. Les relevés d’heures pour préparer la paie sont un module prioritaire fréquent. Pendant la formation, vous travaillez sur le périmètre adapté à votre niveau et à la durée choisie.',
   },
   {
-    q: 'Peut-on faire évoluer son ERP après la formation ?',
-    a: 'Oui. Vous repartez avec une méthode et une feuille de route pour ajouter des modules, tester les modifications et conserver les données existantes.',
+    q: 'Peut-on faire évoluer son outil après la formation ?',
+    a: 'Oui. Vous repartez avec une méthode et une feuille de route pour ajouter des fonctions, tester les modifications et conserver les données existantes.',
   },
   {
     q: 'Peut-on importer des fichiers Excel ?',
@@ -790,8 +975,8 @@ export const DEV_WEB_IA_FAQ = [
     a: 'Oui, via un export CSV ou Excel au format convenu. L’outil prépare les données ; les règles de calcul et les éléments de paie restent à paramétrer et à valider avec le gestionnaire de paie.',
   },
   {
-    q: 'L’ERP est-il prêt à être utilisé à la fin de la formation ?',
-    a: 'Non. Vous repartez avec une première version fonctionnelle et évolutive, une méthode et une feuille de route. Le résultat dépend de votre niveau, de la complexité du projet et des intégrations nécessaires — pas d’ERP complet terminé en 7 h ou 14 h.',
+    q: 'L’outil est-il prêt à être utilisé à la fin de la formation ?',
+    a: 'Non. Vous repartez avec une première version fonctionnelle et évolutive, une méthode et une feuille de route. Le résultat dépend de votre niveau, de la complexité du projet et des intégrations nécessaires — pas d’application métier complète terminée en 7 h ou 14 h.',
   },
   {
     q: 'Quels abonnements et frais faut-il prévoir ?',
@@ -846,6 +1031,11 @@ export function devWebIaDevisHref(_formationTitle?: string): string {
 /** CTA secondaire — demander une place (contact). */
 export function devWebIaInscriptionHref(): string {
   return `${LINKS.contact}?objet=inscription&formation=${encodeURIComponent(DEV_WEB_IA_FORMATION_TITRE)}`;
+}
+
+/** CTA secondaire hero — ancre programme. */
+export function devWebIaSecondaryCtaHref(): string {
+  return `${DEV_WEB_IA_PATH}#programme`;
 }
 
 export function devWebIaProgrammeHref(): string {

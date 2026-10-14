@@ -227,13 +227,13 @@ export const FORMATION_CATALOGUE_SEO: Record<FormationCatalogueCode, FormationCa
   },
   'NIV-10': {
     metaTitle: 'Créer des applications métier BTP avec l’IA',
-    h1: 'Créer des applications métier BTP avec l’IA',
+    h1: 'Créez votre outil métier BTP sur mesure avec l’IA',
     subtitle:
-      'Concevez votre ERP sur mesure, testez-le et faites-le évoluer — sans savoir coder.',
+      'Concevez une application adaptée à votre entreprise, sans savoir coder.',
     metaDescription:
-      'Formation IA pour le BTP : créer un ERP / outil de gestion BTP sur mesure avec l’IA, sans coder. 7 h ou 14 h, présentiel Île-de-France.',
+      'Formation IA pour le BTP : créer un outil métier / ERP BTP sur mesure avec l’IA, sans coder. 7 h ou 14 h, présentiel Île-de-France.',
     enBref:
-      'Formation ERP BTP avec l’IA : concevoir un outil de gestion BTP sur mesure (devis, chantiers, planning, relevé d’heures) sans coder. Parcours 7 h (première version fonctionnelle) ou 14 h (approfondir, relier, déployer), 4 à 8 participants, présentiel Île-de-France. Qualiopi — Laure Olivié.',
+      'Formation IA pour le BTP : apprendre à créer et faire évoluer un outil métier BTP sur mesure avec l’IA générative, sans compétence technique préalable. Parcours 7 h ou 14 h, 4 à 8 participants, présentiel Île-de-France. Qualiopi — Laure Olivié.',
     publicTargets: [
       'Dirigeants de TPE et PME du BTP',
       'Conducteurs de travaux et chargés d’affaires',

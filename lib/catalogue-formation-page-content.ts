@@ -744,19 +744,19 @@ const NIV_10: CatalogueFormationPageContent = {
   interExtraBullets: ['Parcours 7 h ou 14 h selon calendrier'],
   intraExtraBullets: ['Sessions en présentiel dans vos locaux ou convocation réseau'],
   programIntro: '',
-  programmeHeading: 'Construire son ERP BTP avec l’IA',
+  programmeHeading: 'Le parcours en étapes',
   objectivesTitle: 'Ce que vous apprenez',
   instructorTitle: 'Qui conçoit et encadre la formation ?',
   instructorBody:
     'Laure Olivié, fondatrice d’OFC Création d’Entreprise (certifié Qualiopi), 7 ans d’expérience dans le BTP, ancienne dirigeante d’une entreprise de travaux publics en Île-de-France. Elle a elle-même créé ses outils de gestion avec l’IA. Méthode progressive, petits groupes, 70 % de pratique.',
   showBeworkPasserelle: false,
   finalCta: {
-    title: 'Quel outil métier BTP voulez-vous créer en premier ?',
+    title: 'Quel outil votre entreprise construirait-elle si vous n’aviez plus besoin de savoir coder ?',
     description:
-      'Échangez sur votre projet de formation, ou décrivez-le via le formulaire plus haut (lien « Parlez-moi de votre projet »).',
-    primaryLabel: 'Échanger sur votre projet de formation',
-    secondaryLabel: 'Demander une place',
-    note: 'Rendez-vous découverte · 30 min',
+      'Relevé d’heures, planning, suivi chantier, CRM ou tableau de bord : commencez par le besoin qui vous fait perdre le plus de temps.',
+    primaryLabel: 'Échanger sur mon projet',
+    secondaryLabel: 'Voir le programme',
+    note: 'Présentiel Île-de-France · 7 h ou 14 h · 4 à 8 participants',
   },
 };
 

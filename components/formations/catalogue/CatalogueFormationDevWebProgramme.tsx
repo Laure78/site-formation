@@ -11,6 +11,8 @@ import {
   DEV_WEB_IA_PARCOURS_7H_SECTION,
   DEV_WEB_IA_PDF_14H_HREF,
   DEV_WEB_IA_PDF_7H_HREF,
+  DEV_WEB_IA_PROGRAMME_SCAN_14H,
+  DEV_WEB_IA_PROGRAMME_SCAN_7H,
   DEV_WEB_IA_PROGRAMME_SECTION,
   PROGRAMME_PDF_14H,
   PROGRAMME_PDF_7H,
@@ -160,12 +162,35 @@ function EtapeJour2Card({
   );
 }
 
+function ProgrammeScanSteps({
+  steps,
+}: {
+  steps: readonly { num: string; title: string; texte: string }[];
+}) {
+  return (
+    <ol className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+      {steps.map((step) => (
+        <li
+          key={step.num}
+          className="rounded-2xl border border-slate-200 bg-[#F2F2F2] p-4"
+        >
+          <p className="text-xs font-bold uppercase tracking-[0.14em] text-[#377CF3]">
+            {step.num} — {step.title}
+          </p>
+          <p className="mt-2 text-sm leading-relaxed text-slate-700">{step.texte}</p>
+        </li>
+      ))}
+    </ol>
+  );
+}
+
 function Parcours7hPanel() {
   const { title, intro } = DEV_WEB_IA_PARCOURS_7H_SECTION;
   return (
     <div id="parcours-7h" className="scroll-mt-28">
       <h3 className={OFC_TYPE_H3}>{title}</h3>
       <p className="mt-3 max-w-3xl text-base leading-relaxed text-slate-600">{intro}</p>
+      <ProgrammeScanSteps steps={DEV_WEB_IA_PROGRAMME_SCAN_7H} />
       <div className="mt-8 space-y-4">
         {DEV_WEB_IA_MODULES.map((etape) => (
           <Etape7hCard key={etape.number} etape={etape} />
@@ -226,6 +251,7 @@ function Parcours14hPanel() {
 
       <div className="mt-10">
         <h4 className={OFC_TYPE_H3}>Jour 2 — Approfondir et préparer le déploiement</h4>
+        <ProgrammeScanSteps steps={DEV_WEB_IA_PROGRAMME_SCAN_14H} />
         <div className="mt-6 space-y-4">
           {DEV_WEB_IA_MODULES_JOUR2.map((etape) => (
             <EtapeJour2Card key={etape.number} etape={etape} />

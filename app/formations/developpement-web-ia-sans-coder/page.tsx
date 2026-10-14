@@ -1,17 +1,25 @@
 import { JsonLd } from '@/components/JsonLd';
 import { CatalogueFormationPageTemplate } from '@/components/formations/catalogue/CatalogueFormationPageTemplate';
 import { CatalogueFormationDevWebHero } from '@/components/formations/catalogue/CatalogueFormationDevWebHero';
-import { CatalogueFormationDevWebAfterDeliverables, CatalogueFormationDevWebAfterObjectives } from '@/components/formations/catalogue/CatalogueFormationDevWebSections';
+import {
+  CatalogueFormationDevWebAfterDeliverables,
+  CatalogueFormationDevWebAfterObjectives,
+} from '@/components/formations/catalogue/CatalogueFormationDevWebSections';
 import {
   CatalogueFormationDevWebParcoursTarifsSection,
   CatalogueFormationDevWebQualiopiEngagementSection,
 } from '@/components/formations/catalogue/CatalogueFormationDevWebMarketingSections';
 import { CatalogueFormationDevWebProgramme } from '@/components/formations/catalogue/CatalogueFormationDevWebProgramme';
-import { DevWebIaCasUsageSection } from '@/components/formations/DevWebIaCasUsageSection';
+import {
+  DevWebIaAccessibleSection,
+  DevWebIaAutonomieSection,
+  DevWebIaAvantApresSection,
+  DevWebIaEconomiqueSection,
+  DevWebIaPourquoiOutilSection,
+  DevWebIaResultatsSection,
+} from '@/components/formations/DevWebIaConversionSections';
 import { DevWebIaDonneesControleSection } from '@/components/formations/DevWebIaDonneesControleSection';
-import { DevWebIaErpBeneficesSection } from '@/components/formations/DevWebIaErpBeneficesSection';
 import { DevWebIaErpModulesSection } from '@/components/formations/DevWebIaErpModulesSection';
-import { DevWebIaFilRougeSection } from '@/components/formations/DevWebIaFilRougeSection';
 import { DevWebIaFormatComparatifSection } from '@/components/formations/DevWebIaFormatComparatifSection';
 import { DevWebIaProjectContactSection } from '@/components/formations/DevWebIaProjectContactSection';
 import { createPageMetadata, getBreadcrumbSchema, getFAQSchema } from '@/lib/seo';
@@ -20,13 +28,13 @@ import { buildCatalogueCourseDeveloppementWebIaNiv10JsonLd } from '@/lib/schema-
 import { getFormationCatalogueSeo } from '@/lib/formation-catalogue-seo';
 import { getCatalogueFormationPageContent } from '@/lib/catalogue-formation-page-content';
 import {
-  DEV_WEB_IA_CTA_PRIMARY_LABEL,
-  DEV_WEB_IA_CTA_SECONDARY_LABEL,
+  DEV_WEB_IA_CTA_FINAL_LABEL,
   DEV_WEB_IA_FAQ,
   DEV_WEB_IA_FORMATION_TITRE_COURT,
   devWebIaInscriptionHref,
   devWebIaPrimaryCtaHref,
 } from '@/lib/formation-developpement-web-ia-content';
+
 
 const CATALOGUE_SEO = getFormationCatalogueSeo('NIV-10');
 
@@ -36,18 +44,23 @@ const HERO_VISUEL = {
   src: '/images/formation-developpement-web-ia-sans-coder/01-hero-applications-metier-btp-ia.webp',
   width: 1024,
   height: 576,
-  alt: 'Pros du BTP autour d’un ERP chantier créé avec l’IA, sans coder — formation Île-de-France',
+  alt: 'Pros du BTP autour d’un outil métier chantier créé avec l’IA, sans coder — formation Île-de-France',
 } as const;
 
 const PAGE_CONTENT = {
   ...getCatalogueFormationPageContent('NIV-10'),
+  programmeHeading: 'Le parcours en étapes',
+  objectivesTitle: 'Ce que vous apprenez',
   finalCta: {
     ...getCatalogueFormationPageContent('NIV-10').finalCta,
+    title: 'Quel outil votre entreprise construirait-elle si vous n’aviez plus besoin de savoir coder ?',
+    description:
+      'Relevé d’heures, planning, suivi chantier, CRM ou tableau de bord : commencez par le besoin qui vous fait perdre le plus de temps.',
     devisHref: devWebIaPrimaryCtaHref(),
-    primaryLabel: DEV_WEB_IA_CTA_PRIMARY_LABEL,
+    primaryLabel: DEV_WEB_IA_CTA_FINAL_LABEL,
     secondaryHref: devWebIaInscriptionHref(),
-    secondaryLabel: DEV_WEB_IA_CTA_SECONDARY_LABEL,
-    note: 'Rendez-vous découverte · 30 min',
+    secondaryLabel: 'Demander une place',
+    note: 'Présentiel Île-de-France · 7 h ou 14 h · 4 à 8 participants',
   },
 };
 
@@ -61,15 +74,15 @@ export const metadata = createPageMetadata({
   openGraphTitle: PAGE_TITLE,
   openGraphDescription: PAGE_DESCRIPTION,
   keywords: [
-    'formation ERP BTP avec IA',
-    'créer un ERP BTP',
-    'logiciel de gestion BTP sur mesure',
-    'outil de gestion BTP',
-    'créer son logiciel BTP avec IA',
-    'application métier BTP',
-    'ERP BTP sur mesure',
     'formation IA BTP',
-    'développer un outil de gestion BTP sans coder',
+    'créer application BTP avec IA',
+    'ERP BTP sur mesure',
+    'logiciel BTP sur mesure',
+    'créer logiciel avec IA sans coder',
+    'application métier BTP',
+    'outil de gestion BTP',
+    'formation no-code BTP',
+    'créer ERP BTP avec IA',
     'formation IA pour le BTP',
     'ChatGPT BTP',
   ],
@@ -107,16 +120,19 @@ export default function FormationDeveloppementWebIaSansCoderPage() {
         faqSectionId="faq"
         afterObjectives={
           <>
-            <DevWebIaErpBeneficesSection />
-            <CatalogueFormationDevWebAfterObjectives />
+            <DevWebIaPourquoiOutilSection />
+            <DevWebIaAutonomieSection />
+            <DevWebIaEconomiqueSection />
             <DevWebIaErpModulesSection />
+            <DevWebIaAvantApresSection />
+            <DevWebIaAccessibleSection />
+            <DevWebIaResultatsSection />
+            <CatalogueFormationDevWebAfterObjectives />
           </>
         }
         programme={<CatalogueFormationDevWebProgramme />}
         afterProgrammeSupplement={
           <>
-            <DevWebIaCasUsageSection />
-            <DevWebIaFilRougeSection />
             <DevWebIaFormatComparatifSection />
             <DevWebIaProjectContactSection />
           </>

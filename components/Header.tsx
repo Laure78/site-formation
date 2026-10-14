@@ -22,13 +22,37 @@ import {
 import { SITE } from '@/lib/site';
 import { headerNavItemIsActive, getHeaderNav } from '@/lib/header-nav';
 import { CtaButton } from '@/components/CtaButton';
+import { ExternalLinkAnchor } from '@/components/ExternalLink';
 import { FormationPlateformeConnexionButton } from '@/components/formation/FormationPlateformeConnexionButton';
+import { LinkedInIcon } from '@/components/icons/LinkedInIcon';
 import { SiteSearchTrigger } from '@/components/search/SiteSearchTrigger';
 import {
   HeaderNavDropdown,
   HeaderNavSimpleLink,
 } from '@/components/nav/HeaderNavDropdown';
+import {
+  LINKEDIN_PROFILE_ARIA,
+  LINKEDIN_PROFILE_URL,
+} from '@/lib/linkedin-profile';
 import type { LucideIcon } from 'lucide-react';
+
+const headerLinkedInClass =
+  'inline-flex min-h-[44px] min-w-[44px] items-center justify-center rounded-xl text-[#377CF3] transition-colors hover:bg-[#EFF6FF] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#377CF3]';
+
+function HeaderLinkedInButton({ className = '' }: { className?: string }) {
+  return (
+    <ExternalLinkAnchor
+      href={LINKEDIN_PROFILE_URL}
+      aria-label={LINKEDIN_PROFILE_ARIA.footer}
+      title={LINKEDIN_PROFILE_ARIA.footer}
+      className={`${headerLinkedInClass}${className ? ` ${className}` : ''}`}
+    >
+      <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-[#377CF3] text-white shadow-sm">
+        <LinkedInIcon className="h-4 w-4" />
+      </span>
+    </ExternalLinkAnchor>
+  );
+}
 
 const HeaderMobileDrawer = dynamic(
   () =>
@@ -273,6 +297,7 @@ export function Header() {
           </div>
 
           <div className="site-header__actions">
+            <HeaderLinkedInButton />
             <FormationPlateformeConnexionButton
               variant="nav"
               label={SITE.platform.connexionLabel}
@@ -293,6 +318,7 @@ export function Header() {
 
           <div className="flex shrink-0 items-center gap-0.5 lg:hidden">
             <SiteSearchTrigger className="p-2.5" />
+            <HeaderLinkedInButton />
             <button
               type="button"
               onClick={() => setMobileOpen(!mobileOpen)}
