@@ -18,9 +18,12 @@ function fileNameFromHref(href: string): string {
 /** Carte guide — bibliothèque `#guides-pdf`. */
 export function RessourceGuideLibraryCard({ guide }: Props) {
   const isExcel = guide.fileKind === 'excel';
+  const isZip = guide.fileKind === 'zip';
   const formatLabel = isExcel
     ? 'Excel gratuit · Sans inscription'
-    : 'PDF gratuit · Sans inscription';
+    : isZip
+      ? 'ZIP gratuit · Sans inscription'
+      : 'PDF gratuit · Sans inscription';
 
   const onConsult = () => {
     sendGa4Event('ressource_guide_consult', {
@@ -58,7 +61,7 @@ export function RessourceGuideLibraryCard({ guide }: Props) {
             {/* eslint-disable-next-line @next/next/no-img-element -- logo SVG léger décoratif */}
             <img src="/logo-lo.svg" alt="" width={40} height={40} className="opacity-80" />
             <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">
-              {isExcel ? 'Excel' : 'PDF'} · {guide.categoryLabel}
+              {isExcel ? 'Excel' : isZip ? 'ZIP' : 'PDF'} · {guide.categoryLabel}
             </p>
           </div>
         )}

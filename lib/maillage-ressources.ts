@@ -470,12 +470,28 @@ export const MAILLAGE_RESSOURCES_BY_PATH: Readonly<Record<string, MaillageRessou
     },
     soeurs: [
       {
-        href: LINKS.bibliothequeSkills,
-        label: 'Télécharger les skills Claude BTP',
+        href: LINKS.skillsClaudeBtp,
+        label: '5 skills Claude gratuits pour le BTP',
       },
       {
         href: LINKS.guideDirigeantBtpOfc,
         label: 'Guide du dirigeant BTP — 6 leviers',
+      },
+    ],
+  },
+  [LINKS.skillsClaudeBtp]: {
+    pilier: {
+      href: LINKS.ressources,
+      label: 'Hub ressources IA BTP — guides et tutos',
+    },
+    soeurs: [
+      {
+        href: LINKS.guideClaudeBtpOfc,
+        label: 'Guide Claude BTP — Projets, Skills et connecteurs',
+      },
+      {
+        href: LINKS.guideConducteurTravauxIaBtp,
+        label: 'Guide conducteur de travaux',
       },
     ],
   },

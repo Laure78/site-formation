@@ -192,6 +192,11 @@ const BASE_HEADER_NAV: readonly HeaderNavItem[] = [
         title: 'Guides PDF gratuits par métier — conducteur, dirigeant, AO…',
       },
       {
+        href: LINKS.skillsClaudeBtp,
+        label: 'Skills Claude',
+        title: '5 skills Claude gratuits pour le BTP — pack ZIP à importer',
+      },
+      {
         href: LINKS.blog,
         label: 'Blog',
         title: 'Articles IA BTP — devis, chantier, appels d’offres',

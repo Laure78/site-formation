@@ -114,7 +114,7 @@ export type RessourceGuideEntry = {
   categoryLabel: string;
   /** Jusqu’à 3 infos courtes. */
   highlights: readonly string[];
-  fileKind: 'pdf' | 'excel';
+  fileKind: 'pdf' | 'excel' | 'zip';
   /** Libellé du bouton téléchargement. */
   downloadLabel: string;
   primaryActionLabel: string;
@@ -307,6 +307,24 @@ export const RESSOURCES_GUIDES: readonly RessourceGuideEntry[] = [
     downloadLabel: 'Télécharger le PDF',
     primaryActionLabel: 'Consulter le guide',
     thumbnail: RESSOURCES_MINIATURES.guideClaude,
+  },
+  {
+    href: LINKS.skillsClaudeBtp,
+    pdfHref: LINKS.skillsClaudeBtpPackComplet,
+    title: '5 skills Claude gratuits pour le BTP',
+    promise:
+      'Pack prêt à importer : CCTP, CR chantier, contrôle devis, courriers et méthodologie d’exécution — avec tuto d’installation.',
+    description:
+      'Cinq skills Claude issus d’une formation gros œuvre : analyse CCTP, actions CR, contrôle devis, courriers/relances et méthodologie d’exécution.',
+    audience: 'Dirigeants · CDT · Chargés d’études · Assistantes · Comptables',
+    fonctionId: 'transversal',
+    categories: ['toute-equipe', 'conduite-travaux', 'appels-offres'],
+    categoryLabel: 'Toute l’équipe',
+    highlights: ['5 skills ZIP', 'Tuto d’import Claude', 'Pack complet'],
+    fileKind: 'zip',
+    downloadLabel: 'Télécharger le pack ZIP',
+    primaryActionLabel: 'Voir les skills',
+    thumbnail: RESSOURCES_MINIATURES.skillsClaudeBtp,
   },
   {
     href: LINKS.bibliothequePromptsBtpParMetier,

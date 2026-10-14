@@ -167,6 +167,14 @@ function buildStaticPages(): SiteSearchEntry[] {
       keywords: 'claude projets skills mcp cowork guide pdf btp administratif',
     },
     {
+      id: 'skills-claude-btp',
+      title: '5 skills Claude gratuits pour le BTP',
+      description: 'Pack ZIP gratuit : CCTP, CR chantier, contrôle devis, courriers, méthodo — tuto d’import inclus.',
+      href: LINKS.skillsClaudeBtp,
+      kind: 'guide',
+      keywords: 'skills claude zip cctp devis compte rendu import compétence btp',
+    },
+    {
       id: 'bibliotheque-prompts-btp-par-metier',
       title: 'Bibliothèque prompts IA BTP par métier',
       description: 'Excel gratuit : ~50 prompts (dirigeant, assistante, BE, CDT, chef de chantier).',

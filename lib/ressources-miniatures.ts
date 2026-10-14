@@ -31,6 +31,12 @@ export const RESSOURCES_MINIATURES = {
     width: 1024,
     height: 576,
   },
+  skillsClaudeBtp: {
+    src: `${BASE}/miniature-skills-claude-btp.jpg`,
+    alt: 'Laure Olivié — 5 skills Claude gratuits pour le BTP, tuto offert formation IA',
+    width: 1024,
+    height: 1024,
+  },
   guideChargeAffaires: {
     src: `${BASE}/miniature-guide-charge-affaires.jpg`,
     alt: 'Chargé d’affaires BTP devant écran et plans — guide IA DCE mémoire technique ChatGPT BTP',

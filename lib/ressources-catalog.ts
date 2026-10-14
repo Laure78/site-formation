@@ -206,6 +206,8 @@ const GUIDE_HUB_DESCRIPTIONS: Partial<Record<string, string>> = {
     'Leviers de pilotage pour dirigeants PME BTP : Go/No-Go, clauses, rentabilité, litiges et recrutement.',
   'guide-claude-btp-ofc':
     'Installer Projets, Skills et connecteurs pour l’administratif chantier — fonctionnalités éditeur à vérifier selon votre offre.',
+  'skills-claude-btp':
+    'Cinq skills Claude gratuits (CCTP, CR, devis, courriers, méthodo) avec tuto d’import — pack ZIP pour entreprises BTP.',
   'bibliotheque-prompts-btp-par-metier':
     'Fichier Excel de prompts à copier par métier (direction, assistante travaux, BET, CDT, chef de chantier).',
   'guide-assistants-travaux-ofc':
@@ -249,12 +251,16 @@ const FEATURED_IDS = new Set([
 ]);
 
 function guideIdFromHref(href: string): string {
-  return href.replace(/^\/ressources\//, '').replace(/\//g, '-');
+  return href
+    .replace(/^\/ressources\//, '')
+    .replace(/^\//, '')
+    .replace(/\//g, '-');
 }
 
 function inferGuideFormat(pdfHref: string, downloadLabel?: string): string {
   if (downloadLabel?.toLowerCase().includes('excel')) return 'Excel';
   if (pdfHref.endsWith('.xlsx')) return 'Excel';
+  if (pdfHref.endsWith('.zip') || downloadLabel?.toLowerCase().includes('zip')) return 'ZIP';
   return 'PDF';
 }
 
@@ -262,6 +268,7 @@ function inferGuideResourceType(pdfHref: string, downloadLabel?: string): Ressou
   if (downloadLabel?.toLowerCase().includes('excel') || pdfHref.endsWith('.xlsx')) {
     return 'modele-fichier';
   }
+  /** Packs ZIP de la bibliothèque `#guides-pdf` restent type `guide` (hors liste tutos/skills). */
   return 'guide';
 }
 

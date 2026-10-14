@@ -19,7 +19,7 @@ export function buildGuidesPdfItemListJsonLd(): Record<string, unknown> {
     '@id': `${SECTION_URL}-itemlist`,
     name: 'Guides & outils gratuits pour les professionnels du BTP',
     description:
-      'Bibliothèque de guides PDF et fichier Excel de prompts IA pour les métiers du BTP — gratuits, sans inscription.',
+      'Bibliothèque de guides PDF, packs ZIP skills Claude et fichier Excel de prompts IA pour les métiers du BTP — gratuits, sans inscription.',
     url: SECTION_URL,
     numberOfItems: guides.length,
     itemListOrder: 'https://schema.org/ItemListUnordered',
@@ -29,7 +29,9 @@ export function buildGuidesPdfItemListJsonLd(): Record<string, unknown> {
       const encodingFormat =
         guide.fileKind === 'excel'
           ? 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
-          : 'application/pdf';
+          : guide.fileKind === 'zip'
+            ? 'application/zip'
+            : 'application/pdf';
 
       return {
         '@type': 'ListItem',
