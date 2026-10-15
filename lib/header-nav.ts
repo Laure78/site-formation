@@ -107,40 +107,121 @@ function financementNavActive(pathname: string): boolean {
   return pathname === LINKS.financement || pathname.startsWith('/financement-constructys');
 }
 
-/** Colonnes méga-menu — destinations publiées uniquement. */
+/**
+ * Colonnes méga-menu — catalogue 2027.
+ * Une URL unique par entrée (pas de doublon dans le panneau).
+ * Fiches IA existantes conservées pour le SEO.
+ */
 const FORMATIONS_MEGA_COLUMNS: readonly HeaderMegaColumn[] = [
   {
-    title: 'Découvrir et maîtriser l’IA',
+    title: 'Parcours métiers',
     links: [
       {
-        href: LINKS.formationIaBtpNiveau1BatimentTp,
-        label: 'Les bases de l’IA pour le BTP',
-        description: 'Fondamentaux sur vos documents métier',
-        badge: '4 h',
-        title: 'Formation IA BTP niveau 1 — devis, emails et productivité',
+        href: LINKS.parcoursDirigeantPmeBtp,
+        label: 'Dirigeant de PME BTP',
+        description: 'Prix, marges, trésorerie et équipes',
+        title: 'Parcours Dirigeant de PME BTP',
       },
       {
-        href: LINKS.formationMaitriserClaudeAiBtp,
-        label: 'Maîtriser Claude pour le BTP',
-        description: 'Projects, Cowork et Skills',
-        title: 'Maîtriser Claude pour le BTP : Projects, Cowork et Skills',
+        href: LINKS.parcoursChargeAffairesBtp,
+        label: 'Chargé d’affaires BTP',
+        description: 'Chiffrage, AO et suivi d’affaire',
+        title: 'Parcours Chargé d’affaires BTP',
       },
       {
-        href: LINKS.skillsClaudeBtp,
-        label: 'Créer des assistants IA et des Skills',
-        description: 'Bibliothèque et exemples métiers BTP',
-        title: 'Skills Claude gratuits pour le BTP',
+        href: LINKS.parcoursConducteurDeTravaux,
+        label: 'Conducteur de travaux',
+        description: 'De la passation à la réception',
+        title: 'Parcours Conducteur de travaux',
+      },
+      {
+        href: LINKS.parcoursChefDeChantier,
+        label: 'Chef de chantier',
+        description: 'Terrain, équipe et information fiable',
+        title: 'Parcours Chef de chantier',
+      },
+      {
+        href: LINKS.parcoursChefDequipe,
+        label: 'Chef d’équipe',
+        description: 'Consignes, intégration et prévention',
+        title: 'Parcours Chef d’équipe',
+      },
+      {
+        href: LINKS.parcoursAssistantDeGestionBtp,
+        label: 'Assistant de gestion BTP',
+        description: 'Administratif, facturation et outils',
+        title: 'Parcours Assistant de gestion BTP',
+      },
+      {
+        href: LINKS.parcoursReferentIaBtp,
+        label: 'Référent IA BTP',
+        description: 'Usages IA, outil et déploiement',
+        title: 'Parcours Référent IA BTP',
       },
     ],
   },
   {
-    title: 'Études et chantier',
+    title: 'Formations IA disponibles',
     links: [
+      {
+        href: LINKS.formationIaBtpNiveau1BatimentTp,
+        label: 'Les bases de l’IA',
+        description: 'Documents BTP — devis, emails, CR',
+        badge: '4 h',
+        title: 'Les bases de l’IA pour les pros du BTP',
+      },
       {
         href: LINKS.formationAO,
         label: 'IA et appels d’offres',
         description: 'DCE, checklist et mémoire technique',
         title: 'Formation IA appels d’offres BTP',
+      },
+      {
+        href: LINKS.formationConduiteTravauxSuiviChantier,
+        label: 'IA et conduite de travaux',
+        description: 'Suivi documentaire de chantier',
+        title: 'Formation IA conducteur de travaux',
+      },
+      {
+        href: LINKS.formationMaitriserClaudeAiBtp,
+        label: 'Maîtriser Claude AI',
+        description: 'Projects, Cowork et Skills',
+        title: 'Maîtriser Claude AI pour le BTP',
+      },
+      {
+        href: LINKS.formationIaMaitriseOeuvre,
+        label: 'IA et maîtrise d’œuvre',
+        description: 'CR, OS et suivi des réserves',
+        title: 'Formation IA maîtrise d’œuvre',
+      },
+      {
+        href: LINKS.formationDeveloppementWebIaSansCoder,
+        label: 'Créer des applications métier',
+        description: 'Prototype testé — 7 h ou 14 h',
+        title: 'Créer des applications métier BTP avec l’IA',
+      },
+    ],
+  },
+  {
+    title: 'Aller plus loin',
+    links: [
+      {
+        href: LINKS.formationsTrouverParcours,
+        label: 'Trouver mon parcours',
+        description: 'Sélection par métier sur le catalogue',
+        title: 'Catalogue — trouver mon parcours métier',
+      },
+      {
+        href: LINKS.formationsIaDisponibles,
+        label: 'Voir les formations IA ouvertes',
+        description: 'Six modules disponibles dès maintenant',
+        title: 'Formations IA disponibles — catalogue',
+      },
+      {
+        href: LINKS.formationsCatalogueModules,
+        label: 'Catalogue par domaine',
+        description: '35 modules — recherche et filtres',
+        title: 'Catalogue des modules de formation',
       },
       {
         href: LINKS.formationIaEtudesPrixChiffrageBtp,
@@ -149,59 +230,24 @@ const FORMATIONS_MEGA_COLUMNS: readonly HeaderMegaColumn[] = [
         title: 'Formation IA études de prix et chiffrage BTP',
       },
       {
-        href: LINKS.formationConduiteTravauxSuiviChantier,
-        label: 'IA et conduite de travaux',
-        description: 'CR, DOE et suivi chantier',
-        title: 'Formation IA conducteur de travaux',
-      },
-      {
-        href: LINKS.formationIaMaitriseOeuvre,
-        label: 'IA et maîtrise d’œuvre',
-        description: 'CR, OS et réception chantier',
-        title: 'Formation IA maîtrise d’œuvre',
-      },
-    ],
-  },
-  {
-    title: 'Créer ses outils',
-    links: [
-      {
-        href: LINKS.formationDeveloppementWebIaSansCoder,
-        label: 'Créer des applications métier BTP',
-        description: 'Développer un outil de gestion sur mesure',
-        title: 'Créer des applications métier BTP avec l’IA',
-      },
-      {
-        href: LINKS.formationDeveloppementWebIaSansCoder,
-        label: 'Découvrir le parcours applications métier',
-        description: 'Création d’outil métier avec l’IA — 7 h ou 14 h',
-        title: 'Créer des applications métier BTP avec l’IA',
+        href: LINKS.skillsClaudeBtp,
+        label: 'Skills Claude gratuits',
+        description: 'Modèles métiers BTP à télécharger',
+        title: 'Skills Claude gratuits pour le BTP',
       },
     ],
   },
 ];
 
 /**
- * Accès rapides — « Débuter » pointe l’ancre niveau 1 (pas la fiche NIV-01,
- * déjà dans la colonne). « Former mon équipe » = /prendre-rdv : même destination
- * que « En entreprise » dans la barre ; conservé ici comme CTA contextuel du panneau
- * (un seul sous-menu ouvert à la fois).
+ * Accès rapides du méga-menu.
+ * Pas de doublon avec les colonnes (URLs déjà listées ci-dessus exclues).
  */
 const FORMATIONS_MEGA_QUICK_LINKS: readonly HeaderNavLink[] = [
   {
     href: LINKS.formations,
     label: 'Voir tout le catalogue',
-    title: 'Catalogue des formations IA pour le BTP',
-  },
-  {
-    href: LINKS.formationIaBtpNiveau1BatimentTp,
-    label: 'Débuter avec l’IA',
-    title: 'Les bases de l’IA pour les pros du BTP — fiche formation',
-  },
-  {
-    href: LINKS.formationsTrouverParcours,
-    label: 'Choisir mon parcours',
-    title: 'Parcours métiers BTP — catalogue formations',
+    title: 'Catalogue des formations et parcours métiers BTP',
   },
   {
     href: LINKS.prendreRdv,

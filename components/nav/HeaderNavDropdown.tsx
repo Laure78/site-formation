@@ -167,9 +167,9 @@ export function HeaderNavDropdown({
   const alignEnd = item.dropdownAlign === 'end';
 
   return (
-    <div className="relative flex w-full items-stretch justify-center">
+    <div className="relative flex shrink-0 items-stretch justify-center">
       <div
-        className={`${triggerClass(highlighted, false, isCatalogue)} w-full`}
+        className={triggerClass(highlighted, false, isCatalogue)}
         style={
           isCatalogue
             ? { backgroundColor: highlighted ? '#2A6BD9' : '#377CF3', color: '#fff' }
@@ -250,7 +250,7 @@ export function HeaderNavSimpleLink({
 }) {
   const active = headerNavItemIsActive(item, pathname);
   return (
-    <div className={`${triggerClass(active, true)} w-full`}>
+    <div className={`${triggerClass(active, true)} shrink-0`}>
       <Link
         href={item.href}
         aria-current={active ? 'page' : undefined}
