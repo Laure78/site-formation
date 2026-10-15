@@ -225,7 +225,7 @@ export const blogArticlesLsrAoModules: BlogArticle[] = [
     ],
     relatedSlugs: [
       ...relatedExcept('memoire-technique-claude-projet-btp'),
-      'formation-ia-artisans-batiment-programme-objectifs-livrables',
+      'formation-ia-pme-batiment-programme-objectifs-livrables',
     ],
     sections: [
       {

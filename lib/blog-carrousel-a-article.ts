@@ -12,7 +12,7 @@ const A = '/images/blog/carrousel-a-presentation-formation';
 const tarifNiv01 = `${formatTarifHt(TARIF_SESSION_DEBUTANT_HT)} € HT`;
 
 export const carrouselAFormationArticle: BlogArticle = {
-  slug: 'formation-ia-artisans-batiment-programme-objectifs-livrables',
+  slug: 'formation-ia-pme-batiment-programme-objectifs-livrables',
   seoTitle: 'Formation IA bâtiment : programme 4h Qualiopi',
   title:
     '« L’IA au service du bâtiment » : présentation complète (infos pratiques, programme, livrables)',

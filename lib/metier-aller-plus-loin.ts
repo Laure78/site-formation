@@ -2,6 +2,7 @@
  * Maillage « Aller plus loin » pour landings métiers — pilier toujours en tête.
  * Max 5 liens, pas de doublon d’URL.
  */
+import { CTA_RDV_LABEL } from '@/lib/cta-rdv-label';
 import { LINKS } from '@/lib/internal-links';
 
 export type MetierAllerPlusLoinLink = {
@@ -42,7 +43,7 @@ export function buildMetierAllerPlusLoinLinks(
   if (options?.includeRdv !== false && !seen.has(LINKS.prendreRdv) && out.length < max) {
     out.push({
       href: LINKS.prendreRdv,
-      label: options?.rdvLabel ?? 'Prendre un rendez-vous découverte',
+      label: options?.rdvLabel ?? CTA_RDV_LABEL,
     });
   }
 

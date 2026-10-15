@@ -390,7 +390,7 @@ export function FormationIaMetierBtpLanding({ config }: { config: FormationIaMet
                   id="rdv-3"
                   metierId={config.id}
                   title="Troisième appel à l’action — Calendly"
-                  subtitle="Une dernière occasion de réserver un créneau : appel découverte formation IA pour le BTP (30 min), même lien Calendly officiel."
+                  subtitle="Une dernière occasion de réserver un créneau : visio découverte formation IA pour le BTP (30 min)."
                 />
               </div>
 

@@ -43,7 +43,7 @@ Les **relances SAV** constituent une ligne de front épuisante : un client qui s
 
 Le vocabulaire métier (DTU, référence norme, équipements sanitaires, fluides, étiquetage énergétique) n’est pas celui des formations IA généralistes. Un prompt naïf produit des formulations floues sur les **mises en pression**, les **raccordements** ou les **obligations de mise en service** — zones où l’erreur de formulation peut coûter cher en image ou en contentieux.
 
-En Île-de-France, la concurrence entre artisans et PME rend la **réactivité sur devis** discriminante : un devis envoyé en fin de journée plutôt qu’au bout de trois jours peut décider du marché. La question n’est pas de « déléguer la technique à ChatGPT », mais de **gagner le formatage et la structure** pour garder le contrôle sur les prix, les garanties et les délais.
+En Île-de-France, la concurrence entre PME du bâtiment rend la **réactivité sur devis** discriminante : un devis envoyé en fin de journée plutôt qu’au bout de trois jours peut décider du marché. La question n’est pas de « déléguer la technique à ChatGPT », mais de **gagner le formatage et la structure** pour garder le contrôle sur les prix, les garanties et les délais.
 
 Les **contrats de maintenance** et les **gros installations** ajoutent une couche documentaire : comptes rendus périodiques, historiques d’intervention pour le SAV fabricant, échanges avec le **bureau de contrôle** ou le **diagnostiqueur** avant vente. Sans modèle, chaque sortie est une réinvention. L’IA aide à stabiliser des **trames** que l’équipe valide une fois pour toutes, puis réutilise avec des variables — comme un carnet d’entretien numérique, mais rédigé en langage naturel.
 
@@ -64,7 +64,7 @@ L’IA générative aide à passer du **brut au structuré** : notes de visite, 
 **Maillage interne :**  
 → [Formation IA électricien BTP](/formation-ia-electricien-btp/)  
 → [IA devis bâtiment — automatisation](/ia-devis-batiment)  
-→ [Blog : 5 cas d’usage ChatGPT BTP](/blog/5-cas-usage-chatgpt-artisans-btp)
+→ [Blog : 5 cas d’usage ChatGPT BTP](/blog/5-cas-usage-chatgpt-pme-batiment)
 
 En **intra entreprise**, la formation peut s’appuyer sur vos **modèles de devis** et vos **rapports d’intervention** réels (anonymisés pour les exercices collectifs). En **inter**, les cas types restent parlants dès lors qu’on utilise le vocabulaire des **réseaux sanitaires**, du **calorifugeage**, des **pompes à chaleur** ou des **désembouages** selon votre cœur de métier. L’objectif n’est pas d’uniformiser votre prix — chaque entreprise garde ses barèmes — mais d’**aligner la forme** des documents pour que le client et le siège retrouvent vite l’information.
 
@@ -132,7 +132,7 @@ Fond **#377CF3**, texte blanc — **Titre :** Visio gratuite — plomberie + Con
 
 ## Laure {#laure}
 
-Laure Olivié accompagne les artisans et PME du BTP pour une IA **utile et responsable**. [À propos](/a-propos/)  
+Laure Olivié accompagne les PME du bâtiment pour une IA **utile et responsable**. [À propos](/a-propos/) 
 **Alt photo :** *Formation IA pour le BTP plomberie — Laure Olivié, OFC*
 
 ---

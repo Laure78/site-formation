@@ -229,7 +229,7 @@ function main(): void {
   const issues: Issue[] = [];
 
   const cr = titleByPath.get('/blog/compte-rendu-chantier-ia-automatiser-gagner-temps');
-  const five = titleByPath.get('/blog/5-cas-usage-chatgpt-artisans-btp');
+  const five = titleByPath.get('/blog/5-cas-usage-chatgpt-pme-batiment');
   if (!cr || !five) {
     console.error('ÉCHEC — titres blog CR / 5 cas introuvables.');
     process.exit(1);
@@ -272,7 +272,7 @@ function main(): void {
   // Toujours afficher le cas CR vs 5-cas s’il reste une collision câblée
   const collision = unique.filter(
     (i) =>
-      (i.href === '/blog/5-cas-usage-chatgpt-artisans-btp' &&
+      (i.href === '/blog/5-cas-usage-chatgpt-pme-batiment' &&
         /compte[- ]?rendu/i.test(i.anchor)) ||
       (i.href === '/blog/compte-rendu-chantier-ia-automatiser-gagner-temps' &&
         /5 cas/i.test(i.anchor)),

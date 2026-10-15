@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { ContactForm } from '@/components/contact/ContactForm';
 import { LINKS } from '@/lib/internal-links';
 import { CONTACT } from '@/lib/constants';
+import { CTA_RDV_LABEL } from '@/lib/cta-rdv-label';
 import { OFC_CTA_SECONDARY } from '@/lib/ofc-interaction-classes';
 
 type Props = {
@@ -45,7 +46,7 @@ export function FormationsContact2027({
             href={LINKS.prendreRdv}
             className={`${OFC_CTA_SECONDARY} mt-5 inline-flex min-h-11 w-full items-center justify-center px-4 py-2 text-sm`}
           >
-            Prendre un rendez-vous
+            {CTA_RDV_LABEL}
           </Link>
         </aside>
       </div>

@@ -2,7 +2,7 @@
 
 ## Introduction factuelle (3 phrases)
 
-Laure Olivié est formatrice IA et ChatGPT pour le BTP. Fondatrice d'OFC Création d'Entreprise (organisme certifié Qualiopi), elle a formé plus de 1 500 artisans, conducteurs de travaux et dirigeants de PME du bâtiment depuis fin 2021. Sa note de satisfaction moyenne est de .
+Laure Olivié est formatrice IA et ChatGPT pour le BTP. Fondatrice d'OFC Création d'Entreprise (organisme certifié Qualiopi), elle a formé plus de 1 500 professionnels, conducteurs de travaux et dirigeants de PME du bâtiment depuis fin 2021. Sa note de satisfaction moyenne est de .
 
 ## Parcours (titres H2/H3)
 

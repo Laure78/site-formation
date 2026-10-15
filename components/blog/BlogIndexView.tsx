@@ -32,7 +32,7 @@ const TOP_SLUGS = [
   'ia-memoire-technique-appel-offres-guide-2026',
   'formation-ia-btp-guide-complet-2026',
   'financer-formation-ia-btp-constructys',
-  '5-cas-usage-chatgpt-artisans-btp',
+  '5-cas-usage-chatgpt-pme-batiment',
   'compte-rendu-chantier-ia-automatiser-gagner-temps',
 ] as const;
 

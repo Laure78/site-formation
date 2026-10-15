@@ -66,7 +66,7 @@ export function buildAiPromptContext(prospect: ProspectRow, historySummary: stri
   if (structure.includes('ffb') || structure === 'federation') {
     lines.push(
       '',
-      'Angle FFB : besoins des adhérents, artisans, PME, ateliers pratiques, sensibilisation IA métier.'
+      'Angle FFB : besoins des adhérents, PME du bâtiment, ateliers pratiques, sensibilisation IA métier.'
     );
   } else if (structure === 'cci') {
     lines.push(
@@ -76,7 +76,7 @@ export function buildAiPromptContext(prospect: ProspectRow, historySummary: stri
   } else if (structure === 'cma') {
     lines.push(
       '',
-      'Angle CMA : artisans, simplicité, devis, admin, communication, apprentissage pratique.'
+      'Angle CMA : PME du bâtiment, simplicité, devis, admin, communication, apprentissage pratique.'
     );
   } else if (structure === 'france_num' || structure.includes('france_num')) {
     lines.push(

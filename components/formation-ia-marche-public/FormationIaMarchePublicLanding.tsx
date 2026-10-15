@@ -398,7 +398,7 @@ export function FormationIaMarchePublicLanding({
               id="rdv-3"
               campaign={`${utmBase}-rdv-3`}
               title="Troisième appel — Calendly"
-              subtitle="Dernière occasion de réserver un créneau : appel découverte formation IA marché public de travaux (30 min)."
+              subtitle="Dernière occasion de réserver un créneau : visio découverte formation IA marché public de travaux (30 min)."
             />
           </div>
 

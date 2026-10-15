@@ -52,7 +52,7 @@ L’IA mal cadrée peut produire des promesses de résultat esthétique ou des d
 **Liens internes :**  
 → [Formation IA maçon](/formation-ia-macon-btp/) (interfaces avant peinture)  
 → [Checklist prompts ChatGPT BTP](/checklist-ia-btp)  
-→ [5 cas d’usage ChatGPT BTP](/blog/5-cas-usage-chatgpt-artisans-btp)
+→ [5 cas d’usage ChatGPT BTP](/blog/5-cas-usage-chatgpt-pme-batiment)
 
 ---
 

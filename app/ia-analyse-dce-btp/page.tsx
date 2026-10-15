@@ -6,6 +6,7 @@ import { CalendlyEmbed } from '@/components/CalendlyEmbed';
 import { EnBref } from '@/app/components/EnBref';
 import { buildMetadata, getFAQSchema } from '@/lib/seo';
 import type { FAQItem } from '@/lib/faq';
+import { CTA_RDV_LABEL } from '@/lib/cta-rdv-label';
 import { LINKS } from '@/lib/internal-links';
 import { OFC_LINK } from '@/lib/ofc-interaction-classes';
 import { OFC_SEC } from '@/lib/ofc-section-classes';
@@ -322,7 +323,7 @@ export default function IaAnalyseDceBtpPage() {
         <section className={`${OFC_SEC.accent} scroll-mt-24`}>
           <div className="mx-auto max-w-4xl text-center">
             <h2 className="font-display text-2xl font-bold md:text-3xl">
-              Réserver un appel découverte
+              {CTA_RDV_LABEL}
             </h2>
             <p className="mx-auto mt-4 max-w-2xl text-blue-100">
               30 minutes pour cadrer votre besoin — formation en présentiel en Île-de-France.

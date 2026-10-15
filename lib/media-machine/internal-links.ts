@@ -27,7 +27,7 @@ export function getInternalLinksForArticle(clusterId: string): InternalLink[] {
   });
 
   // Selon le cluster, ajouter des liens ciblés
-  if (clusterId.includes('artisans')) {
+  if (clusterId.includes('pme-batiment') || clusterId.includes('artisans')) {
     links.push({
       path: MEDIA_CONFIG.internalLinks.chatgptArtisans.path,
       anchor: MEDIA_CONFIG.internalLinks.chatgptArtisans.anchors[0],

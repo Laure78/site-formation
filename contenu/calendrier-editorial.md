@@ -10,7 +10,7 @@ Image à la une : **1200×630** px, texte alternatif descriptif incluant le mot-
 
 | Champ | Valeur |
 |--------|--------|
-| **Titre** | ChatGPT BTP : 7 leviers de productivité pour artisans et PME du bâtiment en 2026 |
+| **Titre** | ChatGPT BTP : 7 leviers de productivité pour les PME du bâtiment en 2026 |
 | **URL (slug)** | `chatgpt-btp-7-leviers-productivite-2026` |
 | **Mot-clé principal** | ChatGPT BTP |
 | **Mots-clés secondaires** | productivité BTP, IA BTP, automatisation administrative, Qualiopi, Constructys |
@@ -29,6 +29,6 @@ Image à la une : **1200×630** px, texte alternatif descriptif incluant le mot-
 
 | Champ | Valeur |
 |--------|--------|
-| **Titre** | Formation IA appliquée au bâtiment 2026 : guide pratique pour artisans et PME |
+| **Titre** | Formation IA appliquée au bâtiment 2026 : guide pratique pour les PME du bâtiment |
 | **Slug** | `formation-ia-btp-guide-complet-2026` |
 | **Publication** | 10 avril 2026 |

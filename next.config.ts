@@ -510,6 +510,27 @@ const nextConfig: NextConfig = {
         destination: '/formations/ia-batiment-travaux-publics',
         permanent: true,
       },
+      // Blog : retrait mot-clé « artisans » → PME du bâtiment
+      {
+        source: '/blog/5-cas-usage-chatgpt-artisans-btp',
+        destination: '/blog/5-cas-usage-chatgpt-pme-batiment',
+        permanent: true,
+      },
+      {
+        source: '/blog/5-cas-usage-chatgpt-artisans-btp/',
+        destination: '/blog/5-cas-usage-chatgpt-pme-batiment',
+        permanent: true,
+      },
+      {
+        source: '/blog/formation-ia-artisans-batiment-programme-objectifs-livrables',
+        destination: '/blog/formation-ia-pme-batiment-programme-objectifs-livrables',
+        permanent: true,
+      },
+      {
+        source: '/blog/formation-ia-artisans-batiment-programme-objectifs-livrables/',
+        destination: '/blog/formation-ia-pme-batiment-programme-objectifs-livrables',
+        permanent: true,
+      },
       {
         source: '/elementor-2487',
         destination: '/formations/ia-batiment-travaux-publics',

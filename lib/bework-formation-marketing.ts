@@ -18,7 +18,7 @@ export const BEWORK_PROJECT_EXAMPLES = [
 ] as const;
 
 export const BEWORK_METIERS_IDEES = [
-  'Artisan',
+  'PME du bâtiment',
   'Indépendant',
   'Commerce',
   'Restaurant',

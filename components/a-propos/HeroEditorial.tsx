@@ -5,15 +5,18 @@ import { IMAGE_SIZES } from '@/lib/image-props';
 import { StatCallout } from '@/components/readability/StatCallout';
 import { formatNoteSatisfactionSur5, formatAnneesExperienceBTP } from '@/lib/data/indicateurs-resultats';
 import { IndicateursResultatsLink } from '@/components/formation/IndicateursResultatsLink';
+import { CTA_RDV_LABEL } from '@/lib/cta-rdv-label';
+import { LINKS } from '@/lib/internal-links';
 
 type Props = {
   lead: string;
   qualiopiText: string;
   catalogueHref: string;
-  calendlyHeroHref: string;
+  /** @deprecated Ignoré — CTA unifié vers `/prendre-rdv`. */
+  calendlyHeroHref?: string;
 };
 
-export function HeroEditorial({ lead, qualiopiText, catalogueHref, calendlyHeroHref }: Props) {
+export function HeroEditorial({ lead, qualiopiText, catalogueHref }: Props) {
   return (
     <section
       id="essentiel-retour"
@@ -50,15 +53,13 @@ export function HeroEditorial({ lead, qualiopiText, catalogueHref, calendlyHeroH
             >
               Voir le catalogue →
             </Link>
-            <a
-              href={calendlyHeroHref}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Prendre rendez-vous"
+            <Link
+              href={LINKS.prendreRdv}
+              aria-label={CTA_RDV_LABEL}
               className="inline-flex items-center rounded-xl border border-[#377CF3] bg-white px-6 py-3 text-sm font-semibold text-[#377CF3] transition hover:bg-[#EFF6FF]"
             >
-              Prendre RDV
-            </a>
+              {CTA_RDV_LABEL}
+            </Link>
           </div>
         </article>
         <div className="relative order-first lg:order-none lg:col-span-2">

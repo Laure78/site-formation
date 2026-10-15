@@ -191,7 +191,9 @@ export const LINKS = {
   formationIaBtpValDoise95: '/formation-ia-btp-val-doise-95',
 
   // Tier 2 — Cas d'usage (ex-/formation-ia-artisans-btp → 301 NIV-01)
+  /** @deprecated Alias — préférer `chatgptPmeBatiment`. */
   chatgptArtisans: '/formations/ia-batiment-travaux-publics',
+  chatgptPmeBatiment: '/formations/ia-batiment-travaux-publics',
   /** Landing SEO — formation IA travaux publics */
   formationIaTravauxPublics: '/formation-ia-travaux-publics',
   iaDevis: '/ia-devis-batiment',
@@ -545,7 +547,9 @@ export const LINKS = {
   /** Article — compte rendu de chantier IA */
   blogCompteRenduChantierIa: '/blog/compte-rendu-chantier-ia-automatiser-gagner-temps',
   /** Article — 5 cas d'usage ChatGPT BTP (approfondissement CR / terrain) */
-  blog5CasUsageChatgptBtp: '/blog/5-cas-usage-chatgpt-artisans-btp',
+  blog5CasUsageChatgptBtp: '/blog/5-cas-usage-chatgpt-pme-batiment',
+  /** @deprecated 301 → `blog5CasUsageChatgptBtp` */
+  blog5CasUsageChatgptArtisansBtp: '/blog/5-cas-usage-chatgpt-artisans-btp',
   /** Article MDX — application relevé d'heures BTP avec l’IA (sans coder) */
   blogApplicationReleveHeuresBtp: '/blog/application-releve-heures-btp',
   /** Article MDX — planning chantier sur mesure avec l’IA */

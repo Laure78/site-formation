@@ -1238,7 +1238,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
     relatedSlugs: [
       'subrogation-constructys-financement-formation-ia-btp-2026',
       'formation-ia-btp-guide-complet-2026',
-      '5-cas-usage-chatgpt-artisans-btp',
+      '5-cas-usage-chatgpt-pme-batiment',
       'ia-devis-batiment-chiffrage-automatise',
       'compte-rendu-chantier-ia-automatiser-gagner-temps',
     ],
@@ -1423,9 +1423,9 @@ export const BLOG_ARTICLES: BlogArticle[] = [
     ],
   },
   {
-    slug: '5-cas-usage-chatgpt-artisans-btp',
+    slug: '5-cas-usage-chatgpt-pme-batiment',
     seoTitle: '5 cas ChatGPT BTP : devis, mails, CR',
-    title: '5 cas d\'usage de ChatGPT pour les entreprises du bâtiment',
+    title: '5 cas d\'usage de ChatGPT pour les PME du bâtiment',
     description:
       'Cinq usages BTP : devis, mails, CR, suivi, descriptifs — prompts à adapter à vos chantiers. Qualiopi, Constructys. Voir la méthode sur le blog.',
     date: '2025-02-20',
@@ -1607,7 +1607,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
         content: 'Formation IA devis et chiffrage BTP — Module dédié dans « L\'IA au service du bâtiment ».',
       },
     ],
-    relatedSlugs: ['5-cas-usage-chatgpt-artisans-btp', 'financer-formation-ia-btp-constructys'],
+    relatedSlugs: ['5-cas-usage-chatgpt-pme-batiment', 'financer-formation-ia-btp-constructys'],
   },
   // Cluster appels d'offres BTP
   {
@@ -2079,7 +2079,13 @@ export function getArticleCategory(slug: string): BlogCategoryId {
   if (s.includes('conducteur-travaux-usages')) return 'metiers';
   if (s.includes('conducteurs-travaux') || s.includes('comment-ia-gagne-5h-conducteurs')) return 'metiers';
   if (s.includes('conducteur-travaux')) return 'appels-offres';
-  if (s.includes('formation-ia-artisans-batiment-programme')) return 'metiers';
+  if (
+    s.includes('formation-ia-artisans-batiment-programme') ||
+    s.includes('formation-ia-pme-batiment-programme')
+  )
+    return 'metiers';
+  if (s.includes('5-cas-usage-chatgpt-pme-batiment') || s.includes('5-cas-usage-chatgpt-artisans'))
+    return 'metiers';
   if (s.includes('7-cas-usage-ia-btp') || s.includes('5-assistants-ia-btp')) return 'metiers';
   if (s.includes('guide-claude-ia-btp') || s.includes('mcp-claude-model')) return 'metiers';
   if (s.includes('prompts-linkedin-btp')) return 'productivite';

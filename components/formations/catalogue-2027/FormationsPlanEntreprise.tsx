@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { CATALOGUE_2027_INFOS_PRATIQUES } from '@/data/catalogue-2027';
+import { CTA_RDV_LABEL } from '@/lib/cta-rdv-label';
 import { LINKS } from '@/lib/internal-links';
 import { catalogueDemandeHref } from '@/lib/training-page-helpers';
 import { OFC_CTA_PRIMARY, OFC_CTA_SECONDARY } from '@/lib/ofc-interaction-classes';
@@ -38,7 +39,7 @@ export function FormationsPlanEntreprise() {
           href={LINKS.prendreRdv}
           className={`${OFC_CTA_SECONDARY} inline-flex min-h-11 items-center justify-center px-5 py-3`}
         >
-          Prendre un rendez-vous découverte
+          {CTA_RDV_LABEL}
         </Link>
       </div>
     </section>

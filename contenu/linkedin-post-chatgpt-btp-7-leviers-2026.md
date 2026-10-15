@@ -11,7 +11,7 @@ Le chantier paie les factures… mais c’est souvent le bureau qui impose le ry
 
 Relances, comptes rendus, mails clients : ce n’est pas un problème de volonté — c’est un problème de **temps** et de **structure**.
 
-Dans mon nouvel article sur **ChatGPT BTP**, je détaille **7 leviers de productivité** pour artisans et PME du bâtiment :
+Dans mon nouvel article sur **ChatGPT BTP**, je détaille **7 leviers de productivité** pour les PME du bâtiment :
 
 → une chaîne pilote (pas dix outils en parallèle)  
 → des prompts calibrés métier  

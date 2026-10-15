@@ -48,9 +48,9 @@ export const PILLAR_PAGES = [
 ] as const;
 
 export const BLOG_CLUSTERS = [
-  { id: 'ia-artisans', path: '/blog/ia-artisans', name: 'IA pour entreprises BTP', pillarId: 'chatgpt-artisans' },
+  { id: 'ia-pme-batiment', path: '/blog/ia-pme-batiment', name: 'IA pour PME du bâtiment', pillarId: 'chatgpt-entreprises-btp' },
   { id: 'ia-btp', path: '/blog/ia-btp', name: 'IA pour le BTP', pillarId: 'intelligence-artificielle-batiment' },
-  { id: 'chatgpt-btp', path: '/blog/chatgpt-btp', name: 'ChatGPT BTP', pillarId: 'chatgpt-artisans' },
+  { id: 'chatgpt-btp', path: '/blog/chatgpt-btp', name: 'ChatGPT BTP', pillarId: 'chatgpt-entreprises-btp' },
   { id: 'automatisation-entreprises', path: '/blog/automatisation-entreprises', name: 'Automatisation entreprises', pillarId: 'ia-entreprises-btp' },
   { id: 'outils-ia', path: '/blog/outils-ia', name: 'Outils IA', pillarId: 'ia-entreprises-btp' },
 ] as const;
@@ -66,8 +66,9 @@ export function getPillarPathForCluster(clusterId: string): string {
 /** Liens internes par défaut pour les articles (URLs canoniques) */
 export const DEFAULT_INTERNAL_LINKS = {
   formation: { path: LINKS.formationIaBtpPillar, anchor: 'formation IA pour le BTP' },
-  prendreRdv: { path: LINKS.prendreRdv, anchor: 'prendre rendez-vous' },
-  chatgptArtisans: { path: LINKS.chatgptArtisans, anchor: 'ChatGPT pour entreprises BTP' },
+  prendreRdv: { path: LINKS.prendreRdv, anchor: 'Réservez votre visio découverte gratuite' },
+  chatgptArtisans: { path: LINKS.chatgptPmeBatiment, anchor: 'ChatGPT pour PME du bâtiment' },
+  chatgptPmeBatiment: { path: LINKS.chatgptPmeBatiment, anchor: 'ChatGPT pour PME du bâtiment' },
   iaDevis: { path: '/ia-devis-batiment', anchor: 'IA devis bâtiment' },
 } as const;
 

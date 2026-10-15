@@ -19,13 +19,13 @@ export interface SubTopic {
 
 export const TOPIC_CLUSTERS: TopicCluster[] = [
   {
-    id: 'ia-artisans',
-    name: 'IA pour entreprises BTP',
-    pillarKeyword: 'ChatGPT entreprises BTP',
+    id: 'ia-pme-batiment',
+    name: 'IA pour PME du bâtiment',
+    pillarKeyword: 'ChatGPT PME du bâtiment',
     targetCount: 80,
     subTopics: [
       {
-        id: 'artisans-devis',
+        id: 'pme-batiment-devis',
         name: 'Devis et chiffrages',
         keywords: ['devis plombier IA', 'devis électricien ChatGPT', 'chiffrage BTP IA'],
         articleTemplates: [
@@ -35,16 +35,16 @@ export const TOPIC_CLUSTERS: TopicCluster[] = [
         ],
       },
       {
-        id: 'artisans-emails',
+        id: 'pme-batiment-emails',
         name: 'Emails et relation client',
         keywords: ['emails professionnels BTP', 'relance client IA', 'email professionnel ChatGPT'],
         articleTemplates: [
           'Emails clients : automatiser avec ChatGPT',
-          'Relances et prospection : l\'IA pour les PME BTP',
+          'Relances et prospection : l\'IA pour les PME du bâtiment',
         ],
       },
       {
-        id: 'artisans-metier',
+        id: 'pme-batiment-metier',
         name: 'Par métier',
         keywords: ['plombier IA', 'électricien ChatGPT', 'maçon IA', 'carreleur intelligence artificielle'],
         articleTemplates: [

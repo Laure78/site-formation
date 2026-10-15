@@ -33,7 +33,7 @@ Insérer au moins **trois** liens contextuels vers :
 
 1. Page catalogue / hub : `/formation-ia-et-chatgpt/`
 2. Page métier (exemple) : `/formation-ia-macon-btp/` ou `/formation-ia-conducteur-travaux-btp/`
-3. Article blog (exemple) : `/blog/analyse-dce-notebooklm-claude-btp` ou `/blog/5-cas-usage-chatgpt-artisans-btp`
+3. Article blog (exemple) : `/blog/analyse-dce-notebooklm-claude-btp` ou `/blog/5-cas-usage-chatgpt-pme-batiment`
 
 *(Adapter les ancres selon votre maillage prioritaire.)*
 
@@ -198,7 +198,7 @@ Constructys, l’OPCO du BTP, peut prendre en charge les coûts pédagogiques se
 
 Oui. Les formations se déroulent exclusivement en présentiel intra-entreprise, dans vos locaux en **Île-de-France** (Paris, Yvelines, Essonne, Seine-et-Marne, Val-d’Oise, Hauts-de-Seine, Seine-Saint-Denis, Val-de-Marne).
 
-### 5. L’IA va-t-elle remplacer les conducteurs de travaux ou les artisans ?
+### 5. L’IA va-t-elle remplacer les conducteurs de travaux ou les PME du bâtiment ?
 
 Non. L’IA ne remplace pas l’expertise technique, le geste professionnel, la relation client ou le jugement terrain. Elle prend en charge les tâches administratives répétitives : mise en forme, rédaction, synthèse, structure.
 

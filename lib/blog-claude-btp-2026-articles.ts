@@ -120,7 +120,7 @@ export const blogArticlesClaudeBtp2026: BlogArticle[] = [
     relatedSlugs: [
       '5-assistants-ia-btp-chatgpt-productivite',
       'guide-claude-ia-btp-code-projects-skills-mcp',
-      '5-cas-usage-chatgpt-artisans-btp',
+      '5-cas-usage-chatgpt-pme-batiment',
     ],
   },
   {
@@ -428,7 +428,7 @@ export const blogArticlesClaudeBtp2026: BlogArticle[] = [
     relatedSlugs: [
       'adoption-ia-btp-2026-chiffres-freins-leviers',
       'comparatif-chatgpt-claude-gemini-btp',
-      '5-cas-usage-chatgpt-artisans-btp',
+      '5-cas-usage-chatgpt-pme-batiment',
     ],
   },
   {
@@ -495,7 +495,7 @@ export const blogArticlesClaudeBtp2026: BlogArticle[] = [
     relatedSlugs: [
       'guide-claude-ia-btp-code-projects-skills-mcp',
       'ia-memoire-technique-appel-offres-guide-2026',
-      '5-cas-usage-chatgpt-artisans-btp',
+      '5-cas-usage-chatgpt-pme-batiment',
     ],
   },
   {
@@ -578,7 +578,7 @@ export const blogArticlesClaudeBtp2026: BlogArticle[] = [
     ],
     relatedSlugs: [
       'guide-claude-ia-btp-code-projects-skills-mcp',
-      '5-cas-usage-chatgpt-artisans-btp',
+      '5-cas-usage-chatgpt-pme-batiment',
     ],
   },
 ];
