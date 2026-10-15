@@ -64,10 +64,6 @@ function formationsNavActive(pathname: string): boolean {
   return catalogueFormationNavContainsPath(pathname);
 }
 
-function parcoursNavActive(pathname: string): boolean {
-  return formationsNavActive(pathname);
-}
-
 function ressourcesNavActive(pathname: string): boolean {
   return (
     pathname === LINKS.ressources ||
@@ -90,13 +86,17 @@ function aProposNavActive(pathname: string): boolean {
     pathname === LINKS.aPropos ||
     pathname.startsWith(`${LINKS.aPropos}/`) ||
     pathname === LINKS.avisClients ||
-    pathname === LINKS.partenaires ||
-    pathname.startsWith(`${LINKS.partenaires}/`) ||
-    pathname === LINKS.contact ||
     pathname === LINKS.formateurIaBtp ||
     pathname === LINKS.qualiopi ||
     pathname === LINKS.accessibiliteHandicap ||
-    pathname === LINKS.indicateursResultats ||
+    pathname === LINKS.indicateursResultats
+  );
+}
+
+function partenairesNavActive(pathname: string): boolean {
+  return (
+    pathname === LINKS.partenaires ||
+    pathname.startsWith(`${LINKS.partenaires}/`) ||
     pathname === LINKS.etudesCas ||
     pathname.startsWith(`${LINKS.etudesCas}/`) ||
     pathname === LINKS.formationsLinkedInLearning
@@ -210,6 +210,11 @@ const FORMATIONS_MEGA_QUICK_LINKS: readonly HeaderNavLink[] = [
   },
 ];
 
+/**
+ * Menu principal — Accueil retiré (logo).
+ * Ordre type Lefebvre : catalogue mis en avant, puis Intra, Financement,
+ * Ressources, À propos, Partenaires, Contact.
+ */
 const BASE_HEADER_NAV: readonly HeaderNavItem[] = [
   {
     id: 'formations',
@@ -222,39 +227,8 @@ const BASE_HEADER_NAV: readonly HeaderNavItem[] = [
     megaFooterNote: 'Formations en présentiel en Île-de-France.',
   },
   {
-    id: 'parcours',
-    label: 'Parcours',
-    href: `${LINKS.formations}#catalogue-niveaux`,
-    isActive: parcoursNavActive,
-    children: [
-      {
-        href: `${LINKS.formations}#catalogue-niveau-1`,
-        label: 'Niveau 1 — Découvrir',
-        description: 'Acquérir les bases et pratiquer sur ses documents BTP.',
-        badge: '4 h',
-        title: 'Parcours niveau 1 — découvrir l’IA pour le BTP',
-      },
-      {
-        href: `${LINKS.formations}#catalogue-niveau-2`,
-        label: 'Niveau 2 — Approfondir',
-        description: 'Structurer ses usages métier et créer ses assistants.',
-        title: 'Parcours niveau 2 — approfondir l’IA métier',
-      },
-      {
-        href: `${LINKS.formations}#catalogue-niveau-3`,
-        label: 'Niveau 3 — Créer',
-        description: 'Concevoir et faire évoluer ses outils métier avec l’IA.',
-        title: 'Parcours niveau 3 — créer ses outils métier',
-      },
-    ],
-    footer: {
-      href: LINKS.prendreRdv,
-      label: 'Être conseillé sur mon parcours',
-    },
-  },
-  {
     id: 'entreprise',
-    label: 'En entreprise',
+    label: 'Intra / Sur-mesure',
     href: LINKS.prendreRdv,
     isActive: (pathname) => pathname === LINKS.prendreRdv,
   },
@@ -315,17 +289,19 @@ const BASE_HEADER_NAV: readonly HeaderNavItem[] = [
         label: 'Avis clients',
         title: 'Avis et témoignages formations IA BTP',
       },
-      {
-        href: LINKS.partenaires,
-        label: 'Partenaires',
-        title: 'Partenaires et références BTP',
-      },
-      {
-        href: LINKS.contact,
-        label: 'Contact',
-        title: 'Contacter OFC Création d’Entreprise',
-      },
     ],
+  },
+  {
+    id: 'partenaires',
+    label: 'Partenaires',
+    href: LINKS.partenaires,
+    isActive: partenairesNavActive,
+  },
+  {
+    id: 'contact',
+    label: 'Contact',
+    href: LINKS.contact,
+    isActive: (pathname) => pathname === LINKS.contact,
   },
 ];
 
