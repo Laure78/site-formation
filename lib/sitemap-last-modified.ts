@@ -250,6 +250,11 @@ const ROUTE_SOURCE_FILES: Record<string, readonly string[]> = {
     'public/skills',
     'public/images/creer-skill-claude-btp.webp',
   ],
+  '/formation-ia-intra-entreprise-btp': [
+    'app/formation-ia-intra-entreprise-btp/page.tsx',
+    'lib/formation-ia-intra-entreprise-btp-content.ts',
+    'lib/schema-formation-ia-intra-entreprise-btp.ts',
+  ],
   '/skills-chatgpt-btp': [
     'app/skills-chatgpt-btp/page.tsx',
     'lib/skills-chatgpt-btp-content.ts',

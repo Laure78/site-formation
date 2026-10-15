@@ -38,8 +38,9 @@ export const FEDERATION_PARCOURS_TROIS_NIVEAUX: readonly FederationParcoursNivea
     description:
       'Découvrir et utiliser l’IA générative dans les tâches professionnelles du BTP : mails, devis, comptes rendus, documents chantier et premiers cas d’usage métier.',
     tarifHtParParticipant: TARIF_PARTICIPANT_NIV01_HT,
-    programmeHref: LINKS.formationIaBtpNiveau1BatimentTp,
-    programmeLabel: 'Programme niveau 1 — IA bâtiment et travaux publics',
+    /** Pas la fiche NIV-01 : réservée à la carte CPB sur `/partenaires` (1 URL / page). */
+    programmeHref: LINKS.formationsCatalogueModules,
+    programmeLabel: 'Catalogue — modules d’initiation IA BTP',
   },
   {
     niveau: 2,

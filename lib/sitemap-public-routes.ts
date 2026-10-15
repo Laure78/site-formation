@@ -30,6 +30,7 @@ function uniqPaths(paths: readonly string[]): string[] {
 export const SITEMAP_CORE_STATIC_PATHS = [
   LINKS.home,
   LINKS.formations,
+  LINKS.formationIaIntraEntrepriseBtp,
   LINKS.financement,
   LINKS.aPropos,
   LINKS.avisClients,

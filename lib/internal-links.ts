@@ -52,6 +52,11 @@ export const LINKS = {
   /** @deprecated Ancienne URL longue — 301 vers `prendreRdv`. */
   prendreRdvLegacy: '/prendre-rendez-vous',
   /**
+   * Landing — formation IA intra-entreprise (équipe d’une même entreprise).
+   * Distincte du catalogue `/formations` et de `/prendre-rdv`.
+   */
+  formationIaIntraEntrepriseBtp: '/formation-ia-intra-entreprise-btp',
+  /**
    * Page pilier SEO « formation IA BTP » / « formation IA bâtiment ».
    * Distincte du catalogue `/formations` (liste des programmes).
    */

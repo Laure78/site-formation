@@ -37,6 +37,12 @@ export const RESSOURCES_MINIATURES = {
     width: 1024,
     height: 1024,
   },
+  skillsChatgptBtp: {
+    src: '/images/tutoriel-skills-chatgpt-btp-laure-olivie.webp',
+    alt: 'Tutoriel Skills ChatGPT BTP — 6 modèles ZIP pour le bâtiment et les TP',
+    width: 893,
+    height: 1263,
+  },
   guideChargeAffaires: {
     src: `${BASE}/miniature-guide-charge-affaires.jpg`,
     alt: 'Chargé d’affaires BTP devant écran et plans — guide IA DCE mémoire technique ChatGPT BTP',

@@ -229,12 +229,6 @@ const FORMATIONS_MEGA_COLUMNS: readonly HeaderMegaColumn[] = [
         description: 'Études de prix assistées par l’IA',
         title: 'Formation IA études de prix et chiffrage BTP',
       },
-      {
-        href: LINKS.skillsClaudeBtp,
-        label: 'Skills Claude gratuits',
-        description: 'Modèles métiers BTP à télécharger',
-        title: 'Skills Claude gratuits pour le BTP',
-      },
     ],
   },
 ];
@@ -250,6 +244,7 @@ const FORMATIONS_MEGA_QUICK_LINKS: readonly HeaderNavLink[] = [
     title: 'Catalogue des formations et parcours métiers BTP',
   },
   {
+    /** Distinct de la rubrique « Intra / Sur mesure » (landing) — CTA prise de RDV. */
     href: LINKS.prendreRdv,
     label: 'Former mon équipe',
     title: 'Échanger sur un projet de formation en entreprise',
@@ -274,9 +269,9 @@ const BASE_HEADER_NAV: readonly HeaderNavItem[] = [
   },
   {
     id: 'entreprise',
-    label: 'Intra / Sur-mesure',
-    href: LINKS.prendreRdv,
-    isActive: (pathname) => pathname === LINKS.prendreRdv,
+    label: 'Intra / Sur mesure',
+    href: LINKS.formationIaIntraEntrepriseBtp,
+    isActive: (pathname) => pathname === LINKS.formationIaIntraEntrepriseBtp,
   },
   {
     id: 'financement',
@@ -307,9 +302,15 @@ const BASE_HEADER_NAV: readonly HeaderNavItem[] = [
       },
       {
         href: LINKS.skillsClaudeBtp,
-        label: 'Skills métiers BTP',
-        description: 'Pack Claude — modèles ChatGPT disponibles',
+        label: 'Skills Claude pour le BTP',
+        description: 'Pack ZIP et méthode d’import',
         title: 'Skills Claude gratuits pour le BTP',
+      },
+      {
+        href: LINKS.skillsChatgptBtp,
+        label: 'Skills ChatGPT pour le BTP',
+        description: 'Tutoriel PDF et 6 modèles ZIP',
+        title: 'Skills ChatGPT pour le BTP — tutoriel et 6 modèles',
       },
       {
         href: LINKS.blog,

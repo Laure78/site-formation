@@ -22,6 +22,11 @@ export type NavItem = {
 export const NAV_FORMATIONS_FOOTER: readonly NavItem[] = [
   { href: LINKS.formations, label: 'Toutes les formations' },
   {
+    href: LINKS.formationIaIntraEntrepriseBtp,
+    label: 'Formation IA intra-entreprise',
+    title: 'Formation IA intra-entreprise pour les équipes BTP',
+  },
+  {
     href: LINKS.iaDevis,
     label: 'IA pour les devis et le chiffrage',
     title: 'Formation et méthode IA — devis et chiffrage bâtiment',

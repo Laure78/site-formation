@@ -13,6 +13,7 @@ import { LINKS } from '@/lib/internal-links';
 export type BreadcrumbHrefCrumb = { label: string; href: string; link?: boolean };
 
 const EXACT: Record<string, string> = {
+  '/formation-ia-intra-entreprise-btp': 'Formation IA intra-entreprise BTP',
   '/formations/ia-batiment-travaux-publics':
     "L'IA au service des pros du bâtiment et des travaux publics",
   '/formations/ia-appels-offre-btp': 'Formation IA appels d’offres BTP',
@@ -114,6 +115,7 @@ function buildGeoBtpDeptLabels(): Record<string, string> {
 const GEO_BTP_DEPT_LABELS = buildGeoBtpDeptLabels();
 
 const METIER_TITLES: Record<string, string> = {
+  '/formation-ia-intra-entreprise-btp': 'Formation IA intra-entreprise BTP',
   '/formation-ia-electricien-btp': 'Formation IA Électricien BTP',
   '/formation-ia-conducteur-de-travaux-btp': 'Formation IA Conducteur de travaux',
   '/formation-ia-metreur-economiste-construction': 'Formation IA métreur & économiste',

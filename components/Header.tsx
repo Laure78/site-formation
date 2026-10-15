@@ -30,6 +30,7 @@ import {
   HeaderNavDropdown,
   HeaderNavSimpleLink,
 } from '@/components/nav/HeaderNavDropdown';
+import { PromoOffreFormations2027Banner } from '@/components/PromoOffreFormations2027Banner';
 import {
   LINKEDIN_PROFILE_ARIA,
   LINKEDIN_PROFILE_URL,
@@ -222,6 +223,7 @@ export function Header() {
         className="site-header"
         data-compact={compact ? 'true' : 'false'}
       >
+        <PromoOffreFormations2027Banner />
         <div className="site-header__inner mx-auto flex max-w-[80rem] min-w-0 flex-col gap-0 px-4 py-2 sm:px-6 lg:gap-1.5 lg:px-8">
           {/* Ligne 1 — marque, recherche, accès */}
           <div className="site-header__top flex min-w-0 items-center justify-between gap-2 sm:gap-3">

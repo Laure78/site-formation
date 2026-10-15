@@ -97,6 +97,8 @@ export const PARTNER_WEBSITES = {
   /** @deprecated Alias — préférer `moniteurFormations`. */
   lefebvreDalloz: 'https://formations.lemoniteur.fr/',
   umbFfb: 'https://www.ffbatiment.fr/organisation-ffb/unions-syndicats-metier/umb-ffb',
+  /** Chambre des Professionnels du Bois — FFB Grand Paris Île-de-France */
+  cpb: 'https://www.ffbatiment.fr/organisation-ffb/federations-departementales-chambres-syndicales/cpb',
   ifrb: 'https://www.ifrb-78-91-95.fr/',
   arfab: 'https://www.arfab.fr/',
   linkedinLearning: 'https://www.linkedin.com/learning/',
@@ -104,6 +106,9 @@ export const PARTNER_WEBSITES = {
   franceNumActivateur: 'https://www.francenum.gouv.fr/activateurs/ofc-creation-dentreprise',
   franceNum: 'https://www.francenum.gouv.fr/',
 } as const;
+
+export const ALT_LOGO_CPB =
+  'Logo FFB — Chambre des Professionnels du Bois (CPB), partenaire formation IA BTP' as const;
 
 export const CLIENT_LOGOS_MARQUEE: ClientLogoItem[] = [
   {

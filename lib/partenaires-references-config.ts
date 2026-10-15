@@ -5,6 +5,7 @@
 import {
   ALT_LOGO_ARFAB,
   ALT_LOGO_CNAM_ENTREPRISES,
+  ALT_LOGO_CPB,
   ALT_LOGO_CSFE,
   ALT_LOGO_FFB_GRAND_PARIS_IDF,
   ALT_LOGO_FFB_OFFICIEL,
@@ -17,6 +18,7 @@ import {
   LOGO_UMB_FFB,
   PARTNER_WEBSITES,
 } from '@/lib/client-logos';
+import { CPB_NOM_COMPLET, CPB_NOM_COURT } from '@/lib/cpb';
 import { CSFE_NOM_COMPLET } from '@/lib/csfe';
 import { LINKS } from '@/lib/internal-links';
 import { SCHEMA_LINKEDIN_LEARNING_INSTRUCTOR_URL } from '@/lib/schema-constants';
@@ -48,6 +50,7 @@ export type PartenaireOrganizationType =
   | 'Plateforme de formation';
 
 export type PartenaireRelationshipLabel =
+  | 'Client'
   | 'Formation animée pour'
   | 'Intervention déléguée'
   | 'Formatrice invitée'
@@ -71,6 +74,8 @@ export type PartenaireReference = {
   relationshipLabel: PartenaireRelationshipLabel;
   logo: PartenaireReferenceLogo;
   officialUrl: string;
+  /** Libellé du CTA externe (défaut : « Site officiel — {shortName|name} »). */
+  officialLinkLabel?: string;
   interventionSummary: string;
   audiences: readonly string[];
   topics: readonly string[];
@@ -78,6 +83,8 @@ export type PartenaireReference = {
   locations: readonly string[];
   proofUrl?: string;
   proofLabel?: string;
+  /** Repère discret (ex. « 2 sessions ») — sans état d’avancement. */
+  highlightBadge?: string;
   featured?: boolean;
   displayOrder: number;
 };
@@ -243,6 +250,32 @@ export const PARTENAIRES_REFERENCES: readonly PartenaireReference[] = [
     displayOrder: 5,
   },
   {
+    id: 'cpb',
+    name: CPB_NOM_COMPLET,
+    shortName: CPB_NOM_COURT,
+    category: 'btp',
+    organizationType: 'Syndicat professionnel',
+    relationshipLabel: 'Client',
+    logo: {
+      src: '/images/partenaires/logo-ffb-grand-paris-formation-idf.webp',
+      alt: ALT_LOGO_CPB,
+      width: 400,
+      height: 120,
+    },
+    officialUrl: PARTNER_WEBSITES.cpb,
+    officialLinkLabel: 'Découvrir la CPB',
+    interventionSummary:
+      'Deux sessions mises en place avec la Chambre des Professionnels du Bois autour du programme “L’IA au service des pros du bâtiment et des travaux publics”. Une approche pratique de ChatGPT et Claude pour préparer les devis, les emails et les documents de chantier, avec vérification humaine des contenus.',
+    audiences: ['Adhérents CPB — filière bois'],
+    topics: ['Devis', 'Emails', 'Documents de chantier'],
+    deliveryModes: DELIVERY,
+    locations: LOCATIONS,
+    proofUrl: LINKS.formationIaBtpNiveau1BatimentTp,
+    proofLabel: 'Découvrir le programme',
+    highlightBadge: '2 sessions',
+    displayOrder: 6,
+  },
+  {
     id: 'umb-ffb',
     name: UMB_FFB_NOM_LIBRE,
     shortName: 'UMB-FFB',
@@ -262,7 +295,7 @@ export const PARTENAIRES_REFERENCES: readonly PartenaireReference[] = [
     topics: ['Devis', 'Documents de chantier', 'Mails client'],
     deliveryModes: DELIVERY,
     locations: LOCATIONS,
-    displayOrder: 6,
+    displayOrder: 7,
   },
   {
     id: 'ifrb-idf',
@@ -284,7 +317,7 @@ export const PARTENAIRES_REFERENCES: readonly PartenaireReference[] = [
     topics: ['Devis', 'Administratif', 'Documents de chantier'],
     deliveryModes: DELIVERY,
     locations: LOCATIONS,
-    displayOrder: 7,
+    displayOrder: 8,
   },
   {
     id: 'arfab',
@@ -305,7 +338,7 @@ export const PARTENAIRES_REFERENCES: readonly PartenaireReference[] = [
     topics: [],
     deliveryModes: DELIVERY,
     locations: LOCATIONS,
-    displayOrder: 8,
+    displayOrder: 9,
   },
   {
     id: 'cnam-entreprise',

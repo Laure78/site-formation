@@ -327,6 +327,24 @@ export const RESSOURCES_GUIDES: readonly RessourceGuideEntry[] = [
     thumbnail: RESSOURCES_MINIATURES.skillsClaudeBtp,
   },
   {
+    href: LINKS.skillsChatgptBtp,
+    pdfHref: LINKS.skillsChatgptBtpPackComplet,
+    title: 'Skills ChatGPT BTP : tutoriel et 6 modèles',
+    promise:
+      'Créez un Skill ChatGPT sur une tâche BTP récurrente — tutoriel PDF et 6 modèles prêts à importer (TS, budget, fournisseurs, factures, journal, sécurité).',
+    description:
+      'Tutoriel OFC pour créer un Skill ChatGPT BTP + pack ZIP : travaux supplémentaires, consultation fournisseurs, budget chantier, rapprochement BL/factures, journal/intempéries, causerie sécurité.',
+    audience: 'Dirigeants · CDT · Chargés d’études · Assistantes · Comptables',
+    fonctionId: 'transversal',
+    categories: ['toute-equipe', 'conduite-travaux', 'gestion'],
+    categoryLabel: 'Toute l’équipe',
+    highlights: ['6 skills ZIP', 'Tutoriel PDF', 'Pack complet'],
+    fileKind: 'zip',
+    downloadLabel: 'Télécharger le pack ZIP',
+    primaryActionLabel: 'Voir les skills ChatGPT',
+    thumbnail: RESSOURCES_MINIATURES.skillsChatgptBtp,
+  },
+  {
     href: LINKS.bibliothequePromptsBtpParMetier,
     pdfHref: LINKS.xlsxBibliothequePromptsBtpParMetier,
     title: 'Bibliothèque de prompts BTP par métier',

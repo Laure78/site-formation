@@ -116,6 +116,16 @@ function buildStaticPages(): SiteSearchEntry[] {
       keywords: 'formation ia paris chatgpt btp presentiel 75 qualiopi',
     },
     {
+      id: 'page-formation-ia-intra-entreprise-btp',
+      title: 'Formation IA intra-entreprise BTP',
+      description:
+        'Formez vos équipes BTP à l’IA en présentiel en Île-de-France — catalogue ou parcours sur mesure.',
+      href: LINKS.formationIaIntraEntrepriseBtp,
+      kind: 'page',
+      keywords:
+        'formation ia intra-entreprise btp sur mesure en entreprise équipes présentiel idf',
+    },
+    {
       id: 'guide-rh-btp-ia-ofc',
       title: 'Guide RH du BTP × IA — 18 cas d’usage',
       description:
