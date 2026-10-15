@@ -15,6 +15,7 @@ export function FormationsCatalogueMaillageSection() {
     { href: LINKS.formationConducteurTravaux, label: 'IA conducteur de travaux' },
     { href: LINKS.financement, label: 'Financement Constructys' },
     { href: LINKS.skillsClaudeBtp, label: '5 skills Claude gratuits pour le BTP' },
+    { href: LINKS.skillsChatgptBtp, label: 'Skills ChatGPT BTP — tutoriel et 6 modèles' },
     { href: LINKS.ressources, label: 'Ressources IA pour le BTP' },
     { href: LINKS.aPropos, label: 'À propos de Laure Olivié' },
   ] as const;

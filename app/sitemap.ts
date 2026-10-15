@@ -58,6 +58,7 @@ function getAdditionalMarketingRoutes(baseUrl: string): MetadataRoute.Sitemap {
     '/diagnostic-ia-btp',
     '/checklist-ia-btp',
     LINKS.skillsClaudeBtp,
+    LINKS.skillsChatgptBtp,
     // /communaute-formateurs : noindex (hors sitemap)
     '/formation-ia-travaux-publics',
     '/ressources',

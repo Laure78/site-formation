@@ -177,6 +177,16 @@ function buildStaticPages(): SiteSearchEntry[] {
         'skills claude btp créer skill assistant ia bâtiment automatiser administratif zip',
     },
     {
+      id: 'skills-chatgpt-btp',
+      title: 'Skills ChatGPT BTP : tutoriel et 6 modèles',
+      description:
+        'Tutoriel Skills ChatGPT pour le BTP + 6 ZIP : TS, fournisseurs, budget, factures, journal, sécurité.',
+      href: LINKS.skillsChatgptBtp,
+      kind: 'guide',
+      keywords:
+        'skills chatgpt btp créer skill tutoriel modèles assistants chatgpt bâtiment',
+    },
+    {
       id: 'bibliotheque-prompts-btp-par-metier',
       title: 'Bibliothèque prompts IA BTP par métier',
       description: 'Excel gratuit : ~50 prompts (dirigeant, assistante, BE, CDT, chef de chantier).',

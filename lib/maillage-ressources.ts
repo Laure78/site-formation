@@ -490,8 +490,24 @@ export const MAILLAGE_RESSOURCES_BY_PATH: Readonly<Record<string, MaillageRessou
         label: 'Guide Claude BTP — Projets, Skills et connecteurs',
       },
       {
-        href: LINKS.guideConducteurTravauxIaBtp,
-        label: 'Guide conducteur de travaux',
+        href: LINKS.skillsChatgptBtp,
+        label: 'Skills ChatGPT pour le BTP — tutoriel et 6 modèles',
+      },
+    ],
+  },
+  [LINKS.skillsChatgptBtp]: {
+    pilier: {
+      href: LINKS.formations,
+      label: 'Catalogue des formations IA pour le BTP',
+    },
+    soeurs: [
+      {
+        href: LINKS.skillsClaudeBtp,
+        label: 'Skills Claude pour le BTP',
+      },
+      {
+        href: LINKS.guideClaudeBtpOfc,
+        label: 'Guide Claude BTP — Projets, Skills et connecteurs',
       },
     ],
   },

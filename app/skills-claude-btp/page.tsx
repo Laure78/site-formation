@@ -227,6 +227,10 @@ export default function SkillsClaudeBtpPage() {
             <Link href={LINKS.guideClaudeBtpOfc} className={linkClass}>
               guide Claude BTP — Projets, Skills et connecteurs
             </Link>
+            . Méthode et modèles côté ChatGPT&nbsp;:{' '}
+            <Link href={LINKS.skillsChatgptBtp} className={linkClass}>
+              Skills ChatGPT pour le BTP
+            </Link>
             .
           </p>
         </section>
