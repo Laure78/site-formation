@@ -1,5 +1,6 @@
 'use client';
 
+import { useEffect, useRef } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import type { LucideIcon } from 'lucide-react';
@@ -9,7 +10,7 @@ import { IMAGE_QUALITY_DEFAULT } from '@/lib/image-props';
 import { CtaButton } from '@/components/CtaButton';
 import { FormationPlateformeConnexionButton } from '@/components/formation/FormationPlateformeConnexionButton';
 import { HeaderMobileNavSection } from '@/components/nav/HeaderNavDropdown';
-import { SiteSearchTrigger } from '@/components/search/SiteSearchTrigger';
+import { SiteSearchBar } from '@/components/search/SiteSearchBar';
 import { SITE } from '@/lib/site';
 import type { HeaderNavItem } from '@/lib/header-nav';
 
@@ -31,6 +32,38 @@ export function HeaderMobileDrawer({
   onClose,
   navIcons,
 }: HeaderMobileDrawerProps) {
+  const drawerRef = useRef<HTMLDivElement>(null);
+  const closeButtonRef = useRef<HTMLButtonElement>(null);
+
+  useEffect(() => {
+    const node = drawerRef.current;
+    if (!node) return;
+    closeButtonRef.current?.focus();
+
+    const focusableSelector =
+      'a[href], button:not([disabled]), textarea, input, select, [tabindex]:not([tabindex="-1"])';
+
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key !== 'Tab') return;
+      const focusable = Array.from(node.querySelectorAll<HTMLElement>(focusableSelector)).filter(
+        (el) => !el.hasAttribute('disabled') && el.offsetParent !== null,
+      );
+      if (focusable.length === 0) return;
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    };
+
+    node.addEventListener('keydown', onKeyDown);
+    return () => node.removeEventListener('keydown', onKeyDown);
+  }, []);
+
   return (
     <>
       <button
@@ -40,13 +73,15 @@ export function HeaderMobileDrawer({
         onClick={onClose}
       />
       <div
+        ref={drawerRef}
+        id="header-mobile-drawer"
         className="header-mobile-drawer lg:hidden"
         role="dialog"
         aria-modal="true"
         aria-label="Menu de navigation"
       >
         <div className="flex h-16 shrink-0 items-center justify-between border-b border-slate-100 px-4">
-          <Link href={SITE.links.home} onClick={onClose} className="flex items-center gap-2.5">
+          <Link href={SITE.links.home} onClick={onClose} className="flex min-w-0 items-center gap-2.5">
             <span className="relative h-9 w-9 shrink-0 overflow-hidden rounded-full ring-1 ring-slate-200/70">
               <Image
                 src={SITE.logo.src}
@@ -58,19 +93,24 @@ export function HeaderMobileDrawer({
                 loading="lazy"
               />
             </span>
-            <span className="font-display text-base font-bold text-slate-900">{SITE.name}</span>
+            <span className="truncate font-display text-base font-bold text-slate-900">{SITE.name}</span>
           </Link>
           <button
+            ref={closeButtonRef}
             type="button"
             onClick={onClose}
-            className="flex min-h-[44px] min-w-[44px] items-center justify-center rounded-xl text-slate-700 hover:bg-slate-100"
+            className="flex min-h-[44px] min-w-[44px] items-center justify-center rounded-xl text-slate-700 hover:bg-slate-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#377CF3]"
             aria-label="Fermer"
           >
             <X size={22} strokeWidth={1.75} />
           </button>
         </div>
         <div className="border-b border-slate-100 px-4 py-3">
-          <SiteSearchTrigger className="w-full justify-start px-3 py-2.5" showLabel />
+          <SiteSearchBar
+            scope="all"
+            placeholder="Rechercher une formation, un besoin…"
+            className="w-full"
+          />
         </div>
         <nav
           className="min-h-0 flex-1 overflow-y-auto overflow-x-hidden px-4 py-4"
@@ -92,9 +132,11 @@ export function HeaderMobileDrawer({
                       size={18}
                       strokeWidth={1.75}
                       className={
-                        item.isActive?.(pathname) || pathname === item.href
-                          ? 'text-[#377CF3]'
-                          : 'text-slate-400'
+                        item.variant === 'catalogue'
+                          ? 'text-white/90'
+                          : item.isActive?.(pathname) || pathname === item.href
+                            ? 'text-[#377CF3]'
+                            : 'text-slate-400'
                       }
                     />
                   ) : undefined
@@ -107,7 +149,7 @@ export function HeaderMobileDrawer({
           <div className="flex flex-col gap-3">
             <FormationPlateformeConnexionButton
               variant="navMobile"
-              label={SITE.platform.connexionNavMobileLabel}
+              label="Espace apprenant"
               onClick={onClose}
             />
             <CtaButton

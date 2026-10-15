@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { Loader2, Search } from 'lucide-react';
 import type { SiteSearchKind, SiteSearchScope } from '@/lib/site-search-labels';
 import { siteSearchKindLabel } from '@/lib/site-search-labels';
+import { LINKS } from '@/lib/internal-links';
 
 type SearchResult = {
   id: string;
@@ -21,8 +22,8 @@ type SiteSearchBarProps = {
 };
 
 export function SiteSearchBar({
-  scope = 'ressources',
-  placeholder = 'Rechercher un tuto, guide ou thème…',
+  scope = 'all',
+  placeholder = 'Rechercher une formation, un besoin…',
   className = '',
 }: SiteSearchBarProps) {
   const inputId = useId();
@@ -79,7 +80,7 @@ export function SiteSearchBar({
       <div className="flex items-center gap-3 rounded-xl border border-slate-200 bg-white px-4 py-3 shadow-sm focus-within:border-[#377CF3] focus-within:ring-2 focus-within:ring-[#377CF3]/20">
         <Search className="h-5 w-5 shrink-0 text-[#377CF3]" aria-hidden />
         <label htmlFor={inputId} className="sr-only">
-          Rechercher dans les ressources
+          Rechercher une formation, un besoin ou une ressource
         </label>
         <input
           id={inputId}
@@ -109,13 +110,22 @@ export function SiteSearchBar({
           className="absolute left-0 right-0 top-[calc(100%+0.5rem)] z-30 overflow-hidden rounded-xl border border-slate-200 bg-white shadow-xl"
         >
           {results.length === 0 && !loading ? (
-            <p className="px-4 py-5 text-center text-sm text-slate-500">
-              Aucun résultat — essayez « DCE », « chantier », « MOE »…
-            </p>
+            <div className="px-4 py-5 text-center">
+              <p className="text-sm text-slate-500">
+                Aucun résultat pour « {query.trim()} ». Essayez « DCE », « chantier », « Claude »…
+              </p>
+              <Link
+                href={LINKS.formations}
+                onClick={() => setOpen(false)}
+                className="mt-3 inline-flex text-sm font-semibold text-[#377CF3] hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#377CF3]"
+              >
+                Voir le catalogue des formations
+              </Link>
+            </div>
           ) : (
             <ul className="max-h-72 overflow-y-auto p-2">
               {results.map((item) => (
-                <li key={item.id} role="option">
+                <li key={item.id} role="option" aria-selected={false}>
                   <Link
                     href={item.href}
                     onClick={() => setOpen(false)}

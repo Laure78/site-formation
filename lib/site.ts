@@ -34,7 +34,7 @@ import { PERIMETRE_FORMATIONS_COURT } from '@/lib/tarifs-sessions';
 
 export const SITE = {
   name: 'Laure Olivié',
-  tagline: 'Formatrice IA · BTP',
+  tagline: 'Formations IA pour les entreprises du BTP',
   legalName: QUALIOPI_LEGAL.raisonSociale,
   url: SCHEMA_PUBLIC_SITE_URL.replace(/\/$/, ''),
   displayUrl: 'www.laureolivie.fr',

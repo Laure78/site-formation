@@ -5,6 +5,7 @@ import { useCallback, useEffect, useId, useRef, useState } from 'react';
 import { FileText, GraduationCap, Loader2, Newspaper, Search, X } from 'lucide-react';
 import type { SiteSearchKind, SiteSearchScope } from '@/lib/site-search-labels';
 import { siteSearchKindLabel } from '@/lib/site-search-labels';
+import { LINKS } from '@/lib/internal-links';
 
 type SearchResult = {
   id: string;
@@ -167,9 +168,18 @@ export function SiteSearchDialog({
               Saisissez au moins 2 caractères — tutos PDF, formations, articles blog, guides MOE…
             </p>
           ) : results.length === 0 && !loading ? (
-            <p className="px-3 py-6 text-center text-sm text-slate-500">
-              Aucun résultat pour « {query.trim()} ».
-            </p>
+            <div className="px-3 py-6 text-center">
+              <p className="text-sm text-slate-500">
+                Aucun résultat pour « {query.trim()} ».
+              </p>
+              <Link
+                href={LINKS.formations}
+                onClick={close}
+                className="mt-3 inline-flex text-sm font-semibold text-[#377CF3] hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#377CF3]"
+              >
+                Voir le catalogue des formations
+              </Link>
+            </div>
           ) : (
             <ul className="space-y-1">
               {results.map((item, index) => {
