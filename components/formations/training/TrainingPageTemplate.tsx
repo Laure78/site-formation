@@ -31,9 +31,11 @@ import { FINANCEMENT_FORMULATION_COURTE } from '@/lib/financement-copy';
 import { LINKS } from '@/lib/internal-links';
 import { libelleTarifParticipantCatalogue } from '@/lib/tarifs-catalogue-participant';
 import {
+  catalogueDemandeHref,
   trainingCategoryBadge,
   trainingDevisHref,
 } from '@/lib/training-page-helpers';
+import { isProgrammePdfObsoleteForLegacyCode } from '@/lib/catalogue-2027/pdf-programme';
 
 type Props = {
   content: CatalogueFormationPageContent;
@@ -97,7 +99,8 @@ export function TrainingPageTemplate({
   const ref = content.programmeRef;
   const formation = getFormationByCode(ref)!;
   const seo = getFormationCatalogueSeo(ref);
-  const pdfHref = content.pdfHref ?? formation.pdfProgramme;
+  const rawPdfHref = content.pdfHref ?? formation.pdfProgramme;
+  const pdfHref = isProgrammePdfObsoleteForLegacyCode(ref) ? undefined : rawPdfHref;
   const related = getRelatedCatalogueFormations(ref);
   const surDevis = isFormationSurDevis(formation);
   const tarifLabel =
@@ -168,7 +171,13 @@ export function TrainingPageTemplate({
           secondaryCta={
             pdfHref
               ? { href: pdfHref, label: 'Télécharger le programme', download: true }
-              : undefined
+              : {
+                  href: catalogueDemandeHref({
+                    formationOuParcours: formation.titre,
+                    nature: 'choix-formation',
+                  }),
+                  label: 'Demander le programme',
+                }
           }
           ctaNote={
             <p>

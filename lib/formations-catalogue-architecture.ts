@@ -455,16 +455,16 @@ export const CATALOGUE_GAMMES: readonly CatalogueGammeSection[] = [
 
 /** Positionnement catalogue — blocs GEO citables. */
 export const CATALOGUE_POSITIONNEMENT = {
-  h1: 'Catalogue des programmes IA pour le BTP en Île-de-France',
+  h1: 'Formations et parcours métiers BTP en Île-de-France',
   promesseDocuments:
-    'Apprenez à utiliser l’IA sur vos vrais documents et vos vrais processus : DCE, CCTP, CCAP, devis, comptes rendus, études de prix, suivi de chantier et appels d’offres.',
+    'Formez chaque métier de votre PME : parcours progressifs ou formations ciblées en gestion, travaux, management et intelligence artificielle.',
   promesseLivrables:
-    'Repartez avec des méthodes, des assistants et des workflows directement réutilisables dans votre entreprise.',
+    'Repartez avec des compétences métier actionnables — l’IA est intégrée lorsque son usage répond au besoin.',
   differentiators: [
-    'Spécialisation BTP et documents réels',
-    'Cas pratiques et forte part de pratique',
-    'Livrables et assistants réutilisables',
-    'Workflows métier multi-outils',
+    'Parcours par métier pour les PME du BTP',
+    'Présentiel en Île-de-France',
+    'Modules disponibles et ouverture 2027 explicites',
+    'Tarifs inter clairs, intra sur devis',
     'Organisme certifié Qualiopi',
   ] as const,
 };

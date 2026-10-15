@@ -1,49 +1,48 @@
 import type { Metadata } from 'next';
 import { JsonLd } from '@/components/JsonLd';
 import { createPageMetadata, SITE_CONFIG } from '@/lib/seo';
-import { getFaqCataloguePage } from '@/lib/faq';
 import { PHOTOS } from '@/lib/photos';
-import { buildFormationsPageUnifiedGraphJsonLd } from '@/lib/schema-formations-page-graph';
 import {
-  CATALOGUE_PAGE_TITLE,
-  getCataloguePageCoreFormations,
-  getCataloguePageMetaDescriptionShort,
-} from '@/lib/formations-catalogue-page-config';
-import { FormationsCatalogueHero } from '@/components/formations/catalogue/FormationsCatalogueHero';
-import { FormationsCatalogueMainSection } from '@/components/formations/catalogue/FormationsCatalogueMainSection';
-import { FormationsCatalogueApprochePratiqueSection } from '@/components/formations/catalogue/FormationsCatalogueApprochePratiqueSection';
-import { FormationsCatalogueSkillsMetiersSection } from '@/components/formations/catalogue/FormationsCatalogueSkillsMetiersSection';
-import { FormationsCatalogueSurDemandeSection } from '@/components/formations/catalogue/FormationsCatalogueSurDemandeSection';
-import { FormationsCatalogueConversionSection } from '@/components/formations/catalogue/FormationsCatalogueConversionSection';
-import { FormationsCatalogueProofSection } from '@/components/formations/catalogue/FormationsCatalogueProofSection';
-import { FormationsFaqSection } from '@/components/formations/FormationsFaqSection';
+  CATALOGUE_2027_POSITIONNEMENT,
+  getAllParcoursComputed,
+} from '@/data/catalogue-2027';
+import { FormationsCatalogue2027Hero } from '@/components/formations/catalogue-2027/FormationsCatalogue2027Hero';
+import { FormationsParcoursExplorer } from '@/components/formations/catalogue-2027/FormationsParcoursExplorer';
+import { FormationsDeroulementParcours } from '@/components/formations/catalogue-2027/FormationsDeroulementParcours';
+import { FormationsIaDisponibles } from '@/components/formations/catalogue-2027/FormationsIaDisponibles';
+import { FormationsModulesCatalogue } from '@/components/formations/catalogue-2027/FormationsModulesCatalogue';
+import { FormationsPlanEntreprise } from '@/components/formations/catalogue-2027/FormationsPlanEntreprise';
+import { FormationsInfosPratiques2027 } from '@/components/formations/catalogue-2027/FormationsInfosPratiques2027';
+import { FormationsContact2027 } from '@/components/formations/catalogue-2027/FormationsContact2027';
 import { FormationsCatalogueMaillageSection } from '@/components/formations/catalogue/FormationsCatalogueMaillageSection';
+import { buildFormationsPageUnifiedGraphJsonLd } from '@/lib/schema-formations-page-graph';
 
 const baseUrl = SITE_CONFIG.url.replace(/\/$/, '');
+
+const CATALOGUE_2027_TITLE = 'Formations et parcours métiers BTP | Laure Olivié';
+const CATALOGUE_2027_DESCRIPTION =
+  'Parcours métiers BTP et formation IA pour le BTP en Île-de-France : direction, commercial, travaux et management. Présentiel en IDF, devis sur demande.';
 
 export const revalidate = 3600;
 
 export async function generateMetadata(): Promise<Metadata> {
-  const metaDescription = getCataloguePageMetaDescriptionShort();
-
   return {
     ...createPageMetadata({
-      title: CATALOGUE_PAGE_TITLE,
-      titleAbsolute: CATALOGUE_PAGE_TITLE,
-      description: metaDescription,
+      title: CATALOGUE_2027_TITLE,
+      titleAbsolute: CATALOGUE_2027_TITLE,
+      description: CATALOGUE_2027_DESCRIPTION,
       descriptionFinal: true,
       path: '/formations',
       appendAuthorSuffix: false,
-      openGraphTitle: CATALOGUE_PAGE_TITLE,
-      openGraphDescription: metaDescription,
+      openGraphTitle: CATALOGUE_2027_TITLE,
+      openGraphDescription: CATALOGUE_2027_DESCRIPTION,
       keywords: [
         'formation IA pour le BTP',
-        'formation ChatGPT BTP',
-        'intelligence artificielle bâtiment',
-        'Claude BTP',
-        'formation IA devis BTP',
-        'formation IA appels d\'offres',
-        'formation IA maîtrise d\'œuvre',
+        'parcours métiers BTP',
+        'formation conducteur de travaux',
+        'formation chef de chantier',
+        'formation IA Île-de-France',
+        'ChatGPT BTP',
       ],
       robots: { index: true, follow: true },
       image: {
@@ -67,22 +66,22 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default function FormationsPage() {
-  const coreFormations = getCataloguePageCoreFormations();
-  const faqCatalogue = getFaqCataloguePage();
+  const parcours = getAllParcoursComputed();
 
   return (
     <>
       <JsonLd id="schema-formations-page-graph" schema={buildFormationsPageUnifiedGraphJsonLd()} />
-      <FormationsCatalogueHero />
+      <FormationsCatalogue2027Hero />
 
       <div className="mx-auto max-w-[80rem] px-4 pb-20 pt-10 sm:px-6 md:pt-14 lg:px-8">
-        <FormationsCatalogueMainSection formations={coreFormations} />
-        <FormationsCatalogueApprochePratiqueSection />
-        <FormationsCatalogueSkillsMetiersSection />
-        <FormationsCatalogueSurDemandeSection />
-        <FormationsCatalogueConversionSection />
-        <FormationsCatalogueProofSection />
-        <FormationsFaqSection items={faqCatalogue} title="Questions fréquentes" />
+        <p className="sr-only">{CATALOGUE_2027_POSITIONNEMENT.introductionMarque}</p>
+        <FormationsParcoursExplorer parcours={parcours} />
+        <FormationsDeroulementParcours />
+        <FormationsIaDisponibles />
+        <FormationsModulesCatalogue />
+        <FormationsPlanEntreprise />
+        <FormationsInfosPratiques2027 />
+        <FormationsContact2027 />
         <FormationsCatalogueMaillageSection />
       </div>
     </>

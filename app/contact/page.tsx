@@ -29,13 +29,14 @@ export const metadata = createPageMetadata({
 });
 
 type ContactPageProps = {
-  searchParams: Promise<{ objet?: string; formation?: string }>;
+  searchParams: Promise<{ objet?: string; formation?: string; metier?: string }>;
 };
 
 export default async function ContactPage({ searchParams }: ContactPageProps) {
   const params = await searchParams;
   const initialObjet = typeof params.objet === 'string' ? params.objet : null;
   const formationHint = typeof params.formation === 'string' ? params.formation : null;
+  const initialMetier = typeof params.metier === 'string' ? params.metier : null;
 
   return (
     <>
@@ -70,6 +71,7 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
             <ContactFormSection
               initialObjet={initialObjet}
               formationHint={formationHint}
+              initialMetier={initialMetier}
               density="compact"
             />
             <ContactAfterSendInfo compact className="mt-4" />

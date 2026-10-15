@@ -9,6 +9,7 @@ import { getFormationByCode } from '@/data/formations';
 import {
   DEV_WEB_IA_LIVRABLES,
   DEV_WEB_IA_OBJECTIFS,
+  TARIF_INTER_DEV_WEB_IA_14H_HT,
   TARIF_INTER_DEV_WEB_IA_HT,
 } from '@/lib/formation-developpement-web-ia-content';
 import {
@@ -258,11 +259,11 @@ const NIV_01: CatalogueFormationPageContent = {
 const NIV_02: CatalogueFormationPageContent = {
   programmeRef: 'NIV-02',
   parcoursKind: 'usages-ia-btp',
-  levelBadgeLabel: 'Niveau 2 · Appels d’offres · 4 heures',
+  levelBadgeLabel: 'NUM-02 · Appels d’offres · 7 heures',
   heroPublicLine:
     'Bases de l’IA générative requises. Abonnement professionnel à l’outil utilisé pendant la session (non inclus dans le tarif).',
   heroFacts: [
-    '4 heures',
+    '7 heures',
     '75 % de pratique',
     'Présentiel en Île-de-France',
     'Niveau intermédiaire',
@@ -301,7 +302,7 @@ const NIV_02: CatalogueFormationPageContent = {
     'Réutiliser une méthode de travail sur les prochains dossiers',
   ],
   outcomesDescription:
-    'En quatre heures, l’entreprise construit une méthode guidée pour analyser un DCE, sécuriser la préparation de son chiffrage et structurer un mémoire technique avec l’aide de l’IA — pas une offre prête à déposer sans contrôle humain.',
+    'L’entreprise construit une méthode guidée pour analyser un DCE, sécuriser la préparation de son chiffrage et structurer un mémoire technique avec l’aide de l’IA — pas une offre prête à déposer sans contrôle humain.',
   practicalCase: {
     title: 'Comment se déroule la formation ?',
     paragraphs: [
@@ -360,7 +361,7 @@ const NIV_02: CatalogueFormationPageContent = {
   ],
   intraExtraBullets: ['Dossier fil rouge de l’entreprise'],
   interExtraBullets: ['Dossier pédagogique commun'],
-  programIntro: 'Atelier collectif, 75 % de pratique. Accueil, quatre modules et bilan — total 4 heures.',
+  programIntro: 'Atelier collectif, 75 % de pratique. Accueil, modules et bilan — total 7 heures.',
   programLinks: [
     {
       prefix: 'Pour les bases IA avant ce niveau, voir la',
@@ -383,7 +384,8 @@ const NIV_02: CatalogueFormationPageContent = {
     'Laure Olivié, OFC Création d’Entreprise (Qualiopi). Expérience du bâtiment et des travaux publics, spécialisation IA appliquée aux métiers du BTP. Références : FFB Grand Paris, CSFE, CNAM Entreprise, Le Moniteur Formations.',
   instructorExtraLinks: [{ href: LINKS.qualiopi, label: 'Certification Qualiopi' }],
   finalCta: DEFAULT_FINAL_CTA,
-  pdfHref: LINKS.pdfProgrammeFormationAoBtpDetail2026,
+  // PDF 4 h obsolète — demander le programme (régénération 7 h en attente)
+  pdfHref: undefined,
   seoLandingLink: {
     href: LINKS.formationIaAppelsOffresBtp,
     label: 'Pourquoi se former à l’IA pour les appels d’offres ?',
@@ -397,7 +399,7 @@ const NIV_03: CatalogueFormationPageContent = {
   heroPublicLine:
     'Conducteurs de travaux, chefs de chantier, responsables travaux et assistant(e)s travaux.',
   heroFacts: [
-    '4 heures',
+    '7 heures',
     '70 % de pratique',
     `${getFormationByCode('NIV-03')!.effectifMin} à ${getFormationByCode('NIV-03')!.effectifMax} participants`,
     'Présentiel en Île-de-France',
@@ -475,7 +477,7 @@ const NIV_03: CatalogueFormationPageContent = {
   ],
   intraExtraBullets: ['Suivi visio J+30 inclus'],
   programIntro:
-    'Quatre modules sur 4 h : installation chantier, sécurité, gestion quotidienne et administratif jusqu’à la réception. 70 % de pratique sur vos documents.',
+    'Modules sur 7 h : installation chantier, suivi documentaire assisté par l’IA et gestion quotidienne. 70 % de pratique sur vos documents. La méthode de réception est couverte par le module TRA-05 du parcours Conducteur de travaux.',
   programLinks: [
     {
       prefix: 'Pour les bases IA, voir la',
@@ -494,7 +496,8 @@ const NIV_03: CatalogueFormationPageContent = {
     description:
       'Organisez une session pour vos équipes travaux : devis, effectif et financement OPCO possible selon éligibilité.',
   },
-  pdfHref: LINKS.pdfProgrammeConduiteTravauxNiv03,
+  // PDF 4 h obsolète — demander le programme (régénération 7 h en attente)
+  pdfHref: undefined,
   seoLandingLink: {
     href: LINKS.formationIaConducteurDeTravaux,
     label: 'Pourquoi se former à l’IA pour les conducteurs de travaux ?',
@@ -508,12 +511,12 @@ const NIV_04: CatalogueFormationPageContent = {
   heroPublicLine:
     'Référents IA, dirigeants, responsables digitaux, chargés d’affaires et conducteurs de travaux.',
   heroFacts: [
-    '4 heures',
+    '7 heures',
     '70 % de pratique',
     'Projets, Cowork, connecteurs, Claude Code',
     'Présentiel en Île-de-France',
   ],
-  quickFactsLevel: 'Niveau 2',
+  quickFactsLevel: 'NUM-03',
   practiceShare: '70 %',
   formatLabel: 'Présentiel',
   locationLabel: 'Île-de-France',
@@ -596,12 +599,12 @@ const NIV_05: CatalogueFormationPageContent = {
   heroPublicLine:
     'Maîtres d’œuvre d’exécution (MOEX), conducteurs de travaux, OPC, BET et assistants gestion travaux.',
   heroFacts: [
-    '4 heures effectives',
+    '7 heures',
     '70 % de pratique',
     '5 modules MOE opérationnels',
     'Présentiel en Île-de-France',
   ],
-  quickFactsLevel: 'Niveau 2',
+  quickFactsLevel: 'NUM-08',
   practiceShare: '70 %',
   formatLabel: 'Présentiel',
   locationLabel: 'Île-de-France',
@@ -668,9 +671,9 @@ const NIV_05: CatalogueFormationPageContent = {
       ],
     },
   ],
-  programmeHeading: 'Programme — 5 modules MOE (4 h)',
+  programmeHeading: 'Programme — 5 modules MOE (7 h)',
   programIntro:
-    '4 heures effectives — 70 % pratique / 30 % théorie — alternance théorie courte et ateliers sur cas réels MOE apportés par les participants.',
+    '7 heures — 70 % pratique / 30 % théorie — alternance théorie courte et ateliers sur cas réels MOE apportés par les participants.',
   programLinks: [
     {
       prefix: 'Pour le pilotage chantier côté entreprise, voir la',
@@ -723,7 +726,7 @@ const NIV_10: CatalogueFormationPageContent = {
     },
     {
       label: 'Tarif',
-      value: `${formatTarifHt(TARIF_INTER_DEV_WEB_IA_HT)} € HT / participant (7 h) · 600 € HT (14 h)`,
+      value: `${formatTarifHt(TARIF_INTER_DEV_WEB_IA_HT)} € HT / participant (7 h) · ${formatTarifHt(TARIF_INTER_DEV_WEB_IA_14H_HT)} € HT (14 h)`,
     },
   ],
   outcomes: DEV_WEB_IA_OBJECTIFS,

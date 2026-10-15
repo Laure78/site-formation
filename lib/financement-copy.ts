@@ -22,9 +22,9 @@ export const FINANCEMENT_FORMULATION_PRUDENTE =
 export const FINANCEMENT_FORMULATION_COURTE =
   'Financement OPCO possible selon éligibilité — un reste à charge peut s’appliquer.';
 
-/** Formulation page catalogue `/formations` — alignée consigne UX. */
+/** Formulation page catalogue `/formations` — alignée catalogue 2027. */
 export const FINANCEMENT_FORMULATION_CATALOGUE =
-  'Participation possible selon l’éligibilité, les plafonds et l’accord de l’OPCO. Un reste à charge peut s’appliquer.';
+  'Une prise en charge OPCO peut être étudiée selon votre situation et les critères du financeur.';
 
 /**
  * Mention courte avec lien (composant `MentionFinancement` variant="court").

@@ -43,10 +43,17 @@ function isValidSubject(value: string | null | undefined): value is ContactSubje
 type ContactFormProps = {
   initialObjet?: string | null;
   formationHint?: string | null;
+  /** Métier concerné — préremplit le champ participantRole. */
+  initialMetier?: string | null;
   density?: 'default' | 'compact';
 };
 
-export function ContactForm({ initialObjet, formationHint, density = 'default' }: ContactFormProps) {
+export function ContactForm({
+  initialObjet,
+  formationHint,
+  initialMetier,
+  density = 'default',
+}: ContactFormProps) {
   const compact = density === 'compact';
   const fieldClass = `${fieldClassBase} ${compact ? 'py-2' : 'py-2.5'}`;
   const formId = useId();
@@ -401,19 +408,21 @@ export function ContactForm({ initialObjet, formationHint, density = 'default' }
             </div>
             <div>
               <label htmlFor={`${formId}-participantRole`} className="block text-sm font-medium text-[#0F172A]">
-                Fonction des participants
+                Métier concerné
               </label>
               <input
                 id={`${formId}-participantRole`}
                 name="participantRole"
                 type="text"
                 maxLength={120}
+                defaultValue={initialMetier ?? ''}
                 className={fieldClass}
+                placeholder="Ex. conducteur de travaux, chef de chantier…"
               />
             </div>
             <div>
               <label htmlFor={`${formId}-period`} className="block text-sm font-medium text-[#0F172A]">
-                Période envisagée
+                Période souhaitée
               </label>
               <input
                 id={`${formId}-period`}
@@ -421,17 +430,19 @@ export function ContactForm({ initialObjet, formationHint, density = 'default' }
                 type="text"
                 maxLength={120}
                 className={fieldClass}
+                placeholder="Ex. T2 2027, mars…"
               />
             </div>
             <div className="sm:col-span-2">
               <label htmlFor={`${formId}-formationTheme`} className="block text-sm font-medium text-[#0F172A]">
-                Formation ou thème concerné
+                Formation ou parcours concerné
               </label>
               <input
                 id={`${formId}-formationTheme`}
                 name="formationTheme"
                 type="text"
                 maxLength={200}
+                defaultValue={formationHintParam ?? ''}
                 className={fieldClass}
               />
             </div>

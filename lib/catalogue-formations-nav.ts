@@ -1,6 +1,6 @@
 import type { LucideIcon } from 'lucide-react';
 import { Building2, Code2, FileText, HardHat, Landmark } from 'lucide-react';
-import { DEV_WEB_IA_FORMATION_TITRE_COURT } from '@/lib/formation-developpement-web-ia-content';
+import { DEV_WEB_IA_FORMATION_TITRE_COURT } from '@/lib/formation-developpement-web-ia-labels';
 import { LINKS } from '@/lib/internal-links';
 import { isFormationCataloguePublished } from '@/lib/formation-catalogue-visibility';
 

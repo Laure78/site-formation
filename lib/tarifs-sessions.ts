@@ -118,16 +118,17 @@ export function getTarifGrille(dureeHeures: TarifDureeHeures): TarifGrille {
     case 14:
       return {
         dureeHeures: 14,
-        participantHT: 600,
-        intraHT: 600,
-        interHT: 600,
+        participantHT: 620,
+        intraHT: 620,
+        interHT: 620,
       };
     default:
+      // 4 h = exception NUM-01 uniquement (120 € HT) — pas de prorata journalier.
       return {
         dureeHeures: 4,
-        participantHT: TARIF_PARTICIPANT_NIV02_HT,
-        intraHT: TARIF_PARTICIPANT_NIV02_HT,
-        interHT: TARIF_PARTICIPANT_NIV02_HT,
+        participantHT: TARIF_PARTICIPANT_NIV01_HT,
+        intraHT: TARIF_PARTICIPANT_NIV01_HT,
+        interHT: TARIF_PARTICIPANT_NIV01_HT,
       };
   }
 }

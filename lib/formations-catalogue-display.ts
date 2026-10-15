@@ -24,6 +24,7 @@ import {
   libelleTarifLancementDevWebIa,
 } from '@/lib/formation-developpement-web-ia-content';
 import { libelleTarifParticipantCatalogue } from '@/lib/tarifs-catalogue-participant';
+import { isProgrammePdfObsoleteForLegacyCode } from '@/lib/catalogue-2027/pdf-programme';
 
 export type CatalogueLevel = 'DÉBUTANT' | 'AVANCÉ';
 
@@ -122,7 +123,7 @@ function toCatalogueEntry(f: Formation): FormationCatalogueEntry {
     programmeUpdatedAt: f.programmeUpdatedAt,
     href: formationHref(f),
     slug: f.slug,
-    programmePdfHref: f.pdfProgramme,
+    programmePdfHref: isProgrammePdfObsoleteForLegacyCode(f.code) ? '' : f.pdfProgramme,
     visuel: photo,
     /** Durée seule (ex. « 4 h ») — pas d’horaires sur le catalogue. */
     duree: f.duree,

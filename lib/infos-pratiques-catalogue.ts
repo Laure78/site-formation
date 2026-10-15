@@ -23,6 +23,8 @@ import {
 } from '@/lib/tarifs-sessions';
 import {
   libelleTarifParticipantCatalogue,
+  TARIF_PARTICIPANT_NIV10_14H_HT,
+  TARIF_PARTICIPANT_NIV10_HT,
 } from '@/lib/tarifs-catalogue-participant';
 /** Modalité pédagogique fixe — toutes les actions catalogue OFC. */
 export const MODALITE_PEDAGOGIQUE_CATALOGUE =
@@ -357,7 +359,7 @@ function prerequisPourRef(ref: FormationCode): string {
 
 function tarifPourRef(ref: FormationCode): string {
   if (ref === 'NIV-10') {
-    return `300 € HT / participant (parcours 7 h) · 600 € HT / participant (parcours 14 h) — 4 à 8 participants. ${MENTIONS_TVA_INTRA_COURTE}`;
+    return `${libelleTarifParticipantCatalogue(TARIF_PARTICIPANT_NIV10_HT)} (parcours 7 h) · ${libelleTarifParticipantCatalogue(TARIF_PARTICIPANT_NIV10_14H_HT)} (parcours 14 h) — 4 à 8 participants. ${MENTIONS_TVA_INTRA_COURTE}`;
   }
   const formation = getFormationByCode(ref);
   const entry = formation ? getFormationCatalogueByRef(ref) : undefined;

@@ -82,6 +82,20 @@ export const LINKS = {
   formationClaudeAiTravauxPublics: '/formations/maitriser-claude-ai-btp',
 
   // Tier 2 — Formations (catalogue officiel)
+  /** Hub catalogue 2027 — ancre sélection métier */
+  formationsTrouverParcours: '/formations#trouver-mon-parcours',
+  /** Hub catalogue 2027 — ancre formations IA disponibles */
+  formationsIaDisponibles: '/formations#formations-ia-disponibles',
+  /** Hub catalogue 2027 — catalogue modules par domaine */
+  formationsCatalogueModules: '/formations#catalogue-modules',
+  /** Parcours métiers 2027 */
+  parcoursDirigeantPmeBtp: '/formations/parcours/dirigeant-pme-btp',
+  parcoursChargeAffairesBtp: '/formations/parcours/charge-affaires-btp',
+  parcoursConducteurDeTravaux: '/formations/parcours/conducteur-de-travaux',
+  parcoursChefDeChantier: '/formations/parcours/chef-de-chantier',
+  parcoursChefDequipe: '/formations/parcours/chef-dequipe',
+  parcoursAssistantDeGestionBtp: '/formations/parcours/assistant-de-gestion-btp',
+  parcoursReferentIaBtp: '/formations/parcours/referent-ia-btp',
   /** Niveau 1 — bâtiment & travaux publics (programme PDF) */
   formationIaBtpNiveau1BatimentTp: '/formations/ia-batiment-travaux-publics',
   /** Niveau 2 — appels d'offre BTP (programme PDF) — alias historique « AO » */

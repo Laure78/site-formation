@@ -1,30 +1,41 @@
 /**
- * Tarifs HT par participant — catalogue OFC (source unique, pas de forfait groupe).
+ * Tarifs HT par participant — catalogue OFC (source unique).
+ * Grille 2027 : 310 € HT / participant / journée de 7 h.
+ * Exception : NUM-01 / NIV-01 — 4 h — 120 € HT (pas de prorata).
+ *
+ * Ne pas importer `data/catalogue-2027` ici (risque de cycle avec le Header client).
  */
 import { formatNumberFr } from '@/lib/format-number-fr';
 
-/** Les bases de l’IA (NIV-01) — 4 h. */
+/** Les bases de l’IA (NUM-01 / NIV-01) — 4 h. */
 export const TARIF_PARTICIPANT_NIV01_HT = 120 as const;
 
-/** IA appels d’offres, conduite de travaux, Claude, maîtrise d’œuvre (NIV-02 à NIV-05) — 4 h. */
-export const TARIF_PARTICIPANT_NIV02_HT = 170 as const;
+/** Modules 7 h inter (NUM-02, NUM-03, NUM-07, NUM-08, etc.). */
+export const TARIF_PARTICIPANT_NIV02_HT = 310 as const;
 export const TARIF_PARTICIPANT_NIV03_HT = TARIF_PARTICIPANT_NIV02_HT;
 export const TARIF_PARTICIPANT_NIV04_HT = TARIF_PARTICIPANT_NIV02_HT;
 export const TARIF_PARTICIPANT_NIV05_HT = TARIF_PARTICIPANT_NIV02_HT;
 
-/** Créer des assistants IA personnalisés (NIV-09) — 7 h. */
-export const TARIF_PARTICIPANT_NIV09_HT = 220 as const;
+/** @deprecated NIV-09 hors catalogue public 2027 — conservé pour données historiques. */
+export const TARIF_PARTICIPANT_NIV09_HT = TARIF_PARTICIPANT_NIV02_HT;
 
-/** Applications métier BTP avec l’IA (NIV-10) — 7 h. */
-export const TARIF_PARTICIPANT_NIV10_HT = 300 as const;
+/** NUM-04 / NIV-10 — variante 7 h. */
+export const TARIF_PARTICIPANT_NIV10_HT = TARIF_PARTICIPANT_NIV02_HT;
+
+/** NUM-04 variante 14 h. */
+export const TARIF_PARTICIPANT_NIV10_14H_HT = 620 as const;
+
+/** Alias grille 2027. */
+export const TARIF_JOURNEE_7H_INTER_HT = TARIF_PARTICIPANT_NIV02_HT;
+export const TARIF_NUM01_4H_INTER_HT = TARIF_PARTICIPANT_NIV01_HT;
 
 /** @deprecated Alias — préférer TARIF_PARTICIPANT_NIV02_HT. */
 export const TARIF_PARTICIPANT_NIVEAU_2_4H_HT = TARIF_PARTICIPANT_NIV02_HT;
 
-/** Minimum participants — sessions convoquées par un réseau (grille 3 niveaux). */
+/** Minimum participants — sessions convoquées par un réseau. */
 export const SESSION_CONVOQUEE_MIN_PARTICIPANTS = 6 as const;
 
-/** « 170 € HT / participant » — format d’affichage catalogue. */
+/** « 310 € HT / participant » — format d’affichage catalogue. */
 export function libelleTarifParticipantCatalogue(tarifHt: number): string {
   return `${formatNumberFr(tarifHt)} € HT / participant`;
 }

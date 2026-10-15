@@ -1,27 +1,65 @@
 /**
- * Contenu — formation NIV-10 : créer son ERP BTP sur mesure et évolutif avec l’IA.
- * Parcours 7 h / 14 h — tarifs alignés `lib/bework-programmes.ts` (source tarifaire).
+ * Contenu — formation NUM-04 / NIV-10 : créer des applications métier BTP avec l’IA.
+ * Parcours 7 h / 14 h — tarifs catalogue 2027 (310 / 620 € HT), distincts de BeWork.
  */
-import { getFormationByCode } from '@/data/formations';
 import { LINKS } from '@/lib/internal-links';
-import { BEWORK_PARCOURS } from '@/lib/bework-programmes';
-import { formatTarifHt } from '@/lib/tarifs-sessions';
+import { formatNumberFr } from '@/lib/format-number-fr';
+import {
+  TARIF_PARTICIPANT_NIV10_14H_HT,
+  TARIF_PARTICIPANT_NIV10_HT,
+} from '@/lib/tarifs-catalogue-participant';
 
 export const DEV_WEB_IA_PATH = LINKS.formationDeveloppementWebIaSansCoder;
 export const DEV_WEB_IA_CODE = 'NIV-10' as const;
 
-/** Intitulé officiel catalogue / Qualiopi — source `data/formations.ts` (NIV-10). */
-export const DEV_WEB_IA_FORMATION_TITRE = getFormationByCode('NIV-10')!.titre;
+/** Intitulé officiel catalogue / Qualiopi — aligné `data/formations.ts` (NIV-10 / NUM-04). */
+export const DEV_WEB_IA_FORMATION_TITRE = 'Créer des applications métier BTP avec l’IA' as const;
 
 /** Menus et libellés courts (catalogue, navigation, breadcrumb, footer). */
-export const DEV_WEB_IA_FORMATION_TITRE_COURT = 'Créer des applications métier BTP avec l’IA' as const;
+export { DEV_WEB_IA_FORMATION_TITRE_COURT } from '@/lib/formation-developpement-web-ia-labels';
 
-/** Tarifs inter — source unique. */
-export const TARIF_INTER_DEV_WEB_IA_HT = BEWORK_PARCOURS['7h'].tarifHt;
-export const TARIF_INTER_DEV_WEB_IA_14H_HT = BEWORK_PARCOURS['14h'].tarifHt;
+/** Tarifs inter — grille catalogue 2027 (distincts de BeWork). */
+export const TARIF_INTER_DEV_WEB_IA_HT = TARIF_PARTICIPANT_NIV10_HT;
+export const TARIF_INTER_DEV_WEB_IA_14H_HT = TARIF_PARTICIPANT_NIV10_14H_HT;
 
-export const DEV_WEB_IA_PARCOURS_7H = BEWORK_PARCOURS['7h'];
-export const DEV_WEB_IA_PARCOURS_14H = BEWORK_PARCOURS['14h'];
+/** Métadonnées parcours catalogue — sans importer BeWork (évite cycle Header client). */
+export const DEV_WEB_IA_PARCOURS_7H = {
+  id: '7h' as const,
+  title: DEV_WEB_IA_FORMATION_TITRE,
+  intitule:
+    'Créer des applications métier BTP avec l’IA — premier prototype sur un périmètre limité',
+  dureeLabel: '7 h',
+  joursLabel: '1 journée',
+  tarifHt: TARIF_INTER_DEV_WEB_IA_HT,
+  tarifLabel: `${formatNumberFr(TARIF_INTER_DEV_WEB_IA_HT)} € HT / participant`,
+  effectif: '4 à 8 participants',
+  pdfHref: LINKS.pdfProgrammeDeveloppementWebIaSansCoder,
+  highlights: [
+    'Cadrer un besoin sur un périmètre limité',
+    'Construire un premier prototype assisté par l’IA',
+    'Tester et documenter les bases',
+  ],
+  outcome: 'Vous repartez avec un prototype testé sur un périmètre défini.',
+};
+
+export const DEV_WEB_IA_PARCOURS_14H = {
+  id: '14h' as const,
+  title: DEV_WEB_IA_FORMATION_TITRE,
+  intitule:
+    'Créer des applications métier BTP avec l’IA — réalisation approfondie, tests et documentation',
+  dureeLabel: '14 h',
+  joursLabel: '2 journées',
+  tarifHt: TARIF_INTER_DEV_WEB_IA_14H_HT,
+  tarifLabel: `${formatNumberFr(TARIF_INTER_DEV_WEB_IA_14H_HT)} € HT / participant`,
+  effectif: '4 à 8 participants',
+  pdfHref: LINKS.pdfProgrammeDeveloppementWebIaSansCoder14h,
+  highlights: [
+    'Tout le parcours 7 h',
+    'Approfondissement, tests et documentation',
+    'Préparation des évolutions (sans promesse de mise en production complète)',
+  ],
+  outcome: 'Prototype approfondi, testé et documenté — pas un logiciel prêt pour la production.',
+};
 
 export const DEV_WEB_IA_PDF_7H_HREF = LINKS.pdfProgrammeDeveloppementWebIaSansCoder;
 export const DEV_WEB_IA_PDF_14H_HREF = LINKS.pdfProgrammeDeveloppementWebIaSansCoder14h;
@@ -988,7 +1026,7 @@ export const DEV_WEB_IA_FAQ = [
   },
   {
     q: 'Quels formats sont proposés ?',
-    a: 'Deux formats : 7 h (300 € HT/participant) et 14 h (600 € HT/participant), en inter-entreprises (4 à 8 participants) ou en intra. Présentiel Île-de-France uniquement.',
+    a: 'Deux formats : 7 h (310 € HT/participant) et 14 h (620 € HT/participant), en inter-entreprises (4 à 8 participants) ou en intra. Présentiel Île-de-France uniquement.',
   },
   {
     q: 'Dois-je apporter mon ordinateur ?',
@@ -1001,7 +1039,7 @@ export const DEV_WEB_IA_FAQ = [
 ] as const;
 
 export function libelleTarifLancementDevWebIa(): string {
-  return `${formatTarifHt(TARIF_INTER_DEV_WEB_IA_HT)} € HT / participant`;
+  return `${formatNumberFr(TARIF_INTER_DEV_WEB_IA_HT)} € HT / participant`;
 }
 
 export function mentionFinancementDevWebIa(): string {

@@ -514,9 +514,9 @@ export function buildCatalogueCourseDeveloppementWebIaNiv10JsonLd(): Record<stri
   const offer7h = buildCatalogueOffer('NIV-10', courseUrl, TARIF_INTER_DEV_WEB_IA_HT);
   const offer14h = buildCatalogueOffer('NIV-10', courseUrl, TARIF_INTER_DEV_WEB_IA_14H_HT);
   offer7h.name = 'Parcours 7 h';
-  offer7h.description = '300 € HT / participant — parcours 7 h — 4 à 8 participants';
+  offer7h.description = `${TARIF_INTER_DEV_WEB_IA_HT} € HT / participant — parcours 7 h — 4 à 8 participants`;
   offer14h.name = 'Parcours 14 h';
-  offer14h.description = '600 € HT / participant — parcours 14 h — 4 à 8 participants';
+  offer14h.description = `${TARIF_INTER_DEV_WEB_IA_14H_HT} € HT / participant — parcours 14 h — 4 à 8 participants`;
 
   return {
     ...base,

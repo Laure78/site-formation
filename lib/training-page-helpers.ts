@@ -32,3 +32,19 @@ export function trainingMetaLine(parts: {
 export function trainingDevisHref(formationTitle: string): string {
   return `${LINKS.contact}?objet=devis&formation=${encodeURIComponent(formationTitle)}`;
 }
+
+/** Demande de programme / devis — préremplit formation, variante et nature. */
+export function catalogueDemandeHref(opts: {
+  formationOuParcours: string;
+  nature?: 'devis' | 'choix-formation' | 'intra';
+  variante?: string;
+  metier?: string;
+}): string {
+  const params = new URLSearchParams();
+  params.set('objet', opts.nature ?? 'devis');
+  let hint = opts.formationOuParcours;
+  if (opts.variante) hint = `${hint} — variante ${opts.variante}`;
+  params.set('formation', hint);
+  if (opts.metier) params.set('metier', opts.metier);
+  return `${LINKS.contact}?${params.toString()}`;
+}

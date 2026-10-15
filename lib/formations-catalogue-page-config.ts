@@ -16,12 +16,12 @@ export const CATALOGUE_APP_METIER_REFS = ['NIV-06', 'NIV-07', 'NIV-08'] as const
 
 /** Libellés courts — alignés sur le menu Formations. */
 export const CATALOGUE_MENU_LABELS: Record<string, string> = {
-  'NIV-01': "Les bases de l'IA",
-  'NIV-02': "IA et appels d'offres",
-  'NIV-03': 'IA et conduite de travaux',
-  'NIV-04': 'Maîtriser Claude AI',
-  'NIV-05': "IA et maîtrise d'œuvre",
-  'NIV-10': 'Créer des applications métier BTP avec l’IA',
+  'NIV-01': "Les bases de l'IA (NUM-01)",
+  'NIV-02': "IA et appels d'offres (NUM-02)",
+  'NIV-03': 'IA et conduite de travaux (NUM-07)',
+  'NIV-04': 'Maîtriser Claude AI (NUM-03)',
+  'NIV-05': "IA et maîtrise d'œuvre (NUM-08)",
+  'NIV-10': 'Créer des applications métier BTP avec l’IA (NUM-04)',
 };
 
 /** Ordre d’affichage catalogue public (hors apps métier N1–N3). */
@@ -105,10 +105,10 @@ export function getCatalogueSurDemandeOffers(): readonly CatalogueOffer[] {
   return CATALOGUE_ALL_OFFERS.filter((o) => o.kind === 'sur-demande');
 }
 
-/** Title catalogue — ne pas viser le head term du pilier `/formation-ia-btp`. */
-export const CATALOGUE_PAGE_TITLE = 'Catalogue des programmes IA pour le BTP | Laure Olivié';
+/** Title catalogue — parcours métiers 2027. */
+export const CATALOGUE_PAGE_TITLE = 'Formations et parcours métiers BTP | Laure Olivié';
 
 export function getCataloguePageMetaDescriptionShort(at: Date = new Date()): string {
   void at;
-  return 'Catalogue des programmes de formation IA pour le BTP : devis, appels d’offres, chantier et Claude. Fiches Qualiopi, présentiel IDF, financement OPCO selon éligibilité.';
+  return 'Parcours métiers BTP et formation IA pour le BTP en Île-de-France : direction, commercial, travaux et management. Présentiel en IDF, devis sur demande.';
 }
