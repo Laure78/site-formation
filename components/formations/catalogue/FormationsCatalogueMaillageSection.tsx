@@ -5,7 +5,11 @@ import { LINKS } from '@/lib/internal-links';
 const chipClass =
   'inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-white px-3.5 py-2 text-sm font-medium text-slate-700 transition hover:border-ofc-accent hover:bg-blue-50 hover:text-ofc-accent';
 
-/** Maillage SEO compact — liens thématiques sans liste exhaustive. */
+/**
+ * Maillage SEO compact — piliers et ressources.
+ * Les 6 fiches catalogue sont déjà liées dans « Formations IA disponibles »
+ * (pas de doublon d’URL sur la même page).
+ */
 export function FormationsCatalogueMaillageSection() {
   const links = [
     { href: LINKS.formationIaBtpPillar, label: 'Formation IA pour le BTP — page pilier' },

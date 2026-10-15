@@ -518,10 +518,10 @@ export default function SkillsChatgptBtpPage() {
             </p>
             <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
               <Link
-                href={`${LINKS.formations}#skills-metiers-btp`}
+                href={LINKS.formationMaitriserClaudeAiBtp}
                 className="inline-flex min-h-12 items-center justify-center rounded-xl bg-white px-8 py-4 text-base font-semibold text-[#377CF3] transition-colors hover:bg-[#F2F2F2] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
               >
-                Découvrir la formation assistants IA
+                Découvrir la formation Maîtriser Claude AI
               </Link>
               <Link
                 href={LINKS.prendreRdv}

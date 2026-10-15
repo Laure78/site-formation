@@ -48,8 +48,8 @@ export const FEDERATION_PARCOURS_TROIS_NIVEAUX: readonly FederationParcoursNivea
     description:
       'Approfondir l’utilisation de l’IA sur les appels d’offres, la conduite de travaux, Claude AI et la maîtrise d’œuvre.',
     tarifHtParParticipant: TARIF_PARTICIPANT_NIV09_HT,
-    programmeHref: `${LINKS.formations}#catalogue-niveau-2`,
-    programmeLabel: 'Catalogue — formations niveau 2',
+    programmeHref: LINKS.formationsIaDisponibles,
+    programmeLabel: 'Catalogue — formations IA disponibles',
   },
   {
     niveau: 3,

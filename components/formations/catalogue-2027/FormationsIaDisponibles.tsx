@@ -16,6 +16,11 @@ export function FormationsIaDisponibles() {
       className="mt-16 scroll-mt-24 border-t border-[#E2E8F0] pt-14"
       aria-labelledby="ia-disponibles-title"
     >
+      {/* Ancres SEO legacy — conserver les URL /formations#… existantes */}
+      <span id="catalogue-niveau-1" className="sr-only" />
+      <span id="catalogue-niveau-2" className="sr-only" />
+      <span id="catalogue-niveau-3" className="sr-only" />
+      <span id="skills-metiers-btp" className="sr-only" />
       <h2 id="ia-disponibles-title" className="ofc-type-h2 text-ofc-ink">
         Formations IA disponibles
       </h2>

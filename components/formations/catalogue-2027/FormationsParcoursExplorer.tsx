@@ -36,6 +36,11 @@ export function FormationsParcoursExplorer({ parcours }: Props) {
 
   return (
     <section id="trouver-mon-parcours" className="scroll-mt-24" aria-labelledby="parcours-metiers-title">
+      {/* Ancres SEO legacy du hub /formations */}
+      <span id="catalogue-niveaux" className="sr-only" />
+      <span id="catalogue-besoin-selector" className="sr-only" />
+      <span id="catalogue-positionnement" className="sr-only" />
+      <span id="catalogue-gammes" className="sr-only" />
       <div className="max-w-3xl">
         <h2 id="parcours-metiers-title" className="ofc-type-h2 text-ofc-ink">
           Sélectionnez votre métier
