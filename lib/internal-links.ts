@@ -240,7 +240,8 @@ export const LINKS = {
   /** Landing SEO — gros œuvre (devis, DCE, suivi chantier) */
   formationIaGrosOeuvreBtp: '/formation-ia-gros-oeuvre-btp',
   /** Décideurs — ROI, pilotage IA PME/ETI bâtiment */
-  formationIaDirigeantBtp: '/formation-ia-dirigeant-btp',
+  /** @deprecated 301 → `formationIaDirigeantPmeBtp` */
+  formationIaDirigeantBtp: '/formation-ia-dirigeant-pme-btp',
   /** Chef TPE opérationnel — devis, admin quotidien */
   formationIaDirigeantPmeBtp: '/formation-ia-dirigeant-pme-btp',
   /** Landing SEO — assistante administrative & gestion BTP (courriers, facturation, DGD, RAF) */
@@ -289,7 +290,8 @@ export const LINKS = {
   /** Canonique SEO — formation IA conducteur de travaux */
   formationIaConducteurTravauxLanding: '/formation-ia-conducteur-de-travaux',
   /** Landing catalogue PME (hors les sessions catalogue NIV-01 à NIV-08) */
-  formationPmeBtp: '/formations/ia-pme-btp',
+  /** @deprecated 301 → `formationIaDirigeantPmeBtp` */
+  formationPmeBtp: '/formation-ia-dirigeant-pme-btp',
 
   /** Page présentation BeWork (formation créer avec l’IA) — site officiel : bework.fr */
   bework: '/bework',

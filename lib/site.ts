@@ -58,11 +58,11 @@ export const SITE = {
   },
   cta: {
     href: LINKS.prendreRdv,
-    label: 'Échanger sur votre projet de formation',
-    /** CTA footer — libellé court conversion. */
-    footerLabel: 'Prendre rendez-vous',
+    label: 'Réservez votre visio découverte gratuite',
+    /** CTA footer — même libellé conversion (aligné CtaRdv). */
+    footerLabel: 'Réservez votre visio découverte gratuite',
     /** @deprecated Conservé pour compat — identique à `label`. */
-    labelCompact: 'Échanger sur votre projet de formation',
+    labelCompact: 'Réservez votre visio découverte gratuite',
   },
   platform: {
     loginHref: LINKS.authConnexion,

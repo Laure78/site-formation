@@ -21,7 +21,7 @@ const baseUrl = SITE_CONFIG.url.replace(/\/$/, '');
 
 const CATALOGUE_2027_TITLE = 'Formations et parcours métiers BTP | Laure Olivié';
 const CATALOGUE_2027_DESCRIPTION =
-  'Parcours métiers BTP et formation IA pour le BTP en Île-de-France : direction, commercial, travaux et management. Présentiel en IDF, devis sur demande.';
+  'Catalogue des formations IA pour le BTP : devis, appels d’offres, chantier, Claude. Présentiel Île-de-France, Qualiopi, OPCO selon éligibilité.';
 
 export const revalidate = 3600;
 

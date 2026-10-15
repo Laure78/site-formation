@@ -1,3 +1,4 @@
+import { CTA_RDV_LABEL } from '@/lib/cta-rdv-label';
 import {
   OFC_CTA_ON_ACCENT,
   OFC_CTA_PRIMARY,
@@ -6,7 +7,7 @@ import {
 } from '@/lib/ofc-interaction-classes';
 
 /** Texte CTA Calendly standard — charte OFC (jamais « Cliquez ici »). */
-export const CALENDLY_DEFAULT_BUTTON_TEXT = 'Échanger sur votre projet de formation';
+export const CALENDLY_DEFAULT_BUTTON_TEXT = CTA_RDV_LABEL;
 
 export type CalendlyEmbedVariant =
   | 'primary'
@@ -23,7 +24,7 @@ export const CALENDLY_BUTTON_VARIANT_CLASS: Record<CalendlyEmbedVariant, string>
   pill: OFC_CTA_PRIMARY_PILL,
   'on-accent': OFC_CTA_ON_ACCENT,
   slate:
-    'inline-flex items-center justify-center rounded-xl bg-[#1e293b] px-8 py-4 text-base font-semibold text-white transition-[transform,background-color] duration-200 hover:bg-[#0f172a] active:scale-[0.98] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1e293b]',
+    'inline-flex items-center justify-center rounded-xl bg-[#377CF3] px-8 py-4 text-base font-semibold text-white transition-[transform,background-color] duration-200 hover:bg-[#2f6ad4] active:scale-[0.98] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#377CF3]',
   nav: `${OFC_CTA_PRIMARY} whitespace-nowrap rounded-full px-4 py-2.5 text-sm shadow-sm xl:px-5 xl:text-[0.9375rem]`,
   unstyled: '',
 };

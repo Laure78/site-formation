@@ -1,21 +1,33 @@
+import { CALENDLY_URL } from '@/lib/constants';
 import { LINKS } from '@/lib/internal-links';
 
 /**
  * Prise de RDV via Calendly — visio découverte.
- * Surcharge possible : NEXT_PUBLIC_CALENDLY_URL dans .env.local
+ * Source unique : `CALENDLY_URL` dans `lib/constants.ts`.
  * Usage interne : réservé à `/prendre-rdv` (embed Calendly).
  */
-export const CALENDLY_BOOKING_URL =
-  process.env.NEXT_PUBLIC_CALENDLY_URL ??
-  'https://calendly.com/formation-ia-artisans-btp-appel-decouverte/appel_decouverte_formation';
+export const CALENDLY_BOOKING_URL = CALENDLY_URL;
 
 /** URL pour embed inline / popup (identique au lien de réservation). */
 export const CALENDLY_EMBED_URL = CALENDLY_BOOKING_URL;
 
+/** Page événement Calendly (sans slug d’événement) + bannière GDPR masquée. */
+function calendlyEventPageUrl(bookingUrl: string): string {
+  try {
+    const u = new URL(bookingUrl);
+    const parts = u.pathname.replace(/\/$/, '').split('/').filter(Boolean);
+    if (parts.length > 1) parts.pop();
+    u.pathname = `/${parts.join('/')}`;
+    u.search = 'hide_gdpr_banner=1';
+    return u.toString();
+  } catch {
+    return bookingUrl;
+  }
+}
+
 /** Widget inline — page événement + bannière GDPR masquée (hub villes /formation-ia/btp-*). */
 export const CALENDLY_INLINE_WIDGET_URL =
-  process.env.NEXT_PUBLIC_CALENDLY_INLINE_WIDGET_URL ??
-  'https://calendly.com/formation-ia-artisans-btp-appel-decouverte?hide_gdpr_banner=1';
+  process.env.NEXT_PUBLIC_CALENDLY_INLINE_WIDGET_URL ?? calendlyEventPageUrl(CALENDLY_URL);
 
 type CalendlyUtmParams = {
   /** URL de base (événement ou page hôte Calendly). */
@@ -23,6 +35,7 @@ type CalendlyUtmParams = {
   utmSource?: string;
   utmMedium?: string;
   utmCampaign?: string;
+  utmContent?: string;
 };
 
 /** Événement window émis quand widget.js est chargé (inline + popup). */
@@ -60,11 +73,13 @@ export function buildCalendlyUrlWithUtm({
   utmSource,
   utmMedium = 'cta',
   utmCampaign,
+  utmContent,
 }: CalendlyUtmParams = {}): string {
   const u = new URL(baseUrl);
   if (utmSource) u.searchParams.set('utm_source', utmSource);
   if (utmMedium) u.searchParams.set('utm_medium', utmMedium);
   if (utmCampaign) u.searchParams.set('utm_campaign', utmCampaign);
+  if (utmContent) u.searchParams.set('utm_content', utmContent);
   return u.href;
 }
 

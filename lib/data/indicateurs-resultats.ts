@@ -67,10 +67,9 @@ export const indicateursResultats = {
     'Somme des notes globales valides ÷ nombre de notes globales valides.',
 
   /**
-   * Volume cumulé — non publié sur le site public (périmètre ambigu).
-   * Conservé pour usage interne / audit uniquement — ne pas afficher.
+   * Volume cumulé — non publié (périmètre ambigu). Aucun chiffre public.
    */
-  volumeProsFormesBtp: 1592,
+  volumeProsFormesBtp: null,
   volumePublieSurPageIndicateurs: false as const,
 
   /** Indicateurs non consolidés — absents du rendu public (pas de 0 % / 100 % fictifs). */
@@ -190,19 +189,17 @@ export function formatAnneesExperienceBTPCourt(): string {
 // ---------------------------------------------------------------------------
 
 /**
- * @deprecated Effectif formé non publié sur le site (périmètre ambigu).
- * Ne plus utiliser pour l’affichage public — préférer satisfaction / Qualiopi.
+ * @deprecated Effectif formé non publié — ne plus appeler en UI.
  */
 export function formatVolumeProsFormesBtp(): string {
-  return indicateursResultats.volumeProsFormesBtp.toLocaleString('fr-FR');
+  return INDICATEUR_NON_PUBLIE_LIBELLE;
 }
 
 /**
- * @deprecated Effectif formé non publié sur le site (périmètre ambigu).
- * Ne plus utiliser pour l’affichage public.
+ * @deprecated Effectif formé non publié — ne plus appeler en UI.
  */
 export function formatVolumeProsFormesBtpLibelle(): string {
-  return `${formatVolumeProsFormesBtp()} professionnels du BTP formés`;
+  return INDICATEUR_NON_PUBLIE_LIBELLE;
 }
 
 /** Note sur 5 avec virgule décimale (ex. « 4,45/5 »). */

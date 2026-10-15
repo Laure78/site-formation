@@ -25,14 +25,14 @@ export function FormationCalendlyInlineGate() {
           id="formation-calendly-heading"
           className="font-display text-2xl font-bold tracking-tight text-slate-900 md:text-3xl"
         >
-          Échanger sur votre projet de formation
+          Réservez votre visio découverte gratuite
         </h2>
         <p className="mx-auto mt-3 max-w-2xl text-slate-600 md:text-lg">
           Rendez-vous découverte de 30 minutes, en visioconférence si vous le souhaitez, pour cadrer
           votre besoin. Le catalogue IA BTP est en présentiel, en Île-de-France.
         </p>
         <div className="mt-8 flex justify-center">
-          <CtaRdv origin={origin} />
+          <CtaRdv src={origin} />
         </div>
       </div>
     </section>

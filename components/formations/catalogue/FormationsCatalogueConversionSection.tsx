@@ -1,6 +1,6 @@
 import Link from 'next/link';
+import { CTA_RDV_LABEL } from '@/lib/cta-rdv-label';
 import { LINKS } from '@/lib/internal-links';
-/* CTA on accent — défini dans globals.css */
 
 /** Bloc conversion — « Vous ne savez pas quelle formation choisir ? » */
 export function FormationsCatalogueConversionSection() {
@@ -21,10 +21,11 @@ export function FormationsCatalogueConversionSection() {
       </p>
       <div className="mt-6">
         <Link
-          href={LINKS.prendreRdv}
-          className="ofc-cta-on-accent inline-flex min-h-11 items-center justify-center px-6 py-3"
+          href={`${LINKS.prendreRdv}?src=${encodeURIComponent('catalogue-conversion')}`}
+          data-cta="rdv"
+          className="ofc-cta-on-accent inline-flex min-h-11 items-center justify-center rounded-[8px] px-6 py-3"
         >
-          Échanger sur votre projet de formation
+          {CTA_RDV_LABEL}
         </Link>
       </div>
     </section>

@@ -1,3 +1,4 @@
+import type { Metadata } from 'next';
 import { createPageMetadata } from '@/lib/seo';
 import { JsonLd } from '@/components/JsonLd';
 import { getAProposUnifiedJsonLd } from '@/lib/schema-a-propos-unified-graph';
@@ -23,23 +24,27 @@ import Link from 'next/link';
 
 export const revalidate = 3600;
 
-export const metadata = createPageMetadata({
-  title: A_PROPOS_PAGE_META_TITLE,
-  titleAbsolute: A_PROPOS_PAGE_META_TITLE,
-  description: A_PROPOS_PAGE_META_DESCRIPTION,
-  descriptionFinal: true,
-  path: '/a-propos',
-  keywords: null,
-  appendAuthorSuffix: false,
-  openGraphTitle: A_PROPOS_PAGE_META_TITLE,
-  openGraphDescription: A_PROPOS_PAGE_META_DESCRIPTION,
-  image: {
-    url: '/og/og-a-propos-laure-olivie-formatrice-ia-btp.png',
-    width: 1200,
-    height: 630,
-    alt: 'Laure Olivié, formatrice IA BTP — page À propos',
-  },
-});
+/** Title A5 figé (déjà ≤ 60 car.) — sans re-suffixe « | Laure Olivié ». */
+export const metadata: Metadata = {
+  ...createPageMetadata({
+    title: A_PROPOS_PAGE_META_TITLE,
+    titleAbsolute: A_PROPOS_PAGE_META_TITLE,
+    description: A_PROPOS_PAGE_META_DESCRIPTION,
+    descriptionFinal: true,
+    path: '/a-propos',
+    keywords: null,
+    appendAuthorSuffix: false,
+    openGraphTitle: A_PROPOS_PAGE_META_TITLE,
+    openGraphDescription: A_PROPOS_PAGE_META_DESCRIPTION,
+    image: {
+      url: '/og/og-a-propos-laure-olivie-formatrice-ia-btp.png',
+      width: 1200,
+      height: 630,
+      alt: 'Laure Olivié, formatrice IA BTP — page À propos',
+    },
+  }),
+  title: { absolute: A_PROPOS_PAGE_META_TITLE },
+};
 
 export default function AProposPage() {
   const faqItems = getFaqAProposPage();

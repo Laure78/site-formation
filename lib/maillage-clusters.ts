@@ -118,7 +118,7 @@ const GEO_METIER_BY_DEPT: Record<string, RelatedLinkItem> = {
     description: 'DTU 31.1/31.2, agencement — angle UMB-FFB.',
   },
   paris: {
-    href: LINKS.formationIaDirigeantBtp,
+    href: LINKS.formationIaDirigeantPmeBtp,
     label: 'Formation IA dirigeant PME BTP',
     description: 'ROI et déploiement IA pour décideurs du bâtiment.',
   },
@@ -247,7 +247,7 @@ const METIER_CLUSTER: Record<string, MetierClusterEntry> = {
   },
   [LINKS.formationChargeAffairesBtp]: {
     path: LINKS.formationChargeAffairesBtp,
-    close: [LINKS.formationConducteurTravaux, LINKS.formationIaDirigeantBtp],
+    close: [LINKS.formationConducteurTravaux, LINKS.formationIaDirigeantPmeBtp],
     catalogue: {
       href: LINKS.formationAO,
       label: 'Catalogue NIV-02 — IA appliquée aux appels d’offres BTP',
@@ -259,9 +259,9 @@ const METIER_CLUSTER: Record<string, MetierClusterEntry> = {
     },
     hubAnchor: 'Toutes les pages métier formation IA BTP',
   },
-  [LINKS.formationIaDirigeantBtp]: {
-    path: LINKS.formationIaDirigeantBtp,
-    close: [LINKS.formationChargeAffairesBtp, LINKS.formationIaDirigeantPmeBtp],
+  [LINKS.formationIaDirigeantPmeBtp]: {
+    path: LINKS.formationIaDirigeantPmeBtp,
+    close: [LINKS.formationChargeAffairesBtp, LINKS.formationConducteurTravaux],
     catalogue: {
       href: LINKS.formationIaBtpNiveau1BatimentTp,
       label: 'Session catalogue — L’IA au service du bâtiment (NIV-01)',
@@ -455,14 +455,13 @@ const METIER_LABELS: Record<string, string> = {
   [LINKS.formationPlombierBtp]: 'Formation IA plomberie sanitaire',
   [LINKS.formationConducteurTravaux]: 'Formation IA conducteur de travaux',
   [LINKS.formationChargeAffairesBtp]: "Formation IA chargé d'affaires BTP",
-  [LINKS.formationIaDirigeantBtp]: 'Formation IA dirigeant PME BTP',
+  [LINKS.formationIaDirigeantPmeBtp]: 'Formation IA dirigeant opérationnel PME BTP',
   [LINKS.formationIaEtancheur]: 'Formation IA étancheur BTP',
   [LINKS.formationIaAssistanteBtp]: 'Formation IA assistante administrative & gestion BTP',
   [LINKS.formationIaAssistanteTravaux]: 'Formation IA assistante travaux BTP',
   [LINKS.formationIaCharpentierMenuisierBtp]: 'Formation IA charpentier & menuisier bois',
   [LINKS.formationIaMaconBtp]: 'Formation IA maçon & maçonnerie',
   [LINKS.formationIaCouvreurBtp]: 'Formation IA couvreur zingueur',
-  [LINKS.formationIaDirigeantPmeBtp]: 'Formation IA dirigeant opérationnel PME BTP',
   [LINKS.formationIaBureauEtudesBtp]: "Formation IA bureau d'études BTP",
   [LINKS.formationIaMetreurEconomisteConstruction]: 'Formation IA métreur & économiste',
   [LINKS.formationIaChefChantierTp]: 'Formation IA chef de chantier TP',
@@ -512,7 +511,7 @@ function buildMetierHubLinks(): RelatedLinkItem[] {
     LINKS.formationChargeAffairesBtp,
     LINKS.formationElectricienBtp,
     LINKS.formationPlombierBtp,
-    LINKS.formationIaDirigeantBtp,
+    LINKS.formationIaDirigeantPmeBtp,
     LINKS.formationIaEtancheur,
     LINKS.formationIaAssistanteBtp,
     LINKS.formationIaCharpentierMenuisierBtp,

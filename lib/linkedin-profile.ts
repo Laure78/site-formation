@@ -15,31 +15,32 @@ export const LINKEDIN_PROFILE_URL = SCHEMA_LINKEDIN_PROFILE_URL;
  */
 export const LINKEDIN_FOLLOWERS_COUNT = 14_800;
 
-/** Libellé FR avec espace fine insécable (ex. « 14 626 »). */
-export const LINKEDIN_FOLLOWERS_LABEL = new Intl.NumberFormat('fr-FR').format(
-  LINKEDIN_FOLLOWERS_COUNT,
-);
+/**
+ * Libellé public figé — évite les écarts entre pages quand le compteur évolue.
+ * Le chiffre exact reste dans `LINKEDIN_FOLLOWERS_COUNT` (mise à jour manuelle).
+ */
+export const LINKEDIN_FOLLOWERS_LABEL = 'plus de 14 000 abonnés' as const;
 
 /** Texte compact hero / preuve sociale. */
 export const LINKEDIN_FOLLOWERS_PROOF_TEXT =
-  `${LINKEDIN_FOLLOWERS_LABEL} abonnés sur LinkedIn` as const;
+  `${LINKEDIN_FOLLOWERS_LABEL} sur LinkedIn` as const;
 
 /** Libellé footer. */
 export const LINKEDIN_FOLLOWERS_FOOTER_LABEL =
-  `LinkedIn · ${LINKEDIN_FOLLOWERS_LABEL} abonnés` as const;
+  `LinkedIn · ${LINKEDIN_FOLLOWERS_LABEL}` as const;
 
 /** Libellés accessibles (liens externes). */
 export const LINKEDIN_PROFILE_ARIA = {
   proof: `Profil LinkedIn de Laure Olivié — ${LINKEDIN_FOLLOWERS_PROOF_TEXT}`,
-  publications: `Découvrir les publications LinkedIn de Laure Olivié — ${LINKEDIN_FOLLOWERS_LABEL} abonnés`,
-  footer: `Profil LinkedIn de Laure Olivié — ${LINKEDIN_FOLLOWERS_LABEL} abonnés`,
+  publications: `Découvrir les publications LinkedIn de Laure Olivié — ${LINKEDIN_FOLLOWERS_LABEL}`,
+  footer: `Profil LinkedIn de Laure Olivié — ${LINKEDIN_FOLLOWERS_LABEL}`,
 } as const;
 
 /** Contenu carte présence LinkedIn (accueil). */
 export const LINKEDIN_PRESENCE_CARD = {
   title: 'Retrouvez-moi aussi sur LinkedIn',
   followersHighlight: LINKEDIN_FOLLOWERS_LABEL,
-  followersSuffix: 'abonnés',
+  followersSuffix: '',
   body: 'J’y partage des conseils pratiques, des exemples de prompts et des ressources pour utiliser l’IA dans le BTP : devis, appels d’offres et suivi de chantier.',
   cta: 'Découvrir mes publications LinkedIn',
 } as const;

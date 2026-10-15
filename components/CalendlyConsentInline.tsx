@@ -17,10 +17,13 @@ import { CALENDLY_INLINE_DEFAULT_HEIGHT_PX } from '@/lib/calendly-embed-config';
  */
 export function CalendlyConsentInline({
   campaign = 'prendre-rendez-vous-page',
+  utmContent,
   heightPx = CALENDLY_INLINE_DEFAULT_HEIGHT_PX,
   containerStyle,
 }: {
   campaign?: string;
+  /** Emplacement CTA d’origine (`?src=` sur `/prendre-rdv`). */
+  utmContent?: string;
   heightPx?: number;
   /** Hauteur viewport ou autre — évite une barre de défilement sur le conteneur parent. */
   containerStyle?: CSSProperties;
@@ -42,6 +45,7 @@ export function CalendlyConsentInline({
     utmSource: 'site',
     utmMedium: 'cta',
     utmCampaign: campaign,
+    utmContent,
   });
   const iframeSrc = buildCalendlyInlineIframeUrl(bookingUrl);
 

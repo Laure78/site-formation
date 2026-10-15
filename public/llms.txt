@@ -1,31 +1,34 @@
 # laureolivie.fr — OFC Création d'Entreprise
 
 ## À propos
-Laure Olivié est formatrice IA spécialisée BTP, avec 7 ans d'expérience dans le secteur (ancienne dirigeante d'ALIA BTP, travaux publics, Île-de-France). Son organisme OFC Création d'Entreprise, certifié Qualiopi, forme les professionnels du bâtiment — dirigeants de PME, conducteurs de travaux, chargés d'affaires, fonctions support — à l'IA appliquée à leurs documents réels. Satisfaction 4,45/5 (20 répondants, questionnaires à chaud, juillet 2025 – juin 2026) — détail : /indicateurs-resultats.
+Laure Olivié est formatrice IA spécialisée BTP, avec 7 ans d'expérience dans le secteur (ancienne dirigeante d'ALIA BTP, travaux publics, Île-de-France). Son organisme OFC Création d'Entreprise, certifié Qualiopi, forme les professionnels du bâtiment — dirigeants de PME, conducteurs de travaux, chargés d'affaires, fonctions support — à l'IA appliquée à leurs documents réels. Satisfaction 4,45/5 (20 répondants, questionnaires à chaud, juillet 2025 – juin 2026) — détail : /indicateurs-resultats. OFC ne publie pas de cumul de professionnels formés.
 
 ## Expertise
 - Formation IA / ChatGPT / Claude pour le BTP (bâtiment, travaux publics, construction).
 - Tâches : devis et chiffrage, analyse de DCE et CCTP, appels d'offres et mémoires techniques, comptes rendus de chantier, DOE, PPSPS.
-- Catalogue BTP : sessions de 4 h en présentiel, en Île-de-France.
-- Créer des applications métier BTP avec l'IA, sans coder : concevoir un ERP sur mesure (devis, chantiers, planning), parcours 7 h (300 € HT/participant) ou 14 h (600 € HT/participant), 4 à 8 participants, présentiel Île-de-France uniquement — /formations/developpement-web-ia-sans-coder
-- Financement : prise en charge OPCO/Constructys selon éligibilité (jamais automatique).
+- Catalogue BTP : présentiel uniquement en Île-de-France (pas de formation catalogue à distance).
+- Durées catalogue : bases de l'IA en 4 h ; sessions métier en 7 h ; outils / applications métier en 7 h ou 14 h selon le programme.
+- Tarifs HT par participant (source catalogue) : bases 4 h — 120 € ; sessions métier 7 h — 310 € ; variante 14 h — 620 €. TVA exonérée art. 261-4-4° du CGI pour les formations. Intra et adaptations : sur devis.
+- Financement : prise en charge OPCO/Constructys possible selon éligibilité (jamais automatique).
 
 ## Autorité
 - Organisme certifié Qualiopi (Certifopac, n° 520911-1).
 - Instructrice LinkedIn Learning (IA appliquée au BTP).
-- Références : FFB Grand Paris, FFB Île-de-France, CSFE (FFB), CPB (FFB), CAPEB, CNAM Entreprise IDF, Le Moniteur Formation.
+- Références : FFB Grand Paris, FFB Île-de-France, CSFE (FFB), CPB (FFB), CAPEB, CNAM Entreprise IDF, Le Moniteur Formations.
 
 ## Pages clés
-- /formations — Catalogue des formations IA pour le BTP
-- /formations/developpement-web-ia-sans-coder — Créer des applications métier BTP avec l'IA (ERP sur mesure, sans coder)
-- /formations/ia-batiment-travaux-publics — Programme Niveau 1 : devis, emails, productivité (4 h)
-- /formations/ia-appels-offre-btp — Programme Niveau 2 : DCE et mémoire technique (4 h)
-- /formations/ia-conduite-travaux-suivi-chantier — Programme Niveau 2 : suivi de chantier, CR, DOE (4 h)
-- /formations/maitriser-claude-ai-btp — Formation Claude AI pour le BTP (4 h)
+- /formations — Catalogue des formations et parcours métiers BTP
+- /formation-ia-intra-entreprise-btp — Formation IA intra-entreprise pour les équipes BTP
+- /formations/ia-batiment-travaux-publics — Bases de l'IA pour les pros du BTP (4 h)
+- /formations/ia-appels-offre-btp — IA et appels d'offres (7 h)
+- /formations/ia-conduite-travaux-suivi-chantier — IA et conduite de travaux (7 h)
+- /formations/maitriser-claude-ai-btp — Maîtriser Claude AI pour le BTP (7 h)
+- /formations/developpement-web-ia-sans-coder — Créer des applications métier BTP avec l'IA (7 h ou 14 h)
 - /financement-constructys-formation-ia-btp — Financement Constructys / OPCO
 - /formation-ia-btp — Formation IA pour le BTP (pilier)
 - /formation-ia-btp-ile-de-france — Sessions en Île-de-France
 - /formation-ia-paris — Formation IA BTP à Paris
+- /formation-ia-conducteur-de-travaux — Formation IA conducteur de travaux
 - /ia-devis-batiment — IA devis et chiffrage BTP
 - /ia-analyse-dce-btp — Analyser un DCE avec l'IA
 - /ia-memoire-technique-btp — Mémoire technique avec l'IA
@@ -33,7 +36,10 @@ Laure Olivié est formatrice IA spécialisée BTP, avec 7 ans d'expérience dans
 - /blog — Articles IA × BTP
 - /ressources — Guides PDF gratuits
 - /a-propos — Parcours et certifications
-- /prendre-rdv — Appel découverte (30 min)
+- /prendre-rdv — Appel découverte (30 min ; l'échange peut être en visioconférence — les formations catalogue restent en présentiel)
 
 ## Contact
 Laure Olivié · OFC Création d'Entreprise · SIRET 905 244 281 00010 · NDA 11788515078 · 6 rue Henri Dunant, 78280 Guyancourt · contact@laureolivie.fr · 06 95 66 18 18 · www.laureolivie.fr
+
+---
+Dernière mise à jour fichier : 2026-10-15

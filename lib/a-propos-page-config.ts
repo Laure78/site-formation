@@ -23,10 +23,10 @@ export const A_PROPOS_PAGE_PROOF_LINE =
   'OFC certifié Qualiopi · Expérience en entreprise BTP · Instructrice LinkedIn Learning' as const;
 
 /** Title entité (≠ `/formateur-ia-btp` qui cible la requête « formateur »). */
-export const A_PROPOS_PAGE_META_TITLE = 'Laure Olivié : formatrice IA pour le BTP' as const;
+export const A_PROPOS_PAGE_META_TITLE = 'Laure Olivié, formatrice IA BTP | OFC Qualiopi' as const;
 
 export const A_PROPOS_PAGE_META_DESCRIPTION =
-  'Laure Olivié est formatrice en intelligence artificielle appliquée au BTP. Formation IA pour le BTP : devis, DCE, chantier. OFC Qualiopi, présentiel Île-de-France.' as const;
+  'Laure Olivié, formatrice IA spécialisée BTP, ancienne dirigeante de travaux publics. Formations Claude et ChatGPT en présentiel Île-de-France, Qualiopi.' as const;
 
 /** Bloc GEO « En bref » — page auteur / entité. */
 export const A_PROPOS_PAGE_EN_BREF =

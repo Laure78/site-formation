@@ -161,15 +161,15 @@ export const FAQ_ITEMS: readonly FAQItem[] = [
   },
   {
     q: "Combien de temps dure la formation IA pour le BTP ?",
-    a: `Les sessions catalogue durent 4 heures. ${MODALITE_FORMATIONS_PRESENTIEL} Bases : ${libelleTarifParticipantCatalogue(TARIF_PARTICIPANT_NIV01_HT)} · sessions métier 4 h : ${libelleTarifParticipantCatalogue(TARIF_PARTICIPANT_NIV02_HT)} — voir les programmes sur la page <a href="/formations">formations IA pour le BTP</a>.`,
+    a: `Les bases de l’IA durent 4 heures ; les sessions métier catalogue durent 7 heures (variante 14 h pour certains outils métier). ${MODALITE_FORMATIONS_PRESENTIEL} Bases : ${libelleTarifParticipantCatalogue(TARIF_PARTICIPANT_NIV01_HT)} · sessions métier 7 h : ${libelleTarifParticipantCatalogue(TARIF_PARTICIPANT_NIV02_HT)} — voir les programmes sur la page <a href="/formations">formations IA pour le BTP</a>.`,
   },
   {
     q: "La formation se fait-elle en présentiel ?",
-    a: `Oui. Le catalogue IA BTP est en présentiel, en Île-de-France. ${MODALITE_FORMATIONS_STANDARD} Couverture : ${IDF_ZONE_INTERVENTION}. Pour cadrer votre format : <a href="${LINKS.prendreRdv}">Échanger sur votre projet de formation</a> ou <a href="/contact">contact</a>.`,
+    a: `Oui. Le catalogue IA BTP est en présentiel, en Île-de-France. ${MODALITE_FORMATIONS_STANDARD} Couverture : ${IDF_ZONE_INTERVENTION}. Pour cadrer votre format : <a href="${LINKS.prendreRdv}">Réservez votre visio découverte gratuite</a> ou <a href="/contact">contact</a>.`,
   },
   {
     q: 'Où se déroulent les formations catalogue ?',
-    a: `Catalogue IA BTP : présentiel uniquement · Île-de-France uniquement (intra (dans vos locaux) ou inter — ${IDF_ZONE_INTERVENTION}). L'échange préalable de 30 min (visio ou téléphone) sert uniquement à cadrer votre projet — voir <a href="${LINKS.prendreRdv}">Échanger sur votre projet de formation</a>.`,
+    a: `Catalogue IA BTP : présentiel uniquement · Île-de-France uniquement (intra (dans vos locaux) ou inter — ${IDF_ZONE_INTERVENTION}). L'échange préalable de 30 min (visio ou téléphone) sert uniquement à cadrer votre projet — voir <a href="${LINKS.prendreRdv}">Réservez votre visio découverte gratuite</a>.`,
   },
   {
     q: "Comment mesurer le ROI de la formation IA ?",
@@ -267,7 +267,7 @@ export const FAQ_FORMATIONS: FAQItem[] = [
   },
   {
     q: 'Combien coûte une formation IA pour le BTP ?',
-    a: `Les bases de l’IA (4 h) : ${libelleTarifParticipantCatalogue(TARIF_PARTICIPANT_NIV01_HT)}. Sessions métier 4 h : ${libelleTarifParticipantCatalogue(TARIF_PARTICIPANT_NIV02_HT)}. Assistants IA (7 h) : ${libelleTarifParticipantCatalogue(TARIF_PARTICIPANT_NIV09_HT)}. Outils de gestion BTP avec l’IA (7 h) : ${libelleTarifParticipantCatalogue(TARIF_PARTICIPANT_NIV10_HT)}. Voir la <a href="${LINKS.formations}#tarifs-formations-btp">grille tarifaire</a>.`,
+    a: `Les bases de l’IA (4 h) : ${libelleTarifParticipantCatalogue(TARIF_PARTICIPANT_NIV01_HT)}. Sessions métier (7 h) : ${libelleTarifParticipantCatalogue(TARIF_PARTICIPANT_NIV02_HT)}. Créer des applications métier BTP avec l’IA : 7 h (${libelleTarifParticipantCatalogue(TARIF_PARTICIPANT_NIV10_HT)}) ou 14 h selon la variante. Voir la <a href="${LINKS.formations}#tarifs-formations-btp">grille tarifaire</a>.`,
   },
   {
     q: 'La formation peut-elle être financée par Constructys ?',
@@ -275,19 +275,19 @@ export const FAQ_FORMATIONS: FAQItem[] = [
   },
   {
     q: 'Quelles formations IA appliquées au bâtiment sont proposées au catalogue ?',
-    a: `Notre catalogue de formations IA pour le BTP comprend des sessions de 4 h (devis, appels d&apos;offres, chantier, Claude, maîtrise d&apos;œuvre) et des formations <a href="${LINKS.formationApplicationMetierBtpNiveau1}">applications métier BTP avec l&apos;IA</a> en 3 niveaux de 7 h. Toutes les actions sont dispensées par OFC Création d&apos;Entreprise, organisme certifié Qualiopi. ${MODALITE_FORMATIONS_PRESENTIEL} ${FINANCEMENT_FORMULATION_COURTE} Fiches détaillées : cartes ci-dessus.`,
+    a: `Notre catalogue de formations IA pour le BTP comprend les bases en 4 h, des sessions métier en 7 h (appels d&apos;offres, chantier, Claude, maîtrise d&apos;œuvre) et des formations <a href="${LINKS.formationApplicationMetierBtpNiveau1}">applications métier BTP avec l&apos;IA</a> (7 h ou 14 h selon le programme). Toutes les actions sont dispensées par OFC Création d&apos;Entreprise, organisme certifié Qualiopi. ${MODALITE_FORMATIONS_PRESENTIEL} ${FINANCEMENT_FORMULATION_COURTE} Fiches détaillées : cartes ci-dessus.`,
   },
   {
     q: 'Comment choisir la bonne formation IA pour le BTP pour mon entreprise ?',
-    a: `Le choix dépend de votre fonction et de votre niveau. L&apos;équipe débute ou couvre à la fois chantier bâtiment et travaux publics : <a href="${LINKS.formationIaBtpNiveau1BatimentTp}">L&apos;IA au service des pros du bâtiment et des travaux publics</a>. Pour la réponse aux marchés, mémoires techniques et DCE : <a href="${LINKS.formationAO}">L&apos;IA appliquée aux appels d&apos;offres BTP</a>. Pour piloter vos chantiers (CCTP, CR, PPSPS, réception) : <a href="${LINKS.formationConduiteTravauxSuiviChantier}">L&apos;IA appliquée à la conduite de travaux</a>. Pour industrialiser Claude (Projets, Skills, Cowork, connecteurs, Claude Code) et installer des skills métier sur les appels d&apos;offres, le chantier ou le juridique : <a href="${LINKS.formationMaitriserClaudeAiBtp}">Maîtriser Claude AI pour le BTP — Chat, Cowork &amp; Code</a>. Pour la maîtrise d&apos;œuvre d&apos;exécution (DCE, CR, OS, réserves) : <a href="${LINKS.formationIaMaitriseOeuvre}">L&apos;IA au service des maîtres d&apos;œuvre</a>. Pour transformer vos processus en applications métier : <a href="${LINKS.formationApplicationMetierBtpNiveau1}">créer sa première application métier BTP</a>. Un diagnostic gratuit de 30 minutes en visio permet de cibler le parcours — <a href="${LINKS.prendreRdv}">Échanger sur votre projet de formation</a> ou <a href="${LINKS.contact}">contact</a>.`,
+    a: `Le choix dépend de votre fonction et de votre niveau. L&apos;équipe débute ou couvre à la fois chantier bâtiment et travaux publics : <a href="${LINKS.formationIaBtpNiveau1BatimentTp}">L&apos;IA au service des pros du bâtiment et des travaux publics</a>. Pour la réponse aux marchés, mémoires techniques et DCE : <a href="${LINKS.formationAO}">L&apos;IA appliquée aux appels d&apos;offres BTP</a>. Pour piloter vos chantiers (CCTP, CR, PPSPS, réception) : <a href="${LINKS.formationConduiteTravauxSuiviChantier}">L&apos;IA appliquée à la conduite de travaux</a>. Pour industrialiser Claude (Projets, Skills, Cowork, connecteurs, Claude Code) et installer des skills métier sur les appels d&apos;offres, le chantier ou le juridique : <a href="${LINKS.formationMaitriserClaudeAiBtp}">Maîtriser Claude AI pour le BTP — Chat, Cowork &amp; Code</a>. Pour la maîtrise d&apos;œuvre d&apos;exécution (DCE, CR, OS, réserves) : <a href="${LINKS.formationIaMaitriseOeuvre}">L&apos;IA au service des maîtres d&apos;œuvre</a>. Pour transformer vos processus en applications métier : <a href="${LINKS.formationApplicationMetierBtpNiveau1}">créer sa première application métier BTP</a>. Un diagnostic gratuit de 30 minutes en visio permet de cibler le parcours — <a href="${LINKS.prendreRdv}">Réservez votre visio découverte gratuite</a> ou <a href="${LINKS.contact}">contact</a>.`,
   },
   {
     q: 'Qu\'apporte la formation Maîtriser Claude AI pour le BTP (niveau 2) ?',
-    a: `Cette formation cible les profils qui maîtrisent déjà Claude Pro : structurer l&apos;usage en entreprise (Projets, bibliothèque de Skills), installer des skills métier (appels d&apos;offres RC/DCE, chantier CCTP/CR/réserves, juridique marché de travaux — l&apos;IA n&apos;est pas un avocat), déléguer la production documentaire via Cowork, connecter Gmail/Drive/agenda en sécurisant les données, et automatiser avec Claude Code. Session de 4 h le matin (9h00–13h00), 6 à 12 participants, ${libelleTarifParticipantCatalogue(TARIF_PARTICIPANT_NIV02_HT)}. Fiche : <a href="${LINKS.formationMaitriserClaudeAiBtp}">Maîtriser Claude AI pour le BTP — Chat, Cowork &amp; Code</a>.`,
+    a: `Cette formation cible les profils qui maîtrisent déjà Claude Pro : structurer l&apos;usage en entreprise (Projets, bibliothèque de Skills), installer des skills métier (appels d&apos;offres RC/DCE, chantier CCTP/CR/réserves, juridique marché de travaux — l&apos;IA n&apos;est pas un avocat), déléguer la production documentaire via Cowork, connecter Gmail/Drive/agenda en sécurisant les données, et automatiser avec Claude Code. Session de 7 h (journée complète), 6 à 12 participants, ${libelleTarifParticipantCatalogue(TARIF_PARTICIPANT_NIV02_HT)}. Fiche : <a href="${LINKS.formationMaitriserClaudeAiBtp}">Maîtriser Claude AI pour le BTP — Chat, Cowork &amp; Code</a>.`,
   },
   {
     q: 'Combien coûte une formation IA pour les pros du BTP du catalogue ?',
-    a: `Tarifs HT / participant : bases ${libelleTarifParticipantCatalogue(TARIF_PARTICIPANT_NIV01_HT)} · sessions métier 4 h ${libelleTarifParticipantCatalogue(TARIF_PARTICIPANT_NIV02_HT)}. ${MENTIONS_TVA_REGIMES_COURT} ${FINANCEMENT_FORMULATION_PRUDENTE}`,
+    a: `Tarifs HT / participant : bases 4 h ${libelleTarifParticipantCatalogue(TARIF_PARTICIPANT_NIV01_HT)} · sessions métier 7 h ${libelleTarifParticipantCatalogue(TARIF_PARTICIPANT_NIV02_HT)}. ${MENTIONS_TVA_REGIMES_COURT} ${FINANCEMENT_FORMULATION_PRUDENTE}`,
   },
   {
     q: 'Les formations IA pour les pros du BTP peuvent-elles être financées par Constructys ou mon OPCO ?',
@@ -344,7 +344,7 @@ export const FAQ_TARIFS: FAQItem[] = [
   },
   {
     q: 'Combien coûte une formation IA pour les pros du BTP ?',
-    a: `Tarifs HT / participant : bases ${libelleTarifParticipantCatalogue(TARIF_PARTICIPANT_NIV01_HT)} · sessions métier 4 h ${libelleTarifParticipantCatalogue(TARIF_PARTICIPANT_NIV02_HT)}. ${MENTIONS_TVA_REGIMES_COURT} ${FINANCEMENT_FORMULATION_PRUDENTE} — <a href="/financement-constructys-formation-ia-btp">guide financement</a> et <a href="/contact">accompagnement dossier</a>.`,
+    a: `Tarifs HT / participant : bases 4 h ${libelleTarifParticipantCatalogue(TARIF_PARTICIPANT_NIV01_HT)} · sessions métier 7 h ${libelleTarifParticipantCatalogue(TARIF_PARTICIPANT_NIV02_HT)}. ${MENTIONS_TVA_REGIMES_COURT} ${FINANCEMENT_FORMULATION_PRUDENTE} — <a href="/financement-constructys-formation-ia-btp">guide financement</a> et <a href="/contact">accompagnement dossier</a>.`,
   },
   {
     q: "Comment financer ma formation IA ?",
@@ -382,7 +382,7 @@ export const FAQ_FINANCEMENT: FAQItem[] = [
   },
   {
     q: "Quels documents fournir pour le financement ?",
-    a: 'Programme de formation détaillé, devis du prestataire, convention de formation, liste des participants, attestation FFB (si adhérent), justificatifs d\'effectif. Je vous accompagne pour monter le dossier : <a href="/contact">contact</a> ou <a href="${LINKS.prendreRdv}">Échanger sur votre projet de formation</a>.',
+    a: 'Programme de formation détaillé, devis du prestataire, convention de formation, liste des participants, attestation FFB (si adhérent), justificatifs d\'effectif. Je vous accompagne pour monter le dossier : <a href="/contact">contact</a> ou <a href="${LINKS.prendreRdv}">Réservez votre visio découverte gratuite</a>.',
   },
 ];
 
@@ -497,7 +497,7 @@ export const FAQ_IA_BTP_YVELINES: FAQItem[] = [
   },
   {
     q: "Combien de temps dure la formation ?",
-    a: 'Le format le plus courant est une session de 4 heures, adaptée au rythme des entreprises du BTP et aux règles de financement Constructys. Des formats de sensibilisation (2 h) ou d\'approfondissement peuvent être étudiés selon votre projet — <a href="${LINKS.prendreRdv}">Échanger sur votre projet de formation</a>.',
+    a: 'Le format le plus courant est une session de 4 heures, adaptée au rythme des entreprises du BTP et aux règles de financement Constructys. Des formats de sensibilisation (2 h) ou d\'approfondissement peuvent être étudiés selon votre projet — <a href="${LINKS.prendreRdv}">Réservez votre visio découverte gratuite</a>.',
   },
   {
     q: "La formation IA appliquée au bâtiment est-elle financement possible selon éligibilité (Constructys) dans les Yvelines ?",
@@ -525,7 +525,7 @@ export const FAQ_IA_BTP_SAINT_QUENTIN_YVELINES: FAQItem[] = [
   },
   {
     q: "Combien de temps dure la formation ?",
-    a: 'Le format le plus courant est une session de 4 heures, adaptée au rythme des entreprises du BTP et aux règles de financement Constructys. Des formats de sensibilisation (2 h) ou d\'approfondissement peuvent être étudiés selon votre projet — <a href="${LINKS.prendreRdv}">Échanger sur votre projet de formation</a>.',
+    a: 'Le format le plus courant est une session de 4 heures, adaptée au rythme des entreprises du BTP et aux règles de financement Constructys. Des formats de sensibilisation (2 h) ou d\'approfondissement peuvent être étudiés selon votre projet — <a href="${LINKS.prendreRdv}">Réservez votre visio découverte gratuite</a>.',
   },
   {
     q: "La formation IA pour les pros du BTP est-elle financement possible selon éligibilité (Constructys) dans les Yvelines ?",
@@ -551,7 +551,7 @@ export const FAQ_FORMATION_IA_BTP_YVELINES_LANDING: FAQItem[] = [
   {
     q: 'La formation est-elle disponible le samedi ?',
     a:
-      `Les créneaux les plus courants sont en semaine (journée ou demi-journée), pour s'aligner sur les habitudes des équipes terrain et du bureau d'études. Un samedi peut être étudié au cas par cas pour une session intra (contraintes d'atelier, planning chargé), sous réserve de disponibilité — le plus simple est d'en parler lors d'un <a href="${LINKS.prendreRdv}">Échanger sur votre projet de formation</a> ou via <a href="/contact">contact</a>.`,
+      `Les créneaux les plus courants sont en semaine (journée ou demi-journée), pour s'aligner sur les habitudes des équipes terrain et du bureau d'études. Un samedi peut être étudié au cas par cas pour une session intra (contraintes d'atelier, planning chargé), sous réserve de disponibilité — le plus simple est d'en parler lors d'un <a href="${LINKS.prendreRdv}">Réservez votre visio découverte gratuite</a> ou via <a href="/contact">contact</a>.`,
   },
   {
     q: 'Comment se déroule une session intra-entreprise à Versailles ?',
@@ -881,7 +881,7 @@ export const FAQ_CHECKLIST_PROMPTS: FAQItem[] = [
   },
   {
     q: "La formation est-elle finançable ?",
-    a: `Oui. Formation IA pour les pros du BTP financement possible selon éligibilité. Prenez rendez-vous pour un devis personnalisé : <a href="${LINKS.prendreRdv}">Échanger sur votre projet de formation</a> ou <a href="/contact">contact</a>.`,
+    a: `Oui. Formation IA pour les pros du BTP financement possible selon éligibilité. Prenez rendez-vous pour un devis personnalisé : <a href="${LINKS.prendreRdv}">Réservez votre visio découverte gratuite</a> ou <a href="/contact">contact</a>.`,
   },
 ];
 
@@ -925,7 +925,7 @@ export const FAQ_BLOG: FAQItem[] = [
   },
   {
     q: "Les formations sont-elles finançables ?",
-    a: 'Oui, financement possible via Constructys ou votre OPCO selon éligibilité. Prenez rendez-vous pour un devis personnalisé — <a href="${LINKS.prendreRdv}">Échanger sur votre projet de formation</a> et <a href="/formations">catalogue</a>.',
+    a: 'Oui, financement possible via Constructys ou votre OPCO selon éligibilité. Prenez rendez-vous pour un devis personnalisé — <a href="${LINKS.prendreRdv}">Réservez votre visio découverte gratuite</a> et <a href="/formations">catalogue</a>.',
   },
   {
     q: "Comment accéder aux formations IA pour le BTP ?",

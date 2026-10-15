@@ -160,7 +160,7 @@ export function CatalogueTarifStrip({
           <MentionTvaAsterisque className={onAccent ? 'text-white' : undefined} />
         </span>
         <span className={`text-sm font-medium ${label}`}>
-          {libelleTarifParticipantCatalogue(TARIF_PARTICIPANT_NIV02_HT)} (sessions métier 4 h)
+          {libelleTarifParticipantCatalogue(TARIF_PARTICIPANT_NIV02_HT)} (sessions métier 7 h)
         </span>
       </div>
       {showMention ? (

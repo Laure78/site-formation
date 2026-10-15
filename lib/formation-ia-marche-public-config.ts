@@ -58,7 +58,7 @@ export const FORMATION_IA_MARCHE_PUBLIC_TRAVAUX: FormationIaMarchePublicConfig =
   pageLabel: 'Marché public de travaux',
   courseName: "L'IA appliquée aux appels d'offres BTP — marché public de travaux",
   courseDescription:
-    "Formation IA pour répondre et gérer un marché public de travaux : DCE, Go-NoGo, mémoire technique, CCAG-Travaux (repères). Session 4 h présentiel Île-de-France, Qualiopi — parcours catalogue NIV-02.",
+    "Formation IA pour répondre et gérer un marché public de travaux : DCE, Go-NoGo, mémoire technique, CCAG-Travaux (repères). Session 7 h présentiel Île-de-France, Qualiopi — parcours catalogue NIV-02.",
   courseTeaches: [
     'Analyse DCE et RC de marché public de travaux',
     'Go-NoGo et lecture BPU / DPGF assistée par IA',
@@ -228,7 +228,7 @@ export const FORMATION_IA_MARCHE_PUBLIC_ETANCHEITE: FormationIaMarchePublicConfi
   pageLabel: 'Marché public étanchéité',
   courseName: "L'IA appliquée aux appels d'offres BTP — lot étanchéité",
   courseDescription:
-    "Formation IA pour répondre à un marché public d’étanchéité : DCE, DTU 43.x (repères), toiture-terrasse, EPDM/bitume, note technique. 4 h présentiel Île-de-France, Qualiopi — parcours NIV-02.",
+    "Formation IA pour répondre à un marché public d’étanchéité : DCE, DTU 43.x (repères), toiture-terrasse, EPDM/bitume, note technique. 7 h présentiel Île-de-France, Qualiopi — parcours NIV-02.",
   courseTeaches: [
     'Analyse CCTP étanchéité en marché public',
     'Mémoire technique lot étanchéité / enveloppe',

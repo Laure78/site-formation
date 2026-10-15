@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import { Suspense } from 'react';
 import { FAQSection } from '@/components/landing/FAQSection';
 import { RdvBookingFlowIsland } from '@/components/prendre-rendez-vous/RdvBookingFlowIsland';
 import { PrendreRdvAgenda } from '@/components/prendre-rendez-vous/PrendreRdvAgenda';
@@ -139,7 +140,18 @@ export default function PrendreRendezVousPage() {
 
           <div className="mt-2 w-full sm:mt-3">
             <h2 className="sr-only">{PRENDRE_RDV_CALENDLY_SECTION_TITLE}</h2>
-            <PrendreRdvAgenda compactFooter />
+            <Suspense
+              fallback={
+                <div
+                  className="flex min-h-[400px] items-center justify-center rounded-xl bg-slate-50 text-sm text-slate-500"
+                  aria-busy="true"
+                >
+                  Chargement de l’agenda…
+                </div>
+              }
+            >
+              <PrendreRdvAgenda compactFooter />
+            </Suspense>
           </div>
 
           <div className="mt-4 space-y-3 border-t border-slate-100 pt-4 sm:mt-5">

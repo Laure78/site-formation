@@ -363,7 +363,7 @@ export function TrainingPageTemplate({
         variant="dark"
         primaryHref={finalPrimaryHref}
         primaryLabel={
-          content.finalCta.primaryLabel ?? 'Échanger sur votre projet de formation'
+          content.finalCta.primaryLabel ?? 'Réservez votre visio découverte gratuite'
         }
         secondaryHref={finalSecondaryHref}
         secondaryLabel={content.finalCta.secondaryLabel ?? 'Demander un devis'}

@@ -24,7 +24,7 @@ export const TUTO_SKILL_CHIFFRAGE_DEVIS_OFC: TutoData = {
     'métré devis',
     'coefficients frais généraux',
     'chargé d affaires',
-    'artisan BTP',
+    'professionnel du BTP',
     'Claude BTP',
     'ChatGPT BTP',
     'formation IA pour le BTP',
@@ -168,7 +168,7 @@ export const TUTO_SKILL_CHIFFRAGE_DEVIS_OFC: TutoData = {
 devis BTP chiffrés.
 
 Contexte :
-- Je suis [artisan / dirigeant PME / conducteur de travaux] chez
+- Je suis [dirigeant TPE-PME / professionnel du BTP / conducteur de travaux] chez
   [TON ENTREPRISE]
 - Métiers : [maçonnerie / couverture / électricité / plomberie /
   plâtrerie / multi-lots]

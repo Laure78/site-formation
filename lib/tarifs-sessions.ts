@@ -142,7 +142,7 @@ export function libelleTarifIntraParSession(amount: number, _from = false): stri
   return libelleTarifParticipantCatalogue(amount);
 }
 
-/** « 170 € HT / participant » — sans « à partir de ». */
+/** Affichage tarif participant HT — sans « à partir de ». */
 export function libelleTarifInterParParticipant(amount: number, _from = false): string {
   return libelleTarifParticipantCatalogue(amount);
 }
@@ -168,7 +168,7 @@ export function libelleTarifsDualCourt(dureeHeures: TarifDureeHeures = 4): strin
   return libelleTarifsCarteCatalogue(dureeHeures).participant;
 }
 
-/** Ligne grille — ex. « 4 heures : 170 € HT / participant ». */
+/** Ligne grille — ex. « 7 heures : 310 € HT / participant ». */
 export function libelleTarifsGrilleLigne(dureeHeures: TarifDureeHeures): string {
   const t = libelleTarifsCarteCatalogue(dureeHeures);
   const label = dureeHeures === 2 ? '2 heures' : `${dureeHeures} heures`;
@@ -182,10 +182,8 @@ export const GRILLE_TARIFS_CATALOGUE_DUREES: readonly TarifDureeHeures[] = [4, 7
 export const MENTION_ABONNEMENTS_IA_HORS_FORFAIT =
   'Les éventuels abonnements payants aux outils d\u2019intelligence artificielle ne sont pas inclus, sauf mention contraire dans le devis.';
 
-/**
- * @deprecated Sessions inter historiques CGV — ne pas afficher seul.
- */
-export const MENTIONS_TVA_INTER_COURTE = 'TVA non applicable, article 293 B du CGI.';
+/** Formations OFC — formulation unique (jamais « non applicable » / 293 B). */
+export const MENTIONS_TVA_INTER_COURTE = 'TVA exonérée, article 261-4-4° du CGI.';
 
 export const MENTIONS_TVA_INTRA_COURTE = 'TVA exonérée, article 261-4-4° du CGI.';
 
@@ -261,7 +259,7 @@ export const COMPTES_IA_GRATUITS_NIVEAU_DEBUTANT =
 
 export function getEncartTarifsCommerciaux(at: Date = new Date()): string {
   const count = getCatalogueFormationsCount(at);
-  return `Formations catalogue (${count} parcours) — tarifs HT par participant selon le programme (ex. ${libelleTarifParticipantCatalogue(TARIF_PARTICIPANT_NIV01_HT)} pour les bases, ${libelleTarifParticipantCatalogue(TARIF_PARTICIPANT_NIV02_HT)} pour les sessions métier 4 h). ${COMPTES_IA_GRATUITS_NIVEAU_DEBUTANT} ${MODALITE_FORMATIONS_PRESENTIEL}`;
+  return `Formations catalogue (${count} parcours) — tarifs HT par participant selon le programme (ex. ${libelleTarifParticipantCatalogue(TARIF_PARTICIPANT_NIV01_HT)} pour les bases 4 h, ${libelleTarifParticipantCatalogue(TARIF_PARTICIPANT_NIV02_HT)} pour les sessions métier 7 h). ${COMPTES_IA_GRATUITS_NIVEAU_DEBUTANT} ${MODALITE_FORMATIONS_PRESENTIEL}`;
 }
 
 /** @deprecated Préférer getEncartTarifsCommerciaux() — évaluation paresseuse (évite cycle d'import). */

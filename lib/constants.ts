@@ -18,6 +18,15 @@ export const CONTACT = {
 } as const;
 
 /**
+ * URL Calendly — visio découverte.
+ * TODO (Laure) : remplacer par le nouvel événement sans « artisans » dès création Calendly.
+ * Surcharge possible : NEXT_PUBLIC_CALENDLY_URL
+ */
+export const CALENDLY_URL =
+  process.env.NEXT_PUBLIC_CALENDLY_URL ??
+  'https://calendly.com/formation-ia-artisans-btp-appel-decouverte/appel_decouverte_formation';
+
+/**
  * Départements Île-de-France — source unique (ne plus écrire la liste en dur).
  * Ordre : Paris puis petite/grande couronne.
  */

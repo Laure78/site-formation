@@ -50,8 +50,9 @@ export function LinkedInPresenceCard({
           <p className="mt-1 text-sm text-[#475569]">
             <span className="font-semibold tabular-nums text-[#377CF3]">
               {followersHighlight}
-            </span>{' '}
-            {followersSuffix} — conseils et ressources IA pour le BTP.
+            </span>
+            {followersSuffix ? <> {followersSuffix}</> : null}
+            {' '}— conseils et ressources IA pour le BTP.
           </p>
         </div>
         <ExternalLinkAnchor
@@ -98,7 +99,9 @@ export function LinkedInPresenceCard({
             <span className="font-display text-2xl font-bold tabular-nums tracking-tight text-[#377CF3] md:text-3xl">
               {followersHighlight}
             </span>
-            <span className="ml-2 text-sm font-medium text-slate-600">{followersSuffix}</span>
+            {followersSuffix ? (
+              <span className="ml-2 text-sm font-medium text-slate-600">{followersSuffix}</span>
+            ) : null}
           </p>
           <p className="mt-3 text-sm leading-relaxed text-slate-600">{body}</p>
           <ExternalLinkAnchor

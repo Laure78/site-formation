@@ -2,6 +2,7 @@
 
 import type { CSSProperties } from 'react';
 import Link from 'next/link';
+import { useSearchParams } from 'next/navigation';
 import { CalendlyConsentInline } from '@/components/CalendlyConsentInline';
 import { buildCalendlyUrlWithUtm } from '@/lib/calendly';
 import {
@@ -16,21 +17,12 @@ const calendlyViewportHeight: CSSProperties = {
   minHeight: 400,
 };
 
-function bookingUrl(): string {
-  return buildCalendlyUrlWithUtm({
-    baseUrl: PRENDRE_RDV_CALENDLY_URL,
-    utmSource: 'site',
-    utmMedium: 'cta',
-    utmCampaign: 'prendre-rendez-vous-page',
-  });
-}
-
 /**
  * Agenda Calendly inline — affiché directement sur la page (widget officiel après consentement).
  */
 export function PrendreRdvAgenda({
   heightPx = CALENDLY_INLINE_DEFAULT_HEIGHT_PX,
-  campaign = 'prendre-rendez-vous-page',
+  campaign = 'prendre-rdv-page',
   compactFooter = false,
 }: {
   heightPx?: number;
@@ -38,12 +30,21 @@ export function PrendreRdvAgenda({
   /** Pied de widget réduit — page hero calendrier. */
   compactFooter?: boolean;
 } = {}) {
-  const url = bookingUrl();
+  const searchParams = useSearchParams();
+  const src = searchParams.get('src')?.trim() || undefined;
+  const url = buildCalendlyUrlWithUtm({
+    baseUrl: PRENDRE_RDV_CALENDLY_URL,
+    utmSource: 'site',
+    utmMedium: 'cta',
+    utmCampaign: campaign,
+    utmContent: src,
+  });
 
   return (
     <div className={compactFooter ? 'space-y-1.5' : 'space-y-3'}>
       <CalendlyConsentInline
         campaign={campaign}
+        utmContent={src}
         heightPx={heightPx}
         containerStyle={calendlyViewportHeight}
       />

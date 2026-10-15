@@ -18,7 +18,7 @@ const DEFAULT_BLOG_FAQ_ITEMS = [
   },
   {
     q: 'Combien de temps dure la formation IA pour les pros du BTP ?',
-    a: "Les formations IA appliquées au bâtiment de Laure Olivié durent 4 heures en format intra (dans vos locaux) ou inter. Des modules combinés (2×4h) sont disponibles pour approfondir les appels d'offres ou le chiffrage. Les formations se déroulent en présentiel, intra ou inter ou sur site (FFB, CSFE en intra-entreprise).",
+    a: "Les bases de l’IA durent 4 heures ; les sessions métier catalogue durent 7 heures (variante 14 h pour certains outils). Format intra (dans vos locaux) ou inter, exclusivement en présentiel en Île-de-France.",
   },
   {
     q: "L'IA va-t-elle remplacer les métiers du bâtiment ?",
