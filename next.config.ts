@@ -816,6 +816,11 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
+        source: '/images/tuto-importer-skill-claude-btp.jpg',
+        destination: '/images/creer-skill-claude-btp.webp',
+        permanent: true,
+      },
+      {
         source: '/images/constructys-plafonds-financement-pdc-batiment-juin-2026.png',
         destination: '/images/constructys-plafonds-financement-pdc-batiment-juin.png',
         permanent: true,

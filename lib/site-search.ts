@@ -168,11 +168,13 @@ function buildStaticPages(): SiteSearchEntry[] {
     },
     {
       id: 'skills-claude-btp',
-      title: '5 skills Claude gratuits pour le BTP',
-      description: 'Pack ZIP gratuit : CCTP, CR chantier, contrôle devis, courriers, méthodo — tuto d’import inclus.',
+      title: 'Skills Claude BTP : créer ses assistants métier',
+      description:
+        'Créez des Skills Claude pour le BTP : CCTP, CR, devis, courriers — exemples ZIP et méthode d’import.',
       href: LINKS.skillsClaudeBtp,
       kind: 'guide',
-      keywords: 'skills claude zip cctp devis compte rendu import compétence btp',
+      keywords:
+        'skills claude btp créer skill assistant ia bâtiment automatiser administratif zip',
     },
     {
       id: 'bibliotheque-prompts-btp-par-metier',

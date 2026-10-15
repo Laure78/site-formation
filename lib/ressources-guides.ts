@@ -311,11 +311,11 @@ export const RESSOURCES_GUIDES: readonly RessourceGuideEntry[] = [
   {
     href: LINKS.skillsClaudeBtp,
     pdfHref: LINKS.skillsClaudeBtpPackComplet,
-    title: '5 skills Claude gratuits pour le BTP',
+    title: 'Skills Claude BTP : créer ses assistants métier',
     promise:
-      'Pack prêt à importer : CCTP, CR chantier, contrôle devis, courriers et méthodologie d’exécution — avec tuto d’installation.',
+      'Exemples à importer (CCTP, CR, devis, courriers, méthodo) et méthode pour créer un Skill Claude adapté à votre entreprise.',
     description:
-      'Cinq skills Claude issus d’une formation gros œuvre : analyse CCTP, actions CR, contrôle devis, courriers/relances et méthodologie d’exécution.',
+      'Cinq skills Claude pour le BTP : analyse CCTP, actions CR, contrôle devis, courriers/relances et méthodologie d’exécution — avec tuto d’import.',
     audience: 'Dirigeants · CDT · Chargés d’études · Assistantes · Comptables',
     fonctionId: 'transversal',
     categories: ['toute-equipe', 'conduite-travaux', 'appels-offres'],

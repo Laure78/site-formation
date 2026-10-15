@@ -246,8 +246,9 @@ const ROUTE_SOURCE_FILES: Record<string, readonly string[]> = {
   '/checklist-ia-btp': ['app/checklist-ia-btp/page.tsx'],
   '/skills-claude-btp': [
     'app/skills-claude-btp/page.tsx',
+    'lib/skills-claude-btp-content.ts',
     'public/skills',
-    'public/images/tuto-importer-skill-claude-btp.jpg',
+    'public/images/creer-skill-claude-btp.webp',
   ],
   '/communaute-formateurs': ['app/communaute-formateurs/page.tsx'],
   '/formation-ia-travaux-publics': ['app/formation-ia-travaux-publics/page.tsx'],

@@ -207,7 +207,7 @@ const GUIDE_HUB_DESCRIPTIONS: Partial<Record<string, string>> = {
   'guide-claude-btp-ofc':
     'Installer Projets, Skills et connecteurs pour l’administratif chantier — fonctionnalités éditeur à vérifier selon votre offre.',
   'skills-claude-btp':
-    'Cinq skills Claude gratuits (CCTP, CR, devis, courriers, méthodo) avec tuto d’import — pack ZIP pour entreprises BTP.',
+    'Skills Claude BTP : créer et importer des assistants métier (CCTP, CR, devis, courriers) — exemples ZIP et méthode pratique.',
   'bibliotheque-prompts-btp-par-metier':
     'Fichier Excel de prompts à copier par métier (direction, assistante travaux, BET, CDT, chef de chantier).',
   'guide-assistants-travaux-ofc':

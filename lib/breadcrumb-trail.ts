@@ -75,7 +75,7 @@ const STATIC_PAGE_TITLES: Record<string, string> = {
   '/claude-ai-btp': 'Claude AI BTP',
   '/formations-linkedin-learning': 'Formations LinkedIn Learning',
   '/checklist-ia-btp': 'Checklist IA BTP',
-  '/skills-claude-btp': 'Skills Claude gratuits pour le BTP',
+  '/skills-claude-btp': 'Skills Claude pour le BTP',
   '/outils-ia-btp': 'Outils IA BTP',
   '/outils/cas-usage-ia-btp': "Cas d'usage IA par métier",
   '/outils/verification-dtu-bework': 'Prototype DTU × devis',
