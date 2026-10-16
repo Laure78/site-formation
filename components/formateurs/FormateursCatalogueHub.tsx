@@ -36,15 +36,13 @@ export function FormateursCatalogueHub({ formateurs }: Props) {
   const oddCount = filtered.length % 2 === 1;
 
   return (
-    <div id="formateurs-profiles">
-      <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-end sm:justify-between">
-        <div>
-          <h2 className={OFC_TYPE_H3}>Profils et programmes</h2>
-          <p className="mt-1 max-w-2xl text-base text-ofc-ink-muted">
-            Filtrez par domaine du catalogue pour afficher les intervenants concernés.
-          </p>
-        </div>
-        <div className="w-full sm:max-w-xs">
+    <div id="formateurs-profiles" className="scroll-mt-[var(--site-header-height)]">
+      <div className="formateurs-hub-profiles__head">
+        <h2 className={`${OFC_TYPE_H3} text-ofc-ink`}>Profils et programmes</h2>
+        <p className="mt-2 max-w-2xl text-[1.0625rem] leading-[1.55] text-ofc-ink-muted">
+          Filtrez par domaine du catalogue pour afficher les intervenants concernés.
+        </p>
+        <div className="mt-4 w-full md:mt-5 md:max-w-md">
           <label htmlFor={filterId} className="sr-only">
             Filtrer par domaine du catalogue
           </label>
@@ -52,7 +50,7 @@ export function FormateursCatalogueHub({ formateurs }: Props) {
             id={filterId}
             value={domaineId}
             onChange={(e) => setDomaineId(e.target.value as DomaineId | 'all')}
-            className="w-full rounded-lg border border-ofc-border-strong bg-white px-3 py-2.5 text-base text-ofc-ink focus:border-ofc-accent focus:outline-none focus:ring-2 focus:ring-ofc-accent/30"
+            className="formateurs-hub-select w-full appearance-none rounded-xl border border-ofc-border-strong bg-white px-4 py-3 pr-10 text-base text-ofc-ink focus:border-ofc-accent focus:outline-none focus:ring-2 focus:ring-ofc-accent/30"
           >
             <option value="all">Tous les domaines ({formateurs.length})</option>
             {domainesAvecFormateurs.map((d) => (
@@ -69,7 +67,7 @@ export function FormateursCatalogueHub({ formateurs }: Props) {
         {filtered.length > 1 ? 'affichés' : 'affiché'}
       </p>
 
-      <ul className="mt-6 grid list-none gap-5 lg:grid-cols-2 lg:gap-6">
+      <ul className="mt-8 grid list-none gap-5 lg:grid-cols-2 lg:gap-6">
         {filtered.map((f, index) => {
           const isLastOdd = oddCount && index === filtered.length - 1;
           return (
@@ -77,10 +75,9 @@ export function FormateursCatalogueHub({ formateurs }: Props) {
               key={f.id}
               id={f.slug}
               className={cn(
-                'scroll-mt-28 min-w-0 motion-safe:animate-[ofc-hero-enter_0.45s_ease-out_both]',
+                'scroll-mt-[var(--site-header-height)] min-w-0',
                 isLastOdd && 'lg:col-span-2 lg:mx-auto lg:w-full lg:max-w-xl',
               )}
-              style={{ animationDelay: `${Math.min(index, 5) * 60}ms` }}
             >
               <FormateurCard
                 formateur={f}

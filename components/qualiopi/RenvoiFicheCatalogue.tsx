@@ -5,6 +5,7 @@ import {
   getFormationByCode,
   type Formation,
 } from '@/data/formations';
+import { FormationCharteIaBtpRessourceAside } from '@/components/formations/FormationCharteIaBtpRessourceAside';
 
 export type CatalogueProgrammeRef = 'NIV-01' | 'NIV-02' | 'NIV-03' | 'NIV-04' | 'NIV-05';
 
@@ -40,7 +41,9 @@ export function RenvoiFicheCatalogue({ programmeRef, contexte }: RenvoiFicheCata
       aria-labelledby="renvoi-fiche-catalogue-heading"
       className="scroll-mt-28 border-t border-slate-200 bg-[#F8FAFC] px-4 py-14 md:py-16"
     >
-      <div className="mx-auto max-w-3xl rounded-lg border border-[#377CF3]/25 bg-white p-6 shadow-sm md:p-8">
+      <div className="mx-auto max-w-3xl space-y-6">
+        <FormationCharteIaBtpRessourceAside />
+        <div className="rounded-lg border border-[#377CF3]/25 bg-white p-6 shadow-sm md:p-8">
         <div className="flex items-start gap-3">
           <span className="mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-[#EFF6FF] text-[#377CF3]">
             <BookOpen className="h-5 w-5" strokeWidth={1.75} aria-hidden />
@@ -72,6 +75,7 @@ export function RenvoiFicheCatalogue({ programmeRef, contexte }: RenvoiFicheCata
               <ArrowRight className="h-4 w-4" strokeWidth={2} aria-hidden />
             </Link>
           </div>
+        </div>
         </div>
       </div>
     </aside>

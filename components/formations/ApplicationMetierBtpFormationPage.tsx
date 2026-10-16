@@ -23,6 +23,7 @@ import {
   getApplicationMetierParcoursStepByRef,
 } from '@/lib/application-metier-btp-parcours-nav';
 import { PREUVES } from '@/lib/constants';
+import { FormationCharteIaBtpRessourceAside } from '@/components/formations/FormationCharteIaBtpRessourceAside';
 
 type Props = {
   config: ApplicationMetierNiveauConfig;
@@ -549,6 +550,12 @@ export function ApplicationMetierBtpFormationPage({ config }: Props) {
               <strong className="text-slate-900">Prérequis :</strong> {config.prerequis}
             </p>
           ) : null}
+        </div>
+      </section>
+
+      <section className="border-t border-slate-200 bg-white px-4 py-10">
+        <div className="mx-auto max-w-3xl">
+          <FormationCharteIaBtpRessourceAside />
         </div>
       </section>
 

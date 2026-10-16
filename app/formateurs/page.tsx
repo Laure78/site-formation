@@ -9,10 +9,11 @@ import { LINKS } from '@/lib/internal-links';
 import {
   OFC_CTA_PRIMARY,
   OFC_CTA_SECONDARY,
+  OFC_EYEBROW,
   OFC_TYPE_H2,
-  OFC_TYPE_LEAD,
+  OFC_TYPE_HERO,
 } from '@/lib/ofc-interaction-classes';
-import { OFC_SEC, OFC_SECTION_INNER } from '@/lib/ofc-section-classes';
+import { ofcSectionClasses, OFC_SECTION_INNER } from '@/lib/ofc-section-classes';
 import { createPageMetadata, SITE_CONFIG } from '@/lib/seo';
 
 export const revalidate = 3600;
@@ -39,6 +40,16 @@ export const metadata: Metadata = {
   }),
   title: { absolute: PAGE_TITLE },
 };
+
+const FORMATEURS_HERO_SECTION = ofcSectionClasses({
+  tone: 'white',
+  size: 'compact',
+  mesh: false,
+  divide: false,
+});
+
+const FORMATEURS_CTA =
+  'inline-flex min-h-12 w-full items-center justify-center rounded-xl px-6 py-3 text-base font-semibold transition-[transform,background-color,border-color] duration-200 sm:w-auto';
 
 export default function FormateursPage() {
   const formateurs = getFormateursHubProfiles();
@@ -68,27 +79,26 @@ export default function FormateursPage() {
         ]}
       />
 
-      <section className={`${OFC_SEC.heroWhite} ofc-section--compact`}>
-        <div className={OFC_SECTION_INNER}>
-          <h1 className={OFC_TYPE_H2}>
+      <section className={`${FORMATEURS_HERO_SECTION} formateurs-hub-hero`}>
+        <div className={`${OFC_SECTION_INNER} formateurs-hub-hero__inner`}>
+          <p className={`${OFC_EYEBROW} text-ofc-accent`}>Formation IA BTP</p>
+          <h1 className={`${OFC_TYPE_HERO} formateurs-hub-hero__title`}>
             Les formateurs et leurs domaines d’intervention
           </h1>
-          <p
-            className={`${OFC_TYPE_LEAD} mt-3 max-w-2xl text-base text-ofc-ink-muted md:text-lg`}
-          >
+          <p className="formateurs-hub-hero__lead max-w-2xl text-ofc-ink-muted">
             Découvrez les spécialités de nos intervenants et les programmes associés à vos
             besoins dans le BTP.
           </p>
-          <div className="mt-6 flex flex-wrap gap-3">
+          <div className="formateurs-hub-hero__actions flex flex-col gap-3 sm:flex-row sm:flex-wrap">
             <Link
               href="#formateurs-profiles"
-              className={`${OFC_CTA_PRIMARY} inline-flex min-h-11 items-center justify-center px-6 py-3 text-base`}
+              className={`${OFC_CTA_PRIMARY} ${FORMATEURS_CTA} !rounded-xl shadow-none hover:shadow-sm`}
             >
               Découvrir les profils
             </Link>
             <Link
               href={LINKS.formations}
-              className={`${OFC_CTA_SECONDARY} inline-flex min-h-11 items-center justify-center px-6 py-3 text-base`}
+              className={`${OFC_CTA_SECONDARY} ${FORMATEURS_CTA} !rounded-xl border-ofc-border-strong bg-white text-ofc-ink shadow-none hover:border-ofc-accent/35`}
             >
               Voir les formations
             </Link>
@@ -96,7 +106,12 @@ export default function FormateursPage() {
         </div>
       </section>
 
-      <Section tone="canvas" aria-labelledby="formateurs-grille">
+      <Section
+        tone="muted"
+        className="formateurs-hub-profiles-section ofc-section--divide-0"
+        innerClassName="formateurs-hub-profiles-section__inner"
+        aria-labelledby="formateurs-grille"
+      >
         <h2 id="formateurs-grille" className="sr-only">
           Grille des formateurs
         </h2>

@@ -538,6 +538,8 @@ export default function FormationIaEtancheurPage() {
           <AuthorBio />
         </div>
 
+        <RenvoiFicheCatalogue programmeRef="NIV-01" contexte="pour les entreprises d&apos;étanchéité" />
+
         <RelatedLinks
           path={PATH}
           className="mt-14 !px-0"

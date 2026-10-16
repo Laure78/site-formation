@@ -21,6 +21,7 @@ import {
 import { SITE } from '@/lib/site';
 import { getHeaderNav, headerNavItemHasPanel } from '@/lib/header-nav';
 import { CtaButton } from '@/components/CtaButton';
+import { CtaRdv } from '@/components/CtaRdv';
 import { FormationPlateformeConnexionButton } from '@/components/formation/FormationPlateformeConnexionButton';
 import { SiteSearchBar } from '@/components/search/SiteSearchBar';
 import { HeaderMegaMenu } from '@/components/nav/HeaderMegaMenu';
@@ -246,14 +247,6 @@ export function Header() {
               />
             </div>
 
-            <div className="site-header__rdv-mobile">
-              <CtaButton
-                origin="header-mobile-bar"
-                layout="nav"
-                className="px-3 py-2 text-xs leading-tight sm:px-4 sm:text-sm"
-              />
-            </div>
-
             <div className="flex shrink-0 items-center gap-0.5 lg:hidden">
               <button
                 ref={menuButtonRef}
@@ -267,6 +260,14 @@ export function Header() {
                 {mobileOpen ? <X size={22} strokeWidth={1.75} /> : <Menu size={22} strokeWidth={1.75} />}
               </button>
             </div>
+          </div>
+
+          <div className="site-header__rdv-mobile">
+            <CtaRdv
+              origin="header-mobile-bar"
+              variant="inline"
+              className="inline-flex min-h-10 max-w-full items-center py-1 text-left text-sm font-semibold leading-snug text-[#377CF3] hover:text-[#2a63d4]"
+            />
           </div>
 
           {/* Ligne 2 — navigation principale (desktop) */}

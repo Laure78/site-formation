@@ -19,7 +19,6 @@ import { MetierIdfPresentielLine } from '@/components/formation-ia-metier/Metier
 import { VousEtesPlutotEncart } from '@/components/landing/VousEtesPlutotEncart';
 
 import { RenvoiFicheCatalogue } from '@/components/qualiopi/RenvoiFicheCatalogue';
-import { FormationCharteIaBtpRessourceAside } from '@/components/formations/FormationCharteIaBtpRessourceAside';
 import { ParcoursEncadrerIaBlock } from '@/components/formations/ParcoursEncadrerIaBlock';
 
 export const revalidate = 3600;
@@ -444,8 +443,6 @@ export default function FormationIaDirigeantPmeBtpPage() {
         </section>
 
         <ParcoursEncadrerIaBlock />
-
-        <FormationCharteIaBtpRessourceAside className="mt-10" />
 
         <LiensConnexes
           currentPath={PATH}

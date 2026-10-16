@@ -41,7 +41,8 @@
     "check:internal-links": "npx tsx scripts/check-internal-links.ts",
     "indexnow": "npx tsx scripts/indexnow-submit.ts",
     "indexnow:changed": "npx tsx scripts/indexnow-notify-changed.ts",
-    "import:teachizy:lms-2026": "npx tsx scripts/import-teachizy-lms-2026.ts"
+    "import:teachizy:lms-2026": "npx tsx scripts/import-teachizy-lms-2026.ts",
+    "generate:charte-ia-doc": "node scripts/generate-modele-charte-ia-btp-doc.mjs"
   },
   "dependencies": {
     "@next/third-parties": "^16.1.6",

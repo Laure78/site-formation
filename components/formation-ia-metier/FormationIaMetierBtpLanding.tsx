@@ -26,7 +26,6 @@ import { getClusterRelatedHrefs } from '@/lib/maillage-clusters';
 import { formatNoteSatisfactionSur5 , formatNoteSatisfactionAffichageComplet } from '@/lib/data/indicateurs-resultats'
 import { PreuveSociale } from '@/components/PreuveSociale';
 import { VousEtesPlutotEncart } from '@/components/landing/VousEtesPlutotEncart';
-import { FormationCharteIaBtpRessourceAside } from '@/components/formations/FormationCharteIaBtpRessourceAside';
 
 const OFC = "OFC Création d'Entreprise";
 
@@ -378,8 +377,6 @@ export function FormationIaMetierBtpLanding({ config }: { config: FormationIaMet
               subtitle="Réservez un créneau pour une visio découverte gratuite : démonstration sur un cas type et questions financement (Constructys, OPCO)."
             />
           </div>
-
-          <FormationCharteIaBtpRessourceAside className="mt-14" />
 
           <RenvoiFicheCatalogue
             programmeRef="NIV-01"

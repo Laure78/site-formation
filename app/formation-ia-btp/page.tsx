@@ -6,7 +6,6 @@ import { FAQSection } from '@/components/landing/FAQSection';
 import { ShortAnswerBlock } from '@/components/landing/ShortAnswerBlock';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
 import { RenvoiFicheCatalogue } from '@/components/qualiopi/RenvoiFicheCatalogue';
-import { FormationCharteIaBtpRessourceAside } from '@/components/formations/FormationCharteIaBtpRessourceAside';
 import { InlinePublicPhoneLink } from '@/components/PublicPhoneCta';
 import { DisclaimerGains } from '@/components/formation/DisclaimerGains';
 import { LINKS } from '@/lib/internal-links';
@@ -822,10 +821,6 @@ export default function FormationIaBtpPillarPage() {
           · {SITE_CONFIG.url.replace(/^https?:\/\//, '')}
         </p>
       </article>
-
-      <div className="mx-auto max-w-4xl px-4 pb-6">
-        <FormationCharteIaBtpRessourceAside />
-      </div>
 
       <RenvoiFicheCatalogue programmeRef="NIV-01" contexte="pour les professionnels du BTP" />
 

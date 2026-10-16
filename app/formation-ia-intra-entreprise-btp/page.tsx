@@ -14,6 +14,7 @@ import { ExternalLinkAnchor } from '@/components/ExternalLink';
 import { JsonLd } from '@/components/JsonLd';
 import { FAQSection } from '@/components/landing/FAQSection';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
+import { FormationCharteIaBtpRessourceAside } from '@/components/formations/FormationCharteIaBtpRessourceAside';
 import {
   INTRA_BENEFICES,
   INTRA_CAS_USAGE,
@@ -384,6 +385,7 @@ export default function FormationIaIntraEntrepriseBtpPage() {
       </section>
 
       <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6 lg:px-8">
+        <FormationCharteIaBtpRessourceAside className="mb-10" />
         <AllerPlusLoin
           links={[
             { href: LINKS.partenaires, label: 'Références et partenaires' },

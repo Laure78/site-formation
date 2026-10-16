@@ -465,6 +465,8 @@ export default function FormationIaCouvreurBtpPage() {
           </p>
         </section>
 
+        <RenvoiFicheCatalogue programmeRef="NIV-01" contexte="pour les couvreurs-zingueurs" />
+
         <RelatedLinks
           path={PATH}
           className="mt-14 !px-0"

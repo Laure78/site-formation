@@ -9,10 +9,10 @@ export function ParcoursEncadrerIaBlock() {
       className="mt-10 rounded-xl border border-[#377CF3]/20 bg-[#F2F2F2]/60 p-5 md:p-6"
       aria-labelledby="encadrer-ia-titre"
     >
-      <h2 id="encadrer-ia-titre" className="ofc-type-h2 text-ofc-ink">
+      <h2 id="encadrer-ia-titre" className="font-display text-xl font-bold text-slate-900 md:text-2xl">
         Encadrer l’IA dans votre entreprise
       </h2>
-      <p className="mt-3 text-ofc-ink-muted">
+      <p className="mt-3 text-slate-700">
         Définissez les outils autorisés, les règles de confidentialité et les contrôles à appliquer avec une
         charte adaptée au BTP.
       </p>

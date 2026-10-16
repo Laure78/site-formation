@@ -78,7 +78,7 @@ export function FormateurCard({
       <article
         className={cn(
           OFC_CARD,
-          'flex h-full flex-col p-5 shadow-sm sm:p-6 motion-safe:transition-shadow motion-safe:duration-200',
+          'formateurs-hub-card flex h-full flex-col p-5 sm:p-6',
         )}
         aria-labelledby={`formateur-${formateur.id}-name`}
       >

@@ -3,6 +3,7 @@
 import { usePathname } from 'next/navigation';
 import { Breadcrumbs } from '@/components/Breadcrumbs';
 import { buildBreadcrumbTrail } from '@/lib/breadcrumb-trail';
+import { cn } from '@/lib/cn';
 
 /**
  * Fil d'Ariane visuel — injecté dans `app/layout.tsx` (toutes les pages sauf l'accueil / admin).
@@ -22,9 +23,21 @@ export function GlobalBreadcrumbs() {
 
   if (items.length === 0) return null;
 
+  const isFormateursHub = pathNorm === '/formateurs';
+
   return (
-    <div className="border-b border-slate-100 bg-white">
-      <div className="mx-auto max-w-[1400px] px-4 py-3 sm:px-8">
+    <div
+      className={cn(
+        'bg-white',
+        isFormateursHub ? 'border-b-0' : 'border-b border-slate-100',
+      )}
+    >
+      <div
+        className={cn(
+          'mx-auto max-w-[80rem] sm:px-6 lg:px-8',
+          isFormateursHub ? 'px-5 pb-1 pt-2' : 'max-w-[1400px] px-4 py-3 sm:px-8',
+        )}
+      >
         <Breadcrumbs items={items} omitJsonLd />
       </div>
     </div>

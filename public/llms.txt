@@ -36,6 +36,8 @@ Laure Olivié est formatrice IA spécialisée BTP, avec 7 ans d'expérience dans
 - /ia-memoire-technique-btp — Mémoire technique avec l'IA
 - /ia-compte-rendu-chantier — Compte rendu de chantier avec l'IA
 - /blog — Articles IA × BTP
+- /blog/charte-ia-btp — Charte IA BTP : modèle Word (.doc) et guide de déploiement
+- /ressources/modele-charte-ia-entreprise-btp.doc — Modèle Word charte d’utilisation de l’IA (entreprise BTP)
 - /ressources — Guides PDF gratuits
 - /a-propos — Parcours et certifications
 - /prendre-rdv — Appel découverte (30 min ; l'échange peut être en visioconférence — les formations catalogue restent en présentiel)
