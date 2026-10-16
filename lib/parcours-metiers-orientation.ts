@@ -79,9 +79,9 @@ const PROFILS: readonly ParcoursMetiersProfil[] = [
 ];
 
 export type ParcoursMetiersProfilAvecFormations = ParcoursMetiersProfil & {
-  formations: readonly Pick<Formation, 'code' | 'titre' | 'duree' | 'public' | 'promesse'> & {
+  formations: readonly (Pick<Formation, 'code' | 'titre' | 'duree' | 'public' | 'promesse'> & {
     href: string;
-  }[];
+  })[];
 };
 
 export function getParcoursMetiersProfilsAvecFormations(

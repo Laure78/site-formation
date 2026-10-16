@@ -19,6 +19,7 @@ import type {
 } from '@/lib/formateurs/types';
 import { catalogueDemandeHref } from '@/lib/training-page-helpers';
 import { getPublishedFormations } from '@/lib/formation-catalogue-visibility';
+import { LINKS } from '@/lib/internal-links';
 
 /** Métiers parcours → domaines catalogue (section sous-domaine). */
 const METIER_TO_DOMAINES: Record<MetierId, readonly DomaineId[]> = {
