@@ -20,6 +20,8 @@ export type FormateurPortrait =
       alt: string;
       width: number;
       height: number;
+      /** Cadrage `object-position` (portraits visage / épaules). */
+      objectPosition?: string;
     }
   | {
       kind: 'initials';
@@ -62,6 +64,14 @@ export type FormateurProfile = {
   formationsProfessionnelles?: readonly string[];
   /** Si true, associée à toutes les formations publiées du catalogue NIV. */
   animatesAllPublished?: boolean;
+  /** Codes NIV affichés sur le hub /formateurs (sans lister tout le catalogue). */
+  formationCodesHub?: readonly string[];
+  /** Titre de la section formations sur le hub (ex. spécialités). */
+  formationsHubLabel?: string;
+  /** Mise en avant sobre sur la page /formateurs. */
+  featuredOnHub?: boolean;
+  /** Modalité pédagogique (ligne sous la bio). */
+  modalite?: string;
   portrait: FormateurPortrait;
   status: FormateurStatus;
   /** Lien profil détaillé (confirmés uniquement, ex. /a-propos). */

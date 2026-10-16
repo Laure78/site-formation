@@ -6,7 +6,10 @@ import { getModuleByCode } from '@/data/catalogue-2027';
 import type { DomaineId, MetierId } from '@/data/catalogue-2027';
 import { libelleDisponibilite } from '@/lib/catalogue-2027/search-modules';
 import { CATALOGUE_FORMATEURS } from '@/lib/formateurs/catalogue-formateurs-profiles';
-import { CONFIRMED_FORMATEURS } from '@/lib/formateurs/confirmed-profiles';
+import {
+  CONFIRMED_FORMATEURS,
+  FORMATEUR_LAURE_OLIVIE,
+} from '@/lib/formateurs/confirmed-profiles';
 import type {
   FormateurFormationLink,
   FormateurId,
@@ -39,6 +42,11 @@ export function getIaFormateurs(): readonly FormateurProfile[] {
 /** Cinq profils hub catalogue parcours métiers. */
 export function getCatalogueFormateurs(): readonly FormateurProfile[] {
   return CATALOGUE_FORMATEURS;
+}
+
+/** Page /formateurs — Laure en tête, puis les intervenants catalogue 2027. */
+export function getFormateursHubProfiles(): readonly FormateurProfile[] {
+  return [FORMATEUR_LAURE_OLIVIE, ...CATALOGUE_FORMATEURS];
 }
 
 /**
@@ -108,11 +116,16 @@ export function getFormateursForFormationCode(
 export function getFormateurFormationLinks(
   formateur: FormateurProfile,
   at: Date = new Date(),
+  opts?: { hub?: boolean },
 ): readonly FormateurFormationLink[] {
   const published = getPublishedFormations(at);
-  const codes = formateur.animatesAllPublished
-    ? published.map((f) => f.code)
-    : formateur.formationCodes;
+  const hubCodes = formateur.formationCodesHub;
+  const codes =
+    opts?.hub && hubCodes && hubCodes.length > 0
+      ? hubCodes
+      : formateur.animatesAllPublished
+        ? published.map((f) => f.code)
+        : formateur.formationCodes;
 
   const links: FormateurFormationLink[] = [];
   const seen = new Set<string>();

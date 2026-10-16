@@ -4,11 +4,10 @@ import { FormateursCatalogueHub } from '@/components/formateurs/FormateursCatalo
 import { JsonLd } from '@/components/JsonLd';
 import { BreadcrumbJsonLd } from '@/components/seo/BreadcrumbJsonLd';
 import { Section } from '@/components/ui/Section';
-import { getCatalogueFormateurs } from '@/lib/formateurs';
+import { getFormateursHubProfiles } from '@/lib/formateurs';
 import { LINKS } from '@/lib/internal-links';
 import {
   OFC_CTA_PRIMARY,
-  OFC_LINK,
   OFC_TYPE_H2,
   OFC_TYPE_LEAD,
 } from '@/lib/ofc-interaction-classes';
@@ -19,7 +18,7 @@ export const revalidate = 3600;
 
 const PAGE_TITLE = 'Nos formateurs par domaine d’expertise | Laure Olivié';
 const PAGE_DESCRIPTION =
-  'Formateurs BTP par domaine : travaux, commercial, direction, management et administration. Modules catalogue 2027 en présentiel Île-de-France — OFC Qualiopi.';
+  'Formateurs BTP par domaine : IA, travaux, commercial, direction, management et administration. Présentiel Île-de-France — OFC Qualiopi.';
 
 export const metadata: Metadata = {
   ...createPageMetadata({
@@ -31,8 +30,8 @@ export const metadata: Metadata = {
     appendAuthorSuffix: false,
     keywords: [
       'formateurs BTP',
+      'formatrice IA BTP',
       'formation management chantier',
-      'formation chargé d’affaires',
       'catalogue formations BTP',
     ],
   }),
@@ -40,13 +39,13 @@ export const metadata: Metadata = {
 };
 
 export default function FormateursPage() {
-  const formateurs = getCatalogueFormateurs();
+  const formateurs = getFormateursHubProfiles();
   const base = SITE_CONFIG.url.replace(/\/$/, '');
 
   const itemListSchema = {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
-    name: 'Formateurs catalogue parcours métiers BTP',
+    name: 'Formateurs OFC — IA et parcours métiers BTP',
     numberOfItems: formateurs.length,
     itemListElement: formateurs.map((f, index) => ({
       '@type': 'ListItem',
@@ -77,16 +76,9 @@ export default function FormateursPage() {
         <div className={OFC_SECTION_INNER}>
           <h1 className={OFC_TYPE_H2}>Nos formateurs par domaine d’expertise</h1>
           <p className={`${OFC_TYPE_LEAD} mt-4 max-w-2xl text-base text-ofc-ink-muted md:text-lg`}>
-            Cinq intervenants issus du terrain BTP animent les modules du catalogue parcours
-            métiers en présentiel en Île-de-France. Chaque profil est relié aux formations de son
-            domaine — ouverture des modules annoncée au catalogue pour 2027.
-          </p>
-          <p className="mt-4 max-w-2xl text-sm text-ofc-ink-muted md:text-base">
-            Les formations IA (ChatGPT, Claude) sont animées par{' '}
-            <Link href={LINKS.aPropos} className={OFC_LINK}>
-              Laure Olivié
-            </Link>
-            .
+            Laure Olivié et cinq intervenants issus du terrain BTP animent les formations IA et
+            les modules du catalogue parcours métiers en présentiel en Île-de-France. Chaque profil
+            est relié aux programmes de son domaine.
           </p>
           <div className="mt-7 flex flex-wrap gap-3">
             <Link

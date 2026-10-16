@@ -5,7 +5,8 @@ import {
   getFormateurModuleLinks,
   type FormateurProfile,
 } from '@/lib/formateurs';
-import { OFC_CARD, OFC_CTA_PRIMARY, OFC_LINK } from '@/lib/ofc-interaction-classes';
+import { LINKS } from '@/lib/internal-links';
+import { OFC_CARD, OFC_CTA_PRIMARY, OFC_CTA_SECONDARY, OFC_LINK } from '@/lib/ofc-interaction-classes';
 
 type Props = {
   formateur: FormateurProfile;
@@ -25,14 +26,19 @@ export function FormateurCard({
   variant = 'default',
 }: Props) {
   const fullName = `${formateur.prenom} ${formateur.nom}`;
+  const hubVariant = variant === 'catalogue-hub';
   const moduleLinks =
     showFormations && (formateur.moduleCodes?.length ?? 0) > 0
       ? getFormateurModuleLinks(formateur)
       : [];
   const nivLinks =
     showFormations && moduleLinks.length === 0
-      ? getFormateurFormationLinks(formateur)
+      ? getFormateurFormationLinks(formateur, new Date(), { hub: hubVariant })
       : [];
+  const formationsSectionTitle =
+    formateur.formationsHubLabel ?? 'Formations animées';
+  const portraitSize =
+    hubVariant && formateur.featuredOnHub ? ('lg' as const) : ('md' as const);
   const shownNiv =
     typeof maxFormations === 'number' ? nivLinks.slice(0, maxFormations) : nivLinks;
   const remainingNiv =
@@ -45,13 +51,17 @@ export function FormateurCard({
     ((formateur.experiences?.length ?? 0) > 0 ||
       (formateur.formationsProfessionnelles?.length ?? 0) > 0);
 
+  const cardClass = formateur.featuredOnHub && hubVariant
+    ? `${OFC_CARD} ring-2 ring-ofc-accent/35 shadow-sm`
+    : OFC_CARD;
+
   return (
     <article
-      className={`${OFC_CARD} flex h-full flex-col p-6 sm:p-7 motion-safe:transition-[transform,box-shadow] motion-safe:duration-200`}
+      className={`${cardClass} flex h-full flex-col p-6 sm:p-7 motion-safe:transition-[transform,box-shadow] motion-safe:duration-200`}
       aria-labelledby={`formateur-${formateur.id}-name`}
     >
       <div className="flex items-start gap-4">
-        <FormateurPortraitView portrait={formateur.portrait} size="md" />
+        <FormateurPortraitView portrait={formateur.portrait} size={portraitSize} />
         <div className="min-w-0">
           <h3
             id={`formateur-${formateur.id}-name`}
@@ -82,9 +92,13 @@ export function FormateurCard({
         ))}
       </ul>
 
-      <p className="mt-5 text-sm leading-relaxed text-ofc-ink-muted text-pretty">
+      <p className="mt-5 flex-1 text-sm leading-relaxed text-ofc-ink-muted text-pretty">
         {formateur.parcours}
       </p>
+
+      {formateur.modalite && hubVariant ? (
+        <p className="mt-4 text-sm font-medium text-ofc-ink">{formateur.modalite}</p>
+      ) : null}
 
       {showExperience ? (
         <div className="mt-5 border-t border-ofc-border pt-5">
@@ -122,11 +136,9 @@ export function FormateurCard({
             </>
           ) : null}
         </div>
-      ) : (
-        <div className="flex-1" aria-hidden />
-      )}
+      ) : null}
 
-      {formateur.animatesAllPublished && showFormations ? (
+      {formateur.animatesAllPublished && showFormations && !hubVariant ? (
         <div className="mt-6 border-t border-ofc-border pt-5">
           <p className="text-xs font-semibold uppercase tracking-wide text-ofc-ink-muted">
             Formations animées
@@ -140,7 +152,7 @@ export function FormateurCard({
       {moduleLinks.length > 0 && showFormations ? (
         <div className="mt-6 border-t border-ofc-border pt-5">
           <p className="text-xs font-semibold uppercase tracking-wide text-ofc-ink-muted">
-            Formations animées
+            {formationsSectionTitle}
           </p>
           <ul className="mt-4 space-y-4">
             {moduleLinks.map((m) => (
@@ -168,15 +180,18 @@ export function FormateurCard({
         </div>
       ) : null}
 
-      {!formateur.animatesAllPublished && shownNiv.length > 0 ? (
+      {shownNiv.length > 0 && showFormations && moduleLinks.length === 0 ? (
         <div className="mt-6 border-t border-ofc-border pt-5">
           <p className="text-xs font-semibold uppercase tracking-wide text-ofc-ink-muted">
-            Formations animées
+            {formationsSectionTitle}
           </p>
           <ul className="mt-3 space-y-2">
             {shownNiv.map((f) => (
               <li key={f.code}>
                 <Link href={f.href} className={`${OFC_LINK} text-sm text-pretty`}>
+                  <span className="font-mono text-xs tabular-nums text-ofc-ink-muted">
+                    {f.code}
+                  </span>{' '}
                   {f.titre}
                   <span className="text-ofc-ink-muted"> · {f.duree}</span>
                 </Link>
@@ -188,6 +203,14 @@ export function FormateurCard({
               + {remainingNiv} autre{remainingNiv > 1 ? 's' : ''} formation
               {remainingNiv > 1 ? 's' : ''} au catalogue
             </p>
+          ) : null}
+          {hubVariant && formateur.featuredOnHub ? (
+            <Link
+              href={LINKS.formations}
+              className={`${OFC_CTA_SECONDARY} mt-5 inline-flex min-h-10 w-full items-center justify-center px-4 py-2 text-sm sm:w-auto`}
+            >
+              Voir le catalogue de formations
+            </Link>
           ) : null}
         </div>
       ) : null}

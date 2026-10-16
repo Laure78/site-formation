@@ -1,16 +1,20 @@
 /**
- * Intervenants confirmés — seuls profils exposés sur le site public.
- * Biographie Laure : reprendre exclusivement `lib/laure-olivie-profile` + photos officielles.
+ * Intervenants confirmés — Laure Olivié (IA) + source hub /formateurs.
  */
 import { LINKS } from '@/lib/internal-links';
-import {
-  LAURE_OLIVIE_BIO_REFERENCE,
-  LAURE_OLIVIE_EXPERTISE_TAGLINE,
-} from '@/lib/laure-olivie-profile';
 import { PHOTOS } from '@/lib/photos';
 import type { FormateurProfile } from '@/lib/formateurs/types';
 
-const LAURE_PORTRAIT = PHOTOS.portraitPro2026;
+const LAURE_PORTRAIT = PHOTOS.aProposHero2026;
+
+/** Codes catalogue IA reliés aux spécialités affichées sur /formateurs. */
+const LAURE_HUB_FORMATION_CODES = [
+  'NIV-01',
+  'NIV-02',
+  'NIV-03',
+  'NIV-04',
+  'NIV-10',
+] as const;
 
 /** Profil public confirmé — Laure Olivié (OFC). */
 export const FORMATEUR_LAURE_OLIVIE: FormateurProfile = {
@@ -18,35 +22,34 @@ export const FORMATEUR_LAURE_OLIVIE: FormateurProfile = {
   slug: 'laure-olivie',
   prenom: 'Laure',
   nom: 'Olivié',
-  intitule: 'Formatrice IA spécialisée BTP',
-  parcours: `${LAURE_OLIVIE_BIO_REFERENCE} ${LAURE_OLIVIE_EXPERTISE_TAGLINE}`,
+  intitule: 'Formatrice IA BTP — Fondatrice d’OFC Création d’Entreprise',
+  parcours:
+    'Ancienne dirigeante d’une entreprise de travaux publics, Laure Olivié accompagne les dirigeants et les équipes du BTP dans l’utilisation concrète de l’intelligence artificielle. Ses formations s’appuient sur les documents et les besoins de l’entreprise : devis, appels d’offres, comptes rendus de chantier et outils de gestion.',
   specialites: [
-    'IA générative appliquée au BTP',
-    'Devis, DCE et mémoires techniques',
-    'Comptes rendus et documents de chantier',
-    'Claude AI et ChatGPT pour les équipes BTP',
+    'Intelligence artificielle appliquée au bâtiment et aux travaux publics',
+    'Analyse des DCE, CCTP et CCAP',
+    'Rédaction de mémoires techniques et de comptes rendus',
+    'Création d’assistants IA métiers',
+    'Création d’outils de gestion avec l’IA, sans coder',
   ],
-  domaineIds: [
-    'direction',
-    'commercial',
-    'travaux',
-    'management',
-    'administration',
-    'technique-qualite-prevention',
-    'numerique-ia',
-  ],
+  domaineIds: ['numerique-ia'],
   formationCodes: [],
+  formationCodesHub: LAURE_HUB_FORMATION_CODES,
+  formationsHubLabel: 'Formations associées à ses spécialités',
+  featuredOnHub: true,
+  modalite: 'Formations en présentiel en Île-de-France.',
   animatesAllPublished: true,
   portrait: {
     kind: 'photo',
     src: LAURE_PORTRAIT.src,
-    alt: LAURE_PORTRAIT.alt,
+    alt: 'Laure Olivié, formatrice en intelligence artificielle appliquée au BTP',
     width: LAURE_PORTRAIT.width,
     height: LAURE_PORTRAIT.height,
+    objectPosition: '50% 18%',
   },
   status: 'confirmed',
   profileHref: LINKS.aPropos,
 };
 
-/** Liste publique — ne jamais y ajouter de profils inventés. */
+/** Intervenante IA — fiches NIV et hub formateurs. */
 export const CONFIRMED_FORMATEURS: readonly FormateurProfile[] = [FORMATEUR_LAURE_OLIVIE];

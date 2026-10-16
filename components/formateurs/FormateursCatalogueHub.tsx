@@ -22,8 +22,13 @@ export function FormateursCatalogueHub({ formateurs }: Props) {
   }, [formateurs]);
 
   const filtered = useMemo(() => {
-    if (domaineId === 'all') return formateurs;
-    return formateurs.filter((f) => f.domaineIds.includes(domaineId));
+    const list =
+      domaineId === 'all'
+        ? formateurs
+        : formateurs.filter((f) => f.domaineIds.includes(domaineId));
+    const laure = list.find((f) => f.id === 'laure-olivie');
+    const rest = list.filter((f) => f.id !== 'laure-olivie');
+    return laure ? [laure, ...rest] : rest;
   }, [formateurs, domaineId]);
 
   const filterId = 'formateurs-filtre-domaine';

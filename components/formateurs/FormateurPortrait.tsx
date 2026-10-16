@@ -35,6 +35,11 @@ export function FormateurPortraitView({
           width={portrait.width}
           height={portrait.height}
           className="h-full w-full object-cover"
+          style={
+            portrait.objectPosition
+              ? { objectPosition: portrait.objectPosition }
+              : undefined
+          }
           sizes={size === 'lg' ? '128px' : size === 'md' ? '96px' : '64px'}
         />
       </div>

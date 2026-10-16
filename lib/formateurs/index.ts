@@ -13,6 +13,7 @@ export {
 export { FORMATEUR_LAURE_OLIVIE, CONFIRMED_FORMATEURS } from '@/lib/formateurs/confirmed-profiles';
 export {
   getCatalogueFormateurs,
+  getFormateursHubProfiles,
   getConfirmedFormateurs,
   getFormateurById,
   getFormateurBySlug,
