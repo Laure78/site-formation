@@ -79,6 +79,7 @@ export const NAV_RESSOURCES: readonly NavItem[] = [
 /** Colonne Organisme de formation. */
 export const NAV_ORGANISME: readonly NavItem[] = [
   { href: LINKS.aPropos, label: 'À propos' },
+  { href: LINKS.formateurs, label: 'Nos formateurs' },
   { href: LINKS.avisClients, label: 'Avis clients' },
   { href: LINKS.partenaires, label: 'Partenaires' },
   { href: LINKS.contact, label: 'Contact' },

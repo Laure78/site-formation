@@ -15,6 +15,8 @@ type TrainingCardProps = {
   featured?: boolean;
   ctaLabel?: string;
   className?: string;
+  /** Niveau de titre — défaut h3 ; utiliser h4 sous un H3 de section. */
+  titleAs?: 'h3' | 'h4';
 };
 
 /** Carte formation catalogue — niveau, durée, objectif, CTA. */
@@ -30,7 +32,9 @@ export function TrainingCard({
   featured = false,
   ctaLabel = 'Voir le programme',
   className,
+  titleAs = 'h3',
 }: TrainingCardProps) {
+  const TitleTag = titleAs;
   return (
     <Card
       className={cn(
@@ -53,8 +57,8 @@ export function TrainingCard({
           </span>
         ) : null}
       </div>
-      <h3 className={`${OFC_TYPE_H3} mt-4`}>{titre}</h3>
-      <p className="mt-3 text-sm leading-relaxed text-ofc-ink-muted md:text-base">{benefice}</p>
+      <TitleTag className={`${OFC_TYPE_H3} mt-4 text-pretty`}>{titre}</TitleTag>
+      <p className="mt-3 text-base leading-[1.65] text-ofc-ink-muted">{benefice}</p>
       {publicCible || format ? (
         <dl className="mt-4 space-y-2 text-sm text-ofc-ink-muted">
           {publicCible ? (

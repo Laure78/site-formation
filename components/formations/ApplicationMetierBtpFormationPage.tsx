@@ -8,8 +8,10 @@ import { ApplicationMetierTarifBlock } from '@/components/formations/Application
 import { ApplicationMetierLearningPath } from '@/components/formations/ApplicationMetierLearningPath';
 import { ApplicationMetierParcoursContinueSection } from '@/components/formations/ApplicationMetierParcoursContinueSection';
 import { ApplicationMetierRdvCta } from '@/components/formations/ApplicationMetierRdvCta';
+import { FormationIaApplicationsSection } from '@/components/formations/ia/FormationIaApplicationsSection';
 import { TrainingFinalCta, TrainingObjectives, TrainingQuickFacts } from '@/components/formations/training';
 import { getFormationByCode, libelleEffectifFormation, libellePrixSessionHt } from '@/data/formations';
+import { getFormationIaApplications } from '@/lib/formation-ia';
 import { trainingCategoryBadge } from '@/lib/training-page-helpers';
 import { getFAQSchema } from '@/lib/seo';
 import { LINKS } from '@/lib/internal-links';
@@ -47,6 +49,7 @@ export function ApplicationMetierBtpFormationPage({ config }: Props) {
   const effectifLabel = libelleEffectifFormation(formation);
   const prixLabel = libellePrixSessionHt(formation);
   const programmeHasDurees = Boolean(ux?.programmeSteps?.some((s) => s.duree));
+  const iaApplications = getFormationIaApplications(config.ref);
 
   return (
     <main>
@@ -72,6 +75,10 @@ export function ApplicationMetierBtpFormationPage({ config }: Props) {
       />
 
       <TrainingObjectives objectives={formation.objectifs} />
+
+      {iaApplications ? (
+        <FormationIaApplicationsSection bundle={iaApplications} />
+      ) : null}
 
       {/* 2 — Résultat journée */}
       {ux ? (

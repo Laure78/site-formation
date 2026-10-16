@@ -85,6 +85,7 @@ function aProposNavActive(pathname: string): boolean {
   return (
     pathname === LINKS.aPropos ||
     pathname.startsWith(`${LINKS.aPropos}/`) ||
+    pathname === LINKS.formateurs ||
     pathname === LINKS.avisClients ||
     pathname === LINKS.formateurIaBtp ||
     pathname === LINKS.qualiopi ||
@@ -330,6 +331,11 @@ const BASE_HEADER_NAV: readonly HeaderNavItem[] = [
         href: LINKS.aPropos,
         label: 'Présentation de Laure Olivié',
         title: 'À propos — formatrice IA pour le BTP',
+      },
+      {
+        href: LINKS.formateurs,
+        label: 'Nos formateurs',
+        title: 'Formateurs OFC — formations IA pour le BTP',
       },
       {
         href: LINKS.avisClients,

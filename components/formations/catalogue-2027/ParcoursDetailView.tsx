@@ -9,6 +9,8 @@ import { libelleDisponibilite } from '@/lib/catalogue-2027/search-modules';
 import { catalogueDemandeHref } from '@/lib/training-page-helpers';
 import { LINKS } from '@/lib/internal-links';
 import { OFC_CTA_PRIMARY, OFC_CTA_SECONDARY } from '@/lib/ofc-interaction-classes';
+import { FormateursMetierSection } from '@/components/formateurs/FormateursDomaineSection';
+import { getModule2027IaUsage, labelOutil } from '@/lib/formation-ia';
 import { FormationsContact2027 } from './FormationsContact2027';
 
 type Props = {
@@ -100,6 +102,7 @@ export function ParcoursDetailView({ parcours: p }: Props) {
               {p.etapes.map((etape, index) => {
                 const mod = getModuleByCode(etape.moduleCode);
                 const duree = etape.dureeHeuresOverride ?? mod?.dureeHeures ?? 0;
+                const iaUsage = getModule2027IaUsage(etape.moduleCode);
                 return (
                   <li key={`${etape.moduleCode}-${index}`} className="relative pb-8 last:pb-0">
                     <span
@@ -130,6 +133,22 @@ export function ParcoursDetailView({ parcours: p }: Props) {
                           <dd className="text-ofc-ink-muted">{etape.livrable}</dd>
                         </div>
                       </dl>
+                      {iaUsage ? (
+                        <div className="mt-3 rounded-lg border border-slate-100 bg-slate-50 p-3 text-sm">
+                          <p className="font-medium text-ofc-ink">
+                            Usage IA ({labelOutil(iaUsage.outil)})
+                          </p>
+                          <p className="mt-1 text-ofc-ink-muted">{iaUsage.tacheIa}</p>
+                          <p className="mt-2 text-ofc-ink-muted">
+                            <span className="font-medium text-ofc-ink">Contrôle humain : </span>
+                            {iaUsage.controlesHumains}
+                          </p>
+                          <p className="mt-1 text-ofc-ink-muted">
+                            <span className="font-medium text-ofc-ink">Évaluation : </span>
+                            {iaUsage.critereEvaluation}
+                          </p>
+                        </div>
+                      ) : null}
                       {mod?.href ? (
                         <Link
                           href={mod.href}
@@ -241,6 +260,8 @@ export function ParcoursDetailView({ parcours: p }: Props) {
           </div>
         </aside>
       </div>
+
+      <FormateursMetierSection metierId={p.metierId} />
 
       {/* CTA mobile sticky */}
       <div className="fixed inset-x-0 bottom-0 z-40 border-t border-[#E2E8F0] bg-white/95 p-3 backdrop-blur lg:hidden">

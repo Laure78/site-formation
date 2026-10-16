@@ -36,20 +36,23 @@ export const PARCOURS_CATALOGUE_2027: readonly CatalogueParcours[] = [
       {
         moduleCode: 'DIR-01',
         competence: 'Calculer ses prix de revient et fixer ses prix de vente',
-        exercice: 'Calcul de prix de revient sur une affaire type',
-        livrable: 'Grille prix de revient / prix de vente',
+        exercice:
+          'Calcul de prix de revient + contrôle assisté par IA (tableur) avec validation humaine des montants',
+        livrable: 'Grille prix de revient / prix de vente + grille de contrôle',
       },
       {
         moduleCode: 'DIR-02',
         competence: 'Piloter ses marges chantier par chantier',
-        exercice: 'Analyse de marge sur un chantier fil rouge',
-        livrable: 'Tableau de pilotage des marges',
+        exercice:
+          'Analyse de marge fil rouge + synthèse de pilotage assistée (écarts, hypothèses, actions)',
+        livrable: 'Tableau de pilotage des marges + note d’aide à la décision',
       },
       {
         moduleCode: 'DIR-03',
         competence: 'Organiser sa trésorerie et anticiper ses besoins',
-        exercice: 'Prévisionnel de trésorerie',
-        livrable: 'Outil de suivi de trésorerie',
+        exercice:
+          'Prévisionnel de trésorerie + modèles de relance assistés (grille avant envoi)',
+        livrable: 'Outil de suivi + checklist + modèles de courrier',
       },
       {
         moduleCode: 'COM-02',
@@ -66,8 +69,9 @@ export const PARCOURS_CATALOGUE_2027: readonly CatalogueParcours[] = [
       {
         moduleCode: 'DIR-05',
         competence: 'Piloter l’IA : règles d’usage et plan de déploiement',
-        exercice: 'Règles d’usage et feuille de route',
-        livrable: 'Plan de déploiement IA',
+        exercice:
+          'Cartographie usages / données autorisées + règles d’usage et feuille de route 90 jours',
+        livrable: 'Plan de déploiement IA + matrice de confidentialité',
       },
     ],
   },

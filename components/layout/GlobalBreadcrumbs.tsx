@@ -10,7 +10,16 @@ import { buildBreadcrumbTrail } from '@/lib/breadcrumb-trail';
  */
 export function GlobalBreadcrumbs() {
   const pathname = usePathname() ?? '/';
-  const items = buildBreadcrumbTrail(pathname);
+  const pathNorm = pathname.replace(/\/$/, '') || '/';
+  /** Fil explicite — évite un écart d’hydratation sur le hub formateurs. */
+  const items =
+    pathNorm === '/formateurs'
+      ? [
+          { label: 'Accueil', href: '/' },
+          { label: 'À propos', href: '/a-propos' },
+          { label: 'Formateurs', href: '/formateurs' },
+        ]
+      : buildBreadcrumbTrail(pathname);
 
   if (items.length === 0) return null;
 

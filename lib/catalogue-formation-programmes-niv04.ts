@@ -14,35 +14,56 @@ export const NIV04_PROGRAMME_BLOCS: readonly ProgrammeFormationBloc[] = [
   {
     heading: 'Module 1 — Projets et skills : structurer Claude pour l’entreprise',
     meta: '60 min · Projects · Skills · exécution de code',
+    objective:
+      'Structurer un Projet Claude et industrialiser deux procédures métier réutilisables (skills).',
     objectifs: [
       'Créer un Projet par affaire, chantier ou client : instructions permanentes et base de connaissances',
-      'Centraliser CCTP, CCAP, chartes et modèles dans le Projet pour des réponses contextualisées',
-      'Créer, téléverser et organiser une bibliothèque de skills BTP réutilisables',
-      'Activer l’option « Exécution de code », tester et partager les skills',
+      'Centraliser CCTP, CCAP, chartes et modèles anonymisés dans le Projet',
+      'Créer, téléverser et organiser une bibliothèque de skills BTP (SKILL.md lu avant activation)',
+      'Cycle : cadrer la procédure → sources → tester → corriger → documenter le journal de tests',
+      'Activer l’option « Exécution de code » si disponible ; sinon : prompt-procédure versionné',
     ],
-    livrable: 'Un Projet « chantier type » structuré + 2 skills BTP opérationnels',
+    livrable: 'Projet « chantier type » + 2 skills BTP testés + journal de tests',
+    controlesHumains:
+      'Revue du périmètre documentaire et des consignes de confidentialité avant usage réel.',
+    critereEvaluation:
+      'Instructions claires ; skills déclenchables ; sorties contrôlées sur pièces sources.',
   },
   {
     heading: 'Module 2 — Cowork : déléguer la production documentaire',
     meta: '55 min · tâches agentiques supervisées',
+    objective:
+      'Produire un dossier documentaire sous supervision humaine, avec jalons de validation.',
     objectifs: [
-      'Lancer une tâche agentique de production documentaire en autonomie supervisée',
-      'Produire un livrable complet (CR, mémoire, dossier) à partir de ses propres pièces',
-      'Enchaîner skills et outils bureautiques (tableur, présentation) dans une même tâche Cowork',
-      'Garder la main : relecture et validation systématiques avant diffusion',
+      'Lancer une tâche de production documentaire en autonomie supervisée (Cowork si accessible)',
+      'Alternative pédagogique : enchaînement de prompts dans le Projet avec points de contrôle',
+      'Produire un livrable complet (CR, mémoire, dossier) à partir de pièces anonymisées',
+      'Enchaîner skills et exports bureautiques ; Artifacts pour itérer le livrable',
+      'Arrêt obligatoire avant diffusion : relecture et validation systématiques',
     ],
-    livrable: 'Un dossier chantier produit de bout en bout avec Cowork',
+    livrable: 'Dossier chantier produit de bout en bout + journal de validation des jalons',
+    controlesHumains:
+      'Connecteurs désactivés si non autorisés ; décision finale humaine tracée.',
+    critereEvaluation:
+      'Jalons validés ; sources citées ; aucune diffusion sans validation.',
   },
   {
     heading: 'Module 3 — Connecteurs : relier Claude à ses outils',
     meta: '55 min · messagerie · drive · agenda',
+    objective:
+      'Relier Claude aux outils avec une matrice de données autorisées et un workflow sécurisé.',
     objectifs: [
-      'Relier Claude à sa messagerie, son drive, son agenda ou un outil de gestion',
-      'Cas d’usage : récupérer un DCE depuis le drive, classer des mails, alimenter un suivi chantier',
-      'Périmètre d’accès, données sensibles, validation humaine et RGPD',
-      'Cas des marchés publics : confidentialité des DCE, des offres et des données clients',
+      'Démonstration : connecteur drive / messagerie selon accès du compte (Help Center Connectors)',
+      'Cas d’usage : récupérer un DCE pédagogique, classer des mails, alimenter un suivi chantier',
+      'Cartographier droits d’accès, données autorisées / interdites, étapes de validation',
+      'Alternative sans connecteur : téléchargement manuel vers le Projet',
+      'Marchés publics : confidentialité des DCE, offres et données clients — aucun dépôt hors cadre',
     ],
-    livrable: 'Un connecteur configuré + un workflow type sécurisé',
+    livrable: 'Workflow type sécurisé + matrice de données autorisées',
+    controlesHumains:
+      'Autorisations entreprise obligatoires ; pas de données clients réelles sans cadre adapté.',
+    critereEvaluation:
+      'Matrice complète ; risques listés ; alternative sans connecteur documentée.',
   },
   {
     heading: 'Module 4 — Claude Code : automatiser ses tâches',

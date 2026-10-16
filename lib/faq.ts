@@ -97,7 +97,7 @@ export const FAQ_IA_BTP_METIERS_CHANTIER_SEO: readonly FAQItem[] = [
 export const FAQ_ITEMS_HOME: readonly FAQItem[] = [
   {
     q: "À qui s'adressent les formations IA BTP ?",
-    a: `Dirigeants, conducteurs de travaux, chargés d'affaires, fonctions support et équipes des PME et ETI du bâtiment et des travaux publics. Utilisez la section <a href="#besoin-metier">Par où commencer ?</a> ou les <a href="#offre-formations">formations à la une</a>.`,
+    a: `Dirigeants, conducteurs de travaux, chargés d'affaires, fonctions support et équipes des PME et ETI du bâtiment et des travaux publics. Consultez la section <a href="#formations-parcours">Nos formations et parcours</a> pour choisir une formation ou un parcours métier.`,
   },
   {
     q: 'Faut-il déjà savoir utiliser une IA ?',
@@ -111,7 +111,7 @@ export const FAQ_ITEMS_HOME: readonly FAQItem[] = [
   },
   {
     q: 'Où se déroulent les sessions ?',
-    a: `Présentiel Île-de-France (75 à 95), intra ou inter — y compris la formation <a href="${LINKS.formationDeveloppementWebIaSansCoder}">création avec l’IA sans coder</a>.`,
+    a: `Présentiel Île-de-France (75 à 95), intra ou inter — y compris le niveau 3 <a href="#accueil-formation-NIV-10">création avec l’IA sans coder</a>.`,
   },
   {
     q: 'Une prise en charge par un OPCO est-elle possible ?',

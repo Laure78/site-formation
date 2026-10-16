@@ -12,6 +12,7 @@ import { GlobalSitelinksJsonLd } from '@/components/schema/GlobalSitelinksJsonLd
 import { GlobalSiteJsonLd } from '@/components/schema/GlobalSiteJsonLd';
 import { GlobalBreadcrumbs } from '@/components/layout/GlobalBreadcrumbs';
 import { SiteSearchProvider } from '@/components/search/SiteSearchProvider';
+import { FormateursPreviewBanner } from '@/components/formateurs/FormateursPreviewBanner';
 
 const SitelinksHub = dynamic(
   () =>
@@ -192,6 +193,8 @@ export default function RootLayout({
         <SiteSearchProvider>
           <Header />
         </SiteSearchProvider>
+        {/* Maquette formateurs — rendu nul hors développement local */}
+        <FormateursPreviewBanner />
         <main className="min-w-0 w-full flex-1" id="main-content">
           <GlobalBreadcrumbs />
           {children}

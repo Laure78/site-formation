@@ -8,6 +8,10 @@ export type ProgrammeFormationBloc = {
   objective?: string;
   objectifs: readonly string[];
   livrable?: string;
+  /** Critère d’évaluation des acquis pour ce module (Qualiopi). */
+  critereEvaluation?: string;
+  /** Contrôles humains obligatoires avant usage du livrable. */
+  controlesHumains?: string;
 };
 
 type Props = {
@@ -74,8 +78,20 @@ export function ProgrammeFormationBlocs({
             </ul>
             {bloc.livrable ? (
               <p className="mt-4 text-base text-slate-700">
-                <span className="font-semibold text-slate-900">Résultat attendu : </span>
+                <span className="font-semibold text-slate-900">Livrable : </span>
                 {bloc.livrable}
+              </p>
+            ) : null}
+            {bloc.controlesHumains ? (
+              <p className="mt-2 text-base text-slate-700">
+                <span className="font-semibold text-slate-900">Contrôle humain : </span>
+                {bloc.controlesHumains}
+              </p>
+            ) : null}
+            {bloc.critereEvaluation ? (
+              <p className="mt-2 text-base text-slate-700">
+                <span className="font-semibold text-slate-900">Critère d’évaluation : </span>
+                {bloc.critereEvaluation}
               </p>
             ) : null}
           </article>

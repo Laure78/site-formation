@@ -40,6 +40,8 @@ export const LINKS = {
   /** Article — sécurité données ChatGPT en entreprise BTP (RGPD, Enterprise) */
   blogSecuriteDonneesChatgptBtp: '/blog/securite-donnees-chatgpt-btp',
   aPropos: '/a-propos',
+  /** Hub présentation des formateurs OFC */
+  formateurs: '/formateurs',
   /** Page preuve sociale — avis Google des clients BTP formés */
   avisClients: '/avis-clients',
   partenaires: '/partenaires',

@@ -16,9 +16,10 @@ import {
   TrainingPricing,
   TrainingProgram,
   TrainingSection,
-  TrainingTrainer,
   TrainingTrustBar,
 } from '@/components/formations/training';
+import { FormateurIntervenantBlock } from '@/components/formateurs/FormateurIntervenantBlock';
+import { FormationIaApplicationsSection } from '@/components/formations/ia/FormationIaApplicationsSection';
 import type {
   CatalogueFormationPageContent,
   CatalogueNavItem,
@@ -26,6 +27,7 @@ import type {
 import { getRelatedCatalogueFormations } from '@/lib/catalogue-formation-related';
 import { getFormationByCode, isFormationSurDevis } from '@/data/formations';
 import { getFormationCatalogueSeo } from '@/lib/formation-catalogue-seo';
+import { getFormationIaApplications } from '@/lib/formation-ia';
 import type { FAQItem } from '@/lib/faq';
 import { FINANCEMENT_FORMULATION_COURTE } from '@/lib/financement-copy';
 import { LINKS } from '@/lib/internal-links';
@@ -67,9 +69,12 @@ function buildDefaultNav(
   if (content.practicalCase) {
     items.push({ href: '#modalites', label: 'Modalités' });
   }
+  if (getFormationIaApplications(content.programmeRef)) {
+    items.push({ href: '#applications-ia', label: 'Usages IA' });
+  }
   items.push(
     { href: '#tarifs-modalites', label: 'Tarif' },
-    { href: '#formatrice', label: 'Formatrice' },
+    { href: '#formatrice', label: 'Intervenant' },
   );
   if (hasFaq) {
     items.push({ href: `#${faqSectionId}`, label: 'FAQ' });
@@ -126,7 +131,16 @@ export function TrainingPageTemplate({
       { label: 'Lieu', value: locationLabel },
     ].slice(0, 6);
 
-  const navItems = content.navItems ?? buildDefaultNav(content, faqSectionId, hasFaq);
+  const iaApplications = getFormationIaApplications(ref);
+  const baseNav = content.navItems ?? buildDefaultNav(content, faqSectionId, hasFaq);
+  const navItems =
+    iaApplications && !baseNav.some((item) => item.href === '#applications-ia')
+      ? [
+          ...baseNav.slice(0, Math.min(3, baseNav.length)),
+          { href: '#applications-ia', label: 'Usages IA' },
+          ...baseNav.slice(Math.min(3, baseNav.length)),
+        ]
+      : baseNav;
 
   const programmeHeading =
     content.programmeHeading ?? `Programme — ${formation.duree}`;
@@ -244,6 +258,10 @@ export function TrainingPageTemplate({
         />
       ) : null}
 
+      {iaApplications ? (
+        <FormationIaApplicationsSection bundle={iaApplications} />
+      ) : null}
+
       {content.workflow && content.workflow.length > 0 ? (
         <TrainingSection id="deroule" title="Déroulement type" tone="muted">
           <ol className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
@@ -348,7 +366,10 @@ export function TrainingPageTemplate({
         />
       )}
 
-      <TrainingTrainer title={content.instructorTitle} body={content.instructorBody} />
+      <FormateurIntervenantBlock
+        formationCode={ref}
+        title={content.instructorTitle ?? 'Intervenant'}
+      />
 
       {/* Marqueur audit Qualiopi fiches : catalogueRef={ref} */}
       <TrainingPracticalInfo programmeRef={ref} publicCible={formation.public} />

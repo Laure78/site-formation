@@ -1,10 +1,8 @@
-import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 import {
   ACCUEIL_DEV_WEB_IA_HIGHLIGHT,
   getAccueilDevWebIaEssentialsLine,
 } from '@/lib/accueil-config';
-import { LINKS } from '@/lib/internal-links';
 import { OFC_CTA_PRIMARY } from '@/lib/ofc-interaction-classes';
 
 const H = ACCUEIL_DEV_WEB_IA_HIGHLIGHT;
@@ -47,13 +45,13 @@ export function AccueilBeworkBandeau() {
         <p className="mt-3 text-sm leading-relaxed text-[#64748B]">{H.promiseNote}</p>
 
         <div className="mt-8">
-          <Link
-            href={LINKS.formationDeveloppementWebIaSansCoder}
+          <a
+            href="#accueil-formation-NIV-10"
             className={`${OFC_CTA_PRIMARY} inline-flex min-h-11 w-full items-center justify-center gap-2 px-6 py-3 sm:w-auto`}
           >
             {H.ctaLabel}
             <ArrowRight className="h-4 w-4 shrink-0" aria-hidden />
-          </Link>
+          </a>
         </div>
       </div>
     </section>

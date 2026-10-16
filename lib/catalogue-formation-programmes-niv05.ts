@@ -41,7 +41,7 @@ export const NIV05_PROGRAMME_BLOCS: readonly ProgrammeFormationBloc[] = [
       'Photos de chantier : légendes et intégration dans le CR — gestion des versions et historique des réserves',
     ],
     livrable:
-      'Gabarit CR de chantier MOE + prompt de transcription vocale — gain mesuré : 45 min à 10 min par CR',
+      'Gabarit CR de chantier MOE + prompt de transcription vocale — objectif pédagogique : CR structuré contrôlé sur le cas fil rouge',
   },
   {
     heading: 'Module 3 — Courriers, ordres de service et actes administratifs',

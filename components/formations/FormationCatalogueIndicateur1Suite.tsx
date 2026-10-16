@@ -2,12 +2,12 @@ import { CatalogueInfosPratiques } from '@/components/InfosPratiques';
 import { DevWebIaProgrammesPdfSection } from '@/components/formations/DevWebIaProgrammesPdfSection';
 import { FormationProgrammePdfSection } from '@/components/formations/FormationCourseHero';
 import { FormationTarifsModalitesSection } from '@/components/formations/FormationTarifsModalitesSection';
-import { TrainingTrainer } from '@/components/formations/training/TrainingTrainer';
+import { FormateurIntervenantBlock } from '@/components/formateurs/FormateurIntervenantBlock';
 import type { FormationCatalogueCode } from '@/lib/formation-catalogue-visibility';
 import { getFormationByCode } from '@/data/formations';
 
 /**
- * Suite Indicateur 1 Qualiopi — tarifs → formatrice → PDF → infos réglementaires.
+ * Suite Indicateur 1 Qualiopi — tarifs → intervenant → PDF → infos réglementaires.
  * Ordre aligné gabarit commun fiches formation.
  */
 export function FormationCatalogueIndicateur1Suite({
@@ -15,7 +15,7 @@ export function FormationCatalogueIndicateur1Suite({
   showTrainer = true,
 }: {
   programmeRef: FormationCatalogueCode;
-  /** Désactiver si la page affiche déjà TrainingTrainer. */
+  /** Désactiver si la page affiche déjà le bloc intervenant. */
   showTrainer?: boolean;
 }) {
   const formation = getFormationByCode(programmeRef);
@@ -24,7 +24,9 @@ export function FormationCatalogueIndicateur1Suite({
   return (
     <>
       <FormationTarifsModalitesSection catalogueRef={programmeRef} />
-      {showTrainer ? <TrainingTrainer /> : null}
+      {showTrainer ? (
+        <FormateurIntervenantBlock formationCode={programmeRef} />
+      ) : null}
       {programmeRef === 'NIV-10' ? (
         <DevWebIaProgrammesPdfSection />
       ) : hasProgrammePdf ? (

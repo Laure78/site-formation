@@ -161,10 +161,11 @@ export const DELAI_ACCES_NIV04 =
   "Inscription jusqu'à 15 jours calendaires avant le démarrage, sous réserve des disponibilités de la formatrice et du client. Ce délai correspond au minimum exigé par les OPCO pour l'instruction d'une demande de prise en charge. Le délai exact est confirmé lors de la demande de formation.";
 
 export const EVALUATION_NIV04 = [
-  'Évaluation en amont : vérification des prérequis, recueil des attentes et auto-positionnement des participants en début de session.',
-  'Évaluation des acquis : évaluation continue par mises en situation — chaque participant configure et teste son environnement Claude (Projet, skills, connecteur, automatisme) tout au long de la session, avec validation individuelle par la formatrice.',
-  'Auto-positionnement de sortie permettant de mesurer la progression sur chacun des objectifs.',
-  'Évaluation de la satisfaction : questionnaire à chaud en fin de session, suivi d\'un questionnaire à froid à J+30.',
+  'Évaluation en amont : vérification des prérequis, recueil des attentes et auto-positionnement en début de session.',
+  'Évaluation des acquis : livrables (Projet chantier, skills testés + journal, dossier Cowork avec jalons, matrice connecteurs) — critères : instructions claires, sorties contrôlées sur sources, validation humaine tracée, alternative documentée si fonction indisponible.',
+  'Remédiation : reprise de la configuration Projet / skill lorsque le critère n’est pas atteint.',
+  'Auto-positionnement de sortie sur les objectifs opérationnels.',
+  'Satisfaction : questionnaire à chaud ; questionnaire à froid à J+30 — distincte de l’évaluation des acquis.',
   'Feuille d\'émargement signée par demi-journée ; attestation individuelle de fin de formation et certificat de réalisation.',
 ] as const;
 
@@ -281,32 +282,38 @@ export const DELAI_ACCES_NIV05 =
   "Inscription jusqu'à 15 jours calendaires avant le démarrage, sous réserve des disponibilités de la formatrice et du client. Ce délai correspond au minimum exigé par les OPCO pour l'instruction d'une demande de prise en charge. Le délai exact est confirmé lors de la demande de formation.";
 
 export const EVALUATION_NIV05 = [
-  'Évaluation en amont : vérification des prérequis et recueil des attentes adressé à chaque participant avant la session, permettant d\'ajuster les cas pratiques aux dossiers apportés.',
-  'Auto-positionnement en début et en fin de session afin de mesurer la progression sur chacun des objectifs visés.',
-  'Évaluation des acquis : évaluation continue par les exercices pratiques — chaque module génère un livrable exploitable — avec validation individuelle par la formatrice.',
-  'Évaluation de la satisfaction : questionnaire à chaud en fin de session, suivi d\'un questionnaire à froid à J+30.',
+  'Évaluation en amont : vérification des prérequis et recueil des attentes pour ajuster les dossiers apportés (anonymisés).',
+  'Auto-positionnement en début et en fin de session sur les objectifs opérationnels.',
+  'Évaluation des acquis : livrables (fiche DCE sourcée, CR MOE contrôlé, OS/courrier vérifié, tableau de réserves) — critères : références exactes, distinction observation / hypothèse / constat, aucune conformité réglementaire déclarée par l’IA.',
+  'Remédiation : reprise du contrôle sur pièces d’origine lorsque les références sont inexactes.',
+  'Satisfaction : questionnaire à chaud ; questionnaire à froid à J+30 — distincte de l’évaluation des acquis.',
   'Feuille d\'émargement signée par demi-journée ; attestation individuelle de fin de formation et certificat de réalisation.',
 ] as const;
 
 export const EVALUATION_NIV03 = [
-  'Recueil des attentes et auto-positionnement des participants en début de session.',
-  'Évaluation continue par mises en situation : chaque participant crée et teste ses propres skills tout au long de la session.',
-  'Questionnaire de satisfaction à chaud remis en fin de formation.',
-  'Attestation de fin de formation individuelle et certificat de réalisation remis à chaque participant.',
+  'Recueil des attentes et auto-positionnement en début de session ; auto-positionnement de sortie.',
+  'Évaluation des acquis : livrables par module (synthèse démarrage, CR + tableau d’actions, ordre du jour / écarts, documents de réception contrôlés) — critères : extractions sourcées, actions traçables, aucune décision inventée.',
+  'Remédiation : re-test du skill ou reprise du CR lorsque le critère n’est pas atteint.',
+  'Satisfaction : questionnaire à chaud — distinct de l’évaluation des acquis.',
+  'Attestation de fin de formation individuelle et certificat de réalisation.',
 ] as const;
 
 export const EVALUATION_NIV02 = [
-  'Évaluation en amont : vérification des prérequis et questionnaire de positionnement adressé à chaque participant avant la session.',
-  'Auto-positionnement en début et en fin de session afin de mesurer la progression sur chacun des objectifs visés.',
-  'Évaluation des acquis : évaluation continue par les exercices pratiques sur les DCE et mémoires techniques réels des participants, avec validation individuelle par la formatrice.',
-  'Évaluation de la satisfaction : questionnaire à chaud en fin de session, suivi d\'un questionnaire à froid à J+30.',
+  'Évaluation en amont : vérification des prérequis et questionnaire de positionnement adressé avant la session.',
+  'Auto-positionnement en début et en fin de session sur les objectifs opérationnels.',
+  'Évaluation des acquis : livrables du fil rouge (tableau d’exigences sourcé, tableau d’écarts CCTP–DPGF, plan de mémoire + grille d’audit, checklist chiffrage) — critères : références exactes, distinction faits / hypothèses, échantillon contrôlé dans les pièces d’origine.',
+  'Remédiation : reprise de l’extraction ou de l’audit sur un sous-jeu de pièces lorsque les références sont inexactes.',
+  'Satisfaction : questionnaire à chaud ; questionnaire à froid à J+30 — distincte de l’évaluation des acquis.',
   'Feuille d\'émargement signée par demi-journée ; attestation individuelle de fin de formation et certificat de réalisation.',
 ] as const;
 
 const EVALUATION_NIV01 = [
-  'Questionnaire de positionnement adressé à chaque participant avant la session.',
-  'Auto-positionnement en début et en fin de session ; évaluation continue par exercices pratiques et mises en situation.',
-  'Questionnaire de satisfaction à chaud en fin de session ; questionnaire à froid à 3 mois.',
+  'Positionnement initial : questionnaire adressé avant la session pour ajuster les cas (devis, CR, emails anonymisés).',
+  'Auto-positionnement en début et en fin de session sur chaque objectif opérationnel.',
+  'Évaluation des acquis (distincte de la satisfaction) : chaque module produit un livrable (fiche méthode, trame de devis, CR + tableau d’actions, message + grille) contrôlé selon des critères — exactitude, distinction faits / hypothèses, checklist de validation humaine.',
+  'Remédiation : reprise guidée du cycle Cadrer → sources → produire → corriger lorsque le livrable est incomplet.',
+  'Mise en situation finale courte : produire et contrôler un livrable sur un cas apporté ou pédagogique.',
+  'Satisfaction : questionnaire à chaud en fin de session ; questionnaire à froid à 3 mois — sans seuil réglementaire de réussite inventé.',
   'Feuille d’émargement signée par demi-journée ; attestation de fin de formation et certificat de réalisation.',
 ] as const;
 

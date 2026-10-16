@@ -17,7 +17,7 @@ import { OFC_SEC } from '@/lib/ofc-section-classes';
 
 const cards = [
   {
-    href: '#offre-formations',
+    href: '#formations-parcours',
     title: 'Voir le catalogue',
     desc: 'IA pour le BTP Qualiopi — devis, chantier, appels d\u2019offres',
     Icon: GraduationCap,

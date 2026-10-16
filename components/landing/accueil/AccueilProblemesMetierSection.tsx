@@ -73,7 +73,7 @@ export function AccueilProblemesMetierSection() {
       </div>
       <p className="mt-12 text-center">
         <a
-          href="#offre-formations"
+          href="#formations-parcours"
           className={`${OFC_CTA_SECONDARY} inline-flex min-h-11 items-center justify-center px-6 py-3`}
         >
           Voir toutes les formations

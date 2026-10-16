@@ -1,40 +1,36 @@
 'use client';
 
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
-import type { ComponentPropsWithoutRef, ReactNode } from 'react';
-import { CTA_RDV_LABEL } from '@/components/CtaRdv';
+import type { ComponentPropsWithoutRef, ReactNode, MouseEvent } from 'react';
+import { CTA_RDV_LABEL } from '@/lib/cta-rdv-label';
 import { trackCtaRdvClick } from '@/lib/cta-analytics';
 import { LINKS } from '@/lib/internal-links';
 
-type AccueilPrendreRdvLinkProps = Omit<ComponentPropsWithoutRef<'a'>, 'href' | 'children'> & {
+type AccueilPrendreRdvLinkProps = {
   origin: string;
   children?: ReactNode;
+  className?: string;
+  onClick?: ComponentPropsWithoutRef<'a'>['onClick'];
 };
 
-/** Lien RDV accueil — libellé CTA unifié + suivi GA4. */
+/** Lien RDV accueil — libellé CTA + suivi GA4. */
 export function AccueilPrendreRdvLink({
   origin,
-  className = '',
+  className,
   children = CTA_RDV_LABEL,
   onClick,
-  ...rest
 }: AccueilPrendreRdvLinkProps) {
-  const pathname = usePathname();
+  const handleClick = (event: MouseEvent<HTMLAnchorElement>) => {
+    trackCtaRdvClick(origin, window.location.pathname);
+    onClick?.(event);
+  };
 
   return (
     <Link
       href={LINKS.prendreRdv}
       data-cta="rdv"
-      className={className || undefined}
-      aria-label={CTA_RDV_LABEL}
-      onClick={(event) => {
-        const pagePath =
-          typeof window !== 'undefined' ? window.location.pathname : pathname || 'unknown';
-        trackCtaRdvClick(origin, pagePath);
-        onClick?.(event);
-      }}
-      {...rest}
+      className={className}
+      onClick={handleClick}
     >
       {children}
     </Link>

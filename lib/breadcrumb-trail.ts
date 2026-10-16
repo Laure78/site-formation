@@ -8,7 +8,6 @@ import { formationsData } from '@/src/data/formations';
 import { TUTOS } from '@/lib/tutos';
 import { DEPARTEMENT_PAGES } from '@/lib/departement-pages';
 import { getFormationIaEntry } from '@/lib/seo-formation-ia-hub-data';
-import { LINKS } from '@/lib/internal-links';
 
 export type BreadcrumbHrefCrumb = { label: string; href: string; link?: boolean };
 
@@ -89,6 +88,7 @@ const STATIC_PAGE_TITLES: Record<string, string> = {
   '/prendre-rdv': 'Réservez votre visio découverte gratuite',
   '/contact': 'Contact',
   '/a-propos': 'À propos',
+  '/formateurs': 'Formateurs',
   '/financement-constructys-formation-ia-btp': 'Financement Constructys',
   '/qualiopi': 'Certification Qualiopi',
   '/mentions-legales': 'Mentions légales',
@@ -350,6 +350,15 @@ export function buildBreadcrumbTrail(pathname: string): BreadcrumbHrefCrumb[] {
   if (pathNorm.startsWith('/admin')) return [];
   if (pathNorm.startsWith('/demo/')) return [];
   if (pathNorm.startsWith('/outils/demo-')) return [];
+
+  // Hub formateurs — traité en tête pour éviter un écart SSR / hydratation client.
+  if (pathNorm === '/formateurs') {
+    return [
+      { label: 'Accueil', href: '/' },
+      { label: 'À propos', href: '/a-propos' },
+      { label: 'Formateurs', href: '/formateurs' },
+    ];
+  }
 
   if (pathNorm.startsWith('/formations')) {
     return formationsTrail(pathNorm);

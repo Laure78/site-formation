@@ -33,6 +33,7 @@ export const SITEMAP_CORE_STATIC_PATHS = [
   LINKS.formationIaIntraEntrepriseBtp,
   LINKS.financement,
   LINKS.aPropos,
+  LINKS.formateurs,
   LINKS.avisClients,
   LINKS.partenaires,
   LINKS.blog,
