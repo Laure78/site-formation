@@ -8,6 +8,7 @@ import {
 } from '@/data/catalogue-2027';
 import { FormationsCatalogue2027Hero } from '@/components/formations/catalogue-2027/FormationsCatalogue2027Hero';
 import { FormationsParcoursExplorer } from '@/components/formations/catalogue-2027/FormationsParcoursExplorer';
+import { FormationsSousDomainesIaChantier } from '@/components/formations/catalogue-2027/FormationsSousDomainesIaChantier';
 import { FormationsDeroulementParcours } from '@/components/formations/catalogue-2027/FormationsDeroulementParcours';
 import { FormationsIaDisponibles } from '@/components/formations/catalogue-2027/FormationsIaDisponibles';
 import { FormationsModulesCatalogue } from '@/components/formations/catalogue-2027/FormationsModulesCatalogue';
@@ -76,6 +77,7 @@ export default function FormationsPage() {
       <div className="mx-auto max-w-[80rem] px-4 pb-20 pt-10 sm:px-6 md:pt-14 lg:px-8">
         <p className="sr-only">{CATALOGUE_2027_POSITIONNEMENT.introductionMarque}</p>
         <FormationsParcoursExplorer parcours={parcours} />
+        <FormationsSousDomainesIaChantier />
         <FormationsDeroulementParcours />
         <FormationsIaDisponibles />
         <FormationsModulesCatalogue />

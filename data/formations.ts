@@ -151,7 +151,7 @@ export const FORMATIONS: readonly Formation[] = [
     slug: 'ia-conduite-travaux-suivi-chantier',
     titre: 'IA et conduite de travaux',
     promesse:
-      'Utiliser l’IA dans le suivi documentaire de chantier : CCTP, comptes rendus et actions — distinct de la méthode de réception.',
+      'Utiliser ChatGPT et Claude dans l’organisation et le suivi documentaire de chantier : CCTP, plannings, comptes rendus et tableaux d’actions — distinct de la méthode de réception.',
     casUsageCourts: ['Analyser un CCTP et préparer le chantier', 'Rédiger un compte rendu', 'Suivre les actions documentaires'],
     gamme: 'appliquer-metier',
     theme: 'chantier-travaux',

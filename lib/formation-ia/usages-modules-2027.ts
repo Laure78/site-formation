@@ -187,16 +187,47 @@ export const USAGES_IA_MODULES_2027: Partial<
   'TRA-01': u({
     id: 'tra01-passation',
     moduleLabel: 'TRA-01 — Passation / ouverture',
-    competenceMetier: 'Analyser les documents de préparation de chantier',
+    competenceMetier: 'Organiser la préparation de chantier à partir des documents',
     tacheIa:
-      'Extraire contraintes, interfaces et points à clarifier avant démarrage',
+      'Extraire contraintes d’organisation (CCTP, pièces chantier), actions avant démarrage, approvisionnements',
     documentsOuDonnees: 'Dossier de passation pédagogique',
     outil: 'claude',
     fonctionnaliteId: 'claude-skills',
-    travailParticipant: 'Produire checklist de démarrage + questions aux lots',
-    livrable: 'Checklist passation + points à valider',
+    travailParticipant:
+      'Produire checklist, tableau ressources / livraisons, questions aux lots',
+    livrable: 'Checklist de préparation + ressources à vérifier',
     controlesHumains: 'Retour aux pièces marché pour chaque point critique',
-    critereEvaluation: 'Références exactes ; priorisation claire',
+    critereEvaluation: 'Références exactes ; priorisation claire ; aucune donnée inventée',
+    niveau: 'intermediaire',
+  }),
+  'TRA-02': u({
+    id: 'tra02-planning',
+    moduleLabel: 'TRA-02 — Planning',
+    competenceMetier: 'Construire et actualiser un planning réaliste',
+    tacheIa:
+      'Structurer phases et dépendances, répartir tâches et moyens, comparer scénarios face à un aléa',
+    documentsOuDonnees: 'Durées et moyens renseignés sur cas fil rouge',
+    outil: 'chatgpt',
+    fonctionnaliteId: 'chatgpt-canvas',
+    travailParticipant: 'Planning prévisionnel + scénario d’actualisation contrôlé',
+    livrable: 'Planning à vérifier + plan d’actions',
+    controlesHumains: 'Délais et moyens validés par le conducteur / chef de chantier',
+    critereEvaluation: 'Enchaînements cohérents ; aléa traité sans décision automatique',
+    niveau: 'intermediaire',
+  }),
+  'NUM-07': u({
+    id: 'num07-conduite-documentaire',
+    moduleLabel: 'NUM-07 — IA et conduite de travaux',
+    competenceMetier: 'Piloter le suivi documentaire et les actions de chantier',
+    tacheIa:
+      'CCTP → organisation / suivi ; CR → tableau d’actions ; cadrage d’un assistant métier',
+    documentsOuDonnees: 'CCTP, notes de réunion et CR pédagogiques',
+    outil: 'claude',
+    fonctionnaliteId: 'claude-skills',
+    travailParticipant: 'Fil rouge suivi + assistant avec sources validées',
+    livrable: 'Méthode IA + plan d’actions et protocole de validation',
+    controlesHumains: 'Aucune décision de chantier diffusée sans validation',
+    critereEvaluation: 'Actions traçables ; séparation faits / recommandations',
     niveau: 'intermediaire',
   }),
   'TRA-03': u({
@@ -311,18 +342,19 @@ export const USAGES_IA_MODULES_2027: Partial<
   'TQP-01': u({
     id: 'tqp01-prevention',
     moduleLabel: 'TQP-01 — Prévention chantier',
-    competenceMetier: 'Préparer un diagnostic documentaire de prévention',
+    competenceMetier: 'Préparer supports de prévention et tableaux d’actions',
     tacheIa:
-      'Auditer un dossier selon une grille : manques, contradictions, questions à poser',
-    documentsOuDonnees: 'Dossier prévention pédagogique (extraits)',
+      'Structurer observations, trames d’analyse des risques, accueil sécurité, quart d’heure, EPI, signalements',
+    documentsOuDonnees: 'Consignes et extraits de dossier prévention validés',
     outil: 'claude',
     fonctionnaliteId: 'claude-projects',
-    travailParticipant: 'Remplir la grille, prioriser, proposer plan de correction',
-    livrable: 'Diagnostic documentaire (aide) + plan de correction',
+    travailParticipant:
+      'Trames accueil / QHS, checklist, tableau d’actions — relecture compétente',
+    livrable: 'Trame accueil + support QHS + suivi actions prévention',
     controlesHumains:
-      'Aide documentaire uniquement — pas un diagnostic réglementaire autonome',
+      'Aide documentaire uniquement — pas de conformité PPSPS/DUERP automatique ni habilitation',
     critereEvaluation:
-      'Références exactes ; limites du diagnostic explicites',
+      'Références exactes ; limites explicites ; aucune mesure inventée par l’IA',
     niveau: 'intermediaire',
   }),
 };

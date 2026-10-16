@@ -5,12 +5,14 @@ import Link from 'next/link';
 import {
   DOMAINES_CATALOGUE_2027,
   METIERS_CATALOGUE_2027,
+  SOUS_DOMAINES_IA_CHANTIER,
   formatPrixInterHt,
   prixModuleInterHt,
   type DisponibiliteCommerciale,
   type DomaineId,
   type MetierId,
   type ModuleDureeHeures,
+  type SousDomaineIaChantierId,
 } from '@/data/catalogue-2027';
 import {
   filterCatalogueModules,
@@ -27,6 +29,9 @@ export function FormationsModulesCatalogue() {
   const [metierId, setMetierId] = useState<MetierId | 'all'>('all');
   const [disponibilite, setDisponibilite] = useState<DisponibiliteCommerciale | 'all'>('all');
   const [dureeHeures, setDureeHeures] = useState<ModuleDureeHeures | 'all'>('all');
+  const [thematiqueChantierIa, setThematiqueChantierIa] = useState<
+    SousDomaineIaChantierId | 'all'
+  >('all');
 
   const results = useMemo(
     () =>
@@ -36,8 +41,9 @@ export function FormationsModulesCatalogue() {
         metierId,
         disponibilite,
         dureeHeures,
+        thematiqueChantierIa,
       }),
-    [query, domaineId, metierId, disponibilite, dureeHeures],
+    [query, domaineId, metierId, disponibilite, dureeHeures, thematiqueChantierIa],
   );
 
   const reset = () => {
@@ -46,6 +52,7 @@ export function FormationsModulesCatalogue() {
     setMetierId('all');
     setDisponibilite('all');
     setDureeHeures('all');
+    setThematiqueChantierIa('all');
   };
 
   return (
@@ -58,8 +65,16 @@ export function FormationsModulesCatalogue() {
         Catalogue par domaine
       </h2>
       <p className="mt-3 max-w-2xl text-ofc-ink-muted">
-        35 modules uniques. Recherchez par titre, sujet ou document métier (DCE, CCTP, devis, DOE,
-        Claude…).
+        35 modules uniques. Recherchez par titre, sujet ou document métier (DCE, CCTP, planning,
+        sécurité, PPSPS, accueil sécurité, Claude…). Sous-domaines IA chantier :{' '}
+        <a href="#organisation-chantier-ia" className="font-medium text-[#377CF3] underline">
+          organisation
+        </a>{' '}
+        et{' '}
+        <a href="#securite-prevention-chantier-ia" className="font-medium text-[#377CF3] underline">
+          prévention
+        </a>
+        .
       </p>
 
       <div className="mt-6 grid gap-3 rounded-lg border border-[#E2E8F0] bg-[#F8FAFC] p-4 md:grid-cols-2 lg:grid-cols-3">
@@ -69,9 +84,26 @@ export function FormationsModulesCatalogue() {
             type="search"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            placeholder="Ex. DCE, planning, facturation, Claude…"
+            placeholder="Ex. organisation chantier, planning, sécurité, PPSPS, Claude…"
             className="mt-1 w-full rounded-lg border border-[#CBD5E1] bg-white px-3 py-2 text-ofc-ink focus:border-[#377CF3] focus:outline-none focus:ring-2 focus:ring-[#377CF3]/30"
           />
+        </label>
+        <label className="block text-sm md:col-span-2 lg:col-span-3">
+          <span className="font-medium text-ofc-ink">Sous-domaine IA chantier</span>
+          <select
+            value={thematiqueChantierIa}
+            onChange={(e) =>
+              setThematiqueChantierIa(e.target.value as SousDomaineIaChantierId | 'all')
+            }
+            className="mt-1 w-full max-w-xl rounded-lg border border-[#CBD5E1] bg-white px-3 py-2"
+          >
+            <option value="all">Tous les modules</option>
+            {SOUS_DOMAINES_IA_CHANTIER.map((t) => (
+              <option key={t.id} value={t.id}>
+                {t.titre}
+              </option>
+            ))}
+          </select>
         </label>
         <label className="block text-sm">
           <span className="font-medium text-ofc-ink">Domaine</span>

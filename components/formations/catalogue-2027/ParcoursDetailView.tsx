@@ -2,6 +2,7 @@ import Link from 'next/link';
 import {
   formatPrixInterHt,
   getModuleByCode,
+  getThematiquesForParcoursMetier,
   libelleJoursFormation,
   type ParcoursComputed,
 } from '@/data/catalogue-2027';
@@ -18,6 +19,8 @@ type Props = {
 };
 
 export function ParcoursDetailView({ parcours: p }: Props) {
+  const thematiquesChantier = getThematiquesForParcoursMetier(p.metierId);
+
   const devisHref = catalogueDemandeHref({
     formationOuParcours: `Parcours ${p.titre}`,
     nature: 'devis',
@@ -173,6 +176,38 @@ export function ParcoursDetailView({ parcours: p }: Props) {
               })}
             </ol>
           </section>
+
+          {thematiquesChantier.length > 0 ? (
+            <section className="mt-10" aria-labelledby="thematiques-chantier-ia">
+              <h2 id="thematiques-chantier-ia" className="ofc-type-h2 text-ofc-ink">
+                Organisation et prévention avec l’IA
+              </h2>
+              <p className="mt-3 text-sm text-ofc-ink-muted">
+                Ce parcours intègre les sujets des sous-domaines IA chantier du catalogue (modules
+                existants — durées et tarifs inchangés).
+              </p>
+              <ul className="mt-4 space-y-4">
+                {thematiquesChantier.map((t) => (
+                  <li
+                    key={t.id}
+                    className="rounded-lg border border-[#E2E8F0] bg-[#F8FAFC] p-4 text-sm"
+                  >
+                    <Link
+                      href={`${LINKS.formations}#${t.slug}`}
+                      className="font-semibold text-[#377CF3] underline"
+                    >
+                      {t.titre}
+                    </Link>
+                    <ul className="mt-2 list-disc space-y-1 pl-5 text-ofc-ink-muted">
+                      {(t.integrationParcours[p.metierId] ?? []).map((line) => (
+                        <li key={line}>{line}</li>
+                      ))}
+                    </ul>
+                  </li>
+                ))}
+              </ul>
+            </section>
+          ) : null}
 
           <section className="mt-10" aria-labelledby="methodes-title">
             <h2 id="methodes-title" className="ofc-type-h2 text-ofc-ink">
