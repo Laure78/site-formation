@@ -128,7 +128,7 @@ export function FormationIaMetierBtpLanding({ config }: { config: FormationIaMet
           <p className="text-sm font-semibold uppercase tracking-wide text-[#377CF3]">
             {config.normeRef.replace(/^le |^la /i, '').trim()} · organisme certifié Qualiopi · Île-de-France
           </p>
-          <h1 className="font-display mt-4 text-3xl font-bold leading-tight tracking-tight text-slate-900 md:text-4xl lg:text-[2.35rem]">
+          <h1 className="font-display mt-4 text-2xl font-bold leading-tight tracking-tight text-slate-900 md:text-[1.75rem] lg:text-2xl">
             {config.h1}
           </h1>
           <PreuveSociale className="mt-6" />
@@ -188,7 +188,7 @@ export function FormationIaMetierBtpLanding({ config }: { config: FormationIaMet
           </nav>
 
           <section id="probleme" className="scroll-mt-24 mt-14">
-            <h2 className="font-display text-2xl font-bold text-slate-900 md:text-3xl">
+            <h2 className="font-display text-2xl font-bold text-slate-900 md:text-2xl">
               Le problème des {config.metierNom} : la charge documentaire et les normes
             </h2>
             <div className="mt-6 space-y-4 text-slate-700 leading-relaxed">
@@ -199,7 +199,7 @@ export function FormationIaMetierBtpLanding({ config }: { config: FormationIaMet
           </section>
 
           <section id="solution-ia" className="scroll-mt-24 mt-14">
-            <h2 className="font-display text-2xl font-bold text-slate-900 md:text-3xl">La solution IA</h2>
+            <h2 className="font-display text-2xl font-bold text-slate-900 md:text-2xl">La solution IA</h2>
             <p className="mt-6 text-slate-700 leading-relaxed">{config.solutionIntro}</p>
             <ul className="mt-6 space-y-3">
               {[
@@ -217,7 +217,7 @@ export function FormationIaMetierBtpLanding({ config }: { config: FormationIaMet
 
           {config.casUsageConcrets && config.casUsageConcrets.length > 0 ? (
             <section id="cas-usage" className="scroll-mt-24 mt-14">
-              <h2 className="font-display text-2xl font-bold text-slate-900 md:text-3xl">
+              <h2 className="font-display text-2xl font-bold text-slate-900 md:text-2xl">
                 Cas d&apos;usage concrets
               </h2>
               <p className="mt-4 text-slate-600">
@@ -272,7 +272,7 @@ export function FormationIaMetierBtpLanding({ config }: { config: FormationIaMet
           </div>
 
           <section id="prompts" className="scroll-mt-24 mt-14">
-            <h2 className="font-display text-2xl font-bold text-slate-900 md:text-3xl">
+            <h2 className="font-display text-2xl font-bold text-slate-900 md:text-2xl">
               Prompts ChatGPT — exemples pour {config.metierNomTitre} BTP
             </h2>
             <p className="mt-4 text-slate-600">
@@ -294,7 +294,7 @@ export function FormationIaMetierBtpLanding({ config }: { config: FormationIaMet
           </section>
 
           <section id="temoignage" className="scroll-mt-24 mt-14">
-            <h2 className="font-display text-2xl font-bold text-slate-900 md:text-3xl">
+            <h2 className="font-display text-2xl font-bold text-slate-900 md:text-2xl">
               {config.csfePartnership
                 ? 'Témoignage — partenariat CSFE'
                 : config.umbPartnership
@@ -310,7 +310,7 @@ export function FormationIaMetierBtpLanding({ config }: { config: FormationIaMet
           </section>
 
           <section id="faq" className="scroll-mt-24 mt-14">
-            <h2 className="font-display text-2xl font-bold text-slate-900 md:text-3xl">FAQ</h2>
+            <h2 className="font-display text-2xl font-bold text-slate-900 md:text-2xl">FAQ</h2>
             <div className="mt-8 space-y-5">
               {config.faq.map((item) => (
                 <div key={item.q} className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm">

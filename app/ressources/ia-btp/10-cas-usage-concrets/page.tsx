@@ -228,7 +228,7 @@ export default function CasUsageIABTPPage() {
             <span>•</span>
             <span>Lecture : 12 min</span>
           </div>
-          <h1 className="font-display text-4xl font-bold text-white md:text-5xl">
+          <h1 className="font-display text-2xl font-bold text-white md:text-2xl">
             IA dans le BTP : 10 cas d'usage concrets (2026)
           </h1>
           <p className="mt-6 text-xl leading-relaxed text-blue-50">
@@ -242,7 +242,7 @@ export default function CasUsageIABTPPage() {
       {/* Introduction */}
       <section className="border-b border-slate-200 bg-white px-4 py-12">
         <div className="prose prose-lg mx-auto max-w-4xl">
-          <h2 className="font-display text-3xl font-bold text-slate-900">
+          <h2 className="font-display text-2xl font-bold text-slate-900">
             Pourquoi l'IA change la donne dans le BTP en 2026
           </h2>
           <p className="text-slate-700">
@@ -286,7 +286,7 @@ export default function CasUsageIABTPPage() {
       {/* 10 Cas d'usage */}
       <section className="border-b border-slate-200 bg-slate-50 px-4 py-16">
         <div className="mx-auto max-w-5xl">
-          <h2 className="font-display text-center text-3xl font-bold text-slate-900 md:text-4xl">
+          <h2 className="font-display text-center text-2xl font-bold text-slate-900 md:text-[1.75rem]">
             10 cas d'usage IA pour le BTP
           </h2>
           <p className="mt-4 text-center text-slate-600">
@@ -346,7 +346,7 @@ export default function CasUsageIABTPPage() {
           <div className="mx-auto max-w-3xl text-center">
             <h2
               id="demarrer-ia-btp-titre"
-              className="font-display text-3xl font-bold tracking-tight text-slate-900 md:text-4xl"
+              className="font-display text-2xl font-bold tracking-tight text-slate-900 md:text-[1.75rem]"
             >
               Comment démarrer avec l&apos;IA dans votre entreprise BTP
             </h2>
@@ -385,7 +385,7 @@ export default function CasUsageIABTPPage() {
       {/* FAQ */}
       <section className="border-b border-slate-200 bg-slate-50 px-4 py-16">
         <div className="mx-auto max-w-4xl">
-          <h2 className="font-display text-center text-3xl font-bold text-slate-900">
+          <h2 className="font-display text-center text-2xl font-bold text-slate-900">
             Questions fréquentes
           </h2>
           <div className="mt-12 space-y-6">
@@ -466,7 +466,7 @@ export default function CasUsageIABTPPage() {
       {/* CTA Final */}
       <section className="bg-gradient-to-br from-[var(--accent)] to-blue-800 px-4 py-16">
         <div className="mx-auto max-w-4xl text-center">
-          <h2 className="font-display text-3xl font-bold text-white">
+          <h2 className="font-display text-2xl font-bold text-white">
             Prêt à passer à l'action ?
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-lg text-blue-50">

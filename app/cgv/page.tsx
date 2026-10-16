@@ -23,7 +23,7 @@ export default function CGVPage() {
           <p className="text-sm font-medium text-slate-600">
             Formation professionnelle continue
           </p>
-          <h1 className="mt-4 font-display text-3xl font-bold text-slate-900 md:text-4xl">
+          <h1 className="mt-4 font-display text-2xl font-bold text-slate-900 md:text-[1.75rem]">
             CONDITIONS GÉNÉRALES DE VENTE
           </h1>
           <p className="mt-2 font-display text-xl font-bold text-[var(--accent)]">

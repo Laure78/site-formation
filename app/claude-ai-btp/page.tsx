@@ -225,7 +225,7 @@ export default function ClaudeAiBtpPillarPage() {
               <section id="en-bref" className="scroll-mt-28" aria-labelledby="en-bref-heading">
                 <div className="rounded-2xl border border-[#377CF3]/20 bg-gradient-to-br from-[#EFF6FF] to-white p-6 shadow-[inset_4px_0_0_0_#377CF3,0_8px_30px_rgba(15,23,42,0.04)] md:p-8">
                   <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#377CF3]">L&apos;essentiel</p>
-                  <h2 id="en-bref-heading" className="mt-2 font-display text-2xl font-bold tracking-tight text-[#0F172A] md:text-3xl">
+                  <h2 id="en-bref-heading" className="mt-2 font-display text-2xl font-bold tracking-tight text-[#0F172A] md:text-2xl">
                     En bref
                   </h2>
                   <p className="tldr mt-4 max-w-3xl text-sm leading-relaxed text-[#64748B] md:text-base">
@@ -265,7 +265,7 @@ export default function ClaudeAiBtpPillarPage() {
 
               <section className="scroll-mt-28" aria-labelledby="gains-temps">
                 <div className="flex flex-col gap-2 md:flex-row md:items-end md:justify-between">
-                  <h2 id="gains-temps" className="font-display text-2xl font-bold tracking-tight text-[#0F172A] md:text-3xl">
+                  <h2 id="gains-temps" className="font-display text-2xl font-bold tracking-tight text-[#0F172A] md:text-2xl">
                     Gains de temps mesurés
                   </h2>
                   <p className="max-w-md text-sm text-[#64748B]">Repères observés en formation OFC.</p>
@@ -312,7 +312,7 @@ export default function ClaudeAiBtpPillarPage() {
               <section className="scroll-mt-24" id="prompts" aria-labelledby="bibliotheque-prompts-title">
                 <h2
                   id="bibliotheque-prompts-title"
-                  className="font-display text-2xl font-bold tracking-tight text-[#0F172A] md:text-3xl"
+                  className="font-display text-2xl font-bold tracking-tight text-[#0F172A] md:text-2xl"
                 >
                   Bibliothèque de prompts prêts à l&apos;emploi
                 </h2>
@@ -331,7 +331,7 @@ export default function ClaudeAiBtpPillarPage() {
               </section>
 
               <section className="scroll-mt-24" aria-labelledby="limites">
-                <h2 id="limites" className="font-display text-2xl font-bold tracking-tight text-[#0F172A] md:text-3xl">
+                <h2 id="limites" className="font-display text-2xl font-bold tracking-tight text-[#0F172A] md:text-2xl">
                   Atouts et limites
                 </h2>
                 <div className="mt-8 grid gap-4 md:grid-cols-2">
@@ -368,7 +368,7 @@ export default function ClaudeAiBtpPillarPage() {
                 <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#377CF3]">Spécial bâtiment</p>
                 <h2
                   id="claude-ai-batiment-title"
-                  className="mt-2 font-display text-2xl font-bold tracking-tight text-[#0F172A] md:text-3xl"
+                  className="mt-2 font-display text-2xl font-bold tracking-tight text-[#0F172A] md:text-2xl"
                 >
                   Claude AI pour le bâtiment — gros œuvre, second œuvre, étanchéité
                 </h2>
@@ -446,7 +446,7 @@ export default function ClaudeAiBtpPillarPage() {
                 </p>
                 <h2
                   id="claude-ai-travaux-publics-title"
-                  className="mt-2 font-display text-2xl font-bold tracking-tight text-[#0F172A] md:text-3xl"
+                  className="mt-2 font-display text-2xl font-bold tracking-tight text-[#0F172A] md:text-2xl"
                 >
                   Claude AI pour les travaux publics — TP, génie civil, VRD
                 </h2>
@@ -520,7 +520,7 @@ export default function ClaudeAiBtpPillarPage() {
               <section className="scroll-mt-28" id="fiches-formation-claude" aria-labelledby="fiches-formation-claude-title">
                 <h2
                   id="fiches-formation-claude-title"
-                  className="font-display text-2xl font-bold tracking-tight text-[#0F172A] md:text-3xl"
+                  className="font-display text-2xl font-bold tracking-tight text-[#0F172A] md:text-2xl"
                 >
                   Passer à une formation Claude (catalogue — organisme certifié Qualiopi)
                 </h2>
@@ -571,7 +571,7 @@ export default function ClaudeAiBtpPillarPage() {
                 <div className="flex flex-col gap-2 md:flex-row md:items-end md:justify-between">
                   <h2
                     id="formation-claude-idf"
-                    className="font-display text-2xl font-bold tracking-tight text-[#0F172A] md:text-3xl"
+                    className="font-display text-2xl font-bold tracking-tight text-[#0F172A] md:text-2xl"
                   >
                     Formation en Île-de-France
                   </h2>
@@ -605,7 +605,7 @@ export default function ClaudeAiBtpPillarPage() {
               <section className="scroll-mt-28" aria-labelledby="tuto-skill-ia">
                 <div className="rounded-2xl border border-[#BFDBFE] bg-[#EFF6FF] p-6 md:p-8">
                   <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#377CF3]">Tutoriel opérationnel</p>
-                  <h2 id="tuto-skill-ia" className="mt-3 font-display text-2xl font-bold tracking-tight text-[#0F172A] md:text-3xl">
+                  <h2 id="tuto-skill-ia" className="mt-3 font-display text-2xl font-bold tracking-tight text-[#0F172A] md:text-2xl">
                     Créer son 1er skill IA conducteur de travaux
                   </h2>
                   <p className="mt-4 max-w-3xl text-sm leading-relaxed text-[#475569] md:text-base">
@@ -629,7 +629,7 @@ export default function ClaudeAiBtpPillarPage() {
               </section>
 
               <section className="scroll-mt-28" aria-labelledby="nav-rapide">
-                <h2 id="nav-rapide" className="font-display text-2xl font-bold tracking-tight text-[#0F172A] md:text-3xl">
+                <h2 id="nav-rapide" className="font-display text-2xl font-bold tracking-tight text-[#0F172A] md:text-2xl">
                   Ressources liées
                 </h2>
                 <div className="mt-8 grid gap-3 sm:grid-cols-2">
@@ -647,7 +647,7 @@ export default function ClaudeAiBtpPillarPage() {
               </section>
 
               <section className="scroll-mt-28" aria-labelledby="cluster">
-                <h2 id="cluster" className="font-display text-2xl font-bold tracking-tight text-[#0F172A] md:text-3xl">
+                <h2 id="cluster" className="font-display text-2xl font-bold tracking-tight text-[#0F172A] md:text-2xl">
                   Ressources approfondies
                 </h2>
                 <div className="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-4">

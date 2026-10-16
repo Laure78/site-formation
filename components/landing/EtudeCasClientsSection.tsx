@@ -29,7 +29,7 @@ export function EtudeCasClientsSection() {
               </div>
               <h3
                 id="etude-cas-titre"
-                className="mt-4 font-display text-3xl font-bold tracking-tight text-slate-900 md:text-4xl"
+                className="mt-4 font-display text-2xl font-bold tracking-tight text-slate-900 md:text-[1.75rem]"
               >
                 FFB &amp; étanchéité :{' '}
                 <span className="font-serif italic text-slate-800">ce qui a été mis en place</span>

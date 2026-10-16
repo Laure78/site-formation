@@ -33,7 +33,7 @@ export function FormationPlateformeConnexionButton({
 }: FormationPlateformeConnexionButtonProps) {
   return (
     <Link
-      href={LINKS.authConnexion}
+      href={`${LINKS.authConnexion}?next=${encodeURIComponent(LINKS.espaceApprenant)}`}
       title="Connexion à la plateforme de formation IA BTP — OFC Création d'Entreprise"
       aria-label={label}
       onClick={onClick}

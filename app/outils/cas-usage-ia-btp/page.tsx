@@ -81,7 +81,7 @@ export default function CasUsageIaMetierBtpPage() {
 
       <header className="border-b border-slate-200/80 bg-white px-4 py-10 md:py-14">
         <div className="mx-auto max-w-6xl">
-          <h1 className="font-display text-3xl font-bold leading-tight tracking-tight text-[#1A1A1A] md:text-4xl">
+          <h1 className="font-display text-2xl font-bold leading-tight tracking-tight text-[#1A1A1A] md:text-2xl">
             Que peut faire l&apos;IA pour votre métier dans le BTP ?
           </h1>
           <p className="mt-6 max-w-3xl text-base leading-relaxed text-[#5A5A5A] md:text-lg">{INTRO_COPY}</p>

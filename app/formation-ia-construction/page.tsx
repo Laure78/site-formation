@@ -113,7 +113,7 @@ export default function FormationIaConstructionPage() {
           <p className="text-sm font-medium uppercase tracking-wide text-[#377CF3]">
             {SITE_CONFIG.legalName} · organisme certifié Qualiopi · Constructys · Présentiel Île-de-France
           </p>
-          <h1 className="font-display mt-4 text-3xl font-bold tracking-tight text-slate-900 md:text-4xl lg:text-[2.35rem] lg:leading-tight">
+          <h1 className="font-display mt-4 text-2xl font-bold tracking-tight text-slate-900 md:text-[1.75rem] lg:text-2xl lg:leading-tight">
             {FORMATION_IA_CONSTRUCTION_SEO.h1}
           </h1>
           <p className="mt-4 text-lg text-slate-600">

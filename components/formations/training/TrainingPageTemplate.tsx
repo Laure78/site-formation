@@ -327,7 +327,7 @@ export function TrainingPageTemplate({
       {content.publicPrerequisites && content.publicPrerequisites.length > 0 ? (
         <section className="scroll-mt-[calc(var(--site-header-height)+3.25rem)] border-b border-slate-200 bg-white px-4 py-12 md:py-16">
           <div className="mx-auto max-w-[78rem]">
-            <h2 className="font-display text-2xl font-bold tracking-tight text-slate-900 md:text-[1.75rem]">
+            <h2 className="font-display text-xl font-bold tracking-tight text-slate-900 md:text-[1.375rem]">
               Public et prérequis
             </h2>
             <p className="mt-3 max-w-2xl text-base text-slate-700">{formation.public}</p>

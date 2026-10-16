@@ -87,7 +87,7 @@ export default function GuideMaitriseOeuvreIaPage() {
       <section className="bg-[#377CF3] text-white" aria-labelledby="hero-guide-moe">
         <div className="mx-auto grid max-w-7xl gap-10 px-4 py-14 md:items-center md:gap-12 md:py-20 lg:grid-cols-2">
           <div className="min-w-0">
-            <h1 id="hero-guide-moe" className="font-display text-3xl font-bold leading-tight md:text-4xl lg:text-[2.35rem]">
+            <h1 id="hero-guide-moe" className="font-display text-2xl font-bold leading-tight md:text-2xl lg:text-2xl">
               {GUIDE_MOE_IA_H1}
             </h1>
             <p className="mt-5 max-w-none text-lg leading-relaxed text-white/95">
@@ -127,7 +127,7 @@ export default function GuideMaitriseOeuvreIaPage() {
 
       <section className="py-14 md:py-16" aria-labelledby="pourquoi-guide-moe">
         <div className="mx-auto max-w-3xl px-4">
-          <h2 id="pourquoi-guide-moe" className="font-display text-2xl font-bold md:text-3xl">
+          <h2 id="pourquoi-guide-moe" className="font-display text-2xl font-bold md:text-2xl">
             Pourquoi ce guide
           </h2>
           <div className="mt-6 space-y-4 leading-relaxed text-[#666666]">
@@ -151,7 +151,7 @@ export default function GuideMaitriseOeuvreIaPage() {
 
       <section className="border-y bg-[#F2F2F2] py-14" aria-labelledby="contenu-guide-moe">
         <div className="mx-auto max-w-7xl px-4">
-          <h2 id="contenu-guide-moe" className="font-display text-2xl font-bold md:text-3xl">
+          <h2 id="contenu-guide-moe" className="font-display text-2xl font-bold md:text-2xl">
             Ce que contient le guide
           </h2>
           <p className="mt-3 max-w-3xl text-[#666666]">
@@ -201,7 +201,7 @@ export default function GuideMaitriseOeuvreIaPage() {
 
       <section className="py-14" aria-labelledby="methode-5-etapes">
         <div className="mx-auto max-w-7xl px-4">
-          <h2 id="methode-5-etapes" className="font-display text-2xl font-bold md:text-3xl">
+          <h2 id="methode-5-etapes" className="font-display text-2xl font-bold md:text-2xl">
             La méthode en 5 étapes
           </h2>
           <p className="mt-3 max-w-3xl text-[#666666]">
@@ -225,7 +225,7 @@ export default function GuideMaitriseOeuvreIaPage() {
 
       <section className="bg-[#F2F2F2] py-14" aria-labelledby="resultats-guide-moe">
         <div className="mx-auto max-w-7xl px-4 text-center">
-          <h2 id="resultats-guide-moe" className="font-display text-2xl font-bold md:text-3xl">
+          <h2 id="resultats-guide-moe" className="font-display text-2xl font-bold md:text-2xl">
             Les résultats
           </h2>
           <div className="mx-auto mt-10 grid max-w-4xl gap-6 sm:grid-cols-2">
@@ -247,7 +247,7 @@ export default function GuideMaitriseOeuvreIaPage() {
 
       <section className="py-14" aria-labelledby="cta-mid-moe">
         <div className="mx-auto max-w-3xl px-4 text-center">
-          <h2 id="cta-mid-moe" className="font-display text-2xl font-bold md:text-3xl">
+          <h2 id="cta-mid-moe" className="font-display text-2xl font-bold md:text-2xl">
             Un doute sur la mission à automatiser en premier&nbsp;?
           </h2>
           <p className="mt-4 text-[#666666]">
@@ -271,7 +271,7 @@ export default function GuideMaitriseOeuvreIaPage() {
 
       <section className="border-t bg-white py-14" aria-labelledby="faq-guide-moe">
         <div className="mx-auto max-w-3xl px-4">
-          <h2 id="faq-guide-moe" className="font-display text-2xl font-bold md:text-3xl">
+          <h2 id="faq-guide-moe" className="font-display text-2xl font-bold md:text-2xl">
             Questions fréquentes
           </h2>
           <dl className="mt-8 space-y-6">
@@ -300,7 +300,7 @@ export default function GuideMaitriseOeuvreIaPage() {
               loading="lazy"/>
           </figure>
           <div>
-            <h2 id="qui-est-laure" className="font-display text-2xl font-bold md:text-3xl">
+            <h2 id="qui-est-laure" className="font-display text-2xl font-bold md:text-2xl">
               Qui est Laure Olivié&nbsp;?
             </h2>
             <div className="mt-6 space-y-4 leading-relaxed text-[#666666]">
@@ -339,7 +339,7 @@ export default function GuideMaitriseOeuvreIaPage() {
 
       <section className="bg-[#377CF3] py-16 text-center text-white" aria-labelledby="cta-final-moe">
         <div className="mx-auto max-w-3xl px-4">
-          <h2 id="cta-final-moe" className="font-display text-2xl font-bold md:text-3xl">
+          <h2 id="cta-final-moe" className="font-display text-2xl font-bold md:text-2xl">
             Prendre rendez-vous
           </h2>
           <p className="mt-4 text-lg text-white/95">

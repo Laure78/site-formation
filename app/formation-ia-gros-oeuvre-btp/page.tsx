@@ -103,7 +103,7 @@ export default function FormationIaGrosOeuvreBtpPage() {
           <p className="text-sm font-semibold uppercase tracking-wide text-[#377CF3]">
             DCE · planning · coordination des lots · Qualiopi · Île-de-France
           </p>
-          <h1 className="font-display mt-4 text-3xl font-bold leading-tight tracking-tight text-slate-900 md:text-4xl lg:text-[2.35rem]">
+          <h1 className="font-display mt-4 text-2xl font-bold leading-tight tracking-tight text-slate-900 md:text-[1.75rem] lg:text-2xl">
             {FORMATION_IA_GROS_OEUVRE_BTP_H1}
           </h1>
 
@@ -139,7 +139,7 @@ export default function FormationIaGrosOeuvreBtpPage() {
           </nav>
 
           <section id="probleme" className="scroll-mt-24 mt-14">
-            <h2 className="font-display text-2xl font-bold text-slate-900 md:text-3xl">
+            <h2 className="font-display text-2xl font-bold text-slate-900 md:text-2xl">
               Le problème des entreprises de gros œuvre : charge documentaire et normes
             </h2>
             <div className="mt-6 space-y-4 text-slate-700 leading-relaxed">
@@ -167,7 +167,7 @@ export default function FormationIaGrosOeuvreBtpPage() {
           </section>
 
           <section id="solution" className="scroll-mt-24 mt-14">
-            <h2 className="font-display text-2xl font-bold text-slate-900 md:text-3xl">La solution IA</h2>
+            <h2 className="font-display text-2xl font-bold text-slate-900 md:text-2xl">La solution IA</h2>
             <p className="mt-6 text-slate-700 leading-relaxed">
               Les sessions combinent démonstration et ateliers sur vos cas anonymisés. Vous apprenez à produire des
               brouillons pour devis gros œuvre, synthèse de DCE / CCTP lot 2, CR de coordination et courriers de planning —
@@ -189,7 +189,7 @@ export default function FormationIaGrosOeuvreBtpPage() {
           </section>
 
           <section id="methode" className="scroll-mt-24 mt-14">
-            <h2 className="font-display text-2xl font-bold text-slate-900 md:text-3xl">
+            <h2 className="font-display text-2xl font-bold text-slate-900 md:text-2xl">
               Méthode en 5 étapes — prompts ChatGPT pour le gros œuvre
             </h2>
             <p className="mt-4 text-slate-600">
@@ -215,7 +215,7 @@ export default function FormationIaGrosOeuvreBtpPage() {
           </section>
 
           <section id="resultats" className="scroll-mt-24 mt-14">
-            <h2 className="font-display text-2xl font-bold text-slate-900 md:text-3xl">Résultats et preuves</h2>
+            <h2 className="font-display text-2xl font-bold text-slate-900 md:text-2xl">Résultats et preuves</h2>
             <p className="mt-6 text-slate-700 leading-relaxed">
               Indicateurs sourcés {OFC} : ({PROOF.mentionSource})
             </p>
@@ -260,7 +260,7 @@ export default function FormationIaGrosOeuvreBtpPage() {
           </section>
 
           <section id="faq" className="scroll-mt-24 mt-14">
-            <h2 className="font-display text-2xl font-bold text-slate-900 md:text-3xl">FAQ</h2>
+            <h2 className="font-display text-2xl font-bold text-slate-900 md:text-2xl">FAQ</h2>
             <div className="mt-8 space-y-5">
               {GROS_OEUVRE_FAQ.map((item) => (
                 <div key={item.q} className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
@@ -274,7 +274,7 @@ export default function FormationIaGrosOeuvreBtpPage() {
           </section>
 
           <section id="liens-internes" className="scroll-mt-24 mt-14">
-            <h2 className="font-display text-2xl font-bold text-slate-900 md:text-3xl">
+            <h2 className="font-display text-2xl font-bold text-slate-900 md:text-2xl">
               Formations et pages proches
             </h2>
             <p className="mt-4 text-slate-600">

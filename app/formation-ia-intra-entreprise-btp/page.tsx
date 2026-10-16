@@ -360,7 +360,7 @@ export default function FormationIaIntraEntrepriseBtpPage() {
           <div className="flex items-start gap-3">
             <Building2 className="mt-1 h-7 w-7 shrink-0 text-white" aria-hidden />
             <div>
-              <h2 id="contact-projet-title" className="font-display text-2xl font-bold text-white md:text-3xl">
+              <h2 id="contact-projet-title" className="font-display text-2xl font-bold text-white md:text-2xl">
                 {INTRA_CONTACT.title}
               </h2>
               <p className="mt-4 max-w-2xl text-base leading-relaxed text-white/90">

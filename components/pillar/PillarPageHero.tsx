@@ -158,11 +158,11 @@ export function PillarPageHero({
         className={
           muted
             ? compact
-              ? 'font-display mt-4 max-w-4xl text-3xl font-bold leading-[1.14] tracking-tight text-[#0F172A] md:text-4xl lg:text-[2.625rem]'
-              : 'font-display mt-5 max-w-4xl text-4xl font-bold leading-[1.1] tracking-tight text-[#0F172A] md:text-5xl lg:text-[2.85rem]'
+              ? 'font-display mt-4 max-w-4xl text-2xl font-bold leading-[1.2] tracking-tight text-[#0F172A] md:text-[1.75rem] lg:text-2xl'
+              : 'font-display mt-5 max-w-4xl text-2xl font-bold leading-[1.2] tracking-tight text-[#0F172A] md:text-[1.75rem] lg:text-2xl'
             : compact
-              ? 'mt-4 max-w-4xl text-3xl font-bold leading-[1.12] tracking-tight md:text-4xl lg:text-[42px] lg:leading-[1.08]'
-              : 'mt-5 max-w-4xl text-4xl font-bold leading-[1.08] tracking-tight md:text-5xl lg:text-[56px] lg:leading-[1.06]'
+              ? 'mt-4 max-w-4xl text-2xl font-bold leading-[1.2] tracking-tight md:text-[1.75rem] lg:text-2xl lg:leading-[1.15]'
+              : 'mt-5 max-w-4xl text-2xl font-bold leading-[1.2] tracking-tight md:text-[1.75rem] lg:text-2xl lg:leading-[1.15]'
         }
       >
         {title}

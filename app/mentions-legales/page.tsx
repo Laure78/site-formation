@@ -14,7 +14,7 @@ export const metadata = createPageMetadata({
 export default function MentionsLegalesPage() {
   return (
     <div className="mx-auto max-w-4xl px-4 py-16">
-      <h1 className="font-display text-4xl font-bold text-slate-900">
+      <h1 className="font-display text-2xl font-bold text-slate-900">
         Mentions légales
       </h1>
       <p className="mt-4 text-slate-600">

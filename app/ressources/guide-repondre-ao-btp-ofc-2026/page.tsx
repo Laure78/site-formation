@@ -177,7 +177,7 @@ export default function GuideRepondreAoBtpOfc2026Page() {
             </p>
             <h1
               id="hero-guide-repondre-ao"
-              className="mt-3 max-w-3xl font-display text-3xl font-bold leading-tight md:text-4xl"
+              className="mt-3 max-w-3xl font-display text-2xl font-bold leading-tight md:text-2xl"
             >
               Répondre à un appel d&apos;offres dans le BTP
             </h1>

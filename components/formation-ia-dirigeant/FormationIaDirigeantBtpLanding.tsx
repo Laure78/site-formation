@@ -79,7 +79,7 @@ export function FormationIaDirigeantBtpLanding() {
           <p className="text-sm font-semibold uppercase tracking-wide text-[#377CF3]">
             Décideurs · PME du bâtiment · organisme certifié Qualiopi
           </p>
-          <h1 className="font-display mt-4 text-3xl font-bold leading-tight tracking-tight text-slate-900 md:text-4xl lg:text-[2.35rem]">
+          <h1 className="font-display mt-4 text-2xl font-bold leading-tight tracking-tight text-slate-900 md:text-[1.75rem] lg:text-2xl">
             Formation IA dirigeant BTP : ROI, équipes et avantage concurrentiel
           </h1>
           <p className="mt-6 text-lg leading-relaxed text-slate-600">
@@ -113,7 +113,7 @@ export function FormationIaDirigeantBtpLanding() {
           </nav>
 
           <section id="gains-tableau" className="scroll-mt-24 mt-14">
-            <h2 className="font-display text-2xl font-bold text-slate-900 md:text-3xl">
+            <h2 className="font-display text-2xl font-bold text-slate-900 md:text-2xl">
               Gains en heures / semaine par fonction (ordres de grandeur)
             </h2>
             <p className="mt-4 text-slate-600 leading-relaxed">
@@ -144,7 +144,7 @@ export function FormationIaDirigeantBtpLanding() {
           </section>
 
           <section id="former-equipe" className="scroll-mt-24 mt-14">
-            <h2 className="font-display text-2xl font-bold text-slate-900 md:text-3xl">
+            <h2 className="font-display text-2xl font-bold text-slate-900 md:text-2xl">
               Pourquoi former toute votre équipe à l’IA (pas seulement vous)
             </h2>
             <div className="mt-6 space-y-4 text-slate-700 leading-relaxed">
@@ -175,7 +175,7 @@ export function FormationIaDirigeantBtpLanding() {
           </section>
 
           <section id="piloter-projet" className="scroll-mt-24 mt-14">
-            <h2 className="font-display text-2xl font-bold text-slate-900 md:text-3xl">
+            <h2 className="font-display text-2xl font-bold text-slate-900 md:text-2xl">
               Comment piloter un projet IA dans une PME BTP de 10 à 50 salariés
             </h2>
             <div className="mt-6 space-y-4 text-slate-700 leading-relaxed">
@@ -196,7 +196,7 @@ export function FormationIaDirigeantBtpLanding() {
           </section>
 
           <section id="budget" className="scroll-mt-24 mt-14">
-            <h2 className="font-display text-2xl font-bold text-slate-900 md:text-3xl">
+            <h2 className="font-display text-2xl font-bold text-slate-900 md:text-2xl">
               Budget réel d’une transformation IA pour le BTP : combien, en combien de temps
             </h2>
             <div className="mt-6 space-y-4 text-slate-700 leading-relaxed">
@@ -218,7 +218,7 @@ export function FormationIaDirigeantBtpLanding() {
           </section>
 
           <section id="cas-client" className="scroll-mt-24 mt-14">
-            <h2 className="font-display text-2xl font-bold text-slate-900 md:text-3xl">
+            <h2 className="font-display text-2xl font-bold text-slate-900 md:text-2xl">
               Cas client : FFB Grand Paris &amp; Chambre syndicale de l&apos;étanchéité (CSFE)
             </h2>
             <p className="mt-6 text-slate-700 leading-relaxed">
@@ -247,7 +247,7 @@ export function FormationIaDirigeantBtpLanding() {
           </div>
 
           <section id="faq" className="scroll-mt-24 mt-14">
-            <h2 className="font-display text-2xl font-bold text-slate-900 md:text-3xl">FAQ — décideurs</h2>
+            <h2 className="font-display text-2xl font-bold text-slate-900 md:text-2xl">FAQ — décideurs</h2>
             <div className="mt-8 space-y-5">
               {FORMATION_IA_DIRIGEANT_BTP_FAQ.map((item) => (
                 <div key={item.q} className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
@@ -261,7 +261,7 @@ export function FormationIaDirigeantBtpLanding() {
           </section>
 
           <section id="maillage" className="scroll-mt-24 mt-14">
-            <h2 className="font-display text-2xl font-bold text-slate-900 md:text-3xl">Ressources utiles</h2>
+            <h2 className="font-display text-2xl font-bold text-slate-900 md:text-2xl">Ressources utiles</h2>
             <p className="mt-4 text-slate-600">
               Pour aller plus loin : parcours de la formatrice, financement et retour d&apos;expérience réseau
               professionnel.

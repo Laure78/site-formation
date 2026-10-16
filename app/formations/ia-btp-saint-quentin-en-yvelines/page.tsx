@@ -133,7 +133,7 @@ export default function FormationIABTPSaintQuentinYvelinesPage() {
 
       <section className="border-b border-slate-200 bg-slate-50 px-4 py-16">
         <div className="mx-auto max-w-6xl">
-          <h2 className="font-display text-2xl font-bold text-slate-900 md:text-3xl">
+          <h2 className="font-display text-2xl font-bold text-slate-900 md:text-2xl">
             Pourquoi une page dédiée à Saint-Quentin-en-Yvelines ?
           </h2>
           <div className="mt-6 max-w-3xl space-y-4 text-slate-600 leading-relaxed">
@@ -160,7 +160,7 @@ export default function FormationIABTPSaintQuentinYvelinesPage() {
 
       <section className="border-b border-slate-200 bg-white px-4 py-16">
         <div className="mx-auto max-w-6xl">
-          <h2 className="font-display text-2xl font-bold text-slate-900 md:text-3xl">
+          <h2 className="font-display text-2xl font-bold text-slate-900 md:text-2xl">
             Atouts pour les entreprises de SQY et du 78
           </h2>
           <ul className="mt-8 space-y-4">
@@ -196,7 +196,7 @@ export default function FormationIABTPSaintQuentinYvelinesPage() {
 
       <section className="border-b border-slate-200 bg-slate-50 px-4 py-16">
         <div className="mx-auto max-w-6xl">
-          <h2 className="font-display text-2xl font-bold text-slate-900 md:text-3xl">
+          <h2 className="font-display text-2xl font-bold text-slate-900 md:text-2xl">
             Ce que couvre la formation IA pour les pros du BTP (modules)
           </h2>
           <p className="mt-4 max-w-3xl text-slate-600">
@@ -289,7 +289,7 @@ export default function FormationIABTPSaintQuentinYvelinesPage() {
 
       <section className="border-b border-slate-200 bg-white px-4 py-16">
         <div className="mx-auto max-w-6xl">
-          <h2 className="font-display text-2xl font-bold text-slate-900 md:text-3xl">
+          <h2 className="font-display text-2xl font-bold text-slate-900 md:text-2xl">
             Financement (Constructys) en Île-de-France
           </h2>
           <div className="mt-6 max-w-3xl space-y-6 text-slate-600">
@@ -314,7 +314,7 @@ export default function FormationIABTPSaintQuentinYvelinesPage() {
 
       <section id="zones-sqy" className="scroll-mt-24 border-b border-slate-200 bg-slate-50 px-4 py-16">
         <div className="mx-auto max-w-6xl">
-          <h2 className="font-display text-2xl font-bold text-slate-900 md:text-3xl">
+          <h2 className="font-display text-2xl font-bold text-slate-900 md:text-2xl">
             Villes et communes couvertes (SQY)
           </h2>
           <p className="mt-4 max-w-3xl text-slate-600">
@@ -345,7 +345,7 @@ export default function FormationIABTPSaintQuentinYvelinesPage() {
 
       <section className="border-b border-slate-200 bg-white px-4 py-16">
         <div className="mx-auto max-w-6xl">
-          <h2 className="font-display text-2xl font-bold text-slate-900 md:text-3xl">
+          <h2 className="font-display text-2xl font-bold text-slate-900 md:text-2xl">
             Public concerné sur SQY et en Île-de-France
           </h2>
           <ul className="mt-8 space-y-4">
@@ -390,7 +390,7 @@ export default function FormationIABTPSaintQuentinYvelinesPage() {
 
       <section className="border-b border-slate-200 bg-white px-4 py-16">
         <div className="mx-auto max-w-6xl">
-          <h2 className="font-display text-2xl font-bold text-slate-900 md:text-3xl">
+          <h2 className="font-display text-2xl font-bold text-slate-900 md:text-2xl">
             Organiser une session sur Saint-Quentin-en-Yvelines
           </h2>
           <div className="mt-8 grid gap-8 md:grid-cols-2">
@@ -478,7 +478,7 @@ export default function FormationIABTPSaintQuentinYvelinesPage() {
 
       <section className="bg-[var(--accent)] px-4 py-16 text-white">
         <div className="mx-auto max-w-2xl text-center">
-          <h2 className="font-display text-2xl font-bold md:text-3xl">
+          <h2 className="font-display text-2xl font-bold md:text-2xl">
             Formation IA pour les pros du BTP à Saint-Quentin-en-Yvelines : prochaine étape
           </h2>
           <p className="mt-4 text-lg text-blue-100">

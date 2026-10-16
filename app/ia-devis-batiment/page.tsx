@@ -81,7 +81,7 @@ export default function IADevisBatimentPage() {
             </p>
             <h1
               id="ia-devis-h1"
-              className="mt-5 font-display text-3xl font-extrabold tracking-tight text-slate-900 text-balance md:text-4xl lg:text-[2.65rem] lg:leading-[1.15]"
+              className="mt-5 font-display text-2xl font-extrabold tracking-tight text-slate-900 text-balance md:text-2xl lg:text-2xl lg:leading-[1.15]"
             >
               {IA_DEVIS_SEO.h1}
             </h1>

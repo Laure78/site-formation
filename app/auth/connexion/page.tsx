@@ -117,7 +117,7 @@ export default async function ConnexionPage({
         >
           <h1
             id="connexion-seo-title"
-            className="font-display text-3xl font-bold tracking-tight text-slate-900 md:text-4xl"
+            className="font-display text-2xl font-bold tracking-tight text-slate-900 md:text-[1.75rem]"
           >
             {adminIntent
               ? 'Connexion administrateur — plateforme OFC'

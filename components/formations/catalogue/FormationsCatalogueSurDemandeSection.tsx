@@ -13,7 +13,7 @@ export function FormationsCatalogueSurDemandeSection() {
 
   return (
     <section className="mt-16 scroll-mt-24" aria-labelledby="catalogue-besoin-specifique">
-      <h2 id="catalogue-besoin-specifique" className="font-display text-2xl font-bold text-ofc-ink md:text-3xl">
+      <h2 id="catalogue-besoin-specifique" className="font-display text-2xl font-bold text-ofc-ink md:text-2xl">
         Besoin spécifique ?
       </h2>
       <p className="mt-3 max-w-2xl text-sm leading-relaxed text-slate-600 md:text-base">

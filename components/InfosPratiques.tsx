@@ -241,7 +241,7 @@ export function InfosPratiques({
                 <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#377CF3]">
                   Indicateur 1 Qualiopi — information du public
                 </p>
-                <h2 id="infos-pratiques-heading" className="mt-2 text-2xl font-bold text-[#377CF3] md:text-3xl">
+                <h2 id="infos-pratiques-heading" className="mt-2 text-2xl font-bold text-[#377CF3] md:text-2xl">
                   {heading}
                 </h2>
                 <p className="mt-2 text-sm text-slate-500">
@@ -263,7 +263,7 @@ export function InfosPratiques({
               <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#377CF3]">
                 Indicateur 1 Qualiopi — information du public
               </p>
-              <h2 id="infos-pratiques-heading" className="mt-2 text-2xl font-bold text-[#377CF3] md:text-3xl">
+              <h2 id="infos-pratiques-heading" className="mt-2 text-2xl font-bold text-[#377CF3] md:text-2xl">
                 {heading}
               </h2>
               <p className="mt-2 text-sm text-slate-500">Référence programme : {programmeRef}</p>

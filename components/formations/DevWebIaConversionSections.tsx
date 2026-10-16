@@ -289,7 +289,7 @@ export function DevWebIaFinalConversionSection() {
       aria-labelledby="cta-final-title"
     >
       <div className="mx-auto max-w-3xl text-center">
-        <h2 id="cta-final-title" className="font-display text-2xl font-bold text-white md:text-3xl">
+        <h2 id="cta-final-title" className="font-display text-2xl font-bold text-white md:text-2xl">
           {title}
         </h2>
         <p className="mt-5 text-base leading-relaxed text-white/95 md:text-lg">{lead}</p>

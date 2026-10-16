@@ -16,7 +16,7 @@ export function PartenairesPageHero() {
       <div className="mx-auto max-w-6xl text-center">
         <h1
           id="partenaires-hero-title"
-          className="font-display text-3xl font-bold leading-tight tracking-tight text-[#0F172A] sm:text-4xl"
+          className="font-display text-2xl font-bold leading-tight tracking-tight text-[#0F172A] sm:text-[1.75rem]"
         >
           {PARTENAIRES_PAGE_H1}
         </h1>

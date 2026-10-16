@@ -17,7 +17,7 @@ export function AvisGoogleSection({ google }: AvisGoogleSectionProps) {
       <Reveal>
         <h2
           id="avis-google-title"
-          className="font-display text-2xl font-bold text-slate-900 md:text-3xl"
+          className="font-display text-2xl font-bold text-slate-900 md:text-2xl"
         >
           Ils partagent leur expérience
         </h2>

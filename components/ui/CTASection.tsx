@@ -42,7 +42,7 @@ export function CTASection({
         />
         <div className="relative">
           <Eyebrow className="justify-center text-white/75">{eyebrow}</Eyebrow>
-          <h2 id={titleId} className="mt-4 font-display text-3xl font-extrabold tracking-tight text-balance md:text-4xl lg:text-5xl">
+          <h2 id={titleId} className="mt-4 font-display text-xl font-extrabold tracking-tight text-balance md:text-2xl lg:text-[1.75rem]">
             {title}
           </h2>
           {description ? (

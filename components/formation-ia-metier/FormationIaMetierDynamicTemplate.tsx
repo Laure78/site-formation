@@ -64,7 +64,7 @@ export function FormationIaMetierDynamicTemplate({
       <section className="border-b border-slate-200 bg-white px-4 py-12 md:py-16">
         <div className="mx-auto max-w-4xl">
           <MetierIdfPresentielLine className="mb-4" />
-          <h1 className="font-display text-3xl font-bold leading-tight tracking-tight text-slate-900 md:text-4xl lg:text-[2.35rem]">
+          <h1 className="font-display text-2xl font-bold leading-tight tracking-tight text-slate-900 md:text-[1.75rem] lg:text-2xl">
             {config.h1Override ??
               `Formation IA pour ${config.h1MetierPluriel} — Gagnez du temps sur devis, admin et chantier`}
           </h1>
@@ -82,7 +82,7 @@ export function FormationIaMetierDynamicTemplate({
       {/* Problème */}
       <section className="border-b border-slate-200 bg-[#F2F2F2] px-4 py-14 md:py-16">
         <div className="mx-auto max-w-4xl">
-          <h2 className="font-display text-2xl font-bold text-slate-900 md:text-3xl">
+          <h2 className="font-display text-2xl font-bold text-slate-900 md:text-2xl">
             {config.probleme.titreH2}
           </h2>
           <div className="mt-8 space-y-5 text-slate-700 leading-relaxed">
@@ -96,7 +96,7 @@ export function FormationIaMetierDynamicTemplate({
       {/* Solution */}
       <section className="border-b border-slate-200 bg-white px-4 py-14 md:py-16">
         <div className="mx-auto max-w-4xl">
-          <h2 className="font-display text-2xl font-bold text-slate-900 md:text-3xl">
+          <h2 className="font-display text-2xl font-bold text-slate-900 md:text-2xl">
             {config.solution.titreH2}
           </h2>
           <p className="mt-8 text-slate-700 leading-relaxed">{config.solution.intro}</p>
@@ -128,7 +128,7 @@ export function FormationIaMetierDynamicTemplate({
       {/* Méthode */}
       <section className="border-b border-slate-200 bg-[#F2F2F2] px-4 py-14 md:py-16">
         <div className="mx-auto max-w-4xl">
-          <h2 className="font-display text-2xl font-bold text-slate-900 md:text-3xl">
+          <h2 className="font-display text-2xl font-bold text-slate-900 md:text-2xl">
             {config.methode.titreH2}
           </h2>
           {config.methode.intro ? (
@@ -179,7 +179,7 @@ export function FormationIaMetierDynamicTemplate({
       {/* Résultats */}
       <section className="border-b border-slate-200 bg-white px-4 py-14 md:py-16">
         <div className="mx-auto max-w-4xl">
-          <h2 className="font-display text-2xl font-bold text-slate-900 md:text-3xl">
+          <h2 className="font-display text-2xl font-bold text-slate-900 md:text-2xl">
             {config.resultats.titreH2}
           </h2>
           <p className="mt-8 text-slate-700 leading-relaxed">{config.resultats.intro}</p>
@@ -220,7 +220,7 @@ export function FormationIaMetierDynamicTemplate({
       {/* FAQ */}
       <section className="border-b border-slate-200 bg-[#F2F2F2] px-4 py-14 md:py-16">
         <div className="mx-auto max-w-4xl">
-          <h2 className="font-display text-2xl font-bold text-slate-900 md:text-3xl">
+          <h2 className="font-display text-2xl font-bold text-slate-900 md:text-2xl">
             FAQ — Questions des {config.metierPlurielLower} sur l&apos;IA
           </h2>
           <div className="mt-10 space-y-6">
@@ -240,7 +240,7 @@ export function FormationIaMetierDynamicTemplate({
       {/* Bio */}
       <section className="border-b border-slate-200 bg-white px-4 py-14 md:py-16">
         <div className="mx-auto max-w-4xl">
-          <h2 className="font-display text-2xl font-bold text-slate-900 md:text-3xl">
+          <h2 className="font-display text-2xl font-bold text-slate-900 md:text-2xl">
             {config.bio.titreH2}
           </h2>
           <div className="mt-10 flex flex-col gap-10 lg:flex-row lg:items-start">
@@ -259,7 +259,7 @@ export function FormationIaMetierDynamicTemplate({
       {/* CTA final */}
       <section className="bg-[#377CF3] px-4 py-16 text-white">
         <div className="mx-auto max-w-4xl text-center">
-          <h2 className="font-display text-2xl font-bold md:text-3xl">
+          <h2 className="font-display text-2xl font-bold md:text-2xl">
             Prochaine étape : visio découverte gratuite
           </h2>
           <p className="mt-4 text-lg text-blue-100">

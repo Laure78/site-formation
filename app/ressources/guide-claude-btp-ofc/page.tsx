@@ -168,7 +168,7 @@ export default function GuideClaudeBtpOfcPage() {
           </p>
           <h1
             id="hero-guide-claude-btp"
-            className="mt-3 max-w-3xl font-display text-3xl font-bold leading-tight md:text-4xl"
+            className="mt-3 max-w-3xl font-display text-2xl font-bold leading-tight md:text-2xl"
           >
             Guide Claude BTP — débloquer le vrai potentiel de Claude
           </h1>

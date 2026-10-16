@@ -198,7 +198,7 @@ export default function FormationIaParisPage() {
             <p className="mt-6 text-sm font-semibold uppercase tracking-wide text-[#377CF3]">
               Présentiel · organisme certifié Qualiopi · Paris &amp; Île-de-France
             </p>
-            <h1 className="mt-4 font-display text-3xl font-bold leading-tight text-slate-900 md:text-4xl lg:text-[2.5rem]">
+            <h1 className="mt-4 font-display text-2xl font-bold leading-tight text-slate-900 md:text-2xl lg:text-2xl">
               Formation IA BTP à Paris — bâtiment et construction, en présentiel
             </h1>
 
@@ -235,7 +235,7 @@ export default function FormationIaParisPage() {
 
         <section className={OFC_SEC.muted} aria-labelledby="pourquoi-paris-btp">
           <div className="mx-auto max-w-4xl">
-            <h2 id="pourquoi-paris-btp" className="font-display text-2xl font-bold text-slate-900 md:text-3xl">
+            <h2 id="pourquoi-paris-btp" className="font-display text-2xl font-bold text-slate-900 md:text-2xl">
               Une formation IA à Paris pensée pour les professionnels du BTP
             </h2>
             <p className="mt-4 text-base leading-relaxed text-slate-600 md:text-lg">
@@ -273,7 +273,7 @@ export default function FormationIaParisPage() {
           <div className="mx-auto max-w-4xl">
             <h2
               id="construction-paris-public"
-              className="font-display text-2xl font-bold text-slate-900 md:text-3xl"
+              className="font-display text-2xl font-bold text-slate-900 md:text-2xl"
             >
               Formation IA dans la construction à Paris : pour qui ?
             </h2>
@@ -319,7 +319,7 @@ export default function FormationIaParisPage() {
 
         <section className={OFC_SEC.muted} aria-labelledby="programme-4h">
           <div className="mx-auto max-w-4xl">
-            <h2 id="programme-4h" className="font-display text-2xl font-bold text-slate-900 md:text-3xl">
+            <h2 id="programme-4h" className="font-display text-2xl font-bold text-slate-900 md:text-2xl">
               Le programme : 4 heures, vos vrais documents
             </h2>
             <p className="mt-4 text-base leading-relaxed text-slate-600 md:text-lg">
@@ -395,7 +395,7 @@ export default function FormationIaParisPage() {
 
         <section className={OFC_SEC.white} aria-labelledby="lieux-paris-idf">
           <div className="mx-auto max-w-4xl">
-            <h2 id="lieux-paris-idf" className="font-display text-2xl font-bold text-slate-900 md:text-3xl">
+            <h2 id="lieux-paris-idf" className="font-display text-2xl font-bold text-slate-900 md:text-2xl">
               Où se déroulent les formations à Paris et en Île-de-France
             </h2>
             <p className="mt-4 text-base leading-relaxed text-slate-600 md:text-lg">
@@ -445,7 +445,7 @@ export default function FormationIaParisPage() {
           <div className="mx-auto max-w-4xl">
             <h2
               id="pourquoi-laure-paris"
-              className="font-display text-2xl font-bold text-slate-900 md:text-3xl"
+              className="font-display text-2xl font-bold text-slate-900 md:text-2xl"
             >
               Pourquoi se former avec Laure Olivié
             </h2>
@@ -475,7 +475,7 @@ export default function FormationIaParisPage() {
 
         <section className={OFC_SEC.white} aria-labelledby="financement-paris">
           <div className="mx-auto max-w-4xl">
-            <h2 id="financement-paris" className="font-display text-2xl font-bold text-slate-900 md:text-3xl">
+            <h2 id="financement-paris" className="font-display text-2xl font-bold text-slate-900 md:text-2xl">
               Financement
             </h2>
             <p className="mt-4 text-base leading-relaxed text-slate-600 md:text-lg">
@@ -504,7 +504,7 @@ export default function FormationIaParisPage() {
 
         <section id="faq-paris" className={`${OFC_SEC.muted} scroll-mt-24`} aria-labelledby="faq-paris-title">
           <div className="mx-auto max-w-3xl">
-            <h2 id="faq-paris-title" className="font-display text-2xl font-bold text-slate-900 md:text-3xl">
+            <h2 id="faq-paris-title" className="font-display text-2xl font-bold text-slate-900 md:text-2xl">
               Questions fréquentes sur la formation IA à Paris
             </h2>
             <div className="mt-8 space-y-6">
@@ -525,7 +525,7 @@ export default function FormationIaParisPage() {
 
         <section id="rdv" className={`${OFC_SEC.accent} scroll-mt-24`}>
           <div className="mx-auto max-w-4xl text-center">
-            <h2 className="font-display text-2xl font-bold md:text-3xl">
+            <h2 className="font-display text-2xl font-bold md:text-2xl">
               Prendre rendez-vous
             </h2>
             <p className="mx-auto mt-4 max-w-2xl text-blue-100">

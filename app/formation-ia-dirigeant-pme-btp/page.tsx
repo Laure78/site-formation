@@ -182,7 +182,7 @@ export default function FormationIaDirigeantPmeBtpPage() {
           href={LINKS.formationIaDirigeantBtp}
           linkLabel="Formation IA direction d’entreprise BTP (dirigeants et CODIR, 20 salariés et plus)"
         />
-        <h1 className="font-display text-4xl font-bold tracking-tight text-slate-900 md:text-5xl">
+        <h1 className="font-display text-2xl font-bold tracking-tight text-slate-900 md:text-2xl">
           Formation IA pour chefs d&apos;entreprise TPE BTP —{' '}
           <span className="text-[var(--accent)]">devis, relances et prospection au quotidien</span>
         </h1>

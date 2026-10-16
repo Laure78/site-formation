@@ -19,7 +19,7 @@ export default function PolitiqueConfidentialitePage() {
           Consentement : Manifestation de volonté, libre, spécifique, éclairée et
           univoque.
         </p>
-        <h1 className="mt-4 font-display text-3xl font-bold text-slate-900 md:text-4xl">
+        <h1 className="mt-4 font-display text-2xl font-bold text-slate-900 md:text-[1.75rem]">
           Politique de confidentialité
         </h1>
         <p className="mt-2 font-medium text-[var(--accent)]">

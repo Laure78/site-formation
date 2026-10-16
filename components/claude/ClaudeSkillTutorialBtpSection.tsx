@@ -64,7 +64,7 @@ export function ClaudeSkillTutorialBtpSection() {
       <div className="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
         <h2
           id="tutoriel-skill-claude-btp-heading"
-          className="font-display text-2xl font-bold tracking-tight text-[#0F172A] md:text-3xl"
+          className="font-display text-2xl font-bold tracking-tight text-[#0F172A] md:text-2xl"
         >
           Créer un skill dans Claude AI (tutoriel BTP)
         </h2>

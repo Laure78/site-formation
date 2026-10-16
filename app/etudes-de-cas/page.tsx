@@ -29,7 +29,7 @@ export default function EtudesDeCasHubPage() {
     <div>
       <section className="border-b border-slate-200 bg-gradient-to-b from-[#f8fbff] via-white to-white px-4 py-16 md:py-20">
         <div className="mx-auto max-w-4xl">
-          <h1 className="font-display text-3xl font-bold tracking-tight text-slate-900 md:text-4xl">
+          <h1 className="font-display text-2xl font-bold tracking-tight text-slate-900 md:text-[1.75rem]">
             Études de cas — formation IA pour le BTP
           </h1>
           <p className="mt-6 max-w-3xl text-base leading-relaxed text-slate-700 md:text-lg">

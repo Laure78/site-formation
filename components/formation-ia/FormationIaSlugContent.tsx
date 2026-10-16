@@ -33,7 +33,7 @@ function FormationIaVilleCalendlySection() {
       <div className="mx-auto max-w-5xl">
         <h2
           id="hub-ville-calendly-heading"
-          className="font-display text-center text-2xl font-bold tracking-tight text-slate-900 md:text-3xl"
+          className="font-display text-center text-2xl font-bold tracking-tight text-slate-900 md:text-2xl"
         >
           Prendre rendez-vous
         </h2>
@@ -62,7 +62,7 @@ export function FormationIaMetierBody({
   return (
     <>
       <article className="prose prose-slate max-w-none">
-      <h1 className="font-display text-3xl font-bold tracking-tight text-slate-900 md:text-4xl">
+      <h1 className="font-display text-2xl font-bold tracking-tight text-slate-900 md:text-[1.75rem]">
         Formation IA, ChatGPT et Claude AI — {capitalizeFirst(metier.label)}
       </h1>
       <p className="lead text-lg text-slate-700">
@@ -260,7 +260,7 @@ export function FormationIaVilleBody({
   return (
     <>
       <article className="prose prose-slate max-w-none">
-      <h1 className="font-display text-3xl font-bold tracking-tight text-slate-900 md:text-4xl">
+      <h1 className="font-display text-2xl font-bold tracking-tight text-slate-900 md:text-[1.75rem]">
         Formation IA pour les pros du BTP à {ville.label} — ChatGPT & Claude AI ({ville.deptName})
       </h1>
       <p className="lead text-lg text-slate-700">
@@ -391,7 +391,7 @@ function FormationIaParisBody() {
   return (
     <>
       <article className="prose prose-slate max-w-none">
-      <h1 className="font-display text-3xl font-bold tracking-tight text-slate-900 md:text-4xl">
+      <h1 className="font-display text-2xl font-bold tracking-tight text-slate-900 md:text-[1.75rem]">
         Formation IA, ChatGPT et Claude AI pour le BTP à Paris et en Île-de-France
       </h1>
       <p className="lead text-lg text-slate-700">

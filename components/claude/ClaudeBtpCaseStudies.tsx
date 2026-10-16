@@ -6,7 +6,7 @@ import { Quote } from 'lucide-react';
 export function ClaudeBtpCaseStudies() {
   return (
     <section className="scroll-mt-24" aria-labelledby="etudes-cas">
-      <h2 id="etudes-cas" className="font-display text-2xl font-bold tracking-tight text-[#0F172A] md:text-3xl">
+      <h2 id="etudes-cas" className="font-display text-2xl font-bold tracking-tight text-[#0F172A] md:text-2xl">
         Retours terrain (extraits)
       </h2>
       <div className="mt-8 grid gap-6 md:grid-cols-3 md:items-stretch">

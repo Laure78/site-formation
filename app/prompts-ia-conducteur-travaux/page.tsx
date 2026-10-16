@@ -66,7 +66,7 @@ export default function PromptsIaConducteurTravauxPage() {
           <p className="text-sm font-medium uppercase tracking-wide text-[#377CF3]">
             Ressources · conducteur de travaux · prompts copiables
           </p>
-          <h1 className="font-display mt-4 text-3xl font-bold tracking-tight text-slate-900 md:text-4xl">
+          <h1 className="font-display mt-4 text-2xl font-bold tracking-tight text-slate-900 md:text-[1.75rem]">
             20 prompts IA pour conducteurs de travaux (à copier-coller)
           </h1>
           {PROMPTS_IA_CONDUCTEUR_INTRO.map((paragraph) => (

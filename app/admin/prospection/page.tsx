@@ -69,7 +69,7 @@ export default async function ProspectionDashboardPage({
       {/* Header actions */}
       <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
         <div>
-          <h2 className="font-display text-2xl font-bold tracking-tight text-slate-900 md:text-3xl">
+          <h2 className="font-display text-2xl font-bold tracking-tight text-slate-900 md:text-2xl">
             Prospection
           </h2>
           <p className="mt-1 max-w-xl text-sm text-slate-500">
@@ -211,7 +211,7 @@ function TodayStat({
           : 'border-slate-100 bg-slate-50 hover:border-slate-200'
       }`}
     >
-      <p className="font-display text-3xl font-bold text-slate-900">{value}</p>
+      <p className="font-display text-2xl font-bold text-slate-900">{value}</p>
       <p className="mt-1 text-sm text-slate-600">{label}</p>
     </Link>
   );

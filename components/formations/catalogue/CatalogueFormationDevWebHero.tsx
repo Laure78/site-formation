@@ -51,7 +51,7 @@ export function CatalogueFormationDevWebHero() {
 
             <h1
               id="dev-web-ia-h1"
-              className="mt-4 font-display text-3xl font-bold tracking-tight text-slate-900 text-balance md:text-4xl lg:text-[2.75rem] lg:leading-[1.15]"
+              className="mt-4 font-display text-2xl font-bold tracking-tight text-slate-900 text-balance md:text-[1.75rem] lg:text-2xl lg:leading-[1.2]"
             >
               {CATALOGUE_SEO.h1}
             </h1>

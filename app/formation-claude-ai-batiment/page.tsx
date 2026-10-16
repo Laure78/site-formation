@@ -48,7 +48,7 @@ export default function FormationClaudeAiBatimentPage() {
       <header className={`${OFC_SEC.white} border-b border-slate-100`}>
         <div className={`${OFC_SECTION_INNER} max-w-3xl py-12 md:py-16`}>
           <p className="text-sm font-medium text-[var(--accent)]">Bâtiment · présentiel IDF</p>
-          <h1 className="mt-3 font-display text-3xl font-bold tracking-tight text-slate-900 md:text-4xl">
+          <h1 className="mt-3 font-display text-2xl font-bold tracking-tight text-slate-900 md:text-[1.75rem]">
             Formation Claude AI pour le bâtiment
           </h1>
           <p className="mt-4 text-lg text-slate-600">

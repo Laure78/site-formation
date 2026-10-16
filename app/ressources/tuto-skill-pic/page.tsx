@@ -64,7 +64,7 @@ export default function TutoSkillPicPage() {
           <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#377CF3]">
             {TUTO_SKILL_PIC_META.eyebrow}
           </p>
-          <h1 className="mt-3 font-display text-3xl font-bold leading-tight text-slate-900 md:text-4xl">
+          <h1 className="mt-3 font-display text-2xl font-bold leading-tight text-slate-900 md:text-2xl">
             {TUTO_SKILL_PIC_META.h1}
           </h1>
           <p className="mt-4 text-base leading-relaxed text-slate-700 md:text-lg">
@@ -93,7 +93,7 @@ export default function TutoSkillPicPage() {
         <section aria-labelledby="principe-heading" className="scroll-mt-28">
           <h2
             id="principe-heading"
-            className="font-display text-2xl font-bold tracking-tight text-slate-900 md:text-3xl"
+            className="font-display text-2xl font-bold tracking-tight text-slate-900 md:text-2xl"
           >
             Comprendre le principe
           </h2>
@@ -127,7 +127,7 @@ export default function TutoSkillPicPage() {
         <section aria-labelledby="preparer-heading" className="mt-16 scroll-mt-28">
           <h2
             id="preparer-heading"
-            className="font-display text-2xl font-bold tracking-tight text-slate-900 md:text-3xl"
+            className="font-display text-2xl font-bold tracking-tight text-slate-900 md:text-2xl"
           >
             Préparer ses informations
           </h2>
@@ -161,7 +161,7 @@ export default function TutoSkillPicPage() {
         <section aria-labelledby="tutoriel-heading" className="mt-16 scroll-mt-28">
           <h2
             id="tutoriel-heading"
-            className="font-display text-2xl font-bold tracking-tight text-slate-900 md:text-3xl"
+            className="font-display text-2xl font-bold tracking-tight text-slate-900 md:text-2xl"
           >
             Tutoriel pas à pas
           </h2>
@@ -218,7 +218,7 @@ export default function TutoSkillPicPage() {
         <section aria-labelledby="prompts-heading" className="mt-16 scroll-mt-28">
           <h2
             id="prompts-heading"
-            className="font-display text-2xl font-bold tracking-tight text-slate-900 md:text-3xl"
+            className="font-display text-2xl font-bold tracking-tight text-slate-900 md:text-2xl"
           >
             Trois prompts à copier
           </h2>
@@ -254,7 +254,7 @@ export default function TutoSkillPicPage() {
         <section aria-labelledby="exemple-heading" className="mt-16 scroll-mt-28">
           <h2
             id="exemple-heading"
-            className="font-display text-2xl font-bold tracking-tight text-slate-900 md:text-3xl"
+            className="font-display text-2xl font-bold tracking-tight text-slate-900 md:text-2xl"
           >
             Exemple pédagogique
           </h2>
@@ -297,7 +297,7 @@ export default function TutoSkillPicPage() {
         <section aria-labelledby="faq-heading" className="mt-16 scroll-mt-28">
           <h2
             id="faq-heading"
-            className="font-display text-2xl font-bold tracking-tight text-slate-900 md:text-3xl"
+            className="font-display text-2xl font-bold tracking-tight text-slate-900 md:text-2xl"
           >
             Questions fréquentes
           </h2>
@@ -320,7 +320,7 @@ export default function TutoSkillPicPage() {
         <div className="mx-auto max-w-3xl px-4 py-12 md:py-16">
           <h2
             id="cta-final-heading"
-            className="font-display text-2xl font-bold tracking-tight text-slate-900 md:text-3xl"
+            className="font-display text-2xl font-bold tracking-tight text-slate-900 md:text-2xl"
           >
             Apprenez à utiliser l’IA sur vos documents chantier
           </h2>

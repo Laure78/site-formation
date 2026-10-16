@@ -5,7 +5,7 @@ import Link from 'next/link';
 export default function InscriptionPage() {
   return (
     <div className="mx-auto max-w-md px-4 py-8 md:py-16">
-      <h1 className="font-display text-3xl font-bold">Inscription</h1>
+      <h1 className="font-display text-2xl font-bold">Inscription</h1>
       <p className="mt-2 text-slate-600">Crée ton compte pour accéder aux formations</p>
 
       <div className="mt-8 rounded-xl border border-slate-200 bg-slate-50 p-6">

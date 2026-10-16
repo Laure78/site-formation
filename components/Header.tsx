@@ -21,9 +21,7 @@ import {
 import { SITE } from '@/lib/site';
 import { getHeaderNav, headerNavItemHasPanel } from '@/lib/header-nav';
 import { CtaButton } from '@/components/CtaButton';
-import { ExternalLinkAnchor } from '@/components/ExternalLink';
 import { FormationPlateformeConnexionButton } from '@/components/formation/FormationPlateformeConnexionButton';
-import { LinkedInIcon } from '@/components/icons/LinkedInIcon';
 import { SiteSearchBar } from '@/components/search/SiteSearchBar';
 import { HeaderMegaMenu } from '@/components/nav/HeaderMegaMenu';
 import {
@@ -31,29 +29,7 @@ import {
   HeaderNavSimpleLink,
 } from '@/components/nav/HeaderNavDropdown';
 import { PromoOffreFormations2027Banner } from '@/components/PromoOffreFormations2027Banner';
-import {
-  LINKEDIN_PROFILE_ARIA,
-  LINKEDIN_PROFILE_URL,
-} from '@/lib/linkedin-profile';
 import type { LucideIcon } from 'lucide-react';
-
-const headerLinkedInClass =
-  'inline-flex min-h-[44px] min-w-[44px] items-center justify-center rounded-xl text-[#377CF3] transition-colors hover:bg-[#EFF6FF] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#377CF3]';
-
-function HeaderLinkedInButton({ className = '' }: { className?: string }) {
-  return (
-    <ExternalLinkAnchor
-      href={LINKEDIN_PROFILE_URL}
-      aria-label={LINKEDIN_PROFILE_ARIA.footer}
-      title={LINKEDIN_PROFILE_ARIA.footer}
-      className={`${headerLinkedInClass}${className ? ` ${className}` : ''}`}
-    >
-      <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-[#377CF3] text-white shadow-sm">
-        <LinkedInIcon className="h-4 w-4" />
-      </span>
-    </ExternalLinkAnchor>
-  );
-}
 
 const HeaderMobileDrawer = dynamic(
   () =>
@@ -259,10 +235,9 @@ export function Header() {
             </div>
 
             <div className="site-header__actions relative z-[55] hidden shrink-0 items-center gap-2 border-l border-slate-200/90 pl-2.5 lg:!flex xl:gap-2.5 xl:pl-3.5">
-              <HeaderLinkedInButton className="hidden xl:inline-flex" />
               <FormationPlateformeConnexionButton
                 variant="nav"
-                label="Espace apprenant"
+                label="Espace pédagogique"
                 className="!border-transparent !bg-transparent !px-2 !py-1.5 !text-xs !font-medium !text-slate-600 hover:!bg-slate-50 hover:!text-slate-900 xl:!text-sm"
               />
               <CtaButton

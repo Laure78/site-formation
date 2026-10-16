@@ -23,7 +23,7 @@ export function AccueilBeworkBandeau() {
         <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#377CF3]">{H.eyebrow}</p>
         <h2
           id="accueil-dev-web-ia"
-          className="mt-3 font-display text-2xl font-bold tracking-tight text-[#0F172A] md:text-3xl"
+          className="mt-3 font-display text-2xl font-bold tracking-tight text-[#0F172A] md:text-2xl"
         >
           {H.title}
         </h2>

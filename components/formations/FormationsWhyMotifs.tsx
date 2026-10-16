@@ -25,7 +25,7 @@ export function FormationsWhyMotifs({
 }) {
   return (
     <section className="mt-16 rounded-2xl border border-[#E2E8F0] bg-white p-5 md:p-10">
-      <h2 className="font-display text-2xl font-bold text-[#0F172A] md:text-3xl">
+      <h2 className="font-display text-2xl font-bold text-[#0F172A] md:text-2xl">
         Pourquoi un catalogue de {catalogueCount} formations pour le BTP et la construction ?
       </h2>
       <p className="mt-4 max-w-3xl text-base leading-relaxed text-[#334155] md:text-[17px]">

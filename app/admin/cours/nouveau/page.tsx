@@ -13,7 +13,7 @@ export default function NouveauCoursPage() {
       <Link href="/admin" className="text-sm text-[var(--accent)] hover:underline">
         ← Retour à l&apos;admin
       </Link>
-      <h1 className="mt-6 font-display text-3xl font-bold">Créer une formation</h1>
+      <h1 className="mt-6 font-display text-2xl font-bold">Créer une formation</h1>
       <p className="mt-2 text-slate-600">
         Définis le cours. Tu pourras ensuite ajouter des modules et des leçons (vidéos, PDF, quiz, textes).
       </p>

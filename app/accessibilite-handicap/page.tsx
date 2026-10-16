@@ -155,7 +155,7 @@ export default function AccessibiliteHandicapPage() {
             <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#377CF3]">
               {OFC_IDENTITE.raisonSociale} — actions de formation
             </p>
-            <h1 className="mt-2 text-3xl font-bold text-slate-900 md:text-4xl">
+            <h1 className="mt-2 text-2xl font-bold text-slate-900 md:text-[1.75rem]">
               Accessibilité des formations et besoins d&apos;aménagement
             </h1>
             <p className="mt-4 text-slate-600">

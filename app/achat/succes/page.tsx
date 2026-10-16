@@ -65,7 +65,7 @@ export default async function AchatSuccesPage({
       <div className="inline-flex h-16 w-16 items-center justify-center rounded-full bg-emerald-100">
         <Check size={32} strokeWidth={2} className="text-emerald-600" />
       </div>
-      <h1 className="mt-6 font-display text-3xl font-bold text-slate-900">Paiement réussi</h1>
+      <h1 className="mt-6 font-display text-2xl font-bold text-slate-900">Paiement réussi</h1>
       <p className="mt-3 text-slate-600">
         Merci pour votre achat. Vous avez maintenant accès à <strong>{title}</strong>.
       </p>

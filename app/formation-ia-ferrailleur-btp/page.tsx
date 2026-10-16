@@ -119,7 +119,7 @@ export default function FormationIaFerrailleurBtpPage() {
 
       <article>
         <MetierIdfPresentielLine className="mb-4" />
-        <h1 className="font-display text-4xl font-bold tracking-tight text-slate-900 md:text-5xl">
+        <h1 className="font-display text-2xl font-bold tracking-tight text-slate-900 md:text-2xl">
           Formation IA pour ferrailleurs / armaturiers —{' '}
           <span className="text-[var(--accent)]">plans, devis et bons de commande</span>
         </h1>

@@ -41,7 +41,7 @@ export function PillarFaqAccordion({
     <Reveal as="section" id={id} distance={14} className="scroll-mt-24" aria-labelledby={headingId}>
       <div className="flex flex-wrap items-center gap-3">
         <Icon className="h-8 w-8 shrink-0 text-[#377CF3]" aria-hidden />
-        <h2 id={headingId} className="font-display text-2xl font-bold tracking-tight text-[#0F172A] md:text-3xl">
+        <h2 id={headingId} className="font-display text-2xl font-bold tracking-tight text-[#0F172A] md:text-2xl">
           {title}
           {titleAccent ? (
             <span className="a-propos-title-accent mt-3 block h-1 rounded-full bg-[#377CF3]" aria-hidden />

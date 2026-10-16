@@ -88,7 +88,7 @@ export default function FormationIaMetallerieSerrurerieBtpPage() {
 
       <article>
         <MetierIdfPresentielLine className="mb-4" />
-        <h1 className="font-display text-3xl font-bold tracking-tight text-slate-900 md:text-4xl lg:text-[2.35rem] lg:leading-tight">
+        <h1 className="font-display text-2xl font-bold tracking-tight text-slate-900 md:text-[1.75rem] lg:text-2xl lg:leading-tight">
           {METALLERIE_SEO.h1}
         </h1>
         <p className="mt-2 text-xl font-medium text-[#377CF3]">

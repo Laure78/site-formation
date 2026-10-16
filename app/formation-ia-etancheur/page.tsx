@@ -228,7 +228,7 @@ export default function FormationIaEtancheurPage() {
       />
 
       <article>
-        <h1 className="font-display text-4xl font-bold tracking-tight text-slate-900 md:text-5xl">
+        <h1 className="font-display text-2xl font-bold tracking-tight text-slate-900 md:text-2xl">
           Formation IA pour Étancheur —{' '}
           <span className="text-[var(--accent)]">gagnez 5 h par semaine sur l&apos;administratif</span>
         </h1>

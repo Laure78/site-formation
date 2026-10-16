@@ -155,7 +155,7 @@ export function FormationIaBtpDepartementLanding({ config }: { config: Formation
           <p className="text-sm font-semibold uppercase tracking-wide text-[#377CF3]">
             {config.badgeLine}
           </p>
-          <h1 className="font-display mt-4 text-3xl font-bold leading-tight tracking-tight text-slate-900 md:text-4xl lg:text-[2.35rem]">
+          <h1 className="font-display mt-4 text-2xl font-bold leading-tight tracking-tight text-slate-900 md:text-[1.75rem] lg:text-2xl">
             {config.h1}
           </h1>
           <p className="mt-6 text-xl leading-relaxed text-slate-600 md:text-2xl">
@@ -205,7 +205,7 @@ export function FormationIaBtpDepartementLanding({ config }: { config: Formation
 
       <section className={`${OFC_SEC.muted} scroll-mt-24`}>
         <div className="mx-auto max-w-4xl">
-          <h2 className="font-display text-2xl font-bold text-slate-900 md:text-3xl">
+          <h2 className="font-display text-2xl font-bold text-slate-900 md:text-2xl">
             BTP {locatif} ({config.deptCode}) : défis communs
           </h2>
           <div className="mt-6 space-y-4 text-base text-slate-700 leading-relaxed md:text-lg">
@@ -218,7 +218,7 @@ export function FormationIaBtpDepartementLanding({ config }: { config: Formation
 
       <section className={`${OFC_SEC.white} scroll-mt-24`}>
         <div className="mx-auto max-w-4xl">
-          <h2 className="font-display text-2xl font-bold text-slate-900 md:text-3xl">{config.problemTitle}</h2>
+          <h2 className="font-display text-2xl font-bold text-slate-900 md:text-2xl">{config.problemTitle}</h2>
           <div className="mt-6 space-y-4 text-base text-slate-700 leading-relaxed md:text-lg">
             {config.problemBody.map((p, i) => (
               <p key={`pb-${i}`}>{p}</p>
@@ -229,7 +229,7 @@ export function FormationIaBtpDepartementLanding({ config }: { config: Formation
 
       <section className={`${OFC_SEC.white} scroll-mt-24`}>
         <div className="mx-auto max-w-4xl">
-          <h2 className="font-display text-2xl font-bold text-slate-900 md:text-3xl">{config.solutionTitle}</h2>
+          <h2 className="font-display text-2xl font-bold text-slate-900 md:text-2xl">{config.solutionTitle}</h2>
           <div className="mt-6 space-y-4 text-base text-slate-700 leading-relaxed md:text-lg">
             {config.solutionBody.map((p, i) => (
               <p key={`sb-${i}`}>{p}</p>
@@ -244,7 +244,7 @@ export function FormationIaBtpDepartementLanding({ config }: { config: Formation
 
       <section className={OFC_SEC.muted}>
         <div className="mx-auto max-w-4xl">
-          <h2 className="font-display text-2xl font-bold text-slate-900 md:text-3xl">{config.villesTitle}</h2>
+          <h2 className="font-display text-2xl font-bold text-slate-900 md:text-2xl">{config.villesTitle}</h2>
           <p className="mt-4 text-base text-slate-700 leading-relaxed md:text-lg">{config.villesIntro}</p>
           <ul className="mt-8 grid gap-3 sm:grid-cols-2">
             {config.cities.map((ville) => (
@@ -271,7 +271,7 @@ export function FormationIaBtpDepartementLanding({ config }: { config: Formation
 
       <section className={OFC_SEC.white}>
         <div className="mx-auto max-w-4xl">
-          <h2 className="font-display text-2xl font-bold text-slate-900 md:text-3xl">{config.programmeTitle}</h2>
+          <h2 className="font-display text-2xl font-bold text-slate-900 md:text-2xl">{config.programmeTitle}</h2>
           <div className="mt-6 space-y-4 text-base text-slate-700 leading-relaxed md:text-lg">
             {config.programmeBody.map((p, i) => (
               <p key={`pg-${i}`}>{p}</p>
@@ -282,7 +282,7 @@ export function FormationIaBtpDepartementLanding({ config }: { config: Formation
 
       <section className={OFC_SEC.muted}>
         <div className="mx-auto max-w-4xl">
-          <h2 className="font-display text-2xl font-bold text-slate-900 md:text-3xl">
+          <h2 className="font-display text-2xl font-bold text-slate-900 md:text-2xl">
             Cinq cas d&apos;usage standard travaillés en formation
           </h2>
           <p className="mt-4 text-base text-slate-700 leading-relaxed md:text-lg">
@@ -301,7 +301,7 @@ export function FormationIaBtpDepartementLanding({ config }: { config: Formation
 
       <section className={OFC_SEC.white}>
         <div className="mx-auto max-w-4xl">
-          <h2 className="font-display text-2xl font-bold text-slate-900 md:text-3xl">
+          <h2 className="font-display text-2xl font-bold text-slate-900 md:text-2xl">
             Réseau FFB et ancrage dans le territoire
           </h2>
           <p className="mt-6 text-base text-slate-700 leading-relaxed md:text-lg">{config.casClientFfb}</p>
@@ -310,7 +310,7 @@ export function FormationIaBtpDepartementLanding({ config }: { config: Formation
 
       <section className={OFC_SEC.muted}>
         <div className="mx-auto max-w-4xl">
-          <h2 className="font-display text-2xl font-bold text-slate-900 md:text-3xl">{config.temoignagesTitle}</h2>
+          <h2 className="font-display text-2xl font-bold text-slate-900 md:text-2xl">{config.temoignagesTitle}</h2>
           <p className="mt-4 text-base text-slate-600 md:text-lg">
             Retours anonymisés de participants aux sessions OFC en Île-de-France.
           </p>
@@ -347,7 +347,7 @@ export function FormationIaBtpDepartementLanding({ config }: { config: Formation
 
       <section className={OFC_SEC.white}>
         <div className="mx-auto max-w-4xl">
-          <h2 className="font-display text-2xl font-bold text-slate-900 md:text-3xl">{config.financeTitle}</h2>
+          <h2 className="font-display text-2xl font-bold text-slate-900 md:text-2xl">{config.financeTitle}</h2>
           <div className="mt-6 space-y-4 text-base text-slate-700 leading-relaxed md:text-lg">
             {config.financeBody.map((p, i) => (
               <p key={`fb-${i}`}>{p}</p>
@@ -397,7 +397,7 @@ export function FormationIaBtpDepartementLanding({ config }: { config: Formation
 
       <section className={OFC_SEC.accent}>
         <div className="mx-auto max-w-2xl text-center">
-          <h2 className="font-display text-2xl font-bold md:text-3xl">Réserver un créneau découverte</h2>
+          <h2 className="font-display text-2xl font-bold md:text-2xl">Réserver un créneau découverte</h2>
           <p className="mt-4 text-lg text-blue-100 md:text-xl">
             30 minutes pour cadrer votre besoin {locatif} ({config.deptCode}) — en présentiel, intra
             ou inter selon vos contraintes.

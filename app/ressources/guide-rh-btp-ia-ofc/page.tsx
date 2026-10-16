@@ -156,7 +156,7 @@ export default function GuideRhBtpIaOfcPage() {
           </p>
           <h1
             id="hero-guide-rh-btp"
-            className="mt-3 max-w-3xl font-display text-3xl font-bold leading-tight md:text-4xl"
+            className="mt-3 max-w-3xl font-display text-2xl font-bold leading-tight md:text-2xl"
           >
             Le Guide RH du BTP × IA
           </h1>

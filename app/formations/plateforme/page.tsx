@@ -131,7 +131,7 @@ export default function FormationPlateformePage() {
             </p>
             <h1
               id="formation-plateforme-title"
-              className="mt-4 font-display text-3xl font-bold tracking-tight text-[#0F172A] md:text-4xl"
+              className="mt-4 font-display text-2xl font-bold tracking-tight text-[#0F172A] md:text-[1.75rem]"
             >
               Accéder à votre plateforme de formation
             </h1>
@@ -171,7 +171,7 @@ export default function FormationPlateformePage() {
 
       <section aria-labelledby="formation-plateforme-fonctions" className="border-b border-slate-200 px-4 py-12 md:py-16">
         <div className="mx-auto max-w-6xl">
-          <h2 id="formation-plateforme-fonctions" className="font-display text-2xl font-bold text-[#0F172A] md:text-3xl">
+          <h2 id="formation-plateforme-fonctions" className="font-display text-2xl font-bold text-[#0F172A] md:text-2xl">
             Ce que vous trouvez sur la plateforme
           </h2>
           <div className="mt-8 grid gap-6 md:grid-cols-3">
@@ -190,7 +190,7 @@ export default function FormationPlateformePage() {
 
       <section aria-labelledby="formation-plateforme-faq" className="border-b border-slate-200 bg-white px-4 py-12 md:py-16">
         <div className="mx-auto max-w-3xl">
-          <h2 id="formation-plateforme-faq" className="font-display text-2xl font-bold text-[#0F172A] md:text-3xl">
+          <h2 id="formation-plateforme-faq" className="font-display text-2xl font-bold text-[#0F172A] md:text-2xl">
             Questions fréquentes
           </h2>
           <dl className="mt-8 space-y-6">
@@ -206,7 +206,7 @@ export default function FormationPlateformePage() {
 
       <section aria-labelledby="formation-plateforme-cta" className="px-4 py-14 md:py-20">
         <div className="mx-auto max-w-4xl rounded-2xl bg-[#377CF3] px-6 py-10 text-center text-white md:px-12 md:py-14">
-          <h2 id="formation-plateforme-cta" className="font-display text-2xl font-bold md:text-3xl">
+          <h2 id="formation-plateforme-cta" className="font-display text-2xl font-bold md:text-2xl">
             Déjà stagiaire OFC ?
           </h2>
           <p className="mx-auto mt-4 max-w-xl text-base leading-relaxed text-white/90">

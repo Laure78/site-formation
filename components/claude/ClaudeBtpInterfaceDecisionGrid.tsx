@@ -48,7 +48,7 @@ export function ClaudeBtpInterfaceDecisionGrid() {
   return (
     <section className="scroll-mt-24" aria-labelledby="tableau-interfaces">
       <div className="flex flex-col gap-2 md:flex-row md:items-end md:justify-between">
-        <h2 id="tableau-interfaces" className="font-display text-2xl font-bold tracking-tight text-[#0F172A] md:text-3xl">
+        <h2 id="tableau-interfaces" className="font-display text-2xl font-bold tracking-tight text-[#0F172A] md:text-2xl">
           Les 5 interfaces — décision rapide
         </h2>
         <p className="max-w-md text-sm text-[#64748B]">Choisissez l’outil selon la nature de la tâche.</p>

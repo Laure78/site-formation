@@ -51,7 +51,7 @@ export default function ExpertIABTPPage() {
         <div className="mx-auto max-w-6xl">
           <div className="flex flex-col gap-12 lg:flex-row lg:items-center">
             <div className="flex-1">
-              <h1 className="font-display text-4xl font-bold text-white md:text-5xl">
+              <h1 className="font-display text-2xl font-bold text-white md:text-2xl">
                 Laure Olivié
               </h1>
               <EnBref className="!mt-5 border-white/20 bg-white/95">
@@ -105,7 +105,7 @@ export default function ExpertIABTPPage() {
       {/* Expertise & Parcours */}
       <section className="border-b border-slate-200 bg-white px-4 py-16">
         <div className="mx-auto max-w-6xl">
-          <h2 className="font-display text-3xl font-bold text-slate-900 md:text-4xl">
+          <h2 className="font-display text-2xl font-bold text-slate-900 md:text-[1.75rem]">
             Expertise & Parcours professionnel
           </h2>
           
@@ -170,7 +170,7 @@ export default function ExpertIABTPPage() {
       {/* Secteurs accompagnés */}
       <section className="border-b border-slate-200 bg-slate-50 px-4 py-16">
         <div className="mx-auto max-w-6xl">
-          <h2 className="font-display text-3xl font-bold text-slate-900 md:text-4xl">
+          <h2 className="font-display text-2xl font-bold text-slate-900 md:text-[1.75rem]">
             Secteurs accompagnés
           </h2>
           <p className="mt-3 max-w-2xl text-slate-600">
@@ -220,7 +220,7 @@ export default function ExpertIABTPPage() {
       {/* Formations proposées */}
       <section className="border-b border-slate-200 bg-white px-4 py-16">
         <div className="mx-auto max-w-6xl">
-          <h2 className="font-display text-3xl font-bold text-slate-900 md:text-4xl">
+          <h2 className="font-display text-2xl font-bold text-slate-900 md:text-[1.75rem]">
             Formations disponibles
           </h2>
           <p className="mt-3 text-slate-600">
@@ -270,7 +270,7 @@ export default function ExpertIABTPPage() {
       {/* Partenaires */}
       <section className="border-b border-slate-200 bg-slate-50 px-4 py-16">
         <div className="mx-auto max-w-6xl">
-          <h2 className="font-display text-3xl font-bold text-slate-900 md:text-4xl">
+          <h2 className="font-display text-2xl font-bold text-slate-900 md:text-[1.75rem]">
             Ils me font confiance
           </h2>
           
@@ -295,7 +295,7 @@ export default function ExpertIABTPPage() {
       {/* CTA Final */}
       <section className="bg-white px-4 py-16">
         <div className="mx-auto max-w-4xl text-center">
-          <h2 className="font-display text-3xl font-bold text-slate-900">
+          <h2 className="font-display text-2xl font-bold text-slate-900">
             Vous souhaitez former vos équipes à l'IA ?
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-lg text-slate-600">

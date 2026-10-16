@@ -25,7 +25,7 @@ export function ContactCalendlyBlock() {
     <section id="contact-rdv" aria-labelledby="contact-rdv-title" className="scroll-mt-24">
       <h2
         id="contact-rdv-title"
-        className="font-display text-2xl font-bold tracking-tight text-[#0F172A] md:text-3xl"
+        className="font-display text-2xl font-bold tracking-tight text-[#0F172A] md:text-2xl"
       >
         {CONTACT_CALENDLY_TITLE}
       </h2>

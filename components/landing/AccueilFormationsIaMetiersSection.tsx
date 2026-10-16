@@ -52,7 +52,7 @@ export function AccueilFormationsIaMetiersSection() {
         <RevealShell className="text-center">
           <h2
             id="formations-ia-metiers-btp-heading"
-            className="font-display text-2xl font-bold tracking-tight text-slate-900 md:text-3xl"
+            className="font-display text-2xl font-bold tracking-tight text-slate-900 md:text-2xl"
           >
             Des formations IA adaptées aux métiers du BTP
           </h2>

@@ -136,7 +136,7 @@ export function TrainingHero({
 
             <h1
               id={titleId}
-              className="mt-4 font-display text-[clamp(1.75rem,3.5vw,2.65rem)] font-bold leading-[1.12] tracking-tight text-slate-900 text-balance"
+              className="mt-4 font-display text-[clamp(1.5rem,2.2vw,2rem)] font-bold leading-[1.2] tracking-tight text-slate-900 text-balance"
             >
               {title}
             </h1>

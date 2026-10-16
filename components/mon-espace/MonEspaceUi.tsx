@@ -14,7 +14,7 @@ export function MonEspacePageHeader({
 }) {
   return (
     <header className="max-w-3xl">
-      <h1 className="flex items-center gap-2.5 font-display text-2xl font-bold tracking-tight text-slate-900 md:text-3xl">
+      <h1 className="flex items-center gap-2.5 font-display text-2xl font-bold tracking-tight text-slate-900 md:text-2xl">
         {Icon ? (
           <Icon className="shrink-0 text-[#377CF3]" size={28} strokeWidth={1.75} aria-hidden />
         ) : null}

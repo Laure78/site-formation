@@ -151,7 +151,7 @@ function ParcoursChoixCard({ data, marketing, pdfHref, pdfName }: ParcoursCardPr
       <h3 className={`${OFC_TYPE_H3} mt-3`}>{marketing.title}</h3>
       <p className="mt-2 text-sm leading-relaxed text-slate-600">{marketing.desc}</p>
       <div className="mt-5 flex flex-wrap items-baseline gap-x-4 gap-y-1">
-        <p className="font-display text-3xl font-bold text-[#377CF3]">{data.dureeLabel}</p>
+        <p className="font-display text-2xl font-bold text-[#377CF3]">{data.dureeLabel}</p>
         <p className="text-sm text-slate-600">{data.joursLabel}</p>
       </div>
       <p className="mt-3 font-display text-2xl font-bold text-slate-900">

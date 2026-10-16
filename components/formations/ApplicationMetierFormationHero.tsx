@@ -41,7 +41,7 @@ export function ApplicationMetierFormationHero({ config, stepBadge, formationHin
           </p>
         </div>
 
-        <h1 className="mt-4 font-display text-[1.65rem] font-bold leading-tight tracking-tight text-slate-900 sm:text-4xl">
+        <h1 className="mt-4 font-display text-xl font-bold leading-tight tracking-tight text-slate-900 sm:text-2xl">
           {config.h1}
         </h1>
         <p className="mt-3 max-w-2xl text-base leading-snug text-slate-600 sm:text-lg">

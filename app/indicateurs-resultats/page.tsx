@@ -112,7 +112,7 @@ export default function IndicateursResultatsPage() {
           <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#377CF3]">
             {QUALIOPI_LEGAL.raisonSociale} — indicateur 2 Qualiopi
           </p>
-          <h1 className="mt-2 font-display text-3xl font-bold text-slate-900 md:text-4xl">
+          <h1 className="mt-2 font-display text-2xl font-bold text-slate-900 md:text-[1.75rem]">
             Indicateurs de résultats des formations OFC
           </h1>
           <p className="mt-4 max-w-3xl text-slate-600">

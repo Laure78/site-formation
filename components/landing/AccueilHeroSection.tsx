@@ -26,7 +26,7 @@ export function AccueilHeroSection() {
         <div className="accueil-hero-fold">
           <div className="accueil-hero-content min-w-0">
             <Badge>Formatrice IA spécialisée BTP</Badge>
-            <h1 className="mt-4 max-w-3xl font-display text-[clamp(1.75rem,1.15rem+2.2vw,2.75rem)] font-extrabold leading-[1.12] tracking-tight text-ofc-ink text-balance">
+            <h1 className="mt-4 max-w-3xl font-display text-[clamp(1.5rem,1.2rem+1.4vw,2rem)] font-extrabold leading-[1.2] tracking-tight text-ofc-ink text-balance">
               Formations IA pour les professionnels du BTP en Île-de-France
             </h1>
             <p className={`${OFC_TYPE_LEAD} mt-4 max-w-xl text-base leading-[1.65] text-ofc-ink md:text-lg`}>

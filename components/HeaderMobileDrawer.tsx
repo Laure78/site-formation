@@ -149,7 +149,7 @@ export function HeaderMobileDrawer({
           <div className="flex flex-col gap-3">
             <FormationPlateformeConnexionButton
               variant="navMobile"
-              label="Espace apprenant"
+              label="Espace pédagogique"
               onClick={onClose}
             />
             <CtaButton

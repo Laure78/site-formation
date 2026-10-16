@@ -159,7 +159,7 @@ export default function SkillsClaudeBtpPage() {
           <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#377CF3]">
             {SKILLS_CLAUDE_BTP_META.eyebrow}
           </p>
-          <h1 className="mt-3 font-display text-3xl font-bold leading-tight text-slate-900 md:text-4xl">
+          <h1 className="mt-3 font-display text-2xl font-bold leading-tight text-slate-900 md:text-2xl">
             {SKILLS_CLAUDE_BTP_META.h1}
           </h1>
           <p className="mt-5 max-w-3xl text-base leading-relaxed text-slate-800 md:text-lg">
@@ -194,7 +194,7 @@ export default function SkillsClaudeBtpPage() {
         >
           <h2
             id="definition-skill-heading"
-            className="font-display text-2xl font-bold tracking-tight text-slate-900 md:text-3xl"
+            className="font-display text-2xl font-bold tracking-tight text-slate-900 md:text-2xl"
           >
             Qu’est-ce qu’un Skill Claude ?
           </h2>
@@ -243,7 +243,7 @@ export default function SkillsClaudeBtpPage() {
           <div className="mx-auto max-w-5xl px-4 py-12 sm:px-6 md:py-16 lg:px-8">
             <h2
               id="usages-heading"
-              className="font-display text-2xl font-bold tracking-tight text-slate-900 md:text-3xl"
+              className="font-display text-2xl font-bold tracking-tight text-slate-900 md:text-2xl"
             >
               Quels usages pour une entreprise du BTP ?
             </h2>
@@ -315,7 +315,7 @@ export default function SkillsClaudeBtpPage() {
           <div className="mx-auto max-w-5xl px-4 py-12 sm:px-6 md:py-16 lg:px-8">
             <h2
               id="installer-heading"
-              className="font-display text-2xl font-bold tracking-tight text-slate-900 md:text-3xl"
+              className="font-display text-2xl font-bold tracking-tight text-slate-900 md:text-2xl"
             >
               Comment créer et utiliser un Skill ?
             </h2>
@@ -386,7 +386,7 @@ export default function SkillsClaudeBtpPage() {
           <div className="mx-auto max-w-5xl px-4 py-12 sm:px-6 md:py-14 lg:px-8">
             <h2
               id="preparer-heading"
-              className="font-display text-2xl font-bold tracking-tight text-slate-900 md:text-3xl"
+              className="font-display text-2xl font-bold tracking-tight text-slate-900 md:text-2xl"
             >
               Quels documents et consignes préparer ?
             </h2>
@@ -449,7 +449,7 @@ export default function SkillsClaudeBtpPage() {
           <div className="mx-auto max-w-5xl px-4 py-12 text-center sm:px-6 md:py-16 lg:px-8">
             <h2
               id="cta-formations-heading"
-              className="font-display text-2xl font-bold text-white md:text-3xl"
+              className="font-display text-2xl font-bold text-white md:text-2xl"
             >
               Passer à la formation
             </h2>

@@ -176,18 +176,29 @@ export function HeaderNavDropdown({
             : undefined
         }
       >
-        {/* Bouton d’ouverture — les destinations sont des liens dans le panneau (pas de doublon d’URL). */}
+        {/* Libellé → page hub ; chevron → sous-menu (évite d’ouvrir le menu quand on veut la page). */}
+        <Link
+          href={item.href}
+          aria-current={routeActive ? 'page' : undefined}
+          onClick={onNavigate}
+          className="header-nav-trigger__link"
+        >
+          {item.label}
+        </Link>
         <button
           id={buttonId}
           type="button"
           aria-expanded={open}
           aria-haspopup={hasMega ? 'dialog' : 'true'}
           aria-controls={panelId}
-          aria-current={routeActive ? 'page' : undefined}
-          className="header-nav-trigger__link header-nav-trigger__link--menu-btn"
-          onClick={onToggle}
+          aria-label={`Ouvrir le menu ${item.label}`}
+          className="header-nav-trigger__toggle"
+          onClick={(event) => {
+            event.preventDefault();
+            event.stopPropagation();
+            onToggle();
+          }}
         >
-          <span>{item.label}</span>
           <ChevronDown
             size={17}
             strokeWidth={2.25}
@@ -294,33 +305,44 @@ export function HeaderMobileNavSection({
     >
       <div className="header-mobile-section__head">
         {hasMenu ? (
-          <button
-            id={buttonId}
-            type="button"
-            onClick={onToggle}
-            aria-expanded={expanded}
-            aria-controls={panelId}
-            aria-haspopup="true"
-            aria-current={itemActive ? 'page' : undefined}
-            className={`header-mobile-section__link header-mobile-section__menu-btn ${
-              isCatalogue
-                ? 'font-semibold text-white'
-                : itemActive
-                  ? 'font-semibold text-[#2563EB]'
-                  : 'font-medium text-slate-900'
-            }`}
-          >
-            {icon}
-            <span className="flex-1 text-left">{item.label}</span>
-            <ChevronDown
-              size={18}
-              strokeWidth={2.25}
-              className={`shrink-0 transition-transform duration-200 motion-reduce:transition-none ${
-                expanded ? 'rotate-180' : ''
+          <div className="flex min-h-11 w-full items-stretch">
+            <Link
+              href={item.href}
+              aria-current={itemActive ? 'page' : undefined}
+              onClick={onNavigate}
+              className={`header-mobile-section__link min-w-0 flex-1 ${
+                isCatalogue
+                  ? 'font-semibold text-white'
+                  : itemActive
+                    ? 'font-semibold text-[#2563EB]'
+                    : 'font-medium text-slate-900'
               }`}
-              aria-hidden
-            />
-          </button>
+            >
+              {icon}
+              <span className="flex-1 text-left">{item.label}</span>
+            </Link>
+            <button
+              id={buttonId}
+              type="button"
+              onClick={onToggle}
+              aria-expanded={expanded}
+              aria-controls={panelId}
+              aria-haspopup="true"
+              aria-label={`Ouvrir le menu ${item.label}`}
+              className={`inline-flex min-h-11 min-w-11 shrink-0 items-center justify-center rounded-xl ${
+                isCatalogue ? 'text-white' : 'text-slate-600'
+              }`}
+            >
+              <ChevronDown
+                size={18}
+                strokeWidth={2.25}
+                className={`shrink-0 transition-transform duration-200 motion-reduce:transition-none ${
+                  expanded ? 'rotate-180' : ''
+                }`}
+                aria-hidden
+              />
+            </button>
+          </div>
         ) : (
           <Link
             href={item.href}

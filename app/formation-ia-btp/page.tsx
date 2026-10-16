@@ -186,7 +186,7 @@ export default function FormationIaBtpPillarPage() {
             <p className="text-sm font-medium uppercase tracking-wide text-[var(--accent)]">
               Laure Olivié · OFC Création d&apos;Entreprise · Qualiopi · Constructys
             </p>
-            <h1 className="mt-4 font-display text-3xl font-bold tracking-tight text-slate-900 md:text-4xl lg:text-[2.75rem] lg:leading-tight">
+            <h1 className="mt-4 font-display text-2xl font-bold tracking-tight text-slate-900 md:text-[1.75rem] lg:text-2xl lg:leading-tight">
               {FORMATION_IA_BTP_PILLAR_H1}
             </h1>
             <ContentUpdatedLine

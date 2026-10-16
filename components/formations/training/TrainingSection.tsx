@@ -45,7 +45,7 @@ export function TrainingSection({
         {title ? (
           <h2
             id={headingId}
-            className="font-display text-2xl font-bold tracking-tight text-slate-900 md:text-[1.75rem]"
+            className="font-display text-xl font-bold tracking-tight text-slate-900 md:text-[1.375rem]"
           >
             {title}
           </h2>

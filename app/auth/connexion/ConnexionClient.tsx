@@ -110,7 +110,7 @@ export default function ConnexionClient({
 
   return (
     <div className="rounded-2xl border border-slate-200 bg-white p-8 shadow-[0_8px_30px_rgba(15,23,42,0.08)]">
-      <h2 className="font-display text-3xl font-bold text-slate-900">
+      <h2 className="font-display text-2xl font-bold text-slate-900">
         {isAdminLogin ? 'Connexion administrateur' : 'Connexion'}
       </h2>
       {isAdminLogin ? (

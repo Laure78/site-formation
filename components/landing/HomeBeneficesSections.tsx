@@ -84,7 +84,7 @@ export function HomeBeneficesSections() {
             <RevealShell className="text-center">
               <h2
                 id="benefices-formation-ia-heading"
-                className="font-display text-3xl font-bold text-slate-900 md:text-4xl"
+                className="font-display text-2xl font-bold text-slate-900 md:text-[1.75rem]"
               >
                 Les bénéfices d&apos;une formation IA pour les pros du BTP et de la construction
               </h2>
@@ -315,7 +315,7 @@ export function HomeBeneficesSections() {
             <RevealShell>
               <h2
                 id="gains-concrets-heading"
-                className="font-display text-3xl font-bold text-white md:text-4xl"
+                className="font-display text-2xl font-bold text-white md:text-2xl"
               >
                 Ce que vous gagnez concrètement
               </h2>

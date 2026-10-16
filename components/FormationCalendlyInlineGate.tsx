@@ -23,7 +23,7 @@ export function FormationCalendlyInlineGate() {
       <div className="mx-auto max-w-5xl px-4 text-center">
         <h2
           id="formation-calendly-heading"
-          className="font-display text-2xl font-bold tracking-tight text-slate-900 md:text-3xl"
+          className="font-display text-2xl font-bold tracking-tight text-slate-900 md:text-2xl"
         >
           Réservez votre visio découverte gratuite
         </h2>

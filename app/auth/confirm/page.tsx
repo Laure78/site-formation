@@ -44,7 +44,7 @@ function ConfirmContent() {
   if (!tokenHash || !type) {
     return (
       <div className="mx-auto max-w-md px-4 py-16">
-        <h1 className="font-display text-3xl font-bold">Lien invalide</h1>
+        <h1 className="font-display text-2xl font-bold">Lien invalide</h1>
         <p className="mt-4 text-slate-600">
           Ce lien de confirmation est incomplet. Demandez un nouveau lien depuis la page de connexion.
         </p>
@@ -59,7 +59,7 @@ function ConfirmContent() {
 
   return (
     <div className="mx-auto max-w-md px-4 py-16">
-      <h1 className="font-display text-3xl font-bold">Confirmer la réinitialisation</h1>
+      <h1 className="font-display text-2xl font-bold">Confirmer la réinitialisation</h1>
       <p className="mt-4 text-slate-600">
         Cliquez sur le bouton ci-dessous pour choisir un nouveau mot de passe. Cette étape protège le lien
         contre les scans automatiques de boîtes mail (Yahoo, Outlook…).

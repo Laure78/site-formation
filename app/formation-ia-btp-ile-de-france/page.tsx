@@ -117,7 +117,7 @@ export default function FormationIaBtpIleDeFrancePage() {
             <p className="mt-6 text-sm font-semibold uppercase tracking-wide text-[#377CF3]">
               Présentiel · organisme certifié Qualiopi · Constructys · Île-de-France
             </p>
-            <h1 className="mt-4 font-display text-3xl font-bold leading-tight text-slate-900 md:text-4xl lg:text-[2.5rem]">
+            <h1 className="mt-4 font-display text-2xl font-bold leading-tight text-slate-900 md:text-2xl lg:text-2xl">
               Formation IA pour le bâtiment et la construction en Île-de-France
             </h1>
             <ContentUpdatedLine
@@ -147,7 +147,7 @@ export default function FormationIaBtpIleDeFrancePage() {
 
         <section className={OFC_SEC.muted} aria-labelledby="docs-btp-reels">
           <div className="mx-auto max-w-4xl">
-            <h2 id="docs-btp-reels" className="font-display text-2xl font-bold text-slate-900 md:text-3xl">
+            <h2 id="docs-btp-reels" className="font-display text-2xl font-bold text-slate-900 md:text-2xl">
               Une formation IA sur vos documents BTP réels
             </h2>
             <p className="mt-4 text-base leading-relaxed text-slate-600 md:text-lg">
@@ -178,7 +178,7 @@ export default function FormationIaBtpIleDeFrancePage() {
           <div className="mx-auto max-w-6xl">
             <h2
               id="catalogue-idf-heading"
-              className="font-display text-2xl font-bold text-slate-900 md:text-3xl"
+              className="font-display text-2xl font-bold text-slate-900 md:text-2xl"
             >
               Les {catalogueCount} formations IA en Île-de-France
             </h2>
@@ -198,7 +198,7 @@ export default function FormationIaBtpIleDeFrancePage() {
 
         <section className={OFC_SEC.muted} aria-labelledby="intra-inter-idf">
           <div className="mx-auto max-w-4xl">
-            <h2 id="intra-inter-idf" className="font-display text-2xl font-bold text-slate-900 md:text-3xl">
+            <h2 id="intra-inter-idf" className="font-display text-2xl font-bold text-slate-900 md:text-2xl">
               intra ou inter, partout en Île-de-France
             </h2>
             <p className="mt-4 text-base leading-relaxed text-slate-600 md:text-lg">
@@ -219,7 +219,7 @@ export default function FormationIaBtpIleDeFrancePage() {
 
         <section className={OFC_SEC.white} aria-labelledby="metiers-idf-heading">
           <div className="mx-auto max-w-4xl">
-            <h2 id="metiers-idf-heading" className="font-display text-2xl font-bold text-slate-900 md:text-3xl">
+            <h2 id="metiers-idf-heading" className="font-display text-2xl font-bold text-slate-900 md:text-2xl">
               Formations IA par métier du BTP
             </h2>
             <p className="mt-4 text-base leading-relaxed text-slate-600 md:text-lg">
@@ -263,7 +263,7 @@ export default function FormationIaBtpIleDeFrancePage() {
 
         <section className={OFC_SEC.white} aria-labelledby="pourquoi-laure-idf">
           <div className="mx-auto max-w-4xl">
-            <h2 id="pourquoi-laure-idf" className="font-display text-2xl font-bold text-slate-900 md:text-3xl">
+            <h2 id="pourquoi-laure-idf" className="font-display text-2xl font-bold text-slate-900 md:text-2xl">
               Pourquoi Laure Olivié
             </h2>
             <p className="mt-4 text-base leading-relaxed text-slate-600 md:text-lg">
@@ -302,7 +302,7 @@ export default function FormationIaBtpIleDeFrancePage() {
 
         <section id="rdv" className={`${OFC_SEC.accent} scroll-mt-24`}>
           <div className="mx-auto max-w-4xl text-center">
-            <h2 className="font-display text-2xl font-bold md:text-3xl">
+            <h2 className="font-display text-2xl font-bold md:text-2xl">
               Prendre rendez-vous
             </h2>
             <p className="mx-auto mt-4 max-w-2xl text-blue-100">

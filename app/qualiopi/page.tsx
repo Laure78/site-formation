@@ -37,7 +37,7 @@ export default function QualiopiPage() {
           </div>
 
           <div className="min-w-0 mt-8 lg:mt-0">
-            <h1 className="font-display text-3xl font-bold text-slate-900 md:text-4xl">
+            <h1 className="font-display text-2xl font-bold text-slate-900 md:text-[1.75rem]">
               Notre certification Qualiopi
             </h1>
 

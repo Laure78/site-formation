@@ -5,7 +5,7 @@ export function PartenairesInterventionSection() {
     <section id="deroulement" className="scroll-mt-24" aria-labelledby="deroulement-title">
       <h2
         id="deroulement-title"
-        className="font-display text-2xl font-bold tracking-tight text-[#0F172A] md:text-3xl"
+        className="font-display text-2xl font-bold tracking-tight text-[#0F172A] md:text-2xl"
       >
         Comment se déroule une intervention ?
       </h2>

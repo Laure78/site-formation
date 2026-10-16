@@ -35,7 +35,7 @@ export default function RessourcesIABTPPage() {
       <section className="border-b border-slate-200 bg-white px-4 py-16 md:py-20">
         <div className="mx-auto max-w-6xl">
           <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#377CF3]">Bibliothèque IA BTP</p>
-          <h1 className="mt-3 font-display text-4xl font-bold tracking-tight text-slate-900 md:text-5xl">
+          <h1 className="mt-3 font-display text-2xl font-bold tracking-tight text-slate-900 md:text-2xl">
             Ressources IA BTP
           </h1>
           <p className="mt-5 max-w-3xl text-lg leading-relaxed text-slate-700 md:text-xl">
@@ -49,7 +49,7 @@ export default function RessourcesIABTPPage() {
           <div className="grid gap-6 sm:grid-cols-3">
             <div className="rounded-2xl border border-[#E2E8F0] bg-white p-6 text-center shadow-[0_8px_30px_rgba(15,23,42,0.05)]">
               <FileText size={40} className="mx-auto text-[var(--accent)]" strokeWidth={1.5} />
-              <p className="mt-4 text-3xl font-bold text-slate-900">
+              <p className="mt-4 text-2xl font-bold text-slate-900">
                 {ARTICLES.length}
               </p>
               <p className="text-sm text-slate-600">
@@ -58,12 +58,12 @@ export default function RessourcesIABTPPage() {
             </div>
             <div className="rounded-2xl border border-[#E2E8F0] bg-white p-6 text-center shadow-[0_8px_30px_rgba(15,23,42,0.05)]">
               <Clock size={40} className="mx-auto text-[var(--accent)]" strokeWidth={1.5} />
-              <p className="mt-4 text-3xl font-bold text-slate-900">100%</p>
+              <p className="mt-4 text-2xl font-bold text-slate-900">100%</p>
               <p className="text-sm text-slate-600">Cas d'usage réels</p>
             </div>
             <div className="rounded-2xl border border-[#E2E8F0] bg-white p-6 text-center shadow-[0_8px_30px_rgba(15,23,42,0.05)]">
               <TrendingUp size={40} className="mx-auto text-[var(--accent)]" strokeWidth={1.5} />
-              <p className="mt-4 text-3xl font-bold text-slate-900">
+              <p className="mt-4 text-2xl font-bold text-slate-900">
                 +{formatNoteSatisfactionSur5()}
               </p>
               <p className="text-sm text-slate-600">Satisfaction (Qualiopi)</p>
@@ -73,7 +73,7 @@ export default function RessourcesIABTPPage() {
 
       <section className="border-y border-slate-200 bg-white px-4 py-12 md:py-16">
         <div className="mx-auto max-w-6xl">
-          <h2 className="font-display text-3xl font-bold text-slate-900">
+          <h2 className="font-display text-2xl font-bold text-slate-900">
             Guides & Articles
           </h2>
 
@@ -119,7 +119,7 @@ export default function RessourcesIABTPPage() {
 
       <section className="px-4 py-12 md:py-16">
         <div className="mx-auto max-w-6xl rounded-2xl border border-[#BFDBFE] bg-[#EFF6FF] px-6 py-10 text-center md:px-10">
-          <h2 className="font-display text-3xl font-bold text-slate-900">
+          <h2 className="font-display text-2xl font-bold text-slate-900">
             Vous souhaitez former vos équipes à l'IA ?
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-lg text-slate-600">

@@ -123,7 +123,7 @@ export function FormationIaMarchePublicLanding({
           <p className="text-sm font-semibold uppercase tracking-wide text-[#377CF3]">
             Commande publique · organisme certifié Qualiopi · Île-de-France
           </p>
-          <h1 className="font-display mt-4 text-3xl font-bold leading-tight tracking-tight text-slate-900 md:text-4xl lg:text-[2.35rem]">
+          <h1 className="font-display mt-4 text-2xl font-bold leading-tight tracking-tight text-slate-900 md:text-[1.75rem] lg:text-2xl">
             {config.h1}
           </h1>
           <p className="mt-6 text-lg leading-relaxed text-slate-600">
@@ -177,7 +177,7 @@ export function FormationIaMarchePublicLanding({
           </nav>
 
           <section id="probleme" className="scroll-mt-24 mt-14">
-            <h2 className="font-display text-2xl font-bold text-slate-900 md:text-3xl">
+            <h2 className="font-display text-2xl font-bold text-slate-900 md:text-2xl">
               {config.problemTitle}
             </h2>
             <div className="mt-6 space-y-4 text-slate-700 leading-relaxed">
@@ -188,7 +188,7 @@ export function FormationIaMarchePublicLanding({
           </section>
 
           <section id="solution-ia" className="scroll-mt-24 mt-14">
-            <h2 className="font-display text-2xl font-bold text-slate-900 md:text-3xl">
+            <h2 className="font-display text-2xl font-bold text-slate-900 md:text-2xl">
               La solution IA — méthode et garde-fous
             </h2>
             <p className="mt-6 text-slate-700 leading-relaxed">{config.solutionIntro}</p>
@@ -212,7 +212,7 @@ export function FormationIaMarchePublicLanding({
           </div>
 
           <section id="methode" className="scroll-mt-24 mt-14">
-            <h2 className="font-display text-2xl font-bold text-slate-900 md:text-3xl">
+            <h2 className="font-display text-2xl font-bold text-slate-900 md:text-2xl">
               Méthode en 5 étapes
             </h2>
             <ol className="mt-8 list-decimal space-y-6 pl-5 text-slate-700 leading-relaxed">
@@ -226,7 +226,7 @@ export function FormationIaMarchePublicLanding({
           </section>
 
           <section id="prompts" className="scroll-mt-24 mt-14">
-            <h2 className="font-display text-2xl font-bold text-slate-900 md:text-3xl">
+            <h2 className="font-display text-2xl font-bold text-slate-900 md:text-2xl">
               Prompts — exemples cadrés
             </h2>
             <p className="mt-4 text-slate-600">
@@ -248,7 +248,7 @@ export function FormationIaMarchePublicLanding({
 
           {config.ccagSection ? (
             <section id="ccag-travaux" className="scroll-mt-24 mt-14">
-              <h2 className="font-display text-2xl font-bold text-slate-900 md:text-3xl">
+              <h2 className="font-display text-2xl font-bold text-slate-900 md:text-2xl">
                 Spécificités CCAG-Travaux 2021 — repères (pas un conseil juridique)
               </h2>
               <p className="mt-6 text-slate-700 leading-relaxed">{config.ccagSection.intro}</p>
@@ -268,7 +268,7 @@ export function FormationIaMarchePublicLanding({
 
           {config.lotSpecificSections && config.lotSpecificSections.length > 0 ? (
             <section id="specifique-lot" className="scroll-mt-24 mt-14">
-              <h2 className="font-display text-2xl font-bold text-slate-900 md:text-3xl">
+              <h2 className="font-display text-2xl font-bold text-slate-900 md:text-2xl">
                 Contenu spécifique au lot
               </h2>
               <div className="mt-8 space-y-10">
@@ -288,7 +288,7 @@ export function FormationIaMarchePublicLanding({
 
           {config.lots && config.lots.length > 0 ? (
             <section id="lots" className="scroll-mt-24 mt-14">
-              <h2 className="font-display text-2xl font-bold text-slate-900 md:text-3xl">
+              <h2 className="font-display text-2xl font-bold text-slate-900 md:text-2xl">
                 Choisissez votre lot
               </h2>
               <p className="mt-4 text-slate-600">
@@ -348,7 +348,7 @@ export function FormationIaMarchePublicLanding({
           </div>
 
           <section id="faq" className="scroll-mt-24 mt-14">
-            <h2 className="font-display text-2xl font-bold text-slate-900 md:text-3xl">FAQ</h2>
+            <h2 className="font-display text-2xl font-bold text-slate-900 md:text-2xl">FAQ</h2>
             <div className="mt-8 space-y-5">
               {config.faq.map((item) => (
                 <div key={item.q} className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
@@ -363,7 +363,7 @@ export function FormationIaMarchePublicLanding({
 
           {config.maillageLinks && config.maillageLinks.length > 0 ? (
             <section id="maillage-lot" className="scroll-mt-24 mt-14">
-              <h2 className="font-display text-2xl font-bold text-slate-900 md:text-3xl">
+              <h2 className="font-display text-2xl font-bold text-slate-900 md:text-2xl">
                 Pages liées
               </h2>
               <ul className="mt-6 space-y-4">

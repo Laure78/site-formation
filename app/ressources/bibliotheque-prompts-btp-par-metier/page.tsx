@@ -127,7 +127,7 @@ export default function BibliothequePromptsBtpParMetierPage() {
           </p>
           <h1
             id="hero-bibliotheque-prompts"
-            className="mt-3 max-w-3xl font-display text-3xl font-bold leading-tight md:text-4xl"
+            className="mt-3 max-w-3xl font-display text-2xl font-bold leading-tight md:text-2xl"
           >
             Bibliothèque de prompts IA BTP par métier
           </h1>

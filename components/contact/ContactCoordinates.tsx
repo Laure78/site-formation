@@ -18,7 +18,7 @@ export function ContactCoordinates() {
     <section aria-labelledby="contact-coordinates-title">
       <h2
         id="contact-coordinates-title"
-        className="font-display text-2xl font-bold tracking-tight text-[#0F172A] md:text-3xl"
+        className="font-display text-2xl font-bold tracking-tight text-[#0F172A] md:text-2xl"
       >
         Autres moyens de contact
       </h2>

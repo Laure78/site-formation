@@ -81,7 +81,7 @@ export function ChecklistLeadMagnet({ asPageHero = false }: Props) {
         </p>
         <TitleTag
           id={asPageHero ? 'checklist-ia-btp-h1' : undefined}
-          className="mt-3 font-display text-2xl font-bold tracking-tight text-slate-900 md:text-3xl lg:text-4xl"
+          className="mt-3 font-display text-xl font-bold tracking-tight text-slate-900 md:text-2xl lg:text-[1.75rem]"
         >
           Checklist gratuite : 10 prompts ChatGPT pour gagner du temps dans le BTP
         </TitleTag>

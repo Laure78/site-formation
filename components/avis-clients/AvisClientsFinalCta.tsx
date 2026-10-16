@@ -20,7 +20,7 @@ export function AvisClientsFinalCta({
     <section className={OFC_SEC.accentLoose}>
       <div className={`${OFC_SECTION_INNER} flex max-w-3xl flex-col items-center text-center`}>
         <Reveal>
-          <h2 className="font-display text-2xl font-bold text-white md:text-3xl">
+          <h2 className="font-display text-2xl font-bold text-white md:text-2xl">
             Vous souhaitez former vos équipes à l&apos;IA&nbsp;?
           </h2>
           <p className="mt-4 text-base leading-relaxed text-blue-100 md:text-lg">

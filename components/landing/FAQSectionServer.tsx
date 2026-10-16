@@ -37,7 +37,7 @@ export function FAQSectionServer({
         <div className="inline-flex items-center gap-2 rounded-full bg-[var(--accent)] px-4 py-2 text-sm font-medium text-white">
           <span>FAQ</span>
         </div>
-        <h2 className="mt-4 font-display text-3xl font-bold text-slate-900">{title}</h2>
+        <h2 className="mt-4 font-display text-2xl font-bold text-slate-900">{title}</h2>
         {subtitle && <p className="mt-3 text-base text-slate-600 md:text-lg">{subtitle}</p>}
         <div className="mt-8 space-y-3">
           {items.map((item, i) => (

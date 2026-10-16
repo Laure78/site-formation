@@ -9,7 +9,7 @@ export function AProposLinkedInSection() {
     <section aria-labelledby="linkedin-title">
       <h2
         id="linkedin-title"
-        className="font-display text-2xl font-bold tracking-tight text-[#0F172A] md:text-3xl"
+        className="font-display text-2xl font-bold tracking-tight text-[#0F172A] md:text-2xl"
       >
         LinkedIn Learning
       </h2>

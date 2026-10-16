@@ -50,7 +50,7 @@ export default async function MerciRDVPage({
               <CheckCircle size={36} strokeWidth={1.5} />
             </div>
           </div>
-          <h1 className="mt-6 text-center font-display text-2xl font-bold text-slate-900 md:text-3xl">
+          <h1 className="mt-6 text-center font-display text-2xl font-bold text-slate-900 md:text-2xl">
             Votre rendez-vous est confirmé
           </h1>
           <p className="mt-3 text-center text-slate-600">

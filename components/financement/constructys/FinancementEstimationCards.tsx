@@ -13,7 +13,7 @@ export function FinancementEstimationCards() {
     <section aria-labelledby="estimation-title" className="scroll-mt-24">
       <h2
         id="estimation-title"
-        className="font-display text-2xl font-bold tracking-tight text-[#0F172A] md:text-3xl"
+        className="font-display text-2xl font-bold tracking-tight text-[#0F172A] md:text-2xl"
       >
         Quel montant peut être pris en charge ?
       </h2>

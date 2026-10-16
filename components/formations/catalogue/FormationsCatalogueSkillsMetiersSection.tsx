@@ -21,7 +21,7 @@ export function FormationsCatalogueSkillsMetiersSection() {
     >
       <h2
         id="catalogue-skills-metiers"
-        className="font-display text-2xl font-bold text-ofc-ink md:text-3xl"
+        className="font-display text-2xl font-bold text-ofc-ink md:text-2xl"
       >
         Créez vos Skills métiers BTP
       </h2>

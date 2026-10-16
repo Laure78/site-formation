@@ -14,7 +14,7 @@ export function RessourcesFinalCta() {
           <CalendarCheck size={14} aria-hidden />
           Accompagnement
         </span>
-        <h2 id="ressources-final-cta-heading" className="mt-4 font-display text-2xl font-bold md:text-3xl">
+        <h2 id="ressources-final-cta-heading" className="mt-4 font-display text-2xl font-bold md:text-2xl">
           Vous souhaitez adapter ces méthodes à votre entreprise ?
         </h2>
         <p className="mt-3 text-base leading-relaxed text-white/90 md:text-lg">

@@ -8,7 +8,7 @@ export function FinancementQuiFaitQuoiSection() {
     <section aria-labelledby="qui-fait-quoi-title" className="scroll-mt-24">
       <h2
         id="qui-fait-quoi-title"
-        className="font-display text-2xl font-bold tracking-tight text-[#0F172A] md:text-3xl"
+        className="font-display text-2xl font-bold tracking-tight text-[#0F172A] md:text-2xl"
       >
         Qui fait quoi ?
       </h2>

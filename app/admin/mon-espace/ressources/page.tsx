@@ -82,7 +82,7 @@ export default async function OrganisationRessourcesPage({
     <div className="p-4 md:p-8 lg:p-10">
       <div className="max-w-3xl">
         <p className="text-sm text-slate-500">Organisation · admin uniquement</p>
-        <h1 className="mt-1 flex items-center gap-2 font-display text-2xl font-bold text-slate-900 md:text-3xl">
+        <h1 className="mt-1 flex items-center gap-2 font-display text-2xl font-bold text-slate-900 md:text-2xl">
           <Library className="text-[var(--accent)]" size={28} strokeWidth={1.75} />
           Ressources
         </h1>

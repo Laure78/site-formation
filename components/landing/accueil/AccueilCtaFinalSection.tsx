@@ -26,7 +26,7 @@ export function AccueilCtaFinalSection() {
           </Eyebrow>
           <h2
             id="accueil-cta-final"
-            className="mt-4 font-display text-2xl font-extrabold tracking-tight text-balance md:text-3xl lg:text-4xl"
+            className="mt-4 font-display text-xl font-extrabold tracking-tight text-balance md:text-2xl lg:text-[1.75rem]"
           >
             Vous hésitez entre plusieurs formations&nbsp;?
           </h2>

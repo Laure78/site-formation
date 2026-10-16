@@ -113,7 +113,7 @@ export async function BlogMdxArticle({ slug }: Props) {
           </div>
         </div>
 
-        <h1 className="mt-4 font-display text-3xl font-bold tracking-tight text-slate-900 md:text-4xl">
+        <h1 className="mt-4 font-display text-2xl font-bold tracking-tight text-slate-900 md:text-[1.75rem]">
           {frontmatter.title}
         </h1>
         {enBrefSentences ? <BlogArticleEnBref sentences={enBrefSentences} /> : null}

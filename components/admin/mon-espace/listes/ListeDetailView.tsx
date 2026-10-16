@@ -329,7 +329,7 @@ export function ListeDetailView({
               </button>
             </form>
           ) : (
-            <h1 className="mt-1 font-display text-2xl font-bold text-slate-900 md:text-3xl">
+            <h1 className="mt-1 font-display text-2xl font-bold text-slate-900 md:text-2xl">
               {list.title}
             </h1>
           )}

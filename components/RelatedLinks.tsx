@@ -67,7 +67,7 @@ export function RelatedLinks({
               : 'mx-auto max-w-4xl px-4'
         }
       >
-        <h2 id={`${id}-title`} className="font-display text-2xl font-bold text-slate-900 md:text-3xl">
+        <h2 id={`${id}-title`} className="font-display text-2xl font-bold text-slate-900 md:text-2xl">
           {title ?? cluster.title}
         </h2>
         {(subtitle ?? cluster.subtitle) ? (

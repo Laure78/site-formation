@@ -250,7 +250,7 @@ export function BibliothequeSkillsContent() {
             <Sparkles className="h-4 w-4" aria-hidden />
             {filtered.length} résultat{filtered.length > 1 ? 's' : ''}
           </p>
-          <h2 id="skills-catalog-heading" className="font-display mt-2 text-2xl font-bold text-slate-900 md:text-3xl">
+          <h2 id="skills-catalog-heading" className="font-display mt-2 text-2xl font-bold text-slate-900 md:text-2xl">
             Télécharger un skill
           </h2>
           <p className="mt-2 text-sm text-slate-600">

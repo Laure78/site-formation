@@ -128,7 +128,7 @@ export function PillarConversionCta({
       />
       <div className="relative mx-auto grid max-w-6xl gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
         <div>
-          <h2 id={titleId} className="font-display text-3xl font-bold leading-tight tracking-tight text-white md:text-[40px]">
+          <h2 id={titleId} className="font-display text-xl font-bold leading-tight tracking-tight text-white md:text-2xl">
             {title}
           </h2>
           <div className="mt-5 max-w-2xl text-sm leading-relaxed text-white/90 md:text-base">{description}</div>

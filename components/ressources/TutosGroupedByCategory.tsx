@@ -141,7 +141,7 @@ export function TutosGroupedByCategory({
                   <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#377CF3]">Rubrique</p>
                   <h2
                     id={`${meta.sectionId}-heading`}
-                    className="mt-2 font-display text-2xl font-bold text-slate-900 md:text-3xl"
+                    className="mt-2 font-display text-2xl font-bold text-slate-900 md:text-2xl"
                   >
                     {meta.title}
                   </h2>

@@ -177,7 +177,7 @@ function SommaireTableSection({
       <div className="mx-auto max-w-4xl px-4">
         <h2
           id="sommaire-doe"
-          className="scroll-mt-28 font-display text-2xl font-bold text-slate-900 md:text-3xl"
+          className="scroll-mt-28 font-display text-2xl font-bold text-slate-900 md:text-2xl"
         >
           {table.title}
         </h2>
@@ -243,7 +243,7 @@ function LotsExamplesSection({ lots }: { lots: TutoLotsExamples }) {
       <div className="mx-auto max-w-4xl px-4">
         <h2
           id="exemples-doe-par-lot"
-          className="scroll-mt-28 font-display text-2xl font-bold text-slate-900 md:text-3xl"
+          className="scroll-mt-28 font-display text-2xl font-bold text-slate-900 md:text-2xl"
         >
           {lots.title}
         </h2>
@@ -286,7 +286,7 @@ export function TutoPage({ tuto }: { tuto: TutoData }) {
               </p>
               <h1
                 id={`hero-${tuto.slug}`}
-                className="mt-3 font-display text-3xl font-bold leading-tight text-[#377CF3] md:text-4xl lg:text-[2.6rem]"
+                className="mt-3 font-display text-2xl font-bold leading-tight text-[#377CF3] md:text-[1.75rem] lg:text-2xl"
               >
                 {tuto.title}
               </h1>
@@ -395,7 +395,7 @@ export function TutoPage({ tuto }: { tuto: TutoData }) {
         <div className="mx-auto max-w-4xl px-4">
           <h2
             id={`intro-${tuto.slug}`}
-            className="scroll-mt-28 font-display text-2xl font-bold text-slate-900 md:text-3xl"
+            className="scroll-mt-28 font-display text-2xl font-bold text-slate-900 md:text-2xl"
           >
             {tuto.introTitle}
           </h2>
@@ -424,7 +424,7 @@ export function TutoPage({ tuto }: { tuto: TutoData }) {
         <div className="mx-auto max-w-4xl px-4">
           <h2
             id={`faq-${tuto.slug}`}
-            className="font-display text-2xl font-bold text-slate-900 md:text-3xl"
+            className="font-display text-2xl font-bold text-slate-900 md:text-2xl"
           >
             {tuto.faqTitle}
           </h2>
@@ -464,7 +464,7 @@ export function TutoPage({ tuto }: { tuto: TutoData }) {
           </p>
           <h2
             id={`cta-${tuto.slug}`}
-            className="mt-2 font-display text-3xl font-bold text-slate-900 md:text-4xl"
+            className="mt-2 font-display text-2xl font-bold text-slate-900 md:text-[1.75rem]"
           >
             {tuto.cta.title}
           </h2>

@@ -12,7 +12,7 @@ export function AvisClientsLeaveReviewCta() {
         <Reveal>
           <h2
             id="laisser-avis-google-title"
-            className="font-display text-2xl font-bold text-slate-900 md:text-3xl"
+            className="font-display text-2xl font-bold text-slate-900 md:text-2xl"
           >
             Vous avez participé à l&apos;une de mes formations&nbsp;?
           </h2>

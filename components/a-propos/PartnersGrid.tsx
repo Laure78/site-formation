@@ -18,7 +18,7 @@ export function PartnersGrid() {
   return (
     <Reveal as="section" distance={16} className="scroll-mt-24">
       <div className="mx-auto max-w-6xl rounded-2xl border border-[#E2E8F0] bg-white px-6 py-10 shadow-[0_8px_30px_rgba(15,23,42,0.05)] md:px-8">
-        <h2 className="font-display text-3xl font-bold tracking-tight text-[#0F172A] md:text-4xl">
+        <h2 className="font-display text-2xl font-bold tracking-tight text-[#0F172A] md:text-[1.75rem]">
           Ils m&apos;ont fait confiance
           <span className="a-propos-title-accent mt-3 block h-1 rounded-full bg-[#377CF3]" aria-hidden />
         </h2>

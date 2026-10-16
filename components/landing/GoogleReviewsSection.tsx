@@ -43,7 +43,7 @@ export async function GoogleReviewsSection() {
               <Award size={16} strokeWidth={1.5} />
               <span>{kicker}</span>
             </div>
-            <h2 className="mt-4 font-display text-3xl font-bold text-slate-900 md:text-4xl">{heading}</h2>
+            <h2 className="mt-4 font-display text-2xl font-bold text-slate-900 md:text-[1.75rem]">{heading}</h2>
             {hasGoogleApi ? (
               <p className="mt-3 text-slate-600">
                 Avis authentiques sur Google Business Profile — défilant ci-dessous. Étude de cas FFB &amp; étanchéité

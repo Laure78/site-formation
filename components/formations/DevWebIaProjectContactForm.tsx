@@ -153,7 +153,7 @@ export function DevWebIaProjectContactForm({ initialProjectType }: Props) {
     <div>
       <h2
         id="dev-web-ia-project-form-title"
-        className="font-display text-2xl font-bold tracking-tight text-[#0F172A] md:text-3xl"
+        className="font-display text-2xl font-bold tracking-tight text-[#0F172A] md:text-2xl"
       >
         Envoyer ma demande
       </h2>

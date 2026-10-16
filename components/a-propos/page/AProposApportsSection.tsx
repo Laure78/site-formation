@@ -5,7 +5,7 @@ export function AProposApportsSection() {
     <section aria-labelledby="apports-title">
       <h2
         id="apports-title"
-        className="font-display text-2xl font-bold tracking-tight text-[#0F172A] md:text-3xl"
+        className="font-display text-2xl font-bold tracking-tight text-[#0F172A] md:text-2xl"
       >
         Ce que j’apporte aux entreprises
       </h2>

@@ -59,7 +59,7 @@ export function AccueilCasUsageIaVisuels() {
           </p>
           <h2
             id="home-cas-usage-ia-visuels"
-            className="mt-5 font-display text-2xl font-bold tracking-tight text-[#1A1A1A] md:text-3xl"
+            className="mt-5 font-display text-2xl font-bold tracking-tight text-[#1A1A1A] md:text-2xl"
           >
             L&apos;IA en action sur vos documents BTP
           </h2>

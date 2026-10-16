@@ -182,7 +182,7 @@ export function FormationsAdminList({
     <div className="p-4 md:p-8">
       <div className="flex flex-col gap-4 lg:flex-row lg:items-start lg:justify-between">
         <div className="min-w-0">
-          <h1 className="font-display text-2xl font-bold tracking-tight text-slate-900 md:text-3xl">
+          <h1 className="font-display text-2xl font-bold tracking-tight text-slate-900 md:text-2xl">
             Vos formations{' '}
             <span className="font-semibold text-slate-500">
               ({ordered.length} / ∞)

@@ -40,7 +40,7 @@ export function TrainingMethod({
             className="relative flex h-full flex-col rounded-2xl border border-slate-200 bg-slate-50/70 p-5 md:p-6"
           >
             <span
-              className="font-display text-3xl font-bold tracking-tight text-[#377CF3]"
+              className="font-display text-xl font-bold tracking-tight text-[#377CF3] md:text-2xl"
               aria-hidden
             >
               {String(index + 1).padStart(2, '0')}

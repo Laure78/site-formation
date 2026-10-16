@@ -100,7 +100,7 @@ export function FormationMetierB1Page({
             linkLabel={sisterEncart.linkLabel}
           />
         ) : null}
-        <h1 className="font-display text-4xl font-bold tracking-tight text-slate-900 md:text-5xl">{h1}</h1>
+        <h1 className="font-display text-2xl font-bold tracking-tight text-slate-900 md:text-2xl">{h1}</h1>
         <EnBref className="mt-5">
           <p>{enBrefText}</p>
         </EnBref>

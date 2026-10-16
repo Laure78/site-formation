@@ -11,7 +11,7 @@ export function Timeline() {
   return (
     <Reveal as="section" id="experience" distance={16} className="scroll-mt-24">
       <div className="mx-auto max-w-6xl rounded-2xl border border-[#E2E8F0] bg-white px-6 py-10 shadow-[0_8px_30px_rgba(15,23,42,0.05)] md:px-8">
-        <h2 className="font-display text-3xl font-bold tracking-tight text-[#0F172A] md:text-4xl">
+        <h2 className="font-display text-2xl font-bold tracking-tight text-[#0F172A] md:text-[1.75rem]">
           Expérience professionnelle
         </h2>
         <p className="mt-4 max-w-3xl text-lg leading-relaxed text-[#64748B]">

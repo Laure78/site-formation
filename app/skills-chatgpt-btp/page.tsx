@@ -145,7 +145,7 @@ export default function SkillsChatgptBtpPage() {
             <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#377CF3]">
               {SKILLS_CHATGPT_BTP_META.eyebrow}
             </p>
-            <h1 className="mt-3 font-display text-3xl font-bold leading-tight text-slate-900 md:text-4xl">
+            <h1 className="mt-3 font-display text-2xl font-bold leading-tight text-slate-900 md:text-2xl">
               {SKILLS_CHATGPT_BTP_META.h1}
             </h1>
             <p className="mt-5 text-base leading-relaxed text-slate-800 md:text-lg">
@@ -209,7 +209,7 @@ export default function SkillsChatgptBtpPage() {
         >
           <h2
             id="a-quoi-sert-heading"
-            className="font-display text-2xl font-bold text-slate-900 md:text-3xl"
+            className="font-display text-2xl font-bold text-slate-900 md:text-2xl"
           >
             À quoi sert un Skill ChatGPT dans le BTP ?
           </h2>
@@ -286,7 +286,7 @@ export default function SkillsChatgptBtpPage() {
           <div className="mx-auto max-w-5xl px-4 py-12 sm:px-6 md:py-16 lg:px-8">
             <h2
               id="creer-skill-heading"
-              className="font-display text-2xl font-bold text-slate-900 md:text-3xl"
+              className="font-display text-2xl font-bold text-slate-900 md:text-2xl"
             >
               Créer son Skill en cinq étapes
             </h2>
@@ -353,7 +353,7 @@ export default function SkillsChatgptBtpPage() {
         >
           <h2
             id="six-skills-heading"
-            className="font-display text-2xl font-bold text-slate-900 md:text-3xl"
+            className="font-display text-2xl font-bold text-slate-900 md:text-2xl"
           >
             Six Skills BTP à télécharger
           </h2>
@@ -411,7 +411,7 @@ export default function SkillsChatgptBtpPage() {
           <div className="mx-auto max-w-5xl px-4 py-12 sm:px-6 md:py-14 lg:px-8">
             <h2
               id="telechargements-heading"
-              className="font-display text-2xl font-bold text-slate-900 md:text-3xl"
+              className="font-display text-2xl font-bold text-slate-900 md:text-2xl"
             >
               Télécharger les ressources
             </h2>
@@ -447,7 +447,7 @@ export default function SkillsChatgptBtpPage() {
         >
           <h2
             id="personnaliser-heading"
-            className="font-display text-2xl font-bold text-slate-900 md:text-3xl"
+            className="font-display text-2xl font-bold text-slate-900 md:text-2xl"
           >
             Personnaliser et vérifier
           </h2>
@@ -480,7 +480,7 @@ export default function SkillsChatgptBtpPage() {
           <div className="mx-auto max-w-5xl px-4 py-12 sm:px-6 md:py-14 lg:px-8">
             <h2
               id="faq-heading"
-              className="font-display text-2xl font-bold text-slate-900 md:text-3xl"
+              className="font-display text-2xl font-bold text-slate-900 md:text-2xl"
             >
               Questions fréquentes
             </h2>
@@ -508,7 +508,7 @@ export default function SkillsChatgptBtpPage() {
           <div className="mx-auto max-w-5xl px-4 py-12 text-center sm:px-6 md:py-16 lg:px-8">
             <h2
               id="formation-heading"
-              className="font-display text-2xl font-bold text-white md:text-3xl"
+              className="font-display text-2xl font-bold text-white md:text-2xl"
             >
               Créez vos assistants IA sur vos propres documents BTP
             </h2>

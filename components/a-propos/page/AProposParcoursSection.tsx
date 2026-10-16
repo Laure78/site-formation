@@ -5,7 +5,7 @@ export function AProposParcoursSection() {
     <section id="parcours" aria-labelledby="parcours-title" className="scroll-mt-24">
       <h2
         id="parcours-title"
-        className="font-display text-2xl font-bold tracking-tight text-[#0F172A] md:text-3xl"
+        className="font-display text-2xl font-bold tracking-tight text-[#0F172A] md:text-2xl"
       >
         Mon parcours
       </h2>

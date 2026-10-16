@@ -26,7 +26,7 @@ export function AccueilPreuveSocialeSection() {
                 </p>
                 <h2
                   id="preuve-sociale-reference-heading"
-                  className="mt-4 font-display text-2xl font-bold text-white md:text-3xl"
+                  className="mt-4 font-display text-2xl font-bold text-white md:text-2xl"
                 >
                   FFB, CSFE… une formation IA plébiscitée par le réseau pro
                 </h2>

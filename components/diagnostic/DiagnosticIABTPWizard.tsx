@@ -406,7 +406,7 @@ export function DiagnosticIABTPWizard() {
         <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#377CF3]">
           Diagnostic IA BTP gratuit
         </p>
-        <h1 className="mt-3 font-display text-2xl font-bold text-slate-900 md:text-3xl lg:text-[2rem]">
+        <h1 className="mt-3 font-display text-2xl font-bold text-slate-900 md:text-2xl lg:text-[2rem]">
           {phase === 'questions' ? (
             <>Où l&apos;IA peut-elle réellement vous faire gagner du temps ?</>
           ) : (

@@ -109,7 +109,7 @@ export default function IaMemoireTechniqueBtpPage() {
       <article>
         <section className={`${OFC_SEC.white} border-b border-slate-200`}>
           <div className="mx-auto max-w-4xl">
-            <h1 className="mt-6 font-display text-3xl font-bold leading-tight text-slate-900 md:text-4xl">
+            <h1 className="mt-6 font-display text-2xl font-bold leading-tight text-slate-900 md:text-2xl">
               Rédiger un mémoire technique avec l&apos;IA (BTP)
             </h1>
             <EnBref className="mt-5">
@@ -258,7 +258,7 @@ export default function IaMemoireTechniqueBtpPage() {
 
         <section className={`${OFC_SEC.accent} scroll-mt-24`}>
           <div className="mx-auto max-w-4xl text-center">
-            <h2 className="font-display text-2xl font-bold md:text-3xl">
+            <h2 className="font-display text-2xl font-bold md:text-2xl">
               {CTA_RDV_LABEL}
             </h2>
             <p className="mx-auto mt-4 max-w-2xl text-blue-100">

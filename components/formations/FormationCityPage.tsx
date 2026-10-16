@@ -152,7 +152,7 @@ export function FormationCityPage({
       {/* Pourquoi cette formation est animée par une experte reconnue */}
       <section className="border-b border-slate-200 bg-white px-4 py-16">
         <div className="mx-auto max-w-6xl">
-          <h2 className="font-display text-3xl font-bold text-slate-900">
+          <h2 className="font-display text-2xl font-bold text-slate-900">
             Une formatrice reconnue par le réseau pro
           </h2>
           <p className="mt-4 max-w-3xl text-slate-600 leading-relaxed">
@@ -180,7 +180,7 @@ export function FormationCityPage({
       {/* Pourquoi utiliser l'IA dans le BTP */}
       <section className="border-b border-slate-200 bg-slate-50 px-4 py-16">
         <div className="mx-auto max-w-6xl">
-          <h2 className="font-display text-3xl font-bold text-slate-900">
+          <h2 className="font-display text-2xl font-bold text-slate-900">
             Pourquoi l&apos;IA dans le BTP à {ville}&nbsp;?
           </h2>
           <p className="mt-3 max-w-2xl text-slate-600">
@@ -208,7 +208,7 @@ export function FormationCityPage({
       {/* Zones d'intervention */}
       <section id="zones" className="scroll-mt-24 border-b border-slate-200 bg-white px-4 py-16">
         <div className="mx-auto max-w-6xl">
-          <h2 className="font-display text-3xl font-bold text-slate-900">
+          <h2 className="font-display text-2xl font-bold text-slate-900">
             Zones d&apos;intervention autour de {ville}
           </h2>
           <p className="mt-3 max-w-2xl text-slate-600">
@@ -263,7 +263,7 @@ export function FormationCityPage({
       {/* Cas concrets */}
       <section className="border-b border-slate-200 bg-slate-50 px-4 py-16">
         <div className="mx-auto max-w-6xl">
-          <h2 className="font-display text-3xl font-bold text-slate-900">
+          <h2 className="font-display text-2xl font-bold text-slate-900">
             Cas concrets — entreprises du bâtiment
           </h2>
           <p className="mt-3 text-slate-600">
@@ -350,7 +350,7 @@ export function FormationCityPage({
       {/* CTA final */}
       <section className="bg-[var(--accent)] px-4 py-16 text-white">
         <div className="mx-auto max-w-2xl text-center">
-          <h2 className="font-display text-3xl font-bold">
+          <h2 className="font-display text-2xl font-bold">
             Formation IA à {ville}
           </h2>
           <p className="mt-4 text-lg text-blue-100">

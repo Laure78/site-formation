@@ -165,7 +165,7 @@ export default function DemoCursorFfbHomePage() {
               </div>
             </div>
             <div className="relative flex min-h-[280px] flex-col items-center justify-center px-6 py-16 text-center md:min-h-[340px]">
-              <h1 className="max-w-2xl text-3xl font-bold tracking-tight text-white drop-shadow md:text-5xl">
+              <h1 className="max-w-2xl text-2xl font-bold tracking-tight text-white drop-shadow md:text-2xl">
                 La FFB à vos côtés au quotidien
               </h1>
               <button
@@ -214,7 +214,7 @@ export default function DemoCursorFfbHomePage() {
             className="flex flex-col items-start justify-center rounded-sm px-8 py-10 text-white shadow-sm"
             style={{ backgroundColor: FFB_ORANGE }}
           >
-            <h2 className="text-3xl font-bold tracking-tight">Nos outils</h2>
+            <h2 className="text-2xl font-bold tracking-tight">Nos outils</h2>
             <p className="mt-3 max-w-xs text-sm leading-relaxed text-white/95">
               Pour les TPE et PME du bâtiment
             </p>
@@ -233,7 +233,7 @@ export default function DemoCursorFfbHomePage() {
       <section className="mx-auto max-w-6xl px-4 pb-16 pt-8">
         <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
           <div className="flex flex-wrap items-baseline gap-x-4 gap-y-2">
-            <h2 className="text-3xl font-bold tracking-tight text-slate-800 md:text-4xl">
+            <h2 className="text-2xl font-bold tracking-tight text-slate-800 md:text-2xl">
               Actualités
             </h2>
             <button

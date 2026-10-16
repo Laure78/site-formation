@@ -81,7 +81,7 @@ export default function FormationIaFaqPage() {
     <div className="bg-white">
       <JsonLd id="schema-faq-page" schema={faqSchema} />
       <div className="mx-auto max-w-3xl px-4 py-12 sm:px-6 lg:px-8">
-        <h1 className="font-display text-3xl font-bold tracking-tight text-slate-900 md:text-4xl">
+        <h1 className="font-display text-2xl font-bold tracking-tight text-slate-900 md:text-[1.75rem]">
           FAQ — formation IA pour les pros du BTP (ChatGPT & Claude AI)
         </h1>
         <p className="mt-4 text-lg text-slate-700">

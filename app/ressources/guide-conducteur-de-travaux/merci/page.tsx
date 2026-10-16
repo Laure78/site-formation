@@ -18,7 +18,7 @@ export const metadata = createPageMetadata({
 export default function MerciSkillIaPage() {
   return (
     <div className="mx-auto max-w-2xl px-4 py-16 text-center">
-      <h1 className="font-display text-3xl font-bold text-slate-900 md:text-4xl">
+      <h1 className="font-display text-2xl font-bold text-slate-900 md:text-[1.75rem]">
         Merci ! Votre guide est prêt.
       </h1>
       <p className="mt-6 text-lg text-slate-600">

@@ -83,7 +83,7 @@ export function InformationsReglementaires(props: InfosQualiopiProps) {
           <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#377CF3]">
             Indicateur 1 Qualiopi — information du public
           </p>
-          <h2 id="infos-qualiopi-heading" className="mt-2 font-display text-2xl font-bold text-slate-900 md:text-3xl">
+          <h2 id="infos-qualiopi-heading" className="mt-2 font-display text-2xl font-bold text-slate-900 md:text-2xl">
             Informations réglementaires — {validated.formationTitle}
           </h2>
           <p className="mt-2 text-sm text-slate-500">Référence programme : {validated.programmeRef}</p>

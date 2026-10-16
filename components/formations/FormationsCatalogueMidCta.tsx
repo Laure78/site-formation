@@ -14,7 +14,7 @@ export function FormationsCatalogueMidCta() {
           <div>
             <h2
               id="catalogue-mid-cta-heading"
-              className="font-display text-3xl font-bold leading-tight tracking-tight md:text-4xl"
+              className="font-display text-xl font-bold leading-tight tracking-tight md:text-2xl"
             >
               Pas sûr(e) de la formation qui convient à votre équipe ?
             </h2>

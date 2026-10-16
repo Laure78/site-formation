@@ -89,7 +89,7 @@ export default async function AvisClientsPage() {
         <section className={OFC_SEC.muted}>
           <div className={OFC_SECTION_INNER}>
             <Reveal>
-              <h2 className="font-display text-2xl font-bold text-slate-900 md:text-3xl">
+              <h2 className="font-display text-2xl font-bold text-slate-900 md:text-2xl">
                 Autres témoignages
               </h2>
               <p className="mt-4 max-w-3xl text-slate-600 md:text-lg">

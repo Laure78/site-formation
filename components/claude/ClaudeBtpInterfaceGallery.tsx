@@ -38,7 +38,7 @@ export function ClaudeBtpInterfaceGallery() {
     <section className="scroll-mt-24" aria-labelledby="interfaces-visuels">
       <h2
         id="interfaces-visuels"
-        className="font-display text-2xl font-bold tracking-tight text-[#0F172A] md:text-3xl"
+        className="font-display text-2xl font-bold tracking-tight text-[#0F172A] md:text-2xl"
       >
         Repères visuels — les 5 interfaces
       </h2>

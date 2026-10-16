@@ -134,7 +134,7 @@ export function PageMetierBTP({
         <p className="text-sm font-semibold uppercase tracking-wide text-[#377CF3]">
           {norme} · organisme certifié Qualiopi · Île-de-France
         </p>
-        <h1 className="font-display mt-4 text-3xl font-bold leading-tight tracking-tight text-slate-900 md:text-4xl lg:text-[2.35rem]">
+        <h1 className="font-display mt-4 text-2xl font-bold leading-tight tracking-tight text-slate-900 md:text-[1.75rem] lg:text-2xl">
           {titre}
         </h1>
         <PreuveSociale className="mt-6" />
@@ -154,7 +154,7 @@ export function PageMetierBTP({
         </EnBref>
 
         <section id="le-probleme" className="scroll-mt-24 mt-14">
-          <h2 className="font-display text-2xl font-bold text-slate-900 md:text-3xl">
+          <h2 className="font-display text-2xl font-bold text-slate-900 md:text-2xl">
             Le problème — vocabulaire terrain ({metier})
           </h2>
           <ul className="mt-6 space-y-3">
@@ -171,7 +171,7 @@ export function PageMetierBTP({
         </section>
 
         <section id="la-solution-ia" className="scroll-mt-24 mt-14">
-          <h2 className="font-display text-2xl font-bold text-slate-900 md:text-3xl">
+          <h2 className="font-display text-2xl font-bold text-slate-900 md:text-2xl">
             La solution IA
           </h2>
           <p className="mt-6 text-slate-700 leading-relaxed">
@@ -200,7 +200,7 @@ export function PageMetierBTP({
         </section>
 
         <section id="methode" className="scroll-mt-24 mt-14">
-          <h2 className="font-display text-2xl font-bold text-slate-900 md:text-3xl">
+          <h2 className="font-display text-2xl font-bold text-slate-900 md:text-2xl">
             Méthode pas à pas avec prompts ChatGPT
           </h2>
           <p className="mt-4 text-slate-600 leading-relaxed">
@@ -222,7 +222,7 @@ export function PageMetierBTP({
         </section>
 
         <section id="resultats" className="scroll-mt-24 mt-14">
-          <h2 className="font-display text-2xl font-bold text-slate-900 md:text-3xl">
+          <h2 className="font-display text-2xl font-bold text-slate-900 md:text-2xl">
             Résultats concrets
           </h2>
           <div className="mt-8 overflow-x-auto">
@@ -252,7 +252,7 @@ export function PageMetierBTP({
         </section>
 
         <section id="faq" className="scroll-mt-24 mt-14">
-          <h2 className="font-display text-2xl font-bold text-slate-900 md:text-3xl">FAQ</h2>
+          <h2 className="font-display text-2xl font-bold text-slate-900 md:text-2xl">FAQ</h2>
           <div className="mt-8 space-y-5">
             {faq.map((item) => (
               <div key={item.q} className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm">

@@ -143,7 +143,7 @@ export default function EtudeDeCasFfbCsfePage() {
           <p className="inline-flex rounded-full border border-blue-100 bg-white/90 px-4 py-1.5 text-sm font-medium text-[var(--accent)] shadow-sm">
             Références
           </p>
-          <h1 className="mt-6 font-display text-4xl font-bold tracking-tight text-slate-900 md:text-5xl">
+          <h1 className="mt-6 font-display text-2xl font-bold tracking-tight text-slate-900 md:text-2xl">
             Étude de cas clients —{' '}
             <span className="font-serif italic text-slate-800">FFB &amp; CSFE</span>
           </h1>
@@ -229,7 +229,7 @@ export default function EtudeDeCasFfbCsfePage() {
         className="scroll-mt-24 border-b border-slate-200 bg-slate-50 px-4 py-16"
       >
         <div className="mx-auto max-w-5xl">
-          <h2 className="text-center font-display text-2xl font-bold text-slate-900 md:text-3xl">
+          <h2 className="text-center font-display text-2xl font-bold text-slate-900 md:text-2xl">
             Études de cas
           </h2>
           <p className="mx-auto mt-2 max-w-2xl text-center text-slate-600">
@@ -409,7 +409,7 @@ export default function EtudeDeCasFfbCsfePage() {
         <div className="mx-auto max-w-5xl">
           <div className="flex items-center gap-3">
             <GraduationCap className="h-8 w-8 text-[var(--accent)]" strokeWidth={1.5} />
-            <h2 className="font-display text-2xl font-bold text-slate-900 md:text-3xl">
+            <h2 className="font-display text-2xl font-bold text-slate-900 md:text-2xl">
               Modules de formation (socle commun FFB / CSFE — étanchéité)
             </h2>
           </div>
@@ -436,7 +436,7 @@ export default function EtudeDeCasFfbCsfePage() {
       {/* Objectifs */}
       <section id="objectifs" className="scroll-mt-24 border-b border-slate-200 bg-[#eef2ff] px-4 py-16">
         <div className="mx-auto max-w-5xl">
-          <h2 className="font-display text-2xl font-bold text-slate-900 md:text-3xl">
+          <h2 className="font-display text-2xl font-bold text-slate-900 md:text-2xl">
             Objectifs pédagogiques
           </h2>
           <ul className="mt-8 space-y-4">
@@ -458,7 +458,7 @@ export default function EtudeDeCasFfbCsfePage() {
         <div className="mx-auto max-w-5xl">
           <div className="flex items-center gap-3">
             <TrendingUp className="h-8 w-8 text-[var(--accent)]" strokeWidth={1.5} />
-            <h2 className="font-display text-2xl font-bold text-slate-900 md:text-3xl">
+            <h2 className="font-display text-2xl font-bold text-slate-900 md:text-2xl">
               Bénéfices pour les clients et participants
             </h2>
           </div>
@@ -476,7 +476,7 @@ export default function EtudeDeCasFfbCsfePage() {
       {/* CTA */}
       <section className="bg-slate-900 px-4 py-16 text-white">
         <div className="mx-auto max-w-3xl text-center">
-          <h2 className="font-display text-2xl font-bold md:text-3xl">
+          <h2 className="font-display text-2xl font-bold md:text-2xl">
             Un projet équivalent pour votre structure ?
           </h2>
           <p className="mt-4 text-slate-300">

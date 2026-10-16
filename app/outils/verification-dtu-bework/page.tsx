@@ -47,7 +47,7 @@ export default function VerificationDtuBeworkTestPage() {
           <p className="text-xs font-semibold uppercase tracking-wide text-amber-800">
             Page de test · balise robots noindex
           </p>
-          <h1 className="mt-3 font-display text-3xl font-bold leading-tight text-[#1A1A1A] md:text-4xl">
+          <h1 className="mt-3 font-display text-2xl font-bold leading-tight text-[#1A1A1A] md:text-2xl">
             Prototype — vérification DTU × devis
           </h1>
           <p className="mt-4 max-w-3xl text-base leading-relaxed text-[#5A5A5A] md:text-lg">

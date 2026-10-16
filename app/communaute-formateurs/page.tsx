@@ -29,7 +29,7 @@ export default function CommunauteFormateursPage() {
       {/* Hero */}
       <section className="border-b border-slate-200 bg-white px-4 py-16">
         <div className="mx-auto max-w-3xl text-center">
-          <h1 className="font-display text-3xl font-bold text-slate-900 md:text-4xl">
+          <h1 className="font-display text-2xl font-bold text-slate-900 md:text-[1.75rem]">
             Communauté de formateurs — Trouver vos premiers clients
           </h1>
           <p className="mt-4 text-lg text-slate-600">

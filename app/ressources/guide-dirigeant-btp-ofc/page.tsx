@@ -143,7 +143,7 @@ export default function GuideDirigeantBtpOfcPage() {
           </p>
           <h1
             id="hero-guide-dirigeant"
-            className="mt-3 max-w-3xl font-display text-3xl font-bold leading-tight md:text-4xl"
+            className="mt-3 max-w-3xl font-display text-2xl font-bold leading-tight md:text-2xl"
           >
             Le Guide du dirigeant BTP
           </h1>

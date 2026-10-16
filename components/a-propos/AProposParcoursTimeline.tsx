@@ -15,7 +15,7 @@ export function AProposParcoursTimeline() {
       <div className="mx-auto max-w-3xl">
         <h2
           id="titre-parcours"
-          className="text-center font-display text-2xl font-bold text-slate-900 md:text-3xl"
+          className="text-center font-display text-2xl font-bold text-slate-900 md:text-2xl"
         >
           Parcours
         </h2>

@@ -24,7 +24,7 @@ export default async function FormationBySlugPage({ params }: Props) {
     <>
       <JsonLd id="schema-formation-course" schema={schema} />
       <article className="mx-auto max-w-3xl px-4 py-16">
-        <h1 className="font-display text-3xl font-bold text-slate-900">{entry.name}</h1>
+        <h1 className="font-display text-2xl font-bold text-slate-900">{entry.name}</h1>
         <p className="mt-4 text-lg text-slate-600 leading-relaxed">{entry.description}</p>
         <p className="mt-10 text-sm text-slate-500">
           <Link href="/formations" className="font-medium text-[var(--accent)] hover:underline">

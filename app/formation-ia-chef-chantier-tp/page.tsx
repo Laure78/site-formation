@@ -86,7 +86,7 @@ export default function FormationIaChefChantierTpPage() {
 
       <article>
         <MetierIdfPresentielLine className="mb-4" />
-        <h1 className="font-display text-4xl font-bold tracking-tight text-slate-900 md:text-5xl">
+        <h1 className="font-display text-2xl font-bold tracking-tight text-slate-900 md:text-2xl">
           {FORMATION_IA_CHEF_CHANTIER_TP_SEO.h1}
         </h1>
         <p className="mt-2 text-xl font-medium text-[#377CF3]">

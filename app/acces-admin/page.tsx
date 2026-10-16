@@ -34,7 +34,7 @@ export default async function AccesAdminPage() {
           >
             <h1
               id="acces-admin-title"
-              className="font-display text-3xl font-bold tracking-tight text-slate-900 md:text-4xl"
+              className="font-display text-2xl font-bold tracking-tight text-slate-900 md:text-[1.75rem]"
             >
               Accès administrateur
             </h1>

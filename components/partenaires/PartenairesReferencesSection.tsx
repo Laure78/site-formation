@@ -13,7 +13,7 @@ export function PartenairesReferencesSection({ id, titleId, title, references }:
     <section id={id} className="scroll-mt-24" aria-labelledby={titleId}>
       <h2
         id={titleId}
-        className="font-display text-2xl font-bold tracking-tight text-[#0F172A] md:text-3xl"
+        className="font-display text-2xl font-bold tracking-tight text-[#0F172A] md:text-2xl"
       >
         {title}
       </h2>

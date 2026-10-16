@@ -88,7 +88,7 @@ export function BlogIndexView({
       <section className="border-b border-slate-200 bg-white px-4 py-16 md:py-20">
         <div className="mx-auto max-w-6xl">
           <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#377CF3]">Blog expert IA BTP</p>
-          <h1 className="mt-3 font-display text-4xl font-bold tracking-tight text-slate-900 md:text-5xl">
+          <h1 className="mt-3 font-display text-2xl font-bold tracking-tight text-slate-900 md:text-2xl">
             {mode === 'category' && categoryId
               ? `Articles IA BTP — ${BLOG_CATEGORIES[categoryId]}`
               : 'Blog Formation IA pour le BTP : ressources et articles'}

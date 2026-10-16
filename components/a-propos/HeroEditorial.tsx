@@ -27,7 +27,7 @@ export function HeroEditorial({ lead, qualiopiText, catalogueHref }: Props) {
           <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#377CF3]">
             Formatrice IA spécialisée BTP depuis 2022 · {formatAnneesExperienceBTP()} · Guyancourt
           </p>
-          <h1 className="mt-3 font-display text-4xl font-bold leading-tight text-[#0F172A] md:text-5xl lg:text-6xl">
+          <h1 className="mt-3 font-display text-2xl font-bold leading-tight text-[#0F172A] md:text-2xl lg:text-[2rem]">
             Laure Olivié — Formatrice IA pour les pros du BTP (Qualiopi, FFB, LinkedIn Learning)
           </h1>
           <p className="mt-4 text-2xl font-normal text-[#475569]">

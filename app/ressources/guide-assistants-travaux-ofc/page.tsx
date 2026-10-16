@@ -136,7 +136,7 @@ export default function GuideAssistantsTravauxOfcPage() {
             PDF gratuit · OFC Qualiopi · </p>
           <h1
             id="hero-guide-assistants"
-            className="mt-4 max-w-4xl font-display text-3xl font-bold leading-tight md:text-4xl lg:text-[2.35rem]"
+            className="mt-4 max-w-4xl font-display text-2xl font-bold leading-tight md:text-2xl lg:text-2xl"
           >
             {GUIDE_ASSISTANTS_TRAVAUX_H1}
           </h1>
@@ -191,7 +191,7 @@ export default function GuideAssistantsTravauxOfcPage() {
 
       <section className="py-14 md:py-16" aria-labelledby="missions-heading">
         <div className="mx-auto max-w-7xl px-4">
-          <h2 id="missions-heading" className="font-display text-2xl font-bold text-slate-900 md:text-3xl">
+          <h2 id="missions-heading" className="font-display text-2xl font-bold text-slate-900 md:text-2xl">
             Les 12 missions outillées
           </h2>
           <p className="mt-3 max-w-3xl text-base leading-relaxed text-slate-600">

@@ -91,7 +91,7 @@ export default function BibliothequeSkillsPage() {
           <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#377CF3]">
             Ressource gratuite · OFC
           </p>
-          <h1 className="font-display mt-2 text-3xl font-bold text-slate-900 md:text-4xl">
+          <h1 className="font-display mt-2 text-2xl font-bold text-slate-900 md:text-[1.75rem]">
             Bibliothèque skills Claude BTP
           </h1>
           <p className="mt-3 max-w-2xl text-base leading-relaxed text-slate-600">

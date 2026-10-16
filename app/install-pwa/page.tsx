@@ -23,7 +23,7 @@ export default function InstallPWAPage() {
       <div className="inline-flex h-20 w-20 items-center justify-center rounded-2xl bg-[var(--accent-soft)] text-[var(--accent)]">
         <Smartphone size={40} strokeWidth={1.5} />
       </div>
-      <h1 className="mt-6 font-display text-3xl font-bold text-slate-900">
+      <h1 className="mt-6 font-display text-2xl font-bold text-slate-900">
         Installer l&apos;application
       </h1>
       <p className="mt-4 text-slate-600">

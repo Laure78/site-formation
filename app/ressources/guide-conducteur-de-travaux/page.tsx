@@ -126,7 +126,7 @@ export default function SkillIaConducteurTravauxPage() {
       <section className="bg-[#377CF3] text-white" aria-labelledby="hero-skill-ia">
         <div className="mx-auto grid max-w-7xl gap-10 px-4 py-14 md:items-start md:gap-12 md:py-20 lg:grid-cols-2">
           <div className="min-w-0">
-            <h1 id="hero-skill-ia" className="font-display text-3xl font-bold leading-tight md:text-4xl lg:text-[2.35rem]">
+            <h1 id="hero-skill-ia" className="font-display text-2xl font-bold leading-tight md:text-2xl lg:text-2xl">
               Guide du conducteur de travaux : 6&nbsp;skills Claude pour piloter le chantier
             </h1>
             <p className="mt-5 max-w-none text-lg leading-relaxed text-white/95 lg:max-w-[42rem] xl:max-w-none">
@@ -172,7 +172,7 @@ export default function SkillIaConducteurTravauxPage() {
 
       <section className="py-14 md:py-16" aria-labelledby="article-guide-cdt">
         <div className="mx-auto max-w-7xl px-4">
-          <h2 id="article-guide-cdt" className="font-display text-2xl font-bold text-slate-900 md:text-3xl">
+          <h2 id="article-guide-cdt" className="font-display text-2xl font-bold text-slate-900 md:text-2xl">
             Présentation du guide ressources
           </h2>
           <div className="mt-6 xl:grid xl:grid-cols-2 xl:gap-x-12 xl:gap-y-6">
@@ -206,7 +206,7 @@ export default function SkillIaConducteurTravauxPage() {
 
       <section className="border-b bg-[#F2F2F2] py-14" aria-labelledby="why-guide">
         <div className="mx-auto max-w-7xl px-4">
-          <h2 id="why-guide" className="font-display text-2xl font-bold md:text-3xl">
+          <h2 id="why-guide" className="font-display text-2xl font-bold md:text-2xl">
             Pourquoi ce guide
           </h2>
           <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
@@ -230,7 +230,7 @@ export default function SkillIaConducteurTravauxPage() {
 
       <section className="py-14" aria-labelledby="learn">
         <div className="mx-auto max-w-7xl px-4">
-          <h2 id="learn" className="font-display text-2xl font-bold md:text-3xl">
+          <h2 id="learn" className="font-display text-2xl font-bold md:text-2xl">
             Ce que vous allez apprendre
           </h2>
           <div className="mt-8 grid gap-4 md:grid-cols-2">
@@ -254,7 +254,7 @@ export default function SkillIaConducteurTravauxPage() {
 
       <section className="border-y border-slate-200 bg-[#F8FAFC] py-14" aria-labelledby="tutorial-7-etapes">
         <div className="mx-auto max-w-7xl px-4">
-          <h2 id="tutorial-7-etapes" className="font-display text-2xl font-bold md:text-3xl">
+          <h2 id="tutorial-7-etapes" className="font-display text-2xl font-bold md:text-2xl">
             Schéma générique — construire un skill (rappel hors PDF)
           </h2>
           <p className="mt-3 max-w-3xl text-slate-600">
@@ -282,7 +282,7 @@ export default function SkillIaConducteurTravauxPage() {
 
       <section className="py-14" aria-labelledby="six-livrables-guide">
         <div className="mx-auto max-w-7xl px-4">
-          <h2 id="six-livrables-guide" className="font-display text-2xl font-bold md:text-3xl">
+          <h2 id="six-livrables-guide" className="font-display text-2xl font-bold md:text-2xl">
             Les 6 livrables couverts dans le fichier PDF
           </h2>
           <p className="mt-3 max-w-3xl text-slate-600">
@@ -344,7 +344,7 @@ export default function SkillIaConducteurTravauxPage() {
 
       <section className="border-y border-slate-200 bg-white py-14" aria-labelledby="template-skill">
         <div className="mx-auto max-w-7xl px-4">
-          <h2 id="template-skill" className="font-display text-2xl font-bold md:text-3xl">
+          <h2 id="template-skill" className="font-display text-2xl font-bold md:text-2xl">
             Squelette de skill (bonus rapide hors PDF détaillé)
           </h2>
           <p className="mt-3 max-w-3xl text-slate-600">
@@ -380,7 +380,7 @@ Signature : [NOM] — [TITRE] — [ENTREPRISE]
 
       <section className="border-t border-slate-200 bg-white py-14" aria-labelledby="audience">
         <div className="mx-auto max-w-7xl px-4">
-          <h2 id="audience" className="font-display text-2xl font-bold md:text-3xl">
+          <h2 id="audience" className="font-display text-2xl font-bold md:text-2xl">
             À qui ça s&apos;adresse
           </h2>
           <div className="mt-8 grid gap-6 md:grid-cols-3">
@@ -424,7 +424,7 @@ Signature : [NOM] — [TITRE] — [ENTREPRISE]
             />
           </div>
           <div>
-            <h2 id="about-laure" className="font-display text-2xl font-bold md:text-3xl">
+            <h2 id="about-laure" className="font-display text-2xl font-bold md:text-2xl">
               Qui est Laure Olivié ?
             </h2>
             <p className="mt-4 text-slate-700 leading-relaxed">

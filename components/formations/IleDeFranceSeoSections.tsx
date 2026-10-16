@@ -20,7 +20,7 @@ export function IleDeFranceSeoSections() {
         <section aria-labelledby="idf-pour-btp">
           <h2
             id="idf-pour-btp"
-            className="font-display text-2xl font-bold text-slate-900 md:text-3xl"
+            className="font-display text-2xl font-bold text-slate-900 md:text-2xl"
           >
             Une formation IA pensée pour les professionnels du BTP
           </h2>
@@ -53,7 +53,7 @@ export function IleDeFranceSeoSections() {
         <section aria-labelledby="idf-apprendre">
           <h2
             id="idf-apprendre"
-            className="font-display text-2xl font-bold text-slate-900 md:text-3xl"
+            className="font-display text-2xl font-bold text-slate-900 md:text-2xl"
           >
             Ce que vous allez apprendre
           </h2>
@@ -78,7 +78,7 @@ export function IleDeFranceSeoSections() {
         <section aria-labelledby="idf-cas">
           <h2
             id="idf-cas"
-            className="font-display text-2xl font-bold text-slate-900 md:text-3xl"
+            className="font-display text-2xl font-bold text-slate-900 md:text-2xl"
           >
             Des cas concrets 100 % BTP
           </h2>
@@ -142,7 +142,7 @@ export function IleDeFranceSeoSections() {
         <section aria-labelledby="idf-ou" className="rounded-2xl border border-slate-200 bg-slate-50 p-8">
           <h2
             id="idf-ou"
-            className="font-display text-2xl font-bold text-slate-900 md:text-3xl"
+            className="font-display text-2xl font-bold text-slate-900 md:text-2xl"
           >
             Formation IA appliquée au bâtiment en Île-de-France
           </h2>
@@ -169,7 +169,7 @@ export function IleDeFranceSeoSections() {
         <section aria-labelledby="idf-resultats">
           <h2
             id="idf-resultats"
-            className="font-display text-2xl font-bold text-slate-900 md:text-3xl"
+            className="font-display text-2xl font-bold text-slate-900 md:text-2xl"
           >
             Résultats concrets
           </h2>
@@ -195,7 +195,7 @@ export function IleDeFranceSeoSections() {
         <section aria-labelledby="idf-simple">
           <h2
             id="idf-simple"
-            className="font-display text-2xl font-bold text-slate-900 md:text-3xl"
+            className="font-display text-2xl font-bold text-slate-900 md:text-2xl"
           >
             Une approche simple et accessible
           </h2>
@@ -216,7 +216,7 @@ export function IleDeFranceSeoSections() {
         <section aria-labelledby="idf-financement">
           <h2
             id="idf-financement"
-            className="font-display text-2xl font-bold text-slate-900 md:text-3xl"
+            className="font-display text-2xl font-bold text-slate-900 md:text-2xl"
           >
             Financement possible
           </h2>

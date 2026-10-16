@@ -12,7 +12,7 @@ export function FAQAccordion({ items, title, subtitle }: Props) {
   return (
     <section id="faq" className="scroll-mt-24">
       <div className="mx-auto max-w-4xl rounded-2xl border border-[#E2E8F0] bg-white px-6 py-10 shadow-[0_8px_30px_rgba(15,23,42,0.05)] md:px-8">
-        <h2 className="font-display text-3xl font-bold tracking-tight text-[#0F172A] md:text-4xl">{title}</h2>
+        <h2 className="font-display text-2xl font-bold tracking-tight text-[#0F172A] md:text-[1.75rem]">{title}</h2>
         <p className="mt-3 text-base text-[#64748B]">{subtitle}</p>
         <div className="mt-8 space-y-3">
           {items.map((item, index) => (

@@ -5,7 +5,7 @@ export function AProposMethodeSection() {
     <section aria-labelledby="methode-title">
       <h2
         id="methode-title"
-        className="font-display text-2xl font-bold tracking-tight text-[#0F172A] md:text-3xl"
+        className="font-display text-2xl font-bold tracking-tight text-[#0F172A] md:text-2xl"
       >
         Une méthode concrète et encadrée
       </h2>

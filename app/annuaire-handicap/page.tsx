@@ -29,7 +29,7 @@ export default function AnnuaireHandicapPage() {
     <div className="mx-auto max-w-4xl px-4 py-16">
       {/* En-tête */}
       <div className="text-center">
-        <h1 className="font-display text-3xl font-bold text-slate-900 md:text-4xl">
+        <h1 className="font-display text-2xl font-bold text-slate-900 md:text-[1.75rem]">
           Annuaire national des partenaires handicap
         </h1>
         <p className="mt-4 text-slate-600">

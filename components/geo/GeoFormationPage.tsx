@@ -99,7 +99,7 @@ export function GeoFormationPage(props: GeoFormationPageProps) {
               <p className="text-sm font-semibold uppercase tracking-wide text-[#377CF3]">
                 {deptLabel} · Présentiel · organisme certifié Qualiopi · Constructys
               </p>
-              <h1 className="mt-4 font-display text-3xl font-bold leading-tight tracking-tight text-slate-900 md:text-4xl lg:text-[2.35rem]">
+              <h1 className="mt-4 font-display text-2xl font-bold leading-tight tracking-tight text-slate-900 md:text-[1.75rem] lg:text-2xl">
                 {h1 ?? defaultH1}
               </h1>
               <p className="mt-6 text-lg leading-relaxed text-slate-600 md:text-xl">
@@ -148,7 +148,7 @@ export function GeoFormationPage(props: GeoFormationPageProps) {
 
       <section className={OFC_SEC.muted}>
         <div className="mx-auto max-w-4xl px-4">
-          <h2 className="font-display text-2xl font-bold text-slate-900 md:text-3xl">
+          <h2 className="font-display text-2xl font-bold text-slate-900 md:text-2xl">
             Formatrice basée à Guyancourt (78)
           </h2>
           <p className="mt-4 text-base leading-relaxed text-slate-700 md:text-lg">
@@ -166,7 +166,7 @@ export function GeoFormationPage(props: GeoFormationPageProps) {
 
       <section className={OFC_SEC.white}>
         <div className="mx-auto max-w-4xl px-4">
-          <h2 className="font-display text-2xl font-bold text-slate-900 md:text-3xl">
+          <h2 className="font-display text-2xl font-bold text-slate-900 md:text-2xl">
             Villes et bassins couverts {deptPreposition} ({code})
           </h2>
           <p className="mt-4 text-base leading-relaxed text-slate-700 md:text-lg">
@@ -193,7 +193,7 @@ export function GeoFormationPage(props: GeoFormationPageProps) {
 
       <section className={OFC_SEC.muted}>
         <div className="mx-auto max-w-4xl px-4">
-          <h2 className="font-display text-2xl font-bold text-slate-900 md:text-3xl">
+          <h2 className="font-display text-2xl font-bold text-slate-900 md:text-2xl">
             Les PME BTP {deptPreposition} : à quoi utilisent-elles l&apos;IA ?
           </h2>
           <p className="mt-4 text-base leading-relaxed text-slate-700 md:text-lg">

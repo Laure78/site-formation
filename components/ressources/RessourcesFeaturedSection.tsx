@@ -16,7 +16,7 @@ export function RessourcesFeaturedSection({ resources }: Props) {
     >
       <div className="mx-auto max-w-7xl px-4">
         <header className="mb-8 max-w-3xl">
-          <h2 id="ressources-featured-heading" className="font-display text-2xl font-bold text-slate-900 md:text-3xl">
+          <h2 id="ressources-featured-heading" className="font-display text-2xl font-bold text-slate-900 md:text-2xl">
             Pour commencer
           </h2>
           <p className="mt-3 text-sm leading-relaxed text-slate-600 md:text-base">

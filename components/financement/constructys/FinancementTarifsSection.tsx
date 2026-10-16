@@ -7,7 +7,7 @@ export function FinancementTarifsSection() {
     <section aria-labelledby="tarifs-ofc-title" className="scroll-mt-24">
       <h2
         id="tarifs-ofc-title"
-        className="font-display text-2xl font-bold tracking-tight text-[#0F172A] md:text-3xl"
+        className="font-display text-2xl font-bold tracking-tight text-[#0F172A] md:text-2xl"
       >
         Tarifs OFC (distincts des plafonds Constructys)
       </h2>

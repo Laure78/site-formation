@@ -63,7 +63,7 @@ export default function RessourcesTutosIndexPage() {
               <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[#377CF3]">
                 Index des parcours gratuits · {TUTOS.length} tutos
               </p>
-              <h1 className="mt-1.5 font-display text-2xl font-bold leading-tight text-slate-900 md:text-3xl">
+              <h1 className="mt-1.5 font-display text-2xl font-bold leading-tight text-slate-900 md:text-2xl">
                 Tous les tutos PDF IA BTP (Claude et ChatGPT)
               </h1>
               <p className="mt-1.5 max-w-3xl text-sm leading-relaxed text-slate-600 md:text-base">

@@ -14,7 +14,7 @@ type Props = {
 export function AProposAllerPlusLoin({ links }: Props) {
   return (
     <Reveal as="section" aria-labelledby="aller-plus-loin-title" className="scroll-mt-24" distance={14}>
-      <h2 id="aller-plus-loin-title" className="font-display text-2xl font-bold tracking-tight text-[#0F172A] md:text-3xl">
+      <h2 id="aller-plus-loin-title" className="font-display text-2xl font-bold tracking-tight text-[#0F172A] md:text-2xl">
         Aller plus loin
       </h2>
       <RevealGroup className="mt-8 grid gap-4 md:grid-cols-3" staggerMs={55}>

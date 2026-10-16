@@ -13,7 +13,7 @@ export function FinancementCircuitPaiementTable() {
     <section aria-labelledby="circuit-paiement-title" className="scroll-mt-24">
       <h2
         id="circuit-paiement-title"
-        className="font-display text-2xl font-bold tracking-tight text-[#0F172A] md:text-3xl"
+        className="font-display text-2xl font-bold tracking-tight text-[#0F172A] md:text-2xl"
       >
         Circuit de paiement transitoire
       </h2>

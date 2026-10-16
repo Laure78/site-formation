@@ -11,7 +11,7 @@ export function CatalogueFormationClaudeExtras() {
     <>
       <section className="border-b border-slate-200 bg-white px-4 py-8 md:py-10">
         <div className="mx-auto max-w-6xl">
-          <h2 className="font-display text-2xl font-bold text-slate-900 md:text-3xl">
+          <h2 className="font-display text-2xl font-bold text-slate-900 md:text-2xl">
             Pourquoi Claude AI pour le BTP
           </h2>
           {CLAUDE_LANDING.introParagraphs.map((p) => (

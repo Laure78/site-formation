@@ -118,7 +118,7 @@ export default async function CoursDetailPage({ params }: PageProps) {
             </div>
             <div className="p-4 md:p-8">
               <span className="text-xs font-medium uppercase tracking-wide text-slate-400">{course.level ?? 'débutant'}</span>
-              <h1 className="mt-1 font-display text-3xl font-bold text-slate-900">{course.title}</h1>
+              <h1 className="mt-1 font-display text-2xl font-bold text-slate-900">{course.title}</h1>
               <p className="mt-4 text-slate-600">{course.description ?? ''}</p>
               {modules && modules.length > 0 && (
                 <div className="mt-8">

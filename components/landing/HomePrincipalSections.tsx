@@ -81,7 +81,7 @@ export function HomePrincipalSections() {
         <RevealShell className="text-center">
           <h2
             id="sections-principales"
-            className="font-display text-2xl font-bold tracking-tight text-slate-900 md:text-3xl"
+            className="font-display text-2xl font-bold tracking-tight text-slate-900 md:text-2xl"
           >
             Tout pour former vos équipes à l&apos;IA
           </h2>

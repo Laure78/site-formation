@@ -49,8 +49,8 @@ export function TrainingFinalCta({
           id="training-cta-final-title"
           className={
             isDark
-              ? 'font-display text-2xl font-bold tracking-tight text-white text-balance md:text-3xl'
-              : 'font-display text-2xl font-bold tracking-tight text-slate-900 text-balance md:text-3xl'
+              ? 'font-display text-xl font-bold tracking-tight text-white text-balance md:text-2xl'
+              : 'font-display text-xl font-bold tracking-tight text-slate-900 text-balance md:text-2xl'
           }
         >
           {title}

@@ -17,7 +17,7 @@ export function PartenairesParcoursTroisNiveauxSection() {
     >
       <h2
         id="parcours-trois-niveaux-title"
-        className="font-display text-2xl font-bold text-[#0F172A] md:text-3xl"
+        className="font-display text-2xl font-bold text-[#0F172A] md:text-2xl"
       >
         Parcours en 3 niveaux — tarif par participant
       </h2>

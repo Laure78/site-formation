@@ -106,7 +106,7 @@ export default function InformationsReglementairesPage() {
         <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#377CF3]">
           {OFC_IDENTITE.raisonSociale} — actions de formation
         </p>
-        <h1 className="mt-2 text-3xl font-bold text-[#377CF3] md:text-4xl">
+        <h1 className="mt-2 text-2xl font-bold text-[#377CF3] md:text-2xl">
           Informations réglementaires et qualité
         </h1>
         <p className="mt-4 leading-relaxed text-[#1A1A1A]/90">

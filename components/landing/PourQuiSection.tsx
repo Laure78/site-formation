@@ -27,7 +27,7 @@ export function PourQuiSection() {
     <section className={OFC_SEC.muted}>
       <div className="mx-auto max-w-6xl">
         <RevealShell className="text-center">
-          <h3 className="font-display text-3xl font-bold text-slate-900 md:text-4xl">
+          <h3 className="font-display text-2xl font-bold text-slate-900 md:text-[1.75rem]">
             Pour <span className="font-serif italic text-slate-800">qui</span> ?
           </h3>
         </RevealShell>

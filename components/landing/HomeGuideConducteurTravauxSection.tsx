@@ -51,7 +51,7 @@ export function HomeGuideConducteurTravauxSection() {
 
                 <h2
                   id="home-guide-cdt-title"
-                  className="mt-5 font-display text-2xl font-bold leading-tight tracking-tight text-slate-900 md:text-3xl"
+                  className="mt-5 font-display text-2xl font-bold leading-tight tracking-tight text-slate-900 md:text-2xl"
                 >
                   Guide conducteur de travaux — 6 skills Claude pour piloter le chantier
                 </h2>

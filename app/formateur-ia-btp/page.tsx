@@ -105,7 +105,7 @@ export default function FormateurIaBtpPage() {
               <p className="text-sm font-semibold uppercase tracking-wide text-[#377CF3]">
                 {SITE_CONFIG.legalName} · Formatrice Qualiopi · Présentiel Île-de-France
               </p>
-              <h1 className="mt-3 font-display text-3xl font-bold leading-tight text-slate-900 md:text-4xl lg:text-[2.35rem]">
+              <h1 className="mt-3 font-display text-2xl font-bold leading-tight text-slate-900 md:text-2xl lg:text-2xl">
                 Formatrice IA spécialisée bâtiment et construction en Île-de-France
               </h1>
               <EnBref className="mt-4">
@@ -158,7 +158,7 @@ export default function FormateurIaBtpPage() {
         <section className={OFC_SEC.muted} aria-labelledby="profil-rare">
           <div className={`${PAGE_INNER} lg:grid lg:grid-cols-2 lg:items-start lg:gap-10 xl:gap-14`}>
             <div className="min-w-0">
-              <h2 id="profil-rare" className="font-display text-2xl font-bold text-slate-900 md:text-3xl">
+              <h2 id="profil-rare" className="font-display text-2xl font-bold text-slate-900 md:text-2xl">
                 Un profil rare : {formatAnneesExperienceBTP()} + expertise IA
               </h2>
               <p className="mt-4 text-base leading-relaxed text-slate-600">
@@ -186,7 +186,7 @@ export default function FormateurIaBtpPage() {
         <section className={OFC_SEC.white} aria-labelledby="ce-que-change">
           <div className={`${PAGE_INNER} lg:grid lg:grid-cols-[minmax(0,1fr)_minmax(0,1.05fr)] lg:items-start lg:gap-10 xl:gap-14`}>
             <div className="min-w-0">
-              <h2 id="ce-que-change" className="font-display text-2xl font-bold text-slate-900 md:text-3xl">
+              <h2 id="ce-que-change" className="font-display text-2xl font-bold text-slate-900 md:text-2xl">
                 Ce qu&apos;un formateur IA spécialisé BTP change pour vos équipes
               </h2>
               <p className="mt-4 text-base leading-relaxed text-slate-600">
@@ -234,7 +234,7 @@ export default function FormateurIaBtpPage() {
         <section className={OFC_SEC.white} aria-labelledby="ou-intervient">
           <div className={`${PAGE_INNER} lg:grid lg:grid-cols-[minmax(0,1.2fr)_minmax(280px,22rem)] lg:gap-10 xl:gap-12`}>
             <div className="min-w-0">
-              <h2 id="ou-intervient" className="font-display text-2xl font-bold text-slate-900 md:text-3xl">
+              <h2 id="ou-intervient" className="font-display text-2xl font-bold text-slate-900 md:text-2xl">
                 Où intervient votre formatrice IA BTP
               </h2>
               <p className="mt-4 text-base leading-relaxed text-slate-600">
@@ -278,7 +278,7 @@ export default function FormateurIaBtpPage() {
         <section className={OFC_SEC.muted} aria-labelledby="references-preuves">
           <div className={`${PAGE_INNER} lg:grid lg:grid-cols-2 lg:gap-10 xl:gap-14`}>
             <div className="min-w-0">
-              <h2 id="references-preuves" className="font-display text-2xl font-bold text-slate-900 md:text-3xl">
+              <h2 id="references-preuves" className="font-display text-2xl font-bold text-slate-900 md:text-2xl">
                 Références et preuves
               </h2>
               <p className="mt-4 text-base leading-relaxed text-slate-600">
@@ -327,7 +327,7 @@ export default function FormateurIaBtpPage() {
         <section id="rdv" className={`${OFC_SEC.accent} scroll-mt-24`}>
           <div className={`${PAGE_INNER} lg:flex lg:items-center lg:justify-between lg:gap-10 lg:text-left`}>
             <div className="min-w-0 text-center lg:text-left">
-              <h2 className="font-display text-2xl font-bold md:text-3xl">Prendre rendez-vous</h2>
+              <h2 className="font-display text-2xl font-bold md:text-2xl">Prendre rendez-vous</h2>
               <p className="mx-auto mt-4 max-w-2xl text-blue-100 lg:mx-0">
                 30 minutes pour vérifier que Laure Olivié est le bon prestataire formateur / formatrice IA
                 pour votre équipe bâtiment ou construction.

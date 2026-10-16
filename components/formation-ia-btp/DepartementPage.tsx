@@ -138,7 +138,7 @@ export function DepartementPage({ data }: { data: DepartementPageData }) {
             ]}
             jsonLdId={`breadcrumb-dept-${data.code}`}
           />
-          <h1 className="font-display mt-6 text-3xl font-bold leading-tight tracking-tight text-slate-900 md:text-4xl lg:text-[2.35rem]">
+          <h1 className="font-display mt-6 text-2xl font-bold leading-tight tracking-tight text-slate-900 md:text-[1.75rem] lg:text-2xl">
             {h1}
           </h1>
           <EnBref className="mt-5">
@@ -153,7 +153,7 @@ export function DepartementPage({ data }: { data: DepartementPageData }) {
       {/* 3. Villes & secteurs */}
       <section className={OFC_SEC.muted}>
         <div className="mx-auto max-w-4xl">
-          <h2 className="font-display text-2xl font-bold text-slate-900 md:text-3xl">
+          <h2 className="font-display text-2xl font-bold text-slate-900 md:text-2xl">
             Villes &amp; secteurs desservis
           </h2>
           <p className="mt-4 text-base leading-relaxed text-slate-700 md:text-lg">
@@ -176,7 +176,7 @@ export function DepartementPage({ data }: { data: DepartementPageData }) {
       {data.sectionGeoLocale ? (
         <section className={OFC_SEC.white}>
           <div className="mx-auto max-w-4xl">
-            <h2 className="font-display text-2xl font-bold text-slate-900 md:text-3xl">
+            <h2 className="font-display text-2xl font-bold text-slate-900 md:text-2xl">
               {data.sectionGeoLocale.title}
             </h2>
             <p className="mt-4 text-base leading-relaxed text-slate-700 md:text-lg">
@@ -201,7 +201,7 @@ export function DepartementPage({ data }: { data: DepartementPageData }) {
       {/* 4. Tissu BTP local */}
       <section className={data.sectionGeoLocale ? OFC_SEC.muted : OFC_SEC.white}>
         <div className="mx-auto max-w-4xl">
-          <h2 className="font-display text-2xl font-bold text-slate-900 md:text-3xl">
+          <h2 className="font-display text-2xl font-bold text-slate-900 md:text-2xl">
             Tissu BTP local
           </h2>
           <p className="mt-4 text-base leading-relaxed text-slate-700 md:text-lg whitespace-pre-line">
@@ -213,7 +213,7 @@ export function DepartementPage({ data }: { data: DepartementPageData }) {
       {/* 5. 2 cas d’usage locaux */}
       <section className={data.sectionGeoLocale ? OFC_SEC.white : OFC_SEC.muted}>
         <div className="mx-auto max-w-4xl">
-          <h2 className="font-display text-2xl font-bold text-slate-900 md:text-3xl">
+          <h2 className="font-display text-2xl font-bold text-slate-900 md:text-2xl">
             2 cas d&apos;usage prioritaires {locatif}
           </h2>
           <ul className="mt-6 list-disc space-y-3 pl-5 text-base leading-relaxed text-slate-700 md:text-lg">
@@ -307,7 +307,7 @@ export function DepartementPage({ data }: { data: DepartementPageData }) {
       {/* 13. CTA final */}
       <section className={OFC_SEC.accent}>
         <div className="mx-auto max-w-2xl text-center">
-          <h2 className="font-display text-2xl font-bold md:text-3xl">Réserver un créneau découverte</h2>
+          <h2 className="font-display text-2xl font-bold md:text-2xl">Réserver un créneau découverte</h2>
           <p className="mt-4 text-lg text-blue-100 md:text-xl">
             30 minutes pour cadrer votre besoin {locatif} ({data.code}) — en présentiel, intra (dans vos locaux) ou inter
             selon vos contraintes.

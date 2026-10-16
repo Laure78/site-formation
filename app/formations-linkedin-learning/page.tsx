@@ -289,7 +289,7 @@ export default function FormationsLinkedInLearningPage() {
             />
           </div>
 
-          <h1 className="mt-6 font-display text-3xl font-bold leading-tight text-slate-900 md:text-4xl">
+          <h1 className="mt-6 font-display text-2xl font-bold leading-tight text-slate-900 md:text-2xl">
             Formations LinkedIn Learning — l&apos;IA appliquée au BTP par Laure Olivié
           </h1>
           <p className="mt-4 max-w-3xl text-base leading-relaxed text-slate-600 md:text-lg">
@@ -315,7 +315,7 @@ export default function FormationsLinkedInLearningPage() {
       <main>
         <section id="instructrice" className="scroll-mt-28 py-12 md:py-16" aria-labelledby="instructrice-heading">
           <div className="mx-auto max-w-4xl px-4">
-            <h2 id="instructrice-heading" className="font-display text-2xl font-bold text-slate-900 md:text-3xl">
+            <h2 id="instructrice-heading" className="font-display text-2xl font-bold text-slate-900 md:text-2xl">
               Laure Olivié, instructrice LinkedIn Learning
             </h2>
 
@@ -361,7 +361,7 @@ export default function FormationsLinkedInLearningPage() {
           aria-labelledby="cours-heading"
         >
           <div className="mx-auto max-w-6xl px-4">
-            <h2 id="cours-heading" className="font-display text-2xl font-bold text-slate-900 md:text-3xl">
+            <h2 id="cours-heading" className="font-display text-2xl font-bold text-slate-900 md:text-2xl">
               Les 2 formations disponibles sur LinkedIn Learning
             </h2>
             <p className="mt-4 max-w-3xl text-base leading-relaxed text-slate-600 md:text-lg">
@@ -396,7 +396,7 @@ export default function FormationsLinkedInLearningPage() {
           aria-labelledby="comparaison-heading"
         >
           <div className="mx-auto max-w-4xl px-4">
-            <h2 id="comparaison-heading" className="font-display text-2xl font-bold text-slate-900 md:text-3xl">
+            <h2 id="comparaison-heading" className="font-display text-2xl font-bold text-slate-900 md:text-2xl">
               En ligne ou en présentiel : que choisir ?
             </h2>
 
@@ -478,7 +478,7 @@ export default function FormationsLinkedInLearningPage() {
           aria-labelledby="ressources-heading"
         >
           <div className="mx-auto max-w-4xl px-4">
-            <h2 id="ressources-heading" className="font-display text-2xl font-bold text-slate-900 md:text-3xl">
+            <h2 id="ressources-heading" className="font-display text-2xl font-bold text-slate-900 md:text-2xl">
               Ressources complémentaires
             </h2>
             <ul className="mt-6 space-y-3 text-base leading-relaxed text-slate-700">
@@ -517,7 +517,7 @@ export default function FormationsLinkedInLearningPage() {
 
         <section id="faq" className="scroll-mt-28 py-12 md:py-16" aria-labelledby="faq-heading">
           <div className="mx-auto max-w-4xl px-4">
-            <h2 id="faq-heading" className="font-display text-2xl font-bold text-slate-900 md:text-3xl">
+            <h2 id="faq-heading" className="font-display text-2xl font-bold text-slate-900 md:text-2xl">
               FAQ
             </h2>
             <div className="mt-8 space-y-4">
@@ -550,7 +550,7 @@ export default function FormationsLinkedInLearningPage() {
           aria-labelledby="rdv-heading"
         >
           <div className="mx-auto max-w-3xl px-4 text-center">
-            <h2 id="rdv-heading" className="font-display text-2xl font-bold md:text-3xl">
+            <h2 id="rdv-heading" className="font-display text-2xl font-bold md:text-2xl">
               Prochaine étape : visio découverte gratuite
             </h2>
             <p className="mt-4 text-base leading-relaxed text-white/90 md:text-lg">

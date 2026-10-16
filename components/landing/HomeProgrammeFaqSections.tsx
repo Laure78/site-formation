@@ -51,7 +51,7 @@ export function HomeProgrammeFaqSections() {
           <div className="inline-flex items-center gap-2 rounded-full bg-[var(--accent-soft)] px-4 py-2 text-sm font-medium text-[var(--accent)]">
             <span>THÉMATIQUES ABORDÉES</span>
           </div>
-          <h3 className="mt-4 font-display text-3xl font-bold text-slate-900 md:text-4xl">
+          <h3 className="mt-4 font-display text-2xl font-bold text-slate-900 md:text-[1.75rem]">
             Programme détaillé des formations
           </h3>
           <p className="mt-3 text-sm text-slate-600">
@@ -197,7 +197,7 @@ export function HomeProgrammeFaqSections() {
               </div>
               <h2
                 id="pourquoi-laure-heading"
-                className="mt-4 font-display text-3xl font-bold text-slate-900 md:text-4xl"
+                className="mt-4 font-display text-2xl font-bold text-slate-900 md:text-[1.75rem]"
               >
                 Pourquoi choisir Laure Olivié ?
               </h2>
@@ -421,7 +421,7 @@ export function HomeProgrammeFaqSections() {
           <div className="inline-flex items-center gap-2 rounded-full bg-[var(--accent)] px-4 py-2 text-sm font-medium text-white">
             <span>FAQ</span>
           </div>
-          <h2 className="mt-4 font-display text-3xl font-bold text-slate-900">
+          <h2 className="mt-4 font-display text-2xl font-bold text-slate-900">
             Questions fréquentes sur la formation IA appliquée au bâtiment et à la construction
           </h2>
           <p className="mt-3 text-slate-600">
@@ -478,7 +478,7 @@ export function HomeProgrammeFaqSections() {
               </div>
               <h3
                 id="rdv-creneau-heading"
-                className="mt-4 font-display text-3xl font-bold text-slate-900 md:text-4xl"
+                className="mt-4 font-display text-2xl font-bold text-slate-900 md:text-[1.75rem]"
               >
                 Réservez un créneau de visio découverte
               </h3>

@@ -66,7 +66,7 @@ export default function OutilsIABTPPage() {
     <div>
       <section className="border-b border-slate-200 bg-gradient-to-br from-[var(--accent)] to-blue-800 px-4 py-16">
         <div className="mx-auto max-w-5xl">
-          <h1 className="font-display text-4xl font-bold text-white md:text-5xl">
+          <h1 className="font-display text-2xl font-bold text-white md:text-2xl">
             Outils IA pour le BTP : Claude AI et ChatGPT
           </h1>
           <EnBref className="mt-6 max-w-3xl border-white/20 bg-white/95">
@@ -87,7 +87,7 @@ export default function OutilsIABTPPage() {
 
       <section className="border-b border-slate-200 bg-white px-4 py-12">
         <div className="mx-auto max-w-5xl">
-          <h2 className="font-display text-2xl font-bold text-slate-900 md:text-3xl">
+          <h2 className="font-display text-2xl font-bold text-slate-900 md:text-2xl">
             Comparatif rapide ChatGPT vs Claude pour le BTP
           </h2>
           <p className="mt-3 max-w-3xl text-slate-600">
@@ -209,7 +209,7 @@ export default function OutilsIABTPPage() {
         <div className="mx-auto max-w-5xl">
           <div className="flex flex-wrap items-center gap-3">
             <BookOpen className="text-[var(--accent)]" size={28} strokeWidth={1.5} aria-hidden />
-            <h2 className="font-display text-2xl font-bold text-slate-900 md:text-3xl">
+            <h2 className="font-display text-2xl font-bold text-slate-900 md:text-2xl">
               Articles et tutoriels
             </h2>
           </div>
@@ -272,7 +272,7 @@ export default function OutilsIABTPPage() {
 
       <section className="border-t border-slate-200 bg-white px-4 py-16">
         <div className="mx-auto max-w-3xl text-center">
-          <h2 className="font-display text-2xl font-bold text-slate-900 md:text-3xl">
+          <h2 className="font-display text-2xl font-bold text-slate-900 md:text-2xl">
             Former vos équipes sur le terrain
           </h2>
           <p className="mt-4 text-lg text-slate-600">

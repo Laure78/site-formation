@@ -121,7 +121,7 @@ export default function FormationIATravauxPublicsLandingPage() {
             <Sparkles size={18} strokeWidth={1.5} aria-hidden />
             Formation IA travaux publics · Laure Olivié
           </p>
-          <h1 className="mt-6 font-display text-3xl font-bold leading-tight md:text-4xl lg:text-5xl">
+          <h1 className="mt-6 font-display text-2xl font-bold leading-tight md:text-2xl lg:text-2xl">
             Formation IA travaux publics — terrassement, VRD et génie civil
           </h1>
           <p className="mt-6 text-lg text-slate-300 md:text-xl">
@@ -146,7 +146,7 @@ export default function FormationIATravauxPublicsLandingPage() {
 
       <section className="border-b border-slate-200 bg-white px-4 py-14">
         <div className="mx-auto max-w-3xl">
-          <h2 className="font-display text-2xl font-bold text-slate-900 md:text-3xl">
+          <h2 className="font-display text-2xl font-bold text-slate-900 md:text-2xl">
             L&apos;IA arrive dans les TP — pas seulement dans le bâtiment
           </h2>
           <div className="mt-6 space-y-4 text-slate-700">
@@ -176,7 +176,7 @@ export default function FormationIATravauxPublicsLandingPage() {
 
       <section className="border-b border-slate-200 bg-slate-50 px-4 py-14">
         <div className="mx-auto max-w-6xl">
-          <h2 className="text-center font-display text-2xl font-bold text-slate-900 md:text-3xl">
+          <h2 className="text-center font-display text-2xl font-bold text-slate-900 md:text-2xl">
             Cas d&apos;usage IA dans les travaux publics
           </h2>
           <p className="mx-auto mt-4 max-w-3xl text-center text-slate-600">
@@ -209,7 +209,7 @@ export default function FormationIATravauxPublicsLandingPage() {
           <p className="text-xs font-semibold uppercase tracking-wide text-amber-800">
             Exemple pédagogique fictif
           </p>
-          <h2 className="mt-2 font-display text-2xl font-bold text-slate-900 md:text-3xl">
+          <h2 className="mt-2 font-display text-2xl font-bold text-slate-900 md:text-2xl">
             {EXEMPLE_FICTIF_TP.titre}
           </h2>
           <p className="mt-4 leading-relaxed text-slate-700">{EXEMPLE_FICTIF_TP.contexte}</p>
@@ -226,7 +226,7 @@ export default function FormationIATravauxPublicsLandingPage() {
 
       <section className="border-b border-slate-200 bg-white px-4 py-14">
         <div className="mx-auto max-w-4xl">
-          <h2 className="font-display text-2xl font-bold text-slate-900 md:text-3xl">
+          <h2 className="font-display text-2xl font-bold text-slate-900 md:text-2xl">
             Programme de la formation (vision TP)
           </h2>
           <p className="mt-4 text-slate-600">
@@ -255,7 +255,7 @@ export default function FormationIATravauxPublicsLandingPage() {
 
       <section className="border-b border-slate-200 bg-slate-50 px-4 py-14">
         <div className="mx-auto max-w-3xl">
-          <h2 className="flex items-center gap-3 font-display text-2xl font-bold text-slate-900 md:text-3xl">
+          <h2 className="flex items-center gap-3 font-display text-2xl font-bold text-slate-900 md:text-2xl">
             <Building2 className="h-8 w-8 shrink-0 text-[var(--accent)]" strokeWidth={1.5} />
             Différence avec le bâtiment : pourquoi les TP ont des besoins spécifiques
           </h2>
@@ -284,7 +284,7 @@ export default function FormationIATravauxPublicsLandingPage() {
 
       <section className="border-b border-slate-200 bg-white px-4 py-14">
         <div className="mx-auto max-w-3xl">
-          <h2 className="font-display text-2xl font-bold text-slate-900 md:text-3xl">
+          <h2 className="font-display text-2xl font-bold text-slate-900 md:text-2xl">
             Modalités &amp; financement (Constructys, OPCO TP)
           </h2>
           <div className="mt-6 space-y-4 text-slate-700">
@@ -327,7 +327,7 @@ export default function FormationIATravauxPublicsLandingPage() {
 
       <section className="border-b border-slate-200 bg-gradient-to-br from-slate-900 to-slate-800 px-4 py-16 text-white">
         <div className="mx-auto max-w-3xl text-center">
-          <h2 className="font-display text-2xl font-bold md:text-3xl">
+          <h2 className="font-display text-2xl font-bold md:text-2xl">
             Contacter OFC pour une formation IA travaux publics
           </h2>
           <p className="mt-4 text-lg text-slate-300">

@@ -14,7 +14,7 @@ export function FormationIaHubContent({ hubPath }: Props) {
     <div className="bg-white">
       <div className="mx-auto max-w-4xl px-4 py-12 sm:px-6 lg:px-8">
         <article className="prose prose-slate max-w-none">
-          <h1 className="font-display text-3xl font-bold tracking-tight text-slate-900 md:text-4xl">
+          <h1 className="font-display text-2xl font-bold tracking-tight text-slate-900 md:text-[1.75rem]">
             Formation IA BTP — hub métiers & Île-de-France
           </h1>
           <p className="mt-4 text-lg text-slate-700">

@@ -15,7 +15,7 @@ export function RessourcesGuidesPdfSection() {
     >
       <JsonLd id="schema-guides-pdf-itemlist" data={buildGuidesPdfItemListJsonLd()} />
       <div className="mx-auto max-w-7xl px-4">
-        <h2 id="guides-pdf-heading" className="font-display text-2xl font-bold text-slate-900 md:text-3xl">
+        <h2 id="guides-pdf-heading" className="font-display text-2xl font-bold text-slate-900 md:text-2xl">
           Guides & outils gratuits pour les professionnels du BTP
         </h2>
         <RessourcesGuidesPdfLibrary guides={guides} />

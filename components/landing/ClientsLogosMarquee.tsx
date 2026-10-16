@@ -111,7 +111,7 @@ export function ClientsLogosMarquee({ embedded = false }: ClientsLogosMarqueePro
           <Reveal className="min-w-0 flex-1">
             <h2
               id="clients-logos-heading"
-              className="font-display text-3xl font-bold tracking-tight text-slate-900 md:text-4xl"
+              className="font-display text-2xl font-bold tracking-tight text-slate-900 md:text-[1.75rem]"
             >
               Ils m&apos;ont fait confiance
             </h2>

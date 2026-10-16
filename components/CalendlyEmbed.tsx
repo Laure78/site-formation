@@ -137,7 +137,7 @@ export function CalendlyEmbed({
     return (
       <div className={className}>
         {sectionTitle ? (
-          <h2 className="font-display text-center text-2xl font-bold tracking-tight text-slate-900 md:text-3xl">
+          <h2 className="font-display text-center text-2xl font-bold tracking-tight text-slate-900 md:text-2xl">
             {sectionTitle}
           </h2>
         ) : null}

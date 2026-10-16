@@ -10,7 +10,7 @@ export function PartenairesCtaSection() {
     >
       <h2
         id="partenaires-cta-title"
-        className="font-display text-2xl font-bold tracking-tight text-[#0F172A] md:text-3xl"
+        className="font-display text-2xl font-bold tracking-tight text-[#0F172A] md:text-2xl"
       >
         Vous représentez une fédération, un réseau ou une entreprise du BTP ?
       </h2>

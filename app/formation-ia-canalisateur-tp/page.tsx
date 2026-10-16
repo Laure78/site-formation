@@ -169,7 +169,7 @@ export default function FormationIaCanalisateurTpPage() {
       </nav>
 
       <article>
-        <h1 className="font-display text-4xl font-bold tracking-tight text-slate-900 md:text-5xl">
+        <h1 className="font-display text-2xl font-bold tracking-tight text-slate-900 md:text-2xl">
           Formation IA pour canalisateurs TP —{' '}
           <span className="text-[var(--accent)]">gagnez du temps sur devis et dossiers techniques</span>
         </h1>

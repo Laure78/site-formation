@@ -15,7 +15,7 @@ export function StatsCards() {
     <section id="chiffres-cles" className="scroll-mt-24">
       <div className="mx-auto max-w-6xl">
         <div className="mb-8 flex flex-col gap-2 md:flex-row md:items-end md:justify-between">
-          <h2 className="font-display text-3xl font-bold tracking-tight text-[#0F172A] md:text-4xl">Chiffres clés</h2>
+          <h2 className="font-display text-2xl font-bold tracking-tight text-[#0F172A] md:text-[1.75rem]">Chiffres clés</h2>
           <p className="max-w-md text-sm text-[#64748B]">Indicateurs consolidés de formation IA pour les pros du BTP.</p>
         </div>
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">

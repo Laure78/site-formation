@@ -14,7 +14,7 @@ export function DepartementFormatriceGuyancourt({ grammar, deptCode }: Props) {
   return (
     <section className={OFC_SEC.muted}>
       <div className="mx-auto max-w-4xl">
-        <h2 className="font-display text-2xl font-bold text-slate-900 md:text-3xl">
+        <h2 className="font-display text-2xl font-bold text-slate-900 md:text-2xl">
           {DEPARTEMENT_FORMATRICE_GUYANCOURT.title}
         </h2>
         <p className="mt-4 text-base leading-relaxed text-slate-700 md:text-lg">

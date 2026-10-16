@@ -95,7 +95,7 @@ export function ContextualLinksSection({
   return (
     <section id={id} className={`${sectionClass} scroll-mt-28 ${className}`}>
       <div className="mx-auto max-w-4xl px-4">
-        <h2 className="font-display text-2xl font-bold text-slate-900 md:text-3xl">{title}</h2>
+        <h2 className="font-display text-2xl font-bold text-slate-900 md:text-2xl">{title}</h2>
         {subtitle ? (
           <p className="mt-4 text-base leading-relaxed text-slate-700 md:text-lg">{subtitle}</p>
         ) : null}

@@ -13,7 +13,7 @@ export function CatalogueFormationRelated({
   return (
     <section className="border-b border-slate-200 bg-white px-4 py-8 md:py-10" aria-labelledby="formations-complementaires">
       <div className="mx-auto max-w-4xl">
-        <h2 id="formations-complementaires" className="font-display text-2xl font-bold text-slate-900 md:text-3xl">
+        <h2 id="formations-complementaires" className="font-display text-2xl font-bold text-slate-900 md:text-2xl">
           Formations complémentaires
         </h2>
         <p className="mt-2 text-base text-slate-600">
