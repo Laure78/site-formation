@@ -1,6 +1,11 @@
 import { getFAQSchema } from '@/lib/seo';
 import { FINANCEMENT_FORMULATION_PRUDENTE, FINANCEMENT_CONSTRUCTYS_PLAFONDS_COURT } from '@/lib/financement-copy';
 import { IDF_ZONE_INTERVENTION } from '@/lib/constants';
+import {
+  CATALOGUE_DUREE_BASES_IA_ONLY,
+  CATALOGUE_DUREE_SESSION_METIER,
+  faqDureesCatalogueSentence,
+} from '@/lib/catalogue-duree-copy';
 
 /** FAQ générique BTP — utilisée sur les articles sans section FAQ dédiée */
 const DEFAULT_BLOG_FAQ_ITEMS = [
@@ -10,7 +15,7 @@ const DEFAULT_BLOG_FAQ_ITEMS = [
   },
   {
     q: 'Quelle formation IA pour un conducteur de travaux ?',
-    a: "Le conducteur de travaux peut utiliser l'IA pour rédiger des comptes rendus de chantier, analyser les DCE et CCTP, automatiser ses emails et relances, et préparer des mémoires techniques. La formation IA pour le BTP de Laure Olivié (4h, intra (dans vos locaux) ou inter) couvre ces cas d'usage avec des prompts ChatGPT adaptés au vocabulaire chantier.",
+    a: `Le conducteur de travaux peut utiliser l'IA pour rédiger des comptes rendus de chantier, analyser les DCE et CCTP, automatiser ses emails et relances, et préparer des mémoires techniques. Les bases (NIV-01, ${CATALOGUE_DUREE_BASES_IA_ONLY}) et la session conduite de travaux (NIV-03, ${CATALOGUE_DUREE_SESSION_METIER}) couvrent ces cas d'usage en présentiel Île-de-France.`,
   },
   {
     q: "ChatGPT peut-il aider à rédiger un mémoire technique pour un appel d'offres BTP ?",
@@ -18,7 +23,7 @@ const DEFAULT_BLOG_FAQ_ITEMS = [
   },
   {
     q: 'Combien de temps dure la formation IA pour les pros du BTP ?',
-    a: "Les bases de l’IA durent 4 heures ; les sessions métier catalogue durent 7 heures (variante 14 h pour certains outils). Format intra (dans vos locaux) ou inter, exclusivement en présentiel en Île-de-France.",
+    a: faqDureesCatalogueSentence(),
   },
   {
     q: "L'IA va-t-elle remplacer les métiers du bâtiment ?",

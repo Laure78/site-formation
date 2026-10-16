@@ -4,6 +4,10 @@
 import type { FAQItem } from '@/lib/faq';
 import type { FormationIaMetierBtpConfig } from '@/lib/formation-ia-metier-btp-types';
 import { LINKS } from '@/lib/internal-links';
+import {
+  CATALOGUE_DUREE_BASES_IA_ONLY,
+  CATALOGUE_DUREE_SESSION_METIER,
+} from '@/lib/catalogue-duree-copy';
 
 const OFC = "OFC Création d'Entreprise";
 
@@ -56,7 +60,7 @@ export const FORMATION_IA_METIER_MACON: FormationIaMetierBtpConfig = {
   normeRef: 'le DTU 20.1',
   essentielItems: [
     'Métier maçon : devis, métrés béton/parpaing, ferraillage et DTU 20.1 — pas le pilotage DCE / planning multi-lots.',
-    'Session 4 h — organisme certifié Qualiopi : devis maçonnerie, métré assisté ([à valider par le métré]), CR de coulage — relecture humaine obligatoire.',
+    `Session catalogue ${CATALOGUE_DUREE_SESSION_METIER} (bases ${CATALOGUE_DUREE_BASES_IA_ONLY}) — organisme certifié Qualiopi : devis maçonnerie, métré assisté ([à valider par le métré]), CR de coulage — relecture humaine obligatoire.`,
     'L’IA structure brouillons et tableaux ; elle ne remplace ni le métré ni la conformité normative.',
     'Financement Constructys selon éligibilité — présentiel Île-de-France uniquement, ateliers sur vos dossiers anonymisés.',
   ],
@@ -130,7 +134,7 @@ Liste les exigences par sous-partie : performances béton, coffrage, ferraillage
     },
   ],
   courseName: 'Formation IA maçon BTP — devis, métrés, DTU 20.1',
-  courseDescription: `${OFC} : formation IA et ChatGPT pour maçons — devis, métrés, DTU 20.1, ferraillage, CR de coulage. Session 4 h — organisme certifié Qualiopi, financement possible selon éligibilité.`,
+  courseDescription: `${OFC} : formation IA et ChatGPT pour maçons — devis, métrés, DTU 20.1, ferraillage, CR de coulage. Session catalogue ${CATALOGUE_DUREE_SESSION_METIER} (bases ${CATALOGUE_DUREE_BASES_IA_ONLY}) — organisme certifié Qualiopi, financement possible selon éligibilité.`,
   courseTeaches: [
     'ChatGPT pour maçons et maçonnerie BTP',
     'DTU 20.1 — usage documentaire assisté',
@@ -246,7 +250,7 @@ Propose la STRUCTURE des postes (sans prix) : dépose, écran sous-toiture, isol
     ...faqStandard('couvreur'),
   ],
   courseName: 'Formation IA couvreur zingueur BTP — Qualiopi',
-  courseDescription: `${OFC} : formation IA pour couvreurs-zingueurs — DTU 40, métrés, zinguerie, mémoires. Session 4 h — organisme certifié Qualiopi, Constructys selon dossier.`,
+  courseDescription: `${OFC} : formation IA pour couvreurs-zingueurs — DTU 40, métrés, zinguerie, mémoires. Session catalogue ${CATALOGUE_DUREE_SESSION_METIER} (bases ${CATALOGUE_DUREE_BASES_IA_ONLY}) — organisme certifié Qualiopi, Constructys selon dossier.`,
   courseTeaches: [
     'ChatGPT pour couvreurs et zingueurs BTP',
     'DTU 40 — aide à la rédaction',
@@ -341,7 +345,7 @@ Propose la STRUCTURE du devis (postes, pas les prix) : préparation, primaires, 
     ...faqStandard('peintre'),
   ],
   courseName: 'Formation IA peintre bâtiment BTP — Qualiopi',
-  courseDescription: `${OFC} : formation IA pour peintres — DTU 59, devis, finitions, mémoires. Session 4 h — organisme certifié Qualiopi, Constructys.`,
+  courseDescription: `${OFC} : formation IA pour peintres — DTU 59, devis, finitions, mémoires. Session catalogue ${CATALOGUE_DUREE_SESSION_METIER} (bases ${CATALOGUE_DUREE_BASES_IA_ONLY}) — organisme certifié Qualiopi, Constructys.`,
   courseTeaches: ['ChatGPT pour peintres BTP', 'DTU 59', 'Devis et supports', 'Qualiopi'],
   ogImage: { ...COVER, alt: 'Formation IA appliquée au bâtiment — peinture bâtiment' },
   coverImage: { ...COVER, alt: 'Peinture bâtiment — formation IA' },
@@ -845,7 +849,7 @@ Propose STRUCTURE de tableau (colonnes + lignes types) pour reprise interne. Rap
     ...faqStandard('charpentier'),
   ],
   courseName: 'Formation IA charpentier BTP — Qualiopi',
-  courseDescription: `${OFC} : formation IA pour charpentiers — DTU 31, mémoires, coordination. Session 4 h — organisme certifié Qualiopi, Constructys.`,
+  courseDescription: `${OFC} : formation IA pour charpentiers — DTU 31, mémoires, coordination. Session catalogue ${CATALOGUE_DUREE_SESSION_METIER} (bases ${CATALOGUE_DUREE_BASES_IA_ONLY}) — organisme certifié Qualiopi, Constructys.`,
   courseTeaches: ['ChatGPT pour charpentiers BTP', 'DTU 31', 'Mémoires et nomenclatures', 'Qualiopi'],
   ogImage: { ...COVER, alt: 'Formation IA pour le BTP — charpente bois' },
   coverImage: { ...COVER, alt: 'Charpentier — formation IA' },
@@ -941,7 +945,7 @@ Propose un plan (jalons j0, j+10…) et des intitulés de mails par étape — s
     ...faqStandard('assistante administrative'),
   ],
   courseName: 'Formation IA assistante administrative BTP — Qualiopi',
-  courseDescription: `${OFC} : formation IA pour assistantes administratives du BTP — courriers, relances, suivi, dossiers. Session 4 h — organisme certifié Qualiopi, Constructys.`,
+  courseDescription: `${OFC} : formation IA pour assistantes administratives du BTP — courriers, relances, suivi, dossiers. Session catalogue ${CATALOGUE_DUREE_SESSION_METIER} (bases ${CATALOGUE_DUREE_BASES_IA_ONLY}) — organisme certifié Qualiopi, Constructys.`,
   courseTeaches: [
     'ChatGPT pour assistantes administratives BTP',
     'Courriers et relances (relecture humaine)',

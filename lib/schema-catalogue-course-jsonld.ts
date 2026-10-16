@@ -3,7 +3,12 @@
  * Données fixes : `lib/schema-constants.ts`, `lib/internal-links.ts`, `lib/tarifs-sessions.ts`.
  * Objectifs pédagogiques (`teaches`) : source `lib/formations-catalogue-display.ts`.
  */
-import { getFormationByCode, libelleEffectifFormation, libelleEffectifMaxFormation } from '@/data/formations';
+import {
+  CATALOGUE_DUREE_BASES_IA_ONLY,
+  getFormationByCode,
+  libelleEffectifFormation,
+  libelleEffectifMaxFormation,
+} from '@/data/formations';
 import { getFormationCatalogueByRef } from '@/lib/formations-catalogue-display';
 import {
   TARIF_INTER_DEV_WEB_IA_14H_HT,
@@ -133,7 +138,7 @@ export const CATALOGUE_COURSE_IA_BTP_NIV01: CatalogueCourseJsonLdConfig = {
   path: LINKS.formationIaBtpNiveau1BatimentTp,
   name: "L'IA au service des professionnels du BTP",
   description:
-    'Formation IA BTP niveau débutant : ChatGPT et Claude pour préparer devis, emails, comptes rendus, DOE et PV. 4 h, présentiel Île-de-France. Validation humaine obligatoire.',
+    `Formation IA BTP niveau débutant : ChatGPT et Claude pour préparer devis, emails, comptes rendus, DOE et PV. ${CATALOGUE_DUREE_BASES_IA_ONLY}, présentiel Île-de-France. Validation humaine obligatoire.`,
   price: prixCatalogue('NIV-01'),
   keywords: ['Devis BTP', 'administratif', 'comptes rendus', 'PPSPS', 'construction'],
   courseCode: 'NIV-01',

@@ -3,7 +3,12 @@
  * Réponses factuelles pour moteurs IA ; alignées sur le contenu visible.
  */
 import type { FormationCatalogueCode } from '@/lib/formation-catalogue-visibility';
-import { getFormationByCode, isFormationSurDevis, libelleDureeFormation } from '@/data/formations';
+import {
+  CATALOGUE_DUREE_SESSION_METIER,
+  getFormationByCode,
+  isFormationSurDevis,
+  libelleDureeFormation,
+} from '@/data/formations';
 import { LINKS } from '@/lib/internal-links';
 import { MODALITE_PEDAGOGIQUE_CATALOGUE } from '@/lib/infos-pratiques-catalogue';
 import { getFormationCatalogueByRef } from '@/lib/formations-catalogue-display';
@@ -49,8 +54,7 @@ export const FORMATION_CATALOGUE_GEO_EXTENDED: Record<
       'Utiliser ChatGPT et Claude pour rédiger des devis, emails, comptes rendus, trames de DOE et contenus professionnels — avec méthode de prompt et contrôle des résultats.',
     documentsBtp: ['Devis et désignations', 'Comptes rendus de chantier', 'DOE et PV de réception', 'Emails clients et fournisseurs'],
     outilsIa: ['ChatGPT', 'Claude AI'],
-    dureeReponse:
-      '4 heures en présentiel en Île-de-France. 6 à 12 participants. Sessions collectives dans les locaux de l’entreprise ou selon calendrier.',
+    dureeReponse: '',
     livrables: [
       'Bibliothèque de prompts BTP',
       'Trames de devis, comptes rendus, DOE et PV',
@@ -86,7 +90,7 @@ export const FORMATION_CATALOGUE_GEO_EXTENDED: Record<
       'Oui en intra : un dossier fil rouge collectif (DCE, ancien devis, trame MT) sélectionné avec l’entreprise. En interentreprises : dossiers pédagogiques anonymisés possibles.',
     iaRemplacePro:
       'Non. L’IA n’assure ni chiffrage définitif, ni conformité de l’offre, ni interprétation juridique. Le professionnel valide prix, quantités, moyens et engagements.',
-    deroulement: `${MODALITE_PEDAGOGIQUE_CATALOGUE}. 75 % pratique sur un dossier fil rouge. Accueil, quatre modules et bilan — total 4 heures.`,
+    deroulement: `${MODALITE_PEDAGOGIQUE_CATALOGUE}. 75 % pratique sur un dossier fil rouge. Accueil, modules métier et bilan — ${CATALOGUE_DUREE_SESSION_METIER} au total.`,
     clusterMaillage: [
       ...CLUSTER_BASE,
       { href: LINKS.iaAnalyseDce, label: 'Analyser un DCE avec l’IA' },

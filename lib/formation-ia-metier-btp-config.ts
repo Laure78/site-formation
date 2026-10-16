@@ -10,6 +10,10 @@ import {
   FORMATION_IA_ELECTRICIEN_BTP_META_TITLE,
 } from '@/lib/formation-ia-electricien-btp-seo';
 import { LINKS } from '@/lib/internal-links';
+import {
+  CATALOGUE_DUREE_BASES_IA_ONLY,
+  CATALOGUE_DUREE_SESSION_METIER,
+} from '@/lib/catalogue-duree-copy';
 import { createPageMetadata } from '@/lib/seo';
 import type { Metadata } from 'next';
 import type { FormationIaMetierBtpConfig } from '@/lib/formation-ia-metier-btp-types';
@@ -62,7 +66,7 @@ export const FORMATION_IA_METIER_ETANCHEUR: FormationIaMetierBtpConfig = {
   essentielItems: [
     'DTU 43, étanchéité bitumineuse (SEL, SBS), membranes EPDM, relevés et bardage — mémoires, CCTP et PPSPS.',
     'Partenariat CSFE : Laure Olivié a formé les équipes du réseau étanchéité — cas d’usage alignés sur le terrain.',
-    'Session 4 h Qualiopi : brouillons encadrés, relecture humaine — l’IA ne tranche pas la conformité normative.',
+    `Session catalogue ${CATALOGUE_DUREE_SESSION_METIER} (bases ${CATALOGUE_DUREE_BASES_IA_ONLY}) — Qualiopi : brouillons encadrés, relecture humaine — l’IA ne tranche pas la conformité normative.`,
     'Financement Constructys selon éligibilité — présentiel Île-de-France, validation chef de travaux ou dirigeant.',
   ],
   problemParagraphs: [
@@ -128,7 +132,7 @@ Structure : contexte chantier, observations par zone, réserves factuelles, dema
     },
   ],
   courseName: 'Formation IA étancheur BTP — partenariat CSFE, Qualiopi',
-  courseDescription: `${OFC} : formation IA et ChatGPT pour étancheurs — mémoires techniques, DTU 43, bardage, relevés, CCTP. Interventions auprès de ${CSFE_NOM_LIBRE}. Session 4 h, Qualiopi, financement possible selon éligibilité. Présentiel Île-de-France.`,
+  courseDescription: `${OFC} : formation IA et ChatGPT pour étancheurs — mémoires techniques, DTU 43, bardage, relevés, CCTP. Interventions auprès de ${CSFE_NOM_LIBRE}. Session catalogue ${CATALOGUE_DUREE_SESSION_METIER} (bases ${CATALOGUE_DUREE_BASES_IA_ONLY}), Qualiopi, financement possible selon éligibilité. Présentiel Île-de-France.`,
   courseTeaches: [
     'ChatGPT pour étancheurs BTP',
     'Méthodes IA et DTU 43 (relecture humaine)',
@@ -335,7 +339,7 @@ export const FORMATION_IA_METIER_CHARPENTIER_MENUISIER: FormationIaMetierBtpConf
   essentielItems: [
     'Charpente, ossature bois, agencement, menuiserie extérieure et intérieure — DTU 31.1 / 31.2, CCTP lot bois, calepinage, débit, quincaillerie.',
     'Partenariat UMB-FFB : Laure Olivié forme les entreprises des métiers du bois avec le réseau FFB — cas d’usage alignés sur le terrain.',
-    'Session 4 h Qualiopi : brouillons de devis d’agencement, mémoires et CR — relecture humaine obligatoire.',
+    `Session catalogue ${CATALOGUE_DUREE_SESSION_METIER} (bases ${CATALOGUE_DUREE_BASES_IA_ONLY}) — Qualiopi : brouillons de devis d’agencement, mémoires et CR — relecture humaine obligatoire.`,
     'Financement Constructys selon éligibilité — présentiel Île-de-France uniquement, ateliers sur vos dossiers anonymisés.',
   ],
   problemParagraphs: [
@@ -409,7 +413,7 @@ Rédige un mail clair : rappel du périmètre, questions ouvertes (cotes, choix 
     },
   ],
   courseName: 'Formation IA charpentier & menuisier bois — UMB-FFB, Qualiopi',
-  courseDescription: `${OFC} : formation IA et ChatGPT pour charpentiers et menuisiers — DTU 31.1/31.2, CCTP lot bois, calepinage, débit, devis d’agencement, mémoires. Partenariat ${UMB_FFB_NOM_LIBRE}. Session 4 h, Qualiopi, financement possible selon éligibilité.`,
+  courseDescription: `${OFC} : formation IA et ChatGPT pour charpentiers et menuisiers — DTU 31.1/31.2, CCTP lot bois, calepinage, débit, devis d’agencement, mémoires. Partenariat ${UMB_FFB_NOM_LIBRE}. Session catalogue ${CATALOGUE_DUREE_SESSION_METIER} (bases ${CATALOGUE_DUREE_BASES_IA_ONLY}), Qualiopi, financement possible selon éligibilité.`,
   courseTeaches: [
     'ChatGPT pour métiers du bois BTP',
     'DTU 31.1 / 31.2 — usage documentaire assisté',

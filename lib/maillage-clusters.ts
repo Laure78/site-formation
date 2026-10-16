@@ -3,7 +3,7 @@
  * Chaque page d’un cluster reçoit 3–5 liens via `getClusterRelatedLinks(path)`.
  */
 import { LINKS } from '@/lib/internal-links';
-import { CATALOGUE_NIV_RANGE, FORMATIONS } from '@/data/formations';
+import { CATALOGUE_DUREE_BASES_IA_ONLY, CATALOGUE_NIV_RANGE, FORMATIONS } from '@/data/formations';
 import { getCatalogueFormationsCount } from '@/lib/formations-catalogue-display';
 import { isFormationCataloguePublished } from '@/lib/formation-catalogue-visibility';
 import { IDF_ZONE_INTERVENTION } from '@/lib/constants';
@@ -208,7 +208,7 @@ const METIER_CLUSTER: Record<string, MetierClusterEntry> = {
     catalogue: {
       href: LINKS.formationIaBtpNiveau1BatimentTp,
       label: 'Catalogue NIV-01 — IA au service du bâtiment & TP',
-      description: 'Session 4 h devis, CR, emails — Qualiopi.',
+      description: `Session ${CATALOGUE_DUREE_BASES_IA_ONLY} devis, CR, emails — Qualiopi.`,
     },
     blog: {
       href: LINKS.blogChatgptBtp7LeviersProductivite2026,
@@ -370,7 +370,7 @@ const METIER_CLUSTER: Record<string, MetierClusterEntry> = {
     catalogue: {
       href: LINKS.formationIaBtpNiveau1BatimentTp,
       label: 'Catalogue NIV-01 — IA au service du bâtiment & TP',
-      description: 'Session 4 h — bases documentaires BTP.',
+      description: `Session ${CATALOGUE_DUREE_BASES_IA_ONLY} — bases documentaires BTP.`,
     },
     blog: {
       href: LINKS.blogPpspsIa,
@@ -384,7 +384,7 @@ const METIER_CLUSTER: Record<string, MetierClusterEntry> = {
     catalogue: {
       href: LINKS.formationIaBtpNiveau1BatimentTp,
       label: 'Catalogue NIV-01 — IA au service du bâtiment & TP',
-      description: 'Session 4 h — bases documentaires BTP.',
+      description: `Session ${CATALOGUE_DUREE_BASES_IA_ONLY} — bases documentaires BTP.`,
     },
     blog: {
       href: LINKS.guideChargeAffairesOfc,
@@ -811,7 +811,7 @@ export function getClusterRelatedLinks(path: string): ClusterPageConfig | null {
         {
           href: LINKS.formations,
           label: 'Catalogue formations IA pour le BTP',
-          description: 'Programmes Qualiopi 4 h — devis, DCE, CR.',
+          description: `Programmes Qualiopi ${CATALOGUE_DUREE_BASES_IA_ONLY} (NIV-01) — devis, DCE, CR.`,
         },
         {
           href: LINKS.formateurIaBtp,
