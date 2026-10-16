@@ -14,6 +14,8 @@ import { FormateursMetierSection } from '@/components/formateurs/FormateursDomai
 import { getModule2027IaUsage, labelOutil } from '@/lib/formation-ia';
 import { FormationsContact2027 } from './FormationsContact2027';
 import { ParcoursEncadrerIaBlock } from '@/components/formations/ParcoursEncadrerIaBlock';
+import { PageMaillageSection } from '@/components/maillage/PageMaillageSection';
+import { buildParcoursPageMaillageBlocks } from '@/lib/page-maillage-blocks';
 
 type Props = {
   parcours: ParcoursComputed;
@@ -38,25 +40,11 @@ export function ParcoursDetailView({ parcours: p }: Props) {
     metier: p.metierId,
   });
 
-  return (
-    <div className="mx-auto max-w-[80rem] px-4 pb-20 pt-10 sm:px-6 lg:px-8">
-      <nav aria-label="Fil d’Ariane" className="text-sm text-ofc-ink-muted">
-        <Link href={LINKS.formations} className="text-[#377CF3] underline">
-          Formations
-        </Link>
-        <span aria-hidden className="mx-2">
-          /
-        </span>
-        <Link href={LINKS.parcoursMetiers} className="text-[#377CF3] underline">
-          Parcours métiers
-        </Link>
-        <span aria-hidden className="mx-2">
-          /
-        </span>
-        <span className="text-ofc-ink">{p.titre}</span>
-      </nav>
+  const maillageBlocks = buildParcoursPageMaillageBlocks(p);
 
-      <div className="mt-8 grid gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(280px,320px)]">
+  return (
+    <div className="mx-auto max-w-[80rem] px-4 pb-20 pt-6 sm:px-6 lg:px-8">
+      <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(280px,320px)]">
         <div>
           <p className="ofc-badge bg-ofc-accent-soft text-ofc-accent">Parcours métier 2027</p>
           <h1 className="ofc-type-hero mt-4 text-ofc-ink">{p.titre}</h1>
@@ -306,6 +294,12 @@ export function ParcoursDetailView({ parcours: p }: Props) {
       </div>
 
       <FormateursMetierSection metierId={p.metierId} />
+
+      <div className="mt-16 space-y-12">
+        {maillageBlocks.map((block) => (
+          <PageMaillageSection key={block.id} {...block} tone="white" className="!px-0" />
+        ))}
+      </div>
 
       {/* CTA mobile sticky */}
       <div className="fixed inset-x-0 bottom-0 z-40 border-t border-[#E2E8F0] bg-white/95 p-3 backdrop-blur lg:hidden">

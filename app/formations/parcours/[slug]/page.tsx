@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { JsonLd } from '@/components/JsonLd';
+import { BreadcrumbJsonLd } from '@/components/seo/BreadcrumbJsonLd';
 import { ParcoursDetailView } from '@/components/formations/catalogue-2027/ParcoursDetailView';
 import {
   PARCOURS_CATALOGUE_2027,
@@ -9,6 +10,7 @@ import {
 } from '@/data/catalogue-2027';
 import { createPageMetadata, SITE_CONFIG } from '@/lib/seo';
 import { parcoursHref } from '@/lib/catalogue-2027/parcours-href';
+import { LINKS } from '@/lib/internal-links';
 import { SCHEMA_ORGANIZATION_OFC } from '@/lib/schema-constants';
 
 type Props = { params: Promise<{ slug: string }> };
@@ -85,9 +87,20 @@ export default async function ParcoursPage({ params }: Props) {
     timeRequired: `PT${computed.dureeHeures}H`,
   };
 
+  const base = SITE_CONFIG.url.replace(/\/$/, '');
+
   return (
     <>
       <JsonLd id={`schema-parcours-${parcours.id}`} schema={courseSchema} />
+      <BreadcrumbJsonLd
+        id={`schema-breadcrumb-parcours-${parcours.id}`}
+        items={[
+          { name: 'Accueil', url: `${base}/` },
+          { name: 'Formations', url: `${base}/formations` },
+          { name: 'Parcours métiers', url: `${base}${LINKS.parcoursMetiers}` },
+          { name: parcours.titre, url },
+        ]}
+      />
       <ParcoursDetailView parcours={computed} />
     </>
   );

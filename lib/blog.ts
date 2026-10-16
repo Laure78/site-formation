@@ -5,6 +5,7 @@
 
 import { readdirSync, readFileSync, existsSync } from 'fs';
 import { join } from 'path';
+import { getRepoRoot } from '@/lib/repo-root';
 import { INTERNAL_LINKS, getAnchor } from '@/lib/seo-links';
 import { LINKS } from '@/lib/internal-links';
 import {
@@ -1994,26 +1995,36 @@ function normalizeGeneratedArticleSections(
 }
 
 function loadGeneratedArticles(): BlogArticle[] {
-  const dir = join(process.cwd(), 'content', 'generated');
+  const dir = join(getRepoRoot(), 'content', 'generated');
   if (!existsSync(dir)) return [];
   try {
     const files = readdirSync(dir).filter(
       (f) => f.startsWith('article-') && f.endsWith('.json')
     );
-    return files.map((f) => {
-      const raw = readFileSync(join(dir, f), 'utf-8');
-      const a = JSON.parse(raw) as BlogArticle & { internalLinks?: unknown };
-      const sections = normalizeGeneratedArticleSections(a.sections ?? []);
-      return {
-        slug: a.slug,
-        title: a.title,
-        description: normalizeLegacyPathsInText(a.description),
-        date: a.date,
-        keywords: a.keywords ?? [],
-        sections,
-        relatedSlugs: a.relatedSlugs ?? [], ...(a.seoTitle ? { seoTitle: a.seoTitle } : {}), ...(a.dateModified ? { dateModified: a.dateModified } : {}), ...(a.faq?.length ? { faq: a.faq } : {}), ...(a.coverImage ? { coverImage: a.coverImage } : {}),
-      };
-    });
+    const articles: BlogArticle[] = [];
+    for (const f of files) {
+      try {
+        const raw = readFileSync(join(dir, f), 'utf-8');
+        const a = JSON.parse(raw) as BlogArticle & { internalLinks?: unknown };
+        const sections = normalizeGeneratedArticleSections(a.sections ?? []);
+        articles.push({
+          slug: a.slug,
+          title: a.title,
+          description: normalizeLegacyPathsInText(a.description),
+          date: a.date,
+          keywords: a.keywords ?? [],
+          sections,
+          relatedSlugs: a.relatedSlugs ?? [],
+          ...(a.seoTitle ? { seoTitle: a.seoTitle } : {}),
+          ...(a.dateModified ? { dateModified: a.dateModified } : {}),
+          ...(a.faq?.length ? { faq: a.faq } : {}),
+          ...(a.coverImage ? { coverImage: a.coverImage } : {}),
+        });
+      } catch (err) {
+        console.error(`[blog] JSON ignoré (${f}):`, err instanceof Error ? err.message : err);
+      }
+    }
+    return articles;
   } catch {
     return [];
   }
@@ -2043,6 +2054,28 @@ export function getCommercialLinksForArticle(slug: string): { href: string; labe
     links.splice(2, 0, {
       href: LINKS.formationAO,
       label: getAnchor('appelsOffres', 0),
+    });
+  }
+  if (slug === 'charte-ia-btp') {
+    links.splice(2, 0,
+      {
+        href: LINKS.parcoursDirigeantPmeBtp,
+        label: 'Parcours Dirigeant de PME BTP — pilotage et déploiement IA',
+      },
+      {
+        href: LINKS.parcoursReferentIaBtp,
+        label: 'Parcours Référent IA BTP',
+      },
+      {
+        href: LINKS.formationMaitriserClaudeAiBtp,
+        label: 'Formation Maîtriser Claude AI pour le BTP',
+      },
+    );
+  }
+  if (slug === 'securite-donnees-chatgpt-btp') {
+    links.splice(2, 0, {
+      href: LINKS.blogCharteIaBtp,
+      label: 'Charte IA BTP — modèle Word et guide',
     });
   }
   switch (cat) {
@@ -2128,6 +2161,7 @@ export function getArticleCategory(slug: string): BlogCategoryId {
   if (s.includes('peintre') || s.includes('peinture')) return 'metiers';
   if (s.includes('ia-et-') || s.includes('remplacer-les')) return 'metiers';
   if (s.includes('confidentialite-donnees') || s.includes('securite-donnees-chatgpt')) return 'chatgpt';
+  if (s.includes('charte-ia')) return 'chatgpt';
   return 'chatgpt'; // défaut : ChatGPT & bonnes pratiques
 }
 

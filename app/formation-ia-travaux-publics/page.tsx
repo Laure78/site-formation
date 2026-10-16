@@ -27,7 +27,7 @@ export const revalidate = 3600;
 export const metadata = createPageMetadata({
   title: 'IA travaux publics : VRD et terrassement',
   description:
-    'Formation IA travaux publics : préparation chantier, VRD, situations et DOE sous contrôle métier. Formation IA pour le BTP. Présentiel IDF, Qualiopi.',
+    'Formation IA travaux publics : préparation chantier, VRD, situations et DOE. Contrôle métier, présentiel IDF, Qualiopi, financement OPCO selon éligibilité.',
   descriptionFinal: true,
   path: LINKS.formationIaTravauxPublics,
   keywords: [

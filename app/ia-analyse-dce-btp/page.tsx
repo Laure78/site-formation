@@ -11,6 +11,9 @@ import { LINKS } from '@/lib/internal-links';
 import { OFC_LINK } from '@/lib/ofc-interaction-classes';
 import { OFC_SEC } from '@/lib/ofc-section-classes';
 import { FINANCEMENT_FORMULATION_PRUDENTE } from '@/lib/financement-copy';
+import { RelatedLinks } from '@/components/RelatedLinks';
+import { BreadcrumbJsonLd } from '@/components/seo/BreadcrumbJsonLd';
+import { SITE_CONFIG } from '@/lib/seo';
 
 export const revalidate = 3600;
 
@@ -18,7 +21,7 @@ const PATH = '/ia-analyse-dce-btp';
 
 const META_TITLE = 'IA et analyse de DCE dans le BTP';
 const META_DESCRIPTION =
-  "Méthode pour analyser un DCE (CCTP, CCAP, RC) avec l'IA : étapes, vigilance et confidentialité. Formation IA pour le BTP en présentiel IDF.";
+  "Analyse DCE (CCTP, CCAP, RC) avec l'IA : méthode, vigilance et confidentialité. Formation IA pour le BTP en présentiel IDF, Qualiopi, OPCO selon éligibilité.";
 
 const EN_BREF =
   'Un DCE, ou dossier de consultation des entreprises, regroupe les pièces transmises aux candidats d’un marché. L’IA (Claude ou ChatGPT) aide à extraire exigences, délais, pénalités et points de vigilance à partir du CCTP, du CCAP et du RC. La décision GO/NO GO et la validation commerciale restent humaines.';
@@ -96,9 +99,18 @@ const FAQ_ITEMS: FAQItem[] = [
 
 export default function IaAnalyseDceBtpPage() {
   const faqSchema = getFAQSchema(FAQ_ITEMS);
+  const base = SITE_CONFIG.url.replace(/\/$/, '');
 
   return (
     <>
+      <BreadcrumbJsonLd
+        id="schema-breadcrumb-ia-analyse-dce"
+        items={[
+          { name: 'Accueil', url: `${base}/` },
+          { name: 'Ressources', url: `${base}${LINKS.ressources}` },
+          { name: 'Analyser un DCE avec l’IA', url: `${base}${PATH}` },
+        ]}
+      />
       <SchemaHowTo
         name="Analyser un DCE avec l'IA — méthode BTP"
         description="Méthode en 5 étapes pour structurer l'analyse d'un DCE (CCTP, CCAP, RC) avec l'IA, sous validation métier."
@@ -300,6 +312,11 @@ export default function IaAnalyseDceBtpPage() {
           items={FAQ_ITEMS}
         />
 
+        <RelatedLinks
+          path={PATH}
+          excludeHrefs={[LINKS.formationIaBtp, LINKS.formationIaAppelsOffresBtp]}
+        />
+
         <section className={OFC_SEC.muted} aria-labelledby="se-former-dce">
           <div className="mx-auto max-w-4xl">
             <h2 id="se-former-dce" className="font-display text-2xl font-bold text-slate-900">
@@ -307,11 +324,15 @@ export default function IaAnalyseDceBtpPage() {
             </h2>
             <p className="mt-4 text-base leading-relaxed text-slate-600">
               La{' '}
-              <Link href={LINKS.formationIaAppelsOffresBtp} className={OFC_LINK}>
-                formation IA dédiée aux appels d&apos;offres BTP
+              <Link href={LINKS.formationAO} className={OFC_LINK}>
+                formation IA appels d&apos;offres BTP
               </Link>{' '}
               permet de travailler cette méthode sur des dossiers réels, en présentiel en
-              Île-de-France. Vue d&apos;ensemble :{' '}
+              Île-de-France. En amont, le{' '}
+              <Link href={LINKS.tutoAnalyseDce} className={OFC_LINK}>
+                tutoriel PDF analyse DCE
+              </Link>{' '}
+              reprend la même logique pas à pas. Vue d&apos;ensemble :{' '}
               <Link href={LINKS.formationIaBtp} className={OFC_LINK}>
                 formation IA pour le BTP
               </Link>

@@ -11,6 +11,7 @@ import { LINKS } from '@/lib/internal-links';
 import { OFC_LINK } from '@/lib/ofc-interaction-classes';
 import { OFC_SEC } from '@/lib/ofc-section-classes';
 import { FINANCEMENT_FORMULATION_PRUDENTE } from '@/lib/financement-copy';
+import { RelatedLinks } from '@/components/RelatedLinks';
 
 export const revalidate = 3600;
 
@@ -237,6 +238,11 @@ export default function IaMemoireTechniqueBtpPage() {
           items={FAQ_ITEMS}
         />
 
+        <RelatedLinks
+          path={PATH}
+          excludeHrefs={[LINKS.formationIaAppelsOffresBtp, LINKS.formationIaBtp]}
+        />
+
         <section className={OFC_SEC.muted} aria-labelledby="se-former-memoire">
           <div className="mx-auto max-w-4xl">
             <h2 id="se-former-memoire" className="font-display text-2xl font-bold text-slate-900">
@@ -244,8 +250,8 @@ export default function IaMemoireTechniqueBtpPage() {
             </h2>
             <p className="mt-4 text-base leading-relaxed text-slate-600">
               Pour enchaîner analyse DCE et mémoire en atelier :{' '}
-              <Link href={LINKS.formationIaAppelsOffresBtp} className={OFC_LINK}>
-                formation IA dédiée aux appels d&apos;offres BTP
+              <Link href={LINKS.formationAO} className={OFC_LINK}>
+                formation IA appels d&apos;offres BTP
               </Link>
               . Vue d&apos;ensemble :{' '}
               <Link href={LINKS.formationIaBtp} className={OFC_LINK}>

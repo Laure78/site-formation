@@ -388,9 +388,11 @@ export default function FormationIaIntraEntrepriseBtpPage() {
         <FormationCharteIaBtpRessourceAside className="mb-10" />
         <AllerPlusLoin
           links={[
-            { href: LINKS.partenaires, label: 'Références et partenaires' },
-            { href: LINKS.aPropos, label: 'À propos de Laure Olivié' },
-            { href: LINKS.blog, label: 'Articles IA BTP' },
+            { href: LINKS.formations, label: 'Catalogue des formations IA pour le BTP' },
+            { href: LINKS.parcoursMetiers, label: 'Parcours métiers — programmes par fonction' },
+            { href: LINKS.financement, label: 'Financement OPCO Constructys — selon éligibilité' },
+            { href: LINKS.prendreRdv, label: 'Échanger sur votre besoin — visio découverte' },
+            { href: LINKS.contact, label: 'Contact et devis intra-entreprise' },
           ]}
         />
       </div>

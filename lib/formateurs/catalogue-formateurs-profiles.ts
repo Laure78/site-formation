@@ -218,11 +218,7 @@ const EMILIE_FONTAINE: FormateurProfile = {
     'Formation assistante de gestion BTP',
     'Modules administratif chantier et facturation',
   ],
-  portrait: {
-    kind: 'initials',
-    initials: 'EF',
-    label: 'Émilie Fontaine, formatrice assistance travaux BTP',
-  },
+  portrait: photoPortrait(PHOTOS.formateurEmilieFontaine),
   status: 'confirmed',
 };
 
@@ -268,11 +264,7 @@ const FRANCOIS_BEGUIN: FormateurProfile = {
     'Formation prévention et coordination des intervenants sur chantier',
     'Modules contribution à la prévention documentaire (hors habilitation coordonnateur SPS)',
   ],
-  portrait: {
-    kind: 'initials',
-    initials: 'FB',
-    label: 'François Béguin, formateur coordination SPS et prévention chantier',
-  },
+  portrait: photoPortrait(PHOTOS.formateurFrancoisBeguin),
   status: 'confirmed',
 };
 

@@ -4,6 +4,9 @@
  */
 import type { FormationCatalogueCode } from '@/lib/formation-catalogue-visibility';
 import type { ContextualLinkCard } from '@/lib/contextual-internal-links';
+import { getModuleByCode, type ParcoursComputed } from '@/data/catalogue-2027';
+import type { ParcoursId } from '@/data/catalogue-2027/types';
+import { buildCatalogueModulesHref } from '@/lib/catalogue-filter-url';
 import { getParcoursMetiersProfilsAvecFormations } from '@/lib/parcours-metiers-orientation';
 import { LINKS } from '@/lib/internal-links';
 
@@ -224,6 +227,159 @@ export function buildFormationPageMaillageBlocks(
       links: ressources,
     });
   }
+
+  blocks.push(getFormationIntraTeamBlock());
+
+  return blocks;
+}
+
+/** Ressources gratuites associées à un parcours métier (associations éditoriales). */
+const PARCOURS_PRACTICE_RESOURCES: Partial<
+  Record<ParcoursId, readonly ContextualLinkCard[]>
+> = {
+  'dirigeant-pme-btp': [
+    {
+      href: LINKS.blogCharteIaBtp,
+      title: 'Charte IA BTP — article et modèle Word',
+      description: 'Gouvernance et déploiement responsable en PME.',
+    },
+    {
+      href: LINKS.modeleCharteIaEntrepriseBtpDoc,
+      title: 'Modèle Word — charte d’utilisation de l’IA',
+      description: 'Document type à adapter à votre entreprise.',
+    },
+  ],
+  'charge-affaires-btp': [
+    {
+      href: LINKS.iaAnalyseDce,
+      title: 'Analyser un DCE avec l’IA',
+      description: 'Méthode CCTP, CCAP, RC — page usage BTP.',
+    },
+    {
+      href: LINKS.tutoAnalyseDce,
+      title: 'Tutoriel PDF — analyse DCE',
+      description: 'Pas à pas avant la session appels d’offres.',
+    },
+    {
+      href: LINKS.iaMemoireTechnique,
+      title: 'Rédiger un mémoire technique avec l’IA',
+      description: 'Enchaînement naturel après l’analyse DCE.',
+    },
+  ],
+  'conducteur-de-travaux': [
+    {
+      href: LINKS.tutoCrChantier,
+      title: 'Tutoriel — compte rendu de chantier',
+      description: 'Skill PDF pour structurer vos CR.',
+    },
+    {
+      href: LINKS.iaCompteRenduChantier,
+      title: 'IA et comptes rendus de chantier',
+      description: 'Usages terrain et limites de validation.',
+    },
+    {
+      href: LINKS.guideConducteurTravauxIaBtp,
+      title: 'Guide PDF conducteur de travaux',
+      description: '6 tutos Claude AI — gratuit.',
+    },
+  ],
+  'chef-de-chantier': [
+    {
+      href: LINKS.tutoCrChantier,
+      title: 'Tutoriel — compte rendu de chantier',
+      description: 'Modèle réutilisable sur le terrain.',
+    },
+    {
+      href: LINKS.guideChefDeChantierOfc,
+      title: 'Guide chef de chantier × IA',
+      description: 'PDF OFC — organisation et consignes.',
+    },
+  ],
+  'referent-ia-btp': [
+    {
+      href: LINKS.skillsClaudeBtp,
+      title: 'Skills Claude pour le BTP',
+      description: 'Pack ZIP et méthode d’import.',
+    },
+    {
+      href: LINKS.blogCharteIaBtp,
+      title: 'Charte IA BTP — article et modèle',
+      description: 'Encadrer les usages avant le déploiement.',
+    },
+    {
+      href: LINKS.claudeAiBtp,
+      title: 'Guide Claude AI BTP',
+      description: 'Projects, Cowork et prompts métier.',
+    },
+  ],
+};
+
+function getParcoursModuleFormationLinks(parcours: ParcoursComputed): ContextualLinkCard[] {
+  const links: ContextualLinkCard[] = [];
+  const seen = new Set<string>();
+
+  for (const etape of parcours.etapes) {
+    const mod = getModuleByCode(etape.moduleCode);
+    if (!mod?.href || seen.has(mod.href)) continue;
+    seen.add(mod.href);
+    links.push({
+      href: mod.href,
+      title: mod.titre,
+      description:
+        mod.objectifPrincipal.length > 88
+          ? `${mod.objectifPrincipal.slice(0, 86)}…`
+          : mod.objectifPrincipal,
+    });
+  }
+
+  return links.slice(0, 3);
+}
+
+export function buildParcoursPageMaillageBlocks(parcours: ParcoursComputed): PageMaillageBlock[] {
+  const blocks: PageMaillageBlock[] = [];
+
+  const programmes = getParcoursModuleFormationLinks(parcours);
+  if (programmes.length > 0) {
+    blocks.push({
+      id: 'parcours-programmes',
+      title: 'Programmes qui composent ce parcours',
+      subtitle: 'Fiches catalogue Qualiopi — modules référencés dans la frise ci-dessus.',
+      links: programmes,
+    });
+  }
+
+  const ressources = [...(PARCOURS_PRACTICE_RESOURCES[parcours.id] ?? [])].slice(0, 3);
+  if (ressources.length > 0) {
+    blocks.push({
+      id: 'parcours-ressources',
+      title: 'Ressources pour passer à la pratique',
+      subtitle: 'Guides, tutos PDF et pages méthode avant ou après la session.',
+      links: ressources,
+    });
+  }
+
+  blocks.push({
+    id: 'parcours-catalogue-retour',
+    title: 'Poursuivre votre lecture',
+    subtitle: 'Retour au catalogue ou modules filtrés par métier.',
+    links: [
+      {
+        href: LINKS.parcoursMetiers,
+        title: 'Comparer les parcours métiers',
+        description: '7 parcours — choisir selon votre fonction BTP.',
+      },
+      {
+        href: buildCatalogueModulesHref({ metier: parcours.metierId }),
+        title: 'Modules catalogue pour ce métier',
+        description: 'Filtre métier pré-appliqué — 35 modules par domaine.',
+      },
+      {
+        href: LINKS.formations,
+        title: 'Catalogue complet des formations',
+        description: 'Parcours, niveaux IA et modules par domaine.',
+      },
+    ],
+  });
 
   blocks.push(getFormationIntraTeamBlock());
 

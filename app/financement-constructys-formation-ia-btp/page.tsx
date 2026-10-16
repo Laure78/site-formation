@@ -81,12 +81,13 @@ export default function FinancementConstructysPage() {
             <AllerPlusLoin
               links={[
                 { href: LINKS.formations, label: 'Catalogue des formations IA pour le BTP' },
+                { href: LINKS.parcoursMetiers, label: 'Parcours métiers — formation IA BTP' },
                 {
                   href: LINKS.blogFinancerFormationIaBtpConstructys,
                   label: 'Article — financer une formation IA BTP avec Constructys',
                 },
                 { href: LINKS.formationIleDeFrance, label: 'Formation IA BTP en Île-de-France' },
-                { href: LINKS.formationAO, label: 'Formation IA appels d’offres BTP' },
+                { href: LINKS.prendreRdv, label: 'Échanger sur votre besoin — visio découverte' },
                 { href: LINKS.contact, label: 'Demander un devis ou un programme' },
               ]}
             />

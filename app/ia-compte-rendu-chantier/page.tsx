@@ -11,6 +11,7 @@ import { LINKS } from '@/lib/internal-links';
 import { OFC_LINK } from '@/lib/ofc-interaction-classes';
 import { OFC_SEC } from '@/lib/ofc-section-classes';
 import { FINANCEMENT_FORMULATION_PRUDENTE } from '@/lib/financement-copy';
+import { RelatedLinks } from '@/components/RelatedLinks';
 
 export const revalidate = 3600;
 
@@ -253,6 +254,11 @@ export default function IaCompteRenduChantierPage() {
           title="FAQ"
           subtitle="Comptes rendus de chantier et IA — validation métier obligatoire."
           items={FAQ_ITEMS}
+        />
+
+        <RelatedLinks
+          path={PATH}
+          excludeHrefs={[LINKS.formationIaConducteurDeTravaux, LINKS.formationIaBtp]}
         />
 
         <section className={OFC_SEC.muted} aria-labelledby="se-former-cr">

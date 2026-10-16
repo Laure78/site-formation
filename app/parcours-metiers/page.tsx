@@ -9,7 +9,7 @@ export const revalidate = 3600;
 
 const META_TITLE = 'Parcours métiers — formation IA BTP';
 const META_DESCRIPTION =
-  'Choisissez votre parcours de formation IA selon votre métier BTP : dirigeant, conducteur de travaux, études de prix, MOE ou gestion. Programmes en présentiel Île-de-France.';
+  'Parcours formation IA BTP par métier : dirigeant, conducteur de travaux, études de prix, MOE ou gestion. Programmes Qualiopi en présentiel Île-de-France.';
 
 export const metadata: Metadata = createPageMetadata({
   title: META_TITLE,

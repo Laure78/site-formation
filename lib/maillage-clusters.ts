@@ -15,7 +15,13 @@ export type RelatedLinkItem = {
   description?: string;
 };
 
-export type MaillageClusterId = 'geo' | 'metiers' | 'catalogue' | 'claude' | 'marche-public';
+export type MaillageClusterId =
+  | 'geo'
+  | 'metiers'
+  | 'catalogue'
+  | 'claude'
+  | 'marche-public'
+  | 'usage';
 
 type ClusterPageConfig = {
   cluster: MaillageClusterId;
@@ -936,7 +942,146 @@ export function getClusterRelatedLinks(path: string): ClusterPageConfig | null {
     };
   }
 
+  // --- Pages usage (méthodes transactionnelles : DCE, CR, mémoire, devis) ---
+  const usageCluster = buildUsageTaskPageCluster(normalized);
+  if (usageCluster) return usageCluster;
+
   return null;
+}
+
+/** Pages « comment faire » — formation catalogue, parcours, tutos, financement. */
+function buildUsageTaskPageCluster(path: string): ClusterPageConfig | null {
+  const byPath: Record<string, Omit<ClusterPageConfig, 'cluster'>> = {
+    [LINKS.iaAnalyseDce]: {
+      title: 'Se former sur l’analyse de DCE avec l’IA',
+      subtitle:
+        'Formation Qualiopi, parcours chargé d’affaires, tutoriel PDF et financement OPCO selon éligibilité.',
+      links: dedupeLinks([
+        {
+          href: LINKS.formationAO,
+          label: 'Formation IA appels d’offres BTP',
+          description: 'DCE, checklist et mémoire technique — session catalogue NIV-02.',
+        },
+        {
+          href: LINKS.parcoursChargeAffairesBtp,
+          label: 'Parcours Chargé d’affaires BTP',
+          description: 'Chiffrage, AO et suivi d’affaire — modules métier + IA.',
+        },
+        {
+          href: LINKS.tutoAnalyseDce,
+          label: 'Tutoriel PDF — analyser un DCE',
+          description: 'Méthode pas à pas CCTP, CCAP et pièces jointes.',
+        },
+        {
+          href: LINKS.iaMemoireTechnique,
+          label: 'Rédiger un mémoire technique avec l’IA',
+          description: 'Enchaîner après l’analyse DCE — structure et relecture.',
+        },
+        {
+          href: LINKS.financement,
+          label: 'Financement Constructys — formation IA BTP',
+          description: 'Prise en charge possible selon éligibilité — dossier et convention.',
+        },
+      ]),
+    },
+    [LINKS.iaMemoireTechnique]: {
+      title: 'Formations et ressources — mémoire technique BTP',
+      subtitle: 'Catalogue appels d’offres, méthode DCE et parcours commercial.',
+      links: dedupeLinks([
+        {
+          href: LINKS.formationAO,
+          label: 'Formation IA appels d’offres BTP',
+          description: 'Atelier mémoire technique et DCE en présentiel Île-de-France.',
+        },
+        {
+          href: LINKS.iaAnalyseDce,
+          label: 'Analyser un DCE avec l’IA',
+          description: 'Étape amont — CCTP, CCAP, RC et grille GO/NO GO.',
+        },
+        {
+          href: LINKS.parcoursChargeAffairesBtp,
+          label: 'Parcours Chargé d’affaires BTP',
+          description: 'Modules chiffrage, AO et suivi d’affaire.',
+        },
+        {
+          href: LINKS.guideRepondreAoBtpOfc2026,
+          label: 'Guide répondre aux AO BTP (2026)',
+          description: 'PDF gratuit — méthode en 5 étapes OFC.',
+        },
+        {
+          href: LINKS.formationIaIntraEntrepriseBtp,
+          label: 'Formation IA intra-entreprise BTP',
+          description: 'Former toute une équipe sur vos dossiers réels.',
+        },
+      ]),
+    },
+    [LINKS.iaCompteRenduChantier]: {
+      title: 'Se former sur les comptes rendus de chantier avec l’IA',
+      subtitle: 'Parcours conducteur, formation conduite de travaux et tutoriels terrain.',
+      links: dedupeLinks([
+        {
+          href: LINKS.formationConduiteTravauxSuiviChantier,
+          label: 'Formation IA conduite de travaux et suivi chantier',
+          description: 'CR, CCTP, PPSPS — session catalogue NIV-03.',
+        },
+        {
+          href: LINKS.parcoursConducteurDeTravaux,
+          label: 'Parcours Conducteur de travaux',
+          description: 'De la passation à la réception — modules + usages IA.',
+        },
+        {
+          href: LINKS.tutoCrChantier,
+          label: 'Tutoriel — compte rendu de chantier',
+          description: 'Skill PDF pour structurer vos CR avec l’IA.',
+        },
+        {
+          href: LINKS.guideConducteurTravauxIaBtp,
+          label: 'Guide PDF conducteur de travaux',
+          description: '6 tutos Claude AI — ressource gratuite.',
+        },
+        {
+          href: LINKS.financement,
+          label: 'Financement des formations IA BTP',
+          description: 'Constructys — selon éligibilité de votre entreprise.',
+        },
+      ]),
+    },
+    [LINKS.iaDevis]: {
+      title: 'Formations IA — devis et chiffrage bâtiment',
+      subtitle: 'Catalogue, parcours dirigeant ou chargé d’affaires, tutoriel skill devis.',
+      links: dedupeLinks([
+        {
+          href: LINKS.formationIaEtudesPrixChiffrageBtp,
+          label: 'Formation IA études de prix et chiffrage BTP',
+          description: 'Landing thématique — DPGF, métrés, contrôles.',
+        },
+        {
+          href: LINKS.formationIaBtpNiveau1BatimentTp,
+          label: 'Les bases de l’IA pour les pros du BTP',
+          description: 'Devis, emails, CR — session 4 h Qualiopi (NIV-01).',
+        },
+        {
+          href: LINKS.parcoursDirigeantPmeBtp,
+          label: 'Parcours Dirigeant de PME BTP',
+          description: 'Pilotage des marges et contrôle des devis avant envoi.',
+        },
+        {
+          href: LINKS.tutoSkillChiffrageDevisOfc,
+          label: 'Tutoriel — skill chiffrage de devis',
+          description: 'Préparer un chiffrage assisté avec validation humaine.',
+        },
+        {
+          href: LINKS.financement,
+          label: 'Financement OPCO Constructys',
+          description: 'Prise en charge possible selon éligibilité.',
+        },
+      ]),
+    },
+  };
+
+  const cfg = byPath[path];
+  if (!cfg || cfg.links.length < 3) return null;
+  return { cluster: 'usage', ...cfg };
 }
 
 /** Hrefs déjà utilisés sur la page — à exclure des autres blocs de liens. */

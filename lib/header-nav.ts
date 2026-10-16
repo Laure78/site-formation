@@ -305,8 +305,8 @@ const FORMATIONS_MEGA_QUICK_LINKS: readonly HeaderNavLink[] = [
 
 /**
  * Menu principal — Accueil retiré (logo).
- * Ordre type Lefebvre : catalogue mis en avant, puis Intra, Financement,
- * Ressources, À propos, Partenaires, Contact.
+ * Formations · Parcours métiers · Intra-entreprise · Ressources · À propos
+ * (contact, partenaires et financement accessibles sous À propos et dans le méga-menu).
  */
 const BASE_HEADER_NAV: readonly HeaderNavItem[] = [
   {

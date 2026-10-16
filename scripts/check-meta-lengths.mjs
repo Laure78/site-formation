@@ -64,7 +64,7 @@ const PAGES = [
     path: '/ia-analyse-dce-btp',
     titleSegment: 'IA et analyse de DCE dans le BTP',
     description:
-      'Analysez un DCE (CCTP, CCAP, RC) plus vite avec l\u2019IA : méthode pas à pas, points de vigilance et confidentialité. Formation présentiel IDF. RDV gratuit.',
+      'Analyse DCE (CCTP, CCAP, RC) avec l\u2019IA : méthode, vigilance et confidentialité. Formation IA pour le BTP en présentiel IDF, Qualiopi, OPCO selon éligibilité.',
   },
   {
     path: '/ia-memoire-technique-btp',
