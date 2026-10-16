@@ -2,7 +2,12 @@
  * Publication programmée des fiches catalogue — masquage URL, nav, sitemap et listes
  * jusqu'à la date incluse (minuit Europe/Paris).
  */
-import { FORMATIONS, CATALOGUE_NIV_RANGE, type Formation } from '@/data/formations';
+import {
+  CATALOGUE_FORMATIONS_TOTAL,
+  FORMATIONS,
+  CATALOGUE_NIV_RANGE,
+  type Formation,
+} from '@/data/formations';
 import { LINKS } from '@/lib/internal-links';
 import { clampMetaDescription } from '@/lib/meta-description';
 
@@ -76,8 +81,8 @@ export function getCatalogueFormationsCount(at: Date = new Date()): number {
   return getPublishedFormations(at).length;
 }
 
-export function getCatalogueLabelWithCount(at: Date = new Date()): string {
-  return `Catalogue des ${getCatalogueFormationsCount(at)} formations IA BTP`;
+export function getCatalogueLabelWithCount(_at: Date = new Date()): string {
+  return `Catalogue des ${CATALOGUE_FORMATIONS_TOTAL} formations IA BTP`;
 }
 
 /** Description pilier — bloc Liens connexes métier. */
@@ -94,10 +99,11 @@ export function getCataloguePilierConnexeDescription(at: Date = new Date()): str
 
 /** Description page catalogue — recherche interne. */
 export function getCatalogueSiteSearchDescription(at: Date = new Date()): string {
+  const base = `${CATALOGUE_FORMATIONS_TOTAL} formations`;
   if (isFormationCataloguePublished('NIV-03', at)) {
-    return 'Formations Qualiopi 4 h — devis, appels d\'offres, conduite de travaux, Claude AI.';
+    return `${base} IA BTP Qualiopi — bases 4 h ; sessions métier 7 h (14 h applications métier). Devis, AO, chantier, Claude.`;
   }
-  return 'Formations Qualiopi 4 h — devis, appels d\'offres, Claude AI et maîtrise d\'œuvre.';
+  return `${base} IA BTP Qualiopi — bases 4 h ; sessions métier 7 h. Devis, AO, Claude, maîtrise d'œuvre.`;
 }
 
 /** Description lien catalogue — landings métier (ex. métreur). */

@@ -457,6 +457,16 @@ export type FormationSlug = (typeof FORMATIONS)[number]['slug'];
 
 export const FORMATIONS_COUNT = FORMATIONS.length;
 
+/** Nombre de parcours catalogue officiels (NIV-01 … NIV-10) — copy site, llms.txt, GEO. */
+export const CATALOGUE_FORMATIONS_TOTAL = FORMATIONS.length;
+
+/**
+ * Durées catalogue — seul NIV-01 (« Les bases de l’IA ») est en 4 h.
+ * Toutes les autres sessions publiées sont en 7 h ; NIV-10 propose aussi une variante 14 h.
+ */
+export const CATALOGUE_DUREE_BASES_IA_ONLY = '4 h' as const;
+export const CATALOGUE_DUREE_SESSION_METIER = '7 h' as const;
+
 /** Plage de numérotation catalogue — NIV-01 … NIV-10. */
 export const CATALOGUE_NIV_RANGE = 'NIV-01 à NIV-10' as const;
 

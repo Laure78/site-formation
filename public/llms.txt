@@ -6,8 +6,8 @@ Laure Olivié est formatrice IA spécialisée BTP, avec 7 ans d'expérience dans
 ## Expertise
 - Formation IA / ChatGPT / Claude pour le BTP (bâtiment, travaux publics, construction).
 - Tâches : devis et chiffrage, analyse de DCE et CCTP, appels d'offres et mémoires techniques, comptes rendus de chantier, DOE, PPSPS.
-- Catalogue BTP : présentiel uniquement en Île-de-France (pas de formation catalogue à distance).
-- Durées catalogue : bases de l'IA en 4 h ; sessions métier en 7 h ; outils / applications métier en 7 h ou 14 h selon le programme.
+- Catalogue BTP : 10 parcours (NIV-01 à NIV-10) — présentiel uniquement en Île-de-France (pas de formation catalogue à distance).
+- Durées catalogue : seule « Les bases de l'IA » (NIV-01) dure 4 h ; toutes les autres sessions durent 7 h ; NIV-10 (applications métier) peut être proposée en 7 h ou 14 h.
 - Tarifs HT par participant (source catalogue) : bases 4 h — 120 € ; sessions métier 7 h — 310 € ; variante 14 h — 620 €. TVA exonérée art. 261-4-4° du CGI pour les formations. Intra et adaptations : sur devis.
 - Financement : prise en charge OPCO/Constructys possible selon éligibilité (jamais automatique).
 
