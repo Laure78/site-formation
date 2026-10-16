@@ -16,7 +16,6 @@ export function GlobalBreadcrumbs() {
     pathNorm === '/formateurs'
       ? [
           { label: 'Accueil', href: '/' },
-          { label: 'À propos', href: '/a-propos' },
           { label: 'Formateurs', href: '/formateurs' },
         ]
       : buildBreadcrumbTrail(pathname);
