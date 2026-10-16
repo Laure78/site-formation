@@ -806,7 +806,7 @@ export const FAQ_FORMATION_IA_TRAVAUX_PUBLICS_LANDING: FAQItem[] = [
   },
   {
     q: "Quelle est la durée de la formation IA travaux publics ?",
-    a: `Je propose une session de 4 heures (niveau débutant), ${libelleTarifParticipantCatalogue(TARIF_PARTICIPANT_NIV01_HT)} (6 à ${EFFECTIF_GROUPE_MAX} participants). Le programme condense consultations / DCE, documents de chantier, situations et bases d'industrialisation — détail sur la fiche NIV-01 en bas de page.`,
+    a: `Je propose une session de ${SESSION_DUREE_LIBELLE} (niveau débutant, NIV-01), ${libelleTarifParticipantCatalogue(TARIF_PARTICIPANT_NIV01_HT)} (6 à ${EFFECTIF_GROUPE_MAX} participants). Le programme condense consultations / DCE, documents de chantier, situations et bases d'industrialisation — détail sur la fiche NIV-01 en bas de page.`,
   },
 ];
 
@@ -825,7 +825,7 @@ export const FAQ_TRAVAUX_PUBLICS: FAQItem[] = [
   },
   {
     q: "La formation est-elle finançable ?",
-    a: 'Oui, selon éligibilité auprès de l\'OPCO (Constructys, AKTO, OPCO EP). Session 4 h, certificat de réalisation — <a href="/financement-constructys-formation-ia-btp">financement Constructys</a>.',
+    a: `Oui, selon éligibilité auprès de l'OPCO (Constructys, AKTO, OPCO EP). Session ${SESSION_DUREE_LIBELLE} (NIV-01), certificat de réalisation — <a href="/financement-constructys-formation-ia-btp">financement Constructys</a>.`,
   },
 ];
 

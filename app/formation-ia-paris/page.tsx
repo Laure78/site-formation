@@ -17,6 +17,9 @@ import { voirAussiIdfProps } from '@/lib/voir-aussi';
 
 import { formatNoteSatisfactionAffichageComplet, formatAnneesExperienceBTP } from '@/lib/data/indicateurs-resultats';
 import { RenvoiFicheCatalogue } from '@/components/qualiopi/RenvoiFicheCatalogue';
+import { dureeCatalogueNiv01 } from '@/lib/catalogue-duree-copy';
+
+const DUREE_NIV01 = dureeCatalogueNiv01();
 
 export const revalidate = 3600;
 
@@ -121,14 +124,14 @@ const FAQ_PARIS: FAQItem[] = [
   },
   {
     q: 'Comment se passe une session intra à Paris ?',
-    a: 'Une demi-journée de 4 h sur vos documents réels, en petit groupe, avec des prompts adaptés à vos marchés parisiens (copropriété, site occupé, AO publics locaux). Les contraintes d’accès chantier et de coordination multi-intervenants sont prises en compte dans les exercices.',
+    a: `Une demi-journée (${DUREE_NIV01}, NIV-01) sur vos documents réels, en petit groupe, avec des prompts adaptés à vos marchés parisiens (copropriété, site occupé, AO publics locaux). Les contraintes d’accès chantier et de coordination multi-intervenants sont prises en compte dans les exercices.`,
   },
   {
     q: 'Qui peut suivre une formation ChatGPT Paris avec Laure Olivié ?',
     a: `Les conducteurs de travaux, chargés d'affaires, assistantes travaux, dirigeants de PME du bâtiment, équipes d'entreprises générales, maîtres d'œuvre et fonctions support qui produisent devis, DCE, mémoires ou comptes rendus. Le public est francilien : ${IDF_ZONE_INTERVENTION}. Aucun prérequis technique avancé : un navigateur et vos dossiers suffisent.`,
   },
   {
-    q: 'Sur quels documents travaille-t-on pendant les 4 heures ?',
+    q: `Sur quels documents travaille-t-on pendant les ${DUREE_NIV01} ?`,
     a: `Sur vos pièces réelles : devis, CCTP, DPGF, RC, mémoires techniques, CR de chantier et mails. L'objectif d'une formation IA BTP Paris n'est pas la théorie générique, mais une méthode applicable dès le lendemain matin, avec des modèles que vous pouvez partager en équipe.`,
   },
   {
@@ -205,7 +208,7 @@ export default function FormationIaParisPage() {
             <EnBref>
               <p>
                 Laure Olivié (OFC Création d&apos;Entreprise, Qualiopi) forme les équipes du bâtiment et de
-                la construction à Paris en présentiel : sessions de 4 heures sur vos devis, DCE et comptes
+                la construction à Paris en présentiel : sessions de {DUREE_NIV01} sur vos devis, DCE et comptes
                 rendus — y compris en site occupé et copropriété.
               </p>
               <p>
@@ -219,7 +222,7 @@ export default function FormationIaParisPage() {
 
             <p className="mt-6 text-lg leading-relaxed text-slate-600">
               La formation IA BTP à Paris s&apos;adresse aux équipes qui produisent des documents de chantier
-              et d&apos;études au quotidien. En 4 heures de présentiel, vous travaillez ChatGPT et Claude sur
+              et d&apos;études au quotidien. En {DUREE_NIV01} de présentiel, vous travaillez ChatGPT et Claude sur
               vos pièces réelles — pas sur des exemples fictifs. OFC Création d&apos;Entreprise est certifié
               Qualiopi ; satisfaction {formatNoteSatisfactionAffichageComplet()}.
             </p>
@@ -264,7 +267,7 @@ export default function FormationIaParisPage() {
               <Link href={LINKS.formations} className={OFC_LINK} title="Catalogue formations IA pour le BTP">
                 formations IA pour le BTP
               </Link>{' '}
-              décline ces usages en sessions intra ou inter — organisme certifié Qualiopi de 4 heures.
+              décline ces usages en sessions intra ou inter — organisme certifié Qualiopi ({DUREE_NIV01}, NIV-01).
             </p>
           </div>
         </section>
@@ -320,7 +323,7 @@ export default function FormationIaParisPage() {
         <section className={OFC_SEC.muted} aria-labelledby="programme-4h">
           <div className="mx-auto max-w-4xl">
             <h2 id="programme-4h" className="font-display text-2xl font-bold text-slate-900 md:text-2xl">
-              Le programme : 4 heures, vos vrais documents
+              Le programme : {DUREE_NIV01}, vos vrais documents
             </h2>
             <p className="mt-4 text-base leading-relaxed text-slate-600 md:text-lg">
               Chaque session de formation ChatGPT Paris suit le même principe : moins de slides, plus de
@@ -456,7 +459,7 @@ export default function FormationIaParisPage() {
               sessions pour que ChatGPT serve ces documents, pas l&apos;inverse.
             </p>
             <p className="mt-4 text-base leading-relaxed text-slate-600 md:text-lg">
-              La pédagogie reste courte et opérationnelle : 4 heures, cas métier, validation humaine
+              La pédagogie reste courte et opérationnelle : {DUREE_NIV01}, cas métier, validation humaine
               obligatoire. Pas de promesse magique sur les gains : le résultat dépend du volume de dossiers et
               de la qualité de vos relectures. L&apos;ambition est simple — réduire le temps perdu sur la mise
               en forme, sans relâcher le contrôle contractuel.

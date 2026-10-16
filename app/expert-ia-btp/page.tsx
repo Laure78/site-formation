@@ -7,6 +7,7 @@ import { PHOTOS } from '@/lib/photos';
 import { PortraitLinkedInLink } from '@/components/PortraitLinkedInLink';
 import { EnBref } from '@/app/components/EnBref';
 import { SOCIAL_PROOF } from '@/lib/constants';
+import { dureeCatalogueNiv01, dureeCatalogueParCode } from '@/lib/catalogue-duree-copy';
 import { LINKS } from '@/lib/internal-links';
 import { formatNoteSatisfactionSur5, formatAnneesExperienceBTP, formatAnneesExperienceBTPCourt } from '@/lib/data/indicateurs-resultats';
 import { OFC_CARD, OFC_CTA_PRIMARY } from '@/lib/ofc-interaction-classes';
@@ -232,12 +233,12 @@ export default function ExpertIABTPPage() {
               {
                 title: "Niveau 1 — L'IA au service des pros du bâtiment et des travaux publics",
                 href: LINKS.formationIaBtpNiveau1BatimentTp,
-                desc: '4 h — débutant · Programme PDF',
+                desc: `${dureeCatalogueNiv01()} — débutant · Programme PDF`,
               },
               {
                 title: "Niveau 2 — L'IA appliquée aux appels d'offres BTP",
                 href: LINKS.formationAO,
-                desc: '4 h — avancé · Programme PDF',
+                desc: `${dureeCatalogueParCode('NIV-02')} — avancé · Programme PDF`,
               },
             ].map((formation) => (
               <Link

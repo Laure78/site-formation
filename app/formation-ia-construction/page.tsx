@@ -12,6 +12,7 @@ import { createPageMetadata, getFAQSchema, SITE_CONFIG } from '@/lib/seo';
 import { LINKS } from '@/lib/internal-links';
 import { SOCIAL_PROOF } from '@/lib/constants';
 import { FINANCEMENT_FORMULATION_PRUDENTE } from '@/lib/financement-copy';
+import { phraseSessionCataloguePresentielIdf } from '@/lib/catalogue-duree-copy';
 import { MODALITE_FORMATIONS_STANDARD } from '@/lib/tarifs-sessions';
 import {
   CONSTRUCTION_FAQ,
@@ -124,7 +125,7 @@ export default function FormationIaConstructionPage() {
           <div className="mt-8">
             <ShortAnswerBlock>
               Formation IA construction pour entreprises générales, BET et directions travaux : analyse
-              DCE, mémoires techniques, DPGF et reporting MOA/MOE. Session 4 h en présentiel,
+              DCE, mémoires techniques, DPGF et reporting MOA/MOE. {phraseSessionCataloguePresentielIdf()},
               organisme certifié Qualiopi, {FINANCEMENT_FORMULATION_PRUDENTE.toLowerCase()}
             </ShortAnswerBlock>
           </div>
