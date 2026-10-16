@@ -88,7 +88,6 @@ function getAdditionalMarketingRoutes(baseUrl: string): MetadataRoute.Sitemap {
     LINKS.formationIaAppelsOffresBtp,
     LINKS.formationMaitriserClaudeAiBtp,
     '/formations/ia-btp-saint-quentin-en-yvelines',
-    '/formations/ia-pme-btp',
     // Pages conformité : voir getComplianceSitemapRoutes
     '/annuaire-handicap',
     LINKS.qualiopi,

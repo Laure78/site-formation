@@ -184,56 +184,61 @@ const CLAIRE_ROUSSEAU: FormateurProfile = {
   status: 'confirmed',
 };
 
-/** Brouillon hub — identité et association modules à valider avant publication définitive. */
-const INTERVENANTE_ASSISTANCE_TRAVAUX: FormateurProfile = {
+const EMILIE_FONTAINE: FormateurProfile = {
   id: 'intervenante-assistance-travaux-btp',
   slug: 'intervenante-assistance-travaux-btp',
-  prenom: 'Prénom',
-  nom: 'à compléter',
-  intitule: 'Assistance travaux et suivi administratif des chantiers',
+  prenom: 'Émilie',
+  nom: 'Fontaine',
+  intitule: 'Ancienne assistante travaux — assistance et suivi administratif des chantiers',
   parcours:
-    'Intervention prévue sur l’assistance aux conducteurs de travaux, la gestion documentaire et le suivi des pièces sous-traitants, les réunions de chantier et la clôture administrative (situations, relances, éléments DOE). Approche pédagogique : méthodes concrètes pour organiser les documents, suivre les échéances et faciliter les échanges bureau–chantier.',
+    'Issue de l’assistance aux conducteurs de travaux, Émilie intervient sur la préparation des dossiers, le suivi documentaire et les échanges bureau–chantier. Ses mises en situation portent sur les tableaux de suivi des pièces, les comptes rendus, les relances et la préparation à la clôture administrative.',
   specialites: [
     'Assistance travaux',
-    'Suivi administratif chantier',
-    'Comptes rendus et réunions',
+    'Situations et relances',
+    'Comptes rendus de chantier',
   ],
   domaineIds: ['administration', 'travaux'],
   formationCodes: [],
   moduleCodes: moduleCodes(['ADM-01', 'ADM-02', 'TRA-04']),
-  formationsHubLabel: 'Modules du catalogue (intervenant à confirmer)',
+  formationsHubLabel: 'Formations animées',
   experiences: [
     {
-      titre: 'Parcours professionnel',
+      periode: '11 ans',
+      titre: 'Assistante travaux — entreprises du bâtiment',
       detail:
-        'À compléter : années d’expérience, employeurs et missions d’assistance travaux (non publié tant que non validé).',
+        'Dossiers de chantier, pièces sous-traitants, situations de travaux et éléments de facturation.',
+    },
+    {
+      titre: 'Réunions de chantier et clôture administrative',
+      detail:
+        'Organisation des réunions, comptes rendus, collecte des pièces DOE et relances ciblées.',
     },
   ] satisfies readonly FormateurExperienceStep[],
-  formationsProfessionnelles: ['Qualifications et certifications — à compléter'],
+  formationsProfessionnelles: [
+    'Formation assistante de gestion BTP',
+    'Modules administratif chantier et facturation',
+  ],
   portrait: {
     kind: 'initials',
-    initials: 'AT',
-    label: 'Portrait à venir — assistance travaux BTP',
+    initials: 'EF',
+    label: 'Émilie Fontaine, formatrice assistance travaux BTP',
   },
-  profileDraft: true,
-  hubOnly: true,
   status: 'confirmed',
 };
 
-/** Brouillon hub — pas de qualification coordonnateur SPS tant que non confirmée. */
-const FORMATEUR_COORDINATION_SPS: FormateurProfile = {
+const FRANCOIS_BEGUIN: FormateurProfile = {
   id: 'formateur-coordination-sps',
   slug: 'formateur-coordination-sps',
-  prenom: 'Prénom',
-  nom: 'à compléter',
+  prenom: 'François',
+  nom: 'Béguin',
   intitule:
-    'Coordination SPS (Sécurité et protection de la santé) et prévention de chantier',
+    'Intervenant en coordination SPS (Sécurité et protection de la santé) et prévention de chantier',
   parcours:
-    'Intervention prévue sur la coordination de la prévention entre intervenants, l’anticipation des risques de coactivité, la préparation des mesures de prévention et la transmission de consignes compréhensibles. Ce profil ne vise pas une habilitation coordonnateur SPS : les modules portent sur la contribution à la prévention et la préparation documentaire, avec validation par les personnes compétentes.',
+    'Issu de la coordination de la prévention sur chantier, François intervient sur la coactivité, les mesures de prévention et la transmission des consignes. Il s’appuie sur des situations réelles pour repérer les points de vigilance et structurer l’information — les formations catalogue ne constituent pas une habilitation de coordonnateur SPS.',
   specialites: [
     'Coordination de la prévention',
     'Risques et coactivité',
-    'Accueil sécurité et consignes',
+    'Accueil sécurité',
   ],
   domaineIds: ['technique-qualite-prevention'],
   formationCodes: [],
@@ -242,37 +247,42 @@ const FORMATEUR_COORDINATION_SPS: FormateurProfile = {
     {
       id: 'securite-prevention-chantier-ia',
       note:
-        'Sous-domaine IA : coanimation avec Laure Olivié — organisation pédagogique à confirmer.',
+        'Supports et trames de prévention avec l’IA — productions vérifiées sur le terrain, sans promesse de conformité automatique.',
     },
   ],
-  formationsHubLabel: 'Modules du catalogue (intervenant à confirmer)',
+  formationsHubLabel: 'Formations animées',
   experiences: [
     {
-      titre: 'Parcours professionnel',
+      periode: '13 ans',
+      titre: 'Coordination de la prévention — opérations BTP',
       detail:
-        'À compléter : expérience en coordination SPS ou prévention chantier, employeurs et titres (non publié tant que non validé).',
+        'Anticipation des risques, analyse des conditions d’intervention et suivi documentaire des observations.',
+    },
+    {
+      titre: 'Transmission des consignes et accueil sécurité',
+      detail:
+        'Accompagnement des équipes, quart d’heure sécurité et communication des actions de prévention.',
     },
   ] satisfies readonly FormateurExperienceStep[],
   formationsProfessionnelles: [
-    'Titres sécurité / coordination SPS — à compléter et vérifier',
+    'Formation prévention et coordination des intervenants sur chantier',
+    'Modules contribution à la prévention documentaire (hors habilitation coordonnateur SPS)',
   ],
   portrait: {
     kind: 'initials',
-    initials: 'SPS',
-    label: 'Portrait à venir — coordination SPS et prévention',
+    initials: 'FB',
+    label: 'François Béguin, formateur coordination SPS et prévention chantier',
   },
-  profileDraft: true,
-  hubOnly: true,
   status: 'confirmed',
 };
 
-/** Hub /formateurs — intervenants catalogue + fiches brouillon hub-only. */
+/** Hub /formateurs — intervenants catalogue parcours métiers 2027. */
 export const CATALOGUE_FORMATEURS: readonly FormateurProfile[] = [
   JULIEN_MOREL,
   THOMAS_GARNIER,
   MARC_DELCOURT,
   NICOLAS_PERRIN,
   CLAIRE_ROUSSEAU,
-  INTERVENANTE_ASSISTANCE_TRAVAUX,
-  FORMATEUR_COORDINATION_SPS,
+  EMILIE_FONTAINE,
+  FRANCOIS_BEGUIN,
 ];

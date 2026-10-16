@@ -107,8 +107,16 @@ export function getLatestBlogContentDate(): Date {
   return latestBlogContentDate;
 }
 
+function generatedArticleSourcePath(slug: string): string | null {
+  const rel = `content/generated/article-${slug}.json`;
+  return existsSync(path.join(ROOT, rel)) ? rel : null;
+}
+
 export function getBlogArticleLastModified(article: BlogArticle): Date {
-  return new Date(article.dateModified ?? article.date);
+  const fromMeta = new Date(article.dateModified ?? article.date);
+  const gen = generatedArticleSourcePath(article.slug);
+  if (!gen) return fromMeta;
+  return maxDate(fromMeta, getSourceContentLastModified(gen));
 }
 
 const ROUTE_SOURCE_FILES: Record<string, readonly string[]> = {
@@ -189,6 +197,10 @@ const ROUTE_SOURCE_FILES: Record<string, readonly string[]> = {
   '/formation-ia-chef-chantier-tp': [
     'app/formation-ia-chef-chantier-tp/page.tsx',
     'lib/formation-ia-chef-chantier-tp-landing.ts',
+  ],
+  '/formation-ia-geometre-tp': [
+    'app/formation-ia-geometre-tp/page.tsx',
+    'lib/formation-ia-metier-eight-rich.ts',
   ],
   '/formation-ia-qse-prevention-btp': [
     'app/formation-ia-qse-prevention-btp/page.tsx',
@@ -364,13 +376,17 @@ export function resolveSitemapLastModified(
     return fromGitFiles(`app/formations/${slug}/page.tsx`, 'src/data/formations.ts');
   }
 
-  if (/^\/formation-ia-[^/]+-btp$/.test(p)) {
-    const metier = p.replace('/formation-ia-', '').replace(/-btp$/, '');
+  if (p.startsWith('/formation-ia-') && !p.startsWith('/formation-ia-btp-')) {
+    const segment = p.slice('/formation-ia-'.length);
+    const pageCandidates = [
+      `app/formation-ia-${segment}/page.tsx`,
+      `app/formation-ia-${segment}-btp/page.tsx`,
+    ];
     return fromGitFiles(
-      `app/formation-ia-${metier}-btp/page.tsx`,
+      ...pageCandidates,
       'lib/formation-ia-metier-btp-config.ts',
       'lib/formation-ia-metier-eight-rich.ts',
-      'lib/formation-ia-metier-dynamic-registry.ts'
+      'lib/formation-ia-metier-dynamic-registry.ts',
     );
   }
 

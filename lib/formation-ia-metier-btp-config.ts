@@ -294,7 +294,7 @@ Rédige un mail de relance pour client [particulier / pro] : rappel du contexte,
       description: 'Devis sanitaire, DTU 60, SAV — même démarche IA encadrée Qualiopi.',
     },
     {
-      href: '/formation-ia-dirigeant-btp',
+      href: '/formation-ia-dirigeant-pme-btp',
       title: 'Formation IA dirigeant BTP',
       description: 'ROI, pilotage projet IA et déploiement équipes pour décideurs PME bâtiment.',
     },

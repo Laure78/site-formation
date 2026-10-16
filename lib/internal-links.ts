@@ -548,6 +548,8 @@ export const LINKS = {
   blog7CasUsageIaBtp: '/blog/7-cas-usage-ia-btp-chiffrage-chantier-appels-offres',
   /** Article — 5 assistants IA BTP */
   blog5AssistantsIaBtp: '/blog/5-assistants-ia-btp-chatgpt-productivite',
+  /** Article — panorama Chat, Cowork, Code, Projects (généré) */
+  blogClaudeAiBtp5InterfacesChatCoworkCode: '/blog/claude-ai-btp-5-interfaces-chat-cowork-code',
   /** Article — guide Claude Code / Projects / Skills / MCP */
   blogGuideClaudeIaBtpCodeProjectsSkillsMcp: '/blog/guide-claude-ia-btp-code-projects-skills-mcp',
   /** Article — exemple de mémoire technique BTP */

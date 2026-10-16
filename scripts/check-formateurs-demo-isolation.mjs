@@ -14,11 +14,6 @@ const CATALOGUE_IDS = [
   'formateur-coordination-sps',
 ];
 
-const HUB_ONLY_IDS = [
-  'intervenante-assistance-travaux-btp',
-  'formateur-coordination-sps',
-];
-
 const IA_IDS = ['laure-olivie'];
 
 const REMOVED_DEMO_IDS = ['claire-delmas', 'sophie-laurent'];
@@ -33,14 +28,10 @@ function visibleAllIds() {
 
 assert.equal(visibleHubIds().length, 7);
 assert.equal(
-  visibleHubIds().filter((id) => HUB_ONLY_IDS.includes(id)).length,
-  HUB_ONLY_IDS.length,
-  'fiches brouillon hub-only présentes',
-);
-assert.equal(
-  visibleAllIds().filter((id) => HUB_ONLY_IDS.includes(id)).length,
-  HUB_ONLY_IDS.length,
-  'brouillons visibles sur le hub avec Laure',
+  visibleHubIds().filter((id) => id === 'claire-rousseau' || id === 'intervenante-assistance-travaux-btp')
+    .length,
+  2,
+  'deux formatrices sur le hub',
 );
 
 for (const removed of REMOVED_DEMO_IDS) {
@@ -51,4 +42,4 @@ for (const removed of REMOVED_DEMO_IDS) {
   );
 }
 
-console.log('OK — formateurs catalogue (7 profils hub + Laure IA, 2 brouillons hub-only)');
+console.log('OK — formateurs catalogue (7 profils hub + Laure IA)');

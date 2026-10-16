@@ -27,8 +27,10 @@ function norm(p) {
 function loadRedirectSources() {
   const cfg = readFileSync(path.join(ROOT, 'next.config.ts'), 'utf8');
   const sources = new Set();
-  for (const m of cfg.matchAll(/source:\s*'([^']+)'/g)) {
-    const s = m[1];
+  for (const block of cfg.matchAll(/\{[^{}]*source:\s*'([^']+)'[^{}]*\}/g)) {
+    const chunk = block[0];
+    const s = block[1];
+    if (chunk.includes('has:')) continue;
     if (s.includes(':') || s.includes('*') || s.includes('(')) continue;
     sources.add(norm(s));
   }
@@ -36,7 +38,7 @@ function loadRedirectSources() {
 }
 
 const DYNAMIC_DIR = /^\[.+\]$/;
-const PRIVATE = new Set(['api', 'admin', 'acces-admin', 'espace-apprenant', 'invitation', 'auth', 'login']);
+const PRIVATE = new Set(['api', 'admin', 'acces-admin', 'invitation', 'auth', 'login']);
 
 function walkAppPages(dir, urlParts = []) {
   const out = [];
@@ -65,6 +67,18 @@ function blogSlugs() {
       if (f.endsWith('.mdx')) slugs.add(f.replace(/\.mdx$/, ''));
     }
   }
+  const genDir = path.join(ROOT, 'content/generated');
+  if (existsSync(genDir)) {
+    for (const f of readdirSync(genDir)) {
+      if (!f.startsWith('article-') || !f.endsWith('.json')) continue;
+      try {
+        const raw = JSON.parse(readFileSync(path.join(genDir, f), 'utf8'));
+        if (raw.slug) slugs.add(raw.slug);
+      } catch {
+        /* ignore */
+      }
+    }
+  }
   for (const rel of ['lib/blog.ts', 'lib/blog-claude-btp-2026-articles.ts', 'lib/blog-lsr-ao-modules-articles.ts']) {
     const abs = path.join(ROOT, rel);
     if (!existsSync(abs)) continue;
@@ -72,6 +86,26 @@ function blogSlugs() {
     for (const m of txt.matchAll(/\bslug:\s*['"]([a-z0-9-]+)['"]/g)) slugs.add(m[1]);
   }
   return [...slugs];
+}
+
+/** Fichiers servis tels quels depuis public/ */
+function publicStaticPaths() {
+  const out = new Set();
+  const pub = path.join(ROOT, 'public');
+  if (!existsSync(pub)) return out;
+  function walk(dir, urlPrefix) {
+    for (const name of readdirSync(dir)) {
+      const abs = path.join(dir, name);
+      const st = statSync(abs);
+      if (st.isDirectory()) {
+        walk(abs, `${urlPrefix}/${name}`);
+      } else if (!name.startsWith('.')) {
+        out.add(norm(`${urlPrefix}/${name}`));
+      }
+    }
+  }
+  walk(pub, '');
+  return out;
 }
 
 function walkFiles(dir, acc = []) {
@@ -125,13 +159,18 @@ async function fetchSitemapPaths(base) {
 function buildKnown200() {
   const known = new Set(walkAppPages(path.join(ROOT, 'app')));
   for (const slug of blogSlugs()) known.add(norm(`/blog/${slug}`));
+  for (const p of publicStaticPaths()) known.add(p);
   return known;
 }
 
 function classifyHref(href, from, redirectSources, sitemapPaths, known200) {
   const issues = [];
   if (href.startsWith('/api/') || href.startsWith('/admin') || href.startsWith('/auth')) return issues;
-  if (/\.(pdf|png|jpe?g|webp|svg|ico|xml|txt)$/i.test(href)) return issues;
+  if (href.startsWith('/_next/')) return issues;
+  if (/\.(pdf|png|jpe?g|webp|svg|ico|xml|txt|html)$/i.test(href)) {
+    if (known200.has(href)) return issues;
+    if (/\.(pdf|png|jpe?g|webp|svg|ico|xml|txt)$/i.test(href)) return issues;
+  }
 
   if (redirectSources.has(href)) {
     issues.push({ kind: 'redirect-source', href, from });

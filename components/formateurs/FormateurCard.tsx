@@ -62,7 +62,7 @@ export function FormateurCard({
       : [];
   const formationsSectionTitle =
     formateur.formationsHubLabel ??
-    (formateur.profileDraft ? 'Modules du catalogue (intervenant à confirmer)' : 'Formations associées');
+    (hubVariant ? 'Formations animées' : 'Formations associées');
   const portraitSize =
     hubVariant && formateur.featuredOnHub ? ('lg' as const) : ('md' as const);
   const shownNiv =

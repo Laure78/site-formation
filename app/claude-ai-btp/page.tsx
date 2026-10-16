@@ -658,7 +658,7 @@ export default function ClaudeAiBtpPillarPage() {
                       desc: 'Parcours CDT & PME BTP · prompts · 4 modules utiles',
                     },
                     {
-                      href: '/blog/claude-ai-btp-5-interfaces-chat-cowork-code',
+                      href: LINKS.blogClaudeAiBtp5InterfacesChatCoworkCode,
                       title: 'Les 5 interfaces expliquées',
                       desc: 'Panorama · tableau de décision · prompts · comparatif',
                     },
@@ -704,7 +704,7 @@ export default function ClaudeAiBtpPillarPage() {
                 tone="transparent"
                 excludeHrefs={[
                   LINKS.blogCoursGratuitsClaudeAiPmeBtp,
-                  '/blog/claude-ai-btp-5-interfaces-chat-cowork-code',
+                  LINKS.blogClaudeAiBtp5InterfacesChatCoworkCode,
                   '/blog/guide-claude-ia-btp-code-projects-skills-mcp',
                   '/blog/mcp-claude-model-context-protocol-btp',
                   LINKS.outilsIaBtp,
