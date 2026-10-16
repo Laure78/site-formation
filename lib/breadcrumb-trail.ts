@@ -278,7 +278,7 @@ function formationIaHubTrail(pathNorm: string): BreadcrumbHrefCrumb[] | null {
 
   return [
     { label: 'Accueil', href: '/' },
-    { label: 'Formation IA pour le BTP (hub)', href: '/formation-ia' },
+    { label: 'Formation IA pour le BTP', href: '/formation-ia-btp' },
     { label: leafLabel, href: pathNorm },
   ];
 }

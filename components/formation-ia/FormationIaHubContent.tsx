@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { FORMATION_IA_METIERS } from '@/lib/seo-formation-ia-hub-data';
 import { FORMATION_IA_GEO_CANONICAL } from '@/lib/seo-formation-ia-hub-links';
 import { LINKS } from '@/lib/internal-links';
+import { formationIaHubSlugDestination } from '@/lib/gsc-redirects-2026';
 import { RelatedLinks } from '@/components/RelatedLinks';
 
 type Props = { hubPath: '/formation-ia' };
@@ -40,7 +41,7 @@ export function FormationIaHubContent({ hubPath }: Props) {
           <ul className="columns-1 gap-x-8 sm:columns-2">
             {FORMATION_IA_METIERS.map((m) => (
               <li key={m.slug} className="break-inside-avoid">
-                <Link href={`/formation-ia/${m.slug}`} className="text-[#377CF3] hover:underline">
+                <Link href={formationIaHubSlugDestination(m.slug)} className="text-[#377CF3] hover:underline">
                   Formation IA — {m.label}
                 </Link>
               </li>
@@ -60,7 +61,7 @@ export function FormationIaHubContent({ hubPath }: Props) {
 
           <h2 className="font-display text-xl font-semibold text-slate-900">Aller plus loin</h2>
           <p>
-            <Link href="/formation-ia/faq" className="text-[#377CF3] hover:underline">
+            <Link href="/formation-ia-btp#faq" className="text-[#377CF3] hover:underline">
               FAQ formation IA pour le BTP (longue traîne)
             </Link>
             {' · '}

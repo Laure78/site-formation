@@ -329,11 +329,6 @@ const BASE_HEADER_NAV: readonly HeaderNavItem[] = [
     isActive: aProposNavActive,
     children: [
       {
-        href: LINKS.aPropos,
-        label: 'Présentation de Laure Olivié',
-        title: 'À propos — formatrice IA pour le BTP',
-      },
-      {
         href: LINKS.formateurs,
         label: 'Nos formateurs',
         title: 'Formateurs OFC — parcours métiers et IA BTP',

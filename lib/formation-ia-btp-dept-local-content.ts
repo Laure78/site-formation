@@ -404,7 +404,7 @@ export const IDF_CHAPEAU_LOCAL = {
   ] satisfies FAQItem[],
   internalLinks: [
     { href: LINKS.formations, label: 'Catalogue formations', description: `${CATALOGUE_NIV_RANGE}, Qualiopi` },
-    { href: '/formation-ia', label: 'Hub formations par métier', description: 'Conducteur, dirigeant, corps d\'état…' },
+    { href: '/formation-ia-btp', label: 'Formation IA pour le BTP', description: 'Conducteur, dirigeant, corps d\'état…' },
     { href: LINKS.financement, label: 'Financement Constructys', description: 'OPCO, dossier et convention' },
   ] as [DeptInternalLink, DeptInternalLink, DeptInternalLink],
   departements: [

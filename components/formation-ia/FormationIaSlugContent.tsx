@@ -11,6 +11,7 @@ import { RenvoiFicheCatalogue } from '@/components/qualiopi/RenvoiFicheCatalogue
 import { SOCIAL_PROOF } from '@/lib/constants';
 import { formatNoteSatisfactionSur5 , formatNoteSatisfactionAffichageComplet } from '@/lib/data/indicateurs-resultats'
 import { LINKS } from '@/lib/internal-links';
+import { formationIaHubSlugDestination } from '@/lib/gsc-redirects-2026';
 
 function hashSlug(s: string): number {
   let h = 0;
@@ -23,7 +24,7 @@ function capitalizeFirst(text: string): string {
   return text.charAt(0).toUpperCase() + text.slice(1);
 }
 
-/** Widget Calendly inline (URL hide_gdpr_banner) — pages hub ville /formation-ia/btp-* */
+/** Widget Calendly inline (URL hide_gdpr_banner) — pages hub ville /formation-ia-btp/btp-* */
 function FormationIaVilleCalendlySection() {
   return (
     <section
@@ -227,11 +228,11 @@ export function FormationIaMetierBody({
           Contact
         </Link>
         {' · '}
-        <Link href="/formation-ia/faq" className="font-medium text-[#377CF3] underline-offset-2 hover:underline">
+        <Link href="/formation-ia-btp#faq" className="font-medium text-[#377CF3] underline-offset-2 hover:underline">
           FAQ formation IA appliquée au bâtiment (longue traîne)
         </Link>
         {' · '}
-        <Link href="/formation-ia" className="font-medium text-[#377CF3] underline-offset-2 hover:underline">
+        <Link href="/formation-ia-btp" className="font-medium text-[#377CF3] underline-offset-2 hover:underline">
           Hub formation IA pour le BTP
         </Link>
       </p>
@@ -298,7 +299,7 @@ export function FormationIaVilleBody({
       <ul>
         {metiers.slice(0, 12).map((m) => (
           <li key={m.slug}>
-            <Link href={`/formation-ia/${m.slug}`} className="text-[#377CF3] underline-offset-2 hover:underline">
+            <Link href={formationIaHubSlugDestination(m.slug)} className="text-[#377CF3] underline-offset-2 hover:underline">
               Formation IA — {capitalizeFirst(m.label)}
             </Link>
             <span className="text-slate-600"> ({m.categorie})</span>
@@ -366,7 +367,7 @@ export function FormationIaVilleBody({
           Contact
         </Link>
         {' · '}
-        <Link href="/formation-ia/faq" className="text-[#377CF3] hover:underline">
+        <Link href="/formation-ia-btp#faq" className="text-[#377CF3] hover:underline">
           FAQ
         </Link>
       </p>
@@ -465,7 +466,7 @@ function FormationIaParisBody() {
       <ul>
         {metiers.map((m) => (
           <li key={m.slug}>
-            <Link href={`/formation-ia/${m.slug}`} className="text-[#377CF3] underline-offset-2 hover:underline">
+            <Link href={formationIaHubSlugDestination(m.slug)} className="text-[#377CF3] underline-offset-2 hover:underline">
               {capitalizeFirst(m.label)}
             </Link>
             <span className="text-slate-600"> — {m.categorie}</span>
@@ -479,7 +480,7 @@ function FormationIaParisBody() {
       <p>
         Pour une recherche locale : consultez aussi les pages ville (Versailles, Créteil, Nanterre,
         Saint-Denis, Cergy-Pontoise, Évry-Courcouronnes, Melun, etc.) depuis le{' '}
-        <Link href="/formation-ia" className="text-[#377CF3] hover:underline">
+        <Link href="/formation-ia-btp" className="text-[#377CF3] hover:underline">
           hub formation IA pour le BTP
         </Link>
         . L&apos;objectif est de concilier <strong>SEO local</strong> et utilité réelle : chaque page
@@ -503,7 +504,7 @@ function FormationIaParisBody() {
           Contact
         </Link>
         {' · '}
-        <Link href="/formation-ia/faq" className="text-[#377CF3] hover:underline">
+        <Link href="/formation-ia-btp#faq" className="text-[#377CF3] hover:underline">
           FAQ
         </Link>
       </p>

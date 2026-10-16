@@ -298,8 +298,6 @@ const ROUTE_SOURCE_FILES: Record<string, readonly string[]> = {
     'app/ressources/tuto-skill-pic/page.tsx',
     'lib/tuto-skill-pic-content.ts',
   ],
-  '/formation-ia': ['app/formation-ia/page.tsx'],
-  '/formation-ia/faq': ['app/formation-ia/faq/page.tsx'],
   '/ia-devis-batiment': ['app/ia-devis-batiment/page.tsx'],
   '/ia-analyse-dce-btp': ['app/ia-analyse-dce-btp/page.tsx'],
   '/ia-memoire-technique-btp': ['app/ia-memoire-technique-btp/page.tsx'],
@@ -381,7 +379,7 @@ export function resolveSitemapLastModified(
   }
 
   if (p.startsWith('/formation-ia/')) {
-    return fromGitFiles(`app/formation-ia/[slug]/page.tsx`, 'lib/seo-formation-ia-hub-data.ts');
+    return fromGitFiles('lib/gsc-redirects-2026.ts', 'next.config.ts');
   }
 
   if (p.startsWith('/ressources/')) {

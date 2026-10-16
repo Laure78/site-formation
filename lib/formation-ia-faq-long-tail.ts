@@ -1,11 +1,7 @@
-import { FAQAnswer } from '@/components/landing/FAQAnswer';
-import Link from 'next/link';
-import { createPageMetadata, getFAQSchema } from '@/lib/seo';
-import { JsonLd } from '@/components/JsonLd';
-import { FAQ_IA_BTP_METIERS_CHANTIER_SEO } from '@/lib/faq';
+import type { FAQItem } from '@/lib/faq';
 
-export const revalidate = 3600;
-const FAQ_ITEMS_LONG_TAIL = [
+/** FAQ longue traîne — ex-page `/formation-ia/faq` (301 → `/formation-ia-btp#faq`). */
+export const FAQ_FORMATION_IA_HUB_LONG_TAIL: readonly FAQItem[] = [
   {
     q: 'Comment utiliser ChatGPT et Claude AI quand on est professionnel du bâtiment ?',
     a: "On commence par des usages à faible risque : structurer un mail, reformuler un compte rendu, préparer un plan de réponse. ChatGPT est très efficace pour itérer vite sur des formats courts ; Claude AI est souvent plus confortable sur des pièces longues (CCTP, extraits de règlement). En formation, vous apprenez des trames de prompts, l'anonymisation des données et la relecture systématique avant envoi.",
@@ -24,7 +20,7 @@ const FAQ_ITEMS_LONG_TAIL = [
   },
   {
     q: 'Formation intelligence artificielle pour entreprise générale à Versailles ?',
-    a: "Pour une entreprise générale / TCE, l'IA sert surtout à la consolidation multi-lots : synthèses, planning narratif, courriers de coordination. Interventions possibles en Île-de-France ; la page ville 'Versailles' et la page métier 'entreprise générale' détaillent des exemples. ChatGPT et Claude AI sont tous deux travaillés en atelier.",
+    a: "Pour une entreprise générale / TCE, l'IA sert surtout à la consolidation multi-lots : synthèses, planning narratif, courriers de coordination. Interventions possibles en Île-de-France ; la page métier dirigeant PME et la page département détaillent des exemples. ChatGPT et Claude AI sont tous deux travaillés en atelier.",
   },
   {
     q: "Comment l'IA aide un plombier à faire ses devis plus vite ?",
@@ -40,7 +36,7 @@ const FAQ_ITEMS_LONG_TAIL = [
   },
   {
     q: 'Formation IA pour couvreur à Cergy-Pontoise ?',
-    a: "Oui : la page locale 'Cergy-Pontoise' décrit l'approche IDF (déplacements, exemples) et renvoie vers les pages métiers comme couverture / zinguerie. Les ateliers incluent ChatGPT et Claude AI pour devis, descriptifs et courriers.",
+    a: "La page département Val-d'Oise décrit l'approche IDF (déplacements, exemples) et renvoie vers les pages métiers couverture / zinguerie. Les ateliers incluent ChatGPT et Claude AI pour devis, descriptifs et courriers.",
   },
   {
     q: 'Comment un maçon utilise Claude AI sur ses chantiers ?',
@@ -48,69 +44,10 @@ const FAQ_ITEMS_LONG_TAIL = [
   },
   {
     q: 'Formation ChatGPT carreleur Saint-Quentin-en-Yvelines ?',
-    a: "La page ville 'Saint-Quentin-en-Yvelines' relie l'approche locale aux ateliers métiers (carrelage / faïence) : descriptifs de pose, métrés narratifs, réponses aux demandes de précision. Financement selon éligibilité OPCO ; outils : ChatGPT et Claude AI.",
+    a: "La fiche ville Saint-Quentin-en-Yvelines relie l'approche locale aux ateliers métiers carrelage / faïence : descriptifs de pose, métrés narratifs, réponses aux demandes de précision. Financement selon éligibilité OPCO ; outils : ChatGPT et Claude AI.",
   },
   {
     q: "L'IA peut-elle aider à répondre aux appels d'offres BTP ?",
     a: "Oui, en support : découpage des exigences, plan de mémoire, reformulation, check-list de relecture. Pour les réponses complexes, combinez avec vos procédures internes et, si besoin, des formations spécialisées AO/DCE. L'IA ne remplace pas l'expertise chiffrage / technique.",
   },
-] as const;
-
-const FAQ_ITEMS = [...FAQ_IA_BTP_METIERS_CHANTIER_SEO, ...FAQ_ITEMS_LONG_TAIL];
-
-export const metadata = createPageMetadata({
-  title: 'FAQ formation IA BTP — ChatGPT Claude',
-  description:
-    'FAQ formation IA pour le BTP : ChatGPT, Claude, financement Constructys, appels d’offres et devis. Réponses pour PME bâtiment, Qualiopi, Île-de-France.',
-  descriptionFinal: true,
-  path: '/formation-ia/faq',
-  keywords: [
-    'FAQ formation IA pour le BTP',
-    'ChatGPT PME bâtiment',
-    'Claude AI BTP',
-    'Constructys formation',
-    'Qualiopi',
-    'formation IA Paris',
-    'mémoire technique IA',
-  ],
-});
-
-export default function FormationIaFaqPage() {
-  const faqSchema = getFAQSchema([...FAQ_ITEMS]);
-  return (
-    <div className="bg-white">
-      <JsonLd id="schema-faq-page" schema={faqSchema} />
-      <div className="mx-auto max-w-3xl px-4 py-12 sm:px-6 lg:px-8">
-        <h1 className="font-display text-2xl font-bold tracking-tight text-slate-900 md:text-[1.75rem]">
-          FAQ — formation IA pour les pros du BTP (ChatGPT & Claude AI)
-        </h1>
-        <p className="mt-4 text-lg text-slate-700">
-          Questions fréquentes (longue traîne) sur les usages en entreprise, le financement et la
-          différence entre outils. Organisme : OFC Création d&apos;Entreprise — Laure Olivié, certifié
-          Qualiopi.
-        </p>
-        <ul className="mt-10 space-y-8">
-          {FAQ_ITEMS.map((item) => (
-            <li key={item.q} className="border-b border-slate-200 pb-8">
-              <h2 className="font-display text-lg font-semibold text-slate-900">{item.q}</h2>
-              <p className="mt-3 text-slate-700 leading-relaxed"><FAQAnswer content={item.a} /></p>
-            </li>
-          ))}
-        </ul>
-        <p className="mt-10 text-slate-600">
-          <Link href="/formation-ia" className="text-[#377CF3] hover:underline">
-            Hub formation IA appliquée au bâtiment
-          </Link>
-          {' · '}
-          <Link href="/financement-constructys-formation-ia-btp" className="text-[#377CF3] hover:underline">
-            Financement Constructys
-          </Link>
-          {' · '}
-          <Link href="/contact" className="text-[#377CF3] hover:underline">
-            Contact
-          </Link>
-        </p>
-      </div>
-    </div>
-  );
-}
+];

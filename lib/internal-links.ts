@@ -13,8 +13,8 @@ export const LINKS = {
   // Tier 1 — Pages principales
   home: '/',
   formations: '/formations',
-  /** Hub métiers & zones IDF — pilier cluster « métiers » */
-  formationIaHub: '/formation-ia',
+  /** Pilier SEO — formation IA BTP (ex-hub `/formation-ia` → 301) */
+  formationIaHub: '/formation-ia-btp',
   /** Hub — 2 formations LinkedIn Learning (à la demande) */
   formationsLinkedInLearning: '/formations-linkedin-learning',
   blog: '/blog',
@@ -194,7 +194,7 @@ export const LINKS = {
   formationIaBtpValDeMarne94: '/formation-ia-btp-val-de-marne-94',
   formationIaBtpValDoise95: '/formation-ia-btp-val-doise-95',
 
-  // Tier 2 — Cas d'usage (ex-/formation-ia-artisans-btp → 301 NIV-01)
+  // Tier 2 — Cas d'usage (ex-/formation-ia-artisans-btp → 301 dirigeant PME)
   /** @deprecated Alias — préférer `chatgptPmeBatiment`. */
   chatgptArtisans: '/formations/ia-batiment-travaux-publics',
   chatgptPmeBatiment: '/formations/ia-batiment-travaux-publics',
@@ -275,8 +275,8 @@ export const LINKS = {
   /** Landing SEO — entreprise d’isolation (ITI / ITE / combles — aide documentaire) */
   formationIaIsolationBtp: '/formation-ia-isolation-btp',
   formationIaPeintreBatiment: '/formation-ia-peintre-btp',
-  /** @deprecated Doorway — 301 → hub `/formation-ia` */
-  formationIaSolierRevetements: '/formation-ia',
+  /** @deprecated Doorway — 301 → pilier `/formation-ia-btp` */
+  formationIaSolierRevetements: '/formation-ia-btp',
   /** @deprecated Doorway — 301 → `formationIaTravauxPublics` */
   formationIaConducteurEnginsTp: '/formation-ia-travaux-publics',
   formationIaPaysagiste: '/formation-ia-paysagiste-btp',

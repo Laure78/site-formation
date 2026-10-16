@@ -1,28 +1,10 @@
 import type { NextConfig } from "next";
 import {
   blogConsolidationRedirectsJuly2026,
+  formationIaHubConsolidationRedirects,
   gscHubMergeRedirects,
   gscRedirects2026April,
-  GSC_HUB_MERGED_SLUGS,
 } from "./lib/gsc-redirects-2026";
-import { FORMATION_IA_ALL_SLUGS } from "./lib/seo-formation-ia-hub-data";
-
-/**
- * Slugs hub avec page canonique déjà en /formation-ia-btp-{ville}.
- * Exclure du legacy hyphen→slash pour éviter la boucle avec les 301
- * /formation-ia/btp-paris → /formation-ia-btp-paris (cf. redirects() plus bas).
- */
-const FORMATION_IA_HYPHEN_CANONICAL_SLUGS = new Set(['btp-paris']);
-
-/** Anciennes URLs /formation-ia-{slug} → /formation-ia/{slug} (sauf slugs fusionnés GSC vers landing métier). */
-const formationIaLegacyRedirects = () =>
-  FORMATION_IA_ALL_SLUGS.filter(
-    (slug) => !GSC_HUB_MERGED_SLUGS.has(slug) && !FORMATION_IA_HYPHEN_CANONICAL_SLUGS.has(slug)
-  ).map((slug) => ({
-    source: `/formation-ia-${slug}`,
-    destination: `/formation-ia/${slug}`,
-    permanent: true as const,
-  }));
 
 const nextConfig: NextConfig = {
   serverExternalPackages: ['unpdf', 'mammoth'],
@@ -384,7 +366,6 @@ const nextConfig: NextConfig = {
       // GSC avril 2026 — 28 URLs (blog parasites, géo, doublons hub & landings)
       ...gscRedirects2026April(),
       ...gscHubMergeRedirects(),
-      ...formationIaLegacyRedirects(),
       {
         source: '/formations/ia-rh-btp',
         destination: '/formations',
@@ -502,12 +483,12 @@ const nextConfig: NextConfig = {
       // Ancienne URL « artisans » (étiquette éditoriale interdite) + Elementor WP → NIV-01
       {
         source: '/formation-ia-artisans-btp',
-        destination: '/formations/ia-batiment-travaux-publics',
+        destination: '/formation-ia-dirigeant-pme-btp',
         permanent: true,
       },
       {
         source: '/formation-ia-artisans-btp/',
-        destination: '/formations/ia-batiment-travaux-publics',
+        destination: '/formation-ia-dirigeant-pme-btp',
         permanent: true,
       },
       // Blog : retrait mot-clé « artisans » → PME du bâtiment
@@ -672,8 +653,6 @@ const nextConfig: NextConfig = {
       { source: '/formations/ia-pme-btp', destination: '/formation-ia-dirigeant-pme-btp', permanent: true },
       { source: '/formations/ia-pme-btp/', destination: '/formation-ia-dirigeant-pme-btp', permanent: true },
       { source: '/formations/ia-pme-btp/:path*', destination: '/formation-ia-dirigeant-pme-btp', permanent: true },
-      { source: '/formation-ia/platrerie-cloisons-faux-plafonds', destination: '/formation-ia-plaquiste-btp', permanent: true },
-      { source: '/formation-ia/platrerie-cloisons-faux-plafonds/', destination: '/formation-ia-plaquiste-btp', permanent: true },
       { source: '/expert-ia-btp', destination: '/a-propos', permanent: true },
       { source: '/expert-ia-btp/', destination: '/a-propos', permanent: true },
       { source: '/formation-ia-construction', destination: '/formation-ia-btp', permanent: true },
@@ -1584,6 +1563,9 @@ const nextConfig: NextConfig = {
         destination: '/images/formation-ia-intra-entreprise-batiment.webp',
         permanent: true,
       },
+
+      // Hub `/formation-ia/*` → pages métier / pilier (après redirections ville btp-*)
+      ...formationIaHubConsolidationRedirects(),
     ];
   },
 };

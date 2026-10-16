@@ -2,7 +2,6 @@ import type { MetadataRoute } from 'next';
 import { SITE_CONFIG } from '@/lib/seo';
 import { LINKS } from '@/lib/internal-links';
 import { getAllArticles, BLOG_CATEGORIES, type BlogCategoryId } from '@/lib/blog';
-import { getFormationIaHubMetierSitemapPaths } from '@/lib/formation-ia-hub-metier-rich';
 import { BLOG_CATEGORY_PATH_SLUGS } from '@/lib/blog-index-urls';
 import { GSC_EXCLUDED_SITEMAP_PATHS } from '@/lib/gsc-redirects-2026';
 import { TUTOS } from '@/lib/tutos';
@@ -88,8 +87,6 @@ function getAdditionalMarketingRoutes(baseUrl: string): MetadataRoute.Sitemap {
     LINKS.formationIaAppelsOffresBtp,
     LINKS.formationMaitriserClaudeAiBtp,
     '/formations/ia-btp-saint-quentin-en-yvelines',
-    '/formation-ia',
-    '/formation-ia/faq',
     '/formations/ia-pme-btp',
     // Pages conformité : voir getComplianceSitemapRoutes
     '/annuaire-handicap',
@@ -184,6 +181,9 @@ const SITEMAP_REDIRECTED_CANNIBAL_PATHS = new Set<string>([
   '/formation-ia-dirigeant-btp',
   '/formations/ia-pme-btp',
   '/prendre-rendez-vous',
+  '/formation-ia',
+  '/formation-ia/faq',
+  '/formation-ia-artisans-btp',
   '/formation-ia/platrerie-cloisons-faux-plafonds',
   '/expert-ia-btp',
   '/formation-ia-construction',
@@ -228,14 +228,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     lastModified: resolveSitemapLastModified(path),
   }));
 
-  // Hubs métier réécrits (indexables) ; les autres `/formation-ia/[slug]` restent noindex
-  const formationIaHub: MetadataRoute.Sitemap = getFormationIaHubMetierSitemapPaths().map(
-    (path) => ({
-      url: `${baseUrl}${path}`,
-      lastModified: resolveSitemapLastModified(path),
-    }),
-  );
-
   const deptLandings: MetadataRoute.Sitemap = getSitemapDepartementPaths().map((path) => ({
     url: `${baseUrl}${path}`,
     lastModified: resolveSitemapLastModified(path),
@@ -263,7 +255,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...formationCatalog,
     ...iaTaskPages,
     ...metierLandings,
-    ...formationIaHub,
     ...deptLandings,
     ...blogEntries,
     ...additional,

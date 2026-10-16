@@ -6,6 +6,8 @@
  * avant résolution des alias TypeScript.
  */
 
+import { FORMATION_IA_ALL_SLUGS } from './seo-formation-ia-hub-data';
+
 /** Canonique conducteur de travaux — aligné sur `LINKS.formationConducteurTravaux`. */
 const FORMATION_CONDUCTEUR_TRAVAUX = '/formation-ia-conducteur-de-travaux' as const;
 
@@ -59,6 +61,63 @@ export function blogGeoHorsIdfRedirects(): RedirectEntry[] {
     destination: BLOG_GEO_HORS_IDF_REDIRECT_DESTINATION,
     permanent: true,
   }));
+}
+
+/** Hubs `/formation-ia/:slug` → landing métier (canonique prompt oct. 2026). */
+const FORMATION_IA_HUB_SLUG_DEST: Record<string, string> = {
+  'metallerie-serrurerie': '/formation-ia-metallerie-serrurerie-btp',
+  'chauffage-climatisation-cvc': '/formation-ia-genie-climatique-btp',
+  'platrerie-cloisons-faux-plafonds': '/formation-ia-plaquiste-btp',
+  'espaces-verts-paysagisme': '/formation-ia-paysagiste-btp',
+  'travaux-publics-genie-civil': '/formation-ia-travaux-publics',
+  'entreprise-generale-batiment': '/formation-ia-btp',
+  'beton-fondations': '/formation-ia-gros-oeuvre-btp',
+  'vrd-pavage': '/formation-ia-travaux-publics',
+  terrassement: '/formation-ia-travaux-publics',
+};
+
+const FORMATION_IA_BTP_PILLAR = '/formation-ia-btp' as const;
+
+/** Cible 301 d’un slug hub `/formation-ia/:slug` — réutilisable pour le maillage interne. */
+export function formationIaHubSlugDestination(slug: string): string {
+  const merged = HUB_MERGE_DEST[slug];
+  if (merged) return merged;
+  return FORMATION_IA_HUB_SLUG_DEST[slug] ?? FORMATION_IA_BTP_PILLAR;
+}
+
+/**
+ * Hub legacy `/formation-ia` et `/formation-ia/:slug` → URL finales (plus de page 200 intermédiaire).
+ * Placer après les redirections ville `/formation-ia/btp-*` dans next.config.
+ */
+export function formationIaHubConsolidationRedirects(): RedirectEntry[] {
+  const out: RedirectEntry[] = [
+    { source: '/formation-ia', destination: FORMATION_IA_BTP_PILLAR, permanent: true },
+    { source: '/formation-ia/', destination: FORMATION_IA_BTP_PILLAR, permanent: true },
+    {
+      source: '/formation-ia/faq',
+      destination: `${FORMATION_IA_BTP_PILLAR}#faq`,
+      permanent: true,
+    },
+    {
+      source: '/formation-ia/faq/',
+      destination: `${FORMATION_IA_BTP_PILLAR}#faq`,
+      permanent: true,
+    },
+  ];
+
+  for (const slug of FORMATION_IA_ALL_SLUGS) {
+    const destination = formationIaHubSlugDestination(slug);
+    for (const source of [
+      `/formation-ia/${slug}`,
+      `/formation-ia/${slug}/`,
+      `/formation-ia-${slug}`,
+      `/formation-ia-${slug}/`,
+    ]) {
+      out.push({ source, destination, permanent: true });
+    }
+  }
+
+  return out;
 }
 
 /** Slash + tiret → URL canonique métier / catalogue. */
@@ -115,7 +174,7 @@ export function gscRedirects2026April(): RedirectEntry[] {
     // --- Doorway métiers B1 (H1 générique / contenu minimal) ---
     {
       source: '/formation-ia-solier-revetements',
-      destination: '/formation-ia',
+      destination: FORMATION_IA_BTP_PILLAR,
       permanent: true,
     },
     {
@@ -230,7 +289,9 @@ export const GSC_EXCLUDED_SITEMAP_PATHS = new Set<string>([
   '/formation-ia-conducteur-engins-tp',
   '/indicateurs-de-resultats',
   '/formation-ia-entreprise-batiment-paris',
-  ...Array.from(GSC_HUB_MERGED_SLUGS).flatMap((slug) => [
+  '/formation-ia',
+  '/formation-ia/faq',
+  ...FORMATION_IA_ALL_SLUGS.flatMap((slug) => [
     `/formation-ia/${slug}`,
     `/formation-ia-${slug}`,
   ]),
