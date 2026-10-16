@@ -8,6 +8,7 @@ import { getFormateursHubProfiles } from '@/lib/formateurs';
 import { LINKS } from '@/lib/internal-links';
 import {
   OFC_CTA_PRIMARY,
+  OFC_CTA_SECONDARY,
   OFC_TYPE_H2,
   OFC_TYPE_LEAD,
 } from '@/lib/ofc-interaction-classes';
@@ -16,13 +17,14 @@ import { createPageMetadata, SITE_CONFIG } from '@/lib/seo';
 
 export const revalidate = 3600;
 
-const PAGE_TITLE = 'Nos formateurs par domaine d’expertise | Laure Olivié';
+const PAGE_TITLE =
+  'Les formateurs et leurs domaines d’intervention | Laure Olivié';
 const PAGE_DESCRIPTION =
-  'Formateurs BTP par domaine : IA, travaux, commercial, direction, management et administration. Présentiel Île-de-France — OFC Qualiopi.';
+  'Spécialités des formateurs BTP : IA, travaux, commercial, direction, management et administration. Programmes en présentiel en Île-de-France — OFC Qualiopi.';
 
 export const metadata: Metadata = {
   ...createPageMetadata({
-    title: 'Nos formateurs par domaine d’expertise',
+    title: 'Les formateurs et leurs domaines d’intervention',
     titleAbsolute: PAGE_TITLE,
     description: PAGE_DESCRIPTION,
     descriptionFinal: true,
@@ -45,18 +47,13 @@ export default function FormateursPage() {
   const itemListSchema = {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
-    name: 'Formateurs OFC — IA et parcours métiers BTP',
+    name: 'Formateurs OFC — domaines d’intervention BTP',
     numberOfItems: formateurs.length,
     itemListElement: formateurs.map((f, index) => ({
       '@type': 'ListItem',
       position: index + 1,
-      item: {
-        '@type': 'Person',
-        name: `${f.prenom} ${f.nom}`,
-        jobTitle: f.intitule,
-        description: f.parcours,
-        url: `${base}${LINKS.formateurs}#${f.slug}`,
-      },
+      name: `${f.prenom} ${f.nom}`,
+      url: `${base}${LINKS.formateurs}#${f.slug}`,
     })),
   };
 
@@ -67,25 +64,33 @@ export default function FormateursPage() {
         id="schema-breadcrumb-formateurs"
         items={[
           { name: 'Accueil', url: `${base}/` },
-          { name: 'À propos', url: `${base}${LINKS.aPropos}` },
-          { name: 'Nos formateurs', url: `${base}${LINKS.formateurs}` },
+          { name: 'Formateurs', url: `${base}${LINKS.formateurs}` },
         ]}
       />
 
-      <section className={OFC_SEC.heroWhite}>
+      <section className={`${OFC_SEC.heroWhite} ofc-section--compact`}>
         <div className={OFC_SECTION_INNER}>
-          <h1 className={OFC_TYPE_H2}>Nos formateurs par domaine d’expertise</h1>
-          <p className={`${OFC_TYPE_LEAD} mt-4 max-w-2xl text-base text-ofc-ink-muted md:text-lg`}>
-            Laure Olivié et cinq intervenants issus du terrain BTP animent les formations IA et
-            les modules du catalogue parcours métiers en présentiel en Île-de-France. Chaque profil
-            est relié aux programmes de son domaine.
+          <h1 className={OFC_TYPE_H2}>
+            Les formateurs et leurs domaines d’intervention
+          </h1>
+          <p
+            className={`${OFC_TYPE_LEAD} mt-3 max-w-2xl text-base text-ofc-ink-muted md:text-lg`}
+          >
+            Découvrez les spécialités de nos intervenants et les programmes associés à vos
+            besoins dans le BTP.
           </p>
-          <div className="mt-7 flex flex-wrap gap-3">
+          <div className="mt-6 flex flex-wrap gap-3">
+            <Link
+              href="#formateurs-profiles"
+              className={`${OFC_CTA_PRIMARY} inline-flex min-h-11 items-center justify-center px-6 py-3 text-base`}
+            >
+              Découvrir les profils
+            </Link>
             <Link
               href={LINKS.formations}
-              className={`${OFC_CTA_PRIMARY} inline-flex min-h-11 items-center justify-center px-6 py-3`}
+              className={`${OFC_CTA_SECONDARY} inline-flex min-h-11 items-center justify-center px-6 py-3 text-base`}
             >
-              Voir le catalogue complet
+              Voir les formations
             </Link>
           </div>
         </div>
@@ -101,18 +106,27 @@ export default function FormateursPage() {
       <Section tone="muted" aria-labelledby="formateurs-cta">
         <div className="mx-auto max-w-2xl text-center">
           <h2 id="formateurs-cta" className={OFC_TYPE_H2}>
-            Une question sur l’animation d’une session&nbsp;?
+            Quelle formation pour votre équipe&nbsp;?
           </h2>
-          <p className="mt-3 text-ofc-ink-muted">
-            Échangeons sur votre besoin et le formateur le plus adapté à votre équipe.
+          <p className="mt-4 text-base leading-relaxed text-ofc-ink-muted">
+            Présentez vos besoins&nbsp;: devis, appels d’offres, conduite de travaux, gestion
+            ou usages de l’IA. Échangeons sur le programme adapté à votre entreprise en
+            présentiel en Île-de-France.
           </p>
-          <Link
-            href={LINKS.prendreRdv}
-            data-cta="rdv"
-            className={`${OFC_CTA_PRIMARY} mt-8 inline-flex min-h-11 items-center justify-center px-6 py-3`}
-          >
-            Réservez votre visio découverte gratuite
-          </Link>
+          <div className="mt-8 flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:items-center">
+            <Link
+              href={LINKS.contact}
+              className={`${OFC_CTA_PRIMARY} inline-flex min-h-11 items-center justify-center px-6 py-3 text-base`}
+            >
+              Échanger sur mon besoin
+            </Link>
+            <Link
+              href={LINKS.formations}
+              className={`${OFC_CTA_SECONDARY} inline-flex min-h-11 items-center justify-center px-6 py-3 text-base`}
+            >
+              Consulter le catalogue
+            </Link>
+          </div>
         </div>
       </Section>
     </div>

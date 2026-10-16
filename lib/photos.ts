@@ -249,6 +249,43 @@ export const PHOTOS = {
     height: 1024,
   },
 
+  /** Portraits intervenants catalogue — page /formateurs (visuels fournis, usage interne OFC). */
+  formateurJulienMorel: {
+    src: '/images/formateurs/julien-morel.jpg',
+    alt: 'Julien Morel, formateur préparation de chantier BTP',
+    width: 796,
+    height: 1024,
+    objectPosition: '50% 18%',
+  },
+  formateurThomasGarnier: {
+    src: '/images/formateurs/thomas-garnier.jpg',
+    alt: 'Thomas Garnier, formateur commercial et devis BTP',
+    width: 796,
+    height: 1024,
+    objectPosition: '50% 15%',
+  },
+  formateurMarcDelcourt: {
+    src: '/images/formateurs/marc-delcourt.jpg',
+    alt: 'Marc Delcourt, formateur direction et gestion PME BTP',
+    width: 796,
+    height: 1024,
+    objectPosition: '50% 18%',
+  },
+  formateurNicolasPerrin: {
+    src: '/images/formateurs/nicolas-perrin.jpg',
+    alt: 'Nicolas Perrin, formateur encadrement de chantier BTP',
+    width: 796,
+    height: 1024,
+    objectPosition: '50% 18%',
+  },
+  formateurClaireRousseau: {
+    src: '/images/formateurs/claire-rousseau.jpg',
+    alt: 'Claire Rousseau, formatrice administration et gestion BTP',
+    width: 796,
+    height: 1024,
+    objectPosition: '50% 20%',
+  },
+
   /** Visuels formations 2026 */
   formationIATP2026: {
     src: '/images/formation-ia-tp.png',

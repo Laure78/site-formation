@@ -3,10 +3,30 @@
  * Biographies et codes module : source unique pour la page /formateurs.
  */
 import type { ModuleCode } from '@/data/catalogue-2027';
-import type { FormateurExperienceStep, FormateurProfile } from '@/lib/formateurs/types';
+import type { FormateurExperienceStep, FormateurPortrait, FormateurProfile } from '@/lib/formateurs/types';
+import { PHOTOS } from '@/lib/photos';
 
 function moduleCodes(codes: ModuleCode[]): readonly ModuleCode[] {
   return codes;
+}
+
+function photoPortrait(
+  photo: {
+    src: string;
+    alt: string;
+    width: number;
+    height: number;
+    objectPosition?: string;
+  },
+): FormateurPortrait {
+  return {
+    kind: 'photo',
+    src: photo.src,
+    alt: photo.alt,
+    width: photo.width,
+    height: photo.height,
+    objectPosition: photo.objectPosition,
+  };
 }
 
 const JULIEN_MOREL: FormateurProfile = {
@@ -36,11 +56,7 @@ const JULIEN_MOREL: FormateurProfile = {
     'Formation conduite de travaux (niveau bac + 3)',
     'Habilitations coordination sécurité chantier',
   ],
-  portrait: {
-    kind: 'initials',
-    initials: 'JM',
-    label: 'Portrait à venir — Julien Morel',
-  },
+  portrait: photoPortrait(PHOTOS.formateurJulienMorel),
   status: 'confirmed',
 };
 
@@ -71,11 +87,7 @@ const THOMAS_GARNIER: FormateurProfile = {
     'Formation chargé d’affaires BTP',
     'Modules marchés publics et analyse de DCE',
   ],
-  portrait: {
-    kind: 'initials',
-    initials: 'TG',
-    label: 'Portrait à venir — Thomas Garnier',
-  },
+  portrait: photoPortrait(PHOTOS.formateurThomasGarnier),
   status: 'confirmed',
 };
 
@@ -106,11 +118,7 @@ const MARC_DELCOURT: FormateurProfile = {
     'Formation à la direction d’entreprise BTP',
     'Modules gestion financière et pilotage PME',
   ],
-  portrait: {
-    kind: 'initials',
-    initials: 'MD',
-    label: 'Portrait à venir — Marc Delcourt',
-  },
+  portrait: photoPortrait(PHOTOS.formateurMarcDelcourt),
   status: 'confirmed',
 };
 
@@ -141,11 +149,7 @@ const NICOLAS_PERRIN: FormateurProfile = {
     'Formation encadrement chantier',
     'Modules management d’équipes terrain BTP',
   ],
-  portrait: {
-    kind: 'initials',
-    initials: 'NP',
-    label: 'Portrait à venir — Nicolas Perrin',
-  },
+  portrait: photoPortrait(PHOTOS.formateurNicolasPerrin),
   status: 'confirmed',
 };
 
@@ -176,11 +180,7 @@ const CLAIRE_ROUSSEAU: FormateurProfile = {
     'Formation assistante de gestion BTP',
     'Modules facturation et administration des marchés',
   ],
-  portrait: {
-    kind: 'initials',
-    initials: 'CR',
-    label: 'Portrait à venir — Claire Rousseau',
-  },
+  portrait: photoPortrait(PHOTOS.formateurClaireRousseau),
   status: 'confirmed',
 };
 
