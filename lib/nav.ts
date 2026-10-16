@@ -22,6 +22,11 @@ export type NavItem = {
 export const NAV_FORMATIONS_FOOTER: readonly NavItem[] = [
   { href: LINKS.formations, label: 'Toutes les formations' },
   {
+    href: LINKS.parcoursMetiers,
+    label: 'Parcours métiers',
+    title: '7 parcours métier — formation IA BTP',
+  },
+  {
     href: LINKS.formationIaIntraEntrepriseBtp,
     label: 'Formation IA intra-entreprise',
     title: 'Formation IA intra-entreprise pour les équipes BTP',

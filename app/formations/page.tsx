@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { Suspense } from 'react';
 import { JsonLd } from '@/components/JsonLd';
 import { createPageMetadata, SITE_CONFIG } from '@/lib/seo';
 import { PHOTOS } from '@/lib/photos';
@@ -26,7 +27,14 @@ const CATALOGUE_2027_DESCRIPTION =
 
 export const revalidate = 3600;
 
-export async function generateMetadata(): Promise<Metadata> {
+type FormationsPageProps = {
+  searchParams?: Promise<Record<string, string | string[] | undefined>>;
+};
+
+export async function generateMetadata({ searchParams }: FormationsPageProps = {}): Promise<Metadata> {
+  const sp = searchParams ? await searchParams : {};
+  const hasCatalogueFilters = Boolean(sp.domaine || sp.metier || sp.q);
+
   return {
     ...createPageMetadata({
       title: CATALOGUE_2027_TITLE,
@@ -45,7 +53,7 @@ export async function generateMetadata(): Promise<Metadata> {
         'formation IA Île-de-France',
         'ChatGPT BTP',
       ],
-      robots: { index: true, follow: true },
+      robots: hasCatalogueFilters ? { index: false, follow: true } : { index: true, follow: true },
       image: {
         url: PHOTOS.formationsCatalogueHero2026.src,
         width: PHOTOS.formationsCatalogueHero2026.width,
@@ -80,7 +88,9 @@ export default function FormationsPage() {
         <FormationsSousDomainesIaChantier />
         <FormationsDeroulementParcours />
         <FormationsIaDisponibles />
-        <FormationsModulesCatalogue />
+        <Suspense fallback={null}>
+          <FormationsModulesCatalogue />
+        </Suspense>
         <FormationsPlanEntreprise />
         <FormationsInfosPratiques2027 />
         <FormationsContact2027 />

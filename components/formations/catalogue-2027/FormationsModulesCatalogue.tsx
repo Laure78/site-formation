@@ -1,7 +1,8 @@
 'use client';
 
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import Link from 'next/link';
+import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import {
   DOMAINES_CATALOGUE_2027,
   METIERS_CATALOGUE_2027,
@@ -19,19 +20,47 @@ import {
   libelleDisponibilite,
 } from '@/lib/catalogue-2027/search-modules';
 import { catalogueDemandeHref } from '@/lib/training-page-helpers';
+import {
+  buildCatalogueModulesHref,
+  parseCatalogueModulesFilters,
+} from '@/lib/catalogue-filter-url';
 import { OFC_CTA_PRIMARY, OFC_CTA_SECONDARY } from '@/lib/ofc-interaction-classes';
 
 const DUREES: Array<ModuleDureeHeures | 'all'> = ['all', 4, 7, 14];
 
 export function FormationsModulesCatalogue() {
-  const [query, setQuery] = useState('');
-  const [domaineId, setDomaineId] = useState<DomaineId | 'all'>('all');
-  const [metierId, setMetierId] = useState<MetierId | 'all'>('all');
+  const router = useRouter();
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
+  const initialFilters = useMemo(
+    () => parseCatalogueModulesFilters(searchParams),
+    [searchParams],
+  );
+
+  const [query, setQuery] = useState(initialFilters.q ?? '');
+  const [domaineId, setDomaineId] = useState<DomaineId | 'all'>(
+    initialFilters.domaine ?? 'all',
+  );
+  const [metierId, setMetierId] = useState<MetierId | 'all'>(initialFilters.metier ?? 'all');
   const [disponibilite, setDisponibilite] = useState<DisponibiliteCommerciale | 'all'>('all');
   const [dureeHeures, setDureeHeures] = useState<ModuleDureeHeures | 'all'>('all');
   const [thematiqueChantierIa, setThematiqueChantierIa] = useState<
     SousDomaineIaChantierId | 'all'
   >('all');
+
+  useEffect(() => {
+    if (pathname !== '/formations') return;
+    const target = buildCatalogueModulesHref({
+      domaine: domaineId === 'all' ? undefined : domaineId,
+      metier: metierId === 'all' ? undefined : metierId,
+      q: query.trim() || undefined,
+    });
+    const targetPath = target.split('#')[0] ?? target;
+    const currentPath = `${pathname}${searchParams.toString() ? `?${searchParams.toString()}` : ''}`;
+    if (targetPath !== currentPath) {
+      router.replace(target, { scroll: false });
+    }
+  }, [domaineId, metierId, query, pathname, router, searchParams]);
 
   const results = useMemo(
     () =>

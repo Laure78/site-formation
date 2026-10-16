@@ -11,12 +11,10 @@ import {
   Menu,
   X,
   GraduationCap,
-  CircleDollarSign,
   Layers,
   Building2,
   UserCircle,
-  Landmark,
-  Mail,
+  Route,
 } from 'lucide-react';
 import { SITE } from '@/lib/site';
 import { getHeaderNav, headerNavItemHasPanel } from '@/lib/header-nav';
@@ -42,12 +40,10 @@ const HeaderMobileDrawer = dynamic(
 
 const MOBILE_NAV_ICON: Record<string, LucideIcon> = {
   formations: GraduationCap,
+  'parcours-metiers': Route,
   entreprise: Building2,
-  financement: CircleDollarSign,
   ressources: Layers,
   'a-propos': UserCircle,
-  partenaires: Landmark,
-  contact: Mail,
 };
 
 /** Seuil scroll (px) — mode compact avec hysteresis pour éviter les oscillations. */

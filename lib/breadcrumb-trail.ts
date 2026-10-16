@@ -3,7 +3,9 @@
  */
 import { FORMATIONS_CATALOG_SCHEMA } from '@/lib/schema-course-formations';
 import { FORMATION_CITIES } from '@/lib/formation-cities';
+import { getParcoursBySlug } from '@/data/catalogue-2027';
 import { autoBreadcrumbFromPathname } from '@/lib/auto-breadcrumb';
+import { LINKS } from '@/lib/internal-links';
 import { formationsData } from '@/src/data/formations';
 import { TUTOS } from '@/lib/tutos';
 import { DEPARTEMENT_PAGES } from '@/lib/departement-pages';
@@ -235,6 +237,27 @@ function formationsTrail(pathNorm: string): BreadcrumbHrefCrumb[] {
       { label: 'Formations', href: '/formations' },
     ];
   }
+
+  if (pathNorm === LINKS.parcoursMetiers) {
+    return [
+      { label: 'Accueil', href: '/' },
+      { label: 'Formations', href: '/formations' },
+      { label: 'Parcours métiers', href: LINKS.parcoursMetiers },
+    ];
+  }
+
+  const parcoursMatch = pathNorm.match(/^\/formations\/parcours\/([^/]+)$/);
+  if (parcoursMatch) {
+    const parcours = getParcoursBySlug(parcoursMatch[1]);
+    const title = parcours?.titre ?? humanizeSegment(parcoursMatch[1]);
+    return [
+      { label: 'Accueil', href: '/' },
+      { label: 'Formations', href: '/formations' },
+      { label: 'Parcours métiers', href: LINKS.parcoursMetiers },
+      { label: title, href: pathNorm },
+    ];
+  }
+
   const title =
     EXACT[pathNorm] ??
     FORMATIONS_CATALOG_SCHEMA.find((e) => e.path === pathNorm)?.name ??
@@ -358,6 +381,10 @@ export function buildBreadcrumbTrail(pathname: string): BreadcrumbHrefCrumb[] {
       { label: 'À propos', href: '/a-propos' },
       { label: 'Formateurs', href: '/formateurs' },
     ];
+  }
+
+  if (pathNorm === LINKS.parcoursMetiers) {
+    return formationsTrail(pathNorm);
   }
 
   if (pathNorm.startsWith('/formations')) {

@@ -39,6 +39,9 @@ import {
   trainingDevisHref,
 } from '@/lib/training-page-helpers';
 import { isProgrammePdfObsoleteForLegacyCode } from '@/lib/catalogue-2027/pdf-programme';
+import { PageMaillageSection } from '@/components/maillage/PageMaillageSection';
+import { buildFormationPageMaillageBlocks } from '@/lib/page-maillage-blocks';
+import type { FormationCatalogueCode } from '@/lib/formation-catalogue-visibility';
 
 type Props = {
   content: CatalogueFormationPageContent;
@@ -108,6 +111,7 @@ export function TrainingPageTemplate({
   const rawPdfHref = content.pdfHref ?? formation.pdfProgramme;
   const pdfHref = isProgrammePdfObsoleteForLegacyCode(ref) ? undefined : rawPdfHref;
   const related = getRelatedCatalogueFormations(ref);
+  const maillageBlocks = buildFormationPageMaillageBlocks(ref as FormationCatalogueCode);
   const surDevis = isFormationSurDevis(formation);
   const tarifLabel =
     formation.tarifParticipantHt && formation.tarifParticipantHt > 0
@@ -380,6 +384,10 @@ export function TrainingPageTemplate({
 
       {/* Marqueur audit Qualiopi fiches : catalogueRef={ref} */}
       <TrainingPracticalInfo programmeRef={ref} publicCible={formation.public} />
+
+      {maillageBlocks.map((block) => (
+        <PageMaillageSection key={block.id} {...block} />
+      ))}
 
       {related.length > 0 ? <CatalogueFormationRelated items={related} /> : null}
 

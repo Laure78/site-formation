@@ -2,7 +2,9 @@
  * Navigation du header — source unique des rubriques et sous-menus.
  * Tous les `href` pointent vers `LINKS` ou des pages d’orientation du catalogue.
  */
+import { DOMAINES_CATALOGUE_2027 } from '@/data/catalogue-2027';
 import { catalogueFormationNavContainsPath } from '@/lib/catalogue-formations-nav';
+import { buildCatalogueModulesHref } from '@/lib/catalogue-filter-url';
 import { LINKS } from '@/lib/internal-links';
 
 export type HeaderNavLink = {
@@ -52,9 +54,16 @@ function pathMatches(pathname: string, href: string): boolean {
   return pathname === path || pathname.startsWith(`${path}/`);
 }
 
+function parcoursNavActive(pathname: string): boolean {
+  return (
+    pathname === LINKS.parcoursMetiers ||
+    pathname.startsWith(`${LINKS.formations}/parcours/`)
+  );
+}
+
 function formationsNavActive(pathname: string): boolean {
-  if (pathname === LINKS.parcoursMetiers) {
-    return true;
+  if (parcoursNavActive(pathname)) {
+    return false;
   }
   if (pathname === LINKS.formations || pathname.startsWith(`${LINKS.formations}/`)) {
     return true;
@@ -94,22 +103,16 @@ function aProposNavActive(pathname: string): boolean {
     pathname === LINKS.formateurIaBtp ||
     pathname === LINKS.qualiopi ||
     pathname === LINKS.accessibiliteHandicap ||
-    pathname === LINKS.indicateursResultats
-  );
-}
-
-function partenairesNavActive(pathname: string): boolean {
-  return (
+    pathname === LINKS.indicateursResultats ||
     pathname === LINKS.partenaires ||
     pathname.startsWith(`${LINKS.partenaires}/`) ||
+    pathname === LINKS.contact ||
+    pathname === LINKS.financement ||
+    pathname.startsWith('/financement-constructys') ||
     pathname === LINKS.etudesCas ||
     pathname.startsWith(`${LINKS.etudesCas}/`) ||
     pathname === LINKS.formationsLinkedInLearning
   );
-}
-
-function financementNavActive(pathname: string): boolean {
-  return pathname === LINKS.financement || pathname.startsWith('/financement-constructys');
 }
 
 /**
@@ -117,54 +120,92 @@ function financementNavActive(pathname: string): boolean {
  * Une URL unique par entrée (pas de doublon dans le panneau).
  * Fiches IA existantes conservées pour le SEO.
  */
+/** Liens directs vers chaque parcours métier publié. */
+const PARCOURS_NAV_LINKS: readonly HeaderNavLink[] = [
+  {
+    href: LINKS.parcoursDirigeantPmeBtp,
+    label: 'Dirigeant de PME BTP',
+    description: 'Prix, marges, trésorerie et équipes',
+    title: 'Parcours Dirigeant de PME BTP',
+  },
+  {
+    href: LINKS.parcoursChargeAffairesBtp,
+    label: 'Chargé d’affaires BTP',
+    description: 'Chiffrage, AO et suivi d’affaire',
+    title: 'Parcours Chargé d’affaires BTP',
+  },
+  {
+    href: LINKS.parcoursConducteurDeTravaux,
+    label: 'Conducteur de travaux',
+    description: 'De la passation à la réception',
+    title: 'Parcours Conducteur de travaux',
+  },
+  {
+    href: LINKS.parcoursChefDeChantier,
+    label: 'Chef de chantier',
+    description: 'Terrain, équipe et information fiable',
+    title: 'Parcours Chef de chantier',
+  },
+  {
+    href: LINKS.parcoursChefDequipe,
+    label: 'Chef d’équipe',
+    description: 'Consignes, intégration et prévention',
+    title: 'Parcours Chef d’équipe',
+  },
+  {
+    href: LINKS.parcoursAssistantDeGestionBtp,
+    label: 'Assistant de gestion BTP',
+    description: 'Administratif, facturation et outils',
+    title: 'Parcours Assistant de gestion BTP',
+  },
+  {
+    href: LINKS.parcoursReferentIaBtp,
+    label: 'Référent IA BTP',
+    description: 'Usages IA, outil et déploiement',
+    title: 'Parcours Référent IA BTP',
+  },
+];
+
 const FORMATIONS_MEGA_COLUMNS: readonly HeaderMegaColumn[] = [
   {
-    title: 'Parcours métiers',
-    href: LINKS.parcoursMetiers,
+    title: 'Catalogue',
+    href: LINKS.formations,
     links: [
       {
-        href: LINKS.parcoursDirigeantPmeBtp,
-        label: 'Dirigeant de PME BTP',
-        description: 'Prix, marges, trésorerie et équipes',
-        title: 'Parcours Dirigeant de PME BTP',
+        href: LINKS.formations,
+        label: 'Toutes les formations et modules',
+        description: 'Parcours, niveaux IA et 35 modules par domaine',
+        title: 'Catalogue formations IA BTP',
       },
       {
-        href: LINKS.parcoursChargeAffairesBtp,
-        label: 'Chargé d’affaires BTP',
-        description: 'Chiffrage, AO et suivi d’affaire',
-        title: 'Parcours Chargé d’affaires BTP',
+        href: LINKS.formationsIaDisponibles,
+        label: 'Formations IA ouvertes',
+        description: 'Sessions Qualiopi disponibles dès maintenant',
+        title: 'Formations IA disponibles',
       },
       {
-        href: LINKS.parcoursConducteurDeTravaux,
-        label: 'Conducteur de travaux',
-        description: 'De la passation à la réception',
-        title: 'Parcours Conducteur de travaux',
+        href: LINKS.formationsCatalogueModules,
+        label: 'Modules par domaine',
+        description: 'Filtres métier, durée et recherche',
+        title: 'Catalogue par domaine',
       },
       {
-        href: LINKS.parcoursChefDeChantier,
-        label: 'Chef de chantier',
-        description: 'Terrain, équipe et information fiable',
-        title: 'Parcours Chef de chantier',
-      },
-      {
-        href: LINKS.parcoursChefDequipe,
-        label: 'Chef d’équipe',
-        description: 'Consignes, intégration et prévention',
-        title: 'Parcours Chef d’équipe',
-      },
-      {
-        href: LINKS.parcoursAssistantDeGestionBtp,
-        label: 'Assistant de gestion BTP',
-        description: 'Administratif, facturation et outils',
-        title: 'Parcours Assistant de gestion BTP',
-      },
-      {
-        href: LINKS.parcoursReferentIaBtp,
-        label: 'Référent IA BTP',
-        description: 'Usages IA, outil et déploiement',
-        title: 'Parcours Référent IA BTP',
+        href: LINKS.financement,
+        label: 'Financement Constructys',
+        description: 'OPCO, dossier et convention — selon éligibilité',
+        title: 'Financement formation IA BTP',
       },
     ],
+  },
+  {
+    title: 'Par domaine',
+    href: LINKS.formationsCatalogueModules,
+    links: DOMAINES_CATALOGUE_2027.map((d) => ({
+      href: buildCatalogueModulesHref({ domaine: d.id }),
+      label: d.titre,
+      description: d.description.length > 72 ? `${d.description.slice(0, 70)}…` : d.description,
+      title: `${d.titre} — catalogue formation BTP`,
+    })),
   },
   {
     title: 'Formations IA disponibles',
@@ -214,27 +255,27 @@ const FORMATIONS_MEGA_COLUMNS: readonly HeaderMegaColumn[] = [
     links: [
       {
         href: LINKS.parcoursMetiers,
-        label: 'Trouver mon parcours',
-        description: 'Sélection par métier',
+        label: 'Orientation par métier',
+        description: 'Choisir un parcours ou une session isolée',
         title: 'Parcours métiers — formation IA BTP',
       },
       {
-        href: LINKS.formationsIaDisponibles,
-        label: 'Voir les formations IA ouvertes',
-        description: 'Six modules disponibles dès maintenant',
-        title: 'Formations IA disponibles — catalogue',
-      },
-      {
-        href: LINKS.formationsCatalogueModules,
-        label: 'Catalogue par domaine',
-        description: '35 modules — recherche et filtres',
-        title: 'Catalogue des modules de formation',
+        href: LINKS.formationIaIntraEntrepriseBtp,
+        label: 'Intra-entreprise',
+        description: 'Former toute une équipe sur vos documents',
+        title: 'Formation IA intra-entreprise BTP',
       },
       {
         href: LINKS.formationIaEtudesPrixChiffrageBtp,
         label: 'Devis et chiffrage',
         description: 'Études de prix assistées par l’IA',
         title: 'Formation IA études de prix et chiffrage BTP',
+      },
+      {
+        href: LINKS.ressources,
+        label: 'Guides et tutoriels gratuits',
+        description: 'PDF Claude, ChatGPT et skills BTP',
+        title: 'Ressources IA BTP',
       },
     ],
   },
@@ -246,15 +287,19 @@ const FORMATIONS_MEGA_COLUMNS: readonly HeaderMegaColumn[] = [
  */
 const FORMATIONS_MEGA_QUICK_LINKS: readonly HeaderNavLink[] = [
   {
-    href: LINKS.formations,
-    label: 'Voir tout le catalogue',
-    title: 'Catalogue des formations et parcours métiers BTP',
+    href: LINKS.parcoursMetiers,
+    label: 'Parcours métiers',
+    title: '7 parcours métier — formation IA BTP',
   },
   {
-    /** Distinct de la rubrique « Intra / Sur mesure » (landing) — CTA prise de RDV. */
+    href: LINKS.financement,
+    label: 'Financement OPCO',
+    title: 'Financement Constructys — formation IA BTP',
+  },
+  {
     href: LINKS.prendreRdv,
-    label: 'Former mon équipe',
-    title: 'Échanger sur un projet de formation en entreprise',
+    label: 'Échanger sur votre besoin',
+    title: 'Visio découverte gratuite — cadrage de votre projet',
   },
 ];
 
@@ -266,7 +311,7 @@ const FORMATIONS_MEGA_QUICK_LINKS: readonly HeaderNavLink[] = [
 const BASE_HEADER_NAV: readonly HeaderNavItem[] = [
   {
     id: 'formations',
-    label: 'Toutes les formations',
+    label: 'Formations',
     href: LINKS.formations,
     variant: 'catalogue',
     isActive: formationsNavActive,
@@ -275,16 +320,22 @@ const BASE_HEADER_NAV: readonly HeaderNavItem[] = [
     megaFooterNote: 'Formations en présentiel en Île-de-France.',
   },
   {
-    id: 'entreprise',
-    label: 'Intra / Sur mesure',
-    href: LINKS.formationIaIntraEntrepriseBtp,
-    isActive: (pathname) => pathname === LINKS.formationIaIntraEntrepriseBtp,
+    id: 'parcours-metiers',
+    label: 'Parcours métiers',
+    href: LINKS.parcoursMetiers,
+    isActive: parcoursNavActive,
+    children: PARCOURS_NAV_LINKS,
+    footer: {
+      href: LINKS.parcoursMetiers,
+      label: 'Comparer les parcours métiers',
+      title: 'Hub parcours métiers — formation IA BTP',
+    },
   },
   {
-    id: 'financement',
-    label: 'Financement',
-    href: LINKS.financement,
-    isActive: financementNavActive,
+    id: 'entreprise',
+    label: 'Intra-entreprise',
+    href: LINKS.formationIaIntraEntrepriseBtp,
+    isActive: (pathname) => pathname === LINKS.formationIaIntraEntrepriseBtp,
   },
   {
     id: 'ressources',
@@ -329,6 +380,12 @@ const BASE_HEADER_NAV: readonly HeaderNavItem[] = [
     isActive: aProposNavActive,
     children: [
       {
+        href: LINKS.aPropos,
+        label: 'Présentation',
+        description: 'Laure Olivié, OFC et Qualiopi',
+        title: 'À propos — formatrice IA BTP',
+      },
+      {
         href: LINKS.formateurs,
         label: 'Nos formateurs',
         title: 'Formateurs OFC — parcours métiers et IA BTP',
@@ -338,19 +395,22 @@ const BASE_HEADER_NAV: readonly HeaderNavItem[] = [
         label: 'Avis clients',
         title: 'Avis et témoignages formations IA BTP',
       },
+      {
+        href: LINKS.partenaires,
+        label: 'Partenaires',
+        title: 'FFB, CNAM, LinkedIn Learning…',
+      },
+      {
+        href: LINKS.financement,
+        label: 'Financement Constructys',
+        title: 'OPCO, dossier et convention',
+      },
+      {
+        href: LINKS.contact,
+        label: 'Contact',
+        title: 'Devis, programme et questions',
+      },
     ],
-  },
-  {
-    id: 'partenaires',
-    label: 'Partenaires',
-    href: LINKS.partenaires,
-    isActive: partenairesNavActive,
-  },
-  {
-    id: 'contact',
-    label: 'Contact',
-    href: LINKS.contact,
-    isActive: (pathname) => pathname === LINKS.contact,
   },
 ];
 

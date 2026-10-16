@@ -47,6 +47,12 @@ export function ParcoursDetailView({ parcours: p }: Props) {
         <span aria-hidden className="mx-2">
           /
         </span>
+        <Link href={LINKS.parcoursMetiers} className="text-[#377CF3] underline">
+          Parcours métiers
+        </Link>
+        <span aria-hidden className="mx-2">
+          /
+        </span>
         <span className="text-ofc-ink">{p.titre}</span>
       </nav>
 

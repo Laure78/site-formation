@@ -17,6 +17,7 @@ const EXACT: Record<string, string> = {
   '/skills-claude-btp': 'Skills Claude pour le BTP',
   '/skills-chatgpt-btp': 'Skills ChatGPT pour le BTP',
   '/formation-ia-intra-entreprise-btp': 'Formation IA intra-entreprise',
+  '/parcours-metiers': 'Parcours métiers',
   '/communaute-formateurs': 'Communauté formateurs',
   '/ressources/ia-btp': 'Ressources IA BTP',
 };
