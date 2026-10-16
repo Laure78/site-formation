@@ -89,7 +89,9 @@ export const LINKS = {
   formationClaudeAiTravauxPublics: '/formations/maitriser-claude-ai-btp',
 
   // Tier 2 — Formations (catalogue officiel)
-  /** Hub catalogue 2027 — ancre sélection métier */
+  /** Page d’orientation — choisir selon son métier */
+  parcoursMetiers: '/parcours-metiers',
+  /** @deprecated Préférer `parcoursMetiers` — ancre catalogue conservée pour liens legacy */
   formationsTrouverParcours: '/formations#trouver-mon-parcours',
   /** Hub catalogue 2027 — ancre formations IA disponibles */
   formationsIaDisponibles: '/formations#formations-ia-disponibles',

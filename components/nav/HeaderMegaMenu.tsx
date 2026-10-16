@@ -40,9 +40,20 @@ export function HeaderMegaMenu({
             <div className="grid min-w-0 flex-1 gap-8 p-6 sm:grid-cols-2 lg:grid-cols-3 lg:gap-10 lg:p-8">
               {columns.map((column) => (
                 <div key={column.title}>
-                  <p className="font-display text-sm font-bold tracking-tight text-slate-900">
-                    {column.title}
-                  </p>
+                  {column.href ? (
+                    <Link
+                      href={column.href}
+                      title={column.title}
+                      onClick={onNavigate}
+                      className="font-display text-sm font-bold tracking-tight text-slate-900 transition-colors hover:text-[#377CF3] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#377CF3]"
+                    >
+                      {column.title}
+                    </Link>
+                  ) : (
+                    <p className="font-display text-sm font-bold tracking-tight text-slate-900">
+                      {column.title}
+                    </p>
+                  )}
                   <ul className="mt-4 space-y-1">
                     {column.links.map((link) => {
                       const active = headerNavLinkIsActive(link.href, pathname);

@@ -114,6 +114,7 @@ export function getBlogArticleLastModified(article: BlogArticle): Date {
 const ROUTE_SOURCE_FILES: Record<string, readonly string[]> = {
   '/': ['app/page.tsx'],
   '/formations': ['app/formations/page.tsx', 'src/data/formations.ts'],
+  '/parcours-metiers': ['app/parcours-metiers/page.tsx', 'lib/parcours-metiers-orientation.ts'],
   '/a-propos': ['app/a-propos/page.tsx'],
   '/avis-clients': ['app/avis-clients/page.tsx', 'data/googleReviews.ts'],
   '/contact': ['app/contact/page.tsx'],

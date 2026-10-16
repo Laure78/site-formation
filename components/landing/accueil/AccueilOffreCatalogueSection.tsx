@@ -46,11 +46,16 @@ export function AccueilOffreCatalogueSection() {
       {/* ——— Parcours ——— */}
       <div className="mt-14 md:mt-16" id="accueil-parcours">
         <h3 className="font-display text-xl font-bold tracking-tight text-ofc-ink md:text-2xl">
-          Parcours métiers
+          <Link href={LINKS.parcoursMetiers} className="hover:text-ofc-accent hover:underline">
+            Parcours métiers
+          </Link>
         </h3>
         <p className="mt-2 max-w-2xl text-base leading-[1.65] text-ofc-ink-muted">
-          Un parcours regroupe des modules dans un ordre pédagogique. Public,
-          objectif et étapes issus du catalogue.
+          Un parcours regroupe des modules dans un ordre pédagogique.{' '}
+          <Link href={LINKS.parcoursMetiers} className="font-medium text-ofc-accent hover:underline">
+            Choisir selon mon métier
+          </Link>
+          .
         </p>
 
         <ul className="mt-8 grid list-none gap-6 lg:grid-cols-2 lg:gap-7">

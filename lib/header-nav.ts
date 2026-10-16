@@ -1,7 +1,6 @@
 /**
  * Navigation du header — source unique des rubriques et sous-menus.
- * Tous les `href` pointent vers `LINKS` ou des ancres de pages existantes.
- * Aucune nouvelle page créée pour la refonte du menu.
+ * Tous les `href` pointent vers `LINKS` ou des pages d’orientation du catalogue.
  */
 import { catalogueFormationNavContainsPath } from '@/lib/catalogue-formations-nav';
 import { LINKS } from '@/lib/internal-links';
@@ -21,6 +20,8 @@ export type HeaderNavLink = {
 
 export type HeaderMegaColumn = {
   title: string;
+  /** Lien du titre de colonne (page d’orientation). */
+  href?: string;
   links: readonly HeaderNavLink[];
 };
 
@@ -52,6 +53,9 @@ function pathMatches(pathname: string, href: string): boolean {
 }
 
 function formationsNavActive(pathname: string): boolean {
+  if (pathname === LINKS.parcoursMetiers) {
+    return true;
+  }
   if (pathname === LINKS.formations || pathname.startsWith(`${LINKS.formations}/`)) {
     return true;
   }
@@ -116,6 +120,7 @@ function financementNavActive(pathname: string): boolean {
 const FORMATIONS_MEGA_COLUMNS: readonly HeaderMegaColumn[] = [
   {
     title: 'Parcours métiers',
+    href: LINKS.parcoursMetiers,
     links: [
       {
         href: LINKS.parcoursDirigeantPmeBtp,
@@ -163,6 +168,7 @@ const FORMATIONS_MEGA_COLUMNS: readonly HeaderMegaColumn[] = [
   },
   {
     title: 'Formations IA disponibles',
+    href: LINKS.formations,
     links: [
       {
         href: LINKS.formationIaBtpNiveau1BatimentTp,
@@ -207,10 +213,10 @@ const FORMATIONS_MEGA_COLUMNS: readonly HeaderMegaColumn[] = [
     title: 'Aller plus loin',
     links: [
       {
-        href: LINKS.formationsTrouverParcours,
+        href: LINKS.parcoursMetiers,
         label: 'Trouver mon parcours',
-        description: 'Sélection par métier sur le catalogue',
-        title: 'Catalogue — trouver mon parcours métier',
+        description: 'Sélection par métier',
+        title: 'Parcours métiers — formation IA BTP',
       },
       {
         href: LINKS.formationsIaDisponibles,

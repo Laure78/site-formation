@@ -7,12 +7,15 @@ import { PARTNER_LOGO_BAND_CELL } from '@/lib/client-logos';
 /** Bande preuve sociale légère — logos monochromes, sans carousel inaccessible. */
 export function AccueilPreuveSocialeCompact() {
   return (
-    <Section tone="white" aria-labelledby="accueil-preuve-sociale" className="!py-8 md:!py-10">
-      <h2 id="accueil-preuve-sociale" className="sr-only">
+    <Section tone="white" aria-labelledby="accueil-preuve-sociale" className="!py-4 md:!py-5">
+      <p
+        id="accueil-preuve-sociale"
+        className="text-center font-display text-sm font-semibold tracking-tight text-ofc-ink-muted md:text-base"
+      >
         Ils me font confiance
-      </h2>
+      </p>
       <ul
-        className="flex flex-wrap items-center justify-center gap-x-8 gap-y-6 md:gap-x-12"
+        className="mt-4 flex flex-wrap items-center justify-center gap-x-6 gap-y-4 md:mt-5 md:gap-x-10"
         aria-label="Logos partenaires et clients"
       >
         {ACCUEIL_LOGOS_PARTENAIRES.map((logo) => (
@@ -37,7 +40,7 @@ export function AccueilPreuveSocialeCompact() {
           </li>
         ))}
       </ul>
-      <p className="mx-auto mt-8 max-w-2xl text-center text-sm leading-relaxed text-ofc-ink-muted">
+      <p className="mx-auto mt-4 max-w-2xl text-center text-xs leading-relaxed text-ofc-ink-muted md:mt-5 md:text-sm">
         {getAccueilHeroReassuranceLine()}
       </p>
     </Section>

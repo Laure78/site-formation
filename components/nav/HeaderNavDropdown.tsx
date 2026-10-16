@@ -362,9 +362,19 @@ export function HeaderMobileNavSection({
           {hasMega && item.megaColumns
             ? item.megaColumns.map((column) => (
                 <div key={column.title} className="mb-3">
-                  <p className="px-2 pb-1 text-xs font-bold uppercase tracking-wide text-slate-500">
-                    {column.title}
-                  </p>
+                  {column.href ? (
+                    <Link
+                      href={column.href}
+                      onClick={onNavigate}
+                      className="block px-2 pb-1 text-xs font-bold uppercase tracking-wide text-[#377CF3] hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#377CF3]"
+                    >
+                      {column.title}
+                    </Link>
+                  ) : (
+                    <p className="px-2 pb-1 text-xs font-bold uppercase tracking-wide text-slate-500">
+                      {column.title}
+                    </p>
+                  )}
                   <ul>
                     <HeaderMobileNavLinks
                       links={column.links}

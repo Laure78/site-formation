@@ -281,25 +281,16 @@
 @media (min-width: 768px) {
   .accueil-hero-fold {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(260px, 34%);
-    gap: 2rem;
+    grid-template-columns: minmax(0, 45fr) minmax(0, 55fr);
+    gap: 1.25rem 1.75rem;
     align-items: center;
   }
 }
 
 @media (min-width: 1024px) {
   .accueil-hero-fold {
-    grid-template-columns: minmax(0, 1fr) minmax(300px, 380px);
-    gap: 2.5rem;
+    gap: 1.5rem 2rem;
     align-items: center;
-  }
-}
-
-@media (min-width: 1280px) {
-  .accueil-hero-fold {
-    grid-template-columns: minmax(0, 1fr) minmax(320px, 400px);
-    gap: 3rem;
-    align-items: start;
   }
 }
 
