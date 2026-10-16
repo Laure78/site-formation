@@ -10,6 +10,7 @@ import { MetierIdfPresentielLine } from '@/components/formation-ia-metier/Metier
 import { LiensConnexes } from '@/components/LiensConnexes';
 import { PreuveSociale } from '@/components/PreuveSociale';
 import { TARIF_FORFAIT_DEBUTANT_HT } from '@/lib/tarifs-sessions';
+import { FormationCharteIaBtpRessourceAside } from '@/components/formations/FormationCharteIaBtpRessourceAside';
 
 function SectionCtaVisio({ className = '' }: { className?: string }) {
   return (
@@ -216,6 +217,10 @@ export function FormationIaMetierDynamicTemplate({
           </div>
         </div>
       </section>
+
+      <div className="mx-auto max-w-4xl px-4 pt-10">
+        <FormationCharteIaBtpRessourceAside />
+      </div>
 
       {/* FAQ */}
       <section className="border-b border-slate-200 bg-[#F2F2F2] px-4 py-14 md:py-16">

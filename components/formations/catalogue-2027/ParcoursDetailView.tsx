@@ -13,6 +13,7 @@ import { OFC_CTA_PRIMARY, OFC_CTA_SECONDARY } from '@/lib/ofc-interaction-classe
 import { FormateursMetierSection } from '@/components/formateurs/FormateursDomaineSection';
 import { getModule2027IaUsage, labelOutil } from '@/lib/formation-ia';
 import { FormationsContact2027 } from './FormationsContact2027';
+import { ParcoursEncadrerIaBlock } from '@/components/formations/ParcoursEncadrerIaBlock';
 
 type Props = {
   parcours: ParcoursComputed;
@@ -218,6 +219,8 @@ export function ParcoursDetailView({ parcours: p }: Props) {
               acquis en fin de parcours, intégrée à la durée annoncée. Formations non certifiantes.
             </p>
           </section>
+
+          {p.id === 'dirigeant-pme-btp' ? <ParcoursEncadrerIaBlock /> : null}
 
           <section className="mt-10" aria-labelledby="adaptation-title">
             <h2 id="adaptation-title" className="ofc-type-h2 text-ofc-ink">

@@ -1,6 +1,7 @@
 import type { ReactNode } from 'react';
 import { ShortAnswerBlock } from '@/components/landing/ShortAnswerBlock';
 import { FormationBeworkPasserelle } from '@/components/formations/FormationBeworkPasserelle';
+import { FormationCharteIaBtpRessourceAside } from '@/components/formations/FormationCharteIaBtpRessourceAside';
 import { CatalogueFormationRelated } from '@/components/formations/catalogue/CatalogueFormationRelated';
 import { MentionTvaAsterisque } from '@/components/MentionTVA';
 import {
@@ -323,6 +324,12 @@ export function TrainingPageTemplate({
       />
 
       {afterDeliverables}
+
+      <section className="scroll-mt-[calc(var(--site-header-height)+3.25rem)] border-b border-slate-200 bg-white px-4 py-8 md:py-10">
+        <div className="mx-auto max-w-[78rem]">
+          <FormationCharteIaBtpRessourceAside />
+        </div>
+      </section>
 
       {content.publicPrerequisites && content.publicPrerequisites.length > 0 ? (
         <section className="scroll-mt-[calc(var(--site-header-height)+3.25rem)] border-b border-slate-200 bg-white px-4 py-12 md:py-16">

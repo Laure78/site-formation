@@ -31,6 +31,7 @@ import {
 import { FormationDeptLocalSeoBlock } from '@/components/formation-ia-btp/FormationDeptLocalSeoBlock';
 import { RenvoiFicheCatalogue } from '@/components/qualiopi/RenvoiFicheCatalogue';
 import { getDeptLocalSeoContent } from '@/lib/formation-ia-btp-dept-local-content';
+import { FormationCharteIaBtpRessourceAside } from '@/components/formations/FormationCharteIaBtpRessourceAside';
 
 export type { GeoFormationPageProps };
 
@@ -210,6 +211,10 @@ export function GeoFormationPage(props: GeoFormationPageProps) {
           </ol>
         </div>
       </section>
+
+      <div className="mx-auto max-w-4xl px-4 pb-6">
+        <FormationCharteIaBtpRessourceAside />
+      </div>
 
       <RenvoiFicheCatalogue programmeRef="NIV-01" contexte={`en ${deptLabel}`} />
 

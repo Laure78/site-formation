@@ -27,6 +27,7 @@ import {
 import { buildSiteCalendlyCtaUrl } from '@/lib/calendly';
 import { TARIF_FORFAIT_DEBUTANT_HT } from '@/lib/tarifs-sessions';
 import { formatAnneesExperienceBTP } from '@/lib/data/indicateurs-resultats';
+import { FormationCharteIaBtpRessourceAside } from '@/components/formations/FormationCharteIaBtpRessourceAside';
 
 function buildCourseJsonLd(config: SeoClusterPageConfig): Record<string, unknown> {
   const base = SCHEMA_PUBLIC_SITE_URL.replace(/\/$/, '');
@@ -305,6 +306,8 @@ export function FormationSeoClusterLanding({
             ctaLabel={config.primaryCtaLabel}
           />
         </div>
+
+        <FormationCharteIaBtpRessourceAside className="mt-14" />
 
         <section id="faq" className="scroll-mt-24 mt-14">
           <h2 className="font-display text-2xl font-bold text-slate-900">Questions fréquentes</h2>

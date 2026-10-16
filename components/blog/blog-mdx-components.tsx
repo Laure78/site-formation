@@ -1,6 +1,9 @@
 import type { MDXComponents } from 'mdx/types';
 import { CitationSentence } from '@/components/seo/CitationSentence';
 import { CTAInline } from '@/components/blog/CTAInline';
+import { CharteIaBtpDownloadButton } from '@/components/blog/CharteIaBtpDownloadButton';
+import { BlogEncadre } from '@/components/blog/BlogEncadre';
+import { BlogTableWrap } from '@/components/blog/BlogTableWrap';
 import { EnBref } from '@/app/components/EnBref';
 import { OFC_LINK } from '@/lib/ofc-interaction-classes';
 
@@ -55,6 +58,17 @@ export function getBlogMdxComponents(): MDXComponents {
       ) : null,
     CitationSentence,
     CTAInline,
+    CharteIaBtpDownloadButton,
+    BlogEncadre,
+    BlogTableWrap,
     EnBref,
+    table: (props) => (
+      <div className="my-6 overflow-x-auto rounded-xl border border-slate-200">
+        <table className="min-w-[640px] w-full text-left text-sm text-slate-700" {...props} />
+      </div>
+    ),
+    thead: (props) => <thead className="bg-slate-50 text-slate-800" {...props} />,
+    th: (props) => <th className="px-3 py-2 font-semibold md:px-4 md:py-3" {...props} />,
+    td: (props) => <td className="border-t border-slate-100 px-3 py-2 md:px-4 md:py-3" {...props} />,
   };
 }

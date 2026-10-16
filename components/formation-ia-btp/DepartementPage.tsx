@@ -33,6 +33,7 @@ import { getClusterRelatedHrefs } from '@/lib/maillage-clusters';
 import { OFC_SEC } from '@/lib/ofc-section-classes';
 import { buildDeptMetaDescription } from '@/lib/meta-description';
 import { buildIdfDeptPageTitle } from '@/lib/seo-geo-keywords';
+import { FormationCharteIaBtpRessourceAside } from '@/components/formations/FormationCharteIaBtpRessourceAside';
 
 export function departementPageMetadata(data: DepartementPageData) {
   const grammar = {
@@ -258,6 +259,10 @@ export function DepartementPage({ data }: { data: DepartementPageData }) {
 
       {/* 9. Cas d’usage standard — partagé identique */}
       <DepartementCasUsageStandard />
+
+      <div className="mx-auto max-w-4xl px-4 pb-6">
+        <FormationCharteIaBtpRessourceAside />
+      </div>
 
       {/* 10. Informations réglementaires Qualiopi — partagé */}
       <RenvoiFicheCatalogue programmeRef="NIV-01" contexte={`en ${deptLabel}`} />
