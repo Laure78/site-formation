@@ -17,7 +17,9 @@ Laure Olivié est formatrice IA spécialisée BTP, avec 7 ans d'expérience dans
 - Références : FFB Grand Paris, FFB Île-de-France, CSFE (FFB), CPB (FFB), CAPEB, CNAM Entreprise IDF, Le Moniteur Formations.
 
 ## Pages clés
+- /parcours-metiers — Choisir son parcours métier (orientation vers le catalogue)
 - /formations — Catalogue des formations et parcours métiers BTP
+- /formateurs — Formateurs et domaines d’intervention
 - /formation-ia-intra-entreprise-btp — Formation IA intra-entreprise pour les équipes BTP
 - /formations/ia-batiment-travaux-publics — Bases de l'IA pour les pros du BTP (4 h)
 - /formations/ia-appels-offre-btp — IA et appels d'offres (7 h)
@@ -42,4 +44,4 @@ Laure Olivié est formatrice IA spécialisée BTP, avec 7 ans d'expérience dans
 Laure Olivié · OFC Création d'Entreprise · SIRET 905 244 281 00010 · NDA 11788515078 · 6 rue Henri Dunant, 78280 Guyancourt · contact@laureolivie.fr · 06 95 66 18 18 · www.laureolivie.fr
 
 ---
-Dernière mise à jour fichier : 2026-10-15
+Dernière mise à jour fichier : 2026-10-16

@@ -111,12 +111,12 @@ export const SKILLS_CLAUDE_BTP_CARDS: readonly SkillClaudeBtpCard[] = [
 ] as const;
 
 export const SKILLS_CLAUDE_BTP_IMAGE = {
-  src: '/images/creer-skill-claude-btp.webp',
-  alt: 'Tuto Claude : créer un Skill — étapes Personnalisation, Compétences et import pour le BTP',
-  width: 682,
+  src: '/images/ressources/miniatures/miniature-skills-claude-btp.jpg',
+  alt: 'Tuto offert Skills Claude BTP — créer ses assistants métier, PDF gratuit formation IA bâtiment',
+  width: 1024,
   height: 1024,
   caption:
-    'Infographie : créer, importer et tester un Skill Claude (session formation assistants IA BTP).',
+    'Tuto offert — Skills Claude BTP : créer ses assistants métier (exemples ZIP et PDF gratuit).',
 } as const;
 
 export const SKILLS_CLAUDE_BTP_INSTALL_STEPS = [

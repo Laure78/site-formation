@@ -1,7 +1,6 @@
 import type { Metadata } from 'next';
 import { preload } from 'react-dom';
 import { AccueilHeroSection } from '@/components/landing/AccueilHeroSection';
-import { AccueilPreuveSocialeCompact } from '@/components/landing/accueil/AccueilPreuveSocialeCompact';
 import { AccueilOffreCatalogueSection } from '@/components/landing/accueil/AccueilOffreCatalogueSection';
 import { AccueilMethodeResultatsSection } from '@/components/landing/accueil/AccueilMethodeResultatsSection';
 import { AccueilFinancementSection } from '@/components/landing/accueil/AccueilFinancementSection';
@@ -82,7 +81,6 @@ export default function HomePage() {
   return (
     <div>
       <AccueilHeroSection />
-      <AccueilPreuveSocialeCompact />
       <AccueilOffreCatalogueSection />
       <EvenementAoBtpPromoEncart placement="accueil" />
       <AccueilMethodeResultatsSection />

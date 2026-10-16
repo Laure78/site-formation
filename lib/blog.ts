@@ -1965,6 +1965,34 @@ export const BLOG_ARTICLES: BlogArticle[] = [
   },
 ];
 
+/** Anciennes URL RDV / liens legacy dans les JSON Media Machine — normalisés à la lecture. */
+function normalizeLegacyPathsInText(text: string): string {
+  return text
+    .replaceAll('/prendre-rendez-vous', LINKS.prendreRdv)
+    .replaceAll('/formation-ia-artisans-btp', LINKS.formationIaDirigeantPmeBtp);
+}
+
+function normalizeGeneratedArticleSections(
+  sections: BlogArticle['sections']
+): BlogArticle['sections'] {
+  return sections.map((section) => {
+    const { content, formationHref, ...rest } = section;
+    const next: BlogArticle['sections'][number] = { ...rest, content };
+
+    if (typeof content === 'string') {
+      next.content = normalizeLegacyPathsInText(content);
+    } else if (Array.isArray(content) && content.length > 0 && typeof content[0] === 'string') {
+      next.content = (content as string[]).map((line) => normalizeLegacyPathsInText(line));
+    }
+
+    if (formationHref) {
+      next.formationHref = normalizeLegacyPathsInText(formationHref);
+    }
+
+    return next;
+  });
+}
+
 function loadGeneratedArticles(): BlogArticle[] {
   const dir = join(process.cwd(), 'content', 'generated');
   if (!existsSync(dir)) return [];
@@ -1975,13 +2003,14 @@ function loadGeneratedArticles(): BlogArticle[] {
     return files.map((f) => {
       const raw = readFileSync(join(dir, f), 'utf-8');
       const a = JSON.parse(raw) as BlogArticle & { internalLinks?: unknown };
+      const sections = normalizeGeneratedArticleSections(a.sections ?? []);
       return {
         slug: a.slug,
         title: a.title,
-        description: a.description,
+        description: normalizeLegacyPathsInText(a.description),
         date: a.date,
         keywords: a.keywords ?? [],
-        sections: a.sections ?? [],
+        sections,
         relatedSlugs: a.relatedSlugs ?? [], ...(a.seoTitle ? { seoTitle: a.seoTitle } : {}), ...(a.dateModified ? { dateModified: a.dateModified } : {}), ...(a.faq?.length ? { faq: a.faq } : {}), ...(a.coverImage ? { coverImage: a.coverImage } : {}),
       };
     });

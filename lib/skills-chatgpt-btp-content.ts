@@ -199,10 +199,11 @@ export const SKILLS_CHATGPT_DOWNLOADS = {
 
 export const SKILLS_CHATGPT_BTP_IMAGE = {
   src: '/images/tutoriel-skills-chatgpt-btp-laure-olivie.webp',
-  alt: 'Couverture du tutoriel Crée ton skill sur ChatGPT de Laure Olivié',
-  width: 893,
-  height: 1263,
-  caption: 'Tutoriel PDF — créer un Skill ChatGPT pour une tâche BTP récurrente.',
+  alt: 'Tuto offert Skills ChatGPT BTP — créer ses assistants métier, PDF gratuit formation IA bâtiment',
+  width: 1024,
+  height: 1024,
+  caption:
+    'Tuto offert — Skills ChatGPT BTP : créer ses assistants métier (tutoriel PDF et 6 modèles ZIP).',
 } as const;
 
 export const SKILLS_CHATGPT_PERSONNALISER = [

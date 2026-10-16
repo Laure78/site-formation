@@ -33,15 +33,15 @@ export const RESSOURCES_MINIATURES = {
   },
   skillsClaudeBtp: {
     src: `${BASE}/miniature-skills-claude-btp.jpg`,
-    alt: 'Laure Olivié — 5 skills Claude gratuits pour le BTP, tuto offert formation IA',
+    alt: 'Tuto offert Skills Claude BTP — créer ses assistants métier, PDF gratuit formation IA bâtiment',
     width: 1024,
     height: 1024,
   },
   skillsChatgptBtp: {
     src: '/images/tutoriel-skills-chatgpt-btp-laure-olivie.webp',
-    alt: 'Tutoriel Skills ChatGPT BTP — 6 modèles ZIP pour le bâtiment et les TP',
-    width: 893,
-    height: 1263,
+    alt: 'Tuto offert Skills ChatGPT BTP — créer ses assistants métier, PDF gratuit formation IA bâtiment',
+    width: 1024,
+    height: 1024,
   },
   guideChargeAffaires: {
     src: `${BASE}/miniature-guide-charge-affaires.jpg`,

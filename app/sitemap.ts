@@ -10,6 +10,7 @@ import {
   getSitemapDepartementPaths,
   getSitemapIaTaskPaths,
   getSitemapMetierLandingPaths,
+  SITEMAP_CORE_STATIC_PATHS,
 } from '@/lib/sitemap-public-routes';
 import {
   SITEMAP_FORMATION_CATALOG_PATHS,
@@ -209,6 +210,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     lastModified: resolveSitemapLastModified(path),
   }));
 
+  /** Hub formateurs, parcours métiers, intra… (source `SITEMAP_CORE_STATIC_PATHS`, dédupliqué avec tier1). */
+  const coreStatic: MetadataRoute.Sitemap = SITEMAP_CORE_STATIC_PATHS.map((path) => ({
+    url: path === '/' ? baseUrl : `${baseUrl}${path}`,
+    lastModified: resolveSitemapLastModified(path),
+  }));
+
   const formationCatalogPriority: MetadataRoute.Sitemap = SITEMAP_FORMATION_CATALOG_PATHS.map(
     (path) => ({
       url: `${baseUrl}${path}`,
@@ -251,6 +258,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   const merged = dedupeByUrl([
     ...tier1Static,
+    ...coreStatic,
     ...formationCatalogPriority,
     ...formationCatalog,
     ...iaTaskPages,

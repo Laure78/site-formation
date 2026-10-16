@@ -249,7 +249,7 @@ const ROUTE_SOURCE_FILES: Record<string, readonly string[]> = {
     'app/skills-claude-btp/page.tsx',
     'lib/skills-claude-btp-content.ts',
     'public/skills',
-    'public/images/creer-skill-claude-btp.webp',
+    'public/images/ressources/miniatures/miniature-skills-claude-btp.jpg',
   ],
   '/formation-ia-intra-entreprise-btp': [
     'app/formation-ia-intra-entreprise-btp/page.tsx',
