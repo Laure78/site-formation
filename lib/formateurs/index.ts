@@ -1,23 +1,27 @@
 export type {
+  FormateurExperienceStep,
   FormateurFormationLink,
   FormateurId,
+  FormateurModuleLink,
   FormateurPortrait,
   FormateurProfile,
   FormateurStatus,
 } from '@/lib/formateurs/types';
 export {
-  FORMATEURS_DEMO_PREVIEW_BANNER,
-  isFormateursDemoPreviewEnabled,
-} from '@/lib/formateurs/preview-env';
+  CATALOGUE_FORMATEURS,
+} from '@/lib/formateurs/catalogue-formateurs-profiles';
 export { FORMATEUR_LAURE_OLIVIE, CONFIRMED_FORMATEURS } from '@/lib/formateurs/confirmed-profiles';
 export {
+  getCatalogueFormateurs,
   getConfirmedFormateurs,
   getFormateurById,
   getFormateurBySlug,
   getFormateurFormationLinks,
+  getFormateurModuleLinks,
   getFormateursForDomaine,
   getFormateursForFormationCode,
   getFormateursForMetier,
+  getIaFormateurs,
   getVisibleFormateurs,
   hasVisibleFormateurs,
   isFormateursDemoActive,

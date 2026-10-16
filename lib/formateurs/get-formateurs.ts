@@ -1,18 +1,20 @@
 /**
- * Accès unique aux formateurs visibles — gate démo / public.
- * Les profils démo ne sont jamais renvoyés hors prévisualisation privée locale.
+ * Accès unique aux formateurs visibles.
  */
 import { formationHref, getFormationByCode } from '@/data/formations';
+import { getModuleByCode } from '@/data/catalogue-2027';
 import type { DomaineId, MetierId } from '@/data/catalogue-2027';
-import { getPublishedFormations } from '@/lib/formation-catalogue-visibility';
+import { libelleDisponibilite } from '@/lib/catalogue-2027/search-modules';
+import { CATALOGUE_FORMATEURS } from '@/lib/formateurs/catalogue-formateurs-profiles';
 import { CONFIRMED_FORMATEURS } from '@/lib/formateurs/confirmed-profiles';
-import { DEMO_FORMATEURS } from '@/lib/formateurs/demo-profiles';
-import { isFormateursDemoPreviewEnabled } from '@/lib/formateurs/preview-env';
 import type {
   FormateurFormationLink,
   FormateurId,
+  FormateurModuleLink,
   FormateurProfile,
 } from '@/lib/formateurs/types';
+import { catalogueDemandeHref } from '@/lib/training-page-helpers';
+import { getPublishedFormations } from '@/lib/formation-catalogue-visibility';
 
 /** Métiers parcours → domaines catalogue (section sous-domaine). */
 const METIER_TO_DOMAINES: Record<MetierId, readonly DomaineId[]> = {
@@ -29,20 +31,26 @@ function isConfirmed(f: FormateurProfile): boolean {
   return f.status === 'confirmed';
 }
 
+/** Intervenants IA (Laure) — inchangé pour les fiches NIV. */
+export function getIaFormateurs(): readonly FormateurProfile[] {
+  return CONFIRMED_FORMATEURS;
+}
+
+/** Cinq profils hub catalogue parcours métiers. */
+export function getCatalogueFormateurs(): readonly FormateurProfile[] {
+  return CATALOGUE_FORMATEURS;
+}
+
 /**
- * Formateurs à afficher selon l’environnement.
- * Public / production : confirmés uniquement.
- * Dev local : confirmés + démo.
+ * Formateurs à afficher sur les pages parcours / domaine catalogue.
+ * Laure (IA) + intervenants métier 2027.
  */
 export function getVisibleFormateurs(): readonly FormateurProfile[] {
-  if (!isFormateursDemoPreviewEnabled()) {
-    return CONFIRMED_FORMATEURS;
-  }
-  return [...CONFIRMED_FORMATEURS, ...DEMO_FORMATEURS];
+  return [...CONFIRMED_FORMATEURS, ...CATALOGUE_FORMATEURS];
 }
 
 export function getConfirmedFormateurs(): readonly FormateurProfile[] {
-  return CONFIRMED_FORMATEURS;
+  return getVisibleFormateurs().filter(isConfirmed);
 }
 
 export function getFormateurById(id: FormateurId): FormateurProfile | undefined {
@@ -70,6 +78,7 @@ export function getFormateursForMetier(
   const out: FormateurProfile[] = [];
   for (const domaineId of domaines) {
     for (const f of getFormateursForDomaine(domaineId)) {
+      if (f.animatesAllPublished && metierId !== 'referent-ia') continue;
       if (seen.has(f.id)) continue;
       seen.add(f.id);
       out.push(f);
@@ -95,7 +104,7 @@ export function getFormateursForFormationCode(
   });
 }
 
-/** Liens formations catalogue pour une carte formateur (codes publiés uniquement). */
+/** Liens formations catalogue IA (codes NIV publiés uniquement). */
 export function getFormateurFormationLinks(
   formateur: FormateurProfile,
   at: Date = new Date(),
@@ -123,10 +132,41 @@ export function getFormateurFormationLinks(
   return links;
 }
 
+/** Liens modules catalogue 2027 — titres et statuts depuis `data/catalogue-2027`. */
+export function getFormateurModuleLinks(
+  formateur: FormateurProfile,
+): readonly FormateurModuleLink[] {
+  const codes = formateur.moduleCodes ?? [];
+  const links: FormateurModuleLink[] = [];
+  for (const code of codes) {
+    const mod = getModuleByCode(code);
+    if (!mod) continue;
+    const formationHint = `${mod.code} — ${mod.titre}`;
+    const href =
+      mod.href ??
+      catalogueDemandeHref({
+        formationOuParcours: formationHint,
+        nature: 'choix-formation',
+      });
+    links.push({
+      code: mod.code,
+      titre: mod.titre,
+      href,
+      ctaLabel: mod.href ? 'Voir le programme' : 'Demander le programme',
+      disponibiliteLabel: libelleDisponibilite(mod.disponibilite),
+      dureeLabel: mod.variantesDureeHeures
+        ? `${mod.variantesDureeHeures.join(' h ou ')} h`
+        : `${mod.dureeHeures} h`,
+    });
+  }
+  return links;
+}
+
 export function hasVisibleFormateurs(): boolean {
   return getVisibleFormateurs().length > 0;
 }
 
+/** @deprecated Plus de profils démo — conservé pour compatibilité des imports. */
 export function isFormateursDemoActive(): boolean {
-  return isFormateursDemoPreviewEnabled();
+  return false;
 }

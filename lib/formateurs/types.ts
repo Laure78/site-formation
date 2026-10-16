@@ -1,12 +1,13 @@
-import type { DomaineId } from '@/data/catalogue-2027';
+import type { DomaineId, ModuleCode } from '@/data/catalogue-2027';
 
 /** Identifiants stables — ne pas changer une fois publiés. */
 export type FormateurId =
   | 'laure-olivie'
   | 'julien-morel'
-  | 'claire-delmas'
+  | 'thomas-garnier'
+  | 'marc-delcourt'
   | 'nicolas-perrin'
-  | 'sophie-laurent';
+  | 'claire-rousseau';
 
 /**
  * Portrait — photo réelle (confirmé) ou avatar initiales (démo / slot).
@@ -29,9 +30,17 @@ export type FormateurPortrait =
 
 export type FormateurStatus = 'confirmed' | 'demo';
 
+export type FormateurExperienceStep = {
+  /** Ex. « 10 ans » — optionnel. */
+  periode?: string;
+  titre: string;
+  detail?: string;
+};
+
 /**
  * Profil formateur — source unique (biographies non dupliquées ailleurs).
  * `formationCodes` : codes catalogue `NIV-*` (liens résolus via `data/formations`).
+ * `moduleCodes` : modules catalogue 2027 (`TRA-01`, etc.).
  */
 export type FormateurProfile = {
   id: FormateurId;
@@ -43,8 +52,14 @@ export type FormateurProfile = {
   specialites: readonly string[];
   /** Domaines catalogue 2027 — section « Les formateurs de ce domaine ». */
   domaineIds: readonly DomaineId[];
-  /** Codes formation catalogue associés (hors sessions LMS). */
+  /** Codes formation catalogue IA NIV (Laure). */
   formationCodes: readonly string[];
+  /** Modules catalogue parcours métiers 2027. */
+  moduleCodes?: readonly ModuleCode[];
+  /** Parcours professionnel — affiché sur la fiche hub. */
+  experiences?: readonly FormateurExperienceStep[];
+  /** Formations et certifications professionnelles. */
+  formationsProfessionnelles?: readonly string[];
   /** Si true, associée à toutes les formations publiées du catalogue NIV. */
   animatesAllPublished?: boolean;
   portrait: FormateurPortrait;
@@ -58,4 +73,13 @@ export type FormateurFormationLink = {
   titre: string;
   href: string;
   duree: string;
+};
+
+export type FormateurModuleLink = {
+  code: string;
+  titre: string;
+  href: string;
+  ctaLabel: 'Demander le programme' | 'Voir le programme';
+  disponibiliteLabel: string;
+  dureeLabel: string;
 };

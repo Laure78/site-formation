@@ -287,11 +287,6 @@ const BASE_HEADER_NAV: readonly HeaderNavItem[] = [
     isActive: ressourcesNavActive,
     children: [
       {
-        href: LINKS.ressources,
-        label: 'Voir toutes les ressources',
-        title: 'Hub ressources IA pour le BTP',
-      },
-      {
         href: `${LINKS.ressources}#guides-pdf`,
         label: 'Guides pratiques IA BTP',
         title: 'Guides PDF gratuits par métier',
@@ -335,7 +330,7 @@ const BASE_HEADER_NAV: readonly HeaderNavItem[] = [
       {
         href: LINKS.formateurs,
         label: 'Nos formateurs',
-        title: 'Formateurs OFC — formations IA pour le BTP',
+        title: 'Formateurs OFC — parcours métiers et IA BTP',
       },
       {
         href: LINKS.avisClients,

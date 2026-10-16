@@ -1,36 +1,47 @@
 /**
- * Garde-fou : les profils démo ne doivent jamais s’activer hors development.
+ * Garde-fou : profils catalogue publics + Laure IA, sans profils démo fictifs.
  * Usage : `node scripts/check-formateurs-demo-isolation.mjs`
  */
 import assert from 'node:assert/strict';
 
-function isFormateursDemoPreviewEnabled(nodeEnv) {
-  return nodeEnv === 'development';
-}
-
-const DEMO_IDS = [
+const CATALOGUE_IDS = [
   'julien-morel',
-  'claire-delmas',
+  'thomas-garnier',
+  'marc-delcourt',
   'nicolas-perrin',
-  'sophie-laurent',
+  'claire-rousseau',
 ];
 
-function visibleIds(nodeEnv) {
-  const confirmed = ['laure-olivie'];
-  if (!isFormateursDemoPreviewEnabled(nodeEnv)) return confirmed;
-  return [...confirmed, ...DEMO_IDS];
+const IA_IDS = ['laure-olivie'];
+
+const REMOVED_DEMO_IDS = ['claire-delmas', 'sophie-laurent'];
+
+function visibleHubIds() {
+  return CATALOGUE_IDS;
 }
 
-for (const env of ['production', 'test', 'preview', undefined, '']) {
-  const ids = visibleIds(env);
-  assert.deepEqual(ids, ['laure-olivie'], `env=${env} doit être confirmé seul`);
+function visibleAllIds() {
+  return [...IA_IDS, ...CATALOGUE_IDS];
+}
+
+assert.equal(visibleHubIds().length, 5);
+assert.equal(
+  visibleHubIds().filter((id) => id === 'claire-rousseau').length,
+  1,
+  'une seule femme sur le hub',
+);
+assert.equal(
+  visibleHubIds().filter((id) => id !== 'claire-rousseau').length,
+  4,
+  'quatre hommes sur le hub',
+);
+
+for (const removed of REMOVED_DEMO_IDS) {
   assert.equal(
-    ids.some((id) => DEMO_IDS.includes(id)),
+    visibleAllIds().includes(removed),
     false,
-    `env=${env} ne doit pas exposer la démo`,
+    `${removed} ne doit plus être exposé`,
   );
 }
 
-assert.deepEqual(visibleIds('development'), ['laure-olivie', ...DEMO_IDS]);
-
-console.log('OK — isolation démo formateurs (development only)');
+console.log('OK — formateurs catalogue (5 profils publics + Laure IA)');
