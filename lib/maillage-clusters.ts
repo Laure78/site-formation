@@ -211,9 +211,9 @@ const METIER_CLUSTER: Record<string, MetierClusterEntry> = {
       description: 'Session 4 h devis, CR, emails — Qualiopi.',
     },
     blog: {
-      href: '/blog/ia-et-electricien-5-gains-de-temps-concrets',
-      label: 'IA et électricien : 5 gains de temps concrets',
-      description: 'Article blog — usages ChatGPT sur le lot électricité.',
+      href: LINKS.blogChatgptBtp7LeviersProductivite2026,
+      label: '7 leviers de productivité ChatGPT pour le BTP',
+      description: 'Article blog — usages concrets ChatGPT au quotidien sur chantier et bureau.',
     },
     hubAnchor: 'Hub formation IA BTP — tous les métiers',
   },
