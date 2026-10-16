@@ -40,19 +40,19 @@ const PAGES = [
     path: '/formations/ia-appels-offre-btp',
     titleSegment: 'Formation IA appels d\u2019offres BTP | DCE',
     description:
-      'Formation IA appels d\u2019offres BTP : analyser un DCE, préparer le chiffrage et rédiger un mémoire technique avec l\u2019IA. 4 h présentiel Île-de-France, Qualiopi.',
+      'Formation IA appels d\u2019offres BTP : analyser un DCE, préparer le chiffrage et rédiger un mémoire technique avec l\u2019IA. 7 h présentiel Île-de-France, Qualiopi.',
   },
   {
     path: '/formations/ia-conduite-travaux-suivi-chantier',
     titleSegment: 'Formation IA suivi de chantier : CR, CCTP',
     description:
-      'Formation IA suivi de chantier : CR, CCTP et DOE avec Claude sur vos documents BTP. 4 h présentiel Île-de-France, Qualiopi, financement OPCO selon éligibilité.',
+      'Formation IA suivi de chantier : CR, CCTP et DOE avec Claude sur vos documents BTP. 7 h présentiel Île-de-France, Qualiopi, financement OPCO selon éligibilité.',
   },
   {
     path: '/formations/maitriser-claude-ai-btp',
     titleSegment: 'Formation Claude AI BTP | Projects & Cowork',
     description:
-      'Formation Claude AI BTP : Projects, Cowork, Skills et connecteurs sur vos dossiers chantier. 4 h présentiel IDF, Qualiopi, financement OPCO selon éligibilité.',
+      'Formation Claude AI BTP : Projects, Cowork, Skills et connecteurs sur vos dossiers chantier. 7 h présentiel IDF, Qualiopi, financement OPCO selon éligibilité.',
   },
   {
     path: '/formation-ia-btp-ile-de-france',
@@ -114,6 +114,12 @@ const PAGES = [
     titleSegment: 'Créer une application BTP IA sans coder',
     description:
       'Formation IA pour le BTP : concevoir, développer et déployer une application métier sans coder. Créez vos propres outils de gestion adaptés à votre entreprise.',
+  },
+  {
+    path: '/formation-ia-electricien-btp',
+    titleSegment: 'Formation IA électricien BTP · IDF',
+    description:
+      'Formation IA électricien BTP : devis, CONSUEL et mémoires AO. Présentiel Île-de-France, Qualiopi, financement OPCO selon éligibilité. Visio découverte gratuite.',
   },
 ];
 

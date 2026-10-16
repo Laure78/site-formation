@@ -43,12 +43,12 @@ function sommaireForConfig(config: FormationIaMetierBtpConfig) {
     { href: '#temoignage', label: 'Témoignage' },
     { href: '#faq', label: 'FAQ' },
     { href: '#liens-internes', label: 'Liens utiles' },
-    { href: '#rdv-1', label: 'Calendly — rendez-vous découverte (1)' },
-    { href: '#rdv-2', label: 'Calendly — visio & financement (2)' },
+    { href: '#rdv-1', label: 'Visio découverte gratuite' },
+    { href: '#rdv-2', label: 'Financement et inscription' },
   ];
   if (config.showAuthorBio) {
     base.push(
-      { href: '#rdv-3', label: 'Calendly — dernier rappel (3)' },
+      { href: '#rdv-3', label: 'Prendre rendez-vous' },
       { href: '#auteur', label: 'Laure Olivié — formatrice' },
     );
   }

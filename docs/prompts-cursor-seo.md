@@ -74,7 +74,7 @@ Prompt page métier :
 Meta avec « formation IA pour le BTP » ou variante pilier. H1 = mot-clé + IDF si landing géo.
 CTA = libellé CTA_RDV_LABEL uniquement. »
 
-Script suggéré : scripts/audit-meta-lengths.mjs (à créer) sur app/**/page.tsx exports metadata.
+Scripts : `npm run audit:meta-lengths` (audit-page-metadata.mjs + check-meta-lengths.mjs) · `npm run check:meta` (pages clés).
 ```
 
 ---

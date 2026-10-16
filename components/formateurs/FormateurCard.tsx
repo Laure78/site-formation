@@ -3,6 +3,7 @@ import { FormateurPortraitView } from '@/components/formateurs/FormateurPortrait
 import {
   getFormateurFormationLinks,
   getFormateurModuleLinks,
+  getFormateurSousDomaineLinks,
   type FormateurProfile,
 } from '@/lib/formateurs';
 import { LINKS } from '@/lib/internal-links';
@@ -53,12 +54,15 @@ export function FormateurCard({
     showFormations && (formateur.moduleCodes?.length ?? 0) > 0
       ? getFormateurModuleLinks(formateur)
       : [];
+  const sousDomaineLinks =
+    showFormations && hubVariant ? getFormateurSousDomaineLinks(formateur) : [];
   const nivLinks =
     showFormations && moduleLinks.length === 0
       ? getFormateurFormationLinks(formateur, new Date(), { hub: hubVariant })
       : [];
   const formationsSectionTitle =
-    formateur.formationsHubLabel ?? 'Formations associées';
+    formateur.formationsHubLabel ??
+    (formateur.profileDraft ? 'Modules du catalogue (intervenant à confirmer)' : 'Formations associées');
   const portraitSize =
     hubVariant && formateur.featuredOnHub ? ('lg' as const) : ('md' as const);
   const shownNiv =
@@ -104,6 +108,12 @@ export function FormateurCard({
             <p className="mt-1 text-base font-medium leading-snug text-ofc-accent text-pretty">
               {formateur.intitule}
             </p>
+            {formateur.profileDraft ? (
+              <p className="mt-2 rounded-lg border border-amber-200/80 bg-amber-50 px-3 py-2 text-sm leading-snug text-amber-950">
+                Fiche en cours de validation — identité, parcours et association aux
+                formations à confirmer avant publication définitive.
+              </p>
+            ) : null}
             {experienceLine ? (
               <p className="mt-2 text-sm font-medium text-ofc-ink">{experienceLine}</p>
             ) : null}
@@ -133,24 +143,52 @@ export function FormateurCard({
           <p className="mt-4 text-sm text-ofc-ink-muted">{formateur.modalite}</p>
         ) : null}
 
-        {moduleLinks.length > 0 && showFormations ? (
+        {(moduleLinks.length > 0 || sousDomaineLinks.length > 0) && showFormations ? (
           <div className="mt-5 border-t border-ofc-border pt-5">
             <h4 className="text-sm font-semibold text-ofc-ink">{formationsSectionTitle}</h4>
-            <ul className="mt-3 space-y-3">
-              {moduleLinks.map((m) => (
-                <li key={m.code} className="text-base">
-                  <p className="font-medium leading-snug text-ofc-ink text-pretty">{m.titre}</p>
-                  <Link
-                    href={m.href}
-                    className={`${OFC_LINK} mt-1 inline-flex min-h-11 items-center text-sm font-semibold`}
-                  >
-                    {m.ctaLabel === 'Demander le programme'
-                      ? 'Demander le programme'
-                      : 'Voir le programme'}
-                  </Link>
-                </li>
-              ))}
-            </ul>
+            {moduleLinks.length > 0 ? (
+              <ul className="mt-3 space-y-3">
+                {moduleLinks.map((m) => (
+                  <li key={m.code} className="text-base">
+                    <p className="font-medium leading-snug text-ofc-ink text-pretty">{m.titre}</p>
+                    <p className="mt-0.5 text-sm text-ofc-ink-muted">
+                      {m.disponibiliteLabel}
+                      <span aria-hidden> · </span>
+                      {m.dureeLabel}
+                    </p>
+                    <Link
+                      href={m.href}
+                      className={`${OFC_LINK} mt-1 inline-flex min-h-11 items-center text-sm font-semibold`}
+                    >
+                      {m.ctaLabel === 'Demander le programme'
+                        ? 'Demander le programme'
+                        : 'Voir le programme'}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            ) : null}
+            {sousDomaineLinks.length > 0 ? (
+              <ul className={`space-y-3 ${moduleLinks.length > 0 ? 'mt-4 border-t border-ofc-border pt-4' : 'mt-3'}`}>
+                {sousDomaineLinks.map((sd) => (
+                  <li key={sd.id} className="text-base">
+                    <p className="text-xs font-semibold uppercase tracking-wide text-ofc-ink-muted">
+                      Sous-domaine catalogue
+                    </p>
+                    <p className="mt-1 font-medium leading-snug text-ofc-ink text-pretty">{sd.titre}</p>
+                    {sd.note ? (
+                      <p className="mt-1 text-sm leading-snug text-ofc-ink-muted">{sd.note}</p>
+                    ) : null}
+                    <Link
+                      href={sd.href}
+                      className={`${OFC_LINK} mt-1 inline-flex min-h-11 items-center text-sm font-semibold`}
+                    >
+                      Voir sur le catalogue
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            ) : null}
           </div>
         ) : null}
 

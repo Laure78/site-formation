@@ -5,6 +5,7 @@ export type {
   FormateurModuleLink,
   FormateurPortrait,
   FormateurProfile,
+  FormateurSousDomaineLink,
   FormateurStatus,
 } from '@/lib/formateurs/types';
 export {
@@ -19,6 +20,7 @@ export {
   getFormateurBySlug,
   getFormateurFormationLinks,
   getFormateurModuleLinks,
+  getFormateurSousDomaineLinks,
   getFormateursForDomaine,
   getFormateursForFormationCode,
   getFormateursForMetier,

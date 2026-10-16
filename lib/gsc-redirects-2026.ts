@@ -74,6 +74,16 @@ const FORMATION_IA_HUB_SLUG_DEST: Record<string, string> = {
   'beton-fondations': '/formation-ia-gros-oeuvre-btp',
   'vrd-pavage': '/formation-ia-travaux-publics',
   terrassement: '/formation-ia-travaux-publics',
+  'demolition-desamiantage': '/formation-ia-gros-oeuvre-btp',
+  'photovoltaique-irve': '/formation-ia-electricien-btp',
+  'securite-incendie-ssi': '/formation-ia-electricien-btp',
+  'domotique-gtb': '/formation-ia-electricien-btp',
+  'renovation-energetique': '/formation-ia-genie-climatique-btp',
+  'ravalement-facade-ite': '/formation-ia-peintre-btp',
+  'bardage-facades': '/formation-ia-etancheur-btp',
+  'sols-souples-parquet': '/formation-ia-menuisier-btp',
+  'renovation-interieure': '/formation-ia-btp',
+  'ascenseurs-monte-charges': '/formation-ia-btp',
 };
 
 const FORMATION_IA_BTP_PILLAR = '/formation-ia-btp' as const;

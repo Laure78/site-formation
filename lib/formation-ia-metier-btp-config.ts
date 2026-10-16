@@ -4,6 +4,11 @@
 import { CSFE_NOM_LIBRE } from '@/lib/csfe';
 import { UMB_FFB_NOM_LIBRE } from '@/lib/umb-ffb';
 import { withMetierBtpIdfTitle } from '@/lib/formation-ia-metier-idf';
+import {
+  FORMATION_IA_ELECTRICIEN_BTP_H1,
+  FORMATION_IA_ELECTRICIEN_BTP_META_DESCRIPTION,
+  FORMATION_IA_ELECTRICIEN_BTP_META_TITLE,
+} from '@/lib/formation-ia-electricien-btp-seo';
 import { LINKS } from '@/lib/internal-links';
 import { createPageMetadata } from '@/lib/seo';
 import type { Metadata } from 'next';
@@ -29,7 +34,7 @@ export function formationIaMetierBtpMetadata(config: FormationIaMetierBtpConfig)
       alt: `Formation IA appliquée au bâtiment ${config.metierNomTitre} — Qualiopi, Laure Olivié`,
     },
   });
-  if (config.skipIdfTitleOverride) return base;
+  if (config.skipIdfTitleOverride || config.preferCustomTitle) return base;
   return withMetierBtpIdfTitle(base, config.metierNomTitre);
 }
 
@@ -172,10 +177,10 @@ Structure : contexte chantier, observations par zone, réserves factuelles, dema
 export const FORMATION_IA_METIER_ELECTRICIEN: FormationIaMetierBtpConfig = {
   id: 'electricien',
   path: '/formation-ia-electricien-btp',
-  h1: 'Formation IA électricien BTP — ChatGPT, NF C 15-100 & Qualiopi',
-  metaTitle: 'Formation IA électricien BTP — ChatGPT, tableau, CONSUEL',
-  metaDescription:
-    'Formation IA électricien BTP : devis, CONSUEL et mémoires techniques plus sûrs, sous relecture métier. Formation IA pour le BTP. Présentiel IDF, Qualiopi.',
+  h1: FORMATION_IA_ELECTRICIEN_BTP_H1,
+  metaTitle: FORMATION_IA_ELECTRICIEN_BTP_META_TITLE,
+  metaDescription: FORMATION_IA_ELECTRICIEN_BTP_META_DESCRIPTION,
+  preferCustomTitle: true,
   keywords: [
     'formation IA électricien BTP',
     'ChatGPT électricien',
@@ -249,8 +254,8 @@ Rédige un mail de relance pour client [particulier / pro] : rappel du contexte,
       a: `Évitez les plans nominatifs complets dans un outil grand public sans cadre entreprise. Anonymisez, utilisez des extraits, ou des offres professionnelles sans entraînement — c’est enseigné en formation ${OFC}.`,
     },
     {
-      q: 'La formation IA électricien BTP est-elle financement possible selon éligibilité ?',
-      a: `Oui selon éligibilité et dossier : ${OFC} est certifié Qualiopi ; le financement OPCO Constructys suit les règles en vigueur pour les entreprises du BTP.`,
+      q: 'La formation IA électricien BTP est-elle finançable selon éligibilité ?',
+      a: `Oui, selon éligibilité et dossier : ${OFC} est certifié Qualiopi ; le financement OPCO Constructys suit les règles en vigueur pour les entreprises du BTP.`,
     },
     {
       q: 'Quelle différence avec la formation « IA au service du bâtiment » (BTP-01) ?',
@@ -258,7 +263,7 @@ Rédige un mail de relance pour client [particulier / pro] : rappel du contexte,
     },
   ],
   courseName: 'Formation IA électricien BTP — NF C 15-100, Qualiopi',
-  courseDescription: `${OFC} : formation IA et ChatGPT pour électriciens du BTP — devis tableautage, puissance, rapports, mémoires AO, CR et SAV. Référence NF C 15-100. Session 4 h, Qualiopi, financement possible selon éligibilité.`,
+  courseDescription: `${OFC} : formation IA et ChatGPT pour électriciens du BTP — devis tableautage, puissance, rapports, mémoires AO, CR et SAV. Référence NF C 15-100. Sessions catalogue 7 h (bases 4 h), Qualiopi, financement possible selon éligibilité.`,
   courseTeaches: [
     'ChatGPT pour électriciens BTP',
     'Devis et descriptifs tableautage (relecture humaine)',

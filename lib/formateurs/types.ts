@@ -1,4 +1,4 @@
-import type { DomaineId, ModuleCode } from '@/data/catalogue-2027';
+import type { DomaineId, ModuleCode, SousDomaineIaChantierId } from '@/data/catalogue-2027';
 
 /** Identifiants stables — ne pas changer une fois publiés. */
 export type FormateurId =
@@ -7,7 +7,9 @@ export type FormateurId =
   | 'thomas-garnier'
   | 'marc-delcourt'
   | 'nicolas-perrin'
-  | 'claire-rousseau';
+  | 'claire-rousseau'
+  | 'intervenante-assistance-travaux-btp'
+  | 'formateur-coordination-sps';
 
 /**
  * Portrait — photo réelle (confirmé) ou avatar initiales (démo / slot).
@@ -70,6 +72,22 @@ export type FormateurProfile = {
   formationsHubLabel?: string;
   /** Mise en avant sobre sur la page /formateurs. */
   featuredOnHub?: boolean;
+  /**
+   * Fiche hub uniquement — identité ou associations formations non validées ;
+   * exclu des sections « formateurs de ce domaine » sur le catalogue.
+   */
+  hubOnly?: boolean;
+  /**
+   * Identité ou parcours en cours de validation — affiche un encart et adoucit
+   * la présentation (ne pas lire la bio comme un fait établi).
+   */
+  profileDraft?: boolean;
+  /** Sous-domaines IA chantier liés (hub) — hors modules métier animés. */
+  hubSousDomaines?: readonly {
+    id: SousDomaineIaChantierId;
+    /** Ex. coanimation IA avec Laure Olivié — à confirmer. */
+    note?: string;
+  }[];
   /** Modalité pédagogique (ligne sous la bio). */
   modalite?: string;
   portrait: FormateurPortrait;
@@ -92,4 +110,11 @@ export type FormateurModuleLink = {
   ctaLabel: 'Demander le programme' | 'Voir le programme';
   disponibiliteLabel: string;
   dureeLabel: string;
+};
+
+export type FormateurSousDomaineLink = {
+  id: SousDomaineIaChantierId;
+  titre: string;
+  href: string;
+  note?: string;
 };

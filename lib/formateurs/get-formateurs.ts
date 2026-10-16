@@ -2,7 +2,7 @@
  * Accès unique aux formateurs visibles.
  */
 import { formationHref, getFormationByCode } from '@/data/formations';
-import { getModuleByCode } from '@/data/catalogue-2027';
+import { getModuleByCode, getSousDomaineIaChantierById } from '@/data/catalogue-2027';
 import type { DomaineId, MetierId } from '@/data/catalogue-2027';
 import { libelleDisponibilite } from '@/lib/catalogue-2027/search-modules';
 import { CATALOGUE_FORMATEURS } from '@/lib/formateurs/catalogue-formateurs-profiles';
@@ -15,6 +15,7 @@ import type {
   FormateurId,
   FormateurModuleLink,
   FormateurProfile,
+  FormateurSousDomaineLink,
 } from '@/lib/formateurs/types';
 import { catalogueDemandeHref } from '@/lib/training-page-helpers';
 import { getPublishedFormations } from '@/lib/formation-catalogue-visibility';
@@ -39,9 +40,9 @@ export function getIaFormateurs(): readonly FormateurProfile[] {
   return CONFIRMED_FORMATEURS;
 }
 
-/** Cinq profils hub catalogue parcours métiers. */
+/** Profils catalogue parcours métiers (hub + pages domaine). */
 export function getCatalogueFormateurs(): readonly FormateurProfile[] {
-  return CATALOGUE_FORMATEURS;
+  return CATALOGUE_FORMATEURS.filter((f) => !f.hubOnly);
 }
 
 /** Page /formateurs — Laure en tête, puis les intervenants catalogue 2027. */
@@ -54,7 +55,7 @@ export function getFormateursHubProfiles(): readonly FormateurProfile[] {
  * Laure (IA) + intervenants métier 2027.
  */
 export function getVisibleFormateurs(): readonly FormateurProfile[] {
-  return [...CONFIRMED_FORMATEURS, ...CATALOGUE_FORMATEURS];
+  return [...CONFIRMED_FORMATEURS, ...getCatalogueFormateurs()];
 }
 
 export function getConfirmedFormateurs(): readonly FormateurProfile[] {
@@ -170,6 +171,25 @@ export function getFormateurModuleLinks(
       dureeLabel: mod.variantesDureeHeures
         ? `${mod.variantesDureeHeures.join(' h ou ')} h`
         : `${mod.dureeHeures} h`,
+    });
+  }
+  return links;
+}
+
+/** Liens sous-domaines IA chantier — ancre sur le catalogue /formations. */
+export function getFormateurSousDomaineLinks(
+  formateur: FormateurProfile,
+): readonly FormateurSousDomaineLink[] {
+  const refs = formateur.hubSousDomaines ?? [];
+  const links: FormateurSousDomaineLink[] = [];
+  for (const ref of refs) {
+    const sd = getSousDomaineIaChantierById(ref.id);
+    if (!sd) continue;
+    links.push({
+      id: ref.id,
+      titre: sd.titre,
+      href: `${LINKS.formations}#${sd.slug}`,
+      note: ref.note,
     });
   }
   return links;

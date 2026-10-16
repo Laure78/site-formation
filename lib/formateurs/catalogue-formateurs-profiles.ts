@@ -160,11 +160,11 @@ const CLAIRE_ROUSSEAU: FormateurProfile = {
   nom: 'Rousseau',
   intitule: 'Ancienne chargée d’affaires et dirigeante d’entreprise du bâtiment',
   parcours:
-    'Issue de la gestion d’affaires et de la direction d’entreprise, Claire intervient sur l’organisation administrative des opérations. Elle privilégie des méthodes pratiques pour suivre les pièces, les situations et les relances.',
-  specialites: ['Gestion administrative', 'Facturation', 'Suivi des dossiers'],
+    'Issue de la gestion d’affaires et de la direction d’entreprise, Claire intervient sur le recrutement, l’intégration et les bases de la paie du bâtiment. Elle privilégie des méthodes pratiques pour organiser les processus RH et dialoguer avec le prestataire paie.',
+  specialites: ['Recrutement BTP', 'Intégration', 'Bases de la paie bâtiment'],
   domaineIds: ['administration'],
   formationCodes: [],
-  moduleCodes: moduleCodes(['ADM-01', 'ADM-02']),
+  moduleCodes: moduleCodes(['ADM-03', 'ADM-04']),
   experiences: [
     {
       periode: '14 ans',
@@ -184,11 +184,95 @@ const CLAIRE_ROUSSEAU: FormateurProfile = {
   status: 'confirmed',
 };
 
-/** Hub /formateurs — cinq intervenants catalogue (4 hommes, 1 femme). */
+/** Brouillon hub — identité et association modules à valider avant publication définitive. */
+const INTERVENANTE_ASSISTANCE_TRAVAUX: FormateurProfile = {
+  id: 'intervenante-assistance-travaux-btp',
+  slug: 'intervenante-assistance-travaux-btp',
+  prenom: 'Prénom',
+  nom: 'à compléter',
+  intitule: 'Assistance travaux et suivi administratif des chantiers',
+  parcours:
+    'Intervention prévue sur l’assistance aux conducteurs de travaux, la gestion documentaire et le suivi des pièces sous-traitants, les réunions de chantier et la clôture administrative (situations, relances, éléments DOE). Approche pédagogique : méthodes concrètes pour organiser les documents, suivre les échéances et faciliter les échanges bureau–chantier.',
+  specialites: [
+    'Assistance travaux',
+    'Suivi administratif chantier',
+    'Comptes rendus et réunions',
+  ],
+  domaineIds: ['administration', 'travaux'],
+  formationCodes: [],
+  moduleCodes: moduleCodes(['ADM-01', 'ADM-02', 'TRA-04']),
+  formationsHubLabel: 'Modules du catalogue (intervenant à confirmer)',
+  experiences: [
+    {
+      titre: 'Parcours professionnel',
+      detail:
+        'À compléter : années d’expérience, employeurs et missions d’assistance travaux (non publié tant que non validé).',
+    },
+  ] satisfies readonly FormateurExperienceStep[],
+  formationsProfessionnelles: ['Qualifications et certifications — à compléter'],
+  portrait: {
+    kind: 'initials',
+    initials: 'AT',
+    label: 'Portrait à venir — assistance travaux BTP',
+  },
+  profileDraft: true,
+  hubOnly: true,
+  status: 'confirmed',
+};
+
+/** Brouillon hub — pas de qualification coordonnateur SPS tant que non confirmée. */
+const FORMATEUR_COORDINATION_SPS: FormateurProfile = {
+  id: 'formateur-coordination-sps',
+  slug: 'formateur-coordination-sps',
+  prenom: 'Prénom',
+  nom: 'à compléter',
+  intitule:
+    'Coordination SPS (Sécurité et protection de la santé) et prévention de chantier',
+  parcours:
+    'Intervention prévue sur la coordination de la prévention entre intervenants, l’anticipation des risques de coactivité, la préparation des mesures de prévention et la transmission de consignes compréhensibles. Ce profil ne vise pas une habilitation coordonnateur SPS : les modules portent sur la contribution à la prévention et la préparation documentaire, avec validation par les personnes compétentes.',
+  specialites: [
+    'Coordination de la prévention',
+    'Risques et coactivité',
+    'Accueil sécurité et consignes',
+  ],
+  domaineIds: ['technique-qualite-prevention'],
+  formationCodes: [],
+  moduleCodes: moduleCodes(['TQP-01']),
+  hubSousDomaines: [
+    {
+      id: 'securite-prevention-chantier-ia',
+      note:
+        'Sous-domaine IA : coanimation avec Laure Olivié — organisation pédagogique à confirmer.',
+    },
+  ],
+  formationsHubLabel: 'Modules du catalogue (intervenant à confirmer)',
+  experiences: [
+    {
+      titre: 'Parcours professionnel',
+      detail:
+        'À compléter : expérience en coordination SPS ou prévention chantier, employeurs et titres (non publié tant que non validé).',
+    },
+  ] satisfies readonly FormateurExperienceStep[],
+  formationsProfessionnelles: [
+    'Titres sécurité / coordination SPS — à compléter et vérifier',
+  ],
+  portrait: {
+    kind: 'initials',
+    initials: 'SPS',
+    label: 'Portrait à venir — coordination SPS et prévention',
+  },
+  profileDraft: true,
+  hubOnly: true,
+  status: 'confirmed',
+};
+
+/** Hub /formateurs — intervenants catalogue + fiches brouillon hub-only. */
 export const CATALOGUE_FORMATEURS: readonly FormateurProfile[] = [
   JULIEN_MOREL,
   THOMAS_GARNIER,
   MARC_DELCOURT,
   NICOLAS_PERRIN,
   CLAIRE_ROUSSEAU,
+  INTERVENANTE_ASSISTANCE_TRAVAUX,
+  FORMATEUR_COORDINATION_SPS,
 ];

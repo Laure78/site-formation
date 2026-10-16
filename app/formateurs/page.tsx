@@ -21,7 +21,7 @@ export const revalidate = 3600;
 const PAGE_TITLE =
   'Les formateurs et leurs domaines d’intervention | Laure Olivié';
 const PAGE_DESCRIPTION =
-  'Spécialités des formateurs BTP : IA, travaux, commercial, direction, management et administration. Programmes en présentiel en Île-de-France — OFC Qualiopi.';
+  'Spécialités des formateurs BTP : IA, travaux, commercial, direction, management, administration et prévention. Programmes en présentiel en Île-de-France — OFC Qualiopi.';
 
 export const metadata: Metadata = {
   ...createPageMetadata({

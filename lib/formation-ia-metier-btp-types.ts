@@ -52,6 +52,8 @@ export type FormationIaMetierBtpConfig = {
   essentielItems?: readonly string[];
   /** Titre HTML figé — ne pas remplacer par « Formation IA {métier} BTP en Île-de-France ». */
   skipIdfTitleOverride?: boolean;
+  /** Garde metaTitle / titleAbsolute custom (ex. titre court ≤ 60 car.). */
+  preferCustomTitle?: boolean;
   /** Encadré « Vous êtes plutôt… » — page sœur (un seul lien vers cette URL). */
   sisterEncart?: {
     currentAudience: string;

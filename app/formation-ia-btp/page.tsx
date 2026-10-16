@@ -27,6 +27,12 @@ import {
   FORMATION_IA_BTP_PILLAR_PATH,
   FORMATION_IA_BTP_PILLAR_TITLE,
 } from '@/lib/formation-ia-btp-pillar-content';
+import {
+  FORMATION_IA_BTP_PILLAR_ADMIN_TIME_LEAD,
+  FORMATION_IA_BTP_PILLAR_AVIS_CLIENTS_CTA,
+  FORMATION_IA_BTP_PILLAR_RESULTS_TABLE_TITLE,
+  FORMATION_IA_BTP_PILLAR_TESTIMONIALS,
+} from '@/lib/formation-ia-btp-pillar-social-proof';
 import { getPillarPageContentUpdatedAt } from '@/lib/content-updated-at';
 import { ContentUpdatedLine } from '@/components/seo/ContentUpdatedLine';
 import { PHOTOS } from '@/lib/photos';
@@ -305,13 +311,7 @@ export default function FormationIaBtpPillarPage() {
           <h2 className="font-display text-2xl font-bold text-slate-900">
             Pourquoi les PME du bâtiment perdent du temps sur l&apos;administratif
           </h2>
-          <p>
-            Un conducteur de travaux passe en moyenne <strong>12 heures par semaine</strong> sur des tâches
-            administratives répétitives : comptes rendus de chantier, relances clients, préparation de devis, lecture
-            de CCTP pour répondre à des appels d&apos;offres. Un chargé d&apos;affaires dans une PME du bâtiment en
-            Île-de-France peut consacrer jusqu&apos;à deux jours entiers à rédiger un mémoire technique — pour un seul
-            marché.
-          </p>
+          <p>{FORMATION_IA_BTP_PILLAR_ADMIN_TIME_LEAD}</p>
           <p>
             Ces heures ne sont pas des heures improductives. Ce sont des heures que vous n&apos;avez pas passées sur le
             terrain, à développer votre activité, à former vos équipes ou simplement à avoir une vie en dehors du
@@ -425,7 +425,9 @@ export default function FormationIaBtpPillarPage() {
           </RevealGroup>
 
           <Reveal>
-          <h3 className="not-prose mt-12 font-display text-xl font-bold text-slate-900">Résultats mesurés après la formation</h3>
+          <h3 className="not-prose mt-12 font-display text-xl font-bold text-slate-900">
+            {FORMATION_IA_BTP_PILLAR_RESULTS_TABLE_TITLE}
+          </h3>
           <div className="not-prose mt-4 overflow-x-auto rounded-xl border border-slate-200">
             <table className="min-w-full border-collapse text-left text-sm text-slate-700">
               <thead className="bg-slate-100 font-semibold text-slate-900">
@@ -624,43 +626,22 @@ export default function FormationIaBtpPillarPage() {
           <Reveal>
           <h2 className="font-display text-2xl font-bold text-slate-900">Ce que disent les participants</h2>
           </Reveal>
+          <p className="mt-4 text-slate-700">
+            <Link href={FORMATION_IA_BTP_PILLAR_AVIS_CLIENTS_CTA.href} className="font-semibold text-[var(--accent)] hover:underline">
+              {FORMATION_IA_BTP_PILLAR_AVIS_CLIENTS_CTA.label}
+            </Link>
+            .
+          </p>
           <RevealGroup className="mt-8 space-y-6" staggerMs={45}>
-            <blockquote className="rounded-2xl border-l-4 border-[var(--accent)] bg-slate-50 p-6 text-slate-800">
-              <p className="italic">
-                « J&apos;ai utilisé ChatGPT pour analyser un CCTP de 95 pages lors de notre session avec la FFB. En 15
-                minutes, j&apos;avais les points clés et les clauses à risque. Avant, j&apos;aurais passé une
-                demi-journée là-dessus. »
-              </p>
-              <footer className="mt-3 text-sm font-semibold text-slate-600">
-                — Marc T., conducteur de travaux, PME BTP Île-de-France
-              </footer>
-            </blockquote>
-            <blockquote className="rounded-2xl border-l-4 border-[var(--accent)] bg-slate-50 p-6 text-slate-800">
-              <p className="italic">
-                « La partie sur les mémoires techniques a tout changé pour nous. On répond à 2 fois plus d&apos;AO
-                qu&apos;avant avec la même équipe. Le dossier Constructys a été monté avec l&apos;accompagnement OFC, selon les règles en vigueur. »
-              </p>
-              <footer className="mt-3 text-sm font-semibold text-slate-600">
-                — Sophie R., chargée d&apos;affaires, entreprise de second œuvre 78
-              </footer>
-            </blockquote>
-            <blockquote className="rounded-2xl border-l-4 border-[var(--accent)] bg-slate-50 p-6 text-slate-800">
-              <p className="italic">
-                « Je ne suis pas du tout à l&apos;aise avec l&apos;informatique. Laure m&apos;a montré que ChatGPT,
-                c&apos;est juste écrire en français normal. En une journée, j&apos;avais mes 3 premiers devis rédigés
-                avec l&apos;IA. »
-              </p>
-              <footer className="mt-3 text-sm font-semibold text-slate-600">
-                — Éric B., gérant, PME maçonnerie Grand Paris
-              </footer>
-            </blockquote>
-            <blockquote className="rounded-2xl border-l-4 border-[var(--accent)] bg-slate-50 p-6 text-slate-800">
-              <p className="italic">
-                « Formation très concrète, vocabulaire BTP, aucun jargon tech. Les équipes sont reparties avec des
-                prompts directement utilisables le lendemain matin sur les chantiers. »
-              </p>
-              <footer className="mt-3 text-sm font-semibold text-slate-600">— Directeur formation, FFB Île-de-France</footer>
-            </blockquote>
+            {FORMATION_IA_BTP_PILLAR_TESTIMONIALS.map((item) => (
+              <blockquote
+                key={item.attribution}
+                className="rounded-2xl border-l-4 border-[var(--accent)] bg-slate-50 p-6 text-slate-800"
+              >
+                <p className="italic">{item.quote}</p>
+                <footer className="mt-3 text-sm font-semibold text-slate-600">— {item.attribution}</footer>
+              </blockquote>
+            ))}
           </RevealGroup>
           <Reveal className="not-prose mt-10 rounded-2xl border border-slate-200 bg-white p-6 text-slate-700">
             <p className="font-display font-semibold text-slate-900">Mes chiffres</p>
