@@ -1,6 +1,7 @@
 /**
  * Landing `/formation-ia-conducteur-de-travaux` — cluster SEO métier CDT.
  */
+import { dureeCatalogueParCode } from '@/lib/catalogue-duree-copy';
 import { FINANCEMENT_FORMULATION_PRUDENTE } from '@/lib/financement-copy';
 import { LINKS } from '@/lib/internal-links';
 import type { SeoClusterPageConfig } from '@/lib/seo-cluster-landing-types';
@@ -88,7 +89,7 @@ export const FORMATION_IA_CONDUCTEUR_DE_TRAVAUX_CONFIG: SeoClusterPageConfig = {
     },
     {
       q: 'Quelle durée et quel format ?',
-      a: 'Session catalogue de 4 heures en présentiel. Programme NIV-03 conduite de travaux disponible en catalogue.',
+      a: `Session catalogue ${dureeCatalogueParCode('NIV-03')} en présentiel. Programme NIV-03 conduite de travaux disponible en catalogue.`,
     },
     {
       q: 'Financement OPCO possible ?',

@@ -3,11 +3,13 @@
 import { useState } from 'react';
 import { ChevronRight, Plus, Minus } from 'lucide-react';
 
-/** Programme session unique 4 h — thèmes TP condensés (consultations, chantier, industrialisation). */
+import { dureeCatalogueNiv01 } from '@/lib/catalogue-duree-copy';
+
+/** Programme NIV-01 — thèmes TP condensés (consultations, chantier, industrialisation). */
 const PROGRAMME_SECTIONS = [
   {
     id: 'session-4h',
-    label: 'Session 4 h — Travaux publics (consultations, chantier, industrialisation)',
+    label: `Session ${dureeCatalogueNiv01()} — Travaux publics (consultations, chantier, industrialisation)`,
     public:
       'Format catalogue : une demi-journée. Ateliers pratiques et trames réutilisables — même exigence Qualiopi.',
     modules: [

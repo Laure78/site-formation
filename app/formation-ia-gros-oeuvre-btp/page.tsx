@@ -16,6 +16,7 @@ import { VousEtesPlutotEncart } from '@/components/landing/VousEtesPlutotEncart'
 import { LINKS } from '@/lib/internal-links';
 import { createPageMetadata } from '@/lib/seo';
 import { CtaButton } from '@/components/CtaButton';
+import { phraseSessionCatalogueMetierQualiopi } from '@/lib/catalogue-duree-copy';
 import { TARIF_FORFAIT_DEBUTANT_HT } from '@/lib/tarifs-sessions';
 import { PROOF } from '@/lib/proof';
 import {
@@ -65,7 +66,7 @@ const SOMMAIRE = [
 
 const ESSENTIEL = [
   'Entreprises de gros œuvre en Île-de-France : DCE, planning et coordination des lots — présentiel uniquement.',
-  'Session 4 h · organisme certifié Qualiopi : brouillons encadrés, relecture humaine — l’IA ne tranche pas la conformité.',
+  `${phraseSessionCatalogueMetierQualiopi()} : brouillons encadrés, relecture humaine — l’IA ne tranche pas la conformité.`,
   `${formatNoteSatisfactionAffichageComplet()}.`,
   'Financement OPCO Constructys possible selon éligibilité — sessions en présentiel uniquement.',
 ] as const;

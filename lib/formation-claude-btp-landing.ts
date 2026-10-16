@@ -1,6 +1,7 @@
 /**
  * Landing `/formations/maitriser-claude-ai-btp` — cluster SEO outil Claude AI.
  */
+import { dureeCatalogueParCode } from '@/lib/catalogue-duree-copy';
 import { FINANCEMENT_FORMULATION_PRUDENTE } from '@/lib/financement-copy';
 import { LINKS } from '@/lib/internal-links';
 import type { SeoClusterPageConfig } from '@/lib/seo-cluster-landing-types';
@@ -34,7 +35,7 @@ export const FORMATION_CLAUDE_BTP_CONFIG: SeoClusterPageConfig = {
   subtitle:
     'Analyse documentaire, DCE, documents longs et assistants métier avec Claude Chat, Projects et Cowork — formation pratique en présentiel.',
   shortAnswer:
-    'Formation Claude BTP : Chat, Projects, analyse PDF/DCE, mémoire technique et workflows métiers. Session 4 h, Qualiopi, présentiel Île-de-France.',
+    `Formation Claude BTP : Chat, Projects, analyse PDF/DCE, mémoire technique et workflows métiers. Session ${dureeCatalogueParCode('NIV-04')} (NIV-04), Qualiopi, présentiel Île-de-France.`,
   introParagraphs: [
     'Claude AI (Anthropic) se distingue par sa capacité à traiter des documents longs : DCE complets, CCTP, CCAP, dossiers techniques. En BTP, c\'est un outil d\'analyse et de synthèse — pas un substitut à l\'expertise métier.',
     'La formation couvre Claude Chat pour les échanges rapides, Projects pour organiser une base documentaire par client ou par marché, et Cowork pour automatiser des workflows (analyse DCE, plan mémoire). Claude Code peut être abordé pour les équipes qui souhaitent des outils internes simples.',

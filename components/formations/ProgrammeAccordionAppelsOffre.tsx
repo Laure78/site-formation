@@ -1,4 +1,8 @@
-/** Programme NIV-02 — 4 h exactes, accordéon HTML natif. */
+import { getFormationByCode } from '@/data/formations';
+
+const NIV_02_DUREE = getFormationByCode('NIV-02')!.duree;
+
+/** Programme NIV-02 — durée catalogue depuis `data/formations.ts`. */
 const MODULES = [
   {
     title: 'Accueil et cadrage — 15 min',
@@ -62,6 +66,9 @@ const MODULES = [
 export function ProgrammeAccordionAppelsOffre() {
   return (
     <div className="mt-5 space-y-2">
+      <p className="mb-3 text-sm text-slate-600">
+        Durée catalogue : <strong>{NIV_02_DUREE}</strong> · présentiel Île-de-France
+      </p>
       {MODULES.map((mod, index) => (
         <details
           key={mod.title}

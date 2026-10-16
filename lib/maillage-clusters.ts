@@ -149,7 +149,7 @@ function buildGeoSatelliteLinks(slug: string): RelatedLinkItem[] {
     links.push({
       href: LINKS.formationIaParis,
       label: 'Formation IA à Paris — pilier présentiel BTP',
-      description: '4 h sur devis, DCE, mémoires et comptes rendus.',
+      description: `${CATALOGUE_DUREE_BASES_IA_ONLY} sur devis, DCE, mémoires et comptes rendus (NIV-01).`,
     });
   }
   for (const n of neighbors) {

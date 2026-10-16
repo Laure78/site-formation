@@ -5,7 +5,7 @@
 import type { FormationCatalogueCode } from '@/lib/formation-catalogue-visibility';
 import type { TrainingParcoursKind } from '@/lib/training-page-helpers';
 import { LINKS } from '@/lib/internal-links';
-import { getFormationByCode } from '@/data/formations';
+import { getFormationByCode, libelleDureeFormation } from '@/data/formations';
 import {
   DEV_WEB_IA_LIVRABLES,
   DEV_WEB_IA_OBJECTIFS,
@@ -136,7 +136,7 @@ const NIV_01: CatalogueFormationPageContent = {
   heroPublicLine:
     'Dirigeants, conducteurs de travaux, chargés d’affaires, bureaux d’études et fonctions support du BTP.',
   heroFacts: [
-    '4 heures',
+    libelleDureeFormation(NIV_01_FORMATION),
     '70 % de pratique',
     `${NIV_01_FORMATION.effectifMin} à ${NIV_01_FORMATION.effectifMax} participants`,
     'Présentiel en Île-de-France',

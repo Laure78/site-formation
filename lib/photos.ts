@@ -1,3 +1,4 @@
+import { getFormationByCode } from '@/data/formations';
 
 /** Logo header (portrait circulaire bleu) — source unique, format WebP uniquement. */
 export const SITE_HEADER_LOGO_SRC = '/images/laure-avatar-bleu.webp' as const;
@@ -746,7 +747,7 @@ export const PHOTOS = {
     src: '/images/formation-maitriser-claude-ai-btp.webp',
     alt: 'Formation Claude AI BTP : Projects, skills et assistants sur documents chantier',
     description:
-      'Affiche Maîtriser Claude pour le BTP : Projects, compétences, assistants IA et résultats — plans, CCTP, devis et suivi de chantier. Session 4 h, OFC Qualiopi.',
+      `Affiche Maîtriser Claude pour le BTP : Projects, compétences, assistants IA et résultats — plans, CCTP, devis et suivi de chantier. Session ${getFormationByCode('NIV-04')!.duree}, OFC Qualiopi.`,
     title: 'Maîtriser Claude pour le BTP — Projects, skills et assistants',
     width: 1024,
     height: 768,

@@ -18,6 +18,7 @@ import { FAQSchema } from '@/components/seo/FAQSchema';
 import { createPageMetadata } from '@/lib/seo';
 import { buildClaudeAiBtpJsonLdGraph } from '@/lib/claude-ai-btp-jsonld';
 import { SOCIAL_PROOF } from '@/lib/constants';
+import { dureeCatalogueParCode } from '@/lib/catalogue-duree-copy';
 import { LINKS } from '@/lib/internal-links';
 import { OFC_CARD } from '@/lib/ofc-interaction-classes';
 import { PHOTOS } from '@/lib/photos';
@@ -149,7 +150,7 @@ const faqItems = [
   },
   {
     q: 'Cette page est-elle différente de la formation Claude AI BTP catalogue ?',
-    a: 'Oui. Ce guide est informationnel (interfaces, prompts, usages bâtiment et TP). La fiche catalogue « Maîtriser Claude AI pour le BTP » est la session de 4 h (organisme certifié Qualiopi) — Projets, Skills, Cowork, connecteurs et Claude Code.',
+    a: `Oui. Ce guide est informationnel (interfaces, prompts, usages bâtiment et TP). La fiche catalogue « Maîtriser Claude AI pour le BTP » est la session de ${dureeCatalogueParCode('NIV-04')} (organisme certifié Qualiopi) — Projets, Skills, Cowork, connecteurs et Claude Code.`,
   },
   {
     q: 'Peut-on travailler sur nos devis et CCTP réels en formation bâtiment ?',

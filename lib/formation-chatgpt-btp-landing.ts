@@ -1,6 +1,7 @@
 /**
  * Landing `/formation-chatgpt-btp` — cluster SEO « formation ChatGPT BTP ».
  */
+import { dureeCatalogueNiv01 } from '@/lib/catalogue-duree-copy';
 import { FINANCEMENT_FORMULATION_PRUDENTE } from '@/lib/financement-copy';
 import { LINKS } from '@/lib/internal-links';
 import type { SeoClusterPageConfig } from '@/lib/seo-cluster-landing-types';
@@ -35,7 +36,7 @@ export const FORMATION_CHATGPT_BTP_CONFIG: SeoClusterPageConfig = {
   subtitle:
     'Apprenez à utiliser ChatGPT sur vos documents de chantier, devis, emails et dossiers administratifs — en présentiel, avec vos cas réels.',
   shortAnswer:
-    'Formation pratique ChatGPT BTP : comptes rendus, devis, analyse CCTP/CCAP, emails et mémoires techniques. Session 4 h en présentiel Île-de-France, organisme Qualiopi.',
+    `Formation pratique ChatGPT BTP : comptes rendus, devis, analyse CCTP/CCAP, emails et mémoires techniques. Session ${dureeCatalogueNiv01()} en présentiel Île-de-France (NIV-01), organisme Qualiopi.`,
   introParagraphs: [
     "Dans une entreprise du bâtiment, ChatGPT devient utile lorsqu'il est branché sur vos formats métier : compte rendu de chantier, relance client, synthèse de CCTP ou brouillon de mémoire technique. Ce n'est pas un gadget marketing — c'est un assistant de rédaction et de structuration, sous votre relecture.",
     "Un conducteur de travaux peut transformer ses notes de réunion en compte rendu structuré en quelques minutes. Un responsable administratif peut accélérer les courriers récurrents. Un chargé d'affaires peut cadrer la lecture d'un DCE avant la réunion Go/No Go.",

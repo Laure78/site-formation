@@ -16,6 +16,7 @@ import { createPageMetadata, SITE_CONFIG, sitePhoneDisplaySuffix } from '@/lib/s
 import { buildSiteCalendlyCtaUrl } from '@/lib/calendly';
 import { LINKS } from '@/lib/internal-links';
 import { LaureOlivieFormationPortrait } from '@/components/laure-olivie/LaureOlivieFormationPortrait';
+import { phraseSessionCataloguePresentielIdf } from '@/lib/catalogue-duree-copy';
 import { TARIF_SESSION_DEBUTANT_HT } from '@/lib/tarifs-sessions';
 import { RESSOURCES_MINIATURES } from '@/lib/ressources-miniatures';
 
@@ -133,7 +134,7 @@ const FAQ_ITEMS = [
   {
     question: 'Quelle durée et quel format ?',
     answer:
-      'Session catalogue de 4 h, en présentiel uniquement, en Île-de-France uniquement : intra (dans vos locaux) ou inter. On s’appuie sur vos PPSPS, CR, DC4 et suivis de marché réels.',
+      `${phraseSessionCataloguePresentielIdf()} : intra (dans vos locaux) ou inter. On s’appuie sur vos PPSPS, CR, DC4 et suivis de marché réels.`,
   },
   {
     question: 'Quelle différence avec la formation assistante administrative ou de gestion ?',

@@ -16,6 +16,7 @@ import { createPageMetadata, SITE_CONFIG, sitePhoneDisplaySuffix } from '@/lib/s
 import { buildSiteCalendlyCtaUrl } from '@/lib/calendly';
 import { LINKS } from '@/lib/internal-links';
 import { LaureOlivieFormationPortrait } from '@/components/laure-olivie/LaureOlivieFormationPortrait';
+import { phraseSessionCataloguePresentielIdf } from '@/lib/catalogue-duree-copy';
 import { TARIF_SESSION_DEBUTANT_HT } from '@/lib/tarifs-sessions';
 
 import { RenvoiFicheCatalogue } from '@/components/qualiopi/RenvoiFicheCatalogue';
@@ -133,7 +134,7 @@ const FAQ_ITEMS = [
   {
     question: 'Quelle durée et quel format ?',
     answer:
-      'Session catalogue de 4 h, en présentiel uniquement, en Île-de-France uniquement : intra (dans vos locaux) ou inter. Le contenu s’appuie sur vos documents réels (devis toiture, CR, DTU 40.x, AO).',
+      `${phraseSessionCataloguePresentielIdf()} : intra (dans vos locaux) ou inter. Le contenu s’appuie sur vos documents réels (devis toiture, CR, DTU 40.x, AO).`,
   },
   {
     question: "L'IA sait-elle lire un plan de toiture ?",

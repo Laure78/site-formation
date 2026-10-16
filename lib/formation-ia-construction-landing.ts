@@ -11,6 +11,7 @@ import {
   SCHEMA_PUBLIC_SITE_URL,
 } from '@/lib/schema-constants';
 import { buildFormationFicheCourseJsonLd } from '@/lib/schema-formation-course-jsonld';
+import { phraseSessionCataloguePresentielIdf } from '@/lib/catalogue-duree-copy';
 import { MODALITE_FORMATIONS_STANDARD, TARIF_FORFAIT_DEBUTANT_HT } from '@/lib/tarifs-sessions';
 
 export const FORMATION_IA_CONSTRUCTION_PATH = '/formation-ia-construction' as const;
@@ -137,7 +138,7 @@ export const CONSTRUCTION_FAQ = [
   },
   {
     q: 'Quelle durée/format ?',
-    a: `Session catalogue de 4 heures en présentiel — intra (dans vos locaux) ou inter en Île-de-France. ${MODALITE_FORMATIONS_STANDARD} Contenu adapté aux équipes études, direction travaux et fonctions support des entreprises de construction.`,
+    a: `${phraseSessionCataloguePresentielIdf()} — intra (dans vos locaux) ou inter. ${MODALITE_FORMATIONS_STANDARD} Contenu adapté aux équipes études, direction travaux et fonctions support des entreprises de construction.`,
   },
   {
     q: 'Cette formation convient-elle aux ETI et entreprises générales ?',
