@@ -34,7 +34,24 @@ function loadRedirectSources() {
     if (s.includes(':') || s.includes('*') || s.includes('(')) continue;
     sources.add(norm(s));
   }
+  const gscPath = path.join(ROOT, 'lib/gsc-redirects-2026.ts');
+  if (existsSync(gscPath)) {
+    const gsc = readFileSync(gscPath, 'utf8');
+    for (const m of gsc.matchAll(/source:\s*'([^']+)'/g)) {
+      const s = m[1];
+      if (s.includes(':') || s.includes('*') || s.includes('(')) continue;
+      sources.add(norm(s));
+    }
+  }
   return sources;
+}
+
+/** Routes App Router dynamiques reconnues sans énumérer chaque variante. */
+function isKnownDynamicRoute(href) {
+  if (href === '/manifest.webmanifest' || href === '/manifest') return true;
+  if (/^\/blog\/page\/\d+$/.test(href)) return true;
+  if (/^\/blog\/categorie\/[a-z0-9-]+(\/\d+)?$/.test(href)) return true;
+  return false;
 }
 
 const DYNAMIC_DIR = /^\[.+\]$/;
@@ -167,6 +184,7 @@ function classifyHref(href, from, redirectSources, sitemapPaths, known200) {
   const issues = [];
   if (href.startsWith('/api/') || href.startsWith('/admin') || href.startsWith('/auth')) return issues;
   if (href.startsWith('/_next/')) return issues;
+  if (isKnownDynamicRoute(href)) return issues;
   if (/\.(pdf|png|jpe?g|webp|svg|ico|xml|txt|html)$/i.test(href)) {
     if (known200.has(href)) return issues;
     if (/\.(pdf|png|jpe?g|webp|svg|ico|xml|txt)$/i.test(href)) return issues;

@@ -14,7 +14,7 @@
   ],
   "relatedSlugs": [
     "outils-ia-btp-chatgpt-claude-gemini",
-    "confidentialite-donnees-ia-btp",
+    "securite-donnees-chatgpt-btp",
     "5-cas-usage-chatgpt-professionnels du BTP-btp",
     "chatgpt-btp-guide-complet"
   ],
@@ -83,7 +83,7 @@
     {
       "type": "html",
       "title": "Confidentialité et données",
-      "content": "<p>Avant d&apos;insérer des informations réelles sur vos chantiers ou clients, lisez le guide <a href=\"/blog/confidentialite-donnees-ia-btp\" class=\"text-[var(--accent)] font-medium underline\">confidentialité des données et IA dans le BTP</a> : paramètres des comptes, anonymisation et bonnes pratiques RGPD.</p>"
+      "content": "<p>Avant d&apos;insérer des informations réelles sur vos chantiers ou clients, lisez le guide <a href=\"/blog/securite-donnees-chatgpt-btp\" class=\"text-[var(--accent)] font-medium underline\">sécurité des données ChatGPT en entreprise BTP</a> : paramètres des comptes, anonymisation et bonnes pratiques RGPD.</p>"
     },
     {
       "type": "cta",
