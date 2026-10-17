@@ -101,9 +101,22 @@ export const PROMO_OFFRE_FORMATIONS_2027: PromoOffreFormations2027Config = {
   formationPeriodLabel: '2027',
   eligibleProgrammes: [],
   conditions: { ...EMPTY_CONDITIONS },
-  /** Catalogue réel — ancre modules IA BTP (pas de sélection fictive). */
-  ctaHref: `${LINKS.formations}#formations-ia-disponibles`,
+  /** Catalogue — destination par défaut du bandeau informatif et du CTA promo. */
+  ctaHref: LINKS.formations,
 };
+
+/** Bandeau informatif — affiché tant qu’aucune offre promo n’est active en production. */
+export const PROMO_BANNER_INFORMATIONAL = {
+  title: 'Formations 2027',
+  messageLead: 'Développez les compétences de vos équipes avec nos ',
+  messageHighlight: 'formations IA BTP',
+  messageEnd: '.',
+  ctaLabel: 'Je choisis ma formation',
+  ctaHref: LINKS.formations,
+} as const;
+
+/** Fond bandeau — bleu foncé uni (référence capture promo header). */
+export const PROMO_BANNER_BG = '#1a3561' as const;
 
 export function promoDismissStorageKey(offerId: string): string {
   return `ofc-promo-banner-dismissed:${offerId}`;
@@ -168,13 +181,12 @@ export function isPromoOffreLive(
 }
 
 export type PromoBannerVisibility =
-  | { mode: 'hidden'; reason: 'production-inactive' | 'dismissed' }
-  | { mode: 'live' }
-  | { mode: 'dev-preview'; incomplete: boolean };
+  | { mode: 'hidden'; reason: 'dismissed' }
+  | { mode: 'promo-live' }
+  | { mode: 'informational' };
 
 export function resolvePromoBannerVisibility(options: {
   config?: PromoOffreFormations2027Config;
-  isDevelopment: boolean;
   dismissed: boolean;
   nowMs?: number;
 }): PromoBannerVisibility {
@@ -183,12 +195,9 @@ export function resolvePromoBannerVisibility(options: {
     return { mode: 'hidden', reason: 'dismissed' };
   }
   if (isPromoOffreLive(config, options.nowMs)) {
-    return { mode: 'live' };
+    return { mode: 'promo-live' };
   }
-  if (options.isDevelopment && config.allowDevPreview) {
-    return { mode: 'dev-preview', incomplete: !isPromoOffreComplete(config) };
-  }
-  return { mode: 'hidden', reason: 'production-inactive' };
+  return { mode: 'informational' };
 }
 
 /** Libellés d’affichage — en prévisualisation, marque les champs manquants. */

@@ -295,16 +295,9 @@
 }
 
 /* Viewports bas (ex. 1366×768) : plafond optique sans recadrer le poster */
-/* Bandeau promo : une ligne sur viewports bas (fold accueil) */
-@media (max-height: 820px) {
-  .promo-offre-2027 > div {
-    padding-top: 0.375rem;
-    padding-bottom: 0.375rem;
-  }
-
-  .promo-offre-2027 p.min-w-0.text-sm.leading-snug {
-    display: none;
-  }
+/* Bandeau formations 2027 — structure capture (sans masquer le message) */
+.promo-offre-2027__inner {
+  @apply w-full;
 }
 
 @media (min-width: 768px) and (max-height: 920px) {
