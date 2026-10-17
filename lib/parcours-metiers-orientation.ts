@@ -107,7 +107,7 @@ export function getParcoursMetiersProfilsAvecFormations(
 }
 
 export const PARCOURS_METIERS_PAGE = {
-  h1: 'Trouvez votre parcours de formation IA selon votre métier',
+  h1: 'Parcours de formation IA par métier BTP',
   intro:
-    'Identifiez les usages de l’IA utiles à votre fonction. Découvrez les formations adaptées à vos documents et à vos missions dans le BTP.',
+    'Choisissez votre métier et découvrez les formations IA adaptées à vos missions.',
 } as const;

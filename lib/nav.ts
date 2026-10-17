@@ -34,7 +34,7 @@ export const NAV_FORMATIONS_FOOTER: readonly NavItem[] = [
   },
 ];
 
-/** Colonne 2 — Parcours métiers (5 parcours + hub). */
+/** Colonne 2 — Parcours métiers (7 parcours catalogue + hub). Ordre = METIERS_CATALOGUE_2027. */
 export const NAV_FOOTER_PARCOURS: readonly NavItem[] = [
   {
     href: LINKS.parcoursDirigeantPmeBtp,
@@ -57,9 +57,19 @@ export const NAV_FOOTER_PARCOURS: readonly NavItem[] = [
     title: 'Parcours encadrement de chantier',
   },
   {
+    href: LINKS.parcoursChefDequipe,
+    label: 'Chef d’équipe',
+    title: 'Parcours chef d’équipe',
+  },
+  {
     href: LINKS.parcoursAssistantDeGestionBtp,
     label: 'Administration & travaux',
     title: 'Parcours assistant de gestion BTP',
+  },
+  {
+    href: LINKS.parcoursReferentIaBtp,
+    label: 'Référent IA',
+    title: 'Parcours référent IA BTP',
   },
   {
     href: LINKS.parcoursMetiers,
