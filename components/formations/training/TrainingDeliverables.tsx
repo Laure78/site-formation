@@ -1,21 +1,23 @@
-import { Check } from 'lucide-react';
+import { Check, Sparkles } from 'lucide-react';
 import { TrainingSection } from '@/components/formations/training/TrainingSection';
 
 type Props = {
   items: readonly string[];
   title?: string;
   description?: string;
+  id?: string;
 };
 
 /** Livrables / ce que le participant emporte — cartes légères. */
 export function TrainingDeliverables({
   items,
-  title = 'Ce que vous emportez',
+  title = 'Les + de la formation',
   description,
+  id = 'atouts',
 }: Props) {
   if (items.length === 0) return null;
   return (
-    <TrainingSection id="livrables" title={title} description={description} tone="muted">
+    <TrainingSection id={id} title={title} description={description} tone="muted" icon={Sparkles}>
       <ul className="grid gap-3 sm:grid-cols-2">
         {items.map((item) => (
           <li

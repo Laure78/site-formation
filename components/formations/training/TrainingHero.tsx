@@ -53,6 +53,10 @@ type Props = {
   /** Note sous les CTA (financement, délai réponse). */
   ctaNote?: ReactNode;
   showQualiopiInfoLink?: boolean;
+  /** Encadré Inter/Intra sticky (desktop) — type fiche catalogue GERESO-like. */
+  commercialAside?: ReactNode;
+  /** Masquer les CTA hero sur lg quand l’encadré latéral les reprend. */
+  hideHeroCtasFromLg?: boolean;
 };
 
 /**
@@ -79,6 +83,8 @@ export function TrainingHero({
   backLabel = 'Catalogue des formations IA pour le BTP',
   ctaNote,
   showQualiopiInfoLink = true,
+  commercialAside,
+  hideHeroCtasFromLg = false,
 }: Props) {
   const catalogueEntry = catalogueRef ? getFormationCatalogueByRef(catalogueRef) : undefined;
   const resolvedMedia =
@@ -106,11 +112,14 @@ export function TrainingHero({
         </Link>
 
         <div
-          className={`mt-6 grid items-start gap-10 ${
-            resolvedMedia || summaryItems?.length
-              ? 'lg:grid-cols-[minmax(0,1.15fr)_minmax(260px,0.85fr)] lg:gap-12'
-              : ''
-          }`}
+          className={cn(
+            'mt-6 grid items-start gap-10',
+            commercialAside
+              ? 'lg:grid-cols-[minmax(0,1fr)_minmax(17.5rem,20rem)] lg:gap-8 xl:gap-10'
+              : resolvedMedia || summaryItems?.length
+                ? 'lg:grid-cols-[minmax(0,1.15fr)_minmax(260px,0.85fr)] lg:gap-12'
+                : undefined,
+          )}
         >
           <div className="min-w-0">
             {badges && badges.length > 0 ? (
@@ -196,7 +205,12 @@ export function TrainingHero({
             ) : null}
 
             {(primaryCta || secondaryCta) && (
-              <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+              <div
+                className={cn(
+                  'mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap',
+                  hideHeroCtasFromLg && commercialAside ? 'lg:hidden' : undefined,
+                )}
+              >
                 {primaryCta ? (
                   <a
                     href={primaryCta.href}
@@ -244,9 +258,24 @@ export function TrainingHero({
                 </a>
               </p>
             ) : null}
+
+            {commercialAside && resolvedMedia ? (
+              <div className="mt-8 max-w-xl lg:max-w-none">{resolvedMedia}</div>
+            ) : null}
           </div>
 
-          {(resolvedMedia || (summaryItems && summaryItems.length > 0)) && (
+          {commercialAside ? (
+            <aside
+              className="hidden min-w-0 lg:block"
+              aria-label="Tarifs et inscription"
+            >
+              <div className="sticky top-[calc(var(--site-header-height)+0.75rem)] z-20 max-h-[calc(100dvh-var(--site-header-height)-1rem)] overflow-y-auto overscroll-contain pb-4">
+                {commercialAside}
+              </div>
+            </aside>
+          ) : null}
+
+          {!commercialAside && (resolvedMedia || (summaryItems && summaryItems.length > 0)) && (
             <aside className="min-w-0 space-y-5">
               {resolvedMedia}
               {summaryItems && summaryItems.length > 0 ? (

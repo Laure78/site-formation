@@ -1,4 +1,5 @@
 import type { ReactNode } from 'react';
+import type { LucideIcon } from 'lucide-react';
 import { cn } from '@/lib/cn';
 
 /** Conteneur section formation — largeur max ~1248 px, rythme OFC. */
@@ -12,6 +13,7 @@ export function TrainingSection({
   className,
   /** Marge scroll pour header + nav sticky. */
   scrollMargin = 'nav',
+  icon: Icon,
 }: {
   id?: string;
   title?: string;
@@ -21,6 +23,8 @@ export function TrainingSection({
   tone?: 'white' | 'muted';
   className?: string;
   scrollMargin?: 'header' | 'nav' | 'none';
+  /** Icône circulaire à gauche du titre (fiche formation). */
+  icon?: LucideIcon;
 }) {
   const headingId = titleId ?? (id ? `${id}-title` : undefined);
   const scrollClass =
@@ -43,12 +47,22 @@ export function TrainingSection({
     >
       <div className="mx-auto max-w-[78rem]">
         {title ? (
-          <h2
-            id={headingId}
-            className="font-display text-xl font-bold tracking-tight text-slate-900 md:text-[1.375rem]"
-          >
-            {title}
-          </h2>
+          <div className="flex items-start gap-3 md:gap-4">
+            {Icon ? (
+              <span
+                className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#377CF3]/10 text-[#377CF3]"
+                aria-hidden
+              >
+                <Icon className="h-5 w-5" strokeWidth={2} />
+              </span>
+            ) : null}
+            <h2
+              id={headingId}
+              className="font-display text-xl font-bold tracking-tight text-slate-900 md:text-[1.375rem]"
+            >
+              {title}
+            </h2>
+          </div>
         ) : null}
         {description ? (
           <div className="mt-3 max-w-2xl text-base leading-relaxed text-slate-600">{description}</div>

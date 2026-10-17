@@ -16,6 +16,8 @@ import { FormationsContact2027 } from './FormationsContact2027';
 import { ParcoursEncadrerIaBlock } from '@/components/formations/ParcoursEncadrerIaBlock';
 import { PageMaillageSection } from '@/components/maillage/PageMaillageSection';
 import { buildParcoursPageMaillageBlocks } from '@/lib/page-maillage-blocks';
+import { FinancementOpcoEtenduCourtBlock } from '@/components/financement/FinancementOpcoEtenduCourtBlock';
+import { parcoursIdShowsFinancementOpcoEtendu } from '@/lib/financement-opco-etendu-config';
 
 type Props = {
   parcours: ParcoursComputed;
@@ -239,6 +241,10 @@ export function ParcoursDetailView({ parcours: p }: Props) {
               </Link>
             </div>
           </section>
+
+          {parcoursIdShowsFinancementOpcoEtendu(p.id) ? (
+            <FinancementOpcoEtenduCourtBlock className="mt-10" />
+          ) : null}
 
           <FormationsContact2027
             formationHint={`Parcours ${p.titre}`}

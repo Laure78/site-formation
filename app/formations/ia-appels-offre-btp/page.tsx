@@ -1,5 +1,4 @@
 import { JsonLd } from '@/components/JsonLd';
-import { ProgrammeAccordionAppelsOffre } from '@/components/formations/ProgrammeAccordionAppelsOffre';
 import { CatalogueFormationPageTemplate } from '@/components/formations/catalogue/CatalogueFormationPageTemplate';
 import { EvenementAoBtpPromoEncart } from '@/components/evenements/EvenementAoBtpPromoEncart';
 import { createPageMetadata, getFAQSchema } from '@/lib/seo';
@@ -50,7 +49,6 @@ export default function FormationIAAppelsOffreBTPPage() {
 
       <CatalogueFormationPageTemplate
         content={PAGE_CONTENT}
-        programme={<ProgrammeAccordionAppelsOffre />}
         faqItems={FAQ_APPELS_OFFRE}
         faqSectionId="faq-niv-02"
         h1Id="formation-niv-02-h1"

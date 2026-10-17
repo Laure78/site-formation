@@ -29,6 +29,7 @@ import {
   buildMetreurEconomisteConstructionCourseJsonLd,
   getMetreurEconomistePrompt,
 } from '@/lib/formation-ia-metreur-economiste-construction-landing';
+import { FinancementOpcoEtenduCourtBlock } from '@/components/financement/FinancementOpcoEtenduCourtBlock';
 
 export const metadata = buildMetadata({
   title: METREUR_ECONOMISTE_SEO.title,
@@ -51,6 +52,7 @@ const SOMMAIRE = [
   { href: '#la-solution-ia', label: 'La solution IA' },
   { href: '#methode', label: 'Méthode en 4 étapes + prompts' },
   { href: '#resultats', label: 'Tableau de gains' },
+  { href: '#financement', label: 'Financement' },
   { href: '#faq', label: 'FAQ' },
   { href: LINKS.prendreRdv, label: CTA_RDV_LABEL },
 ];
@@ -282,6 +284,8 @@ export default function FormationIaMetreurEconomisteConstructionPage() {
           </div>
           <DisclaimerGains className="mt-4" />
         </section>
+
+        <FinancementOpcoEtenduCourtBlock className="mt-14" />
 
         <section id="faq" className="scroll-mt-24 mt-14">
           <h2 className="font-display text-2xl font-bold text-slate-900">FAQ — métreurs &amp; économistes</h2>

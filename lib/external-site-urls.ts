@@ -22,6 +22,13 @@ export const EXTERNAL_SITE_URLS = {
   constructys: 'https://www.constructys.fr/',
   /** Plateforme de dépôt des dossiers de financement Constructys. */
   constructysEgestion: 'https://egestion.constructys.fr/',
+  /** Atlas — bureaux d’études, ingénierie et conseil. */
+  opcoAtlasBureauxEtudes:
+    'https://www.opco-atlas.fr/atlas/bureaux-etudes-techniques-cabinet-ingenieurs-societes-de-conseil.html',
+  opcoAtlasFinancerProjet:
+    'https://www.opco-atlas.fr/entreprise/financer-projet-formation.html',
+  /** OPCO EP — critères de financement (sélection de branche). */
+  opcoEpCriteresFinancement: 'https://www.opcoep.fr/criteres-de-financement',
   /** AGEFIPH — insertion professionnelle et handicap. */
   agefiph: 'https://www.agefiph.fr/',
   /** AGEFIPH — Ressource Handicap Formation (RHF). */

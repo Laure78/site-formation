@@ -30,6 +30,7 @@ import {
 } from '@/lib/formation-ia-bureau-etudes-btp-landing';
 import { createMetierBtpPageMetadata } from '@/lib/formation-ia-metier-idf';
 import { LINKS } from '@/lib/internal-links';
+import { FinancementOpcoEtenduCourtBlock } from '@/components/financement/FinancementOpcoEtenduCourtBlock';
 import { getFAQSchema, SITE_CONFIG, sitePhoneDisplaySuffix } from '@/lib/seo';
 
 export const revalidate = 3600;
@@ -58,6 +59,7 @@ const SOMMAIRE = [
   { href: '#public', label: 'Public & prérequis' },
   { href: '#programme', label: 'Ce que vous apprenez' },
   { href: '#methode', label: 'Méthode + prompts' },
+  { href: '#financement', label: 'Financement' },
   { href: '#faq', label: 'FAQ' },
   { href: '#contact', label: 'Contacter OFC' },
 ];
@@ -257,6 +259,8 @@ export default function FormationIaBureauEtudesBtpPage() {
             {PROMPT_DEMANDES_CLARIFICATION}
           </pre>
         </section>
+
+        <FinancementOpcoEtenduCourtBlock className="mt-14" />
 
         <section id="faq" className="scroll-mt-24 mt-14">
           <h2 className="font-display text-2xl font-bold text-slate-900">

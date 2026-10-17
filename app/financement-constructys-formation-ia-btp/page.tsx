@@ -18,6 +18,7 @@ import { FinancementEtapesSection } from '@/components/financement/constructys/F
 import { FinancementQuiFaitQuoiSection } from '@/components/financement/constructys/FinancementQuiFaitQuoiSection';
 import { FinancementTarifsSection } from '@/components/financement/constructys/FinancementTarifsSection';
 import { FinancementSourcesSection } from '@/components/financement/constructys/FinancementSourcesSection';
+import { FinancementOpcoEtenduSection } from '@/components/financement/FinancementOpcoEtenduSection';
 import { FormationsFaqSection } from '@/components/formations/FormationsFaqSection';
 import { getFaqFinancementConstructysPage } from '@/lib/faq';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
@@ -62,6 +63,7 @@ export default function FinancementConstructysPage() {
           <FinancementEtapesSection />
           <FinancementQuiFaitQuoiSection />
           <FinancementTarifsSection />
+          <FinancementOpcoEtenduSection />
           <FinancementConstructysCta />
           <FormationsFaqSection
             items={faqItems}

@@ -1,6 +1,10 @@
 import { ExternalLinkAnchor } from '@/components/ExternalLink';
 import { CONSTRUCTYS_SOURCES } from '@/lib/financement-constructys-page-config';
 import {
+  FINANCEMENT_OPCO_ATLAS,
+  FINANCEMENT_OPCO_EP,
+} from '@/lib/financement-opco-etendu-config';
+import {
   formatContentUpdatedLabel,
   getPillarPageContentUpdatedAt,
 } from '@/lib/content-updated-at';
@@ -26,6 +30,24 @@ export function FinancementSourcesSection() {
             <span className="mt-1 block text-[#64748B]">{source.org}</span>
           </li>
         ))}
+        <li className="rounded-lg border border-[#E2E8F0] bg-[#F8FAFC] px-4 py-3">
+          <ExternalLinkAnchor
+            href={FINANCEMENT_OPCO_ATLAS.href}
+            className="font-medium text-[#377CF3] underline"
+          >
+            {FINANCEMENT_OPCO_ATLAS.bouton}
+          </ExternalLinkAnchor>
+          <span className="mt-1 block text-[#64748B]">Atlas</span>
+        </li>
+        <li className="rounded-lg border border-[#E2E8F0] bg-[#F8FAFC] px-4 py-3">
+          <ExternalLinkAnchor
+            href={FINANCEMENT_OPCO_EP.href}
+            className="font-medium text-[#377CF3] underline"
+          >
+            {FINANCEMENT_OPCO_EP.bouton}
+          </ExternalLinkAnchor>
+          <span className="mt-1 block text-[#64748B]">OPCO EP</span>
+        </li>
       </ul>
     </section>
   );

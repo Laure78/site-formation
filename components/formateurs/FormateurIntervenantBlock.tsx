@@ -5,6 +5,7 @@ import {
   getFormateursForFormationCode,
   type FormateurProfile,
 } from '@/lib/formateurs';
+import { TRAINING_ANCHOR } from '@/lib/training-fiche-nav';
 import { LINKS } from '@/lib/internal-links';
 import { OFC_LINK } from '@/lib/ofc-interaction-classes';
 
@@ -57,7 +58,7 @@ export function FormateurIntervenantBlock({
     formateurs.length > 1 ? 'Intervenants' : title;
 
   return (
-    <TrainingSection id="formatrice" title={heading} tone="white">
+    <TrainingSection id={TRAINING_ANCHOR.formateurs} title={heading} tone="white">
       <ul className="space-y-10">
         {formateurs.map((f) => (
           <li key={f.id}>

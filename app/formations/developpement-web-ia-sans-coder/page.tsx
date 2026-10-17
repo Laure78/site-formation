@@ -9,7 +9,7 @@ import {
   CatalogueFormationDevWebParcoursTarifsSection,
   CatalogueFormationDevWebQualiopiEngagementSection,
 } from '@/components/formations/catalogue/CatalogueFormationDevWebMarketingSections';
-import { CatalogueFormationDevWebProgramme } from '@/components/formations/catalogue/CatalogueFormationDevWebProgramme';
+import { TrainingDevWebProgrammeAccordion } from '@/components/formations/training/TrainingDevWebProgrammeAccordion';
 import {
   DevWebIaAccessibleSection,
   DevWebIaAutonomieSection,
@@ -130,7 +130,7 @@ export default function FormationDeveloppementWebIaSansCoderPage() {
             <CatalogueFormationDevWebAfterObjectives />
           </>
         }
-        programme={<CatalogueFormationDevWebProgramme />}
+        programme={<TrainingDevWebProgrammeAccordion />}
         afterProgrammeSupplement={
           <>
             <DevWebIaFormatComparatifSection />

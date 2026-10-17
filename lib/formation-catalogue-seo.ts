@@ -8,6 +8,7 @@ import {
   formatNoteSatisfactionAffichageComplet,
   indicateursResultats,
 } from '@/lib/data/indicateurs-resultats';
+import { getFormationByCode } from '@/data/formations';
 import { SESSION_DUREE_LIBELLE, formatTarifHt } from '@/lib/tarifs-sessions';
 import {
   TARIF_INTER_DEV_WEB_IA_14H_HT,
@@ -252,7 +253,18 @@ export const FORMATION_CATALOGUE_SEO: Record<FormationCatalogueCode, FormationCa
 };
 
 export function getFormationCatalogueSeo(ref: FormationCatalogueCode): FormationCatalogueSeoConfig {
-  return FORMATION_CATALOGUE_SEO[ref];
+  const config = { ...FORMATION_CATALOGUE_SEO[ref] };
+  const formation = getFormationByCode(ref);
+  if (!formation || ref === 'NIV-01') return config;
+
+  const duree = formation.duree;
+  if (duree !== '4 h') {
+    config.metaTitle = config.metaTitle.replace(/\(4 h\)/g, `(${duree})`);
+    config.h1 = config.h1.replace(/\(4 h\)/g, `(${duree})`);
+    config.metaDescription = config.metaDescription.replace(/\b4 h\b/g, duree);
+    config.enBref = config.enBref.replaceAll(SESSION_DUREE_LIBELLE, duree);
+  }
+  return config;
 }
 
 /** Bloc autorité E-E-A-T — harmonisé sur toutes les fiches catalogue. */

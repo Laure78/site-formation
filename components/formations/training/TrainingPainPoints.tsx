@@ -14,19 +14,13 @@ type Props = {
   title?: string;
   items: readonly TrainingPainPoint[];
   id?: string;
+  /** Sans wrapper section (ex. bloc inclus dans Présentation). */
+  embedded?: boolean;
 };
 
-/** Cartes « faite pour vous si… » — même hauteur, icônes discrètes. */
-export function TrainingPainPoints({
-  title = 'Cette formation est faite pour vous si…',
-  items,
-  id = 'pour-qui',
-}: Props) {
-  if (items.length === 0) return null;
-
+function PainPointsGrid({ items }: { items: readonly TrainingPainPoint[] }) {
   return (
-    <TrainingSection id={id} title={title} tone="white">
-      <ul className="grid gap-4 sm:grid-cols-2">
+    <ul className="grid gap-4 sm:grid-cols-2">
         {items.map((item, index) => {
           const Icon = item.icon ?? DEFAULT_ICONS[index % DEFAULT_ICONS.length];
           return (
@@ -46,7 +40,33 @@ export function TrainingPainPoints({
             </li>
           );
         })}
-      </ul>
+    </ul>
+  );
+}
+
+/** Cartes « faite pour vous si… » — même hauteur, icônes discrètes. */
+export function TrainingPainPoints({
+  title = 'Cette formation est faite pour vous si…',
+  items,
+  id = 'pour-qui',
+  embedded = false,
+}: Props) {
+  if (items.length === 0) return null;
+
+  if (embedded) {
+    return (
+      <div>
+        <h3 className="font-display text-lg font-bold text-slate-900 md:text-xl">{title}</h3>
+        <div className="mt-6">
+          <PainPointsGrid items={items} />
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <TrainingSection id={id} title={title} tone="white">
+      <PainPointsGrid items={items} />
     </TrainingSection>
   );
 }

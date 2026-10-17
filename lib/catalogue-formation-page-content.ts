@@ -18,6 +18,10 @@ import {
   ASSISTANTS_IA_OBJECTIFS,
 } from '@/lib/formation-assistants-ia-personnalises-btp-content';
 import { formatTarifHt } from '@/lib/tarifs-sessions';
+import { mapProgrammeBlocsToCatalogueModules } from '@/lib/catalogue-programme-bloc-mapper';
+import { NIV03_PEDAGOGICAL_METHODS, NIV03_PROGRAMME_BLOCS } from '@/lib/catalogue-formation-programmes-niv03';
+import { NIV04_PROGRAMME_BLOCS } from '@/lib/catalogue-formation-programmes-niv04';
+import { NIV05_PROGRAMME_BLOCS } from '@/lib/catalogue-formation-programmes-niv05';
 
 export type CataloguePainPoint = { title: string; texte: string };
 
@@ -36,6 +40,10 @@ export type CataloguePrerequisiteBlock = {
 export type CatalogueProgramModule = {
   title: string;
   points: readonly string[];
+  /** Mise en pratique métier (encadré sous la liste). */
+  practice?: string;
+  /** Compétence travaillée — affichée en tête du module si renseignée. */
+  competence?: string;
 };
 
 export type CatalogueNavItem = {
@@ -88,6 +96,8 @@ export type CatalogueFormationPageContent = {
   programIntro: string;
   /** Modules programme — source unique pour l’accordéon. */
   programModules?: readonly CatalogueProgramModule[];
+  /** Encadré « méthodes » au-dessus de l’accordéon programme (optionnel). */
+  programmeMethodsBullets?: readonly string[];
   programLinks?: readonly CatalogueProgramLink[];
   instructorTitle?: string;
   instructorBody?: string;
@@ -145,16 +155,6 @@ const NIV_01: CatalogueFormationPageContent = {
   formatLabel: 'Présentiel',
   locationLabel: 'Île-de-France',
   quickFactsLevel: 'Débutant',
-  navItems: [
-    { href: '#programme', label: 'Programme' },
-    { href: '#objectifs', label: 'Objectifs' },
-    { href: '#pour-qui', label: 'Pour qui ?' },
-    { href: '#modalites', label: 'Modalités' },
-    { href: '#applications-ia', label: 'Usages IA' },
-    { href: '#tarifs-modalites', label: 'Tarif' },
-    { href: '#formatrice', label: 'Formatrice' },
-    { href: '#faq-niv-01', label: 'FAQ' },
-  ],
   painPointsTitle: 'Cette formation est faite pour vous si…',
   painPoints: [
     { title: 'Devis', texte: 'Gagner du temps pour rédiger et structurer vos devis.' },
@@ -196,43 +196,47 @@ const NIV_01: CatalogueFormationPageContent = {
   programModules: [
     {
       title: 'Comprendre et utiliser l’IA',
+      competence: 'Formuler une consigne IA et cadrer la validation humaine',
       points: [
         'ChatGPT et Claude : quand utiliser l’un ou l’autre',
         'Cycle Cadrer → sources → analyser → produire → évaluer → corriger → valider',
-        'Exercice : formuler un objectif et un format de sortie, comparer deux prompts',
         'Confidentialité : données autorisées, anonymisation, paramètres du compte',
-        'Livrable : fiche méthode personnalisée — critère : faits / hypothèses distincts',
       ],
+      practice:
+        'Exercice pratique : formuler un objectif et un format de sortie, comparer deux prompts — production d’une fiche méthode (faits / hypothèses distincts).',
     },
     {
       title: 'Devis et chiffrage',
+      competence: 'Structurer une trame de devis sans valider les prix par l’IA',
       points: [
         'Structurer une désignation d’ouvrage avec ChatGPT (fichiers + consignes)',
-        'Exercice : trame de devis + checklist unités / quantités / prestations',
         'Comparer des variantes d’offre sans valider les prix par l’IA',
         'Contrôle humain obligatoire sur prix, métrés et références techniques',
-        'Livrable : trame contrôlée — critère : aucune validation de prix laissée à l’IA',
       ],
+      practice:
+        'Exercice pratique : trame de devis + checklist unités, quantités et prestations — aucune validation de prix laissée à l’IA.',
     },
     {
       title: 'Documents de chantier',
+      competence: 'Produire un CR structuré et un tableau d’actions contrôlé',
       points: [
         'Transformer des notes en CR structuré (Claude) : décisions, actions, échéances',
-        'Exercice : CR + tableau des actions à valider avant diffusion',
         'DOE, PV de réception et levée de réserves : premières structures contrôlées',
         'Emails de suivi : reformulation et grille avant envoi',
-        'Livrable : CR + tableau d’actions — critère : pas de décision inventée',
       ],
+      practice:
+        'Exercice pratique : CR + tableau des actions à valider avant diffusion — critère : pas de décision inventée.',
     },
     {
       title: 'Communication professionnelle',
+      competence: 'Rédiger et contrôler un message client avant envoi',
       points: [
         'Analyser un besoin et préparer deux variantes de message client',
-        'Exercice : proposition argumentée + grille de vérification avant envoi',
         'Présentation d’une réalisation et contenus courts (réseaux)',
         'Évaluer et corriger un message selon ton, faits et destinataire',
-        'Livrable : message contrôlé — critère : grille avant envoi cochée',
       ],
+      practice:
+        'Exercice pratique : proposition argumentée + grille de vérification — critère : grille cochée avant envoi.',
     },
   ],
   workflow: [
@@ -378,6 +382,75 @@ const NIV_02: CatalogueFormationPageContent = {
   intraExtraBullets: ['Dossier fil rouge de l’entreprise'],
   interExtraBullets: ['Dossier pédagogique commun'],
   programIntro: 'Atelier collectif, 75 % de pratique. Accueil, modules et bilan — total 7 heures.',
+  programModules: [
+    {
+      title: 'Accueil et cadrage — 15 min',
+      points: [
+        'Vérification des prérequis',
+        'Présentation du dossier fil rouge',
+        'Objectifs et règles de confidentialité',
+      ],
+    },
+    {
+      title: 'Module 1 — Préparer l’analyse du DCE — 45 min',
+      competence: 'Organiser les pièces et cadrer l’analyse du DCE',
+      points: [
+        'Rôle du RC, du CCAP, du CCTP, de la DPGF et du BPU',
+        'Organisation des fichiers dans un Projet Claude (ou conversation dédiée ChatGPT)',
+        'Cycle Cadrer → sources anonymisées → analyser → produire → contrôler dans les PDF',
+        'Méthode de prompt avec citations des pièces sources',
+        'Limites de l’analyse automatisée — alternative si Projet indisponible',
+      ],
+      practice:
+        'Exercice pratique : classer le fil rouge et rédiger une consigne avec obligation de citation des pièces sources.',
+    },
+    {
+      title: 'Module 2 — Analyser et croiser les pièces — 1 h',
+      competence: 'Extraire et croiser les exigences avec références',
+      points: [
+        'Extraction des exigences avec références (Claude / Artifacts)',
+        'Identification des délais, pénalités et documents attendus',
+        'Comparaison CCTP / DPGF : contradictions, informations manquantes',
+        'Liste de points à vérifier et retour aux documents sources (échantillon contrôlé)',
+      ],
+      practice:
+        'Exercice pratique : tableau d’écarts CCTP/DPGF — critère : références exactes, faits vs hypothèses.',
+    },
+    {
+      title: 'Module 3 — Préparer le chiffrage — 45 min',
+      competence: 'Préparer une checklist de chiffrage contrôlée',
+      points: [
+        'Checklist des prestations, unités et quantités à partir des pièces',
+        'Comparaison avec un ancien devis (analyse tabulaire ChatGPT si accessible)',
+        'Identification des écarts apparents et questions à la maîtrise d’œuvre',
+        'L’IA ne calcule pas le prix définitif — quantités, métrés, déboursés, marges et prix sont contrôlés par l’entreprise',
+      ],
+      practice:
+        'Exercice pratique : checklist chiffrage — critère : échantillon recalculé manuellement par le professionnel.',
+    },
+    {
+      title: 'Module 4 — Structurer le mémoire technique — 1 h',
+      competence: 'Structurer un mémoire aligné sur les critères du RC',
+      points: [
+        'Lecture des critères et pondérations du RC',
+        'Création du plan (Canvas ChatGPT ou Artifacts Claude)',
+        'Sélection des preuves réelles de l’entreprise',
+        'Rédaction guidée d’une section + grille d’audit avant dépôt',
+        'Contrôle des affirmations et engagements — décision finale humaine',
+      ],
+      practice:
+        'Exercice pratique : plan de mémoire + brouillon d’une section avec grille d’audit avant dépôt.',
+    },
+    {
+      title: 'Bilan, plan d’action et clôture — 15 min',
+      points: [
+        'Checklist finale avant dépôt',
+        'Plan d’action individuel',
+        'Évaluation des acquis (livrables) distincte du questionnaire de satisfaction',
+        'Ressources remises',
+      ],
+    },
+  ],
   programLinks: [
     {
       prefix: 'Pour les bases IA avant ce niveau, voir la',
@@ -494,6 +567,8 @@ const NIV_03: CatalogueFormationPageContent = {
   intraExtraBullets: ['Suivi visio J+30 inclus'],
   programIntro:
     'Modules sur 7 h : installation chantier, suivi documentaire assisté par l’IA et gestion quotidienne. 70 % de pratique sur vos documents. La méthode de réception est couverte par le module TRA-05 du parcours Conducteur de travaux.',
+  programmeMethodsBullets: [...NIV03_PEDAGOGICAL_METHODS],
+  programModules: mapProgrammeBlocsToCatalogueModules(NIV03_PROGRAMME_BLOCS),
   programLinks: [
     {
       prefix: 'Pour les bases IA, voir la',
@@ -593,6 +668,7 @@ const NIV_04: CatalogueFormationPageContent = {
   ],
   programIntro:
     'Accueil, 4 modules techniques et clôture le matin : Projets & skills, Cowork, connecteurs et Claude Code — fil rouge PME BTP. 70 % pratique.',
+  programModules: mapProgrammeBlocsToCatalogueModules(NIV04_PROGRAMME_BLOCS),
   programLinks: [
     {
       prefix: 'Pour les appels d’offres, voir la',
@@ -690,6 +766,7 @@ const NIV_05: CatalogueFormationPageContent = {
   programmeHeading: 'Programme — 5 modules MOE (7 h)',
   programIntro:
     '7 heures — 70 % pratique / 30 % théorie — alternance théorie courte et ateliers sur cas réels MOE apportés par les participants.',
+  programModules: mapProgrammeBlocsToCatalogueModules(NIV05_PROGRAMME_BLOCS),
   programLinks: [
     {
       prefix: 'Pour le pilotage chantier côté entreprise, voir la',

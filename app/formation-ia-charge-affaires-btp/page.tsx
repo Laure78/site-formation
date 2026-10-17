@@ -23,6 +23,11 @@ import { createMetierBtpPageMetadata } from '@/lib/formation-ia-metier-idf';
 import { buildFormationFicheCourseJsonLd } from '@/lib/schema-formation-course-jsonld';
 import { OFC_LINK } from '@/lib/ofc-interaction-classes';
 import { FINANCEMENT_FORMULATION_PRUDENTE } from '@/lib/financement-copy';
+import {
+  FINANCEMENT_OPCO_ETENDU_BLOC_COURT,
+  FINANCEMENT_OPCO_ETENDU_LIEN_LABEL,
+  FINANCEMENT_OPCO_ETENDU_PAGE_HREF,
+} from '@/lib/financement-opco-etendu-config';
 import { DisclaimerGains } from '@/components/formation/DisclaimerGains';
 
 import { RenvoiFicheCatalogue } from '@/components/qualiopi/RenvoiFicheCatalogue';
@@ -520,6 +525,22 @@ export default function FormationIaChargeAffairesBtpPage() {
               Guide complet du financement Constructys
             </Link>
           </p>
+          <div className="mt-8 rounded-2xl border border-slate-200 bg-slate-50 p-6">
+            <h3 className="font-display text-lg font-semibold text-slate-900">
+              Atlas, OPCO EP et autres financeurs
+            </h3>
+            <p className="mt-3 text-sm leading-relaxed text-slate-700 md:text-base">
+              {FINANCEMENT_OPCO_ETENDU_BLOC_COURT}
+            </p>
+            <p className="mt-3">
+              <Link
+                href={FINANCEMENT_OPCO_ETENDU_PAGE_HREF}
+                className="font-semibold text-[#377CF3] underline hover:no-underline"
+              >
+                {FINANCEMENT_OPCO_ETENDU_LIEN_LABEL}
+              </Link>
+            </p>
+          </div>
         </section>
 
         <section id="faq" className="scroll-mt-24 mt-14">

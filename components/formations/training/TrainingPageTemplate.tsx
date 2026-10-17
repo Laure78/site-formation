@@ -10,38 +10,48 @@ import {
   TrainingFinalCta,
   TrainingHero,
   TrainingMethod,
-  TrainingNavigation,
   TrainingOutcomes,
   TrainingPainPoints,
-  TrainingPracticalInfo,
   TrainingPricing,
   TrainingProgram,
   TrainingSection,
   TrainingTrustBar,
 } from '@/components/formations/training';
+import { TrainingAvisQualiopiSection } from '@/components/formations/training/TrainingAvisQualiopiSection';
+import { TrainingEvaluationSection } from '@/components/formations/training/TrainingEvaluationSection';
+import { TrainingNavigationWithSpy } from '@/components/formations/training/TrainingNavigationWithSpy';
+import { TrainingPageLayout } from '@/components/formations/training/TrainingPageLayout';
+import { TrainingPedagogicalModalitiesSection } from '@/components/formations/training/TrainingPedagogicalModalitiesSection';
+import { TrainingPresentationExpand } from '@/components/formations/training/TrainingPresentationExpand';
+import { TrainingSessionsSection } from '@/components/formations/training/TrainingSessionsSection';
+import { TrainingSidebarCard } from '@/components/formations/training/TrainingSidebarCard';
+import { TrainingQualiopiEngagementsBand } from '@/components/formations/training/TrainingQualiopiEngagementsBand';
 import { FormateurIntervenantBlock } from '@/components/formateurs/FormateurIntervenantBlock';
 import { FormationIaApplicationsSection } from '@/components/formations/ia/FormationIaApplicationsSection';
-import type {
-  CatalogueFormationPageContent,
-  CatalogueNavItem,
-} from '@/lib/catalogue-formation-page-content';
+import type { CatalogueFormationPageContent } from '@/lib/catalogue-formation-page-content';
 import { getRelatedCatalogueFormations } from '@/lib/catalogue-formation-related';
 import { getFormationByCode, isFormationSurDevis } from '@/data/formations';
 import { getFormationCatalogueSeo } from '@/lib/formation-catalogue-seo';
 import { getFormationIaApplications } from '@/lib/formation-ia';
 import type { FAQItem } from '@/lib/faq';
 import { FINANCEMENT_FORMULATION_COURTE } from '@/lib/financement-copy';
+import { getFormateursForFormationCode } from '@/lib/formateurs';
 import { LINKS } from '@/lib/internal-links';
+import { getInfosPratiquesForCatalogue } from '@/lib/infos-pratiques-catalogue';
 import { libelleTarifParticipantCatalogue } from '@/lib/tarifs-catalogue-participant';
 import {
   catalogueDemandeHref,
   trainingCategoryBadge,
   trainingDevisHref,
 } from '@/lib/training-page-helpers';
+import { buildTrainingFicheNavItems, TRAINING_ANCHOR } from '@/lib/training-fiche-nav';
+import { FinancementOpcoEtenduCourtBlock } from '@/components/financement/FinancementOpcoEtenduCourtBlock';
+import { catalogueRefShowsFinancementOpcoEtendu } from '@/lib/financement-opco-etendu-config';
 import { isProgrammePdfObsoleteForLegacyCode } from '@/lib/catalogue-2027/pdf-programme';
 import { PageMaillageSection } from '@/components/maillage/PageMaillageSection';
 import { buildFormationPageMaillageBlocks } from '@/lib/page-maillage-blocks';
 import type { FormationCatalogueCode } from '@/lib/formation-catalogue-visibility';
+import { TrainingPracticalInfo } from '@/components/formations/training/TrainingPracticalInfo';
 
 type Props = {
   content: CatalogueFormationPageContent;
@@ -59,32 +69,6 @@ type Props = {
   beforeTariffs?: ReactNode;
   afterIaLimits?: ReactNode;
 };
-
-function buildDefaultNav(
-  content: CatalogueFormationPageContent,
-  faqSectionId: string,
-  hasFaq: boolean,
-): CatalogueNavItem[] {
-  const items: CatalogueNavItem[] = [
-    { href: '#programme', label: 'Programme' },
-    { href: '#objectifs', label: 'Objectifs' },
-    { href: '#pour-qui', label: 'Pour qui ?' },
-  ];
-  if (content.practicalCase) {
-    items.push({ href: '#modalites', label: 'Modalités' });
-  }
-  if (getFormationIaApplications(content.programmeRef)) {
-    items.push({ href: '#applications-ia', label: 'Usages IA' });
-  }
-  items.push(
-    { href: '#tarifs-modalites', label: 'Tarif' },
-    { href: '#formatrice', label: 'Intervenant' },
-  );
-  if (hasFaq) {
-    items.push({ href: `#${faqSectionId}`, label: 'FAQ' });
-  }
-  return items;
-}
 
 /**
  * Template de référence des fiches formation catalogue.
@@ -122,6 +106,17 @@ export function TrainingPageTemplate({
   const formatLabel = content.formatLabel ?? 'Présentiel';
   const locationLabel = content.locationLabel ?? 'Île-de-France';
   const hasFaq = Boolean(faqItems && faqItems.length > 0);
+  const infosPratiques = getInfosPratiquesForCatalogue(ref);
+  const hasModalitesNav =
+    (infosPratiques.methodes?.length ?? 0) > 0 ||
+    Boolean(infosPratiques.modalitePedagogique) ||
+    Boolean(content.practicalCase);
+  const formateurs = getFormateursForFormationCode(ref);
+  const iaApplications = getFormationIaApplications(ref);
+  const hasProgramme = Boolean(
+    programme || (content.programModules && content.programModules.length > 0),
+  );
+  const showFinancementOpcoEtendu = catalogueRefShowsFinancementOpcoEtendu(ref);
 
   const factCards =
     content.heroFactCards ??
@@ -134,30 +129,53 @@ export function TrainingPageTemplate({
         ? [{ label: 'Part de pratique', value: content.practiceShare }]
         : []),
       { label: 'Lieu', value: locationLabel },
+      { label: 'Réf.', value: ref },
     ].slice(0, 6);
 
-  const iaApplications = getFormationIaApplications(ref);
-  const baseNav = content.navItems ?? buildDefaultNav(content, faqSectionId, hasFaq);
   const navItems =
-    iaApplications && !baseNav.some((item) => item.href === '#applications-ia')
-      ? [
-          ...baseNav.slice(0, Math.min(3, baseNav.length)),
-          { href: '#applications-ia', label: 'Usages IA' },
-          ...baseNav.slice(Math.min(3, baseNav.length)),
-        ]
-      : baseNav;
+    content.navItems ??
+    buildTrainingFicheNavItems({
+      hasPublicPrerequis: Boolean(content.publicPrerequisites?.length),
+      hasModalites: hasModalitesNav,
+      hasFormateurs: formateurs.length > 0,
+      hasProgramme,
+      hasApplicationsIa: Boolean(iaApplications),
+      hasFaq,
+      faqSectionId,
+      hasFinancementOpcoEtendu: showFinancementOpcoEtendu,
+    });
 
   const programmeHeading =
     content.programmeHeading ?? `Programme — ${formation.duree}`;
   const objectivesTitle =
-    content.objectivesTitle ?? 'Après la formation, vous saurez…';
+    content.objectivesTitle ?? 'Objectifs pédagogiques';
 
   const finalPrimaryHref = content.finalCta.devisHref ?? LINKS.prendreRdv;
   const finalSecondaryHref = content.finalCta.secondaryHref ?? devisHref;
 
+  const sidebarProps = {
+    formationTitle: formation.titre,
+    durationLabel: formation.duree,
+    interPriceLabel: tarifLabel,
+    showTvaAsterisk: !surDevis,
+    effectifLabel,
+    pdfHref,
+  };
+
   return (
     <div className="training-page">
-      {customHero ?? (
+      {customHero ? (
+        <div className="border-b border-slate-200 bg-white">
+          <div className="mx-auto max-w-[78rem] px-4 lg:grid lg:grid-cols-[minmax(0,1fr)_minmax(17.5rem,20rem)] lg:items-start lg:gap-8 xl:gap-10">
+            <div className="min-w-0 [&>section]:border-b-0">{customHero}</div>
+            <aside className="hidden py-8 lg:block" aria-label="Tarifs et inscription">
+              <div className="sticky top-[calc(var(--site-header-height)+0.75rem)] z-20 max-h-[calc(100dvh-var(--site-header-height)-1rem)] overflow-y-auto overscroll-contain pb-4">
+                <TrainingSidebarCard {...sidebarProps} />
+              </div>
+            </aside>
+          </div>
+        </div>
+      ) : (
         <TrainingHero
           titleId={h1Id}
           title={seo.h1}
@@ -176,7 +194,7 @@ export function TrainingPageTemplate({
           ]}
           factCards={factCards}
           priceSlot={
-            <div className="space-y-1 text-base text-slate-800">
+            <div className="space-y-1 text-base text-slate-800 lg:hidden">
               <p className="font-semibold">
                 {tarifLabel}
                 {!surDevis ? <MentionTvaAsterisque /> : null}
@@ -203,6 +221,8 @@ export function TrainingPageTemplate({
               Réponse sous 48 heures ouvrées · {FINANCEMENT_FORMULATION_COURTE}
             </p>
           }
+          commercialAside={<TrainingSidebarCard {...sidebarProps} />}
+          hideHeroCtasFromLg
         />
       )}
 
@@ -212,178 +232,211 @@ export function TrainingPageTemplate({
         />
       ) : null}
 
-      {navItems.length > 0 ? <TrainingNavigation items={navItems} /> : null}
+      {navItems.length > 0 ? <TrainingNavigationWithSpy items={navItems} /> : null}
 
-      {/* Avec customHero (ex. NIV-10), le « En bref » GEO est déjà sous le H1. */}
-      {!customHero ? (
-        <section className="border-b border-slate-200 bg-white px-4 py-6 md:py-8">
-          <div className="mx-auto max-w-3xl">
-            <ShortAnswerBlock>{seo.enBref}</ShortAnswerBlock>
-          </div>
-        </section>
-      ) : null}
-
-      <TrainingPainPoints
-        title={content.painPointsTitle}
-        items={content.painPoints}
-        id={content.painPointsSectionId}
-      />
-
-      <TrainingOutcomes
-        outcomes={content.outcomes}
-        title={objectivesTitle}
-        description={content.outcomesDescription}
-        pedagogicalNote={
-          content.pedagogicalNote ??
-          'L’IA prépare et structure. Le professionnel contrôle et valide.'
-        }
-      />
-
-      {afterObjectives}
-
-      <TrainingProgram
-        title={programmeHeading}
-        description={content.programIntro}
-        modules={programme ? undefined : content.programModules}
-        programLinks={content.programLinks}
-        pdfHref={programme || content.programModules ? undefined : pdfHref}
-      >
-        {programme}
-      </TrainingProgram>
-
-      {programmeSupplement}
-      {afterProgrammeSupplement}
-
-      {content.practicalCase ? (
-        <TrainingMethod
-          title={content.practicalCase.title}
-          paragraphs={content.practicalCase.paragraphs}
-          steps={content.practicalCase.steps}
-          note={content.practicalCase.note}
-        />
-      ) : null}
-
-      {iaApplications ? (
-        <FormationIaApplicationsSection bundle={iaApplications} />
-      ) : null}
-
-      {content.workflow && content.workflow.length > 0 ? (
-        <TrainingSection id="deroule" title="Déroulement type" tone="muted">
-          <ol className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-            {content.workflow.map((step, index) => (
-              <li
-                key={step}
-                className="flex gap-3 rounded-2xl border border-slate-200 bg-white px-4 py-4"
-              >
-                <span
-                  className="font-display text-lg font-bold text-[#377CF3]"
-                  aria-hidden
-                >
-                  {String(index + 1).padStart(2, '0')}
-                </span>
-                <span className="text-base text-slate-800">{step}</span>
-              </li>
-            ))}
-          </ol>
-        </TrainingSection>
-      ) : null}
-
-      {content.iaLimits && content.iaLimits.length > 0 ? (
-        <TrainingSection
-          id="limites-ia"
-          title={content.iaLimitsTitle ?? 'Ce que l’IA aide — ce que vous validez'}
-          tone="white"
-        >
-          <div className="overflow-x-auto rounded-2xl border border-slate-200">
-            <table className="min-w-full w-full text-left text-sm md:text-base">
-              <thead className="bg-slate-50 text-slate-600">
-                <tr>
-                  <th scope="col" className="px-4 py-3 font-semibold">
-                    L’IA aide à…
-                  </th>
-                  <th scope="col" className="px-4 py-3 font-semibold">
-                    Vous validez…
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                {content.iaLimits.map((row) => (
-                  <tr key={row.iaAide} className="border-t border-slate-100">
-                    <td className="px-4 py-3 text-slate-800">{row.iaAide}</td>
-                    <td className="px-4 py-3 text-slate-800">{row.validation}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </TrainingSection>
-      ) : null}
-
-      {afterIaLimits}
-
-      <TrainingDeliverables
-        items={content.deliverables}
-        title={content.deliverablesTitle ?? 'Ce que vous emportez'}
-        description={content.deliverablesIntro}
-      />
-
-      {afterDeliverables}
-
-      <section className="scroll-mt-[calc(var(--site-header-height)+3.25rem)] border-b border-slate-200 bg-white px-4 py-8 md:py-10">
+      <div className="border-b border-slate-200 bg-white px-4 py-4 lg:hidden">
         <div className="mx-auto max-w-[78rem]">
-          <FormationCharteIaBtpRessourceAside />
+          <TrainingSidebarCard {...sidebarProps} />
         </div>
-      </section>
+      </div>
 
-      {content.publicPrerequisites && content.publicPrerequisites.length > 0 ? (
-        <section className="scroll-mt-[calc(var(--site-header-height)+3.25rem)] border-b border-slate-200 bg-white px-4 py-12 md:py-16">
-          <div className="mx-auto max-w-[78rem]">
-            <h2 className="font-display text-xl font-bold tracking-tight text-slate-900 md:text-[1.375rem]">
-              Public et prérequis
-            </h2>
-            <p className="mt-3 max-w-2xl text-base text-slate-700">{formation.public}</p>
-            <div className="mt-8 grid gap-4 md:grid-cols-2">
-              {content.publicPrerequisites.map((block) => (
-                <div key={block.title} className="rounded-2xl border border-slate-200 bg-slate-50 p-5">
-                  <h3 className="font-semibold text-slate-900">{block.title}</h3>
-                  <ul className="mt-2 list-disc space-y-1 pl-5 text-base text-slate-700">
-                    {block.items.map((item) => (
-                      <li key={item}>{item}</li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
+      <TrainingPageLayout sidebar={null}>
+        {!customHero ? (
+          <section className="border-b border-slate-200 bg-white px-0 py-6 md:py-8">
+            <div className="mx-auto max-w-3xl px-0">
+              <ShortAnswerBlock>{seo.enBref}</ShortAnswerBlock>
             </div>
-          </div>
-        </section>
-      ) : null}
+          </section>
+        ) : null}
 
-      {beforeTariffs}
+        <TrainingSection id={TRAINING_ANCHOR.presentation} title="Présentation" tone="white">
+          <TrainingPresentationExpand summary={content.programIntro}>
+            {content.heroPublicLine ? <p>{content.heroPublicLine}</p> : null}
+          </TrainingPresentationExpand>
+          {content.painPoints.length > 0 ? (
+            <div className="mt-10">
+              <TrainingPainPoints
+                title={content.painPointsTitle}
+                items={content.painPoints}
+                embedded
+              />
+            </div>
+          ) : null}
+        </TrainingSection>
 
-      {tariffsSection ?? (
-        <TrainingPricing
-          priceLabel={tarifLabel}
-          effectifLabel={effectifLabel}
-          durationLabel={formation.duree}
-          bullets={[
-            `${formatLabel} — ${locationLabel}`,
-            'Dans les locaux de l’entreprise ou session collective selon calendrier',
-            'Programme adaptable aux besoins de l’équipe',
-            ...(content.intraExtraBullets ?? []),
-            ...(content.interExtraBullets ?? []),
-          ]}
-          devisHref={devisHref}
-          showTvaAsterisk={!surDevis}
+        <TrainingOutcomes
+          outcomes={content.outcomes}
+          title={objectivesTitle}
+          description={content.outcomesDescription}
+          pedagogicalNote={
+            content.pedagogicalNote ??
+            'L’IA prépare et structure. Le professionnel contrôle et valide.'
+          }
         />
-      )}
 
-      <FormateurIntervenantBlock
-        formationCode={ref}
-        title={content.instructorTitle ?? 'Intervenant'}
-      />
+        {afterObjectives}
 
-      {/* Marqueur audit Qualiopi fiches : catalogueRef={ref} */}
-      <TrainingPracticalInfo programmeRef={ref} publicCible={formation.public} />
+        {content.publicPrerequisites && content.publicPrerequisites.length > 0 ? (
+          <TrainingSection
+            id={TRAINING_ANCHOR.publicPrerequis}
+            title="Public et prérequis"
+            tone="white"
+          >
+            <div className="rounded-2xl border border-slate-200 bg-slate-50 px-5 py-6 md:px-8 md:py-8">
+              <p className="max-w-3xl text-base leading-relaxed text-slate-800">{formation.public}</p>
+              <div className="mt-8 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+                {content.publicPrerequisites.map((block) => (
+                  <div key={block.title}>
+                    <h3 className="font-semibold text-slate-900">{block.title}</h3>
+                    <ul className="mt-2 list-disc space-y-1 pl-5 text-base text-slate-700">
+                      {block.items.map((item) => (
+                        <li key={item}>{item}</li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </TrainingSection>
+        ) : null}
+
+        <TrainingProgram
+          title={programmeHeading}
+          description={content.programIntro}
+          modules={programme ? undefined : content.programModules}
+          methodsBullets={content.programmeMethodsBullets}
+          programLinks={content.programLinks}
+          pdfHref={programme || content.programModules ? undefined : pdfHref}
+        >
+          {programme}
+        </TrainingProgram>
+
+        {programmeSupplement}
+        {afterProgrammeSupplement}
+
+        {content.practicalCase ? (
+          <TrainingMethod
+            id="cas-fil-rouge"
+            title={content.practicalCase.title}
+            paragraphs={content.practicalCase.paragraphs}
+            steps={content.practicalCase.steps}
+            note={content.practicalCase.note}
+          />
+        ) : null}
+
+        {iaApplications ? (
+          <FormationIaApplicationsSection bundle={iaApplications} />
+        ) : null}
+
+        {content.workflow && content.workflow.length > 0 ? (
+          <TrainingSection id="deroule" title="Déroulement type" tone="muted">
+            <ol className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+              {content.workflow.map((step, index) => (
+                <li
+                  key={step}
+                  className="flex gap-3 rounded-2xl border border-slate-200 bg-white px-4 py-4"
+                >
+                  <span
+                    className="font-display text-lg font-bold text-[#377CF3]"
+                    aria-hidden
+                  >
+                    {String(index + 1).padStart(2, '0')}
+                  </span>
+                  <span className="text-base text-slate-800">{step}</span>
+                </li>
+              ))}
+            </ol>
+          </TrainingSection>
+        ) : null}
+
+        {content.iaLimits && content.iaLimits.length > 0 ? (
+          <TrainingSection
+            id="limites-ia"
+            title={content.iaLimitsTitle ?? 'Ce que l’IA aide — ce que vous validez'}
+            tone="white"
+          >
+            <div className="overflow-x-auto rounded-2xl border border-slate-200">
+              <table className="min-w-full w-full text-left text-sm md:text-base">
+                <thead className="bg-slate-50 text-slate-600">
+                  <tr>
+                    <th scope="col" className="px-4 py-3 font-semibold">
+                      L’IA aide à…
+                    </th>
+                    <th scope="col" className="px-4 py-3 font-semibold">
+                      Vous validez…
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {content.iaLimits.map((row) => (
+                    <tr key={row.iaAide} className="border-t border-slate-100">
+                      <td className="px-4 py-3 text-slate-800">{row.iaAide}</td>
+                      <td className="px-4 py-3 text-slate-800">{row.validation}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </TrainingSection>
+        ) : null}
+
+        {afterIaLimits}
+
+        <TrainingPedagogicalModalitiesSection programmeRef={ref} />
+
+        <TrainingEvaluationSection programmeRef={ref} />
+
+        <TrainingDeliverables
+          items={content.deliverables}
+          title={content.deliverablesTitle ?? 'Les + de la formation'}
+          description={content.deliverablesIntro}
+          id={TRAINING_ANCHOR.atouts}
+        />
+
+        {afterDeliverables}
+
+        <section className="scroll-mt-[calc(var(--site-header-height)+3.25rem)] border-b border-slate-200 bg-white px-0 py-8 md:py-10">
+          <FormationCharteIaBtpRessourceAside />
+        </section>
+
+        {beforeTariffs}
+
+        <div className="lg:hidden">
+          {tariffsSection ?? (
+            <TrainingPricing
+              priceLabel={tarifLabel}
+              effectifLabel={effectifLabel}
+              durationLabel={formation.duree}
+              bullets={[
+                `${formatLabel} — ${locationLabel}`,
+                'Dans les locaux de l’entreprise ou session collective selon calendrier',
+                'Programme adaptable aux besoins de l’équipe',
+                ...(content.intraExtraBullets ?? []),
+                ...(content.interExtraBullets ?? []),
+              ]}
+              devisHref={devisHref}
+              showTvaAsterisk={!surDevis}
+            />
+          )}
+        </div>
+
+        <FormateurIntervenantBlock
+          formationCode={ref}
+          title={content.instructorTitle ?? 'Formateur'}
+        />
+
+        <TrainingPracticalInfo programmeRef={ref} publicCible={formation.public} />
+
+        <TrainingSessionsSection formationTitle={formation.titre} />
+
+        <TrainingAvisQualiopiSection />
+
+        {showFinancementOpcoEtendu ? (
+          <FinancementOpcoEtenduCourtBlock className="border-b border-slate-200 bg-white px-0 py-8 md:py-10" />
+        ) : null}
+      </TrainingPageLayout>
+
+      <TrainingQualiopiEngagementsBand />
 
       {maillageBlocks.map((block) => (
         <PageMaillageSection key={block.id} {...block} />

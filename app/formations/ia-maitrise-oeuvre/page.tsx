@@ -1,6 +1,5 @@
 import { JsonLd } from '@/components/JsonLd';
 import { CatalogueFormationPageTemplate } from '@/components/formations/catalogue/CatalogueFormationPageTemplate';
-import { ProgrammeFormationBlocs } from '@/components/formations/catalogue/ProgrammeFormationBlocs';
 import { FormationCatalogueGeoSections } from '@/components/formations/FormationCatalogueGeoSections';
 import { createPageMetadata, SITE_CONFIG } from '@/lib/seo';
 import { getFormationCatalogueVisuel } from '@/lib/formations-catalogue-display';
@@ -8,7 +7,6 @@ import { LINKS } from '@/lib/internal-links';
 import { buildCatalogueCourseMaitriseOeuvreNiv05JsonLd } from '@/lib/schema-catalogue-course-jsonld';
 import { getFormationCatalogueSeo } from '@/lib/formation-catalogue-seo';
 import { getCatalogueFormationPageContent } from '@/lib/catalogue-formation-page-content';
-import { NIV05_PROGRAMME_BLOCS } from '@/lib/catalogue-formation-programmes-niv05';
 
 const CATALOGUE_SEO = getFormationCatalogueSeo('NIV-05');
 const CATALOGUE_VISUEL = getFormationCatalogueVisuel('NIV-05');
@@ -41,7 +39,6 @@ export default function FormationIaMaitriseOeuvrePage() {
 
       <CatalogueFormationPageTemplate
         content={PAGE_CONTENT}
-        programme={<ProgrammeFormationBlocs blocs={NIV05_PROGRAMME_BLOCS} />}
         faqSectionId="faq-niv-05"
         h1Id="formation-moe-h1"
         afterObjectives={

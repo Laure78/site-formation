@@ -10,6 +10,7 @@ import { FooterTelOrMailLink } from '@/components/PublicPhoneCta';
 import { GAINS_TEMPS_MENTION_PRUDENCE } from '@/lib/gains-temps-copy';
 import { createPageMetadata, getFAQSchema } from '@/lib/seo';
 import { LINKS } from '@/lib/internal-links';
+import { FinancementOpcoEtenduCourtBlock } from '@/components/financement/FinancementOpcoEtenduCourtBlock';
 import {
   ETUDES_PRIX_CAS_USAGE,
   ETUDES_PRIX_EN_BREF,
@@ -114,6 +115,8 @@ export default function FormationIaEtudesPrixChiffrageBtpPage() {
             })}
           </div>
         </section>
+
+        <FinancementOpcoEtenduCourtBlock className="mt-14" />
 
         <FAQSection
           items={[...ETUDES_PRIX_FAQ]}

@@ -1,7 +1,6 @@
 import { JsonLd } from '@/components/JsonLd';
 import { CatalogueFormationPageTemplate } from '@/components/formations/catalogue/CatalogueFormationPageTemplate';
 import { CatalogueFormationClaudeExtras } from '@/components/formations/catalogue/CatalogueFormationClaudeExtras';
-import { ProgrammeFormationBlocs } from '@/components/formations/catalogue/ProgrammeFormationBlocs';
 import { FormationCatalogueGeoSections } from '@/components/formations/FormationCatalogueGeoSections';
 import { createPageMetadata, getFAQSchema } from '@/lib/seo';
 import { FAQ_MAITRISER_CLAUDE_NIV04 } from '@/lib/faq';
@@ -10,7 +9,6 @@ import { LINKS } from '@/lib/internal-links';
 import { buildCatalogueCourseMaitriserClaudeNiv04JsonLd } from '@/lib/schema-catalogue-course-jsonld';
 import { getFormationCatalogueSeo } from '@/lib/formation-catalogue-seo';
 import { getCatalogueFormationPageContent } from '@/lib/catalogue-formation-page-content';
-import { NIV04_PROGRAMME_BLOCS } from '@/lib/catalogue-formation-programmes-niv04';
 
 const CATALOGUE_SEO = getFormationCatalogueSeo('NIV-04');
 const CATALOGUE_VISUEL = getFormationCatalogueVisuel('NIV-04');
@@ -56,7 +54,6 @@ export default function FormationMaitriserClaudeAiBtpPage() {
 
       <CatalogueFormationPageTemplate
         content={PAGE_CONTENT}
-        programme={<ProgrammeFormationBlocs blocs={NIV04_PROGRAMME_BLOCS} />}
         faqItems={FAQ_MAITRISER_CLAUDE_NIV04}
         faqSectionId="faq-niv-04"
         h1Id="formation-claude-h1"
