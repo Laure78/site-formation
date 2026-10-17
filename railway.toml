@@ -1,7 +1,8 @@
-# Configuration Railway pour Next.js
+# Configuration Railway pour Next.js (Railpack)
 
 [build]
 builder = "RAILPACK"
+# NODE_OPTIONS déjà dans le script `build` de package.json (4096 Mo — next build + TypeScript)
 buildCommand = "npm run build"
 
 [deploy]

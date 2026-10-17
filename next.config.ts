@@ -1,4 +1,6 @@
 import type { NextConfig } from "next";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
 import {
   blogConsolidationRedirectsJuly2026,
   formationIaHubConsolidationRedirects,
@@ -6,8 +8,14 @@ import {
   gscRedirects2026April,
 } from "./lib/gsc-redirects-2026";
 
+/** Racine du dépôt — évite que Turbopack ne remonte à un lockfile parent (build Railway / CI). */
+const TURBOPACK_ROOT = path.dirname(fileURLToPath(import.meta.url));
+
 const nextConfig: NextConfig = {
   serverExternalPackages: ['unpdf', 'mammoth'],
+  turbopack: {
+    root: TURBOPACK_ROOT,
+  },
   experimental: {
     optimizePackageImports: ['lucide-react', '@supabase/supabase-js'],
   },
