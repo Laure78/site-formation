@@ -40,7 +40,11 @@ const RELATED_BY_REF: Record<FormationCatalogueCode, readonly RelatedCatalogueFo
     card('NIV-02', 'Appels d’offres, DCE et mémoire technique.'),
     card('NIV-08', 'Skills et assistants pour le pilotage chantier.'),
   ],
-  'NIV-04': [card('NIV-02', 'Appels d’offres et DCE.'), card('NIV-01', 'Bases IA BTP.'), card('NIV-06', 'Chiffrage et études de prix.')],
+  'NIV-04': [
+    card('NIV-02', 'Pour approfondir l’analyse de vos documents marchés publics.'),
+    card('NIV-01', 'Si vous devez consolider les bases IA avant d’industrialiser Claude.'),
+    card('NIV-10', 'Pour créer ensuite un outil métier réutilisable.'),
+  ],
   'NIV-05': [card('NIV-02', 'DCE et mémoires.'), card('NIV-03', 'Conduite de travaux.'), card('NIV-01', 'Bases IA.')],
   'NIV-06': [card('NIV-02', 'Préparer le chiffrage depuis le DCE.'), card('NIV-01', 'Bases IA.'), card('NIV-08', 'Assistants métré et devis.')],
   'NIV-07': [card('NIV-08', 'Assistants personnalisés.'), card('NIV-02', 'Appels d’offres.'), card('NIV-01', 'Bases IA.')],

@@ -4,8 +4,12 @@
  */
 import { getAllParcoursComputed, type ParcoursId } from '@/data/catalogue-2027';
 import { catalogueFormationNavContainsPath } from '@/lib/catalogue-formations-nav';
-import { buildFormationsIaNiveauHref } from '@/lib/catalogue-filter-url';
+import {
+  buildFormationsIaNiveauHref,
+  buildFormationsThematiqueHref,
+} from '@/lib/catalogue-filter-url';
 import { FORMATIONS_NIVEAUX_IA } from '@/lib/formations-niveaux-ia';
+import { CATALOGUE_THEMATIQUES } from '@/lib/catalogue-thematiques-btp';
 import { LINKS } from '@/lib/internal-links';
 
 export type HeaderNavLink = {
@@ -107,17 +111,24 @@ function parcoursBadge(id: ParcoursId): string | undefined {
 }
 
 function buildFormationsNavChildren(): readonly HeaderNavLink[] {
+  const thematiques = CATALOGUE_THEMATIQUES.map((t) => ({
+    href: buildFormationsThematiqueHref(t.id),
+    label: t.title,
+    title: `${t.title} — catalogue formations IA BTP`,
+  }));
+  const niveaux = FORMATIONS_NIVEAUX_IA.map((n) => ({
+    href: buildFormationsIaNiveauHref(n.niveau),
+    label: n.labelComplet,
+    title: `${n.accrocheNiveau} — ${n.labelComplet}`,
+  }));
   return [
     {
       href: LINKS.formations,
       label: 'Toutes les formations',
       title: 'Catalogue formations IA BTP',
     },
-    ...FORMATIONS_NIVEAUX_IA.map((n) => ({
-      href: buildFormationsIaNiveauHref(n.niveau),
-      label: n.labelComplet,
-      title: `${n.labelComplet} — catalogue IA BTP`,
-    })),
+    ...thematiques,
+    ...niveaux,
   ];
 }
 

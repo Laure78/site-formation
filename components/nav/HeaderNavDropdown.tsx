@@ -177,7 +177,7 @@ export function HeaderNavDropdown({
     ? `Fermer le sous-menu ${item.label}`
     : `Sous-menu ${item.label}`;
 
-  const handleZoneFocusOut = (event: FocusEvent<HTMLDivElement>) => {
+  const handleZoneFocusOut = (event: React.FocusEvent<HTMLDivElement>) => {
     const next = event.relatedTarget as Node | null;
     if (next && event.currentTarget.contains(next)) return;
     if (
@@ -196,7 +196,7 @@ export function HeaderNavDropdown({
       data-header-nav-zone={item.id}
       onPointerEnter={() => desktopHover?.onZoneEnter(item.id)}
       onPointerLeave={() => desktopHover?.onZoneLeave(item.id)}
-      onFocusOut={handleZoneFocusOut}
+      onBlur={handleZoneFocusOut}
     >
       <div
         className={`${triggerClass(highlighted, false, isCatalogue)} ${open ? 'header-nav-trigger--open' : ''}`}

@@ -9,6 +9,8 @@ export type FormationNiveauIaDefinition = {
   labelComplet: string;
   /** Ex. « Débutant » */
   sousTitre: string;
+  /** Accroche courte — ex. « Prendre en main l’IA » */
+  accrocheNiveau: string;
   /** Badge court cartes — même libellé que labelComplet sans le numéro répété inutilement */
   badge: string;
   publicCible: string;
@@ -21,6 +23,10 @@ export type FormationNiveauIaDefinition = {
   accueilAccroche: string;
   /** Durée typique affichée sur l’accueil (formations IA de la progression). */
   accueilDuree: string;
+  /** Prérequis pédagogiques — cartes accueil, catalogue, orientation. */
+  prerequis: string;
+  /** Exemples de réalisations après formation (2–3). */
+  exemplesRealisations: readonly string[];
 };
 
 export const FORMATIONS_NIVEAUX_IA: readonly FormationNiveauIaDefinition[] = [
@@ -28,50 +34,75 @@ export const FORMATIONS_NIVEAUX_IA: readonly FormationNiveauIaDefinition[] = [
     niveau: 1,
     labelComplet: 'Niveau 1 — Débutant',
     sousTitre: 'Débutant',
+    accrocheNiveau: 'Prendre en main l’IA',
     badge: 'Niveau 1 — Débutant',
     publicCible:
       'Personnes qui découvrent l’IA ou l’utilisent occasionnellement sur quelques tâches.',
     objectif:
       'Formuler une demande claire, produire un premier document et vérifier la réponse.',
     descriptionMenu:
-      'Découvrir l’IA et réaliser ses premiers usages professionnels.',
+      'Découvrir les outils et réaliser ses premières tâches.',
     anchorId: 'catalogue-niveau-1',
     sectionHeading: 'Niveau 1 — Débutant',
-    accueilAccroche: 'Découvrir l’IA et réaliser ses premiers exercices BTP.',
+    accueilAccroche:
+      'Découvrir l’IA et réaliser ses premiers usages professionnels.',
     accueilDuree: '4 h',
+    prerequis:
+      'Aucun prérequis technique — documents métier BTP (devis, emails, notes de chantier).',
+    exemplesRealisations: [
+      'Premier devis ou désignation structurée',
+      'Compte rendu à partir de notes',
+      'Email ou courrier professionnel relu avant envoi',
+    ],
   },
   {
     niveau: 2,
     labelComplet: 'Niveau 2 — Intermédiaire',
     sousTitre: 'Intermédiaire',
+    accrocheNiveau: 'Appliquer l’IA à son métier',
     badge: 'Niveau 2 — Intermédiaire',
     publicCible:
       'Personnes disposant des bases et souhaitant structurer leurs usages sur leurs documents métier.',
     objectif:
       'Analyser des documents, comparer des informations et produire des livrables métier avec une méthode de contrôle.',
     descriptionMenu:
-      'Approfondir ses usages sur les documents et les tâches du BTP.',
+      'Analyser ses documents, produire et contrôler ses livrables.',
     anchorId: 'catalogue-niveau-2',
     sectionHeading: 'Niveau 2 — Intermédiaire',
-    accueilAccroche:
-      'Approfondir ses usages et produire des documents métier avec une méthode de contrôle.',
+    accueilAccroche: 'Utiliser l’IA sur ses documents et ses tâches métier.',
     accueilDuree: '7 h',
+    prerequis:
+      'Niveau 1 ou pratique régulière de ChatGPT ou Claude sur des documents professionnels.',
+    exemplesRealisations: [
+      'Checklist d’analyse DCE ou CCTP',
+      'Mémoire technique ou CR structuré',
+      'Assistant documentaire avec protocole de relecture',
+    ],
   },
   {
     niveau: 3,
     labelComplet: 'Niveau 3 — Avancé',
     sousTitre: 'Avancé',
+    accrocheNiveau: 'Créer ses assistants et ses outils',
     badge: 'Niveau 3 — Avancé',
     publicCible:
       'Utilisateurs autonomes souhaitant personnaliser leurs outils et assistants.',
     objectif:
       'Concevoir des assistants ou applications métier et organiser leurs tests et leur utilisation.',
     descriptionMenu:
-      'Créer des assistants et des outils adaptés à son activité.',
+      'Concevoir des usages réutilisables et des outils adaptés à son activité.',
     anchorId: 'catalogue-niveau-3',
     sectionHeading: 'Niveau 3 — Avancé',
-    accueilAccroche: 'Créer des assistants et des outils métier réutilisables.',
-    accueilDuree: '7 h ou 14 h selon le programme',
+    accueilAccroche:
+      'Créer des assistants et des outils adaptés à son activité.',
+    accueilDuree: '7 h ou 14 h',
+    prerequis:
+      'Usages intermédiaires maîtrisés sur documents BTP, ou projet d’outil / prototype déjà cadré.',
+    exemplesRealisations: [
+      'Prototype d’outil métier (suivi, relances, planning)',
+      'Workflow Claude ou assistant réutilisable',
+      'Application métier avec contrôle humain sur les outputs IA',
+    ],
   },
 ] as const;
 

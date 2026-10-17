@@ -3,6 +3,10 @@
  */
 import type { FormationNiveau } from '@/data/formations';
 import type { DomaineId, MetierId } from '@/data/catalogue-2027';
+import {
+  CATALOGUE_THEMATIQUE_IDS,
+  type CatalogueThematiqueId,
+} from '@/lib/catalogue-thematiques-btp';
 
 export type CatalogueModulesFilterParams = {
   domaine?: DomaineId;
@@ -13,7 +17,11 @@ export type CatalogueModulesFilterParams = {
 export type FormationsIaFilterParams = CatalogueModulesFilterParams & {
   /** Filtre niveau — section « Formations IA disponibles » */
   niveau?: FormationNiveau;
+  /** Rubrique thématique catalogue */
+  thematique?: CatalogueThematiqueId;
 };
+
+const THEMATIQUE_IDS = new Set<string>(CATALOGUE_THEMATIQUE_IDS);
 
 const NIVEAU_VALUES = new Set<string>(['1', '2', '3']);
 
@@ -79,21 +87,31 @@ export function parseFormationsIaFilters(
     niveauRaw && NIVEAU_VALUES.has(niveauRaw)
       ? (Number.parseInt(niveauRaw, 10) as FormationNiveau)
       : undefined;
-  return { ...base, niveau };
+  const thematiqueRaw = get('thematique');
+  const thematique =
+    thematiqueRaw && THEMATIQUE_IDS.has(thematiqueRaw)
+      ? (thematiqueRaw as CatalogueThematiqueId)
+      : undefined;
+  return { ...base, niveau, thematique };
 }
 
 /** Lien menu / cartes — formations IA filtrées par niveau. */
 export function buildFormationsIaNiveauHref(niveau: FormationNiveau): string {
-  return `/formations?niveau=${niveau}#formations-ia-disponibles`;
+  return `/formations?niveau=${niveau}#catalogue-formations`;
 }
 
 export function buildFormationsIaHref(filters: FormationsIaFilterParams): string {
   const params = new URLSearchParams();
   if (filters.niveau) params.set('niveau', String(filters.niveau));
+  if (filters.thematique) params.set('thematique', filters.thematique);
   if (filters.domaine) params.set('domaine', filters.domaine);
   if (filters.metier) params.set('metier', filters.metier);
   if (filters.q) params.set('q', filters.q);
   const qs = params.toString();
-  const hash = filters.niveau ? 'formations-ia-disponibles' : 'catalogue-modules';
+  const hash = 'catalogue-formations';
   return qs ? `/formations?${qs}#${hash}` : `/formations#${hash}`;
+}
+
+export function buildFormationsThematiqueHref(thematique: CatalogueThematiqueId): string {
+  return buildFormationsIaHref({ thematique });
 }

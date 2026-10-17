@@ -43,12 +43,12 @@ export function FormationsParcoursExplorer({ parcours }: Props) {
       <span id="catalogue-gammes" className="sr-only" />
       <div className="max-w-3xl">
         <h2 id="parcours-metiers-title" className="ofc-type-h2 text-ofc-ink">
-          Parcours métiers — ouverture prévue en 2027
+          Construisez votre parcours selon votre métier
         </h2>
         <p className="mt-3 text-ofc-ink-muted">
-          Parcours modulaires par fonction. Les formations IA du catalogue restent disponibles dès
-          maintenant — filtres par niveau ci-dessus. Sélectionnez un métier pour repérer le parcours
-          correspondant.
+          Parcours modulaires par fonction — distincts des formations unitaires du catalogue.
+          La plupart des parcours complets ouvrent en 2027 ; les formations IA ci-dessus restent
+          disponibles dès maintenant. Sélectionnez un métier pour repérer la progression adaptée.
         </p>
       </div>
 

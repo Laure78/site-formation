@@ -150,30 +150,41 @@ export const ACCUEIL_PARCOURS_FORMATION_ETAPES = ACCUEIL_METHODE_PEDAGOGIQUE_ETA
 export const ACCUEIL_CAS_EXERCICES_FORMATION = [
   {
     id: 'dce-vigilance',
-    titre: 'Analyser un DCE et organiser les points de vigilance',
-    besoin: 'Repérer les exigences avant chiffrage ou réponse.',
-    travail: 'Extraction structurée RC, CCTP et CCAP avec citation des pièces.',
+    titre: 'Analyser un DCE',
+    badge: 'Exemple pédagogique',
+    besoin: 'Repérer les exigences avant chiffrage ou réponse (dossier fictif).',
+    travail: 'Synthèse des exigences RC, CCTP et CCAP avec ChatGPT ou Claude.',
     livrable: 'Checklist de points à vérifier et questions pour la MOE.',
-    resultat: 'Lecture plus rapide du dossier et moins d’oublis en préparation.',
+    verification:
+      'Contrôle humain des citations, des montants et des délais avant toute décision Go / No Go.',
+    apercu:
+      '▸ Exigence CCTP §4.2 — étanchéité terrasse\n▸ Point à vérifier — délai d’exécution RC\n▸ Question MOE — variante autorisée ?',
     href: LINKS.formationAO,
   },
   {
     id: 'cr-actions',
-    titre: 'Transformer un compte rendu en tableau d’actions',
-    besoin: 'Suivre les décisions et responsabilités après réunion de chantier.',
-    travail: 'Reformulation de notes brutes en CR puis tableau d’actions daté.',
-    livrable: 'Compte rendu + liste d’actions avec responsables et échéances.',
-    resultat: 'Partage clair avec l’équipe — contenu à valider avant diffusion.',
+    titre: 'Compte rendu de chantier',
+    badge: 'Exemple pédagogique',
+    besoin: 'Suivre décisions, responsables et échéances après réunion (cas fictif).',
+    travail: 'Notes brutes reformulées en CR structuré, puis tableau d’actions.',
+    livrable: 'CR + actions (responsable, échéance, statut).',
+    verification:
+      'Validation du conducteur ou du chef de chantier avant envoi aux parties prenantes.',
+    apercu:
+      'Action 1 — Fournir plan réseaux | Resp. BE | 22/10\nAction 2 — Levée réservation | Resp. ST élec. | 25/10',
     href: LINKS.formationConduiteTravauxSuiviChantier,
   },
   {
-    id: 'assistant-admin',
-    titre: 'Préparer un assistant administratif BTP',
-    besoin: 'Uniformiser relances, courriers et trames récurrentes.',
-    travail: 'Cadrage des consignes, modèles et règles de contrôle dans Claude ou ChatGPT.',
-    livrable: 'Assistant ou projet documentaire avec protocole de relecture.',
-    resultat: 'Méthode réutilisable en interne — sans promesse de conformité automatique.',
-    href: LINKS.formationMaitriserClaudeAiBtp,
+    id: 'relances',
+    titre: 'Relances clients',
+    badge: 'Exemple pédagogique',
+    besoin: 'Organiser relances et impayés sans perdre le fil (données anonymisées).',
+    travail: 'Brouillon de messages et tableau de suivi avec ChatGPT ou Claude.',
+    livrable: 'Modèles de relance + tableau (statut, date, prochaine action).',
+    verification: 'Relire chaque message ; valider montants, délais et ton avant envoi.',
+    apercu:
+      'Relance J+15 — Objet : facture n°… — Statut : en attente — Prochaine action : appel le…',
+    href: LINKS.formationIaBtpNiveau1BatimentTp,
   },
 ] as const;
 

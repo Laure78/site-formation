@@ -19,9 +19,7 @@ const REPERES = [
     body: 'OFC Création d’Entreprise — certification consultable sur la page dédiée.',
     href: LINKS.qualiopi as string,
   },
-] as const satisfies ReadonlyArray<
-  { title: string; body: string; href?: string }
->;
+] satisfies ReadonlyArray<{ title: string; body: string; href?: string }>;
 
 export function AccueilReperesConfianceSection() {
   return (

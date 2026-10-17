@@ -1,9 +1,9 @@
 import Link from 'next/link';
+import { FormationsNiveauxCartesGrid } from '@/components/formations/catalogue-2027/FormationsNiveauxCartesGrid';
 import { Section } from '@/components/ui/Section';
 import { SectionHeader } from '@/components/ui/SectionHeader';
-import { buildFormationsIaNiveauHref } from '@/lib/catalogue-filter-url';
-import { FORMATIONS_NIVEAUX_IA } from '@/lib/formations-niveaux-ia';
-import { OFC_CTA_SECONDARY } from '@/lib/ofc-interaction-classes';
+import { LINKS } from '@/lib/internal-links';
+import { OFC_LINK } from '@/lib/ofc-interaction-classes';
 
 export function AccueilNiveauxOrientationSection() {
   return (
@@ -15,23 +15,12 @@ export function AccueilNiveauxOrientationSection() {
         description="Niveau de maîtrise de l’IA, distinct de votre métier ou de la thématique traitée en session."
         className="mx-auto max-w-2xl"
       />
-      <ul className="mt-10 grid gap-5 md:grid-cols-3">
-        {FORMATIONS_NIVEAUX_IA.map((n) => (
-          <li key={n.niveau}>
-            <article className="flex h-full flex-col rounded-ofc-card border border-ofc-border bg-white p-6 shadow-ofc-sm">
-              <h3 className="font-display text-lg font-bold text-ofc-ink">{n.labelComplet}</h3>
-              <p className="mt-3 text-sm leading-relaxed text-ofc-ink">{n.accueilAccroche}</p>
-              <p className="mt-3 text-sm font-medium text-ofc-ink-muted">Durée : {n.accueilDuree}</p>
-              <Link
-                href={buildFormationsIaNiveauHref(n.niveau)}
-                className={`${OFC_CTA_SECONDARY} mt-6 inline-flex min-h-10 items-center justify-center px-4 py-2.5 text-sm font-semibold`}
-              >
-                Découvrir le niveau {n.niveau}
-              </Link>
-            </article>
-          </li>
-        ))}
-      </ul>
+      <FormationsNiveauxCartesGrid ctaLabel="Découvrir le niveau" className="mt-10" />
+      <p className="mt-8 text-center">
+        <Link href={LINKS.formationsOrientation} className={`${OFC_LINK} text-sm font-semibold`}>
+          Questionnaire : quelle formation choisir ?
+        </Link>
+      </p>
     </Section>
   );
 }

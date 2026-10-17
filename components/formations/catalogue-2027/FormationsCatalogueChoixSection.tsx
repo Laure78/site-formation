@@ -1,14 +1,14 @@
 import Link from 'next/link';
-import { FORMATIONS_NIVEAUX_IA } from '@/lib/formations-niveaux-ia';
-import { buildFormationsIaNiveauHref } from '@/lib/catalogue-filter-url';
+import { FormationsOrientationWizard } from '@/components/formations/catalogue-2027/FormationsOrientationWizard';
+import { FORMATION_ORIENTATION_SECTION_ID } from '@/lib/formation-orientation';
 import { LINKS } from '@/lib/internal-links';
-import { OFC_CTA_PRIMARY, OFC_CTA_SECONDARY } from '@/lib/ofc-interaction-classes';
+import { OFC_CTA_SECONDARY } from '@/lib/ofc-interaction-classes';
 
-/** Bloc d’orientation en tête du catalogue `/formations`. */
+/** Questionnaire d’orientation — sous le catalogue principal. */
 export function FormationsCatalogueChoixSection() {
   return (
     <section
-      id="comparer-niveaux"
+      id={FORMATION_ORIENTATION_SECTION_ID}
       className="scroll-mt-24 border-b border-[#E2E8F0] bg-[#F8FAFC] py-12 md:py-14"
       aria-labelledby="formations-choix-title"
     >
@@ -17,58 +17,26 @@ export function FormationsCatalogueChoixSection() {
           Quelle formation IA BTP choisir ?
         </h2>
         <p className="mt-3 max-w-2xl text-ofc-ink-muted">
-          Orientez-vous par niveau de maîtrise de l’IA ou par parcours métier. Les prérequis de
-          chaque programme restent prioritaires.
+          Si vous hésitez entre plusieurs programmes, ce questionnaire propose une recommandation
+          catalogue — sans email. Les filtres ci-dessus restent la référence pour parcourir toutes les
+          fiches.
         </p>
 
-        <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-          <a
-            href="#formations-niveaux-cartes"
-            className={`${OFC_CTA_PRIMARY} inline-flex min-h-11 items-center justify-center px-6 py-3`}
-          >
-            Je choisis mon niveau
-          </a>
+        <FormationsOrientationWizard />
+
+        <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
           <Link
             href={LINKS.parcoursMetiers}
             className={`${OFC_CTA_SECONDARY} inline-flex min-h-11 items-center justify-center px-6 py-3`}
           >
-            Je choisis mon métier
+            Choisir mon parcours métier
           </Link>
-        </div>
-
-        <div
-          id="formations-niveaux-cartes"
-          className="mt-10 grid gap-5 md:grid-cols-3"
-        >
-          {FORMATIONS_NIVEAUX_IA.map((n) => (
-            <article
-              key={n.niveau}
-              className="flex flex-col rounded-xl border border-[#E2E8F0] bg-white p-5 shadow-sm"
-            >
-              <p className="text-xs font-semibold uppercase tracking-wide text-[#377CF3]">
-                Niveau {n.niveau}
-              </p>
-              <h3 className="mt-2 font-display text-lg font-bold text-ofc-ink">
-                {n.sousTitre}
-              </h3>
-              <p className="mt-3 text-sm leading-relaxed text-ofc-ink-muted">
-                <span className="font-medium text-ofc-ink">Public — </span>
-                {n.publicCible}
-              </p>
-              <p className="mt-2 text-sm leading-relaxed text-ofc-ink">
-                <span className="font-medium">Objectif — </span>
-                {n.objectif}
-              </p>
-              <div className="mt-auto pt-6">
-                <Link
-                  href={buildFormationsIaNiveauHref(n.niveau)}
-                  className={`${OFC_CTA_SECONDARY} inline-flex min-h-10 w-full items-center justify-center px-4 py-2.5 text-sm font-semibold`}
-                >
-                  Voir les formations
-                </Link>
-              </div>
-            </article>
-          ))}
+          <Link
+            href={LINKS.diagnostic}
+            className="inline-flex min-h-11 items-center justify-center px-4 py-3 text-sm font-semibold text-ofc-accent hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ofc-accent"
+          >
+            Diagnostic IA BTP (analyse détaillée)
+          </Link>
         </div>
       </div>
     </section>

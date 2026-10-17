@@ -33,6 +33,10 @@ export type AccueilParcoursOffreCard = {
   benefice: string;
   publicCible: string;
   objectif: string;
+  /** 2–3 usages IA explicités sur la carte accueil. */
+  usagesIa: readonly string[];
+  /** Niveau d’entrée ou prérequis — libellé court. */
+  niveauEntree: string;
   dureeLabel: string | null;
   disponibiliteLabel: string;
   href: string;
@@ -88,6 +92,36 @@ const ACCUEIL_PARCOURS_TITRE_CARTE: Partial<Record<ParcoursId, string>> = {
   'assistant-de-gestion-btp': 'Fonctions administratives et assistance travaux',
 };
 
+const ACCUEIL_PARCOURS_USAGES_IA: Partial<Record<ParcoursId, readonly string[]>> = {
+  'dirigeant-pme-btp': [
+    'Prioriser les usages IA dans l’entreprise',
+    'Règles d’usage et plan de déploiement',
+    'Relances et pilotage documentaire',
+  ],
+  'charge-affaires-btp': [
+    'Analyser les pièces d’un marché (DCE)',
+    'Structurer devis et mémoire technique',
+    'Suivi d’affaires et relances commerciales',
+  ],
+  'conducteur-de-travaux': [
+    'Comptes rendus et tableaux d’actions',
+    'Analyse CCTP et documents de chantier',
+    'Suivi documentaire jusqu’à la réception',
+  ],
+  'assistant-de-gestion-btp': [
+    'Courriers et pièces administratives',
+    'Relances et modèles réutilisables',
+    'Organisation des dossiers métier',
+  ],
+};
+
+const ACCUEIL_PARCOURS_NIVEAU_ENTREE: Partial<Record<ParcoursId, string>> = {
+  'dirigeant-pme-btp': 'Entrée conseillée : niveau 1 — Débutant (4 h)',
+  'charge-affaires-btp': 'Prérequis : pratique du chiffrage ou des consultations',
+  'conducteur-de-travaux': 'Entrée conseillée : niveau 1, puis formation chantier (7 h)',
+  'assistant-de-gestion-btp': 'Entrée conseillée : niveau 1 — Débutant (4 h)',
+};
+
 /** Parcours du catalogue 2027 — ordre pédagogique (source PARCOURS_CATALOGUE_2027). */
 export function getAccueilParcoursOffre(
   opts?: { featuredOnly?: boolean },
@@ -108,6 +142,12 @@ export function getAccueilParcoursOffre(
       benefice: p.benefice,
       publicCible: p.publicCible,
       objectif: p.objectif,
+      usagesIa:
+        ACCUEIL_PARCOURS_USAGES_IA[p.id] ??
+        (['Usages IA alignés sur les modules du parcours'] as const),
+      niveauEntree:
+        ACCUEIL_PARCOURS_NIVEAU_ENTREE[p.id] ??
+        (p.prerequis ? `Prérequis : ${p.prerequis}` : 'Voir le détail sur la page parcours'),
       dureeLabel,
       disponibiliteLabel: libelleDisponibilite(p.disponibilite),
       href: parcoursHref(p.id),

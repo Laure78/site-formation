@@ -10,8 +10,6 @@ import {
 import { FormationsCatalogue2027Hero } from '@/components/formations/catalogue-2027/FormationsCatalogue2027Hero';
 import { FormationsCatalogueChoixSection } from '@/components/formations/catalogue-2027/FormationsCatalogueChoixSection';
 import { FormationsParcoursExplorer } from '@/components/formations/catalogue-2027/FormationsParcoursExplorer';
-import { FormationsSousDomainesIaChantier } from '@/components/formations/catalogue-2027/FormationsSousDomainesIaChantier';
-import { FormationsDeroulementParcours } from '@/components/formations/catalogue-2027/FormationsDeroulementParcours';
 import { FormationsIaDisponibles } from '@/components/formations/catalogue-2027/FormationsIaDisponibles';
 import { FormationsModulesCatalogue } from '@/components/formations/catalogue-2027/FormationsModulesCatalogue';
 import { FormationsPlanEntreprise } from '@/components/formations/catalogue-2027/FormationsPlanEntreprise';
@@ -22,9 +20,9 @@ import { buildFormationsPageUnifiedGraphJsonLd } from '@/lib/schema-formations-p
 
 const baseUrl = SITE_CONFIG.url.replace(/\/$/, '');
 
-const CATALOGUE_2027_TITLE = 'Formations et parcours métiers BTP | Laure Olivié';
+const CATALOGUE_2027_TITLE = 'Formations IA BTP : ChatGPT et Claude | Laure Olivié';
 const CATALOGUE_2027_DESCRIPTION =
-  'Catalogue des formations IA pour le BTP : devis, appels d’offres, chantier, Claude. Présentiel Île-de-France, Qualiopi, OPCO selon éligibilité.';
+  'Découvrez les formations IA BTP : devis, appels d’offres, chantier et assistants métier. Trois niveaux, en présentiel en Île-de-France.';
 
 export const revalidate = 3600;
 
@@ -34,7 +32,9 @@ type FormationsPageProps = {
 
 export async function generateMetadata({ searchParams }: FormationsPageProps = {}): Promise<Metadata> {
   const sp = searchParams ? await searchParams : {};
-  const hasCatalogueFilters = Boolean(sp.domaine || sp.metier || sp.q || sp.niveau);
+  const hasCatalogueFilters = Boolean(
+    sp.domaine || sp.metier || sp.q || sp.niveau || sp.thematique,
+  );
 
   return {
     ...createPageMetadata({
@@ -82,22 +82,21 @@ export default function FormationsPage() {
     <>
       <JsonLd id="schema-formations-page-graph" schema={buildFormationsPageUnifiedGraphJsonLd()} />
       <FormationsCatalogue2027Hero />
-      <FormationsCatalogueChoixSection />
 
       <div className="mx-auto max-w-[80rem] px-4 pb-20 pt-10 sm:px-6 md:pt-14 lg:px-8">
         <p className="sr-only">{CATALOGUE_2027_POSITIONNEMENT.introductionMarque}</p>
         <FormationsIaDisponibles />
         <FormationsParcoursExplorer parcours={parcours} />
-        <FormationsSousDomainesIaChantier />
-        <FormationsDeroulementParcours />
-        <Suspense fallback={null}>
-          <FormationsModulesCatalogue />
-        </Suspense>
         <FormationsPlanEntreprise />
         <FormationsInfosPratiques2027 />
         <FormationsContact2027 />
         <FormationsCatalogueMaillageSection />
+        <Suspense fallback={null}>
+          <FormationsModulesCatalogue />
+        </Suspense>
       </div>
+
+      <FormationsCatalogueChoixSection />
     </>
   );
 }

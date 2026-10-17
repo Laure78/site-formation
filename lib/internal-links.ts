@@ -98,7 +98,9 @@ export const LINKS = {
   /** @deprecated Préférer `parcoursMetiers` — ancre catalogue conservée pour liens legacy */
   formationsTrouverParcours: '/formations#trouver-mon-parcours',
   /** Hub catalogue 2027 — ancre formations IA disponibles */
-  formationsIaDisponibles: '/formations#formations-ia-disponibles',
+  formationsIaDisponibles: '/formations#catalogue-formations',
+  /** Questionnaire d’orientation — 4 questions, recommandation catalogue */
+  formationsOrientation: '/formations#quelle-formation-choisir',
   /** Hub catalogue 2027 — catalogue modules par domaine */
   formationsCatalogueModules: '/formations#catalogue-modules',
   /** Parcours métiers 2027 */
