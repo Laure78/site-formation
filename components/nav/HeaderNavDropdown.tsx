@@ -4,7 +4,6 @@ import type { FocusEvent, ReactNode } from 'react';
 import Link from 'next/link';
 import type { HeaderNavDesktopHover } from '@/hooks/useHeaderNavDesktopHover';
 import { ChevronDown } from 'lucide-react';
-import { HeaderMegaMenu } from '@/components/nav/HeaderMegaMenu';
 import {
   headerNavItemHasPanel,
   headerNavItemIsActive,
@@ -13,14 +12,21 @@ import {
   type HeaderNavLink,
 } from '@/lib/header-nav';
 
-function triggerClass(active: boolean, simple = false, catalogue = false) {
+function triggerClass({
+  routeActive,
+  open,
+  simple = false,
+}: {
+  routeActive: boolean;
+  open: boolean;
+  simple?: boolean;
+}) {
   return [
     'header-nav-trigger',
     simple ? 'header-nav-trigger--simple' : '',
-    catalogue ? 'header-nav-trigger--catalogue text-white shadow-sm' : '',
-    active && !catalogue ? 'header-nav-trigger--active' : '',
-    !active && !catalogue ? 'header-nav-trigger--idle' : '',
-    catalogue && active ? 'header-nav-trigger--catalogue-active' : '',
+    open ? 'header-nav-trigger--open' : '',
+    routeActive && !open ? 'header-nav-trigger--active' : '',
+    !routeActive && !open ? 'header-nav-trigger--idle' : '',
   ]
     .filter(Boolean)
     .join(' ');
@@ -150,7 +156,6 @@ export function HeaderNavDropdown({
   onNavigate,
   onZoneFocusOut,
   desktopHover,
-  renderPanelInline = true,
 }: {
   item: HeaderNavItem;
   pathname: string;
@@ -161,17 +166,13 @@ export function HeaderNavDropdown({
   onZoneFocusOut?: () => void;
   /** Survol desktop — ouverture au pointer enter (appareils fine pointer uniquement). */
   desktopHover?: Pick<HeaderNavDesktopHover, 'onZoneEnter' | 'onZoneLeave'>;
-  /** false = panneau rendu au niveau du header (méga-menu pleine largeur). */
-  renderPanelInline?: boolean;
 }) {
   const panelId = `header-nav-panel-${item.id}`;
   const buttonId = `header-nav-btn-${item.id}`;
   const routeActive = headerNavItemIsActive(item, pathname);
-  const highlighted = routeActive || open;
   const children = item.children ?? [];
-  const hasMega = Boolean(item.megaColumns?.length);
-  const isCatalogue = item.variant === 'catalogue';
   const alignEnd = item.dropdownAlign === 'end';
+  const hideHeading = Boolean(item.hideDropdownHeading);
 
   const submenuAriaLabel = open
     ? `Fermer le sous-menu ${item.label}`
@@ -180,32 +181,18 @@ export function HeaderNavDropdown({
   const handleZoneFocusOut = (event: React.FocusEvent<HTMLDivElement>) => {
     const next = event.relatedTarget as Node | null;
     if (next && event.currentTarget.contains(next)) return;
-    if (
-      next &&
-      hasMega &&
-      (next as Element).closest?.(`[data-header-mega-for="${item.id}"]`)
-    ) {
-      return;
-    }
     if (open) onZoneFocusOut?.();
   };
 
   return (
     <div
-      className="relative flex shrink-0 items-stretch justify-center"
+      className="relative flex w-full min-w-0 shrink-0 items-stretch justify-center lg:flex-1"
       data-header-nav-zone={item.id}
       onPointerEnter={() => desktopHover?.onZoneEnter(item.id)}
       onPointerLeave={() => desktopHover?.onZoneLeave(item.id)}
       onBlur={handleZoneFocusOut}
     >
-      <div
-        className={`${triggerClass(highlighted, false, isCatalogue)} ${open ? 'header-nav-trigger--open' : ''}`}
-        style={
-          isCatalogue
-            ? { backgroundColor: highlighted ? '#2A6BD9' : '#377CF3', color: '#fff' }
-            : undefined
-        }
-      >
+      <div className={`${triggerClass({ routeActive, open })} w-full`}>
         {/* Libellé → page hub ; chevron → sous-menu (évite d’ouvrir le menu quand on veut la page). */}
         <Link
           href={item.href}
@@ -219,7 +206,7 @@ export function HeaderNavDropdown({
           id={buttonId}
           type="button"
           aria-expanded={open}
-          aria-haspopup={hasMega ? 'dialog' : 'true'}
+          aria-haspopup="true"
           aria-controls={panelId}
           aria-label={submenuAriaLabel}
           className="header-nav-trigger__toggle"
@@ -245,30 +232,27 @@ export function HeaderNavDropdown({
           />
         </button>
       </div>
-      {open && hasMega && item.megaColumns && renderPanelInline ? (
-        <HeaderMegaMenu
-          panelId={panelId}
-          labelledBy={buttonId}
-          columns={item.megaColumns}
-          quickLinks={item.megaQuickLinks}
-          footerNote={item.megaFooterNote}
-          pathname={pathname}
-          onNavigate={onNavigate}
-          megaForId={item.id}
-          onPointerZoneEnter={() => desktopHover?.onZoneEnter(item.id)}
-          onPointerZoneLeave={() => desktopHover?.onZoneLeave(item.id)}
-        />
-      ) : null}
-      {open && !hasMega && children.length > 0 && renderPanelInline ? (
+      {open && children.length > 0 ? (
         <div
           id={panelId}
           data-header-dropdown=""
-          className={`header-nav-dropdown-panel absolute top-full z-[60] min-w-[18.5rem] max-w-[min(100vw-2rem,28rem)] pt-1 ${
+          className={`header-nav-dropdown-panel absolute top-full z-[60] min-w-[15.5rem] max-w-[min(100vw-2rem,22rem)] ${
             alignEnd ? 'right-0' : 'left-0'
           }`}
         >
-          <div className="header-nav-dropdown-menu max-h-[min(70vh,32rem)] overflow-y-auto overscroll-contain" aria-labelledby={buttonId}>
-            <p className="header-nav-dropdown-heading">{item.label}</p>
+          <div
+            className="pointer-events-none absolute inset-x-0 -top-1 h-2"
+            aria-hidden
+          />
+          <div
+            className={`header-nav-dropdown-menu ${
+              hideHeading ? 'header-nav-dropdown-menu--compact py-2' : ''
+            } max-h-[min(70vh,32rem)] overflow-y-auto overscroll-contain`}
+            aria-labelledby={buttonId}
+          >
+            {hideHeading ? null : (
+              <p className="header-nav-dropdown-heading">{item.label}</p>
+            )}
             <ul>
               <HeaderNavDropdownLinks links={children} pathname={pathname} onNavigate={onNavigate} />
             </ul>
@@ -298,12 +282,12 @@ export function HeaderNavSimpleLink({
   pathname: string;
   icon?: ReactNode;
 }) {
-  const active = headerNavItemIsActive(item, pathname);
+  const routeActive = headerNavItemIsActive(item, pathname);
   return (
-    <div className={`${triggerClass(active, true)} shrink-0`}>
+    <div className={`${triggerClass({ routeActive, open: false, simple: true })} w-full min-w-0 shrink-0 lg:flex-1`}>
       <Link
         href={item.href}
-        aria-current={active ? 'page' : undefined}
+        aria-current={routeActive ? 'page' : undefined}
         className="header-nav-trigger__link"
       >
         {icon}
@@ -332,15 +316,11 @@ export function HeaderMobileNavSection({
   const buttonId = `header-mobile-btn-${item.id}`;
   const itemActive = headerNavItemIsActive(item, pathname);
   const children = item.children ?? [];
-  const hasMega = Boolean(item.megaColumns?.length);
   const hasMenu = headerNavItemHasPanel(item);
-  const isCatalogue = item.variant === 'catalogue';
 
   return (
     <div
-      className={`header-mobile-section mb-2 ${itemActive ? 'header-mobile-section--active' : ''} ${
-        isCatalogue ? 'header-mobile-section--catalogue overflow-hidden rounded-xl bg-[#377CF3]' : ''
-      }`}
+      className={`header-mobile-section mb-2 ${itemActive ? 'header-mobile-section--active' : ''}`}
     >
       <div className="header-mobile-section__head">
         {hasMenu ? (
@@ -350,11 +330,7 @@ export function HeaderMobileNavSection({
               aria-current={itemActive ? 'page' : undefined}
               onClick={onNavigate}
               className={`header-mobile-section__link min-w-0 flex-1 ${
-                isCatalogue
-                  ? 'font-semibold text-white'
-                  : itemActive
-                    ? 'font-semibold text-[#2563EB]'
-                    : 'font-medium text-slate-900'
+                itemActive ? 'font-semibold text-[#2563EB]' : 'font-medium text-slate-900'
               }`}
             >
               {icon}
@@ -368,9 +344,7 @@ export function HeaderMobileNavSection({
               aria-controls={panelId}
               aria-haspopup="true"
               aria-label={`Ouvrir le menu ${item.label}`}
-              className={`inline-flex min-h-11 min-w-11 shrink-0 items-center justify-center rounded-xl ${
-                isCatalogue ? 'text-white' : 'text-slate-600'
-              }`}
+              className="inline-flex min-h-11 min-w-11 shrink-0 items-center justify-center rounded-xl text-slate-600"
             >
               <ChevronDown
                 size={18}
@@ -398,50 +372,7 @@ export function HeaderMobileNavSection({
       </div>
       {hasMenu && expanded ? (
         <div id={panelId} className="header-mobile-submenu" aria-labelledby={buttonId}>
-          {hasMega && item.megaColumns
-            ? item.megaColumns.map((column) => (
-                <div key={column.title} className="mb-3">
-                  {column.href ? (
-                    <Link
-                      href={column.href}
-                      onClick={onNavigate}
-                      className="block px-2 pb-1 text-xs font-bold uppercase tracking-wide text-[#377CF3] hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#377CF3]"
-                    >
-                      {column.title}
-                    </Link>
-                  ) : (
-                    <p className="px-2 pb-1 text-xs font-bold uppercase tracking-wide text-slate-500">
-                      {column.title}
-                    </p>
-                  )}
-                  <ul>
-                    <HeaderMobileNavLinks
-                      links={column.links}
-                      pathname={pathname}
-                      onNavigate={onNavigate}
-                    />
-                  </ul>
-                </div>
-              ))
-            : null}
-          {hasMega && item.megaQuickLinks?.length ? (
-            <div className="mb-3 border-t border-slate-100 pt-3">
-              <p className="px-2 pb-1 text-xs font-bold uppercase tracking-wide text-slate-500">
-                Accès rapides
-              </p>
-              <ul>
-                <HeaderMobileNavLinks
-                  links={item.megaQuickLinks}
-                  pathname={pathname}
-                  onNavigate={onNavigate}
-                />
-              </ul>
-            </div>
-          ) : null}
-          {hasMega && item.megaFooterNote ? (
-            <p className="px-2 pb-2 text-xs text-slate-500">{item.megaFooterNote}</p>
-          ) : null}
-          {!hasMega && children.length > 0 ? (
+          {children.length > 0 ? (
             <ul>
               <HeaderMobileNavLinks links={children} pathname={pathname} onNavigate={onNavigate} />
               {item.footer ? (

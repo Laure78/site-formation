@@ -32,7 +32,7 @@ export function ScrollToTopButton() {
     <button
       type="button"
       onClick={scrollTop}
-      className="fixed right-4 top-[calc(var(--site-header-height)+0.75rem)] z-[60] inline-flex h-11 w-11 items-center justify-center rounded-full bg-[#377CF3] text-white shadow-[0_4px_16px_rgba(55,124,243,0.35)] transition hover:bg-[#2d6ae0] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#377CF3] motion-reduce:transition-none md:right-6"
+      className="fixed bottom-28 right-4 z-[55] inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/20 bg-[#0b1220] text-white shadow-[0_4px_16px_rgba(0,0,0,0.25)] transition hover:bg-[#152238] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white motion-reduce:transition-none md:bottom-8 md:right-6 lg:bottom-10"
       aria-label="Retour en haut de la page"
       title="Retour en haut"
     >

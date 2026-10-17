@@ -9,6 +9,14 @@ export type CookieConsentValue = 'accepted' | 'refused';
 
 export const COOKIE_CONSENT_CHANGED_EVENT = 'ofc:cookie-consent-changed';
 
+/** Rouvre le bandeau de consentement (lien « Gérer mes cookies »). */
+export const COOKIE_CONSENT_OPEN_EVENT = 'ofc:cookie-consent-open';
+
+export function requestCookieConsentDialog(): void {
+  if (typeof window === 'undefined') return;
+  window.dispatchEvent(new CustomEvent(COOKIE_CONSENT_OPEN_EVENT));
+}
+
 export function readCookieConsent(): CookieConsentValue | null {
   if (typeof window === 'undefined') return null;
   try {

@@ -7,25 +7,13 @@ import { AUTHOR_HEADSHOT_IMAGE_CLASS } from '@/lib/author-headshot';
 import { IMAGE_QUALITY_DEFAULT } from '@/lib/image-props';
 import { usePathname } from 'next/navigation';
 import { useEffect, useRef, useState } from 'react';
-import {
-  Menu,
-  X,
-  GraduationCap,
-  Layers,
-  Building2,
-  Route,
-  CalendarDays,
-  Users,
-  Wallet,
-  Handshake,
-} from 'lucide-react';
+import { Menu, X, GraduationCap, Layers, Building2, Route, Users, Wallet } from 'lucide-react';
 import { SITE } from '@/lib/site';
 import { useHeaderNavDesktopHover } from '@/hooks/useHeaderNavDesktopHover';
 import { getHeaderNav, headerNavItemHasPanel } from '@/lib/header-nav';
 import { HeaderPrimaryCta } from '@/components/nav/HeaderPrimaryCta';
 import { HeaderUtilityBar } from '@/components/nav/HeaderUtilityBar';
 import { useSiteSearch } from '@/components/search/SiteSearchProvider';
-import { HeaderMegaMenu } from '@/components/nav/HeaderMegaMenu';
 import {
   HeaderNavDropdown,
   HeaderNavSimpleLink,
@@ -47,8 +35,6 @@ const MOBILE_NAV_ICON: Record<string, LucideIcon> = {
   entreprise: Building2,
   formateurs: Users,
   financement: Wallet,
-  partenaires: Handshake,
-  evenements: CalendarDays,
   ressources: Layers,
 };
 
@@ -67,8 +53,6 @@ export function Header() {
   const [navPath, setNavPath] = useState(pathname);
   const headerRef = useRef<HTMLElement>(null);
   const menuButtonRef = useRef<HTMLButtonElement>(null);
-  const openItem = headerNav.find((item) => item.id === openId);
-  const openMega = openItem?.megaColumns?.length ? openItem : null;
   const desktopHover = useHeaderNavDesktopHover(openId, setOpenId);
   const desktopHoverHandlers = desktopHover.enabled ? desktopHover : undefined;
   const { closeSearch, isSearchOpen } = useSiteSearch();
@@ -181,11 +165,7 @@ export function Header() {
     const onPointerDown = (event: MouseEvent) => {
       const target = event.target as HTMLElement | null;
       if (!target) return;
-      if (
-        target.closest('[data-header-nav-pill]') ||
-        target.closest('[data-header-dropdown]') ||
-        target.closest('.header-mega-menu')
-      ) {
+      if (target.closest('[data-header-nav-pill]') || target.closest('[data-header-dropdown]')) {
         return;
       }
       setOpenId(null);
@@ -237,7 +217,7 @@ export function Header() {
                 <span className="site-header__brand-name truncate font-display text-lg font-bold tracking-tight text-slate-900 sm:text-xl">
                   {SITE.name}
                 </span>
-                <span className="site-header__brand-tagline hidden max-w-[14rem] truncate text-[0.65rem] font-medium leading-snug text-slate-500 sm:block sm:max-w-[16rem] md:max-w-[18rem] md:text-xs lg:max-w-[20rem]">
+                <span className="site-header__brand-tagline hidden max-w-[14rem] truncate sm:block sm:max-w-[16rem] md:max-w-[18rem] lg:max-w-[20rem]">
                   {SITE.tagline}
                 </span>
               </span>
@@ -291,34 +271,19 @@ export function Header() {
                     if (openId === item.id) setOpenId(null);
                   }}
                   desktopHover={desktopHoverHandlers}
-                  renderPanelInline={!item.megaColumns?.length}
                 />
               );
             })}
           </nav>
 
         </div>
-
-        {openMega?.megaColumns ? (
-          <HeaderMegaMenu
-            panelId={`header-nav-panel-${openMega.id}`}
-            labelledBy={`header-nav-btn-${openMega.id}`}
-            columns={openMega.megaColumns}
-            quickLinks={openMega.megaQuickLinks}
-            footerNote={openMega.megaFooterNote}
-            pathname={pathname}
-            onNavigate={closeNav}
-            megaForId={openMega.id}
-            onPointerZoneEnter={() => desktopHoverHandlers?.onZoneEnter(openMega.id)}
-            onPointerZoneLeave={() => desktopHoverHandlers?.onZoneLeave(openMega.id)}
-          />
-        ) : null}
       </header>
 
       {mobileOpen ? (
         <HeaderMobileDrawer
           headerNav={headerNav}
           pathname={pathname}
+          onBeforeOpenSearch={prepareSearchOpen}
           mobileExpanded={mobileExpanded}
           onToggleSection={(id) =>
             setMobileExpanded((current) => {

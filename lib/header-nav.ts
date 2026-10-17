@@ -4,10 +4,7 @@
  */
 import { getAllParcoursComputed, type ParcoursId } from '@/data/catalogue-2027';
 import { catalogueFormationNavContainsPath } from '@/lib/catalogue-formations-nav';
-import {
-  buildFormationsMegaColumns,
-  buildFormationsMegaQuickLinks,
-} from '@/lib/header-nav-formations-mega';
+import { buildFormationsNavChildren } from '@/lib/header-nav-formations-mega';
 import { utilityOrganismeNavActive } from '@/lib/header-nav-organisme-links';
 import { LINKS } from '@/lib/internal-links';
 
@@ -37,6 +34,8 @@ export type HeaderNavItem = {
   footer?: HeaderNavLink;
   variant?: 'default' | 'catalogue';
   dropdownAlign?: 'start' | 'end';
+  /** Panneau sans titre de rubrique (ex. Ressources). */
+  hideDropdownHeading?: boolean;
   isActive?: (pathname: string) => boolean;
 };
 
@@ -65,16 +64,16 @@ function formationsNavActive(pathname: string): boolean {
   return catalogueFormationNavContainsPath(pathname);
 }
 
-function evenementsNavActive(pathname: string): boolean {
-  return pathname === LINKS.evenements || pathname.startsWith('/evenements/');
-}
-
 function ressourcesNavActive(pathname: string): boolean {
   return (
     pathname === LINKS.ressources ||
     pathname.startsWith(`${LINKS.ressources}/`) ||
+    pathname === LINKS.ressourcesTutos ||
+    pathname.startsWith(`${LINKS.ressourcesTutos}/`) ||
     pathname === LINKS.blog ||
     pathname.startsWith(`${LINKS.blog}/`) ||
+    pathname === LINKS.evenements ||
+    pathname.startsWith('/evenements/') ||
     pathname === LINKS.claudeAiBtp ||
     pathname === LINKS.skillsClaudeBtp ||
     pathname === LINKS.skillsChatgptBtp ||
@@ -94,10 +93,6 @@ function formateursNavActive(pathname: string): boolean {
 
 function financementNavActive(pathname: string): boolean {
   return pathname === LINKS.financement || pathname.startsWith(`${LINKS.financement}/`);
-}
-
-function partenairesNavActive(pathname: string): boolean {
-  return pathname === LINKS.partenaires || pathname.startsWith(`${LINKS.partenaires}/`);
 }
 
 /** État actif bandeau « Notre organisme » (hors menu principal). */
@@ -132,14 +127,13 @@ function buildParcoursNavChildren(): readonly HeaderNavLink[] {
     },
     {
       href: LINKS.parcoursChefDeChantier,
-      label: 'Chef de chantier et chef d’équipe',
-      description: 'Encadrement de chantier — deux parcours complémentaires',
+      label: 'Chef de chantier',
       title: 'Parcours encadrement de chantier',
       badge: parcoursBadge('chef-de-chantier'),
     },
     {
       href: LINKS.parcoursAssistantDeGestionBtp,
-      label: 'Fonctions administratives et assistance travaux',
+      label: 'Administration & travaux',
       title: 'Parcours assistant de gestion BTP',
       badge: parcoursBadge('assistant-de-gestion-btp'),
     },
@@ -154,29 +148,24 @@ function buildParcoursNavChildren(): readonly HeaderNavLink[] {
 
 const RESSOURCES_NAV_CHILDREN: readonly HeaderNavLink[] = [
   {
+    href: LINKS.blog,
+    label: 'Articles et conseils',
+    title: 'Articles et conseils IA BTP',
+  },
+  {
     href: LINKS.ressourcesTutos,
     label: 'Tutoriels IA BTP',
     title: 'Tutoriels IA BTP',
   },
   {
     href: `${LINKS.ressources}#guides-pdf`,
-    label: 'Guides pratiques',
-    title: 'Guides PDF IA BTP',
+    label: 'Guides et modèles',
+    title: 'Guides PDF et modèles IA BTP',
   },
   {
-    href: LINKS.skillsClaudeBtp,
-    label: 'Skills et assistants métier',
-    title: 'Skills Claude pour le BTP',
-  },
-  {
-    href: LINKS.bibliothequePromptsBtpParMetier,
-    label: 'Prompts IA BTP',
-    title: 'Bibliothèque prompts BTP par métier',
-  },
-  {
-    href: LINKS.blog,
-    label: 'Blog IA BTP',
-    title: 'Articles IA BTP',
+    href: LINKS.evenements,
+    label: 'Événements',
+    title: 'Événements IA BTP',
   },
 ];
 
@@ -186,10 +175,8 @@ function buildHeaderNavItems(): readonly HeaderNavItem[] {
       id: 'formations',
       label: 'Formations IA BTP',
       href: LINKS.formations,
-      variant: 'catalogue',
       isActive: formationsNavActive,
-      megaColumns: buildFormationsMegaColumns(),
-      megaQuickLinks: buildFormationsMegaQuickLinks(),
+      children: buildFormationsNavChildren(),
     },
     {
       id: 'parcours-metiers',
@@ -222,23 +209,13 @@ function buildHeaderNavItems(): readonly HeaderNavItem[] {
       isActive: financementNavActive,
     },
     {
-      id: 'partenaires',
-      label: 'Partenaires',
-      href: LINKS.partenaires,
-      isActive: partenairesNavActive,
-    },
-    {
       id: 'ressources',
       label: 'Ressources',
       href: LINKS.ressources,
       isActive: ressourcesNavActive,
       children: RESSOURCES_NAV_CHILDREN,
-    },
-    {
-      id: 'evenements',
-      label: 'Événements',
-      href: LINKS.evenements,
-      isActive: evenementsNavActive,
+      dropdownAlign: 'end',
+      hideDropdownHeading: true,
     },
   ];
 }

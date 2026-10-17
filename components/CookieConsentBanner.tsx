@@ -2,7 +2,11 @@
 
 import { useCallback, useEffect, useState } from 'react';
 import Link from 'next/link';
-import { readCookieConsent, writeCookieConsent } from '@/lib/cookie-consent';
+import {
+  COOKIE_CONSENT_OPEN_EVENT,
+  readCookieConsent,
+  writeCookieConsent,
+} from '@/lib/cookie-consent';
 import { LINKS } from '@/lib/internal-links';
 
 /**
@@ -13,6 +17,10 @@ export function CookieConsentBanner() {
 
   useEffect(() => {
     setVisible(readCookieConsent() === null);
+
+    const onOpen = () => setVisible(true);
+    window.addEventListener(COOKIE_CONSENT_OPEN_EVENT, onOpen);
+    return () => window.removeEventListener(COOKIE_CONSENT_OPEN_EVENT, onOpen);
   }, []);
 
   const accept = useCallback(() => {

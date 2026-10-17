@@ -14,9 +14,11 @@ import {
   LINKEDIN_FOLLOWERS_LABEL,
 } from '@/lib/linkedin-profile';
 import {
+  NAV_FOOTER_PARCOURS,
   NAV_FORMATIONS_FOOTER,
   NAV_IDF,
   NAV_LEGAL_BAR,
+  NAV_LEGAL_SECONDARY,
   NAV_METIERS,
   NAV_ORGANISME,
   NAV_RESSOURCES,
@@ -79,9 +81,11 @@ export const SITE = {
     header: getHeaderNav(),
     footer: {
       formations: NAV_FORMATIONS_FOOTER,
+      parcours: NAV_FOOTER_PARCOURS,
       ressources: NAV_RESSOURCES,
       organisme: NAV_ORGANISME,
       legal: NAV_LEGAL_BAR,
+      legalSecondary: NAV_LEGAL_SECONDARY,
       /** Conservés pour exports / outils — non rendus dans le footer principal. */
       metiers: NAV_METIERS,
       idf: NAV_IDF,

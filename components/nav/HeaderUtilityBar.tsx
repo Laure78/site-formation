@@ -54,13 +54,9 @@ export function HeaderUtilityBar({ onBeforeOpenSearch }: HeaderUtilityBarProps) 
           <Search className="h-3.5 w-3.5 shrink-0 text-[#377CF3]" strokeWidth={1.75} aria-hidden />
           <span>Rechercher</span>
         </button>
-        <span className="hidden px-0.5 text-slate-300 sm:inline" aria-hidden>
-          ·
-        </span>
+        <span className="header-utility-divider hidden sm:block" aria-hidden />
         <HeaderUtilityOrganismeMenu />
-        <span className="hidden px-0.5 text-slate-300 sm:inline" aria-hidden>
-          ·
-        </span>
+        <span className="header-utility-divider hidden sm:block" aria-hidden />
         <Link
           href={LINKS.contact}
           className={`${UTILITY_LINK_CLASS}${contactActive ? ' font-semibold text-[#377CF3]' : ''}`}
@@ -69,9 +65,7 @@ export function HeaderUtilityBar({ onBeforeOpenSearch }: HeaderUtilityBarProps) 
           <Mail className="h-3.5 w-3.5 shrink-0 text-slate-400" strokeWidth={1.75} aria-hidden />
           <span>Contact</span>
         </Link>
-        <span className="hidden px-0.5 text-slate-300 sm:inline" aria-hidden>
-          ·
-        </span>
+        <span className="header-utility-divider hidden sm:block" aria-hidden />
         <Link
           href={espaceHref}
           title="Connexion à l’espace client — plateforme de formation OFC"

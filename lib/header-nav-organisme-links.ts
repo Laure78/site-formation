@@ -7,23 +7,13 @@ import type { HeaderNavLink } from '@/lib/header-nav';
 export const UTILITY_ORGANISME_NAV_LINKS: readonly HeaderNavLink[] = [
   {
     href: LINKS.aPropos,
-    label: 'Présentation de l’organisme',
+    label: 'À propos',
     title: 'OFC Création d’Entreprise — Laure Olivié',
   },
   {
     href: LINKS.qualiopi,
-    label: 'Certification Qualiopi',
+    label: 'Qualité et certification Qualiopi',
     title: 'Certification Qualiopi OFC',
-  },
-  {
-    href: LINKS.avisClients,
-    label: 'Avis clients',
-    title: 'Avis clients et témoignages',
-  },
-  {
-    href: LINKS.indicateursResultats,
-    label: 'Indicateurs de résultats',
-    title: 'Indicateurs Qualiopi OFC',
   },
   {
     href: LINKS.partenaires,
@@ -31,9 +21,9 @@ export const UTILITY_ORGANISME_NAV_LINKS: readonly HeaderNavLink[] = [
     title: 'Partenaires OFC',
   },
   {
-    href: LINKS.accessibiliteHandicap,
-    label: 'Accessibilité et handicap',
-    title: 'Accessibilité OFC',
+    href: LINKS.avisClients,
+    label: 'Avis clients',
+    title: 'Avis clients et témoignages',
   },
 ];
 

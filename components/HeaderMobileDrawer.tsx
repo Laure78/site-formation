@@ -1,31 +1,41 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import type { LucideIcon } from 'lucide-react';
-import { X } from 'lucide-react';
+import { ChevronDown, LogIn, Mail, Search, X } from 'lucide-react';
 import { AUTHOR_HEADSHOT_IMAGE_CLASS } from '@/lib/author-headshot';
 import { IMAGE_QUALITY_DEFAULT } from '@/lib/image-props';
 import { HeaderPrimaryCta } from '@/components/nav/HeaderPrimaryCta';
 import { HeaderMobileNavSection } from '@/components/nav/HeaderNavDropdown';
+import { useSiteSearch } from '@/components/search/SiteSearchProvider';
 import { SITE } from '@/lib/site';
 import { LINKS } from '@/lib/internal-links';
-import type { HeaderNavItem } from '@/lib/header-nav';
+import { headerNavLinkIsActive, type HeaderNavItem } from '@/lib/header-nav';
+import {
+  UTILITY_ORGANISME_NAV_LINKS,
+  utilityOrganismeNavActive,
+} from '@/lib/header-nav-organisme-links';
 
 type HeaderMobileDrawerProps = {
   headerNav: readonly HeaderNavItem[];
   pathname: string;
+  onBeforeOpenSearch?: () => void;
   mobileExpanded: Record<string, boolean>;
   onToggleSection: (id: string) => void;
   onClose: () => void;
   navIcons: Record<string, LucideIcon>;
 };
 
+const MOBILE_UTILITY_BTN =
+  'flex min-h-11 w-full items-center gap-2.5 rounded-xl px-3 py-2.5 text-left text-sm font-medium text-slate-800 transition-colors hover:bg-slate-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#377CF3]';
+
 /** Menu mobile — chunk séparé, chargé à la première ouverture. */
 export function HeaderMobileDrawer({
   headerNav,
   pathname,
+  onBeforeOpenSearch,
   mobileExpanded,
   onToggleSection,
   onClose,
@@ -33,6 +43,12 @@ export function HeaderMobileDrawer({
 }: HeaderMobileDrawerProps) {
   const drawerRef = useRef<HTMLDivElement>(null);
   const closeButtonRef = useRef<HTMLButtonElement>(null);
+  const [organismeOpen, setOrganismeOpen] = useState(() => utilityOrganismeNavActive(pathname));
+  const { openSearch } = useSiteSearch();
+  const espaceHref = `${LINKS.authConnexion}?next=${encodeURIComponent(LINKS.espaceApprenant)}`;
+  const contactActive = headerNavLinkIsActive(LINKS.contact, pathname);
+  const espaceActive =
+    pathname === LINKS.espaceApprenant || pathname.startsWith(`${LINKS.espaceApprenant}/`);
 
   useEffect(() => {
     const node = drawerRef.current;
@@ -108,8 +124,75 @@ export function HeaderMobileDrawer({
           className="min-h-0 flex-1 overflow-y-auto overflow-x-hidden px-4 py-4"
           aria-label="Navigation mobile"
         >
+          <div className="mb-4 border-b border-slate-100 pb-3">
+            <button
+              type="button"
+              className={MOBILE_UTILITY_BTN}
+              onClick={(event) => {
+                onBeforeOpenSearch?.();
+                onClose();
+                openSearch(event.currentTarget);
+              }}
+            >
+              <Search className="h-[18px] w-[18px] shrink-0 text-[#377CF3]" strokeWidth={1.75} aria-hidden />
+              Rechercher
+            </button>
+            <div className="mt-1">
+              <button
+                type="button"
+                className={`${MOBILE_UTILITY_BTN} justify-between${
+                  utilityOrganismeNavActive(pathname) ? ' font-semibold text-[#377CF3]' : ''
+                }`}
+                aria-expanded={organismeOpen}
+                onClick={() => setOrganismeOpen((v) => !v)}
+              >
+                <span>Notre organisme</span>
+                <ChevronDown
+                  className={`h-4 w-4 shrink-0 text-slate-400 transition-transform ${organismeOpen ? 'rotate-180' : ''}`}
+                  aria-hidden
+                />
+              </button>
+              {organismeOpen ? (
+                <ul className="mb-1 ml-2 border-l border-slate-100 pl-2">
+                  {UTILITY_ORGANISME_NAV_LINKS.map((link) => {
+                    const linkActive = headerNavLinkIsActive(link.href, pathname);
+                    return (
+                      <li key={link.href}>
+                        <Link
+                          href={link.href}
+                          onClick={onClose}
+                          className={`block min-h-11 rounded-lg px-3 py-2.5 text-sm ${
+                            linkActive ? 'font-semibold text-[#377CF3]' : 'text-slate-700'
+                          }`}
+                        >
+                          {link.label}
+                        </Link>
+                      </li>
+                    );
+                  })}
+                </ul>
+              ) : null}
+            </div>
+            <Link
+              href={LINKS.contact}
+              onClick={onClose}
+              className={`${MOBILE_UTILITY_BTN}${contactActive ? ' font-semibold text-[#377CF3]' : ''}`}
+            >
+              <Mail className="h-[18px] w-[18px] shrink-0 text-slate-400" strokeWidth={1.75} aria-hidden />
+              Contact
+            </Link>
+            <Link
+              href={espaceHref}
+              onClick={onClose}
+              className={`${MOBILE_UTILITY_BTN}${espaceActive ? ' font-semibold text-[#377CF3]' : ''}`}
+            >
+              <LogIn className="h-[18px] w-[18px] shrink-0 text-slate-400" strokeWidth={1.75} aria-hidden />
+              Espace client
+            </Link>
+          </div>
           {headerNav.map((item) => {
             const Icon = navIcons[item.id];
+            const itemActive = item.isActive?.(pathname) || pathname === item.href;
             return (
               <HeaderMobileNavSection
                 key={item.id}
@@ -123,13 +206,7 @@ export function HeaderMobileDrawer({
                     <Icon
                       size={18}
                       strokeWidth={1.75}
-                      className={
-                        item.variant === 'catalogue'
-                          ? 'text-white/90'
-                          : item.isActive?.(pathname) || pathname === item.href
-                            ? 'text-[#377CF3]'
-                            : 'text-slate-400'
-                      }
+                      className={itemActive ? 'text-[#377CF3]' : 'text-slate-400'}
                     />
                   ) : undefined
                 }

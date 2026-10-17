@@ -2,11 +2,8 @@
  * Navigation footer — source unique des listes de liens.
  * Une seule ancre par URL sur l’ensemble du footer (pas de doublon entre colonnes).
  */
-import { BEWORK_APP_PATHS } from '@/lib/external-site-urls';
-import {
-  DEV_WEB_IA_FORMATION_TITRE,
-  DEV_WEB_IA_FORMATION_TITRE_COURT,
-} from '@/lib/formation-developpement-web-ia-content';
+import { buildFormationsIaNiveauHref } from '@/lib/catalogue-filter-url';
+import { FORMATIONS_NIVEAUX_IA } from '@/lib/formations-niveaux-ia';
 import { LINKS } from '@/lib/internal-links';
 import { formationHref } from '@/data/formations';
 import { getPublishedFormations } from '@/lib/formation-catalogue-visibility';
@@ -18,92 +15,106 @@ export type NavItem = {
   title?: string;
 };
 
-/** Colonne Formations IA BTP — liens stratégiques uniquement (pas de codes NIV). */
+/** URL partage avis Google — footer (lien utilisateur vérifié). */
+export const FOOTER_GOOGLE_REVIEWS_URL =
+  'https://share.google/gpl7i0IH7c2AManrN' as const;
+
+/** Colonne 1 — Formations IA BTP. */
 export const NAV_FORMATIONS_FOOTER: readonly NavItem[] = [
-  { href: LINKS.formations, label: 'Toutes les formations' },
-  {
-    href: LINKS.parcoursMetiers,
-    label: 'Parcours métiers',
-    title: '7 parcours métier — formation IA BTP',
-  },
+  { href: LINKS.formations, label: 'Toutes les formations', title: 'Catalogue formations IA BTP' },
+  ...FORMATIONS_NIVEAUX_IA.map((n) => ({
+    href: buildFormationsIaNiveauHref(n.niveau),
+    label: n.labelComplet,
+    title: `${n.accrocheNiveau} — ${n.labelComplet}`,
+  })),
   {
     href: LINKS.formationIaIntraEntrepriseBtp,
-    label: 'Formation IA intra-entreprise',
+    label: 'Former mon équipe',
     title: 'Formation IA intra-entreprise pour les équipes BTP',
   },
+];
+
+/** Colonne 2 — Parcours métiers (5 parcours + hub). */
+export const NAV_FOOTER_PARCOURS: readonly NavItem[] = [
   {
-    href: LINKS.iaDevis,
-    label: 'IA pour les devis et le chiffrage',
-    title: 'Formation et méthode IA — devis et chiffrage bâtiment',
+    href: LINKS.parcoursDirigeantPmeBtp,
+    label: 'Dirigeant d’entreprise BTP',
+    title: 'Parcours dirigeant PME BTP',
   },
   {
-    href: LINKS.formationConduiteTravauxSuiviChantier,
-    label: 'IA pour la conduite de chantier',
-    title: 'Formation IA — conduite de travaux et suivi de chantier',
+    href: LINKS.parcoursChargeAffairesBtp,
+    label: 'Chargé d’affaires',
+    title: 'Parcours chargé d’affaires BTP',
   },
   {
-    href: LINKS.formationAO,
-    label: 'IA pour les appels d’offres',
-    title: 'Formation IA — appels d’offres et DCE BTP',
+    href: LINKS.parcoursConducteurDeTravaux,
+    label: 'Conducteur de travaux',
+    title: 'Parcours conducteur de travaux',
   },
   {
-    href: LINKS.formationDeveloppementWebIaSansCoder,
-    label: DEV_WEB_IA_FORMATION_TITRE_COURT,
-    title: DEV_WEB_IA_FORMATION_TITRE,
+    href: LINKS.parcoursChefDeChantier,
+    label: 'Chef de chantier',
+    title: 'Parcours encadrement de chantier',
   },
   {
-    href: LINKS.financement,
-    label: 'Financement des formations',
-    title: 'Financement OPCO Constructys — formation IA BTP',
+    href: LINKS.parcoursAssistantDeGestionBtp,
+    label: 'Administration & travaux',
+    title: 'Parcours assistant de gestion BTP',
+  },
+  {
+    href: LINKS.parcoursMetiers,
+    label: 'Tous les parcours',
+    title: 'Hub parcours métiers BTP',
   },
 ];
 
-/** Colonne Ressources BTP — max. 7 liens. */
-export const NAV_RESSOURCES: readonly NavItem[] = [
-  { href: LINKS.blog, label: 'Blog IA BTP' },
-  {
-    href: `${LINKS.ressources}#guides-pdf`,
-    label: 'Guides pratiques',
-    title: 'Guides PDF gratuits — formation IA pour le BTP',
-  },
-  { href: LINKS.diagnostic, label: 'Diagnostic IA BTP' },
-  { href: LINKS.casUsage, label: 'Cas d’usage' },
-  { href: LINKS.etudesCasHub, label: 'Études de cas' },
-  {
-    href: BEWORK_APP_PATHS.lexique,
-    label: 'Lexique BTP',
-    title: 'Lexique BTP — parcours, flashcards et quiz',
-  },
-  {
-    href: LINKS.promptsIaConducteurTravaux,
-    label: 'Prompts IA',
-    title: '20 prompts IA — conducteur de travaux',
-  },
-];
-
-/** Colonne Organisme de formation. */
+/** Colonne 3 — Notre organisme. */
 export const NAV_ORGANISME: readonly NavItem[] = [
-  { href: LINKS.aPropos, label: 'À propos' },
-  { href: LINKS.formateurs, label: 'Nos formateurs' },
-  { href: LINKS.avisClients, label: 'Avis clients' },
-  { href: LINKS.partenaires, label: 'Partenaires' },
-  { href: LINKS.contact, label: 'Contact' },
-  { href: LINKS.accessibiliteHandicap, label: 'Accessibilité & handicap' },
-  { href: LINKS.indicateursResultats, label: 'Indicateurs de résultats' },
+  { href: LINKS.aPropos, label: 'À propos', title: 'OFC Création d’Entreprise — Laure Olivié' },
+  { href: LINKS.formateurs, label: 'Nos formateurs', title: 'Équipe de formateurs IA BTP' },
   {
     href: LINKS.qualiopi,
-    label: 'Certification Qualiopi',
-    title: 'Organisme certifié Qualiopi — actions de formation',
+    label: 'Qualité et certification Qualiopi',
+    title: 'Certification Qualiopi OFC',
+  },
+  { href: LINKS.partenaires, label: 'Nos partenaires', title: 'Partenaires OFC' },
+  { href: LINKS.avisClients, label: 'Avis clients', title: 'Avis clients et témoignages' },
+];
+
+/** Colonne 4 — Ressources et aide (aligné menu principal). */
+export const NAV_RESSOURCES: readonly NavItem[] = [
+  { href: LINKS.ressourcesTutos, label: 'Tutoriels IA BTP', title: 'Tutoriels IA BTP' },
+  {
+    href: `${LINKS.ressources}#guides-pdf`,
+    label: 'Guides et modèles',
+    title: 'Guides PDF et modèles IA BTP',
+  },
+  { href: LINKS.blog, label: 'Articles et conseils', title: 'Articles et conseils IA BTP' },
+  { href: LINKS.evenements, label: 'Événements', title: 'Événements IA BTP' },
+  {
+    href: LINKS.financement,
+    label: 'Financement',
+    title: 'Financement OPCO Constructys — formation IA BTP',
+  },
+  {
+    href: `${LINKS.authConnexion}?next=${encodeURIComponent(LINKS.espaceApprenant)}`,
+    label: 'Espace client',
+    title: 'Connexion à l’espace client — plateforme de formation OFC',
   },
 ];
 
-/** Barre légale inférieure. */
+/** Barre légale inférieure — liens principaux. */
 export const NAV_LEGAL_BAR: readonly NavItem[] = [
-  { href: LINKS.cgv, label: 'CGV' },
   { href: LINKS.mentionsLegales, label: 'Mentions légales' },
-  { href: LINKS.politiqueConfidentialite, label: 'Confidentialité' },
+  { href: LINKS.cgv, label: 'Conditions générales de vente' },
+  { href: LINKS.politiqueConfidentialite, label: 'Politique de confidentialité' },
+];
+
+/** Liens légaux complémentaires (sous la barre principale). */
+export const NAV_LEGAL_SECONDARY: readonly NavItem[] = [
   { href: LINKS.reglementInterieur, label: 'Règlement intérieur' },
   { href: LINKS.reclamations, label: 'Réclamations' },
+  { href: LINKS.accessibiliteHandicap, label: 'Accessibilité & handicap' },
 ];
 
 /** @deprecated Alias — préférer `NAV_ORGANISME`. */
