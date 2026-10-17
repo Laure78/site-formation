@@ -84,7 +84,7 @@ export const FORMATIONS: readonly Formation[] = [
     niveau: 1,
     niveauLabel: 'NUM-01',
     duree: '4 h',
-    horaires: '9h00 — 13h00',
+    horaires: '9h00 – 13h00',
     effectifMin: 6,
     effectifMax: 12,
     prixHT: 0,
@@ -92,24 +92,24 @@ export const FORMATIONS: readonly Formation[] = [
     accroche:
       'Fondamentaux ChatGPT et IA générative pour TPE, PME du bâtiment et fonctions support — devis, DOE et communication sur vos documents réels.',
     objectifs: [
-      'Formuler une demande précise à une IA (ChatGPT, Claude) pour des documents du BTP',
-      'Préparer et structurer une première version de devis, soumise au contrôle du professionnel',
-      'Transformer des notes en compte rendu, trame de DOE ou de PV — avec relecture humaine',
-      'Préparer des emails et contenus professionnels à partir de cas métier',
-      'Anonymiser les documents et appliquer les règles de confidentialité avant tout usage de l’IA',
+      'Expliquer le fonctionnement, les limites et le cadre d’usage de l’IA générative (littératie IA — art. 4 du règlement européen sur l’IA, RGPD)',
+      'Formuler une demande précise à ChatGPT ou Claude avec la méthode CRAFT (Contexte – Rôle – Action – Format – Ton)',
+      'Préparer et structurer une première version de devis ou de désignation d’ouvrage, soumise au contrôle du professionnel',
+      'Rédiger un compte rendu, une trame de DOE ou de PV à partir de notes, avec relecture humaine',
+      'Créer des emails et contenus professionnels, et anonymiser ses documents avant tout usage de l’IA',
     ],
     public:
-      'Dirigeants BTP (gros œuvre, second œuvre, étanchéité, bardage, couverture, électricité, plomberie, peinture, VRD, TP), chargés d’affaires, conducteurs de travaux, techniciens bureau d’études, assistantes administratives et fonctions support',
+      'Dirigeants BTP (gros œuvre, second œuvre, étanchéité, bardage, couverture, électricité, plomberie, peinture, VRD, TP), chargés d’affaires, conducteurs de travaux, techniciens bureau d’études, assistant(e)s administratives et fonctions support',
     casUsage: 'Devis, DOE, PV, CR, communication digitale',
-    pdfProgramme: '/formations/pdf/programme-niveau-1-ia-batiment-travaux-publics.pdf',
-    programmeVersion: 'Version 5',
-    programmeUpdatedAt: '22/08/2026',
+    pdfProgramme: '/formations/pdf/programme_OFC_NIV-01_Bases_IA_BTP_20261017.pdf',
+    programmeVersion: 'Référence NIV-01',
+    programmeUpdatedAt: '17/10/2026',
     image: '/images/formation-ia-batiment-travaux-publics.webp',
   },
   {
     code: 'NIV-02',
     slug: 'ia-appels-offre-btp',
-    titre: 'IA et appels d’offres',
+    titre: 'IA et appels d’offres BTP',
     promesse:
       'Construire une méthode guidée pour analyser un DCE, préparer le chiffrage et structurer un mémoire technique avec l’IA.',
     casUsageCourts: [
@@ -122,7 +122,7 @@ export const FORMATIONS: readonly Formation[] = [
     niveau: 2,
     niveauLabel: 'NUM-02',
     duree: '7 h',
-    horaires: 'journée complète (à convenir)',
+    horaires: '9h00 – 12h30 / 13h30 – 17h00',
     effectifMin: 6,
     effectifMax: 12,
     prixHT: 0,
@@ -141,9 +141,9 @@ export const FORMATIONS: readonly Formation[] = [
       'Dirigeants de PME du BTP, responsables d’affaires, chargés d’études, conducteurs de travaux, responsables appels d’offres et entreprises répondant déjà à des consultations',
     casUsage: 'DCE, checklist de chiffrage, mémoire technique',
     pdfProgramme:
-      '/formations/ia-appels-offre-btp/Programme_IA_AO_DCE_MT_ClaudePro_OFC.pdf',
-    programmeVersion: 'Version 2',
-    programmeUpdatedAt: '22/08/2026',
+      '/formations/ia-appels-offre-btp/programme_OFC_NIV-02_IA_Appels_offres_20261017.pdf',
+    programmeVersion: 'Référence NIV-02',
+    programmeUpdatedAt: '17/10/2026',
     image: '/images/formation-ia-appels-offres-btp.webp',
   },
   {
@@ -158,25 +158,28 @@ export const FORMATIONS: readonly Formation[] = [
     niveau: 2,
     niveauLabel: 'NUM-07',
     duree: '7 h',
+    horaires: '9h00 – 12h30 / 13h30 – 17h00',
     effectifMin: 6,
     effectifMax: 12,
     prixHT: 0,
     tarifParticipantHt: TARIF_PARTICIPANT_NIV03_HT,
     accroche:
-      'Pilotez vos chantiers avec l\'IA — bibliothèque de 20+ skills Claude, de l\'analyse du CCTP à la réception des travaux.',
+      'Démarrage, sécurité, comptes rendus et réception avec les skills Claude — de l’analyse du CCTP à la réception des travaux.',
     objectifs: [
-      'Comprendre le fonctionnement des skills Claude et accéder à la bibliothèque de skills BTP mise à disposition',
-      "Préparer et démarrer un chantier avec l'IA : analyse du CCTP, génération de la DPGF, DICT, ordre de service, planning",
-      'Sécuriser le chantier (PPSPS, DUERP, SOGED) et le piloter au quotidien : CR, suivi, approvisionnements, sous-traitants, métré, avenants, budget',
-      "Gérer l'administratif de suivi jusqu'à la réception : situations, PV de réserves, DOE, litiges",
+      'Utiliser, adapter et créer des skills Claude à partir de la bibliothèque BTP mise à disposition',
+      'Préparer le démarrage d’un chantier : analyse du CCTP et de la DPGF, DICT, ordre de service, planning',
+      'Produire les documents de sécurité (PPSPS, DUERP de chantier, SOGED) en vue d’une validation QSE',
+      'Piloter le chantier au quotidien : compte rendu, tableau d’actions, suivi d’avancement, sous-traitants, métré',
+      'Gérer l’administratif jusqu’à la réception : situations, PV de réserves, DOE et courriers',
     ],
     public:
-      'Conducteurs de travaux — chefs de chantier, responsables travaux, assistant(e)s travaux',
+      'Conducteurs de travaux, chefs de chantier, responsables travaux, assistant(e)s travaux',
     casUsage:
       'Analyse CCTP & DPGF, PPSPS, CR, sous-traitants (DC4), PV de réserves, DOE, bibliothèque de skills',
-    pdfProgramme: '/formations/ia-conduite-travaux-suivi-chantier/Programme_IA_Conduite_Travaux_OFC.pdf',
-    programmeVersion: 'Version 3',
-    programmeUpdatedAt: '22/08/2026',
+    pdfProgramme:
+      '/formations/ia-conduite-travaux-suivi-chantier/programme_OFC_NIV-03_IA_Conduite_travaux_20261017.pdf',
+    programmeVersion: 'Référence NIV-03',
+    programmeUpdatedAt: '17/10/2026',
     image: '/images/formation-ia-conduite-travaux-btp.webp',
   },
   {
@@ -188,10 +191,10 @@ export const FORMATIONS: readonly Formation[] = [
     casUsageCourts: ['Créer des assistants IA métier', 'Automatiser la production documentaire', 'Connecter Claude à vos outils'],
     gamme: 'deployer',
     theme: 'outils-applications',
-    niveau: 2,
+    niveau: 3,
     niveauLabel: 'NUM-03',
     duree: '7 h',
-    horaires: 'journée complète',
+    horaires: '9h00 – 12h30 / 13h30 – 17h00',
     effectifMin: 6,
     effectifMax: 12,
     prixHT: 0,
@@ -210,9 +213,10 @@ export const FORMATIONS: readonly Formation[] = [
       "Référents IA, dirigeants, responsables digitaux, chargés d'affaires et conducteurs de travaux souhaitant industrialiser l'usage de Claude dans l'entreprise",
     casUsage:
       'Projets Claude, bibliothèque de skills BTP, Cowork, connecteurs messagerie/drive/agenda, Claude Code — fil rouge PME BTP',
-    pdfProgramme: '/formations/maitriser-claude-ai-btp/Programme_Maitriser_Claude_BTP_OFC.pdf',
-    programmeVersion: 'Version 3',
-    programmeUpdatedAt: '22/08/2026',
+    pdfProgramme:
+      '/formations/maitriser-claude-ai-btp/programme_OFC_NIV-04_Maitriser_Claude_BTP_20261017.pdf',
+    programmeVersion: 'Référence NIV-04',
+    programmeUpdatedAt: '17/10/2026',
     image: '/images/formation-claude-ai-btp-catalogue.webp',
   },
   {
@@ -227,28 +231,28 @@ export const FORMATIONS: readonly Formation[] = [
     niveau: 2,
     niveauLabel: 'NUM-08',
     duree: '7 h',
-    horaires: 'journée complète',
+    horaires: '9h00 – 12h30 / 13h30 – 17h00',
     effectifMin: 6,
     effectifMax: 12,
     prixHT: 0,
     tarifParticipantHt: TARIF_PARTICIPANT_NIV05_HT,
     accroche:
-      "Maîtrise d'œuvre d'exécution — analyse DCE, CR chantier, OS et suivi réserves avec ChatGPT et Claude.",
+      'Analyse DCE, comptes rendus, ordres de service, réserves et réception — ChatGPT et Claude côté maîtrise d’œuvre.',
     objectifs: [
-      "Identifier les fonctionnalités clés de Claude (Projets, connecteurs, skills, Cowork) et choisir entre Claude et ChatGPT selon le cas d'usage MOE",
-      'Analyser un dossier d\'appel d\'offres (DCE, CCTP, bordereau) avec l\'IA pour en extraire les points de conformité et les alertes contractuelles',
-      'Rédiger un compte rendu de chantier complet en moins de 10 minutes à partir de notes vocales ou prises au fil de l\'eau',
-      'Produire courriers, ordres de service et actes administratifs conformes à partir d\'un modèle IA structuré',
-      'Organiser le suivi des réserves, la préparation de réception et le suivi client avec un assistant IA dédié',
-      'Utiliser ChatGPT et Claude en autonomie sur un poste de maîtrise d\'œuvre, en respectant la confidentialité des données chantier',
-      'Construire une bibliothèque de prompts réutilisables sur l\'ensemble de ses opérations',
+      'Identifier les fonctionnalités clés de Claude et choisir entre Claude et ChatGPT selon l’usage MOE',
+      'Analyser un DCE (CCTP, CCAP, bordereaux) avec l’IA pour en extraire points de conformité et alertes contractuelles',
+      'Rédiger un compte rendu de chantier structuré à partir de notes écrites ou vocales',
+      'Produire ordres de service, courriers et actes administratifs à partir de modèles réutilisables',
+      'Organiser le suivi des réserves, la préparation de la réception et les réponses aux clients',
+      'Construire une bibliothèque de prompts réutilisable en respectant la confidentialité des données chantier',
     ],
     public:
-      "Maîtres d'œuvre d'exécution (MOEX), conducteurs de travaux, OPC, BET, assistant(e)s de gestion travaux",
+      'Maîtres d’œuvre d’exécution (MOEX), conducteurs de travaux MOE, OPC, bureaux d’études techniques, assistant(e)s de gestion travaux',
     casUsage: 'Analyse DCE, CR chantier, OS, courriers MOE, réserves, réception et GPA',
-    pdfProgramme: '/formations/ia-maitrise-oeuvre/programme_OFC_IA_MOE_4h.pdf',
-    programmeVersion: 'Version 3',
-    programmeUpdatedAt: '22/08/2026',
+    pdfProgramme:
+      '/formations/ia-maitrise-oeuvre/programme_OFC_NIV-05_IA_Maitrise_oeuvre_20261017.pdf',
+    programmeVersion: 'Référence NIV-05',
+    programmeUpdatedAt: '17/10/2026',
     image: '/images/formation-ia-maitrise-oeuvre-btp.webp',
   },
   {
@@ -415,7 +419,7 @@ export const FORMATIONS: readonly Formation[] = [
     slug: 'developpement-web-ia-sans-coder',
     titre: 'Créer des applications métier BTP avec l’IA',
     promesse:
-      'Réaliser un prototype testé sur un périmètre défini — variantes 7 h ou 14 h. Pas de garantie d’un logiciel prêt pour la production.',
+      'Concevoir, construire et tester une première application métier BTP — sans coder — sur un périmètre défini.',
     casUsageCourts: [
       'Suivi des devis et relances',
       'Planning d’interventions chantier',
@@ -426,28 +430,28 @@ export const FORMATIONS: readonly Formation[] = [
     niveau: 3,
     niveauLabel: 'NUM-04',
     duree: '7 h',
-    horaires: '09h00 – 12h30 / 13h30 – 17h00',
+    horaires: '9h00 – 12h30 / 13h30 – 17h00',
     effectifMin: 4,
     effectifMax: 8,
     prixHT: 0,
     tarifParticipantHt: TARIF_PARTICIPANT_NIV10_HT,
     accroche:
-      'Créer un premier prototype métier BTP avec l’IA, sur un périmètre limité — devis, planning, suivi chantier.',
+      'Concevoir, construire et tester une première application métier BTP avec l’IA — sans compétence en programmation.',
     objectifs: [
-      'Cartographier un processus de gestion et choisir le premier outil à créer',
-      'Structurer les données, les utilisateurs et leurs droits d’accès',
-      'Guider l’IA avec des consignes précises',
-      'Construire et tester un prototype sur un périmètre défini',
-      'Préparer les exports nécessaires',
-      'Sauvegarder le projet et organiser ses évolutions',
+      'Analyser un besoin métier et fixer un périmètre réaliste pour une première version d’application',
+      'Organiser le projet : parcours utilisateur, écrans, données et priorités fonctionnelles',
+      'Formuler des consignes structurées et exploitables par l’IA, étape par étape',
+      'Obtenir une première version testable sans écrire le code soi-même',
+      'Appliquer une démarche de test, de correction et de sauvegarde sur son projet',
+      'Définir une feuille de route pour poursuivre le projet après la formation',
     ],
     public:
-      'Dirigeants de TPE et PME du BTP · Conducteurs de travaux et chargés d’affaires · Assistant(e)s travaux et fonctions support du bâtiment · Indépendants du second œuvre',
+      'Dirigeants de TPE et PME du BTP, conducteurs de travaux et chargés d’affaires, assistant(e)s travaux et fonctions support, indépendants du second œuvre',
     casUsage: 'Outil métier BTP — première version assistée par IA',
     pdfProgramme:
-      '/formations/developpement-web-ia-sans-coder/programme_OFC_Niveau3_Outils_Chantier_IA_7h_20261008.pdf',
-    programmeVersion: 'Version 2',
-    programmeUpdatedAt: '08/10/2026',
+      '/formations/developpement-web-ia-sans-coder/programme_OFC_NIV-10_Applications_metier_BTP_IA_20261017.pdf',
+    programmeVersion: 'Référence NIV-10',
+    programmeUpdatedAt: '17/10/2026',
     image: '/images/formation-ia-architecture-claude-presentiel-groupe.jpg',
   },
 ] as const;
@@ -462,7 +466,7 @@ export const CATALOGUE_FORMATIONS_TOTAL = FORMATIONS.length;
 
 /**
  * Durées catalogue — seul NIV-01 (« Les bases de l’IA ») est en 4 h.
- * Toutes les autres sessions publiées sont en 7 h ; NIV-10 propose aussi une variante 14 h.
+ * Toutes les autres sessions publiées sont en 7 h (NIV-10 incluse).
  */
 export const CATALOGUE_DUREE_BASES_IA_ONLY = '4 h' as const;
 export const CATALOGUE_DUREE_SESSION_METIER = '7 h' as const;

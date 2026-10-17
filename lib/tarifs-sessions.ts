@@ -183,9 +183,9 @@ export const MENTION_ABONNEMENTS_IA_HORS_FORFAIT =
   'Les éventuels abonnements payants aux outils d\u2019intelligence artificielle ne sont pas inclus, sauf mention contraire dans le devis.';
 
 /** Formations OFC — formulation unique (jamais « non applicable » / 293 B). */
-export const MENTIONS_TVA_INTER_COURTE = 'TVA exonérée, article 261-4-4° du CGI.';
+export const MENTIONS_TVA_INTER_COURTE = 'TVA exonérée, art. 261-4-4°-a du CGI';
 
-export const MENTIONS_TVA_INTRA_COURTE = 'TVA exonérée, article 261-4-4° du CGI.';
+export const MENTIONS_TVA_INTRA_COURTE = 'TVA exonérée, art. 261-4-4°-a du CGI';
 
 export const MENTIONS_TVA_REGIMES_COURT = MENTIONS_TVA_INTRA_COURTE;
 

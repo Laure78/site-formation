@@ -224,7 +224,7 @@ export function TrainingPageTemplate({
 
       {content.showTrustBar !== false ? (
         <TrainingTrustBar
-          programmeVersionLabel={`${formation.programmeVersion} du ${formation.programmeUpdatedAt}`}
+          programmeVersionLabel={`Programme mis à jour le ${formation.programmeUpdatedAt} — Référence ${ref}`}
         />
       ) : null}
 

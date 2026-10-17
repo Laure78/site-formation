@@ -7,7 +7,7 @@
 
 /** Programme PDF NIV-02 — fichier unique (alias catalogue + fiche détaillée AO). */
 export const PDF_PROGRAMME_NIV02_AO_BTP =
-  '/formations/ia-appels-offre-btp/Programme_IA_AO_DCE_MT_ClaudePro_OFC.pdf' as const;
+  '/formations/ia-appels-offre-btp/programme_OFC_NIV-02_IA_Appels_offres_20261017.pdf' as const;
 
 export const LINKS = {
   // Tier 1 — Pages principales
@@ -124,7 +124,7 @@ export const LINKS = {
   /** NIV-03 — conduite de travaux & suivi chantier (catalogue) */
   formationConduiteTravauxSuiviChantier: '/formations/ia-conduite-travaux-suivi-chantier',
   pdfProgrammeConduiteTravauxNiv03:
-    '/formations/ia-conduite-travaux-suivi-chantier/Programme_IA_Conduite_Travaux_OFC.pdf',
+    '/formations/ia-conduite-travaux-suivi-chantier/programme_OFC_NIV-03_IA_Conduite_travaux_20261017.pdf',
   /**
    * @deprecated Page hub `/parcours/applications-metier-btp` supprimée — alias → niveau 1.
    * Préférer `formationApplicationMetierBtpNiveau1`.
@@ -146,11 +146,11 @@ export const LINKS = {
   /** NIV-04 — Maîtriser Claude AI pour le BTP (catalogue) */
   formationMaitriserClaudeAiBtp: '/formations/maitriser-claude-ai-btp',
   pdfProgrammeMaitriserClaudeBtpNiv04:
-    '/formations/maitriser-claude-ai-btp/Programme_Maitriser_Claude_BTP_OFC.pdf',
+    '/formations/maitriser-claude-ai-btp/programme_OFC_NIV-04_Maitriser_Claude_BTP_20261017.pdf',
   /** NIV-05 — L'IA au service des maîtres d'œuvre (catalogue) */
   formationIaMaitriseOeuvre: '/formations/ia-maitrise-oeuvre',
   pdfProgrammeIaMaitriseOeuvre:
-    '/formations/ia-maitrise-oeuvre/programme_OFC_IA_MOE_4h.pdf',
+    '/formations/ia-maitrise-oeuvre/programme_OFC_NIV-05_IA_Maitrise_oeuvre_20261017.pdf',
   /**
    * @deprecated Page retirée (2026-10-08) — 301 → `/formations`.
    * Ancienne URL : `/formations/assistants-ia-personnalises-btp` (NIV-09).
@@ -164,13 +164,15 @@ export const LINKS = {
   /** NIV-10 — Créer des applications métier BTP avec l’IA */
   formationDeveloppementWebIaSansCoder: '/formations/developpement-web-ia-sans-coder',
   pdfProgrammeDeveloppementWebIaSansCoder:
-    '/formations/developpement-web-ia-sans-coder/programme_OFC_Niveau3_Outils_Chantier_IA_7h_20261008.pdf',
+    '/formations/developpement-web-ia-sans-coder/programme_OFC_NIV-10_Applications_metier_BTP_IA_20261017.pdf',
+  /** @deprecated Parcours 14 h retiré du catalogue NIV-10 — conserver pour archives. */
   pdfProgrammeDeveloppementWebIaSansCoder14h:
     '/formations/developpement-web-ia-sans-coder/programme_OFC_Niveau3_Outils_Chantier_IA_14h_20261008.pdf',
   /** Programmes PDF — Outils chantier IA (7 h / 14 h) */
   pdfProgrammeOutilsChantierIa7h: '/programmes/programme-outils-chantier-ia-7h.pdf',
   pdfProgrammeOutilsChantierIa14h: '/programmes/programme-outils-chantier-ia-14h.pdf',
-  pdfProgrammeIaBtpNiveau1BatimentTp: '/formations/pdf/programme-niveau-1-ia-batiment-travaux-publics.pdf',
+  pdfProgrammeIaBtpNiveau1BatimentTp:
+    '/formations/pdf/programme_OFC_NIV-01_Bases_IA_BTP_20261017.pdf',
   pdfProgrammeIaBtpNiveau2AppelsOffre: PDF_PROGRAMME_NIV02_AO_BTP,
   /** Alias explicite — même fichier que `pdfProgrammeIaBtpNiveau2AppelsOffre` */
   pdfProgrammeFormationAoBtpDetail2026: PDF_PROGRAMME_NIV02_AO_BTP,

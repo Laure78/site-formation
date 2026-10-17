@@ -11,7 +11,6 @@ import {
 } from '@/data/formations';
 import { getFormationCatalogueByRef } from '@/lib/formations-catalogue-display';
 import {
-  TARIF_INTER_DEV_WEB_IA_14H_HT,
   TARIF_INTER_DEV_WEB_IA_HT,
 } from '@/lib/formation-developpement-web-ia-content';
 import { LINKS } from '@/lib/internal-links';
@@ -414,7 +413,7 @@ export const CATALOGUE_COURSE_DEV_WEB_IA_NIV10: CatalogueCourseJsonLdConfig = {
   path: LINKS.formationDeveloppementWebIaSansCoder,
   name: 'Créer des applications métier BTP avec l’IA',
   description:
-    'Formation IA pour le BTP : créer un ERP / outil de gestion BTP sur mesure avec l’IA, sans coder. Parcours 7 h ou 14 h, présentiel Île-de-France, Qualiopi.',
+    'Formation IA pour le BTP : créer une application métier sur mesure avec l’IA, sans coder. 7 h, présentiel Île-de-France, Qualiopi.',
   price: prixCatalogue('NIV-10'),
   keywords: [
     'formation ERP BTP avec IA',
@@ -437,10 +436,10 @@ export const FORMATION_RICH_COURSE_NIV10: FormationCatalogueRichCourseConfig = {
   audienceType:
     'Dirigeants de TPE et PME du BTP, conducteurs de travaux, chargés d’affaires, fonctions support, indépendants du second œuvre',
   teaches: [
-    'Cartographier un processus de gestion et choisir le premier outil métier à créer',
-    'Structurer les données, les utilisateurs et leurs droits d’accès',
-    'Guider l’IA pour construire et tester une première version',
-    'Préparer les exports et organiser les évolutions de l’outil',
+    'Analyser un besoin métier et fixer un périmètre réaliste pour une première version d’application',
+    'Organiser le projet : parcours utilisateur, écrans, données et priorités fonctionnelles',
+    'Formuler des consignes structurées exploitables par l’IA',
+    'Obtenir une première version testable et définir une feuille de route',
   ],
 };
 
@@ -517,16 +516,13 @@ export function buildCatalogueCourseDeveloppementWebIaNiv10JsonLd(): Record<stri
   const base = buildFormationCatalogueRichCourseJsonLd(FORMATION_RICH_COURSE_NIV10);
   const courseUrl = `${SCHEMA_PUBLIC_SITE_URL.replace(/\/$/, '')}${LINKS.formationDeveloppementWebIaSansCoder}`;
   const offer7h = buildCatalogueOffer('NIV-10', courseUrl, TARIF_INTER_DEV_WEB_IA_HT);
-  const offer14h = buildCatalogueOffer('NIV-10', courseUrl, TARIF_INTER_DEV_WEB_IA_14H_HT);
-  offer7h.name = 'Parcours 7 h';
-  offer7h.description = `${TARIF_INTER_DEV_WEB_IA_HT} € HT / participant — parcours 7 h — 4 à 8 participants`;
-  offer14h.name = 'Parcours 14 h';
-  offer14h.description = `${TARIF_INTER_DEV_WEB_IA_14H_HT} € HT / participant — parcours 14 h — 4 à 8 participants`;
+  offer7h.name = 'Session 7 h';
+  offer7h.description = `${TARIF_INTER_DEV_WEB_IA_HT} € HT / participant — 7 h — 4 à 8 participants`;
 
   return {
     ...base,
     timeRequired: 'PT7H',
-    offers: [offer7h, offer14h],
+    offers: [offer7h],
     hasCourseInstance: [
       {
         '@type': 'CourseInstance',

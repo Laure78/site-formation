@@ -131,7 +131,7 @@ export const DEV_WEB_IA_HERO_FACTS = [
   'Aucune compétence en programmation requise',
 ] as const;
 
-export const DEV_WEB_IA_DUREE_COURTE = '7 h ou 14 h' as const;
+export const DEV_WEB_IA_DUREE_COURTE = '7 h' as const;
 
 export const DEV_WEB_IA_CTA_PRIMARY_LABEL = 'Construire mon projet d’outil BTP' as const;
 export const DEV_WEB_IA_CTA_SECONDARY_LABEL = 'Voir le programme' as const;
@@ -298,14 +298,62 @@ export const DEV_WEB_IA_PREREQUIS = [
 
 /** Objectifs pédagogiques observables — page marketing (PDF à aligner). */
 export const DEV_WEB_IA_OBJECTIFS = [
-  'Cartographier un processus de gestion de votre entreprise',
-  'Choisir le premier module à construire',
-  'Structurer les données et les relations entre les modules',
-  'Définir les utilisateurs et leurs droits d’accès',
-  'Guider l’IA avec des consignes précises',
-  'Construire et tester une première version',
-  'Préparer les exports nécessaires',
-  'Sauvegarder le projet et organiser ses évolutions',
+  'Analyser un besoin métier et fixer un périmètre réaliste pour une première version d’application',
+  'Organiser le projet : parcours utilisateur, écrans, données et priorités fonctionnelles',
+  'Formuler des consignes structurées et exploitables par l’IA, étape par étape',
+  'Obtenir une première version testable sans écrire le code soi-même',
+  'Appliquer une démarche de test, de correction et de sauvegarde sur son projet',
+  'Définir une feuille de route pour poursuivre le projet après la formation',
+] as const;
+
+/** Modules programme NIV-10 — source programmes-ofc-2026-10-17.json */
+export const DEV_WEB_IA_PROGRAM_MODULES = [
+  {
+    title: 'Accueil, cadrage et positionnement — 15 min',
+    points: [
+      'Émargement, présentation des objectifs et du déroulé',
+      'Recueil des attentes et auto-positionnement d’entrée sur les objectifs visés',
+      'Présentation des idées de projet : suivi de chantier, planning d’interventions, suivi des devis, tableau de bord, espace client',
+    ],
+  },
+  {
+    title: 'Module 1 — Cadrer et préparer son projet — 1 h 15',
+    points: [
+      'Utilisateurs, besoin métier, fonctions prioritaires — périmètre de la première version',
+      'Outils installés, comptes et accès vérifiés — quel outil pour quelle tâche',
+    ],
+  },
+  {
+    title: 'Module 2 — Structurer son projet et guider l’IA — 1 h 30',
+    points: [
+      'Parcours utilisateur et écrans principaux — fonctionnalités et données nécessaires à la V1',
+      'Découper le travail en étapes — consignes structurées : contexte, objectif, contraintes, résultat attendu',
+    ],
+  },
+  {
+    title: 'Module 3 — Construire une première version — 2 h 15',
+    points: [
+      'Organisation du projet et ordre de construction des blocs',
+      'Première version générée par l’IA — navigation, formulaires simples, affichage des données utiles',
+      'Repérer les écarts et les corriger sur son propre projet',
+    ],
+  },
+  {
+    title: 'Module 4 — Tester, corriger et pérenniser — 1 h 30',
+    points: [
+      'Scénario de test sur les fonctions principales — demandes de correction précises à l’IA',
+      'Sauvegarde du projet et précautions sur les données personnelles',
+      'Feuille de route personnelle et prochaines étapes',
+    ],
+  },
+  {
+    title: 'Bilan, plan d’action et évaluation — 15 min',
+    points: [
+      'Présentation de sa première version au groupe',
+      'Auto-positionnement de sortie et plan d’action individuel à 30 jours',
+      'Questionnaire de satisfaction et remise des attestations',
+    ],
+  },
 ] as const;
 
 export const DEV_WEB_IA_BENEFICES = [
@@ -1026,7 +1074,7 @@ export const DEV_WEB_IA_FAQ = [
   },
   {
     q: 'Quels formats sont proposés ?',
-    a: 'Deux formats : 7 h (310 € HT/participant) et 14 h (620 € HT/participant), en inter-entreprises (4 à 8 participants) ou en intra. Présentiel Île-de-France uniquement.',
+    a: 'Session de 7 h (310 € HT/participant), en inter-entreprises (4 à 8 participants) ou en intra. Présentiel Île-de-France uniquement. Prise en charge OPCO/Constructys selon éligibilité.',
   },
   {
     q: 'Dois-je apporter mon ordinateur ?',

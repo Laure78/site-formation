@@ -1,72 +1,95 @@
 import type { ProgrammeFormationBloc } from '@/components/formations/catalogue/ProgrammeFormationBlocs';
 
+/** Programme NIV-03 — source programmes-ofc-2026-10-17.json */
 export const NIV03_PROGRAMME_BLOCS: readonly ProgrammeFormationBloc[] = [
   {
-    heading: 'Module 1 — Installation & démarrage de chantier',
-    meta: '60 min · Bibliothèque & skills CCTP, DPGF, DTU',
-    objective:
-      'Préparer le démarrage d’un chantier en extrayant les exigences des pièces avec des skills Claude, puis contrôler dans les sources.',
+    heading: 'ACCUEIL — Accueil, cadrage et positionnement',
+    meta: '15 min',
     objectifs: [
-      'Prise en main de la bibliothèque de skills — activer l’option « Exécution de code » et accéder à la bibliothèque BTP mise à disposition',
-      'Le principe : utiliser un skill, l’adapter à votre charte, en créer un nouveau (un skill = une « Compétence » dans Claude)',
-      'Skill « Analyse CCTP, DPGF & conformité DTU » — extraire ouvrages, contraintes, points d’arrêt et exigences techniques ; générer une trame de DPGF ; identifier les DTU applicables',
-      'Cycle : cadrer → déposer les pièces anonymisées → analyser → produire la synthèse → vérifier 5 points dans les PDF d’origine',
-      'Préparer et lancer le chantier : plan d’installation, DICT, fiches techniques et agréments matériaux (MOE / BET)',
-      'Ordre de service de démarrage, constat d’état des lieux et trame de planning prévisionnel',
+      'Ouverture de session',
+      'Émargement, présentation des objectifs et du déroulé',
+      'Recueil des attentes et auto-positionnement d’entrée sur les objectifs visés',
+      'Présentation du chantier fil rouge : un chantier de bâtiment, du CCTP à la réception',
     ],
-    livrable:
-      'Synthèse démarrage + skills « Analyse CCTP, DPGF & DTU », « DICT », « Fiches techniques », « OS de démarrage » et « Planning »',
-    controlesHumains:
-      'Conformité DTU et pièces marché : retour aux sources — l’IA ne valide pas la conformité.',
-    critereEvaluation:
-      'Extractions sourcées ; points d’arrêt listés ; écarts marqués comme hypothèses si non confirmés.',
+    livrable: 'Attentes recueillies et fil rouge de la session posé',
   },
   {
-    heading: 'Module 2 — Sécurité de chantier',
-    meta: '35 min · Skills PPSPS, DUERP, SOGED',
+    heading: 'MODULE 1 — Installation et démarrage de chantier',
+    meta: '1 h 40',
     objectifs: [
-      'Skill « PPSPS » — générer un PPSPS à structure réglementaire complète, adapté au corps d’état et au chantier',
-      'Skill « Évaluation des risques » — DUERP de chantier, analyse de risques poste par poste, fiches de prévention et consignes de sécurité',
-      'Skill « Gestion des déchets (SOGED) » — schéma d’organisation, tri et traçabilité des déchets de chantier',
+      'Bibliothèque de skills',
+      'Activer l’option « Exécution de code » et accéder à la bibliothèque BTP',
+      'Utiliser un skill, l’adapter à sa charte, en créer un nouveau',
+      'Analyse CCTP, DPGF et DTU',
+      'Ouvrages, contraintes, points d’arrêt et DTU applicables',
+      'Vérification de 5 points dans les PDF d’origine',
+      'Lancer le chantier',
+      'Plan d’installation, DICT, fiches techniques et agréments matériaux',
+      'OS de démarrage, constat d’état des lieux, trame de planning prévisionnel',
+    ],
+    livrable: 'Synthèse de démarrage + skills « Analyse CCTP/DPGF », « DICT », « OS » et « Planning »',
+  },
+  {
+    heading: 'MODULE 2 — Sécurité de chantier',
+    meta: '1 h',
+    objectifs: [
+      'PPSPS',
+      'Structure réglementaire complète adaptée au corps d’état et au chantier',
+      'Évaluation des risques et déchets',
+      'DUERP de chantier, fiches de prévention et consignes',
+      'SOGED : organisation, tri et traçabilité des déchets',
+      'Contrôle',
+      'Relecture et validation par le responsable sécurité avant signature — l’IA ne garantit pas la conformité',
     ],
     livrable: 'Skills « PPSPS », « DUERP » et « SOGED » prêts à l’emploi',
   },
   {
-    heading: 'Module 3 — Gestion de chantier',
-    meta: '70 min · CR, suivi, approvisionnements, sous-traitants, coûts',
-    objective:
-      'Structurer CR et tableau d’actions, comparer l’avancement au planning, préparer la réunion de chantier.',
+    heading: 'MODULE 3 — Gestion de chantier au quotidien',
+    meta: '2 h',
     objectifs: [
-      'Réunions & comptes rendus — CR par corps d’état, observations numérotées, reprise des points non soldés (Levé / En cours / En attente) ; génération à partir de notes ou d’une dictée transcrite',
-      'Exercice : produire CR + tableau (décision, action, responsable, échéance) puis corriger les ambiguïtés',
-      'Comparer l’avancement déclaré au planning fourni (analyse tabulaire ChatGPT en démo / pratique selon accès) — préparer l’ordre du jour',
-      'Suivi, relances & journal de chantier — tableau de suivi, relances entreprises, constat de retard, rapport journalier',
-      'Approvisionnements & sous-traitants — bons de commande, comparatif fournisseurs ; DC4 et dossier d’agrément',
-      'Quantités & coûts — métré et devis de travaux supplémentaires ; suivi du déboursé — montants validés par le professionnel',
+      'Réunions et comptes rendus',
+      'CR par corps d’état, observations numérotées, points non soldés (levé / en cours / en attente)',
+      'Génération à partir de notes ou d’une dictée transcrite',
+      'Suivi et pilotage',
+      'Tableau d’actions : décision, action, responsable, échéance',
+      'Avancement déclaré comparé au planning, ordre du jour de réunion, journal de chantier',
+      'Approvisionnements, sous-traitants et coûts',
+      'Bons de commande, comparatif fournisseurs, DC4 et dossier d’agrément',
+      'Métré et devis de travaux supplémentaires — montants validés par le professionnel',
     ],
-    livrable:
-      'CR + tableau des actions + skills « Suivi & journal », « Approvisionnements », « Sous-traitants (DC4) », « Métré », « Avenants » et « Budget chantier »',
-    controlesHumains:
-      'Décisions, destinataires et montants validés avant diffusion ; constats terrain prioritaires sur la synthèse IA.',
-    critereEvaluation:
-      'Actions traçables ; écarts d’avancement sourcés ; aucune décision inventée.',
+    livrable: 'CR de chantier + tableau des actions + ordre du jour de réunion',
   },
   {
-    heading: 'Module 4 — Administratif de suivi de chantier',
-    meta: '50 min · Situations, réception, DOE, litiges',
+    heading: 'MODULE 4 — Administratif jusqu’à la réception',
+    meta: '1 h 50',
     objectifs: [
-      'Skill « Situations de travaux » — situations d’avancement mensuelles et états d’acompte',
-      'Skill « Réception & réserves » — PV de réception, liste de réserves par lot, suivi et constats de levée',
-      'Skills « DOE » & « Assistant juridique » — dossier des ouvrages exécutés, relances et courriers de clôture ; mise en demeure ou mémoire en réclamation (brouillons à valider)',
+      'Situations de travaux',
+      'Situations d’avancement mensuelles et états d’acompte',
+      'Réception et réserves',
+      'PV de réception, liste des réserves par lot',
+      'Suivi et constats de levée des réserves',
+      'DOE et courriers',
+      'Constitution du DOE, relances et courriers de clôture',
+      'Brouillons de mise en demeure ou de réclamation, à faire valider',
     ],
-    livrable:
-      'Skills « Situations », « PV de réserves », « DOE » et « Assistant juridique » — et accès complet à la bibliothèque OFC : 20+ skills classés par phase de chantier',
+    livrable: 'Skills « Situations », « PV de réserves », « DOE » et « Assistant juridique » + accès à la bibliothèque de 20+ skills BTP',
+  },
+  {
+    heading: 'CLÔTURE — Bilan, plan d’action et évaluation',
+    meta: '15 min',
+    objectifs: [
+      'Clôture de session',
+      'Prise de rendez-vous du point de suivi en visio à J+30',
+      'Auto-positionnement de sortie et mesure de la progression sur les objectifs',
+      'Plan d’action individuel : 3 actions concrètes à mettre en place à 30 jours',
+      'Questionnaire de satisfaction à chaud et remise des attestations',
+    ],
+    livrable: 'Plan d’action individuel à 30 jours + attestation individuelle de fin de formation',
   },
 ];
 
 export const NIV03_PEDAGOGICAL_METHODS = [
-  '70 % de pratique : chaque participant utilise, adapte et teste les skills sur son ordinateur, à partir de ses vrais documents de chantier.',
-  'Bibliothèque incluse : chaque participant repart avec l’accès à plus de 20 skills BTP prêts à l’emploi, classés par phase de chantier.',
-  'Fil rouge chronologique : un même chantier de bâtiment sert de support, de l’analyse du CCTP jusqu’à la réception des travaux.',
-  'Moyens : un ordinateur portable par participant, un accès internet haut débit et un compte Claude (Pro recommandé). Supports de prompts et fiches méthodes remis à chaque participant.',
+  '70 % pratique / 30 % théorie',
+  'Présentiel en Île-de-France uniquement — outils enseignés : Claude et ChatGPT.',
+  'Un ordinateur portable par participant, connexion internet. Compte Claude Pro recommandé (environ 18 € HT/mois, à la charge de l’entreprise, non inclus). Documents de chantier anonymisés : CCTP, DPGF, CR, modèles de courriers',
 ] as const;

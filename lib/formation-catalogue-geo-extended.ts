@@ -139,7 +139,7 @@ export const FORMATION_CATALOGUE_GEO_EXTENDED: Record<
   },
   'NIV-05': {
     queApprendre:
-      'Analyser un DCE MOE, rédiger des CR en quelques minutes, produire OS et courriers, suivre réserves et réception côté maîtrise d’œuvre.',
+      'Analyser un DCE MOE, rédiger des comptes rendus structurés, produire OS et courriers, suivre réserves et réception côté maîtrise d’œuvre.',
     documentsBtp: ['DCE et bordereaux MOE', 'Comptes rendus de chantier', 'Ordres de service', 'Courriers MOE et réserves'],
     outilsIa: ['Claude AI', 'ChatGPT'],
     dureeReponse: '',

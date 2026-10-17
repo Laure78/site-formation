@@ -243,7 +243,8 @@ const nextConfig: NextConfig = {
 
       {
         source: '/formations/formation-claude-ia-btp/programme_OFC_IA_BTP_4h.pdf',
-        destination: '/formations/maitriser-claude-ai-btp/Programme_Maitriser_Claude_BTP_OFC.pdf',
+        destination:
+          '/formations/maitriser-claude-ai-btp/programme_OFC_NIV-04_Maitriser_Claude_BTP_20261017.pdf',
         permanent: true,
       },
       {

@@ -9,15 +9,13 @@ import { getFormationByCode, libelleDureeFormation } from '@/data/formations';
 import {
   DEV_WEB_IA_LIVRABLES,
   DEV_WEB_IA_OBJECTIFS,
-  TARIF_INTER_DEV_WEB_IA_14H_HT,
-  TARIF_INTER_DEV_WEB_IA_HT,
+  DEV_WEB_IA_PROGRAM_MODULES,
 } from '@/lib/formation-developpement-web-ia-content';
 import {
   ASSISTANTS_IA_LIVRABLES,
   ASSISTANTS_IA_MODULES,
   ASSISTANTS_IA_OBJECTIFS,
 } from '@/lib/formation-assistants-ia-personnalises-btp-content';
-import { formatTarifHt } from '@/lib/tarifs-sessions';
 import { mapProgrammeBlocsToCatalogueModules } from '@/lib/catalogue-programme-bloc-mapper';
 import { NIV03_PEDAGOGICAL_METHODS, NIV03_PROGRAMME_BLOCS } from '@/lib/catalogue-formation-programmes-niv03';
 import { NIV04_PROGRAMME_BLOCS } from '@/lib/catalogue-formation-programmes-niv04';
@@ -163,11 +161,11 @@ const NIV_01: CatalogueFormationPageContent = {
     { title: 'Emails', texte: 'Rédiger et reformuler vos communications professionnelles.' },
   ],
   outcomes: [
-    'Formuler une demande précise à une IA',
-    'Transformer des notes en compte rendu structuré',
-    'Préparer une trame de devis ou une désignation d’ouvrage',
-    'Créer une première structure de DOE ou de PV',
-    'Contrôler et corriger une réponse générée par l’IA',
+    'Expliquer le fonctionnement, les limites et le cadre d’usage de l’IA générative (littératie IA — art. 4 du règlement européen sur l’IA, RGPD)',
+    'Formuler une demande précise à ChatGPT ou Claude avec la méthode CRAFT (Contexte – Rôle – Action – Format – Ton)',
+    'Préparer et structurer une première version de devis ou de désignation d’ouvrage, soumise au contrôle du professionnel',
+    'Rédiger un compte rendu, une trame de DOE ou de PV à partir de notes, avec relecture humaine',
+    'Créer des emails et contenus professionnels, et anonymiser ses documents avant tout usage de l’IA',
   ],
   objectivesTitle: 'Après la formation, vous saurez…',
   outcomesDescription:
@@ -392,7 +390,7 @@ const NIV_02: CatalogueFormationPageContent = {
       ],
     },
     {
-      title: 'Module 1 — Préparer l’analyse du DCE — 45 min',
+      title: 'Module 1 — Préparer l’analyse du DCE — 1 h 15',
       competence: 'Organiser les pièces et cadrer l’analyse du DCE',
       points: [
         'Rôle du RC, du CCAP, du CCTP, de la DPGF et du BPU',
@@ -405,7 +403,7 @@ const NIV_02: CatalogueFormationPageContent = {
         'Exercice pratique : classer le fil rouge et rédiger une consigne avec obligation de citation des pièces sources.',
     },
     {
-      title: 'Module 2 — Analyser et croiser les pièces — 1 h',
+      title: 'Module 2 — Analyser et croiser les pièces — 1 h 45',
       competence: 'Extraire et croiser les exigences avec références',
       points: [
         'Extraction des exigences avec références (Claude / Artifacts)',
@@ -417,7 +415,7 @@ const NIV_02: CatalogueFormationPageContent = {
         'Exercice pratique : tableau d’écarts CCTP/DPGF — critère : références exactes, faits vs hypothèses.',
     },
     {
-      title: 'Module 3 — Préparer le chiffrage — 45 min',
+      title: 'Module 3 — Préparer le chiffrage — 1 h 30',
       competence: 'Préparer une checklist de chiffrage contrôlée',
       points: [
         'Checklist des prestations, unités et quantités à partir des pièces',
@@ -429,7 +427,7 @@ const NIV_02: CatalogueFormationPageContent = {
         'Exercice pratique : checklist chiffrage — critère : échantillon recalculé manuellement par le professionnel.',
     },
     {
-      title: 'Module 4 — Structurer le mémoire technique — 1 h',
+      title: 'Module 4 — Structurer le mémoire technique — 2 h',
       competence: 'Structurer un mémoire aligné sur les critères du RC',
       points: [
         'Lecture des critères et pondérations du RC',
@@ -473,8 +471,7 @@ const NIV_02: CatalogueFormationPageContent = {
     'Laure Olivié, OFC Création d’Entreprise (Qualiopi). Expérience du bâtiment et des travaux publics, spécialisation IA appliquée aux métiers du BTP. Références : FFB Grand Paris, CSFE, CNAM Entreprise, Le Moniteur Formations.',
   instructorExtraLinks: [{ href: LINKS.qualiopi, label: 'Certification Qualiopi' }],
   finalCta: DEFAULT_FINAL_CTA,
-  // PDF 4 h obsolète — demander le programme (régénération 7 h en attente)
-  pdfHref: undefined,
+  pdfHref: LINKS.pdfProgrammeIaBtpNiveau2AppelsOffre,
   seoLandingLink: {
     href: LINKS.formationIaAppelsOffresBtp,
     label: 'Pourquoi se former à l’IA pour les appels d’offres ?',
@@ -587,8 +584,7 @@ const NIV_03: CatalogueFormationPageContent = {
     description:
       'Organisez une session pour vos équipes travaux : devis, effectif et financement OPCO possible selon éligibilité.',
   },
-  // PDF 4 h obsolète — demander le programme (régénération 7 h en attente)
-  pdfHref: undefined,
+  pdfHref: LINKS.pdfProgrammeConduiteTravauxNiv03,
   seoLandingLink: {
     href: LINKS.formationIaConducteurDeTravaux,
     label: 'Pourquoi se former à l’IA pour les conducteurs de travaux ?',
@@ -598,16 +594,16 @@ const NIV_03: CatalogueFormationPageContent = {
 const NIV_04: CatalogueFormationPageContent = {
   programmeRef: 'NIV-04',
   parcoursKind: 'usages-ia-btp',
-  levelBadgeLabel: 'Niveau 2 · Perfectionnement',
+  levelBadgeLabel: 'Niveau 3 · Avancé',
   heroPublicLine:
-    'Référents IA, dirigeants, responsables digitaux, chargés d’affaires et conducteurs de travaux.',
+    'Référents IA, dirigeants, responsables digitaux, chargés d’affaires et conducteurs de travaux souhaitant industrialiser l’usage de Claude dans l’entreprise.',
   heroFacts: [
     '7 heures',
     '70 % de pratique',
     'Projets, Cowork, connecteurs, Claude Code',
     'Présentiel en Île-de-France',
   ],
-  quickFactsLevel: 'NUM-03',
+  quickFactsLevel: 'Niveau 3 · Avancé',
   practiceShare: '70 %',
   formatLabel: 'Présentiel',
   locationLabel: 'Île-de-France',
@@ -667,8 +663,9 @@ const NIV_04: CatalogueFormationPageContent = {
     },
   ],
   programIntro:
-    'Accueil, 4 modules techniques et clôture le matin : Projets & skills, Cowork, connecteurs et Claude Code — fil rouge PME BTP. 70 % pratique.',
+    '7 heures — 9h00 – 12h30 / 13h30 – 17h00 — Accueil, 4 modules techniques et clôture : Projets & skills, Cowork, connecteurs et Claude Code — fil rouge PME BTP. 70 % pratique / 30 % théorie.',
   programModules: mapProgrammeBlocsToCatalogueModules(NIV04_PROGRAMME_BLOCS),
+  pdfHref: LINKS.pdfProgrammeMaitriserClaudeBtpNiv04,
   programLinks: [
     {
       prefix: 'Pour les appels d’offres, voir la',
@@ -767,6 +764,7 @@ const NIV_05: CatalogueFormationPageContent = {
   programIntro:
     '7 heures — 70 % pratique / 30 % théorie — alternance théorie courte et ateliers sur cas réels MOE apportés par les participants.',
   programModules: mapProgrammeBlocsToCatalogueModules(NIV05_PROGRAMME_BLOCS),
+  pdfHref: LINKS.pdfProgrammeIaMaitriseOeuvre,
   programLinks: [
     {
       prefix: 'Pour le pilotage chantier côté entreprise, voir la',
@@ -804,27 +802,9 @@ const NIV_10: CatalogueFormationPageContent = {
   deliverablesTitle: 'Ce que vous emportez',
   painPointsTitle: 'Pourquoi vos idées d’outils BTP restent au stade de projet ?',
   painPoints: [],
-  quickFactsOverride: [
-    { label: 'Durée', value: '7 h ou 14 h' },
-    { label: 'Format', value: 'Présentiel Île-de-France uniquement' },
-    { label: 'Lieu', value: 'Île-de-France' },
-    { label: 'Effectif', value: '4 à 8 participants' },
-    {
-      label: 'Niveau',
-      value: 'Niveau 3 — création',
-    },
-    {
-      label: 'Public',
-      value: 'Dirigeants, CT, chargés d’affaires, support BTP',
-    },
-    {
-      label: 'Tarif',
-      value: `${formatTarifHt(TARIF_INTER_DEV_WEB_IA_HT)} € HT / participant (7 h) · ${formatTarifHt(TARIF_INTER_DEV_WEB_IA_14H_HT)} € HT (14 h)`,
-    },
-  ],
   outcomes: DEV_WEB_IA_OBJECTIFS,
   outcomesDescription:
-    'Objectifs pédagogiques observables — le déroulé détaillé figure dans la section programme (parcours 7 h ou 14 h).',
+    'Objectifs pédagogiques observables — le déroulé détaillé figure dans la section programme (7 h).',
   deliverablesIntro:
     'À l’issue de la session, vous repartez avec une première version fonctionnelle, une méthode et une feuille de route.',
   deliverables: DEV_WEB_IA_LIVRABLES,
@@ -837,23 +817,19 @@ const NIV_10: CatalogueFormationPageContent = {
     { iaAide: 'Aider à préparer des exports', validation: 'Valider le format avec le destinataire' },
     { iaAide: 'Aider à sauvegarder et documenter', validation: 'Garder la responsabilité du projet' },
   ],
-  interExtraBullets: ['Parcours 7 h ou 14 h selon calendrier'],
-  intraExtraBullets: ['Sessions en présentiel dans vos locaux ou convocation réseau'],
-  programIntro: '',
-  programmeHeading: 'Le parcours en étapes',
-  objectivesTitle: 'Ce que vous apprenez',
+  interExtraBullets: ['Session inter — 7 h, 4 à 8 participants'],
+  intraExtraBullets: ['Session intra en présentiel dans vos locaux en Île-de-France'],
+  programIntro:
+    '7 heures — 9h00 – 12h30 / 13h30 – 17h00 — 70 % pratique / 30 % apports méthodologiques. Accueil, modules et clôture selon le programme officiel.',
+  programmeHeading: 'Programme — 7 h',
+  objectivesTitle: 'Objectifs pédagogiques',
+  programModules: DEV_WEB_IA_PROGRAM_MODULES,
+  pdfHref: LINKS.pdfProgrammeDeveloppementWebIaSansCoder,
   instructorTitle: 'Qui conçoit et encadre la formation ?',
   instructorBody:
     'Laure Olivié, fondatrice d’OFC Création d’Entreprise (certifié Qualiopi), 7 ans d’expérience dans le BTP, ancienne dirigeante d’une entreprise de travaux publics en Île-de-France. Elle a elle-même créé ses outils de gestion avec l’IA. Méthode progressive, petits groupes, 70 % de pratique.',
   showBeworkPasserelle: false,
-  finalCta: {
-    title: 'Quel outil votre entreprise construirait-elle si vous n’aviez plus besoin de savoir coder ?',
-    description:
-      'Relevé d’heures, planning, suivi chantier, CRM ou tableau de bord : commencez par le besoin qui vous fait perdre le plus de temps.',
-    primaryLabel: 'Échanger sur mon projet',
-    secondaryLabel: 'Voir le programme',
-    note: 'Présentiel Île-de-France · 7 h ou 14 h · 4 à 8 participants',
-  },
+  finalCta: DEFAULT_FINAL_CTA,
 };
 
 const NIV_09: CatalogueFormationPageContent = {

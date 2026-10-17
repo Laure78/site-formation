@@ -28,7 +28,7 @@ export function dureeCatalogueParCode(code: FormationCode): string {
 
 /** Phrase FAQ / blog — durées du catalogue sans valeurs codées en dur. */
 export function faqDureesCatalogueSentence(): string {
-  return `Les bases de l’IA (NIV-01) durent ${CATALOGUE_DUREE_BASES_IA_ONLY} ; les sessions métier catalogue durent ${CATALOGUE_DUREE_SESSION_METIER} (variante 14 h pour NIV-10). Format intra (dans vos locaux) ou inter, exclusivement en présentiel en Île-de-France.`;
+  return `Les bases de l’IA (NIV-01) durent ${CATALOGUE_DUREE_BASES_IA_ONLY} ; les sessions métier catalogue durent ${CATALOGUE_DUREE_SESSION_METIER}. Format intra (dans vos locaux) ou inter, exclusivement en présentiel en Île-de-France.`;
 }
 
 export function phraseSessionCatalogueMetierQualiopi(): string {

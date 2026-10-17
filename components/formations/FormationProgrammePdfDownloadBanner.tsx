@@ -29,12 +29,13 @@ function programmeDownloadDescription(catalogueRef: string, formationTitle: stri
 }
 
 const PDF_DOWNLOAD_NAMES: Partial<Record<string, string>> = {
-  'NIV-02': 'programme_OFC_Niveau2_IA_AO_ClaudePro.pdf',
-  'NIV-03': 'Programme_IA_Conduite_Travaux_OFC.pdf',
-  'NIV-04': 'programme_OFC_Maitriser_Claude_BTP.pdf',
-  'NIV-05': 'programme_OFC_IA_MOE_4h.pdf',
+  'NIV-01': 'programme_OFC_NIV-01_Bases_IA_BTP_20261017.pdf',
+  'NIV-02': 'programme_OFC_NIV-02_IA_Appels_offres_20261017.pdf',
+  'NIV-03': 'programme_OFC_NIV-03_IA_Conduite_travaux_20261017.pdf',
+  'NIV-04': 'programme_OFC_NIV-04_Maitriser_Claude_BTP_20261017.pdf',
+  'NIV-05': 'programme_OFC_NIV-05_IA_Maitrise_oeuvre_20261017.pdf',
   'NIV-09': 'programme_OFC_AssistantsIA_BTP_intra_7h.pdf',
-  'NIV-10': 'programme_OFC_Niveau3_Outils_Chantier_IA_7h_20261008.pdf',
+  'NIV-10': 'programme_OFC_NIV-10_Applications_metier_BTP_IA_20261017.pdf',
 };
 
 /**

@@ -701,7 +701,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
           '<ul class="mt-4 list-disc pl-6 text-slate-600">' +
           '<li><a href="/formations/ia-appels-offre-btp/Kit_IA_AO_BTP_7_prompts.html">Kit IA appels d\'offres BTP — 7 prompts (HTML, imprimer en PDF)</a></li>' +
           '<li><a href="/formations/ia-appels-offre-btp/Support_complementaire_AO_BTP.pdf">Support complémentaire AO BTP (PDF)</a></li>' +
-          '<li><a href="/formations/ia-appels-offre-btp/Programme_IA_AO_DCE_MT_ClaudePro_OFC.pdf">Programme détaillé NIV-02 — Claude Pro, Cowork &amp; Skills (PDF)</a></li>' +
+          '<li><a href="/formations/ia-appels-offre-btp/programme_OFC_NIV-02_IA_Appels_offres_20261017.pdf">Programme détaillé NIV-02 — IA et appels d&apos;offres BTP (PDF)</a></li>' +
           '<li><a href="/formations/ia-appels-offre-btp">Page formation « L\'IA appliquée aux appels d\'offres BTP »</a> — parcours NIV-02 (3 modules sur 4 h), financement possible selon éligibilité</li>' +
           '</ul>',
       },

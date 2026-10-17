@@ -3,7 +3,7 @@
  */
 import { getModuleByCode, type ModuleCode } from '@/data/catalogue-2027';
 
-const LEGACY_CODES_PDF_OBSOLETE = new Set(['NIV-02', 'NIV-03', 'NIV-04', 'NIV-05']);
+const LEGACY_CODES_PDF_OBSOLETE = new Set<string>([]);
 
 export function isProgrammePdfObsoleteForLegacyCode(code: string): boolean {
   return LEGACY_CODES_PDF_OBSOLETE.has(code);

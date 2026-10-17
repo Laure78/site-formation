@@ -224,7 +224,7 @@ export const FAQ_GEO: FAQItem[] = [
   },
   {
     q: "Formation IA appels d'offres BTP : quel programme ?",
-    a: `Formation <a href="/formations/ia-appels-offre-btp">IA appels d'offres BTP</a> (session 4 h, niveau intermédiaire) : méthode guidée pour analyser un DCE, préparer le chiffrage et structurer un mémoire technique avec l'IA. Public : responsables d'affaires, conducteurs de travaux, chargés d'études, bureaux d'études. ${FINANCEMENT_FORMULATION_COURTE} Formatrice : Laure Olivié (${formatProsFormesEtNoteQualiopi()}). Programme certifié Qualiopi.`,
+    a: `Formation <a href="/formations/ia-appels-offre-btp">IA appels d'offres BTP</a> (session 7 h, niveau intermédiaire) : méthode guidée pour analyser un DCE, préparer le chiffrage et structurer un mémoire technique avec l'IA. Public : responsables d'affaires, conducteurs de travaux, chargés d'études, bureaux d'études. ${FINANCEMENT_FORMULATION_COURTE} Formatrice : Laure Olivié (${formatProsFormesEtNoteQualiopi()}). Programme certifié Qualiopi.`,
   },
 ];
 
@@ -623,7 +623,7 @@ export const FAQ_ASSISTANTS_IA_NIV09: FAQItem[] = [
 export const FAQ_MAITRISER_CLAUDE_NIV04: FAQItem[] = [
   {
     q: 'On utilise déjà Claude au bureau : cette formation m\'apporte quoi de plus ?',
-    a: `Il structure l'usage en entreprise : Projets partagés, bibliothèque de skills, Cowork supervisé, connecteurs messagerie/drive/agenda et premières automatisations Claude Code. En 4 h le matin, vous repartez avec des workflows réutilisables — pas seulement des prompts isolés. Public : référents IA, dirigeants, responsables digitaux, chargés d'affaires et conducteurs de travaux déjà à l'aise avec Claude Pro. Voir le <a href="${LINKS.claudeAiBtp}">guide Claude AI BTP</a>.`,
+    a: `Il structure l'usage en entreprise : Projets partagés, bibliothèque de skills, Cowork supervisé, connecteurs messagerie/drive/agenda et premières automatisations Claude Code. En 7 h, vous repartez avec des workflows réutilisables — pas seulement des prompts isolés. Public : référents IA, dirigeants, responsables digitaux, chargés d'affaires et conducteurs de travaux déjà à l'aise avec Claude Pro. Voir le <a href="${LINKS.claudeAiBtp}">guide Claude AI BTP</a>.`,
   },
   {
     q: 'Claude est-il adapté aux documents BTP (DCE, CCTP) ?',
@@ -635,7 +635,7 @@ export const FAQ_MAITRISER_CLAUDE_NIV04: FAQItem[] = [
   },
   {
     q: 'Pourquoi la formation Maîtriser Claude est-elle le matin uniquement ?',
-    a: `La session dure 4 h (9h00–13h00) pour enchaîner accueil, 4 modules techniques et clôture sans couper la concentration. Format présentiel en Île-de-France, intra ou inter — formation catalogue niveau avancé.`,
+    a: `La session dure 7 h (9h00 – 12h30 / 13h30 – 17h00) pour enchaîner accueil, 4 modules techniques et clôture. Format présentiel en Île-de-France, intra ou inter — formation catalogue niveau avancé.`,
   },
   {
     q: 'Cowork et Claude Code : est-ce que l\'IA envoie des mails ou des docs sans mon accord ?',

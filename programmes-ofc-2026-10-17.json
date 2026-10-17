@@ -1,0 +1,1002 @@
+{
+  "version": "2026-10-17",
+  "formations": [
+    {
+      "ref": "NIV-01",
+      "titre": "Les bases de l’IA pour les pros du BTP",
+      "sousTitre": "Devis, documents de chantier et communication avec ChatGPT et Claude",
+      "niveau": "NIVEAU 1 · DÉBUTANT",
+      "pdf": "programme_OFC_NIV-01_Bases_IA_BTP_20261017.pdf",
+      "duree": "4 heures — demi-journée, 9h00 – 13h00",
+      "effectif": "6 à 12 participants",
+      "tarif": "120 € HT par participant — TVA exonérée, art. 261-4-4°-a du CGI — prise en charge OPCO/Constructys selon éligibilité",
+      "pratique": "70 % pratique / 30 % théorie",
+      "public": "Dirigeants BTP (gros œuvre, second œuvre, étanchéité, bardage, couverture, électricité, plomberie, peinture, VRD, TP), chargés d’affaires, conducteurs de travaux, techniciens bureau d’études, assistant(e)s administratives et fonctions support",
+      "prerequis": "Savoir utiliser un ordinateur et un smartphone. Bonne maîtrise du français écrit et oral. Aucune pratique préalable de l’IA n’est nécessaire",
+      "moyens": "Un ordinateur portable par participant, connexion internet. Les versions gratuites de ChatGPT ou Claude suffisent — aucun abonnement payant requis ni inclus dans le tarif",
+      "objectifs": [
+        "Expliquer le fonctionnement, les limites et le cadre d’usage de l’IA générative (littératie IA — art. 4 du règlement européen sur l’IA, RGPD)",
+        "Formuler une demande précise à ChatGPT ou Claude avec la méthode CRAFT (Contexte – Rôle – Action – Format – Ton)",
+        "Préparer et structurer une première version de devis ou de désignation d’ouvrage, soumise au contrôle du professionnel",
+        "Rédiger un compte rendu, une trame de DOE ou de PV à partir de notes, avec relecture humaine",
+        "Créer des emails et contenus professionnels, et anonymiser ses documents avant tout usage de l’IA"
+      ],
+      "modules": [
+        {
+          "label": "MODULE 1",
+          "titre": "Comprendre l’IA : littératie, outils et bonnes pratiques",
+          "duree": "60 min",
+          "contenu": [
+            {
+              "titre": "Panorama des outils",
+              "points": [
+                "ChatGPT et Claude : fonctionnement, versions gratuites et payantes",
+                "Ce que l’IA fait bien dans une entreprise du BTP… et ce qu’elle ne fait pas"
+              ]
+            },
+            {
+              "titre": "Méthode de prompt CRAFT",
+              "points": [
+                "Contexte, Rôle, Action, Format, Ton",
+                "Exercices guidés sur des cas métier apportés par les participants"
+              ]
+            },
+            {
+              "titre": "Littératie IA et conformité",
+              "points": [
+                "Obligation de maîtrise de l’IA (art. 4 du règlement UE 2024/1689)",
+                "Erreurs fréquentes, réponses inventées et relecture systématique"
+              ]
+            },
+            {
+              "titre": "Confidentialité des données",
+              "points": [
+                "RGPD, anonymisation des documents, paramètres de confidentialité",
+                "Repères pour une charte d’usage de l’IA dans l’entreprise"
+              ]
+            }
+          ],
+          "livrable": "Fiche mémo CRAFT + checklist d’anonymisation + repères de charte d’usage IA"
+        },
+        {
+          "label": "MODULE 2",
+          "titre": "Devis et chiffrage",
+          "duree": "60 min",
+          "contenu": [
+            {
+              "titre": "Structurer une désignation d’ouvrage",
+              "points": [
+                "Descriptif clair par lot, unités et prestations",
+                "Reformuler un devis existant pour le rendre plus lisible"
+              ]
+            },
+            {
+              "titre": "Préparer des variantes",
+              "points": [
+                "Options, plus-values et moins-values",
+                "Présentation commerciale du devis au client"
+              ]
+            },
+            {
+              "titre": "Contrôler avant envoi",
+              "points": [
+                "Checklist de contrôle du devis",
+                "Prix, quantités, métrés et références DTU : vérification par le professionnel — l’IA ne chiffre pas"
+              ]
+            }
+          ],
+          "livrable": "Trame de devis + checklist de contrôle avant envoi"
+        },
+        {
+          "label": "MODULE 3",
+          "titre": "Documents de chantier",
+          "duree": "60 min",
+          "contenu": [
+            {
+              "titre": "Compte rendu de chantier",
+              "points": [
+                "À partir de notes ou d’une dictée : présents, décisions, actions qui / quoi / quand",
+                "Reprise des points non soldés"
+              ]
+            },
+            {
+              "titre": "DOE et PV de réception",
+              "points": [
+                "Trame de DOE et liste des pièces à réunir",
+                "Trame de PV de réception"
+              ]
+            },
+            {
+              "titre": "Réserves et suivi",
+              "points": [
+                "Tableau de suivi de levée des réserves",
+                "Emails de suivi et de relance des entreprises"
+              ]
+            }
+          ],
+          "livrable": "Trames de CR, DOE, PV et suivi des réserves"
+        },
+        {
+          "label": "MODULE 4",
+          "titre": "Communication professionnelle et bilan",
+          "duree": "60 min",
+          "contenu": [
+            {
+              "titre": "Emails et relances",
+              "points": [
+                "Emails commerciaux, relances clients et fournisseurs",
+                "Adapter le ton au destinataire (client, MOE, fournisseur)"
+              ]
+            },
+            {
+              "titre": "Valoriser ses chantiers",
+              "points": [
+                "Fiche de présentation d’une réalisation",
+                "Contenus pour les réseaux sociaux et calendrier éditorial simple"
+              ]
+            },
+            {
+              "titre": "Bilan de session (15 min)",
+              "points": [
+                "Auto-positionnement de sortie et plan d’action individuel",
+                "Questionnaire de satisfaction et remise des attestations"
+              ]
+            }
+          ],
+          "livrable": "Bibliothèque de prompts BTP + plan d’action individuel"
+        }
+      ]
+    },
+    {
+      "ref": "NIV-02",
+      "titre": "IA et appels d’offres BTP",
+      "sousTitre": "Analyser un DCE, préparer le chiffrage et structurer un mémoire technique",
+      "niveau": "NIVEAU 2 · INTERMÉDIAIRE",
+      "pdf": "programme_OFC_NIV-02_IA_Appels_offres_20261017.pdf",
+      "duree": "7 heures — 9h00 – 12h30 / 13h30 – 17h00 (journée complète)",
+      "effectif": "6 à 12 participants",
+      "tarif": "310 € HT par participant — TVA exonérée, art. 261-4-4°-a du CGI — prise en charge OPCO/Constructys selon éligibilité",
+      "pratique": "75 % pratique / 25 % théorie",
+      "public": "Dirigeants de PME du BTP, responsables d’affaires, chargés d’études et de prix, conducteurs de travaux, responsables appels d’offres",
+      "prerequis": "Bases de l’IA générative acquises ou formation Niveau 1 suivie. Connaître le fonctionnement général d’un appel d’offres",
+      "moyens": "Un ordinateur portable par participant, connexion internet. Abonnement Claude Pro actif par participant (environ 18 € HT/mois, à la charge de l’entreprise, non inclus). Dossier fil rouge anonymisé : DCE représentatif, ancien devis, trame de mémoire technique si disponible",
+      "objectifs": [
+        "Organiser les pièces d’un DCE (RC, CCAP, CCTP, DPGF, BPU) avant une analyse assistée par l’IA",
+        "Extraire les exigences importantes du dossier en citant les pièces sources",
+        "Comparer RC, CCTP, CCAP et DPGF pour repérer écarts, manques et questions à poser à la MOE",
+        "Construire une checklist de points à vérifier avant chiffrage et la confronter à un ancien devis",
+        "Structurer un plan de mémoire technique selon les critères et pondérations du RC et rédiger une section guidée",
+        "Réutiliser une méthode de travail (trames, prompts, contrôles humains) sur les prochains dossiers"
+      ],
+      "modules": [
+        {
+          "label": "ACCUEIL",
+          "titre": "Accueil, cadrage et positionnement",
+          "duree": "15 min",
+          "contenu": [
+            {
+              "titre": "Ouverture de session",
+              "points": [
+                "Émargement, présentation des objectifs et du déroulé",
+                "Recueil des attentes et auto-positionnement d’entrée sur les objectifs visés",
+                "Vérification des prérequis, présentation du dossier fil rouge et des règles de confidentialité"
+              ]
+            }
+          ],
+          "livrable": "Attentes recueillies et fil rouge de la session posé"
+        },
+        {
+          "label": "MODULE 1",
+          "titre": "Préparer l’analyse du DCE",
+          "duree": "1 h 15",
+          "contenu": [
+            {
+              "titre": "Les pièces du DCE",
+              "points": [
+                "Rôle du RC, du CCAP, du CCTP, de la DPGF et du BPU",
+                "Ordre de lecture et pièces à ne jamais négliger"
+              ]
+            },
+            {
+              "titre": "Organiser son espace de travail",
+              "points": [
+                "Projet Claude : instructions permanentes et base documentaire",
+                "Alternative : conversation dédiée si le Projet est indisponible"
+              ]
+            },
+            {
+              "titre": "Méthode de travail fiable",
+              "points": [
+                "Cadrer → sources anonymisées → analyser → produire → contrôler dans les PDF",
+                "Prompt avec citation obligatoire des pièces sources"
+              ]
+            },
+            {
+              "titre": "Décider de répondre",
+              "points": [
+                "Critères de Go / No-Go : délais, capacités, risques",
+                "Limites de l’analyse automatisée"
+              ]
+            }
+          ],
+          "livrable": "Projet « appel d’offres type » configuré + grille de lecture du DCE"
+        },
+        {
+          "label": "MODULE 2",
+          "titre": "Analyser et croiser les pièces",
+          "duree": "1 h 45",
+          "contenu": [
+            {
+              "titre": "Extraire les exigences",
+              "points": [
+                "Tableau des exigences avec références (pièce, article, page)",
+                "Délais, pénalités, garanties et documents attendus"
+              ]
+            },
+            {
+              "titre": "Comparer CCTP et DPGF",
+              "points": [
+                "Tableau d’écarts : unités, quantités, prestations, clauses",
+                "Contradictions et informations manquantes"
+              ]
+            },
+            {
+              "titre": "Contrôler et questionner",
+              "points": [
+                "Vérification d’un échantillon de 5 exigences dans les PDF d’origine",
+                "Rédaction de 3 questions à adresser à la maîtrise d’œuvre"
+              ]
+            }
+          ],
+          "livrable": "Tableau des exigences sourcé + tableau d’écarts CCTP–DPGF + trame de questions MOE"
+        },
+        {
+          "label": "MODULE 3",
+          "titre": "Préparer le chiffrage",
+          "duree": "1 h 30",
+          "contenu": [
+            {
+              "titre": "Checklist des prestations",
+              "points": [
+                "Prestations, unités et quantités extraites des pièces",
+                "Sujétions et prestations susceptibles d’être oubliées"
+              ]
+            },
+            {
+              "titre": "Comparer avec un ancien devis",
+              "points": [
+                "Analyse tabulaire et écarts apparents",
+                "Questions complémentaires à la MOE"
+              ]
+            },
+            {
+              "titre": "Responsabilité du chiffrage",
+              "points": [
+                "Quantités, métrés, déboursés, marges et prix contrôlés par l’entreprise",
+                "Recalcul manuel d’un échantillon — l’IA ne calcule pas le prix définitif"
+              ]
+            }
+          ],
+          "livrable": "Checklist chiffrage priorisée"
+        },
+        {
+          "label": "MODULE 4",
+          "titre": "Structurer le mémoire technique",
+          "duree": "2 h",
+          "contenu": [
+            {
+              "titre": "Lire les critères du RC",
+              "points": [
+                "Critères, sous-critères et pondérations",
+                "Construire un plan aligné sur la notation"
+              ]
+            },
+            {
+              "titre": "Produire le plan",
+              "points": [
+                "Plan dans un Artifact Claude (ou Canvas ChatGPT)",
+                "Sélection des preuves réelles : références, moyens, méthodologie, QSE"
+              ]
+            },
+            {
+              "titre": "Rédiger et auditer",
+              "points": [
+                "Rédaction guidée d’une section du mémoire",
+                "Grille d’audit avant dépôt : affirmations et engagements vérifiés — décision finale humaine"
+              ]
+            }
+          ],
+          "livrable": "Plan de mémoire technique + section rédigée + grille d’audit remplie"
+        },
+        {
+          "label": "CLÔTURE",
+          "titre": "Bilan, plan d’action et évaluation",
+          "duree": "15 min",
+          "contenu": [
+            {
+              "titre": "Clôture de session",
+              "points": [
+                "Checklist finale avant dépôt d’une offre",
+                "Auto-positionnement de sortie et mesure de la progression sur les objectifs",
+                "Plan d’action individuel : 3 actions concrètes à mettre en place à 30 jours",
+                "Questionnaire de satisfaction à chaud et remise des attestations"
+              ]
+            }
+          ],
+          "livrable": "Plan d’action individuel à 30 jours + attestation individuelle de fin de formation"
+        }
+      ]
+    },
+    {
+      "ref": "NIV-03",
+      "titre": "IA et conduite de travaux",
+      "sousTitre": "Démarrage, sécurité, comptes rendus et réception avec les skills Claude",
+      "niveau": "NIVEAU 2 · INTERMÉDIAIRE",
+      "pdf": "programme_OFC_NIV-03_IA_Conduite_travaux_20261017.pdf",
+      "duree": "7 heures — 9h00 – 12h30 / 13h30 – 17h00 (journée complète)",
+      "effectif": "6 à 12 participants",
+      "tarif": "310 € HT par participant — TVA exonérée, art. 261-4-4°-a du CGI — prise en charge OPCO/Constructys selon éligibilité",
+      "pratique": "70 % pratique / 30 % théorie",
+      "public": "Conducteurs de travaux, chefs de chantier, responsables travaux, assistant(e)s travaux",
+      "prerequis": "Savoir utiliser un ordinateur. Bonne maîtrise du français écrit. Avoir suivi le Niveau 1 ou pratiquer déjà un outil d’IA générative",
+      "moyens": "Un ordinateur portable par participant, connexion internet. Compte Claude Pro recommandé (environ 18 € HT/mois, à la charge de l’entreprise, non inclus). Documents de chantier anonymisés : CCTP, DPGF, CR, modèles de courriers",
+      "objectifs": [
+        "Utiliser, adapter et créer des skills Claude à partir de la bibliothèque BTP mise à disposition",
+        "Préparer le démarrage d’un chantier : analyse du CCTP et de la DPGF, DICT, ordre de service, planning",
+        "Produire les documents de sécurité (PPSPS, DUERP de chantier, SOGED) en vue d’une validation QSE",
+        "Piloter le chantier au quotidien : compte rendu, tableau d’actions, suivi d’avancement, sous-traitants, métré",
+        "Gérer l’administratif jusqu’à la réception : situations, PV de réserves, DOE et courriers"
+      ],
+      "modules": [
+        {
+          "label": "ACCUEIL",
+          "titre": "Accueil, cadrage et positionnement",
+          "duree": "15 min",
+          "contenu": [
+            {
+              "titre": "Ouverture de session",
+              "points": [
+                "Émargement, présentation des objectifs et du déroulé",
+                "Recueil des attentes et auto-positionnement d’entrée sur les objectifs visés",
+                "Présentation du chantier fil rouge : un chantier de bâtiment, du CCTP à la réception"
+              ]
+            }
+          ],
+          "livrable": "Attentes recueillies et fil rouge de la session posé"
+        },
+        {
+          "label": "MODULE 1",
+          "titre": "Installation et démarrage de chantier",
+          "duree": "1 h 40",
+          "contenu": [
+            {
+              "titre": "Bibliothèque de skills",
+              "points": [
+                "Activer l’option « Exécution de code » et accéder à la bibliothèque BTP",
+                "Utiliser un skill, l’adapter à sa charte, en créer un nouveau"
+              ]
+            },
+            {
+              "titre": "Analyse CCTP, DPGF et DTU",
+              "points": [
+                "Ouvrages, contraintes, points d’arrêt et DTU applicables",
+                "Vérification de 5 points dans les PDF d’origine"
+              ]
+            },
+            {
+              "titre": "Lancer le chantier",
+              "points": [
+                "Plan d’installation, DICT, fiches techniques et agréments matériaux",
+                "OS de démarrage, constat d’état des lieux, trame de planning prévisionnel"
+              ]
+            }
+          ],
+          "livrable": "Synthèse de démarrage + skills « Analyse CCTP/DPGF », « DICT », « OS » et « Planning »"
+        },
+        {
+          "label": "MODULE 2",
+          "titre": "Sécurité de chantier",
+          "duree": "1 h",
+          "contenu": [
+            {
+              "titre": "PPSPS",
+              "points": [
+                "Structure réglementaire complète adaptée au corps d’état et au chantier"
+              ]
+            },
+            {
+              "titre": "Évaluation des risques et déchets",
+              "points": [
+                "DUERP de chantier, fiches de prévention et consignes",
+                "SOGED : organisation, tri et traçabilité des déchets"
+              ]
+            },
+            {
+              "titre": "Contrôle",
+              "points": [
+                "Relecture et validation par le responsable sécurité avant signature — l’IA ne garantit pas la conformité"
+              ]
+            }
+          ],
+          "livrable": "Skills « PPSPS », « DUERP » et « SOGED » prêts à l’emploi"
+        },
+        {
+          "label": "MODULE 3",
+          "titre": "Gestion de chantier au quotidien",
+          "duree": "2 h",
+          "contenu": [
+            {
+              "titre": "Réunions et comptes rendus",
+              "points": [
+                "CR par corps d’état, observations numérotées, points non soldés (levé / en cours / en attente)",
+                "Génération à partir de notes ou d’une dictée transcrite"
+              ]
+            },
+            {
+              "titre": "Suivi et pilotage",
+              "points": [
+                "Tableau d’actions : décision, action, responsable, échéance",
+                "Avancement déclaré comparé au planning, ordre du jour de réunion, journal de chantier"
+              ]
+            },
+            {
+              "titre": "Approvisionnements, sous-traitants et coûts",
+              "points": [
+                "Bons de commande, comparatif fournisseurs, DC4 et dossier d’agrément",
+                "Métré et devis de travaux supplémentaires — montants validés par le professionnel"
+              ]
+            }
+          ],
+          "livrable": "CR de chantier + tableau des actions + ordre du jour de réunion"
+        },
+        {
+          "label": "MODULE 4",
+          "titre": "Administratif jusqu’à la réception",
+          "duree": "1 h 50",
+          "contenu": [
+            {
+              "titre": "Situations de travaux",
+              "points": [
+                "Situations d’avancement mensuelles et états d’acompte"
+              ]
+            },
+            {
+              "titre": "Réception et réserves",
+              "points": [
+                "PV de réception, liste des réserves par lot",
+                "Suivi et constats de levée des réserves"
+              ]
+            },
+            {
+              "titre": "DOE et courriers",
+              "points": [
+                "Constitution du DOE, relances et courriers de clôture",
+                "Brouillons de mise en demeure ou de réclamation, à faire valider"
+              ]
+            }
+          ],
+          "livrable": "Skills « Situations », « PV de réserves », « DOE » et « Assistant juridique » + accès à la bibliothèque de 20+ skills BTP"
+        },
+        {
+          "label": "CLÔTURE",
+          "titre": "Bilan, plan d’action et évaluation",
+          "duree": "15 min",
+          "contenu": [
+            {
+              "titre": "Clôture de session",
+              "points": [
+                "Prise de rendez-vous du point de suivi en visio à J+30",
+                "Auto-positionnement de sortie et mesure de la progression sur les objectifs",
+                "Plan d’action individuel : 3 actions concrètes à mettre en place à 30 jours",
+                "Questionnaire de satisfaction à chaud et remise des attestations"
+              ]
+            }
+          ],
+          "livrable": "Plan d’action individuel à 30 jours + attestation individuelle de fin de formation"
+        }
+      ]
+    },
+    {
+      "ref": "NIV-04",
+      "titre": "Maîtriser Claude AI pour le BTP",
+      "sousTitre": "Projets, Skills, Cowork, connecteurs et Claude Code sur vos dossiers",
+      "niveau": "NIVEAU 3 · AVANCÉ",
+      "pdf": "programme_OFC_NIV-04_Maitriser_Claude_BTP_20261017.pdf",
+      "duree": "7 heures — 9h00 – 12h30 / 13h30 – 17h00 (journée complète)",
+      "effectif": "6 à 12 participants",
+      "tarif": "310 € HT par participant — TVA exonérée, art. 261-4-4°-a du CGI — prise en charge OPCO/Constructys selon éligibilité",
+      "pratique": "70 % pratique / 30 % théorie",
+      "public": "Référents IA, dirigeants, responsables digitaux, chargés d’affaires et conducteurs de travaux souhaitant industrialiser l’usage de Claude dans l’entreprise",
+      "prerequis": "Utilisation régulière de Claude déjà acquise. Niveau 1 ou équivalent sur les bases de l’IA pour le BTP",
+      "moyens": "Un ordinateur portable par participant, connexion internet. Abonnement Claude Pro actif avec l’option « Exécution de code » (environ 18 € HT/mois, à la charge de l’entreprise, non inclus). Pièces de chantier anonymisées : CCTP, CCAP, modèles, dossiers",
+      "objectifs": [
+        "Structurer l’usage de Claude dans l’entreprise avec les Projets et une bibliothèque de skills réutilisables",
+        "Déléguer la production documentaire à Cowork (CR, mémoires, dossiers) en autonomie supervisée",
+        "Connecter Claude à ses outils (messagerie, drive, agenda) en sécurisant les données",
+        "Automatiser des tâches répétitives et générer des documents en lot avec Claude Code",
+        "Fiabiliser, sécuriser et réutiliser ses skills, connecteurs et automatisations",
+        "Distinguer ce qui peut être délégué à l’IA de ce qui reste en validation humaine (prix, engagements, données sensibles, marchés publics)"
+      ],
+      "modules": [
+        {
+          "label": "ACCUEIL",
+          "titre": "Accueil, cadrage et positionnement",
+          "duree": "15 min",
+          "contenu": [
+            {
+              "titre": "Ouverture de session",
+              "points": [
+                "Émargement, présentation des objectifs et du déroulé",
+                "Recueil des attentes et auto-positionnement d’entrée sur les objectifs visés",
+                "Fil rouge : une PME du BTP qui structure son usage de Claude, du premier Projet à un environnement fiabilisé"
+              ]
+            }
+          ],
+          "livrable": "Attentes recueillies et fil rouge de la session posé"
+        },
+        {
+          "label": "MODULE 1",
+          "titre": "Projets et skills : structurer Claude pour l’entreprise",
+          "duree": "1 h 40",
+          "contenu": [
+            {
+              "titre": "Projets Claude",
+              "points": [
+                "Un Projet par affaire, chantier ou client : instructions permanentes et base de connaissances",
+                "Centraliser CCTP, CCAP, chartes et modèles anonymisés"
+              ]
+            },
+            {
+              "titre": "Bibliothèque de skills BTP",
+              "points": [
+                "Créer, téléverser et organiser ses skills (lecture du SKILL.md avant activation)",
+                "Cycle : cadrer la procédure → sources → tester → corriger → documenter"
+              ]
+            },
+            {
+              "titre": "Alternative",
+              "points": [
+                "Si l’option « Exécution de code » est indisponible : prompt-procédure versionné"
+              ]
+            }
+          ],
+          "livrable": "Projet « chantier type » + 2 skills BTP testés + journal de tests"
+        },
+        {
+          "label": "MODULE 2",
+          "titre": "Cowork : déléguer la production documentaire",
+          "duree": "1 h 35",
+          "contenu": [
+            {
+              "titre": "Tâche supervisée",
+              "points": [
+                "Lancer une production documentaire en autonomie supervisée avec jalons de validation",
+                "Alternative : enchaînement de prompts dans le Projet avec points de contrôle"
+              ]
+            },
+            {
+              "titre": "Livrable complet",
+              "points": [
+                "CR, mémoire ou dossier produit à partir de pièces anonymisées",
+                "Enchaîner skills, Artifacts et exports bureautiques"
+              ]
+            },
+            {
+              "titre": "Contrôle humain",
+              "points": [
+                "Arrêt obligatoire avant diffusion : relecture et validation tracées"
+              ]
+            }
+          ],
+          "livrable": "Dossier de chantier produit de bout en bout + journal de validation des jalons"
+        },
+        {
+          "label": "MODULE 3",
+          "titre": "Connecteurs : relier Claude à ses outils",
+          "duree": "1 h 30",
+          "contenu": [
+            {
+              "titre": "Démonstration et cas d’usage",
+              "points": [
+                "Connecteur drive / messagerie / agenda selon les accès du compte",
+                "Récupérer un DCE pédagogique, classer des mails, alimenter un suivi de chantier"
+              ]
+            },
+            {
+              "titre": "Sécuriser les données",
+              "points": [
+                "Cartographie des droits d’accès et des données autorisées / interdites",
+                "Marchés publics : confidentialité des DCE, offres et données clients"
+              ]
+            },
+            {
+              "titre": "Alternative",
+              "points": [
+                "Sans connecteur : téléchargement manuel des pièces vers le Projet"
+              ]
+            }
+          ],
+          "livrable": "Workflow type sécurisé + matrice des données autorisées"
+        },
+        {
+          "label": "MODULE 4",
+          "titre": "Claude Code : automatiser ses tâches",
+          "duree": "1 h 45",
+          "contenu": [
+            {
+              "titre": "Automatiser",
+              "points": [
+                "Automatiser des tâches répétitives et générer des documents en lot",
+                "Créer un petit outil métier guidé (génération de pièces de chantier)"
+              ]
+            },
+            {
+              "titre": "Fiabiliser",
+              "points": [
+                "Tester, corriger et sécuriser ses automatisations",
+                "Sauvegarder et réutiliser scripts et prompts d’un chantier à l’autre"
+              ]
+            }
+          ],
+          "livrable": "Poste de travail Claude opérationnel : Projet, bibliothèque de skills, connecteur et automatisation testée"
+        },
+        {
+          "label": "CLÔTURE",
+          "titre": "Bilan, plan d’action et évaluation",
+          "duree": "15 min",
+          "contenu": [
+            {
+              "titre": "Clôture de session",
+              "points": [
+                "Revue des configurations créées et règles de gouvernance à diffuser dans l’entreprise",
+                "Auto-positionnement de sortie et mesure de la progression sur les objectifs",
+                "Plan d’action individuel : 3 actions concrètes à mettre en place à 30 jours",
+                "Questionnaire de satisfaction à chaud et remise des attestations"
+              ]
+            }
+          ],
+          "livrable": "Plan d’action individuel à 30 jours + attestation individuelle de fin de formation"
+        }
+      ]
+    },
+    {
+      "ref": "NIV-05",
+      "titre": "IA et maîtrise d’œuvre",
+      "sousTitre": "Analyse DCE, comptes rendus, ordres de service, réserves et réception",
+      "niveau": "NIVEAU 2 · INTERMÉDIAIRE",
+      "pdf": "programme_OFC_NIV-05_IA_Maitrise_oeuvre_20261017.pdf",
+      "duree": "7 heures — 9h00 – 12h30 / 13h30 – 17h00 (journée complète)",
+      "effectif": "6 à 12 participants",
+      "tarif": "310 € HT par participant — TVA exonérée, art. 261-4-4°-a du CGI — prise en charge OPCO/Constructys selon éligibilité",
+      "pratique": "70 % pratique / 30 % théorie",
+      "public": "Maîtres d’œuvre d’exécution (MOEX), conducteurs de travaux MOE, OPC, bureaux d’études techniques, assistant(e)s de gestion travaux",
+      "prerequis": "Aisance avec les outils numériques courants. Aucun prérequis en IA",
+      "moyens": "Un ordinateur portable par participant, connexion internet. Abonnements Claude Pro et ChatGPT Plus actifs (environ 18 à 20 € HT/mois chacun, à la charge de l’entreprise, non inclus). Dossiers techniques, OS, CR et DCE réels anonymisés",
+      "objectifs": [
+        "Identifier les fonctionnalités clés de Claude et choisir entre Claude et ChatGPT selon l’usage MOE",
+        "Analyser un DCE (CCTP, CCAP, bordereaux) avec l’IA pour en extraire points de conformité et alertes contractuelles",
+        "Rédiger un compte rendu de chantier structuré à partir de notes écrites ou vocales",
+        "Produire ordres de service, courriers et actes administratifs à partir de modèles réutilisables",
+        "Organiser le suivi des réserves, la préparation de la réception et les réponses aux clients",
+        "Construire une bibliothèque de prompts réutilisable en respectant la confidentialité des données chantier"
+      ],
+      "modules": [
+        {
+          "label": "ACCUEIL",
+          "titre": "Accueil, cadrage et positionnement",
+          "duree": "15 min",
+          "contenu": [
+            {
+              "titre": "Ouverture de session",
+              "points": [
+                "Émargement, présentation des objectifs et du déroulé",
+                "Recueil des attentes et auto-positionnement d’entrée sur les objectifs visés",
+                "Présentation des dossiers MOE apportés par les participants"
+              ]
+            }
+          ],
+          "livrable": "Attentes recueillies et fil rouge de la session posé"
+        },
+        {
+          "label": "MODULE 0",
+          "titre": "Claude et l’écosystème Anthropic pour la MOE",
+          "duree": "45 min",
+          "contenu": [
+            {
+              "titre": "Claude ou ChatGPT ?",
+              "points": [
+                "Quel outil pour quel usage MOE : rigueur, documents longs, confidentialité"
+              ]
+            },
+            {
+              "titre": "Tour d’horizon",
+              "points": [
+                "Projets, connecteurs (drive, messagerie, agenda), skills, tâches planifiées, Cowork",
+                "Limites de contexte d’une conversation et bonnes pratiques"
+              ]
+            }
+          ],
+          "livrable": "Mémo « Claude pour la maîtrise d’œuvre » (recto-verso)"
+        },
+        {
+          "label": "MODULE 1",
+          "titre": "Analyse des offres et conformité",
+          "duree": "1 h 25",
+          "contenu": [
+            {
+              "titre": "Lecture des pièces",
+              "points": [
+                "CCTP, CCAP, CCAG, bordereaux : points de vigilance",
+                "Incohérences entre pièces"
+              ]
+            },
+            {
+              "titre": "Base interrogeable",
+              "points": [
+                "Import du DCE dans un Projet Claude",
+                "Fiche de synthèse en 30 points clés sur un DCE réel"
+              ]
+            },
+            {
+              "titre": "Contrôle",
+              "points": [
+                "Retour aux pièces sources pour chaque extraction critique"
+              ]
+            }
+          ],
+          "livrable": "Fiche-type d’analyse DCE (30 points) + 10 prompts prêts à l’emploi"
+        },
+        {
+          "label": "MODULE 2",
+          "titre": "Comptes rendus de chantier",
+          "duree": "1 h 25",
+          "contenu": [
+            {
+              "titre": "Trame MOE",
+              "points": [
+                "Présents / excusés, avancement par corps d’état, réserves, décisions, échéances"
+              ]
+            },
+            {
+              "titre": "De la dictée au CR",
+              "points": [
+                "Dictée vocale sur smartphone → transcription → mise en forme",
+                "Photos de chantier : légendes et intégration au CR"
+              ]
+            },
+            {
+              "titre": "Suivi",
+              "points": [
+                "Gestion des versions et historique des observations d’un CR à l’autre"
+              ]
+            }
+          ],
+          "livrable": "Gabarit de CR de chantier MOE + prompt de transcription vocale"
+        },
+        {
+          "label": "MODULE 3",
+          "titre": "Courriers, ordres de service et actes administratifs",
+          "duree": "1 h 25",
+          "contenu": [
+            {
+              "titre": "Bibliothèque d’actes MOE",
+              "points": [
+                "OS de démarrage, d’arrêt, de modification, de reprise",
+                "Courriers types, PV, avenants"
+              ]
+            },
+            {
+              "titre": "Production et contrôle",
+              "points": [
+                "Produire un OS complet à partir d’un contexte chantier",
+                "Contrôle juridique minimal : références CCAG, délais de notification"
+              ]
+            }
+          ],
+          "livrable": "Pack de modèles d’actes administratifs MOE + prompt de rédaction"
+        },
+        {
+          "label": "MODULE 4",
+          "titre": "Réserves, réception et suivi client",
+          "duree": "1 h 30",
+          "contenu": [
+            {
+              "titre": "Réserves",
+              "points": [
+                "Photo + dictée → fiche de réserve structurée",
+                "Suivi et relances des entreprises"
+              ]
+            },
+            {
+              "titre": "Réception",
+              "points": [
+                "Pré-PV de réception : inventaire, cotation, classement par corps d’état"
+              ]
+            },
+            {
+              "titre": "Suivi client et GPA",
+              "points": [
+                "Réponses aux clients et acquéreurs (TMA, désordres)",
+                "Visites de pré-livraison, livraison et suivi de la garantie de parfait achèvement"
+              ]
+            }
+          ],
+          "livrable": "Modèle de suivi des réserves + tableau GPA + prompts de réponses clients"
+        },
+        {
+          "label": "CLÔTURE",
+          "titre": "Bilan, plan d’action et évaluation",
+          "duree": "15 min",
+          "contenu": [
+            {
+              "titre": "Clôture de session",
+              "points": [
+                "Assemblage de la bibliothèque de prompts MOE de chaque participant",
+                "Auto-positionnement de sortie et mesure de la progression sur les objectifs",
+                "Plan d’action individuel : 3 actions concrètes à mettre en place à 30 jours",
+                "Questionnaire de satisfaction à chaud et remise des attestations"
+              ]
+            }
+          ],
+          "livrable": "Plan d’action individuel à 30 jours + attestation individuelle de fin de formation"
+        }
+      ]
+    },
+    {
+      "ref": "NIV-10",
+      "titre": "Créer des applications métier BTP avec l’IA",
+      "sousTitre": "Concevoir, construire et tester une première application — sans coder",
+      "niveau": "NIVEAU 3 · CRÉATION",
+      "pdf": "programme_OFC_NIV-10_Applications_metier_BTP_IA_20261017.pdf",
+      "duree": "7 heures — 9h00 – 12h30 / 13h30 – 17h00 (journée complète)",
+      "effectif": "4 à 8 participants",
+      "tarif": "310 € HT par participant — TVA exonérée, art. 261-4-4°-a du CGI — prise en charge OPCO/Constructys selon éligibilité",
+      "pratique": "70 % pratique / 30 % apports méthodologiques",
+      "public": "Dirigeants de TPE et PME du BTP, conducteurs de travaux et chargés d’affaires, assistant(e)s travaux et fonctions support, indépendants du second œuvre",
+      "prerequis": "Aucun prérequis en programmation. Une première utilisation de ChatGPT ou Claude est recommandée. Savoir utiliser un ordinateur, naviguer sur internet et installer une application",
+      "moyens": "Ordinateur portable de chaque participant (droits d’installation), connexion internet, adresse email. Abonnement actif à ChatGPT ou Claude (à la charge du participant ou de l’entreprise, non inclus). Accès vérifiés avant la session",
+      "objectifs": [
+        "Analyser un besoin métier et fixer un périmètre réaliste pour une première version d’application",
+        "Organiser le projet : parcours utilisateur, écrans, données et priorités fonctionnelles",
+        "Formuler des consignes structurées et exploitables par l’IA, étape par étape",
+        "Obtenir une première version testable sans écrire le code soi-même",
+        "Appliquer une démarche de test, de correction et de sauvegarde sur son projet",
+        "Définir une feuille de route pour poursuivre le projet après la formation"
+      ],
+      "modules": [
+        {
+          "label": "ACCUEIL",
+          "titre": "Accueil, cadrage et positionnement",
+          "duree": "15 min",
+          "contenu": [
+            {
+              "titre": "Ouverture de session",
+              "points": [
+                "Émargement, présentation des objectifs et du déroulé",
+                "Recueil des attentes et auto-positionnement d’entrée sur les objectifs visés",
+                "Présentation des idées de projet : suivi de chantier, planning d’interventions, suivi des devis, tableau de bord, espace client"
+              ]
+            }
+          ],
+          "livrable": "Attentes recueillies et fil rouge de la session posé"
+        },
+        {
+          "label": "MODULE 1",
+          "titre": "Cadrer et préparer son projet",
+          "duree": "1 h 15",
+          "contenu": [
+            {
+              "titre": "Clarifier le besoin",
+              "points": [
+                "Utilisateurs, besoin métier, fonctions prioritaires",
+                "Périmètre de la première version et ce qui peut attendre"
+              ]
+            },
+            {
+              "titre": "Préparer l’environnement",
+              "points": [
+                "Outils installés, comptes et accès vérifiés",
+                "Quel outil pour quelle tâche : assistant IA, création, hébergement"
+              ]
+            }
+          ],
+          "livrable": "Fiche de cadrage du projet + poste de travail prêt"
+        },
+        {
+          "label": "MODULE 2",
+          "titre": "Structurer son projet et guider l’IA",
+          "duree": "1 h 30",
+          "contenu": [
+            {
+              "titre": "Concevoir",
+              "points": [
+                "Parcours utilisateur et écrans principaux",
+                "Fonctionnalités et données nécessaires à la V1"
+              ]
+            },
+            {
+              "titre": "Dialoguer avec l’IA",
+              "points": [
+                "Découper le travail en étapes et en demandes ciblées",
+                "Consignes structurées : contexte, objectif, contraintes, résultat attendu"
+              ]
+            }
+          ],
+          "livrable": "Périmètre fonctionnel + série de consignes prêtes à l’emploi"
+        },
+        {
+          "label": "MODULE 3",
+          "titre": "Construire une première version",
+          "duree": "2 h 15",
+          "contenu": [
+            {
+              "titre": "Architecture",
+              "points": [
+                "Organisation du projet et ordre de construction des blocs"
+              ]
+            },
+            {
+              "titre": "Génération",
+              "points": [
+                "Première version générée par l’IA à partir du besoin structuré",
+                "Navigation, formulaires simples, affichage des données utiles"
+              ]
+            },
+            {
+              "titre": "Premières corrections",
+              "points": [
+                "Repérer les écarts et les corriger sur son propre projet"
+              ]
+            }
+          ],
+          "livrable": "Première version testable de l’application (non destinée à la production)"
+        },
+        {
+          "label": "MODULE 4",
+          "titre": "Tester, corriger et pérenniser",
+          "duree": "1 h 30",
+          "contenu": [
+            {
+              "titre": "Tester",
+              "points": [
+                "Scénario de test sur les fonctions principales",
+                "Demandes de correction précises à l’IA"
+              ]
+            },
+            {
+              "titre": "Sécuriser et sauvegarder",
+              "points": [
+                "Sauvegarde du projet et précautions sur les données personnelles",
+                "Vérification des productions générées par l’IA"
+              ]
+            },
+            {
+              "titre": "Préparer la suite",
+              "points": [
+                "Feuille de route personnelle et prochaines étapes"
+              ]
+            }
+          ],
+          "livrable": "Projet sauvegardé + méthode de test et de correction + feuille de route"
+        },
+        {
+          "label": "CLÔTURE",
+          "titre": "Bilan, plan d’action et évaluation",
+          "duree": "15 min",
+          "contenu": [
+            {
+              "titre": "Clôture de session",
+              "points": [
+                "Présentation de sa première version au groupe",
+                "Auto-positionnement de sortie et mesure de la progression sur les objectifs",
+                "Plan d’action individuel : 3 actions concrètes à mettre en place à 30 jours",
+                "Questionnaire de satisfaction à chaud et remise des attestations"
+              ]
+            }
+          ],
+          "livrable": "Plan d’action individuel à 30 jours + attestation individuelle de fin de formation"
+        }
+      ]
+    }
+  ]
+}
