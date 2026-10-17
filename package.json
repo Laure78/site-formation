@@ -38,6 +38,9 @@
     "test:auth-access": "npx tsx scripts/assert-admin-access.ts",
     "test:satisfaction-j1": "npx tsx scripts/assert-satisfaction-j1.ts",
     "test:invitation-secure": "npx tsx scripts/assert-invitation-no-temp-password.ts",
+    "test:career-form": "node scripts/assert-career-form-validation.mjs",
+    "db:migrate:career": "node scripts/apply-career-migration.mjs",
+    "setup:career-supabase": "node scripts/setup-career-supabase.mjs",
     "test:lms-automation": "npm run test:satisfaction-j1 && npm run test:invitation-secure && npm run check:training-satisfaction",
     "check:internal-links": "npx tsx scripts/check-internal-links.ts",
     "check:links": "node scripts/check-links.mjs",
@@ -80,6 +83,7 @@
     "eslint": "^9",
     "eslint-config-next": "16.1.6",
     "pdfkit": "^0.20.2",
+    "pg": "^8.23.1",
     "playwright": "^1.63.0",
     "tailwindcss": "^4",
     "typescript": "^5"

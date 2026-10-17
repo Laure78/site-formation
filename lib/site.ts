@@ -14,6 +14,7 @@ import {
   LINKEDIN_FOLLOWERS_LABEL,
 } from '@/lib/linkedin-profile';
 import {
+  NAV_CARRIERE,
   NAV_FOOTER_PARCOURS,
   NAV_FORMATIONS_FOOTER,
   NAV_IDF,
@@ -83,6 +84,7 @@ export const SITE = {
       formations: NAV_FORMATIONS_FOOTER,
       parcours: NAV_FOOTER_PARCOURS,
       ressources: NAV_RESSOURCES,
+      carriere: NAV_CARRIERE,
       organisme: NAV_ORGANISME,
       legal: NAV_LEGAL_BAR,
       legalSecondary: NAV_LEGAL_SECONDARY,

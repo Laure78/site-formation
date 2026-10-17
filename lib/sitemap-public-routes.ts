@@ -39,6 +39,9 @@ export const SITEMAP_CORE_STATIC_PATHS = [
   LINKS.partenaires,
   LINKS.blog,
   LINKS.contact,
+  LINKS.emplois,
+  LINKS.devenezConsultant,
+  LINKS.candidaturesSpontanees,
 ] as const;
 
 /**

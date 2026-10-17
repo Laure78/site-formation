@@ -113,6 +113,23 @@ export default function PolitiqueConfidentialitePage() {
           </ul>
 
           <p className="mt-4 font-medium text-slate-700">
+            Lors d&apos;une candidature (emploi, stage, collaboration ou proposition de consultant-formateur) :
+          </p>
+          <ul className="mt-2 list-disc space-y-1 pl-6 text-slate-600">
+            <li>Nom et prénom</li>
+            <li>Adresse email</li>
+            <li>Numéro de téléphone (facultatif)</li>
+            <li>Domaine d’expertise ou type de candidature</li>
+            <li>Présentation du parcours et des compétences</li>
+            <li>Disponibilités, lien LinkedIn ou portfolio (facultatifs)</li>
+            <li>Curriculum vitæ en PDF (facultatif)</li>
+          </ul>
+          <p className="mt-2 text-sm text-slate-600">
+            Les CV et candidatures ne sont pas publiés sur le site. Vous pouvez exercer vos droits
+            auprès du responsable de traitement (contact@laureolivie.fr).
+          </p>
+
+          <p className="mt-4 font-medium text-slate-700">
             Lors de l&apos;inscription à une formation :
           </p>
           <p className="mt-1 text-sm font-semibold text-[var(--accent)] underline">
@@ -418,6 +435,18 @@ export default function PolitiqueConfidentialitePage() {
                   </td>
                   <td className="border border-slate-200 px-4 py-3">
                     Prescription commerciale
+                  </td>
+                </tr>
+                <tr>
+                  <td className="border border-slate-200 px-4 py-3">
+                    Candidatures (emploi, stage, collaboration, consultant-formateur)
+                  </td>
+                  <td className="border border-slate-200 px-4 py-3">
+                    2 ans à compter de la réception, sauf embauche ou collaboration en cours
+                  </td>
+                  <td className="border border-slate-200 px-4 py-3">
+                    Intérêt légitime (gestion des candidatures) et, le cas échéant, exécution
+                    précontractuelle
                   </td>
                 </tr>
                 <tr>

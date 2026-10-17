@@ -50,6 +50,12 @@ export const LINKS = {
   avisClients: '/avis-clients',
   partenaires: '/partenaires',
   contact: '/contact',
+  /** Carrière — offres d’emploi salarié */
+  emplois: '/emplois',
+  /** Carrière — proposition consultant-formateur IA BTP */
+  devenezConsultant: '/devenez-consultant',
+  /** Carrière — candidature spontanée */
+  candidaturesSpontanees: '/candidatures-spontanees',
   financement: '/financement-constructys-formation-ia-btp',
   /** Canonique RDV — URL courte ; `/prendre-rendez-vous` → 301. */
   prendreRdv: '/prendre-rdv',
@@ -327,6 +333,8 @@ export const LINKS = {
   /** Entrée connexion administrateur / formateur (noindex) */
   accesAdmin: '/acces-admin',
   /** Espace productivité personnel admin / formateur (privé, hors SEO) */
+  /** Candidatures emploi / consultant (admin, accès restreint) */
+  adminCandidatures: '/admin/candidatures',
   adminMonEspace: '/admin/mon-espace',
   adminMonEspaceAgenda: '/admin/mon-espace/agenda',
   adminMonEspaceNotes: '/admin/mon-espace/notes',

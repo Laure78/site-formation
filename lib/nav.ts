@@ -81,6 +81,21 @@ export const NAV_ORGANISME: readonly NavItem[] = [
   { href: LINKS.avisClients, label: 'Avis clients', title: 'Avis clients et témoignages' },
 ];
 
+/** Colonne — Carrière (footer). */
+export const NAV_CARRIERE: readonly NavItem[] = [
+  { href: LINKS.emplois, label: 'Emplois', title: 'Offres d’emploi OFC Création d’Entreprise' },
+  {
+    href: LINKS.devenezConsultant,
+    label: 'Devenez consultant',
+    title: 'Proposer une expertise de consultant-formateur IA BTP',
+  },
+  {
+    href: LINKS.candidaturesSpontanees,
+    label: 'Candidature spontanée',
+    title: 'Déposer une candidature spontanée',
+  },
+];
+
 /** Colonne 4 — Ressources et aide (aligné menu principal). */
 export const NAV_RESSOURCES: readonly NavItem[] = [
   { href: LINKS.ressourcesTutos, label: 'Tutoriels IA BTP', title: 'Tutoriels IA BTP' },

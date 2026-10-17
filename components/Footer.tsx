@@ -15,6 +15,7 @@ import { SITE } from '@/lib/site';
 import { EXTERNAL_AUTHORITY_LINKS } from '@/lib/seo-links';
 import {
   FOOTER_GOOGLE_REVIEWS_URL,
+  NAV_CARRIERE,
   NAV_FOOTER_PARCOURS,
   NAV_FORMATIONS_FOOTER,
   NAV_LEGAL_BAR,
@@ -23,6 +24,7 @@ import {
   NAV_RESSOURCES,
   type NavItem,
 } from '@/lib/nav';
+import { isAuthConnexionPage } from '@/lib/auth-connexion-chrome';
 
 const FOOTER_BG = '#0b1220';
 const PHONE_ARIA_LABEL = `Appeler ${SITE.name} au ${SITE.phoneDisplay}`;
@@ -105,6 +107,7 @@ function FooterBackToTopButton() {
 export function Footer() {
   const pathname = usePathname();
   if (
+    isAuthConnexionPage(pathname) ||
     pathname?.startsWith('/admin') ||
     pathname?.startsWith('/demo/') ||
     pathname?.startsWith('/outils/demo-')
@@ -167,8 +170,8 @@ export function Footer() {
           </div>
         </div>
 
-        {/* Navigation — 4 colonnes */}
-        <div className="grid gap-10 py-10 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8 lg:py-12">
+        {/* Navigation — 5 colonnes (2×2 mobile, 3 puis 5 desktop) */}
+        <div className="grid gap-10 py-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 lg:gap-8 lg:py-12">
           <FooterNavColumn
             ariaLabel="Formations IA BTP"
             heading="Formations IA BTP"
@@ -189,6 +192,7 @@ export function Footer() {
             heading="Ressources et aide"
             items={NAV_RESSOURCES}
           />
+          <FooterNavColumn ariaLabel="Carrière" heading="Carrière" items={NAV_CARRIERE} />
         </div>
 
         {/* Réassurance — Qualiopi, financement, réseaux */}

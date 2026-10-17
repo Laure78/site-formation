@@ -19,6 +19,7 @@ import {
   Target,
   ClipboardList,
   Star,
+  UserPlus,
 } from 'lucide-react';
 import { LINKS } from '@/lib/internal-links';
 import { adminSignOutAction } from '@/app/admin/actions';
@@ -27,6 +28,7 @@ const NAV_PILOTAGE = [
   { href: '/admin', label: 'Dashboard', icon: LayoutDashboard, exact: true },
   { href: LINKS.adminMonEspace, label: 'Organisation', icon: CalendarDays, exact: false },
   { href: LINKS.adminProspection, label: 'Prospection', icon: Target, exact: false },
+  { href: LINKS.adminCandidatures, label: 'Candidatures', icon: UserPlus, exact: false },
 ] as const;
 
 const NAV_PLATFORM = [
@@ -95,7 +97,9 @@ export function AdminSidebar({
     ? NAV_PILOTAGE
     : NAV_PILOTAGE.filter(
         (item) =>
-          item.href !== LINKS.adminMonEspace && item.href !== LINKS.adminProspection
+          item.href !== LINKS.adminMonEspace &&
+          item.href !== LINKS.adminProspection &&
+          item.href !== LINKS.adminCandidatures
       );
 
   return (
