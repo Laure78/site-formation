@@ -74,7 +74,7 @@ BEGIN
       m0,
       'Programme de formation NIV-02 (PDF)',
       'pdf',
-      '/formations/ia-appels-offre-btp/Programme_IA_AO_DCE_MT_ClaudePro_OFC.pdf',
+      '/formations/ia-appels-offre-btp/programme_OFC_NIV-02_IA_Appels_offres_20261017.pdf',
       NULL,
       0,
       15

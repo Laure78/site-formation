@@ -84,7 +84,7 @@ BEGIN
   INSERT INTO public.modules (course_id, title, order_index) VALUES (cid, 'Module 4 — Gestion administrative', 4) RETURNING id INTO m4;
 
   INSERT INTO public.lessons (module_id, title, type, content_url, content_text, order_index, duration_minutes) VALUES
-    (m0, 'Programme officiel NIV-01 (PDF)', 'pdf', '/formations/pdf/programme-niveau-1-ia-batiment-travaux-publics.pdf', NULL, 0, 15),
+    (m0, 'Programme officiel NIV-01 (PDF)', 'pdf', '/formations/pdf/programme_OFC_NIV-01_Bases_IA_BTP_20261017.pdf', NULL, 0, 15),
     (m0, 'Objectifs et public', 'texte', NULL, '<p><strong>Niveau 1 — Débutant</strong> · 4 h · présentiel Île-de-France.</p><p>Public : dirigeants, conducteurs de travaux, fonctions support bâtiment / TP.</p><p>Cas d''usage : devis, CR, documents, terrain.</p>', 1, 10),
     (m1, 'Devis et chiffrages assistés par l''IA', 'texte', NULL, '<p>Structurer un devis à partir d''un brief, reformuler des postes, accélérer le chiffrage avec relecture humaine.</p><p><strong>Livrable :</strong> trames et prompts devis BTP.</p>', 0, 60),
     (m2, 'Emails et relation client', 'texte', NULL, '<p>Rédiger emails clients, relances, réponses fournisseurs — ton professionnel BTP.</p><p><strong>Livrable :</strong> modèles de relances et emails types.</p>', 0, 55),
@@ -115,7 +115,7 @@ BEGIN
   INSERT INTO public.modules (course_id, title, order_index) VALUES (cid, 'Module 3 — Rédiger son mémoire technique avec Cowork', 3) RETURNING id INTO m3;
 
   INSERT INTO public.lessons (module_id, title, type, content_url, content_text, order_index, duration_minutes) VALUES
-    (m0, 'Programme officiel NIV-02 (PDF)', 'pdf', '/formations/ia-appels-offre-btp/Programme_IA_AO_DCE_MT_ClaudePro_OFC.pdf', NULL, 0, 15),
+    (m0, 'Programme officiel NIV-02 (PDF)', 'pdf', '/formations/ia-appels-offre-btp/programme_OFC_NIV-02_IA_Appels_offres_20261017.pdf', NULL, 0, 15),
     (m0, 'Kit 7 prompts AO BTP', 'texte', NULL, '<p><a href="/formations/ia-appels-offre-btp/Kit_IA_AO_BTP_7_prompts.html" target="_blank" rel="noopener noreferrer">Ouvrir le kit 7 prompts AO BTP</a></p>', 1, 10),
     (m0, 'Support complémentaire AO', 'pdf', '/formations/ia-appels-offre-btp/Support_complementaire_AO_BTP.pdf', NULL, 2, 10),
     (m1, 'Paramétrage Claude Pro, Projects et Cowork', 'texte', NULL, '<p><strong>60 min</strong> — compte Claude Pro, Projects, instructions, premier skill Cowork.</p><p><strong>Livrable :</strong> Project AO + Cowork installé + premier skill.</p>', 0, 60),
@@ -147,7 +147,7 @@ BEGIN
   INSERT INTO public.modules (course_id, title, order_index) VALUES (cid, 'Module 4 — Administratif de suivi de chantier', 4) RETURNING id INTO m4;
 
   INSERT INTO public.lessons (module_id, title, type, content_url, content_text, order_index, duration_minutes) VALUES
-    (m0, 'Programme officiel NIV-03 (PDF)', 'pdf', '/formations/ia-conduite-travaux-suivi-chantier/Programme_IA_Conduite_Travaux_OFC.pdf', NULL, 0, 15),
+    (m0, 'Programme officiel NIV-03 (PDF)', 'pdf', '/formations/ia-conduite-travaux-suivi-chantier/programme_OFC_NIV-03_IA_Conduite_travaux_20261017.pdf', NULL, 0, 15),
     (m1, 'Skills Analyse CCTP, DPGF, démarrage', 'texte', NULL, '<p><strong>60 min</strong> — bibliothèque 20+ skills, CCTP/DPGF/DTU, DICT, OS, planning.</p><p><strong>Livrable :</strong> fiche synthèse CCTP/DPGF + brouillon OS et planning.</p>', 0, 60),
     (m2, 'PPSPS, DUERP, SOGED', 'texte', NULL, '<p><strong>35 min</strong> — structures sécurité à compléter et signer (relecture QSE).</p><p><strong>Livrable :</strong> structures PPSPS / DUERP / SOGED.</p>', 0, 35),
     (m3, 'CR, approvisionnements, sous-traitants, coûts', 'texte', NULL, '<p><strong>70 min</strong> — CR, journal, bons de commande, DC4, métré, avenants, budget.</p><p><strong>Livrable :</strong> modèles CR, courriers ST, tableaux de suivi.</p>', 0, 70),
@@ -174,7 +174,7 @@ BEGIN
   INSERT INTO public.modules (course_id, title, order_index) VALUES (cid, 'Module 4 — Claude Code', 4) RETURNING id INTO m4;
 
   INSERT INTO public.lessons (module_id, title, type, content_url, content_text, order_index, duration_minutes) VALUES
-    (m0, 'Programme officiel NIV-04 (PDF)', 'pdf', '/formations/maitriser-claude-ai-btp/Programme_Maitriser_Claude_BTP_OFC.pdf', NULL, 0, 15),
+    (m0, 'Programme officiel NIV-04 (PDF)', 'pdf', '/formations/maitriser-claude-ai-btp/programme_OFC_NIV-04_Maitriser_Claude_BTP_20261017.pdf', NULL, 0, 15),
     (m1, 'Projets & Skills entreprise', 'texte', NULL, '<p><strong>60 min</strong> — Projects, base de connaissances, bibliothèque de skills, exécution de code.</p><p><strong>Livrable :</strong> Project configuré + 2 skills métier.</p>', 0, 60),
     (m2, 'Cowork — production documentaire', 'texte', NULL, '<p><strong>55 min</strong> — tâches agentiques supervisées, CR / mémoire / dossier, exports.</p><p><strong>Livrable :</strong> livrable documentaire validé + workflow Cowork.</p>', 0, 55),
     (m3, 'Connecteurs Gmail, Drive, agenda', 'texte', NULL, '<p><strong>55 min</strong> — cas BTP + checklist RGPD / marchés publics.</p><p><strong>Livrable :</strong> connecteurs paramétrés + checklist sécurité.</p>', 0, 55),
@@ -203,7 +203,7 @@ BEGIN
   VALUES (cid, 'Module 4 — Réserves, réception et suivi client', 5);
 
   INSERT INTO public.lessons (module_id, title, type, content_url, content_text, order_index, duration_minutes) VALUES
-    (m0, 'Programme officiel NIV-05 (PDF)', 'pdf', '/formations/ia-maitrise-oeuvre/programme_OFC_IA_MOE_4h.pdf', NULL, 0, 15),
+    (m0, 'Programme officiel NIV-05 (PDF)', 'pdf', '/formations/ia-maitrise-oeuvre/programme_OFC_NIV-05_IA_Maitrise_oeuvre_20261017.pdf', NULL, 0, 15),
     (m1, 'Écosystème Anthropic pour la MOE', 'texte', NULL, '<p><strong>30 min</strong> — Claude vs ChatGPT, Projets, Connecteurs, Skills, Cowork.</p><p><strong>Livrable :</strong> mémo « Claude pour la maîtrise d''œuvre ».</p>', 0, 30),
     (m2, 'Analyse DCE et conformité', 'texte', NULL, '<p><strong>50 min</strong> — CCTP, bordereau, alertes contractuelles.</p><p><strong>Livrable :</strong> fiche-type d''analyse DCE (30 points) + 10 prompts.</p>', 0, 50),
     (m3, 'CR de chantier en 10 minutes', 'texte', NULL, '<p><strong>50 min</strong> — notes vocales → CR structuré.</p><p><strong>Livrable :</strong> gabarit CR MOE + prompt transcription.</p>', 0, 50),

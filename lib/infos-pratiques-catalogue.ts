@@ -40,10 +40,10 @@ export const INFOS_PRATIQUES_HANDICAP_ENCART =
 /** Grandes parties du programme — titres modules (fiches catalogue). */
 export const PROGRAMME_CONTENU_CATALOGUE: Record<FormationCode, readonly string[]> = {
   'NIV-01': [
-    'Module 1 — Comprendre et utiliser l’IA',
-    'Module 2 — Devis et chiffrage',
-    'Module 3 — Documents de chantier',
-    'Module 4 — Communication professionnelle',
+    'MODULE 1 — Comprendre l’IA : littératie, outils et bonnes pratiques (60 min)',
+    'MODULE 2 — Devis et chiffrage (60 min)',
+    'MODULE 3 — Documents de chantier (60 min)',
+    'MODULE 4 — Communication professionnelle (60 min)',
   ],
   'NIV-02': [
     'Accueil, cadrage et positionnement (15 min)',
