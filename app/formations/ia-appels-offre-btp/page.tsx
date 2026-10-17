@@ -1,6 +1,5 @@
 import { JsonLd } from '@/components/JsonLd';
 import { CatalogueFormationPageTemplate } from '@/components/formations/catalogue/CatalogueFormationPageTemplate';
-import { EvenementAoBtpPromoEncart } from '@/components/evenements/EvenementAoBtpPromoEncart';
 import { createPageMetadata, getFAQSchema } from '@/lib/seo';
 import { FAQ_APPELS_OFFRE } from '@/lib/faq';
 import { getFormationCatalogueVisuel } from '@/lib/formations-catalogue-display';
@@ -12,9 +11,6 @@ import { getCatalogueFormationPageContent } from '@/lib/catalogue-formation-page
 const CATALOGUE_SEO = getFormationCatalogueSeo('NIV-02');
 const CATALOGUE_VISUEL = getFormationCatalogueVisuel('NIV-02');
 const PAGE_CONTENT = getCatalogueFormationPageContent('NIV-02');
-
-/** ISR — masque l’encart événement après le 5 nov. 2026 sans rebuild manuel. */
-export const revalidate = 3600;
 
 export const metadata = createPageMetadata({
   title: CATALOGUE_SEO.metaTitle,
@@ -52,7 +48,6 @@ export default function FormationIAAppelsOffreBTPPage() {
         faqItems={FAQ_APPELS_OFFRE}
         faqSectionId="faq-niv-02"
         h1Id="formation-niv-02-h1"
-        afterObjectives={<EvenementAoBtpPromoEncart placement="formation-ao" variant="compact" />}
       />
     </div>
   );
