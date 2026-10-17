@@ -17,6 +17,7 @@ import {
   Route,
 } from 'lucide-react';
 import { SITE } from '@/lib/site';
+import { useHeaderNavDesktopHover } from '@/hooks/useHeaderNavDesktopHover';
 import { getHeaderNav, headerNavItemHasPanel } from '@/lib/header-nav';
 import { HeaderPrimaryCta } from '@/components/nav/HeaderPrimaryCta';
 import { HeaderSecondaryBar } from '@/components/nav/HeaderSecondaryBar';
@@ -62,6 +63,8 @@ export function Header() {
   const menuButtonRef = useRef<HTMLButtonElement>(null);
   const openItem = headerNav.find((item) => item.id === openId);
   const openMega = openItem?.megaColumns?.length ? openItem : null;
+  const desktopHover = useHeaderNavDesktopHover(openId, setOpenId);
+  const desktopHoverHandlers = desktopHover.enabled ? desktopHover : undefined;
 
   if (navPath !== pathname) {
     setNavPath(pathname);
@@ -274,6 +277,10 @@ export function Header() {
                   open={openId === item.id}
                   onToggle={() => toggleItem(item.id)}
                   onNavigate={closeNav}
+                  onZoneFocusOut={() => {
+                    if (openId === item.id) setOpenId(null);
+                  }}
+                  desktopHover={desktopHoverHandlers}
                   renderPanelInline={!item.megaColumns?.length}
                 />
               );
@@ -292,6 +299,9 @@ export function Header() {
             footerNote={openMega.megaFooterNote}
             pathname={pathname}
             onNavigate={closeNav}
+            megaForId={openMega.id}
+            onPointerZoneEnter={() => desktopHoverHandlers?.onZoneEnter(openMega.id)}
+            onPointerZoneLeave={() => desktopHoverHandlers?.onZoneLeave(openMega.id)}
           />
         ) : null}
       </header>

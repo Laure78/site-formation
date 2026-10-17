@@ -1,7 +1,8 @@
 'use client';
 
-import type { ReactNode } from 'react';
+import type { FocusEvent, ReactNode } from 'react';
 import Link from 'next/link';
+import type { HeaderNavDesktopHover } from '@/hooks/useHeaderNavDesktopHover';
 import { ChevronDown } from 'lucide-react';
 import { HeaderMegaMenu } from '@/components/nav/HeaderMegaMenu';
 import {
@@ -147,6 +148,8 @@ export function HeaderNavDropdown({
   open,
   onToggle,
   onNavigate,
+  onZoneFocusOut,
+  desktopHover,
   renderPanelInline = true,
 }: {
   item: HeaderNavItem;
@@ -154,6 +157,10 @@ export function HeaderNavDropdown({
   open: boolean;
   onToggle: () => void;
   onNavigate?: () => void;
+  /** Fermeture quand le focus quitte la rubrique et son panneau (clavier). */
+  onZoneFocusOut?: () => void;
+  /** Survol desktop — ouverture au pointer enter (appareils fine pointer uniquement). */
+  desktopHover?: Pick<HeaderNavDesktopHover, 'onZoneEnter' | 'onZoneLeave'>;
   /** false = panneau rendu au niveau du header (méga-menu pleine largeur). */
   renderPanelInline?: boolean;
 }) {
@@ -166,10 +173,33 @@ export function HeaderNavDropdown({
   const isCatalogue = item.variant === 'catalogue';
   const alignEnd = item.dropdownAlign === 'end';
 
+  const submenuAriaLabel = open
+    ? `Fermer le sous-menu ${item.label}`
+    : `Sous-menu ${item.label}`;
+
+  const handleZoneFocusOut = (event: FocusEvent<HTMLDivElement>) => {
+    const next = event.relatedTarget as Node | null;
+    if (next && event.currentTarget.contains(next)) return;
+    if (
+      next &&
+      hasMega &&
+      (next as Element).closest?.(`[data-header-mega-for="${item.id}"]`)
+    ) {
+      return;
+    }
+    if (open) onZoneFocusOut?.();
+  };
+
   return (
-    <div className="relative flex shrink-0 items-stretch justify-center">
+    <div
+      className="relative flex shrink-0 items-stretch justify-center"
+      data-header-nav-zone={item.id}
+      onPointerEnter={() => desktopHover?.onZoneEnter(item.id)}
+      onPointerLeave={() => desktopHover?.onZoneLeave(item.id)}
+      onFocusOut={handleZoneFocusOut}
+    >
       <div
-        className={triggerClass(highlighted, false, isCatalogue)}
+        className={`${triggerClass(highlighted, false, isCatalogue)} ${open ? 'header-nav-trigger--open' : ''}`}
         style={
           isCatalogue
             ? { backgroundColor: highlighted ? '#2A6BD9' : '#377CF3', color: '#fff' }
@@ -191,12 +221,18 @@ export function HeaderNavDropdown({
           aria-expanded={open}
           aria-haspopup={hasMega ? 'dialog' : 'true'}
           aria-controls={panelId}
-          aria-label={`Ouvrir le menu ${item.label}`}
+          aria-label={submenuAriaLabel}
           className="header-nav-trigger__toggle"
           onClick={(event) => {
             event.preventDefault();
             event.stopPropagation();
             onToggle();
+          }}
+          onKeyDown={(event) => {
+            if (event.key === 'Enter' || event.key === ' ') {
+              event.preventDefault();
+              onToggle();
+            }
           }}
         >
           <ChevronDown
@@ -218,6 +254,9 @@ export function HeaderNavDropdown({
           footerNote={item.megaFooterNote}
           pathname={pathname}
           onNavigate={onNavigate}
+          megaForId={item.id}
+          onPointerZoneEnter={() => desktopHover?.onZoneEnter(item.id)}
+          onPointerZoneLeave={() => desktopHover?.onZoneLeave(item.id)}
         />
       ) : null}
       {open && !hasMega && children.length > 0 && renderPanelInline ? (

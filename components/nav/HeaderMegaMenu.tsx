@@ -15,6 +15,10 @@ type HeaderMegaMenuProps = {
   footerNote?: string;
   pathname: string;
   onNavigate?: () => void;
+  /** Id rubrique parente (survol desktop + focus clavier). */
+  megaForId?: string;
+  onPointerZoneEnter?: () => void;
+  onPointerZoneLeave?: () => void;
 };
 
 export function HeaderMegaMenu({
@@ -25,14 +29,20 @@ export function HeaderMegaMenu({
   footerNote,
   pathname,
   onNavigate,
+  megaForId,
+  onPointerZoneEnter,
+  onPointerZoneLeave,
 }: HeaderMegaMenuProps) {
   return (
     <div
       id={panelId}
       data-header-dropdown=""
+      data-header-mega-for={megaForId}
       role="region"
       aria-labelledby={labelledBy}
       className="header-mega-menu absolute inset-x-0 top-full z-[60] pt-1"
+      onPointerEnter={onPointerZoneEnter}
+      onPointerLeave={onPointerZoneLeave}
     >
       <div className="header-mega-menu__panel mx-auto max-h-[min(70vh,36rem)] max-w-[80rem] overflow-y-auto overscroll-contain px-4 sm:px-6 lg:px-8">
         <div className="rounded-2xl border border-slate-200/90 bg-white shadow-[0_20px_50px_-24px_rgba(15,23,42,0.35)]">
