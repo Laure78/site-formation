@@ -16,6 +16,8 @@ import {
   Route,
   CalendarDays,
   Users,
+  Wallet,
+  Handshake,
 } from 'lucide-react';
 import { SITE } from '@/lib/site';
 import { useHeaderNavDesktopHover } from '@/hooks/useHeaderNavDesktopHover';
@@ -44,6 +46,8 @@ const MOBILE_NAV_ICON: Record<string, LucideIcon> = {
   'parcours-metiers': Route,
   entreprise: Building2,
   formateurs: Users,
+  financement: Wallet,
+  partenaires: Handshake,
   evenements: CalendarDays,
   ressources: Layers,
 };

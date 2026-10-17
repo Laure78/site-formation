@@ -92,6 +92,14 @@ function formateursNavActive(pathname: string): boolean {
   return pathname === LINKS.formateurs || pathname.startsWith(`${LINKS.formateurs}/`);
 }
 
+function financementNavActive(pathname: string): boolean {
+  return pathname === LINKS.financement || pathname.startsWith(`${LINKS.financement}/`);
+}
+
+function partenairesNavActive(pathname: string): boolean {
+  return pathname === LINKS.partenaires || pathname.startsWith(`${LINKS.partenaires}/`);
+}
+
 /** État actif bandeau « Notre organisme » (hors menu principal). */
 export function headerUtilityOrganismeIsActive(pathname: string): boolean {
   return utilityOrganismeNavActive(pathname);
@@ -206,6 +214,18 @@ function buildHeaderNavItems(): readonly HeaderNavItem[] {
       label: 'Nos formateurs',
       href: LINKS.formateurs,
       isActive: formateursNavActive,
+    },
+    {
+      id: 'financement',
+      label: 'Financement',
+      href: LINKS.financement,
+      isActive: financementNavActive,
+    },
+    {
+      id: 'partenaires',
+      label: 'Partenaires',
+      href: LINKS.partenaires,
+      isActive: partenairesNavActive,
     },
     {
       id: 'ressources',
