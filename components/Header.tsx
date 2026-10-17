@@ -13,9 +13,9 @@ import {
   GraduationCap,
   Layers,
   Building2,
-  UserCircle,
   Route,
   CalendarDays,
+  Users,
 } from 'lucide-react';
 import { SITE } from '@/lib/site';
 import { useHeaderNavDesktopHover } from '@/hooks/useHeaderNavDesktopHover';
@@ -43,8 +43,8 @@ const MOBILE_NAV_ICON: Record<string, LucideIcon> = {
   formations: GraduationCap,
   'parcours-metiers': Route,
   entreprise: Building2,
+  formateurs: Users,
   evenements: CalendarDays,
-  organisme: UserCircle,
   ressources: Layers,
 };
 

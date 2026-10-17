@@ -10,6 +10,7 @@ import {
   Newspaper,
   Route,
   Search,
+  UserRound,
   X,
 } from 'lucide-react';
 import type { SiteSearchKind, SiteSearchScope } from '@/lib/site-search-labels';
@@ -32,6 +33,7 @@ const KIND_ICON: Record<SiteSearchKind, typeof Search> = {
   page: Search,
   parcours: Route,
   evenement: CalendarDays,
+  formateur: UserRound,
 };
 
 const SEARCH_PLACEHOLDER = 'Formation, parcours métier, ressource, événement…';

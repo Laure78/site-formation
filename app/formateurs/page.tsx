@@ -18,14 +18,13 @@ import { createPageMetadata, SITE_CONFIG } from '@/lib/seo';
 
 export const revalidate = 3600;
 
-const PAGE_TITLE =
-  'Les formateurs et leurs domaines d’intervention | Laure Olivié';
+const PAGE_TITLE = 'Les formateurs qui vous accompagnent | Laure Olivié';
 const PAGE_DESCRIPTION =
-  'Spécialités des formateurs BTP : IA, travaux, commercial, direction, management, administration et prévention. Programmes en présentiel en Île-de-France — OFC Qualiopi.';
+  'Intervenants OFC : spécialités, expériences métier et formations animées pour les professionnels du bâtiment et des travaux publics. Présentiel Île-de-France — Qualiopi.';
 
 export const metadata: Metadata = {
   ...createPageMetadata({
-    title: 'Les formateurs et leurs domaines d’intervention',
+    title: 'Les formateurs qui vous accompagnent',
     titleAbsolute: PAGE_TITLE,
     description: PAGE_DESCRIPTION,
     descriptionFinal: true,
@@ -83,11 +82,11 @@ export default function FormateursPage() {
         <div className={`${OFC_SECTION_INNER} formateurs-hub-hero__inner`}>
           <p className={`${OFC_EYEBROW} text-ofc-accent`}>Formation IA BTP</p>
           <h1 className={`${OFC_TYPE_HERO} formateurs-hub-hero__title`}>
-            Les formateurs et leurs domaines d’intervention
+            Les formateurs qui vous accompagnent
           </h1>
           <p className="formateurs-hub-hero__lead max-w-2xl text-ofc-ink-muted">
-            Découvrez les spécialités de nos intervenants et les programmes associés à vos
-            besoins dans le BTP.
+            Découvrez les intervenants, leurs spécialités et les formations qu’ils animent pour
+            les professionnels du bâtiment et des travaux publics.
           </p>
           <div className="formateurs-hub-hero__actions flex flex-col gap-3 sm:flex-row sm:flex-wrap">
             <Link

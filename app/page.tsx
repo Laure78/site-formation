@@ -88,9 +88,9 @@ export default function HomePage() {
       <AccueilNiveauxOrientationSection />
       <AccueilFormationsDisponiblesSection />
       <AccueilParcoursMetiersSection />
+      <AccueilLaureFormateursSection />
       <AccueilCasExercicesSection />
       <AccueilMethodePedagogiqueSection />
-      <AccueilLaureFormateursSection />
       <AccueilIntraFinancementSection />
       <AccueilFaqSection />
       <AccueilCtaFinalSection />

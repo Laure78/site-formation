@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useRef, useState, type Dispatch, type SetStateAction } from 'react';
 
-const OPEN_DELAY_MS = 100;
+const OPEN_DELAY_MS = 150;
 const CLOSE_DELAY_MS = 250;
 
 function focusIsInItemZone(itemId: string): boolean {

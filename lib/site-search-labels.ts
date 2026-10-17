@@ -5,7 +5,8 @@ export type SiteSearchKind =
   | 'article'
   | 'page'
   | 'parcours'
-  | 'evenement';
+  | 'evenement'
+  | 'formateur';
 
 export type SiteSearchScope = 'all' | 'ressources';
 
@@ -17,6 +18,7 @@ const KIND_LABEL: Record<SiteSearchKind, string> = {
   page: 'Page',
   parcours: 'Parcours métier',
   evenement: 'Événement',
+  formateur: 'Formateur',
 };
 
 export function siteSearchKindLabel(kind: SiteSearchKind): string {

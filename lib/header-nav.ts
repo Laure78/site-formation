@@ -5,11 +5,10 @@
 import { getAllParcoursComputed, type ParcoursId } from '@/data/catalogue-2027';
 import { catalogueFormationNavContainsPath } from '@/lib/catalogue-formations-nav';
 import {
-  buildFormationsIaNiveauHref,
-  buildFormationsThematiqueHref,
-} from '@/lib/catalogue-filter-url';
-import { FORMATIONS_NIVEAUX_IA } from '@/lib/formations-niveaux-ia';
-import { CATALOGUE_THEMATIQUES } from '@/lib/catalogue-thematiques-btp';
+  buildFormationsMegaColumns,
+  buildFormationsMegaQuickLinks,
+} from '@/lib/header-nav-formations-mega';
+import { utilityOrganismeNavActive } from '@/lib/header-nav-organisme-links';
 import { LINKS } from '@/lib/internal-links';
 
 export type HeaderNavLink = {
@@ -89,24 +88,13 @@ function ressourcesNavActive(pathname: string): boolean {
   );
 }
 
-function organismeNavActive(pathname: string): boolean {
-  return (
-    pathname === LINKS.aPropos ||
-    pathname.startsWith(`${LINKS.aPropos}/`) ||
-    pathname === LINKS.formateurs ||
-    pathname.startsWith(`${LINKS.formateurs}/`) ||
-    pathname === LINKS.avisClients ||
-    pathname === LINKS.formateurIaBtp ||
-    pathname === LINKS.qualiopi ||
-    pathname === LINKS.accessibiliteHandicap ||
-    pathname === LINKS.indicateursResultats ||
-    pathname === LINKS.partenaires ||
-    pathname.startsWith(`${LINKS.partenaires}/`) ||
-    pathname === LINKS.contact ||
-    pathname === LINKS.etudesCas ||
-    pathname.startsWith(`${LINKS.etudesCas}/`) ||
-    pathname === LINKS.formationsLinkedInLearning
-  );
+function formateursNavActive(pathname: string): boolean {
+  return pathname === LINKS.formateurs || pathname.startsWith(`${LINKS.formateurs}/`);
+}
+
+/** État actif bandeau « Notre organisme » (hors menu principal). */
+export function headerUtilityOrganismeIsActive(pathname: string): boolean {
+  return utilityOrganismeNavActive(pathname);
 }
 
 function parcoursBadge(id: ParcoursId): string | undefined {
@@ -114,33 +102,11 @@ function parcoursBadge(id: ParcoursId): string | undefined {
   return p?.disponibilite === 'ouverture-2027' ? '2027' : undefined;
 }
 
-function buildFormationsNavChildren(): readonly HeaderNavLink[] {
-  const thematiques = CATALOGUE_THEMATIQUES.map((t) => ({
-    href: buildFormationsThematiqueHref(t.id),
-    label: t.title,
-    title: `${t.title} — catalogue formations IA BTP`,
-  }));
-  const niveaux = FORMATIONS_NIVEAUX_IA.map((n) => ({
-    href: buildFormationsIaNiveauHref(n.niveau),
-    label: n.labelComplet,
-    title: `${n.accrocheNiveau} — ${n.labelComplet}`,
-  }));
-  return [
-    {
-      href: LINKS.formations,
-      label: 'Toutes les formations',
-      title: 'Catalogue formations IA BTP',
-    },
-    ...thematiques,
-    ...niveaux,
-  ];
-}
-
 function buildParcoursNavChildren(): readonly HeaderNavLink[] {
   return [
     {
       href: LINKS.parcoursDirigeantPmeBtp,
-      label: 'Dirigeant de PME BTP',
+      label: 'Dirigeant d’entreprise BTP',
       title: 'Parcours dirigeant PME BTP',
       badge: parcoursBadge('dirigeant-pme-btp'),
     },
@@ -178,43 +144,10 @@ function buildParcoursNavChildren(): readonly HeaderNavLink[] {
   ];
 }
 
-const ORGANISME_NAV_CHILDREN: readonly HeaderNavLink[] = [
-  {
-    href: LINKS.aPropos,
-    label: 'Laure Olivié',
-    title: 'Laure Olivié — formatrice IA BTP',
-  },
-  {
-    href: LINKS.formateurs,
-    label: 'Nos formateurs',
-    title: 'Formateurs OFC',
-  },
-  {
-    href: LINKS.qualiopi,
-    label: 'Certification Qualiopi',
-    title: 'Certification Qualiopi OFC',
-  },
-  {
-    href: LINKS.avisClients,
-    label: 'Avis clients et résultats',
-    title: 'Avis clients et indicateurs Qualiopi',
-  },
-  {
-    href: LINKS.partenaires,
-    label: 'Partenaires',
-    title: 'Partenaires OFC',
-  },
-  {
-    href: LINKS.accessibiliteHandicap,
-    label: 'Accessibilité et handicap',
-    title: 'Accessibilité OFC',
-  },
-];
-
 const RESSOURCES_NAV_CHILDREN: readonly HeaderNavLink[] = [
   {
     href: LINKS.ressourcesTutos,
-    label: 'Tutoriels',
+    label: 'Tutoriels IA BTP',
     title: 'Tutoriels IA BTP',
   },
   {
@@ -223,9 +156,14 @@ const RESSOURCES_NAV_CHILDREN: readonly HeaderNavLink[] = [
     title: 'Guides PDF IA BTP',
   },
   {
-    href: LINKS.etudesCasHub,
-    label: 'Cas clients',
-    title: 'Études de cas clients BTP',
+    href: LINKS.skillsClaudeBtp,
+    label: 'Skills et assistants métier',
+    title: 'Skills Claude pour le BTP',
+  },
+  {
+    href: LINKS.bibliothequePromptsBtpParMetier,
+    label: 'Prompts IA BTP',
+    title: 'Bibliothèque prompts BTP par métier',
   },
   {
     href: LINKS.blog,
@@ -242,7 +180,8 @@ function buildHeaderNavItems(): readonly HeaderNavItem[] {
       href: LINKS.formations,
       variant: 'catalogue',
       isActive: formationsNavActive,
-      children: buildFormationsNavChildren(),
+      megaColumns: buildFormationsMegaColumns(),
+      megaQuickLinks: buildFormationsMegaQuickLinks(),
     },
     {
       id: 'parcours-metiers',
@@ -252,29 +191,21 @@ function buildHeaderNavItems(): readonly HeaderNavItem[] {
       children: buildParcoursNavChildren(),
       footer: {
         href: LINKS.parcoursMetiers,
-        label: 'Tous les parcours',
+        label: 'Voir tous les parcours',
         title: 'Hub parcours métiers BTP',
       },
     },
     {
       id: 'entreprise',
-      label: 'Intra-entreprise',
+      label: 'Former mon équipe',
       href: LINKS.formationIaIntraEntrepriseBtp,
       isActive: (pathname) => pathname === LINKS.formationIaIntraEntrepriseBtp,
     },
     {
-      id: 'organisme',
-      label: 'Notre organisme',
-      href: LINKS.aPropos,
-      dropdownAlign: 'end',
-      isActive: organismeNavActive,
-      children: ORGANISME_NAV_CHILDREN,
-    },
-    {
-      id: 'evenements',
-      label: 'Événements',
-      href: LINKS.evenements,
-      isActive: evenementsNavActive,
+      id: 'formateurs',
+      label: 'Nos formateurs',
+      href: LINKS.formateurs,
+      isActive: formateursNavActive,
     },
     {
       id: 'ressources',
@@ -282,6 +213,12 @@ function buildHeaderNavItems(): readonly HeaderNavItem[] {
       href: LINKS.ressources,
       isActive: ressourcesNavActive,
       children: RESSOURCES_NAV_CHILDREN,
+    },
+    {
+      id: 'evenements',
+      label: 'Événements',
+      href: LINKS.evenements,
+      isActive: evenementsNavActive,
     },
   ];
 }

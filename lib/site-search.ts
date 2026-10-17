@@ -1,6 +1,7 @@
 import { getAllParcoursComputed } from '@/data/catalogue-2027';
 import { getAllArticles } from '@/lib/blog';
 import { EVENEMENT_AO_BTP, isEvenementAoBtpActif } from '@/lib/evenements/repondre-appel-offres-btp-5-etapes';
+import { getFormateursHubProfiles } from '@/lib/formateurs';
 import { getFormationsCatalogue } from '@/lib/formations-catalogue-display';
 import { getCatalogueSiteSearchDescription } from '@/lib/formation-catalogue-visibility';
 import { DEV_WEB_IA_FORMATION_TITRE } from '@/lib/formation-developpement-web-ia-content';
@@ -285,6 +286,17 @@ function buildSiteSearchIndex(): SiteSearchEntry[] {
     keywords: [p.publicCible, p.objectif, ...p.competencesVisees].join(' '),
   }));
 
+  const formateurs: SiteSearchEntry[] = getFormateursHubProfiles()
+    .filter((f) => f.status === 'confirmed')
+    .map((f) => ({
+      id: `formateur-${f.slug}`,
+      title: `${f.prenom} ${f.nom}`,
+      description: f.intitule,
+      href: `${LINKS.formateurs}#${f.slug}`,
+      kind: 'formateur' as const,
+      keywords: [f.parcours, ...f.specialites].join(' '),
+    }));
+
   const evenements: SiteSearchEntry[] = isEvenementAoBtpActif()
     ? [
         {
@@ -346,6 +358,7 @@ function buildSiteSearchIndex(): SiteSearchEntry[] {
     ...tutos,
     ...formations,
     ...parcours,
+    ...formateurs,
     ...evenements,
     ...hubLinks,
     ...articles,

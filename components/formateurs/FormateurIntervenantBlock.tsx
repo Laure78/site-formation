@@ -27,13 +27,16 @@ function IntervenantRow({ formateur }: { formateur: FormateurProfile }) {
         <p className="mt-3 text-base leading-relaxed text-ofc-ink-muted text-pretty">
           {formateur.parcours}
         </p>
-        {formateur.profileHref ? (
-          <p className="mt-4 text-sm">
-            <Link href={formateur.profileHref} className={OFC_LINK}>
-              Voir le profil
-            </Link>
-          </p>
-        ) : null}
+        <p className="mt-4 text-sm">
+          <Link
+            href={
+              formateur.profileHref ?? `${LINKS.formateurs}#${formateur.slug}`
+            }
+            className={OFC_LINK}
+          >
+            Voir le profil formateur
+          </Link>
+        </p>
       </div>
     </div>
   );
@@ -45,7 +48,7 @@ function IntervenantRow({ formateur }: { formateur: FormateurProfile }) {
  */
 export function FormateurIntervenantBlock({
   formationCode,
-  title = 'Intervenant',
+  title = 'Votre formateur',
 }: Props) {
   const formateurs = getFormateursForFormationCode(formationCode);
   if (formateurs.length === 0) return null;
