@@ -1,0 +1,26 @@
+{
+  "base": "http://localhost:3000",
+  "viewports": [
+    {
+      "viewport": "mobile-375",
+      "overflow": false,
+      "missingLinks": []
+    },
+    {
+      "viewport": "tablet-768",
+      "overflow": false,
+      "missingLinks": []
+    },
+    {
+      "viewport": "desktop-1024",
+      "overflow": false,
+      "missingLinks": []
+    },
+    {
+      "viewport": "desktop-1440",
+      "overflow": false,
+      "missingLinks": []
+    }
+  ],
+  "broken": []
+}
