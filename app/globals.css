@@ -1393,28 +1393,28 @@
   }
 
   .header-nav-dropdown-formations-grid {
-    @apply grid grid-cols-1 gap-6 px-2 sm:grid-cols-3 sm:gap-4;
+    @apply grid grid-cols-3 gap-4 px-2;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .header-nav-formations-stack {
+    @apply flex flex-col gap-6 px-1 pb-1;
   }
 
   .header-nav-dropdown-formations-level {
     @apply px-2 text-[0.8125rem] font-bold leading-snug tracking-tight text-slate-900;
   }
 
-  .header-nav-dropdown-formations-level--link {
-    @apply block rounded-lg px-2 py-1 transition-colors hover:text-[#2563EB];
-    @apply focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#377CF3];
+  .header-nav-dropdown-formations-level--stack {
+    @apply px-3 pt-1 text-xs font-semibold uppercase tracking-[0.05em] text-slate-500;
   }
 
   .header-nav-dropdown-link--formation {
     @apply mx-0.5 font-normal;
   }
 
-  .header-mobile-submenu--formations .header-mobile-submenu-link--formations-level {
-    @apply pointer-events-auto mt-3 first:mt-0 min-h-10 py-2 text-[0.8125rem] uppercase tracking-[0.04em] text-slate-500;
-  }
-
-  .header-mobile-submenu--formations .header-mobile-submenu-nested {
-    @apply mb-2;
+  .header-mobile-submenu--formations-flat .header-nav-formations-stack > .header-nav-dropdown-formations-col:first-child .header-nav-dropdown-formations-level--stack {
+    @apply pt-0;
   }
 
   .header-mobile-submenu--formations .header-mobile-submenu-link {

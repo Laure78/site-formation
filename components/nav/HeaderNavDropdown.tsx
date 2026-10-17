@@ -1,6 +1,6 @@
 'use client';
 
-import type { FocusEvent, ReactNode } from 'react';
+import type { ReactNode } from 'react';
 import Link from 'next/link';
 import type { HeaderNavDesktopHover } from '@/hooks/useHeaderNavDesktopHover';
 import { ChevronDown } from 'lucide-react';
@@ -34,32 +34,35 @@ function triggerClass({
     .join(' ');
 }
 
-function HeaderNavFormationsMegaColumns({
+function HeaderNavFormationsByLevel({
   columns,
   pathname,
   onNavigate,
+  layout,
 }: {
   columns: readonly HeaderMegaColumn[];
   pathname: string;
   onNavigate?: () => void;
+  layout: 'columns' | 'stack';
 }) {
+  const isStack = layout === 'stack';
+
   return (
-    <div className="header-nav-dropdown-formations-grid">
+    <div
+      className={
+        isStack ? 'header-nav-formations-stack' : 'header-nav-dropdown-formations-grid'
+      }
+    >
       {columns.map((column) => (
         <div key={column.title} className="header-nav-dropdown-formations-col min-w-0">
-          {column.href ? (
-            <Link
-              href={column.href}
-              title={column.title}
-              onClick={onNavigate}
-              className="header-nav-dropdown-formations-level header-nav-dropdown-formations-level--link"
-            >
-              {column.title}
-            </Link>
-          ) : (
-            <p className="header-nav-dropdown-formations-level">{column.title}</p>
-          )}
-          <ul className="mt-2 space-y-0.5">
+          <p
+            className={`header-nav-dropdown-formations-level ${
+              isStack ? 'header-nav-dropdown-formations-level--stack' : ''
+            }`}
+          >
+            {column.title}
+          </p>
+          <ul className={isStack ? 'mt-1 space-y-0' : 'mt-2 space-y-0.5'}>
             {column.links.map((link) => {
               const active = headerNavLinkIsActive(link.href, pathname);
               return (
@@ -68,11 +71,27 @@ function HeaderNavFormationsMegaColumns({
                     href={link.href}
                     title={link.title}
                     onClick={onNavigate}
-                    className={`header-nav-dropdown-link header-nav-dropdown-link--formation ${
-                      active ? 'header-nav-dropdown-link--active' : ''
-                    }`}
+                    className={
+                      isStack
+                        ? `header-mobile-submenu-link header-mobile-submenu-link--nested ${
+                            active
+                              ? 'header-mobile-submenu-link--active'
+                              : 'header-mobile-submenu-link--idle'
+                          }`
+                        : `header-nav-dropdown-link header-nav-dropdown-link--formation ${
+                            active ? 'header-nav-dropdown-link--active' : ''
+                          }`
+                    }
                   >
-                    <span className="header-nav-dropdown-link__label">{link.label}</span>
+                    <span
+                      className={
+                        isStack
+                          ? 'header-mobile-submenu-link__label'
+                          : 'header-nav-dropdown-link__label'
+                      }
+                    >
+                      {link.label}
+                    </span>
                   </Link>
                 </li>
               );
@@ -80,6 +99,27 @@ function HeaderNavFormationsMegaColumns({
           </ul>
         </div>
       ))}
+    </div>
+  );
+}
+
+function HeaderNavFormationsFooter({
+  footer,
+  onNavigate,
+  className = '',
+}: {
+  footer: HeaderNavLink;
+  onNavigate?: () => void;
+  className?: string;
+}) {
+  return (
+    <div className={`mt-2 border-t border-slate-100 px-2 pt-2 ${className}`}>
+      <Link href={footer.href} onClick={onNavigate} className="header-nav-dropdown-footer">
+        {footer.label}
+        <span aria-hidden className="text-base leading-none">
+          →
+        </span>
+      </Link>
     </div>
   );
 }
@@ -322,10 +362,11 @@ export function HeaderNavDropdown({
               <p className="header-nav-dropdown-heading">{item.label}</p>
             )}
             {hasMega ? (
-              <HeaderNavFormationsMegaColumns
+              <HeaderNavFormationsByLevel
                 columns={megaColumns}
                 pathname={pathname}
                 onNavigate={onNavigate}
+                layout="columns"
               />
             ) : (
               <ul>
@@ -337,14 +378,7 @@ export function HeaderNavDropdown({
               </ul>
             )}
             {item.footer ? (
-              <div className="mt-2 border-t border-slate-100 px-2 pt-2">
-                <Link href={item.footer.href} onClick={onNavigate} className="header-nav-dropdown-footer">
-                  {item.footer.label}
-                  <span aria-hidden className="text-base leading-none">
-                    →
-                  </span>
-                </Link>
-              </div>
+              <HeaderNavFormationsFooter footer={item.footer} onNavigate={onNavigate} />
             ) : null}
           </div>
         </div>
@@ -396,6 +430,8 @@ export function HeaderMobileNavSection({
   const buttonId = `header-mobile-btn-${item.id}`;
   const itemActive = headerNavItemIsActive(item, pathname);
   const children = item.children ?? [];
+  const megaColumns = item.megaColumns ?? [];
+  const hasFormationsMega = Boolean(item.dropdownPanelFormations) && megaColumns.length > 0;
   const hasMenu = headerNavItemHasPanel(item);
   const formationsPanel = Boolean(item.dropdownPanelFormations);
 
@@ -454,24 +490,29 @@ export function HeaderMobileNavSection({
       {hasMenu && expanded ? (
         <div
           id={panelId}
-          className={`header-mobile-submenu${formationsPanel ? ' header-mobile-submenu--formations' : ''}`}
+          className={`header-mobile-submenu${
+            formationsPanel ? ' header-mobile-submenu--formations' : ''
+          }${hasFormationsMega ? ' header-mobile-submenu--formations-flat max-h-[min(70vh,28rem)] overflow-y-auto overscroll-contain' : ''}`}
           aria-labelledby={buttonId}
         >
-          {children.length > 0 ? (
+          {hasFormationsMega ? (
+            <>
+              <HeaderNavFormationsByLevel
+                columns={megaColumns}
+                pathname={pathname}
+                onNavigate={onNavigate}
+                layout="stack"
+              />
+              {item.footer ? (
+                <HeaderNavFormationsFooter footer={item.footer} onNavigate={onNavigate} />
+              ) : null}
+            </>
+          ) : children.length > 0 ? (
             <ul>
               <HeaderMobileNavLinks links={children} pathname={pathname} onNavigate={onNavigate} />
               {item.footer ? (
                 <li className="mt-1 border-t border-slate-100 pt-1">
-                  <Link
-                    href={item.footer.href}
-                    onClick={onNavigate}
-                    className="header-nav-dropdown-footer mx-0"
-                  >
-                    {item.footer.label}
-                    <span aria-hidden className="text-base leading-none">
-                      →
-                    </span>
-                  </Link>
+                  <HeaderNavFormationsFooter footer={item.footer} onNavigate={onNavigate} />
                 </li>
               ) : null}
             </ul>

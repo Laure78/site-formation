@@ -2,7 +2,6 @@
  * Sous-menu « Formations IA BTP » — liens directs vers les fiches catalogue publiées, groupés par niveau.
  */
 import { formationHref, type Formation } from '@/data/formations';
-import { buildFormationsIaNiveauHref } from '@/lib/catalogue-filter-url';
 import { getPublishedFormations } from '@/lib/formation-catalogue-visibility';
 import { FORMATIONS_NIVEAUX_IA } from '@/lib/formations-niveaux-ia';
 import type { HeaderMegaColumn, HeaderNavLink } from '@/lib/header-nav';
@@ -58,18 +57,7 @@ export function buildFormationsNavMegaColumns(at: Date = new Date()): readonly H
 
   return FORMATIONS_NIVEAUX_IA.map((def) => ({
     title: def.labelComplet,
-    href: buildFormationsIaNiveauHref(def.niveau),
     links: byNiveau.get(def.niveau) ?? [],
-  }));
-}
-
-/** Mobile — trois blocs verticaux (titre de niveau + formations). */
-export function buildFormationsNavMobileGroups(at: Date = new Date()): readonly HeaderNavLink[] {
-  return buildFormationsNavMegaColumns(at).map((column) => ({
-    href: column.href ?? '#',
-    label: column.title,
-    title: column.title,
-    children: column.links,
   }));
 }
 
