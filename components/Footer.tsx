@@ -195,9 +195,9 @@ export function Footer() {
         <div className="grid gap-8 border-t border-white/10 py-8 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)] lg:items-start lg:gap-10">
           <div className="min-w-0 space-y-4">
             <p className="text-sm font-semibold text-white">{SITE.legalName}</p>
-            <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:gap-6">
-              <QualiopiBadge size="lg" className="w-full max-w-[16rem] shrink-0" />
-              <div className="min-w-0 text-sm text-white/75">
+            <div className="flex max-w-xl flex-col gap-4">
+              <QualiopiBadge size="lg" className="w-full max-w-[16rem] shrink-0 self-start" />
+              <div className="min-w-0 text-sm leading-relaxed text-white/75">
                 <p>
                   Certificateur : Certifopac — certificat n° {QUALIOPI_LEGAL.certificatNumero},
                   validité {QUALIOPI_LEGAL.certificatValidite}

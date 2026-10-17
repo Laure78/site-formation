@@ -31,12 +31,8 @@ export function QualiopiLogoBlock({ className = '', size = 'default' }: Qualiopi
         alt={Q.alt}
         width={Q.width}
         height={Q.height}
-        className={
-          isLarge
-            ? 'h-auto w-full max-w-[min(100%,28rem)] object-contain object-left sm:w-[28rem] sm:max-w-[28rem]'
-            : 'h-auto w-full max-w-[min(100%,32rem)] object-contain object-left'
-        }
-        sizes={isLarge ? '(max-width: 640px) 100vw, 28rem' : '(max-width: 640px) 100vw, 32rem'}
+        className="h-auto w-full max-w-full object-contain object-left"
+        sizes={isLarge ? '(max-width: 640px) 100vw, 16rem' : '(max-width: 640px) 100vw, 20rem'}
       
         quality={70}
         loading="lazy"/>

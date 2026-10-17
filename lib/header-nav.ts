@@ -4,7 +4,10 @@
  */
 import { getAllParcoursComputed, type ParcoursId } from '@/data/catalogue-2027';
 import { catalogueFormationNavContainsPath } from '@/lib/catalogue-formations-nav';
-import { buildFormationsNavChildren } from '@/lib/header-nav-formations-catalogue';
+import {
+  buildFormationsNavMegaColumns,
+  buildFormationsNavMobileGroups,
+} from '@/lib/header-nav-formations-catalogue';
 import { utilityOrganismeNavActive } from '@/lib/header-nav-organisme-links';
 import { LINKS } from '@/lib/internal-links';
 
@@ -171,9 +174,15 @@ function buildHeaderNavItems(at: Date = new Date()): readonly HeaderNavItem[] {
       label: 'Formations IA BTP',
       href: LINKS.formations,
       isActive: formationsNavActive,
-      children: buildFormationsNavChildren(at),
+      megaColumns: buildFormationsNavMegaColumns(at),
+      children: buildFormationsNavMobileGroups(at),
       hideDropdownHeading: true,
       dropdownPanelFormations: true,
+      footer: {
+        href: LINKS.formations,
+        label: 'Voir toutes les formations',
+        title: 'Catalogue formations IA BTP — présentiel Île-de-France',
+      },
     },
     {
       id: 'parcours-metiers',

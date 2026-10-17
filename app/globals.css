@@ -1388,6 +1388,35 @@
     @apply whitespace-normal text-left leading-snug;
   }
 
+  .header-nav-dropdown-menu--formations-mega {
+    @apply py-3;
+  }
+
+  .header-nav-dropdown-formations-grid {
+    @apply grid grid-cols-1 gap-6 px-2 sm:grid-cols-3 sm:gap-4;
+  }
+
+  .header-nav-dropdown-formations-level {
+    @apply px-2 text-[0.8125rem] font-bold leading-snug tracking-tight text-slate-900;
+  }
+
+  .header-nav-dropdown-formations-level--link {
+    @apply block rounded-lg px-2 py-1 transition-colors hover:text-[#2563EB];
+    @apply focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#377CF3];
+  }
+
+  .header-nav-dropdown-link--formation {
+    @apply mx-0.5 font-normal;
+  }
+
+  .header-mobile-submenu--formations .header-mobile-submenu-link--formations-level {
+    @apply pointer-events-auto mt-3 first:mt-0 min-h-10 py-2 text-[0.8125rem] uppercase tracking-[0.04em] text-slate-500;
+  }
+
+  .header-mobile-submenu--formations .header-mobile-submenu-nested {
+    @apply mb-2;
+  }
+
   .header-mobile-submenu--formations .header-mobile-submenu-link {
     @apply min-h-11 items-start py-3;
   }

@@ -7,7 +7,9 @@ import { ChevronDown } from 'lucide-react';
 import {
   headerNavItemHasPanel,
   headerNavItemIsActive,
+  headerNavLinkIsActive,
   headerNavLinkTreeIsActive,
+  type HeaderMegaColumn,
   type HeaderNavItem,
   type HeaderNavLink,
 } from '@/lib/header-nav';
@@ -30,6 +32,56 @@ function triggerClass({
   ]
     .filter(Boolean)
     .join(' ');
+}
+
+function HeaderNavFormationsMegaColumns({
+  columns,
+  pathname,
+  onNavigate,
+}: {
+  columns: readonly HeaderMegaColumn[];
+  pathname: string;
+  onNavigate?: () => void;
+}) {
+  return (
+    <div className="header-nav-dropdown-formations-grid">
+      {columns.map((column) => (
+        <div key={column.title} className="header-nav-dropdown-formations-col min-w-0">
+          {column.href ? (
+            <Link
+              href={column.href}
+              title={column.title}
+              onClick={onNavigate}
+              className="header-nav-dropdown-formations-level header-nav-dropdown-formations-level--link"
+            >
+              {column.title}
+            </Link>
+          ) : (
+            <p className="header-nav-dropdown-formations-level">{column.title}</p>
+          )}
+          <ul className="mt-2 space-y-0.5">
+            {column.links.map((link) => {
+              const active = headerNavLinkIsActive(link.href, pathname);
+              return (
+                <li key={`${link.href}-${link.label}`}>
+                  <Link
+                    href={link.href}
+                    title={link.title}
+                    onClick={onNavigate}
+                    className={`header-nav-dropdown-link header-nav-dropdown-link--formation ${
+                      active ? 'header-nav-dropdown-link--active' : ''
+                    }`}
+                  >
+                    <span className="header-nav-dropdown-link__label">{link.label}</span>
+                  </Link>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+      ))}
+    </div>
+  );
 }
 
 function HeaderNavDropdownLinks({
@@ -63,7 +115,7 @@ function HeaderNavDropdownLinks({
               <span className="min-w-0 flex-1">
                 <span className="header-nav-dropdown-link__label">{child.label}</span>
                 {child.description ? (
-                  <span className="mt-0.5 block truncate text-xs font-normal text-slate-500">
+                  <span className="mt-0.5 block text-xs font-normal text-slate-500">
                     {child.description}
                   </span>
                 ) : null}
@@ -113,7 +165,13 @@ function HeaderMobileNavLinks({
               onClick={onNavigate}
               className={`header-mobile-submenu-link ${
                 nested ? 'header-mobile-submenu-link--nested' : ''
-              } ${hasNested ? 'font-medium text-slate-800' : ''} ${
+              } ${
+                hasNested && !nested
+                  ? 'header-mobile-submenu-link--formations-level font-semibold text-slate-900'
+                  : hasNested
+                    ? 'font-medium text-slate-800'
+                    : ''
+              } ${
                 childActive
                   ? 'header-mobile-submenu-link--active'
                   : 'header-mobile-submenu-link--idle'
@@ -171,9 +229,12 @@ export function HeaderNavDropdown({
   const buttonId = `header-nav-btn-${item.id}`;
   const routeActive = headerNavItemIsActive(item, pathname);
   const children = item.children ?? [];
+  const megaColumns = item.megaColumns ?? [];
+  const hasMega = megaColumns.length > 0;
   const alignEnd = item.dropdownAlign === 'end';
   const hideHeading = Boolean(item.hideDropdownHeading);
   const formationsPanel = Boolean(item.dropdownPanelFormations);
+  const panelOpen = open && (children.length > 0 || hasMega);
 
   const submenuAriaLabel = open
     ? `Fermer le sous-menu ${item.label}`
@@ -233,14 +294,16 @@ export function HeaderNavDropdown({
           />
         </button>
       </div>
-      {open && children.length > 0 ? (
+      {panelOpen ? (
         <div
           id={panelId}
           data-header-dropdown=""
           className={`header-nav-dropdown-panel absolute top-full z-[60] ${
-            formationsPanel
-              ? 'min-w-[17rem] max-w-[min(100vw-2rem,28rem)]'
-              : 'min-w-[15.5rem] max-w-[min(100vw-2rem,22rem)]'
+            formationsPanel && hasMega
+              ? 'min-w-[min(100vw-2rem,56rem)] max-w-[min(100vw-2rem,56rem)]'
+              : formationsPanel
+                ? 'min-w-[17rem] max-w-[min(100vw-2rem,28rem)]'
+                : 'min-w-[15.5rem] max-w-[min(100vw-2rem,22rem)]'
           } ${alignEnd ? 'right-0' : 'left-0'}`}
         >
           <div
@@ -250,15 +313,29 @@ export function HeaderNavDropdown({
           <div
             className={`header-nav-dropdown-menu ${
               hideHeading ? 'header-nav-dropdown-menu--compact py-2' : ''
-            } ${formationsPanel ? 'header-nav-dropdown-menu--formations' : ''} max-h-[min(70vh,32rem)] overflow-y-auto overscroll-contain`}
+            } ${formationsPanel ? 'header-nav-dropdown-menu--formations' : ''} ${
+              formationsPanel && hasMega ? 'header-nav-dropdown-menu--formations-mega' : ''
+            } max-h-[min(70vh,32rem)] overflow-y-auto overscroll-contain`}
             aria-labelledby={buttonId}
           >
             {hideHeading ? null : (
               <p className="header-nav-dropdown-heading">{item.label}</p>
             )}
-            <ul>
-              <HeaderNavDropdownLinks links={children} pathname={pathname} onNavigate={onNavigate} />
-            </ul>
+            {hasMega ? (
+              <HeaderNavFormationsMegaColumns
+                columns={megaColumns}
+                pathname={pathname}
+                onNavigate={onNavigate}
+              />
+            ) : (
+              <ul>
+                <HeaderNavDropdownLinks
+                  links={children}
+                  pathname={pathname}
+                  onNavigate={onNavigate}
+                />
+              </ul>
+            )}
             {item.footer ? (
               <div className="mt-2 border-t border-slate-100 px-2 pt-2">
                 <Link href={item.footer.href} onClick={onNavigate} className="header-nav-dropdown-footer">
