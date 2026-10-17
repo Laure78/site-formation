@@ -344,7 +344,7 @@ export const FORMATIONS: readonly Formation[] = [
     ],
     gamme: 'deployer',
     theme: 'outils-applications',
-    niveau: 2,
+    niveau: 3,
     niveauLabel: 'Niveau 3 — Industrialiser',
     duree: '7 h',
     horaires: 'journée complète ou organisation à convenir',

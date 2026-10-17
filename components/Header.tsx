@@ -18,9 +18,8 @@ import {
 } from 'lucide-react';
 import { SITE } from '@/lib/site';
 import { getHeaderNav, headerNavItemHasPanel } from '@/lib/header-nav';
-import { CtaButton } from '@/components/CtaButton';
-import { CtaRdv } from '@/components/CtaRdv';
-import { FormationPlateformeConnexionButton } from '@/components/formation/FormationPlateformeConnexionButton';
+import { HeaderPrimaryCta } from '@/components/nav/HeaderPrimaryCta';
+import { HeaderSecondaryBar } from '@/components/nav/HeaderSecondaryBar';
 import { SiteSearchBar } from '@/components/search/SiteSearchBar';
 import { HeaderMegaMenu } from '@/components/nav/HeaderMegaMenu';
 import {
@@ -42,8 +41,8 @@ const MOBILE_NAV_ICON: Record<string, LucideIcon> = {
   formations: GraduationCap,
   'parcours-metiers': Route,
   entreprise: Building2,
+  organisme: UserCircle,
   ressources: Layers,
-  'a-propos': UserCircle,
 };
 
 /** Seuil scroll (px) — mode compact avec hysteresis pour éviter les oscillations. */
@@ -232,15 +231,7 @@ export function Header() {
             </div>
 
             <div className="site-header__actions relative z-[55] hidden shrink-0 items-center gap-2 border-l border-slate-200/90 pl-2.5 lg:!flex xl:gap-2.5 xl:pl-3.5">
-              <FormationPlateformeConnexionButton
-                variant="nav"
-                label="Espace pédagogique"
-                className="!border-transparent !bg-transparent !px-2 !py-1.5 !text-xs !font-medium !text-slate-600 hover:!bg-slate-50 hover:!text-slate-900 xl:!text-sm"
-              />
-              <CtaButton
-                origin="header-desktop"
-                className="text-sm max-[380px]:px-3 max-[380px]:py-2 max-[380px]:text-xs"
-              />
+              <HeaderPrimaryCta origin="header-desktop" />
             </div>
 
             <div className="flex shrink-0 items-center gap-0.5 lg:hidden">
@@ -258,11 +249,10 @@ export function Header() {
             </div>
           </div>
 
-          <div className="site-header__rdv-mobile">
-            <CtaRdv
+          <div className="site-header__rdv-mobile lg:hidden">
+            <HeaderPrimaryCta
               origin="header-mobile-bar"
-              variant="inline"
-              className="inline-flex min-h-10 max-w-full items-center py-1 text-left text-sm font-semibold leading-snug text-[#377CF3] hover:text-[#2a63d4]"
+              className="!min-h-10 w-full !px-4 !py-2 !text-sm"
             />
           </div>
 
@@ -290,6 +280,7 @@ export function Header() {
             })}
           </nav>
 
+          <HeaderSecondaryBar />
         </div>
 
         {openMega?.megaColumns ? (

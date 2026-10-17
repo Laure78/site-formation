@@ -104,8 +104,8 @@
     /* Mobile : marque + menu + ligne CTA RDV */
     --site-header-height: 5.5rem;
 
-    /* Header desktop : marque + recherche + nav (2 lignes) */
-    --site-header-height-lg: 7.25rem;
+    /* Header desktop : marque + recherche + nav + barre secondaire */
+    --site-header-height-lg: 8.5rem;
 
     /* Conteneur site — aligné BeWork (1280px) */
     --ofc-site-max-width: 80rem;

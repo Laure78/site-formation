@@ -1,9 +1,7 @@
 import Link from 'next/link';
 import { AccueilHeroVideo } from '@/components/landing/AccueilHeroVideo';
-import { AccueilPreuveSocialeCompact } from '@/components/landing/accueil/AccueilPreuveSocialeCompact';
 import { Badge } from '@/components/ui/Badge';
 import { getAccueilHeroModalitesLine } from '@/lib/accueil-config';
-import { CTA_RDV_LABEL } from '@/lib/cta-rdv-label';
 import { LINKS } from '@/lib/internal-links';
 import {
   OFC_CTA_PRIMARY,
@@ -21,37 +19,30 @@ export function AccueilHeroSection() {
           <div className="accueil-hero-content order-1 min-w-0">
             <Badge>Formatrice IA spécialisée BTP</Badge>
             <h1 className="mt-2 max-w-3xl font-display text-[clamp(1.45rem,1.1rem+1.25vw,1.95rem)] font-extrabold leading-[1.18] tracking-tight text-ofc-ink text-balance">
-              Formations IA pour les professionnels du BTP en Île-de-France
+              Formations IA pour les professionnels du BTP
             </h1>
             <p className={`${OFC_TYPE_LEAD} mt-2 max-w-xl text-[0.9375rem] leading-[1.55] text-ofc-ink md:text-base`}>
-              Devis, DCE, appels d&apos;offres et suivi de chantier&nbsp;: utilisez ChatGPT et
-              Claude sur vos documents réels.
+              Apprenez à utiliser ChatGPT et Claude sur vos documents métier : devis, DCE, comptes
+              rendus de chantier et outils de gestion. Des formations pratiques en présentiel en
+              Île-de-France.
             </p>
             <div className="mt-4 flex flex-col gap-2.5 sm:flex-row sm:flex-wrap">
               <Link
+                href={LINKS.formations}
+                data-cta="formations-ia"
+                className={`${OFC_CTA_PRIMARY} inline-flex min-h-11 w-full items-center justify-center px-5 py-2.5 text-sm sm:w-auto md:px-6 md:py-3 md:text-base`}
+              >
+                Voir les formations
+              </Link>
+              <Link
                 href={LINKS.parcoursMetiers}
                 data-cta="parcours-metier"
-                className={`${OFC_CTA_PRIMARY} inline-flex min-h-11 w-full items-center justify-center px-5 py-2.5 text-sm sm:w-auto md:px-6 md:py-3 md:text-base`}
+                className={`${OFC_CTA_SECONDARY} inline-flex min-h-11 w-full items-center justify-center px-5 py-2.5 text-sm sm:w-auto md:px-6 md:py-3 md:text-base`}
               >
                 Choisir mon parcours métier
               </Link>
-              <Link
-                href={LINKS.formations}
-                data-cta="formations-ia"
-                className={`${OFC_CTA_SECONDARY} inline-flex min-h-11 w-full items-center justify-center px-5 py-2.5 text-sm sm:w-auto md:px-6 md:py-3 md:text-base`}
-              >
-                Voir les formations IA
-              </Link>
             </div>
             <p className="mt-3 max-w-xl text-xs leading-relaxed text-ofc-ink-muted md:text-sm">
-              <Link
-                href={`${LINKS.prendreRdv}?src=accueil-hero`}
-                data-cta="rdv"
-                className="font-medium text-ofc-accent hover:underline"
-              >
-                {CTA_RDV_LABEL}
-              </Link>
-              {' · '}
               {getAccueilHeroModalitesLine()}
             </p>
           </div>
@@ -63,7 +54,6 @@ export function AccueilHeroSection() {
           </aside>
         </div>
 
-        <AccueilPreuveSocialeCompact variant="embedded" />
       </div>
     </section>
   );

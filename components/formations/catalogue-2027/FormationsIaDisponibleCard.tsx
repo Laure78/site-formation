@@ -1,7 +1,12 @@
 import Link from 'next/link';
 import { DEV_WEB_IA_DUREE_COURTE } from '@/lib/formation-developpement-web-ia-content';
 import type { FormationCatalogueEntry } from '@/lib/formations-catalogue-display';
-import { catalogueNiveauLabel } from '@/lib/formations-catalogue-display';
+import {
+  catalogueNiveauBadgeLabel,
+  libelleTarifParcoursCatalogue,
+} from '@/lib/formations-catalogue-display';
+import { getFormationByCode } from '@/data/formations';
+import { MODALITE_FORMATIONS_PRESENTIEL } from '@/lib/tarifs-sessions';
 import { OFC_CTA_PRIMARY } from '@/lib/ofc-interaction-classes';
 
 type Props = {
@@ -15,8 +20,10 @@ function dureeAffichage(entry: FormationCatalogueEntry): string | null {
 }
 
 export function FormationsIaDisponibleCard({ entry }: Props) {
-  const badge = catalogueNiveauLabel(entry.ref);
+  const badge = catalogueNiveauBadgeLabel(entry.ref);
   const duree = dureeAffichage(entry);
+  const formation = getFormationByCode(entry.ref);
+  const tarif = formation ? libelleTarifParcoursCatalogue(formation) : null;
 
   return (
     <li className="flex h-full flex-col border border-[#E2E8F0] bg-white p-5">
@@ -33,7 +40,12 @@ export function FormationsIaDisponibleCard({ entry }: Props) {
       </span>
       <h4 className="mt-3 text-base font-semibold text-ofc-ink">{entry.title}</h4>
       <p className="mt-2 flex-1 text-sm leading-relaxed text-ofc-ink-muted">{entry.promesse}</p>
-      {duree ? <p className="mt-3 text-sm text-ofc-ink-muted">{duree}</p> : null}
+      <ul className="mt-3 space-y-1 text-sm text-ofc-ink-muted">
+        {duree ? <li>Durée : {duree}</li> : null}
+        <li>{MODALITE_FORMATIONS_PRESENTIEL}</li>
+        <li>Disponible — inscription sur programme</li>
+        {tarif ? <li>Tarif : {tarif} / participant</li> : null}
+      </ul>
       <div className="mt-4">
         <Link
           href={entry.href}

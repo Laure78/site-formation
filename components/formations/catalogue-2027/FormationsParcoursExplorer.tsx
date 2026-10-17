@@ -43,10 +43,12 @@ export function FormationsParcoursExplorer({ parcours }: Props) {
       <span id="catalogue-gammes" className="sr-only" />
       <div className="max-w-3xl">
         <h2 id="parcours-metiers-title" className="ofc-type-h2 text-ofc-ink">
-          Sélectionnez votre métier
+          Parcours métiers — ouverture prévue en 2027
         </h2>
         <p className="mt-3 text-ofc-ink-muted">
-          Un clic met en évidence le parcours correspondant. Les autres parcours restent accessibles.
+          Parcours modulaires par fonction. Les formations IA du catalogue restent disponibles dès
+          maintenant — filtres par niveau ci-dessus. Sélectionnez un métier pour repérer le parcours
+          correspondant.
         </p>
       </div>
 
@@ -148,7 +150,8 @@ export function FormationsParcoursExplorer({ parcours }: Props) {
       </div>
 
       <p className="mt-6 text-sm text-ofc-ink-muted">
-        Les journées de formation peuvent être espacées. Aucun calendrier précis n’est inventé ici.
+        Calendrier et dates de session : sur devis ou lors de l’inscription — présentiel en
+        Île-de-France.
       </p>
       <div className="mt-4">
         <a href="#catalogue-modules" className={`${OFC_CTA_SECONDARY} inline-flex min-h-10 px-4 py-2 text-sm`}>

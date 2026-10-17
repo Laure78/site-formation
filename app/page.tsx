@@ -1,20 +1,22 @@
 import type { Metadata } from 'next';
 import { preload } from 'react-dom';
 import { AccueilHeroSection } from '@/components/landing/AccueilHeroSection';
-import { AccueilOffreCatalogueSection } from '@/components/landing/accueil/AccueilOffreCatalogueSection';
-import { AccueilMethodeResultatsSection } from '@/components/landing/accueil/AccueilMethodeResultatsSection';
-import { AccueilFinancementSection } from '@/components/landing/accueil/AccueilFinancementSection';
-import { AccueilFormatriceSection } from '@/components/landing/accueil/AccueilFormatriceSection';
+import { AccueilPreuvesConfianceSection } from '@/components/landing/accueil/AccueilPreuvesConfianceSection';
+import { AccueilNiveauxOrientationSection } from '@/components/landing/accueil/AccueilNiveauxOrientationSection';
+import { AccueilFormationsDisponiblesSection } from '@/components/landing/accueil/AccueilFormationsDisponiblesSection';
+import { AccueilParcoursMetiersSection } from '@/components/landing/accueil/AccueilParcoursMetiersSection';
+import { AccueilCasExercicesSection } from '@/components/landing/accueil/AccueilCasExercicesSection';
+import { AccueilMethodePedagogiqueSection } from '@/components/landing/accueil/AccueilMethodePedagogiqueSection';
+import { AccueilLaureFormateursSection } from '@/components/landing/accueil/AccueilLaureFormateursSection';
+import { AccueilIntraFinancementSection } from '@/components/landing/accueil/AccueilIntraFinancementSection';
 import { AccueilFaqSection } from '@/components/landing/accueil/AccueilFaqSection';
 import { AccueilCtaFinalSection } from '@/components/landing/accueil/AccueilCtaFinalSection';
-import { EvenementAoBtpPromoEncart } from '@/components/evenements/EvenementAoBtpPromoEncart';
 import { buildMetadata } from '@/lib/seo';
 import { buildHomeFAQPageJsonLd } from '@/lib/faq';
 import { JsonLd } from '@/components/JsonLd';
 import { PHOTOS } from '@/lib/photos';
 import { buildHomeUnifiedGraphJsonLd } from '@/lib/schema-home-unified-graph';
 
-/** Titre HTML complet — 57 car., déjà signé, sans « | Laure Olivié ». */
 const HOME_META_TITLE_ABSOLUTE =
   'Laure Olivié — formatrice IA pour le BTP en Île-de-France';
 const HOME_META_DESCRIPTION =
@@ -63,7 +65,6 @@ const homeMetadata = buildMetadata({
   },
 });
 
-/** `title.absolute` : le helper `buildTitle` ajouterait sinon un second « | Laure Olivié ». */
 export const metadata: Metadata = {
   ...homeMetadata,
   title: { absolute: HOME_META_TITLE_ABSOLUTE },
@@ -81,11 +82,14 @@ export default function HomePage() {
   return (
     <div>
       <AccueilHeroSection />
-      <AccueilOffreCatalogueSection />
-      <EvenementAoBtpPromoEncart placement="accueil" />
-      <AccueilMethodeResultatsSection />
-      <AccueilFinancementSection />
-      <AccueilFormatriceSection />
+      <AccueilPreuvesConfianceSection />
+      <AccueilNiveauxOrientationSection />
+      <AccueilFormationsDisponiblesSection />
+      <AccueilParcoursMetiersSection />
+      <AccueilCasExercicesSection />
+      <AccueilMethodePedagogiqueSection />
+      <AccueilLaureFormateursSection />
+      <AccueilIntraFinancementSection />
       <AccueilFaqSection />
       <AccueilCtaFinalSection />
 

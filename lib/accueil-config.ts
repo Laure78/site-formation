@@ -119,21 +119,61 @@ export function getAccueilEntreeParBesoinCartes(): readonly AccueilEntreeBesoinC
   ] as const;
 }
 
-export const ACCUEIL_PARCOURS_FORMATION_ETAPES = [
+/** Méthode pédagogique — 4 étapes (accueil). */
+export const ACCUEIL_METHODE_PEDAGOGIQUE_ETAPES = [
   {
     n: '1',
-    titre: 'Apporter un cas réel',
-    detail: 'Vos devis, DCE, CR ou processus — pas un exercice générique.',
+    titre: 'Identifier les besoins et le niveau initial',
+    detail: 'Cadrage de vos missions, prérequis et documents adaptés à l’anonymisation si besoin.',
   },
   {
     n: '2',
-    titre: 'Pratiquer pendant la formation',
-    detail: 'Exercices guidés sur vos situations, avec relecture humaine systématique.',
+    titre: 'Choisir la formation et les cas pratiques',
+    detail: 'Programme catalogue ou parcours métier — objectifs et livrables définis à l’avance.',
   },
   {
     n: '3',
-    titre: 'Repartir avec une méthode réutilisable',
-    detail: 'Prompts, trames et habitudes applicables dès le retour en entreprise.',
+    titre: 'Pratiquer sur des documents contrôlés',
+    detail: 'Exercices guidés avec ChatGPT ou Claude ; validation humaine avant usage ou envoi.',
+  },
+  {
+    n: '4',
+    titre: 'Évaluer les acquis et repartir équipé',
+    detail: 'Supports réutilisables : trames, prompts, checklists et méthode de relecture.',
+  },
+] as const;
+
+/** @deprecated Préférer `ACCUEIL_METHODE_PEDAGOGIQUE_ETAPES`. */
+export const ACCUEIL_PARCOURS_FORMATION_ETAPES = ACCUEIL_METHODE_PEDAGOGIQUE_ETAPES;
+
+/** Exemples d’exercices en formation — pas des témoignages clients. */
+export const ACCUEIL_CAS_EXERCICES_FORMATION = [
+  {
+    id: 'dce-vigilance',
+    titre: 'Analyser un DCE et organiser les points de vigilance',
+    besoin: 'Repérer les exigences avant chiffrage ou réponse.',
+    travail: 'Extraction structurée RC, CCTP et CCAP avec citation des pièces.',
+    livrable: 'Checklist de points à vérifier et questions pour la MOE.',
+    resultat: 'Lecture plus rapide du dossier et moins d’oublis en préparation.',
+    href: LINKS.formationAO,
+  },
+  {
+    id: 'cr-actions',
+    titre: 'Transformer un compte rendu en tableau d’actions',
+    besoin: 'Suivre les décisions et responsabilités après réunion de chantier.',
+    travail: 'Reformulation de notes brutes en CR puis tableau d’actions daté.',
+    livrable: 'Compte rendu + liste d’actions avec responsables et échéances.',
+    resultat: 'Partage clair avec l’équipe — contenu à valider avant diffusion.',
+    href: LINKS.formationConduiteTravauxSuiviChantier,
+  },
+  {
+    id: 'assistant-admin',
+    titre: 'Préparer un assistant administratif BTP',
+    besoin: 'Uniformiser relances, courriers et trames récurrentes.',
+    travail: 'Cadrage des consignes, modèles et règles de contrôle dans Claude ou ChatGPT.',
+    livrable: 'Assistant ou projet documentaire avec protocole de relecture.',
+    resultat: 'Méthode réutilisable en interne — sans promesse de conformité automatique.',
+    href: LINKS.formationMaitriserClaudeAiBtp,
   },
 ] as const;
 

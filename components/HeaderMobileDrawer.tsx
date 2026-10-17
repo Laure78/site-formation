@@ -7,11 +7,12 @@ import type { LucideIcon } from 'lucide-react';
 import { X } from 'lucide-react';
 import { AUTHOR_HEADSHOT_IMAGE_CLASS } from '@/lib/author-headshot';
 import { IMAGE_QUALITY_DEFAULT } from '@/lib/image-props';
-import { CtaButton } from '@/components/CtaButton';
+import { HeaderPrimaryCta } from '@/components/nav/HeaderPrimaryCta';
 import { FormationPlateformeConnexionButton } from '@/components/formation/FormationPlateformeConnexionButton';
 import { HeaderMobileNavSection } from '@/components/nav/HeaderNavDropdown';
 import { SiteSearchBar } from '@/components/search/SiteSearchBar';
 import { SITE } from '@/lib/site';
+import { LINKS } from '@/lib/internal-links';
 import type { HeaderNavItem } from '@/lib/header-nav';
 
 type HeaderMobileDrawerProps = {
@@ -146,13 +147,19 @@ export function HeaderMobileDrawer({
           })}
         </nav>
         <div className="shrink-0 border-t border-slate-200 bg-white px-4 py-4">
+          <p className="mb-3 flex flex-wrap gap-x-3 gap-y-1 text-xs text-slate-600">
+            <span className="font-medium text-slate-500">Présentiel · Île-de-France</span>
+            <Link href={LINKS.financement} onClick={onClose} className="hover:text-[#377CF3]">
+              Financement
+            </Link>
+          </p>
           <div className="flex flex-col gap-3">
             <FormationPlateformeConnexionButton
               variant="navMobile"
               label="Espace pédagogique"
               onClick={onClose}
             />
-            <CtaButton
+            <HeaderPrimaryCta
               origin="header-mobile-drawer"
               onClick={onClose}
               className="w-full text-center text-[0.9375rem]"

@@ -96,26 +96,28 @@ export const FAQ_IA_BTP_METIERS_CHANTIER_SEO: readonly FAQItem[] = [
  */
 export const FAQ_ITEMS_HOME: readonly FAQItem[] = [
   {
-    q: "À qui s'adressent les formations IA BTP ?",
-    a: `Dirigeants, conducteurs de travaux, chargés d'affaires, fonctions support et équipes des PME et ETI du bâtiment et des travaux publics. Consultez la section <a href="#formations-parcours">Nos formations et parcours</a> pour choisir une formation ou un parcours métier.`,
+    q: 'Quel niveau de formation IA choisir ?',
+    a: 'Niveau 1 si vous découvrez l’IA · Niveau 2 pour structurer vos usages sur les documents BTP · Niveau 3 pour créer assistants et outils. Les prérequis de chaque programme priment — voir <a href="/formations#comparer-niveaux">comparer les niveaux</a>.',
   },
   {
-    q: 'Faut-il déjà savoir utiliser une IA ?',
-    a:
-      'La formation de niveau débutant ne nécessite aucune pratique préalable. Les autres parcours précisent leurs prérequis sur chaque programme. Matériel : ordinateur et accès internet.',
+    q: 'Quels sont les prérequis ?',
+    a: 'Niveau 1 : aucune pratique préalable, ordinateur et connexion. Niveaux 2 et 3 : bases IA ou expérience indiquée sur la fiche programme. Compte professionnel Claude si mentionné sur la formation concernée.',
   },
   {
-    q: 'Peut-on travailler sur les documents de notre entreprise ?',
-    a:
-      "Oui — devis, DCE, comptes rendus, mémoires techniques, emails : vous construisez des méthodes réutilisables avec validation métier de votre côté.",
+    q: 'Peut-on utiliser les documents de son entreprise ?',
+    a: 'Oui en session intra ou sur cas préparés : devis, DCE, CR, emails — avec anonymisation si nécessaire et validation humaine avant envoi ou usage.',
   },
   {
-    q: 'Où se déroulent les sessions ?',
-    a: `Présentiel Île-de-France (75 à 95), intra ou inter — y compris le niveau 3 <a href="#accueil-formation-NIV-10">création avec l’IA sans coder</a>.`,
+    q: 'Où se déroulent les formations ?',
+    a: `Présentiel en Île-de-France (75 à 95), intra-entreprise ou inter. Modalités détaillées sur <a href="${LINKS.formations}">le catalogue</a> et la page <a href="${LINKS.formationIaIntraEntrepriseBtp}">intra-entreprise</a>.`,
   },
   {
-    q: 'Une prise en charge par un OPCO est-elle possible ?',
-    a: `${FINANCEMENT_FORMULATION_PRUDENTE} Voir <a href="#accueil-financement">Formation professionnelle et financement</a> et la page <a href="${LINKS.financement}">financement Constructys</a>.`,
+    q: 'Comment organiser une session intra-entreprise ?',
+    a: `Définir le public, le niveau et les documents cibles, puis <a href="${LINKS.prendreRdv}">échanger sur votre besoin</a> ou <a href="${LINKS.contact}">nous contacter</a> pour un devis.`,
+  },
+  {
+    q: 'Comment étudier les possibilités de financement ?',
+    a: `${FINANCEMENT_FORMULATION_PRUDENTE} Voir <a href="${LINKS.financement}">financement Constructys — formation IA BTP</a> et <a href="#accueil-intra-financement">le rappel sur l’accueil</a>.`,
   },
 ];
 

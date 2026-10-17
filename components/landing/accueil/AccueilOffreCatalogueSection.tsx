@@ -22,7 +22,7 @@ import { AccueilFormationsNiveauFilter } from '@/components/landing/accueil/Accu
  * Données synchronisées avec `/formations`.
  */
 export function AccueilOffreCatalogueSection() {
-  const parcours = getAccueilParcoursOffre();
+  const parcours = getAccueilParcoursOffre({ featuredOnly: true });
   const groupesFormations = getAccueilFormationsParNiveau();
 
   return (
@@ -79,37 +79,10 @@ export function AccueilOffreCatalogueSection() {
                   <span className="font-semibold text-ofc-ink">Public — </span>
                   {p.publicCible}
                 </p>
-                {p.dureeLabel ? (
-                  <p className="mt-2 text-sm font-medium text-ofc-ink-muted">
-                    Durée : {p.dureeLabel}
-                  </p>
-                ) : null}
-
-                <ol
-                  className="mt-5 space-y-2.5 border-t border-ofc-border pt-5"
-                  aria-label={`Étapes du parcours ${p.titre}`}
-                >
-                  {p.etapes.map((etape, stepIndex) => (
-                    <li
-                      key={`${p.id}-${etape.moduleCode}-${stepIndex}`}
-                      className="flex gap-3 text-sm leading-snug text-ofc-ink"
-                    >
-                      <span
-                        className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-ofc-accent-soft text-xs font-bold text-ofc-accent"
-                        aria-hidden
-                      >
-                        {stepIndex + 1}
-                      </span>
-                      <span className="min-w-0 pt-0.5 text-pretty">
-                        <span className="font-semibold text-ofc-accent">
-                          {etape.moduleCode}
-                        </span>
-                        <span className="text-ofc-ink-muted"> — </span>
-                        {etape.titre}
-                      </span>
-                    </li>
-                  ))}
-                </ol>
+                <p className="mt-2 text-sm font-medium text-ofc-ink-muted">
+                  {p.dureeLabel ? <>Durée : {p.dureeLabel} · </> : null}
+                  {p.disponibiliteLabel}
+                </p>
 
                 <div className="mt-auto pt-7">
                   <Link
@@ -127,6 +100,14 @@ export function AccueilOffreCatalogueSection() {
             </li>
           ))}
         </ul>
+        <p className="mt-8 text-center">
+          <Link
+            href={LINKS.parcoursMetiers}
+            className="text-sm font-semibold text-ofc-accent hover:underline"
+          >
+            Voir tous les parcours métiers
+          </Link>
+        </p>
       </div>
 
       {/* ——— Formations à la carte ——— */}

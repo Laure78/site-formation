@@ -9,6 +9,7 @@ import {
   sortFormationsCatalogue,
   type FormationCatalogueEntry,
 } from '@/lib/formations-catalogue-display';
+import { FORMATIONS_NIVEAUX_IA } from '@/lib/formations-niveaux-ia';
 
 export type FormationsIaNiveauSection = {
   niveau: FormationNiveau;
@@ -20,50 +21,16 @@ export type FormationsIaNiveauSection = {
   usages: readonly string[];
 };
 
-export const FORMATIONS_IA_NIVEAU_SECTIONS: readonly FormationsIaNiveauSection[] = [
-  {
-    niveau: 1,
-    anchorId: 'catalogue-niveau-1',
-    anchorNavLabel: 'Niveau 1 — Découvrir',
-    heading: 'Niveau 1 — Découvrir et prendre en main l’IA',
-    description:
-      'Comprendre les bases et utiliser l’IA pour vos premières tâches professionnelles.',
-    publicLabel: 'Pour les débutants et les utilisateurs occasionnels.',
-    usages: [
-      'Premières demandes à l’IA',
-      'Rédaction de mails',
-      'Synthèses simples',
-    ],
-  },
-  {
-    niveau: 2,
-    anchorId: 'catalogue-niveau-2',
-    anchorNavLabel: 'Niveau 2 — Appliquer',
-    heading: 'Niveau 2 — Appliquer l’IA à son métier',
-    description:
-      'Utiliser l’IA sur vos documents et vos tâches quotidiennes dans le BTP.',
-    publicLabel: 'Pour les utilisateurs qui maîtrisent les bases.',
-    usages: [
-      'Devis et appels d’offres',
-      'CCTP et mémoires techniques',
-      'Comptes rendus et organisation de chantier',
-    ],
-  },
-  {
-    niveau: 3,
-    anchorId: 'catalogue-niveau-3',
-    anchorNavLabel: 'Niveau 3 — Créer',
-    heading: 'Niveau 3 — Créer ses assistants et ses outils',
-    description:
-      'Concevoir des assistants métier et des outils adaptés à votre entreprise.',
-    publicLabel: 'Pour les utilisateurs autonomes qui souhaitent personnaliser leurs usages.',
-    usages: [
-      'Assistants personnalisés',
-      'Workflows métier',
-      'Outils de gestion sur mesure',
-    ],
-  },
-] as const;
+export const FORMATIONS_IA_NIVEAU_SECTIONS: readonly FormationsIaNiveauSection[] =
+  FORMATIONS_NIVEAUX_IA.map((n) => ({
+    niveau: n.niveau,
+    anchorId: n.anchorId,
+    anchorNavLabel: n.labelComplet,
+    heading: n.sectionHeading,
+    description: n.objectif,
+    publicLabel: n.publicCible,
+    usages: [] as readonly string[],
+  }));
 
 function refSortKey(ref: string): number {
   return parseInt(ref.replace(/\D/g, ''), 10) || 0;

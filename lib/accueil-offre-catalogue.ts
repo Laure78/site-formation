@@ -10,7 +10,12 @@ import {
 } from '@/data/catalogue-2027';
 import { formationHref, type FormationNiveau } from '@/data/formations';
 import { parcoursHref } from '@/lib/catalogue-2027/parcours-href';
+import { libelleDisponibilite } from '@/lib/catalogue-2027/search-modules';
 import { getPublishedFormations } from '@/lib/formation-catalogue-visibility';
+import {
+  FORMATIONS_NIVEAUX_IA,
+  formationNiveauBadge,
+} from '@/lib/formations-niveaux-ia';
 
 /** Ancre section offre — cible du CTA principal du hero. */
 export const ACCUEIL_OFFRE_SECTION_ID = 'formations-parcours' as const;
@@ -23,9 +28,13 @@ export type AccueilParcoursEtapeCard = {
 export type AccueilParcoursOffreCard = {
   id: ParcoursId;
   titre: string;
+  /** Titre court affiché sur l’accueil. */
+  titreCarte: string;
+  benefice: string;
   publicCible: string;
   objectif: string;
   dureeLabel: string | null;
+  disponibiliteLabel: string;
   href: string;
   etapes: readonly AccueilParcoursEtapeCard[];
 };
@@ -52,31 +61,41 @@ export type AccueilNiveauFormationGroup = {
 const NIVEAU_GROUP_META: Record<
   FormationNiveau,
   { id: string; title: string; badge: string }
-> = {
-  1: {
-    id: 'formations-niveau-1',
-    title: 'Niveau 1 — Initiation',
-    badge: 'Niveau 1 · Initiation',
-  },
-  2: {
-    id: 'formations-niveau-2',
-    title: 'Niveau 2 — Perfectionnement',
-    badge: 'Niveau 2 · Perfectionnement',
-  },
-  3: {
-    id: 'formations-niveau-3',
-    title: 'Niveau 3 — Création et déploiement',
-    badge: 'Niveau 3 · Création et déploiement',
-  },
+> = Object.fromEntries(
+  FORMATIONS_NIVEAUX_IA.map((n) => [
+    n.niveau,
+    {
+      id: `formations-niveau-${n.niveau}`,
+      title: n.labelComplet,
+      badge: formationNiveauBadge(n.niveau),
+    },
+  ]),
+) as Record<FormationNiveau, { id: string; title: string; badge: string }>;
+
+/** Parcours mis en avant sur l’accueil (sélection courte). */
+const ACCUEIL_PARCOURS_FEATURED_IDS: readonly ParcoursId[] = [
+  'dirigeant-pme-btp',
+  'charge-affaires-btp',
+  'conducteur-de-travaux',
+  'assistant-de-gestion-btp',
+];
+
+/** Libellés cartes accueil (métier lisible). */
+const ACCUEIL_PARCOURS_TITRE_CARTE: Partial<Record<ParcoursId, string>> = {
+  'dirigeant-pme-btp': 'Direction · Dirigeant de PME BTP',
+  'charge-affaires-btp': 'Chargé d’affaires',
+  'conducteur-de-travaux': 'Conducteur de travaux',
+  'assistant-de-gestion-btp': 'Fonctions administratives et assistance travaux',
 };
 
-function niveauLabel(niveau: FormationNiveau): string {
-  return `Niveau ${niveau}`;
-}
-
 /** Parcours du catalogue 2027 — ordre pédagogique (source PARCOURS_CATALOGUE_2027). */
-export function getAccueilParcoursOffre(): readonly AccueilParcoursOffreCard[] {
-  return getAllParcoursComputed().map((p) => {
+export function getAccueilParcoursOffre(
+  opts?: { featuredOnly?: boolean },
+): readonly AccueilParcoursOffreCard[] {
+  const list = getAllParcoursComputed().filter((p) =>
+    opts?.featuredOnly ? ACCUEIL_PARCOURS_FEATURED_IDS.includes(p.id) : true,
+  );
+  return list.map((p) => {
     const dureeLabel =
       p.dureeHeures > 0
         ? `${p.dureeHeures} h · ${libelleJoursFormation(p.joursFormation)}`
@@ -85,9 +104,12 @@ export function getAccueilParcoursOffre(): readonly AccueilParcoursOffreCard[] {
     return {
       id: p.id,
       titre: p.titre,
+      titreCarte: ACCUEIL_PARCOURS_TITRE_CARTE[p.id] ?? p.titre,
+      benefice: p.benefice,
       publicCible: p.publicCible,
       objectif: p.objectif,
       dureeLabel,
+      disponibiliteLabel: libelleDisponibilite(p.disponibilite),
       href: parcoursHref(p.id),
       etapes: p.etapes.map((e) => ({
         moduleCode: e.moduleCode,
@@ -105,7 +127,7 @@ export function getAccueilFormationsOffre(): readonly AccueilFormationOffreCard[
       return {
         code: f.code,
         titre: f.titre,
-        niveauLabel: niveauLabel(f.niveau),
+        niveauLabel: meta.title,
         niveauBadge: meta.badge,
         niveau: f.niveau,
         duree: f.duree,

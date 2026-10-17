@@ -1,7 +1,6 @@
 import Link from 'next/link';
 import { Eyebrow } from '@/components/ui/Eyebrow';
-import { CTA_RDV_LABEL } from '@/lib/cta-rdv-label';
-import { LINKS } from '@/lib/internal-links';
+import { HEADER_PRIMARY_CTA_HREF, HEADER_PRIMARY_CTA_LABEL } from '@/lib/header-cta';
 import { OFC_CTA_PRIMARY } from '@/lib/ofc-interaction-classes';
 
 /** CTA final — orientation si hésitation entre plusieurs formations. */
@@ -28,18 +27,18 @@ export function AccueilCtaFinalSection() {
             id="accueil-cta-final"
             className="mt-4 font-display text-xl font-extrabold tracking-tight text-balance md:text-2xl lg:text-[1.75rem]"
           >
-            Vous hésitez entre plusieurs formations&nbsp;?
+            Quelle formation IA pour votre équipe&nbsp;?
           </h2>
           <p className="mx-auto mt-4 max-w-xl text-base leading-[1.65] text-white/90 md:text-lg">
-            Échangeons sur vos missions et le niveau de votre équipe.
+            Cadrons ensemble le niveau, le format et les documents à travailler.
           </p>
           <div className="mt-8 flex justify-center">
             <Link
-              href={`${LINKS.prendreRdv}?src=accueil-cta-final`}
+              href={`${HEADER_PRIMARY_CTA_HREF}?src=accueil-cta-final`}
               data-cta="rdv"
               className={`${OFC_CTA_PRIMARY} inline-flex min-h-11 w-full items-center justify-center border-0 bg-white px-6 py-3 text-ofc-accent shadow-none hover:bg-white/95 sm:w-auto`}
             >
-              {CTA_RDV_LABEL}
+              {HEADER_PRIMARY_CTA_LABEL}
             </Link>
           </div>
         </div>

@@ -17,6 +17,7 @@ import {
   isFormationCataloguePublished,
   isFormationCatalogueRetired,
 } from '@/lib/formation-catalogue-visibility';
+import { formationNiveauBadge } from '@/lib/formations-niveaux-ia';
 import {
   MENTIONS_TVA_REGIMES_COURT,
 } from '@/lib/tarifs-sessions';
@@ -186,12 +187,11 @@ export function catalogueNiveauLabel(ref: string): string {
   return 'Niveau 2';
 }
 
-/** Badge niveau catalogue — Initiation / Perfectionnement / Création et déploiement. */
+/** Badge niveau catalogue — libellés unifiés Débutant / Intermédiaire / Avancé. */
 export function catalogueNiveauBadgeLabel(ref: string): string {
   const f = getFormationByCode(ref);
-  if (f?.niveau === 1) return 'Niveau 1 · Initiation';
-  if (f?.niveau === 3) return 'Niveau 3 · Création et déploiement';
-  return 'Niveau 2 · Perfectionnement';
+  if (!f) return 'Niveau 2 — Intermédiaire';
+  return formationNiveauBadge(f.niveau);
 }
 
 /** Catégorie thématique secondaire (optionnelle, affichée sous le badge niveau). */

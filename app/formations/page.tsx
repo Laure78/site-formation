@@ -8,6 +8,7 @@ import {
   getAllParcoursComputed,
 } from '@/data/catalogue-2027';
 import { FormationsCatalogue2027Hero } from '@/components/formations/catalogue-2027/FormationsCatalogue2027Hero';
+import { FormationsCatalogueChoixSection } from '@/components/formations/catalogue-2027/FormationsCatalogueChoixSection';
 import { FormationsParcoursExplorer } from '@/components/formations/catalogue-2027/FormationsParcoursExplorer';
 import { FormationsSousDomainesIaChantier } from '@/components/formations/catalogue-2027/FormationsSousDomainesIaChantier';
 import { FormationsDeroulementParcours } from '@/components/formations/catalogue-2027/FormationsDeroulementParcours';
@@ -33,7 +34,7 @@ type FormationsPageProps = {
 
 export async function generateMetadata({ searchParams }: FormationsPageProps = {}): Promise<Metadata> {
   const sp = searchParams ? await searchParams : {};
-  const hasCatalogueFilters = Boolean(sp.domaine || sp.metier || sp.q);
+  const hasCatalogueFilters = Boolean(sp.domaine || sp.metier || sp.q || sp.niveau);
 
   return {
     ...createPageMetadata({
@@ -81,13 +82,14 @@ export default function FormationsPage() {
     <>
       <JsonLd id="schema-formations-page-graph" schema={buildFormationsPageUnifiedGraphJsonLd()} />
       <FormationsCatalogue2027Hero />
+      <FormationsCatalogueChoixSection />
 
       <div className="mx-auto max-w-[80rem] px-4 pb-20 pt-10 sm:px-6 md:pt-14 lg:px-8">
         <p className="sr-only">{CATALOGUE_2027_POSITIONNEMENT.introductionMarque}</p>
+        <FormationsIaDisponibles />
         <FormationsParcoursExplorer parcours={parcours} />
         <FormationsSousDomainesIaChantier />
         <FormationsDeroulementParcours />
-        <FormationsIaDisponibles />
         <Suspense fallback={null}>
           <FormationsModulesCatalogue />
         </Suspense>
