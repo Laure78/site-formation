@@ -223,6 +223,12 @@ export function Footer() {
                   >
                     Qualité et certification
                   </Link>
+                  <Link
+                    href={LINKS.indicateursResultats}
+                    className="font-medium text-white underline-offset-[3px] hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+                  >
+                    Indicateurs de résultats
+                  </Link>
                 </div>
               </div>
             </div>
