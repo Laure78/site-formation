@@ -18,8 +18,8 @@ export function FormationsIaDisponibles() {
         Catalogue des formations
       </h2>
       <p className="mt-3 max-w-3xl text-ofc-ink-muted">
-        Programmes Qualiopi en premier — présentiel en Île-de-France. Filtrez par niveau, thématique
-        ou métier. Les prérequis de chaque fiche restent prioritaires.
+        Programmes Qualiopi en premier — présentiel en Île-de-France. Utilisez la recherche ou parcourez
+        les rubriques ci-dessous. Les prérequis de chaque fiche restent prioritaires.
       </p>
 
       <Suspense fallback={<p className="mt-8 text-sm text-ofc-ink-muted">Chargement du catalogue…</p>}>

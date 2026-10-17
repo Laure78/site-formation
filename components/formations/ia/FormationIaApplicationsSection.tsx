@@ -1,7 +1,4 @@
 import {
-  FORMATION_IA_CONFIDENTIALITE_NOTE,
-  FORMATION_IA_METHOD_CYCLE,
-  FORMATION_IA_METHOD_INTRO,
   getIaFonctionnalite,
   labelOutil,
   type FormationIaApplicationsBundle,
@@ -107,8 +104,8 @@ function UsageCard({ usage }: { usage: FormationIaUsage }) {
 }
 
 /**
- * Section visible sur fiche formation : usages IA intégrés au déroulé,
- * cycle méthodologique, confidentialité et critères d’évaluation.
+ * Section visible sur fiche formation : usages IA intégrés au déroulé
+ * et critères d’évaluation par exercice.
  */
 export function FormationIaApplicationsSection({
   bundle,
@@ -117,29 +114,6 @@ export function FormationIaApplicationsSection({
   return (
     <TrainingSection id={id} title={bundle.title} tone="muted">
       <p className="max-w-3xl text-base leading-relaxed text-slate-700">{bundle.intro}</p>
-
-      {bundle.showMethodCycle !== false ? (
-        <div className="mt-6 rounded-2xl border border-slate-200 bg-white p-5 md:p-6">
-          <h3 className="font-display text-lg font-semibold text-slate-900">
-            Méthode de travail fiable
-          </h3>
-          <p className="mt-2 text-base text-slate-700">{FORMATION_IA_METHOD_INTRO}</p>
-          <ol className="mt-4 grid gap-2 sm:grid-cols-2 lg:grid-cols-4">
-            {FORMATION_IA_METHOD_CYCLE.map((item, index) => (
-              <li
-                key={item.step}
-                className="rounded-xl border border-slate-100 bg-slate-50 px-3 py-3"
-              >
-                <p className="text-sm font-bold text-[#377CF3]">
-                  {String(index + 1).padStart(2, '0')} · {item.step}
-                </p>
-                <p className="mt-1 text-sm text-slate-700">{item.detail}</p>
-              </li>
-            ))}
-          </ol>
-          <p className="mt-4 text-sm text-slate-600">{FORMATION_IA_CONFIDENTIALITE_NOTE}</p>
-        </div>
-      ) : null}
 
       <div className="mt-6 space-y-4">
         {bundle.usages.map((usage) => (

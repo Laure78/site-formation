@@ -107,10 +107,10 @@ export const PROMO_OFFRE_FORMATIONS_2027: PromoOffreFormations2027Config = {
 
 /** Bandeau informatif — affiché tant qu’aucune offre promo n’est active en production. */
 export const PROMO_BANNER_INFORMATIONAL = {
-  title: 'Formations 2027',
-  messageLead: 'Développez les compétences de vos équipes avec nos ',
-  messageHighlight: 'formations IA BTP',
-  messageEnd: '.',
+  title: 'Offre du moment',
+  messageLead: 'Profitez de ',
+  messageHighlight: '−20 %',
+  messageEnd: ' sur toutes les sessions garanties 2027.',
   ctaLabel: 'Je choisis ma formation',
   ctaHref: LINKS.formations,
 } as const;

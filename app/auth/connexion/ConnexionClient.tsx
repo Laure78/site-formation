@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { useSearchParams, unstable_rethrow } from 'next/navigation';
 import { Eye, EyeOff } from 'lucide-react';
 import { createClient } from '@/lib/supabase/client';
+import { CONTACT } from '@/lib/constants';
 import { LINKS } from '@/lib/internal-links';
 import { loginWithPassword } from './actions';
 
@@ -14,6 +15,9 @@ function isAdminNextPath(next: string | null | undefined): boolean {
   const pathname = next.split('?')[0] ?? next;
   return pathname === '/admin' || pathname.startsWith('/admin/');
 }
+
+const inputClassName =
+  'mt-1.5 w-full rounded-lg border border-slate-200 bg-white px-4 py-3 text-base text-slate-900 placeholder:text-slate-400 transition-colors focus:border-[#377CF3] focus:outline-none focus:ring-2 focus:ring-[#377CF3]/25 disabled:cursor-not-allowed disabled:bg-slate-50 disabled:opacity-70';
 
 type ConnexionClientProps = {
   /** Forcer la destination post-login (ex. page /acces-admin). */
@@ -35,12 +39,9 @@ export default function ConnexionClient({
   const urlError = useMemo(() => {
     if (searchParams.get('error') === 'auth') {
       if (searchParams.get('reason') === 'recovery') {
-        return 'Lien de réinitialisation invalide, expiré ou ouvert dans un autre navigateur. Redemandez un lien et ouvrez-le dans le même navigateur.';
+        return 'Lien de réinitialisation invalide ou expiré. Redemandez un lien et ouvrez-le dans le même navigateur.';
       }
-      return 'Lien de connexion invalide ou expiré. Réessayez ou utilisez « Mot de passe oublié ».';
-    }
-    if (searchParams.get('reset') === 'ok') {
-      return null;
+      return 'Lien de connexion invalide ou expiré. Utilisez « Mot de passe oublié ? » pour en recevoir un nouveau.';
     }
     return null;
   }, [searchParams]);
@@ -54,8 +55,8 @@ export default function ConnexionClient({
 
   const handleResetPassword = async (e: React.MouseEvent) => {
     e.preventDefault();
-    if (!email) {
-      setError('Entrez votre email puis cliquez sur « Mot de passe oublié »');
+    if (!email.trim()) {
+      setError('Indiquez votre adresse e-mail, puis cliquez sur « Mot de passe oublié ? ».');
       return;
     }
     setError(null);
@@ -80,7 +81,6 @@ export default function ConnexionClient({
     startTransition(async () => {
       try {
         const result = await loginWithPassword(email, password, nextParam);
-        // redirect() ne revient pas ; si on arrive ici, c’est une erreur métier.
         if (result?.error) setError(result.error);
       } catch (err) {
         unstable_rethrow(err);
@@ -91,16 +91,18 @@ export default function ConnexionClient({
 
   if (resetSent) {
     return (
-      <div className="rounded-2xl border border-slate-200 bg-white p-8 shadow-sm">
-        <h2 className="font-display text-2xl font-bold text-slate-900">Email envoyé</h2>
-        <p className="mt-4 text-slate-600">
-          Si un compte existe pour cette adresse, vous recevrez un lien pour réinitialiser votre mot de
-          passe.
+      <div className="w-full max-w-[440px] rounded-xl border border-slate-200 bg-white p-6 shadow-[0_4px_24px_rgba(15,23,42,0.06)] sm:p-8">
+        <h1 className="font-display text-xl font-bold tracking-tight text-slate-900 sm:text-2xl">
+          E-mail envoyé
+        </h1>
+        <p className="mt-3 text-sm leading-relaxed text-slate-600 sm:text-base">
+          Si un compte existe pour cette adresse, vous recevrez un lien pour réinitialiser votre mot
+          de passe.
         </p>
         <button
           type="button"
           onClick={() => setResetSent(false)}
-          className="mt-6 inline-block font-medium text-[#377CF3] hover:underline"
+          className="mt-6 text-sm font-medium text-[#377CF3] underline-offset-2 hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#377CF3]"
         >
           Retour à la connexion
         </button>
@@ -109,64 +111,92 @@ export default function ConnexionClient({
   }
 
   return (
-    <div className="rounded-2xl border border-slate-200 bg-white p-8 shadow-[0_8px_30px_rgba(15,23,42,0.08)]">
-      <h2 className="font-display text-2xl font-bold text-slate-900">
-        {isAdminLogin ? 'Connexion administrateur' : 'Connexion'}
-      </h2>
-      {isAdminLogin ? (
-        <p className="mt-2 text-sm text-slate-600">
-          Espace réservé aux formateurs et administrateurs de la plateforme.
+    <div className="w-full max-w-[440px] rounded-xl border border-slate-200 bg-white p-6 shadow-[0_4px_24px_rgba(15,23,42,0.06)] sm:p-8">
+      <h1 className="font-display text-xl font-bold tracking-tight text-slate-900 sm:text-2xl">
+        {isAdminLogin ? 'Connexion administrateur' : 'Votre espace apprenant'}
+      </h1>
+      <p className="mt-2 text-sm leading-relaxed text-slate-600">
+        {isAdminLogin
+          ? 'Accès réservé aux formateurs et administrateurs de la plateforme.'
+          : 'Retrouvez vos supports et ressources de formation.'}
+      </p>
+
+      {resetOk ? (
+        <p
+          className="mt-4 rounded-lg border border-emerald-200 bg-emerald-50 px-3 py-2.5 text-sm text-emerald-900"
+          role="status"
+        >
+          Mot de passe mis à jour. Vous pouvez vous connecter.
         </p>
       ) : null}
 
-      {resetOk && (
-        <p className="mt-4 rounded-lg bg-emerald-50 p-3 text-sm text-emerald-800" role="status">
-          Mot de passe mis à jour. Vous pouvez vous connecter.
-        </p>
-      )}
-
-      {displayError && (
-        <p className="mt-4 rounded-lg bg-red-50 p-3 text-sm text-red-700" role="alert">
+      {displayError ? (
+        <p
+          className="mt-4 rounded-lg border border-red-200 bg-red-50 px-3 py-2.5 text-sm text-red-800"
+          role="alert"
+        >
           {displayError}
         </p>
-      )}
+      ) : null}
 
-      <form onSubmit={handleSubmit} className="mt-6 space-y-5">
+      <form onSubmit={handleSubmit} className="mt-6 space-y-4">
         <div>
-          <label htmlFor="email" className="block text-sm font-medium text-slate-700">
+          <label htmlFor="email" className="block text-sm font-medium text-slate-800">
             Adresse e-mail
           </label>
           <input
             id="email"
+            name="email"
             type="email"
             autoComplete="email"
+            inputMode="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
-            className="mt-1.5 w-full rounded-xl border border-slate-200 bg-[#F0F7FF] px-4 py-3 text-slate-900 placeholder:text-slate-400 focus:border-[#377CF3] focus:outline-none focus:ring-2 focus:ring-[#377CF3]/20"
+            disabled={loading}
+            className={inputClassName}
           />
         </div>
+
         <div>
-          <label htmlFor="password" className="block text-sm font-medium text-slate-700">
-            Mot de passe
-          </label>
+          <div className="flex items-baseline justify-between gap-2">
+            <label htmlFor="password" className="block text-sm font-medium text-slate-800">
+              Mot de passe
+            </label>
+            <button
+              type="button"
+              onClick={handleResetPassword}
+              disabled={loading}
+              className="shrink-0 text-sm font-medium text-[#377CF3] underline-offset-2 hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#377CF3] disabled:opacity-50"
+            >
+              Mot de passe oublié ?
+            </button>
+          </div>
           <div className="relative mt-1.5">
             <input
               id="password"
+              name="password"
               type={showPassword ? 'text' : 'password'}
               autoComplete="current-password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
-              className="w-full rounded-xl border border-slate-200 bg-white px-4 py-3 pr-12 text-slate-900 focus:border-[#377CF3] focus:outline-none focus:ring-2 focus:ring-[#377CF3]/20"
+              disabled={loading}
+              className={`${inputClassName} mt-0 pr-12`}
             />
             <button
               type="button"
               onClick={() => setShowPassword((v) => !v)}
-              className="absolute right-3 top-1/2 -translate-y-1/2 rounded p-1 text-slate-500 hover:text-slate-800"
+              disabled={loading}
+              className="absolute right-2 top-1/2 flex min-h-10 min-w-10 -translate-y-1/2 items-center justify-center rounded-md text-slate-500 hover:text-slate-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#377CF3] disabled:opacity-50"
               aria-label={showPassword ? 'Masquer le mot de passe' : 'Afficher le mot de passe'}
+              aria-pressed={showPassword}
             >
-              {showPassword ? <EyeOff size={18} strokeWidth={1.75} /> : <Eye size={18} strokeWidth={1.75} />}
+              {showPassword ? (
+                <EyeOff size={18} strokeWidth={1.75} aria-hidden />
+              ) : (
+                <Eye size={18} strokeWidth={1.75} aria-hidden />
+              )}
             </button>
           </div>
         </div>
@@ -174,48 +204,41 @@ export default function ConnexionClient({
         <button
           type="submit"
           disabled={loading}
-          className="w-full rounded-xl bg-[#377CF3] py-3.5 font-semibold text-white transition-colors hover:bg-[#2A6BD9] disabled:opacity-50"
+          className="mt-2 w-full rounded-lg bg-[#377CF3] py-3.5 text-base font-semibold text-white transition-colors hover:bg-[#2A6BD9] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#377CF3] disabled:cursor-not-allowed disabled:opacity-50"
         >
           {loading ? 'Connexion…' : isAdminLogin ? 'Accéder à l’admin' : 'Se connecter'}
         </button>
       </form>
 
-      <p className="mt-5 text-center">
-        <button
-          type="button"
-          onClick={handleResetPassword}
-          className="text-sm font-medium text-[#377CF3] hover:underline"
+      <p className="mt-6 text-center text-sm text-slate-600">
+        Besoin d&apos;aide ?{' '}
+        <a
+          href={`mailto:${CONTACT.email}`}
+          className="font-medium text-[#377CF3] underline-offset-2 hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#377CF3]"
         >
-          Mot de passe oublié
-        </button>
+          Contactez-nous
+        </a>
       </p>
 
       {isAdminLogin ? (
-        <p className="mt-6 text-center text-sm text-slate-500">
+        <p className="mt-4 text-center text-sm text-slate-500">
           Stagiaire ?{' '}
-          <Link href={LINKS.authConnexion} className="font-medium text-[#377CF3] hover:underline">
+          <Link
+            href={LINKS.authConnexion}
+            className="font-medium text-[#377CF3] underline-offset-2 hover:underline"
+          >
             Connexion espace apprenant
           </Link>
         </p>
       ) : (
-        <>
-          <p className="mt-6 text-center text-sm text-slate-600">
-            Pas encore de compte ?{' '}
-            <Link href="/auth/inscription" className="font-medium text-[#377CF3] hover:underline">
-              S&apos;inscrire
-            </Link>
-          </p>
-          <p className="mt-2 text-center text-sm text-slate-500">
-            Formateur ?{' '}
-            <Link href={LINKS.accesAdmin} className="font-medium text-[#377CF3] hover:underline">
-              Accès admin
-            </Link>
-            {' · '}
-            <Link href={LINKS.formations} className="font-medium text-[#377CF3] hover:underline">
-              Catalogue formations
-            </Link>
-          </p>
-        </>
+        <p className="mt-4 text-center text-xs text-slate-500">
+          <Link
+            href={LINKS.accesAdmin}
+            className="font-medium text-slate-600 underline-offset-2 hover:text-[#377CF3] hover:underline"
+          >
+            Accès formateur / administrateur
+          </Link>
+        </p>
       )}
     </div>
   );

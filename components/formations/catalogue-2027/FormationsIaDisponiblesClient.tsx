@@ -1,30 +1,31 @@
 'use client';
 
-import { useEffect, useMemo } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import Link from 'next/link';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
+import { Search } from 'lucide-react';
 import {
   ComplementaryCatalogueRow,
   FormationCatalogueRow,
 } from '@/components/formations/catalogue-2027/FormationCatalogueRow';
 import type { FormationCatalogueEntry } from '@/lib/formations-catalogue-display';
-import type { FormationNiveau } from '@/data/formations';
-import { METIERS_CATALOGUE_2027, type MetierId } from '@/data/catalogue-2027';
+import type { MetierId } from '@/data/catalogue-2027';
 import {
   buildFormationsIaHref,
   parseFormationsIaFilters,
 } from '@/lib/catalogue-filter-url';
 import {
   CATALOGUE_COMPLEMENTARY_ENTRIES,
-  CATALOGUE_PREREQUIS_NIVEAU_NOTE,
   CATALOGUE_THEMATIQUES,
   FORMATION_METIERS,
   FORMATION_THEMATIQUE_PRINCIPALE,
-  type CatalogueThematiqueId,
 } from '@/lib/catalogue-thematiques-btp';
-import { getFormationNiveauIaDefinition } from '@/lib/formations-niveaux-ia';
 import { getFormationByCode } from '@/data/formations';
 import { LINKS } from '@/lib/internal-links';
+import {
+  complementaryEntryMatchesSearchQuery,
+  formationRefMatchesSearchQuery,
+} from '@/lib/catalogue-formation-text-search';
 
 type Props = {
   entries: readonly FormationCatalogueEntry[];
@@ -46,6 +47,7 @@ function entryMatchesFilters(
       FORMATION_THEMATIQUE_PRINCIPALE[ref as keyof typeof FORMATION_THEMATIQUE_PRINCIPALE];
     if (th !== filters.thematique) return false;
   }
+  if (filters.q && !formationRefMatchesSearchQuery(ref, filters.q)) return false;
   return true;
 }
 
@@ -56,6 +58,7 @@ function complementaryMatches(
   if (filters.niveau) return false;
   if (filters.thematique && item.thematique !== filters.thematique) return false;
   if (filters.metier && !item.metiers.includes(filters.metier as MetierId)) return false;
+  if (filters.q && !complementaryEntryMatchesSearchQuery(item, filters.q)) return false;
   return true;
 }
 
@@ -67,6 +70,25 @@ export function FormationsIaDisponiblesClient({ entries }: Props) {
     () => parseFormationsIaFilters(searchParams),
     [searchParams],
   );
+
+  const [query, setQuery] = useState(filters.q ?? '');
+
+  useEffect(() => {
+    setQuery(filters.q ?? '');
+  }, [filters.q]);
+
+  useEffect(() => {
+    if (pathname !== '/formations') return;
+    const target = buildFormationsIaHref({
+      ...filters,
+      q: query.trim() || undefined,
+    });
+    const targetPath = target.split('#')[0] ?? target;
+    const currentPath = `${pathname}${searchParams.toString() ? `?${searchParams.toString()}` : ''}`;
+    if (targetPath !== currentPath) {
+      router.replace(target, { scroll: false });
+    }
+  }, [query, filters, pathname, router, searchParams]);
 
   const filteredQualiopi = useMemo(
     () => entries.filter((e) => entryMatchesFilters(e.ref, filters)),
@@ -102,127 +124,75 @@ export function FormationsIaDisponiblesClient({ entries }: Props) {
 
   useEffect(() => {
     if (pathname !== '/formations') return;
-    if (!filters.niveau && !filters.thematique && !filters.metier) return;
+    if (!filters.niveau && !filters.thematique && !filters.metier && !filters.q) return;
     const el = document.getElementById('catalogue-formations');
     el?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  }, [filters.metier, filters.niveau, filters.thematique, pathname]);
-
-  const setFilters = (next: Partial<typeof filters>) => {
-    router.replace(buildFormationsIaHref({ ...filters, ...next }), { scroll: false });
-  };
+  }, [filters.metier, filters.niveau, filters.thematique, filters.q, pathname]);
 
   const reset = () => {
+    setQuery('');
     router.replace('/formations#catalogue-formations', { scroll: false });
   };
 
-  const toggleNiveau = (niveau: FormationNiveau) => {
-    setFilters({ niveau: filters.niveau === niveau ? undefined : niveau });
+  const submitSearch = () => {
+    router.replace(
+      buildFormationsIaHref({
+        ...filters,
+        q: query.trim() || undefined,
+      }),
+      { scroll: false },
+    );
   };
 
-  const toggleThematique = (thematique: CatalogueThematiqueId) => {
-    setFilters({
-      thematique: filters.thematique === thematique ? undefined : thematique,
-    });
-  };
-
-  const toggleMetier = (metier: MetierId) => {
-    setFilters({ metier: filters.metier === metier ? undefined : metier });
-  };
-
-  const niveaux: FormationNiveau[] = [1, 2, 3];
+  const hasActiveFilters =
+    Boolean(filters.niveau || filters.thematique || filters.metier || filters.q);
 
   return (
     <>
-      <div className="mt-8 grid gap-3 sm:grid-cols-3">
-        {niveaux.map((n) => {
-          const def = getFormationNiveauIaDefinition(n);
-          const active = filters.niveau === n;
-          return (
-            <button
-              key={n}
-              type="button"
-              onClick={() => toggleNiveau(n)}
-              aria-pressed={active}
-              className={`rounded-xl border p-4 text-left transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#377CF3] ${
-                active
-                  ? 'border-[#377CF3] bg-[#377CF3]/10 ring-1 ring-[#377CF3]/30'
-                  : 'border-[#E2E8F0] bg-white hover:border-[#377CF3]/40'
-              }`}
-            >
-              <span className="font-display text-sm font-bold text-ofc-ink">
-                {def.labelComplet}
-              </span>
-              <span className="mt-1 block text-sm font-semibold text-ofc-accent">
-                {def.accrocheNiveau}
-              </span>
-              <span className="mt-2 block text-xs leading-relaxed text-ofc-ink-muted">
-                {def.descriptionMenu} · {def.accueilDuree}
-              </span>
-            </button>
-          );
-        })}
-      </div>
-
-      <p className="mt-4 text-sm text-ofc-ink-muted">{CATALOGUE_PREREQUIS_NIVEAU_NOTE}</p>
-
-      <div className="mt-8 flex flex-wrap gap-2" role="group" aria-label="Filtrer par thématique">
-        {CATALOGUE_THEMATIQUES.map((t) => {
-          const active = filters.thematique === t.id;
-          return (
-            <button
-              key={t.id}
-              type="button"
-              onClick={() => toggleThematique(t.id)}
-              aria-pressed={active}
-              className={`min-h-10 rounded-lg border px-3 py-2 text-sm font-medium transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#377CF3] ${
-                active
-                  ? 'border-[#377CF3] bg-[#377CF3] text-white'
-                  : 'border-[#CBD5E1] bg-white text-ofc-ink hover:border-[#377CF3]'
-              }`}
-            >
-              {t.title}
-            </button>
-          );
-        })}
-      </div>
-
-      <div
-        className="mt-4 flex flex-wrap gap-2"
-        role="group"
-        aria-label="Filtrer par métier"
+      <form
+        role="search"
+        className="mt-8 max-w-3xl"
+        onSubmit={(e) => {
+          e.preventDefault();
+          submitSearch();
+        }}
       >
-        {METIERS_CATALOGUE_2027.map((m) => {
-          const active = filters.metier === m.id;
-          return (
-            <button
-              key={m.id}
-              type="button"
-              onClick={() => toggleMetier(m.id)}
-              aria-pressed={active}
-              className={`min-h-10 rounded-lg border px-3 py-2 text-sm font-medium transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#377CF3] ${
-                active
-                  ? 'border-[#377CF3] bg-[#377CF3]/10 text-[#2563EB]'
-                  : 'border-[#CBD5E1] bg-white text-ofc-ink hover:border-[#377CF3]/40'
-              }`}
-            >
-              {m.label}
-            </button>
-          );
-        })}
-      </div>
+        <div className="relative flex items-center rounded-full border border-[#E2E8F0] bg-white pl-4 pr-1.5">
+          <label htmlFor="catalogue-formations-search" className="sr-only">
+            Rechercher une formation IA BTP
+          </label>
+          <input
+            id="catalogue-formations-search"
+            type="search"
+            name="q"
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+            placeholder="Rechercher : devis, appels d’offres, chantier, ChatGPT, Claude…"
+            autoComplete="off"
+            className="min-h-11 flex-1 border-0 bg-transparent py-2.5 pr-2 text-sm text-ofc-ink placeholder:text-ofc-ink-muted/80 focus:outline-none sm:text-base"
+          />
+          <button
+            type="submit"
+            className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-ofc-accent text-white hover:bg-ofc-accent-hover focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ofc-accent"
+            aria-label="Lancer la recherche"
+          >
+            <Search className="h-4 w-4" strokeWidth={2.25} aria-hidden />
+          </button>
+        </div>
+      </form>
 
       <div className="mt-6 flex flex-wrap items-center gap-3">
         <p className="text-sm text-ofc-ink-muted" aria-live="polite">
           {totalVisible} formation{totalVisible > 1 ? 's' : ''} affichée
           {totalVisible > 1 ? 's' : ''}
         </p>
-        {filters.niveau || filters.thematique || filters.metier ? (
+        {hasActiveFilters ? (
           <button
             type="button"
             onClick={reset}
             className="inline-flex min-h-10 items-center rounded-lg border border-dashed border-[#CBD5E1] bg-white px-4 py-2 text-sm font-medium text-ofc-ink-muted hover:border-[#377CF3]/40 hover:text-ofc-ink"
           >
-            Réinitialiser
+            Réinitialiser les filtres
           </button>
         ) : null}
       </div>
@@ -230,12 +200,28 @@ export function FormationsIaDisponiblesClient({ entries }: Props) {
       {totalVisible === 0 ? (
         <div className="mt-10 rounded-xl border border-[#E2E8F0] bg-white p-6">
           <p className="text-base text-ofc-ink-muted">
-            Aucune formation ne correspond à ces critères. Modifiez vos filtres ou{' '}
+            Aucune formation ne correspond à ces critères
+            {filters.q ? (
+              <>
+                {' '}
+                pour « <span className="font-medium text-ofc-ink">{filters.q}</span> »
+              </>
+            ) : null}
+            . Modifiez votre recherche, élargissez les filtres ou{' '}
             <Link href={LINKS.contact} className="font-semibold text-ofc-accent hover:underline">
               contactez-nous pour être conseillé
             </Link>
             .
           </p>
+          {hasActiveFilters ? (
+            <button
+              type="button"
+              onClick={reset}
+              className="mt-4 inline-flex min-h-10 items-center rounded-lg border border-[#CBD5E1] bg-white px-4 py-2 text-sm font-semibold text-ofc-ink hover:border-[#377CF3]/40"
+            >
+              Effacer la recherche et les filtres
+            </button>
+          ) : null}
         </div>
       ) : (
         <div className="mt-10 space-y-12">

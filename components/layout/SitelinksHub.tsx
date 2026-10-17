@@ -14,6 +14,7 @@ import { LINKS } from '@/lib/internal-links';
 import { getSiteNavHubItems } from '@/lib/contextual-internal-links';
 import { OFC_CARD } from '@/lib/ofc-interaction-classes';
 import { OFC_SEC } from '@/lib/ofc-section-classes';
+import { isAuthConnexionPage } from '@/lib/auth-connexion-chrome';
 import type { LucideIcon } from 'lucide-react';
 
 const ICONS: Record<string, LucideIcon> = {
@@ -32,6 +33,7 @@ const ICONS: Record<string, LucideIcon> = {
 export function SitelinksHub() {
   const pathname = usePathname();
   if (
+    isAuthConnexionPage(pathname) ||
     pathname?.startsWith('/admin') ||
     pathname?.startsWith('/demo/') ||
     pathname?.startsWith('/outils/demo-')

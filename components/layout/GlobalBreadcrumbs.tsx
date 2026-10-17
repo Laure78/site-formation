@@ -4,6 +4,7 @@ import { usePathname } from 'next/navigation';
 import { Breadcrumbs } from '@/components/Breadcrumbs';
 import { buildBreadcrumbTrail } from '@/lib/breadcrumb-trail';
 import { cn } from '@/lib/cn';
+import { isAuthConnexionPage } from '@/lib/auth-connexion-chrome';
 
 /**
  * Fil d'Ariane visuel — injecté dans `app/layout.tsx` (toutes les pages sauf l'accueil / admin).
@@ -11,6 +12,7 @@ import { cn } from '@/lib/cn';
  */
 export function GlobalBreadcrumbs() {
   const pathname = usePathname() ?? '/';
+  if (isAuthConnexionPage(pathname)) return null;
   const pathNorm = pathname.replace(/\/$/, '') || '/';
   /** Fil explicite — évite un écart d’hydratation sur le hub formateurs. */
   const items =

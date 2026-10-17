@@ -4,6 +4,7 @@ import { EvenementAoBtpPromoEncart } from '@/components/evenements/EvenementAoBt
 import { AccueilHeroSection } from '@/components/landing/AccueilHeroSection';
 import { AccueilPreuvesConfianceSection } from '@/components/landing/accueil/AccueilPreuvesConfianceSection';
 import { AccueilNiveauxOrientationSection } from '@/components/landing/accueil/AccueilNiveauxOrientationSection';
+import { AccueilRechercheFormationsSection } from '@/components/landing/accueil/AccueilRechercheFormationsSection';
 import { AccueilFormationsDisponiblesSection } from '@/components/landing/accueil/AccueilFormationsDisponiblesSection';
 import { AccueilParcoursMetiersSection } from '@/components/landing/accueil/AccueilParcoursMetiersSection';
 import { AccueilCasExercicesSection } from '@/components/landing/accueil/AccueilCasExercicesSection';
@@ -86,6 +87,7 @@ export default function HomePage() {
       <EvenementAoBtpPromoEncart placement="accueil" />
       <AccueilPreuvesConfianceSection />
       <AccueilNiveauxOrientationSection />
+      <AccueilRechercheFormationsSection />
       <AccueilFormationsDisponiblesSection />
       <AccueilParcoursMetiersSection />
       <AccueilLaureFormateursSection />

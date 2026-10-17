@@ -2,9 +2,9 @@
  * Navigation du header — source unique des rubriques et sous-menus.
  * Menus compacts (panneaux simples, pas de méga-menu).
  */
-import { getAllParcoursComputed, type ParcoursId } from '@/data/catalogue-2027';
 import { catalogueFormationNavContainsPath } from '@/lib/catalogue-formations-nav';
 import { buildFormationsNavMegaColumns } from '@/lib/header-nav-formations-catalogue';
+import { buildParcoursNavChildren } from '@/lib/header-nav-parcours';
 import { utilityOrganismeNavActive } from '@/lib/header-nav-organisme-links';
 import { LINKS } from '@/lib/internal-links';
 
@@ -98,52 +98,6 @@ function financementNavActive(pathname: string): boolean {
 /** État actif bandeau « Notre organisme » (hors menu principal). */
 export function headerUtilityOrganismeIsActive(pathname: string): boolean {
   return utilityOrganismeNavActive(pathname);
-}
-
-function parcoursBadge(id: ParcoursId): string | undefined {
-  const p = getAllParcoursComputed().find((x) => x.id === id);
-  return p?.disponibilite === 'ouverture-2027' ? '2027' : undefined;
-}
-
-function buildParcoursNavChildren(): readonly HeaderNavLink[] {
-  return [
-    {
-      href: LINKS.parcoursDirigeantPmeBtp,
-      label: 'Dirigeant d’entreprise BTP',
-      title: 'Parcours dirigeant PME BTP',
-      badge: parcoursBadge('dirigeant-pme-btp'),
-    },
-    {
-      href: LINKS.parcoursChargeAffairesBtp,
-      label: 'Chargé d’affaires',
-      title: 'Parcours chargé d’affaires BTP',
-      badge: parcoursBadge('charge-affaires-btp'),
-    },
-    {
-      href: LINKS.parcoursConducteurDeTravaux,
-      label: 'Conducteur de travaux',
-      title: 'Parcours conducteur de travaux',
-      badge: parcoursBadge('conducteur-de-travaux'),
-    },
-    {
-      href: LINKS.parcoursChefDeChantier,
-      label: 'Chef de chantier',
-      title: 'Parcours encadrement de chantier',
-      badge: parcoursBadge('chef-de-chantier'),
-    },
-    {
-      href: LINKS.parcoursAssistantDeGestionBtp,
-      label: 'Administration & travaux',
-      title: 'Parcours assistant de gestion BTP',
-      badge: parcoursBadge('assistant-de-gestion-btp'),
-    },
-    {
-      href: LINKS.parcoursReferentIaBtp,
-      label: 'Référent IA BTP',
-      title: 'Parcours référent IA BTP',
-      badge: parcoursBadge('referent-ia-btp'),
-    },
-  ];
 }
 
 const RESSOURCES_NAV_CHILDREN: readonly HeaderNavLink[] = [

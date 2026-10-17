@@ -6,7 +6,6 @@ import { ContactPathCards } from '@/components/contact/ContactPathCards';
 import { ContactFormSection } from '@/components/contact/ContactFormSection';
 import { ContactAfterSendInfo } from '@/components/contact/ContactAfterSendInfo';
 import { ContactPageCalendlyPanel } from '@/components/contact/ContactPageCalendlyPanel';
-import { EvenementAoBtpPromoEncart } from '@/components/evenements/EvenementAoBtpPromoEncart';
 import {
   CONTACT_FOOTER_LINKS,
   CONTACT_PAGE_META_DESCRIPTION,
@@ -51,8 +50,6 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
             { label: 'Contact', href: LINKS.contact },
           ]}
         />
-
-        <EvenementAoBtpPromoEncart placement="contact" variant="compact" />
 
         <div className="mt-6 grid gap-6 lg:grid-cols-[minmax(0,0.92fr)_minmax(0,1.08fr)] lg:items-start lg:gap-8">
           <ContactPageIntro />

@@ -19,6 +19,7 @@ import {
   HeaderNavSimpleLink,
 } from '@/components/nav/HeaderNavDropdown';
 import { PromoOffreFormations2027Banner } from '@/components/PromoOffreFormations2027Banner';
+import { isAuthConnexionPage } from '@/lib/auth-connexion-chrome';
 import type { LucideIcon } from 'lucide-react';
 
 const HeaderMobileDrawer = dynamic(
@@ -180,6 +181,7 @@ export function Header() {
   }, [openId]);
 
   if (
+    isAuthConnexionPage(pathname) ||
     pathname?.startsWith('/admin') ||
     pathname?.startsWith('/demo/') ||
     pathname?.startsWith('/outils/demo-')
