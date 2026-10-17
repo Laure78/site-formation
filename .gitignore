@@ -2,6 +2,7 @@
 
 # scratch / artefacts locaux
 /.tmp
+/tmp/
 
 # Export Teachizy (PDF + session navigateur — ne jamais committer)
 /.teachizy-auth/
