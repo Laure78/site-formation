@@ -41,8 +41,9 @@ export function EvenementAoBtpPromoEncart({
               Appels d’offres BTP : une méthode en 5 étapes avec l’IA
             </h2>
             <p className="mt-1 text-sm text-slate-700">
-              Le 5 novembre, de 12 h à 13 h, webinaire gratuit d’une heure. Au programme : DCE,
-              Go/No-Go, chiffrage, mémoire technique et contrôles IA.
+              {event.dateLabel}, {event.timeLabel.toLowerCase()} — événement en ligne d’une heure (
+              {event.tarifLibelle}). Au programme : DCE, Go/No-Go, chiffrage, mémoire technique et
+              contrôles IA.
             </p>
           </div>
           <Link
@@ -70,8 +71,9 @@ export function EvenementAoBtpPromoEncart({
             Appels d’offres BTP : une méthode en 5 étapes avec l’IA
           </h2>
           <p className="mt-2 text-sm leading-relaxed text-slate-700 md:text-base">
-            Le 5 novembre, de 12 h à 13 h, webinaire gratuit d’une heure. Au programme : DCE,
-            Go/No-Go, chiffrage, mémoire technique et contrôles IA.
+            {event.dateLabel}, {event.timeLabel.toLowerCase()} — événement en ligne d’une heure (
+            {event.tarifLibelle}). Au programme : DCE, Go/No-Go, chiffrage, mémoire technique et
+            contrôles IA.
           </p>
         </div>
         <Link

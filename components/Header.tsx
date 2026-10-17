@@ -15,13 +15,14 @@ import {
   Building2,
   UserCircle,
   Route,
+  CalendarDays,
 } from 'lucide-react';
 import { SITE } from '@/lib/site';
 import { useHeaderNavDesktopHover } from '@/hooks/useHeaderNavDesktopHover';
 import { getHeaderNav, headerNavItemHasPanel } from '@/lib/header-nav';
 import { HeaderPrimaryCta } from '@/components/nav/HeaderPrimaryCta';
-import { HeaderSecondaryBar } from '@/components/nav/HeaderSecondaryBar';
-import { SiteSearchBar } from '@/components/search/SiteSearchBar';
+import { HeaderUtilityBar } from '@/components/nav/HeaderUtilityBar';
+import { useSiteSearch } from '@/components/search/SiteSearchProvider';
 import { HeaderMegaMenu } from '@/components/nav/HeaderMegaMenu';
 import {
   HeaderNavDropdown,
@@ -42,6 +43,7 @@ const MOBILE_NAV_ICON: Record<string, LucideIcon> = {
   formations: GraduationCap,
   'parcours-metiers': Route,
   entreprise: Building2,
+  evenements: CalendarDays,
   organisme: UserCircle,
   ressources: Layers,
 };
@@ -65,6 +67,12 @@ export function Header() {
   const openMega = openItem?.megaColumns?.length ? openItem : null;
   const desktopHover = useHeaderNavDesktopHover(openId, setOpenId);
   const desktopHoverHandlers = desktopHover.enabled ? desktopHover : undefined;
+  const { closeSearch, isSearchOpen } = useSiteSearch();
+
+  const prepareSearchOpen = () => {
+    setMobileOpen(false);
+    setOpenId(null);
+  };
 
   if (navPath !== pathname) {
     setNavPath(pathname);
@@ -100,6 +108,10 @@ export function Header() {
       document.body.style.overflow = prev;
     };
   }, [mobileOpen]);
+
+  useEffect(() => {
+    if (mobileOpen && isSearchOpen) closeSearch();
+  }, [mobileOpen, isSearchOpen, closeSearch]);
 
   useEffect(() => {
     let mounted = true;
@@ -200,7 +212,9 @@ export function Header() {
       >
         <PromoOffreFormations2027Banner />
         <div className="site-header__inner mx-auto flex max-w-[80rem] min-w-0 flex-col gap-0 px-4 py-2 sm:px-6 lg:gap-1.5 lg:px-8">
-          {/* Ligne 1 — marque, recherche, accès */}
+          <HeaderUtilityBar onBeforeOpenSearch={prepareSearchOpen} />
+
+          {/* Ligne principale — marque et accès */}
           <div className="site-header__top flex min-w-0 items-center justify-between gap-2 sm:gap-3">
             <Link href={SITE.links.home} className="site-header__brand flex min-w-0 shrink-0 items-center gap-2 sm:gap-2.5">
               <span className="site-header__logo-mark ring-[#377CF3]/25">
@@ -224,14 +238,6 @@ export function Header() {
                 </span>
               </span>
             </Link>
-
-            <div className="site-header__search mx-3 hidden min-w-0 flex-1 lg:mx-4 lg:block">
-              <SiteSearchBar
-                scope="all"
-                placeholder="Rechercher une formation, un besoin…"
-                className="w-full max-w-xl"
-              />
-            </div>
 
             <div className="site-header__actions relative z-[55] hidden shrink-0 items-center gap-2 border-l border-slate-200/90 pl-2.5 lg:!flex xl:gap-2.5 xl:pl-3.5">
               <HeaderPrimaryCta origin="header-desktop" />
@@ -287,7 +293,6 @@ export function Header() {
             })}
           </nav>
 
-          <HeaderSecondaryBar />
         </div>
 
         {openMega?.megaColumns ? (

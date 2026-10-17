@@ -2,7 +2,16 @@
 
 import Link from 'next/link';
 import { useCallback, useEffect, useId, useRef, useState } from 'react';
-import { FileText, GraduationCap, Loader2, Newspaper, Search, X } from 'lucide-react';
+import {
+  CalendarDays,
+  FileText,
+  GraduationCap,
+  Loader2,
+  Newspaper,
+  Route,
+  Search,
+  X,
+} from 'lucide-react';
 import type { SiteSearchKind, SiteSearchScope } from '@/lib/site-search-labels';
 import { siteSearchKindLabel } from '@/lib/site-search-labels';
 import { LINKS } from '@/lib/internal-links';
@@ -21,7 +30,12 @@ const KIND_ICON: Record<SiteSearchKind, typeof Search> = {
   formation: GraduationCap,
   article: Newspaper,
   page: Search,
+  parcours: Route,
+  evenement: CalendarDays,
 };
+
+const SEARCH_PLACEHOLDER = 'Formation, parcours métier, ressource, événement…';
+const SEARCH_LIMIT = 6;
 
 type SiteSearchDialogProps = {
   open: boolean;
@@ -37,6 +51,7 @@ export function SiteSearchDialog({
   initialQuery = '',
 }: SiteSearchDialogProps) {
   const titleId = useId();
+  const dialogRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
   const [query, setQuery] = useState(initialQuery);
   const [results, setResults] = useState<SearchResult[]>([]);
@@ -67,7 +82,7 @@ export function SiteSearchDialog({
     const timer = window.setTimeout(async () => {
       setLoading(true);
       try {
-        const params = new URLSearchParams({ q, scope, limit: '12' });
+        const params = new URLSearchParams({ q, scope, limit: String(SEARCH_LIMIT) });
         const res = await fetch(`/api/search?${params}`, { signal: controller.signal });
         if (!res.ok) throw new Error('search failed');
         const data = (await res.json()) as { results: SearchResult[] };
@@ -114,26 +129,71 @@ export function SiteSearchDialog({
     return () => window.removeEventListener('keydown', onKeyDown);
   }, [open, results, activeIndex, close]);
 
+  useEffect(() => {
+    if (!open || !dialogRef.current) return;
+    const node = dialogRef.current;
+    const focusableSelector =
+      'a[href], button:not([disabled]), input:not([disabled]), [tabindex]:not([tabindex="-1"])';
+
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key !== 'Tab') return;
+      const focusable = Array.from(node.querySelectorAll<HTMLElement>(focusableSelector)).filter(
+        (el) => !el.hasAttribute('disabled') && el.offsetParent !== null,
+      );
+      if (focusable.length === 0) return;
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    };
+    node.addEventListener('keydown', onKeyDown);
+    return () => node.removeEventListener('keydown', onKeyDown);
+  }, [open]);
+
   if (!open) return null;
+
+  const trimmed = query.trim();
 
   return (
     <div
-      className="fixed inset-0 z-[200] flex items-start justify-center bg-slate-900/50 p-4 pt-[12vh] backdrop-blur-[2px]"
+      className="fixed inset-0 z-[200] flex items-start justify-center bg-slate-900/50 p-4 pt-[10vh] backdrop-blur-[2px] lg:pt-[12vh]"
       role="presentation"
       onMouseDown={(e) => {
         if (e.target === e.currentTarget) close();
       }}
     >
       <div
+        ref={dialogRef}
         role="dialog"
         aria-modal="true"
         aria-labelledby={titleId}
         className="w-full max-w-xl overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-2xl"
       >
+        <div className="border-b border-slate-100 px-4 pt-4 pb-2">
+          <div className="flex items-start justify-between gap-2">
+            <h2 id={titleId} className="font-display text-base font-bold text-slate-900">
+              Rechercher sur le site
+            </h2>
+            <button
+              type="button"
+              onClick={close}
+              className="rounded-lg p-1.5 text-slate-500 hover:bg-slate-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#377CF3]"
+              aria-label="Fermer la recherche"
+            >
+              <X className="h-5 w-5" aria-hidden />
+            </button>
+          </div>
+        </div>
+
         <div className="flex items-center gap-3 border-b border-slate-100 px-4 py-3">
           <Search className="h-5 w-5 shrink-0 text-[#377CF3]" aria-hidden />
           <label htmlFor={`${titleId}-input`} className="sr-only">
-            Rechercher sur laureolivie.fr
+            Rechercher sur le site
           </label>
           <input
             ref={inputRef}
@@ -141,44 +201,34 @@ export function SiteSearchDialog({
             type="search"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            placeholder={
-              scope === 'ressources'
-                ? 'Tuto, guide, thème…'
-                : 'Formation, tuto, article, guide…'
-            }
+            placeholder={SEARCH_PLACEHOLDER}
             autoComplete="off"
             className="min-w-0 flex-1 bg-transparent text-base text-slate-900 outline-none placeholder:text-slate-400"
           />
           {loading ? (
             <Loader2 className="h-4 w-4 shrink-0 animate-spin text-slate-400" aria-hidden />
           ) : null}
-          <button
-            type="button"
-            onClick={close}
-            className="rounded-lg p-1.5 text-slate-500 hover:bg-slate-100"
-            aria-label="Fermer la recherche"
-          >
-            <X className="h-5 w-5" aria-hidden />
-          </button>
         </div>
 
         <div className="max-h-[min(50vh,24rem)] overflow-y-auto p-2">
-          {query.trim().length < 2 ? (
-            <p className="px-3 py-6 text-center text-sm text-slate-500">
-              Saisissez au moins 2 caractères — tutos PDF, formations, articles blog, guides MOE…
+          {trimmed.length < 2 ? (
+            <p className="px-3 py-6 text-center text-sm leading-relaxed text-slate-500">
+              Formations Qualiopi, parcours métiers, ressources PDF et événements en ligne — saisissez
+              au moins 2 caractères.
             </p>
           ) : results.length === 0 && !loading ? (
             <div className="px-3 py-6 text-center">
-              <p className="text-sm text-slate-500">
-                Aucun résultat pour « {query.trim()} ».
+              <p className="text-sm text-slate-600">
+                Aucun résultat. Essayez un autre mot-clé ou{' '}
+                <Link
+                  href={LINKS.contact}
+                  onClick={close}
+                  className="font-semibold text-[#377CF3] hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#377CF3]"
+                >
+                  contactez-nous
+                </Link>
+                .
               </p>
-              <Link
-                href={LINKS.formations}
-                onClick={close}
-                className="mt-3 inline-flex text-sm font-semibold text-[#377CF3] hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#377CF3]"
-              >
-                Voir le catalogue des formations
-              </Link>
             </div>
           ) : (
             <ul className="space-y-1">

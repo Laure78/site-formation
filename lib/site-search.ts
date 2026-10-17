@@ -1,4 +1,6 @@
+import { getAllParcoursComputed } from '@/data/catalogue-2027';
 import { getAllArticles } from '@/lib/blog';
+import { EVENEMENT_AO_BTP, isEvenementAoBtpActif } from '@/lib/evenements/repondre-appel-offres-btp-5-etapes';
 import { getFormationsCatalogue } from '@/lib/formations-catalogue-display';
 import { getCatalogueSiteSearchDescription } from '@/lib/formation-catalogue-visibility';
 import { DEV_WEB_IA_FORMATION_TITRE } from '@/lib/formation-developpement-web-ia-content';
@@ -274,6 +276,28 @@ function buildSiteSearchIndex(): SiteSearchEntry[] {
     keywords: [f.ref, f.level, ...f.objectifs, f.comparatif.publicLabel, f.comparatif.casUsage].join(' '),
   }));
 
+  const parcours: SiteSearchEntry[] = getAllParcoursComputed().map((p) => ({
+    id: `parcours-${p.id}`,
+    title: p.titre,
+    description: p.benefice,
+    href: `${LINKS.formations}/parcours/${p.slug}`,
+    kind: 'parcours' as const,
+    keywords: [p.publicCible, p.objectif, ...p.competencesVisees].join(' '),
+  }));
+
+  const evenements: SiteSearchEntry[] = isEvenementAoBtpActif()
+    ? [
+        {
+          id: `evenement-${EVENEMENT_AO_BTP.slug}`,
+          title: EVENEMENT_AO_BTP.name,
+          description: `${EVENEMENT_AO_BTP.dateLabel} · ${EVENEMENT_AO_BTP.formatLabel} · ${EVENEMENT_AO_BTP.host}`,
+          href: EVENEMENT_AO_BTP.path,
+          kind: 'evenement' as const,
+          keywords: `appel offres btp webinaire ao dce mémoire technique eventbrite ${EVENEMENT_AO_BTP.shortTitle}`,
+        },
+      ]
+    : [];
+
   const hubLinks: SiteSearchEntry[] = [];
   for (const block of RESSOURCES_THEMATIC_BLOCKS) {
     for (const link of block.tutos) {
@@ -321,6 +345,8 @@ function buildSiteSearchIndex(): SiteSearchEntry[] {
     ...buildStaticPages(),
     ...tutos,
     ...formations,
+    ...parcours,
+    ...evenements,
     ...hubLinks,
     ...articles,
   ]);

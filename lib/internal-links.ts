@@ -424,6 +424,8 @@ export const LINKS = {
   pdfGuideChargeAffairesOfc: '/ressources/pdf/guide-charge-affaires-ofc.pdf',
   /** Lead magnet — Répondre AO BTP méthode 5 étapes (éd. 2026) */
   guideRepondreAoBtpOfc2026: '/ressources/guide-repondre-ao-btp-ofc-2026',
+  /** Entrée menu « Événements » — fiche unique (pas de hub liste). */
+  evenements: '/evenements/repondre-appel-offres-btp-5-etapes',
   /** Événement en ligne — webinaire AO BTP méthode 5 étapes (5 nov. 2026) */
   evenementRepondreAoBtp5Etapes: '/evenements/repondre-appel-offres-btp-5-etapes',
   /** PDF gratuit — Guide répondre AO BTP OFC 2026 (~12 p.) */

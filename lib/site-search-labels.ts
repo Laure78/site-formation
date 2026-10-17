@@ -1,4 +1,11 @@
-export type SiteSearchKind = 'tuto' | 'guide' | 'formation' | 'article' | 'page';
+export type SiteSearchKind =
+  | 'tuto'
+  | 'guide'
+  | 'formation'
+  | 'article'
+  | 'page'
+  | 'parcours'
+  | 'evenement';
 
 export type SiteSearchScope = 'all' | 'ressources';
 
@@ -8,6 +15,8 @@ const KIND_LABEL: Record<SiteSearchKind, string> = {
   formation: 'Formation',
   article: 'Article blog',
   page: 'Page',
+  parcours: 'Parcours métier',
+  evenement: 'Événement',
 };
 
 export function siteSearchKindLabel(kind: SiteSearchKind): string {

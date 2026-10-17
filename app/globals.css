@@ -101,11 +101,11 @@
     --ofc-blue: var(--ofc-color-accent);
     --ofc-blue-hover: var(--ofc-color-accent-hover);
 
-    /* Mobile : marque + menu + ligne CTA RDV */
-    --site-header-height: 5.5rem;
+    /* Mobile : bandeau utilitaire + marque + menu + ligne CTA RDV */
+    --site-header-height: 7.75rem;
 
-    /* Header desktop : marque + recherche + nav + barre secondaire */
-    --site-header-height-lg: 8.5rem;
+    /* Header desktop : bandeau utilitaire + marque + nav */
+    --site-header-height-lg: 9.75rem;
 
     /* Conteneur site — aligné BeWork (1280px) */
     --ofc-site-max-width: 80rem;

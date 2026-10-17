@@ -11,13 +11,14 @@ export const EVENEMENT_AO_BTP_END = new Date('2026-11-05T13:00:00+01:00');
 
 export const EVENEMENT_AO_BTP_START = new Date('2026-11-05T12:00:00+01:00');
 
-/** Prix affiché sur la billetterie Eventbrite (EUR). */
-export const EVENEMENT_AO_BTP_PRICE_EUR = 11.85;
+/** Prix de base affiché sur Eventbrite (EUR, hors frais éventuels à l’inscription). */
+export const EVENEMENT_AO_BTP_PRICE_EUR = 10;
 
-/** Libellé tarif site — aligné sur la billetterie Eventbrite (11,85 €). */
-export const EVENEMENT_AO_BTP_TARIF_LIBELLE = '11,85 €';
+/** Libellé tarif site — aligné sur Eventbrite (« 10 € par participant »). */
+export const EVENEMENT_AO_BTP_TARIF_LIBELLE = '10 € par participant';
 
-export const EVENEMENT_AO_BTP_TARIF_FAQ = '11,85 € par participant.';
+export const EVENEMENT_AO_BTP_TARIF_FAQ =
+  '10 € par participant. Inscription et paiement sur Eventbrite ; frais éventuels indiqués sur la billetterie.';
 
 /** URL publique d’inscription (jamais de lien privé de connexion). */
 export const EVENEMENT_AO_BTP_EVENTBRITE_URL =
@@ -28,10 +29,10 @@ export const EVENEMENT_AO_BTP = {
   path: LINKS.evenementRepondreAoBtp5Etapes,
   name: 'Répondre à un appel d’offres dans le BTP : la méthode en 5 étapes',
   shortTitle: 'Appels d’offres BTP : méthode en 5 étapes',
-  badge: 'Événement gratuit · hors formation • 5 novembre 2026',
+  badge: 'Événement en ligne · hors catalogue formation · 5 novembre 2026',
   dateLabel: 'Jeudi 5 novembre 2026',
   timeLabel: 'De 12 h à 13 h, heure de Paris',
-  formatLabel: 'Événement gratuit · hors formation',
+  formatLabel: 'En ligne',
   durationLabel: '1 heure',
   startDateIso: '2026-11-05T12:00:00+01:00',
   endDateIso: '2026-11-05T13:00:00+01:00',
@@ -43,7 +44,7 @@ export const EVENEMENT_AO_BTP = {
   ctaPrimary: 'Je réserve ma place sur Eventbrite',
   ctaSecondary: 'Découvrir le programme',
   inscriptionMention: 'Inscription et paiement sur Eventbrite.',
-  promoMention: 'Événement gratuit · hors formation • Inscription sur Eventbrite',
+  promoMention: 'Événement en ligne · 5 novembre 2026 · Inscription sur Eventbrite',
   host: 'Laure Olivié',
   hostRole: 'Formatrice IA pour le BTP',
   /** Visuel principal (hero + Open Graph + JSON-LD Event). */

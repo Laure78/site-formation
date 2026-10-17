@@ -66,6 +66,10 @@ function formationsNavActive(pathname: string): boolean {
   return catalogueFormationNavContainsPath(pathname);
 }
 
+function evenementsNavActive(pathname: string): boolean {
+  return pathname === LINKS.evenements || pathname.startsWith('/evenements/');
+}
+
 function ressourcesNavActive(pathname: string): boolean {
   return (
     pathname === LINKS.ressources ||
@@ -265,6 +269,12 @@ function buildHeaderNavItems(): readonly HeaderNavItem[] {
       dropdownAlign: 'end',
       isActive: organismeNavActive,
       children: ORGANISME_NAV_CHILDREN,
+    },
+    {
+      id: 'evenements',
+      label: 'Événements',
+      href: LINKS.evenements,
+      isActive: evenementsNavActive,
     },
     {
       id: 'ressources',

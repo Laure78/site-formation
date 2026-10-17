@@ -14,7 +14,7 @@ export function SiteSearchTrigger({ className = '', showLabel = false }: SiteSea
   return (
     <button
       type="button"
-      onClick={openSearch}
+      onClick={(event) => openSearch(event.currentTarget)}
       className={`inline-flex items-center gap-2 rounded-full text-sm font-medium text-slate-700 transition-colors hover:bg-white hover:text-slate-900 hover:shadow-sm ${className}`}
       aria-label="Rechercher sur le site"
     >

@@ -8,9 +8,7 @@ import { X } from 'lucide-react';
 import { AUTHOR_HEADSHOT_IMAGE_CLASS } from '@/lib/author-headshot';
 import { IMAGE_QUALITY_DEFAULT } from '@/lib/image-props';
 import { HeaderPrimaryCta } from '@/components/nav/HeaderPrimaryCta';
-import { FormationPlateformeConnexionButton } from '@/components/formation/FormationPlateformeConnexionButton';
 import { HeaderMobileNavSection } from '@/components/nav/HeaderNavDropdown';
-import { SiteSearchBar } from '@/components/search/SiteSearchBar';
 import { SITE } from '@/lib/site';
 import { LINKS } from '@/lib/internal-links';
 import type { HeaderNavItem } from '@/lib/header-nav';
@@ -106,13 +104,6 @@ export function HeaderMobileDrawer({
             <X size={22} strokeWidth={1.75} />
           </button>
         </div>
-        <div className="border-b border-slate-100 px-4 py-3">
-          <SiteSearchBar
-            scope="all"
-            placeholder="Rechercher une formation, un besoin…"
-            className="w-full"
-          />
-        </div>
         <nav
           className="min-h-0 flex-1 overflow-y-auto overflow-x-hidden px-4 py-4"
           aria-label="Navigation mobile"
@@ -152,13 +143,11 @@ export function HeaderMobileDrawer({
             <Link href={LINKS.financement} onClick={onClose} className="hover:text-[#377CF3]">
               Financement
             </Link>
+            <Link href={LINKS.contact} onClick={onClose} className="hover:text-[#377CF3]">
+              Contact
+            </Link>
           </p>
           <div className="flex flex-col gap-3">
-            <FormationPlateformeConnexionButton
-              variant="navMobile"
-              label="Espace pédagogique"
-              onClick={onClose}
-            />
             <HeaderPrimaryCta
               origin="header-mobile-drawer"
               onClick={onClose}
