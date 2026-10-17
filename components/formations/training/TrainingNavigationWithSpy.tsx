@@ -50,7 +50,7 @@ export function TrainingNavigationWithSpy({ items }: Props) {
       className="sticky top-[var(--site-header-height)] z-30 border-b border-slate-200 bg-white"
     >
       <div className="mx-auto max-w-[78rem] px-4">
-        <ul className="-mx-1 flex gap-0.5 overflow-x-auto py-2 [scrollbar-width:thin]">
+        <ul className="-mx-1 flex gap-0.5 overflow-x-auto py-2 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
           {items.map((item) => {
             const isActive = activeHref === item.href;
             return (

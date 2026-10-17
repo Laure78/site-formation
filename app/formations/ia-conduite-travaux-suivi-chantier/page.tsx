@@ -1,7 +1,6 @@
 import { notFound } from 'next/navigation';
 import { JsonLd } from '@/components/JsonLd';
 import { CatalogueFormationPageTemplate } from '@/components/formations/catalogue/CatalogueFormationPageTemplate';
-import { FormationCatalogueGeoSections } from '@/components/formations/FormationCatalogueGeoSections';
 import { createPageMetadata, getFAQSchema } from '@/lib/seo';
 import { FAQ_CONDUITE_TRAVAUX_NIV03 } from '@/lib/faq';
 import { getFormationCatalogueVisuel } from '@/lib/formations-catalogue-display';
@@ -58,17 +57,6 @@ export default function FormationIaConduiteTravauxSuiviChantierPage() {
         faqItems={FAQ_CONDUITE_TRAVAUX_NIV03}
         faqSectionId="faq-niv-03"
         h1Id="formation-niv-03-h1"
-        afterObjectives={
-          <FormationCatalogueGeoSections
-            catalogueRef="NIV-03"
-            ressourcesGratuites={[
-              { href: LINKS.promptsIaConducteurTravaux, label: '20 prompts IA conducteur de travaux' },
-              { href: LINKS.tutoPpsps, label: 'Tutoriel — structurer un PPSPS avec l’IA' },
-              { href: LINKS.tutoDoeDossierOuvragesExecutes, label: 'Tutoriel — assembler un DOE' },
-              { href: LINKS.tutoPvLeveeReserves, label: 'Tutoriel — PV de levée de réserves' },
-            ]}
-          />
-        }
       />
     </div>
   );

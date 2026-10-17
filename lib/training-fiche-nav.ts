@@ -56,7 +56,7 @@ export function buildTrainingFicheNavItems(input: TrainingFicheNavInput): Catalo
   }
   if (input.hasFormateurs) push(TRAINING_ANCHOR.formateurs, 'Formateurs');
   if (input.hasSessions !== false) push(TRAINING_ANCHOR.sessions, 'Sessions');
-  if (input.hasAvis !== false) push(TRAINING_ANCHOR.avis, 'Avis');
+  if (input.hasAvis) push(TRAINING_ANCHOR.avis, 'Avis');
   if (input.hasFinancementOpcoEtendu) push(TRAINING_ANCHOR.financement, 'Financement');
   if (input.hasApplicationsIa) push(TRAINING_ANCHOR.applicationsIa, 'Usages IA');
   if (input.hasFaq && input.faqSectionId) {

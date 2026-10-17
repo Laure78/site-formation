@@ -229,23 +229,20 @@ export function InfosPratiques({
     <section
       id="informations-pratiques"
       aria-labelledby="infos-pratiques-heading"
-      className={`scroll-mt-28 px-4 ${compact ? 'py-8 md:py-10' : 'py-14 md:py-16'} ${className}`.trim()}
+      className={`scroll-mt-28 px-4 ${compact ? 'py-6 md:py-8' : 'py-14 md:py-16'} ${className}`.trim()}
     >
       <div
-        className={`mx-auto max-w-4xl rounded-lg bg-[#F2F2F2] px-4 py-5 md:px-6 md:py-6 ${poppins.className}`}
+        className={`mx-auto max-w-4xl rounded-lg border border-slate-200 bg-white px-4 py-4 md:px-5 md:py-5 ${poppins.className}`}
       >
         {compact ? (
           <details className="group">
             <summary className="flex min-h-11 cursor-pointer list-none items-start justify-between gap-4 marker:content-none [&::-webkit-details-marker]:hidden">
               <div>
-                <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#377CF3]">
-                  Indicateur 1 Qualiopi — information du public
-                </p>
-                <h2 id="infos-pratiques-heading" className="mt-2 text-2xl font-bold text-[#377CF3] md:text-2xl">
+                <h2 id="infos-pratiques-heading" className="text-lg font-semibold text-slate-900">
                   {heading}
                 </h2>
-                <p className="mt-2 text-sm text-slate-500">
-                  Référence {programmeRef} · {formationTitle}
+                <p className="mt-1 text-sm text-slate-600">
+                  Référence {programmeRef} · obligations Qualiopi (information du public)
                 </p>
               </div>
               <span className="mt-2 shrink-0 text-sm font-semibold text-[#377CF3] group-open:hidden">

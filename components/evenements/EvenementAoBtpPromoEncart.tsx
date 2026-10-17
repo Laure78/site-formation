@@ -8,7 +8,7 @@ import { OFC_SEC, OFC_SECTION_INNER } from '@/lib/ofc-section-classes';
 
 type EvenementAoBtpPromoEncartProps = {
   /** Identifiant d’emplacement (analytics / a11y). */
-  placement: 'accueil' | 'formation-ao' | 'ressources' | 'guide-ao';
+  placement: 'accueil' | 'contact' | 'partenaires' | 'formation-ao' | 'ressources' | 'guide-ao';
   /** Variante visuelle. */
   variant?: 'default' | 'compact';
 };

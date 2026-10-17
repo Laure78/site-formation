@@ -1,7 +1,6 @@
 import { JsonLd } from '@/components/JsonLd';
 import { CatalogueFormationPageTemplate } from '@/components/formations/catalogue/CatalogueFormationPageTemplate';
 import { CatalogueFormationClaudeExtras } from '@/components/formations/catalogue/CatalogueFormationClaudeExtras';
-import { FormationCatalogueGeoSections } from '@/components/formations/FormationCatalogueGeoSections';
 import { createPageMetadata, getFAQSchema } from '@/lib/seo';
 import { FAQ_MAITRISER_CLAUDE_NIV04 } from '@/lib/faq';
 import { getFormationCatalogueVisuel } from '@/lib/formations-catalogue-display';
@@ -57,18 +56,7 @@ export default function FormationMaitriserClaudeAiBtpPage() {
         faqItems={FAQ_MAITRISER_CLAUDE_NIV04}
         faqSectionId="faq-niv-04"
         h1Id="formation-claude-h1"
-        afterObjectives={
-          <>
-            <CatalogueFormationClaudeExtras />
-            <FormationCatalogueGeoSections
-              catalogueRef="NIV-04"
-              ressourcesGratuites={[
-                { href: LINKS.formationIaAppelsOffresBtp, label: 'Formation IA appels d’offres BTP' },
-                { href: LINKS.formationChatgptBtp, label: 'Formation ChatGPT pour le BTP' },
-              ]}
-            />
-          </>
-        }
+        afterObjectives={<CatalogueFormationClaudeExtras />}
       />
     </div>
   );

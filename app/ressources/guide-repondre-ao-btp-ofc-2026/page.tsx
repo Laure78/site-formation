@@ -4,7 +4,6 @@ import { Download, Calendar, Check } from 'lucide-react';
 import { JsonLd } from '@/components/JsonLd';
 import { MaillageRessourceFromConfig } from '@/app/components/MaillageRessource';
 import { DisclaimerGains } from '@/components/formation/DisclaimerGains';
-import { EvenementAoBtpPromoEncart } from '@/components/evenements/EvenementAoBtpPromoEncart';
 import { SOCIAL_PROOF } from '@/lib/constants';
 import { LINKS } from '@/lib/internal-links';
 import { getMaillageRessourceConfig } from '@/lib/maillage-ressources';
@@ -213,8 +212,6 @@ export default function GuideRepondreAoBtpOfc2026Page() {
           </figure>
         </div>
       </section>
-
-      <EvenementAoBtpPromoEncart placement="guide-ao" variant="compact" />
 
       <section className="mx-auto max-w-7xl px-4 py-14 md:py-16" aria-labelledby="en-bref-repondre-ao">
         <h2 id="en-bref-repondre-ao" className="font-display text-2xl font-bold text-slate-900">

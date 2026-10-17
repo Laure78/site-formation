@@ -1,7 +1,5 @@
 import type { ReactNode } from 'react';
 import { ShortAnswerBlock } from '@/components/landing/ShortAnswerBlock';
-import { FormationBeworkPasserelle } from '@/components/formations/FormationBeworkPasserelle';
-import { FormationCharteIaBtpRessourceAside } from '@/components/formations/FormationCharteIaBtpRessourceAside';
 import { CatalogueFormationRelated } from '@/components/formations/catalogue/CatalogueFormationRelated';
 import { MentionTvaAsterisque } from '@/components/MentionTVA';
 import {
@@ -11,13 +9,11 @@ import {
   TrainingHero,
   TrainingMethod,
   TrainingOutcomes,
-  TrainingPainPoints,
   TrainingPricing,
   TrainingProgram,
   TrainingSection,
   TrainingTrustBar,
 } from '@/components/formations/training';
-import { TrainingAvisQualiopiSection } from '@/components/formations/training/TrainingAvisQualiopiSection';
 import { TrainingEvaluationSection } from '@/components/formations/training/TrainingEvaluationSection';
 import { TrainingNavigationWithSpy } from '@/components/formations/training/TrainingNavigationWithSpy';
 import { TrainingPageLayout } from '@/components/formations/training/TrainingPageLayout';
@@ -25,7 +21,6 @@ import { TrainingPedagogicalModalitiesSection } from '@/components/formations/tr
 import { TrainingPresentationExpand } from '@/components/formations/training/TrainingPresentationExpand';
 import { TrainingSessionsSection } from '@/components/formations/training/TrainingSessionsSection';
 import { TrainingSidebarCard } from '@/components/formations/training/TrainingSidebarCard';
-import { TrainingQualiopiEngagementsBand } from '@/components/formations/training/TrainingQualiopiEngagementsBand';
 import { FormateurIntervenantBlock } from '@/components/formateurs/FormateurIntervenantBlock';
 import { FormationIaApplicationsSection } from '@/components/formations/ia/FormationIaApplicationsSection';
 import type { CatalogueFormationPageContent } from '@/lib/catalogue-formation-page-content';
@@ -143,6 +138,7 @@ export function TrainingPageTemplate({
       hasFaq,
       faqSectionId,
       hasFinancementOpcoEtendu: showFinancementOpcoEtendu,
+      hasAvis: false,
     });
 
   const programmeHeading =
@@ -253,15 +249,6 @@ export function TrainingPageTemplate({
           <TrainingPresentationExpand summary={content.programIntro}>
             {content.heroPublicLine ? <p>{content.heroPublicLine}</p> : null}
           </TrainingPresentationExpand>
-          {content.painPoints.length > 0 ? (
-            <div className="mt-10">
-              <TrainingPainPoints
-                title={content.painPointsTitle}
-                items={content.painPoints}
-                embedded
-              />
-            </div>
-          ) : null}
         </TrainingSection>
 
         <TrainingOutcomes
@@ -395,10 +382,6 @@ export function TrainingPageTemplate({
 
         {afterDeliverables}
 
-        <section className="scroll-mt-[calc(var(--site-header-height)+3.25rem)] border-b border-slate-200 bg-white px-0 py-8 md:py-10">
-          <FormationCharteIaBtpRessourceAside />
-        </section>
-
         {beforeTariffs}
 
         <div className="lg:hidden">
@@ -429,14 +412,10 @@ export function TrainingPageTemplate({
 
         <TrainingSessionsSection formationTitle={formation.titre} />
 
-        <TrainingAvisQualiopiSection />
-
         {showFinancementOpcoEtendu ? (
           <FinancementOpcoEtenduCourtBlock className="border-b border-slate-200 bg-white px-0 py-8 md:py-10" />
         ) : null}
       </TrainingPageLayout>
-
-      <TrainingQualiopiEngagementsBand />
 
       {maillageBlocks.map((block) => (
         <PageMaillageSection key={block.id} {...block} />
@@ -445,8 +424,6 @@ export function TrainingPageTemplate({
       {related.length > 0 ? <CatalogueFormationRelated items={related} /> : null}
 
       {hasFaq ? <TrainingFAQ items={faqItems!} id={faqSectionId} /> : null}
-
-      {content.showBeworkPasserelle !== false ? <FormationBeworkPasserelle /> : null}
 
       <TrainingFinalCta
         variant="dark"

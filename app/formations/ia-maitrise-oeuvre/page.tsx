@@ -1,6 +1,5 @@
 import { JsonLd } from '@/components/JsonLd';
 import { CatalogueFormationPageTemplate } from '@/components/formations/catalogue/CatalogueFormationPageTemplate';
-import { FormationCatalogueGeoSections } from '@/components/formations/FormationCatalogueGeoSections';
 import { createPageMetadata, SITE_CONFIG } from '@/lib/seo';
 import { getFormationCatalogueVisuel } from '@/lib/formations-catalogue-display';
 import { LINKS } from '@/lib/internal-links';
@@ -41,15 +40,6 @@ export default function FormationIaMaitriseOeuvrePage() {
         content={PAGE_CONTENT}
         faqSectionId="faq-niv-05"
         h1Id="formation-moe-h1"
-        afterObjectives={
-          <FormationCatalogueGeoSections
-            catalogueRef="NIV-05"
-            ressourcesGratuites={[
-              { href: LINKS.formationIaConducteurTravauxLanding, label: 'Guide IA conducteur de travaux' },
-              { href: LINKS.guideRepondreAoBtpOfc2026, label: 'Guide répondre aux AO BTP — 5 étapes' },
-            ]}
-          />
-        }
       />
     </div>
   );
