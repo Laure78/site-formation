@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { FormateursCatalogueHub } from '@/components/formateurs/FormateursCatalogueHub';
+import { FormateursIntroBand } from '@/components/formateurs/FormateursIntroBand';
 import { JsonLd } from '@/components/JsonLd';
 import { BreadcrumbJsonLd } from '@/components/seo/BreadcrumbJsonLd';
 import { Section } from '@/components/ui/Section';
@@ -90,7 +91,7 @@ export default function FormateursPage() {
           </p>
           <div className="formateurs-hub-hero__actions flex flex-col gap-3 sm:flex-row sm:flex-wrap">
             <Link
-              href="#formateurs-profiles"
+              href="#formateurs-apercu"
               className={`${OFC_CTA_PRIMARY} ${FORMATEURS_CTA} !rounded-xl shadow-none hover:shadow-sm`}
             >
               Découvrir les profils
@@ -104,6 +105,15 @@ export default function FormateursPage() {
           </div>
         </div>
       </section>
+
+      <Section
+        tone="white"
+        className="formateurs-intro-section ofc-section--divide-0"
+        innerClassName="formateurs-intro-section__inner"
+        aria-labelledby="formateurs-apercu-title"
+      >
+        <FormateursIntroBand formateurs={formateurs} />
+      </Section>
 
       <Section
         tone="muted"

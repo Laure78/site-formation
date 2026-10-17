@@ -200,6 +200,47 @@ export function hasVisibleFormateurs(): boolean {
   return getVisibleFormateurs().length > 0;
 }
 
+/** Lien programme affiché sur le bandeau d’introduction /formateurs (NIV ou modules 2027). */
+export type FormateurHubProgrammeLink = {
+  key: string;
+  titre: string;
+  href: string;
+  /** Disponibilité, durée — affiché sous le titre si présent. */
+  meta?: string;
+};
+
+/**
+ * Programmes animés pour le hub — modules parcours 2027 en priorité, sinon fiches catalogue NIV.
+ * Exclut les sous-domaines catalogue (pas de programme dédié).
+ */
+export function getFormateurHubProgrammeLinks(
+  formateur: FormateurProfile,
+  at: Date = new Date(),
+): readonly FormateurHubProgrammeLink[] {
+  const modules = getFormateurModuleLinks(formateur);
+  if (modules.length > 0) {
+    return modules.map((m) => ({
+      key: m.code,
+      titre: m.titre,
+      href: m.href,
+      meta: `${m.disponibiliteLabel} · ${m.dureeLabel}`,
+    }));
+  }
+
+  const formations = getFormateurFormationLinks(formateur, at, { hub: true });
+  return formations.map((f) => ({
+    key: f.code,
+    titre: f.titre,
+    href: f.href,
+    meta: f.duree,
+  }));
+}
+
+/** Spécialité courte — intitulé métier affiché sous le nom. */
+export function formateurPrimarySpecialty(formateur: FormateurProfile): string {
+  return formateur.intitule;
+}
+
 /** @deprecated Plus de profils démo — conservé pour compatibilité des imports. */
 export function isFormateursDemoActive(): boolean {
   return false;

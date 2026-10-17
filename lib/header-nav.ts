@@ -4,7 +4,7 @@
  */
 import { getAllParcoursComputed, type ParcoursId } from '@/data/catalogue-2027';
 import { catalogueFormationNavContainsPath } from '@/lib/catalogue-formations-nav';
-import { buildFormationsNavChildren } from '@/lib/header-nav-formations-mega';
+import { buildFormationsNavChildren } from '@/lib/header-nav-formations-catalogue';
 import { utilityOrganismeNavActive } from '@/lib/header-nav-organisme-links';
 import { LINKS } from '@/lib/internal-links';
 
@@ -36,6 +36,8 @@ export type HeaderNavItem = {
   dropdownAlign?: 'start' | 'end';
   /** Panneau sans titre de rubrique (ex. Ressources). */
   hideDropdownHeading?: boolean;
+  /** Liste formations catalogue — libellés multilignes, sans niveaux. */
+  dropdownPanelFormations?: boolean;
   isActive?: (pathname: string) => boolean;
 };
 
@@ -72,8 +74,6 @@ function ressourcesNavActive(pathname: string): boolean {
     pathname.startsWith(`${LINKS.ressourcesTutos}/`) ||
     pathname === LINKS.blog ||
     pathname.startsWith(`${LINKS.blog}/`) ||
-    pathname === LINKS.evenements ||
-    pathname.startsWith('/evenements/') ||
     pathname === LINKS.claudeAiBtp ||
     pathname === LINKS.skillsClaudeBtp ||
     pathname === LINKS.skillsChatgptBtp ||
@@ -162,21 +162,18 @@ const RESSOURCES_NAV_CHILDREN: readonly HeaderNavLink[] = [
     label: 'Guides et modèles',
     title: 'Guides PDF et modèles IA BTP',
   },
-  {
-    href: LINKS.evenements,
-    label: 'Événements',
-    title: 'Événements IA BTP',
-  },
 ];
 
-function buildHeaderNavItems(): readonly HeaderNavItem[] {
+function buildHeaderNavItems(at: Date = new Date()): readonly HeaderNavItem[] {
   return [
     {
       id: 'formations',
       label: 'Formations IA BTP',
       href: LINKS.formations,
       isActive: formationsNavActive,
-      children: buildFormationsNavChildren(),
+      children: buildFormationsNavChildren(at),
+      hideDropdownHeading: true,
+      dropdownPanelFormations: true,
     },
     {
       id: 'parcours-metiers',
@@ -220,8 +217,8 @@ function buildHeaderNavItems(): readonly HeaderNavItem[] {
   ];
 }
 
-export function getHeaderNav(_at: Date = new Date()): readonly HeaderNavItem[] {
-  return buildHeaderNavItems();
+export function getHeaderNav(at: Date = new Date()): readonly HeaderNavItem[] {
+  return buildHeaderNavItems(at);
 }
 
 export const HEADER_NAV: readonly HeaderNavItem[] = getHeaderNav();

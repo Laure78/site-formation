@@ -173,6 +173,7 @@ export function HeaderNavDropdown({
   const children = item.children ?? [];
   const alignEnd = item.dropdownAlign === 'end';
   const hideHeading = Boolean(item.hideDropdownHeading);
+  const formationsPanel = Boolean(item.dropdownPanelFormations);
 
   const submenuAriaLabel = open
     ? `Fermer le sous-menu ${item.label}`
@@ -236,9 +237,11 @@ export function HeaderNavDropdown({
         <div
           id={panelId}
           data-header-dropdown=""
-          className={`header-nav-dropdown-panel absolute top-full z-[60] min-w-[15.5rem] max-w-[min(100vw-2rem,22rem)] ${
-            alignEnd ? 'right-0' : 'left-0'
-          }`}
+          className={`header-nav-dropdown-panel absolute top-full z-[60] ${
+            formationsPanel
+              ? 'min-w-[17rem] max-w-[min(100vw-2rem,28rem)]'
+              : 'min-w-[15.5rem] max-w-[min(100vw-2rem,22rem)]'
+          } ${alignEnd ? 'right-0' : 'left-0'}`}
         >
           <div
             className="pointer-events-none absolute inset-x-0 -top-1 h-2"
@@ -247,7 +250,7 @@ export function HeaderNavDropdown({
           <div
             className={`header-nav-dropdown-menu ${
               hideHeading ? 'header-nav-dropdown-menu--compact py-2' : ''
-            } max-h-[min(70vh,32rem)] overflow-y-auto overscroll-contain`}
+            } ${formationsPanel ? 'header-nav-dropdown-menu--formations' : ''} max-h-[min(70vh,32rem)] overflow-y-auto overscroll-contain`}
             aria-labelledby={buttonId}
           >
             {hideHeading ? null : (
@@ -317,6 +320,7 @@ export function HeaderMobileNavSection({
   const itemActive = headerNavItemIsActive(item, pathname);
   const children = item.children ?? [];
   const hasMenu = headerNavItemHasPanel(item);
+  const formationsPanel = Boolean(item.dropdownPanelFormations);
 
   return (
     <div
@@ -371,7 +375,11 @@ export function HeaderMobileNavSection({
         )}
       </div>
       {hasMenu && expanded ? (
-        <div id={panelId} className="header-mobile-submenu" aria-labelledby={buttonId}>
+        <div
+          id={panelId}
+          className={`header-mobile-submenu${formationsPanel ? ' header-mobile-submenu--formations' : ''}`}
+          aria-labelledby={buttonId}
+        >
           {children.length > 0 ? (
             <ul>
               <HeaderMobileNavLinks links={children} pathname={pathname} onNavigate={onNavigate} />

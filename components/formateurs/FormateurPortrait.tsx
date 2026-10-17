@@ -5,13 +5,14 @@ import { cn } from '@/lib/cn';
 type Props = {
   portrait: Portrait;
   className?: string;
-  size?: 'sm' | 'md' | 'lg';
+  size?: 'xs' | 'sm' | 'md' | 'lg';
   /** Photo type identité 7:9 — page hub formateurs. */
   shape?: 'circle' | 'portrait';
   priority?: boolean;
 };
 
 const CIRCLE_SIZE = {
+  xs: 'h-16 w-16 text-base sm:h-20 sm:w-20 sm:text-lg',
   sm: 'h-16 w-16 text-lg',
   md: 'h-24 w-24 text-2xl',
   lg: 'h-28 w-28 text-3xl md:h-32 md:w-32',
@@ -56,7 +57,17 @@ export function FormateurPortraitView({
               ? { objectPosition: portrait.objectPosition }
               : undefined
           }
-          sizes={isPortraitShape ? '(max-width: 640px) 110px, 130px' : size === 'lg' ? '128px' : size === 'md' ? '96px' : '64px'}
+          sizes={
+            isPortraitShape
+              ? '(max-width: 640px) 110px, 130px'
+              : size === 'lg'
+                ? '128px'
+                : size === 'md'
+                  ? '96px'
+                  : size === 'xs'
+                    ? '80px'
+                    : '64px'
+          }
           loading={priority ? undefined : 'lazy'}
           priority={priority}
         />

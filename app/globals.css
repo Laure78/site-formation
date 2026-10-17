@@ -1380,6 +1380,22 @@
     @apply py-3;
   }
 
+  .header-nav-dropdown-menu--formations .header-nav-dropdown-link {
+    @apply min-h-11 items-start py-3;
+  }
+
+  .header-nav-dropdown-menu--formations .header-nav-dropdown-link__label {
+    @apply whitespace-normal text-left leading-snug;
+  }
+
+  .header-mobile-submenu--formations .header-mobile-submenu-link {
+    @apply min-h-11 items-start py-3;
+  }
+
+  .header-mobile-submenu--formations .header-mobile-submenu-link__label {
+    @apply whitespace-normal leading-snug;
+  }
+
   .header-nav-dropdown-heading {
     @apply px-4 pb-2 pt-1 text-[0.6875rem] font-semibold uppercase tracking-[0.06em] text-slate-400;
   }

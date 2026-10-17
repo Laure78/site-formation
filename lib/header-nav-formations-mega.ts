@@ -101,22 +101,6 @@ export function buildFormationsMegaQuickLinks(): readonly HeaderNavLink[] {
   ];
 }
 
-/** Sous-menu desktop « Formations IA BTP » — catalogue + niveaux. */
-export function buildFormationsNavChildren(): readonly HeaderNavLink[] {
-  return [
-    {
-      href: LINKS.formations,
-      label: 'Toutes les formations',
-      title: 'Catalogue formations IA BTP — présentiel Île-de-France',
-    },
-    ...FORMATIONS_NIVEAUX_IA.map((n) => ({
-      href: buildFormationsIaNiveauHref(n.niveau),
-      label: n.labelComplet,
-      title: `${n.accrocheNiveau} — ${n.labelComplet}`,
-    })),
-  ];
-}
-
 /** Liens plats mobile / fallback — deux niveaux max (groupes + liens). */
 export function buildFormationsMobileNavGroups(): readonly HeaderNavLink[] {
   return [
