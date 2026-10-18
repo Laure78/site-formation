@@ -80,7 +80,7 @@ export function TrainingHero({
   summaryItems,
   className,
   backHref = LINKS.formations,
-  backLabel = 'Catalogue des formations IA pour le BTP',
+  backLabel = 'Retour au catalogue',
   ctaNote,
   showQualiopiInfoLink = true,
   commercialAside,

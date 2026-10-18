@@ -126,12 +126,19 @@ function buildHeaderNavItems(at: Date = new Date()): readonly HeaderNavItem[] {
       href: LINKS.formations,
       isActive: formationsNavActive,
       megaColumns: buildFormationsNavMegaColumns(at),
+      megaQuickLinks: [
+        {
+          href: LINKS.formations,
+          label: 'Voir tout le catalogue',
+          title: 'Catalogue des formations IA BTP — présentiel Île-de-France',
+        },
+      ],
       hideDropdownHeading: true,
       dropdownPanelFormations: true,
       footer: {
-        href: LINKS.formations,
-        label: 'Voir toutes les formations',
-        title: 'Catalogue formations IA BTP — présentiel Île-de-France',
+        href: LINKS.formationsOrientation,
+        label: 'Quelle formation choisir ?',
+        title: 'Orientation formation IA BTP',
       },
     },
     {

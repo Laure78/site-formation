@@ -1,13 +1,11 @@
 'use client';
 
 import { useEffect, useMemo, useState } from 'react';
-import Link from 'next/link';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { Search } from 'lucide-react';
-import {
-  ComplementaryCatalogueRow,
-  FormationCatalogueRow,
-} from '@/components/formations/catalogue-2027/FormationCatalogueRow';
+import { FormationsCatalogueGridCard } from '@/components/formations/catalogue/FormationsCatalogueGridCard';
+import { FormationsCatalogueComplementaryCard } from '@/components/formations/catalogue/FormationsCatalogueComplementaryCard';
+import { CatalogueSearchFilters } from '@/components/formations/catalogue-2027/CatalogueSearchFilters';
 import type { FormationCatalogueEntry } from '@/lib/formations-catalogue-display';
 import type { MetierId } from '@/data/catalogue-2027';
 import {
@@ -16,19 +14,21 @@ import {
 } from '@/lib/catalogue-filter-url';
 import {
   CATALOGUE_COMPLEMENTARY_ENTRIES,
-  CATALOGUE_THEMATIQUES,
+  CATALOGUE_THEMATIQUE_IDS,
   FORMATION_METIERS,
   FORMATION_THEMATIQUE_PRINCIPALE,
+  type CatalogueThematiqueId,
 } from '@/lib/catalogue-thematiques-btp';
 import { getFormationByCode } from '@/data/formations';
-import { LINKS } from '@/lib/internal-links';
+import type { FormationCatalogueCode } from '@/lib/formation-catalogue-visibility';
 import {
   complementaryEntryMatchesSearchQuery,
   formationRefMatchesSearchQuery,
 } from '@/lib/catalogue-formation-text-search';
 
 type Props = {
-  entries: readonly FormationCatalogueEntry[];
+  availableEntries: readonly FormationCatalogueEntry[];
+  upcomingEntries: readonly FormationCatalogueEntry[];
 };
 
 function entryMatchesFilters(
@@ -39,12 +39,11 @@ function entryMatchesFilters(
   if (!f) return false;
   if (filters.niveau && f.niveau !== filters.niveau) return false;
   if (filters.metier) {
-    const metiers = FORMATION_METIERS[ref as keyof typeof FORMATION_METIERS];
+    const metiers = FORMATION_METIERS[ref as FormationCatalogueCode];
     if (!metiers?.includes(filters.metier as MetierId)) return false;
   }
   if (filters.thematique) {
-    const th =
-      FORMATION_THEMATIQUE_PRINCIPALE[ref as keyof typeof FORMATION_THEMATIQUE_PRINCIPALE];
+    const th = FORMATION_THEMATIQUE_PRINCIPALE[ref as FormationCatalogueCode];
     if (th !== filters.thematique) return false;
   }
   if (filters.q && !formationRefMatchesSearchQuery(ref, filters.q)) return false;
@@ -62,7 +61,32 @@ function complementaryMatches(
   return true;
 }
 
-export function FormationsIaDisponiblesClient({ entries }: Props) {
+function collectMetierOptions(refs: string[]): MetierId[] {
+  const set = new Set<MetierId>();
+  for (const ref of refs) {
+    for (const id of FORMATION_METIERS[ref as FormationCatalogueCode] ?? []) {
+      set.add(id);
+    }
+  }
+  for (const c of CATALOGUE_COMPLEMENTARY_ENTRIES) {
+    for (const id of c.metiers) set.add(id);
+  }
+  return [...set];
+}
+
+function collectThematiqueOptions(refs: string[]): CatalogueThematiqueId[] {
+  const set = new Set<CatalogueThematiqueId>();
+  for (const ref of refs) {
+    const th = FORMATION_THEMATIQUE_PRINCIPALE[ref as FormationCatalogueCode];
+    if (th) set.add(th);
+  }
+  for (const c of CATALOGUE_COMPLEMENTARY_ENTRIES) {
+    set.add(c.thematique);
+  }
+  return CATALOGUE_THEMATIQUE_IDS.filter((id) => set.has(id));
+}
+
+export function FormationsIaDisponiblesClient({ availableEntries, upcomingEntries }: Props) {
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
@@ -72,6 +96,7 @@ export function FormationsIaDisponiblesClient({ entries }: Props) {
   );
 
   const [query, setQuery] = useState(filters.q ?? '');
+  const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
 
   useEffect(() => {
     setQuery(filters.q ?? '');
@@ -90,9 +115,25 @@ export function FormationsIaDisponiblesClient({ entries }: Props) {
     }
   }, [query, filters, pathname, router, searchParams]);
 
-  const filteredQualiopi = useMemo(
-    () => entries.filter((e) => entryMatchesFilters(e.ref, filters)),
-    [entries, filters],
+  const allRefs = useMemo(
+    () => [
+      ...availableEntries.map((e) => e.ref),
+      ...upcomingEntries.map((e) => e.ref),
+    ],
+    [availableEntries, upcomingEntries],
+  );
+
+  const metierOptions = useMemo(() => collectMetierOptions(allRefs), [allRefs]);
+  const thematiqueOptions = useMemo(() => collectThematiqueOptions(allRefs), [allRefs]);
+
+  const filteredAvailable = useMemo(
+    () => availableEntries.filter((e) => entryMatchesFilters(e.ref, filters)),
+    [availableEntries, filters],
+  );
+
+  const filteredUpcoming = useMemo(
+    () => upcomingEntries.filter((e) => entryMatchesFilters(e.ref, filters)),
+    [upcomingEntries, filters],
   );
 
   const filteredComplementary = useMemo(
@@ -100,37 +141,27 @@ export function FormationsIaDisponiblesClient({ entries }: Props) {
     [filters],
   );
 
-  const totalVisible = filteredQualiopi.length + filteredComplementary.length;
+  const totalVisible =
+    filteredAvailable.length + filteredUpcoming.length + filteredComplementary.length;
 
-  const rubriquesVisibles = useMemo(() => {
-    return CATALOGUE_THEMATIQUES.map((rubrique) => {
-      const qualiopi = filteredQualiopi
-        .filter(
-          (e) =>
-            FORMATION_THEMATIQUE_PRINCIPALE[
-              e.ref as keyof typeof FORMATION_THEMATIQUE_PRINCIPALE
-            ] === rubrique.id,
-        )
-        .sort((a, b) => {
-          const na = getFormationByCode(a.ref)?.niveau ?? 2;
-          const nb = getFormationByCode(b.ref)?.niveau ?? 2;
-          if (na !== nb) return na - nb;
-          return a.ref.localeCompare(b.ref, 'fr');
-        });
-      const complement = filteredComplementary.filter((c) => c.thematique === rubrique.id);
-      return { rubrique, qualiopi, complement };
-    }).filter((g) => g.qualiopi.length > 0 || g.complement.length > 0);
-  }, [filteredQualiopi, filteredComplementary]);
+  const hasActiveFilters = Boolean(
+    filters.niveau || filters.thematique || filters.metier || filters.q,
+  );
 
-  useEffect(() => {
-    if (pathname !== '/formations') return;
-    if (!filters.niveau && !filters.thematique && !filters.metier && !filters.q) return;
-    const el = document.getElementById('catalogue-formations');
-    el?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  }, [filters.metier, filters.niveau, filters.thematique, filters.q, pathname]);
+  const applyFilterChange = (next: Partial<typeof filters>) => {
+    router.replace(
+      buildFormationsIaHref({
+        ...filters,
+        ...next,
+        q: query.trim() || undefined,
+      }),
+      { scroll: false },
+    );
+  };
 
   const reset = () => {
     setQuery('');
+    setMobileFiltersOpen(false);
     router.replace('/formations#catalogue-formations', { scroll: false });
   };
 
@@ -144,8 +175,12 @@ export function FormationsIaDisponiblesClient({ entries }: Props) {
     );
   };
 
-  const hasActiveFilters =
-    Boolean(filters.niveau || filters.thematique || filters.metier || filters.q);
+  useEffect(() => {
+    if (pathname !== '/formations') return;
+    if (!hasActiveFilters) return;
+    const el = document.getElementById('catalogue-formations');
+    el?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }, [filters.metier, filters.niveau, filters.thematique, filters.q, hasActiveFilters, pathname]);
 
   return (
     <>
@@ -159,7 +194,7 @@ export function FormationsIaDisponiblesClient({ entries }: Props) {
       >
         <div className="relative flex items-center rounded-full border border-[#E2E8F0] bg-white pl-4 pr-1.5">
           <label htmlFor="catalogue-formations-search" className="sr-only">
-            Rechercher une formation IA BTP
+            Rechercher une formation, un métier ou un sujet
           </label>
           <input
             id="catalogue-formations-search"
@@ -167,7 +202,7 @@ export function FormationsIaDisponiblesClient({ entries }: Props) {
             name="q"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            placeholder="Rechercher : devis, appels d’offres, chantier, ChatGPT, Claude…"
+            placeholder="Rechercher une formation, un métier ou un sujet…"
             autoComplete="off"
             className="min-h-11 flex-1 border-0 bg-transparent py-2.5 pr-2 text-sm text-ofc-ink placeholder:text-ofc-ink-muted/80 focus:outline-none sm:text-base"
           />
@@ -181,18 +216,28 @@ export function FormationsIaDisponiblesClient({ entries }: Props) {
         </div>
       </form>
 
+      <CatalogueSearchFilters
+        filters={filters}
+        metierOptions={metierOptions}
+        thematiqueOptions={thematiqueOptions}
+        onChange={applyFilterChange}
+        mobileOpen={mobileFiltersOpen}
+        onMobileOpenChange={setMobileFiltersOpen}
+      />
+
       <div className="mt-6 flex flex-wrap items-center gap-3">
         <p className="text-sm text-ofc-ink-muted" aria-live="polite">
-          {totalVisible} formation{totalVisible > 1 ? 's' : ''} affichée
-          {totalVisible > 1 ? 's' : ''}
+          {totalVisible === 1
+            ? '1 formation affichée'
+            : `${totalVisible} formations affichées`}
         </p>
         {hasActiveFilters ? (
           <button
             type="button"
             onClick={reset}
-            className="inline-flex min-h-10 items-center rounded-lg border border-dashed border-[#CBD5E1] bg-white px-4 py-2 text-sm font-medium text-ofc-ink-muted hover:border-[#377CF3]/40 hover:text-ofc-ink"
+            className="inline-flex min-h-10 items-center rounded-lg border border-dashed border-[#CBD5E1] bg-white px-4 py-2 text-sm font-medium text-ofc-ink-muted hover:border-[#377CF3]/40 hover:text-ofc-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ofc-accent"
           >
-            Réinitialiser les filtres
+            Réinitialiser
           </button>
         ) : null}
       </div>
@@ -200,64 +245,76 @@ export function FormationsIaDisponiblesClient({ entries }: Props) {
       {totalVisible === 0 ? (
         <div className="mt-10 rounded-xl border border-[#E2E8F0] bg-white p-6">
           <p className="text-base text-ofc-ink-muted">
-            Aucune formation ne correspond à ces critères
-            {filters.q ? (
-              <>
-                {' '}
-                pour « <span className="font-medium text-ofc-ink">{filters.q}</span> »
-              </>
-            ) : null}
-            . Modifiez votre recherche, élargissez les filtres ou{' '}
-            <Link href={LINKS.contact} className="font-semibold text-ofc-accent hover:underline">
-              contactez-nous pour être conseillé
-            </Link>
-            .
+            Aucune formation ne correspond à votre recherche. Essayez un autre mot-clé ou
+            réinitialisez les filtres.
           </p>
           {hasActiveFilters ? (
             <button
               type="button"
               onClick={reset}
-              className="mt-4 inline-flex min-h-10 items-center rounded-lg border border-[#CBD5E1] bg-white px-4 py-2 text-sm font-semibold text-ofc-ink hover:border-[#377CF3]/40"
+              className="mt-4 inline-flex min-h-10 items-center rounded-lg border border-[#CBD5E1] bg-white px-4 py-2 text-sm font-semibold text-ofc-ink hover:border-[#377CF3]/40 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ofc-accent"
             >
-              Effacer la recherche et les filtres
+              Réinitialiser les filtres
             </button>
           ) : null}
         </div>
       ) : (
-        <div className="mt-10 space-y-12">
-          {rubriquesVisibles.map(({ rubrique, qualiopi, complement }) => (
-            <section
-              key={rubrique.id}
-              id={`catalogue-thematique-${rubrique.id}`}
-              className="scroll-mt-28"
-              aria-labelledby={`thematique-${rubrique.id}-title`}
-            >
-              <h3
-                id={`thematique-${rubrique.id}-title`}
-                className="font-display text-xl font-bold text-ofc-ink md:text-2xl"
-              >
-                {rubrique.title}
+        <div className="mt-10 space-y-14">
+          {filteredAvailable.length > 0 ? (
+            <section aria-labelledby="catalogue-disponibles-title">
+              <h3 id="catalogue-disponibles-title" className="font-display text-xl font-bold text-ofc-ink md:text-2xl">
+                Formations disponibles
               </h3>
-              <p className="mt-2 max-w-3xl text-sm text-ofc-ink-muted md:text-base">
-                {rubrique.description}
-              </p>
-              <ul className="mt-6 rounded-xl border border-[#E2E8F0] bg-white px-4 md:px-6">
-                {qualiopi.map((entry) => (
-                  <FormationCatalogueRow key={entry.ref} entry={entry} />
-                ))}
-                {complement.map((c) => (
-                  <ComplementaryCatalogueRow
-                    key={c.id}
-                    title={c.title}
-                    promesse={c.promesse}
-                    href={c.href}
-                    dureeLabel={c.dureeLabel}
-                    disponibiliteLabel={c.disponibiliteLabel}
-                  />
+              <ul className="mt-6 grid list-none gap-6 md:grid-cols-2 xl:grid-cols-3">
+                {filteredAvailable.map((entry) => (
+                  <li key={entry.ref} className="min-w-0">
+                    <FormationsCatalogueGridCard entry={entry} />
+                  </li>
                 ))}
               </ul>
             </section>
-          ))}
+          ) : null}
+
+          {filteredUpcoming.length > 0 ? (
+            <section aria-labelledby="catalogue-a-venir-title">
+              <h3 id="catalogue-a-venir-title" className="font-display text-xl font-bold text-ofc-ink md:text-2xl">
+                Formations à venir
+              </h3>
+              <p className="mt-2 max-w-2xl text-sm text-ofc-ink-muted">
+                Programmes dont l’ouverture est programmée — contactez-nous pour être informé ou
+                réserver une session intra.
+              </p>
+              <ul className="mt-6 grid list-none gap-6 md:grid-cols-2 xl:grid-cols-3">
+                {filteredUpcoming.map((entry) => (
+                  <li key={entry.ref} className="min-w-0">
+                    <FormationsCatalogueGridCard entry={entry} upcoming />
+                  </li>
+                ))}
+              </ul>
+            </section>
+          ) : null}
+
+          {filteredComplementary.length > 0 ? (
+            <section aria-labelledby="catalogue-autres-metiers-title">
+              <h3
+                id="catalogue-autres-metiers-title"
+                className="font-display text-xl font-bold text-ofc-ink md:text-2xl"
+              >
+                Autres formations métiers BTP
+              </h3>
+              <p className="mt-2 max-w-3xl text-sm text-ofc-ink-muted">
+                Programmes complémentaires sur mesure — pages dédiées par métier, distinctes des
+                sessions catalogue Qualiopi ci-dessus.
+              </p>
+              <ul className="mt-6 grid list-none gap-6 md:grid-cols-2 xl:grid-cols-3">
+                {filteredComplementary.map((item) => (
+                  <li key={item.id} className="min-w-0">
+                    <FormationsCatalogueComplementaryCard item={item} />
+                  </li>
+                ))}
+              </ul>
+            </section>
+          ) : null}
         </div>
       )}
     </>

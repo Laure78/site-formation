@@ -3,16 +3,13 @@ import { Suspense } from 'react';
 import { JsonLd } from '@/components/JsonLd';
 import { createPageMetadata, SITE_CONFIG } from '@/lib/seo';
 import { PHOTOS } from '@/lib/photos';
-import {
-  CATALOGUE_2027_POSITIONNEMENT,
-  getAllParcoursComputed,
-} from '@/data/catalogue-2027';
+import { CATALOGUE_2027_POSITIONNEMENT } from '@/data/catalogue-2027';
 import { FormationsCatalogue2027Hero } from '@/components/formations/catalogue-2027/FormationsCatalogue2027Hero';
 import { FormationsCatalogueChoixSection } from '@/components/formations/catalogue-2027/FormationsCatalogueChoixSection';
-import { FormationsParcoursExplorer } from '@/components/formations/catalogue-2027/FormationsParcoursExplorer';
 import { FormationsIaDisponibles } from '@/components/formations/catalogue-2027/FormationsIaDisponibles';
+import { FormationsCatalogueParcoursCompact } from '@/components/formations/catalogue-2027/FormationsCatalogueParcoursCompact';
+import { FormationsCatalogueEntrepriseCompact } from '@/components/formations/catalogue-2027/FormationsCatalogueEntrepriseCompact';
 import { FormationsModulesCatalogue } from '@/components/formations/catalogue-2027/FormationsModulesCatalogue';
-import { FormationsPlanEntreprise } from '@/components/formations/catalogue-2027/FormationsPlanEntreprise';
 import { FormationsInfosPratiques2027 } from '@/components/formations/catalogue-2027/FormationsInfosPratiques2027';
 import { FormationsContact2027 } from '@/components/formations/catalogue-2027/FormationsContact2027';
 import { FormationsCatalogueMaillageSection } from '@/components/formations/catalogue/FormationsCatalogueMaillageSection';
@@ -20,9 +17,9 @@ import { buildFormationsPageUnifiedGraphJsonLd } from '@/lib/schema-formations-p
 
 const baseUrl = SITE_CONFIG.url.replace(/\/$/, '');
 
-const CATALOGUE_2027_TITLE = 'Formations IA BTP : ChatGPT et Claude | Laure Olivié';
-const CATALOGUE_2027_DESCRIPTION =
-  'Découvrez les formations IA BTP : devis, appels d’offres, chantier et assistants métier. Trois niveaux, en présentiel en Île-de-France.';
+const CATALOGUE_TITLE = 'Catalogue des formations IA BTP | Laure Olivié';
+const CATALOGUE_DESCRIPTION =
+  'Découvrez les formations IA pour le BTP de Laure Olivié. Consultez les programmes, niveaux et durées. Formations en présentiel en Île-de-France.';
 
 export const revalidate = 3600;
 
@@ -38,21 +35,20 @@ export async function generateMetadata({ searchParams }: FormationsPageProps = {
 
   return {
     ...createPageMetadata({
-      title: CATALOGUE_2027_TITLE,
-      titleAbsolute: CATALOGUE_2027_TITLE,
-      description: CATALOGUE_2027_DESCRIPTION,
+      title: CATALOGUE_TITLE,
+      titleAbsolute: CATALOGUE_TITLE,
+      description: CATALOGUE_DESCRIPTION,
       descriptionFinal: true,
       path: '/formations',
       appendAuthorSuffix: false,
-      openGraphTitle: CATALOGUE_2027_TITLE,
-      openGraphDescription: CATALOGUE_2027_DESCRIPTION,
+      openGraphTitle: CATALOGUE_TITLE,
+      openGraphDescription: CATALOGUE_DESCRIPTION,
       keywords: [
         'formation IA pour le BTP',
-        'parcours métiers BTP',
-        'formation conducteur de travaux',
-        'formation chef de chantier',
+        'catalogue formation IA BTP',
         'formation IA Île-de-France',
         'ChatGPT BTP',
+        'Claude AI BTP',
       ],
       robots: hasCatalogueFilters ? { index: false, follow: true } : { index: true, follow: true },
       image: {
@@ -76,18 +72,16 @@ export async function generateMetadata({ searchParams }: FormationsPageProps = {
 }
 
 export default function FormationsPage() {
-  const parcours = getAllParcoursComputed();
-
   return (
     <>
       <JsonLd id="schema-formations-page-graph" schema={buildFormationsPageUnifiedGraphJsonLd()} />
       <FormationsCatalogue2027Hero />
 
-      <div className="mx-auto max-w-[80rem] px-4 pb-20 pt-10 sm:px-6 md:pt-14 lg:px-8">
+      <div className="mx-auto max-w-[80rem] px-4 pb-20 pt-8 sm:px-6 md:pt-10 lg:px-8">
         <p className="sr-only">{CATALOGUE_2027_POSITIONNEMENT.introductionMarque}</p>
         <FormationsIaDisponibles />
-        <FormationsParcoursExplorer parcours={parcours} />
-        <FormationsPlanEntreprise />
+        <FormationsCatalogueParcoursCompact />
+        <FormationsCatalogueEntrepriseCompact />
         <FormationsInfosPratiques2027 />
         <FormationsContact2027 />
         <FormationsCatalogueMaillageSection />

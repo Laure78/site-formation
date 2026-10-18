@@ -270,6 +270,7 @@ export function HeaderNavDropdown({
   const routeActive = headerNavItemIsActive(item, pathname);
   const children = item.children ?? [];
   const megaColumns = item.megaColumns ?? [];
+  const megaQuickLinks = item.megaQuickLinks ?? [];
   const hasMega = megaColumns.length > 0;
   const alignEnd = item.dropdownAlign === 'end';
   const hideHeading = Boolean(item.hideDropdownHeading);
@@ -361,6 +362,24 @@ export function HeaderNavDropdown({
             {hideHeading ? null : (
               <p className="header-nav-dropdown-heading">{item.label}</p>
             )}
+            {megaQuickLinks.length > 0 ? (
+              <div className="mb-2 space-y-1 px-2">
+                {megaQuickLinks.map((link) => (
+                  <Link
+                    key={`${link.href}-${link.label}`}
+                    href={link.href}
+                    title={link.title}
+                    onClick={onNavigate}
+                    className="header-nav-dropdown-footer"
+                  >
+                    {link.label}
+                    <span aria-hidden className="text-base leading-none">
+                      →
+                    </span>
+                  </Link>
+                ))}
+              </div>
+            ) : null}
             {hasMega ? (
               <HeaderNavFormationsByLevel
                 columns={megaColumns}
@@ -431,6 +450,7 @@ export function HeaderMobileNavSection({
   const itemActive = headerNavItemIsActive(item, pathname);
   const children = item.children ?? [];
   const megaColumns = item.megaColumns ?? [];
+  const megaQuickLinks = item.megaQuickLinks ?? [];
   const hasFormationsMega = Boolean(item.dropdownPanelFormations) && megaColumns.length > 0;
   const hasMenu = headerNavItemHasPanel(item);
   const formationsPanel = Boolean(item.dropdownPanelFormations);
@@ -497,6 +517,24 @@ export function HeaderMobileNavSection({
         >
           {hasFormationsMega ? (
             <>
+              {megaQuickLinks.length > 0 ? (
+                <div className="mb-2 px-1">
+                  {megaQuickLinks.map((link) => (
+                    <Link
+                      key={`${link.href}-${link.label}`}
+                      href={link.href}
+                      title={link.title}
+                      onClick={onNavigate}
+                      className="header-nav-dropdown-footer"
+                    >
+                      {link.label}
+                      <span aria-hidden className="text-base leading-none">
+                        →
+                      </span>
+                    </Link>
+                  ))}
+                </div>
+              ) : null}
               <HeaderNavFormationsByLevel
                 columns={megaColumns}
                 pathname={pathname}

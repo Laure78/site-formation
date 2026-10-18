@@ -234,7 +234,7 @@ function formationsTrail(pathNorm: string): BreadcrumbHrefCrumb[] {
   if (pathNorm === '/formations') {
     return [
       { label: 'Accueil', href: '/' },
-      { label: 'Formations', href: '/formations' },
+      { label: 'Catalogue de formations', href: '/formations' },
     ];
   }
 

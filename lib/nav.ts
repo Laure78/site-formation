@@ -21,7 +21,11 @@ export const FOOTER_GOOGLE_REVIEWS_URL =
 
 /** Colonne 1 — Formations IA BTP. */
 export const NAV_FORMATIONS_FOOTER: readonly NavItem[] = [
-  { href: LINKS.formations, label: 'Toutes les formations', title: 'Catalogue formations IA BTP' },
+  {
+    href: LINKS.formations,
+    label: 'Catalogue de formations',
+    title: 'Catalogue des formations IA BTP — présentiel Île-de-France',
+  },
   ...FORMATIONS_NIVEAUX_IA.map((n) => ({
     href: buildFormationsIaNiveauHref(n.niveau),
     label: n.labelComplet,

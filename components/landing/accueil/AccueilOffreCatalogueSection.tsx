@@ -16,6 +16,7 @@ import {
   OFC_TYPE_H3,
 } from '@/lib/ofc-interaction-classes';
 import { AccueilFormationsNiveauFilter } from '@/components/landing/accueil/AccueilFormationsNiveauFilter';
+import { ParcoursFormationModulesList } from '@/components/formations/ParcoursFormationModulesList';
 
 /**
  * Cœur visuel de l’accueil — parcours métiers + formations publiées.
@@ -84,6 +85,8 @@ export function AccueilOffreCatalogueSection() {
                   {p.disponibiliteLabel}
                 </p>
 
+                <ParcoursFormationModulesList etapes={p.etapes} className="mt-5" />
+
                 <div className="mt-auto pt-7">
                   <Link
                     href={p.href}
@@ -130,7 +133,7 @@ export function AccueilOffreCatalogueSection() {
           href={LINKS.formations}
           className={`${OFC_CTA_SECONDARY} inline-flex min-h-11 items-center justify-center px-6 py-3 text-sm font-semibold`}
         >
-          Consulter le catalogue complet
+          Voir le catalogue
         </Link>
         <Link
           href={`${LINKS.prendreRdv}?src=accueil-offre`}

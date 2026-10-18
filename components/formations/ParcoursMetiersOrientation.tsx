@@ -7,6 +7,7 @@ import {
 } from '@/lib/accueil-offre-catalogue';
 import { PARCOURS_METIERS_PAGE } from '@/lib/parcours-metiers-orientation';
 import { LINKS } from '@/lib/internal-links';
+import { ParcoursFormationModulesList } from '@/components/formations/ParcoursFormationModulesList';
 import {
   OFC_CARD,
   OFC_CTA_PRIMARY,
@@ -82,6 +83,14 @@ export function ParcoursMetiersOrientation() {
                         ))}
                       </ul>
                     </>
+                  ) : null}
+
+                  <ParcoursFormationModulesList etapes={p.etapes} className="mt-5" />
+
+                  {p.dureeLabel ? (
+                    <p className="mt-3 text-xs font-medium text-ofc-ink-muted">
+                      {p.dureeLabel} · {p.disponibiliteLabel}
+                    </p>
                   ) : null}
 
                   <div className="mt-auto pt-6">
