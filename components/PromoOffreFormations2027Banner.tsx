@@ -60,7 +60,9 @@ export function PromoOffreFormations2027Banner() {
   const display = isPromo ? promoDisplayFields(config, false) : null;
   const ctaHref = isPromo ? resolvePromoCtaHref(config) : PROMO_BANNER_INFORMATIONAL.ctaHref;
   const ctaLabel = isPromo ? 'Je choisis ma formation' : PROMO_BANNER_INFORMATIONAL.ctaLabel;
-  const title = isPromo ? 'Offre du moment' : PROMO_BANNER_INFORMATIONAL.title;
+  const infoTitle = PROMO_BANNER_INFORMATIONAL.title.trim();
+  const title = isPromo ? 'Offre du moment' : infoTitle;
+  const showBannerTitle = Boolean(title);
   const hasRealCode = isPromo && Boolean(config.promoCode.trim());
 
   return (
@@ -74,26 +76,39 @@ export function PromoOffreFormations2027Banner() {
     >
       <div className="promo-offre-2027__inner mx-auto flex max-w-[80rem] flex-col gap-3 px-4 py-3 sm:px-6 md:flex-row md:items-center md:justify-between md:gap-4 md:py-0 md:min-h-[5rem] lg:gap-6 lg:px-8">
         <div className="flex min-w-0 flex-col gap-2 md:flex-1 md:flex-row md:items-center md:gap-5 lg:gap-6">
+          {showBannerTitle ? (
+            <p
+              id={titleId}
+              className="shrink-0 font-display text-base font-bold tracking-tight text-white sm:text-lg"
+            >
+              {title}
+            </p>
+          ) : null}
+
+          {showBannerTitle ? (
+            <span
+              className="promo-offre-2027__separator hidden h-10 w-px shrink-0 bg-white/85 md:block"
+              aria-hidden
+            />
+          ) : null}
+
           <p
-            id={titleId}
-            className="shrink-0 font-display text-base font-bold tracking-tight text-white sm:text-lg"
+            id={showBannerTitle ? undefined : titleId}
+            className="min-w-0 text-sm leading-snug text-white sm:text-[0.9375rem] md:flex-1 lg:text-base"
           >
-            {title}
-          </p>
-
-          <span
-            className="promo-offre-2027__separator hidden h-10 w-px shrink-0 bg-white/85 md:block"
-            aria-hidden
-          />
-
-          <p className="min-w-0 text-sm leading-snug text-white sm:text-[0.9375rem] md:flex-1 lg:text-base">
             {isPromo && display ? (
               display.message
             ) : (
               <>
-                {PROMO_BANNER_INFORMATIONAL.messageLead}
-                <strong className="font-bold">{PROMO_BANNER_INFORMATIONAL.messageHighlight}</strong>
-                {PROMO_BANNER_INFORMATIONAL.messageEnd}
+                {PROMO_BANNER_INFORMATIONAL.messageSegments.map((segment, index) =>
+                  segment.emphasis ? (
+                    <strong key={index} className="font-bold">
+                      {segment.text}
+                    </strong>
+                  ) : (
+                    <span key={index}>{segment.text}</span>
+                  ),
+                )}
               </>
             )}
           </p>

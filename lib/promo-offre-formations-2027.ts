@@ -105,12 +105,21 @@ export const PROMO_OFFRE_FORMATIONS_2027: PromoOffreFormations2027Config = {
   ctaHref: LINKS.formationsIaDisponibles,
 };
 
+export type PromoBannerInformationalSegment = {
+  text: string;
+  /** Mise en évidence typographique (gras). */
+  emphasis?: boolean;
+};
+
 /** Bandeau informatif — affiché tant qu’aucune offre promo n’est active en production. */
 export const PROMO_BANNER_INFORMATIONAL = {
-  title: 'Offre du moment',
-  messageLead: 'Profitez de ',
-  messageHighlight: '−20 %',
-  messageEnd: ' sur toutes les sessions garanties 2027.',
+  /** Titre court à gauche ; vide = message seul sur toute la largeur. */
+  title: '',
+  messageSegments: [
+    { text: 'Nouveauté 2027 : découvrez nos parcours métiers BTP. Profitez de ' },
+    { text: '−20 %', emphasis: true },
+    { text: ' sur les formations réservées.' },
+  ] satisfies readonly PromoBannerInformationalSegment[],
   ctaLabel: 'Je choisis ma formation',
   ctaHref: LINKS.formationsIaDisponibles,
 } as const;

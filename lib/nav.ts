@@ -38,8 +38,8 @@ export function getNavFormationsFooter(at: Date = new Date()): readonly NavItem[
     })),
     {
       href: LINKS.formationIaIntraEntrepriseBtp,
-      label: 'Former mon équipe',
-      title: 'Formation IA intra-entreprise pour les équipes BTP',
+      label: 'Guide : former son équipe BTP à l’IA',
+      title: 'Guide pratique — formation IA intra-entreprise BTP',
     },
   ];
 }
@@ -140,18 +140,44 @@ export const NAV_RESSOURCES: readonly NavItem[] = [
   },
 ];
 
-/** Barre légale inférieure — liens principaux. */
+/** Colonne — Liens utiles (réglementaire & juridique, sans doublon avec la barre légale). */
+export const NAV_LIENS_UTILES: readonly NavItem[] = [
+  {
+    href: LINKS.reglementInterieur,
+    label: 'Règlement intérieur',
+    title: 'Règlement intérieur OFC — discipline, sécurité et réclamations',
+  },
+  {
+    href: LINKS.accessibiliteHandicap,
+    label: 'Accessibilité et handicap',
+    title: 'Accessibilité et handicap — référente et aménagements OFC',
+  },
+  {
+    href: LINKS.certificatQualiopi,
+    label: 'Certificat Qualiopi (PDF)',
+    title: 'Certificat Qualiopi OFC Création d’Entreprise — document PDF',
+  },
+  { href: LINKS.mentionsLegales, label: 'Mentions légales', title: 'Mentions légales du site laureolivie.fr' },
+  {
+    href: LINKS.politiqueConfidentialite,
+    label: 'Politique de confidentialité',
+    title: 'Politique de confidentialité et protection des données',
+  },
+  {
+    href: LINKS.annuaireHandicap,
+    label: 'Ressources handicap',
+    title: 'Annuaire handicap — contacts AGEFIPH, RHF et ressources utiles',
+  },
+];
+
+/** Barre légale inférieure — liens principaux (hors colonne Liens utiles). */
 export const NAV_LEGAL_BAR: readonly NavItem[] = [
-  { href: LINKS.mentionsLegales, label: 'Mentions légales' },
   { href: LINKS.cgv, label: 'Conditions générales de vente' },
-  { href: LINKS.politiqueConfidentialite, label: 'Politique de confidentialité' },
 ];
 
 /** Liens légaux complémentaires (sous la barre principale). */
 export const NAV_LEGAL_SECONDARY: readonly NavItem[] = [
-  { href: LINKS.reglementInterieur, label: 'Règlement intérieur' },
-  { href: LINKS.reclamations, label: 'Réclamations' },
-  { href: LINKS.accessibiliteHandicap, label: 'Accessibilité & handicap' },
+  { href: LINKS.reclamations, label: 'Réclamations', title: 'Procédure de réclamation OFC' },
 ];
 
 /** @deprecated Alias — préférer `NAV_ORGANISME`. */

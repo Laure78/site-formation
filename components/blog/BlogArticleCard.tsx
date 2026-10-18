@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 import type { BlogArticle } from '@/lib/blog';
+import { getBlogArticleCanonicalPath } from '@/lib/blog-article-path';
 import { SITE_CONFIG } from '@/lib/seo';
 import { getArticleCategory } from '@/lib/blog';
 import { BLOG_CATEGORIES } from '@/lib/blog';
@@ -18,6 +19,7 @@ type CardArticle = Pick<
   | 'readingTime'
   | 'coverImage'
   | 'keywords'
+  | 'canonicalPath'
 >;
 
 function estimateReadingMinutes(article: {
@@ -47,6 +49,7 @@ export function BlogArticleCard({
       : null;
 
   const cat = getArticleCategory(article.slug);
+  const articleHref = getBlogArticleCanonicalPath(article);
   const pub = new Date(article.date);
   const updated = article.dateModified ? new Date(article.dateModified) : null;
 
@@ -88,7 +91,7 @@ export function BlogArticleCard({
           <span>{BLOG_CATEGORIES[cat]}</span>
         </div>
         <h3 className="mt-3 font-display text-2xl font-bold text-slate-900">
-          <Link href={`/blog/${article.slug}`} className={OFC_LINK}>
+          <Link href={articleHref} className={OFC_LINK}>
             {article.title}
           </Link>
         </h3>
@@ -106,7 +109,7 @@ export function BlogArticleCard({
         )}
         <p className="sr-only">Par {SITE_CONFIG.name}</p>
         <Link
-          href={`/blog/${article.slug}`}
+          href={articleHref}
           className={`mt-4 inline-flex items-center gap-2 ${OFC_LINK}`}
         >
           Lire l&apos;article

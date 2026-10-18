@@ -8,6 +8,8 @@ import { LINKS } from '@/lib/internal-links';
 type Props = {
   slug: string;
   article: ArticleJsonLdProps;
+  /** Chemin canonique (fil d’Ariane + BlogPosting). */
+  canonicalPath?: string;
   /** Article JSON/TS — évite un second chargement pour la FAQ. */
   legacyArticle?: BlogArticle;
   /** Schéma HowTo optionnel (sections procédure). */
@@ -21,16 +23,23 @@ type Props = {
  * - `FAQPage` : uniquement si ≥ 3 paires Q/R dans l'article
  * - `HowTo` : optionnel, une seule fois
  */
-export function BlogArticleSchemas({ slug, article, legacyArticle, howToSchema }: Props) {
+export function BlogArticleSchemas({
+  slug,
+  article,
+  canonicalPath,
+  legacyArticle,
+  howToSchema,
+}: Props) {
+  const articlePath = canonicalPath ?? `${LINKS.blog}/${slug}`;
   const breadcrumbJsonLd = getBreadcrumbSchema([
     { name: 'Accueil', path: LINKS.home },
     { name: 'Blog', path: LINKS.blog },
-    { name: article.title, path: `${LINKS.blog}/${slug}` },
+    { name: article.title, path: articlePath },
   ]);
 
   return (
     <>
-      <ArticleJsonLd {...article} />
+      <ArticleJsonLd {...article} path={canonicalPath} />
       {breadcrumbJsonLd ? (
         <JsonLd id={`schema-blog-breadcrumb-${slug}`} schema={breadcrumbJsonLd} />
       ) : null}

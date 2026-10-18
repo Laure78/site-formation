@@ -3,6 +3,7 @@
  */
 
 import type { BlogArticle } from '@/lib/blog';
+import { getBlogArticleCanonicalPath } from '@/lib/blog-article-path';
 import {
   BLOG_CATEGORIES,
   estimateWordCountFromArticle,
@@ -29,7 +30,7 @@ function blogPostingFromArticle(a: BlogArticle): Record<string, unknown> {
     '@type': 'BlogPosting',
     headline: a.title,
     description: a.description,
-    url: `${BASE}/blog/${a.slug}`,
+    url: `${BASE}${getBlogArticleCanonicalPath(a)}`,
     datePublished: a.date,
     dateModified,
     image: resolveImageUrl(a),
@@ -63,7 +64,7 @@ export function buildBlogListingJsonLd(
     '@type': 'ListItem',
     position: i + 1,
     name: a.title,
-    url: `${BASE}/blog/${a.slug}`,
+    url: `${BASE}${getBlogArticleCanonicalPath(a)}`,
   }));
 
   const enrichedPosts = articles.map(blogPostingFromArticle);

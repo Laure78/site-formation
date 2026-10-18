@@ -20,6 +20,7 @@ import {
   NAV_IDF,
   NAV_LEGAL_BAR,
   NAV_LEGAL_SECONDARY,
+  NAV_LIENS_UTILES,
   NAV_METIERS,
   NAV_ORGANISME,
   NAV_RESSOURCES,
@@ -86,6 +87,7 @@ export const SITE = {
       ressources: NAV_RESSOURCES,
       carriere: NAV_CARRIERE,
       organisme: NAV_ORGANISME,
+      liensUtiles: NAV_LIENS_UTILES,
       legal: NAV_LEGAL_BAR,
       legalSecondary: NAV_LEGAL_SECONDARY,
       /** Conservés pour exports / outils — non rendus dans le footer principal. */

@@ -7,7 +7,7 @@ import { AUTHOR_HEADSHOT_IMAGE_CLASS } from '@/lib/author-headshot';
 import { IMAGE_QUALITY_DEFAULT } from '@/lib/image-props';
 import { usePathname } from 'next/navigation';
 import { useEffect, useRef, useState } from 'react';
-import { Menu, X, GraduationCap, Layers, Building2, Route, Users, Wallet } from 'lucide-react';
+import { Menu, X, GraduationCap, Layers, Users, Wallet } from 'lucide-react';
 import { SITE } from '@/lib/site';
 import { useHeaderNavDesktopHover } from '@/hooks/useHeaderNavDesktopHover';
 import { getHeaderNav, headerNavItemHasPanel } from '@/lib/header-nav';
@@ -32,8 +32,6 @@ const HeaderMobileDrawer = dynamic(
 
 const MOBILE_NAV_ICON: Record<string, LucideIcon> = {
   formations: GraduationCap,
-  'parcours-metiers': Route,
-  entreprise: Building2,
   formateurs: Users,
   financement: Wallet,
   ressources: Layers,

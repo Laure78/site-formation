@@ -29,6 +29,7 @@ const FORMATION_HREF_BY_CODE = {
   'NIV-02': LINKS.formationAO,
   'NIV-03': LINKS.formationConduiteTravauxSuiviChantier,
   'NIV-04': LINKS.formationMaitriserClaudeAiBtp,
+  'NIV-10': LINKS.formationDeveloppementWebIaSansCoder,
 } as const;
 
 /** Format catalogue affiché sur les cartes accueil (présentiel IDF). */
@@ -152,7 +153,7 @@ export const ACCUEIL_PARCOURS_FORMATION_ETAPES = ACCUEIL_METHODE_PEDAGOGIQUE_ETA
 export const ACCUEIL_CAS_EXERCICES_FORMATION = [
   {
     id: 'dce-vigilance',
-    titre: 'Analyser un DCE',
+    titre: 'DCE — appel d’offres',
     badge: 'Exemple pédagogique',
     besoin: 'Repérer les exigences avant chiffrage ou réponse (dossier fictif).',
     travail: 'Synthèse des exigences RC, CCTP et CCAP avec ChatGPT ou Claude.',
@@ -165,7 +166,7 @@ export const ACCUEIL_CAS_EXERCICES_FORMATION = [
   },
   {
     id: 'cr-actions',
-    titre: 'Compte rendu de chantier',
+    titre: 'Notes de chantier',
     badge: 'Exemple pédagogique',
     besoin: 'Suivre décisions, responsables et échéances après réunion (cas fictif).',
     travail: 'Notes brutes reformulées en CR structuré, puis tableau d’actions.',
@@ -177,16 +178,17 @@ export const ACCUEIL_CAS_EXERCICES_FORMATION = [
     href: LINKS.formationConduiteTravauxSuiviChantier,
   },
   {
-    id: 'relances',
-    titre: 'Relances clients',
+    id: 'admin-suivi',
+    titre: 'Suivi administratif',
     badge: 'Exemple pédagogique',
-    besoin: 'Organiser relances et impayés sans perdre le fil (données anonymisées).',
-    travail: 'Brouillon de messages et tableau de suivi avec ChatGPT ou Claude.',
-    livrable: 'Modèles de relance + tableau (statut, date, prochaine action).',
-    verification: 'Relire chaque message ; valider montants, délais et ton avant envoi.',
+    besoin: 'Courriers, relances et pièces à suivre sur un dossier type (données anonymisées).',
+    travail: 'Structuration des échanges et relances avec ChatGPT ou Claude.',
+    livrable: 'Courriers types + tableau de suivi (statut, date, prochaine action).',
+    verification:
+      'Relire chaque message ; valider montants, délais et ton avant envoi ou signature.',
     apercu:
       'Relance J+15 — Objet : facture n°… — Statut : en attente — Prochaine action : appel le…',
-    href: LINKS.formationIaBtpNiveau1BatimentTp,
+    href: LINKS.formationIaAssistanteBtp,
   },
 ] as const;
 
@@ -339,14 +341,25 @@ const ACCUEIL_PUBLIC_BY_CODE = {
   'NIV-02': 'Chargés d’affaires, études de prix, réponse aux AO',
   'NIV-03': 'Conducteurs de travaux et suivi de chantier',
   'NIV-04': 'Profils à l’aise avec l’IA sur documents BTP',
-} as const satisfies Record<'NIV-01' | 'NIV-02' | 'NIV-03' | 'NIV-04', string>;
+  'NIV-10': 'Dirigeants, conducteurs de travaux et fonctions support',
+} as const satisfies Record<
+  'NIV-01' | 'NIV-02' | 'NIV-03' | 'NIV-04' | 'NIV-10',
+  string
+>;
+
+/** Aperçu accueil — une formation par niveau pédagogique (sources catalogue). */
+const ACCUEIL_FORMATIONS_PRIORITAIRES_CODES = [
+  'NIV-01',
+  'NIV-02',
+  'NIV-03',
+  'NIV-10',
+] as const;
 
 /**
- * Formations prioritaires — usages opérationnels BTP uniquement
- * (NIV-01 à NIV-04). Pas de parcours applications métier (relai BeWork).
+ * Formations prioritaires — sélection équilibrée niveaux 1, 2 et 3 (données catalogue).
  */
 export function getAccueilFormationsPrioritaires(): readonly AccueilFormationCarte[] {
-  const codes = ['NIV-01', 'NIV-02', 'NIV-03', 'NIV-04'] as const;
+  const codes = ACCUEIL_FORMATIONS_PRIORITAIRES_CODES;
   const cartes: AccueilFormationCarte[] = [];
 
   for (const code of codes) {

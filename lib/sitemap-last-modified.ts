@@ -265,8 +265,7 @@ const ROUTE_SOURCE_FILES: Record<string, readonly string[]> = {
   ],
   '/formation-ia-intra-entreprise-btp': [
     'app/formation-ia-intra-entreprise-btp/page.tsx',
-    'lib/formation-ia-intra-entreprise-btp-content.ts',
-    'lib/schema-formation-ia-intra-entreprise-btp.ts',
+    'content/blog/formation-ia-intra-entreprise-btp.mdx',
   ],
   '/skills-chatgpt-btp': [
     'app/skills-chatgpt-btp/page.tsx',

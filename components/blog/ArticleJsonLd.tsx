@@ -16,6 +16,8 @@ export type ArticleJsonLdProps = {
   keywords?: string[];
   wordCount?: number;
   id?: string;
+  /** Chemin canonique public (défaut `/blog/[slug]`). */
+  path?: string;
 };
 
 /**
@@ -32,11 +34,13 @@ export function ArticleJsonLd({
   keywords,
   wordCount,
   id = 'schema-blog-article',
+  path,
 }: ArticleJsonLdProps) {
   const schema = buildBlogPostingJsonLd({
     headline: headline ?? title,
     description,
     slug,
+    path,
     datePublished,
     dateModified,
     imageUrl,

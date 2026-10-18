@@ -9,6 +9,7 @@ import remarkGfm from 'remark-gfm';
 import rehypeSlug from 'rehype-slug';
 import { rehypeAutoLink } from '@/lib/autoLink';
 import matter from 'gray-matter';
+import { getBlogArticleCanonicalPathFromMdx } from '@/lib/blog-article-path';
 import { buildBlogArticleOgImageAlt } from '@/lib/image-alt';
 import { ARTICLE_SECTION_GEO, createPageMetadata, estimateWordCountFromPlainText, SITE_CONFIG } from '@/lib/seo';
 import { getBlogMdxComponents } from '@/components/blog/blog-mdx-components';
@@ -50,6 +51,10 @@ export type BlogMdxFrontmatter = {
   relatedSlugs?: string[];
   /** Synthèse factuelle sous le H1 (2–3 phrases) — absent = bloc masqué */
   enBref?: string | string[];
+  /** URL canonique hors `/blog/[slug]`. */
+  canonicalPath?: string;
+  /** Masque le CTA blog générique en fin d’article. */
+  hideEndCta?: boolean;
 };
 
 export type { BlogFaqFrontmatterPair, BlogMdxFaqItem };
@@ -104,10 +109,10 @@ export function getMdxFrontmatter(slug: string): BlogMdxFrontmatter | null {
   return data as BlogMdxFrontmatter;
 }
 
-export function buildMdxBlogMetadata(slug: string): Metadata | null {
+export function buildMdxBlogMetadata(slug: string, pathOverride?: string): Metadata | null {
   const fm = getMdxFrontmatter(slug);
   if (!fm) return null;
-  const path = `/blog/${slug}`;
+  const path = pathOverride ?? getBlogArticleCanonicalPathFromMdx(fm);
   const coverUrl = resolveMdxCoverUrl(fm.cover);
   const metaTitle = fm.seoTitle ?? fm.title;
   const ogImageAlt = buildBlogArticleOgImageAlt(metaTitle);
@@ -189,6 +194,7 @@ export function mdxFrontmatterToBlogArticle(fm: BlogMdxFrontmatter): BlogArticle
     relatedSlugs: fm.relatedSlugs,
     readingTime: fm.readingTime,
     enBref: fm.enBref,
+    canonicalPath: fm.canonicalPath,
   };
 }
 

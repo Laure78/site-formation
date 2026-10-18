@@ -9,10 +9,9 @@ export function AccueilCasExercicesSection() {
     <Section tone="canvas" aria-labelledby="accueil-cas-title">
       <SectionHeader
         titleId="accueil-cas-title"
-        title="Exemples de réalisations en formation"
-        description="Cas pédagogiques — données fictives ou anonymisées. Ce ne sont pas des témoignages clients ni des gains chiffrés."
-        className="mx-auto max-w-2xl"
-        align="center"
+        title="Des réalisations concrètes en formation"
+        description="Exemples pédagogiques — dossiers fictifs ou anonymisés. Relecture métier obligatoire avant tout usage ou envoi."
+        className="max-w-2xl"
       />
       <ul className="mt-10 grid gap-6 lg:grid-cols-3">
         {ACCUEIL_CAS_EXERCICES_FORMATION.map((cas) => (
@@ -24,15 +23,15 @@ export function AccueilCasExercicesSection() {
               <h3 className="mt-2 font-display text-base font-bold text-ofc-ink">{cas.titre}</h3>
               <dl className="mt-4 space-y-3 text-sm">
                 <div>
-                  <dt className="font-semibold text-ofc-ink">Situation de départ</dt>
+                  <dt className="font-semibold text-ofc-ink">Document de départ</dt>
                   <dd className="mt-0.5 text-ofc-ink-muted">{cas.besoin}</dd>
                 </div>
                 <div>
-                  <dt className="font-semibold text-ofc-ink">Travail avec ChatGPT ou Claude</dt>
+                  <dt className="font-semibold text-ofc-ink">Travail réalisé avec l’IA</dt>
                   <dd className="mt-0.5 text-ofc-ink-muted">{cas.travail}</dd>
                 </div>
                 <div>
-                  <dt className="font-semibold text-ofc-ink">Livrable obtenu</dt>
+                  <dt className="font-semibold text-ofc-ink">Livrable préparé</dt>
                   <dd className="mt-0.5 text-ofc-ink-muted">{cas.livrable}</dd>
                 </div>
                 <div>
@@ -50,7 +49,7 @@ export function AccueilCasExercicesSection() {
               ) : null}
               <p className="mt-auto pt-4">
                 <Link href={cas.href} className={`${OFC_LINK} text-sm font-semibold`}>
-                  Formation associée
+                  Voir la formation associée
                 </Link>
               </p>
             </article>

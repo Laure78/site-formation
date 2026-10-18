@@ -638,6 +638,7 @@ export function buildBlogPostingJsonLd({
   headline,
   description,
   slug,
+  path,
   datePublished,
   dateModified,
   imageUrl,
@@ -647,6 +648,8 @@ export function buildBlogPostingJsonLd({
   headline: string;
   description: string;
   slug: string;
+  /** Chemin canonique (ex. `/formation-ia-intra-entreprise-btp`) — défaut `/blog/[slug]`. */
+  path?: string;
   datePublished: string;
   dateModified?: string;
   imageUrl: string;
@@ -654,7 +657,8 @@ export function buildBlogPostingJsonLd({
   wordCount?: number;
 }): Record<string, unknown> {
   const baseRoot = SITE_CONFIG.url.replace(/\/$/, '');
-  const pageUrl = `${baseRoot}/blog/${slug}`;
+  const pagePath = (path ?? `/blog/${slug}`).replace(/\/$/, '') || '/';
+  const pageUrl = `${baseRoot}${pagePath}`;
   const personId = `${baseRoot}/#laure-olivie`;
   const organizationId = `${baseRoot}/#organization`;
   const pubIso = dateToIso8601ForMeta(datePublished);

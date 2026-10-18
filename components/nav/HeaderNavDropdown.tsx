@@ -1,6 +1,7 @@
 'use client';
 
 import type { ReactNode } from 'react';
+import { useState } from 'react';
 import Link from 'next/link';
 import type { HeaderNavDesktopHover } from '@/hooks/useHeaderNavDesktopHover';
 import { ChevronDown } from 'lucide-react';
@@ -39,18 +40,24 @@ function HeaderNavFormationsByLevel({
   pathname,
   onNavigate,
   layout,
+  dualColumn = false,
 }: {
   columns: readonly HeaderMegaColumn[];
   pathname: string;
   onNavigate?: () => void;
   layout: 'columns' | 'stack';
+  dualColumn?: boolean;
 }) {
   const isStack = layout === 'stack';
 
   return (
     <div
       className={
-        isStack ? 'header-nav-formations-stack' : 'header-nav-dropdown-formations-grid'
+        isStack
+          ? 'header-nav-formations-stack'
+          : `header-nav-dropdown-formations-grid${
+              dualColumn ? ' header-nav-dropdown-formations-grid--dual' : ''
+            }`
       }
     >
       {columns.map((column) => (
@@ -62,6 +69,15 @@ function HeaderNavFormationsByLevel({
           >
             {column.title}
           </p>
+          {column.intro ? (
+            <p
+              className={`text-xs leading-snug text-slate-500 ${
+                isStack ? 'px-3 pb-1' : 'px-2 pb-2'
+              }`}
+            >
+              {column.intro}
+            </p>
+          ) : null}
           <ul className={isStack ? 'mt-1 space-y-0' : 'mt-2 space-y-0.5'}>
             {column.links.map((link) => {
               const active = headerNavLinkIsActive(link.href, pathname);
@@ -97,6 +113,13 @@ function HeaderNavFormationsByLevel({
               );
             })}
           </ul>
+          {column.footer ? (
+            <HeaderNavFormationsFooter
+              footer={column.footer}
+              onNavigate={onNavigate}
+              className={isStack ? 'px-1' : ''}
+            />
+          ) : null}
         </div>
       ))}
     </div>
@@ -275,6 +298,7 @@ export function HeaderNavDropdown({
   const alignEnd = item.dropdownAlign === 'end';
   const hideHeading = Boolean(item.hideDropdownHeading);
   const formationsPanel = Boolean(item.dropdownPanelFormations);
+  const formationsDual = Boolean(item.dropdownPanelFormationsDual);
   const panelOpen = open && (children.length > 0 || hasMega);
 
   const submenuAriaLabel = open
@@ -340,7 +364,9 @@ export function HeaderNavDropdown({
           id={panelId}
           data-header-dropdown=""
           className={`header-nav-dropdown-panel absolute top-full z-[60] ${
-            formationsPanel && hasMega
+            formationsPanel && hasMega && formationsDual
+              ? 'min-w-[min(100vw-2rem,44rem)] max-w-[min(100vw-2rem,44rem)]'
+              : formationsPanel && hasMega
               ? 'min-w-[min(100vw-2rem,56rem)] max-w-[min(100vw-2rem,56rem)]'
               : formationsPanel
                 ? 'min-w-[17rem] max-w-[min(100vw-2rem,28rem)]'
@@ -386,6 +412,7 @@ export function HeaderNavDropdown({
                 pathname={pathname}
                 onNavigate={onNavigate}
                 layout="columns"
+                dualColumn={formationsDual}
               />
             ) : (
               <ul>
@@ -430,6 +457,66 @@ export function HeaderNavSimpleLink({
   );
 }
 
+function HeaderMobileFormationsDualGroups({
+  groups,
+  pathname,
+  onNavigate,
+}: {
+  groups: readonly HeaderNavLink[];
+  pathname: string;
+  onNavigate: () => void;
+}) {
+  const [openGroup, setOpenGroup] = useState<string | null>(null);
+
+  return (
+    <ul className="space-y-1">
+      {groups.map((group) => {
+        const groupKey = group.label;
+        const isOpen = openGroup === groupKey;
+        const panelId = `header-mobile-formations-group-${groupKey.replace(/\s+/g, '-')}`;
+        return (
+          <li key={groupKey} className="rounded-xl border border-slate-100 bg-slate-50/50">
+            <button
+              type="button"
+              className="flex min-h-11 w-full items-center justify-between gap-2 px-3 py-2.5 text-left"
+              aria-expanded={isOpen}
+              aria-controls={panelId}
+              onClick={() => setOpenGroup(isOpen ? null : groupKey)}
+            >
+              <span className="min-w-0 flex-1">
+                <span className="block text-sm font-semibold text-slate-900">{group.label}</span>
+                {group.description ? (
+                  <span className="mt-0.5 block text-xs font-normal text-slate-500">
+                    {group.description}
+                  </span>
+                ) : null}
+              </span>
+              <ChevronDown
+                size={18}
+                strokeWidth={2.25}
+                className={`shrink-0 text-slate-400 transition-transform duration-200 motion-reduce:transition-none ${
+                  isOpen ? 'rotate-180' : ''
+                }`}
+                aria-hidden
+              />
+            </button>
+            {isOpen && group.children?.length ? (
+              <ul id={panelId} className="border-t border-slate-100 px-1 pb-2 pt-1">
+                <HeaderMobileNavLinks
+                  links={group.children}
+                  pathname={pathname}
+                  onNavigate={onNavigate}
+                  nested
+                />
+              </ul>
+            ) : null}
+          </li>
+        );
+      })}
+    </ul>
+  );
+}
+
 export function HeaderMobileNavSection({
   item,
   pathname,
@@ -451,7 +538,9 @@ export function HeaderMobileNavSection({
   const children = item.children ?? [];
   const megaColumns = item.megaColumns ?? [];
   const megaQuickLinks = item.megaQuickLinks ?? [];
-  const hasFormationsMega = Boolean(item.dropdownPanelFormations) && megaColumns.length > 0;
+  const formationsDual = Boolean(item.dropdownPanelFormationsDual);
+  const hasFormationsMega =
+    Boolean(item.dropdownPanelFormations) && megaColumns.length > 0 && !formationsDual;
   const hasMenu = headerNavItemHasPanel(item);
   const formationsPanel = Boolean(item.dropdownPanelFormations);
 
@@ -515,7 +604,13 @@ export function HeaderMobileNavSection({
           }${hasFormationsMega ? ' header-mobile-submenu--formations-flat max-h-[min(70vh,28rem)] overflow-y-auto overscroll-contain' : ''}`}
           aria-labelledby={buttonId}
         >
-          {hasFormationsMega ? (
+          {formationsDual && children.length > 0 ? (
+            <HeaderMobileFormationsDualGroups
+              groups={children}
+              pathname={pathname}
+              onNavigate={onNavigate}
+            />
+          ) : hasFormationsMega ? (
             <>
               {megaQuickLinks.length > 0 ? (
                 <div className="mb-2 px-1">

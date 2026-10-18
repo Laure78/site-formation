@@ -1,6 +1,7 @@
 import type { MetadataRoute } from 'next';
 import { SITE_CONFIG } from '@/lib/seo';
 import { LINKS } from '@/lib/internal-links';
+import { getBlogArticleCanonicalPath } from '@/lib/blog-article-path';
 import { getAllArticles, BLOG_CATEGORIES, type BlogCategoryId } from '@/lib/blog';
 import { BLOG_CATEGORY_PATH_SLUGS } from '@/lib/blog-index-urls';
 import { GSC_EXCLUDED_SITEMAP_PATHS } from '@/lib/gsc-redirects-2026';
@@ -114,10 +115,13 @@ function buildBlogSitemapEntries(baseUrl: string): MetadataRoute.Sitemap {
 
   out.push(
     // Articles publiables (MDX + BLOG_ARTICLES) — date = dateModified ?? date publication
-    ...getAllArticles().map((article) => ({
-      url: `${baseUrl}/blog/${article.slug}`,
-      lastModified: resolveSitemapLastModified(`/blog/${article.slug}`, { article }),
-    })),
+    ...getAllArticles().map((article) => {
+      const path = getBlogArticleCanonicalPath(article);
+      return {
+        url: `${baseUrl}${path}`,
+        lastModified: resolveSitemapLastModified(path, { article }),
+      };
+    }),
   );
 
   // Pagination `/blog/page/[n]` : noindex + exclue du sitemap (faible valeur crawl).

@@ -97,28 +97,24 @@ export const FAQ_IA_BTP_METIERS_CHANTIER_SEO: readonly FAQItem[] = [
  */
 export const FAQ_ITEMS_HOME: readonly FAQItem[] = [
   {
-    q: 'Quel niveau de formation IA choisir ?',
-    a: 'Niveau 1 si vous découvrez l’IA · Niveau 2 pour structurer vos usages sur les documents BTP · Niveau 3 pour créer assistants et outils. Les prérequis de chaque programme priment — voir <a href="/formations#comparer-niveaux">comparer les niveaux</a>.',
+    q: 'Quelle formation choisir pour débuter ?',
+    a: 'Commencez par le niveau 1 (4 h) si vous découvrez l’IA. Sinon, choisissez une formation métier niveau 2 (7 h) ou le <a href="/formations#quelle-formation-choisir">questionnaire d’orientation</a>. Les prérequis de chaque fiche priment.',
   },
   {
-    q: 'Quels sont les prérequis ?',
-    a: 'Niveau 1 : aucune pratique préalable, ordinateur et connexion. Niveaux 2 et 3 : bases IA ou expérience indiquée sur la fiche programme. Compte professionnel Claude si mentionné sur la formation concernée.',
+    q: 'Quelle différence entre formation et parcours métier ?',
+    a: 'Une <strong>formation</strong> est une session catalogue (4 h, 7 h ou 14 h) sur un programme défini. Un <strong>parcours métier</strong> enchaîne plusieurs modules par fonction (dirigeant, chargé d’affaires, etc.) — voir <a href="/parcours-metiers">les parcours métiers</a>.',
   },
   {
-    q: 'Peut-on utiliser les documents de son entreprise ?',
-    a: 'Oui en session intra ou sur cas préparés : devis, DCE, CR, emails — avec anonymisation si nécessaire et validation humaine avant envoi ou usage.',
+    q: 'Où se déroulent les sessions ?',
+    a: `Présentiel en Île-de-France (75 à 95), en inter ou intra-entreprise. Détails sur <a href="${LINKS.formations}">le catalogue</a> et le <a href="${LINKS.formationIaIntraEntrepriseBtp}">guide intra-entreprise IA BTP</a>.`,
   },
   {
-    q: 'Où se déroulent les formations ?',
-    a: `Présentiel en Île-de-France (75 à 95), intra-entreprise ou inter. Modalités détaillées sur <a href="${LINKS.formations}">le catalogue</a> et la page <a href="${LINKS.formationIaIntraEntrepriseBtp}">intra-entreprise</a>.`,
+    q: 'Peut-on travailler sur les documents de son entreprise ?',
+    a: 'Oui en intra ou sur cas préparés : devis, DCE, comptes rendus, courriers — avec anonymisation si nécessaire et validation humaine avant envoi.',
   },
   {
-    q: 'Comment organiser une session intra-entreprise ?',
-    a: `Définir le public, le niveau et les documents cibles, puis <a href="${LINKS.prendreRdv}">échanger sur votre besoin</a> ou <a href="${LINKS.contact}">nous contacter</a> pour un devis.`,
-  },
-  {
-    q: 'Comment étudier les possibilités de financement ?',
-    a: `${FINANCEMENT_FORMULATION_PRUDENTE} Voir <a href="${LINKS.financement}">financement Constructys — formation IA BTP</a> et <a href="#accueil-intra-financement">le rappel sur l’accueil</a>.`,
+    q: 'Comment étudier un financement ?',
+    a: `${FINANCEMENT_FORMULATION_PRUDENTE} Voir <a href="${LINKS.financement}">financement Constructys — formation IA BTP</a> et le rappel sous le bloc « Former une équipe » sur cette page.`,
   },
 ];
 

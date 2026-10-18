@@ -205,6 +205,16 @@ const nextConfig: NextConfig = {
         destination: '/blog/ia-memoire-technique-appel-offres-guide-2026',
         permanent: true,
       },
+      {
+        source: '/blog/formation-ia-intra-entreprise-btp',
+        destination: '/formation-ia-intra-entreprise-btp',
+        permanent: true,
+      },
+      {
+        source: '/blog/formation-ia-intra-entreprise-btp/',
+        destination: '/formation-ia-intra-entreprise-btp',
+        permanent: true,
+      },
       // --- Consolidation blog B2 (juillet 2026) — suffixes cron + sémantiques ---
       ...blogConsolidationRedirectsJuly2026(),
       // --- Plan de canonisation (juin 2026) — 9 doublons → page maître (308) ---

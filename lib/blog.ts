@@ -81,6 +81,8 @@ export interface BlogArticle {
   readingTime?: string;
   /** Synthèse factuelle sous le H1 (2–3 phrases) — absent = bloc masqué */
   enBref?: string | string[];
+  /** URL canonique hors `/blog/[slug]` (une seule URL indexable). */
+  canonicalPath?: string;
 }
 
 /** Titre de section (H2) typique d’un bloc FAQ pour détection HTML. */

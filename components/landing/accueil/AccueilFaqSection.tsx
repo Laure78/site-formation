@@ -12,7 +12,7 @@ export function AccueilFaqSection() {
         titleId="accueil-faq"
         eyebrow="FAQ"
         title="Des questions ? C’est normal."
-        description="Réponses courtes sur le public visé, les prérequis, vos documents et le financement."
+        description="Réponses courtes sur le choix de formation, les parcours métiers, le présentiel et le financement."
         className="mx-auto"
       />
       <div className="mt-10">

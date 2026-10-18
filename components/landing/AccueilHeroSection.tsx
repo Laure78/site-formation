@@ -1,7 +1,6 @@
 import Link from 'next/link';
 import { AccueilHeroVideo } from '@/components/landing/AccueilHeroVideo';
 import { Badge } from '@/components/ui/Badge';
-import { getAccueilHeroModalitesLine } from '@/lib/accueil-config';
 import { LINKS } from '@/lib/internal-links';
 import {
   OFC_CTA_PRIMARY,
@@ -20,39 +19,33 @@ export function AccueilHeroSection() {
           <div className="accueil-hero-content order-1 min-w-0">
             <Badge>Formatrice IA spécialisée BTP</Badge>
             <h1 className="mt-2 max-w-3xl font-display text-[clamp(1.45rem,1.1rem+1.25vw,1.95rem)] font-extrabold leading-[1.18] tracking-tight text-ofc-ink text-balance">
-              Formations IA pour les professionnels du BTP en Île-de-France
+              Formations IA pour les entreprises du BTP en Île-de-France
             </h1>
             <p className={`${OFC_TYPE_LEAD} mt-2 max-w-xl text-[0.9375rem] leading-[1.55] text-ofc-ink md:text-base`}>
-              Devis, appels d’offres, comptes rendus, suivi de chantier et gestion administrative :
-              apprenez à utiliser ChatGPT et Claude sur vos documents métier. Formations pratiques en
-              présentiel en Île-de-France.
+              Apprenez à utiliser ChatGPT et Claude pour préparer vos devis, analyser vos appels
+              d’offres et simplifier le suivi de chantier. Des formations pratiques, en présentiel,
+              adaptées à votre métier et à votre niveau.
             </p>
             <div className="mt-4 flex flex-col gap-2.5 sm:flex-row sm:flex-wrap">
               <Link
-                href={LINKS.formationsOrientation}
+                href={LINKS.formationsIaDisponibles}
                 data-cta="trouver-formation"
                 className={`${OFC_CTA_PRIMARY} inline-flex min-h-11 w-full items-center justify-center px-5 py-2.5 text-sm sm:w-auto md:px-6 md:py-3 md:text-base`}
               >
                 Trouver ma formation
               </Link>
               <Link
-                href={LINKS.formationsIaDisponibles}
-                data-cta="catalogue"
+                href={`${LINKS.formationIaIntraEntrepriseBtp}?src=accueil-hero`}
+                data-cta="intra-equipe"
                 className={`${OFC_CTA_SECONDARY} inline-flex min-h-11 w-full items-center justify-center px-5 py-2.5 text-sm sm:w-auto md:px-6 md:py-3 md:text-base`}
               >
-                Voir le catalogue
+                Former mon équipe
               </Link>
             </div>
             <p className="mt-3">
-              <Link
-                href={`${LINKS.formationIaIntraEntrepriseBtp}?src=accueil-hero`}
-                className={`${OFC_LINK} text-xs font-semibold md:text-sm`}
-              >
-                Échanger sur les besoins de mon équipe
+              <Link href="#accueil-parcours" className={`${OFC_LINK} text-xs font-medium md:text-sm`}>
+                Découvrir les parcours métiers
               </Link>
-            </p>
-            <p className="mt-3 max-w-xl text-xs leading-relaxed text-ofc-ink-muted md:text-sm">
-              {getAccueilHeroModalitesLine()}
             </p>
           </div>
 

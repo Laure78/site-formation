@@ -1,17 +1,13 @@
 import type { Metadata } from 'next';
 import { preload } from 'react-dom';
-import { EvenementAoBtpPromoEncart } from '@/components/evenements/EvenementAoBtpPromoEncart';
 import { AccueilHeroSection } from '@/components/landing/AccueilHeroSection';
 import { AccueilPreuvesConfianceSection } from '@/components/landing/accueil/AccueilPreuvesConfianceSection';
-import { AccueilNiveauxOrientationSection } from '@/components/landing/accueil/AccueilNiveauxOrientationSection';
-import { AccueilRechercheFormationsSection } from '@/components/landing/accueil/AccueilRechercheFormationsSection';
 import { AccueilFormationsDisponiblesSection } from '@/components/landing/accueil/AccueilFormationsDisponiblesSection';
 import { AccueilParcoursMetiersSection } from '@/components/landing/accueil/AccueilParcoursMetiersSection';
 import { AccueilCasExercicesSection } from '@/components/landing/accueil/AccueilCasExercicesSection';
-import { AccueilOutilsIaMetiersSection } from '@/components/landing/accueil/AccueilOutilsIaMetiersSection';
-import { AccueilMethodePedagogiqueSection } from '@/components/landing/accueil/AccueilMethodePedagogiqueSection';
 import { AccueilLaureFormateursSection } from '@/components/landing/accueil/AccueilLaureFormateursSection';
 import { AccueilIntraFinancementSection } from '@/components/landing/accueil/AccueilIntraFinancementSection';
+import { AccueilRessourcesEvenementSection } from '@/components/landing/accueil/AccueilRessourcesEvenementSection';
 import { AccueilFaqSection } from '@/components/landing/accueil/AccueilFaqSection';
 import { AccueilCtaFinalSection } from '@/components/landing/accueil/AccueilCtaFinalSection';
 import { buildMetadata } from '@/lib/seo';
@@ -21,9 +17,9 @@ import { PHOTOS } from '@/lib/photos';
 import { buildHomeUnifiedGraphJsonLd } from '@/lib/schema-home-unified-graph';
 
 const HOME_META_TITLE_ABSOLUTE =
-  'Laure Olivié — formatrice IA pour le BTP en Île-de-France';
+  'Formations IA BTP en Île-de-France | Laure Olivié';
 const HOME_META_DESCRIPTION =
-  'Formation IA pour le BTP : devis, DCE, comptes rendus et mémoires techniques avec ChatGPT et Claude. Présentiel Île-de-France, Qualiopi, OPCO selon éligibilité.';
+  'Formations IA pour le BTP en présentiel Île-de-France : devis, appels d’offres et suivi de chantier avec ChatGPT et Claude. Parcours métiers, Qualiopi, financement OPCO selon éligibilité.';
 
 const HOME_FAQ_PAGE_JSON_LD = buildHomeFAQPageJsonLd();
 
@@ -32,7 +28,7 @@ preload(PHOTOS.heroAccueilFormationIABtpEchange2026.src, { as: 'image', fetchPri
 export const revalidate = 3600;
 
 const homeMetadata = buildMetadata({
-  title: 'Formation IA pour le BTP',
+  title: 'Formations IA pour le BTP',
   description: HOME_META_DESCRIPTION,
   descriptionFinal: true,
   path: '/',
@@ -85,17 +81,13 @@ export default function HomePage() {
   return (
     <div>
       <AccueilHeroSection />
-      <EvenementAoBtpPromoEncart placement="accueil" />
       <AccueilPreuvesConfianceSection />
-      <AccueilNiveauxOrientationSection />
-      <AccueilRechercheFormationsSection />
       <AccueilFormationsDisponiblesSection />
       <AccueilParcoursMetiersSection />
-      <AccueilOutilsIaMetiersSection />
-      <AccueilLaureFormateursSection />
       <AccueilCasExercicesSection />
-      <AccueilMethodePedagogiqueSection />
+      <AccueilLaureFormateursSection />
       <AccueilIntraFinancementSection />
+      <AccueilRessourcesEvenementSection />
       <AccueilFaqSection />
       <AccueilCtaFinalSection />
 

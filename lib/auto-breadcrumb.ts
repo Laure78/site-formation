@@ -16,7 +16,7 @@ const EXACT: Record<string, string> = {
   '/checklist-ia-btp': 'Checklist IA BTP',
   '/skills-claude-btp': 'Skills Claude pour le BTP',
   '/skills-chatgpt-btp': 'Skills ChatGPT pour le BTP',
-  '/formation-ia-intra-entreprise-btp': 'Formation IA intra-entreprise',
+  '/formation-ia-intra-entreprise-btp': 'Guide intra-entreprise IA BTP',
   '/parcours-metiers': 'Parcours métiers',
   '/communaute-formateurs': 'Communauté formateurs',
   '/ressources/ia-btp': 'Ressources IA BTP',

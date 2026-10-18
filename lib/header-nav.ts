@@ -3,8 +3,10 @@
  * Menus compacts (panneaux simples, pas de méga-menu).
  */
 import { catalogueFormationNavContainsPath } from '@/lib/catalogue-formations-nav';
-import { buildFormationsNavMegaColumns } from '@/lib/header-nav-formations-catalogue';
-import { buildParcoursNavChildren } from '@/lib/header-nav-parcours';
+import {
+  buildUnifiedFormationsMobileNavGroups,
+  buildUnifiedFormationsNavMegaColumns,
+} from '@/lib/header-nav-formations-unified';
 import { utilityOrganismeNavActive } from '@/lib/header-nav-organisme-links';
 import { LINKS } from '@/lib/internal-links';
 
@@ -19,8 +21,11 @@ export type HeaderNavLink = {
 
 export type HeaderMegaColumn = {
   title: string;
+  /** Texte d’introduction sous le titre de colonne (méga-menu Formations). */
+  intro?: string;
   href?: string;
   links: readonly HeaderNavLink[];
+  footer?: HeaderNavLink;
 };
 
 export type HeaderNavItem = {
@@ -38,6 +43,8 @@ export type HeaderNavItem = {
   hideDropdownHeading?: boolean;
   /** Liste formations catalogue — libellés multilignes, sans niveaux. */
   dropdownPanelFormations?: boolean;
+  /** Méga-menu Formations — grille deux colonnes (formations + parcours). */
+  dropdownPanelFormationsDual?: boolean;
   isActive?: (pathname: string) => boolean;
 };
 
@@ -55,7 +62,7 @@ function parcoursNavActive(pathname: string): boolean {
 }
 
 function formationsNavActive(pathname: string): boolean {
-  if (parcoursNavActive(pathname)) return false;
+  if (parcoursNavActive(pathname)) return true;
   if (pathname === LINKS.formations || pathname.startsWith(`${LINKS.formations}/`)) {
     return true;
   }
@@ -122,42 +129,14 @@ function buildHeaderNavItems(at: Date = new Date()): readonly HeaderNavItem[] {
   return [
     {
       id: 'formations',
-      label: 'Formations IA BTP',
+      label: 'Formations',
       href: LINKS.formations,
       isActive: formationsNavActive,
-      megaColumns: buildFormationsNavMegaColumns(at),
-      megaQuickLinks: [
-        {
-          href: LINKS.formations,
-          label: 'Voir tout le catalogue',
-          title: 'Catalogue des formations IA BTP — présentiel Île-de-France',
-        },
-      ],
+      megaColumns: buildUnifiedFormationsNavMegaColumns(at),
+      children: buildUnifiedFormationsMobileNavGroups(at),
       hideDropdownHeading: true,
       dropdownPanelFormations: true,
-      footer: {
-        href: LINKS.formationsOrientation,
-        label: 'Quelle formation choisir ?',
-        title: 'Orientation formation IA BTP',
-      },
-    },
-    {
-      id: 'parcours-metiers',
-      label: 'Parcours métiers',
-      href: LINKS.parcoursMetiers,
-      isActive: parcoursNavActive,
-      children: buildParcoursNavChildren(),
-      footer: {
-        href: LINKS.parcoursMetiers,
-        label: 'Voir tous les parcours',
-        title: 'Hub parcours métiers BTP',
-      },
-    },
-    {
-      id: 'entreprise',
-      label: 'Former mon équipe',
-      href: LINKS.formationIaIntraEntrepriseBtp,
-      isActive: (pathname) => pathname === LINKS.formationIaIntraEntrepriseBtp,
+      dropdownPanelFormationsDual: true,
     },
     {
       id: 'formateurs',
@@ -229,6 +208,11 @@ export function collectHeaderNavHrefs(): string[] {
     }
     if (item.megaQuickLinks?.length) collectHeaderNavLinkHrefs(item.megaQuickLinks, hrefs);
     if (item.footer) hrefs.push(item.footer.href);
+    if (item.megaColumns) {
+      for (const col of item.megaColumns) {
+        if (col.footer) hrefs.push(col.footer.href);
+      }
+    }
   }
   return hrefs;
 }

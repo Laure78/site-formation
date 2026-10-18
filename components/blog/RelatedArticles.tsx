@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import type { BlogArticle } from '@/lib/blog';
+import { getBlogArticleCanonicalPath } from '@/lib/blog-article-path';
 import { OFC_CARD } from '@/lib/ofc-interaction-classes';
 
 type Props = {
@@ -24,7 +25,7 @@ export function RelatedArticles({
         {articles.map((a) => (
           <Link
             key={a.slug}
-            href={`/blog/${a.slug}`}
+            href={getBlogArticleCanonicalPath(a)}
             className={`${OFC_CARD} group block p-4`}
           >
             <span className="font-medium text-slate-900 transition-colors duration-150 group-hover:text-[#377CF3]">

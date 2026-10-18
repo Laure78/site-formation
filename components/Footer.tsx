@@ -20,6 +20,7 @@ import {
   NAV_FORMATIONS_FOOTER,
   NAV_LEGAL_BAR,
   NAV_LEGAL_SECONDARY,
+  NAV_LIENS_UTILES,
   NAV_ORGANISME,
   NAV_RESSOURCES,
   type NavItem,
@@ -43,12 +44,18 @@ function FooterNavLink({ item }: { item: NavItem }) {
     return (
       <ExternalLinkAnchor href={item.href} className={FOOTER_LINK_CLASS} title={item.title}>
         {item.label}
+        <span className="sr-only"> (ouvre dans une nouvelle fenêtre)</span>
       </ExternalLinkAnchor>
     );
   }
   if (item.href.endsWith('.pdf')) {
     return (
-      <a href={item.href} className={FOOTER_LINK_CLASS} title={item.title} download>
+      <a
+        href={item.href}
+        className={FOOTER_LINK_CLASS}
+        title={item.title ?? 'Document PDF'}
+        type="application/pdf"
+      >
         {item.label}
       </a>
     );
@@ -170,8 +177,8 @@ export function Footer() {
           </div>
         </div>
 
-        {/* Navigation — 5 colonnes (2×2 mobile, 3 puis 5 desktop) */}
-        <div className="grid gap-10 py-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 lg:gap-8 lg:py-12">
+        {/* Navigation — 6 colonnes (2× mobile, 3× lg, 6× 2xl) */}
+        <div className="grid gap-10 py-10 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-6 lg:gap-8 lg:py-12">
           <FooterNavColumn
             ariaLabel="Formations IA BTP"
             heading="Formations IA BTP"
@@ -193,6 +200,11 @@ export function Footer() {
             items={NAV_RESSOURCES}
           />
           <FooterNavColumn ariaLabel="Carrière" heading="Carrière" items={NAV_CARRIERE} />
+          <FooterNavColumn
+            ariaLabel="Liens utiles"
+            heading="Liens utiles"
+            items={NAV_LIENS_UTILES}
+          />
         </div>
 
         {/* Réassurance — Qualiopi, financement, réseaux */}

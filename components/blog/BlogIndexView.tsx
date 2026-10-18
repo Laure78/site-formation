@@ -14,6 +14,7 @@ import {
   type BlogArticle,
   type BlogCategoryId,
 } from '@/lib/blog';
+import { getBlogArticleCanonicalPath } from '@/lib/blog-article-path';
 import { SITE_CONFIG } from '@/lib/seo';
 import { getFAQSchema } from '@/lib/seo';
 import { SOCIAL_PROOF } from '@/lib/constants';
@@ -258,7 +259,7 @@ export function BlogIndexView({
           <ol className="mt-6 list-decimal space-y-3 pl-6 text-slate-800">
             {starter.map((a) => (
               <li key={a.slug}>
-                <Link href={`/blog/${a.slug}`} className="font-medium text-[#377CF3] hover:underline">
+                <Link href={getBlogArticleCanonicalPath(a)} className="font-medium text-[#377CF3] hover:underline">
                   {a.title}
                 </Link>
               </li>
@@ -288,7 +289,7 @@ export function BlogIndexView({
           <ul className="mt-4 space-y-2">
             {topRead.map((a) => (
               <li key={a.slug}>
-                <Link href={`/blog/${a.slug}`} className="text-[#377CF3] hover:underline">
+                <Link href={getBlogArticleCanonicalPath(a)} className="text-[#377CF3] hover:underline">
                   {a.title}
                 </Link>
               </li>

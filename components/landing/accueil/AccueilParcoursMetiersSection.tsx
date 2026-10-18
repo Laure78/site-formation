@@ -4,48 +4,46 @@ import { Section } from '@/components/ui/Section';
 import { SectionHeader } from '@/components/ui/SectionHeader';
 import { getAccueilParcoursOffre } from '@/lib/accueil-offre-catalogue';
 import { LINKS } from '@/lib/internal-links';
-import { OFC_CARD, OFC_CTA_PRIMARY } from '@/lib/ofc-interaction-classes';
+import { OFC_CARD, OFC_LINK } from '@/lib/ofc-interaction-classes';
 
 export function AccueilParcoursMetiersSection() {
   const parcours = getAccueilParcoursOffre({ featuredOnly: true });
 
   return (
-    <Section tone="white" id="accueil-parcours" className="scroll-mt-24" aria-labelledby="accueil-parcours-title">
+    <Section
+      tone="canvas"
+      id="accueil-parcours"
+      className="scroll-mt-24"
+      aria-labelledby="accueil-parcours-title"
+    >
       <SectionHeader
         titleId="accueil-parcours-title"
-        title="Parcours par métier"
-        description="Progression par fonction — l’IA est intégrée aux modules métier, avec validation humaine sur vos documents."
+        title="Choisir son parcours métier"
+        description="Progressions par fonction — l’IA s’intègre aux modules métier, avec relecture humaine sur vos documents."
+        className="max-w-2xl"
       />
-      <ul className="mt-8 grid list-none gap-5 sm:grid-cols-2">
+      <ul className="mt-8 grid list-none gap-4 sm:grid-cols-2">
         {parcours.map((p) => (
           <li key={p.id}>
-            <article className={`${OFC_CARD} flex h-full flex-col p-6`}>
-              <p className="text-xs font-semibold uppercase tracking-wide text-ofc-accent">Parcours métier</p>
-              <h3 className="mt-2 font-display text-lg font-bold text-ofc-ink">{p.titreCarte}</h3>
-              <p className="mt-3 text-sm leading-relaxed text-ofc-ink">{p.benefice}</p>
-              <p className="mt-4 text-sm font-semibold text-ofc-ink">Usages de l’IA dans ce parcours</p>
-              <ul className="mt-2 list-inside list-disc space-y-1 text-sm text-ofc-ink-muted">
-                {p.usagesIa.map((u) => (
-                  <li key={u}>{u}</li>
-                ))}
-              </ul>
-              <p className="mt-4 text-sm font-medium text-ofc-ink-muted">{p.niveauEntree}</p>
-              <div className="mt-auto pt-6">
-                <Link
-                  href={p.href}
-                  className={`${OFC_CTA_PRIMARY} group inline-flex min-h-10 items-center gap-2 px-5 py-2.5 text-sm`}
-                >
-                  Découvrir mon parcours
-                  <ArrowRight className="h-4 w-4 motion-reduce:transition-none group-hover:translate-x-0.5" aria-hidden />
-                </Link>
-              </div>
+            <article className={`${OFC_CARD} flex h-full flex-col p-5 sm:p-6`}>
+              <h3 className="font-display text-lg font-bold text-ofc-ink">{p.titreCarte}</h3>
+              <p className="mt-2 flex-1 text-sm leading-relaxed text-ofc-ink-muted">
+                {p.usagesIa.slice(0, 2).join(' · ')}.
+              </p>
+              <Link
+                href={p.href}
+                className={`${OFC_LINK} mt-4 inline-flex min-h-10 items-center gap-1.5 text-sm font-semibold`}
+              >
+                Voir le parcours
+                <ArrowRight className="h-4 w-4 shrink-0" aria-hidden />
+              </Link>
             </article>
           </li>
         ))}
       </ul>
-      <p className="mt-8 text-center">
-        <Link href={LINKS.parcoursMetiers} className="text-sm font-semibold text-ofc-accent hover:underline">
-          Voir tous les parcours
+      <p className="mt-8">
+        <Link href={LINKS.parcoursMetiers} className={`${OFC_LINK} text-sm font-semibold`}>
+          Voir tous les parcours métiers
         </Link>
       </p>
     </Section>

@@ -9,7 +9,9 @@ import {
   compileMdxBlogPostCached,
   resolveMdxCoverUrl,
 } from '@/lib/blog-mdx';
+import { getBlogArticleCanonicalPathFromMdx } from '@/lib/blog-article-path';
 import { getRelatedArticlesForDisplay } from '@/lib/blog';
+import { mdxFrontmatterToBlogArticle } from '@/lib/blog-mdx';
 import { getBlogArticleContentUpdatedAt, formatContentUpdatedLabel } from '@/lib/content-updated-at';
 import { normalizeEnBref } from '@/lib/blog-en-bref';
 import { SITE_CONFIG } from '@/lib/seo';
@@ -26,6 +28,8 @@ export async function BlogMdxArticle({ slug }: Props) {
   if (!compiled) return null;
   const { content, frontmatter, toc, wordCount } = compiled;
   const schemaImage = resolveMdxCoverUrl(frontmatter.cover);
+  const canonicalPath = getBlogArticleCanonicalPathFromMdx(frontmatter);
+  const legacyArticle = mdxFrontmatterToBlogArticle(frontmatter);
   const related = getRelatedArticlesForDisplay(slug, 6, frontmatter.relatedSlugs);
   const enBrefSentences = normalizeEnBref(frontmatter.enBref);
   const contentUpdatedAt = getBlogArticleContentUpdatedAt(
@@ -41,12 +45,15 @@ export async function BlogMdxArticle({ slug }: Props) {
     <div className={`mx-auto px-4 py-16 ${showSommaire ? 'max-w-6xl' : 'max-w-3xl'}`}>
       <BlogArticleSchemas
         slug={slug}
+        canonicalPath={canonicalPath}
+        legacyArticle={legacyArticle}
         article={{
           id: 'schema-blog-mdx-article',
           title: frontmatter.title,
           headline: frontmatter.seoTitle ?? frontmatter.title,
           description: frontmatter.description,
           slug,
+          path: canonicalPath,
           datePublished: frontmatter.publishedAt,
           dateModified: frontmatter.updatedAt ?? frontmatter.publishedAt,
           imageUrl: schemaImage,
@@ -121,7 +128,9 @@ export async function BlogMdxArticle({ slug }: Props) {
 
         <div className="article-mdx mt-8 max-w-none">{content}</div>
 
-        <BlogCTA articleSlug={slug} idSuffix="end" className="mt-12" />
+        {frontmatter.hideEndCta ? null : (
+          <BlogCTA articleSlug={slug} idSuffix="end" className="mt-12" />
+        )}
 
         {shouldShowSkillLeadMagnetCta(slug) ? (
           <LeadMagnetCTA href={LINKS.skillIaConducteurTravaux} />

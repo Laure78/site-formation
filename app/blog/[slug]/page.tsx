@@ -2,7 +2,11 @@ import { Fragment } from 'react';
 import { CTA_RDV_LABEL } from '@/components/CtaRdv';
 import { FAQAnswer } from '@/components/landing/FAQAnswer';
 import Link from 'next/link';
-import { notFound } from 'next/navigation';
+import { notFound, permanentRedirect } from 'next/navigation';
+import {
+  getBlogArticleCanonicalPathFromMdx,
+  mdxBlogSlugRequiresExternalCanonical,
+} from '@/lib/blog-article-path';
 import { ExternalLinkAnchor } from '@/components/ExternalLink';
 import { buildBlogArticleOgImageAlt } from '@/lib/image-alt';
 import {
@@ -169,6 +173,10 @@ export async function generateMetadata({ params }: Props) {
 
 export default async function BlogArticlePage({ params }: Props) {
   const { slug } = await params;
+  const fmEarly = getMdxFrontmatter(slug);
+  if (fmEarly && mdxBlogSlugRequiresExternalCanonical(fmEarly)) {
+    permanentRedirect(getBlogArticleCanonicalPathFromMdx(fmEarly));
+  }
   if (hasMdxBlogFile(slug)) {
     return <BlogMdxArticle slug={slug} />;
   }

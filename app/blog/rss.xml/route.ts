@@ -1,3 +1,4 @@
+import { getBlogArticleCanonicalPath } from '@/lib/blog-article-path';
 import { getAllArticles } from '@/lib/blog';
 import { SITE_CONFIG } from '@/lib/seo';
 
@@ -21,7 +22,7 @@ export async function GET() {
 
   const items = articles
     .map((a) => {
-      const url = `${base}/blog/${a.slug}`;
+      const url = `${base}${getBlogArticleCanonicalPath(a)}`;
       const title = escapeXml(a.title);
       const description = escapeXml(a.description);
       const pubDate = toRfc822Date(a.date);
