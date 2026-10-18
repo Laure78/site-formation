@@ -10,6 +10,7 @@ import { RessourcesFinalCta } from '@/components/ressources/RessourcesFinalCta';
 import { buildRessourcesHubJsonLd } from '@/lib/schema-ressources-hub-jsonld';
 import { getFeaturedRessources, getRessourcesCatalog } from '@/lib/ressources-catalog';
 import { LINKS } from '@/lib/internal-links';
+import { RelatedLinks } from '@/components/RelatedLinks';
 
 const PATH = LINKS.ressources;
 
@@ -86,6 +87,8 @@ export default async function RessourcesIndexPage({ searchParams }: PageProps) {
       <RessourcesHubLibrary resources={libraryCatalog} initialSearch={initialSearch} />
 
       <RessourcesDisclaimerSection />
+
+      <RelatedLinks path={PATH} tone="muted" excludeHrefs={[LINKS.formations, LINKS.parcoursMetiers]} />
 
       <RessourcesFinalCta />
     </div>

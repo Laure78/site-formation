@@ -27,12 +27,14 @@ export function EvenementAoBtpPromoEncart({
   const headingId = `promo-ao-btp-${placement}`;
 
   if (variant === 'compact') {
+    const compactShell =
+      placement === 'partenaires'
+        ? 'rounded-t-xl border border-b-0 border-[#377CF3]/25 bg-[#377CF3]/05 px-4 py-5 sm:px-6'
+        : 'border-b border-[#377CF3]/25 bg-[#377CF3]/05 px-4 py-5';
+
     return (
-      <aside
-        className="border-b border-[#377CF3]/25 bg-[#377CF3]/05 px-4 py-5"
-        aria-labelledby={headingId}
-      >
-        <div className="mx-auto flex max-w-6xl flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+      <aside className={compactShell} aria-labelledby={headingId}>
+        <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
           <div className="min-w-0">
             <p className="text-xs font-semibold uppercase tracking-wide text-[#377CF3]">
               {event.promoMention}

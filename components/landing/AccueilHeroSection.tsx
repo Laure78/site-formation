@@ -36,7 +36,7 @@ export function AccueilHeroSection() {
                 Trouver ma formation
               </Link>
               <Link
-                href={LINKS.formations}
+                href={LINKS.formationsIaDisponibles}
                 data-cta="catalogue"
                 className={`${OFC_CTA_SECONDARY} inline-flex min-h-11 w-full items-center justify-center px-5 py-2.5 text-sm sm:w-auto md:px-6 md:py-3 md:text-base`}
               >
@@ -57,8 +57,8 @@ export function AccueilHeroSection() {
           </div>
 
           <aside className="accueil-hero-aside order-2 mt-5 w-full min-w-0 md:order-none md:mt-0">
-            <div className="accueil-hero-aside-inner overflow-hidden rounded-ofc-card bg-white p-1 shadow-ofc-sm ring-1 ring-ofc-border">
-              <AccueilHeroVideo className="accueil-hero-video-media aspect-[4/3] h-auto w-full rounded-[calc(var(--radius-ofc-card)-2px)] object-cover" />
+            <div className="accueil-hero-aside-inner mx-auto w-full max-w-none overflow-hidden rounded-ofc-card bg-white p-1 shadow-ofc-md ring-1 ring-ofc-border md:mx-0">
+              <AccueilHeroVideo className="accueil-hero-video-media aspect-video h-auto w-full rounded-[calc(var(--radius-ofc-card)-2px)] object-cover" />
             </div>
           </aside>
         </div>

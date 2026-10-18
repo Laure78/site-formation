@@ -102,7 +102,7 @@ export const PROMO_OFFRE_FORMATIONS_2027: PromoOffreFormations2027Config = {
   eligibleProgrammes: [],
   conditions: { ...EMPTY_CONDITIONS },
   /** Catalogue — destination par défaut du bandeau informatif et du CTA promo. */
-  ctaHref: LINKS.formations,
+  ctaHref: LINKS.formationsIaDisponibles,
 };
 
 /** Bandeau informatif — affiché tant qu’aucune offre promo n’est active en production. */
@@ -112,7 +112,7 @@ export const PROMO_BANNER_INFORMATIONAL = {
   messageHighlight: '−20 %',
   messageEnd: ' sur toutes les sessions garanties 2027.',
   ctaLabel: 'Je choisis ma formation',
-  ctaHref: LINKS.formations,
+  ctaHref: LINKS.formationsIaDisponibles,
 } as const;
 
 /** Fond bandeau — bleu foncé uni (référence capture promo header). */
@@ -243,5 +243,5 @@ export function resolvePromoCtaHref(
   if (config.eligibleProgrammes.length === 1) {
     return config.eligibleProgrammes[0]!.href;
   }
-  return config.ctaHref || LINKS.formations;
+  return config.ctaHref || LINKS.formationsIaDisponibles;
 }

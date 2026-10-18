@@ -202,11 +202,31 @@ export function getFormationIntraTeamBlock(): PageMaillageBlock {
   };
 }
 
+function getFormationCatalogueNavigationBlock(): PageMaillageBlock {
+  return {
+    id: 'catalogue-navigation',
+    title: 'Explorer le catalogue',
+    subtitle: 'Comparer les parcours métiers ou revenir à la liste des programmes Qualiopi.',
+    links: [
+      {
+        href: LINKS.formations,
+        title: 'Catalogue complet des formations IA BTP',
+        description: 'Parcours, niveaux IA et modules par domaine.',
+      },
+      {
+        href: LINKS.parcoursMetiers,
+        title: 'Parcours métiers — choisir selon ma fonction',
+        description: '7 parcours progressifs — dirigeant, conducteur, chargé d’affaires…',
+      },
+    ],
+  };
+}
+
 export function buildFormationPageMaillageBlocks(
   ref: FormationCatalogueCode,
   at: Date = new Date(),
 ): PageMaillageBlock[] {
-  const blocks: PageMaillageBlock[] = [];
+  const blocks: PageMaillageBlock[] = [getFormationCatalogueNavigationBlock()];
 
   const parcours = getParcoursLinksForFormation(ref, at);
   if (parcours.length > 0) {
@@ -293,6 +313,40 @@ const PARCOURS_PRACTICE_RESOURCES: Partial<
       href: LINKS.guideChefDeChantierOfc,
       title: 'Guide chef de chantier × IA',
       description: 'PDF OFC — organisation et consignes.',
+    },
+  ],
+  'chef-dequipe': [
+    {
+      href: LINKS.tutoCrChantier,
+      title: 'Tutoriel — compte rendu de chantier',
+      description: 'Structurer vos CR et consignes d’équipe avec l’IA.',
+    },
+    {
+      href: LINKS.iaCompteRenduChantier,
+      title: 'IA et comptes rendus de chantier',
+      description: 'Méthode terrain — limites et validation humaine.',
+    },
+    {
+      href: LINKS.guideChefDeChantierOfc,
+      title: 'Guide chef de chantier × IA',
+      description: 'PDF OFC — organisation et coordination.',
+    },
+  ],
+  'assistant-de-gestion-btp': [
+    {
+      href: LINKS.formationIaAssistanteBtp,
+      title: 'Formation IA assistante administrative BTP',
+      description: 'Courriers, facturation, relances — page métier.',
+    },
+    {
+      href: LINKS.guideRhBtpIaOfc,
+      title: 'Guide RH BTP × IA',
+      description: 'PDF gratuit — recrutement, contrats et communication.',
+    },
+    {
+      href: LINKS.tutoSkillChiffrageDevisOfc,
+      title: 'Tutoriel — skill chiffrage de devis',
+      description: 'Préparer un chiffrage assisté avec validation humaine.',
     },
   ],
   'referent-ia-btp': [

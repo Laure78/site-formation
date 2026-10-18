@@ -19,7 +19,7 @@ export function AccueilLaureFormateursSection() {
   const intervenants = getCatalogueFormateurs().slice(0, MAX_INTERVENANTS);
 
   return (
-    <Section tone="canvas" aria-labelledby="accueil-equipe-title">
+    <Section tone="canvas" size="compact" aria-labelledby="accueil-equipe-title">
       <SectionHeader
         titleId="accueil-equipe-title"
         title="Découvrez notre équipe de formateurs"
@@ -56,7 +56,7 @@ export function AccueilLaureFormateursSection() {
       </article>
 
       {intervenants.length > 0 ? (
-        <ul className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <ul className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {intervenants.map((f) => (
             <li key={f.id}>
               <article className="flex h-full gap-4 rounded-xl border border-ofc-border bg-white p-4">

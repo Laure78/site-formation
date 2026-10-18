@@ -620,6 +620,22 @@ const CATALOGUE_CLUSTER: CatalogueCluster[] = [
       label: 'Guide Maître d’Œuvre × IA (ressources)',
     },
   },
+  {
+    path: LINKS.formationDeveloppementWebIaSansCoder,
+    catalogueAnchor: 'Catalogue Qualiopi — toutes les sessions IA BTP',
+    metier: {
+      href: LINKS.parcoursDirigeantPmeBtp,
+      label: 'Parcours Dirigeant de PME BTP',
+    },
+    geo: {
+      href: LINKS.formationIleDeFrance,
+      label: 'Formation IA BTP en Île-de-France',
+    },
+    blog: {
+      href: LINKS.blogCharteIaBtp,
+      label: 'Charte IA BTP — gouvernance et déploiement',
+    },
+  },
 ];
 
 function buildCatalogueSatelliteLinks(path: string): RelatedLinkItem[] | null {
@@ -653,6 +669,8 @@ function buildCataloguePillarLinks(at: Date = new Date()): RelatedLinkItem[] {
     [LINKS.formationConduiteTravauxSuiviChantier]: 'NIV-03 — Conduite de travaux & suivi chantier',
     [LINKS.formationMaitriserClaudeAiBtp]: 'NIV-04 — Maîtriser Claude AI pour le BTP — Chat, Cowork & Code',
     [LINKS.formationIaMaitriseOeuvre]: 'NIV-05 — IA pour la maîtrise d’œuvre',
+    [LINKS.formationDeveloppementWebIaSansCoder]:
+      'NIV-10 — Créer des applications métier BTP avec l’IA',
   };
   return CATALOGUE_CLUSTER.filter((c) => {
     if (c.path === LINKS.formationConduiteTravauxSuiviChantier) {
@@ -892,6 +910,89 @@ export function getClusterRelatedLinks(path: string): ClusterPageConfig | null {
           label: 'Guide formation IA BTP 2026 (blog)',
         },
       ]).slice(0, 5),
+    };
+  }
+
+  // --- Hub ressources gratuites ---
+  if (normalized === LINKS.ressources || normalized === LINKS.ressourcesTutos) {
+    return {
+      cluster: 'usage',
+      title: 'Du guide à la formation Qualiopi',
+      subtitle: 'Méthodes transactionnelles, parcours métiers et catalogue en présentiel Île-de-France.',
+      links: dedupeLinks([
+        {
+          href: LINKS.ressourcesTutos,
+          label: 'Index des tutos PDF IA BTP',
+          description: 'DCE, chantier, mémoire technique — téléchargements gratuits.',
+        },
+        {
+          href: LINKS.iaAnalyseDce,
+          label: 'Analyser un DCE avec l’IA',
+          description: 'Page méthode — CCTP, CCAP, RC et grille GO/NO GO.',
+        },
+        {
+          href: LINKS.iaDevis,
+          label: 'IA pour devis et chiffrage bâtiment',
+          description: 'Structurer devis et notes de visite avec validation humaine.',
+        },
+        {
+          href: LINKS.parcoursMetiers,
+          label: 'Parcours métiers — choisir selon ma fonction',
+          description: '7 parcours progressifs du catalogue 2027.',
+        },
+        {
+          href: LINKS.formations,
+          label: 'Catalogue des formations IA BTP',
+          description: 'Sessions Qualiopi — comparatif et tarifs.',
+        },
+        {
+          href: LINKS.financement,
+          label: 'Financement Constructys',
+          description: 'Prise en charge possible selon éligibilité OPCO.',
+        },
+      ]).slice(0, 6),
+    };
+  }
+
+  // --- Hub parcours métiers ---
+  if (normalized === LINKS.parcoursMetiers) {
+    return {
+      cluster: 'catalogue',
+      title: 'Passer du parcours au programme ou à la pratique',
+      subtitle:
+        'Catalogue Qualiopi, méthodes transactionnelles (DCE, CR, devis) et financement selon éligibilité.',
+      links: dedupeLinks([
+        {
+          href: LINKS.formations,
+          label: 'Catalogue complet des formations IA BTP',
+          description: 'Fiches programme, tarifs et sessions inter-entreprises.',
+        },
+        {
+          href: LINKS.parcoursChargeAffairesBtp,
+          label: 'Parcours Chargé d’affaires BTP',
+          description: 'Chiffrage, appels d’offres et suivi d’affaire.',
+        },
+        {
+          href: LINKS.parcoursConducteurDeTravaux,
+          label: 'Parcours Conducteur de travaux',
+          description: 'De la passation à la réception — modules + IA.',
+        },
+        {
+          href: LINKS.iaAnalyseDce,
+          label: 'Analyser un DCE avec l’IA',
+          description: 'Méthode CCTP, CCAP, RC — avant la session NIV-02.',
+        },
+        {
+          href: LINKS.iaCompteRenduChantier,
+          label: 'Comptes rendus de chantier avec l’IA',
+          description: 'Skill PDF et bonnes pratiques terrain.',
+        },
+        {
+          href: LINKS.financement,
+          label: 'Financement Constructys — formation IA BTP',
+          description: 'Prise en charge possible selon éligibilité OPCO.',
+        },
+      ]).slice(0, 6),
     };
   }
 

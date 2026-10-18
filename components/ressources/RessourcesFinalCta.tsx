@@ -18,7 +18,15 @@ export function RessourcesFinalCta() {
           Vous souhaitez adapter ces méthodes à votre entreprise ?
         </h2>
         <p className="mt-3 text-base leading-relaxed text-white/90 md:text-lg">
-          Découvrez les formations IA BTP ou présentez votre besoin lors d&apos;un échange.
+          Passez du guide au{' '}
+          <Link href={LINKS.parcoursMetiers} className="font-medium text-white underline-offset-2 hover:underline">
+            parcours métier
+          </Link>{' '}
+          ou à une{' '}
+          <Link href={LINKS.formations} className="font-medium text-white underline-offset-2 hover:underline">
+            session catalogue Qualiopi
+          </Link>{' '}
+          — ou présentez votre besoin lors d&apos;un échange.
         </p>
         <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
           <Link

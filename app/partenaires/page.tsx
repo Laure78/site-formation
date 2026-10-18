@@ -49,11 +49,12 @@ export default function PartenairesPage() {
 
       <PartenairesPageHero />
 
-      <EvenementAoBtpPromoEncart placement="partenaires" variant="compact" />
+      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        <EvenementAoBtpPromoEncart placement="partenaires" variant="compact" />
+        <PartenairesReassuranceBar stackedBelowPromo />
+      </div>
 
-      <div className="mx-auto max-w-6xl space-y-14 px-4 pb-16 sm:px-6 lg:px-8">
-        <PartenairesReassuranceBar />
-
+      <div className="mx-auto max-w-6xl space-y-14 px-4 pb-16 pt-10 sm:px-6 lg:px-8 md:pt-12">
         <PartenairesReferencesSection
           id="references-btp"
           titleId="references-btp-title"

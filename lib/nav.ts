@@ -2,10 +2,8 @@
  * Navigation footer — source unique des listes de liens.
  * Une seule ancre par URL sur l’ensemble du footer (pas de doublon entre colonnes).
  */
-import { buildFormationsIaNiveauHref } from '@/lib/catalogue-filter-url';
-import { FORMATIONS_NIVEAUX_IA } from '@/lib/formations-niveaux-ia';
 import { LINKS } from '@/lib/internal-links';
-import { formationHref } from '@/data/formations';
+import { formationHref, type Formation } from '@/data/formations';
 import { getPublishedFormations } from '@/lib/formation-catalogue-visibility';
 
 export type NavItem = {
@@ -19,24 +17,34 @@ export type NavItem = {
 export const FOOTER_GOOGLE_REVIEWS_URL =
   'https://share.google/gpl7i0IH7c2AManrN' as const;
 
-/** Colonne 1 — Formations IA BTP. */
-export const NAV_FORMATIONS_FOOTER: readonly NavItem[] = [
-  {
-    href: LINKS.formations,
-    label: 'Catalogue de formations',
-    title: 'Catalogue des formations IA BTP — présentiel Île-de-France',
-  },
-  ...FORMATIONS_NIVEAUX_IA.map((n) => ({
-    href: buildFormationsIaNiveauHref(n.niveau),
-    label: n.labelComplet,
-    title: `${n.accrocheNiveau} — ${n.labelComplet}`,
-  })),
-  {
-    href: LINKS.formationIaIntraEntrepriseBtp,
-    label: 'Former mon équipe',
-    title: 'Formation IA intra-entreprise pour les équipes BTP',
-  },
-];
+function sortFormationsFooter(a: Formation, b: Formation): number {
+  if (a.niveau !== b.niveau) return a.niveau - b.niveau;
+  return a.titre.localeCompare(b.titre, 'fr');
+}
+
+/** Colonne 1 — Formations IA BTP (intitulés catalogue publié). */
+export function getNavFormationsFooter(at: Date = new Date()): readonly NavItem[] {
+  const published = [...getPublishedFormations(at)].sort(sortFormationsFooter);
+  return [
+    {
+      href: LINKS.formations,
+      label: 'Catalogue de formations',
+      title: 'Catalogue des formations IA BTP — présentiel Île-de-France',
+    },
+    ...published.map((f) => ({
+      href: formationHref(f),
+      label: f.titre,
+      title: `${f.titre} — ${f.niveauLabel}, ${f.duree}`,
+    })),
+    {
+      href: LINKS.formationIaIntraEntrepriseBtp,
+      label: 'Former mon équipe',
+      title: 'Formation IA intra-entreprise pour les équipes BTP',
+    },
+  ];
+}
+
+export const NAV_FORMATIONS_FOOTER: readonly NavItem[] = getNavFormationsFooter();
 
 /** Colonne 2 — Parcours métiers (7 parcours catalogue + hub). Ordre = METIERS_CATALOGUE_2027. */
 export const NAV_FOOTER_PARCOURS: readonly NavItem[] = [

@@ -12,12 +12,15 @@ const chipClass =
  */
 export function FormationsCatalogueMaillageSection() {
   const links = [
+    { href: LINKS.parcoursMetiers, label: 'Parcours métiers — choisir selon ma fonction' },
     { href: LINKS.formationIaBtpPillar, label: 'Formation IA pour le BTP — page pilier' },
     { href: LINKS.formationParis, label: 'Formation IA pour le BTP à Paris' },
     { href: LINKS.iaDevis, label: 'IA devis bâtiment' },
     { href: LINKS.iaAnalyseDce, label: 'Analyser un DCE avec l’IA' },
+    { href: LINKS.iaCompteRenduChantier, label: 'Comptes rendus de chantier avec l’IA' },
     { href: LINKS.formationConducteurTravaux, label: 'IA conducteur de travaux — page métier' },
     { href: LINKS.parcoursConducteurDeTravaux, label: 'Parcours Conducteur de travaux' },
+    { href: LINKS.parcoursChargeAffairesBtp, label: 'Parcours Chargé d’affaires BTP' },
     { href: LINKS.financement, label: 'Financement Constructys' },
     { href: LINKS.skillsClaudeBtp, label: '5 skills Claude gratuits pour le BTP' },
     { href: LINKS.skillsChatgptBtp, label: 'Skills ChatGPT BTP — tutoriel et 6 modèles' },

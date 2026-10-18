@@ -141,7 +141,7 @@ export function FormateursIntroBand({ formateurs }: FormateursIntroBandProps) {
       <h2 id="formateurs-apercu-title" className="sr-only">
         Aperçu des formateurs
       </h2>
-      <ul className="grid list-none grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-4 xl:gap-5">
+      <ul className="grid list-none grid-cols-1 items-start gap-4 md:grid-cols-2 xl:grid-cols-4 xl:gap-5">
         {formateurs.map((f, index) => (
           <li key={f.id} className="min-w-0">
             <FormateurIntroCard formateur={f} portraitPriority={index < 2} />

@@ -29,7 +29,7 @@ export function AccueilHeroVideo({ className }: Props) {
         priority
         fetchPriority="high"
         className={className}
-        sizes="(max-width: 767px) 100vw, 55vw"
+        sizes="(max-width: 767px) 100vw, (max-width: 1023px) 52vw, 54vw"
         quality={75}
       />
     );
@@ -48,7 +48,7 @@ export function AccueilHeroVideo({ className }: Props) {
       }}
       priority
       showFrame={false}
-      aspectClassName="aspect-[4/3] w-full overflow-hidden rounded-[0.9rem]"
+      aspectClassName="aspect-video w-full overflow-hidden rounded-[0.9rem]"
       className={className}
     />
   );

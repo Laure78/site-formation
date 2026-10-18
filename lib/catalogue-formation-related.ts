@@ -2,8 +2,12 @@
  * Parcours pédagogique — formations complémentaires par fiche catalogue Qualiopi.
  */
 import type { FormationCatalogueCode } from '@/lib/formation-catalogue-visibility';
+import {
+  isFormationCataloguePublished,
+  isFormationCatalogueRetired,
+} from '@/lib/formation-catalogue-visibility';
 import { LINKS } from '@/lib/internal-links';
-import { getFormationByCode } from '@/data/formations';
+import { getFormationByCode, getFormationBySlug } from '@/data/formations';
 
 export type RelatedCatalogueFormation = {
   href: string;
@@ -23,12 +27,12 @@ function card(code: FormationCatalogueCode, teaser: string): RelatedCatalogueFor
 const RELATED_BY_REF: Record<FormationCatalogueCode, readonly RelatedCatalogueFormation[]> = {
   'NIV-01': [
     card('NIV-02', 'Analyser un DCE et structurer un mémoire technique.'),
-    card('NIV-08', 'Configurer des assistants IA réutilisables sur vos dossiers.'),
+    card('NIV-04', 'Skills Claude, Projects et Cowork sur vos dossiers BTP.'),
     card('NIV-03', 'Suivi chantier, comptes rendus et DOE avec l’IA.'),
   ],
   'NIV-02': [
     card('NIV-01', 'Les bases de l’IA sur devis, CR et documents courants.'),
-    card('NIV-08', 'Automatiser DCE, mémoires et relances avec des assistants.'),
+    card('NIV-04', 'Industrialiser DCE et mémoires avec Claude AI (Skills, Cowork).'),
     {
       href: LINKS.formationIaMarchePublicTravaux,
       title: 'Formation IA marché public de travaux',
@@ -38,7 +42,7 @@ const RELATED_BY_REF: Record<FormationCatalogueCode, readonly RelatedCatalogueFo
   'NIV-03': [
     card('NIV-01', 'Fondamentaux IA générative pour le BTP.'),
     card('NIV-02', 'Appels d’offres, DCE et mémoire technique.'),
-    card('NIV-08', 'Skills et assistants pour le pilotage chantier.'),
+    card('NIV-04', 'Skills Claude chantier, juridique et coordination.'),
   ],
   'NIV-04': [
     card('NIV-02', 'Pour approfondir l’analyse de vos documents marchés publics.'),
@@ -60,8 +64,22 @@ const RELATED_BY_REF: Record<FormationCatalogueCode, readonly RelatedCatalogueFo
   ],
 };
 
+function catalogueCodeFromHref(href: string): FormationCatalogueCode | null {
+  const m = href.match(/^\/formations\/([^/]+)$/);
+  if (!m) return null;
+  const f = getFormationBySlug(m[1]);
+  return f ? (f.code as FormationCatalogueCode) : null;
+}
+
 export function getRelatedCatalogueFormations(
   ref: FormationCatalogueCode,
+  at: Date = new Date(),
 ): readonly RelatedCatalogueFormation[] {
-  return RELATED_BY_REF[ref] ?? [];
+  const raw = RELATED_BY_REF[ref] ?? [];
+  return raw.filter((item) => {
+    const code = catalogueCodeFromHref(item.href);
+    if (!code) return true;
+    if (isFormationCatalogueRetired(code)) return false;
+    return isFormationCataloguePublished(code, at);
+  });
 }

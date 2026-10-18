@@ -15,6 +15,7 @@ import {
   OFC_TYPE_H3,
 } from '@/lib/ofc-interaction-classes';
 import { OFC_SEC } from '@/lib/ofc-section-classes';
+import { RelatedLinks } from '@/components/RelatedLinks';
 
 const USAGES_IA_FALLBACK_GENERIC = 'Usages IA alignés sur les modules du parcours';
 
@@ -108,6 +109,13 @@ export function ParcoursMetiersOrientation() {
           })}
         </ul>
       </div>
+
+      <RelatedLinks
+        path={LINKS.parcoursMetiers}
+        tone="white"
+        className="border-t border-ofc-border-strong/30"
+        excludeHrefs={[LINKS.formations, LINKS.prendreRdv]}
+      />
     </>
   );
 }

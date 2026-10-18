@@ -6,6 +6,7 @@ import { createPageMetadata, SITE_CONFIG } from '@/lib/seo';
 import { LINKS } from '@/lib/internal-links';
 import { TUTOS, TUTO_CATEGORY_META, TUTO_CATEGORY_ORDER } from '@/lib/tutos';
 import { TutosGroupedByCategory } from '@/components/ressources/TutosGroupedByCategory';
+import { RelatedLinks } from '@/components/RelatedLinks';
 
 const PATH = LINKS.ressourcesTutos;
 const BASE = SITE_CONFIG.url.replace(/\/$/, '');
@@ -123,14 +124,28 @@ export default function RessourcesTutosIndexPage() {
         </div>
       </section>
 
+      <RelatedLinks
+        path={PATH}
+        tone="muted"
+        excludeHrefs={[LINKS.ressources, LINKS.financement]}
+      />
+
       <section className="border-t border-slate-200 bg-white py-10">
         <div className="mx-auto max-w-3xl px-4 text-center">
           <p className="text-slate-700">
             Ces tutos complètent une{' '}
             <Link href={LINKS.formations} className="font-medium text-[#377CF3] hover:underline">
-              formation IA pour les pros du BTP Qualiopi — présentiel uniquement · Île-de-France uniquement
+              formation IA pour les pros du BTP Qualiopi
+            </Link>{' '}
+            (présentiel Île-de-France). En amont :{' '}
+            <Link href={LINKS.parcoursMetiers} className="font-medium text-[#377CF3] hover:underline">
+              choisir un parcours métier
             </Link>
-            — financement possible selon éligibilité (OPCO Constructys) selon éligibilité.
+            . {''}
+            <Link href={LINKS.financement} className="font-medium text-[#377CF3] hover:underline">
+              Financement OPCO Constructys
+            </Link>{' '}
+            — selon éligibilité.
           </p>
         </div>
       </section>
