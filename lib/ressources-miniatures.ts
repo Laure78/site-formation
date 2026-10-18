@@ -161,8 +161,8 @@ export const RESSOURCES_MINIATURES = {
   tutoRdvClient: {
     src: `${BASE}/miniature-tuto-skill-rdv-client-ofc.jpg`,
     alt: 'Créer un skill préparation RDV client — tuto offert PDF gratuit, formation IA BTP',
-    width: 1200,
-    height: 675,
+    width: 1024,
+    height: 1024,
   },
   tutoOs: {
     src: `${BASE}/miniature-tuto-skill-os-ofc.jpg`,
