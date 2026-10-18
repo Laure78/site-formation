@@ -10,7 +10,7 @@ import {
   TARIF_PARTICIPANT_NIV04_HT,
   TARIF_PARTICIPANT_NIV05_HT,
   TARIF_PARTICIPANT_NIV09_HT,
-  TARIF_PARTICIPANT_NIV10_HT,
+  TARIF_PARTICIPANT_NIV10_14H_HT,
 } from '@/lib/tarifs-catalogue-participant';
 
 export type FormationNiveau = 1 | 2 | 3;
@@ -427,14 +427,14 @@ export const FORMATIONS: readonly Formation[] = [
     ],
     gamme: 'deployer',
     theme: 'outils-applications',
-    niveau: 2,
-    niveauLabel: 'NUM-04',
-    duree: '7 h',
-    horaires: '9h00 – 12h30 / 13h30 – 17h00',
+    niveau: 3,
+    niveauLabel: 'Niveau 3 — Avancé',
+    duree: '14 h',
+    horaires: '2 journées — 9h00 – 12h30 / 13h30 – 17h00',
     effectifMin: 4,
     effectifMax: 8,
     prixHT: 0,
-    tarifParticipantHt: TARIF_PARTICIPANT_NIV10_HT,
+    tarifParticipantHt: TARIF_PARTICIPANT_NIV10_14H_HT,
     accroche:
       'Concevoir, construire et tester une première application métier BTP avec l’IA — sans compétence en programmation.',
     objectifs: [
@@ -449,9 +449,9 @@ export const FORMATIONS: readonly Formation[] = [
       'Dirigeants de TPE et PME du BTP, conducteurs de travaux et chargés d’affaires, assistant(e)s travaux et fonctions support, indépendants du second œuvre',
     casUsage: 'Outil métier BTP — première version assistée par IA',
     pdfProgramme:
-      '/formations/developpement-web-ia-sans-coder/programme_OFC_NIV-10_Applications_metier_BTP_IA_20261017.pdf',
+      '/formations/developpement-web-ia-sans-coder/programme_OFC_Niveau3_Outils_Chantier_IA_14h_20261008.pdf',
     programmeVersion: 'Référence NIV-10',
-    programmeUpdatedAt: '17/10/2026',
+    programmeUpdatedAt: '08/10/2026',
     image: '/images/formation-ia-architecture-claude-presentiel-groupe.jpg',
   },
 ] as const;
@@ -466,10 +466,11 @@ export const CATALOGUE_FORMATIONS_TOTAL = FORMATIONS.length;
 
 /**
  * Durées catalogue — seul NIV-01 (« Les bases de l’IA ») est en 4 h.
- * Toutes les autres sessions publiées sont en 7 h (NIV-10 incluse).
+ * Toutes les autres sessions publiées sont en 7 h, sauf NIV-10 (14 h).
  */
 export const CATALOGUE_DUREE_BASES_IA_ONLY = '4 h' as const;
 export const CATALOGUE_DUREE_SESSION_METIER = '7 h' as const;
+export const CATALOGUE_DUREE_NIV10 = '14 h' as const;
 
 /** Plage de numérotation catalogue — NIV-01 … NIV-10. */
 export const CATALOGUE_NIV_RANGE = 'NIV-01 à NIV-10' as const;

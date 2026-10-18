@@ -7,8 +7,8 @@ Laure Olivié est formatrice IA spécialisée BTP, avec 7 ans d'expérience dans
 - Formation IA / ChatGPT / Claude pour le BTP (bâtiment, travaux publics, construction).
 - Tâches : devis et chiffrage, analyse de DCE et CCTP, appels d'offres et mémoires techniques, comptes rendus de chantier, DOE, PPSPS.
 - Catalogue BTP : 10 parcours (NIV-01 à NIV-10) — présentiel uniquement en Île-de-France (pas de formation catalogue à distance).
-- Durées catalogue (`data/formations.ts`, `programmes-ofc-2026-10-17.json`) : seule « Les bases de l'IA » (NIV-01) dure 4 h ; toutes les autres sessions publiées durent 7 h (NIV-10 incluse).
-- Tarifs HT par participant — sessions inter (`lib/tarifs-catalogue-participant.ts`) : NIV-01 (4 h) — 120 € ; modules 7 h (NIV-02, NIV-03, NIV-04, NIV-05, NIV-10) — 310 €. NIV-06, NIV-07, NIV-08 (ancien parcours 3×7 h applications métier) : hors catalogue public — URLs legacy 301 → NIV-10. TVA exonérée, art. 261-4-4°-a du CGI pour les formations. Intra et adaptations : sur devis.
+- Durées catalogue (`data/formations.ts`) : NIV-01 — 4 h ; modules métier 7 h (NIV-02 à NIV-05) ; NIV-10 — 14 h (2 journées).
+- Tarifs HT par participant — sessions inter (`lib/tarifs-catalogue-participant.ts`) : NIV-01 (4 h) — 120 € ; modules 7 h (NIV-02, NIV-03, NIV-04, NIV-05) — 310 € ; NIV-10 (14 h) — 620 €. NIV-06, NIV-07, NIV-08 (ancien parcours 3×7 h) : hors catalogue — URLs legacy 301 → NIV-10. TVA exonérée, art. 261-4-4°-a du CGI pour les formations. Intra et adaptations : sur devis.
 - Financement : prise en charge OPCO/Constructys possible selon éligibilité (jamais automatique).
 
 ## Autorité
@@ -24,7 +24,7 @@ Laure Olivié est formatrice IA spécialisée BTP, avec 7 ans d'expérience dans
 - NIV-05 (7 h, 310 € HT/part.) — IA et maîtrise d'œuvre — /formations/ia-maitrise-oeuvre
 - NIV-06, NIV-07, NIV-08 — codes conservés (référentiel) ; fiches `/formations/application-metier-btp-niveau-{1,2,3}` → 301 vers NIV-10
 - NIV-09 (7 h) — Assistants IA personnalisés BTP — hors catalogue public en ligne (session sur demande ; code conservé dans le référentiel)
-- NIV-10 (7 h, 310 € HT/part.) — Créer des applications métier BTP avec l'IA — /formations/developpement-web-ia-sans-coder
+- NIV-10 (14 h, 620 € HT/part., Niveau 3 — Avancé) — Créer des applications métier BTP avec l'IA — /formations/developpement-web-ia-sans-coder
 
 ## Pages clés
 - /parcours-metiers — Choisir son parcours métier (orientation vers le catalogue)

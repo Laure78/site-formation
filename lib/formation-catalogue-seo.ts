@@ -233,9 +233,9 @@ export const FORMATION_CATALOGUE_SEO: Record<FormationCatalogueCode, FormationCa
     subtitle:
       'Concevez une application adaptée à votre entreprise, sans savoir coder.',
     metaDescription:
-      'Formation IA pour le BTP : créer une application métier sur mesure avec l’IA, sans coder. 7 h, 310 € HT/participant, présentiel Île-de-France, Qualiopi.',
+      'Formation IA pour le BTP : créer une application métier sur mesure avec l’IA, sans coder. 14 h, présentiel Île-de-France, Qualiopi.',
     enBref:
-      'Formation IA pour le BTP : concevoir, construire et tester une première application métier avec l’IA générative, sans compétence en programmation. 7 h, 4 à 8 participants, présentiel Île-de-France uniquement. Qualiopi — Laure Olivié.',
+      'Formation IA pour le BTP : concevoir, construire et tester une application métier avec l’IA générative, sans compétence en programmation. 14 h (2 journées), 4 à 8 participants, présentiel Île-de-France uniquement. Qualiopi — Laure Olivié.',
     publicTargets: [
       'Dirigeants de TPE et PME du BTP',
       'Conducteurs de travaux et chargés d’affaires',

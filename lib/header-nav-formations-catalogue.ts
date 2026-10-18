@@ -19,10 +19,13 @@ export function formationMenuLabel(titre: string): string {
 }
 
 function formationToNavLink(formation: Formation): HeaderNavLink {
+  const label = formation.titre.trim();
+  const duree = formation.duree.trim();
   return {
     href: formationHref(formation),
-    label: formation.titre.trim(),
-    title: formation.titre,
+    label,
+    title: duree ? `${label} — ${duree}` : label,
+    description: duree || undefined,
   };
 }
 

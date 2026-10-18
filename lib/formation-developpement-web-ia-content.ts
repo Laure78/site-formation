@@ -131,7 +131,8 @@ export const DEV_WEB_IA_HERO_FACTS = [
   'Aucune compétence en programmation requise',
 ] as const;
 
-export const DEV_WEB_IA_DUREE_COURTE = '7 h' as const;
+/** Durée affichée catalogue / menu — alignée `data/formations.ts` (NIV-10). */
+export const DEV_WEB_IA_DUREE_COURTE = '14 h' as const;
 
 export const DEV_WEB_IA_CTA_PRIMARY_LABEL = 'Construire mon projet d’outil BTP' as const;
 export const DEV_WEB_IA_CTA_SECONDARY_LABEL = 'Voir le programme' as const;

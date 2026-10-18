@@ -11,6 +11,7 @@ import {
 } from '@/data/formations';
 import { getFormationCatalogueByRef } from '@/lib/formations-catalogue-display';
 import {
+  TARIF_INTER_DEV_WEB_IA_14H_HT,
   TARIF_INTER_DEV_WEB_IA_HT,
 } from '@/lib/formation-developpement-web-ia-content';
 import { LINKS } from '@/lib/internal-links';
@@ -83,7 +84,7 @@ const PRICE_SPEC_DESCRIPTION_BY_REF: Record<string, string> = Object.fromEntries
 );
 
 function prixCatalogue(ref: string): number | undefined {
-  if (ref === 'NIV-10') return TARIF_INTER_DEV_WEB_IA_HT;
+  if (ref === 'NIV-10') return TARIF_INTER_DEV_WEB_IA_14H_HT;
   const f = getFormationByCode(ref);
   if (!f) return undefined;
   if (f.tarifParticipantHt) return f.tarifParticipantHt;
@@ -135,7 +136,7 @@ export type FormationCatalogueRichCourseConfig = {
   name: string;
   description: string;
   price?: number;
-  educationalLevel: 'Fondamentaux' | 'Perfectionnement';
+  educationalLevel: 'Fondamentaux' | 'Perfectionnement' | 'Avancé';
   teaches: readonly string[];
   /** Public cible schema.org `audience.audienceType` (optionnel). */
   audienceType?: string;
@@ -358,7 +359,9 @@ function buildCatalogueOffer(
   return offer;
 }
 
-function mapEducationalLevelSchema(level: 'Fondamentaux' | 'Perfectionnement'): 'Beginner' | 'Advanced' {
+function mapEducationalLevelSchema(
+  level: 'Fondamentaux' | 'Perfectionnement' | 'Avancé',
+): 'Beginner' | 'Advanced' {
   return level === 'Fondamentaux' ? 'Beginner' : 'Advanced';
 }
 
@@ -421,7 +424,7 @@ export const CATALOGUE_COURSE_DEV_WEB_IA_NIV10: CatalogueCourseJsonLdConfig = {
   path: LINKS.formationDeveloppementWebIaSansCoder,
   name: 'Créer des applications métier BTP avec l’IA',
   description:
-    'Formation IA pour le BTP : créer une application métier sur mesure avec l’IA, sans coder. 7 h, présentiel Île-de-France, Qualiopi.',
+    'Formation IA pour le BTP : créer une application métier sur mesure avec l’IA, sans coder. 14 h, présentiel Île-de-France, Qualiopi.',
   price: prixCatalogue('NIV-10'),
   keywords: [
     'formation ERP BTP avec IA',
@@ -440,7 +443,7 @@ export const FORMATION_RICH_COURSE_NIV10: FormationCatalogueRichCourseConfig = {
   name: CATALOGUE_COURSE_DEV_WEB_IA_NIV10.name,
   description: CATALOGUE_COURSE_DEV_WEB_IA_NIV10.description,
   price: prixCatalogue('NIV-10'),
-  educationalLevel: 'Perfectionnement',
+  educationalLevel: 'Avancé',
   audienceType:
     'Dirigeants de TPE et PME du BTP, conducteurs de travaux, chargés d’affaires, fonctions support, indépendants du second œuvre',
   teaches: [
@@ -523,22 +526,19 @@ export function buildCatalogueCourseCursorBtpNiv06JsonLd(): Record<string, unkno
 export function buildCatalogueCourseDeveloppementWebIaNiv10JsonLd(): Record<string, unknown> {
   const base = buildFormationCatalogueRichCourseJsonLd(FORMATION_RICH_COURSE_NIV10);
   const courseUrl = `${SCHEMA_PUBLIC_SITE_URL.replace(/\/$/, '')}${LINKS.formationDeveloppementWebIaSansCoder}`;
+  const offer14h = buildCatalogueOffer('NIV-10', courseUrl, TARIF_INTER_DEV_WEB_IA_14H_HT);
+  offer14h.name = 'Session 14 h';
+  offer14h.description = `${TARIF_INTER_DEV_WEB_IA_14H_HT} € HT / participant — 14 h — 4 à 8 participants`;
+
   const offer7h = buildCatalogueOffer('NIV-10', courseUrl, TARIF_INTER_DEV_WEB_IA_HT);
-  offer7h.name = 'Session 7 h';
+  offer7h.name = 'Session 7 h (variante)';
   offer7h.description = `${TARIF_INTER_DEV_WEB_IA_HT} € HT / participant — 7 h — 4 à 8 participants`;
 
   return {
     ...base,
-    timeRequired: 'PT7H',
-    offers: [offer7h],
+    timeRequired: 'PT14H',
+    offers: [offer14h, offer7h],
     hasCourseInstance: [
-      {
-        '@type': 'CourseInstance',
-        name: 'Présentiel inter ou intra — Île-de-France — 7 h',
-        courseMode: 'Onsite',
-        courseWorkload: 'PT7H',
-        location: { '@type': 'Place', name: 'Île-de-France' },
-      },
       {
         '@type': 'CourseInstance',
         name: 'Présentiel inter ou intra — Île-de-France — 14 h',

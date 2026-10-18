@@ -179,10 +179,11 @@ export function getFormationCatalogueVisuel(ref: string) {
   return entry.visuel;
 }
 
-/** Niveau pédagogique affiché — « Niveau 1 » ou « Niveau 2 ». */
+/** Niveau pédagogique affiché — « Niveau 1 », « Niveau 2 » ou « Niveau 3 ». */
 export function catalogueNiveauLabel(ref: string): string {
   const f = getFormationByCode(ref);
   if (f?.niveau === 1) return 'Niveau 1';
+  if (f?.niveau === 3) return 'Niveau 3';
   return 'Niveau 2';
 }
 

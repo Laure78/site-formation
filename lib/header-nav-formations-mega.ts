@@ -19,7 +19,7 @@ function buildParNiveauLinks(): HeaderNavLink[] {
   links.push({
     href: `${LINKS.formations}#comparer-niveaux`,
     label: 'Comparer les niveaux',
-    description: 'Durées, prérequis et objectifs des deux niveaux.',
+    description: 'Durées, prérequis et objectifs des trois niveaux.',
     title: 'Comparer les niveaux IA BTP',
   });
   return links;

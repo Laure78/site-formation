@@ -22,7 +22,7 @@ function programmeDownloadDescription(catalogueRef: string, formationTitle: stri
     case 'NIV-09':
       return 'Téléchargez le programme officiel (PDF) de la formation assistants IA personnalisés BTP — ChatGPT et Claude, 7 h.';
     case 'NIV-10':
-      return `Téléchargez le programme officiel (PDF) de la formation ${DEV_WEB_IA_FORMATION_TITRE}, 7 h.`;
+      return `Téléchargez le programme officiel (PDF) de la formation ${DEV_WEB_IA_FORMATION_TITRE}, 14 h (2 × 7 h). Variante 7 h : voir la section programmes sur la fiche.`;
     default:
       return `Téléchargez le programme officiel (PDF) — ${formationTitle}.`;
   }
@@ -35,7 +35,7 @@ const PDF_DOWNLOAD_NAMES: Partial<Record<string, string>> = {
   'NIV-04': 'programme_OFC_NIV-04_Maitriser_Claude_BTP_20261017.pdf',
   'NIV-05': 'programme_OFC_NIV-05_IA_Maitrise_oeuvre_20261017.pdf',
   'NIV-09': 'programme_OFC_AssistantsIA_BTP_intra_7h.pdf',
-  'NIV-10': 'programme_OFC_NIV-10_Applications_metier_BTP_IA_20261017.pdf',
+  'NIV-10': 'programme_OFC_Niveau3_Outils_Chantier_IA_14h_20261008.pdf',
 };
 
 /**

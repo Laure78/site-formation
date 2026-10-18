@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import { DEV_WEB_IA_DUREE_COURTE } from '@/lib/formation-developpement-web-ia-content';
 import type { FormationCatalogueEntry } from '@/lib/formations-catalogue-display';
 import {
   catalogueNiveauBadgeLabel,
@@ -14,7 +13,6 @@ type Props = {
 };
 
 function dureeAffichage(entry: FormationCatalogueEntry): string | null {
-  if (entry.ref === 'NIV-10') return DEV_WEB_IA_DUREE_COURTE;
   const duree = entry.duree?.trim();
   return duree || null;
 }

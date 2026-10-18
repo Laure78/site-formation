@@ -10,7 +10,7 @@ import {
   formatTarifHt,
 } from '@/lib/tarifs-sessions';
 import {
-  TARIF_INTER_DEV_WEB_IA_HT,
+  TARIF_INTER_DEV_WEB_IA_14H_HT,
   DEV_WEB_IA_FORMATION_TITRE,
 } from '@/lib/formation-developpement-web-ia-content';
 import { catalogueCardAnchorId } from '@/lib/formations-catalogue-page-config';
@@ -39,10 +39,12 @@ export function getAccueilHeroModalitesLine(): string {
   return 'Présentiel · Île-de-France · Vos documents réels · Organisme certifié Qualiopi';
 }
 
-/** Ligne tarif NIV-10 accueil — source `TARIF_INTER_DEV_WEB_IA_HT`. */
+/** Ligne tarif NIV-10 accueil — source `data/formations.ts` + tarifs catalogue. */
 export function getAccueilDevWebIaEssentialsLine(): string {
-  const tarif = formatTarifHt(TARIF_INTER_DEV_WEB_IA_HT);
-  return `7 h · ${tarif} € HT / participant (inter) · Présentiel Île-de-France`;
+  const f = getFormationByCode('NIV-10');
+  const tarif = formatTarifHt(f?.tarifParticipantHt ?? TARIF_INTER_DEV_WEB_IA_14H_HT);
+  const duree = f?.duree ?? '14 h';
+  return `${duree} · ${tarif} € HT / participant (inter) · Présentiel Île-de-France`;
 }
 
 /** Mise en avant accueil — formation NIV-10 (bloc compact). */

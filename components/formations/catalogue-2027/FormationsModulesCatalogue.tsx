@@ -21,6 +21,10 @@ import {
 } from '@/lib/catalogue-2027/search-modules';
 import { catalogueDemandeHref } from '@/lib/training-page-helpers';
 import {
+  TARIF_PARTICIPANT_NIV10_14H_HT,
+  TARIF_PARTICIPANT_NIV10_HT,
+} from '@/lib/tarifs-catalogue-participant';
+import {
   buildCatalogueModulesHref,
   parseCatalogueModulesFilters,
 } from '@/lib/catalogue-filter-url';
@@ -241,9 +245,14 @@ export function FormationsModulesCatalogue() {
                   <h3 className="mt-1 font-semibold text-ofc-ink">{m.titre}</h3>
                   <p className="mt-1 text-sm text-ofc-ink-muted">{m.objectifPrincipal}</p>
                   <p className="mt-2 text-sm text-ofc-ink">
-                    {m.variantesDureeHeures ? '7 h ou 14 h' : `${m.dureeHeures} h`} ·{' '}
                     {m.code === 'NUM-04'
-                      ? `${formatPrixInterHt(310)} ou ${formatPrixInterHt(620)}`
+                      ? '14 h (catalogue) · variante 7 h si session déjà confirmée'
+                      : m.variantesDureeHeures
+                        ? `${m.dureeHeures} h ou ${m.variantesDureeHeures.find((h) => h !== m.dureeHeures) ?? 7} h`
+                        : `${m.dureeHeures} h`}{' '}
+                    ·{' '}
+                    {m.code === 'NUM-04'
+                      ? `${formatPrixInterHt(TARIF_PARTICIPANT_NIV10_14H_HT)} HT (14 h) · ${formatPrixInterHt(TARIF_PARTICIPANT_NIV10_HT)} HT (7 h, sessions confirmées)`
                       : formatPrixInterHt(prix)}{' '}
                     / participant · {libelleDisponibilite(m.disponibilite)}
                   </p>

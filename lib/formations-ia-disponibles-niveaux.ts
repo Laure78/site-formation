@@ -1,5 +1,5 @@
 /**
- * Section « Formations IA disponibles » — progression pédagogique en 2 niveaux.
+ * Section « Formations IA disponibles » — progression pédagogique en 3 niveaux.
  * Classement : champ `niveau` de `data/formations.ts` (source de vérité).
  */
 import type { FormationNiveau } from '@/data/formations';
@@ -47,14 +47,13 @@ export function getFormationsIaDisponiblesByNiveau(
   };
 
   for (const entry of sorted) {
-    const raw = getFormationByCode(entry.ref)?.niveau;
-    const niveau = raw === 1 ? 1 : raw === 2 || raw === 3 ? 2 : undefined;
-    if (niveau === 1 || niveau === 2) {
+    const niveau = getFormationByCode(entry.ref)?.niveau;
+    if (niveau === 1 || niveau === 2 || niveau === 3) {
       grouped[niveau].push(entry);
     }
   }
 
-  for (const n of [1, 2] as const) {
+  for (const n of [1, 2, 3] as const) {
     grouped[n].sort((a, b) => refSortKey(a.ref) - refSortKey(b.ref));
   }
 

@@ -9,8 +9,9 @@ import { getFormationByCode, libelleDureeFormation } from '@/data/formations';
 import {
   DEV_WEB_IA_LIVRABLES,
   DEV_WEB_IA_OBJECTIFS,
-  DEV_WEB_IA_PROGRAM_MODULES,
+  DEV_WEB_IA_PARCOURS_14H_SECTION,
 } from '@/lib/formation-developpement-web-ia-content';
+import { getDevWebIaCatalogueProgramModules14h } from '@/lib/dev-web-ia-programme-catalogue';
 import {
   ASSISTANTS_IA_LIVRABLES,
   ASSISTANTS_IA_MODULES,
@@ -807,17 +808,17 @@ const NIV_05: CatalogueFormationPageContent = {
 const NIV_10: CatalogueFormationPageContent = {
   programmeRef: 'NIV-10',
   parcoursKind: 'creation-ia',
-  levelBadgeLabel: 'Niveau 3 — Création · Applications métier BTP',
+  levelBadgeLabel: 'Niveau 3 — Avancé',
   heroPublicLine:
     'Dirigeants, conducteurs de travaux, chargés d’affaires et fonctions support du BTP — sans prérequis en programmation.',
   heroFacts: [
-    '7 h (1 journée)',
+    '14 heures (2 journées)',
     '9h00 – 12h30 · 13h30 – 17h00',
     'Présentiel Île-de-France uniquement',
     '4 à 8 participants',
     '70 % pratique · 30 % méthodologie',
   ],
-  quickFactsLevel: 'Niveau 3 — aucun prérequis en programmation',
+  quickFactsLevel: 'Niveau 3 — Avancé',
   practiceShare: '70 %',
   formatLabel: 'Présentiel',
   locationLabel: 'Île-de-France',
@@ -828,7 +829,7 @@ const NIV_10: CatalogueFormationPageContent = {
   painPoints: [],
   outcomes: DEV_WEB_IA_OBJECTIFS,
   outcomesDescription:
-    'Objectifs pédagogiques observables — le déroulé détaillé figure dans la section programme (7 h).',
+    'Objectifs pédagogiques observables — le déroulé détaillé figure dans la section programme (14 h).',
   deliverablesIntro:
     'À l’issue de la session, vous repartez avec une première version fonctionnelle, une méthode et une feuille de route.',
   deliverables: DEV_WEB_IA_LIVRABLES,
@@ -841,14 +842,13 @@ const NIV_10: CatalogueFormationPageContent = {
     { iaAide: 'Aider à préparer des exports', validation: 'Valider le format avec le destinataire' },
     { iaAide: 'Aider à sauvegarder et documenter', validation: 'Garder la responsabilité du projet' },
   ],
-  interExtraBullets: ['Session inter — 7 h, 4 à 8 participants'],
+  interExtraBullets: ['Session inter — 14 h (2 journées), 4 à 8 participants'],
   intraExtraBullets: ['Session intra en présentiel dans vos locaux en Île-de-France'],
-  programIntro:
-    '7 heures — 9h00 – 12h30 / 13h30 – 17h00 — 70 % pratique / 30 % apports méthodologiques. Accueil, modules et clôture selon le programme officiel.',
-  programmeHeading: 'Programme — 7 h',
+  programIntro: `${DEV_WEB_IA_PARCOURS_14H_SECTION.intro} Créneaux : 9h00 – 12h30 / 13h30 – 17h00 — 70 % pratique / 30 % apports méthodologiques.`,
+  programmeHeading: 'Programme — 14 h (2 × 7 h)',
   objectivesTitle: 'Objectifs pédagogiques',
-  programModules: DEV_WEB_IA_PROGRAM_MODULES,
-  pdfHref: LINKS.pdfProgrammeDeveloppementWebIaSansCoder,
+  programModules: getDevWebIaCatalogueProgramModules14h(),
+  pdfHref: LINKS.pdfProgrammeDeveloppementWebIaSansCoder14h,
   instructorTitle: 'Qui conçoit et encadre la formation ?',
   instructorBody:
     'Laure Olivié, fondatrice d’OFC Création d’Entreprise (certifié Qualiopi), 7 ans d’expérience dans le BTP, ancienne dirigeante d’une entreprise de travaux publics en Île-de-France. Elle a elle-même créé ses outils de gestion avec l’IA. Méthode progressive, petits groupes, 70 % de pratique.',

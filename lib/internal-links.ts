@@ -166,9 +166,10 @@ export const LINKS = {
   formationAssistantsIaPersonnalisesBtpLegacy: '/formations/assistants-ia-personnalises-btp',
   /** NIV-10 — Créer des applications métier BTP avec l’IA */
   formationDeveloppementWebIaSansCoder: '/formations/developpement-web-ia-sans-coder',
+  /** Programme 7 h — variante / sessions confirmées / archives. */
   pdfProgrammeDeveloppementWebIaSansCoder:
     '/formations/developpement-web-ia-sans-coder/programme_OFC_NIV-10_Applications_metier_BTP_IA_20261017.pdf',
-  /** @deprecated Parcours 14 h retiré du catalogue NIV-10 — conserver pour archives. */
+  /** Programme 14 h — référence catalogue NIV-10 (2 × 7 h). */
   pdfProgrammeDeveloppementWebIaSansCoder14h:
     '/formations/developpement-web-ia-sans-coder/programme_OFC_Niveau3_Outils_Chantier_IA_14h_20261008.pdf',
   /** Programmes PDF — Outils chantier IA (7 h / 14 h) */
