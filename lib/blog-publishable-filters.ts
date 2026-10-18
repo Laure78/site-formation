@@ -13,6 +13,10 @@ import { BLOG_CONSOLIDATION_REDIRECTED_SLUGS, BLOG_GEO_HORS_IDF_REDIRECTED_SLUGS
 export const BLOG_CONSOLIDATED_REDIRECTED_SLUGS = new Set<string>([
   'ia-devis-gain-temps-pme-btp', // → ia-devis-batiment-chiffrage-automatise (aussi B2)
   'memoire-technique-btp-ia-gagner-temps-appels-offres', // → ia-memoire-technique-appel-offres-guide-2026
+  /** Fusion électricien — canonique `chatgpt-devis-electricien-btp` (next.config 301). */
+  'comment-utiliser-chatgpt-pour-vos-devis-electricien',
+  /** Doublon guide CCTP — canonique `analyser-cctp-ia-methode-complete-20-minutes`. */
+  'formation-ia-cctp-analyse-dce-btp',
 ]);
 
 /**

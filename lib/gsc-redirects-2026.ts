@@ -440,7 +440,11 @@ export function blogConsolidationRedirectsJuly2026(): RedirectEntry[] {
     { source: '/blog/devis-en-15-min-le-guide-charpentier', destination: '/blog/comment-utiliser-chatgpt-pour-vos-devis-charpentier', permanent: true },
     { source: '/blog/devis-en-15-min-le-guide-chauffagiste', destination: '/blog/comment-utiliser-chatgpt-pour-vos-devis-chauffagiste', permanent: true },
     { source: '/blog/devis-en-15-min-le-guide-couvreur', destination: '/blog/comment-utiliser-chatgpt-pour-vos-devis-couvreur', permanent: true },
-    { source: '/blog/devis-en-15-min-le-guide-electricien', destination: '/blog/comment-utiliser-chatgpt-pour-vos-devis-electricien', permanent: true },
+    {
+      source: '/blog/devis-en-15-min-le-guide-electricien',
+      destination: '/blog/chatgpt-devis-electricien-btp',
+      permanent: true,
+    },
     { source: '/blog/devis-en-15-min-le-guide-macon', destination: '/blog/comment-utiliser-chatgpt-pour-vos-devis-macon', permanent: true },
     { source: '/blog/devis-en-15-min-le-guide-menuisier', destination: '/blog/comment-utiliser-chatgpt-pour-vos-devis-menuisier', permanent: true },
     { source: '/blog/devis-en-15-min-le-guide-peintre', destination: '/blog/comment-utiliser-chatgpt-pour-vos-devis-peintre', permanent: true },

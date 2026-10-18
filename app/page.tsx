@@ -8,6 +8,7 @@ import { AccueilRechercheFormationsSection } from '@/components/landing/accueil/
 import { AccueilFormationsDisponiblesSection } from '@/components/landing/accueil/AccueilFormationsDisponiblesSection';
 import { AccueilParcoursMetiersSection } from '@/components/landing/accueil/AccueilParcoursMetiersSection';
 import { AccueilCasExercicesSection } from '@/components/landing/accueil/AccueilCasExercicesSection';
+import { AccueilOutilsIaMetiersSection } from '@/components/landing/accueil/AccueilOutilsIaMetiersSection';
 import { AccueilMethodePedagogiqueSection } from '@/components/landing/accueil/AccueilMethodePedagogiqueSection';
 import { AccueilLaureFormateursSection } from '@/components/landing/accueil/AccueilLaureFormateursSection';
 import { AccueilIntraFinancementSection } from '@/components/landing/accueil/AccueilIntraFinancementSection';
@@ -90,6 +91,7 @@ export default function HomePage() {
       <AccueilRechercheFormationsSection />
       <AccueilFormationsDisponiblesSection />
       <AccueilParcoursMetiersSection />
+      <AccueilOutilsIaMetiersSection />
       <AccueilLaureFormateursSection />
       <AccueilCasExercicesSection />
       <AccueilMethodePedagogiqueSection />

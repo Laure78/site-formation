@@ -13,6 +13,7 @@ const chipClass =
 export function FormationsCatalogueMaillageSection() {
   const links = [
     { href: LINKS.parcoursMetiers, label: 'Parcours métiers — choisir selon ma fonction' },
+    { href: LINKS.outilsIaBtp, label: 'Sélection d’outils IA BTP (ChatGPT, Claude…)' },
     { href: LINKS.formationIaBtpPillar, label: 'Formation IA pour le BTP — page pilier' },
     { href: LINKS.formationParis, label: 'Formation IA pour le BTP à Paris' },
     { href: LINKS.iaDevis, label: 'IA devis bâtiment' },

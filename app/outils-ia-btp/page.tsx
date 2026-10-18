@@ -2,7 +2,13 @@ import Link from 'next/link';
 import { ArrowRight, BookOpen, Scale, Shield } from 'lucide-react';
 import { RdvLink } from '@/components/RdvLink';
 import { EnBref } from '@/app/components/EnBref';
+import { IaOutilCasMetierCard } from '@/components/outils-ia/IaOutilCasMetierCard';
 import { LINKS } from '@/lib/internal-links';
+import {
+  IA_OUTILS_BTP_CAS_METIER,
+  IA_OUTILS_BTP_CATALOGUE,
+  IA_OUTILS_FORMATION_OFC_COPY,
+} from '@/lib/ia-outils-btp-selection';
 import { createPageMetadata } from '@/lib/seo';
 import { OFC_CARD, OFC_LINK } from '@/lib/ofc-interaction-classes';
 
@@ -10,22 +16,22 @@ export const revalidate = 3600;
 const PATH = '/outils-ia-btp';
 
 export const metadata = createPageMetadata({
-  title: 'Outils IA BTP — Claude AI et ChatGPT',
+  title: 'Outils IA BTP — ChatGPT, Claude et sélection',
   description:
-    'Outils IA BTP : Claude et ChatGPT pour devis, DCE et comptes rendus, avec relecture métier. Formation IA pour le BTP. Réservez votre visio découverte.',
+    'Sélection d’outils d’IA pour le BTP : ChatGPT (OpenAI), Claude (Anthropic), usages devis, DCE et chantier. Formations Qualiopi en présentiel Île-de-France.',
   descriptionFinal: true,
   path: PATH,
   keywords: [
-    'outils IA BTP Claude ChatGPT',
-    'comparatif Claude ChatGPT BTP',
-    'Claude AI BTP',
-    'ChatGPT PME BTP',
-    'formation IA pour le BTP',
+    'outils IA BTP',
+    'formation ChatGPT BTP',
+    'formation Claude BTP',
+    'intelligence artificielle entreprises du bâtiment',
+    'analyser CCTP avec l’IA',
   ],
 });
 
 const EN_BREF =
-  'Pour une entreprise du BTP, Claude et ChatGPT peuvent aider sur devis, DCE, mémoires techniques et comptes rendus. Claude convient souvent mieux aux documents longs ; ChatGPT reste utile pour l’administratif et la dictée mobile. Aucun outil n’est « le meilleur » hors contexte — la validation humaine reste obligatoire.';
+  'Pour une entreprise du bâtiment ou des travaux publics, ChatGPT (OpenAI) et Claude (Anthropic) aident sur devis, DCE (dont CCTP), mémoires techniques et comptes rendus — avec relecture métier obligatoire. D’autres assistants (Gemini, Copilot, Perplexity, Le Chat de Mistral AI) peuvent compléter une veille ou la bureautique ; ils ne sont pas enseignés au catalogue OFC.';
 
 const ARTICLES_OUTILS = [
   {
@@ -67,21 +73,105 @@ export default function OutilsIABTPPage() {
       <section className="border-b border-slate-200 bg-gradient-to-br from-[var(--accent)] to-blue-800 px-4 py-16">
         <div className="mx-auto max-w-5xl">
           <h1 className="font-display text-2xl font-bold text-white md:text-2xl">
-            Outils IA pour le BTP : Claude AI et ChatGPT
+            Une sélection d&apos;outils d&apos;IA pour les professionnels du BTP
           </h1>
           <EnBref className="mt-6 max-w-3xl border-white/20 bg-white/95">
             <p>{EN_BREF}</p>
           </EnBref>
           <p className="mt-6 max-w-3xl text-lg leading-relaxed text-blue-50">
-            En formation, <strong className="font-semibold text-white">Claude AI</strong> est l&apos;outil principal
-            (niveaux 1 et 2) ; <strong className="font-semibold text-white">ChatGPT</strong> est cité en comparaison et
-            pour les usages administratifs (niveau 1). Devis, courriers, mémoires techniques — méthode testée avec
-            organisme certifié Qualiopi. Page dédiée{' '}
+            {IA_OUTILS_FORMATION_OFC_COPY}{' '}
             <Link href={LINKS.claudeAiBtp} className="font-semibold text-white underline decoration-white/80 hover:no-underline">
-              Claude AI BTP
+              Guide Claude AI BTP
+            </Link>{' '}
+            ·{' '}
+            <Link href={LINKS.formationChatgptBtp} className="font-semibold text-white underline decoration-white/80 hover:no-underline">
+              Formation ChatGPT BTP
             </Link>
             .
           </p>
+        </div>
+      </section>
+
+      <section className="border-b border-slate-200 bg-white px-4 py-12">
+        <div className="mx-auto max-w-5xl">
+          <h2 className="font-display text-2xl font-bold text-slate-900 md:text-2xl">
+            Outil, éditeur, usage BTP et ressource
+          </h2>
+          <p className="mt-3 max-w-3xl text-slate-600">
+            Tableau indicatif — octobre 2026. Colonne « Formation » : programmes Qualiopi où l&apos;outil est
+            pratiqué en session.
+          </p>
+          <div className="mt-8 overflow-x-auto rounded-2xl border border-slate-200 shadow-sm">
+            <table className="w-full min-w-[720px] border-collapse text-left text-sm">
+              <caption className="sr-only">
+                Sélection d&apos;outils d&apos;IA pour le BTP — éditeur, usage, limites, ressource
+              </caption>
+              <thead>
+                <tr className="border-b border-slate-200 bg-slate-50">
+                  <th scope="col" className="px-4 py-3 font-semibold text-slate-900">
+                    Outil
+                  </th>
+                  <th scope="col" className="px-4 py-3 font-semibold text-slate-900">
+                    Éditeur
+                  </th>
+                  <th scope="col" className="px-4 py-3 font-semibold text-slate-900">
+                    Exemple d&apos;usage BTP
+                  </th>
+                  <th scope="col" className="px-4 py-3 font-semibold text-slate-900">
+                    Conditions ou limites
+                  </th>
+                  <th scope="col" className="px-4 py-3 font-semibold text-slate-900">
+                    Ressource / formation
+                  </th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-slate-100 bg-white text-slate-700">
+                {IA_OUTILS_BTP_CATALOGUE.map((row) => (
+                  <tr key={row.id}>
+                    <th scope="row" className="px-4 py-3 font-medium text-slate-900">
+                      <a href={row.editorDocUrl} className={OFC_LINK} target="_blank" rel="noopener noreferrer">
+                        {row.tool}
+                      </a>
+                    </th>
+                    <td className="px-4 py-3">{row.editor}</td>
+                    <td className="px-4 py-3">{row.usageBtp}</td>
+                    <td className="px-4 py-3">{row.limits}</td>
+                    <td className="px-4 py-3">
+                      <Link href={row.resourceHref} className={OFC_LINK}>
+                        {row.resourceLabel}
+                      </Link>
+                      {row.taughtInFormation && row.formationHref && row.formationLabel ? (
+                        <span className="mt-1 block text-xs text-slate-500">
+                          En formation :{' '}
+                          <Link href={row.formationHref} className={OFC_LINK}>
+                            {row.formationLabel}
+                          </Link>
+                        </span>
+                      ) : (
+                        <span className="mt-1 block text-xs text-slate-500">Hors programme catalogue</span>
+                      )}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section className="border-b border-slate-200 bg-[#F8FAFC] px-4 py-12">
+        <div className="mx-auto max-w-5xl">
+          <h2 className="font-display text-2xl font-bold text-slate-900 md:text-2xl">
+            Méthodes par tâche (exemples)
+          </h2>
+          <p className="mt-3 max-w-3xl text-slate-600">
+            Cas pédagogiques — à adapter à vos modèles internes. L&apos;IA prépare ; le professionnel valide.
+          </p>
+          <div className="mt-8 grid gap-6 lg:grid-cols-3">
+            {IA_OUTILS_BTP_CAS_METIER.map((cas) => (
+              <IaOutilCasMetierCard key={cas.id} cas={cas} />
+            ))}
+          </div>
         </div>
       </section>
 
@@ -189,6 +279,29 @@ export default function OutilsIABTPPage() {
             <li>
               <a href="https://openai.com/chatgpt" className={OFC_LINK} target="_blank" rel="noopener noreferrer">
                 OpenAI — ChatGPT
+              </a>
+            </li>
+            <li>
+              <a href="https://gemini.google/" className={OFC_LINK} target="_blank" rel="noopener noreferrer">
+                Google — Gemini
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://www.microsoft.com/fr-fr/copilot"
+                className={OFC_LINK} target="_blank" rel="noopener noreferrer"
+              >
+                Microsoft — Copilot
+              </a>
+            </li>
+            <li>
+              <a href="https://www.perplexity.ai/" className={OFC_LINK} target="_blank" rel="noopener noreferrer">
+                Perplexity AI
+              </a>
+            </li>
+            <li>
+              <a href="https://mistral.ai/" className={OFC_LINK} target="_blank" rel="noopener noreferrer">
+                Mistral AI — Le Chat
               </a>
             </li>
             <li>
