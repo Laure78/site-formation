@@ -56,13 +56,13 @@ export function FormationsCatalogueProofSection() {
         Confiance et références
       </h2>
       <p className="mt-3 text-sm text-slate-600 md:text-base">
-        {getCataloguePageProofLine()} —{' '}
+        {getCataloguePageProofLine()}{' '}
         <Link href={LINKS.indicateursResultats} className={OFC_LINK}>
-          Indicateurs de résultats
+          Indicateurs
         </Link>
-        . Accessibilité étudiée au cas par cas —{' '}
+        {' · '}
         <Link href={LINKS.accessibiliteHandicap} className={OFC_LINK}>
-          aménagements handicap
+          Accessibilité handicap
         </Link>
         .
       </p>

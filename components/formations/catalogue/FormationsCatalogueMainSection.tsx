@@ -70,7 +70,7 @@ export function FormationsCatalogueMainSection({ formations }: Props) {
             <p className="text-xs font-bold uppercase tracking-wide text-emerald-700">Niveau 1</p>
             <p className="mt-1 font-display text-base font-bold text-ofc-ink">Initiation</p>
             <p className="mt-1 text-sm leading-relaxed text-slate-600">
-              Découvrir et utiliser l&apos;IA générative dans les tâches professionnelles du BTP.
+              Premiers pas : devis, emails, CR et documents courants.
             </p>
           </Link>
           <button
@@ -81,8 +81,7 @@ export function FormationsCatalogueMainSection({ formations }: Props) {
             <p className="text-xs font-bold uppercase tracking-wide text-blue-700">Niveau 2</p>
             <p className="mt-1 font-display text-base font-bold text-ofc-ink">Perfectionnement</p>
             <p className="mt-1 text-sm leading-relaxed text-slate-600">
-              Approfondir l&apos;utilisation de l&apos;IA, créer des assistants personnalisés et
-              développer des workflows métier.
+              DCE, chiffrage, chantier, MOE — assistants et workflows métier.
             </p>
           </button>
           <button
@@ -95,8 +94,7 @@ export function FormationsCatalogueMainSection({ formations }: Props) {
               Création et déploiement
             </p>
             <p className="mt-1 text-sm leading-relaxed text-slate-600">
-              Concevoir, développer, tester et déployer ses propres applications et outils métier BTP
-              avec l&apos;IA, sans être développeur.
+              Claude avancé et outils métier avec l&apos;IA — sans coder.
             </p>
           </button>
         </div>

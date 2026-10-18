@@ -48,7 +48,7 @@ export const CATALOGUE_HERO_REASSURANCE =
   `OFC certifié Qualiopi · Présentiel Île-de-France · Groupe · Intra & inter` as const;
 
 export const CATALOGUE_HERO_SUBTITLE =
-  'Choisissez un parcours selon votre niveau et vos usages : devis, appels d’offres, chantier, maîtrise d’œuvre ou déploiement de l’IA.' as const;
+  'Par niveau et par usage : devis, appels d’offres, chantier, MOE ou déploiement IA.' as const;
 
 export function getCataloguePageHeroReassurance(): string {
   return CATALOGUE_HERO_REASSURANCE;

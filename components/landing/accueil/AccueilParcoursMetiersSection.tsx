@@ -19,7 +19,7 @@ export function AccueilParcoursMetiersSection() {
       <SectionHeader
         titleId="accueil-parcours-title"
         title="Choisir son parcours métier"
-        description="Progressions par fonction — l’IA s’intègre aux modules métier, avec relecture humaine sur vos documents."
+        description="Par fonction : devis, DCE, chantier, admin — modules métier et relecture sur vos documents."
         className="max-w-2xl"
       />
       <ul className="mt-8 grid list-none gap-4 sm:grid-cols-2">

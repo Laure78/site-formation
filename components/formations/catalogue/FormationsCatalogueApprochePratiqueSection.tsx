@@ -19,7 +19,7 @@ export function FormationsCatalogueApprochePratiqueSection() {
         id="catalogue-approche-pratique"
         className="font-display text-xl font-bold text-ofc-ink md:text-2xl"
       >
-        Des formations conçues pour être utilisées dès le retour en entreprise
+        Utilisable dès le retour en entreprise
       </h2>
       <ul className="mt-5 grid gap-3 sm:grid-cols-2">
         {POINTS.map((point) => (

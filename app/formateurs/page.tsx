@@ -86,8 +86,8 @@ export default function FormateursPage() {
             Les formateurs qui vous accompagnent
           </h1>
           <p className="formateurs-hub-hero__lead max-w-2xl text-ofc-ink-muted">
-            Découvrez les intervenants, leurs spécialités et les formations qu’ils animent pour
-            les professionnels du bâtiment et des travaux publics.
+            Spécialités et formations animées pour le bâtiment et les travaux publics — présentiel
+            Île-de-France.
           </p>
           <div className="formateurs-hub-hero__actions flex flex-col gap-3 sm:flex-row sm:flex-wrap">
             <Link

@@ -15,7 +15,7 @@ export function AccueilRessourcesEvenementSection() {
         titleId="accueil-ressources-evenement-title"
         eyebrow="Ressources"
         title="Guides et tutoriels IA BTP"
-        description="Pour approfondir avant ou après une formation — contenus gratuits, en complément du présentiel."
+        description="Guides et tutoriels gratuits — devis, DCE, CR — en complément du présentiel."
         className="max-w-2xl"
       />
       <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">

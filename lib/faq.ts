@@ -98,11 +98,11 @@ export const FAQ_IA_BTP_METIERS_CHANTIER_SEO: readonly FAQItem[] = [
 export const FAQ_ITEMS_HOME: readonly FAQItem[] = [
   {
     q: 'Quelle formation choisir pour débuter ?',
-    a: 'Commencez par le niveau 1 (4 h) si vous découvrez l’IA. Sinon, choisissez une formation métier niveau 2 (7 h) ou le <a href="/formations#quelle-formation-choisir">questionnaire d’orientation</a>. Les prérequis de chaque fiche priment.',
+    a: 'Niveau 1 (4 h) pour débuter. Sinon formation métier (7 h) ou <a href="/formations#quelle-formation-choisir">questionnaire d’orientation</a>. Les prérequis de chaque fiche priment.',
   },
   {
     q: 'Quelle différence entre formation et parcours métier ?',
-    a: 'Une <strong>formation</strong> est une session catalogue (4 h, 7 h ou 14 h) sur un programme défini. Un <strong>parcours métier</strong> enchaîne plusieurs modules par fonction (dirigeant, chargé d’affaires, etc.) — voir <a href="/parcours-metiers">les parcours métiers</a>.',
+    a: 'Une <strong>formation</strong> = une session catalogue (4, 7 ou 14 h). Un <strong>parcours métier</strong> enchaîne plusieurs modules par fonction — <a href="/parcours-metiers">parcours métiers</a>.',
   },
   {
     q: 'Où se déroulent les sessions ?',

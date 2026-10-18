@@ -129,7 +129,7 @@ export type CatalogueFormationPageContent = {
 const DEFAULT_FINAL_CTA = {
   title: 'Vous souhaitez former votre équipe à l’IA ?',
   description:
-    'Les besoins et cas d’usage de votre entreprise sont étudiés avant la session, pour adapter le programme à votre équipe.',
+    'Cadrage métier, niveau et cas pratiques avant la session pour adapter le programme.',
   primaryLabel: 'Réservez votre visio découverte gratuite',
   devisHref: LINKS.prendreRdv,
   secondaryLabel: 'Demander un devis',
@@ -170,7 +170,7 @@ const NIV_01: CatalogueFormationPageContent = {
   ],
   objectivesTitle: 'Après la formation, vous saurez…',
   outcomesDescription:
-    'Vous apprenez à préparer et structurer une première version de devis, soumise au contrôle du professionnel. L’IA n’établit ni les prix, ni les métrés, ni la conformité aux DTU.',
+    'Structurer devis, CR et emails avec l’IA — le professionnel valide prix, métrés et conformité.',
   pedagogicalNote: 'L’IA prépare et structure. Le professionnel contrôle et valide.',
   practicalCase: {
     title: 'Comment se déroule la formation ?',
@@ -190,8 +190,7 @@ const NIV_01: CatalogueFormationPageContent = {
     'Checklist de validation humaine',
     'Certificat de réalisation',
   ],
-  programIntro:
-    '4 heures — demi-journée, 9h00 – 13h00 — 70 % pratique / 30 % théorie. ChatGPT et Claude.',
+  programIntro: '4 h (9h–13h) · 70 % pratique · ChatGPT et Claude.',
   programModules: [
     {
       title: 'MODULE 1 — Comprendre l’IA : littératie, outils et bonnes pratiques (60 min)',
@@ -340,12 +339,11 @@ const NIV_02: CatalogueFormationPageContent = {
     'Réutiliser une méthode de travail sur les prochains dossiers',
   ],
   outcomesDescription:
-    'L’entreprise construit une méthode guidée pour analyser un DCE, sécuriser la préparation de son chiffrage et structurer un mémoire technique avec l’aide de l’IA — pas une offre prête à déposer sans contrôle humain.',
+    'Méthode pour analyser un DCE, préparer le chiffrage et structurer un mémoire — contrôle humain avant dépôt.',
   practicalCase: {
     title: 'Comment se déroule la formation ?',
     paragraphs: [
-      'Avant la session, l’entreprise sélectionne un DCE représentatif, un ancien devis et, si elle en dispose, une trame de mémoire technique. Ces documents servent de fil rouge pendant les exercices.',
-      'La formation s’appuie sur un dossier fil rouge sélectionné avec l’entreprise avant la session. En interentreprises, des dossiers pédagogiques anonymisés peuvent être utilisés.',
+      'Fil rouge : DCE, devis ou trame de mémoire (entreprise ou dossier pédagogique anonymisé). Documents anonymisés ; pas de pièces sensibles sans cadre adapté.',
     ],
     steps: [
       'Vous apportez un dossier fil rouge anonymisé.',
@@ -399,7 +397,7 @@ const NIV_02: CatalogueFormationPageContent = {
   ],
   intraExtraBullets: ['Dossier fil rouge de l’entreprise'],
   interExtraBullets: ['Dossier pédagogique commun'],
-  programIntro: 'Atelier collectif, 75 % de pratique. Accueil, modules et bilan — total 7 heures.',
+  programIntro: '7 h · 75 % pratique · fil rouge appels d’offres.',
   programModules: [
     {
       title: 'Accueil et cadrage — 15 min',
@@ -583,7 +581,7 @@ const NIV_03: CatalogueFormationPageContent = {
   ],
   intraExtraBullets: ['Suivi visio J+30 inclus'],
   programIntro:
-    'Modules sur 7 h : installation chantier, suivi documentaire assisté par l’IA et gestion quotidienne. 70 % de pratique sur vos documents. La méthode de réception est couverte par le module TRA-05 du parcours Conducteur de travaux.',
+    '7 h · 70 % pratique sur vos documents chantier (installation, suivi, gestion). Réception : module TRA-05 du parcours Conducteur de travaux.',
   programmeMethodsBullets: [...NIV03_PEDAGOGICAL_METHODS],
   programModules: mapProgrammeBlocsToCatalogueModules(NIV03_PROGRAMME_BLOCS),
   programLinks: [
@@ -662,7 +660,7 @@ const NIV_04: CatalogueFormationPageContent = {
     'Fiabiliser skills, connecteurs et automatisations avec validation humaine',
   ],
   outcomesDescription:
-    'Formation avancée Claude AI pour le BTP : industrialiser Projets, skills, Cowork, connecteurs et Claude Code sur vos cas réels — jamais sans relecture humaine.',
+    'Industrialiser Projets, skills, Cowork et connecteurs Claude sur vos cas BTP — relecture humaine systématique.',
   deliverables: [
     'Projet « chantier type » structuré',
     'Dossier produit avec Cowork',
@@ -688,7 +686,7 @@ const NIV_04: CatalogueFormationPageContent = {
     },
   ],
   programIntro:
-    '7 heures — 9h00 – 12h30 / 13h30 – 17h00 — Accueil, 4 modules techniques et clôture : Projets & skills, Cowork, connecteurs et Claude Code — fil rouge PME BTP. 70 % pratique / 30 % théorie.',
+    '7 h (9h–17h) · 4 modules : Projets, Cowork, connecteurs, Claude Code · 70 % pratique.',
   programModules: mapProgrammeBlocsToCatalogueModules(NIV04_PROGRAMME_BLOCS),
   pdfHref: LINKS.pdfProgrammeMaitriserClaudeBtpNiv04,
   programLinks: [
@@ -751,7 +749,7 @@ const NIV_05: CatalogueFormationPageContent = {
     'Structurer le suivi des réserves et la préparation à la réception',
   ],
   outcomesDescription:
-    'Formation IA pour la maîtrise d’œuvre d’exécution : DCE, CR, OS, réserves et GPA — avec Claude et ChatGPT, confidentialité des données chantier et validation humaine systématique.',
+    'DCE, CR, OS, réserves et GPA pour la MOEX — Claude et ChatGPT, validation humaine.',
   practicalCase: {
     title: 'Comment se déroule la formation ?',
     paragraphs: [
@@ -786,8 +784,7 @@ const NIV_05: CatalogueFormationPageContent = {
     },
   ],
   programmeHeading: 'Programme — 5 modules MOE (7 h)',
-  programIntro:
-    '7 heures — 70 % pratique / 30 % théorie — alternance théorie courte et ateliers sur cas réels MOE apportés par les participants.',
+  programIntro: '7 h · 70 % pratique · ateliers sur vos dossiers MOE (anonymisés si besoin).',
   programModules: mapProgrammeBlocsToCatalogueModules(NIV05_PROGRAMME_BLOCS),
   pdfHref: LINKS.pdfProgrammeIaMaitriseOeuvre,
   programLinks: [
@@ -844,7 +841,7 @@ const NIV_10: CatalogueFormationPageContent = {
   ],
   interExtraBullets: ['Session inter — 14 h (2 journées), 4 à 8 participants'],
   intraExtraBullets: ['Session intra en présentiel dans vos locaux en Île-de-France'],
-  programIntro: `${DEV_WEB_IA_PARCOURS_14H_SECTION.intro} Créneaux : 9h00 – 12h30 / 13h30 – 17h00 — 70 % pratique / 30 % apports méthodologiques.`,
+  programIntro: `${DEV_WEB_IA_PARCOURS_14H_SECTION.intro} 14 h sur 2 jours · 70 % pratique.`,
   programmeHeading: 'Programme — 14 h (2 × 7 h)',
   objectivesTitle: 'Objectifs pédagogiques',
   programModules: getDevWebIaCatalogueProgramModules14h(),
@@ -910,8 +907,7 @@ const NIV_09: CatalogueFormationPageContent = {
     note: 'Abonnement ChatGPT Plus ou Claude Pro requis — non inclus dans le tarif.',
   },
   deliverables: [...ASSISTANTS_IA_LIVRABLES],
-  programIntro:
-    'Quatre modules sur 7 h : littératie IA, fonctionnalités ChatGPT/Claude, méthode de prompt, création d’un assistant métier. 80 % de pratique.',
+  programIntro: '7 h · 4 modules · 80 % pratique — créer un assistant métier ChatGPT ou Claude.',
   programModules: ASSISTANTS_IA_MODULES.map((m) => ({
     title: m.heading.replace(/^Module \d+ — /, ''),
     points: [...m.points, m.atelier],

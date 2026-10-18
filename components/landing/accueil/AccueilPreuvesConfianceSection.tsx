@@ -57,9 +57,7 @@ export function AccueilPreuvesConfianceSection() {
 
         <div>
           <p className="text-sm font-semibold text-ofc-ink">Partenaires et références</p>
-          <p className="mt-1 text-xs text-ofc-ink-muted">
-            Partenaires institutionnels — distincts des entreprises clientes formées.
-          </p>
+          <p className="mt-1 text-xs text-ofc-ink-muted">Partenaires institutionnels.</p>
           <ul
             className="mt-4 flex flex-wrap items-center gap-x-6 gap-y-4"
             aria-label="Logos partenaires"

@@ -73,7 +73,9 @@ export function ParcoursMetiersOrientation() {
               <li key={p.id} id={p.id} className="min-w-0 scroll-mt-28">
                 <article className={`${OFC_CARD} flex h-full flex-col p-6 sm:p-8`}>
                   <h2 className={`${OFC_TYPE_H3} text-pretty`}>{p.titre}</h2>
-                  <p className="mt-3 text-sm leading-relaxed text-ofc-ink-muted">{p.benefice}</p>
+                  {usages.length === 0 ? (
+                    <p className="mt-3 text-sm leading-relaxed text-ofc-ink-muted">{p.benefice}</p>
+                  ) : null}
 
                   {usages.length > 0 ? (
                     <>

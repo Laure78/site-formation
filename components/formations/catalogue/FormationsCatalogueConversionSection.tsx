@@ -16,8 +16,7 @@ export function FormationsCatalogueConversionSection() {
         Vous ne savez pas quelle formation choisir ?
       </h2>
       <p className="mx-auto mt-3 max-w-xl text-sm leading-relaxed text-white/90 md:text-base">
-        Décrivez votre équipe, vos métiers et vos usages.
-        Je vous aide à identifier le parcours adapté.
+        Décrivez métier et usages — je vous oriente vers la bonne session.
       </p>
       <div className="mt-6">
         <Link

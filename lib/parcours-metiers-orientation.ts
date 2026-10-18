@@ -109,5 +109,5 @@ export function getParcoursMetiersProfilsAvecFormations(
 export const PARCOURS_METIERS_PAGE = {
   h1: 'Parcours de formation IA par métier BTP',
   intro:
-    'Choisissez votre métier et découvrez les formations IA adaptées à vos missions — ChatGPT (OpenAI) et Claude (Anthropic) selon les modules, toujours avec relecture sur vos documents BTP.',
+    'Choisissez votre métier : formations IA liées à vos missions (devis, DCE, CR, relances…) — ChatGPT ou Claude selon le module, relecture sur vos documents.',
 } as const;

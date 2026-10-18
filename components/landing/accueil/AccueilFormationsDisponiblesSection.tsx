@@ -21,7 +21,7 @@ export function AccueilFormationsDisponiblesSection() {
       <SectionHeader
         titleId="accueil-formations-title"
         title="Choisir son niveau et sa formation"
-        description="Trois niveaux de progression — puis un aperçu du catalogue. Durées et prérequis détaillés sur chaque fiche programme."
+        description="Trois niveaux, puis un aperçu du catalogue. Durées et prérequis sur chaque fiche."
         className="max-w-2xl"
       />
 

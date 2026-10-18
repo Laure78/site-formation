@@ -24,9 +24,8 @@ export function AccueilCtaFinalSection() {
             Trouvons la formation adaptée à votre métier
           </h2>
           <p className="mx-auto mt-4 max-w-xl text-base leading-[1.65] text-white/90 md:text-lg">
-            Un échange de {PRENDRE_RDV_DUREE_MINUTES} minutes en visioconférence pour préciser vos
-            usages, votre niveau et le format adapté — sans engagement. Les sessions de formation
-            restent en présentiel en Île-de-France.
+            Visio de {PRENDRE_RDV_DUREE_MINUTES} min pour cadrer métier, niveau et format — sans
+            engagement. Les formations se déroulent en présentiel en Île-de-France.
           </p>
           <div className="mt-8 flex justify-center">
             <Link

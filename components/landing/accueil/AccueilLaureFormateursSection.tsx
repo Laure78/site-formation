@@ -23,7 +23,7 @@ export function AccueilLaureFormateursSection() {
       <SectionHeader
         titleId="accueil-equipe-title"
         title="Laure Olivié et l’équipe de formateurs"
-        description="Expérience BTP et pratique de la formation IA en présentiel — programmes détaillés sur chaque fiche."
+        description="Terrain BTP et formation IA en présentiel — détail des programmes sur chaque fiche."
         className="max-w-2xl"
       />
 
@@ -36,7 +36,10 @@ export function AccueilLaureFormateursSection() {
           <p className="mt-1 text-sm font-medium text-ofc-accent">
             Formatrice IA spécialisée BTP · Fondatrice d’OFC Création d’Entreprise
           </p>
-          <p className="mt-3 text-sm leading-relaxed text-ofc-ink-muted">{laure.parcours}</p>
+          <p className="mt-3 text-sm leading-relaxed text-ofc-ink-muted">
+            7 ans dans le BTP, ex-dirigeante d’ALIA BTP (travaux publics). Formations sur vos devis,
+            appels d’offres, comptes rendus et outils de gestion — avec l’IA, en présentiel.
+          </p>
         </div>
       </article>
 

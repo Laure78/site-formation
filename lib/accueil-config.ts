@@ -155,11 +155,10 @@ export const ACCUEIL_CAS_EXERCICES_FORMATION = [
     id: 'dce-vigilance',
     titre: 'DCE — appel d’offres',
     badge: 'Exemple pédagogique',
-    besoin: 'Repérer les exigences avant chiffrage ou réponse (dossier fictif).',
-    travail: 'Synthèse des exigences RC, CCTP et CCAP avec ChatGPT ou Claude.',
-    livrable: 'Checklist de points à vérifier et questions pour la MOE.',
-    verification:
-      'Contrôle humain des citations, des montants et des délais avant toute décision Go / No Go.',
+    besoin: 'DCE fictif — repérer les exigences avant chiffrage.',
+    travail: 'Synthèse RC, CCTP et CCAP avec ChatGPT ou Claude.',
+    livrable: 'Checklist et questions MOE.',
+    verification: 'Relire citations, montants et délais avant Go / No Go.',
     apercu:
       '▸ Exigence CCTP §4.2 — étanchéité terrasse\n▸ Point à vérifier — délai d’exécution RC\n▸ Question MOE — variante autorisée ?',
     href: LINKS.formationAO,
@@ -168,11 +167,10 @@ export const ACCUEIL_CAS_EXERCICES_FORMATION = [
     id: 'cr-actions',
     titre: 'Notes de chantier',
     badge: 'Exemple pédagogique',
-    besoin: 'Suivre décisions, responsables et échéances après réunion (cas fictif).',
-    travail: 'Notes brutes reformulées en CR structuré, puis tableau d’actions.',
-    livrable: 'CR + actions (responsable, échéance, statut).',
-    verification:
-      'Validation du conducteur ou du chef de chantier avant envoi aux parties prenantes.',
+    besoin: 'Notes de réunion terrain (cas fictif).',
+    travail: 'CR structuré et tableau d’actions (qui / quoi / quand).',
+    livrable: 'CR + plan d’actions.',
+    verification: 'Validation conducteur ou chef de chantier avant envoi.',
     apercu:
       'Action 1 — Fournir plan réseaux | Resp. BE | 22/10\nAction 2 — Levée réservation | Resp. ST élec. | 25/10',
     href: LINKS.formationConduiteTravauxSuiviChantier,
@@ -181,11 +179,10 @@ export const ACCUEIL_CAS_EXERCICES_FORMATION = [
     id: 'admin-suivi',
     titre: 'Suivi administratif',
     badge: 'Exemple pédagogique',
-    besoin: 'Courriers, relances et pièces à suivre sur un dossier type (données anonymisées).',
-    travail: 'Structuration des échanges et relances avec ChatGPT ou Claude.',
-    livrable: 'Courriers types + tableau de suivi (statut, date, prochaine action).',
-    verification:
-      'Relire chaque message ; valider montants, délais et ton avant envoi ou signature.',
+    besoin: 'Relances et pièces sur un dossier type (anonymisé).',
+    travail: 'Courriers et relances structurés avec ChatGPT ou Claude.',
+    livrable: 'Modèles + tableau de suivi.',
+    verification: 'Relire montants, délais et ton avant envoi.',
     apercu:
       'Relance J+15 — Objet : facture n°… — Statut : en attente — Prochaine action : appel le…',
     href: LINKS.formationIaAssistanteBtp,
@@ -476,19 +473,19 @@ export const ACCUEIL_CAS_USAGE_RESULTATS = [
 export const ACCUEIL_RESSOURCES = [
   {
     titre: 'Guide conducteur de travaux',
-    phrase: 'PDF gratuit — skills IA pour DCE, PPSPS, CR et DOE.',
+    phrase: 'Skills IA — DCE, PPSPS, CR, DOE (PDF).',
     category: 'Guide',
     href: LINKS.guideConducteurTravauxIaBtp,
   },
   {
     titre: 'Analyser un DCE avec l’IA',
-    phrase: 'Méthode et cas d’usage pour décrypter un dossier de consultation.',
+    phrase: 'Méthode pour lire un DCE et en extraire l’essentiel.',
     category: 'Méthode',
     href: LINKS.iaAnalyseDce,
   },
   {
     titre: 'Compte rendu de chantier avec l’IA',
-    phrase: 'Modèle et bonnes pratiques pour vos CR de chantier.',
+    phrase: 'Modèle et bonnes pratiques pour vos CR.',
     category: 'Tutoriel',
     href: LINKS.iaCompteRenduChantier,
   },

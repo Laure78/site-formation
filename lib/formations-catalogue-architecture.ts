@@ -429,8 +429,7 @@ export const CATALOGUE_GAMMES: readonly CatalogueGammeSection[] = [
     number: '01',
     title: 'Découvrir',
     subtitle: 'Pour les entreprises et utilisateurs qui démarrent',
-    description:
-      'Comprendre l’IA générative, ses limites et ses premiers usages sur des tâches concrètes du BTP.',
+    description: 'Comprendre l’IA, ses limites et les premiers usages (devis, CR, emails).',
     themes: groupByTheme(offersForGamme('decouvrir')),
   },
   {
@@ -438,8 +437,7 @@ export const CATALOGUE_GAMMES: readonly CatalogueGammeSection[] = [
     number: '02',
     title: 'Appliquer par métier',
     subtitle: 'Cœur du catalogue — besoins métier avant outil',
-    description:
-      'Formations centrées sur vos documents et processus : DCE, chantier, MOE, administratif, commercial.',
+    description: 'DCE, chiffrage, chantier, MOE, admin et commercial — sur vos documents.',
     themes: groupByTheme(offersForGamme('appliquer-metier')),
   },
   {
@@ -447,8 +445,7 @@ export const CATALOGUE_GAMMES: readonly CatalogueGammeSection[] = [
     number: '03',
     title: 'Déployer dans l’entreprise',
     subtitle: 'Assistants, automatisations, outils métier et stratégie IA',
-    description:
-      'Passer de l’usage ponctuel à des assistants, workflows, applications internes et gouvernance — parcours différenciés.',
+    description: 'Assistants, workflows, outils métier et gouvernance IA en entreprise.',
     themes: buildDeployerGammeThemes(),
   },
 ];
@@ -457,9 +454,9 @@ export const CATALOGUE_GAMMES: readonly CatalogueGammeSection[] = [
 export const CATALOGUE_POSITIONNEMENT = {
   h1: 'Formations et parcours métiers BTP en Île-de-France',
   promesseDocuments:
-    'Formez chaque métier de votre PME : parcours progressifs ou formations ciblées en gestion, travaux, management et intelligence artificielle.',
+    'Parcours par métier ou sessions ciblées — gestion, travaux, management et IA.',
   promesseLivrables:
-    'Repartez avec des compétences métier actionnables — l’IA est intégrée lorsque son usage répond au besoin.',
+    'Méthodes réutilisables sur vos documents ; l’IA intervient quand elle apporte un gain concret.',
   differentiators: [
     'Parcours par métier pour les PME du BTP',
     'Présentiel en Île-de-France',

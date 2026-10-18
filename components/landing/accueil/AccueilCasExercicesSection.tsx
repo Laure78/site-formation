@@ -9,8 +9,8 @@ export function AccueilCasExercicesSection() {
     <Section tone="canvas" aria-labelledby="accueil-cas-title">
       <SectionHeader
         titleId="accueil-cas-title"
-        title="Des réalisations concrètes en formation"
-        description="Exemples pédagogiques — dossiers fictifs ou anonymisés. Relecture métier obligatoire avant tout usage ou envoi."
+        title="Exemples en formation"
+        description="Cas fictifs ou anonymisés — relecture métier avant tout envoi."
         className="max-w-2xl"
       />
       <ul className="mt-10 grid gap-6 lg:grid-cols-3">
@@ -21,21 +21,16 @@ export function AccueilCasExercicesSection() {
                 {cas.badge}
               </p>
               <h3 className="mt-2 font-display text-base font-bold text-ofc-ink">{cas.titre}</h3>
+              <p className="mt-3 text-sm text-ofc-ink-muted">{cas.besoin}</p>
               <dl className="mt-4 space-y-3 text-sm">
                 <div>
-                  <dt className="font-semibold text-ofc-ink">Document de départ</dt>
-                  <dd className="mt-0.5 text-ofc-ink-muted">{cas.besoin}</dd>
+                  <dt className="font-semibold text-ofc-ink">En session</dt>
+                  <dd className="mt-0.5 text-ofc-ink-muted">
+                    {cas.travail} → {cas.livrable}
+                  </dd>
                 </div>
                 <div>
-                  <dt className="font-semibold text-ofc-ink">Travail réalisé avec l’IA</dt>
-                  <dd className="mt-0.5 text-ofc-ink-muted">{cas.travail}</dd>
-                </div>
-                <div>
-                  <dt className="font-semibold text-ofc-ink">Livrable préparé</dt>
-                  <dd className="mt-0.5 text-ofc-ink-muted">{cas.livrable}</dd>
-                </div>
-                <div>
-                  <dt className="font-semibold text-ofc-ink">Vérification humaine</dt>
+                  <dt className="font-semibold text-ofc-ink">Avant envoi</dt>
                   <dd className="mt-0.5 text-ofc-ink-muted">{cas.verification}</dd>
                 </div>
               </dl>

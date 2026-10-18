@@ -40,8 +40,8 @@ export function FormationsCatalogueHero() {
             {contentUpdatedAt ? <ContentUpdatedLine date={contentUpdatedAt} /> : null}
 
             <p className="ofc-type-lead mt-5 max-w-2xl text-ofc-ink-muted">
-              Des formations pratiques pour intégrer l&apos;IA dans vos métiers, vos documents et vos processus.
-              Présentiel en Île-de-France.
+              Devis, appels d&apos;offres, chantier, MOE ou déploiement IA — pratique, en présentiel
+              Île-de-France.
             </p>
 
             <ul className="mt-6 grid gap-x-6 gap-y-2 text-sm font-medium text-ofc-ink sm:grid-cols-2">

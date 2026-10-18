@@ -39,7 +39,7 @@ export function buildUnifiedFormationsNavMegaColumns(
   return [
     {
       title: 'Formations IA BTP',
-      intro: 'Choisissez votre formation selon les compétences à développer.',
+      intro: 'Par niveau ou par métier — devis, DCE, chantier…',
       links: buildPublishedFormationLinks(at),
       footer: {
         href: LINKS.formations,
@@ -49,7 +49,7 @@ export function buildUnifiedFormationsNavMegaColumns(
     },
     {
       title: 'Parcours métiers BTP',
-      intro: 'Trouvez un parcours adapté à votre fonction dans le BTP.',
+      intro: 'Dirigeant, conducteur, chargé d’affaires, admin…',
       links: buildParcoursNavChildren(),
       footer: {
         href: LINKS.parcoursMetiers,
@@ -70,7 +70,7 @@ export function buildUnifiedFormationsMobileNavGroups(
     {
       href: LINKS.formations,
       label: 'Formations IA BTP',
-      description: 'Choisissez votre formation selon les compétences à développer.',
+      description: 'Par niveau ou par métier — devis, DCE, chantier…',
       children: [
         ...formationsLinks,
         {
@@ -83,7 +83,7 @@ export function buildUnifiedFormationsMobileNavGroups(
     {
       href: LINKS.parcoursMetiers,
       label: 'Parcours métiers BTP',
-      description: 'Trouvez un parcours adapté à votre fonction dans le BTP.',
+      description: 'Dirigeant, conducteur, chargé d’affaires, admin…',
       children: [
         ...parcoursLinks,
         {
