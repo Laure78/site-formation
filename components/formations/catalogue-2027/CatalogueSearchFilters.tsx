@@ -20,13 +20,17 @@ type Props = {
   onMobileOpenChange: (open: boolean) => void;
 };
 
+type FilterFieldsProps = Omit<Props, 'mobileOpen' | 'onMobileOpenChange'> & {
+  idPrefix: string;
+};
+
 function FilterFields({
   idPrefix,
   filters,
   metierOptions,
   thematiqueOptions,
   onChange,
-}: Omit<Props, 'mobileOpen' | 'onMobileOpenChange'>) {
+}: FilterFieldsProps) {
   const niveauId = `${idPrefix}-niveau`;
   const thematiqueId = `${idPrefix}-thematique`;
   const metierId = `${idPrefix}-metier`;

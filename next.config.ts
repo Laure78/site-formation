@@ -222,22 +222,53 @@ const nextConfig: NextConfig = {
       },
       {
         source: '/parcours/applications-metier-btp',
-        destination: '/formations/application-metier-btp-niveau-1',
+        destination: '/formations/developpement-web-ia-sans-coder',
         permanent: true,
       },
       {
         source: '/parcours/applications-metier-btp/:path*',
-        destination: '/formations/application-metier-btp-niveau-1',
+        destination: '/formations/developpement-web-ia-sans-coder',
         permanent: true,
       },
       {
         source: '/formations/cursor-btp',
-        destination: '/formations/application-metier-btp-niveau-1',
+        destination: '/formations/developpement-web-ia-sans-coder',
         permanent: true,
       },
       {
         source: '/formations/cursor-btp/:path*',
-        destination: '/formations/application-metier-btp-niveau-1',
+        destination: '/formations/developpement-web-ia-sans-coder',
+        permanent: true,
+      },
+      // Parcours applications métier NIV-06/07/08 → fiche catalogue NIV-10
+      {
+        source: '/formations/application-metier-btp-niveau-1',
+        destination: '/formations/developpement-web-ia-sans-coder',
+        permanent: true,
+      },
+      {
+        source: '/formations/application-metier-btp-niveau-1/',
+        destination: '/formations/developpement-web-ia-sans-coder',
+        permanent: true,
+      },
+      {
+        source: '/formations/application-metier-btp-niveau-2',
+        destination: '/formations/developpement-web-ia-sans-coder',
+        permanent: true,
+      },
+      {
+        source: '/formations/application-metier-btp-niveau-2/',
+        destination: '/formations/developpement-web-ia-sans-coder',
+        permanent: true,
+      },
+      {
+        source: '/formations/application-metier-btp-niveau-3',
+        destination: '/formations/developpement-web-ia-sans-coder',
+        permanent: true,
+      },
+      {
+        source: '/formations/application-metier-btp-niveau-3/',
+        destination: '/formations/developpement-web-ia-sans-coder',
         permanent: true,
       },
 

@@ -79,41 +79,18 @@ export const FORMATIONS_NIVEAUX_IA: readonly FormationNiveauIaDefinition[] = [
       'Assistant documentaire avec protocole de relecture',
     ],
   },
-  {
-    niveau: 3,
-    labelComplet: 'Niveau 3 — Avancé',
-    sousTitre: 'Avancé',
-    accrocheNiveau: 'Créer ses assistants et ses outils',
-    badge: 'Niveau 3 — Avancé',
-    publicCible:
-      'Utilisateurs autonomes souhaitant personnaliser leurs outils et assistants.',
-    objectif:
-      'Concevoir des assistants ou applications métier et organiser leurs tests et leur utilisation.',
-    descriptionMenu:
-      'Concevoir des usages réutilisables et des outils adaptés à son activité.',
-    anchorId: 'catalogue-niveau-3',
-    sectionHeading: 'Niveau 3 — Avancé',
-    accueilAccroche:
-      'Créer des assistants et des outils adaptés à son activité.',
-    accueilDuree: '7 h ou 14 h',
-    prerequis:
-      'Usages intermédiaires maîtrisés sur documents BTP, ou projet d’outil / prototype déjà cadré.',
-    exemplesRealisations: [
-      'Prototype d’outil métier (suivi, relances, planning)',
-      'Workflow Claude ou assistant réutilisable',
-      'Application métier avec contrôle humain sur les outputs IA',
-    ],
-  },
 ] as const;
 
 export function getFormationNiveauIaDefinition(
   niveau: FormationNiveau,
 ): FormationNiveauIaDefinition {
   const found = FORMATIONS_NIVEAUX_IA.find((n) => n.niveau === niveau);
-  if (!found) {
-    throw new Error(`Niveau IA inconnu : ${niveau}`);
+  if (found) return found;
+  /** Données legacy (ex. parcours app métier) — affichage aligné sur le niveau 2. */
+  if (niveau === 3) {
+    return getFormationNiveauIaDefinition(2);
   }
-  return found;
+  throw new Error(`Niveau IA inconnu : ${niveau}`);
 }
 
 export function formationNiveauBadge(niveau: FormationNiveau): string {

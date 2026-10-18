@@ -35,7 +35,7 @@ export const FORMATION_IA_CONDUCTEUR_DE_TRAVAUX_CONFIG: SeoClusterPageConfig = {
   subtitle:
     'Comptes rendus, réunions, synthèses documentaires, réserves, planning et courriers MOA/MOE — avec ChatGPT et Claude, sur vos dossiers réels.',
   shortAnswer:
-    'Formation IA conducteur de travaux BTP : CR, PPSPS, DOE, analyse CCTP, courriers et suivi sous-traitants. 4 h en présentiel, Qualiopi, exercices terrain.',
+    `Formation IA conducteur de travaux BTP : CR, PPSPS, DOE, analyse CCTP, courriers et suivi sous-traitants. Session catalogue ${dureeCatalogueParCode('NIV-03')} en présentiel Île-de-France, Qualiopi, exercices sur dossiers anonymisés.`,
   introParagraphs: [
     'Un conducteur de travaux consacre une part importante de sa semaine à l\'administratif : comptes rendus, courriers, synthèses de documents, préparation de réunions et suivi des réserves. L\'IA ne remplace pas le jugement terrain — elle accélère la formalisation.',
     'En formation, vous travaillez sur des situations réelles : notes de réunion transformées en CR, analyse d\'un extrait CCTP, courrier de relance sous-traitant, tableau de suivi des retards. ChatGPT et Claude sont présentés comme outils complémentaires selon le type de document.',
@@ -114,6 +114,10 @@ export const FORMATION_IA_CONDUCTEUR_DE_TRAVAUX_CONFIG: SeoClusterPageConfig = {
   catalogueHref: LINKS.formationConduiteTravauxSuiviChantier,
   catalogueLabel: 'Voir le programme',
   relatedLinks: [
+    {
+      href: LINKS.parcoursConducteurDeTravaux,
+      label: 'Parcours Conducteur de travaux (plusieurs modules)',
+    },
     { href: LINKS.formationChatgptBtp, label: 'Formation ChatGPT pour le BTP' },
     { href: LINKS.formationIaAppelsOffresBtp, label: 'Formation IA appels d\'offres BTP' },
     { href: LINKS.formationClaudeBtp, label: 'Formation Claude pour le bâtiment' },

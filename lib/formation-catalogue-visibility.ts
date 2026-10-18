@@ -58,7 +58,13 @@ export function isFormationPathPublished(pathname: string, at: Date = new Date()
 }
 
 /** Formations retirées du catalogue public (page supprimée, 301 → /formations). */
-export const FORMATION_CATALOGUE_RETIRED = new Set<FormationCatalogueCode>(['NIV-09']);
+export const FORMATION_CATALOGUE_RETIRED = new Set<FormationCatalogueCode>([
+  'NIV-09',
+  /** Remplacées par NIV-10 — une seule offre « applications métier » au catalogue. */
+  'NIV-06',
+  'NIV-07',
+  'NIV-08',
+]);
 
 export function isFormationCatalogueRetired(code: string): boolean {
   return FORMATION_CATALOGUE_RETIRED.has(code as FormationCatalogueCode);

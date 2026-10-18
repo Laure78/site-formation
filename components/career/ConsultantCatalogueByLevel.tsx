@@ -3,7 +3,7 @@ import { formationHref, type FormationNiveau } from '@/data/formations';
 import { getPublishedFormations } from '@/lib/formation-catalogue-visibility';
 import { FORMATIONS_NIVEAUX_IA } from '@/lib/formations-niveaux-ia';
 
-const LEVELS: FormationNiveau[] = [1, 2, 3];
+const LEVELS: FormationNiveau[] = [1, 2];
 
 export function ConsultantCatalogueByLevel() {
   const published = getPublishedFormations();

@@ -46,7 +46,7 @@ export type CatalogueGammeSection = {
 };
 
 const QUALIOPI_OFFERS: CatalogueOffer[] = (
-  ['NIV-01', 'NIV-02', 'NIV-03', 'NIV-04', 'NIV-05', 'NIV-06', 'NIV-07', 'NIV-08', 'NIV-10'] as const
+  ['NIV-01', 'NIV-02', 'NIV-03', 'NIV-04', 'NIV-05', 'NIV-10'] as const
 ).map(
   (code) => {
     const f = getFormationByCode(code)!;
@@ -407,8 +407,8 @@ function buildDeployerGammeThemes(): CatalogueThemeGroup[] {
       id: 'outils-applications',
       title: 'Outils & applications métier',
       description:
-        'Parcours applications métier BTP (3×7 h) · Claude pour Projects, Cowork et Skills.',
-      offers: [qualiopiById['NIV-06'], qualiopiById['NIV-07'], qualiopiById['NIV-08'], qualiopiById['NIV-04']].filter(Boolean),
+        'Applications métier BTP avec l’IA · Claude pour Projects, Cowork et Skills.',
+      offers: [qualiopiById['NIV-10'], qualiopiById['NIV-04']].filter(Boolean),
     },
   ];
 }
@@ -419,7 +419,7 @@ export const CATALOGUE_MATURITE_STEPS = [
   { label: 'Appliquer à son métier', href: LINKS.formations },
   { label: 'Maîtriser Claude AI', href: LINKS.formationMaitriserClaudeAiBtp },
   { label: 'Automatiser un processus', href: LINKS.prendreRdv },
-  { label: 'Applications métier BTP', href: LINKS.formationApplicationMetierBtpNiveau1 },
+  { label: 'Applications métier BTP', href: LINKS.formationDeveloppementWebIaSansCoder },
   { label: 'Déployer & gouverner', href: LINKS.formationPmeBtp },
 ] as const;
 

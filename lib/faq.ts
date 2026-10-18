@@ -18,6 +18,8 @@ import {
   TARIF_PARTICIPANT_NIV09_HT,
   TARIF_PARTICIPANT_NIV10_HT,
 } from '@/lib/tarifs-catalogue-participant';
+import { getFormationByCode, libelleDureeFormation, libelleEffectifFormation } from '@/data/formations';
+import { dureeCatalogueParCode } from '@/lib/catalogue-duree-copy';
 import { getCatalogueFormationsCount } from '@/lib/formations-catalogue-display';
 import { isFormationCataloguePublished } from '@/lib/formation-catalogue-visibility';
 import { SOCIAL_PROOF, IDF_ZONE_INTERVENTION, CONTACT } from '@/lib/constants';
@@ -34,7 +36,6 @@ import {
 } from '@/lib/financement-copy';
 import { formatProsFormesEtNoteQualiopi } from '@/lib/data/indicateurs-resultats-helpers';
 import { formatNoteSatisfactionAffichageComplet, formatAnneesExperienceBTP } from '@/lib/data/indicateurs-resultats';
-import { getFormationByCode } from '@/data/formations';
 
 export type FAQItem = { q: string; a: string };
 
@@ -321,7 +322,7 @@ export function getFaqFormations(at: Date = new Date()): FAQItem[] {
     if (item.q === 'Quelles formations IA appliquées au bâtiment sont proposées au catalogue ?') {
       return {
         ...item,
-        a: `Notre catalogue de formations IA pour le BTP comprend des sessions de 4 h (devis, appels d&apos;offres, Claude, maîtrise d&apos;œuvre${count > 4 ? ', conduite de travaux' : ''}) et des formations <a href="${LINKS.formationApplicationMetierBtpNiveau1}">applications métier BTP avec l&apos;IA</a> en 3 niveaux de 7 h. Toutes les actions sont dispensées par OFC Création d&apos;Entreprise, organisme certifié Qualiopi. ${MODALITE_FORMATIONS_PRESENTIEL} ${FINANCEMENT_FORMULATION_COURTE} Fiches détaillées : cartes ci-dessus.`,
+        a: `Notre catalogue de formations IA pour le BTP comprend les bases en 4 h (devis et documents courants), des sessions métier en 7 h (appels d&apos;offres, Claude, maîtrise d&apos;œuvre${count > 4 ? ', conduite de travaux' : ''}) et des formations <a href="${LINKS.formationApplicationMetierBtpNiveau1}">applications métier BTP avec l&apos;IA</a> (7 h ou 14 h selon le programme). Toutes les actions sont dispensées par OFC Création d&apos;Entreprise, organisme certifié Qualiopi. ${MODALITE_FORMATIONS_PRESENTIEL} ${FINANCEMENT_FORMULATION_COURTE} Fiches détaillées : cartes ci-dessus.`,
       };
     }
     if (item.q === 'Comment choisir la bonne formation IA pour le BTP pour mon entreprise ?') {
@@ -667,7 +668,7 @@ export const FAQ_MAITRISER_CLAUDE_NIV04: FAQItem[] = [
 export const FAQ_CONDUITE_TRAVAUX_NIV03: FAQItem[] = [
   {
     q: 'Je suis conducteur de travaux : quels documents puis-je vraiment accélérer avec l\'IA ?',
-    a: `Les CR de réunion, synthèses CCTP/DPGF, brouillons PPSPS, courriers sous-traitants (DC4), PV de réserves et trames DOE — avec relecture humaine avant diffusion. Cette session (${SESSION_DUREE_LIBELLE}) travaille ces livrables sur vos documents anonymisés. Complément : page <a href="${LINKS.formationConducteurTravaux}">formation IA conducteur de travaux</a>.`,
+    a: `Les CR de réunion, synthèses CCTP/DPGF, brouillons PPSPS, courriers sous-traitants (DC4), PV de réserves et trames DOE — avec relecture humaine avant diffusion. Cette session (${dureeCatalogueParCode('NIV-03')}) travaille ces livrables sur vos documents anonymisés. Complément : <a href="${LINKS.formationConducteurTravaux}">page métier conducteur de travaux</a> et <a href="${LINKS.parcoursConducteurDeTravaux}">parcours Conducteur de travaux</a>.`,
   },
   {
     q: 'Les skills Claude remplacent-ils mon logiciel de gestion de chantier ?',
@@ -683,7 +684,7 @@ export const FAQ_CONDUITE_TRAVAUX_NIV03: FAQItem[] = [
   },
   {
     q: 'Combien coûte la formation conduite de travaux IA en 2026 ?',
-    a: `${libelleTarifParticipantCatalogue(TARIF_PARTICIPANT_NIV02_HT)} (${SESSION_DUREE_LIBELLE}, 6 à 12 participants). ${FINANCEMENT_FORMULATION_PRUDENTE} <a href="${LINKS.financement}">Guide financement</a>. Un rendez-vous visio J+30 est inclus pour ancrer les skills.`,
+    a: `${libelleTarifParticipantCatalogue(getFormationByCode('NIV-03')!.tarifParticipantHt!)} (${libelleDureeFormation(getFormationByCode('NIV-03')!)}, ${libelleEffectifFormation(getFormationByCode('NIV-03')!)}). ${FINANCEMENT_FORMULATION_PRUDENTE} <a href="${LINKS.financement}">Guide financement</a>. Un rendez-vous visio J+30 est inclus pour ancrer les skills.`,
   },
   {
     q: 'Que contient la bibliothèque de 20+ skills Claude BTP ?',
@@ -695,7 +696,7 @@ export const FAQ_CONDUITE_TRAVAUX_NIV03: FAQItem[] = [
 export const FAQ_APPELS_OFFRE: FAQItem[] = [
   {
     q: 'Cette formation est-elle adaptée aux débutants ?',
-    a: `Non en premier niveau. Il faut connaître le fonctionnement général d’un appel d’offres et disposer des bases d’une IA générative (ou avoir suivi la <a href="${LINKS.formationIaBtpNiveau1BatimentTp}">formation IA BTP niveau 1</a>). La session est un atelier pratique de ${SESSION_DUREE_LIBELLE} sur un dossier fil rouge.`,
+    a: `Non en premier niveau. Il faut connaître le fonctionnement général d’un appel d’offres et disposer des bases d’une IA générative (ou avoir suivi la <a href="${LINKS.formationIaBtpNiveau1BatimentTp}">formation IA BTP niveau 1</a>). La session est un atelier pratique de ${dureeCatalogueParCode('NIV-02')} sur un dossier fil rouge.`,
   },
   {
     q: 'Quels documents devons-nous préparer ?',

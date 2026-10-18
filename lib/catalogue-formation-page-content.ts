@@ -596,6 +596,11 @@ const NIV_03: CatalogueFormationPageContent = {
       href: LINKS.formationMaitriserClaudeAiBtp,
       label: 'formation Maîtriser Claude AI pour le BTP',
     },
+    {
+      prefix: 'Pour enchaîner plusieurs modules métier, voir le',
+      href: LINKS.parcoursConducteurDeTravaux,
+      label: 'parcours Conducteur de travaux',
+    },
   ],
   finalCta: {
     ...DEFAULT_FINAL_CTA,

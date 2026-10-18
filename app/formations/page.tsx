@@ -71,7 +71,9 @@ export async function generateMetadata({ searchParams }: FormationsPageProps = {
   };
 }
 
-export default function FormationsPage() {
+export default async function FormationsPage({ searchParams }: FormationsPageProps = {}) {
+  const sp = searchParams ? await searchParams : {};
+
   return (
     <>
       <JsonLd id="schema-formations-page-graph" schema={buildFormationsPageUnifiedGraphJsonLd()} />
@@ -79,7 +81,7 @@ export default function FormationsPage() {
 
       <div className="mx-auto max-w-[80rem] px-4 pb-20 pt-8 sm:px-6 md:pt-10 lg:px-8">
         <p className="sr-only">{CATALOGUE_2027_POSITIONNEMENT.introductionMarque}</p>
-        <FormationsIaDisponibles />
+        <FormationsIaDisponibles searchParams={sp} />
         <FormationsCatalogueParcoursCompact />
         <FormationsCatalogueEntrepriseCompact />
         <FormationsInfosPratiques2027 />

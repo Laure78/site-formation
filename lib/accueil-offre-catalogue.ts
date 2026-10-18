@@ -182,10 +182,10 @@ export function getAccueilFormationsOffre(): readonly AccueilFormationOffreCard[
     });
 }
 
-/** Formations regroupées par niveau pédagogique (1 → 2 → 3). */
+/** Formations regroupées par niveau pédagogique (1 → 2). */
 export function getAccueilFormationsParNiveau(): readonly AccueilNiveauFormationGroup[] {
   const all = getAccueilFormationsOffre();
-  const niveaux: FormationNiveau[] = [1, 2, 3];
+  const niveaux: FormationNiveau[] = [1, 2];
   return niveaux
     .map((niveau) => {
       const meta = NIVEAU_GROUP_META[niveau];

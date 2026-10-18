@@ -126,21 +126,24 @@ export const LINKS = {
   pdfProgrammeConduiteTravauxNiv03:
     '/formations/ia-conduite-travaux-suivi-chantier/programme_OFC_NIV-03_IA_Conduite_travaux_20261017.pdf',
   /**
-   * @deprecated Page hub `/parcours/applications-metier-btp` supprimée — alias → niveau 1.
-   * Préférer `formationApplicationMetierBtpNiveau1`.
+   * @deprecated Hub `/parcours/applications-metier-btp` — 301 → NIV-10.
+   * Préférer `formationDeveloppementWebIaSansCoder`.
    */
-  parcoursApplicationsMetierBtp: '/formations/application-metier-btp-niveau-1',
-  /** NIV-06 — Créer sa première application métier BTP (niveau 1, 7 h) */
-  formationApplicationMetierBtpNiveau1: '/formations/application-metier-btp-niveau-1',
-  /** NIV-07 — Application métier BTP connectée (niveau 2, 7 h) */
-  formationApplicationMetierBtpNiveau2: '/formations/application-metier-btp-niveau-2',
-  /** NIV-08 — Application métier BTP avancée avec IA (niveau 3, 7 h) */
-  formationApplicationMetierBtpNiveau3: '/formations/application-metier-btp-niveau-3',
+  parcoursApplicationsMetierBtp: '/formations/developpement-web-ia-sans-coder',
   /**
-   * @deprecated Ancienne fiche Cursor — 301 → niveau 1 applications métier.
+   * @deprecated NIV-06 retiré du catalogue — 301 → NIV-10.
+   * Préférer `formationDeveloppementWebIaSansCoder`.
+   */
+  formationApplicationMetierBtpNiveau1: '/formations/developpement-web-ia-sans-coder',
+  /** @deprecated NIV-07 — 301 → NIV-10 */
+  formationApplicationMetierBtpNiveau2: '/formations/developpement-web-ia-sans-coder',
+  /** @deprecated NIV-08 — 301 → NIV-10 */
+  formationApplicationMetierBtpNiveau3: '/formations/developpement-web-ia-sans-coder',
+  /**
+   * @deprecated Ancienne fiche Cursor — 301 → NIV-10.
    * Ne pas utiliser dans les nouveaux liens internes.
    */
-  formationCursorBtp: '/formations/application-metier-btp-niveau-1',
+  formationCursorBtp: '/formations/developpement-web-ia-sans-coder',
   /** Landing thématique — études de prix et chiffrage (fiche catalogue : NIV-02) */
   formationIaEtudesPrixChiffrageBtp: '/formations/ia-etudes-prix-chiffrage-btp',
   /** NIV-04 — Maîtriser Claude AI pour le BTP (catalogue) */

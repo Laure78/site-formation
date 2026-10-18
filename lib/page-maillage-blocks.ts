@@ -268,19 +268,19 @@ const PARCOURS_PRACTICE_RESOURCES: Partial<
   ],
   'conducteur-de-travaux': [
     {
+      href: LINKS.formationConduiteTravauxSuiviChantier,
+      title: 'Programme catalogue conduite de travaux (7 h)',
+      description: 'Fiche Qualiopi NIV-03 — CR, CCTP, skills Claude, DOE.',
+    },
+    {
+      href: LINKS.formationConducteurTravaux,
+      title: 'Formation IA conducteur de travaux — page métier',
+      description: 'Usages, prompts et public — distinct du parcours multi-modules.',
+    },
+    {
       href: LINKS.tutoCrChantier,
       title: 'Tutoriel — compte rendu de chantier',
-      description: 'Skill PDF pour structurer vos CR.',
-    },
-    {
-      href: LINKS.iaCompteRenduChantier,
-      title: 'IA et comptes rendus de chantier',
-      description: 'Usages terrain et limites de validation.',
-    },
-    {
-      href: LINKS.guideConducteurTravauxIaBtp,
-      title: 'Guide PDF conducteur de travaux',
-      description: '6 tutos Claude AI — gratuit.',
+      description: 'Skill PDF pour structurer vos CR avant la session.',
     },
   ],
   'chef-de-chantier': [

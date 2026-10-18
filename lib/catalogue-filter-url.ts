@@ -23,7 +23,7 @@ export type FormationsIaFilterParams = CatalogueModulesFilterParams & {
 
 const THEMATIQUE_IDS = new Set<string>(CATALOGUE_THEMATIQUE_IDS);
 
-const NIVEAU_VALUES = new Set<string>(['1', '2', '3']);
+const NIVEAU_VALUES = new Set<string>(['1', '2']);
 
 const DOMAINE_IDS = new Set<string>([
   'direction',

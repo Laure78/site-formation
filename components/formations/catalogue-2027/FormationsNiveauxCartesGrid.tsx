@@ -8,13 +8,13 @@ type Props = {
   className?: string;
 };
 
-/** Trois cartes de niveau pédagogique — source unique `FORMATIONS_NIVEAUX_IA`. */
+/** Deux cartes de niveau pédagogique — source unique `FORMATIONS_NIVEAUX_IA`. */
 export function FormationsNiveauxCartesGrid({
   ctaLabel = 'Voir les formations',
   className = '',
 }: Props) {
   return (
-    <ul className={`grid gap-5 md:grid-cols-3 ${className}`.trim()}>
+    <ul className={`grid gap-5 md:grid-cols-2 ${className}`.trim()}>
       {FORMATIONS_NIVEAUX_IA.map((n) => (
         <li key={n.niveau}>
           <article className="flex h-full flex-col rounded-xl border border-[#E2E8F0] bg-white p-5 shadow-sm">
