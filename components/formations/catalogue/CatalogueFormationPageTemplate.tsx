@@ -24,6 +24,6 @@ type Props = {
  * Facade catalogue → délègue au template de référence `TrainingPageTemplate`.
  * Conservée pour compatibilité des imports existants (NIV-02…NIV-10).
  */
-export function CatalogueFormationPageTemplate(props: Props) {
+export async function CatalogueFormationPageTemplate(props: Props) {
   return <TrainingPageTemplate {...props} />;
 }

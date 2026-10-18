@@ -1,5 +1,6 @@
 import { Check, Target } from 'lucide-react';
 import { TrainingSection } from '@/components/formations/training/TrainingSection';
+import { TRAINING_ANCHOR } from '@/lib/training-fiche-nav';
 
 type Props = {
   outcomes: readonly string[];
@@ -25,7 +26,7 @@ export function TrainingOutcomes({
   if (items.length === 0) return null;
 
   return (
-    <TrainingSection id="objectifs" title={title} description={description} tone="muted" icon={Target}>
+    <TrainingSection id={TRAINING_ANCHOR.objectifs} title={title} description={description} tone="muted" icon={Target}>
       <ul className="space-y-3">
         {items.map((outcome) => (
           <li

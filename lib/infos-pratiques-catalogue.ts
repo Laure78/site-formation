@@ -30,9 +30,6 @@ import {
 export const MODALITE_PEDAGOGIQUE_CATALOGUE =
   'Présentiel — Île-de-France uniquement (intra-entreprise (dans vos locaux) ou inter)' as const;
 
-const MODALITES_ACCES_SUBROGATION =
-  "Règlement par l'entreprise avant la formation, sans subrogation de paiement : l'entreprise dépose sa demande auprès de son OPCO, qui la rembourse selon éligibilité.";
-
 /** Encart accessibilité handicap — texte réglementaire affiché dans le composant. */
 export const INFOS_PRATIQUES_HANDICAP_ENCART =
   `Chaque besoin d'aménagement est étudié au cas par cas. Laure Olivié, référente handicap, étudie avec vous les adaptations possibles (matériel, rythme, supports, accès aux locaux) avant l'entrée en formation. Aucune solution n'est garantie avant cette étude. Contact : ${CONTACT.phoneDisplay} — ${CONTACT.email}`;
@@ -124,7 +121,7 @@ const PREREQUIS_NIV01 =
   'Savoir utiliser un ordinateur et un smartphone. Bonne maîtrise du français écrit et oral. La formation de niveau débutant ne nécessite aucune pratique préalable de l’IA ni abonnement payant : les versions gratuites suffisent. Un compte payant (Claude Pro, ChatGPT Plus) est seulement recommandé pour aller plus loin ensuite — non inclus dans le tarif.';
 
 const MODALITES_ACCES_NIV01 =
-  `Inscription sur demande auprès d'OFC (${CONTACT.email} — ${CONTACT.phoneDisplay}) : analyse du besoin → acceptation du devis → signature de la convention de formation → demande de prise en charge OPCO → convocation. Un questionnaire de positionnement est adressé à chaque participant avant la session. ${MODALITES_ACCES_SUBROGATION}`;
+  `Inscription sur demande auprès d'OFC (${CONTACT.email} — ${CONTACT.phoneDisplay}) : analyse du besoin → acceptation du devis → signature de la convention de formation → demande de prise en charge OPCO → convocation. Un questionnaire de positionnement est adressé à chaque participant avant la session.`;
 
 const DELAI_ACCES_NIV01 =
   "Inscription jusqu'à 15 jours calendaires avant le démarrage, sous réserve des disponibilités de la formatrice et du client. Ce délai correspond au minimum exigé par les OPCO pour l'instruction d'une demande de prise en charge. Le délai exact est confirmé lors de la demande de formation.";
@@ -136,7 +133,7 @@ export const PREREQUIS_NIV02 =
   "Formation de niveau 2 : bases d'une IA générative acquises, ou avoir suivi la session « L'IA au service des professionnels du BTP » (niveau 1). Connaître le fonctionnement général d'un appel d'offres. Abonnement professionnel à l'outil utilisé pendant la session (Claude AI Pro avec Cowork installé selon le programme) — non inclus dans le tarif. En intra-entreprise : dossier fil rouge sélectionné avec l'entreprise (DCE représentatif, ancien devis, trame de mémoire technique si disponible), documents anonymisés.";
 
 export const MODALITES_ACCES_NIV02 =
-  `Inscription sur demande auprès d'OFC (${CONTACT.email} — ${CONTACT.phoneDisplay}) : entretien d'analyse du besoin et vérification des prérequis → devis et programme personnalisé → convention de formation signée → demande de prise en charge OPCO → convocation des participants. Un questionnaire de positionnement est adressé à chaque participant avant la session. ${MODALITES_ACCES_SUBROGATION}`;
+  `Inscription sur demande auprès d'OFC (${CONTACT.email} — ${CONTACT.phoneDisplay}) : entretien d'analyse du besoin et vérification des prérequis → devis et programme personnalisé → convention de formation signée → demande de prise en charge OPCO → convocation des participants. Un questionnaire de positionnement est adressé à chaque participant avant la session.`;
 
 export const DELAI_ACCES_NIV02 =
   "Inscription jusqu'à 15 jours calendaires avant le démarrage, sous réserve des disponibilités de la formatrice et du client. Ce délai correspond au minimum exigé par les OPCO pour l'instruction d'une demande de prise en charge. Le délai exact est confirmé lors de la demande de formation.";

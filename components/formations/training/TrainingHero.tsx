@@ -88,7 +88,9 @@ export function TrainingHero({
 }: Props) {
   const catalogueEntry = catalogueRef ? getFormationCatalogueByRef(catalogueRef) : undefined;
   const resolvedMedia =
-    media ??
+    media === null
+      ? null
+      : media ??
     (catalogueEntry ? (
       <FormationHeroPhoto
         src={catalogueEntry.visuel.src}

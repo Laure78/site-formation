@@ -26,20 +26,21 @@ export type TrainingFicheNavInput = {
   hasPublicPrerequis?: boolean;
   hasProgramme?: boolean;
   hasModalites?: boolean;
-  hasEvaluation?: boolean;
-  hasAtouts?: boolean;
-  hasInformationsPratiques?: boolean;
-  hasFormateurs?: boolean;
   hasSessions?: boolean;
   hasAvis?: boolean;
   hasFinancementOpcoEtendu?: boolean;
   hasFaq?: boolean;
   hasApplicationsIa?: boolean;
+  /** Sections hors sommaire principal (atouts, formateurs, infos pratiques…). */
+  hasAtouts?: boolean;
+  hasInformationsPratiques?: boolean;
+  hasFormateurs?: boolean;
+  hasEvaluation?: boolean;
   faqSectionId?: string;
-  /** Surcharge partielle (ex. usages IA). */
   extraItems?: readonly CatalogueNavItem[];
 };
 
+/** Navigation principale — ordre maquette GERESO / fiche programme. */
 export function buildTrainingFicheNavItems(input: TrainingFicheNavInput): CatalogueNavItem[] {
   const items: CatalogueNavItem[] = [];
   const push = (href: string, label: string) => items.push({ href: `#${href}`, label });
@@ -48,20 +49,14 @@ export function buildTrainingFicheNavItems(input: TrainingFicheNavInput): Catalo
   if (input.hasObjectifs !== false) push(TRAINING_ANCHOR.objectifs, 'Objectifs');
   if (input.hasPublicPrerequis) push(TRAINING_ANCHOR.publicPrerequis, 'Public et prérequis');
   if (input.hasProgramme !== false) push(TRAINING_ANCHOR.programme, 'Programme');
-  if (input.hasModalites) push(TRAINING_ANCHOR.modalitesPedagogiques, 'Modalités pédagogiques');
-  if (input.hasEvaluation !== false) push(TRAINING_ANCHOR.evaluation, 'Suivi et évaluation');
-  if (input.hasAtouts !== false) push(TRAINING_ANCHOR.atouts, 'Les + de la formation');
-  if (input.hasInformationsPratiques !== false) {
-    push(TRAINING_ANCHOR.informationsPratiques, 'Informations pratiques');
-  }
-  if (input.hasFormateurs) push(TRAINING_ANCHOR.formateurs, 'Formateurs');
+  if (input.hasModalites) push(TRAINING_ANCHOR.modalitesPedagogiques, 'Modalités');
   if (input.hasSessions !== false) push(TRAINING_ANCHOR.sessions, 'Sessions');
   if (input.hasAvis) push(TRAINING_ANCHOR.avis, 'Avis');
-  if (input.hasFinancementOpcoEtendu) push(TRAINING_ANCHOR.financement, 'Financement');
+
   if (input.hasApplicationsIa) push(TRAINING_ANCHOR.applicationsIa, 'Usages IA');
-  if (input.hasFaq && input.faqSectionId) {
-    push(input.faqSectionId, 'FAQ');
-  }
+  if (input.hasFinancementOpcoEtendu) push(TRAINING_ANCHOR.financement, 'Financement');
+  if (input.hasFaq && input.faqSectionId) push(input.faqSectionId, 'FAQ');
+
   if (input.extraItems?.length) {
     for (const extra of input.extraItems) {
       if (!items.some((i) => i.href === extra.href)) items.push(extra);
