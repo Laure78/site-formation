@@ -7,6 +7,7 @@ export type LegacyMappingAction =
   | 'renommer-et-mettre-a-jour'
   | 'conserver-hors-perimetre'
   | 'rediriger-vers-module'
+  | 'rediriger-301'
   | 'demander-programme';
 
 export type LegacyOfferMapping = {

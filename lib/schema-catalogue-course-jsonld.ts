@@ -26,10 +26,18 @@ import {
   buildFormationFicheCourseJsonLd,
 } from '@/lib/schema-formation-course-jsonld';
 import { buildQualiopiCredentialSchema } from '@/lib/qualiopi-info';
+
+/** URLs legacy NIV-06/07/08 (301 → NIV-10) — distinctes des constantes `LINKS` canoniques. */
+const LEGACY_APPLICATION_METIER_PATH = {
+  niveau1: '/formations/application-metier-btp-niveau-1',
+  niveau2: '/formations/application-metier-btp-niveau-2',
+  niveau3: '/formations/application-metier-btp-niveau-3',
+} as const;
+
 const APPLICATION_METIER_PATH_BY_REF = {
-  'NIV-06': LINKS.formationApplicationMetierBtpNiveau1,
-  'NIV-07': LINKS.formationApplicationMetierBtpNiveau2,
-  'NIV-08': LINKS.formationApplicationMetierBtpNiveau3,
+  'NIV-06': LEGACY_APPLICATION_METIER_PATH.niveau1,
+  'NIV-07': LEGACY_APPLICATION_METIER_PATH.niveau2,
+  'NIV-08': LEGACY_APPLICATION_METIER_PATH.niveau3,
 } as const;
 
 const CATALOGUE_REF_BY_PATH: Record<string, string> = {
@@ -38,9 +46,9 @@ const CATALOGUE_REF_BY_PATH: Record<string, string> = {
   [LINKS.formationConduiteTravauxSuiviChantier]: 'NIV-03',
   [LINKS.formationMaitriserClaudeAiBtp]: 'NIV-04',
   [LINKS.formationIaMaitriseOeuvre]: 'NIV-05',
-  [LINKS.formationApplicationMetierBtpNiveau1]: 'NIV-06',
-  [LINKS.formationApplicationMetierBtpNiveau2]: 'NIV-07',
-  [LINKS.formationApplicationMetierBtpNiveau3]: 'NIV-08',
+  [LEGACY_APPLICATION_METIER_PATH.niveau1]: 'NIV-06',
+  [LEGACY_APPLICATION_METIER_PATH.niveau2]: 'NIV-07',
+  [LEGACY_APPLICATION_METIER_PATH.niveau3]: 'NIV-08',
   [LINKS.formationDeveloppementWebIaSansCoder]: 'NIV-10',
 };
 
