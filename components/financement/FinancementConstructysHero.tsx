@@ -22,7 +22,6 @@ export function FinancementConstructysHero() {
 
   const heroSection = ofcSectionClasses({
     tone: 'muted',
-    size: 'hero',
     mesh: true,
     divide: true,
     heroBg: true,

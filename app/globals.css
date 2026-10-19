@@ -2025,28 +2025,6 @@
     border-color: var(--ofc-color-border);
   }
 
-  /* Page financement Constructys — hero plus compact, contenu remonté */
-  .financement-constructys-hero {
-    --ofc-section-py: 0.875rem;
-    --ofc-section-py-md: 1.25rem;
-    --ofc-section-py-lg: 1.5rem;
-    --ofc-section-py-xl: 1.75rem;
-  }
-
-  .financement-constructys-hero .ofc-type-hero {
-    font-size: clamp(1.625rem, 1.15rem + 1.5vw, 2.375rem);
-    line-height: 1.15;
-  }
-
-  .financement-constructys-body {
-    padding-top: 1.25rem;
-  }
-
-  @media (min-width: 768px) {
-    .financement-constructys-body {
-      padding-top: 1.5rem;
-    }
-  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -2130,4 +2108,47 @@
 
 .avis-clients-elfsight-mount:not(:empty) {
   @apply border border-slate-200/80 bg-white shadow-sm;
+}
+
+/* Page financement Constructys — hero compact (priorité sur le rythme .ofc-section) */
+.financement-constructys-hero.ofc-section {
+  padding-top: 0.875rem !important;
+  padding-bottom: 0.75rem !important;
+  scroll-margin-top: calc(var(--site-header-height) + 0.25rem);
+}
+
+@media (min-width: 768px) {
+  .financement-constructys-hero.ofc-section {
+    padding-top: 1.25rem !important;
+    padding-bottom: 1rem !important;
+  }
+}
+
+@media (min-width: 1024px) {
+  .financement-constructys-hero.ofc-section {
+    padding-top: 1.5rem !important;
+    padding-bottom: 1.25rem !important;
+  }
+}
+
+@media (min-width: 1280px) {
+  .financement-constructys-hero.ofc-section {
+    padding-top: 1.75rem !important;
+    padding-bottom: 1.5rem !important;
+  }
+}
+
+.financement-constructys-hero .ofc-type-hero {
+  font-size: clamp(1.625rem, 1.15rem + 1.5vw, 2.375rem);
+  line-height: 1.15;
+}
+
+.financement-constructys-body {
+  padding-top: 1rem;
+}
+
+@media (min-width: 768px) {
+  .financement-constructys-body {
+    padding-top: 1.25rem;
+  }
 }

@@ -26,18 +26,21 @@ export function GlobalBreadcrumbs() {
   if (items.length === 0) return null;
 
   const isFormateursHub = pathNorm === '/formateurs';
+  const isFinancementConstructys = pathNorm === '/financement-constructys-formation-ia-btp';
 
   return (
     <div
       className={cn(
-        'bg-white',
-        isFormateursHub ? 'border-b-0' : 'border-b border-slate-100',
+        isFinancementConstructys ? 'bg-[var(--ofc-color-canvas)]' : 'bg-white',
+        isFormateursHub || isFinancementConstructys ? 'border-b-0' : 'border-b border-slate-100',
       )}
     >
       <div
         className={cn(
           'mx-auto max-w-[80rem] sm:px-6 lg:px-8',
-          isFormateursHub ? 'px-5 pb-1 pt-2' : 'max-w-[1400px] px-4 py-3 sm:px-8',
+          isFormateursHub && 'px-5 pb-1 pt-2',
+          isFinancementConstructys && 'px-4 pb-0 pt-1.5 sm:px-6 lg:px-8',
+          !isFormateursHub && !isFinancementConstructys && 'max-w-[1400px] px-4 py-3 sm:px-8',
         )}
       >
         <Breadcrumbs items={items} omitJsonLd />
