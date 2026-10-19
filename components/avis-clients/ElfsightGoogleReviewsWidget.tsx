@@ -123,10 +123,13 @@ export function ElfsightGoogleReviewsWidget({ fallback }: ElfsightGoogleReviewsW
 
       {showFallback ? fallback : null}
 
-      {loadFailed ? (
+      {loadFailed && process.env.NODE_ENV === 'development' ? (
         <p className="mt-4 text-center text-sm text-slate-600" role="status">
-          Le widget Elfsight n&apos;a pas pu se charger — avis affichés via Google. Renseignez
-          l&apos;identifiant officiel dans{' '}
+          Widget Elfsight indisponible — repli actif. Vérifiez{' '}
+          <code className="rounded bg-slate-100 px-1.5 py-0.5 text-xs">
+            config/elfsight-google-reviews.embed
+          </code>{' '}
+          ou{' '}
           <code className="rounded bg-slate-100 px-1.5 py-0.5 text-xs">
             NEXT_PUBLIC_ELFSIGHT_GOOGLE_REVIEWS_APP_ID
           </code>

@@ -1,0 +1,12 @@
+<!--
+  Elfsight Google Reviews — code d’installation officiel (dashboard Elfsight → Install).
+
+  1. Dupliquer ce fichier en `config/elfsight-google-reviews.embed` (non versionné).
+  2. Remplacer VOTRE-UUID par le code copié depuis Elfsight.
+  3. Redémarrer `npm run dev` ou relancer un build Railway.
+
+  Alternative : NEXT_PUBLIC_ELFSIGHT_GOOGLE_REVIEWS_APP_ID ou coller tout le bloc
+  dans NEXT_PUBLIC_ELFSIGHT_GOOGLE_REVIEWS_EMBED (.env.local).
+-->
+<script src="https://static.elfsight.com/platform/platform.js" data-use-service-core defer></script>
+<div class="elfsight-app-VOTRE-UUID-ICI" data-elfsight-app-lazy></div>

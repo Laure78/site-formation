@@ -1,17 +1,15 @@
 /**
  * Widget Elfsight « Google Reviews » — page `/avis-clients`.
  *
- * **Configuration :** dans le tableau de bord Elfsight, copiez l’identifiant du widget
- * (partie UUID de la classe `elfsight-app-xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`)
- * et renseignez-le dans `.env.local` :
+ * **Configuration (au choix) :**
+ * 1. `.env.local` : `NEXT_PUBLIC_ELFSIGHT_GOOGLE_REVIEWS_APP_ID=uuid`
+ * 2. `.env.local` : coller le code Elfsight dans `NEXT_PUBLIC_ELFSIGHT_GOOGLE_REVIEWS_EMBED`
+ * 3. Fichier `config/elfsight-google-reviews.embed` (copie de l’exemple `.example`)
  *
- * ```env
- * NEXT_PUBLIC_ELFSIGHT_GOOGLE_REVIEWS_APP_ID=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
- * ```
- *
- * Le script officiel Elfsight est chargé côté client uniquement après consentement cookies
- * (voir `ElfsightGoogleReviewsWidget`). Ne jamais inventer d’identifiant ni simuler des avis.
+ * Le script Elfsight est chargé côté client uniquement après consentement cookies.
  */
+
+import { normalizeElfsightAppId } from '@/lib/elfsight-extract-app-id';
 
 /** Script plateforme Elfsight (code d’installation officiel). */
 export const ELFSIGHT_PLATFORM_SCRIPT_SRC =
@@ -19,14 +17,10 @@ export const ELFSIGHT_PLATFORM_SCRIPT_SRC =
 
 const ENV_APP_ID = 'NEXT_PUBLIC_ELFSIGHT_GOOGLE_REVIEWS_APP_ID';
 
-/**
- * Identifiant du widget Elfsight (UUID). Vide tant que le code d’intégration n’est pas configuré.
- */
+/** Identifiant du widget Elfsight (UUID). Vide tant que le code d’intégration n’est pas configuré. */
 export function getElfsightGoogleReviewsAppId(): string {
-  const raw =
-    typeof process !== 'undefined' ? process.env[ENV_APP_ID]?.trim() : undefined;
-  if (!raw) return '';
-  return raw.replace(/^elfsight-app-/, '');
+  if (typeof process === 'undefined') return '';
+  return normalizeElfsightAppId(process.env[ENV_APP_ID]);
 }
 
 export function isElfsightGoogleReviewsConfigured(): boolean {

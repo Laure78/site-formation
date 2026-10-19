@@ -33,6 +33,7 @@
     "assert:catalogue-2027": "npx tsx scripts/assert-catalogue-2027.ts",
     "test:seo-titles": "npx tsx scripts/assert-branded-titles.ts",
     "test:indicateurs": "npx tsx scripts/assert-indicateurs-resultats.ts",
+    "test:google-reviews": "node --env-file=.env.local scripts/test-google-reviews-api.mjs",
     "test:ressources": "npx tsx scripts/assert-ressources-catalog.ts",
     "linkedin:catalogue": "npx tsx scripts/export-catalogue-linkedin.ts",
     "test:auth-access": "npx tsx scripts/assert-admin-access.ts",

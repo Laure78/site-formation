@@ -1,6 +1,7 @@
 import type { GoogleReviewEntry } from '@/data/googleReviews';
 import { GoogleReviewsCarousel } from '@/components/avis-clients/GoogleReviewsCarousel';
 import { ElfsightGoogleReviewsWidget } from '@/components/avis-clients/ElfsightGoogleReviewsWidget';
+import { isElfsightGoogleReviewsConfigured } from '@/lib/elfsight-google-reviews';
 import { SCHEMA_GOOGLE_REVIEWS_VIEW_URL } from '@/lib/schema-constants';
 import { OFC_CTA_SECONDARY } from '@/lib/ofc-interaction-classes';
 import { ExternalLink } from 'lucide-react';
@@ -47,6 +48,10 @@ export function GoogleReviewsEmbed({
     ) : (
       <GoogleReviewsEmptyFallback googleUrl={googleUrl} />
     );
+
+  if (!isElfsightGoogleReviewsConfigured()) {
+    return fallback;
+  }
 
   return <ElfsightGoogleReviewsWidget fallback={fallback} />;
 }

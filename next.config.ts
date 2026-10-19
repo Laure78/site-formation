@@ -7,11 +7,21 @@ import {
   gscHubMergeRedirects,
   gscRedirects2026April,
 } from "./lib/gsc-redirects-2026";
+import { resolveElfsightGoogleReviewsAppId } from "./lib/resolve-elfsight-google-reviews-app-id";
 
 /** Racine du dépôt — évite que Turbopack ne remonte à un lockfile parent (build Railway / CI). */
 const TURBOPACK_ROOT = path.dirname(fileURLToPath(import.meta.url));
 
+const resolvedElfsightGoogleReviewsAppId =
+  resolveElfsightGoogleReviewsAppId(TURBOPACK_ROOT);
+
 const nextConfig: NextConfig = {
+  env: {
+    NEXT_PUBLIC_ELFSIGHT_GOOGLE_REVIEWS_APP_ID:
+      resolvedElfsightGoogleReviewsAppId ||
+      process.env.NEXT_PUBLIC_ELFSIGHT_GOOGLE_REVIEWS_APP_ID ||
+      "",
+  },
   serverExternalPackages: ['unpdf', 'mammoth'],
   turbopack: {
     root: TURBOPACK_ROOT,

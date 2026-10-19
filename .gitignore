@@ -43,6 +43,9 @@ yarn-error.log*
 !.env.example
 !.env.local.example
 
+# Code d’installation Elfsight (UUID widget — secret d’affichage, pas versionné)
+/config/elfsight-google-reviews.embed
+
 # vercel
 .vercel
 
