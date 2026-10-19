@@ -37,7 +37,6 @@ export const metadata = buildMetadata({
   descriptionFinal: true,
   path: FORMATION_IA_METREUR_ECONOMISTE_CONSTRUCTION_PATH,
   openGraphType: 'website',
-  appendAuthorSuffix: true,
   openGraphTitle: METREUR_ECONOMISTE_SEO.openGraphTitle,
   image: {
     url: '/images/formation-ia-devis-chiffrage-btp.webp',

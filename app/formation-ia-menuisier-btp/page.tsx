@@ -44,7 +44,6 @@ export const metadata = createMetierBtpPageMetadata('menuiserie', {
   description: MENUISERIE_SEO.description,
   descriptionFinal: true,
   path: FORMATION_IA_MENUISIER_BTP_PATH,
-  appendAuthorSuffix: true,
   openGraphType: 'website',
   openGraphTitle: MENUISERIE_SEO.openGraphTitle,
   keywords: [

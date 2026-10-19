@@ -301,6 +301,12 @@ export const GSC_EXCLUDED_SITEMAP_PATHS = new Set<string>([
   '/formation-ia-entreprise-batiment-paris',
   '/formation-ia',
   '/formation-ia/faq',
+  // Legacy NIV-06/07/08 — 301 → NIV-10 (ne pas soumettre au sitemap)
+  '/formations/application-metier-btp-niveau-1',
+  '/formations/application-metier-btp-niveau-2',
+  '/formations/application-metier-btp-niveau-3',
+  // Article MDX servi sur `/formation-ia-intra-entreprise-btp` (canonicalPath)
+  '/blog/formation-ia-intra-entreprise-btp',
   ...FORMATION_IA_ALL_SLUGS.flatMap((slug) => [
     `/formation-ia/${slug}`,
     `/formation-ia-${slug}`,

@@ -40,7 +40,6 @@ export const metadata = createMetierBtpPageMetadata('achats', {
   description: ACHATS_SEO.description,
   descriptionFinal: true,
   path: FORMATION_IA_ACHATS_APPROVISIONNEMENT_BTP_PATH,
-  appendAuthorSuffix: true,
   openGraphType: 'website',
   openGraphTitle: ACHATS_SEO.openGraphTitle,
   keywords: [

@@ -7,7 +7,8 @@ import { OFC_SEC, OFC_SECTION_INNER } from '@/lib/ofc-section-classes';
 
 export const metadata: Metadata = createPageMetadata({
   title: 'Gérer mon rendez-vous',
-  description: 'Modifier ou annuler votre rendez-vous avec Laure Olivié — formation IA pour le BTP.',
+  description:
+    'Modifiez ou annulez votre rendez-vous visio découverte avec Laure Olivié (formation IA BTP, présentiel Île-de-France). Lien personnel reçu par e-mail.',
   path: '/rdv',
   robots: { index: false, follow: false },
 });

@@ -61,6 +61,46 @@ function blogListingExcludedSlugs() {
   return excluded;
 }
 
+/** Chemins canoniques blog (MDX `canonicalPath` hors `/blog/[slug]`). */
+function blogCanonicalPathBySlug() {
+  const map = new Map();
+  const mdxDir = path.join(ROOT, 'content/blog');
+  if (existsSync(mdxDir)) {
+    for (const f of readdirSync(mdxDir)) {
+      if (!f.endsWith('.mdx')) continue;
+      const raw = readFileSync(path.join(mdxDir, f), 'utf8');
+      const slugM = raw.match(/^slug:\s*(.+)$/m);
+      const canonM = raw.match(/^canonicalPath:\s*(.+)$/m);
+      if (!slugM) continue;
+      const slug = slugM[1].trim().replace(/^['"]|['"]$/g, '');
+      if (canonM) {
+        const cp = canonM[1].trim().replace(/^['"]|['"]$/g, '');
+        if (cp.startsWith('/') && cp !== `/blog/${slug}`) map.set(slug, norm(cp));
+      }
+    }
+  }
+  return map;
+}
+
+function formationCatalogueRetiredSlugs() {
+  const set = new Set();
+  try {
+    const txt = read('lib/formation-catalogue-visibility.ts');
+    const m = txt.match(/FORMATION_CATALOGUE_RETIRED[^=]*=\s*new Set[^[]*\[([\s\S]*?)\]/);
+    if (m) {
+      for (const code of m[1].matchAll(/'([^']+)'/g)) {
+        // map NIV-06 → application-metier-btp-niveau-1 via data/formations.ts
+        void code;
+      }
+    }
+    const form = read('data/formations.ts');
+    for (const rm of form.matchAll(/code:\s*'(NIV-0[678])'[\s\S]*?slug:\s*'([^']+)'/g)) {
+      if (['NIV-06', 'NIV-07', 'NIV-08'].includes(rm[1])) set.add(rm[2]);
+    }
+  } catch { /* ignore */ }
+  return set;
+}
+
 function blogSlugs({ publishableOnly = false } = {}) {
   const slugs = new Set();
   const mdxDir = path.join(ROOT, 'content/blog');
@@ -195,12 +235,16 @@ function rebuildSitemapPaths() {
 
   const excluded = gscExcluded();
 
+  const retiredFormationSlugs = formationCatalogueRetiredSlugs();
+  const redirectSources = redirectExactSources();
   const formDir = path.join(ROOT, 'app/formations');
   if (existsSync(formDir)) {
     for (const name of readdirSync(formDir)) {
       if (name.startsWith('[')) continue;
+      const p = `/formations/${name}`;
+      if (retiredFormationSlugs.has(name) || redirectSources.has(p)) continue;
       const page = path.join(formDir, name, 'page.tsx');
-      if (existsSync(page)) add(`/formations/${name}`);
+      if (existsSync(page)) add(p);
     }
   }
 
@@ -234,9 +278,14 @@ function rebuildSitemapPaths() {
     if (!excluded.has(p)) add(p);
   }
 
-  // Blog (catalogue publiable — comme getAllArticles)
+  // Blog (catalogue publiable — canonique = canonicalPath ou /blog/slug)
   add('/blog');
-  for (const slug of blogSlugs({ publishableOnly: true })) add(`/blog/${slug}`);
+  const blogCanon = blogCanonicalPathBySlug();
+  for (const slug of blogSlugs({ publishableOnly: true })) {
+    const canon = blogCanon.get(slug);
+    if (canon) add(canon);
+    else add(`/blog/${slug}`);
+  }
 
   // Catégories blog — from BLOG_CATEGORY_PATH_SLUGS
   try {
@@ -299,7 +348,8 @@ const NOINDEX_OR_PRIVATE_STATIC = new Set([
 
 function main() {
   const staticApp = walkAppPages(path.join(ROOT, 'app')).map(norm);
-  const blog = blogSlugs().map((s) => norm(`/blog/${s}`));
+  const blogCanon = blogCanonicalPathBySlug();
+  const blog = blogSlugs().map((s) => norm(blogCanon.get(s) ?? `/blog/${s}`));
   const tutos = tutoSlugs().map((s) => norm(`/ressources/${s}`));
   const hub = formationIaHubSlugs()
     .filter((s) => !gscHubMerged().has(s))

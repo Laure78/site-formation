@@ -41,7 +41,6 @@ export const metadata = createMetierBtpPageMetadata('QSE prévention', {
   description: QSE_PREVENTION_SEO.description,
   descriptionFinal: true,
   path: FORMATION_IA_QSE_PREVENTION_BTP_PATH,
-  appendAuthorSuffix: true,
   openGraphType: 'website',
   openGraphTitle: QSE_PREVENTION_SEO.openGraphTitle,
   keywords: [

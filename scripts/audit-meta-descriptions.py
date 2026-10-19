@@ -24,10 +24,8 @@ def with_og_suffix(d: str) -> str:
 
 # Résolu comme en runtime (fr-FR) — aligné lib/constants + lib/seo SITE_CONFIG.description
 SITE_CONFIG_DESCRIPTION = (
-    "Expert en formation IA pour le BTP : intelligence artificielle bâtiment et travaux publics, "
-    "ChatGPT BTP pour artisans et conducteurs de travaux. Devis, appels d'offres, chantier — gain de temps, "
-    "automatisation, productivité. Qualiopi, OPCO Constructys. Laure Olivié — 1 500+ pros formés, note 4,85/5. "
-    "Île-de-France & France."
+    "Formation IA pour le BTP et formation IA appliquée au bâtiment en Île-de-France. "
+    "Formation IA travaux publics, ChatGPT, Qualiopi, Constructys."
 )
 
 
@@ -86,7 +84,7 @@ def extract_create_page_metadata_block(text: str) -> str | None:
 
 def parse_description_from_block(block: str) -> tuple[str | None, bool | None]:
     """(description brute, appendAuthorSuffix ou None si défaut True)."""
-    append: bool | None = True
+    append: bool | None = False
     m_aps = re.search(r"appendAuthorSuffix\s*:\s*(true|false)", block)
     if m_aps:
         append = m_aps.group(1) == "true"

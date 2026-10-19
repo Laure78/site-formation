@@ -41,7 +41,6 @@ export const metadata = createMetierBtpPageMetadata("bureau d'études", {
   description: BUREAU_ETUDES_SEO.description,
   descriptionFinal: true,
   path: FORMATION_IA_BUREAU_ETUDES_BTP_PATH,
-  appendAuthorSuffix: true,
   openGraphType: 'website',
   openGraphTitle: BUREAU_ETUDES_SEO.openGraphTitle,
   keywords: [

@@ -41,7 +41,6 @@ export const metadata = createMetierBtpPageMetadata('isolation', {
   description: ISOLATION_SEO.description,
   descriptionFinal: true,
   path: FORMATION_IA_ISOLATION_BTP_PATH,
-  appendAuthorSuffix: true,
   openGraphType: 'website',
   openGraphTitle: ISOLATION_SEO.openGraphTitle,
   keywords: [

@@ -6,6 +6,7 @@ import { getJobOfferBySlug, getPublishedJobOffers } from '@/lib/data/job-offers'
 import { LINKS } from '@/lib/internal-links';
 import { OFC_CTA_PRIMARY } from '@/lib/ofc-interaction-classes';
 import { ofcSectionClasses, OFC_SECTION_INNER } from '@/lib/ofc-section-classes';
+import { clampMetaDescription } from '@/lib/meta-description';
 import { createPageMetadata } from '@/lib/seo';
 
 export const revalidate = 3600;
@@ -22,13 +23,18 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   if (!offer) {
     return createPageMetadata({
       title: 'Offre d’emploi',
-      description: 'Offre d’emploi OFC Création d’Entreprise.',
+      description:
+        'Offre d’emploi chez OFC Création d’Entreprise : formation IA pour le BTP en présentiel Île-de-France. Consultez la fiche ou déposez une candidature.',
       path: LINKS.emplois,
     });
   }
+  const description = clampMetaDescription(
+    `${offer.title} — ${offer.contractType}, ${offer.location}. ${offer.missionSummary}`,
+  );
   return createPageMetadata({
     title: `${offer.title} — emploi OFC`,
-    description: `${offer.contractType} — ${offer.location}. ${offer.missionSummary}`.slice(0, 160),
+    description,
+    descriptionFinal: true,
     path: `${LINKS.emplois}/${offer.slug}`,
   });
 }

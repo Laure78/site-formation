@@ -41,7 +41,6 @@ export const metadata = createMetierBtpPageMetadata('métallerie', {
   description: METALLERIE_SEO.description,
   descriptionFinal: true,
   path: FORMATION_IA_METALLERIE_SERRURERIE_BTP_PATH,
-  appendAuthorSuffix: true,
   openGraphType: 'website',
   openGraphTitle: METALLERIE_SEO.openGraphTitle,
   keywords: [

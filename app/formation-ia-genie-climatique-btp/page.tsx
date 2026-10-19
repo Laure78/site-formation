@@ -40,7 +40,6 @@ export const metadata = createMetierBtpPageMetadata('génie climatique', {
   description: GENIE_CLIMATIQUE_SEO.description,
   descriptionFinal: true,
   path: FORMATION_IA_GENIE_CLIMATIQUE_BTP_PATH,
-  appendAuthorSuffix: true,
   openGraphType: 'website',
   openGraphTitle: GENIE_CLIMATIQUE_SEO.openGraphTitle,
   keywords: [

@@ -34,7 +34,6 @@ export const metadata = createPageMetadata({
   description: SEO_DESCRIPTION,
   descriptionFinal: true,
   path: PATH,
-  appendAuthorSuffix: true,
   keywords: [
     'formation IA couvreur-zingueur',
     'formation IA couvreur BTP',

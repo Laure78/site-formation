@@ -21,7 +21,7 @@ export const revalidate = 3600;
 
 const PAGE_TITLE = 'Les formateurs qui vous accompagnent | Laure Olivié';
 const PAGE_DESCRIPTION =
-  'Intervenants OFC : spécialités, expériences métier et formations animées pour les professionnels du bâtiment et des travaux publics. Présentiel Île-de-France — Qualiopi.';
+  'Formateurs OFC : parcours métiers BTP, expériences chantier et modules IA animés en présentiel Île-de-France. Organisme certifié Qualiopi.';
 
 export const metadata: Metadata = {
   ...createPageMetadata({
