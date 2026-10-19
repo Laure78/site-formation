@@ -5,6 +5,7 @@ import { Breadcrumbs } from '@/components/Breadcrumbs';
 import { buildBreadcrumbTrail } from '@/lib/breadcrumb-trail';
 import { cn } from '@/lib/cn';
 import { isAuthConnexionPage } from '@/lib/auth-connexion-chrome';
+import { LINKS } from '@/lib/internal-links';
 
 /**
  * Fil d'Ariane visuel — injecté dans `app/layout.tsx` (toutes les pages sauf l'accueil / admin).
@@ -26,7 +27,7 @@ export function GlobalBreadcrumbs() {
   if (items.length === 0) return null;
 
   const isFormateursHub = pathNorm === '/formateurs';
-  const isFinancementConstructys = pathNorm === '/financement-constructys-formation-ia-btp';
+  const isFinancementConstructys = pathNorm === LINKS.financement;
 
   return (
     <div

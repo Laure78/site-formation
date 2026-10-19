@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { ChevronUp, Mail, Phone, Star } from 'lucide-react';
@@ -7,7 +8,9 @@ import { LinkedInIcon } from '@/components/icons/LinkedInIcon';
 import { ExternalLinkAnchor } from '@/components/ExternalLink';
 import { QualiopiBadge } from '@/components/QualiopiLogo';
 import { HeaderPrimaryCta } from '@/components/nav/HeaderPrimaryCta';
+import { AUTHOR_HEADSHOT_IMAGE_CLASS } from '@/lib/author-headshot';
 import { requestCookieConsentDialog } from '@/lib/cookie-consent';
+import { IMAGE_QUALITY_DEFAULT } from '@/lib/image-props';
 import { LINKEDIN_PROFILE_ARIA } from '@/lib/linkedin-profile';
 import { QUALIOPI_LEGAL } from '@/lib/qualiopi-info';
 import { LINKS } from '@/lib/internal-links';
@@ -134,14 +137,17 @@ export function Footer() {
         {/* Bande supérieure — identité & contact */}
         <div className="flex flex-col gap-6 border-b border-white/10 py-10 md:flex-row md:items-center md:justify-between md:gap-8 md:py-12">
           <div className="flex min-w-0 flex-col gap-4 sm:flex-row sm:items-start sm:gap-5">
-            <img
-              src={SITE.logo.footerSrc}
-              alt={SITE.logo.alt}
-              title={SITE.logo.title}
-              width={72}
-              height={36}
-              className="h-9 w-auto shrink-0 brightness-0 invert"
-            />
+            <span className="site-header__logo-mark ring-white/25">
+              <Image
+                src={SITE.logo.src}
+                alt={SITE.logo.alt}
+                title={SITE.logo.title}
+                width={48}
+                height={48}
+                className={AUTHOR_HEADSHOT_IMAGE_CLASS}
+                quality={IMAGE_QUALITY_DEFAULT}
+              />
+            </span>
             <div className="min-w-0">
               <p className="font-display text-lg font-bold tracking-tight text-white">{SITE.name}</p>
               <p className="mt-0.5 text-sm font-medium text-white/90">{SITE.tagline}</p>

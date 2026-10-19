@@ -58,7 +58,6 @@ export const SITE = {
     src: PHOTOS.siteAvatar.src,
     alt: SITE_LOGO_ALT,
     title: SITE_LOGO_TITLE,
-    footerSrc: '/logo-lo.svg',
   },
   cta: {
     href: LINKS.prendreRdv,

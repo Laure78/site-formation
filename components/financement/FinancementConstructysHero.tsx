@@ -13,23 +13,19 @@ import {
   OFC_TYPE_LEAD,
 } from '@/lib/ofc-interaction-classes';
 import { FinancementCircuitPaiementAlert } from '@/components/financement/constructys/FinancementCircuitPaiementAlert';
-import { ofcSectionClasses } from '@/lib/ofc-section-classes';
 
 const ANCHOR_ETAPES = '#etapes-financement';
+
+/** Fonds / mesh OFC sans la classe `ofc-section` (padding vertical trop grand pour ce hero). */
+const FINANCEMENT_HERO_SURFACE =
+  'ofc-section--muted ofc-section--mesh ofc-section--divide ofc-section--hero-bg';
 
 export function FinancementConstructysHero() {
   const photo = PHOTOS.financementConstructysHero2026;
 
-  const heroSection = ofcSectionClasses({
-    tone: 'muted',
-    mesh: true,
-    divide: true,
-    heroBg: true,
-  });
-
   return (
     <section
-      className={`${heroSection} financement-constructys-hero relative overflow-hidden`}
+      className={`${FINANCEMENT_HERO_SURFACE} financement-constructys-hero relative overflow-hidden px-4 pt-3.5 pb-3 sm:px-6 md:pt-5 md:pb-4 lg:px-8 lg:pt-6 lg:pb-5 xl:pt-7 xl:pb-6`}
       aria-labelledby="financement-hero-title"
     >
       <div className="relative mx-auto flex max-w-[80rem] flex-col gap-5 md:gap-6 lg:grid lg:grid-cols-[minmax(0,1fr)_minmax(240px,400px)] lg:grid-rows-[auto_auto] lg:items-start lg:gap-x-8 lg:gap-y-5">

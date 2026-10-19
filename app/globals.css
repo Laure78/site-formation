@@ -2110,32 +2110,9 @@
   @apply border border-slate-200/80 bg-white shadow-sm;
 }
 
-/* Page financement Constructys — hero compact (priorité sur le rythme .ofc-section) */
-.financement-constructys-hero.ofc-section {
-  padding-top: 0.875rem !important;
-  padding-bottom: 0.75rem !important;
+/* Page financement Constructys — ancres + typo hero (padding via utilitaires sur le composant) */
+.financement-constructys-hero {
   scroll-margin-top: calc(var(--site-header-height) + 0.25rem);
-}
-
-@media (min-width: 768px) {
-  .financement-constructys-hero.ofc-section {
-    padding-top: 1.25rem !important;
-    padding-bottom: 1rem !important;
-  }
-}
-
-@media (min-width: 1024px) {
-  .financement-constructys-hero.ofc-section {
-    padding-top: 1.5rem !important;
-    padding-bottom: 1.25rem !important;
-  }
-}
-
-@media (min-width: 1280px) {
-  .financement-constructys-hero.ofc-section {
-    padding-top: 1.75rem !important;
-    padding-bottom: 1.5rem !important;
-  }
 }
 
 .financement-constructys-hero .ofc-type-hero {
