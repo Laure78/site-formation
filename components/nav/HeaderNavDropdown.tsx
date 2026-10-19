@@ -41,12 +41,14 @@ function HeaderNavFormationsByLevel({
   onNavigate,
   layout,
   dualColumn = false,
+  quadColumn = false,
 }: {
   columns: readonly HeaderMegaColumn[];
   pathname: string;
   onNavigate?: () => void;
   layout: 'columns' | 'stack';
   dualColumn?: boolean;
+  quadColumn?: boolean;
 }) {
   const isStack = layout === 'stack';
 
@@ -56,7 +58,11 @@ function HeaderNavFormationsByLevel({
         isStack
           ? 'header-nav-formations-stack'
           : `header-nav-dropdown-formations-grid${
-              dualColumn ? ' header-nav-dropdown-formations-grid--dual' : ''
+              quadColumn
+                ? ' header-nav-dropdown-formations-grid--quad'
+                : dualColumn
+                  ? ' header-nav-dropdown-formations-grid--dual'
+                  : ''
             }`
       }
     >
@@ -299,6 +305,10 @@ export function HeaderNavDropdown({
   const hideHeading = Boolean(item.hideDropdownHeading);
   const formationsPanel = Boolean(item.dropdownPanelFormations);
   const formationsDual = Boolean(item.dropdownPanelFormationsDual);
+  const formationsMegaColumnCount = hasMega ? megaColumns.length : 0;
+  const formationsGridQuad = formationsPanel && formationsMegaColumnCount >= 4;
+  const formationsGridDual =
+    formationsDual && formationsMegaColumnCount === 2 && !formationsGridQuad;
   const panelOpen = open && (children.length > 0 || hasMega);
 
   const submenuAriaLabel = open
@@ -364,10 +374,12 @@ export function HeaderNavDropdown({
           id={panelId}
           data-header-dropdown=""
           className={`header-nav-dropdown-panel absolute top-full z-[60] ${
-            formationsPanel && hasMega && formationsDual
-              ? 'min-w-[min(100vw-2rem,44rem)] max-w-[min(100vw-2rem,44rem)]'
-              : formationsPanel && hasMega
-              ? 'min-w-[min(100vw-2rem,56rem)] max-w-[min(100vw-2rem,56rem)]'
+            formationsGridQuad
+              ? 'min-w-[min(100vw-2rem,64rem)] max-w-[min(100vw-2rem,64rem)]'
+              : formationsPanel && hasMega && formationsGridDual
+                ? 'min-w-[min(100vw-2rem,44rem)] max-w-[min(100vw-2rem,44rem)]'
+                : formationsPanel && hasMega
+                  ? 'min-w-[min(100vw-2rem,56rem)] max-w-[min(100vw-2rem,56rem)]'
               : formationsPanel
                 ? 'min-w-[17rem] max-w-[min(100vw-2rem,28rem)]'
                 : 'min-w-[15.5rem] max-w-[min(100vw-2rem,22rem)]'
@@ -412,7 +424,8 @@ export function HeaderNavDropdown({
                 pathname={pathname}
                 onNavigate={onNavigate}
                 layout="columns"
-                dualColumn={formationsDual}
+                dualColumn={formationsGridDual}
+                quadColumn={formationsGridQuad}
               />
             ) : (
               <ul>

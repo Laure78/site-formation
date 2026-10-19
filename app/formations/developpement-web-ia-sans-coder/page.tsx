@@ -38,7 +38,7 @@ export const metadata = createPageMetadata({
 const faqSchema = getFAQSchema(DEV_WEB_IA_FAQ);
 const courseSchema = buildCatalogueCourseDeveloppementWebIaNiv10JsonLd();
 
-export default function FormationDeveloppementWebIaSansCoderPage() {
+export default async function FormationDeveloppementWebIaSansCoderPage() {
   return (
     <div>
       <JsonLd id="schema-course-niv-10" schema={courseSchema} />

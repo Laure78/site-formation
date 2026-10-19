@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { TrainingNavigation, type TrainingNavItem } from '@/components/formations/training/TrainingNavigation';
+import type { TrainingNavItem } from '@/components/formations/training/TrainingNavigation';
 
 type Props = {
   items: readonly TrainingNavItem[];

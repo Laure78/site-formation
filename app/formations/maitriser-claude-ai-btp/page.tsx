@@ -45,7 +45,7 @@ export const metadata = createPageMetadata({
 const faqSchema = getFAQSchema(FAQ_MAITRISER_CLAUDE_NIV04);
 const courseSchema = buildCatalogueCourseMaitriserClaudeNiv04JsonLd();
 
-export default function FormationMaitriserClaudeAiBtpPage() {
+export default async function FormationMaitriserClaudeAiBtpPage() {
   return (
     <div>
       <JsonLd id="schema-course-niv-04" schema={courseSchema} />

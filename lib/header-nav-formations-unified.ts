@@ -1,52 +1,31 @@
 /**
- * Méga-menu « Formations » — formations catalogue + parcours métiers (deux colonnes).
+ * Méga-menu « Formations » — formations catalogue par niveau + parcours métiers.
  */
-import { formationHref, type Formation } from '@/data/formations';
-import { getPublishedFormations } from '@/lib/formation-catalogue-visibility';
+import {
+  buildFormationsMobileNavGroupsByNiveau,
+  buildFormationsNavMegaColumns,
+} from '@/lib/header-nav-formations-catalogue';
 import { buildParcoursNavChildren } from '@/lib/header-nav-parcours';
 import type { HeaderMegaColumn, HeaderNavLink } from '@/lib/header-nav';
 import { LINKS } from '@/lib/internal-links';
 
-function formationToNavLink(formation: Formation): HeaderNavLink {
-  const label = formation.titre.trim();
-  const secondary = [formation.niveauLabel?.trim(), formation.duree?.trim()]
-    .filter(Boolean)
-    .join(' · ');
-  return {
-    href: formationHref(formation),
-    label,
-    title: secondary ? `${label} — ${secondary}` : label,
-    description: secondary || undefined,
-  };
-}
+const FORMATIONS_CATALOGUE_FOOTER: HeaderNavLink = {
+  href: LINKS.formations,
+  label: 'Toutes les formations IA BTP',
+  title: 'Catalogue des formations IA BTP — présentiel Île-de-France',
+};
 
-function buildPublishedFormationLinks(at: Date): HeaderNavLink[] {
-  const seen = new Set<string>();
-  const links: HeaderNavLink[] = [];
-  for (const formation of getPublishedFormations(at)) {
-    const href = formationHref(formation);
-    if (seen.has(href)) continue;
-    seen.add(href);
-    links.push(formationToNavLink(formation));
-  }
-  return links;
-}
-
-/** Desktop — deux colonnes équilibrées. */
+/** Desktop — trois colonnes niveau + parcours métiers. */
 export function buildUnifiedFormationsNavMegaColumns(
   at: Date = new Date(),
 ): readonly HeaderMegaColumn[] {
+  const niveauColumns = buildFormationsNavMegaColumns(at);
+  const lastNiveauIndex = niveauColumns.length - 1;
+
   return [
-    {
-      title: 'Formations IA BTP',
-      intro: 'Par niveau ou par métier — devis, DCE, chantier…',
-      links: buildPublishedFormationLinks(at),
-      footer: {
-        href: LINKS.formations,
-        label: 'Toutes les formations IA BTP',
-        title: 'Catalogue des formations IA BTP — présentiel Île-de-France',
-      },
-    },
+    ...niveauColumns.map((col, index) =>
+      index === lastNiveauIndex ? { ...col, footer: FORMATIONS_CATALOGUE_FOOTER } : col,
+    ),
     {
       title: 'Parcours métiers BTP',
       intro: 'Dirigeant, conducteur, chargé d’affaires, admin…',
@@ -60,24 +39,19 @@ export function buildUnifiedFormationsNavMegaColumns(
   ];
 }
 
-/** Mobile — deux groupes dépliables (enfants imbriqués). */
+/** Mobile — deux groupes dépliables (formations par niveau + parcours). */
 export function buildUnifiedFormationsMobileNavGroups(
   at: Date = new Date(),
 ): readonly HeaderNavLink[] {
-  const formationsLinks = buildPublishedFormationLinks(at);
   const parcoursLinks = buildParcoursNavChildren();
   return [
     {
       href: LINKS.formations,
       label: 'Formations IA BTP',
-      description: 'Par niveau ou par métier — devis, DCE, chantier…',
+      description: 'Par niveau — devis, DCE, chantier, applications métier…',
       children: [
-        ...formationsLinks,
-        {
-          href: LINKS.formations,
-          label: 'Toutes les formations IA BTP',
-          title: 'Catalogue des formations IA BTP',
-        },
+        ...buildFormationsMobileNavGroupsByNiveau(at),
+        FORMATIONS_CATALOGUE_FOOTER,
       ],
     },
     {

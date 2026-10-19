@@ -37,7 +37,7 @@ export const metadata = createPageMetadata({
 const faqSchema = getFAQSchema(FAQ_APPELS_OFFRE);
 const courseSchema = buildCatalogueCourseIaAppelsOffreNiv02JsonLd();
 
-export default function FormationIAAppelsOffreBTPPage() {
+export default async function FormationIAAppelsOffreBTPPage() {
   return (
     <div>
       <JsonLd id="schema-course-niv-02" schema={courseSchema} />

@@ -41,7 +41,7 @@ export type HeaderNavItem = {
   dropdownAlign?: 'start' | 'end';
   /** Panneau sans titre de rubrique (ex. Ressources). */
   hideDropdownHeading?: boolean;
-  /** Liste formations catalogue — libellés multilignes, sans niveaux. */
+  /** Liste formations catalogue — libellés multilignes, groupés par niveau. */
   dropdownPanelFormations?: boolean;
   /** Méga-menu Formations — grille deux colonnes (formations + parcours). */
   dropdownPanelFormationsDual?: boolean;

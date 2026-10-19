@@ -41,7 +41,7 @@ const courseSchema = buildCatalogueCourseIaBtpNiv01JsonLd();
  * Page pilote — template de référence UX/UI des fiches formation catalogue.
  * Contenu : `getCatalogueFormationPageContent('NIV-01')` + `data/formations`.
  */
-export default function FormationIAuServiceDuBatimentPage() {
+export default async function FormationIAuServiceDuBatimentPage() {
   return (
     <>
       <JsonLd id="schema-course-niv-01" schema={courseSchema} />

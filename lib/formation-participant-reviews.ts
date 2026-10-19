@@ -37,7 +37,8 @@ export const SATISFACTION_CRITERIA_LABELS = {
  * À alimenter lorsque des consolidations par programme existent (source OFC).
  */
 export function getFormationParticipantReviews(
-  _ref: FormationCatalogueCode,
+  ref: FormationCatalogueCode,
 ): FormationParticipantReviews {
+  void ref;
   return { status: 'none' };
 }

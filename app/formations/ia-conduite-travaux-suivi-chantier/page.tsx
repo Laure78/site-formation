@@ -44,7 +44,7 @@ const courseSchema = buildCatalogueCourseConduiteTravauxNiv03JsonLd();
 
 export const dynamic = 'force-dynamic';
 
-export default function FormationIaConduiteTravauxSuiviChantierPage() {
+export default async function FormationIaConduiteTravauxSuiviChantierPage() {
   if (!isFormationCataloguePublished('NIV-03')) notFound();
 
   return (
