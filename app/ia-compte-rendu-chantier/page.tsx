@@ -93,6 +93,10 @@ const FAQ_ITEMS: FAQItem[] = [
     q: 'Quelle formation pour automatiser les CR de chantier ?',
     a: `La formation IA pour conducteurs de travaux couvre les comptes rendus et le suivi chantier en présentiel en Île-de-France. ${FINANCEMENT_FORMULATION_PRUDENTE}`,
   },
+  {
+    q: 'Existe-t-il un retour terrain sur les CR vocaux ?',
+    a: `Oui — étude de cas documentée (FFB / CSFE) sur la structuration de CR à partir de notes : <a href="${LINKS.etudesCasCrVocalChantier}">compte rendu vocal chantier BTP</a>.`,
+  },
 ];
 
 export default function IaCompteRenduChantierPage() {

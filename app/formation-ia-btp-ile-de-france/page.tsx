@@ -96,6 +96,10 @@ const FAQ_IDF: FAQItem[] = [
     q: 'Combien de professionnels avez-vous formés ?',
     a: `OFC ne publie pas de cumul d'effectifs formés. Les indicateurs de satisfaction Qualiopi sont détaillés sur ${LINKS.indicateursResultats}.`,
   },
+  {
+    q: 'Comment choisir une formation selon mon métier (conducteur, chargé d’affaires, MOE) ?',
+    a: `Le <a href="${LINKS.parcoursMetiers}">parcours métiers</a> regroupe les modules par fonction ; le <a href="${LINKS.formations}">catalogue</a> détaille durées et prérequis (4 h, 7 h ou 14 h selon la fiche).`,
+  },
 ];
 
 export default function FormationIaBtpIleDeFrancePage() {

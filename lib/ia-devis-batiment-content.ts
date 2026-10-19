@@ -246,6 +246,10 @@ export const IA_DEVIS_FAQ = [
     q: 'La formation peut-elle être financée ?',
     a: `Financement OPCO possible selon éligibilité (organisme certifié Qualiopi). Détails sur la page <a href="${LINKS.financement}">financement Constructys formation IA BTP</a>.`,
   },
+  {
+    q: 'Comment relier devis IA et métrés / DPGF ?',
+    a: `L’IA structure des libellés et des postes ; les quantités définitives restent au métreur. Pour aller plus loin : <a href="${LINKS.formationIaMetreurEconomisteConstruction}">formation IA métreur-économiste</a> ou programme <a href="${LINKS.formationIaEtudesPrixChiffrageBtp}">études de prix et chiffrage</a>.`,
+  },
 ] as const;
 
 /** Max 3 cartes — URLs distinctes de la fiche NIV-01 et du catalogue (CTA final). */

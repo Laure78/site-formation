@@ -12,11 +12,11 @@ import {
   deptDe,
   deptLocatif,
   deptWithArticle,
-  deptWithArticleCapitalized,
   getDeptGrammar,
   type DeptGrammar,
 } from '@/lib/formation-ia-btp-dept-grammar';
 import { DEPARTEMENT_PAGE_PATHS, TEMOIGNAGES_REGION_IDF } from '@/lib/departement-pages';
+import { FINANCEMENT_FORMULATION_PRUDENTE } from '@/lib/financement-copy';
 
 /** Titre + citations région — même jeu que `TemoignagesRegion` (pas de localisation inventée). */
 const TEMOIGNAGES_REGION_BLOCK = {
@@ -31,40 +31,96 @@ function capitalizeLocatif(grammar: DeptGrammar): string {
   return loc.charAt(0).toUpperCase() + loc.slice(1);
 }
 
+/** 2 questions géo complémentaires — évite le copier-coller identique sur tous les départements. */
+const DEPT_GEO_FAQ_EXTRA: Record<string, FAQItem[]> = {
+  '78': [
+    {
+      q: 'Quelle formation IA choisir pour une PME yvelinoise qui débute ?',
+      a: `NIV-01 (4 h) pour devis, emails et CR — puis NIV-02 si les appels d’offres dominent. Orientation : <a href="${LINKS.formations}">catalogue formations</a> ou <a href="${LINKS.prendreRdv}">visio découverte</a>.`,
+    },
+    {
+      q: 'Les frais de déplacement sont-ils facturés en intra dans les Yvelines ?',
+      a: 'Précisés au devis après la visio découverte — rien n’est engagé sans convention signée.',
+    },
+  ],
+  '91': [
+    {
+      q: 'Une entreprise du plateau de Saclay peut-elle former plusieurs métiers le même jour ?',
+      a: `Chaque module catalogue = 4 h. Deux demi-journées sur deux thèmes (ex. devis + AO) sont possibles la même semaine selon disponibilités — voir <a href="${LINKS.formationAO}">formation appels d’offres</a>.`,
+    },
+    {
+      q: 'Combien de temps à l’avance réserver une date en Essonne ?',
+      a: `Agendas intra souvent complets 3 à 6 semaines en IDF. Urgence : le signaler lors de la <a href="${LINKS.prendreRdv}">visio découverte</a>.`,
+    },
+  ],
+  '92': [
+    {
+      q: 'Proposez-vous des sessions pour équipes tertiaires / MOE dans le 92 ?',
+      a: `Oui — parcours MOE et NIV-02 selon le besoin : <a href="${LINKS.formationIaMaitriseOeuvre}">formation IA maîtrise d’œuvre</a>.`,
+    },
+    {
+      q: 'Peut-on travailler sur un DCE tertiaire dense pendant la session ?',
+      a: 'Oui, en intra sur dossiers anonymisés : synthèse CCTP, trame mémoire, liste de questions MOE — relecture humaine obligatoire.',
+    },
+  ],
+  '93': [
+    {
+      q: 'La formation convient-elle aux marchés publics type Grand Paris ?',
+      a: `Oui pour structurer la lecture DCE et le brouillon de mémoire — pas pour chiffrer à votre place. Programme : <a href="${LINKS.formationAO}">NIV-02 appels d’offres</a>.`,
+    },
+    {
+      q: 'Peut-on former une équipe gros œuvre / TP en intra à Saint-Denis ou Montreuil ?',
+      a: 'Oui, en intra dans vos locaux : exercices sur vos CR, courriers et extraits CCTP réels.',
+    },
+  ],
+  '94': [
+    {
+      q: 'Un conducteur de travaux du Val-de-Marne peut-il cibler CR et réception ?',
+      a: `Oui — voir <a href="${LINKS.formationConducteurTravaux}">formation IA conducteur de travaux</a> et fiche <a href="${LINKS.formationConduiteTravauxSuiviChantier}">NIV-03</a>.`,
+    },
+    {
+      q: 'Faut-il réserver longtemps à l’avance pour une intra en 94 ?',
+      a: `Comptez souvent 3 à 6 semaines pour caler une intra IDF. Contact : <a href="${LINKS.prendreRdv}">visio découverte gratuite</a>.`,
+    },
+  ],
+  '95': [
+    {
+      q: 'Une TPE du Val-d’Oise sans assistant administratif peut-elle suivre la formation ?',
+      a: `Oui — NIV-01 vise devis, relances et courriers. Complément : <a href="${LINKS.iaDevis}">méthode IA devis bâtiment</a>.`,
+    },
+    {
+      q: 'Interventions possibles entre Cergy et le secteur Roissy ?',
+      a: 'Oui en intra ; les créneaux et la logistique sont cadrés au devis (déplacement inclus IDF, sans surprise avant convention).',
+    },
+  ],
+};
+
 function faqGeoBase(grammar: DeptGrammar, code: string, villes: string): FAQItem[] {
   const d = `${grammar.nom} (${code})`;
   const locatif = deptLocatif(grammar);
-  const sujet = deptWithArticleCapitalized(grammar);
-  return [
+  const core: FAQItem[] = [
     {
       q: `Intervenez-vous dans tout le département ${d} ?`,
-      a: `Oui. Intra en intra (dans vos locaux) ou inter ${locatif}, selon calendrier. Siège à Guyancourt (78) — déplacements vers ${villes} courants. Zones éloignées : journée bloquée ou demi-journées.`,
+      a: `Oui. Intra (dans vos locaux) ou inter ${locatif}, selon calendrier. Siège à Guyancourt (78) — déplacements vers ${villes} courants. Zones éloignées : journée bloquée ou demi-journées.`,
     },
     {
       q: 'Comment se déroule une session intra-entreprise pour mon équipe ?',
-      a: `Session réservée à votre entreprise, 4 h intra (dans vos locaux) ou inter, sur vos devis, CCTP et courriers — format privilégié des PME du ${code}.`,
+      a: `Session réservée à votre entreprise, 4 h, sur vos devis, CCTP et courriers — format fréquent des PME du ${code}.`,
     },
     {
       q: 'Les formations ont-elles lieu en présentiel dans le département ?',
-      a: "Présentiel uniquement · Île-de-France uniquement — intra (dans vos locaux) ou inter. Exercices sur vos documents réels (devis, CCTP, courriers).",
-    },
-    {
-      q: 'Y a-t-il des frais de déplacement facturés pour une session dans mon département ?',
-      a: `Échange téléphonique 30 min gratuit pour cadrer. Intra IDF : déplacement et repas précisés au devis — tout validé avant convention.`,
+      a: 'Présentiel uniquement · Île-de-France uniquement — intra ou inter. Exercices sur vos documents réels (devis, CCTP, courriers).',
     },
     {
       q: 'Le financement Constructys s’applique-t-il aux entreprises du département ?',
-      a: `Règles Constructys nationales — éligibilité OPCO, plafonds pédagogiques. ${sujet} ne change pas le barème ; programme Qualiopi aligné sur le guide financement du site.`,
+      a: `${FINANCEMENT_FORMULATION_PRUDENTE} Barème national — le département ne change pas les règles. Guide : <a href="${LINKS.financement}">financement Constructys formation IA BTP</a>.`,
     },
     {
       q: 'Combien de temps à l’avance réserver une date ?',
-      a: `Agendas intra souvent pleins 3 à 6 semaines à l'avance en IDF. Date urgente ? Indiquez-le lors de la réservation : ${LINKS.prendreRdv}.`,
-    },
-    {
-      q: 'Puis-je combiner deux thèmes (ex. devis + appels d’offres) sur une journée ?',
-      a: "Chaque référence (NIV-01, NIV-02) = 4 h. Deux demi-journées sur deux thèmes possibles la même semaine — selon disponibilités.",
+      a: `Agendas intra souvent pleins 3 à 6 semaines à l'avance en IDF. Date urgente ? Indiquez-le lors de la <a href="${LINKS.prendreRdv}">visio découverte</a>.`,
     },
   ];
+  return [...core, ...(DEPT_GEO_FAQ_EXTRA[code] ?? [])];
 }
 
 const CAS_USAGE_FORMATION_BTP: string[] = [
@@ -275,14 +331,17 @@ function faqSeineEtMarne77(): FAQItem[] {
         a: `Oui. Intra en intra (dans vos locaux) ou inter en Seine-et-Marne (77), selon calendrier. Siège à Guyancourt (78) : l'ouest du 77 (Marne-la-Vallée, Sénart, Melun, Meaux) est en général accessible sous 30 à 45 min ; l'est du département (Provins, Coulommiers, Fontainebleau, Nemours) mobilise plutôt une journée bloquée ou des demi-journées.`,
       };
     }
-    if (index === 6) {
-      return {
-        ...item,
-        a: `Chaque référence catalogue (${CATALOGUE_NIV_RANGE}) = 4 h. Deux demi-journées sur deux thèmes possibles la même semaine — selon disponibilités.`,
-      };
-    }
     return item;
-  });
+  }).concat([
+    {
+      q: 'Peut-on enchaîner devis et appels d’offres sur deux demi-journées en Seine-et-Marne ?',
+      a: `Chaque référence catalogue (${CATALOGUE_NIV_RANGE}) = 4 h. Deux modules la même semaine sont possibles selon disponibilités — voir <a href="${LINKS.formations}">catalogue</a>.`,
+    },
+    {
+      q: 'Le 77 étant étendu, comment cadrer les déplacements vers l’est du département ?',
+      a: 'Provins, Coulommiers ou Fontainebleau mobilisent plutôt une journée bloquée ou des demi-journées — calé ensemble au devis, sans frais cachés.',
+    },
+  ]);
 }
 
 const DEPLACEMENT_GUYANCOURT_77 = `Siège ${OFC} à Guyancourt (78) : déplacement inclus au devis pour intra IDF, créneaux souvent calés sous 3 à 6 semaines. L'ouest du 77 (Marne-la-Vallée, Sénart, Melun) : logistique courante ; l'est (Provins, Coulommiers, Fontainebleau) : journée dédiée ou demi-journées à cadrer ensemble.`;

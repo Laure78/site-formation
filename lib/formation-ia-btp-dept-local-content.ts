@@ -1,5 +1,6 @@
 import { CATALOGUE_NIV_RANGE } from '@/data/formations';
 import type { FAQItem } from '@/lib/faq';
+import { FINANCEMENT_FORMULATION_PRUDENTE } from '@/lib/financement-copy';
 import { LINKS } from '@/lib/internal-links';
 
 export type DeptInternalLink = {
@@ -45,7 +46,7 @@ export const DEPT_LOCAL_SEO_CONTENT: Record<string, DeptLocalSeoContent> = {
       },
       {
         q: 'La formation est-elle finançable pour une entreprise parisienne ?',
-        a: 'Elle peut être prise en charge par Constructys ou votre OPCO selon votre statut et les conditions en vigueur.',
+        a: `${FINANCEMENT_FORMULATION_PRUDENTE} Voir <a href="${LINKS.financement}">financement Constructys formation IA BTP</a>.`,
       },
     ],
     internalLinks: [
@@ -360,7 +361,7 @@ export const DEPT_LOCAL_SEO_CONTENT: Record<string, DeptLocalSeoContent> = {
       },
       {
         q: 'La formation est-elle finançable ?',
-        a: 'Possible via Constructys ou votre OPCO, selon votre statut et les conditions en vigueur.',
+        a: `${FINANCEMENT_FORMULATION_PRUDENTE} Guide : <a href="${LINKS.financement}">financement Constructys</a>.`,
       },
     ],
     internalLinks: [

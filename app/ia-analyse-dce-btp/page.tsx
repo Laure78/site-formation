@@ -92,6 +92,10 @@ const FAQ_ITEMS: FAQItem[] = [
     a: "Selon le volume et la qualité des pièces, beaucoup d'équipes passent d'une lecture brute longue à une première synthèse structurée en une fraction du temps — toujours avec relecture métier. Les gains dépendent du dossier.",
   },
   {
+    q: 'Comment croiser CCTP et CCAP sans se perdre dans le DCE ?',
+    a: `Demandez une synthèse par lot (prestations CCTP) puis une grille risques/délais (CCAP). Recoupez les deux tableaux à la main avant le GO/NO GO. Mémoire technique : <a href="${LINKS.iaMemoireTechnique}">IA mémoire technique BTP</a>.`,
+  },
+  {
     q: "Quelle formation pour analyser un DCE avec l'IA ?",
     a: `La formation IA dédiée aux appels d'offres BTP travaille sur vos vrais DCE en présentiel en Île-de-France. ${FINANCEMENT_FORMULATION_PRUDENTE}`,
   },

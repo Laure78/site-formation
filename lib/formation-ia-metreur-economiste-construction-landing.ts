@@ -133,6 +133,10 @@ export const METREUR_ECONOMISTE_FAQ: readonly FAQItem[] = [
     q: 'Financement OPCO / Constructys possible ?',
     a: `Financement OPCO possible selon éligibilité (organisme certifié Qualiopi). Détails et plafonds sur la page <a href="${LINKS.financement}">financement Constructys formation IA BTP</a>.`,
   },
+  {
+    q: 'Peut-on exporter vers Excel ou un logiciel de chiffrage ?',
+    a: 'L’IA produit des tableaux (CSV, markdown) à recopier ou importer — vous contrôlez les correspondances d’unités et de postes avant intégration dans votre outil métier.',
+  },
 ];
 
 export function getMetreurEconomisteRelated(at: Date = new Date()) {

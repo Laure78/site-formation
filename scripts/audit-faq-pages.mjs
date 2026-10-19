@@ -28,7 +28,7 @@ function extractExportedFaqArrays(text, file) {
     const start = m.index;
     const slice = text.slice(start, start + 12000);
     const items = [];
-    for (const qm of slice.matchAll(/\bq:\s*['"`]([^'"`]+)['"`]/g)) {
+    for (const qm of slice.matchAll(/\bq:\s*(?:['"`]|["'])([^'"`\n]{12,}?)(?:['"`]|["'])/g)) {
       items.push(qm[1].trim());
     }
     if (items.length) out.push({ file, name, count: items.length, questions: items });

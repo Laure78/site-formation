@@ -2,6 +2,7 @@
  * Contenu complémentaire — landing `/formation-ia-conducteur-de-travaux`
  * (prompts, étude de cas, FAQ étendues).
  */
+import { LINKS } from '@/lib/internal-links';
 
 export const PROMPTS_SECTION_INTRO =
   'Remplacez les variables entre crochets, collez le prompt dans ChatGPT ou Claude, puis relisez et validez le résultat avant envoi ou diffusion sur le chantier.';
@@ -112,5 +113,9 @@ export const CONDUCTEUR_FAQ_EXTRA = [
   {
     q: 'L\u2019IA peut-elle rédiger un PPSPS conforme ?',
     a: 'L\'IA peut proposer une trame et un premier jet structuré selon le type de chantier, mais elle ne garantit pas la conformité réglementaire ni l\'adéquation aux risques réels du site. Le PPSPS doit être relu, complété et validé par votre référent SST ou coordinateur SPS avant mise en place. En formation, vous apprenez à utiliser l\'IA comme aide à la rédaction, pas comme substitut à l\'expertise sécurité.',
+  },
+  {
+    q: 'Où approfondir la méthode CR vocal et comptes rendus ?',
+    a: `Page ressource : <a href="${LINKS.iaCompteRenduChantier}">IA compte rendu chantier</a>. Retour terrain : <a href="${LINKS.etudesCasCrVocalChantier}">étude de cas CR vocal</a>.`,
   },
 ] as const;

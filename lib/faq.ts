@@ -836,7 +836,7 @@ export const FAQ_TRAVAUX_PUBLICS: FAQItem[] = [
   },
   {
     q: "La formation est-elle finançable ?",
-    a: `Oui, selon éligibilité auprès de l'OPCO (Constructys, AKTO, OPCO EP). Session ${SESSION_DUREE_LIBELLE} (NIV-01), certificat de réalisation — <a href="/financement-constructys-formation-ia-btp">financement Constructys</a>.`,
+    a: `${FINANCEMENT_FORMULATION_PRUDENTE} Session ${SESSION_DUREE_LIBELLE} (NIV-01), certificat de réalisation — <a href="${LINKS.financement}">financement Constructys</a>.`,
   },
 ];
 
@@ -848,7 +848,7 @@ export const FAQ_FORMATION_VILLE: FAQItem[] = [
   },
   {
     q: "La formation est-elle finançable ?",
-    a: 'Oui, financement possible via Constructys ou votre OPCO selon éligibilité. Devis personnalisé sous 24h — <a href="/financement-constructys-formation-ia-btp">financement Constructys formation IA appliquée au bâtiment</a> et <a href="/contact">contact</a>.',
+    a: `${FINANCEMENT_FORMULATION_PRUDENTE} Devis après visio découverte — <a href="${LINKS.financement}">financement Constructys formation IA appliquée au bâtiment</a>.`,
   },
   {
     q: "Faut-il des compétences techniques ?",
@@ -892,7 +892,7 @@ export const FAQ_CHECKLIST_PROMPTS: FAQItem[] = [
   },
   {
     q: "La formation est-elle finançable ?",
-    a: `Oui. Formation IA pour les pros du BTP financement possible selon éligibilité. Prenez rendez-vous pour un devis personnalisé : <a href="${LINKS.prendreRdv}">Réservez votre visio découverte gratuite</a> ou <a href="/contact">contact</a>.`,
+    a: `${FINANCEMENT_FORMULATION_PRUDENTE} <a href="${LINKS.prendreRdv}">Visio découverte gratuite</a> pour cadrer le devis.`,
   },
 ];
 

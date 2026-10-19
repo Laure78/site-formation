@@ -36,6 +36,7 @@ import { FormationDeptLocalSeoBlock } from '@/components/formation-ia-btp/Format
 import { RelatedLinks } from '@/components/RelatedLinks';
 import { getClusterRelatedHrefs } from '@/lib/maillage-clusters';
 import { getDeptLocalSeoContent } from '@/lib/formation-ia-btp-dept-local-content';
+import { getFormationIaDeptPageFaq } from '@/lib/formation-ia-btp-dept-page-faq';
 import type { DeptArticle, DeptPrepositionLocative } from '@/lib/formation-ia-btp-dept-grammar';
 import { deptLocatif } from '@/lib/formation-ia-btp-dept-grammar';
 
@@ -137,11 +138,10 @@ export function FormationIaBtpDepartementLanding({ config }: { config: Formation
 
   const crumbDept = `${config.nom} (${config.deptCode})`;
   const localContent = getDeptLocalSeoContent(config.deptCode);
+  const deptFaqItems = getFormationIaDeptPageFaq(config.deptCode, config.faq);
   const statsFreshness = getStatsFreshnessLabel();
 
-  const faqSchema = getFAQSchema(
-    localContent ? [...localContent.faq, ...config.faq.slice(3)] : config.faq,
-  );
+  const faqSchema = getFAQSchema(deptFaqItems);
 
   return (
     <div className="bg-white text-slate-900">
@@ -372,7 +372,7 @@ export function FormationIaBtpDepartementLanding({ config }: { config: Formation
 
       <FAQSection
         id={`faq-formation-ia-dept-${config.deptCode}`}
-        items={config.faq.slice(3)}
+        items={deptFaqItems}
         title={`FAQ — formation IA appliquée au bâtiment ${crumbDept}`}
         subtitle="Intra ou inter — présentiel, financement et calendrier."
       />
