@@ -1,8 +1,9 @@
 import { JsonLd } from '@/components/JsonLd';
 import { EtudesDeCasHubPageContent } from '@/components/etudes-de-cas/EtudesDeCasHubPageContent';
-import { createPageMetadata, SITE_CONFIG } from '@/lib/seo';
+import { createPageMetadata, getFAQSchema, SITE_CONFIG } from '@/lib/seo';
 import { LINKS } from '@/lib/internal-links';
 import {
+  ETUDES_DE_CAS_FAQ,
   ETUDES_DE_CAS_HERO,
   ETUDES_DE_CAS_HUB_CARDS,
   ETUDES_DE_CAS_SEO,
@@ -47,10 +48,13 @@ const collectionJsonLd = {
   },
 };
 
+const faqJsonLd = getFAQSchema(ETUDES_DE_CAS_FAQ);
+
 export default function EtudesDeCasHubPage() {
   return (
     <>
       <JsonLd id="schema-etudes-de-cas-collection" schema={collectionJsonLd} />
+      {faqJsonLd ? <JsonLd id="schema-etudes-de-cas-faq" schema={faqJsonLd} /> : null}
       <EtudesDeCasHubPageContent />
     </>
   );

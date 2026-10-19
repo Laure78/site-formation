@@ -1,30 +1,11 @@
 import Link from 'next/link';
+import { FAQAnswer } from '@/components/landing/FAQAnswer';
 import { CATALOGUE_2027_INFOS_PRATIQUES } from '@/data/catalogue-2027';
+import { getFaqCataloguePage } from '@/lib/faq';
 import { LINKS } from '@/lib/internal-links';
 import { CONTACT } from '@/lib/constants';
 
-const FAQ = [
-  {
-    q: 'Les formations sont-elles certifiantes ?',
-    a: 'Non. Les formations délivrent une attestation de fin de formation et un certificat de réalisation. Aucun titre professionnel ni qualification métier n’est promis.',
-  },
-  {
-    q: 'Le CPF est-il accepté ?',
-    a: CATALOGUE_2027_INFOS_PRATIQUES.pasCpf,
-  },
-  {
-    q: 'Comment fonctionne le financement OPCO ?',
-    a: `${CATALOGUE_2027_INFOS_PRATIQUES.financement} ${CATALOGUE_2027_INFOS_PRATIQUES.subrogation}`,
-  },
-  {
-    q: 'Où se déroulent les sessions ?',
-    a: `${CATALOGUE_2027_INFOS_PRATIQUES.modalite}. ${CATALOGUE_2027_INFOS_PRATIQUES.interLieu}. ${CATALOGUE_2027_INFOS_PRATIQUES.intraLieu}.`,
-  },
-  {
-    q: 'Quel est le délai minimum avant une session ?',
-    a: CATALOGUE_2027_INFOS_PRATIQUES.delaiMinimum,
-  },
-] as const;
+const FAQ = getFaqCataloguePage();
 
 export function FormationsInfosPratiques2027() {
   const phone = CONTACT.phoneDisplay;
@@ -81,7 +62,9 @@ export function FormationsInfosPratiques2027() {
             {FAQ.map((item) => (
               <div key={item.q} className="border-b border-[#E2E8F0] pb-4">
                 <dt className="font-medium text-ofc-ink">{item.q}</dt>
-                <dd className="mt-1 text-sm text-ofc-ink-muted">{item.a}</dd>
+                <dd className="mt-1 text-sm text-ofc-ink-muted [&_a]:font-medium [&_a]:text-[#377CF3] [&_a]:underline">
+                  <FAQAnswer content={item.a} />
+                </dd>
               </div>
             ))}
           </dl>

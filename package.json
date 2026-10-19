@@ -14,7 +14,7 @@
     "check:meta": "node scripts/check-meta-lengths.mjs",
     "audit:meta-lengths": "node scripts/audit-page-metadata.mjs && node scripts/check-meta-lengths.mjs",
     "audit:meta-descriptions": "node scripts/audit-meta-descriptions-quality.mjs",
-    "audit:meta-descriptions": "node scripts/audit-meta-descriptions-quality.mjs",
+    "audit:faq": "node scripts/audit-faq-pages.mjs",
     "check:training-satisfaction": "node scripts/assert-training-satisfaction-workflow.mjs",
     "skills:build": "node scripts/build-bibliotheque-skills.mjs",
     "start": "next start",

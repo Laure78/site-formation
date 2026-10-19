@@ -1,23 +1,7 @@
 import type { FAQItem } from '@/lib/faq';
-import { FAQ_IA_BTP_METIERS_CHANTIER_SEO } from '@/lib/faq';
-import { FAQ_FORMATION_IA_HUB_LONG_TAIL } from '@/lib/formation-ia-faq-long-tail';
 import { getCatalogueFormationsCount } from '@/lib/formations-catalogue-display';
 import { isFormationCataloguePublished } from '@/lib/formation-catalogue-visibility';
 import { LINKS } from '@/lib/internal-links';
-
-function mergeFaqItemsUnique(...groups: readonly (readonly FAQItem[])[]): FAQItem[] {
-  const seen = new Set<string>();
-  const out: FAQItem[] = [];
-  for (const group of groups) {
-    for (const item of group) {
-      const key = item.q.trim();
-      if (seen.has(key)) continue;
-      seen.add(key);
-      out.push(item);
-    }
-  }
-  return out;
-}
 
 /** FAQ — page pilier /formation-ia-btp (alignée JSON-LD FAQPage) */
 export function getFaqFormationIaBtpPillar(at: Date = new Date()): FAQItem[] {
@@ -104,7 +88,7 @@ export function getFaqFormationIaBtpPillar(at: Date = new Date()): FAQItem[] {
     },
   ];
 
-  return mergeFaqItemsUnique(pillar, FAQ_IA_BTP_METIERS_CHANTIER_SEO, FAQ_FORMATION_IA_HUB_LONG_TAIL);
+  return pillar;
 }
 
 /** @deprecated Préférer getFaqFormationIaBtpPillar() */

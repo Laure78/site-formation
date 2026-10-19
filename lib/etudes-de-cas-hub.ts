@@ -2,6 +2,7 @@ import { LINKS } from '@/lib/internal-links';
 import { CSFE_NOM_LIBRE } from '@/lib/csfe';
 import { PHOTOS } from '@/lib/photos';
 import type { SitePhotoAsset } from '@/lib/photo-seo';
+import type { FAQItem } from '@/lib/faq';
 
 /**
  * Hub `/etudes-de-cas` — faits repris des pages études (ne pas inventer de chiffres).
@@ -87,6 +88,26 @@ export const ETUDES_DE_CAS_METHODOLOGY_STEPS = [
       'Contrôler les informations avant utilisation ou diffusion : l\'IA assiste, le professionnel décide.',
   },
 ] as const;
+
+/** FAQ hub `/etudes-de-cas` — alignée JSON-LD FAQPage. */
+export const ETUDES_DE_CAS_FAQ: readonly FAQItem[] = [
+  {
+    q: 'Que montrent les études de cas IA BTP publiées ici ?',
+    a: `Des retours terrain documentés : problème métier, méthode avec l’IA (ChatGPT ou Claude) et contrôles humains avant diffusion. Pas de promesse de gain chiffré — voir les fiches détaillées et le <a href="${LINKS.formationIaBtp}">catalogue formations</a>.`,
+  },
+  {
+    q: 'Les études de cas remplacent-elles une formation ?',
+    a: `Non. Elles illustrent des usages ; la formation en présentiel en Île-de-France permet de pratiquer sur vos documents avec un formateur Qualiopi. <a href="${LINKS.prendreRdv}">Visio découverte gratuite</a> pour cadrer votre besoin.`,
+  },
+  {
+    q: 'Peut-on reproduire la même méthode dans mon entreprise ?',
+    a: 'Les principes (anonymisation, prompts, relecture) sont réutilisables, mais chaque dossier client ou chantier demande validation métier. Les études précisent les limites observées sur le terrain.',
+  },
+  {
+    q: 'Où trouver une formation liée à un cas (CR chantier, appels d’offres) ?',
+    a: `Compte rendu vocal : <a href="${LINKS.iaCompteRenduChantier}">IA compte rendu chantier</a>. Marchés : <a href="${LINKS.formationIaAppelsOffresBtp}">formation appels d’offres BTP</a> ou <a href="${LINKS.parcoursMetiers}">parcours métiers</a>.`,
+  },
+];
 
 export const ETUDES_DE_CAS_SEO = {
   title: 'Études de cas IA BTP : retours terrain',

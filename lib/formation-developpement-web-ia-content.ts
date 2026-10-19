@@ -1074,8 +1074,12 @@ export const DEV_WEB_IA_FAQ = [
     a: 'Uniquement en présentiel en Île-de-France : en inter-entreprises à dates programmées, ou en intra dans vos locaux. Effectif : 4 à 8 participants.',
   },
   {
-    q: 'Quels formats sont proposés ?',
-    a: 'Session de 7 h (310 € HT/participant), en inter-entreprises (4 à 8 participants) ou en intra. Présentiel Île-de-France uniquement. Prise en charge OPCO/Constructys selon éligibilité.',
+    q: 'Peut-on créer un outil de gestion de chantier avec l’IA sans savoir coder ?',
+    a: 'Oui, c’est l’objectif du parcours : décrire le besoin, guider l’IA, tester et corriger. Vous repartez avec une première version et une feuille de route — pas une application clé en main sans relecture métier.',
+  },
+  {
+    q: 'Quels formats sont proposés (7 h et 14 h) ?',
+    a: 'Session de 7 h ou parcours 14 h sur deux journées en présentiel Île-de-France (4 à 8 participants), inter ou intra. Tarifs catalogue HT par participant. Prise en charge OPCO/Constructys selon éligibilité.',
   },
   {
     q: 'Dois-je apporter mon ordinateur ?',

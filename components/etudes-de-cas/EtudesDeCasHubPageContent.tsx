@@ -2,7 +2,9 @@ import Link from 'next/link';
 import { ClipboardList, Sparkles, ShieldCheck } from 'lucide-react';
 import { EtudeCasHubCard } from '@/components/etudes-de-cas/EtudeCasHubCard';
 import { LINKS } from '@/lib/internal-links';
+import { FormationsFaqSection } from '@/components/formations/FormationsFaqSection';
 import {
+  ETUDES_DE_CAS_FAQ,
   ETUDES_DE_CAS_HERO,
   ETUDES_DE_CAS_HUB_CARDS,
   ETUDES_DE_CAS_INTERNAL_LINKS,
@@ -102,6 +104,16 @@ export function EtudesDeCasHubPageContent() {
               );
             })}
           </ol>
+        </div>
+      </section>
+
+      <section className={OFC_SEC.white}>
+        <div className={`${OFC_SECTION_INNER} max-w-[75rem]`}>
+          <FormationsFaqSection
+            items={ETUDES_DE_CAS_FAQ}
+            title="Questions fréquentes sur les études de cas"
+            subtitle="Comprendre le rôle de ces retours terrain et le lien avec les formations OFC."
+          />
         </div>
       </section>
 
