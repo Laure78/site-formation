@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-16T13:48:06.059Z",
+  "generatedAt": "2026-10-19T19:57:30.311Z",
   "rows": [
     {
       "url": "/a-propos",
@@ -73,6 +73,18 @@
     {
       "url": "/admin/apprenants",
       "file": "app/admin/apprenants/page.tsx",
+      "title": "(generateMetadata dynamique / absent)",
+      "titleLen": 0,
+      "desc": "(dynamique / absent)",
+      "descLen": 0,
+      "problems": [
+        "metadata non-statique (generateMetadata ou absent)"
+      ],
+      "skipFix": true
+    },
+    {
+      "url": "/admin/candidatures",
+      "file": "app/admin/candidatures/page.tsx",
       "title": "(generateMetadata dynamique / absent)",
       "titleLen": 0,
       "desc": "(dynamique / absent)",
@@ -689,15 +701,14 @@
     {
       "url": "/auth/connexion",
       "file": "app/auth/connexion/page.tsx",
-      "title": "Connexion formation IA pour le BTP : espace apprenant",
-      "titleFinal": "Connexion formation IA pour le BTP : espace | Laure Olivié",
-      "titleLen": 58,
-      "segLen": 53,
-      "desc": "Connexion à l’espace apprenant OFC : formation IA pour le BTP, supports ChatGPT BTP, Claude et suivi Qualiopi. TPE, PME — Île-de-France.",
-      "descLen": 136,
+      "title": "Connexion — espace apprenant",
+      "titleFinal": "Connexion — espace apprenant | Laure Olivié",
+      "titleLen": 43,
+      "segLen": 28,
+      "desc": "Connectez-vous à votre espace apprenant OFC : supports et ressources de formation IA pour le BTP.",
+      "descLen": 97,
       "problems": [
-        "title segment trop long (53>45) → troncature",
-        "desc trop courte (136)",
+        "desc trop courte (97)",
         "sans descriptionFinal — enrich peut modifier"
       ],
       "helper": true,
@@ -843,6 +854,23 @@
       "finalFlag": false
     },
     {
+      "url": "/candidatures-spontanees",
+      "file": "app/candidatures-spontanees/page.tsx",
+      "title": "Candidature spontanée — OFC Création d’Entreprise",
+      "titleFinal": "Candidature spontanée — OFC Création | Laure Olivié",
+      "titleLen": 51,
+      "segLen": 49,
+      "desc": "Déposez une candidature spontanée auprès d’OFC Création d’Entreprise : emploi, stage, alternance ou collaboration. Formation IA BTP en Île-de-France.",
+      "descLen": 149,
+      "problems": [
+        "title segment trop long (49>45) → troncature",
+        "desc trop courte (149)",
+        "sans descriptionFinal — enrich peut modifier"
+      ],
+      "helper": true,
+      "finalFlag": false
+    },
+    {
       "url": "/cgv",
       "file": "app/cgv/page.tsx",
       "title": "CGV — OFC Création d\\",
@@ -935,6 +963,19 @@
       "finalFlag": true
     },
     {
+      "url": "/devenez-consultant",
+      "file": "app/devenez-consultant/page.tsx",
+      "title": "Devenez consultant-formateur IA BTP",
+      "titleFinal": "Devenez consultant-formateur IA BTP | Laure Olivié",
+      "titleLen": 50,
+      "segLen": 35,
+      "desc": "Proposez votre expertise BTP et votre pratique de l’IA pour animer des formations en présentiel en Île-de-France. Formulaire de candidature consultant OFC.",
+      "descLen": 155,
+      "problems": [],
+      "helper": true,
+      "finalFlag": false
+    },
+    {
       "url": "/diagnostic-ia-btp",
       "file": "app/diagnostic-ia-btp/page.tsx",
       "title": "Diagnostic IA BTP gratuit",
@@ -946,6 +987,35 @@
       "problems": [],
       "helper": true,
       "finalFlag": true
+    },
+    {
+      "url": "/emplois/[slug]",
+      "file": "app/emplois/[slug]/page.tsx",
+      "title": "Offre d’emploi",
+      "titleFinal": "Offre d’emploi | Laure Olivié",
+      "titleLen": 29,
+      "segLen": 14,
+      "desc": "Offre d’emploi OFC Création d’Entreprise.",
+      "descLen": 41,
+      "problems": [
+        "desc trop courte (41)",
+        "sans descriptionFinal — enrich peut modifier"
+      ],
+      "helper": true,
+      "finalFlag": false
+    },
+    {
+      "url": "/emplois",
+      "file": "app/emplois/page.tsx",
+      "title": "Emplois — rejoindre OFC Création d’Entreprise",
+      "titleFinal": "Emplois — rejoindre OFC Création d’Entreprise | Laure Olivié",
+      "titleLen": 60,
+      "segLen": 45,
+      "desc": "Offres d’emploi chez OFC Création d’Entreprise : formation IA pour les professionnels du BTP en présentiel en Île-de-France. Candidature spontanée possible.",
+      "descLen": 156,
+      "problems": [],
+      "helper": true,
+      "finalFlag": false
     },
     {
       "url": "/espace-apprenant/attestation/[courseId]",
@@ -1028,13 +1098,14 @@
     {
       "url": "/etudes-de-cas",
       "file": "app/etudes-de-cas/page.tsx",
-      "title": "Études de cas formation IA BTP",
-      "titleFinal": "Études de cas formation IA BTP | Laure Olivié",
-      "titleLen": 45,
-      "segLen": 30,
+      "title": "—",
+      "titleFinal": "—",
+      "titleLen": 0,
+      "segLen": 0,
       "desc": "—",
       "descLen": 0,
       "problems": [
+        "title source non extrait",
         "description source non extraite"
       ],
       "helper": true,
@@ -1098,15 +1169,14 @@
     {
       "url": "/formateurs",
       "file": "app/formateurs/page.tsx",
-      "title": "Les formateurs et leurs domaines d’intervention | Laure Olivié",
-      "titleFinal": "Les formateurs et leurs domaines | Laure Olivié",
-      "titleLen": 47,
-      "segLen": 47,
-      "desc": "Spécialités des formateurs BTP : IA, travaux, commercial, direction, management, administration et prévention. Programmes en présentiel en Île-de-France — OFC Qualiopi.",
-      "descLen": 168,
+      "title": "Les formateurs qui vous accompagnent | Laure Olivié",
+      "titleFinal": "Les formateurs qui vous accompagnent | Laure Olivié",
+      "titleLen": 51,
+      "segLen": 36,
+      "desc": "Intervenants OFC : spécialités, expériences métier et formations animées pour les professionnels du bâtiment et des travaux publics. Présentiel Île-de-France — Qualiopi.",
+      "descLen": 169,
       "problems": [
-        "title segment trop long (47>45) → troncature",
-        "desc trop longue (168)"
+        "desc trop longue (169)"
       ],
       "helper": true,
       "finalFlag": true
@@ -1790,18 +1860,20 @@
     {
       "url": "/formation-ia-intra-entreprise-btp",
       "file": "app/formation-ia-intra-entreprise-btp/page.tsx",
-      "title": "—",
-      "titleFinal": "—",
-      "titleLen": 0,
-      "segLen": 0,
+      "title": "Article non trouvé",
+      "titleFinal": "Article non trouvé | Laure Olivié",
+      "titleLen": 33,
+      "segLen": 18,
       "desc": "—",
       "descLen": 0,
       "problems": [
-        "title source non extrait",
-        "description source non extraite"
+        "description source non extraite",
+        "canonical absent (pas via buildMetadata)",
+        "openGraph absent",
+        "twitter absent"
       ],
-      "helper": true,
-      "finalFlag": true
+      "helper": false,
+      "finalFlag": false
     },
     {
       "url": "/formation-ia-isolation-btp",
@@ -2156,15 +2228,32 @@
       "finalFlag": true
     },
     {
-      "url": "/formations/developpement-web-ia-sans-coder",
-      "file": "app/formations/developpement-web-ia-sans-coder/page.tsx",
-      "title": "Créer des applications métier BTP avec l’IA | Laure Olivié",
-      "titleFinal": "Créer des applications métier BTP avec l’IA | Laure Olivié",
-      "titleLen": 58,
-      "segLen": 43,
+      "url": "/formations/assistants-ia-personnalises-btp",
+      "file": "app/formations/assistants-ia-personnalises-btp/page.tsx",
+      "title": "—",
+      "titleFinal": "—",
+      "titleLen": 0,
+      "segLen": 0,
       "desc": "—",
       "descLen": 0,
       "problems": [
+        "title source non extrait",
+        "description source non extraite"
+      ],
+      "helper": true,
+      "finalFlag": false
+    },
+    {
+      "url": "/formations/developpement-web-ia-sans-coder",
+      "file": "app/formations/developpement-web-ia-sans-coder/page.tsx",
+      "title": "—",
+      "titleFinal": "—",
+      "titleLen": 0,
+      "segLen": 0,
+      "desc": "—",
+      "descLen": 0,
+      "problems": [
+        "title source non extrait",
         "description source non extraite"
       ],
       "helper": true,
@@ -2718,12 +2807,12 @@
     {
       "url": "/outils-ia-btp",
       "file": "app/outils-ia-btp/page.tsx",
-      "title": "Outils IA BTP — Claude AI et ChatGPT",
-      "titleFinal": "Outils IA BTP — Claude AI et ChatGPT | Laure Olivié",
-      "titleLen": 51,
-      "segLen": 36,
-      "desc": "Outils IA BTP : Claude et ChatGPT pour devis, DCE et comptes rendus, avec relecture métier. Formation IA pour le BTP. Réservez votre visio découverte.",
-      "descLen": 150,
+      "title": "Outils IA BTP — ChatGPT, Claude et sélection",
+      "titleFinal": "Outils IA BTP — ChatGPT, Claude et sélection | Laure Olivié",
+      "titleLen": 59,
+      "segLen": 44,
+      "desc": "Sélection d’outils d’IA pour le BTP : ChatGPT (OpenAI), Claude (Anthropic), usages devis, DCE et chantier. Formations Qualiopi en présentiel Île-de-France.",
+      "descLen": 155,
       "problems": [],
       "helper": true,
       "finalFlag": true
@@ -2731,13 +2820,15 @@
     {
       "url": "/",
       "file": "app/page.tsx",
-      "title": "Formation IA pour le BTP",
-      "titleFinal": "Formation IA pour le BTP | Laure Olivié",
-      "titleLen": 39,
-      "segLen": 24,
-      "desc": "Formation IA pour le BTP : devis, DCE, comptes rendus et mémoires techniques avec ChatGPT et Claude. Présentiel Île-de-France, Qualiopi, OPCO selon éligibilité.",
-      "descLen": 160,
-      "problems": [],
+      "title": "Formations IA pour le BTP",
+      "titleFinal": "Formations IA pour le BTP | Laure Olivié",
+      "titleLen": 40,
+      "segLen": 25,
+      "desc": "Formations IA pour le BTP en présentiel Île-de-France : devis, appels d’offres et suivi de chantier avec ChatGPT et Claude. Parcours métiers, Qualiopi, financement OPCO selon éligibilité.",
+      "descLen": 187,
+      "problems": [
+        "desc trop longue (187)"
+      ],
       "helper": true,
       "finalFlag": true
     },
@@ -3174,6 +3265,21 @@
   ],
   "withIssues": [
     {
+      "url": "/",
+      "file": "app/page.tsx",
+      "title": "Formations IA pour le BTP",
+      "titleFinal": "Formations IA pour le BTP | Laure Olivié",
+      "titleLen": 40,
+      "segLen": 25,
+      "desc": "Formations IA pour le BTP en présentiel Île-de-France : devis, appels d’offres et suivi de chantier avec ChatGPT et Claude. Parcours métiers, Qualiopi, financement OPCO selon éligibilité.",
+      "descLen": 187,
+      "problems": [
+        "desc trop longue (187)"
+      ],
+      "helper": true,
+      "finalFlag": true
+    },
+    {
       "url": "/a-propos",
       "file": "app/a-propos/page.tsx",
       "title": "—",
@@ -3244,6 +3350,18 @@
     {
       "url": "/admin/apprenants/[id]",
       "file": "app/admin/apprenants/[id]/page.tsx",
+      "title": "(generateMetadata dynamique / absent)",
+      "titleLen": 0,
+      "desc": "(dynamique / absent)",
+      "descLen": 0,
+      "problems": [
+        "metadata non-statique (generateMetadata ou absent)"
+      ],
+      "skipFix": true
+    },
+    {
+      "url": "/admin/candidatures",
+      "file": "app/admin/candidatures/page.tsx",
       "title": "(generateMetadata dynamique / absent)",
       "titleLen": 0,
       "desc": "(dynamique / absent)",
@@ -3848,15 +3966,14 @@
     {
       "url": "/auth/connexion",
       "file": "app/auth/connexion/page.tsx",
-      "title": "Connexion formation IA pour le BTP : espace apprenant",
-      "titleFinal": "Connexion formation IA pour le BTP : espace | Laure Olivié",
-      "titleLen": 58,
-      "segLen": 53,
-      "desc": "Connexion à l’espace apprenant OFC : formation IA pour le BTP, supports ChatGPT BTP, Claude et suivi Qualiopi. TPE, PME — Île-de-France.",
-      "descLen": 136,
+      "title": "Connexion — espace apprenant",
+      "titleFinal": "Connexion — espace apprenant | Laure Olivié",
+      "titleLen": 43,
+      "segLen": 28,
+      "desc": "Connectez-vous à votre espace apprenant OFC : supports et ressources de formation IA pour le BTP.",
+      "descLen": 97,
       "problems": [
-        "title segment trop long (53>45) → troncature",
-        "desc trop courte (136)",
+        "desc trop courte (97)",
         "sans descriptionFinal — enrich peut modifier"
       ],
       "helper": true,
@@ -4002,6 +4119,23 @@
       "finalFlag": false
     },
     {
+      "url": "/candidatures-spontanees",
+      "file": "app/candidatures-spontanees/page.tsx",
+      "title": "Candidature spontanée — OFC Création d’Entreprise",
+      "titleFinal": "Candidature spontanée — OFC Création | Laure Olivié",
+      "titleLen": 51,
+      "segLen": 49,
+      "desc": "Déposez une candidature spontanée auprès d’OFC Création d’Entreprise : emploi, stage, alternance ou collaboration. Formation IA BTP en Île-de-France.",
+      "descLen": 149,
+      "problems": [
+        "title segment trop long (49>45) → troncature",
+        "desc trop courte (149)",
+        "sans descriptionFinal — enrich peut modifier"
+      ],
+      "helper": true,
+      "finalFlag": false
+    },
+    {
       "url": "/cgv",
       "file": "app/cgv/page.tsx",
       "title": "CGV — OFC Création d\\",
@@ -4081,6 +4215,22 @@
       "finalFlag": true
     },
     {
+      "url": "/emplois/[slug]",
+      "file": "app/emplois/[slug]/page.tsx",
+      "title": "Offre d’emploi",
+      "titleFinal": "Offre d’emploi | Laure Olivié",
+      "titleLen": 29,
+      "segLen": 14,
+      "desc": "Offre d’emploi OFC Création d’Entreprise.",
+      "descLen": 41,
+      "problems": [
+        "desc trop courte (41)",
+        "sans descriptionFinal — enrich peut modifier"
+      ],
+      "helper": true,
+      "finalFlag": false
+    },
+    {
       "url": "/espace-apprenant",
       "file": "app/espace-apprenant/page.tsx",
       "title": "(generateMetadata dynamique / absent)",
@@ -4131,13 +4281,14 @@
     {
       "url": "/etudes-de-cas",
       "file": "app/etudes-de-cas/page.tsx",
-      "title": "Études de cas formation IA BTP",
-      "titleFinal": "Études de cas formation IA BTP | Laure Olivié",
-      "titleLen": 45,
-      "segLen": 30,
+      "title": "—",
+      "titleFinal": "—",
+      "titleLen": 0,
+      "segLen": 0,
       "desc": "—",
       "descLen": 0,
       "problems": [
+        "title source non extrait",
         "description source non extraite"
       ],
       "helper": true,
@@ -4192,15 +4343,14 @@
     {
       "url": "/formateurs",
       "file": "app/formateurs/page.tsx",
-      "title": "Les formateurs et leurs domaines d’intervention | Laure Olivié",
-      "titleFinal": "Les formateurs et leurs domaines | Laure Olivié",
-      "titleLen": 47,
-      "segLen": 47,
-      "desc": "Spécialités des formateurs BTP : IA, travaux, commercial, direction, management, administration et prévention. Programmes en présentiel en Île-de-France — OFC Qualiopi.",
-      "descLen": 168,
+      "title": "Les formateurs qui vous accompagnent | Laure Olivié",
+      "titleFinal": "Les formateurs qui vous accompagnent | Laure Olivié",
+      "titleLen": 51,
+      "segLen": 36,
+      "desc": "Intervenants OFC : spécialités, expériences métier et formations animées pour les professionnels du bâtiment et des travaux publics. Présentiel Île-de-France — Qualiopi.",
+      "descLen": 169,
       "problems": [
-        "title segment trop long (47>45) → troncature",
-        "desc trop longue (168)"
+        "desc trop longue (169)"
       ],
       "helper": true,
       "finalFlag": true
@@ -4767,18 +4917,20 @@
     {
       "url": "/formation-ia-intra-entreprise-btp",
       "file": "app/formation-ia-intra-entreprise-btp/page.tsx",
-      "title": "—",
-      "titleFinal": "—",
-      "titleLen": 0,
-      "segLen": 0,
+      "title": "Article non trouvé",
+      "titleFinal": "Article non trouvé | Laure Olivié",
+      "titleLen": 33,
+      "segLen": 18,
       "desc": "—",
       "descLen": 0,
       "problems": [
-        "title source non extrait",
-        "description source non extraite"
+        "description source non extraite",
+        "canonical absent (pas via buildMetadata)",
+        "openGraph absent",
+        "twitter absent"
       ],
-      "helper": true,
-      "finalFlag": true
+      "helper": false,
+      "finalFlag": false
     },
     {
       "url": "/formation-ia-isolation-btp",
@@ -5084,15 +5236,32 @@
       "finalFlag": true
     },
     {
-      "url": "/formations/developpement-web-ia-sans-coder",
-      "file": "app/formations/developpement-web-ia-sans-coder/page.tsx",
-      "title": "Créer des applications métier BTP avec l’IA | Laure Olivié",
-      "titleFinal": "Créer des applications métier BTP avec l’IA | Laure Olivié",
-      "titleLen": 58,
-      "segLen": 43,
+      "url": "/formations/assistants-ia-personnalises-btp",
+      "file": "app/formations/assistants-ia-personnalises-btp/page.tsx",
+      "title": "—",
+      "titleFinal": "—",
+      "titleLen": 0,
+      "segLen": 0,
       "desc": "—",
       "descLen": 0,
       "problems": [
+        "title source non extrait",
+        "description source non extraite"
+      ],
+      "helper": true,
+      "finalFlag": false
+    },
+    {
+      "url": "/formations/developpement-web-ia-sans-coder",
+      "file": "app/formations/developpement-web-ia-sans-coder/page.tsx",
+      "title": "—",
+      "titleFinal": "—",
+      "titleLen": 0,
+      "segLen": 0,
+      "desc": "—",
+      "descLen": 0,
+      "problems": [
+        "title source non extrait",
         "description source non extraite"
       ],
       "helper": true,
