@@ -14,11 +14,11 @@ export function AvisClientsLeaveReviewCta() {
             id="laisser-avis-google-title"
             className="font-display text-2xl font-bold text-slate-900 md:text-2xl"
           >
-            Vous avez participé à l&apos;une de mes formations&nbsp;?
+            Laisser un avis Google
           </h2>
           <p className="mt-4 text-slate-600 md:text-lg">
-            Votre retour m&apos;aide à faire connaître des formations IA directement applicables aux
-            métiers du BTP et aux besoins des entreprises.
+            Vous avez suivi une session en entreprise&nbsp;? Votre retour sur Google aide d&apos;autres
+            professionnels du BTP à choisir une formation IA concrète et applicable sur le terrain.
           </p>
           <a
             href={SCHEMA_GOOGLE_REVIEW_SUBMIT_URL}

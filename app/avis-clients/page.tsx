@@ -1,18 +1,15 @@
-import { ExternalLink } from 'lucide-react';
-import { Reveal } from '@/components/motion/Reveal';
+import Link from 'next/link';
 import { GoogleReviewsGrid } from '@/components/avis-clients/GoogleReviewsGrid';
 import { AvisGoogleSection } from '@/components/avis-clients/AvisGoogleSection';
 import { AvisClientsLeaveReviewCta } from '@/components/avis-clients/AvisClientsLeaveReviewCta';
 import { AvisClientsReassurance } from '@/components/avis-clients/AvisClientsReassurance';
 import { AvisClientsFinalCta } from '@/components/avis-clients/AvisClientsFinalCta';
-import { StarRating } from '@/components/avis-clients/StarRating';
+import { Reveal } from '@/components/motion/Reveal';
 import { createPageMetadata } from '@/lib/seo';
 import { LINKS } from '@/lib/internal-links';
 import { getAvisClientsPageData } from '@/lib/google-reviews-page';
-import { formatRating } from '@/lib/google-reviews';
 import { SCHEMA_GOOGLE_REVIEWS_VIEW_URL } from '@/lib/schema-constants';
 import {
-  OFC_CTA_PRIMARY,
   OFC_TYPE_HERO,
   OFC_TYPE_LABEL,
   OFC_TYPE_LEAD,
@@ -45,34 +42,27 @@ export default async function AvisClientsPage() {
             <p className={OFC_TYPE_LABEL}>PREUVE SOCIALE GOOGLE</p>
             <h1 className={`${OFC_TYPE_HERO} mt-3`}>Avis clients sur mes formations IA</h1>
             <p className={`${OFC_TYPE_LEAD} mt-6 max-w-3xl text-slate-600`}>
-              Découvrez les retours des entreprises, professionnels et participants que
-              j&apos;accompagne dans l&apos;utilisation concrète de l&apos;intelligence artificielle.
+              Retours authentiques de professionnels du BTP et de dirigeants formés à l&apos;IA en
+              présentiel en Île-de-France —{' '}
+              <Link href={LINKS.formationIaBtp} className="font-medium text-[var(--accent)] hover:underline">
+                formation IA BTP
+              </Link>
+              ,{' '}
+              <Link
+                href={LINKS.formationIaConducteurDeTravaux}
+                className="font-medium text-[var(--accent)] hover:underline"
+              >
+                parcours conducteur de travaux
+              </Link>{' '}
+              et{' '}
+              <Link
+                href={LINKS.formationIaDirigeantPmeBtp}
+                className="font-medium text-[var(--accent)] hover:underline"
+              >
+                dirigeants de PME
+              </Link>
+              .
             </p>
-          </Reveal>
-
-          {google ? (
-            <Reveal className="mt-8">
-              <div className="inline-flex flex-col gap-2 rounded-2xl border border-slate-200/80 bg-white px-6 py-5 shadow-sm">
-                <StarRating rating={google.aggregate.rating} size={22} />
-                <p className="text-2xl font-bold text-[var(--accent)]">
-                  {formatRating(google.aggregate.rating)}/5 sur Google
-                </p>
-                <p className="text-sm text-slate-600">{google.aggregate.total} avis</p>
-              </div>
-            </Reveal>
-          ) : null}
-
-          <Reveal className="mt-8">
-            <a
-              href={mapsUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Voir tous les avis Google (ouvre un nouvel onglet)"
-              className={`${OFC_CTA_PRIMARY} inline-flex w-full items-center justify-center gap-2 sm:w-auto`}
-            >
-              Voir tous les avis Google
-              <ExternalLink size={18} strokeWidth={1.5} aria-hidden="true" />
-            </a>
           </Reveal>
         </div>
       </section>
@@ -90,12 +80,8 @@ export default async function AvisClientsPage() {
           <div className={OFC_SECTION_INNER}>
             <Reveal>
               <h2 className="font-display text-2xl font-bold text-slate-900 md:text-2xl">
-                Autres témoignages
+                Autres témoignages complémentaires
               </h2>
-              <p className="mt-4 max-w-3xl text-slate-600 md:text-lg">
-                Témoignages complémentaires de professionnels du BTP formés à l&apos;intelligence
-                artificielle en présentiel avec Laure Olivié.
-              </p>
             </Reveal>
             <div className="mt-10">
               <GoogleReviewsGrid reviews={additionalReviews} />

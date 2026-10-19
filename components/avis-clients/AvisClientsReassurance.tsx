@@ -1,6 +1,8 @@
 import { Award, Building2, HardHat, Sparkles } from 'lucide-react';
 import { Reveal } from '@/components/motion/Reveal';
+import Link from 'next/link';
 import { IDF_ZONE_INTERVENTION } from '@/lib/constants';
+import { LINKS } from '@/lib/internal-links';
 import { OFC_BENEFIT_CARD } from '@/lib/ofc-interaction-classes';
 import { OFC_SEC, OFC_SECTION_INNER } from '@/lib/ofc-section-classes';
 
@@ -36,10 +38,30 @@ export function AvisClientsReassurance() {
             Des formations IA pensées pour les métiers du BTP
           </h2>
           <p className="mt-4 max-w-3xl text-slate-600 md:text-lg">
-            Les formations sont conçues autour de situations professionnelles concrètes : devis, appels
-            d&apos;offres, analyse de DCE, comptes rendus de chantier, suivi de travaux, documents
-            contractuels, plannings et automatisation des tâches administratives — animées en présentiel
-            en Île-de-France.
+            Les{' '}
+            <Link href={LINKS.formations} className="font-medium text-[var(--accent)] hover:underline">
+              formations IA BTP
+            </Link>{' '}
+            couvrent devis, appels d&apos;offres, analyse de DCE, comptes rendus de chantier et
+            automatisation administrative — en présentiel en Île-de-France, avec des parcours dédiés{' '}
+            <Link
+              href={LINKS.formationIaConducteurDeTravaux}
+              className="font-medium text-[var(--accent)] hover:underline"
+            >
+              conducteurs de travaux
+            </Link>
+            ,{' '}
+            <Link
+              href={LINKS.formationIaDirigeantPmeBtp}
+              className="font-medium text-[var(--accent)] hover:underline"
+            >
+              dirigeants de PME
+            </Link>{' '}
+            et{' '}
+            <Link href={LINKS.formationIaParis} className="font-medium text-[var(--accent)] hover:underline">
+              sessions à Paris
+            </Link>
+            .
           </p>
         </Reveal>
 

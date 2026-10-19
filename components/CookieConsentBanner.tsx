@@ -49,7 +49,8 @@ export function CookieConsentBanner() {
           </p>
           <p id="cookie-consent-desc" className="mt-1 text-sm leading-snug text-slate-600">
             Nous utilisons des cookies nécessaires au site et, avec votre accord, des services tiers
-            (Calendly pour la prise de rendez-vous, mesure d’audience).{' '}
+            (Calendly pour la prise de rendez-vous, widget d’avis Google via Elfsight, mesure
+            d’audience).{' '}
             <Link href={LINKS.politiqueConfidentialite} className="font-medium text-[var(--accent)] hover:underline">
               Politique de confidentialité
             </Link>

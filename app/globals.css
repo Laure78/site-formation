@@ -2118,3 +2118,16 @@
     height: 100% !important;
   }
 }
+
+/* Page /avis-clients — conteneur widget Elfsight Google Reviews (charte OFC) */
+.avis-clients-elfsight-root {
+  @apply w-full;
+}
+
+.avis-clients-elfsight-mount {
+  @apply overflow-hidden rounded-2xl;
+}
+
+.avis-clients-elfsight-mount:not(:empty) {
+  @apply border border-slate-200/80 bg-white shadow-sm;
+}
