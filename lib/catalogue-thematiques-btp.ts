@@ -167,8 +167,4 @@ export const CATALOGUE_PROPOSITIONS_NON_PUBLIEES = [
     title: 'Gagner du temps dans la gestion administrative BTP avec l’IA',
     note: 'Couvert en partie par NIV-01 et landings administratif — pas de nouvelle fiche sans programme PDF.',
   },
-  {
-    title: 'Créer ses assistants IA métier pour le BTP (7 h dédiée)',
-    note: 'NIV-09 retirée du catalogue public — préférer NIV-04 (Maîtriser Claude) pour les assistants.',
-  },
 ] as const;

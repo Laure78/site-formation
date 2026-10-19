@@ -16,7 +16,7 @@ export const TARIF_PARTICIPANT_NIV03_HT = TARIF_PARTICIPANT_NIV02_HT;
 export const TARIF_PARTICIPANT_NIV04_HT = TARIF_PARTICIPANT_NIV02_HT;
 export const TARIF_PARTICIPANT_NIV05_HT = TARIF_PARTICIPANT_NIV02_HT;
 
-/** @deprecated NIV-09 hors catalogue public 2027 — conservé pour données historiques. */
+/** NIV-09 — assistants IA personnalisés (7 h). */
 export const TARIF_PARTICIPANT_NIV09_HT = TARIF_PARTICIPANT_NIV02_HT;
 
 /** NUM-04 / NIV-10 — variante 7 h. */

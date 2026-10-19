@@ -108,8 +108,8 @@ export const MAPPING_LEGACY_VERS_2027: readonly LegacyOfferMapping[] = [
     legacySlug: 'assistants-ia-personnalises-btp',
     legacyTitre: 'Créer des assistants IA personnalisés',
     nouveauCode: null,
-    urlRetenue: '/formations',
-    action: 'conserver-hors-perimetre',
-    notes: 'Déjà retiré du catalogue public — hors 35 modules.',
+    urlRetenue: '/formations/assistants-ia-personnalises-btp',
+    action: 'renommer-et-mettre-a-jour',
+    notes: '7 h — 310 € HT/part. Fiche catalogue NIV-09 réintégrée.',
   },
 ] as const;

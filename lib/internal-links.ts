@@ -154,15 +154,11 @@ export const LINKS = {
   formationIaMaitriseOeuvre: '/formations/ia-maitrise-oeuvre',
   pdfProgrammeIaMaitriseOeuvre:
     '/formations/ia-maitrise-oeuvre/programme_OFC_NIV-05_IA_Maitrise_oeuvre_20261017.pdf',
-  /**
-   * @deprecated Page retirée (2026-10-08) — 301 → `/formations`.
-   * Ancienne URL : `/formations/assistants-ia-personnalises-btp` (NIV-09).
-   */
-  formationAssistantsIaPersonnalisesBtp: '/formations',
-  /** PDF programme NIV-09 conservé (téléchargement direct). */
+  /** NIV-09 — Créer des assistants IA personnalisés pour le BTP (catalogue) */
+  formationAssistantsIaPersonnalisesBtp: '/formations/assistants-ia-personnalises-btp',
   pdfProgrammeAssistantsIaPersonnalisesBtp:
     '/formations/assistants-ia-personnalises-btp/programme_OFC_AssistantsIA_BTP_intra_7h.pdf',
-  /** Ancienne URL fiche NIV-09 — pour redirects uniquement. */
+  /** @deprecated Alias — préférer formationAssistantsIaPersonnalisesBtp */
   formationAssistantsIaPersonnalisesBtpLegacy: '/formations/assistants-ia-personnalises-btp',
   /** NIV-10 — Créer des applications métier BTP avec l’IA */
   formationDeveloppementWebIaSansCoder: '/formations/developpement-web-ia-sans-coder',

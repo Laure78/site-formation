@@ -53,7 +53,11 @@ const RELATED_BY_REF: Record<FormationCatalogueCode, readonly RelatedCatalogueFo
   'NIV-06': [card('NIV-02', 'Préparer le chiffrage depuis le DCE.'), card('NIV-01', 'Bases IA.'), card('NIV-08', 'Assistants métré et devis.')],
   'NIV-07': [card('NIV-08', 'Assistants personnalisés.'), card('NIV-02', 'Appels d’offres.'), card('NIV-01', 'Bases IA.')],
   'NIV-08': [card('NIV-01', 'Prérequis — bases IA BTP.'), card('NIV-02', 'Appels d’offres et DCE.'), card('NIV-03', 'Chantier et DOE.')],
-  'NIV-09': [card('NIV-08', 'Assistants IA.'), card('NIV-07', 'Applications métier niveau 2.'), card('NIV-01', 'Bases IA.')],
+  'NIV-09': [
+    card('NIV-04', 'Industrialiser Claude, Projects et consignes réutilisables.'),
+    card('NIV-01', 'Bases IA — prérequis recommandé.'),
+    card('NIV-10', 'Passer à une application métier sur mesure.'),
+  ],
   'NIV-10': [
     {
       href: LINKS.formationIaBtpNiveau1BatimentTp,

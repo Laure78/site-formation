@@ -1,5 +1,5 @@
 import type { LucideIcon } from 'lucide-react';
-import { Building2, Code2, FileText, HardHat, Landmark } from 'lucide-react';
+import { Building2, Code2, Cpu, FileText, HardHat, Landmark } from 'lucide-react';
 import { DEV_WEB_IA_FORMATION_TITRE_COURT } from '@/lib/formation-developpement-web-ia-labels';
 import { LINKS } from '@/lib/internal-links';
 import { isFormationCataloguePublished } from '@/lib/formation-catalogue-visibility';
@@ -67,6 +67,11 @@ const ALL_CATALOGUE_FORMATIONS_NAV_LINKS: CatalogueFormationNavLink[] = [
     href: LINKS.formationIaMaitriseOeuvre,
     label: "IA et maîtrise d'œuvre",
     icon: Landmark,
+  },
+  {
+    href: LINKS.formationAssistantsIaPersonnalisesBtp,
+    label: 'Assistants IA personnalisés',
+    icon: Cpu,
   },
   {
     href: LINKS.formationDeveloppementWebIaSansCoder,

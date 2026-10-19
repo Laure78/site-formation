@@ -116,9 +116,11 @@ export const PROMO_BANNER_INFORMATIONAL = {
   /** Titre court à gauche ; vide = message seul sur toute la largeur. */
   title: '',
   messageSegments: [
-    { text: 'Nouveauté 2027 : découvrez nos parcours métiers BTP. Profitez de ' },
-    { text: '−20 %', emphasis: true },
-    { text: ' sur les formations réservées.' },
+    { text: 'Nos nouveaux parcours métiers IA BTP ouvrent en ' },
+    { text: '2027', emphasis: true },
+    { text: '. Bénéficiez de ' },
+    { text: '20 % de réduction', emphasis: true },
+    { text: ' sur vos formations réservées.' },
   ] satisfies readonly PromoBannerInformationalSegment[],
   ctaLabel: 'Je choisis ma formation',
   ctaHref: LINKS.formationsIaDisponibles,
