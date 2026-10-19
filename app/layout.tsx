@@ -12,13 +12,6 @@ import { GlobalSitelinksJsonLd } from '@/components/schema/GlobalSitelinksJsonLd
 import { GlobalSiteJsonLd } from '@/components/schema/GlobalSiteJsonLd';
 import { GlobalBreadcrumbs } from '@/components/layout/GlobalBreadcrumbs';
 import { SiteSearchProvider } from '@/components/search/SiteSearchProvider';
-const SitelinksHub = dynamic(
-  () =>
-    import('@/components/layout/SitelinksHub').then((mod) => ({
-      default: mod.SitelinksHub,
-    })),
-);
-
 const FormationCalendlyInlineGate = dynamic(
   () =>
     import('@/components/FormationCalendlyInlineGate').then((mod) => ({
@@ -196,7 +189,6 @@ export default function RootLayout({
           {children}
           <FormationCalendlyInlineGate />
         </main>
-        <SitelinksHub />
         <Footer />
         <DeferredLayoutWidgets />
       </body>

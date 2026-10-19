@@ -22,8 +22,9 @@ export function AccueilHeroSection() {
               Formations IA pour les entreprises du BTP en Île-de-France
             </h1>
             <p className={`${OFC_TYPE_LEAD} mt-2 max-w-xl text-[0.9375rem] leading-[1.55] text-ofc-ink md:text-base`}>
-              ChatGPT et Claude au service de vos devis, DCE, comptes rendus et plannings — en
-              présentiel, par métier et par niveau.
+              Apprenez à utiliser ChatGPT et Claude pour préparer vos devis, analyser vos appels
+              d’offres et simplifier le suivi de chantier. Des formations pratiques, en présentiel,
+              adaptées à votre métier et à votre niveau.
             </p>
             <div className="mt-4 flex flex-col gap-2.5 sm:flex-row sm:flex-wrap">
               <Link
