@@ -7,7 +7,7 @@ import { AUTHOR_HEADSHOT_IMAGE_CLASS } from '@/lib/author-headshot';
 import { IMAGE_QUALITY_DEFAULT } from '@/lib/image-props';
 import { usePathname } from 'next/navigation';
 import { useEffect, useRef, useState } from 'react';
-import { Building2, Menu, X, GraduationCap, Layers, Users, Wallet } from 'lucide-react';
+import { BookOpen, Building2, Menu, X, GraduationCap, Layers, Users, Wallet } from 'lucide-react';
 import { SITE } from '@/lib/site';
 import { useHeaderNavDesktopHover } from '@/hooks/useHeaderNavDesktopHover';
 import { getHeaderNav, headerNavItemHasPanel } from '@/lib/header-nav';
@@ -33,6 +33,7 @@ const HeaderMobileDrawer = dynamic(
 const MOBILE_NAV_ICON: Record<string, LucideIcon> = {
   formations: GraduationCap,
   formateurs: Users,
+  'etudes-cas': BookOpen,
   financement: Wallet,
   ressources: Layers,
   organisme: Building2,

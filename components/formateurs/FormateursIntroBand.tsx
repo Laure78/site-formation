@@ -34,14 +34,16 @@ function FormateurIntroCard({ formateur, portraitPriority = false }: FormateurIn
 
   return (
     <article
-      className={cn(OFC_CARD, 'formateurs-intro-card flex min-w-0 flex-row gap-3 p-4 md:flex-col md:gap-4 md:p-5')}
+      className={cn(
+        OFC_CARD,
+        'formateurs-intro-card flex min-w-0 flex-col gap-3 p-4 sm:flex-row sm:items-start sm:gap-4 sm:p-5',
+      )}
       aria-labelledby={`${listId}-name`}
     >
-      <div className="shrink-0 md:mx-0">
+      <div className="shrink-0">
         <FormateurPortraitView
           portrait={formateur.portrait}
-          size="xs"
-          shape="circle"
+          shape="portrait"
           priority={portraitPriority}
         />
       </div>

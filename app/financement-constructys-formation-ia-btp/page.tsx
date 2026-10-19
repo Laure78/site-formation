@@ -10,7 +10,6 @@ import {
   FinancementConstructysHero,
   FinancementConstructysCta,
 } from '@/components/financement/FinancementConstructysHero';
-import { FinancementCircuitPaiementAlert } from '@/components/financement/constructys/FinancementCircuitPaiementAlert';
 import { FinancementEssentielSection } from '@/components/financement/constructys/FinancementEssentielSection';
 import { FinancementEstimationCards } from '@/components/financement/constructys/FinancementEstimationCards';
 import { FinancementCircuitPaiementTable } from '@/components/financement/constructys/FinancementCircuitPaiementTable';
@@ -54,9 +53,8 @@ export default function FinancementConstructysPage() {
 
       <FinancementConstructysHero />
 
-      <div className="mx-auto max-w-[80rem] px-4 pb-20 sm:px-6 lg:px-8">
-        <div className="space-y-16 md:space-y-20">
-          <FinancementCircuitPaiementAlert />
+      <div className="financement-constructys-body mx-auto max-w-[80rem] px-4 pb-20 sm:px-6 lg:px-8">
+        <div className="space-y-10 md:space-y-14">
           <FinancementEssentielSection />
           <FinancementEstimationCards />
           <FinancementCircuitPaiementTable />

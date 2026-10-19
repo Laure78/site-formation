@@ -12,32 +12,41 @@ import {
   OFC_TYPE_HERO,
   OFC_TYPE_LEAD,
 } from '@/lib/ofc-interaction-classes';
-import { OFC_SEC } from '@/lib/ofc-section-classes';
+import { FinancementCircuitPaiementAlert } from '@/components/financement/constructys/FinancementCircuitPaiementAlert';
+import { ofcSectionClasses } from '@/lib/ofc-section-classes';
 
 const ANCHOR_ETAPES = '#etapes-financement';
 
 export function FinancementConstructysHero() {
   const photo = PHOTOS.financementConstructysHero2026;
 
+  const heroSection = ofcSectionClasses({
+    tone: 'muted',
+    size: 'hero',
+    mesh: true,
+    divide: true,
+    heroBg: true,
+  });
+
   return (
     <section
-      className={`${OFC_SEC.hero} relative overflow-hidden`}
+      className={`${heroSection} financement-constructys-hero relative overflow-hidden`}
       aria-labelledby="financement-hero-title"
     >
-      <div className="relative mx-auto grid max-w-[80rem] items-center gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(280px,420px)] lg:gap-14">
-        <div className="min-w-0 text-center lg:text-left">
-          <Badge className="mx-auto lg:mx-0">Financement OPCO · Constructys · 2026</Badge>
-          <h1 id="financement-hero-title" className={`${OFC_TYPE_HERO} mt-5`}>
+      <div className="relative mx-auto flex max-w-[80rem] flex-col gap-5 md:gap-6 lg:grid lg:grid-cols-[minmax(0,1fr)_minmax(240px,400px)] lg:grid-rows-[auto_auto] lg:items-start lg:gap-x-8 lg:gap-y-5">
+        <div className="order-1 min-w-0 text-center lg:col-start-1 lg:row-start-1 md:text-left">
+          <Badge className="mx-auto md:mx-0">Financement OPCO · Constructys · 2026</Badge>
+          <h1 id="financement-hero-title" className={`${OFC_TYPE_HERO} mt-3`}>
             {FINANCEMENT_PAGE_H1}
           </h1>
-          <p className={`${OFC_TYPE_LEAD} mx-auto mt-5 max-w-2xl text-ofc-ink-muted lg:mx-0`}>
+          <p className={`${OFC_TYPE_LEAD} mx-auto mt-3 max-w-2xl text-ofc-ink-muted md:mx-0`}>
             Plafonds, délai de dépôt, reste à charge et circuit de remboursement selon les modalités
             Constructys en vigueur.
           </p>
-          <p className="mt-3 text-sm font-medium text-ofc-ink-subtle">
+          <p className="mt-2 text-sm font-medium text-ofc-ink-subtle">
             OFC certifié Qualiopi · Programme et devis fournis · Île-de-France
           </p>
-          <div className="mt-8 flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:items-center lg:justify-start">
+          <div className="mt-5 flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:items-center md:justify-start">
             <Link
               href={LINKS.contact}
               className={`${OFC_CTA_PRIMARY} inline-flex min-h-11 items-center justify-center gap-2 px-6 py-3`}
@@ -55,7 +64,11 @@ export function FinancementConstructysHero() {
           </div>
         </div>
 
-        <figure className="mx-auto w-full max-w-md lg:mx-0 lg:max-w-none">
+        <div className="order-2 lg:col-span-2 lg:row-start-2">
+          <FinancementCircuitPaiementAlert />
+        </div>
+
+        <figure className="order-3 mx-auto w-full max-w-sm md:max-w-md lg:col-start-2 lg:row-start-1 lg:mx-0 lg:max-w-none">
           <div className="ofc-card overflow-hidden bg-white/95 p-1.5">
             <Image
               src={photo.src}
@@ -65,11 +78,11 @@ export function FinancementConstructysHero() {
               height={photo.height}
               priority
               className="h-auto w-full rounded-[1.05rem] object-cover"
-              sizes="(max-width: 1024px) 90vw, 420px"
+              sizes="(max-width: 768px) 85vw, (max-width: 1024px) 40vw, 400px"
               quality={75}
             />
           </div>
-          <figcaption className="mt-3 text-center text-sm leading-relaxed text-ofc-ink-muted lg:text-left">
+          <figcaption className="mt-2 hidden text-sm leading-snug text-ofc-ink-muted md:block lg:text-left">
             {photo.description}
           </figcaption>
         </figure>

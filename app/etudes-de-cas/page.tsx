@@ -35,6 +35,13 @@ export default function EtudesDeCasHubPage() {
           <p className="mt-6 max-w-3xl text-base leading-relaxed text-slate-700 md:text-lg">
             {ETUDES_DE_CAS_HUB_INTRO}
           </p>
+          <p className="mt-4 max-w-3xl text-sm leading-relaxed text-slate-600 md:text-base">
+            Les références institutionnelles citées (FFB, CSFE…) sont détaillées sur la page{' '}
+            <Link href={LINKS.partenaires} className="font-semibold text-[#377CF3] hover:underline">
+              Nos partenaires
+            </Link>
+            .
+          </p>
           <div className="mt-8">
             <RdvLink className="rounded-xl bg-[var(--accent)] px-6 py-3 font-semibold text-white hover:bg-blue-600" />
           </div>

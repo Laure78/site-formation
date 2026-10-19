@@ -90,8 +90,6 @@ function ressourcesNavActive(pathname: string): boolean {
     pathname === LINKS.outilsIaBtp ||
     pathname.startsWith(`${LINKS.outilsIaBtp}/`) ||
     pathname === LINKS.casUsageIaMetierBtp ||
-    pathname === LINKS.etudesCasHub ||
-    pathname.startsWith(`${LINKS.etudesCasHub}/`) ||
     pathname === LINKS.diagnostic ||
     pathname === LINKS.checklist
   );
@@ -103,6 +101,10 @@ function formateursNavActive(pathname: string): boolean {
 
 function financementNavActive(pathname: string): boolean {
   return pathname === LINKS.financement || pathname.startsWith(`${LINKS.financement}/`);
+}
+
+function etudesCasNavActive(pathname: string): boolean {
+  return pathname === LINKS.etudesCasHub || pathname.startsWith(`${LINKS.etudesCasHub}/`);
 }
 
 /** État actif rubrique « Notre organisme » (menu principal). */
@@ -146,6 +148,12 @@ function buildHeaderNavItems(at: Date = new Date()): readonly HeaderNavItem[] {
       label: 'Nos formateurs',
       href: LINKS.formateurs,
       isActive: formateursNavActive,
+    },
+    {
+      id: 'etudes-cas',
+      label: 'Études de cas',
+      href: LINKS.etudesCasHub,
+      isActive: etudesCasNavActive,
     },
     {
       id: 'financement',

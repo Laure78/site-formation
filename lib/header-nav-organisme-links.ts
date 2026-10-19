@@ -17,8 +17,8 @@ export const UTILITY_ORGANISME_NAV_LINKS: readonly HeaderNavLink[] = [
   },
   {
     href: LINKS.partenaires,
-    label: 'Partenaires',
-    title: 'Partenaires OFC',
+    label: 'Nos partenaires',
+    title: 'Partenaires et références OFC',
   },
   {
     href: LINKS.avisClients,

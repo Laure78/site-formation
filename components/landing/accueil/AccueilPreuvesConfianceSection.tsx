@@ -84,7 +84,13 @@ export function AccueilPreuvesConfianceSection() {
               </li>
             ))}
           </ul>
-          <p className="mt-4 text-sm">
+          <p className="mt-4 flex flex-wrap gap-x-4 gap-y-2 text-sm">
+            <Link href={LINKS.partenaires} className={`${OFC_LINK} font-semibold`}>
+              Nos partenaires
+            </Link>
+            <Link href={LINKS.etudesCasHub} className={`${OFC_LINK} font-semibold`}>
+              Voir les études de cas
+            </Link>
             <Link href={LINKS.avisClients} className={`${OFC_LINK} font-semibold`}>
               Lire les avis clients
             </Link>

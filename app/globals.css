@@ -1331,7 +1331,7 @@
 
   /* ——— Navigation header — triggers, dropdowns, mobile ——— */
   .header-nav-trigger {
-    @apply inline-flex min-h-11 w-auto items-stretch rounded-xl text-sm font-medium transition-all duration-150 motion-reduce:transition-none xl:min-h-12 xl:text-[0.9375rem] 2xl:text-base;
+    @apply inline-flex min-h-11 w-auto items-stretch rounded-xl text-[0.8125rem] font-medium transition-all duration-150 motion-reduce:transition-none lg:min-h-[2.625rem] xl:min-h-12 xl:text-[0.9375rem] 2xl:text-base;
   }
 
   .header-nav-trigger--idle {
@@ -1351,7 +1351,7 @@
   }
 
   .header-nav-trigger--simple .header-nav-trigger__link {
-    @apply rounded-xl px-3.5 xl:px-4 2xl:px-5;
+    @apply rounded-xl px-2.5 lg:px-2 xl:px-3.5 2xl:px-4;
   }
 
   .header-nav-trigger__toggle {
@@ -1941,27 +1941,26 @@
 
   /* Hub /formateurs — hero épuré, cartes statiques, filtre catalogue */
   .formateurs-hub-hero {
-    padding-top: 1.25rem;
-    padding-bottom: 1.75rem;
+    padding-top: 0.75rem;
+    padding-bottom: 1.25rem;
   }
 
   @media (min-width: 768px) {
     .formateurs-hub-hero {
-      padding-top: 1.75rem;
-      padding-bottom: 2.25rem;
+      padding-top: 1rem;
+      padding-bottom: 1.5rem;
     }
   }
 
   .formateurs-hub-hero__intro {
-    margin-top: 2rem;
-    padding-top: 2rem;
-    border-top: 1px solid var(--ofc-color-border);
+    margin-top: 1.25rem;
+    padding-top: 0;
+    border-top: none;
   }
 
   @media (min-width: 768px) {
     .formateurs-hub-hero__intro {
-      margin-top: 2.5rem;
-      padding-top: 2.5rem;
+      margin-top: 1.5rem;
     }
   }
 
@@ -1970,8 +1969,8 @@
   }
 
   .formateurs-hub-hero__title {
-    margin-top: 0.75rem;
-    font-size: 2rem;
+    margin-top: 0.5rem;
+    font-size: 1.75rem;
     line-height: 1.2;
   }
 
@@ -1983,23 +1982,23 @@
   }
 
   .formateurs-hub-hero__lead {
-    margin-top: 1.25rem;
-    font-size: 1.0625rem;
-    line-height: 1.55;
+    margin-top: 0.75rem;
+    font-size: 1rem;
+    line-height: 1.5;
   }
 
   .formateurs-hub-hero__actions {
-    margin-top: 1.75rem;
+    margin-top: 1.25rem;
   }
 
   .formateurs-hub-profiles-section {
-    padding-top: 1.5rem;
+    padding-top: 1rem;
     padding-bottom: 2.5rem;
   }
 
   @media (min-width: 768px) {
     .formateurs-hub-profiles-section {
-      padding-top: 2rem;
+      padding-top: 1.25rem;
       padding-bottom: 3rem;
     }
   }
@@ -2024,6 +2023,29 @@
     transform: none;
     box-shadow: none;
     border-color: var(--ofc-color-border);
+  }
+
+  /* Page financement Constructys — hero plus compact, contenu remonté */
+  .financement-constructys-hero {
+    --ofc-section-py: 0.875rem;
+    --ofc-section-py-md: 1.25rem;
+    --ofc-section-py-lg: 1.5rem;
+    --ofc-section-py-xl: 1.75rem;
+  }
+
+  .financement-constructys-hero .ofc-type-hero {
+    font-size: clamp(1.625rem, 1.15rem + 1.5vw, 2.375rem);
+    line-height: 1.15;
+  }
+
+  .financement-constructys-body {
+    padding-top: 1.25rem;
+  }
+
+  @media (min-width: 768px) {
+    .financement-constructys-body {
+      padding-top: 1.5rem;
+    }
   }
 }
 

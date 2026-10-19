@@ -89,12 +89,17 @@ export default function FormateursPage() {
             Spécialités et formations animées pour le bâtiment et les travaux publics — présentiel
             Île-de-France.
           </p>
+
+          <div className="formateurs-hub-hero__intro">
+            <FormateursIntroBand formateurs={formateurs} />
+          </div>
+
           <div className="formateurs-hub-hero__actions flex flex-col gap-3 sm:flex-row sm:flex-wrap">
             <Link
               href="#formateurs-profiles"
               className={`${OFC_CTA_PRIMARY} ${FORMATEURS_CTA} !rounded-xl shadow-none hover:shadow-sm`}
             >
-              Découvrir les profils
+              Profils et programmes détaillés
             </Link>
             <Link
               href={LINKS.formations}
@@ -102,10 +107,6 @@ export default function FormateursPage() {
             >
               Voir les formations
             </Link>
-          </div>
-
-          <div className="formateurs-hub-hero__intro">
-            <FormateursIntroBand formateurs={formateurs} />
           </div>
         </div>
       </section>

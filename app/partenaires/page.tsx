@@ -6,9 +6,7 @@ import {
   PARTENAIRES_PAGE_META_DESCRIPTION,
   PARTENAIRES_PAGE_META_TITLE,
 } from '@/lib/partenaires-references-config';
-import { EvenementAoBtpPromoEncart } from '@/components/evenements/EvenementAoBtpPromoEncart';
 import { PartenairesPageHero } from '@/components/partenaires/PartenairesPageHero';
-import { PartenairesReassuranceBar } from '@/components/partenaires/PartenairesReassuranceBar';
 import { PartenairesReferencesSection } from '@/components/partenaires/PartenairesReferencesSection';
 import { PartenairesInterventionSection } from '@/components/partenaires/PartenairesInterventionSection';
 import { PartenairesParcoursTroisNiveauxSection } from '@/components/partenaires/PartenairesParcoursTroisNiveauxSection';
@@ -48,11 +46,6 @@ export default function PartenairesPage() {
       <JsonLd data={getPartenairesPageJsonLd()} />
 
       <PartenairesPageHero />
-
-      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-        <EvenementAoBtpPromoEncart placement="partenaires" variant="compact" />
-        <PartenairesReassuranceBar stackedBelowPromo />
-      </div>
 
       <div className="mx-auto max-w-6xl space-y-14 px-4 pb-16 pt-10 sm:px-6 lg:px-8 md:pt-12">
         <PartenairesReferencesSection
