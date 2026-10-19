@@ -1,5 +1,5 @@
 /**
- * Sous-menu « Notre organisme » — bandeau utilitaire du header.
+ * Sous-menu « Notre organisme » — menu principal du header.
  */
 import { LINKS } from '@/lib/internal-links';
 import type { HeaderNavLink } from '@/lib/header-nav';

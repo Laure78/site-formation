@@ -7,7 +7,10 @@ import {
   buildUnifiedFormationsMobileNavGroups,
   buildUnifiedFormationsNavMegaColumns,
 } from '@/lib/header-nav-formations-unified';
-import { utilityOrganismeNavActive } from '@/lib/header-nav-organisme-links';
+import {
+  UTILITY_ORGANISME_NAV_LINKS,
+  utilityOrganismeNavActive,
+} from '@/lib/header-nav-organisme-links';
 import { LINKS } from '@/lib/internal-links';
 
 export type HeaderNavLink = {
@@ -102,7 +105,7 @@ function financementNavActive(pathname: string): boolean {
   return pathname === LINKS.financement || pathname.startsWith(`${LINKS.financement}/`);
 }
 
-/** État actif bandeau « Notre organisme » (hors menu principal). */
+/** État actif rubrique « Notre organisme » (menu principal). */
 export function headerUtilityOrganismeIsActive(pathname: string): boolean {
   return utilityOrganismeNavActive(pathname);
 }
@@ -156,6 +159,15 @@ function buildHeaderNavItems(at: Date = new Date()): readonly HeaderNavItem[] {
       href: LINKS.ressources,
       isActive: ressourcesNavActive,
       children: RESSOURCES_NAV_CHILDREN,
+      dropdownAlign: 'end',
+      hideDropdownHeading: true,
+    },
+    {
+      id: 'organisme',
+      label: 'Notre organisme',
+      href: LINKS.aPropos,
+      isActive: utilityOrganismeNavActive,
+      children: UTILITY_ORGANISME_NAV_LINKS,
       dropdownAlign: 'end',
       hideDropdownHeading: true,
     },

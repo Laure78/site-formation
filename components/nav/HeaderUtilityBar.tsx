@@ -3,7 +3,6 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { LogIn, Mail, Search } from 'lucide-react';
-import { HeaderUtilityOrganismeMenu } from '@/components/nav/HeaderUtilityOrganismeMenu';
 import { useSiteSearch } from '@/components/search/SiteSearchProvider';
 import { LINKS } from '@/lib/internal-links';
 
@@ -54,8 +53,6 @@ export function HeaderUtilityBar({ onBeforeOpenSearch }: HeaderUtilityBarProps) 
           <Search className="h-3.5 w-3.5 shrink-0 text-[#377CF3]" strokeWidth={1.75} aria-hidden />
           <span>Rechercher</span>
         </button>
-        <span className="header-utility-divider hidden sm:block" aria-hidden />
-        <HeaderUtilityOrganismeMenu />
         <span className="header-utility-divider hidden sm:block" aria-hidden />
         <Link
           href={LINKS.contact}

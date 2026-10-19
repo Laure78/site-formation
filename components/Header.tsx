@@ -7,7 +7,7 @@ import { AUTHOR_HEADSHOT_IMAGE_CLASS } from '@/lib/author-headshot';
 import { IMAGE_QUALITY_DEFAULT } from '@/lib/image-props';
 import { usePathname } from 'next/navigation';
 import { useEffect, useRef, useState } from 'react';
-import { Menu, X, GraduationCap, Layers, Users, Wallet } from 'lucide-react';
+import { Building2, Menu, X, GraduationCap, Layers, Users, Wallet } from 'lucide-react';
 import { SITE } from '@/lib/site';
 import { useHeaderNavDesktopHover } from '@/hooks/useHeaderNavDesktopHover';
 import { getHeaderNav, headerNavItemHasPanel } from '@/lib/header-nav';
@@ -35,6 +35,7 @@ const MOBILE_NAV_ICON: Record<string, LucideIcon> = {
   formateurs: Users,
   financement: Wallet,
   ressources: Layers,
+  organisme: Building2,
 };
 
 /** Seuil scroll (px) — mode compact avec hysteresis pour éviter les oscillations. */

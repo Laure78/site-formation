@@ -1,10 +1,10 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import type { LucideIcon } from 'lucide-react';
-import { ChevronDown, LogIn, Mail, Search, X } from 'lucide-react';
+import { LogIn, Mail, Search, X } from 'lucide-react';
 import { AUTHOR_HEADSHOT_IMAGE_CLASS } from '@/lib/author-headshot';
 import { IMAGE_QUALITY_DEFAULT } from '@/lib/image-props';
 import { HeaderPrimaryCta } from '@/components/nav/HeaderPrimaryCta';
@@ -13,11 +13,6 @@ import { useSiteSearch } from '@/components/search/SiteSearchProvider';
 import { SITE } from '@/lib/site';
 import { LINKS } from '@/lib/internal-links';
 import { headerNavLinkIsActive, type HeaderNavItem } from '@/lib/header-nav';
-import {
-  UTILITY_ORGANISME_NAV_LINKS,
-  utilityOrganismeNavActive,
-} from '@/lib/header-nav-organisme-links';
-
 type HeaderMobileDrawerProps = {
   headerNav: readonly HeaderNavItem[];
   pathname: string;
@@ -43,7 +38,6 @@ export function HeaderMobileDrawer({
 }: HeaderMobileDrawerProps) {
   const drawerRef = useRef<HTMLDivElement>(null);
   const closeButtonRef = useRef<HTMLButtonElement>(null);
-  const [organismeOpen, setOrganismeOpen] = useState(() => utilityOrganismeNavActive(pathname));
   const { openSearch } = useSiteSearch();
   const espaceHref = `${LINKS.authConnexion}?next=${encodeURIComponent(LINKS.espaceApprenant)}`;
   const contactActive = headerNavLinkIsActive(LINKS.contact, pathname);
@@ -137,42 +131,6 @@ export function HeaderMobileDrawer({
               <Search className="h-[18px] w-[18px] shrink-0 text-[#377CF3]" strokeWidth={1.75} aria-hidden />
               Rechercher
             </button>
-            <div className="mt-1">
-              <button
-                type="button"
-                className={`${MOBILE_UTILITY_BTN} justify-between${
-                  utilityOrganismeNavActive(pathname) ? ' font-semibold text-[#377CF3]' : ''
-                }`}
-                aria-expanded={organismeOpen}
-                onClick={() => setOrganismeOpen((v) => !v)}
-              >
-                <span>Notre organisme</span>
-                <ChevronDown
-                  className={`h-4 w-4 shrink-0 text-slate-400 transition-transform ${organismeOpen ? 'rotate-180' : ''}`}
-                  aria-hidden
-                />
-              </button>
-              {organismeOpen ? (
-                <ul className="mb-1 ml-2 border-l border-slate-100 pl-2">
-                  {UTILITY_ORGANISME_NAV_LINKS.map((link) => {
-                    const linkActive = headerNavLinkIsActive(link.href, pathname);
-                    return (
-                      <li key={link.href}>
-                        <Link
-                          href={link.href}
-                          onClick={onClose}
-                          className={`block min-h-11 rounded-lg px-3 py-2.5 text-sm ${
-                            linkActive ? 'font-semibold text-[#377CF3]' : 'text-slate-700'
-                          }`}
-                        >
-                          {link.label}
-                        </Link>
-                      </li>
-                    );
-                  })}
-                </ul>
-              ) : null}
-            </div>
             <Link
               href={LINKS.contact}
               onClick={onClose}
