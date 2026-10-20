@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { ClipboardList, Sparkles, ShieldCheck } from 'lucide-react';
 import { EtudeCasHubCard } from '@/components/etudes-de-cas/EtudeCasHubCard';
+import { EtudesDeCasReferencesSection } from '@/components/etudes-de-cas/EtudesDeCasReferencesSection';
 import { LINKS } from '@/lib/internal-links';
 import { FormationsFaqSection } from '@/components/formations/FormationsFaqSection';
 import {
@@ -48,6 +49,8 @@ export function EtudesDeCasHubPageContent() {
             ))}
           </div>
 
+          <EtudesDeCasReferencesSection />
+
           <nav
             className="mt-10 flex flex-wrap items-center gap-x-2 gap-y-2 border-t border-slate-200/80 pt-8 text-sm"
             aria-label="Liens utiles — formations et preuves"
@@ -66,13 +69,6 @@ export function EtudesDeCasHubPageContent() {
               </span>
             ))}
           </nav>
-          <p className="mt-4 text-sm text-slate-600">
-            Références institutionnelles (FFB, CSFE…) :{' '}
-            <Link href={LINKS.partenaires} className="font-medium text-[var(--accent)] hover:underline">
-              Nos partenaires
-            </Link>
-            .
-          </p>
         </div>
       </section>
 

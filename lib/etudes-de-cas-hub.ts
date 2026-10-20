@@ -107,6 +107,10 @@ export const ETUDES_DE_CAS_FAQ: readonly FAQItem[] = [
     q: 'Où trouver une formation liée à un cas (CR chantier, appels d’offres) ?',
     a: `Compte rendu vocal : <a href="${LINKS.iaCompteRenduChantier}">IA compte rendu chantier</a>. Marchés : <a href="${LINKS.formationIaAppelsOffresBtp}">formation appels d’offres BTP</a> ou <a href="${LINKS.parcoursMetiers}">parcours métiers</a>.`,
   },
+  {
+    q: 'Quelle différence entre études de cas et références professionnelles ?',
+    a: `Les études de cas décrivent une méthode terrain (problème, étapes, limites). Les références indiquent quels organismes ont confié des interventions — le détail est sur la page <a href="${LINKS.partenaires}">Partenaires et références</a>, sans dupliquer les fiches complètes ici.`,
+  },
 ];
 
 export const ETUDES_DE_CAS_SEO = {

@@ -62,6 +62,14 @@ export default function PartenairesPage() {
           references={autresOrganismes}
         />
 
+        <p className="rounded-xl border border-[#E2E8F0] bg-white px-5 py-4 text-center text-sm leading-relaxed text-[#475569] md:text-base">
+          Pour des retours détaillés sur le terrain (méthodes, limites, formations liées), consultez la page{' '}
+          <Link href={LINKS.etudesCasHub} className="font-semibold text-[#377CF3] hover:underline">
+            Études de cas IA BTP
+          </Link>
+          .
+        </p>
+
         <PartenairesInterventionSection />
         <PartenairesParcoursTroisNiveauxSection />
         <PartenairesCadreSection />
