@@ -1,0 +1,1071 @@
+{
+  "generatedAt": "2026-10-19T20:00:00.919Z",
+  "totals": {
+    "analyzed": 230,
+    "ok": 182,
+    "issues": 48,
+    "exactDuplicates": 67,
+    "similarPairs": 72
+  },
+  "exactDuplicates": [
+    {
+      "urls": [
+        "/a-propos",
+        "/a-propos"
+      ],
+      "preview": "laure olivié, formatrice ia spécialisée btp, ancienne dirigeante de travaux publics. formations clau"
+    },
+    {
+      "urls": [
+        "/acces-admin",
+        "/acces-admin"
+      ],
+      "preview": "accès réservé administrateurs plateforme formation ia pour le btp. connexion requise pour gérer cour"
+    },
+    {
+      "urls": [
+        "/accessibilite-handicap",
+        "/accessibilite-handicap"
+      ],
+      "preview": "aménagements handicap pour suivre une formation ia pour le btp : parcours adapté et référente handic"
+    },
+    {
+      "urls": [
+        "/annuaire-handicap",
+        "/annuaire-handicap"
+      ],
+      "preview": "annuaire handicap : agefiph, mdph, accompagnement. contacts utiles pour les stagiaires en situation "
+    },
+    {
+      "urls": [
+        "/auth/connexion",
+        "/auth/connexion"
+      ],
+      "preview": "connectez-vous à votre espace apprenant ofc : supports et ressources de formation ia pour le btp."
+    },
+    {
+      "urls": [
+        "/avis-clients",
+        "/avis-clients"
+      ],
+      "preview": "consultez les avis google des professionnels et entreprises ayant suivi une formation ia pour le btp"
+    },
+    {
+      "urls": [
+        "/candidatures-spontanees",
+        "/candidatures-spontanees"
+      ],
+      "preview": "déposez une candidature spontanée auprès d’ofc création d’entreprise : emploi, stage, alternance ou "
+    },
+    {
+      "urls": [
+        "/cgv",
+        "/cgv"
+      ],
+      "preview": "cgv des formations ofc : vente, délais, annulations, paiement. organisme certifié qualiopi. à lire a"
+    },
+    {
+      "urls": [
+        "/claude-ai-btp",
+        "/claude-ai-btp"
+      ],
+      "preview": "guide claude ai pour le btp : chat, cowork, code et chrome. prompts chantier, dce et cr. formation i"
+    },
+    {
+      "urls": [
+        "/communaute-formateurs",
+        "/communaute-formateurs"
+      ],
+      "preview": "rejoignez une communauté de formateurs qui partagent prospection et développement d'activité. 4 200+"
+    },
+    {
+      "urls": [
+        "/contact",
+        "/contact"
+      ],
+      "preview": "contactez laure olivié pour devis ou échange : formation ia pour le btp en île-de-france. présentiel"
+    },
+    {
+      "urls": [
+        "/cours/[slug]",
+        "/cours/[slug]"
+      ],
+      "preview": "cours formation ia pour le btp : module pratique présentiel idf, supports qualiopi ofc. constructys "
+    },
+    {
+      "urls": [
+        "/devenez-consultant",
+        "/devenez-consultant"
+      ],
+      "preview": "proposez votre expertise btp et votre pratique de l’ia pour animer des formations en présentiel en î"
+    },
+    {
+      "urls": [
+        "/diagnostic-ia-btp",
+        "/diagnostic-ia-btp"
+      ],
+      "preview": "diagnostic ia btp gratuit : tâches automatisables, cas d'usage prioritaires et parcours adapté. form"
+    },
+    {
+      "urls": [
+        "/emplois/[slug]",
+        "/emplois/[slug]"
+      ],
+      "preview": "offre d’emploi chez ofc création d’entreprise : formation ia pour le btp en présentiel île-de-france"
+    },
+    {
+      "urls": [
+        "/emplois",
+        "/emplois"
+      ],
+      "preview": "offres d’emploi chez ofc création d’entreprise : formation ia pour les professionnels du btp en prés"
+    },
+    {
+      "urls": [
+        "/etudes-de-cas/compte-rendu-vocal-chantier-btp",
+        "/etudes-de-cas/compte-rendu-vocal-chantier-btp"
+      ],
+      "preview": "étude de cas : cr vocal de chantier avec l’ia — pme gros œuvre idf. méthode, gains de temps et valid"
+    },
+    {
+      "urls": [
+        "/etudes-de-cas/ffb-csfe",
+        "/etudes-de-cas/ffb-csfe"
+      ],
+      "preview": "étude de cas ffb et csfe : formation ia pour le btp en fédération, modules et bénéfices terrain. lau"
+    },
+    {
+      "urls": [
+        "/expert-ia-btp",
+        "/expert-ia-btp"
+      ],
+      "preview": "expert ia pour le btp : mémoire technique, appels d'offres, formation bâtiment et travaux publics. l"
+    },
+    {
+      "urls": [
+        "/financement-constructys-formation-ia-btp",
+        "/financement-constructys-formation-ia-btp"
+      ],
+      "preview": "financer votre formation ia btp avec constructys : conditions, plafonds et démarches pas à pas. pris"
+    },
+    {
+      "urls": [
+        "/formateurs",
+        "/formateurs"
+      ],
+      "preview": "formateurs ofc : parcours métiers btp, expériences chantier et modules ia animés en présentiel île-d"
+    },
+    {
+      "urls": [
+        "/formation-claude-ai-batiment",
+        "/formation-claude-ai-batiment"
+      ],
+      "preview": "formation claude ai pour le bâtiment : devis, comptes rendus de chantier et doe sur vos documents. p"
+    },
+    {
+      "urls": [
+        "/formation-claude-ai-travaux-publics",
+        "/formation-claude-ai-travaux-publics"
+      ],
+      "preview": "formation claude ai pour les travaux publics : dce, cctp de marché public, ppsps et métrés. présenti"
+    },
+    {
+      "urls": [
+        "/formation-ia-assistante-travaux",
+        "/formation-ia-assistante-travaux"
+      ],
+      "preview": "formation ia assistante travaux : ppsps, cr, doe et dc4 plus rapides au bureau, sous validation méti"
+    },
+    {
+      "urls": [
+        "/formation-ia-btp",
+        "/formation-ia-btp"
+      ],
+      "preview": "formation ia pour le btp et formation ia bâtiment : claude et chatgpt sur devis, dce et chantier. pr"
+    },
+    {
+      "urls": [
+        "/formation-ia-canalisateur-tp",
+        "/formation-ia-canalisateur-tp"
+      ],
+      "preview": "formation ia pour le btp canalisateur tp : devis, rapports chantier, conformité. qualiopi. financeme"
+    },
+    {
+      "urls": [
+        "/formation-ia-conducteur-de-travaux",
+        "/formation-ia-conducteur-de-travaux"
+      ],
+      "preview": "formation ia conducteur de travaux : comptes rendus, ppsps, doe, analyse cctp et courriers chantier."
+    },
+    {
+      "urls": [
+        "/formation-ia-couvreur-btp",
+        "/formation-ia-couvreur-btp"
+      ],
+      "preview": "formation ia pour le btp : couvreurs-zingueurs en idf — devis toiture, cr chantier, dtu et appels d'"
+    },
+    {
+      "urls": [
+        "/formation-ia-dirigeant-pme-btp",
+        "/formation-ia-dirigeant-pme-btp"
+      ],
+      "preview": "formation ia pour le btp : chefs de tpe — devis, relances clients et prospection. présentiel île-de-"
+    },
+    {
+      "urls": [
+        "/formation-ia-etancheur",
+        "/formation-ia-etancheur"
+      ],
+      "preview": "formation ia étancheur : devis, cctp et mémoires techniques plus structurés, sous relecture métier. "
+    },
+    {
+      "urls": [
+        "/formation-ia-geometre-tp",
+        "/formation-ia-geometre-tp"
+      ],
+      "preview": "formation ia pour le btp — géomètre tp : rapports levés, devis, docs techniques. qualiopi. financeme"
+    },
+    {
+      "urls": [
+        "/formation-ia-gros-oeuvre-btp",
+        "/formation-ia-gros-oeuvre-btp"
+      ],
+      "preview": "formation ia pour le btp — entreprises de gros œuvre : dce, planning et coordination des lots. prése"
+    },
+    {
+      "urls": [
+        "/formation-ia-travaux-publics",
+        "/formation-ia-travaux-publics"
+      ],
+      "preview": "formation ia travaux publics : préparation chantier, vrd, situations et doe. contrôle métier, présen"
+    },
+    {
+      "urls": [
+        "/formations/ia-btp-saint-quentin-en-yvelines",
+        "/formations/ia-btp-saint-quentin-en-yvelines"
+      ],
+      "preview": "formation ia pour le btp à saint-quentin-en-yvelines (78) : chatgpt, devis, cr chantier. qualiopi, c"
+    },
+    {
+      "urls": [
+        "/formations",
+        "/formations"
+      ],
+      "preview": "découvrez les formations ia pour le btp de laure olivié. consultez les programmes, niveaux et durées"
+    },
+    {
+      "urls": [
+        "/formations/plateforme",
+        "/formations/plateforme"
+      ],
+      "preview": "connexion à l’espace apprenant ofc : supports post-session de formation ia pour le btp, réservés aux"
+    },
+    {
+      "urls": [
+        "/formations-linkedin-learning",
+        "/formations-linkedin-learning"
+      ],
+      "preview": "suivez les 2 formations linkedin learning de laure olivié sur l'ia appliquée au btp. en ligne, à la "
+    },
+    {
+      "urls": [
+        "/indicateurs-resultats",
+        "/indicateurs-resultats"
+      ],
+      "preview": "indicateurs de résultats ofc : satisfaction à chaud, méthode de calcul et période. transparence qual"
+    },
+    {
+      "urls": [
+        "/informations-reglementaires",
+        "/informations-reglementaires"
+      ],
+      "preview": "informations réglementaires ofc création d'entreprise, organisme de formation : livret d'accueil, rè"
+    },
+    {
+      "urls": [
+        "/install-pwa",
+        "/install-pwa"
+      ],
+      "preview": "installez l'application formation laure olivié sur mobile : cours et messages sans app store. léger "
+    },
+    {
+      "urls": [
+        "/livret-accueil-stagiaire",
+        "/livret-accueil-stagiaire"
+      ],
+      "preview": "livret d'accueil stagiaire ofc : déroulement, évaluation, accessibilité et contacts. formation ia po"
+    },
+    {
+      "urls": [
+        "/marketing-export/bework/home-journee",
+        "/marketing-export/bework/home-journee"
+      ],
+      "preview": "aperçu interne de la section accueil bework « jour 1 » (non indexée)."
+    },
+    {
+      "urls": [
+        "/mentions-legales",
+        "/mentions-legales"
+      ],
+      "preview": "mentions légales ofc création d'entreprise : éditeur laure olivié, siège guyancourt, hébergeur, rgpd"
+    },
+    {
+      "urls": [
+        "/merci-rdv",
+        "/merci-rdv"
+      ],
+      "preview": "votre rendez-vous est enregistré. vous recevez un email de confirmation avec le lieu et les horaires"
+    },
+    {
+      "urls": [
+        "/messages",
+        "/messages"
+      ],
+      "preview": "échangez en messagerie avec votre formateur sur les modules ia btp. questions de parcours et ressour"
+    },
+    {
+      "urls": [
+        "/outils/cas-usage-ia-btp",
+        "/outils/cas-usage-ia-btp"
+      ],
+      "preview": "cas d'usage ia par métier btp : documents générés, gains de temps, prompts chatgpt et claude. chatgp"
+    },
+    {
+      "urls": [
+        "/outils/demo-cursor-vitrine-ffb",
+        "/outils/demo-cursor-vitrine-ffb"
+      ],
+      "preview": "page démo interne noindex — reconstitution ui pour démonstration cursor. non affiliée à la fédératio"
+    },
+    {
+      "urls": [
+        "/outils/verification-dtu-bework",
+        "/outils/verification-dtu-bework"
+      ],
+      "preview": "espace de test interne sans indexation — rapprochement indicatif lignes de devis btp et familles nf "
+    },
+    {
+      "urls": [
+        "/outils-ia-btp",
+        "/outils-ia-btp"
+      ],
+      "preview": "sélection d’outils d’ia pour le btp : chatgpt (openai), claude (anthropic), usages devis, dce et cha"
+    },
+    {
+      "urls": [
+        "/parcours-metiers",
+        "/parcours-metiers"
+      ],
+      "preview": "parcours formation ia btp par métier : dirigeant, conducteur de travaux, études de prix, moe ou gest"
+    },
+    {
+      "urls": [
+        "/partenaires",
+        "/partenaires"
+      ],
+      "preview": "références ffb, csfe et partenaires : laure olivié anime une formation ia pour le btp concrète auprè"
+    },
+    {
+      "urls": [
+        "/politique-confidentialite",
+        "/politique-confidentialite"
+      ],
+      "preview": "politique confidentialité ofc : données personnelles, rgpd, droits d'accès. informations pour stagia"
+    },
+    {
+      "urls": [
+        "/prendre-rdv",
+        "/prendre-rdv"
+      ],
+      "preview": "réservez 30 min avec laure olivié : formation ia pour le btp, devis, chantiers et appels d’offres. v"
+    },
+    {
+      "urls": [
+        "/prompts-ia-conducteur-travaux",
+        "/prompts-ia-conducteur-travaux"
+      ],
+      "preview": "20 prompts ia conducteur de travaux : cr, ppsps, réserves, courriers moe. copier-coller chatgpt/clau"
+    },
+    {
+      "urls": [
+        "/qualiopi",
+        "/qualiopi"
+      ],
+      "preview": "qualiopi ofc création d’entreprise : certificat actions de formation, nda et preuve publique. format"
+    },
+    {
+      "urls": [
+        "/rdv/[token]",
+        "/rdv/[token]"
+      ],
+      "preview": "modifier ou annuler votre rendez-vous avec laure olivié — formation ia pour le btp."
+    },
+    {
+      "urls": [
+        "/reclamations",
+        "/reclamations"
+      ],
+      "preview": "déposez une réclamation ofc : canaux, délais (48 h et 15 jours ouvrés) et recours. organisme qualiop"
+    },
+    {
+      "urls": [
+        "/reglement-interieur",
+        "/reglement-interieur"
+      ],
+      "preview": "règlement intérieur ofc applicable aux stagiaires : discipline, sécurité, ia et réclamations. qualio"
+    },
+    {
+      "urls": [
+        "/ressources/bibliotheque-skills",
+        "/ressources/bibliotheque-skills"
+      ],
+      "preview": "bibliothèque skills claude gratuits pour le btp : cr, dce, mémoire, ppsps et doe (.skill). formation"
+    },
+    {
+      "urls": [
+        "/ressources/guide-assistants-travaux-ofc",
+        "/ressources/guide-assistants-travaux-ofc"
+      ],
+      "preview": "guide pdf assistants travaux : 12 missions (ppsps, cr, doe, dgd) avec l’ia. formation ia pour le btp"
+    },
+    {
+      "urls": [
+        "/ressources/guide-conducteur-de-travaux/merci",
+        "/ressources/guide-conducteur-de-travaux/merci"
+      ],
+      "preview": "téléchargez votre guide pdf « créez votre 1er skill ia » pour conducteurs de travaux btp."
+    },
+    {
+      "urls": [
+        "/ressources/guide-conducteur-de-travaux",
+        "/ressources/guide-conducteur-de-travaux"
+      ],
+      "preview": "formation ia pour le btp : guide pdf gratuit conducteur de travaux — dce, ppsps, cr, doe. six tutos "
+    },
+    {
+      "urls": [
+        "/ressources/guide-maitrise-oeuvre-ia",
+        "/ressources/guide-maitrise-oeuvre-ia"
+      ],
+      "preview": "guide gratuit maîtrise d'œuvre × ia : 12 missions classées ia/mixte/humain, checklist et méthode. fo"
+    },
+    {
+      "urls": [
+        "/ressources/ia-btp/10-cas-usage-concrets",
+        "/ressources/ia-btp/10-cas-usage-concrets"
+      ],
+      "preview": "dix cas d'usage ia dans le btp avec exemples et roi : devis, appels d’offres, chantier. guide 2026. "
+    },
+    {
+      "urls": [
+        "/ressources/ia-btp",
+        "/ressources/ia-btp"
+      ],
+      "preview": "guides et ressources formation ia pour le btp : cas d'usage, chatgpt, devis automatisés. contenus po"
+    },
+    {
+      "urls": [
+        "/ressources",
+        "/ressources"
+      ],
+      "preview": "guides, tutoriels et prompts ia gratuits pour le btp : analyser un dce, mémoire technique, devis, ch"
+    },
+    {
+      "urls": [
+        "/ressources/tutos",
+        "/ressources/tutos"
+      ],
+      "preview": "tutos pdf ia btp : mémoire technique, dce, duerp et chantier, gratuits, actionnables, sans inscripti"
+    }
+  ],
+  "similarPairs": [
+    {
+      "sim": "0.89",
+      "a": "/blog/comment-utiliser-chatgpt-pour-vos-devis-carreleur",
+      "b": "/blog/comment-utiliser-chatgpt-pour-vos-devis-charpentier"
+    },
+    {
+      "sim": "0.89",
+      "a": "/blog/comment-utiliser-chatgpt-pour-vos-devis-carreleur",
+      "b": "/blog/comment-utiliser-chatgpt-pour-vos-devis-chauffagiste"
+    },
+    {
+      "sim": "0.89",
+      "a": "/blog/comment-utiliser-chatgpt-pour-vos-devis-carreleur",
+      "b": "/blog/comment-utiliser-chatgpt-pour-vos-devis-couvreur"
+    },
+    {
+      "sim": "0.89",
+      "a": "/blog/comment-utiliser-chatgpt-pour-vos-devis-carreleur",
+      "b": "/blog/comment-utiliser-chatgpt-pour-vos-devis-electricien"
+    },
+    {
+      "sim": "0.89",
+      "a": "/blog/comment-utiliser-chatgpt-pour-vos-devis-carreleur",
+      "b": "/blog/comment-utiliser-chatgpt-pour-vos-devis-macon"
+    },
+    {
+      "sim": "0.89",
+      "a": "/blog/comment-utiliser-chatgpt-pour-vos-devis-carreleur",
+      "b": "/blog/comment-utiliser-chatgpt-pour-vos-devis-menuisier"
+    },
+    {
+      "sim": "0.89",
+      "a": "/blog/comment-utiliser-chatgpt-pour-vos-devis-carreleur",
+      "b": "/blog/comment-utiliser-chatgpt-pour-vos-devis-peintre"
+    },
+    {
+      "sim": "0.89",
+      "a": "/blog/comment-utiliser-chatgpt-pour-vos-devis-carreleur",
+      "b": "/blog/comment-utiliser-chatgpt-pour-vos-devis-plombier"
+    },
+    {
+      "sim": "0.89",
+      "a": "/blog/comment-utiliser-chatgpt-pour-vos-devis-charpentier",
+      "b": "/blog/comment-utiliser-chatgpt-pour-vos-devis-chauffagiste"
+    },
+    {
+      "sim": "0.89",
+      "a": "/blog/comment-utiliser-chatgpt-pour-vos-devis-charpentier",
+      "b": "/blog/comment-utiliser-chatgpt-pour-vos-devis-couvreur"
+    },
+    {
+      "sim": "0.89",
+      "a": "/blog/comment-utiliser-chatgpt-pour-vos-devis-charpentier",
+      "b": "/blog/comment-utiliser-chatgpt-pour-vos-devis-electricien"
+    },
+    {
+      "sim": "0.89",
+      "a": "/blog/comment-utiliser-chatgpt-pour-vos-devis-charpentier",
+      "b": "/blog/comment-utiliser-chatgpt-pour-vos-devis-macon"
+    },
+    {
+      "sim": "0.89",
+      "a": "/blog/comment-utiliser-chatgpt-pour-vos-devis-charpentier",
+      "b": "/blog/comment-utiliser-chatgpt-pour-vos-devis-menuisier"
+    },
+    {
+      "sim": "0.89",
+      "a": "/blog/comment-utiliser-chatgpt-pour-vos-devis-charpentier",
+      "b": "/blog/comment-utiliser-chatgpt-pour-vos-devis-peintre"
+    },
+    {
+      "sim": "0.89",
+      "a": "/blog/comment-utiliser-chatgpt-pour-vos-devis-charpentier",
+      "b": "/blog/comment-utiliser-chatgpt-pour-vos-devis-plombier"
+    },
+    {
+      "sim": "0.89",
+      "a": "/blog/comment-utiliser-chatgpt-pour-vos-devis-chauffagiste",
+      "b": "/blog/comment-utiliser-chatgpt-pour-vos-devis-couvreur"
+    },
+    {
+      "sim": "0.89",
+      "a": "/blog/comment-utiliser-chatgpt-pour-vos-devis-chauffagiste",
+      "b": "/blog/comment-utiliser-chatgpt-pour-vos-devis-electricien"
+    },
+    {
+      "sim": "0.89",
+      "a": "/blog/comment-utiliser-chatgpt-pour-vos-devis-chauffagiste",
+      "b": "/blog/comment-utiliser-chatgpt-pour-vos-devis-macon"
+    },
+    {
+      "sim": "0.89",
+      "a": "/blog/comment-utiliser-chatgpt-pour-vos-devis-chauffagiste",
+      "b": "/blog/comment-utiliser-chatgpt-pour-vos-devis-menuisier"
+    },
+    {
+      "sim": "0.89",
+      "a": "/blog/comment-utiliser-chatgpt-pour-vos-devis-chauffagiste",
+      "b": "/blog/comment-utiliser-chatgpt-pour-vos-devis-peintre"
+    },
+    {
+      "sim": "0.89",
+      "a": "/blog/comment-utiliser-chatgpt-pour-vos-devis-chauffagiste",
+      "b": "/blog/comment-utiliser-chatgpt-pour-vos-devis-plombier"
+    },
+    {
+      "sim": "0.89",
+      "a": "/blog/comment-utiliser-chatgpt-pour-vos-devis-couvreur",
+      "b": "/blog/comment-utiliser-chatgpt-pour-vos-devis-electricien"
+    },
+    {
+      "sim": "0.89",
+      "a": "/blog/comment-utiliser-chatgpt-pour-vos-devis-couvreur",
+      "b": "/blog/comment-utiliser-chatgpt-pour-vos-devis-macon"
+    },
+    {
+      "sim": "0.89",
+      "a": "/blog/comment-utiliser-chatgpt-pour-vos-devis-couvreur",
+      "b": "/blog/comment-utiliser-chatgpt-pour-vos-devis-menuisier"
+    },
+    {
+      "sim": "0.89",
+      "a": "/blog/comment-utiliser-chatgpt-pour-vos-devis-couvreur",
+      "b": "/blog/comment-utiliser-chatgpt-pour-vos-devis-peintre"
+    },
+    {
+      "sim": "0.89",
+      "a": "/blog/comment-utiliser-chatgpt-pour-vos-devis-couvreur",
+      "b": "/blog/comment-utiliser-chatgpt-pour-vos-devis-plombier"
+    },
+    {
+      "sim": "0.89",
+      "a": "/blog/comment-utiliser-chatgpt-pour-vos-devis-electricien",
+      "b": "/blog/comment-utiliser-chatgpt-pour-vos-devis-macon"
+    },
+    {
+      "sim": "0.89",
+      "a": "/blog/comment-utiliser-chatgpt-pour-vos-devis-electricien",
+      "b": "/blog/comment-utiliser-chatgpt-pour-vos-devis-menuisier"
+    },
+    {
+      "sim": "0.89",
+      "a": "/blog/comment-utiliser-chatgpt-pour-vos-devis-electricien",
+      "b": "/blog/comment-utiliser-chatgpt-pour-vos-devis-peintre"
+    },
+    {
+      "sim": "0.89",
+      "a": "/blog/comment-utiliser-chatgpt-pour-vos-devis-electricien",
+      "b": "/blog/comment-utiliser-chatgpt-pour-vos-devis-plombier"
+    },
+    {
+      "sim": "0.89",
+      "a": "/blog/comment-utiliser-chatgpt-pour-vos-devis-macon",
+      "b": "/blog/comment-utiliser-chatgpt-pour-vos-devis-menuisier"
+    },
+    {
+      "sim": "0.89",
+      "a": "/blog/comment-utiliser-chatgpt-pour-vos-devis-macon",
+      "b": "/blog/comment-utiliser-chatgpt-pour-vos-devis-peintre"
+    },
+    {
+      "sim": "0.89",
+      "a": "/blog/comment-utiliser-chatgpt-pour-vos-devis-macon",
+      "b": "/blog/comment-utiliser-chatgpt-pour-vos-devis-plombier"
+    },
+    {
+      "sim": "0.89",
+      "a": "/blog/comment-utiliser-chatgpt-pour-vos-devis-menuisier",
+      "b": "/blog/comment-utiliser-chatgpt-pour-vos-devis-peintre"
+    },
+    {
+      "sim": "0.89",
+      "a": "/blog/comment-utiliser-chatgpt-pour-vos-devis-menuisier",
+      "b": "/blog/comment-utiliser-chatgpt-pour-vos-devis-plombier"
+    },
+    {
+      "sim": "0.89",
+      "a": "/blog/comment-utiliser-chatgpt-pour-vos-devis-peintre",
+      "b": "/blog/comment-utiliser-chatgpt-pour-vos-devis-plombier"
+    },
+    {
+      "sim": "0.88",
+      "a": "/blog/l-ia-va-t-elle-remplacer-les-carreleurs",
+      "b": "/blog/l-ia-va-t-elle-remplacer-les-charpentiers"
+    },
+    {
+      "sim": "0.88",
+      "a": "/blog/l-ia-va-t-elle-remplacer-les-carreleurs",
+      "b": "/blog/l-ia-va-t-elle-remplacer-les-chauffagistes"
+    },
+    {
+      "sim": "0.88",
+      "a": "/blog/l-ia-va-t-elle-remplacer-les-carreleurs",
+      "b": "/blog/l-ia-va-t-elle-remplacer-les-couvreurs"
+    },
+    {
+      "sim": "0.88",
+      "a": "/blog/l-ia-va-t-elle-remplacer-les-carreleurs",
+      "b": "/blog/l-ia-va-t-elle-remplacer-les-electriciens"
+    },
+    {
+      "sim": "0.88",
+      "a": "/blog/l-ia-va-t-elle-remplacer-les-carreleurs",
+      "b": "/blog/l-ia-va-t-elle-remplacer-les-macons"
+    },
+    {
+      "sim": "0.88",
+      "a": "/blog/l-ia-va-t-elle-remplacer-les-carreleurs",
+      "b": "/blog/l-ia-va-t-elle-remplacer-les-menuisiers"
+    },
+    {
+      "sim": "0.88",
+      "a": "/blog/l-ia-va-t-elle-remplacer-les-carreleurs",
+      "b": "/blog/l-ia-va-t-elle-remplacer-les-peintres"
+    },
+    {
+      "sim": "0.88",
+      "a": "/blog/l-ia-va-t-elle-remplacer-les-carreleurs",
+      "b": "/blog/l-ia-va-t-elle-remplacer-les-plombiers"
+    },
+    {
+      "sim": "0.88",
+      "a": "/blog/l-ia-va-t-elle-remplacer-les-charpentiers",
+      "b": "/blog/l-ia-va-t-elle-remplacer-les-chauffagistes"
+    },
+    {
+      "sim": "0.88",
+      "a": "/blog/l-ia-va-t-elle-remplacer-les-charpentiers",
+      "b": "/blog/l-ia-va-t-elle-remplacer-les-couvreurs"
+    },
+    {
+      "sim": "0.88",
+      "a": "/blog/l-ia-va-t-elle-remplacer-les-charpentiers",
+      "b": "/blog/l-ia-va-t-elle-remplacer-les-electriciens"
+    },
+    {
+      "sim": "0.88",
+      "a": "/blog/l-ia-va-t-elle-remplacer-les-charpentiers",
+      "b": "/blog/l-ia-va-t-elle-remplacer-les-macons"
+    },
+    {
+      "sim": "0.88",
+      "a": "/blog/l-ia-va-t-elle-remplacer-les-charpentiers",
+      "b": "/blog/l-ia-va-t-elle-remplacer-les-menuisiers"
+    },
+    {
+      "sim": "0.88",
+      "a": "/blog/l-ia-va-t-elle-remplacer-les-charpentiers",
+      "b": "/blog/l-ia-va-t-elle-remplacer-les-peintres"
+    }
+  ],
+  "issues": [
+    {
+      "url": "/auth/connexion",
+      "file": "app/auth/connexion/page.tsx",
+      "description": "Connectez-vous à votre espace apprenant OFC : supports et ressources de formation IA pour le BTP.",
+      "length": 97,
+      "descriptionFinal": false,
+      "appendAuthorSuffix": false,
+      "problems": [
+        "courte (97)"
+      ],
+      "status": "issue"
+    },
+    {
+      "url": "/auth/connexion",
+      "file": "app/auth/connexion/page.tsx",
+      "description": "Connectez-vous à votre espace apprenant OFC : supports et ressources de formation IA pour le BTP.",
+      "length": 97,
+      "descriptionFinal": false,
+      "appendAuthorSuffix": false,
+      "problems": [
+        "courte (97)"
+      ],
+      "status": "issue"
+    },
+    {
+      "url": "/etudes-de-cas",
+      "file": "app/etudes-de-cas/page.tsx",
+      "status": "ref_unresolved",
+      "ref": "ETUDES_DE_CAS_SEO"
+    },
+    {
+      "url": "/etudes-de-cas",
+      "file": "app/etudes-de-cas/page.tsx",
+      "status": "ref_unresolved",
+      "ref": "ETUDES_DE_CAS_SEO"
+    },
+    {
+      "url": "/formation-chatgpt-btp",
+      "file": "app/formation-chatgpt-btp/page.tsx",
+      "status": "ref_unresolved",
+      "ref": "FORMATION_CHATGPT_BTP_CONFIG"
+    },
+    {
+      "url": "/formation-chatgpt-btp",
+      "file": "app/formation-chatgpt-btp/page.tsx",
+      "status": "ref_unresolved",
+      "ref": "FORMATION_CHATGPT_BTP_CONFIG"
+    },
+    {
+      "url": "/formation-ia-appels-offres-btp",
+      "file": "app/formation-ia-appels-offres-btp/page.tsx",
+      "status": "ref_unresolved",
+      "ref": "FORMATION_IA_APPELS_OFFRES_BTP_CONFIG"
+    },
+    {
+      "url": "/formation-ia-appels-offres-btp",
+      "file": "app/formation-ia-appels-offres-btp/page.tsx",
+      "status": "ref_unresolved",
+      "ref": "FORMATION_IA_APPELS_OFFRES_BTP_CONFIG"
+    },
+    {
+      "url": "/formation-ia-chef-chantier-tp",
+      "file": "app/formation-ia-chef-chantier-tp/page.tsx",
+      "status": "ref_unresolved",
+      "ref": "FORMATION_IA_CHEF_CHANTIER_TP_SEO"
+    },
+    {
+      "url": "/formation-ia-chef-chantier-tp",
+      "file": "app/formation-ia-chef-chantier-tp/page.tsx",
+      "status": "ref_unresolved",
+      "ref": "FORMATION_IA_CHEF_CHANTIER_TP_SEO"
+    },
+    {
+      "url": "/formation-ia-construction",
+      "file": "app/formation-ia-construction/page.tsx",
+      "status": "ref_unresolved",
+      "ref": "FORMATION_IA_CONSTRUCTION_SEO"
+    },
+    {
+      "url": "/formation-ia-construction",
+      "file": "app/formation-ia-construction/page.tsx",
+      "status": "ref_unresolved",
+      "ref": "FORMATION_IA_CONSTRUCTION_SEO"
+    },
+    {
+      "url": "/formations/application-metier-btp-niveau-1",
+      "file": "app/formations/application-metier-btp-niveau-1/page.tsx",
+      "status": "ref_unresolved",
+      "ref": "APPLICATION_METIER_NIVEAU_1"
+    },
+    {
+      "url": "/formations/application-metier-btp-niveau-1",
+      "file": "app/formations/application-metier-btp-niveau-1/page.tsx",
+      "status": "ref_unresolved",
+      "ref": "APPLICATION_METIER_NIVEAU_1"
+    },
+    {
+      "url": "/formations/application-metier-btp-niveau-2",
+      "file": "app/formations/application-metier-btp-niveau-2/page.tsx",
+      "status": "ref_unresolved",
+      "ref": "APPLICATION_METIER_NIVEAU_2"
+    },
+    {
+      "url": "/formations/application-metier-btp-niveau-2",
+      "file": "app/formations/application-metier-btp-niveau-2/page.tsx",
+      "status": "ref_unresolved",
+      "ref": "APPLICATION_METIER_NIVEAU_2"
+    },
+    {
+      "url": "/formations/application-metier-btp-niveau-3",
+      "file": "app/formations/application-metier-btp-niveau-3/page.tsx",
+      "status": "ref_unresolved",
+      "ref": "APPLICATION_METIER_NIVEAU_3"
+    },
+    {
+      "url": "/formations/application-metier-btp-niveau-3",
+      "file": "app/formations/application-metier-btp-niveau-3/page.tsx",
+      "status": "ref_unresolved",
+      "ref": "APPLICATION_METIER_NIVEAU_3"
+    },
+    {
+      "url": "/formations/assistants-ia-personnalises-btp",
+      "file": "app/formations/assistants-ia-personnalises-btp/page.tsx",
+      "status": "ref_unresolved",
+      "ref": "CATALOGUE_SEO"
+    },
+    {
+      "url": "/formations/assistants-ia-personnalises-btp",
+      "file": "app/formations/assistants-ia-personnalises-btp/page.tsx",
+      "status": "ref_unresolved",
+      "ref": "CATALOGUE_SEO"
+    },
+    {
+      "url": "/formations/developpement-web-ia-sans-coder",
+      "file": "app/formations/developpement-web-ia-sans-coder/page.tsx",
+      "status": "ref_unresolved",
+      "ref": "CATALOGUE_SEO"
+    },
+    {
+      "url": "/formations/developpement-web-ia-sans-coder",
+      "file": "app/formations/developpement-web-ia-sans-coder/page.tsx",
+      "status": "ref_unresolved",
+      "ref": "CATALOGUE_SEO"
+    },
+    {
+      "url": "/formations/ia-appels-offre-btp",
+      "file": "app/formations/ia-appels-offre-btp/page.tsx",
+      "status": "ref_unresolved",
+      "ref": "CATALOGUE_SEO"
+    },
+    {
+      "url": "/formations/ia-appels-offre-btp",
+      "file": "app/formations/ia-appels-offre-btp/page.tsx",
+      "status": "ref_unresolved",
+      "ref": "CATALOGUE_SEO"
+    },
+    {
+      "url": "/formations/ia-batiment-travaux-publics",
+      "file": "app/formations/ia-batiment-travaux-publics/page.tsx",
+      "status": "ref_unresolved",
+      "ref": "CATALOGUE_SEO"
+    },
+    {
+      "url": "/formations/ia-batiment-travaux-publics",
+      "file": "app/formations/ia-batiment-travaux-publics/page.tsx",
+      "status": "ref_unresolved",
+      "ref": "CATALOGUE_SEO"
+    },
+    {
+      "url": "/formations/ia-conduite-travaux-suivi-chantier",
+      "file": "app/formations/ia-conduite-travaux-suivi-chantier/page.tsx",
+      "status": "ref_unresolved",
+      "ref": "CATALOGUE_SEO"
+    },
+    {
+      "url": "/formations/ia-conduite-travaux-suivi-chantier",
+      "file": "app/formations/ia-conduite-travaux-suivi-chantier/page.tsx",
+      "status": "ref_unresolved",
+      "ref": "CATALOGUE_SEO"
+    },
+    {
+      "url": "/formations/ia-etudes-prix-chiffrage-btp",
+      "file": "app/formations/ia-etudes-prix-chiffrage-btp/page.tsx",
+      "status": "ref_unresolved",
+      "ref": "ETUDES_PRIX_SEO"
+    },
+    {
+      "url": "/formations/ia-etudes-prix-chiffrage-btp",
+      "file": "app/formations/ia-etudes-prix-chiffrage-btp/page.tsx",
+      "status": "ref_unresolved",
+      "ref": "ETUDES_PRIX_SEO"
+    },
+    {
+      "url": "/formations/ia-maitrise-oeuvre",
+      "file": "app/formations/ia-maitrise-oeuvre/page.tsx",
+      "status": "ref_unresolved",
+      "ref": "CATALOGUE_SEO"
+    },
+    {
+      "url": "/formations/ia-maitrise-oeuvre",
+      "file": "app/formations/ia-maitrise-oeuvre/page.tsx",
+      "status": "ref_unresolved",
+      "ref": "CATALOGUE_SEO"
+    },
+    {
+      "url": "/formations/maitriser-claude-ai-btp",
+      "file": "app/formations/maitriser-claude-ai-btp/page.tsx",
+      "status": "ref_unresolved",
+      "ref": "CATALOGUE_SEO"
+    },
+    {
+      "url": "/formations/maitriser-claude-ai-btp",
+      "file": "app/formations/maitriser-claude-ai-btp/page.tsx",
+      "status": "ref_unresolved",
+      "ref": "CATALOGUE_SEO"
+    },
+    {
+      "url": "/ia-devis-batiment",
+      "file": "app/ia-devis-batiment/page.tsx",
+      "status": "ref_unresolved",
+      "ref": "IA_DEVIS_SEO"
+    },
+    {
+      "url": "/ia-devis-batiment",
+      "file": "app/ia-devis-batiment/page.tsx",
+      "status": "ref_unresolved",
+      "ref": "IA_DEVIS_SEO"
+    },
+    {
+      "url": "/marketing-export/bework/home-journee",
+      "file": "app/marketing-export/bework/home-journee/page.tsx",
+      "description": "Aperçu interne de la section accueil BeWork « Jour 1 » (non indexée).",
+      "length": 69,
+      "descriptionFinal": false,
+      "appendAuthorSuffix": false,
+      "problems": [
+        "courte (69)"
+      ],
+      "status": "issue"
+    },
+    {
+      "url": "/marketing-export/bework/home-journee",
+      "file": "app/marketing-export/bework/home-journee/page.tsx",
+      "description": "Aperçu interne de la section accueil BeWork « Jour 1 » (non indexée).",
+      "length": 69,
+      "descriptionFinal": false,
+      "appendAuthorSuffix": false,
+      "problems": [
+        "courte (69)"
+      ],
+      "status": "issue"
+    },
+    {
+      "url": "/rdv/[token]",
+      "file": "app/rdv/[token]/page.tsx",
+      "description": "Modifier ou annuler votre rendez-vous avec Laure Olivié — formation IA pour le BTP.",
+      "length": 83,
+      "descriptionFinal": false,
+      "appendAuthorSuffix": false,
+      "problems": [
+        "courte (83)"
+      ],
+      "status": "issue"
+    },
+    {
+      "url": "/rdv/[token]",
+      "file": "app/rdv/[token]/page.tsx",
+      "description": "Modifier ou annuler votre rendez-vous avec Laure Olivié — formation IA pour le BTP.",
+      "length": 83,
+      "descriptionFinal": false,
+      "appendAuthorSuffix": false,
+      "problems": [
+        "courte (83)"
+      ],
+      "status": "issue"
+    },
+    {
+      "url": "/ressources/guide-conducteur-de-travaux/merci",
+      "file": "app/ressources/guide-conducteur-de-travaux/merci/page.tsx",
+      "description": "Téléchargez votre guide PDF « Créez votre 1er Skill IA » pour conducteurs de travaux BTP.",
+      "length": 89,
+      "descriptionFinal": false,
+      "appendAuthorSuffix": false,
+      "problems": [
+        "courte (89)"
+      ],
+      "status": "issue"
+    },
+    {
+      "url": "/ressources/guide-conducteur-de-travaux/merci",
+      "file": "app/ressources/guide-conducteur-de-travaux/merci/page.tsx",
+      "description": "Téléchargez votre guide PDF « Créez votre 1er Skill IA » pour conducteurs de travaux BTP.",
+      "length": 89,
+      "descriptionFinal": false,
+      "appendAuthorSuffix": false,
+      "problems": [
+        "courte (89)"
+      ],
+      "status": "issue"
+    },
+    {
+      "url": "/ressources/tuto-skill-pic",
+      "file": "app/ressources/tuto-skill-pic/page.tsx",
+      "status": "ref_unresolved",
+      "ref": "TUTO_SKILL_PIC_META"
+    },
+    {
+      "url": "/ressources/tuto-skill-pic",
+      "file": "app/ressources/tuto-skill-pic/page.tsx",
+      "status": "ref_unresolved",
+      "ref": "TUTO_SKILL_PIC_META"
+    },
+    {
+      "url": "/skills-chatgpt-btp",
+      "file": "app/skills-chatgpt-btp/page.tsx",
+      "status": "ref_unresolved",
+      "ref": "META_DESCRIPTION"
+    },
+    {
+      "url": "/skills-chatgpt-btp",
+      "file": "app/skills-chatgpt-btp/page.tsx",
+      "status": "ref_unresolved",
+      "ref": "META_DESCRIPTION"
+    },
+    {
+      "url": "/skills-claude-btp",
+      "file": "app/skills-claude-btp/page.tsx",
+      "status": "ref_unresolved",
+      "ref": "META_DESCRIPTION"
+    },
+    {
+      "url": "/skills-claude-btp",
+      "file": "app/skills-claude-btp/page.tsx",
+      "status": "ref_unresolved",
+      "ref": "META_DESCRIPTION"
+    }
+  ]
+}

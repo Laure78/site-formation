@@ -1,0 +1,2948 @@
+{
+  "generatedAt": "2026-10-19T20:18:45.638Z",
+  "sources": [
+    {
+      "file": "lib/a-propos-page-config.ts",
+      "name": "FAQ_A_PROPOS_PAGE",
+      "count": 3,
+      "questions": [
+        "Quels professionnels du BTP formez-vous ?",
+        "Où se déroulent les formations ?",
+        "Comment choisir une formation ?"
+      ]
+    },
+    {
+      "file": "lib/a-propos-page-config.ts",
+      "name": "getFaq*()",
+      "note": "dynamique — vérifier manuellement"
+    },
+    {
+      "file": "lib/etudes-de-cas-hub.ts",
+      "name": "ETUDES_DE_CAS_FAQ",
+      "count": 4,
+      "questions": [
+        "Que montrent les études de cas IA BTP publiées ici ?",
+        "Les études de cas remplacent-elles une formation ?",
+        "Peut-on reproduire la même méthode dans mon entreprise ?",
+        "Où trouver une formation liée à un cas (CR chantier, appels d’offres) ?"
+      ]
+    },
+    {
+      "file": "lib/faq.ts",
+      "name": "FAQ_IA_BTP_METIERS_CHANTIER_SEO",
+      "count": 21,
+      "questions": [
+        "La formation aborde-t-elle le BIM et l",
+        "Comment utiliser l",
+        "La formation convient-elle aux PME du BTP et aux équipes terrain ?",
+        "À qui s’adressent les formations IA pour le BTP ?",
+        "Comment l’IA peut-elle faire gagner du temps au bureau BTP ?",
+        "Quelle formation choisir pour débuter ?",
+        "Les sessions se déroulent-elles en présentiel en Île-de-France ?",
+        "Comment étudier un financement OPCO ?",
+        "Comment utiliser ChatGPT dans une entreprise du bâtiment ?",
+        "Comment gagner du temps administratif dans le BTP avec l",
+        "La formation peut-elle être financée par Constructys ou mon OPCO ?",
+        "Faut-il des compétences techniques pour suivre cette formation ?",
+        "Combien de temps dure la formation IA pour le BTP ?",
+        "La formation se fait-elle en présentiel ?",
+        "Où se déroulent les formations catalogue ?",
+        "Comment mesurer le ROI de la formation IA ?",
+        "Mes données BTP sont-elles sécurisées avec ChatGPT ?",
+        "Quelle formatrice IA spécialisée BTP en France ?",
+        "Formation IA pour conducteur de travaux : à quoi ça sert ?",
+        "IA pour PME du bâtiment et des travaux publics : par où commencer ?",
+        "Comment financer une formation IA avec OPCO Constructys ?"
+      ]
+    },
+    {
+      "file": "lib/faq.ts",
+      "name": "FAQ_ITEMS_HOME",
+      "count": 30,
+      "questions": [
+        "À qui s’adressent les formations IA pour le BTP ?",
+        "Comment l’IA peut-elle faire gagner du temps au bureau BTP ?",
+        "Quelle formation choisir pour débuter ?",
+        "Les sessions se déroulent-elles en présentiel en Île-de-France ?",
+        "Comment étudier un financement OPCO ?",
+        "Comment utiliser ChatGPT dans une entreprise du bâtiment ?",
+        "Comment gagner du temps administratif dans le BTP avec l",
+        "La formation peut-elle être financée par Constructys ou mon OPCO ?",
+        "Faut-il des compétences techniques pour suivre cette formation ?",
+        "Combien de temps dure la formation IA pour le BTP ?",
+        "La formation se fait-elle en présentiel ?",
+        "Où se déroulent les formations catalogue ?",
+        "Comment mesurer le ROI de la formation IA ?",
+        "Mes données BTP sont-elles sécurisées avec ChatGPT ?",
+        "Quelle formatrice IA spécialisée BTP en France ?",
+        "Formation IA pour conducteur de travaux : à quoi ça sert ?",
+        "IA pour PME du bâtiment et des travaux publics : par où commencer ?",
+        "Comment financer une formation IA avec OPCO Constructys ?",
+        "Qui forme les entreprises BTP à ChatGPT en Île-de-France ?",
+        "Formation IA pour entreprises BTP : quelle durée et quel prix ?",
+        "Quels sont les prérequis pour une formation ChatGPT BTP ?",
+        "Comment structurer un devis BTP plus vite avec l",
+        "Quels résultats avec une formation IA pour les pros du BTP ?",
+        "Formation IA appels d",
+        "Les formations sont-elles certifiantes ?",
+        "Le CPF est-il accepté ?",
+        "Quelle formation choisir ?",
+        "Quelle différence entre intra et interentreprises ?",
+        "Les formations peuvent-elles être adaptées à notre métier ?",
+        "Peut-on travailler sur nos propres documents ?"
+      ]
+    },
+    {
+      "file": "lib/faq.ts",
+      "name": "FAQ_ITEMS",
+      "count": 31,
+      "questions": [
+        "Comment utiliser ChatGPT dans une entreprise du bâtiment ?",
+        "Comment gagner du temps administratif dans le BTP avec l",
+        "La formation peut-elle être financée par Constructys ou mon OPCO ?",
+        "Faut-il des compétences techniques pour suivre cette formation ?",
+        "Combien de temps dure la formation IA pour le BTP ?",
+        "La formation se fait-elle en présentiel ?",
+        "Où se déroulent les formations catalogue ?",
+        "Comment mesurer le ROI de la formation IA ?",
+        "Mes données BTP sont-elles sécurisées avec ChatGPT ?",
+        "Quelle formatrice IA spécialisée BTP en France ?",
+        "Formation IA pour conducteur de travaux : à quoi ça sert ?",
+        "IA pour PME du bâtiment et des travaux publics : par où commencer ?",
+        "Comment financer une formation IA avec OPCO Constructys ?",
+        "Qui forme les entreprises BTP à ChatGPT en Île-de-France ?",
+        "Formation IA pour entreprises BTP : quelle durée et quel prix ?",
+        "Quels sont les prérequis pour une formation ChatGPT BTP ?",
+        "Comment structurer un devis BTP plus vite avec l",
+        "Quels résultats avec une formation IA pour les pros du BTP ?",
+        "Formation IA appels d",
+        "Les formations sont-elles certifiantes ?",
+        "Le CPF est-il accepté ?",
+        "Quelle formation choisir ?",
+        "Quelle différence entre intra et interentreprises ?",
+        "Les formations peuvent-elles être adaptées à notre métier ?",
+        "Peut-on travailler sur nos propres documents ?",
+        "Combien de participants peuvent suivre une session ?",
+        "Une prise en charge OPCO est-elle possible ?",
+        "Le tarif est-il calculé par participant ou par entreprise ?",
+        "Combien coûte une formation IA pour le BTP ?",
+        "La formation peut-elle être financée par Constructys ?",
+        "Quelles formations IA appliquées au bâtiment sont proposées au catalogue ?"
+      ]
+    },
+    {
+      "file": "lib/faq.ts",
+      "name": "FAQ_GEO",
+      "count": 27,
+      "questions": [
+        "Quelle formatrice IA spécialisée BTP en France ?",
+        "Formation IA pour conducteur de travaux : à quoi ça sert ?",
+        "IA pour PME du bâtiment et des travaux publics : par où commencer ?",
+        "Comment financer une formation IA avec OPCO Constructys ?",
+        "Qui forme les entreprises BTP à ChatGPT en Île-de-France ?",
+        "Formation IA pour entreprises BTP : quelle durée et quel prix ?",
+        "Quels sont les prérequis pour une formation ChatGPT BTP ?",
+        "Comment structurer un devis BTP plus vite avec l",
+        "Quels résultats avec une formation IA pour les pros du BTP ?",
+        "Formation IA appels d",
+        "Les formations sont-elles certifiantes ?",
+        "Le CPF est-il accepté ?",
+        "Quelle formation choisir ?",
+        "Quelle différence entre intra et interentreprises ?",
+        "Les formations peuvent-elles être adaptées à notre métier ?",
+        "Peut-on travailler sur nos propres documents ?",
+        "Combien de participants peuvent suivre une session ?",
+        "Une prise en charge OPCO est-elle possible ?",
+        "Le tarif est-il calculé par participant ou par entreprise ?",
+        "Combien coûte une formation IA pour le BTP ?",
+        "La formation peut-elle être financée par Constructys ?",
+        "Quelles formations IA appliquées au bâtiment sont proposées au catalogue ?",
+        "Comment choisir la bonne formation IA pour le BTP pour mon entreprise ?",
+        "Combien coûte une formation IA pour les pros du BTP du catalogue ?",
+        "Les formations IA pour les pros du BTP peuvent-elles être financées par Constructys ou mon OPCO ?",
+        "Faut-il un abonnement payant pour suivre la formation ?",
+        "Les formations IA pour les pros du BTP sont-elles certifiées Qualiopi ?"
+      ]
+    },
+    {
+      "file": "lib/faq.ts",
+      "name": "FAQ_CATALOGUE_PAGE",
+      "count": 26,
+      "questions": [
+        "Les formations sont-elles certifiantes ?",
+        "Le CPF est-il accepté ?",
+        "Quelle formation choisir ?",
+        "Quelle différence entre intra et interentreprises ?",
+        "Les formations peuvent-elles être adaptées à notre métier ?",
+        "Peut-on travailler sur nos propres documents ?",
+        "Combien de participants peuvent suivre une session ?",
+        "Une prise en charge OPCO est-elle possible ?",
+        "Le tarif est-il calculé par participant ou par entreprise ?",
+        "Combien coûte une formation IA pour le BTP ?",
+        "La formation peut-elle être financée par Constructys ?",
+        "Quelles formations IA appliquées au bâtiment sont proposées au catalogue ?",
+        "Comment choisir la bonne formation IA pour le BTP pour mon entreprise ?",
+        "Combien coûte une formation IA pour les pros du BTP du catalogue ?",
+        "Les formations IA pour les pros du BTP peuvent-elles être financées par Constructys ou mon OPCO ?",
+        "Faut-il un abonnement payant pour suivre la formation ?",
+        "Les formations IA pour les pros du BTP sont-elles certifiées Qualiopi ?",
+        "Les formations sont-elles disponibles en intra-entreprise ?",
+        "Faut-il un abonnement Claude pour les formations niveau avancé ?",
+        "Quels comptes IA pour les formations niveau débutant ?",
+        "Combien coûte une formation IA pour les pros du BTP ?",
+        "Comment financer ma formation IA ?",
+        "Faut-il avancer des frais ?",
+        "Quels formats de formation proposez-vous ?",
+        "Comment accéder à l",
+        "Les formations sont-elles adaptées aux dirigeants et équipes du BTP ?"
+      ]
+    },
+    {
+      "file": "lib/faq.ts",
+      "name": "FAQ_FORMATIONS",
+      "count": 23,
+      "questions": [
+        "Le tarif est-il calculé par participant ou par entreprise ?",
+        "Combien coûte une formation IA pour le BTP ?",
+        "La formation peut-elle être financée par Constructys ?",
+        "Quelles formations IA appliquées au bâtiment sont proposées au catalogue ?",
+        "Comment choisir la bonne formation IA pour le BTP pour mon entreprise ?",
+        "Combien coûte une formation IA pour les pros du BTP du catalogue ?",
+        "Les formations IA pour les pros du BTP peuvent-elles être financées par Constructys ou mon OPCO ?",
+        "Faut-il un abonnement payant pour suivre la formation ?",
+        "Les formations IA pour les pros du BTP sont-elles certifiées Qualiopi ?",
+        "Les formations sont-elles disponibles en intra-entreprise ?",
+        "Faut-il un abonnement Claude pour les formations niveau avancé ?",
+        "Quels comptes IA pour les formations niveau débutant ?",
+        "Combien coûte une formation IA pour les pros du BTP ?",
+        "Comment financer ma formation IA ?",
+        "Faut-il avancer des frais ?",
+        "Quels formats de formation proposez-vous ?",
+        "Comment accéder à l",
+        "Les formations sont-elles adaptées aux dirigeants et équipes du BTP ?",
+        "Quel délai pour soumettre mon dossier Constructys ?",
+        "Quel plafond pour les coûts pédagogiques ?",
+        "Quels documents fournir pour le financement ?",
+        "Ma formation IA peut-elle être financée par Constructys ?",
+        "Quel est le montant maximum remboursé ?"
+      ]
+    },
+    {
+      "file": "lib/faq.ts",
+      "name": "FAQ_TARIFS",
+      "count": 31,
+      "questions": [
+        "Faut-il un abonnement Claude pour les formations niveau avancé ?",
+        "Quels comptes IA pour les formations niveau débutant ?",
+        "Combien coûte une formation IA pour les pros du BTP ?",
+        "Comment financer ma formation IA ?",
+        "Faut-il avancer des frais ?",
+        "Quels formats de formation proposez-vous ?",
+        "Comment accéder à l",
+        "Les formations sont-elles adaptées aux dirigeants et équipes du BTP ?",
+        "Quel délai pour soumettre mon dossier Constructys ?",
+        "Quel plafond pour les coûts pédagogiques ?",
+        "Quels documents fournir pour le financement ?",
+        "Ma formation IA peut-elle être financée par Constructys ?",
+        "Quel est le montant maximum remboursé ?",
+        "Le plafond Constructys a-t-il changé en 2026 ?",
+        "Combien de temps avant la formation faut-il déposer le dossier ?",
+        "Mon entreprise de moins de 11 salariés a-t-elle droit au financement ?",
+        "Constructys finance-t-il les formations en présentiel ?",
+        "Que se passe-t-il si ma demande est déposée en retard ?",
+        "Comment savoir si mon OPCO est Constructys ?",
+        "Comment retrouver mon OPCO de rattachement si je ne suis pas sûr ?",
+        "Une formation IA peut-elle bénéficier d’une participation Constructys ?",
+        "Quel est le délai pour déposer le dossier ?",
+        "Quel montant peut être pris en charge ?",
+        "Qui règle la formation dans le circuit transitoire ?",
+        "OFC dépose-t-il le dossier dans eGestion ?",
+        "Quels documents OFC fournit-il ?",
+        "Où intervenez-vous pour les formations IA pour les pros du BTP ?",
+        "Quelle est votre expérience dans le BTP ?",
+        "Le rendez-vous est-il gratuit ?",
+        "Comment se déroule l’échange ?",
+        "Que faire si aucun créneau ne me convient ?"
+      ]
+    },
+    {
+      "file": "lib/faq.ts",
+      "name": "FAQ_OFFRES",
+      "count": 30,
+      "questions": [
+        "Quels formats de formation proposez-vous ?",
+        "Comment accéder à l",
+        "Les formations sont-elles adaptées aux dirigeants et équipes du BTP ?",
+        "Quel délai pour soumettre mon dossier Constructys ?",
+        "Quel plafond pour les coûts pédagogiques ?",
+        "Quels documents fournir pour le financement ?",
+        "Ma formation IA peut-elle être financée par Constructys ?",
+        "Quel est le montant maximum remboursé ?",
+        "Le plafond Constructys a-t-il changé en 2026 ?",
+        "Combien de temps avant la formation faut-il déposer le dossier ?",
+        "Mon entreprise de moins de 11 salariés a-t-elle droit au financement ?",
+        "Constructys finance-t-il les formations en présentiel ?",
+        "Que se passe-t-il si ma demande est déposée en retard ?",
+        "Comment savoir si mon OPCO est Constructys ?",
+        "Comment retrouver mon OPCO de rattachement si je ne suis pas sûr ?",
+        "Une formation IA peut-elle bénéficier d’une participation Constructys ?",
+        "Quel est le délai pour déposer le dossier ?",
+        "Quel montant peut être pris en charge ?",
+        "Qui règle la formation dans le circuit transitoire ?",
+        "OFC dépose-t-il le dossier dans eGestion ?",
+        "Quels documents OFC fournit-il ?",
+        "Où intervenez-vous pour les formations IA pour les pros du BTP ?",
+        "Quelle est votre expérience dans le BTP ?",
+        "Le rendez-vous est-il gratuit ?",
+        "Comment se déroule l’échange ?",
+        "Que faire si aucun créneau ne me convient ?",
+        "La formation se déroule-t-elle en présentiel à Versailles ou dans les Yvelines ?",
+        "Faut-il des compétences informatiques pour suivre cette formation ?",
+        "Combien de temps dure la formation ?",
+        "La formation IA appliquée au bâtiment est-elle financement possible selon éligibilité (Constructys) dans les Yvelines ?"
+      ]
+    },
+    {
+      "file": "lib/faq.ts",
+      "name": "FAQ_FINANCEMENT",
+      "count": 30,
+      "questions": [
+        "Quel délai pour soumettre mon dossier Constructys ?",
+        "Quel plafond pour les coûts pédagogiques ?",
+        "Quels documents fournir pour le financement ?",
+        "Ma formation IA peut-elle être financée par Constructys ?",
+        "Quel est le montant maximum remboursé ?",
+        "Le plafond Constructys a-t-il changé en 2026 ?",
+        "Combien de temps avant la formation faut-il déposer le dossier ?",
+        "Mon entreprise de moins de 11 salariés a-t-elle droit au financement ?",
+        "Constructys finance-t-il les formations en présentiel ?",
+        "Que se passe-t-il si ma demande est déposée en retard ?",
+        "Comment savoir si mon OPCO est Constructys ?",
+        "Comment retrouver mon OPCO de rattachement si je ne suis pas sûr ?",
+        "Une formation IA peut-elle bénéficier d’une participation Constructys ?",
+        "Quel est le délai pour déposer le dossier ?",
+        "Quel montant peut être pris en charge ?",
+        "Qui règle la formation dans le circuit transitoire ?",
+        "OFC dépose-t-il le dossier dans eGestion ?",
+        "Quels documents OFC fournit-il ?",
+        "Où intervenez-vous pour les formations IA pour les pros du BTP ?",
+        "Quelle est votre expérience dans le BTP ?",
+        "Le rendez-vous est-il gratuit ?",
+        "Comment se déroule l’échange ?",
+        "Que faire si aucun créneau ne me convient ?",
+        "La formation se déroule-t-elle en présentiel à Versailles ou dans les Yvelines ?",
+        "Faut-il des compétences informatiques pour suivre cette formation ?",
+        "Combien de temps dure la formation ?",
+        "La formation IA appliquée au bâtiment est-elle financement possible selon éligibilité (Constructys) dans les Yvelines ?",
+        "Quelle différence avec une formation généraliste sur ChatGPT ?",
+        "Puis-je former plusieurs personnes en même temps ?",
+        "Intervenez-vous dans toute la communauté d’agglomération de Saint-Quentin-en-Yvelines ?"
+      ]
+    },
+    {
+      "file": "lib/faq.ts",
+      "name": "FAQ_FINANCEMENT_IA_BTP",
+      "count": 30,
+      "questions": [
+        "Ma formation IA peut-elle être financée par Constructys ?",
+        "Quel est le montant maximum remboursé ?",
+        "Le plafond Constructys a-t-il changé en 2026 ?",
+        "Combien de temps avant la formation faut-il déposer le dossier ?",
+        "Mon entreprise de moins de 11 salariés a-t-elle droit au financement ?",
+        "Constructys finance-t-il les formations en présentiel ?",
+        "Que se passe-t-il si ma demande est déposée en retard ?",
+        "Comment savoir si mon OPCO est Constructys ?",
+        "Comment retrouver mon OPCO de rattachement si je ne suis pas sûr ?",
+        "Une formation IA peut-elle bénéficier d’une participation Constructys ?",
+        "Quel est le délai pour déposer le dossier ?",
+        "Quel montant peut être pris en charge ?",
+        "Qui règle la formation dans le circuit transitoire ?",
+        "OFC dépose-t-il le dossier dans eGestion ?",
+        "Quels documents OFC fournit-il ?",
+        "Où intervenez-vous pour les formations IA pour les pros du BTP ?",
+        "Quelle est votre expérience dans le BTP ?",
+        "Le rendez-vous est-il gratuit ?",
+        "Comment se déroule l’échange ?",
+        "Que faire si aucun créneau ne me convient ?",
+        "La formation se déroule-t-elle en présentiel à Versailles ou dans les Yvelines ?",
+        "Faut-il des compétences informatiques pour suivre cette formation ?",
+        "Combien de temps dure la formation ?",
+        "La formation IA appliquée au bâtiment est-elle financement possible selon éligibilité (Constructys) dans les Yvelines ?",
+        "Quelle différence avec une formation généraliste sur ChatGPT ?",
+        "Puis-je former plusieurs personnes en même temps ?",
+        "Intervenez-vous dans toute la communauté d’agglomération de Saint-Quentin-en-Yvelines ?",
+        "Faut-il des compétences informatiques pour suivre cette formation ?",
+        "Combien de temps dure la formation ?",
+        "La formation IA pour les pros du BTP est-elle financement possible selon éligibilité (Constructys) dans les Yvelines ?"
+      ]
+    },
+    {
+      "file": "lib/faq.ts",
+      "name": "FAQ_FINANCEMENT_CONSTRUCTYS_PAGE",
+      "count": 31,
+      "questions": [
+        "Une formation IA peut-elle bénéficier d’une participation Constructys ?",
+        "Quel est le délai pour déposer le dossier ?",
+        "Quel montant peut être pris en charge ?",
+        "Qui règle la formation dans le circuit transitoire ?",
+        "OFC dépose-t-il le dossier dans eGestion ?",
+        "Quels documents OFC fournit-il ?",
+        "Où intervenez-vous pour les formations IA pour les pros du BTP ?",
+        "Quelle est votre expérience dans le BTP ?",
+        "Le rendez-vous est-il gratuit ?",
+        "Comment se déroule l’échange ?",
+        "Que faire si aucun créneau ne me convient ?",
+        "La formation se déroule-t-elle en présentiel à Versailles ou dans les Yvelines ?",
+        "Faut-il des compétences informatiques pour suivre cette formation ?",
+        "Combien de temps dure la formation ?",
+        "La formation IA appliquée au bâtiment est-elle financement possible selon éligibilité (Constructys) dans les Yvelines ?",
+        "Quelle différence avec une formation généraliste sur ChatGPT ?",
+        "Puis-je former plusieurs personnes en même temps ?",
+        "Intervenez-vous dans toute la communauté d’agglomération de Saint-Quentin-en-Yvelines ?",
+        "Faut-il des compétences informatiques pour suivre cette formation ?",
+        "Combien de temps dure la formation ?",
+        "La formation IA pour les pros du BTP est-elle financement possible selon éligibilité (Constructys) dans les Yvelines ?",
+        "Quelle différence avec une formation généraliste sur ChatGPT ?",
+        "Puis-je former plusieurs personnes en même temps ?",
+        "Vous intervenez à domicile dans le 78 ?",
+        "La formation est-elle disponible le samedi ?",
+        "Comment se déroule une session intra-entreprise à Versailles ?",
+        "Où se déroule la formation IA appliquée au bâtiment à Paris ?",
+        "La formation IA Paris est-elle finançable ?",
+        "Quel est le format de la formation IA pour le BTP Paris ?",
+        "Faut-il déjà savoir utiliser l’IA ?",
+        "Quels outils sont abordés ?"
+      ]
+    },
+    {
+      "file": "lib/faq.ts",
+      "name": "FAQ_A_PROPOS",
+      "count": 33,
+      "questions": [
+        "Où intervenez-vous pour les formations IA pour les pros du BTP ?",
+        "Quelle est votre expérience dans le BTP ?",
+        "Le rendez-vous est-il gratuit ?",
+        "Comment se déroule l’échange ?",
+        "Que faire si aucun créneau ne me convient ?",
+        "La formation se déroule-t-elle en présentiel à Versailles ou dans les Yvelines ?",
+        "Faut-il des compétences informatiques pour suivre cette formation ?",
+        "Combien de temps dure la formation ?",
+        "La formation IA appliquée au bâtiment est-elle financement possible selon éligibilité (Constructys) dans les Yvelines ?",
+        "Quelle différence avec une formation généraliste sur ChatGPT ?",
+        "Puis-je former plusieurs personnes en même temps ?",
+        "Intervenez-vous dans toute la communauté d’agglomération de Saint-Quentin-en-Yvelines ?",
+        "Faut-il des compétences informatiques pour suivre cette formation ?",
+        "Combien de temps dure la formation ?",
+        "La formation IA pour les pros du BTP est-elle financement possible selon éligibilité (Constructys) dans les Yvelines ?",
+        "Quelle différence avec une formation généraliste sur ChatGPT ?",
+        "Puis-je former plusieurs personnes en même temps ?",
+        "Vous intervenez à domicile dans le 78 ?",
+        "La formation est-elle disponible le samedi ?",
+        "Comment se déroule une session intra-entreprise à Versailles ?",
+        "Où se déroule la formation IA appliquée au bâtiment à Paris ?",
+        "La formation IA Paris est-elle finançable ?",
+        "Quel est le format de la formation IA pour le BTP Paris ?",
+        "Faut-il déjà savoir utiliser l’IA ?",
+        "Quels outils sont abordés ?",
+        "Faut-il un abonnement payant ?",
+        "Peut-on travailler sur les documents de son entreprise ?",
+        "Les assistants peuvent-ils être partagés avec les collègues ?",
+        "Cette formation apprend-elle à créer une application ?",
+        "Peut-on s’inscrire seul ?",
+        "Où se déroule la formation ?",
+        "Combien coûte la session et un financement est-il possible ?",
+        "On utilise déjà Claude au bureau : cette formation m\\"
+      ]
+    },
+    {
+      "file": "lib/faq.ts",
+      "name": "FAQ_PRENDRE_RDV",
+      "count": 33,
+      "questions": [
+        "Le rendez-vous est-il gratuit ?",
+        "Comment se déroule l’échange ?",
+        "Que faire si aucun créneau ne me convient ?",
+        "La formation se déroule-t-elle en présentiel à Versailles ou dans les Yvelines ?",
+        "Faut-il des compétences informatiques pour suivre cette formation ?",
+        "Combien de temps dure la formation ?",
+        "La formation IA appliquée au bâtiment est-elle financement possible selon éligibilité (Constructys) dans les Yvelines ?",
+        "Quelle différence avec une formation généraliste sur ChatGPT ?",
+        "Puis-je former plusieurs personnes en même temps ?",
+        "Intervenez-vous dans toute la communauté d’agglomération de Saint-Quentin-en-Yvelines ?",
+        "Faut-il des compétences informatiques pour suivre cette formation ?",
+        "Combien de temps dure la formation ?",
+        "La formation IA pour les pros du BTP est-elle financement possible selon éligibilité (Constructys) dans les Yvelines ?",
+        "Quelle différence avec une formation généraliste sur ChatGPT ?",
+        "Puis-je former plusieurs personnes en même temps ?",
+        "Vous intervenez à domicile dans le 78 ?",
+        "La formation est-elle disponible le samedi ?",
+        "Comment se déroule une session intra-entreprise à Versailles ?",
+        "Où se déroule la formation IA appliquée au bâtiment à Paris ?",
+        "La formation IA Paris est-elle finançable ?",
+        "Quel est le format de la formation IA pour le BTP Paris ?",
+        "Faut-il déjà savoir utiliser l’IA ?",
+        "Quels outils sont abordés ?",
+        "Faut-il un abonnement payant ?",
+        "Peut-on travailler sur les documents de son entreprise ?",
+        "Les assistants peuvent-ils être partagés avec les collègues ?",
+        "Cette formation apprend-elle à créer une application ?",
+        "Peut-on s’inscrire seul ?",
+        "Où se déroule la formation ?",
+        "Combien coûte la session et un financement est-il possible ?",
+        "On utilise déjà Claude au bureau : cette formation m\\",
+        "Claude est-il adapté aux documents BTP (DCE, CCTP) ?",
+        "Quelle différence entre Claude et ChatGPT pour le BTP ?"
+      ]
+    },
+    {
+      "file": "lib/faq.ts",
+      "name": "FAQ_IA_BTP_YVELINES",
+      "count": 32,
+      "questions": [
+        "La formation se déroule-t-elle en présentiel à Versailles ou dans les Yvelines ?",
+        "Faut-il des compétences informatiques pour suivre cette formation ?",
+        "Combien de temps dure la formation ?",
+        "La formation IA appliquée au bâtiment est-elle financement possible selon éligibilité (Constructys) dans les Yvelines ?",
+        "Quelle différence avec une formation généraliste sur ChatGPT ?",
+        "Puis-je former plusieurs personnes en même temps ?",
+        "Intervenez-vous dans toute la communauté d’agglomération de Saint-Quentin-en-Yvelines ?",
+        "Faut-il des compétences informatiques pour suivre cette formation ?",
+        "Combien de temps dure la formation ?",
+        "La formation IA pour les pros du BTP est-elle financement possible selon éligibilité (Constructys) dans les Yvelines ?",
+        "Quelle différence avec une formation généraliste sur ChatGPT ?",
+        "Puis-je former plusieurs personnes en même temps ?",
+        "Vous intervenez à domicile dans le 78 ?",
+        "La formation est-elle disponible le samedi ?",
+        "Comment se déroule une session intra-entreprise à Versailles ?",
+        "Où se déroule la formation IA appliquée au bâtiment à Paris ?",
+        "La formation IA Paris est-elle finançable ?",
+        "Quel est le format de la formation IA pour le BTP Paris ?",
+        "Faut-il déjà savoir utiliser l’IA ?",
+        "Quels outils sont abordés ?",
+        "Faut-il un abonnement payant ?",
+        "Peut-on travailler sur les documents de son entreprise ?",
+        "Les assistants peuvent-ils être partagés avec les collègues ?",
+        "Cette formation apprend-elle à créer une application ?",
+        "Peut-on s’inscrire seul ?",
+        "Où se déroule la formation ?",
+        "Combien coûte la session et un financement est-il possible ?",
+        "On utilise déjà Claude au bureau : cette formation m\\",
+        "Claude est-il adapté aux documents BTP (DCE, CCTP) ?",
+        "Quelle différence entre Claude et ChatGPT pour le BTP ?",
+        "Pourquoi la formation Maîtriser Claude est-elle le matin uniquement ?",
+        "Cowork et Claude Code : est-ce que l\\"
+      ]
+    },
+    {
+      "file": "lib/faq.ts",
+      "name": "FAQ_IA_BTP_SAINT_QUENTIN_YVELINES",
+      "count": 32,
+      "questions": [
+        "Intervenez-vous dans toute la communauté d’agglomération de Saint-Quentin-en-Yvelines ?",
+        "Faut-il des compétences informatiques pour suivre cette formation ?",
+        "Combien de temps dure la formation ?",
+        "La formation IA pour les pros du BTP est-elle financement possible selon éligibilité (Constructys) dans les Yvelines ?",
+        "Quelle différence avec une formation généraliste sur ChatGPT ?",
+        "Puis-je former plusieurs personnes en même temps ?",
+        "Vous intervenez à domicile dans le 78 ?",
+        "La formation est-elle disponible le samedi ?",
+        "Comment se déroule une session intra-entreprise à Versailles ?",
+        "Où se déroule la formation IA appliquée au bâtiment à Paris ?",
+        "La formation IA Paris est-elle finançable ?",
+        "Quel est le format de la formation IA pour le BTP Paris ?",
+        "Faut-il déjà savoir utiliser l’IA ?",
+        "Quels outils sont abordés ?",
+        "Faut-il un abonnement payant ?",
+        "Peut-on travailler sur les documents de son entreprise ?",
+        "Les assistants peuvent-ils être partagés avec les collègues ?",
+        "Cette formation apprend-elle à créer une application ?",
+        "Peut-on s’inscrire seul ?",
+        "Où se déroule la formation ?",
+        "Combien coûte la session et un financement est-il possible ?",
+        "On utilise déjà Claude au bureau : cette formation m\\",
+        "Claude est-il adapté aux documents BTP (DCE, CCTP) ?",
+        "Quelle différence entre Claude et ChatGPT pour le BTP ?",
+        "Pourquoi la formation Maîtriser Claude est-elle le matin uniquement ?",
+        "Cowork et Claude Code : est-ce que l\\",
+        "Mes DCE confidentiels peuvent-ils être uploadés ?",
+        "Quelle différence entre Maîtriser Claude AI et la formation appels d\\",
+        "Combien coûte Maîtriser Claude AI en 2026 et est-ce finançable OPCO ?",
+        "Faut-il activer l\\",
+        "Quels skills Claude sont abordés pendant la formation ?",
+        "Je suis conducteur de travaux : quels documents puis-je vraiment accélérer avec l\\"
+      ]
+    },
+    {
+      "file": "lib/faq.ts",
+      "name": "FAQ_FORMATION_IA_BTP_YVELINES_LANDING",
+      "count": 32,
+      "questions": [
+        "Vous intervenez à domicile dans le 78 ?",
+        "La formation est-elle disponible le samedi ?",
+        "Comment se déroule une session intra-entreprise à Versailles ?",
+        "Où se déroule la formation IA appliquée au bâtiment à Paris ?",
+        "La formation IA Paris est-elle finançable ?",
+        "Quel est le format de la formation IA pour le BTP Paris ?",
+        "Faut-il déjà savoir utiliser l’IA ?",
+        "Quels outils sont abordés ?",
+        "Faut-il un abonnement payant ?",
+        "Peut-on travailler sur les documents de son entreprise ?",
+        "Les assistants peuvent-ils être partagés avec les collègues ?",
+        "Cette formation apprend-elle à créer une application ?",
+        "Peut-on s’inscrire seul ?",
+        "Où se déroule la formation ?",
+        "Combien coûte la session et un financement est-il possible ?",
+        "On utilise déjà Claude au bureau : cette formation m\\",
+        "Claude est-il adapté aux documents BTP (DCE, CCTP) ?",
+        "Quelle différence entre Claude et ChatGPT pour le BTP ?",
+        "Pourquoi la formation Maîtriser Claude est-elle le matin uniquement ?",
+        "Cowork et Claude Code : est-ce que l\\",
+        "Mes DCE confidentiels peuvent-ils être uploadés ?",
+        "Quelle différence entre Maîtriser Claude AI et la formation appels d\\",
+        "Combien coûte Maîtriser Claude AI en 2026 et est-ce finançable OPCO ?",
+        "Faut-il activer l\\",
+        "Quels skills Claude sont abordés pendant la formation ?",
+        "Je suis conducteur de travaux : quels documents puis-je vraiment accélérer avec l\\",
+        "Les skills Claude remplacent-ils mon logiciel de gestion de chantier ?",
+        "Faut-il avoir fait le niveau 1 avant la formation conduite de travaux ?",
+        "Un PPSPS généré par l\\",
+        "Combien coûte la formation conduite de travaux IA en 2026 ?",
+        "Que contient la bibliothèque de 20+ skills Claude BTP ?",
+        "Cette formation est-elle adaptée aux débutants ?"
+      ]
+    },
+    {
+      "file": "lib/faq.ts",
+      "name": "FAQ_IA_BTP_PARIS",
+      "count": 34,
+      "questions": [
+        "Où se déroule la formation IA appliquée au bâtiment à Paris ?",
+        "La formation IA Paris est-elle finançable ?",
+        "Quel est le format de la formation IA pour le BTP Paris ?",
+        "Faut-il déjà savoir utiliser l’IA ?",
+        "Quels outils sont abordés ?",
+        "Faut-il un abonnement payant ?",
+        "Peut-on travailler sur les documents de son entreprise ?",
+        "Les assistants peuvent-ils être partagés avec les collègues ?",
+        "Cette formation apprend-elle à créer une application ?",
+        "Peut-on s’inscrire seul ?",
+        "Où se déroule la formation ?",
+        "Combien coûte la session et un financement est-il possible ?",
+        "On utilise déjà Claude au bureau : cette formation m\\",
+        "Claude est-il adapté aux documents BTP (DCE, CCTP) ?",
+        "Quelle différence entre Claude et ChatGPT pour le BTP ?",
+        "Pourquoi la formation Maîtriser Claude est-elle le matin uniquement ?",
+        "Cowork et Claude Code : est-ce que l\\",
+        "Mes DCE confidentiels peuvent-ils être uploadés ?",
+        "Quelle différence entre Maîtriser Claude AI et la formation appels d\\",
+        "Combien coûte Maîtriser Claude AI en 2026 et est-ce finançable OPCO ?",
+        "Faut-il activer l\\",
+        "Quels skills Claude sont abordés pendant la formation ?",
+        "Je suis conducteur de travaux : quels documents puis-je vraiment accélérer avec l\\",
+        "Les skills Claude remplacent-ils mon logiciel de gestion de chantier ?",
+        "Faut-il avoir fait le niveau 1 avant la formation conduite de travaux ?",
+        "Un PPSPS généré par l\\",
+        "Combien coûte la formation conduite de travaux IA en 2026 ?",
+        "Que contient la bibliothèque de 20+ skills Claude BTP ?",
+        "Cette formation est-elle adaptée aux débutants ?",
+        "Quels documents devons-nous préparer ?",
+        "Peut-on travailler sur un DCE confidentiel ?",
+        "Comment utiliser l’IA pour analyser un CCTP ou un CCAP ?",
+        "Claude Pro ou un autre abonnement est-il obligatoire ?",
+        "L’IA peut-elle réaliser automatiquement le chiffrage ?"
+      ]
+    },
+    {
+      "file": "lib/faq.ts",
+      "name": "FAQ_ASSISTANTS_IA_NIV09",
+      "count": 33,
+      "questions": [
+        "Faut-il déjà savoir utiliser l’IA ?",
+        "Quels outils sont abordés ?",
+        "Faut-il un abonnement payant ?",
+        "Peut-on travailler sur les documents de son entreprise ?",
+        "Les assistants peuvent-ils être partagés avec les collègues ?",
+        "Cette formation apprend-elle à créer une application ?",
+        "Peut-on s’inscrire seul ?",
+        "Où se déroule la formation ?",
+        "Combien coûte la session et un financement est-il possible ?",
+        "On utilise déjà Claude au bureau : cette formation m\\",
+        "Claude est-il adapté aux documents BTP (DCE, CCTP) ?",
+        "Quelle différence entre Claude et ChatGPT pour le BTP ?",
+        "Pourquoi la formation Maîtriser Claude est-elle le matin uniquement ?",
+        "Cowork et Claude Code : est-ce que l\\",
+        "Mes DCE confidentiels peuvent-ils être uploadés ?",
+        "Quelle différence entre Maîtriser Claude AI et la formation appels d\\",
+        "Combien coûte Maîtriser Claude AI en 2026 et est-ce finançable OPCO ?",
+        "Faut-il activer l\\",
+        "Quels skills Claude sont abordés pendant la formation ?",
+        "Je suis conducteur de travaux : quels documents puis-je vraiment accélérer avec l\\",
+        "Les skills Claude remplacent-ils mon logiciel de gestion de chantier ?",
+        "Faut-il avoir fait le niveau 1 avant la formation conduite de travaux ?",
+        "Un PPSPS généré par l\\",
+        "Combien coûte la formation conduite de travaux IA en 2026 ?",
+        "Que contient la bibliothèque de 20+ skills Claude BTP ?",
+        "Cette formation est-elle adaptée aux débutants ?",
+        "Quels documents devons-nous préparer ?",
+        "Peut-on travailler sur un DCE confidentiel ?",
+        "Comment utiliser l’IA pour analyser un CCTP ou un CCAP ?",
+        "Claude Pro ou un autre abonnement est-il obligatoire ?",
+        "L’IA peut-elle réaliser automatiquement le chiffrage ?",
+        "La formation peut-elle être financée par Constructys ?",
+        "Les maîtres d"
+      ]
+    },
+    {
+      "file": "lib/faq.ts",
+      "name": "FAQ_MAITRISER_CLAUDE_NIV04",
+      "count": 28,
+      "questions": [
+        "On utilise déjà Claude au bureau : cette formation m\\",
+        "Claude est-il adapté aux documents BTP (DCE, CCTP) ?",
+        "Quelle différence entre Claude et ChatGPT pour le BTP ?",
+        "Pourquoi la formation Maîtriser Claude est-elle le matin uniquement ?",
+        "Cowork et Claude Code : est-ce que l\\",
+        "Mes DCE confidentiels peuvent-ils être uploadés ?",
+        "Quelle différence entre Maîtriser Claude AI et la formation appels d\\",
+        "Combien coûte Maîtriser Claude AI en 2026 et est-ce finançable OPCO ?",
+        "Faut-il activer l\\",
+        "Quels skills Claude sont abordés pendant la formation ?",
+        "Je suis conducteur de travaux : quels documents puis-je vraiment accélérer avec l\\",
+        "Les skills Claude remplacent-ils mon logiciel de gestion de chantier ?",
+        "Faut-il avoir fait le niveau 1 avant la formation conduite de travaux ?",
+        "Un PPSPS généré par l\\",
+        "Combien coûte la formation conduite de travaux IA en 2026 ?",
+        "Que contient la bibliothèque de 20+ skills Claude BTP ?",
+        "Cette formation est-elle adaptée aux débutants ?",
+        "Quels documents devons-nous préparer ?",
+        "Peut-on travailler sur un DCE confidentiel ?",
+        "Comment utiliser l’IA pour analyser un CCTP ou un CCAP ?",
+        "Claude Pro ou un autre abonnement est-il obligatoire ?",
+        "L’IA peut-elle réaliser automatiquement le chiffrage ?",
+        "La formation peut-elle être financée par Constructys ?",
+        "Les maîtres d",
+        "Comment gérer la confidentialité des données DCE dans ChatGPT ?",
+        "Peut-on utiliser l",
+        "Faut-il avoir un compte ChatGPT payant pour suivre la formation ?",
+        "La formation est-elle adaptée aux TPE (moins de 10 salariés) ?"
+      ]
+    },
+    {
+      "file": "lib/faq.ts",
+      "name": "FAQ_CONDUITE_TRAVAUX_NIV03",
+      "count": 27,
+      "questions": [
+        "Je suis conducteur de travaux : quels documents puis-je vraiment accélérer avec l\\",
+        "Les skills Claude remplacent-ils mon logiciel de gestion de chantier ?",
+        "Faut-il avoir fait le niveau 1 avant la formation conduite de travaux ?",
+        "Un PPSPS généré par l\\",
+        "Combien coûte la formation conduite de travaux IA en 2026 ?",
+        "Que contient la bibliothèque de 20+ skills Claude BTP ?",
+        "Cette formation est-elle adaptée aux débutants ?",
+        "Quels documents devons-nous préparer ?",
+        "Peut-on travailler sur un DCE confidentiel ?",
+        "Comment utiliser l’IA pour analyser un CCTP ou un CCAP ?",
+        "Claude Pro ou un autre abonnement est-il obligatoire ?",
+        "L’IA peut-elle réaliser automatiquement le chiffrage ?",
+        "La formation peut-elle être financée par Constructys ?",
+        "Les maîtres d",
+        "Comment gérer la confidentialité des données DCE dans ChatGPT ?",
+        "Peut-on utiliser l",
+        "Faut-il avoir un compte ChatGPT payant pour suivre la formation ?",
+        "La formation est-elle adaptée aux TPE (moins de 10 salariés) ?",
+        "Combien de temps après la formation peut-on appliquer la méthode ?",
+        "La formation couvre-t-elle uniquement les mémoires techniques ou aussi le chiffrage ?",
+        "Cette formation est-elle adaptée aux débutants ?",
+        "Peut-on travailler sur les documents de notre entreprise ?",
+        "Faut-il un abonnement payant à ChatGPT ou Claude ?",
+        "La formation peut-elle être financée par Constructys ?",
+        "Quelle différence entre intra et interentreprises ?",
+        "L’IA peut-elle garantir la conformité d’un devis ou d’un DOE ?",
+        "Pourquoi une formation « IA travaux publics » plutôt qu"
+      ]
+    },
+    {
+      "file": "lib/faq.ts",
+      "name": "FAQ_APPELS_OFFRE",
+      "count": 28,
+      "questions": [
+        "Cette formation est-elle adaptée aux débutants ?",
+        "Quels documents devons-nous préparer ?",
+        "Peut-on travailler sur un DCE confidentiel ?",
+        "Comment utiliser l’IA pour analyser un CCTP ou un CCAP ?",
+        "Claude Pro ou un autre abonnement est-il obligatoire ?",
+        "L’IA peut-elle réaliser automatiquement le chiffrage ?",
+        "La formation peut-elle être financée par Constructys ?",
+        "Les maîtres d",
+        "Comment gérer la confidentialité des données DCE dans ChatGPT ?",
+        "Peut-on utiliser l",
+        "Faut-il avoir un compte ChatGPT payant pour suivre la formation ?",
+        "La formation est-elle adaptée aux TPE (moins de 10 salariés) ?",
+        "Combien de temps après la formation peut-on appliquer la méthode ?",
+        "La formation couvre-t-elle uniquement les mémoires techniques ou aussi le chiffrage ?",
+        "Cette formation est-elle adaptée aux débutants ?",
+        "Peut-on travailler sur les documents de notre entreprise ?",
+        "Faut-il un abonnement payant à ChatGPT ou Claude ?",
+        "La formation peut-elle être financée par Constructys ?",
+        "Quelle différence entre intra et interentreprises ?",
+        "L’IA peut-elle garantir la conformité d’un devis ou d’un DOE ?",
+        "Pourquoi une formation « IA travaux publics » plutôt qu",
+        "Les entreprises de terrassement, enrobés ou VRD sont-elles financées comme le reste du BTP ?",
+        "La formation couvre-t-elle à la fois les marchés publics et les dossiers privés ?",
+        "Quelle est la durée de la formation IA travaux publics ?",
+        "Quels outils IA sont prévus pour le niveau débutant ?",
+        "Qui peut suivre la formation « L",
+        "La formation est-elle finançable ?",
+        "Où se déroule la formation IA pour les pros du BTP ?"
+      ]
+    },
+    {
+      "file": "lib/faq.ts",
+      "name": "FAQ_FORMATION_IA_APPELS_OFFRES_LANDING",
+      "count": 28,
+      "questions": [
+        "Les maîtres d",
+        "Comment gérer la confidentialité des données DCE dans ChatGPT ?",
+        "Peut-on utiliser l",
+        "Faut-il avoir un compte ChatGPT payant pour suivre la formation ?",
+        "La formation est-elle adaptée aux TPE (moins de 10 salariés) ?",
+        "Combien de temps après la formation peut-on appliquer la méthode ?",
+        "La formation couvre-t-elle uniquement les mémoires techniques ou aussi le chiffrage ?",
+        "Cette formation est-elle adaptée aux débutants ?",
+        "Peut-on travailler sur les documents de notre entreprise ?",
+        "Faut-il un abonnement payant à ChatGPT ou Claude ?",
+        "La formation peut-elle être financée par Constructys ?",
+        "Quelle différence entre intra et interentreprises ?",
+        "L’IA peut-elle garantir la conformité d’un devis ou d’un DOE ?",
+        "Pourquoi une formation « IA travaux publics » plutôt qu",
+        "Les entreprises de terrassement, enrobés ou VRD sont-elles financées comme le reste du BTP ?",
+        "La formation couvre-t-elle à la fois les marchés publics et les dossiers privés ?",
+        "Quelle est la durée de la formation IA travaux publics ?",
+        "Quels outils IA sont prévus pour le niveau débutant ?",
+        "Qui peut suivre la formation « L",
+        "La formation est-elle finançable ?",
+        "Où se déroule la formation IA pour les pros du BTP ?",
+        "La formation est-elle finançable ?",
+        "Faut-il des compétences techniques ?",
+        "À quoi sert la checklist 10 prompts ChatGPT BTP ?",
+        "Comment utiliser les prompts de la checklist ?",
+        "Ces prompts fonctionnent-ils avec Claude AI ou ChatGPT ?",
+        "Puis-je personnaliser ces prompts pour mon métier ?",
+        "La formation IA pour le BTP est-elle finançable ?"
+      ]
+    },
+    {
+      "file": "lib/faq.ts",
+      "name": "FAQ_BATIMENT",
+      "count": 33,
+      "questions": [
+        "Cette formation est-elle adaptée aux débutants ?",
+        "Peut-on travailler sur les documents de notre entreprise ?",
+        "Faut-il un abonnement payant à ChatGPT ou Claude ?",
+        "La formation peut-elle être financée par Constructys ?",
+        "Quelle différence entre intra et interentreprises ?",
+        "L’IA peut-elle garantir la conformité d’un devis ou d’un DOE ?",
+        "Pourquoi une formation « IA travaux publics » plutôt qu",
+        "Les entreprises de terrassement, enrobés ou VRD sont-elles financées comme le reste du BTP ?",
+        "La formation couvre-t-elle à la fois les marchés publics et les dossiers privés ?",
+        "Quelle est la durée de la formation IA travaux publics ?",
+        "Quels outils IA sont prévus pour le niveau débutant ?",
+        "Qui peut suivre la formation « L",
+        "La formation est-elle finançable ?",
+        "Où se déroule la formation IA pour les pros du BTP ?",
+        "La formation est-elle finançable ?",
+        "Faut-il des compétences techniques ?",
+        "À quoi sert la checklist 10 prompts ChatGPT BTP ?",
+        "Comment utiliser les prompts de la checklist ?",
+        "Ces prompts fonctionnent-ils avec Claude AI ou ChatGPT ?",
+        "Puis-je personnaliser ces prompts pour mon métier ?",
+        "La formation IA pour le BTP est-elle finançable ?",
+        "Comment personnaliser ces prompts ChatGPT ?",
+        "Ces prompts fonctionnent-ils avec d",
+        "La formation est-elle finançable ?",
+        "Quel délai pour une proposition ou un chiffrage ?",
+        "Où intervenez-vous pour les formations ?",
+        "Comment financer ma formation IA appliquée au bâtiment ?",
+        "Quels organismes sont partenaires ?",
+        "Les formations sont-elles certifiées Qualiopi ?",
+        "Comment devenir partenaire ?",
+        "Quels sujets sont couverts dans les articles ?",
+        "Les formations sont-elles finançables ?",
+        "Comment accéder aux formations IA pour le BTP ?"
+      ]
+    },
+    {
+      "file": "lib/faq.ts",
+      "name": "FAQ_FORMATION_IA_TRAVAUX_PUBLICS_LANDING",
+      "count": 32,
+      "questions": [
+        "Pourquoi une formation « IA travaux publics » plutôt qu",
+        "Les entreprises de terrassement, enrobés ou VRD sont-elles financées comme le reste du BTP ?",
+        "La formation couvre-t-elle à la fois les marchés publics et les dossiers privés ?",
+        "Quelle est la durée de la formation IA travaux publics ?",
+        "Quels outils IA sont prévus pour le niveau débutant ?",
+        "Qui peut suivre la formation « L",
+        "La formation est-elle finançable ?",
+        "Où se déroule la formation IA pour les pros du BTP ?",
+        "La formation est-elle finançable ?",
+        "Faut-il des compétences techniques ?",
+        "À quoi sert la checklist 10 prompts ChatGPT BTP ?",
+        "Comment utiliser les prompts de la checklist ?",
+        "Ces prompts fonctionnent-ils avec Claude AI ou ChatGPT ?",
+        "Puis-je personnaliser ces prompts pour mon métier ?",
+        "La formation IA pour le BTP est-elle finançable ?",
+        "Comment personnaliser ces prompts ChatGPT ?",
+        "Ces prompts fonctionnent-ils avec d",
+        "La formation est-elle finançable ?",
+        "Quel délai pour une proposition ou un chiffrage ?",
+        "Où intervenez-vous pour les formations ?",
+        "Comment financer ma formation IA appliquée au bâtiment ?",
+        "Quels organismes sont partenaires ?",
+        "Les formations sont-elles certifiées Qualiopi ?",
+        "Comment devenir partenaire ?",
+        "Quels sujets sont couverts dans les articles ?",
+        "Les formations sont-elles finançables ?",
+        "Comment accéder aux formations IA pour le BTP ?",
+        "Quelle est votre expérience dans le BTP ?",
+        "Où intervenez-vous pour les formations ?",
+        "Proposez-vous des formations LinkedIn Learning ?",
+        "Mes données sont-elles stockées sur l",
+        "Comment désinstaller l"
+      ]
+    },
+    {
+      "file": "lib/faq.ts",
+      "name": "FAQ_TRAVAUX_PUBLICS",
+      "count": 33,
+      "questions": [
+        "Quels outils IA sont prévus pour le niveau débutant ?",
+        "Qui peut suivre la formation « L",
+        "La formation est-elle finançable ?",
+        "Où se déroule la formation IA pour les pros du BTP ?",
+        "La formation est-elle finançable ?",
+        "Faut-il des compétences techniques ?",
+        "À quoi sert la checklist 10 prompts ChatGPT BTP ?",
+        "Comment utiliser les prompts de la checklist ?",
+        "Ces prompts fonctionnent-ils avec Claude AI ou ChatGPT ?",
+        "Puis-je personnaliser ces prompts pour mon métier ?",
+        "La formation IA pour le BTP est-elle finançable ?",
+        "Comment personnaliser ces prompts ChatGPT ?",
+        "Ces prompts fonctionnent-ils avec d",
+        "La formation est-elle finançable ?",
+        "Quel délai pour une proposition ou un chiffrage ?",
+        "Où intervenez-vous pour les formations ?",
+        "Comment financer ma formation IA appliquée au bâtiment ?",
+        "Quels organismes sont partenaires ?",
+        "Les formations sont-elles certifiées Qualiopi ?",
+        "Comment devenir partenaire ?",
+        "Quels sujets sont couverts dans les articles ?",
+        "Les formations sont-elles finançables ?",
+        "Comment accéder aux formations IA pour le BTP ?",
+        "Quelle est votre expérience dans le BTP ?",
+        "Où intervenez-vous pour les formations ?",
+        "Proposez-vous des formations LinkedIn Learning ?",
+        "Mes données sont-elles stockées sur l",
+        "Comment désinstaller l",
+        "Quels métiers du BTP peuvent utiliser l\\",
+        "Peut-on utiliser l\\",
+        "Peut-on utiliser l\\",
+        "Comment sécuriser les données utilisées avec une IA ?",
+        "Le diagnostic IA BTP est-il gratuit ?"
+      ]
+    },
+    {
+      "file": "lib/faq.ts",
+      "name": "FAQ_FORMATION_VILLE",
+      "count": 30,
+      "questions": [
+        "Où se déroule la formation IA pour les pros du BTP ?",
+        "La formation est-elle finançable ?",
+        "Faut-il des compétences techniques ?",
+        "À quoi sert la checklist 10 prompts ChatGPT BTP ?",
+        "Comment utiliser les prompts de la checklist ?",
+        "Ces prompts fonctionnent-ils avec Claude AI ou ChatGPT ?",
+        "Puis-je personnaliser ces prompts pour mon métier ?",
+        "La formation IA pour le BTP est-elle finançable ?",
+        "Comment personnaliser ces prompts ChatGPT ?",
+        "Ces prompts fonctionnent-ils avec d",
+        "La formation est-elle finançable ?",
+        "Quel délai pour une proposition ou un chiffrage ?",
+        "Où intervenez-vous pour les formations ?",
+        "Comment financer ma formation IA appliquée au bâtiment ?",
+        "Quels organismes sont partenaires ?",
+        "Les formations sont-elles certifiées Qualiopi ?",
+        "Comment devenir partenaire ?",
+        "Quels sujets sont couverts dans les articles ?",
+        "Les formations sont-elles finançables ?",
+        "Comment accéder aux formations IA pour le BTP ?",
+        "Quelle est votre expérience dans le BTP ?",
+        "Où intervenez-vous pour les formations ?",
+        "Proposez-vous des formations LinkedIn Learning ?",
+        "Mes données sont-elles stockées sur l",
+        "Comment désinstaller l",
+        "Quels métiers du BTP peuvent utiliser l\\",
+        "Peut-on utiliser l\\",
+        "Peut-on utiliser l\\",
+        "Comment sécuriser les données utilisées avec une IA ?",
+        "Le diagnostic IA BTP est-il gratuit ?"
+      ]
+    },
+    {
+      "file": "lib/faq.ts",
+      "name": "FAQ_CHECKLIST_IA_BTP",
+      "count": 27,
+      "questions": [
+        "À quoi sert la checklist 10 prompts ChatGPT BTP ?",
+        "Comment utiliser les prompts de la checklist ?",
+        "Ces prompts fonctionnent-ils avec Claude AI ou ChatGPT ?",
+        "Puis-je personnaliser ces prompts pour mon métier ?",
+        "La formation IA pour le BTP est-elle finançable ?",
+        "Comment personnaliser ces prompts ChatGPT ?",
+        "Ces prompts fonctionnent-ils avec d",
+        "La formation est-elle finançable ?",
+        "Quel délai pour une proposition ou un chiffrage ?",
+        "Où intervenez-vous pour les formations ?",
+        "Comment financer ma formation IA appliquée au bâtiment ?",
+        "Quels organismes sont partenaires ?",
+        "Les formations sont-elles certifiées Qualiopi ?",
+        "Comment devenir partenaire ?",
+        "Quels sujets sont couverts dans les articles ?",
+        "Les formations sont-elles finançables ?",
+        "Comment accéder aux formations IA pour le BTP ?",
+        "Quelle est votre expérience dans le BTP ?",
+        "Où intervenez-vous pour les formations ?",
+        "Proposez-vous des formations LinkedIn Learning ?",
+        "Mes données sont-elles stockées sur l",
+        "Comment désinstaller l",
+        "Quels métiers du BTP peuvent utiliser l\\",
+        "Peut-on utiliser l\\",
+        "Peut-on utiliser l\\",
+        "Comment sécuriser les données utilisées avec une IA ?",
+        "Le diagnostic IA BTP est-il gratuit ?"
+      ]
+    },
+    {
+      "file": "lib/faq.ts",
+      "name": "FAQ_CHECKLIST_PROMPTS",
+      "count": 22,
+      "questions": [
+        "Comment personnaliser ces prompts ChatGPT ?",
+        "Ces prompts fonctionnent-ils avec d",
+        "La formation est-elle finançable ?",
+        "Quel délai pour une proposition ou un chiffrage ?",
+        "Où intervenez-vous pour les formations ?",
+        "Comment financer ma formation IA appliquée au bâtiment ?",
+        "Quels organismes sont partenaires ?",
+        "Les formations sont-elles certifiées Qualiopi ?",
+        "Comment devenir partenaire ?",
+        "Quels sujets sont couverts dans les articles ?",
+        "Les formations sont-elles finançables ?",
+        "Comment accéder aux formations IA pour le BTP ?",
+        "Quelle est votre expérience dans le BTP ?",
+        "Où intervenez-vous pour les formations ?",
+        "Proposez-vous des formations LinkedIn Learning ?",
+        "Mes données sont-elles stockées sur l",
+        "Comment désinstaller l",
+        "Quels métiers du BTP peuvent utiliser l\\",
+        "Peut-on utiliser l\\",
+        "Peut-on utiliser l\\",
+        "Comment sécuriser les données utilisées avec une IA ?",
+        "Le diagnostic IA BTP est-il gratuit ?"
+      ]
+    },
+    {
+      "file": "lib/faq.ts",
+      "name": "FAQ_CONTACT",
+      "count": 19,
+      "questions": [
+        "Quel délai pour une proposition ou un chiffrage ?",
+        "Où intervenez-vous pour les formations ?",
+        "Comment financer ma formation IA appliquée au bâtiment ?",
+        "Quels organismes sont partenaires ?",
+        "Les formations sont-elles certifiées Qualiopi ?",
+        "Comment devenir partenaire ?",
+        "Quels sujets sont couverts dans les articles ?",
+        "Les formations sont-elles finançables ?",
+        "Comment accéder aux formations IA pour le BTP ?",
+        "Quelle est votre expérience dans le BTP ?",
+        "Où intervenez-vous pour les formations ?",
+        "Proposez-vous des formations LinkedIn Learning ?",
+        "Mes données sont-elles stockées sur l",
+        "Comment désinstaller l",
+        "Quels métiers du BTP peuvent utiliser l\\",
+        "Peut-on utiliser l\\",
+        "Peut-on utiliser l\\",
+        "Comment sécuriser les données utilisées avec une IA ?",
+        "Le diagnostic IA BTP est-il gratuit ?"
+      ]
+    },
+    {
+      "file": "lib/faq.ts",
+      "name": "FAQ_CLIENTS_PARTENAIRES",
+      "count": 16,
+      "questions": [
+        "Quels organismes sont partenaires ?",
+        "Les formations sont-elles certifiées Qualiopi ?",
+        "Comment devenir partenaire ?",
+        "Quels sujets sont couverts dans les articles ?",
+        "Les formations sont-elles finançables ?",
+        "Comment accéder aux formations IA pour le BTP ?",
+        "Quelle est votre expérience dans le BTP ?",
+        "Où intervenez-vous pour les formations ?",
+        "Proposez-vous des formations LinkedIn Learning ?",
+        "Mes données sont-elles stockées sur l",
+        "Comment désinstaller l",
+        "Quels métiers du BTP peuvent utiliser l\\",
+        "Peut-on utiliser l\\",
+        "Peut-on utiliser l\\",
+        "Comment sécuriser les données utilisées avec une IA ?",
+        "Le diagnostic IA BTP est-il gratuit ?"
+      ]
+    },
+    {
+      "file": "lib/faq.ts",
+      "name": "FAQ_BLOG",
+      "count": 13,
+      "questions": [
+        "Quels sujets sont couverts dans les articles ?",
+        "Les formations sont-elles finançables ?",
+        "Comment accéder aux formations IA pour le BTP ?",
+        "Quelle est votre expérience dans le BTP ?",
+        "Où intervenez-vous pour les formations ?",
+        "Proposez-vous des formations LinkedIn Learning ?",
+        "Mes données sont-elles stockées sur l",
+        "Comment désinstaller l",
+        "Quels métiers du BTP peuvent utiliser l\\",
+        "Peut-on utiliser l\\",
+        "Peut-on utiliser l\\",
+        "Comment sécuriser les données utilisées avec une IA ?",
+        "Le diagnostic IA BTP est-il gratuit ?"
+      ]
+    },
+    {
+      "file": "lib/faq.ts",
+      "name": "FAQ_AUTEUR",
+      "count": 10,
+      "questions": [
+        "Quelle est votre expérience dans le BTP ?",
+        "Où intervenez-vous pour les formations ?",
+        "Proposez-vous des formations LinkedIn Learning ?",
+        "Mes données sont-elles stockées sur l",
+        "Comment désinstaller l",
+        "Quels métiers du BTP peuvent utiliser l\\",
+        "Peut-on utiliser l\\",
+        "Peut-on utiliser l\\",
+        "Comment sécuriser les données utilisées avec une IA ?",
+        "Le diagnostic IA BTP est-il gratuit ?"
+      ]
+    },
+    {
+      "file": "lib/faq.ts",
+      "name": "FAQ_INSTALL_PWA",
+      "count": 7,
+      "questions": [
+        "Mes données sont-elles stockées sur l",
+        "Comment désinstaller l",
+        "Quels métiers du BTP peuvent utiliser l\\",
+        "Peut-on utiliser l\\",
+        "Peut-on utiliser l\\",
+        "Comment sécuriser les données utilisées avec une IA ?",
+        "Le diagnostic IA BTP est-il gratuit ?"
+      ]
+    },
+    {
+      "file": "lib/faq.ts",
+      "name": "FAQ_DIAGNOSTIC",
+      "count": 5,
+      "questions": [
+        "Quels métiers du BTP peuvent utiliser l\\",
+        "Peut-on utiliser l\\",
+        "Peut-on utiliser l\\",
+        "Comment sécuriser les données utilisées avec une IA ?",
+        "Le diagnostic IA BTP est-il gratuit ?"
+      ]
+    },
+    {
+      "file": "lib/faq.ts",
+      "name": "getFaq*()",
+      "note": "dynamique — vérifier manuellement"
+    },
+    {
+      "file": "lib/formation-developpement-web-ia-content.ts",
+      "name": "DEV_WEB_IA_FAQ",
+      "count": 12,
+      "questions": [
+        "Faut-il savoir coder ?",
+        "Peut-on commencer par les relevés d’heures ?",
+        "Peut-on faire évoluer son outil après la formation ?",
+        "Peut-on importer des fichiers Excel ?",
+        "Peut-on transmettre les heures au gestionnaire de paie ?",
+        "L’outil est-il prêt à être utilisé à la fin de la formation ?",
+        "Quels abonnements et frais faut-il prévoir ?",
+        "Où se déroule la formation ?",
+        "Peut-on créer un outil de gestion de chantier avec l’IA sans savoir coder ?",
+        "Quels formats sont proposés (7 h et 14 h) ?",
+        "Dois-je apporter mon ordinateur ?",
+        "Peut-on connecter l’outil à tous nos logiciels ?"
+      ]
+    },
+    {
+      "file": "lib/formation-ia-btp-pillar-faq.ts",
+      "name": "getFaq*()",
+      "note": "dynamique — vérifier manuellement"
+    },
+    {
+      "file": "lib/formation-ia-faq-long-tail.ts",
+      "name": "FAQ_FORMATION_IA_HUB_LONG_TAIL",
+      "count": 10,
+      "questions": [
+        "Comment utiliser ChatGPT et Claude AI quand on est professionnel du bâtiment ?",
+        "Quelle formation IA pour un étancheur à Paris ?",
+        "Formation ChatGPT pour électricien financée par Constructys ?",
+        "Claude AI peut-il aider à rédiger un mémoire technique BTP ?",
+        "Formation intelligence artificielle pour entreprise générale à Versailles ?",
+        "Formation IA pour les pros du BTP éligible OPCO Constructys en Île-de-France ?",
+        "Quelle différence entre ChatGPT et Claude AI pour le BTP ?",
+        "Formation IA pour couvreur à Cergy-Pontoise ?",
+        "Comment un maçon utilise Claude AI sur ses chantiers ?",
+        "Formation ChatGPT carreleur Saint-Quentin-en-Yvelines ?"
+      ]
+    },
+    {
+      "file": "lib/guide-assistants-travaux-content.ts",
+      "name": "FAQ_GUIDE_ASSISTANTS_TRAVAUX",
+      "count": 4,
+      "questions": [
+        "Est-ce que l",
+        "Nos données de marché sont-elles confidentielles ?",
+        "Faut-il créer les 12 skills d",
+        "Ce guide remplace-t-il une formation IA pour le BTP ?"
+      ]
+    },
+    {
+      "file": "lib/guide-moe-ia-content.ts",
+      "name": "FAQ_GUIDE_MOE_IA",
+      "count": 5,
+      "questions": [
+        "Quelles tâches MOE peut-on confier à l\\",
+        "Mes données d\\",
+        "Faut-il créer les 12 skills d\\",
+        "La formation est-elle finançable ?",
+        "Ce guide remplace-t-il une formation présentielle ?"
+      ]
+    },
+    {
+      "file": "lib/prendre-rendez-vous-page-config.ts",
+      "name": "FAQ_PRENDRE_RDV_PAGE",
+      "count": 4,
+      "questions": [
+        "Le rendez-vous est-il gratuit ?",
+        "Comment se déroule l’échange ?",
+        "Proposez-vous des formations hors Île-de-France ou à distance ?",
+        "Que faire si aucun créneau ne me convient ?"
+      ]
+    }
+  ],
+  "dupes": [
+    {
+      "q": "à qui s’adressent les formations ia pour le btp ?",
+      "locs": [
+        "lib/faq.ts (FAQ_IA_BTP_METIERS_CHANTIER_SEO)",
+        "lib/faq.ts (FAQ_ITEMS_HOME)"
+      ]
+    },
+    {
+      "q": "comment l’ia peut-elle faire gagner du temps au bureau btp ?",
+      "locs": [
+        "lib/faq.ts (FAQ_IA_BTP_METIERS_CHANTIER_SEO)",
+        "lib/faq.ts (FAQ_ITEMS_HOME)"
+      ]
+    },
+    {
+      "q": "quelle formation choisir pour débuter ?",
+      "locs": [
+        "lib/faq.ts (FAQ_IA_BTP_METIERS_CHANTIER_SEO)",
+        "lib/faq.ts (FAQ_ITEMS_HOME)"
+      ]
+    },
+    {
+      "q": "les sessions se déroulent-elles en présentiel en île-de-france ?",
+      "locs": [
+        "lib/faq.ts (FAQ_IA_BTP_METIERS_CHANTIER_SEO)",
+        "lib/faq.ts (FAQ_ITEMS_HOME)"
+      ]
+    },
+    {
+      "q": "comment étudier un financement opco ?",
+      "locs": [
+        "lib/faq.ts (FAQ_IA_BTP_METIERS_CHANTIER_SEO)",
+        "lib/faq.ts (FAQ_ITEMS_HOME)"
+      ]
+    },
+    {
+      "q": "comment utiliser chatgpt dans une entreprise du bâtiment ?",
+      "locs": [
+        "lib/faq.ts (FAQ_IA_BTP_METIERS_CHANTIER_SEO)",
+        "lib/faq.ts (FAQ_ITEMS_HOME)",
+        "lib/faq.ts (FAQ_ITEMS)"
+      ]
+    },
+    {
+      "q": "comment gagner du temps administratif dans le btp avec l",
+      "locs": [
+        "lib/faq.ts (FAQ_IA_BTP_METIERS_CHANTIER_SEO)",
+        "lib/faq.ts (FAQ_ITEMS_HOME)",
+        "lib/faq.ts (FAQ_ITEMS)"
+      ]
+    },
+    {
+      "q": "la formation peut-elle être financée par constructys ou mon opco ?",
+      "locs": [
+        "lib/faq.ts (FAQ_IA_BTP_METIERS_CHANTIER_SEO)",
+        "lib/faq.ts (FAQ_ITEMS_HOME)",
+        "lib/faq.ts (FAQ_ITEMS)"
+      ]
+    },
+    {
+      "q": "faut-il des compétences techniques pour suivre cette formation ?",
+      "locs": [
+        "lib/faq.ts (FAQ_IA_BTP_METIERS_CHANTIER_SEO)",
+        "lib/faq.ts (FAQ_ITEMS_HOME)",
+        "lib/faq.ts (FAQ_ITEMS)"
+      ]
+    },
+    {
+      "q": "combien de temps dure la formation ia pour le btp ?",
+      "locs": [
+        "lib/faq.ts (FAQ_IA_BTP_METIERS_CHANTIER_SEO)",
+        "lib/faq.ts (FAQ_ITEMS_HOME)",
+        "lib/faq.ts (FAQ_ITEMS)"
+      ]
+    },
+    {
+      "q": "la formation se fait-elle en présentiel ?",
+      "locs": [
+        "lib/faq.ts (FAQ_IA_BTP_METIERS_CHANTIER_SEO)",
+        "lib/faq.ts (FAQ_ITEMS_HOME)",
+        "lib/faq.ts (FAQ_ITEMS)"
+      ]
+    },
+    {
+      "q": "où se déroulent les formations catalogue ?",
+      "locs": [
+        "lib/faq.ts (FAQ_IA_BTP_METIERS_CHANTIER_SEO)",
+        "lib/faq.ts (FAQ_ITEMS_HOME)",
+        "lib/faq.ts (FAQ_ITEMS)"
+      ]
+    },
+    {
+      "q": "comment mesurer le roi de la formation ia ?",
+      "locs": [
+        "lib/faq.ts (FAQ_IA_BTP_METIERS_CHANTIER_SEO)",
+        "lib/faq.ts (FAQ_ITEMS_HOME)",
+        "lib/faq.ts (FAQ_ITEMS)"
+      ]
+    },
+    {
+      "q": "mes données btp sont-elles sécurisées avec chatgpt ?",
+      "locs": [
+        "lib/faq.ts (FAQ_IA_BTP_METIERS_CHANTIER_SEO)",
+        "lib/faq.ts (FAQ_ITEMS_HOME)",
+        "lib/faq.ts (FAQ_ITEMS)"
+      ]
+    },
+    {
+      "q": "quelle formatrice ia spécialisée btp en france ?",
+      "locs": [
+        "lib/faq.ts (FAQ_IA_BTP_METIERS_CHANTIER_SEO)",
+        "lib/faq.ts (FAQ_ITEMS_HOME)",
+        "lib/faq.ts (FAQ_ITEMS)",
+        "lib/faq.ts (FAQ_GEO)"
+      ]
+    },
+    {
+      "q": "formation ia pour conducteur de travaux : à quoi ça sert ?",
+      "locs": [
+        "lib/faq.ts (FAQ_IA_BTP_METIERS_CHANTIER_SEO)",
+        "lib/faq.ts (FAQ_ITEMS_HOME)",
+        "lib/faq.ts (FAQ_ITEMS)",
+        "lib/faq.ts (FAQ_GEO)"
+      ]
+    },
+    {
+      "q": "ia pour pme du bâtiment et des travaux publics : par où commencer ?",
+      "locs": [
+        "lib/faq.ts (FAQ_IA_BTP_METIERS_CHANTIER_SEO)",
+        "lib/faq.ts (FAQ_ITEMS_HOME)",
+        "lib/faq.ts (FAQ_ITEMS)",
+        "lib/faq.ts (FAQ_GEO)"
+      ]
+    },
+    {
+      "q": "comment financer une formation ia avec opco constructys ?",
+      "locs": [
+        "lib/faq.ts (FAQ_IA_BTP_METIERS_CHANTIER_SEO)",
+        "lib/faq.ts (FAQ_ITEMS_HOME)",
+        "lib/faq.ts (FAQ_ITEMS)",
+        "lib/faq.ts (FAQ_GEO)"
+      ]
+    },
+    {
+      "q": "qui forme les entreprises btp à chatgpt en île-de-france ?",
+      "locs": [
+        "lib/faq.ts (FAQ_ITEMS_HOME)",
+        "lib/faq.ts (FAQ_ITEMS)",
+        "lib/faq.ts (FAQ_GEO)"
+      ]
+    },
+    {
+      "q": "formation ia pour entreprises btp : quelle durée et quel prix ?",
+      "locs": [
+        "lib/faq.ts (FAQ_ITEMS_HOME)",
+        "lib/faq.ts (FAQ_ITEMS)",
+        "lib/faq.ts (FAQ_GEO)"
+      ]
+    },
+    {
+      "q": "quels sont les prérequis pour une formation chatgpt btp ?",
+      "locs": [
+        "lib/faq.ts (FAQ_ITEMS_HOME)",
+        "lib/faq.ts (FAQ_ITEMS)",
+        "lib/faq.ts (FAQ_GEO)"
+      ]
+    },
+    {
+      "q": "comment structurer un devis btp plus vite avec l",
+      "locs": [
+        "lib/faq.ts (FAQ_ITEMS_HOME)",
+        "lib/faq.ts (FAQ_ITEMS)",
+        "lib/faq.ts (FAQ_GEO)"
+      ]
+    },
+    {
+      "q": "quels résultats avec une formation ia pour les pros du btp ?",
+      "locs": [
+        "lib/faq.ts (FAQ_ITEMS_HOME)",
+        "lib/faq.ts (FAQ_ITEMS)",
+        "lib/faq.ts (FAQ_GEO)"
+      ]
+    },
+    {
+      "q": "formation ia appels d",
+      "locs": [
+        "lib/faq.ts (FAQ_ITEMS_HOME)",
+        "lib/faq.ts (FAQ_ITEMS)",
+        "lib/faq.ts (FAQ_GEO)"
+      ]
+    },
+    {
+      "q": "les formations sont-elles certifiantes ?",
+      "locs": [
+        "lib/faq.ts (FAQ_ITEMS_HOME)",
+        "lib/faq.ts (FAQ_ITEMS)",
+        "lib/faq.ts (FAQ_GEO)",
+        "lib/faq.ts (FAQ_CATALOGUE_PAGE)"
+      ]
+    },
+    {
+      "q": "le cpf est-il accepté ?",
+      "locs": [
+        "lib/faq.ts (FAQ_ITEMS_HOME)",
+        "lib/faq.ts (FAQ_ITEMS)",
+        "lib/faq.ts (FAQ_GEO)",
+        "lib/faq.ts (FAQ_CATALOGUE_PAGE)"
+      ]
+    },
+    {
+      "q": "quelle formation choisir ?",
+      "locs": [
+        "lib/faq.ts (FAQ_ITEMS_HOME)",
+        "lib/faq.ts (FAQ_ITEMS)",
+        "lib/faq.ts (FAQ_GEO)",
+        "lib/faq.ts (FAQ_CATALOGUE_PAGE)"
+      ]
+    },
+    {
+      "q": "quelle différence entre intra et interentreprises ?",
+      "locs": [
+        "lib/faq.ts (FAQ_ITEMS_HOME)",
+        "lib/faq.ts (FAQ_ITEMS)",
+        "lib/faq.ts (FAQ_GEO)",
+        "lib/faq.ts (FAQ_CATALOGUE_PAGE)",
+        "lib/faq.ts (FAQ_CONDUITE_TRAVAUX_NIV03)",
+        "lib/faq.ts (FAQ_APPELS_OFFRE)",
+        "lib/faq.ts (FAQ_FORMATION_IA_APPELS_OFFRES_LANDING)",
+        "lib/faq.ts (FAQ_BATIMENT)"
+      ]
+    },
+    {
+      "q": "les formations peuvent-elles être adaptées à notre métier ?",
+      "locs": [
+        "lib/faq.ts (FAQ_ITEMS_HOME)",
+        "lib/faq.ts (FAQ_ITEMS)",
+        "lib/faq.ts (FAQ_GEO)",
+        "lib/faq.ts (FAQ_CATALOGUE_PAGE)"
+      ]
+    },
+    {
+      "q": "peut-on travailler sur nos propres documents ?",
+      "locs": [
+        "lib/faq.ts (FAQ_ITEMS_HOME)",
+        "lib/faq.ts (FAQ_ITEMS)",
+        "lib/faq.ts (FAQ_GEO)",
+        "lib/faq.ts (FAQ_CATALOGUE_PAGE)"
+      ]
+    },
+    {
+      "q": "combien de participants peuvent suivre une session ?",
+      "locs": [
+        "lib/faq.ts (FAQ_ITEMS)",
+        "lib/faq.ts (FAQ_GEO)",
+        "lib/faq.ts (FAQ_CATALOGUE_PAGE)"
+      ]
+    },
+    {
+      "q": "une prise en charge opco est-elle possible ?",
+      "locs": [
+        "lib/faq.ts (FAQ_ITEMS)",
+        "lib/faq.ts (FAQ_GEO)",
+        "lib/faq.ts (FAQ_CATALOGUE_PAGE)"
+      ]
+    },
+    {
+      "q": "le tarif est-il calculé par participant ou par entreprise ?",
+      "locs": [
+        "lib/faq.ts (FAQ_ITEMS)",
+        "lib/faq.ts (FAQ_GEO)",
+        "lib/faq.ts (FAQ_CATALOGUE_PAGE)",
+        "lib/faq.ts (FAQ_FORMATIONS)"
+      ]
+    },
+    {
+      "q": "combien coûte une formation ia pour le btp ?",
+      "locs": [
+        "lib/faq.ts (FAQ_ITEMS)",
+        "lib/faq.ts (FAQ_GEO)",
+        "lib/faq.ts (FAQ_CATALOGUE_PAGE)",
+        "lib/faq.ts (FAQ_FORMATIONS)"
+      ]
+    },
+    {
+      "q": "la formation peut-elle être financée par constructys ?",
+      "locs": [
+        "lib/faq.ts (FAQ_ITEMS)",
+        "lib/faq.ts (FAQ_GEO)",
+        "lib/faq.ts (FAQ_CATALOGUE_PAGE)",
+        "lib/faq.ts (FAQ_FORMATIONS)",
+        "lib/faq.ts (FAQ_ASSISTANTS_IA_NIV09)",
+        "lib/faq.ts (FAQ_MAITRISER_CLAUDE_NIV04)",
+        "lib/faq.ts (FAQ_CONDUITE_TRAVAUX_NIV03)",
+        "lib/faq.ts (FAQ_CONDUITE_TRAVAUX_NIV03)",
+        "lib/faq.ts (FAQ_APPELS_OFFRE)",
+        "lib/faq.ts (FAQ_APPELS_OFFRE)",
+        "lib/faq.ts (FAQ_FORMATION_IA_APPELS_OFFRES_LANDING)",
+        "lib/faq.ts (FAQ_BATIMENT)"
+      ]
+    },
+    {
+      "q": "quelles formations ia appliquées au bâtiment sont proposées au catalogue ?",
+      "locs": [
+        "lib/faq.ts (FAQ_ITEMS)",
+        "lib/faq.ts (FAQ_GEO)",
+        "lib/faq.ts (FAQ_CATALOGUE_PAGE)",
+        "lib/faq.ts (FAQ_FORMATIONS)"
+      ]
+    },
+    {
+      "q": "comment choisir la bonne formation ia pour le btp pour mon entreprise ?",
+      "locs": [
+        "lib/faq.ts (FAQ_GEO)",
+        "lib/faq.ts (FAQ_CATALOGUE_PAGE)",
+        "lib/faq.ts (FAQ_FORMATIONS)"
+      ]
+    },
+    {
+      "q": "combien coûte une formation ia pour les pros du btp du catalogue ?",
+      "locs": [
+        "lib/faq.ts (FAQ_GEO)",
+        "lib/faq.ts (FAQ_CATALOGUE_PAGE)",
+        "lib/faq.ts (FAQ_FORMATIONS)"
+      ]
+    },
+    {
+      "q": "les formations ia pour les pros du btp peuvent-elles être financées par constructys ou mon opco ?",
+      "locs": [
+        "lib/faq.ts (FAQ_GEO)",
+        "lib/faq.ts (FAQ_CATALOGUE_PAGE)",
+        "lib/faq.ts (FAQ_FORMATIONS)"
+      ]
+    },
+    {
+      "q": "faut-il un abonnement payant pour suivre la formation ?",
+      "locs": [
+        "lib/faq.ts (FAQ_GEO)",
+        "lib/faq.ts (FAQ_CATALOGUE_PAGE)",
+        "lib/faq.ts (FAQ_FORMATIONS)"
+      ]
+    },
+    {
+      "q": "les formations ia pour les pros du btp sont-elles certifiées qualiopi ?",
+      "locs": [
+        "lib/faq.ts (FAQ_GEO)",
+        "lib/faq.ts (FAQ_CATALOGUE_PAGE)",
+        "lib/faq.ts (FAQ_FORMATIONS)"
+      ]
+    },
+    {
+      "q": "les formations sont-elles disponibles en intra-entreprise ?",
+      "locs": [
+        "lib/faq.ts (FAQ_CATALOGUE_PAGE)",
+        "lib/faq.ts (FAQ_FORMATIONS)"
+      ]
+    },
+    {
+      "q": "faut-il un abonnement claude pour les formations niveau avancé ?",
+      "locs": [
+        "lib/faq.ts (FAQ_CATALOGUE_PAGE)",
+        "lib/faq.ts (FAQ_FORMATIONS)",
+        "lib/faq.ts (FAQ_TARIFS)"
+      ]
+    },
+    {
+      "q": "quels comptes ia pour les formations niveau débutant ?",
+      "locs": [
+        "lib/faq.ts (FAQ_CATALOGUE_PAGE)",
+        "lib/faq.ts (FAQ_FORMATIONS)",
+        "lib/faq.ts (FAQ_TARIFS)"
+      ]
+    },
+    {
+      "q": "combien coûte une formation ia pour les pros du btp ?",
+      "locs": [
+        "lib/faq.ts (FAQ_CATALOGUE_PAGE)",
+        "lib/faq.ts (FAQ_FORMATIONS)",
+        "lib/faq.ts (FAQ_TARIFS)"
+      ]
+    },
+    {
+      "q": "comment financer ma formation ia ?",
+      "locs": [
+        "lib/faq.ts (FAQ_CATALOGUE_PAGE)",
+        "lib/faq.ts (FAQ_FORMATIONS)",
+        "lib/faq.ts (FAQ_TARIFS)"
+      ]
+    },
+    {
+      "q": "faut-il avancer des frais ?",
+      "locs": [
+        "lib/faq.ts (FAQ_CATALOGUE_PAGE)",
+        "lib/faq.ts (FAQ_FORMATIONS)",
+        "lib/faq.ts (FAQ_TARIFS)"
+      ]
+    },
+    {
+      "q": "quels formats de formation proposez-vous ?",
+      "locs": [
+        "lib/faq.ts (FAQ_CATALOGUE_PAGE)",
+        "lib/faq.ts (FAQ_FORMATIONS)",
+        "lib/faq.ts (FAQ_TARIFS)",
+        "lib/faq.ts (FAQ_OFFRES)"
+      ]
+    },
+    {
+      "q": "comment accéder à l",
+      "locs": [
+        "lib/faq.ts (FAQ_CATALOGUE_PAGE)",
+        "lib/faq.ts (FAQ_FORMATIONS)",
+        "lib/faq.ts (FAQ_TARIFS)",
+        "lib/faq.ts (FAQ_OFFRES)"
+      ]
+    },
+    {
+      "q": "les formations sont-elles adaptées aux dirigeants et équipes du btp ?",
+      "locs": [
+        "lib/faq.ts (FAQ_CATALOGUE_PAGE)",
+        "lib/faq.ts (FAQ_FORMATIONS)",
+        "lib/faq.ts (FAQ_TARIFS)",
+        "lib/faq.ts (FAQ_OFFRES)"
+      ]
+    },
+    {
+      "q": "quel délai pour soumettre mon dossier constructys ?",
+      "locs": [
+        "lib/faq.ts (FAQ_FORMATIONS)",
+        "lib/faq.ts (FAQ_TARIFS)",
+        "lib/faq.ts (FAQ_OFFRES)",
+        "lib/faq.ts (FAQ_FINANCEMENT)"
+      ]
+    },
+    {
+      "q": "quel plafond pour les coûts pédagogiques ?",
+      "locs": [
+        "lib/faq.ts (FAQ_FORMATIONS)",
+        "lib/faq.ts (FAQ_TARIFS)",
+        "lib/faq.ts (FAQ_OFFRES)",
+        "lib/faq.ts (FAQ_FINANCEMENT)"
+      ]
+    },
+    {
+      "q": "quels documents fournir pour le financement ?",
+      "locs": [
+        "lib/faq.ts (FAQ_FORMATIONS)",
+        "lib/faq.ts (FAQ_TARIFS)",
+        "lib/faq.ts (FAQ_OFFRES)",
+        "lib/faq.ts (FAQ_FINANCEMENT)"
+      ]
+    },
+    {
+      "q": "ma formation ia peut-elle être financée par constructys ?",
+      "locs": [
+        "lib/faq.ts (FAQ_FORMATIONS)",
+        "lib/faq.ts (FAQ_TARIFS)",
+        "lib/faq.ts (FAQ_OFFRES)",
+        "lib/faq.ts (FAQ_FINANCEMENT)",
+        "lib/faq.ts (FAQ_FINANCEMENT_IA_BTP)"
+      ]
+    },
+    {
+      "q": "quel est le montant maximum remboursé ?",
+      "locs": [
+        "lib/faq.ts (FAQ_FORMATIONS)",
+        "lib/faq.ts (FAQ_TARIFS)",
+        "lib/faq.ts (FAQ_OFFRES)",
+        "lib/faq.ts (FAQ_FINANCEMENT)",
+        "lib/faq.ts (FAQ_FINANCEMENT_IA_BTP)"
+      ]
+    },
+    {
+      "q": "le plafond constructys a-t-il changé en 2026 ?",
+      "locs": [
+        "lib/faq.ts (FAQ_TARIFS)",
+        "lib/faq.ts (FAQ_OFFRES)",
+        "lib/faq.ts (FAQ_FINANCEMENT)",
+        "lib/faq.ts (FAQ_FINANCEMENT_IA_BTP)"
+      ]
+    },
+    {
+      "q": "combien de temps avant la formation faut-il déposer le dossier ?",
+      "locs": [
+        "lib/faq.ts (FAQ_TARIFS)",
+        "lib/faq.ts (FAQ_OFFRES)",
+        "lib/faq.ts (FAQ_FINANCEMENT)",
+        "lib/faq.ts (FAQ_FINANCEMENT_IA_BTP)"
+      ]
+    },
+    {
+      "q": "mon entreprise de moins de 11 salariés a-t-elle droit au financement ?",
+      "locs": [
+        "lib/faq.ts (FAQ_TARIFS)",
+        "lib/faq.ts (FAQ_OFFRES)",
+        "lib/faq.ts (FAQ_FINANCEMENT)",
+        "lib/faq.ts (FAQ_FINANCEMENT_IA_BTP)"
+      ]
+    },
+    {
+      "q": "constructys finance-t-il les formations en présentiel ?",
+      "locs": [
+        "lib/faq.ts (FAQ_TARIFS)",
+        "lib/faq.ts (FAQ_OFFRES)",
+        "lib/faq.ts (FAQ_FINANCEMENT)",
+        "lib/faq.ts (FAQ_FINANCEMENT_IA_BTP)"
+      ]
+    },
+    {
+      "q": "que se passe-t-il si ma demande est déposée en retard ?",
+      "locs": [
+        "lib/faq.ts (FAQ_TARIFS)",
+        "lib/faq.ts (FAQ_OFFRES)",
+        "lib/faq.ts (FAQ_FINANCEMENT)",
+        "lib/faq.ts (FAQ_FINANCEMENT_IA_BTP)"
+      ]
+    },
+    {
+      "q": "comment savoir si mon opco est constructys ?",
+      "locs": [
+        "lib/faq.ts (FAQ_TARIFS)",
+        "lib/faq.ts (FAQ_OFFRES)",
+        "lib/faq.ts (FAQ_FINANCEMENT)",
+        "lib/faq.ts (FAQ_FINANCEMENT_IA_BTP)"
+      ]
+    },
+    {
+      "q": "comment retrouver mon opco de rattachement si je ne suis pas sûr ?",
+      "locs": [
+        "lib/faq.ts (FAQ_TARIFS)",
+        "lib/faq.ts (FAQ_OFFRES)",
+        "lib/faq.ts (FAQ_FINANCEMENT)",
+        "lib/faq.ts (FAQ_FINANCEMENT_IA_BTP)"
+      ]
+    },
+    {
+      "q": "une formation ia peut-elle bénéficier d’une participation constructys ?",
+      "locs": [
+        "lib/faq.ts (FAQ_TARIFS)",
+        "lib/faq.ts (FAQ_OFFRES)",
+        "lib/faq.ts (FAQ_FINANCEMENT)",
+        "lib/faq.ts (FAQ_FINANCEMENT_IA_BTP)",
+        "lib/faq.ts (FAQ_FINANCEMENT_CONSTRUCTYS_PAGE)"
+      ]
+    },
+    {
+      "q": "quel est le délai pour déposer le dossier ?",
+      "locs": [
+        "lib/faq.ts (FAQ_TARIFS)",
+        "lib/faq.ts (FAQ_OFFRES)",
+        "lib/faq.ts (FAQ_FINANCEMENT)",
+        "lib/faq.ts (FAQ_FINANCEMENT_IA_BTP)",
+        "lib/faq.ts (FAQ_FINANCEMENT_CONSTRUCTYS_PAGE)"
+      ]
+    },
+    {
+      "q": "quel montant peut être pris en charge ?",
+      "locs": [
+        "lib/faq.ts (FAQ_TARIFS)",
+        "lib/faq.ts (FAQ_OFFRES)",
+        "lib/faq.ts (FAQ_FINANCEMENT)",
+        "lib/faq.ts (FAQ_FINANCEMENT_IA_BTP)",
+        "lib/faq.ts (FAQ_FINANCEMENT_CONSTRUCTYS_PAGE)"
+      ]
+    },
+    {
+      "q": "qui règle la formation dans le circuit transitoire ?",
+      "locs": [
+        "lib/faq.ts (FAQ_TARIFS)",
+        "lib/faq.ts (FAQ_OFFRES)",
+        "lib/faq.ts (FAQ_FINANCEMENT)",
+        "lib/faq.ts (FAQ_FINANCEMENT_IA_BTP)",
+        "lib/faq.ts (FAQ_FINANCEMENT_CONSTRUCTYS_PAGE)"
+      ]
+    },
+    {
+      "q": "ofc dépose-t-il le dossier dans egestion ?",
+      "locs": [
+        "lib/faq.ts (FAQ_TARIFS)",
+        "lib/faq.ts (FAQ_OFFRES)",
+        "lib/faq.ts (FAQ_FINANCEMENT)",
+        "lib/faq.ts (FAQ_FINANCEMENT_IA_BTP)",
+        "lib/faq.ts (FAQ_FINANCEMENT_CONSTRUCTYS_PAGE)"
+      ]
+    },
+    {
+      "q": "quels documents ofc fournit-il ?",
+      "locs": [
+        "lib/faq.ts (FAQ_TARIFS)",
+        "lib/faq.ts (FAQ_OFFRES)",
+        "lib/faq.ts (FAQ_FINANCEMENT)",
+        "lib/faq.ts (FAQ_FINANCEMENT_IA_BTP)",
+        "lib/faq.ts (FAQ_FINANCEMENT_CONSTRUCTYS_PAGE)"
+      ]
+    },
+    {
+      "q": "où intervenez-vous pour les formations ia pour les pros du btp ?",
+      "locs": [
+        "lib/faq.ts (FAQ_TARIFS)",
+        "lib/faq.ts (FAQ_OFFRES)",
+        "lib/faq.ts (FAQ_FINANCEMENT)",
+        "lib/faq.ts (FAQ_FINANCEMENT_IA_BTP)",
+        "lib/faq.ts (FAQ_FINANCEMENT_CONSTRUCTYS_PAGE)",
+        "lib/faq.ts (FAQ_A_PROPOS)"
+      ]
+    },
+    {
+      "q": "quelle est votre expérience dans le btp ?",
+      "locs": [
+        "lib/faq.ts (FAQ_TARIFS)",
+        "lib/faq.ts (FAQ_OFFRES)",
+        "lib/faq.ts (FAQ_FINANCEMENT)",
+        "lib/faq.ts (FAQ_FINANCEMENT_IA_BTP)",
+        "lib/faq.ts (FAQ_FINANCEMENT_CONSTRUCTYS_PAGE)",
+        "lib/faq.ts (FAQ_A_PROPOS)",
+        "lib/faq.ts (FAQ_FORMATION_IA_TRAVAUX_PUBLICS_LANDING)",
+        "lib/faq.ts (FAQ_TRAVAUX_PUBLICS)",
+        "lib/faq.ts (FAQ_FORMATION_VILLE)",
+        "lib/faq.ts (FAQ_CHECKLIST_IA_BTP)",
+        "lib/faq.ts (FAQ_CHECKLIST_PROMPTS)",
+        "lib/faq.ts (FAQ_CONTACT)",
+        "lib/faq.ts (FAQ_CLIENTS_PARTENAIRES)",
+        "lib/faq.ts (FAQ_BLOG)",
+        "lib/faq.ts (FAQ_AUTEUR)"
+      ]
+    },
+    {
+      "q": "le rendez-vous est-il gratuit ?",
+      "locs": [
+        "lib/faq.ts (FAQ_TARIFS)",
+        "lib/faq.ts (FAQ_OFFRES)",
+        "lib/faq.ts (FAQ_FINANCEMENT)",
+        "lib/faq.ts (FAQ_FINANCEMENT_IA_BTP)",
+        "lib/faq.ts (FAQ_FINANCEMENT_CONSTRUCTYS_PAGE)",
+        "lib/faq.ts (FAQ_A_PROPOS)",
+        "lib/faq.ts (FAQ_PRENDRE_RDV)",
+        "lib/prendre-rendez-vous-page-config.ts (FAQ_PRENDRE_RDV_PAGE)"
+      ]
+    },
+    {
+      "q": "comment se déroule l’échange ?",
+      "locs": [
+        "lib/faq.ts (FAQ_TARIFS)",
+        "lib/faq.ts (FAQ_OFFRES)",
+        "lib/faq.ts (FAQ_FINANCEMENT)",
+        "lib/faq.ts (FAQ_FINANCEMENT_IA_BTP)",
+        "lib/faq.ts (FAQ_FINANCEMENT_CONSTRUCTYS_PAGE)",
+        "lib/faq.ts (FAQ_A_PROPOS)",
+        "lib/faq.ts (FAQ_PRENDRE_RDV)",
+        "lib/prendre-rendez-vous-page-config.ts (FAQ_PRENDRE_RDV_PAGE)"
+      ]
+    },
+    {
+      "q": "que faire si aucun créneau ne me convient ?",
+      "locs": [
+        "lib/faq.ts (FAQ_TARIFS)",
+        "lib/faq.ts (FAQ_OFFRES)",
+        "lib/faq.ts (FAQ_FINANCEMENT)",
+        "lib/faq.ts (FAQ_FINANCEMENT_IA_BTP)",
+        "lib/faq.ts (FAQ_FINANCEMENT_CONSTRUCTYS_PAGE)",
+        "lib/faq.ts (FAQ_A_PROPOS)",
+        "lib/faq.ts (FAQ_PRENDRE_RDV)",
+        "lib/prendre-rendez-vous-page-config.ts (FAQ_PRENDRE_RDV_PAGE)"
+      ]
+    },
+    {
+      "q": "la formation se déroule-t-elle en présentiel à versailles ou dans les yvelines ?",
+      "locs": [
+        "lib/faq.ts (FAQ_OFFRES)",
+        "lib/faq.ts (FAQ_FINANCEMENT)",
+        "lib/faq.ts (FAQ_FINANCEMENT_IA_BTP)",
+        "lib/faq.ts (FAQ_FINANCEMENT_CONSTRUCTYS_PAGE)",
+        "lib/faq.ts (FAQ_A_PROPOS)",
+        "lib/faq.ts (FAQ_PRENDRE_RDV)",
+        "lib/faq.ts (FAQ_IA_BTP_YVELINES)"
+      ]
+    },
+    {
+      "q": "faut-il des compétences informatiques pour suivre cette formation ?",
+      "locs": [
+        "lib/faq.ts (FAQ_OFFRES)",
+        "lib/faq.ts (FAQ_FINANCEMENT)",
+        "lib/faq.ts (FAQ_FINANCEMENT_IA_BTP)",
+        "lib/faq.ts (FAQ_FINANCEMENT_IA_BTP)",
+        "lib/faq.ts (FAQ_FINANCEMENT_CONSTRUCTYS_PAGE)",
+        "lib/faq.ts (FAQ_FINANCEMENT_CONSTRUCTYS_PAGE)",
+        "lib/faq.ts (FAQ_A_PROPOS)",
+        "lib/faq.ts (FAQ_A_PROPOS)",
+        "lib/faq.ts (FAQ_PRENDRE_RDV)",
+        "lib/faq.ts (FAQ_PRENDRE_RDV)",
+        "lib/faq.ts (FAQ_IA_BTP_YVELINES)",
+        "lib/faq.ts (FAQ_IA_BTP_YVELINES)",
+        "lib/faq.ts (FAQ_IA_BTP_SAINT_QUENTIN_YVELINES)"
+      ]
+    },
+    {
+      "q": "combien de temps dure la formation ?",
+      "locs": [
+        "lib/faq.ts (FAQ_OFFRES)",
+        "lib/faq.ts (FAQ_FINANCEMENT)",
+        "lib/faq.ts (FAQ_FINANCEMENT_IA_BTP)",
+        "lib/faq.ts (FAQ_FINANCEMENT_IA_BTP)",
+        "lib/faq.ts (FAQ_FINANCEMENT_CONSTRUCTYS_PAGE)",
+        "lib/faq.ts (FAQ_FINANCEMENT_CONSTRUCTYS_PAGE)",
+        "lib/faq.ts (FAQ_A_PROPOS)",
+        "lib/faq.ts (FAQ_A_PROPOS)",
+        "lib/faq.ts (FAQ_PRENDRE_RDV)",
+        "lib/faq.ts (FAQ_PRENDRE_RDV)",
+        "lib/faq.ts (FAQ_IA_BTP_YVELINES)",
+        "lib/faq.ts (FAQ_IA_BTP_YVELINES)",
+        "lib/faq.ts (FAQ_IA_BTP_SAINT_QUENTIN_YVELINES)"
+      ]
+    },
+    {
+      "q": "la formation ia appliquée au bâtiment est-elle financement possible selon éligibilité (constructys) dans les yvelines ?",
+      "locs": [
+        "lib/faq.ts (FAQ_OFFRES)",
+        "lib/faq.ts (FAQ_FINANCEMENT)",
+        "lib/faq.ts (FAQ_FINANCEMENT_IA_BTP)",
+        "lib/faq.ts (FAQ_FINANCEMENT_CONSTRUCTYS_PAGE)",
+        "lib/faq.ts (FAQ_A_PROPOS)",
+        "lib/faq.ts (FAQ_PRENDRE_RDV)",
+        "lib/faq.ts (FAQ_IA_BTP_YVELINES)"
+      ]
+    },
+    {
+      "q": "quelle différence avec une formation généraliste sur chatgpt ?",
+      "locs": [
+        "lib/faq.ts (FAQ_FINANCEMENT)",
+        "lib/faq.ts (FAQ_FINANCEMENT_IA_BTP)",
+        "lib/faq.ts (FAQ_FINANCEMENT_CONSTRUCTYS_PAGE)",
+        "lib/faq.ts (FAQ_FINANCEMENT_CONSTRUCTYS_PAGE)",
+        "lib/faq.ts (FAQ_A_PROPOS)",
+        "lib/faq.ts (FAQ_A_PROPOS)",
+        "lib/faq.ts (FAQ_PRENDRE_RDV)",
+        "lib/faq.ts (FAQ_PRENDRE_RDV)",
+        "lib/faq.ts (FAQ_IA_BTP_YVELINES)",
+        "lib/faq.ts (FAQ_IA_BTP_YVELINES)",
+        "lib/faq.ts (FAQ_IA_BTP_SAINT_QUENTIN_YVELINES)"
+      ]
+    },
+    {
+      "q": "puis-je former plusieurs personnes en même temps ?",
+      "locs": [
+        "lib/faq.ts (FAQ_FINANCEMENT)",
+        "lib/faq.ts (FAQ_FINANCEMENT_IA_BTP)",
+        "lib/faq.ts (FAQ_FINANCEMENT_CONSTRUCTYS_PAGE)",
+        "lib/faq.ts (FAQ_FINANCEMENT_CONSTRUCTYS_PAGE)",
+        "lib/faq.ts (FAQ_A_PROPOS)",
+        "lib/faq.ts (FAQ_A_PROPOS)",
+        "lib/faq.ts (FAQ_PRENDRE_RDV)",
+        "lib/faq.ts (FAQ_PRENDRE_RDV)",
+        "lib/faq.ts (FAQ_IA_BTP_YVELINES)",
+        "lib/faq.ts (FAQ_IA_BTP_YVELINES)",
+        "lib/faq.ts (FAQ_IA_BTP_SAINT_QUENTIN_YVELINES)"
+      ]
+    },
+    {
+      "q": "intervenez-vous dans toute la communauté d’agglomération de saint-quentin-en-yvelines ?",
+      "locs": [
+        "lib/faq.ts (FAQ_FINANCEMENT)",
+        "lib/faq.ts (FAQ_FINANCEMENT_IA_BTP)",
+        "lib/faq.ts (FAQ_FINANCEMENT_CONSTRUCTYS_PAGE)",
+        "lib/faq.ts (FAQ_A_PROPOS)",
+        "lib/faq.ts (FAQ_PRENDRE_RDV)",
+        "lib/faq.ts (FAQ_IA_BTP_YVELINES)",
+        "lib/faq.ts (FAQ_IA_BTP_SAINT_QUENTIN_YVELINES)"
+      ]
+    },
+    {
+      "q": "la formation ia pour les pros du btp est-elle financement possible selon éligibilité (constructys) dans les yvelines ?",
+      "locs": [
+        "lib/faq.ts (FAQ_FINANCEMENT_IA_BTP)",
+        "lib/faq.ts (FAQ_FINANCEMENT_CONSTRUCTYS_PAGE)",
+        "lib/faq.ts (FAQ_A_PROPOS)",
+        "lib/faq.ts (FAQ_PRENDRE_RDV)",
+        "lib/faq.ts (FAQ_IA_BTP_YVELINES)",
+        "lib/faq.ts (FAQ_IA_BTP_SAINT_QUENTIN_YVELINES)"
+      ]
+    },
+    {
+      "q": "vous intervenez à domicile dans le 78 ?",
+      "locs": [
+        "lib/faq.ts (FAQ_FINANCEMENT_CONSTRUCTYS_PAGE)",
+        "lib/faq.ts (FAQ_A_PROPOS)",
+        "lib/faq.ts (FAQ_PRENDRE_RDV)",
+        "lib/faq.ts (FAQ_IA_BTP_YVELINES)",
+        "lib/faq.ts (FAQ_IA_BTP_SAINT_QUENTIN_YVELINES)",
+        "lib/faq.ts (FAQ_FORMATION_IA_BTP_YVELINES_LANDING)"
+      ]
+    },
+    {
+      "q": "la formation est-elle disponible le samedi ?",
+      "locs": [
+        "lib/faq.ts (FAQ_FINANCEMENT_CONSTRUCTYS_PAGE)",
+        "lib/faq.ts (FAQ_A_PROPOS)",
+        "lib/faq.ts (FAQ_PRENDRE_RDV)",
+        "lib/faq.ts (FAQ_IA_BTP_YVELINES)",
+        "lib/faq.ts (FAQ_IA_BTP_SAINT_QUENTIN_YVELINES)",
+        "lib/faq.ts (FAQ_FORMATION_IA_BTP_YVELINES_LANDING)"
+      ]
+    },
+    {
+      "q": "comment se déroule une session intra-entreprise à versailles ?",
+      "locs": [
+        "lib/faq.ts (FAQ_FINANCEMENT_CONSTRUCTYS_PAGE)",
+        "lib/faq.ts (FAQ_A_PROPOS)",
+        "lib/faq.ts (FAQ_PRENDRE_RDV)",
+        "lib/faq.ts (FAQ_IA_BTP_YVELINES)",
+        "lib/faq.ts (FAQ_IA_BTP_SAINT_QUENTIN_YVELINES)",
+        "lib/faq.ts (FAQ_FORMATION_IA_BTP_YVELINES_LANDING)"
+      ]
+    },
+    {
+      "q": "où se déroule la formation ia appliquée au bâtiment à paris ?",
+      "locs": [
+        "lib/faq.ts (FAQ_FINANCEMENT_CONSTRUCTYS_PAGE)",
+        "lib/faq.ts (FAQ_A_PROPOS)",
+        "lib/faq.ts (FAQ_PRENDRE_RDV)",
+        "lib/faq.ts (FAQ_IA_BTP_YVELINES)",
+        "lib/faq.ts (FAQ_IA_BTP_SAINT_QUENTIN_YVELINES)",
+        "lib/faq.ts (FAQ_FORMATION_IA_BTP_YVELINES_LANDING)",
+        "lib/faq.ts (FAQ_IA_BTP_PARIS)"
+      ]
+    },
+    {
+      "q": "la formation ia paris est-elle finançable ?",
+      "locs": [
+        "lib/faq.ts (FAQ_FINANCEMENT_CONSTRUCTYS_PAGE)",
+        "lib/faq.ts (FAQ_A_PROPOS)",
+        "lib/faq.ts (FAQ_PRENDRE_RDV)",
+        "lib/faq.ts (FAQ_IA_BTP_YVELINES)",
+        "lib/faq.ts (FAQ_IA_BTP_SAINT_QUENTIN_YVELINES)",
+        "lib/faq.ts (FAQ_FORMATION_IA_BTP_YVELINES_LANDING)",
+        "lib/faq.ts (FAQ_IA_BTP_PARIS)"
+      ]
+    },
+    {
+      "q": "quel est le format de la formation ia pour le btp paris ?",
+      "locs": [
+        "lib/faq.ts (FAQ_FINANCEMENT_CONSTRUCTYS_PAGE)",
+        "lib/faq.ts (FAQ_A_PROPOS)",
+        "lib/faq.ts (FAQ_PRENDRE_RDV)",
+        "lib/faq.ts (FAQ_IA_BTP_YVELINES)",
+        "lib/faq.ts (FAQ_IA_BTP_SAINT_QUENTIN_YVELINES)",
+        "lib/faq.ts (FAQ_FORMATION_IA_BTP_YVELINES_LANDING)",
+        "lib/faq.ts (FAQ_IA_BTP_PARIS)"
+      ]
+    },
+    {
+      "q": "faut-il déjà savoir utiliser l’ia ?",
+      "locs": [
+        "lib/faq.ts (FAQ_FINANCEMENT_CONSTRUCTYS_PAGE)",
+        "lib/faq.ts (FAQ_A_PROPOS)",
+        "lib/faq.ts (FAQ_PRENDRE_RDV)",
+        "lib/faq.ts (FAQ_IA_BTP_YVELINES)",
+        "lib/faq.ts (FAQ_IA_BTP_SAINT_QUENTIN_YVELINES)",
+        "lib/faq.ts (FAQ_FORMATION_IA_BTP_YVELINES_LANDING)",
+        "lib/faq.ts (FAQ_IA_BTP_PARIS)",
+        "lib/faq.ts (FAQ_ASSISTANTS_IA_NIV09)"
+      ]
+    },
+    {
+      "q": "quels outils sont abordés ?",
+      "locs": [
+        "lib/faq.ts (FAQ_FINANCEMENT_CONSTRUCTYS_PAGE)",
+        "lib/faq.ts (FAQ_A_PROPOS)",
+        "lib/faq.ts (FAQ_PRENDRE_RDV)",
+        "lib/faq.ts (FAQ_IA_BTP_YVELINES)",
+        "lib/faq.ts (FAQ_IA_BTP_SAINT_QUENTIN_YVELINES)",
+        "lib/faq.ts (FAQ_FORMATION_IA_BTP_YVELINES_LANDING)",
+        "lib/faq.ts (FAQ_IA_BTP_PARIS)",
+        "lib/faq.ts (FAQ_ASSISTANTS_IA_NIV09)"
+      ]
+    },
+    {
+      "q": "faut-il un abonnement payant ?",
+      "locs": [
+        "lib/faq.ts (FAQ_A_PROPOS)",
+        "lib/faq.ts (FAQ_PRENDRE_RDV)",
+        "lib/faq.ts (FAQ_IA_BTP_YVELINES)",
+        "lib/faq.ts (FAQ_IA_BTP_SAINT_QUENTIN_YVELINES)",
+        "lib/faq.ts (FAQ_FORMATION_IA_BTP_YVELINES_LANDING)",
+        "lib/faq.ts (FAQ_IA_BTP_PARIS)",
+        "lib/faq.ts (FAQ_ASSISTANTS_IA_NIV09)"
+      ]
+    },
+    {
+      "q": "peut-on travailler sur les documents de son entreprise ?",
+      "locs": [
+        "lib/faq.ts (FAQ_A_PROPOS)",
+        "lib/faq.ts (FAQ_PRENDRE_RDV)",
+        "lib/faq.ts (FAQ_IA_BTP_YVELINES)",
+        "lib/faq.ts (FAQ_IA_BTP_SAINT_QUENTIN_YVELINES)",
+        "lib/faq.ts (FAQ_FORMATION_IA_BTP_YVELINES_LANDING)",
+        "lib/faq.ts (FAQ_IA_BTP_PARIS)",
+        "lib/faq.ts (FAQ_ASSISTANTS_IA_NIV09)"
+      ]
+    },
+    {
+      "q": "les assistants peuvent-ils être partagés avec les collègues ?",
+      "locs": [
+        "lib/faq.ts (FAQ_A_PROPOS)",
+        "lib/faq.ts (FAQ_PRENDRE_RDV)",
+        "lib/faq.ts (FAQ_IA_BTP_YVELINES)",
+        "lib/faq.ts (FAQ_IA_BTP_SAINT_QUENTIN_YVELINES)",
+        "lib/faq.ts (FAQ_FORMATION_IA_BTP_YVELINES_LANDING)",
+        "lib/faq.ts (FAQ_IA_BTP_PARIS)",
+        "lib/faq.ts (FAQ_ASSISTANTS_IA_NIV09)"
+      ]
+    },
+    {
+      "q": "cette formation apprend-elle à créer une application ?",
+      "locs": [
+        "lib/faq.ts (FAQ_A_PROPOS)",
+        "lib/faq.ts (FAQ_PRENDRE_RDV)",
+        "lib/faq.ts (FAQ_IA_BTP_YVELINES)",
+        "lib/faq.ts (FAQ_IA_BTP_SAINT_QUENTIN_YVELINES)",
+        "lib/faq.ts (FAQ_FORMATION_IA_BTP_YVELINES_LANDING)",
+        "lib/faq.ts (FAQ_IA_BTP_PARIS)",
+        "lib/faq.ts (FAQ_ASSISTANTS_IA_NIV09)"
+      ]
+    },
+    {
+      "q": "peut-on s’inscrire seul ?",
+      "locs": [
+        "lib/faq.ts (FAQ_A_PROPOS)",
+        "lib/faq.ts (FAQ_PRENDRE_RDV)",
+        "lib/faq.ts (FAQ_IA_BTP_YVELINES)",
+        "lib/faq.ts (FAQ_IA_BTP_SAINT_QUENTIN_YVELINES)",
+        "lib/faq.ts (FAQ_FORMATION_IA_BTP_YVELINES_LANDING)",
+        "lib/faq.ts (FAQ_IA_BTP_PARIS)",
+        "lib/faq.ts (FAQ_ASSISTANTS_IA_NIV09)"
+      ]
+    },
+    {
+      "q": "où se déroule la formation ?",
+      "locs": [
+        "lib/faq.ts (FAQ_A_PROPOS)",
+        "lib/faq.ts (FAQ_PRENDRE_RDV)",
+        "lib/faq.ts (FAQ_IA_BTP_YVELINES)",
+        "lib/faq.ts (FAQ_IA_BTP_SAINT_QUENTIN_YVELINES)",
+        "lib/faq.ts (FAQ_FORMATION_IA_BTP_YVELINES_LANDING)",
+        "lib/faq.ts (FAQ_IA_BTP_PARIS)",
+        "lib/faq.ts (FAQ_ASSISTANTS_IA_NIV09)",
+        "lib/formation-developpement-web-ia-content.ts (DEV_WEB_IA_FAQ)"
+      ]
+    },
+    {
+      "q": "combien coûte la session et un financement est-il possible ?",
+      "locs": [
+        "lib/faq.ts (FAQ_A_PROPOS)",
+        "lib/faq.ts (FAQ_PRENDRE_RDV)",
+        "lib/faq.ts (FAQ_IA_BTP_YVELINES)",
+        "lib/faq.ts (FAQ_IA_BTP_SAINT_QUENTIN_YVELINES)",
+        "lib/faq.ts (FAQ_FORMATION_IA_BTP_YVELINES_LANDING)",
+        "lib/faq.ts (FAQ_IA_BTP_PARIS)",
+        "lib/faq.ts (FAQ_ASSISTANTS_IA_NIV09)"
+      ]
+    },
+    {
+      "q": "on utilise déjà claude au bureau : cette formation m\\",
+      "locs": [
+        "lib/faq.ts (FAQ_A_PROPOS)",
+        "lib/faq.ts (FAQ_PRENDRE_RDV)",
+        "lib/faq.ts (FAQ_IA_BTP_YVELINES)",
+        "lib/faq.ts (FAQ_IA_BTP_SAINT_QUENTIN_YVELINES)",
+        "lib/faq.ts (FAQ_FORMATION_IA_BTP_YVELINES_LANDING)",
+        "lib/faq.ts (FAQ_IA_BTP_PARIS)",
+        "lib/faq.ts (FAQ_ASSISTANTS_IA_NIV09)",
+        "lib/faq.ts (FAQ_MAITRISER_CLAUDE_NIV04)"
+      ]
+    },
+    {
+      "q": "claude est-il adapté aux documents btp (dce, cctp) ?",
+      "locs": [
+        "lib/faq.ts (FAQ_PRENDRE_RDV)",
+        "lib/faq.ts (FAQ_IA_BTP_YVELINES)",
+        "lib/faq.ts (FAQ_IA_BTP_SAINT_QUENTIN_YVELINES)",
+        "lib/faq.ts (FAQ_FORMATION_IA_BTP_YVELINES_LANDING)",
+        "lib/faq.ts (FAQ_IA_BTP_PARIS)",
+        "lib/faq.ts (FAQ_ASSISTANTS_IA_NIV09)",
+        "lib/faq.ts (FAQ_MAITRISER_CLAUDE_NIV04)"
+      ]
+    },
+    {
+      "q": "quelle différence entre claude et chatgpt pour le btp ?",
+      "locs": [
+        "lib/faq.ts (FAQ_PRENDRE_RDV)",
+        "lib/faq.ts (FAQ_IA_BTP_YVELINES)",
+        "lib/faq.ts (FAQ_IA_BTP_SAINT_QUENTIN_YVELINES)",
+        "lib/faq.ts (FAQ_FORMATION_IA_BTP_YVELINES_LANDING)",
+        "lib/faq.ts (FAQ_IA_BTP_PARIS)",
+        "lib/faq.ts (FAQ_ASSISTANTS_IA_NIV09)",
+        "lib/faq.ts (FAQ_MAITRISER_CLAUDE_NIV04)"
+      ]
+    },
+    {
+      "q": "pourquoi la formation maîtriser claude est-elle le matin uniquement ?",
+      "locs": [
+        "lib/faq.ts (FAQ_IA_BTP_YVELINES)",
+        "lib/faq.ts (FAQ_IA_BTP_SAINT_QUENTIN_YVELINES)",
+        "lib/faq.ts (FAQ_FORMATION_IA_BTP_YVELINES_LANDING)",
+        "lib/faq.ts (FAQ_IA_BTP_PARIS)",
+        "lib/faq.ts (FAQ_ASSISTANTS_IA_NIV09)",
+        "lib/faq.ts (FAQ_MAITRISER_CLAUDE_NIV04)"
+      ]
+    },
+    {
+      "q": "cowork et claude code : est-ce que l\\",
+      "locs": [
+        "lib/faq.ts (FAQ_IA_BTP_YVELINES)",
+        "lib/faq.ts (FAQ_IA_BTP_SAINT_QUENTIN_YVELINES)",
+        "lib/faq.ts (FAQ_FORMATION_IA_BTP_YVELINES_LANDING)",
+        "lib/faq.ts (FAQ_IA_BTP_PARIS)",
+        "lib/faq.ts (FAQ_ASSISTANTS_IA_NIV09)",
+        "lib/faq.ts (FAQ_MAITRISER_CLAUDE_NIV04)"
+      ]
+    },
+    {
+      "q": "mes dce confidentiels peuvent-ils être uploadés ?",
+      "locs": [
+        "lib/faq.ts (FAQ_IA_BTP_SAINT_QUENTIN_YVELINES)",
+        "lib/faq.ts (FAQ_FORMATION_IA_BTP_YVELINES_LANDING)",
+        "lib/faq.ts (FAQ_IA_BTP_PARIS)",
+        "lib/faq.ts (FAQ_ASSISTANTS_IA_NIV09)",
+        "lib/faq.ts (FAQ_MAITRISER_CLAUDE_NIV04)"
+      ]
+    },
+    {
+      "q": "quelle différence entre maîtriser claude ai et la formation appels d\\",
+      "locs": [
+        "lib/faq.ts (FAQ_IA_BTP_SAINT_QUENTIN_YVELINES)",
+        "lib/faq.ts (FAQ_FORMATION_IA_BTP_YVELINES_LANDING)",
+        "lib/faq.ts (FAQ_IA_BTP_PARIS)",
+        "lib/faq.ts (FAQ_ASSISTANTS_IA_NIV09)",
+        "lib/faq.ts (FAQ_MAITRISER_CLAUDE_NIV04)"
+      ]
+    },
+    {
+      "q": "combien coûte maîtriser claude ai en 2026 et est-ce finançable opco ?",
+      "locs": [
+        "lib/faq.ts (FAQ_IA_BTP_SAINT_QUENTIN_YVELINES)",
+        "lib/faq.ts (FAQ_FORMATION_IA_BTP_YVELINES_LANDING)",
+        "lib/faq.ts (FAQ_IA_BTP_PARIS)",
+        "lib/faq.ts (FAQ_ASSISTANTS_IA_NIV09)",
+        "lib/faq.ts (FAQ_MAITRISER_CLAUDE_NIV04)"
+      ]
+    },
+    {
+      "q": "faut-il activer l\\",
+      "locs": [
+        "lib/faq.ts (FAQ_IA_BTP_SAINT_QUENTIN_YVELINES)",
+        "lib/faq.ts (FAQ_FORMATION_IA_BTP_YVELINES_LANDING)",
+        "lib/faq.ts (FAQ_IA_BTP_PARIS)",
+        "lib/faq.ts (FAQ_ASSISTANTS_IA_NIV09)",
+        "lib/faq.ts (FAQ_MAITRISER_CLAUDE_NIV04)"
+      ]
+    },
+    {
+      "q": "quels skills claude sont abordés pendant la formation ?",
+      "locs": [
+        "lib/faq.ts (FAQ_IA_BTP_SAINT_QUENTIN_YVELINES)",
+        "lib/faq.ts (FAQ_FORMATION_IA_BTP_YVELINES_LANDING)",
+        "lib/faq.ts (FAQ_IA_BTP_PARIS)",
+        "lib/faq.ts (FAQ_ASSISTANTS_IA_NIV09)",
+        "lib/faq.ts (FAQ_MAITRISER_CLAUDE_NIV04)"
+      ]
+    },
+    {
+      "q": "je suis conducteur de travaux : quels documents puis-je vraiment accélérer avec l\\",
+      "locs": [
+        "lib/faq.ts (FAQ_IA_BTP_SAINT_QUENTIN_YVELINES)",
+        "lib/faq.ts (FAQ_FORMATION_IA_BTP_YVELINES_LANDING)",
+        "lib/faq.ts (FAQ_IA_BTP_PARIS)",
+        "lib/faq.ts (FAQ_ASSISTANTS_IA_NIV09)",
+        "lib/faq.ts (FAQ_MAITRISER_CLAUDE_NIV04)",
+        "lib/faq.ts (FAQ_CONDUITE_TRAVAUX_NIV03)"
+      ]
+    },
+    {
+      "q": "les skills claude remplacent-ils mon logiciel de gestion de chantier ?",
+      "locs": [
+        "lib/faq.ts (FAQ_FORMATION_IA_BTP_YVELINES_LANDING)",
+        "lib/faq.ts (FAQ_IA_BTP_PARIS)",
+        "lib/faq.ts (FAQ_ASSISTANTS_IA_NIV09)",
+        "lib/faq.ts (FAQ_MAITRISER_CLAUDE_NIV04)",
+        "lib/faq.ts (FAQ_CONDUITE_TRAVAUX_NIV03)"
+      ]
+    },
+    {
+      "q": "faut-il avoir fait le niveau 1 avant la formation conduite de travaux ?",
+      "locs": [
+        "lib/faq.ts (FAQ_FORMATION_IA_BTP_YVELINES_LANDING)",
+        "lib/faq.ts (FAQ_IA_BTP_PARIS)",
+        "lib/faq.ts (FAQ_ASSISTANTS_IA_NIV09)",
+        "lib/faq.ts (FAQ_MAITRISER_CLAUDE_NIV04)",
+        "lib/faq.ts (FAQ_CONDUITE_TRAVAUX_NIV03)"
+      ]
+    },
+    {
+      "q": "un ppsps généré par l\\",
+      "locs": [
+        "lib/faq.ts (FAQ_FORMATION_IA_BTP_YVELINES_LANDING)",
+        "lib/faq.ts (FAQ_IA_BTP_PARIS)",
+        "lib/faq.ts (FAQ_ASSISTANTS_IA_NIV09)",
+        "lib/faq.ts (FAQ_MAITRISER_CLAUDE_NIV04)",
+        "lib/faq.ts (FAQ_CONDUITE_TRAVAUX_NIV03)"
+      ]
+    },
+    {
+      "q": "combien coûte la formation conduite de travaux ia en 2026 ?",
+      "locs": [
+        "lib/faq.ts (FAQ_FORMATION_IA_BTP_YVELINES_LANDING)",
+        "lib/faq.ts (FAQ_IA_BTP_PARIS)",
+        "lib/faq.ts (FAQ_ASSISTANTS_IA_NIV09)",
+        "lib/faq.ts (FAQ_MAITRISER_CLAUDE_NIV04)",
+        "lib/faq.ts (FAQ_CONDUITE_TRAVAUX_NIV03)"
+      ]
+    },
+    {
+      "q": "que contient la bibliothèque de 20+ skills claude btp ?",
+      "locs": [
+        "lib/faq.ts (FAQ_FORMATION_IA_BTP_YVELINES_LANDING)",
+        "lib/faq.ts (FAQ_IA_BTP_PARIS)",
+        "lib/faq.ts (FAQ_ASSISTANTS_IA_NIV09)",
+        "lib/faq.ts (FAQ_MAITRISER_CLAUDE_NIV04)",
+        "lib/faq.ts (FAQ_CONDUITE_TRAVAUX_NIV03)"
+      ]
+    },
+    {
+      "q": "cette formation est-elle adaptée aux débutants ?",
+      "locs": [
+        "lib/faq.ts (FAQ_FORMATION_IA_BTP_YVELINES_LANDING)",
+        "lib/faq.ts (FAQ_IA_BTP_PARIS)",
+        "lib/faq.ts (FAQ_ASSISTANTS_IA_NIV09)",
+        "lib/faq.ts (FAQ_MAITRISER_CLAUDE_NIV04)",
+        "lib/faq.ts (FAQ_CONDUITE_TRAVAUX_NIV03)",
+        "lib/faq.ts (FAQ_CONDUITE_TRAVAUX_NIV03)",
+        "lib/faq.ts (FAQ_APPELS_OFFRE)",
+        "lib/faq.ts (FAQ_APPELS_OFFRE)",
+        "lib/faq.ts (FAQ_FORMATION_IA_APPELS_OFFRES_LANDING)",
+        "lib/faq.ts (FAQ_BATIMENT)"
+      ]
+    },
+    {
+      "q": "quels documents devons-nous préparer ?",
+      "locs": [
+        "lib/faq.ts (FAQ_IA_BTP_PARIS)",
+        "lib/faq.ts (FAQ_ASSISTANTS_IA_NIV09)",
+        "lib/faq.ts (FAQ_MAITRISER_CLAUDE_NIV04)",
+        "lib/faq.ts (FAQ_CONDUITE_TRAVAUX_NIV03)",
+        "lib/faq.ts (FAQ_APPELS_OFFRE)"
+      ]
+    },
+    {
+      "q": "peut-on travailler sur un dce confidentiel ?",
+      "locs": [
+        "lib/faq.ts (FAQ_IA_BTP_PARIS)",
+        "lib/faq.ts (FAQ_ASSISTANTS_IA_NIV09)",
+        "lib/faq.ts (FAQ_MAITRISER_CLAUDE_NIV04)",
+        "lib/faq.ts (FAQ_CONDUITE_TRAVAUX_NIV03)",
+        "lib/faq.ts (FAQ_APPELS_OFFRE)"
+      ]
+    },
+    {
+      "q": "comment utiliser l’ia pour analyser un cctp ou un ccap ?",
+      "locs": [
+        "lib/faq.ts (FAQ_IA_BTP_PARIS)",
+        "lib/faq.ts (FAQ_ASSISTANTS_IA_NIV09)",
+        "lib/faq.ts (FAQ_MAITRISER_CLAUDE_NIV04)",
+        "lib/faq.ts (FAQ_CONDUITE_TRAVAUX_NIV03)",
+        "lib/faq.ts (FAQ_APPELS_OFFRE)"
+      ]
+    },
+    {
+      "q": "claude pro ou un autre abonnement est-il obligatoire ?",
+      "locs": [
+        "lib/faq.ts (FAQ_IA_BTP_PARIS)",
+        "lib/faq.ts (FAQ_ASSISTANTS_IA_NIV09)",
+        "lib/faq.ts (FAQ_MAITRISER_CLAUDE_NIV04)",
+        "lib/faq.ts (FAQ_CONDUITE_TRAVAUX_NIV03)",
+        "lib/faq.ts (FAQ_APPELS_OFFRE)"
+      ]
+    },
+    {
+      "q": "l’ia peut-elle réaliser automatiquement le chiffrage ?",
+      "locs": [
+        "lib/faq.ts (FAQ_IA_BTP_PARIS)",
+        "lib/faq.ts (FAQ_ASSISTANTS_IA_NIV09)",
+        "lib/faq.ts (FAQ_MAITRISER_CLAUDE_NIV04)",
+        "lib/faq.ts (FAQ_CONDUITE_TRAVAUX_NIV03)",
+        "lib/faq.ts (FAQ_APPELS_OFFRE)"
+      ]
+    },
+    {
+      "q": "les maîtres d",
+      "locs": [
+        "lib/faq.ts (FAQ_ASSISTANTS_IA_NIV09)",
+        "lib/faq.ts (FAQ_MAITRISER_CLAUDE_NIV04)",
+        "lib/faq.ts (FAQ_CONDUITE_TRAVAUX_NIV03)",
+        "lib/faq.ts (FAQ_APPELS_OFFRE)",
+        "lib/faq.ts (FAQ_FORMATION_IA_APPELS_OFFRES_LANDING)"
+      ]
+    },
+    {
+      "q": "comment gérer la confidentialité des données dce dans chatgpt ?",
+      "locs": [
+        "lib/faq.ts (FAQ_MAITRISER_CLAUDE_NIV04)",
+        "lib/faq.ts (FAQ_CONDUITE_TRAVAUX_NIV03)",
+        "lib/faq.ts (FAQ_APPELS_OFFRE)",
+        "lib/faq.ts (FAQ_FORMATION_IA_APPELS_OFFRES_LANDING)"
+      ]
+    },
+    {
+      "q": "peut-on utiliser l",
+      "locs": [
+        "lib/faq.ts (FAQ_MAITRISER_CLAUDE_NIV04)",
+        "lib/faq.ts (FAQ_CONDUITE_TRAVAUX_NIV03)",
+        "lib/faq.ts (FAQ_APPELS_OFFRE)",
+        "lib/faq.ts (FAQ_FORMATION_IA_APPELS_OFFRES_LANDING)"
+      ]
+    },
+    {
+      "q": "faut-il avoir un compte chatgpt payant pour suivre la formation ?",
+      "locs": [
+        "lib/faq.ts (FAQ_MAITRISER_CLAUDE_NIV04)",
+        "lib/faq.ts (FAQ_CONDUITE_TRAVAUX_NIV03)",
+        "lib/faq.ts (FAQ_APPELS_OFFRE)",
+        "lib/faq.ts (FAQ_FORMATION_IA_APPELS_OFFRES_LANDING)"
+      ]
+    },
+    {
+      "q": "la formation est-elle adaptée aux tpe (moins de 10 salariés) ?",
+      "locs": [
+        "lib/faq.ts (FAQ_MAITRISER_CLAUDE_NIV04)",
+        "lib/faq.ts (FAQ_CONDUITE_TRAVAUX_NIV03)",
+        "lib/faq.ts (FAQ_APPELS_OFFRE)",
+        "lib/faq.ts (FAQ_FORMATION_IA_APPELS_OFFRES_LANDING)"
+      ]
+    },
+    {
+      "q": "combien de temps après la formation peut-on appliquer la méthode ?",
+      "locs": [
+        "lib/faq.ts (FAQ_CONDUITE_TRAVAUX_NIV03)",
+        "lib/faq.ts (FAQ_APPELS_OFFRE)",
+        "lib/faq.ts (FAQ_FORMATION_IA_APPELS_OFFRES_LANDING)"
+      ]
+    },
+    {
+      "q": "la formation couvre-t-elle uniquement les mémoires techniques ou aussi le chiffrage ?",
+      "locs": [
+        "lib/faq.ts (FAQ_CONDUITE_TRAVAUX_NIV03)",
+        "lib/faq.ts (FAQ_APPELS_OFFRE)",
+        "lib/faq.ts (FAQ_FORMATION_IA_APPELS_OFFRES_LANDING)"
+      ]
+    },
+    {
+      "q": "peut-on travailler sur les documents de notre entreprise ?",
+      "locs": [
+        "lib/faq.ts (FAQ_CONDUITE_TRAVAUX_NIV03)",
+        "lib/faq.ts (FAQ_APPELS_OFFRE)",
+        "lib/faq.ts (FAQ_FORMATION_IA_APPELS_OFFRES_LANDING)",
+        "lib/faq.ts (FAQ_BATIMENT)"
+      ]
+    },
+    {
+      "q": "faut-il un abonnement payant à chatgpt ou claude ?",
+      "locs": [
+        "lib/faq.ts (FAQ_CONDUITE_TRAVAUX_NIV03)",
+        "lib/faq.ts (FAQ_APPELS_OFFRE)",
+        "lib/faq.ts (FAQ_FORMATION_IA_APPELS_OFFRES_LANDING)",
+        "lib/faq.ts (FAQ_BATIMENT)"
+      ]
+    },
+    {
+      "q": "l’ia peut-elle garantir la conformité d’un devis ou d’un doe ?",
+      "locs": [
+        "lib/faq.ts (FAQ_CONDUITE_TRAVAUX_NIV03)",
+        "lib/faq.ts (FAQ_APPELS_OFFRE)",
+        "lib/faq.ts (FAQ_FORMATION_IA_APPELS_OFFRES_LANDING)",
+        "lib/faq.ts (FAQ_BATIMENT)"
+      ]
+    },
+    {
+      "q": "pourquoi une formation « ia travaux publics » plutôt qu",
+      "locs": [
+        "lib/faq.ts (FAQ_CONDUITE_TRAVAUX_NIV03)",
+        "lib/faq.ts (FAQ_APPELS_OFFRE)",
+        "lib/faq.ts (FAQ_FORMATION_IA_APPELS_OFFRES_LANDING)",
+        "lib/faq.ts (FAQ_BATIMENT)",
+        "lib/faq.ts (FAQ_FORMATION_IA_TRAVAUX_PUBLICS_LANDING)"
+      ]
+    },
+    {
+      "q": "les entreprises de terrassement, enrobés ou vrd sont-elles financées comme le reste du btp ?",
+      "locs": [
+        "lib/faq.ts (FAQ_APPELS_OFFRE)",
+        "lib/faq.ts (FAQ_FORMATION_IA_APPELS_OFFRES_LANDING)",
+        "lib/faq.ts (FAQ_BATIMENT)",
+        "lib/faq.ts (FAQ_FORMATION_IA_TRAVAUX_PUBLICS_LANDING)"
+      ]
+    },
+    {
+      "q": "la formation couvre-t-elle à la fois les marchés publics et les dossiers privés ?",
+      "locs": [
+        "lib/faq.ts (FAQ_APPELS_OFFRE)",
+        "lib/faq.ts (FAQ_FORMATION_IA_APPELS_OFFRES_LANDING)",
+        "lib/faq.ts (FAQ_BATIMENT)",
+        "lib/faq.ts (FAQ_FORMATION_IA_TRAVAUX_PUBLICS_LANDING)"
+      ]
+    },
+    {
+      "q": "quelle est la durée de la formation ia travaux publics ?",
+      "locs": [
+        "lib/faq.ts (FAQ_APPELS_OFFRE)",
+        "lib/faq.ts (FAQ_FORMATION_IA_APPELS_OFFRES_LANDING)",
+        "lib/faq.ts (FAQ_BATIMENT)",
+        "lib/faq.ts (FAQ_FORMATION_IA_TRAVAUX_PUBLICS_LANDING)"
+      ]
+    },
+    {
+      "q": "quels outils ia sont prévus pour le niveau débutant ?",
+      "locs": [
+        "lib/faq.ts (FAQ_APPELS_OFFRE)",
+        "lib/faq.ts (FAQ_FORMATION_IA_APPELS_OFFRES_LANDING)",
+        "lib/faq.ts (FAQ_BATIMENT)",
+        "lib/faq.ts (FAQ_FORMATION_IA_TRAVAUX_PUBLICS_LANDING)",
+        "lib/faq.ts (FAQ_TRAVAUX_PUBLICS)"
+      ]
+    },
+    {
+      "q": "qui peut suivre la formation « l",
+      "locs": [
+        "lib/faq.ts (FAQ_APPELS_OFFRE)",
+        "lib/faq.ts (FAQ_FORMATION_IA_APPELS_OFFRES_LANDING)",
+        "lib/faq.ts (FAQ_BATIMENT)",
+        "lib/faq.ts (FAQ_FORMATION_IA_TRAVAUX_PUBLICS_LANDING)",
+        "lib/faq.ts (FAQ_TRAVAUX_PUBLICS)"
+      ]
+    },
+    {
+      "q": "la formation est-elle finançable ?",
+      "locs": [
+        "lib/faq.ts (FAQ_APPELS_OFFRE)",
+        "lib/faq.ts (FAQ_FORMATION_IA_APPELS_OFFRES_LANDING)",
+        "lib/faq.ts (FAQ_FORMATION_IA_APPELS_OFFRES_LANDING)",
+        "lib/faq.ts (FAQ_BATIMENT)",
+        "lib/faq.ts (FAQ_BATIMENT)",
+        "lib/faq.ts (FAQ_BATIMENT)",
+        "lib/faq.ts (FAQ_FORMATION_IA_TRAVAUX_PUBLICS_LANDING)",
+        "lib/faq.ts (FAQ_FORMATION_IA_TRAVAUX_PUBLICS_LANDING)",
+        "lib/faq.ts (FAQ_FORMATION_IA_TRAVAUX_PUBLICS_LANDING)",
+        "lib/faq.ts (FAQ_TRAVAUX_PUBLICS)",
+        "lib/faq.ts (FAQ_TRAVAUX_PUBLICS)",
+        "lib/faq.ts (FAQ_TRAVAUX_PUBLICS)",
+        "lib/faq.ts (FAQ_FORMATION_VILLE)",
+        "lib/faq.ts (FAQ_FORMATION_VILLE)",
+        "lib/faq.ts (FAQ_CHECKLIST_IA_BTP)",
+        "lib/faq.ts (FAQ_CHECKLIST_PROMPTS)",
+        "lib/guide-moe-ia-content.ts (FAQ_GUIDE_MOE_IA)"
+      ]
+    },
+    {
+      "q": "où se déroule la formation ia pour les pros du btp ?",
+      "locs": [
+        "lib/faq.ts (FAQ_APPELS_OFFRE)",
+        "lib/faq.ts (FAQ_FORMATION_IA_APPELS_OFFRES_LANDING)",
+        "lib/faq.ts (FAQ_BATIMENT)",
+        "lib/faq.ts (FAQ_FORMATION_IA_TRAVAUX_PUBLICS_LANDING)",
+        "lib/faq.ts (FAQ_TRAVAUX_PUBLICS)",
+        "lib/faq.ts (FAQ_FORMATION_VILLE)"
+      ]
+    },
+    {
+      "q": "faut-il des compétences techniques ?",
+      "locs": [
+        "lib/faq.ts (FAQ_FORMATION_IA_APPELS_OFFRES_LANDING)",
+        "lib/faq.ts (FAQ_BATIMENT)",
+        "lib/faq.ts (FAQ_FORMATION_IA_TRAVAUX_PUBLICS_LANDING)",
+        "lib/faq.ts (FAQ_TRAVAUX_PUBLICS)",
+        "lib/faq.ts (FAQ_FORMATION_VILLE)"
+      ]
+    },
+    {
+      "q": "à quoi sert la checklist 10 prompts chatgpt btp ?",
+      "locs": [
+        "lib/faq.ts (FAQ_FORMATION_IA_APPELS_OFFRES_LANDING)",
+        "lib/faq.ts (FAQ_BATIMENT)",
+        "lib/faq.ts (FAQ_FORMATION_IA_TRAVAUX_PUBLICS_LANDING)",
+        "lib/faq.ts (FAQ_TRAVAUX_PUBLICS)",
+        "lib/faq.ts (FAQ_FORMATION_VILLE)",
+        "lib/faq.ts (FAQ_CHECKLIST_IA_BTP)"
+      ]
+    },
+    {
+      "q": "comment utiliser les prompts de la checklist ?",
+      "locs": [
+        "lib/faq.ts (FAQ_FORMATION_IA_APPELS_OFFRES_LANDING)",
+        "lib/faq.ts (FAQ_BATIMENT)",
+        "lib/faq.ts (FAQ_FORMATION_IA_TRAVAUX_PUBLICS_LANDING)",
+        "lib/faq.ts (FAQ_TRAVAUX_PUBLICS)",
+        "lib/faq.ts (FAQ_FORMATION_VILLE)",
+        "lib/faq.ts (FAQ_CHECKLIST_IA_BTP)"
+      ]
+    },
+    {
+      "q": "ces prompts fonctionnent-ils avec claude ai ou chatgpt ?",
+      "locs": [
+        "lib/faq.ts (FAQ_FORMATION_IA_APPELS_OFFRES_LANDING)",
+        "lib/faq.ts (FAQ_BATIMENT)",
+        "lib/faq.ts (FAQ_FORMATION_IA_TRAVAUX_PUBLICS_LANDING)",
+        "lib/faq.ts (FAQ_TRAVAUX_PUBLICS)",
+        "lib/faq.ts (FAQ_FORMATION_VILLE)",
+        "lib/faq.ts (FAQ_CHECKLIST_IA_BTP)"
+      ]
+    },
+    {
+      "q": "puis-je personnaliser ces prompts pour mon métier ?",
+      "locs": [
+        "lib/faq.ts (FAQ_FORMATION_IA_APPELS_OFFRES_LANDING)",
+        "lib/faq.ts (FAQ_BATIMENT)",
+        "lib/faq.ts (FAQ_FORMATION_IA_TRAVAUX_PUBLICS_LANDING)",
+        "lib/faq.ts (FAQ_TRAVAUX_PUBLICS)",
+        "lib/faq.ts (FAQ_FORMATION_VILLE)",
+        "lib/faq.ts (FAQ_CHECKLIST_IA_BTP)"
+      ]
+    },
+    {
+      "q": "la formation ia pour le btp est-elle finançable ?",
+      "locs": [
+        "lib/faq.ts (FAQ_FORMATION_IA_APPELS_OFFRES_LANDING)",
+        "lib/faq.ts (FAQ_BATIMENT)",
+        "lib/faq.ts (FAQ_FORMATION_IA_TRAVAUX_PUBLICS_LANDING)",
+        "lib/faq.ts (FAQ_TRAVAUX_PUBLICS)",
+        "lib/faq.ts (FAQ_FORMATION_VILLE)",
+        "lib/faq.ts (FAQ_CHECKLIST_IA_BTP)"
+      ]
+    },
+    {
+      "q": "comment personnaliser ces prompts chatgpt ?",
+      "locs": [
+        "lib/faq.ts (FAQ_BATIMENT)",
+        "lib/faq.ts (FAQ_FORMATION_IA_TRAVAUX_PUBLICS_LANDING)",
+        "lib/faq.ts (FAQ_TRAVAUX_PUBLICS)",
+        "lib/faq.ts (FAQ_FORMATION_VILLE)",
+        "lib/faq.ts (FAQ_CHECKLIST_IA_BTP)",
+        "lib/faq.ts (FAQ_CHECKLIST_PROMPTS)"
+      ]
+    },
+    {
+      "q": "ces prompts fonctionnent-ils avec d",
+      "locs": [
+        "lib/faq.ts (FAQ_BATIMENT)",
+        "lib/faq.ts (FAQ_FORMATION_IA_TRAVAUX_PUBLICS_LANDING)",
+        "lib/faq.ts (FAQ_TRAVAUX_PUBLICS)",
+        "lib/faq.ts (FAQ_FORMATION_VILLE)",
+        "lib/faq.ts (FAQ_CHECKLIST_IA_BTP)",
+        "lib/faq.ts (FAQ_CHECKLIST_PROMPTS)"
+      ]
+    },
+    {
+      "q": "quel délai pour une proposition ou un chiffrage ?",
+      "locs": [
+        "lib/faq.ts (FAQ_BATIMENT)",
+        "lib/faq.ts (FAQ_FORMATION_IA_TRAVAUX_PUBLICS_LANDING)",
+        "lib/faq.ts (FAQ_TRAVAUX_PUBLICS)",
+        "lib/faq.ts (FAQ_FORMATION_VILLE)",
+        "lib/faq.ts (FAQ_CHECKLIST_IA_BTP)",
+        "lib/faq.ts (FAQ_CHECKLIST_PROMPTS)",
+        "lib/faq.ts (FAQ_CONTACT)"
+      ]
+    },
+    {
+      "q": "où intervenez-vous pour les formations ?",
+      "locs": [
+        "lib/faq.ts (FAQ_BATIMENT)",
+        "lib/faq.ts (FAQ_FORMATION_IA_TRAVAUX_PUBLICS_LANDING)",
+        "lib/faq.ts (FAQ_FORMATION_IA_TRAVAUX_PUBLICS_LANDING)",
+        "lib/faq.ts (FAQ_TRAVAUX_PUBLICS)",
+        "lib/faq.ts (FAQ_TRAVAUX_PUBLICS)",
+        "lib/faq.ts (FAQ_FORMATION_VILLE)",
+        "lib/faq.ts (FAQ_FORMATION_VILLE)",
+        "lib/faq.ts (FAQ_CHECKLIST_IA_BTP)",
+        "lib/faq.ts (FAQ_CHECKLIST_IA_BTP)",
+        "lib/faq.ts (FAQ_CHECKLIST_PROMPTS)",
+        "lib/faq.ts (FAQ_CHECKLIST_PROMPTS)",
+        "lib/faq.ts (FAQ_CONTACT)",
+        "lib/faq.ts (FAQ_CONTACT)",
+        "lib/faq.ts (FAQ_CLIENTS_PARTENAIRES)",
+        "lib/faq.ts (FAQ_BLOG)",
+        "lib/faq.ts (FAQ_AUTEUR)"
+      ]
+    },
+    {
+      "q": "comment financer ma formation ia appliquée au bâtiment ?",
+      "locs": [
+        "lib/faq.ts (FAQ_BATIMENT)",
+        "lib/faq.ts (FAQ_FORMATION_IA_TRAVAUX_PUBLICS_LANDING)",
+        "lib/faq.ts (FAQ_TRAVAUX_PUBLICS)",
+        "lib/faq.ts (FAQ_FORMATION_VILLE)",
+        "lib/faq.ts (FAQ_CHECKLIST_IA_BTP)",
+        "lib/faq.ts (FAQ_CHECKLIST_PROMPTS)",
+        "lib/faq.ts (FAQ_CONTACT)"
+      ]
+    },
+    {
+      "q": "quels organismes sont partenaires ?",
+      "locs": [
+        "lib/faq.ts (FAQ_BATIMENT)",
+        "lib/faq.ts (FAQ_FORMATION_IA_TRAVAUX_PUBLICS_LANDING)",
+        "lib/faq.ts (FAQ_TRAVAUX_PUBLICS)",
+        "lib/faq.ts (FAQ_FORMATION_VILLE)",
+        "lib/faq.ts (FAQ_CHECKLIST_IA_BTP)",
+        "lib/faq.ts (FAQ_CHECKLIST_PROMPTS)",
+        "lib/faq.ts (FAQ_CONTACT)",
+        "lib/faq.ts (FAQ_CLIENTS_PARTENAIRES)"
+      ]
+    },
+    {
+      "q": "les formations sont-elles certifiées qualiopi ?",
+      "locs": [
+        "lib/faq.ts (FAQ_BATIMENT)",
+        "lib/faq.ts (FAQ_FORMATION_IA_TRAVAUX_PUBLICS_LANDING)",
+        "lib/faq.ts (FAQ_TRAVAUX_PUBLICS)",
+        "lib/faq.ts (FAQ_FORMATION_VILLE)",
+        "lib/faq.ts (FAQ_CHECKLIST_IA_BTP)",
+        "lib/faq.ts (FAQ_CHECKLIST_PROMPTS)",
+        "lib/faq.ts (FAQ_CONTACT)",
+        "lib/faq.ts (FAQ_CLIENTS_PARTENAIRES)"
+      ]
+    },
+    {
+      "q": "comment devenir partenaire ?",
+      "locs": [
+        "lib/faq.ts (FAQ_BATIMENT)",
+        "lib/faq.ts (FAQ_FORMATION_IA_TRAVAUX_PUBLICS_LANDING)",
+        "lib/faq.ts (FAQ_TRAVAUX_PUBLICS)",
+        "lib/faq.ts (FAQ_FORMATION_VILLE)",
+        "lib/faq.ts (FAQ_CHECKLIST_IA_BTP)",
+        "lib/faq.ts (FAQ_CHECKLIST_PROMPTS)",
+        "lib/faq.ts (FAQ_CONTACT)",
+        "lib/faq.ts (FAQ_CLIENTS_PARTENAIRES)"
+      ]
+    },
+    {
+      "q": "quels sujets sont couverts dans les articles ?",
+      "locs": [
+        "lib/faq.ts (FAQ_BATIMENT)",
+        "lib/faq.ts (FAQ_FORMATION_IA_TRAVAUX_PUBLICS_LANDING)",
+        "lib/faq.ts (FAQ_TRAVAUX_PUBLICS)",
+        "lib/faq.ts (FAQ_FORMATION_VILLE)",
+        "lib/faq.ts (FAQ_CHECKLIST_IA_BTP)",
+        "lib/faq.ts (FAQ_CHECKLIST_PROMPTS)",
+        "lib/faq.ts (FAQ_CONTACT)",
+        "lib/faq.ts (FAQ_CLIENTS_PARTENAIRES)",
+        "lib/faq.ts (FAQ_BLOG)"
+      ]
+    },
+    {
+      "q": "les formations sont-elles finançables ?",
+      "locs": [
+        "lib/faq.ts (FAQ_BATIMENT)",
+        "lib/faq.ts (FAQ_FORMATION_IA_TRAVAUX_PUBLICS_LANDING)",
+        "lib/faq.ts (FAQ_TRAVAUX_PUBLICS)",
+        "lib/faq.ts (FAQ_FORMATION_VILLE)",
+        "lib/faq.ts (FAQ_CHECKLIST_IA_BTP)",
+        "lib/faq.ts (FAQ_CHECKLIST_PROMPTS)",
+        "lib/faq.ts (FAQ_CONTACT)",
+        "lib/faq.ts (FAQ_CLIENTS_PARTENAIRES)",
+        "lib/faq.ts (FAQ_BLOG)"
+      ]
+    },
+    {
+      "q": "comment accéder aux formations ia pour le btp ?",
+      "locs": [
+        "lib/faq.ts (FAQ_BATIMENT)",
+        "lib/faq.ts (FAQ_FORMATION_IA_TRAVAUX_PUBLICS_LANDING)",
+        "lib/faq.ts (FAQ_TRAVAUX_PUBLICS)",
+        "lib/faq.ts (FAQ_FORMATION_VILLE)",
+        "lib/faq.ts (FAQ_CHECKLIST_IA_BTP)",
+        "lib/faq.ts (FAQ_CHECKLIST_PROMPTS)",
+        "lib/faq.ts (FAQ_CONTACT)",
+        "lib/faq.ts (FAQ_CLIENTS_PARTENAIRES)",
+        "lib/faq.ts (FAQ_BLOG)"
+      ]
+    },
+    {
+      "q": "proposez-vous des formations linkedin learning ?",
+      "locs": [
+        "lib/faq.ts (FAQ_FORMATION_IA_TRAVAUX_PUBLICS_LANDING)",
+        "lib/faq.ts (FAQ_TRAVAUX_PUBLICS)",
+        "lib/faq.ts (FAQ_FORMATION_VILLE)",
+        "lib/faq.ts (FAQ_CHECKLIST_IA_BTP)",
+        "lib/faq.ts (FAQ_CHECKLIST_PROMPTS)",
+        "lib/faq.ts (FAQ_CONTACT)",
+        "lib/faq.ts (FAQ_CLIENTS_PARTENAIRES)",
+        "lib/faq.ts (FAQ_BLOG)",
+        "lib/faq.ts (FAQ_AUTEUR)"
+      ]
+    },
+    {
+      "q": "mes données sont-elles stockées sur l",
+      "locs": [
+        "lib/faq.ts (FAQ_FORMATION_IA_TRAVAUX_PUBLICS_LANDING)",
+        "lib/faq.ts (FAQ_TRAVAUX_PUBLICS)",
+        "lib/faq.ts (FAQ_FORMATION_VILLE)",
+        "lib/faq.ts (FAQ_CHECKLIST_IA_BTP)",
+        "lib/faq.ts (FAQ_CHECKLIST_PROMPTS)",
+        "lib/faq.ts (FAQ_CONTACT)",
+        "lib/faq.ts (FAQ_CLIENTS_PARTENAIRES)",
+        "lib/faq.ts (FAQ_BLOG)",
+        "lib/faq.ts (FAQ_AUTEUR)",
+        "lib/faq.ts (FAQ_INSTALL_PWA)"
+      ]
+    },
+    {
+      "q": "comment désinstaller l",
+      "locs": [
+        "lib/faq.ts (FAQ_FORMATION_IA_TRAVAUX_PUBLICS_LANDING)",
+        "lib/faq.ts (FAQ_TRAVAUX_PUBLICS)",
+        "lib/faq.ts (FAQ_FORMATION_VILLE)",
+        "lib/faq.ts (FAQ_CHECKLIST_IA_BTP)",
+        "lib/faq.ts (FAQ_CHECKLIST_PROMPTS)",
+        "lib/faq.ts (FAQ_CONTACT)",
+        "lib/faq.ts (FAQ_CLIENTS_PARTENAIRES)",
+        "lib/faq.ts (FAQ_BLOG)",
+        "lib/faq.ts (FAQ_AUTEUR)",
+        "lib/faq.ts (FAQ_INSTALL_PWA)"
+      ]
+    },
+    {
+      "q": "quels métiers du btp peuvent utiliser l\\",
+      "locs": [
+        "lib/faq.ts (FAQ_TRAVAUX_PUBLICS)",
+        "lib/faq.ts (FAQ_FORMATION_VILLE)",
+        "lib/faq.ts (FAQ_CHECKLIST_IA_BTP)",
+        "lib/faq.ts (FAQ_CHECKLIST_PROMPTS)",
+        "lib/faq.ts (FAQ_CONTACT)",
+        "lib/faq.ts (FAQ_CLIENTS_PARTENAIRES)",
+        "lib/faq.ts (FAQ_BLOG)",
+        "lib/faq.ts (FAQ_AUTEUR)",
+        "lib/faq.ts (FAQ_INSTALL_PWA)",
+        "lib/faq.ts (FAQ_DIAGNOSTIC)"
+      ]
+    },
+    {
+      "q": "peut-on utiliser l\\",
+      "locs": [
+        "lib/faq.ts (FAQ_TRAVAUX_PUBLICS)",
+        "lib/faq.ts (FAQ_TRAVAUX_PUBLICS)",
+        "lib/faq.ts (FAQ_FORMATION_VILLE)",
+        "lib/faq.ts (FAQ_FORMATION_VILLE)",
+        "lib/faq.ts (FAQ_CHECKLIST_IA_BTP)",
+        "lib/faq.ts (FAQ_CHECKLIST_IA_BTP)",
+        "lib/faq.ts (FAQ_CHECKLIST_PROMPTS)",
+        "lib/faq.ts (FAQ_CHECKLIST_PROMPTS)",
+        "lib/faq.ts (FAQ_CONTACT)",
+        "lib/faq.ts (FAQ_CONTACT)",
+        "lib/faq.ts (FAQ_CLIENTS_PARTENAIRES)",
+        "lib/faq.ts (FAQ_CLIENTS_PARTENAIRES)",
+        "lib/faq.ts (FAQ_BLOG)",
+        "lib/faq.ts (FAQ_BLOG)",
+        "lib/faq.ts (FAQ_AUTEUR)",
+        "lib/faq.ts (FAQ_AUTEUR)",
+        "lib/faq.ts (FAQ_INSTALL_PWA)",
+        "lib/faq.ts (FAQ_INSTALL_PWA)",
+        "lib/faq.ts (FAQ_DIAGNOSTIC)",
+        "lib/faq.ts (FAQ_DIAGNOSTIC)"
+      ]
+    },
+    {
+      "q": "comment sécuriser les données utilisées avec une ia ?",
+      "locs": [
+        "lib/faq.ts (FAQ_TRAVAUX_PUBLICS)",
+        "lib/faq.ts (FAQ_FORMATION_VILLE)",
+        "lib/faq.ts (FAQ_CHECKLIST_IA_BTP)",
+        "lib/faq.ts (FAQ_CHECKLIST_PROMPTS)",
+        "lib/faq.ts (FAQ_CONTACT)",
+        "lib/faq.ts (FAQ_CLIENTS_PARTENAIRES)",
+        "lib/faq.ts (FAQ_BLOG)",
+        "lib/faq.ts (FAQ_AUTEUR)",
+        "lib/faq.ts (FAQ_INSTALL_PWA)",
+        "lib/faq.ts (FAQ_DIAGNOSTIC)"
+      ]
+    },
+    {
+      "q": "le diagnostic ia btp est-il gratuit ?",
+      "locs": [
+        "lib/faq.ts (FAQ_TRAVAUX_PUBLICS)",
+        "lib/faq.ts (FAQ_FORMATION_VILLE)",
+        "lib/faq.ts (FAQ_CHECKLIST_IA_BTP)",
+        "lib/faq.ts (FAQ_CHECKLIST_PROMPTS)",
+        "lib/faq.ts (FAQ_CONTACT)",
+        "lib/faq.ts (FAQ_CLIENTS_PARTENAIRES)",
+        "lib/faq.ts (FAQ_BLOG)",
+        "lib/faq.ts (FAQ_AUTEUR)",
+        "lib/faq.ts (FAQ_INSTALL_PWA)",
+        "lib/faq.ts (FAQ_DIAGNOSTIC)"
+      ]
+    }
+  ],
+  "short": []
+}
