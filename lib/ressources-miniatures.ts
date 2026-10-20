@@ -148,7 +148,7 @@ export const RESSOURCES_MINIATURES = {
   },
   tutoDc4: {
     src: `${BASE}/miniature-tuto-skill-dc4-ofc.jpg`,
-    alt: 'Créer un skill DC4 sous-traitance — tuto offert PDF gratuit, formation IA BTP',
+    alt: 'Tuto offert skill DC4 déclaration de sous-traitance — PDF gratuit, formation IA BTP',
     width: 1024,
     height: 1024,
   },
