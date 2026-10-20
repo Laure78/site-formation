@@ -23,6 +23,22 @@ export const LOGO_UMB_FFB = {
   height: 480,
 } as const;
 
+/** Logo FFB — bandeaux accueil / campagnes terrain (fichier partenaire formation IA). */
+export const LOGO_FFB_PARTENAIRE_FORMATION_IA = {
+  src: '/images/partenaires/logo-ffb-partenaire-formation-ia-btp.webp',
+  alt: ALT_LOGO_FFB_OFFICIEL,
+  width: 200,
+  height: 80,
+} as const;
+
+/** Logo CSFE — bandeaux accueil / filière étanchéité. */
+export const LOGO_CSFE_PARTENAIRE = {
+  src: '/images/partenaires/logo-csfe-partenaire-formation-btp.webp',
+  alt: ALT_LOGO_CSFE,
+  width: 360,
+  height: 120,
+} as const;
+
 export const ALT_LOGO_LINKEDIN_LEARNING = 'Logo LinkedIn Learning' as const;
 
 /** Logo officiel LinkedIn Learning (bandeaux partenaires, EEAT, hubs). */

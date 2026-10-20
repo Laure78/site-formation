@@ -12,18 +12,17 @@ import { LINKS } from '@/lib/internal-links';
 import { CaseStudyYoutubeThumbnails } from '@/components/landing/CaseStudyYoutubeThumbnails';
 import { DisclaimerGains } from '@/components/formation/DisclaimerGains';
 import { formatNoteSatisfactionAffichageComplet } from '@/lib/data/indicateurs-resultats';
+import { PHOTOS } from '@/lib/photos';
 
 const ETUDE_CAS_THUMBNAILS = [
   {
-    src: '/images/ffb-logo-moss-mur.png',
-    alt: "Logo FFB sur mur de mousse verte dans un hall d'accueil",
+    ...PHOTOS.etudeCasFfbLogoMurAccueil2026,
     title: 'FFB — formation IA pour le BTP & réseau national du bâtiment',
     subtitle: 'Interventions Grand Paris, IDF Est & Ouest · Laure Olivié, OFC Qualiopi',
     href: '#ffb',
   },
   {
-    src: '/images/csfe-signaletique.png',
-    alt: "Panneau d'orientation CSFE — professionnels de l'étanchéité, flèche à gauche",
+    ...PHOTOS.etudeCasCsfeSignaletique2026,
     title: 'CSFE — étanchéité & intelligence artificielle pour le bâtiment',
     subtitle: 'Mémoires techniques, métiers enveloppe · même socle pédagogique que le réseau FFB',
     href: '#csfe',
@@ -255,15 +254,15 @@ export default function EtudeDeCasFfbCsfePage() {
             </header>
             <figure className="border-b border-slate-200 bg-slate-100">
               <Image
-                src="/images/rencontres-artisans-ia-ffb-atelier.jpg"
-                alt="Atelier FFB en salle : participants aux ordinateurs, formatrice auprès d'un stagiaire"
-                width={1024}
-                height={764}
+                src={PHOTOS.etudeCasFfbRencontresAtelier2026.src}
+                alt={PHOTOS.etudeCasFfbRencontresAtelier2026.alt}
+                width={PHOTOS.etudeCasFfbRencontresAtelier2026.width}
+                height={PHOTOS.etudeCasFfbRencontresAtelier2026.height}
                 className="h-auto w-full object-cover"
                 sizes="(max-width: 1280px) 100vw, 1024px"
                 priority
-              
-                quality={75}/>
+                quality={75}
+              />
               <figcaption className="px-4 py-3 text-center text-xs text-slate-500 md:px-10">
                 « Les Rencontres FFB » — L&apos;IA au service des équipes du bâtiment
                 (intervention réseau FFB).

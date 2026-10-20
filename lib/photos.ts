@@ -110,6 +110,30 @@ export const PHOTOS = {
     height: 682,
   },
 
+  /** Étude de cas FFB & CSFE — « Les Rencontres FFB », atelier IA en salle */
+  etudeCasFfbRencontresAtelier2026: {
+    src: '/images/rencontres-artisans-ia-ffb-atelier.jpg',
+    alt: "Rencontres FFB : atelier IA en salle, stagiaires sur ordinateur avec la formatrice",
+    width: 1024,
+    height: 764,
+  },
+
+  /** Étude de cas FFB & CSFE — vignette navigation FFB (logo sur mur végétal) */
+  etudeCasFfbLogoMurAccueil2026: {
+    src: '/images/ffb-logo-moss-mur.png',
+    alt: "Logo FFB sur mur de mousse verte dans un hall d'accueil",
+    width: 771,
+    height: 1024,
+  },
+
+  /** Étude de cas FFB & CSFE — vignette navigation CSFE (signalétique) */
+  etudeCasCsfeSignaletique2026: {
+    src: '/images/csfe-signaletique.png',
+    alt: "Panneau d'orientation CSFE — professionnels de l'étanchéité, flèche à gauche",
+    width: 771,
+    height: 1024,
+  },
+
   /** Accueil — bloc étude de cas FFB & étanchéité */
   accueilEtudeCasFfbLaureIntervention: {
     src: '/images/formation-ia-btp-ffb-salle.webp',
@@ -536,13 +560,13 @@ export const PHOTOS = {
 
   /** Page catalogue /formations — hero affiche catalogue (IA BTP, présentiel IDF) */
   formationsCatalogueHero2026: {
-    src: '/images/formation-ia-btp-ile-de-france-catalogue-laure-olivie.webp',
-    alt: 'Catalogue formation IA pour le BTP — Laure Olivié, présentiel Île-de-France',
-    title: 'Formations IA pour le BTP — devis, chantier, appels d’offres · Île-de-France',
+    src: '/images/formations-catalogue-hero-competences-btp.webp',
+    alt: 'Formatrice et professionnel du BTP devant un ordinateur — plans, devis et chantier',
+    title: 'Formations IA pour le BTP — compétences concrètes · Île-de-France',
     description:
-      'Affiche catalogue laureolivie.fr : cinq formations IA pour le BTP (devis, DCE, chantier, Claude, applications métier), formatrice Laure Olivié, présentiel Île-de-France, Qualiopi.',
-    width: 819,
-    height: 1024,
+      'Visuel catalogue laureolivie.fr : compétences IA pour le BTP (formations, devis, chantier), présentiel Île-de-France, Qualiopi.',
+    width: 1024,
+    height: 768,
   },
 
   /** Page financement Constructys — hero (préparation dossier / devis OPCO) */
@@ -787,7 +811,7 @@ export const PHOTOS = {
   /** NIV-10 — Créer des applications métier BTP avec l’IA (visuel hero / catalogue / OG) */
   formationNiv10DevWebIaHero2026: {
     src: '/images/formation-developpement-web-ia-sans-coder/01-hero-applications-metier-btp-ia.webp',
-    alt: 'Pros du BTP autour d’un ERP chantier créé avec l’IA, sans coder — formation Île-de-France',
+    alt: 'Équipe BTP devant un ERP chantier conçu avec l’IA, sans coder',
     description:
       'Visuel de la formation Qualiopi « Créer des applications métier BTP avec l’IA » (NIV-10) : équipe devant un outil Mon ERP BTP (devis, chantiers, planning) conçu avec un assistant IA, sans programmer. Présentiel Île-de-France, OFC / Laure Olivié.',
     title: 'Créer des applications métier BTP avec l’IA',
@@ -805,7 +829,7 @@ export const PHOTOS = {
   },
   formationNiv10DevWebIaOg2026: {
     src: '/images/formation-developpement-web-ia-sans-coder/01-hero-applications-metier-btp-ia.webp',
-    alt: 'Pros du BTP autour d’un ERP chantier créé avec l’IA, sans coder — formation Île-de-France',
+    alt: 'Équipe BTP devant un ERP chantier conçu avec l’IA, sans coder',
     description:
       'Visuel Open Graph de la formation Qualiopi « Créer des applications métier BTP avec l’IA » — OFC / Laure Olivié.',
     title: 'Créer des applications métier BTP avec l’IA',

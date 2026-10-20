@@ -6,6 +6,7 @@ import type { GoogleReviewEntry } from '@/data/googleReviews';
 import { OFC_CARD } from '@/lib/ofc-interaction-classes';
 import { StarRating } from '@/components/avis-clients/StarRating';
 import { GoogleGLogo } from '@/components/avis-clients/GoogleGLogo';
+import { clampPhotoAlt } from '@/lib/image-alt';
 
 type GoogleReviewCardProps = {
   review: GoogleReviewEntry;
@@ -27,7 +28,7 @@ export function GoogleReviewCard({ review }: GoogleReviewCardProps) {
         {review.profilePhotoUrl ? (
           <Image
             src={review.profilePhotoUrl}
-            alt=""
+            alt={clampPhotoAlt(`Portrait Google — ${review.author}`)}
             width={48}
             height={48}
             className="h-12 w-12 shrink-0 rounded-full object-cover"

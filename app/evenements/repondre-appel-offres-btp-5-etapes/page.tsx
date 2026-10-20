@@ -298,7 +298,7 @@ export default function EvenementRepondreAoBtpPage() {
         <div className={`${OFC_SECTION_INNER} grid gap-8 md:grid-cols-[auto_1fr] md:items-center`}>
           <Image
             src={event.portrait.src}
-            alt="Laure Olivié, formatrice IA pour le BTP, webinaire appels d’offres"
+            alt={event.portrait.alt}
             width={event.portrait.width}
             height={event.portrait.height}
             className="h-40 w-40 rounded-full object-cover ring-4 ring-white shadow-md md:h-48 md:w-48"

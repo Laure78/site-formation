@@ -1524,6 +1524,31 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
+        source: '/images/laure-olivie-ia-administratif-batiment.png',
+        destination: '/images/laure-olivie-ia-administratif-batiment.webp',
+        permanent: true,
+      },
+      {
+        source: '/images/laure-olivie-ia-rentabilite-chantier.png',
+        destination: '/images/laure-olivie-ia-rentabilite-chantier.webp',
+        permanent: true,
+      },
+      {
+        source: '/images/ffb-logo-moss-panneau.png',
+        destination: '/images/ffb-logo-moss-mur.png',
+        permanent: true,
+      },
+      {
+        source: '/images/ffb-btp-linkedin-galerie.png',
+        destination: '/images/formation-ia-btp-ffb-salle.webp',
+        permanent: true,
+      },
+      {
+        source: '/images/formation-ia-btp-ile-de-france-catalogue-laure-olivie.webp',
+        destination: '/images/formations-catalogue-hero-competences-btp.webp',
+        permanent: true,
+      },
+      {
         source: '/images/og/formation-ia-charge-affaires-btp.png',
         destination: '/images/og/formation-ia-charge-affaires-btp.webp',
         permanent: true,
@@ -1611,6 +1636,119 @@ const nextConfig: NextConfig = {
       {
         source: '/images/formation-ia-btp-intra-entreprise-presentiel.webp',
         destination: '/images/formation-ia-intra-entreprise-batiment.webp',
+        permanent: true,
+      },
+
+      // Doublons PNG/JPG archivés — canonique WebP (triage images 2026-10)
+      {
+        source: '/images/formation-ia-analyse-dce-btp.png',
+        destination: '/images/formation-ia-analyse-dce-btp.webp',
+        permanent: true,
+      },
+      {
+        source: '/images/formation-ia-chantier-conducteur-travaux.png',
+        destination: '/images/formation-ia-chantier-conducteur-travaux.webp',
+        permanent: true,
+      },
+      {
+        source: '/images/formation-ia-maitrise-oeuvre-btp.png',
+        destination: '/images/formation-ia-maitrise-oeuvre-btp.webp',
+        permanent: true,
+      },
+      {
+        source: '/images/formation-claude-ai-btp-catalogue.png',
+        destination: '/images/formation-claude-ai-btp-catalogue.webp',
+        permanent: true,
+      },
+      {
+        source: '/images/formation-ia-appels-offres-btp.png',
+        destination: '/images/formation-ia-appels-offres-btp.webp',
+        permanent: true,
+      },
+      {
+        source: '/images/formation-ia-conduite-travaux-btp.png',
+        destination: '/images/formation-ia-conduite-travaux-btp.webp',
+        permanent: true,
+      },
+      {
+        source: '/images/formation-ia-btp-salle-laure-olivie.png',
+        destination: '/images/formation-ia-btp-salle-laure-olivie.webp',
+        permanent: true,
+      },
+      {
+        source: '/images/formation-ia-compte-rendu-chantier.png',
+        destination: '/images/formation-ia-compte-rendu-chantier.webp',
+        permanent: true,
+      },
+      {
+        source: '/images/formation-ia-batiment-travaux-publics.png',
+        destination: '/images/formation-ia-batiment-travaux-publics.webp',
+        permanent: true,
+      },
+      {
+        source: '/images/formation-ia-btp-catalogue-hero-laure-olivie.png',
+        destination: '/images/formation-ia-btp-catalogue-hero-laure-olivie.webp',
+        permanent: true,
+      },
+      {
+        source: '/images/formation-ia-btp-laure-olivie-ile-de-france.png',
+        destination: '/images/formation-ia-btp-laure-olivie-ile-de-france.webp',
+        permanent: true,
+      },
+      {
+        source: '/images/formation-developpement-web-ia-sans-coder/01-hero-applications-metier-btp-ia.jpg',
+        destination:
+          '/images/formation-developpement-web-ia-sans-coder/01-hero-applications-metier-btp-ia.webp',
+        permanent: true,
+      },
+      {
+        source: '/images/formation-ia-analyse-plans-btp.png',
+        destination: '/images/formation-ia-analyse-plans-btp.webp',
+        permanent: true,
+      },
+      {
+        source: '/images/partenaires/logo-umb-ffb-metiers-du-bois.png',
+        destination: '/images/partenaires/logo-umb-ffb-metiers-du-bois.webp',
+        permanent: true,
+      },
+      {
+        source: '/images/formation-ia-devis-chiffrage-btp.png',
+        destination: '/images/formation-ia-devis-chiffrage-btp.webp',
+        permanent: true,
+      },
+      {
+        source: '/images/formation-ia-dirigeant-pme-btp.png',
+        destination: '/images/formation-ia-dirigeant-pme-btp.webp',
+        permanent: true,
+      },
+      {
+        source: '/images/formation-ia-intra-entreprise-batiment.png',
+        destination: '/images/formation-ia-intra-entreprise-batiment.webp',
+        permanent: true,
+      },
+      {
+        source: '/images/formation-ia-conducteur-travaux-plans.png',
+        destination: '/images/formation-ia-conducteur-travaux-plans.webp',
+        permanent: true,
+      },
+      {
+        source: '/images/laure-olivie-portrait-rond-fond-bleu-formation-ia-btp.png',
+        destination: '/images/laure-olivie-portrait-rond-fond-bleu-formation-ia-btp.webp',
+        permanent: true,
+      },
+      {
+        source: '/images/formatrice-ia-btp-laure-olivie.jpg',
+        destination: '/images/formatrice-ia-btp-laure-olivie.webp',
+        permanent: true,
+      },
+      {
+        source: '/images/partenaires/logo-moniteur-les-formations.png',
+        destination: '/images/partenaires/logo-moniteur-les-formations.webp',
+        permanent: true,
+      },
+      {
+        source: '/images/partenaires/logo-linkedin-learning.png',
+        destination: '/images/partenaires/logo-linkedin-learning.webp',
         permanent: true,
       },
 

@@ -19,6 +19,7 @@ import { MetierIdfPresentielLine } from '@/components/formation-ia-metier/Metier
 import { PreuveSociale } from '@/components/PreuveSociale';
 import { DisclaimerGains } from '@/components/formation/DisclaimerGains';
 import { RenvoiFicheCatalogue } from '@/components/qualiopi/RenvoiFicheCatalogue';
+import { PHOTOS } from '@/lib/photos';
 import {
   FORMATION_IA_METREUR_ECONOMISTE_CONSTRUCTION_PATH,
   METREUR_ECONOMISTE_EN_BREF,
@@ -96,8 +97,8 @@ export default function FormationIaMetreurEconomisteConstructionPage() {
 
           <figure className="relative mt-8 aspect-[16/10] overflow-hidden rounded-2xl border border-slate-200 bg-slate-100">
             <Image
-              src="/images/formation-ia-devis-chiffrage-btp.webp"
-              alt="Économiste de la construction — DPGF, DQE et quantitatifs avec l'IA, formation présentiel Île-de-France"
+              src={PHOTOS.accueilIaDevisChiffrageBtp2026.src}
+              alt={PHOTOS.accueilIaDevisChiffrageBtp2026.alt}
               fill
               className="object-cover"
               priority

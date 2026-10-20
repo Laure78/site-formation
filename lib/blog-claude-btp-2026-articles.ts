@@ -49,7 +49,7 @@ export const blogArticlesClaudeBtp2026: BlogArticle[] = [
         type: 'html',
         title: 'Vue d’ensemble : les 7 cas d’usage',
         content: `<figure class="my-6">
-<img src="${CAR7}/01-intro-7-cas.png" alt="7 cas d’usage de l’IA dans le BTP : chiffrage, comptes rendus, appels d’offres, sécurité, planning, communication, veille — Laure Olivié" class="w-full rounded-xl border border-slate-200 shadow-sm" loading="lazy" width="1200" height="675" />
+<img src="${CAR7}/01-intro-7-cas.png" alt="Infographie : 7 cas d’usage IA BTP — chiffrage, CR chantier, AO, sécurité, planning, communication, veille" class="w-full rounded-xl border border-slate-200 shadow-sm" loading="lazy" width="1200" height="675" />
 <figcaption class="mt-2 text-center text-sm text-slate-500">Les sept usages — concrets, opérationnels, applicables dès la rentrée de chantier.</figcaption>
 </figure>`,
       },
@@ -339,7 +339,7 @@ export const blogArticlesClaudeBtp2026: BlogArticle[] = [
         type: 'html',
         title: 'Modèle d’instructions Project (à adapter)',
         content: `<figure class="my-6">
-<img src="${IMG}/slide-08.png" alt="Modèle instructions Project Claude pour OFC Laure Olivié : activité, formation phare, clients FFB FNTP, style Qualiopi Constructys" class="w-full rounded-xl border border-slate-200 shadow-sm" loading="lazy" width="1200" height="675" />
+<img src="${IMG}/slide-08.png" alt="Modèle d’instructions Project Claude : activité, formation phare, clients et règles de style Qualiopi" class="w-full rounded-xl border border-slate-200 shadow-sm" loading="lazy" width="1200" height="675" />
 <figcaption class="mt-2 text-center text-sm text-slate-500">Exemple de canevas — à personnaliser avec votre raison sociale, tarifs et règles internes.</figcaption>
 </figure>`,
       },
@@ -369,7 +369,7 @@ export const blogArticlesClaudeBtp2026: BlogArticle[] = [
         type: 'html',
         title: 'Six commandes « / » utiles pour une OF ou une PME BTP',
         content: `<figure class="my-6">
-<img src="${IMG}/slide-11.png" alt="Skills BTP prêts à copier : convention Qualiopi, devis formation, email prospection Constructys, programme, CR réunion, fiche stagiaire" class="w-full rounded-xl border border-slate-200 shadow-sm" loading="lazy" width="1200" height="675" />
+<img src="${IMG}/slide-11.png" alt="Exemples de Skills BTP : convention Qualiopi, devis, email prospection, programme, CR réunion, fiche stagiaire" class="w-full rounded-xl border border-slate-200 shadow-sm" loading="lazy" width="1200" height="675" />
 <figcaption class="mt-2 text-center text-sm text-slate-500">Exemples inspirés du terrain formation : conventions, devis au tarif HT / participant, prospection, comptes rendus.</figcaption>
 </figure>`,
       },

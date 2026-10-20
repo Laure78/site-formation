@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import { ExternalLinkAnchor } from '@/components/ExternalLink';
-import { ALT_LOGO_CSFE, ALT_LOGO_FFB_OFFICIEL } from '@/lib/client-logos';
+import { LOGO_CSFE_PARTENAIRE, LOGO_FFB_PARTENAIRE_FORMATION_IA } from '@/lib/client-logos';
 import { OFC_SEC } from '@/lib/ofc-section-classes';
 
 type FFBIAAccrocheSectionProps = {
@@ -19,27 +19,27 @@ export function FFBIAAccrocheSection({ embedded = false }: FFBIAAccrocheSectionP
             <div className="flex aspect-auto w-full flex-col items-center justify-center gap-6 overflow-hidden rounded-2xl border border-slate-200 bg-white p-6 shadow-[0_20px_50px_-12px_rgba(15,23,42,0.22)] sm:flex-row sm:gap-8 sm:p-8">
               <div className="relative h-16 w-full max-w-[200px] sm:h-20 sm:max-w-[240px]">
                 <Image
-                  src="/images/partenaires/logo-ffb-partenaire-formation-ia-btp.webp"
-                  alt={ALT_LOGO_FFB_OFFICIEL}
+                  src={LOGO_FFB_PARTENAIRE_FORMATION_IA.src}
+                  alt={LOGO_FFB_PARTENAIRE_FORMATION_IA.alt}
                   title="FFB — partenaire sessions formation IA terrain, Île-de-France"
                   fill
                   loading="lazy"
                   className="object-contain object-center"
                   sizes="240px"
-                
-                  quality={70}/>
+                  quality={70}
+                />
               </div>
               <div className="relative h-16 w-full max-w-[200px] sm:h-20 sm:max-w-[240px]">
                 <Image
-                  src="/images/partenaires/logo-csfe-partenaire-formation-btp.webp"
-                  alt={ALT_LOGO_CSFE}
+                  src={LOGO_CSFE_PARTENAIRE.src}
+                  alt={LOGO_CSFE_PARTENAIRE.alt}
                   title="CSFE — filière étanchéité, partenaire formation IA bâtiment"
                   fill
                   loading="lazy"
                   className="object-contain object-center"
                   sizes="240px"
-                
-                  quality={70}/>
+                  quality={70}
+                />
               </div>
             </div>
             <p className="mt-3 text-center text-xs text-slate-500 lg:text-left">
