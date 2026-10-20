@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { AccueilFormationsNiveauCardLink } from '@/components/landing/accueil/AccueilFormationsNiveauCardLink';
 import { TrainingCard } from '@/components/ui/TrainingCard';
 import { Section } from '@/components/ui/Section';
 import { SectionHeader } from '@/components/ui/SectionHeader';
@@ -28,14 +29,7 @@ export function AccueilFormationsDisponiblesSection() {
       <ul className="mt-8 grid list-none gap-3 sm:grid-cols-3">
         {FORMATIONS_NIVEAUX_IA.map((n) => (
           <li key={n.niveau}>
-            <div className="h-full rounded-xl border border-ofc-border bg-ofc-surface/30 px-4 py-3.5">
-              <p className="text-sm font-bold text-ofc-ink">{n.labelComplet}</p>
-              <p className="mt-1 text-sm text-ofc-ink-muted">
-                {n.niveau === 1 && 'Prendre en main l’IA.'}
-                {n.niveau === 2 && 'Appliquer l’IA à vos missions BTP.'}
-                {n.niveau === 3 && 'Créer vos assistants et vos outils métier.'}
-              </p>
-            </div>
+            <AccueilFormationsNiveauCardLink niveau={n} />
           </li>
         ))}
       </ul>
