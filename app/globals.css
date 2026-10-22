@@ -73,6 +73,11 @@
   --duration-ofc-slow: 350ms;
 }
 
+/* Utilitaire Tailwind v4 — requis pour @apply font-display (.article-mdx, etc.) */
+@utility font-display {
+  font-family: var(--font-display), ui-sans-serif, system-ui, sans-serif;
+}
+
 @layer base {
   :root {
     /* Alias sémantiques — source unique (Tailwind @theme ci-dessus) */
