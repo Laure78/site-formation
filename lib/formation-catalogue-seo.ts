@@ -208,23 +208,22 @@ export const FORMATION_CATALOGUE_SEO: Record<FormationCatalogueCode, FormationCa
     ],
   },
   'NIV-09': {
-    metaTitle: 'Formation assistants IA BTP : ChatGPT et Claude',
-    h1: 'Créer des assistants IA personnalisés pour les métiers du BTP',
-    subtitle:
-      'Configurez des assistants adaptés à votre poste avec ChatGPT et Claude. Réutilisez vos consignes, vos modèles et vos documents pour vos tâches récurrentes.',
+    metaTitle: 'Créer ses assistants IA BTP | Formation 7h',
+    h1: 'Créer ses assistants IA pour son entreprise du bâtiment',
+    subtitle: 'ChatGPT & Claude : fonctionnalités clés et assistants métier',
     metaDescription:
-      'Formation assistants IA BTP : ChatGPT et Claude pour vos tâches récurrentes, sans coder. Formation IA pour le BTP, 7 h intra. Présentiel IDF, Qualiopi.',
-    enBref: `Formation assistants IA pour le BTP (7 h, présentiel Île-de-France) : littératie IA, fonctionnalités ChatGPT et Claude, prompting et création d’assistants métier — sans développer d’application. Abonnement ChatGPT Plus ou Claude Pro requis. ${QUALIOPI_MENTION}.`,
+      'Formation de 7h pour créer vos assistants IA BTP avec ChatGPT et Claude. Devis, chantier, appels d’offres. Présentiel à Guyancourt (78).',
+    enBref: `Formation NIV-09 (7 h, présentiel) : créer 4 assistants IA métier avec ChatGPT et Claude — projets, skills, modèles entreprise. Inter à Guyancourt (78), intra en Île-de-France. 70 % pratique, bibliothèque de skills BTP, accès plateforme 1 an. Abonnements ChatGPT Plus et Claude Pro (ou comptes entreprise) requis. ${QUALIOPI_MENTION}.`,
     publicTargets: [
-      'Assistant(e)s travaux et fonctions support du BTP',
-      'Comptabilité et direction administrative et financière',
-      'Dirigeants, conducteurs de travaux et chargés d’affaires',
+      'Dirigeants et professionnels du BTP',
+      'Conducteurs de travaux et chargés d’affaires',
+      'Assistant(e)s administratifs et travaux, fonctions support',
     ],
     iaLimits: [
-      { iaAide: 'Configurer un assistant avec consignes et ton', validationHumaine: 'Valider les instructions et les sorties' },
-      { iaAide: 'Centraliser modèles et documents métier', validationHumaine: 'Contrôler confidentialité et anonymisation' },
-      { iaAide: 'Structurer une bibliothèque de prompts', validationHumaine: 'Sélectionner les prompts réellement utiles' },
-      { iaAide: 'Comparer ChatGPT et Claude sur une tâche', validationHumaine: 'Choisir l’outil adapté au besoin' },
+      { iaAide: 'Configurer assistants et skills métier', validationHumaine: 'Valider instructions et sorties avant usage' },
+      { iaAide: 'Déposer modèles et documents entreprise', validationHumaine: 'Contrôler confidentialité et anonymisation' },
+      { iaAide: 'Automatiser tâches récurrentes (devis, CR, courriers)', validationHumaine: 'Relire chaque livrable avant envoi' },
+      { iaAide: 'Partager assistants avec l’équipe', validationHumaine: 'Définir droits, référents et mises à jour' },
     ],
   },
   'NIV-10': {

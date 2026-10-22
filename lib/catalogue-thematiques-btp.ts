@@ -48,9 +48,9 @@ export const CATALOGUE_THEMATIQUES: readonly CatalogueThematiqueRubrique[] = [
   },
   {
     id: 'assistants-ia',
-    title: 'Assistants IA personnalisés',
+    title: 'Assistants IA BTP',
     description:
-      'Industrialiser Claude (Projects, Skills, Cowork) pour des usages documentaires réutilisables.',
+      'Créer des assistants métier avec ChatGPT et Claude — skills, modèles entreprise et déploiement en équipe.',
   },
   {
     id: 'outils-gestion',

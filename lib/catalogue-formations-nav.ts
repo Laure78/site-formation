@@ -70,7 +70,7 @@ const ALL_CATALOGUE_FORMATIONS_NAV_LINKS: CatalogueFormationNavLink[] = [
   },
   {
     href: LINKS.formationAssistantsIaPersonnalisesBtp,
-    label: 'Assistants IA personnalisés',
+    label: 'Assistants IA BTP (7 h)',
     icon: Cpu,
   },
   {

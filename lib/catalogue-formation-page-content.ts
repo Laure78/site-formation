@@ -13,9 +13,11 @@ import {
 } from '@/lib/formation-developpement-web-ia-content';
 import { getDevWebIaCatalogueProgramModules14h } from '@/lib/dev-web-ia-programme-catalogue';
 import {
-  ASSISTANTS_IA_LIVRABLES,
   ASSISTANTS_IA_MODULES,
   ASSISTANTS_IA_OBJECTIFS,
+  ASSISTANTS_IA_PEDAGOGIE,
+  ASSISTANTS_IA_PREREQUIS_ITEMS,
+  ASSISTANTS_IA_PROPOSITION_VALEUR,
 } from '@/lib/formation-assistants-ia-personnalises-btp-content';
 import { mapProgrammeBlocsToCatalogueModules } from '@/lib/catalogue-programme-bloc-mapper';
 import { NIV03_PEDAGOGICAL_METHODS, NIV03_PROGRAMME_BLOCS } from '@/lib/catalogue-formation-programmes-niv03';
@@ -856,62 +858,51 @@ const NIV_10: CatalogueFormationPageContent = {
 const NIV_09: CatalogueFormationPageContent = {
   programmeRef: 'NIV-09',
   parcoursKind: 'usages-ia-btp',
-  levelBadgeLabel: 'Niveau 2 · Assistants IA · 7 heures',
-  heroPublicLine:
-    'Fonctions support et métiers du BTP : assistant(e)s travaux, comptabilité, DAF, dirigeants, conducteurs de travaux et chargés d’affaires.',
+  levelBadgeLabel: 'Niveau 2 · 7 heures · Présentiel',
+  heroPublicLine: undefined,
   heroFacts: [
-    '7 heures',
-    '80 % de pratique',
-    `${getFormationByCode('NIV-09')!.effectifMin} à ${getFormationByCode('NIV-09')!.effectifMax} participants`,
-    'Présentiel en Île-de-France',
+    '7 heures — 1 journée',
+    '70 % de pratique',
+    `Jusqu'à ${getFormationByCode('NIV-09')!.effectifMax} participants`,
+    'Inter : Guyancourt (78)',
   ],
-  practiceShare: '80 %',
+  practiceShare: '70 %',
   formatLabel: 'Présentiel',
-  locationLabel: 'Île-de-France',
+  locationLabel: 'Guyancourt (78) · Île-de-France',
   quickFactsLevel: 'Niveau 2',
-  pedagogicalNote: 'L’IA prépare et structure. Le professionnel contrôle et valide.',
-  objectivesTitle: 'Après la formation, vous saurez…',
+  pedagogicalNote: 'L’IA prépare et structure. Le professionnel contrôle et valide avant tout envoi.',
+  objectivesTitle: 'Objectifs pédagogiques',
   deliverablesTitle: 'Ce que vous emportez',
-  painPointsTitle: 'Cette formation est faite pour vous si…',
-  painPoints: [
-    {
-      title: 'Consignes à réécrire',
-      texte: 'Réutiliser ses instructions utiles sans les ressaisir à chaque échange.',
-    },
-    {
-      title: 'Documents hétérogènes',
-      texte: 'Harmoniser le ton et la structure des documents produits par l’équipe.',
-    },
-    {
-      title: 'Modèles dispersés',
-      texte: 'Centraliser modèles, documents et bonnes pratiques au même endroit.',
-    },
-    {
-      title: 'Résultats variables',
-      texte: 'Tester et améliorer les réponses de vos assistants par itérations.',
-    },
-  ],
+  painPointsTitle: '',
+  painPoints: [],
   outcomes: [...ASSISTANTS_IA_OBJECTIFS],
   outcomesDescription:
-    'Créer et fiabiliser des assistants IA métier sur ChatGPT et Claude, avec confidentialité, vérification et traçabilité — validation humaine avant tout envoi.',
-  practicalCase: {
-    title: 'Comment se déroule la formation ?',
-    paragraphs: [
-      'Journée pratique sur vos cas réels d’assistanat. Chaque participant configure un assistant adapté à son poste.',
-    ],
-    steps: [
-      'Vous apportez une tâche récurrente de votre poste.',
-      'Vous configurez l’assistant (rôle, ton, documents, prompts).',
-      'Vous repartez avec un assistant testé et une méthode réutilisable.',
-    ],
-    note: 'Abonnement ChatGPT Plus ou Claude Pro requis — non inclus dans le tarif.',
-  },
-  deliverables: [...ASSISTANTS_IA_LIVRABLES],
-  programIntro: '7 h · 4 modules · 80 % pratique — créer un assistant métier ChatGPT ou Claude.',
+    'À l’issue de la journée, vous savez créer, tester et déployer des assistants IA métier sur ChatGPT et Claude — sans développer d’application.',
+  deliverables: [],
+  publicPrerequisites: [{ title: 'Prérequis techniques et pédagogiques', items: ASSISTANTS_IA_PREREQUIS_ITEMS }],
+  programIntro: ASSISTANTS_IA_PROPOSITION_VALEUR,
+  programmeHeading: 'Programme détaillé — 4 modules',
+  programmeMethodsBullets: [...ASSISTANTS_IA_PEDAGOGIE],
   programModules: ASSISTANTS_IA_MODULES.map((m) => ({
-    title: m.heading.replace(/^Module \d+ — /, ''),
-    points: [...m.points, m.atelier],
+    title: `${m.heading.replace(/^Module \d+ — /, '')} (${m.duree})`,
+    points: [...m.points],
+    practice: m.atelier,
   })),
+  pdfHref: LINKS.pdfProgrammeAssistantsIaPersonnalisesBtp,
+  interExtraBullets: [
+    'Inter-entreprises : Guyancourt (78), Yvelines',
+    '310 € net de TVA par participant, sous réserve de validation fiscale (exonération art. 261-4-4° a du CGI)',
+  ],
+  intraExtraBullets: [
+    'Intra-entreprise : dans vos locaux en Île-de-France',
+    'Tarif sur devis',
+  ],
+  iaLimits: [
+    { iaAide: 'Rédiger brouillons (devis, CR, courriers, synthèses DCE)', validation: 'Relire et valider avant envoi client ou marché' },
+    { iaAide: 'Structurer consignes, skills et projets', validation: 'Contrôler confidentialité et périmètre des documents déposés' },
+    { iaAide: 'Proposer des formulations et mises en forme', validation: 'Adapter au contexte chantier et à la charte entreprise' },
+    { iaAide: 'Partager assistants et skills en équipe', validation: 'Désigner un référent et tracer les mises à jour' },
+  ],
   programLinks: [
     {
       prefix: 'Pour les bases IA, voir la',
@@ -924,11 +915,19 @@ const NIV_09: CatalogueFormationPageContent = {
       label: 'formation Maîtriser Claude AI pour le BTP',
     },
   ],
+  instructorTitle: 'Laure Olivié — formatrice IA spécialisée BTP',
+  instructorBody:
+    '7 ans d’expérience dans le BTP, ancienne dirigeante d’ALIA BTP (travaux publics). Formatrice certifiée Qualiopi, instructrice LinkedIn Learning. Elle conçoit et anime cette session en présentiel en Île-de-France.',
   finalCta: {
     ...DEFAULT_FINAL_CTA,
-    title: 'Vous souhaitez créer des assistants IA pour votre équipe ?',
+    title: 'Inscrivez-vous à la formation assistants IA BTP',
     description:
-      'Échangeons sur vos postes, cas d’usage et le format intra adapté — financement OPCO possible selon éligibilité.',
+      'Session inter à Guyancourt ou format intra en Île-de-France. Prise en charge OPCO possible selon éligibilité — places limitées à 12 participants.',
+    primaryLabel: 'Je m’inscris',
+    secondaryLabel: 'Télécharger le programme',
+    devisHref: `${LINKS.contact}?objet=inscription&formation=${encodeURIComponent(getFormationByCode('NIV-09')!.titre)}`,
+    secondaryHref: LINKS.pdfProgrammeAssistantsIaPersonnalisesBtp,
+    note: undefined,
   },
 };
 

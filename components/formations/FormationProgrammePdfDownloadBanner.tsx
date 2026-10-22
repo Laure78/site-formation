@@ -34,7 +34,7 @@ const PDF_DOWNLOAD_NAMES: Partial<Record<string, string>> = {
   'NIV-03': 'programme_OFC_NIV-03_IA_Conduite_travaux_20261017.pdf',
   'NIV-04': 'programme_OFC_NIV-04_Maitriser_Claude_BTP_20261017.pdf',
   'NIV-05': 'programme_OFC_NIV-05_IA_Maitrise_oeuvre_20261017.pdf',
-  'NIV-09': 'programme_OFC_AssistantsIA_BTP_intra_7h.pdf',
+  'NIV-09': 'programme_OFC_Assistants_IA_BTP_7h_20261022.pdf',
   'NIV-10': 'programme_OFC_Niveau3_Outils_Chantier_IA_14h_20261008.pdf',
 };
 

@@ -587,40 +587,56 @@ export const FAQ_IA_BTP_PARIS: FAQItem[] = [
 /** FAQ Formation assistants IA personnalisés BTP — NIV-09 */
 export const FAQ_ASSISTANTS_IA_NIV09: FAQItem[] = [
   {
-    q: 'Faut-il déjà savoir utiliser l’IA ?',
-    a: 'Oui. Avoir suivi la formation Fondamentaux IA BTP ou utiliser régulièrement un outil d’IA générative. Un abonnement payant ChatGPT Plus ou Claude Pro est requis.',
+    q: 'Qu’est-ce qu’un assistant IA personnalisé pour le BTP ?',
+    a: 'Un espace (projet ou assistant) configuré avec vos consignes, vos modèles et vos documents pour produire des devis, CR, courriers ou synthèses DCE dans le ton de votre entreprise — avec relecture humaine obligatoire.',
   },
   {
-    q: 'Quels outils sont abordés ?',
-    a: 'ChatGPT et Claude. Les fonctionnalités de configuration et de partage diffèrent selon les plateformes et les abonnements.',
+    q: 'Quelle différence entre un projet, un assistant et un skill ?',
+    a: 'Le projet regroupe dossier, modèles et historique. L’assistant (ou GPT) porte un rôle et des instructions stables. Le skill automatise une tâche précise, souvent déclenché par « / » — la formation clarifie ces trois niveaux sur ChatGPT et Claude.',
   },
   {
-    q: 'Faut-il un abonnement payant ?',
-    a: 'Oui. ChatGPT Plus ou Claude Pro sur le poste de chaque participant (un des deux suffit). Les abonnements ne sont pas inclus dans le tarif de formation.',
+    q: 'Peut-on créer un assistant IA sans savoir programmer ?',
+    a: 'Oui. La session est conçue pour des professionnels du BTP : rédaction d’instructions, dépôt de modèles et tests sur vos documents, sans code.',
   },
   {
-    q: 'Peut-on travailler sur les documents de son entreprise ?',
-    a: 'Oui. Les documents doivent être anonymisés si besoin. Toute réponse de l’IA reste à vérifier par un professionnel avant usage.',
+    q: 'Faut-il déjà maîtriser ChatGPT et Claude ?',
+    a: `Oui : utilisation courante de l’IA (ChatGPT ou Claude) avant la session. Les bases peuvent être acquises via la <a href="${LINKS.formationIaBtpNiveau1BatimentTp}">formation IA BTP niveau 1</a>.`,
   },
   {
-    q: 'Les assistants peuvent-ils être partagés avec les collègues ?',
-    a: 'Selon l’outil et l’abonnement. Le partage d’équipe n’est pas identique sur ChatGPT et Claude. La formation montre les possibilités disponibles pour le groupe.',
+    q: 'Pourquoi faut-il des abonnements payants ?',
+    a: 'Les projets, skills et connecteurs utilisés en atelier nécessitent ChatGPT Plus et Claude Pro, ou des comptes entreprise (Team) compatibles — actifs avant la session, non inclus dans le tarif de formation.',
   },
   {
-    q: 'Cette formation apprend-elle à créer une application ?',
-    a: 'Non. Elle appartient au parcours Usages IA BTP : configurer des assistants pour ses tâches métier. Le parcours Création d’applications BTP est distinct.',
+    q: 'Combien d’assistants vais-je créer ?',
+    a: 'Objectif pédagogique : 4 assistants opérationnels, plus un premier assistant chantier guidé en module 2, à partir de la bibliothèque de skills BTP adaptée à vos documents.',
   },
   {
-    q: 'Peut-on s’inscrire seul ?',
-    a: 'Vous pouvez vous inscrire à une session collective interentreprises sur devis. Aucun accompagnement individuel n’est proposé.',
+    q: 'Puis-je utiliser les documents de mon entreprise ?',
+    a: 'Oui. Vous travaillez sur vos modèles (devis, CR, courriers) en les anonymisant si nécessaire. Chaque sortie de l’IA est à vérifier avant envoi.',
   },
   {
-    q: 'Où se déroule la formation ?',
-    a: 'Présentiel uniquement en Île-de-France, en intra-entreprise dans les locaux de l’entreprise.',
+    q: 'Comment protéger les informations confidentielles ?',
+    a: 'La formation intègre les bonnes pratiques : périmètre des documents déposés, comptes entreprise, vérification humaine et règles de partage en équipe.',
   },
   {
-    q: 'Combien coûte la session et un financement est-il possible ?',
-    a: `${libelleTarifParticipantCatalogue(getFormationByCode('NIV-09')!.tarifParticipantHt!)} — session convoquée ou inter (minimum 6 participants). ${MENTIONS_TVA_REGIMES_COURT} ${FINANCEMENT_FORMULATION_PRUDENTE} Voir aussi <a href="${LINKS.financement}">financement Constructys formation IA BTP</a>.`,
+    q: 'Puis-je partager les assistants avec mon équipe ?',
+    a: 'Oui, selon l’outil et les droits de votre abonnement. Le module 4 aborde partage, référent par assistant et mises à jour.',
+  },
+  {
+    q: 'La formation est-elle disponible en intraentreprise ?',
+    a: 'Oui, en présentiel dans vos locaux en Île-de-France. Les sessions inter-entreprises ont lieu à Guyancourt (78).',
+  },
+  {
+    q: 'Quel est son tarif ?',
+    a: `${libelleTarifParticipantCatalogue(getFormationByCode('NIV-09')!.tarifParticipantHt!)} en inter — intra sur devis. Montant indiqué net de TVA, sous réserve de validation fiscale (${MENTIONS_TVA_REGIMES_COURT}).`,
+  },
+  {
+    q: 'Une prise en charge Constructys est-elle possible ?',
+    a: `${FINANCEMENT_FORMULATION_PRUDENTE} Détails : <a href="${LINKS.financement}">financement Constructys formation IA BTP</a>.`,
+  },
+  {
+    q: 'Quels supports pourrai-je conserver après la session ?',
+    a: 'Accès individuel à la plateforme de formation pendant 1 an : supports, tutoriels, base de prompts et bibliothèque de skills BTP à téléverser dans votre compte ChatGPT ou Claude.',
   },
 ];
 

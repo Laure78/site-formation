@@ -1,4 +1,9 @@
 import { JsonLd } from '@/components/JsonLd';
+import {
+  AssistantsIaBtpAteliersSection,
+  AssistantsIaBtpCreationsSection,
+  AssistantsIaBtpProgrammeTimelineSection,
+} from '@/components/formations/assistants-ia/AssistantsIaBtpPageSections';
 import { CatalogueFormationPageTemplate } from '@/components/formations/catalogue/CatalogueFormationPageTemplate';
 import { createPageMetadata, getFAQSchema } from '@/lib/seo';
 import { FAQ_ASSISTANTS_IA_NIV09 } from '@/lib/faq';
@@ -49,6 +54,9 @@ export default async function FormationAssistantsIaPersonnalisesBtpPage() {
         faqItems={FAQ_ASSISTANTS_IA_NIV09}
         faqSectionId="faq-niv-09"
         h1Id="formation-niv-09-h1"
+        afterObjectives={<AssistantsIaBtpCreationsSection />}
+        programmeSupplement={<AssistantsIaBtpProgrammeTimelineSection />}
+        afterProgrammeSupplement={<AssistantsIaBtpAteliersSection />}
       />
     </div>
   );

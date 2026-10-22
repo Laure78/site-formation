@@ -921,7 +921,7 @@ export const PHOTOS = {
     src: '/images/formation-assistants-ia-personnalises-btp.webp',
     alt: 'Formation assistants IA BTP : prompts, modèles et workflows devis et chantier',
     description:
-      'Affiche formation assistants IA personnalisés pour les métiers du BTP : bibliothèque de prompts, assistant IA BTP et modèles de documents (devis, CR, emails). Présentiel IDF, OFC Qualiopi.',
+      'Formation créer ses assistants IA BTP : ChatGPT et Claude, skills, 4 assistants métier, Guyancourt 78, 7 h présentiel OFC Qualiopi.',
     title: 'Assistants IA personnalisés BTP — prompts, modèles et workflows',
     width: 1024,
     height: 768,

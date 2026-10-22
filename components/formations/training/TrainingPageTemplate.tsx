@@ -247,7 +247,7 @@ export async function TrainingPageTemplate({
           modules={programme ? undefined : content.programModules}
           methodsBullets={content.programmeMethodsBullets}
           programLinks={content.programLinks}
-          pdfHref={programme || content.programModules ? undefined : pdfHref}
+          pdfHref={programme ? undefined : pdfHref}
         >
           {programme}
         </TrainingProgram>

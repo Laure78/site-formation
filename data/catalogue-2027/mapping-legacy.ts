@@ -106,7 +106,7 @@ export const MAPPING_LEGACY_VERS_2027: readonly LegacyOfferMapping[] = [
   {
     legacyCode: 'NIV-09',
     legacySlug: 'assistants-ia-personnalises-btp',
-    legacyTitre: 'Créer des assistants IA personnalisés',
+    legacyTitre: 'Créer ses assistants IA pour son entreprise du bâtiment',
     nouveauCode: null,
     urlRetenue: '/formations/assistants-ia-personnalises-btp',
     action: 'renommer-et-mettre-a-jour',

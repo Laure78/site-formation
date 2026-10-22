@@ -102,10 +102,10 @@ export const PROGRAMME_CONTENU_CATALOGUE: Record<FormationCode, readonly string[
     'Module 7 — Déployer et maintenir (30 min)',
   ],
   'NIV-09': [
-    'Module 1 — Littératie IA & cadre AI Act (1 h 15)',
-    'Module 2 — Fonctionnalités clés de ChatGPT et de Claude (1 h 45)',
-    'Module 3 — Bien prompter : de la demande floue au résultat fiable (1 h 45)',
-    'Module 4 — Créer son assistant IA métier (2 h 15)',
+    'Module 1 — Les fonctionnalités clés de ChatGPT et de Claude (1 h 45)',
+    'Module 2 — Créer des assistants chantier (1 h 30)',
+    'Module 3 — Ateliers pratiques — 4 ateliers retenus parmi 6 (3 h 00)',
+    'Module 4 — Déployer ses assistants et plan d’action (30 min)',
   ],
   'NIV-10': [
     'Jour 1 — Accueil, cadrage et positionnement (15 min)',
@@ -230,23 +230,28 @@ export const PREREQUIS_NIV05 =
 
 /** Prérequis NIV-09 — assistants IA (lien initiation via URL interne). */
 export const PREREQUIS_NIV09 =
-  'Abonnement payant ChatGPT Plus ou Claude Pro actif sur le poste de chaque participant (un des deux outils suffit ; les deux sont abordés en session) — non inclus dans le tarif, à la charge de l’entreprise. Ordinateur portable. Avoir suivi la formation Fondamentaux IA BTP ou utiliser régulièrement un outil d’IA générative.';
+  'Savoir utiliser un ordinateur et naviguer sur internet. Utilisation courante de l’IA (ChatGPT ou Claude). Ordinateur portable. Abonnements ChatGPT Plus et Claude Pro, ou comptes entreprise (Team) compatibles, actifs avant la session — non inclus dans le tarif, à la charge de l’entreprise.';
 
 export const DELAI_ACCES_NIV09 =
-  'Sous 15 jours à 2 mois selon disponibilités, après signature de la convention.';
+  'Inscription via laureolivie.fr/contact jusqu’à 7 jours avant la session, sous réserve de places disponibles.';
 
 export const MODALITE_PEDAGOGIQUE_NIV09 =
-  `Présentiel uniquement en Île-de-France — intra-entreprise sur site (locaux de l’entreprise) ou salle adaptée. Groupe de ${libelleEffectifFormation(getFormationByCode('NIV-09')!)}. 80 % de pratique / 20 % de théorie.`;
+  `Action de formation — Présentiel — Inter : Guyancourt (78), intra : locaux de l’entreprise en Île-de-France. Groupe de ${libelleEffectifFormation(getFormationByCode('NIV-09')!)}. 70 % de pratique / 30 % de théorie sur les cas réels des participants.`;
 
 export const MODALITES_ACCES_NIV09 =
-  'Formation collective en intra-entreprise. Pour une seule personne : inscription possible à une session collective interentreprises sur devis. Aucun accompagnement individuel n’est proposé.';
+  `Inscription sur demande via ${CONTACT.email} ou laureolivie.fr/contact : analyse du besoin, convention de formation, convocation. Questionnaire de recueil des attentes adressé avant la session pour adapter les ateliers.`;
+
+const METHODES_NIV09 = [
+  'Avant la session : questionnaire de recueil des attentes pour adapter les ateliers pratiques.',
+  'Pendant : apports courts, démonstrations en direct, ateliers sur les cas réels des participants.',
+  'Plateforme de formation : accès individuel avant, pendant et 1 an après la session (supports, tutoriels, bibliothèque de skills BTP).',
+] as const;
 
 const EVALUATION_NIV09 = [
-  'Positionnement initial en début de formation',
-  'Évaluation pendant les exercices (formative)',
-  'QCM de fin de formation',
-  'Questionnaire de satisfaction',
-  'Attestation individuelle de formation',
+  'Positionnement initial en début de session',
+  'Validation des acquis sur les livrables produits en atelier',
+  'Questionnaire de satisfaction à chaud',
+  'Feuille d’émargement et attestation individuelle de fin de formation',
 ] as const;
 
 export const PREREQUIS_NIV10 =
@@ -454,7 +459,12 @@ export function getInfosPratiquesForCatalogue(ref: string): InfosPratiquesFormat
         : stripLabelPrefix(QUALIOPI_DELAI_ACCES_EXACT, /^Délai d'accès\s*:\s*/i)
     ),
     tarif: tarifPourRef(code),
-    methodes: code === 'NIV-10' ? [...METHODES_NIV10] : [...QUALIOPI_METHODES_STANDARD],
+    methodes:
+      code === 'NIV-10'
+        ? [...METHODES_NIV10]
+        : code === 'NIV-09'
+          ? [...METHODES_NIV09]
+          : [...QUALIOPI_METHODES_STANDARD],
     modalitesEvaluation:
       code === 'NIV-01'
         ? [...EVALUATION_NIV01]
@@ -523,7 +533,7 @@ export function getFormationOutilsAbonnementsAvantDevis(ref: string): string {
     case 'NIV-08':
       return 'Outils : ordinateur portable avec connexion internet. Aucun abonnement IA payant obligatoire indiqué au programme — les éventuels abonnements restent hors tarif.';
     case 'NIV-09':
-      return 'Abonnement payant obligatoire : ChatGPT Plus ou Claude Pro sur le poste de chaque participant (un des deux suffit ; les deux sont pratiqués en atelier). Non inclus dans le tarif de formation — à la charge de l’entreprise.';
+      return 'Abonnements ChatGPT Plus et Claude Pro, ou comptes entreprise (Team) compatibles, actifs sur le poste de chaque participant avant la session. Non inclus dans le tarif de formation — à la charge de l’entreprise.';
     case 'NIV-10':
       return 'Moyens techniques : ordinateur par participant, connexion internet, abonnement actif à ChatGPT ou Claude AI, à la charge du participant.';
     default:

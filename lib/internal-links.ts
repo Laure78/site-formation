@@ -157,7 +157,7 @@ export const LINKS = {
   /** NIV-09 — Créer des assistants IA personnalisés pour le BTP (catalogue) */
   formationAssistantsIaPersonnalisesBtp: '/formations/assistants-ia-personnalises-btp',
   pdfProgrammeAssistantsIaPersonnalisesBtp:
-    '/formations/assistants-ia-personnalises-btp/programme_OFC_AssistantsIA_BTP_intra_7h.pdf',
+    '/formations/assistants-ia-personnalises-btp/programme_OFC_Assistants_IA_BTP_7h_20261022.pdf',
   /** @deprecated Alias — préférer formationAssistantsIaPersonnalisesBtp */
   formationAssistantsIaPersonnalisesBtpLegacy: '/formations/assistants-ia-personnalises-btp',
   /** NIV-10 — Créer des applications métier BTP avec l’IA */
