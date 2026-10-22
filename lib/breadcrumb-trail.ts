@@ -15,6 +15,7 @@ export type BreadcrumbHrefCrumb = { label: string; href: string; link?: boolean 
 
 const EXACT: Record<string, string> = {
   '/formation-ia-intra-entreprise-btp': 'Formation IA intra-entreprise BTP',
+  '/ressources/creer-skill-chatgpt-claude-btp': 'Créer un skill ChatGPT et Claude',
   '/formations/ia-batiment-travaux-publics':
     "L'IA au service des pros du bâtiment et des travaux publics",
   '/formations/ia-appels-offre-btp': 'Formation IA appels d’offres BTP',

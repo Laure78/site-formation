@@ -190,6 +190,16 @@ function buildStaticPages(): SiteSearchEntry[] {
         'skills claude btp créer skill assistant ia bâtiment automatiser administratif zip',
     },
     {
+      id: 'ressources-creer-skill-chatgpt-claude-btp',
+      title: 'Créer un skill ChatGPT et Claude — tutoriel BTP',
+      description:
+        'Tutoriel pas à pas : SKILL.md, méthodes ChatGPT et Claude, exemple compte rendu de chantier, FAQ et carrousel PDF.',
+      href: LINKS.ressourcesCreerSkillChatgptClaudeBtp,
+      kind: 'guide',
+      keywords:
+        'créer skill chatgpt claude skill ia btp skill.md tutoriel compte rendu chantier',
+    },
+    {
       id: 'skills-chatgpt-btp',
       title: 'Skills ChatGPT BTP : tutoriel et 6 modèles',
       description:

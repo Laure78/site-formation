@@ -307,6 +307,7 @@ export const GSC_EXCLUDED_SITEMAP_PATHS = new Set<string>([
   '/formations/application-metier-btp-niveau-3',
   // Article MDX servi sur `/formation-ia-intra-entreprise-btp` (canonicalPath)
   '/blog/formation-ia-intra-entreprise-btp',
+  '/blog/creer-skill-chatgpt-claude-btp',
   ...FORMATION_IA_ALL_SLUGS.flatMap((slug) => [
     `/formation-ia/${slug}`,
     `/formation-ia-${slug}`,

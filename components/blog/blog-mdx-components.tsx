@@ -5,6 +5,11 @@ import { CharteIaBtpDownloadButton } from '@/components/blog/CharteIaBtpDownload
 import { BlogEncadre } from '@/components/blog/BlogEncadre';
 import { BlogTableWrap } from '@/components/blog/BlogTableWrap';
 import { EnBref } from '@/app/components/EnBref';
+import { CopiableCodeBlock } from '@/components/blog/CopiableCodeBlock';
+import {
+  SKILL_CHATGPT_EDITOR_EXAMPLE,
+  SKILL_CR_PLOMBERIE_EXAMPLE,
+} from '@/lib/blog-creer-skill-snippets';
 import { OFC_LINK } from '@/lib/ofc-interaction-classes';
 
 const proseH2 =
@@ -63,6 +68,19 @@ export function getBlogMdxComponents(): MDXComponents {
     BlogEncadre,
     BlogTableWrap,
     EnBref,
+    CopiableCodeBlock,
+    SkillCrPlomberieCopiable: () => (
+      <CopiableCodeBlock
+        title="SKILL.md — extraction lot plomberie (données fictives)"
+        text={SKILL_CR_PLOMBERIE_EXAMPLE}
+      />
+    ),
+    SkillRedactionCrCopiable: () => (
+      <CopiableCodeBlock
+        title="SKILL.md — rédaction CR chantier (exemple ChatGPT)"
+        text={SKILL_CHATGPT_EDITOR_EXAMPLE}
+      />
+    ),
     table: (props) => (
       <div className="my-6 overflow-x-auto rounded-xl border border-slate-200">
         <table className="min-w-[640px] w-full text-left text-sm text-slate-700" {...props} />

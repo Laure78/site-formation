@@ -225,6 +225,16 @@ const nextConfig: NextConfig = {
         destination: '/formation-ia-intra-entreprise-btp',
         permanent: true,
       },
+      {
+        source: '/blog/creer-skill-chatgpt-claude-btp',
+        destination: '/ressources/creer-skill-chatgpt-claude-btp',
+        permanent: true,
+      },
+      {
+        source: '/blog/creer-skill-chatgpt-claude-btp/',
+        destination: '/ressources/creer-skill-chatgpt-claude-btp',
+        permanent: true,
+      },
       // --- Consolidation blog B2 (juillet 2026) — suffixes cron + sémantiques ---
       ...blogConsolidationRedirectsJuly2026(),
       // --- Plan de canonisation (juin 2026) — 9 doublons → page maître (308) ---

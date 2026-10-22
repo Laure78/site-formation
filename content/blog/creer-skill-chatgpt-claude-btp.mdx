@@ -1,0 +1,337 @@
+---
+title: "Comment créer un skill avec ChatGPT et Claude ? Tutoriel pour les entreprises du BTP"
+seoTitle: "Créer un skill ChatGPT et Claude : tutoriel BTP"
+description: "Apprenez à créer un skill avec ChatGPT ou Claude. Tutoriel pas à pas, fichier SKILL.md et exemple concret de compte rendu de chantier BTP."
+slug: creer-skill-chatgpt-claude-btp
+canonicalPath: /ressources/creer-skill-chatgpt-claude-btp
+publishedAt: "2026-10-22"
+updatedAt: "2026-10-22"
+cover: /images/creer-skill-claude-btp.webp
+coverAlt: "Tutoriel créer un skill ChatGPT et Claude pour entreprises du BTP — Laure Olivié"
+keywords:
+  - créer un skill ChatGPT Claude
+  - comment créer un skill ChatGPT
+  - créer un skill Claude
+  - skill IA BTP
+  - skill personnalisé ChatGPT
+  - Claude Skills tutoriel français
+  - fichier SKILL.md
+  - formation ChatGPT Claude BTP
+readingTime: "22 min"
+hideEndCta: true
+relatedSlugs:
+  - guide-skill-ia-conducteur-travaux-btp
+  - cours-gratuits-claude-ai-conducteur-travaux-pme-btp
+  - chatgpt-btp-7-leviers-productivite-2026
+  - analyser-ccap-ia-btp
+enBref:
+  - "Un skill est un workflow réutilisable (instructions + exemples) que ChatGPT ou Claude mobilise quand votre demande correspond — sans remplacer la relecture humaine."
+  - "Ce tutoriel couvre les trois méthodes ChatGPT (chat, éditeur, import), Claude (création, manuel, ZIP) et un exemple complet d’analyse de compte rendu de chantier pour le lot plomberie."
+  - "Formations associées en présentiel en Île-de-France : assistants IA personnalisés et maîtrise de Claude pour le BTP."
+faq:
+  - question: "Qu'est-ce qu'un skill ChatGPT ?"
+    answer: "C’est un workflow réutilisable (instructions, exemples, parfois fichiers ou scripts) que ChatGPT peut activer lorsque la demande correspond. OpenAI le décrit comme une compétence partageable, distincte d’un simple prompt ponctuel."
+  - question: "Quelle différence entre un skill et un GPT personnalisé ?"
+    answer: "Un GPT personnalisé est un assistant configuré (instructions, fichiers, capacités) dans l’interface GPTs. Un skill encapsule une procédure ciblée que le modèle peut combiner avec d’autres skills. Si les skills ne sont pas disponibles sur votre compte, un GPT ou un Projet ChatGPT peut porter les mêmes instructions."
+  - question: "Peut-on créer un skill gratuitement ?"
+    answer: "Sur Claude, la création de compétences est documentée pour les plans Free, Pro, Max, Team et Enterprise, avec exécution de code activée. Sur ChatGPT, les skills sont réservés aux comptes Business, Enterprise, Healthcare et Edu éligibles, selon les réglages de l’espace de travail — pas au plan Plus grand public seul."
+  - question: "Comment créer un fichier SKILL.md ?"
+    answer: "Créez un fichier Markdown avec un en-tête YAML (name, description avec phrases de déclenchement), puis le corps : rôle, étapes, format de sortie, interdits et contrôle final. Le nom du fichier peut être SKILL.md ou skill.md selon l’outil ; vérifiez la doc du produit que vous utilisez."
+  - question: "Peut-on utiliser le même skill dans ChatGPT et Claude ?"
+    answer: "Le principe (métadonnées + instructions) est proche, mais les formats, dossiers ZIP et options d’activation diffèrent. Reprenez le contenu métier et retestez dans chaque produit ; l’import d’un ZIP ChatGPT dans Claude (ou l’inverse) n’assure pas une compatibilité parfaite."
+  - question: "Comment partager un skill avec ses collaborateurs ?"
+    answer: "Dans ChatGPT (espaces éligibles), partage depuis Plugins > Skills via le menu du skill. Sur Claude Team/Enterprise, l’administrateur peut provisionner des skills pour l’organisation. Vérifiez les droits internes et la politique de confidentialité avant diffusion."
+  - question: "Un skill peut-il analyser un CCTP ou un compte rendu de chantier ?"
+    answer: "Oui, si vous lui donnez la procédure (lecture intégrale, citations de références, interdiction d’inventer) et le document source. Le résultat doit être relu par un professionnel, surtout pour les engagements contractuels et les dates."
+  - question: "Un skill peut-il se tromper ?"
+    answer: "Oui. Un skill cadre la méthode ; il ne garantit ni l’exactitude ni l’exhaustivité. Prévoyez un contrôle « Es-tu sûr ? » dans les instructions et une validation humaine avant envoi ou diffusion chantier."
+  - question: "Faut-il savoir programmer pour créer un skill ?"
+    answer: "Non pour un skill purement rédactionnel (CR, courriers, tableaux). Des scripts Python ou JavaScript sont optionnels pour des livrables avancés (Excel, automatisation) lorsque l’exécution de code est activée."
+  - question: "Comment former ses collaborateurs à utiliser les skills IA ?"
+    answer: "Travaillez sur leurs documents réels en présentiel, créez un premier skill par métier, testez sur trois cas concrets, puis documentez les déclencheurs. OFC propose des parcours IA BTP incluant assistants et skills personnalisés en Île-de-France."
+---
+
+Chaque semaine, vous ouvrez ChatGPT ou Claude pour un **compte rendu de chantier**, une **relance de visa** ou un **courrier MOE**. Et chaque fois, vous réexpliquez le même contexte : le format attendu, le ton, les étapes, les règles internes, ce qu’il est interdit d’inventer.
+
+Un **skill** (compétence) permet d’enregistrer cette méthode une fois pour la réutiliser. Ce n’est pas une mémoire illimitée : ce sont des **instructions persistantes** que l’outil charge lorsque la demande correspond et lorsque la fonctionnalité est **activée sur votre compte**. Le skill structure le travail ; il ne dispense pas de la **validation humaine**.
+
+<BlogEncadre title="Support visuel">
+Téléchargez le carrousel PDF « Créer un skill ChatGPT et Claude » (méthodes, exemples BTP, 5 règles) : [PDF carrousel](/ressources/pdf/carrousel-creer-skill-chatgpt-claude-btp.pdf). Complément : [tutoriel Skills ChatGPT BTP](/skills-chatgpt-btp) et [6 modèles téléchargeables](/skills-chatgpt-btp).
+</BlogEncadre>
+
+## Qu'est-ce qu'un skill dans ChatGPT et Claude ?
+
+**Définition.** Un skill est un **workflow métier réutilisable** : rôle, étapes, format de sortie, exemples et garde-fous. Il vit dans un dossier (souvent avec un fichier **SKILL.md** ou **skill.md** en tête).
+
+**À quoi sert SKILL.md ?** C’est le cœur du skill : métadonnées (nom, description de déclenchement) + instructions que le modèle consulte quand le skill est pertinent.
+
+**Prompt classique vs skill.** Le prompt s’use une fois dans un chat. Le skill **standardise** la même tâche pour vous ou votre équipe, avec des déclencheurs explicites dans la description.
+
+**Skill vs mémoire vs projet vs GPT vs connecteur.**
+
+| Élément | Rôle principal | Limite utile à connaître |
+| --- | --- | --- |
+| Prompt | Demande ponctuelle | À réécrire à chaque dossier |
+| Skill | Procédure réutilisable pour une tâche | Activation selon produit, plan et réglages |
+| Mémoire (ChatGPT) | Préférences générales sur vous | Ne remplace pas une procédure documentée |
+| Projet (ChatGPT / Claude) | Dossier long : fichiers + chats + consignes | Idéal pour un chantier ou un AO, pas pour toute l’entreprise |
+| GPT personnalisé | Assistant configuré (instructions, fichiers) | Alternative si Skills indisponibles sur votre compte |
+| Connecteur / MCP | Accès à un service externe (mail, Drive…) | Ne contient pas à lui seul votre méthode rédactionnelle |
+
+**Pourquoi standardiser en entreprise ?** Harmoniser les CR, les relances et les synthèses DCE, réduire les oublis de format et rendre les contrôles explicites — surtout quand plusieurs personnes touchent aux mêmes documents.
+
+Sources : [OpenAI — Skills in ChatGPT](https://help.openai.com/en/articles/20001066-skills-in-chatgpt), [Anthropic — How to create custom skills](https://support.claude.com/en/articles/12512198-how-to-create-custom-skills), [Anthropic — Use skills in Claude](https://support.claude.com/en/articles/12512180-use-skills-in-claude).
+
+## Pourquoi créer des skills pour une entreprise du BTP ?
+
+Six cas opérationnels (document d’entrée → méthode → résultat → contrôle humain).
+
+### 1. Analyser un CR et extraire son lot
+
+- **Entrée :** CR MOE complet (PDF ou texte).
+- **Méthode :** lecture intégrale, filtrage par lot, conservation des numéros d’observation.
+- **Résultat :** tableau de suivi lot + points à clarifier.
+- **Contrôle :** vérifier chaque ligne avec le PDF source avant envoi au chef de chantier.
+
+### 2. Rédiger un CR selon le modèle entreprise
+
+- **Entrée :** notes de visite, dictée, CR précédent.
+- **Méthode :** trame imposée, reprise des points non soldés.
+- **Résultat :** CR structuré + tableau d’actions.
+- **Contrôle :** validation MOE / conducteur avant diffusion (engagements, dates).
+
+### 3. Préparer une réponse AO à partir du DCE
+
+- **Entrée :** DCE (sans données sensibles inutiles).
+- **Méthode :** liste des exigences, questions, écarts — **sans inventer** d’engagement technique.
+- **Résultat :** note interne go/no-go ou plan de réponse.
+- **Contrôle :** chargé d’affaires + direction sur le fond contractuel.
+
+### 4. Identifier des prescriptions CCTP
+
+- **Entrée :** CCTP lot concerné.
+- **Méthode :** extraction avec renvoi aux articles, signalement des « ou équivalent » absents.
+- **Résultat :** tableau prescriptions / références.
+- **Contrôle :** technicien métier avant chiffrage ou commande.
+
+Voir aussi le [tuto skill Analyse CCTP](/ressources/tuto-skill-analyse-cctp-ofc).
+
+### 5. Relances visa ou pièces manquantes
+
+- **Entrée :** liste des visas, dates, destinataires.
+- **Méthode :** ton gradué selon retard, rappel des références dossier.
+- **Résultat :** mail ou courrier prêt à relire.
+- **Contrôle :** pas d’accusation ni de date inventée.
+
+### 6. Documents conformes au modèle et à la charte
+
+- **Entrée :** modèle Word/PDF interne + contenu brut.
+- **Méthode :** respect des sections, logos, mentions légales.
+- **Résultat :** brouillon aligné charte (selon capacités de génération disponibles).
+- **Contrôle :** service communication / direction sur le document final.
+
+<CTAInline
+  label="Découvrez comment utiliser ChatGPT et Claude dans votre métier"
+  href="/formations/assistants-ia-personnalises-btp"
+  linkLabel="Formation assistants IA personnalisés BTP"
+  variant="soft"
+/>
+
+## Comment créer un skill avec ChatGPT ?
+
+**Disponibilité (à vérifier sur votre compte).** D’après le [centre d’aide OpenAI](https://help.openai.com/en/articles/20001066-skills-in-chatgpt), les skills concernent les comptes **Business, Enterprise, Healthcare et Edu** éligibles, sous réserve des **réglages d’espace de travail**. Parcours documenté : barre latérale **Plugins** → **Skills**. Un skill par défaut **skill-creator** aide à générer ou modifier un skill en conversation.
+
+### Méthode 1 — Créer un skill avec le chat
+
+1. Ouvrir **Plugins** → répertoire **Skills** → **Create** → **Create with chat** (si proposé).
+2. Ou demander directement dans le chat : « Aide-moi à créer un skill pour… » — ChatGPT peut invoquer **skill-creator**.
+3. Préparer les éléments suivants :
+   - Tâche précise et métier BTP ;
+   - Exemples de phrases de demande ;
+   - Résultat attendu (mail, tableau, sections) ;
+   - Fichiers de référence (modèle CR anonymisé) ;
+   - Règles métier et interdits ;
+   - Format de sortie.
+4. Répondre aux questions une par une, puis **installer** le skill proposé.
+5. Tester avec un cas réel autorisé.
+
+**Exemple — compte rendu de chantier :** décrire que le skill transforme des notes brutes en CR avec en-tête, observations par lot, décisions et tableau Qui / Quoi / Quand, sans inventer de dates.
+
+Prompt de amorce (adaptable) :
+
+```text
+Utilise skill-creator pour m'aider à créer un Skill.
+
+Entreprise : [NOM], [MÉTIER BTP], [DÉPARTEMENT].
+Tâche : rédiger un compte rendu de réunion de chantier selon notre modèle.
+Je demande souvent : « rédige le CR », « compte rendu de la visite », « mets en forme mes notes ».
+Format : sections imposées + tableau d'actions.
+Interdits : inventer montants, clauses, dates ou décisions absentes des notes.
+
+Rédige le SKILL.md en français. Pose-moi tes questions une par une avant d'écrire.
+```
+
+### Méthode 2 — Créer un skill avec l'éditeur
+
+1. **Skills** → **Create** → **Create with editor**.
+2. **Nommer** le skill (identifiant stable, sans esaces exotiques).
+3. **Description** : inclure *quand* l’utiliser (phrases naturelles — le modèle s’en sert pour le déclenchement).
+4. **Instructions** : rôle, étapes numérotées, format, interdits.
+5. Ajouter **ressources** (modèles, checklists) si l’éditeur le permet.
+6. **Enregistrer**, activer, **tester** sur 2–3 cas.
+
+<SkillRedactionCrCopiable />
+
+### Méthode 3 — Importer un skill existant
+
+1. Préparer un **dossier** nommé comme le skill, avec **SKILL.md** à la racine.
+2. Vérifier structure et fichiers référencés dans le markdown.
+3. Créer une **archive ZIP** : le dossier du skill doit être à la racine du ZIP (pas les fichiers seuls).
+4. **Skills** → **Create** → **Upload from your computer**.
+5. Lire l’avis de scan OpenAI ; revoir vous-même le contenu (instructions + code éventuel).
+6. **Tester** avant partage équipe.
+
+OpenAI rappelle de ne pas faire confiance aveuglément à un skill téléchargé : revue interne obligatoire. L’import **ne garantit pas** le même comportement sur Claude.
+
+Documentation complémentaire : [OpenAI — Build skills](https://learn.chatgpt.com/docs/build-skills).
+
+## Comment créer un skill avec Claude ?
+
+**Plans et prérequis.** Anthropic indique les skills pour **Free, Pro, Max, Team et Enterprise**, avec **exécution de code activée** ([source](https://support.claude.com/en/articles/12512198-how-to-create-custom-skills)). Parcours habituel : avatar / **Personnaliser** (**Customize**) → onglet **Compétences** (**Skills**) → **+** / **Ajouter**.
+
+**Trois voies principales :**
+
+1. **Créer avec Claude** — conversation guidée pour produire le skill (contenu et déclencheurs).
+2. **Manuellement** — rédiger **skill.md** (YAML `name`, `description` ≤ 200 caractères recommandés pour le when-to-use, corps markdown).
+3. **Importer** — ZIP dont la racine est le dossier du skill ; activer dans **Compétences**.
+
+**Enregistrement d’écran (optionnel).** Sur **Claude for Mac**, plans Pro/Max/Team, fonction **Cowork** : enregistrer une tâche pour proposer un skill — **non disponible** sur Windows, dans le chat seul, ni sur Free/Enterprise selon la doc. Ne pas afficher de données sensibles à l’écran pendant l’enregistrement.
+
+**Adapter un skill ChatGPT vers Claude.** Reprenez le texte métier (rôle, étapes, interdits), ajustez le frontmatter (`name`, `description`), renommez en **skill.md** si nécessaire, reconditionnez le ZIP au format Anthropic, retestez les déclencheurs. Le [guide Claude BTP OFC](/ressources/guide-claude-btp-ofc) et la page [Skills Claude BTP](/skills-claude-btp) proposent des modèles de départ.
+
+**Partage.** Selon plan : partage individuel ou provisioning admin (Team/Enterprise). Vérifiez les autorisations avant de publier un skill contenant des exemples de documents internes.
+
+## Exemple pratique : skill d'analyse de compte rendu de chantier (lot plomberie)
+
+**Cas fictif.** Une entreprise de **plomberie-CVC** reçoit le CR hebdomadaire de la MOE. Elle veut uniquement les observations et actions la concernant, sans perdre les numéros d’origine.
+
+**Exigences du skill :**
+
+1. Lire le document en entier.
+2. Filtrer plomberie / sanitaire / chauffage / CVC si le lien est explicite.
+3. Conserver le numéro d’observation source.
+4. Extraire action, responsable, échéance.
+5. Marquer **À CONFIRMER** si une info manque.
+6. Produire un tableau de suivi.
+7. Ne jamais inventer échéance, prescription ou décision.
+
+<SkillCrPlomberieCopiable />
+
+**Exemple de sortie (données fictives) :**
+
+| Référence CR | Observation | Lot concerné | Action | Responsable | Échéance | Statut |
+| --- | --- | --- | --- | --- | --- | --- |
+| Obs. 7 | Passage réseaux EF/ECS sous dalle S1 non conforme au plan | Plomberie | Repositionner et faire valider par MOE | Entreprise Lot 14 | À CONFIRMER | En cours |
+| Obs. 12 | Essais étanchéité colonnes à planifier | Plomberie | Proposer date essai + PV | Lot 14 | 2026-11-05 | Planifié |
+| Obs. 18 | Ventilation cuisine — grille non posée (lot 11) | CVC lié | Coordination avec lot 11 | Lot 11 + Lot 14 | À CONFIRMER | Ouvert |
+
+Complétez avec le [tuto PDF compte rendu de chantier](/ressources/tuto-cr-chantier) pour la rédaction du CR complet.
+
+## Les cinq règles pour créer un skill efficace
+
+Reprises du carrousel PDF, appliquées au BTP :
+
+1. **Une tâche précise par skill.** Ex. : « extraire mon lot du CR » — pas « gérer tout le chantier ».
+2. **Description = quand l’utiliser.** Ex. : « Déclencher quand l’utilisateur colle un CR MOE et demande le suivi plomberie ».
+3. **Un vrai document d’exemple** (anonymisé) dans les ressources du skill ou en pièce jointe de test.
+4. **Interdiction explicite d’inventer** montants, dates, clauses, décisions MOE.
+5. **Test sur cas réels** (simple, tendu, incomplet) avant diffusion à l’équipe.
+
+**Contrôle « Es-tu sûr ? »** — à intégrer dans le skill :
+
+- Exactitude des extractions et numéros de points ;
+- Cohérence dates / responsables avec la source ;
+- Signalement des zones floues ;
+- Respect du modèle entreprise.
+
+Ce contrôle **ne remplace pas** la signature humaine avant envoi.
+
+## Quelles précautions avant de partager un skill avec son équipe ?
+
+- **Confidentialité chantier** : pas de noms clients, montants ou plans sensibles dans les exemples embarqués.
+- **Données personnelles** : minimiser les noms de salariés ; respecter la [politique interne](https://www.cnil.fr/fr/reglement-europeen-protection-donnees) et le principe de finalité (voir fiches CNIL pour les outils cloud).
+- **Clients et sous-traitants** : anonymiser les jeux de test.
+- **Droits d’accès** : partager seulement avec les personnes habilitées sur le produit (espace pro).
+- **Skills importés** : audit du contenu (instructions + scripts) avant activation.
+- **Validation contractuelle** : un skill de réponse AO ou contentieux ne remplace pas le juriste.
+- **Mises à jour** : nommer un référent skill, versionner le SKILL.md (date dans le corps ou changelog).
+
+## Comment former ses équipes à créer leurs propres skills ?
+
+Approche pédagogique en **présentiel Île-de-France** (inter ou intra) :
+
+- Partir d’**une tâche réelle** (CR, relance, synthèse DCE) ;
+- Rédiger le skill en binôme métier + bureau ;
+- Tester, corriger le SKILL.md (pas seulement le dernier output) ;
+- Documenter les **phrases de déclenchement** pour l’équipe.
+
+Parcours catalogue utiles :
+
+- [Créer ses assistants IA personnalisés BTP](/formations/assistants-ia-personnalises-btp) (ChatGPT et Claude, cas d’usage entreprise) ;
+- [Maîtriser Claude AI pour le BTP](/formations/maitriser-claude-ai-btp) ;
+- [Catalogue des formations IA BTP](/formations).
+
+Vous repartez avec des **méthodes réutilisables** adaptées à votre activité — pas une liste figée de skills imposés.
+
+<BlogEncadre title="Créez vos propres skills IA pour le BTP">
+Apprenez à structurer vos méthodes de travail dans ChatGPT et Claude. Lors des formations en présentiel, vous travaillez sur des cas concrets de votre entreprise et testez vos propres assistants et skills IA.
+
+- [Découvrir les formations IA BTP](/formations)
+- [Prendre rendez-vous](/prendre-rdv)
+</BlogEncadre>
+
+## Questions fréquentes
+
+### Qu'est-ce qu'un skill ChatGPT ?
+
+Workflow réutilisable (instructions, exemples, parfois fichiers) activé quand la demande correspond, sur les comptes et espaces éligibles documentés par OpenAI.
+
+### Quelle différence entre un skill et un GPT personnalisé ?
+
+Le GPT est un assistant configuré ; le skill cible une procédure. Les deux peuvent porter des consignes similaires si Skills n’est pas activé chez vous.
+
+### Peut-on créer un skill gratuitement ?
+
+Claude : oui sur Free avec exécution de code (limites d’usage). ChatGPT : skills orientés **comptes pro/éducation** éligibles, pas le seul abonnement individuel grand public.
+
+### Comment créer un fichier SKILL.md ?
+
+Frontmatter YAML (`name`, `description` avec déclencheurs) + sections markdown (rôle, procédure, format, interdits, contrôle).
+
+### Peut-on utiliser le même skill dans ChatGPT et Claude ?
+
+Reprenez le fond métier ; retestez après adaptation ZIP / nom de fichier. Pas de garantie de parité.
+
+### Comment partager un skill avec ses collaborateurs ?
+
+Menus de partage Skills (ChatGPT) ou provisioning admin (Claude Team/Enterprise), selon vos droits.
+
+### Un skill peut-il analyser un CCTP ou un CR ?
+
+Oui avec procédure stricte et source jointe ; relecture humaine indispensable.
+
+### Un skill peut-il se tromper ?
+
+Oui — hallucinations, omissions. Garde-fous + validation obligatoire.
+
+### Faut-il savoir programmer ?
+
+Non pour la rédaction métier ; oui si vous ajoutez des scripts (optionnel).
+
+### Comment former ses collaborateurs ?
+
+Formation terrain sur documents réels, présentiel IDF, voir [assistants IA personnalisés BTP](/formations/assistants-ia-personnalises-btp) et [visio découverte](/prendre-rdv).
+
+---
+
+**Laure Olivié** — formatrice IA spécialisée bâtiment et travaux publics, fondatrice d’OFC Création d’Entreprise (certifié Qualiopi). Formations **en présentiel en Île-de-France** uniquement. Pour approfondir le sujet skills sans doublon : [guide skill IA conducteur de travaux](/blog/guide-skill-ia-conducteur-travaux-btp) (méthode 7 étapes).

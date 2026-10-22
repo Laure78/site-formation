@@ -267,6 +267,11 @@ const ROUTE_SOURCE_FILES: Record<string, readonly string[]> = {
     'app/formation-ia-intra-entreprise-btp/page.tsx',
     'content/blog/formation-ia-intra-entreprise-btp.mdx',
   ],
+  '/ressources/creer-skill-chatgpt-claude-btp': [
+    'app/ressources/creer-skill-chatgpt-claude-btp/page.tsx',
+    'content/blog/creer-skill-chatgpt-claude-btp.mdx',
+    'public/ressources/pdf/carrousel-creer-skill-chatgpt-claude-btp.pdf',
+  ],
   '/skills-chatgpt-btp': [
     'app/skills-chatgpt-btp/page.tsx',
     'lib/skills-chatgpt-btp-content.ts',

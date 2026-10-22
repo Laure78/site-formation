@@ -382,6 +382,11 @@ export const LINKS = {
   skillsChatgptBtpPackComplet: '/skills/chatgpt/skills-chatgpt-btp-pack-complet.zip',
   /** Tutoriel PDF — créer un Skill ChatGPT pour le BTP */
   pdfTutorielSkillsChatgptBtp: '/ressources/pdf/tutoriel-skills-chatgpt-btp-laure-olivie.pdf',
+  /** Carrousel PDF — créer un skill ChatGPT et Claude (v5) */
+  pdfCarrouselCreerSkillChatgptClaudeBtp:
+    '/ressources/pdf/carrousel-creer-skill-chatgpt-claude-btp.pdf',
+  /** Tutoriel SEO — créer un skill ChatGPT et Claude pour le BTP */
+  ressourcesCreerSkillChatgptClaudeBtp: '/ressources/creer-skill-chatgpt-claude-btp',
   /** Lead magnet — 3 skills Claude AI BTP (fichier texte) */
   downloadClaudeSkillsBtp: '/downloads/3-skills-claude-ai-btp.txt',
   /** Alias canonique financement (aligné sur le guide OPCO principal) */

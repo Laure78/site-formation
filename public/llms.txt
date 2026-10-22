@@ -46,6 +46,7 @@ Laure Olivié est formatrice IA spécialisée BTP, avec 7 ans d'expérience dans
 - /blog/charte-ia-btp — Charte IA BTP : modèle Word (.doc) et guide de déploiement
 - /ressources/modele-charte-ia-entreprise-btp.doc — Modèle Word charte d'utilisation de l'IA (entreprise BTP)
 - /ressources — Guides PDF gratuits
+- /ressources/creer-skill-chatgpt-claude-btp — Tutoriel créer un skill ChatGPT et Claude (SKILL.md, CR chantier BTP) ; PDF carrousel : /ressources/pdf/carrousel-creer-skill-chatgpt-claude-btp.pdf
 - /a-propos — Parcours et certifications
 - /prendre-rdv — Appel découverte (30 min ; l'échange peut être en visioconférence — les formations catalogue restent en présentiel)
 
@@ -53,4 +54,4 @@ Laure Olivié est formatrice IA spécialisée BTP, avec 7 ans d'expérience dans
 Laure Olivié · OFC Création d'Entreprise · SIRET 905 244 281 00010 · NDA 11788515078 · 6 rue Henri Dunant, 78280 Guyancourt · contact@laureolivie.fr · 06 95 66 18 18 · www.laureolivie.fr
 
 ---
-Dernière mise à jour fichier : 2026-10-16
+Dernière mise à jour fichier : 2026-10-22
