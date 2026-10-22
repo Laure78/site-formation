@@ -5,6 +5,7 @@ import { createPageMetadata, SITE_CONFIG } from '@/lib/seo';
 import { PHOTOS } from '@/lib/photos';
 import { CATALOGUE_2027_POSITIONNEMENT } from '@/data/catalogue-2027';
 import { FormationsCatalogue2027Hero } from '@/components/formations/catalogue-2027/FormationsCatalogue2027Hero';
+import { FormationsCatalogueParcoursMetiers2027Banner } from '@/components/formations/catalogue-2027/FormationsCatalogueParcoursMetiers2027Banner';
 import { FormationsCatalogueChoixSection } from '@/components/formations/catalogue-2027/FormationsCatalogueChoixSection';
 import { FormationsIaDisponibles } from '@/components/formations/catalogue-2027/FormationsIaDisponibles';
 import { FormationsCatalogueParcoursCompact } from '@/components/formations/catalogue-2027/FormationsCatalogueParcoursCompact';
@@ -81,6 +82,7 @@ export default async function FormationsPage({ searchParams }: FormationsPagePro
 
       <div className="mx-auto max-w-[80rem] px-4 pb-20 pt-8 sm:px-6 md:pt-10 lg:px-8">
         <p className="sr-only">{CATALOGUE_2027_POSITIONNEMENT.introductionMarque}</p>
+        <FormationsCatalogueParcoursMetiers2027Banner />
         <FormationsIaDisponibles searchParams={sp} />
         <FormationsCatalogueParcoursCompact />
         <FormationsCatalogueEntrepriseCompact />
