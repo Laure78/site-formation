@@ -133,7 +133,7 @@ export default function FormationIaMaconPaysagisteBtpPage() {
   const faqSchema = getFAQSchema(FAQ_ITEMS);
 
   return (
-    <div className="mx-auto max-w-4xl px-4 py-16">
+    <div className="ofc-page-article ofc-editorial">
       <JsonLd id="schema-faq-page" schema={faqSchema} />
 
       <nav className="mb-8 text-sm text-slate-600">

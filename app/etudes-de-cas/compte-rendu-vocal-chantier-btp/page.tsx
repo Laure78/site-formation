@@ -6,6 +6,7 @@ import { JsonLd } from '@/components/JsonLd';
 import { DisclaimerGains } from '@/components/formation/DisclaimerGains';
 import { LINKS } from '@/lib/internal-links';
 import { formatNoteSatisfactionAffichageComplet } from '@/lib/data/indicateurs-resultats';
+import { OFC_SEC, OFC_SECTION_INNER_ARTICLE } from '@/lib/ofc-section-classes';
 
 const PATH = LINKS.etudesCasCrVocalChantier;
 
@@ -79,11 +80,13 @@ const RESULTATS = [
 
 export default function EtudeDeCasCrVocalChantierPage() {
   return (
-    <div>
+    <div className="ofc-editorial">
       <JsonLd id="schema-article-cr-vocal" schema={articleSchema} />
 
-      <section className="border-b border-slate-200 bg-gradient-to-b from-[#f8fbff] via-white to-white px-4 py-16 md:py-20">
-        <div className="mx-auto max-w-4xl">
+      <section
+        className={`${OFC_SEC.heroWhite} border-b border-slate-200 ofc-section--divide-0 bg-gradient-to-b from-[#f8fbff] via-white to-white`}
+      >
+        <div className={OFC_SECTION_INNER_ARTICLE}>
           <p className="text-sm font-semibold uppercase tracking-wide text-[var(--accent)]">
             Étude de cas · Conduite de travaux
           </p>
@@ -106,7 +109,7 @@ export default function EtudeDeCasCrVocalChantierPage() {
         </div>
       </section>
 
-      <div className="mx-auto max-w-4xl px-4 py-16">
+      <div className="ofc-page-article ofc-editorial">
         <section>
           <h2 className="font-display text-2xl font-bold text-slate-900">Contexte client</h2>
           <ul className="mt-6 space-y-3 text-slate-700">

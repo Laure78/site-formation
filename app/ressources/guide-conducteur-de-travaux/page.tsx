@@ -114,7 +114,7 @@ const FAQ_ITEMS = [
 export default function SkillIaConducteurTravauxPage() {
   const faqSchema = getFAQSchema(FAQ_ITEMS);
   return (
-    <div className="min-h-screen bg-white" style={{ color: '#1A1A1A' }}>
+    <div className="ofc-editorial min-h-screen bg-white" style={{ color: '#1A1A1A' }}>
       <JsonLd id="schema-learning-resource-skill-ia" schema={learningResourceJsonLd} />
       <JsonLd id="schema-howto-skill-ia" schema={howToSkillJsonLd} />
       <JsonLd
@@ -124,7 +124,7 @@ export default function SkillIaConducteurTravauxPage() {
       {faqSchema ? <JsonLd id="schema-faq-skill-ia" schema={faqSchema} /> : null}
 
       <section className="bg-[#377CF3] text-white" aria-labelledby="hero-skill-ia">
-        <div className="mx-auto grid max-w-7xl gap-10 px-4 py-14 md:items-start md:gap-12 md:py-20 lg:grid-cols-2">
+        <div className="ofc-section-inner grid gap-10 py-10 md:items-start md:gap-12 md:py-12 lg:grid-cols-2">
           <div className="min-w-0">
             <h1 id="hero-skill-ia" className="font-display text-2xl font-bold leading-tight md:text-2xl lg:text-2xl">
               Guide du conducteur de travaux : 6&nbsp;skills Claude pour piloter le chantier
@@ -170,8 +170,8 @@ export default function SkillIaConducteurTravauxPage() {
         </div>
       </section>
 
-      <section className="py-14 md:py-16" aria-labelledby="article-guide-cdt">
-        <div className="mx-auto max-w-7xl px-4">
+      <section className="py-10 md:py-12" aria-labelledby="article-guide-cdt">
+        <div className="ofc-section-inner">
           <h2 id="article-guide-cdt" className="font-display text-2xl font-bold text-slate-900 md:text-2xl">
             Présentation du guide ressources
           </h2>
@@ -204,8 +204,8 @@ export default function SkillIaConducteurTravauxPage() {
         </div>
       </section>
 
-      <section className="border-b bg-[#F2F2F2] py-14" aria-labelledby="why-guide">
-        <div className="mx-auto max-w-7xl px-4">
+      <section className="border-b bg-[#F2F2F2] ofc-band" aria-labelledby="why-guide">
+        <div className="ofc-section-inner">
           <h2 id="why-guide" className="font-display text-2xl font-bold md:text-2xl">
             Pourquoi ce guide
           </h2>
@@ -228,8 +228,8 @@ export default function SkillIaConducteurTravauxPage() {
         </div>
       </section>
 
-      <section className="py-14" aria-labelledby="learn">
-        <div className="mx-auto max-w-7xl px-4">
+      <section className="ofc-band" aria-labelledby="learn">
+        <div className="ofc-section-inner">
           <h2 id="learn" className="font-display text-2xl font-bold md:text-2xl">
             Ce que vous allez apprendre
           </h2>
@@ -252,8 +252,8 @@ export default function SkillIaConducteurTravauxPage() {
         </div>
       </section>
 
-      <section className="border-y border-slate-200 bg-[#F8FAFC] py-14" aria-labelledby="tutorial-7-etapes">
-        <div className="mx-auto max-w-7xl px-4">
+      <section className="border-y border-slate-200 bg-[#F8FAFC] ofc-band" aria-labelledby="tutorial-7-etapes">
+        <div className="ofc-section-inner">
           <h2 id="tutorial-7-etapes" className="font-display text-2xl font-bold md:text-2xl">
             Schéma générique — construire un skill (rappel hors PDF)
           </h2>
@@ -280,8 +280,8 @@ export default function SkillIaConducteurTravauxPage() {
         </div>
       </section>
 
-      <section className="py-14" aria-labelledby="six-livrables-guide">
-        <div className="mx-auto max-w-7xl px-4">
+      <section className="ofc-band" aria-labelledby="six-livrables-guide">
+        <div className="ofc-section-inner">
           <h2 id="six-livrables-guide" className="font-display text-2xl font-bold md:text-2xl">
             Les 6 livrables couverts dans le fichier PDF
           </h2>
@@ -342,8 +342,8 @@ export default function SkillIaConducteurTravauxPage() {
         </div>
       </section>
 
-      <section className="border-y border-slate-200 bg-white py-14" aria-labelledby="template-skill">
-        <div className="mx-auto max-w-7xl px-4">
+      <section className="border-y border-slate-200 bg-white ofc-band" aria-labelledby="template-skill">
+        <div className="ofc-section-inner">
           <h2 id="template-skill" className="font-display text-2xl font-bold md:text-2xl">
             Squelette de skill (bonus rapide hors PDF détaillé)
           </h2>
@@ -378,8 +378,8 @@ Signature : [NOM] — [TITRE] — [ENTREPRISE]
         </div>
       </section>
 
-      <section className="border-t border-slate-200 bg-white py-14" aria-labelledby="audience">
-        <div className="mx-auto max-w-7xl px-4">
+      <section className="border-t border-slate-200 bg-white ofc-band" aria-labelledby="audience">
+        <div className="ofc-section-inner">
           <h2 id="audience" className="font-display text-2xl font-bold md:text-2xl">
             À qui ça s&apos;adresse
           </h2>
@@ -409,8 +409,8 @@ Signature : [NOM] — [TITRE] — [ENTREPRISE]
         </div>
       </section>
 
-      <section className="border-t border-slate-200 bg-[#F2F2F2] py-14" aria-labelledby="about-laure">
-        <div className="mx-auto grid max-w-7xl gap-10 px-4 md:grid-cols-[200px_1fr] md:items-center">
+      <section className="border-t border-slate-200 bg-[#F2F2F2] ofc-band" aria-labelledby="about-laure">
+        <div className="ofc-section-inner grid gap-10 md:grid-cols-[200px_1fr] md:items-center">
           <div className="relative mx-auto aspect-square w-full max-w-[200px] overflow-hidden rounded-2xl border border-slate-200 shadow-md">
             <Image
               src={PHOTOS.siteAvatar.src}
@@ -442,8 +442,8 @@ Signature : [NOM] — [TITRE] — [ENTREPRISE]
         </div>
       </section>
 
-      <section className="py-14" aria-labelledby="faq-skill">
-        <div className="mx-auto max-w-3xl px-4">
+      <section className="ofc-band" aria-labelledby="faq-skill">
+        <div className="ofc-section-inner max-w-3xl">
           <h2 id="faq-skill" className="font-display text-2xl font-bold">
             Questions fréquentes
           </h2>
@@ -488,7 +488,7 @@ Signature : [NOM] — [TITRE] — [ENTREPRISE]
         </div>
       </section>
 
-      <div className="mx-auto max-w-7xl px-4 py-8 text-center text-sm text-slate-500">
+      <div className="ofc-section-inner py-8 text-center text-sm text-slate-500">
         <Link href={SCHEMA_LINKEDIN_PROFILE_URL} className="text-[#377CF3] hover:underline">
           LinkedIn — Laure Olivié
         </Link>

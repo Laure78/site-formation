@@ -30,7 +30,11 @@ import {
 } from '@/lib/contextual-internal-links';
 import { voirAussiDepartementProps } from '@/lib/voir-aussi';
 import { getClusterRelatedHrefs } from '@/lib/maillage-clusters';
-import { OFC_SEC } from '@/lib/ofc-section-classes';
+import { OFC_EDITORIAL } from '@/lib/ofc-interaction-classes';
+import {
+  OFC_SEC,
+  OFC_SECTION_INNER_ARTICLE,
+} from '@/lib/ofc-section-classes';
 import { buildDeptMetaDescription } from '@/lib/meta-description';
 import { buildIdfDeptPageTitle } from '@/lib/seo-geo-keywords';
 
@@ -122,7 +126,7 @@ export function DepartementPage({ data }: { data: DepartementPageData }) {
   }));
 
   return (
-    <div className="bg-white text-slate-900">
+    <div className={`${OFC_EDITORIAL} bg-white text-slate-900`}>
       <JsonLd id={`schema-dept-${data.code}-course`} schema={courseJson} />
       <JsonLd id={`schema-dept-${data.code}-localbusiness`} schema={localBusinessJson} />
       <JsonLd id={`schema-dept-${data.code}-faq`} schema={faqSchema} />
@@ -289,7 +293,8 @@ export function DepartementPage({ data }: { data: DepartementPageData }) {
         tone="muted"
       />
 
-      <div className="mx-auto max-w-4xl px-4 pb-8">
+      <section className={`${OFC_SEC.whiteCompact} ofc-section--divide-0`}>
+        <div className={OFC_SECTION_INNER_ARTICLE}>
         <VoirAussi
           {...voirAussiDepartementProps({
             currentPath: data.path,
@@ -302,7 +307,8 @@ export function DepartementPage({ data }: { data: DepartementPageData }) {
             ],
           })}
         />
-      </div>
+        </div>
+      </section>
 
       {/* 13. CTA final */}
       <section className={OFC_SEC.accent}>

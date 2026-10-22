@@ -107,9 +107,9 @@ export default function IaMemoireTechniqueBtpPage() {
       />
       {faqSchema ? <JsonLd id="schema-ia-memoire-technique-faq" schema={faqSchema} /> : null}
 
-      <article>
+      <article className="ofc-editorial">
         <section className={`${OFC_SEC.white} border-b border-slate-200`}>
-          <div className="mx-auto max-w-4xl">
+          <div className="ofc-section-inner max-w-4xl">
             <h1 className="mt-6 font-display text-2xl font-bold leading-tight text-slate-900 md:text-2xl">
               Rédiger un mémoire technique avec l&apos;IA (BTP)
             </h1>
@@ -125,7 +125,7 @@ export default function IaMemoireTechniqueBtpPage() {
         </section>
 
         <section className={OFC_SEC.muted} aria-labelledby="ia-fait-ne-fait-pas">
-          <div className="mx-auto max-w-4xl">
+          <div className="ofc-section-inner max-w-4xl">
             <h2 id="ia-fait-ne-fait-pas" className="font-display text-2xl font-bold text-slate-900">
               Ce que l&apos;IA fait (et ne fait pas) sur un mémoire technique
             </h2>
@@ -175,7 +175,7 @@ export default function IaMemoireTechniqueBtpPage() {
         </section>
 
         <section className={OFC_SEC.white} aria-labelledby="methode-memoire">
-          <div className="mx-auto max-w-4xl">
+          <div className="ofc-section-inner max-w-4xl">
             <h2 id="methode-memoire" className="font-display text-2xl font-bold text-slate-900">
               Méthode pas à pas
             </h2>
@@ -197,7 +197,7 @@ export default function IaMemoireTechniqueBtpPage() {
         </section>
 
         <section className={OFC_SEC.mutedCompact}>
-          <div className="mx-auto max-w-4xl rounded-2xl border border-[#377CF3]/25 bg-[#377CF3] px-6 py-8 text-white md:px-10">
+          <div className="ofc-section-inner max-w-4xl rounded-2xl border border-[#377CF3]/25 bg-[#377CF3] px-6 py-8 text-white md:px-10">
             <h2 className="font-display text-xl font-bold md:text-2xl">
               Travailler vos mémoires en présentiel
             </h2>
@@ -217,7 +217,7 @@ export default function IaMemoireTechniqueBtpPage() {
         </section>
 
         <section className={OFC_SEC.white} aria-labelledby="lien-analyse-dce">
-          <div className="mx-auto max-w-4xl">
+          <div className="ofc-section-inner max-w-4xl">
             <h2 id="lien-analyse-dce" className="font-display text-2xl font-bold text-slate-900">
               Le lien avec l&apos;analyse du DCE
             </h2>
@@ -244,7 +244,7 @@ export default function IaMemoireTechniqueBtpPage() {
         />
 
         <section className={OFC_SEC.muted} aria-labelledby="se-former-memoire">
-          <div className="mx-auto max-w-4xl">
+          <div className="ofc-section-inner max-w-4xl">
             <h2 id="se-former-memoire" className="font-display text-2xl font-bold text-slate-900">
               Se former
             </h2>
@@ -263,7 +263,7 @@ export default function IaMemoireTechniqueBtpPage() {
         </section>
 
         <section className={`${OFC_SEC.accent} scroll-mt-24`}>
-          <div className="mx-auto max-w-4xl text-center">
+          <div className="ofc-section-inner max-w-4xl text-center">
             <h2 className="font-display text-2xl font-bold md:text-2xl">
               {CTA_RDV_LABEL}
             </h2>

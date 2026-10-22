@@ -25,10 +25,10 @@ export const metadata = createPageMetadata({
 
 export default function CommunauteFormateursPage() {
   return (
-    <div>
+    <div className="ofc-editorial">
       {/* Hero */}
-      <section className="border-b border-slate-200 bg-white px-4 py-16">
-        <div className="mx-auto max-w-3xl text-center">
+      <section className="border-b border-slate-200 bg-white ofc-band">
+        <div className="ofc-section-inner max-w-3xl text-center">
           <h1 className="font-display text-2xl font-bold text-slate-900 md:text-[1.75rem]">
             Communauté de formateurs — Trouver vos premiers clients
           </h1>
@@ -41,7 +41,7 @@ export default function CommunauteFormateursPage() {
       </section>
 
       {/* Bloc 4 200+ formateurs + CTA */}
-      <section className="border-b border-slate-200 bg-gradient-to-b from-[var(--accent-soft)] to-white px-4 py-16">
+      <section className="border-b border-slate-200 bg-gradient-to-b from-[var(--accent-soft)] to-white ofc-band">
         <div className="mx-auto max-w-2xl">
           <div className="rounded-2xl border-2 border-[var(--accent)] bg-white p-8 shadow-lg md:p-12">
             <div className="flex items-center justify-center gap-3 text-[var(--accent)]">
@@ -74,8 +74,8 @@ export default function CommunauteFormateursPage() {
       </section>
 
       {/* Expertise Laure Olivié */}
-      <section className="border-b border-slate-200 bg-white px-4 py-16">
-        <div className="mx-auto max-w-6xl">
+      <section className="border-b border-slate-200 bg-white ofc-band">
+        <div className="ofc-section-inner">
           <h2 className="font-display text-center text-2xl font-bold text-slate-900">
             Mon expertise au service de votre développement
           </h2>
@@ -128,8 +128,8 @@ export default function CommunauteFormateursPage() {
       </section>
 
       {/* Pourquoi rejoindre */}
-      <section className="border-b border-slate-200 bg-slate-50 px-4 py-16">
-        <div className="mx-auto max-w-3xl">
+      <section className="border-b border-slate-200 bg-slate-50 ofc-band">
+        <div className="ofc-section-inner max-w-3xl">
           <h2 className="font-display text-center text-2xl font-bold text-slate-900">
             Pourquoi rejoindre la communauté ?
           </h2>
@@ -153,8 +153,8 @@ export default function CommunauteFormateursPage() {
       </section>
 
       {/* Liens internes — ancres naturelles SEO */}
-      <section className="border-b border-slate-200 bg-slate-50 px-4 py-12">
-        <div className="mx-auto max-w-3xl">
+      <section className="border-b border-slate-200 bg-slate-50 ofc-band">
+        <div className="ofc-section-inner max-w-3xl">
           <h2 className="font-display text-center text-xl font-bold text-slate-900">
             À découvrir
           </h2>
@@ -190,7 +190,7 @@ export default function CommunauteFormateursPage() {
       </section>
 
       {/* Aller plus loin */}
-      <div className="mx-auto max-w-2xl px-4 py-16">
+      <div className="mx-auto max-w-2xl ofc-band">
         <AllerPlusLoin
           variant="compact"
           links={[

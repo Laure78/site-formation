@@ -122,7 +122,9 @@ function H2({ id, children }: { id: string; children: ReactNode }) {
 
 export default function ReclamationsPage() {
   return (
-    <div className={`mx-auto max-w-4xl px-4 py-14 md:py-16 ${poppins.className} text-[#1A1A1A]`}>
+    <div
+      className={`ofc-page-article ofc-editorial ${poppins.className} text-[#1A1A1A]`}
+    >
       {faqSchema ? <JsonLd id="schema-faq-reclamations" schema={faqSchema} /> : null}
 
       <header className="max-w-3xl">

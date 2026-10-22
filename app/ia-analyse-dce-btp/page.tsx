@@ -123,9 +123,9 @@ export default function IaAnalyseDceBtpPage() {
       />
       {faqSchema ? <JsonLd id="schema-ia-analyse-dce-faq" schema={faqSchema} /> : null}
 
-      <article>
+      <article className="ofc-editorial">
         <section className={`${OFC_SEC.white} border-b border-slate-200`}>
-          <div className="mx-auto max-w-4xl">
+          <div className="ofc-section-inner max-w-4xl">
             <h1 className="mt-6 font-display text-2xl font-bold leading-tight text-slate-900 md:text-2xl">
               Analyser un DCE avec l&apos;IA : la méthode pour le BTP
             </h1>
@@ -141,7 +141,7 @@ export default function IaAnalyseDceBtpPage() {
         </section>
 
         <section className={OFC_SEC.muted} aria-labelledby="pieces-dce-ia">
-          <div className="mx-auto max-w-4xl">
+          <div className="ofc-section-inner max-w-4xl">
             <h2 id="pieces-dce-ia" className="font-display text-2xl font-bold text-slate-900">
               Pièces du DCE : ce que l&apos;IA peut aider à faire
             </h2>
@@ -190,7 +190,7 @@ export default function IaAnalyseDceBtpPage() {
         </section>
 
         <section className={OFC_SEC.white} aria-labelledby="methode-dce">
-          <div className="mx-auto max-w-4xl">
+          <div className="ofc-section-inner max-w-4xl">
             <h2 id="methode-dce" className="font-display text-2xl font-bold text-slate-900">
               Méthode pas à pas
             </h2>
@@ -212,7 +212,7 @@ export default function IaAnalyseDceBtpPage() {
         </section>
 
         <section className={OFC_SEC.mutedCompact}>
-          <div className="mx-auto max-w-4xl rounded-2xl border border-[#377CF3]/25 bg-[#377CF3] px-6 py-8 text-white md:px-10">
+          <div className="ofc-section-inner max-w-4xl rounded-2xl border border-[#377CF3]/25 bg-[#377CF3] px-6 py-8 text-white md:px-10">
             <h2 className="font-display text-xl font-bold md:text-2xl">
               Cadrer une session sur vos DCE
             </h2>
@@ -232,7 +232,7 @@ export default function IaAnalyseDceBtpPage() {
         </section>
 
         <section className={OFC_SEC.white} aria-labelledby="confidentialite-dce">
-          <div className="mx-auto max-w-4xl">
+          <div className="ofc-section-inner max-w-4xl">
             <h2 id="confidentialite-dce" className="font-display text-2xl font-bold text-slate-900">
               Confidentialité : ne jamais déposer un DCE sensible dans une IA grand public
             </h2>
@@ -247,7 +247,7 @@ export default function IaAnalyseDceBtpPage() {
         </section>
 
         <section className={OFC_SEC.muted} aria-labelledby="vers-memoire">
-          <div className="mx-auto max-w-4xl">
+          <div className="ofc-section-inner max-w-4xl">
             <h2 id="vers-memoire" className="font-display text-2xl font-bold text-slate-900">
               De l&apos;analyse au mémoire technique
             </h2>
@@ -267,7 +267,7 @@ export default function IaAnalyseDceBtpPage() {
         </section>
 
         <section className={OFC_SEC.white} aria-labelledby="sources-dce">
-          <div className="mx-auto max-w-4xl">
+          <div className="ofc-section-inner max-w-4xl">
             <h2 id="sources-dce" className="font-display text-2xl font-bold text-slate-900">
               Sources
             </h2>
@@ -322,7 +322,7 @@ export default function IaAnalyseDceBtpPage() {
         />
 
         <section className={OFC_SEC.muted} aria-labelledby="se-former-dce">
-          <div className="mx-auto max-w-4xl">
+          <div className="ofc-section-inner max-w-4xl">
             <h2 id="se-former-dce" className="font-display text-2xl font-bold text-slate-900">
               Se former
             </h2>
@@ -346,7 +346,7 @@ export default function IaAnalyseDceBtpPage() {
         </section>
 
         <section className={`${OFC_SEC.accent} scroll-mt-24`}>
-          <div className="mx-auto max-w-4xl text-center">
+          <div className="ofc-section-inner max-w-4xl text-center">
             <h2 className="font-display text-2xl font-bold md:text-2xl">
               {CTA_RDV_LABEL}
             </h2>

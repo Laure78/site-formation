@@ -108,14 +108,14 @@ const BENEFICES_CLIENTS = [
 
 export default function EtudeDeCasFfbCsfePage() {
   return (
-    <div>
+    <div className="ofc-editorial">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
       />
 
       {/* Hero — Références */}
-      <section className="relative overflow-hidden border-b border-slate-200 bg-gradient-to-b from-[#f8fbff] via-white to-white px-4 py-20 md:py-28">
+      <section className="relative overflow-hidden border-b border-slate-200 bg-gradient-to-b from-[#f8fbff] via-white to-white ofc-band md:py-14">
         <div className="pointer-events-none absolute inset-0 opacity-[0.12]" aria-hidden>
           <svg
             className="absolute left-1/2 top-0 h-[min(480px,70vh)] w-full max-w-3xl -translate-x-1/2"
@@ -225,7 +225,7 @@ export default function EtudeDeCasFfbCsfePage() {
       {/* Études de cas — FFB */}
       <section
         id="etudes-de-cas"
-        className="scroll-mt-24 border-b border-slate-200 bg-slate-50 px-4 py-16"
+        className="scroll-mt-24 border-b border-slate-200 bg-slate-50 ofc-band"
       >
         <div className="mx-auto max-w-5xl">
           <h2 className="text-center font-display text-2xl font-bold text-slate-900 md:text-2xl">
@@ -404,7 +404,7 @@ export default function EtudeDeCasFfbCsfePage() {
       </section>
 
       {/* Modules détaillés */}
-      <section id="modules" className="scroll-mt-24 border-b border-slate-200 bg-white px-4 py-16">
+      <section id="modules" className="scroll-mt-24 border-b border-slate-200 bg-white ofc-band">
         <div className="mx-auto max-w-5xl">
           <div className="flex items-center gap-3">
             <GraduationCap className="h-8 w-8 text-[var(--accent)]" strokeWidth={1.5} />
@@ -433,7 +433,7 @@ export default function EtudeDeCasFfbCsfePage() {
       </section>
 
       {/* Objectifs */}
-      <section id="objectifs" className="scroll-mt-24 border-b border-slate-200 bg-[#eef2ff] px-4 py-16">
+      <section id="objectifs" className="scroll-mt-24 border-b border-slate-200 bg-[#eef2ff] ofc-band">
         <div className="mx-auto max-w-5xl">
           <h2 className="font-display text-2xl font-bold text-slate-900 md:text-2xl">
             Objectifs pédagogiques
@@ -453,7 +453,7 @@ export default function EtudeDeCasFfbCsfePage() {
       </section>
 
       {/* Bénéfices */}
-      <section id="benefices" className="scroll-mt-24 border-b border-slate-200 bg-white px-4 py-16">
+      <section id="benefices" className="scroll-mt-24 border-b border-slate-200 bg-white ofc-band">
         <div className="mx-auto max-w-5xl">
           <div className="flex items-center gap-3">
             <TrendingUp className="h-8 w-8 text-[var(--accent)]" strokeWidth={1.5} />
@@ -473,7 +473,7 @@ export default function EtudeDeCasFfbCsfePage() {
       </section>
 
       {/* CTA */}
-      <section className="bg-slate-900 px-4 py-16 text-white">
+      <section className="bg-slate-900 ofc-band text-white">
         <div className="mx-auto max-w-3xl text-center">
           <h2 className="font-display text-2xl font-bold md:text-2xl">
             Un projet équivalent pour votre structure ?

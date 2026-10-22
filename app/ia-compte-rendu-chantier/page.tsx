@@ -112,9 +112,9 @@ export default function IaCompteRenduChantierPage() {
       />
       {faqSchema ? <JsonLd id="schema-ia-cr-chantier-faq" schema={faqSchema} /> : null}
 
-      <article>
+      <article className="ofc-editorial">
         <section className={`${OFC_SEC.white} border-b border-slate-200`}>
-          <div className="mx-auto max-w-4xl">
+          <div className="ofc-section-inner max-w-4xl">
             <h1 className="mt-6 font-display text-2xl font-bold leading-tight text-slate-900 md:text-2xl">
               Rédiger ses comptes rendus de chantier avec l&apos;IA
             </h1>
@@ -130,7 +130,7 @@ export default function IaCompteRenduChantierPage() {
         </section>
 
         <section className={OFC_SEC.muted} aria-labelledby="comment-ia-cr">
-          <div className="mx-auto max-w-4xl">
+          <div className="ofc-section-inner max-w-4xl">
             <h2 id="comment-ia-cr" className="font-display text-2xl font-bold text-slate-900">
               Comment l&apos;IA rédige un CR de chantier ?
             </h2>
@@ -187,7 +187,7 @@ export default function IaCompteRenduChantierPage() {
         </section>
 
         <section className={OFC_SEC.white} aria-labelledby="methode-cr">
-          <div className="mx-auto max-w-4xl">
+          <div className="ofc-section-inner max-w-4xl">
             <h2 id="methode-cr" className="font-display text-2xl font-bold text-slate-900">
               Méthode pas à pas
             </h2>
@@ -209,7 +209,7 @@ export default function IaCompteRenduChantierPage() {
         </section>
 
         <section className={OFC_SEC.mutedCompact}>
-          <div className="mx-auto max-w-4xl rounded-2xl border border-[#377CF3]/25 bg-[#377CF3] px-6 py-8 text-white md:px-10">
+          <div className="ofc-section-inner max-w-4xl rounded-2xl border border-[#377CF3]/25 bg-[#377CF3] px-6 py-8 text-white md:px-10">
             <h2 className="font-display text-xl font-bold md:text-2xl">
               Former vos équipes chantier à cette méthode
             </h2>
@@ -229,7 +229,7 @@ export default function IaCompteRenduChantierPage() {
         </section>
 
         <section className={OFC_SEC.white} aria-labelledby="aller-plus-loin-cr">
-          <div className="mx-auto max-w-4xl">
+          <div className="ofc-section-inner max-w-4xl">
             <h2 id="aller-plus-loin-cr" className="font-display text-2xl font-bold text-slate-900">
               Aller plus loin
             </h2>
@@ -266,7 +266,7 @@ export default function IaCompteRenduChantierPage() {
         />
 
         <section className={OFC_SEC.muted} aria-labelledby="se-former-cr">
-          <div className="mx-auto max-w-4xl">
+          <div className="ofc-section-inner max-w-4xl">
             <h2 id="se-former-cr" className="font-display text-2xl font-bold text-slate-900">
               Se former
             </h2>
@@ -286,7 +286,7 @@ export default function IaCompteRenduChantierPage() {
         </section>
 
         <section className={`${OFC_SEC.accent} scroll-mt-24`}>
-          <div className="mx-auto max-w-4xl text-center">
+          <div className="ofc-section-inner max-w-4xl text-center">
             <h2 className="font-display text-2xl font-bold md:text-2xl">
               {CTA_RDV_LABEL}
             </h2>

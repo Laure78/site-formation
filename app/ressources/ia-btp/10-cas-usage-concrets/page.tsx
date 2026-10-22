@@ -210,7 +210,7 @@ const CAS_USAGE = [
 
 export default function CasUsageIABTPPage() {
   return (
-    <div>
+    <div className="ofc-editorial">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
@@ -218,8 +218,8 @@ export default function CasUsageIABTPPage() {
       <JsonLd id="schema-faq-page" schema={faqSchema} />
 
       {/* Hero Article */}
-      <section className="border-b border-slate-200 bg-gradient-to-br from-[var(--accent)] to-blue-800 px-4 py-16">
-        <div className="mx-auto max-w-4xl">
+      <section className="border-b border-slate-200 bg-gradient-to-br from-[var(--accent)] to-blue-800 ofc-band">
+        <div className="ofc-section-inner max-w-4xl">
           <div className="mb-4 flex flex-wrap items-center gap-4 text-sm text-blue-100">
             <span className="rounded-full bg-white/20 px-4 py-1 backdrop-blur-sm">Guide 2026</span>
             <span>Par Laure Olivié</span>
@@ -240,8 +240,8 @@ export default function CasUsageIABTPPage() {
       </section>
 
       {/* Introduction */}
-      <section className="border-b border-slate-200 bg-white px-4 py-12">
-        <div className="prose prose-lg mx-auto max-w-4xl">
+      <section className="border-b border-slate-200 bg-white ofc-band">
+        <div className="prose prose-lg ofc-section-inner max-w-4xl prose-p:text-pretty sm:prose-p:text-justify sm:prose-p:hyphens-auto">
           <h2 className="font-display text-2xl font-bold text-slate-900">
             Pourquoi l'IA change la donne dans le BTP en 2026
           </h2>
@@ -284,8 +284,8 @@ export default function CasUsageIABTPPage() {
       </section>
 
       {/* 10 Cas d'usage */}
-      <section className="border-b border-slate-200 bg-slate-50 px-4 py-16">
-        <div className="mx-auto max-w-5xl">
+      <section className="border-b border-slate-200 bg-slate-50 ofc-band">
+        <div className="ofc-section-inner max-w-5xl">
           <h2 className="font-display text-center text-2xl font-bold text-slate-900 md:text-[1.75rem]">
             10 cas d'usage IA pour le BTP
           </h2>
@@ -339,10 +339,10 @@ export default function CasUsageIABTPPage() {
 
       {/* Comment démarrer */}
       <section
-        className="border-b border-slate-200 bg-[#F2F2F2] px-4 py-16"
+        className="border-b border-slate-200 bg-[#F2F2F2] ofc-band"
         aria-labelledby="demarrer-ia-btp-titre"
       >
-        <div className="mx-auto max-w-6xl">
+        <div className="ofc-section-inner">
           <div className="mx-auto max-w-3xl text-center">
             <h2
               id="demarrer-ia-btp-titre"
@@ -383,8 +383,8 @@ export default function CasUsageIABTPPage() {
       </section>
 
       {/* FAQ */}
-      <section className="border-b border-slate-200 bg-slate-50 px-4 py-16">
-        <div className="mx-auto max-w-4xl">
+      <section className="border-b border-slate-200 bg-slate-50 ofc-band">
+        <div className="ofc-section-inner max-w-4xl">
           <h2 className="font-display text-center text-2xl font-bold text-slate-900">
             Questions fréquentes
           </h2>
@@ -409,8 +409,8 @@ export default function CasUsageIABTPPage() {
       </section>
 
       {/* Ressources liées */}
-      <section className="border-b border-slate-200 bg-white px-4 py-12">
-        <div className="mx-auto max-w-5xl">
+      <section className="border-b border-slate-200 bg-white ofc-band">
+        <div className="ofc-section-inner max-w-5xl">
           <h2 className="font-display text-2xl font-bold text-slate-900">
             Ressources utiles
           </h2>
@@ -464,8 +464,8 @@ export default function CasUsageIABTPPage() {
       </section>
 
       {/* CTA Final */}
-      <section className="bg-gradient-to-br from-[var(--accent)] to-blue-800 px-4 py-16">
-        <div className="mx-auto max-w-4xl text-center">
+      <section className="bg-gradient-to-br from-[var(--accent)] to-blue-800 ofc-band">
+        <div className="ofc-section-inner max-w-4xl text-center">
           <h2 className="font-display text-2xl font-bold text-white">
             Prêt à passer à l'action ?
           </h2>

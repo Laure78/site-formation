@@ -55,12 +55,12 @@ export default function TutoSkillPicPage() {
   const maillage = getMaillageRessourceConfig(PATH);
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="ofc-editorial min-h-screen bg-white">
       <JsonLd id="schema-tuto-skill-pic" data={graph} />
 
       {/* Introduction — fil d’Ariane visuel via GlobalBreadcrumbs ; JSON-LD BreadcrumbList dans le schéma page */}
       <header className="border-b border-slate-200 bg-[#F2F2F2]">
-        <div className="mx-auto max-w-3xl px-4 py-10 md:py-14">
+        <div className="ofc-page-article ofc-page-article--narrow">
           <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#377CF3]">
             {TUTO_SKILL_PIC_META.eyebrow}
           </p>
@@ -88,7 +88,7 @@ export default function TutoSkillPicPage() {
         </div>
       </header>
 
-      <main className="mx-auto max-w-3xl px-4 py-12 md:py-16">
+      <main className="ofc-page-article ofc-page-article--narrow ofc-editorial">
         {/* Comprendre le principe */}
         <section aria-labelledby="principe-heading" className="scroll-mt-28">
           <h2
@@ -317,7 +317,7 @@ export default function TutoSkillPicPage() {
         aria-labelledby="cta-final-heading"
         className="border-t border-slate-200 bg-[#F2F2F2]"
       >
-        <div className="mx-auto max-w-3xl px-4 py-12 md:py-16">
+        <div className="ofc-page-article ofc-page-article--narrow">
           <h2
             id="cta-final-heading"
             className="font-display text-2xl font-bold tracking-tight text-slate-900 md:text-2xl"

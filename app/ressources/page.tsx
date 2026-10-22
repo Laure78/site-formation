@@ -64,7 +64,7 @@ export default async function RessourcesIndexPage({ searchParams }: PageProps) {
   const initialSearch = buildInitialSearch(resolvedParams);
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="ofc-editorial min-h-screen bg-white">
       <JsonLd id="schema-ressources-hub" data={hubJsonLd} />
 
       <RessourcesHubHero />

@@ -74,7 +74,7 @@ export function FormationIaDirigeantBtpLanding() {
       <JsonLd id="schema-course-dirigeant-btp" schema={courseJson} />
       <JsonLd id="schema-faq-dirigeant-btp" schema={faqSchema} />
 
-      <div className="mx-auto max-w-4xl px-4 py-12 md:py-16">
+      <div className="ofc-page-article ofc-editorial">
         <article>
           <p className="text-sm font-semibold uppercase tracking-wide text-[#377CF3]">
             Décideurs · PME du bâtiment · organisme certifié Qualiopi

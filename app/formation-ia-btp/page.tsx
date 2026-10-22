@@ -40,6 +40,9 @@ import { QUALIOPI_CERTIFICAT_REALISATION } from '@/config/qualiopi';
 import { MENTIONS_TVA_INTRA_COURTE } from '@/lib/tarifs-sessions';
 import { formatNoteSatisfactionAffichageComplet, formatNoteSatisfactionSur5 } from '@/lib/data/indicateurs-resultats';
 import { Reveal, RevealGroup } from '@/components/motion/Reveal';
+import { OFC_EDITORIAL } from '@/lib/ofc-interaction-classes';
+import { OFC_PAGE_ARTICLE_NARROW } from '@/lib/ofc-page-classes';
+import { OFC_SEC, OFC_SECTION_INNER } from '@/lib/ofc-section-classes';
 export const revalidate = 3600;
 const PATH = FORMATION_IA_BTP_PILLAR_PATH;
 
@@ -180,14 +183,14 @@ export default function FormationIaBtpPillarPage() {
   const faqJsonLd = getFAQSchema(faqItems);
 
   return (
-    <div className="bg-white">
+    <div className={`${OFC_EDITORIAL} bg-white`}>
       <JsonLd id="schema-formation-ia-btp-course" schema={courseJsonLd} />
       <JsonLd id="schema-formation-ia-btp-faq" schema={faqJsonLd} />
       <JsonLd id="schema-formation-ia-btp-breadcrumb" schema={breadcrumbJsonLd} />
       <JsonLd id="schema-formation-ia-btp-webpage" schema={webPageJsonLd} />
 
-      <header className="border-b border-slate-200 bg-gradient-to-br from-slate-50 to-white px-4 py-14 md:py-20">
-        <div className="mx-auto max-w-4xl">
+      <header className={`${OFC_SEC.hero} border-b border-slate-200 ofc-section--divide-0`}>
+        <div className={`${OFC_SECTION_INNER} max-w-4xl`}>
           <div className="text-center md:text-left">
             <p className="text-sm font-medium uppercase tracking-wide text-[var(--accent)]">
               Laure Olivié · OFC Création d&apos;Entreprise · Qualiopi · Constructys
@@ -278,9 +281,11 @@ export default function FormationIaBtpPillarPage() {
         </div>
       </header>
 
-      <article className="mx-auto max-w-3xl px-4 py-14 prose prose-slate max-w-none prose-headings:font-display prose-a:text-[var(--accent)]">
+      <article
+        className={`${OFC_PAGE_ARTICLE_NARROW} prose prose-slate max-w-none prose-headings:font-display prose-a:text-[var(--accent)] prose-p:text-pretty sm:prose-p:text-justify sm:prose-p:hyphens-auto`}
+      >
         <section id="definition" className="not-prose scroll-mt-24">
-          <Reveal as="div" className="space-y-5 text-base leading-relaxed text-slate-700">
+          <Reveal as="div" className="space-y-5 text-base leading-relaxed text-slate-700 text-pretty sm:text-justify sm:hyphens-auto">
             <h2 className="font-display text-2xl font-bold text-slate-900">
               Qu&apos;est-ce qu&apos;une formation IA pour le BTP ?
             </h2>
@@ -306,8 +311,8 @@ export default function FormationIaBtpPillarPage() {
           </Reveal>
         </section>
 
-        <section id="probleme" className="not-prose mt-16 scroll-mt-24">
-          <Reveal as="div" className="space-y-5 text-base leading-relaxed text-slate-700">
+        <section id="probleme" className="not-prose mt-10 scroll-mt-24">
+          <Reveal as="div" className="space-y-5 text-base leading-relaxed text-slate-700 text-pretty sm:text-justify sm:hyphens-auto">
           <h2 className="font-display text-2xl font-bold text-slate-900">
             Pourquoi les PME du bâtiment perdent du temps sur l&apos;administratif
           </h2>
@@ -333,7 +338,7 @@ export default function FormationIaBtpPillarPage() {
           </Reveal>
         </section>
 
-        <section id="programme" className="not-prose mt-16 scroll-mt-24">
+        <section id="programme" className="not-prose mt-10 scroll-mt-24">
           <Reveal>
           <h2 className="font-display text-2xl font-bold text-slate-900">Ce que vous allez maîtriser</h2>
           <p className="mt-4 text-slate-700 leading-relaxed">
@@ -482,8 +487,8 @@ export default function FormationIaBtpPillarPage() {
           </Reveal>
         </section>
 
-        <section id="cas-usage" className="not-prose mt-16 scroll-mt-24">
-          <Reveal as="div" className="space-y-5 text-base leading-relaxed text-slate-700">
+        <section id="cas-usage" className="not-prose mt-10 scroll-mt-24">
+          <Reveal as="div" className="space-y-5 text-base leading-relaxed text-slate-700 text-pretty sm:text-justify sm:hyphens-auto">
             <h2 className="font-display text-2xl font-bold text-slate-900">
               Cas d&apos;usage : comment utiliser l&apos;IA dans une entreprise du bâtiment
             </h2>
@@ -524,7 +529,7 @@ export default function FormationIaBtpPillarPage() {
           </Reveal>
         </section>
 
-        <section id="construction" className="not-prose mt-16 scroll-mt-24">
+        <section id="construction" className="not-prose mt-10 scroll-mt-24">
           <Reveal as="div" className="space-y-4 text-slate-700">
           <h2 className="font-display text-2xl font-bold text-slate-900">
             Entreprises de construction, MOE et BET en Île-de-France
@@ -540,7 +545,7 @@ export default function FormationIaBtpPillarPage() {
           </Reveal>
         </section>
 
-        <section id="public" className="not-prose mt-16 scroll-mt-24">
+        <section id="public" className="not-prose mt-10 scroll-mt-24">
           <Reveal as="div" className="space-y-4 text-slate-700">
           <h2 className="font-display text-2xl font-bold text-slate-900">Pour quels métiers ?</h2>
           <p>
@@ -573,7 +578,7 @@ export default function FormationIaBtpPillarPage() {
           </Reveal>
         </section>
 
-        <section id="financement" className="not-prose mt-16 scroll-mt-24">
+        <section id="financement" className="not-prose mt-10 scroll-mt-24">
           <Reveal as="div" className="space-y-4 text-slate-700">
           <h2 className="font-display text-2xl font-bold text-slate-900">Financement Constructys — selon éligibilité</h2>
           <p>
@@ -622,7 +627,7 @@ export default function FormationIaBtpPillarPage() {
           </Reveal>
         </section>
 
-        <section id="temoignages" className="not-prose mt-16 scroll-mt-24">
+        <section id="temoignages" className="not-prose mt-10 scroll-mt-24">
           <Reveal>
           <h2 className="font-display text-2xl font-bold text-slate-900">Ce que disent les participants</h2>
           </Reveal>
@@ -656,7 +661,7 @@ export default function FormationIaBtpPillarPage() {
           </Reveal>
         </section>
 
-        <section id="a-propos" className="not-prose mt-16 scroll-mt-24">
+        <section id="a-propos" className="not-prose mt-10 scroll-mt-24">
           <Reveal as="div" className="space-y-4 text-slate-700">
           <h2 className="font-display text-2xl font-bold text-slate-900">Qui est Laure Olivié ?</h2>
           <p>
@@ -694,7 +699,7 @@ export default function FormationIaBtpPillarPage() {
           </Reveal>
         </section>
 
-        <section id="rdv" className="not-prose mt-16 scroll-mt-24">
+        <section id="rdv" className="not-prose mt-10 scroll-mt-24">
           <Reveal as="div" className="space-y-4 text-center text-slate-700">
           <h2 className="font-display text-2xl font-bold text-slate-900">
             Prochaine étape — visio découverte gratuite (30 min)

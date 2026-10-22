@@ -26,7 +26,7 @@ export const metadata = createPageMetadata({
 
 export default function AnnuaireHandicapPage() {
   return (
-    <div className="mx-auto max-w-4xl px-4 py-16">
+    <div className="ofc-page-article ofc-editorial">
       {/* En-tête */}
       <div className="text-center">
         <h1 className="font-display text-2xl font-bold text-slate-900 md:text-[1.75rem]">

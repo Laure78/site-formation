@@ -40,6 +40,7 @@ import {
   OFC_CTA_PRIMARY,
   OFC_CTA_SECONDARY,
   OFC_TYPE_H2,
+  OFC_EDITORIAL,
   OFC_TYPE_H3,
 } from '@/lib/ofc-interaction-classes';
 import { createPageMetadata, getBreadcrumbSchema, getFAQSchema } from '@/lib/seo';
@@ -68,7 +69,7 @@ export default function IADevisBatimentPage() {
   ]);
 
   return (
-    <>
+    <div className={OFC_EDITORIAL}>
       <JsonLd id="schema-faq-ia-devis" schema={faqSchema} />
       <JsonLd id="schema-breadcrumb-ia-devis" schema={breadcrumbSchema} />
 
@@ -540,6 +541,6 @@ export default function IADevisBatimentPage() {
           ))}
         </div>
       </Section>
-    </>
+    </div>
   );
 }

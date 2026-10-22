@@ -92,7 +92,7 @@ export default function FormationIaEtudesPrixChiffrageBtpPage() {
         <p className="mt-3 text-sm leading-relaxed text-slate-500">{GAINS_TEMPS_MENTION_PRUDENCE}</p>
       </FormationCourseHero>
 
-      <div className="mx-auto max-w-4xl px-4 py-16">
+      <div className="ofc-page-article ofc-editorial">
         <section id="cas-usage" className="scroll-mt-24">
           <h2 className="font-display text-2xl font-bold text-slate-900">
             Cas d&apos;usage : IA pour études de prix et chiffrage BTP

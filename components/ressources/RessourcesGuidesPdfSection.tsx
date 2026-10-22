@@ -11,7 +11,7 @@ export function RessourcesGuidesPdfSection() {
     <section
       id="guides-pdf"
       aria-labelledby="guides-pdf-heading"
-      className="scroll-mt-28 border-t border-slate-200 bg-white py-12 md:py-16"
+      className="scroll-mt-28 border-t border-slate-200 bg-white py-10 md:py-12"
     >
       <JsonLd id="schema-guides-pdf-itemlist" data={buildGuidesPdfItemListJsonLd()} />
       <div className="mx-auto max-w-7xl px-4">

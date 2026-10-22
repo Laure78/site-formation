@@ -162,7 +162,7 @@ export default function GuideClaudeBtpOfcPage() {
       {faqSchema ? <JsonLd id="schema-guide-claude-btp-faq" schema={faqSchema} /> : null}
 
       <section className="bg-[#377CF3] text-white" aria-labelledby="hero-guide-claude-btp">
-        <div className="mx-auto max-w-7xl px-4 py-14 md:py-16">
+        <div className="ofc-section-inner py-10 md:py-12">
           <p className="text-sm font-semibold uppercase tracking-[0.16em] text-white/80">
             Ressource gratuite · PDF · Édition 2026
           </p>
@@ -191,7 +191,7 @@ export default function GuideClaudeBtpOfcPage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-4 py-14 md:py-16" aria-labelledby="pour-qui">
+      <section className="ofc-section-inner py-10 md:py-12" aria-labelledby="pour-qui">
         <h2 id="pour-qui" className="font-display text-2xl font-bold text-slate-900">
           À qui s’adresse ce guide
         </h2>
@@ -203,8 +203,8 @@ export default function GuideClaudeBtpOfcPage() {
         </p>
       </section>
 
-      <section className="border-y border-slate-200 bg-[#F8FAFC] py-14" aria-labelledby="contenu-guide">
-        <div className="mx-auto max-w-7xl px-4">
+      <section className="border-y border-slate-200 bg-[#F8FAFC] ofc-band" aria-labelledby="contenu-guide">
+        <div className="ofc-section-inner">
           <h2 id="contenu-guide" className="font-display text-2xl font-bold text-slate-900">
             Au programme du PDF
           </h2>
@@ -233,7 +233,7 @@ export default function GuideClaudeBtpOfcPage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-4 py-14 md:py-16" aria-labelledby="plan-5-jours">
+      <section className="ofc-section-inner py-10 md:py-12" aria-labelledby="plan-5-jours">
         <h2 id="plan-5-jours" className="font-display text-2xl font-bold text-slate-900">
           Plan d’action sur 5 jours
         </h2>
@@ -264,8 +264,8 @@ export default function GuideClaudeBtpOfcPage() {
         </div>
       </section>
 
-      <section className="border-y border-slate-200 bg-[#F8FAFC] py-14" aria-labelledby="faq-guide-claude">
-        <div className="mx-auto max-w-7xl px-4">
+      <section className="border-y border-slate-200 bg-[#F8FAFC] ofc-band" aria-labelledby="faq-guide-claude">
+        <div className="ofc-section-inner">
           <h2 id="faq-guide-claude" className="font-display text-2xl font-bold text-slate-900">
             FAQ
           </h2>
@@ -285,7 +285,7 @@ export default function GuideClaudeBtpOfcPage() {
         currentPath={PATH}
       />
 
-      <section className="mx-auto max-w-7xl px-4 py-14 md:py-16" aria-labelledby="cta-calendly-claude">
+      <section className="ofc-section-inner py-10 md:py-12" aria-labelledby="cta-calendly-claude">
         <h2 id="cta-calendly-claude" className="font-display text-2xl font-bold text-slate-900">
           Passer à la pratique en formation
         </h2>

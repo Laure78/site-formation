@@ -25,6 +25,9 @@ export const OFC_EYEBROW = 'ofc-eyebrow';
 export const OFC_READ_WIDTH = 'ofc-read-width';
 export const OFC_READ_WIDTH_WIDE = 'ofc-read-width-wide';
 
+/** Paragraphes éditoriaux justifiés (sm+) — voir `.ofc-editorial` dans `globals.css`. */
+export const OFC_EDITORIAL = 'ofc-editorial';
+
 /** Cartes formations, métiers, articles — relief premium, lift −6px, halo bleu (250 ms). */
 export const OFC_CARD = 'ofc-card';
 

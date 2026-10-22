@@ -117,7 +117,7 @@ export function FormationIaMarchePublicLanding({
         catalogueProgrammeRef="NIV-02"
       />
 
-      <div className="mx-auto max-w-4xl px-4 py-12 md:py-16">
+      <div className="ofc-page-article ofc-editorial">
         <article>
           <MetierIdfPresentielLine className="mb-3" />
           <p className="text-sm font-semibold uppercase tracking-wide text-[#377CF3]">

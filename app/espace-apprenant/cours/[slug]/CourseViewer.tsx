@@ -390,7 +390,7 @@ export function CourseViewer({
                   </div>
                 ) : selectedLesson.type === 'texte' && selectedLesson.content_text ? (
                   <div
-                    className="prose prose-slate max-w-none rounded-xl border border-slate-200 bg-white p-6"
+                    className="prose prose-slate max-w-none rounded-xl border border-slate-200 bg-white p-6 prose-p:text-pretty sm:prose-p:text-justify sm:prose-p:hyphens-auto"
                     dangerouslySetInnerHTML={{
                       __html: plainTextToSafeHtml(selectedLesson.content_text),
                     }}

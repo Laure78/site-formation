@@ -64,7 +64,7 @@ export function FormationCityPage({
         ? ('yvelines' as const)
         : ('yvelines' as const);
   return (
-    <div>
+    <div className="ofc-editorial">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(courseSchema) }}
@@ -150,8 +150,8 @@ export function FormationCityPage({
       {afterHero}
 
       {/* Pourquoi cette formation est animée par une experte reconnue */}
-      <section className="border-b border-slate-200 bg-white px-4 py-16">
-        <div className="mx-auto max-w-6xl">
+      <section className="border-b border-slate-200 bg-white ofc-band">
+        <div className="ofc-section-inner">
           <h2 className="font-display text-2xl font-bold text-slate-900">
             Une formatrice reconnue par le réseau pro
           </h2>
@@ -178,8 +178,8 @@ export function FormationCityPage({
       </section>
 
       {/* Pourquoi utiliser l'IA dans le BTP */}
-      <section className="border-b border-slate-200 bg-slate-50 px-4 py-16">
-        <div className="mx-auto max-w-6xl">
+      <section className="border-b border-slate-200 bg-slate-50 ofc-band">
+        <div className="ofc-section-inner">
           <h2 className="font-display text-2xl font-bold text-slate-900">
             Pourquoi l&apos;IA dans le BTP à {ville}&nbsp;?
           </h2>
@@ -206,8 +206,8 @@ export function FormationCityPage({
       </section>
 
       {/* Zones d'intervention */}
-      <section id="zones" className="scroll-mt-24 border-b border-slate-200 bg-white px-4 py-16">
-        <div className="mx-auto max-w-6xl">
+      <section id="zones" className="scroll-mt-24 border-b border-slate-200 bg-white ofc-band">
+        <div className="ofc-section-inner">
           <h2 className="font-display text-2xl font-bold text-slate-900">
             Zones d&apos;intervention autour de {ville}
           </h2>
@@ -250,8 +250,8 @@ export function FormationCityPage({
 
       {/* FAQ */}
       {faqItems && faqItems.length > 0 && (
-        <section className="border-b border-slate-200 bg-white px-4 py-16">
-          <div className="mx-auto max-w-4xl">
+        <section className="border-b border-slate-200 bg-white ofc-band">
+          <div className="ofc-section-inner max-w-4xl">
             <FAQSection
               items={faqItems}
               title={`Questions fréquentes — Formation IA pour les pros du BTP à ${ville}`}
@@ -261,8 +261,8 @@ export function FormationCityPage({
       )}
 
       {/* Cas concrets */}
-      <section className="border-b border-slate-200 bg-slate-50 px-4 py-16">
-        <div className="mx-auto max-w-6xl">
+      <section className="border-b border-slate-200 bg-slate-50 ofc-band">
+        <div className="ofc-section-inner">
           <h2 className="font-display text-2xl font-bold text-slate-900">
             Cas concrets — entreprises du bâtiment
           </h2>
@@ -291,8 +291,8 @@ export function FormationCityPage({
       </section>
 
       {/* Maillage interne */}
-      <section className="border-b border-slate-200 bg-slate-50 px-4 py-12">
-        <div className="mx-auto max-w-6xl">
+      <section className="border-b border-slate-200 bg-slate-50 ofc-band">
+        <div className="ofc-section-inner">
           <h2 className="font-display text-xl font-bold text-slate-900">
             Aller plus loin
           </h2>
@@ -348,7 +348,7 @@ export function FormationCityPage({
       <RenvoiFicheCatalogue programmeRef="NIV-01" contexte={`à ${ville}`} />
 
       {/* CTA final */}
-      <section className="bg-[var(--accent)] px-4 py-16 text-white">
+      <section className="bg-[var(--accent)] ofc-band text-white">
         <div className="mx-auto max-w-2xl text-center">
           <h2 className="font-display text-2xl font-bold">
             Formation IA à {ville}

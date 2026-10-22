@@ -38,7 +38,7 @@ export function TrainingSection({
     <section
       id={id}
       className={cn(
-        'border-b border-slate-200 px-4 py-12 md:py-16',
+        'border-b border-slate-200 px-4 py-10 md:py-12',
         scrollClass,
         tone === 'muted' ? 'bg-slate-50' : 'bg-white',
         className,

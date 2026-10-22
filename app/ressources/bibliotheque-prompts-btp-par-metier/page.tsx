@@ -121,7 +121,7 @@ export default function BibliothequePromptsBtpParMetierPage() {
       {faqSchema ? <JsonLd id="schema-bibliotheque-prompts-faq" schema={faqSchema} /> : null}
 
       <section className="bg-[#377CF3] text-white" aria-labelledby="hero-bibliotheque-prompts">
-        <div className="mx-auto max-w-7xl px-4 py-14 md:py-16">
+        <div className="ofc-section-inner py-10 md:py-12">
           <p className="text-sm font-semibold uppercase tracking-[0.16em] text-white/80">
             Ressource gratuite · Excel
           </p>
@@ -150,7 +150,7 @@ export default function BibliothequePromptsBtpParMetierPage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-4 py-14 md:py-16" aria-labelledby="contenu-excel">
+      <section className="ofc-section-inner py-10 md:py-12" aria-labelledby="contenu-excel">
         <h2 id="contenu-excel" className="font-display text-2xl font-bold text-slate-900">
           Ce que contient le fichier
         </h2>
@@ -182,8 +182,8 @@ export default function BibliothequePromptsBtpParMetierPage() {
         </ul>
       </section>
 
-      <section className="border-y border-slate-200 bg-[#F8FAFC] py-14" aria-labelledby="comment-utiliser">
-        <div className="mx-auto max-w-7xl px-4">
+      <section className="border-y border-slate-200 bg-[#F8FAFC] ofc-band" aria-labelledby="comment-utiliser">
+        <div className="ofc-section-inner">
           <h2 id="comment-utiliser" className="font-display text-2xl font-bold text-slate-900">
             Comment l’utiliser
           </h2>
@@ -209,7 +209,7 @@ export default function BibliothequePromptsBtpParMetierPage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-4 py-14 md:py-16" aria-labelledby="faq-prompts">
+      <section className="ofc-section-inner py-10 md:py-12" aria-labelledby="faq-prompts">
         <h2 id="faq-prompts" className="font-display text-2xl font-bold text-slate-900">
           FAQ
         </h2>
@@ -228,8 +228,8 @@ export default function BibliothequePromptsBtpParMetierPage() {
         currentPath={PATH}
       />
 
-      <section className="border-t border-slate-200 bg-white py-14" aria-labelledby="cta-calendly-prompts">
-        <div className="mx-auto max-w-7xl px-4">
+      <section className="border-t border-slate-200 bg-white ofc-band" aria-labelledby="cta-calendly-prompts">
+        <div className="ofc-section-inner">
           <h2 id="cta-calendly-prompts" className="font-display text-2xl font-bold text-slate-900">
             Passer à la pratique en formation
           </h2>

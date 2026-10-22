@@ -258,7 +258,7 @@ export function RessourcesHubLibrary({ resources, initialSearch = '' }: Props) {
     <section
       id="bibliotheque-ressources"
       aria-labelledby="ressources-library-heading"
-      className="scroll-mt-28 border-t border-slate-200 bg-white py-12 md:py-16"
+      className="scroll-mt-28 border-t border-slate-200 bg-white py-10 md:py-12"
     >
       <div className="mx-auto max-w-7xl px-4">
         <header className="mb-8 max-w-3xl">

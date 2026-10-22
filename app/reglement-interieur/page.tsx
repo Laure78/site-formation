@@ -286,7 +286,9 @@ function ArticleBlock({ article }: { article: Article }) {
 
 export default function ReglementInterieurPage() {
   return (
-    <div className={`mx-auto max-w-4xl px-4 py-14 md:py-16 ${poppins.className} text-[#1A1A1A]`}>
+    <div
+      className={`ofc-page-article ofc-editorial ${poppins.className} text-[#1A1A1A]`}
+    >
       <JsonLd id="schema-reglement-interieur" schema={pageJsonLd} />
 
       <header className="max-w-3xl">

@@ -175,7 +175,7 @@ export default function FormationIaChargeAffairesBtpPage() {
   const faqSchema = getFAQSchema(FAQ_ITEMS);
 
   return (
-    <div className="mx-auto max-w-4xl px-4 py-16">
+    <div className="ofc-page-article ofc-editorial">
       <JsonLd data={COURSE_JSON_LD} id="jsonld-course-charge-affaires" />
       {faqSchema ? <JsonLd data={faqSchema} id="jsonld-faq-charge-affaires" /> : null}
 

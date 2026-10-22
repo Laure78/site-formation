@@ -38,7 +38,7 @@ export function FormationIaMetierDynamicTemplate({
     config.breadcrumbMetierShort ?? config.breadcrumbMetierLabel;
 
   return (
-    <div className="bg-white text-slate-900">
+    <div className="ofc-editorial bg-white text-slate-900">
       <FormationMetierJsonLd
         metierLabel={config.breadcrumbMetierLabel}
         path={config.path}
@@ -62,7 +62,7 @@ export function FormationIaMetierDynamicTemplate({
       />
 
       {/* Hero */}
-      <section className="border-b border-slate-200 bg-white px-4 py-12 md:py-16">
+      <section className="border-b border-slate-200 bg-white px-4 py-10 md:py-12">
         <div className="mx-auto max-w-4xl">
           <MetierIdfPresentielLine className="mb-4" />
           <h1 className="font-display text-2xl font-bold leading-tight tracking-tight text-slate-900 md:text-[1.75rem] lg:text-2xl">
@@ -81,7 +81,7 @@ export function FormationIaMetierDynamicTemplate({
       </section>
 
       {/* Problème */}
-      <section className="border-b border-slate-200 bg-[#F2F2F2] px-4 py-14 md:py-16">
+      <section className="border-b border-slate-200 bg-[#F2F2F2] px-4 py-10 md:py-12">
         <div className="mx-auto max-w-4xl">
           <h2 className="font-display text-2xl font-bold text-slate-900 md:text-2xl">
             {config.probleme.titreH2}
@@ -95,7 +95,7 @@ export function FormationIaMetierDynamicTemplate({
       </section>
 
       {/* Solution */}
-      <section className="border-b border-slate-200 bg-white px-4 py-14 md:py-16">
+      <section className="border-b border-slate-200 bg-white px-4 py-10 md:py-12">
         <div className="mx-auto max-w-4xl">
           <h2 className="font-display text-2xl font-bold text-slate-900 md:text-2xl">
             {config.solution.titreH2}
@@ -127,7 +127,7 @@ export function FormationIaMetierDynamicTemplate({
       </section>
 
       {/* Méthode */}
-      <section className="border-b border-slate-200 bg-[#F2F2F2] px-4 py-14 md:py-16">
+      <section className="border-b border-slate-200 bg-[#F2F2F2] px-4 py-10 md:py-12">
         <div className="mx-auto max-w-4xl">
           <h2 className="font-display text-2xl font-bold text-slate-900 md:text-2xl">
             {config.methode.titreH2}
@@ -178,7 +178,7 @@ export function FormationIaMetierDynamicTemplate({
       ) : null}
 
       {/* Résultats */}
-      <section className="border-b border-slate-200 bg-white px-4 py-14 md:py-16">
+      <section className="border-b border-slate-200 bg-white px-4 py-10 md:py-12">
         <div className="mx-auto max-w-4xl">
           <h2 className="font-display text-2xl font-bold text-slate-900 md:text-2xl">
             {config.resultats.titreH2}
@@ -223,7 +223,7 @@ export function FormationIaMetierDynamicTemplate({
       </div>
 
       {/* FAQ */}
-      <section className="border-b border-slate-200 bg-[#F2F2F2] px-4 py-14 md:py-16">
+      <section className="border-b border-slate-200 bg-[#F2F2F2] px-4 py-10 md:py-12">
         <div className="mx-auto max-w-4xl">
           <h2 className="font-display text-2xl font-bold text-slate-900 md:text-2xl">
             FAQ — Questions des {config.metierPlurielLower} sur l&apos;IA
@@ -243,7 +243,7 @@ export function FormationIaMetierDynamicTemplate({
       </section>
 
       {/* Bio */}
-      <section className="border-b border-slate-200 bg-white px-4 py-14 md:py-16">
+      <section className="border-b border-slate-200 bg-white px-4 py-10 md:py-12">
         <div className="mx-auto max-w-4xl">
           <h2 className="font-display text-2xl font-bold text-slate-900 md:text-2xl">
             {config.bio.titreH2}

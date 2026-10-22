@@ -77,7 +77,7 @@ export function FormationMetierB1Page({
     `Formation IA pour ${metierLabel} : utiliser ChatGPT ou Claude sur des tâches métier (devis, documents, suivi), en présentiel en Île-de-France. L’IA assiste ; le professionnel valide avant envoi ou décision.`;
 
   return (
-    <div className="mx-auto max-w-4xl px-4 py-16">
+    <div className="ofc-page-article ofc-editorial">
       <FormationMetierJsonLd
         metierLabel={metierLabel}
         path={path}

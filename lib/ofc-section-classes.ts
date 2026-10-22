@@ -58,6 +58,9 @@ export function ofcSectionClasses({
 export const OFC_SECTION_INNER = 'ofc-section-inner';
 export const OFC_SECTION_INNER_WIDE = 'ofc-section-inner ofc-section-inner--wide';
 
+/** Colonne éditoriale (~896 px) — à l’intérieur d’une `ofc-section` (padding horizontal sur la section). */
+export const OFC_SECTION_INNER_ARTICLE = 'ofc-section-inner max-w-4xl';
+
 /** Panneau interne (carte large dans une section) */
 export const OFC_INSET_PANEL = 'ofc-inset-panel';
 

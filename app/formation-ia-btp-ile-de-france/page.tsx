@@ -21,7 +21,10 @@ import { LINKS } from '@/lib/internal-links';
 import { voirAussiIdfProps } from '@/lib/voir-aussi';
 import { CSFE_NOM_COMPLET } from '@/lib/csfe';
 import { OFC_LINK } from '@/lib/ofc-interaction-classes';
-import { OFC_SEC } from '@/lib/ofc-section-classes';
+import {
+  OFC_SEC,
+  OFC_SECTION_INNER_ARTICLE,
+} from '@/lib/ofc-section-classes';
 import { getCatalogueFormationsCount, getFormationsCatalogue } from '@/lib/formations-catalogue-display';
 import { FormationsCatalogueInteractive } from '@/components/formations/FormationsCatalogueInteractive';
 import { RelatedLinks } from '@/components/RelatedLinks';
@@ -115,9 +118,9 @@ export default function FormationIaBtpIleDeFrancePage() {
       <JsonLd id="schema-formation-idf-localbusiness" schema={localBusinessSchema} />
       {faqSchema ? <JsonLd id="schema-formation-idf-faq" schema={faqSchema} /> : null}
 
-      <article>
+      <article className="ofc-editorial">
         <section className={`${OFC_SEC.white} border-b border-slate-200`}>
-          <div className="mx-auto max-w-4xl">
+          <div className={OFC_SECTION_INNER_ARTICLE}>
             <p className="mt-6 text-sm font-semibold uppercase tracking-wide text-[#377CF3]">
               Présentiel · organisme certifié Qualiopi · Constructys · Île-de-France
             </p>
@@ -150,7 +153,7 @@ export default function FormationIaBtpIleDeFrancePage() {
         </section>
 
         <section className={OFC_SEC.muted} aria-labelledby="docs-btp-reels">
-          <div className="mx-auto max-w-4xl">
+          <div className="ofc-section-inner max-w-4xl">
             <h2 id="docs-btp-reels" className="font-display text-2xl font-bold text-slate-900 md:text-2xl">
               Une formation IA sur vos documents BTP réels
             </h2>
@@ -201,7 +204,7 @@ export default function FormationIaBtpIleDeFrancePage() {
         </section>
 
         <section className={OFC_SEC.muted} aria-labelledby="intra-inter-idf">
-          <div className="mx-auto max-w-4xl">
+          <div className="ofc-section-inner max-w-4xl">
             <h2 id="intra-inter-idf" className="font-display text-2xl font-bold text-slate-900 md:text-2xl">
               intra ou inter, partout en Île-de-France
             </h2>
@@ -222,7 +225,7 @@ export default function FormationIaBtpIleDeFrancePage() {
         </section>
 
         <section className={OFC_SEC.white} aria-labelledby="metiers-idf-heading">
-          <div className="mx-auto max-w-4xl">
+          <div className="ofc-section-inner max-w-4xl">
             <h2 id="metiers-idf-heading" className="font-display text-2xl font-bold text-slate-900 md:text-2xl">
               Formations IA par métier du BTP
             </h2>
@@ -246,7 +249,7 @@ export default function FormationIaBtpIleDeFrancePage() {
         </section>
 
         <section className={OFC_SEC.mutedCompact}>
-          <div className="mx-auto max-w-4xl rounded-2xl border border-[#377CF3]/25 bg-[#377CF3] px-6 py-8 text-white md:px-10 md:py-10">
+          <div className="ofc-section-inner max-w-4xl rounded-2xl border border-[#377CF3]/25 bg-[#377CF3] px-6 py-8 text-white md:px-10 md:py-10">
             <h2 className="font-display text-xl font-bold md:text-2xl">
               Cadrer votre formation IA en Île-de-France
             </h2>
@@ -266,7 +269,7 @@ export default function FormationIaBtpIleDeFrancePage() {
         </section>
 
         <section className={OFC_SEC.white} aria-labelledby="pourquoi-laure-idf">
-          <div className="mx-auto max-w-4xl">
+          <div className="ofc-section-inner max-w-4xl">
             <h2 id="pourquoi-laure-idf" className="font-display text-2xl font-bold text-slate-900 md:text-2xl">
               Pourquoi Laure Olivié
             </h2>
@@ -305,7 +308,7 @@ export default function FormationIaBtpIleDeFrancePage() {
         />
 
         <section id="rdv" className={`${OFC_SEC.accent} scroll-mt-24`}>
-          <div className="mx-auto max-w-4xl text-center">
+          <div className="ofc-section-inner max-w-4xl text-center">
             <h2 className="font-display text-2xl font-bold md:text-2xl">
               Prendre rendez-vous
             </h2>
@@ -325,19 +328,21 @@ export default function FormationIaBtpIleDeFrancePage() {
           </div>
         </section>
 
-        <div className="mx-auto max-w-4xl px-4 py-10">
-          <VoirAussi
-            {...voirAussiIdfProps({
-              currentPath: PATH,
-              excludeHrefs: [
-                LINKS.formations,
-                LINKS.formationIaParis,
-                LINKS.formateurIaBtp,
-                LINKS.aPropos,
-              ],
-            })}
-          />
-        </div>
+        <section className={`${OFC_SEC.whiteCompact} ofc-section--divide-0`}>
+          <div className={OFC_SECTION_INNER_ARTICLE}>
+            <VoirAussi
+              {...voirAussiIdfProps({
+                currentPath: PATH,
+                excludeHrefs: [
+                  LINKS.formations,
+                  LINKS.formationIaParis,
+                  LINKS.formateurIaBtp,
+                  LINKS.aPropos,
+                ],
+              })}
+            />
+          </div>
+        </section>
 
         <RenvoiFicheCatalogue programmeRef="NIV-01" contexte="en Île-de-France" />
       </article>

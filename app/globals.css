@@ -110,11 +110,11 @@
     /* Conteneur site — aligné BeWork (1280px) */
     --ofc-site-max-width: 80rem;
 
-    /* Espacement sections — respiration premium 48–160 px */
-    --ofc-section-py: 3.5rem; /* ~56px mobile */
-    --ofc-section-py-md: 5rem; /* ~80px tablette */
-    --ofc-section-py-lg: 7.5rem; /* ~120px desktop */
-    --ofc-section-py-xl: 9rem; /* ~144px large */
+    /* Espacement sections — respiration sans vide excessif */
+    --ofc-section-py: 2.75rem; /* ~44px mobile */
+    --ofc-section-py-md: 4rem; /* ~64px tablette */
+    --ofc-section-py-lg: 5.5rem; /* ~88px desktop */
+    --ofc-section-py-xl: 6.5rem; /* ~104px large */
 
     /* Motion */
     --ofc-duration-fast: var(--duration-ofc-fast);
@@ -137,8 +137,8 @@
 
   @media (min-width: 1280px) {
     :root {
-      --ofc-section-py-lg: 8.75rem; /* 140px */
-      --ofc-section-py-xl: 10rem; /* 160px */
+      --ofc-section-py-lg: 6.25rem; /* 100px */
+      --ofc-section-py-xl: 7.5rem; /* 120px */
     }
   }
 
@@ -399,7 +399,7 @@
   @apply mt-6 font-semibold text-slate-900;
 }
 .article-html p {
-  @apply mt-3 text-base text-slate-600 leading-relaxed md:text-lg;
+  @apply mt-3 text-base text-slate-600 leading-relaxed text-pretty sm:text-justify sm:hyphens-auto md:text-lg;
 }
 .article-html ul,
 .article-html ol {
@@ -443,6 +443,57 @@
 }
 .article-html caption {
   @apply mb-2 text-left text-sm font-semibold text-slate-900;
+}
+
+/* Articles MDX blog — aligné `.article-html`, styles portés par `getBlogMdxComponents` */
+.article-mdx :where(h2) {
+  @apply font-display mt-10 scroll-mt-28 text-2xl font-bold tracking-tight text-slate-900 first:mt-0 md:text-3xl;
+}
+.article-mdx :where(h3) {
+  @apply font-display mt-8 scroll-mt-28 text-xl font-semibold text-slate-900 md:text-2xl;
+}
+.article-mdx :where(p) {
+  @apply mt-4 text-slate-700 leading-relaxed text-pretty sm:text-justify sm:hyphens-auto;
+}
+.article-mdx :where(ul) {
+  @apply mt-4 list-disc space-y-2 pl-6 text-slate-700;
+}
+.article-mdx :where(ol) {
+  @apply mt-4 list-decimal space-y-2 pl-6 text-slate-700;
+}
+.article-mdx :where(li) {
+  @apply leading-relaxed;
+}
+.article-mdx :where(blockquote) {
+  @apply my-6 border-l-4 border-slate-300 bg-slate-50 py-2 pl-4 text-left text-slate-700 italic;
+}
+.article-mdx {
+  max-width: 100%;
+  overflow-x: auto;
+  overflow-wrap: anywhere;
+}
+
+/* Conteneur page article legacy + justification paragraphes */
+.ofc-page-article {
+  @apply mx-auto max-w-4xl px-4 py-10 md:py-12;
+}
+.ofc-page-article--narrow {
+  max-width: var(--ofc-read-width);
+}
+.ofc-page-article--wide {
+  @apply max-w-6xl;
+}
+
+.ofc-editorial :where(p:not(:where(.not-prose, .not-prose *))) {
+  @apply text-pretty sm:text-justify sm:hyphens-auto;
+}
+.ofc-editorial :where(pre, blockquote, table, figcaption) {
+  @apply text-left;
+}
+
+/** Bandeau section autonome (guides ressources sans `.ofc-section`). */
+.ofc-band {
+  @apply px-4 py-10 sm:px-6 md:py-12 lg:px-8;
 }
 
 /* Banderole logos clients — défilement infini */
@@ -1880,7 +1931,7 @@
 
   /* Panneaux internes — rythme sans section supplémentaire */
   .ofc-inset-panel {
-    @apply relative mt-16 overflow-hidden rounded-3xl border border-slate-200/80 px-4 py-12 md:px-8 md:py-16;
+    @apply relative mt-10 overflow-hidden rounded-3xl border border-slate-200/80 px-4 py-10 md:px-8 md:py-12;
     isolation: isolate;
     background: linear-gradient(180deg, rgba(242, 242, 242, 0.55) 0%, #ffffff 42%, #f2f2f2 100%);
   }
@@ -1902,7 +1953,7 @@
   }
 
   .ofc-inner-accent-band {
-    @apply relative mt-16 px-4 py-16 md:py-20;
+    @apply relative mt-10 px-4 py-12 md:py-14;
     isolation: isolate;
     background: linear-gradient(135deg, #377cf3 0%, #2d66d6 52%, #1e40af 100%);
   }

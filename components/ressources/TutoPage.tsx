@@ -27,7 +27,11 @@ function pdfUrlFor(tuto: TutoData): string {
 function Block({ block }: { block: TutoBlock }) {
   switch (block.kind) {
     case 'paragraph':
-      return <p className="mt-4 text-slate-700 leading-relaxed">{block.text}</p>;
+      return (
+        <p className="mt-4 text-slate-700 leading-relaxed text-pretty sm:text-justify sm:hyphens-auto">
+          {block.text}
+        </p>
+      );
     case 'h3':
       return (
         <h3 className="mt-8 font-display text-lg font-semibold text-slate-900 md:text-xl">
@@ -171,10 +175,10 @@ function SommaireTableSection({
   const [hPiece, hContenu, hQui] = table.headers;
   return (
     <section
-      className="border-t border-slate-200 bg-white py-12 md:py-16"
+      className="border-t border-slate-200 bg-white ofc-band"
       aria-labelledby="sommaire-doe"
     >
-      <div className="mx-auto max-w-4xl px-4">
+      <div className="ofc-section-inner max-w-4xl">
         <h2
           id="sommaire-doe"
           className="scroll-mt-28 font-display text-2xl font-bold text-slate-900 md:text-2xl"
@@ -237,10 +241,10 @@ function SommaireTableSection({
 function LotsExamplesSection({ lots }: { lots: TutoLotsExamples }) {
   return (
     <section
-      className="border-t border-slate-200 bg-white py-12 md:py-16"
+      className="border-t border-slate-200 bg-white ofc-band"
       aria-labelledby="exemples-doe-par-lot"
     >
-      <div className="mx-auto max-w-4xl px-4">
+      <div className="ofc-section-inner max-w-4xl">
         <h2
           id="exemples-doe-par-lot"
           className="scroll-mt-28 font-display text-2xl font-bold text-slate-900 md:text-2xl"
@@ -273,12 +277,12 @@ export function TutoPage({ tuto }: { tuto: TutoData }) {
   const enBref = getTutoEnBref(tuto.slug);
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="ofc-editorial min-h-screen bg-white">
       <JsonLd id={`schema-tuto-${tuto.slug}`} data={graph} />
 
       {/* Hero */}
       <section className="border-b border-slate-200 bg-[#F2F2F2]" aria-labelledby={`hero-${tuto.slug}`}>
-        <div className="mx-auto max-w-6xl px-4 pb-10 pt-8 md:pb-14 md:pt-10">
+        <div className="ofc-section-inner pb-8 pt-8 md:pb-10 md:pt-10">
           <div className="grid items-start gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(240px,320px)] lg:gap-12 xl:grid-cols-[minmax(0,1fr)_360px]">
             <div className="order-2 min-w-0 lg:order-1">
               <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[#377CF3]">
@@ -391,8 +395,8 @@ export function TutoPage({ tuto }: { tuto: TutoData }) {
       {tuto.lotsExamples ? <LotsExamplesSection lots={tuto.lotsExamples} /> : null}
 
       {/* Section intro */}
-      <section className="bg-[#F8FAFC] py-12 md:py-16" aria-labelledby={`intro-${tuto.slug}`}>
-        <div className="mx-auto max-w-4xl px-4">
+      <section className="bg-[#F8FAFC] ofc-band" aria-labelledby={`intro-${tuto.slug}`}>
+        <div className="ofc-section-inner max-w-4xl">
           <h2
             id={`intro-${tuto.slug}`}
             className="scroll-mt-28 font-display text-2xl font-bold text-slate-900 md:text-2xl"
@@ -408,8 +412,8 @@ export function TutoPage({ tuto }: { tuto: TutoData }) {
       </section>
 
       {/* Étapes */}
-      <section className="py-12 md:py-16" aria-label="Étapes du tutoriel">
-        <div className="mx-auto max-w-4xl px-4">
+      <section className="ofc-band" aria-label="Étapes du tutoriel">
+        <div className="ofc-section-inner max-w-4xl">
           {tuto.steps.map((s) => (
             <StepBlock key={s.number} step={s} />
           ))}
@@ -418,10 +422,10 @@ export function TutoPage({ tuto }: { tuto: TutoData }) {
 
       {/* FAQ */}
       <section
-        className="border-t border-slate-200 bg-[#F8FAFC] py-12 md:py-16"
+        className="border-t border-slate-200 bg-[#F8FAFC] ofc-band"
         aria-labelledby={`faq-${tuto.slug}`}
       >
-        <div className="mx-auto max-w-4xl px-4">
+        <div className="ofc-section-inner max-w-4xl">
           <h2
             id={`faq-${tuto.slug}`}
             className="font-display text-2xl font-bold text-slate-900 md:text-2xl"
@@ -455,10 +459,10 @@ export function TutoPage({ tuto }: { tuto: TutoData }) {
 
       {/* CTA final */}
       <section
-        className="border-t border-slate-200 bg-white py-14 md:py-20"
+        className="border-t border-slate-200 bg-white ofc-band"
         aria-labelledby={`cta-${tuto.slug}`}
       >
-        <div className="mx-auto max-w-4xl px-4">
+        <div className="ofc-section-inner max-w-4xl">
           <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[#377CF3]">
             {tuto.cta.eyebrow}
           </p>

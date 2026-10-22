@@ -141,7 +141,7 @@ export default function GuideChargeAffairesOfcPage() {
       {faqSchema ? <JsonLd id="schema-guide-charge-affaires-faq" schema={faqSchema} /> : null}
 
       <section className="bg-[#377CF3] text-white" aria-labelledby="hero-guide-charge-affaires">
-        <div className="mx-auto max-w-7xl px-4 py-14 md:py-16">
+        <div className="ofc-section-inner py-10 md:py-12">
           <p className="text-sm font-semibold uppercase tracking-[0.16em] text-white/80">
             Ressource gratuite · PDF
           </p>
@@ -170,7 +170,7 @@ export default function GuideChargeAffairesOfcPage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-4 py-14 md:py-16" aria-labelledby="en-bref-charge-affaires">
+      <section className="ofc-section-inner py-10 md:py-12" aria-labelledby="en-bref-charge-affaires">
         <h2 id="en-bref-charge-affaires" className="font-display text-2xl font-bold text-slate-900">
           En bref
         </h2>
@@ -188,8 +188,8 @@ export default function GuideChargeAffairesOfcPage() {
         <DisclaimerGains className="mt-6 max-w-3xl" />
       </section>
 
-      <section className="border-y border-slate-200 bg-[#F8FAFC] py-14" aria-labelledby="trois-parties">
-        <div className="mx-auto max-w-7xl px-4">
+      <section className="border-y border-slate-200 bg-[#F8FAFC] ofc-band" aria-labelledby="trois-parties">
+        <div className="ofc-section-inner">
           <h2 id="trois-parties" className="font-display text-2xl font-bold text-slate-900">
             Les 3 parties du guide
           </h2>
@@ -232,7 +232,7 @@ export default function GuideChargeAffairesOfcPage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-4 py-14 md:py-16" aria-labelledby="validation-charge-affaires">
+      <section className="ofc-section-inner py-10 md:py-12" aria-labelledby="validation-charge-affaires">
         <h2 id="validation-charge-affaires" className="font-display text-2xl font-bold text-slate-900">
           Validation humaine &amp; confidentialité
         </h2>
@@ -244,8 +244,8 @@ export default function GuideChargeAffairesOfcPage() {
         </p>
       </section>
 
-      <section className="border-y border-slate-200 bg-[#F8FAFC] py-14" aria-labelledby="faq-charge-affaires">
-        <div className="mx-auto max-w-7xl px-4">
+      <section className="border-y border-slate-200 bg-[#F8FAFC] ofc-band" aria-labelledby="faq-charge-affaires">
+        <div className="ofc-section-inner">
           <h2 id="faq-charge-affaires" className="font-display text-2xl font-bold text-slate-900">
             FAQ
           </h2>
@@ -265,7 +265,7 @@ export default function GuideChargeAffairesOfcPage() {
         currentPath={PATH}
       />
 
-      <section className="mx-auto max-w-7xl px-4 py-14 md:py-16" aria-labelledby="cta-calendly-charge-affaires">
+      <section className="ofc-section-inner py-10 md:py-12" aria-labelledby="cta-calendly-charge-affaires">
         <h2 id="cta-calendly-charge-affaires" className="font-display text-2xl font-bold text-slate-900">
           Passer à la pratique en formation
         </h2>

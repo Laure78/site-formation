@@ -169,7 +169,7 @@ export default function GuideRepondreAoBtpOfc2026Page() {
       {faqSchema ? <JsonLd id="schema-guide-repondre-ao-faq" schema={faqSchema} /> : null}
 
       <section className="bg-[#377CF3] text-white" aria-labelledby="hero-guide-repondre-ao">
-        <div className="mx-auto grid max-w-7xl gap-10 px-4 py-14 md:items-center md:gap-12 md:py-16 lg:grid-cols-2">
+        <div className="ofc-section-inner grid gap-10 py-10 md:items-center md:gap-12 md:py-12 lg:grid-cols-2">
           <div className="min-w-0">
             <p className="text-sm font-semibold uppercase tracking-[0.16em] text-white/80">
               Ressource gratuite · PDF · Édition 2026
@@ -213,7 +213,7 @@ export default function GuideRepondreAoBtpOfc2026Page() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-4 py-14 md:py-16" aria-labelledby="en-bref-repondre-ao">
+      <section className="ofc-section-inner py-10 md:py-12" aria-labelledby="en-bref-repondre-ao">
         <h2 id="en-bref-repondre-ao" className="font-display text-2xl font-bold text-slate-900">
           En bref
         </h2>
@@ -231,8 +231,8 @@ export default function GuideRepondreAoBtpOfc2026Page() {
         <DisclaimerGains className="mt-6 max-w-3xl" />
       </section>
 
-      <section className="border-y border-slate-200 bg-[#F8FAFC] py-14" aria-labelledby="cinq-etapes">
-        <div className="mx-auto max-w-7xl px-4">
+      <section className="border-y border-slate-200 bg-[#F8FAFC] ofc-band" aria-labelledby="cinq-etapes">
+        <div className="ofc-section-inner">
           <h2 id="cinq-etapes" className="font-display text-2xl font-bold text-slate-900">
             Les 5 étapes du guide
           </h2>
@@ -275,7 +275,7 @@ export default function GuideRepondreAoBtpOfc2026Page() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-4 py-14 md:py-16" aria-labelledby="garde-fou-ia">
+      <section className="ofc-section-inner py-10 md:py-12" aria-labelledby="garde-fou-ia">
         <h2 id="garde-fou-ia" className="font-display text-2xl font-bold text-slate-900">
           Garde-fou : contrôler ce que l&apos;IA produit
         </h2>
@@ -287,8 +287,8 @@ export default function GuideRepondreAoBtpOfc2026Page() {
         </p>
       </section>
 
-      <section className="border-y border-slate-200 bg-[#F8FAFC] py-14" aria-labelledby="faq-repondre-ao">
-        <div className="mx-auto max-w-7xl px-4">
+      <section className="border-y border-slate-200 bg-[#F8FAFC] ofc-band" aria-labelledby="faq-repondre-ao">
+        <div className="ofc-section-inner">
           <h2 id="faq-repondre-ao" className="font-display text-2xl font-bold text-slate-900">
             FAQ
           </h2>
@@ -308,7 +308,7 @@ export default function GuideRepondreAoBtpOfc2026Page() {
         currentPath={PATH}
       />
 
-      <section className="mx-auto max-w-7xl px-4 py-14 md:py-16" aria-labelledby="cta-calendly-repondre-ao">
+      <section className="ofc-section-inner py-10 md:py-12" aria-labelledby="cta-calendly-repondre-ao">
         <h2 id="cta-calendly-repondre-ao" className="font-display text-2xl font-bold text-slate-900">
           Passer à la pratique en formation
         </h2>

@@ -150,7 +150,7 @@ export default function GuideRhBtpIaOfcPage() {
       {faqSchema ? <JsonLd id="schema-guide-rh-btp-ia-faq" schema={faqSchema} /> : null}
 
       <section className="bg-[#377CF3] text-white" aria-labelledby="hero-guide-rh-btp">
-        <div className="mx-auto max-w-7xl px-4 py-14 md:py-16">
+        <div className="ofc-section-inner py-10 md:py-12">
           <p className="text-sm font-semibold uppercase tracking-[0.16em] text-white/80">
             Ressource gratuite · PDF
           </p>
@@ -179,7 +179,7 @@ export default function GuideRhBtpIaOfcPage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-4 py-14 md:py-16" aria-labelledby="en-bref-rh">
+      <section className="ofc-section-inner py-10 md:py-12" aria-labelledby="en-bref-rh">
         <h2 id="en-bref-rh" className="font-display text-2xl font-bold text-slate-900">
           En bref
         </h2>
@@ -197,8 +197,8 @@ export default function GuideRhBtpIaOfcPage() {
         <DisclaimerGains className="mt-6 max-w-3xl" />
       </section>
 
-      <section className="border-y border-slate-200 bg-[#F8FAFC] py-14" aria-labelledby="quatre-parties">
-        <div className="mx-auto max-w-7xl px-4">
+      <section className="border-y border-slate-200 bg-[#F8FAFC] ofc-band" aria-labelledby="quatre-parties">
+        <div className="ofc-section-inner">
           <h2 id="quatre-parties" className="font-display text-2xl font-bold text-slate-900">
             Les 4 parties du guide
           </h2>
@@ -241,7 +241,7 @@ export default function GuideRhBtpIaOfcPage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-4 py-14 md:py-16" aria-labelledby="rgpd-rh">
+      <section className="ofc-section-inner py-10 md:py-12" aria-labelledby="rgpd-rh">
         <h2 id="rgpd-rh" className="font-display text-2xl font-bold text-slate-900">
           RGPD &amp; supervision humaine
         </h2>
@@ -253,8 +253,8 @@ export default function GuideRhBtpIaOfcPage() {
         </p>
       </section>
 
-      <section className="border-y border-slate-200 bg-[#F8FAFC] py-14" aria-labelledby="faq-rh-btp">
-        <div className="mx-auto max-w-7xl px-4">
+      <section className="border-y border-slate-200 bg-[#F8FAFC] ofc-band" aria-labelledby="faq-rh-btp">
+        <div className="ofc-section-inner">
           <h2 id="faq-rh-btp" className="font-display text-2xl font-bold text-slate-900">
             FAQ
           </h2>
@@ -274,7 +274,7 @@ export default function GuideRhBtpIaOfcPage() {
         currentPath={PATH}
       />
 
-      <section className="mx-auto max-w-7xl px-4 py-14 md:py-16" aria-labelledby="cta-calendly-rh">
+      <section className="ofc-section-inner py-10 md:py-12" aria-labelledby="cta-calendly-rh">
         <h2 id="cta-calendly-rh" className="font-display text-2xl font-bold text-slate-900">
           Passer à la pratique en formation
         </h2>

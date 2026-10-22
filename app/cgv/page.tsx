@@ -16,7 +16,7 @@ export const metadata = createPageMetadata({
 
 export default function CGVPage() {
   return (
-    <div className="mx-auto max-w-4xl px-4 py-16">
+    <div className="ofc-page-article ofc-editorial">
       {/* En-tête */}
       <div className="rounded-2xl border border-slate-200 bg-slate-50 p-8">
         <div className="text-center">

@@ -20,6 +20,11 @@ import { shouldShowSkillLeadMagnetCta } from '@/lib/lead-magnet-skill-ia';
 import { BlogCTA } from '@/components/BlogCTA';
 import { LeadMagnetCTA } from '@/components/LeadMagnetCTA';
 import { OFC_LINK } from '@/lib/ofc-interaction-classes';
+import {
+  OFC_EDITORIAL,
+  OFC_PAGE_ARTICLE_NARROW,
+  OFC_PAGE_ARTICLE_WIDE,
+} from '@/lib/ofc-page-classes';
 
 type Props = { slug: string };
 
@@ -42,7 +47,11 @@ export async function BlogMdxArticle({ slug }: Props) {
   const showSommaire = shouldShowSommaireAncre(sommaireItems);
 
   return (
-    <div className={`mx-auto px-4 py-16 ${showSommaire ? 'max-w-6xl' : 'max-w-3xl'}`}>
+    <div
+      className={
+        showSommaire ? OFC_PAGE_ARTICLE_WIDE : OFC_PAGE_ARTICLE_NARROW
+      }
+    >
       <BlogArticleSchemas
         slug={slug}
         canonicalPath={canonicalPath}
@@ -78,7 +87,13 @@ export async function BlogMdxArticle({ slug }: Props) {
           </div>
         ) : null}
 
-        <article className={showSommaire ? 'min-w-0 max-w-3xl' : undefined}>
+        <article
+          className={
+            showSommaire
+              ? `min-w-0 max-w-3xl ${OFC_EDITORIAL}`
+              : OFC_EDITORIAL
+          }
+        >
         <p className="text-xs text-slate-400 sm:text-sm">
           <time dateTime={contentUpdatedAt}>{formatContentUpdatedLabel(contentUpdatedAt)}</time>
         </p>

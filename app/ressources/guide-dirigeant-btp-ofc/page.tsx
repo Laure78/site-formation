@@ -137,7 +137,7 @@ export default function GuideDirigeantBtpOfcPage() {
       {faqSchema ? <JsonLd id="schema-guide-dirigeant-btp-faq" schema={faqSchema} /> : null}
 
       <section className="bg-[#377CF3] text-white" aria-labelledby="hero-guide-dirigeant">
-        <div className="mx-auto max-w-7xl px-4 py-14 md:py-16">
+        <div className="ofc-section-inner py-10 md:py-12">
           <p className="text-sm font-semibold uppercase tracking-[0.16em] text-white/80">
             Ressource gratuite · PDF
           </p>
@@ -166,7 +166,7 @@ export default function GuideDirigeantBtpOfcPage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-4 py-14 md:py-16" aria-labelledby="six-leviers">
+      <section className="ofc-section-inner py-10 md:py-12" aria-labelledby="six-leviers">
         <h2 id="six-leviers" className="font-display text-2xl font-bold text-slate-900">
           Les 6 leviers outillés
         </h2>
@@ -196,8 +196,8 @@ export default function GuideDirigeantBtpOfcPage() {
         </ul>
       </section>
 
-      <section className="border-y border-slate-200 bg-[#F8FAFC] py-14" aria-labelledby="prompts-24">
-        <div className="mx-auto max-w-7xl px-4">
+      <section className="border-y border-slate-200 bg-[#F8FAFC] ofc-band" aria-labelledby="prompts-24">
+        <div className="ofc-section-inner">
           <h2 id="prompts-24" className="font-display text-2xl font-bold text-slate-900">
             Base de 24 prompts ponctuels
           </h2>
@@ -228,7 +228,7 @@ export default function GuideDirigeantBtpOfcPage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-4 py-14 md:py-16" aria-labelledby="limites-ia">
+      <section className="ofc-section-inner py-10 md:py-12" aria-labelledby="limites-ia">
         <h2 id="limites-ia" className="font-display text-2xl font-bold text-slate-900">
           Les 5 limites à connaître
         </h2>
@@ -240,8 +240,8 @@ export default function GuideDirigeantBtpOfcPage() {
         </p>
       </section>
 
-      <section className="border-y border-slate-200 bg-[#F8FAFC] py-14" aria-labelledby="faq-dirigeant">
-        <div className="mx-auto max-w-7xl px-4">
+      <section className="border-y border-slate-200 bg-[#F8FAFC] ofc-band" aria-labelledby="faq-dirigeant">
+        <div className="ofc-section-inner">
           <h2 id="faq-dirigeant" className="font-display text-2xl font-bold text-slate-900">
             FAQ
           </h2>
@@ -261,7 +261,7 @@ export default function GuideDirigeantBtpOfcPage() {
         currentPath={PATH}
       />
 
-      <section className="mx-auto max-w-7xl px-4 py-14 md:py-16" aria-labelledby="cta-calendly-dirigeant">
+      <section className="ofc-section-inner py-10 md:py-12" aria-labelledby="cta-calendly-dirigeant">
         <h2 id="cta-calendly-dirigeant" className="font-display text-2xl font-bold text-slate-900">
           Passer à la pratique en formation
         </h2>

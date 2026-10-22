@@ -81,11 +81,11 @@ export default function GuideMaitriseOeuvreIaPage() {
   const unifiedGraph = buildGuideMoeIaUnifiedGraphJsonLd();
 
   return (
-    <div className="min-h-screen bg-white font-sans" style={{ color: '#1A1A1A' }}>
+    <div className="ofc-editorial min-h-screen bg-white font-sans" style={{ color: '#1A1A1A' }}>
       <JsonLd id="schema-guide-moe-ia-unified" schema={unifiedGraph} />
 
       <section className="bg-[#377CF3] text-white" aria-labelledby="hero-guide-moe">
-        <div className="mx-auto grid max-w-7xl gap-10 px-4 py-14 md:items-center md:gap-12 md:py-20 lg:grid-cols-2">
+        <div className="ofc-section-inner grid gap-10 py-10 md:items-center md:gap-12 md:py-12 lg:grid-cols-2">
           <div className="min-w-0">
             <h1 id="hero-guide-moe" className="font-display text-2xl font-bold leading-tight md:text-2xl lg:text-2xl">
               {GUIDE_MOE_IA_H1}
@@ -125,8 +125,8 @@ export default function GuideMaitriseOeuvreIaPage() {
         </div>
       </section>
 
-      <section className="py-14 md:py-16" aria-labelledby="pourquoi-guide-moe">
-        <div className="mx-auto max-w-3xl px-4">
+      <section className="py-10 md:py-12" aria-labelledby="pourquoi-guide-moe">
+        <div className="ofc-section-inner max-w-3xl">
           <h2 id="pourquoi-guide-moe" className="font-display text-2xl font-bold md:text-2xl">
             Pourquoi ce guide
           </h2>
@@ -149,8 +149,8 @@ export default function GuideMaitriseOeuvreIaPage() {
         </div>
       </section>
 
-      <section className="border-y bg-[#F2F2F2] py-14" aria-labelledby="contenu-guide-moe">
-        <div className="mx-auto max-w-7xl px-4">
+      <section className="border-y bg-[#F2F2F2] ofc-band" aria-labelledby="contenu-guide-moe">
+        <div className="ofc-section-inner">
           <h2 id="contenu-guide-moe" className="font-display text-2xl font-bold md:text-2xl">
             Ce que contient le guide
           </h2>
@@ -199,8 +199,8 @@ export default function GuideMaitriseOeuvreIaPage() {
         </div>
       </section>
 
-      <section className="py-14" aria-labelledby="methode-5-etapes">
-        <div className="mx-auto max-w-7xl px-4">
+      <section className="ofc-band" aria-labelledby="methode-5-etapes">
+        <div className="ofc-section-inner">
           <h2 id="methode-5-etapes" className="font-display text-2xl font-bold md:text-2xl">
             La méthode en 5 étapes
           </h2>
@@ -223,8 +223,8 @@ export default function GuideMaitriseOeuvreIaPage() {
         </div>
       </section>
 
-      <section className="bg-[#F2F2F2] py-14" aria-labelledby="resultats-guide-moe">
-        <div className="mx-auto max-w-7xl px-4 text-center">
+      <section className="bg-[#F2F2F2] ofc-band" aria-labelledby="resultats-guide-moe">
+        <div className="ofc-section-inner text-center">
           <h2 id="resultats-guide-moe" className="font-display text-2xl font-bold md:text-2xl">
             Les résultats
           </h2>
@@ -245,8 +245,8 @@ export default function GuideMaitriseOeuvreIaPage() {
         </div>
       </section>
 
-      <section className="py-14" aria-labelledby="cta-mid-moe">
-        <div className="mx-auto max-w-3xl px-4 text-center">
+      <section className="ofc-band" aria-labelledby="cta-mid-moe">
+        <div className="ofc-section-inner max-w-3xl text-center">
           <h2 id="cta-mid-moe" className="font-display text-2xl font-bold md:text-2xl">
             Un doute sur la mission à automatiser en premier&nbsp;?
           </h2>
@@ -269,8 +269,8 @@ export default function GuideMaitriseOeuvreIaPage() {
         </div>
       </section>
 
-      <section className="border-t bg-white py-14" aria-labelledby="faq-guide-moe">
-        <div className="mx-auto max-w-3xl px-4">
+      <section className="border-t bg-white ofc-band" aria-labelledby="faq-guide-moe">
+        <div className="ofc-section-inner max-w-3xl">
           <h2 id="faq-guide-moe" className="font-display text-2xl font-bold md:text-2xl">
             Questions fréquentes
           </h2>
@@ -285,8 +285,8 @@ export default function GuideMaitriseOeuvreIaPage() {
         </div>
       </section>
 
-      <section className="border-t bg-[#F2F2F2] py-14" aria-labelledby="qui-est-laure">
-        <div className="mx-auto grid max-w-7xl gap-10 px-4 md:grid-cols-[280px_1fr] md:items-start">
+      <section className="border-t bg-[#F2F2F2] ofc-band" aria-labelledby="qui-est-laure">
+        <div className="ofc-section-inner grid gap-10 md:grid-cols-[280px_1fr] md:items-start">
           <figure className="mx-auto md:mx-0">
             <Image
               src={PHOTOS.siteAvatar.src}
@@ -337,8 +337,8 @@ export default function GuideMaitriseOeuvreIaPage() {
         excludeHrefs={[LINKS.formations, LINKS.aPropos, LINKS.contact]}
       />
 
-      <section className="bg-[#377CF3] py-16 text-center text-white" aria-labelledby="cta-final-moe">
-        <div className="mx-auto max-w-3xl px-4">
+      <section className="bg-[#377CF3] ofc-band text-center text-white" aria-labelledby="cta-final-moe">
+        <div className="ofc-section-inner max-w-3xl">
           <h2 id="cta-final-moe" className="font-display text-2xl font-bold md:text-2xl">
             Prendre rendez-vous
           </h2>

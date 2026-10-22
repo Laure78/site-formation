@@ -99,7 +99,9 @@ const pageJsonLd = {
 
 export default function InformationsReglementairesPage() {
   return (
-    <div className={`mx-auto max-w-4xl px-4 py-14 md:py-16 ${poppins.className} text-[#1A1A1A]`}>
+    <div
+      className={`ofc-page-article ofc-editorial ${poppins.className} text-[#1A1A1A]`}
+    >
       <JsonLd id="schema-informations-reglementaires" schema={pageJsonLd} />
 
       <header className="max-w-3xl">

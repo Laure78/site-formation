@@ -93,7 +93,7 @@ export default function FormationIaGrosOeuvreBtpPage() {
         catalogueProgrammeRef="NIV-01"
       />
 
-      <div className="mx-auto max-w-4xl px-4 py-12 md:py-16">
+      <div className="ofc-page-article ofc-editorial">
         <article>
           <MetierIdfPresentielLine className="mb-3" />
           <VousEtesPlutotEncart

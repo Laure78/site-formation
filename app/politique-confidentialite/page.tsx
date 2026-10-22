@@ -12,7 +12,7 @@ export const metadata = createPageMetadata({
 
 export default function PolitiqueConfidentialitePage() {
   return (
-    <div className="mx-auto max-w-4xl px-4 py-16">
+    <div className="ofc-page-article ofc-editorial">
       {/* En-tête */}
       <div className="border-b border-slate-200 pb-8">
         <p className="text-sm text-[var(--accent)] underline">

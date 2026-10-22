@@ -21,7 +21,11 @@ import {
   getGeoSisterDepartmentLinks,
 } from '@/lib/contextual-internal-links';
 import { voirAussiDepartementProps } from '@/lib/voir-aussi';
-import { OFC_SEC } from '@/lib/ofc-section-classes';
+import { OFC_EDITORIAL } from '@/lib/ofc-interaction-classes';
+import {
+  OFC_SEC,
+  OFC_SECTION_INNER_ARTICLE,
+} from '@/lib/ofc-section-classes';
 import {
   buildFormationIaCourseJsonLd,
   buildFormationIaDeptPageLocalBusinessJsonLd,
@@ -144,14 +148,14 @@ export function FormationIaBtpDepartementLanding({ config }: { config: Formation
   const faqSchema = getFAQSchema(deptFaqItems);
 
   return (
-    <div className="bg-white text-slate-900">
+    <div className={`${OFC_EDITORIAL} bg-white text-slate-900`}>
       <JsonLd id={`schema-formation-ia-dept-${config.deptCode}-course`} schema={courseJson} />
       <JsonLd id={`schema-formation-ia-dept-${config.deptCode}-service`} schema={serviceJson} />
       <JsonLd id={`schema-formation-ia-dept-${config.deptCode}-localbusiness`} schema={localBusinessJson} />
       <JsonLd id={`schema-formation-ia-dept-${config.deptCode}-faq`} schema={faqSchema} />
 
       <section className={OFC_SEC.white}>
-        <div className="mx-auto max-w-4xl">
+        <div className={OFC_SECTION_INNER_ARTICLE}>
           <p className="text-sm font-semibold uppercase tracking-wide text-[#377CF3]">
             {config.badgeLine}
           </p>
@@ -171,7 +175,7 @@ export function FormationIaBtpDepartementLanding({ config }: { config: Formation
           />
         ) : null}
 
-        <div className="mx-auto max-w-4xl">
+        <div className={OFC_SECTION_INNER_ARTICLE}>
           <div className="mt-4 flex flex-wrap gap-3">
             <StatCallout
               variant="inline"
@@ -204,7 +208,7 @@ export function FormationIaBtpDepartementLanding({ config }: { config: Formation
       </section>
 
       <section className={`${OFC_SEC.muted} scroll-mt-24`}>
-        <div className="mx-auto max-w-4xl">
+        <div className={OFC_SECTION_INNER_ARTICLE}>
           <h2 className="font-display text-2xl font-bold text-slate-900 md:text-2xl">
             BTP {locatif} ({config.deptCode}) : défis communs
           </h2>
@@ -217,7 +221,7 @@ export function FormationIaBtpDepartementLanding({ config }: { config: Formation
       </section>
 
       <section className={`${OFC_SEC.white} scroll-mt-24`}>
-        <div className="mx-auto max-w-4xl">
+        <div className={OFC_SECTION_INNER_ARTICLE}>
           <h2 className="font-display text-2xl font-bold text-slate-900 md:text-2xl">{config.problemTitle}</h2>
           <div className="mt-6 space-y-4 text-base text-slate-700 leading-relaxed md:text-lg">
             {config.problemBody.map((p, i) => (
@@ -228,7 +232,7 @@ export function FormationIaBtpDepartementLanding({ config }: { config: Formation
       </section>
 
       <section className={`${OFC_SEC.white} scroll-mt-24`}>
-        <div className="mx-auto max-w-4xl">
+        <div className={OFC_SECTION_INNER_ARTICLE}>
           <h2 className="font-display text-2xl font-bold text-slate-900 md:text-2xl">{config.solutionTitle}</h2>
           <div className="mt-6 space-y-4 text-base text-slate-700 leading-relaxed md:text-lg">
             {config.solutionBody.map((p, i) => (
@@ -243,7 +247,7 @@ export function FormationIaBtpDepartementLanding({ config }: { config: Formation
       </section>
 
       <section className={OFC_SEC.muted}>
-        <div className="mx-auto max-w-4xl">
+        <div className={OFC_SECTION_INNER_ARTICLE}>
           <h2 className="font-display text-2xl font-bold text-slate-900 md:text-2xl">{config.villesTitle}</h2>
           <p className="mt-4 text-base text-slate-700 leading-relaxed md:text-lg">{config.villesIntro}</p>
           <ul className="mt-8 grid gap-3 sm:grid-cols-2">
@@ -270,7 +274,7 @@ export function FormationIaBtpDepartementLanding({ config }: { config: Formation
       </section>
 
       <section className={OFC_SEC.white}>
-        <div className="mx-auto max-w-4xl">
+        <div className={OFC_SECTION_INNER_ARTICLE}>
           <h2 className="font-display text-2xl font-bold text-slate-900 md:text-2xl">{config.programmeTitle}</h2>
           <div className="mt-6 space-y-4 text-base text-slate-700 leading-relaxed md:text-lg">
             {config.programmeBody.map((p, i) => (
@@ -281,7 +285,7 @@ export function FormationIaBtpDepartementLanding({ config }: { config: Formation
       </section>
 
       <section className={OFC_SEC.muted}>
-        <div className="mx-auto max-w-4xl">
+        <div className={OFC_SECTION_INNER_ARTICLE}>
           <h2 className="font-display text-2xl font-bold text-slate-900 md:text-2xl">
             Cinq cas d&apos;usage standard travaillés en formation
           </h2>
@@ -300,7 +304,7 @@ export function FormationIaBtpDepartementLanding({ config }: { config: Formation
       </section>
 
       <section className={OFC_SEC.white}>
-        <div className="mx-auto max-w-4xl">
+        <div className={OFC_SECTION_INNER_ARTICLE}>
           <h2 className="font-display text-2xl font-bold text-slate-900 md:text-2xl">
             Réseau FFB et ancrage dans le territoire
           </h2>
@@ -309,7 +313,7 @@ export function FormationIaBtpDepartementLanding({ config }: { config: Formation
       </section>
 
       <section className={OFC_SEC.muted}>
-        <div className="mx-auto max-w-4xl">
+        <div className={OFC_SECTION_INNER_ARTICLE}>
           <h2 className="font-display text-2xl font-bold text-slate-900 md:text-2xl">{config.temoignagesTitle}</h2>
           <p className="mt-4 text-base text-slate-600 md:text-lg">
             Retours anonymisés de participants aux sessions OFC en Île-de-France.
@@ -346,7 +350,7 @@ export function FormationIaBtpDepartementLanding({ config }: { config: Formation
       <RelatedLinks path={config.path} />
 
       <section className={OFC_SEC.white}>
-        <div className="mx-auto max-w-4xl">
+        <div className={OFC_SECTION_INNER_ARTICLE}>
           <h2 className="font-display text-2xl font-bold text-slate-900 md:text-2xl">{config.financeTitle}</h2>
           <div className="mt-6 space-y-4 text-base text-slate-700 leading-relaxed md:text-lg">
             {config.financeBody.map((p, i) => (
@@ -377,7 +381,8 @@ export function FormationIaBtpDepartementLanding({ config }: { config: Formation
         subtitle="Intra ou inter — présentiel, financement et calendrier."
       />
 
-      <div className="mx-auto max-w-4xl px-4">
+      <section className={`${OFC_SEC.whiteCompact} ofc-section--divide-0`}>
+        <div className={OFC_SECTION_INNER_ARTICLE}>
         <VoirAussi
           {...voirAussiDepartementProps({
             currentPath: config.path,
@@ -393,7 +398,8 @@ export function FormationIaBtpDepartementLanding({ config }: { config: Formation
             ],
           })}
         />
-      </div>
+        </div>
+      </section>
 
       <section className={OFC_SEC.accent}>
         <div className="mx-auto max-w-2xl text-center">

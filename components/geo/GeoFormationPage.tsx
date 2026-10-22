@@ -18,7 +18,13 @@ import {
   getGeoSisterDepartmentLinks,
 } from '@/lib/contextual-internal-links';
 import { voirAussiDepartementProps } from '@/lib/voir-aussi';
-import { OFC_SEC } from '@/lib/ofc-section-classes';
+import { OFC_EDITORIAL } from '@/lib/ofc-interaction-classes';
+import {
+  OFC_SEC,
+  OFC_SECTION_INNER,
+  OFC_SECTION_INNER_ARTICLE,
+  OFC_SECTION_INNER_WIDE,
+} from '@/lib/ofc-section-classes';
 import { COUNT_UP_RATING, getStatsFreshnessLabel } from '@/lib/readability-presets';
 import { buildDeptMetaDescription } from '@/lib/meta-description';
 import { buildIdfDeptPageTitle } from '@/lib/seo-geo-keywords';
@@ -89,12 +95,12 @@ export function GeoFormationPage(props: GeoFormationPageProps) {
   });
 
   return (
-    <div className="bg-white text-slate-800">
+    <div className={`${OFC_EDITORIAL} bg-white text-slate-800`}>
       <JsonLd id={`schema-geo-course-${code}`} schema={courseJsonLd} />
       <JsonLd id={`schema-geo-localbusiness-${code}`} schema={localBusinessJsonLd} />
 
       <section className={OFC_SEC.white}>
-        <div className="mx-auto max-w-6xl px-4">
+        <div className={OFC_SECTION_INNER_WIDE}>
           <div className="min-w-0 max-w-3xl">
               <p className="text-sm font-semibold uppercase tracking-wide text-[#377CF3]">
                 {deptLabel} · Présentiel · organisme certifié Qualiopi · Constructys
@@ -112,7 +118,7 @@ export function GeoFormationPage(props: GeoFormationPageProps) {
           <FormationDeptLocalSeoBlock content={localContent} variant="underH1" />
         ) : null}
 
-        <div className="mx-auto max-w-6xl px-4 pb-12 pt-4">
+        <div className={`${OFC_SECTION_INNER_WIDE} pb-8 pt-2`}>
           {conversionLink ? (
             <p className="rounded-xl border border-blue-100 bg-blue-50 px-4 py-3 text-sm text-slate-700">
               <span className="font-medium text-slate-900">Fiche conversion :</span>{' '}
@@ -147,7 +153,7 @@ export function GeoFormationPage(props: GeoFormationPageProps) {
       </section>
 
       <section className={OFC_SEC.muted}>
-        <div className="mx-auto max-w-4xl px-4">
+        <div className={OFC_SECTION_INNER_ARTICLE}>
           <h2 className="font-display text-2xl font-bold text-slate-900 md:text-2xl">
             Formatrice basée à Guyancourt (78)
           </h2>
@@ -165,7 +171,7 @@ export function GeoFormationPage(props: GeoFormationPageProps) {
       </section>
 
       <section className={OFC_SEC.white}>
-        <div className="mx-auto max-w-4xl px-4">
+        <div className={OFC_SECTION_INNER_ARTICLE}>
           <h2 className="font-display text-2xl font-bold text-slate-900 md:text-2xl">
             Villes et bassins couverts {deptPreposition} ({code})
           </h2>
@@ -192,7 +198,7 @@ export function GeoFormationPage(props: GeoFormationPageProps) {
       </section>
 
       <section className={OFC_SEC.muted}>
-        <div className="mx-auto max-w-4xl px-4">
+        <div className={OFC_SECTION_INNER_ARTICLE}>
           <h2 className="font-display text-2xl font-bold text-slate-900 md:text-2xl">
             Les PME BTP {deptPreposition} : à quoi utilisent-elles l&apos;IA ?
           </h2>
@@ -214,7 +220,7 @@ export function GeoFormationPage(props: GeoFormationPageProps) {
       <RenvoiFicheCatalogue programmeRef="NIV-01" contexte={`en ${deptLabel}`} />
 
       <section className={OFC_SEC.white}>
-        <div className="mx-auto max-w-4xl px-4">
+        <div className={OFC_SECTION_INNER_ARTICLE}>
           <CTABlock
             title="Prendre rendez-vous"
             description={
@@ -247,16 +253,19 @@ export function GeoFormationPage(props: GeoFormationPageProps) {
         tone="white"
       />
 
-      <div className="mx-auto max-w-4xl px-4 pb-12">
-        <VoirAussi
-          {...voirAussiDepartementProps({
-            currentPath: geoFormationPath(slug),
-            excludeHrefs: [
-              ...getGeoPageUtilityLinks().map((l) => l.href), ...getGeoSisterDepartmentLinks(slug).map((l) => l.href),
-            ],
-          })}
-        />
-      </div>
+      <section className={`${OFC_SEC.whiteCompact} ofc-section--divide-0`}>
+        <div className={OFC_SECTION_INNER_ARTICLE}>
+          <VoirAussi
+            {...voirAussiDepartementProps({
+              currentPath: geoFormationPath(slug),
+              excludeHrefs: [
+                ...getGeoPageUtilityLinks().map((l) => l.href),
+                ...getGeoSisterDepartmentLinks(slug).map((l) => l.href),
+              ],
+            })}
+          />
+        </div>
+      </section>
     </div>
   );
 }

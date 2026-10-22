@@ -43,7 +43,11 @@ import { BlogArticleEnBref } from '@/components/blog/BlogArticleEnBref';
 import { BlogArticleSchemas } from '@/components/blog/BlogArticleSchemas';
 import { getBlogArticleContentUpdatedAt, formatContentUpdatedLabel } from '@/lib/content-updated-at';
 import { Check, ExternalLink } from 'lucide-react';
-import { OFC_CARD, OFC_LINK } from '@/lib/ofc-interaction-classes';
+import { OFC_CARD, OFC_EDITORIAL, OFC_LINK } from '@/lib/ofc-interaction-classes';
+import {
+  OFC_PAGE_ARTICLE_NARROW,
+  OFC_PAGE_ARTICLE_WIDE,
+} from '@/lib/ofc-page-classes';
 import { SommaireAncre } from '@/components/readability/SommaireAncre';
 import {
   buildSommaireFromSectionTitles,
@@ -209,7 +213,7 @@ export default async function BlogArticlePage({ params }: Props) {
   const contentUpdatedAt = getBlogArticleContentUpdatedAt(article.date, article.dateModified);
 
   return (
-    <div className={`mx-auto px-4 py-16 ${showSommaire ? 'max-w-6xl' : 'max-w-3xl'}`}>
+    <div className={showSommaire ? OFC_PAGE_ARTICLE_WIDE : OFC_PAGE_ARTICLE_NARROW}>
       <BlogArticleSchemas
         slug={slug}
         legacyArticle={article}
@@ -244,7 +248,13 @@ export default async function BlogArticlePage({ params }: Props) {
           </div>
         ) : null}
 
-        <article className={showSommaire ? 'min-w-0 max-w-3xl' : undefined}>
+        <article
+          className={
+            showSommaire
+              ? `min-w-0 max-w-3xl ${OFC_EDITORIAL}`
+              : OFC_EDITORIAL
+          }
+        >
         <p className="text-xs text-slate-400 sm:text-sm">
           <time dateTime={contentUpdatedAt}>{formatContentUpdatedLabel(contentUpdatedAt)}</time>
         </p>
@@ -347,7 +357,9 @@ export default async function BlogArticlePage({ params }: Props) {
                         {section.title}
                       </h2>
                     )}
-                    <p className="mt-2 text-slate-600 leading-relaxed">{contentStr}</p>
+                    <p className="mt-2 text-slate-600 leading-relaxed text-pretty sm:text-justify sm:hyphens-auto">
+                      {contentStr}
+                    </p>
                   </>
                 )}
                 {section.type === 'html' && typeof section.content === 'string' && (

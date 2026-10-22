@@ -47,7 +47,7 @@ export default function PartenairesPage() {
 
       <PartenairesPageHero />
 
-      <div className="mx-auto max-w-6xl space-y-14 px-4 pb-16 pt-10 sm:px-6 lg:px-8 md:pt-12">
+      <div className="ofc-section-inner space-y-10 pb-12 pt-8 md:space-y-12 md:pt-10">
         <PartenairesReferencesSection
           id="references-btp"
           titleId="references-btp-title"
@@ -76,8 +76,8 @@ export default function PartenairesPage() {
         <PartenairesCtaSection />
       </div>
 
-      <div className="border-t border-[#E2E8F0] bg-[#F8FAFC] px-4 py-8">
-        <div className="mx-auto max-w-6xl">
+      <div className="border-t border-[#E2E8F0] bg-[#F8FAFC] ofc-band">
+        <div className="ofc-section-inner">
           <Link href="/" className="font-medium text-[#377CF3] hover:underline">
             ← Retour à l&apos;accueil
           </Link>

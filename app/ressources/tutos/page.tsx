@@ -54,11 +54,11 @@ const collectionJsonLd = {
 
 export default function RessourcesTutosIndexPage() {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="ofc-editorial min-h-screen bg-white">
       <JsonLd id="schema-tutos-index-collection" schema={collectionJsonLd} />
 
       <section className="border-b border-slate-200 bg-[#F8FAFC]">
-        <div className="mx-auto max-w-7xl px-4 py-4 md:py-5">
+        <div className="ofc-section-inner py-4 md:py-5">
           <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between sm:gap-6">
             <div className="min-w-0">
               <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[#377CF3]">
@@ -91,7 +91,7 @@ export default function RessourcesTutosIndexPage() {
       </section>
 
       <section id="liste-tutos" className="scroll-mt-24 py-6 md:py-8">
-        <div className="mx-auto max-w-7xl px-4">
+        <div className="ofc-section-inner">
           <h2 className="sr-only">
             Liste des {TUTOS.length} tutoriels répartis en {TUTO_CATEGORY_ORDER.length} rubriques
           </h2>
@@ -131,7 +131,7 @@ export default function RessourcesTutosIndexPage() {
       />
 
       <section className="border-t border-slate-200 bg-white py-10">
-        <div className="mx-auto max-w-3xl px-4 text-center">
+        <div className="ofc-section-inner max-w-3xl text-center">
           <p className="text-slate-700">
             Ces tutos complètent une{' '}
             <Link href={LINKS.formations} className="font-medium text-[#377CF3] hover:underline">

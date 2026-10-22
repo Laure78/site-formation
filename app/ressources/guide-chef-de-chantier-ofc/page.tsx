@@ -140,7 +140,7 @@ export default function GuideChefDeChantierOfcPage() {
       {faqSchema ? <JsonLd id="schema-guide-chef-de-chantier-faq" schema={faqSchema} /> : null}
 
       <section className="bg-[#377CF3] text-white" aria-labelledby="hero-guide-chef-chantier">
-        <div className="mx-auto max-w-7xl px-4 py-14 md:py-16">
+        <div className="ofc-section-inner py-10 md:py-12">
           <p className="text-sm font-semibold uppercase tracking-[0.16em] text-white/80">
             Ressource gratuite · PDF
           </p>
@@ -169,7 +169,7 @@ export default function GuideChefDeChantierOfcPage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-4 py-14 md:py-16" aria-labelledby="six-skills">
+      <section className="ofc-section-inner py-10 md:py-12" aria-labelledby="six-skills">
         <h2 id="six-skills" className="font-display text-2xl font-bold text-slate-900">
           Les 6 skills terrain
         </h2>
@@ -202,8 +202,8 @@ export default function GuideChefDeChantierOfcPage() {
         </ul>
       </section>
 
-      <section className="border-y border-slate-200 bg-[#F8FAFC] py-14" aria-labelledby="phases-chantier">
-        <div className="mx-auto max-w-7xl px-4">
+      <section className="border-y border-slate-200 bg-[#F8FAFC] ofc-band" aria-labelledby="phases-chantier">
+        <div className="ofc-section-inner">
           <h2 id="phases-chantier" className="font-display text-2xl font-bold text-slate-900">
             Organisé selon la chronologie du chantier
           </h2>
@@ -235,7 +235,7 @@ export default function GuideChefDeChantierOfcPage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-4 py-14 md:py-16" aria-labelledby="mode-telephone">
+      <section className="ofc-section-inner py-10 md:py-12" aria-labelledby="mode-telephone">
         <h2 id="mode-telephone" className="font-display text-2xl font-bold text-slate-900">
           Claude dans la poche : le mode chantier
         </h2>
@@ -247,8 +247,8 @@ export default function GuideChefDeChantierOfcPage() {
         </p>
       </section>
 
-      <section className="border-y border-slate-200 bg-[#F8FAFC] py-14" aria-labelledby="faq-chef-chantier">
-        <div className="mx-auto max-w-7xl px-4">
+      <section className="border-y border-slate-200 bg-[#F8FAFC] ofc-band" aria-labelledby="faq-chef-chantier">
+        <div className="ofc-section-inner">
           <h2 id="faq-chef-chantier" className="font-display text-2xl font-bold text-slate-900">
             FAQ
           </h2>
@@ -268,7 +268,7 @@ export default function GuideChefDeChantierOfcPage() {
         currentPath={PATH}
       />
 
-      <section className="mx-auto max-w-7xl px-4 py-14 md:py-16" aria-labelledby="cta-calendly-chef">
+      <section className="ofc-section-inner py-10 md:py-12" aria-labelledby="cta-calendly-chef">
         <h2 id="cta-calendly-chef" className="font-display text-2xl font-bold text-slate-900">
           Passer à la pratique en formation
         </h2>

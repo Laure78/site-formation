@@ -69,7 +69,7 @@ export default function FormationIaChefChantierTpPage() {
   const faqSchema = getFAQSchema([...CHEF_CHANTIER_FAQ]);
 
   return (
-    <div className="mx-auto max-w-4xl px-4 py-16 text-slate-800">
+    <div className="ofc-page-article ofc-editorial text-slate-800">
       {faqSchema ? <JsonLd id="schema-faq-chef-chantier-tp" schema={faqSchema} /> : null}
 
       <nav className="mb-8 text-sm text-slate-600">

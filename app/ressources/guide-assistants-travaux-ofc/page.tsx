@@ -125,13 +125,13 @@ export default function GuideAssistantsTravauxOfcPage() {
   const faqSchema = getFAQSchema([...FAQ_GUIDE_ASSISTANTS_TRAVAUX]);
 
   return (
-    <div className="min-h-screen bg-white text-slate-900">
+    <div className="ofc-editorial min-h-screen bg-white text-slate-900">
       <JsonLd id="schema-guide-assistants-learning" schema={learningResourceJsonLd} />
       <JsonLd id="schema-guide-assistants-howto" schema={howToJsonLd} />
       {faqSchema ? <JsonLd id="schema-guide-assistants-faq" schema={faqSchema} /> : null}
 
       <section className="bg-[#377CF3] text-white" aria-labelledby="hero-guide-assistants">
-        <div className="mx-auto max-w-7xl px-4 py-14 md:py-20">
+        <div className="ofc-section-inner py-10 md:py-12">
           <p className="text-xs font-semibold uppercase tracking-[0.16em] text-white/85">
             PDF gratuit · OFC Qualiopi · </p>
           <h1
@@ -160,7 +160,7 @@ export default function GuideAssistantsTravauxOfcPage() {
       </section>
 
       <section className="border-b border-slate-200 bg-[#F8FAFC] py-10" aria-labelledby="ce-que-vous-trouvez">
-        <div className="mx-auto max-w-7xl px-4">
+        <div className="ofc-section-inner">
           <h2 id="ce-que-vous-trouvez" className="font-display text-xl font-bold text-slate-900 md:text-2xl">
             Ce que vous y trouverez
           </h2>
@@ -189,8 +189,8 @@ export default function GuideAssistantsTravauxOfcPage() {
         </div>
       </section>
 
-      <section className="py-14 md:py-16" aria-labelledby="missions-heading">
-        <div className="mx-auto max-w-7xl px-4">
+      <section className="py-10 md:py-12" aria-labelledby="missions-heading">
+        <div className="ofc-section-inner">
           <h2 id="missions-heading" className="font-display text-2xl font-bold text-slate-900 md:text-2xl">
             Les 12 missions outillées
           </h2>
@@ -222,8 +222,8 @@ export default function GuideAssistantsTravauxOfcPage() {
         </div>
       </section>
 
-      <section className="border-y border-slate-200 bg-[#F8FAFC] py-14" aria-labelledby="faq-guide-assistants">
-        <div className="mx-auto max-w-3xl px-4">
+      <section className="border-y border-slate-200 bg-[#F8FAFC] ofc-band" aria-labelledby="faq-guide-assistants">
+        <div className="ofc-section-inner max-w-3xl">
           <h2 id="faq-guide-assistants" className="font-display text-2xl font-bold text-slate-900">
             FAQ
           </h2>
@@ -243,8 +243,8 @@ export default function GuideAssistantsTravauxOfcPage() {
         currentPath={PATH}
       />
 
-      <section className="py-14 md:py-16" aria-labelledby="cta-calendly-assistants">
-        <div className="mx-auto max-w-7xl px-4">
+      <section className="py-10 md:py-12" aria-labelledby="cta-calendly-assistants">
+        <div className="ofc-section-inner">
           <h2 id="cta-calendly-assistants" className="font-display text-2xl font-bold text-slate-900">
             Passer à la pratique en formation
           </h2>

@@ -10,7 +10,8 @@ import { OFC_LINK } from '@/lib/ofc-interaction-classes';
 const proseH2 =
   'font-display mt-10 scroll-mt-28 text-2xl font-bold tracking-tight text-slate-900 first:mt-0 md:text-3xl';
 const proseH3 = 'font-display mt-8 scroll-mt-28 text-xl font-semibold text-slate-900 md:text-2xl';
-const proseP = 'mt-4 text-slate-700 leading-relaxed';
+const proseP =
+  'mt-4 text-slate-700 leading-relaxed text-pretty sm:text-justify sm:hyphens-auto';
 const proseA = OFC_LINK;
 const proseUl = 'mt-4 list-disc space-y-2 pl-6 text-slate-700';
 const proseOl = 'mt-4 list-decimal space-y-2 pl-6 text-slate-700';

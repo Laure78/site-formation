@@ -17,6 +17,7 @@ import { CALENDLY_DEFAULT_BUTTON_TEXT } from '@/lib/calendly-embed-config';
 import { QUALIOPI_FINANCEMENT_FORMULATION } from '@/config/qualiopi';
 import { LINKS } from '@/lib/internal-links';
 import { OFC_LINK } from '@/lib/ofc-interaction-classes';
+import { OFC_EDITORIAL, OFC_PAGE_ARTICLE } from '@/lib/ofc-page-classes';
 import { breadcrumbItemsFromPaths } from '@/lib/seo';
 import { TARIF_FORFAIT_DEBUTANT_HT } from '@/lib/tarifs-sessions';
 
@@ -129,7 +130,7 @@ export function PageMetierBTP({
       />
       <BreadcrumbJsonLd id={`schema-breadcrumb-page-metier-${slug}`} items={breadcrumbItems} />
 
-      <article className="mx-auto max-w-4xl px-4 py-12 md:py-16">
+      <article className={`${OFC_PAGE_ARTICLE} ${OFC_EDITORIAL}`}>
         <MetierIdfPresentielLine className="mb-3" />
         <p className="text-sm font-semibold uppercase tracking-wide text-[#377CF3]">
           {norme} · organisme certifié Qualiopi · Île-de-France

@@ -96,7 +96,7 @@ export default async function CoursDetailPage({ params }: PageProps) {
     .order('order_index');
 
   return (
-    <div className="mx-auto max-w-4xl px-4 py-16">
+    <div className="ofc-page-article ofc-editorial">
       <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
         <div className="grid gap-8 md:grid-cols-5">
           <div className="md:col-span-3">
