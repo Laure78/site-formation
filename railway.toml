@@ -3,7 +3,8 @@
 [build]
 builder = "RAILPACK"
 # NODE_OPTIONS déjà dans le script `build` de package.json (4096 Mo — next build + TypeScript)
-buildCommand = "npm run build"
+# Mémoire explicite côté Railpack (le script npm le définit aussi — redondance volontaire).
+buildCommand = "NODE_OPTIONS=--max-old-space-size=4096 npm run build"
 
 [deploy]
 startCommand = "npm run start"

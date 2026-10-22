@@ -452,10 +452,12 @@
 
 /* Articles MDX blog — aligné `.article-html`, styles portés par `getBlogMdxComponents` */
 .article-mdx :where(h2) {
-  @apply font-display mt-10 scroll-mt-28 text-2xl font-bold tracking-tight text-slate-900 first:mt-0 md:text-3xl;
+  font-family: var(--font-display), ui-sans-serif, system-ui, sans-serif;
+  @apply mt-10 scroll-mt-28 text-2xl font-bold tracking-tight text-slate-900 first:mt-0 md:text-3xl;
 }
 .article-mdx :where(h3) {
-  @apply font-display mt-8 scroll-mt-28 text-xl font-semibold text-slate-900 md:text-2xl;
+  font-family: var(--font-display), ui-sans-serif, system-ui, sans-serif;
+  @apply mt-8 scroll-mt-28 text-xl font-semibold text-slate-900 md:text-2xl;
 }
 .article-mdx :where(p) {
   @apply mt-4 text-slate-700 leading-relaxed text-pretty sm:text-justify sm:hyphens-auto;
