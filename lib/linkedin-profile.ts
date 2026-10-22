@@ -13,13 +13,13 @@ export const LINKEDIN_PROFILE_URL = SCHEMA_LINKEDIN_PROFILE_URL;
  * Nombre d’abonnés LinkedIn — saisi manuellement par Laure.
  * Mettre à jour ici uniquement ; le libellé FR se recalcule.
  */
-export const LINKEDIN_FOLLOWERS_COUNT = 14_800;
+export const LINKEDIN_FOLLOWERS_COUNT = 15_000;
 
 /**
  * Libellé public figé — évite les écarts entre pages quand le compteur évolue.
  * Le chiffre exact reste dans `LINKEDIN_FOLLOWERS_COUNT` (mise à jour manuelle).
  */
-export const LINKEDIN_FOLLOWERS_LABEL = 'plus de 14 800 abonnés' as const;
+export const LINKEDIN_FOLLOWERS_LABEL = 'plus de 15 000 abonnés' as const;
 
 /** Texte compact hero / preuve sociale. */
 export const LINKEDIN_FOLLOWERS_PROOF_TEXT =

@@ -115,7 +115,7 @@ Pas de cumul personnes formées · pas « 100 % finançable ».
 ## Lot 10 — LinkedIn & email
 
 ```
-Libellé public : LINKEDIN_FOLLOWERS_LABEL (« plus de 14 000 abonnés ») — pas de chiffres précis variables dans le HTML.
+Libellé public : LINKEDIN_FOLLOWERS_LABEL (« plus de 15 000 abonnés ») — pas de chiffres précis variables dans le HTML.
 grep -r yahoo teachizy 1e293b dans app components lib (hors scripts/)
 ```
 
