@@ -17,35 +17,31 @@ import {
   type SpontaneousTypeValue,
 } from '@/lib/career-form-validation';
 import { LINKS } from '@/lib/internal-links';
-import { getPublishedFormations } from '@/lib/formation-catalogue-visibility';
-import { formationHref } from '@/data/formations';
+import {
+  getConsultantParcoursMetiersOptions,
+  type ConsultantParcoursMetierOption,
+} from '@/lib/consultant-parcours-metiers-options';
 import {
   careerFieldClassBase,
   careerFieldErrorClass,
   careerLabelClass,
 } from '@/components/career/career-form-styles';
 
-type FormationOption = {
-  slug: string;
-  titre: string;
-  niveauLabel: string;
-  href: string;
-};
-
-const FORMATION_OPTIONS: FormationOption[] = getPublishedFormations().map((f) => ({
-  slug: f.slug,
-  titre: f.titre,
-  niveauLabel: f.niveauLabel,
-  href: formationHref(f),
-}));
+const CONSULTANT_PARCOURS_OPTIONS: ConsultantParcoursMetierOption[] =
+  getConsultantParcoursMetiersOptions();
 
 type CareerApplicationFormProps = {
   kind: CareerKind;
   sourcePage: string;
   submitLabel: string;
-  /** Afficher les cases formations (consultant uniquement). */
+  /** Afficher les cases parcours métiers (consultant uniquement). */
   showFormationCheckboxes?: boolean;
+  /** Regrouper les champs par blocs (page Devenez consultant). */
+  groupedLayout?: boolean;
 };
+
+const fieldsetLegendClass =
+  'mb-4 block font-display text-base font-bold text-slate-900 sm:text-lg';
 
 function FieldError({ id, message }: { id: string; message?: string }) {
   if (!message) return null;
@@ -61,6 +57,7 @@ export function CareerApplicationForm({
   sourcePage,
   submitLabel,
   showFormationCheckboxes = kind === 'consultant',
+  groupedLayout = false,
 }: CareerApplicationFormProps) {
   const formId = useId();
   const errorSummaryId = `${formId}-errors`;
@@ -76,6 +73,8 @@ export function CareerApplicationForm({
   const [applicationType, setApplicationType] = useState<SpontaneousTypeValue | ''>('');
   const [desiredRole, setDesiredRole] = useState('');
   const [presentation, setPresentation] = useState('');
+  const [aiPractice, setAiPractice] = useState('');
+  const [pedagogyExperience, setPedagogyExperience] = useState('');
   const [mobilityIdf, setMobilityIdf] = useState<(typeof MOBILITY_IDF_VALUES)[number] | ''>('');
   const [availability, setAvailability] = useState('');
   const [linkedinOrPortfolio, setLinkedinOrPortfolio] = useState('');
@@ -117,7 +116,16 @@ export function CareerApplicationForm({
     fd.set('lastName', lastName);
     fd.set('email', email);
     fd.set('phone', phone);
-    fd.set('presentation', presentation);
+    let fullPresentation = presentation.trim();
+    if (kind === 'consultant') {
+      if (aiPractice.trim()) {
+        fullPresentation += `\n\nPratique des outils d’IA :\n${aiPractice.trim()}`;
+      }
+      if (pedagogyExperience.trim()) {
+        fullPresentation += `\n\nExpérience pédagogique :\n${pedagogyExperience.trim()}`;
+      }
+    }
+    fd.set('presentation', fullPresentation);
     fd.set('availability', availability);
     fd.set('linkedinOrPortfolio', linkedinOrPortfolio);
     fd.set('sourcePage', sourcePage);
@@ -145,6 +153,8 @@ export function CareerApplicationForm({
       setSuccess(true);
       formRef.current?.reset();
       setSelectedFormations([]);
+      setAiPractice('');
+      setPedagogyExperience('');
       return;
     }
 
@@ -158,6 +168,32 @@ export function CareerApplicationForm({
       el?.focus();
     }
   };
+
+  const groupConsultantForm = groupedLayout && kind === 'consultant';
+
+  const parcoursCheckboxList = (
+    <ul className="max-h-72 space-y-3 overflow-y-auto pr-1">
+      {CONSULTANT_PARCOURS_OPTIONS.map((p) => (
+        <li key={p.id}>
+          <label className="flex cursor-pointer gap-2 text-sm text-slate-700">
+            <input
+              type="checkbox"
+              checked={selectedFormations.includes(p.id)}
+              onChange={() => toggleFormation(p.id)}
+              className="mt-0.5 h-4 w-4 shrink-0 rounded border-slate-300 text-[#377CF3] focus:ring-[#377CF3]"
+            />
+            <span>
+              <span className="font-medium text-slate-900">{p.titre}</span>
+              <span className="text-slate-500">
+                {' '}
+                — {p.dureeLabel} ({p.dureeHeures} h)
+              </span>
+            </span>
+          </label>
+        </li>
+      ))}
+    </ul>
+  );
 
   if (success) {
     return (
@@ -176,7 +212,7 @@ export function CareerApplicationForm({
       ref={formRef}
       onSubmit={handleSubmit}
       noValidate
-      className="mx-auto max-w-2xl space-y-5"
+      className={`mx-auto max-w-2xl ${groupConsultantForm ? 'space-y-8' : 'space-y-5'}`}
       aria-describedby={error ? errorSummaryId : undefined}
     >
       <div className="absolute -left-[9999px] h-0 w-0 overflow-hidden" aria-hidden>
@@ -194,7 +230,11 @@ export function CareerApplicationForm({
         </div>
       ) : null}
 
-      <div className="grid gap-5 sm:grid-cols-2">
+      <fieldset className={`space-y-5 border-0 p-0 ${groupConsultantForm ? '' : 'contents'}`}>
+        {groupConsultantForm ? (
+          <legend className={`${fieldsetLegendClass} float-left w-full`}>Vos coordonnées</legend>
+        ) : null}
+      <div className="grid w-full gap-5 sm:grid-cols-2">
         <div>
           <label htmlFor={`${formId}-firstName`} className={careerLabelClass}>
             Prénom <span className="text-[#DC2626]">*</span>
@@ -266,6 +306,12 @@ export function CareerApplicationForm({
           className={fieldClass('phone')}
         />
       </div>
+      </fieldset>
+
+      <fieldset className={`space-y-5 border-0 p-0 ${groupConsultantForm ? '' : 'contents'}`}>
+        {groupConsultantForm ? (
+          <legend className={`${fieldsetLegendClass} float-left w-full`}>Votre expertise</legend>
+        ) : null}
 
       {kind === 'consultant' ? (
         <div>
@@ -349,7 +395,9 @@ export function CareerApplicationForm({
       <div>
         <label htmlFor={`${formId}-presentation`} className={careerLabelClass}>
           {kind === 'consultant'
-            ? 'Présentation (expérience BTP, pratique de l’IA, expérience pédagogique)'
+            ? groupConsultantForm
+              ? 'Présentation de votre parcours BTP'
+              : 'Présentation (expérience BTP, pratique de l’IA, expérience pédagogique)'
             : 'Présentation de la candidature'}{' '}
           <span className="text-[#DC2626]">*</span>
         </label>
@@ -357,20 +405,88 @@ export function CareerApplicationForm({
           id={`${formId}-presentation`}
           name="presentation"
           required
-          rows={6}
+          rows={groupConsultantForm ? 5 : 6}
           value={presentation}
           onChange={(e) => setPresentation(e.target.value)}
           className={fieldClass('presentation')}
           aria-invalid={Boolean(fieldErrors.presentation)}
-          aria-describedby={fieldErrors.presentation ? `${formId}-err-presentation` : undefined}
+          aria-describedby={
+            fieldErrors.presentation
+              ? `${formId}-err-presentation`
+              : groupConsultantForm
+                ? `${formId}-presentation-hint`
+                : undefined
+          }
+          placeholder={
+            groupConsultantForm
+              ? 'Ex. : 15 ans en conduite de travaux, PME gros œuvre, usages IA sur devis et CR…'
+              : undefined
+          }
         />
+        {groupConsultantForm ? (
+          <p id={`${formId}-presentation-hint`} className="mt-1 text-xs text-slate-500">
+            Décrivez votre expérience terrain, vos responsabilités et les types d’entreprises
+            accompagnées.
+          </p>
+        ) : null}
         <FieldError id={`${formId}-err-presentation`} message={fieldErrors.presentation} />
       </div>
 
+      {groupConsultantForm ? (
+        <>
+          <div>
+            <label htmlFor={`${formId}-aiPractice`} className={careerLabelClass}>
+              Pratique des outils d&apos;IA
+            </label>
+            <textarea
+              id={`${formId}-aiPractice`}
+              name="aiPractice"
+              rows={3}
+              value={aiPractice}
+              onChange={(e) => setAiPractice(e.target.value)}
+              className={fieldClass('aiPractice')}
+              placeholder="Ex. : ChatGPT et Claude au quotidien — devis, analyse CCTP, courriers…"
+            />
+          </div>
+          <div>
+            <label htmlFor={`${formId}-pedagogyExperience`} className={careerLabelClass}>
+              Expérience pédagogique
+            </label>
+            <textarea
+              id={`${formId}-pedagogyExperience`}
+              name="pedagogyExperience"
+              rows={3}
+              value={pedagogyExperience}
+              onChange={(e) => setPedagogyExperience(e.target.value)}
+              className={fieldClass('pedagogyExperience')}
+              placeholder="Ex. : animation d’ateliers internes, mentoring, formation ponctuelle…"
+            />
+          </div>
+        </>
+      ) : null}
+
+      {showFormationCheckboxes && CONSULTANT_PARCOURS_OPTIONS.length > 0 ? (
+        <fieldset className="space-y-3 rounded-xl border border-slate-200 bg-slate-50/80 p-4">
+          <legend className="px-1 text-sm font-medium text-slate-800">
+            Parcours métiers sur lesquels intervenir (facultatif)
+          </legend>
+          <p className="text-xs leading-relaxed text-slate-500">
+            Sélectionnez un ou plusieurs parcours du catalogue 2027 — pas les modules NIV isolés.
+          </p>
+          {parcoursCheckboxList}
+        </fieldset>
+      ) : null}
+      </fieldset>
+
+      <fieldset className={`space-y-5 border-0 p-0 ${groupConsultantForm ? '' : 'contents'}`}>
+        {groupConsultantForm ? (
+          <legend className={`${fieldsetLegendClass} float-left w-full`}>Vos interventions</legend>
+        ) : null}
+
       {kind === 'consultant' ? (
-        <fieldset className="space-y-2">
+        <fieldset className="space-y-2 border-0 p-0">
           <legend className={careerLabelClass}>
-            Mobilité pour intervenir en présentiel en Île-de-France{' '}
+            Mobilité en Île-de-France{' '}
             <span className="text-[#DC2626]">*</span>
           </legend>
           {MOBILITY_IDF_VALUES.map((v) => (
@@ -387,32 +503,6 @@ export function CareerApplicationForm({
             </label>
           ))}
           <FieldError id={`${formId}-err-mobilityIdf`} message={fieldErrors.mobilityIdf} />
-        </fieldset>
-      ) : null}
-
-      {showFormationCheckboxes && FORMATION_OPTIONS.length > 0 ? (
-        <fieldset className="space-y-3 rounded-xl border border-slate-200 bg-slate-50/80 p-4">
-          <legend className="px-1 text-sm font-medium text-slate-800">
-            Formations du catalogue sur lesquelles vous souhaitez intervenir (facultatif)
-          </legend>
-          <ul className="max-h-64 space-y-2 overflow-y-auto pr-1">
-            {FORMATION_OPTIONS.map((f) => (
-              <li key={f.slug}>
-                <label className="flex cursor-pointer gap-2 text-sm text-slate-700">
-                  <input
-                    type="checkbox"
-                    checked={selectedFormations.includes(f.slug)}
-                    onChange={() => toggleFormation(f.slug)}
-                    className="mt-0.5 h-4 w-4 shrink-0 rounded border-slate-300 text-[#377CF3] focus:ring-[#377CF3]"
-                  />
-                  <span>
-                    <span className="font-medium text-slate-900">{f.titre}</span>
-                    <span className="text-slate-500"> — {f.niveauLabel}</span>
-                  </span>
-                </label>
-              </li>
-            ))}
-          </ul>
         </fieldset>
       ) : null}
 
@@ -461,6 +551,7 @@ export function CareerApplicationForm({
         />
         <FieldError id={`${formId}-err-cv`} message={fieldErrors.cv} />
       </div>
+      </fieldset>
 
       {showConsultantHint ? (
         <p className="rounded-lg border border-[#BFDBFE] bg-[#EFF6FF] px-4 py-3 text-sm text-slate-700">

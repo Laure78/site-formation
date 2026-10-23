@@ -15,6 +15,7 @@ import {
   parseCareerFormPayload,
   type CareerFormInput,
 } from '@/lib/career-form-validation';
+import { formatConsultantParcoursSlugs } from '@/lib/consultant-parcours-metiers-options';
 import { SITE_CONFIG } from '@/lib/seo';
 
 const resend = process.env.RESEND_API_KEY ? new Resend(process.env.RESEND_API_KEY) : null;
@@ -56,7 +57,10 @@ function buildNotificationHtml(
     rows.push(['Domaine d’expertise', CONSULTANT_EXPERTISE_LABELS[data.expertiseDomain]]);
     rows.push(['Mobilité IDF', MOBILITY_IDF_LABELS[data.mobilityIdf]]);
     if (data.formationSlugs?.trim()) {
-      rows.push(['Formations catalogue', data.formationSlugs.trim()]);
+      rows.push([
+        'Parcours métiers',
+        formatConsultantParcoursSlugs(data.formationSlugs) || data.formationSlugs.trim(),
+      ]);
     }
   } else {
     rows.push(['Type de candidature', SPONTANEOUS_TYPE_LABELS[data.applicationType]]);

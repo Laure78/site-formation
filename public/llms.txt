@@ -23,7 +23,7 @@ Laure Olivié est formatrice IA spécialisée BTP, avec 7 ans d'expérience dans
 - NIV-04 (7 h, 310 € HT/part.) — Maîtriser Claude AI pour le BTP — /formations/maitriser-claude-ai-btp
 - NIV-05 (7 h, 310 € HT/part.) — IA et maîtrise d'œuvre — /formations/ia-maitrise-oeuvre
 - NIV-06, NIV-07, NIV-08 — codes conservés (référentiel) ; fiches `/formations/application-metier-btp-niveau-{1,2,3}` → 301 vers NIV-10
-- NIV-09 (7 h, 310 € HT/part., niveau 2) — Créer ses assistants IA pour son entreprise du bâtiment — ChatGPT & Claude, inter Guyancourt (78) — /formations/assistants-ia-personnalises-btp — PDF : /formations/assistants-ia-personnalises-btp/programme_OFC_Assistants_IA_BTP_7h_20261022.pdf
+- NIV-09 (7 h, 310 € HT/part., niveau 3) — Créer ses assistants IA pour son entreprise du bâtiment — ChatGPT & Claude, inter Guyancourt (78) — /formations/assistants-ia-personnalises-btp — PDF : /formations/assistants-ia-personnalises-btp/programme_OFC_Assistants_IA_BTP_7h_20261022.pdf
 - NIV-10 (14 h, 620 € HT/part., Niveau 3 — Avancé) — Créer des applications métier BTP avec l'IA — /formations/developpement-web-ia-sans-coder
 
 ## Pages clés
