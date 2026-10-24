@@ -1,8 +1,11 @@
-import Link from 'next/link';
+'use client';
+
+import { useMemo } from 'react';
+import { useRouter, useSearchParams } from 'next/navigation';
 import { FormationsCatalogueGridCard } from '@/components/formations/catalogue/FormationsCatalogueGridCard';
 import { FormationsCatalogueComplementaryCard } from '@/components/formations/catalogue/FormationsCatalogueComplementaryCard';
 import type { FormationCatalogueEntry } from '@/lib/formations-catalogue-display';
-import type { FormationsIaFilterParams } from '@/lib/catalogue-filter-url';
+import { parseFormationsIaFilters } from '@/lib/catalogue-filter-url';
 import {
   filterAvailableFormationsIaEntries,
   filterComplementaryFormationsIaEntries,
@@ -13,23 +16,41 @@ import {
 type Props = {
   availableEntries: readonly FormationCatalogueEntry[];
   upcomingEntries: readonly FormationCatalogueEntry[];
-  filters: FormationsIaFilterParams;
 };
 
 export function FormationsCatalogueFilteredGrid({
   availableEntries,
   upcomingEntries,
-  filters,
 }: Props) {
-  const filteredAvailable = filterAvailableFormationsIaEntries(availableEntries, filters);
-  const filteredUpcoming = filterAvailableFormationsIaEntries(upcomingEntries, filters);
-  const filteredComplementary = filterComplementaryFormationsIaEntries(filters);
-  const totalVisible = countVisibleFormationsIaCatalogue(
-    availableEntries,
-    upcomingEntries,
-    filters,
+  const router = useRouter();
+  const searchParams = useSearchParams();
+  const filters = useMemo(
+    () => parseFormationsIaFilters(searchParams),
+    [searchParams],
+  );
+
+  const filteredAvailable = useMemo(
+    () => filterAvailableFormationsIaEntries(availableEntries, filters),
+    [availableEntries, filters],
+  );
+  const filteredUpcoming = useMemo(
+    () => filterAvailableFormationsIaEntries(upcomingEntries, filters),
+    [upcomingEntries, filters],
+  );
+  const filteredComplementary = useMemo(
+    () => filterComplementaryFormationsIaEntries(filters),
+    [filters],
+  );
+  const totalVisible = useMemo(
+    () =>
+      countVisibleFormationsIaCatalogue(availableEntries, upcomingEntries, filters),
+    [availableEntries, upcomingEntries, filters],
   );
   const hasActiveFilters = formationsIaHasActiveFilters(filters);
+
+  const resetFilters = () => {
+    router.replace('/formations#catalogue-formations', { scroll: false });
+  };
 
   return (
     <>
@@ -40,28 +61,32 @@ export function FormationsCatalogueFilteredGrid({
             : `${totalVisible} formations affichées`}
         </p>
         {hasActiveFilters ? (
-          <Link
-            href="/formations#catalogue-formations"
+          <button
+            type="button"
+            onClick={resetFilters}
             className="inline-flex min-h-10 items-center rounded-lg border border-dashed border-[#CBD5E1] bg-white px-4 py-2 text-sm font-medium text-ofc-ink-muted hover:border-[#377CF3]/40 hover:text-ofc-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ofc-accent"
           >
-            Réinitialiser
-          </Link>
+            Réinitialiser les filtres
+          </button>
         ) : null}
       </div>
 
       {totalVisible === 0 ? (
         <div className="mt-10 rounded-xl border border-[#E2E8F0] bg-white p-6">
-          <p className="text-base text-ofc-ink-muted">
-            Aucune formation ne correspond à votre recherche. Essayez un autre mot-clé ou
-            réinitialisez les filtres.
+          <p className="text-base font-medium text-ofc-ink">
+            Aucune formation ne correspond à vos critères.
+          </p>
+          <p className="mt-2 text-sm text-ofc-ink-muted">
+            Modifiez vos critères ou réinitialisez les filtres.
           </p>
           {hasActiveFilters ? (
-            <Link
-              href="/formations#catalogue-formations"
+            <button
+              type="button"
+              onClick={resetFilters}
               className="mt-4 inline-flex min-h-10 items-center rounded-lg border border-[#CBD5E1] bg-white px-4 py-2 text-sm font-semibold text-ofc-ink hover:border-[#377CF3]/40 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ofc-accent"
             >
               Réinitialiser les filtres
-            </Link>
+            </button>
           ) : null}
         </div>
       ) : (

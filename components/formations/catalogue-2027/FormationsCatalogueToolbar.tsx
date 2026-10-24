@@ -15,75 +15,46 @@ import type { CatalogueThematiqueId } from '@/lib/catalogue-thematiques-btp';
 type Props = {
   metierOptions: MetierId[];
   thematiqueOptions: CatalogueThematiqueId[];
-  /** Filtres issus du rendu serveur (URL courante). */
-  serverFilters: FormationsIaFilterParams;
 };
 
 export function FormationsCatalogueToolbar({
   metierOptions,
   thematiqueOptions,
-  serverFilters,
 }: Props) {
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
-  const clientFilters = useMemo(
+  const filters = useMemo(
     () => parseFormationsIaFilters(searchParams),
     [searchParams],
   );
-  const filters = clientFilters;
 
-  const [query, setQuery] = useState(serverFilters.q ?? '');
+  const [query, setQuery] = useState(filters.q ?? '');
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
 
   useEffect(() => {
     setQuery(filters.q ?? '');
   }, [filters.q]);
 
-  useEffect(() => {
+  const pushFilters = (next: FormationsIaFilterParams) => {
     if (pathname !== '/formations') return;
-    const target = buildFormationsIaHref({
-      ...filters,
-      q: query.trim() || undefined,
-    });
-    const targetPath = target.split('#')[0] ?? target;
-    const currentPath = `${pathname}${searchParams.toString() ? `?${searchParams.toString()}` : ''}`;
-    if (targetPath !== currentPath) {
-      router.replace(target, { scroll: false });
-    }
-  }, [query, filters, pathname, router, searchParams]);
-
-  const hasActiveFilters = Boolean(
-    filters.niveau || filters.thematique || filters.metier || filters.q,
-  );
+    router.replace(buildFormationsIaHref(next), { scroll: false });
+  };
 
   const applyFilterChange = (next: Partial<FormationsIaFilterParams>) => {
-    router.replace(
-      buildFormationsIaHref({
-        ...filters,
-        ...next,
-        q: query.trim() || undefined,
-      }),
-      { scroll: false },
-    );
+    pushFilters({
+      ...filters,
+      ...next,
+      q: query.trim() || undefined,
+    });
   };
 
   const submitSearch = () => {
-    router.replace(
-      buildFormationsIaHref({
-        ...filters,
-        q: query.trim() || undefined,
-      }),
-      { scroll: false },
-    );
+    pushFilters({
+      ...filters,
+      q: query.trim() || undefined,
+    });
   };
-
-  useEffect(() => {
-    if (pathname !== '/formations') return;
-    if (!hasActiveFilters) return;
-    const el = document.getElementById('catalogue-formations');
-    el?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  }, [filters.metier, filters.niveau, filters.thematique, filters.q, hasActiveFilters, pathname]);
 
   return (
     <>

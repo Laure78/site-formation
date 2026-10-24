@@ -1,7 +1,6 @@
 import { Suspense } from 'react';
 import { getCataloguePageCoreFormations } from '@/lib/formations-catalogue-page-config';
 import { getUpcomingCatalogueFormationEntries } from '@/lib/catalogue-formation-schedule';
-import { parseFormationsIaFilters, type FormationsIaFilterParams } from '@/lib/catalogue-filter-url';
 import {
   CATALOGUE_COMPLEMENTARY_ENTRIES,
   CATALOGUE_THEMATIQUE_IDS,
@@ -13,10 +12,6 @@ import type { MetierId } from '@/data/catalogue-2027';
 import type { FormationCatalogueCode } from '@/lib/formation-catalogue-visibility';
 import { FormationsCatalogueFilteredGrid } from '@/components/formations/catalogue-2027/FormationsCatalogueFilteredGrid';
 import { FormationsCatalogueToolbar } from '@/components/formations/catalogue-2027/FormationsCatalogueToolbar';
-
-type Props = {
-  searchParams?: Readonly<Record<string, string | string[] | undefined>>;
-};
 
 function collectMetierOptions(refs: string[]): MetierId[] {
   const set = new Set<MetierId>();
@@ -43,8 +38,7 @@ function collectThematiqueOptions(refs: string[]): CatalogueThematiqueId[] {
   return CATALOGUE_THEMATIQUE_IDS.filter((id) => set.has(id));
 }
 
-export function FormationsIaDisponibles({ searchParams = {} }: Props) {
-  const filters: FormationsIaFilterParams = parseFormationsIaFilters(searchParams);
+export function FormationsIaDisponibles() {
   const availableEntries = getCataloguePageCoreFormations();
   const upcomingEntries = getUpcomingCatalogueFormationEntries();
 
@@ -67,17 +61,17 @@ export function FormationsIaDisponibles({ searchParams = {} }: Props) {
 
       <Suspense fallback={null}>
         <FormationsCatalogueToolbar
-          serverFilters={filters}
           metierOptions={metierOptions}
           thematiqueOptions={thematiqueOptions}
         />
       </Suspense>
 
-      <FormationsCatalogueFilteredGrid
-        availableEntries={availableEntries}
-        upcomingEntries={upcomingEntries}
-        filters={filters}
-      />
+      <Suspense fallback={null}>
+        <FormationsCatalogueFilteredGrid
+          availableEntries={availableEntries}
+          upcomingEntries={upcomingEntries}
+        />
+      </Suspense>
     </section>
   );
 }

@@ -83,7 +83,7 @@ export default async function FormationsPage({ searchParams }: FormationsPagePro
       <div className="mx-auto max-w-[80rem] px-4 pb-20 pt-8 sm:px-6 md:pt-10 lg:px-8">
         <p className="sr-only">{CATALOGUE_2027_POSITIONNEMENT.introductionMarque}</p>
         <FormationsCatalogueParcoursMetiers2027Banner />
-        <FormationsIaDisponibles searchParams={sp} />
+        <FormationsIaDisponibles />
         <FormationsCatalogueParcoursCompact />
         <FormationsCatalogueEntrepriseCompact />
         <FormationsInfosPratiques2027 />
