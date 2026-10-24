@@ -107,6 +107,11 @@ export const NAV_ORGANISME: readonly NavItem[] = [
 export const NAV_CARRIERE: readonly NavItem[] = [
   { href: LINKS.emplois, label: 'Emplois', title: 'Offres d’emploi OFC Création d’Entreprise' },
   {
+    href: LINKS.rejoindreEquipe,
+    label: 'Rejoindre l’équipe',
+    title: 'Devenir formateur IA BTP — rejoindre OFC',
+  },
+  {
     href: LINKS.devenezConsultant,
     label: 'Devenez consultant',
     title: 'Proposer une expertise de consultant-formateur IA BTP',

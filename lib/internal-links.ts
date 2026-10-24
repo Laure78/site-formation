@@ -56,6 +56,8 @@ export const LINKS = {
   devenezConsultant: '/devenez-consultant',
   /** Carrière — candidature spontanée */
   candidaturesSpontanees: '/candidatures-spontanees',
+  /** Carrière — recrutement formateurs (annonce) */
+  rejoindreEquipe: '/rejoindre-equipe',
   financement: '/financement-constructys-formation-ia-btp',
   /** Canonique RDV — URL courte ; `/prendre-rendez-vous` → 301. */
   prendreRdv: '/prendre-rdv',
