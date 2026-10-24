@@ -67,7 +67,7 @@ export function getFinancementConstructysUnifiedJsonLd(): Record<string, unknown
   const localBusiness: Record<string, unknown> = {
     '@type': 'LocalBusiness',
     '@id': `${base}/#localbusiness`,
-    name: SITE_CONFIG.legalName,
+    name: SITE_CONFIG.name,
     image: `${base}/images/laure-olivie-formatrice-ia-btp-qualiopi.webp`,
     url: base,
     email: SCHEMA_CONTACT.email,

@@ -71,7 +71,7 @@ export const SITE = {
     loginHref: LINKS.authConnexion,
     connexionLabel: 'Connexion',
     connexionNavMobileLabel: 'Connexion plateforme',
-    title: "Connexion à la plateforme de formation IA BTP — OFC Création d'Entreprise",
+    title: 'Connexion à la plateforme de formation IA BTP — Laure Olivié',
   },
   catalogue: {
     count: getCatalogueFormationsCount(),

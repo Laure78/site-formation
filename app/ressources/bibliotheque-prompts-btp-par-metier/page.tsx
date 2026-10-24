@@ -101,7 +101,7 @@ const learningResourceJsonLd = {
   },
   publisher: {
     '@type': 'Organization',
-    name: SITE_CONFIG.legalName,
+    name: SITE_CONFIG.name,
     url: SITE_CONFIG.url,
   },
   associatedMedia: {

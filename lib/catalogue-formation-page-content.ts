@@ -488,7 +488,7 @@ const NIV_02: CatalogueFormationPageContent = {
   ],
   instructorTitle: 'Une formation conçue par une spécialiste de l’IA appliquée au BTP',
   instructorBody:
-    'Laure Olivié, OFC Création d’Entreprise (Qualiopi). Expérience du bâtiment et des travaux publics, spécialisation IA appliquée aux métiers du BTP. Références : FFB Grand Paris, CSFE, CNAM Entreprise, Le Moniteur Formations.',
+    'Laure Olivié, organisme certifié Qualiopi (OFC Création d’Entreprise). Expérience du bâtiment et des travaux publics, spécialisation IA appliquée aux métiers du BTP. Références : FFB Grand Paris, CSFE, CNAM Entreprise, Le Moniteur Formations.',
   instructorExtraLinks: [{ href: LINKS.qualiopi, label: 'Certification Qualiopi' }],
   finalCta: DEFAULT_FINAL_CTA,
   pdfHref: LINKS.pdfProgrammeIaBtpNiveau2AppelsOffre,
@@ -850,7 +850,7 @@ const NIV_10: CatalogueFormationPageContent = {
   pdfHref: LINKS.pdfProgrammeDeveloppementWebIaSansCoder14h,
   instructorTitle: 'Qui conçoit et encadre la formation ?',
   instructorBody:
-    'Laure Olivié, fondatrice d’OFC Création d’Entreprise (certifié Qualiopi), 7 ans d’expérience dans le BTP, ancienne dirigeante d’une entreprise de travaux publics en Île-de-France. Elle a elle-même créé ses outils de gestion avec l’IA. Méthode progressive, petits groupes, 70 % de pratique.',
+    'Laure Olivié, fondatrice de la marque et formatrice (organisme certifié Qualiopi — OFC Création d’Entreprise), 7 ans d’expérience dans le BTP, ancienne dirigeante d’une entreprise de travaux publics en Île-de-France. Elle a elle-même créé ses outils de gestion avec l’IA. Méthode progressive, petits groupes, 70 % de pratique.',
   showBeworkPasserelle: false,
   finalCta: DEFAULT_FINAL_CTA,
 };

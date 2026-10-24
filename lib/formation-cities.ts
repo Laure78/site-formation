@@ -73,7 +73,7 @@ export const ILE_DE_FRANCE = {
   ville: 'Île-de-France',
   path: '/formation-ia-btp-ile-de-france',
   regionLabel: 'Yvelines',
-  customHeroRefLine: 'OFC Création d’Entreprise · Île-de-France · Présentiel · Qualiopi',
+  customHeroRefLine: 'Laure Olivié · Île-de-France · Présentiel · Qualiopi',
   customHeroTitle:
     'Formation IA appliquée au bâtiment en Île-de-France : gagnez du temps sur vos chantiers et vos dossiers',
   customHeroSubtitle:

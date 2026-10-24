@@ -380,11 +380,11 @@ export function getOrganizationSchema() {
     '@context': 'https://schema.org',
     '@type': ['Organization', 'EducationalOrganization'],
     '@id': `${SITE_CONFIG.url}/#organization`,
-    name: SITE_CONFIG.legalName,
+    name: SITE_CONFIG.name,
     legalName: SITE_CONFIG.legalName,
     logo: { '@type': 'ImageObject', url: `${SITE_CONFIG.url}/logo-lo.svg` },
     image: `${SITE_CONFIG.url}/images/laure-olivie-formatrice-ia-btp-qualiopi.webp`,
-    alternateName: [SITE_CONFIG.name, 'Laure Olivié Formation'],
+    alternateName: [SITE_CONFIG.legalName, 'Laure Olivié Formation'],
     description:
       "Organisme de formation : intelligence artificielle et ChatGPT pour le BTP, PME bâtiment et professionnels du secteur. Automatisation administrative, IA devis bâtiment, IA gestion chantier. Certifié Qualiopi.",
     url: SITE_CONFIG.url,
@@ -561,7 +561,7 @@ export function getArticleSchema({
     publisher: {
       '@type': 'Organization',
       '@id': `${SITE_CONFIG.url}/#organization`,
-      name: SITE_CONFIG.legalName,
+      name: SITE_CONFIG.name,
       url: SITE_CONFIG.url,
       logo: {
         '@type': 'ImageObject',
@@ -688,7 +688,7 @@ export function buildBlogPostingJsonLd({
     publisher: {
       '@type': 'Organization',
       '@id': organizationId,
-      name: SITE_CONFIG.legalName,
+      name: SITE_CONFIG.name,
       url: baseRoot,
       logo: {
         '@type': 'ImageObject',
@@ -774,7 +774,7 @@ export function getPersonSchema() {
       {
         '@type': 'Organization',
         '@id': `${SITE_CONFIG.url}/#organization`,
-        name: SITE_CONFIG.legalName,
+        name: SITE_CONFIG.name,
         url: SITE_CONFIG.url,
       }, ...SCHEMA_PERSON_AFFILIATIONS.map((org) => ({
         '@type': 'Organization' as const,

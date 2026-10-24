@@ -20,17 +20,17 @@ export const A_PROPOS_PAGE_SUBTITLE =
   'J’aide les entreprises du bâtiment et des travaux publics à utiliser l’IA sur leurs devis, documents de chantier et appels d’offres.' as const;
 
 export const A_PROPOS_PAGE_PROOF_LINE =
-  'OFC certifié Qualiopi · Expérience en entreprise BTP · Instructrice LinkedIn Learning' as const;
+  'Organisme certifié Qualiopi · Expérience en entreprise BTP · Instructrice LinkedIn Learning' as const;
 
 /** Title entité (≠ `/formateur-ia-btp` qui cible la requête « formateur »). */
-export const A_PROPOS_PAGE_META_TITLE = 'Laure Olivié, formatrice IA BTP | OFC Qualiopi' as const;
+export const A_PROPOS_PAGE_META_TITLE = 'Laure Olivié, formatrice IA BTP | Qualiopi' as const;
 
 export const A_PROPOS_PAGE_META_DESCRIPTION =
   'Laure Olivié, formatrice IA spécialisée BTP, ancienne dirigeante de travaux publics. Formations Claude et ChatGPT en présentiel Île-de-France, Qualiopi.' as const;
 
 /** Bloc GEO « En bref » — page auteur / entité. */
 export const A_PROPOS_PAGE_EN_BREF =
-  'Laure Olivié est formatrice en intelligence artificielle appliquée aux métiers du BTP. Via OFC Création d’Entreprise (organisme certifié Qualiopi), elle anime des formations en présentiel en Île-de-France sur Claude et ChatGPT : devis, appels d’offres, DCE et comptes rendus. Ancienne dirigeante d’une PME de travaux publics, elle s’adresse aux dirigeants, conducteurs de travaux et fonctions support.';
+  'Laure Olivié est formatrice en intelligence artificielle appliquée aux métiers du BTP et marque commerciale sous laquelle sont proposées les sessions en présentiel en Île-de-France (Claude, ChatGPT : devis, appels d’offres, DCE, comptes rendus). L’entité exploitante, OFC Création d’Entreprise, est certifiée Qualiopi. Ancienne dirigeante d’une PME de travaux publics, elle s’adresse aux dirigeants, conducteurs de travaux et fonctions support.';
 
 /** Description JSON-LD Person — page À propos uniquement (facts vérifiés). */
 export function getAProposPagePersonDescription(): string {

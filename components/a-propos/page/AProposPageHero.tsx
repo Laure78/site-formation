@@ -21,6 +21,7 @@ import { OFC_SEC } from '@/lib/ofc-section-classes';
 import { CTA_RDV_LABEL } from '@/components/CtaRdv';
 import { ContentUpdatedLine } from '@/components/seo/ContentUpdatedLine';
 import { getPillarPageContentUpdatedAt } from '@/lib/content-updated-at';
+import { MENTION_MARQUE_EXPLOITANTE } from '@/lib/marque-identite';
 
 export function AProposPageHero() {
   const portrait = PHOTOS.aProposHero2026;
@@ -36,6 +37,9 @@ export function AProposPageHero() {
           </h1>
           <p className={`${OFC_TYPE_LEAD} mt-5 max-w-xl text-ofc-ink-muted`}>{A_PROPOS_PAGE_SUBTITLE}</p>
           <p className="mt-3 text-sm font-medium text-ofc-ink-subtle">{A_PROPOS_PAGE_PROOF_LINE}</p>
+          <p className="mt-2 max-w-xl text-xs leading-relaxed text-ofc-ink-subtle">
+            {MENTION_MARQUE_EXPLOITANTE}
+          </p>
           <EnBref className="mt-5 max-w-xl">
             <p>{A_PROPOS_PAGE_EN_BREF}</p>
           </EnBref>

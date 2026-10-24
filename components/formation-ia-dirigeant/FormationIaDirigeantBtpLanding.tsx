@@ -60,7 +60,7 @@ export function FormationIaDirigeantBtpLanding() {
     name: FORMATION_IA_DIRIGEANT_BTP_COURSE.name,
     description: FORMATION_IA_DIRIGEANT_BTP_COURSE.description,
     path: FORMATION_IA_DIRIGEANT_BTP_PATH,
-    providerName: SITE_CONFIG.legalName,
+    providerName: SITE_CONFIG.name,
     instructorName: SITE_CONFIG.name,
     teaches: FORMATION_IA_DIRIGEANT_BTP_COURSE.teaches,
     educationalLevel: 'Professionnel',

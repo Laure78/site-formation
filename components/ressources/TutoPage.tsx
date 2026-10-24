@@ -356,7 +356,7 @@ export function TutoPage({ tuto }: { tuto: TutoData }) {
                 <div className="text-sm">
                   <p className="font-semibold text-slate-900">Laure Olivié</p>
                   <p className="text-slate-600">
-                    Formatrice IA × BTP — OFC Création d&apos;Entreprise
+                    Formatrice IA × BTP — Laure Olivié
                   </p>
                 </div>
               </div>

@@ -18,7 +18,7 @@ export const CONSULTANT_HERO_PILLS = [
 export const CONSULTANT_WHY_OFC = {
   heading: 'Partagez votre expertise auprès des professionnels du BTP',
   intro:
-    'OFC Création d’Entreprise développe des parcours métiers pratiques en intelligence artificielle pour les entreprises du bâtiment et des travaux publics. Nous étudions les propositions de professionnels capables d’animer ces parcours et de relier l’IA aux réalités du terrain.',
+    'Laure Olivié développe des parcours métiers pratiques en intelligence artificielle pour les entreprises du bâtiment et des travaux publics. Nous étudions les propositions de professionnels capables d’animer ces parcours et de relier l’IA aux réalités du terrain.',
   cards: [
     {
       title: 'Une expertise métier valorisée',

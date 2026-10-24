@@ -91,7 +91,7 @@ const COURSE_JSON_LD = {
   provider: {
     '@type': 'Organization',
     '@id': `${SITE_CONFIG.url.replace(/\/$/, '')}/#organization`,
-    name: SITE_CONFIG.legalName,
+    name: SITE_CONFIG.name,
     url: SITE_CONFIG.url.replace(/\/$/, ''),
   },
   instructor: {

@@ -10,9 +10,9 @@ import { createPageMetadata } from '@/lib/seo';
 export const revalidate = 3600;
 
 export const metadata = createPageMetadata({
-  title: 'Emplois — rejoindre OFC Création d’Entreprise',
+  title: 'Emplois — rejoindre Laure Olivié',
   description:
-    'Offres d’emploi chez OFC Création d’Entreprise : formation IA pour les professionnels du BTP en présentiel en Île-de-France. Candidature spontanée possible.',
+    'Offres d’emploi pour rejoindre l’équipe Laure Olivié : formation IA pour les professionnels du BTP en présentiel en Île-de-France. Candidature spontanée possible.',
   path: LINKS.emplois,
   keywords: ['emploi formation BTP', 'recrutement organisme formation', 'OFC Guyancourt'],
 });
@@ -32,7 +32,7 @@ export default function EmploisPage() {
             ]}
           />
           <p className={OFC_EYEBROW}>Carrière</p>
-          <h1 className={`${OFC_TYPE_HERO} mt-2`}>Rejoignez OFC Création d’Entreprise</h1>
+          <h1 className={`${OFC_TYPE_HERO} mt-2`}>Rejoignez l’équipe Laure Olivié</h1>
           <p className="mt-4 max-w-2xl text-base leading-relaxed text-ofc-ink-muted">
             Contribuez à la formation des professionnels du bâtiment et des travaux publics aux
             usages concrets de l’intelligence artificielle.

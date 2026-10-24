@@ -188,7 +188,7 @@ export function getFormationsCatalogJsonLd(): Record<string, unknown> {
       {
         '@type': 'EducationalOrganization',
         '@id': EDUCATIONAL_ORGANIZATION_FRAGMENT_ID,
-        name: SITE_CONFIG.legalName,
+        name: SITE_CONFIG.name,
         url: SITE_CONFIG.url,
         sameAs: 'https://www.linkedin.com/in/laure-olivie',
         identifier: {

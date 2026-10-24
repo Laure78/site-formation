@@ -6,7 +6,7 @@ import { PREUVES } from '@/lib/constants';
 
 export const REJOINDRE_EQUIPE_INTRO = {
   lead: `Vous connaissez le BTP de l'intérieur. Vous savez ce que représente un DCE à analyser un vendredi soir, un devis à sortir dans l'urgence ou un compte rendu de chantier à rédiger. Aujourd'hui, l'IA change ces métiers, et les entreprises ont besoin de formateurs qui parlent leur langue.`,
-  organisme: `OFC Création d'Entreprise, organisme certifié Qualiopi fondé par Laure Olivié, accompagne les fédérations et les entreprises du bâtiment (FFB, CAPEB, CSFE). Satisfaction de ${PREUVES.satisfaction} (${PREUVES.repondants} répondants, ${PREUVES.periode}).`,
+  organisme: `Laure Olivié (organisme certifié Qualiopi, OFC Création d'Entreprise) accompagne les fédérations et les entreprises du bâtiment (FFB, CAPEB, CSFE). Satisfaction de ${PREUVES.satisfaction} (${PREUVES.repondants} répondants, ${PREUVES.periode}).`,
   recherche: `Nous recherchons des formateurs et formatrices issus du BTP, artisans en activité ou non, pour animer nos sessions en présentiel en Île-de-France.`,
 } as const;
 

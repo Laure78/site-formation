@@ -16,7 +16,7 @@ const REPERES = [
   },
   {
     title: 'Organisme certifié Qualiopi',
-    body: 'OFC Création d’Entreprise — certification consultable sur la page dédiée.',
+    body: 'Organisme certifié Qualiopi — certification consultable sur la page dédiée.',
     href: LINKS.qualiopi as string,
   },
 ] satisfies ReadonlyArray<{ title: string; body: string; href?: string }>;

@@ -14,6 +14,7 @@ import { IMAGE_QUALITY_DEFAULT } from '@/lib/image-props';
 import { LINKEDIN_PROFILE_ARIA } from '@/lib/linkedin-profile';
 import { QUALIOPI_LEGAL } from '@/lib/qualiopi-info';
 import { LINKS } from '@/lib/internal-links';
+import { MENTION_MARQUE_EXPLOITANTE } from '@/lib/marque-identite';
 import { SITE } from '@/lib/site';
 import { EXTERNAL_AUTHORITY_LINKS } from '@/lib/seo-links';
 import {
@@ -216,7 +217,7 @@ export function Footer() {
         {/* Réassurance — Qualiopi, financement, réseaux */}
         <div className="grid gap-8 border-t border-white/10 py-8 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)] lg:items-start lg:gap-10">
           <div className="min-w-0 space-y-4">
-            <p className="text-sm font-semibold text-white">{SITE.legalName}</p>
+            <p className="text-sm font-semibold text-white">{SITE.name}</p>
             <div className="flex max-w-xl flex-col gap-4">
               <QualiopiBadge size="lg" className="w-full max-w-[16rem] shrink-0 self-start" />
               <div className="min-w-0 text-sm leading-relaxed text-white/75">
@@ -280,8 +281,8 @@ export function Footer() {
               </ExternalLinkAnchor>
               <ExternalLinkAnchor
                 href={FOOTER_GOOGLE_REVIEWS_URL}
-                title="Consulter les avis Google — OFC Création d’Entreprise"
-                aria-label="Consulter les avis Google — OFC Création d’Entreprise"
+                title={`Consulter les avis Google — ${SITE.name}`}
+                aria-label={`Consulter les avis Google — ${SITE.name}`}
                 className="inline-flex min-h-11 items-center gap-2 rounded-lg border border-white/15 px-3 text-sm font-medium text-white transition hover:border-white/30 hover:bg-white/5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white motion-reduce:transition-none"
               >
                 <span className="flex h-8 w-8 items-center justify-center rounded-md bg-white/10 text-white">
@@ -298,8 +299,9 @@ export function Footer() {
           <div className="flex flex-col gap-4 lg:flex-row lg:items-start lg:justify-between lg:gap-6">
             <div className="min-w-0 flex-1 space-y-3">
               <p className="text-sm text-white/80">
-                © {year} {SITE.legalName} — {SITE.name}
+                © {year} {SITE.name}
               </p>
+              <p className="text-xs text-white/50">{MENTION_MARQUE_EXPLOITANTE}</p>
               <nav aria-label="Informations légales">
                 <ul className="flex flex-wrap items-center gap-x-1 gap-y-2 text-sm">
                   {NAV_LEGAL_BAR.map((item, index) => (

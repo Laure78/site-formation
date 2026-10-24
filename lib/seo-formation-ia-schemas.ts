@@ -21,7 +21,7 @@ export function buildFormationIaCourseJsonLd(opts?: {
     name: catalogue.titre,
     description: catalogue.accroche,
     path: formationHref(catalogue),
-    providerName: SITE_CONFIG.legalName,
+    providerName: SITE_CONFIG.name,
     instructorName: SITE_CONFIG.name,
     courseCode: catalogue.code,
     teaches: catalogue.objectifs?.length
@@ -44,7 +44,7 @@ export function buildFormationIaLocalBusinessJsonLd() {
   const base = getLocalBusinessSchema() as Record<string, unknown>;
   return {
     ...base,
-    name: `${SITE_CONFIG.legalName} — ${SITE_CONFIG.name}`,
+    name: `${SITE_CONFIG.name} — Formation IA pour le BTP`,
     areaServed: buildIdfAreaServedSchemaEntities(),
   };
 }
@@ -60,7 +60,7 @@ export function getFormationIleDeFrancePageLocalBusinessJsonLd(): Record<string,
     ...base,
     '@id': `${SITE_CONFIG.url}${FORMATION_IDF_PATH}#localbusiness-idf`,
     url: `${SITE_CONFIG.url}${FORMATION_IDF_PATH}`,
-    name: `${SITE_CONFIG.legalName} — Formation IA appliquée au bâtiment Île-de-France`,
+    name: `${SITE_CONFIG.name} — Formation IA appliquée au bâtiment Île-de-France`,
     description:
       'Formation IA pour le BTP en Île-de-France : ChatGPT et Claude AI pour entreprises du bâtiment et des travaux publics. Sessions 4 h en présentiel, Qualiopi, financement OPCO Constructys. Paris, Yvelines, 8 départements.',
   };
@@ -107,7 +107,7 @@ export function buildFormationIaServiceJsonLd(opts: {
     provider: {
       '@type': 'Organization',
       '@id': `${SITE_CONFIG.url}/#organization`,
-      name: SITE_CONFIG.legalName,
+      name: SITE_CONFIG.name,
     },
     areaServed: opts.areaServed.map((name) => ({ '@type': 'AdministrativeArea', name })),
     url: `${SITE_CONFIG.url}${opts.path}`,
@@ -129,7 +129,7 @@ export function buildFormationIaDeptPageLocalBusinessJsonLd(opts: {
     ...base,
     '@id': `${SITE_CONFIG.url}${opts.path}#localbusiness-dept-${opts.deptCode}`,
     url: `${SITE_CONFIG.url}${opts.path}`,
-    name: `${SITE_CONFIG.legalName} — Formation IA pour le BTP ${deptLabel}`,
+    name: `${SITE_CONFIG.name} — Formation IA pour le BTP ${deptLabel}`,
     description: opts.description,
     areaServed: [
       { '@type': 'AdministrativeArea', name: deptLabel },

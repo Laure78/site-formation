@@ -8,7 +8,7 @@ export const UTILITY_ORGANISME_NAV_LINKS: readonly HeaderNavLink[] = [
   {
     href: LINKS.aPropos,
     label: 'À propos',
-    title: 'OFC Création d’Entreprise — Laure Olivié',
+    title: 'Laure Olivié — formatrice IA BTP',
   },
   {
     href: LINKS.qualiopi,
@@ -28,7 +28,7 @@ export const UTILITY_ORGANISME_NAV_LINKS: readonly HeaderNavLink[] = [
   {
     href: LINKS.emplois,
     label: 'Nous rejoindre',
-    title: 'Emplois et candidatures — OFC Création d’Entreprise',
+    title: 'Emplois et candidatures — Laure Olivié',
   },
 ];
 

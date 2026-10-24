@@ -41,9 +41,12 @@ export function buildOrganizationOfcSchemaNode(
   return {
     '@type': ['Organization', 'EducationalOrganization', 'LocalBusiness'],
     '@id': organizationId,
-    name: SCHEMA_SITE_ORG.legalName,
+    name: SCHEMA_SITE_ORG.personName,
     legalName: SCHEMA_ORGANIZATION_OFC.legalNameSasu,
-    alternateName: `${SCHEMA_SITE_ORG.personName} — Formation IA pour le BTP`,
+    alternateName: [
+      SCHEMA_ORGANIZATION_OFC.legalName,
+      `${SCHEMA_SITE_ORG.personName} — Formation IA pour le BTP`,
+    ],
     url: base,
     email: SCHEMA_SITE_ORG.email,
     telephone: SCHEMA_SITE_ORG.phone,

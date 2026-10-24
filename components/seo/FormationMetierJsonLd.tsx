@@ -213,7 +213,7 @@ function buildCourseNode(params: {
     provider: {
       '@type': 'Organization',
       '@id': ORGANIZATION_ID,
-      name: "OFC Création d'Entreprise",
+      name: SCHEMA_ORGANIZATION_OFC.name,
     },
     instructor: { '@id': PERSON_LAURE_ID },
     educationalLevel: level,

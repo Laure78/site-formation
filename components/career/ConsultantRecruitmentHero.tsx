@@ -52,7 +52,7 @@ export function ConsultantRecruitmentHero() {
 
         <EnBref className="mt-4 max-w-2xl">
           <p>
-            OFC Création d&apos;Entreprise (Qualiopi) recueille les propositions de{' '}
+            Laure Olivié (Qualiopi) recueille les propositions de{' '}
             <strong>consultants-formateurs indépendants</strong> pour les{' '}
             <strong>7 parcours métiers</strong> du catalogue IA BTP — pas pour les modules isolés
             hors parcours. Sans promesse d&apos;emploi salarié ni de volume de missions.

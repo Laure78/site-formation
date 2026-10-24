@@ -57,12 +57,12 @@ export async function generateMetadata(): Promise<Metadata> {
     title: {
       /** Pages : `buildTitle()` → `{ absolute }` pour éviter double suffixe et « · | » orphelin. */
       template: '%s | Laure Olivié',
-      default: "Laure Olivié — Formatrice IA pour les pros du BTP | OFC Création d'Entreprise",
+      default: 'Laure Olivié — Formatrice IA pour les pros du BTP (Qualiopi)',
     },
     description: siteDescription,
     authors: [{ name: SITE_CONFIG.name, url: `${baseUrl}/a-propos` }],
     creator: SITE_CONFIG.name,
-    publisher: 'OFC Création d\'Entreprise',
+    publisher: SITE_CONFIG.name,
     formatDetection: { telephone: true, email: true, address: false },
     category: 'education',
     openGraph: {

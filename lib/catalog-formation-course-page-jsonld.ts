@@ -9,6 +9,7 @@ import {
 import {
   SCHEMA_CONTACT,
   SCHEMA_LINKEDIN_PROFILE_URL,
+  SCHEMA_ORGANIZATION_OFC,
   SCHEMA_PERSON_LAURE,
   SCHEMA_PUBLIC_SITE_URL,
 } from '@/lib/schema-constants';
@@ -57,7 +58,7 @@ export function buildCatalogFormationCoursePageSchema(
     provider: {
       '@type': 'Organization',
       '@id': `${base}/#organization`,
-      name: "OFC Création d'Entreprise",
+      name: SCHEMA_ORGANIZATION_OFC.name,
       url: base,
       identifier: {
         '@type': 'PropertyValue',

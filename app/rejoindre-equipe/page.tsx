@@ -25,10 +25,10 @@ const PAGE_URL = `${SITE_CONFIG.url.replace(/\/$/, '')}${PAGE_PATH}`;
 const MAILTO_HREF = `mailto:${CONTACT.email}?subject=${encodeURIComponent(REJOINDRE_EQUIPE_CTA.emailSubject)}`;
 
 export const metadata = createPageMetadata({
-  title: 'Devenir formateur IA BTP | Rejoindre OFC Création d\'Entreprise',
-  titleAbsolute: 'Devenir formateur IA BTP | Rejoindre OFC Création d\'Entreprise',
+  title: 'Devenir formateur IA BTP | Rejoindre Laure Olivié',
+  titleAbsolute: 'Devenir formateur IA BTP | Rejoindre Laure Olivié',
   description:
-    'Artisan ou ancien du BTP ? Rejoignez OFC pour animer des formations IA auprès des pros du bâtiment en Île-de-France. Supports clé en main, planning souple.',
+    'Artisan ou ancien du BTP ? Rejoignez l’équipe Laure Olivié pour animer des formations IA auprès des pros du bâtiment en Île-de-France. Supports clé en main, planning souple.',
   path: PAGE_PATH,
   keywords: [
     'devenir formateur IA BTP',

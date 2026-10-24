@@ -11,9 +11,9 @@ export const revalidate = 3600;
 const SOURCE_PAGE = `${SITE_CONFIG.url.replace(/\/$/, '')}${LINKS.candidaturesSpontanees}`;
 
 export const metadata = createPageMetadata({
-  title: 'Candidature spontanée — OFC Création d’Entreprise',
+  title: 'Candidature spontanée — Laure Olivié',
   description:
-    'Déposez une candidature spontanée auprès d’OFC Création d’Entreprise : emploi, stage, alternance ou collaboration. Formation IA BTP en Île-de-France.',
+    'Déposez une candidature spontanée auprès de Laure Olivié : emploi, stage, alternance ou collaboration. Formation IA BTP en Île-de-France (employeur : OFC Création d’Entreprise).',
   path: LINKS.candidaturesSpontanees,
   keywords: ['candidature spontanée', 'recrutement organisme formation', 'OFC Guyancourt'],
 });

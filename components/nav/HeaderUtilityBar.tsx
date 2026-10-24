@@ -65,7 +65,7 @@ export function HeaderUtilityBar({ onBeforeOpenSearch }: HeaderUtilityBarProps) 
         <span className="header-utility-divider hidden sm:block" aria-hidden />
         <Link
           href={espaceHref}
-          title="Connexion à l’espace client — plateforme de formation OFC"
+          title="Connexion à l’espace client — plateforme de formation Laure Olivié"
           className={`${UTILITY_LINK_CLASS}${espaceActive ? ' font-semibold text-[#377CF3]' : ''}`}
           aria-current={espaceActive ? 'page' : undefined}
         >

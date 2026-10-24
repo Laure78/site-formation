@@ -34,7 +34,7 @@ export function FormationPlateformeConnexionButton({
   return (
     <Link
       href={`${LINKS.authConnexion}?next=${encodeURIComponent(LINKS.espaceApprenant)}`}
-      title="Connexion à la plateforme de formation IA BTP — OFC Création d'Entreprise"
+      title="Connexion à la plateforme de formation IA BTP — Laure Olivié"
       aria-label={label}
       onClick={onClick}
       className={`${VARIANT_CLASSES[variant]} ${className}`.trim()}

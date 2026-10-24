@@ -85,7 +85,7 @@ const courseBase = getCourseSchema({
   description:
     "Formation pratique à l'IA pour les professionnels du BTP : Claude et ChatGPT sur devis, appels d'offres, DCE, CCTP, comptes rendus de chantier. Organisme certifié Qualiopi. Financement OPCO possible selon éligibilité.",
   path: PATH,
-  providerName: SITE_CONFIG.legalName,
+  providerName: SITE_CONFIG.name,
   areaServed: ['Île-de-France', 'Grand Paris', 'Yvelines', 'Paris', 'France'],
   teaches: [
     'Utilisation de Claude et ChatGPT pour les devis BTP',

@@ -20,7 +20,7 @@ export function buildRejoindreEquipeJobPostingJsonLd(pageUrl: string): Record<st
     '@type': 'JobPosting',
     title: JOB_POSTING_TITLE,
     description:
-      'OFC Création d’Entreprise recrute des formateurs et formatrices issus du BTP pour animer des formations IA en présentiel en Île-de-France. Supports pédagogiques fournis, intégration progressive.',
+      'Laure Olivié recrute des formateurs et formatrices issus du BTP pour animer des formations IA en présentiel en Île-de-France. Supports pédagogiques fournis, intégration progressive.',
     identifier: {
       '@type': 'PropertyValue',
       name: OFC_IDENTITE.raisonSociale,

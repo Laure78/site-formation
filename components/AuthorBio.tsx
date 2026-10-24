@@ -7,6 +7,7 @@ import { PHOTOS } from '@/lib/photos';
 import { AUTHOR_HEADSHOT_OBJECT_POSITION } from '@/lib/author-headshot';
 import { SCHEMA_LINKEDIN_PROFILE_URL, SCHEMA_PERSON_LAURE } from '@/lib/schema-constants';
 import { formatAnneesExperienceBTP } from '@/lib/data/indicateurs-resultats';
+import { formatOrganismeQualiopiCourt } from '@/lib/marque-identite';
 
 export type AuthorBioProps = {
   className?: string;
@@ -19,7 +20,7 @@ export type AuthorBioProps = {
 const BIO_LINES: readonly string[] = [
   `Ancienne dirigeante d’une entreprise de travaux publics (ALIA BTP), ${formatAnneesExperienceBTP()}.`,
   'Instructrice officielle LinkedIn Learning — cours IA appliqués au bâtiment.',
-  "OFC Création d'Entreprise, organisme certifié Qualiopi — formations en présentiel, Île-de-France uniquement.",
+  `${formatOrganismeQualiopiCourt()} — formations en présentiel, Île-de-France uniquement.`,
 ];
 
 /**

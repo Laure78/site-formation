@@ -177,7 +177,7 @@ export function FormationIaMetierBody({
       </p>
 
       <h2 className="font-display text-xl font-semibold text-slate-900">
-        OFC Création d&apos;Entreprise — Laure Olivié
+        Laure Olivié — organisme certifié Qualiopi
       </h2>
       <p>
         <strong>Formatrice IA spécialisée BTP</strong> — plus de{' '}
@@ -493,7 +493,7 @@ function FormationIaParisBody() {
         Qualiopi, OPCO Constructys, contact
       </h2>
       <p>
-        OFC Création d&apos;Entreprise — Laure Olivié, formatrice <strong>ChatGPT</strong> et{' '}
+        Laure Olivié, formatrice <strong>ChatGPT</strong> et{' '}
         <strong>Claude AI</strong> pour le BTP. Siège :
         Guyancourt (78).{' '}
         <Link href="/financement-constructys-formation-ia-btp" className="text-[#377CF3] hover:underline">

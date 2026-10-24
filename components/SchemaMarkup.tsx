@@ -26,7 +26,7 @@ const personJsonLd = {
   sameAs: [SCHEMA_LINKEDIN_PROFILE_URL],
   worksFor: {
     '@type': 'Organization',
-    name: SITE_CONFIG.legalName,
+    name: SITE_CONFIG.name,
     url: SITE,
   },
 };
@@ -34,7 +34,7 @@ const personJsonLd = {
 const localBusinessJsonLdBase = {
   '@context': 'https://schema.org',
   '@type': 'LocalBusiness',
-  name: SITE_CONFIG.legalName,
+  name: SITE_CONFIG.name,
   '@id': `${SITE}/#localbusiness`,
   url: SITE,
   image: `${SITE}/images/laure-olivie-formatrice-ia-btp-qualiopi.webp`,

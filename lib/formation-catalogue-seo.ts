@@ -15,6 +15,7 @@ import {
   TARIF_INTER_DEV_WEB_IA_14H_HT,
   TARIF_INTER_DEV_WEB_IA_HT,
 } from '@/lib/formation-developpement-web-ia-content';
+import { formatOrganismeQualiopiCourt } from '@/lib/marque-identite';
 
 export type FormationIaLimitRow = {
   iaAide: string;
@@ -38,8 +39,7 @@ export type FormationCatalogueSeoConfig = {
   iaLimits: readonly FormationIaLimitRow[];
 };
 
-const QUALIOPI_MENTION =
-  'OFC Création d\'Entreprise, organisme certifié Qualiopi, présentiel Île-de-France';
+const QUALIOPI_MENTION = `${formatOrganismeQualiopiCourt()}, présentiel Île-de-France`;
 
 export const FORMATION_CATALOGUE_SEO: Record<FormationCatalogueCode, FormationCatalogueSeoConfig> = {
   'NIV-01': {
@@ -269,5 +269,5 @@ export function getFormationCatalogueSeo(ref: FormationCatalogueCode): Formation
 
 /** Bloc autorité E-E-A-T — harmonisé sur toutes les fiches catalogue. */
 export function getFormationCatalogueAutoriteParagraph(programmeUpdatedAt: string): string {
-  return `Laure Olivié, formatrice IA générative spécialisée BTP (${formatAnneesExperienceBTP()}), dispense cette formation via OFC Création d'Entreprise (organisme certifié Qualiopi). Satisfaction ${formatNoteSatisfactionAffichageComplet()} (${indicateursResultats.periodeReference}). Programme mis à jour le ${programmeUpdatedAt}. Références : FFB Grand Paris, FFB Île-de-France, CSFE, CNAM Entreprise, Le Moniteur Formations.`;
+  return `Laure Olivié, formatrice IA générative spécialisée BTP (${formatAnneesExperienceBTP()}), dispense cette formation via ${formatOrganismeQualiopiCourt()}. Satisfaction ${formatNoteSatisfactionAffichageComplet()} (${indicateursResultats.periodeReference}). Programme mis à jour le ${programmeUpdatedAt}. Références : FFB Grand Paris, FFB Île-de-France, CSFE, CNAM Entreprise, Le Moniteur Formations.`;
 }

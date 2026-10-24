@@ -9,6 +9,7 @@ import { getAProposOrganizationJsonLd } from '../lib/schema-a-propos-organizatio
 import { getAProposUnifiedJsonLd } from '../lib/schema-a-propos-unified-graph.ts';
 import {
   SCHEMA_CONTACT,
+  SCHEMA_ORGANIZATION_OFC,
   SCHEMA_ORGANIZATION_SAME_AS,
   SCHEMA_PERSON_KNOWS_ABOUT,
   SCHEMA_PERSON_LAURE,
@@ -59,7 +60,10 @@ function assertOrganization(node, label) {
     types.includes('EducationalOrganization') ||
     types.includes('LocalBusiness');
   if (!isOrg) throw new Error(`${label}: @type Organization attendu`);
-  if (node.name !== "OFC Création d'Entreprise") throw new Error(`${label}: name incorrect`);
+  if (node.name !== SCHEMA_ORGANIZATION_OFC.name) throw new Error(`${label}: name incorrect`);
+  if (node.legalName && !String(node.legalName).includes("OFC Création d'Entreprise")) {
+    throw new Error(`${label}: legalName doit mentionner l'entité exploitante OFC`);
+  }
   if (node.taxID !== SCHEMA_CONTACT.siretDigits) throw new Error(`${label}: taxID SIRET incorrect`);
   if (!node.hasCredential) throw new Error(`${label}: hasCredential Qualiopi manquant`);
   const area = node.areaServed;

@@ -103,7 +103,7 @@ export default function FormateurIaBtpPage() {
           >
             <div className="min-w-0">
               <p className="text-sm font-semibold uppercase tracking-wide text-[#377CF3]">
-                {SITE_CONFIG.legalName} · Formatrice Qualiopi · Présentiel Île-de-France
+                {SITE_CONFIG.name} · Formatrice Qualiopi · Présentiel Île-de-France
               </p>
               <h1 className="mt-3 font-display text-2xl font-bold leading-tight text-slate-900 md:text-2xl lg:text-2xl">
                 Formatrice IA spécialisée bâtiment et construction en Île-de-France
@@ -112,8 +112,8 @@ export default function FormateurIaBtpPage() {
                 <p>
                   Laure Olivié forme les professionnels du BTP à l&apos;intelligence artificielle sur leurs
                   documents réels — devis, DCE, mémoires techniques, comptes rendus de chantier. Ancienne
-                  dirigeante d’une entreprise de travaux publics, elle intervient via OFC Création
-                  d&apos;Entreprise, certifié Qualiopi, en présentiel intra ou inter.
+                  dirigeante d’une entreprise de travaux publics, elle intervient via un organisme certifié
+                  Qualiopi (OFC Création d&apos;Entreprise), en présentiel intra ou inter.
                 </p>
               </EnBref>
               <p className="mt-5 text-base leading-relaxed text-slate-600 md:text-lg">
@@ -166,7 +166,7 @@ export default function FormateurIaBtpPage() {
                 BTP) : plannings, sous-traitance, suivi de chantier, pression des délais.
               </p>
               <p className="mt-3 text-base leading-relaxed text-slate-600">
-                Fondatrice de {SITE_CONFIG.legalName}, elle forme depuis 2022 des TPE et PME du BTP — une
+                Fondatrice de {SITE_CONFIG.name}, elle forme depuis 2022 des TPE et PME du BTP — une
                 formatrice qui parle le langage du terrain, pas seulement celui des outils.
               </p>
             </div>

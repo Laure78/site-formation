@@ -46,7 +46,7 @@ export function ClaudeAiBtpHero() {
         <>
           <span className="inline-flex items-center gap-1.5 font-medium text-[#475569]">
             <Award className="h-3.5 w-3.5 shrink-0" strokeWidth={2} aria-hidden />
-            Laure Olivié · formatrice IA spécialisée BTP · OFC Création d&apos;Entreprise
+            Laure Olivié · formatrice IA spécialisée BTP · Qualiopi
           </span>
           <span className="hidden sm:inline text-slate-300" aria-hidden>
             ·

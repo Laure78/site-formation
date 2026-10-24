@@ -14,7 +14,7 @@ function authorPersonNode() {
     url: `${SITE_BASE}${LINKS.aPropos}`,
     affiliation: {
       '@type': 'Organization',
-      name: SITE_CONFIG.legalName,
+      name: SITE_CONFIG.name,
       url: SITE_CONFIG.url,
     },
   };

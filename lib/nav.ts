@@ -92,7 +92,7 @@ export const NAV_FOOTER_PARCOURS: readonly NavItem[] = [
 
 /** Colonne 3 — Notre organisme. */
 export const NAV_ORGANISME: readonly NavItem[] = [
-  { href: LINKS.aPropos, label: 'À propos', title: 'OFC Création d’Entreprise — Laure Olivié' },
+  { href: LINKS.aPropos, label: 'À propos', title: 'Laure Olivié — formatrice IA BTP' },
   { href: LINKS.formateurs, label: 'Nos formateurs', title: 'Équipe de formateurs IA BTP' },
   {
     href: LINKS.qualiopi,
@@ -101,15 +101,20 @@ export const NAV_ORGANISME: readonly NavItem[] = [
   },
   { href: LINKS.partenaires, label: 'Nos partenaires', title: 'Partenaires OFC' },
   { href: LINKS.avisClients, label: 'Avis clients', title: 'Avis clients et témoignages' },
+  {
+    href: LINKS.emplois,
+    label: 'Nous rejoindre',
+    title: 'Emplois et candidatures — Laure Olivié',
+  },
 ];
 
 /** Colonne — Carrière (footer). */
 export const NAV_CARRIERE: readonly NavItem[] = [
-  { href: LINKS.emplois, label: 'Emplois', title: 'Offres d’emploi OFC Création d’Entreprise' },
+  { href: LINKS.emplois, label: 'Emplois', title: 'Offres d’emploi — Laure Olivié' },
   {
     href: LINKS.rejoindreEquipe,
     label: 'Rejoindre l’équipe',
-    title: 'Devenir formateur IA BTP — rejoindre OFC',
+    title: 'Devenir formateur IA BTP — rejoindre l’équipe',
   },
   {
     href: LINKS.devenezConsultant,
@@ -141,7 +146,7 @@ export const NAV_RESSOURCES: readonly NavItem[] = [
   {
     href: `${LINKS.authConnexion}?next=${encodeURIComponent(LINKS.espaceApprenant)}`,
     label: 'Espace client',
-    title: 'Connexion à l’espace client — plateforme de formation OFC',
+    title: 'Connexion à l’espace client — plateforme Laure Olivié',
   },
 ];
 

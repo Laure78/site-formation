@@ -13,7 +13,7 @@ export function AccueilFormatriceSection() {
       <div className="grid items-center gap-10 lg:grid-cols-[minmax(0,14rem)_minmax(0,1fr)] lg:gap-12">
         <div className="mx-auto w-full max-w-[14rem] lg:mx-0">
           <div className="overflow-hidden rounded-xl p-1 ring-1 ring-ofc-border/70">
-            <ProfilePhoto title="Laure Olivié — formatrice IA pour le BTP, OFC Création d'Entreprise" />
+            <ProfilePhoto title="Laure Olivié — formatrice IA pour le BTP" />
           </div>
         </div>
         <div className="min-w-0 max-w-2xl">

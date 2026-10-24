@@ -34,7 +34,7 @@ export function AccueilLaureFormateursSection() {
             {laure.prenom} {laure.nom}
           </h3>
           <p className="mt-1 text-sm font-medium text-ofc-accent">
-            Formatrice IA spécialisée BTP · Fondatrice d’OFC Création d’Entreprise
+            Formatrice IA spécialisée BTP · Fondatrice de Laure Olivié
           </p>
           <p className="mt-3 text-sm leading-relaxed text-ofc-ink-muted">
             7 ans dans le BTP, ex-dirigeante d’ALIA BTP (travaux publics). Formations sur vos devis,

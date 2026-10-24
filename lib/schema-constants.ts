@@ -6,6 +6,7 @@
  */
 
 import { siteStats, CONTACT, SOCIAL_PROOF } from '@/lib/constants';
+import { MARQUE_COMMERCIALE } from '@/lib/marque-identite';
 import { OFC_IDENTITE } from '@/lib/ofc-identite';
 import { SITE_HEADER_LOGO_SRC } from '@/lib/photos';
 import { formatAnneesExperienceBTP } from '@/lib/data/indicateurs-resultats';
@@ -165,7 +166,8 @@ export const SCHEMA_PERSON_AFFILIATIONS_A_PROPOS = SCHEMA_PERSON_AFFILIATIONS.sl
  */
 export const SCHEMA_ORGANIZATION_OFC = {
   '@type': 'Organization' as const,
-  name: OFC_IDENTITE.raisonSociale,
+  /** Marque commerciale (provider Course, rich results). */
+  name: MARQUE_COMMERCIALE,
   legalName: OFC_IDENTITE.raisonSociale,
   /** Dénomination juridique complète (JSON-LD layout #ofc). */
   legalNameSasu: `${OFC_IDENTITE.raisonSociale} ${OFC_IDENTITE.formeJuridique}`,

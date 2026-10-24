@@ -111,7 +111,7 @@ export const A_PROPOS_PERSON_SCRIPT_JSON_LD: Record<string, unknown> = {
   email: SCHEMA_CONTACT.email,
   worksFor: {
     '@type': 'Organization',
-    name: "OFC Création d'Entreprise",
+    name: SCHEMA_ORGANIZATION_OFC.name,
     url: BASE,
     identifier: '905 244 281 00010',
   },

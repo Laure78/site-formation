@@ -1,7 +1,7 @@
-# laureolivie.fr — OFC Création d'Entreprise
+# laureolivie.fr — Laure Olivié (marque commerciale)
 
 ## À propos
-Laure Olivié est formatrice IA spécialisée BTP, avec 7 ans d'expérience dans le secteur (ancienne dirigeante d'ALIA BTP, travaux publics, Île-de-France). Son organisme OFC Création d'Entreprise, certifié Qualiopi, forme les professionnels du bâtiment — dirigeants de PME, conducteurs de travaux, chargés d'affaires, fonctions support — à l'IA appliquée à leurs documents réels. Satisfaction 4,45/5 (20 répondants, questionnaires à chaud, juillet 2025 – juin 2026) — détail : /indicateurs-resultats. OFC ne publie pas de cumul de professionnels formés.
+Laure Olivié est formatrice IA spécialisée BTP et marque commerciale sous laquelle sont proposées les formations, avec 7 ans d'expérience dans le secteur (ancienne dirigeante d'ALIA BTP, travaux publics, Île-de-France). L'entité exploitante OFC Création d'Entreprise est certifiée Qualiopi et forme les professionnels du bâtiment — dirigeants de PME, conducteurs de travaux, chargés d'affaires, fonctions support — à l'IA appliquée à leurs documents réels. Satisfaction 4,45/5 (20 répondants, questionnaires à chaud, juillet 2025 – juin 2026) — détail : /indicateurs-resultats. Aucun cumul de professionnels formés n'est publié.
 
 ## Expertise
 - Formation IA / ChatGPT / Claude pour le BTP (bâtiment, travaux publics, construction).
@@ -54,4 +54,4 @@ Laure Olivié est formatrice IA spécialisée BTP, avec 7 ans d'expérience dans
 Laure Olivié · OFC Création d'Entreprise · SIRET 905 244 281 00010 · NDA 11788515078 · 6 rue Henri Dunant, 78280 Guyancourt · contact@laureolivie.fr · 06 95 66 18 18 · www.laureolivie.fr
 
 ---
-Dernière mise à jour fichier : 2026-10-22
+Dernière mise à jour fichier : 2026-10-24

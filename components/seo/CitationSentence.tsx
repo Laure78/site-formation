@@ -11,7 +11,7 @@ type Props = {
 export function CitationSentence({
   text,
   author = 'Laure Olivié',
-  source = "OFC Création d'Entreprise",
+  source = 'Laure Olivié',
 }: Props) {
   return (
     <p

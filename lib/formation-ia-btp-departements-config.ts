@@ -17,6 +17,8 @@ import {
 } from '@/lib/formation-ia-btp-dept-grammar';
 import { DEPARTEMENT_PAGE_PATHS, TEMOIGNAGES_REGION_IDF } from '@/lib/departement-pages';
 import { FINANCEMENT_FORMULATION_PRUDENTE } from '@/lib/financement-copy';
+import { MARQUE_COMMERCIALE } from '@/lib/marque-identite';
+import { OFC_IDENTITE } from '@/lib/ofc-identite';
 
 /** Titre + citations région — même jeu que `TemoignagesRegion` (pas de localisation inventée). */
 const TEMOIGNAGES_REGION_BLOCK = {
@@ -24,7 +26,10 @@ const TEMOIGNAGES_REGION_BLOCK = {
   temoignages: TEMOIGNAGES_REGION_IDF.map((t) => ({ text: t.text, attribution: t.attribution })),
 } as const;
 
-const OFC = 'OFC Création d\'Entreprise';
+/** Marque commerciale — textes promotionnels départements. */
+const MARQUE = MARQUE_COMMERCIALE;
+/** Entité juridique — siège, Qualiopi. */
+const ENTITE = OFC_IDENTITE.raisonSociale;
 
 function capitalizeLocatif(grammar: DeptGrammar): string {
   const loc = deptLocatif(grammar);
@@ -131,7 +136,7 @@ const CAS_USAGE_FORMATION_BTP: string[] = [
   'Tableaux de suivi reformulés à partir de vos données — sans données perso non anonymisées.',
 ];
 
-const DEPLACEMENT_GUYANCOURT = `Siège ${OFC} à Guyancourt (78) : déplacement inclus au devis pour intra IDF. Créneaux souvent calés sous 3 à 6 semaines. Guyancourt est à ~30 min des principaux bassins franciliens.`;
+const DEPLACEMENT_GUYANCOURT = `Siège ${ENTITE} à Guyancourt (78) : déplacement inclus au devis pour intra IDF. Créneaux souvent calés sous 3 à 6 semaines. Guyancourt est à ~30 min des principaux bassins franciliens.`;
 
 function ffbCasClient(deptCode: string): string {
   const idf = `Interventions FFB Île-de-France et retours terrain franciliens — exemples adaptés à votre secteur.`;
@@ -171,7 +176,7 @@ export const FORMATION_IA_BTP_YVELINES_78: FormationIaBtpDeptLandingConfig = {
     'Saint-Germain-en-Laye',
   ],
   courseName: 'Formation IA pour le BTP Yvelines (78) — Qualiopi, financement possible selon éligibilité',
-  courseDescription: `${OFC} : formation IA et ChatGPT pour entreprises du BTP dans les Yvelines (78). Sessions 4 h, exclusivement en présentiel, devis et chantier. Organisme certifié Qualiopi, financement possible selon éligibilité. Guyancourt, Versailles, Mantes, SQY.`,
+  courseDescription: `${MARQUE} : formation IA et ChatGPT pour entreprises du BTP dans les Yvelines (78). Sessions 4 h, exclusivement en présentiel, devis et chantier. Organisme certifié Qualiopi, financement possible selon éligibilité. Guyancourt, Versailles, Mantes, SQY.`,
   serviceName: `Accompagnement formation IA pour les pros du BTP — département des Yvelines (78)`,
   serviceDescription: `Prestation de formation professionnelle en intelligence artificielle appliquée au bâtiment et aux travaux publics pour les entreprises implantées dans le département des Yvelines (78) : interventions intra-entreprise, calendrier Île-de-France, organisme certifié Qualiopi.`,
   areaServedCourse: [
@@ -189,7 +194,7 @@ export const FORMATION_IA_BTP_YVELINES_78: FormationIaBtpDeptLandingConfig = {
     `Yvelines denses (Versailles, SQY, Mantes) et périurbaines (Rambouillet) : délais serrés, concurrence sur les offres, admin qui s'accumule entre chantier et bureau.`,
     `L'efficacité se joue aussi sur les documents — devis, CR, CCTP, mémoires. Sans méthode, copier-coller et modèles Word vieillissants coûtent des heures chaque semaine.`,
     `L'IA accélère mise en forme et structuration — si vous savez quoi demander et quoi ne jamais soumettre tel quel. Sans formation Qualiopi : risque d'automatisation naïve et de fuite de données.`,
-    `Les dirigeants du 78 veulent un gain mesurable sur l'admin, pas une transformation de trois ans. Objectif ${OFC} : 4 h terrain, livrables utilisables dès le lendemain.`,
+    `Les dirigeants du 78 veulent un gain mesurable sur l'admin, pas une transformation de trois ans. Objectif ${MARQUE} : 4 h terrain, livrables utilisables dès le lendemain.`,
   ],
   solutionTitle: 'Formation IA BTP 4 h, Qualiopi, centrée sur vos documents',
   solutionBody: [
@@ -221,7 +226,7 @@ export const FORMATION_IA_BTP_YVELINES_78: FormationIaBtpDeptLandingConfig = {
   ],
   tissuBtpLocal: [
     `Yvelines : PME bâtiment, second œuvre et TP — Versailles, SQY, corridor Mantes, périphérie Poissy. Marchés exigeants, documentation lourde (mémoires, CR, AO).`,
-    `Sessions ${OFC} : exercices devis, CCTP, courriers — ChatGPT et Claude AI, cadre Qualiopi, relecture humaine et confidentialité.`,
+    `Sessions ${MARQUE} : exercices devis, CCTP, courriers — ChatGPT et Claude AI, cadre Qualiopi, relecture humaine et confidentialité.`,
   ],
   casUsageStandard: CAS_USAGE_FORMATION_BTP,
   deplacementGuyancourt: DEPLACEMENT_GUYANCOURT,
@@ -273,7 +278,7 @@ function buildDeptConfig(opts: {
     badgeLine: opts.badgeLine,
     cities: opts.cities,
     courseName,
-    courseDescription: `${OFC} : formation IA et ChatGPT pour le BTP ${locatif} (${deptCode}). Sessions 4 h, exclusivement en présentiel en Île-de-France. Qualiopi, financement possible selon éligibilité. ${opts.perimetre}`,
+    courseDescription: `${MARQUE} : formation IA et ChatGPT pour le BTP ${locatif} (${deptCode}). Sessions 4 h, exclusivement en présentiel en Île-de-France. Qualiopi, financement possible selon éligibilité. ${opts.perimetre}`,
     serviceName: `Accompagnement formation IA appliquée au bâtiment — département ${d}`,
     serviceDescription: `Formation professionnelle en intelligence artificielle appliquée au bâtiment et aux travaux publics pour les entreprises ${de} (${deptCode}) : intra-entreprise, calendrier Île-de-France, organisme certifié Qualiopi.`,
     areaServedCourse: [grammar.nom, opts.chefLieu, 'Île-de-France', 'France'],
@@ -287,7 +292,7 @@ function buildDeptConfig(opts: {
     ],
     solutionTitle: `Formation IA BTP ${deptCode} : 4 h, résultats opérationnels`,
     solutionBody: [
-      `${OFC} pour ${avecArticle} (${deptCode}) : 4 h, vos documents réels, zéro jargon startup. Devis, mails, synthèses, brouillons mémoires — itérations guidées.`,
+      `${MARQUE} pour ${avecArticle} (${deptCode}) : 4 h, vos documents réels, zéro jargon startup. Devis, mails, synthèses, brouillons mémoires — itérations guidées.`,
       `Siège Guyancourt (78) : déplacements IDF réalistes ${opts.temoignageZone}. Présentiel intra (dans vos locaux) ou inter uniquement.`,
       `Catalogue NIV-01 (bases), NIV-02 (appels d'offres), NIV-03 (conduite de travaux), NIV-04 (Maîtriser Claude AI) et NIV-05 (maîtres d'œuvre). Programmes PDF sur chaque fiche.`,
       `Repartez avec modèles réutilisables et feuille de route 15 jours — quoi tester, quoi mesurer, comment partager en équipe.`,
@@ -309,7 +314,7 @@ function buildDeptConfig(opts: {
     temoignages: [...TEMOIGNAGES_REGION_BLOCK.temoignages],
     financeTitle: `Financement Constructys et Qualiopi — entreprises du ${deptCode}`,
     financeBody: [
-      `Constructys : prise en charge possible selon règles en vigueur. Qualiopi ${OFC} — programme, objectifs, durée, public.`,
+      `Constructys : prise en charge possible selon règles en vigueur. Qualiopi (${ENTITE}) — programme, objectifs, durée, public.`,
       `Plafonds nationaux — votre OPCO ou RH confirme le montant. Devis et convention clairs avant engagement.`,
       `Guide financement sur le site : liens utiles et TVA intra/inter.`,
     ],
@@ -344,7 +349,7 @@ function faqSeineEtMarne77(): FAQItem[] {
   ]);
 }
 
-const DEPLACEMENT_GUYANCOURT_77 = `Siège ${OFC} à Guyancourt (78) : déplacement inclus au devis pour intra IDF, créneaux souvent calés sous 3 à 6 semaines. L'ouest du 77 (Marne-la-Vallée, Sénart, Melun) : logistique courante ; l'est (Provins, Coulommiers, Fontainebleau) : journée dédiée ou demi-journées à cadrer ensemble.`;
+const DEPLACEMENT_GUYANCOURT_77 = `Siège ${ENTITE} à Guyancourt (78) : déplacement inclus au devis pour intra IDF, créneaux souvent calés sous 3 à 6 semaines. L'ouest du 77 (Marne-la-Vallée, Sénart, Melun) : logistique courante ; l'est (Provins, Coulommiers, Fontainebleau) : journée dédiée ou demi-journées à cadrer ensemble.`;
 
 /** Seine-et-Marne (77) — contenu localisé (SEO Marne-la-Vallée, Melun, Meaux). */
 export const FORMATION_IA_BTP_SEINE_ET_MARNE_77: FormationIaBtpDeptLandingConfig = {
@@ -377,7 +382,7 @@ export const FORMATION_IA_BTP_SEINE_ET_MARNE_77: FormationIaBtpDeptLandingConfig
   ],
   courseName:
     'Formation IA pour le BTP Seine-et-Marne (77) — Qualiopi, financement possible selon éligibilité',
-  courseDescription: `${OFC} : formation IA et ChatGPT pour entreprises du BTP en Seine-et-Marne (77). Sessions 4 h, exclusivement en présentiel en Île-de-France. Melun, Meaux, Marne-la-Vallée, Sénart. Qualiopi, financement possible selon éligibilité.`,
+  courseDescription: `${MARQUE} : formation IA et ChatGPT pour entreprises du BTP en Seine-et-Marne (77). Sessions 4 h, exclusivement en présentiel en Île-de-France. Melun, Meaux, Marne-la-Vallée, Sénart. Qualiopi, financement possible selon éligibilité.`,
   serviceName: 'Accompagnement formation IA appliquée au bâtiment — département Seine-et-Marne (77)',
   serviceDescription:
     'Formation professionnelle en intelligence artificielle appliquée au bâtiment et aux travaux publics pour les entreprises de la Seine-et-Marne (77) : intra-entreprise, calendrier Île-de-France, organisme certifié Qualiopi.',
@@ -399,7 +404,7 @@ export const FORMATION_IA_BTP_SEINE_ET_MARNE_77: FormationIaBtpDeptLandingConfig
   ],
   solutionTitle: 'Formation IA BTP 77 : 4 h, résultats opérationnels',
   solutionBody: [
-    `${OFC} pour la Seine-et-Marne : 4 h, vos documents réels, zéro jargon startup. Devis, mails, synthèses, brouillons de mémoires — itérations guidées.`,
+    `${MARQUE} pour la Seine-et-Marne : 4 h, vos documents réels, zéro jargon startup. Devis, mails, synthèses, brouillons de mémoires — itérations guidées.`,
     `Siège Guyancourt (78) : déplacements réalistes vers l'ouest du 77 (Marne-la-Vallée, Sénart, Melun) ; pour l'est (Provins, Coulommiers, Fontainebleau), journée bloquée ou demi-journées. Présentiel intra (dans vos locaux) ou inter uniquement.`,
     `Catalogue NIV-01 (bases), NIV-02 (appels d'offres), NIV-03 (conduite de travaux). Programmes PDF sur chaque fiche.`,
     `Repartez avec modèles réutilisables et feuille de route 15 jours — quoi tester, quoi mesurer, comment partager en équipe.`,
@@ -422,13 +427,13 @@ export const FORMATION_IA_BTP_SEINE_ET_MARNE_77: FormationIaBtpDeptLandingConfig
   temoignages: [...TEMOIGNAGES_REGION_BLOCK.temoignages],
   financeTitle: 'Financement Constructys et Qualiopi — entreprises du 77',
   financeBody: [
-    `Constructys : prise en charge possible selon règles en vigueur. Qualiopi ${OFC} — programme, objectifs, durée, public.`,
+    `Constructys : prise en charge possible selon règles en vigueur. Qualiopi (${ENTITE}) — programme, objectifs, durée, public.`,
     `Plafonds nationaux — votre OPCO ou RH confirme le montant. Devis et convention clairs avant engagement.`,
     `Guide financement sur le site : liens utiles et TVA intra/inter.`,
   ],
   tissuBtpLocal: [
     `Seine-et-Marne : le plus vaste département francilien, à deux visages — ouest urbain dense (Marne-la-Vallée, Sénart, Melun, Meaux) et est plus rural (Provins, Coulommiers, Nemours, Fontainebleau). Neuf, rénovation, logements collectifs, logistique et marchés publics intercommunaux.`,
-    `Sessions ${OFC} : 4 h Qualiopi, ChatGPT / Claude AI — validation humaine systématique, présentiel uniquement en Île-de-France.`,
+    `Sessions ${MARQUE} : 4 h Qualiopi, ChatGPT / Claude AI — validation humaine systématique, présentiel uniquement en Île-de-France.`,
   ],
   casUsageStandard: CAS_USAGE_FORMATION_BTP,
   deplacementGuyancourt: DEPLACEMENT_GUYANCOURT_77,
@@ -460,7 +465,7 @@ export const FORMATION_IA_BTP_ESSONNE_91 = buildDeptConfig({
   temoignageZone: 'en Essonne',
   tissuBtpLocal: [
     `Essonne : Massy, Palaiseau, Évry, Corbeil — ingénierie, PME bâtiment, rénovation et neuf.`,
-    `Formations ${OFC} sur vos documents — ChatGPT/Claude AI, Qualiopi, relecture humaine.`,
+    `Formations ${MARQUE} sur vos documents — ChatGPT/Claude AI, Qualiopi, relecture humaine.`,
   ],
 });
 
@@ -495,7 +500,7 @@ export const FORMATION_IA_BTP_HAUTS_DE_SEINE_92 = buildDeptConfig({
   temoignageZone: 'dans les Hauts-de-Seine',
   tissuBtpLocal: [
     `Hauts-de-Seine : La Défense, Nanterre, Boulogne — grands marchés tertiaires, rénovation, PME de proximité.`,
-    `Sessions ${OFC} : 4 h, vos modèles, ChatGPT/Claude AI — Qualiopi et confidentialité.`,
+    `Sessions ${MARQUE} : 4 h, vos modèles, ChatGPT/Claude AI — Qualiopi et confidentialité.`,
   ],
 });
 
@@ -522,7 +527,7 @@ export const FORMATION_IA_BTP_SEINE_SAINT_DENIS_93 = buildDeptConfig({
   temoignageZone: 'en Seine-Saint-Denis',
   tissuBtpLocal: [
     `Seine-Saint-Denis : Grand Paris, marchés publics, rénovation — gros œuvre, réseaux, second œuvre.`,
-    `Formations ${OFC} : brouillons IA, validation métier systématique — cadre Qualiopi.`,
+    `Formations ${MARQUE} : brouillons IA, validation métier systématique — cadre Qualiopi.`,
   ],
 });
 
@@ -557,7 +562,7 @@ export const FORMATION_IA_BTP_VAL_DE_MARNE_94 = buildDeptConfig({
   temoignageZone: 'dans le Val-de-Marne',
   tissuBtpLocal: [
     `Val-de-Marne : ceinture parisienne dense — rénovation, neuf, site occupé, marchés publics locaux.`,
-    `Sessions ${OFC} : 4 h Qualiopi, ChatGPT/Claude AI — validation humaine systématique.`,
+    `Sessions ${MARQUE} : 4 h Qualiopi, ChatGPT/Claude AI — validation humaine systématique.`,
   ],
 });
 
@@ -584,7 +589,7 @@ export const FORMATION_IA_BTP_VAL_DOISE_95 = buildDeptConfig({
   temoignageZone: "dans le Val-d'Oise",
   tissuBtpLocal: [
     `Val-d'Oise : Cergy, Argenteuil, Roissy — PME bâtiment, tertiaire, logements et équipements.`,
-    `Formations ${OFC} : mise en forme accélérée, Qualiopi, déplacements depuis Guyancourt maîtrisés.`,
+    `Formations ${MARQUE} : mise en forme accélérée, Qualiopi, déplacements depuis Guyancourt maîtrisés.`,
   ],
 });
 

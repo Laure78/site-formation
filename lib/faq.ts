@@ -25,6 +25,8 @@ import { isFormationCataloguePublished } from '@/lib/formation-catalogue-visibil
 import { SOCIAL_PROOF, IDF_ZONE_INTERVENTION, CONTACT } from '@/lib/constants';
 import { getLaureOlivieSchemaPersonDescription } from '@/lib/laure-olivie-profile';
 import { LINKS } from '@/lib/internal-links';
+import { formatOrganismeQualiopiCourt, MARQUE_COMMERCIALE } from '@/lib/marque-identite';
+import { OFC_IDENTITE } from '@/lib/ofc-identite';
 import {
   FINANCEMENT_CONSTRUCTYS_PLAFONDS_COURT,
   FINANCEMENT_FORMULATION_PRUDENTE,
@@ -193,15 +195,15 @@ export const FAQ_GEO: FAQItem[] = [
   },
   {
     q: "IA pour PME du bâtiment et des travaux publics : par où commencer ?",
-    a: 'Par un <a href="/diagnostic-ia-btp">diagnostic IA BTP</a> et une formation ChatGPT entreprise BTP courte, dispensée par OFC (organisme certifié Qualiopi) — <a href="/formations">catalogue</a>. L\'objectif : <a href="/ia-devis-batiment">IA devis bâtiment</a> et gain de temps administratif mesurable, adapté aux dirigeants de TPE/PME et aux équipes sur le terrain.',
+    a: `Par un <a href="/diagnostic-ia-btp">diagnostic IA BTP</a> et une formation ChatGPT entreprise BTP courte, dispensée par ${formatOrganismeQualiopiCourt()} — <a href="/formations">catalogue</a>. L'objectif : <a href="/ia-devis-batiment">IA devis bâtiment</a> et gain de temps administratif mesurable, adapté aux dirigeants de TPE/PME et aux équipes sur le terrain.`,
   },
   {
     q: "Comment financer une formation IA avec OPCO Constructys ?",
-    a: 'Les entreprises BTP de moins de 50 salariés peuvent mobiliser un financement Constructys ou OPCO pour leur formation IA selon éligibilité : 24€ HT/heure/stagiaire pour le coût pédagogique, 15€ HT/heure pour les salaires (entreprises -11 salariés). Dossier à soumettre 15 jours avant via eGestion. Détails : <a href="/financement-constructys-formation-ia-btp">financement Constructys formation IA appliquée au bâtiment</a>. OFC est certifié Qualiopi, éligible au financement.',
+    a: `Les entreprises BTP de moins de 50 salariés peuvent mobiliser un financement Constructys ou OPCO pour leur formation IA selon éligibilité : 24€ HT/heure/stagiaire pour le coût pédagogique, 15€ HT/heure pour les salaires (entreprises -11 salariers). Dossier à soumettre 15 jours avant via eGestion. Détails : <a href="/financement-constructys-formation-ia-btp">financement Constructys formation IA appliquée au bâtiment</a>. ${OFC_IDENTITE.raisonSociale} (marque ${MARQUE_COMMERCIALE}) est certifié Qualiopi, éligible au financement.`,
   },
   {
     q: "Qui forme les entreprises BTP à ChatGPT en Île-de-France ?",
-    a: `Laure Olivié (OFC Création d'Entreprise) forme les entreprises BTP à ChatGPT en <a href="/formation-ia-btp-ile-de-france">Île-de-France</a> depuis Guyancourt (78). Session catalogue 4 h. ${MODALITE_FORMATIONS_STANDARD} Zone d'intervention : ${IDF_ZONE_INTERVENTION}. <a href="/financement-constructys-formation-ia-btp">Financement possible selon éligibilité</a>.`,
+    a: `${MARQUE_COMMERCIALE} forme les entreprises BTP à ChatGPT en <a href="/formation-ia-btp-ile-de-france">Île-de-France</a> depuis Guyancourt (78). Session catalogue 4 h. ${MODALITE_FORMATIONS_STANDARD} Zone d'intervention : ${IDF_ZONE_INTERVENTION}. <a href="/financement-constructys-formation-ia-btp">Financement possible selon éligibilité</a>.`,
   },
   {
     q: "Formation IA pour entreprises BTP : quelle durée et quel prix ?",
@@ -209,7 +211,7 @@ export const FAQ_GEO: FAQItem[] = [
   },
   {
     q: "Quels sont les prérequis pour une formation ChatGPT BTP ?",
-    a: 'La formation de niveau débutant ne nécessite aucune pratique préalable de l’IA. Les autres formations demandent des connaissances ou une expérience précisées sur chaque programme. Méthode 100 % pratique : travail sur vos vrais documents (devis, emails, comptes rendus chantier). Action de formation OFC — organisme certifié Qualiopi — entrée par <a href="/formations/ia-batiment-travaux-publics">ChatGPT pour entreprises BTP</a> ou <a href="/formations">catalogue</a>.',
+    a: `La formation de niveau débutant ne nécessite aucune pratique préalable de l’IA. Les autres formations demandent des connaissances ou une expérience précisées sur chaque programme. Méthode 100 % pratique : travail sur vos vrais documents (devis, emails, comptes rendus chantier). Formations ${MARQUE_COMMERCIALE} — ${formatOrganismeQualiopiCourt()} — entrée par <a href="/formations/ia-batiment-travaux-publics">ChatGPT pour entreprises BTP</a> ou <a href="/formations">catalogue</a>.`,
   },
   {
     q: "Comment structurer un devis BTP plus vite avec l'IA ?",
@@ -282,7 +284,7 @@ export const FAQ_FORMATIONS: FAQItem[] = [
   },
   {
     q: 'Quelles formations IA appliquées au bâtiment sont proposées au catalogue ?',
-    a: `Notre catalogue de formations IA pour le BTP comprend les bases en 4 h, des sessions métier en 7 h (appels d&apos;offres, chantier, Claude, maîtrise d&apos;œuvre) et des formations <a href="${LINKS.formationApplicationMetierBtpNiveau1}">applications métier BTP avec l&apos;IA</a> (7 h ou 14 h selon le programme). Toutes les actions sont dispensées par OFC Création d&apos;Entreprise, organisme certifié Qualiopi. ${MODALITE_FORMATIONS_PRESENTIEL} ${FINANCEMENT_FORMULATION_COURTE} Fiches détaillées : cartes ci-dessus.`,
+    a: `Notre catalogue de formations IA pour le BTP comprend les bases en 4 h, des sessions métier en 7 h (appels d&apos;offres, chantier, Claude, maîtrise d&apos;œuvre) et des formations <a href="${LINKS.formationApplicationMetierBtpNiveau1}">applications métier BTP avec l&apos;IA</a> (7 h ou 14 h selon le programme). Toutes les actions sont dispensées par ${formatOrganismeQualiopiCourt()}. ${MODALITE_FORMATIONS_PRESENTIEL} ${FINANCEMENT_FORMULATION_COURTE} Fiches détaillées : cartes ci-dessus.`,
   },
   {
     q: 'Comment choisir la bonne formation IA pour le BTP pour mon entreprise ?',
@@ -306,7 +308,7 @@ export const FAQ_FORMATIONS: FAQItem[] = [
   },
   {
     q: 'Les formations IA pour les pros du BTP sont-elles certifiées Qualiopi ?',
-    a: `Oui. OFC Création d&apos;Entreprise est certifié Qualiopi (action de formation), certification valable jusqu&apos;en janvier 2028. Numéro de déclaration d&apos;activité : 11788515078. ${FINANCEMENT_FORMULATION_PRUDENTE} <a href="${LINKS.aPropos}">À propos de l&apos;organisme</a>.`,
+    a: `Oui. ${OFC_IDENTITE.raisonSociale}, entité exploitante des formations ${MARQUE_COMMERCIALE}, est certifié Qualiopi (action de formation), certification valable jusqu&apos;en janvier 2028. Numéro de déclaration d&apos;activité : 11788515078. ${FINANCEMENT_FORMULATION_PRUDENTE} <a href="${LINKS.aPropos}">À propos</a>.`,
   },
   {
     q: 'Les formations sont-elles disponibles en intra-entreprise ?',
@@ -326,7 +328,7 @@ export function getFaqFormations(at: Date = new Date()): FAQItem[] {
     if (item.q === 'Quelles formations IA appliquées au bâtiment sont proposées au catalogue ?') {
       return {
         ...item,
-        a: `Notre catalogue de formations IA pour le BTP comprend les bases en 4 h (devis et documents courants), des sessions métier en 7 h (appels d&apos;offres, Claude, maîtrise d&apos;œuvre${count > 4 ? ', conduite de travaux' : ''}) et des formations <a href="${LINKS.formationApplicationMetierBtpNiveau1}">applications métier BTP avec l&apos;IA</a> (7 h ou 14 h selon le programme). Toutes les actions sont dispensées par OFC Création d&apos;Entreprise, organisme certifié Qualiopi. ${MODALITE_FORMATIONS_PRESENTIEL} ${FINANCEMENT_FORMULATION_COURTE} Fiches détaillées : cartes ci-dessus.`,
+        a: `Notre catalogue de formations IA pour le BTP comprend les bases en 4 h (devis et documents courants), des sessions métier en 7 h (appels d&apos;offres, Claude, maîtrise d&apos;œuvre${count > 4 ? ', conduite de travaux' : ''}) et des formations <a href="${LINKS.formationApplicationMetierBtpNiveau1}">applications métier BTP avec l&apos;IA</a> (7 h ou 14 h selon le programme). Toutes les actions sont dispensées par ${formatOrganismeQualiopiCourt()}. ${MODALITE_FORMATIONS_PRESENTIEL} ${FINANCEMENT_FORMULATION_COURTE} Fiches détaillées : cartes ci-dessus.`,
       };
     }
     if (item.q === 'Comment choisir la bonne formation IA pour le BTP pour mon entreprise ?') {
@@ -936,7 +938,7 @@ export const FAQ_CLIENTS_PARTENAIRES: FAQItem[] = [
   },
   {
     q: "Les formations sont-elles certifiées Qualiopi ?",
-    a: `Oui. OFC Création d'Entreprise est certifié Qualiopi. ${FINANCEMENT_FORMULATION_COURTE} — voir le <a href="/formations">catalogue formations</a>.`,
+    a: `Oui. ${OFC_IDENTITE.raisonSociale}, entité exploitante des formations ${MARQUE_COMMERCIALE}, est certifié Qualiopi. ${FINANCEMENT_FORMULATION_COURTE} — voir le <a href="/formations">catalogue formations</a>.`,
   },
   {
     q: "Comment devenir partenaire ?",

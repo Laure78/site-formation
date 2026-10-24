@@ -4,6 +4,7 @@ import { SectionHeader } from '@/components/ui/SectionHeader';
 import { Badge } from '@/components/ui/Badge';
 import { LINKS } from '@/lib/internal-links';
 import { QUALIOPI_ORGANISME_CERTIFIE } from '@/config/qualiopi';
+import { formatOrganismeQualiopiCourt } from '@/lib/marque-identite';
 import { OFC_CTA_PRIMARY } from '@/lib/ofc-interaction-classes';
 
 /** Financement — bloc visuel, formulation Qualiopi prudente. */
@@ -25,7 +26,7 @@ export function AccueilFinancementSection() {
               plafonds et accord de financement.
             </p>
             <p className="mt-3 max-w-xl text-sm text-ofc-ink-subtle">
-              OFC Création d&apos;Entreprise est un {QUALIOPI_ORGANISME_CERTIFIE}.
+              {formatOrganismeQualiopiCourt()} est un {QUALIOPI_ORGANISME_CERTIFIE}.
             </p>
             <Link
               href={LINKS.financement}
