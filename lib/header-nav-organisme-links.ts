@@ -25,6 +25,11 @@ export const UTILITY_ORGANISME_NAV_LINKS: readonly HeaderNavLink[] = [
     label: 'Avis clients',
     title: 'Avis clients et témoignages',
   },
+  {
+    href: LINKS.emplois,
+    label: 'Nous rejoindre',
+    title: 'Emplois et candidatures — OFC Création d’Entreprise',
+  },
 ];
 
 export function utilityOrganismeNavActive(pathname: string): boolean {
