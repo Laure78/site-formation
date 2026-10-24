@@ -146,26 +146,38 @@ export function CareerApplicationForm({
       fd.set('cv', cvInput.files[0]);
     }
 
-    const result = await submitCareerApplicationAction(fd);
-    setSubmitting(false);
+    try {
+      const result = await submitCareerApplicationAction(fd);
 
-    if (result.ok) {
-      setSuccess(true);
-      formRef.current?.reset();
-      setSelectedFormations([]);
-      setAiPractice('');
-      setPedagogyExperience('');
-      return;
-    }
+      if (result.ok) {
+        setSuccess(true);
+        formRef.current?.reset();
+        setSelectedFormations([]);
+        setAiPractice('');
+        setPedagogyExperience('');
+        return;
+      }
 
-    setError(result.error);
-    if (result.fieldErrors) {
-      setFieldErrors(result.fieldErrors);
-      const firstKey = Object.keys(result.fieldErrors)[0];
-      const el = formRef.current?.querySelector(`[name="${firstKey}"], #${firstKey}`) as
-        | HTMLElement
-        | null;
-      el?.focus();
+      setError(result.error);
+      if (result.fieldErrors) {
+        setFieldErrors(result.fieldErrors);
+        const firstKey = Object.keys(result.fieldErrors)[0];
+        const el = formRef.current?.querySelector(`[name="${firstKey}"], #${firstKey}`) as
+          | HTMLElement
+          | null;
+        el?.focus();
+      }
+      requestAnimationFrame(() => {
+        formRef.current
+          ?.querySelector(`#${errorSummaryId}`)
+          ?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      });
+    } catch {
+      setError(
+        'Une erreur inattendue est survenue. Réessayez ou écrivez à contact@laureolivie.fr avec votre CV.',
+      );
+    } finally {
+      setSubmitting(false);
     }
   };
 
@@ -467,6 +479,8 @@ export function CareerApplicationForm({
         </>
       ) : null}
 
+      </fieldset>
+
       {showFormationCheckboxes && CONSULTANT_PARCOURS_OPTIONS.length > 0 ? (
         <fieldset className="space-y-3 rounded-xl border border-slate-200 bg-slate-50/80 p-4">
           <legend className="px-1 text-sm font-medium text-slate-800">
@@ -478,7 +492,6 @@ export function CareerApplicationForm({
           {parcoursCheckboxList}
         </fieldset>
       ) : null}
-      </fieldset>
 
       <fieldset className={`space-y-4 border-0 p-0 ${groupConsultantForm ? '' : 'contents'}`}>
         {groupConsultantForm ? (
@@ -486,11 +499,15 @@ export function CareerApplicationForm({
         ) : null}
 
       {kind === 'consultant' ? (
-        <fieldset className="space-y-2 border-0 p-0">
-          <legend className={careerLabelClass}>
+        <div
+          role="group"
+          aria-labelledby={`${formId}-mobility-label`}
+          className="space-y-2"
+        >
+          <p id={`${formId}-mobility-label`} className={careerLabelClass}>
             Mobilité en Île-de-France{' '}
             <span className="text-[#DC2626]">*</span>
-          </legend>
+          </p>
           {MOBILITY_IDF_VALUES.map((v) => (
             <label key={v} className="flex cursor-pointer gap-2 text-sm text-slate-700">
               <input
@@ -505,7 +522,7 @@ export function CareerApplicationForm({
             </label>
           ))}
           <FieldError id={`${formId}-err-mobilityIdf`} message={fieldErrors.mobilityIdf} />
-        </fieldset>
+        </div>
       ) : null}
 
       <div className={groupConsultantForm ? 'grid gap-4 sm:grid-cols-2' : 'contents'}>
@@ -530,7 +547,7 @@ export function CareerApplicationForm({
           <input
             id={`${formId}-linkedinOrPortfolio`}
             name="linkedinOrPortfolio"
-            type="url"
+            type="text"
             inputMode="url"
             placeholder="https://"
             value={linkedinOrPortfolio}

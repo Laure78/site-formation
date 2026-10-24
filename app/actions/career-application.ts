@@ -276,41 +276,60 @@ export async function submitCareerApplicationAction(
     `${baseUrl.replace(/\/$/, '')}${data.kind === 'consultant' ? '/devenez-consultant' : '/candidatures-spontanees'}`;
   const submittedAt = new Date().toISOString();
 
+  const applicationRow = {
+    kind: data.kind,
+    application_type: data.kind === 'spontaneous' ? data.applicationType : null,
+    first_name: data.firstName,
+    last_name: data.lastName,
+    email: data.email,
+    phone: data.phone?.trim() || null,
+    expertise_domain: data.kind === 'consultant' ? data.expertiseDomain : null,
+    desired_role: data.kind === 'spontaneous' ? data.desiredRole : null,
+    presentation: data.presentation,
+    mobility_idf: data.kind === 'consultant' ? data.mobilityIdf : null,
+    formation_slugs: data.kind === 'consultant' ? data.formationSlugs?.trim() || null : null,
+    availability: data.availability?.trim() || null,
+    linkedin_or_portfolio: data.linkedinOrPortfolio?.trim() || null,
+    cv_storage_path: cvPath,
+    cv_original_name: cvOriginalName,
+    source_page: sourcePage,
+  };
+
+  let dbSaved = false;
   try {
-    const supabase = await createClient();
-    const { error: dbError } = await supabase.from('career_applications').insert({
-      kind: data.kind,
-      application_type: data.kind === 'spontaneous' ? data.applicationType : null,
-      first_name: data.firstName,
-      last_name: data.lastName,
-      email: data.email,
-      phone: data.phone?.trim() || null,
-      expertise_domain: data.kind === 'consultant' ? data.expertiseDomain : null,
-      desired_role: data.kind === 'spontaneous' ? data.desiredRole : null,
-      presentation: data.presentation,
-      mobility_idf: data.kind === 'consultant' ? data.mobilityIdf : null,
-      formation_slugs: data.kind === 'consultant' ? data.formationSlugs?.trim() || null : null,
-      availability: data.availability?.trim() || null,
-      linkedin_or_portfolio: data.linkedinOrPortfolio?.trim() || null,
-      cv_storage_path: cvPath,
-      cv_original_name: cvOriginalName,
-      source_page: sourcePage,
-    });
-    if (dbError) {
-      console.error('[career-application] db insert', dbError.message);
-      return {
-        ok: false,
-        error: 'Enregistrement impossible pour le moment. Réessayez ou contactez-nous par email.',
-        errorCode: 'db_failed',
-      };
+    const admin = createAdminClient();
+    const { error: adminError } = await admin.from('career_applications').insert(applicationRow);
+    if (!adminError) {
+      dbSaved = true;
+    } else {
+      console.error(
+        '[career-application] admin insert',
+        adminError.message,
+        adminError.code,
+        adminError.details,
+      );
     }
   } catch (err) {
-    console.error('[career-application] db', err);
-    return {
-      ok: false,
-      error: 'Enregistrement impossible pour le moment. Réessayez ou contactez-nous par email.',
-      errorCode: 'db_failed',
-    };
+    console.error('[career-application] admin insert unavailable', err);
+  }
+
+  if (!dbSaved) {
+    try {
+      const supabase = await createClient();
+      const { error: dbError } = await supabase.from('career_applications').insert(applicationRow);
+      if (!dbError) {
+        dbSaved = true;
+      } else {
+        console.error(
+          '[career-application] anon insert',
+          dbError.message,
+          dbError.code,
+          dbError.details,
+        );
+      }
+    } catch (err) {
+      console.error('[career-application] anon insert', err);
+    }
   }
 
   const subjectPrefix =
@@ -334,11 +353,23 @@ export async function submitCareerApplicationAction(
 
   if (notifyError) {
     console.error('[career-application] notify', notifyError);
+    if (dbSaved) {
+      return {
+        ok: false,
+        error:
+          'Votre candidature est enregistrée mais la notification email a échoué. Nous vous recontacterons.',
+        errorCode: 'notify_failed',
+      };
+    }
     return {
       ok: false,
       error: 'L’envoi a échoué. Réessayez ou écrivez à contact@laureolivie.fr.',
       errorCode: 'notify_failed',
     };
+  }
+
+  if (!dbSaved) {
+    console.warn('[career-application] notification envoyée sans enregistrement BDD');
   }
 
   return { ok: true, message: CAREER_FORM_SUCCESS };
