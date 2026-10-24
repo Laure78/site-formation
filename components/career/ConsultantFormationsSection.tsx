@@ -7,7 +7,7 @@ import { ofcSectionClasses, OFC_SECTION_INNER } from '@/lib/ofc-section-classes'
 export function ConsultantParcoursMetiersSection() {
   return (
     <section
-      className={ofcSectionClasses({ tone: 'muted', size: 'default' })}
+      className={ofcSectionClasses({ tone: 'white', size: 'compact' })}
       aria-labelledby="parcours-metiers-heading"
     >
       <div className={`${OFC_SECTION_INNER} max-w-5xl`}>
@@ -21,7 +21,7 @@ export function ConsultantParcoursMetiersSection() {
           catalogue général.
         </p>
         <ConsultantParcoursMetiersCatalogue />
-        <p className="mt-8 text-sm text-slate-600">
+        <p className="mt-6 text-sm text-slate-600">
           Découvrir tous les parcours sur{' '}
           <Link href={LINKS.parcoursMetiers} className="font-medium text-[#377CF3] underline">
             Parcours métiers IA BTP

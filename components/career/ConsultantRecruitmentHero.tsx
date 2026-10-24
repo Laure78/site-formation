@@ -16,11 +16,26 @@ export function ConsultantRecruitmentHero() {
       <div className={`${OFC_SECTION_INNER} max-w-4xl`}>
         <p className={OFC_EYEBROW}>Carrière</p>
         <h1 className={`${OFC_TYPE_HERO} mt-2`}>Devenez consultant-formateur en IA BTP</h1>
-        <p className="mt-4 max-w-2xl text-base leading-relaxed text-ofc-ink-muted">
+        <p className="mt-3 max-w-2xl text-base leading-relaxed text-ofc-ink-muted">
           {CONSULTANT_HERO_SUBTITLE}
         </p>
 
-        <ul className="mt-5 flex flex-col gap-2 sm:flex-row sm:flex-wrap sm:gap-3" aria-label="Repères">
+        <div className="mt-4 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+          <Link
+            href="#candidature"
+            className={`${OFC_CTA_PRIMARY} inline-flex min-h-12 items-center justify-center rounded-lg px-6 py-3 text-base font-semibold`}
+          >
+            Proposer mon expertise
+          </Link>
+          <Link
+            href="#parcours-selection"
+            className={`${OFC_CTA_SECONDARY} inline-flex min-h-12 items-center justify-center rounded-lg px-6 py-3 text-base font-semibold`}
+          >
+            Comment se déroule la sélection ?
+          </Link>
+        </div>
+
+        <ul className="mt-4 flex flex-col gap-2 sm:flex-row sm:flex-wrap sm:gap-3" aria-label="Repères">
           {CONSULTANT_HERO_PILLS.map((pill, index) => {
             const Icon = PILL_ICONS[index] ?? Sparkles;
             return (
@@ -35,7 +50,7 @@ export function ConsultantRecruitmentHero() {
           })}
         </ul>
 
-        <EnBref className="max-w-2xl">
+        <EnBref className="mt-4 max-w-2xl">
           <p>
             OFC Création d&apos;Entreprise (Qualiopi) recueille les propositions de{' '}
             <strong>consultants-formateurs indépendants</strong> pour les{' '}
@@ -43,21 +58,6 @@ export function ConsultantRecruitmentHero() {
             hors parcours. Sans promesse d&apos;emploi salarié ni de volume de missions.
           </p>
         </EnBref>
-
-        <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-          <Link
-            href="#candidature"
-            className={`${OFC_CTA_PRIMARY} inline-flex min-h-12 items-center justify-center rounded-lg px-6 py-3 text-base font-semibold`}
-          >
-            Proposer mon expertise
-          </Link>
-          <Link
-            href="#parcours-selection"
-            className={`${OFC_CTA_SECONDARY} inline-flex min-h-12 items-center justify-center rounded-lg px-6 py-3 text-base font-semibold`}
-          >
-            Comment se déroule la sélection ?
-          </Link>
-        </div>
       </div>
     </section>
   );

@@ -5,7 +5,7 @@ export function ConsultantParcoursMetiersCatalogue() {
   const parcours = getConsultantParcoursMetiersOptions();
 
   return (
-    <ul className="mt-6 divide-y divide-slate-200 rounded-xl border border-slate-200 bg-white">
+    <ul className="mt-5 divide-y divide-slate-200 rounded-xl border border-slate-200 bg-white">
       {parcours.map((p) => (
         <li
           key={p.id}

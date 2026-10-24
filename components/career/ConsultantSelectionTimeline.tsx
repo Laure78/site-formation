@@ -10,7 +10,7 @@ export function ConsultantSelectionTimeline() {
   return (
     <section
       id="parcours-selection"
-      className={`${ofcSectionClasses({ tone: 'white', size: 'default' })} scroll-mt-[calc(var(--site-header-height,4rem)+0.5rem)]`}
+      className={`${ofcSectionClasses({ tone: 'muted', size: 'compact' })} scroll-mt-[calc(var(--site-header-height,4rem)+0.5rem)]`}
       aria-labelledby="parcours-selection-heading"
     >
       <div className={`${OFC_SECTION_INNER} max-w-5xl`}>
@@ -21,33 +21,35 @@ export function ConsultantSelectionTimeline() {
           Découvrez les principales étapes d&apos;étude d&apos;une proposition de collaboration.
         </p>
 
-        <ol className="relative mt-10 grid gap-6 md:grid-cols-4 md:gap-4">
+        <ol className="relative mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           <div
-            className="pointer-events-none absolute left-0 right-0 top-8 hidden h-px bg-slate-200 md:block"
+            className="pointer-events-none absolute left-0 right-0 top-7 hidden h-px bg-slate-200 lg:block"
             aria-hidden
           />
           {CONSULTANT_SELECTION_STEPS.map((step, index) => (
             <li
               key={step.title}
-              className="relative flex h-full flex-col rounded-2xl border border-slate-200 bg-slate-50/70 p-5 md:p-6"
+              className="relative flex flex-col rounded-xl border border-slate-200 bg-white p-4 sm:p-5"
             >
               <span
-                className="font-display text-xl font-bold tracking-tight text-[#377CF3] md:text-2xl"
+                className="font-display text-lg font-bold tracking-tight text-[#377CF3] sm:text-xl"
                 aria-hidden
               >
                 {String(index + 1).padStart(2, '0')}
               </span>
-              <h3 className="mt-3 text-base font-bold text-slate-900">{step.title}</h3>
-              <p className="mt-2 flex-1 text-sm leading-relaxed text-slate-600">{step.body}</p>
+              <h3 className="mt-2 text-base font-bold text-slate-900">{step.title}</h3>
+              <p className="mt-1.5 text-sm leading-relaxed text-slate-600">{step.body}</p>
             </li>
           ))}
         </ol>
 
-        <p className="mt-6 text-sm leading-relaxed text-slate-600">{CONSULTANT_SELECTION_DISCLAIMER}</p>
+        <p className="mt-4 max-w-3xl text-sm leading-relaxed text-slate-600">
+          {CONSULTANT_SELECTION_DISCLAIMER}
+        </p>
 
         <Link
           href="#candidature"
-          className={`${OFC_CTA_PRIMARY} mt-8 inline-flex min-h-12 items-center justify-center rounded-lg px-6 py-3 text-base font-semibold`}
+          className={`${OFC_CTA_PRIMARY} mt-6 inline-flex min-h-12 items-center justify-center rounded-lg px-6 py-3 text-base font-semibold`}
         >
           Proposer mon expertise
         </Link>

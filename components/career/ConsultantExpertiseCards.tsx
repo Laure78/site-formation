@@ -22,7 +22,7 @@ const ICONS: Record<ConsultantExpertiseValue, LucideIcon> = {
 export function ConsultantExpertiseCards() {
   return (
     <section
-      className={ofcSectionClasses({ tone: 'white', size: 'default' })}
+      className={ofcSectionClasses({ tone: 'white', size: 'compact' })}
       aria-labelledby="profils-recherches-heading"
     >
       <div className={`${OFC_SECTION_INNER} max-w-5xl`}>
@@ -33,7 +33,7 @@ export function ConsultantExpertiseCards() {
           Domaines d&apos;expertise que vous pouvez présenter — ce ne sont pas des postes ouverts
           systématiquement.
         </p>
-        <ul className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <ul className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {CONSULTANT_EXPERTISE_CARDS.map((card) => {
             const Icon = ICONS[card.id];
             return (

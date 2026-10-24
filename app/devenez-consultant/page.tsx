@@ -52,18 +52,18 @@ export default function DevenezConsultantPage() {
 
       <section
         id="candidature"
-        className={`${ofcSectionClasses({ tone: 'muted', size: 'default' })} scroll-mt-[calc(var(--site-header-height,4rem)+0.5rem)]`}
+        className={`${ofcSectionClasses({ tone: 'white', size: 'compact' })} scroll-mt-[calc(var(--site-header-height,4rem)+0.5rem)]`}
         aria-labelledby="candidature-heading"
       >
-        <div className={`${OFC_SECTION_INNER} max-w-3xl`}>
+        <div className={`${OFC_SECTION_INNER} max-w-4xl`}>
           <h2 id="candidature-heading" className={OFC_TYPE_H2}>
             Présentez votre expertise à OFC
           </h2>
-          <p className="mt-3 text-base leading-relaxed text-slate-600">
+          <p className="mt-3 max-w-3xl text-base leading-relaxed text-slate-600">
             Complétez ce formulaire pour nous présenter votre parcours et vos domaines
             d&apos;intervention.
           </p>
-          <div className="ofc-card mt-6 p-5 sm:p-8">
+          <div className="ofc-card mt-5 p-5 sm:p-6">
             <CareerApplicationForm
               kind="consultant"
               sourcePage={SOURCE_PAGE}
@@ -71,7 +71,7 @@ export default function DevenezConsultantPage() {
               groupedLayout
             />
           </div>
-          <p className="mt-8 text-sm text-slate-600">
+          <p className="mt-6 text-sm text-slate-600">
             Vous recherchez un{' '}
             <Link href={LINKS.emplois} className="font-medium text-[#377CF3] underline">
               emploi salarié
@@ -88,7 +88,7 @@ export default function DevenezConsultantPage() {
         </div>
       </section>
 
-      <section className={ofcSectionClasses({ tone: 'white', size: 'default' })}>
+      <section className={ofcSectionClasses({ tone: 'muted', size: 'compact' })}>
         <div className={`${OFC_SECTION_INNER} max-w-4xl`}>
           <FAQAccordion
             title="Questions fréquentes — consultant-formateur IA BTP"

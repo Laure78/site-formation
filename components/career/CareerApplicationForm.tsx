@@ -41,7 +41,7 @@ type CareerApplicationFormProps = {
 };
 
 const fieldsetLegendClass =
-  'mb-4 block font-display text-base font-bold text-slate-900 sm:text-lg';
+  'mb-3 block w-full font-display text-base font-bold text-slate-900 sm:text-lg';
 
 function FieldError({ id, message }: { id: string; message?: string }) {
   if (!message) return null;
@@ -212,7 +212,7 @@ export function CareerApplicationForm({
       ref={formRef}
       onSubmit={handleSubmit}
       noValidate
-      className={`mx-auto max-w-2xl ${groupConsultantForm ? 'space-y-8' : 'space-y-5'}`}
+      className={`mx-auto w-full ${groupConsultantForm ? 'max-w-none space-y-6' : 'max-w-2xl space-y-5'}`}
       aria-describedby={error ? errorSummaryId : undefined}
     >
       <div className="absolute -left-[9999px] h-0 w-0 overflow-hidden" aria-hidden>
@@ -230,11 +230,11 @@ export function CareerApplicationForm({
         </div>
       ) : null}
 
-      <fieldset className={`space-y-5 border-0 p-0 ${groupConsultantForm ? '' : 'contents'}`}>
+      <fieldset className={`space-y-4 border-0 p-0 ${groupConsultantForm ? '' : 'contents'}`}>
         {groupConsultantForm ? (
-          <legend className={`${fieldsetLegendClass} float-left w-full`}>Vos coordonnées</legend>
+          <legend className={fieldsetLegendClass}>Vos coordonnées</legend>
         ) : null}
-      <div className="grid w-full gap-5 sm:grid-cols-2">
+      <div className="grid w-full gap-4 sm:grid-cols-2">
         <div>
           <label htmlFor={`${formId}-firstName`} className={careerLabelClass}>
             Prénom <span className="text-[#DC2626]">*</span>
@@ -273,44 +273,46 @@ export function CareerApplicationForm({
         </div>
       </div>
 
-      <div>
-        <label htmlFor={`${formId}-email`} className={careerLabelClass}>
-          Email <span className="text-[#DC2626]">*</span>
-        </label>
-        <input
-          id={`${formId}-email`}
-          name="email"
-          type="email"
-          required
-          autoComplete="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          className={fieldClass('email')}
-          aria-invalid={Boolean(fieldErrors.email)}
-          aria-describedby={fieldErrors.email ? `${formId}-err-email` : undefined}
-        />
-        <FieldError id={`${formId}-err-email`} message={fieldErrors.email} />
-      </div>
+      <div className={groupConsultantForm ? 'grid gap-4 sm:grid-cols-2' : 'contents'}>
+        <div>
+          <label htmlFor={`${formId}-email`} className={careerLabelClass}>
+            Email <span className="text-[#DC2626]">*</span>
+          </label>
+          <input
+            id={`${formId}-email`}
+            name="email"
+            type="email"
+            required
+            autoComplete="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            className={fieldClass('email')}
+            aria-invalid={Boolean(fieldErrors.email)}
+            aria-describedby={fieldErrors.email ? `${formId}-err-email` : undefined}
+          />
+          <FieldError id={`${formId}-err-email`} message={fieldErrors.email} />
+        </div>
 
-      <div>
-        <label htmlFor={`${formId}-phone`} className={careerLabelClass}>
-          Téléphone
-        </label>
-        <input
-          id={`${formId}-phone`}
-          name="phone"
-          type="tel"
-          autoComplete="tel"
-          value={phone}
-          onChange={(e) => setPhone(e.target.value)}
-          className={fieldClass('phone')}
-        />
+        <div>
+          <label htmlFor={`${formId}-phone`} className={careerLabelClass}>
+            Téléphone
+          </label>
+          <input
+            id={`${formId}-phone`}
+            name="phone"
+            type="tel"
+            autoComplete="tel"
+            value={phone}
+            onChange={(e) => setPhone(e.target.value)}
+            className={fieldClass('phone')}
+          />
+        </div>
       </div>
       </fieldset>
 
-      <fieldset className={`space-y-5 border-0 p-0 ${groupConsultantForm ? '' : 'contents'}`}>
+      <fieldset className={`space-y-4 border-0 p-0 ${groupConsultantForm ? '' : 'contents'}`}>
         {groupConsultantForm ? (
-          <legend className={`${fieldsetLegendClass} float-left w-full`}>Votre expertise</legend>
+          <legend className={fieldsetLegendClass}>Votre expertise</legend>
         ) : null}
 
       {kind === 'consultant' ? (
@@ -478,9 +480,9 @@ export function CareerApplicationForm({
       ) : null}
       </fieldset>
 
-      <fieldset className={`space-y-5 border-0 p-0 ${groupConsultantForm ? '' : 'contents'}`}>
+      <fieldset className={`space-y-4 border-0 p-0 ${groupConsultantForm ? '' : 'contents'}`}>
         {groupConsultantForm ? (
-          <legend className={`${fieldsetLegendClass} float-left w-full`}>Vos interventions</legend>
+          <legend className={fieldsetLegendClass}>Disponibilités et documents</legend>
         ) : null}
 
       {kind === 'consultant' ? (
@@ -506,34 +508,36 @@ export function CareerApplicationForm({
         </fieldset>
       ) : null}
 
-      <div>
-        <label htmlFor={`${formId}-availability`} className={careerLabelClass}>
-          Disponibilités
-        </label>
-        <input
-          id={`${formId}-availability`}
-          name="availability"
-          type="text"
-          value={availability}
-          onChange={(e) => setAvailability(e.target.value)}
-          className={fieldClass('availability')}
-        />
-      </div>
+      <div className={groupConsultantForm ? 'grid gap-4 sm:grid-cols-2' : 'contents'}>
+        <div>
+          <label htmlFor={`${formId}-availability`} className={careerLabelClass}>
+            Disponibilités
+          </label>
+          <input
+            id={`${formId}-availability`}
+            name="availability"
+            type="text"
+            value={availability}
+            onChange={(e) => setAvailability(e.target.value)}
+            className={fieldClass('availability')}
+          />
+        </div>
 
-      <div>
-        <label htmlFor={`${formId}-linkedinOrPortfolio`} className={careerLabelClass}>
-          LinkedIn ou portfolio
-        </label>
-        <input
-          id={`${formId}-linkedinOrPortfolio`}
-          name="linkedinOrPortfolio"
-          type="url"
-          inputMode="url"
-          placeholder="https://"
-          value={linkedinOrPortfolio}
-          onChange={(e) => setLinkedinOrPortfolio(e.target.value)}
-          className={fieldClass('linkedinOrPortfolio')}
-        />
+        <div>
+          <label htmlFor={`${formId}-linkedinOrPortfolio`} className={careerLabelClass}>
+            LinkedIn ou portfolio
+          </label>
+          <input
+            id={`${formId}-linkedinOrPortfolio`}
+            name="linkedinOrPortfolio"
+            type="url"
+            inputMode="url"
+            placeholder="https://"
+            value={linkedinOrPortfolio}
+            onChange={(e) => setLinkedinOrPortfolio(e.target.value)}
+            className={fieldClass('linkedinOrPortfolio')}
+          />
+        </div>
       </div>
 
       <div>
