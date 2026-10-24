@@ -6,8 +6,8 @@ type Props = {
   portrait: Portrait;
   className?: string;
   size?: 'xs' | 'sm' | 'md' | 'lg';
-  /** Photo type identité 7:9 — page hub formateurs. */
-  shape?: 'circle' | 'portrait';
+  /** Photo type identité 7:9 — page hub formateurs ; `square` — cartes compactes. */
+  shape?: 'circle' | 'portrait' | 'square';
   priority?: boolean;
 };
 
@@ -21,6 +21,8 @@ const CIRCLE_SIZE = {
 const PORTRAIT_SIZE =
   'w-[110px] shrink-0 aspect-[7/9] text-xl sm:w-[130px] sm:text-2xl';
 
+const SQUARE_SIZE = 'h-20 w-20 shrink-0 text-lg sm:h-[88px] sm:w-[88px] sm:text-xl';
+
 /**
  * Portrait photo ou avatar initiales.
  * `portrait` : cadrage 7:9, coins arrondis (hub /formateurs).
@@ -33,8 +35,9 @@ export function FormateurPortraitView({
   priority = false,
 }: Props) {
   const isPortraitShape = shape === 'portrait';
-  const box = isPortraitShape ? PORTRAIT_SIZE : CIRCLE_SIZE[size];
-  const radius = isPortraitShape ? 'rounded-lg' : 'rounded-full';
+  const isSquareShape = shape === 'square';
+  const box = isSquareShape ? SQUARE_SIZE : isPortraitShape ? PORTRAIT_SIZE : CIRCLE_SIZE[size];
+  const radius = isSquareShape || isPortraitShape ? 'rounded-lg' : 'rounded-full';
 
   if (portrait.kind === 'photo') {
     return (
@@ -58,7 +61,9 @@ export function FormateurPortraitView({
               : undefined
           }
           sizes={
-            isPortraitShape
+            isSquareShape
+              ? '88px'
+              : isPortraitShape
               ? '(max-width: 640px) 110px, 130px'
               : size === 'lg'
                 ? '128px'
