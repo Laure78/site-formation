@@ -34,6 +34,12 @@ export type FormateurPortrait =
 
 export type FormateurStatus = 'confirmed' | 'demo';
 
+/**
+ * Visibilité sur le hub /formateurs (distinct de `status` confirmé/démo).
+ * `a-confirmer` : masqué en production — TODO(Laure) : renseigner par profil.
+ */
+export type FormateurAffichageHub = 'actif' | 'a-confirmer';
+
 export type FormateurExperienceStep = {
   /** Ex. « 10 ans » — optionnel. */
   periode?: string;
@@ -92,6 +98,8 @@ export type FormateurProfile = {
   modalite?: string;
   portrait: FormateurPortrait;
   status: FormateurStatus;
+  /** Publication hub /formateurs — défaut `actif`. */
+  affichageHub?: FormateurAffichageHub;
   /** Lien profil détaillé (confirmés uniquement, ex. /a-propos). */
   profileHref?: string;
 };
@@ -101,13 +109,16 @@ export type FormateurFormationLink = {
   titre: string;
   href: string;
   duree: string;
+  disponibilite: 'disponible';
+  tarifLabel?: string;
 };
 
 export type FormateurModuleLink = {
   code: string;
   titre: string;
   href: string;
-  ctaLabel: 'Demander le programme' | 'Voir le programme';
+  ctaLabel: 'Demander le programme' | 'Voir le programme' | 'Être prévenu de l\'ouverture';
+  disponibilite: 'disponible' | 'ouverture-2027';
   disponibiliteLabel: string;
   dureeLabel: string;
 };

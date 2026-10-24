@@ -268,7 +268,10 @@ const FRANCOIS_BEGUIN: FormateurProfile = {
   status: 'confirmed',
 };
 
-/** Hub /formateurs — intervenants catalogue parcours métiers 2027. */
+/**
+ * Hub /formateurs — intervenants catalogue parcours métiers 2027.
+ * TODO(Laure) : renseigner `affichageHub: 'a-confirmer'` sur tout profil non publiable en production.
+ */
 export const CATALOGUE_FORMATEURS: readonly FormateurProfile[] = [
   JULIEN_MOREL,
   THOMAS_GARNIER,

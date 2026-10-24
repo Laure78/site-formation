@@ -48,6 +48,8 @@ export const FORMATEUR_LAURE_OLIVIE: FormateurProfile = {
     objectPosition: '50% 18%',
   },
   status: 'confirmed',
+  /** TODO(Laure) : `a-confirmer` pour masquer en production si besoin. */
+  affichageHub: 'actif',
   profileHref: LINKS.aPropos,
 };
 

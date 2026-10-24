@@ -7,6 +7,7 @@ export type {
   FormateurProfile,
   FormateurSousDomaineLink,
   FormateurStatus,
+  FormateurAffichageHub,
 } from '@/lib/formateurs/types';
 export {
   CATALOGUE_FORMATEURS,

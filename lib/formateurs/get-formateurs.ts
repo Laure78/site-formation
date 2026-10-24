@@ -20,6 +20,8 @@ import type {
 import { catalogueDemandeHref } from '@/lib/training-page-helpers';
 import { getPublishedFormations } from '@/lib/formation-catalogue-visibility';
 import { LINKS } from '@/lib/internal-links';
+import { isFormateurVisibleOnHubProduction } from '@/lib/formateurs/hub-display';
+import { libelleTarifParticipantCatalogue } from '@/lib/tarifs-catalogue-participant';
 
 /** Métiers parcours → domaines catalogue (section sous-domaine). */
 const METIER_TO_DOMAINES: Record<MetierId, readonly DomaineId[]> = {
@@ -48,7 +50,9 @@ export function getCatalogueFormateurs(): readonly FormateurProfile[] {
 
 /** Page /formateurs — Laure en tête, puis les intervenants catalogue 2027. */
 export function getFormateursHubProfiles(): readonly FormateurProfile[] {
-  return [FORMATEUR_LAURE_OLIVIE, ...CATALOGUE_FORMATEURS];
+  return [FORMATEUR_LAURE_OLIVIE, ...CATALOGUE_FORMATEURS].filter(
+    isFormateurVisibleOnHubProduction,
+  );
 }
 
 /**
@@ -137,11 +141,15 @@ export function getFormateurFormationLinks(
     if (!formation) continue;
     if (!published.some((f) => f.code === code)) continue;
     seen.add(code);
+    const tarifHt = formation.tarifParticipantHt;
     links.push({
       code: formation.code,
       titre: formation.titre,
       href: formationHref(formation),
       duree: formation.duree,
+      disponibilite: 'disponible',
+      tarifLabel:
+        tarifHt && tarifHt > 0 ? libelleTarifParticipantCatalogue(tarifHt) : undefined,
     });
   }
   return links;
@@ -157,17 +165,27 @@ export function getFormateurModuleLinks(
     const mod = getModuleByCode(code);
     if (!mod) continue;
     const formationHint = `${mod.code} — ${mod.titre}`;
-    const href =
-      mod.href ??
-      catalogueDemandeHref({
-        formationOuParcours: formationHint,
-        nature: 'choix-formation',
-      });
+    const ouverture2027 = mod.disponibilite === 'ouverture-2027';
+    const href = ouverture2027
+      ? catalogueDemandeHref({
+          formationOuParcours: `${formationHint} — alerte ouverture`,
+          nature: 'choix-formation',
+        })
+      : (mod.href ??
+        catalogueDemandeHref({
+          formationOuParcours: formationHint,
+          nature: 'choix-formation',
+        }));
     links.push({
       code: mod.code,
       titre: mod.titre,
       href,
-      ctaLabel: mod.href ? 'Voir le programme' : 'Demander le programme',
+      disponibilite: mod.disponibilite,
+      ctaLabel: ouverture2027
+        ? 'Être prévenu de l\'ouverture'
+        : mod.href
+          ? 'Voir le programme'
+          : 'Demander le programme',
       disponibiliteLabel: libelleDisponibilite(mod.disponibilite),
       dureeLabel: mod.variantesDureeHeures
         ? `${mod.variantesDureeHeures.join(' h ou ')} h`
