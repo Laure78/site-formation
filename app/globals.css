@@ -2078,6 +2078,21 @@
     border-color: var(--ofc-color-border);
   }
 
+  .formateurs-compact-card.ofc-card:hover,
+  .formateurs-compact-card.ofc-card:active {
+    transform: none;
+    box-shadow: none;
+    border-color: var(--ofc-color-border);
+  }
+
+  .formateurs-laure-hero {
+    box-shadow: none;
+  }
+
+  .formateur-detail-dialog {
+    padding-bottom: env(safe-area-inset-bottom, 0);
+  }
+
 }
 
 @media (prefers-reduced-motion: reduce) {

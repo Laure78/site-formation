@@ -1,17 +1,19 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import { Suspense } from 'react';
 import { FormateursCatalogueHub } from '@/components/formateurs/FormateursCatalogueHub';
-import { FormateursIntroBand } from '@/components/formateurs/FormateursIntroBand';
+import { FormateursBottomCta } from '@/components/formateurs/FormateursBottomCta';
+import { FormateursMobileStickyBar } from '@/components/formateurs/FormateursMobileStickyBar';
+import { FormateursSelectionEncart } from '@/components/formateurs/FormateursSelectionEncart';
+import { FormateursTrustStrip } from '@/components/formateurs/FormateursTrustStrip';
 import { JsonLd } from '@/components/JsonLd';
 import { BreadcrumbJsonLd } from '@/components/seo/BreadcrumbJsonLd';
 import { Section } from '@/components/ui/Section';
 import { getFormateursHubProfiles } from '@/lib/formateurs';
 import { LINKS } from '@/lib/internal-links';
 import {
-  OFC_CTA_PRIMARY,
   OFC_CTA_SECONDARY,
   OFC_EYEBROW,
-  OFC_TYPE_H2,
   OFC_TYPE_HERO,
 } from '@/lib/ofc-interaction-classes';
 import { ofcSectionClasses, OFC_SECTION_INNER } from '@/lib/ofc-section-classes';
@@ -48,9 +50,6 @@ const FORMATEURS_HERO_SECTION = ofcSectionClasses({
   divide: false,
 });
 
-const FORMATEURS_CTA =
-  'inline-flex min-h-12 w-full items-center justify-center rounded-xl px-6 py-3 text-base font-semibold transition-[transform,background-color,border-color] duration-200 sm:w-auto';
-
 export default function FormateursPage() {
   const formateurs = getFormateursHubProfiles();
   const base = SITE_CONFIG.url.replace(/\/$/, '');
@@ -68,9 +67,35 @@ export default function FormateursPage() {
     })),
   };
 
+  const personSchemas = formateurs.map((f) => {
+    const image =
+      f.portrait.kind === 'photo' ? `${base}${f.portrait.src}` : undefined;
+    return {
+      '@context': 'https://schema.org',
+      '@type': 'Person',
+      '@id': `${base}${LINKS.formateurs}#${f.slug}`,
+      name: `${f.prenom} ${f.nom}`,
+      jobTitle: f.intitule,
+      description: f.parcours,
+      ...(image ? { image } : {}),
+      url: `${base}${LINKS.formateurs}#${f.slug}`,
+      worksFor: {
+        '@type': 'Organization',
+        name: 'OFC Création d’Entreprise',
+      },
+    };
+  });
+
   return (
     <div>
       <JsonLd id="schema-formateurs-itemlist" schema={itemListSchema} />
+      {personSchemas.map((schema, index) => (
+        <JsonLd
+          key={formateurs[index]?.id ?? index}
+          id={`schema-formateur-person-${formateurs[index]?.slug ?? index}`}
+          schema={schema}
+        />
+      ))}
       <BreadcrumbJsonLd
         id="schema-breadcrumb-formateurs"
         items={[
@@ -90,22 +115,18 @@ export default function FormateursPage() {
             Île-de-France.
           </p>
 
-          <div className="formateurs-hub-hero__intro">
-            <FormateursIntroBand formateurs={formateurs} />
+          <FormateursTrustStrip />
+
+          <div className="formateurs-hub-hero__selection mt-8">
+            <FormateursSelectionEncart />
           </div>
 
-          <div className="formateurs-hub-hero__actions flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+          <div className="formateurs-hub-hero__actions mt-6">
             <Link
               href="#formateurs-profiles"
-              className={`${OFC_CTA_PRIMARY} ${FORMATEURS_CTA} !rounded-xl shadow-none hover:shadow-sm`}
+              className={`${OFC_CTA_SECONDARY} inline-flex min-h-11 items-center justify-center rounded-xl px-6 py-3 text-base font-semibold`}
             >
-              Profils et programmes détaillés
-            </Link>
-            <Link
-              href={LINKS.formations}
-              className={`${OFC_CTA_SECONDARY} ${FORMATEURS_CTA} !rounded-xl border-ofc-border-strong bg-white text-ofc-ink shadow-none hover:border-ofc-accent/35`}
-            >
-              Voir les formations
+              Voir l’équipe
             </Link>
           </div>
         </div>
@@ -120,35 +141,16 @@ export default function FormateursPage() {
         <h2 id="formateurs-grille" className="sr-only">
           Grille des formateurs
         </h2>
-        <FormateursCatalogueHub formateurs={formateurs} />
+        <Suspense fallback={<p className="text-ofc-ink-muted">Chargement de l’équipe…</p>}>
+          <FormateursCatalogueHub formateurs={formateurs} />
+        </Suspense>
       </Section>
 
       <Section tone="muted" aria-labelledby="formateurs-cta">
-        <div className="mx-auto max-w-2xl text-center">
-          <h2 id="formateurs-cta" className={OFC_TYPE_H2}>
-            Quelle formation pour votre équipe&nbsp;?
-          </h2>
-          <p className="mt-4 text-base leading-relaxed text-ofc-ink-muted">
-            Présentez vos besoins&nbsp;: devis, appels d’offres, conduite de travaux, gestion
-            ou usages de l’IA. Échangeons sur le programme adapté à votre entreprise en
-            présentiel en Île-de-France.
-          </p>
-          <div className="mt-8 flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:items-center">
-            <Link
-              href={LINKS.contact}
-              className={`${OFC_CTA_PRIMARY} inline-flex min-h-11 items-center justify-center px-6 py-3 text-base`}
-            >
-              Échanger sur mon besoin
-            </Link>
-            <Link
-              href={LINKS.formations}
-              className={`${OFC_CTA_SECONDARY} inline-flex min-h-11 items-center justify-center px-6 py-3 text-base`}
-            >
-              Consulter le catalogue
-            </Link>
-          </div>
-        </div>
+        <FormateursBottomCta />
       </Section>
+
+      <FormateursMobileStickyBar />
     </div>
   );
 }
