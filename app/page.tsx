@@ -1,10 +1,11 @@
 import type { Metadata } from 'next';
 import { preload } from 'react-dom';
+import { AccueilPageNav } from '@/components/landing/accueil/AccueilPageNav';
 import { AccueilHeroSection } from '@/components/landing/AccueilHeroSection';
 import { AccueilPreuvesConfianceSection } from '@/components/landing/accueil/AccueilPreuvesConfianceSection';
-import { AccueilFormationsDisponiblesSection } from '@/components/landing/accueil/AccueilFormationsDisponiblesSection';
-import { AccueilParcoursMetiersSection } from '@/components/landing/accueil/AccueilParcoursMetiersSection';
+import { AccueilFormationsParcoursSection } from '@/components/landing/accueil/AccueilFormationsParcoursSection';
 import { AccueilCasExercicesSection } from '@/components/landing/accueil/AccueilCasExercicesSection';
+import { AccueilFinancementCourtSection } from '@/components/landing/accueil/AccueilFinancementCourtSection';
 import { AccueilLaureFormateursSection } from '@/components/landing/accueil/AccueilLaureFormateursSection';
 import { AccueilIntraFinancementSection } from '@/components/landing/accueil/AccueilIntraFinancementSection';
 import { AccueilRessourcesEvenementSection } from '@/components/landing/accueil/AccueilRessourcesEvenementSection';
@@ -81,10 +82,11 @@ export default function HomePage() {
   return (
     <div>
       <AccueilHeroSection />
+      <AccueilPageNav />
       <AccueilPreuvesConfianceSection />
-      <AccueilFormationsDisponiblesSection />
-      <AccueilParcoursMetiersSection />
+      <AccueilFormationsParcoursSection />
       <AccueilCasExercicesSection />
+      <AccueilFinancementCourtSection />
       <AccueilLaureFormateursSection />
       <AccueilIntraFinancementSection />
       <AccueilRessourcesEvenementSection />

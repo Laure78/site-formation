@@ -3,21 +3,24 @@
 import { useCallback, useEffect, useState } from 'react';
 import { ChevronUp } from 'lucide-react';
 
-const SHOW_AFTER_PX = 400;
-
-/** Bouton fixe retour en haut — haut droite, charte #377CF3. */
+/** Bouton retour en haut — visible après ~2 écrans, au-dessus de la barre CTA mobile. */
 export function ScrollToTopButton() {
   const [visible, setVisible] = useState(false);
 
   const onScroll = useCallback(() => {
     if (typeof window === 'undefined') return;
-    setVisible(window.scrollY > SHOW_AFTER_PX);
+    const threshold = Math.max(400, window.innerHeight * 2);
+    setVisible(window.scrollY > threshold);
   }, []);
 
   useEffect(() => {
     onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
+    window.addEventListener('resize', onScroll, { passive: true });
+    return () => {
+      window.removeEventListener('scroll', onScroll);
+      window.removeEventListener('resize', onScroll);
+    };
   }, [onScroll]);
 
   const scrollTop = useCallback(() => {
@@ -32,7 +35,7 @@ export function ScrollToTopButton() {
     <button
       type="button"
       onClick={scrollTop}
-      className="fixed bottom-28 right-4 z-[55] inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/20 bg-[#0b1220] text-white shadow-[0_4px_16px_rgba(0,0,0,0.25)] transition hover:bg-[#152238] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white motion-reduce:transition-none md:bottom-8 md:right-6 lg:bottom-10"
+      className="fixed right-4 z-[55] inline-flex h-11 w-11 items-center justify-center rounded-full border border-slate-200 bg-white text-[#377CF3] shadow-md transition hover:bg-[#F2F2F2] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#377CF3] motion-reduce:transition-none max-md:bottom-[calc(3.75rem+max(0px,env(safe-area-inset-bottom,0px))+0.5rem)] md:bottom-8 md:right-6 lg:bottom-10"
       aria-label="Retour en haut de la page"
       title="Retour en haut"
     >

@@ -1,14 +1,19 @@
 import Image from 'next/image';
 import { PHOTOS } from '@/lib/photos';
+import { CATALOGUE_HERO_SUBTITLE } from '@/lib/formations-catalogue-page-config';
 import { OFC_SEC } from '@/lib/ofc-section-classes';
 
 export function FormationsCatalogue2027Hero() {
   const heroVisual = PHOTOS.formationsCatalogueHero2026;
 
   return (
-    <section className={`${OFC_SEC.hero} relative overflow-hidden`} aria-labelledby="formations-catalogue-hero-h1">
+    <section
+      id="formations-catalogue-hero"
+      className={`${OFC_SEC.hero} relative overflow-hidden pb-6 md:pb-8`}
+      aria-labelledby="formations-catalogue-hero-h1"
+    >
       <div className="relative mx-auto max-w-[80rem] px-4 sm:px-6 lg:px-8">
-        <div className="grid items-center gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(280px,420px)] lg:gap-14">
+        <div className="grid items-start gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(240px,360px)] lg:gap-12">
           <div className="min-w-0">
             <h1
               id="formations-catalogue-hero-h1"
@@ -16,17 +21,10 @@ export function FormationsCatalogue2027Hero() {
             >
               Catalogue des formations IA pour le BTP
             </h1>
-            <p className="ofc-type-lead mt-5 max-w-2xl text-ofc-ink-muted">
-              Trouvez la formation adaptée à votre métier et à vos objectifs. Découvrez les programmes
-              pour utiliser l&apos;IA dans vos tâches quotidiennes et développer les compétences de
-              votre équipe.
-            </p>
-            <p className="mt-3 text-sm font-medium text-ofc-ink">
-              Formations en présentiel en Île-de-France
-            </p>
+            <p className="ofc-type-lead mt-3 max-w-2xl text-ofc-ink-muted">{CATALOGUE_HERO_SUBTITLE}</p>
           </div>
 
-          <aside className="mx-auto w-full max-w-[340px] shrink-0 lg:mx-0 lg:max-w-none">
+          <aside className="mx-auto hidden w-full max-w-[340px] shrink-0 lg:mx-0 lg:block lg:max-w-none">
             <div className="ofc-card overflow-hidden bg-white/95 p-1.5 shadow-sm">
               <Image
                 src={heroVisual.src}
@@ -34,9 +32,9 @@ export function FormationsCatalogue2027Hero() {
                 title={heroVisual.title}
                 width={heroVisual.width}
                 height={heroVisual.height}
-                priority
+                loading="lazy"
                 className="h-auto w-full rounded-[1.05rem] object-contain"
-                sizes="(max-width: 1024px) 90vw, 420px"
+                sizes="360px"
                 quality={80}
               />
             </div>

@@ -1,9 +1,10 @@
 import Link from 'next/link';
 import { PRENDRE_RDV_DUREE_MINUTES } from '@/lib/prendre-rendez-vous-page-config';
+import { CONTACT } from '@/lib/constants';
 import { LINKS } from '@/lib/internal-links';
-import { OFC_CTA_PRIMARY } from '@/lib/ofc-interaction-classes';
+import { OFC_CTA_PRIMARY, OFC_LINK } from '@/lib/ofc-interaction-classes';
 
-/** CTA final — échange de cadrage (visio) distinct des formations présentiel. */
+/** CTA final — visio + téléphone + email cliquables. */
 export function AccueilCtaFinalSection() {
   return (
     <section className="px-4 py-16 md:py-20 lg:py-24" aria-labelledby="accueil-cta-final">
@@ -27,7 +28,7 @@ export function AccueilCtaFinalSection() {
             Visio de {PRENDRE_RDV_DUREE_MINUTES} min pour cadrer métier, niveau et format — sans
             engagement. Les formations se déroulent en présentiel en Île-de-France.
           </p>
-          <div className="mt-8 flex justify-center">
+          <div className="mt-8 flex flex-col items-center gap-4">
             <Link
               href={`${LINKS.prendreRdv}?src=accueil-cta-final`}
               data-cta="rdv"
@@ -35,6 +36,20 @@ export function AccueilCtaFinalSection() {
             >
               Échanger sur mon besoin
             </Link>
+            <p className="flex flex-col gap-2 text-sm text-white/90 sm:flex-row sm:flex-wrap sm:justify-center sm:gap-x-4">
+              <a
+                href={`tel:${CONTACT.phone}`}
+                className="font-semibold underline decoration-white/40 underline-offset-2 hover:decoration-white"
+              >
+                {CONTACT.phoneDisplay}
+              </a>
+              <a
+                href={`mailto:${CONTACT.email}`}
+                className={`${OFC_LINK} font-semibold !text-white underline decoration-white/40 underline-offset-2 hover:!text-white hover:decoration-white`}
+              >
+                {CONTACT.email}
+              </a>
+            </p>
           </div>
         </div>
       </div>

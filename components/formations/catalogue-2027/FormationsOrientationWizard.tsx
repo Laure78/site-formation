@@ -27,7 +27,11 @@ function isStepComplete(key: StepKey, answers: OrientationAnswers): boolean {
   return Boolean(answers[key]);
 }
 
-export function FormationsOrientationWizard() {
+type Props = {
+  onComplete?: (answers: OrientationAnswers) => void;
+};
+
+export function FormationsOrientationWizard({ onComplete }: Props = {}) {
   const [step, setStep] = useState(0);
   const [answers, setAnswers] = useState<OrientationAnswers>({});
   const [showResults, setShowResults] = useState(false);
@@ -55,6 +59,9 @@ export function FormationsOrientationWizard() {
     if (!canNext) return;
     if (step >= STEPS.length - 1) {
       setShowResults(true);
+      if (onComplete && canNext) {
+        onComplete(answers);
+      }
       return;
     }
     setStep((s) => s + 1);

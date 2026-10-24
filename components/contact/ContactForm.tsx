@@ -46,6 +46,8 @@ type ContactFormProps = {
   /** Métier concerné — préremplit le champ participantRole. */
   initialMetier?: string | null;
   density?: 'default' | 'compact';
+  /** Formulaire catalogue en 2 étapes (coordonnées puis détails). */
+  steppedCatalogue?: boolean;
 };
 
 export function ContactForm({
@@ -53,8 +55,12 @@ export function ContactForm({
   formationHint,
   initialMetier,
   density = 'default',
+  steppedCatalogue = false,
 }: ContactFormProps) {
   const compact = density === 'compact';
+  const [formStep, setFormStep] = useState<1 | 2>(1);
+  const hideStep1 = steppedCatalogue && formStep === 2;
+  const hideStep2 = steppedCatalogue && formStep === 1;
   const fieldClass = `${fieldClassBase} ${compact ? 'py-2' : 'py-2.5'}`;
   const formId = useId();
   const errorSummaryId = `${formId}-errors`;
@@ -193,6 +199,12 @@ export function ContactForm({
         </div>
       ) : null}
 
+      {steppedCatalogue ? (
+        <p className="mt-4 text-sm text-[#475569]" aria-live="polite">
+          Étape {formStep} sur 2 — {formStep === 1 ? 'vos coordonnées' : 'précisions (facultatif)'}
+        </p>
+      ) : null}
+
       <form
         ref={formRef}
         onSubmit={handleSubmit}
@@ -213,6 +225,7 @@ export function ContactForm({
           />
         </div>
 
+        <div className={hideStep1 ? 'sr-only absolute h-0 w-0 overflow-hidden' : undefined}>
         <div className="grid gap-5 sm:grid-cols-2">
           <div>
             <label htmlFor={`${formId}-name`} className="block text-sm font-medium text-[#0F172A]">
@@ -283,28 +296,81 @@ export function ContactForm({
         </div>
 
         <div>
-          <label htmlFor={`${formId}-subject`} className="block text-sm font-medium text-[#0F172A]">
-            Objet de la demande <span className="text-[#DC2626]">*</span>
+          <label htmlFor={`${formId}-phone-step`} className="block text-sm font-medium text-[#0F172A]">
+            Téléphone {steppedCatalogue ? <span className="text-[#DC2626]">*</span> : null}
           </label>
-          <select
-            id={`${formId}-subject`}
-            name="subject"
-            required
-            value={subject}
-            onChange={(e) => setSubject(e.target.value as ContactSubjectValue)}
-            aria-invalid={Boolean(fieldErrors.subject)}
-            className={`${fieldClass} ${fieldErrors.subject ? fieldErrorClass : ''}`}
-          >
-            {CONTACT_SUBJECT_VALUES.map((value) => (
-              <option key={value} value={value}>
-                {CONTACT_SUBJECT_LABELS[value]}
-              </option>
-            ))}
-          </select>
-          {fieldErrors.subject ? (
-            <p className="mt-1 text-sm text-[#DC2626]">{fieldErrors.subject}</p>
-          ) : null}
+          <input
+            id={`${formId}-phone-step`}
+            name="phone"
+            type="tel"
+            autoComplete="tel"
+            maxLength={30}
+            required={steppedCatalogue}
+            className={fieldClass}
+          />
         </div>
+
+        {steppedCatalogue && formStep === 1 ? (
+          <div className="flex flex-col gap-3 sm:flex-row">
+            <button
+              type="button"
+              onClick={() => {
+                const form = formRef.current;
+                if (!form) return;
+                const fd = new FormData(form);
+                if (!fd.get('name') || !fd.get('email') || !fd.get('company') || !fd.get('phone')) {
+                  setError('Renseignez nom, email, téléphone et entreprise pour continuer.');
+                  return;
+                }
+                setError(null);
+                setFormStep(2);
+              }}
+              className="inline-flex min-h-[44px] items-center justify-center rounded-xl bg-[#377CF3] px-6 py-3 text-base font-semibold text-white hover:bg-[#2563EB] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#377CF3]"
+            >
+              Continuer
+            </button>
+          </div>
+        ) : null}
+        </div>
+
+        <div className={hideStep2 ? 'hidden' : undefined}>
+        {steppedCatalogue && formStep === 2 ? (
+          <button
+            type="button"
+            onClick={() => setFormStep(1)}
+            className="text-sm font-semibold text-[#377CF3] underline"
+          >
+            ← Modifier mes coordonnées
+          </button>
+        ) : null}
+
+        {steppedCatalogue ? (
+          <input type="hidden" name="subject" value={subject} />
+        ) : (
+          <div>
+            <label htmlFor={`${formId}-subject`} className="block text-sm font-medium text-[#0F172A]">
+              Objet de la demande <span className="text-[#DC2626]">*</span>
+            </label>
+            <select
+              id={`${formId}-subject`}
+              name="subject"
+              required
+              value={subject}
+              onChange={(e) => setSubject(e.target.value as ContactSubjectValue)}
+              aria-invalid={Boolean(fieldErrors.subject)}
+              className={`${fieldClass} ${fieldErrors.subject ? fieldErrorClass : ''}`}
+            >
+              {CONTACT_SUBJECT_VALUES.map((value) => (
+                <option key={value} value={value}>
+                  {CONTACT_SUBJECT_LABELS[value]}
+                </option>
+              ))}
+            </select>
+            {fieldErrors.subject ? (
+              <p className="mt-1 text-sm text-[#DC2626]">{fieldErrors.subject}</p>
+            ) : null}
+          </div>
+        )}
 
         <div className="grid gap-5 sm:grid-cols-2">
           <div>
@@ -361,12 +427,13 @@ export function ContactForm({
 
         <div>
           <label htmlFor={`${formId}-message`} className="block text-sm font-medium text-[#0F172A]">
-            Votre besoin <span className="text-[#DC2626]">*</span>
+            Votre besoin {!steppedCatalogue ? <span className="text-[#DC2626]">*</span> : null}
           </label>
           <textarea
             id={`${formId}-message`}
             name="message"
-            required
+            required={!steppedCatalogue}
+            defaultValue={steppedCatalogue ? 'Demande programme / devis — catalogue formations' : undefined}
             rows={compact ? 3 : 5}
             maxLength={5000}
             placeholder={CONTACT_FORM_NEED_PLACEHOLDER}
@@ -387,13 +454,16 @@ export function ContactForm({
           ) : null}
         </div>
 
-        <details className="rounded-lg border border-[#E2E8F0] bg-[#F8FAFC] p-4">
+        <details
+          className="rounded-lg border border-[#E2E8F0] bg-[#F8FAFC] p-4"
+          open={steppedCatalogue ? true : undefined}
+        >
           <summary className="cursor-pointer text-sm font-medium text-[#0F172A]">
             Informations complémentaires (facultatif)
             {showExtraHint ? ' — utile pour un devis' : ''}
           </summary>
           <div className="mt-4 grid gap-4 sm:grid-cols-2">
-            <div>
+            <div className={steppedCatalogue ? 'hidden' : undefined}>
               <label htmlFor={`${formId}-phone`} className="block text-sm font-medium text-[#0F172A]">
                 Téléphone
               </label>
@@ -473,6 +543,7 @@ export function ContactForm({
         <p id={statusId} className="sr-only" aria-live="polite">
           {submitting ? 'Envoi en cours' : ''}
         </p>
+        </div>
       </form>
     </div>
   );

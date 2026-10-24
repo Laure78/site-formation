@@ -19,7 +19,13 @@ export function AccueilLaureFormateursSection() {
     .slice(0, MAX_INTERVENANTS);
 
   return (
-    <Section tone="canvas" size="compact" aria-labelledby="accueil-equipe-title">
+    <Section
+      id="accueil-equipe"
+      tone="canvas"
+      size="compact"
+      className="scroll-mt-[calc(var(--site-header-height,4.5rem)+0.5rem)]"
+      aria-labelledby="accueil-equipe-title"
+    >
       <SectionHeader
         titleId="accueil-equipe-title"
         title="Laure Olivié et l’équipe de formateurs"

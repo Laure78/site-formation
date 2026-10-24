@@ -12,16 +12,8 @@ type HomeFaqDetailsListProps = {
 export function HomeFaqDetailsList({ items }: HomeFaqDetailsListProps) {
   return (
     <div className="divide-y divide-ofc-border border-y border-ofc-border">
-      {items.map((item, index) => (
-        <details
-          key={item.q}
-          className="ofc-faq-item group"
-          // Première réponse ouverte au SSR ; l’utilisateur peut la refermer.
-          // suppressHydrationWarning : l’attribut `open` nativement muté par le navigateur
-          // ne doit pas faire planter la réhydratation (soft-nav / ancres).
-          {...(index === 0 ? { open: true } : {})}
-          suppressHydrationWarning
-        >
+      {items.map((item) => (
+        <details key={item.q} className="ofc-faq-item group">
           <summary>
             <span className="flex items-start justify-between gap-4">
               <span>{item.q}</span>

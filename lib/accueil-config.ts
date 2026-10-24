@@ -1,7 +1,7 @@
 /**
  * Données page d'accueil — source unique, valeurs issues du code existant (jamais inventées).
  */
-import { getFormationByCode } from '@/data/formations';
+import { getFormationByCode, isFormationSurDevis, libellePrixSessionHt } from '@/data/formations';
 import { isFormationCataloguePublished } from '@/lib/formation-catalogue-visibility';
 import { catalogueNiveauLabel } from '@/lib/formations-catalogue-display';
 import { formatNoteSatisfactionSur5 } from '@/lib/data/indicateurs-resultats';
@@ -355,6 +355,13 @@ const ACCUEIL_FORMATIONS_PRIORITAIRES_CODES = [
 /**
  * Formations prioritaires — sélection équilibrée niveaux 1, 2 et 3 (données catalogue).
  */
+/** Tarif « à partir de » pour une carte accueil — source catalogue (`data/formations.ts`). */
+export function getAccueilFormationTarifApartir(code: string): string | null {
+  const f = getFormationByCode(code);
+  if (!f || isFormationSurDevis(f)) return null;
+  return `À partir de ${libellePrixSessionHt(f)} (inter)`;
+}
+
 export function getAccueilFormationsPrioritaires(): readonly AccueilFormationCarte[] {
   const codes = ACCUEIL_FORMATIONS_PRIORITAIRES_CODES;
   const cartes: AccueilFormationCarte[] = [];

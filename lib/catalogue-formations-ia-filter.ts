@@ -73,5 +73,14 @@ export function countVisibleFormationsIaCatalogue(
 }
 
 export function formationsIaHasActiveFilters(filters: FormationsIaFilterParams): boolean {
-  return Boolean(filters.niveau || filters.thematique || filters.metier || filters.q);
+  return Boolean(
+    filters.vue ||
+      filters.niveau ||
+      filters.thematique ||
+      filters.metier ||
+      filters.domaine ||
+      filters.disponibilite ||
+      filters.duree ||
+      filters.q,
+  );
 }

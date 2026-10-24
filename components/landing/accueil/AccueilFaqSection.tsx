@@ -6,10 +6,16 @@ import { FAQ_ITEMS_HOME } from '@/lib/faq';
 /** FAQ accueil — grande typographie, accordéons propres. */
 export function AccueilFaqSection() {
   return (
-    <Section tone="white" aria-labelledby="accueil-faq" innerClassName="max-w-3xl">
+    <Section
+      id="accueil-faq"
+      tone="white"
+      className="scroll-mt-[calc(var(--site-header-height,4.5rem)+0.5rem)]"
+      aria-labelledby="accueil-faq-heading"
+      innerClassName="max-w-3xl"
+    >
       <SectionHeader
         align="center"
-        titleId="accueil-faq"
+        titleId="accueil-faq-heading"
         eyebrow="FAQ"
         title="Des questions ? C’est normal."
         description="Formation, parcours, lieu et financement."

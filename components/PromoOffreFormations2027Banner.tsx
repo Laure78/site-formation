@@ -1,13 +1,14 @@
 'use client';
 
 import Link from 'next/link';
-import { Check, Copy } from 'lucide-react';
-import { useCallback, useId, useRef, useState } from 'react';
+import { Check, Copy, X } from 'lucide-react';
+import { useCallback, useEffect, useId, useRef, useState } from 'react';
 import {
   PROMO_BANNER_BG,
   PROMO_BANNER_INFORMATIONAL,
   PROMO_OFFRE_FORMATIONS_2027,
   promoDisplayFields,
+  promoDismissStorageKey,
   resolvePromoBannerVisibility,
   resolvePromoCtaHref,
 } from '@/lib/promo-offre-formations-2027';
@@ -15,20 +16,41 @@ import {
 type CopyState = 'idle' | 'copied' | 'failed';
 
 const CTA_CLASS =
-  'promo-offre-2027__cta inline-flex min-h-10 shrink-0 items-center justify-center rounded-md border-2 border-white bg-transparent px-4 py-2 text-sm font-bold text-white transition-colors hover:bg-white hover:text-[#1a3561] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white motion-reduce:transition-none';
+  'promo-offre-2027__cta inline-flex min-h-10 shrink-0 items-center justify-center rounded-md border-2 border-white bg-transparent px-3 py-2 text-xs font-bold text-white transition-colors hover:bg-white hover:text-[#1a3561] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white motion-reduce:transition-none sm:px-4 sm:text-sm';
+
+function readDismissed(key: string): boolean {
+  try {
+    return localStorage.getItem(key) === '1';
+  } catch {
+    return false;
+  }
+}
+
+function writeDismissed(key: string): void {
+  try {
+    localStorage.setItem(key, '1');
+  } catch {
+    /* mode privé */
+  }
+}
 
 /**
- * Bandeau formations 2027 — au-dessus du header.
- * Informatif par défaut ; mode promotionnel si l’offre est complète, activée et dans sa fenêtre.
+ * Bandeau formations 2027 — hors header sticky, refermable (localStorage).
  */
 export function PromoOffreFormations2027Banner() {
   const config = PROMO_OFFRE_FORMATIONS_2027;
+  const dismissKey = promoDismissStorageKey(config.offerId);
   const titleId = useId();
   const liveRegionId = useId();
   const codeRef = useRef<HTMLElement>(null);
   const [copyState, setCopyState] = useState<CopyState>('idle');
+  const [dismissed, setDismissed] = useState(false);
 
-  const visibility = resolvePromoBannerVisibility({ config, dismissed: false });
+  useEffect(() => {
+    setDismissed(readDismissed(dismissKey));
+  }, [dismissKey]);
+
+  const visibility = resolvePromoBannerVisibility({ config, dismissed });
 
   const copyCode = useCallback(async () => {
     const code = config.promoCode.trim();
@@ -54,6 +76,11 @@ export function PromoOffreFormations2027Banner() {
     }
   }, [config.promoCode]);
 
+  const handleDismiss = useCallback(() => {
+    writeDismissed(dismissKey);
+    setDismissed(true);
+  }, [dismissKey]);
+
   if (visibility.mode === 'hidden') return null;
 
   const isPromo = visibility.mode === 'promo-live';
@@ -74,27 +101,29 @@ export function PromoOffreFormations2027Banner() {
       role="region"
       aria-labelledby={titleId}
     >
-      <div className="promo-offre-2027__inner mx-auto flex max-w-[80rem] flex-col gap-3 px-4 py-3 sm:px-6 md:flex-row md:items-center md:justify-between md:gap-4 md:py-0 md:min-h-[5rem] lg:gap-6 lg:px-8">
-        <div className="flex min-w-0 flex-col gap-2 md:flex-1 md:flex-row md:items-center md:gap-5 lg:gap-6">
+      <div className="promo-offre-2027__inner relative mx-auto flex max-w-[80rem] items-center gap-2 px-4 py-2 sm:px-6 sm:py-2.5 lg:gap-4 lg:px-8">
+        <button
+          type="button"
+          onClick={handleDismiss}
+          className="absolute right-2 top-2 flex h-9 w-9 items-center justify-center rounded-md text-white/90 transition-colors hover:bg-white/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white sm:right-3"
+          aria-label="Fermer le bandeau"
+        >
+          <X className="h-4 w-4" strokeWidth={2} aria-hidden />
+        </button>
+
+        <div className="flex min-w-0 flex-1 flex-col gap-1 pr-10 sm:flex-row sm:items-center sm:gap-4 sm:pr-12">
           {showBannerTitle ? (
             <p
               id={titleId}
-              className="shrink-0 font-display text-base font-bold tracking-tight text-white sm:text-lg"
+              className="shrink-0 font-display text-sm font-bold tracking-tight text-white sm:text-base"
             >
               {title}
             </p>
           ) : null}
 
-          {showBannerTitle ? (
-            <span
-              className="promo-offre-2027__separator hidden h-10 w-px shrink-0 bg-white/85 md:block"
-              aria-hidden
-            />
-          ) : null}
-
           <p
             id={showBannerTitle ? undefined : titleId}
-            className="min-w-0 text-sm leading-snug text-white sm:text-[0.9375rem] md:flex-1 lg:text-base"
+            className="min-w-0 truncate text-xs leading-snug text-white sm:text-sm sm:whitespace-normal sm:line-clamp-2 md:text-[0.9375rem]"
           >
             {isPromo && display ? (
               display.message
@@ -114,13 +143,13 @@ export function PromoOffreFormations2027Banner() {
           </p>
         </div>
 
-        <div className="flex min-w-0 flex-wrap items-center gap-2 sm:gap-3 md:shrink-0">
+        <div className="hidden min-w-0 shrink-0 flex-wrap items-center gap-2 sm:flex sm:gap-3">
           {isPromo && display ? (
             <div className="flex min-w-0 items-center gap-1.5">
               <code
                 ref={codeRef}
                 tabIndex={hasRealCode || copyState === 'failed' ? 0 : -1}
-                className="inline-flex max-w-full select-all items-center rounded-sm bg-white px-2.5 py-1.5 font-mono text-sm font-bold tracking-wide text-[#1a3561]"
+                className="inline-flex max-w-full select-all items-center rounded-sm bg-white px-2 py-1 font-mono text-xs font-bold tracking-wide text-[#1a3561] sm:text-sm"
                 aria-label={`Code promotionnel ${display.promoCode}`}
               >
                 {display.promoCode}

@@ -106,11 +106,9 @@
     --ofc-blue: var(--ofc-color-accent);
     --ofc-blue-hover: var(--ofc-color-accent-hover);
 
-    /* Mobile : bandeau utilitaire + marque + menu + ligne CTA RDV */
-    --site-header-height: 7.75rem;
-
-    /* Header desktop : bandeau utilitaire + marque + nav */
-    --site-header-height-lg: 9.75rem;
+    /* Fallback avant mesure JS — header compact (logo + menu / nav) */
+    --site-header-height: 4.5rem;
+    --header-h: var(--site-header-height);
 
     /* Conteneur site — aligné BeWork (1280px) */
     --ofc-site-max-width: 80rem;
@@ -132,12 +130,6 @@
     /* Largeur de lecture */
     --ofc-read-width: 42rem;
     --ofc-read-width-wide: 48rem;
-  }
-
-  @media (min-width: 1024px) {
-    :root {
-      --site-header-height: var(--site-header-height-lg);
-    }
   }
 
   @media (min-width: 1280px) {
@@ -188,7 +180,7 @@
   }
 
   h2 {
-    scroll-margin-top: 80px;
+    scroll-margin-top: calc(var(--site-header-height, 4.5rem) + 0.5rem);
   }
 }
 
@@ -1261,10 +1253,13 @@
   /* Header sticky — hauteur fixe (zéro CLS), compression visuelle au scroll */
   .site-header {
     @apply sticky top-0 z-50 border-b border-[var(--header-border)] bg-white/90 backdrop-blur-md;
-    @apply transition-[background-color,box-shadow,border-color,backdrop-filter] duration-200 ease-out;
+    @apply transition-[transform,background-color,box-shadow,border-color,backdrop-filter] duration-200 ease-out motion-reduce:transition-none;
     @apply supports-[backdrop-filter]:bg-white/80;
     height: auto;
-    min-height: var(--site-header-height);
+  }
+
+  .site-header[data-scroll-hidden='true'] {
+    @apply -translate-y-full pointer-events-none;
   }
 
   .site-header[data-compact='true'] {

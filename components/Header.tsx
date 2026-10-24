@@ -19,6 +19,7 @@ import {
   HeaderNavSimpleLink,
 } from '@/components/nav/HeaderNavDropdown';
 import { PromoOffreFormations2027Banner } from '@/components/PromoOffreFormations2027Banner';
+import { useSiteHeaderBehavior } from '@/hooks/useSiteHeaderBehavior';
 import { isAuthConnexionPage } from '@/lib/auth-connexion-chrome';
 import type { LucideIcon } from 'lucide-react';
 
@@ -39,10 +40,6 @@ const MOBILE_NAV_ICON: Record<string, LucideIcon> = {
   organisme: Building2,
 };
 
-/** Seuil scroll (px) — mode compact avec hysteresis pour éviter les oscillations. */
-const HEADER_COMPACT_ON_PX = 120;
-const HEADER_COMPACT_OFF_PX = 48;
-
 /** Header site unique — rendu depuis `app/layout.tsx` (masqué sur /admin). */
 export function Header() {
   const pathname = usePathname();
@@ -50,9 +47,9 @@ export function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [openId, setOpenId] = useState<string | null>(null);
   const [mobileExpanded, setMobileExpanded] = useState<Record<string, boolean>>({});
-  const [compact, setCompact] = useState(false);
   const [navPath, setNavPath] = useState(pathname);
   const headerRef = useRef<HTMLElement>(null);
+  const { compact, scrollHidden } = useSiteHeaderBehavior(headerRef);
   const menuButtonRef = useRef<HTMLButtonElement>(null);
   const desktopHover = useHeaderNavDesktopHover(openId, setOpenId);
   const desktopHoverHandlers = desktopHover.enabled ? desktopHover : undefined;
@@ -101,42 +98,6 @@ export function Header() {
   useEffect(() => {
     if (mobileOpen && isSearchOpen) closeSearch();
   }, [mobileOpen, isSearchOpen, closeSearch]);
-
-  useEffect(() => {
-    let mounted = true;
-    let cleanup: (() => void) | undefined;
-
-    const attachScroll = () => {
-      if (!mounted) return;
-      const onScroll = () => {
-        const y = window.scrollY;
-        setCompact((prev) => {
-          if (!prev && y > HEADER_COMPACT_ON_PX) return true;
-          if (prev && y < HEADER_COMPACT_OFF_PX) return false;
-          return prev;
-        });
-      };
-      onScroll();
-      window.addEventListener('scroll', onScroll, { passive: true });
-      cleanup = () => window.removeEventListener('scroll', onScroll);
-    };
-
-    if (typeof window.requestIdleCallback === 'function') {
-      const idleId = window.requestIdleCallback(attachScroll, { timeout: 2500 });
-      return () => {
-        mounted = false;
-        window.cancelIdleCallback(idleId);
-        cleanup?.();
-      };
-    }
-
-    const timerId = window.setTimeout(attachScroll, 1);
-    return () => {
-      mounted = false;
-      window.clearTimeout(timerId);
-      cleanup?.();
-    };
-  }, []);
 
   useEffect(() => {
     if (!mobileOpen) return;
@@ -191,14 +152,17 @@ export function Header() {
 
   return (
     <>
+      <PromoOffreFormations2027Banner />
       <header
         ref={headerRef}
         className="site-header"
         data-compact={compact ? 'true' : 'false'}
+        data-scroll-hidden={scrollHidden ? 'true' : 'false'}
       >
-        <PromoOffreFormations2027Banner />
-        <div className="site-header__inner mx-auto flex max-w-[80rem] min-w-0 flex-col gap-0 px-4 py-2 sm:px-6 lg:gap-1.5 lg:px-8">
-          <HeaderUtilityBar onBeforeOpenSearch={prepareSearchOpen} />
+        <div className="site-header__inner mx-auto flex max-w-[80rem] min-w-0 flex-col gap-0 px-4 py-1.5 sm:px-6 lg:gap-1 lg:px-8 lg:py-2">
+          <div className="hidden lg:block">
+            <HeaderUtilityBar onBeforeOpenSearch={prepareSearchOpen} />
+          </div>
 
           {/* Ligne principale — marque et accès */}
           <div className="site-header__top flex min-w-0 items-center justify-between gap-2 sm:gap-3">
@@ -225,7 +189,7 @@ export function Header() {
               </span>
             </Link>
 
-            <div className="site-header__actions relative z-[55] hidden shrink-0 items-center gap-2 border-l border-slate-200/90 pl-2.5 lg:!flex xl:gap-2.5 xl:pl-3.5">
+            <div className="site-header__actions relative z-[55] hidden shrink-0 items-center gap-2 border-l border-slate-200/90 pl-2.5 lg:flex xl:gap-2.5 xl:pl-3.5">
               <HeaderPrimaryCta origin="header-desktop" />
             </div>
 
@@ -242,13 +206,6 @@ export function Header() {
                 {mobileOpen ? <X size={22} strokeWidth={1.75} /> : <Menu size={22} strokeWidth={1.75} />}
               </button>
             </div>
-          </div>
-
-          <div className="site-header__rdv-mobile lg:hidden">
-            <HeaderPrimaryCta
-              origin="header-mobile-bar"
-              className="!min-h-10 w-full !px-4 !py-2 !text-sm"
-            />
           </div>
 
           {/* Ligne 2 — navigation principale (desktop) */}

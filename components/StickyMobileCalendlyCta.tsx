@@ -1,108 +1,111 @@
 'use client';
 
-import { X } from 'lucide-react';
+import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { useCallback, useEffect, useMemo, useState } from 'react';
-import { CtaRdv } from '@/components/CtaRdv';
+import { useEffect, useMemo, useState } from 'react';
+import { trackCtaRdvClick } from '@/lib/cta-analytics';
+import { CONTACT } from '@/lib/constants';
+import { HEADER_PRIMARY_CTA_HREF, HEADER_PRIMARY_CTA_LABEL } from '@/lib/header-cta';
 import { shouldShowStickyMobileCalendlyBar } from '@/lib/sticky-mobile-calendly-path';
 
-const SESSION_DISMISS_KEY = 'ofc-sticky-mobile-calendly-dismissed';
-const SCROLL_SHOW_PX = 24;
-
-function isDismissedInSession(): boolean {
-  try {
-    return sessionStorage.getItem(SESSION_DISMISS_KEY) === '1';
-  } catch {
-    return false;
-  }
-}
-
-function setDismissedInSession(): void {
-  try {
-    sessionStorage.setItem(SESSION_DISMISS_KEY, '1');
-  } catch {
-    /* mode privé */
-  }
-}
-
-/** Bandeau CTA RDV fixe en bas — mobile uniquement. */
+/** Bandeau fixe mobile — Appeler + Échanger (après le hero sur l’accueil). */
 export function StickyMobileCalendlyCta() {
   const pathname = usePathname();
   const eligible = useMemo(() => shouldShowStickyMobileCalendlyBar(pathname), [pathname]);
+  const isHome = pathname === '/';
 
-  const [dismissed, setDismissed] = useState(true);
-  const [scrolled, setScrolled] = useState(false);
+  const [pastHero, setPastHero] = useState(false);
   const [footerVisible, setFooterVisible] = useState(false);
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    setDismissed(isDismissedInSession());
     setMounted(true);
   }, []);
 
   useEffect(() => {
     if (!eligible) {
-      setScrolled(false);
+      setPastHero(false);
       setFooterVisible(false);
       return;
     }
 
-    const onScroll = () => setScrolled(window.scrollY > SCROLL_SHOW_PX);
-    onScroll();
-    window.addEventListener('scroll', onScroll, { passive: true });
+    const hero = document.getElementById('accueil-hero');
+    let heroObserver: IntersectionObserver | undefined;
 
-    const footer = document.querySelector('footer');
-    if (!footer) {
-      return () => window.removeEventListener('scroll', onScroll);
+    let onScrollFallback: (() => void) | undefined;
+
+    if (isHome && hero) {
+      heroObserver = new IntersectionObserver(
+        (entries) => setPastHero(!entries[0]?.isIntersecting),
+        { threshold: 0, rootMargin: '0px' },
+      );
+      heroObserver.observe(hero);
+    } else {
+      onScrollFallback = () => setPastHero(window.scrollY > 280);
+      onScrollFallback();
+      window.addEventListener('scroll', onScrollFallback, { passive: true });
     }
 
-    const io = new IntersectionObserver(
-      (entries) => setFooterVisible(entries.some((e) => e.isIntersecting)),
-      { threshold: 0, rootMargin: '0px 0px -1px 0px' },
-    );
-    io.observe(footer);
+    const footer = document.querySelector('footer');
+    let footerIo: IntersectionObserver | undefined;
+    if (footer) {
+      footerIo = new IntersectionObserver(
+        (entries) => setFooterVisible(entries.some((e) => e.isIntersecting)),
+        { threshold: 0, rootMargin: '0px 0px -1px 0px' },
+      );
+      footerIo.observe(footer);
+    }
 
     return () => {
-      window.removeEventListener('scroll', onScroll);
-      io.disconnect();
+      heroObserver?.disconnect();
+      if (onScrollFallback) {
+        window.removeEventListener('scroll', onScrollFallback);
+      }
+      footerIo?.disconnect();
     };
-  }, [eligible]);
+  }, [eligible, isHome]);
 
-  const handleDismiss = useCallback(() => {
-    setDismissedInSession();
-    setDismissed(true);
-  }, []);
+  const show = mounted && eligible && pastHero && !footerVisible;
 
-  const show = mounted && eligible && !dismissed && scrolled && !footerVisible;
+  const rdvHref = `${HEADER_PRIMARY_CTA_HREF}?src=${encodeURIComponent('sticky-mobile-bar')}`;
 
   if (!eligible) return null;
 
   return (
     <div
-      className={`fixed inset-x-0 bottom-0 z-[60] border-t border-[#D4E3FC] bg-white/95 shadow-[0_-4px_20px_rgba(15,23,42,0.1)] backdrop-blur-sm motion-safe:transition-[transform,opacity] motion-safe:duration-300 motion-safe:ease-out motion-reduce:transition-none md:hidden ${
+      className={`fixed inset-x-0 bottom-0 z-[60] border-t border-[#D4E3FC] bg-white/95 shadow-[0_-4px_20px_rgba(15,23,42,0.1)] backdrop-blur-sm motion-safe:transition-[transform,opacity] motion-safe:duration-300 motion-reduce:transition-none md:hidden ${
         show
           ? 'pointer-events-auto translate-y-0 opacity-100'
           : 'pointer-events-none translate-y-full opacity-0'
       }`}
-      style={{ paddingBottom: 'max(0.75rem, env(safe-area-inset-bottom, 0px))' }}
+      style={{
+        paddingBottom: 'max(0px, env(safe-area-inset-bottom, 0px))',
+        minHeight: '3.5rem',
+      }}
       role="region"
-      aria-label="Réserver une visio découverte gratuite"
+      aria-label="Contact rapide"
       aria-hidden={!show}
     >
-      <div className="relative px-3 pt-3">
-        <button
-          type="button"
-          onClick={handleDismiss}
-          className="absolute right-4 top-2 z-10 flex h-8 w-8 items-center justify-center rounded-full bg-white/90 text-slate-500 shadow-sm ring-1 ring-slate-200/80 transition-colors hover:bg-slate-50 hover:text-slate-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#377CF3]"
-          aria-label="Masquer le bandeau de réservation"
+      <div className="grid h-14 grid-cols-2 gap-2 px-3 py-2">
+        <a
+          href={`tel:${CONTACT.phone}`}
+          className="inline-flex min-h-11 items-center justify-center rounded-lg border border-ofc-border bg-white px-3 text-sm font-semibold text-ofc-ink transition-colors hover:bg-[#F2F2F2] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#377CF3]"
         >
-          <X className="h-4 w-4" strokeWidth={2} aria-hidden />
-        </button>
-        <CtaRdv
-          origin="sticky-mobile-bar"
-          variant="primary"
-          className="block w-full min-h-12 rounded-lg px-4 py-3.5 pr-12 text-center text-[0.8125rem] font-semibold leading-snug"
-        />
+          Appeler
+        </a>
+        <Link
+          href={rdvHref}
+          data-cta="sticky-mobile-rdv"
+          aria-label={HEADER_PRIMARY_CTA_LABEL}
+          onClick={() => {
+            if (typeof window !== 'undefined') {
+              trackCtaRdvClick('sticky-mobile-bar', window.location.pathname);
+            }
+          }}
+          className="inline-flex min-h-11 items-center justify-center rounded-lg bg-[#377CF3] px-3 text-center text-xs font-semibold leading-snug text-white transition-colors hover:bg-[#2a63d4] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#377CF3] sm:text-sm"
+        >
+          {HEADER_PRIMARY_CTA_LABEL}
+        </Link>
       </div>
     </div>
   );

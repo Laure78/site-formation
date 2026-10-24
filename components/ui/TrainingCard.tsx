@@ -14,6 +14,10 @@ type TrainingCardProps = {
   benefices?: readonly string[];
   featured?: boolean;
   ctaLabel?: string;
+  /** Libellé accessible du lien CTA (unique hors contexte visuel). */
+  ctaAriaLabel?: string;
+  /** Ex. « À partir de 450 € HT / participant (inter) » */
+  prixLabel?: string;
   className?: string;
   /** Niveau de titre — défaut h3 ; utiliser h4 sous un H3 de section. */
   titleAs?: 'h3' | 'h4';
@@ -31,6 +35,8 @@ export function TrainingCard({
   benefices,
   featured = false,
   ctaLabel = 'Voir le programme',
+  ctaAriaLabel,
+  prixLabel,
   className,
   titleAs = 'h3',
 }: TrainingCardProps) {
@@ -59,6 +65,9 @@ export function TrainingCard({
       </div>
       <TitleTag className={`${OFC_TYPE_H3} mt-4 text-pretty`}>{titre}</TitleTag>
       <p className="mt-3 text-base leading-[1.65] text-ofc-ink-muted">{benefice}</p>
+      {prixLabel ? (
+        <p className="mt-4 text-sm font-semibold text-ofc-ink">{prixLabel}</p>
+      ) : null}
       {publicCible || format ? (
         <dl className="mt-4 space-y-2 text-sm text-ofc-ink-muted">
           {publicCible ? (
@@ -90,6 +99,7 @@ export function TrainingCard({
       <div className="mt-auto pt-7">
         <Link
           href={href}
+          aria-label={ctaAriaLabel}
           className={`${OFC_CTA_PRIMARY} inline-flex min-h-11 w-full items-center justify-center px-5 py-3 text-sm sm:w-auto`}
         >
           {ctaLabel}

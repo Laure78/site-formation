@@ -60,7 +60,7 @@ export function FormationsCatalogueToolbar({
     <>
       <form
         role="search"
-        className="mt-8 max-w-3xl"
+        className="max-w-3xl"
         onSubmit={(e) => {
           e.preventDefault();
           submitSearch();

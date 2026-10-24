@@ -1,6 +1,8 @@
 import Link from 'next/link';
 import { AccueilHeroVideo } from '@/components/landing/AccueilHeroVideo';
+import { AccueilHeroReassurance } from '@/components/landing/accueil/AccueilHeroReassurance';
 import { Badge } from '@/components/ui/Badge';
+import { PRENDRE_RDV_DUREE_MINUTES } from '@/lib/prendre-rendez-vous-page-config';
 import { LINKS } from '@/lib/internal-links';
 import {
   OFC_CTA_PRIMARY,
@@ -10,10 +12,13 @@ import {
 } from '@/lib/ofc-interaction-classes';
 import { OFC_SEC } from '@/lib/ofc-section-classes';
 
-/** Hero accueil — promesse claire, double CTA orientation, vidéo large. */
+/** Hero accueil — 1 CTA primaire RDV, 1 secondaire formations, vidéo sous le texte sur mobile. */
 export function AccueilHeroSection() {
   return (
-    <section className={`${OFC_SEC.hero} relative overflow-hidden !py-5 md:!py-6 lg:!py-7`}>
+    <section
+      id="accueil-hero"
+      className={`${OFC_SEC.hero} relative overflow-hidden !py-5 md:!py-6 lg:!py-7`}
+    >
       <div className="relative mx-auto max-w-[80rem] px-4 sm:px-6 lg:px-8">
         <div className="accueil-hero-fold">
           <div className="accueil-hero-content order-1 min-w-0">
@@ -28,25 +33,29 @@ export function AccueilHeroSection() {
             </p>
             <div className="mt-4 flex flex-col gap-2.5 sm:flex-row sm:flex-wrap">
               <Link
-                href={LINKS.formationsIaDisponibles}
-                data-cta="trouver-formation"
+                href={`${LINKS.prendreRdv}?src=accueil-hero`}
+                data-cta="rdv-hero"
                 className={`${OFC_CTA_PRIMARY} inline-flex min-h-11 w-full items-center justify-center px-5 py-2.5 text-sm sm:w-auto md:px-6 md:py-3 md:text-base`}
               >
-                Trouver ma formation
+                Échanger sur mon besoin — visio {PRENDRE_RDV_DUREE_MINUTES} min offerte
               </Link>
               <Link
-                href={`${LINKS.formationIaIntraEntrepriseBtp}?src=accueil-hero`}
-                data-cta="intra-equipe"
+                href="#accueil-offre-choix"
+                data-cta="voir-formations"
                 className={`${OFC_CTA_SECONDARY} inline-flex min-h-11 w-full items-center justify-center px-5 py-2.5 text-sm sm:w-auto md:px-6 md:py-3 md:text-base`}
               >
-                Former mon équipe
+                Voir les formations
               </Link>
             </div>
-            <p className="mt-3">
-              <Link href="#accueil-parcours" className={`${OFC_LINK} text-xs font-medium md:text-sm`}>
-                Découvrir les parcours métiers
+            <p className="mt-2.5">
+              <Link
+                href={`${LINKS.formationIaIntraEntrepriseBtp}?src=accueil-hero`}
+                className={`${OFC_LINK} text-xs font-medium text-ofc-ink-muted md:text-sm`}
+              >
+                Former mon équipe en intra-entreprise
               </Link>
             </p>
+            <AccueilHeroReassurance />
           </div>
 
           <aside className="accueil-hero-aside order-2 mt-5 w-full min-w-0 md:order-none md:mt-0">
@@ -55,7 +64,6 @@ export function AccueilHeroSection() {
             </div>
           </aside>
         </div>
-
       </div>
     </section>
   );

@@ -28,7 +28,12 @@ export function FormationsContact2027({
         formulaire.
       </p>
       <div className="mt-8 grid gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(260px,340px)]">
-        <ContactForm initialObjet={initialObjet} formationHint={formationHint} density="compact" />
+        <ContactForm
+          initialObjet={initialObjet}
+          formationHint={formationHint}
+          density="compact"
+          steppedCatalogue
+        />
         <aside className="border border-[#E2E8F0] bg-[#F8FAFC] p-5 lg:sticky lg:top-24 lg:self-start">
           <h3 className="font-semibold text-ofc-ink">Contact direct</h3>
           <p className="mt-3 text-sm text-ofc-ink-muted">Laure OLIVIÉ</p>

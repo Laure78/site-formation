@@ -14,11 +14,21 @@ export type CatalogueModulesFilterParams = {
   q?: string;
 };
 
+export type CatalogueVue = 'ia' | 'modules' | 'tout';
+
+export type CatalogueDisponibiliteFilter = 'disponible' | 'ouverture-2027';
+
+export type CatalogueDureeFilter = 4 | 7 | 14;
+
 export type FormationsIaFilterParams = CatalogueModulesFilterParams & {
   /** Filtre niveau — section « Formations IA disponibles » */
   niveau?: FormationNiveau;
   /** Rubrique thématique catalogue */
   thematique?: CatalogueThematiqueId;
+  /** Segment catalogue unifié */
+  vue?: CatalogueVue;
+  disponibilite?: CatalogueDisponibiliteFilter;
+  duree?: CatalogueDureeFilter;
 };
 
 const THEMATIQUE_IDS = new Set<string>(CATALOGUE_THEMATIQUE_IDS);
@@ -61,12 +71,7 @@ export function parseCatalogueModulesFilters(
 }
 
 export function buildCatalogueModulesHref(filters: CatalogueModulesFilterParams): string {
-  const params = new URLSearchParams();
-  if (filters.domaine) params.set('domaine', filters.domaine);
-  if (filters.metier) params.set('metier', filters.metier);
-  if (filters.q) params.set('q', filters.q);
-  const qs = params.toString();
-  return qs ? `/formations?${qs}#catalogue-modules` : '/formations#catalogue-modules';
+  return buildFormationsIaHref(filters);
 }
 
 export function parseFormationsIaFilters(
@@ -92,7 +97,27 @@ export function parseFormationsIaFilters(
     thematiqueRaw && THEMATIQUE_IDS.has(thematiqueRaw)
       ? (thematiqueRaw as CatalogueThematiqueId)
       : undefined;
-  return { ...base, niveau, thematique };
+
+  const vueRaw = get('vue');
+  const vue =
+    vueRaw === 'ia' || vueRaw === 'modules' || vueRaw === 'tout'
+      ? (vueRaw as CatalogueVue)
+      : undefined;
+
+  const disponibiliteRaw = get('disponibilite');
+  const disponibilite =
+    disponibiliteRaw === 'disponible' || disponibiliteRaw === 'ouverture-2027'
+      ? (disponibiliteRaw as CatalogueDisponibiliteFilter)
+      : undefined;
+
+  const dureeRaw = get('duree');
+  const dureeParsed = dureeRaw ? Number.parseInt(dureeRaw, 10) : NaN;
+  const duree =
+    dureeParsed === 4 || dureeParsed === 7 || dureeParsed === 14
+      ? (dureeParsed as CatalogueDureeFilter)
+      : undefined;
+
+  return { ...base, niveau, thematique, vue, disponibilite, duree };
 }
 
 /** Lien menu / cartes — formations IA filtrées par niveau. */
@@ -102,10 +127,13 @@ export function buildFormationsIaNiveauHref(niveau: FormationNiveau): string {
 
 export function buildFormationsIaHref(filters: FormationsIaFilterParams): string {
   const params = new URLSearchParams();
+  if (filters.vue && filters.vue !== 'tout') params.set('vue', filters.vue);
   if (filters.niveau) params.set('niveau', String(filters.niveau));
   if (filters.thematique) params.set('thematique', filters.thematique);
   if (filters.domaine) params.set('domaine', filters.domaine);
   if (filters.metier) params.set('metier', filters.metier);
+  if (filters.disponibilite) params.set('disponibilite', filters.disponibilite);
+  if (filters.duree) params.set('duree', String(filters.duree));
   if (filters.q) params.set('q', filters.q);
   const qs = params.toString();
   const hash = 'catalogue-formations';

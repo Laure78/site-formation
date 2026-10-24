@@ -3,7 +3,13 @@
 import { useId } from 'react';
 import { SlidersHorizontal, X } from 'lucide-react';
 import type { FormationNiveau } from '@/data/formations';
-import { METIERS_CATALOGUE_2027, type MetierId } from '@/data/catalogue-2027';
+import {
+  DOMAINES_CATALOGUE_2027,
+  METIERS_CATALOGUE_2027,
+  type DomaineId,
+  type MetierId,
+} from '@/data/catalogue-2027';
+import type { CatalogueDisponibiliteFilter, CatalogueDureeFilter, CatalogueVue } from '@/lib/catalogue-filter-url';
 import {
   CATALOGUE_THEMATIQUES,
   type CatalogueThematiqueId,
@@ -31,12 +37,44 @@ function FilterFields({
   thematiqueOptions,
   onChange,
 }: FilterFieldsProps) {
+  const vue = filters.vue ?? 'tout';
   const niveauId = `${idPrefix}-niveau`;
   const thematiqueId = `${idPrefix}-thematique`;
   const metierId = `${idPrefix}-metier`;
+  const domaineId = `${idPrefix}-domaine`;
+  const dureeId = `${idPrefix}-duree`;
+  const dispoId = `${idPrefix}-disponibilite`;
+
+  const vueOptions: { id: CatalogueVue; label: string }[] = [
+    { id: 'ia', label: 'Formations IA' },
+    { id: 'modules', label: 'Modules métier' },
+    { id: 'tout', label: 'Tout' },
+  ];
 
   return (
-    <div className="grid gap-4 sm:grid-cols-3">
+    <div className="space-y-4">
+      <fieldset>
+        <legend className="text-sm font-semibold text-ofc-ink">Afficher</legend>
+        <div className="mt-2 flex flex-wrap gap-2">
+          {vueOptions.map((opt) => (
+            <button
+              key={opt.id}
+              type="button"
+              onClick={() => onChange({ vue: opt.id === 'tout' ? undefined : opt.id })}
+              className={`inline-flex min-h-11 items-center rounded-full px-4 py-2 text-sm font-medium focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#377CF3] ${
+                vue === opt.id
+                  ? 'bg-[#377CF3] text-white'
+                  : 'border border-[#E2E8F0] bg-white text-ofc-ink hover:border-[#377CF3]/40'
+              }`}
+              aria-pressed={vue === opt.id}
+            >
+              {opt.label}
+            </button>
+          ))}
+        </div>
+      </fieldset>
+
+      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
       <div>
         <label htmlFor={niveauId} className="text-sm font-semibold text-ofc-ink">
           Niveau
@@ -105,6 +143,69 @@ function FilterFields({
           </select>
         </div>
       ) : null}
+      <div>
+        <label htmlFor={domaineId} className="text-sm font-semibold text-ofc-ink">
+          Domaine
+        </label>
+        <select
+          id={domaineId}
+          value={filters.domaine ?? ''}
+          onChange={(e) =>
+            onChange({
+              domaine: (e.target.value || undefined) as DomaineId | undefined,
+            })
+          }
+          className="mt-1.5 min-h-11 w-full rounded-lg border border-[#E2E8F0] bg-white px-3 py-2 text-sm text-ofc-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ofc-accent"
+        >
+          <option value="">Tous les domaines</option>
+          {DOMAINES_CATALOGUE_2027.map((d) => (
+            <option key={d.id} value={d.id}>
+              {d.numero}. {d.titre}
+            </option>
+          ))}
+        </select>
+      </div>
+      <div>
+        <label htmlFor={dureeId} className="text-sm font-semibold text-ofc-ink">
+          Durée
+        </label>
+        <select
+          id={dureeId}
+          value={filters.duree ?? ''}
+          onChange={(e) => {
+            const v = e.target.value;
+            onChange({
+              duree: v ? (Number(v) as CatalogueDureeFilter) : undefined,
+            });
+          }}
+          className="mt-1.5 min-h-11 w-full rounded-lg border border-[#E2E8F0] bg-white px-3 py-2 text-sm text-ofc-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ofc-accent"
+        >
+          <option value="">Toutes les durées</option>
+          <option value="4">4 h</option>
+          <option value="7">7 h</option>
+          <option value="14">14 h</option>
+        </select>
+      </div>
+      <div>
+        <label htmlFor={dispoId} className="text-sm font-semibold text-ofc-ink">
+          Disponibilité
+        </label>
+        <select
+          id={dispoId}
+          value={filters.disponibilite ?? ''}
+          onChange={(e) =>
+            onChange({
+              disponibilite: (e.target.value || undefined) as CatalogueDisponibiliteFilter | undefined,
+            })
+          }
+          className="mt-1.5 min-h-11 w-full rounded-lg border border-[#E2E8F0] bg-white px-3 py-2 text-sm text-ofc-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ofc-accent"
+        >
+          <option value="">Toutes</option>
+          <option value="disponible">Disponible</option>
+          <option value="ouverture-2027">Ouverture prévue en 2027</option>
+        </select>
+      </div>
+      </div>
     </div>
   );
 }
@@ -145,6 +246,38 @@ export function CatalogueSearchFilters(props: Props) {
       clear: () => props.onChange({ q: undefined }),
     });
   }
+  if (filters.vue && filters.vue !== 'tout') {
+    activeChips.push({
+      key: 'vue',
+      label: filters.vue === 'ia' ? 'Formations IA' : 'Modules métier',
+      clear: () => props.onChange({ vue: undefined }),
+    });
+  }
+  if (filters.domaine) {
+    const d = DOMAINES_CATALOGUE_2027.find((x) => x.id === filters.domaine);
+    activeChips.push({
+      key: 'domaine',
+      label: d?.titre ?? filters.domaine,
+      clear: () => props.onChange({ domaine: undefined }),
+    });
+  }
+  if (filters.duree) {
+    activeChips.push({
+      key: 'duree',
+      label: `${filters.duree} h`,
+      clear: () => props.onChange({ duree: undefined }),
+    });
+  }
+  if (filters.disponibilite) {
+    activeChips.push({
+      key: 'disponibilite',
+      label:
+        filters.disponibilite === 'disponible'
+          ? 'Disponible'
+          : 'Ouverture prévue en 2027',
+      clear: () => props.onChange({ disponibilite: undefined }),
+    });
+  }
 
   return (
     <div className="mt-6">
@@ -161,12 +294,7 @@ export function CatalogueSearchFilters(props: Props) {
           aria-controls={`${baseId}-filters-panel`}
         >
           <SlidersHorizontal className="h-4 w-4" aria-hidden />
-          Filtrer
-          {activeChips.length > 0 ? (
-            <span className="rounded-full bg-ofc-accent px-2 py-0.5 text-xs font-bold text-white">
-              {activeChips.length}
-            </span>
-          ) : null}
+          Filtrer{activeChips.length > 0 ? ` (${activeChips.length})` : ''}
         </button>
 
         {mobileOpen ? (
