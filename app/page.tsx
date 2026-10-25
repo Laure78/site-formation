@@ -1,6 +1,5 @@
 import type { Metadata } from 'next';
 import { preload } from 'react-dom';
-import { AccueilPageNav } from '@/components/landing/accueil/AccueilPageNav';
 import { AccueilHeroSection } from '@/components/landing/AccueilHeroSection';
 import { AccueilPreuvesConfianceSection } from '@/components/landing/accueil/AccueilPreuvesConfianceSection';
 import { AccueilFormationsParcoursSection } from '@/components/landing/accueil/AccueilFormationsParcoursSection';
@@ -82,7 +81,6 @@ export default function HomePage() {
   return (
     <div>
       <AccueilHeroSection />
-      <AccueilPageNav />
       <AccueilPreuvesConfianceSection />
       <AccueilFormationsParcoursSection />
       <AccueilCasExercicesSection />

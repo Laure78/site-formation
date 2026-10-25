@@ -23,9 +23,22 @@
   flex-direction: column;
 }
 
-/* ——— Roll button ——— */
+/* ——— Roll button (classes posées en JS — pas de Tailwind dynamique) ——— */
 .anim-roll-wrap {
+  position: relative;
+  display: inline-flex;
+  flex-direction: column;
+  height: 1.2em;
+  overflow: hidden;
   vertical-align: middle;
+  line-height: 1.2;
+}
+
+.anim-roll-line {
+  display: block;
+  flex-shrink: 0;
+  white-space: nowrap;
+  line-height: 1.2;
 }
 
 /* ——— Marquee logos ——— */

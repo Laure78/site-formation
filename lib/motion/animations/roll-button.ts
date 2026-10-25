@@ -12,12 +12,12 @@ export function initRollButton(root: HTMLElement): (() => void) | void {
   if (!text) return;
 
   const wrap = document.createElement('span');
-  wrap.className = 'anim-roll-wrap relative inline-flex h-[1.2em] flex-col overflow-hidden align-middle';
+  wrap.className = 'anim-roll-wrap';
   wrap.setAttribute('aria-hidden', 'true');
 
   const makeLine = (duplicate: boolean) => {
     const line = document.createElement('span');
-    line.className = 'anim-roll-line inline-block whitespace-nowrap';
+    line.className = 'anim-roll-line';
     if (duplicate) line.dataset.rollDuplicate = 'true';
     line.textContent = text;
     return line;
