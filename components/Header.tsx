@@ -18,7 +18,6 @@ import {
   HeaderNavDropdown,
   HeaderNavSimpleLink,
 } from '@/components/nav/HeaderNavDropdown';
-import { PromoOffreFormations2027Banner } from '@/components/PromoOffreFormations2027Banner';
 import { useSiteHeaderBehavior } from '@/hooks/useSiteHeaderBehavior';
 import { isAuthConnexionPage } from '@/lib/auth-connexion-chrome';
 import type { LucideIcon } from 'lucide-react';
@@ -152,7 +151,6 @@ export function Header() {
 
   return (
     <>
-      <PromoOffreFormations2027Banner />
       <header
         ref={headerRef}
         className="site-header"
