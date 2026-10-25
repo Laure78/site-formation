@@ -16,6 +16,9 @@ import {
 import {
   NAV_CARRIERE,
   getNavFooterParcours,
+  NAV_FOOTER_FORMATIONS,
+  NAV_FOOTER_ORGANISME,
+  NAV_FOOTER_RESSOURCES,
   NAV_FORMATIONS_FOOTER,
   NAV_IDF,
   NAV_LEGAL_BAR,
@@ -81,11 +84,11 @@ export const SITE = {
   nav: {
     header: getHeaderNav(),
     footer: {
-      formations: NAV_FORMATIONS_FOOTER,
+      formations: NAV_FOOTER_FORMATIONS,
       parcours: getNavFooterParcours(),
-      ressources: NAV_RESSOURCES,
+      ressources: NAV_FOOTER_RESSOURCES,
       carriere: NAV_CARRIERE,
-      organisme: NAV_ORGANISME,
+      organisme: NAV_FOOTER_ORGANISME,
       liensUtiles: NAV_LIENS_UTILES,
       legal: NAV_LEGAL_BAR,
       legalSecondary: NAV_LEGAL_SECONDARY,

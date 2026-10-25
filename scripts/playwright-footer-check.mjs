@@ -21,9 +21,9 @@ const FOOTER_CHECKS = [
   { role: 'link', name: /Échanger sur mon besoin/i },
   { role: 'link', name: /Indicateurs de résultats/i },
   { role: 'button', name: /Gérer mes cookies/i },
-  { role: 'link', name: /Toutes les formations/i },
-  { role: 'link', name: /Tous les parcours/i },
-  { role: 'link', name: /Avis Google/i },
+  { role: 'link', name: /Catalogue de formations/i },
+  { role: 'link', name: /Tous les parcours métiers/i },
+  { role: 'link', name: /Avis clients/i },
 ];
 
 async function main() {

@@ -2,13 +2,13 @@ import type { Metadata } from 'next';
 import { JsonLd } from '@/components/JsonLd';
 import { createPageMetadata } from '@/lib/seo';
 import { RessourcesHubHero } from '@/components/ressources/RessourcesHubHero';
-import { RessourcesFeaturedSection } from '@/components/ressources/RessourcesFeaturedSection';
 import { RessourcesGuidesPdfSection } from '@/components/ressources/RessourcesGuidesPdfSection';
 import { RessourcesHubLibrary } from '@/components/ressources/RessourcesHubLibrary';
+import { RessourcesHubComplementary } from '@/components/ressources/RessourcesHubComplementary';
 import { RessourcesDisclaimerSection } from '@/components/ressources/RessourcesDisclaimerSection';
 import { RessourcesFinalCta } from '@/components/ressources/RessourcesFinalCta';
 import { buildRessourcesHubJsonLd } from '@/lib/schema-ressources-hub-jsonld';
-import { getFeaturedRessources, getRessourcesCatalog } from '@/lib/ressources-catalog';
+import { getRessourcesCatalog, getRessourcesHubSpotlight } from '@/lib/ressources-catalog';
 import { LINKS } from '@/lib/internal-links';
 import { RelatedLinks } from '@/components/RelatedLinks';
 
@@ -59,32 +59,37 @@ export default async function RessourcesIndexPage({ searchParams }: PageProps) {
   const libraryCatalog = catalog.filter(
     (r) => r.resourceType !== 'guide' && r.resourceType !== 'modele-fichier',
   );
-  const featured = getFeaturedRessources();
+  const spotlight = getRessourcesHubSpotlight();
   const resolvedParams = searchParams ? await searchParams : {};
   const initialSearch = buildInitialSearch(resolvedParams);
 
   return (
-    <div className="ofc-editorial min-h-screen bg-white">
+    <div className="ressources-page ofc-editorial min-h-0 bg-white">
       <JsonLd id="schema-ressources-hub" data={hubJsonLd} />
 
-      <RessourcesHubHero />
+      <RessourcesHubHero spotlight={spotlight} />
 
-      <RessourcesFeaturedSection resources={featured} />
+      <div
+        id="catalogue-ressources"
+        className="scroll-mt-[calc(var(--site-header-height,4.5rem)+0.75rem)]"
+      >
+        <RessourcesGuidesPdfSection />
 
-      <RessourcesGuidesPdfSection />
+        {/* Maillage HTML crawlable — indépendant du « Afficher plus » client */}
+        <nav className="sr-only" aria-label="Liste complète des ressources">
+          <ul>
+            {catalog.map((resource) => (
+              <li key={`crawl-${resource.id}`}>
+                <a href={resource.viewUrl}>{resource.title}</a>
+              </li>
+            ))}
+          </ul>
+        </nav>
 
-      {/* Maillage HTML crawlable — indépendant du « Afficher plus » client */}
-      <nav className="sr-only" aria-label="Liste complète des ressources">
-        <ul>
-          {catalog.map((resource) => (
-            <li key={`crawl-${resource.id}`}>
-              <a href={resource.viewUrl}>{resource.title}</a>
-            </li>
-          ))}
-        </ul>
-      </nav>
+        <RessourcesHubLibrary resources={libraryCatalog} initialSearch={initialSearch} />
+      </div>
 
-      <RessourcesHubLibrary resources={libraryCatalog} initialSearch={initialSearch} />
+      <RessourcesHubComplementary />
 
       <RessourcesDisclaimerSection />
 

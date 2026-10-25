@@ -547,6 +547,35 @@ export function getRessourcesCatalog(options?: {
   return list.sort((a, b) => a.sortOrder - b.sortOrder);
 }
 
+/** Introduction courte sous le H1 du hub `/ressources`. */
+export const RESSOURCES_HUB_INTRO =
+  'Guides, tutoriels et prompts pour vos appels d’offres, devis et documents de chantier.';
+
+/** Ressources du hero hub — ordre fixe, identifiants stables (catalogue unifié). */
+export const RESSOURCES_HUB_SPOTLIGHT_IDS = [
+  'guide-repondre-ao-btp-ofc-2026',
+  'guide-conducteur-de-travaux',
+  'skills-claude-btp',
+] as const;
+
+/** Phrase bénéfice hero — `promise` guide si disponible, sinon description hub. */
+export function getRessourceSpotlightBenefit(entry: RessourceCatalogEntry): string {
+  const guide = RESSOURCES_GUIDES.find((g) => guideIdFromHref(g.href) === entry.id);
+  if (guide?.promise) return guide.promise;
+  return entry.shortDescription;
+}
+
+/** Trois ressources du hero, dans l’ordre `RESSOURCES_HUB_SPOTLIGHT_IDS`. */
+export function getRessourcesHubSpotlight(): readonly RessourceCatalogEntry[] {
+  const byId = new Map(getRessourcesCatalog().map((r) => [r.id, r]));
+  const picked: RessourceCatalogEntry[] = [];
+  for (const id of RESSOURCES_HUB_SPOTLIGHT_IDS) {
+    const entry = byId.get(id);
+    if (entry) picked.push(entry);
+  }
+  return picked;
+}
+
 /** Ressources mises en avant (max 3, besoins distincts). */
 export function getFeaturedRessources(): readonly RessourceCatalogEntry[] {
   const featured = getRessourcesCatalog().filter((r) => r.featured);

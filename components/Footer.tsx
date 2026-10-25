@@ -3,30 +3,22 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { ChevronUp, Mail, Phone, Star } from 'lucide-react';
-import { LinkedInIcon } from '@/components/icons/LinkedInIcon';
+import { ChevronUp, Mail, Phone } from 'lucide-react';
 import { ExternalLinkAnchor } from '@/components/ExternalLink';
 import { QualiopiBadge } from '@/components/QualiopiLogo';
-import { HeaderPrimaryCta } from '@/components/nav/HeaderPrimaryCta';
 import { AUTHOR_HEADSHOT_IMAGE_CLASS } from '@/lib/author-headshot';
 import { requestCookieConsentDialog } from '@/lib/cookie-consent';
 import { IMAGE_QUALITY_DEFAULT } from '@/lib/image-props';
-import { LINKEDIN_PROFILE_ARIA } from '@/lib/linkedin-profile';
 import { QUALIOPI_LEGAL } from '@/lib/qualiopi-info';
-import { LINKS } from '@/lib/internal-links';
 import { MENTION_MARQUE_EXPLOITANTE } from '@/lib/marque-identite';
 import { SITE } from '@/lib/site';
 import { EXTERNAL_AUTHORITY_LINKS } from '@/lib/seo-links';
 import {
-  FOOTER_GOOGLE_REVIEWS_URL,
-  NAV_CARRIERE,
-  getNavFooterParcours,
-  NAV_FORMATIONS_FOOTER,
+  NAV_FOOTER_FORMATIONS,
+  NAV_FOOTER_ORGANISME,
+  NAV_FOOTER_RESSOURCES,
   NAV_LEGAL_BAR,
   NAV_LEGAL_SECONDARY,
-  NAV_LIENS_UTILES,
-  NAV_ORGANISME,
-  NAV_RESSOURCES,
   type NavItem,
 } from '@/lib/nav';
 import { isAuthConnexionPage } from '@/lib/auth-connexion-chrome';
@@ -83,7 +75,7 @@ function FooterNavColumn({
   return (
     <nav aria-label={ariaLabel} className="min-w-0">
       <p className={FOOTER_HEADING_CLASS}>{heading}</p>
-      <ul className="mt-3 space-y-0.5">
+      <ul className="mt-2 space-y-0.5">
         {items.map((item) => (
           <li key={`${item.href}-${item.label}`}>
             <FooterNavLink item={item} />
@@ -126,7 +118,6 @@ export function Footer() {
     return null;
   }
 
-  const { social } = SITE;
   const year = new Date().getFullYear();
 
   return (
@@ -135,175 +126,94 @@ export function Footer() {
       style={{ backgroundColor: FOOTER_BG }}
     >
       <div className="mx-auto max-w-[80rem] px-4 md:px-6 lg:px-8">
-        {/* Bande supérieure — identité & contact */}
-        <div className="flex flex-col gap-6 border-b border-white/10 py-10 md:flex-row md:items-center md:justify-between md:gap-8 md:py-12">
-          <div className="flex min-w-0 flex-col gap-4 sm:flex-row sm:items-start sm:gap-5">
-            <span className="site-header__logo-mark ring-white/25">
-              <Image
-                src={SITE.logo.src}
-                alt={SITE.logo.alt}
-                title={SITE.logo.title}
-                width={48}
-                height={48}
-                className={AUTHOR_HEADSHOT_IMAGE_CLASS}
-                quality={IMAGE_QUALITY_DEFAULT}
-              />
-            </span>
-            <div className="min-w-0">
-              <p className="font-display text-lg font-bold tracking-tight text-white">{SITE.name}</p>
-              <p className="mt-0.5 text-sm font-medium text-white/90">{SITE.tagline}</p>
-              <p className="mt-1 text-xs font-medium tracking-wide text-white/60">
-                Présentiel en Île-de-France
-              </p>
+        <div className="grid grid-cols-1 items-start gap-8 py-8 sm:grid-cols-2 lg:grid-cols-[minmax(0,1.35fr)_repeat(3,minmax(0,1fr))] lg:gap-x-8 lg:gap-y-6 lg:py-9">
+          <div className="min-w-0 sm:col-span-2 lg:col-span-1">
+            <div className="flex min-w-0 items-start gap-4">
+              <span className="site-header__logo-mark ring-white/25">
+                <Image
+                  src={SITE.logo.src}
+                  alt={SITE.logo.alt}
+                  title={SITE.logo.title}
+                  width={48}
+                  height={48}
+                  className={AUTHOR_HEADSHOT_IMAGE_CLASS}
+                  quality={IMAGE_QUALITY_DEFAULT}
+                />
+              </span>
+              <div className="min-w-0">
+                <p className="font-display text-lg font-bold tracking-tight text-white">{SITE.name}</p>
+                <p className="mt-0.5 text-sm font-medium text-white/90">{SITE.tagline}</p>
+                <p className="mt-1 text-sm text-white/70">Présentiel en Île-de-France</p>
+              </div>
             </div>
+            <ul className="mt-4 space-y-0.5">
+              <li>
+                <a
+                  href={`tel:${SITE.phone}`}
+                  aria-label={PHONE_ARIA_LABEL}
+                  className={`${FOOTER_LINK_CLASS} gap-2 font-medium`}
+                >
+                  <Phone size={15} strokeWidth={1.75} className="shrink-0" aria-hidden />
+                  {SITE.phoneDisplay}
+                </a>
+              </li>
+              <li>
+                <a
+                  href={`mailto:${SITE.email}`}
+                  data-no-cfemail
+                  className={`${FOOTER_LINK_CLASS} gap-2 break-all font-medium`}
+                >
+                  <Mail size={15} strokeWidth={1.5} className="shrink-0" aria-hidden />
+                  {SITE.email}
+                </a>
+              </li>
+            </ul>
           </div>
 
-          <div className="flex min-w-0 flex-col items-stretch gap-3 sm:items-end">
-            <div className="flex flex-col gap-2 sm:flex-row sm:flex-wrap sm:items-center sm:justify-end">
-              <a
-                href={`tel:${SITE.phone}`}
-                aria-label={PHONE_ARIA_LABEL}
-                className="inline-flex min-h-11 items-center justify-center gap-2 rounded-full border border-white/35 px-4 py-2 text-sm font-semibold text-white transition hover:border-white/60 hover:bg-white/5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white motion-reduce:transition-none"
-              >
-                <Phone size={16} strokeWidth={1.75} aria-hidden />
-                {SITE.phoneDisplay}
-              </a>
-              <HeaderPrimaryCta
-                origin="footer"
-                className="min-h-11 w-full rounded-lg sm:w-auto sm:min-w-[12rem]"
-              />
-            </div>
-            <a
-              href={`mailto:${SITE.email}`}
-              data-no-cfemail
-              className="inline-flex min-h-11 max-w-full items-center gap-2 break-all text-sm font-medium text-white/85 underline-offset-[3px] hover:text-white hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white sm:justify-end"
-            >
-              <Mail size={15} strokeWidth={1.5} className="shrink-0" aria-hidden />
-              {SITE.email}
-            </a>
-          </div>
-        </div>
-
-        {/* Navigation — 6 colonnes (2× mobile, 3× lg, 6× 2xl) */}
-        <div className="grid gap-10 py-10 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-6 lg:gap-8 lg:py-12">
           <FooterNavColumn
-            ariaLabel="Formations IA BTP"
-            heading="Formations IA BTP"
-            items={NAV_FORMATIONS_FOOTER}
+            ariaLabel="Formations"
+            heading="Formations"
+            items={NAV_FOOTER_FORMATIONS}
           />
-          {getNavFooterParcours().length > 0 ? (
-            <FooterNavColumn
-              ariaLabel="Parcours métiers"
-              heading="Parcours métiers"
-              items={getNavFooterParcours()}
-            />
-          ) : null}
           <FooterNavColumn
             ariaLabel="Notre organisme"
             heading="Notre organisme"
-            items={NAV_ORGANISME}
+            items={NAV_FOOTER_ORGANISME}
           />
-          <FooterNavColumn
-            ariaLabel="Ressources et aide"
-            heading="Ressources et aide"
-            items={NAV_RESSOURCES}
-          />
-          <FooterNavColumn ariaLabel="Carrière" heading="Carrière" items={NAV_CARRIERE} />
-          <FooterNavColumn
-            ariaLabel="Liens utiles"
-            heading="Liens utiles"
-            items={NAV_LIENS_UTILES}
-          />
+          <FooterNavColumn ariaLabel="Ressources" heading="Ressources" items={NAV_FOOTER_RESSOURCES} />
         </div>
 
-        {/* Réassurance — Qualiopi, financement, réseaux */}
-        <div className="grid gap-8 border-t border-white/10 py-8 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)] lg:items-start lg:gap-10">
-          <div className="min-w-0 space-y-4">
-            <p className="text-sm font-semibold text-white">{SITE.name}</p>
-            <div className="flex max-w-xl flex-col gap-4">
-              <QualiopiBadge size="lg" className="w-full max-w-[16rem] shrink-0 self-start" />
-              <div className="min-w-0 text-sm leading-relaxed text-white/75">
-                <p>
-                  Certificateur : Certifopac — certificat n° {QUALIOPI_LEGAL.certificatNumero},
-                  validité {QUALIOPI_LEGAL.certificatValidite}
-                </p>
-                <div className="mt-2 flex flex-wrap gap-x-4 gap-y-1">
+        <div className="border-t border-white/10 py-5">
+          <div className="flex flex-col gap-5 lg:flex-row lg:items-start lg:justify-between lg:gap-6">
+            <div className="min-w-0 flex-1 space-y-3">
+              <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-start sm:gap-4">
+                <QualiopiBadge size="default" className="max-w-[11rem] shrink-0 self-start" />
+                <p className="max-w-xl text-xs leading-relaxed text-white/55">
+                  Certificateur Certifopac — certificat n° {QUALIOPI_LEGAL.certificatNumero}, validité{' '}
+                  {QUALIOPI_LEGAL.certificatValidite}.{' '}
                   <a
                     href={QUALIOPI_LEGAL.certificatPdfHref}
-                    className="font-medium text-white underline-offset-[3px] hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+                    className="text-white/75 underline-offset-[3px] hover:text-white hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
                     download
                   >
                     {QUALIOPI_LEGAL.certificatPdfLabel}
                   </a>
+                  {' · '}
                   <ExternalLinkAnchor
                     href={EXTERNAL_AUTHORITY_LINKS.dataGouvQualiopi.href}
                     title={EXTERNAL_AUTHORITY_LINKS.dataGouvQualiopi.title}
-                    className="font-medium text-white underline-offset-[3px] hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+                    className="text-white/75 underline-offset-[3px] hover:text-white hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
                   >
                     Vérifier sur data.gouv.fr
                   </ExternalLinkAnchor>
-                  <Link
-                    href={LINKS.qualiopi}
-                    className="font-medium text-white underline-offset-[3px] hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
-                  >
-                    Qualité et certification
-                  </Link>
-                  <Link
-                    href={LINKS.indicateursResultats}
-                    className="font-medium text-white underline-offset-[3px] hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
-                  >
-                    Indicateurs de résultats
-                  </Link>
-                </div>
+                </p>
               </div>
-            </div>
-          </div>
 
-          <div className="min-w-0 space-y-4">
-            <p className="text-sm leading-relaxed text-white/75">
-              Financement possible selon votre situation et les conditions du financeur.
-            </p>
-            <Link
-              href={LINKS.financement}
-              className="inline-flex min-h-11 items-center text-sm font-semibold text-white underline-offset-[3px] hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
-            >
-              Consulter les possibilités de financement
-            </Link>
-            <div className="flex flex-wrap gap-3 pt-1">
-              <ExternalLinkAnchor
-                href={social.linkedin}
-                title={LINKEDIN_PROFILE_ARIA.footer}
-                aria-label={LINKEDIN_PROFILE_ARIA.footer}
-                className="inline-flex min-h-11 items-center gap-2 rounded-lg border border-white/15 px-3 text-sm font-medium text-white transition hover:border-white/30 hover:bg-white/5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white motion-reduce:transition-none"
-              >
-                <span className="flex h-8 w-8 items-center justify-center rounded-md bg-[#377CF3] text-white">
-                  <LinkedInIcon className="h-4 w-4" />
-                </span>
-                LinkedIn
-              </ExternalLinkAnchor>
-              <ExternalLinkAnchor
-                href={FOOTER_GOOGLE_REVIEWS_URL}
-                title={`Consulter les avis Google — ${SITE.name}`}
-                aria-label={`Consulter les avis Google — ${SITE.name}`}
-                className="inline-flex min-h-11 items-center gap-2 rounded-lg border border-white/15 px-3 text-sm font-medium text-white transition hover:border-white/30 hover:bg-white/5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white motion-reduce:transition-none"
-              >
-                <span className="flex h-8 w-8 items-center justify-center rounded-md bg-white/10 text-white">
-                  <Star className="h-4 w-4" strokeWidth={1.75} aria-hidden />
-                </span>
-                Avis Google
-              </ExternalLinkAnchor>
-            </div>
-          </div>
-        </div>
-
-        {/* Bandeau légal */}
-        <div className="border-t border-white/10 py-6">
-          <div className="flex flex-col gap-4 lg:flex-row lg:items-start lg:justify-between lg:gap-6">
-            <div className="min-w-0 flex-1 space-y-3">
               <p className="text-sm text-white/80">
                 © {year} {SITE.name}
               </p>
               <p className="text-xs text-white/50">{MENTION_MARQUE_EXPLOITANTE}</p>
+
               <nav aria-label="Informations légales">
                 <ul className="flex flex-wrap items-center gap-x-1 gap-y-2 text-sm">
                   {NAV_LEGAL_BAR.map((item, index) => (
@@ -316,6 +226,7 @@ export function Footer() {
                       <Link
                         href={item.href}
                         className="text-white/75 underline-offset-[3px] hover:text-white hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+                        title={item.title}
                       >
                         {item.label}
                       </Link>
@@ -335,13 +246,15 @@ export function Footer() {
                   </li>
                 </ul>
               </nav>
+
               <nav aria-label="Informations réglementaires complémentaires">
-                <ul className="flex flex-wrap gap-x-3 gap-y-1">
+                <ul className="flex flex-wrap gap-x-3 gap-y-2">
                   {NAV_LEGAL_SECONDARY.map((item) => (
                     <li key={item.href}>
                       <Link
                         href={item.href}
                         className="text-xs text-white/55 underline-offset-[3px] hover:text-white/80 hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+                        title={item.title}
                       >
                         {item.label}
                       </Link>
@@ -349,6 +262,7 @@ export function Footer() {
                   ))}
                 </ul>
               </nav>
+
               <p className="text-xs text-white/55">
                 SIRET {SITE.siret} · NDA {SITE.nda}
               </p>

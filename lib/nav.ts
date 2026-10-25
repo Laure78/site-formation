@@ -23,7 +23,33 @@ function sortFormationsFooter(a: Formation, b: Formation): number {
   return a.titre.localeCompare(b.titre, 'fr');
 }
 
-/** Colonne 1 — Formations IA BTP (intitulés catalogue publié). */
+/** Colonne footer — Formations (accès synthèse, sans liste catalogue). */
+export const NAV_FOOTER_FORMATIONS: readonly NavItem[] = [
+  {
+    href: LINKS.formations,
+    label: 'Catalogue de formations',
+    title: 'Catalogue des formations IA BTP — présentiel Île-de-France',
+  },
+  {
+    href: LINKS.parcoursMetiers,
+    label: 'Tous les parcours métiers',
+    title: 'Parcours métiers IA BTP — hub',
+  },
+  {
+    href: LINKS.formationIaIntraEntrepriseBtp,
+    label: 'Formation intra-entreprise',
+    title: 'Formation IA intra-entreprise BTP — équipe sur site',
+  },
+  {
+    href: LINKS.financement,
+    label: 'Financement',
+    title: 'Financement OPCO Constructys — formation IA BTP',
+  },
+];
+
+/**
+ * @deprecated Liste longue (catalogue) — exports / outils uniquement, pas le footer principal.
+ */
 export function getNavFormationsFooter(at: Date = new Date()): readonly NavItem[] {
   const published = [...getPublishedFormations(at)].sort(sortFormationsFooter);
   return [
@@ -45,6 +71,7 @@ export function getNavFormationsFooter(at: Date = new Date()): readonly NavItem[
   ];
 }
 
+/** @deprecated Préférer `NAV_FOOTER_FORMATIONS` dans le footer. */
 export const NAV_FORMATIONS_FOOTER: readonly NavItem[] = getNavFormationsFooter();
 
 /** Colonne 2 — Parcours métiers (7 parcours catalogue + hub). Ordre = METIERS_CATALOGUE_2027. */
@@ -98,8 +125,8 @@ export function getNavFooterParcours(): readonly NavItem[] {
 /** @deprecated Préférer `getNavFooterParcours()` — vide tant que parcours 2027 masqués. */
 export const NAV_FOOTER_PARCOURS: readonly NavItem[] = getNavFooterParcours();
 
-/** Colonne 3 — Notre organisme. */
-export const NAV_ORGANISME: readonly NavItem[] = [
+/** Colonne footer — Notre organisme. */
+export const NAV_FOOTER_ORGANISME: readonly NavItem[] = [
   { href: LINKS.aPropos, label: 'À propos', title: 'Laure Olivié — formatrice IA BTP' },
   { href: LINKS.formateurs, label: 'Nos formateurs', title: 'Équipe de formateurs IA BTP' },
   {
@@ -107,13 +134,19 @@ export const NAV_ORGANISME: readonly NavItem[] = [
     label: 'Qualité et certification Qualiopi',
     title: 'Certification Qualiopi OFC',
   },
-  { href: LINKS.partenaires, label: 'Nos partenaires', title: 'Partenaires OFC' },
   { href: LINKS.avisClients, label: 'Avis clients', title: 'Avis clients et témoignages' },
   {
     href: LINKS.emplois,
     label: 'Nous rejoindre',
     title: 'Emplois et candidatures — Laure Olivié',
   },
+];
+
+/** @deprecated Préférer `NAV_FOOTER_ORGANISME` — inclut encore « Nos partenaires » pour exports. */
+export const NAV_ORGANISME: readonly NavItem[] = [
+  ...NAV_FOOTER_ORGANISME.slice(0, 3),
+  { href: LINKS.partenaires, label: 'Nos partenaires', title: 'Partenaires OFC' },
+  ...NAV_FOOTER_ORGANISME.slice(3),
 ];
 
 /** Colonne — Carrière (footer). */
@@ -136,7 +169,23 @@ export const NAV_CARRIERE: readonly NavItem[] = [
   },
 ];
 
-/** Colonne 4 — Ressources et aide (aligné menu principal). */
+/** Colonne footer — Ressources. */
+export const NAV_FOOTER_RESSOURCES: readonly NavItem[] = [
+  {
+    href: LINKS.ressources,
+    label: 'Ressources gratuites',
+    title: 'Guides, modèles et outils IA BTP gratuits',
+  },
+  { href: LINKS.ressourcesTutos, label: 'Tutoriels', title: 'Tutoriels IA BTP pas à pas' },
+  { href: LINKS.etudesCasHub, label: 'Études de cas', title: 'Études de cas IA BTP' },
+  {
+    href: LINKS.prendreRdv,
+    label: 'Échanger sur mon besoin',
+    title: 'Visio découverte gratuite — cadrage de votre projet IA BTP',
+  },
+];
+
+/** @deprecated Préférer `NAV_FOOTER_RESSOURCES` — liste étendue pour exports / menu. */
 export const NAV_RESSOURCES: readonly NavItem[] = [
   { href: LINKS.ressourcesTutos, label: 'Tutoriels IA BTP', title: 'Tutoriels IA BTP' },
   {
@@ -158,8 +207,21 @@ export const NAV_RESSOURCES: readonly NavItem[] = [
   },
 ];
 
-/** Colonne — Liens utiles (réglementaire & juridique, sans doublon avec la barre légale). */
-export const NAV_LIENS_UTILES: readonly NavItem[] = [
+/** Barre légale inférieure — liens juridiques principaux. */
+export const NAV_LEGAL_BAR: readonly NavItem[] = [
+  { href: LINKS.mentionsLegales, label: 'Mentions légales', title: 'Mentions légales du site laureolivie.fr' },
+  {
+    href: LINKS.politiqueConfidentialite,
+    label: 'Confidentialité',
+    title: 'Politique de confidentialité et protection des données',
+  },
+  { href: LINKS.cgv, label: 'CGV', title: 'Conditions générales de vente' },
+];
+
+/** Liens réglementaires complémentaires (bandeau inférieur, retour à la ligne mobile). */
+export const NAV_LEGAL_SECONDARY: readonly NavItem[] = [
+  { href: LINKS.indicateursResultats, label: 'Indicateurs de résultats', title: 'Indicateurs Qualiopi OFC' },
+  { href: LINKS.reclamations, label: 'Réclamations', title: 'Procédure de réclamation OFC' },
   {
     href: LINKS.reglementInterieur,
     label: 'Règlement intérieur',
@@ -175,12 +237,6 @@ export const NAV_LIENS_UTILES: readonly NavItem[] = [
     label: 'Certificat Qualiopi (PDF)',
     title: 'Certificat Qualiopi OFC Création d’Entreprise — document PDF',
   },
-  { href: LINKS.mentionsLegales, label: 'Mentions légales', title: 'Mentions légales du site laureolivie.fr' },
-  {
-    href: LINKS.politiqueConfidentialite,
-    label: 'Politique de confidentialité',
-    title: 'Politique de confidentialité et protection des données',
-  },
   {
     href: LINKS.annuaireHandicap,
     label: 'Ressources handicap',
@@ -188,15 +244,10 @@ export const NAV_LIENS_UTILES: readonly NavItem[] = [
   },
 ];
 
-/** Barre légale inférieure — liens principaux (hors colonne Liens utiles). */
-export const NAV_LEGAL_BAR: readonly NavItem[] = [
-  { href: LINKS.cgv, label: 'Conditions générales de vente' },
-];
-
-/** Liens légaux complémentaires (sous la barre principale). */
-export const NAV_LEGAL_SECONDARY: readonly NavItem[] = [
-  { href: LINKS.reclamations, label: 'Réclamations', title: 'Procédure de réclamation OFC' },
-];
+/**
+ * @deprecated Liens réglementaires — alias de `NAV_LEGAL_SECONDARY` (bandeau inférieur).
+ */
+export const NAV_LIENS_UTILES: readonly NavItem[] = NAV_LEGAL_SECONDARY;
 
 /** @deprecated Alias — préférer `NAV_ORGANISME`. */
 export const NAV_ENTREPRISE: readonly NavItem[] = NAV_ORGANISME;

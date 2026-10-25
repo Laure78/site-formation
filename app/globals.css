@@ -2206,6 +2206,49 @@
     }
   }
 
+  /* Hub /ressources — hero compact + catalogue resserré */
+  .ressources-hub-hero__title {
+    font-size: 1.75rem;
+    line-height: 1.2;
+  }
+
+  @media (min-width: 768px) {
+    .ressources-hub-hero__title {
+      font-size: clamp(1.875rem, 1.35rem + 1.4vw, 2.625rem);
+      line-height: 1.15;
+    }
+  }
+
+  .ressources-hub-hero__intro {
+    margin-top: 0.75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+
+  @media (min-width: 768px) {
+    .ressources-hub-hero__intro {
+      font-size: 1.0625rem;
+    }
+  }
+
+  .ressources-page #catalogue-ressources {
+    scroll-margin-top: calc(var(--site-header-height, 4.5rem) + 0.75rem);
+  }
+
+  .ressources-page #guides-pdf,
+  .ressources-page #bibliotheque-ressources {
+    padding-top: 2rem;
+    padding-bottom: 2.5rem;
+  }
+
+  @media (min-width: 768px) {
+    .ressources-page #guides-pdf,
+    .ressources-page #bibliotheque-ressources {
+      padding-top: 2.5rem;
+      padding-bottom: 3rem;
+    }
+  }
+
   .formateurs-hub-profiles-section {
     padding-top: 1rem;
     padding-bottom: 2.5rem;
