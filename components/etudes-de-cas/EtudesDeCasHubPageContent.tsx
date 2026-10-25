@@ -19,20 +19,35 @@ import {
   OFC_TYPE_LABEL,
   OFC_TYPE_LEAD,
 } from '@/lib/ofc-interaction-classes';
-import { OFC_INNER_ACCENT_BAND, OFC_SEC, OFC_SECTION_INNER } from '@/lib/ofc-section-classes';
+import {
+  OFC_INNER_ACCENT_BAND,
+  OFC_SEC,
+  OFC_SECTION_INNER,
+  ofcSectionClasses,
+} from '@/lib/ofc-section-classes';
+
+const ETUDES_CAS_HERO_SECTION = ofcSectionClasses({
+  tone: 'white',
+  size: 'compact',
+  mesh: true,
+  divide: false,
+});
 
 const METHODOLOGY_ICONS = [ClipboardList, Sparkles, ShieldCheck] as const;
 
 export function EtudesDeCasHubPageContent() {
   return (
     <div>
-      <section className={OFC_SEC.heroWhite} aria-labelledby="etudes-cas-h1">
-        <div className={`${OFC_SECTION_INNER} max-w-[75rem]`}>
+      <section
+        className={`${ETUDES_CAS_HERO_SECTION} etudes-de-cas-hub-hero scroll-mt-[var(--site-header-height)]`}
+        aria-labelledby="etudes-cas-h1"
+      >
+        <div className={`${OFC_SECTION_INNER} etudes-de-cas-hub-hero__inner max-w-[75rem]`}>
           <p className={OFC_TYPE_LABEL}>{ETUDES_DE_CAS_HERO.eyebrow}</p>
-          <h1 id="etudes-cas-h1" className={`${OFC_TYPE_HERO} mt-3 max-w-3xl`}>
+          <h1 id="etudes-cas-h1" className={`${OFC_TYPE_HERO} etudes-de-cas-hub-hero__title max-w-3xl`}>
             {ETUDES_DE_CAS_HERO.title}
           </h1>
-          <p className={`${OFC_TYPE_LEAD} mt-5 max-w-2xl text-ofc-ink-muted`}>
+          <p className={`${OFC_TYPE_LEAD} etudes-de-cas-hub-hero__lead max-w-2xl text-ofc-ink-muted`}>
             {ETUDES_DE_CAS_HERO.subtitle}
           </p>
         </div>

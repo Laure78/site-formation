@@ -2117,6 +2117,42 @@
     margin-top: 1.25rem;
   }
 
+  /* Hub /etudes-de-cas — hero compact sous le fil d'Ariane */
+  .etudes-de-cas-hub-hero {
+    padding-top: 0.75rem;
+    padding-bottom: 1.25rem;
+  }
+
+  @media (min-width: 768px) {
+    .etudes-de-cas-hub-hero {
+      padding-top: 1rem;
+      padding-bottom: 1.5rem;
+    }
+  }
+
+  .etudes-de-cas-hub-hero__inner {
+    @apply px-5 sm:px-0;
+  }
+
+  .etudes-de-cas-hub-hero__title {
+    margin-top: 0.5rem;
+    font-size: 1.75rem;
+    line-height: 1.2;
+  }
+
+  @media (min-width: 768px) {
+    .etudes-de-cas-hub-hero__title {
+      font-size: clamp(1.875rem, 1.35rem + 1.4vw, 2.5rem);
+      line-height: 1.15;
+    }
+  }
+
+  .etudes-de-cas-hub-hero__lead {
+    margin-top: 0.75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+
   .formateurs-hub-profiles-section {
     padding-top: 1rem;
     padding-bottom: 2.5rem;
