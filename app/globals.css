@@ -2153,6 +2153,59 @@
     line-height: 1.5;
   }
 
+  /* Hub /emplois — hero et parcours candidature compacts */
+  .emplois-hub-hero {
+    margin-top: -0.5rem;
+    padding-top: 0.5rem;
+    padding-bottom: 1rem;
+  }
+
+  @media (min-width: 768px) {
+    .emplois-hub-hero {
+      padding-top: 1rem;
+      padding-bottom: 1.25rem;
+    }
+  }
+
+  .emplois-hub-hero__inner {
+    @apply px-5 sm:px-0;
+  }
+
+  .emplois-hub-hero__title {
+    margin-top: 0.5rem;
+    font-size: 1.75rem;
+    line-height: 1.2;
+  }
+
+  @media (min-width: 768px) {
+    .emplois-hub-hero__title {
+      font-size: clamp(1.875rem, 1.35rem + 1.4vw, 2.5rem);
+      line-height: 1.15;
+    }
+  }
+
+  .emplois-hub-hero__lead {
+    margin-top: 0.75rem;
+  }
+
+  .emplois-page__main.ofc-section--compact {
+    --ofc-section-py: 1.75rem;
+    --ofc-section-py-md: 2.25rem;
+    --ofc-section-py-lg: 2.75rem;
+    --ofc-section-py-xl: 3rem;
+  }
+
+  .emplois-path-block__title {
+    font-size: 1.125rem;
+    line-height: 1.3;
+  }
+
+  @media (min-width: 768px) {
+    .emplois-path-block__title {
+      font-size: 1.25rem;
+    }
+  }
+
   .formateurs-hub-profiles-section {
     padding-top: 1rem;
     padding-bottom: 2.5rem;
