@@ -25,6 +25,7 @@ import {
   getRelatedArticlesForDisplay,
   type ArticlePrompt,
 } from '@/lib/blog';
+import { isBlogTemplatedSlug } from '@/lib/blog-templated-articles';
 import { BlogMdxArticle } from '@/components/blog/BlogMdxArticle';
 import {
   buildMdxBlogMetadata,
@@ -136,6 +137,7 @@ export async function generateMetadata({ params }: Props) {
   }
   const article = getArticle(slug);
   if (!article) return { title: { absolute: buildTitle('Article non trouvé') } };
+  const templated = article.templated === true || isBlogTemplatedSlug(slug);
   const metaTitle = article.seoTitle ?? article.title;
   const authorUrl = `${SITE_CONFIG.url}/a-propos`;
   const category = ARTICLE_SECTION_GEO;
@@ -167,6 +169,11 @@ export async function generateMetadata({ params }: Props) {
   });
   return {
     ...base,
+    ...(templated
+      ? {
+          robots: { index: false, follow: true },
+        }
+      : {}),
     authors: [{ name: SITE_CONFIG.name, url: authorUrl }],
     openGraph: {
       ...base.openGraph,

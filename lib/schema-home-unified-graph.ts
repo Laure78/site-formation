@@ -15,6 +15,7 @@ import {
   HOME_HERO_IMAGE_OBJECT_ID,
 } from '@/lib/schema-image-objects';
 import { formatNoteSatisfactionAffichageComplet } from '@/lib/data/indicateurs-resultats';
+import { getPillarPageContentUpdatedAt } from '@/lib/content-updated-at';
 
 export function buildHomeUnifiedGraphJsonLd(): Record<string, unknown> {
   const base = SCHEMA_PUBLIC_SITE_URL.replace(/\/$/, '');
@@ -47,6 +48,7 @@ export function buildHomeUnifiedGraphJsonLd(): Record<string, unknown> {
           ...terrainImageNodes.map((node) => ({ '@id': node['@id'] as string })),
         ],
         datePublished: '2024-01-01',
+        dateModified: getPillarPageContentUpdatedAt('/'),
         inLanguage: 'fr-FR',
         breadcrumb: { '@id': breadcrumbId },
         speakable: {

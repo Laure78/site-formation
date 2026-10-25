@@ -9,6 +9,8 @@
     "dev": "next dev",
     "build": "node scripts/generate-sitemap-dates.mjs && node scripts/build-bibliotheque-skills.mjs && NODE_OPTIONS=--max-old-space-size=4096 next build",
     "sitemap:dates": "node scripts/generate-sitemap-dates.mjs",
+    "validate:sitemap-dates": "node scripts/generate-sitemap-dates.mjs && node scripts/validate-sitemap-dates.mjs",
+    "llms:sync": "node scripts/sync-llms-txt.mjs",
     "audit:sitemap": "node scripts/audit-sitemap-routes.mjs",
     "check:sitemap": "node scripts/check-sitemap.mjs",
     "check:meta": "node scripts/check-meta-lengths.mjs",

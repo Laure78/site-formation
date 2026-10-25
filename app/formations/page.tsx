@@ -5,6 +5,7 @@ import { createPageMetadata, SITE_CONFIG } from '@/lib/seo';
 import { PHOTOS } from '@/lib/photos';
 import { CATALOGUE_2027_POSITIONNEMENT } from '@/data/catalogue-2027';
 import { FormationsCatalogue2027Hero } from '@/components/formations/catalogue-2027/FormationsCatalogue2027Hero';
+import { FormationsCatalogueEnBrefSection } from '@/components/formations/catalogue-2027/FormationsCatalogueEnBrefSection';
 import { FormationsCataloguePageNav } from '@/components/formations/catalogue-2027/FormationsCataloguePageNav';
 import { FormationsCatalogueOrientationCollapsible } from '@/components/formations/catalogue-2027/FormationsCatalogueOrientationCollapsible';
 import { FormationsCatalogueSearchHeader } from '@/components/formations/catalogue-2027/FormationsCatalogueSearchHeader';
@@ -96,6 +97,7 @@ export default async function FormationsPage({ searchParams }: FormationsPagePro
         <p className="sr-only">{CATALOGUE_2027_POSITIONNEMENT.introductionMarque}</p>
 
         <div className="mt-2 space-y-8">
+          <FormationsCatalogueEnBrefSection />
           <FormationsCatalogueSearchHeader />
           <FormationsCatalogueOrientationCollapsible />
           <div className="-mx-4 sm:-mx-6 lg:-mx-8">

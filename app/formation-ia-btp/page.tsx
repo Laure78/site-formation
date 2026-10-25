@@ -825,6 +825,7 @@ export default function FormationIaBtpPillarPage() {
               { href: LINKS.formationParis, label: 'Formation IA pour le BTP Paris' },
               { href: LINKS.formationYvelines, label: 'Formation IA pour les pros du BTP Yvelines (78)' },
               { href: LINKS.diagnostic, label: 'Diagnostic IA pour le BTP (gratuit)' },
+              { href: LINKS.barometreIaBtpIdf, label: 'Baromètre IA BTP Île-de-France 2026' },
               { href: LINKS.checklist, label: 'Checklist IA pour le BTP' },
             ]}
           />

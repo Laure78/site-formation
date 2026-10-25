@@ -16,6 +16,7 @@ import {
   TARIF_INTER_DEV_WEB_IA_HT,
 } from '@/lib/formation-developpement-web-ia-content';
 import { formatOrganismeQualiopiCourt } from '@/lib/marque-identite';
+import { libelleTarifParticipantCatalogue, TARIF_PARTICIPANT_NIV02_HT } from '@/lib/tarifs-catalogue-participant';
 
 export type FormationIaLimitRow = {
   iaAide: string;
@@ -70,7 +71,7 @@ export const FORMATION_CATALOGUE_SEO: Record<FormationCatalogueCode, FormationCa
       'Apprenez à extraire les exigences d’un DCE, préparer les points de contrôle du chiffrage et structurer un mémoire technique avec l’aide de l’IA. Atelier pratique sur un dossier réel de l’entreprise.',
     metaDescription:
       "Programme IA DCE & mémoire technique (7 h) : méthode DCE, chiffrage et mémoire technique avec l'IA. Présentiel Île-de-France, Qualiopi, OPCO selon éligibilité.",
-    enBref: `La formation IA appels d’offres BTP construit une méthode guidée pour analyser un DCE, préparer une checklist de chiffrage et structurer un mémoire technique avec l’aide de l’IA. ${dureeCatalogueParCode('NIV-02')} en présentiel sur un dossier fil rouge — ${QUALIOPI_MENTION}. L’IA assiste l’analyse ; le chiffrage et les engagements restent à valider par le professionnel.`,
+    enBref: `La formation IA appels d’offres BTP (NIV-02, ${dureeCatalogueParCode('NIV-02')}, ${libelleTarifParticipantCatalogue(TARIF_PARTICIPANT_NIV02_HT)} en inter) construit une méthode guidée pour analyser un DCE (RC, CCTP, CCAP, DPGF), préparer une checklist de chiffrage et structurer un mémoire technique avec ChatGPT ou Claude. Présentiel Île-de-France, dossier fil rouge — ${QUALIOPI_MENTION}. L’IA assiste l’analyse ; le chiffrage et les engagements restent à valider par le professionnel.`,
     publicTargets: [
       'Dirigeants de PME du BTP',
       'Responsables d’affaires et chargés d’études',

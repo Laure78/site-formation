@@ -4,6 +4,7 @@
  */
 
 import { BLOG_CONSOLIDATION_REDIRECTED_SLUGS, BLOG_GEO_HORS_IDF_REDIRECTED_SLUGS } from '@/lib/gsc-redirects-2026';
+import { isBlogTemplatedSlug } from '@/lib/blog-templated-articles';
 
 /**
  * Anciennes fusions juin 2026.
@@ -31,9 +32,13 @@ const BLOG_LISTING_EXCLUDED_SLUGS = new Set<string>([
   ...BLOG_GEO_HORS_IDF_REDIRECTED_SLUGS,
 ]);
 
-/** Slug exclu du listing (suffixe cron ou liste de consolidation / redirection). */
+/** Slug exclu du listing (suffixe cron, gabarit templated ou liste de consolidation / redirection). */
 export function isBlogListingExcludedSlug(slug: string): boolean {
-  return BLOG_MEDIA_MACHINE_SUFFIX_PATTERN.test(slug) || BLOG_LISTING_EXCLUDED_SLUGS.has(slug);
+  return (
+    BLOG_MEDIA_MACHINE_SUFFIX_PATTERN.test(slug) ||
+    BLOG_LISTING_EXCLUDED_SLUGS.has(slug) ||
+    isBlogTemplatedSlug(slug)
+  );
 }
 
 /**

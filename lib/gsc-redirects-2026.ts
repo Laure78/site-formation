@@ -7,6 +7,11 @@
  */
 
 import { FORMATION_IA_ALL_SLUGS } from './seo-formation-ia-hub-data';
+import {
+  BLOG_TEMPLATED_METIER_REDIRECTED_SLUGS,
+  blogTemplatedMetierRedirectsOctober2026,
+  devisEn15MinToFormationRedirects,
+} from './blog-templated-metier-redirects';
 
 /** Canonique conducteur de travaux — aligné sur `LINKS.formationConducteurTravaux`. */
 const FORMATION_CONDUCTEUR_TRAVAUX = '/formation-ia-conducteur-de-travaux' as const;
@@ -404,6 +409,7 @@ export const BLOG_CONSOLIDATION_REDIRECTED_SLUGS = [
   'recrutement-btp-l-ia-pour-attirer-les-talents-741685-9',
   'recrutement-btp-l-ia-pour-attirer-les-talents-741699-9',
   'recrutement-btp-l-ia-pour-attirer-les-talents-741704-9',
+  ...BLOG_TEMPLATED_METIER_REDIRECTED_SLUGS,
 ] as const;
 
 /** Redirections 301 blog — consolidation doublons suffixes + sémantiques (juillet 2026). */
@@ -443,19 +449,7 @@ export function blogConsolidationRedirectsJuly2026(): RedirectEntry[] {
     { source: '/blog/chatgpt-pour-pme-btp-erreurs-a-eviter-741688-8', destination: '/blog/chatgpt-pour-pme-btp-erreurs-a-eviter', permanent: true },
     { source: '/blog/chatgpt-pour-pme-btp-erreurs-a-eviter-741707-8', destination: '/blog/chatgpt-pour-pme-btp-erreurs-a-eviter', permanent: true },
     { source: '/blog/confidentialite-donnees-ia-btp', destination: '/blog/securite-donnees-chatgpt-btp', permanent: true },
-    { source: '/blog/devis-en-15-min-le-guide-carreleur', destination: '/blog/comment-utiliser-chatgpt-pour-vos-devis-carreleur', permanent: true },
-    { source: '/blog/devis-en-15-min-le-guide-charpentier', destination: '/blog/comment-utiliser-chatgpt-pour-vos-devis-charpentier', permanent: true },
-    { source: '/blog/devis-en-15-min-le-guide-chauffagiste', destination: '/blog/comment-utiliser-chatgpt-pour-vos-devis-chauffagiste', permanent: true },
-    { source: '/blog/devis-en-15-min-le-guide-couvreur', destination: '/blog/comment-utiliser-chatgpt-pour-vos-devis-couvreur', permanent: true },
-    {
-      source: '/blog/devis-en-15-min-le-guide-electricien',
-      destination: '/blog/chatgpt-devis-electricien-btp',
-      permanent: true,
-    },
-    { source: '/blog/devis-en-15-min-le-guide-macon', destination: '/blog/comment-utiliser-chatgpt-pour-vos-devis-macon', permanent: true },
-    { source: '/blog/devis-en-15-min-le-guide-menuisier', destination: '/blog/comment-utiliser-chatgpt-pour-vos-devis-menuisier', permanent: true },
-    { source: '/blog/devis-en-15-min-le-guide-peintre', destination: '/blog/comment-utiliser-chatgpt-pour-vos-devis-peintre', permanent: true },
-    { source: '/blog/devis-en-15-min-le-guide-plombier', destination: '/blog/comment-utiliser-chatgpt-pour-vos-devis-plombier', permanent: true },
+    ...devisEn15MinToFormationRedirects(),
     { source: '/blog/financement-constructys-formation-ia-btp-2026', destination: '/blog/financer-formation-ia-btp-constructys', permanent: true },
     { source: '/blog/financement-constructys-mode-d-emploi', destination: '/blog/financer-formation-ia-btp-constructys', permanent: true },
     { source: '/blog/financement-constructys-mode-d-emploi-741597-9', destination: '/blog/financer-formation-ia-btp-constructys', permanent: true },
@@ -499,6 +493,11 @@ export function blogConsolidationRedirectsJuly2026(): RedirectEntry[] {
     { source: '/blog/recrutement-btp-l-ia-pour-attirer-les-talents-741699-9', destination: '/blog/recrutement-btp-l-ia-pour-attirer-les-talents', permanent: true },
     { source: '/blog/recrutement-btp-l-ia-pour-attirer-les-talents-741704-9', destination: '/blog/recrutement-btp-l-ia-pour-attirer-les-talents', permanent: true },
   ];
+}
+
+/** Gabarits blog métier → `/formation-ia-*-btp` (octobre 2026). */
+export function blogTemplatedMetierRedirects(): RedirectEntry[] {
+  return blogTemplatedMetierRedirectsOctober2026();
 }
 
 /** Chemins blog redirigés — exclusion sitemap. */

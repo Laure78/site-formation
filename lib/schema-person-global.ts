@@ -1,11 +1,8 @@
 import {
   SCHEMA_CONTACT,
-  SCHEMA_PERSON_AFFILIATIONS,
-  SCHEMA_PERSON_AFFILIATIONS_A_PROPOS,
   SCHEMA_PERSON_KNOWS_ABOUT,
   SCHEMA_PERSON_LAURE,
   SCHEMA_PERSON_SAME_AS,
-  buildPersonAffiliationSchemaNodes,
   schemaHeaderPersonImageUrl,
 } from '@/lib/schema-constants';
 import { SCHEMA_SITE_ORG, sitePersonProofDescription } from '@/lib/schema-site-proof';
@@ -17,8 +14,6 @@ export type PersonLaureSchemaNodeOptions = {
   pageUrl?: string;
   /** Référence Organization par `@id` (défaut : `{base}/#organization`). */
   organizationId?: string;
-  /** Affiliations : toutes (layout) ou noyau FFB / CSFE / UMB-FFB (/a-propos). */
-  affiliationsScope?: 'all' | 'a-propos';
   /** Surcharge description (sinon SCHEMA_PERSON_LAURE + PROOF). */
   description?: string;
 };
@@ -35,11 +30,6 @@ export function buildPersonLaureSchemaNode(
   const personId = options.personId ?? `${base}/#laure-olivie`;
   const pageUrl = options.pageUrl ?? `${base}/a-propos`;
   const organizationId = options.organizationId ?? `${base}/#organization`;
-  const affiliations =
-    options.affiliationsScope === 'a-propos'
-      ? SCHEMA_PERSON_AFFILIATIONS_A_PROPOS
-      : SCHEMA_PERSON_AFFILIATIONS;
-
   return {
     '@type': 'Person',
     '@id': personId,
@@ -52,7 +42,6 @@ export function buildPersonLaureSchemaNode(
     email: SCHEMA_SITE_ORG.email,
     /** Organization déclarée dans le layout — référence par @id uniquement. */
     worksFor: { '@id': organizationId },
-    affiliation: buildPersonAffiliationSchemaNodes(affiliations),
     knowsAbout: [...SCHEMA_PERSON_KNOWS_ABOUT],
     /** LinkedIn + LinkedIn Learning (+ YouTube si présent dans SCHEMA_PERSON_SAME_AS). */
     sameAs: [...SCHEMA_PERSON_SAME_AS],

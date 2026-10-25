@@ -8,9 +8,16 @@
  * - `download_guide` (paramètres : guide_type, file_name, page_path)
  * - `blog_read_complete` (paramètres : article_slug, page_path)
  * - `eventbrite_click` (paramètres : origin, page_path, event_slug) — clic billetterie ≠ inscription confirmée
+ * - `generate_lead` (paramètres : origin, page_path, ai_source?) — CTA RDV / arrivée /prendre-rdv
  *
  * Enregistrer les paramètres personnalisés comme dimensions (Admin → Définitions personnalisées).
  */
+
+import {
+  detectAiTrafficSource,
+  persistAiTrafficSource,
+  readPersistedAiTrafficSource,
+} from '@/lib/ai-traffic-source';
 
 export type DownloadGuideType =
   | 'guide_conducteur_travaux'
@@ -53,9 +60,31 @@ export function getPagePath(): string {
   return window.location.pathname;
 }
 
+function aiSourceEventParams(): { ai_source?: string } {
+  const src = readPersistedAiTrafficSource();
+  return src ? { ai_source: src } : {};
+}
+
+/** Enregistre la source IA (referrer / utm) en session — appeler au chargement client. */
+export function initAiTrafficAttribution(): void {
+  if (typeof window === 'undefined') return;
+  const detected = detectAiTrafficSource(document.referrer, window.location.search);
+  if (detected) persistAiTrafficSource(detected);
+}
+
+/** Conversion — intention RDV (CTA ou page /prendre-rdv). */
+export function trackGenerateLead(origin: string, pagePath?: string): void {
+  sendGa4Event('generate_lead', {
+    origin,
+    page_path: pagePath ?? getPagePath(),
+    ...aiSourceEventParams(),
+  });
+}
+
 /** Conversion — clic CTA prise de RDV (vers `/prendre-rdv`). */
 export function trackCtaRdvClick(origin: string, pagePath: string): void {
-  sendGa4Event('cta_rdv_click', { origin, page_path: pagePath });
+  sendGa4Event('cta_rdv_click', { origin, page_path: pagePath, ...aiSourceEventParams() });
+  trackGenerateLead(origin, pagePath);
 }
 
 /** Conversion — téléchargement PDF guide / programme / checklist. */

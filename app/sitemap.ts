@@ -3,6 +3,7 @@ import { SITE_CONFIG } from '@/lib/seo';
 import { LINKS } from '@/lib/internal-links';
 import { getBlogArticleCanonicalPath } from '@/lib/blog-article-path';
 import { getAllArticles, BLOG_CATEGORIES, type BlogCategoryId } from '@/lib/blog';
+import { isBlogTemplatedSlug } from '@/lib/blog-templated-articles';
 import { BLOG_CATEGORY_PATH_SLUGS } from '@/lib/blog-index-urls';
 import { GSC_EXCLUDED_SITEMAP_PATHS } from '@/lib/gsc-redirects-2026';
 import { TUTOS } from '@/lib/tutos';
@@ -46,6 +47,7 @@ function getAdditionalMarketingRoutes(baseUrl: string): MetadataRoute.Sitemap {
   const paths: string[] = [
     // N'inclure QUE des URLs canoniques répondant en 200. Jamais d'URL redirigée (3xx) ni de fichier statique (.txt/.pdf).
     LINKS.partenaires,
+    LINKS.barometreIaBtpIdf,
     LINKS.formationDeveloppementWebIaSansCoder,
     // /formations/plateforme : noindex (hors sitemap)
     LINKS.etudesCasHub,
@@ -115,13 +117,15 @@ function buildBlogSitemapEntries(baseUrl: string): MetadataRoute.Sitemap {
 
   out.push(
     // Articles publiables (MDX + BLOG_ARTICLES) — date = dateModified ?? date publication
-    ...getAllArticles().map((article) => {
-      const path = getBlogArticleCanonicalPath(article);
-      return {
-        url: `${baseUrl}${path}`,
-        lastModified: resolveSitemapLastModified(path, { article }),
-      };
-    }),
+    ...getAllArticles()
+      .filter((article) => !article.templated && !isBlogTemplatedSlug(article.slug))
+      .map((article) => {
+        const path = getBlogArticleCanonicalPath(article);
+        return {
+          url: `${baseUrl}${path}`,
+          lastModified: resolveSitemapLastModified(path, { article }),
+        };
+      }),
   );
 
   // Pagination `/blog/page/[n]` : noindex + exclue du sitemap (faible valeur crawl).

@@ -66,7 +66,7 @@ Toutes les formations, y compris « Créer des applications métier BTP avec l'I
 
 ## GEO
 - Schema : Organization, Person (sameAs LinkedIn + LinkedIn Learning), Course (courseMode onsite), FAQPage, BreadcrumbList.
-- robots : bots IA autorisés (GPTBot, OAI-SearchBot, ClaudeBot, PerplexityBot, Google-Extended, Applebot-Extended).
+- robots : bots IA autorisés (GPTBot, OAI-SearchBot, ClaudeBot, Claude-SearchBot, PerplexityBot, Perplexity-User, Google-Extended, Applebot-Extended).
 - llms.txt à jour ; bloc « En bref » en tête de page ; FAQ question → réponse directe ; dates de mise à jour visibles.
 
 ## Charte OFC

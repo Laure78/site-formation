@@ -18,6 +18,8 @@ export const LINKS = {
   /** Hub — 2 formations LinkedIn Learning (à la demande) */
   formationsLinkedInLearning: '/formations-linkedin-learning',
   blog: '/blog',
+  /** Données propriétaires — adoption IA BTP en Île-de-France (GEO). */
+  barometreIaBtpIdf: '/barometre-ia-btp-ile-de-france',
   /** Article pilier GEO — guide formation IA appliquée au bâtiment 2026 */
   blogFormationIaBtpGuide2026: '/blog/formation-ia-btp-guide-complet-2026',
   /** Article MDX — guide pratique formation IA pour le BTP 2026 (calendrier éditorial) */

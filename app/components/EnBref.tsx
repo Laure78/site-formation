@@ -1,8 +1,10 @@
 import type { ReactNode } from 'react';
 
 type EnBrefProps = {
+  /** Texte factuel (2–3 phrases, ≤ 320 car.) — prioritaire sur `children`. */
+  text?: string;
   /** Contenu factuel (2–3 phrases). */
-  children: ReactNode;
+  children?: ReactNode;
   className?: string;
   id?: string;
 };
@@ -11,7 +13,11 @@ type EnBrefProps = {
  * Encadré « En bref » — résumé factuel sous le H1 (ressources / tutos).
  * Fond charte `#F2F2F2`, coins 8px.
  */
-export function EnBref({ children, className = '', id = 'en-bref' }: EnBrefProps) {
+export function EnBref({ text, children, className = '', id = 'en-bref' }: EnBrefProps) {
+  if (!text && (children == null || (Array.isArray(children) && children.length === 0))) {
+    return null;
+  }
+
   return (
     <aside
       id={id}
@@ -25,7 +31,7 @@ export function EnBref({ children, className = '', id = 'en-bref' }: EnBrefProps
         En bref
       </p>
       <div className="mt-2 space-y-2 text-sm leading-relaxed text-slate-700 md:text-[0.95rem]">
-        {children}
+        {text ? <p>{text}</p> : children}
       </div>
     </aside>
   );

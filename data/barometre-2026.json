@@ -1,0 +1,69 @@
+{
+  "meta": {
+    "edition": 2026,
+    "title": "Baromètre IA BTP Île-de-France 2026",
+    "n": 20,
+    "periodLabel": "juillet 2025 – juin 2026",
+    "periodStart": "2025-07-01",
+    "periodEnd": "2026-06-30",
+    "geography": "Entreprises du BTP basées en Île-de-France (75, 77, 78, 91, 92, 93, 94, 95)",
+    "collectionMethod": "Questionnaire de positionnement en ligne (Tally), adressé avant chaque session OFC ; réponses anonymisées et agrégées.",
+    "lastUpdated": "2026-10-25",
+    "dataNote": "Export agrégé — remplacer les effectifs par l’export définitif si révision interne."
+  },
+  "keyFigures": [
+    {
+      "id": "already-uses-ia",
+      "label": "Utilisent déjà un outil d’IA générative au bureau",
+      "valuePercent": 65,
+      "count": 13,
+      "n": 20
+    },
+    {
+      "id": "target-devis",
+      "label": "Visent en priorité les devis et le chiffrage",
+      "valuePercent": 55,
+      "count": 11,
+      "n": 20
+    },
+    {
+      "id": "barrier-time",
+      "label": "Cité le manque de temps pour tester comme frein n°1",
+      "valuePercent": 45,
+      "count": 9,
+      "n": 20
+    }
+  ],
+  "toolsAlreadyUsed": [
+    { "label": "ChatGPT (compte perso ou pro)", "count": 12, "n": 20 },
+    { "label": "Claude", "count": 5, "n": 20 },
+    { "label": "Copilot Microsoft 365", "count": 4, "n": 20 },
+    { "label": "Gemini", "count": 2, "n": 20 },
+    { "label": "Aucun outil IA à ce jour", "count": 7, "n": 20 }
+  ],
+  "targetTasks": [
+    { "label": "Devis, descriptifs et chiffrage", "count": 11, "n": 20 },
+    { "label": "Appels d’offres (DCE, mémoire technique)", "count": 8, "n": 20 },
+    { "label": "Comptes rendus de chantier et courriers", "count": 7, "n": 20 },
+    { "label": "Emails clients et relances administratives", "count": 6, "n": 20 },
+    { "label": "Veille réglementaire / DTU (lecture assistée)", "count": 3, "n": 20 }
+  ],
+  "barriers": [
+    { "label": "Manque de temps pour expérimenter", "count": 9, "n": 20 },
+    { "label": "Crainte sur la confidentialité des données chantier", "count": 8, "n": 20 },
+    { "label": "Incertitude sur la qualité / hallucinations", "count": 7, "n": 20 },
+    { "label": "Pas de compte ou abonnement outil", "count": 5, "n": 20 },
+    { "label": "Résistance interne (équipe, dirigeant)", "count": 4, "n": 20 }
+  ],
+  "companyProfile": [
+    { "label": "TPE (1–10 salariés)", "count": 9, "n": 20 },
+    { "label": "PME (11–50 salariés)", "count": 8, "n": 20 },
+    { "label": "ETI ou structure > 50 salariés", "count": 3, "n": 20 }
+  ],
+  "roles": [
+    { "label": "Dirigeant / gérant", "count": 8, "n": 20 },
+    { "label": "Conducteur de travaux / chef de chantier", "count": 6, "n": 20 },
+    { "label": "Chargé d’affaires / études de prix", "count": 3, "n": 20 },
+    { "label": "Fonction support (admin, QSE, achats…)", "count": 3, "n": 20 }
+  ]
+}

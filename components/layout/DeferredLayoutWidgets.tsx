@@ -53,6 +53,14 @@ const GoogleAnalytics = dynamic(
   { ssr: false },
 );
 
+const AiTrafficAttribution = dynamic(
+  () =>
+    import('@/components/analytics/AiTrafficAttribution').then((mod) => ({
+      default: mod.AiTrafficAttribution,
+    })),
+  { ssr: false },
+);
+
 const CalendlyScriptLoader = dynamic(
   () =>
     import('@/components/CalendlyScriptLoader').then((mod) => ({
@@ -85,6 +93,7 @@ export function DeferredLayoutWidgets() {
       {deferredReady ? (
         <>
           <GoogleAnalytics />
+          <AiTrafficAttribution />
           <CalendlyScriptLoader />
           <ScrollToTopButton />
           <StickyMobileCalendlyCta />

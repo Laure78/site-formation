@@ -36,6 +36,7 @@ import {
   filterPublishableBlogArticles,
   isBlogListingExcludedSlug,
 } from '@/lib/blog-publishable-filters';
+import { isBlogTemplatedSlug } from '@/lib/blog-templated-articles';
 import {
   blogConsolidationRedirectsJuly2026,
   gscRedirects2026April,
@@ -81,6 +82,8 @@ export interface BlogArticle {
   readingTime?: string;
   /** Synthèse factuelle sous le H1 (2–3 phrases) — absent = bloc masqué */
   enBref?: string | string[];
+  /** Gabarit métier quasi-dupliqué — noindex, hors sitemap et listes. */
+  templated?: boolean;
   /** URL canonique hors `/blog/[slug]` (une seule URL indexable). */
   canonicalPath?: string;
 }
@@ -2009,6 +2012,7 @@ function loadGeneratedArticles(): BlogArticle[] {
         const raw = readFileSync(join(dir, f), 'utf-8');
         const a = JSON.parse(raw) as BlogArticle & { internalLinks?: unknown };
         const sections = normalizeGeneratedArticleSections(a.sections ?? []);
+        const templated = a.templated === true || isBlogTemplatedSlug(a.slug);
         articles.push({
           slug: a.slug,
           title: a.title,
@@ -2017,6 +2021,7 @@ function loadGeneratedArticles(): BlogArticle[] {
           keywords: a.keywords ?? [],
           sections,
           relatedSlugs: a.relatedSlugs ?? [],
+          ...(templated ? { templated: true } : {}),
           ...(a.seoTitle ? { seoTitle: a.seoTitle } : {}),
           ...(a.dateModified ? { dateModified: a.dateModified } : {}),
           ...(a.faq?.length ? { faq: a.faq } : {}),
@@ -2180,7 +2185,7 @@ export function getRelatedArticlesForDisplay(slug: string, limit = 6, extraRelat
     if (seenPriority.has(s)) continue;
     seenPriority.add(s);
     const resolved = resolvePublishableRelatedSlug(s);
-    if (isBlogListingExcludedSlug(resolved)) continue;
+    if (isBlogListingExcludedSlug(resolved) || isBlogTemplatedSlug(resolved)) continue;
     const a = all.find((x) => x.slug === resolved);
     if (a && !used.has(a.slug)) {
       result.push(a);
@@ -2188,7 +2193,13 @@ export function getRelatedArticlesForDisplay(slug: string, limit = 6, extraRelat
     }
   }
   // Compléter avec articles de la même catégorie
-  const sameCategory = all.filter((a) => getArticleCategory(a.slug) === cat && !used.has(a.slug));
+  const sameCategory = all.filter(
+    (a) =>
+      getArticleCategory(a.slug) === cat &&
+      !used.has(a.slug) &&
+      !a.templated &&
+      !isBlogTemplatedSlug(a.slug),
+  );
   for (const a of sameCategory) {
     if (result.length >= limit) break;
     result.push(a);
@@ -2198,7 +2209,11 @@ export function getRelatedArticlesForDisplay(slug: string, limit = 6, extraRelat
   const otherCategory = getArticleCategory(slug) === 'devis' ? 'chatgpt' : 'devis';
   if (result.length < limit) {
     const others = all.filter(
-      (a) => getArticleCategory(a.slug) === otherCategory && !used.has(a.slug)
+      (a) =>
+        getArticleCategory(a.slug) === otherCategory &&
+        !used.has(a.slug) &&
+        !a.templated &&
+        !isBlogTemplatedSlug(a.slug),
     );
     for (const a of others) {
       if (result.length >= limit) break;

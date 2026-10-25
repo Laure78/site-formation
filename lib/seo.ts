@@ -13,7 +13,6 @@ import {
   SCHEMA_GOOGLE_BUSINESS_PROFILE_URL,
   SCHEMA_LINKEDIN_LEARNING_INSTRUCTOR_URL,
   SCHEMA_LINKEDIN_PROFILE_URL,
-  SCHEMA_PERSON_AFFILIATIONS,
   SCHEMA_PUBLIC_SITE_URL,
   SCHEMA_STATS,
   buildIdfAreaServedSchemaEntities,
@@ -770,17 +769,6 @@ export function getPersonSchema() {
       },
     ],
     worksFor: { '@id': `${SITE_CONFIG.url}/#organization` },
-    affiliation: [
-      {
-        '@type': 'Organization',
-        '@id': `${SITE_CONFIG.url}/#organization`,
-        name: SITE_CONFIG.name,
-        url: SITE_CONFIG.url,
-      }, ...SCHEMA_PERSON_AFFILIATIONS.map((org) => ({
-        '@type': 'Organization' as const,
-        name: org.name, ...(org.url ? { url: org.url } : {}),
-      })),
-    ],
     alumniOf: {
       '@type': 'EducationalOrganization',
       name: 'Formation professionnelle BTP et travaux publics',

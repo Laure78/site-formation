@@ -18,7 +18,6 @@ export function getAProposPersonJsonLd(): Record<string, unknown> {
       personId: `${BASE}/#laure-olivie`,
       pageUrl: PAGE_URL,
       organizationId: `${BASE}/#organization`,
-      affiliationsScope: 'a-propos',
     }),
     description: getAProposPagePersonDescription(),
   };

@@ -32,8 +32,10 @@ export const AI_BOTS = [
   'OAI-SearchBot',
   'ClaudeBot',
   'Claude-User',
+  'Claude-SearchBot',
   'anthropic-ai',
   'PerplexityBot',
+  'Perplexity-User',
   'Google-Extended',
   'Applebot-Extended',
 ] as const;

@@ -100,6 +100,12 @@ export function BlogIndexView({
           <p className="mt-2 text-sm font-medium text-slate-700">
             {allCount} articles · satisfaction {formatNoteSatisfactionAffichageComplet()} (OFC)
           </p>
+          <p className="mt-3 text-sm text-slate-600">
+            Données sectorielles :{' '}
+            <Link href={LINKS.barometreIaBtpIdf} className="font-medium text-[#377CF3] hover:underline">
+              Baromètre IA BTP Île-de-France 2026
+            </Link>
+          </p>
 
           <nav
             className="mt-8 flex flex-wrap gap-2 rounded-2xl border border-[#E2E8F0] bg-[#F8FAFC] p-4 text-sm"

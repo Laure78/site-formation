@@ -36,19 +36,19 @@ const FORMATION_PRACTICE_RESOURCES: Partial<
   ],
   'NIV-02': [
     {
+      href: LINKS.guideRepondreAoBtpOfc2026,
+      title: 'Guide répondre aux AO BTP (2026)',
+      description: 'Méthode en 5 étapes, prompts et contrôles IA — PDF gratuit.',
+    },
+    {
       href: LINKS.tutoAnalyseDce,
       title: 'Tutoriel — analyser un DCE avec l’IA',
       description: 'Méthode pas à pas sur CCTP, CCAP et pièces jointes.',
     },
     {
-      href: LINKS.iaAnalyseDce,
-      title: 'Guide analyse DCE BTP',
-      description: 'Page métier — cas d’usage et bonnes pratiques.',
-    },
-    {
-      href: LINKS.guideRepondreAoBtpOfc2026,
-      title: 'Guide répondre aux AO BTP (2026)',
-      description: 'Méthode en 5 étapes — PDF gratuit OFC.',
+      href: LINKS.etudesCasFfbCsfe,
+      title: 'Étude de cas FFB & CSFE',
+      description: 'Mémoires et dossiers marchés — retours observés en présentiel.',
     },
   ],
   'NIV-03': [

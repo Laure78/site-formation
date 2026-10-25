@@ -1,6 +1,7 @@
 import { CtaButton } from '@/components/CtaButton';
 import Image from 'next/image';
-import { Download, Calendar, Check } from 'lucide-react';
+import Link from 'next/link';
+import { Download, Check } from 'lucide-react';
 import { JsonLd } from '@/components/JsonLd';
 import { MaillageRessourceFromConfig } from '@/app/components/MaillageRessource';
 import { DisclaimerGains } from '@/components/formation/DisclaimerGains';
@@ -10,6 +11,13 @@ import { getMaillageRessourceConfig } from '@/lib/maillage-ressources';
 import { RESSOURCES_MINIATURES } from '@/lib/ressources-miniatures';
 import { buildMetadata, getFAQSchema, SITE_CONFIG } from '@/lib/seo';
 import { formatProsFormesEtNoteQualiopi } from '@/lib/data/indicateurs-resultats-helpers';
+import {
+  GUIDE_AO_CONTROLES_IA,
+  GUIDE_AO_ETUDE_CAS_RELATED,
+  GUIDE_AO_FORMATION_RELATED,
+  GUIDE_AO_METHODE_DCE_ETAPES,
+} from '@/lib/geo-pages-copy';
+import { formatContentUpdatedLabel } from '@/lib/content-updated-at';
 
 const PATH = LINKS.guideRepondreAoBtpOfc2026;
 const FILE_HREF = LINKS.pdfGuideRepondreAoBtpOfc2026;
@@ -21,8 +29,10 @@ const THUMB = RESSOURCES_MINIATURES.guideRepondreAo;
 export const revalidate = 3600;
 
 const META_TITLE = 'IA appels d’offres BTP : méthode en 5 étapes';
+const CONTENT_UPDATED = '2026-10-25' as const;
+
 const META_DESCRIPTION =
-  'Guide AO BTP 2026 : méthode 5 étapes, 4 prompts IA et contrôles. Formation IA appliquée au bâtiment, présentiel Île-de-France, Qualiopi — PDF gratuit.';
+  'Guide AO BTP 2026 : analyser un DCE avec l’IA, méthode 5 étapes, 4 prompts et 6 contrôles. Présentiel Île-de-France, Qualiopi — PDF gratuit OFC.';
 
 export const metadata = buildMetadata({
   title: META_TITLE,
@@ -118,7 +128,11 @@ const FAQ = [
   },
   {
     q: 'Comment passer de la méthode à la pratique en formation ?',
-    a: `Laure Olivié (OFC Création d’Entreprise) anime des sessions de formation IA pour le BTP en présentiel Île-de-France, dispensées par un organisme certifié Qualiopi, avec financement OPCO possible selon éligibilité (Constructys). ${formatProsFormesEtNoteQualiopi()}`,
+    a: `Laure Olivié (OFC Création d’Entreprise) anime la <a href="${LINKS.formationAO}">formation IA appels d’offres BTP (7 h)</a> en présentiel Île-de-France — organisme certifié Qualiopi, financement OPCO possible selon éligibilité (Constructys). ${formatProsFormesEtNoteQualiopi()}`,
+  },
+  {
+    q: 'Comment utiliser ChatGPT ou Claude pour analyser un DCE ?',
+    a: `Cadrez la question (lot, type de marché), regroupez RC/CCTP/CCAP/DPGF, demandez une synthèse avec citations de pages, croisez CCTP et DPGF, puis appliquez les six contrôles avant d’utiliser le texte dans l’offre. Détail pas à pas sur cette page ; session pratique : <a href="${LINKS.formationAO}">programme NIV-02</a> et <a href="${LINKS.tutoAnalyseDce}">tutoriel analyse DCE</a>.`,
   },
 ] as const;
 
@@ -158,6 +172,7 @@ const learningResourceJsonLd = {
     encodingFormat: 'application/pdf',
     name: 'guide-repondre-ao-btp-ofc-2026.pdf',
   },
+  dateModified: CONTENT_UPDATED,
 };
 
 const faqSchema = getFAQSchema(FAQ);
@@ -229,6 +244,34 @@ export default function GuideRepondreAoBtpOfc2026Page() {
           ))}
         </ul>
         <DisclaimerGains className="mt-6 max-w-3xl" />
+        <p className="mt-4 text-xs text-slate-500">{formatContentUpdatedLabel(CONTENT_UPDATED)}</p>
+      </section>
+
+      <section className="ofc-section-inner py-10 md:py-12" aria-labelledby="methode-dce-ia">
+        <h2 id="methode-dce-ia" className="font-display text-2xl font-bold text-slate-900">
+          Comment analyser un DCE avec ChatGPT ou Claude
+        </h2>
+        <p className="mt-3 max-w-3xl text-base leading-relaxed text-slate-600">
+          Exemple de démarche sur un marché de travaux (lot étanchéité, rénovation de toiture-terrasse) :
+          l’IA accélère la lecture des pièces ; vous gardez la décision Go/No-Go, le chiffrage et le
+          mémoire. Les extraits ci-dessous sont pédagogiques — sur vos dossiers réels, n’utilisez que
+          des documents autorisés par votre entreprise.
+        </p>
+        <ol className="mt-6 max-w-3xl space-y-4">
+          {GUIDE_AO_METHODE_DCE_ETAPES.map((item) => (
+            <li key={item.step} className="rounded-xl border border-slate-200 bg-white px-4 py-3">
+              <p className="font-semibold text-slate-900">{item.step}</p>
+              <p className="mt-1 text-sm leading-relaxed text-slate-600">{item.detail}</p>
+            </li>
+          ))}
+        </ol>
+        <p className="mt-6 max-w-3xl text-sm text-slate-600">
+          Pour structurer le mémoire après l’analyse, voir aussi{' '}
+          <Link href={LINKS.iaMemoireTechnique} className="font-medium text-[#377CF3] underline">
+            rédiger un mémoire technique BTP avec l’IA
+          </Link>
+          .
+        </p>
       </section>
 
       <section className="border-y border-slate-200 bg-[#F8FAFC] ofc-band" aria-labelledby="cinq-etapes">
@@ -277,13 +320,30 @@ export default function GuideRepondreAoBtpOfc2026Page() {
 
       <section className="ofc-section-inner py-10 md:py-12" aria-labelledby="garde-fou-ia">
         <h2 id="garde-fou-ia" className="font-display text-2xl font-bold text-slate-900">
-          Garde-fou : contrôler ce que l&apos;IA produit
+          Garde-fou : six contrôles avant d&apos;utiliser une sortie IA
         </h2>
         <p className="mt-3 max-w-3xl text-base leading-relaxed text-slate-600">
-          Une page dédiée rappelle six vérifications systématiques : sources des chiffres, articles
-          cités, quantités (métré humain), références chantiers réelles, et tout ce qui engage
-          l&apos;acte d&apos;engagement. L&apos;IA divise le temps de lecture d&apos;un DCE, pas la
-          responsabilité de l&apos;offre.
+          L&apos;IA peut accélérer la lecture d&apos;un DCE et la structuration d&apos;un mémoire ;
+          elle ne remplace ni le métré, ni la signature de l&apos;offre. Avant d&apos;intégrer une
+          production IA dans votre dossier, vérifiez systématiquement :
+        </p>
+        <ul className="mt-6 grid max-w-3xl gap-3 sm:grid-cols-2">
+          {GUIDE_AO_CONTROLES_IA.map((item) => (
+            <li
+              key={item.title}
+              className="rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-700"
+            >
+              <p className="font-semibold text-slate-900">{item.title}</p>
+              <p className="mt-1 leading-relaxed text-slate-600">{item.text}</p>
+            </li>
+          ))}
+        </ul>
+        <p className="mt-6 max-w-3xl text-sm text-slate-600">
+          Retour terrain (exemple pédagogique, pas une garantie de gain) :{' '}
+          <Link href={GUIDE_AO_ETUDE_CAS_RELATED.href} className="font-medium text-[#377CF3] underline">
+            {GUIDE_AO_ETUDE_CAS_RELATED.label}
+          </Link>
+          .
         </p>
       </section>
 
@@ -313,8 +373,11 @@ export default function GuideRepondreAoBtpOfc2026Page() {
           Passer à la pratique en formation
         </h2>
         <p className="mt-3 max-w-2xl text-base leading-relaxed text-slate-600">
-          Pour appliquer la méthode sur vos vrais DCE, DPGF et mémoires en présentiel Île-de-France —
-          Qualiopi, Constructys selon éligibilité.
+          Pour appliquer la méthode sur vos DCE, DPGF et mémoires avec un formateur :{' '}
+          <Link href={GUIDE_AO_FORMATION_RELATED.href} className="font-medium text-[#377CF3] underline">
+            {GUIDE_AO_FORMATION_RELATED.label}
+          </Link>
+          . Financement OPCO possible selon éligibilité — Qualiopi, présentiel Île-de-France uniquement.
         </p>
         <CtaButton origin="ressources-guide-repondre-ao-btp-ofc-2026-final" className="mt-8 inline-flex items-center gap-2 rounded-lg bg-[#377CF3] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[#2d66d6]" />
       </section>

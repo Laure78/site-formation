@@ -471,6 +471,11 @@ const NIV_02: CatalogueFormationPageContent = {
   ],
   programLinks: [
     {
+      prefix: 'Avant la session, vous pouvez télécharger le',
+      href: LINKS.guideRepondreAoBtpOfc2026,
+      label: 'guide AO BTP — méthode en 5 étapes (PDF gratuit)',
+    },
+    {
       prefix: 'Pour les bases IA avant ce niveau, voir la',
       href: LINKS.formationIaBtpNiveau1BatimentTp,
       label: 'formation IA BTP niveau 1',

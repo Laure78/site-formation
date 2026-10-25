@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { preload } from 'react-dom';
 import { AccueilHeroSection } from '@/components/landing/AccueilHeroSection';
+import { AccueilEnBrefSection } from '@/components/landing/accueil/AccueilEnBrefSection';
 import { AccueilPreuvesConfianceSection } from '@/components/landing/accueil/AccueilPreuvesConfianceSection';
 import { AccueilFormationsParcoursSection } from '@/components/landing/accueil/AccueilFormationsParcoursSection';
 import { AccueilCasExercicesSection } from '@/components/landing/accueil/AccueilCasExercicesSection';
@@ -19,7 +20,7 @@ import { buildHomeUnifiedGraphJsonLd } from '@/lib/schema-home-unified-graph';
 const HOME_META_TITLE_ABSOLUTE =
   'Formations IA BTP en Île-de-France | Laure Olivié';
 const HOME_META_DESCRIPTION =
-  'Formations IA pour le BTP en présentiel Île-de-France : devis, appels d’offres et suivi de chantier avec ChatGPT et Claude. Parcours métiers, Qualiopi, financement OPCO selon éligibilité.';
+  'Formations IA pour le BTP en présentiel en Île-de-France : devis, appels d’offres et chantier avec ChatGPT et Claude. Qualiopi. Réservez votre visio découverte.';
 
 const HOME_FAQ_PAGE_JSON_LD = buildHomeFAQPageJsonLd();
 
@@ -81,6 +82,7 @@ export default function HomePage() {
   return (
     <div>
       <AccueilHeroSection />
+      <AccueilEnBrefSection />
       <AccueilPreuvesConfianceSection />
       <AccueilFormationsParcoursSection />
       <AccueilCasExercicesSection />

@@ -14,6 +14,8 @@ import {
   OFC_TYPE_LEAD,
 } from '@/lib/ofc-interaction-classes';
 import { OFC_SEC } from '@/lib/ofc-section-classes';
+import { EnBref } from '@/app/components/EnBref';
+import { ACCUEIL_EN_BREF } from '@/lib/accueil-geo';
 
 /** Hero accueil — 1 CTA primaire RDV, 1 secondaire formations, vidéo sous le texte sur mobile. */
 export function AccueilHeroSection() {
@@ -33,6 +35,7 @@ export function AccueilHeroSection() {
             >
               <HeroWordReveal text="Formations IA pour les entreprises du BTP en Île-de-France" />
             </h1>
+            <EnBref text={ACCUEIL_EN_BREF} className="mt-4 max-w-xl" />
             <p
               data-anim-follow
               className={`${OFC_TYPE_LEAD} mt-2 max-w-xl text-[0.9375rem] leading-[1.55] text-ofc-ink md:text-base`}

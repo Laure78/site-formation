@@ -127,9 +127,14 @@ const ROUTE_SOURCE_FILES: Record<string, readonly string[]> = {
   '/avis-clients': ['app/avis-clients/page.tsx', 'data/googleReviews.ts'],
   '/contact': ['app/contact/page.tsx'],
   '/financement-constructys-formation-ia-btp': ['app/financement-constructys-formation-ia-btp/page.tsx'],
-  '/llms.txt': ['public/llms.txt'],
+  '/llms.txt': ['public/llms.txt', 'lib/llms-txt-content.ts', 'lib/references.ts'],
   '/claude-ai-btp': ['app/claude-ai-btp/page.tsx'],
   '/formation-ia-btp': ['app/formation-ia-btp/page.tsx', 'lib/formation-ia-btp-pillar-faq.ts'],
+  '/barometre-ia-btp-ile-de-france': [
+    'app/barometre-ia-btp-ile-de-france/page.tsx',
+    'data/barometre-2026.json',
+    'lib/barometre-2026-faq.ts',
+  ],
   '/formation-chatgpt-btp': ['app/formation-chatgpt-btp/page.tsx', 'lib/formation-chatgpt-btp-landing.ts'],
   '/formation-ia-conducteur-de-travaux-btp': [
     'app/formation-ia-conducteur-de-travaux-btp/page.tsx',

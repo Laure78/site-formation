@@ -3,6 +3,7 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import {
   blogConsolidationRedirectsJuly2026,
+  blogTemplatedMetierRedirects,
   formationIaHubConsolidationRedirects,
   gscHubMergeRedirects,
   gscRedirects2026April,
@@ -237,6 +238,7 @@ const nextConfig: NextConfig = {
       },
       // --- Consolidation blog B2 (juillet 2026) — suffixes cron + sémantiques ---
       ...blogConsolidationRedirectsJuly2026(),
+      ...blogTemplatedMetierRedirects(),
       // --- Plan de canonisation (juin 2026) — 9 doublons → page maître (308) ---
       // Placées en tête pour primer sur les redirections génériques (legacy/GSC) spreadées plus bas.
       // Fiche legacy CCTP/DCE → catalogue NIV-02 (Qualiopi : une seule action de formation)

@@ -50,7 +50,7 @@ export const CATALOGUE_HERO_REASSURANCE =
   `OFC certifié Qualiopi · Présentiel Île-de-France · Groupe · Intra & inter` as const;
 
 export const CATALOGUE_HERO_SUBTITLE =
-  'Par niveau et par usage : devis, appels d’offres, chantier, MOE ou déploiement IA.' as const;
+  'Laure Olivié (OFC Création d’Entreprise) — formations IA en présentiel Île-de-France : choisissez par niveau (4 h, 7 h, 14 h) ou par usage (devis, appels d’offres, chantier, maîtrise d’œuvre, Claude). Les sessions catalogue ci-dessous sont disponibles ; les parcours métiers 2027 sont présentés à part.' as const;
 
 export function getCataloguePageHeroReassurance(): string {
   return CATALOGUE_HERO_REASSURANCE;

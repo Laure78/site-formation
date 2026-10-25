@@ -39,6 +39,9 @@ export const PARTENAIRES_FORMATION_FOOTER =
 export const PARTENAIRES_SIGNATURE_SHORT =
   'Formations animées avec la FFB Grand Paris · CSFE · UMB-FFB — Instructrice LinkedIn Learning.';
 
+/** Liste GEO courte — `lib/references.ts` (llms.txt, cohérence entités). */
+export { formatReferencesLlmsLine, REFERENCES } from '@/lib/references';
+
 export const PARTENAIRES_LOGO_BAND_TITLE = 'Ils me font confiance';
 
 export const PARTENAIRES_CTA_INTRO =
