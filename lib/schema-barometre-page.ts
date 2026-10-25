@@ -57,10 +57,10 @@ export function getBarometrePageJsonLd(): Record<string, unknown> {
     '@id': `${PAGE_URL}#faq`,
     mainEntity: BAROMETRE_IA_BTP_FAQ.map((item) => ({
       '@type': 'Question',
-      name: item.question,
+      name: item.q,
       acceptedAnswer: {
         '@type': 'Answer',
-        text: faqAnswerPlainTextForSchema(item.answer),
+        text: faqAnswerPlainTextForSchema(item.a),
       },
     })),
   };
