@@ -31,11 +31,13 @@ export function AccueilFormationsParcoursTabs({
   parcours,
   formationTarifs,
 }: Props) {
+  const showParcoursTab = parcours.length > 0;
   const [tab, setTab] = useState<TabId>('niveau');
   const tablistId = useId();
 
   return (
     <div>
+      {showParcoursTab ? (
       <div
         role="tablist"
         id={tablistId}
@@ -67,15 +69,16 @@ export function AccueilFormationsParcoursTabs({
           </button>
         ))}
       </div>
+      ) : null}
 
       <div
         role="tabpanel"
         id={`${tablistId}-panel-niveau`}
-        aria-labelledby={`${tablistId}-niveau`}
-        hidden={tab !== 'niveau'}
-        className="mt-8"
+        aria-labelledby={showParcoursTab ? `${tablistId}-niveau` : undefined}
+        hidden={showParcoursTab && tab !== 'niveau'}
+        className={showParcoursTab ? 'mt-8' : undefined}
       >
-        {tab === 'niveau' ? (
+        {(!showParcoursTab || tab === 'niveau') ? (
           <div className="grid items-stretch gap-5 sm:grid-cols-2">
             {formations.map((f) => {
               const cta = formationCtaLabel(f.titre);

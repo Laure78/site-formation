@@ -1,9 +1,11 @@
 import type { Metadata } from 'next';
+import { redirect } from 'next/navigation';
 import { JsonLd } from '@/components/JsonLd';
 import { ParcoursMetiersOrientation } from '@/components/formations/ParcoursMetiersOrientation';
 import { createPageMetadata, getBreadcrumbSchema, SITE_CONFIG } from '@/lib/seo';
 import { LINKS } from '@/lib/internal-links';
 import { PARCOURS_METIERS_PAGE } from '@/lib/parcours-metiers-orientation';
+import { isParcoursMetiers2027Visible } from '@/lib/parcours-metiers-2027-visibility';
 
 export const revalidate = 3600;
 
@@ -45,6 +47,10 @@ function getParcoursMetiersJsonLd() {
 }
 
 export default function ParcoursMetiersPage() {
+  if (!isParcoursMetiers2027Visible()) {
+    redirect(LINKS.formations);
+  }
+
   return (
     <>
       <JsonLd id="schema-parcours-metiers" schema={getParcoursMetiersJsonLd()} />

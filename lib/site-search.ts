@@ -6,6 +6,7 @@ import { getFormationsCatalogue } from '@/lib/formations-catalogue-display';
 import { getCatalogueSiteSearchDescription } from '@/lib/formation-catalogue-visibility';
 import { DEV_WEB_IA_FORMATION_TITRE } from '@/lib/formation-developpement-web-ia-content';
 import { LINKS } from '@/lib/internal-links';
+import { isParcoursMetiers2027Visible } from '@/lib/parcours-metiers-2027-visibility';
 import { RESSOURCES_THEMATIC_BLOCKS } from '@/lib/ressources-thematic-hub';
 import { TUTOS, TUTO_CATEGORY_META } from '@/lib/tutos';
 import type { SiteSearchKind, SiteSearchScope } from '@/lib/site-search-labels';
@@ -287,14 +288,16 @@ function buildSiteSearchIndex(): SiteSearchEntry[] {
     keywords: [f.ref, f.level, ...f.objectifs, f.comparatif.publicLabel, f.comparatif.casUsage].join(' '),
   }));
 
-  const parcours: SiteSearchEntry[] = getAllParcoursComputed().map((p) => ({
-    id: `parcours-${p.id}`,
-    title: p.titre,
-    description: p.benefice,
-    href: `${LINKS.formations}/parcours/${p.slug}`,
-    kind: 'parcours' as const,
-    keywords: [p.publicCible, p.objectif, ...p.competencesVisees].join(' '),
-  }));
+  const parcours: SiteSearchEntry[] = isParcoursMetiers2027Visible()
+    ? getAllParcoursComputed().map((p) => ({
+        id: `parcours-${p.id}`,
+        title: p.titre,
+        description: p.benefice,
+        href: `${LINKS.formations}/parcours/${p.slug}`,
+        kind: 'parcours' as const,
+        keywords: [p.publicCible, p.objectif, ...p.competencesVisees].join(' '),
+      }))
+    : [];
 
   const formateurs: SiteSearchEntry[] = getFormateursHubProfiles()
     .filter((f) => f.status === 'confirmed')

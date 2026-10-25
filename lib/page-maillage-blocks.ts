@@ -8,6 +8,7 @@ import { getModuleByCode, type ParcoursComputed } from '@/data/catalogue-2027';
 import type { ParcoursId } from '@/data/catalogue-2027/types';
 import { buildCatalogueModulesHref } from '@/lib/catalogue-filter-url';
 import { getParcoursMetiersProfilsAvecFormations } from '@/lib/parcours-metiers-orientation';
+import { isParcoursMetiers2027Visible } from '@/lib/parcours-metiers-2027-visibility';
 import { LINKS } from '@/lib/internal-links';
 
 export type PageMaillageBlock = {
@@ -153,6 +154,7 @@ export function getParcoursLinksForFormation(
   ref: FormationCatalogueCode,
   at: Date = new Date(),
 ): ContextualLinkCard[] {
+  if (!isParcoursMetiers2027Visible()) return [];
   const profils = getParcoursMetiersProfilsAvecFormations(at);
   const links: ContextualLinkCard[] = [];
 
@@ -203,22 +205,27 @@ export function getFormationIntraTeamBlock(): PageMaillageBlock {
 }
 
 function getFormationCatalogueNavigationBlock(): PageMaillageBlock {
+  const links: ContextualLinkCard[] = [
+    {
+      href: LINKS.formations,
+      title: 'Catalogue complet des formations IA BTP',
+      description: 'Parcours, niveaux IA et modules par domaine.',
+    },
+  ];
+  if (isParcoursMetiers2027Visible()) {
+    links.push({
+      href: LINKS.parcoursMetiers,
+      title: 'Parcours métiers — choisir selon ma fonction',
+      description: '7 parcours progressifs — dirigeant, conducteur, chargé d’affaires…',
+    });
+  }
   return {
     id: 'catalogue-navigation',
     title: 'Explorer le catalogue',
-    subtitle: 'Comparer les parcours métiers ou revenir à la liste des programmes Qualiopi.',
-    links: [
-      {
-        href: LINKS.formations,
-        title: 'Catalogue complet des formations IA BTP',
-        description: 'Parcours, niveaux IA et modules par domaine.',
-      },
-      {
-        href: LINKS.parcoursMetiers,
-        title: 'Parcours métiers — choisir selon ma fonction',
-        description: '7 parcours progressifs — dirigeant, conducteur, chargé d’affaires…',
-      },
-    ],
+    subtitle: isParcoursMetiers2027Visible()
+      ? 'Comparer les parcours métiers ou revenir à la liste des programmes Qualiopi.'
+      : 'Revenir à la liste des programmes Qualiopi.',
+    links,
   };
 }
 

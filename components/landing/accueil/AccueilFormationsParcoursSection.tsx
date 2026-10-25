@@ -8,10 +8,12 @@ import {
 import { getAccueilParcoursOffre } from '@/lib/accueil-offre-catalogue';
 import { RevealShell } from '@/components/motion/RevealShell';
 import { MOTION_REVEAL } from '@/lib/motion-config';
+import { isParcoursMetiers2027Visible } from '@/lib/parcours-metiers-2027-visibility';
 
 /** Formations et parcours — sélecteur à onglets (niveau / métier). */
 export function AccueilFormationsParcoursSection() {
   const formations = getAccueilFormationsPrioritaires();
+  const parcoursVisible = isParcoursMetiers2027Visible();
   const parcours = getAccueilParcoursOffre({ featuredOnly: true });
 
   const formationTarifs: Record<string, string> = {};
@@ -36,10 +38,16 @@ export function AccueilFormationsParcoursSection() {
           titleId="accueil-offre-choix-title"
           title={
             <span data-anim="split-words-scroll">
-              Choisir sa formation ou son parcours métier
+              {parcoursVisible
+                ? 'Choisir sa formation ou son parcours métier'
+                : 'Choisir sa formation IA BTP'}
             </span>
           }
-          description="Par niveau pédagogique ou par fonction — durées, formats et tarifs sur chaque fiche."
+          description={
+            parcoursVisible
+              ? 'Par niveau pédagogique ou par fonction — durées, formats et tarifs sur chaque fiche.'
+              : 'Par niveau pédagogique — durées, formats et tarifs sur chaque fiche programme.'
+          }
           className="max-w-2xl"
         />
       </RevealShell>

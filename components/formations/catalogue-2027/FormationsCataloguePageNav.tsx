@@ -1,9 +1,10 @@
 'use client';
 
 import Link from 'next/link';
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
+import { isParcoursMetiers2027Visible } from '@/lib/parcours-metiers-2027-visibility';
 
-const SECTIONS = [
+const BASE_SECTIONS = [
   { id: 'catalogue-formations', label: 'Catalogue' },
   { id: 'trouver-mon-parcours', label: 'Parcours' },
   { id: 'plan-formation-entreprise', label: 'Équipe' },
@@ -12,10 +13,17 @@ const SECTIONS = [
 ] as const;
 
 export function FormationsCataloguePageNav() {
-  const [activeId, setActiveId] = useState<string>(SECTIONS[0].id);
+  const sections = useMemo(
+    () =>
+      isParcoursMetiers2027Visible()
+        ? BASE_SECTIONS
+        : BASE_SECTIONS.filter((s) => s.id !== 'trouver-mon-parcours'),
+    [],
+  );
+  const [activeId, setActiveId] = useState<string>(sections[0].id);
 
   const observe = useCallback(() => {
-    const elements = SECTIONS.map((s) => document.getElementById(s.id)).filter(Boolean) as HTMLElement[];
+    const elements = sections.map((s) => document.getElementById(s.id)).filter(Boolean) as HTMLElement[];
     if (elements.length === 0) return undefined;
 
     const io = new IntersectionObserver(
@@ -33,7 +41,7 @@ export function FormationsCataloguePageNav() {
 
     for (const el of elements) io.observe(el);
     return () => io.disconnect();
-  }, []);
+  }, [sections]);
 
   useEffect(() => {
     const cleanup = observe();
@@ -47,7 +55,7 @@ export function FormationsCataloguePageNav() {
       aria-label="Sommaire de la page catalogue"
     >
       <div className="mx-auto flex max-w-[80rem] gap-1 overflow-x-auto px-4 py-2 sm:px-6 lg:px-8 [scrollbar-width:none]">
-        {SECTIONS.map(({ id, label }) => {
+        {sections.map(({ id, label }) => {
           const active = activeId === id;
           return (
             <Link

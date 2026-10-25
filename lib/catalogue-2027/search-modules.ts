@@ -9,6 +9,7 @@ import {
   type SousDomaineIaChantierId,
   moduleMatchesThematique,
 } from '@/data/catalogue-2027';
+import { isParcoursMetiers2027Visible } from '@/lib/parcours-metiers-2027-visibility';
 
 export type ModuleSearchFilters = {
   query?: string;
@@ -90,6 +91,9 @@ export function filterCatalogueModules(filters: ModuleSearchFilters = {}): Catal
   } = filters;
 
   return MODULES_CATALOGUE_2027.filter((mod) => {
+    if (!isParcoursMetiers2027Visible() && mod.disponibilite === 'ouverture-2027') {
+      return false;
+    }
     if (
       thematiqueChantierIa !== 'all' &&
       !moduleMatchesThematique(mod.code, thematiqueChantierIa)

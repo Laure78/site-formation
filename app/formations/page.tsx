@@ -19,6 +19,7 @@ import { FormationsCatalogueContactDirect } from '@/components/formations/catalo
 import { FormationsCatalogueMaillageSection } from '@/components/formations/catalogue/FormationsCatalogueMaillageSection';
 import { FormationsCatalogueMobileBar } from '@/components/formations/catalogue-2027/FormationsCatalogueMobileBar';
 import { buildFormationsPageUnifiedGraphJsonLd } from '@/lib/schema-formations-page-graph';
+import { isParcoursMetiers2027Visible } from '@/lib/parcours-metiers-2027-visibility';
 
 const baseUrl = SITE_CONFIG.url.replace(/\/$/, '');
 
@@ -104,8 +105,12 @@ export default async function FormationsPage({ searchParams }: FormationsPagePro
             <FormationsIaDisponibles />
           </Suspense>
 
-          <FormationsCatalogueParcoursMetiers2027Banner />
-          <FormationsCatalogueParcoursCompact />
+          {isParcoursMetiers2027Visible() ? (
+            <>
+              <FormationsCatalogueParcoursMetiers2027Banner />
+              <FormationsCatalogueParcoursCompact />
+            </>
+          ) : null}
           <FormationsCatalogueEntrepriseCompact />
           <FormationsCatalogueFinancementEncadre />
           <FormationsContact2027 />

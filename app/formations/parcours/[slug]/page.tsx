@@ -11,6 +11,8 @@ import {
 import { createPageMetadata, SITE_CONFIG } from '@/lib/seo';
 import { parcoursHref } from '@/lib/catalogue-2027/parcours-href';
 import { LINKS } from '@/lib/internal-links';
+import { isParcoursMetiers2027Visible } from '@/lib/parcours-metiers-2027-visibility';
+import { redirect } from 'next/navigation';
 import { SCHEMA_ORGANIZATION_OFC } from '@/lib/schema-constants';
 
 type Props = { params: Promise<{ slug: string }> };
@@ -49,6 +51,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function ParcoursPage({ params }: Props) {
+  if (!isParcoursMetiers2027Visible()) {
+    redirect(LINKS.formations);
+  }
+
   const { slug } = await params;
   const parcours = getParcoursBySlug(slug);
   if (!parcours) notFound();

@@ -20,7 +20,7 @@ import { EXTERNAL_AUTHORITY_LINKS } from '@/lib/seo-links';
 import {
   FOOTER_GOOGLE_REVIEWS_URL,
   NAV_CARRIERE,
-  NAV_FOOTER_PARCOURS,
+  getNavFooterParcours,
   NAV_FORMATIONS_FOOTER,
   NAV_LEGAL_BAR,
   NAV_LEGAL_SECONDARY,
@@ -191,11 +191,13 @@ export function Footer() {
             heading="Formations IA BTP"
             items={NAV_FORMATIONS_FOOTER}
           />
-          <FooterNavColumn
-            ariaLabel="Parcours métiers"
-            heading="Parcours métiers"
-            items={NAV_FOOTER_PARCOURS}
-          />
+          {getNavFooterParcours().length > 0 ? (
+            <FooterNavColumn
+              ariaLabel="Parcours métiers"
+              heading="Parcours métiers"
+              items={getNavFooterParcours()}
+            />
+          ) : null}
           <FooterNavColumn
             ariaLabel="Notre organisme"
             heading="Notre organisme"

@@ -16,6 +16,7 @@ import {
 } from '@/lib/catalogue-thematiques-btp';
 import { FORMATIONS_NIVEAUX_IA } from '@/lib/formations-niveaux-ia';
 import type { FormationsIaFilterParams } from '@/lib/catalogue-filter-url';
+import { isParcoursMetiers2027Visible } from '@/lib/parcours-metiers-2027-visibility';
 
 type Props = {
   filters: FormationsIaFilterParams;
@@ -202,7 +203,9 @@ function FilterFields({
         >
           <option value="">Toutes</option>
           <option value="disponible">Disponible</option>
-          <option value="ouverture-2027">Ouverture prévue en 2027</option>
+          {isParcoursMetiers2027Visible() ? (
+            <option value="ouverture-2027">Ouverture prévue en 2027</option>
+          ) : null}
         </select>
       </div>
       </div>

@@ -15,7 +15,7 @@ import {
 } from '@/lib/linkedin-profile';
 import {
   NAV_CARRIERE,
-  NAV_FOOTER_PARCOURS,
+  getNavFooterParcours,
   NAV_FORMATIONS_FOOTER,
   NAV_IDF,
   NAV_LEGAL_BAR,
@@ -82,7 +82,7 @@ export const SITE = {
     header: getHeaderNav(),
     footer: {
       formations: NAV_FORMATIONS_FOOTER,
-      parcours: NAV_FOOTER_PARCOURS,
+      parcours: getNavFooterParcours(),
       ressources: NAV_RESSOURCES,
       carriere: NAV_CARRIERE,
       organisme: NAV_ORGANISME,

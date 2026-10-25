@@ -4,8 +4,11 @@ import { ParcoursFormationModulesList } from '@/components/formations/ParcoursFo
 import { getAccueilParcoursOffre } from '@/lib/accueil-offre-catalogue';
 import { LINKS } from '@/lib/internal-links';
 import { OFC_CARD, OFC_CTA_PRIMARY, OFC_CTA_SECONDARY } from '@/lib/ofc-interaction-classes';
+import { isParcoursMetiers2027Visible } from '@/lib/parcours-metiers-2027-visibility';
 
 export function FormationsCatalogueParcoursCompact() {
+  if (!isParcoursMetiers2027Visible()) return null;
+
   const parcours = getAccueilParcoursOffre();
 
   return (

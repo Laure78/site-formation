@@ -10,6 +10,7 @@ import { GSC_EXCLUDED_SITEMAP_PATHS } from '@/lib/gsc-redirects-2026';
 import { getPublishedFormations } from '@/lib/formation-catalogue-visibility';
 import { parcoursHref } from '@/lib/catalogue-2027/parcours-href';
 import { LINKS } from '@/lib/internal-links';
+import { isParcoursMetiers2027Visible } from '@/lib/parcours-metiers-2027-visibility';
 import { isFormationMetierPath, normSitemapPath } from '@/lib/sitemap-tiers';
 
 function uniqPaths(paths: readonly string[]): string[] {
@@ -29,7 +30,7 @@ function uniqPaths(paths: readonly string[]): string[] {
 /** Home, catalogue, financement, à propos, blog, contact, partenaires. */
 export const SITEMAP_CORE_STATIC_PATHS = [
   LINKS.home,
-  LINKS.parcoursMetiers,
+  ...(isParcoursMetiers2027Visible() ? [LINKS.parcoursMetiers] : []),
   LINKS.formations,
   LINKS.financement,
   LINKS.aPropos,
@@ -51,7 +52,9 @@ export const SITEMAP_CORE_STATIC_PATHS = [
 export function getSitemapCatalogueFormationPaths(): string[] {
   return uniqPaths([
     ...getPublishedFormations().map((f) => formationHref(f)),
-    ...PARCOURS_CATALOGUE_2027.map((p) => parcoursHref(p.id)),
+    ...(isParcoursMetiers2027Visible()
+      ? PARCOURS_CATALOGUE_2027.map((p) => parcoursHref(p.id))
+      : []),
     LINKS.formationPmeBtp,
   ]);
 }

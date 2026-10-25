@@ -5,6 +5,7 @@
 import { LINKS } from '@/lib/internal-links';
 import { formationHref, type Formation } from '@/data/formations';
 import { getPublishedFormations } from '@/lib/formation-catalogue-visibility';
+import { isParcoursMetiers2027Visible } from '@/lib/parcours-metiers-2027-visibility';
 
 export type NavItem = {
   href: string;
@@ -47,7 +48,7 @@ export function getNavFormationsFooter(at: Date = new Date()): readonly NavItem[
 export const NAV_FORMATIONS_FOOTER: readonly NavItem[] = getNavFormationsFooter();
 
 /** Colonne 2 — Parcours métiers (7 parcours catalogue + hub). Ordre = METIERS_CATALOGUE_2027. */
-export const NAV_FOOTER_PARCOURS: readonly NavItem[] = [
+const NAV_FOOTER_PARCOURS_ALL: readonly NavItem[] = [
   {
     href: LINKS.parcoursDirigeantPmeBtp,
     label: 'Dirigeant d’entreprise BTP',
@@ -89,6 +90,13 @@ export const NAV_FOOTER_PARCOURS: readonly NavItem[] = [
     title: 'Hub parcours métiers BTP',
   },
 ];
+
+export function getNavFooterParcours(): readonly NavItem[] {
+  return isParcoursMetiers2027Visible() ? NAV_FOOTER_PARCOURS_ALL : [];
+}
+
+/** @deprecated Préférer `getNavFooterParcours()` — vide tant que parcours 2027 masqués. */
+export const NAV_FOOTER_PARCOURS: readonly NavItem[] = getNavFooterParcours();
 
 /** Colonne 3 — Notre organisme. */
 export const NAV_ORGANISME: readonly NavItem[] = [

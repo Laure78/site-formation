@@ -8,6 +8,7 @@ import {
 import { buildParcoursNavChildren } from '@/lib/header-nav-parcours';
 import type { HeaderMegaColumn, HeaderNavLink } from '@/lib/header-nav';
 import { LINKS } from '@/lib/internal-links';
+import { isParcoursMetiers2027Visible } from '@/lib/parcours-metiers-2027-visibility';
 
 const FORMATIONS_CATALOGUE_FOOTER: HeaderNavLink = {
   href: LINKS.formations,
@@ -22,10 +23,16 @@ export function buildUnifiedFormationsNavMegaColumns(
   const niveauColumns = buildFormationsNavMegaColumns(at);
   const lastNiveauIndex = niveauColumns.length - 1;
 
+  const withCatalogueFooter = niveauColumns.map((col, index) =>
+    index === lastNiveauIndex ? { ...col, footer: FORMATIONS_CATALOGUE_FOOTER } : col,
+  );
+
+  if (!isParcoursMetiers2027Visible()) {
+    return withCatalogueFooter;
+  }
+
   return [
-    ...niveauColumns.map((col, index) =>
-      index === lastNiveauIndex ? { ...col, footer: FORMATIONS_CATALOGUE_FOOTER } : col,
-    ),
+    ...withCatalogueFooter,
     {
       title: 'Parcours métiers BTP',
       intro: 'Dirigeant, conducteur, chargé d’affaires, admin…',
@@ -43,17 +50,20 @@ export function buildUnifiedFormationsNavMegaColumns(
 export function buildUnifiedFormationsMobileNavGroups(
   at: Date = new Date(),
 ): readonly HeaderNavLink[] {
+  const formationsGroup: HeaderNavLink = {
+    href: LINKS.formations,
+    label: 'Formations IA BTP',
+    description: 'Par niveau — devis, DCE, chantier, applications métier…',
+    children: [...buildFormationsMobileNavGroupsByNiveau(at), FORMATIONS_CATALOGUE_FOOTER],
+  };
+
+  if (!isParcoursMetiers2027Visible()) {
+    return [formationsGroup];
+  }
+
   const parcoursLinks = buildParcoursNavChildren();
   return [
-    {
-      href: LINKS.formations,
-      label: 'Formations IA BTP',
-      description: 'Par niveau — devis, DCE, chantier, applications métier…',
-      children: [
-        ...buildFormationsMobileNavGroupsByNiveau(at),
-        FORMATIONS_CATALOGUE_FOOTER,
-      ],
-    },
+    formationsGroup,
     {
       href: LINKS.parcoursMetiers,
       label: 'Parcours métiers BTP',

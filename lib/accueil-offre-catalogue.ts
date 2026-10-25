@@ -12,6 +12,7 @@ import { formationHref, type FormationNiveau } from '@/data/formations';
 import { parcoursHref } from '@/lib/catalogue-2027/parcours-href';
 import { libelleDisponibilite } from '@/lib/catalogue-2027/search-modules';
 import { getPublishedFormations } from '@/lib/formation-catalogue-visibility';
+import { isParcoursMetiers2027Visible } from '@/lib/parcours-metiers-2027-visibility';
 import {
   FORMATIONS_NIVEAUX_IA,
   formationNiveauBadge,
@@ -126,6 +127,7 @@ const ACCUEIL_PARCOURS_NIVEAU_ENTREE: Partial<Record<ParcoursId, string>> = {
 export function getAccueilParcoursOffre(
   opts?: { featuredOnly?: boolean },
 ): readonly AccueilParcoursOffreCard[] {
+  if (!isParcoursMetiers2027Visible()) return [];
   const list = getAllParcoursComputed().filter((p) =>
     opts?.featuredOnly ? ACCUEIL_PARCOURS_FEATURED_IDS.includes(p.id) : true,
   );

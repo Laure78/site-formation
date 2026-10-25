@@ -3,8 +3,11 @@ import { ConsultantParcoursMetiersCatalogue } from '@/components/career/Consulta
 import { LINKS } from '@/lib/internal-links';
 import { OFC_TYPE_H2 } from '@/lib/ofc-interaction-classes';
 import { ofcSectionClasses, OFC_SECTION_INNER } from '@/lib/ofc-section-classes';
+import { isParcoursMetiers2027Visible } from '@/lib/parcours-metiers-2027-visibility';
 
 export function ConsultantParcoursMetiersSection() {
+  if (!isParcoursMetiers2027Visible()) return null;
+
   return (
     <section
       className={ofcSectionClasses({ tone: 'white', size: 'compact' })}

@@ -4,6 +4,7 @@ import { Reveal } from '@/components/motion/Reveal';
 import { LINKS } from '@/lib/internal-links';
 import { OFC_CTA_ON_ACCENT } from '@/lib/ofc-interaction-classes';
 import { PHOTOS } from '@/lib/photos';
+import { isParcoursMetiers2027Visible } from '@/lib/parcours-metiers-2027-visibility';
 
 const BANNER_TITLE_ID = 'catalogue-parcours-metiers-2027-banner-title';
 
@@ -13,6 +14,8 @@ const visual = PHOTOS.accueilIaAppliqueeChantierBtp2026;
  * Bandeau catalogue — annonce des parcours métiers BTP 2027 (ouverture future, pas de vente immédiate).
  */
 export function FormationsCatalogueParcoursMetiers2027Banner() {
+  if (!isParcoursMetiers2027Visible()) return null;
+
   return (
     <Reveal as="section" className="mb-10 md:mb-12" aria-labelledby={BANNER_TITLE_ID}>
       <div className="relative overflow-hidden rounded-2xl border border-white/20 bg-gradient-to-br from-[#1E40AF] via-[#377CF3] to-[#2563EB] text-white shadow-[0_12px_40px_-12px_rgba(30,64,175,0.35)]">

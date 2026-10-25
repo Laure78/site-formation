@@ -4,6 +4,7 @@
 import { getAllParcoursComputed, libelleJoursFormation } from '@/data/catalogue-2027/parcours';
 import { parcoursHref } from '@/lib/catalogue-2027/parcours-href';
 import type { ParcoursId } from '@/data/catalogue-2027';
+import { isParcoursMetiers2027Visible } from '@/lib/parcours-metiers-2027-visibility';
 
 export type ConsultantParcoursMetierOption = {
   id: ParcoursId;
@@ -16,6 +17,7 @@ export type ConsultantParcoursMetierOption = {
 };
 
 export function getConsultantParcoursMetiersOptions(): ConsultantParcoursMetierOption[] {
+  if (!isParcoursMetiers2027Visible()) return [];
   return getAllParcoursComputed().map((p) => ({
     id: p.id,
     titre: p.titre,
