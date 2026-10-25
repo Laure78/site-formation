@@ -122,7 +122,24 @@ export function parseFormationsIaFilters(
 
 /** Lien menu / cartes — formations IA filtrées par niveau. */
 export function buildFormationsIaNiveauHref(niveau: FormationNiveau): string {
-  return `/formations?niveau=${niveau}#catalogue-formations`;
+  return buildFormationsCataloguePageHref({ niveau });
+}
+
+/** Filtres publics de `/formations` — niveau uniquement. */
+export type FormationsCataloguePageFilters = {
+  niveau?: FormationNiveau;
+};
+
+export function parseFormationsCataloguePageFilters(
+  searchParams: URLSearchParams | Readonly<Record<string, string | string[] | undefined>>,
+): FormationsCataloguePageFilters {
+  return { niveau: parseFormationsIaFilters(searchParams).niveau };
+}
+
+export function buildFormationsCataloguePageHref(
+  filters: FormationsCataloguePageFilters,
+): string {
+  return buildFormationsIaHref({ niveau: filters.niveau });
 }
 
 export function buildFormationsIaHref(filters: FormationsIaFilterParams): string {

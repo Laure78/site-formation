@@ -17,7 +17,6 @@ import { FormationsCatalogueFinancementEncadre } from '@/components/formations/c
 import { FormationsContact2027 } from '@/components/formations/catalogue-2027/FormationsContact2027';
 import { FormationsCatalogueFaqSection } from '@/components/formations/catalogue-2027/FormationsCatalogueFaqSection';
 import { FormationsCatalogueContactDirect } from '@/components/formations/catalogue-2027/FormationsCatalogueContactDirect';
-import { FormationsCatalogueMaillageSection } from '@/components/formations/catalogue/FormationsCatalogueMaillageSection';
 import { FormationsCatalogueMobileBar } from '@/components/formations/catalogue-2027/FormationsCatalogueMobileBar';
 import { buildFormationsPageUnifiedGraphJsonLd } from '@/lib/schema-formations-page-graph';
 import { isParcoursMetiers2027Visible } from '@/lib/parcours-metiers-2027-visibility';
@@ -36,16 +35,9 @@ type FormationsPageProps = {
 
 export async function generateMetadata({ searchParams }: FormationsPageProps = {}): Promise<Metadata> {
   const sp = searchParams ? await searchParams : {};
-  const hasCatalogueFilters = Boolean(
-    sp.domaine ||
-      sp.metier ||
-      sp.q ||
-      sp.niveau ||
-      sp.thematique ||
-      sp.vue ||
-      sp.disponibilite ||
-      sp.duree,
-  );
+  const niveauRaw = sp.niveau;
+  const niveauParam = Array.isArray(niveauRaw) ? niveauRaw[0] : niveauRaw;
+  const hasCatalogueFilters = Boolean(niveauParam?.trim());
 
   return {
     ...createPageMetadata({
@@ -118,7 +110,6 @@ export default async function FormationsPage({ searchParams }: FormationsPagePro
           <FormationsContact2027 />
           <FormationsCatalogueFaqSection />
           <FormationsCatalogueContactDirect />
-          <FormationsCatalogueMaillageSection />
         </div>
       </div>
 

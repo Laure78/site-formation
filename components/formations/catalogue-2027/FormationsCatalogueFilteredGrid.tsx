@@ -5,15 +5,13 @@ import Link from 'next/link';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { FormationsCatalogueGridCard } from '@/components/formations/catalogue/FormationsCatalogueGridCard';
 import { FormationsCatalogueComplementaryCard } from '@/components/formations/catalogue/FormationsCatalogueComplementaryCard';
-import { FormationsCatalogueModuleGridCard } from '@/components/formations/catalogue-2027/FormationsCatalogueModuleGridCard';
 import type { FormationCatalogueEntry } from '@/lib/formations-catalogue-display';
-import { parseFormationsIaFilters } from '@/lib/catalogue-filter-url';
+import { parseFormationsCataloguePageFilters } from '@/lib/catalogue-filter-url';
 import {
   filterAvailableFormationsIaEntries,
   filterComplementaryFormationsIaEntries,
   formationsIaHasActiveFilters,
 } from '@/lib/catalogue-formations-ia-filter';
-import { filterCatalogueModules } from '@/lib/catalogue-2027/search-modules';
 import { catalogueDemandeHref } from '@/lib/training-page-helpers';
 import { HEADER_PRIMARY_CTA_HREF } from '@/lib/header-cta';
 import { OFC_CTA_PRIMARY } from '@/lib/ofc-interaction-classes';
@@ -24,16 +22,6 @@ type Props = {
   availableEntries: readonly FormationCatalogueEntry[];
   upcomingEntries: readonly FormationCatalogueEntry[];
 };
-
-function matchesDisponibiliteIa(
-  ref: string,
-  upcoming: boolean,
-  filter: 'disponible' | 'ouverture-2027' | undefined,
-): boolean {
-  if (!filter) return true;
-  if (filter === 'ouverture-2027') return upcoming;
-  return !upcoming;
-}
 
 export function FormationsCatalogueFilteredGrid(props: Props) {
   const searchParams = useSearchParams();
@@ -52,53 +40,25 @@ function FormationsCatalogueFilteredGridInner({
   const router = useRouter();
   const searchParams = useSearchParams();
   const filters = useMemo(
-    () => parseFormationsIaFilters(searchParams),
+    () => parseFormationsCataloguePageFilters(searchParams),
     [searchParams],
   );
 
-  const vue = filters.vue ?? 'tout';
-  const showIa = vue === 'ia' || vue === 'tout';
-  const showModules = vue === 'modules' || vue === 'tout';
-
   const filteredAvailable = useMemo(
-    () =>
-      showIa
-        ? filterAvailableFormationsIaEntries(availableEntries, filters).filter((e) =>
-            matchesDisponibiliteIa(e.ref, false, filters.disponibilite),
-          )
-        : [],
-    [availableEntries, filters, showIa],
+    () => filterAvailableFormationsIaEntries(availableEntries, filters),
+    [availableEntries, filters],
   );
   const filteredUpcoming = useMemo(
-    () =>
-      showIa
-        ? filterAvailableFormationsIaEntries(upcomingEntries, filters).filter((e) =>
-            matchesDisponibiliteIa(e.ref, true, filters.disponibilite),
-          )
-        : [],
-    [upcomingEntries, filters, showIa],
+    () => filterAvailableFormationsIaEntries(upcomingEntries, filters),
+    [upcomingEntries, filters],
   );
   const filteredComplementary = useMemo(
-    () => (showIa ? filterComplementaryFormationsIaEntries(filters) : []),
-    [filters, showIa],
+    () => filterComplementaryFormationsIaEntries(filters),
+    [filters],
   );
 
-  const filteredModules = useMemo(() => {
-    if (!showModules) return [];
-    return filterCatalogueModules({
-      query: filters.q,
-      domaineId: filters.domaine ?? 'all',
-      metierId: filters.metier ?? 'all',
-      disponibilite: filters.disponibilite ?? 'all',
-      dureeHeures: filters.duree ?? 'all',
-    });
-  }, [filters, showModules]);
-
   const totalVisible =
-    filteredAvailable.length +
-    filteredUpcoming.length +
-    filteredComplementary.length +
-    filteredModules.length;
+    filteredAvailable.length + filteredUpcoming.length + filteredComplementary.length;
 
   const hasActiveFilters = formationsIaHasActiveFilters(filters);
 
@@ -107,8 +67,7 @@ function FormationsCatalogueFilteredGridInner({
   const allItems = useMemo(() => {
     type Row =
       | { kind: 'ia'; key: string; entry: FormationCatalogueEntry; upcoming?: boolean }
-      | { kind: 'complementary'; key: string; item: (typeof filteredComplementary)[number] }
-      | { kind: 'module'; key: string; module: (typeof filteredModules)[number] };
+      | { kind: 'complementary'; key: string; item: (typeof filteredComplementary)[number] };
 
     const rows: Row[] = [];
     for (const entry of filteredAvailable) {
@@ -120,11 +79,8 @@ function FormationsCatalogueFilteredGridInner({
     for (const item of filteredComplementary) {
       rows.push({ kind: 'complementary', key: item.id, item });
     }
-    for (const mod of filteredModules) {
-      rows.push({ kind: 'module', key: mod.code, module: mod });
-    }
     return rows;
-  }, [filteredAvailable, filteredUpcoming, filteredComplementary, filteredModules]);
+  }, [filteredAvailable, filteredUpcoming, filteredComplementary]);
 
   const visibleRows = allItems.slice(0, visibleCount);
   const hasMore = visibleCount < allItems.length;
@@ -191,10 +147,8 @@ function FormationsCatalogueFilteredGridInner({
               <li key={row.key} className="min-w-0">
                 {row.kind === 'ia' ? (
                   <FormationsCatalogueGridCard entry={row.entry} upcoming={row.upcoming} />
-                ) : row.kind === 'complementary' ? (
-                  <FormationsCatalogueComplementaryCard item={row.item} />
                 ) : (
-                  <FormationsCatalogueModuleGridCard module={row.module} />
+                  <FormationsCatalogueComplementaryCard item={row.item} />
                 )}
               </li>
             ))}

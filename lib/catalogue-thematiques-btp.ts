@@ -136,6 +136,29 @@ export const CATALOGUE_COMPLEMENTARY_ENTRIES: readonly CatalogueComplementaryEnt
   },
 ] as const;
 
+/** Masquées dans la grille `/formations` — fiches landing conservées (SEO, liens internes). */
+export const CATALOGUE_COMPLEMENTARY_HIDDEN_FROM_CATALOGUE_IDS = [
+  'etudes-prix-chiffrage',
+  'admin-assistant',
+  'commercial-charge-affaires',
+  'qse-prevention',
+] as const;
+
+export type CatalogueComplementaryEntryId =
+  | (typeof CATALOGUE_COMPLEMENTARY_ENTRIES)[number]['id']
+  | (typeof CATALOGUE_COMPLEMENTARY_HIDDEN_FROM_CATALOGUE_IDS)[number];
+
+const COMPLEMENTARY_HIDDEN_FROM_CATALOGUE = new Set<string>(
+  CATALOGUE_COMPLEMENTARY_HIDDEN_FROM_CATALOGUE_IDS,
+);
+
+/** Entrées complémentaires affichées sur le catalogue public. */
+export function getCatalogueComplementaryEntriesForCataloguePage(): readonly CatalogueComplementaryEntry[] {
+  return CATALOGUE_COMPLEMENTARY_ENTRIES.filter(
+    (entry) => !COMPLEMENTARY_HIDDEN_FROM_CATALOGUE.has(entry.id),
+  );
+}
+
 /** Métiers associés — filtre catalogue (plusieurs métiers possibles). */
 export const FORMATION_METIERS: Record<FormationCatalogueCode, readonly MetierId[]> = {
   'NIV-01': ['dirigeant', 'charge-affaires', 'conducteur-travaux', 'chef-chantier', 'assistant-gestion'],

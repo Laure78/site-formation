@@ -2168,7 +2168,11 @@
   }
 
   .emplois-hub-hero__inner {
-    @apply px-5 sm:px-0;
+    @apply w-full;
+  }
+
+  .emplois-page__layout {
+    @apply w-full;
   }
 
   .emplois-hub-hero__title {

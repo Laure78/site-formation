@@ -32,7 +32,7 @@ export function JobOffersSection({ showEmptyStateAction = false }: JobOffersSect
           ) : null}
         </div>
       ) : (
-        <ul className="mt-5 grid gap-4 sm:grid-cols-2">
+        <ul className="mt-5 grid list-none gap-4 sm:grid-cols-2 lg:gap-5">
           {offers.map((offer) => (
             <li key={offer.id}>
               <article className="ofc-card flex h-full flex-col p-5 sm:p-6">

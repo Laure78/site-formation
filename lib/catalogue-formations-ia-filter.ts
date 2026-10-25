@@ -7,6 +7,7 @@ import type { MetierId } from '@/data/catalogue-2027';
 import type { FormationsIaFilterParams } from '@/lib/catalogue-filter-url';
 import {
   CATALOGUE_COMPLEMENTARY_ENTRIES,
+  getCatalogueComplementaryEntriesForCataloguePage,
   FORMATION_METIERS,
   FORMATION_THEMATIQUE_PRINCIPALE,
 } from '@/lib/catalogue-thematiques-btp';
@@ -56,7 +57,7 @@ export function filterAvailableFormationsIaEntries(
 export function filterComplementaryFormationsIaEntries(
   filters: FormationsIaFilterParams,
 ): (typeof CATALOGUE_COMPLEMENTARY_ENTRIES)[number][] {
-  return CATALOGUE_COMPLEMENTARY_ENTRIES.filter((c) =>
+  return getCatalogueComplementaryEntriesForCataloguePage().filter((c) =>
     complementaryEntryMatchesFormationsIaFilters(c, filters),
   );
 }
@@ -73,14 +74,5 @@ export function countVisibleFormationsIaCatalogue(
 }
 
 export function formationsIaHasActiveFilters(filters: FormationsIaFilterParams): boolean {
-  return Boolean(
-    filters.vue ||
-      filters.niveau ||
-      filters.thematique ||
-      filters.metier ||
-      filters.domaine ||
-      filters.disponibilite ||
-      filters.duree ||
-      filters.q,
-  );
+  return Boolean(filters.niveau);
 }
