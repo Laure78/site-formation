@@ -9,6 +9,8 @@ import {
 } from '@/lib/accueil-config';
 import { LINKS } from '@/lib/internal-links';
 import { OFC_LINK } from '@/lib/ofc-interaction-classes';
+import { RevealGroupShell, RevealShell } from '@/components/motion/RevealShell';
+import { MOTION_REVEAL } from '@/lib/motion-config';
 
 /** Ressources gratuites (aperçu) + méthode repliée + encart événement. */
 export function AccueilRessourcesEvenementSection() {
@@ -21,14 +23,16 @@ export function AccueilRessourcesEvenementSection() {
       className="scroll-mt-[calc(var(--site-header-height,4.5rem)+0.5rem)]"
       aria-labelledby="accueil-ressources-evenement-title"
     >
-      <SectionHeader
-        titleId="accueil-ressources-evenement-title"
-        eyebrow="Ressources"
-        title="Ressources gratuites"
-        description="Guides et tutoriels — devis, DCE, CR — en complément du présentiel."
-        className="max-w-2xl"
-      />
-      <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      <RevealShell>
+        <SectionHeader
+          titleId="accueil-ressources-evenement-title"
+          eyebrow="Ressources"
+          title="Ressources gratuites"
+          description="Guides et tutoriels — devis, DCE, CR — en complément du présentiel."
+          className="max-w-2xl"
+        />
+      </RevealShell>
+      <RevealGroupShell className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3" staggerMs={MOTION_REVEAL.staggerMs}>
         {ressourcesPreview.map((ressource) => (
           <ResourceCard
             key={ressource.href}
@@ -38,13 +42,16 @@ export function AccueilRessourcesEvenementSection() {
             category={ressource.category}
           />
         ))}
-      </div>
+      </RevealGroupShell>
+      <RevealShell delay={MOTION_REVEAL.contentDelayMs}>
       <p className="mt-8">
         <Link href={LINKS.ressources} className={`${OFC_LINK} text-sm font-semibold`}>
           Voir toutes les ressources
         </Link>
       </p>
+      </RevealShell>
 
+      <RevealShell>
       <details className="mt-10 rounded-ofc-card border border-ofc-border bg-white p-5 sm:p-6">
         <summary className="cursor-pointer list-none font-display text-lg font-bold text-ofc-ink marker:content-none [&::-webkit-details-marker]:hidden">
           <span className="flex items-center justify-between gap-3">
@@ -69,10 +76,13 @@ export function AccueilRessourcesEvenementSection() {
           ))}
         </ol>
       </details>
+      </RevealShell>
 
+      <RevealShell delay={80}>
       <div className="mt-10 overflow-hidden rounded-ofc-card border border-ofc-border bg-white">
         <EvenementAoBtpPromoEncart placement="accueil" variant="compact" />
       </div>
+      </RevealShell>
     </Section>
   );
 }

@@ -7,8 +7,10 @@ import { getFilledGoogleReviews } from '@/data/googleReviews';
 import { QUALIOPI_LEGAL } from '@/lib/qualiopi-info';
 import { LINKS } from '@/lib/internal-links';
 import { PARTNER_LOGO_BAND_CELL } from '@/lib/client-logos';
-import { OFC_LINK } from '@/lib/ofc-interaction-classes';
+import { OFC_CARD, OFC_LINK } from '@/lib/ofc-interaction-classes';
 import { StarRating } from '@/components/avis-clients/StarRating';
+import { RevealShell } from '@/components/motion/RevealShell';
+import { LINKEDIN_FOLLOWERS_COUNT } from '@/lib/linkedin-profile';
 
 /** Preuves remontées — logos, avis (si disponibles), Qualiopi en une ligne. */
 export function AccueilPreuvesConfianceSection() {
@@ -21,14 +23,26 @@ export function AccueilPreuvesConfianceSection() {
         Preuves de confiance
       </h2>
 
-      <p className="text-center text-sm font-semibold text-ofc-ink">Ils me font confiance</p>
-      <div className="accueil-logos-marquee mt-4 -mx-4 overflow-x-auto px-4 sm:mx-0 sm:overflow-visible sm:px-0">
+      <RevealShell>
+        <p
+          data-anim="scroll-words"
+          className="mx-auto max-w-2xl text-center font-display text-lg font-bold leading-snug text-ofc-ink sm:text-xl"
+        >
+          Des entreprises du BTP en Île-de-France nous font confiance.
+        </p>
+      </RevealShell>
+      <div
+        data-anim="marquee"
+        data-marquee-pause="true"
+        className="anim-marquee accueil-logos-marquee mt-6 -mx-4 sm:mx-0"
+      >
         <ul
-          className="flex w-max min-w-full items-center gap-8 sm:w-auto sm:flex-wrap sm:justify-center sm:gap-x-10 sm:gap-y-4"
+          data-marquee-track
+          className="flex items-center gap-8 px-4 sm:gap-x-10"
           aria-label="Logos clients et partenaires"
         >
           {ACCUEIL_LOGOS_PARTENAIRES.map((logo) => (
-            <li key={logo.id} className="shrink-0">
+            <li key={logo.id} className="shrink-0 list-none">
               <ExternalLinkAnchor
                 href={logo.href}
                 title={logo.linkTitle ?? `Site officiel ${logo.name}`}
@@ -52,12 +66,28 @@ export function AccueilPreuvesConfianceSection() {
           ))}
         </ul>
       </div>
+      <p className="mt-5 text-center text-sm text-ofc-ink-muted">
+        Plus de{' '}
+        <span
+          data-anim="odometer"
+          data-to={String(LINKEDIN_FOLLOWERS_COUNT)}
+          data-odometer-step="1000"
+          className="font-display text-base font-bold text-ofc-ink"
+          suppressHydrationWarning
+        >
+          {LINKEDIN_FOLLOWERS_COUNT.toLocaleString('fr-FR')}
+        </span>{' '}
+        abonnés sur LinkedIn
+      </p>
 
       {avis.length > 0 ? (
-        <ul className="mt-8 grid list-none gap-4 sm:grid-cols-3">
+        <ul
+          data-anim="stagger-cards"
+          className="mt-8 grid list-none gap-4 sm:grid-cols-3"
+        >
           {avis.map((review) => (
-            <li key={review.id}>
-              <figure className="h-full rounded-ofc-card border border-ofc-border bg-white p-4">
+              <li key={review.id} className="list-none">
+              <figure className={`${OFC_CARD} h-full p-4`}>
                 <StarRating rating={review.rating} className="text-[#377CF3]" />
                 <blockquote className="mt-2 text-sm leading-relaxed text-ofc-ink-muted">
                   « {review.text} »
@@ -67,7 +97,7 @@ export function AccueilPreuvesConfianceSection() {
                   {review.optionalCompany ? ` — ${review.optionalCompany}` : ''}
                 </figcaption>
               </figure>
-            </li>
+              </li>
           ))}
         </ul>
       ) : (

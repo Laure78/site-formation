@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Démo animations GSAP — laureolivie.fr</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lenis/1.1.18/lenis.min.css" />
+    <style>
+      :root {
+        --ease: cubic-bezier(0.22, 1, 0.36, 1);
+        --ink: #0b1220;
+        --muted: #94a3b8;
+        --accent: #377cf3;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        font-family: system-ui, sans-serif;
+        color: var(--ink);
+        line-height: 1.5;
+        background: #fff;
+      }
+      main {
+        max-width: 56rem;
+        margin: 0 auto;
+        padding: 2rem 1.25rem 6rem;
+      }
+      h1 {
+        font-size: 1.75rem;
+        margin: 0 0 0.5rem;
+      }
+      .lead {
+        color: #42526b;
+        margin-bottom: 3rem;
+      }
+      section {
+        margin-bottom: 4rem;
+        padding-bottom: 3rem;
+        border-bottom: 1px solid #e2e8f0;
+      }
+      section h2 {
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: var(--muted);
+        margin: 0 0 1rem;
+      }
+      .anim-word-mask {
+        display: inline-block;
+        overflow: hidden;
+        vertical-align: bottom;
+      }
+      .anim-word {
+        display: inline-block;
+      }
+      .anim-badge-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        border: 1px solid #e2e8f0;
+        border-radius: 999px;
+        padding: 0.35rem 0.75rem;
+        font-size: 0.8125rem;
+        font-weight: 600;
+      }
+      .anim-rotator-viewport {
+        display: inline-block;
+        height: 1.25em;
+        overflow: hidden;
+      }
+      .anim-rotator-track {
+        display: flex;
+        flex-direction: column;
+      }
+      .btn-roll {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.75rem 1.25rem;
+        border-radius: 8px;
+        background: #0f172a;
+        color: #fff;
+        text-decoration: none;
+        font-weight: 600;
+        border: none;
+        cursor: pointer;
+      }
+      .btn-roll.secondary {
+        background: #fff;
+        color: var(--ink);
+        border: 1px solid #e2e8f0;
+      }
+      .anim-roll-icon {
+        width: 1.25rem;
+        height: 1.25rem;
+        background: var(--accent);
+        border-radius: 4px;
+      }
+      .anim-marquee {
+        overflow: hidden;
+        mask-image: linear-gradient(to right, transparent, #000 10%, #000 90%, transparent);
+      }
+      .anim-marquee [data-marquee-track] {
+        display: flex;
+        gap: 2rem;
+        width: max-content;
+        animation: marquee 24s linear infinite;
+      }
+      .anim-marquee:hover [data-marquee-track] {
+        animation-play-state: paused;
+      }
+      @keyframes marquee {
+        to {
+          transform: translateX(-50%);
+        }
+      }
+      .cards {
+        display: grid;
+        gap: 1rem;
+        grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+      }
+      .card {
+        padding: 1.25rem;
+        border-radius: 12px;
+        border: 1px solid #e2e8f0;
+        background: #f7f9fc;
+      }
+      .scale-shell {
+        border-radius: 24px;
+        overflow: hidden;
+        background: #eff6ff;
+        padding: 2rem;
+        margin: 4rem 0;
+      }
+      .scroll-phrase {
+        font-size: 1.5rem;
+        font-weight: 700;
+        max-width: 28rem;
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .anim-marquee [data-marquee-track] {
+          animation: none !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>Démo — 8 animations style 1600.agency</h1>
+      <p class="lead">
+        GSAP 3 + ScrollTrigger + Lenis · attributs <code>data-anim</code> · site laureolivie.fr
+      </p>
+
+      <section>
+        <h2>1 · split-words</h2>
+        <p data-anim="split-words" style="font-size: 1.5rem; font-weight: 800">
+          Formations IA pour le BTP en Île-de-France
+        </p>
+      </section>
+
+      <section>
+        <h2>2 · text-rotator</h2>
+        <span
+          class="anim-badge-pill"
+          data-anim="text-rotator"
+          data-rotator-items="Formation IA|ChatGPT|Claude"
+        >
+          ◆
+          <span class="anim-rotator-viewport" style="min-width: 9rem">
+            <span data-rotator-track class="anim-rotator-track">Formation IA</span>
+          </span>
+        </span>
+      </section>
+
+      <section>
+        <h2>3 · roll-button</h2>
+        <button type="button" class="btn-roll" data-anim="roll-button">
+          <span class="anim-roll-icon" aria-hidden="true"></span>
+          <span data-roll-label>Réserver une visio découverte</span>
+        </button>
+      </section>
+
+      <section>
+        <h2>4 · odometer</h2>
+        <p>
+          Plus de
+          <span data-anim="odometer" data-to="15000" data-odometer-step="1000" style="font-weight: 800"
+            >15&nbsp;000</span
+          >
+          abonnés sur LinkedIn
+        </p>
+      </section>
+
+      <section>
+        <h2>5 · marquee</h2>
+        <div class="anim-marquee" data-anim="marquee" style="padding: 1rem 0">
+          <div data-marquee-track>
+            <span>FFB</span><span>CAPEB</span><span>CNAM</span><span>CSFE</span><span>UMB</span>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2>6 · scroll-words</h2>
+        <p class="scroll-phrase" data-anim="scroll-words">
+          Des entreprises du BTP en Île-de-France nous font confiance.
+        </p>
+      </section>
+
+      <section>
+        <h2>7 · scale-media</h2>
+        <div class="scale-shell" data-anim="scale-media">
+          <p>Vidéo / visuel — scale 85 % → 100 % au scroll</p>
+          <span data-parallax="0.2" style="display: inline-block; margin-top: 1rem">Parallaxe A</span>
+        </div>
+      </section>
+
+      <section>
+        <h2>8 · stagger-cards</h2>
+        <div class="cards" data-anim="stagger-cards">
+          <div class="card">Formation devis</div>
+          <div class="card">Appels d’offres</div>
+          <div class="card">Compte rendu chantier</div>
+        </div>
+      </section>
+    </main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lenis/1.1.18/lenis.min.js"></script>
+    <script>
+      /* Version allégée du registre Next — même API data-anim */
+      gsap.registerPlugin(ScrollTrigger);
+      const EASE = 'power4.out';
+      const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const touch = window.matchMedia('(hover: none), (pointer: coarse)').matches;
+
+      function wrapWords(el) {
+        const t = el.textContent.trim();
+        const parts = t.split(/\s+/);
+        el.textContent = '';
+        parts.forEach((w, i) => {
+          const m = document.createElement('span');
+          m.className = 'anim-word-mask';
+          const inner = document.createElement('span');
+          inner.className = 'anim-word';
+          inner.textContent = w + (i < parts.length - 1 ? '\u00a0' : '');
+          m.appendChild(inner);
+          el.appendChild(m);
+        });
+      }
+
+      const inits = {
+        'split-words'(el) {
+          if (reduced) return;
+          if (!el.querySelector('.anim-word')) wrapWords(el);
+          gsap.from(el.querySelectorAll('.anim-word'), {
+            yPercent: 100,
+            opacity: 0,
+            duration: 0.8,
+            ease: EASE,
+            stagger: 0.06,
+          });
+        },
+        'text-rotator'(el) {
+          const raw = el.dataset.rotatorItems || '';
+          const items = raw.split('|').map((s) => s.trim()).filter(Boolean);
+          const track = el.querySelector('[data-rotator-track]');
+          if (!track || items.length < 2 || reduced) return;
+          track.innerHTML = '';
+          items.forEach((label) => {
+            const line = document.createElement('span');
+            line.className = 'anim-rotator-line';
+            line.style.display = 'block';
+            line.textContent = label;
+            track.appendChild(line);
+          });
+          const clone = document.createElement('span');
+          clone.className = 'anim-rotator-line';
+          clone.style.display = 'block';
+          clone.textContent = items[0];
+          track.appendChild(clone);
+          let index = 0;
+          setInterval(() => {
+            const h = track.querySelector('.anim-rotator-line').offsetHeight;
+            index += 1;
+            gsap.to(track, {
+              y: -index * h,
+              duration: 0.5,
+              ease: EASE,
+              onComplete: () => {
+                if (index >= items.length) {
+                  index = 0;
+                  gsap.set(track, { y: 0 });
+                }
+              },
+            });
+          }, 2500);
+        },
+        'roll-button'(el) {
+          if (reduced || touch) return;
+          const label = el.querySelector('[data-roll-label]');
+          if (!label) return;
+          const text = label.textContent.trim();
+          const wrap = document.createElement('span');
+          wrap.style.cssText =
+            'display:inline-flex;flex-direction:column;height:1.2em;overflow:hidden;vertical-align:middle';
+          ['', ''].forEach(() => {
+            const line = document.createElement('span');
+            line.style.whiteSpace = 'nowrap';
+            line.textContent = text;
+            wrap.appendChild(line);
+          });
+          label.textContent = '';
+          label.appendChild(wrap);
+          const lines = wrap.children;
+          el.addEventListener('mouseenter', () =>
+            gsap.to(lines, { yPercent: -100, duration: 0.4, ease: EASE }),
+          );
+          el.addEventListener('mouseleave', () =>
+            gsap.to(lines, { yPercent: 0, duration: 0.4, ease: EASE }),
+          );
+        },
+        odometer(el) {
+          const to = Number(el.dataset.to);
+          if (!Number.isFinite(to)) return;
+          if (reduced) return;
+          const step = 1000;
+          const col = document.createElement('span');
+          col.style.cssText =
+            'display:inline-flex;flex-direction:column;height:1em;overflow:hidden;vertical-align:baseline';
+          for (let v = 0; v <= to; v += step) {
+            const row = document.createElement('span');
+            row.textContent = v.toLocaleString('fr-FR');
+            row.style.lineHeight = '1';
+            col.appendChild(row);
+          }
+          el.textContent = '';
+          el.appendChild(col);
+          ScrollTrigger.create({
+            trigger: el,
+            start: 'top 85%',
+            once: true,
+            onEnter: () =>
+              gsap.to(col, {
+                y: () => -(col.children.length - 1) * col.children[0].offsetHeight,
+                duration: 1.2,
+                ease: EASE,
+              }),
+          });
+        },
+        marquee(el) {
+          const track = el.querySelector('[data-marquee-track]');
+          if (track && track.dataset.marqueeCloned !== 'true') {
+            track.innerHTML += track.innerHTML;
+            track.dataset.marqueeCloned = 'true';
+          }
+        },
+        'scroll-words'(el) {
+          if (!el.querySelector('.anim-scroll-word')) {
+            const t = el.textContent.trim();
+            el.textContent = '';
+            t.split(/\s+/).forEach((w, i, a) => {
+              const s = document.createElement('span');
+              s.className = 'anim-scroll-word';
+              s.textContent = w + (i < a.length - 1 ? '\u00a0' : '');
+              el.appendChild(s);
+            });
+          }
+          const words = el.querySelectorAll('.anim-scroll-word');
+          ScrollTrigger.create({
+            trigger: el,
+            start: 'top 75%',
+            end: 'bottom 40%',
+            scrub: true,
+            onUpdate(self) {
+              words.forEach((word, i) => {
+                const on = self.progress >= (i + 0.5) / words.length - 0.08;
+                gsap.set(word, { opacity: on ? 1 : 0.35, color: on ? 'var(--ink)' : 'var(--muted)' });
+              });
+            },
+          });
+        },
+        'scale-media'(el) {
+          if (reduced) return;
+          gsap.set(el, { scale: 0.85, transformOrigin: 'center center' });
+          ScrollTrigger.create({
+            trigger: el,
+            start: 'top 85%',
+            end: 'center center',
+            scrub: true,
+            onUpdate(s) {
+              gsap.set(el, { scale: 0.85 + s.progress * 0.15 });
+            },
+          });
+        },
+        'stagger-cards'(el) {
+          const cards = el.children;
+          if (reduced) return;
+          gsap.set(cards, { opacity: 0, y: 40, scale: 0.97 });
+          ScrollTrigger.create({
+            trigger: el,
+            start: 'top 82%',
+            once: true,
+            onEnter: () =>
+              gsap.to(cards, {
+                opacity: 1,
+                y: 0,
+                scale: 1,
+                duration: 0.6,
+                ease: EASE,
+                stagger: 0.1,
+              }),
+          });
+        },
+      };
+
+      document.querySelectorAll('[data-anim]').forEach((el) => {
+        const fn = inits[el.dataset.anim];
+        if (fn) fn(el);
+      });
+
+      if (!reduced) {
+        const lenis = new Lenis({ lerp: 0.085 });
+        lenis.on('scroll', ScrollTrigger.update);
+        gsap.ticker.add((t) => lenis.raf(t * 1000));
+        gsap.ticker.lagSmoothing(0);
+      }
+      ScrollTrigger.refresh();
+    </script>
+  </body>
+</html>

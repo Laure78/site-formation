@@ -3,7 +3,8 @@ import { Briefcase } from 'lucide-react';
 import { Section } from '@/components/ui/Section';
 import { SectionHeader } from '@/components/ui/SectionHeader';
 import { ACCUEIL_CAS_EXERCICES_FORMATION } from '@/lib/accueil-config';
-import { OFC_CTA_SECONDARY } from '@/lib/ofc-interaction-classes';
+import { OFC_CARD, OFC_CTA_SECONDARY } from '@/lib/ofc-interaction-classes';
+import { RevealShell } from '@/components/motion/RevealShell';
 
 function formationLinkLabel(titre: string): string {
   return `Voir la formation — ${titre}`;
@@ -17,16 +18,23 @@ export function AccueilCasExercicesSection() {
       className="scroll-mt-[calc(var(--site-header-height,4.5rem)+0.5rem)]"
       aria-labelledby="accueil-cas-title"
     >
-      <SectionHeader
-        titleId="accueil-cas-title"
-        title="Exemples en formation"
-        description="Cas fictifs ou anonymisés — relecture métier avant tout envoi."
-        className="max-w-2xl"
-      />
-      <ul className="mt-10 grid gap-6 lg:grid-cols-3">
+      <RevealShell>
+        <SectionHeader
+          titleId="accueil-cas-title"
+          title={
+            <span data-anim="split-words-scroll">Exemples en formation</span>
+          }
+          description="Cas fictifs ou anonymisés — relecture métier avant tout envoi."
+          className="max-w-2xl"
+        />
+      </RevealShell>
+      <ul
+        data-anim="stagger-cards"
+        className="mt-10 grid list-none gap-6 lg:grid-cols-3"
+      >
         {ACCUEIL_CAS_EXERCICES_FORMATION.map((cas) => (
-          <li key={cas.id}>
-            <article className="flex h-full flex-col rounded-ofc-card border border-ofc-border bg-white p-5">
+            <li key={cas.id} className="list-none">
+            <article className={`${OFC_CARD} flex h-full flex-col p-5`}>
               <div className="flex items-center gap-2 text-ofc-accent">
                 <Briefcase className="h-4 w-4 shrink-0" strokeWidth={1.75} aria-hidden />
                 <p className="text-xs font-semibold uppercase tracking-wide">{cas.badge}</p>
@@ -64,7 +72,7 @@ export function AccueilCasExercicesSection() {
                 </Link>
               </div>
             </article>
-          </li>
+            </li>
         ))}
       </ul>
     </Section>

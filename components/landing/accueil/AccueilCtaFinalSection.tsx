@@ -3,11 +3,13 @@ import { PRENDRE_RDV_DUREE_MINUTES } from '@/lib/prendre-rendez-vous-page-config
 import { CONTACT } from '@/lib/constants';
 import { LINKS } from '@/lib/internal-links';
 import { OFC_CTA_PRIMARY, OFC_LINK } from '@/lib/ofc-interaction-classes';
+import { RevealShell } from '@/components/motion/RevealShell';
 
 /** CTA final — visio + téléphone + email cliquables. */
 export function AccueilCtaFinalSection() {
   return (
     <section className="px-4 py-16 md:py-20 lg:py-24" aria-labelledby="accueil-cta-final">
+      <RevealShell distance={12}>
       <div className="relative mx-auto max-w-3xl overflow-hidden rounded-ofc-card bg-ofc-accent px-6 py-12 text-center text-white sm:px-10 md:px-14 md:py-16">
         <div
           className="pointer-events-none absolute inset-0 opacity-30"
@@ -53,6 +55,7 @@ export function AccueilCtaFinalSection() {
           </div>
         </div>
       </div>
+      </RevealShell>
     </section>
   );
 }

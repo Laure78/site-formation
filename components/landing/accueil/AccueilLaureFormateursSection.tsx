@@ -7,7 +7,9 @@ import {
   getCatalogueFormateurs,
 } from '@/lib/formateurs';
 import { LINKS } from '@/lib/internal-links';
-import { OFC_CTA_PRIMARY } from '@/lib/ofc-interaction-classes';
+import { OFC_CARD, OFC_CTA_PRIMARY } from '@/lib/ofc-interaction-classes';
+import { RevealGroupShell, RevealShell } from '@/components/motion/RevealShell';
+import { MOTION_REVEAL } from '@/lib/motion-config';
 
 const MAX_INTERVENANTS = 3;
 
@@ -26,14 +28,17 @@ export function AccueilLaureFormateursSection() {
       className="scroll-mt-[calc(var(--site-header-height,4.5rem)+0.5rem)]"
       aria-labelledby="accueil-equipe-title"
     >
-      <SectionHeader
-        titleId="accueil-equipe-title"
-        title="Laure Olivié et l’équipe de formateurs"
-        description="Terrain BTP et formation IA en présentiel — détail des programmes sur chaque fiche."
-        className="max-w-2xl"
-      />
+      <RevealShell>
+        <SectionHeader
+          titleId="accueil-equipe-title"
+          title="Laure Olivié et l’équipe de formateurs"
+          description="Terrain BTP et formation IA en présentiel — détail des programmes sur chaque fiche."
+          className="max-w-2xl"
+        />
+      </RevealShell>
 
-      <article className="mt-8 grid gap-6 rounded-ofc-card border border-ofc-border bg-white p-6 lg:grid-cols-[auto_minmax(0,1fr)] lg:gap-8">
+      <RevealShell delay={MOTION_REVEAL.contentDelayMs}>
+      <article className={`${OFC_CARD} mt-8 grid gap-6 p-6 lg:grid-cols-[auto_minmax(0,1fr)] lg:gap-8`}>
         <FormateurPortraitView portrait={laure.portrait} shape="portrait" priority />
         <div className="min-w-0 text-left">
           <h3 className="font-display text-xl font-bold text-ofc-ink">
@@ -48,12 +53,17 @@ export function AccueilLaureFormateursSection() {
           </p>
         </div>
       </article>
+      </RevealShell>
 
       {intervenants.length > 0 ? (
-        <ul className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <RevealGroupShell
+          as="ul"
+          itemAs="li"
+          className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3"
+          staggerMs={MOTION_REVEAL.staggerMs}
+        >
           {intervenants.map((f) => (
-            <li key={f.id}>
-              <article className="flex h-full gap-4 rounded-xl border border-ofc-border bg-white p-4">
+              <article key={f.id} className={`${OFC_CARD} flex h-full gap-4 rounded-xl p-4`}>
                 <FormateurPortraitView portrait={f.portrait} size="sm" />
                 <div className="min-w-0 text-left">
                   <h4 className="font-display font-bold text-ofc-ink">
@@ -62,16 +72,17 @@ export function AccueilLaureFormateursSection() {
                   <p className="text-xs font-medium text-ofc-accent">{f.intitule}</p>
                 </div>
               </article>
-            </li>
           ))}
-        </ul>
+        </RevealGroupShell>
       ) : null}
 
+      <RevealShell delay={120}>
       <div className="mt-8">
         <Link href={LINKS.formateurs} className={`${OFC_CTA_PRIMARY} inline-flex min-h-11 px-6 py-3`}>
           Découvrir nos formateurs
         </Link>
       </div>
+      </RevealShell>
     </Section>
   );
 }

@@ -1,0 +1,155 @@
+/**
+ * Animations premium (GSAP + CSS) — transform / opacity uniquement.
+ * Complète `data-anim` initialisé par `GsapMotionRoot`.
+ */
+
+@import 'lenis/dist/lenis.css';
+
+/* ——— Masques mots (split-words) ——— */
+.anim-word-mask {
+  vertical-align: bottom;
+}
+
+/* ——— Text rotator ——— */
+.anim-rotator-viewport {
+  display: inline-block;
+  height: 1.25em;
+  overflow: hidden;
+  vertical-align: bottom;
+}
+
+.anim-rotator-track {
+  display: flex;
+  flex-direction: column;
+}
+
+/* ——— Roll button ——— */
+.anim-roll-wrap {
+  vertical-align: middle;
+}
+
+/* ——— Marquee logos ——— */
+.anim-marquee {
+  --anim-marquee-duration: 38s;
+  position: relative;
+  overflow: hidden;
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    #000 12%,
+    #000 88%,
+    transparent
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent,
+    #000 12%,
+    #000 88%,
+    transparent
+  );
+}
+
+.anim-marquee[data-marquee-pause='true']:hover [data-marquee-track] {
+  animation-play-state: paused;
+}
+
+.anim-marquee-ready [data-marquee-track] {
+  display: flex;
+  width: max-content;
+  animation: anim-marquee-scroll var(--anim-marquee-duration) linear infinite;
+}
+
+@keyframes anim-marquee-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.anim-marquee [data-marquee-track] > * {
+  flex-shrink: 0;
+}
+
+/* ——— Pilules rotator (hero) ——— */
+.anim-badge-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 9999px;
+  border: 1px solid var(--color-ofc-border, #e2e8f0);
+  background: rgb(255 255 255 / 0.85);
+  padding: 0.35rem 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--color-ofc-ink, #0f172a);
+  backdrop-filter: blur(8px);
+}
+
+@media (min-width: 640px) {
+  .anim-badge-pill {
+    font-size: 0.8125rem;
+  }
+}
+
+/* ——— Roll button variante hero ——— */
+.anim-roll-button-primary {
+  border-radius: 8px;
+  background: #0f172a;
+  color: #fff;
+}
+
+.anim-roll-button-secondary {
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+  background: #fff;
+  color: #0f172a;
+}
+
+.anim-roll-icon {
+  display: inline-flex;
+  height: 1.25rem;
+  width: 1.25rem;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  background: #377cf3;
+}
+
+/* ——— Scale media ——— */
+.anim-scale-media-shell {
+  border-radius: 24px;
+  overflow: hidden;
+  will-change: transform;
+}
+
+/* ——— Désactive les entrées CSS hero quand GSAP prend le relais ——— */
+@media (prefers-reduced-motion: no-preference) {
+  html[data-gsap-motion-ready] .accueil-hero-content > *:not(.accueil-hero-title) {
+    animation: none !important;
+    opacity: 1;
+  }
+
+  html[data-gsap-motion-ready] .accueil-hero-word {
+    animation: none !important;
+    opacity: 1;
+  }
+
+  html[data-gsap-motion-ready] .accueil-hero-aside {
+    animation: none !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .anim-marquee-ready [data-marquee-track] {
+    animation: none !important;
+  }
+
+  [data-anim] .anim-word,
+  [data-anim] .anim-scroll-word {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}

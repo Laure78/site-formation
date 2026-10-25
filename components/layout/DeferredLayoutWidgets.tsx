@@ -2,6 +2,8 @@
 
 import dynamic from 'next/dynamic';
 import { useEffect, useState } from 'react';
+import { DeferredRevealScrollObserver } from '@/components/motion/DeferredRevealScrollObserver';
+import { GsapMotionRoot } from '@/components/motion/GsapMotionRoot';
 
 const ScrollToTopButton = dynamic(
   () =>
@@ -77,6 +79,8 @@ export function DeferredLayoutWidgets() {
 
   return (
     <>
+      <GsapMotionRoot />
+      <DeferredRevealScrollObserver />
       <CookieConsentBanner />
       {deferredReady ? (
         <>

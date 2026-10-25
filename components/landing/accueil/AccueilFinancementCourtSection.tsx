@@ -1,7 +1,8 @@
 import Link from 'next/link';
 import { Section } from '@/components/ui/Section';
 import { LINKS } from '@/lib/internal-links';
-import { OFC_LINK } from '@/lib/ofc-interaction-classes';
+import { OFC_CARD, OFC_LINK } from '@/lib/ofc-interaction-classes';
+import { RevealShell } from '@/components/motion/RevealShell';
 
 /** Encadré financement — réponse rapide « combien / qui paie » avant la section formateurs. */
 export function AccueilFinancementCourtSection() {
@@ -13,7 +14,8 @@ export function AccueilFinancementCourtSection() {
       className="scroll-mt-[calc(var(--site-header-height,4.5rem)+0.5rem)]"
       aria-labelledby="accueil-financement-court-title"
     >
-      <div className="rounded-ofc-card bg-[#F2F2F2] px-5 py-8 sm:px-8 sm:py-10">
+      <RevealShell>
+      <div className={`${OFC_CARD} border-0 bg-[#F2F2F2] px-5 py-8 shadow-none sm:px-8 sm:py-10`}>
         <h2
           id="accueil-financement-court-title"
           className="font-display text-xl font-bold tracking-tight text-ofc-ink md:text-2xl"
@@ -44,6 +46,7 @@ export function AccueilFinancementCourtSection() {
           </Link>
         </p>
       </div>
+      </RevealShell>
     </Section>
   );
 }
