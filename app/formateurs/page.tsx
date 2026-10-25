@@ -4,7 +4,6 @@ import { Suspense } from 'react';
 import { FormateursCatalogueHub } from '@/components/formateurs/FormateursCatalogueHub';
 import { FormateursBottomCta } from '@/components/formateurs/FormateursBottomCta';
 import { FormateursMobileStickyBar } from '@/components/formateurs/FormateursMobileStickyBar';
-import { FormateursSelectionEncart } from '@/components/formateurs/FormateursSelectionEncart';
 import { FormateursTrustStrip } from '@/components/formateurs/FormateursTrustStrip';
 import { JsonLd } from '@/components/JsonLd';
 import { BreadcrumbJsonLd } from '@/components/seo/BreadcrumbJsonLd';
@@ -117,11 +116,7 @@ export default function FormateursPage() {
 
           <FormateursTrustStrip />
 
-          <div className="formateurs-hub-hero__selection mt-8">
-            <FormateursSelectionEncart />
-          </div>
-
-          <div className="formateurs-hub-hero__actions mt-6">
+          <div className="formateurs-hub-hero__actions mt-8">
             <Link
               href="#formateurs-profiles"
               className={`${OFC_CTA_SECONDARY} inline-flex min-h-11 items-center justify-center rounded-xl px-6 py-3 text-base font-semibold`}
