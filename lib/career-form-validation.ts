@@ -136,6 +136,9 @@ export function parseCareerFormPayload(raw: Record<string, unknown>):
 export const CAREER_FORM_SUCCESS =
   'Votre candidature a bien été reçue. Merci pour votre intérêt pour OFC Création d’Entreprise.' as const;
 
+export const CAREER_FORM_SUCCESS_FOLLOWUP =
+  'OFC examine chaque proposition et vous recontacte si votre profil correspond aux parcours en cours de constitution.' as const;
+
 export const CAREER_FORM_RGPD_NOTICE =
   'Vos données et votre CV, le cas échéant, sont traités uniquement pour l’étude de votre candidature. Consultez la politique de confidentialité.' as const;
 

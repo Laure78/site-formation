@@ -58,6 +58,8 @@ export const LINKS = {
   emplois: '/nous-rejoindre',
   /** Carrière — proposition consultant-formateur IA BTP */
   devenezConsultant: '/devenez-consultant',
+  /** Confirmation envoi — formulaire consultant (noindex). */
+  devenezConsultantMerci: '/devenez-consultant/merci',
   /** Carrière — candidature spontanée */
   candidaturesSpontanees: '/candidatures-spontanees',
   /** Carrière — recrutement formateurs (annonce) */
