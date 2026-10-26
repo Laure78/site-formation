@@ -1,10 +1,11 @@
-import Link from 'next/link';
 import { HardHat, MapPin, Sparkles } from 'lucide-react';
+import { InPageAnchor } from '@/components/navigation/InPageAnchor';
 import { EnBref } from '@/app/components/EnBref';
 import {
   CONSULTANT_HERO_PILLS,
   CONSULTANT_HERO_SUBTITLE,
 } from '@/lib/consultant-recruitment-content';
+import { formateurRecruitmentMailtoHref, RECRUITMENT } from '@/lib/constants';
 import { OFC_CTA_PRIMARY, OFC_CTA_SECONDARY, OFC_EYEBROW, OFC_TYPE_HERO } from '@/lib/ofc-interaction-classes';
 import { ofcSectionClasses, OFC_SECTION_INNER } from '@/lib/ofc-section-classes';
 
@@ -21,18 +22,25 @@ export function ConsultantRecruitmentHero() {
         </p>
 
         <div className="mt-4 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-          <Link
+          <InPageAnchor
             href="#candidature"
             className={`${OFC_CTA_PRIMARY} inline-flex min-h-12 items-center justify-center rounded-lg px-6 py-3 text-base font-semibold`}
           >
             Proposer mon expertise
-          </Link>
-          <Link
+          </InPageAnchor>
+          <InPageAnchor
             href="#parcours-selection"
             className={`${OFC_CTA_SECONDARY} inline-flex min-h-12 items-center justify-center rounded-lg px-6 py-3 text-base font-semibold`}
           >
             Comment se déroule la sélection ?
-          </Link>
+          </InPageAnchor>
+          <a
+            href={formateurRecruitmentMailtoHref()}
+            className={`${OFC_CTA_SECONDARY} inline-flex min-h-12 items-center justify-center rounded-lg px-6 py-3 text-base font-semibold`}
+            aria-label={`Contacter le recrutement formateurs à ${RECRUITMENT.email}`}
+          >
+            {RECRUITMENT.email}
+          </a>
         </div>
 
         <ul className="mt-4 flex flex-col gap-2 sm:flex-row sm:flex-wrap sm:gap-3" aria-label="Repères">
@@ -55,7 +63,15 @@ export function ConsultantRecruitmentHero() {
             Laure Olivié (Qualiopi) recueille les propositions de{' '}
             <strong>consultants-formateurs indépendants</strong> pour les{' '}
             <strong>7 parcours métiers</strong> du catalogue IA BTP — pas pour les modules isolés
-            hors parcours. Sans promesse d&apos;emploi salarié ni de volume de missions.
+            hors parcours. Sans promesse d&apos;emploi salarié ni de volume de missions. Contact
+            recrutement :{' '}
+            <a
+              href={formateurRecruitmentMailtoHref()}
+              className="font-medium text-[#377CF3] underline-offset-2 hover:underline"
+            >
+              {RECRUITMENT.email}
+            </a>
+            .
           </p>
         </EnBref>
       </div>

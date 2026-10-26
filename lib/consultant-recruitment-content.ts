@@ -3,8 +3,11 @@
  */
 import type { FAQItem } from '@/lib/faq';
 import type { ConsultantExpertiseValue } from '@/lib/career-form-validation';
+import { formateurRecruitmentMailtoHref, RECRUITMENT } from '@/lib/constants';
 import { LINKS } from '@/lib/internal-links';
 import { PERIMETRE_FORMATIONS_COURT } from '@/lib/tarifs-sessions';
+
+const RECRUITMENT_MAILTO = formateurRecruitmentMailtoHref();
 
 export const CONSULTANT_HERO_SUBTITLE =
   'Vous êtes un professionnel du bâtiment ou des travaux publics et utilisez l’intelligence artificielle dans votre métier ? Proposez votre expertise pour animer les parcours métiers IA du catalogue OFC.' as const;
@@ -122,7 +125,7 @@ export const CONSULTANT_SELECTION_DISCLAIMER =
 export const CONSULTANT_FAQ_ITEMS: readonly FAQItem[] = [
   {
     q: 'Comment proposer mon expertise de formateur IA BTP ?',
-    a: `Remplissez le formulaire en bas de cette page en précisant votre parcours BTP, votre pratique de l’IA et les parcours métiers du catalogue sur lesquels vous souhaitez intervenir. OFC étudie chaque proposition.`,
+    a: `Remplissez le formulaire en bas de cette page en précisant votre parcours BTP, votre pratique de l’IA et les parcours métiers du catalogue sur lesquels vous souhaitez intervenir. Vous pouvez aussi envoyer votre CV et votre présentation à <a href="${RECRUITMENT_MAILTO}">${RECRUITMENT.email}</a>. OFC étudie chaque proposition.`,
   },
   {
     q: 'Quelles compétences recherchez-vous ?',

@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { JobOffersSection } from '@/components/career/JobOffersSection';
+import { emploisRecruitmentMailtoHref, RECRUITMENT } from '@/lib/constants';
 import { getPublishedJobOffers } from '@/lib/data/job-offers';
 import { LINKS } from '@/lib/internal-links';
 import {
@@ -25,6 +26,8 @@ const MAIN_SECTION = ofcSectionClasses({
   divide: false,
 });
 
+const MAILTO_RECRUTEMENT = emploisRecruitmentMailtoHref();
+
 export function EmploisPageContent() {
   const offers = getPublishedJobOffers();
   const hasOffers = offers.length > 0;
@@ -45,6 +48,25 @@ export function EmploisPageContent() {
               Contribuez à la formation des professionnels du bâtiment et des travaux publics aux
               usages concrets de l’intelligence artificielle — présentiel en Île-de-France, organisme
               certifié Qualiopi.
+            </p>
+            <p className={`${OFC_TYPE_BODY} mt-4 text-ofc-ink-muted`}>
+              Pour toute candidature (emploi salarié ou spontanée), écrivez à{' '}
+              <a
+                href={MAILTO_RECRUTEMENT}
+                className="font-semibold text-[#377CF3] underline-offset-2 hover:underline"
+              >
+                {RECRUITMENT.email}
+              </a>
+              .
+            </p>
+            <p className="mt-4">
+              <a
+                href={MAILTO_RECRUTEMENT}
+                className={`${OFC_CTA_SECONDARY} inline-flex min-h-11 items-center justify-center rounded-lg px-5 py-2.5 text-base font-semibold`}
+                aria-label={`Contacter le recrutement à ${RECRUITMENT.email}`}
+              >
+                {RECRUITMENT.email}
+              </a>
             </p>
           </div>
         </div>
@@ -72,7 +94,18 @@ export function EmploisPageContent() {
               </div>
             )}
 
-            <p className={`${OFC_TYPE_BODY} emplois-page__catalogue-link mt-10 text-ofc-ink-muted`}>
+            <p className={`${OFC_TYPE_BODY} mt-10 max-w-2xl text-ofc-ink-muted`}>
+              Questions recrutement ou envoi de CV :{' '}
+              <a
+                href={MAILTO_RECRUTEMENT}
+                className="font-semibold text-[#377CF3] underline-offset-2 hover:underline"
+              >
+                {RECRUITMENT.email}
+              </a>
+              .
+            </p>
+
+            <p className={`${OFC_TYPE_BODY} emplois-page__catalogue-link mt-6 text-ofc-ink-muted`}>
             Découvrez aussi le{' '}
             <Link href={LINKS.formations} className="font-semibold text-[#377CF3] underline-offset-2 hover:underline">
               catalogue des formations IA BTP

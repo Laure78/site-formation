@@ -28,6 +28,16 @@ export function formateurRecruitmentMailtoHref(): string {
   return `mailto:${RECRUITMENT.email}?subject=${encodeURIComponent(RECRUITMENT.formateurEmailSubject)}`;
 }
 
+/** Lien mailto — hub emplois et candidatures salariées. */
+export function emploisRecruitmentMailtoHref(): string {
+  return `mailto:${RECRUITMENT.email}?subject=${encodeURIComponent('Candidature emploi — OFC')}`;
+}
+
+/** Lien mailto — page candidature spontanée. */
+export function candidatureSpontaneeRecruitmentMailtoHref(): string {
+  return `mailto:${RECRUITMENT.email}?subject=${encodeURIComponent('Candidature spontanée — OFC')}`;
+}
+
 /**
  * URL Calendly — visio découverte.
  * TODO (Laure) : remplacer par le nouvel événement sans « artisans » dès création Calendly.

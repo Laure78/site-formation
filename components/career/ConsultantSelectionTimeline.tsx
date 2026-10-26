@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import { InPageAnchor } from '@/components/navigation/InPageAnchor';
 import {
   CONSULTANT_SELECTION_DISCLAIMER,
   CONSULTANT_SELECTION_STEPS,
@@ -47,12 +47,12 @@ export function ConsultantSelectionTimeline() {
           {CONSULTANT_SELECTION_DISCLAIMER}
         </p>
 
-        <Link
+        <InPageAnchor
           href="#candidature"
           className={`${OFC_CTA_PRIMARY} mt-6 inline-flex min-h-12 items-center justify-center rounded-lg px-6 py-3 text-base font-semibold`}
         >
           Proposer mon expertise
-        </Link>
+        </InPageAnchor>
       </div>
     </section>
   );

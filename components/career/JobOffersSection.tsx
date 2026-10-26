@@ -1,7 +1,8 @@
 import Link from 'next/link';
+import { emploisRecruitmentMailtoHref, RECRUITMENT } from '@/lib/constants';
 import { getPublishedJobOffers } from '@/lib/data/job-offers';
 import { LINKS } from '@/lib/internal-links';
-import { OFC_CTA_PRIMARY, OFC_TYPE_BODY, OFC_TYPE_H2 } from '@/lib/ofc-interaction-classes';
+import { OFC_CTA_PRIMARY, OFC_CTA_SECONDARY, OFC_TYPE_BODY, OFC_TYPE_H2 } from '@/lib/ofc-interaction-classes';
 
 type JobOffersSectionProps = {
   /** Affiche le CTA candidature dans l’encart vide (legacy). Sur /emplois, laisser à false. */
@@ -20,7 +21,23 @@ export function JobOffersSection({ showEmptyStateAction = false }: JobOffersSect
       {offers.length === 0 ? (
         <div className="emplois-offers-empty mt-4 rounded-xl border border-slate-200/90 bg-white px-4 py-4 sm:px-5 sm:py-5">
           <p className={`${OFC_TYPE_BODY} text-ofc-ink`}>
-            Aucune offre d’emploi n’est publiée actuellement.
+            Aucune offre d’emploi n’est publiée actuellement. Vous pouvez nous écrire à{' '}
+            <a
+              href={emploisRecruitmentMailtoHref()}
+              className="font-semibold text-[#377CF3] underline-offset-2 hover:underline"
+            >
+              {RECRUITMENT.email}
+            </a>{' '}
+            ou déposer une candidature spontanée.
+          </p>
+          <p className="mt-4">
+            <a
+              href={emploisRecruitmentMailtoHref()}
+              className={`${OFC_CTA_SECONDARY} inline-flex min-h-11 items-center justify-center rounded-lg px-5 py-2.5 text-base font-semibold`}
+              aria-label={`Envoyer une candidature par email à ${RECRUITMENT.email}`}
+            >
+              Écrire à {RECRUITMENT.email}
+            </a>
           </p>
           {showEmptyStateAction ? (
             <Link

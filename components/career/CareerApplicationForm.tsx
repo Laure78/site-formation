@@ -16,7 +16,7 @@ import {
   type ConsultantExpertiseValue,
   type SpontaneousTypeValue,
 } from '@/lib/career-form-validation';
-import { CONTACT, RECRUITMENT } from '@/lib/constants';
+import { RECRUITMENT } from '@/lib/constants';
 import { LINKS } from '@/lib/internal-links';
 import {
   getConsultantParcoursMetiersOptions,
@@ -174,7 +174,7 @@ export function CareerApplicationForm({
           ?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
       });
     } catch {
-      const fallbackEmail = kind === 'consultant' ? RECRUITMENT.email : CONTACT.email;
+      const fallbackEmail = RECRUITMENT.email;
       setError(
         `Une erreur inattendue est survenue. Réessayez ou écrivez à ${fallbackEmail} avec votre CV.`,
       );

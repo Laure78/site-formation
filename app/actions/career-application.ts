@@ -16,10 +16,10 @@ import {
   type CareerFormInput,
 } from '@/lib/career-form-validation';
 import { formatConsultantParcoursSlugs } from '@/lib/consultant-parcours-metiers-options';
-import { CONTACT, RECRUITMENT } from '@/lib/constants';
+import { RECRUITMENT } from '@/lib/constants';
 
-function careerNotifyEmail(kind: CareerFormInput['kind']): string {
-  return kind === 'consultant' ? RECRUITMENT.email : CONTACT.email;
+function careerNotifyEmail(_kind: CareerFormInput['kind']): string {
+  return RECRUITMENT.email;
 }
 
 const resend = process.env.RESEND_API_KEY ? new Resend(process.env.RESEND_API_KEY) : null;

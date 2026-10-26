@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { FAQAccordion } from '@/components/a-propos/FAQAccordion';
+import { ScrollToHashOnLoad } from '@/components/navigation/ScrollToHashOnLoad';
 import { CareerApplicationForm } from '@/components/career/CareerApplicationForm';
 import { ConsultantCompetenceSection } from '@/components/career/ConsultantCompetenceSection';
 import { ConsultantExpertiseCards } from '@/components/career/ConsultantExpertiseCards';
@@ -11,13 +12,14 @@ import { BreadcrumbJsonLd } from '@/components/seo/BreadcrumbJsonLd';
 import { formateurRecruitmentMailtoHref, RECRUITMENT } from '@/lib/constants';
 import { CONSULTANT_FAQ_ITEMS } from '@/lib/consultant-recruitment-content';
 import { LINKS } from '@/lib/internal-links';
-import { OFC_TYPE_H2 } from '@/lib/ofc-interaction-classes';
+import { OFC_CTA_SECONDARY, OFC_TYPE_H2 } from '@/lib/ofc-interaction-classes';
 import { ofcSectionClasses, OFC_SECTION_INNER } from '@/lib/ofc-section-classes';
 import { createPageMetadata, SITE_CONFIG } from '@/lib/seo';
 
 export const revalidate = 3600;
 
 const SOURCE_PAGE = `${SITE_CONFIG.url.replace(/\/$/, '')}${LINKS.devenezConsultant}`;
+const MAILTO_RECRUTEMENT = formateurRecruitmentMailtoHref();
 
 const BREADCRUMB_JSON_LD = [
   { name: 'Accueil', url: SITE_CONFIG.url },
@@ -42,6 +44,7 @@ export const metadata = createPageMetadata({
 export default function DevenezConsultantPage() {
   return (
     <div>
+      <ScrollToHashOnLoad />
       <BreadcrumbJsonLd items={[...BREADCRUMB_JSON_LD]} id="schema-breadcrumb-devenez-consultant" />
 
       <ConsultantRecruitmentHero />
@@ -64,12 +67,21 @@ export default function DevenezConsultantPage() {
             Complétez ce formulaire pour nous présenter votre parcours et vos domaines
             d&apos;intervention. Vous pouvez aussi envoyer votre candidature à{' '}
             <a
-              href={formateurRecruitmentMailtoHref()}
+              href={MAILTO_RECRUTEMENT}
               className="font-medium text-[#377CF3] underline-offset-2 hover:underline"
             >
               {RECRUITMENT.email}
             </a>
             .
+          </p>
+          <p className="mt-4">
+            <a
+              href={MAILTO_RECRUTEMENT}
+              className={`${OFC_CTA_SECONDARY} inline-flex min-h-11 items-center justify-center rounded-lg px-5 py-2.5 text-sm font-semibold sm:text-base`}
+              aria-label={`Envoyer ma candidature par email à ${RECRUITMENT.email}`}
+            >
+              Envoyer ma candidature par email
+            </a>
           </p>
           <div className="ofc-card mt-5 p-5 sm:p-6">
             <CareerApplicationForm
