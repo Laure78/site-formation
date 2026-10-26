@@ -31,7 +31,9 @@ export const REJOINDRE_EQUIPE_BADGES = [
   { label: 'Présentiel en Île-de-France' },
 ] as const;
 
+/** Texte CTA candidature — l’adresse email est rendue cliquable dans `app/rejoindre-equipe/page.tsx`. */
 export const REJOINDRE_EQUIPE_CTA = {
-  text: `Pour candidater, envoyez votre CV et quelques lignes sur votre parcours BTP à contact@laureolivie.fr, ou appelez le 06 95 66 18 18.`,
-  emailSubject: 'Candidature formateur IA BTP',
+  intro:
+    'Pour candidater, envoyez votre CV et quelques lignes sur votre parcours BTP à',
+  outro: 'ou appelez le 06 95 66 18 18.',
 } as const;

@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { CONTACT } from '@/lib/constants';
+import { CONTACT, formateurRecruitmentMailtoHref, RECRUITMENT } from '@/lib/constants';
 import { LINKS } from '@/lib/internal-links';
 import { OFC_CTA_PRIMARY, OFC_CTA_SECONDARY, OFC_LINK, OFC_TYPE_H2 } from '@/lib/ofc-interaction-classes';
 
@@ -35,6 +35,16 @@ export function FormateursBottomCta() {
         </a>
       </p>
       <p className="mt-6 text-sm text-ofc-ink-muted">
+        Vous souhaitez rejoindre notre réseau de formateurs&nbsp;? Envoyez votre candidature à{' '}
+        <a
+          href={formateurRecruitmentMailtoHref()}
+          className={`${OFC_LINK} font-medium text-ofc-accent`}
+        >
+          {RECRUITMENT.email}
+        </a>
+        .
+      </p>
+      <p className="mt-2 text-sm text-ofc-ink-muted">
         <Link href={LINKS.rejoindreEquipe} className={`${OFC_LINK} text-ofc-ink-muted underline-offset-2`}>
           Vous êtes du BTP et voulez former&nbsp;? Rejoindre l’équipe
         </Link>

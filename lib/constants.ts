@@ -17,6 +17,17 @@ export const CONTACT = {
   address: '6 rue Henri Dunant, 78280 Guyancourt',
 } as const;
 
+/** Candidatures formateurs / consultants-formateurs (distinct de CONTACT.email). */
+export const RECRUITMENT = {
+  email: 'recrutement@laureolivie.fr',
+  formateurEmailSubject: 'Candidature formateur IA BTP',
+} as const;
+
+/** Lien mailto candidature formateur (objet prérempli). */
+export function formateurRecruitmentMailtoHref(): string {
+  return `mailto:${RECRUITMENT.email}?subject=${encodeURIComponent(RECRUITMENT.formateurEmailSubject)}`;
+}
+
 /**
  * URL Calendly — visio découverte.
  * TODO (Laure) : remplacer par le nouvel événement sans « artisans » dès création Calendly.

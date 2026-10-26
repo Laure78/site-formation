@@ -3,7 +3,7 @@ import { Check } from 'lucide-react';
 import { Breadcrumb } from '@/components/Breadcrumb';
 import { BreadcrumbJsonLd } from '@/components/seo/BreadcrumbJsonLd';
 import { JsonLd } from '@/components/JsonLd';
-import { CONTACT } from '@/lib/constants';
+import { CONTACT, formateurRecruitmentMailtoHref, RECRUITMENT } from '@/lib/constants';
 import { LINKS } from '@/lib/internal-links';
 import { OFC_CTA_PRIMARY, OFC_CTA_SECONDARY } from '@/lib/ofc-interaction-classes';
 import { ofcSectionClasses, OFC_SECTION_INNER } from '@/lib/ofc-section-classes';
@@ -22,7 +22,7 @@ export const revalidate = 3600;
 const PAGE_PATH = LINKS.rejoindreEquipe;
 const PAGE_URL = `${SITE_CONFIG.url.replace(/\/$/, '')}${PAGE_PATH}`;
 
-const MAILTO_HREF = `mailto:${CONTACT.email}?subject=${encodeURIComponent(REJOINDRE_EQUIPE_CTA.emailSubject)}`;
+const MAILTO_HREF = formateurRecruitmentMailtoHref();
 
 export const metadata = createPageMetadata({
   title: 'Devenir formateur IA BTP | Rejoindre Laure Olivié',
@@ -136,13 +136,20 @@ export default function RejoindreEquipePage() {
       >
         <div className={`${OFC_SECTION_INNER} max-w-3xl py-10 md:py-12`}>
           <p className="text-base leading-relaxed text-[#555F6D] md:text-lg">
-            {REJOINDRE_EQUIPE_CTA.text}
+            {REJOINDRE_EQUIPE_CTA.intro}{' '}
+            <a
+              href={MAILTO_HREF}
+              className="font-semibold text-[#377CF3] underline-offset-2 hover:underline"
+            >
+              {RECRUITMENT.email}
+            </a>
+            , {REJOINDRE_EQUIPE_CTA.outro}
           </p>
           <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
             <a
               href={MAILTO_HREF}
               className={`${OFC_CTA_PRIMARY} inline-flex min-h-12 items-center justify-center rounded-lg px-6 py-3 text-base font-semibold`}
-              aria-label="Postuler par email à contact@laureolivie.fr"
+              aria-label={`Postuler par email à ${RECRUITMENT.email}`}
             >
               Postuler par email
             </a>

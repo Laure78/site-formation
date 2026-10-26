@@ -8,6 +8,7 @@ import { ConsultantRecruitmentHero } from '@/components/career/ConsultantRecruit
 import { ConsultantSelectionTimeline } from '@/components/career/ConsultantSelectionTimeline';
 import { ConsultantWhyOfcSection } from '@/components/career/ConsultantWhyOfcSection';
 import { BreadcrumbJsonLd } from '@/components/seo/BreadcrumbJsonLd';
+import { formateurRecruitmentMailtoHref, RECRUITMENT } from '@/lib/constants';
 import { CONSULTANT_FAQ_ITEMS } from '@/lib/consultant-recruitment-content';
 import { LINKS } from '@/lib/internal-links';
 import { OFC_TYPE_H2 } from '@/lib/ofc-interaction-classes';
@@ -61,7 +62,14 @@ export default function DevenezConsultantPage() {
           </h2>
           <p className="mt-3 max-w-3xl text-base leading-relaxed text-slate-600">
             Complétez ce formulaire pour nous présenter votre parcours et vos domaines
-            d&apos;intervention.
+            d&apos;intervention. Vous pouvez aussi envoyer votre candidature à{' '}
+            <a
+              href={formateurRecruitmentMailtoHref()}
+              className="font-medium text-[#377CF3] underline-offset-2 hover:underline"
+            >
+              {RECRUITMENT.email}
+            </a>
+            .
           </p>
           <div className="ofc-card mt-5 p-5 sm:p-6">
             <CareerApplicationForm

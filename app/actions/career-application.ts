@@ -16,7 +16,11 @@ import {
   type CareerFormInput,
 } from '@/lib/career-form-validation';
 import { formatConsultantParcoursSlugs } from '@/lib/consultant-parcours-metiers-options';
-import { SITE_CONFIG } from '@/lib/seo';
+import { CONTACT, RECRUITMENT } from '@/lib/constants';
+
+function careerNotifyEmail(kind: CareerFormInput['kind']): string {
+  return kind === 'consultant' ? RECRUITMENT.email : CONTACT.email;
+}
 
 const resend = process.env.RESEND_API_KEY ? new Resend(process.env.RESEND_API_KEY) : null;
 
@@ -249,8 +253,7 @@ export async function submitCareerApplicationAction(
       console.error('[career-application] SUPABASE_SERVICE_ROLE_KEY manquante pour le CV');
       return {
         ok: false,
-        error:
-          'Réception des CV temporairement indisponible. Envoyez votre candidature par email à contact@laureolivie.fr.',
+        error: `Réception des CV temporairement indisponible. Envoyez votre candidature par email à ${careerNotifyEmail(data.kind)}.`,
         errorCode: 'storage_config_missing',
       };
     }
@@ -265,7 +268,7 @@ export async function submitCareerApplicationAction(
     console.error('[career-application] RESEND_API_KEY manquante');
     return {
       ok: false,
-      error: 'Envoi temporairement indisponible. Écrivez à contact@laureolivie.fr avec votre CV.',
+      error: `Envoi temporairement indisponible. Écrivez à ${careerNotifyEmail(data.kind)} avec votre CV.`,
       errorCode: 'resend_missing',
     };
   }
@@ -341,7 +344,7 @@ export async function submitCareerApplicationAction(
   const { error: notifyError } = await resend.emails.send({
     from: 'OFC Carrière <noreply@laureolivie.fr>',
     replyTo: data.email,
-    to: SITE_CONFIG.email,
+    to: careerNotifyEmail(data.kind),
     subject: notificationSubject,
     html: buildNotificationHtml(data, {
       submittedAt,
@@ -363,7 +366,7 @@ export async function submitCareerApplicationAction(
     }
     return {
       ok: false,
-      error: 'L’envoi a échoué. Réessayez ou écrivez à contact@laureolivie.fr.',
+      error: `L’envoi a échoué. Réessayez ou écrivez à ${careerNotifyEmail(data.kind)}.`,
       errorCode: 'notify_failed',
     };
   }
