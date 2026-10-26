@@ -10,7 +10,7 @@ export type JobOffer = {
   contractType: string;
   location: string;
   missionSummary: string;
-  /** Corps détaillé (page `/emplois/[slug]`) — texte brut ou paragraphes séparés par \n\n */
+  /** Corps détaillé (page `/nous-rejoindre/[slug]`) — texte brut ou paragraphes séparés par \n\n */
   description?: string;
   published: boolean;
 };

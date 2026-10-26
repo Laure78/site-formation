@@ -5,7 +5,7 @@ import { LINKS } from '@/lib/internal-links';
 import { OFC_CTA_PRIMARY, OFC_CTA_SECONDARY, OFC_TYPE_BODY, OFC_TYPE_H2 } from '@/lib/ofc-interaction-classes';
 
 type JobOffersSectionProps = {
-  /** Affiche le CTA candidature dans l’encart vide (legacy). Sur /emplois, laisser à false. */
+  /** Affiche le CTA candidature dans l’encart vide (legacy). Sur /nous-rejoindre, laisser à false. */
   showEmptyStateAction?: boolean;
 };
 

@@ -149,6 +149,6 @@ export const CONSULTANT_FAQ_ITEMS: readonly FAQItem[] = [
   },
   {
     q: 'S’agit-il d’un emploi salarié ?',
-    a: `Non. Cette page s’adresse aux professionnels qui souhaitent proposer une expertise de consultant-formateur indépendant. Pour un emploi salarié, consultez la page <a href="${LINKS.emplois}">Emplois</a> ou déposez une <a href="${LINKS.candidaturesSpontanees}">candidature spontanée</a>.`,
+    a: `Non. Cette page s’adresse aux professionnels qui souhaitent proposer une expertise de consultant-formateur indépendant. Pour un emploi salarié, consultez la page <a href="${LINKS.emplois}">Nous rejoindre</a> ou déposez une <a href="${LINKS.candidaturesSpontanees}">candidature spontanée</a>.`,
   },
 ];

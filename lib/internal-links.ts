@@ -52,8 +52,8 @@ export const LINKS = {
   avisClients: '/avis-clients',
   partenaires: '/partenaires',
   contact: '/contact',
-  /** Carrière — offres d’emploi salarié */
-  emplois: '/emplois',
+  /** Carrière — hub recrutement (offres salariées, candidatures) */
+  emplois: '/nous-rejoindre',
   /** Carrière — proposition consultant-formateur IA BTP */
   devenezConsultant: '/devenez-consultant',
   /** Carrière — candidature spontanée */

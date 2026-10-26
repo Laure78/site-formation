@@ -56,7 +56,7 @@ export default async function EmploiDetailPage({ params }: PageProps) {
           className="mb-4 text-sm"
           items={[
             { label: 'Accueil', href: LINKS.home },
-            { label: 'Emplois', href: LINKS.emplois },
+            { label: 'Nous rejoindre', href: LINKS.emplois },
             { label: offer.title, href: `${LINKS.emplois}/${offer.slug}` },
           ]}
         />

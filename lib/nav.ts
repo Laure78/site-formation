@@ -151,7 +151,11 @@ export const NAV_ORGANISME: readonly NavItem[] = [
 
 /** Colonne — Carrière (footer). */
 export const NAV_CARRIERE: readonly NavItem[] = [
-  { href: LINKS.emplois, label: 'Emplois', title: 'Offres d’emploi — Laure Olivié' },
+  {
+    href: LINKS.emplois,
+    label: 'Nous rejoindre',
+    title: 'Emplois et candidatures — Laure Olivié',
+  },
   {
     href: LINKS.rejoindreEquipe,
     label: 'Rejoindre l’équipe',

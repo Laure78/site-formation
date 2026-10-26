@@ -199,6 +199,16 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
+        source: '/emplois',
+        destination: '/nous-rejoindre',
+        permanent: true,
+      },
+      {
+        source: '/emplois/:slug',
+        destination: '/nous-rejoindre/:slug',
+        permanent: true,
+      },
+      {
         source: '/formations/ia-pdf-btp-administratif-chantier/08-synthese-replay-zoom.pdf',
         destination: '/formations/ia-pdf-btp-administratif-chantier/08-synthese-session.pdf',
         permanent: true,

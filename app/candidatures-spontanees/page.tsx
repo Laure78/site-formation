@@ -84,7 +84,7 @@ export default function CandidaturesSpontaneesPage() {
           <p className="mt-8 text-sm text-slate-600">
             Voir aussi :{' '}
             <Link href={LINKS.emplois} className="font-medium text-[#377CF3] underline">
-              Emplois
+              Nous rejoindre
             </Link>
             {' · '}
             <Link href={LINKS.devenezConsultant} className="font-medium text-[#377CF3] underline">
