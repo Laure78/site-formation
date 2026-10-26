@@ -24,17 +24,16 @@ const admin = createClient(url, key, {
 async function main() {
   const { error: tableError } = await admin.from('career_applications').select('id').limit(1);
   if (tableError) {
-    console.error(
+    console.warn(
       'Table career_applications absente ou inaccessible :',
       tableError.message,
     );
-    console.error(
-      '→ Exécutez supabase/migrations/068_career_applications.sql dans le SQL Editor Supabase,\n' +
-        '  ou : npm run db:migrate:career (avec DATABASE_URL ou SUPABASE_DB_PASSWORD).',
+    console.warn(
+      '→ Exécutez supabase/migrations/068_career_applications.sql (SQL Editor ou npm run db:migrate:career).',
     );
-    process.exit(1);
+  } else {
+    console.log('Table career_applications : OK');
   }
-  console.log('Table career_applications : OK');
 
   const { data: buckets, error: listErr } = await admin.storage.listBuckets();
   if (listErr) {

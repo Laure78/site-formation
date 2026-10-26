@@ -29,6 +29,10 @@ const nextConfig: NextConfig = {
   },
   experimental: {
     optimizePackageImports: ['lucide-react', '@supabase/supabase-js'],
+    /** Formulaires carrière — CV PDF jusqu’à 5 Mo */
+    serverActions: {
+      bodySizeLimit: '6mb',
+    },
   },
   async headers() {
     return [

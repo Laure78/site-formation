@@ -49,6 +49,7 @@ function buildNotificationHtml(
     sourcePage: string;
     cvOriginalName?: string | null;
     cvSignedUrl?: string | null;
+    cvEmailAttachment?: boolean;
   },
 ): string {
   const rows: [string, string][] = [
@@ -75,7 +76,13 @@ function buildNotificationHtml(
     rows.push(['LinkedIn / portfolio', data.linkedinOrPortfolio.trim()]);
   }
   if (meta.cvOriginalName) {
-    rows.push(['CV', meta.cvSignedUrl ? `${meta.cvOriginalName} (lien sécurisé ci-dessous)` : meta.cvOriginalName]);
+    if (meta.cvSignedUrl) {
+      rows.push(['CV', `${meta.cvOriginalName} (lien sécurisé ci-dessous)`]);
+    } else if (meta.cvEmailAttachment) {
+      rows.push(['CV', `${meta.cvOriginalName} (pièce jointe à cet email)`]);
+    } else {
+      rows.push(['CV', meta.cvOriginalName]);
+    }
   }
 
   const tableRows = rows
@@ -98,33 +105,31 @@ function buildNotificationHtml(
   `;
 }
 
-async function uploadCvIfPresent(
-  file: File | null,
-): Promise<{ path: string | null; originalName: string | null; signedUrl: string | null }> {
-  if (!file || file.size === 0) {
-    return { path: null, originalName: null, signedUrl: null };
-  }
+const PDF_MIME_TYPES = new Set(['application/pdf', 'application/x-pdf']);
 
-  const mime = (file.type || '').toLowerCase();
+function isAcceptedPdfFile(file: File): boolean {
   const ext = (file.name.split('.').pop() || '').toLowerCase();
-  if (mime !== 'application/pdf' || ext !== 'pdf') {
-    throw new Error('CV_INVALID_TYPE');
-  }
-  if (file.size > CAREER_CV_MAX_BYTES) {
-    throw new Error('CV_TOO_LARGE');
-  }
+  if (ext !== 'pdf') return false;
+  const mime = (file.type || '').toLowerCase();
+  if (!mime) return true;
+  return PDF_MIME_TYPES.has(mime);
+}
 
+function safeCvFilename(originalName: string): string {
+  return originalName.replace(/[^\w.\- ()[\]]+/g, '_').slice(0, 120) || 'cv.pdf';
+}
+
+async function uploadCvBuffer(
+  buf: ArrayBuffer,
+  _safeOriginal: string,
+): Promise<{ path: string; signedUrl: string | null }> {
   let admin;
   try {
     admin = createAdminClient();
   } catch {
-    throw new Error('STORAGE_CONFIG_MISSING');
+    throw new Error('CV_UPLOAD_FAILED');
   }
-
-  const safeOriginal =
-    file.name.replace(/[^\w.\- ()[\]]+/g, '_').slice(0, 120) || 'cv.pdf';
   const storagePath = `applications/${Date.now()}-${Math.random().toString(36).slice(2)}.pdf`;
-  const buf = await file.arrayBuffer();
 
   const { error: uploadError } = await admin.storage
     .from('career-cvs')
@@ -143,11 +148,48 @@ async function uploadCvIfPresent(
     console.error('[career-application] signed url', signError.message);
   }
 
-  return {
-    path: storagePath,
-    originalName: safeOriginal,
-    signedUrl: signed?.signedUrl ?? null,
-  };
+  return { path: storagePath, signedUrl: signed?.signedUrl ?? null };
+}
+
+type PreparedCv = {
+  originalName: string;
+  attachment: { filename: string; content: Buffer };
+  path: string | null;
+  signedUrl: string | null;
+};
+
+async function prepareCvFromFile(file: File | null): Promise<PreparedCv | null> {
+  if (!file || file.size === 0) return null;
+
+  if (!isAcceptedPdfFile(file)) {
+    throw new Error('CV_INVALID_TYPE');
+  }
+  if (file.size > CAREER_CV_MAX_BYTES) {
+    throw new Error('CV_TOO_LARGE');
+  }
+
+  const originalName = safeCvFilename(file.name);
+  const buf = await file.arrayBuffer();
+  const attachment = { filename: originalName, content: Buffer.from(buf) };
+
+  let path: string | null = null;
+  let signedUrl: string | null = null;
+  try {
+    const uploaded = await uploadCvBuffer(buf, originalName);
+    path = uploaded.path;
+    signedUrl = uploaded.signedUrl;
+  } catch (err) {
+    const code = err instanceof Error ? err.message : '';
+    if (code === 'CV_UPLOAD_FAILED') {
+      console.warn(
+        '[career-application] stockage CV indisponible — envoi du PDF en pièce jointe email',
+      );
+    } else {
+      throw err;
+    }
+  }
+
+  return { originalName, attachment, path, signedUrl };
 }
 
 export async function submitCareerApplicationAction(
@@ -223,13 +265,15 @@ export async function submitCareerApplicationAction(
   let cvPath: string | null = null;
   let cvOriginalName: string | null = null;
   let cvSignedUrl: string | null = null;
+  let cvEmailAttachment: { filename: string; content: Buffer } | null = null;
 
   try {
-    if (file) {
-      const uploaded = await uploadCvIfPresent(file);
-      cvPath = uploaded.path;
-      cvOriginalName = uploaded.originalName;
-      cvSignedUrl = uploaded.signedUrl;
+    const prepared = await prepareCvFromFile(file);
+    if (prepared) {
+      cvPath = prepared.path;
+      cvOriginalName = prepared.originalName;
+      cvSignedUrl = prepared.signedUrl;
+      cvEmailAttachment = prepared.attachment;
     }
   } catch (err) {
     const code = err instanceof Error ? err.message : 'CV_ERROR';
@@ -249,18 +293,11 @@ export async function submitCareerApplicationAction(
         fieldErrors: { cv: 'Taille maximale : 5 Mo.' },
       };
     }
-    if (code === 'STORAGE_CONFIG_MISSING') {
-      console.error('[career-application] SUPABASE_SERVICE_ROLE_KEY manquante pour le CV');
-      return {
-        ok: false,
-        error: `Réception des CV temporairement indisponible. Envoyez votre candidature par email à ${careerNotifyEmail(data.kind)}.`,
-        errorCode: 'storage_config_missing',
-      };
-    }
+    console.error('[career-application] prepare cv', err);
     return {
       ok: false,
-      error: 'Échec de l’envoi du CV. Réessayez ou contactez-nous par email.',
-      errorCode: 'cv_upload_failed',
+      error: 'Échec de la lecture du CV. Réessayez ou contactez-nous par email.',
+      errorCode: 'cv_read_failed',
     };
   }
 
@@ -341,6 +378,7 @@ export async function submitCareerApplicationAction(
       : '[Carrière OFC] Candidature spontanée';
   const notificationSubject = `${subjectPrefix} — ${data.firstName} ${data.lastName}`;
 
+  const cvAttachedByEmail = Boolean(cvEmailAttachment && !cvSignedUrl);
   const { error: notifyError } = await resend.emails.send({
     from: 'OFC Carrière <noreply@laureolivie.fr>',
     replyTo: data.email,
@@ -351,7 +389,11 @@ export async function submitCareerApplicationAction(
       sourcePage,
       cvOriginalName,
       cvSignedUrl,
+      cvEmailAttachment: cvAttachedByEmail,
     }),
+    attachments: cvEmailAttachment
+      ? [{ filename: cvEmailAttachment.filename, content: cvEmailAttachment.content }]
+      : undefined,
   });
 
   if (notifyError) {
