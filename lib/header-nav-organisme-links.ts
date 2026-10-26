@@ -1,14 +1,24 @@
 /**
  * Sous-menu « Notre organisme » — menu principal du header.
  */
-import { LINKS } from '@/lib/internal-links';
 import type { HeaderNavLink } from '@/lib/header-nav';
+import { LINKS } from '@/lib/internal-links';
+import { NAV_ITEM_NOUS_REJOINDRE } from '@/lib/nav';
+
+function navItemToHeaderLink(item: { href: string; label: string; title?: string }): HeaderNavLink {
+  return { href: item.href, label: item.label, title: item.title };
+}
 
 export const UTILITY_ORGANISME_NAV_LINKS: readonly HeaderNavLink[] = [
   {
     href: LINKS.aPropos,
     label: 'À propos',
     title: 'Laure Olivié — formatrice IA BTP',
+  },
+  {
+    href: LINKS.formateurs,
+    label: 'Nos formateurs',
+    title: 'Équipe de formateurs IA BTP',
   },
   {
     href: LINKS.qualiopi,
@@ -25,11 +35,7 @@ export const UTILITY_ORGANISME_NAV_LINKS: readonly HeaderNavLink[] = [
     label: 'Avis clients',
     title: 'Avis clients et témoignages',
   },
-  {
-    href: LINKS.emplois,
-    label: 'Nous rejoindre',
-    title: 'Emplois et candidatures — Laure Olivié',
-  },
+  navItemToHeaderLink(NAV_ITEM_NOUS_REJOINDRE),
 ];
 
 export function utilityOrganismeNavActive(pathname: string): boolean {

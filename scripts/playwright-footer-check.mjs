@@ -24,6 +24,7 @@ const FOOTER_CHECKS = [
   { role: 'link', name: /Catalogue de formations/i },
   { role: 'link', name: /Tous les parcours métiers/i },
   { role: 'link', name: /Avis clients/i },
+  { role: 'link', name: /^Nous rejoindre$/i },
 ];
 
 async function main() {
@@ -72,6 +73,7 @@ async function main() {
     '/qualiopi',
     '/indicateurs-resultats',
     '/financement-constructys-formation-ia-btp',
+    '/nous-rejoindre',
     '/mentions-legales',
     '/cgv',
   ];

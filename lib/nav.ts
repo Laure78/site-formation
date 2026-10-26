@@ -14,6 +14,13 @@ export type NavItem = {
   title?: string;
 };
 
+/** Hub carrière — menu « Notre organisme » + colonne footer « Notre organisme ». */
+export const NAV_ITEM_NOUS_REJOINDRE: NavItem = {
+  href: LINKS.nousRejoindre,
+  label: 'Nous rejoindre',
+  title: 'Emplois et candidatures — Laure Olivié',
+};
+
 /** URL partage avis Google — footer (lien utilisateur vérifié). */
 export const FOOTER_GOOGLE_REVIEWS_URL =
   'https://share.google/gpl7i0IH7c2AManrN' as const;
@@ -135,11 +142,7 @@ export const NAV_FOOTER_ORGANISME: readonly NavItem[] = [
     title: 'Certification Qualiopi OFC',
   },
   { href: LINKS.avisClients, label: 'Avis clients', title: 'Avis clients et témoignages' },
-  {
-    href: LINKS.emplois,
-    label: 'Nous rejoindre',
-    title: 'Emplois et candidatures — Laure Olivié',
-  },
+  NAV_ITEM_NOUS_REJOINDRE,
 ];
 
 /** @deprecated Préférer `NAV_FOOTER_ORGANISME` — inclut encore « Nos partenaires » pour exports. */
@@ -151,11 +154,7 @@ export const NAV_ORGANISME: readonly NavItem[] = [
 
 /** Colonne — Carrière (footer). */
 export const NAV_CARRIERE: readonly NavItem[] = [
-  {
-    href: LINKS.emplois,
-    label: 'Nous rejoindre',
-    title: 'Emplois et candidatures — Laure Olivié',
-  },
+  NAV_ITEM_NOUS_REJOINDRE,
   {
     href: LINKS.rejoindreEquipe,
     label: 'Rejoindre l’équipe',

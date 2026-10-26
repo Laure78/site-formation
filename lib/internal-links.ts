@@ -53,6 +53,8 @@ export const LINKS = {
   partenaires: '/partenaires',
   contact: '/contact',
   /** Carrière — hub recrutement (offres salariées, candidatures) */
+  nousRejoindre: '/nous-rejoindre',
+  /** @deprecated Préférer `nousRejoindre`. */
   emplois: '/nous-rejoindre',
   /** Carrière — proposition consultant-formateur IA BTP */
   devenezConsultant: '/devenez-consultant',
