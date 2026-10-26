@@ -2,10 +2,12 @@
 
 import { useCallback, useEffect, useId, useRef, useState } from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import { submitCareerApplicationAction } from '@/app/actions/career-application';
 import {
   CAREER_FORM_RGPD_NOTICE,
   CAREER_FORM_SUCCESS,
+  CAREER_FORM_SUCCESS_FOLLOWUP,
   CONSULTANT_EXPERTISE_LABELS,
   CONSULTANT_EXPERTISE_VALUES,
   MOBILITY_IDF_LABELS,
@@ -39,6 +41,10 @@ type CareerApplicationFormProps = {
   showFormationCheckboxes?: boolean;
   /** Regrouper les champs par blocs (page Devenez consultant). */
   groupedLayout?: boolean;
+  /** Appelé après envoi réussi (ex. masquer l’intro de section). */
+  onSuccess?: () => void;
+  /** Redirection après envoi réussi (prioritaire sur l’affichage inline). */
+  successRedirectPath?: string;
 };
 
 const fieldsetLegendClass =
@@ -59,10 +65,14 @@ export function CareerApplicationForm({
   submitLabel,
   showFormationCheckboxes = kind === 'consultant',
   groupedLayout = false,
+  onSuccess,
+  successRedirectPath,
 }: CareerApplicationFormProps) {
+  const router = useRouter();
   const formId = useId();
   const errorSummaryId = `${formId}-errors`;
   const statusId = `${formId}-status`;
+  const successRef = useRef<HTMLDivElement>(null);
   const formRef = useRef<HTMLFormElement>(null);
   const formStartedAtRef = useRef<number>(0);
 
@@ -88,6 +98,13 @@ export function CareerApplicationForm({
   useEffect(() => {
     formStartedAtRef.current = Date.now();
   }, []);
+
+  useEffect(() => {
+    if (!success) return;
+    requestAnimationFrame(() => {
+      successRef.current?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    });
+  }, [success]);
 
   const fieldClass = (name: string) =>
     `${careerFieldClassBase}${fieldErrors[name] ? ` ${careerFieldErrorClass}` : ''}`;
@@ -151,11 +168,16 @@ export function CareerApplicationForm({
       const result = await submitCareerApplicationAction(fd);
 
       if (result.ok) {
-        setSuccess(true);
+        onSuccess?.();
         formRef.current?.reset();
         setSelectedFormations([]);
         setAiPractice('');
         setPedagogyExperience('');
+        if (successRedirectPath) {
+          router.push(successRedirectPath);
+          return;
+        }
+        setSuccess(true);
         return;
       }
 
@@ -212,11 +234,14 @@ export function CareerApplicationForm({
   if (success) {
     return (
       <div
+        ref={successRef}
         className="rounded-2xl border border-[#BFDBFE] bg-[#EFF6FF] p-6 sm:p-8"
         role="status"
         aria-live="polite"
+        tabIndex={-1}
       >
         <p className="text-base font-medium text-slate-900">{CAREER_FORM_SUCCESS}</p>
+        <p className="mt-3 text-sm leading-relaxed text-slate-600">{CAREER_FORM_SUCCESS_FOLLOWUP}</p>
       </div>
     );
   }

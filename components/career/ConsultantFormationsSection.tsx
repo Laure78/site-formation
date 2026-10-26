@@ -1,8 +1,9 @@
 import Link from 'next/link';
 import { ConsultantParcoursMetiersCatalogue } from '@/components/career/ConsultantParcoursMetiersCatalogue';
 import { LINKS } from '@/lib/internal-links';
+import { DEVENEZ_CONSULTANT_INNER, DEVENEZ_CONSULTANT_PROSE } from '@/lib/devenez-consultant-layout';
 import { OFC_TYPE_H2 } from '@/lib/ofc-interaction-classes';
-import { ofcSectionClasses, OFC_SECTION_INNER } from '@/lib/ofc-section-classes';
+import { ofcSectionClasses } from '@/lib/ofc-section-classes';
 import { isParcoursMetiers2027Visible } from '@/lib/parcours-metiers-2027-visibility';
 
 export function ConsultantParcoursMetiersSection() {
@@ -10,18 +11,16 @@ export function ConsultantParcoursMetiersSection() {
 
   return (
     <section
-      className={ofcSectionClasses({ tone: 'white', size: 'compact' })}
+      className={ofcSectionClasses({ tone: 'white', size: 'compact', divide: true })}
       aria-labelledby="parcours-metiers-heading"
     >
-      <div className={`${OFC_SECTION_INNER} max-w-5xl`}>
+      <div className={DEVENEZ_CONSULTANT_INNER}>
         <h2 id="parcours-metiers-heading" className={OFC_TYPE_H2}>
-          Sur quels parcours métiers pouvez-vous intervenir ?
+          Parcours métiers du catalogue
         </h2>
-        <p className="mt-3 max-w-3xl text-base text-slate-600">
-          OFC recueille des propositions de consultant-formateur pour animer les{' '}
-          <strong>parcours métiers</strong> du catalogue (7 filières BTP). Indiquez dans le
-          formulaire ceux sur lesquels vous souhaitez intervenir — pas les modules isolés du
-          catalogue général.
+        <p className={`mt-3 text-base text-slate-600 ${DEVENEZ_CONSULTANT_PROSE}`}>
+          Propositions acceptées pour les <strong>7 parcours métiers</strong> IA BTP — pas pour les
+          modules isolés. Cochez vos filières dans le questionnaire ci-dessus.
         </p>
         <ConsultantParcoursMetiersCatalogue />
         <p className="mt-6 text-sm text-slate-600">

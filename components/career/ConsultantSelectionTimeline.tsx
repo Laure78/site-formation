@@ -1,58 +1,40 @@
-import { InPageAnchor } from '@/components/navigation/InPageAnchor';
 import {
   CONSULTANT_SELECTION_DISCLAIMER,
   CONSULTANT_SELECTION_STEPS,
 } from '@/lib/consultant-recruitment-content';
-import { OFC_CTA_PRIMARY, OFC_TYPE_H2 } from '@/lib/ofc-interaction-classes';
-import { ofcSectionClasses, OFC_SECTION_INNER } from '@/lib/ofc-section-classes';
+import { DEVENEZ_CONSULTANT_INNER, DEVENEZ_CONSULTANT_PROSE } from '@/lib/devenez-consultant-layout';
+import { OFC_TYPE_H2 } from '@/lib/ofc-interaction-classes';
+import { ofcSectionClasses } from '@/lib/ofc-section-classes';
 
 export function ConsultantSelectionTimeline() {
   return (
     <section
       id="parcours-selection"
-      className={`${ofcSectionClasses({ tone: 'muted', size: 'compact' })} scroll-mt-[calc(var(--site-header-height,4rem)+0.5rem)]`}
+      className={`${ofcSectionClasses({ tone: 'white', size: 'compact', divide: true })} scroll-mt-[calc(var(--site-header-height,4rem)+0.5rem)]`}
       aria-labelledby="parcours-selection-heading"
     >
-      <div className={`${OFC_SECTION_INNER} max-w-5xl`}>
+      <div className={DEVENEZ_CONSULTANT_INNER}>
         <h2 id="parcours-selection-heading" className={OFC_TYPE_H2}>
-          Comment proposer votre expertise ?
+          Les étapes de votre candidature
         </h2>
-        <p className="mt-3 max-w-3xl text-base text-slate-600">
-          Découvrez les principales étapes d&apos;étude d&apos;une proposition de collaboration.
-        </p>
 
-        <ol className="relative mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          <div
-            className="pointer-events-none absolute left-0 right-0 top-7 hidden h-px bg-slate-200 lg:block"
-            aria-hidden
-          />
+        <ol className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
           {CONSULTANT_SELECTION_STEPS.map((step, index) => (
             <li
-              key={step.title}
-              className="relative flex flex-col rounded-xl border border-slate-200 bg-white p-4 sm:p-5"
+              key={step}
+              className="rounded-lg border border-slate-200 bg-slate-50/50 px-4 py-3 text-sm leading-relaxed text-slate-700"
             >
-              <span
-                className="font-display text-lg font-bold tracking-tight text-[#377CF3] sm:text-xl"
-                aria-hidden
-              >
-                {String(index + 1).padStart(2, '0')}
+              <span className="font-display font-bold text-[#377CF3]" aria-hidden>
+                {index + 1}.{' '}
               </span>
-              <h3 className="mt-2 text-base font-bold text-slate-900">{step.title}</h3>
-              <p className="mt-1.5 text-sm leading-relaxed text-slate-600">{step.body}</p>
+              {step}
             </li>
           ))}
         </ol>
 
-        <p className="mt-4 max-w-3xl text-sm leading-relaxed text-slate-600">
+        <p className={`mt-4 text-sm leading-relaxed text-slate-600 ${DEVENEZ_CONSULTANT_PROSE}`}>
           {CONSULTANT_SELECTION_DISCLAIMER}
         </p>
-
-        <InPageAnchor
-          href="#candidature"
-          className={`${OFC_CTA_PRIMARY} mt-6 inline-flex min-h-12 items-center justify-center rounded-lg px-6 py-3 text-base font-semibold`}
-        >
-          Proposer mon expertise
-        </InPageAnchor>
       </div>
     </section>
   );

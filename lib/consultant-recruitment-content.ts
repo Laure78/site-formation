@@ -10,16 +10,13 @@ import { PERIMETRE_FORMATIONS_COURT } from '@/lib/tarifs-sessions';
 const RECRUITMENT_MAILTO = formateurRecruitmentMailtoHref();
 
 export const CONSULTANT_HERO_SUBTITLE =
-  'Vous êtes un professionnel du bâtiment ou des travaux publics et utilisez l’intelligence artificielle dans votre métier ? Proposez votre expertise pour animer les parcours métiers IA du catalogue OFC.' as const;
+  'Vous avez une expérience dans le BTP et utilisez l’IA dans votre métier ? Présentez votre candidature pour animer les parcours métiers de notre catalogue en présentiel en Île-de-France.' as const;
 
-export const CONSULTANT_HERO_PILLS = [
-  { label: 'Expertise métier BTP' },
-  { label: 'IA générative appliquée au terrain' },
-  { label: 'Interventions en présentiel en Île-de-France' },
-] as const;
+export const CONSULTANT_HERO_TAGLINE =
+  'Collaboration indépendante · Expérience BTP · Pratique concrète de l’IA' as const;
 
 export const CONSULTANT_WHY_OFC = {
-  heading: 'Partagez votre expertise auprès des professionnels du BTP',
+  heading: 'Informations utiles sur la collaboration',
   intro:
     'Laure Olivié développe des parcours métiers pratiques en intelligence artificielle pour les entreprises du bâtiment et des travaux publics. Nous étudions les propositions de professionnels capables d’animer ces parcours et de relier l’IA aux réalités du terrain.',
   cards: [
@@ -101,31 +98,19 @@ export const CONSULTANT_COMPETENCE_GROUPS = [
 ] as const;
 
 export const CONSULTANT_SELECTION_STEPS = [
-  {
-    title: 'Présentez votre parcours',
-    body: 'Complétez le formulaire et indiquez votre expérience BTP, vos compétences en IA et les parcours métiers sur lesquels vous souhaitez intervenir.',
-  },
-  {
-    title: 'Étude de votre profil',
-    body: 'OFC examine les informations transmises et leur adéquation avec les besoins pédagogiques.',
-  },
-  {
-    title: 'Échange sur votre expertise',
-    body: 'Si votre profil correspond à un besoin, un échange peut être proposé pour approfondir votre expérience et vos méthodes de formation.',
-  },
-  {
-    title: 'Étude d’une collaboration',
-    body: 'En cas d’intérêt mutuel, les modalités d’une éventuelle intervention peuvent être définies ensemble.',
-  },
+  'Vous présentez votre parcours et vos compétences.',
+  'Nous étudions l’adéquation avec les besoins pédagogiques.',
+  'Un échange peut être proposé si votre profil correspond à un besoin.',
+  'Les modalités d’une collaboration sont définies en cas d’intérêt mutuel.',
 ] as const;
 
 export const CONSULTANT_SELECTION_DISCLAIMER =
-  'Ces étapes décrivent le déroulement habituel d’étude d’une proposition. Elles ne constituent ni une promesse de mission ni un délai de réponse garanti.' as const;
+  'La candidature ne garantit pas de mission ni de délai de réponse.' as const;
 
 export const CONSULTANT_FAQ_ITEMS: readonly FAQItem[] = [
   {
     q: 'Comment proposer mon expertise de formateur IA BTP ?',
-    a: `Remplissez le formulaire en bas de cette page en précisant votre parcours BTP, votre pratique de l’IA et les parcours métiers du catalogue sur lesquels vous souhaitez intervenir. Vous pouvez aussi envoyer votre CV et votre présentation à <a href="${RECRUITMENT_MAILTO}">${RECRUITMENT.email}</a>. OFC étudie chaque proposition.`,
+    a: `Utilisez le questionnaire en haut de cette page (section « Présentez votre candidature ») ou envoyez votre CV et votre présentation à <a href="${RECRUITMENT_MAILTO}">${RECRUITMENT.email}</a>. Précisez votre parcours BTP, votre pratique de l’IA et les parcours métiers du catalogue sur lesquels vous souhaitez intervenir.`,
   },
   {
     q: 'Quelles compétences recherchez-vous ?',
