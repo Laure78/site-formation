@@ -2,8 +2,6 @@
  * Textes GEO partagés — réponses directes, sans duplication de tarifs (voir `data/formations`, `lib/tarifs-catalogue-participant`).
  */
 import { LINKS } from '@/lib/internal-links';
-import { libelleTarifParticipantCatalogue, TARIF_PARTICIPANT_NIV01_HT, TARIF_PARTICIPANT_NIV02_HT } from '@/lib/tarifs-catalogue-participant';
-import { dureeCatalogueParCode } from '@/lib/catalogue-duree-copy';
 import { FINANCEMENT_FORMULATION_CATALOGUE } from '@/lib/financement-copy';
 import { formatOrganismeQualiopiCourt } from '@/lib/marque-identite';
 
@@ -13,9 +11,7 @@ export const ACCUEIL_EN_BREF =
 
 /** Catalogue `/formations` — choix par niveau + financement prudent. */
 export function getFormationsCatalogueEnBref(): string {
-  const niv1 = libelleTarifParticipantCatalogue(TARIF_PARTICIPANT_NIV01_HT);
-  const niv2 = libelleTarifParticipantCatalogue(TARIF_PARTICIPANT_NIV02_HT);
-  return `Le catalogue OFC propose des formations IA pour le BTP en présentiel en Île-de-France : niveau 1 (${dureeCatalogueParCode('NIV-01')}, ${niv1}), niveau 2 métier (${dureeCatalogueParCode('NIV-02')} — appels d’offres, chantier, Claude, maîtrise d’œuvre, ${niv2}) et modules avancés (assistants IA, applications métier). Les parcours métiers 2027 sont annoncés séparément des sessions disponibles. ${FINANCEMENT_FORMULATION_CATALOGUE} ${formatOrganismeQualiopiCourt()}.`;
+  return `Catalogue OFC : formations IA pour le BTP en présentiel en Île-de-France (niveaux 1 à 3, usages devis à maîtrise d’œuvre). Les sessions ci-dessous sont ouvertes à l’inscription ; les parcours métiers 2027 sont présentés plus bas. ${FINANCEMENT_FORMULATION_CATALOGUE} ${formatOrganismeQualiopiCourt()}.`;
 }
 
 /** Six contrôles sur les sorties IA — guide AO BTP (synthèse HTML, alignée PDF 2026). */

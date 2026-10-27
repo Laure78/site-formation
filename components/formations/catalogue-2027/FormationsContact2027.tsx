@@ -11,13 +11,13 @@ type Props = {
 };
 
 export function FormationsContact2027({
-  formationHint = 'Catalogue parcours métiers 2027',
+  formationHint = null,
   initialObjet = 'devis',
 }: Props) {
   return (
     <section
       id="contact-catalogue"
-      className="mt-16 scroll-mt-24 border-t border-[#E2E8F0] pt-14"
+      className="mt-12 scroll-mt-24 border-t border-[#E2E8F0] pt-10"
       aria-labelledby="contact-catalogue-title"
     >
       <h2 id="contact-catalogue-title" className="ofc-type-h2 text-ofc-ink">

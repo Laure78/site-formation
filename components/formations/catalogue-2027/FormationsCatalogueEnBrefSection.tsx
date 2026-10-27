@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import { ShortAnswerBlock } from '@/components/landing/ShortAnswerBlock';
 import { getFormationsCatalogueEnBref } from '@/lib/geo-pages-copy';
 import { LINKS } from '@/lib/internal-links';
 import { isParcoursMetiers2027Visible } from '@/lib/parcours-metiers-2027-visibility';
@@ -17,11 +16,14 @@ export function FormationsCatalogueEnBrefSection() {
       <h2 id="catalogue-en-bref-title" className="sr-only">
         En bref
       </h2>
-      <ShortAnswerBlock>
+      <p
+        className="max-w-3xl rounded-xl border border-[#E2E8F0] bg-[#F8FAFC] p-4 text-base leading-relaxed text-ofc-ink md:p-5"
+        aria-label="En bref"
+      >
         <span className="citation-sentence">{getFormationsCatalogueEnBref()}</span>
-      </ShortAnswerBlock>
+      </p>
       <nav
-        className="mt-4 flex flex-wrap gap-x-4 gap-y-2 text-sm font-medium text-[#377CF3]"
+        className="mt-3 flex flex-wrap gap-x-4 gap-y-2 text-sm font-medium text-[#377CF3]"
         aria-label="Accès rapides au catalogue"
       >
         <Link href={LINKS.formationIaBtpNiveau1BatimentTp} className="underline hover:no-underline">

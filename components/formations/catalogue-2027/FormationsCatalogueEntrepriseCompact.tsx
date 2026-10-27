@@ -6,7 +6,7 @@ export function FormationsCatalogueEntrepriseCompact() {
   return (
     <section
       id="plan-formation-entreprise"
-      className="mt-16 scroll-mt-28 border-t border-[#E2E8F0] pt-14"
+      className="mt-12 scroll-mt-28 border-t border-[#E2E8F0] pt-10"
       aria-labelledby="catalogue-entreprise-title"
     >
       <h2 id="catalogue-entreprise-title" className="ofc-type-h2 text-ofc-ink">

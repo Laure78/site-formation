@@ -92,7 +92,7 @@ function FormationsCatalogueFilteredGridInner({
 
   return (
     <>
-      <div className="mt-6 flex flex-wrap items-center gap-3">
+      <div className="mt-5 flex flex-wrap items-center gap-3">
         <p className="text-sm text-ofc-ink-muted" aria-live="polite">
           {totalVisible === 1
             ? '1 résultat affiché'
@@ -142,7 +142,7 @@ function FormationsCatalogueFilteredGridInner({
         </div>
       ) : (
         <>
-          <ul className="mt-8 grid list-none gap-5 sm:grid-cols-2 xl:grid-cols-3">
+          <ul className="mt-5 grid list-none gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {visibleRows.map((row) => (
               <li key={row.key} className="min-w-0">
                 {row.kind === 'ia' ? (

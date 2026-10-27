@@ -35,7 +35,9 @@ function NiveauSelect({
             niveau: e.target.value ? (Number(e.target.value) as FormationNiveau) : undefined,
           })
         }
-        className="mt-1.5 min-h-11 w-full rounded-lg border border-[#E2E8F0] bg-white px-3 py-2 text-sm text-ofc-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ofc-accent"
+        className={`mt-1.5 min-h-11 w-full rounded-lg border bg-white px-3 py-2 text-sm text-ofc-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ofc-accent ${
+          filters.niveau ? 'border-[#377CF3] ring-2 ring-[#377CF3]/15' : 'border-[#E2E8F0]'
+        }`}
       >
         <option value="">Tous les niveaux</option>
         {FORMATIONS_NIVEAUX_IA.map((n) => (
@@ -58,7 +60,7 @@ export function CatalogueSearchFilters(props: Props) {
     : null;
 
   return (
-    <div className="mt-6">
+    <div>
       <div className="hidden md:block">
         <NiveauSelect id={`${baseId}-desktop-niveau`} filters={filters} onChange={onChange} />
       </div>

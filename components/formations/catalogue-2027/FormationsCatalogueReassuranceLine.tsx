@@ -11,7 +11,7 @@ const ITEMS = [
 export function FormationsCatalogueReassuranceLine() {
   return (
     <p
-      className="mt-4 flex flex-wrap items-center gap-x-2 gap-y-1 text-xs text-ofc-ink-muted sm:text-sm"
+      className="flex flex-wrap items-center gap-x-2 gap-y-1 text-sm text-ofc-ink-muted"
       aria-label="Garanties et modalités"
     >
       {ITEMS.map((label, index) => (
