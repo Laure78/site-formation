@@ -6,6 +6,7 @@ import {
 } from '@/components/formations/assistants-ia/AssistantsIaBtpPageSections';
 import { CatalogueFormationPageTemplate } from '@/components/formations/catalogue/CatalogueFormationPageTemplate';
 import { createPageMetadata, getFAQSchema } from '@/lib/seo';
+import { mergeCatalogueFormationFaq } from '@/lib/catalogue-formation-faq';
 import { FAQ_ASSISTANTS_IA_NIV09 } from '@/lib/faq';
 import { getFormationCatalogueVisuel } from '@/lib/formations-catalogue-display';
 import { LINKS } from '@/lib/internal-links';
@@ -40,7 +41,8 @@ export const metadata = createPageMetadata({
   },
 });
 
-const faqSchema = getFAQSchema(FAQ_ASSISTANTS_IA_NIV09);
+const FAQ_NIV09 = mergeCatalogueFormationFaq('NIV-09', FAQ_ASSISTANTS_IA_NIV09);
+const faqSchema = getFAQSchema(FAQ_NIV09);
 const courseSchema = buildCatalogueCourseAssistantsIaNiv09JsonLd();
 
 export default async function FormationAssistantsIaPersonnalisesBtpPage() {

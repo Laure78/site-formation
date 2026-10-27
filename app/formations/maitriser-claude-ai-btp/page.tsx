@@ -2,6 +2,7 @@ import { JsonLd } from '@/components/JsonLd';
 import { CatalogueFormationPageTemplate } from '@/components/formations/catalogue/CatalogueFormationPageTemplate';
 import { CatalogueFormationClaudeExtras } from '@/components/formations/catalogue/CatalogueFormationClaudeExtras';
 import { createPageMetadata, getFAQSchema } from '@/lib/seo';
+import { mergeCatalogueFormationFaq } from '@/lib/catalogue-formation-faq';
 import { FAQ_MAITRISER_CLAUDE_NIV04 } from '@/lib/faq';
 import { getFormationCatalogueVisuel } from '@/lib/formations-catalogue-display';
 import { LINKS } from '@/lib/internal-links';
@@ -42,7 +43,8 @@ export const metadata = createPageMetadata({
   },
 });
 
-const faqSchema = getFAQSchema(FAQ_MAITRISER_CLAUDE_NIV04);
+const FAQ_NIV04 = mergeCatalogueFormationFaq('NIV-04', FAQ_MAITRISER_CLAUDE_NIV04);
+const faqSchema = getFAQSchema(FAQ_NIV04);
 const courseSchema = buildCatalogueCourseMaitriserClaudeNiv04JsonLd();
 
 export default async function FormationMaitriserClaudeAiBtpPage() {

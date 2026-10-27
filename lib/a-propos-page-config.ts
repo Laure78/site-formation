@@ -8,8 +8,11 @@ import { LINKS } from '@/lib/internal-links';
 import { QUALIOPI_LEGAL } from '@/lib/qualiopi-info';
 import { SCHEMA_CONTACT } from '@/lib/schema-constants';
 import {
+  LAURE_OLIVIE_BIO_REFERENCE,
   LAURE_OLIVIE_LINKEDIN_LEARNING_COURSES,
 } from '@/lib/laure-olivie-profile';
+import { formatAnneesExperienceBTP } from '@/lib/data/indicateurs-resultats';
+import { MENTION_MARQUE_EXPLOITANTE } from '@/lib/marque-identite';
 import { LINKEDIN_LEARNING_INSTRUCTOR_HREF } from '@/lib/linkedin-learning-a-propos-embeds';
 import { PARTNER_WEBSITES, LOGO_UMB_FFB, LOGO_MONITEUR_FORMATIONS } from '@/lib/client-logos';
 import type { FAQItem } from '@/lib/faq';
@@ -185,16 +188,16 @@ export const A_PROPOS_LINKEDIN_COURSES = LAURE_OLIVIE_LINKEDIN_LEARNING_COURSES;
 
 export const FAQ_A_PROPOS_PAGE: FAQItem[] = [
   {
-    q: 'Quels professionnels du BTP formez-vous ?',
-    a: 'Dirigeants de TPE/PME, conducteurs de travaux, chefs de chantier, fonctions support et équipes administratives — selon le programme choisi dans le catalogue formations IA pour le BTP.',
+    q: 'Qui est Laure Olivié ?',
+    a: `Laure Olivié est une formatrice en intelligence artificielle appliquée aux entreprises du bâtiment et des travaux publics, en présentiel en Île-de-France. ${LAURE_OLIVIE_BIO_REFERENCE} Elle intervient aussi comme instructrice LinkedIn Learning (deux cours sur l’IA et les TPE). Parcours détaillé sur cette page ; programmes : <a href="${LINKS.formations}">catalogue des formations IA BTP</a>.`,
   },
   {
-    q: 'Où se déroulent les formations ?',
-    a: `En présentiel en Île-de-France (${IDF_ZONE_INTERVENTION}) : sessions intra (dans vos locaux) ou inter ou interventions convoquées par un réseau.`,
+    q: 'Quelle est son expérience dans le BTP ?',
+    a: `Laure Olivié s’appuie sur ${formatAnneesExperienceBTP()} dans le BTP, dont la direction d’ALIA BTP, PME de travaux publics et revêtements (2017-2024), et une expérience antérieure de chargée de formation au CNFPT (2009-2019). Elle connaît le vocabulaire chantier (DCE, CCTP, CR, mémoires techniques, devis) et forme depuis 2022 sur des documents métier réels. Références : <a href="${LINKS.partenaires}">partenaires et réseaux BTP</a>.`,
   },
   {
-    q: 'Comment choisir une formation ?',
-    a: 'Parcourez le catalogue (lien en tête de page), identifiez le parcours adapté à votre métier ou réservez un échange de cadrage via le formulaire Calendly en bas de page.',
+    q: 'Quel est le lien entre Laure Olivié et OFC Création d’Entreprise ?',
+    a: `${MENTION_MARQUE_EXPLOITANTE} Les formations sont délivrées au nom de l’organisme certifié Qualiopi (certificat n° ${QUALIOPI_LEGAL.certificatNumero}, NDA ${SCHEMA_CONTACT.nda}) ; Laure Olivié en est la fondatrice et la formatrice principale. ${MODALITE_FORMATIONS_PRESENTIEL} — zone : ${IDF_ZONE_INTERVENTION}.`,
   },
 ];
 

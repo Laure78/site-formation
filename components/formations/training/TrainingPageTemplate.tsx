@@ -28,6 +28,7 @@ import { getFormationByCode, isFormationSurDevis } from '@/data/formations';
 import { getFormationCatalogueSeo } from '@/lib/formation-catalogue-seo';
 import { getFormationIaApplications } from '@/lib/formation-ia';
 import type { FAQItem } from '@/lib/faq';
+import { mergeCatalogueFormationFaq } from '@/lib/catalogue-formation-faq';
 import { LINKS } from '@/lib/internal-links';
 import { getInfosPratiquesForCatalogue } from '@/lib/infos-pratiques-catalogue';
 import { libelleTarifParticipantCatalogue } from '@/lib/tarifs-catalogue-participant';
@@ -94,7 +95,8 @@ export async function TrainingPageTemplate({
   const devisHref = trainingDevisHref(formation.titre);
   const formatLabel = content.formatLabel ?? 'Présentiel';
   const locationLabel = content.locationLabel ?? 'Île-de-France';
-  const hasFaq = Boolean(faqItems && faqItems.length > 0);
+  const mergedFaqItems = mergeCatalogueFormationFaq(ref, faqItems ?? []);
+  const hasFaq = mergedFaqItems.length > 0;
   const infosPratiques = getInfosPratiquesForCatalogue(ref);
   const hasModalitesSection =
     (infosPratiques.methodes?.length ?? 0) > 0 ||
@@ -355,7 +357,7 @@ export async function TrainingPageTemplate({
         <PageMaillageSection key={block.id} {...block} />
       ))}
 
-      {hasFaq ? <TrainingFAQ items={faqItems!} id={faqSectionId} /> : null}
+      {hasFaq ? <TrainingFAQ items={mergedFaqItems} id={faqSectionId} /> : null}
 
       <TrainingFinalCta
         variant="dark"

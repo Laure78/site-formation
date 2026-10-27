@@ -11,7 +11,7 @@ export function FormationsCatalogueFaqSection() {
       aria-labelledby="faq-catalogue-title"
     >
       <h2 id="faq-catalogue-title" className="ofc-type-h2 text-ofc-ink">
-        Questions fréquentes
+        Formations IA BTP — questions fréquentes
       </h2>
       <dl className="mt-6 max-w-3xl space-y-4">
         {FAQ.map((item) => (

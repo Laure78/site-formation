@@ -230,32 +230,32 @@ export const FAQ_GEO: FAQItem[] = [
 /** FAQ page catalogue `/formations` — source unique UI + JSON-LD FAQPage. */
 export const FAQ_CATALOGUE_PAGE: readonly FAQItem[] = [
   {
+    q: 'Quelles formations en intelligence artificielle pour le BTP propose Laure Olivié ?',
+    a: `Laure Olivié propose ${getCatalogueFormationsCount()} formations IA pour le BTP au catalogue : bases en 4 h (devis, emails, CR), sessions métier en 7 h (appels d’offres et DCE, conduite de travaux, Claude AI, maîtrise d’œuvre, assistants personnalisés) et parcours « applications métier » pour structurer vos processus. Toutes les actions sont en présentiel en Île-de-France — voir les fiches sur <a href="${LINKS.formations}">cette page</a> et le pilier <a href="${LINKS.formationIaHub}">formation IA BTP</a>.`,
+  },
+  {
+    q: 'À qui s’adressent ces formations ?',
+    a: 'Les programmes s’adressent aux professionnels du BTP et aux PME du bâtiment : dirigeants, conducteurs de travaux, chargés d’affaires, maîtres d’œuvre, bureaux d’études et fonctions support (administratif, QSE, achats). Chaque fiche précise le public visé ; des parcours métier existent pour les conducteurs de travaux et les dirigeants de PME.',
+  },
+  {
+    q: 'Faut-il déjà savoir utiliser l’IA pour participer ?',
+    a: `Non pour la formation de niveau débutant (4 h) : aucune pratique préalable n’est exigée, seulement un ordinateur et une connexion internet. Les sessions de niveau 2 ou avancé demandent une expérience de l’IA ou une formation préalable — prérequis indiqués sur chaque programme. ${COMPTES_IA_GRATUITS_NIVEAU_DEBUTANT}`,
+  },
+  {
+    q: 'Où se déroulent les formations ?',
+    a: `${MODALITE_FORMATIONS_PRESENTIEL} Zone d’intervention : ${IDF_ZONE_INTERVENTION}. En intra-entreprise : dans vos locaux. En inter-entreprises : dates convoquées selon calendrier (lieu précisé à l’inscription). Aucune session à distance ou e-learning dans le catalogue IA BTP.`,
+  },
+  {
+    q: 'Quelle est la différence entre une formation intra et interentreprises ?',
+    a: `En intra, la session se déroule dans votre entreprise pour une équipe homogène : le programme peut être ajusté à vos documents (devis, DCE, CR). En inter, des participants de plusieurs entreprises se retrouvent sur une date convoquée ; les tarifs catalogue sont en HT par participant (${libelleTarifParticipantCatalogue(TARIF_PARTICIPANT_NIV01_HT)} pour les bases 4 h, ${libelleTarifParticipantCatalogue(TARIF_PARTICIPANT_NIV02_HT)} pour une session métier 7 h — voir chaque fiche). Le devis détaille format, effectif et montant total.`,
+  },
+  {
     q: 'Les formations sont-elles certifiantes ?',
     a: 'Non. Les formations délivrent une attestation de fin de formation et un certificat de réalisation. Aucun titre professionnel ni qualification métier n’est promis.',
   },
   {
     q: 'Le CPF est-il accepté ?',
     a: 'Ces formations ne sont pas éligibles au CPF.',
-  },
-  {
-    q: 'Quelle formation choisir ?',
-    a: `Repérez votre besoin (découvrir, devis, appels d’offres, chantier, maîtrise d’œuvre, déployer) puis consultez la fiche correspondante. En cas de doute : <a href="${LINKS.prendreRdv}">être conseillé</a>.`,
-  },
-  {
-    q: 'Quelle différence entre intra et interentreprises ?',
-    a: 'Les tarifs affichés sur le catalogue sont exprimés en HT par participant (session convoquée, intra ou inter). Le devis précise le format, l’effectif, la durée et le montant.',
-  },
-  {
-    q: 'Les formations peuvent-elles être adaptées à notre métier ?',
-    a: `Oui. Les exercices s’appuient sur vos documents et processus (devis, DCE, CR, mémoires techniques). Un échange préalable permet de cadrer les cas d’usage — <a href="${LINKS.prendreRdv}">Réserver un échange</a>.`,
-  },
-  {
-    q: 'Peut-on travailler sur nos propres documents ?',
-    a: 'Oui. Les participants travaillent à partir de leurs documents réels, avec validation métier de votre côté. Les méthodes construites pendant la session sont réutilisables en entreprise.',
-  },
-  {
-    q: 'Combien de participants peuvent suivre une session ?',
-    a: `Les effectifs varient selon la fiche (généralement 6 à ${EFFECTIF_GROUPE_MAX} participants). Minimum 6 participants pour une session convoquée par un réseau. Le détail figure sur chaque programme et dans votre devis.`,
   },
   {
     q: 'Une prise en charge OPCO est-elle possible ?',

@@ -1,6 +1,7 @@
 import { JsonLd } from '@/components/JsonLd';
 import { TrainingPageTemplate } from '@/components/formations/training';
 import { createPageMetadata, getFAQSchema } from '@/lib/seo';
+import { mergeCatalogueFormationFaq } from '@/lib/catalogue-formation-faq';
 import { FAQ_BATIMENT } from '@/lib/faq';
 import { LINKS } from '@/lib/internal-links';
 import { buildCatalogueCourseIaBtpNiv01JsonLd } from '@/lib/schema-catalogue-course-jsonld';
@@ -34,7 +35,8 @@ export const metadata = createPageMetadata({
   },
 });
 
-const faqSchema = getFAQSchema(FAQ_BATIMENT);
+const FAQ_NIV01 = mergeCatalogueFormationFaq('NIV-01', FAQ_BATIMENT);
+const faqSchema = getFAQSchema(FAQ_NIV01);
 const courseSchema = buildCatalogueCourseIaBtpNiv01JsonLd();
 
 /**

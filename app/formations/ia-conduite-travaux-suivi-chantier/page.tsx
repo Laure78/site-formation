@@ -2,6 +2,7 @@ import { notFound } from 'next/navigation';
 import { JsonLd } from '@/components/JsonLd';
 import { CatalogueFormationPageTemplate } from '@/components/formations/catalogue/CatalogueFormationPageTemplate';
 import { createPageMetadata, getFAQSchema } from '@/lib/seo';
+import { mergeCatalogueFormationFaq } from '@/lib/catalogue-formation-faq';
 import { FAQ_CONDUITE_TRAVAUX_NIV03 } from '@/lib/faq';
 import { getFormationCatalogueVisuel } from '@/lib/formations-catalogue-display';
 import { LINKS } from '@/lib/internal-links';
@@ -39,7 +40,8 @@ export const metadata = createPageMetadata({
   },
 });
 
-const faqSchema = getFAQSchema(FAQ_CONDUITE_TRAVAUX_NIV03);
+const FAQ_NIV03 = mergeCatalogueFormationFaq('NIV-03', FAQ_CONDUITE_TRAVAUX_NIV03);
+const faqSchema = getFAQSchema(FAQ_NIV03);
 const courseSchema = buildCatalogueCourseConduiteTravauxNiv03JsonLd();
 
 export const dynamic = 'force-dynamic';

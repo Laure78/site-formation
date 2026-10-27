@@ -1,6 +1,7 @@
 import { JsonLd } from '@/components/JsonLd';
 import { CatalogueFormationPageTemplate } from '@/components/formations/catalogue/CatalogueFormationPageTemplate';
 import { createPageMetadata, getFAQSchema } from '@/lib/seo';
+import { mergeCatalogueFormationFaq } from '@/lib/catalogue-formation-faq';
 import { FAQ_APPELS_OFFRE } from '@/lib/faq';
 import { getFormationCatalogueVisuel } from '@/lib/formations-catalogue-display';
 import { LINKS } from '@/lib/internal-links';
@@ -34,7 +35,8 @@ export const metadata = createPageMetadata({
   },
 });
 
-const faqSchema = getFAQSchema(FAQ_APPELS_OFFRE);
+const FAQ_NIV02 = mergeCatalogueFormationFaq('NIV-02', FAQ_APPELS_OFFRE);
+const faqSchema = getFAQSchema(FAQ_NIV02);
 const courseSchema = buildCatalogueCourseIaAppelsOffreNiv02JsonLd();
 
 export default async function FormationIAAppelsOffreBTPPage() {

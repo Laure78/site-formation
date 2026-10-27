@@ -7,6 +7,8 @@ import { AvisClientsFinalCta } from '@/components/avis-clients/AvisClientsFinalC
 import { Reveal } from '@/components/motion/Reveal';
 import { createPageMetadata } from '@/lib/seo';
 import { LINKS } from '@/lib/internal-links';
+import { FormationsFaqSection } from '@/components/formations/FormationsFaqSection';
+import { FAQ_AVIS_CLIENTS_PAGE } from '@/lib/avis-clients-page-faq';
 import { getAvisClientsPageData } from '@/lib/google-reviews-page';
 import { SCHEMA_GOOGLE_REVIEWS_VIEW_URL } from '@/lib/schema-constants';
 import {
@@ -89,6 +91,16 @@ export default async function AvisClientsPage() {
           </div>
         </section>
       ) : null}
+
+      <section className={OFC_SEC.white}>
+        <div className={OFC_SECTION_INNER}>
+          <FormationsFaqSection
+            items={FAQ_AVIS_CLIENTS_PAGE}
+            title="Où lire les avis sur les formations ?"
+            subtitle="Google Maps, indicateurs Qualiopi et témoignages complémentaires."
+          />
+        </div>
+      </section>
 
       <AvisClientsReassurance />
       <AvisClientsFinalCta googleUrl={mapsUrl} />

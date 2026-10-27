@@ -8,6 +8,7 @@ import {
 import { CatalogueFormationPageTemplate } from '@/components/formations/catalogue/CatalogueFormationPageTemplate';
 import { buildApplicationMetierCatalogueContent } from '@/lib/application-metier-catalogue-content';
 import { getApplicationMetierParcoursStepByRef } from '@/lib/application-metier-btp-parcours-nav';
+import { mergeCatalogueFormationFaq } from '@/lib/catalogue-formation-faq';
 import { getFAQSchema } from '@/lib/seo';
 import type { ApplicationMetierNiveauConfig } from '@/lib/parcours-applications-metier-btp-content';
 import { buildCatalogueCourseApplicationMetierJsonLd } from '@/lib/schema-catalogue-course-jsonld';
@@ -26,7 +27,8 @@ function formationHint(config: ApplicationMetierNiveauConfig): string {
 export function ApplicationMetierBtpFormationPage({ config }: Props) {
   const parcoursStep = getApplicationMetierParcoursStepByRef(config.ref);
   const courseSchema = buildCatalogueCourseApplicationMetierJsonLd(config.ref);
-  const faqSchema = getFAQSchema(config.faq);
+  const faqMerged = mergeCatalogueFormationFaq(config.ref, config.faq);
+  const faqSchema = getFAQSchema(faqMerged);
   const hint = formationHint(config);
   const pageContent = buildApplicationMetierCatalogueContent(config);
 

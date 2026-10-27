@@ -67,8 +67,8 @@ export default function AProposPage() {
         <AProposCtaSection />
         <FormationsFaqSection
           items={faqItems}
-          title="Questions fréquentes"
-          subtitle="Public, zone d’intervention et choix de parcours."
+          title="Laure Olivié et OFC — questions fréquentes"
+          subtitle="Identité, expérience BTP et lien entre la marque commerciale et l’organisme de formation."
         />
       </div>
 

@@ -6,6 +6,7 @@ import { LINKS } from '@/lib/internal-links';
 import { buildCatalogueCourseDeveloppementWebIaNiv10JsonLd } from '@/lib/schema-catalogue-course-jsonld';
 import { getFormationCatalogueSeo } from '@/lib/formation-catalogue-seo';
 import { getCatalogueFormationPageContent } from '@/lib/catalogue-formation-page-content';
+import { mergeCatalogueFormationFaq } from '@/lib/catalogue-formation-faq';
 import { DEV_WEB_IA_FAQ } from '@/lib/formation-developpement-web-ia-content';
 
 const CATALOGUE_SEO = getFormationCatalogueSeo('NIV-10');
@@ -35,7 +36,8 @@ export const metadata = createPageMetadata({
   },
 });
 
-const faqSchema = getFAQSchema(DEV_WEB_IA_FAQ);
+const FAQ_NIV10 = mergeCatalogueFormationFaq('NIV-10', DEV_WEB_IA_FAQ);
+const faqSchema = getFAQSchema(FAQ_NIV10);
 const courseSchema = buildCatalogueCourseDeveloppementWebIaNiv10JsonLd();
 
 export default async function FormationDeveloppementWebIaSansCoderPage() {
