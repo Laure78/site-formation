@@ -6,10 +6,7 @@ import {
   HardHat,
   type LucideIcon,
 } from 'lucide-react';
-import {
-  CONSULTANT_COMPETENCE_GROUPS,
-  CONSULTANT_EXPERTISE_CARDS,
-} from '@/lib/consultant-recruitment-content';
+import { CONSULTANT_EXPERTISE_CARDS } from '@/lib/consultant-recruitment-content';
 import type { ConsultantExpertiseValue } from '@/lib/career-form-validation';
 import { DEVENEZ_CONSULTANT_INNER, DEVENEZ_CONSULTANT_PROSE } from '@/lib/devenez-consultant-layout';
 import { OFC_TYPE_H2 } from '@/lib/ofc-interaction-classes';
@@ -31,11 +28,11 @@ export function ConsultantExpertiseCards() {
     >
       <div className={DEVENEZ_CONSULTANT_INNER}>
         <h2 id="profils-recherches-heading" className={OFC_TYPE_H2}>
-          Profils et compétences recherchés
+          Domaines d&apos;expertise du questionnaire
         </h2>
         <p className={`mt-3 text-base text-slate-600 ${DEVENEZ_CONSULTANT_PROSE}`}>
-          Domaines d&apos;expertise métier que vous pouvez indiquer dans le questionnaire — sans
-          promesse de mission sur chaque filière.
+          Indiquez dans le formulaire les filières métier sur lesquelles vous pouvez intervenir —
+          sans promesse de mission sur chaque domaine.
         </p>
         <ul className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
           {CONSULTANT_EXPERTISE_CARDS.map((card) => {
@@ -53,22 +50,6 @@ export function ConsultantExpertiseCards() {
             );
           })}
         </ul>
-
-        <div className="mt-8 grid gap-4 md:grid-cols-2">
-          {CONSULTANT_COMPETENCE_GROUPS.map((group) => (
-            <div
-              key={group.title}
-              className="h-full rounded-lg border border-slate-200 bg-white p-4 sm:p-5"
-            >
-              <h3 className="font-display text-lg font-bold text-slate-900">{group.title}</h3>
-              <ul className="mt-3 list-disc space-y-1.5 pl-5 text-sm leading-relaxed text-slate-700">
-                {group.items.map((item) => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </div>
       </div>
     </section>
   );

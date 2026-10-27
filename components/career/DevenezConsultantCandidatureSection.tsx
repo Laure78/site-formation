@@ -2,6 +2,10 @@
 
 import Link from 'next/link';
 import { CareerApplicationForm } from '@/components/career/CareerApplicationForm';
+import {
+  CONSULTANT_CANDIDATURE_INTRO_AFTER_EMAIL,
+  CONSULTANT_CANDIDATURE_INTRO_BEFORE_EMAIL,
+} from '@/lib/consultant-recruitment-content';
 import { formateurRecruitmentMailtoHref, RECRUITMENT } from '@/lib/constants';
 import { DEVENEZ_CONSULTANT_INNER, DEVENEZ_CONSULTANT_PROSE } from '@/lib/devenez-consultant-layout';
 import { LINKS } from '@/lib/internal-links';
@@ -29,8 +33,14 @@ export function DevenezConsultantCandidatureSection({
         </h2>
 
         <p className={`mt-3 text-base leading-relaxed text-slate-600 ${DEVENEZ_CONSULTANT_PROSE}`}>
-          Complétez ce questionnaire pour nous présenter votre parcours BTP, votre pratique de
-          l&apos;IA et vos disponibilités.
+          {CONSULTANT_CANDIDATURE_INTRO_BEFORE_EMAIL}{' '}
+          <a
+            href={mailtoRecrutement}
+            className="break-all font-semibold text-[#377CF3] underline-offset-2 hover:underline"
+          >
+            {RECRUITMENT.email}
+          </a>
+          {CONSULTANT_CANDIDATURE_INTRO_AFTER_EMAIL}
         </p>
 
         <div

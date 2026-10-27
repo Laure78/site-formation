@@ -3,6 +3,7 @@ import { ScrollToHashOnLoad } from '@/components/navigation/ScrollToHashOnLoad';
 import { DevenezConsultantCandidatureSection } from '@/components/career/DevenezConsultantCandidatureSection';
 import { ConsultantExpertiseCards } from '@/components/career/ConsultantExpertiseCards';
 import { ConsultantParcoursMetiersSection } from '@/components/career/ConsultantFormationsSection';
+import { ConsultantRecruitmentAnnonceSection } from '@/components/career/ConsultantRecruitmentAnnonceSection';
 import { ConsultantRecruitmentHero } from '@/components/career/ConsultantRecruitmentHero';
 import { ConsultantSelectionTimeline } from '@/components/career/ConsultantSelectionTimeline';
 import { ConsultantWhyOfcSection } from '@/components/career/ConsultantWhyOfcSection';
@@ -45,6 +46,7 @@ export default function DevenezConsultantPage() {
 
       <ConsultantRecruitmentHero />
       <DevenezConsultantCandidatureSection sourcePage={SOURCE_PAGE} />
+      <ConsultantRecruitmentAnnonceSection />
       <ConsultantSelectionTimeline />
 
       <ConsultantExpertiseCards />

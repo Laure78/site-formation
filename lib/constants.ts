@@ -20,7 +20,7 @@ export const CONTACT = {
 /** Candidatures formateurs / consultants-formateurs (distinct de CONTACT.email). */
 export const RECRUITMENT = {
   email: 'recrutement@laureolivie.fr',
-  formateurEmailSubject: 'Candidature formateur IA BTP',
+  formateurEmailSubject: 'Candidature formateur IA BTP - 2027',
 } as const;
 
 /** Lien mailto candidature formateur (objet prérempli). */

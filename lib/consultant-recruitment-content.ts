@@ -9,16 +9,62 @@ import { PERIMETRE_FORMATIONS_COURT } from '@/lib/tarifs-sessions';
 
 const RECRUITMENT_MAILTO = formateurRecruitmentMailtoHref();
 
-export const CONSULTANT_HERO_SUBTITLE =
-  'Vous avez une expérience dans le BTP et utilisez l’IA dans votre métier ? Présentez votre candidature pour animer les parcours métiers de notre catalogue en présentiel en Île-de-France.' as const;
+export const CONSULTANT_HERO_H1 =
+  'Recherche de formateurs — Intelligence artificielle appliquée au BTP' as const;
 
-export const CONSULTANT_HERO_TAGLINE =
-  'Collaboration indépendante · Expérience BTP · Pratique concrète de l’IA' as const;
+export const CONSULTANT_HERO_INTRO =
+  'Dans le cadre du développement de mon catalogue de formations 2027, je recherche des formateurs et formatrices indépendants issus du BTP, utilisant l’IA dans leur pratique professionnelle.' as const;
+
+/** Bandeau recrutement — page d’accueil (catalogue 2027). */
+export const ACCUEIL_RECRUTEMENT = {
+  eyebrow: 'RECRUTEMENT — CATALOGUE 2027',
+  title: 'Vous connaissez le BTP et utilisez l’IA ?',
+  lead: 'Je recherche des formateurs et formatrices indépendants issus du BTP pour animer des formations pratiques en intelligence artificielle auprès des professionnels du secteur.',
+  facts: 'Île-de-France · Présentiel · À partir de 2027 · Missions rémunérées',
+  ctaLabel: 'Découvrir les missions et candidater',
+  emailHint: 'Vous préférez envoyer votre candidature par email ?',
+} as const;
+
+export const CONSULTANT_ANNONCE_MODALITES = [
+  { term: 'Lieu', detail: 'Île-de-France' },
+  { term: 'Période', detail: 'à partir de 2027' },
+  { term: 'Durée', detail: 'selon les modules et les missions' },
+  {
+    term: 'Public',
+    detail:
+      'dirigeants, conducteurs de travaux, chargés d’affaires, artisans et fonctions support',
+  },
+  { term: 'Modalité', detail: 'présentiel, en intra ou interentreprises' },
+  {
+    term: 'Statut',
+    detail: 'indépendant, microentreprise ou société — missions rémunérées',
+  },
+] as const;
+
+export const CONSULTANT_PROFILS_RECHERCHES =
+  'Conducteurs de travaux, chefs de chantier, chargés d’affaires, responsables d’études de prix, dirigeants ou assistants de gestion BTP, en activité ou retraités.' as const;
+
+export const CONSULTANT_COMPETENCES_RECHERCHEES = [
+  'Expérience concrète des métiers et des documents du BTP.',
+  'Pratique régulière de ChatGPT, Claude ou d’autres outils d’IA dans un contexte professionnel.',
+  'Capacité à appliquer l’IA à des tâches métier : devis, analyse de DCE, comptes rendus, préparation de chantier, suivi des travaux ou gestion administrative.',
+  'Capacité à transmettre simplement et à animer des exercices pratiques.',
+  'Vérification des résultats produits par l’IA et respect de la confidentialité des données.',
+] as const;
+
+export const CONSULTANT_CANDIDATURE_INTRO_BEFORE_EMAIL =
+  'Envoyez votre CV ou une présentation de votre parcours, vos disponibilités et quelques exemples d’utilisation de l’IA à' as const;
+
+export const CONSULTANT_CANDIDATURE_INTRO_AFTER_EMAIL =
+  ', ou complétez le formulaire de candidature ci-dessous.' as const;
+
+export const CONSULTANT_ANNONCE_CONCLUSION =
+  'Vous connaissez une personne qui correspond à ce profil ? Partagez-lui cette annonce.' as const;
 
 export const CONSULTANT_WHY_OFC = {
   heading: 'Informations utiles sur la collaboration',
   intro:
-    'Laure Olivié développe des parcours métiers pratiques en intelligence artificielle pour les entreprises du bâtiment et des travaux publics. Nous étudions les propositions de professionnels capables d’animer ces parcours et de relier l’IA aux réalités du terrain.',
+    'OFC Création d’Entreprise structure des parcours métiers pratiques en intelligence artificielle pour les entreprises du bâtiment et des travaux publics. Les collaborations portent sur l’animation de ces parcours et la transmission de méthodes reliées au terrain.',
   cards: [
     {
       title: 'Une expertise métier valorisée',
@@ -74,28 +120,6 @@ export const CONSULTANT_EXPERTISE_CARDS: readonly ConsultantExpertiseCard[] = [
     iaExample: 'Ex. : cadrer un protocole d’usage IA adapté à la taille de l’entreprise.',
   },
 ];
-
-export const CONSULTANT_COMPETENCE_GROUPS = [
-  {
-    title: 'Expertise métier',
-    items: [
-      'Expérience professionnelle dans le BTP.',
-      'Compréhension des documents et processus de chantier.',
-      'Connaissance des contraintes opérationnelles des entreprises.',
-      'Capacité à adapter les exemples aux publics formés.',
-    ],
-  },
-  {
-    title: 'IA et pédagogie',
-    items: [
-      'Utilisation concrète de ChatGPT ou Claude.',
-      'Capacité à construire des exercices pratiques.',
-      'Pédagogie claire et accessible.',
-      'Vérification humaine systématique.',
-      'Respect de la confidentialité des documents.',
-    ],
-  },
-] as const;
 
 export const CONSULTANT_SELECTION_STEPS = [
   'Vous présentez votre parcours et vos compétences.',
