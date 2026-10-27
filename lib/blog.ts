@@ -2082,7 +2082,7 @@ export function getCommercialLinksForArticle(slug: string): { href: string; labe
   if (slug === 'securite-donnees-chatgpt-btp') {
     links.splice(2, 0, {
       href: LINKS.blogCharteIaBtp,
-      label: 'Charte IA BTP — modèle Word et guide',
+      label: 'Charte IA BTP — modèle PDF et guide',
     });
   }
   switch (cat) {

@@ -202,6 +202,8 @@ const GUIDE_HUB_DESCRIPTIONS: Partial<Record<string, string>> = {
     'Cas d’usage IA pour les RH BTP : fiches de poste, offres, scoring CV, onboarding et reporting — à adapter à votre cadre.',
   'guide-chef-de-chantier-ofc':
     'Skills Claude mobile pour le chef de chantier : accueil sécurité, mode opératoire, causerie, rapport et auto-contrôle.',
+  'charte-ia-btp':
+    'Un modèle pour encadrer les outils, protéger vos données et organiser la validation des documents au bureau et sur chantier.',
   'guide-dirigeant-btp-ofc':
     'Leviers de pilotage pour dirigeants PME BTP : Go/No-Go, clauses, rentabilité, litiges et recrutement.',
   'guide-claude-btp-ofc':
@@ -245,6 +247,7 @@ const GUIDE_STATUS: Partial<Record<string, RessourceStatus>> = {
 };
 
 const FEATURED_IDS = new Set([
+  'charte-ia-btp',
   'guide-repondre-ao-btp-ofc-2026',
   'guide-conducteur-de-travaux',
   'guide-rh-btp-ia-ofc',

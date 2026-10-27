@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import {
-  CHARTE_IA_BTP_BLOG_HREF,
   CHARTE_IA_BTP_DOWNLOAD_LABEL,
+  CHARTE_IA_BTP_PAGE_HREF,
 } from '@/lib/charte-ia-btp-ressource';
 import { OFC_LINK } from '@/lib/ofc-interaction-classes';
 
@@ -18,12 +18,12 @@ export function FormationCharteIaBtpRessourceAside({ className = '' }: Props) {
     >
       <p className="font-medium text-slate-900">Ressource pratique : votre modèle de charte IA BTP</p>
       <p className="mt-1 leading-relaxed">
-        <Link href={CHARTE_IA_BTP_BLOG_HREF} className={`font-semibold ${OFC_LINK}`}>
-          Télécharger et adapter la charte IA de votre entreprise
+        <Link href={CHARTE_IA_BTP_PAGE_HREF} className={`font-semibold ${OFC_LINK}`}>
+          Lire le guide et télécharger la charte IA
         </Link>
         {' — '}
-        {CHARTE_IA_BTP_DOWNLOAD_LABEL.replace('Télécharger le ', '').replace(' (.doc)', '')} et tutoriel en
-        sept étapes.
+        modèle PDF {CHARTE_IA_BTP_DOWNLOAD_LABEL.replace('Télécharger ', '').toLowerCase()} et
+        méthode pour l’adapter à votre PME.
       </p>
     </aside>
   );

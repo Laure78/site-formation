@@ -540,6 +540,32 @@ export const MAILLAGE_RESSOURCES_BY_PATH: Readonly<Record<string, MaillageRessou
       },
     ],
   },
+  [LINKS.charteIaBtp]: {
+    pilier: {
+      href: LINKS.formationIaHub,
+      label: 'Formation IA pour les professionnels du BTP',
+    },
+    soeurs: [
+      {
+        href: LINKS.blogSecuriteDonneesChatgptBtp,
+        label: 'Sécurité des données ChatGPT en entreprise BTP',
+      },
+      {
+        href: LINKS.tutoSkillAnalyseCctpOfc,
+        label: 'Tuto — analyser un CCTP avec l’IA',
+      },
+      {
+        href: LINKS.tutoCrChantier,
+        label: 'Tuto — compte rendu de chantier avec l’IA',
+      },
+    ],
+    blog: [
+      {
+        href: LINKS.blogFormationIaBtpGuide2026,
+        label: 'Guide formation IA BTP 2026',
+      },
+    ],
+  },
 };
 
 export const MAILLAGE_RETOUR_RESSOURCES = RETOUR_RESSOURCES;

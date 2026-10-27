@@ -149,6 +149,24 @@ export function filterGuidesByCategory(
 /** Guides / fichiers lead magnets — source unique (hero, section page, menu header). */
 export const RESSOURCES_GUIDES: readonly RessourceGuideEntry[] = [
   {
+    href: LINKS.charteIaBtp,
+    pdfHref: LINKS.modeleCharteIaEntrepriseBtpDoc,
+    title: 'Charte IA pour les PME du bâtiment',
+    promise:
+      'Un modèle pour encadrer les outils, protéger vos données et organiser la validation des documents au bureau et sur chantier.',
+    description:
+      'Modèle PDF de 19 pages : règles salariés et chantiers, gouvernance, fiche terrain, registre des outils, matrice de validation et checklist de déploiement.',
+    audience: 'Dirigeants · Direction · Conducteurs de travaux · Bureaux d’études',
+    fonctionId: 'transversal',
+    categories: ['direction', 'toute-equipe'],
+    categoryLabel: 'Direction & toute l’équipe',
+    highlights: ['PDF gratuit', '19 pages', 'Fiche terrain'],
+    fileKind: 'pdf',
+    downloadLabel: 'Télécharger le PDF',
+    primaryActionLabel: 'Lire le guide',
+    thumbnail: RESSOURCES_MINIATURES.charteIaPmeBatiment,
+  },
+  {
     href: LINKS.guideDirigeantBtpOfc,
     pdfHref: LINKS.pdfGuideDirigeantBtpOfc,
     title: 'Guide du dirigeant BTP',

@@ -41,10 +41,12 @@ export const LINKS = {
   blogFormationIaParisChoisir: '/blog/formation-ia-paris-choisir',
   /** Article — sécurité données ChatGPT en entreprise BTP (RGPD, Enterprise) */
   blogSecuriteDonneesChatgptBtp: '/blog/securite-donnees-chatgpt-btp',
-  /** Article — charte IA BTP : modèle Word et guide de déploiement */
-  blogCharteIaBtp: '/blog/charte-ia-btp',
-  /** Modèle Word — charte d’utilisation de l’IA (entreprise BTP) */
-  modeleCharteIaEntrepriseBtpDoc: '/ressources/modele-charte-ia-entreprise-btp.doc',
+  /** Guide ressource — charte IA BTP (modèle PDF + méthode) */
+  charteIaBtp: '/ressources/charte-ia-btp',
+  /** Alias historique — même URL que charteIaBtp (ex-blog) */
+  blogCharteIaBtp: '/ressources/charte-ia-btp',
+  /** Modèle PDF — charte d’utilisation de l’IA (entreprise BTP) */
+  modeleCharteIaEntrepriseBtpDoc: '/ressources/pdf/charte-ia-pme-batiment.pdf',
   aPropos: '/a-propos',
   /** Hub présentation des formateurs OFC */
   formateurs: '/formateurs',

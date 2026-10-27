@@ -301,6 +301,10 @@ const ROUTE_SOURCE_FILES: Record<string, readonly string[]> = {
     'app/ressources/bibliotheque-prompts-btp-par-metier/page.tsx',
   ],
   '/ressources/guide-claude-btp-ofc': ['app/ressources/guide-claude-btp-ofc/page.tsx'],
+  '/ressources/charte-ia-btp': [
+    'app/ressources/charte-ia-btp/page.tsx',
+    'public/ressources/pdf/charte-ia-pme-batiment.pdf',
+  ],
   '/ressources/guide-dirigeant-btp-ofc': ['app/ressources/guide-dirigeant-btp-ofc/page.tsx'],
   '/ressources/guide-chef-de-chantier-ofc': [
     'app/ressources/guide-chef-de-chantier-ofc/page.tsx',

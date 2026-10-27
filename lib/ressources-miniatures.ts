@@ -19,6 +19,12 @@ export const RESSOURCES_MINIATURES = {
     width: 1200,
     height: 900,
   },
+  charteIaPmeBatiment: {
+    src: '/images/ressources/miniatures/charte-ia-pme-batiment-cover.jpg',
+    alt: 'Couverture modèle charte IA PME bâtiment — encadrement des usages IA au bureau et sur chantier',
+    width: 1191,
+    height: 1684,
+  },
   guideRepondreAo: {
     src: `${BASE}/miniature-guide-repondre-ao-btp.jpg`,
     alt: 'Guide : répondre à un appel d’offres BTP avec l’IA — méthode AO formation BTP',

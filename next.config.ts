@@ -241,6 +241,16 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
+        source: '/blog/charte-ia-btp',
+        destination: '/ressources/charte-ia-btp',
+        permanent: true,
+      },
+      {
+        source: '/blog/charte-ia-btp/',
+        destination: '/ressources/charte-ia-btp',
+        permanent: true,
+      },
+      {
         source: '/blog/creer-skill-chatgpt-claude-btp',
         destination: '/ressources/creer-skill-chatgpt-claude-btp',
         permanent: true,

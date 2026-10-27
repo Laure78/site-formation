@@ -129,8 +129,8 @@ const FORMATION_PRACTICE_RESOURCES: Partial<
     },
     {
       href: LINKS.modeleCharteIaEntrepriseBtpDoc,
-      title: 'Modèle Word — charte d’utilisation de l’IA',
-      description: 'Document type à adapter à votre PME.',
+      title: 'Modèle PDF — charte d’utilisation de l’IA',
+      description: 'Document OFC de 19 pages à adapter à votre PME.',
     },
     {
       href: LINKS.parcoursDirigeantPmeBtp,
@@ -267,12 +267,12 @@ const PARCOURS_PRACTICE_RESOURCES: Partial<
   'dirigeant-pme-btp': [
     {
       href: LINKS.blogCharteIaBtp,
-      title: 'Charte IA BTP — article et modèle Word',
+      title: 'Charte IA BTP — article et modèle PDF',
       description: 'Gouvernance et déploiement responsable en PME.',
     },
     {
       href: LINKS.modeleCharteIaEntrepriseBtpDoc,
-      title: 'Modèle Word — charte d’utilisation de l’IA',
+      title: 'Modèle PDF — charte d’utilisation de l’IA',
       description: 'Document type à adapter à votre entreprise.',
     },
   ],
