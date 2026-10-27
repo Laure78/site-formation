@@ -88,7 +88,7 @@ export const ILE_DE_FRANCE = {
     'Qualiopi · OPCO Constructys',
   ],
   zones: [
-    { num: '78', nom: 'Yvelines', contenu: 'Guyancourt, Versailles, Saint-Quentin • Siège basé à Guyancourt' },
+    { num: '78', nom: 'Yvelines', contenu: 'Guyancourt, Versailles, Saint-Quentin • Siège OFC à Paris (75012)' },
     { num: '75', nom: 'Paris', contenu: 'Tous arrondissements • Sessions en présentiel' },
     { num: '92', nom: 'Hauts-de-Seine', contenu: 'Nanterre, Boulogne, Courbevoie, Levallois, Issy' },
     { num: '93', nom: 'Seine-Saint-Denis', contenu: 'Bobigny, Saint-Denis, Montreuil, Aubervilliers' },

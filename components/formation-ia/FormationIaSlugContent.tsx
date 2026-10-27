@@ -8,7 +8,7 @@ import {
   getVilleLinkedMetiers,
 } from '@/lib/seo-formation-ia-hub-links';
 import { RenvoiFicheCatalogue } from '@/components/qualiopi/RenvoiFicheCatalogue';
-import { SOCIAL_PROOF } from '@/lib/constants';
+import { CONTACT, SOCIAL_PROOF } from '@/lib/constants';
 import { formatNoteSatisfactionSur5 , formatNoteSatisfactionAffichageComplet } from '@/lib/data/indicateurs-resultats'
 import { LINKS } from '@/lib/internal-links';
 import { formationIaHubSlugDestination } from '@/lib/gsc-redirects-2026';
@@ -183,7 +183,7 @@ export function FormationIaMetierBody({
         <strong>Formatrice IA spécialisée BTP</strong> — plus de{' '}
         {formatNoteSatisfactionAffichageComplet()} (satisfaction Qualiopi).
         SIRET 905 244 281 00010 — NDA 11788515078.
-        Siège : 6 rue Henri Dunant, 78280 Guyancourt — contact@laureolivie.fr.
+        Siège : {CONTACT.address} — contact@laureolivie.fr.
       </p>
 
       <h2 className="font-display text-xl font-semibold text-slate-900">

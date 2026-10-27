@@ -36,7 +36,7 @@ export const DEPARTEMENT_SEINE_ET_MARNE_77: DepartementPageData = {
     },
     {
       q: 'Le 77 étant étendu, y a-t-il des frais de déplacement ?',
-      a: 'Les modalités (déplacement, repas) sont précisées au devis après le RDV découverte — sans surprise, avant convention. L’est du département peut justifier une journée bloquée selon la distance depuis Guyancourt.',
+      a: 'Les modalités (déplacement, repas) sont précisées au devis après le RDV découverte — sans surprise, avant convention. L’est du département peut justifier une journée bloquée selon la distance depuis Paris (75012).',
     },
     {
       q: 'Combien de participants par session ?',

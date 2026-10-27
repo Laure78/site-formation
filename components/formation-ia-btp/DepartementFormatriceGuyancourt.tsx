@@ -22,7 +22,7 @@ export function DepartementFormatriceGuyancourt({ grammar, deptCode }: Props) {
         </p>
         <div className="mt-4 inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-4 py-2 text-base text-slate-700">
           <MapPin size={16} className="text-[#377CF3]" aria-hidden />
-          Guyancourt (78) → interventions {locatif} ({deptCode})
+          Paris (75012) → interventions {locatif} ({deptCode})
         </div>
       </div>
     </section>

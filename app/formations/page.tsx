@@ -68,7 +68,7 @@ export async function generateMetadata({ searchParams }: FormationsPageProps = {
     },
     other: {
       'geo.region': 'FR-IDF',
-      'geo.placename': 'Guyancourt',
+      'geo.placename': 'Paris',
       'geo.position': '48.7713;2.0739',
       ICBM: '48.7713, 2.0739',
     },

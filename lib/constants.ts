@@ -14,7 +14,7 @@ export const CONTACT = {
   email: 'contact@laureolivie.fr',
   phone: '+33695661818',
   phoneDisplay: '06 95 66 18 18',
-  address: '6 rue Henri Dunant, 78280 Guyancourt',
+  address: '61 rue de Lyon, 75012 Paris',
 } as const;
 
 /** Candidatures formateurs / consultants-formateurs (distinct de CONTACT.email). */

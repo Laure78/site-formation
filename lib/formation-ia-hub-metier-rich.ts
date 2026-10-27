@@ -139,7 +139,7 @@ Ne pas inventer de décisions absentes des notes : marquer [à confirmer] si bes
     },
     {
       q: 'Intervention en Île-de-France uniquement ?',
-      a: 'Oui pour le présentiel intra ou inter : déplacements depuis Guyancourt (78). Visio découverte pour cadrer le besoin avant devis de session.',
+      a: 'Oui pour le présentiel intra ou inter : déplacements depuis Paris (75012). Visio découverte pour cadrer le besoin avant devis de session.',
     },
   ],
   courseName: 'Formation IA plâtrerie, cloisons et faux plafonds BTP',

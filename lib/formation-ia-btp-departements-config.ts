@@ -106,7 +106,7 @@ function faqGeoBase(grammar: DeptGrammar, code: string, villes: string): FAQItem
   const core: FAQItem[] = [
     {
       q: `Intervenez-vous dans tout le département ${d} ?`,
-      a: `Oui. Intra (dans vos locaux) ou inter ${locatif}, selon calendrier. Siège à Guyancourt (78) — déplacements vers ${villes} courants. Zones éloignées : journée bloquée ou demi-journées.`,
+      a: `Oui. Intra (dans vos locaux) ou inter ${locatif}, selon calendrier. Siège à Paris (75012) — déplacements vers ${villes} courants. Zones éloignées : journée bloquée ou demi-journées.`,
     },
     {
       q: 'Comment se déroule une session intra-entreprise pour mon équipe ?',
@@ -136,7 +136,7 @@ const CAS_USAGE_FORMATION_BTP: string[] = [
   'Tableaux de suivi reformulés à partir de vos données — sans données perso non anonymisées.',
 ];
 
-const DEPLACEMENT_GUYANCOURT = `Siège ${ENTITE} à Guyancourt (78) : déplacement inclus au devis pour intra IDF. Créneaux souvent calés sous 3 à 6 semaines. Guyancourt est à ~30 min des principaux bassins franciliens.`;
+const DEPLACEMENT_GUYANCOURT = `Siège ${ENTITE} à Paris (75012) : déplacement inclus au devis pour intra IDF. Créneaux souvent calés sous 3 à 6 semaines. Paris (75012) permet des déplacements réalistes vers les principaux bassins franciliens.`;
 
 function ffbCasClient(deptCode: string): string {
   const idf = `Interventions FFB Île-de-France et retours terrain franciliens — exemples adaptés à votre secteur.`;
@@ -198,7 +198,7 @@ export const FORMATION_IA_BTP_YVELINES_78: FormationIaBtpDeptLandingConfig = {
   ],
   solutionTitle: 'Formation IA BTP 4 h, Qualiopi, centrée sur vos documents',
   solutionBody: [
-    `Format standard 4 h, présentiel intra (dans vos locaux) ou inter IDF. Alternance démo, exercice guidé, pratique sur vos devis, courriers et CR. Siège Guyancourt : logistique simple pour Versailles, Poissy, Mantes.`,
+    `Format standard 4 h, présentiel intra (dans vos locaux) ou inter IDF. Alternance démo, exercice guidé, pratique sur vos devis, courriers et CR. Siège à Paris (75012) : logistique simple pour Versailles, Poissy, Mantes.`,
     `Financement Constructys possible selon éligibilité — plafonds nationaux, pièces pédagogiques cohérentes Qualiopi fournies pour le dossier OPCO.`,
     `Montée progressive : courriers et relances d'abord, puis DCE et mémoires quand l'équipe maîtrise la relecture humaine.`,
     `Directions multi-chantiers : volet standardisation des consignes — mêmes prompts CR, mêmes grilles de relecture.`,
@@ -293,7 +293,7 @@ function buildDeptConfig(opts: {
     solutionTitle: `Formation IA BTP ${deptCode} : 4 h, résultats opérationnels`,
     solutionBody: [
       `${MARQUE} pour ${avecArticle} (${deptCode}) : 4 h, vos documents réels, zéro jargon startup. Devis, mails, synthèses, brouillons mémoires — itérations guidées.`,
-      `Siège Guyancourt (78) : déplacements IDF réalistes ${opts.temoignageZone}. Présentiel intra (dans vos locaux) ou inter uniquement.`,
+      `Siège à Paris (75012) : déplacements IDF réalistes ${opts.temoignageZone}. Présentiel intra (dans vos locaux) ou inter uniquement.`,
       `Catalogue NIV-01 (bases), NIV-02 (appels d'offres), NIV-03 (conduite de travaux), NIV-04 (Maîtriser Claude AI) et NIV-05 (maîtres d'œuvre). Programmes PDF sur chaque fiche.`,
       `Repartez avec modèles réutilisables et feuille de route 15 jours — quoi tester, quoi mesurer, comment partager en équipe.`,
     ],
@@ -333,7 +333,7 @@ function faqSeineEtMarne77(): FAQItem[] {
     if (index === 0) {
       return {
         ...item,
-        a: `Oui. Intra en intra (dans vos locaux) ou inter en Seine-et-Marne (77), selon calendrier. Siège à Guyancourt (78) : l'ouest du 77 (Marne-la-Vallée, Sénart, Melun, Meaux) est en général accessible sous 30 à 45 min ; l'est du département (Provins, Coulommiers, Fontainebleau, Nemours) mobilise plutôt une journée bloquée ou des demi-journées.`,
+        a: `Oui. Intra en intra (dans vos locaux) ou inter en Seine-et-Marne (77), selon calendrier. Siège à Paris (75012) : l'ouest du 77 (Marne-la-Vallée, Sénart, Melun, Meaux) est en général accessible sous 30 à 45 min ; l'est du département (Provins, Coulommiers, Fontainebleau, Nemours) mobilise plutôt une journée bloquée ou des demi-journées.`,
       };
     }
     return item;
@@ -349,7 +349,7 @@ function faqSeineEtMarne77(): FAQItem[] {
   ]);
 }
 
-const DEPLACEMENT_GUYANCOURT_77 = `Siège ${ENTITE} à Guyancourt (78) : déplacement inclus au devis pour intra IDF, créneaux souvent calés sous 3 à 6 semaines. L'ouest du 77 (Marne-la-Vallée, Sénart, Melun) : logistique courante ; l'est (Provins, Coulommiers, Fontainebleau) : journée dédiée ou demi-journées à cadrer ensemble.`;
+const DEPLACEMENT_GUYANCOURT_77 = `Siège ${ENTITE} à Paris (75012) : déplacement inclus au devis pour intra IDF, créneaux souvent calés sous 3 à 6 semaines. L'ouest du 77 (Marne-la-Vallée, Sénart, Melun) : logistique courante ; l'est (Provins, Coulommiers, Fontainebleau) : journée dédiée ou demi-journées à cadrer ensemble.`;
 
 /** Seine-et-Marne (77) — contenu localisé (SEO Marne-la-Vallée, Melun, Meaux). */
 export const FORMATION_IA_BTP_SEINE_ET_MARNE_77: FormationIaBtpDeptLandingConfig = {
@@ -405,7 +405,7 @@ export const FORMATION_IA_BTP_SEINE_ET_MARNE_77: FormationIaBtpDeptLandingConfig
   solutionTitle: 'Formation IA BTP 77 : 4 h, résultats opérationnels',
   solutionBody: [
     `${MARQUE} pour la Seine-et-Marne : 4 h, vos documents réels, zéro jargon startup. Devis, mails, synthèses, brouillons de mémoires — itérations guidées.`,
-    `Siège Guyancourt (78) : déplacements réalistes vers l'ouest du 77 (Marne-la-Vallée, Sénart, Melun) ; pour l'est (Provins, Coulommiers, Fontainebleau), journée bloquée ou demi-journées. Présentiel intra (dans vos locaux) ou inter uniquement.`,
+    `Siège à Paris (75012) : déplacements réalistes vers l'ouest du 77 (Marne-la-Vallée, Sénart, Melun) ; pour l'est (Provins, Coulommiers, Fontainebleau), journée bloquée ou demi-journées. Présentiel intra (dans vos locaux) ou inter uniquement.`,
     `Catalogue NIV-01 (bases), NIV-02 (appels d'offres), NIV-03 (conduite de travaux). Programmes PDF sur chaque fiche.`,
     `Repartez avec modèles réutilisables et feuille de route 15 jours — quoi tester, quoi mesurer, comment partager en équipe.`,
   ],
@@ -589,7 +589,7 @@ export const FORMATION_IA_BTP_VAL_DOISE_95 = buildDeptConfig({
   temoignageZone: "dans le Val-d'Oise",
   tissuBtpLocal: [
     `Val-d'Oise : Cergy, Argenteuil, Roissy — PME bâtiment, tertiaire, logements et équipements.`,
-    `Formations ${MARQUE} : mise en forme accélérée, Qualiopi, déplacements depuis Guyancourt maîtrisés.`,
+    `Formations ${MARQUE} : mise en forme accélérée, Qualiopi, déplacements depuis Paris (75012) maîtrisés.`,
   ],
 });
 

@@ -27,7 +27,7 @@ export const LAURE_OLIVIE_BIO_REFERENCE =
 /** Mention courte (cartes, stats, méta) — source unique : formatAnneesExperienceBTP(). */
 export const LAURE_OLIVIE_EXPERIENCE_BTP_COURTE = formatAnneesExperienceBTP();
 
-/** Résidence professionnelle (CV). Siège OFC : Guyancourt (78). */
+/** Résidence professionnelle (CV). Siège OFC : Paris (75012). */
 export const LAURE_OLIVIE_RESIDENCE = 'Saint-Quentin-en-Yvelines (78)' as const;
 
 /** Références clients & partenaires (affichage court). */

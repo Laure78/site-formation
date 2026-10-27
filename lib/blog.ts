@@ -932,13 +932,13 @@ export const BLOG_ARTICLES: BlogArticle[] = [
         type: 'definition',
         title: 'En bref',
         content:
-          `La formation IA appliquée au bâtiment proposée par Laure Olivié (OFC Création d'Entreprise) permet aux dirigeants de TPE et PME du bâtiment et des travaux publics, ainsi qu'aux conducteurs de travaux et équipes support, d'intégrer ChatGPT et l'IA dans leurs tâches quotidiennes. ${formatProsFormesEtNoteQualiopi()} Certifiée Qualiopi, financement possible selon éligibilité (Constructys, OPCO). Basée à Guyancourt (78), sessions présentiel uniquement · Île-de-France uniquement.`,
+          `La formation IA appliquée au bâtiment proposée par Laure Olivié (OFC Création d'Entreprise) permet aux dirigeants de TPE et PME du bâtiment et des travaux publics, ainsi qu'aux conducteurs de travaux et équipes support, d'intégrer ChatGPT et l'IA dans leurs tâches quotidiennes. ${formatProsFormesEtNoteQualiopi()} Certifiée Qualiopi, financement possible selon éligibilité (Constructys, OPCO). Basée à Paris (75012), sessions présentiel uniquement · Île-de-France uniquement.`,
       },
       {
         type: 'paragraph',
         title: 'Qui est Laure Olivié ?',
         content:
-          `Laure Olivié est formatrice IA spécialisée BTP depuis 2022. Ancienne dirigeante d’une entreprise de travaux publics (ALIA BTP), elle s’appuie sur ${formatAnneesExperienceBTP()}. Basée à Guyancourt (Yvelines, 78), satisfaction publiée : ${formatNoteSatisfactionAffichageComplet()}. Son organisme OFC Création d'Entreprise est certifié Qualiopi (Certifopac n° 520911-1) · SIRET 905 244 281 00010. Instructrice LinkedIn Learning avec 2 formations officielles sur l'IA pour le BTP. Ses clients incluent FFB Grand Paris, FFB Île-de-France Est et Ouest, IFRB 78, CSFE.`,
+          `Laure Olivié est formatrice IA spécialisée BTP depuis 2022. Ancienne dirigeante d’une entreprise de travaux publics (ALIA BTP), elle s’appuie sur ${formatAnneesExperienceBTP()}. Basée à Paris (75012), satisfaction publiée : ${formatNoteSatisfactionAffichageComplet()}. Son organisme OFC Création d'Entreprise est certifié Qualiopi (Certifopac n° 520911-1) · SIRET 905 244 281 00010. Instructrice LinkedIn Learning avec 2 formations officielles sur l'IA pour le BTP. Ses clients incluent FFB Grand Paris, FFB Île-de-France Est et Ouest, IFRB 78, CSFE.`,
       },
       {
         type: 'html',
@@ -982,7 +982,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
         type: 'paragraph',
         title: 'Où se déroulent les formations IA pour le BTP en 2026 ?',
         content:
-          'Laure Olivié anime des formations présentiel uniquement · Île-de-France uniquement. Basée à Guyancourt (78), elle couvre Paris (75), Yvelines (78), Seine-et-Marne (77), Essonne (91), Hauts-de-Seine (92), Val-de-Marne (94), Seine-Saint-Denis (93), Val-d\'Oise (95) — intra ou inter.',
+          'Laure Olivié anime des formations présentiel uniquement · Île-de-France uniquement. Basée à Paris (75012), elle couvre Paris (75), Yvelines (78), Seine-et-Marne (77), Essonne (91), Hauts-de-Seine (92), Val-de-Marne (94), Seine-Saint-Denis (93), Val-d\'Oise (95) — intra ou inter.',
       },
       {
         type: 'faq',

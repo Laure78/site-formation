@@ -32,7 +32,7 @@ export const DEPARTEMENT_SEINE_SAINT_DENIS_93: DepartementPageData = {
   faqLocale: [
     {
       q: 'Vous déplacez-vous à Saint-Denis ou Montreuil ?',
-      a: 'Oui, en intra (dans vos locaux) ou inter, partout en Seine-Saint-Denis — Bobigny, Aubervilliers, Pantin, Noisy-le-Grand inclus. La logistique depuis Guyancourt se cadre au devis après le RDV découverte.',
+      a: 'Oui, en intra (dans vos locaux) ou inter, partout en Seine-Saint-Denis — Bobigny, Aubervilliers, Pantin, Noisy-le-Grand inclus. La logistique depuis Paris (75012) se cadre au devis après le RDV découverte.',
     },
     {
       q: 'La formation est-elle utile pour les marchés publics du Grand Paris ?',

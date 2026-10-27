@@ -56,7 +56,7 @@ export const GEO_DEPARTMENT_LINKS: (ContextualLinkCard & { slug: string })[] = [
     slug: 'val-doise-95',
     href: LINKS.formationIaBtpValDoise95,
     title: "Val-d'Oise (95)",
-    description: 'Cergy, Argenteuil, Pontoise — déplacements depuis Guyancourt.',
+    description: 'Cergy, Argenteuil, Pontoise — déplacements depuis Paris (75012).',
   },
   {
     slug: 'paris',

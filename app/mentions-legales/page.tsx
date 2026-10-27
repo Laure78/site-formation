@@ -1,12 +1,12 @@
 import Link from 'next/link';
-import { OFC_IDENTITE } from '@/lib/qualiopi-info';
+import { OFC_IDENTITE, QUALIOPI_CONTACTS } from '@/lib/qualiopi-info';
 import { createPageMetadata } from '@/lib/seo';
 
 export const revalidate = 3600;
 export const metadata = createPageMetadata({
   title: 'Mentions légales — OFC Création d\'Entreprise',
   description:
-    "Mentions légales OFC Création d'Entreprise : éditeur Laure Olivié, siège Guyancourt, hébergeur, RGPD. Organisme de formation IA pour le BTP, Qualiopi.",
+    "Mentions légales OFC Création d'Entreprise : éditeur Laure Olivié, siège Paris, hébergeur, RGPD. Organisme de formation IA pour le BTP, Qualiopi.",
   path: '/mentions-legales',
   keywords: ['mentions légales OFC', 'organisme formation Qualiopi', 'RGPD formation BTP'],
 });
@@ -32,7 +32,7 @@ export default function MentionsLegalesPage() {
           <ul className="mt-4 space-y-2">
             <li>Forme juridique : {OFC_IDENTITE.formeJuridiqueLongue}</li>
             <li>Capital social : 10,00 €</li>
-            <li>Siège social : 6 Rue Henri Dunant – 78280 Guyancourt</li>
+            <li>Siège social : {QUALIOPI_CONTACTS.adresse}</li>
             <li>SIREN : 905 244 281</li>
             <li>SIRET : 905 244 281 00010</li>
             <li>RCS : Versailles</li>
@@ -132,8 +132,7 @@ export default function MentionsLegalesPage() {
               </a>
             </li>
             <li>
-              Par courrier : OFC Création d&apos;Entreprise, 6 Rue Henri Dunant,
-              78280 Guyancourt
+              Par courrier : OFC Création d&apos;Entreprise, {QUALIOPI_CONTACTS.adresse}
             </li>
           </ul>
           <p className="mt-4">
@@ -255,7 +254,7 @@ export default function MentionsLegalesPage() {
                 contact@laureolivie.fr
               </a>
             </li>
-            <li>Adresse : 6 Rue Henri Dunant, 78280 Guyancourt</li>
+            <li>Adresse : {QUALIOPI_CONTACTS.adresse}</li>
           </ul>
         </section>
       </article>

@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { Mail } from 'lucide-react';
 import { createPageMetadata } from '@/lib/seo';
 import { MentionTVA, MentionTvaAsterisque } from '@/components/MentionTVA';
-import { OFC_IDENTITE, QUALIOPI_RECLAMATIONS } from '@/lib/qualiopi-info';
+import { OFC_IDENTITE, QUALIOPI_CONTACTS, QUALIOPI_RECLAMATIONS } from '@/lib/qualiopi-info';
 import { LINKS } from '@/lib/internal-links';
 
 export const revalidate = 3600;
@@ -37,7 +37,7 @@ export default function CGVPage() {
               <span>SIRET : 905 244 281 00010</span>
               <span>NDA : 11788515078</span>
             </p>
-            <p>6 rue Henri Dunant, 78280 GUYANCOURT</p>
+            <p>{QUALIOPI_CONTACTS.adresse}</p>
           </div>
           <div className="mt-4 flex flex-wrap justify-center gap-x-6 text-sm">
             <a
@@ -67,7 +67,7 @@ export default function CGVPage() {
             <p>Forme juridique : {OFC_IDENTITE.formeJuridiqueLongue}</p>
             <p>SIRET : 905 244 281 00010</p>
             <p>CODE NAF : 8559B - Autres enseignements</p>
-            <p>Siège social : 6 rue Henri Dunant, 78280 GUYANCOURT</p>
+            <p>Siège social : {QUALIOPI_CONTACTS.adresse}</p>
             <p>
               Numéro de déclaration d&apos;activité : 11788515078 (auprès du préfet
               de région d&apos;Île-de-France)
@@ -349,8 +349,8 @@ export default function CGVPage() {
           </h2>
           <p className="mt-4">
             Réclamations : toute réclamation relative à une prestation de formation peut être adressée par email à
-            contact@laureolivie.fr (objet : Réclamation) ou par courrier à OFC Création d&apos;Entreprise, 6 rue Henri
-            Dunant, 78280 Guyancourt. Un accusé de réception vous est envoyé sous {QUALIOPI_RECLAMATIONS.delaiAccuseReception}{' '}
+            contact@laureolivie.fr (objet : Réclamation) ou par courrier à OFC Création d&apos;Entreprise,{' '}
+            {QUALIOPI_CONTACTS.adresse}. Un accusé de réception vous est envoyé sous {QUALIOPI_RECLAMATIONS.delaiAccuseReception}{' '}
             et une réponse vous est apportée sous {QUALIOPI_RECLAMATIONS.delaiReponse}. Chaque réclamation est enregistrée
             et analysée dans le cadre de notre démarche d&apos;amélioration continue Qualiopi.
           </p>
@@ -402,7 +402,7 @@ export default function CGVPage() {
           <p className="font-bold text-[var(--accent)]">
             OFC CRÉATION D&apos;ENTREPRISE
           </p>
-          <p>6 rue Henri Dunant — 78280 GUYANCOURT</p>
+          <p>{QUALIOPI_CONTACTS.adresse}</p>
           <p>SIRET : 905 244 281 00010 | NDA : 11788515078</p>
           <p>
             <a

@@ -187,7 +187,7 @@ export function FormationIaBtpDepartementLanding({ config }: { config: Formation
           <IndicateursResultatsLink className="mt-3 text-left" />
           <div className="mt-4 inline-flex items-center gap-2 rounded-full border border-slate-200 bg-[#F2F2F2] px-4 py-2 text-base text-slate-700">
             <MapPin size={16} className="text-[#377CF3]" aria-hidden />
-            Siège : Guyancourt (78) — interventions {locatif} ({config.deptCode})
+            Siège : Paris (75012) — interventions {locatif} ({config.deptCode})
           </div>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
             <RdvLink
@@ -267,7 +267,7 @@ export function FormationIaBtpDepartementLanding({ config }: { config: Formation
             ))}
           </div>
           <aside className="mt-10 rounded-2xl border border-[#377CF3]/30 bg-white p-6 shadow-sm md:p-8">
-            <h3 className="font-display text-lg font-bold text-slate-900">Déplacement depuis Guyancourt (78)</h3>
+            <h3 className="font-display text-lg font-bold text-slate-900">Déplacement depuis Paris (75012)</h3>
             <p className="mt-3 text-base text-slate-700 leading-relaxed md:text-lg">{config.deplacementGuyancourt}</p>
           </aside>
         </div>

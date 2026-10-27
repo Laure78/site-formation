@@ -20,7 +20,7 @@ Centre de formation
 
 - **Nom :** Laure Olivié  
 - **Activité :** Formation IA pour entreprises du BTP  
-- **Adresse :** 6 Rue Henri Dunant, 78280 Guyancourt  
+- **Adresse :** 61 rue de Lyon, 75012 Paris  
 - **Ville :** Guyancourt (Yvelines)  
 - **Région :** Île-de-France  
 - **Téléphone :** 06 95 66 18 18  
@@ -96,7 +96,7 @@ Encourager les entreprises formées à laisser un avis Google (sans incitation m
 
 - [ ] Nom : Laure Olivié — Formation IA BTP  
 - [ ] Catégories : Centre de formation, Consultant, Formation professionnelle  
-- [ ] Adresse : 6 Rue Henri Dunant, 78280 Guyancourt  
+- [ ] Adresse : 61 rue de Lyon, 75012 Paris  
 - [ ] Description SEO (750 caractères)  
 - [ ] Liens vers formations  
 - [ ] 5+ photos professionnelles  

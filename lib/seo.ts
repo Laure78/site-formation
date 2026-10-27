@@ -10,6 +10,7 @@ import { faqAnswerPlainTextForSchema } from '@/lib/faq-plain-text';
 import {
   SCHEMA_CONTACT,
   SCHEMA_GEO,
+  schemaGeoGoogleMapsSearchQuery,
   SCHEMA_GOOGLE_BUSINESS_PROFILE_URL,
   SCHEMA_LINKEDIN_LEARNING_INSTRUCTOR_URL,
   SCHEMA_LINKEDIN_PROFILE_URL,
@@ -136,7 +137,7 @@ export const SITE_CONFIG = {
   /** Google Maps — siège (aligné sur geo.streetAddress / postalCode / city) */
   googleMapsUrl:
     'https://www.google.com/maps/search/?api=1&query=' +
-    encodeURIComponent('6 Rue Henri Dunant, 78280 Guyancourt, France'),
+    encodeURIComponent(schemaGeoGoogleMapsSearchQuery()),
   sameAs: [
     LINKEDIN_PROFILE_URL,
     SITE_URL_DEFAULT,
@@ -424,13 +425,13 @@ export function getLocalBusinessSchema() {
     '@id': `${SITE_CONFIG.url}/#localbusiness`,
     name: 'Laure Olivié — Formation IA appliquée au bâtiment',
     description:
-      "Formation IA pour le BTP et ChatGPT entreprise : automatisation des tâches administratives, IA devis bâtiment, IA gestion chantier. Professionnels du BTP, PME bâtiment, conducteurs de travaux. Guyancourt (78), présentiel Île-de-France.",
+      "Formation IA pour le BTP et ChatGPT entreprise : automatisation des tâches administratives, IA devis bâtiment, IA gestion chantier. Professionnels du BTP, PME bâtiment, conducteurs de travaux. Paris (75012), présentiel Île-de-France.",
     url: SITE_CONFIG.url,
     ...(siteHasPublicPhone() ? { telephone: SITE_CONFIG.phone } : {}),
     email: SITE_CONFIG.email,
     address: {
       '@type': 'PostalAddress',
-      addressLocality: 'Guyancourt',
+      addressLocality: SITE_CONFIG.geo.city,
       addressRegion: 'Île-de-France',
       addressCountry: 'FR',
       streetAddress: SITE_CONFIG.geo.streetAddress,
@@ -726,7 +727,7 @@ export function getPersonSchema() {
     image: `${SITE_CONFIG.url}/images/laure-olivie-formatrice-ia-btp-qualiopi.webp`,
     jobTitle: 'Formatrice IA spécialisée BTP',
     alternateName: ['Laure Olivié', 'Laure Olivie'],
-    description: `Formatrice IA spécialisée BTP depuis fin 2021, basée à Guyancourt (78). ${formatNoteSatisfactionAffichageComplet()}. Ancienne dirigeante d’une entreprise de travaux publics, ${formatAnneesExperienceBTP()}. Instructrice LinkedIn Learning. Certification Qualiopi. Réseau FFB Grand Paris, CSFE, UMB-FFB.`,
+    description: `Formatrice IA spécialisée BTP depuis fin 2021, basée à Paris (75012). ${formatNoteSatisfactionAffichageComplet()}. Ancienne dirigeante d’une entreprise de travaux publics, ${formatAnneesExperienceBTP()}. Instructrice LinkedIn Learning. Certification Qualiopi. Réseau FFB Grand Paris, CSFE, UMB-FFB.`,
     knowsAbout: [
       'Formation IA pour le BTP',
       'Formation ChatGPT entreprise BTP',

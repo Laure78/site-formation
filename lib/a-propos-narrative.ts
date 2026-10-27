@@ -8,7 +8,7 @@ import { formatNoteSatisfactionAffichageComplet } from '@/lib/data/indicateurs-r
 const statsFreshness = getStatsFreshnessLabel();
 
 export const A_PROPOS_NARRATIVE_PARAGRAPHS: readonly string[] = [
-  `Je m’appelle Laure Olivié : je suis formatrice IA appliquée au bâtiment et fondatrice d’OFC Création d’Entreprise, organisme certifié Qualiopi basé à Guyancourt (Yvelines). Mon métier, ce n’est pas d’ajouter de la technologie pour la technologie : c’est d’aider les équipes du bâtiment et des travaux publics — professionnels du BTP, conducteurs de travaux, directions de PME — à gagner du temps sur ce qui étouffe le quotidien : devis, relances, comptes rendus, dossiers administratifs et, quand c’est pertinent, appels d’offres et mémoires techniques.`,
+  `Je m’appelle Laure Olivié : je suis formatrice IA appliquée au bâtiment et fondatrice d’OFC Création d’Entreprise, organisme certifié Qualiopi basé à Paris (75012). Mon métier, ce n’est pas d’ajouter de la technologie pour la technologie : c’est d’aider les équipes du bâtiment et des travaux publics — professionnels du BTP, conducteurs de travaux, directions de PME — à gagner du temps sur ce qui étouffe le quotidien : devis, relances, comptes rendus, dossiers administratifs et, quand c’est pertinent, appels d’offres et mémoires techniques.`,
 
   `Avant le BTP opérationnel, j’ai été **chargée de formation au CNFPT Grande Couronne (2009-2019)** : supervision d’une plateforme e-learning, coordination logistique et suivi administratif des actions de formation. Cette expérience m’a appris à structurer des parcours adultes, tenir les indicateurs qualité et rendre la pédagogie exploitable — compétences que je réinvestis aujourd’hui dans chaque session OFC.`,
 

@@ -116,7 +116,7 @@ export const DEPT_LOCAL_SEO_CONTENT: Record<string, DeptLocalSeoContent> = {
     deptCode: '78',
     departementNom: 'Yvelines',
     intro:
-      "Laure Olivié est basée à Guyancourt, au cœur des Yvelines (78) : c'est le département où l'intervention est la plus rapide. Formation IA pour le BTP en présentiel, intra (dans vos locaux) ou inter, sur vos documents réels.",
+      "Laure Olivié (siège OFC à Paris 75012) intervient dans les Yvelines (78) en présentiel — intra (dans vos locaux) ou inter — sur vos documents réels.",
     villesEtTrajets:
       "Versailles (préfecture), Saint-Quentin-en-Yvelines, Guyancourt, Poissy, Mantes-la-Jolie, Sartrouville, Trappes. La plupart des sites yvelinois sont à moins de 30 minutes de Guyancourt — selon le trafic.",
     tissuBtpLocal:
@@ -388,7 +388,7 @@ export const IDF_CHAPEAU_LOCAL = {
   intro:
     "Laure Olivié forme les équipes BTP à l'IA en présentiel dans toute l'Île-de-France — Paris (75), Seine-et-Marne (77), Yvelines (78), Essonne (91), Hauts-de-Seine (92), Seine-Saint-Denis (93), Val-de-Marne (94), Val-d'Oise (95). intra (dans vos locaux) ou inter — présentiel uniquement · Île-de-France uniquement.",
   positionnement:
-    "Basée à Guyancourt (78), au centre de la région, elle intervient sur l'ensemble du territoire francilien sur vos documents réels : devis, comptes rendus, DCE, mémoires techniques, administratif chantier — toujours avec validation métier de vos équipes.",
+    "Basée à Paris (75012), elle intervient sur l'ensemble du territoire francilien sur vos documents réels : devis, comptes rendus, DCE, mémoires techniques, administratif chantier — toujours avec validation métier de vos équipes.",
   faq: [
     {
       q: "Couvrez-vous toute l'Île-de-France ?",

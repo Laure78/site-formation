@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { QUALIOPI_CONTACTS } from '@/lib/qualiopi-info';
 import { createPageMetadata } from '@/lib/seo';
 
 export const revalidate = 3600;
@@ -31,7 +32,7 @@ export default function PolitiqueConfidentialitePage() {
               OFC CRÉATION D&apos;ENTREPRISE
             </span>
           </p>
-          <p>6 rue Henri Dunant, 78280 GUYANCOURT</p>
+          <p>{QUALIOPI_CONTACTS.adresse}</p>
           <p>SIRET : 905 244 281 00010 | NDA : 11788515078</p>
           <p>
             Email :{' '}
@@ -698,8 +699,7 @@ export default function PolitiqueConfidentialitePage() {
             </li>
             <li>
               Par courrier : OFC CRÉATION D&apos;ENTREPRISE — À l&apos;attention du
-              Responsable de la protection des données — 6 rue Henri Dunant —
-              78280 GUYANCOURT
+              Responsable de la protection des données — {QUALIOPI_CONTACTS.adresse}
             </li>
           </ul>
 
@@ -894,7 +894,7 @@ export default function PolitiqueConfidentialitePage() {
               </a>
             </p>
             <p className="mt-2 text-slate-600">
-              OFC CRÉATION D&apos;ENTREPRISE — 6 rue Henri Dunant — 78280 GUYANCOURT
+              OFC CRÉATION D&apos;ENTREPRISE — {QUALIOPI_CONTACTS.adresse}
             </p>
             <p className="mt-4 text-sm text-slate-600">
               Nous nous engageons à répondre dans les meilleurs délais.

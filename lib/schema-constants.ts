@@ -103,17 +103,27 @@ export const SCHEMA_CONTACT = {
   vatId: `FR${OFC_IDENTITE.siren}`,
 } as const;
 
-/** Coordonnées postales & GPS (siège — Guyancourt). */
+/** Coordonnées postales & GPS (siège — Paris 12e). Latitude/longitude : anciennes coords Guyancourt — à realigner. */
 export const SCHEMA_GEO = {
   addressCountry: 'FR',
   addressRegion: 'Île-de-France',
-  addressLocality: 'Guyancourt',
-  departement: 'Yvelines',
-  streetAddress: '6 Rue Henri Dunant',
-  postalCode: '78280',
+  addressLocality: 'Paris',
+  departement: 'Paris',
+  streetAddress: '61 rue de Lyon',
+  postalCode: '75012',
   latitude: 48.7713,
   longitude: 2.0739,
 } as const;
+
+/** Requête Google Maps (siège OFC). */
+export function schemaGeoGoogleMapsSearchQuery(): string {
+  return `${SCHEMA_GEO.streetAddress}, ${SCHEMA_GEO.postalCode} ${SCHEMA_GEO.addressLocality}, France`;
+}
+
+/** Libellé court ville + CP pour textes éditoriaux (siège OFC). */
+export function schemaGeoSiegeCourt(): string {
+  return `${SCHEMA_GEO.addressLocality} (${SCHEMA_GEO.postalCode})`;
+}
 
 /** Horaires d'ouverture — format Schema.org openingHours. */
 export const SCHEMA_OPENING_HOURS = 'Mo-Fr 09:00-18:00' as const;

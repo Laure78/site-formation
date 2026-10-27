@@ -4,7 +4,7 @@
 import type { VoirAussiProps } from '@/components/VoirAussi';
 import { LINKS } from '@/lib/internal-links';
 
-/** Département de référence OFC (siège Guyancourt) — défaut pages métier. */
+/** Département de référence SEO par défaut (pages métier) — siège OFC : Paris (75012). */
 export const VOIR_AUSSI_DEPT_DEFAUT = {
   href: LINKS.formationIaBtpYvelines78,
   label: 'Formation IA BTP Yvelines (78)',

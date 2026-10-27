@@ -144,7 +144,7 @@ export async function generateMetadata(): Promise<Metadata> {
     },
     other: {
       'geo.region': 'FR-IDF',
-      'geo.placename': 'Guyancourt',
+      'geo.placename': 'Paris',
       'geo.position': `${SITE_CONFIG.geo.latitude};${SITE_CONFIG.geo.longitude}`,
       ICBM: `${SITE_CONFIG.geo.latitude}, ${SITE_CONFIG.geo.longitude}`,
     },

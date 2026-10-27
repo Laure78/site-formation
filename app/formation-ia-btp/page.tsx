@@ -8,6 +8,7 @@ import { AllerPlusLoin } from '@/components/AllerPlusLoin';
 import { RenvoiFicheCatalogue } from '@/components/qualiopi/RenvoiFicheCatalogue';
 import { InlinePublicPhoneLink } from '@/components/PublicPhoneCta';
 import { DisclaimerGains } from '@/components/formation/DisclaimerGains';
+import { CONTACT } from '@/lib/constants';
 import { LINKS } from '@/lib/internal-links';
 import {
   createPageMetadata,
@@ -682,7 +683,7 @@ export default function FormationIaBtpPillarPage() {
             adaptés à votre métier que vous utilisez dès le lendemain.
           </p>
           <p>
-            <strong>Basée à Guyancourt (78)</strong>, elle intervient sur toute l&apos;Île-de-France (Paris, 78, 91, 92,
+            <strong>Basée à Paris (75012)</strong>, elle intervient sur toute l&apos;Île-de-France (Paris, 78, 91, 92,
             93, 94, 95) en intra entreprise, et anime des sessions intra (dans vos locaux) ou inter, en Île-de-France.
           </p>
           <p className="flex flex-wrap gap-x-3 gap-y-1">
@@ -796,8 +797,8 @@ export default function FormationIaBtpPillarPage() {
         </section>
 
         <p className="not-prose mt-12 text-center text-xs text-slate-500">
-          OFC Création d&apos;Entreprise · SIRET 905 244 281 00010 · NDA 11788515078 · 6 rue Henri Dunant, 78280
-          Guyancourt · {SITE_CONFIG.email}
+          OFC Création d&apos;Entreprise · SIRET 905 244 281 00010 · NDA 11788515078 · {CONTACT.address} ·{' '}
+          {SITE_CONFIG.email}
           {siteHasPublicPhone() ? (
             <>
               {' '}

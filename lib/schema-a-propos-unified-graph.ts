@@ -93,7 +93,7 @@ export function getAProposUnifiedJsonLd(): Record<string, unknown> {
     hasOccupation: {
       '@type': 'Occupation',
       name: 'Formatrice IA pour le BTP',
-      occupationLocation: { '@type': 'City', name: 'Guyancourt' },
+      occupationLocation: { '@type': 'City', name: SCHEMA_GEO.addressLocality },
       skills:
         'IA appliquée au BTP, ChatGPT bâtiment, Claude AI, mémoire technique, analyse DCE/CCTP, devis BTP',
     },

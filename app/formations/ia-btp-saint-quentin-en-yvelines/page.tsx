@@ -36,7 +36,7 @@ const MAIL_RAPPEL_SQY =
 
 const HERO_RESUME = [
   'Formation IA appliquée au bâtiment en présentiel sur la communauté d’agglomération de Saint-Quentin-en-Yvelines : Guyancourt, Montigny-le-Bretonneux, Trappes, Élancourt, Maurepas, La Verrière…',
-  'Siège OFC à Guyancourt : une formatrice à proximité immédiate, sans frais de déplacement supplémentaires pour les entreprises du 78.',
+  'Siège OFC à Paris (75012) : interventions en Yvelines (78) en intra ou inter, logistique précisée au devis.',
   `Session ${CATALOGUE_NIV01.duree} — 100 % pratique sur vos documents : devis, comptes rendus de chantier, appels d'offres.`,
   'Financement possible par OPCO Constructys (plan de développement des compétences) selon éligibilité et dossier.',
   `Organisme certifié Qualiopi.`,
@@ -74,7 +74,7 @@ export default function FormationIABTPSaintQuentinYvelinesPage() {
 
       <FormationCourseHero
         catalogueRef="NIV-01"
-        refLine="Laure Olivié · OFC Création d'Entreprise · Guyancourt (78280) · organisme certifié Qualiopi · Constructys"
+        refLine="Laure Olivié · OFC Création d'Entreprise · Paris (75012) · organisme certifié Qualiopi · Constructys"
         title={
           <>
             Formation IA pour les pros du BTP Saint-Quentin-en-Yvelines (78) —{' '}
@@ -144,7 +144,7 @@ export default function FormationIABTPSaintQuentinYvelinesPage() {
               accélérer la structuration — sous contrôle humain.
             </p>
             <p>
-              <strong className="text-slate-900">OFC Création d&apos;Entreprise est installé à Guyancourt</strong>, au
+              <strong className="text-slate-900">OFC Création d&apos;Entreprise est basé à Paris (75012)</strong>, avec
               cœur de SQY : pour une entreprise du secteur, cela veut dire une intervenante disponible pour des
               sessions <strong>intra</strong> (dans vos locaux) ou <strong>inter</strong>, avec une logistique simple et des
               créneaux adaptés aux contraintes terrain en Île-de-France.
@@ -166,7 +166,7 @@ export default function FormationIABTPSaintQuentinYvelinesPage() {
           <ul className="mt-8 space-y-4">
             {[
               {
-                titre: 'Proximité du siège OFC (Guyancourt)',
+                titre: 'Interventions en Yvelines (78)',
                 text: 'Organisation d’une demi-journée ou d’une session intra sans enchaînement de déplacements longs pour l’équipe.',
               },
               {
@@ -429,7 +429,7 @@ export default function FormationIABTPSaintQuentinYvelinesPage() {
             OFC Création d&apos;Entreprise — Saint-Quentin-en-Yvelines et Île-de-France
           </h2>
           <p className="mt-4 max-w-3xl text-slate-600">
-            Organisme certifié Qualiopi, basé à Guyancourt (78280), spécialisé dans l&apos;intégration de
+            Organisme certifié Qualiopi, basé à Paris (75012), spécialisé dans l&apos;intégration de
             l&apos;intelligence artificielle dans les entreprises du bâtiment et des travaux publics.
           </p>
           <p className="mt-4 text-sm text-slate-600">

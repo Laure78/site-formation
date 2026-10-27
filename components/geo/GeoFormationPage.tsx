@@ -155,17 +155,17 @@ export function GeoFormationPage(props: GeoFormationPageProps) {
       <section className={OFC_SEC.muted}>
         <div className={OFC_SECTION_INNER_ARTICLE}>
           <h2 className="font-display text-2xl font-bold text-slate-900 md:text-2xl">
-            Formatrice basée à Guyancourt (78)
+            Formatrice basée à Paris (75012)
           </h2>
           <p className="mt-4 text-base leading-relaxed text-slate-700 md:text-lg">
             <strong>Laure Olivié</strong> intervient dans tout le département {deptPreposition} ({code}) :
             sessions <strong>intra (dans vos locaux) ou inter</strong> (proche de{' '}
-            {villePrincipale}). Siège {SITE_CONFIG.legalName} à Guyancourt — déplacements Île-de-France
+            {villePrincipale}). Siège {SITE_CONFIG.legalName} à {SITE_CONFIG.geo.city} ({SITE_CONFIG.geo.postalCode}) — déplacements Île-de-France
             précisés au devis, sans surprise.
           </p>
           <div className="mt-4 inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-4 py-2 text-base text-slate-700">
             <MapPin size={16} className="text-[#377CF3]" aria-hidden />
-            Guyancourt (78) → interventions {deptPreposition}
+            Paris (75012) → interventions {deptPreposition}
           </div>
         </div>
       </section>

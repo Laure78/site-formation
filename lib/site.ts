@@ -116,7 +116,7 @@ export const SITE = {
     identityIntro:
       'Formations pratiques en intelligence artificielle pour les entreprises du bâtiment et des travaux publics.',
     useCasesLine: 'Devis · Chantiers · Appels d’offres · Productivité',
-    locationLine: 'Guyancourt · Yvelines · Île-de-France',
+    locationLine: 'Paris · Île-de-France',
     geoSentence:
       'Laure Olivié accompagne les entreprises du bâtiment et des travaux publics dans l’utilisation concrète de l’intelligence artificielle pour les devis, les chantiers et les appels d’offres.',
     accessibiliteLabel:

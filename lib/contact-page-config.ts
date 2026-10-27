@@ -89,7 +89,7 @@ export const CONTACT_PRIMARY_EMAIL = CONTACT.email;
 export const CONTACT_PHONE = CONTACT.phone;
 export const CONTACT_PHONE_DISPLAY = CONTACT.phoneDisplay;
 
-export const CONTACT_LOCATION_LABEL = 'Guyancourt · Île-de-France' as const;
+export const CONTACT_LOCATION_LABEL = CONTACT.address;
 
 export const CONTACT_FOOTER_LINKS = [
   { href: LINKS.formations, label: 'Catalogue des formations' },

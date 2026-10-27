@@ -402,10 +402,10 @@ export default function FormationIaParisPage() {
               Où se déroulent les formations à Paris et en Île-de-France
             </h2>
             <p className="mt-4 text-base leading-relaxed text-slate-600 md:text-lg">
-              Les sessions ont lieu en présentiel, intra ou inter — {IDF_ZONE_INTERVENTION}. Basée à
-              Guyancourt (78), Laure Olivié se déplace sur vos sites parisiens — bureaux d&apos;études, bases
-              travaux ou locaux de l&apos;entreprise. Comptez typiquement 45 à 75 minutes depuis Guyancourt
-              selon l&apos;arrondissement et le trafic (temps indicatifs).
+              Les sessions ont lieu en présentiel, intra ou inter — {IDF_ZONE_INTERVENTION}. Basée à Paris
+              (75012), Laure Olivié se déplace sur vos sites parisiens — bureaux d&apos;études, bases travaux ou
+              locaux de l&apos;entreprise. Les temps de trajet se précisent selon l&apos;arrondissement et le trafic
+              (temps indicatifs).
             </p>
             <p className="mt-4 text-base leading-relaxed text-slate-600 md:text-lg">
               Le groupe reste homogène (même entreprise, mêmes modèles de documents). Le présentiel permet de

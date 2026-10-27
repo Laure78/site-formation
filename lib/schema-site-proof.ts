@@ -24,7 +24,7 @@ export function siteOrganizationSameAsUrls(): readonly string[] {
   return SCHEMA_ORGANIZATION_SAME_AS;
 }
 
-/** PostalAddress Guyancourt 78280. */
+/** PostalAddress siège OFC (SCHEMA_GEO). */
 export function siteOrganizationPostalAddress(): Record<string, unknown> {
   return {
     '@type': 'PostalAddress',

@@ -81,7 +81,7 @@ const COURSE_JSON_LD = {
 const FAQ_IDF: FAQItem[] = [
   {
     q: 'Où se déroulent les formations en Île-de-France ?',
-    a: `Exclusivement en présentiel en Île-de-France : intra ou inter. Basée à Guyancourt (78), Laure Olivié intervient sur ${IDF_ZONE_INTERVENTION}.`,
+    a: `Exclusivement en présentiel en Île-de-France : intra ou inter. Basée à Paris (75012), Laure Olivié intervient sur ${IDF_ZONE_INTERVENTION}.`,
   },
   {
     q: 'La formation IA construction est-elle finançable par Constructys ?',

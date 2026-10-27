@@ -117,10 +117,11 @@ export const A_PROPOS_PERSON_SCRIPT_JSON_LD: Record<string, unknown> = {
   },
   address: {
     '@type': 'PostalAddress',
-    streetAddress: 'Guyancourt',
-    postalCode: '78280',
-    addressRegion: 'Île-de-France',
-    addressCountry: 'FR',
+    streetAddress: SCHEMA_GEO.streetAddress,
+    postalCode: SCHEMA_GEO.postalCode,
+    addressLocality: SCHEMA_GEO.addressLocality,
+    addressRegion: SCHEMA_GEO.addressRegion,
+    addressCountry: SCHEMA_GEO.addressCountry,
   },
   sameAs: [
     SCHEMA_LINKEDIN_PROFILE_URL,

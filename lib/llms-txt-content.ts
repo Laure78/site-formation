@@ -2,13 +2,14 @@
  * Contenu `/llms.txt` — source unique (sans chemins `lib/` ou `data/`).
  * Synchroniser : `npm run llms:sync` → `public/llms.txt`.
  */
+import { CONTACT } from '@/lib/constants';
 import { formatReferencesLlmsLine } from '@/lib/references';
 import { SCHEMA_PUBLIC_SITE_URL } from '@/lib/schema-constants';
 
 const BASE = SCHEMA_PUBLIC_SITE_URL.replace(/\/$/, '');
 
 /** Date ISO (YYYY-MM-DD) — mettre à jour à chaque modification de ce fichier. */
-export const LLMS_TXT_LAST_UPDATED = '2026-10-25';
+export const LLMS_TXT_LAST_UPDATED = '2026-10-27';
 
 export function buildLlmsTxtContent(): string {
   const refs = formatReferencesLlmsLine();
@@ -18,7 +19,7 @@ export function buildLlmsTxtContent(): string {
 
 ## À propos
 - Laure Olivié : 7 ans d'expérience dans le BTP, ancienne dirigeante d'ALIA BTP (travaux publics, Île-de-France). Instructrice LinkedIn Learning (IA appliquée au BTP).
-- Organisme : OFC Création d'Entreprise, SASU, Guyancourt (78). Certifié Qualiopi (actions de formation).
+- Organisme : OFC Création d'Entreprise, SASU, ${CONTACT.address}. Certifié Qualiopi (actions de formation).
 - Public : dirigeants de PME du bâtiment, conducteurs de travaux, chargés d'affaires, maîtres d'œuvre, bureaux d'études, fonctions support BTP.
 - Satisfaction : 4,45/5 (20 répondants, questionnaires à chaud, juillet 2025 – juin 2026). Détail : ${BASE}/indicateurs-resultats
 
@@ -62,7 +63,7 @@ export function buildLlmsTxtContent(): string {
 ${refs}
 
 ## Contact
-Laure Olivié · OFC Création d'Entreprise · SIRET 905 244 281 00010 · NDA 11788515078 · 6 rue Henri Dunant, 78280 Guyancourt · contact@laureolivie.fr · 06 95 66 18 18
+Laure Olivié · OFC Création d'Entreprise · SIRET 905 244 281 00010 · NDA 11788515078 · ${CONTACT.address} · contact@laureolivie.fr · 06 95 66 18 18
 Visio découverte gratuite (30 min) : ${BASE}/prendre-rdv
 
 Dernière mise à jour : ${LLMS_TXT_LAST_UPDATED}

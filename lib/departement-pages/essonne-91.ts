@@ -34,7 +34,7 @@ export const DEPARTEMENT_ESSONNE_91: DepartementPageData = {
   faqLocale: [
     {
       q: 'Intervenez-vous sur le plateau de Saclay et à Massy ?',
-      a: 'Oui, en intra (dans vos locaux) ou inter, comme partout en Essonne — présentiel uniquement. Palaiseau, Longjumeau et Morangis se planifient aussi en demi-journée depuis Guyancourt.',
+      a: 'Oui, en intra (dans vos locaux) ou inter, comme partout en Essonne — présentiel uniquement. Palaiseau, Longjumeau et Morangis se planifient aussi en demi-journée depuis Paris (75012).',
     },
     {
       q: 'La formation aide-t-elle vraiment sur les marchés publics ?',

@@ -34,7 +34,7 @@ export const DEPARTEMENT_VAL_DE_MARNE_94: DepartementPageData = {
   faqLocale: [
     {
       q: 'Intervenez-vous à Créteil et alentours ?',
-      a: 'Oui, en intra (dans vos locaux) ou inter, partout dans le Val-de-Marne — Vitry, Ivry, Vincennes, Champigny et Maisons-Alfort inclus. Les délais depuis Guyancourt se précisent au devis.',
+      a: 'Oui, en intra (dans vos locaux) ou inter, partout dans le Val-de-Marne — Vitry, Ivry, Vincennes, Champigny et Maisons-Alfort inclus. Les délais depuis Paris (75012) se précisent au devis.',
     },
     {
       q: "La formation aide-t-elle un conducteur de travaux au quotidien ?",
