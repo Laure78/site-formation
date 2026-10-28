@@ -4,7 +4,6 @@ import { Suspense } from 'react';
 import { FormateursCatalogueHub } from '@/components/formateurs/FormateursCatalogueHub';
 import { FormateursBottomCta } from '@/components/formateurs/FormateursBottomCta';
 import { FormateursMobileStickyBar } from '@/components/formateurs/FormateursMobileStickyBar';
-import { FormateursTrustStrip } from '@/components/formateurs/FormateursTrustStrip';
 import { JsonLd } from '@/components/JsonLd';
 import { BreadcrumbJsonLd } from '@/components/seo/BreadcrumbJsonLd';
 import { Section } from '@/components/ui/Section';
@@ -105,24 +104,24 @@ export default function FormateursPage() {
 
       <section className={`${FORMATEURS_HERO_SECTION} formateurs-hub-hero`}>
         <div className={`${OFC_SECTION_INNER} formateurs-hub-hero__inner`}>
-          <p className={`${OFC_EYEBROW} text-ofc-accent`}>Formation IA BTP</p>
-          <h1 className={`${OFC_TYPE_HERO} formateurs-hub-hero__title`}>
-            Les formateurs qui vous accompagnent
-          </h1>
-          <p className="formateurs-hub-hero__lead max-w-2xl text-ofc-ink-muted">
-            Spécialités et formations animées pour le bâtiment et les travaux publics — présentiel
-            Île-de-France.
-          </p>
+          <div className="formateurs-hub-hero__copy w-full max-w-3xl">
+            <p className={`${OFC_EYEBROW} text-ofc-accent`}>Formation IA BTP</p>
+            <h1 className={`${OFC_TYPE_HERO} formateurs-hub-hero__title`}>
+              Les formateurs qui vous accompagnent
+            </h1>
+            <p className="formateurs-hub-hero__lead text-ofc-ink-muted">
+              Spécialités et formations animées pour le bâtiment et les travaux publics — présentiel
+              Île-de-France.
+            </p>
 
-          <FormateursTrustStrip />
-
-          <div className="formateurs-hub-hero__actions mt-8">
-            <Link
-              href="#formateurs-profiles"
-              className={`${OFC_CTA_SECONDARY} inline-flex min-h-11 items-center justify-center rounded-xl px-6 py-3 text-base font-semibold`}
-            >
-              Voir l’équipe
-            </Link>
+            <div className="formateurs-hub-hero__actions">
+              <Link
+                href="#formateurs-profiles"
+                className={`${OFC_CTA_SECONDARY} inline-flex min-h-11 items-center justify-center rounded-xl px-6 py-3 text-base font-semibold`}
+              >
+                Voir l’équipe
+              </Link>
+            </div>
           </div>
         </div>
       </section>
