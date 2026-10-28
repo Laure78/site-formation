@@ -126,6 +126,8 @@ export type CatalogueFormationPageContent = {
   seoLandingLink?: { href: string; label: string };
   /** Afficher la barre de réassurance sous le hero (défaut true). */
   showTrustBar?: boolean;
+  /** Masquer l’encadré « En bref » sous le hero (GEO conservé dans les métadonnées / SEO). */
+  hideHeroEnBref?: boolean;
 };
 
 const DEFAULT_FINAL_CTA = {
@@ -857,6 +859,7 @@ const NIV_10: CatalogueFormationPageContent = {
   instructorBody:
     'Laure Olivié, fondatrice de la marque et formatrice (organisme certifié Qualiopi — OFC Création d’Entreprise), 7 ans d’expérience dans le BTP, ancienne dirigeante d’une entreprise de travaux publics en Île-de-France. Elle a elle-même créé ses outils de gestion avec l’IA. Méthode progressive, petits groupes, 70 % de pratique.',
   showBeworkPasserelle: false,
+  hideHeroEnBref: true,
   finalCta: DEFAULT_FINAL_CTA,
 };
 

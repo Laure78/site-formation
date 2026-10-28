@@ -2,7 +2,6 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Check, Clock, MapPin, Users, Code2 } from 'lucide-react';
 import { FormationHeroOutilsNote } from '@/components/formations/FormationHeroOutilsNote';
-import { ShortAnswerBlock } from '@/components/landing/ShortAnswerBlock';
 import { getFormationCatalogueVisuel } from '@/lib/formations-catalogue-display';
 import { getFormationCatalogueSeo } from '@/lib/formation-catalogue-seo';
 import { OFC_CTA_PRIMARY, OFC_CTA_SECONDARY, OFC_EYEBROW, OFC_LINK } from '@/lib/ofc-interaction-classes';
@@ -59,10 +58,6 @@ export function CatalogueFormationDevWebHero() {
             <p className="mt-4 max-w-2xl text-lg font-medium leading-relaxed text-slate-800 md:text-xl">
               {DEV_WEB_IA_SUBTITLE}
             </p>
-
-            <div className="mt-5 max-w-2xl">
-              <ShortAnswerBlock>{CATALOGUE_SEO.enBref}</ShortAnswerBlock>
-            </div>
 
             <p className="mt-5 max-w-2xl text-base leading-relaxed text-slate-600">
               {DEV_WEB_IA_INTRO}

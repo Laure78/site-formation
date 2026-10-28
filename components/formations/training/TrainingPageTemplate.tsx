@@ -209,7 +209,7 @@ export async function TrainingPageTemplate({
       </div>
 
       <TrainingPageLayout sidebar={null}>
-        {!customHero ? (
+        {!customHero && !content.hideHeroEnBref ? (
           <section className="border-b border-slate-200 bg-white px-4 py-6 md:py-8">
             <div className="mx-auto max-w-[78rem]">
               <ShortAnswerBlock>{seo.enBref}</ShortAnswerBlock>
