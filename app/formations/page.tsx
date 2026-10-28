@@ -9,6 +9,7 @@ import { FormationsCatalogueReassuranceLine } from '@/components/formations/cata
 import { FormationsCatalogueParcoursMetiers2027Banner } from '@/components/formations/catalogue-2027/FormationsCatalogueParcoursMetiers2027Banner';
 import { FormationsIaDisponibles } from '@/components/formations/catalogue-2027/FormationsIaDisponibles';
 import { FormationsCatalogueParcoursCompact } from '@/components/formations/catalogue-2027/FormationsCatalogueParcoursCompact';
+import { FormationsCatalogueFormateursTeaser } from '@/components/formations/catalogue-2027/FormationsCatalogueFormateursTeaser';
 import { FormationsCatalogueEntrepriseCompact } from '@/components/formations/catalogue-2027/FormationsCatalogueEntrepriseCompact';
 import { FormationsCatalogueFinancementEncadre } from '@/components/formations/catalogue-2027/FormationsCatalogueFinancementEncadre';
 import { FormationsContact2027 } from '@/components/formations/catalogue-2027/FormationsContact2027';
@@ -97,6 +98,7 @@ export default async function FormationsPage({ searchParams }: FormationsPagePro
               <FormationsCatalogueParcoursCompact />
             </>
           ) : null}
+          <FormationsCatalogueFormateursTeaser />
           <FormationsCatalogueEntrepriseCompact />
           <FormationsCatalogueFinancementEncadre />
           <FormationsContact2027 formationHint={null} />
