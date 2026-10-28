@@ -11,7 +11,7 @@ import { BreadcrumbJsonLd } from '@/components/seo/BreadcrumbJsonLd';
 import { CONSULTANT_FAQ_ITEMS } from '@/lib/consultant-recruitment-content';
 import { DEVENEZ_CONSULTANT_INNER } from '@/lib/devenez-consultant-layout';
 import { LINKS } from '@/lib/internal-links';
-import { ofcSectionClasses } from '@/lib/ofc-section-classes';
+import { OFC_READABLE_COLUMN, ofcSectionClasses } from '@/lib/ofc-section-classes';
 import { createPageMetadata, SITE_CONFIG } from '@/lib/seo';
 
 export const revalidate = 3600;
@@ -53,9 +53,13 @@ export default function DevenezConsultantPage() {
       <ConsultantWhyOfcSection />
       <ConsultantParcoursMetiersSection />
 
-      <section className={ofcSectionClasses({ tone: 'muted', size: 'compact' })}>
-        <div className={DEVENEZ_CONSULTANT_INNER}>
+      <section
+        className={ofcSectionClasses({ tone: 'muted', size: 'compact' })}
+        aria-labelledby="faq-title"
+      >
+        <div className={OFC_READABLE_COLUMN}>
           <FAQAccordion
+            id="faq"
             title="Questions fréquentes — consultant-formateur IA BTP"
             subtitle="Réponses courtes pour préparer votre proposition."
             items={CONSULTANT_FAQ_ITEMS}

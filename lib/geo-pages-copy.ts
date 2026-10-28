@@ -2,17 +2,10 @@
  * Textes GEO partagés — réponses directes, sans duplication de tarifs (voir `data/formations`, `lib/tarifs-catalogue-participant`).
  */
 import { LINKS } from '@/lib/internal-links';
-import { FINANCEMENT_FORMULATION_CATALOGUE } from '@/lib/financement-copy';
-import { formatOrganismeQualiopiCourt } from '@/lib/marque-identite';
 
 /** Accueil — activité, publics, usages, zone (HTML autorisé dans FAQ ; ici texte brut). */
 export const ACCUEIL_EN_BREF =
   'Laure Olivié forme les dirigeants et les équipes des entreprises du bâtiment et des travaux publics à utiliser l’intelligence artificielle sur leurs documents métier : devis, appels d’offres et suivi de chantier. Les formations se déroulent en présentiel en Île-de-France, dispensées par OFC Création d’Entreprise (organisme certifié Qualiopi).';
-
-/** Catalogue `/formations` — choix par niveau + financement prudent. */
-export function getFormationsCatalogueEnBref(): string {
-  return `Catalogue OFC : formations IA pour le BTP en présentiel en Île-de-France (niveaux 1 à 3, usages devis à maîtrise d’œuvre). Les sessions ci-dessous sont ouvertes à l’inscription ; les parcours métiers 2027 sont présentés plus bas. ${FINANCEMENT_FORMULATION_CATALOGUE} ${formatOrganismeQualiopiCourt()}.`;
-}
 
 /** Six contrôles sur les sorties IA — guide AO BTP (synthèse HTML, alignée PDF 2026). */
 export const GUIDE_AO_CONTROLES_IA = [

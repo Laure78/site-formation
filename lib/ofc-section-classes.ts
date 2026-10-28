@@ -61,6 +61,12 @@ export const OFC_SECTION_INNER_WIDE = 'ofc-section-inner ofc-section-inner--wide
 /** Colonne éditoriale (~896 px) — à l’intérieur d’une `ofc-section` (padding horizontal sur la section). */
 export const OFC_SECTION_INNER_ARTICLE = 'ofc-section-inner max-w-4xl';
 
+/** Colonne lisible unique (~896 px) — une colonne, centrée. Padding horizontal : parent `ofc-section` ou `px-4` page. */
+export const OFC_READABLE_COLUMN = 'mx-auto w-full max-w-4xl';
+
+/** Même colonne avec marges latérales 16–20 px si le parent n’a pas de padding horizontal. */
+export const OFC_READABLE_COLUMN_PADDED = `${OFC_READABLE_COLUMN} px-4 sm:px-5`;
+
 /** Panneau interne (carte large dans une section) */
 export const OFC_INSET_PANEL = 'ofc-inset-panel';
 

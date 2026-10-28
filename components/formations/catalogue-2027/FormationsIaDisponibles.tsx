@@ -7,7 +7,6 @@ import { getUpcomingCatalogueFormationEntries } from '@/lib/catalogue-formation-
 import { FormationsCatalogueFilteredGrid } from '@/components/formations/catalogue-2027/FormationsCatalogueFilteredGrid';
 import { FormationsCatalogueToolbar } from '@/components/formations/catalogue-2027/FormationsCatalogueToolbar';
 import { CatalogModulesLegacyAnchor } from '@/components/formations/catalogue-2027/CatalogModulesLegacyAnchor';
-import { FormationsCatalogueOrientationCollapsible } from '@/components/formations/catalogue-2027/FormationsCatalogueOrientationCollapsible';
 
 export function FormationsIaDisponibles() {
   const availableEntries = getCataloguePageCoreFormations();
@@ -31,10 +30,6 @@ export function FormationsIaDisponibles() {
             pour consulter le détail.
           </p>
         </div>
-      </div>
-
-      <div className="mt-4">
-        <FormationsCatalogueOrientationCollapsible />
       </div>
 
       <div className="mt-4 rounded-xl border border-[#E2E8F0] bg-white p-4 sm:p-5">

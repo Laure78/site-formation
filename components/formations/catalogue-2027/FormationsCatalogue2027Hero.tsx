@@ -1,4 +1,3 @@
-import { CATALOGUE_HERO_SUBTITLE } from '@/lib/formations-catalogue-page-config';
 import { OFC_SEC } from '@/lib/ofc-section-classes';
 
 export function FormationsCatalogue2027Hero() {
@@ -15,7 +14,6 @@ export function FormationsCatalogue2027Hero() {
         >
           Catalogue des formations IA pour le BTP
         </h1>
-        <p className="ofc-type-lead mt-3 max-w-2xl text-ofc-ink-muted">{CATALOGUE_HERO_SUBTITLE}</p>
       </div>
     </section>
   );

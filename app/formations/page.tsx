@@ -3,9 +3,7 @@ import { Suspense } from 'react';
 import { JsonLd } from '@/components/JsonLd';
 import { createPageMetadata, SITE_CONFIG } from '@/lib/seo';
 import { PHOTOS } from '@/lib/photos';
-import { CATALOGUE_2027_POSITIONNEMENT } from '@/data/catalogue-2027';
 import { FormationsCatalogue2027Hero } from '@/components/formations/catalogue-2027/FormationsCatalogue2027Hero';
-import { FormationsCatalogueEnBrefSection } from '@/components/formations/catalogue-2027/FormationsCatalogueEnBrefSection';
 import { FormationsCataloguePageNav } from '@/components/formations/catalogue-2027/FormationsCataloguePageNav';
 import { FormationsCatalogueReassuranceLine } from '@/components/formations/catalogue-2027/FormationsCatalogueReassuranceLine';
 import { FormationsCatalogueParcoursMetiers2027Banner } from '@/components/formations/catalogue-2027/FormationsCatalogueParcoursMetiers2027Banner';
@@ -84,10 +82,7 @@ export default async function FormationsPage({ searchParams }: FormationsPagePro
       <FormationsCatalogue2027Hero />
 
       <div className="mx-auto max-w-[80rem] px-4 pb-24 pt-1 sm:px-6 lg:px-8">
-        <p className="sr-only">{CATALOGUE_2027_POSITIONNEMENT.introductionMarque}</p>
-
         <div className="space-y-6 md:space-y-7">
-          <FormationsCatalogueEnBrefSection />
           <FormationsCatalogueReassuranceLine />
           <div className="-mx-4 sm:-mx-6 lg:-mx-8">
             <FormationsCataloguePageNav />

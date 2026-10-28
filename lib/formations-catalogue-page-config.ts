@@ -49,9 +49,6 @@ export function getCataloguePageCoreFormations(
 export const CATALOGUE_HERO_REASSURANCE =
   `OFC certifié Qualiopi · Présentiel Île-de-France · Groupe · Intra & inter` as const;
 
-export const CATALOGUE_HERO_SUBTITLE =
-  'Sessions IA en présentiel en Île-de-France : choisissez par niveau (4 h, 7 h, 14 h) ou par usage métier (devis, appels d’offres, chantier, maîtrise d’œuvre, Claude).' as const;
-
 /** Modalités communes — une seule fois au-dessus de la grille catalogue. */
 export const CATALOGUE_GRILLE_MODALITES_LIGNE =
   'Tarifs HT par participant · sessions collectives, intra ou inter · présentiel Île-de-France uniquement' as const;
