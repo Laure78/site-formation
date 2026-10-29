@@ -34,7 +34,7 @@ export const metadata = buildMetadata({
   article: {
     publishedTime: '2026-10-16',
     modifiedTime: CHARTE_IA_BTP_CONTENT_UPDATED_AT,
-    authors: [SITE_CONFIG.name],
+    author: SITE_CONFIG.name,
   },
   robots: CHARTE_IA_BTP_LEGAL_REVIEW_PENDING
     ? { index: false, follow: true }
