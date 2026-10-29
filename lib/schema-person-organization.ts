@@ -9,6 +9,7 @@ import {
   SCHEMA_ORGANIZATION_OFC,
   SCHEMA_PERSON_LAURE,
   SCHEMA_PUBLIC_SITE_URL,
+  schemaLogoUrl,
 } from '@/lib/schema-constants';
 import { SITE_CONFIG, siteHasPublicPhone } from '@/lib/seo';
 
@@ -24,7 +25,7 @@ export function getSchemaPersonOrganization() {
         name: SCHEMA_ORGANIZATION_OFC.name,
         legalName: SCHEMA_ORGANIZATION_OFC.legalNameSasu,
         url: base,
-        logo: `${base}/logo-lo.svg`,
+        logo: schemaLogoUrl(),
         description: SCHEMA_ORGANIZATION_OFC.descriptionShortGraph,
         foundingDate: SCHEMA_ORGANIZATION_OFC.foundingYear,
         founder: {

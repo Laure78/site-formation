@@ -13,6 +13,7 @@ import {
   SCHEMA_OPENING_HOURS,
   SCHEMA_ORGANIZATION_OFC,
   SCHEMA_PUBLIC_SITE_URL,
+  schemaLogoUrl,
 } from '@/lib/schema-constants';
 
 const BASE = SCHEMA_PUBLIC_SITE_URL.replace(/\/$/, '');
@@ -26,7 +27,7 @@ export function getAProposLocalBusinessJsonLd(): Record<string, unknown> {
     name: SCHEMA_ORGANIZATION_OFC.name,
     legalName: SCHEMA_ORGANIZATION_OFC.legalName,
     url: BASE,
-    logo: `${BASE}/logo-lo.svg`,
+    logo: schemaLogoUrl(),
     image: `${BASE}${PHOTOS.aProposHero2026.src}`,
     description: `Organisme de formation certifié Qualiopi spécialisé en intelligence artificielle pour les entreprises du bâtiment et des travaux publics. Formation IA appliquée au bâtiment — financement possible selon éligibilité. +$`,
     email: SCHEMA_CONTACT.email,

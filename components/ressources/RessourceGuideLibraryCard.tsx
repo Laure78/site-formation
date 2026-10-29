@@ -59,7 +59,13 @@ export function RessourceGuideLibraryCard({ guide }: Props) {
         ) : (
           <div className="flex h-full flex-col items-center justify-center gap-3 px-6 text-center">
             {/* eslint-disable-next-line @next/next/no-img-element -- logo SVG léger décoratif */}
-            <img src="/logo-lo.svg" alt="" width={40} height={40} className="opacity-80" />
+            <img
+              src="/images/logo-laure-olivie-formation-ia-btp.webp"
+              alt=""
+              width={120}
+              height={40}
+              className="h-8 w-auto max-w-[7rem] object-contain opacity-90"
+            />
             <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">
               {isExcel ? 'Excel' : isZip ? 'ZIP' : 'PDF'} · {guide.categoryLabel}
             </p>

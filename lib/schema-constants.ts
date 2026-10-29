@@ -188,8 +188,8 @@ export const SCHEMA_ORGANIZATION_OFC = {
   foundingYear: '2021',
 } as const;
 
-/** Logo SVG — chemin relatif site. */
-export const SCHEMA_LOGO_PATH = '/logo-lo.svg' as const;
+/** Logo de marque — chemin relatif site (aligné `SITE_BRAND_LOGO`). */
+export const SCHEMA_LOGO_PATH = '/images/logo-laure-olivie-formation-ia-btp.webp' as const;
 
 /** Image portrait par défaut — schémas globaux. */
 export const SCHEMA_DEFAULT_PERSON_IMAGE_PATH = '/images/laure-olivie-formatrice-ia-btp-qualiopi.webp' as const;

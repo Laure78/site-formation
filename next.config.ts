@@ -1035,6 +1035,11 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
+        source: '/logo-lo.svg',
+        destination: '/images/logo-laure-olivie-formation-ia-btp.webp',
+        permanent: true,
+      },
+      {
         source: '/images/laure-avatar-bleu-2026.png',
         destination: '/images/laure-avatar-bleu.png',
         permanent: true,

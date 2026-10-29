@@ -382,7 +382,7 @@ export function getOrganizationSchema() {
     '@id': `${SITE_CONFIG.url}/#organization`,
     name: SITE_CONFIG.name,
     legalName: SITE_CONFIG.legalName,
-    logo: { '@type': 'ImageObject', url: `${SITE_CONFIG.url}/logo-lo.svg` },
+    logo: { '@type': 'ImageObject', url: siteOrganizationLogoAbsoluteUrl() },
     image: `${SITE_CONFIG.url}/images/laure-olivie-formatrice-ia-btp-qualiopi.webp`,
     alternateName: [SITE_CONFIG.legalName, 'Laure Olivié Formation'],
     description:
@@ -565,7 +565,7 @@ export function getArticleSchema({
       url: SITE_CONFIG.url,
       logo: {
         '@type': 'ImageObject',
-        url: `${SITE_CONFIG.url}/logo-lo.svg`,
+        url: siteOrganizationLogoAbsoluteUrl(),
       },
     },
     image: { '@type': 'ImageObject', url: imageUrl, width: 1200, height: 630 },
@@ -692,7 +692,7 @@ export function buildBlogPostingJsonLd({
       url: baseRoot,
       logo: {
         '@type': 'ImageObject',
-        url: `${baseRoot}/logo-lo.svg`,
+        url: siteOrganizationLogoAbsoluteUrl(),
       },
     },
     mainEntityOfPage: {

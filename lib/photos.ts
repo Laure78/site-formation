@@ -1,6 +1,17 @@
 import { getFormationByCode } from '@/data/formations';
 
-/** Logo header (portrait circulaire bleu) — source unique, format WebP uniquement. */
+/** Logo horizontal (header, footer, schema Organization) — WebP uniquement. */
+export const SITE_BRAND_LOGO = {
+  src: '/images/logo-laure-olivie-formation-ia-btp.webp',
+  width: 1024,
+  height: 341,
+} as const;
+
+/** Classe d’affichage du logo horizontal (ratio ~3:1). */
+export const SITE_BRAND_LOGO_IMAGE_CLASS =
+  'h-9 w-auto max-w-[11rem] object-contain object-left sm:h-10 sm:max-w-[13rem]' as const;
+
+/** Portrait header / favicons (circulaire bleu) — distinct du logo de marque. */
 export const SITE_HEADER_LOGO_SRC = '/images/laure-avatar-bleu.webp' as const;
 
 /**
@@ -24,7 +35,10 @@ export const PHOTOS = {
     height: 404,
   },
 
-  /** Avatar site — portrait circulaire IA & BTP (header + auteur articles) */
+  /** Logo horizontal — chrome site (header, footer) */
+  siteBrandLogo: SITE_BRAND_LOGO,
+
+  /** Avatar site — portrait circulaire IA & BTP (auteur articles, favicons) */
   siteAvatar: {
     src: SITE_HEADER_LOGO_SRC,
     alt: SITE_LOGO_ALT,

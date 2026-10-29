@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { AUTHOR_HEADSHOT_IMAGE_CLASS } from '@/lib/author-headshot';
+import { SITE_BRAND_LOGO_IMAGE_CLASS } from '@/lib/photos';
 import { IMAGE_QUALITY_DEFAULT } from '@/lib/image-props';
 import { SITE } from '@/lib/site';
 
@@ -13,19 +13,16 @@ export function AuthConnexionMinimalHeader() {
           href={SITE.links.home}
           className="flex shrink-0 items-center rounded-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#377CF3]"
         >
-          <span className="ring-1 ring-[#377CF3]/20 rounded-full">
-            <Image
-              src={SITE.logo.src}
-              alt={SITE.logo.alt}
-              title={SITE.logo.title}
-              width={44}
-              height={44}
-              className={AUTHOR_HEADSHOT_IMAGE_CLASS}
-              quality={IMAGE_QUALITY_DEFAULT}
-              priority
-            />
-          </span>
-          <span className="sr-only">{SITE.name}</span>
+          <Image
+            src={SITE.logo.src}
+            alt={SITE.logo.alt}
+            title={SITE.logo.title}
+            width={SITE.logo.width}
+            height={SITE.logo.height}
+            className={SITE_BRAND_LOGO_IMAGE_CLASS}
+            quality={IMAGE_QUALITY_DEFAULT}
+            priority
+          />
         </Link>
         <Link
           href={SITE.links.home}

@@ -15,6 +15,7 @@ import {
   SCHEMA_ORGANIZATION_OFC,
   SCHEMA_PERSON_SAME_AS,
   SCHEMA_PUBLIC_SITE_URL,
+  schemaLogoUrl,
   buildIdfAreaServedSchemaEntities,
   buildPersonAffiliationSchemaNodes,
 } from '@/lib/schema-constants';
@@ -120,7 +121,7 @@ export function getAProposUnifiedJsonLd(): Record<string, unknown> {
     name: SCHEMA_ORGANIZATION_OFC.name,
     legalName: SCHEMA_ORGANIZATION_OFC.legalName,
     url: BASE,
-    logo: `${BASE}/logo-lo.svg`,
+    logo: schemaLogoUrl(),
     image: `${BASE}${PHOTOS.aProposHero2026.src}`,
     description: `Organisme de formation IA BTP certifié Qualiopi : intelligence artificielle appliquée au bâtiment et aux travaux publics pour les PME. Présentiel Île-de-France — financement possible selon éligibilité. Satisfaction ${PREUVES.satisfaction} (${PREUVES.repondants} répondants).`,
     email: SCHEMA_CONTACT.email,

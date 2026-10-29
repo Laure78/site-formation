@@ -5,7 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import type { LucideIcon } from 'lucide-react';
 import { LogIn, Mail, Search, X } from 'lucide-react';
-import { AUTHOR_HEADSHOT_IMAGE_CLASS } from '@/lib/author-headshot';
+import { SITE_BRAND_LOGO_IMAGE_CLASS } from '@/lib/photos';
 import { IMAGE_QUALITY_DEFAULT } from '@/lib/image-props';
 import { HeaderPrimaryCta } from '@/components/nav/HeaderPrimaryCta';
 import { HeaderMobileNavSection } from '@/components/nav/HeaderNavDropdown';
@@ -90,19 +90,17 @@ export function HeaderMobileDrawer({
         aria-label="Menu de navigation"
       >
         <div className="flex h-16 shrink-0 items-center justify-between border-b border-slate-100 px-4">
-          <Link href={SITE.links.home} onClick={onClose} className="flex min-w-0 items-center gap-2.5">
-            <span className="relative h-9 w-9 shrink-0 overflow-hidden rounded-full ring-1 ring-slate-200/70">
-              <Image
-                src={SITE.logo.src}
-                alt={SITE.logo.alt}
-                width={36}
-                height={36}
-                className={AUTHOR_HEADSHOT_IMAGE_CLASS}
-                quality={IMAGE_QUALITY_DEFAULT}
-                loading="lazy"
-              />
-            </span>
-            <span className="truncate font-display text-base font-bold text-slate-900">{SITE.name}</span>
+          <Link href={SITE.links.home} onClick={onClose} className="flex min-w-0 items-center">
+            <Image
+              src={SITE.logo.src}
+              alt={SITE.logo.alt}
+              title={SITE.logo.title}
+              width={SITE.logo.width}
+              height={SITE.logo.height}
+              className={`${SITE_BRAND_LOGO_IMAGE_CLASS} max-h-9 max-w-[10rem]`}
+              quality={IMAGE_QUALITY_DEFAULT}
+              loading="lazy"
+            />
           </Link>
           <button
             ref={closeButtonRef}

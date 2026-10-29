@@ -3,7 +3,7 @@
 import dynamic from 'next/dynamic';
 import Link from 'next/link';
 import Image from 'next/image';
-import { AUTHOR_HEADSHOT_IMAGE_CLASS } from '@/lib/author-headshot';
+import { SITE_BRAND_LOGO_IMAGE_CLASS } from '@/lib/photos';
 import { IMAGE_QUALITY_DEFAULT } from '@/lib/image-props';
 import { usePathname } from 'next/navigation';
 import { useEffect, useRef, useState } from 'react';
@@ -164,27 +164,20 @@ export function Header() {
 
           {/* Ligne principale — marque et accès */}
           <div className="site-header__top flex min-w-0 items-center justify-between gap-2 sm:gap-3">
-            <Link href={SITE.links.home} className="site-header__brand flex min-w-0 shrink-0 items-center gap-2 sm:gap-2.5">
-              <span className="site-header__logo-mark ring-[#377CF3]/25">
-                <Image
-                  src={SITE.logo.src}
-                  alt={SITE.logo.alt}
-                  title={SITE.logo.title}
-                  width={48}
-                  height={48}
-                  className={AUTHOR_HEADSHOT_IMAGE_CLASS}
-                  quality={IMAGE_QUALITY_DEFAULT}
-                  priority
-                />
-              </span>
-              <span className="site-header__brand-text flex min-w-0 flex-col leading-tight">
-                <span className="site-header__brand-name truncate font-display text-lg font-bold tracking-tight text-slate-900 sm:text-xl">
-                  {SITE.name}
-                </span>
-                <span className="site-header__brand-tagline hidden max-w-[14rem] truncate sm:block sm:max-w-[16rem] md:max-w-[18rem] lg:max-w-[20rem]">
-                  {SITE.tagline}
-                </span>
-              </span>
+            <Link
+              href={SITE.links.home}
+              className="site-header__brand flex min-w-0 shrink-0 items-center"
+            >
+              <Image
+                src={SITE.logo.src}
+                alt={SITE.logo.alt}
+                title={SITE.logo.title}
+                width={SITE.logo.width}
+                height={SITE.logo.height}
+                className={SITE_BRAND_LOGO_IMAGE_CLASS}
+                quality={IMAGE_QUALITY_DEFAULT}
+                priority
+              />
             </Link>
 
             <div className="site-header__actions relative z-[55] hidden shrink-0 items-center gap-2 border-l border-slate-200/90 pl-2.5 lg:flex xl:gap-2.5 xl:pl-3.5">

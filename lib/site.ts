@@ -58,7 +58,9 @@ export const SITE = {
     full: CONTACT.address,
   },
   logo: {
-    src: PHOTOS.siteAvatar.src,
+    src: PHOTOS.siteBrandLogo.src,
+    width: PHOTOS.siteBrandLogo.width,
+    height: PHOTOS.siteBrandLogo.height,
     alt: SITE_LOGO_ALT,
     title: SITE_LOGO_TITLE,
   },

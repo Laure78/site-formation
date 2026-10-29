@@ -14,7 +14,7 @@ import { OFC_IDENTITE } from '@/lib/ofc-identite';
 
 const BASE = SCHEMA_PUBLIC_SITE_URL.replace(/\/$/, '');
 
-/** URL absolue logo OFC (SVG — rich results Organization). */
+/** URL absolue logo OFC (WebP — rich results Organization). */
 export function siteOrganizationLogoAbsoluteUrl(): string {
   return schemaLogoUrl();
 }

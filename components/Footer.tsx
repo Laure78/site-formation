@@ -6,7 +6,7 @@ import { usePathname } from 'next/navigation';
 import { ChevronUp, Mail, Phone } from 'lucide-react';
 import { ExternalLinkAnchor } from '@/components/ExternalLink';
 import { QualiopiBadge } from '@/components/QualiopiLogo';
-import { AUTHOR_HEADSHOT_IMAGE_CLASS } from '@/lib/author-headshot';
+import { SITE_BRAND_LOGO_IMAGE_CLASS } from '@/lib/photos';
 import { requestCookieConsentDialog } from '@/lib/cookie-consent';
 import { IMAGE_QUALITY_DEFAULT } from '@/lib/image-props';
 import { QUALIOPI_LEGAL } from '@/lib/qualiopi-info';
@@ -128,23 +128,22 @@ export function Footer() {
       <div className="mx-auto max-w-[80rem] px-4 md:px-6 lg:px-8">
         <div className="grid grid-cols-1 items-start gap-8 py-8 sm:grid-cols-2 lg:grid-cols-[minmax(0,1.35fr)_repeat(3,minmax(0,1fr))] lg:gap-x-8 lg:gap-y-6 lg:py-9">
           <div className="min-w-0 sm:col-span-2 lg:col-span-1">
-            <div className="flex min-w-0 items-start gap-4">
-              <span className="site-header__logo-mark ring-white/25">
+            <div className="min-w-0">
+              <Link
+                href={SITE.links.home}
+                className="inline-block max-w-full rounded-lg bg-white px-3 py-2"
+              >
                 <Image
                   src={SITE.logo.src}
                   alt={SITE.logo.alt}
                   title={SITE.logo.title}
-                  width={48}
-                  height={48}
-                  className={AUTHOR_HEADSHOT_IMAGE_CLASS}
+                  width={SITE.logo.width}
+                  height={SITE.logo.height}
+                  className={SITE_BRAND_LOGO_IMAGE_CLASS}
                   quality={IMAGE_QUALITY_DEFAULT}
                 />
-              </span>
-              <div className="min-w-0">
-                <p className="font-display text-lg font-bold tracking-tight text-white">{SITE.name}</p>
-                <p className="mt-0.5 text-sm font-medium text-white/90">{SITE.tagline}</p>
-                <p className="mt-1 text-sm text-white/70">Présentiel en Île-de-France</p>
-              </div>
+              </Link>
+              <p className="mt-2 text-sm text-white/70">Présentiel en Île-de-France</p>
             </div>
             <ul className="mt-4 space-y-0.5">
               <li>
