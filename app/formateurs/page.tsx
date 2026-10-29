@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { Suspense } from 'react';
 import { FormateursCatalogueHub } from '@/components/formateurs/FormateursCatalogueHub';
+import { FormateursRecruitmentEncart } from '@/components/formateurs/FormateursRecruitmentEncart';
 import { FormateursBottomCta } from '@/components/formateurs/FormateursBottomCta';
 import { FormateursMobileStickyBar } from '@/components/formateurs/FormateursMobileStickyBar';
 import { JsonLd } from '@/components/JsonLd';
@@ -132,6 +133,9 @@ export default function FormateursPage() {
         innerClassName="formateurs-hub-profiles-section__inner"
         aria-labelledby="formateurs-grille"
       >
+        <div className="mb-8">
+          <FormateursRecruitmentEncart />
+        </div>
         <h2 id="formateurs-grille" className="sr-only">
           Grille des formateurs
         </h2>

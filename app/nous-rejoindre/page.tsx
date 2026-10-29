@@ -7,12 +7,23 @@ export const revalidate = 3600;
 
 const PAGE_URL = `${SITE_CONFIG.url.replace(/\/$/, '')}${LINKS.emplois}`;
 
+const PAGE_TITLE = 'Recrutement formateurs IA BTP 2027 | Laure Olivié';
+const PAGE_DESCRIPTION =
+  'Formateurs indépendants issus du BTP : transmettez vos usages de l’IA en présentiel en Île-de-France. Missions rémunérées dès 2027. Candidatez.';
+
 export const metadata = createPageMetadata({
-  title: 'Nous rejoindre — équipe Laure Olivié',
-  description:
-    'Rejoignez l’équipe Laure Olivié : offres d’emploi et candidatures pour la formation IA BTP en présentiel en Île-de-France. Candidature spontanée possible.',
+  title: 'Recrutement formateurs IA BTP 2027',
+  titleAbsolute: PAGE_TITLE,
+  description: PAGE_DESCRIPTION,
+  descriptionFinal: true,
   path: LINKS.emplois,
-  keywords: ['emploi formation BTP', 'recrutement organisme formation', 'OFC Guyancourt'],
+  keywords: [
+    'recrutement formateur IA BTP',
+    'formateur indépendant IA BTP',
+    'formateur intelligence artificielle BTP',
+    'formation IA bâtiment travaux publics',
+    'missions formation IA Île-de-France',
+  ],
 });
 
 export default function EmploisPage() {
@@ -22,7 +33,7 @@ export default function EmploisPage() {
         id="schema-breadcrumb-nous-rejoindre"
         items={[
           { name: 'Accueil', url: SITE_CONFIG.url },
-          { name: 'Nous rejoindre', url: PAGE_URL },
+          { name: 'Recrutement formateurs', url: PAGE_URL },
         ]}
       />
       <EmploisPageContent />

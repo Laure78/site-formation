@@ -24,7 +24,7 @@ const FOOTER_CHECKS = [
   { role: 'link', name: /Catalogue de formations/i },
   { role: 'link', name: /Tous les parcours métiers/i },
   { role: 'link', name: /Avis clients/i },
-  { role: 'link', name: /^Nous rejoindre$/i },
+  { role: 'link', name: /^Devenir formateur IA BTP$/i },
 ];
 
 async function main() {

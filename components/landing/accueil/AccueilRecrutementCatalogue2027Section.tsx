@@ -35,7 +35,7 @@ export function AccueilRecrutementCatalogue2027Section() {
 
         <div className="w-full shrink-0 lg:max-w-sm">
           <Link
-            href={LINKS.devenezConsultant}
+            href={LINKS.nousRejoindre}
             className={`${OFC_CTA_PRIMARY} inline-flex min-h-11 w-full items-center justify-center px-6 py-3 text-center`}
           >
             {R.ctaLabel}

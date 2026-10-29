@@ -1,32 +1,23 @@
 import Link from 'next/link';
 import { JobOffersSection } from '@/components/career/JobOffersSection';
+import { NousRejoindreFormateurRecruitment } from '@/components/career/NousRejoindreFormateurRecruitment';
+import { ScrollToHashOnLoad } from '@/components/navigation/ScrollToHashOnLoad';
 import { emploisRecruitmentMailtoHref, RECRUITMENT } from '@/lib/constants';
 import { getPublishedJobOffers } from '@/lib/data/job-offers';
 import { LINKS } from '@/lib/internal-links';
 import {
   OFC_CTA_PRIMARY,
   OFC_CTA_SECONDARY,
-  OFC_EYEBROW,
   OFC_TYPE_BODY,
   OFC_TYPE_H2,
-  OFC_TYPE_HERO,
 } from '@/lib/ofc-interaction-classes';
 import { ofcSectionClasses, OFC_SECTION_INNER } from '@/lib/ofc-section-classes';
 
-const HERO_SECTION = ofcSectionClasses({
+const SALARIE_SECTION = ofcSectionClasses({
   tone: 'white',
   size: 'compact',
-  mesh: false,
-  divide: false,
+  divide: true,
 });
-
-const MAIN_SECTION = ofcSectionClasses({
-  tone: 'muted',
-  size: 'compact',
-  divide: false,
-});
-
-const MAILTO_RECRUTEMENT = emploisRecruitmentMailtoHref();
 
 export function EmploisPageContent() {
   const offers = getPublishedJobOffers();
@@ -34,83 +25,51 @@ export function EmploisPageContent() {
 
   return (
     <div className="emplois-page">
+      <ScrollToHashOnLoad />
+      <NousRejoindreFormateurRecruitment />
+
       <section
-        className={`${HERO_SECTION} emplois-hub-hero scroll-mt-[var(--site-header-height)]`}
-        aria-labelledby="emplois-h1"
+        className={`${SALARIE_SECTION} emplois-page__salarie`}
+        aria-labelledby="emplois-salarie-heading"
       >
-        <div className={`${OFC_SECTION_INNER} emplois-hub-hero__inner`}>
-          <div className="emplois-hub-hero__copy">
-            <p className={OFC_EYEBROW}>Carrière</p>
-            <h1 id="emplois-h1" className={`${OFC_TYPE_HERO} emplois-hub-hero__title`}>
-              Rejoignez l’équipe Laure Olivié
-            </h1>
-            <p className={`${OFC_TYPE_BODY} emplois-hub-hero__lead text-ofc-ink-muted text-pretty`}>
-              Contribuez à la formation des professionnels du bâtiment et des travaux publics aux
-              usages concrets de l’intelligence artificielle — présentiel en Île-de-France, organisme
-              certifié Qualiopi.
-            </p>
-            <p className={`${OFC_TYPE_BODY} mt-4 text-ofc-ink-muted`}>
-              Pour toute candidature (emploi salarié ou spontanée), écrivez à{' '}
-              <a
-                href={MAILTO_RECRUTEMENT}
-                className="font-semibold text-[#377CF3] underline-offset-2 hover:underline"
-              >
-                {RECRUITMENT.email}
-              </a>
-              .
-            </p>
-            <p className="mt-4">
-              <a
-                href={MAILTO_RECRUTEMENT}
-                className={`${OFC_CTA_SECONDARY} inline-flex min-h-11 items-center justify-center rounded-lg px-5 py-2.5 text-base font-semibold`}
-                aria-label={`Contacter le recrutement à ${RECRUITMENT.email}`}
-              >
-                {RECRUITMENT.email}
-              </a>
+        <div className={OFC_SECTION_INNER}>
+          <div className="emplois-page__layout max-w-3xl">
+            <h2 id="emplois-salarie-heading" className={`${OFC_TYPE_H2} emplois-page__salarie-title`}>
+              Emploi salarié et autres candidatures
+            </h2>
+            <p className={`${OFC_TYPE_BODY} mt-3 text-ofc-ink-muted`}>
+              Les missions de formateur indépendant du catalogue 2027 sont distinctes des postes
+              salariés au sein de l’organisme. Consultez les offres ci-dessous ou déposez une
+              candidature spontanée pour un emploi salarié.
             </p>
           </div>
-        </div>
-      </section>
 
-      <section className={`${MAIN_SECTION} emplois-page__main`} aria-label="Recrutement et candidatures">
-        <div className={OFC_SECTION_INNER}>
-          <div className="emplois-page__layout">
+          <div className="emplois-page__layout mt-8">
             <JobOffersSection />
 
             {hasOffers ? (
               <div className="emplois-page__complementary mt-10 border-t border-slate-200/80 pt-10">
-                <p className={`${OFC_TYPE_BODY} emplois-page__intro text-ofc-ink-muted`}>
-                  Vous ne trouvez pas le poste adapté, ou vous souhaitez intervenir en indépendant ?
-                </p>
                 <div className="mt-6 grid gap-6 lg:grid-cols-2 lg:items-stretch">
-                  <EmploisConsultantBlock compact />
                   <EmploisSpontaneousBlock variant="link" />
+                  <EmploisConsultantFormBlock />
                 </div>
               </div>
             ) : (
               <div className="emplois-page__paths mt-8 grid gap-6 lg:grid-cols-2 lg:items-stretch">
                 <EmploisSpontaneousBlock variant="primary" />
-                <EmploisConsultantBlock compact />
+                <EmploisConsultantFormBlock />
               </div>
             )}
 
             <p className={`${OFC_TYPE_BODY} emplois-page__intro mt-10 text-ofc-ink-muted`}>
-              Questions recrutement ou envoi de CV :{' '}
+              Questions recrutement ou envoi de CV (emploi salarié) :{' '}
               <a
-                href={MAILTO_RECRUTEMENT}
+                href={emploisRecruitmentMailtoHref()}
                 className="font-semibold text-[#377CF3] underline-offset-2 hover:underline"
               >
                 {RECRUITMENT.email}
               </a>
               .
-            </p>
-
-            <p className={`${OFC_TYPE_BODY} emplois-page__catalogue-link mt-6 text-ofc-ink-muted`}>
-            Découvrez aussi le{' '}
-            <Link href={LINKS.formations} className="font-semibold text-[#377CF3] underline-offset-2 hover:underline">
-              catalogue des formations IA BTP
-            </Link>
-            .
             </p>
           </div>
         </div>
@@ -127,12 +86,12 @@ function EmploisSpontaneousBlock({ variant }: { variant: 'primary' | 'link' }) {
       aria-labelledby="emplois-spontaneous-heading"
       className={`emplois-path-block flex h-full flex-col rounded-xl border border-slate-200/90 bg-white p-5 sm:p-6`}
     >
-      <h2 id="emplois-spontaneous-heading" className={`${OFC_TYPE_H2} emplois-path-block__title`}>
+      <h2 id="emplois-spontaneous-heading" className={`${OFC_TYPE_H2} emplois-path-block__title text-lg md:text-xl`}>
         Candidature spontanée — emploi salarié
       </h2>
       <p className={`${OFC_TYPE_BODY} mt-3 text-ofc-ink-muted`}>
         {isPrimary
-          ? 'Aucune offre ne correspond à votre profil ? Présentez votre parcours et le type de poste ou de collaboration salariée que vous recherchez.'
+          ? 'Vous recherchez un poste salarié au sein de l’organisme ? Présentez votre parcours et le type de collaboration que vous visez.'
           : 'Présentez votre parcours pour un emploi salarié au sein de l’organisme.'}
       </p>
       {isPrimary ? (
@@ -154,28 +113,27 @@ function EmploisSpontaneousBlock({ variant }: { variant: 'primary' | 'link' }) {
   );
 }
 
-function EmploisConsultantBlock({ compact }: { compact: boolean }) {
+function EmploisConsultantFormBlock() {
   return (
     <section
-      aria-labelledby="emplois-consultant-heading"
-      className={
-        compact
-          ? 'emplois-path-block emplois-path-block--secondary flex h-full flex-col rounded-xl border border-slate-200/90 bg-white p-5 sm:p-6'
-          : 'emplois-path-block'
-      }
+      aria-labelledby="emplois-consultant-form-heading"
+      className="emplois-path-block emplois-path-block--secondary flex h-full flex-col rounded-xl border border-slate-200/90 bg-white p-5 sm:p-6"
     >
-      <h2 id="emplois-consultant-heading" className={`${OFC_TYPE_H2} emplois-path-block__title text-lg md:text-xl`}>
-        Collaboration consultant-formateur
+      <h2
+        id="emplois-consultant-form-heading"
+        className={`${OFC_TYPE_H2} emplois-path-block__title text-lg md:text-xl`}
+      >
+        Questionnaire consultant-formateur
       </h2>
       <p className={`${OFC_TYPE_BODY} mt-3 text-ofc-ink-muted`}>
-        Parcours indépendant : présentez votre expertise BTP, votre pratique de l’IA et les sujets
-        que vous souhaitez transmettre en formation.
+        Vous préférez compléter un formulaire en ligne pour les parcours métiers ? Utilisez la page
+        dédiée (complément à l’envoi par email sur cette annonce).
       </p>
       <Link
         href={LINKS.devenezConsultant}
         className={`${OFC_CTA_SECONDARY} emplois-path-block__cta mt-auto inline-flex min-h-11 w-full items-center justify-center rounded-lg px-5 py-2.5 pt-5 text-base font-semibold sm:w-auto`}
       >
-        Proposer mon expertise
+        Accéder au questionnaire
       </Link>
     </section>
   );

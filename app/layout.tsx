@@ -4,6 +4,7 @@ import { Inter, Outfit } from 'next/font/google';
 import './globals.css';
 import { Footer } from '@/components/Footer';
 import { Header } from '@/components/Header';
+import { GlobalRecruitmentBanner } from '@/components/layout/GlobalRecruitmentBanner';
 import { DeferredLayoutWidgets } from '@/components/layout/DeferredLayoutWidgets';
 import { SITE_CONFIG, OG_SITE_NAME, GOOGLE_SITE_VERIFICATION } from '@/lib/seo';
 import { PHOTOS, SITE_FAVICON_CACHE_BUST } from '@/lib/photos';
@@ -182,6 +183,7 @@ export default function RootLayout({
           Aller au contenu principal
         </a>
         <SiteSearchProvider>
+          <GlobalRecruitmentBanner />
           <Header />
         </SiteSearchProvider>
         <main className="min-w-0 w-full flex-1" id="main-content">

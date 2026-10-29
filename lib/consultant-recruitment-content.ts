@@ -15,6 +15,39 @@ export const CONSULTANT_HERO_H1 =
 export const CONSULTANT_HERO_INTRO =
   'Dans le cadre du développement de mon catalogue de formations 2027, je recherche des formateurs et formatrices indépendants issus du BTP, utilisant l’IA dans leur pratique professionnelle.' as const;
 
+/** Campagne recrutement formateurs catalogue 2027 — bandeau global et hub /nous-rejoindre. */
+export const FORMATEUR_RECRUITMENT_2027_CAMPAIGN = {
+  enabled: true,
+  banner: {
+    desktopMessage:
+      'Recrutement 2027 — Vous connaissez le BTP et utilisez l’IA ? Devenez formateur indépendant en Île-de-France.',
+    mobileMessage: 'Formateurs IA BTP : recrutement 2027',
+    ctaLabel: 'Découvrir les missions',
+  },
+  hero: {
+    eyebrow: 'Catalogue 2027 · Missions indépendantes rémunérées',
+    h1: 'Recrutement de formateurs IA BTP en Île-de-France',
+    intro:
+      'Dans le cadre du développement de mon catalogue de formations 2027, je recherche des formateurs et formatrices indépendants issus du BTP, utilisant l’IA dans leur pratique professionnelle.',
+    primaryCtaLabel: 'Proposer ma candidature',
+    secondaryCtaLabel: 'Découvrir les profils recherchés',
+  },
+  sections: {
+    missionsHeading: 'Les missions en bref',
+    profilsHeading: 'Les profils recherchés',
+    profilsHighlight: 'Une expérience concrète du BTP est requise.',
+    competencesHeading: 'Les compétences recherchées',
+    candidatureHeading: 'Comment candidater ?',
+  },
+  candidatureIntro:
+    'Vous êtes intéressé(e) ? Envoyez votre CV ou une présentation de votre parcours, vos disponibilités et quelques exemples d’utilisation de l’IA à :',
+  conclusion: {
+    share: 'Merci de partager cette annonce avec votre réseau !',
+    signature: 'Laure Olivié — Formation IA BTP',
+    site: 'laureolivie.fr',
+  },
+} as const;
+
 /** Bandeau recrutement — page d’accueil (catalogue 2027). */
 export const ACCUEIL_RECRUTEMENT = {
   eyebrow: 'RECRUTEMENT — CATALOGUE 2027',
@@ -35,10 +68,8 @@ export const CONSULTANT_ANNONCE_MODALITES = [
       'dirigeants, conducteurs de travaux, chargés d’affaires, artisans et fonctions support',
   },
   { term: 'Modalité', detail: 'présentiel, en intra ou interentreprises' },
-  {
-    term: 'Statut',
-    detail: 'indépendant, microentreprise ou société — missions rémunérées',
-  },
+  { term: 'Statut', detail: 'indépendant, microentreprise ou société' },
+  { term: 'Rémunération', detail: 'missions rémunérées' },
 ] as const;
 
 export const CONSULTANT_PROFILS_RECHERCHES =
@@ -60,6 +91,30 @@ export const CONSULTANT_CANDIDATURE_INTRO_AFTER_EMAIL =
 
 export const CONSULTANT_ANNONCE_CONCLUSION =
   'Vous connaissez une personne qui correspond à ce profil ? Partagez-lui cette annonce.' as const;
+
+/** FAQ visible — page /nous-rejoindre (HTML initial, sans schema FAQPage dédié). */
+export const NOUS_REJOINDRE_FORMATEUR_FAQ: readonly FAQItem[] = [
+  {
+    q: 'Quels profils peuvent candidater ?',
+    a: 'Les professionnels issus du BTP ayant une pratique régulière de l’IA et la capacité de transmettre leurs usages à travers des exercices pratiques.',
+  },
+  {
+    q: 'Où se déroulent les missions ?',
+    a: 'En présentiel en Île-de-France, en intra ou interentreprises.',
+  },
+  {
+    q: 'Quand commencent les missions ?',
+    a: 'À partir de 2027. Leur durée dépend des modules et des missions.',
+  },
+  {
+    q: 'Quel statut est recherché ?',
+    a: 'Des intervenants indépendants, en microentreprise ou en société, pour des missions rémunérées.',
+  },
+  {
+    q: 'Comment envoyer ma candidature ?',
+    a: `Envoyez votre CV ou une présentation de votre parcours, vos disponibilités et quelques exemples d’utilisation de l’IA à ${RECRUITMENT.email}.`,
+  },
+];
 
 export const CONSULTANT_WHY_OFC = {
   heading: 'Informations utiles sur la collaboration',

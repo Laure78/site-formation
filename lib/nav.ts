@@ -17,8 +17,8 @@ export type NavItem = {
 /** Hub carrière — menu « Notre organisme » + colonne footer « Notre organisme ». */
 export const NAV_ITEM_NOUS_REJOINDRE: NavItem = {
   href: LINKS.nousRejoindre,
-  label: 'Nous rejoindre',
-  title: 'Emplois et candidatures — Laure Olivié',
+  label: 'Devenir formateur IA BTP',
+  title: 'Recrutement formateurs indépendants IA BTP — Île-de-France',
 };
 
 /** URL partage avis Google — footer (lien utilisateur vérifié). */
