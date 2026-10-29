@@ -46,7 +46,7 @@ export function buildLlmsTxtContent(): string {
 - Formation IA BTP à Paris : ${BASE}/formation-ia-paris
 - Formation intra-entreprise : ${BASE}/formation-ia-intra-entreprise-btp
 - Conducteur de travaux : ${BASE}/formation-ia-conducteur-de-travaux
-- Dirigeant PME BTP : ${BASE}/formation-ia-dirigeant-pme-btp
+- Formation IA pour les PME du BTP (dirigeants et équipes) : ${BASE}/formation-ia-dirigeant-pme-btp
 - Claude AI pour le BTP : ${BASE}/claude-ai-btp
 - Devis et chiffrage avec l'IA : ${BASE}/ia-devis-batiment
 - Analyse de DCE avec l'IA : ${BASE}/ia-analyse-dce-btp

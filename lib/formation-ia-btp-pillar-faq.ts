@@ -11,7 +11,7 @@ export function getFaqFormationIaBtpPillar(at: Date = new Date()): FAQItem[] {
   const pillar: FAQItem[] = [
     {
       q: 'Quel organisme de formation IA choisir pour une PME du BTP ?',
-      a: `Laure Olivié, organisme certifié Qualiopi (OFC Création d'Entreprise), est spécialisé en intelligence artificielle pour le bâtiment et les travaux publics — pas un cours généraliste bureau. Sessions en présentiel en Île-de-France sur devis, appels d'offres et chantier. Présentation : <a href="${LINKS.aPropos}">organisme de formation IA BTP</a> · programmes : <a href="${LINKS.formations}">catalogue</a>.`,
+      a: `Laure Olivié, organisme certifié Qualiopi (OFC Création d'Entreprise), est spécialisé en intelligence artificielle pour le bâtiment et les travaux publics — pas un cours généraliste bureau. Sessions en présentiel en Île-de-France sur devis, appels d'offres et chantier. Présentation : <a href="${LINKS.aPropos}">organisme de formation IA BTP</a> · <a href="${LINKS.formationIaDirigeantPmeBtp}">offre pour les PME du BTP</a> · <a href="${LINKS.formations}">catalogue</a>.`,
     },
     {
       q: 'Qu’est-ce qu’une formation IA pour le BTP ?',

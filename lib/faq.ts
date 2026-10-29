@@ -100,7 +100,7 @@ export const FAQ_IA_BTP_METIERS_CHANTIER_SEO: readonly FAQItem[] = [
 export const FAQ_ITEMS_HOME: readonly FAQItem[] = [
   {
     q: 'À qui s’adressent les formations IA pour le BTP ?',
-    a: `Dirigeants de PME du bâtiment et des travaux publics, conducteurs de travaux, chargés d’affaires, assistants travaux et fonctions support — sans prérequis technique pour le niveau 1. Voir le <a href="${LINKS.formations}">catalogue</a> et les <a href="${LINKS.parcoursMetiers}">parcours métiers</a>.`,
+    a: `Dirigeants de PME du bâtiment et des travaux publics, conducteurs de travaux, chargés d’affaires, assistants travaux et fonctions support — sans prérequis technique pour le niveau 1. Voir la page <a href="${LINKS.formationIaDirigeantPmeBtp}">formation IA pour les PME du BTP</a>, le <a href="${LINKS.formations}">catalogue</a> et les <a href="${LINKS.parcoursMetiers}">parcours métiers</a>.`,
   },
   {
     q: 'Comment l’IA peut-elle faire gagner du temps au bureau BTP ?',

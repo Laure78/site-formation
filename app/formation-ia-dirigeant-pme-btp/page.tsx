@@ -1,17 +1,24 @@
 import { FAQAnswer } from '@/components/landing/FAQAnswer';
 import { CTA_RDV_LABEL, CtaRdv } from '@/components/CtaRdv';
 import Link from 'next/link';
-import { ArrowRight, Check, Phone } from 'lucide-react';
+import { ArrowRight, Check } from 'lucide-react';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
 import { PreuveSociale } from '@/components/PreuveSociale';
 import { LiensConnexes } from '@/components/LiensConnexes';
 import { RdvLink } from '@/components/RdvLink';
 import { ShortAnswerBlock } from '@/components/landing/ShortAnswerBlock';
-import { createPageMetadata, getFAQSchema, sitePhoneDisplaySuffix } from '@/lib/seo';
+import { getFAQSchema, sitePhoneDisplaySuffix } from '@/lib/seo';
 import { SITE_CONFIG } from '@/lib/seo';
-import { buildSiteCalendlyCtaUrl } from '@/lib/calendly';
+import {
+  FORMATION_IA_PME_BTP_H1,
+  FORMATION_IA_PME_BTP_INTRO,
+  FORMATION_IA_PME_BTP_PARCOURS,
+  FORMATION_IA_PME_BTP_SHORT_ANSWER,
+  FORMATION_IA_PME_BTP_TACHES,
+  formationIaPmeBtpMetadata,
+  getFormationIaPmeBtpFaq,
+} from '@/lib/formation-ia-dirigeant-pme-btp-config';
 import { PublicPhoneCta } from '@/components/PublicPhoneCta';
-import { SOCIAL_PROOF } from '@/lib/constants';
 import { JsonLd } from '@/components/JsonLd';
 import { LINKS } from '@/lib/internal-links';
 import { LaureOlivieFormationPortrait } from '@/components/laure-olivie/LaureOlivieFormationPortrait';
@@ -24,24 +31,7 @@ import { ParcoursEncadrerIaBlock } from '@/components/formations/ParcoursEncadre
 export const revalidate = 3600;
 const PATH = LINKS.formationIaDirigeantPmeBtp;
 
-export const metadata = createPageMetadata({
-  title: 'Formation IA chef de TPE du bâtiment, IDF',
-  description:
-    'Formation IA pour le BTP : chefs de TPE — devis, relances clients et prospection. Présentiel Île-de-France, Qualiopi. Prenez un rendez-vous découverte.',
-  descriptionFinal: true,
-  path: PATH,
-  keywords: [
-    'formation IA chef entreprise BTP',
-    'IA dirigeant PME bâtiment',
-    'ChatGPT devis BTP',
-    'formation IA Île-de-France',
-    'automatiser administratif BTP',
-    'OPCO Constructys dirigeant',
-    'formation BTP — organisme certifié Qualiopi',
-    'prospection IA BTP',
-  ],
-  openGraphType: 'website',
-});
+export const metadata = formationIaPmeBtpMetadata();
 
 const PROMPT_DEVIS_EXPRESS = `Crée un devis pour ce client (PME BTP, Île-de-France) :
 - Prestation : remplacement 5 radiateurs gaz par pompe à chaleur air-air (climatisation réversible)
@@ -124,41 +114,23 @@ Tableau doit contenir :
 
 Format : 1 page Excel, lisible pour vous (pour vrai piloter l'activité).`;
 
-const FAQ_ITEMS = [
-  {
-    q: 'ChatGPT comprend-il les marges et rentabilité BTP ?',
-    a: "Oui pour structurer et synthétiser : coûts, revenus, marges indicatives à partir des données que vous fournissez. Pour la décision financière et la comptabilité, l'expert-comptable et vos outils métiers restent la référence.",
-  },
-  {
-    q: "L'IA va-t-elle remplacer les chefs d'entreprise ?",
-    a: "Non. L'IA accélère l'administratif et la mise en forme ; la vision, la négociation, le recrutement et le jugement stratégique restent à vous.",
-  },
-  {
-    q: 'Comment financer la formation si je suis chef d’entreprise BTP ?',
-    a: "Laure Olivié, organisme certifié Qualiopi (OFC Création d'Entreprise, enregistré Constructys). Le financement dépend de votre branche, de la taille de l'entreprise et des dispositifs (plan de développement des compétences, etc.). Nous étudions votre dossier avec vous.",
-  },
-  {
-    q: "ChatGPT peut-il m'aider avec la paie et RH ?",
-    a: "Pour des brouillons : modèles de texte, structuration de procédures, idées de suivi. La paie légale et les obligations sociales relèvent de votre expert-comptable ou de votre logiciel certifié — pas de validation automatique par l'IA.",
-  },
-  {
-    q: 'Faut-il être bon en informatique ?',
-    a: "Non. On travaille en français, avec des prompts et des trames que vous adaptez. La formation vise l'autonomie sur les usages courants (devis, mails, synthèses).",
-  },
-];
-
 const SOMMAIRE = [
-  { href: '#le-probleme', label: 'Le problème : du chantier à la paperasse BTP' },
-  { href: '#la-solution', label: 'La solution : l’IA pour vos tâches administratives' },
-  { href: '#methode', label: 'Méthode pas à pas avec prompts ChatGPT' },
-  { href: '#resultats', label: 'Résultats concrets et témoignages' },
-  { href: '#faq', label: 'FAQ — questions des chefs d’entreprise BTP sur l’IA' },
+  { href: '#public-cible', label: 'À qui s’adressent les formations ?' },
+  { href: '#taches-ia-btp', label: 'Quelles tâches du BTP avec l’IA ?' },
+  { href: '#parcours-formations', label: 'Quel parcours selon le niveau et le métier ?' },
+  { href: '#former-equipe', label: 'Former plusieurs collaborateurs (intra)' },
+  { href: '#le-probleme', label: 'Du chantier à la paperasse en PME' },
+  { href: '#la-solution', label: 'Usages concrets au quotidien' },
+  { href: '#methode', label: 'Exemples de prompts ChatGPT' },
+  { href: '#resultats', label: 'Retours de formation' },
+  { href: '#faq', label: 'FAQ — PME du BTP et IA' },
   { href: '#a-propos', label: 'Qui est Laure Olivié ?' },
   { href: LINKS.prendreRdv, label: CTA_RDV_LABEL },
 ];
 
 export default function FormationIaDirigeantPmeBtpPage() {
-  const faqSchema = getFAQSchema(FAQ_ITEMS);
+  const faqItems = getFormationIaPmeBtpFaq();
+  const faqSchema = getFAQSchema(faqItems);
 
   return (
     <div className="ofc-page-article ofc-editorial">
@@ -173,31 +145,40 @@ export default function FormationIaDirigeantPmeBtpPage() {
           Formations
         </Link>
         {' / '}
-        <span className="text-slate-900">Formation IA dirigeant PME BTP</span>
+        <span className="text-slate-900">{FORMATION_IA_PME_BTP_H1}</span>
       </nav>
 
       <article>
         <MetierIdfPresentielLine className="mb-4" />
         <VousEtesPlutotEncart
-          currentAudience="Cette page s’adresse aux chefs de TPE du bâtiment (devis, relances, prospection)."
-          href={LINKS.formationIaDirigeantBtp}
-          linkLabel="Formation IA direction d’entreprise BTP (dirigeants et CODIR, 20 salariés et plus)"
+          currentAudience="Cette page présente l’offre IA pour les dirigeants et les équipes des PME du bâtiment et des travaux publics."
+          href={LINKS.formationConducteurTravaux}
+          linkLabel="Formation IA conducteur de travaux — conduite de travaux et suivi chantier"
         />
         <h1 className="font-display text-2xl font-bold tracking-tight text-slate-900 md:text-2xl">
-          Formation IA pour chefs d&apos;entreprise TPE BTP —{' '}
-          <span className="text-[var(--accent)]">devis, relances et prospection au quotidien</span>
+          {FORMATION_IA_PME_BTP_H1}
         </h1>
         <PreuveSociale className="mt-6" />
-        <p className="mt-6 text-xl text-slate-600">
-          Sessions en présentiel en Île-de-France — vous êtes chef de TPE et touchez encore aux devis, mails clients et relances impayés : cette page
-          cible l&apos;<strong>opérationnel quotidien</strong>, pas le pilotage stratégique CODIR des entreprises de 20 salariés et plus.
-        </p>
+        <p className="mt-6 text-xl text-slate-600 leading-relaxed">{FORMATION_IA_PME_BTP_INTRO}</p>
 
         <div className="mt-8">
-          <ShortAnswerBlock>
-            L’IA aide les dirigeants de PME BTP à structurer devis, mails et tableaux de suivi ; vous restez responsable
-            des prix signés, des engagements clients et des obligations légales (comptabilité, paie, assurances).
-          </ShortAnswerBlock>
+          <ShortAnswerBlock>{FORMATION_IA_PME_BTP_SHORT_ANSWER}</ShortAnswerBlock>
+        </div>
+
+        <div className="mt-8 flex flex-wrap gap-4">
+          <Link
+            href={LINKS.formations}
+            className="inline-flex items-center gap-2 rounded-lg bg-[var(--accent)] px-6 py-3 font-semibold text-white hover:bg-blue-700"
+          >
+            Voir les formations
+            <ArrowRight className="h-4 w-4" aria-hidden />
+          </Link>
+          <Link
+            href={LINKS.contact}
+            className="inline-flex items-center gap-2 rounded-lg border-2 border-[var(--accent)] px-6 py-3 font-semibold text-[var(--accent)] hover:bg-[var(--accent-soft)]"
+          >
+            Échanger sur les besoins de votre équipe
+          </Link>
         </div>
 
         <nav
@@ -216,14 +197,131 @@ export default function FormationIaDirigeantPmeBtpPage() {
           </ol>
         </nav>
 
+        <section id="public-cible" className="scroll-mt-24 mt-14">
+          <h2 className="font-display text-2xl font-bold text-slate-900">À qui s’adressent les formations ?</h2>
+          <p className="mt-4 text-slate-600 leading-relaxed">
+            Les sessions Laure Olivié (OFC Création d&apos;Entreprise, Qualiopi) s&apos;adressent aux{' '}
+            <strong>PME du bâtiment et des travaux publics</strong> en Île-de-France — dirigeants et directions,
+            conducteurs de travaux, chargés d&apos;affaires, métreurs et économistes, assistant(e)s travaux et
+            administratifs, équipes appels d&apos;offres et fonctions support (QSE, achats, gestion).
+          </p>
+          <p className="mt-4 text-slate-600 leading-relaxed">
+            Pas de compétence informatique requise pour débuter : navigateur, documents métier et français écrit
+            suffisent. Pour choisir selon le poste, consultez les{' '}
+            <Link href={LINKS.parcoursMetiers} className="font-medium text-[var(--accent)] underline hover:no-underline">
+              parcours par métier
+            </Link>{' '}
+            ou le{' '}
+            <Link href={LINKS.formationIaBtp} className="font-medium text-[var(--accent)] underline hover:no-underline">
+              hub formation IA pour le BTP
+            </Link>
+            .
+          </p>
+        </section>
+
+        <section id="taches-ia-btp" className="scroll-mt-24 mt-14">
+          <h2 className="font-display text-2xl font-bold text-slate-900">
+            Sur quelles tâches du BTP utiliser l&apos;IA ?
+          </h2>
+          <p className="mt-4 text-slate-600 leading-relaxed">
+            En formation, on travaille sur des cas réels ou anonymisés : l&apos;IA propose des brouillons structurés ;
+            votre équipe vérifie chiffrages, conformité technique et engagements avant envoi.
+          </p>
+          <ul className="mt-8 space-y-6">
+            {FORMATION_IA_PME_BTP_TACHES.map(({ title, body, href, linkLabel }) => (
+              <li key={title} className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
+                <h3 className="font-display text-lg font-semibold text-slate-900">{title}</h3>
+                <p className="mt-2 text-slate-600 leading-relaxed">{body}</p>
+                <p className="mt-3">
+                  <Link href={href} className="text-sm font-medium text-[var(--accent)] underline hover:no-underline">
+                    {linkLabel}
+                  </Link>
+                </p>
+              </li>
+            ))}
+          </ul>
+        </section>
+
+        <section id="parcours-formations" className="scroll-mt-24 mt-14">
+          <h2 className="font-display text-2xl font-bold text-slate-900">
+            Quel parcours choisir selon le niveau et le métier ?
+          </h2>
+          <p className="mt-4 text-slate-600 leading-relaxed">
+            Le catalogue Qualiopi est organisé en progression : initiation, perfectionnement sur les usages métier, puis
+            création et déploiement d&apos;outils adaptés. Chaque fiche précise public, durée et prérequis — sans
+            engagement sur le catalogue depuis cette page.
+          </p>
+          <ol className="mt-8 space-y-6">
+            {FORMATION_IA_PME_BTP_PARCOURS.map(({ niveau, resume, href, label, duree }) => (
+              <li key={niveau} className="rounded-xl border border-slate-200 bg-slate-50 p-6">
+                <p className="text-sm font-semibold uppercase tracking-wide text-[var(--accent)]">{niveau}</p>
+                <h3 className="mt-2 font-display text-lg font-semibold text-slate-900">
+                  <Link href={href} className="text-[var(--accent)] underline hover:no-underline">
+                    {label}
+                  </Link>
+                  <span className="ml-2 text-base font-normal text-slate-600">· {duree}</span>
+                </h3>
+                <p className="mt-2 text-slate-600 leading-relaxed">{resume}</p>
+              </li>
+            ))}
+          </ol>
+          <p className="mt-6 text-slate-600 leading-relaxed">
+            Exemples de perfectionnement métier :{' '}
+            <Link href={LINKS.formationMaitriserClaudeAiBtp} className="font-medium text-[var(--accent)] underline">
+              Maîtriser Claude AI pour le BTP
+            </Link>
+            ,{' '}
+            <Link href={LINKS.formationIaAppelsOffresBtp} className="font-medium text-[var(--accent)] underline">
+              appels d&apos;offres
+            </Link>
+            ,{' '}
+            <Link href={LINKS.parcoursDirigeantPmeBtp} className="font-medium text-[var(--accent)] underline">
+              parcours dirigeant PME BTP
+            </Link>
+            .
+          </p>
+        </section>
+
+        <section id="former-equipe" className="scroll-mt-24 mt-14">
+          <h2 className="font-display text-2xl font-bold text-slate-900">
+            Comment organiser une formation pour son équipe ?
+          </h2>
+          <p className="mt-4 text-slate-600 leading-relaxed">
+            En <strong>intra-entreprise</strong>, la session se déroule chez vous ou dans un lieu convenu en
+            Île-de-France : même programme Qualiopi, contenus adaptés à vos documents et à vos métiers présents dans
+            la salle. En <strong>inter-entreprises</strong>, vos collaborateurs rejoignent une date du catalogue lorsque
+            les places et le calendrier conviennent.
+          </p>
+          <p className="mt-4 text-slate-600 leading-relaxed">
+            Pour cadrer effectifs, dates et financement OPCO, une visio découverte ou un message suffit — détail des
+            modalités intra :{' '}
+            <Link
+              href={LINKS.formationIaIntraEntrepriseBtp}
+              className="font-medium text-[var(--accent)] underline hover:no-underline"
+            >
+              formation IA intra-entreprise BTP
+            </Link>
+            .
+          </p>
+          <div className="mt-6 flex flex-wrap gap-4">
+            <CtaRdv origin="pme-btp-organiser-equipe" />
+            <Link
+              href={LINKS.contact}
+              className="inline-flex items-center gap-2 rounded-lg border border-slate-300 px-5 py-2.5 font-semibold text-slate-800 hover:bg-slate-50"
+            >
+              Écrire à l&apos;équipe pédagogique
+            </Link>
+          </div>
+        </section>
+
         <section id="le-probleme" className="scroll-mt-24 mt-14">
           <h2 className="font-display text-2xl font-bold text-slate-900">
             Le problème : du chantier à la paperasse BTP
           </h2>
           <p className="mt-4 text-slate-600 leading-relaxed">
-            Vous êtes <strong>chef d’entreprise BTP</strong> (professionnel devenu dirigeant) en Île-de-France ou Grand Paris :
-            PME avec souvent plusieurs salariés et chantiers en parallèle — devis, facturation, coordination, RH,
-            prospection.
+            En PME du bâtiment ou des travaux publics, dirigeants et encadrement cumulent chantiers, devis,
+            facturation, coordination d&apos;équipes et prospection — souvent avec peu de marge pour l&apos;administratif
+            et la réponse aux appels d&apos;offres.
           </p>
           <p className="mt-4 text-slate-600 leading-relaxed">Une semaine type peut charger :</p>
           <ul className="mt-4 space-y-3">
@@ -248,7 +346,7 @@ export default function FormationIaDirigeantPmeBtpPage() {
 
         <section id="la-solution" className="scroll-mt-24 mt-14">
           <h2 className="font-display text-2xl font-bold text-slate-900">
-            La solution : l’IA adaptée aux chefs d’entreprise BTP
+            La solution : l’IA au service des équipes PME BTP
           </h2>
           <p className="mt-4 text-slate-600 leading-relaxed">
             ChatGPT peut servir d’assistant pour accélérer la mise en forme des devis, des mails et des synthèses — à partir
@@ -397,9 +495,9 @@ export default function FormationIaDirigeantPmeBtpPage() {
         </section>
 
         <section id="faq" className="scroll-mt-24 mt-14">
-          <h2 className="font-display text-2xl font-bold text-slate-900">FAQ — chefs d’entreprise BTP et IA</h2>
+          <h2 className="font-display text-2xl font-bold text-slate-900">FAQ — PME du BTP et IA</h2>
           <div className="mt-8 space-y-6">
-            {FAQ_ITEMS.map(({ q, a }) => (
+            {faqItems.map(({ q, a }) => (
               <div key={q} className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
                 <h3 className="font-semibold text-slate-900">{q}</h3>
                 <p className="mt-2 text-slate-600 leading-relaxed"><FAQAnswer content={a} /></p>
@@ -434,7 +532,7 @@ export default function FormationIaDirigeantPmeBtpPage() {
 
         <section className="mt-14">
           <h2 className="font-display text-lg font-bold text-slate-900">
-            Formation IA chef d’entreprise BTP — Île-de-France & Grand Paris
+            {FORMATION_IA_PME_BTP_H1} — présentiel Île-de-France
           </h2>
           <p className="mt-4 text-sm text-slate-600 leading-relaxed">
             OFC Création d’Entreprise · Organisme certifié Qualiopi · SIRET {SITE_CONFIG.siret} · NDA 11788515078 ·{' '}
@@ -446,8 +544,8 @@ export default function FormationIaDirigeantPmeBtpPage() {
 
         <LiensConnexes
           currentPath={PATH}
-          excludeHrefs={[LINKS.formationIaDirigeantBtp, LINKS.formations, LINKS.financement]}
-          />
+          excludeHrefs={[LINKS.formations, LINKS.financement, LINKS.formationIaBtp]}
+        />
 
         <AllerPlusLoin
           links={[

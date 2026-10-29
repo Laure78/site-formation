@@ -213,8 +213,11 @@ export default function FormationIaBtpPillarPage() {
                   Présentation de l&apos;organisme de formation IA BTP
                 </Link>
                 {' · '}
-                <Link href={LINKS.formations} className="font-medium text-[var(--accent)] hover:underline">
-                  Former les équipes de votre PME à l&apos;IA
+                <Link
+                  href={LINKS.formationIaDirigeantPmeBtp}
+                  className="font-medium text-[var(--accent)] hover:underline"
+                >
+                  Formation IA pour les PME du bâtiment et des TP
                 </Link>
               </p>
             </div>

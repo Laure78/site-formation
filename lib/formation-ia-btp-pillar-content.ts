@@ -34,7 +34,7 @@ export const FORMATION_IA_BTP_METIERS = [
   { href: LINKS.formationConducteurTravaux, label: 'Conducteur de travaux' },
   { href: LINKS.formationChargeAffairesBtp, label: "Chargé d'affaires" },
   { href: LINKS.formationIaDirigeantBtp, label: 'Dirigeant de PME BTP' },
-  { href: LINKS.formationIaDirigeantPmeBtp, label: 'Chef de TPE du bâtiment' },
+  { href: LINKS.formationIaDirigeantPmeBtp, label: 'PME du bâtiment et des travaux publics' },
   { href: LINKS.formationIaAssistanteBtp, label: 'Assistant(e) administrative' },
   { href: LINKS.formationIaAssistanteBtp, label: 'Assistant(e) administratif / gestion' },
 ] as const;

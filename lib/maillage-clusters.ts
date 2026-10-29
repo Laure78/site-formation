@@ -461,7 +461,7 @@ const METIER_LABELS: Record<string, string> = {
   [LINKS.formationPlombierBtp]: 'Formation IA plomberie sanitaire',
   [LINKS.formationConducteurTravaux]: 'Formation IA conducteur de travaux',
   [LINKS.formationChargeAffairesBtp]: "Formation IA chargé d'affaires BTP",
-  [LINKS.formationIaDirigeantPmeBtp]: 'Formation IA dirigeant opérationnel PME BTP',
+  [LINKS.formationIaDirigeantPmeBtp]: 'Formation IA pour les PME du BTP — dirigeants et équipes',
   [LINKS.formationIaEtancheur]: 'Formation IA étancheur BTP',
   [LINKS.formationIaAssistanteBtp]: 'Formation IA assistante administrative & gestion BTP',
   [LINKS.formationIaAssistanteTravaux]: 'Formation IA assistante travaux BTP',
