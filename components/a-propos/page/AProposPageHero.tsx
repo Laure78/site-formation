@@ -31,7 +31,7 @@ export function AProposPageHero() {
     <section className={`${OFC_SEC.hero} relative overflow-hidden`} aria-labelledby="a-propos-hero-title">
       <div className="relative mx-auto grid max-w-[80rem] items-center gap-12 lg:grid-cols-[minmax(0,1.15fr)_minmax(240px,340px)] lg:gap-16">
         <div className="min-w-0">
-          <Badge>Formatrice IA BTP</Badge>
+          <Badge>Organisme de formation IA · BTP</Badge>
           <h1 id="a-propos-hero-title" className={`${OFC_TYPE_HERO} mt-5 max-w-[16ch]`}>
             {A_PROPOS_PAGE_H1}
           </h1>
@@ -46,10 +46,16 @@ export function AProposPageHero() {
           <ContentUpdatedLine date={updatedAt} className="mt-3" />
           <div id="formations-cta" className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
             <Link
-              href={LINKS.formationIaBtp}
+              href={LINKS.formations}
               className={`${OFC_CTA_PRIMARY} inline-flex min-h-11 items-center justify-center px-6 py-3`}
             >
-              Formation IA pour le BTP
+              Découvrir les formations
+            </Link>
+            <Link
+              href={LINKS.contact}
+              className={`${OFC_CTA_SECONDARY} inline-flex min-h-11 items-center justify-center px-6 py-3`}
+            >
+              Échanger sur les besoins de mon équipe
             </Link>
             <Link
               href={LINKS.prendreRdv}

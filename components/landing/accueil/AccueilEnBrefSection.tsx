@@ -16,6 +16,10 @@ export function AccueilEnBrefSection() {
         <span className="citation-sentence">{ACCUEIL_EN_BREF}</span>
       </ShortAnswerBlock>
       <p className="mt-4 text-sm leading-relaxed text-ofc-ink-muted">
+        <Link href={LINKS.aPropos} className={`${OFC_LINK} font-medium`}>
+          Présentation de l&apos;organisme OFC
+        </Link>
+        {' · '}
         <Link href={LINKS.formations} className={`${OFC_LINK} font-medium`}>
           Voir le catalogue des formations IA BTP
         </Link>

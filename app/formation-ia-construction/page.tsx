@@ -25,6 +25,7 @@ import {
   CONSTRUCTION_PROBLEM_POINTS,
   CONSTRUCTION_PROGRAMMES_ORIENTATION,
   CONSTRUCTION_PUBLICS,
+  CONSTRUCTION_PME_BATIMENT_USAGES,
   CONSTRUCTION_SOLUTION_POINTS,
   CONSTRUCTION_ZONE_INTERVENTION,
   FORMATION_IA_CONSTRUCTION_PATH,
@@ -208,6 +209,34 @@ export default function FormationIaConstructionPage() {
               </li>
             ))}
           </ul>
+          <h3 className="mt-10 font-display text-xl font-semibold text-slate-900">
+            Exemples d&apos;usages pour les PME du bâtiment
+          </h3>
+          <p className="mt-3 text-sm leading-relaxed text-slate-600">
+            Exercices pédagogiques sur documents autorisés ou anonymisés — chaque livrable est relu
+            avant envoi. Programmes :{' '}
+            <Link href={LINKS.formations} className="font-medium text-[#377CF3] hover:underline">
+              catalogue formations IA construction et bâtiment
+            </Link>
+            .
+          </p>
+          <ul className="mt-6 grid gap-4 sm:grid-cols-2">
+            {CONSTRUCTION_PME_BATIMENT_USAGES.map((item) => (
+              <li
+                key={item.title}
+                className="rounded-xl border border-slate-200 bg-slate-50/80 p-4 text-sm leading-relaxed text-slate-700"
+              >
+                <strong className="text-slate-900">{item.title}</strong>
+                <span className="mt-1 block">{item.body}</span>
+              </li>
+            ))}
+          </ul>
+          <p className="mt-6 text-sm text-slate-600">
+            <Link href={LINKS.aPropos} className="font-medium text-[#377CF3] hover:underline">
+              OFC Création d&apos;Entreprise
+            </Link>{' '}
+            est l&apos;organisme de formation qui dispense ces sessions en présentiel en Île-de-France.
+          </p>
         </section>
 
         <section id="probleme" className="scroll-mt-24 mt-14">

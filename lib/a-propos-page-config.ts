@@ -17,23 +17,27 @@ import { LINKEDIN_LEARNING_INSTRUCTOR_HREF } from '@/lib/linkedin-learning-a-pro
 import { PARTNER_WEBSITES, LOGO_UMB_FFB, LOGO_MONITEUR_FORMATIONS } from '@/lib/client-logos';
 import type { FAQItem } from '@/lib/faq';
 
-export const A_PROPOS_PAGE_H1 = 'Laure Olivié, formatrice IA spécialisée dans le BTP' as const;
+export const A_PROPOS_PAGE_H1 = 'Organisme de formation IA pour les PME du BTP' as const;
 
 export const A_PROPOS_PAGE_SUBTITLE =
-  'J’aide les entreprises du bâtiment et des travaux publics à utiliser l’IA sur leurs devis, documents de chantier et appels d’offres.' as const;
+  'OFC Création d’Entreprise forme les dirigeants et les équipes du bâtiment et des travaux publics à l’intelligence artificielle — Laure Olivié, fondatrice et formatrice principale.' as const;
 
 export const A_PROPOS_PAGE_PROOF_LINE =
-  'Organisme certifié Qualiopi · Expérience en entreprise BTP · Instructrice LinkedIn Learning' as const;
+  'Organisme certifié Qualiopi · Spécialisation IA BTP · Instructrice LinkedIn Learning' as const;
 
-/** Title entité (≠ `/formateur-ia-btp` qui cible la requête « formateur »). */
-export const A_PROPOS_PAGE_META_TITLE = 'Laure Olivié, formatrice IA BTP | Qualiopi' as const;
+/** Page principale « organisme de formation IA BTP » (≠ `/formateur-ia-btp` → « formateur »). */
+export const A_PROPOS_PAGE_META_TITLE = 'Organisme de formation IA BTP | Laure Olivié' as const;
 
 export const A_PROPOS_PAGE_META_DESCRIPTION =
-  'Laure Olivié, formatrice IA spécialisée BTP, ancienne dirigeante de travaux publics. Formations Claude et ChatGPT en présentiel Île-de-France, Qualiopi.' as const;
+  'OFC Création d’Entreprise forme les PME du BTP à l’IA : devis, appels d’offres et conduite de travaux. En présentiel en Île-de-France. Qualiopi.' as const;
 
-/** Bloc GEO « En bref » — page auteur / entité. */
+/** Introduction éditoriale — identité organisme (hero / positionnement). */
+export const A_PROPOS_ORGANISME_INTRO =
+  'OFC Création d’Entreprise accompagne les dirigeants et les équipes des PME du bâtiment et des travaux publics dans l’utilisation de l’intelligence artificielle. Les formations portent sur les documents et les tâches du quotidien : devis, appels d’offres, comptes rendus et suivi de chantier. Elles se déroulent en présentiel en Île-de-France.' as const;
+
+/** Bloc GEO « En bref » — page organisme / entité. */
 export const A_PROPOS_PAGE_EN_BREF =
-  'Laure Olivié est formatrice en intelligence artificielle appliquée aux métiers du BTP et marque commerciale sous laquelle sont proposées les sessions en présentiel en Île-de-France (Claude, ChatGPT : devis, appels d’offres, DCE, comptes rendus). L’entité exploitante, OFC Création d’Entreprise, est certifiée Qualiopi. Ancienne dirigeante d’une PME de travaux publics, elle s’adresse aux dirigeants, conducteurs de travaux et fonctions support.';
+  'OFC Création d’Entreprise est un organisme de formation certifié Qualiopi, spécialisé en intelligence artificielle appliquée au bâtiment et aux travaux publics. Laure Olivié en est la fondatrice ; les sessions (Claude, ChatGPT) couvrent devis, DCE, mémoires techniques et comptes rendus — en présentiel en Île-de-France, pour dirigeants, conducteurs de travaux et fonctions support.';
 
 /** Description JSON-LD Person — page À propos uniquement (facts vérifiés). */
 export function getAProposPagePersonDescription(): string {
@@ -187,6 +191,10 @@ export const A_PROPOS_MODALITES_RESUME =
 export const A_PROPOS_LINKEDIN_COURSES = LAURE_OLIVIE_LINKEDIN_LEARNING_COURSES;
 
 export const FAQ_A_PROPOS_PAGE: FAQItem[] = [
+  {
+    q: 'OFC Création d’Entreprise est-il un organisme de formation IA pour le BTP ?',
+    a: `Oui. OFC Création d'Entreprise est l'organisme certifié Qualiopi qui dispense les formations en intelligence artificielle pour les entreprises du bâtiment et des travaux publics — devis, appels d'offres, conduite de travaux — en présentiel en ${IDF_ZONE_INTERVENTION}. Laure Olivié en est la fondatrice. <a href="${LINKS.formations}">Découvrir les formations IA pour le BTP</a> · <a href="${LINKS.formateurs}">Voir l'équipe de formateurs</a>.`,
+  },
   {
     q: 'Qui est Laure Olivié ?',
     a: `Laure Olivié est une formatrice en intelligence artificielle appliquée aux entreprises du bâtiment et des travaux publics, en présentiel en Île-de-France. ${LAURE_OLIVIE_BIO_REFERENCE} Elle intervient aussi comme instructrice LinkedIn Learning (deux cours sur l’IA et les TPE). Parcours détaillé sur cette page ; programmes : <a href="${LINKS.formations}">catalogue des formations IA BTP</a>.`,

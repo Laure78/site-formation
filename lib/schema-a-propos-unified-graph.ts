@@ -122,7 +122,7 @@ export function getAProposUnifiedJsonLd(): Record<string, unknown> {
     url: BASE,
     logo: `${BASE}/logo-lo.svg`,
     image: `${BASE}${PHOTOS.aProposHero2026.src}`,
-    description: `Organisme de formation certifié Qualiopi spécialisé en intelligence artificielle pour les entreprises du bâtiment et des travaux publics. Formation IA pour les pros du BTP — financement possible selon éligibilité. Satisfaction ${PREUVES.satisfaction} (${PREUVES.repondants} répondants).`,
+    description: `Organisme de formation IA BTP certifié Qualiopi : intelligence artificielle appliquée au bâtiment et aux travaux publics pour les PME. Présentiel Île-de-France — financement possible selon éligibilité. Satisfaction ${PREUVES.satisfaction} (${PREUVES.repondants} répondants).`,
     email: SCHEMA_CONTACT.email,
     address: {
       '@type': 'PostalAddress',
@@ -156,13 +156,14 @@ export function getAProposUnifiedJsonLd(): Record<string, unknown> {
     '@type': 'ProfilePage',
     '@id': PROFILE_PAGE_ID,
     url: PAGE_URL,
-    name: 'Laure Olivié — Formatrice IA spécialisée BTP',
+    name: 'OFC Création d’Entreprise — Organisme de formation IA BTP',
     dateCreated: '2022-01-15T12:00:00+01:00',
     dateModified: '2026-04-07T12:00:00+02:00',
     mainEntity: { '@id': PERSON_ID },
+    about: { '@id': ORGANIZATION_ID },
     speakable: {
       '@type': 'SpeakableSpecification',
-      cssSelector: ['h1', '#positionnement-title', '#parcours'],
+      cssSelector: ['h1', '#organisme-title', '#positionnement-title'],
     },
   };
 

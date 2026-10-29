@@ -166,9 +166,18 @@ export default function FormationIATravauxPublicsLandingPage() {
               type), l&apos;enjeu n&apos;est pas de &quot;faire écrire l&apos;IA à votre place&quot;
               sans contrôle : il s&apos;agit de structurer l&apos;information, d&apos;accélérer les
               premières versions de documents répétitifs et de libérer du temps pour la décision
-              technique et la relation client. C&apos;est exactement le positionnement de Laure
-              Olivié : une formatrice avec une connaissance terrain du secteur, qui place la{' '}
-              <strong>validation humaine</strong> et la conformité au centre de la démarche.
+              technique et la relation client. Les sessions sont dispensées par{' '}
+              <Link href={LINKS.aPropos} className="font-medium text-[#377CF3] hover:underline">
+                OFC Création d&apos;Entreprise, organisme de formation IA BTP
+              </Link>{' '}
+              — Laure Olivié, formatrice avec expérience terrain TP, place la{' '}
+              <strong>validation humaine</strong> au centre de la démarche.
+            </p>
+            <p>
+              En formation, les équipes TP travaillent notamment sur : repérage des exigences d&apos;un{' '}
+              <strong>CCTP VRD</strong>, structuration d&apos;un mémoire technique, synthèse
+              documentaire de chantier et organisation des actions et points de suivi — sur pièces
+              autorisées ou anonymisées, jamais présentées comme des réalisations clients.
             </p>
           </div>
         </div>

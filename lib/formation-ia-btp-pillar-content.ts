@@ -17,13 +17,13 @@ export const FORMATION_IA_BTP_PILLAR_H1 =
 
 /** Bloc GEO « En bref » — 40–80 mots, citable sans le reste de la page. */
 export const FORMATION_IA_BTP_PILLAR_EN_BREF =
-  'Une formation IA pour le BTP apprend aux professionnels du bâtiment à utiliser des outils comme Claude ou ChatGPT sur leurs tâches métier : analyse de DCE, mémoires techniques, devis, comptes rendus et courriers. Objectif : accélérer le traitement de l’information tout en conservant la validation humaine. OFC Création d’Entreprise (Qualiopi) anime ces sessions en présentiel en Île-de-France.';
+  'Une formation IA pour le BTP apprend aux professionnels du bâtiment et de la construction à utiliser Claude ou ChatGPT sur leurs tâches métier : analyse de DCE, mémoires techniques, devis, comptes rendus et courriers. OFC Création d’Entreprise, organisme de formation IA BTP certifié Qualiopi, dispense ces sessions en présentiel en Île-de-France — validation humaine obligatoire.';
 
 export const FORMATION_IA_BTP_DEFINITION =
   'Une formation IA pour le BTP (aussi appelée formation IA bâtiment) est une session professionnelle en présentiel, certifiée Qualiopi, où les équipes du bâtiment et des travaux publics apprennent à utiliser Claude AI (outil principal) et ChatGPT (usages administratifs et comparaison) sur leurs documents réels : devis, DCE, CCTP, CCAP, comptes rendus de chantier et courriers. L’objectif est un gain de temps mesurable sur l’administratif, avec relecture humaine et validation terrain — jamais une promesse de financement garanti.';
 
 export const FORMATION_IA_BTP_A_RETENIR = [
-  'Qui : Laure Olivié — formatrice en IA spécialisée dans le BTP, OFC Création d’Entreprise (Qualiopi).',
+  'Qui : OFC Création d’Entreprise — organisme de formation IA pour le BTP (Qualiopi) · Laure Olivié, fondatrice et formatrice principale.',
   'Quoi : formations pratiques Claude / ChatGPT sur documents métier du BTP.',
   'Pour qui : dirigeants de TPE et PME du bâtiment, conducteurs de travaux, chargés d’affaires, fonctions support.',
   'Où : présentiel uniquement en Île-de-France (intra ou inter-entreprises).',

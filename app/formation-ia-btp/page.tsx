@@ -208,6 +208,15 @@ export default function FormationIaBtpPillarPage() {
             </p>
             <div className="mx-auto mt-8 max-w-2xl text-left md:mx-0">
               <ShortAnswerBlock>{FORMATION_IA_BTP_PILLAR_EN_BREF}</ShortAnswerBlock>
+              <p className="mt-4 text-sm leading-relaxed text-slate-600">
+                <Link href={LINKS.aPropos} className="font-medium text-[var(--accent)] hover:underline">
+                  Présentation de l&apos;organisme de formation IA BTP
+                </Link>
+                {' · '}
+                <Link href={LINKS.formations} className="font-medium text-[var(--accent)] hover:underline">
+                  Former les équipes de votre PME à l&apos;IA
+                </Link>
+              </p>
             </div>
             <div className="mx-auto mt-6 max-w-2xl space-y-6 text-left md:mx-0">
               <BlocCtaHaut />

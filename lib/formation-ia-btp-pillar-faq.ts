@@ -10,6 +10,10 @@ export function getFaqFormationIaBtpPillar(at: Date = new Date()): FAQItem[] {
 
   const pillar: FAQItem[] = [
     {
+      q: 'Quel organisme de formation IA choisir pour une PME du BTP ?',
+      a: `OFC Création d'Entreprise est un organisme certifié Qualiopi spécialisé en intelligence artificielle pour le bâtiment et les travaux publics — pas un cours généraliste bureau. Sessions en présentiel en Île-de-France sur devis, appels d'offres et chantier. Présentation : <a href="${LINKS.aPropos}">organisme de formation IA BTP</a> · programmes : <a href="${LINKS.formations}">catalogue</a>.`,
+    },
+    {
       q: 'Qu’est-ce qu’une formation IA pour le BTP ?',
       a:
         `Une session professionnelle en présentiel, certifiée Qualiopi, pour apprendre à utiliser Claude AI et ChatGPT sur vos documents BTP : devis, DCE, CCTP, comptes rendus, courriers. Travail sur vos cas réels, relecture humaine obligatoire. Voir le <a href="${LINKS.formations}">catalogue des ${count} formations</a>.`,

@@ -1,3 +1,3 @@
 /** Bloc « En bref » — page d’accueil (GEO, ≤ 320 car.). */
 export const ACCUEIL_EN_BREF =
-  'OFC Création d’Entreprise (Qualiopi) forme les équipes du BTP en présentiel en Île-de-France à ChatGPT et Claude sur devis, appels d’offres et comptes rendus. Niveau 1 : 4 h (120 € HT/participant en inter). Prise en charge OPCO/Constructys selon éligibilité.';
+  'OFC Création d’Entreprise, organisme de formation IA pour le BTP, forme les PME du bâtiment et des travaux publics en présentiel en Île-de-France : devis, appels d’offres et suivi de chantier avec ChatGPT et Claude. Organisme certifié Qualiopi — prise en charge OPCO/Constructys selon éligibilité.';

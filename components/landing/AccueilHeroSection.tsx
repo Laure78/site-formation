@@ -42,7 +42,11 @@ export function AccueilHeroSection() {
             >
               Apprenez à utiliser ChatGPT et Claude pour préparer vos devis, analyser vos appels
               d’offres et simplifier le suivi de chantier. Des formations pratiques, en présentiel,
-              adaptées à votre métier et à votre niveau.
+              adaptées à votre métier — dispensées par{' '}
+              <Link href={LINKS.aPropos} className={`${OFC_LINK} font-medium`}>
+                notre organisme de formation spécialisé dans le BTP
+              </Link>
+              .
             </p>
             <div data-anim-follow className="mt-4 flex flex-col gap-2.5 sm:flex-row sm:flex-wrap">
               <Link

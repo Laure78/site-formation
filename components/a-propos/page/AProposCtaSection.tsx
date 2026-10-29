@@ -34,8 +34,14 @@ export function AProposCtaSection() {
           href={LINKS.formations}
           className={`${OFC_CTA_SECONDARY} inline-flex min-h-11 items-center justify-center gap-2 border-white/40 bg-transparent px-6 py-3 text-white hover:border-white hover:bg-white/10 hover:text-white`}
         >
-          Voir le catalogue
+          Découvrir les formations
           <ArrowRight className="h-5 w-5" aria-hidden />
+        </Link>
+        <Link
+          href={LINKS.contact}
+          className={`${OFC_CTA_SECONDARY} inline-flex min-h-11 items-center justify-center gap-2 border-white/40 bg-transparent px-6 py-3 text-white hover:border-white hover:bg-white/10 hover:text-white`}
+        >
+          Échanger sur les besoins de mon équipe
         </Link>
       </div>
     </section>

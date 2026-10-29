@@ -38,8 +38,8 @@ export const FORMATION_IA_CONDUCTEUR_DE_TRAVAUX_CONFIG: SeoClusterPageConfig = {
     `Formation IA conducteur de travaux BTP : CR, PPSPS, DOE, analyse CCTP, courriers et suivi sous-traitants. Session catalogue ${dureeCatalogueParCode('NIV-03')} en présentiel Île-de-France, Qualiopi, exercices sur dossiers anonymisés.`,
   introParagraphs: [
     'Un conducteur de travaux consacre une part importante de sa semaine à l\'administratif : comptes rendus, courriers, synthèses de documents, préparation de réunions et suivi des réserves. L\'IA ne remplace pas le jugement terrain — elle accélère la formalisation.',
-    'En formation, vous travaillez sur des situations réelles : notes de réunion transformées en CR, analyse d\'un extrait CCTP, courrier de relance sous-traitant, tableau de suivi des retards. ChatGPT et Claude sont présentés comme outils complémentaires selon le type de document.',
-    'Sessions en présentiel en Île-de-France — intra (dans vos locaux) ou inter. Organisme certifié Qualiopi.',
+    'En formation, vous travaillez sur des situations réelles : synthèse de CCTP avec renvois aux pages, comptes rendus et tableaux d\'actions, plannings à contrôler, courriers de chantier et organisation documentaire du DOE — sur dossiers anonymisés, avec relecture obligatoire. ChatGPT et Claude sont présentés selon le type de document.',
+    `OFC Création d'Entreprise, organisme de formation spécialisé IA pour le BTP, dispense cette formation en présentiel en Île-de-France (intra ou inter). Organisme certifié Qualiopi — programme catalogue ${dureeCatalogueParCode('NIV-03')}.`,
   ],
   useCasesTitle: 'Usages IA directement liés au métier de conducteur de travaux',
   useCases: [
@@ -114,6 +114,8 @@ export const FORMATION_IA_CONDUCTEUR_DE_TRAVAUX_CONFIG: SeoClusterPageConfig = {
   catalogueHref: LINKS.formationConduiteTravauxSuiviChantier,
   catalogueLabel: 'Voir le programme',
   relatedLinks: [
+    { href: LINKS.aPropos, label: 'Organisme de formation IA pour le BTP' },
+    { href: LINKS.guideConducteurTravauxIaBtp, label: 'Guide IA conducteur de travaux (ressource)' },
     {
       href: LINKS.parcoursConducteurDeTravaux,
       label: 'Parcours Conducteur de travaux (plusieurs modules)',

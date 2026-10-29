@@ -5,7 +5,7 @@ import { LINKS } from '@/lib/internal-links';
 
 /** Accueil — activité, publics, usages, zone (HTML autorisé dans FAQ ; ici texte brut). */
 export const ACCUEIL_EN_BREF =
-  'Laure Olivié forme les dirigeants et les équipes des entreprises du bâtiment et des travaux publics à utiliser l’intelligence artificielle sur leurs documents métier : devis, appels d’offres et suivi de chantier. Les formations se déroulent en présentiel en Île-de-France, dispensées par OFC Création d’Entreprise (organisme certifié Qualiopi).';
+  'OFC Création d’Entreprise, organisme de formation IA pour le BTP, forme les PME du bâtiment et des travaux publics en présentiel en Île-de-France : devis, appels d’offres et suivi de chantier avec ChatGPT et Claude. Organisme certifié Qualiopi — prise en charge OPCO/Constructys selon éligibilité.';
 
 /** Six contrôles sur les sorties IA — guide AO BTP (synthèse HTML, alignée PDF 2026). */
 export const GUIDE_AO_CONTROLES_IA = [

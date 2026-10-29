@@ -32,6 +32,26 @@ export const CONSTRUCTION_PUBLICS = [
   'Bureaux d’études, BET et fonctions support (QSE, achats, administratif)',
 ] as const;
 
+/** Usages enseignés — PME du bâtiment (alignés programmes NIV-01 à NIV-03). */
+export const CONSTRUCTION_PME_BATIMENT_USAGES = [
+  {
+    title: 'Trames de devis',
+    body: 'Préparer des trames à partir de données vérifiées en interne — postes, libellés et hypothèses relus avant chiffrage.',
+  },
+  {
+    title: 'Pièces de consultation',
+    body: 'Analyser les extraits d’un dossier de consultation (DCE, CCTP) pour en sortir exigences et points de vigilance.',
+  },
+  {
+    title: 'Courriers et relances',
+    body: 'Structurer courriers clients, relances fournisseurs ou sous-traitants — ton professionnel, validation humaine.',
+  },
+  {
+    title: 'Comptes rendus',
+    body: 'Préparer des comptes rendus à partir de notes de réunion ou de visite — actions et responsables à contrôler.',
+  },
+] as const;
+
 /** Orientation vers les fiches catalogue existantes — durées et tarifs sur chaque programme. */
 export const CONSTRUCTION_PROGRAMMES_ORIENTATION = [
   {
