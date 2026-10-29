@@ -336,11 +336,15 @@ export default function IaAnalyseDceBtpPage() {
               <Link href={LINKS.tutoAnalyseDce} className={OFC_LINK}>
                 tutoriel PDF analyse DCE
               </Link>{' '}
-              reprend la même logique pas à pas. Vue d&apos;ensemble :{' '}
+              reprend la même logique pas à pas.               Vue d&apos;ensemble :{' '}
               <Link href={LINKS.formationIaBtp} className={OFC_LINK}>
                 formation IA pour le BTP
               </Link>
-              . {FINANCEMENT_FORMULATION_PRUDENTE}
+              {' · '}
+              <Link href={LINKS.formationIaConstruction} className={OFC_LINK}>
+                formations IA pour la construction
+              </Link>{' '}
+              (présentiel en Île-de-France). {FINANCEMENT_FORMULATION_PRUDENTE}
             </p>
           </div>
         </section>

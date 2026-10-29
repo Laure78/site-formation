@@ -1,24 +1,32 @@
 import Link from 'next/link';
+import { CtaButton } from '@/components/CtaButton';
 import { CTA_RDV_LABEL } from '@/components/CtaRdv';
 import { Check } from 'lucide-react';
 import { CalendlyEmbed } from '@/components/CalendlyEmbed';
+import { EnBref } from '@/app/components/EnBref';
 import { FAQAnswer } from '@/components/landing/FAQAnswer';
 import { JsonLd } from '@/components/JsonLd';
 import { FormationPartenairesMention } from '@/components/formations/FormationPartenairesMention';
 import { LiensConnexes } from '@/components/LiensConnexes';
 import { LaureOlivieFormationPortrait } from '@/components/laure-olivie/LaureOlivieFormationPortrait';
+import { MetierIdfPresentielLine } from '@/components/formation-ia-metier/MetierIdfPresentielLine';
+import { PreuveSociale } from '@/components/PreuveSociale';
 import { ShortAnswerBlock } from '@/components/landing/ShortAnswerBlock';
+import { ContentUpdatedLine } from '@/components/seo/ContentUpdatedLine';
 import { createPageMetadata, getFAQSchema, SITE_CONFIG } from '@/lib/seo';
+import { getPillarPageContentUpdatedAt } from '@/lib/content-updated-at';
 import { LINKS } from '@/lib/internal-links';
-import { SOCIAL_PROOF } from '@/lib/constants';
 import { FINANCEMENT_FORMULATION_PRUDENTE } from '@/lib/financement-copy';
 import { phraseSessionCataloguePresentielIdf } from '@/lib/catalogue-duree-copy';
 import { MODALITE_FORMATIONS_STANDARD } from '@/lib/tarifs-sessions';
 import {
+  CONSTRUCTION_CONTROLE_CONFIDENTIALITE,
   CONSTRUCTION_FAQ,
   CONSTRUCTION_PROBLEM_POINTS,
+  CONSTRUCTION_PROGRAMMES_ORIENTATION,
+  CONSTRUCTION_PUBLICS,
   CONSTRUCTION_SOLUTION_POINTS,
-  CONSTRUCTION_TEMOIGNAGES,
+  CONSTRUCTION_ZONE_INTERVENTION,
   FORMATION_IA_CONSTRUCTION_PATH,
   FORMATION_IA_CONSTRUCTION_SEO,
   METHODE_ETAPES_CONSTRUCTION,
@@ -58,12 +66,14 @@ export const metadata = createPageMetadata({
 });
 
 const SOMMAIRE = [
-  { href: '#probleme', label: 'La charge documentaire des entreprises de construction' },
+  { href: '#publics', label: 'Publics et usages métier' },
+  { href: '#probleme', label: 'La charge documentaire en construction' },
   { href: '#solution', label: "L'IA au service des équipes études et travaux" },
-  { href: '#methode', label: 'Méthode en 3 étapes + 3 prompts construction' },
-  { href: '#resultats', label: 'Résultats et témoignages' },
+  { href: '#programmes', label: 'Choisir le programme adapté' },
+  { href: '#zone-idf', label: 'Présentiel en Île-de-France' },
+  { href: '#methode', label: 'Méthode en 3 étapes + 3 prompts' },
+  { href: '#controle', label: 'Contrôle humain et confidentialité' },
   { href: '#faq', label: 'Questions fréquentes' },
-  { href: '#a-propos', label: 'Laure Olivié — formatrice' },
   { href: LINKS.prendreRdv, label: CTA_RDV_LABEL },
 ];
 
@@ -111,29 +121,60 @@ export default function FormationIaConstructionPage() {
 
       <article>
         <header>
-          <p className="text-sm font-medium uppercase tracking-wide text-[#377CF3]">
-            {SITE_CONFIG.legalName} · organisme certifié Qualiopi · Constructys · Présentiel Île-de-France
-          </p>
-          <h1 className="font-display mt-4 text-2xl font-bold tracking-tight text-slate-900 md:text-[1.75rem] lg:text-2xl lg:leading-tight">
+          <MetierIdfPresentielLine className="mb-4" />
+          <h1 className="font-display text-2xl font-bold tracking-tight text-slate-900 md:text-[1.75rem] lg:text-2xl lg:leading-tight">
             {FORMATION_IA_CONSTRUCTION_SEO.h1}
           </h1>
+          <ContentUpdatedLine
+            date={getPillarPageContentUpdatedAt(FORMATION_IA_CONSTRUCTION_PATH)}
+            className="mt-2 text-xs text-slate-500"
+          />
           <p className="mt-4 text-lg text-slate-600">
-            Sessions en présentiel en Île-de-France pour ETI, entreprises générales, MOE et BET — DCE,
-            chiffrage, appels d&apos;offres et coordination chantier.
+            Formation à l&apos;intelligence artificielle pour la construction : devis, analyse de DCE,
+            mémoires techniques et comptes rendus — en présentiel en Île-de-France, pour les équipes
+            du BTP et de la construction.
           </p>
+
+          <PreuveSociale className="mt-6" />
+
+          <EnBref>
+            <p>
+              Laure Olivié (OFC Création d&apos;Entreprise, Qualiopi) forme les professionnels de la
+              construction à ChatGPT et Claude sur leurs documents réels. Sessions intra ou inter,{' '}
+              {phraseSessionCataloguePresentielIdf()}. {FINANCEMENT_FORMULATION_PRUDENTE}
+            </p>
+          </EnBref>
+
+          <div className="mt-6 flex flex-wrap gap-3">
+            <Link
+              href={LINKS.formations}
+              className="inline-flex items-center rounded-lg bg-[#377CF3] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[#2a63d4]"
+            >
+              Voir les programmes
+            </Link>
+            <Link
+              href={LINKS.contact}
+              className="inline-flex items-center rounded-lg border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-800 hover:border-[#377CF3] hover:text-[#377CF3]"
+            >
+              Demander un devis
+            </Link>
+            <CtaButton
+              origin="formation-ia-construction-hero"
+              variant="unstyled"
+              className="inline-flex items-center rounded-lg border border-[#377CF3] px-5 py-3 text-sm font-semibold text-[#377CF3] hover:bg-blue-50"
+            />
+          </div>
 
           <div className="mt-8">
             <ShortAnswerBlock>
-              Formation IA construction pour entreprises générales, BET et directions travaux : analyse
-              DCE, mémoires techniques, DPGF et reporting MOA/MOE. {phraseSessionCataloguePresentielIdf()},
-              organisme certifié Qualiopi, {FINANCEMENT_FORMULATION_PRUDENTE.toLowerCase()}
+              Cette page oriente vers le catalogue{' '}
+              <Link href={LINKS.formationIaBtp} className="font-medium text-[#377CF3] hover:underline">
+                formation IA BTP
+              </Link>{' '}
+              : mêmes modules en présentiel en Île-de-France, avec exercices sur devis, DCE/CCTP,
+              mémoires techniques et CR de chantier — relecture humaine obligatoire.
             </ShortAnswerBlock>
           </div>
-
-          <p className="mt-6 text-sm text-slate-600">
-            <strong></strong> · Partenaires : FFB Grand Paris, CSFE,
-            UMB-FFB, CNAM Entreprise, Le Moniteur Formations
-          </p>
         </header>
 
         <nav
@@ -151,6 +192,23 @@ export default function FormationIaConstructionPage() {
             ))}
           </ol>
         </nav>
+
+        <section id="publics" className="scroll-mt-24 mt-14">
+          <h2 className="font-display text-2xl font-bold text-slate-900">À qui s&apos;adressent ces formations ?</h2>
+          <p className="mt-4 leading-relaxed text-slate-600">
+            Les programmes du catalogue couvrent les fonctions qui produisent ou valident les documents de
+            chantier et d&apos;études — du dirigeant de PME au bureau d&apos;études, sans prérequis technique
+            sur l&apos;IA.
+          </p>
+          <ul className="mt-6 space-y-3 text-slate-700">
+            {CONSTRUCTION_PUBLICS.map((line) => (
+              <li key={line} className="flex gap-3">
+                <Check className="mt-0.5 h-5 w-5 shrink-0 text-[#377CF3]" strokeWidth={1.5} />
+                <span>{line}</span>
+              </li>
+            ))}
+          </ul>
+        </section>
 
         <section id="probleme" className="scroll-mt-24 mt-14">
           <h2 className="font-display text-2xl font-bold text-slate-900">
@@ -205,9 +263,64 @@ export default function FormationIaConstructionPage() {
             ))}
           </ol>
           <p className="mt-6 text-slate-600">
-            {MODALITE_FORMATIONS_STANDARD} Programme catalogue :{' '}
-            <Link href={LINKS.formationIaBtpNiveau1BatimentTp} className="font-semibold text-[#377CF3] underline">
-              NIV-01 — L&apos;IA au service du bâtiment et des travaux publics
+            {MODALITE_FORMATIONS_STANDARD} Vue d&apos;ensemble :{' '}
+            <Link href={LINKS.formations} className="font-semibold text-[#377CF3] underline">
+              catalogue des formations IA pour le BTP
+            </Link>
+            .
+          </p>
+        </section>
+
+        <section id="programmes" className="scroll-mt-24 mt-14">
+          <h2 className="font-display text-2xl font-bold text-slate-900">
+            Comment choisir le programme adapté ?
+          </h2>
+          <p className="mt-4 leading-relaxed text-slate-600">
+            Chaque fiche précise durée, effectif et prérequis. Le{' '}
+            <Link href={LINKS.parcoursMetiers} className="font-medium text-[#377CF3] hover:underline">
+              parcours métiers
+            </Link>{' '}
+            aide à orienter par fonction ; la visio découverte permet de cadrer une session intra ou une
+            inscription inter.
+          </p>
+          <ul className="mt-6 space-y-5">
+            {CONSTRUCTION_PROGRAMMES_ORIENTATION.map((item) => (
+              <li
+                key={item.href}
+                className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm"
+              >
+                <p className="font-semibold text-slate-900">{item.label}</p>
+                <p className="mt-2 text-sm text-slate-600">{item.programme}</p>
+                <Link href={item.href} className="mt-3 inline-block text-sm font-semibold text-[#377CF3] hover:underline">
+                  Voir la fiche programme →
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </section>
+
+        <section id="zone-idf" className="scroll-mt-24 mt-14">
+          <h2 className="font-display text-2xl font-bold text-slate-900">
+            Zone d&apos;intervention et modalités réelles
+          </h2>
+          <dl className="mt-6 space-y-4 text-slate-700">
+            <div>
+              <dt className="font-semibold text-slate-900">Zone d&apos;intervention</dt>
+              <dd className="mt-1">{CONSTRUCTION_ZONE_INTERVENTION.zone} — présentiel uniquement.</dd>
+            </div>
+            <div>
+              <dt className="font-semibold text-slate-900">Siège administratif OFC</dt>
+              <dd className="mt-1">{CONSTRUCTION_ZONE_INTERVENTION.siegeAdministratif}</dd>
+            </div>
+            <div>
+              <dt className="font-semibold text-slate-900">Lieux de session</dt>
+              <dd className="mt-1">{CONSTRUCTION_ZONE_INTERVENTION.lieuxSessions}</dd>
+            </div>
+          </dl>
+          <p className="mt-6 text-slate-600">
+            Pour le maillage régional (départements, Paris) :{' '}
+            <Link href={LINKS.formationIleDeFrance} className="font-medium text-[#377CF3] hover:underline">
+              formations en présentiel en Île-de-France
             </Link>
             .
           </p>
@@ -257,63 +370,22 @@ export default function FormationIaConstructionPage() {
           </pre>
         </section>
 
-        <section id="resultats" className="scroll-mt-24 mt-14">
+        <section id="controle" className="scroll-mt-24 mt-14">
           <h2 className="font-display text-2xl font-bold text-slate-900">
-            Résultats mesurés et témoignages
+            Contrôle humain et confidentialité
           </h2>
-          <div className="mt-6 overflow-x-auto">
-            <table className="w-full min-w-[480px] border-collapse border border-slate-200 text-left text-sm">
-              <caption className="sr-only">Gains de temps IA pour entreprises de construction</caption>
-              <thead>
-                <tr className="bg-slate-100">
-                  <th className="border border-slate-200 p-3 font-semibold">Tâche</th>
-                  <th className="border border-slate-200 p-3 font-semibold">Sans IA</th>
-                  <th className="border border-slate-200 p-3 font-semibold">Avec IA</th>
-                  <th className="border border-slate-200 p-3 font-semibold">Gain</th>
-                </tr>
-              </thead>
-              <tbody className="text-slate-700">
-                {[
-                  ['Analyse CCTP (80 pages)', '3 h', '20 min', '−89 %'],
-                  ['Mémoire technique (parties communes)', '1 journée', '2 h', '−75 %'],
-                  ['CR réunion MOA/MOE', '60 min', '10 min', '−83 %'],
-                  ['Structuration DPGF', '2 h', '30 min', '−75 %'],
-                  ['Courrier formel MOE', '25 min', '5 min', '−80 %'],
-                ].map(([doc, sans, avec, gain]) => (
-                  <tr key={doc as string}>
-                    <td className="border border-slate-200 p-3">{doc}</td>
-                    <td className="border border-slate-200 p-3">{sans}</td>
-                    <td className="border border-slate-200 p-3">{avec}</td>
-                    <td className="border border-slate-200 p-3 font-medium text-[#377CF3]">{gain}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-
-          <div className="mt-10 rounded-2xl border border-slate-200 bg-white p-6 text-slate-700">
-            <p className="font-display font-semibold text-slate-900">Mes chiffres</p>
-            <ul className="mt-3 list-inside list-disc space-y-1">
-              <li>
-                <strong></strong>
+          <p className="mt-4 leading-relaxed text-slate-600">
+            En construction, un document erroné a des conséquences contractuelles. Les formations OFC
+            insistent sur la validation métier et le cadre d&apos;usage des outils IA.
+          </p>
+          <ol className="mt-6 list-decimal space-y-5 pl-5 text-slate-700">
+            {CONSTRUCTION_CONTROLE_CONFIDENTIALITE.map((item) => (
+              <li key={item.title}>
+                <strong className="text-slate-900">{item.title}</strong>
+                <p className="mt-2 leading-relaxed">{item.body}</p>
               </li>
-              <li>
-                Partenaires : FFB Grand Paris, CSFE, UMB-FFB, CNAM Entreprise, Le Moniteur Formations
-              </li>
-            </ul>
-          </div>
-
-          <div className="mt-8 space-y-6">
-            {CONSTRUCTION_TEMOIGNAGES.map((t) => (
-              <blockquote
-                key={t.author}
-                className="rounded-2xl border-l-4 border-[#377CF3] bg-slate-50 p-6 text-slate-800"
-              >
-                <p className="italic">&laquo; {t.quote} &raquo;</p>
-                <footer className="mt-3 text-sm font-semibold text-slate-600">— {t.author}</footer>
-              </blockquote>
             ))}
-          </div>
+          </ol>
         </section>
 
         <section id="faq" className="scroll-mt-24 mt-14">
@@ -357,8 +429,18 @@ export default function FormationIaConstructionPage() {
               </Link>
             </li>
             <li>
+              <Link href={LINKS.formationIaAppelsOffresBtp} className="text-[#377CF3] hover:underline">
+                Formation IA appels d&apos;offres et DCE BTP
+              </Link>
+            </li>
+            <li>
               <Link href={LINKS.formationIaBtpParis} className="text-[#377CF3] hover:underline">
-                Formation IA BTP, bâtiment et construction à Paris (75)
+                Formation IA BTP à Paris (75)
+              </Link>
+            </li>
+            <li>
+              <Link href={LINKS.formationIleDeFrance} className="text-[#377CF3] hover:underline">
+                Formations IA en présentiel en Île-de-France
               </Link>
             </li>
             <li>
@@ -375,11 +457,13 @@ export default function FormationIaConstructionPage() {
         </section>
 
         <LiensConnexes
-          currentPath={LINKS.formationIaConstruction}
+          currentPath={FORMATION_IA_CONSTRUCTION_PATH}
           excludeHrefs={[
             LINKS.formations,
             LINKS.formationIaBtpParis,
             LINKS.formationConducteurTravaux,
+            LINKS.formationIleDeFrance,
+            LINKS.formationIaAppelsOffresBtp,
           ]}
         />
 

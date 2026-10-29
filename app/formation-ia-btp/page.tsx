@@ -543,6 +543,12 @@ export default function FormationIaBtpPillarPage() {
             coordination MOA/MOE. La formation s&apos;adapte à ces profils avec un vocabulaire
             corporate et des exercices sur vos dossiers réels.
           </p>
+          <p>
+            <Link href={LINKS.formationIaConstruction} className="font-semibold text-[var(--accent)] hover:underline">
+              Se former à l&apos;IA dans la construction en Île-de-France
+            </Link>{' '}
+            — page dédiée (usages DCE, mémoires techniques, choix de programme).
+          </p>
           </Reveal>
         </section>
 

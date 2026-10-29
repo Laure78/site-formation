@@ -83,8 +83,8 @@ export const LINKS = {
    * Distincte du catalogue `/formations` (liste des programmes).
    */
   formationIaBtp: '/formation-ia-btp',
-  /** @deprecated Doublon — 308 → `formationIaBtp` */
-  formationIaConstruction: '/formation-ia-btp',
+  /** Pilier sémantique — formation IA construction (présentiel Île-de-France), distinct de `formationIaBtp` */
+  formationIaConstruction: '/formation-ia-construction',
   /** Cluster SEO — formation ChatGPT BTP (outil) */
   formationChatgptBtp: '/formation-chatgpt-btp',
   /** Cluster SEO — formation IA conducteur de travaux (métier) — canon `-btp` */
@@ -478,6 +478,8 @@ export const LINKS = {
   tutoAnalyseDce: '/ressources/tuto-analyse-dce',
   tutoTriDceClaudeChrome: '/ressources/tuto-tri-dce-claude-chrome',
   tutoCrChantier: '/ressources/tuto-cr-chantier',
+  skillCrChantierBatiment:
+    '/ressources/skills/cr-chantier-batiment/cr-chantier-batiment.skill',
   tutoPpsps: '/ressources/tuto-ppsps',
   tutoDuerp: '/ressources/tuto-duerp',
   tutoConstatRetard: '/ressources/tuto-constat-retard',

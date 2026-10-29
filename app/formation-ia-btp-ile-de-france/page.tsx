@@ -125,7 +125,7 @@ export default function FormationIaBtpIleDeFrancePage() {
               Présentiel · organisme certifié Qualiopi · Constructys · Île-de-France
             </p>
             <h1 className="mt-4 font-display text-2xl font-bold leading-tight text-slate-900 md:text-2xl lg:text-2xl">
-              Formation IA pour le bâtiment et la construction en Île-de-France
+              Formation IA pour le BTP en Île-de-France
             </h1>
             <ContentUpdatedLine
               date={getPillarPageContentUpdatedAt('/formation-ia-btp-ile-de-france')}
@@ -147,6 +147,10 @@ export default function FormationIaBtpIleDeFrancePage() {
             <p className="mt-6 text-base leading-relaxed text-slate-600">
               <Link href={LINKS.formations} className={OFC_LINK}>
                 Voir le catalogue des formations IA BTP
+              </Link>
+              {' · '}
+              <Link href={LINKS.formationIaConstruction} className={OFC_LINK}>
+                Formations IA pour la construction
               </Link>
             </p>
           </div>

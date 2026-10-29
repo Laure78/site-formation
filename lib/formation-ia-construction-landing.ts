@@ -13,14 +13,69 @@ import {
 import { buildFormationFicheCourseJsonLd } from '@/lib/schema-formation-course-jsonld';
 import { phraseSessionCataloguePresentielIdf } from '@/lib/catalogue-duree-copy';
 import { MODALITE_FORMATIONS_STANDARD, TARIF_FORFAIT_DEBUTANT_HT } from '@/lib/tarifs-sessions';
+import { CONTACT, IDF_ZONE_INTERVENTION } from '@/lib/constants';
 
 export const FORMATION_IA_CONSTRUCTION_PATH = '/formation-ia-construction' as const;
 
 export const FORMATION_IA_CONSTRUCTION_SEO = {
-  title: 'Formation IA Construction IDF | Laure Olivié',
+  title: 'Formation IA construction en Île-de-France | Laure Olivié',
   description:
-    "Formation IA construction en présentiel Île-de-France : DCE, chiffrage, appels d'offres. Qualiopi, finançable par Constructys selon éligibilité. Prendre rendez-vous.",
-  h1: 'Formation IA pour les Entreprises de Construction en Île-de-France',
+    'Formez vos équipes à l’IA appliquée à la construction : devis, DCE et comptes rendus de chantier. En présentiel en Île-de-France. Qualiopi.',
+  h1: 'Formation IA pour les professionnels de la construction',
+} as const;
+
+/** Publics visés — alignés sur le positionnement OFC (sans label « artisans »). */
+export const CONSTRUCTION_PUBLICS = [
+  'Dirigeants et directions de PME du bâtiment et de la construction',
+  'Conducteurs de travaux et chefs de chantier',
+  'Chargés d’affaires et équipes études de prix',
+  'Bureaux d’études, BET et fonctions support (QSE, achats, administratif)',
+] as const;
+
+/** Orientation vers les fiches catalogue existantes — durées et tarifs sur chaque programme. */
+export const CONSTRUCTION_PROGRAMMES_ORIENTATION = [
+  {
+    label: 'Premiers usages sur devis, emails et CR de chantier',
+    href: LINKS.formationIaBtpNiveau1BatimentTp,
+    programme: 'NIV-01 — L’IA au service du bâtiment et des travaux publics (4 h)',
+  },
+  {
+    label: 'DCE, mémoire technique et appels d’offres',
+    href: LINKS.formationAO,
+    programme: 'NIV-02 — IA appliquée aux appels d’offres BTP (7 h)',
+  },
+  {
+    label: 'Suivi de chantier, CR et coordination',
+    href: LINKS.formationConduiteTravauxSuiviChantier,
+    programme: 'NIV-03 — IA conduite de travaux et suivi chantier (7 h)',
+  },
+  {
+    label: 'Chiffrage, DPGF et quantitatifs (métreurs, économistes)',
+    href: LINKS.formationIaMetreurEconomisteConstruction,
+    programme: 'Page métier + NIV-02 selon votre besoin',
+  },
+] as const;
+
+export const CONSTRUCTION_CONTROLE_CONFIDENTIALITE = [
+  {
+    title: 'Relecture humaine',
+    body: 'Tout brouillon IA (devis, synthèse DCE, mémoire technique, CR) est relu et validé par un professionnel habilité avant envoi ou engagement.',
+  },
+  {
+    title: 'Sources et pièces contractuelles',
+    body: 'Les exigences extraites d’un DCE doivent être recoupées avec le CCTP, le CCAP ou la DPGF d’origine — l’IA aide à structurer, pas à signer.',
+  },
+  {
+    title: 'Confidentialité des documents',
+    body: `Ne pas déposer de DCE nominatif ou de données personnelles dans un outil grand public sans cadre entreprise (compte pro, charte interne). Les sessions OFC s’appuient sur vos cas réels en présentiel en ${IDF_ZONE_INTERVENTION}.`,
+  },
+] as const;
+
+export const CONSTRUCTION_ZONE_INTERVENTION = {
+  zone: IDF_ZONE_INTERVENTION,
+  siegeAdministratif: CONTACT.address,
+  lieuxSessions:
+    'Sessions intra dans vos locaux ou inter en salle — dates et lieux publiés sur les fiches lorsqu’une session inter est ouverte ; pas de liste de villes fictive.',
 } as const;
 
 export const CONSTRUCTION_PROBLEM_POINTS = [
@@ -109,25 +164,11 @@ Produis :
 
 Ne invente pas de prix unitaires — indique [PRIX À SAISIR] pour chaque poste.`;
 
-export const CONSTRUCTION_TEMOIGNAGES = [
-  {
-    quote:
-      "L'analyse DCE en 20 minutes au lieu d'une demi-journée a changé notre capacité à répondre aux marchés groupés. L'équipe études garde la main sur le chiffrage final.",
-    author: 'Directeur technique, entreprise générale TCE — Hauts-de-Seine',
-  },
-  {
-    quote:
-      "Les mémoires techniques structurés par l'IA nous font gagner un jour par candidature. Le financement Constructys s'est déroulé sans friction.",
-    author: 'Responsable affaires, groupe construction — Paris',
-  },
-  {
-    quote:
-      "Formation adaptée au vocabulaire MOE/BET — pas de jargon tech. Nos chargés d'études sont repartis avec des prompts directement utilisables sur les dossiers en cours.",
-    author: 'Responsable formation, BET structure — Île-de-France',
-  },
-] as const;
-
 export const CONSTRUCTION_FAQ = [
+  {
+    q: 'Où se déroule la formation IA construction ?',
+    a: `Uniquement en présentiel en ${IDF_ZONE_INTERVENTION} : format intra (dans vos locaux) ou inter en salle selon les sessions ouvertes. Siège administratif OFC : ${CONTACT.address}. Pour une vue régionale du catalogue BTP, voir aussi <a href="${LINKS.formationIleDeFrance}">formation IA BTP en Île-de-France</a>.`,
+  },
   {
     q: "L'IA va-t-elle remplacer les métiers de la construction ?",
     a: "Non. L'IA accélère la rédaction, la structuration et la synthèse documentaire (DCE, mémoires techniques, CR, DPGF). Le jugement technique, la décision chantier, la relation MOA/MOE et la signature des documents restent à la charge de vos équipes — c'est le fil rouge de la formation.",
@@ -160,7 +201,7 @@ export function buildFormationIaConstructionCourseJsonLd(): Record<string, unkno
 
   return {
     ...buildFormationFicheCourseJsonLd({
-      name: 'Formation IA pour les entreprises de construction',
+      name: FORMATION_IA_CONSTRUCTION_SEO.h1,
       description: FORMATION_IA_CONSTRUCTION_SEO.description,
       path,
       educationalLevel: 'Professionnel',

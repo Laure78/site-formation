@@ -27,6 +27,10 @@ export function AccueilEnBrefSection() {
         <Link href={LINKS.formationIaIntraEntrepriseBtp} className={`${OFC_LINK} font-medium`}>
           Former mon équipe en intra-entreprise
         </Link>
+        {' · '}
+        <Link href={LINKS.formationIaConstruction} className={`${OFC_LINK} font-medium`}>
+          Formations IA pour la construction
+        </Link>
       </p>
     </Section>
   );

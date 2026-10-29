@@ -257,6 +257,10 @@ export default function IaMemoireTechniqueBtpPage() {
               <Link href={LINKS.formationIaBtp} className={OFC_LINK}>
                 formation IA pour le BTP
               </Link>
+              {' · '}
+              <Link href={LINKS.formationIaConstruction} className={OFC_LINK}>
+                se former à l&apos;IA dans la construction
+              </Link>
               . {FINANCEMENT_FORMULATION_PRUDENTE}
             </p>
           </div>

@@ -741,8 +741,6 @@ const nextConfig: NextConfig = {
       { source: '/formations/ia-pme-btp/:path*', destination: '/formation-ia-dirigeant-pme-btp', permanent: true },
       { source: '/expert-ia-btp', destination: '/a-propos', permanent: true },
       { source: '/expert-ia-btp/', destination: '/a-propos', permanent: true },
-      { source: '/formation-ia-construction', destination: '/formation-ia-btp', permanent: true },
-      { source: '/formation-ia-construction/', destination: '/formation-ia-btp', permanent: true },
       { source: '/blog/formation-ia-cctp-analyse-dce-btp', destination: '/blog/analyser-cctp-ia-methode-complete-20-minutes', permanent: true },
       { source: '/blog/formation-ia-cctp-analyse-dce-btp/', destination: '/blog/analyser-cctp-ia-methode-complete-20-minutes', permanent: true },
       { source: '/formations/formation-claude-ia-btp', destination: '/formations/maitriser-claude-ai-btp', permanent: true },
