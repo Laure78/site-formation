@@ -11,7 +11,7 @@ export function getFaqFormationIaBtpPillar(at: Date = new Date()): FAQItem[] {
   const pillar: FAQItem[] = [
     {
       q: 'Quel organisme de formation IA choisir pour une PME du BTP ?',
-      a: `OFC Création d'Entreprise est un organisme certifié Qualiopi spécialisé en intelligence artificielle pour le bâtiment et les travaux publics — pas un cours généraliste bureau. Sessions en présentiel en Île-de-France sur devis, appels d'offres et chantier. Présentation : <a href="${LINKS.aPropos}">organisme de formation IA BTP</a> · programmes : <a href="${LINKS.formations}">catalogue</a>.`,
+      a: `Laure Olivié, organisme certifié Qualiopi (OFC Création d'Entreprise), est spécialisé en intelligence artificielle pour le bâtiment et les travaux publics — pas un cours généraliste bureau. Sessions en présentiel en Île-de-France sur devis, appels d'offres et chantier. Présentation : <a href="${LINKS.aPropos}">organisme de formation IA BTP</a> · programmes : <a href="${LINKS.formations}">catalogue</a>.`,
     },
     {
       q: 'Qu’est-ce qu’une formation IA pour le BTP ?',
@@ -62,7 +62,7 @@ export function getFaqFormationIaBtpPillar(at: Date = new Date()): FAQItem[] {
     {
       q: 'Comment utiliser Claude dans le BTP ?',
       a:
-        `Claude (outil principal en session chez OFC) est adapté aux documents longs (DCE, CCTP) et aux Projects / Skills pour industrialiser des prompts métier. Guide : <a href="${LINKS.claudeAiBtp}">Claude AI pour le BTP</a> · formation catalogue : <a href="${LINKS.formationMaitriserClaudeAiBtp}">Maîtriser Claude pour le BTP</a>.`,
+        `Claude (outil principal en session chez Laure Olivié) est adapté aux documents longs (DCE, CCTP) et aux Projects / Skills pour industrialiser des prompts métier. Guide : <a href="${LINKS.claudeAiBtp}">Claude AI pour le BTP</a> · formation catalogue : <a href="${LINKS.formationMaitriserClaudeAiBtp}">Maîtriser Claude pour le BTP</a>.`,
     },
     {
       q: 'Faut-il être bon en informatique pour suivre cette formation ?',

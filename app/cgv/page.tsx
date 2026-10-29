@@ -3,15 +3,16 @@ import { Mail } from 'lucide-react';
 import { createPageMetadata } from '@/lib/seo';
 import { MentionTVA, MentionTvaAsterisque } from '@/components/MentionTVA';
 import { OFC_IDENTITE, QUALIOPI_CONTACTS, QUALIOPI_RECLAMATIONS } from '@/lib/qualiopi-info';
+import { MARQUE_COMMERCIALE, MENTION_MARQUE_EXPLOITANTE } from '@/lib/marque-identite';
 import { LINKS } from '@/lib/internal-links';
 
 export const revalidate = 3600;
 export const metadata = createPageMetadata({
-  title: 'CGV — OFC Création d\'Entreprise',
+  title: 'CGV formations | Laure Olivié',
   description:
-    "CGV des formations OFC : vente, délais, annulations, paiement. Organisme certifié Qualiopi. À lire avant de réserver votre formation IA pour le BTP.",
+    "CGV des formations Laure Olivié (OFC Création d'Entreprise) : vente, délais, annulations, paiement. Organisme certifié Qualiopi.",
   path: '/cgv',
-  keywords: ['CGV formation professionnelle', 'conditions vente formation BTP', 'Qualiopi OFC'],
+  keywords: ['CGV formation professionnelle', 'conditions vente formation BTP', 'Qualiopi Laure Olivié'],
 });
 
 export default function CGVPage() {
@@ -27,11 +28,12 @@ export default function CGVPage() {
             CONDITIONS GÉNÉRALES DE VENTE
           </h1>
           <p className="mt-2 font-display text-xl font-bold text-[var(--accent)]">
-            OFC CRÉATION D&apos;ENTREPRISE
+            {MARQUE_COMMERCIALE}
           </p>
           <p className="mt-2 text-sm text-slate-600">
-            Organisme de formation certifié Qualiopi
+            Formations délivrées par {OFC_IDENTITE.raisonSociale} — organisme certifié Qualiopi
           </p>
+          <p className="mt-2 text-xs text-slate-500">{MENTION_MARQUE_EXPLOITANTE}</p>
           <div className="mt-6 space-y-1 text-sm text-slate-600">
             <p className="flex flex-wrap justify-center gap-x-6">
               <span>SIRET : 905 244 281 00010</span>

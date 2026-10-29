@@ -18,7 +18,8 @@ import { OFC_LINK } from '@/lib/ofc-interaction-classes';
 import { formatNoteSatisfactionSur5 , formatNoteSatisfactionAffichageComplet } from '@/lib/data/indicateurs-resultats'
 import type { FormationIaMarchePublicConfig } from '@/lib/formation-ia-marche-public-types';
 
-const OFC = "OFC Création d'Entreprise";
+import { MARQUE_COMMERCIALE } from '@/lib/marque-identite';
+const MARQUE = MARQUE_COMMERCIALE;
 
 function CalendlyBlock({
   id,
@@ -129,7 +130,7 @@ export function FormationIaMarchePublicLanding({
           <p className="mt-6 text-lg leading-relaxed text-slate-600">
             {config.introParagraph ?? (
               <>
-                {OFC} — formation IA pour répondre et gérer un marché public de travaux : DCE, Go-NoGo, mémoire
+                {MARQUE} — formation IA pour répondre et gérer un marché public de travaux : DCE, Go-NoGo, mémoire
                 technique. Sessions en présentiel en Île-de-France (4&nbsp;h), dispensées par un organisme certifié Qualiopi. Financement
                 Constructys possible selon éligibilité.{' '}
                 <strong className="text-slate-800">{formatNoteSatisfactionAffichageComplet()}</strong>.
@@ -403,7 +404,7 @@ export function FormationIaMarchePublicLanding({
           </div>
 
           <p className="mt-10 text-center text-sm text-slate-500">
-            {SITE_CONFIG.name} · {OFC} · présentiel Île-de-France
+            {SITE_CONFIG.name} · {MARQUE} · présentiel Île-de-France
           </p>
         </article>
       </div>

@@ -39,7 +39,7 @@ export const FORMATION_IA_CONDUCTEUR_DE_TRAVAUX_CONFIG: SeoClusterPageConfig = {
   introParagraphs: [
     'Un conducteur de travaux consacre une part importante de sa semaine à l\'administratif : comptes rendus, courriers, synthèses de documents, préparation de réunions et suivi des réserves. L\'IA ne remplace pas le jugement terrain — elle accélère la formalisation.',
     'En formation, vous travaillez sur des situations réelles : synthèse de CCTP avec renvois aux pages, comptes rendus et tableaux d\'actions, plannings à contrôler, courriers de chantier et organisation documentaire du DOE — sur dossiers anonymisés, avec relecture obligatoire. ChatGPT et Claude sont présentés selon le type de document.',
-    `OFC Création d'Entreprise, organisme de formation spécialisé IA pour le BTP, dispense cette formation en présentiel en Île-de-France (intra ou inter). Organisme certifié Qualiopi — programme catalogue ${dureeCatalogueParCode('NIV-03')}.`,
+    `Laure Olivié, organisme certifié Qualiopi (OFC Création d'Entreprise), dispense cette formation en présentiel en Île-de-France (intra ou inter). Organisme certifié Qualiopi — programme catalogue ${dureeCatalogueParCode('NIV-03')}.`,
   ],
   useCasesTitle: 'Usages IA directement liés au métier de conducteur de travaux',
   useCases: [

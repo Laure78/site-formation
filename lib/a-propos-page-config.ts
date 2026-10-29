@@ -5,7 +5,7 @@ import { PREUVES } from '@/lib/constants';
 import { IDF_ZONE_INTERVENTION } from '@/lib/constants';
 import { MODALITE_FORMATIONS_PRESENTIEL } from '@/lib/tarifs-sessions';
 import { LINKS } from '@/lib/internal-links';
-import { QUALIOPI_LEGAL } from '@/lib/qualiopi-info';
+import { OFC_IDENTITE, QUALIOPI_LEGAL } from '@/lib/qualiopi-info';
 import { SCHEMA_CONTACT } from '@/lib/schema-constants';
 import {
   LAURE_OLIVIE_BIO_REFERENCE,
@@ -20,7 +20,7 @@ import type { FAQItem } from '@/lib/faq';
 export const A_PROPOS_PAGE_H1 = 'Organisme de formation IA pour les PME du BTP' as const;
 
 export const A_PROPOS_PAGE_SUBTITLE =
-  'OFC Création d’Entreprise forme les dirigeants et les équipes du bâtiment et des travaux publics à l’intelligence artificielle — Laure Olivié, fondatrice et formatrice principale.' as const;
+  'Laure Olivié forme les dirigeants et les équipes du bâtiment et des travaux publics à l’intelligence artificielle — fondatrice et formatrice principale, organisme certifié Qualiopi.' as const;
 
 export const A_PROPOS_PAGE_PROOF_LINE =
   'Organisme certifié Qualiopi · Spécialisation IA BTP · Instructrice LinkedIn Learning' as const;
@@ -29,19 +29,19 @@ export const A_PROPOS_PAGE_PROOF_LINE =
 export const A_PROPOS_PAGE_META_TITLE = 'Organisme de formation IA BTP | Laure Olivié' as const;
 
 export const A_PROPOS_PAGE_META_DESCRIPTION =
-  'OFC Création d’Entreprise forme les PME du BTP à l’IA : devis, appels d’offres et conduite de travaux. En présentiel en Île-de-France. Qualiopi.' as const;
+  'Laure Olivié forme les PME du BTP à l’IA : devis, appels d’offres et conduite de travaux. En présentiel en Île-de-France. Qualiopi.' as const;
 
 /** Introduction éditoriale — identité organisme (hero / positionnement). */
 export const A_PROPOS_ORGANISME_INTRO =
-  'OFC Création d’Entreprise accompagne les dirigeants et les équipes des PME du bâtiment et des travaux publics dans l’utilisation de l’intelligence artificielle. Les formations portent sur les documents et les tâches du quotidien : devis, appels d’offres, comptes rendus et suivi de chantier. Elles se déroulent en présentiel en Île-de-France.' as const;
+  'Laure Olivié accompagne les dirigeants et les équipes des PME du bâtiment et des travaux publics dans l’utilisation de l’intelligence artificielle. Les formations portent sur les documents et les tâches du quotidien : devis, appels d’offres, comptes rendus et suivi de chantier. Elles se déroulent en présentiel en Île-de-France.' as const;
 
 /** Bloc GEO « En bref » — page organisme / entité. */
 export const A_PROPOS_PAGE_EN_BREF =
-  'OFC Création d’Entreprise est un organisme de formation certifié Qualiopi, spécialisé en intelligence artificielle appliquée au bâtiment et aux travaux publics. Laure Olivié en est la fondatrice ; les sessions (Claude, ChatGPT) couvrent devis, DCE, mémoires techniques et comptes rendus — en présentiel en Île-de-France, pour dirigeants, conducteurs de travaux et fonctions support.';
+  "Laure Olivié, organisme de formation certifié Qualiopi (OFC Création d'Entreprise), est spécialisé en intelligence artificielle appliquée au bâtiment et aux travaux publics. Les sessions (Claude, ChatGPT) couvrent devis, DCE, mémoires techniques et comptes rendus — en présentiel en Île-de-France, pour dirigeants, conducteurs de travaux et fonctions support.";
 
 /** Description JSON-LD Person — page À propos uniquement (facts vérifiés). */
 export function getAProposPagePersonDescription(): string {
-  return `Formatrice IA spécialisée BTP. Direction d'une entreprise de travaux publics et revêtements (2017-2024). Instructrice LinkedIn Learning. OFC Création d'Entreprise est certifié Qualiopi.`;
+  return `Formatrice IA spécialisée BTP. Direction d'une entreprise de travaux publics et revêtements (2017-2024). Instructrice LinkedIn Learning. Organisme certifié Qualiopi (${OFC_IDENTITE.raisonSociale}).`;
 }
 
 export const A_PROPOS_POSITIONNEMENT = [
@@ -82,7 +82,7 @@ export const A_PROPOS_PARCOURS = [
   },
   {
     period: '2022 – auj.',
-    title: 'OFC Création d’Entreprise — formatrice IA pour le BTP',
+    title: 'Laure Olivié — formatrice IA pour le BTP',
     text: 'Sessions courtes en présentiel pour entreprises du bâtiment et des travaux publics. Organisme certifié Qualiopi (actions de formation).',
   },
   {
@@ -103,7 +103,7 @@ export function getAProposConfianceItems(): AProposConfianceItem[] {
   return [
     {
       label: 'Qualiopi',
-      detail: `OFC certifié — actions de formation · certificat n° ${QUALIOPI_LEGAL.certificatNumero} · validité ${QUALIOPI_LEGAL.certificatValidite}`,
+      detail: `Organisme certifié Qualiopi — actions de formation · certificat n° ${QUALIOPI_LEGAL.certificatNumero} · validité ${QUALIOPI_LEGAL.certificatValidite}`,
       href: LINKS.certificatQualiopi,
     },
     {
@@ -192,8 +192,8 @@ export const A_PROPOS_LINKEDIN_COURSES = LAURE_OLIVIE_LINKEDIN_LEARNING_COURSES;
 
 export const FAQ_A_PROPOS_PAGE: FAQItem[] = [
   {
-    q: 'OFC Création d’Entreprise est-il un organisme de formation IA pour le BTP ?',
-    a: `Oui. OFC Création d'Entreprise est l'organisme certifié Qualiopi qui dispense les formations en intelligence artificielle pour les entreprises du bâtiment et des travaux publics — devis, appels d'offres, conduite de travaux — en présentiel en ${IDF_ZONE_INTERVENTION}. Laure Olivié en est la fondatrice. <a href="${LINKS.formations}">Découvrir les formations IA pour le BTP</a> · <a href="${LINKS.formateurs}">Voir l'équipe de formateurs</a>.`,
+    q: 'Laure Olivié est-elle un organisme de formation IA pour le BTP ?',
+    a: `Oui. Laure Olivié est la marque commerciale de OFC Création d'Entreprise, organisme certifié Qualiopi qui dispense les formations en intelligence artificielle pour les entreprises du bâtiment et des travaux publics — devis, appels d'offres, conduite de travaux — en présentiel en ${IDF_ZONE_INTERVENTION}. Laure Olivié en est la fondatrice. <a href="${LINKS.formations}">Découvrir les formations IA pour le BTP</a> · <a href="${LINKS.formateurs}">Voir l'équipe de formateurs</a>.`,
   },
   {
     q: 'Qui est Laure Olivié ?',

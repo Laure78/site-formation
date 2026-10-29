@@ -157,7 +157,7 @@ export function getAProposUnifiedJsonLd(): Record<string, unknown> {
     '@type': 'ProfilePage',
     '@id': PROFILE_PAGE_ID,
     url: PAGE_URL,
-    name: 'OFC Création d’Entreprise — Organisme de formation IA BTP',
+    name: 'Laure Olivié — Organisme de formation IA BTP',
     dateCreated: '2022-01-15T12:00:00+01:00',
     dateModified: '2026-04-07T12:00:00+02:00',
     mainEntity: { '@id': PERSON_ID },

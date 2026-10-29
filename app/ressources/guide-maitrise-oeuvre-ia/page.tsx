@@ -306,7 +306,7 @@ export default function GuideMaitriseOeuvreIaPage() {
             <div className="mt-6 space-y-4 leading-relaxed text-[#666666]">
               <p>
                 Plus de 10&nbsp;ans en conduite de travaux et pilotage de chantiers, Laure Olivié est aujourd&apos;hui
-                formatrice IA spécialisée BTP au sein de l&apos;organisme OFC Création d&apos;Entreprise, certifié Qualiopi.
+                formatrice IA spécialisée BTP — Laure Olivié, organisme certifié Qualiopi (OFC Création d&apos;Entreprise).
                 Elle forme maîtres d&apos;œuvre, BET et directions techniques à utiliser Claude et ChatGPT sur leurs dossiers
                 réels : DCE, DPGF, CR, réserves, OPR et DOE.
               </p>

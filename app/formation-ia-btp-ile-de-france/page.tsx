@@ -285,7 +285,7 @@ export default function FormationIaBtpIleDeFrancePage() {
             <p className="mt-4 text-base leading-relaxed text-slate-600 md:text-lg">
               En savoir plus sur{' '}
               <Link href={LINKS.aPropos} className={OFC_LINK} title="À propos de Laure Olivié">
-                Laure Olivié et OFC Création d&apos;Entreprise
+                Laure Olivié
               </Link>
               , ou parcourir les{' '}
               <Link href={LINKS.formations} className={OFC_LINK} title="Catalogue formations IA pour le BTP">

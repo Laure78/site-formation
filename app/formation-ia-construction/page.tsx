@@ -140,7 +140,7 @@ export default function FormationIaConstructionPage() {
 
           <EnBref>
             <p>
-              Laure Olivié (OFC Création d&apos;Entreprise, Qualiopi) forme les professionnels de la
+              Laure Olivié, organisme certifié Qualiopi, forme les professionnels de la
               construction à ChatGPT et Claude sur leurs documents réels. Sessions intra ou inter,{' '}
               {phraseSessionCataloguePresentielIdf()}. {FINANCEMENT_FORMULATION_PRUDENTE}
             </p>

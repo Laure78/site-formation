@@ -15,7 +15,8 @@ import {
   FORMATION_IA_DIRIGEANT_BTP_PATH,
 } from '@/lib/formation-ia-dirigeant-btp-config';
 
-const OFC = "OFC Création d'Entreprise";
+import { MARQUE_COMMERCIALE } from '@/lib/marque-identite';
+const MARQUE = MARQUE_COMMERCIALE;
 
 const SOMMAIRE = [
   { href: '#gains-tableau', label: 'Gains indicatifs par fonction' },
@@ -87,7 +88,7 @@ export function FormationIaDirigeantBtpLanding() {
             plus, mais de{' '}
             <strong className="text-slate-800">libérer du temps utile</strong>,{' '}
             <strong className="text-slate-800">accélérer la réponse client</strong> et{' '}
-            <strong className="text-slate-800">différencier votre entreprise</strong> sur les marchés serrés. {OFC} —{' '}
+            <strong className="text-slate-800">différencier votre entreprise</strong> sur les marchés serrés. {MARQUE} —{' '}
             · .
           </p>
 
@@ -222,7 +223,7 @@ export function FormationIaDirigeantBtpLanding() {
               Cas client : FFB Grand Paris &amp; Chambre syndicale de l&apos;étanchéité (CSFE)
             </h2>
             <p className="mt-6 text-slate-700 leading-relaxed">
-              {OFC} accompagne des réseaux professionnels du bâtiment sur des dispositifs de formation et de
+              {MARQUE} accompagne des réseaux professionnels du bâtiment sur des dispositifs de formation et de
               sensibilisation à l&apos;IA — dont une démarche conjointe autour de l&apos;étanchéité avec la{' '}
               <strong className="text-slate-900">FFB</strong> et la <strong className="text-slate-900">CSFE</strong>,
               documentée dans notre étude de cas (méthode, publics, enseignements). C&apos;est un repère concret de

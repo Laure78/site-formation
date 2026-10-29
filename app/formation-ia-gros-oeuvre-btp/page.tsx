@@ -32,11 +32,12 @@ import {
   GROS_OEUVRE_PROMPTS,
 } from '@/lib/formation-ia-gros-oeuvre-btp-landing';
 import { formatNoteSatisfactionAffichageComplet } from '@/lib/data/indicateurs-resultats';
+import { MARQUE_COMMERCIALE } from '@/lib/marque-identite';
 
 export const revalidate = 3600;
 
 const PATH = FORMATION_IA_GROS_OEUVRE_BTP_PATH;
-const OFC = "OFC Création d'Entreprise";
+const MARQUE = MARQUE_COMMERCIALE;
 
 export const metadata: Metadata = createPageMetadata({
   title: FORMATION_IA_GROS_OEUVRE_BTP_META_TITLE,
@@ -111,7 +112,7 @@ export default function FormationIaGrosOeuvreBtpPage() {
           <PreuveSociale className="mt-6" />
 
           <p className="mt-6 text-lg leading-relaxed text-slate-600">
-            {OFC} — formation IA &amp; ChatGPT pour les entreprises de gros œuvre du BTP : DCE, planning,
+            {MARQUE} — formation IA &amp; ChatGPT pour les entreprises de gros œuvre du BTP : DCE, planning,
             coordination des lots. Sessions en <strong className="text-slate-800">présentiel uniquement</strong> en Île-de-France
             (4&nbsp;h), dispensées par un organisme certifié Qualiopi. Financement possible selon éligibilité.{' '}
             <strong className="text-slate-800">{formatNoteSatisfactionAffichageComplet()}</strong>.
@@ -161,7 +162,7 @@ export default function FormationIaGrosOeuvreBtpPage() {
               </p>
               <p>
                 En Île-de-France, les délais clients et MOA sont souvent tendus : répondre vite avec un devis structuré
-                permet de rester dans la course. L&apos;objectif des sessions {OFC} est de gagner du temps sur la mise en
+                permet de rester dans la course. L&apos;objectif des sessions {MARQUE} est de gagner du temps sur la mise en
                 forme des documents, pas de chiffrer définitivement un ouvrage à la place d&apos;une personne compétente.
               </p>
             </div>
@@ -218,7 +219,7 @@ export default function FormationIaGrosOeuvreBtpPage() {
           <section id="resultats" className="scroll-mt-24 mt-14">
             <h2 className="font-display text-2xl font-bold text-slate-900 md:text-2xl">Résultats et preuves</h2>
             <p className="mt-6 text-slate-700 leading-relaxed">
-              Indicateurs sourcés {OFC} : ({PROOF.mentionSource})
+              Indicateurs sourcés {MARQUE} : ({PROOF.mentionSource})
             </p>
             <div className="mt-8 overflow-x-auto rounded-xl border border-slate-200">
               <table className="min-w-full text-left text-sm text-slate-700">

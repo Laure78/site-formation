@@ -17,7 +17,7 @@ export function AccueilEnBrefSection() {
       </ShortAnswerBlock>
       <p className="mt-4 text-sm leading-relaxed text-ofc-ink-muted">
         <Link href={LINKS.aPropos} className={`${OFC_LINK} font-medium`}>
-          Présentation de l&apos;organisme OFC
+          Présentation de Laure Olivié
         </Link>
         {' · '}
         <Link href={LINKS.formations} className={`${OFC_LINK} font-medium`}>

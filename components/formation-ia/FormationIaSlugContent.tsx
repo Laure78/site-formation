@@ -165,7 +165,7 @@ export function FormationIaMetierBody({
         Financement OPCO Constructys — organisme certifié Qualiopi
       </h2>
       <p>
-        L&apos;organisme OFC Création d&apos;Entreprise est certifié <QualiopiWordmark />. Selon votre branche et
+        Laure Olivié, organisme certifié <QualiopiWordmark /> (OFC Création d&apos;Entreprise). Selon votre branche et
         votre plan de développement des compétences, une prise en charge via{' '}
         <strong>OPCO Constructys</strong> est fréquente pour les publics BTP : je vous oriente
         vers la bonne démarche (financements, justificatifs, objectifs pédagogiques). Pour toute

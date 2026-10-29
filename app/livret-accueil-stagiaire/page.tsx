@@ -170,7 +170,7 @@ export default function LivretAccueilStagiairePage() {
               documents de chantier ou de bureau — pas des exemples génériques.
             </p>
             <p>
-              OFC Création d&apos;Entreprise propose des formations à l&apos;intelligence artificielle
+              Laure Olivié propose des formations à l&apos;intelligence artificielle
               appliquées aux métiers du bâtiment et des travaux publics : devis, administratif, appels
               d&apos;offres, comptes rendus, selon le parcours choisi. Mon objectif : que vous repartiez
               avec des usages concrets, testés le jour même, que vous pourrez réutiliser dès la semaine

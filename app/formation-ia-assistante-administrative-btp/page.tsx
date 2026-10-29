@@ -159,7 +159,7 @@ const FAQ_ITEMS = [
   },
   {
     q: 'Comment financer la formation si je suis assistante administrative salariée ?',
-    a: "OFC Création d'Entreprise est un organisme certifié Qualiopi et enregistré Constructys. Le financement dépend de votre employeur et des règles du plan de développement des compétences — aucune promesse de « zéro reste à charge » sans étude de dossier.",
+    a: "Laure Olivié, organisme certifié Qualiopi (OFC Création d'Entreprise, enregistré Constructys). Le financement dépend de votre employeur et des règles du plan de développement des compétences — aucune promesse de « zéro reste à charge » sans étude de dossier.",
   },
   {
     q: "ChatGPT peut-il m'aider avec la paie et RH ?",

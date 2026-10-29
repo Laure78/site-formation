@@ -153,7 +153,7 @@ export default function EtudeDeCasFfbCsfePage() {
             <strong>Chambre Syndicale Française de l&apos;étanchéité</strong> (CSFE).
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-3 text-sm text-slate-500">
-            <span className="rounded-full bg-slate-100 px-3 py-1">OFC Création d&apos;Entreprise</span>
+            <span className="rounded-full bg-slate-100 px-3 py-1">Laure Olivié</span>
             <span className="rounded-full bg-slate-100 px-3 py-1">Qualiopi</span>
             <span className="rounded-full bg-slate-100 px-3 py-1">Interventions réseau FFB</span>
           </div>

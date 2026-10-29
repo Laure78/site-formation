@@ -5,7 +5,8 @@ import type { FormationIaMetierDynamicConfig } from '@/lib/formation-ia-metier-d
 import { formatAnneesExperienceBTP } from '@/lib/data/indicateurs-resultats';
 import { LINKS } from '@/lib/internal-links';
 
-const OFC = "OFC Création d'Entreprise";
+import { MARQUE_COMMERCIALE } from '@/lib/marque-identite';
+const MARQUE = MARQUE_COMMERCIALE;
 
 const HUB_PLATRERIE: FormationIaMetierDynamicConfig = {
   slug: 'platrerie-cloisons-faux-plafonds',
@@ -42,7 +43,7 @@ const HUB_PLATRERIE: FormationIaMetierDynamicConfig = {
   },
   solution: {
     titreH2: 'Ce que change une formation IA cadrée pour le lot plâtrerie',
-    intro: `${OFC} (organisme certifié Qualiopi) propose une session de 4 h en présentiel en Île-de-France : vous manipulez ChatGPT et Claude AI sur vos propres modèles — devis cloison, mails MOE, CR de réunion, check-list avant peinture — avec anonymisation, rappels RGPD et validation systématique. L’objectif n’est pas de « chiffrer à votre place » un métré linéaire, mais de réduire le temps de structuration et de limiter les oublis de postes (isolant, pare-vapeur, renforts, traitements pièces humides).`,
+    intro: `${MARQUE} (organisme certifié Qualiopi) propose une session de 4 h en présentiel en Île-de-France : vous manipulez ChatGPT et Claude AI sur vos propres modèles — devis cloison, mails MOE, CR de réunion, check-list avant peinture — avec anonymisation, rappels RGPD et validation systématique. L’objectif n’est pas de « chiffrer à votre place » un métré linéaire, mais de réduire le temps de structuration et de limiter les oublis de postes (isolant, pare-vapeur, renforts, traitements pièces humides).`,
     casUsage: [
       'Structurer un devis par niveau ou par zone (doublage, cloison de distribution, habillage colonne, faux plafond dalles ou plaques) à partir d’une liste de pièces ou d’un extrait de plan — sans inventer de quantités.',
       'Préparer un mail de coordination électricité / CVC : réservations, hauteurs sous faux plafond, passages de gaines, calfeutrements coupe-feu à valider avec le SPS.',
@@ -154,7 +155,7 @@ Ne pas inventer de décisions absentes des notes : marquer [à confirmer] si bes
   bio: {
     titreH2: 'Laure Olivié — formatrice IA, terrain BTP',
     paragraphes: [
-      `Je suis Laure Olivié, fondatrice de ${OFC}, organisme certifié Qualiopi. ${formatAnneesExperienceBTP()} comme ancienne dirigeante d'une entreprise de travaux publics (ALIA BTP), j’interviens auprès de dirigeants et d’équipes du bâtiment en Île-de-France : FFB, CSFE, CNAM Entreprise, Le Moniteur Formations.`,
+      `Je suis Laure Olivié, fondatrice de ${MARQUE}, organisme certifié Qualiopi. ${formatAnneesExperienceBTP()} comme ancienne dirigeante d'une entreprise de travaux publics (ALIA BTP), j’interviens auprès de dirigeants et d’équipes du bâtiment en Île-de-France : FFB, CSFE, CNAM Entreprise, Le Moniteur Formations.`,
       `Les sessions plâtrerie–cloisons s’appuient sur des cas réels : métrés linéaires, interfaces réseaux, reprises après lots techniques, relecture de productions IA avant envoi MOE. Je n’enseigne pas le geste de pose ; j’enseigne une méthode documentaire qui respecte le DTU et le contrat.`,
       `Intervenante LinkedIn Learning sur l’IA appliquée au BTP, je maintiens le même exigence de prudence sur les chiffres et les normes que sur le terrain chantier.`,
     ],

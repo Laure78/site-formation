@@ -115,7 +115,7 @@ const FAQ_ITEMS = [
   },
   {
     q: 'Comment financer la formation en tant que clôturiste ?',
-    a: "OFC Création d'Entreprise est un organisme certifié Qualiopi et enregistré Constructys. Le financement dépend de votre situation et des règles du plan de développement des compétences — étude de dossier au cas par cas.",
+    a: "Laure Olivié, organisme certifié Qualiopi (OFC Création d'Entreprise, enregistré Constructys). Le financement dépend de votre situation et des règles du plan de développement des compétences — étude de dossier au cas par cas.",
   },
   {
     q: "L'IA va-t-elle remplacer les clôturistes ?",

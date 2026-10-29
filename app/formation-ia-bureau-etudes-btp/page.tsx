@@ -316,7 +316,7 @@ export default function FormationIaBureauEtudesBtpPage() {
             Formation IA bureau d&apos;études — Île-de-France
           </h2>
           <p className="mt-4 text-sm leading-relaxed text-slate-600">
-            OFC Création d&apos;Entreprise · Organisme certifié Qualiopi · SIRET {SITE_CONFIG.siret} ·
+            Laure Olivié · Organisme certifié Qualiopi · SIRET {SITE_CONFIG.siret} ·
             NDA 11788515078 · {SITE_CONFIG.email}
             {sitePhoneDisplaySuffix()}
           </p>

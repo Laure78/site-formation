@@ -20,7 +20,7 @@ export function FormationsCatalogue2027Hero() {
         <p className="mt-3 max-w-2xl text-base leading-relaxed text-ofc-ink-muted">
           Programmes dispensés par{' '}
           <Link href={LINKS.aPropos} className={`${OFC_LINK} font-medium`}>
-            OFC Création d&apos;Entreprise, organisme de formation spécialisé dans le BTP
+            Laure Olivié, organisme de formation spécialisé dans le BTP (OFC Création d'Entreprise)
           </Link>{' '}
           — présentiel en Île-de-France, certification Qualiopi.
         </p>

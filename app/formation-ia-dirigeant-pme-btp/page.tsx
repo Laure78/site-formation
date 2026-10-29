@@ -135,7 +135,7 @@ const FAQ_ITEMS = [
   },
   {
     q: 'Comment financer la formation si je suis chef d’entreprise BTP ?',
-    a: "OFC Création d'Entreprise est un organisme certifié Qualiopi et enregistré Constructys. Le financement dépend de votre branche, de la taille de l'entreprise et des dispositifs (plan de développement des compétences, etc.). Nous étudions votre dossier avec vous.",
+    a: "Laure Olivié, organisme certifié Qualiopi (OFC Création d'Entreprise, enregistré Constructys). Le financement dépend de votre branche, de la taille de l'entreprise et des dispositifs (plan de développement des compétences, etc.). Nous étudions votre dossier avec vous.",
   },
   {
     q: "ChatGPT peut-il m'aider avec la paie et RH ?",

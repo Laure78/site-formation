@@ -1,6 +1,6 @@
 # laureolivie.fr — Laure Olivié, formation IA pour le BTP (OFC Création d'Entreprise)
 
-> Laure Olivié est formatrice IA spécialisée BTP. Son organisme, OFC Création d'Entreprise (certifié Qualiopi), forme les professionnels du bâtiment et des travaux publics à ChatGPT, Claude et Gemini appliqués à leurs documents réels. Formations en présentiel, en Île-de-France uniquement.
+> Laure Olivié est formatrice IA spécialisée BTP. Laure Olivié, organisme certifié Qualiopi (OFC Création d'Entreprise), forme les professionnels du bâtiment et des travaux publics à ChatGPT, Claude et Gemini appliqués à leurs documents réels. Formations en présentiel, en Île-de-France uniquement.
 
 ## À propos
 - Laure Olivié : 7 ans d'expérience dans le BTP, ancienne dirigeante d'ALIA BTP (travaux publics, Île-de-France). Instructrice LinkedIn Learning (IA appliquée au BTP).
@@ -23,12 +23,11 @@
 - Maîtriser Claude AI pour le BTP (7 h) : https://www.laureolivie.fr/formations/maitriser-claude-ai-btp
 - IA et maîtrise d'œuvre (7 h) : https://www.laureolivie.fr/formations/ia-maitrise-oeuvre
 - Créer ses assistants IA pour son entreprise du bâtiment (7 h, niveau 2) : https://www.laureolivie.fr/formations/assistants-ia-personnalises-btp
-- Créer des applications métier BTP avec l'IA (14 h, niveau 3) : https://www.laureolivie.fr/formations/developpement-web-ia-sans-coder
+- Créer des applications métier BTP avec l'IA (14 heures — 2 jours, niveau 3) : https://www.laureolivie.fr/formations/developpement-web-ia-sans-coder
 
 ## Pages clés
 - Formation IA pour le BTP (pilier) : https://www.laureolivie.fr/formation-ia-btp
 - Formation IA BTP en Île-de-France : https://www.laureolivie.fr/formation-ia-btp-ile-de-france
-- Formation IA construction (présentiel Île-de-France) : https://www.laureolivie.fr/formation-ia-construction
 - Formation IA BTP à Paris : https://www.laureolivie.fr/formation-ia-paris
 - Formation intra-entreprise : https://www.laureolivie.fr/formation-ia-intra-entreprise-btp
 - Conducteur de travaux : https://www.laureolivie.fr/formation-ia-conducteur-de-travaux
@@ -52,4 +51,4 @@ FFB Grand Paris · FFB Île-de-France · CSFE (FFB) · CPB (FFB) · CAPEB · CNA
 Laure Olivié · OFC Création d'Entreprise · SIRET 905 244 281 00010 · NDA 11788515078 · 61 rue de Lyon, 75012 Paris · contact@laureolivie.fr · 06 95 66 18 18
 Visio découverte gratuite (30 min) : https://www.laureolivie.fr/prendre-rdv
 
-Dernière mise à jour : 2026-10-27
+Dernière mise à jour : 2026-10-29

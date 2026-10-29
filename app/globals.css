@@ -2407,6 +2407,10 @@
   max-width: var(--ofc-read-width-wide);
 }
 
+.emplois-page .emplois-page__intro {
+  margin-inline: auto;
+}
+
 .emplois-page .emplois-offers-empty .ofc-read-width,
 .emplois-page .emplois-path-block .ofc-read-width {
   max-width: none !important;

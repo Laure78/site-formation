@@ -1,14 +1,15 @@
 import Link from 'next/link';
 import { OFC_IDENTITE, QUALIOPI_CONTACTS } from '@/lib/qualiopi-info';
+import { MARQUE_COMMERCIALE, MENTION_MARQUE_EXPLOITANTE } from '@/lib/marque-identite';
 import { createPageMetadata } from '@/lib/seo';
 
 export const revalidate = 3600;
 export const metadata = createPageMetadata({
-  title: 'Mentions légales — OFC Création d\'Entreprise',
+  title: 'Mentions légales | Laure Olivié',
   description:
-    "Mentions légales OFC Création d'Entreprise : éditeur Laure Olivié, siège Paris, hébergeur, RGPD. Organisme de formation IA pour le BTP, Qualiopi.",
+    "Mentions légales du site Laure Olivié : marque commerciale, éditeur OFC Création d'Entreprise, siège Paris, hébergeur, RGPD. Formation IA BTP, Qualiopi.",
   path: '/mentions-legales',
-  keywords: ['mentions légales OFC', 'organisme formation Qualiopi', 'RGPD formation BTP'],
+  keywords: ['mentions légales Laure Olivié', 'organisme formation Qualiopi', 'RGPD formation BTP'],
 });
 
 export default function MentionsLegalesPage() {
@@ -20,6 +21,11 @@ export default function MentionsLegalesPage() {
       <p className="mt-4 text-slate-600">
         Informations légales et réglementaires
       </p>
+      <p className="mt-3 text-sm text-slate-600">
+        <strong className="text-slate-800">Marque commerciale :</strong> {MARQUE_COMMERCIALE}.{' '}
+        <strong className="text-slate-800">Entité exploitante :</strong> {OFC_IDENTITE.raisonSociale}.{' '}
+        {MENTION_MARQUE_EXPLOITANTE}
+      </p>
 
       <article className="mt-12 space-y-12 text-slate-600">
         <section>
@@ -28,6 +34,9 @@ export default function MentionsLegalesPage() {
           </h2>
           <p className="mt-4 font-semibold text-slate-900">
             OFC CRÉATION D&apos;ENTREPRISE
+          </p>
+          <p className="mt-2 text-sm text-slate-600">
+            Site présenté sous la marque commerciale {MARQUE_COMMERCIALE}.
           </p>
           <ul className="mt-4 space-y-2">
             <li>Forme juridique : {OFC_IDENTITE.formeJuridiqueLongue}</li>

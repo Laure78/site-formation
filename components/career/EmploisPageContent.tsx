@@ -33,7 +33,7 @@ export function EmploisPageContent() {
         aria-labelledby="emplois-salarie-heading"
       >
         <div className={OFC_SECTION_INNER}>
-          <div className="emplois-page__layout max-w-3xl">
+          <div className="emplois-page__layout">
             <h2 id="emplois-salarie-heading" className={`${OFC_TYPE_H2} emplois-page__salarie-title`}>
               Emploi salarié et autres candidatures
             </h2>

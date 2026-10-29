@@ -168,7 +168,7 @@ export default function FormationIATravauxPublicsLandingPage() {
               premières versions de documents répétitifs et de libérer du temps pour la décision
               technique et la relation client. Les sessions sont dispensées par{' '}
               <Link href={LINKS.aPropos} className="font-medium text-[#377CF3] hover:underline">
-                OFC Création d&apos;Entreprise, organisme de formation IA BTP
+                Laure Olivié, organisme de formation IA BTP (OFC Création d'Entreprise)
               </Link>{' '}
               — Laure Olivié, formatrice avec expérience terrain TP, place la{' '}
               <strong>validation humaine</strong> au centre de la démarche.
@@ -298,7 +298,7 @@ export default function FormationIATravauxPublicsLandingPage() {
           </h2>
           <div className="mt-6 space-y-4 text-slate-700">
             <p>
-              La formation est délivrée par <strong>OFC Création d&apos;Entreprise</strong>, organisme{' '}
+              La formation est délivrée par <strong>Laure Olivié</strong> (OFC Création d&apos;Entreprise), organisme{' '}
               <strong>certifié Qualiopi</strong> — critère déterminant pour une prise en charge
               OPCO. Pour les entreprises du secteur BTP et des travaux publics, le financement passe
               en général par l&apos;<strong>OPCO Constructys</strong> (périmètre BTP / TP / négoce

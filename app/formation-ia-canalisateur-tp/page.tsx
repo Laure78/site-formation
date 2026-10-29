@@ -131,7 +131,7 @@ const FAQ_ITEMS = [
   },
   {
     q: 'Comment financer la formation si je suis salarié ?',
-    a: "OFC Création d'Entreprise est un organisme certifié Qualiopi et enregistré Constructys. Le financement dépend de l'employeur et des règles du plan de développement des compétences — étude de dossier au cas par cas.",
+    a: "Laure Olivié, organisme certifié Qualiopi (OFC Création d'Entreprise, enregistré Constructys). Le financement dépend de l'employeur et des règles du plan de développement des compétences — étude de dossier au cas par cas.",
   },
   {
     q: 'Faut-il être bon en informatique ?',

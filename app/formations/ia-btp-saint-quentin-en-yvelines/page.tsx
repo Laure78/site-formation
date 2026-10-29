@@ -144,7 +144,7 @@ export default function FormationIABTPSaintQuentinYvelinesPage() {
               accélérer la structuration — sous contrôle humain.
             </p>
             <p>
-              <strong className="text-slate-900">OFC Création d&apos;Entreprise est basé à Paris (75012)</strong>, avec
+              <strong className="text-slate-900">Laure Olivié (OFC Création d&apos;Entreprise) est basée à Paris (75012)</strong>, avec
               cœur de SQY : pour une entreprise du secteur, cela veut dire une intervenante disponible pour des
               sessions <strong>intra</strong> (dans vos locaux) ou <strong>inter</strong>, avec une logistique simple et des
               créneaux adaptés aux contraintes terrain en Île-de-France.
@@ -294,7 +294,7 @@ export default function FormationIABTPSaintQuentinYvelinesPage() {
           </h2>
           <div className="mt-6 max-w-3xl space-y-6 text-slate-600">
             <p>
-              La formation est proposée par OFC Création d&apos;Entreprise, organisme certifié Qualiopi, et peut être
+              La formation est proposée par Laure Olivié, organisme certifié Qualiopi (OFC Création d&apos;Entreprise), et peut être
               financée par OPCO Constructys dans le cadre du plan
               de développement des compétences, selon les règles applicables à votre entreprise (plafonds
               pédagogiques, dossier sur eGestion, délais — voir le{' '}

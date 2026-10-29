@@ -119,7 +119,7 @@ export const NOUS_REJOINDRE_FORMATEUR_FAQ: readonly FAQItem[] = [
 export const CONSULTANT_WHY_OFC = {
   heading: 'Informations utiles sur la collaboration',
   intro:
-    'OFC Création d’Entreprise structure des parcours métiers pratiques en intelligence artificielle pour les entreprises du bâtiment et des travaux publics. Les collaborations portent sur l’animation de ces parcours et la transmission de méthodes reliées au terrain.',
+    'Laure Olivié structure des parcours métiers pratiques en intelligence artificielle pour les entreprises du bâtiment et des travaux publics. Les collaborations portent sur l’animation de ces parcours et la transmission de méthodes reliées au terrain.',
   cards: [
     {
       title: 'Une expertise métier valorisée',
@@ -201,7 +201,7 @@ export const CONSULTANT_FAQ_ITEMS: readonly FAQItem[] = [
   },
   {
     q: 'Où se déroulent les interventions ?',
-    a: `Les formations OFC sont animées en présentiel — ${PERIMETRE_FORMATIONS_COURT}. La mobilité en Île-de-France est un critère d’étude pour les propositions de consultant-formateur.`,
+    a: `Les formations Laure Olivié sont animées en présentiel — ${PERIMETRE_FORMATIONS_COURT}. La mobilité en Île-de-France est un critère d’étude pour les propositions de consultant-formateur.`,
   },
   {
     q: 'Proposez-vous des missions sur les modules isolés du catalogue ?',

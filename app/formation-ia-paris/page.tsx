@@ -207,7 +207,7 @@ export default function FormationIaParisPage() {
 
             <EnBref>
               <p>
-                Laure Olivié (OFC Création d&apos;Entreprise, Qualiopi) forme les équipes du bâtiment et de
+                Laure Olivié, organisme certifié Qualiopi, forme les équipes du bâtiment et de
                 la construction à Paris en présentiel : sessions de {DUREE_NIV01} sur vos devis, DCE et comptes
                 rendus — y compris en site occupé et copropriété.
               </p>
@@ -469,7 +469,7 @@ export default function FormationIaParisPage() {
               avec FFB Grand Paris, {CSFE_NOM_COMPLET}, UMB-FFB, CNAM Entreprise et Le Moniteur Formations. En
               savoir plus sur{' '}
               <Link href={LINKS.aPropos} className={OFC_LINK} title="À propos de Laure Olivié">
-                Laure Olivié et OFC Création d&apos;Entreprise
+                Laure Olivié
               </Link>
               .
             </p>
@@ -482,7 +482,7 @@ export default function FormationIaParisPage() {
               Financement
             </h2>
             <p className="mt-4 text-base leading-relaxed text-slate-600 md:text-lg">
-              OFC Création d&apos;Entreprise est certifié Qualiopi pour les actions de formation.{' '}
+              Laure Olivié, organisme certifié Qualiopi (OFC Création d&apos;Entreprise), est certifié pour les actions de formation.{' '}
               {FINANCEMENT_FORMULATION_PRUDENTE} Les plafonds, le reste à charge et les délais de dépôt
               dépendent de votre dossier — aucune prise en charge n&apos;est présentée comme garantie.
             </p>

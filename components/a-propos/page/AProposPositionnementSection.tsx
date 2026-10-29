@@ -16,7 +16,7 @@ export function AProposPositionnementSection() {
       className="rounded-2xl border border-ofc-border bg-white p-5 shadow-sm sm:p-7 lg:p-8"
     >
       <h2 id="organisme-title" className={OFC_TYPE_H2}>
-        OFC Création d&apos;Entreprise — organisme de formation IA BTP
+        Laure Olivié — organisme de formation IA BTP
         <span className="mt-3 block h-1 w-14 max-w-[4rem] rounded-full bg-[#377CF3]" aria-hidden />
       </h2>
       <p className="mt-6 text-[0.9375rem] leading-[1.65] text-ofc-ink-muted sm:text-base">

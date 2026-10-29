@@ -27,7 +27,8 @@ import { formatNoteSatisfactionSur5 , formatNoteSatisfactionAffichageComplet } f
 import { PreuveSociale } from '@/components/PreuveSociale';
 import { VousEtesPlutotEncart } from '@/components/landing/VousEtesPlutotEncart';
 
-const OFC = "OFC Création d'Entreprise";
+import { MARQUE_COMMERCIALE } from '@/lib/marque-identite';
+const MARQUE = MARQUE_COMMERCIALE;
 
 function sommaireForConfig(config: FormationIaMetierBtpConfig) {
   const base: { href: string; label: string }[] = [
@@ -133,7 +134,7 @@ export function FormationIaMetierBtpLanding({ config }: { config: FormationIaMet
           </h1>
           <PreuveSociale className="mt-6" />
           <p className="mt-6 text-lg leading-relaxed text-slate-600">
-            {OFC} — formation IA &amp; ChatGPT pour {config.metierNom} du BTP : devis, chantier, mémoires techniques.
+            {MARQUE} — formation IA &amp; ChatGPT pour {config.metierNom} du BTP : devis, chantier, mémoires techniques.
             Sessions en présentiel en Île-de-France (4 h), dispensées par un organisme certifié Qualiopi. Financement possible selon éligibilité.{' '}
             <strong className="text-slate-800">{formatNoteSatisfactionAffichageComplet()}</strong>.
           </p>
@@ -155,7 +156,7 @@ export function FormationIaMetierBtpLanding({ config }: { config: FormationIaMet
 
           {config.csfePartnership && (
             <p className="mt-6 rounded-xl border border-blue-100 bg-[#F2F2F2] px-4 py-3 text-sm text-slate-700">
-              <strong className="text-slate-900">Autorité métier :</strong> {OFC} est partenaire de la Chambre syndicale
+              <strong className="text-slate-900">Autorité métier :</strong> {MARQUE} est partenaire de la Chambre syndicale
               française de l&apos;étanchéité (CSFE) pour la sensibilisation et la formation.{' '}
               <strong className="text-slate-900">Laure Olivié a formé les équipes de la CSFE</strong> à l&apos;usage
               responsable de l&apos;IA dans un contexte étanchéité — un repère fort pour les entreprises du secteur.
@@ -165,7 +166,7 @@ export function FormationIaMetierBtpLanding({ config }: { config: FormationIaMet
 
           {config.umbPartnership && (
             <p className="mt-6 rounded-xl border border-blue-100 bg-[#F2F2F2] px-4 py-3 text-sm text-slate-700">
-              <strong className="text-slate-900">Autorité métier :</strong> {OFC} est partenaire de l&apos;Union des
+              <strong className="text-slate-900">Autorité métier :</strong> {MARQUE} est partenaire de l&apos;Union des
               Métiers du Bois de la FFB (UMB-FFB) pour la sensibilisation et la formation IA des entreprises de
               charpente, ossature bois, agencement et menuiserie.{' '}
               <strong className="text-slate-900">Laure Olivié anime des sessions avec le réseau UMB-FFB</strong> —
@@ -399,7 +400,7 @@ export function FormationIaMetierBtpLanding({ config }: { config: FormationIaMet
                   Laure Olivié — formatrice IA &amp; BTP
                 </h2>
                 <p className="mt-4 text-slate-700 leading-relaxed">
-                  <strong>{SITE_CONFIG.name}</strong> est formatrice organisme certifié Qualiopi pour {OFC}. Elle accompagne les
+                  <strong>{SITE_CONFIG.name}</strong> est formatrice IA et dirige l&apos;organisme certifié Qualiopi. Elle accompagne les
                   entreprises du bâtiment et des travaux publics sur ChatGPT, Claude et les usages responsables de
                   l&apos;IA (devis, mémoires techniques, comptes rendus). Instructrice LinkedIn Learning — satisfaction{' '}
                   {formatNoteSatisfactionAffichageComplet()}.{' '}

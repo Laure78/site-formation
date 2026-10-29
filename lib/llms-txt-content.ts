@@ -9,13 +9,13 @@ import { SCHEMA_PUBLIC_SITE_URL } from '@/lib/schema-constants';
 const BASE = SCHEMA_PUBLIC_SITE_URL.replace(/\/$/, '');
 
 /** Date ISO (YYYY-MM-DD) — mettre à jour à chaque modification de ce fichier. */
-export const LLMS_TXT_LAST_UPDATED = '2026-10-27';
+export const LLMS_TXT_LAST_UPDATED = '2026-10-29';
 
 export function buildLlmsTxtContent(): string {
   const refs = formatReferencesLlmsLine();
   return `# laureolivie.fr — Laure Olivié, formation IA pour le BTP (OFC Création d'Entreprise)
 
-> Laure Olivié est formatrice IA spécialisée BTP. Son organisme, OFC Création d'Entreprise (certifié Qualiopi), forme les professionnels du bâtiment et des travaux publics à ChatGPT, Claude et Gemini appliqués à leurs documents réels. Formations en présentiel, en Île-de-France uniquement.
+> Laure Olivié est formatrice IA spécialisée BTP. Laure Olivié, organisme certifié Qualiopi (OFC Création d'Entreprise), forme les professionnels du bâtiment et des travaux publics à ChatGPT, Claude et Gemini appliqués à leurs documents réels. Formations en présentiel, en Île-de-France uniquement.
 
 ## À propos
 - Laure Olivié : 7 ans d'expérience dans le BTP, ancienne dirigeante d'ALIA BTP (travaux publics, Île-de-France). Instructrice LinkedIn Learning (IA appliquée au BTP).

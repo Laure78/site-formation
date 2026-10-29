@@ -238,7 +238,7 @@ export const NAV_LEGAL_SECONDARY: readonly NavItem[] = [
   {
     href: LINKS.certificatQualiopi,
     label: 'Certificat Qualiopi (PDF)',
-    title: 'Certificat Qualiopi OFC Création d’Entreprise — document PDF',
+    title: 'Certificat Qualiopi Laure Olivié (OFC Création d’Entreprise) — document PDF',
   },
   {
     href: LINKS.annuaireHandicap,

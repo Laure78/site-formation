@@ -1,12 +1,13 @@
 import Link from 'next/link';
-import { QUALIOPI_CONTACTS } from '@/lib/qualiopi-info';
+import { QUALIOPI_CONTACTS, OFC_IDENTITE } from '@/lib/qualiopi-info';
+import { MARQUE_COMMERCIALE, MENTION_MARQUE_EXPLOITANTE } from '@/lib/marque-identite';
 import { createPageMetadata } from '@/lib/seo';
 
 export const revalidate = 3600;
 export const metadata = createPageMetadata({
-  title: 'Politique confidentialité — OFC',
+  title: 'Politique de confidentialité | Laure Olivié',
   description:
-    "Politique confidentialité OFC : données personnelles, RGPD, droits d'accès. Informations pour stagiaires et prospects des formations IA pour le BTP.",
+    "Politique de confidentialité Laure Olivié : responsable de traitement OFC Création d'Entreprise, RGPD, droits d'accès. Stagiaires et prospects formations IA BTP.",
   path: '/politique-confidentialite',
   keywords: ['RGPD formation', 'politique confidentialité organisme', 'données personnelles stagiaires'],
 });
@@ -27,6 +28,10 @@ export default function PolitiqueConfidentialitePage() {
           En vigueur au : 30 janvier 2026
         </p>
         <div className="mt-6 space-y-1 text-slate-600">
+          <p className="text-sm">
+            Marque commerciale : {MARQUE_COMMERCIALE}. {MENTION_MARQUE_EXPLOITANTE} Responsable de
+            traitement des données : {OFC_IDENTITE.raisonSociale}.
+          </p>
           <p>
             <span className="font-semibold text-[var(--accent)]">
               OFC CRÉATION D&apos;ENTREPRISE

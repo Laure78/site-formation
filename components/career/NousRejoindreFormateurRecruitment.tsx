@@ -39,7 +39,7 @@ export function NousRejoindreFormateurRecruitment() {
         aria-labelledby="nous-rejoindre-formateur-h1"
       >
         <div className={OFC_SECTION_INNER}>
-          <div className="max-w-3xl">
+          <div className={OFC_READABLE_COLUMN}>
             <p className={OFC_EYEBROW}>{hero.eyebrow}</p>
             <h1 id="nous-rejoindre-formateur-h1" className={`${OFC_TYPE_HERO} mt-2 text-pretty`}>
               {hero.h1}
@@ -74,7 +74,7 @@ export function NousRejoindreFormateurRecruitment() {
         </div>
       </section>
 
-      <ConsultantRecruitmentAnnonceSection showShareConclusion={false} />
+      <ConsultantRecruitmentAnnonceSection showShareConclusion={false} useReadableColumn />
 
       <section
         id="candidature"
@@ -82,7 +82,7 @@ export function NousRejoindreFormateurRecruitment() {
         aria-labelledby="candidature-formateur-heading"
       >
         <div className={OFC_SECTION_INNER}>
-          <div className="max-w-3xl">
+          <div className={OFC_READABLE_COLUMN}>
             <h2 id="candidature-formateur-heading" className={OFC_TYPE_H2}>
               {C.sections.candidatureHeading}
             </h2>
@@ -138,7 +138,7 @@ export function NousRejoindreFormateurRecruitment() {
         className={ofcSectionClasses({ tone: 'muted', size: 'compact', divide: false })}
         aria-label="Liens utiles"
       >
-        <div className={OFC_SECTION_INNER}>
+        <div className={OFC_READABLE_COLUMN}>
           <p className={`${OFC_TYPE_BODY} text-ofc-ink-muted`}>
             Découvrez le{' '}
             <Link

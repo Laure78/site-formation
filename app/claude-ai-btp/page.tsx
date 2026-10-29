@@ -269,7 +269,7 @@ export default function ClaudeAiBtpPillarPage() {
                   <h2 id="gains-temps" className="font-display text-2xl font-bold tracking-tight text-[#0F172A] md:text-2xl">
                     Gains de temps mesurés
                   </h2>
-                  <p className="max-w-md text-sm text-[#64748B]">Repères observés en formation OFC.</p>
+                  <p className="max-w-md text-sm text-[#64748B]">Repères observés en formation Laure Olivié.</p>
                 </div>
                 <div className={`mt-8 ${tableWrap}`}>
                   <table className="w-full min-w-[560px] border-collapse text-left text-sm">

@@ -27,7 +27,8 @@ export const FORMATION_IA_GROS_OEUVRE_BTP_H1 =
 
 export const FORMATION_IA_GROS_OEUVRE_CALENDLY_CAMPAIGN = 'gros-oeuvre-page' as const;
 
-const OFC = "OFC Création d'Entreprise";
+import { MARQUE_COMMERCIALE } from '@/lib/marque-identite';
+const MARQUE = MARQUE_COMMERCIALE;
 
 export const GROS_OEUVRE_KEYWORDS = [
   'formation IA gros œuvre BTP',
@@ -51,7 +52,7 @@ export const GROS_OEUVRE_FAQ: FAQItem[] = [
   },
   {
     q: 'La formation est-elle finançable via Constructys / OPCO ?',
-    a: `Oui selon éligibilité et dossier : ${OFC} est certifié Qualiopi. Le financement OPCO Constructys suit les règles en vigueur pour les entreprises du BTP — jamais « garanti » sans analyse.`,
+    a: `Oui selon éligibilité et dossier : ${MARQUE} est certifié Qualiopi. Le financement OPCO Constructys suit les règles en vigueur pour les entreprises du BTP — jamais « garanti » sans analyse.`,
   },
   {
     q: 'Convient-elle aux TPE et PME de gros œuvre en Île-de-France ?',
@@ -59,7 +60,7 @@ export const GROS_OEUVRE_FAQ: FAQItem[] = [
   },
   {
     q: 'Comment protéger les données chantier (plans, DCE, relevés) ?',
-    a: `Anonymisez, utilisez des extraits, évitez les plans nominatifs complets dans un outil grand public sans cadre entreprise. La confidentialité fait partie du programme ${OFC}.`,
+    a: `Anonymisez, utilisez des extraits, évitez les plans nominatifs complets dans un outil grand public sans cadre entreprise. La confidentialité fait partie du programme ${MARQUE}.`,
   },
   {
     q: 'Quelle durée et quelle différence avec la page maçon ?',
@@ -116,7 +117,7 @@ export const GROS_OEUVRE_INTERNAL_LINKS = [
 
 export const GROS_OEUVRE_COURSE = {
   name: 'Formation IA gros œuvre BTP — devis, DCE et suivi de chantier',
-  description: `${OFC} : formation IA et ChatGPT pour le gros œuvre — devis, DCE, CCTP lot 2, planning et CR de chantier. Session catalogue ${CATALOGUE_DUREE_SESSION_METIER} (bases ${CATALOGUE_DUREE_BASES_IA_ONLY}), Qualiopi, présentiel Île-de-France, financement possible selon éligibilité. ${formatNoteSatisfactionAffichageComplet()}`,
+  description: `${MARQUE} : formation IA et ChatGPT pour le gros œuvre — devis, DCE, CCTP lot 2, planning et CR de chantier. Session catalogue ${CATALOGUE_DUREE_SESSION_METIER} (bases ${CATALOGUE_DUREE_BASES_IA_ONLY}), Qualiopi, présentiel Île-de-France, financement possible selon éligibilité. ${formatNoteSatisfactionAffichageComplet()}`,
   teaches: [
     'ChatGPT pour entreprises de gros œuvre',
     'Devis et structure de postes (sans chiffrage définitif)',

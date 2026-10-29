@@ -194,7 +194,7 @@ export default function FormationIaBtpPillarPage() {
         <div className={`${OFC_SECTION_INNER} max-w-4xl`}>
           <div className="text-center md:text-left">
             <p className="text-sm font-medium uppercase tracking-wide text-[var(--accent)]">
-              Laure Olivié · OFC Création d&apos;Entreprise · Qualiopi · Constructys
+              Laure Olivié · Organisme certifié Qualiopi · Constructys
             </p>
             <h1 className="mt-4 font-display text-2xl font-bold tracking-tight text-slate-900 md:text-[1.75rem] lg:text-2xl lg:leading-tight">
               {FORMATION_IA_BTP_PILLAR_H1}
@@ -599,7 +599,7 @@ export default function FormationIaBtpPillarPage() {
           <h2 className="font-display text-2xl font-bold text-slate-900">Financement Constructys — selon éligibilité</h2>
           <p>
             La formation IA appliquée au bâtiment est dispensée par{' '}
-            <strong>OFC Création d&apos;Entreprise, organisme certifié Qualiopi</strong>, et peut faire l&apos;objet
+            <strong>Laure Olivié, organisme certifié Qualiopi (OFC Création d&apos;Entreprise)</strong>, et peut faire l&apos;objet
             d&apos;une prise en charge par Constructys ou votre OPCO, selon votre statut, votre branche professionnelle
             et les conditions en vigueur.
           </p>
@@ -619,9 +619,9 @@ export default function FormationIaBtpPillarPage() {
           <p className="font-semibold text-slate-900">Comment ça marche :</p>
           <ol className="list-inside list-decimal space-y-1">
             <li>Vous contactez Laure pour définir la formation adaptée à votre équipe</li>
-            <li>OFC prépare le dossier de prise en charge Constructys</li>
+            <li>Laure Olivié prépare le dossier de prise en charge Constructys</li>
             <li>Vous soumettez le dossier au moins 15 jours avant la formation</li>
-            <li>La formation se déroule — selon convention et dossier accepté, Constructys peut régler directement OFC</li>
+            <li>La formation se déroule — selon convention et dossier accepté, Constructys peut régler directement l&apos;organisme</li>
             <li>Selon votre dossier, vous pouvez ne pas avoir à avancer la part prise en charge</li>
           </ol>
           <p>
@@ -681,8 +681,9 @@ export default function FormationIaBtpPillarPage() {
           <Reveal as="div" className="space-y-4 text-slate-700">
           <h2 className="font-display text-2xl font-bold text-slate-900">Qui est Laure Olivié ?</h2>
           <p>
-            Laure Olivié est <strong>formatrice IA spécialisée BTP</strong> et fondatrice d&apos;OFC Création
-            d&apos;Entreprise (Qualiopi, SIRET 905 244 281 00010). Son parcours croise la <strong>direction d&apos;ALIA BTP</strong>{' '}
+            Laure Olivié est <strong>formatrice IA spécialisée BTP</strong> et fondatrice de l&apos;organisme certifié
+            Qualiopi (OFC Création d&apos;Entreprise · SIRET 905 244 281 00010). Son parcours croise la{' '}
+            <strong>direction d&apos;ALIA BTP</strong>{' '}
             (travaux publics, 2017-2024), la <strong>gestion de formations au CNFPT</strong> (2009-2019) et un{' '}
             <strong>Master Stratégie d&apos;entreprise au CNAM</strong> (2021) — une expertise rare : IA générative × réalités terrain.
           </p>
@@ -703,7 +704,7 @@ export default function FormationIaBtpPillarPage() {
           </p>
           <p className="flex flex-wrap gap-x-3 gap-y-1">
             <Link href={LINKS.aPropos} className="font-semibold text-[var(--accent)] hover:underline">
-              En savoir plus sur Laure Olivié et OFC
+              En savoir plus sur Laure Olivié
             </Link>
             <span className="text-slate-400" aria-hidden>
               |
@@ -812,7 +813,7 @@ export default function FormationIaBtpPillarPage() {
         </section>
 
         <p className="not-prose mt-12 text-center text-xs text-slate-500">
-          OFC Création d&apos;Entreprise · SIRET 905 244 281 00010 · NDA 11788515078 · {CONTACT.address} ·{' '}
+          Laure Olivié · SIRET 905 244 281 00010 · NDA 11788515078 · {CONTACT.address} ·{' '}
           {SITE_CONFIG.email}
           {siteHasPublicPhone() ? (
             <>

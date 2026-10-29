@@ -15,7 +15,8 @@ import { formatNoteSatisfactionAffichageComplet } from '@/lib/data/indicateurs-r
 
 export type { FormationIaMarchePublicConfig } from '@/lib/formation-ia-marche-public-types';
 
-const OFC = "OFC Création d'Entreprise";
+import { MARQUE_COMMERCIALE } from '@/lib/marque-identite';
+const MARQUE = MARQUE_COMMERCIALE;
 
 export function formationIaMarchePublicMetadata(
   config: FormationIaMarchePublicConfig,
@@ -79,7 +80,7 @@ export const FORMATION_IA_MARCHE_PUBLIC_TRAVAUX: FormationIaMarchePublicConfig =
     `Le risque n’est pas seulement de « mal rédiger » : c’est de rater un Go-NoGo, d’oublier une pièce, ou de produire un mémoire technique générique qui ne répond pas aux critères notés. L’IA grand public hallucine sur les versions de CCAG et invente des références — sans cadre, elle aggrave le risque.`,
     `La charge documentaire continue après l’attribution : ordres de service, avenants, décomptes, DGD. Sans trames et sans relecture humaine, le bureau perd du temps pendant que le chantier avance.`,
   ],
-  solutionIntro: `Chez ${OFC}, la formation IA pour le BTP sur l’angle marché public de travaux apprend à préparer, analyser et répondre avec des prompts cadrés — toujours avec validation métier. Le parcours catalogue associé est la fiche NIV-02 (appels d’offres) : programme, durée et tarif y sont détaillés, sans doublon sur cette page.`,
+  solutionIntro: `Chez ${MARQUE}, la formation IA pour le BTP sur l’angle marché public de travaux apprend à préparer, analyser et répondre avec des prompts cadrés — toujours avec validation métier. Le parcours catalogue associé est la fiche NIV-02 (appels d’offres) : programme, durée et tarif y sont détaillés, sans doublon sur cette page.`,
   solutionGuards: [
     'L’IA aide à préparer, analyser et répondre — elle ne remplace ni le chiffrage, ni la validation métier, ni le conseil juridique',
     'Sources : pièces du DCE fournies par vous ; jamais de conclusion de conformité normative ou contractuelle par l’outil seul',
@@ -167,7 +168,7 @@ Propose une structure de courrier ou de DGD (titres uniquement) : faits, pièces
       comingSoon: true,
     },
   ],
-  eeatParagraph: `${OFC} — satisfaction mesurée (${formatNoteSatisfactionAffichageComplet()}). Laure Olivié intervient notamment avec la FFB, la ${CSFE_NOM_LIBRE}, l’${UMB_FFB_NOM_LIBRE}, le CNAM Entreprise et Le Moniteur Formations. Les sessions marché public de travaux restent en présentiel en Île-de-France, certifiées Qualiopi, avec financement OPCO Constructys possible selon éligibilité.`,
+  eeatParagraph: `${MARQUE} — satisfaction mesurée (${formatNoteSatisfactionAffichageComplet()}). Laure Olivié intervient notamment avec la FFB, la ${CSFE_NOM_LIBRE}, l’${UMB_FFB_NOM_LIBRE}, le CNAM Entreprise et Le Moniteur Formations. Les sessions marché public de travaux restent en présentiel en Île-de-France, certifiées Qualiopi, avec financement OPCO Constructys possible selon éligibilité.`,
   faq: [
     {
       q: "Qu’est-ce qu’une formation IA marché public de travaux ?",
@@ -329,7 +330,7 @@ Structure CR : zones, observations factuelles, réserves, demandes de précision
       title: 'Note technique et autorité CSFE',
       paragraphs: [
         `La note technique (ou mémoire de méthode) doit coller aux critères du RC : moyens humains, matériel, planning, contrôles qualité, sécurité en hauteur. Travaillez section par section avec vos données réelles.`,
-        `${OFC} est partenaire de la ${CSFE_NOM_LIBRE} pour la sensibilisation et la formation. Laure Olivié a formé des équipes du réseau CSFE à l’usage responsable de l’IA — un repère E-E-A-T fort pour les entreprises d’étanchéité en Île-de-France.`,
+        `${MARQUE} est partenaire de la ${CSFE_NOM_LIBRE} pour la sensibilisation et la formation. Laure Olivié a formé des équipes du réseau CSFE à l’usage responsable de l’IA — un repère E-E-A-T fort pour les entreprises d’étanchéité en Île-de-France.`,
         `Pour le quotidien hors marché public (devis, CR, PPSPS), voir la page métier étancheur. Pour le programme et le tarif de session, voir la fiche NIV-02 appels d’offres.`,
       ],
     },

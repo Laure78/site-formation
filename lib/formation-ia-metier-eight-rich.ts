@@ -9,7 +9,8 @@ import {
   CATALOGUE_DUREE_SESSION_METIER,
 } from '@/lib/catalogue-duree-copy';
 
-const OFC = "OFC Création d'Entreprise";
+import { MARQUE_COMMERCIALE } from '@/lib/marque-identite';
+const MARQUE = MARQUE_COMMERCIALE;
 
 const COVER = {
   url: '/images/formation-ia-intra-entreprise-batiment.webp',
@@ -22,11 +23,11 @@ function faqStandard(metierLabel: string): FAQItem[] {
   return [
     {
       q: 'Mes données chantier sont-elles protégées dans ChatGPT ?',
-      a: `Évitez les plans nominatifs complets dans un outil grand public sans cadre entreprise. Anonymisez, utilisez des extraits ou des offres professionnelles sans entraînement — c’est un point clé des sessions ${OFC}.`,
+      a: `Évitez les plans nominatifs complets dans un outil grand public sans cadre entreprise. Anonymisez, utilisez des extraits ou des offres professionnelles sans entraînement — c’est un point clé des sessions ${MARQUE}.`,
     },
     {
       q: 'La formation est-elle financement possible selon éligibilité (Constructys) ?',
-      a: `Oui selon éligibilité : ${OFC} est certifié Qualiopi ; le financement OPCO Constructys suit les règles en vigueur pour les entreprises du BTP.`,
+      a: `Oui selon éligibilité : ${MARQUE} est certifié Qualiopi ; le financement OPCO Constructys suit les règles en vigueur pour les entreprises du BTP.`,
     },
     {
       q: 'Quelle différence avec la formation catalogue BTP-01 ?',
@@ -68,7 +69,7 @@ export const FORMATION_IA_METIER_MACON: FormationIaMetierBtpConfig = {
     `Les maçons et entreprises de maçonnerie enchaînent élévations, parpaing, béton, coffrage et ferraillage : chaque devis et chaque métré doit coller au ${'`'}DTU 20.1${'`'} et aux cotes relevées — sans confondre avec le lot gros œuvre (DCE, planning, coordination des lots).`,
     `Le temps part aussi en rédaction : structure de devis maçonnerie, métré béton/parpaing à croiser avec les plans, comptes rendus de coulage, relances fournisseur béton. Sans méthode, on reformule tard le soir les mêmes postes de coffrage et de ferraillage.`,
     `Sur les marchés, une IA mal cadrée invente des volumes, des dosages ou des références DTU. La formation Qualiopi pose le cadre — prompts, sources, mention [à valider par le métré], relecture et confidentialité — sans remplacer le géomètre-métré ni le fascicule.`,
-    `L’objectif des sessions ${OFC} est de gagner plusieurs heures par semaine sur la structure des documents (devis, CR, mémoires, mails), pas de chiffrer définitivement un ouvrage ni de valider un ferraillage à la place d’une personne compétente.`,
+    `L’objectif des sessions ${MARQUE} est de gagner plusieurs heures par semaine sur la structure des documents (devis, CR, mémoires, mails), pas de chiffrer définitivement un ouvrage ni de valider un ferraillage à la place d’une personne compétente.`,
   ],
   solutionIntro: `Les sessions combinent démonstration et ateliers sur vos cas (anonymisés). Vous apprenez à produire des brouillons pour devis maçonnerie, métré assisté (toujours avec [à valider par le métré]), CR de coulage et relances fournisseur béton — avec validation métier et croisement du DTU 20.1.`,
   prompts: [
@@ -122,11 +123,11 @@ Liste les exigences par sous-partie : performances béton, coffrage, ferraillage
     },
     {
       q: 'Mes plans de coffrage et quantitatifs sont-ils protégés dans ChatGPT ?',
-      a: `Évitez les plans nominatifs complets dans un outil grand public sans cadre entreprise. Anonymisez, utilisez des extraits, ou des offres professionnelles sans entraînement — c’est enseigné en formation ${OFC}.`,
+      a: `Évitez les plans nominatifs complets dans un outil grand public sans cadre entreprise. Anonymisez, utilisez des extraits, ou des offres professionnelles sans entraînement — c’est enseigné en formation ${MARQUE}.`,
     },
     {
       q: 'La formation IA maçon BTP est-elle financement possible selon éligibilité ?',
-      a: `Oui selon éligibilité et dossier : ${OFC} est certifié Qualiopi ; le financement OPCO Constructys suit les règles en vigueur pour les entreprises du BTP.`,
+      a: `Oui selon éligibilité et dossier : ${MARQUE} est certifié Qualiopi ; le financement OPCO Constructys suit les règles en vigueur pour les entreprises du BTP.`,
     },
     {
       q: 'Quelle différence avec la formation IA gros œuvre ?',
@@ -134,7 +135,7 @@ Liste les exigences par sous-partie : performances béton, coffrage, ferraillage
     },
   ],
   courseName: 'Formation IA maçon BTP — devis, métrés, DTU 20.1',
-  courseDescription: `${OFC} : formation IA et ChatGPT pour maçons — devis, métrés, DTU 20.1, ferraillage, CR de coulage. Session catalogue ${CATALOGUE_DUREE_SESSION_METIER} (bases ${CATALOGUE_DUREE_BASES_IA_ONLY}) — organisme certifié Qualiopi, financement possible selon éligibilité.`,
+  courseDescription: `${MARQUE} : formation IA et ChatGPT pour maçons — devis, métrés, DTU 20.1, ferraillage, CR de coulage. Session catalogue ${CATALOGUE_DUREE_SESSION_METIER} (bases ${CATALOGUE_DUREE_BASES_IA_ONLY}) — organisme certifié Qualiopi, financement possible selon éligibilité.`,
   courseTeaches: [
     'ChatGPT pour maçons et maçonnerie BTP',
     'DTU 20.1 — usage documentaire assisté',
@@ -250,7 +251,7 @@ Propose la STRUCTURE des postes (sans prix) : dépose, écran sous-toiture, isol
     ...faqStandard('couvreur'),
   ],
   courseName: 'Formation IA couvreur zingueur BTP — Qualiopi',
-  courseDescription: `${OFC} : formation IA pour couvreurs-zingueurs — DTU 40, métrés, zinguerie, mémoires. Session catalogue ${CATALOGUE_DUREE_SESSION_METIER} (bases ${CATALOGUE_DUREE_BASES_IA_ONLY}) — organisme certifié Qualiopi, Constructys selon dossier.`,
+  courseDescription: `${MARQUE} : formation IA pour couvreurs-zingueurs — DTU 40, métrés, zinguerie, mémoires. Session catalogue ${CATALOGUE_DUREE_SESSION_METIER} (bases ${CATALOGUE_DUREE_BASES_IA_ONLY}) — organisme certifié Qualiopi, Constructys selon dossier.`,
   courseTeaches: [
     'ChatGPT pour couvreurs et zingueurs BTP',
     'DTU 40 — aide à la rédaction',
@@ -345,7 +346,7 @@ Propose la STRUCTURE du devis (postes, pas les prix) : préparation, primaires, 
     ...faqStandard('peintre'),
   ],
   courseName: 'Formation IA peintre bâtiment BTP — Qualiopi',
-  courseDescription: `${OFC} : formation IA pour peintres — DTU 59, devis, finitions, mémoires. Session catalogue ${CATALOGUE_DUREE_SESSION_METIER} (bases ${CATALOGUE_DUREE_BASES_IA_ONLY}) — organisme certifié Qualiopi, Constructys.`,
+  courseDescription: `${MARQUE} : formation IA pour peintres — DTU 59, devis, finitions, mémoires. Session catalogue ${CATALOGUE_DUREE_SESSION_METIER} (bases ${CATALOGUE_DUREE_BASES_IA_ONLY}) — organisme certifié Qualiopi, Constructys.`,
   courseTeaches: ['ChatGPT pour peintres BTP', 'DTU 59', 'Devis et supports', 'Qualiopi'],
   ogImage: { ...COVER, alt: 'Formation IA appliquée au bâtiment — peinture bâtiment' },
   coverImage: { ...COVER, alt: 'Peinture bâtiment — formation IA' },
@@ -489,7 +490,7 @@ Ne pas inventer d’avenant ni de quantités.`,
     ...faqStandard('plâtrerie'),
   ],
   courseName: 'Formation IA plâtrerie & plaquiste BTP — Qualiopi',
-  courseDescription: `${OFC} : formation IA pour la plâtrerie — organisation des ouvrages, interfaces, suivi des modifications. Session catalogue — organisme certifié Qualiopi.`,
+  courseDescription: `${MARQUE} : formation IA pour la plâtrerie — organisation des ouvrages, interfaces, suivi des modifications. Session catalogue — organisme certifié Qualiopi.`,
   courseTeaches: [
     'ChatGPT pour plâtrerie BTP',
     'Organisation cloisons / doublages / plafonds',
@@ -582,7 +583,7 @@ export const FORMATION_IA_METIER_MENUISIER: FormationIaMetierBtpConfig = {
     ...faqStandard('menuiserie'),
   ],
   courseName: 'Formation IA menuiserie & agencement BTP — Qualiopi',
-  courseDescription: `${OFC} : formation IA pour menuiserie intérieure, extérieure et agencement — devis, relevés, suivi. Qualiopi.`,
+  courseDescription: `${MARQUE} : formation IA pour menuiserie intérieure, extérieure et agencement — devis, relevés, suivi. Qualiopi.`,
   courseTeaches: [
     'ChatGPT / Claude pour menuiserie et agencement',
     'Devis et relevés',
@@ -738,7 +739,7 @@ CR : constats factuels, réserves, demandes aux autres lots, suites. Pas de conc
     ...faqStandard('carrelage'),
   ],
   courseName: 'Formation IA entreprise de carrelage — Qualiopi',
-  courseDescription: `${OFC} : formation IA pour entreprises de carrelage — relevés, préparation, devis, réserves. Session catalogue — organisme certifié Qualiopi.`,
+  courseDescription: `${MARQUE} : formation IA pour entreprises de carrelage — relevés, préparation, devis, réserves. Session catalogue — organisme certifié Qualiopi.`,
   courseTeaches: [
     'ChatGPT pour entreprises de carrelage',
     'Postes de préparation et devis',
@@ -849,7 +850,7 @@ Propose STRUCTURE de tableau (colonnes + lignes types) pour reprise interne. Rap
     ...faqStandard('charpentier'),
   ],
   courseName: 'Formation IA charpentier BTP — Qualiopi',
-  courseDescription: `${OFC} : formation IA pour charpentiers — DTU 31, mémoires, coordination. Session catalogue ${CATALOGUE_DUREE_SESSION_METIER} (bases ${CATALOGUE_DUREE_BASES_IA_ONLY}) — organisme certifié Qualiopi, Constructys.`,
+  courseDescription: `${MARQUE} : formation IA pour charpentiers — DTU 31, mémoires, coordination. Session catalogue ${CATALOGUE_DUREE_SESSION_METIER} (bases ${CATALOGUE_DUREE_BASES_IA_ONLY}) — organisme certifié Qualiopi, Constructys.`,
   courseTeaches: ['ChatGPT pour charpentiers BTP', 'DTU 31', 'Mémoires et nomenclatures', 'Qualiopi'],
   ogImage: { ...COVER, alt: 'Formation IA pour le BTP — charpente bois' },
   coverImage: { ...COVER, alt: 'Charpentier — formation IA' },
@@ -936,7 +937,7 @@ Propose un plan (jalons j0, j+10…) et des intitulés de mails par étape — s
     },
     {
       q: 'Comment gérer les données personnelles et les plans dans les prompts ?',
-      a: `Anonymisez, utilisez des extraits, et des offres professionnelles adaptées — c’est un point central des sessions ${OFC}.`,
+      a: `Anonymisez, utilisez des extraits, et des offres professionnelles adaptées — c’est un point central des sessions ${MARQUE}.`,
     },
     {
       q: 'La formation est-elle adaptée si je ne suis pas sur le terrain ?',
@@ -945,7 +946,7 @@ Propose un plan (jalons j0, j+10…) et des intitulés de mails par étape — s
     ...faqStandard('assistante administrative'),
   ],
   courseName: 'Formation IA assistante administrative BTP — Qualiopi',
-  courseDescription: `${OFC} : formation IA pour assistantes administratives du BTP — courriers, relances, suivi, dossiers. Session catalogue ${CATALOGUE_DUREE_SESSION_METIER} (bases ${CATALOGUE_DUREE_BASES_IA_ONLY}) — organisme certifié Qualiopi, Constructys.`,
+  courseDescription: `${MARQUE} : formation IA pour assistantes administratives du BTP — courriers, relances, suivi, dossiers. Session catalogue ${CATALOGUE_DUREE_SESSION_METIER} (bases ${CATALOGUE_DUREE_BASES_IA_ONLY}) — organisme certifié Qualiopi, Constructys.`,
   courseTeaches: [
     'ChatGPT pour assistantes administratives BTP',
     'Courriers et relances (relecture humaine)',

@@ -14,7 +14,7 @@ export function FormationsCatalogueContactDirect() {
       <h2 id="contact-direct-catalogue-title" className="ofc-type-h2 text-ofc-ink">
         Contact direct
       </h2>
-      <p className="mt-2 text-sm text-ofc-ink-muted">Laure OLIVIÉ — OFC Création d&apos;Entreprise</p>
+      <p className="mt-2 text-sm text-ofc-ink-muted">Laure Olivié — organisme certifié Qualiopi</p>
       <ul className="mt-4 space-y-2 text-sm">
         <li>
           <a href={`mailto:${CONTACT.email}`} className="font-medium text-[#377CF3] underline">
