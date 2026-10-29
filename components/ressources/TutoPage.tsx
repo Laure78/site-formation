@@ -12,7 +12,14 @@ import { LINKS } from '@/lib/internal-links';
 import { getMaillageRessourceConfig } from '@/lib/maillage-ressources';
 import { buildRessourceTutoJsonLd } from '@/lib/schema-ressource-tuto-jsonld';
 import { FINANCEMENT_STAT_LABEL, FINANCEMENT_STAT_VAL } from '@/lib/financement-copy';
-import type { TutoBlock, TutoData, TutoLotsExamples, TutoSommaireTable, TutoStep } from '@/lib/tutos/types';
+import type {
+  TutoBlock,
+  TutoData,
+  TutoLotsExamples,
+  TutoSkillBundle,
+  TutoSommaireTable,
+  TutoStep,
+} from '@/lib/tutos/types';
 import { tutoDownloadLabel } from '@/lib/tutos/types';
 import { computeHeroLearnAnchorIds } from '@/lib/tutos/hero-anchors';
 import { formatNoteSatisfactionSur5 } from '@/lib/data/indicateurs-resultats';
@@ -238,6 +245,71 @@ function SommaireTableSection({
   );
 }
 
+const ANTHROPIC_SKILLS_DOCS_URL =
+  'https://support.claude.com/en/articles/12512198-how-to-create-custom-skills';
+
+function TutoSkillBundleSection({ bundle }: { bundle: TutoSkillBundle }) {
+  return (
+    <section
+      className="border-t border-slate-200 bg-white ofc-band"
+      aria-labelledby={bundle.sectionId}
+    >
+      <div className="ofc-section-inner max-w-4xl">
+        <h2
+          id={bundle.sectionId}
+          className="scroll-mt-28 font-display text-2xl font-bold text-slate-900 md:text-2xl"
+        >
+          {bundle.title}
+        </h2>
+        <p className="mt-4 text-slate-700 leading-relaxed">{bundle.description}</p>
+
+        <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
+          <DownloadButton href={bundle.skillUrl} variant="primary" label="Télécharger le skill" />
+          <a
+            href={`#${bundle.firstStepAnchor}`}
+            className="inline-flex items-center justify-center gap-2 rounded-xl border border-[#377CF3] bg-white px-5 py-3 text-[0.95rem] font-semibold text-[#377CF3] transition-colors hover:bg-[#D4E3FC]/40 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#377CF3]"
+          >
+            Suivre le tutoriel
+            <ArrowRight size={18} aria-hidden />
+          </a>
+        </div>
+
+        <div className="mt-10">
+          <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#377CF3]">
+            Mode d&apos;emploi
+          </p>
+          <ol className="mt-4 space-y-3 list-decimal pl-5 marker:font-semibold marker:text-[#377CF3]">
+            {bundle.installSteps.map((step) => (
+              <li key={step} className="pl-1 text-slate-700 leading-relaxed">
+                {step}
+              </li>
+            ))}
+          </ol>
+          <p className="mt-4 text-sm text-slate-600 leading-relaxed">
+            Les menus et prérequis évoluent : vérifie la{' '}
+            <a
+              href={ANTHROPIC_SKILLS_DOCS_URL}
+              className="font-medium text-[#377CF3] underline-offset-2 hover:underline"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              documentation officielle Anthropic sur les skills
+            </a>{' '}
+            (structure SKILL.md, archive ZIP, activation dans Personnaliser → Skills).
+          </p>
+        </div>
+
+        <p
+          role="note"
+          className="mt-8 rounded-xl border border-slate-200 bg-[#F8FAFC] px-4 py-3 text-sm leading-relaxed text-slate-700"
+        >
+          {bundle.disclaimer}
+        </p>
+      </div>
+    </section>
+  );
+}
+
 function LotsExamplesSection({ lots }: { lots: TutoLotsExamples }) {
   return (
     <section
@@ -331,7 +403,7 @@ export function TutoPage({ tuto }: { tuto: TutoData }) {
                 </ul>
               </div>
 
-              <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
+              <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center sm:flex-wrap">
                 <DownloadButton href={pdfUrl} variant="primary" label={downloadLabel} />
                 <p className="text-sm text-slate-600">
                   Tutoriel gratuit — sans inscription
@@ -340,6 +412,17 @@ export function TutoPage({ tuto }: { tuto: TutoData }) {
                     : ', format PDF.'}
                 </p>
               </div>
+              {tuto.skillBundle ? (
+                <p className="mt-3 text-sm text-slate-600">
+                  Base skill à personnaliser :{' '}
+                  <a
+                    href={`#${tuto.skillBundle.sectionId}`}
+                    className="font-medium text-[#377CF3] underline-offset-2 hover:underline"
+                  >
+                    Compte rendu de chantier
+                  </a>
+                </p>
+              ) : null}
 
               <div className="mt-8 flex items-center gap-4 border-t border-slate-200 pt-6">
                 <div className="relative h-14 w-14 shrink-0 overflow-hidden rounded-full ring-1 ring-slate-200">
@@ -410,6 +493,8 @@ export function TutoPage({ tuto }: { tuto: TutoData }) {
           </div>
         </div>
       </section>
+
+      {tuto.skillBundle ? <TutoSkillBundleSection bundle={tuto.skillBundle} /> : null}
 
       {/* Étapes */}
       <section className="ofc-band" aria-label="Étapes du tutoriel">
@@ -547,7 +632,7 @@ export function TutoPage({ tuto }: { tuto: TutoData }) {
               variant="outline"
               label={
                 tuto.heroDownloadLabel
-                  ? 'Re-télécharger le modèle DOE'
+                  ? tuto.heroDownloadLabel.replace(/^Télécharger/, 'Re-télécharger')
                   : tuto.pdfFile.toLowerCase().endsWith('.docx')
                     ? 'Re-télécharger le Word'
                     : 'Re-télécharger le PDF'

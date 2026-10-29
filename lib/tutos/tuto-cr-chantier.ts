@@ -1,5 +1,6 @@
 import type { TutoData } from './types';
 import { PHOTOS } from '@/lib/photos';
+import { LINKS } from '@/lib/internal-links';
 
 export const TUTO_CR_CHANTIER: TutoData = {
   slug: 'tuto-cr-chantier',
@@ -40,7 +41,9 @@ export const TUTO_CR_CHANTIER: TutoData = {
     'Tuto Skill CR chantier — dictée vocale → compte rendu Word avec Claude, par Laure Olivié',
 
   publishedAt: '2026-05-09',
-  updatedAt: '2026-05-09',
+  updatedAt: '2026-10-29',
+
+  heroDownloadLabel: 'Télécharger le tutoriel PDF',
 
   cardSummary:
     "Transforme tes dictées vocales en compte rendu de chantier rédigé au format de ton entreprise : 5 minutes au lieu de 45 par CR. Workflow voix → Claude → Word + mail d'envoi.",
@@ -51,10 +54,36 @@ export const TUTO_CR_CHANTIER: TutoData = {
 
   heroLearnPoints: [
     "Le workflow voix → CR qui change la vie d'un conducteur",
+    'Récupérer le skill Compte rendu de chantier à adapter',
     '5 étapes pour créer ton skill en 30 minutes',
     'Le prompt exact à donner à Claude',
     "Comment l'utiliser au quotidien sans rien changer à ta routine",
   ],
+  heroLearnPointTargets: [
+    'intro-tuto-cr-chantier',
+    'skill-cr-chantier-batiment',
+    'etape-1',
+    'etape-3',
+    'etape-5',
+  ],
+
+  skillBundle: {
+    sectionId: 'skill-cr-chantier-batiment',
+    title: 'Récupère le skill Compte rendu de chantier',
+    description:
+      'Pars d’une base prête à adapter pour transformer tes notes, tes transcriptions ou tes photos de visite en compte rendu Word structuré, avec mail d’envoi et liste des points à confirmer. Le pack inclut un script de mise en page (.docx). Personnalise ensuite le skill avec ta trame, ton vocabulaire métier et les consignes de ton entreprise — le tutoriel ci-dessous t’accompagne pour cette étape.',
+    skillUrl: LINKS.skillCrChantierBatiment,
+    firstStepAnchor: 'etape-1',
+    disclaimer:
+      'À adapter avant utilisation : modèle de compte rendu, rubriques, vocabulaire et présentation de l’entreprise. Vérifie les noms, les dates, les décisions et les actions. Les informations manquantes doivent rester signalées comme étant à confirmer.',
+    installSteps: [
+      'Télécharge l’archive .skill (ZIP importable dans Claude — ce n’est pas un simple fichier SKILL.md à coller dans le chat).',
+      'Si tu personnalises les fichiers : décompresse, remplis la section 0 du SKILL.md (entreprise, charte, vocabulaire, destinataires), joins tes anciens CR ou ta trame, ajoute ton logo dans assets/logo.png si besoin, puis recompresse le dossier cr-chantier-batiment en ZIP (le dossier doit être à la racine de l’archive, conformément à la documentation Anthropic).',
+      'Sur claude.ai : Paramètres → Personnaliser → Skills, importe le ZIP et active le skill. Dans Capabilities, active « Code execution and file creation » pour obtenir le fichier Word.',
+      'Teste-le sur des notes ou une transcription anonymisées (« fais le CR »).',
+      'Relis le résultat (noms propres, dates, montants, actions) avant toute diffusion.',
+    ],
+  },
 
   introTitle: 'Le workflow qui change tout',
   introBlocks: [
@@ -89,6 +118,11 @@ export const TUTO_CR_CHANTIER: TutoData = {
       title: 'Ce qui change vraiment',
       body:
         "Tu n'écris plus tes CR — tu les valides. Le contenu reste à 100% le tien : c'est toi qui as observé le chantier, c'est ta voix qui dicte. Le skill ne fait que mettre en forme. La qualité du CR dépend de la qualité de ta dictée — donc de ta présence sur le terrain.",
+    },
+    {
+      kind: 'paragraph',
+      text:
+        'Juste après cette présentation, tu peux télécharger un skill de départ déjà structuré pour le CR, puis utiliser les étapes ci-dessous pour l’adapter à ta trame et à ton entreprise.',
     },
   ],
 

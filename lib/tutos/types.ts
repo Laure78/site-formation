@@ -104,6 +104,22 @@ export type TutoLotsExamples = {
   lots: readonly { title: string; body: string }[];
 };
 
+/** Skill Claude téléchargeable depuis une page tuto (archive .skill importable). */
+export type TutoSkillBundle = {
+  /** Id DOM (#…) de la section sur la page tuto. */
+  sectionId: string;
+  title: string;
+  description: string;
+  /** Chemin public vers l’archive .skill (ZIP au format Anthropic). */
+  skillUrl: string;
+  /** Ancre de la première étape (ex. `etape-1`). */
+  firstStepAnchor: string;
+  /** Encadré « à adapter avant utilisation ». */
+  disclaimer: string;
+  /** Mode d’emploi court (5 étapes max). */
+  installSteps: readonly string[];
+};
+
 /** Données complètes d'un tuto Ressource. */
 export type TutoData = {
   /** Slug d'URL : `/ressources/[slug]` */
@@ -200,6 +216,9 @@ export type TutoData = {
     width: number;
     height: number;
   };
+
+  /** Skill Claude associé — section entre intro et étapes (optionnel). */
+  skillBundle?: TutoSkillBundle;
 };
 
 /** Libellé du bouton de téléchargement selon l’extension du fichier ressource. */

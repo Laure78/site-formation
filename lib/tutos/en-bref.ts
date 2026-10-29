@@ -39,9 +39,9 @@ export const TUTO_EN_BREF: Readonly<Record<string, readonly string[]>> = {
     'Outil : extension Claude in Chrome (navigation assistée), distincte d’un skill document.',
   ],
   'tuto-cr-chantier': [
-    'Le skill transforme une dictée ou des notes de réunion en compte rendu de chantier structuré, prêt à relire.',
-    'Gain annoncé : environ 5 minutes de production, au lieu d’environ 45 minutes de rédaction manuelle.',
-    'Outil : skill Claude, à lancer après la visite ou la réunion.',
+    'Le skill transforme une dictée, des notes ou une transcription en compte rendu Word structuré, avec mail d’envoi — prêt à relire.',
+    'Sur cette page : téléchargement du skill de base (.skill) et tutoriel PDF pour le personnaliser à ton entreprise.',
+    'Outil : skill Claude (exécution de code activée), à lancer après la visite ou la réunion.',
   ],
   'tuto-doe-dossier-ouvrages-executes': [
     'Le DOE (Dossier des Ouvrages Exécutés) rassemble les pièces qui décrivent l’ouvrage réellement construit : plans conformes, fiches, PV, notices et garanties.',
