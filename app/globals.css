@@ -2159,8 +2159,12 @@
     @apply w-full;
   }
 
+  .emplois-hub-hero__copy {
+    @apply w-full min-w-0;
+  }
+
   .emplois-page__layout {
-    @apply w-full;
+    @apply w-full min-w-0;
   }
 
   .emplois-hub-hero__title {
@@ -2393,4 +2397,17 @@
   .financement-constructys-body {
     padding-top: 1.25rem;
   }
+}
+
+/* Hub /nous-rejoindre — largeurs (hors @layer : prime sur .ofc-read-width global) */
+.emplois-page .emplois-hub-hero__title,
+.emplois-page .emplois-hub-hero__copy .ofc-read-width,
+.emplois-page .emplois-page__intro,
+.emplois-page .emplois-page__catalogue-link {
+  max-width: var(--ofc-read-width-wide);
+}
+
+.emplois-page .emplois-offers-empty .ofc-read-width,
+.emplois-page .emplois-path-block .ofc-read-width {
+  max-width: none !important;
 }

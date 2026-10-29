@@ -16,7 +16,7 @@ import {
   TARIF_PARTICIPANT_NIV01_HT,
   TARIF_PARTICIPANT_NIV02_HT,
   TARIF_PARTICIPANT_NIV09_HT,
-  TARIF_PARTICIPANT_NIV10_HT,
+  TARIF_PARTICIPANT_NIV10_14H_HT,
 } from '@/lib/tarifs-catalogue-participant';
 import { getFormationByCode, libelleDureeFormation, libelleEffectifFormation } from '@/data/formations';
 import { dureeCatalogueParCode } from '@/lib/catalogue-duree-copy';
@@ -162,7 +162,7 @@ export const FAQ_ITEMS: readonly FAQItem[] = [
   },
   {
     q: "Combien de temps dure la formation IA pour le BTP ?",
-    a: `Les bases de l’IA durent 4 heures ; les sessions métier catalogue durent 7 heures (variante 14 h pour certains outils métier). ${MODALITE_FORMATIONS_PRESENTIEL} Bases : ${libelleTarifParticipantCatalogue(TARIF_PARTICIPANT_NIV01_HT)} · sessions métier 7 h : ${libelleTarifParticipantCatalogue(TARIF_PARTICIPANT_NIV02_HT)} — voir les programmes sur la page <a href="/formations">formations IA pour le BTP</a>.`,
+    a: `Les bases de l’IA durent 4 heures ; les sessions métier catalogue durent 7 heures ; la formation « applications métier BTP avec l’IA » dure 14 heures sur 2 jours. ${MODALITE_FORMATIONS_PRESENTIEL} Bases : ${libelleTarifParticipantCatalogue(TARIF_PARTICIPANT_NIV01_HT)} · sessions métier 7 h : ${libelleTarifParticipantCatalogue(TARIF_PARTICIPANT_NIV02_HT)} — voir les programmes sur la page <a href="/formations">formations IA pour le BTP</a>.`,
   },
   {
     q: "La formation se fait-elle en présentiel ?",
@@ -276,7 +276,7 @@ export const FAQ_FORMATIONS: FAQItem[] = [
   },
   {
     q: 'Combien coûte une formation IA pour le BTP ?',
-    a: `Les bases de l’IA (4 h) : ${libelleTarifParticipantCatalogue(TARIF_PARTICIPANT_NIV01_HT)}. Sessions métier (7 h) : ${libelleTarifParticipantCatalogue(TARIF_PARTICIPANT_NIV02_HT)}. Créer des applications métier BTP avec l’IA : 7 h (${libelleTarifParticipantCatalogue(TARIF_PARTICIPANT_NIV10_HT)}) ou 14 h selon la variante. Voir la <a href="${LINKS.formations}#tarifs-formations-btp">grille tarifaire</a>.`,
+    a: `Les bases de l’IA (4 h) : ${libelleTarifParticipantCatalogue(TARIF_PARTICIPANT_NIV01_HT)}. Sessions métier (7 h) : ${libelleTarifParticipantCatalogue(TARIF_PARTICIPANT_NIV02_HT)}. Créer des applications métier BTP avec l’IA : 14 heures — 2 jours (${libelleTarifParticipantCatalogue(TARIF_PARTICIPANT_NIV10_14H_HT)}). Voir la <a href="${LINKS.formations}#tarifs-formations-btp">grille tarifaire</a>.`,
   },
   {
     q: 'La formation peut-elle être financée par Constructys ?',
@@ -284,7 +284,7 @@ export const FAQ_FORMATIONS: FAQItem[] = [
   },
   {
     q: 'Quelles formations IA appliquées au bâtiment sont proposées au catalogue ?',
-    a: `Notre catalogue de formations IA pour le BTP comprend les bases en 4 h, des sessions métier en 7 h (appels d&apos;offres, chantier, Claude, maîtrise d&apos;œuvre) et des formations <a href="${LINKS.formationApplicationMetierBtpNiveau1}">applications métier BTP avec l&apos;IA</a> (7 h ou 14 h selon le programme). Toutes les actions sont dispensées par ${formatOrganismeQualiopiCourt()}. ${MODALITE_FORMATIONS_PRESENTIEL} ${FINANCEMENT_FORMULATION_COURTE} Fiches détaillées : cartes ci-dessus.`,
+    a: `Notre catalogue de formations IA pour le BTP comprend les bases en 4 h, des sessions métier en 7 h (appels d&apos;offres, chantier, Claude, maîtrise d&apos;œuvre) et la formation <a href="${LINKS.formationDeveloppementWebIaSansCoder}">applications métier BTP avec l&apos;IA</a> (14 heures — 2 jours). Toutes les actions sont dispensées par ${formatOrganismeQualiopiCourt()}. ${MODALITE_FORMATIONS_PRESENTIEL} ${FINANCEMENT_FORMULATION_COURTE} Fiches détaillées : cartes ci-dessus.`,
   },
   {
     q: 'Comment choisir la bonne formation IA pour le BTP pour mon entreprise ?',
@@ -328,7 +328,7 @@ export function getFaqFormations(at: Date = new Date()): FAQItem[] {
     if (item.q === 'Quelles formations IA appliquées au bâtiment sont proposées au catalogue ?') {
       return {
         ...item,
-        a: `Notre catalogue de formations IA pour le BTP comprend les bases en 4 h (devis et documents courants), des sessions métier en 7 h (appels d&apos;offres, Claude, maîtrise d&apos;œuvre${count > 4 ? ', conduite de travaux' : ''}) et des formations <a href="${LINKS.formationApplicationMetierBtpNiveau1}">applications métier BTP avec l&apos;IA</a> (7 h ou 14 h selon le programme). Toutes les actions sont dispensées par ${formatOrganismeQualiopiCourt()}. ${MODALITE_FORMATIONS_PRESENTIEL} ${FINANCEMENT_FORMULATION_COURTE} Fiches détaillées : cartes ci-dessus.`,
+        a: `Notre catalogue de formations IA pour le BTP comprend les bases en 4 h (devis et documents courants), des sessions métier en 7 h (appels d&apos;offres, Claude, maîtrise d&apos;œuvre${count > 4 ? ', conduite de travaux' : ''}) et la formation <a href="${LINKS.formationDeveloppementWebIaSansCoder}">applications métier BTP avec l&apos;IA</a> (14 heures — 2 jours). Toutes les actions sont dispensées par ${formatOrganismeQualiopiCourt()}. ${MODALITE_FORMATIONS_PRESENTIEL} ${FINANCEMENT_FORMULATION_COURTE} Fiches détaillées : cartes ci-dessus.`,
       };
     }
     if (item.q === 'Comment choisir la bonne formation IA pour le BTP pour mon entreprise ?') {

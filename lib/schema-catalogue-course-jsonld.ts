@@ -10,10 +10,7 @@ import {
   libelleEffectifMaxFormation,
 } from '@/data/formations';
 import { getFormationCatalogueByRef } from '@/lib/formations-catalogue-display';
-import {
-  TARIF_INTER_DEV_WEB_IA_14H_HT,
-  TARIF_INTER_DEV_WEB_IA_HT,
-} from '@/lib/formation-developpement-web-ia-content';
+import { TARIF_INTER_DEV_WEB_IA_14H_HT } from '@/lib/formation-developpement-web-ia-content';
 import { LINKS } from '@/lib/internal-links';
 import { getFormationCatalogueImageObjectJsonLd } from '@/lib/photo-seo';
 import {
@@ -423,7 +420,7 @@ export const CATALOGUE_COURSE_DEV_WEB_IA_NIV10: CatalogueCourseJsonLdConfig = {
   path: LINKS.formationDeveloppementWebIaSansCoder,
   name: 'Créer des applications métier BTP avec l’IA',
   description:
-    'Formation IA pour le BTP : créer une application métier sur mesure avec l’IA, sans coder. 14 h, présentiel Île-de-France, Qualiopi.',
+    'Formation IA pour le BTP : créer une application métier sur mesure avec l’IA, sans coder. 14 heures — 2 jours, présentiel Île-de-France, Qualiopi.',
   price: prixCatalogue('NIV-10'),
   keywords: [
     'formation ERP BTP avec IA',
@@ -526,21 +523,17 @@ export function buildCatalogueCourseDeveloppementWebIaNiv10JsonLd(): Record<stri
   const base = buildFormationCatalogueRichCourseJsonLd(FORMATION_RICH_COURSE_NIV10);
   const courseUrl = `${SCHEMA_PUBLIC_SITE_URL.replace(/\/$/, '')}${LINKS.formationDeveloppementWebIaSansCoder}`;
   const offer14h = buildCatalogueOffer('NIV-10', courseUrl, TARIF_INTER_DEV_WEB_IA_14H_HT);
-  offer14h.name = 'Session 14 h';
-  offer14h.description = `${TARIF_INTER_DEV_WEB_IA_14H_HT} € HT / participant — 14 h — 4 à 8 participants`;
-
-  const offer7h = buildCatalogueOffer('NIV-10', courseUrl, TARIF_INTER_DEV_WEB_IA_HT);
-  offer7h.name = 'Session 7 h (variante)';
-  offer7h.description = `${TARIF_INTER_DEV_WEB_IA_HT} € HT / participant — 7 h — 4 à 8 participants`;
+  offer14h.name = 'Session 14 heures — 2 jours';
+  offer14h.description = `${TARIF_INTER_DEV_WEB_IA_14H_HT} € HT / participant — 14 heures — 2 jours — 4 à 8 participants`;
 
   return {
     ...base,
     timeRequired: 'PT14H',
-    offers: [offer14h, offer7h],
+    offers: [offer14h],
     hasCourseInstance: [
       {
         '@type': 'CourseInstance',
-        name: 'Présentiel inter ou intra — Île-de-France — 14 h',
+        name: 'Présentiel inter ou intra — Île-de-France — 14 heures (2 jours)',
         courseMode: 'Onsite',
         courseWorkload: 'PT14H',
         location: { '@type': 'Place', name: 'Île-de-France' },

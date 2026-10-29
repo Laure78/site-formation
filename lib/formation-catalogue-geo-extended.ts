@@ -300,7 +300,7 @@ export const FORMATION_CATALOGUE_GEO_EXTENDED: Record<
     propresDossiers:
       'Oui — chaque participant travaille sur son propre projet (idée de site, d’application ou d’outil métier).',
     iaRemplacePro: COMMON_IA_NON,
-    deroulement: `${MODALITE_PEDAGOGIQUE_CATALOGUE}. 70 % pratique — journée de 7 heures, quatre modules (cadrage, structuration, construction, tests/corrections), cas pratique fil rouge.`,
+    deroulement: `${MODALITE_PEDAGOGIQUE_CATALOGUE}. 70 % pratique — 14 heures sur 2 jours (7 h par journée) : Jour 1 — cadrage, structuration, construction et tests ; Jour 2 — amélioration, connexions entre fonctions et préparation du déploiement, cas pratique fil rouge.`,
     clusterMaillage: [
       ...CLUSTER_BASE,
       { href: LINKS.contact, label: 'Contacter Laure Olivié' },

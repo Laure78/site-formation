@@ -38,7 +38,7 @@ export function buildLlmsTxtContent(): string {
 - Maîtriser Claude AI pour le BTP (7 h) : ${BASE}/formations/maitriser-claude-ai-btp
 - IA et maîtrise d'œuvre (7 h) : ${BASE}/formations/ia-maitrise-oeuvre
 - Créer ses assistants IA pour son entreprise du bâtiment (7 h, niveau 2) : ${BASE}/formations/assistants-ia-personnalises-btp
-- Créer des applications métier BTP avec l'IA (14 h, niveau 3) : ${BASE}/formations/developpement-web-ia-sans-coder
+- Créer des applications métier BTP avec l'IA (14 heures — 2 jours, niveau 3) : ${BASE}/formations/developpement-web-ia-sans-coder
 
 ## Pages clés
 - Formation IA pour le BTP (pilier) : ${BASE}/formation-ia-btp

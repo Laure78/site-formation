@@ -818,7 +818,7 @@ const NIV_10: CatalogueFormationPageContent = {
   heroPublicLine:
     'Dirigeants, conducteurs de travaux, chargés d’affaires et fonctions support du BTP — sans prérequis en programmation.',
   heroFacts: [
-    '14 heures (2 journées)',
+    '14 heures — 2 jours',
     '9h00 – 12h30 · 13h30 – 17h00',
     'Présentiel Île-de-France uniquement',
     '4 à 8 participants',
@@ -848,10 +848,10 @@ const NIV_10: CatalogueFormationPageContent = {
     { iaAide: 'Aider à préparer des exports', validation: 'Valider le format avec le destinataire' },
     { iaAide: 'Aider à sauvegarder et documenter', validation: 'Garder la responsabilité du projet' },
   ],
-  interExtraBullets: ['Session inter — 14 h (2 journées), 4 à 8 participants'],
+  interExtraBullets: ['Session inter — 14 heures — 2 jours, 4 à 8 participants'],
   intraExtraBullets: ['Session intra en présentiel dans vos locaux en Île-de-France'],
-  programIntro: `${DEV_WEB_IA_PARCOURS_14H_SECTION.intro} 14 h sur 2 jours · 70 % pratique.`,
-  programmeHeading: 'Programme — 14 h (2 × 7 h)',
+  programIntro: `${DEV_WEB_IA_PARCOURS_14H_SECTION.intro} · 70 % pratique.`,
+  programmeHeading: 'Programme — 14 heures (2 jours · 2 × 7 h par journée)',
   objectivesTitle: 'Objectifs pédagogiques',
   programModules: getDevWebIaCatalogueProgramModules14h(),
   pdfHref: LINKS.pdfProgrammeDeveloppementWebIaSansCoder14h,

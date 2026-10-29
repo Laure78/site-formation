@@ -430,7 +430,7 @@ export const FORMATIONS: readonly Formation[] = [
     niveau: 3,
     niveauLabel: 'Niveau 3 — Avancé',
     duree: '14 h',
-    horaires: '2 journées — 9h00 – 12h30 / 13h30 – 17h00',
+    horaires: '2 jours — 9h00 – 12h30 / 13h30 – 17h00',
     effectifMin: 4,
     effectifMax: 8,
     prixHT: 0,

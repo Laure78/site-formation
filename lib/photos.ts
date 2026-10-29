@@ -840,7 +840,7 @@ export const PHOTOS = {
     src: '/images/formation-developpement-web-ia-sans-coder/03-methode-etapes.webp',
     alt: 'Méthode : cadrer, structurer, construire avec l’IA, tester, faire évoluer',
     description:
-      'Infographie pédagogique de la formation ERP BTP avec l’IA : cadrer le besoin, structurer les données, construire une première version avec l’IA, tester, puis préparer les évolutions. Session 7 h ou 14 h, présentiel Île-de-France, OFC Qualiopi / Laure Olivié.',
+      'Infographie pédagogique de la formation ERP BTP avec l’IA : cadrer le besoin, structurer les données, construire une première version avec l’IA, tester, puis préparer les évolutions. Formation 14 heures — 2 jours, présentiel Île-de-France, OFC Qualiopi / Laure Olivié.',
     title: 'Méthode pour créer un ERP BTP avec l’IA',
     width: 819,
     height: 1024,

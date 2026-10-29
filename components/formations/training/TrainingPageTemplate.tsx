@@ -42,6 +42,7 @@ import { buildFormationPageMaillageBlocks } from '@/lib/page-maillage-blocks';
 import type { FormationCatalogueCode } from '@/lib/formation-catalogue-visibility';
 import { TrainingPracticalInfo } from '@/components/formations/training/TrainingPracticalInfo';
 import { getCataloguePublicSessionsForSlug } from '@/lib/catalogue-public-sessions';
+import { DEV_WEB_IA_DUREE_AFFICHAGE } from '@/lib/formation-developpement-web-ia-content';
 
 type Props = {
   content: CatalogueFormationPageContent;
@@ -120,8 +121,10 @@ export async function TrainingPageTemplate({
       ? `${LINKS.contact}?objet=inscription&formation=${encodeURIComponent(formation.titre)}`
       : undefined;
 
+  const durationLabel = ref === 'NIV-10' ? DEV_WEB_IA_DUREE_AFFICHAGE : formation.duree;
+
   const factCards = [
-    { label: 'Durée', value: formation.duree },
+    { label: 'Durée', value: durationLabel },
     { label: 'Format', value: `${formatLabel} · ${locationLabel}` },
     { label: 'Effectif', value: effectifLabel },
   ];
@@ -147,7 +150,7 @@ export async function TrainingPageTemplate({
 
   const sidebarProps = {
     formationTitle: formation.titre,
-    durationLabel: formation.duree,
+    durationLabel,
     interPriceLabel: tarifLabel,
     intraPriceLabel: surDevis ? 'Tarif sur devis' : undefined,
     showTvaAsterisk: !surDevis,

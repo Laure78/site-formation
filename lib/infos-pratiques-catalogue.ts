@@ -341,7 +341,16 @@ function sanitizeInfosPratiquesText(text: string): string {
 }
 
 function libelleDureeInfosPratiques(f: NonNullable<ReturnType<typeof getFormationByCode>>): string {
-  let label = f.duree.replace(/\b4 h\b/, '4 heures').replace(/\b(\d+) h\b/, '$1 heures');
+  if (f.code === 'NIV-10') {
+    const creneaux = f.horaires?.replace(/^2 jours\s*[—–-]\s*/i, '').trim();
+    return creneaux ? `14 heures — 2 jours (${creneaux})` : '14 heures — 2 jours';
+  }
+  let label =
+    f.duree === '4 h'
+      ? '4 heures'
+      : f.duree === '14 h'
+        ? '14 heures'
+        : f.duree.replace(/\b(\d+) h\b/, '$1 heures');
   if (f.horaires) {
     const horaires = f.horaires
       .replace(/^matin\s*/i, '')

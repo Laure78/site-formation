@@ -1,6 +1,6 @@
 /**
  * Contenu — formation NUM-04 / NIV-10 : créer des applications métier BTP avec l’IA.
- * Parcours 7 h / 14 h — tarifs catalogue 2027 (310 / 620 € HT), distincts de BeWork.
+ * Formation catalogue : 14 heures sur 2 jours (2 × 7 h par journée). Tarif 14 h : grille catalogue 2027.
  */
 import { LINKS } from '@/lib/internal-links';
 import { formatNumberFr } from '@/lib/format-number-fr';
@@ -125,13 +125,16 @@ export const DEV_WEB_IA_HERO_REASSURANCES = [
 ] as const;
 
 export const DEV_WEB_IA_HERO_FACTS = [
-  '7 h ou 14 h',
+  '14 heures — 2 jours',
   'Présentiel en Île-de-France',
   '4 à 8 participants',
   'Aucune compétence en programmation requise',
 ] as const;
 
-/** Durée affichée catalogue / menu — alignée `data/formations.ts` (NIV-10). */
+/** Durée affichée fiche, hero et infos pratiques — alignée `data/formations.ts` (NIV-10). */
+export const DEV_WEB_IA_DUREE_AFFICHAGE = '14 heures — 2 jours' as const;
+
+/** Durée courte catalogue / cartes — alignée `data/formations.ts` (NIV-10). */
 export const DEV_WEB_IA_DUREE_COURTE = '14 h' as const;
 
 export const DEV_WEB_IA_CTA_PRIMARY_LABEL = 'Construire mon projet d’outil BTP' as const;
@@ -579,7 +582,7 @@ export const DEV_WEB_IA_CTA_FINAL = {
   title: 'Quel outil votre entreprise construirait-elle si vous n’aviez plus besoin de savoir coder ?',
   lead: 'Relevé d’heures ? Planning ? Suivi chantier ? CRM ? Tableau de bord ? Application métier complète ?',
   closing: 'Commencez par le besoin qui vous fait perdre le plus de temps.',
-  facts: ['Formation en présentiel en Île-de-France', '7 h ou 14 h', '4 à 8 participants'],
+  facts: ['Formation en présentiel en Île-de-France', DEV_WEB_IA_DUREE_AFFICHAGE, '4 à 8 participants'],
 } as const;
 
 export type DevWebIaErpModule = {
@@ -733,12 +736,12 @@ export type DevWebIaProgrammeModule = {
 };
 
 export const DEV_WEB_IA_PARCOURS_7H_SECTION = {
-  title: 'Parcours 7 h — Construire une première version fonctionnelle',
+  title: 'Jour 1 — Construire une première version fonctionnelle',
   intro:
-    'Une journée de travail sur votre propre projet d’outil métier BTP. L’objectif est de cadrer votre besoin, choisir une fonction prioritaire, construire une première version utilisable et définir la suite du développement.',
+    'Première journée (7 h) sur votre propre projet d’outil métier BTP : cadrer le besoin, choisir une fonction prioritaire, construire une première version utilisable et définir la suite du développement.',
 } as const;
 
-/** Programme parcours 7 h / Jour 1 du parcours 14 h — 4 étapes. */
+/** Programme Jour 1 (7 h) — 4 étapes. */
 export const DEV_WEB_IA_MODULES: readonly DevWebIaProgrammeModule[] = [
   {
     number: 1,
@@ -825,9 +828,9 @@ export const DEV_WEB_IA_MODULES: readonly DevWebIaProgrammeModule[] = [
 ];
 
 export const DEV_WEB_IA_PARCOURS_14H_SECTION = {
-  title: 'Parcours 14 h — Construire, approfondir et relier son outil',
+  title: 'Formation sur 2 journées — construire, approfondir et relier son outil',
   intro:
-    'Le parcours 14 h reprend l’intégralité du programme de 7 h puis ajoute une deuxième journée consacrée à l’amélioration de l’outil, aux connexions entre fonctions et à la préparation du déploiement.',
+    'Cette formation de 14 heures sur 2 jours vous accompagne dans la création d’un outil métier BTP avec l’IA, sans savoir coder. La première journée est consacrée à la conception et à la construction d’une première version. La seconde permet d’améliorer l’outil, de relier ses fonctionnalités et de préparer son déploiement.',
   jour1Label: 'Jour 1 — Construire la première version',
   jour1Duree: '7 h',
   jour2Label: 'Jour 2 — Approfondir et préparer le déploiement',
@@ -1047,7 +1050,7 @@ export const DEV_WEB_IA_FAQ = [
   },
   {
     q: 'Peut-on commencer par les relevés d’heures ?',
-    a: 'Oui. Les relevés d’heures pour préparer la paie sont un module prioritaire fréquent. Pendant la formation, vous travaillez sur le périmètre adapté à votre niveau et à la durée choisie.',
+    a: 'Oui. Les relevés d’heures pour préparer la paie sont un module prioritaire fréquent. Pendant la formation, vous travaillez sur le périmètre adapté à votre niveau et au rythme des deux journées.',
   },
   {
     q: 'Peut-on faire évoluer son outil après la formation ?',
@@ -1063,7 +1066,7 @@ export const DEV_WEB_IA_FAQ = [
   },
   {
     q: 'L’outil est-il prêt à être utilisé à la fin de la formation ?',
-    a: 'Non. Vous repartez avec une première version fonctionnelle et évolutive, une méthode et une feuille de route. Le résultat dépend de votre niveau, de la complexité du projet et des intégrations nécessaires — pas d’application métier complète terminée en 7 h ou 14 h.',
+    a: 'Non. Vous repartez avec une première version fonctionnelle et évolutive, une méthode et une feuille de route. Le résultat dépend de votre niveau, de la complexité du projet et des intégrations nécessaires — pas d’application métier complète terminée en 14 heures (2 jours).',
   },
   {
     q: 'Quels abonnements et frais faut-il prévoir ?',
@@ -1078,8 +1081,8 @@ export const DEV_WEB_IA_FAQ = [
     a: 'Oui, c’est l’objectif du parcours : décrire le besoin, guider l’IA, tester et corriger. Vous repartez avec une première version et une feuille de route — pas une application clé en main sans relecture métier.',
   },
   {
-    q: 'Quels formats sont proposés (7 h et 14 h) ?',
-    a: 'Session de 7 h ou parcours 14 h sur deux journées en présentiel Île-de-France (4 à 8 participants), inter ou intra. Tarifs catalogue HT par participant. Prise en charge OPCO/Constructys selon éligibilité.',
+    q: 'Quelle est la durée et le format de la formation ?',
+    a: '14 heures sur 2 jours en présentiel Île-de-France (4 à 8 participants), inter ou intra. Chaque journée dure 7 h (9h00 – 12h30 / 13h30 – 17h00). Tarif catalogue HT par participant. Prise en charge OPCO/Constructys selon éligibilité.',
   },
   {
     q: 'Dois-je apporter mon ordinateur ?',

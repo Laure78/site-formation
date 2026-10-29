@@ -39,7 +39,7 @@ export function EmploisPageContent() {
         aria-labelledby="emplois-h1"
       >
         <div className={`${OFC_SECTION_INNER} emplois-hub-hero__inner`}>
-          <div className="max-w-3xl">
+          <div className="emplois-hub-hero__copy">
             <p className={OFC_EYEBROW}>Carrière</p>
             <h1 id="emplois-h1" className={`${OFC_TYPE_HERO} emplois-hub-hero__title`}>
               Rejoignez l’équipe Laure Olivié
@@ -79,7 +79,7 @@ export function EmploisPageContent() {
 
             {hasOffers ? (
               <div className="emplois-page__complementary mt-10 border-t border-slate-200/80 pt-10">
-                <p className={`${OFC_TYPE_BODY} max-w-2xl text-ofc-ink-muted`}>
+                <p className={`${OFC_TYPE_BODY} emplois-page__intro text-ofc-ink-muted`}>
                   Vous ne trouvez pas le poste adapté, ou vous souhaitez intervenir en indépendant ?
                 </p>
                 <div className="mt-6 grid gap-6 lg:grid-cols-2 lg:items-stretch">
@@ -94,7 +94,7 @@ export function EmploisPageContent() {
               </div>
             )}
 
-            <p className={`${OFC_TYPE_BODY} mt-10 max-w-2xl text-ofc-ink-muted`}>
+            <p className={`${OFC_TYPE_BODY} emplois-page__intro mt-10 text-ofc-ink-muted`}>
               Questions recrutement ou envoi de CV :{' '}
               <a
                 href={MAILTO_RECRUTEMENT}
