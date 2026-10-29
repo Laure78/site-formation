@@ -19,6 +19,7 @@
     "audit:faq": "node scripts/audit-faq-pages.mjs",
     "check:training-satisfaction": "node scripts/assert-training-satisfaction-workflow.mjs",
     "skills:build": "node scripts/build-bibliotheque-skills.mjs",
+    "brand:icons": "node scripts/generate-site-brand-icons.mjs",
     "start": "next start",
     "lint": "eslint",
     "media:trends": "npx tsx scripts/trends.ts",
@@ -99,6 +100,7 @@
     "pg": "^8.23.1",
     "playwright": "^1.63.0",
     "tailwindcss": "^4",
+    "to-ico": "^1.1.5",
     "typescript": "^5"
   }
 }

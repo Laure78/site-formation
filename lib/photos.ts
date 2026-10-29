@@ -11,14 +11,17 @@ export const SITE_BRAND_LOGO = {
 export const SITE_BRAND_LOGO_IMAGE_CLASS =
   'h-9 w-auto max-w-[11rem] object-contain object-left sm:h-10 sm:max-w-[13rem]' as const;
 
-/** Portrait header / favicons (circulaire bleu) — distinct du logo de marque. */
+/** Portrait header / schéma Person — distinct du logo de marque et des favicons. */
 export const SITE_HEADER_LOGO_SRC = '/images/laure-avatar-bleu.webp' as const;
 
+/** Monogramme LO (carré) — source des favicons / PWA (`scripts/generate-site-brand-icons.mjs`). */
+export const SITE_FAVICON_MARK_SRC = '/images/logo-laure-olivie-mark-square.png' as const;
+
 /**
- * Query de cache-bust pour favicons / PWA dérivés de `SITE_HEADER_LOGO_SRC`.
+ * Query de cache-bust pour favicons / PWA dérivés de `SITE_FAVICON_MARK_SRC`.
  * À incrémenter quand on régénère `app/favicon.ico`, `public/icon-*.png`, etc.
  */
-export const SITE_FAVICON_CACHE_BUST = '20260723-avatar' as const;
+export const SITE_FAVICON_CACHE_BUST = '20261029-lo-mark' as const;
 
 /** Alt unique du logo header — identique sur tout le site. */
 export const SITE_LOGO_ALT =
@@ -38,7 +41,7 @@ export const PHOTOS = {
   /** Logo horizontal — chrome site (header, footer) */
   siteBrandLogo: SITE_BRAND_LOGO,
 
-  /** Avatar site — portrait circulaire IA & BTP (auteur articles, favicons) */
+  /** Avatar site — portrait circulaire IA & BTP (auteur articles, schéma Person) */
   siteAvatar: {
     src: SITE_HEADER_LOGO_SRC,
     alt: SITE_LOGO_ALT,

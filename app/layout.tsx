@@ -106,7 +106,7 @@ export async function generateMetadata(): Promise<Metadata> {
       canonical: baseUrl,
       languages: { 'fr-FR': baseUrl },
     },
-    // Favicons = logo Header (`SITE_HEADER_LOGO_SRC` / avatar).
+    // Favicons = monogramme LO (`SITE_FAVICON_MARK_SRC`, script generate-site-brand-icons).
     // `?v=` force le rechargement navigateur (les /favicon.ico sans query restent
     // souvent en cache des semaines). `app/favicon.ico` + `app/icon.png` +
     // `app/apple-icon.png` restent la source App Router (hash Next auto).
