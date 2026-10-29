@@ -3,6 +3,7 @@ import { getFormationByCode } from '@/data/formations';
 /** Logo horizontal (header, footer, schema Organization) — WebP uniquement. */
 export const SITE_BRAND_LOGO = {
   src: '/images/logo-laure-olivie-formation-ia-btp.webp',
+  alt: 'Laure Olivié — formation IA pour le BTP, logo horizontal',
   width: 1024,
   height: 341,
 } as const;
