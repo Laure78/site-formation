@@ -9,43 +9,87 @@ import { DEVENEZ_CONSULTANT_INNER, DEVENEZ_CONSULTANT_PROSE } from '@/lib/devene
 import { OFC_TYPE_H2 } from '@/lib/ofc-interaction-classes';
 import { OFC_READABLE_COLUMN, ofcSectionClasses } from '@/lib/ofc-section-classes';
 
+type ConsultantRecruitmentMissionsBriefProps = {
+  /** Id du titre (éviter les doublons si le bloc est déjà dans le hero). */
+  headingId?: string;
+  className?: string;
+};
+
+/** Grille « Les missions en bref » — réutilisable dans le hero /nous-rejoindre. */
+export function ConsultantRecruitmentMissionsBrief({
+  headingId = 'annonce-modalites-heading',
+  className = '',
+}: ConsultantRecruitmentMissionsBriefProps) {
+  const S = FORMATEUR_RECRUITMENT_2027_CAMPAIGN.sections;
+
+  return (
+    <div className={className}>
+      <h2 id={headingId} className={`${OFC_TYPE_H2} text-xl md:text-2xl`}>
+        {S.missionsHeading}
+      </h2>
+      <dl className="mt-4 grid gap-2.5 sm:grid-cols-2 lg:grid-cols-1">
+        {CONSULTANT_ANNONCE_MODALITES.map(({ term, detail }) => (
+          <div
+            key={term}
+            className="rounded-lg border border-slate-200 bg-slate-50/40 px-3.5 py-2.5 text-sm leading-relaxed"
+          >
+            <dt className="font-semibold text-slate-900">{term}</dt>
+            <dd className="mt-0.5 text-slate-700">{detail}</dd>
+          </div>
+        ))}
+      </dl>
+    </div>
+  );
+}
+
 type ConsultantRecruitmentAnnonceSectionProps = {
   /** Afficher la conclusion « partagez l’annonce » (page /devenez-consultant). */
   showShareConclusion?: boolean;
   /** Colonne éditoriale centrée (hub /nous-rejoindre). */
   useReadableColumn?: boolean;
+  /** Missions déjà affichées dans le hero (hub /nous-rejoindre). */
+  omitMissionsBrief?: boolean;
 };
 
 export function ConsultantRecruitmentAnnonceSection({
   showShareConclusion = true,
   useReadableColumn = false,
+  omitMissionsBrief = false,
 }: ConsultantRecruitmentAnnonceSectionProps) {
   const S = FORMATEUR_RECRUITMENT_2027_CAMPAIGN.sections;
   const innerClass = useReadableColumn ? OFC_READABLE_COLUMN : DEVENEZ_CONSULTANT_INNER;
   const proseClass = useReadableColumn ? '' : DEVENEZ_CONSULTANT_PROSE;
+  const profilsTopClass = omitMissionsBrief ? '' : 'mt-10';
 
   return (
     <section
       className={ofcSectionClasses({ tone: 'white', size: 'compact', divide: true })}
-      aria-labelledby="annonce-modalites-heading"
+      aria-labelledby={omitMissionsBrief ? 'profils-recherches' : 'annonce-modalites-heading'}
     >
       <div className={innerClass}>
-        <h2 id="annonce-modalites-heading" className={OFC_TYPE_H2}>
-          {S.missionsHeading}
-        </h2>
-        <dl className="mt-5 grid gap-3 sm:grid-cols-2">
-          {CONSULTANT_ANNONCE_MODALITES.map(({ term, detail }) => (
-            <div
-              key={term}
-              className="rounded-lg border border-slate-200 bg-slate-50/40 px-4 py-3 text-sm leading-relaxed"
-            >
-              <dt className="font-semibold text-slate-900">{term}</dt>
-              <dd className="mt-1 text-slate-700">{detail}</dd>
-            </div>
-          ))}
-        </dl>
+        {omitMissionsBrief ? null : (
+          <>
+            <h2 id="annonce-modalites-heading" className={OFC_TYPE_H2}>
+              {S.missionsHeading}
+            </h2>
+            <dl className="mt-5 grid gap-3 sm:grid-cols-2">
+              {CONSULTANT_ANNONCE_MODALITES.map(({ term, detail }) => (
+                <div
+                  key={term}
+                  className="rounded-lg border border-slate-200 bg-slate-50/40 px-4 py-3 text-sm leading-relaxed"
+                >
+                  <dt className="font-semibold text-slate-900">{term}</dt>
+                  <dd className="mt-1 text-slate-700">{detail}</dd>
+                </div>
+              ))}
+            </dl>
+          </>
+        )}
 
-        <h2 id="profils-recherches" className={`${OFC_TYPE_H2} mt-10 scroll-mt-[calc(var(--site-header-height,4rem)+0.5rem)]`}>
+        <h2
+          id="profils-recherches"
+          className={`${OFC_TYPE_H2} ${profilsTopClass} scroll-mt-[calc(var(--site-header-height,4rem)+0.5rem)]`}
+        >
           {S.profilsHeading}
         </h2>
         <p className={`mt-3 text-base leading-relaxed text-slate-600 ${proseClass}`}>

@@ -7,9 +7,14 @@ import { OFC_CTA_PRIMARY, OFC_CTA_SECONDARY, OFC_TYPE_BODY, OFC_TYPE_H2 } from '
 type JobOffersSectionProps = {
   /** Affiche le CTA candidature dans l’encart vide (legacy). Sur /nous-rejoindre, laisser à false. */
   showEmptyStateAction?: boolean;
+  /** Encart minimal lorsqu’il n’y a aucune offre (hub /nous-rejoindre). */
+  compactEmpty?: boolean;
 };
 
-export function JobOffersSection({ showEmptyStateAction = false }: JobOffersSectionProps) {
+export function JobOffersSection({
+  showEmptyStateAction = false,
+  compactEmpty = false,
+}: JobOffersSectionProps) {
   const offers = getPublishedJobOffers();
 
   return (
@@ -19,35 +24,48 @@ export function JobOffersSection({ showEmptyStateAction = false }: JobOffersSect
       </h2>
 
       {offers.length === 0 ? (
-        <div className="emplois-offers-empty mt-4 rounded-xl border border-slate-200/90 bg-white px-4 py-4 sm:px-5 sm:py-5">
-          <p className={`${OFC_TYPE_BODY} text-ofc-ink`}>
-            Aucune offre d’emploi n’est publiée actuellement. Vous pouvez nous écrire à{' '}
+        compactEmpty ? (
+          <p className={`${OFC_TYPE_BODY} mt-3 text-ofc-ink-muted`}>
+            Aucune offre d’emploi salarié n’est publiée pour le moment. Écrivez à{' '}
             <a
               href={emploisRecruitmentMailtoHref()}
-              className="font-semibold text-[#377CF3] underline-offset-2 hover:underline"
+              className="break-all font-semibold text-[#377CF3] underline-offset-2 hover:underline"
             >
               {RECRUITMENT.email}
             </a>{' '}
-            ou déposer une candidature spontanée.
+            ou utilisez les options ci-dessous.
           </p>
-          <p className="mt-4">
-            <a
-              href={emploisRecruitmentMailtoHref()}
-              className={`${OFC_CTA_SECONDARY} inline-flex min-h-11 items-center justify-center rounded-lg px-5 py-2.5 text-base font-semibold`}
-              aria-label={`Envoyer une candidature par email à ${RECRUITMENT.email}`}
-            >
-              Écrire à {RECRUITMENT.email}
-            </a>
-          </p>
-          {showEmptyStateAction ? (
-            <Link
-              href={LINKS.candidaturesSpontanees}
-              className={`${OFC_CTA_PRIMARY} mt-4 inline-flex min-h-11 items-center justify-center rounded-lg px-5 py-2.5 text-base font-semibold`}
-            >
-              Envoyer une candidature spontanée
-            </Link>
-          ) : null}
-        </div>
+        ) : (
+          <div className="emplois-offers-empty mt-4 rounded-xl border border-slate-200/90 bg-white px-4 py-4 sm:px-5 sm:py-5">
+            <p className={`${OFC_TYPE_BODY} text-ofc-ink`}>
+              Aucune offre d’emploi n’est publiée actuellement. Vous pouvez nous écrire à{' '}
+              <a
+                href={emploisRecruitmentMailtoHref()}
+                className="font-semibold text-[#377CF3] underline-offset-2 hover:underline"
+              >
+                {RECRUITMENT.email}
+              </a>{' '}
+              ou déposer une candidature spontanée.
+            </p>
+            <p className="mt-4">
+              <a
+                href={emploisRecruitmentMailtoHref()}
+                className={`${OFC_CTA_SECONDARY} inline-flex min-h-11 items-center justify-center rounded-lg px-5 py-2.5 text-base font-semibold`}
+                aria-label={`Envoyer une candidature par email à ${RECRUITMENT.email}`}
+              >
+                Écrire à {RECRUITMENT.email}
+              </a>
+            </p>
+            {showEmptyStateAction ? (
+              <Link
+                href={LINKS.candidaturesSpontanees}
+                className={`${OFC_CTA_PRIMARY} mt-4 inline-flex min-h-11 items-center justify-center rounded-lg px-5 py-2.5 text-base font-semibold`}
+              >
+                Envoyer une candidature spontanée
+              </Link>
+            ) : null}
+          </div>
+        )
       ) : (
         <ul className="mt-5 grid list-none gap-4 sm:grid-cols-2 lg:gap-5">
           {offers.map((offer) => (

@@ -2191,6 +2191,13 @@
     --ofc-section-py-xl: 3rem;
   }
 
+  .emplois-page .ofc-section.ofc-section--compact {
+    --ofc-section-py: 2rem;
+    --ofc-section-py-md: 2.5rem;
+    --ofc-section-py-lg: 3rem;
+    --ofc-section-py-xl: 3.5rem;
+  }
+
   .emplois-path-block__title {
     font-size: 1.125rem;
     line-height: 1.3;

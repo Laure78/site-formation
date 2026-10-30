@@ -1,6 +1,9 @@
 import Link from 'next/link';
 import { FAQAccordion } from '@/components/a-propos/FAQAccordion';
-import { ConsultantRecruitmentAnnonceSection } from '@/components/career/ConsultantRecruitmentAnnonceSection';
+import {
+  ConsultantRecruitmentAnnonceSection,
+  ConsultantRecruitmentMissionsBrief,
+} from '@/components/career/ConsultantRecruitmentAnnonceSection';
 import {
   FORMATEUR_RECRUITMENT_2027_CAMPAIGN,
   NOUS_REJOINDRE_FORMATEUR_FAQ,
@@ -16,7 +19,7 @@ import {
   OFC_TYPE_H2,
   OFC_TYPE_HERO,
 } from '@/lib/ofc-interaction-classes';
-import { OFC_READABLE_COLUMN, ofcSectionClasses, OFC_SECTION_INNER } from '@/lib/ofc-section-classes';
+import { OFC_READABLE_COLUMN, ofcSectionClasses } from '@/lib/ofc-section-classes';
 
 const HERO_SECTION = ofcSectionClasses({
   tone: 'white',
@@ -38,51 +41,62 @@ export function NousRejoindreFormateurRecruitment() {
         className={`${HERO_SECTION} scroll-mt-[var(--site-header-height)]`}
         aria-labelledby="nous-rejoindre-formateur-h1"
       >
-        <div className={OFC_SECTION_INNER}>
-          <div className={OFC_READABLE_COLUMN}>
-            <p className={OFC_EYEBROW}>{hero.eyebrow}</p>
-            <h1 id="nous-rejoindre-formateur-h1" className={`${OFC_TYPE_HERO} mt-2 text-pretty`}>
-              {hero.h1}
-            </h1>
-            <p className={`${OFC_TYPE_BODY} mt-4 text-ofc-ink-muted text-pretty`}>{hero.intro}</p>
-            <p className={`${OFC_TYPE_BODY} mt-4 text-ofc-ink-muted`}>
-              Campagne portée par {formatOrganismeQualiopiCourt()} — missions de formateur
-              indépendant en intelligence artificielle appliquée au bâtiment et aux travaux publics,
-              en présentiel en Île-de-France, à partir de 2027.
-            </p>
-            <ul className="mt-4 flex flex-wrap gap-x-4 gap-y-1 text-sm font-medium text-ofc-ink">
-              <li>Missions indépendantes rémunérées</li>
-              <li>Expérience BTP requise</li>
-              <li>Présentiel · Île-de-France</li>
-              <li>À partir de 2027</li>
-            </ul>
-            <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
-              <a
-                href="#candidature"
-                className={`${OFC_CTA_PRIMARY} inline-flex min-h-11 items-center justify-center rounded-lg px-5 py-2.5 text-base font-semibold`}
-              >
-                {hero.primaryCtaLabel}
-              </a>
-              <a
-                href="#profils-recherches"
-                className={`${OFC_CTA_SECONDARY} inline-flex min-h-11 items-center justify-center rounded-lg px-5 py-2.5 text-base font-semibold`}
-              >
-                {hero.secondaryCtaLabel}
-              </a>
+        <div className={OFC_READABLE_COLUMN}>
+          <div className="lg:grid lg:grid-cols-[minmax(0,1.05fr)_minmax(260px,22rem)] lg:items-start lg:gap-8 xl:gap-10">
+            <div className="min-w-0">
+              <p className={OFC_EYEBROW}>{hero.eyebrow}</p>
+              <h1 id="nous-rejoindre-formateur-h1" className={`${OFC_TYPE_HERO} mt-2 text-pretty`}>
+                {hero.h1}
+              </h1>
+              <p className={`${OFC_TYPE_BODY} mt-4 text-ofc-ink-muted text-pretty`}>{hero.intro}</p>
+              <p className={`${OFC_TYPE_BODY} mt-4 text-ofc-ink-muted`}>
+                Campagne portée par {formatOrganismeQualiopiCourt()} — missions de formateur
+                indépendant en intelligence artificielle appliquée au bâtiment et aux travaux publics,
+                en présentiel en Île-de-France, à partir de 2027.
+              </p>
+              <ul className="mt-4 flex flex-wrap gap-x-4 gap-y-1 text-sm font-medium text-ofc-ink">
+                <li>Missions indépendantes rémunérées</li>
+                <li>Expérience BTP requise</li>
+                <li>Présentiel · Île-de-France</li>
+                <li>À partir de 2027</li>
+              </ul>
+              <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
+                <a
+                  href="#candidature"
+                  className={`${OFC_CTA_PRIMARY} inline-flex min-h-11 items-center justify-center rounded-lg px-5 py-2.5 text-base font-semibold`}
+                >
+                  {hero.primaryCtaLabel}
+                </a>
+                <a
+                  href="#profils-recherches"
+                  className={`${OFC_CTA_SECONDARY} inline-flex min-h-11 items-center justify-center rounded-lg px-5 py-2.5 text-base font-semibold`}
+                >
+                  {hero.secondaryCtaLabel}
+                </a>
+              </div>
             </div>
+            <aside
+              className="mt-8 rounded-xl border border-slate-200/90 bg-slate-50/50 p-4 sm:p-5 lg:mt-1"
+              aria-labelledby="annonce-modalites-heading"
+            >
+              <ConsultantRecruitmentMissionsBrief />
+            </aside>
           </div>
         </div>
       </section>
 
-      <ConsultantRecruitmentAnnonceSection showShareConclusion={false} useReadableColumn />
+      <ConsultantRecruitmentAnnonceSection
+        showShareConclusion={false}
+        useReadableColumn
+        omitMissionsBrief
+      />
 
       <section
         id="candidature"
         className={`${ofcSectionClasses({ tone: 'muted', size: 'compact', divide: true })} scroll-mt-[calc(var(--site-header-height,4rem)+0.5rem)]`}
         aria-labelledby="candidature-formateur-heading"
       >
-        <div className={OFC_SECTION_INNER}>
-          <div className={OFC_READABLE_COLUMN}>
+        <div className={OFC_READABLE_COLUMN}>
             <h2 id="candidature-formateur-heading" className={OFC_TYPE_H2}>
               {C.sections.candidatureHeading}
             </h2>
@@ -116,13 +130,12 @@ export function NousRejoindreFormateurRecruitment() {
                 {C.conclusion.site}
               </Link>
             </p>
-          </div>
         </div>
       </section>
 
       <section
         className={ofcSectionClasses({ tone: 'white', size: 'compact', divide: true })}
-        aria-labelledby="nous-rejoindre-faq-title"
+        aria-labelledby="recrutement-formateur-faq-title"
       >
         <div className={OFC_READABLE_COLUMN}>
           <FAQAccordion

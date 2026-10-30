@@ -11,7 +11,7 @@ import {
   OFC_TYPE_BODY,
   OFC_TYPE_H2,
 } from '@/lib/ofc-interaction-classes';
-import { ofcSectionClasses, OFC_SECTION_INNER } from '@/lib/ofc-section-classes';
+import { ofcSectionClasses, OFC_READABLE_COLUMN } from '@/lib/ofc-section-classes';
 
 const SALARIE_SECTION = ofcSectionClasses({
   tone: 'white',
@@ -32,40 +32,38 @@ export function EmploisPageContent() {
         className={`${SALARIE_SECTION} emplois-page__salarie`}
         aria-labelledby="emplois-salarie-heading"
       >
-        <div className={OFC_SECTION_INNER}>
-          <div className="emplois-page__layout">
-            <h2 id="emplois-salarie-heading" className={`${OFC_TYPE_H2} emplois-page__salarie-title`}>
-              Emploi salarié et autres candidatures
-            </h2>
-            <p className={`${OFC_TYPE_BODY} mt-3 text-ofc-ink-muted`}>
-              Les missions de formateur indépendant du catalogue 2027 sont distinctes des postes
-              salariés au sein de l’organisme. Consultez les offres ci-dessous ou déposez une
-              candidature spontanée pour un emploi salarié.
-            </p>
-          </div>
+        <div className={OFC_READABLE_COLUMN}>
+          <h2 id="emplois-salarie-heading" className={OFC_TYPE_H2}>
+            Emploi salarié et autres candidatures
+          </h2>
+          <p className={`${OFC_TYPE_BODY} mt-3 text-ofc-ink-muted`}>
+            Les missions de formateur indépendant du catalogue 2027 sont distinctes des postes
+            salariés au sein de l’organisme. Consultez les offres ci-dessous ou déposez une
+            candidature spontanée pour un emploi salarié.
+          </p>
 
-          <div className="emplois-page__layout mt-8">
-            <JobOffersSection />
+          <div className="mt-6">
+            <JobOffersSection compactEmpty={!hasOffers} />
 
             {hasOffers ? (
-              <div className="emplois-page__complementary mt-10 border-t border-slate-200/80 pt-10">
-                <div className="mt-6 grid gap-6 lg:grid-cols-2 lg:items-stretch">
+              <div className="emplois-page__complementary mt-8 border-t border-slate-200/80 pt-8">
+                <div className="grid gap-5 lg:grid-cols-2">
                   <EmploisSpontaneousBlock variant="link" />
                   <EmploisConsultantFormBlock />
                 </div>
               </div>
             ) : (
-              <div className="emplois-page__paths mt-8 grid gap-6 lg:grid-cols-2 lg:items-stretch">
+              <div className="emplois-page__paths mt-6 grid gap-5 lg:grid-cols-2">
                 <EmploisSpontaneousBlock variant="primary" />
                 <EmploisConsultantFormBlock />
               </div>
             )}
 
-            <p className={`${OFC_TYPE_BODY} emplois-page__intro mt-10 text-ofc-ink-muted`}>
+            <p className={`${OFC_TYPE_BODY} mt-8 text-ofc-ink-muted`}>
               Questions recrutement ou envoi de CV (emploi salarié) :{' '}
               <a
                 href={emploisRecruitmentMailtoHref()}
-                className="font-semibold text-[#377CF3] underline-offset-2 hover:underline"
+                className="break-all font-semibold text-[#377CF3] underline-offset-2 hover:underline"
               >
                 {RECRUITMENT.email}
               </a>
@@ -84,7 +82,7 @@ function EmploisSpontaneousBlock({ variant }: { variant: 'primary' | 'link' }) {
   return (
     <section
       aria-labelledby="emplois-spontaneous-heading"
-      className={`emplois-path-block flex h-full flex-col rounded-xl border border-slate-200/90 bg-white p-5 sm:p-6`}
+      className="emplois-path-block flex flex-col rounded-xl border border-slate-200/90 bg-white p-5 sm:p-6"
     >
       <h2 id="emplois-spontaneous-heading" className={`${OFC_TYPE_H2} emplois-path-block__title text-lg md:text-xl`}>
         Candidature spontanée — emploi salarié
@@ -97,14 +95,14 @@ function EmploisSpontaneousBlock({ variant }: { variant: 'primary' | 'link' }) {
       {isPrimary ? (
         <Link
           href={LINKS.candidaturesSpontanees}
-          className={`${OFC_CTA_PRIMARY} emplois-path-block__cta mt-auto inline-flex min-h-11 w-full items-center justify-center rounded-lg px-5 py-2.5 pt-5 text-base font-semibold sm:w-auto`}
+          className={`${OFC_CTA_PRIMARY} emplois-path-block__cta mt-5 inline-flex min-h-11 w-full items-center justify-center rounded-lg px-5 py-2.5 text-base font-semibold sm:w-auto`}
         >
           Envoyer une candidature spontanée
         </Link>
       ) : (
         <Link
           href={LINKS.candidaturesSpontanees}
-          className="emplois-path-block__text-link mt-auto inline-flex min-h-11 items-center pt-4 font-semibold text-[#377CF3] underline-offset-2 hover:underline"
+          className="emplois-path-block__text-link mt-4 inline-flex min-h-11 items-center font-semibold text-[#377CF3] underline-offset-2 hover:underline"
         >
           Envoyer une candidature spontanée
         </Link>
@@ -117,7 +115,7 @@ function EmploisConsultantFormBlock() {
   return (
     <section
       aria-labelledby="emplois-consultant-form-heading"
-      className="emplois-path-block emplois-path-block--secondary flex h-full flex-col rounded-xl border border-slate-200/90 bg-white p-5 sm:p-6"
+      className="emplois-path-block emplois-path-block--secondary flex flex-col rounded-xl border border-slate-200/90 bg-white p-5 sm:p-6"
     >
       <h2
         id="emplois-consultant-form-heading"
@@ -131,7 +129,7 @@ function EmploisConsultantFormBlock() {
       </p>
       <Link
         href={LINKS.devenezConsultant}
-        className={`${OFC_CTA_SECONDARY} emplois-path-block__cta mt-auto inline-flex min-h-11 w-full items-center justify-center rounded-lg px-5 py-2.5 pt-5 text-base font-semibold sm:w-auto`}
+        className={`${OFC_CTA_SECONDARY} emplois-path-block__cta mt-5 inline-flex min-h-11 w-full items-center justify-center rounded-lg px-5 py-2.5 text-base font-semibold sm:w-auto`}
       >
         Accéder au questionnaire
       </Link>
