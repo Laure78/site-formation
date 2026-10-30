@@ -45,8 +45,8 @@ export function getAProposPagePersonDescription(): string {
 }
 
 export const A_PROPOS_POSITIONNEMENT = [
-  `Après une expérience de chargée de formation au CNFPT Grande Couronne (2009-2019), la direction d'ALIA BTP, entreprise de travaux publics et revêtements (2017-2024), et une activité de formatrice indépendante (2019-2022) en création d'entreprise et marketing digital (CPF), j'ai structuré OFC Création d'Entreprise en 2022 autour de formations IA pour le BTP.`,
-  `Je forme en présentiel en Île-de-France des dirigeants, conducteurs de travaux et fonctions support sur leurs documents réels : devis, comptes rendus, DCE et mémoires techniques. Chaque production de l'IA est relue avant envoi ou décision.`,
+  `Après une expérience de chargée de formation au CNFPT Grande Couronne (2009-2019), la direction d'ALIA BTP, entreprise de travaux publics et revêtements (2017-2024), et une activité de formatrice indépendante (2019-2022) en création d'entreprise et marketing digital (CPF), Laure Olivié a structuré OFC Création d'Entreprise en 2022 autour de formations IA pour le BTP.`,
+  `L'organisme forme en présentiel en Île-de-France des dirigeants, conducteurs de travaux et fonctions support sur leurs documents réels : devis, comptes rendus, DCE et mémoires techniques. Chaque production de l'IA est relue avant envoi ou décision.`,
 ] as const;
 
 export const A_PROPOS_APPORTS = [

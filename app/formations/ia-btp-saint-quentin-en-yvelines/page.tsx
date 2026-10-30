@@ -410,7 +410,7 @@ export default function FormationIABTPSaintQuentinYvelinesPage() {
               </h3>
               <p className="mt-3 text-slate-600">
                 Pour de petits groupes, les sessions organisées avec la FFB Île-de-France peuvent convenir.
-                Contactez-moi pour les prochaines dates.
+                Contactez-nous pour les prochaines dates.
               </p>
               <a
                 href={`mailto:${SITE_CONFIG.email}?subject=${encodeURIComponent('Session inter FFB — IA BTP SQY')}`}

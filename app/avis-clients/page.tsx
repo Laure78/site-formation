@@ -42,7 +42,7 @@ export default async function AvisClientsPage() {
         <div className={OFC_SECTION_INNER}>
           <Reveal>
             <p className={OFC_TYPE_LABEL}>PREUVE SOCIALE GOOGLE</p>
-            <h1 className={`${OFC_TYPE_HERO} mt-3`}>Avis clients sur mes formations IA</h1>
+            <h1 className={`${OFC_TYPE_HERO} mt-3`}>Avis clients sur nos formations IA</h1>
             <p className={`${OFC_TYPE_LEAD} mt-6 max-w-3xl text-slate-600`}>
               Retours authentiques de professionnels du BTP et de dirigeants formés à l&apos;IA en
               présentiel en Île-de-France —{' '}

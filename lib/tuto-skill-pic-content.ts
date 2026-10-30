@@ -224,7 +224,7 @@ export const TUTO_SKILL_PIC_FAQ = [
   },
   {
     q: 'Peut-on apprendre cette méthode en formation ?',
-    a: 'Oui. En présentiel en Île-de-France, en groupe, en intra ou en interentreprises, je forme les équipes à utiliser l’IA sur leurs documents et situations de travail — y compris la création d’assistants réutilisables.',
+    a: 'Oui. En présentiel en Île-de-France, en groupe, en intra ou en interentreprises, nous formons les équipes à utiliser l’IA sur leurs documents et situations de travail — y compris la création d’assistants réutilisables.',
   },
 ] as const;
 

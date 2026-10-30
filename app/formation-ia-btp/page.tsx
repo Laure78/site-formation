@@ -169,7 +169,7 @@ function BlocCtaMilieu() {
     <div className="not-prose rounded-2xl border-2 border-[var(--accent)] bg-white p-6 shadow-md">
       <p className="font-display text-lg font-bold text-slate-900">Pas sûr(e) du financement Constructys ?</p>
       <p className="mt-2 text-slate-700">
-        En 30 minutes de visio, je vérifie votre situation et vous explique ce que Constructys peut prendre en
+        En 30 minutes de visio, nous vérifions votre situation et vous expliquons ce que Constructys peut prendre en
         charge selon votre dossier et les barèmes en vigueur.
       </p>
       <div className="mt-4">
@@ -435,7 +435,7 @@ export default function FormationIaBtpPillarPage() {
                 Module 6 (optionnel intra) — Cas d&apos;usage spécifiques à votre activité
               </h3>
               <p className="mt-2 text-slate-700">
-                Pour les formations intra entreprise : je travaille sur <strong>vos documents réels</strong>. DPGF,
+                Pour les formations intra entreprise : nous travaillons sur <strong>vos documents réels</strong>. DPGF,
                 CCTP de vos marchés en cours, emails types de votre activité. La formation sort adaptée à votre métier
                 précis.
               </p>
@@ -785,7 +785,7 @@ export default function FormationIaBtpPillarPage() {
         </section>
 
         <section className="not-prose mt-16 border-t border-slate-200 pt-12">
-          <h2 className="font-display text-2xl font-bold text-slate-900">Liens vers mes formations spécialisées</h2>
+          <h2 className="font-display text-2xl font-bold text-slate-900">Liens vers nos formations spécialisées</h2>
           <ul className="mt-4 list-inside list-disc space-y-2 text-[var(--accent)] marker:text-[var(--accent)]">
             <li>
               <Link href={LINKS.formationElectricienBtp} className="text-slate-700 hover:underline">
@@ -809,7 +809,7 @@ export default function FormationIaBtpPillarPage() {
             </li>
             <li>
               <Link href={LINKS.blog} className="text-slate-700 hover:underline">
-                Blog — tous mes articles sur l&apos;IA dans le BTP
+                Blog — tous les articles sur l&apos;IA dans le BTP
               </Link>
             </li>
           </ul>

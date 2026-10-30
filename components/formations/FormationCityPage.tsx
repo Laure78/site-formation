@@ -238,7 +238,7 @@ export function FormationCityPage({
               Votre ville n&apos;est pas listée&nbsp;?
             </h3>
             <p className="mt-4 text-slate-600">
-              Interventions dans toute la {regionLabel}. Contactez-moi pour vérifier la disponibilité.
+              Interventions dans toute la {regionLabel}. Contactez-nous pour vérifier la disponibilité.
             </p>
             <div className="mt-8 flex flex-col gap-4 sm:flex-row">
               <RdvLink campaign={`${cityCamp}-zones-cta`} className="inline-flex items-center justify-center gap-2 rounded-xl bg-[var(--accent)] px-6 py-3 font-semibold text-white hover:bg-blue-600" />

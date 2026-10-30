@@ -81,7 +81,7 @@ export function FormationIaMetierBody({
         Dans la <strong>formation intelligence artificielle bâtiment</strong>, l&apos;objectif est
         simple : réduire le temps passé sur les tâches répétitives pour libérer du temps sur le
         terrain et la relation client. Pour la <strong>formation IA construction</strong> appliquée
-        à <strong>{metier.label}</strong>, je travaille des cas réels : pièces écrites,
+        à <strong>{metier.label}</strong>, nous travaillons des cas réels : pièces écrites,
         structuration d&apos;arguments techniques, relecture de courriers, préparation de synthèses
         avant réunion de coordination.
       </p>
@@ -104,7 +104,7 @@ export function FormationIaMetierBody({
         Cas d&apos;usage {tone} pour {metier.label}
       </h2>
       <p>
-        Au-delà des exemples génériques, j&apos;adapte les exercices à votre lot : pour la{' '}
+        Au-delà des exemples génériques, nous adaptons les exercices à votre lot : pour la{' '}
         <strong>formation IA construction</strong> dans le cadre de <strong>{metier.label}</strong>,
         l&apos;idée est de partir de vos propres modèles (devis, métrés, mails types) et de les
         améliorer avec <strong>ChatGPT</strong> (rapidité, variantes) puis avec <strong>Claude AI</strong>{' '}
@@ -150,7 +150,7 @@ export function FormationIaMetierBody({
       <p>
         Les chantiers en région parisienne imposent souvent des délais courts et une coordination
         multi-acteurs. La <strong>formation IA dirigeants BTP</strong> comme les sessions
-        opérationnelles côté terrain s&apos;appuient sur cette réalité : j&apos;intègre des exemples
+        opérationnelles côté terrain s&apos;appuient sur cette réalité : nous intégrons des exemples
         de flux documentaires fréquents (réponses aux demandes de précisions, relances, structuration
         de dossiers) pour une <strong>formation IA et intelligence artificielle pour le bâtiment</strong>{' '}
         directement utile à vos équipes.
@@ -167,7 +167,7 @@ export function FormationIaMetierBody({
       <p>
         Laure Olivié, organisme certifié <QualiopiWordmark /> (OFC Création d&apos;Entreprise). Selon votre branche et
         votre plan de développement des compétences, une prise en charge via{' '}
-        <strong>OPCO Constructys</strong> est fréquente pour les publics BTP : je vous oriente
+        <strong>OPCO Constructys</strong> est fréquente pour les publics BTP : nous vous orientons
         vers la bonne démarche (financements, justificatifs, objectifs pédagogiques). Pour toute
         question sur l&apos;éligibilité : consultez la page dédiée ou{' '}
         <Link href="/contact" className="text-[#377CF3] underline-offset-2 hover:underline">
@@ -409,7 +409,7 @@ function FormationIaParisBody() {
       <p>
         Des chantiers du <strong>Paris</strong> central aux opérations en périphérie, la pression
         calendaire et la diversité des maîtres d&apos;ouvrage rendent l&apos;assistant IA intéressant
-        pour accélérer la préparation des écrits. Je ne promets pas la « magie » : je
+        pour accélérer la préparation des écrits. Nous n&apos;avançons pas la « magie » : nous
         enseignons <strong>ChatGPT</strong> et <strong>Claude AI</strong> comme outils au service de
         vos procédures (relecture, plan, synthèse), avec des garde-fous adaptés au BTP.
       </p>
@@ -418,7 +418,7 @@ function FormationIaParisBody() {
         11e, 12e, 13e, 14e, 15e, 16e, 17e, 18e, 19e ou 20e arrondissement, les besoins se recoupent :
         réponses rapides, comptes rendus, structuration de dossiers. La différence se joue surtout dans
         vos contraintes locales (accès chantier, coordination urbaine, relations avec copropriétés) :
-        j&apos;intègre ces paramètres dans les ateliers.
+        nous intégrons ces paramètres dans les ateliers.
       </p>
 
       <h2 className="font-display text-xl font-semibold text-slate-900">
@@ -434,7 +434,7 @@ function FormationIaParisBody() {
       </p>
 
       <h2 className="font-display text-xl font-semibold text-slate-900">
-        Exemples longue traîne couverts par mes ateliers (Paris & IDF)
+        Exemples longue traîne couverts par nos ateliers (Paris & IDF)
       </h2>
       <ul>
         <li>

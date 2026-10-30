@@ -42,5 +42,5 @@ export const LINKEDIN_PRESENCE_CARD = {
   followersHighlight: LINKEDIN_FOLLOWERS_LABEL,
   followersSuffix: '',
   body: 'J’y partage des conseils pratiques, des exemples de prompts et des ressources pour utiliser l’IA dans le BTP : devis, appels d’offres et suivi de chantier.',
-  cta: 'Découvrir mes publications LinkedIn',
+  cta: 'Découvrir les publications LinkedIn de Laure Olivié',
 } as const;

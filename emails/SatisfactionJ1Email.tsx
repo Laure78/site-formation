@@ -31,7 +31,7 @@ export function satisfactionJ1EmailText(props: SatisfactionJ1EmailProps): string
   }
   lines.push(
     '',
-    'Votre retour me permet d’améliorer continuellement mes formations et fait partie du suivi qualité de mon organisme de formation.',
+    'Votre retour nous permet d’améliorer continuellement nos formations et fait partie du suivi qualité de notre organisme de formation.',
     '',
     'Questionnaire de satisfaction',
     `Donner mon avis sur la formation : ${qUrl}`,
@@ -121,7 +121,7 @@ export function SatisfactionJ1Email({
                           {greeting(prenom)}
                         </p>
                         <p style={{ margin: '0 0 16px', fontSize: 16, lineHeight: '24px' }}>
-                          J&apos;espère que la formation <strong>« {nomFormation} »</strong> vous a
+                          Nous espérons que la formation <strong>« {nomFormation} »</strong> vous a
                           été utile.
                         </p>
                         {dateFormation ? (
@@ -130,11 +130,11 @@ export function SatisfactionJ1Email({
                           </p>
                         ) : null}
                         <p style={{ margin: '0 0 16px', fontSize: 16, lineHeight: '24px' }}>
-                          Votre retour me permet d&apos;améliorer continuellement mes formations et
-                          fait partie du suivi qualité de mon organisme de formation.
+                          Votre retour nous permet d&apos;améliorer continuellement nos formations et
+                          fait partie du suivi qualité de notre organisme de formation.
                         </p>
                         <p style={{ margin: '0 0 24px', fontSize: 16, lineHeight: '24px' }}>
-                          Je vous remercie de prendre quelques minutes pour répondre au questionnaire
+                          Merci de prendre quelques minutes pour répondre au questionnaire
                           de satisfaction.
                         </p>
 

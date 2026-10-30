@@ -77,7 +77,7 @@ export default function CommunauteFormateursPage() {
       <section className="border-b border-slate-200 bg-white ofc-band">
         <div className="ofc-section-inner">
           <h2 className="font-display text-center text-2xl font-bold text-slate-900">
-            Mon expertise au service de votre développement
+            Laure Olivié au service de votre développement
           </h2>
           <div className="mt-10 grid gap-8 md:grid-cols-2">
             <div className="rounded-2xl border border-slate-200 bg-slate-50 p-8">
@@ -88,9 +88,9 @@ export default function CommunauteFormateursPage() {
                 Formation IA pour le BTP
               </h3>
               <p className="mt-3 text-slate-600">
-                Formatrice spécialisée en intelligence artificielle pour le BTP.
-                Devis, chiffrages, emails, comptes rendus chantier : je forme les
-                TPE et PME du BTP à gagner 3 à 5h par semaine avec ChatGPT et l&apos;IA.
+                Laure Olivié, organisme de formation spécialisé en intelligence artificielle pour le BTP.
+                Devis, chiffrages, emails, comptes rendus chantier : nous formons les
+                TPE et PME du BTP à gagner du temps sur l&apos;écrit avec ChatGPT et l&apos;IA.
                 Qualiopi · Financement possible selon éligibilité.
               </p>
               <Link
@@ -108,9 +108,9 @@ export default function CommunauteFormateursPage() {
                 Accompagnement formateurs
               </h3>
               <p className="mt-3 text-slate-600">
-                En tant que formatrice indépendante, je partage avec la communauté
-                mes méthodes pour trouver vos premiers clients, structurer votre
-                offre et développer votre activité. Masterclass, échanges et
+                Laure Olivié partage avec la communauté des formateurs des méthodes
+                pour trouver vos premiers clients, structurer votre
+                offre et développer votre activité en indépendant. Masterclass, échanges et
                 mutualisation d&apos;expériences au sein du groupe.
               </p>
               <a

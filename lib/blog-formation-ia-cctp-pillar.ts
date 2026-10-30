@@ -46,7 +46,7 @@ export const blogArticleFormationIaCctpAnalyseDceBtp: BlogArticle = {
     {
       question: 'Quel niveau IA faut-il avant la formation ?',
       answer:
-        'Aucun prérequis technique. Il faut savoir naviguer sur un PC et ouvrir des PDF. Je pars de zéro côté IA et je verrouille les réglages utiles pour vos CCTP.',
+        'Aucun prérequis technique. Il faut savoir naviguer sur un PC et ouvrir des PDF. Nous partons de zéro côté IA et verrouillons les réglages utiles pour vos CCTP.',
     },
     {
       question: 'Constructys finance-t-il la formation IA CCTP ?',
@@ -56,7 +56,7 @@ export const blogArticleFormationIaCctpAnalyseDceBtp: BlogArticle = {
     {
       question: 'ChatGPT Plus suffit-il ou faut-il Claude Pro ?',
       answer:
-        'ChatGPT Plus couvre une grande partie des analyses DCE. Claude Pro est souvent plus à l’aise sur les PDF longs et le raisonnement par lots. Je compare les deux en session et je vous aide à choisir selon vos habitudes.',
+        'ChatGPT Plus couvre une grande partie des analyses DCE. Claude Pro est souvent plus à l’aise sur les PDF longs et le raisonnement par lots. Nous comparons les deux en session et vous aidons à choisir selon vos habitudes.',
     },
     {
       question: 'Une PME de 5 salariés peut-elle se former ?',
@@ -83,7 +83,7 @@ export const blogArticleFormationIaCctpAnalyseDceBtp: BlogArticle = {
 <p class="mt-4">Réponse courte : l’IA ne remplace pas votre expertise. Elle accélère la lecture, la structuration et le croisement avec le DPGF. Vous gardez la décision go / no go.</p>
 <h3 class="font-display mt-8 text-lg font-semibold text-slate-900">Le coût caché d’une lecture CCTP manuelle (chiffres terrain)</h3>
 <p class="mt-3">Sur le terrain, je vois encore des équipes qui impriment 200 pages et surlignent à la main. Le coût n’est pas l’imprimante : c’est l’arrêt du chargé d’affaires, le retard sur le chiffrage et la mauvaise lecture d’une clause pénale.</p>
-<p class="mt-3">Quand je dirigeais ALIA BTP, un dossier mal cadré coûtait plus cher qu’une journée de formation. Aujourd’hui, je forme des équipes à éviter ce piège avec des prompts et des garde-fous.</p>
+<p class="mt-3">Lorsqu’elle dirigeait ALIA BTP, Laure Olivié voyait qu’un dossier mal cadré coûtait plus cher qu’une journée de formation. Aujourd’hui, l’organisme forme des équipes à éviter ce piège avec des prompts et des garde-fous.</p>
 <h3 class="font-display mt-8 text-lg font-semibold text-slate-900">Ce que l’IA peut (vraiment) faire sur un CCTP</h3>
 <ul class="mt-3 list-disc space-y-2 pl-5">
 <li>Cartographier les exigences par lot et renvoyer vers les articles du RC.</li>
@@ -94,7 +94,7 @@ export const blogArticleFormationIaCctpAnalyseDceBtp: BlogArticle = {
 <h3 class="font-display mt-8 text-lg font-semibold text-slate-900">Ce que l’IA ne fera jamais à votre place</h3>
 <p class="mt-3">Elle ne signe pas l’offre. Elle ne valide pas une solution technique contre un avis MOEX. Elle peut halluciner sur un DTU : vous devez garder le réflexe « source primaire » (PDF éditeur, notice produit, extrait norme).</p>
 <p class="mt-3">La méthode d’analyse DCE/CCTP avec l’IA sert à verrouiller ce cadre. Pour passer à l’action en session encadrée, le programme catalogue est sur la page <a href="${AO_DCE_PILAR}" class="font-medium text-[var(--accent)] underline hover:no-underline">formation IA appels d'offres BTP</a> (NIV-02). Pour le contexte global de mon accompagnement, voir <a href="${LINKS.home}" class="font-medium text-[var(--accent)] underline hover:no-underline">Laure Olivié, formatrice IA pour les pros du BTP</a> sur l’accueil du site.</p>
-<p class="mt-3">Sur un marché public, le CCAP fixe les règles du jeu. Le RC encadre la procédure. Le CCTP porte le technique. Le DPGF traduit le risque prix. Quand je forme des chargés d’affaires, je leur fais répéter cet ordre de lecture. L’IA aide à ne rien sauter.</p>
+<p class="mt-3">Sur un marché public, le CCAP fixe les règles du jeu. Le RC encadre la procédure. Le CCTP porte le technique. Le DPGF traduit le risque prix. En formation, nous faisons répéter cet ordre de lecture aux chargés d’affaires. L’IA aide à ne rien sauter.</p>
 <p class="mt-3">Sur un marché privé, la logique est proche. Les pièces portent d’autres noms. Le besoin reste identique : comprendre le périmètre avant d’écrire le mémoire. La <strong>formation IA bâtiment Constructys</strong> reste pertinente dès que vous passez par un financement OPCO.</p>
 <p class="mt-3">Je distingue trois familles d’erreurs. Première famille : oublier un lot annexe. Deuxième famille : surévaluer une exigence rare. Troisième famille : croire une norme citée par le modèle sans vérifier la référence.</p>
 <p class="mt-3">Pour le lot étanchéité ou le lot maçonnerie, le principe est le même. Je demande à l’IA de rester prudente sur les prescriptions spécifiques. Je garde la main sur le choix des solutions.</p>

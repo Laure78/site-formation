@@ -150,7 +150,7 @@ export const FAQ_ITEMS: readonly FAQItem[] = [
   },
   {
     q: "Comment gagner du temps administratif dans le BTP avec l'IA ?",
-    a: 'En automatisant relances, modèles et brouillons (devis, courriers, synthèses) avec ChatGPT ou un outil équivalent, sous votre contrôle — voir aussi mes <a href="/blog">articles et guides IA BTP</a>. Les gains varient selon l’organisation ; l’objectif est de libérer du temps sur l’écrit, pas de promettre un chiffre fixe.',
+    a: 'En automatisant relances, modèles et brouillons (devis, courriers, synthèses) avec ChatGPT ou un outil équivalent, sous votre contrôle — voir aussi nos <a href="/blog">articles et guides IA BTP</a>. Les gains varient selon l’organisation ; l’objectif est de libérer du temps sur l’écrit, pas de promettre un chiffre fixe.',
   },
   {
     q: "La formation peut-elle être financée par Constructys ou mon OPCO ?",
@@ -178,7 +178,7 @@ export const FAQ_ITEMS: readonly FAQItem[] = [
   },
   {
     q: "Mes données BTP sont-elles sécurisées avec ChatGPT ?",
-    a: 'Je vous forme aux bonnes pratiques : ne jamais coller de données confidentielles dans ChatGPT public, utiliser ChatGPT Team ou Enterprise pour les données sensibles, et mettre en place des process de relecture et de confidentialité. Besoin d\'un échange ? <a href="/contact">Contact</a> ou <a href="/a-propos">à propos de la formatrice</a>.',
+    a: 'Les formations couvrent les bonnes pratiques : ne jamais coller de données confidentielles dans ChatGPT public, utiliser ChatGPT Team ou Enterprise pour les données sensibles, et mettre en place des process de relecture et de confidentialité. Besoin d\'un échange ? <a href="/contact">Contact</a> ou <a href="/a-propos">à propos de l\'organisme</a>.',
   },
 ];
 
@@ -361,7 +361,7 @@ export const FAQ_TARIFS: FAQItem[] = [
   },
   {
     q: "Faut-il avancer des frais ?",
-    a: 'Selon les modalités de votre dossier et de la convention signée, la prise en charge peut être mobilisée sans avance de trésorerie dans certains cas — je vous accompagne pour monter le dossier et respecter les délais (15 jours avant le début de la formation) — <a href="/contact">me contacter</a>.',
+    a: 'Selon les modalités de votre dossier et de la convention signée, la prise en charge peut être mobilisée sans avance de trésorerie dans certains cas — nous vous accompagnons pour monter le dossier et respecter les délais (15 jours avant le début de la formation) — <a href="/contact">nous contacter</a>.',
   },
 ];
 
@@ -376,7 +376,7 @@ export const FAQ_OFFRES: FAQItem[] = [
   },
   {
     q: "Les formations sont-elles adaptées aux dirigeants et équipes du BTP ?",
-    a: `Oui. Mes formations sont conçues pour des professionnels du BTP sans prérequis technique. On travaille sur vos vrais documents : devis, emails, comptes rendus. Méthode 100 % pratique — voir <a href="/formations/ia-batiment-travaux-publics">ChatGPT pour entreprises BTP</a> et <a href="${LINKS.formationConducteurTravaux}">IA conducteur de travaux</a>.`,
+    a: `Oui. Les formations sont conçues pour des professionnels du BTP sans prérequis technique. On travaille sur vos vrais documents : devis, emails, comptes rendus. Méthode 100 % pratique — voir <a href="/formations/ia-batiment-travaux-publics">ChatGPT pour entreprises BTP</a> et <a href="${LINKS.formationConducteurTravaux}">IA conducteur de travaux</a>.`,
   },
 ];
 
@@ -391,7 +391,7 @@ export const FAQ_FINANCEMENT: FAQItem[] = [
   },
   {
     q: "Quels documents fournir pour le financement ?",
-    a: 'Programme de formation détaillé, devis du prestataire, convention de formation, liste des participants, attestation FFB (si adhérent), justificatifs d\'effectif. Je vous accompagne pour monter le dossier : <a href="/contact">contact</a> ou <a href="${LINKS.prendreRdv}">Réservez votre visio découverte gratuite</a>.',
+    a: 'Programme de formation détaillé, devis du prestataire, convention de formation, liste des participants, attestation FFB (si adhérent), justificatifs d\'effectif. Nous vous accompagnons pour monter le dossier : <a href="/contact">contact</a> ou <a href="${LINKS.prendreRdv}">Réservez votre visio découverte gratuite</a>.',
   },
 ];
 
@@ -419,7 +419,7 @@ export const FAQ_FINANCEMENT_IA_BTP: FAQItem[] = [
   },
   {
     q: "Constructys finance-t-il les formations en présentiel ?",
-    a: `Oui. Les formations catalogue OFC se déroulent en présentiel en Île-de-France, en intra-entreprise ou en inter-entreprises selon les sessions. ${FINANCEMENT_FORMULATION_PRUDENTE} Je vous fournis le programme détaillé et le devis nécessaires à votre demande de prise en charge — page <a href="/financement-constructys-formation-ia-btp">financement Constructys formation IA pour les pros du BTP</a>.`,
+    a: `Oui. Les formations catalogue OFC se déroulent en présentiel en Île-de-France, en intra-entreprise ou en inter-entreprises selon les sessions. ${FINANCEMENT_FORMULATION_PRUDENTE} Nous vous fournissons le programme détaillé et le devis nécessaires à votre demande de prise en charge — page <a href="/financement-constructys-formation-ia-btp">financement Constructys formation IA pour les pros du BTP</a>.`,
   },
   {
     q: "Que se passe-t-il si ma demande est déposée en retard ?",
@@ -470,7 +470,7 @@ export function getFaqFinancementConstructysPage(): readonly FAQItem[] {
 export const FAQ_A_PROPOS: FAQItem[] = [
   {
     q: "Où intervenez-vous pour les formations IA pour les pros du BTP ?",
-    a: `Basée à Paris (75012), j'interviens en <a href="/formation-ia-btp-ile-de-france">Île-de-France</a> — ${IDF_ZONE_INTERVENTION}. ${MODALITE_FORMATIONS_STANDARD}`,
+    a: `Basée à Paris (75012), Laure Olivié intervient en <a href="/formation-ia-btp-ile-de-france">Île-de-France</a> — ${IDF_ZONE_INTERVENTION}. ${MODALITE_FORMATIONS_STANDARD}`,
   },
   {
     q: "Quelle est votre expérience dans le BTP ?",
@@ -835,7 +835,7 @@ export const FAQ_FORMATION_IA_TRAVAUX_PUBLICS_LANDING: FAQItem[] = [
   },
   {
     q: "Quelle est la durée de la formation IA travaux publics ?",
-    a: `Je propose une session de ${SESSION_DUREE_LIBELLE} (niveau débutant, NIV-01), ${libelleTarifParticipantCatalogue(TARIF_PARTICIPANT_NIV01_HT)} (6 à ${EFFECTIF_GROUPE_MAX} participants). Le programme condense consultations / DCE, documents de chantier, situations et bases d'industrialisation — détail sur la fiche NIV-01 en bas de page.`,
+    a: `Le catalogue propose une session de ${SESSION_DUREE_LIBELLE} (niveau débutant, NIV-01), ${libelleTarifParticipantCatalogue(TARIF_PARTICIPANT_NIV01_HT)} (6 à ${EFFECTIF_GROUPE_MAX} participants). Le programme condense consultations / DCE, documents de chantier, situations et bases d'industrialisation — détail sur la fiche NIV-01 en bas de page.`,
   },
 ];
 
@@ -918,15 +918,15 @@ export const FAQ_CHECKLIST_PROMPTS: FAQItem[] = [
 export const FAQ_CONTACT: FAQItem[] = [
   {
     q: "Quel délai pour une proposition ou un chiffrage ?",
-    a: 'Après votre message par email ou votre prise de rendez-vous, je vous réponds sous 24h avec une proposition détaillée et les possibilités de financement Constructys — <a href="/financement-constructys-formation-ia-btp">guide OPCO</a>.',
+    a: 'Après votre message par email ou votre prise de rendez-vous, nous vous répondons sous 24 h avec une proposition détaillée et les possibilités de financement Constructys — <a href="/financement-constructys-formation-ia-btp">guide OPCO</a>.',
   },
   {
     q: "Où intervenez-vous pour les formations ?",
-    a: `Basée à Paris (75012), j'interviens en <a href="/formation-ia-btp-ile-de-france">Île-de-France</a> — ${IDF_ZONE_INTERVENTION}. ${MODALITE_FORMATIONS_STANDARD}`,
+    a: `Basée à Paris (75012), Laure Olivié intervient en <a href="/formation-ia-btp-ile-de-france">Île-de-France</a> — ${IDF_ZONE_INTERVENTION}. ${MODALITE_FORMATIONS_STANDARD}`,
   },
   {
     q: "Comment financer ma formation IA appliquée au bâtiment ?",
-    a: 'éligible à une prise en charge par Constructys ou votre OPCO selon statut, branche et conditions en vigueur. Je vous accompagne pour monter le dossier et respecter les délais — <a href="/financement-constructys-formation-ia-btp">financement Constructys formation IA pour le BTP</a> et <a href="/formations">catalogue</a>.',
+    a: 'Éligible à une prise en charge par Constructys ou votre OPCO selon statut, branche et conditions en vigueur. Nous vous accompagnons pour monter le dossier et respecter les délais — <a href="/financement-constructys-formation-ia-btp">financement Constructys formation IA pour le BTP</a> et <a href="/formations">catalogue</a>.',
   },
 ];
 
@@ -942,7 +942,7 @@ export const FAQ_CLIENTS_PARTENAIRES: FAQItem[] = [
   },
   {
     q: "Comment devenir partenaire ?",
-    a: 'Contactez-moi pour discuter d\'un partenariat ou d\'une intervention en formation. Devis et programme sur mesure selon vos besoins — <a href="/contact">page contact</a>.',
+    a: 'Contactez-nous pour discuter d\'un partenariat ou d\'une intervention en formation. Devis et programme sur mesure selon vos besoins — <a href="/contact">page contact</a>.',
   },
 ];
 

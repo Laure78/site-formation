@@ -7,7 +7,7 @@ export function AProposApportsSection() {
         id="apports-title"
         className="font-display text-2xl font-bold tracking-tight text-[#0F172A] md:text-2xl"
       >
-        Ce que j’apporte aux entreprises
+        Ce que Laure Olivié apporte aux entreprises
       </h2>
       <ul className="mt-6 grid gap-4 md:grid-cols-3">
         {A_PROPOS_APPORTS.map((item) => (

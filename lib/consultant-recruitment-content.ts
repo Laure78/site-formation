@@ -13,7 +13,7 @@ export const CONSULTANT_HERO_H1 =
   'Recherche de formateurs — Intelligence artificielle appliquée au BTP' as const;
 
 export const CONSULTANT_HERO_INTRO =
-  'Dans le cadre du développement de mon catalogue de formations 2027, je recherche des formateurs et formatrices indépendants issus du BTP, utilisant l’IA dans leur pratique professionnelle.' as const;
+  'Dans le cadre du développement du catalogue de formations 2027, Laure Olivié recherche des formateurs et formatrices indépendants issus du BTP, utilisant l’IA dans leur pratique professionnelle.' as const;
 
 /** Campagne recrutement formateurs catalogue 2027 — bandeau global et hub /nous-rejoindre. */
 export const FORMATEUR_RECRUITMENT_2027_CAMPAIGN = {
@@ -28,7 +28,7 @@ export const FORMATEUR_RECRUITMENT_2027_CAMPAIGN = {
     eyebrow: 'Catalogue 2027 · Missions indépendantes rémunérées',
     h1: 'Recrutement de formateurs IA BTP en Île-de-France',
     intro:
-      'Dans le cadre du développement de mon catalogue de formations 2027, je recherche des formateurs et formatrices indépendants issus du BTP, utilisant l’IA dans leur pratique professionnelle.',
+      'Dans le cadre du développement du catalogue de formations 2027, notre organisme recherche des formateurs et formatrices indépendants issus du BTP, utilisant l’IA dans leur pratique professionnelle.',
     primaryCtaLabel: 'Proposer ma candidature',
     secondaryCtaLabel: 'Découvrir les profils recherchés',
   },
@@ -52,7 +52,7 @@ export const FORMATEUR_RECRUITMENT_2027_CAMPAIGN = {
 export const ACCUEIL_RECRUTEMENT = {
   eyebrow: 'RECRUTEMENT — CATALOGUE 2027',
   title: 'Vous connaissez le BTP et utilisez l’IA ?',
-  lead: 'Je recherche des formateurs et formatrices indépendants issus du BTP pour animer des formations pratiques en intelligence artificielle auprès des professionnels du secteur.',
+  lead: 'Laure Olivié recherche des formateurs et formatrices indépendants issus du BTP pour animer des formations pratiques en intelligence artificielle auprès des professionnels du secteur.',
   facts: 'Île-de-France · Présentiel · À partir de 2027 · Missions rémunérées',
   ctaLabel: 'Découvrir les missions et candidater',
   emailHint: 'Vous préférez envoyer votre candidature par email ?',

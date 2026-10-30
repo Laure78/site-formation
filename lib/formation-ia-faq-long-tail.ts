@@ -12,7 +12,7 @@ export const FAQ_FORMATION_IA_HUB_LONG_TAIL: readonly FAQItem[] = [
   },
   {
     q: 'Formation ChatGPT pour électricien financée par Constructys ?',
-    a: "Si votre entreprise est couverte par Constructys et que votre plan de développement des compétences le permet, une formation professionnelle peut être prise en charge selon les règles en vigueur. Vérifiez auprès de votre OPCO et conservez les objectifs pédagogiques clairs (délais, compétences). Je vous guide sur la page financement et au besoin en prise de contact.",
+    a: "Si votre entreprise est couverte par Constructys et que votre plan de développement des compétences le permet, une formation professionnelle peut être prise en charge selon les règles en vigueur. Vérifiez auprès de votre OPCO et conservez les objectifs pédagogiques clairs (délais, compétences). Nous vous guidons sur la page financement et au besoin en prise de contact.",
   },
   {
     q: 'Claude AI peut-il aider à rédiger un mémoire technique BTP ?',

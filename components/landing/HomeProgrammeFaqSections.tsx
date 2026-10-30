@@ -193,7 +193,7 @@ export function HomeProgrammeFaqSections() {
             <div>
               <RevealShell>
               <div className="inline-flex items-center gap-2 rounded-full bg-[var(--accent-soft)] px-4 py-2 text-sm font-medium text-[var(--accent)]">
-                <span>VOTRE FORMATRICE</span>
+                <span>NOTRE ORGANISME</span>
               </div>
               <h2
                 id="pourquoi-laure-heading"
@@ -206,14 +206,14 @@ export function HomeProgrammeFaqSections() {
               <Citation
                 className="mt-6"
                 variant="formatrice"
-                quote={`Ancienne dirigeante d’une entreprise de travaux publics, je m’appuie sur ${formatAnneesExperienceBTP()} pour former les équipes aux usages concrets de l’intelligence artificielle. Mon objectif : zéro théorie, 100 % pratique. Vous repartez avec des outils opérationnels dès le lendemain.`}
+                quote={`Ancienne dirigeante d’une entreprise de travaux publics, Laure Olivié s’appuie sur ${formatAnneesExperienceBTP()} pour former les équipes aux usages concrets de l’intelligence artificielle. Objectif : zéro théorie, 100 % pratique. Les participants repartent avec des outils opérationnels dès le lendemain.`}
                 author="Laure Olivié"
                 role="Formatrice IA pour le BTP — Laure Olivié"
               />
               <p className="mt-4 text-base leading-relaxed text-slate-600">
-                Vous cherchez un formateur IA pour le bâtiment ou la construction ? Découvrez{' '}
+                Vous cherchez un organisme de formation IA pour le bâtiment ou la construction ? Découvrez{' '}
                 <Link href={LINKS.formateurIaBtp} className={`${OFC_LINK} font-semibold`}>
-                  une formatrice IA spécialisée construction
+                  Laure Olivié, spécialiste IA construction
                 </Link>
                 .
               </p>
@@ -303,7 +303,7 @@ export function HomeProgrammeFaqSections() {
                 </p>
                 <p className="mt-5 text-sm leading-relaxed text-slate-600">
                   <Link href={LINKS.formationsLinkedInLearning} className={`${OFC_LINK} font-semibold`}>
-                    Instructrice LinkedIn Learning — découvrez mes 2 cours à la demande
+                    Instructrice LinkedIn Learning — découvrez ses 2 cours à la demande
                   </Link>
                 </p>
               </div>

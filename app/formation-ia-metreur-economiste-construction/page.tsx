@@ -207,7 +207,7 @@ export default function FormationIaMetreurEconomisteConstructionPage() {
         <section className="scroll-mt-24 mt-14 rounded-2xl border border-[#377CF3]/30 bg-[#377CF3] p-8 text-white">
           <h2 className="font-display text-xl font-bold md:text-2xl">Visio découverte gratuite — 30 minutes</h2>
           <p className="mt-3 leading-relaxed text-blue-100">
-            Cadrons vos usages IA sur DPGF, métrés, DQE et BPU : je vous oriente vers la session catalogue adaptée (NIV-02
+            Cadrons vos usages IA sur DPGF, métrés, DQE et BPU : nous vous orientons vers la session catalogue adaptée (NIV-02
             appels d&apos;offres ou parcours sur mesure intra).
           </p>
           <div className="mt-6 flex flex-wrap gap-4">

@@ -220,8 +220,8 @@ export default function FormationIaBtpIleDeFrancePage() {
                 formation IA à Paris
               </Link>
               . Pour choisir le prestataire, découvrez{' '}
-              <Link href={LINKS.formateurIaBtp} className={OFC_LINK} title="Formatrice IA spécialisée construction">
-                une formatrice IA spécialisée construction
+              <Link href={LINKS.formateurIaBtp} className={OFC_LINK} title="Organisme de formation IA spécialisé construction">
+                Laure Olivié, organisme IA spécialisé construction
               </Link>
               .
             </p>

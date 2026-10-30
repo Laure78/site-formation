@@ -15,7 +15,7 @@ import {
 } from '@/lib/client-logos';
 import { SCHEMA_LINKEDIN_LEARNING_INSTRUCTOR_URL } from '@/lib/schema-constants';
 
-/** Titre de section — formulation exacte (voix « je »). */
+/** Titre de section — interventions Laure Olivié (3e personne). */
 export const PARTENAIRES_SECTION_TITLE =
   'Les fédérations du BTP me confient la formation IA de leurs adhérents';
 
@@ -113,7 +113,7 @@ export const PARTENAIRES_CARDS: PartenaireCard[] = [
     id: 'linkedin-learning',
     title: 'LinkedIn Learning',
     description:
-      "Instructrice LinkedIn Learning : deux cours en français sur l'IA appliquée au BTP et aux TPE, pour transmettre au-delà de l'Île-de-France ce que j'enseigne en présentiel sur le terrain.",
+      "Instructrice LinkedIn Learning : deux cours en français sur l'IA appliquée au BTP et aux TPE, pour transmettre au-delà de l'Île-de-France ce qu'elle enseigne en présentiel sur le terrain.",
     href: SCHEMA_LINKEDIN_LEARNING_INSTRUCTOR_URL,
     logo: {
       src: LOGO_LINKEDIN_LEARNING.src,

@@ -58,7 +58,7 @@ export default function PartenairesPage() {
         <PartenairesReferencesSection
           id="autres-organismes"
           titleId="autres-organismes-title"
-          title="Autres organismes pour lesquels j’interviens"
+          title="Autres organismes pour lesquels Laure Olivié intervient"
           references={autresOrganismes}
         />
 

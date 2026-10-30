@@ -205,7 +205,7 @@ export function GeoFormationPage(props: GeoFormationPageProps) {
           <p className="mt-4 text-base leading-relaxed text-slate-700 md:text-lg">
             Professionnels du BTP et PME du bâtiment {deptPreposition} cherchent surtout à réduire le temps
             passé sur l&apos;administratif sans perdre le contrôle des prix et des engagements contractuels.
-            En formation, je travaille ces cas concrets — toujours avec relecture humaine avant envoi.
+            En formation, nous travaillons ces cas concrets — toujours avec relecture humaine avant envoi.
           </p>
           <ol className="mt-8 list-decimal space-y-4 pl-5 text-base text-slate-700 marker:font-semibold md:text-lg">
             {GEO_FORMATION_CAS_USAGE.map((item) => (

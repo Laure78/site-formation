@@ -303,7 +303,7 @@ export default function FormationIATravauxPublicsLandingPage() {
               OPCO. Pour les entreprises du secteur BTP et des travaux publics, le financement passe
               en général par l&apos;<strong>OPCO Constructys</strong> (périmètre BTP / TP / négoce
               de matériaux), dans le cadre du plan de développement des compétences. Les modalités
-              exactes (plafonds, délais de dépôt sur la plateforme eGestion) évoluent : je vous
+              exactes (plafonds, délais de dépôt sur la plateforme eGestion) évoluent : nous vous
               indiquons les repères à jour sur votre <strong>devis personnalisé</strong>.
             </p>
             <p>

@@ -34,7 +34,7 @@ export const CONTACT_FORM_RGPD_NOTICE =
   'Les informations transmises sont utilisées uniquement pour répondre à votre demande. Consultez la politique de confidentialité.' as const;
 
 export const CONTACT_FORM_SUCCESS =
-  'Votre demande a bien été envoyée. Je reviendrai vers vous après lecture de votre projet.' as const;
+  'Votre demande a bien été envoyée. Nous reviendrons vers vous après lecture de votre projet.' as const;
 
 export const CONTACT_FORM_SUCCESS_CALENDLY =
   'Vous pouvez aussi réserver un échange si vous préférez présenter votre besoin oralement.' as const;

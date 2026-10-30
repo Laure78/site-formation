@@ -400,7 +400,7 @@ export function FormationIaMetierBtpLanding({ config }: { config: FormationIaMet
                   Laure Olivié — formatrice IA &amp; BTP
                 </h2>
                 <p className="mt-4 text-slate-700 leading-relaxed">
-                  <strong>{SITE_CONFIG.name}</strong> est formatrice IA et dirige l&apos;organisme certifié Qualiopi. Elle accompagne les
+                  <strong>{SITE_CONFIG.name}</strong>, organisme de formation IA certifié Qualiopi (OFC Création d&apos;Entreprise), est fondé et animé par Laure Olivié. L&apos;organisme accompagne les
                   entreprises du bâtiment et des travaux publics sur ChatGPT, Claude et les usages responsables de
                   l&apos;IA (devis, mémoires techniques, comptes rendus). Instructrice LinkedIn Learning — satisfaction{' '}
                   {formatNoteSatisfactionAffichageComplet()}.{' '}
@@ -409,7 +409,7 @@ export function FormationIaMetierBtpLanding({ config }: { config: FormationIaMet
                 </p>
                 <p className="mt-4 text-sm text-slate-600">
                   <Link href={LINKS.aPropos} className={`font-medium ${OFC_LINK}`}>
-                    À propos de la formatrice
+                    À propos de Laure Olivié
                   </Link>
                   {' · '}
                   <a

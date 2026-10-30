@@ -139,7 +139,7 @@ export function InformationsReglementaires(props: InfosQualiopiProps) {
               </Link>{' '}
               ou{' '}
               <Link href={LINKS.contact} className="font-medium text-[#377CF3] hover:underline">
-                me contacter
+                nous contacter
               </Link>{' '}
               pour vérifier les prochaines dates.
             </p>
