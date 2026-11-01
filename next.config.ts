@@ -28,6 +28,9 @@ const nextConfig: NextConfig = {
     root: TURBOPACK_ROOT,
   },
   experimental: {
+    /** Build Railway / CI : limite les workers (évite OOM à la génération statique). */
+    cpus: 1,
+    workerThreads: false,
     optimizePackageImports: ['lucide-react', '@supabase/supabase-js'],
     /** Formulaires carrière — CV PDF jusqu’à 5 Mo */
     serverActions: {
