@@ -1,14 +1,12 @@
 'use client';
 
-import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useEffect, useMemo, useState } from 'react';
-import { trackCtaRdvClick } from '@/lib/cta-analytics';
+import { CtaVisio } from '@/components/CtaVisio';
 import { CONTACT } from '@/lib/constants';
-import { HEADER_PRIMARY_CTA_HREF, HEADER_PRIMARY_CTA_LABEL } from '@/lib/header-cta';
 import { shouldShowStickyMobileCalendlyBar } from '@/lib/sticky-mobile-calendly-path';
 
-/** Bandeau fixe mobile — Appeler + Échanger (après le hero sur l’accueil). */
+/** Bandeau fixe mobile — Appeler + visio découverte (après le hero sur l’accueil). */
 export function StickyMobileCalendlyCta() {
   const pathname = usePathname();
   const eligible = useMemo(() => shouldShowStickyMobileCalendlyBar(pathname), [pathname]);
@@ -67,8 +65,6 @@ export function StickyMobileCalendlyCta() {
 
   const show = mounted && eligible && pastHero && !footerVisible;
 
-  const rdvHref = `${HEADER_PRIMARY_CTA_HREF}?src=${encodeURIComponent('sticky-mobile-bar')}`;
-
   if (!eligible) return null;
 
   return (
@@ -93,19 +89,11 @@ export function StickyMobileCalendlyCta() {
         >
           Appeler
         </a>
-        <Link
-          href={rdvHref}
+        <CtaVisio
+          src="sticky-mobile-bar"
           data-cta="sticky-mobile-rdv"
-          aria-label={HEADER_PRIMARY_CTA_LABEL}
-          onClick={() => {
-            if (typeof window !== 'undefined') {
-              trackCtaRdvClick('sticky-mobile-bar', window.location.pathname);
-            }
-          }}
-          className="inline-flex min-h-11 items-center justify-center rounded-lg bg-[#377CF3] px-3 text-center text-xs font-semibold leading-snug text-white transition-colors hover:bg-[#2a63d4] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#377CF3] sm:text-sm"
-        >
-          {HEADER_PRIMARY_CTA_LABEL}
-        </Link>
+          className="inline-flex min-h-11 items-center justify-center rounded-lg px-3 text-center text-xs font-semibold leading-snug sm:text-sm"
+        />
       </div>
     </div>
   );

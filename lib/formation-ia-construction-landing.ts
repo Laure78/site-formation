@@ -13,7 +13,7 @@ import {
 import { buildFormationFicheCourseJsonLd } from '@/lib/schema-formation-course-jsonld';
 import { phraseSessionCataloguePresentielIdf } from '@/lib/catalogue-duree-copy';
 import { MODALITE_FORMATIONS_STANDARD, TARIF_FORFAIT_DEBUTANT_HT } from '@/lib/tarifs-sessions';
-import { CONTACT, IDF_ZONE_INTERVENTION } from '@/lib/constants';
+import { CONTACT, IDF_ZONE_INTERVENTION, IDF_ZONE_PRESENTIEL } from '@/lib/constants';
 
 export const FORMATION_IA_CONSTRUCTION_PATH = '/formation-ia-construction' as const;
 
@@ -87,7 +87,7 @@ export const CONSTRUCTION_CONTROLE_CONFIDENTIALITE = [
   },
   {
     title: 'Confidentialité des documents',
-    body: `Ne pas déposer de DCE nominatif ou de données personnelles dans un outil grand public sans cadre entreprise (compte pro, charte interne). Les sessions OFC s’appuient sur vos cas réels en présentiel en ${IDF_ZONE_INTERVENTION}.`,
+    body: `Ne pas déposer de DCE nominatif ou de données personnelles dans un outil grand public sans cadre entreprise (compte pro, charte interne). Les sessions OFC s’appuient sur vos cas réels en présentiel ${IDF_ZONE_PRESENTIEL}.`,
   },
 ] as const;
 
@@ -187,7 +187,7 @@ Ne invente pas de prix unitaires — indique [PRIX À SAISIR] pour chaque poste.
 export const CONSTRUCTION_FAQ = [
   {
     q: 'Où se déroule la formation IA construction ?',
-    a: `Uniquement en présentiel en ${IDF_ZONE_INTERVENTION} : format intra (dans vos locaux) ou inter en salle selon les sessions ouvertes. Siège administratif OFC : ${CONTACT.address}. Pour une vue régionale du catalogue BTP, voir aussi <a href="${LINKS.formationIleDeFrance}">formation IA BTP en Île-de-France</a>.`,
+    a: `Uniquement en présentiel ${IDF_ZONE_PRESENTIEL} : format intra (dans vos locaux) ou en inter-entreprises en salle selon les sessions ouvertes. Siège administratif OFC : ${CONTACT.address}. Pour une vue régionale du catalogue BTP, voir aussi <a href="${LINKS.formationIleDeFrance}">formation IA BTP en Île-de-France</a>.`,
   },
   {
     q: "L'IA va-t-elle remplacer les métiers de la construction ?",

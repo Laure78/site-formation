@@ -493,6 +493,17 @@ export function libelleDureeFormation(f: Pick<Formation, 'duree' | 'horaires'>):
   return `${f.duree} (${f.horaires})`;
 }
 
+/** Durée ISO 8601 pour JSON-LD Course (`timeRequired`, `courseWorkload`). */
+export function formationTimeRequiredIso(code: string): string {
+  const f = getFormationByCode(code);
+  if (!f) return 'PT4H';
+  const d = f.duree.trim();
+  if (d.startsWith('4')) return 'PT4H';
+  if (d.startsWith('7')) return 'PT7H';
+  if (d.includes('14')) return 'PT14H';
+  return 'PT4H';
+}
+
 /** « 4 à 12 participants » — jamais de littéral hors de cette helper. */
 export function libelleEffectifFormation(
   f: Pick<Formation, 'effectifMin' | 'effectifMax'>

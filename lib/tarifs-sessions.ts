@@ -232,7 +232,8 @@ export const LIBELLE_EFFECTIF_GROUPE = `Groupe de ${EFFECTIF_GROUPE_MAX} partici
 
 export const MODALITE_POSITIONNEMENT = 'présentiel uniquement · Île-de-France uniquement';
 
-export const MODALITE_INTRA_ENTREPRISE = 'intra (dans vos locaux) ou inter' as const;
+export const MODALITE_INTRA_ENTREPRISE =
+  'intra (dans vos locaux) ou en inter-entreprises' as const;
 
 export const PERIMETRE_FORMATIONS_COURT = MODALITE_POSITIONNEMENT;
 
@@ -243,7 +244,7 @@ export const PERIMETRE_FORMATIONS_STANDARD =
 export const MODALITE_FORMATIONS_STANDARD = PERIMETRE_FORMATIONS_STANDARD;
 
 export const MODALITE_FORMATIONS_PRESENTIEL =
-  `Sessions collectives, en ${MODALITE_INTRA_ENTREPRISE} ou en interentreprises — ${MODALITE_POSITIONNEMENT}.`;
+  `Sessions collectives, en ${MODALITE_INTRA_ENTREPRISE} — ${MODALITE_POSITIONNEMENT}.`;
 
 export const EXIGENCE_CLAUDE_PRO_NIVEAU_AVANCE =
   'Un abonnement Claude AI Pro actif par participant, à souscrire par l\'entreprise avant la session — non inclus dans le tarif (abonnement payant selon l\'outil utilisé).';

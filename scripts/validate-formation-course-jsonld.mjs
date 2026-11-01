@@ -2,14 +2,8 @@
  * Validation JSON-LD Schema.org — Course sur les fiches formation.
  * Usage : node scripts/validate-formation-course-jsonld.mjs
  */
-import {
-  buildCatalogueCourseIaBtpNiv01JsonLd,
-  buildCatalogueCourseIaAppelsOffreNiv02JsonLd,
-  buildCatalogueCourseConduiteTravauxNiv03JsonLd,
-  buildCatalogueCourseMaitriserClaudeNiv04JsonLd,
-  buildCatalogueCourseMaitriseOeuvreNiv05JsonLd,
-  buildCatalogueCourseCursorBtpNiv06JsonLd,
-} from '../lib/schema-catalogue-course-jsonld.ts';
+import { formationTimeRequiredIso } from '../data/formations.ts';
+import { buildCatalogueCourseJsonLdByRef } from '../lib/schema-catalogue-course-jsonld.ts';
 import { buildCatalogFormationCoursePageSchema } from '../lib/catalog-formation-course-page-jsonld.ts';
 import {
   FORMATIONS_CATALOG_SCHEMA,
@@ -19,13 +13,25 @@ import {
 import { assertFormationFicheCourseSchema, FORMATION_COURSE_OFFER_CATEGORY } from '../lib/schema-formation-course-jsonld.ts';
 import { getCourseSchema } from '../lib/seo.ts';
 
+const CATALOGUE_REFS = [
+  'NIV-01',
+  'NIV-02',
+  'NIV-03',
+  'NIV-04',
+  'NIV-05',
+  'NIV-06',
+  'NIV-07',
+  'NIV-08',
+  'NIV-09',
+  'NIV-10',
+];
+
 const BLOCKS = [
-  { name: 'catalogue-niv-01', schema: buildCatalogueCourseIaBtpNiv01JsonLd() },
-  { name: 'catalogue-niv-02', schema: buildCatalogueCourseIaAppelsOffreNiv02JsonLd() },
-  { name: 'catalogue-niv-03', schema: buildCatalogueCourseConduiteTravauxNiv03JsonLd() },
-  { name: 'catalogue-niv-04', schema: buildCatalogueCourseMaitriserClaudeNiv04JsonLd() },
-  { name: 'catalogue-niv-05', schema: buildCatalogueCourseMaitriseOeuvreNiv05JsonLd() },
-  { name: 'catalogue-niv-06', schema: buildCatalogueCourseCursorBtpNiv06JsonLd() },
+  ...CATALOGUE_REFS.map((ref) => ({
+    name: `catalogue-${ref.toLowerCase()}`,
+    schema: buildCatalogueCourseJsonLdByRef(ref),
+    ref,
+  })),
   {
     name: 'catalog-formation-page',
     schema: buildCatalogFormationCoursePageSchema(FORMATIONS_CATALOG_SCHEMA[0]),
@@ -61,21 +67,24 @@ function assertOfferRules(name, schema) {
     throw new Error(`${name}: category « ${FORMATION_COURSE_OFFER_CATEGORY} » requise`);
   }
   if (name.startsWith('catalogue-niv-')) {
-    if (offers.price == null) {
+    const surDevis = ['catalogue-niv-06', 'catalogue-niv-07', 'catalogue-niv-08'].includes(name);
+    if (!surDevis && offers.price == null) {
       throw new Error(`${name}: price requis`);
     }
   }
 }
 
 let ok = true;
-for (const { name, schema } of BLOCKS) {
+for (const block of BLOCKS) {
+  const { name, schema } = block;
   try {
     if (!schema) throw new Error('schéma null');
     JSON.stringify(schema);
     if (schema['@context'] !== 'https://schema.org') {
       throw new Error('@context schema.org requis');
     }
-    assertFormationFicheCourseSchema(schema, name);
+    const duration = block.ref ? formationTimeRequiredIso(block.ref) : undefined;
+    assertFormationFicheCourseSchema(schema, name, duration ? { timeRequired: duration } : {});
     if (name.startsWith('catalogue-niv-')) {
       assertOfferRules(name, schema);
     }
@@ -87,4 +96,4 @@ for (const { name, schema } of BLOCKS) {
 }
 
 if (!ok) process.exit(1);
-console.log('\nValidation JSON-LD OK — Course fiches formation conformes (présentiel IDF, 4 h, intra/inter).');
+console.log('\nValidation JSON-LD OK — Course fiches formation (présentiel IDF, durées PT4H/PT7H/PT14H, inter).');

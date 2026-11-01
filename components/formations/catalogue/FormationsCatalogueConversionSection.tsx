@@ -1,6 +1,6 @@
-import Link from 'next/link';
-import { CTA_RDV_LABEL } from '@/lib/cta-rdv-label';
-import { LINKS } from '@/lib/internal-links';
+'use client';
+
+import { CtaVisio } from '@/components/CtaVisio';
 
 /** Bloc conversion — « Vous ne savez pas quelle formation choisir ? » */
 export function FormationsCatalogueConversionSection() {
@@ -19,13 +19,11 @@ export function FormationsCatalogueConversionSection() {
         Décrivez métier et usages — nous vous orientons vers la bonne session.
       </p>
       <div className="mt-6">
-        <Link
-          href={`${LINKS.prendreRdv}?src=${encodeURIComponent('catalogue-conversion')}`}
+        <CtaVisio
+          src="catalogue-conversion"
           data-cta="rdv"
           className="ofc-cta-on-accent inline-flex min-h-11 items-center justify-center rounded-[8px] px-6 py-3"
-        >
-          {CTA_RDV_LABEL}
-        </Link>
+        />
       </div>
     </section>
   );

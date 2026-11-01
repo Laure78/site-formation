@@ -3,6 +3,7 @@ import { JsonLd } from '@/components/JsonLd';
 import { BreadcrumbJsonLd } from '@/components/seo/BreadcrumbJsonLd';
 import { NOUS_REJOINDRE_RECRUTEMENT_FAQ } from '@/lib/consultant-recruitment-content';
 import { LINKS } from '@/lib/internal-links';
+import { buildRejoindreEquipeJobPostingJsonLd } from '@/lib/schema-rejoindre-equipe-job-posting';
 import { createPageMetadata, getFAQSchema, SITE_CONFIG } from '@/lib/seo';
 
 export const revalidate = 3600;
@@ -42,6 +43,10 @@ export default function NousRejoindrePage() {
         ]}
       />
       {FAQ_SCHEMA ? <JsonLd id="schema-faq-nous-rejoindre" schema={FAQ_SCHEMA} /> : null}
+      <JsonLd
+        id="schema-job-posting-nous-rejoindre"
+        schema={buildRejoindreEquipeJobPostingJsonLd(PAGE_URL)}
+      />
       <EmploisPageContent />
     </>
   );

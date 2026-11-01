@@ -26,6 +26,13 @@ export function getPillarPageContentUpdatedAt(path: PillarPagePath): ContentUpda
   return PILLAR_PAGE_CONTENT_UPDATED_AT[path];
 }
 
+/** ISO 8601 avec fuseau Europe/Paris — JSON-LD `dateModified` / `datePublished`. */
+export function contentUpdatedAtToSchemaIso(isoDate: ContentUpdatedDate | string): string {
+  const match = /^(\d{4})-(\d{2})-(\d{2})$/.exec(isoDate);
+  if (!match) return isoDate;
+  return `${isoDate}T12:00:00+02:00`;
+}
+
 const MOIS_FR = [
   'janvier',
   'février',

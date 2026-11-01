@@ -2,8 +2,8 @@
 
 import Link from 'next/link';
 import { ArrowRight, BarChart3, Shield, Target, TrendingUp } from 'lucide-react';
+import { CtaVisio } from '@/components/CtaVisio';
 import { DisclaimerGains } from '@/components/formation/DisclaimerGains';
-import { trackCtaRdvClick } from '@/lib/cta-analytics';
 import { LINKS } from '@/lib/internal-links';
 import { maturityDisplayLabel, potentialDisplay } from '@/lib/diagnostic-ia-btp/scoring';
 import type { DiagnosticResult as DiagnosticResultType } from '@/lib/diagnostic-ia-btp/types';
@@ -20,25 +20,20 @@ type Props = {
 
 function DiagnosticRdvLink({
   origin,
-  label,
   className,
 }: {
   origin: string;
-  label: string;
   className: string;
 }) {
   return (
-    <Link
-      href={LINKS.prendreRdv}
+    <CtaVisio
+      src={origin}
       data-cta="rdv"
       className={className}
       onClick={() => {
         trackDiagnosticContactClicked(origin);
-        trackCtaRdvClick(origin, '/diagnostic-ia-btp');
       }}
-    >
-      {label}
-    </Link>
+    />
   );
 }
 
@@ -195,7 +190,6 @@ export function DiagnosticResult({ result, showLeadForm, leadForm }: Props) {
           </Link>
           <DiagnosticRdvLink
             origin="diagnostic-result-rdv"
-            label="Parler de mon diagnostic"
             className="inline-flex items-center justify-center rounded-xl border-2 border-slate-200 px-6 py-3 text-center text-sm font-semibold text-slate-800 transition hover:border-[#377CF3] hover:bg-[#EFF6FF]"
           />
         </div>
@@ -212,7 +206,6 @@ export function DiagnosticResult({ result, showLeadForm, leadForm }: Props) {
         <div className="mt-4 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
           <DiagnosticRdvLink
             origin="diagnostic-final-cta"
-            label="Échanger sur mon diagnostic"
             className="inline-flex items-center justify-center rounded-xl bg-[#377CF3] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[#2d66d6]"
           />
           <Link

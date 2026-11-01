@@ -1,5 +1,8 @@
+'use client';
+
 import Link from 'next/link';
-import { ArrowRight, Calendar } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
+import { CtaVisio } from '@/components/CtaVisio';
 import {
   PARTENAIRES_PAGE_CLARIFICATION,
   PARTENAIRES_PAGE_H1,
@@ -25,13 +28,10 @@ export function PartenairesPageHero() {
         </p>
         <p className="mx-auto mt-3 max-w-2xl text-sm text-[#64748B]">{PARTENAIRES_PAGE_CLARIFICATION}</p>
         <div className="mt-8 flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:items-center">
-          <Link
-            href={LINKS.prendreRdv}
-            className="inline-flex min-h-[44px] items-center justify-center gap-2 rounded-xl bg-[#377CF3] px-6 py-3 text-base font-semibold text-white hover:bg-[#2563EB] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#377CF3]"
-          >
-            <Calendar className="h-5 w-5 shrink-0" aria-hidden />
-            Organiser une session
-          </Link>
+          <CtaVisio
+            src="partenaires-hero"
+            className="inline-flex min-h-[44px] w-full items-center justify-center gap-2 rounded-xl px-6 py-3 text-base font-semibold sm:w-auto"
+          />
           <Link
             href={LINKS.formations}
             className="inline-flex min-h-[44px] items-center justify-center gap-2 rounded-xl border border-[#CBD5E1] bg-white px-6 py-3 text-base font-semibold text-[#0F172A] hover:border-[#377CF3] hover:text-[#377CF3] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#377CF3]"

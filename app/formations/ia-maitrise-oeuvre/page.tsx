@@ -1,9 +1,9 @@
 import { JsonLd } from '@/components/JsonLd';
 import { CatalogueFormationPageTemplate } from '@/components/formations/catalogue/CatalogueFormationPageTemplate';
+import { buildCatalogueFormationCoursePageJsonLd, buildCatalogueFormationFaqPageJsonLd } from '@/lib/catalogue-formation-page-jsonld';
 import { createPageMetadata, SITE_CONFIG } from '@/lib/seo';
 import { getFormationCatalogueVisuel } from '@/lib/formations-catalogue-display';
 import { LINKS } from '@/lib/internal-links';
-import { buildCatalogueCourseMaitriseOeuvreNiv05JsonLd } from '@/lib/schema-catalogue-course-jsonld';
 import { getFormationCatalogueSeo } from '@/lib/formation-catalogue-seo';
 import { getCatalogueFormationPageContent } from '@/lib/catalogue-formation-page-content';
 
@@ -29,12 +29,14 @@ export const metadata = createPageMetadata({
   },
 });
 
-const courseSchema = buildCatalogueCourseMaitriseOeuvreNiv05JsonLd();
+const courseSchema = buildCatalogueFormationCoursePageJsonLd('NIV-05');
+const faqSchema = buildCatalogueFormationFaqPageJsonLd('NIV-05');
 
 export default async function FormationIaMaitriseOeuvrePage() {
   return (
     <div>
       <JsonLd id="schema-course-niv-05" schema={courseSchema} />
+      {faqSchema ? <JsonLd id="schema-faq-niv-05" schema={faqSchema} /> : null}
 
       <CatalogueFormationPageTemplate
         content={PAGE_CONTENT}

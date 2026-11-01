@@ -37,24 +37,23 @@ export function FormationsIaDisponibles({ filters }: Props) {
     >
       <CatalogModulesLegacyAnchor />
 
-      <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
-        <div className="min-w-0">
-          <h2 id="catalogue-formations-title" className="ofc-type-h2 text-ofc-ink">
-            Sessions disponibles
-          </h2>
-          <p className="mt-2 max-w-2xl text-sm leading-relaxed text-ofc-ink-muted">
-            Comparez les programmes par niveau et par usage métier. Cliquez sur « Voir le programme »
-            pour consulter le détail.
-          </p>
-        </div>
+      <div className="text-center">
+        <h2 id="catalogue-formations-title" className="font-display text-2xl font-bold text-[#101936] md:text-3xl">
+          Choisissez votre formation
+        </h2>
+        <span className="mx-auto mt-3 block h-1 w-12 rounded-full bg-[#377CF3]" aria-hidden />
+        <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-slate-600">
+          Des parcours pratiques adaptés à votre niveau et à votre métier.
+        </p>
       </div>
 
-      <div className="mt-4 rounded-xl border border-[#E2E8F0] bg-white p-4 sm:p-5">
+      <div className="mt-8">
         <Suspense fallback={null}>
           <FormationsCatalogueToolbar />
         </Suspense>
-        <p className="mt-4 text-sm text-ofc-ink-muted">{CATALOGUE_GRILLE_MODALITES_LIGNE}</p>
       </div>
+
+      <p className="mt-4 text-center text-xs text-slate-500 sm:text-sm">{CATALOGUE_GRILLE_MODALITES_LIGNE}</p>
 
       <FormationsCatalogueGrid
         rows={rows}

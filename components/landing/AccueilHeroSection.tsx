@@ -1,14 +1,15 @@
+'use client';
+
 import Link from 'next/link';
 import { ChevronRight } from 'lucide-react';
+import { CtaVisio } from '@/components/CtaVisio';
 import { AccueilHeroVideo } from '@/components/landing/AccueilHeroVideo';
 import { AccueilHeroReassurance } from '@/components/landing/accueil/AccueilHeroReassurance';
 import { AnimHeroRotatorBadges } from '@/components/motion/AnimHeroRotatorBadges';
 import { HeroWordReveal } from '@/components/motion/HeroWordReveal';
 import { Badge } from '@/components/ui/Badge';
-import { PRENDRE_RDV_DUREE_MINUTES } from '@/lib/prendre-rendez-vous-page-config';
 import { LINKS } from '@/lib/internal-links';
 import {
-  OFC_CTA_PRIMARY,
   OFC_CTA_SECONDARY,
   OFC_LINK,
   OFC_TYPE_LEAD,
@@ -49,19 +50,12 @@ export function AccueilHeroSection() {
               .
             </p>
             <div data-anim-follow className="mt-4 flex flex-col gap-2.5 sm:flex-row sm:flex-wrap">
-              <Link
-                href={`${LINKS.prendreRdv}?src=accueil-hero`}
+              <CtaVisio
+                src="accueil-hero"
                 data-cta="rdv-hero"
                 data-anim="roll-button"
-                className={`${OFC_CTA_PRIMARY} inline-flex min-h-11 w-full items-center justify-center gap-2 px-5 py-2.5 text-sm sm:w-auto md:px-6 md:py-3 md:text-base`}
-              >
-                <span className="anim-roll-icon" aria-hidden>
-                  <ChevronRight className="h-3.5 w-3.5 text-white" strokeWidth={2.5} />
-                </span>
-                <span data-roll-label>
-                  Échanger sur mon besoin — visio {PRENDRE_RDV_DUREE_MINUTES} min offerte
-                </span>
-              </Link>
+                className="inline-flex min-h-11 w-full items-center justify-center gap-2 px-5 py-2.5 text-sm sm:w-auto md:px-6 md:py-3 md:text-base"
+              />
               <Link
                 href="#accueil-offre-choix"
                 data-cta="voir-formations"

@@ -1,8 +1,9 @@
-import Link from 'next/link';
+'use client';
+
+import { CtaVisio } from '@/components/CtaVisio';
 import { PRENDRE_RDV_DUREE_MINUTES } from '@/lib/prendre-rendez-vous-page-config';
 import { CONTACT } from '@/lib/constants';
-import { LINKS } from '@/lib/internal-links';
-import { OFC_CTA_PRIMARY, OFC_LINK } from '@/lib/ofc-interaction-classes';
+import { OFC_LINK } from '@/lib/ofc-interaction-classes';
 import { RevealShell } from '@/components/motion/RevealShell';
 
 /** CTA final — visio + téléphone + email cliquables. */
@@ -31,13 +32,11 @@ export function AccueilCtaFinalSection() {
             engagement. Les formations se déroulent en présentiel en Île-de-France.
           </p>
           <div className="mt-8 flex flex-col items-center gap-4">
-            <Link
-              href={`${LINKS.prendreRdv}?src=accueil-cta-final`}
+            <CtaVisio
+              src="accueil-cta-final"
               data-cta="rdv"
-              className={`${OFC_CTA_PRIMARY} inline-flex min-h-11 w-full items-center justify-center border-0 bg-white px-6 py-3 text-ofc-accent shadow-none hover:bg-white/95 sm:w-auto`}
-            >
-              Échanger sur mon besoin
-            </Link>
+              className="inline-flex min-h-11 w-full items-center justify-center border-0 bg-white px-6 py-3 text-ofc-accent shadow-none hover:bg-white/95 sm:w-auto"
+            />
             <p className="flex flex-col gap-2 text-sm text-white/90 sm:flex-row sm:flex-wrap sm:justify-center sm:gap-x-4">
               <a
                 href={`tel:${CONTACT.phone}`}

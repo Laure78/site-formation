@@ -41,7 +41,8 @@
 - Baromètre IA BTP Île-de-France 2026 : https://www.laureolivie.fr/barometre-ia-btp-ile-de-france
 - Blog IA × BTP : https://www.laureolivie.fr/blog
 - Ressources et tutos gratuits : https://www.laureolivie.fr/ressources
-- Parcours et certifications : https://www.laureolivie.fr/a-propos
+- Laure Olivié — à propos : https://www.laureolivie.fr/a-propos
+- Recrutement formateurs (nous rejoindre) : https://www.laureolivie.fr/nous-rejoindre
 - Références et partenaires : https://www.laureolivie.fr/partenaires
 
 ## Références
@@ -51,4 +52,4 @@ FFB Grand Paris · FFB Île-de-France · CSFE (FFB) · CPB (FFB) · CAPEB · CNA
 Laure Olivié · OFC Création d'Entreprise · SIRET 905 244 281 00010 · NDA 11788515078 · 61 rue de Lyon, 75012 Paris · contact@laureolivie.fr · 06 95 66 18 18
 Visio découverte gratuite (30 min) : https://www.laureolivie.fr/prendre-rdv
 
-Dernière mise à jour : 2026-10-29
+Dernière mise à jour : 2026-11-01

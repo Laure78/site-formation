@@ -12,7 +12,7 @@ import type { ModuleDureeHeures } from './types';
 
 export { TARIF_JOURNEE_7H_INTER_HT, TARIF_NUM01_4H_INTER_HT };
 
-/** Intraentreprise et plan de formation — pas de montant catalogue. */
+/** Intra-entreprise et plan de formation — pas de montant catalogue. */
 export const TARIF_INTRA_LIBELLE = 'Sur devis' as const;
 
 export function prixInterHtPourDuree(dureeHeures: ModuleDureeHeures | number): number {

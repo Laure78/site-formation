@@ -626,7 +626,7 @@ export const FAQ_ASSISTANTS_IA_NIV09: FAQItem[] = [
     a: 'Oui, selon l’outil et les droits de votre abonnement. Le module 4 aborde partage, référent par assistant et mises à jour.',
   },
   {
-    q: 'La formation est-elle disponible en intraentreprise ?',
+    q: 'La formation est-elle disponible en intra-entreprise ?',
     a: `Oui, en présentiel dans vos locaux en Île-de-France. Les sessions inter-entreprises ont lieu à ${SITE_INTER_LIEU_COURT}.`,
   },
   {

@@ -1,5 +1,8 @@
+'use client';
+
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
+import { CtaVisio } from '@/components/CtaVisio';
 import { Section } from '@/components/ui/Section';
 import { SectionHeader } from '@/components/ui/SectionHeader';
 import {
@@ -7,11 +10,9 @@ import {
   getAccueilFormationsParNiveau,
   getAccueilParcoursOffre,
 } from '@/lib/accueil-offre-catalogue';
-import { CTA_RDV_LABEL } from '@/lib/cta-rdv-label';
 import { LINKS } from '@/lib/internal-links';
 import {
   OFC_CARD,
-  OFC_CTA_PRIMARY,
   OFC_CTA_SECONDARY,
   OFC_TYPE_H3,
 } from '@/lib/ofc-interaction-classes';
@@ -135,13 +136,11 @@ export function AccueilOffreCatalogueSection() {
         >
           Voir le catalogue
         </Link>
-        <Link
-          href={`${LINKS.prendreRdv}?src=accueil-offre`}
+        <CtaVisio
+          src="accueil-offre"
           data-cta="rdv"
-          className={`${OFC_CTA_PRIMARY} inline-flex min-h-11 items-center justify-center px-6 py-3 text-sm font-semibold`}
-        >
-          {CTA_RDV_LABEL}
-        </Link>
+          className="inline-flex min-h-11 items-center justify-center px-6 py-3 text-sm font-semibold"
+        />
       </div>
     </Section>
   );

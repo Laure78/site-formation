@@ -17,7 +17,7 @@ export function FormationsPlanEntreprise() {
       </h2>
       <p className="mt-3 max-w-2xl text-ofc-ink-muted">
         Composez un plan pour votre équipe à partir des parcours métiers ou de modules ciblés.
-        Intraentreprise et plan de formation : {CATALOGUE_2027_INFOS_PRATIQUES.intraTarif.toLowerCase()}.
+        {CATALOGUE_2027_INFOS_PRATIQUES.intraTarif}
       </p>
       <ul className="mt-6 list-disc space-y-2 pl-5 text-sm text-ofc-ink-muted">
         <li>Adaptation des modules à vos documents et processus</li>

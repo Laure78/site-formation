@@ -1,4 +1,7 @@
+'use client';
+
 import Link from 'next/link';
+import { CtaVisio } from '@/components/CtaVisio';
 import Image from 'next/image';
 import { Check } from 'lucide-react';
 import { CATALOGUE_POSITIONNEMENT } from '@/lib/formations-catalogue-architecture';
@@ -60,12 +63,11 @@ export function FormationsCatalogueHero() {
               >
                 Trouver ma formation
               </a>
-              <Link
-                href={LINKS.prendreRdv}
-                className={`${OFC_CTA_SECONDARY} inline-flex min-h-11 items-center justify-center px-6 py-3`}
-              >
-                Organiser une formation pour mon équipe
-              </Link>
+              <CtaVisio
+                src="catalogue-hero"
+                variant="secondary"
+                className="inline-flex min-h-11 items-center justify-center px-6 py-3"
+              />
             </div>
           </div>
 

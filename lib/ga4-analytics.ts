@@ -4,7 +4,8 @@
  * Chargement gtag : `components/analytics/GoogleAnalytics.tsx` (lazyOnload, après consentement).
  *
  * Conversions à activer dans GA4 Admin → Événements → marquer comme conversion :
- * - `cta_rdv_click` (paramètres : origin, page_path)
+ * - `clic_visio` (paramètres : src, page_path)
+ * - `cta_rdv_click` (paramètres : origin, page_path) — conservé pour rétrocompat GTM
  * - `download_guide` (paramètres : guide_type, file_name, page_path)
  * - `blog_read_complete` (paramètres : article_slug, page_path)
  * - `eventbrite_click` (paramètres : origin, page_path, event_slug) — clic billetterie ≠ inscription confirmée
@@ -81,8 +82,18 @@ export function trackGenerateLead(origin: string, pagePath?: string): void {
   });
 }
 
+/** Clic CTA visio découverte — paramètre `src` (query `?src=` sur `/prendre-rdv`). */
+export function trackClicVisio(src: string, pagePath?: string): void {
+  sendGa4Event('clic_visio', {
+    src,
+    page_path: pagePath ?? getPagePath(),
+    ...aiSourceEventParams(),
+  });
+}
+
 /** Conversion — clic CTA prise de RDV (vers `/prendre-rdv`). */
 export function trackCtaRdvClick(origin: string, pagePath: string): void {
+  trackClicVisio(origin, pagePath);
   sendGa4Event('cta_rdv_click', { origin, page_path: pagePath, ...aiSourceEventParams() });
   trackGenerateLead(origin, pagePath);
 }

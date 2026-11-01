@@ -12,11 +12,11 @@ const RECRUITMENT_MAILTO = formateurRecruitmentMailtoHref();
 /** Hero — hub /nous-rejoindre (formateurs indépendants 2027). */
 export const NOUS_REJOINDRE_FORMATEUR_HERO = {
   eyebrow: 'Recrutement · Catalogue 2027',
-  h1: 'Recrutement de formateurs IA BTP en Île-de-France',
+  h1: 'Vous connaissez le BTP et utilisez l’IA ?',
   hook: 'Vous connaissez le BTP et utilisez l’IA ?',
   intro:
     'Transmettez votre expérience aux professionnels du bâtiment et des travaux publics.',
-  experienceBadge: '2 ans d’expérience BTP minimum',
+  experienceBadge: 'Expérience BTP requise',
   heroHighlights: [
     { label: 'Île-de-France', key: 'lieu' },
     { label: 'Présentiel', key: 'modalite' },
@@ -37,33 +37,34 @@ export const NOUS_REJOINDRE_FORMATEUR_HERO = {
 /** Bandeau d’informations — sous le hero /nous-rejoindre. */
 export const NOUS_REJOINDRE_INFO_STRIP = [
   { label: 'Missions indépendantes', key: 'missions' },
-  { label: 'Catalogue 2027', key: 'catalogue' },
-  { label: 'Présentiel', key: 'presentiel' },
+  { label: 'À partir de 2027', key: 'catalogue' },
+  { label: 'En présentiel', key: 'presentiel' },
   { label: 'Île-de-France', key: 'idf' },
 ] as const;
 
 /** Cartes profils — landing /nous-rejoindre (4 piliers visuels). */
 export const NOUS_REJOINDRE_LANDING_PROFILS = {
-  heading: 'Les profils recherchés',
+  heading: 'Qui recherchons-nous ?',
+  subtitle: 'Actifs ou retraités bienvenus. Expérience terrain indispensable.',
   cards: [
     {
       title: 'Conduite de travaux',
-      description: 'Conducteurs de travaux, chefs de chantier, encadrement terrain.',
+      description: 'Conducteurs de travaux, chefs de chantier, chefs d’équipe.',
       photoKey: 'recrutementLandingProfilConduite' as const,
     },
     {
-      title: 'Études de prix et affaires',
-      description: 'Chargés d’affaires, économistes, responsables études de prix.',
+      title: 'Études de prix & affaires',
+      description: 'Chargés d’affaires, économistes de la construction, responsables études de prix.',
       photoKey: 'recrutementLandingProfilEtudes' as const,
     },
     {
-      title: 'Artisans et dirigeants',
-      description: 'Artisans du bâtiment, dirigeants ou anciens dirigeants de PME BTP.',
+      title: 'Dirigeants & artisans',
+      description: 'Artisans et dirigeants d’entreprises du BTP, en activité ou retraités.',
       photoKey: 'recrutementLandingProfilArtisans' as const,
     },
     {
-      title: 'Gestion et fonctions support',
-      description: 'Assistants de gestion, administratif BTP, fonctions support en entreprise.',
+      title: 'Gestion & fonctions support',
+      description: 'Assistants de gestion et collaborateurs administratifs BTP.',
       photoKey: 'recrutementLandingProfilGestion' as const,
     },
   ] as const,
@@ -73,24 +74,67 @@ export const NOUS_REJOINDRE_LANDING_PROFILS = {
 
 /** Mission formateur — grille compacte landing /nous-rejoindre. */
 export const NOUS_REJOINDRE_MISSION_LANDING = {
-  heading: 'Transmettre l’IA appliquée aux métiers du BTP',
+  heading: 'Votre mission : transmettre l’IA appliquée au BTP',
   intro:
     'Les formateurs accompagnent les professionnels du BTP dans l’utilisation concrète de l’IA sur leurs documents et tâches métier.',
-  applications: [
+  featuredApplications: [
     { title: 'Devis et chiffrage', key: 'devis' },
     { title: 'DCE et appels d’offres', key: 'dce' },
-    { title: 'Mémoires techniques', key: 'memoire' },
     { title: 'Comptes rendus de chantier', key: 'cr' },
-    { title: 'Organisation des travaux', key: 'planning' },
-    { title: 'Gestion administrative', key: 'admin' },
   ] as const,
+  otherUsages: [
+    'Mémoires techniques',
+    'Analyse de CCTP et CCAP',
+    'Documents de chantier',
+    'Suivi administratif',
+    'Automatisation des tâches professionnelles',
+  ] as const,
+} as const;
+
+/** Modalités — section compétences & conditions (/nous-rejoindre). */
+export const NOUS_REJOINDRE_MODALITES = [
+  {
+    title: 'Statut indépendant',
+    body: 'Micro-entreprise ou société — prestations rémunérées selon les modules confiés.',
+  },
+  {
+    title: 'Présentiel en Île-de-France',
+    body: 'Interventions auprès des entreprises du bâtiment et des travaux publics.',
+  },
+  {
+    title: 'Intra ou interentreprises',
+    body: 'Missions adaptées au calendrier et au périmètre convenus avec l’équipe pédagogique.',
+  },
+  {
+    title: 'À partir de 2027',
+    body: 'Profils en activité et retraités acceptés, sous réserve des critères requis.',
+  },
+] as const;
+
+/** Parcours de candidature — hub /nous-rejoindre. */
+export const NOUS_REJOINDRE_CANDIDATURE_PATHS = {
+  heading: 'Parcours de candidature',
+  subtitle: 'Deux voies distinctes : missions de formation indépendantes et emploi salarié.',
+  formateur: {
+    title: 'Formateurs indépendants',
+    description:
+      'Candidature pour animer les formations IA appliquées aux métiers du BTP (catalogue 2027).',
+    ctaLabel: 'Candidater comme formateur indépendant',
+  },
+  salarie: {
+    title: 'Emplois salariés et candidatures spontanées',
+    description:
+      'Consultez les offres publiées ou déposez une candidature spontanée — sans poste garanti tant qu’aucune offre n’est en ligne.',
+    ctaOffersLabel: 'Voir les offres d’emploi',
+    ctaSpontaneeLabel: 'Candidature spontanée',
+  },
 } as const;
 
 /** Bloc conversion — landing /nous-rejoindre. */
 export const NOUS_REJOINDRE_CONVERSION = {
   heading: 'Prêt à transmettre votre expertise BTP ?',
   lead: 'Rejoignez le réseau de formateurs indépendants pour le catalogue 2027 — missions en présentiel en Île-de-France.',
-  ctaLabel: 'Déposer ma candidature',
+  ctaLabel: 'Proposer ma candidature',
 } as const;
 
 /** @deprecated Préférer `NOUS_REJOINDRE_FORMATEUR_HERO`. */
@@ -288,10 +332,11 @@ export const CONSULTANT_PROFILS_RECHERCHES =
 
 export const CONSULTANT_COMPETENCES_RECHERCHEES = [
   'Au moins 2 ans d’expérience professionnelle dans une entreprise du BTP.',
-  'Pratique régulière de ChatGPT, Claude ou d’autres outils d’IA dans un contexte professionnel.',
-  'Capacité à appliquer l’IA à des tâches métier : devis, analyse de DCE, comptes rendus, documents techniques ou gestion administrative.',
-  'Réflexe de vérification des productions de l’IA et respect de la confidentialité des données.',
-  'Capacité à transmettre simplement — l’expérience pédagogique est un plus, pas une condition absolue.',
+  'Expérience concrète des métiers et des documents du BTP.',
+  'Pratique régulière de ChatGPT, Claude ou d’autres outils d’IA.',
+  'Capacité à appliquer l’IA à des situations professionnelles réelles.',
+  'Aptitude à expliquer et transmettre des méthodes.',
+  'Respect de la confidentialité et vérification des productions de l’IA.',
 ] as const;
 
 export const CONSULTANT_CANDIDATURE_INTRO_BEFORE_EMAIL =
@@ -335,7 +380,7 @@ export const NOUS_REJOINDRE_RECRUTEMENT_FAQ: readonly FAQItem[] = [
   },
   {
     q: 'Comment candidater ?',
-    a: `Complétez le <a href="${LINKS.devenezConsultant}">formulaire de candidature formateur</a> ou envoyez CV, parcours BTP, exemple d’usage de l’IA et disponibilités à <a href="${RECRUITMENT_MAILTO}">${RECRUITMENT.email}</a>.`,
+    a: `Complétez le <a href="${LINKS.nousRejoindreCandidatureFormateur}">formulaire de candidature formateur</a> ou envoyez CV, parcours BTP, exemple d’usage de l’IA et disponibilités à <a href="${RECRUITMENT_MAILTO}">${RECRUITMENT.email}</a>.`,
   },
   {
     q: 'Comment se déroule la sélection ?',
@@ -343,7 +388,7 @@ export const NOUS_REJOINDRE_RECRUTEMENT_FAQ: readonly FAQItem[] = [
   },
   {
     q: 'S’agit-il d’un emploi salarié ou d’une mission indépendante ?',
-    a: `Le recrutement formateur vise des missions indépendantes. Pour un emploi salarié, consultez la section « Emploi salarié » sur cette page ou déposez une <a href="${LINKS.candidaturesSpontanees}">candidature spontanée</a>.`,
+    a: `Le recrutement formateur vise des missions indépendantes. Pour un emploi salarié, consultez la section « Emploi salarié » sur cette page ou déposez une <a href="${LINKS.nousRejoindreCandidatureSpontanee}">candidature spontanée</a>.`,
   },
 ];
 

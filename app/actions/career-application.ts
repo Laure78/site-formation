@@ -17,6 +17,7 @@ import {
 } from '@/lib/career-form-validation';
 import { formatConsultantParcoursSlugs } from '@/lib/consultant-parcours-metiers-options';
 import { RECRUITMENT } from '@/lib/constants';
+import { LINKS } from '@/lib/internal-links';
 
 function careerNotifyEmail(_kind: CareerFormInput['kind']): string {
   return RECRUITMENT.email;
@@ -313,7 +314,7 @@ export async function submitCareerApplicationAction(
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.laureolivie.fr';
   const sourcePage =
     data.sourcePage.trim() ||
-    `${baseUrl.replace(/\/$/, '')}${data.kind === 'consultant' ? '/devenez-consultant' : '/candidatures-spontanees'}`;
+    `${baseUrl.replace(/\/$/, '')}${data.kind === 'consultant' ? LINKS.nousRejoindreCandidatureFormateur : LINKS.nousRejoindreCandidatureSpontanee}`;
   const submittedAt = new Date().toISOString();
 
   const applicationRow = {

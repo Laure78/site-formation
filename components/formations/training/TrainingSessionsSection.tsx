@@ -1,5 +1,7 @@
 import Link from 'next/link';
 import { CalendarDays } from 'lucide-react';
+import { CtaDevis } from '@/components/CtaDevis';
+import { CtaVisio } from '@/components/CtaVisio';
 import { TrainingSection } from '@/components/formations/training/TrainingSection';
 import { TRAINING_ANCHOR } from '@/lib/training-fiche-nav';
 import { LINKS } from '@/lib/internal-links';
@@ -67,9 +69,7 @@ export async function TrainingSessionsSection({ formationTitle, formationSlug }:
               <Link href={contactHref} className={`${OFC_CTA_SECONDARY} inline-flex min-h-11 px-5 py-2.5 text-sm`}>
                 Demander une date
               </Link>
-              <Link href={LINKS.prendreRdv} className="text-sm font-semibold text-[#377CF3] hover:underline">
-                Échanger sur mon besoin
-              </Link>
+              <CtaVisio src="training-sessions-empty" variant="inline" className="text-sm font-semibold" />
             </div>
           </div>
         )}
@@ -82,9 +82,11 @@ export async function TrainingSessionsSection({ formationTitle, formationSlug }:
             <a href={`#${TRAINING_ANCHOR.sessions}`} className={`${OFC_CTA_PRIMARY} inline-flex min-h-11 items-center justify-center px-5 py-2.5 text-sm`}>
               Consulter les dates
             </a>
-            <Link href={devisHref} className={`${OFC_CTA_SECONDARY} inline-flex min-h-11 items-center justify-center px-5 py-2.5 text-sm`}>
-              Demander un devis
-            </Link>
+            <CtaDevis
+              href={devisHref}
+              variant="secondary"
+              className="inline-flex min-h-11 items-center justify-center px-5 py-2.5 text-sm"
+            />
           </div>
         </div>
       </div>

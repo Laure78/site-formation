@@ -1,5 +1,5 @@
 /**
- * Contenu éditorial — page /rejoindre-equipe (recrutement formateurs).
+ * Contenu éditorial — section #rejoindre-equipe du hub /nous-rejoindre.
  * Partenaires et indicateurs : sources `lib/constants.ts` / règles projet.
  */
 import { PREUVES } from '@/lib/constants';
@@ -31,7 +31,7 @@ export const REJOINDRE_EQUIPE_BADGES = [
   { label: 'Présentiel en Île-de-France' },
 ] as const;
 
-/** Texte CTA candidature — l’adresse email est rendue cliquable dans `app/rejoindre-equipe/page.tsx`. */
+/** Texte CTA candidature — l’adresse email est rendue cliquable dans `RejoindreEquipeOfferSection`. */
 export const REJOINDRE_EQUIPE_CTA = {
   intro:
     'Pour candidater, envoyez votre CV et quelques lignes sur votre parcours BTP à',

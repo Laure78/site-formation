@@ -34,6 +34,6 @@ export const CATALOGUE_2027_INFOS_PRATIQUES = {
     'Une prise en charge OPCO peut être étudiée selon votre situation et les critères du financeur.',
   subrogation:
     'Absence de subrogation : l’entreprise règle l’organisme puis demande le remboursement selon l’accord de son financeur. Le remboursement n’est pas garanti.',
-  intraTarif: 'Intraentreprise et plan de formation : sur devis',
+  intraTarif: 'Intra-entreprise et plan de formation : sur devis',
   pasCpf: 'Ces formations ne sont pas éligibles au CPF.',
 } as const;

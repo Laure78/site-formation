@@ -145,8 +145,11 @@ export async function TrainingPageTemplate({
   const programmeHeading = content.programmeHeading ?? 'Programme de la formation';
   const objectivesTitle = content.objectivesTitle ?? 'Objectifs pédagogiques';
 
-  const finalPrimaryHref = content.finalCta.devisHref ?? LINKS.prendreRdv;
-  const finalSecondaryHref = content.finalCta.secondaryHref ?? devisHref;
+  const legacyDevisHref = content.finalCta.devisHref;
+  const finalPrimaryHref = content.finalCta.primaryHref ?? LINKS.prendreRdv;
+  const finalSecondaryHref =
+    content.finalCta.secondaryHref ??
+    (legacyDevisHref && legacyDevisHref !== LINKS.prendreRdv ? legacyDevisHref : devisHref);
 
   const sidebarProps = {
     formationTitle: formation.titre,
@@ -364,12 +367,10 @@ export async function TrainingPageTemplate({
 
       <TrainingFinalCta
         variant="dark"
+        visioSrc={`catalogue-fiche-${ref}`}
         primaryHref={finalPrimaryHref}
-        primaryLabel={
-          content.finalCta.primaryLabel ?? 'Réservez votre visio découverte gratuite'
-        }
         secondaryHref={finalSecondaryHref}
-        secondaryLabel={content.finalCta.secondaryLabel ?? 'Demander un devis'}
+        secondaryLabel={content.finalCta.secondaryLabel}
         title={content.finalCta.title}
         description={content.finalCta.description}
         note={content.finalCta.note ?? 'Rendez-vous découverte · 30 min'}

@@ -17,26 +17,31 @@ import { ofcSectionClasses } from '@/lib/ofc-section-classes';
 
 type ConsultantFormateurCandidatureSectionProps = {
   sourcePage: string;
+  /** Hub /nous-rejoindre : masque le lien « retour ». */
+  embedded?: boolean;
 };
 
 export function ConsultantFormateurCandidatureSection({
   sourcePage,
+  embedded = false,
 }: ConsultantFormateurCandidatureSectionProps) {
   const mailtoRecrutement = formateurRecruitmentMailtoHref();
 
   return (
     <section
-      id="candidature"
+      id="candidature-formateur"
       className={`${ofcSectionClasses({ tone: 'muted', size: 'compact', divide: true })} scroll-mt-[calc(var(--site-header-height,4rem)+0.5rem)]`}
       aria-labelledby="candidature-heading"
     >
       <div className={RECRUITMENT_PAGE_INNER}>
-        <p className="text-sm font-medium text-slate-600">
-          <Link href={LINKS.nousRejoindre} className="text-[#377CF3] underline-offset-2 hover:underline">
-            ← Retour à la page recrutement
-          </Link>
-        </p>
-        <h2 id="candidature-heading" className={`${OFC_TYPE_H2} mt-4`}>
+        {!embedded ? (
+          <p className="text-sm font-medium text-slate-600">
+            <Link href={LINKS.nousRejoindre} className="text-[#377CF3] underline-offset-2 hover:underline">
+              ← Retour à la page recrutement
+            </Link>
+          </p>
+        ) : null}
+        <h2 id="candidature-heading" className={`${OFC_TYPE_H2} ${embedded ? '' : 'mt-4'}`}>
           {FORMATEUR_RECRUITMENT_2027_CAMPAIGN.sections.candidatureHeading}
         </h2>
 
@@ -81,7 +86,7 @@ export function ConsultantFormateurCandidatureSection({
             sourcePage={sourcePage}
             submitLabel="Envoyer ma candidature"
             groupedLayout
-            successRedirectPath={LINKS.devenezConsultantMerci}
+            successRedirectPath={LINKS.nousRejoindreMerci}
           />
         </div>
 
@@ -92,14 +97,14 @@ export function ConsultantFormateurCandidatureSection({
         <p className={`mt-4 text-sm text-slate-600 ${RECRUITMENT_PAGE_PROSE}`}>
           Vous recherchez un{' '}
           <Link
-            href={`${LINKS.nousRejoindre}#emplois-salarie-heading`}
+            href={`${LINKS.nousRejoindre}#job-offers-heading`}
             className="font-medium text-[#377CF3] underline"
           >
             emploi salarié
           </Link>{' '}
           ou souhaitez une{' '}
           <Link
-            href={LINKS.candidaturesSpontanees}
+            href={LINKS.nousRejoindreCandidatureSpontanee}
             className="font-medium text-[#377CF3] underline"
           >
             candidature spontanée

@@ -12,10 +12,12 @@ export const FORMATION_COURSE_DURATION_ISO = 'PT4H';
 /** Schema.org / Google — présentiel (jamais « online »). */
 export const FORMATION_COURSE_MODE_ONSITE = 'Onsite';
 export const FORMATION_COURSE_AREA_IDF = 'Île-de-France';
-export const FORMATION_COURSE_IN_LANGUAGE = 'fr-FR';
+/** Langue des formations — JSON-LD fiches catalogue (Schema.org). */
+export const FORMATION_COURSE_IN_LANGUAGE = 'fr';
 /** Qualiopi — libellé court pour Course.educationalCredentialAwarded. */
 export const FORMATION_COURSE_CREDENTIAL_AWARDED = 'Certificat de réalisation';
-export const FORMATION_COURSE_OFFER_CATEGORY = 'HT / participant';
+/** Catégorie tarif inter-entreprises (JSON-LD `Offer.category`). */
+export const FORMATION_COURSE_OFFER_CATEGORY = 'Inter-entreprises';
 
 const FORBIDDEN_MODE_PATTERNS = [
   /\bBlended\b/i,
@@ -84,14 +86,15 @@ export function buildFormationCourseInstanceLocation(): Record<string, unknown> 
   };
 }
 
-/** Instance CourseInstance — intra-entreprise, présentiel IDF (courseMode Onsite, PT4H). */
+/** Instance CourseInstance — inter-entreprises, présentiel IDF uniquement. */
 export function buildFormationCourseInstances(
-  duration: string = FORMATION_COURSE_DURATION_ISO
+  duration: string = FORMATION_COURSE_DURATION_ISO,
+  instanceName = 'Session inter-entreprises — présentiel',
 ): Record<string, unknown>[] {
   return [
     {
       '@type': 'CourseInstance',
-      name: 'Session intra-entreprise — présentiel',
+      name: instanceName,
       courseMode: FORMATION_COURSE_MODE_ONSITE,
       courseWorkload: duration,
       inLanguage: FORMATION_COURSE_IN_LANGUAGE,
@@ -199,11 +202,20 @@ function collectCourseInstances(hasCourseInstance: unknown): Record<string, unkn
   return [];
 }
 
+export type AssertFormationFicheCourseOptions = {
+  /** Durée ISO attendue (ex. PT7H). Par défaut : `course.timeRequired`. */
+  timeRequired?: string;
+};
+
 /** Assertions partagées — scripts de validation et tests. */
 export function assertFormationFicheCourseSchema(
   course: Record<string, unknown>,
-  label: string
+  label: string,
+  options: AssertFormationFicheCourseOptions = {},
 ): void {
+  const expectedDuration =
+    options.timeRequired ??
+    (typeof course.timeRequired === 'string' ? course.timeRequired : FORMATION_COURSE_DURATION_ISO);
   if (course['@type'] !== 'Course') {
     throw new Error(`${label}: @type Course attendu`);
   }
@@ -218,6 +230,9 @@ export function assertFormationFicheCourseSchema(
   }
   if (course.inLanguage !== FORMATION_COURSE_IN_LANGUAGE) {
     throw new Error(`${label}: inLanguage doit être « ${FORMATION_COURSE_IN_LANGUAGE} »`);
+  }
+  if (course.timeRequired !== expectedDuration) {
+    throw new Error(`${label}: timeRequired ${String(course.timeRequired)} — attendu ${expectedDuration}`);
   }
   if (course.educationalCredentialAwarded !== FORMATION_COURSE_CREDENTIAL_AWARDED) {
     throw new Error(
@@ -246,21 +261,44 @@ export function assertFormationFicheCourseSchema(
 
   const instances = collectCourseInstances(course.hasCourseInstance);
   if (instances.length < 1) {
-    throw new Error(`${label}: hasCourseInstance doit contenir au moins 1 instance intra-entreprise`);
+    throw new Error(`${label}: hasCourseInstance doit contenir au moins 1 instance`);
   }
   for (const [i, inst] of instances.entries()) {
     if (inst.courseMode !== FORMATION_COURSE_MODE_ONSITE) {
       throw new Error(`${label}: instance ${i + 1} — courseMode Onsite requis`);
     }
-    if (inst.courseWorkload !== FORMATION_COURSE_DURATION_ISO) {
-      throw new Error(`${label}: instance ${i + 1} — courseWorkload ${FORMATION_COURSE_DURATION_ISO} requis`);
+    if (inst.courseWorkload !== expectedDuration) {
+      throw new Error(
+        `${label}: instance ${i + 1} — courseWorkload ${String(inst.courseWorkload)} — attendu ${expectedDuration}`,
+      );
+    }
+    if (inst.inLanguage !== FORMATION_COURSE_IN_LANGUAGE) {
+      throw new Error(`${label}: instance ${i + 1} — inLanguage « ${FORMATION_COURSE_IN_LANGUAGE} » requis`);
     }
     const instName = typeof inst.name === 'string' ? inst.name : '';
     if (!instName.toLowerCase().includes('présentiel')) {
       throw new Error(`${label}: instance ${i + 1} — libellé présentiel attendu`);
     }
-    if (!instName.toLowerCase().includes('intra')) {
-      throw new Error(`${label}: instance ${i + 1} — libellé intra-entreprise attendu`);
+    const loc = inst.location;
+    const placeName =
+      loc && typeof loc === 'object' && 'name' in loc ? String((loc as { name: unknown }).name) : '';
+    if (!placeName.includes(FORMATION_COURSE_AREA_IDF)) {
+      throw new Error(`${label}: instance ${i + 1} — location Place Île-de-France requise`);
+    }
+  }
+
+  const offers = course.offers;
+  if (offers && typeof offers === 'object' && !Array.isArray(offers)) {
+    if (offers['@type'] !== 'Offer') {
+      throw new Error(`${label}: offers.@type Offer requis`);
+    }
+    if (offers.priceCurrency !== 'EUR') {
+      throw new Error(`${label}: offers.priceCurrency EUR requis`);
+    }
+    if (offers.category !== FORMATION_COURSE_OFFER_CATEGORY) {
+      throw new Error(
+        `${label}: offers.category « ${FORMATION_COURSE_OFFER_CATEGORY} » requis (${String(offers.category)})`,
+      );
     }
   }
 

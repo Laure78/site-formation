@@ -54,20 +54,26 @@ export const LINKS = {
   avisClients: '/avis-clients',
   partenaires: '/partenaires',
   contact: '/contact',
-  /** Carrière — hub recrutement (offres salariées, candidatures) */
+  /** Carrière — hub recrutement (offres, formulaires, annonce équipe). */
   nousRejoindre: '/nous-rejoindre',
+  /** Formulaire formateur indépendant — ancre sur le hub. */
+  nousRejoindreCandidatureFormateur: '/nous-rejoindre#candidature-formateur',
+  /** Candidature spontanée — ancre sur le hub. */
+  nousRejoindreCandidatureSpontanee: '/nous-rejoindre#candidature-spontanee',
+  /** Bloc « rejoindre l’équipe » — ancre sur le hub. */
+  nousRejoindreEquipe: '/nous-rejoindre#rejoindre-equipe',
   /** @deprecated Préférer `nousRejoindre`. */
   emplois: '/nous-rejoindre',
-  /** Confirmation envoi — candidature formateur indépendant (noindex). */
+  /** Confirmation envoi candidature (noindex). */
   nousRejoindreMerci: '/nous-rejoindre/merci',
-  /** Candidature formateur indépendant — formulaire en ligne. */
-  devenezConsultant: '/devenez-consultant',
-  /** Confirmation envoi — candidature formateur (noindex). */
-  devenezConsultantMerci: '/devenez-consultant/merci',
-  /** Carrière — candidature spontanée */
-  candidaturesSpontanees: '/candidatures-spontanees',
-  /** Carrière — recrutement formateurs (annonce) */
-  rejoindreEquipe: '/rejoindre-equipe',
+  /** @deprecated 301 → `nousRejoindreCandidatureFormateur`. */
+  devenezConsultant: '/nous-rejoindre#candidature-formateur',
+  /** @deprecated 301 → `nousRejoindreMerci`. */
+  devenezConsultantMerci: '/nous-rejoindre/merci',
+  /** @deprecated 301 → `nousRejoindreCandidatureSpontanee`. */
+  candidaturesSpontanees: '/nous-rejoindre#candidature-spontanee',
+  /** @deprecated 301 → `nousRejoindre`. */
+  rejoindreEquipe: '/nous-rejoindre#rejoindre-equipe',
   financement: '/financement-constructys-formation-ia-btp',
   /** Canonique RDV — URL courte ; `/prendre-rendez-vous` → 301. */
   prendreRdv: '/prendre-rdv',

@@ -4,6 +4,10 @@
  */
 
 import { PREUVES } from '@/lib/constants';
+import {
+  contentUpdatedAtToSchemaIso,
+  getPillarPageContentUpdatedAt,
+} from '@/lib/content-updated-at';
 import { getAProposPagePersonDescription, FAQ_A_PROPOS_PAGE } from '@/lib/a-propos-page-config';
 import { PHOTOS } from '@/lib/photos';
 import {
@@ -159,7 +163,7 @@ export function getAProposUnifiedJsonLd(): Record<string, unknown> {
     url: PAGE_URL,
     name: 'Laure Olivié — Organisme de formation IA BTP',
     dateCreated: '2022-01-15T12:00:00+01:00',
-    dateModified: '2026-04-07T12:00:00+02:00',
+    dateModified: contentUpdatedAtToSchemaIso(getPillarPageContentUpdatedAt('/a-propos')),
     mainEntity: { '@id': PERSON_ID },
     about: { '@id': ORGANIZATION_ID },
     speakable: {

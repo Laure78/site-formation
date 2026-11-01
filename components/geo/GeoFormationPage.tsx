@@ -229,9 +229,8 @@ export function GeoFormationPage(props: GeoFormationPageProps) {
                 Constructys. Formation dispensée par un organisme certifié Qualiopi — présentiel uniquement.
               </>
             }
-            primaryLabel="Prendre rendez-vous (30 min, gratuit)"
             primaryHref={LINKS.prendreRdv}
-            primaryCalendlyCampaign={`geo-formation-${slug}-cta-block`}
+            primaryOrigin={`geo-formation-${slug}-cta-block`}
             secondaryLabel="Catalogue des formations"
             secondaryHref={LINKS.formations}
           />

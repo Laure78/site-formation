@@ -1,5 +1,8 @@
+'use client';
+
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
+import { CtaVisio } from '@/components/CtaVisio';
 import { getAllParcoursComputed } from '@/data/catalogue-2027';
 import {
   getAccueilParcoursOffre,
@@ -55,12 +58,10 @@ export function ParcoursMetiersOrientation() {
             >
               Voir les formations IA
             </Link>
-            <Link
-              href={`${LINKS.prendreRdv}?src=parcours-metiers`}
-              className={`${OFC_CTA_PRIMARY} inline-flex min-h-11 items-center justify-center px-6 py-3`}
-            >
-              Échanger sur mon besoin
-            </Link>
+            <CtaVisio
+              src="parcours-metiers"
+              className="inline-flex min-h-11 items-center justify-center px-6 py-3"
+            />
           </div>
         </div>
       </section>

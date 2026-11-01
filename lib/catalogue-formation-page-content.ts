@@ -114,6 +114,9 @@ export type CatalogueFormationPageContent = {
     description: string;
     secondaryLabel?: string;
     primaryLabel?: string;
+    /** CTA visio — défaut `/prendre-rdv`. */
+    primaryHref?: string;
+    /** @deprecated Préférer `primaryHref` (visio) et `secondaryHref` (devis). */
     devisHref?: string;
     secondaryHref?: string;
     /** Note discrète sous les CTA (ex. « Rendez-vous découverte · 30 min »). */
@@ -141,8 +144,9 @@ const DEFAULT_FINAL_CTA = {
   description:
     'Cadrage métier, niveau et cas pratiques avant la session pour adapter le programme.',
   primaryLabel: 'Réservez votre visio découverte gratuite',
-  devisHref: LINKS.prendreRdv,
+  primaryHref: LINKS.prendreRdv,
   secondaryLabel: 'Demander un devis',
+  secondaryHref: LINKS.contact,
   note: 'Rendez-vous découverte · 30 min',
 } as const;
 
@@ -295,9 +299,9 @@ const NIV_01: CatalogueFormationPageContent = {
     description:
       'Les besoins et cas d’usage de votre entreprise sont étudiés avant la session, pour adapter le programme à votre équipe.',
     primaryLabel: 'Réservez votre visio découverte gratuite',
-    devisHref: LINKS.prendreRdv,
+    primaryHref: LINKS.prendreRdv,
     secondaryLabel: 'Demander un devis',
-    secondaryHref: undefined,
+    secondaryHref: LINKS.contact,
     note: 'Rendez-vous découverte · 30 min',
   },
   pdfHref: LINKS.pdfProgrammeIaBtpNiveau1BatimentTp,
@@ -937,9 +941,8 @@ const NIV_09: CatalogueFormationPageContent = {
     title: 'Inscrivez-vous à la formation assistants IA BTP',
     description:
       `${SITE_INTER_LIEU} ou format intra en Île-de-France. Prise en charge OPCO possible selon éligibilité — places limitées à 12 participants.`,
-    primaryLabel: 'Je m’inscris',
+    primaryHref: `${LINKS.contact}?objet=inscription&formation=${encodeURIComponent(getFormationByCode('NIV-09')!.titre)}`,
     secondaryLabel: 'Télécharger le programme',
-    devisHref: `${LINKS.contact}?objet=inscription&formation=${encodeURIComponent(getFormationByCode('NIV-09')!.titre)}`,
     secondaryHref: LINKS.pdfProgrammeAssistantsIaPersonnalisesBtp,
     note: undefined,
   },

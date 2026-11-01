@@ -1,78 +1,114 @@
 # Projet — laureolivie.fr
-# Site vitrine + blog — OFC Création d'Entreprise — formation IA pour le BTP
-# Stack : Next.js 15 (App Router) · React · TypeScript · Tailwind CSS · Cloudflare
+# Site vitrine + blog — « Laure Olivié », marque commerciale d'OFC Création d'Entreprise
+# Organisme de formation IA pour le BTP — certifié Qualiopi
+# Stack : Next.js 16 (App Router) · React 19 · TypeScript · Tailwind CSS v4
+# Version règles : 01/11/2026
 
 ## Objectif unique
-SEO + GEO au service d'un seul CTA : « Réservez votre visio découverte gratuite » → /prendre-rdv (Calendly intégré).
-Positionnement : formatrice IA spécialisée BTP — PRÉSENTIEL, ÎLE-DE-FRANCE uniquement.
+SEO + GEO au service d'un seul CTA visio : « Réservez votre visio découverte gratuite » → `/prendre-rdv` (Calendly).
+Devis écrit → `/contact`, libellé « Demander un devis » (`CtaDevis`).
+Positionnement : organisme de formation IA spécialisé BTP — PRÉSENTIEL, ÎLE-DE-FRANCE uniquement.
 
 ## Stack & conventions techniques
-- App Router (app/). Une route = un dossier avec page.tsx.
-- Métadonnées via export `metadata` / `generateMetadata()` (jamais de <head> manuel).
-- Images via next/image en WebP.
-- Header, Footer, CtaRdv : un seul exemplaire réutilisé partout (pas d'ancien gabarit).
-- JSON-LD généré par lib/schema.ts, injecté via <script type="application/ld+json">.
-- Redirections 301 dans next.config (redirects()), jamais deux pages 200 pour une même intention.
+- App Router (`app/`). Une route = un dossier avec `page.tsx`.
+- Métadonnées via export `metadata` / `generateMetadata()` — jamais de `<head>` manuel.
+- Contenu indexable rendu côté serveur (Server Components). INTERDIT de charger en client-only
+  (« Chargement… ») un contenu SEO : catalogue, grille formateurs, FAQ, avis.
+- Images via `next/image` (WebP/AVIF), `alt` renseigné, `priority` uniquement sur le LCP.
+- Header, Footer, CTA, bloc confiance : UN seul composant partagé, utilisé sur toutes les routes.
+- Redirections 301 dans `next.config` (`redirects()`), jamais deux pages 200 pour une même intention.
+- JSON-LD via `lib/schema*.ts`, injecté `<script type="application/ld+json">` dans layout/page.
 
 ## Sources de données uniques (ne jamais coder en dur)
-- Tarifs, durées, effectifs, versions : lib/data/formations.ts
-- Satisfaction : lib/data/indicateurs-resultats.ts (4,45/5 — 20 répondants, juillet 2025 – juin 2026)
-- URL Calendly : lib/constants.ts (CALENDLY_URL)
-- Toute modification de ces fichiers → mettre à jour public/llms.txt
+- Identité, contact, adresse, Qualiopi, satisfaction, geo : `lib/site-config.ts` (alias `SITE` / aligner `lib/schema-constants.ts`, `lib/seo.ts`).
+- Tarifs, durées, effectifs, versions formations : `lib/data/formations.ts` · indicateurs : `lib/data/indicateurs-resultats.ts`.
+- Liens internes : `lib/internal-links.ts` (`LINKS`) — étendre le fichier, jamais d'URL en dur ailleurs.
+- Calendly : `lib/constants.ts` (`CALENDLY_URL`) · href RDV : `lib/prendre-rdv-href.ts` (`buildPrendreRdvHref`).
+- Toute modification de faits site → mettre à jour `public/llms.txt` (`npm run llms:sync`).
 
-## Faits — à respecter strictement
-- Laure Olivié : 7 ans d'expérience dans le BTP, ancienne dirigeante d'ALIA BTP (travaux publics, 2017-2024). NE JAMAIS écrire « conductrice de travaux » ni « 10 ans ».
-- Ne jamais publier de cumul de personnes formées.
-- Email : contact@laureolivie.fr (jamais l'adresse yahoo). Tél : 06 95 66 18 18.
-- TVA : « TVA exonérée, article 261-4-4° du CGI » (jamais « non applicable », jamais 293 B).
-- Financement : « prise en charge OPCO/Constructys selon éligibilité » — jamais « 100 % finançable », jamais « garanti ».
+## Données de référence (alignées sur `lib/site-config.ts`)
+- Marque : Laure Olivié — marque commerciale d'OFC Création d'Entreprise (SASU)
+- SIRET 905 244 281 00010 · NDA 11788515078 (ne vaut pas agrément de l'État)
+- Qualiopi : certificat n° 520911-1, Certifopac, valide du 16/01/2025 au 15/01/2028 (actions de formation)
+- Siège ET lieu des sessions inter : 61 rue de Lyon, 75012 Paris (depuis 27/10/2026 — Guyancourt = ANCIENNE adresse, ne plus afficher)
+- Contact : contact@laureolivie.fr · 06 95 66 18 18 · recrutement@laureolivie.fr (jamais Yahoo)
+- Satisfaction : 4,45/5 (20 répondants, juillet 2025 – juin 2026) — renvoyer vers `/indicateurs-resultats`
+- Expérience : 7 ans dans le BTP, ex-dirigeante d'ALIA BTP (travaux publics, 2017-2024). NE JAMAIS « conductrice de travaux » ni « 10 ans ».
+- Instructrice LinkedIn Learning : 2 cours (IA BTP ; IA TPE/PME — recrutement)
+- Tarifs inter : 120 € HT/participant (Niveau 1, 4 h) · 310 € HT/participant/jour (formats 7 h) · intra sur devis
+- TVA : « TVA exonérée, article 261-4-4° du CGI » (jamais « non applicable », jamais 293 B)
+- Pas de CPF, pas de formation individuelle, pas de subrogation OPCO.
+- Ne jamais publier de cumul de personnes formées (« 1 592 » supprimé définitivement).
+
+## CTA (conversion + analytics)
+- Visio : composant `<CtaVisio src="…" />` — libellé unique « Réservez votre visio découverte gratuite », query `?src=`, GA4 `clic_visio` + param `src`.
+- Devis : `<CtaDevis href="…" />` — libellé unique « Demander un devis ».
+- `@deprecated` : `<CtaRdv origin="…" />` → alias de `CtaVisio`.
+- Max 3 CTA conversion visibles par page (milieu, fin, sticky mobile) — pas de libellés alternatifs (« Échanger sur mon besoin », « Prendre rendez-vous », etc.) sur les boutons RDV/devis.
 
 ## Audience — labels AUTORISÉS
-professionnels du BTP · PME du bâtiment · dirigeants BTP · conducteurs de travaux · chargés d'affaires · maîtres d'œuvre · fonctions support
-Ne JAMAIS employer « artisans » comme label de public cible (ni dans les slugs).
+professionnels du BTP · PME du bâtiment et des travaux publics · dirigeants BTP · conducteurs de travaux ·
+chargés d'affaires · maîtres d'œuvre · assistants travaux / fonctions support
+Ne JAMAIS employer « artisans » comme label de public cible principal (ni dans les slugs).
 
 ## Interdits absolus (ne jamais écrire)
-GERESO · ARFBABOF · FSE+ · Mon Compte Formation · tarif journalier
-« distanciel » / « à distance » / « en ligne » / « e-learning » / « visio » — SAUF la visio découverte de cadrage.
+- GERESO · ARFBABOF · FSE+ · Mon Compte Formation · CPF (sauf « non éligible au CPF ») · tarif journalier formateur
+- Lefebvre Dalloz · UMB-FFB (ne plus citer) · Copilot (non enseigné)
+- Aucun bandeau promotionnel (ex. « −20 % ») sans validation écrite de Laure
+- « 100 % finançable » / « financement garanti » → « prise en charge OPCO/Constructys selon éligibilité »
+- « 4,85/5 » · cumul personnes formées
+- « distanciel » / « à distance » / « en ligne » / « e-learning » pour une FORMATION
+  (exceptions : visio découverte Calendly ; webinaire d'information, libellé « hors catalogue »)
 
 ## Positionnement géographique (strict)
 Présentiel UNIQUEMENT · Île-de-France UNIQUEMENT (75-77-78-91-92-93-94-95). Aucune promesse nationale ni distancielle.
 
-## Preuves E-E-A-T
-Qualiopi (Certifopac n° 520911-1) · satisfaction 4,45/5 (20 répondants) · ex-dirigeante ALIA BTP · Master Stratégie d'entreprise CNAM · Instructrice LinkedIn Learning (2 cours).
-Interventions : FFB Grand Paris · FFB Île-de-France · CSFE · CNAM Entreprises · CAPEB · Le Moniteur Formations.
-Ne PAS citer Lefebvre Dalloz. Ne citer aucun autre partenaire sans validation.
-Aucun cumul de personnes formées (le chiffre « 1 592 » est supprimé définitivement).
-Toutes les formations, y compris « Créer des applications métier BTP avec l'IA », sont en présentiel uniquement.
+## Preuves E-E-A-T (formulations exactes)
+Qualiopi n° 520911-1 · 4,45/5 (20 répondants) · 7 ans BTP (ALIA BTP) · Instructrice LinkedIn Learning · Activateur France Num.
+Références : FFB Grand Paris · FFB Île-de-France · FFB Artisans · CSFE (étanchéité, FFB) · CPB (bois, FFB) · Le Moniteur Formations.
+Ne citer aucun autre partenaire sans validation. Équipe : formateurs réels, nommés avec accord — pas de profil illustratif.
 
 ## Mots-clés
-- Piliers : formation IA BTP · formation IA bâtiment · formation IA construction · formation ChatGPT BTP · formation Claude AI BTP · formatrice IA BTP
-- Paris (UNE seule page /formation-ia-paris) : formation IA BTP Paris · formation IA bâtiment Paris · formation IA dans la construction à Paris
-- Tâches : mémoire technique IA · analyse DCE IA · CCTP IA · devis BTP ChatGPT · CR chantier IA · DOE · PPSPS
-- Local : départements 77/78/91/92/93/94/95
+- Piliers : formation IA BTP · formation IA bâtiment · formation IA construction · formation ChatGPT BTP · formation Claude AI BTP
+- Paris (UNE page : `/formation-ia-paris`) : formation IA BTP Paris · formation IA bâtiment Paris · formation IA construction Paris
+- Tâches : mémoire technique IA · analyse DCE IA · CCTP IA · devis BTP ChatGPT · CR chantier IA · DOE · PPSPS · marchés publics de travaux
+- Local : `/formation-ia-btp-ile-de-france` (hub) + pages départements
 
-## URL canoniques (une par intention)
-/formation-ia-btp (pilier) · /formation-ia-btp-ile-de-france · /formation-ia-paris · /formation-ia-conducteur-de-travaux · /formation-ia-dirigeant-pme-btp · /formations/maitriser-claude-ai-btp · /prendre-rdv
+## Une URL par intention (anti-cannibalisation)
+- Formation IA BTP (générique) → `/formation-ia-btp` · catalogue → `/formations` · accueil = marque
+- Conduite de travaux → `/formations/ia-conduite-travaux-suivi-chantier` (`/formation-ia-conducteur-de-travaux` = guide métier → fiche)
+- Qui est Laure → `/a-propos` (pas de page `/formateur-ia-btp` concurrente : 301 ou différenciation nette)
+- Recrutement → `/nous-rejoindre` UNIQUEMENT (301 : `/rejoindre-equipe`, `/devenez-consultant`, `/emplois`, `/candidatures-spontanees`)
+- Visio → `/prendre-rdv` · contact/devis → `/contact`
 
 ## Conventions SEO
 - 1 H1 unique/page avec le mot-clé principal ; hiérarchie H2/H3 logique.
-- Title ≤ 60 car. suffixe " | Laure Olivié" INCLUS ; pas de nom répété deux fois.
-- Meta description 120–160 car., phrase complète, mot-clé en tête.
-- Descriptions d'articles rédigées à la main.
-- alt descriptif ≤ 125 car., 1 mot-clé max.
-- Canonical auto-référencé ; sitemap avec lastmod réel (jamais la date de build).
-- Maillage : ≥ 3 liens internes/page vers le pilier du cluster.
-- Max 3 CTA par page (milieu, fin, sticky mobile), tous via <CtaRdv/>.
+- Title ≤ 60 car., suffixe « | Laure Olivié » INCLUS (tronquer le titre avant le suffixe).
+- Meta description 140–160 car., phrase complète (jamais d'ellipse), mot-clé en tête + CTA.
+- alt descriptif ≤ 125 car., 1 mot-clé max ; logo = alt identique partout.
+- Canonical auto-référencé ; sitemap `lastmod` réel. Aucune page orpheline. ≥ 3 liens internes/page vers le pilier du cluster.
+- Bloc « En bref » factuel en tête ; date « Mis à jour le » réelle (`dateModified`).
+- Netlinking : max 5 liens internes/article blog ; jamais 2 liens même URL/page ; ancres descriptives.
 
 ## GEO
-- Schema : Organization, Person (sameAs LinkedIn + LinkedIn Learning), Course (courseMode onsite), FAQPage, BreadcrumbList.
-- robots : bots IA autorisés (GPTBot, OAI-SearchBot, ClaudeBot, Claude-SearchBot, PerplexityBot, Perplexity-User, Google-Extended, Applebot-Extended).
-- llms.txt à jour ; bloc « En bref » en tête de page ; FAQ question → réponse directe ; dates de mise à jour visibles.
+- Schema : Organization/EducationalOrganization (adresse Paris 12e), Person (Laure, sameAs), Course (+ CourseInstance location IDF),
+  FAQPage, BreadcrumbList, Article (`BlogPosting`).
+- robots : GPTBot, OAI-SearchBot, ChatGPT-User, ClaudeBot, Claude-SearchBot, PerplexityBot, Perplexity-User, Google-Extended, Applebot-Extended autorisés.
+- `public/llms.txt` à jour avec les faits site.
+- Meta geo/ICBM : 61 rue de Lyon (≈ 48.8466, 2.3713) — PAS Guyancourt.
 
 ## Charte OFC
 Bleu #377CF3 · Blanc #FFFFFF · Gris #F2F2F2 · Poppins (fallback Century Gothic) · theme-color #377CF3.
 Bouton CTA : fond #377CF3, texte blanc, arrondi 8px.
-Mentions : OFC Création d'Entreprise · SIRET 905 244 281 00010 · NDA 11788515078 · 61 rue de Lyon, 75012 Paris.
+Mentions footer : OFC · SIRET · NDA · disclaimer NDA · `<QualiopiBadge />` (jamais logo seul).
+
+## Qualiopi (juridique)
+Fiches formation : 9 sections réglementaires via `InfosQualiopi` / catalogue — aucune supprimée.
+Promesses chiffrées → `<DisclaimerGains />`.
 
 ## Règle de sécurité éditoriale
-Entre une formulation « forte » et une « exacte », choisir l'EXACTE. Ne jamais survendre un partenariat ou une prise en charge.
+Entre une formulation « forte » et une « exacte », choisir l'EXACTE. Ne jamais survendre un partenariat,
+un effectif ou une prise en charge. En cas de doute sur un chiffre : ne pas l'écrire.
+
+## Audit CTA
+`npm run audit:cta-labels` — repère liens `/prendre-rdv` et `/contact` hors composants canoniques.

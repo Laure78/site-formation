@@ -1,4 +1,7 @@
+'use client';
+
 import Link from 'next/link';
+import { CtaVisio } from '@/components/CtaVisio';
 import { ClipboardList, Sparkles, ShieldCheck } from 'lucide-react';
 import { EtudeCasHubCard } from '@/components/etudes-de-cas/EtudeCasHubCard';
 import { EtudesDeCasReferencesSection } from '@/components/etudes-de-cas/EtudesDeCasReferencesSection';
@@ -145,9 +148,11 @@ export function EtudesDeCasHubPageContent() {
                 <Link href={LINKS.formations} className={`${OFC_CTA_ON_ACCENT} w-full sm:w-auto`}>
                   Découvrir les formations
                 </Link>
-                <Link href={LINKS.prendreRdv} className={`${OFC_CTA_GHOST_ON_ACCENT} w-full sm:w-auto`}>
-                  Échanger sur mon projet
-                </Link>
+                <CtaVisio
+                  src="etudes-de-cas-hub"
+                  variant="secondary"
+                  className={`${OFC_CTA_GHOST_ON_ACCENT} w-full sm:w-auto`}
+                />
               </div>
             </div>
           </div>

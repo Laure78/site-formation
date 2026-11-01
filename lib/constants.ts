@@ -64,6 +64,10 @@ export const IDF_DEPARTEMENTS_LISTE = IDF_DEPARTEMENTS.join(', ');
 export const IDF_ZONE_INTERVENTION =
   `Paris et toute l'Île-de-France (${IDF_DEPARTEMENTS_LISTE})` as const;
 
+/** Après « en présentiel » — « à Paris et dans toute l'Île-de-France (…) » */
+export const IDF_ZONE_PRESENTIEL =
+  `à Paris et dans toute l'Île-de-France (${IDF_DEPARTEMENTS_LISTE})` as const;
+
 /**
  * Preuves sociales consolidées — ne pas dupliquer ces valeurs ailleurs.
  * Période et mise à jour : voir `/indicateurs-resultats`.

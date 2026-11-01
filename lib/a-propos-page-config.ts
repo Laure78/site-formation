@@ -2,7 +2,8 @@
  * Page `/a-propos` — contenu UX et preuves vérifiées (source unique page).
  */
 import { PREUVES } from '@/lib/constants';
-import { IDF_ZONE_INTERVENTION } from '@/lib/constants';
+import { IDF_ZONE_INTERVENTION, IDF_ZONE_PRESENTIEL } from '@/lib/constants';
+import { getPillarPageContentUpdatedAt } from '@/lib/content-updated-at';
 import { MODALITE_FORMATIONS_PRESENTIEL } from '@/lib/tarifs-sessions';
 import { LINKS } from '@/lib/internal-links';
 import { OFC_IDENTITE, QUALIOPI_LEGAL } from '@/lib/qualiopi-info';
@@ -26,6 +27,9 @@ export const A_PROPOS_PAGE_PROOF_LINE =
   'Organisme certifié Qualiopi · Spécialisation IA BTP · Instructrice LinkedIn Learning' as const;
 
 /** Page principale « organisme de formation IA BTP » (≠ `/formateur-ia-btp` → « formateur »). */
+/** Date de fraîcheur éditoriale — UI « Mis à jour le … » + JSON-LD `dateModified`. */
+export const A_PROPOS_PAGE_UPDATED_AT = getPillarPageContentUpdatedAt('/a-propos');
+
 export const A_PROPOS_PAGE_META_TITLE = 'Organisme de formation IA BTP | Laure Olivié' as const;
 
 export const A_PROPOS_PAGE_META_DESCRIPTION =
@@ -185,15 +189,15 @@ export const A_PROPOS_LINKEDIN_COURSES = LAURE_OLIVIE_LINKEDIN_LEARNING_COURSES;
 export const FAQ_A_PROPOS_PAGE: FAQItem[] = [
   {
     q: 'Laure Olivié est-elle un organisme de formation IA pour le BTP ?',
-    a: `Oui. Laure Olivié est la marque commerciale de OFC Création d'Entreprise, organisme certifié Qualiopi qui dispense les formations en intelligence artificielle pour les entreprises du bâtiment et des travaux publics — devis, appels d'offres, conduite de travaux — en présentiel en ${IDF_ZONE_INTERVENTION}. Laure Olivié en est la fondatrice. <a href="${LINKS.formations}">Découvrir les formations IA pour le BTP</a> · <a href="${LINKS.formateurs}">Voir l'équipe de formateurs</a>.`,
+    a: `Oui. Laure Olivié est la marque commerciale de OFC Création d'Entreprise, organisme certifié Qualiopi qui dispense les formations en intelligence artificielle pour les entreprises du bâtiment et des travaux publics — devis, appels d'offres, conduite de travaux — en présentiel ${IDF_ZONE_PRESENTIEL}. Laure Olivié en est la fondatrice. <a href="${LINKS.formations}">Découvrir les formations IA pour le BTP</a> · <a href="${LINKS.formateurs}">Voir l'équipe de formateurs</a>.`,
   },
   {
     q: 'Qui est Laure Olivié ?',
-    a: `Laure Olivié est une formatrice en intelligence artificielle appliquée aux entreprises du bâtiment et des travaux publics, en présentiel en Île-de-France. ${LAURE_OLIVIE_BIO_REFERENCE} Elle intervient aussi comme instructrice LinkedIn Learning (deux cours sur l’IA et les TPE). Parcours détaillé sur cette page ; programmes : <a href="${LINKS.formations}">catalogue des formations IA BTP</a>.`,
+    a: `Laure Olivié est une formatrice en intelligence artificielle appliquée aux entreprises du bâtiment et des travaux publics, en présentiel en Île-de-France. ${LAURE_OLIVIE_BIO_REFERENCE} Elle intervient aussi comme instructrice LinkedIn Learning (deux cours : l'IA pour le BTP et l'IA pour recruter dans les TPE et PME). Parcours détaillé sur cette page ; programmes : <a href="${LINKS.formations}">catalogue des formations IA BTP</a>.`,
   },
   {
     q: 'Quelle est son expérience dans le BTP ?',
-    a: `Laure Olivié s’appuie sur ${formatAnneesExperienceBTP()} dans le BTP, dont la direction d’ALIA BTP, PME de travaux publics et revêtements (2017-2024), et une expérience antérieure de chargée de formation au CNFPT (2009-2019). Elle connaît le vocabulaire chantier (DCE, CCTP, CR, mémoires techniques, devis) et forme depuis 2022 sur des documents métier réels. Références : <a href="${LINKS.partenaires}">partenaires et réseaux BTP</a>.`,
+    a: `Laure Olivié s’appuie sur ${formatAnneesExperienceBTP()}, dont la direction d’ALIA BTP, PME de travaux publics et revêtements (2017-2024), et une expérience antérieure de chargée de formation au CNFPT (2009-2019). Elle connaît le vocabulaire chantier (DCE, CCTP, CR, mémoires techniques, devis) et forme depuis 2022 sur des documents métier réels. Références : <a href="${LINKS.partenaires}">partenaires et réseaux BTP</a>.`,
   },
   {
     q: 'Quel est le lien entre Laure Olivié et OFC Création d’Entreprise ?',

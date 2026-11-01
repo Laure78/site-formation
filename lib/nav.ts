@@ -17,8 +17,8 @@ export type NavItem = {
 /** Hub carrière — menu « Notre organisme » + colonne footer « Notre organisme ». */
 export const NAV_ITEM_NOUS_REJOINDRE: NavItem = {
   href: LINKS.nousRejoindre,
-  label: 'Devenir formateur IA BTP',
-  title: 'Recrutement formateurs indépendants IA BTP — Île-de-France',
+  label: 'Nous rejoindre',
+  title: 'Recrutement formateurs IA BTP — candidatures et offres',
 };
 
 /** URL partage avis Google — footer (lien utilisateur vérifié). */
@@ -156,17 +156,17 @@ export const NAV_ORGANISME: readonly NavItem[] = [
 export const NAV_CARRIERE: readonly NavItem[] = [
   NAV_ITEM_NOUS_REJOINDRE,
   {
-    href: LINKS.rejoindreEquipe,
+    href: LINKS.nousRejoindreEquipe,
     label: 'Rejoindre l’équipe',
-    title: 'Devenir formateur IA BTP — rejoindre l’équipe',
+    title: 'Devenir formateur IA BTP — rejoindre l’équipe OFC',
   },
   {
-    href: LINKS.nousRejoindre,
-    label: 'Devenez consultant',
-    title: 'Proposer une expertise de consultant-formateur IA BTP',
+    href: LINKS.nousRejoindreCandidatureFormateur,
+    label: 'Candidature formateur',
+    title: 'Formulaire formateur indépendant IA BTP',
   },
   {
-    href: LINKS.candidaturesSpontanees,
+    href: LINKS.nousRejoindreCandidatureSpontanee,
     label: 'Candidature spontanée',
     title: 'Déposer une candidature spontanée',
   },
@@ -183,7 +183,7 @@ export const NAV_FOOTER_RESSOURCES: readonly NavItem[] = [
   { href: LINKS.etudesCasHub, label: 'Études de cas', title: 'Études de cas IA BTP' },
   {
     href: LINKS.prendreRdv,
-    label: 'Échanger sur mon besoin',
+    label: 'Réservez votre visio découverte gratuite',
     title: 'Visio découverte gratuite — cadrage de votre projet IA BTP',
   },
 ];

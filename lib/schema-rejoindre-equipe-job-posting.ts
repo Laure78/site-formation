@@ -1,5 +1,5 @@
 /**
- * JSON-LD JobPosting — page /rejoindre-equipe.
+ * JSON-LD JobPosting — hub /nous-rejoindre (section rejoindre l’équipe).
  */
 import { SCHEMA_PUBLIC_SITE_URL } from '@/lib/schema-constants';
 import { siteOrganizationPostalAddress } from '@/lib/schema-site-proof';

@@ -1,2 +1,2 @@
-# Voir la source publiée : /public/llms.txt (servie en /llms.txt).
-# Ne pas maintenir une deuxième version contradictoire ici.
+# Source unique : lib/llms-txt-content.ts
+# Publication : npm run llms:sync → public/llms.txt (servi en /llms.txt)

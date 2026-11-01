@@ -15,6 +15,7 @@ export const ROBOTS_SITEMAP = `${SITE_BASE}/sitemap.xml`;
  */
 export const PRIVATE_DISALLOW = [
   '/api/',
+  '/auth/',
   '/admin/',
   '/acces-admin',
   '/espace-apprenant/',
@@ -26,19 +27,19 @@ export const SEARCH_BOTS = ['Googlebot', 'Bingbot'] as const;
 /**
  * Bots IA / GEO — Allow explicite sur `/` (liste projet laureolivie.fr).
  */
-export const AI_BOTS = [
+/** Bots IA / GEO — Allow explicite (liste requise projet + Perplexity-User). */
+export const AI_BOTS_REQUIRED = [
   'GPTBot',
-  'ChatGPT-User',
   'OAI-SearchBot',
+  'ChatGPT-User',
   'ClaudeBot',
-  'Claude-User',
   'Claude-SearchBot',
-  'anthropic-ai',
   'PerplexityBot',
-  'Perplexity-User',
   'Google-Extended',
   'Applebot-Extended',
 ] as const;
+
+export const AI_BOTS = [...AI_BOTS_REQUIRED, 'Claude-User', 'anthropic-ai', 'Perplexity-User'] as const;
 
 const DISALLOW_PATHS: string[] = [...PRIVATE_DISALLOW];
 

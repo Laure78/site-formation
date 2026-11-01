@@ -2,9 +2,16 @@
 
 import type { ReactNode } from 'react';
 import Link from 'next/link';
-import { CTA_RDV_LABEL, CtaRdv } from '@/components/CtaRdv';
+import { CtaDevis } from '@/components/CtaDevis';
+import { CtaVisio } from '@/components/CtaVisio';
 import { isCalendlyBookingHref } from '@/lib/calendly';
+import { LINKS } from '@/lib/internal-links';
 import { SITE } from '@/lib/site';
+
+function isContactHref(href: string): boolean {
+  const path = href.split('?')[0]?.replace(/\/$/, '') ?? '';
+  return path === LINKS.contact || path.endsWith('/contact');
+}
 
 function CtaHref({
   href,
@@ -17,7 +24,7 @@ function CtaHref({
 }) {
   if (href.startsWith('http://') || href.startsWith('https://')) {
     return (
-      <a href={href} target="_blank" className={className}>
+      <a href={href} target="_blank" rel="noopener noreferrer" className={className}>
         {children}
       </a>
     );
@@ -34,15 +41,15 @@ interface CTABlockProps {
   description?: ReactNode;
   primaryLabel?: string;
   primaryHref?: string;
-  /** @deprecated — utiliser `secondaryOrigin`. */
+  /** @deprecated — utiliser `primaryOrigin` / `src` sur CtaVisio. */
   primaryCalendlyCampaign?: string;
   secondaryLabel?: string;
   secondaryHref?: string;
   /** @deprecated — utiliser `secondaryOrigin`. */
   secondaryCalendlyCampaign?: string;
-  /** Origin GA4 pour le CTA RDV primary (défaut : `cta-block-primary`). */
+  /** `src` GA4 pour le CTA visio primary (défaut : `cta-block-primary`). */
   primaryOrigin?: string;
-  /** Origin GA4 pour le CTA RDV secondary (défaut : `cta-block-secondary`). */
+  /** `src` GA4 pour le CTA visio secondary (défaut : `cta-block-secondary`). */
   secondaryOrigin?: string;
   variant?: 'default' | 'compact';
 }
@@ -64,8 +71,8 @@ export function CTABlock({
   secondaryOrigin,
   variant = 'default',
 }: CTABlockProps) {
-  const primaryRdvOrigin = primaryOrigin ?? primaryCalendlyCampaign;
-  const secondaryRdvOrigin = secondaryOrigin ?? secondaryCalendlyCampaign;
+  const primaryRdvSrc = primaryOrigin ?? primaryCalendlyCampaign;
+  const secondaryRdvSrc = secondaryOrigin ?? secondaryCalendlyCampaign;
 
   const primaryClass =
     'inline-flex items-center justify-center rounded-xl bg-white px-6 py-3 font-semibold text-[var(--accent)] hover:bg-slate-50';
@@ -87,17 +94,21 @@ export function CTABlock({
       </div>
       <div className="mt-6 flex flex-wrap gap-4">
         {isRdvHref(primaryHref) ? (
-          <CtaRdv origin={primaryRdvOrigin} variant="secondary" className={primaryClass} />
+          <CtaVisio src={primaryRdvSrc} variant="secondary" className={primaryClass} />
+        ) : isContactHref(primaryHref) ? (
+          <CtaDevis href={primaryHref} variant="primary" className={primaryClass} />
         ) : (
           <CtaHref href={primaryHref} className={primaryClass}>
             {primaryLabel}
           </CtaHref>
         )}
         {isRdvHref(secondaryHref) ? (
-          <CtaRdv origin={secondaryRdvOrigin} variant="secondary" className={secondaryClass} />
+          <CtaVisio src={secondaryRdvSrc} variant="secondary" className={secondaryClass} />
+        ) : isContactHref(secondaryHref) ? (
+          <CtaDevis href={secondaryHref} variant="secondary" className={secondaryClass} />
         ) : (
           <CtaHref href={secondaryHref} className={secondaryClass}>
-            {secondaryLabel ?? CTA_RDV_LABEL}
+            {secondaryLabel ?? primaryLabel}
           </CtaHref>
         )}
       </div>

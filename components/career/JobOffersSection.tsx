@@ -58,7 +58,7 @@ export function JobOffersSection({
             </p>
             {showEmptyStateAction ? (
               <Link
-                href={LINKS.candidaturesSpontanees}
+                href={LINKS.nousRejoindreCandidatureSpontanee}
                 className={`${OFC_CTA_PRIMARY} mt-4 inline-flex min-h-11 items-center justify-center rounded-lg px-5 py-2.5 text-base font-semibold`}
               >
                 Envoyer une candidature spontanée
@@ -86,7 +86,7 @@ export function JobOffersSection({
                   {offer.missionSummary}
                 </p>
                 <Link
-                  href={`${LINKS.emplois}/${offer.slug}`}
+                  href={`${LINKS.nousRejoindre}/${offer.slug}`}
                   className={`${OFC_CTA_PRIMARY} mt-5 inline-flex min-h-11 items-center justify-center rounded-lg px-4 py-2.5 text-base font-semibold`}
                 >
                   Voir l’offre

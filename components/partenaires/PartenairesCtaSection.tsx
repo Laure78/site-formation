@@ -1,5 +1,8 @@
+'use client';
+
 import Link from 'next/link';
-import { ArrowRight, Calendar } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
+import { CtaVisio } from '@/components/CtaVisio';
 import { LINKS } from '@/lib/internal-links';
 
 export function PartenairesCtaSection() {
@@ -18,13 +21,10 @@ export function PartenairesCtaSection() {
         Échangeons sur les profils à former, les usages prioritaires et le format de la session.
       </p>
       <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-        <Link
-          href={LINKS.prendreRdv}
-          className="inline-flex min-h-[44px] items-center justify-center gap-2 rounded-xl bg-[#377CF3] px-6 py-3 text-base font-semibold text-white hover:bg-[#2563EB] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#377CF3]"
-        >
-          <Calendar className="h-5 w-5" aria-hidden />
-          Organiser une session
-        </Link>
+        <CtaVisio
+          src="partenaires-cta"
+          className="inline-flex min-h-[44px] items-center justify-center gap-2 rounded-xl px-6 py-3 text-base font-semibold"
+        />
         <Link
           href={LINKS.formations}
           className="inline-flex min-h-[44px] items-center justify-center gap-2 rounded-xl border border-[#CBD5E1] bg-white px-6 py-3 text-base font-semibold text-[#0F172A] hover:border-[#377CF3] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#377CF3]"

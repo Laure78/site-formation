@@ -20,7 +20,7 @@ export function ConsultantWhyOfcSection() {
           {NOUS_REJOINDRE_WHY_ORGANISME.cards.map((card) => (
             <li
               key={card.title}
-              className="flex h-full flex-col rounded-lg border border-slate-200 bg-slate-50/40 p-4 sm:p-5"
+              className="flex h-full flex-col rounded-xl border border-slate-200/90 bg-white p-4 shadow-sm sm:p-5 motion-safe:transition-shadow motion-safe:duration-200 motion-safe:hover:shadow-md"
             >
               <h3 className="font-display text-lg font-bold text-slate-900">{card.title}</h3>
               <p className="mt-2 text-sm leading-relaxed text-slate-600">{card.body}</p>

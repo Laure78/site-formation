@@ -2,28 +2,25 @@ import type { Metadata } from 'next';
 import { JsonLd } from '@/components/JsonLd';
 import { createPageMetadata, SITE_CONFIG } from '@/lib/seo';
 import { PHOTOS } from '@/lib/photos';
-import { FormationsCatalogue2027Hero } from '@/components/formations/catalogue-2027/FormationsCatalogue2027Hero';
-import { FormationsCataloguePageNav } from '@/components/formations/catalogue-2027/FormationsCataloguePageNav';
-import { FormationsCatalogueReassuranceLine } from '@/components/formations/catalogue-2027/FormationsCatalogueReassuranceLine';
-import { FormationsCatalogueParcoursMetiers2027Banner } from '@/components/formations/catalogue-2027/FormationsCatalogueParcoursMetiers2027Banner';
+import { FormationsCatalogueMaquetteHero } from '@/components/formations/catalogue-2027/FormationsCatalogueMaquetteHero';
+import { FormationsCatalogueInfoBanner } from '@/components/formations/catalogue-2027/FormationsCatalogueInfoBanner';
 import { FormationsIaDisponibles } from '@/components/formations/catalogue-2027/FormationsIaDisponibles';
-import { FormationsCatalogueParcoursCompact } from '@/components/formations/catalogue-2027/FormationsCatalogueParcoursCompact';
-import { FormationsCatalogueFormateursTeaser } from '@/components/formations/catalogue-2027/FormationsCatalogueFormateursTeaser';
 import { FormationsCatalogueEntrepriseCompact } from '@/components/formations/catalogue-2027/FormationsCatalogueEntrepriseCompact';
+import { FormationsCatalogueFormateursTeaser } from '@/components/formations/catalogue-2027/FormationsCatalogueFormateursTeaser';
 import { FormationsCatalogueFinancementEncadre } from '@/components/formations/catalogue-2027/FormationsCatalogueFinancementEncadre';
 import { FormationsContact2027 } from '@/components/formations/catalogue-2027/FormationsContact2027';
 import { FormationsCatalogueFaqSection } from '@/components/formations/catalogue-2027/FormationsCatalogueFaqSection';
+import { FormationsCatalogueClosingCta } from '@/components/formations/catalogue-2027/FormationsCatalogueClosingCta';
 import { FormationsCatalogueMobileBar } from '@/components/formations/catalogue-2027/FormationsCatalogueMobileBar';
 import { buildFormationsPageUnifiedGraphJsonLd } from '@/lib/schema-formations-page-graph';
 import { siteGeoPositionMeta } from '@/lib/site-config';
-import { isParcoursMetiers2027Visible } from '@/lib/parcours-metiers-2027-visibility';
 import { parseFormationsCataloguePageFilters } from '@/lib/catalogue-filter-url';
 
 const baseUrl = SITE_CONFIG.url.replace(/\/$/, '');
 
 const CATALOGUE_TITLE = 'Catalogue des formations IA BTP | Laure Olivié';
 const CATALOGUE_DESCRIPTION =
-  'Découvrez les formations IA pour le BTP de Laure Olivié. Consultez les programmes, niveaux et durées. Formations en présentiel en Île-de-France.';
+  'Formations IA pour les PME du BTP : programmes, niveaux et durées en présentiel en Île-de-France. Réservez une visio découverte gratuite ou demandez un devis.';
 
 export const revalidate = 3600;
 
@@ -82,28 +79,17 @@ export default async function FormationsPage({ searchParams }: FormationsPagePro
   return (
     <>
       <JsonLd id="schema-formations-page-graph" schema={buildFormationsPageUnifiedGraphJsonLd()} />
-      <FormationsCatalogue2027Hero />
+      <FormationsCatalogueMaquetteHero />
 
-      <div className="mx-auto max-w-[80rem] px-4 pb-24 pt-1 sm:px-6 lg:px-8">
-        <div className="space-y-6 md:space-y-7">
-          <FormationsCatalogueReassuranceLine />
-          <div className="-mx-4 sm:-mx-6 lg:-mx-8">
-            <FormationsCataloguePageNav />
-          </div>
-          <FormationsIaDisponibles filters={catalogueFilters} />
-
-          {isParcoursMetiers2027Visible() ? (
-            <>
-              <FormationsCatalogueParcoursMetiers2027Banner />
-              <FormationsCatalogueParcoursCompact />
-            </>
-          ) : null}
-          <FormationsCatalogueFormateursTeaser />
-          <FormationsCatalogueEntrepriseCompact />
-          <FormationsCatalogueFinancementEncadre />
-          <FormationsContact2027 formationHint={null} />
-          <FormationsCatalogueFaqSection />
-        </div>
+      <div className="mx-auto max-w-[80rem] space-y-12 px-4 pb-16 pt-6 sm:px-6 md:space-y-14 lg:px-8 lg:pb-20">
+        <FormationsCatalogueInfoBanner />
+        <FormationsIaDisponibles filters={catalogueFilters} />
+        <FormationsCatalogueEntrepriseCompact />
+        <FormationsCatalogueFormateursTeaser />
+        <FormationsCatalogueFinancementEncadre />
+        <FormationsContact2027 formationHint={null} />
+        <FormationsCatalogueFaqSection />
+        <FormationsCatalogueClosingCta />
       </div>
 
       <FormationsCatalogueMobileBar />

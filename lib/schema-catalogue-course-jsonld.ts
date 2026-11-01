@@ -5,9 +5,11 @@
  */
 import {
   CATALOGUE_DUREE_BASES_IA_ONLY,
+  formationTimeRequiredIso,
   getFormationByCode,
   libelleEffectifFormation,
   libelleEffectifMaxFormation,
+  type FormationCode,
 } from '@/data/formations';
 import { getFormationCatalogueByRef } from '@/lib/formations-catalogue-display';
 import { TARIF_INTER_DEV_WEB_IA_14H_HT } from '@/lib/formation-developpement-web-ia-content';
@@ -19,8 +21,8 @@ import {
   SCHEMA_PUBLIC_SITE_URL,
 } from '@/lib/schema-constants';
 import {
-  FORMATION_COURSE_DURATION_ISO,
   FORMATION_COURSE_OFFER_CATEGORY,
+  buildFormationCourseInstances,
   buildFormationFicheCourseJsonLd,
 } from '@/lib/schema-formation-course-jsonld';
 import { buildQualiopiCredentialSchema } from '@/lib/qualiopi-info';
@@ -120,6 +122,7 @@ export type CatalogueCourseJsonLdConfig = {
 };
 
 export type FormationCatalogueRichCourseConfig = {
+  ref: FormationCode;
   path:
     | typeof LINKS.formationIaBtpNiveau1BatimentTp
     | typeof LINKS.formationAO
@@ -130,7 +133,8 @@ export type FormationCatalogueRichCourseConfig = {
     | typeof LINKS.formationApplicationMetierBtpNiveau2
     | typeof LINKS.formationApplicationMetierBtpNiveau3
     | typeof LINKS.formationAssistantsIaPersonnalisesBtp
-    | typeof LINKS.formationDeveloppementWebIaSansCoder;
+    | typeof LINKS.formationDeveloppementWebIaSansCoder
+    | (typeof LEGACY_APPLICATION_METIER_PATH)[keyof typeof LEGACY_APPLICATION_METIER_PATH];
   name: string;
   description: string;
   price?: number;
@@ -163,6 +167,7 @@ export const CATALOGUE_COURSE_IA_AO_NIV02: CatalogueCourseJsonLdConfig = {
 };
 
 export const FORMATION_RICH_COURSE_NIV01: FormationCatalogueRichCourseConfig = {
+  ref: 'NIV-01',
   path: LINKS.formationIaBtpNiveau1BatimentTp,
   name: CATALOGUE_COURSE_IA_BTP_NIV01.name,
   description: CATALOGUE_COURSE_IA_BTP_NIV01.description,
@@ -172,6 +177,7 @@ export const FORMATION_RICH_COURSE_NIV01: FormationCatalogueRichCourseConfig = {
 };
 
 export const FORMATION_RICH_COURSE_NIV02: FormationCatalogueRichCourseConfig = {
+  ref: 'NIV-02',
   path: LINKS.formationAO,
   name: CATALOGUE_COURSE_IA_AO_NIV02.name,
   description: CATALOGUE_COURSE_IA_AO_NIV02.description,
@@ -192,6 +198,7 @@ export const CATALOGUE_COURSE_CONDUITE_TRAVAUX_NIV03: CatalogueCourseJsonLdConfi
 };
 
 export const FORMATION_RICH_COURSE_NIV03: FormationCatalogueRichCourseConfig = {
+  ref: 'NIV-03',
   path: LINKS.formationConduiteTravauxSuiviChantier,
   name: CATALOGUE_COURSE_CONDUITE_TRAVAUX_NIV03.name,
   description: CATALOGUE_COURSE_CONDUITE_TRAVAUX_NIV03.description,
@@ -211,6 +218,7 @@ export const CATALOGUE_COURSE_MAITRISER_CLAUDE_NIV04: CatalogueCourseJsonLdConfi
 };
 
 export const FORMATION_RICH_COURSE_NIV04: FormationCatalogueRichCourseConfig = {
+  ref: 'NIV-04',
   path: LINKS.formationMaitriserClaudeAiBtp,
   name: CATALOGUE_COURSE_MAITRISER_CLAUDE_NIV04.name,
   description: CATALOGUE_COURSE_MAITRISER_CLAUDE_NIV04.description,
@@ -231,6 +239,7 @@ export const CATALOGUE_COURSE_MAITRISE_OEUVRE_NIV05: CatalogueCourseJsonLdConfig
 };
 
 export const FORMATION_RICH_COURSE_NIV05: FormationCatalogueRichCourseConfig = {
+  ref: 'NIV-05',
   path: LINKS.formationIaMaitriseOeuvre,
   name: CATALOGUE_COURSE_MAITRISE_OEUVRE_NIV05.name,
   description: CATALOGUE_COURSE_MAITRISE_OEUVRE_NIV05.description,
@@ -255,7 +264,8 @@ export const CATALOGUE_COURSE_APPLICATION_METIER_NIV06: CatalogueCourseJsonLdCon
 };
 
 export const FORMATION_RICH_COURSE_NIV06: FormationCatalogueRichCourseConfig = {
-  path: LINKS.formationApplicationMetierBtpNiveau1,
+  ref: 'NIV-06',
+  path: LEGACY_APPLICATION_METIER_PATH.niveau1,
   name: CATALOGUE_COURSE_APPLICATION_METIER_NIV06.name,
   description: CATALOGUE_COURSE_APPLICATION_METIER_NIV06.description,
   price: prixCatalogue('NIV-06'),
@@ -274,7 +284,8 @@ export const CATALOGUE_COURSE_APPLICATION_METIER_NIV07: CatalogueCourseJsonLdCon
 };
 
 export const FORMATION_RICH_COURSE_NIV07: FormationCatalogueRichCourseConfig = {
-  path: LINKS.formationApplicationMetierBtpNiveau2,
+  ref: 'NIV-07',
+  path: LEGACY_APPLICATION_METIER_PATH.niveau2,
   name: CATALOGUE_COURSE_APPLICATION_METIER_NIV07.name,
   description: CATALOGUE_COURSE_APPLICATION_METIER_NIV07.description,
   price: prixCatalogue('NIV-07'),
@@ -293,7 +304,8 @@ export const CATALOGUE_COURSE_APPLICATION_METIER_NIV08: CatalogueCourseJsonLdCon
 };
 
 export const FORMATION_RICH_COURSE_NIV08: FormationCatalogueRichCourseConfig = {
-  path: LINKS.formationApplicationMetierBtpNiveau3,
+  ref: 'NIV-08',
+  path: LEGACY_APPLICATION_METIER_PATH.niveau3,
   name: CATALOGUE_COURSE_APPLICATION_METIER_NIV08.name,
   description: CATALOGUE_COURSE_APPLICATION_METIER_NIV08.description,
   price: prixCatalogue('NIV-08'),
@@ -318,6 +330,7 @@ export const CATALOGUE_COURSE_ASSISTANTS_IA_NIV09: CatalogueCourseJsonLdConfig =
 };
 
 export const FORMATION_RICH_COURSE_NIV09: FormationCatalogueRichCourseConfig = {
+  ref: 'NIV-09',
   path: LINKS.formationAssistantsIaPersonnalisesBtp,
   name: CATALOGUE_COURSE_ASSISTANTS_IA_NIV09.name,
   description: CATALOGUE_COURSE_ASSISTANTS_IA_NIV09.description,
@@ -340,16 +353,16 @@ function buildCatalogueOffer(
   };
 
   if (price != null) {
-    offer.price = String(price);
+    offer.price = price;
     offer.priceSpecification = {
       '@type': 'PriceSpecification',
-      price: String(price),
+      price,
       priceCurrency: 'EUR',
       valueAddedTaxIncluded: false,
       description: PRICE_SPEC_DESCRIPTION_BY_REF[catalogueRef] ?? FORMATION_COURSE_OFFER_CATEGORY,
     };
   } else {
-    offer.description = PRICE_SPEC_DESCRIPTION_BY_REF[catalogueRef] ?? 'Session intra sur devis';
+    offer.description = PRICE_SPEC_DESCRIPTION_BY_REF[catalogueRef] ?? 'Session inter sur devis';
   }
 
   return offer;
@@ -367,11 +380,12 @@ export function buildFormationCatalogueRichCourseJsonLd(
 ): Record<string, unknown> {
   const base = SCHEMA_PUBLIC_SITE_URL.replace(/\/$/, '');
   const courseUrl = `${base}${config.path}`;
-  const catalogueRef = CATALOGUE_REF_BY_PATH[config.path];
+  const catalogueRef = config.ref;
   const courseImage = getFormationCatalogueImageObjectJsonLd(catalogueRef, base);
   const organizationId = `${base}/#organization`;
   const instructorId = `${base}/#laure-olivie`;
   const educationalLevel = mapEducationalLevelSchema(config.educationalLevel);
+  const durationIso = formationTimeRequiredIso(catalogueRef);
 
   const core = buildFormationFicheCourseJsonLd({
     name: config.name,
@@ -383,11 +397,17 @@ export function buildFormationCatalogueRichCourseJsonLd(
     organizationId,
     instructorId,
     courseId: `${courseUrl}#course`,
-    timeRequired: FORMATION_COURSE_DURATION_ISO,
+    timeRequired: durationIso,
   });
 
+  const courseNode = { ...core };
+  delete (courseNode as { '@context'?: unknown })['@context'];
+
   return {
-    ...core,
+    '@context': 'https://schema.org',
+    ...courseNode,
+    timeRequired: durationIso,
+    hasCourseInstance: buildFormationCourseInstances(durationIso),
     ...(courseImage ? { image: courseImage } : {}),
     ...(config.audienceType
       ? {
@@ -435,6 +455,7 @@ export const CATALOGUE_COURSE_DEV_WEB_IA_NIV10: CatalogueCourseJsonLdConfig = {
 };
 
 export const FORMATION_RICH_COURSE_NIV10: FormationCatalogueRichCourseConfig = {
+  ref: 'NIV-10',
   path: LINKS.formationDeveloppementWebIaSansCoder,
   name: CATALOGUE_COURSE_DEV_WEB_IA_NIV10.name,
   description: CATALOGUE_COURSE_DEV_WEB_IA_NIV10.description,
@@ -529,15 +550,31 @@ export function buildCatalogueCourseDeveloppementWebIaNiv10JsonLd(): Record<stri
   return {
     ...base,
     timeRequired: 'PT14H',
-    offers: [offer14h],
-    hasCourseInstance: [
-      {
-        '@type': 'CourseInstance',
-        name: 'Présentiel inter ou intra — Île-de-France — 14 heures (2 jours)',
-        courseMode: 'Onsite',
-        courseWorkload: 'PT14H',
-        location: { '@type': 'Place', name: 'Île-de-France' },
-      },
-    ],
+    offers: offer14h,
+    hasCourseInstance: buildFormationCourseInstances(
+      'PT14H',
+      'Session inter-entreprises — présentiel — 14 heures (2 jours)',
+    ),
   };
+}
+
+/** Course JSON-LD par référence catalogue NIV-01…NIV-10. */
+export function buildCatalogueCourseJsonLdByRef(ref: FormationCode): Record<string, unknown> {
+  const builders: Record<FormationCode, () => Record<string, unknown>> = {
+    'NIV-01': buildCatalogueCourseIaBtpNiv01JsonLd,
+    'NIV-02': buildCatalogueCourseIaAppelsOffreNiv02JsonLd,
+    'NIV-03': buildCatalogueCourseConduiteTravauxNiv03JsonLd,
+    'NIV-04': buildCatalogueCourseMaitriserClaudeNiv04JsonLd,
+    'NIV-05': buildCatalogueCourseMaitriseOeuvreNiv05JsonLd,
+    'NIV-06': () => buildCatalogueCourseApplicationMetierJsonLd('NIV-06'),
+    'NIV-07': () => buildCatalogueCourseApplicationMetierJsonLd('NIV-07'),
+    'NIV-08': () => buildCatalogueCourseApplicationMetierJsonLd('NIV-08'),
+    'NIV-09': buildCatalogueCourseAssistantsIaNiv09JsonLd,
+    'NIV-10': buildCatalogueCourseDeveloppementWebIaNiv10JsonLd,
+  };
+  const build = builders[ref];
+  if (!build) {
+    throw new Error(`buildCatalogueCourseJsonLdByRef: ref inconnue ${ref}`);
+  }
+  return build();
 }

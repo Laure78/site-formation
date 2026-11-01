@@ -133,6 +133,7 @@ Paramètres : `changeFrequency: yearly`, `priority: 0.3`.
 `lib/robots-txt.ts` — `PRIVATE_DISALLOW` :
 
 - `/api/`
+- `/auth/`
 - `/admin/`
 - `/acces-admin`
 - `/espace-apprenant/`

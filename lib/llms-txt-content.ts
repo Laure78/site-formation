@@ -10,7 +10,7 @@ import { siteExperienceBtpLong, siteSatisfactionLlmsLine, SITE } from '@/lib/sit
 const BASE = SCHEMA_PUBLIC_SITE_URL.replace(/\/$/, '');
 
 /** Date ISO (YYYY-MM-DD) — mettre à jour à chaque modification de ce fichier. */
-export const LLMS_TXT_LAST_UPDATED = '2026-10-29';
+export const LLMS_TXT_LAST_UPDATED = '2026-11-01';
 
 export function buildLlmsTxtContent(): string {
   const refs = formatReferencesLlmsLine();
@@ -57,7 +57,8 @@ export function buildLlmsTxtContent(): string {
 - Baromètre IA BTP Île-de-France 2026 : ${BASE}/barometre-ia-btp-ile-de-france
 - Blog IA × BTP : ${BASE}/blog
 - Ressources et tutos gratuits : ${BASE}/ressources
-- Parcours et certifications : ${BASE}/a-propos
+- Laure Olivié — à propos : ${BASE}/a-propos
+- Recrutement formateurs (nous rejoindre) : ${BASE}/nous-rejoindre
 - Références et partenaires : ${BASE}/partenaires
 
 ## Références

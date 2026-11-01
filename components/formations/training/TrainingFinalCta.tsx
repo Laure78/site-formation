@@ -1,38 +1,124 @@
+'use client';
+
 import Link from 'next/link';
+import { CtaDevis } from '@/components/CtaDevis';
+import { CtaVisio } from '@/components/CtaVisio';
 import { LINKS } from '@/lib/internal-links';
-import { OFC_CTA_PRIMARY } from '@/lib/ofc-interaction-classes';
 import { FINANCEMENT_FORMULATION_PRUDENTE } from '@/lib/financement-copy';
 
 type Props = {
-  /** Lien du CTA principal (souvent devis). Alias historique. */
   devisHref?: string;
   primaryHref?: string;
   title?: string;
   description?: string;
+  /** @deprecated Libellé fixe via CtaVisio / CtaDevis. */
   primaryLabel?: string;
   secondaryHref?: string;
+  /** @deprecated Libellé fixe via CtaVisio / CtaDevis. */
   secondaryLabel?: string;
   showFinancementNote?: boolean;
   note?: string;
-  /** Variante visuelle sombre (page pilote) ou claire (catalogue legacy). */
   variant?: 'dark' | 'light';
+  /** `src` GA4 pour le bouton visio (défaut `training-final-cta`). */
+  visioSrc?: string;
 };
 
-/** CTA final conversion — devis + échange. */
+function isPrendreRdvHref(href: string): boolean {
+  const path = href.split('?')[0]?.replace(/\/$/, '') ?? '';
+  return path === LINKS.prendreRdv || path.endsWith('/prendre-rdv');
+}
+
+function isContactHref(href: string): boolean {
+  const path = href.split('?')[0]?.replace(/\/$/, '') ?? '';
+  return path === LINKS.contact || path.endsWith('/contact');
+}
+
+function CtaForHref({
+  href,
+  visioSrc,
+  variant,
+  fallbackLabel,
+}: {
+  href: string;
+  visioSrc: string;
+  variant: 'dark' | 'light';
+  fallbackLabel?: string;
+}) {
+  const btnClass = 'inline-flex min-h-11 w-full items-center justify-center px-6 py-3 sm:w-auto';
+
+  if (isPrendreRdvHref(href)) {
+    return (
+      <CtaVisio
+        src={visioSrc}
+        variant="primary"
+        className={
+          variant === 'dark'
+            ? `${btnClass} border-0 bg-[#377CF3] text-white hover:bg-[#2f6bd4]`
+            : btnClass
+        }
+      />
+    );
+  }
+
+  if (isContactHref(href)) {
+    return <CtaDevis href={href} variant="primary" className={btnClass} />;
+  }
+
+  return (
+    <Link href={href} className={`ofc-cta-primary ${btnClass}`}>
+      {fallbackLabel ?? href}
+    </Link>
+  );
+}
+
+function SecondaryCtaForHref({
+  href,
+  visioSrc,
+  isDark,
+  fallbackLabel,
+}: {
+  href: string;
+  visioSrc: string;
+  isDark: boolean;
+  fallbackLabel?: string;
+}) {
+  const btnClass = `inline-flex min-h-11 w-full items-center justify-center px-6 py-3 sm:w-auto ${
+    isDark
+      ? 'rounded-xl border border-white/30 bg-transparent text-sm font-semibold text-white transition-colors hover:bg-white/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white'
+      : 'ofc-cta-secondary'
+  }`;
+
+  if (isPrendreRdvHref(href)) {
+    return <CtaVisio src={`${visioSrc}-secondary`} variant="secondary" className={btnClass} />;
+  }
+
+  if (isContactHref(href)) {
+    return <CtaDevis href={href} variant="secondary" className={btnClass} />;
+  }
+
+  return (
+    <Link href={href} className={btnClass}>
+      {fallbackLabel ?? href}
+    </Link>
+  );
+}
+
+/** CTA final conversion — visio + devis (libellés uniques). */
 export function TrainingFinalCta({
   devisHref,
   primaryHref,
+  primaryLabel,
   title = 'Parlons de votre projet de formation',
   description = 'Vous souhaitez organiser cette formation pour votre équipe ? Échangeons sur vos besoins, vos cas d’usage et le format adapté.',
-  primaryLabel = 'Demander un devis',
   secondaryHref,
-  secondaryLabel = 'Échanger sur votre projet',
+  secondaryLabel,
   showFinancementNote = true,
   note,
   variant = 'light',
+  visioSrc = 'training-final-cta',
 }: Props) {
-  const resolvedPrimary = primaryHref ?? devisHref ?? LINKS.contact;
-  const resolvedSecondary = secondaryHref ?? LINKS.prendreRdv;
+  const resolvedPrimary = primaryHref ?? devisHref ?? LINKS.prendreRdv;
+  const resolvedSecondary = secondaryHref ?? LINKS.contact;
   const isDark = variant === 'dark';
 
   return (
@@ -65,22 +151,18 @@ export function TrainingFinalCta({
           {description}
         </p>
         <div className="mt-8 flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:items-center">
-          <Link
+          <CtaForHref
             href={resolvedPrimary}
-            className={`${OFC_CTA_PRIMARY} inline-flex min-h-11 w-full items-center justify-center px-6 py-3 sm:w-auto`}
-          >
-            {primaryLabel}
-          </Link>
-          <Link
+            visioSrc={visioSrc}
+            variant={variant}
+            fallbackLabel={primaryLabel}
+          />
+          <SecondaryCtaForHref
             href={resolvedSecondary}
-            className={
-              isDark
-                ? 'inline-flex min-h-11 w-full items-center justify-center rounded-xl border border-white/30 bg-transparent px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-white/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white sm:w-auto'
-                : 'ofc-cta-secondary inline-flex min-h-11 w-full items-center justify-center px-6 py-3 sm:w-auto'
-            }
-          >
-            {secondaryLabel}
-          </Link>
+            visioSrc={visioSrc}
+            isDark={isDark}
+            fallbackLabel={secondaryLabel}
+          />
         </div>
         {note ? (
           <p className={isDark ? 'mt-4 text-sm font-medium text-slate-400' : 'mt-4 text-sm font-medium text-slate-500'}>

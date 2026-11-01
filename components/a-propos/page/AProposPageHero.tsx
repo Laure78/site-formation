@@ -1,8 +1,12 @@
+'use client';
+
 import Image from 'next/image';
 import Link from 'next/link';
 import { LinkedInFollowersLink } from '@/components/linkedin/LinkedInFollowersLink';
 import { Badge } from '@/components/ui/Badge';
 import { EnBref } from '@/app/components/EnBref';
+import { CtaDevis } from '@/components/CtaDevis';
+import { CtaVisio } from '@/components/CtaVisio';
 import {
   A_PROPOS_PAGE_EN_BREF,
   A_PROPOS_PAGE_H1,
@@ -13,19 +17,16 @@ import { PHOTOS } from '@/lib/photos';
 import { LINKS } from '@/lib/internal-links';
 import {
   OFC_CTA_PRIMARY,
-  OFC_CTA_SECONDARY,
   OFC_TYPE_HERO,
   OFC_TYPE_LEAD,
 } from '@/lib/ofc-interaction-classes';
 import { OFC_SEC } from '@/lib/ofc-section-classes';
-import { CTA_RDV_LABEL } from '@/components/CtaRdv';
 import { ContentUpdatedLine } from '@/components/seo/ContentUpdatedLine';
-import { getPillarPageContentUpdatedAt } from '@/lib/content-updated-at';
+import { A_PROPOS_PAGE_UPDATED_AT } from '@/lib/a-propos-page-config';
 import { MENTION_MARQUE_EXPLOITANTE } from '@/lib/marque-identite';
 
 export function AProposPageHero() {
   const portrait = PHOTOS.aProposHero2026;
-  const updatedAt = getPillarPageContentUpdatedAt('/a-propos');
 
   return (
     <section className={`${OFC_SEC.hero} relative overflow-hidden`} aria-labelledby="a-propos-hero-title">
@@ -43,7 +44,7 @@ export function AProposPageHero() {
           <EnBref className="mt-5 max-w-xl">
             <p>{A_PROPOS_PAGE_EN_BREF}</p>
           </EnBref>
-          <ContentUpdatedLine date={updatedAt} className="mt-3" />
+          <ContentUpdatedLine date={A_PROPOS_PAGE_UPDATED_AT} className="mt-3" />
           <div id="formations-cta" className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
             <Link
               href={LINKS.formations}
@@ -51,18 +52,8 @@ export function AProposPageHero() {
             >
               Découvrir les formations
             </Link>
-            <Link
-              href={LINKS.contact}
-              className={`${OFC_CTA_SECONDARY} inline-flex min-h-11 items-center justify-center px-6 py-3`}
-            >
-              Échanger sur les besoins de mon équipe
-            </Link>
-            <Link
-              href={LINKS.prendreRdv}
-              className={`${OFC_CTA_SECONDARY} inline-flex min-h-11 items-center justify-center px-6 py-3`}
-            >
-              {CTA_RDV_LABEL}
-            </Link>
+            <CtaDevis variant="secondary" className="inline-flex min-h-11 items-center justify-center px-6 py-3" />
+            <CtaVisio src="a-propos-hero" variant="secondary" className="inline-flex min-h-11 items-center justify-center px-6 py-3" />
             <LinkedInFollowersLink variant="button" />
           </div>
         </div>

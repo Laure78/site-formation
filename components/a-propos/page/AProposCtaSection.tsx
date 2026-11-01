@@ -1,9 +1,11 @@
+'use client';
+
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
-import { CTA_RDV_LABEL } from '@/components/CtaRdv';
+import { CtaDevis } from '@/components/CtaDevis';
+import { CtaVisio } from '@/components/CtaVisio';
 import { LINKS } from '@/lib/internal-links';
 import {
-  OFC_CTA_PRIMARY,
   OFC_CTA_SECONDARY,
   OFC_TYPE_H2,
 } from '@/lib/ofc-interaction-classes';
@@ -24,12 +26,10 @@ export function AProposCtaSection() {
         du temps.
       </p>
       <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-        <Link
-          href={LINKS.prendreRdv}
-          className={`${OFC_CTA_PRIMARY} inline-flex min-h-11 items-center justify-center gap-2 border-0 bg-white px-6 py-3 text-ofc-accent shadow-none hover:bg-white/95`}
-        >
-          {CTA_RDV_LABEL}
-        </Link>
+        <CtaVisio
+          src="a-propos-cta"
+          className="inline-flex min-h-11 items-center justify-center gap-2 border-0 bg-white px-6 py-3 text-ofc-accent shadow-none hover:bg-white/95"
+        />
         <Link
           href={LINKS.formations}
           className={`${OFC_CTA_SECONDARY} inline-flex min-h-11 items-center justify-center gap-2 border-white/40 bg-transparent px-6 py-3 text-white hover:border-white hover:bg-white/10 hover:text-white`}
@@ -37,12 +37,10 @@ export function AProposCtaSection() {
           Découvrir les formations
           <ArrowRight className="h-5 w-5" aria-hidden />
         </Link>
-        <Link
-          href={LINKS.contact}
-          className={`${OFC_CTA_SECONDARY} inline-flex min-h-11 items-center justify-center gap-2 border-white/40 bg-transparent px-6 py-3 text-white hover:border-white hover:bg-white/10 hover:text-white`}
-        >
-          Échanger sur les besoins de mon équipe
-        </Link>
+        <CtaDevis
+          variant="secondary"
+          className="inline-flex min-h-11 items-center justify-center gap-2 border-white/40 bg-transparent px-6 py-3 text-white hover:border-white hover:bg-white/10 hover:text-white"
+        />
       </div>
     </section>
   );

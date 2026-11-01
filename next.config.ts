@@ -212,6 +212,46 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
+        source: '/rejoindre-equipe',
+        destination: '/nous-rejoindre#rejoindre-equipe',
+        permanent: true,
+      },
+      {
+        source: '/rejoindre-equipe/',
+        destination: '/nous-rejoindre#rejoindre-equipe',
+        permanent: true,
+      },
+      {
+        source: '/devenez-consultant',
+        destination: '/nous-rejoindre#candidature-formateur',
+        permanent: true,
+      },
+      {
+        source: '/devenez-consultant/',
+        destination: '/nous-rejoindre#candidature-formateur',
+        permanent: true,
+      },
+      {
+        source: '/devenez-consultant/merci',
+        destination: '/nous-rejoindre/merci',
+        permanent: true,
+      },
+      {
+        source: '/devenez-consultant/merci/',
+        destination: '/nous-rejoindre/merci',
+        permanent: true,
+      },
+      {
+        source: '/candidatures-spontanees',
+        destination: '/nous-rejoindre#candidature-spontanee',
+        permanent: true,
+      },
+      {
+        source: '/candidatures-spontanees/',
+        destination: '/nous-rejoindre#candidature-spontanee',
+        permanent: true,
+      },
+      {
         source: '/formations/ia-pdf-btp-administratif-chantier/08-synthese-replay-zoom.pdf',
         destination: '/formations/ia-pdf-btp-administratif-chantier/08-synthese-session.pdf',
         permanent: true,

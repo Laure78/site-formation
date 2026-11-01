@@ -1,38 +1,22 @@
 'use client';
 
-import Link from 'next/link';
-import type { ComponentPropsWithoutRef, ReactNode, MouseEvent } from 'react';
-import { CTA_RDV_LABEL } from '@/lib/cta-rdv-label';
-import { trackCtaRdvClick } from '@/lib/cta-analytics';
-import { LINKS } from '@/lib/internal-links';
+import type { ComponentPropsWithoutRef } from 'react';
+import { CtaVisio } from '@/components/CtaVisio';
 
-type AccueilPrendreRdvLinkProps = {
+type AccueilPrendreRdvLinkProps = Omit<
+  ComponentPropsWithoutRef<'a'>,
+  'href' | 'children'
+> & {
+  /** Paramètre `src` pour suivi. */
   origin: string;
-  children?: ReactNode;
   className?: string;
-  onClick?: ComponentPropsWithoutRef<'a'>['onClick'];
 };
 
-/** Lien RDV accueil — libellé CTA + suivi GA4. */
+/** Lien RDV accueil — libellé CTA unique + `clic_visio`. */
 export function AccueilPrendreRdvLink({
   origin,
   className,
-  children = CTA_RDV_LABEL,
-  onClick,
+  ...rest
 }: AccueilPrendreRdvLinkProps) {
-  const handleClick = (event: MouseEvent<HTMLAnchorElement>) => {
-    trackCtaRdvClick(origin, window.location.pathname);
-    onClick?.(event);
-  };
-
-  return (
-    <Link
-      href={LINKS.prendreRdv}
-      data-cta="rdv"
-      className={className}
-      onClick={handleClick}
-    >
-      {children}
-    </Link>
-  );
+  return <CtaVisio src={origin} className={className} data-cta="rdv" {...rest} />;
 }

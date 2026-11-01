@@ -22,7 +22,7 @@ export function ConsultantSelectionTimeline() {
           {CONSULTANT_SELECTION_STEPS.map((step, index) => (
             <li
               key={step}
-              className="rounded-lg border border-slate-200 bg-slate-50/50 px-4 py-3 text-sm leading-relaxed text-slate-700"
+              className="rounded-xl border border-slate-200/90 bg-white px-4 py-3 text-sm leading-relaxed text-slate-700 shadow-sm"
             >
               <span className="font-display font-bold text-[#377CF3]" aria-hidden>
                 {index + 1}.{' '}
