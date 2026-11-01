@@ -10,7 +10,6 @@ import { FormationsCatalogueFormateursTeaser } from '@/components/formations/cat
 import { FormationsCatalogueFinancementEncadre } from '@/components/formations/catalogue-2027/FormationsCatalogueFinancementEncadre';
 import { FormationsContact2027 } from '@/components/formations/catalogue-2027/FormationsContact2027';
 import { FormationsCatalogueFaqSection } from '@/components/formations/catalogue-2027/FormationsCatalogueFaqSection';
-import { FormationsCatalogueClosingCta } from '@/components/formations/catalogue-2027/FormationsCatalogueClosingCta';
 import { FormationsCatalogueMobileBar } from '@/components/formations/catalogue-2027/FormationsCatalogueMobileBar';
 import { buildFormationsPageUnifiedGraphJsonLd } from '@/lib/schema-formations-page-graph';
 import { siteGeoPositionMeta } from '@/lib/site-config';
@@ -89,7 +88,6 @@ export default async function FormationsPage({ searchParams }: FormationsPagePro
         <FormationsCatalogueFinancementEncadre />
         <FormationsContact2027 formationHint={null} />
         <FormationsCatalogueFaqSection />
-        <FormationsCatalogueClosingCta />
       </div>
 
       <FormationsCatalogueMobileBar />
