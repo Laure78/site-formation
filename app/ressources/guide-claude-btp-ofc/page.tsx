@@ -63,9 +63,9 @@ const CHAPITRES = [
   {
     title: 'Cas d’usage & Cowork',
     items: [
-      'Répondre à un AO en 2 h (méthode)',
-      '5 devis dictés + CR chantier',
-      'Bonus 2026 : Cowork, tâches planifiées',
+      '8 cas d’usage : du DCE au DOE',
+      '10 tutoriels illustrés (captures novembre 2026)',
+      'Nouveautés : artéfacts, tâches planifiées, mémoire',
     ],
   },
 ] as const;
@@ -81,7 +81,7 @@ const PLAN_5_JOURS = [
 const FAQ = [
   {
     q: 'Que contient le Guide Claude BTP OFC ?',
-    a: 'Un guide pratique édition 2026 (~8 pages) : Projets Claude, connecteurs MCP, Skills, instructions système, 3 cas d’usage chantier (AO, devis dictés, CR) et un plan d’action sur 5 jours — plus les nouveautés Cowork 2026.',
+    a: 'Un guide pratique édition 2026, version 3 mise à jour en novembre 2026 (29 pages) : Projets Claude, connecteurs MCP, Skills, instructions système, 8 cas d’usage chantier (DCE, DPGF, mémoire technique, devis, PPSPS, CR, constat de retard, DOE), 10 tutoriels illustrés de captures d’écran, les dernières mises à jour de Claude, la sécurité des données et un plan d’action sur 5 jours.',
   },
   {
     q: 'Est-ce le même contenu que le guide conducteur de travaux ou les assistants travaux ?',
@@ -108,6 +108,7 @@ const learningResourceJsonLd = {
   learningResourceType: 'Guide',
   isAccessibleForFree: true,
   datePublished: '2026-07-01',
+  dateModified: '2026-11-01',
   about: [
     { '@type': 'Thing', name: 'Claude AI BTP' },
     { '@type': 'Thing', name: 'Projets Claude Skills MCP' },
