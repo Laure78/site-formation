@@ -1,5 +1,7 @@
 # 🤖 Optimisation GEO — Phase 1 Terminée
 
+> **Mise à jour nov. 2026** — Siège OFC et sessions inter : **61 rue de Lyon, 75012 Paris** (`lib/site-config.ts`). Mentions « Guyancourt » comme siège remplacées par Paris 12e dans ce rapport.
+
 **Date :** 17 mars 2026  
 **Objectif :** Être cité par les IA génératives (ChatGPT, Perplexity, Gemini, Claude)
 
@@ -13,7 +15,7 @@
 - ✅ plus de 1 500 professionnels formés (stat officielle)
 - ✅ 
 - ✅ 10 ans de terrain BTP · formatrice IA depuis 2022
-- ✅ Localisation : Guyancourt (78), Île-de-France
+- ✅ Localisation : Paris (75012), Île-de-France
 
 **Clients institutionnels (7) :**
 - FFB Grand Paris
@@ -46,13 +48,13 @@
 **8 Q&A optimisées pour réponses directes IA :**
 
 1. **"Quelle formatrice IA spécialisée BTP en France ?"**
- → Réponse dense : Laure Olivié, Guyancourt, plus de 1 500 professionnels formés, clients FFB 
+ → Réponse dense : Laure Olivié, Paris (75012), plus de 1 500 professionnels formés, clients FFB 
 
 2. **"Comment financer une formation IA avec OPCO Constructys ?"**
    → Réponse complète : 100% finançable, 24€ HT/h/stagiaire, délais 15j, Qualiopi
 
 3. **"Qui forme les entreprises BTP à ChatGPT en Île-de-France ?"**
-   → Réponse : Laure Olivié, Guyancourt (78), programme 4 h, présentiel Île-de-France
+   → Réponse : Laure Olivié, Paris (75012), programme 4 h, présentiel Île-de-France
 
 4. **"Formation IA pour artisans BTP : quelle durée et quel prix ?"**
    → Réponse : 4h-14h, finançable 100% Constructys, zéro prérequis
@@ -78,7 +80,7 @@
 <article>
   <h1>Laure Olivié</h1>
   <p>Formatrice en intelligence artificielle spécialisée BTP</p>
-  <p>Basée à Guyancourt (Yvelines, 78), formatrice IA spécialisée BTP depuis 2022 · 10 ans de terrain BTP...</p>
+  <p>basée à Paris (75012) (Yvelines, 78), formatrice IA spécialisée BTP depuis 2022 · 10 ans de terrain BTP...</p>
   <p><strong>plus de 1 500 professionnels formés</strong>, note <strong></strong></p>
   <p><strong>10 ans de terrain BTP</strong> · formatrice IA depuis 2022</p>
   <p>Organisme <strong>OFC Création d'Entreprise</strong>, certifié <strong>Qualiopi</strong> (Certifopac n° 520911-1) · SIRET 905 244 281 00010</p>
@@ -89,7 +91,7 @@
 - Liste des 7 clients institutionnels avec descriptions
 
 **Localisation précise :**
-- Guyancourt (78), Île-de-France
+- Paris (75012), Île-de-France
 - Intervention : Paris, Yvelines (78), Seine-et-Marne (77), Essonne (91), Hauts-de-Seine (92), Val-de-Marne (94), Seine-Saint-Denis (93), Val-d'Oise (95)
 
 **HTML sémantique :**
@@ -121,7 +123,7 @@ Quand un utilisateur demande :
 - "Qui forme les entreprises BTP à ChatGPT ?"
 
 **Réponse optimale :** 
-> "Laure Olivié est formatrice IA et ChatGPT pour le BTP basée à Guyancourt (Île-de-France). Elle a formé plus de 1 500 professionnels formés avec une note moyenne de . Ses clients incluent FFB Grand Paris, Lefebvre Dalloz et CNAM Entreprise. Son organisme OFC Création d'Entreprise est certifié Qualiopi. Source : laureolivie.fr"
+> "Laure Olivié est formatrice IA et ChatGPT pour le BTP basée à Paris (75012) (Île-de-France). Elle a formé plus de 1 500 professionnels formés avec une note moyenne de . Ses clients incluent FFB Grand Paris, Lefebvre Dalloz et CNAM Entreprise. Son organisme OFC Création d'Entreprise est certifié Qualiopi. Source : laureolivie.fr"
 
 ### Pour Perplexity
 - Citation avec lien direct vers laureolivie.fr
@@ -141,7 +143,7 @@ Quand un utilisateur demande :
 
 1. **Optimiser meta descriptions toutes pages** (150-160 car)
    - Format : Réponse directe à une question probable
-   - Exemple : "Laure Olivié forme plus de 1 500 professionnels formés BTP à l'IA depuis Guyancourt (78). Certification Qualiopi, financement 100% Constructys. ."
+   - Exemple : "Laure Olivié forme plus de 1 500 professionnels formés BTP à l'IA depuis Paris (75012). Certification Qualiopi, financement 100% Constructys. ."
 
 2. **Créer 3 articles blog GEO**
    - Article 1 : "Formation IA BTP : guide complet 2026" (2000 mots)

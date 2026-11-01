@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { CtaDevis } from '@/components/CtaDevis';
 import type { ReactNode } from 'react';
 import { Poppins } from 'next/font/google';
 import { Mail, Phone, FileDown } from 'lucide-react';
@@ -194,12 +195,7 @@ export default function ReclamationsPage() {
               <Phone className="h-4 w-4" aria-hidden />
               {CONTACT.phoneDisplay}
             </a>
-            <Link
-              href={LINKS.contact}
-              className="inline-flex items-center gap-2 rounded-lg border border-[#377CF3] px-4 py-2.5 text-sm font-semibold text-[#377CF3] hover:bg-[#F2F2F2]"
-            >
-              Formulaire contact
-            </Link>
+            <CtaDevis className="inline-flex items-center gap-2 rounded-lg border border-[#377CF3] px-4 py-2.5 text-sm font-semibold text-[#377CF3] hover:bg-[#F2F2F2]" />
           </div>
         </section>
 

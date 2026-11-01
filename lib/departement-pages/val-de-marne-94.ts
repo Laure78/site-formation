@@ -24,7 +24,7 @@ export const DEPARTEMENT_VAL_DE_MARNE_94: DepartementPageData = {
     'Maisons-Alfort',
     'Nogent-sur-Marne',
   ],
-  tempsTrajetGuyancourt: `${SITE_DEPUIS_SIEGE_TRAJET} Créteil et le Val-de-Marne sont en général à 40 minutes à une heure selon le trafic (temps indicatifs) ; Vitry, Ivry, Vincennes se planifient au devis après l'échange découverte.`,
+  tempsTrajetDepuisSiege: `${SITE_DEPUIS_SIEGE_TRAJET} Créteil et le Val-de-Marne sont en général à 40 minutes à une heure selon le trafic (temps indicatifs) ; Vitry, Ivry, Vincennes se planifient au devis après l'échange découverte.`,
   tissuLocal:
     "Le 94 mêle résidentiel dense, tertiaire et opérations liées aux infrastructures (extensions Grand Paris Express), avec un tissu actif de PME du bâtiment et de la conduite de travaux. Lisière parisienne : rénovation urbaine, marchés publics locaux, site occupé fréquent autour de Créteil, Vitry, Ivry et du bord de Marne. Axes A4, A86, périphérique sud-est : la pression sur les délais et la traçabilité (CR, observations, réserves) est constante. Beaucoup d'équipes cumulent plusieurs opérations simultanées sans assistant dédié à la production écrite. La formation aligne prompts, relecture et partage d'équipe sur vos modèles. Objectif : réduire le temps perdu entre le terrain et le bureau sans fragiliser la conformité des pièces remises au maître d'œuvre — méthode courte, documents réels, validation humaine systématique.",
   casUsageLocaux: [

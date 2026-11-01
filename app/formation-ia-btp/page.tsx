@@ -137,14 +137,21 @@ const webPageJsonLd = {
   mainEntity: { '@id': `${SITE_CONFIG.url}${PATH}#course` },
 };
 
-function CtaVisio({ className }: { className?: string }) {
+function PilierRdvCta({
+  className,
+  origin = 'formation-ia-btp-pilier',
+}: {
+  className?: string;
+  origin?: string;
+}) {
   return (
     <RdvLink
+      origin={origin}
       className={
         className ??
         'inline-flex items-center justify-center rounded-lg bg-[var(--accent)] px-6 py-3.5 text-center font-semibold text-white shadow-sm hover:bg-blue-700'
       }
-     />
+    />
   );
 }
 
@@ -158,7 +165,7 @@ function BlocCtaHaut() {
         Prendre rendez-vous — 30 min pour savoir si la formation vous convient.
       </p>
       <div className="mt-4">
-        <CtaVisio />
+        <PilierRdvCta origin="formation-ia-btp-bloc-haut" />
       </div>
     </div>
   );
@@ -173,7 +180,7 @@ function BlocCtaMilieu() {
         charge selon votre dossier et les barèmes en vigueur.
       </p>
       <div className="mt-4">
-        <CtaVisio />
+        <PilierRdvCta origin="formation-ia-btp-bloc-milieu" />
       </div>
     </div>
   );
@@ -739,7 +746,10 @@ export default function FormationIaBtpPillarPage() {
             Aucune vente forcée. Si la formation ne vous convient pas, Laure vous le dira directement.
           </p>
           <div className="flex justify-center pt-2">
-            <CtaVisio className="inline-flex items-center justify-center rounded-lg bg-[var(--accent)] px-8 py-4 text-center text-lg font-semibold text-white shadow-sm hover:bg-blue-700" />
+            <PilierRdvCta
+              origin="formation-ia-btp-footer"
+              className="inline-flex items-center justify-center rounded-lg bg-[var(--accent)] px-8 py-4 text-center text-lg font-semibold text-white shadow-sm hover:bg-blue-700"
+            />
           </div>
           <p className="pt-6 text-left md:text-center">
             Ou contactez Laure directement :<br />

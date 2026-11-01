@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { CtaVisio } from '@/components/CtaVisio';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Download, Package } from 'lucide-react';
@@ -523,12 +524,7 @@ export default function SkillsChatgptBtpPage() {
               >
                 Découvrir la formation Maîtriser Claude AI
               </Link>
-              <Link
-                href={LINKS.prendreRdv}
-                className="inline-flex min-h-12 items-center justify-center rounded-xl border-2 border-white px-8 py-4 text-base font-semibold text-white transition-colors hover:bg-white/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
-              >
-                Échanger sur les besoins de mon équipe
-              </Link>
+              <CtaVisio src="skills-chatgpt-btp-page" className="inline-flex min-h-12 items-center justify-center rounded-xl border-2 border-white px-8 py-4 text-base font-semibold text-white transition-colors hover:bg-white/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white" />
             </div>
           </div>
         </section>

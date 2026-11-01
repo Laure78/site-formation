@@ -4,10 +4,10 @@ Référence rédactionnelle. Les descriptions effectives sont dans chaque `page.
 
 | URL | Meta description (≤ 155 caractères, vérifiées) |
 |-----|------------------|
-| `/` | Formation IA BTP & ChatGPT : devis, chantier, mémoires. Qualiopi, OPCO Constructys. Laure Olivié — +1 500 pros formés. Guyancourt, France. |
+| `/` | Formation IA BTP & ChatGPT : devis, chantier, mémoires. Qualiopi, OPCO Constructys. Laure Olivié — présentiel Île-de-France. Paris 12e. |
 | `/formations` | Formations IA pour le BTP : bâtiment, travaux publics, appels d'offres, RH. Certifié Qualiopi, finançable Constructys. OFC — Laure Olivié. |
 | `/a-propos` | Laure Olivié, formatrice IA BTP — OFC Création d'Entreprise, Qualiopi. FFB, LinkedIn Learning. Devis, chantier, AO. Île-de-France. |
-| `/contact` | Contact formation IA BTP : Laure Olivié, Guyancourt (78). Devis, catalogue, financement Constructys. Email et téléphone — réponse sous 48 h. |
+| `/contact` | Contact formation IA BTP : Laure Olivié, Paris 12e (61 rue de Lyon). Devis, catalogue, financement Constructys. Email et téléphone — réponse sous 48 h. |
 | `/prendre-rdv` | Prendre rendez-vous avec Laure Olivié : échange gratuit sur votre formation IA BTP. Visio ou téléphone. Qualiopi, Constructys — OFC. |
 | `/expert-ia-btp` | Expert IA BTP : accompagnement entreprises du bâtiment et TP. Méthode terrain, références FFB. Formations Qualiopi & financement Constructys. |
 | `/auteur/laure-olivie` | Laure Olivié — formatrice IA BTP, autrice LinkedIn Learning. OFC Création d'Entreprise, Qualiopi. Parcours, partenaires, publications. |
@@ -69,7 +69,7 @@ Chaque article (`/blog/[slug]`) utilise le champ **`description`** dans `lib/blo
 
 ```python
 metas = [
-    "Formation IA BTP & ChatGPT : devis, chantier, mémoires. Qualiopi, OPCO Constructys. Laure Olivié — +1 500 pros formés. Guyancourt, France.",
+    "Formation IA BTP & ChatGPT : devis, chantier, mémoires. Qualiopi, OPCO Constructys. Laure Olivié — présentiel Île-de-France. Paris 12e.",
 ]
 assert all(len(m) <= 155 for m in metas)
 ```

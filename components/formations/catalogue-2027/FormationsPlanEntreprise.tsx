@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { CtaVisio } from '@/components/CtaVisio';
 import { CATALOGUE_2027_INFOS_PRATIQUES } from '@/data/catalogue-2027';
 import { CTA_RDV_LABEL } from '@/lib/cta-rdv-label';
 import { LINKS } from '@/lib/internal-links';
@@ -35,12 +36,7 @@ export function FormationsPlanEntreprise() {
         >
           Adapter un parcours à mon équipe
         </Link>
-        <Link
-          href={LINKS.prendreRdv}
-          className={`${OFC_CTA_SECONDARY} inline-flex min-h-11 items-center justify-center px-5 py-3`}
-        >
-          {CTA_RDV_LABEL}
-        </Link>
+        <CtaVisio src="cmp-formations-catalogue-2027-FormationsPlanEntreprise" className={`${OFC_CTA_SECONDARY} inline-flex min-h-11 items-center justify-center px-5 py-3`} />
       </div>
     </section>
   );

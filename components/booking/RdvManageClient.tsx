@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useTransition } from 'react';
+import { CtaVisio } from '@/components/CtaVisio';
 import Link from 'next/link';
 import {
   cancelAppointmentByToken,
@@ -32,12 +33,7 @@ export function RdvManageClient({ token, appointment, initialAction }: Props) {
       <div className="rounded-2xl border border-slate-200 bg-white p-6 text-center sm:p-8">
         <h1 className="font-display text-2xl font-bold text-slate-900">Rendez-vous annulé</h1>
         <p className="mt-3 text-slate-600">Ce créneau n’est plus actif.</p>
-        <Link
-          href={LINKS.prendreRdv}
-          className="mt-6 inline-flex min-h-11 items-center rounded-xl bg-[var(--accent)] px-6 font-semibold text-white"
-        >
-          Réserver un nouveau créneau
-        </Link>
+        <CtaVisio src="cmp-booking-RdvManageClient" className="mt-6 inline-flex min-h-11 items-center rounded-xl bg-[var(--accent)] px-6 font-semibold text-white" />
       </div>
     );
   }

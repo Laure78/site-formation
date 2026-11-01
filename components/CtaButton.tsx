@@ -28,8 +28,14 @@ export function CtaButton({
   origin = 'unspecified',
   variant = 'primary',
   className = '',
+  children: _children,
+  label: _label,
+  compactLabel: _compactLabel,
   ...rest
 }: CtaButtonProps) {
+  void _children;
+  void _label;
+  void _compactLabel;
   const ctaVariant = variant === 'unstyled' ? 'inline' : 'primary';
   return (
     <CtaRdv

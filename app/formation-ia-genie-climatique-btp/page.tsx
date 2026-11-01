@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { CtaDevis } from '@/components/CtaDevis';
 import { Check } from 'lucide-react';
 import { EnBref } from '@/app/components/EnBref';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
@@ -288,12 +289,7 @@ export default function FormationIaGenieClimatiqueBtpPage() {
             éligibilité.
           </p>
           <div className="mt-8 flex flex-wrap gap-4">
-            <Link
-              href={LINKS.contact}
-              className="inline-flex items-center gap-2 rounded-xl bg-white px-6 py-3 font-semibold text-[#377CF3] hover:bg-blue-50"
-            >
-              Contacter OFC
-            </Link>
+            <CtaDevis className="inline-flex items-center gap-2 rounded-xl bg-white px-6 py-3 font-semibold text-[#377CF3] hover:bg-blue-50" />
             <RdvLink
               campaign="formation-ia-genie-climatique-rdv"
               ctaPosition="footer"

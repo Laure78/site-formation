@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useId, useRef, useState } from 'react';
 import Link from 'next/link';
+import { CtaVisio } from '@/components/CtaVisio';
 import { submitDevWebIaProjectContactAction } from '@/app/actions/dev-web-ia-project-contact';
 import {
   CONTACT_FORM_RGPD_NOTICE,
@@ -137,13 +138,12 @@ export function DevWebIaProjectContactForm({ initialProjectType }: Props) {
         <p className="font-semibold text-[#0F172A]">{CONTACT_FORM_SUCCESS}</p>
         <p className="mt-3 text-sm text-[#475569]">{CONTACT_FORM_SUCCESS_CALENDLY}</p>
         <p className="mt-4">
-          <Link
-            href={LINKS.prendreRdv}
+          <CtaVisio
+            src="dev-web-ia-contact-success"
+            variant="inline"
             onClick={() => trackContactCtaClick('rdv')}
             className="inline-flex min-h-[44px] items-center font-semibold text-[#377CF3] underline"
-          >
-            Réserver un échange de 30 minutes
-          </Link>
+          />
         </p>
       </div>
     );

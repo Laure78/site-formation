@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import { CtaDevis } from '@/components/CtaDevis';
 import { useCallback, useMemo, useState } from 'react';
 import baseFile from '@/lib/dtu-verification/base-dtu.json';
 import { analyzeDevisText } from '@/lib/dtu-verification/analyze';
@@ -420,9 +421,7 @@ export function VerificationDtuBeworkTool() {
             Catalogue formation IA pour les pros du BTP
           </Link>
           {' · '}
-          <Link href={LINKS.contact} className="font-semibold text-[#377CF3] underline-offset-2 hover:underline">
-            Contact
-          </Link>
+          <CtaDevis className="font-semibold text-[#377CF3] underline-offset-2 hover:underline" />
         </p>
       </footer>
     </div>

@@ -1,6 +1,7 @@
 'use client';
 
 import { useId, useState } from 'react';
+import { CtaDevis } from '@/components/CtaDevis';
 import Link from 'next/link';
 import { ChevronRight, Mail, Users } from 'lucide-react';
 import { MentionTvaAsterisque } from '@/components/MentionTVA';
@@ -242,16 +243,7 @@ export function TrainingFormatTabs({
             </button>
           )}
           <div className="border-t border-slate-100">
-            <Link
-              href={LINKS.contact}
-              className="flex min-h-11 items-center justify-between gap-2 text-sm font-semibold text-slate-800 hover:text-[#377CF3]"
-            >
-              <span className="inline-flex items-center gap-2">
-                <Mail className="h-4 w-4 text-[#377CF3]" aria-hidden />
-                Nous contacter
-              </span>
-              <ChevronRight className="h-4 w-4 shrink-0" aria-hidden />
-            </Link>
+            <CtaDevis className="flex min-h-11 items-center justify-between gap-2 text-sm font-semibold text-slate-800 hover:text-[#377CF3]" />
           </div>
         </div>
       ) : null}

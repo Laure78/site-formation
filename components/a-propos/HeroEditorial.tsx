@@ -5,7 +5,7 @@ import { IMAGE_SIZES } from '@/lib/image-props';
 import { StatCallout } from '@/components/readability/StatCallout';
 import { formatNoteSatisfactionSur5, formatAnneesExperienceBTP } from '@/lib/data/indicateurs-resultats';
 import { IndicateursResultatsLink } from '@/components/formation/IndicateursResultatsLink';
-import { CTA_RDV_LABEL } from '@/lib/cta-rdv-label';
+import { CtaVisio } from '@/components/CtaVisio';
 import { LINKS } from '@/lib/internal-links';
 
 type Props = {
@@ -53,13 +53,11 @@ export function HeroEditorial({ lead, qualiopiText, catalogueHref }: Props) {
             >
               Voir le catalogue →
             </Link>
-            <Link
-              href={LINKS.prendreRdv}
-              aria-label={CTA_RDV_LABEL}
+            <CtaVisio
+              src="a-propos-hero-editorial"
+              variant="secondary"
               className="inline-flex items-center rounded-xl border border-[#377CF3] bg-white px-6 py-3 text-sm font-semibold text-[#377CF3] transition hover:bg-[#EFF6FF]"
-            >
-              {CTA_RDV_LABEL}
-            </Link>
+            />
           </div>
         </article>
         <div className="relative order-first lg:order-none lg:col-span-2">

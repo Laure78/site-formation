@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { CtaVisio } from '@/components/CtaVisio';
 import { CONTACT } from '@/lib/constants';
 import { LINKS } from '@/lib/internal-links';
 import { CTA_RDV_LABEL } from '@/lib/cta-rdv-label';
@@ -27,12 +28,7 @@ export function FormationsCatalogueContactDirect() {
           </a>
         </li>
       </ul>
-      <Link
-        href={LINKS.prendreRdv}
-        className={`${OFC_CTA_SECONDARY} mt-6 inline-flex min-h-11 items-center justify-center px-6 py-3 text-sm font-semibold`}
-      >
-        {CTA_RDV_LABEL}
-      </Link>
+      <CtaVisio src="cmp-formations-catalogue-2027-FormationsCatalogueContactDirect" className={`${OFC_CTA_SECONDARY} mt-6 inline-flex min-h-11 items-center justify-center px-6 py-3 text-sm font-semibold`} />
     </section>
   );
 }

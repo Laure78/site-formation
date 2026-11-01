@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import { CtaDevis } from '@/components/CtaDevis';
 import { CTA_RDV_LABEL } from '@/components/CtaRdv';
 import Link from 'next/link';
 import type { ReactNode } from 'react';
@@ -92,12 +93,7 @@ function CtaVisioBlock({
           className="inline-flex items-center rounded-lg bg-white px-5 py-3 font-semibold text-[#377CF3] hover:bg-slate-50"
          />
         {id === 'cta-final' ? (
-          <Link
-            href={LINKS.contact}
-            className="inline-flex items-center rounded-lg border border-white/40 px-5 py-3 font-semibold text-white hover:bg-white/10"
-          >
-            Demander le programme
-          </Link>
+          <CtaDevis className="inline-flex items-center rounded-lg border border-white/40 px-5 py-3 font-semibold text-white hover:bg-white/10" />
         ) : null}
       </div>
     </section>

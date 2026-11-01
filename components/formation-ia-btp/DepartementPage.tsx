@@ -12,7 +12,7 @@ import { EnBref } from '@/app/components/EnBref';
 import { RenvoiFicheCatalogue } from '@/components/qualiopi/RenvoiFicheCatalogue';
 import { ContextualLinksSection } from '@/components/layout/ContextualLinksSection';
 import { VoirAussi } from '@/components/VoirAussi';
-import { DepartementFormatriceGuyancourt } from '@/components/formation-ia-btp/DepartementFormatriceGuyancourt';
+import { DepartementFormatriceSiege } from '@/components/formation-ia-btp/DepartementFormatriceSiege';
 import { DepartementCasUsageStandard } from '@/components/formation-ia-btp/DepartementCasUsageStandard';
 import { TemoignagesRegion } from '@/components/formation-ia-btp/TemoignagesRegion';
 import type { DepartementPageData } from '@/lib/departement-pages/types';
@@ -161,7 +161,7 @@ export function DepartementPage({ data }: { data: DepartementPageData }) {
             Villes &amp; secteurs desservis
           </h2>
           <p className="mt-4 text-base leading-relaxed text-slate-700 md:text-lg">
-            {data.tempsTrajetGuyancourt}
+            {data.tempsTrajetDepuisSiege}
           </p>
           <ul className="mt-8 grid gap-3 sm:grid-cols-2">
             {data.villes.map((ville) => (
@@ -257,8 +257,8 @@ export function DepartementPage({ data }: { data: DepartementPageData }) {
         subtitle="Présentiel, logistique locale et financement."
       />
 
-      {/* 8. Formatrice Guyancourt — partagé */}
-      <DepartementFormatriceGuyancourt grammar={grammar} deptCode={data.code} />
+      {/* 8. Formatrice — déplacements depuis le siège (partagé) */}
+      <DepartementFormatriceSiege grammar={grammar} deptCode={data.code} />
 
       {/* 9. Cas d’usage standard — partagé identique */}
       <DepartementCasUsageStandard />

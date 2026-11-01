@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import { CtaVisio } from '@/components/CtaVisio';
 import Link from 'next/link';
 import { BookOpen, MonitorPlay, ShieldCheck } from 'lucide-react';
 import { FormationPlateformeConnexionButton } from '@/components/formation/FormationPlateformeConnexionButton';
@@ -148,9 +149,7 @@ export default function FormationPlateformePage() {
             </div>
             <p className="mt-4 text-sm text-[#64748B]">
               Vous n&apos;êtes pas encore inscrit ?{' '}
-              <Link href={LINKS.prendreRdv} className="font-medium text-[#377CF3] hover:underline">
-                Prendre rendez-vous
-              </Link>
+              <CtaVisio src="formations-plateforme-page" className="font-medium text-[#377CF3] hover:underline" />
             </p>
           </div>
 

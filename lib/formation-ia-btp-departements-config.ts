@@ -136,7 +136,7 @@ const CAS_USAGE_FORMATION_BTP: string[] = [
   'Tableaux de suivi reformulés à partir de vos données — sans données perso non anonymisées.',
 ];
 
-const DEPLACEMENT_GUYANCOURT = `Siège ${ENTITE} à Paris (75012) : déplacement inclus au devis pour intra IDF. Créneaux souvent calés sous 3 à 6 semaines. Paris (75012) permet des déplacements réalistes vers les principaux bassins franciliens.`;
+const DEPLACEMENT_DEPUIS_SIEGE = `Siège ${ENTITE} à Paris (75012) : déplacement inclus au devis pour intra IDF. Créneaux souvent calés sous 3 à 6 semaines. Paris (75012) permet des déplacements réalistes vers les principaux bassins franciliens.`;
 
 function ffbCasClient(deptCode: string): string {
   const idf = `Interventions FFB Île-de-France et retours terrain franciliens — exemples adaptés à votre secteur.`;
@@ -229,7 +229,7 @@ export const FORMATION_IA_BTP_YVELINES_78: FormationIaBtpDeptLandingConfig = {
     `Sessions ${MARQUE} : exercices devis, CCTP, courriers — ChatGPT et Claude AI, cadre Qualiopi, relecture humaine et confidentialité.`,
   ],
   casUsageStandard: CAS_USAGE_FORMATION_BTP,
-  deplacementGuyancourt: DEPLACEMENT_GUYANCOURT,
+  deplacementDepuisSiege: DEPLACEMENT_DEPUIS_SIEGE,
   casClientFfb: ffbCasClient('78'),
   faq: faqGeoBase(
     getDeptGrammar('78'),
@@ -320,7 +320,7 @@ function buildDeptConfig(opts: {
     ],
     tissuBtpLocal: opts.tissuBtpLocal,
     casUsageStandard: CAS_USAGE_FORMATION_BTP,
-    deplacementGuyancourt: DEPLACEMENT_GUYANCOURT,
+    deplacementDepuisSiege: DEPLACEMENT_DEPUIS_SIEGE,
     casClientFfb: ffbCasClient(deptCode),
     faq: faqGeoBase(grammar, deptCode, opts.cities.slice(0, 4).join(', ')),
   };
@@ -349,7 +349,7 @@ function faqSeineEtMarne77(): FAQItem[] {
   ]);
 }
 
-const DEPLACEMENT_GUYANCOURT_77 = `Siège ${ENTITE} à Paris (75012) : déplacement inclus au devis pour intra IDF, créneaux souvent calés sous 3 à 6 semaines. L'ouest du 77 (Marne-la-Vallée, Sénart, Melun) : logistique courante ; l'est (Provins, Coulommiers, Fontainebleau) : journée dédiée ou demi-journées à cadrer ensemble.`;
+const DEPLACEMENT_DEPUIS_SIEGE_77 = `Siège ${ENTITE} à Paris (75012) : déplacement inclus au devis pour intra IDF, créneaux souvent calés sous 3 à 6 semaines. L'ouest du 77 (Marne-la-Vallée, Sénart, Melun) : logistique courante ; l'est (Provins, Coulommiers, Fontainebleau) : journée dédiée ou demi-journées à cadrer ensemble.`;
 
 /** Seine-et-Marne (77) — contenu localisé (SEO Marne-la-Vallée, Melun, Meaux). */
 export const FORMATION_IA_BTP_SEINE_ET_MARNE_77: FormationIaBtpDeptLandingConfig = {
@@ -436,7 +436,7 @@ export const FORMATION_IA_BTP_SEINE_ET_MARNE_77: FormationIaBtpDeptLandingConfig
     `Sessions ${MARQUE} : 4 h Qualiopi, ChatGPT / Claude AI — validation humaine systématique, présentiel uniquement en Île-de-France.`,
   ],
   casUsageStandard: CAS_USAGE_FORMATION_BTP,
-  deplacementGuyancourt: DEPLACEMENT_GUYANCOURT_77,
+  deplacementDepuisSiege: DEPLACEMENT_DEPUIS_SIEGE_77,
   casClientFfb:
     'Échanges FFB Grand Paris / FFB Seine-et-Marne — PME, marchés publics intercommunaux, rénovation.',
   faq: faqSeineEtMarne77(),

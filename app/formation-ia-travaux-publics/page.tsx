@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { CtaDevis } from '@/components/CtaDevis';
 import { RdvLink } from '@/components/RdvLink';
 import {
   Sparkles,
@@ -364,12 +365,7 @@ export default function FormationIATravauxPublicsLandingPage() {
           <p className="text-slate-700">
             Écrivez à OFC ou réservez une visio découverte — sans engagement.
           </p>
-          <Link
-            href={LINKS.contact}
-            className="inline-flex items-center justify-center rounded-xl bg-[var(--accent)] px-6 py-3 font-semibold text-white hover:bg-blue-700"
-          >
-            Formulaire de contact
-          </Link>
+          <CtaDevis className="inline-flex items-center justify-center rounded-xl bg-[var(--accent)] px-6 py-3 font-semibold text-white hover:bg-blue-700" />
         </div>
       </section>
 

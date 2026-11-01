@@ -1,6 +1,7 @@
 'use client';
 
 import { useCallback, useEffect, useId, useMemo, useRef, useState, useTransition } from 'react';
+import { CtaDevis } from '@/components/CtaDevis';
 import Link from 'next/link';
 import { ChevronDown, RotateCcw, Search, X } from 'lucide-react';
 import { RessourceCard } from '@/components/ressources/RessourceCard';
@@ -397,9 +398,7 @@ export function RessourcesHubLibrary({ resources, initialSearch = '' }: Props) {
               </Link>
             </div>
             <p className="mt-4">
-              <Link href={LINKS.contact} className="text-sm text-slate-500 underline-offset-2 hover:underline">
-                Contacter OFC
-              </Link>
+              <CtaDevis className="text-sm text-slate-500 underline-offset-2 hover:underline" />
             </p>
           </div>
         ) : (

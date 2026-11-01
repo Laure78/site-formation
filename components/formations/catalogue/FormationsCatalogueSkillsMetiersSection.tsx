@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { CtaVisio } from '@/components/CtaVisio';
 import {
   SKILLS_METIERS_BENEFICES,
   SKILLS_METIERS_CTA_FORMATION_ANCHOR,
@@ -80,12 +81,7 @@ export function FormationsCatalogueSkillsMetiersSection() {
         >
           Apprendre à créer mes Skills
         </a>
-        <Link
-          href={LINKS.prendreRdv}
-          className={`${OFC_CTA_SECONDARY} inline-flex min-h-11 items-center justify-center px-6 py-3 text-center text-sm`}
-        >
-          Former mon équipe
-        </Link>
+        <CtaVisio src="cmp-formations-catalogue-FormationsCatalogueSkillsMetiersSection" className={`${OFC_CTA_SECONDARY} inline-flex min-h-11 items-center justify-center px-6 py-3 text-center text-sm`} />
       </div>
     </section>
   );

@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { CtaDevis } from '@/components/CtaDevis';
 import { JsonLd } from '@/components/JsonLd';
 import { SelecteurMetier } from '@/components/SelecteurMetier/SelecteurMetier';
 import { LINKS } from '@/lib/internal-links';
@@ -110,9 +111,7 @@ export default function CasUsageIaMetierBtpPage() {
             Catalogue formations IA pour les pros du BTP — organisme certifié Qualiopi
           </Link>
           {' · '}
-          <Link href={LINKS.contact} className="font-semibold text-[#377CF3] underline-offset-2 hover:underline">
-            Contact et appel découverte
-          </Link>
+          <CtaDevis className="font-semibold text-[#377CF3] underline-offset-2 hover:underline" />
         </p>
       </main>
     </div>

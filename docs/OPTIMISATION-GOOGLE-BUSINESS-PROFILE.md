@@ -21,7 +21,7 @@ Centre de formation
 - **Nom :** Laure Olivié  
 - **Activité :** Formation IA pour entreprises du BTP  
 - **Adresse :** 61 rue de Lyon, 75012 Paris  
-- **Ville :** Guyancourt (Yvelines)  
+- **Ville :** Paris (75012)  
 - **Région :** Île-de-France  
 - **Téléphone :** 06 95 66 18 18  
 - **Email :** contact@laureolivie.fr  
@@ -34,7 +34,7 @@ Centre de formation
 
 > Laure Olivié — Formatrice en intelligence artificielle pour les entreprises du BTP.
 > 
-> Basée à Guyancourt dans les Yvelines, j'interviens auprès des artisans, conducteurs de travaux et PME du bâtiment en Île-de-France et partout en France.
+> Basée à Paris (12e), j'interviens auprès des professionnels du BTP, conducteurs de travaux et PME du bâtiment en présentiel en Île-de-France uniquement.
 > 
 > Formation « L'IA au service du bâtiment » : ChatGPT pour devis, emails, appels d'offres et comptes rendus chantier. Méthode 100 % pratique, travail sur vos vrais documents.
 > 
@@ -60,7 +60,7 @@ Centre de formation
 
 1. **Photo de profil :** Laure Olivié — formatrice (photo professionnelle)
 2. **Intérieur :** Session de formation en cours (salle, groupe)
-3. **Extérieur :** Siège à Guyancourt ou logo OFC
+3. **Extérieur :** Siège 61 rue de Lyon, Paris 12e, ou logo OFC
 4. **Activité :** Formation IA BTP — écran, supports, participants
 5. **Équipe :** Laure Olivié avec partenaires (FFB, etc.)
 

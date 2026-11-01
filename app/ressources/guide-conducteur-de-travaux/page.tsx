@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import { CtaDevis } from '@/components/CtaDevis';
 import Link from 'next/link';
 import { Check, Users, HardHat, Building2 } from 'lucide-react';
 import { JsonLd } from '@/components/JsonLd';
@@ -478,12 +479,7 @@ Signature : [NOM] — [TITRE] — [ENTREPRISE]
               variant="unstyled"
               className="inline-flex rounded-xl bg-white px-6 py-3 font-semibold text-[#377CF3] shadow-sm hover:bg-[#F2F2F2]"
              />
-            <Link
-              href={LINKS.contact}
-              className="inline-flex rounded-xl border border-white/40 px-6 py-3 font-semibold text-white hover:bg-white/10"
-            >
-              Contact
-            </Link>
+            <CtaDevis className="inline-flex rounded-xl border border-white/40 px-6 py-3 font-semibold text-white hover:bg-white/10" />
           </div>
         </div>
       </section>
@@ -493,9 +489,7 @@ Signature : [NOM] — [TITRE] — [ENTREPRISE]
           LinkedIn — Laure Olivié
         </Link>
         {' · '}
-        <Link href={LINKS.contact} className="text-[#377CF3] hover:underline">
-          Contact
-        </Link>
+        <CtaDevis className="text-[#377CF3] hover:underline" />
       </div>
     </div>
   );

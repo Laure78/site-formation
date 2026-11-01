@@ -6,6 +6,7 @@ import { EnBref } from '@/app/components/EnBref';
 import { MaillageRessourceFromConfig } from '@/app/components/MaillageRessource';
 import { CopyPromptButton } from '@/components/CopyPromptButton';
 import { CtaButton } from '@/components/CtaButton';
+import { CtaVisio } from '@/components/CtaVisio';
 import { SITE_CONFIG } from '@/lib/seo';
 import { PHOTOS } from '@/lib/photos';
 import { LINKS } from '@/lib/internal-links';
@@ -613,15 +614,11 @@ export function TutoPage({ tuto }: { tuto: TutoData }) {
 
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             {tuto.finalCtaLabel ? (
-              <Link
-                href={LINKS.prendreRdv}
+              <CtaVisio
+                src={`ressources-tuto-${tuto.slug}-rdv`}
                 data-cta="rdv"
                 className={`${OFC_CTA_PRIMARY} inline-flex items-center justify-center gap-2 rounded-xl px-6 py-3.5 text-[0.95rem] font-semibold shadow-sm`}
-                aria-label={tuto.finalCtaLabel}
-              >
-                {tuto.finalCtaLabel}
-                <ArrowRight size={18} aria-hidden />
-              </Link>
+              />
             ) : (
               <CtaButton
                 origin={`ressources-tuto-${tuto.slug}-rdv`}

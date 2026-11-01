@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { CtaVisio } from '@/components/CtaVisio';
 import { FAQAnswer } from '@/components/landing/FAQAnswer';
 import { CATALOGUE_2027_INFOS_PRATIQUES } from '@/data/catalogue-2027';
 import { getFaqCataloguePage } from '@/lib/faq';
@@ -50,9 +51,7 @@ export function FormationsInfosPratiques2027() {
             </a>
           </p>
           <p className="mt-2 text-sm">
-            <Link href={LINKS.prendreRdv} className="font-medium text-[#377CF3] underline">
-              Prendre rendez-vous
-            </Link>
+            <CtaVisio src="cmp-formations-catalogue-2027-FormationsInfosPratiques2027" className="font-medium text-[#377CF3] underline" />
           </p>
         </div>
 

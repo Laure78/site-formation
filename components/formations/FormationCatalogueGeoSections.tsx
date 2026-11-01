@@ -1,4 +1,5 @@
 import type { ReactNode } from 'react';
+import { CtaVisio } from '@/components/CtaVisio';
 import Link from 'next/link';
 import { Check } from 'lucide-react';
 import type { FormationCatalogueCode } from '@/lib/formation-catalogue-visibility';
@@ -191,9 +192,7 @@ export function FormationCatalogueGeoSections({
             ) : null}
             {!clusterHrefs.has(LINKS.prendreRdv) ? (
               <li>
-                <Link href={LINKS.prendreRdv} className={`font-medium ${OFC_LINK}`}>
-                  Prendre rendez-vous découverte — 30 min gratuites
-                </Link>
+                <CtaVisio src="cmp-formations-FormationCatalogueGeoSections" className={`font-medium ${OFC_LINK}`} />
               </li>
             ) : null}
           </ul>

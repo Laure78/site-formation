@@ -16,10 +16,10 @@
 | Fichier | Image / composant | Ancien → nouveau (résumé) |
 |---------|-------------------|----------------------------|
 | `lib/photos.ts` | Hero accueil | Texte long → professionnels BTP, échange formation IA, devis/chantier/organisation (≤125 car.) |
-| `lib/photos.ts` | Référence partenaires Laure | Texte long → Laure Olivié, IA BTP Qualiopi, OFC, Guyancourt 78 |
+| `lib/photos.ts` | Référence partenaires Laure | Texte long → Laure Olivié, IA BTP Qualiopi, OFC, Paris 12e |
 | `lib/photos.ts` | Ouvrier plan, architecte, ouvrier confiant, formation entreprise | Alignement libellés SEO BTP demandés |
 | `lib/photos.ts` | `linkedinGraz` | Fichier → `laure-olivie-linkedin-graz.png` ; alt auteure articles |
-| `lib/photos.ts` | `portraitPro2026` | Session formation IA BTP, Qualiopi, OFC, Guyancourt 78 |
+| `lib/photos.ts` | `portraitPro2026` | Session formation IA BTP, Qualiopi, OFC, Paris 12e |
 | `lib/client-logos.ts` | Tous les logos marquee | Format « Logo … — partenaire formation IA BTP … » |
 | `components/landing/ClientsLogosMarquee.tsx` | Rangée clone carrousel | `alt=""` sur les répétitions |
 | `components/landing/GoogleReviewsMarquee.tsx` | Rangée clone avis | `alt=""` sur photos profil dupliquées |

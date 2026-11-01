@@ -11,8 +11,9 @@ import {
   computeOrientationRecommendation,
   type OrientationAnswers,
 } from '@/lib/formation-orientation';
-import { HEADER_PRIMARY_CTA_HREF } from '@/lib/header-cta';
+import { CtaVisio } from '@/components/CtaVisio';
 import { OFC_CTA_PRIMARY, OFC_CTA_SECONDARY } from '@/lib/ofc-interaction-classes';
+import { isCalendlyBookingHref } from '@/lib/calendly';
 
 const STEPS = [
   { key: 'metier' as const, legend: 'Quel est votre métier ?' },
@@ -186,12 +187,19 @@ export function FormationsOrientationWizard({ onComplete }: Props = {}) {
                 Échange de cadrage recommandé
               </h4>
               <p className="mt-3 text-sm text-ofc-ink-muted">{result.primary.justification}</p>
-              <Link
-                href={result.primary.href}
-                className={`${OFC_CTA_PRIMARY} mt-6 inline-flex min-h-11 items-center justify-center px-6 py-3`}
-              >
-                Échanger sur cette recommandation
-              </Link>
+              {isCalendlyBookingHref(result.primary.href) ? (
+                <CtaVisio
+                  src="orientation-formation-primary"
+                  className={`${OFC_CTA_PRIMARY} mt-6 inline-flex min-h-11 items-center justify-center px-6 py-3`}
+                />
+              ) : (
+                <Link
+                  href={result.primary.href}
+                  className={`${OFC_CTA_PRIMARY} mt-6 inline-flex min-h-11 items-center justify-center px-6 py-3`}
+                >
+                  Voir la recommandation
+                </Link>
+              )}
             </article>
           )}
 
@@ -235,12 +243,11 @@ export function FormationsOrientationWizard({ onComplete }: Props = {}) {
           ) : null}
 
           <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-            <Link
-              href={`${HEADER_PRIMARY_CTA_HREF}?src=orientation-formation`}
+            <CtaVisio
+              src="orientation-formation"
+              variant="secondary"
               className={`${OFC_CTA_SECONDARY} inline-flex min-h-11 items-center justify-center px-6 py-3`}
-            >
-              Échanger sur cette recommandation
-            </Link>
+            />
             <button
               type="button"
               onClick={reset}

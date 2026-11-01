@@ -162,9 +162,8 @@ export function BlogIndexView({
           variant="compact"
           title="Prêt à vous former à l'IA ?"
           description="Réservez un échange de 30 minutes gratuit pour discuter de votre projet. Formation dispensée par un organisme certifié Qualiopi · Financement possible selon éligibilité."
-          primaryLabel="Prendre rendez-vous"
           primaryHref={LINKS.prendreRdv}
-          primaryCalendlyCampaign="blog-index-block-top"
+          primaryOrigin="blog-index-block-top"
           secondaryLabel="Découvrir les formations"
           secondaryHref="/formations"
         />
@@ -368,9 +367,8 @@ export function BlogIndexView({
           variant="compact"
           title="Prêt à vous former à l'IA ?"
           description="Réservez un échange de 30 minutes gratuit. Devis personnalisé sous 24h. Formation Financement possible selon éligibilité."
-          primaryLabel="Prendre rendez-vous"
           primaryHref={LINKS.prendreRdv}
-          primaryCalendlyCampaign="blog-index-block-bottom"
+          primaryOrigin="blog-index-block-bottom"
           secondaryLabel="Voir le financement"
           secondaryHref="/financement-constructys-formation-ia-btp"
         />

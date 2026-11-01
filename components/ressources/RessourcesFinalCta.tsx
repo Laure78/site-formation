@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { CtaVisio } from '@/components/CtaVisio';
 import { ArrowRight, CalendarCheck } from 'lucide-react';
 import { LINKS } from '@/lib/internal-links';
 
@@ -36,12 +37,7 @@ export function RessourcesFinalCta() {
             Voir les formations
             <ArrowRight size={16} aria-hidden />
           </Link>
-          <Link
-            href={LINKS.prendreRdv}
-            className="inline-flex min-h-[44px] items-center gap-2 rounded-xl border-2 border-white/80 bg-transparent px-6 py-3 text-[0.95rem] font-semibold text-white transition hover:bg-white/10"
-          >
-            Réserver un échange
-          </Link>
+          <CtaVisio src="cmp-ressources-RessourcesFinalCta" className="inline-flex min-h-[44px] items-center gap-2 rounded-xl border-2 border-white/80 bg-transparent px-6 py-3 text-[0.95rem] font-semibold text-white transition hover:bg-white/10" />
         </div>
         <p className="mt-6">
           <Link

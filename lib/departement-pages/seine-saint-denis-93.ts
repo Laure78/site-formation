@@ -22,7 +22,7 @@ export const DEPARTEMENT_SEINE_SAINT_DENIS_93: DepartementPageData = {
     'Saint-Ouen',
     'Aulnay-sous-Bois',
   ],
-  tempsTrajetGuyancourt: `${SITE_DEPUIS_SIEGE_TRAJET} comptez environ 45 minutes à une heure selon la destination et le trafic (temps indicatifs) — Saint-Denis, Montreuil, Bobigny se cadrent au devis après l'échange découverte.`,
+  tempsTrajetDepuisSiege: `${SITE_DEPUIS_SIEGE_TRAJET} comptez environ 45 minutes à une heure selon la destination et le trafic (temps indicatifs) — Saint-Denis, Montreuil, Bobigny se cadrent au devis après l'échange découverte.`,
   tissuLocal:
     "Le 93 porte des opérations d'envergure (héritage des grands équipements, dynamique Grand Paris Express), avec une forte présence du gros œuvre, des travaux publics et des marchés publics structurants. Les entreprises de travaux et de second œuvre y sont très présentes ; la charge documentaire (DCE volumineux, CR d'avancement, situations) suit le rythme des chantiers. Axes A1, A3, Francilienne nord-est : les équipes naviguent entre sites et bureau, souvent avec des délais de réponse serrés sur les consultations. Les bailleurs, collectivités et grands donneurs d'ordre du département imposent une traçabilité écrite que peu de PME ont industrialisée. La formation s'appuie sur vos pièces réelles pour accélérer sans lâcher la validation métier — pas de modèle générique hors sol.",
   casUsageLocaux: [

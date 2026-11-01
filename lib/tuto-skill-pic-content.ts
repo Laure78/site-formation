@@ -233,5 +233,5 @@ export const TUTO_SKILL_PIC_INTERNAL = {
   formation: LINKS.formationMaitriserClaudeAiBtp,
   formationLabel: 'Se former à l’IA dans le BTP',
   rdv: LINKS.prendreRdv,
-  rdvLabel: 'Échanger sur votre besoin de formation',
+  rdvLabel: 'Réservez votre visio découverte gratuite',
 } as const;

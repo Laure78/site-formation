@@ -2,6 +2,7 @@
 
 import { useId, useMemo, useState, useTransition } from 'react';
 import Link from 'next/link';
+import { CtaVisio } from '@/components/CtaVisio';
 import { RessourceGuideLibraryCard } from '@/components/ressources/RessourceGuideLibraryCard';
 import {
   GUIDE_LIBRARY_FILTERS,
@@ -153,13 +154,12 @@ export function RessourcesGuidesPdfLibrary({ guides }: Props) {
           >
             Découvrir les formations IA BTP
           </Link>
-          <Link
-            href={LINKS.prendreRdv}
+          <CtaVisio
+            src="ressources-guides-pdf"
+            variant="secondary"
             onClick={trackRdv}
-            className={`${OFC_CTA_SECONDARY} inline-flex min-h-11 items-center justify-center px-6 py-3`}
-          >
-            Réserver une visio découverte
-          </Link>
+            className="inline-flex min-h-11 items-center justify-center px-6 py-3"
+          />
         </div>
       </aside>
     </div>

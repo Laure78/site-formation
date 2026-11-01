@@ -26,8 +26,8 @@
       },
       "geo": {
         "@type": "GeoCoordinates",
-        "latitude": 48.7713,
-        "longitude": 2.0739
+        "latitude": 48.8466,
+        "longitude": 2.3713
       },
       "areaServed": [
         { "@type": "Country", "name": "France" },

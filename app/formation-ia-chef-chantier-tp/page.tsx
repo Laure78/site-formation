@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { CtaDevis } from '@/components/CtaDevis';
 import { CTA_RDV_LABEL, CtaRdv } from '@/components/CtaRdv';
 import { ArrowRight, Check } from 'lucide-react';
 import { EnBref } from '@/app/components/EnBref';
@@ -390,12 +391,7 @@ export default function FormationIaChefChantierTpPage() {
               className="inline-flex items-center gap-2 rounded-xl bg-white px-6 py-3 font-semibold text-[#377CF3] hover:bg-blue-50"
              />
             <PublicPhoneCta className="inline-flex items-center gap-2 rounded-xl border-2 border-white px-6 py-3 font-semibold text-white hover:bg-white/10" />
-            <Link
-              href={LINKS.contact}
-              className="inline-flex items-center gap-2 rounded-xl border-2 border-white px-6 py-3 font-semibold text-white hover:bg-white/10"
-            >
-              Contact
-            </Link>
+            <CtaDevis className="inline-flex items-center gap-2 rounded-xl border-2 border-white px-6 py-3 font-semibold text-white hover:bg-white/10" />
           </div>
           <p className="mt-6 text-sm text-blue-100">
             <a href={`mailto:${SITE_CONFIG.email}`} className="underline hover:text-white">

@@ -4,6 +4,7 @@
  * globalement dans `app/layout.tsx` pour toutes les pages.
  */
 import Link from 'next/link';
+import { CtaDevis } from '@/components/CtaDevis';
 import { Calendar, Check, MapPin } from 'lucide-react';
 import { JsonLd } from '@/components/JsonLd';
 import { RdvLink } from '@/components/RdvLink';
@@ -85,8 +86,8 @@ export type FormationIaBtpDeptLandingConfig = {
   tissuBtpLocal: string[];
   /** Cinq cas d’usage types travaillés en formation */
   casUsageStandard: string[];
-  /** Déplacement depuis Guyancourt, inclus, 30 min IDF */
-  deplacementGuyancourt: string;
+  /** Déplacement depuis le siège Paris 12e — inclus au devis intra IDF */
+  deplacementDepuisSiege: string;
   /** Réseau FFB / cas client selon département */
   casClientFfb: string;
 };
@@ -268,7 +269,7 @@ export function FormationIaBtpDepartementLanding({ config }: { config: Formation
           </div>
           <aside className="mt-10 rounded-2xl border border-[#377CF3]/30 bg-white p-6 shadow-sm md:p-8">
             <h3 className="font-display text-lg font-bold text-slate-900">Déplacement depuis Paris (75012)</h3>
-            <p className="mt-3 text-base text-slate-700 leading-relaxed md:text-lg">{config.deplacementGuyancourt}</p>
+            <p className="mt-3 text-base text-slate-700 leading-relaxed md:text-lg">{config.deplacementDepuisSiege}</p>
           </aside>
         </div>
       </section>
@@ -364,12 +365,7 @@ export function FormationIaBtpDepartementLanding({ config }: { config: Formation
             >
               Financement Constructys — guide
             </Link>
-            <Link
-              href={LINKS.contact}
-              className="inline-flex rounded-xl border-2 border-[#377CF3] px-6 py-3 text-base font-semibold text-[#377CF3] hover:bg-blue-50"
-            >
-              Contact / demande de devis
-            </Link>
+            <CtaDevis className="inline-flex rounded-xl border-2 border-[#377CF3] px-6 py-3 text-base font-semibold text-[#377CF3] hover:bg-blue-50" />
           </div>
         </div>
       </section>

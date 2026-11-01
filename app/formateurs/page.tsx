@@ -1,71 +1,56 @@
 import type { Metadata } from 'next';
-import Link from 'next/link';
-import { FormateursCatalogueHubSection } from '@/components/formateurs/FormateursCatalogueHubSection';
-import { filtreIdFromUrlParam } from '@/lib/formateurs/hub-filtres';
-import { FormateursRecruitmentEncart } from '@/components/formateurs/FormateursRecruitmentEncart';
-import { FormateursBottomCta } from '@/components/formateurs/FormateursBottomCta';
-import { FormateursMobileStickyBar } from '@/components/formateurs/FormateursMobileStickyBar';
+import { Suspense } from 'react';
+import { FormateursProfileDialogHost } from '@/components/formateurs/FormateursProfileDialogHost';
+import {
+  FormateursHeroSection,
+  FormateursInfoStrip,
+  FormateursMetiersSection,
+  FormateursPedagogieSection,
+  FormateursPrimaryCtaSection,
+  FormateursRecrutementBandSection,
+  FormateursTeamSection,
+} from '@/components/formateurs/FormateursLandingSections';
+import { ScrollToHashOnLoad } from '@/components/navigation/ScrollToHashOnLoad';
 import { JsonLd } from '@/components/JsonLd';
 import { BreadcrumbJsonLd } from '@/components/seo/BreadcrumbJsonLd';
-import { Section } from '@/components/ui/Section';
 import { getFormateursHubProfiles } from '@/lib/formateurs';
 import { LINKS } from '@/lib/internal-links';
-import {
-  OFC_CTA_SECONDARY,
-  OFC_EYEBROW,
-  OFC_TYPE_HERO,
-} from '@/lib/ofc-interaction-classes';
-import { ofcSectionClasses, OFC_SECTION_INNER } from '@/lib/ofc-section-classes';
 import { createPageMetadata, SITE_CONFIG } from '@/lib/seo';
 
 export const revalidate = 3600;
 
-const PAGE_TITLE = 'Formateurs IA BTP en Île-de-France | Laure Olivié';
+const PAGE_TITLE = 'Nos formateurs IA BTP | Laure Olivié';
 const PAGE_DESCRIPTION =
-  'Formateurs OFC : parcours métiers BTP, expériences chantier et modules IA animés en présentiel Île-de-France. Organisme certifié Qualiopi.';
+  'Découvrez les formateurs de Laure Olivié et une pédagogie concrète pour apprendre à utiliser l’IA dans les métiers du bâtiment et des travaux publics.';
 
 export const metadata: Metadata = {
   ...createPageMetadata({
-    title: 'Formateurs IA BTP en Île-de-France',
+    title: 'Nos formateurs IA BTP',
     titleAbsolute: PAGE_TITLE,
     description: PAGE_DESCRIPTION,
     descriptionFinal: true,
     path: LINKS.formateurs,
     appendAuthorSuffix: false,
     keywords: [
-      'formateurs BTP',
-      'formatrice IA BTP',
-      'formation management chantier',
-      'catalogue formations BTP',
+      'formateurs IA BTP',
+      'formateurs intelligence artificielle bâtiment',
+      'formateurs IA construction',
+      'formation IA métiers du BTP',
+      'formation IA conduite de travaux',
+      'organisme de formation IA BTP',
     ],
   }),
   title: { absolute: PAGE_TITLE },
 };
 
-const FORMATEURS_HERO_SECTION = ofcSectionClasses({
-  tone: 'white',
-  size: 'compact',
-  mesh: false,
-  divide: false,
-});
-
-type FormateursPageProps = {
-  searchParams: Promise<Record<string, string | string[] | undefined>>;
-};
-
-export default async function FormateursPage({ searchParams }: FormateursPageProps) {
-  const sp = await searchParams;
-  const domaineRaw = sp.domaine;
-  const domaineParam = Array.isArray(domaineRaw) ? domaineRaw[0] : domaineRaw;
-  const filtreId = filtreIdFromUrlParam(domaineParam);
-
+export default async function FormateursPage() {
   const formateurs = getFormateursHubProfiles();
   const base = SITE_CONFIG.url.replace(/\/$/, '');
 
   const itemListSchema = {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
-    name: 'Formateurs OFC — domaines d’intervention BTP',
+    name: 'Formateurs OFC — équipe formation IA BTP',
     numberOfItems: formateurs.length,
     itemListElement: formateurs.map((f, index) => ({
       '@type': 'ListItem',
@@ -95,7 +80,7 @@ export default async function FormateursPage({ searchParams }: FormateursPagePro
   });
 
   return (
-    <div>
+    <div className="formateurs-page min-w-0">
       <JsonLd id="schema-formateurs-itemlist" schema={itemListSchema} />
       {personSchemas.map((schema, index) => (
         <JsonLd
@@ -112,50 +97,19 @@ export default async function FormateursPage({ searchParams }: FormateursPagePro
         ]}
       />
 
-      <section className={`${FORMATEURS_HERO_SECTION} formateurs-hub-hero`}>
-        <div className={`${OFC_SECTION_INNER} formateurs-hub-hero__inner`}>
-          <div className="formateurs-hub-hero__copy w-full max-w-3xl">
-            <p className={`${OFC_EYEBROW} text-ofc-accent`}>Formation IA BTP</p>
-            <h1 className={`${OFC_TYPE_HERO} formateurs-hub-hero__title`}>
-              Les formateurs qui vous accompagnent
-            </h1>
-            <p className="formateurs-hub-hero__lead text-ofc-ink-muted">
-              Spécialités et formations animées pour le bâtiment et les travaux publics — présentiel
-              Île-de-France.
-            </p>
+      <FormateursHeroSection />
+      <FormateursInfoStrip />
+      <FormateursTeamSection formateurs={formateurs} />
+      <FormateursMetiersSection />
+      <FormateursPedagogieSection />
+      <FormateursPrimaryCtaSection />
+      <FormateursRecrutementBandSection />
 
-            <div className="formateurs-hub-hero__actions">
-              <Link
-                href="#formateurs-profiles"
-                className={`${OFC_CTA_SECONDARY} inline-flex min-h-11 items-center justify-center rounded-xl px-6 py-3 text-base font-semibold`}
-              >
-                Voir l’équipe
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
+      <Suspense fallback={null}>
+        <FormateursProfileDialogHost formateurs={formateurs} />
+      </Suspense>
 
-      <Section
-        tone="muted"
-        className="formateurs-hub-profiles-section ofc-section--divide-0"
-        innerClassName="formateurs-hub-profiles-section__inner"
-        aria-labelledby="formateurs-grille"
-      >
-        <div className="mb-8">
-          <FormateursRecruitmentEncart />
-        </div>
-        <h2 id="formateurs-grille" className="sr-only">
-          Grille des formateurs
-        </h2>
-        <FormateursCatalogueHubSection formateurs={formateurs} filtreId={filtreId} />
-      </Section>
-
-      <Section tone="muted" aria-labelledby="formateurs-cta">
-        <FormateursBottomCta />
-      </Section>
-
-      <FormateursMobileStickyBar />
+      <ScrollToHashOnLoad />
     </div>
   );
 }

@@ -166,7 +166,7 @@ Conformes sur les 12 items. PDF téléchargeable (NIV-03 L.163–168, NIV-04 L.1
 | OFC Création d'Entreprise (raison sociale) | ⚠️ Partiel | L.177 (`QUALIOPI_LEGAL.raisonSociale` dans copyright) — pas en en-tête bloc identité |
 | SIRET 905 244 281 00010 | ✅ | L.150 |
 | NDA 11788515078 + mention non-agrément État | ✅ | L.152–154 |
-| 6 rue Henri Dunant, 78280 Guyancourt | ❌ | Adresse absente — seulement « Guyancourt (78) » L.150 |
+| 61 rue de Lyon, 75012 Paris | ✅ | Adresse via `CONTACT.address` / `SITE` (`lib/site-config.ts`) — footer et JSON-LD |
 | Téléphone | ✅ | L.133–139, L.198–204 |
 | Email contact@laureolivie.fr | ✅ | L.125–131 |
 | Logo Qualiopi + périmètre | ✅ | `QualiopiCertificationNotice` L.172 |
@@ -294,7 +294,7 @@ Formations OFC = **présentiel, Île-de-France uniquement**. Termes à signaler 
 
 | Fichier | Ligne(s) | Action |
 |---------|----------|--------|
-| `components/Footer.tsx` | 149–156 | Ajouter adresse complète : « 6 rue Henri Dunant, 78280 Guyancourt » (`CONTACT.address` / `SCHEMA_GEO`) + raison sociale visible |
+| `components/Footer.tsx` | — | Adresse complète : « 61 rue de Lyon, 75012 Paris » — source `SITE` / `CONTACT.address` |
 
 ### 7.3 Landings SEO — bloc Ind. 1 ou renvoi
 

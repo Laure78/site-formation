@@ -1,8 +1,9 @@
 import { CtaButton as RdvCtaButton } from '@/components/CtaButton';
+import { CtaDevis } from '@/components/CtaDevis';
 import Image from 'next/image';
 import Link from 'next/link';
 import type { ReactNode } from 'react';
-import { Download, Calendar } from 'lucide-react';
+import { Download } from 'lucide-react';
 import { JsonLd } from '@/components/JsonLd';
 import { SOCIAL_PROOF } from '@/lib/constants';
 import {
@@ -100,12 +101,8 @@ export default function GuideMaitriseOeuvreIaPage() {
               </GuidePageActionLink>
               <RdvCtaButton
                 origin="ressources-guide-maitrise-oeuvre-ia-hero"
-                variant="unstyled"
                 className="inline-flex items-center justify-center gap-2 rounded-lg bg-[#377CF3] px-6 py-3.5 text-base font-semibold text-white transition-colors hover:bg-[#2a63d4]"
-              >
-                <Calendar className="h-5 w-5 shrink-0" aria-hidden />
-                Réserver ma visio découverte
-              </RdvCtaButton>
+              />
             </div>
           </div>
           <figure className="mx-auto w-full max-w-[320px] lg:mx-0 lg:justify-self-end">
@@ -259,12 +256,10 @@ export default function GuideMaitriseOeuvreIaPage() {
             .
           </p>
           <div className="mt-8">
-            <RdvCtaButton origin="ressources-guide-maitrise-oeuvre-ia-mid"
+            <RdvCtaButton
+              origin="ressources-guide-maitrise-oeuvre-ia-mid"
               className="inline-flex items-center gap-2 rounded-lg bg-[#377CF3] px-8 py-4 text-lg font-semibold text-white transition-colors hover:bg-[#2a63d4]"
-            >
-              <Calendar className="h-5 w-5" aria-hidden />
-              Réserver ma visio découverte gratuite
-            </RdvCtaButton>
+            />
           </div>
         </div>
       </section>
@@ -322,9 +317,7 @@ export default function GuideMaitriseOeuvreIaPage() {
                   En savoir plus sur Laure Olivié
                 </Link>
                 {' · '}
-                <Link href={LINKS.contact} className="font-semibold text-[#377CF3] hover:underline">
-                  Contact
-                </Link>
+                <CtaDevis variant="inline" className="font-semibold text-[#377CF3] hover:underline" />
               </p>
             </div>
           </div>
@@ -347,12 +340,10 @@ export default function GuideMaitriseOeuvreIaPage() {
             présentielle Qualiopi en Île-de-France.
           </p>
           <div className="mt-8">
-            <RdvCtaButton origin="ressources-guide-maitrise-oeuvre-ia-final"
+            <RdvCtaButton
+              origin="ressources-guide-maitrise-oeuvre-ia-final"
               className="inline-flex items-center gap-2 rounded-lg bg-white px-8 py-4 text-lg font-semibold text-[#377CF3] transition-colors hover:bg-[#F2F2F2]"
-            >
-              <Calendar className="h-5 w-5" aria-hidden />
-              Réserver ma visio découverte
-            </RdvCtaButton>
+            />
           </div>
         </div>
       </section>

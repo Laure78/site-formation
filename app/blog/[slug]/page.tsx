@@ -333,8 +333,8 @@ export default async function BlogArticlePage({ params }: Props) {
             variant="compact"
             title="Prêt à vous former à l'IA ?"
             description="Réservez un échange de 30 minutes gratuit pour découvrir comment l'IA peut faire gagner du temps à votre entreprise du BTP."
-            primaryLabel="Prendre rendez-vous"
             primaryHref={LINKS.prendreRdv}
+            primaryOrigin={`blog-article-${slug}-cta-block-early`}
             secondaryLabel="Découvrir les formations"
             secondaryHref="/formations"
           />
@@ -608,9 +608,8 @@ export default async function BlogArticlePage({ params }: Props) {
             variant="compact"
             title="Passez à l'action"
             description="Vous souhaitez découvrir comment l'IA peut faire gagner du temps à votre entreprise du BTP ? Prenez rendez-vous pour échanger sur votre projet — 30 minutes gratuites."
-            primaryLabel="Prendre rendez-vous"
             primaryHref={LINKS.prendreRdv}
-            primaryCalendlyCampaign={`blog-article-${slug}-cta-block-late`}
+            primaryOrigin={`blog-article-${slug}-cta-block-late`}
             secondaryLabel="Programme « L'IA au service du bâtiment »"
             secondaryHref={LINKS.formationIaBtpNiveau1BatimentTp}
           />

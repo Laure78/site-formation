@@ -1,4 +1,6 @@
 import { FAQAnswer } from '@/components/landing/FAQAnswer';
+import { CtaDevis } from '@/components/CtaDevis';
+import { CtaVisio } from '@/components/CtaVisio';
 import { LINKS } from '@/lib/internal-links';
 import { buildMetierAllerPlusLoinLinks } from '@/lib/metier-aller-plus-loin';
 import { CTA_RDV_LABEL, CtaRdv } from '@/components/CtaRdv';
@@ -360,12 +362,7 @@ export default function FormationIaPaysagisteBtpPage() {
           <div className="mt-8 flex flex-wrap gap-4" id="cta-calendly">
             <RdvLink className="inline-flex items-center gap-2 rounded-xl bg-white px-6 py-3 font-semibold text-[var(--accent)] hover:bg-blue-50" />
             <PublicPhoneCta className="inline-flex items-center gap-2 rounded-xl border-2 border-white px-6 py-3 font-semibold text-white hover:bg-white/10" />
-            <Link
-              href="/contact"
-              className="inline-flex items-center gap-2 rounded-xl border-2 border-white px-6 py-3 font-semibold text-white hover:bg-white/10"
-            >
-              Contact
-            </Link>
+            <CtaDevis href="/contact" className="inline-flex items-center gap-2 rounded-xl border-2 border-white px-6 py-3 font-semibold text-white hover:bg-white/10" />
           </div>
           <p className="mt-6 text-sm text-blue-100">
             <a href={`mailto:${SITE_CONFIG.email}`} className="underline hover:text-white">

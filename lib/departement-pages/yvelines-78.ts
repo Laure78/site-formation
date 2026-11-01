@@ -22,7 +22,7 @@ export const DEPARTEMENT_YVELINES_78: DepartementPageData = {
     'Saint-Germain-en-Laye',
     'Rambouillet',
   ],
-  tempsTrajetGuyancourt: `Sessions inter à ${SITE_INTER_LIEU_COURT} (siège ${siteAdresseLigne()}). Les intra dans les Yvelines (Versailles, SQY, Vélizy, Poissy, Mantes, Rambouillet) se planifient au devis — temps indicatifs selon trafic.`,
+  tempsTrajetDepuisSiege: `Sessions inter à ${SITE_INTER_LIEU_COURT} (siège ${siteAdresseLigne()}). Les intra dans les Yvelines (Versailles, SQY, Vélizy, Poissy, Mantes, Rambouillet) se planifient au devis — temps indicatifs selon trafic.`,
   tissuLocal:
     "Les Yvelines combinent un tissu dense de PME du bâtiment et du second œuvre, des sièges et des zones d'activité importantes (Saint-Quentin-en-Yvelines), avec des bassins plus périurbains vers Rambouillet ou Mantes. Versailles, Poissy et Saint-Germain-en-Laye concentrent aussi des opérations de rénovation et de second œuvre sous forte exigence documentaire. Beaucoup de structures cumulent chantier et bureau avec peu de bande passante administrative. Les marchés y sont exigeants sur la documentation (mémoires, CR, AO) et les délais. Objectif terrain : un gain mesurable sur l'admin en 4 h, pas une transformation de trois ans — méthode courte, présentiel, documents réels.",
   casUsageLocaux: [

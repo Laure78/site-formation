@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import { CtaVisio } from '@/components/CtaVisio';
 import Link from 'next/link';
 import { ArrowRight, Calendar, FileText } from 'lucide-react';
 import { Badge } from '@/components/ui/Badge';
@@ -109,13 +110,7 @@ export function FinancementConstructysCta() {
           <FileText className="h-5 w-5" aria-hidden />
           Demander un devis
         </Link>
-        <Link
-          href={LINKS.prendreRdv}
-          className={`${OFC_CTA_SECONDARY} inline-flex min-h-11 items-center justify-center gap-2 border-white/40 bg-transparent px-6 py-3 text-white hover:border-white hover:bg-white/10 hover:text-white`}
-        >
-          <Calendar className="h-5 w-5" aria-hidden />
-          Réserver un échange
-        </Link>
+        <CtaVisio src="cmp-financement-FinancementConstructysHero" className={`${OFC_CTA_SECONDARY} inline-flex min-h-11 items-center justify-center gap-2 border-white/40 bg-transparent px-6 py-3 text-white hover:border-white hover:bg-white/10 hover:text-white`} />
       </div>
     </section>
   );

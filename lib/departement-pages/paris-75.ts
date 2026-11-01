@@ -20,7 +20,7 @@ export const DEPARTEMENT_PARIS_75: DepartementPageData = {
     'Paris 15e–16e (Beaugrenelle, Trocadéro)',
     'Paris 18e–20e (Montmartre, Belleville)',
   ],
-  tempsTrajetGuyancourt: `${SITE_DEPUIS_SIEGE_TRAJET} les déplacements intra à Paris se cadrent au devis selon l'arrondissement et le trafic (temps indicatifs). Centre, est et ouest ; la petite et grande couronne via la page formation IA BTP Île-de-France.`,
+  tempsTrajetDepuisSiege: `${SITE_DEPUIS_SIEGE_TRAJET} les déplacements intra à Paris se cadrent au devis selon l'arrondissement et le trafic (temps indicatifs). Centre, est et ouest ; la petite et grande couronne via la page formation IA BTP Île-de-France.`,
   tissuLocal:
     "Paris concentre maîtres d'œuvre, architectes et entreprises de construction ou de rénovation sous fortes contraintes : copropriétés, chantiers en site occupé, accès difficiles, interlocuteurs ABF sur certains secteurs. Les équipes y passent un temps considérable sur l'écrit contractuel, les autorisations et la coordination multi-intervenants. La densité des opérations et la pression sur les délais rendent la production documentaire (devis, CR, mémoires) critique au quotidien. La formation s'appuie sur ces réalités parisiennes, sans modèle générique hors sol — présentiel uniquement, documents réels.",
   casUsageLocaux: [

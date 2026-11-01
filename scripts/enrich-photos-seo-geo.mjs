@@ -9,7 +9,7 @@ const PHOTOS_PATH = path.join(__dirname, '../lib/photos.ts');
 const PHOTO_ALT_MAX = 125;
 
 function pickGeoAltSuffix(seed) {
-  const options = ['Paris IDF', 'Île-de-France', 'Paris et IDF', 'Guyancourt (78)'];
+  const options = ['Paris IDF', 'Île-de-France', 'Paris et IDF', 'Paris 12e (61 rue de Lyon)'];
   let h = 0;
   for (let i = 0; i < seed.length; i++) h = (h + seed.charCodeAt(i)) % options.length;
   return options[h];

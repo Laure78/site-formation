@@ -3,6 +3,7 @@
  * Toutes les URLs proviennent de `lib/internal-links.ts`.
  */
 import type { FormationIaMetierBtpConfig } from '@/lib/formation-ia-metier-btp-types';
+import { SITE_INTER_LIEU_COURT } from '@/lib/site-config';
 import {
   formationCatalogueLinkLabel,
   getCatalogueFormationsCount,
@@ -38,7 +39,7 @@ export const GEO_DEPARTMENT_LINKS: (ContextualLinkCard & { slug: string })[] = [
     slug: 'yvelines-78',
     href: LINKS.formationIaBtpYvelines78,
     title: 'Yvelines (78)',
-    description: 'Versailles, SQY, Guyancourt — intra (dans vos locaux) ou inter à Paris 12e (61 rue de Lyon).',
+    description: `Versailles, SQY, Guyancourt — intra (dans vos locaux) ou inter à ${SITE_INTER_LIEU_COURT}.`,
   },
   {
     slug: 'essonne-91',

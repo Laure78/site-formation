@@ -19,8 +19,8 @@ export type DepartementPageData = {
   /** Chapô : 2 phrases, dont une propre au bassin */
   accroche: string;
   villes: readonly string[];
-  /** Phrase(s) sur les temps de trajet depuis Guyancourt */
-  tempsTrajetGuyancourt: string;
+  /** Phrase(s) sur les temps de trajet depuis le siège OFC (Paris 12e) */
+  tempsTrajetDepuisSiege: string;
   /** 3–4 phrases sur le tissu BTP local */
   tissuLocal: string;
   /** 2 cas d’usage prioritaires du département */

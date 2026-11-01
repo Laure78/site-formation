@@ -1,14 +1,16 @@
-import { Mail } from 'lucide-react';
+'use client';
 
-import { siteStats } from '@/lib/constants';
+import { Mail } from 'lucide-react';
+import { CtaVisio } from '@/components/CtaVisio';
 
 type Props = {
-  calendlyHref: string;
+  /** @deprecated Ignoré — CTA via {@link CtaVisio}. */
+  calendlyHref?: string;
   emailDisplay: string;
   emailHref: string;
 };
 
-export function ConversionHero({ calendlyHref, emailDisplay, emailHref }: Props) {
+export function ConversionHero({ emailDisplay, emailHref }: Props) {
   return (
     <section className="px-4 py-8 md:py-10" aria-labelledby="a-propos-conversion-title">
       <div className="relative mx-auto max-w-6xl overflow-hidden rounded-2xl border border-white/15 bg-gradient-to-br from-[#1E40AF] via-[#377CF3] to-[#2563EB] px-5 py-8 text-white shadow-[0_10px_36px_-8px_rgba(30,64,175,0.35)] md:px-8 md:py-9">
@@ -32,18 +34,14 @@ export function ConversionHero({ calendlyHref, emailDisplay, emailHref }: Props)
               cadre le financement Constructys, et vous recevez un devis personnalisé sous 24 heures.
             </p>
             <p className="mt-3 text-xs leading-snug text-white/65 md:text-sm">
-              ✓ Qualiopi · ✓ financement possible selon éligibilité · ✓ · 
+              ✓ Qualiopi · ✓ financement possible selon éligibilité · ✓ ·
             </p>
           </div>
           <div className="flex shrink-0 flex-col items-center gap-2.5 sm:flex-row sm:justify-center lg:flex-col lg:items-stretch xl:flex-row xl:justify-end">
-            <a
-              href={calendlyHref}
-              target="_blank"
-              rel="noopener noreferrer"
+            <CtaVisio
+              src="a-propos-conversion-hero"
               className="inline-flex min-h-[42px] items-center justify-center rounded-xl bg-white px-5 py-2.5 text-center text-sm font-semibold text-[#1E40AF] shadow-sm transition hover:bg-white/95"
-            >
-              Réserver ma visio →
-            </a>
+            />
             <a
               href={emailHref}
               className="inline-flex min-h-[42px] items-center justify-center gap-2 rounded-xl border border-white/65 bg-white/10 px-5 py-2.5 text-sm font-semibold text-white backdrop-blur-[2px] transition hover:bg-white/15"

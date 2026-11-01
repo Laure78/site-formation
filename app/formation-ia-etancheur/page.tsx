@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { CtaDevis } from '@/components/CtaDevis';
 import { CTA_RDV_LABEL } from '@/components/CtaRdv';
 import { ArrowRight, Check } from 'lucide-react';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
@@ -509,12 +510,7 @@ export default function FormationIaEtancheurPage() {
           <div className="mt-8 flex flex-wrap gap-4" id="cta-calendly">
             <RdvLink className="inline-flex items-center gap-2 rounded-xl bg-white px-6 py-3 font-semibold text-[var(--accent)] hover:bg-blue-50" />
             <PublicPhoneCta className="inline-flex items-center gap-2 rounded-xl border-2 border-white px-6 py-3 font-semibold text-white hover:bg-white/10" />
-            <Link
-              href={LINKS.contact}
-              className="inline-flex items-center gap-2 rounded-xl border-2 border-white px-6 py-3 font-semibold text-white hover:bg-white/10"
-            >
-              Contact
-            </Link>
+            <CtaDevis className="inline-flex items-center gap-2 rounded-xl border-2 border-white px-6 py-3 font-semibold text-white hover:bg-white/10" />
           </div>
           <p className="mt-6 text-sm text-blue-100">
             <a href={`mailto:${SITE_CONFIG.email}`} className="underline hover:text-white">

@@ -1,4 +1,6 @@
 import Link from 'next/link';
+import { CtaVisio } from '@/components/CtaVisio';
+import { CtaDevis } from '@/components/CtaDevis';
 import {
   Accessibility,
   Award,
@@ -134,13 +136,9 @@ export function InformationsReglementaires(props: InfosQualiopiProps) {
             <p>{validated.modalitesAcces}</p>
             <QuestionnairePositionnementLien />
             <p className="mt-3">
-              <Link href={LINKS.prendreRdv} className="font-medium text-[#377CF3] hover:underline">
-                {CTA_RDV_LABEL}
-              </Link>{' '}
+              <CtaVisio src="cmp-formation-InfosQualiopi" className="font-medium text-[#377CF3] hover:underline" />{' '}
               ou{' '}
-              <Link href={LINKS.contact} className="font-medium text-[#377CF3] hover:underline">
-                nous contacter
-              </Link>{' '}
+              <CtaDevis className="font-medium text-[#377CF3] hover:underline" />{' '}
               pour vérifier les prochaines dates.
             </p>
           </QualiopiItem>

@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { CtaVisio } from '@/components/CtaVisio';
 import { getCatalogueSurDemandeOffers } from '@/lib/formations-catalogue-page-config';
 import { LINKS } from '@/lib/internal-links';
 import { OFC_CTA_PRIMARY, OFC_CARD } from '@/lib/ofc-interaction-classes';
@@ -34,12 +35,7 @@ export function FormationsCatalogueSurDemandeSection() {
       </ul>
 
       <div className="mt-8">
-        <Link
-          href={LINKS.prendreRdv}
-          className={`${OFC_CTA_PRIMARY} inline-flex min-h-11 items-center justify-center px-6 py-3`}
-        >
-          Parler de mon besoin
-        </Link>
+        <CtaVisio src="cmp-formations-catalogue-FormationsCatalogueSurDemandeSection" className={`${OFC_CTA_PRIMARY} inline-flex min-h-11 items-center justify-center px-6 py-3`} />
       </div>
     </section>
   );

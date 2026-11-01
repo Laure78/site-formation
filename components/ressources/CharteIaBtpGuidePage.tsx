@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import { CtaVisio } from '@/components/CtaVisio';
 import Link from 'next/link';
 import { Breadcrumb } from '@/components/Breadcrumb';
 import { MaillageRessourceFromConfig } from '@/app/components/MaillageRessource';
@@ -638,9 +639,7 @@ export function CharteIaBtpGuidePage() {
                   Découvrir les formations IA BTP
                 </Link>
                 {' · '}
-                <Link href={LINKS.prendreRdv} className={`font-semibold ${OFC_LINK}`}>
-                  Réserver une visio découverte
-                </Link>
+                <CtaVisio src="cmp-ressources-CharteIaBtpGuidePage" className={`font-semibold ${OFC_LINK}`} />
               </p>
               <p className="mt-4 text-sm text-slate-600">
                 Besoin cadré :{' '}

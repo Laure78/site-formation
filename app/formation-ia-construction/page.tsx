@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { CtaDevis } from '@/components/CtaDevis';
 import { CtaButton } from '@/components/CtaButton';
 import { CTA_RDV_LABEL } from '@/components/CtaRdv';
 import { Check } from 'lucide-react';
@@ -153,12 +154,7 @@ export default function FormationIaConstructionPage() {
             >
               Voir les programmes
             </Link>
-            <Link
-              href={LINKS.contact}
-              className="inline-flex items-center rounded-lg border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-800 hover:border-[#377CF3] hover:text-[#377CF3]"
-            >
-              Demander un devis
-            </Link>
+            <CtaDevis className="inline-flex items-center rounded-lg border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-800 hover:border-[#377CF3] hover:text-[#377CF3]" />
             <CtaButton
               origin="formation-ia-construction-hero"
               variant="unstyled"

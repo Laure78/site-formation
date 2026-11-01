@@ -16,7 +16,7 @@
 | Fiches 12/12 items | **4/5** — NIV-02 item 12 manquant | **4/5** — NIV-02 item 12 **toujours manquant** |
 | NIV-01 PDF programme | Fichier présent, **non lié** | **✅ Lié** — hero L.284-290 + bloc Contenu `InfosPratiques` |
 | NIV-01 « attestation Qualiopi » | ❌ L.754-755 | **✅ Corrigé** — `QUALIOPI_EVALUATION_STANDARD` → « certificat de réalisation » |
-| Footer adresse complète | ❌ « Guyancourt (78) » seulement | **✅** `Footer.tsx` L.149-156 — 6 rue Henri Dunant, 78280 Guyancourt |
+| Footer adresse complète | — | **✅** `Footer.tsx` — 61 rue de Lyon, 75012 Paris (`lib/site-config.ts`) |
 | Formulations marque (hero catalogue) | ❌ « formations Qualiopi » | **✅** `FormationsHero.tsx` L.25-30 — « organisme certifié Qualiopi » |
 | Pilier `formation-ia-btp` | ❌ sans renvoi Ind. 1 | **✅** `<RenvoiFicheCatalogue programmeRef="NIV-01" />` L.692 |
 | Termes CPF / FSE+ / GERESO (pages publiques) | ⚠️ présents | **✅ absents** de `app/`, `components/`, `public/` |

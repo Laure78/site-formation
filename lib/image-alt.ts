@@ -1,3 +1,5 @@
+import { SITE_INTER_LIEU_COURT } from '@/lib/site-config';
+
 /**
  * Conventions alt images site laureolivie.fr :
  * - ≤ 125 caractères, décrire ce qu'on voit, 1 mot-clé max intégré naturellement
@@ -28,7 +30,11 @@ export function normalizePhotoAlt(baseAlt: string): string {
   let out = baseAlt.replace(/\s+/g, ' ').trim();
   out = out.replace(/^(image|photo|illustration) de\s+/i, '');
   out = out.replace(/\s*—\s*formation IA[^.]*$/i, '');
-  out = out.replace(/,\s*(Paris et IDF|Paris IDF|Île-de-France|Paris 12e \(61 rue de Lyon\))$/i, '');
+  const siegeTail = SITE_INTER_LIEU_COURT.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  out = out.replace(
+    new RegExp(`,\\s*(Paris et IDF|Paris IDF|Île-de-France|${siegeTail})$`, 'i'),
+    '',
+  );
   out = out.replace(/\s*—\s*formation…$/i, '');
   return clampPhotoAlt(out);
 }

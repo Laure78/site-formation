@@ -1,7 +1,7 @@
 import { DiagnosticIABTPWizard } from '@/components/diagnostic/DiagnosticIABTPWizard';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
 import { JsonLd } from '@/components/JsonLd';
-import { buildSiteCalendlyCtaUrl } from '@/lib/calendly';
+import { CTA_RDV_LABEL } from '@/lib/cta-rdv-label';
 import { createPageMetadata, getFAQSchema, getBreadcrumbSchema, SITE_CONFIG } from '@/lib/seo';
 import { FAQ_DIAGNOSTIC } from '@/lib/faq';
 import { formatNoteSatisfactionAffichageComplet } from '@/lib/data/indicateurs-resultats';
@@ -106,7 +106,7 @@ export default function DiagnosticIABTPPage() {
               { href: LINKS.formationAO, label: "Formation IA appels d'offres BTP" },
               { href: LINKS.formationConduiteTravauxSuiviChantier, label: 'Formation IA conduite de travaux' },
               { href: LINKS.blog, label: 'Articles et guides' },
-              { href: buildSiteCalendlyCtaUrl('diagnostic-ia-btp-footer-rdv'), label: 'Prendre rendez-vous' },
+              { href: LINKS.prendreRdv, label: CTA_RDV_LABEL },
             ]}
           />
         </div>

@@ -35,7 +35,8 @@ export const TEMOIGNAGES_REGION_IDF: readonly DepartementTemoignage[] = [
 /** @deprecated Alias — préférer `TEMOIGNAGES_REGION_IDF`. */
 export const DEPARTEMENT_TEMOIGNAGES_PARTAGES = TEMOIGNAGES_REGION_IDF;
 
-export const DEPARTEMENT_FORMATRICE_GUYANCOURT = {
+/** Bloc formatrice — déplacements depuis le siège (Paris 12e). */
+export const DEPARTEMENT_FORMATRICE_SIEGE = {
   title: `Formatrice basée à ${siteAdresseLigne()}`,
   body: `Laure Olivié (OFC Création d'Entreprise) forme les équipes BTP à ChatGPT et Claude AI depuis ${siteAdresseLigne()}. Sessions de 4 h en présentiel uniquement, en Île-de-France uniquement — intra-entreprise (dans vos locaux) ou ${SITE_INTER_LIEU}. Déplacements et logistique sont précisés au devis, après un échange découverte de 30 minutes.`,
 } as const;

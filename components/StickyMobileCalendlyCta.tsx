@@ -4,13 +4,16 @@ import { usePathname } from 'next/navigation';
 import { useEffect, useMemo, useState } from 'react';
 import { CtaVisio } from '@/components/CtaVisio';
 import { CONTACT } from '@/lib/constants';
+import { LINKS } from '@/lib/internal-links';
 import { shouldShowStickyMobileCalendlyBar } from '@/lib/sticky-mobile-calendly-path';
 
-/** Bandeau fixe mobile — Appeler + visio découverte (après le hero sur l’accueil). */
+/** Bandeau fixe mobile — Appeler + visio découverte (après le hero). */
 export function StickyMobileCalendlyCta() {
   const pathname = usePathname();
   const eligible = useMemo(() => shouldShowStickyMobileCalendlyBar(pathname), [pathname]);
   const isHome = pathname === '/';
+  const isFormateurs = pathname === LINKS.formateurs;
+  const visioSrc = isFormateurs ? 'formateurs-sticky-mobile' : 'sticky-mobile-bar';
 
   const [pastHero, setPastHero] = useState(false);
   const [footerVisible, setFooterVisible] = useState(false);
@@ -27,12 +30,16 @@ export function StickyMobileCalendlyCta() {
       return;
     }
 
-    const hero = document.getElementById('accueil-hero');
+    const hero = isHome
+      ? document.getElementById('accueil-hero')
+      : isFormateurs
+        ? document.querySelector('.formateurs-page-hero')
+        : null;
     let heroObserver: IntersectionObserver | undefined;
 
     let onScrollFallback: (() => void) | undefined;
 
-    if (isHome && hero) {
+    if (hero) {
       heroObserver = new IntersectionObserver(
         (entries) => setPastHero(!entries[0]?.isIntersecting),
         { threshold: 0, rootMargin: '0px' },
@@ -61,7 +68,7 @@ export function StickyMobileCalendlyCta() {
       }
       footerIo?.disconnect();
     };
-  }, [eligible, isHome]);
+  }, [eligible, isFormateurs, isHome]);
 
   const show = mounted && eligible && pastHero && !footerVisible;
 
@@ -90,7 +97,7 @@ export function StickyMobileCalendlyCta() {
           Appeler
         </a>
         <CtaVisio
-          src="sticky-mobile-bar"
+          src={visioSrc}
           data-cta="sticky-mobile-rdv"
           className="inline-flex min-h-11 items-center justify-center rounded-lg px-3 text-center text-xs font-semibold leading-snug sm:text-sm"
         />

@@ -1,10 +1,12 @@
 'use client';
 
 import type { ReactNode } from 'react';
+import { CtaVisio } from '@/components/CtaVisio';
 import Link from 'next/link';
 import { Check, Calendar } from 'lucide-react';
 import { RdvLink } from '@/components/RdvLink';
-import { buildSiteCalendlyCtaUrl } from '@/lib/calendly';
+import { CTA_RDV_LABEL } from '@/lib/cta-rdv-label';
+import { buildPrendreRdvHref } from '@/lib/prendre-rdv-href';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
 import { VoirAussi } from '@/components/VoirAussi';
 import { FAQSection } from '@/components/landing/FAQSection';
@@ -48,7 +50,7 @@ export function FormationCityPage({
   const { ville, path, zones, regionLabel } = config;
   const statsFreshness = getStatsFreshnessLabel();
   const cityCamp = path.replace(/^\/+|\/$/g, '').replace(/\//g, '-');
-  const diagnosticUrl = buildSiteCalendlyCtaUrl(`${cityCamp}-aller-plus-loin-diagnostic`);
+  const diagnosticUrl = buildPrendreRdvHref(`${cityCamp}-aller-plus-loin-diagnostic`);
   const cityFinCtaCampaign = `${cityCamp}-fin-cta`;
   const mailRappelVille = `mailto:${SITE_CONFIG.email}?subject=${encodeURIComponent(`Être rappelé — formation IA appliquée au bâtiment ${ville}`)}`;
   const summaryVille = [
@@ -316,7 +318,7 @@ export function FormationCityPage({
               </Link>
             </li>
             <li>
-              <Link href="/contact" className="font-medium text-[var(--accent)] hover:underline">
+              <Link href={LINKS.contact} className="font-medium text-[var(--accent)] hover:underline">
                 Contact
               </Link>
             </li>
@@ -338,7 +340,7 @@ export function FormationCityPage({
               links={[
                 { href: '/formations', label: 'Formation IA pour les pros du BTP' },
                 { href: '/formations/ia-batiment-travaux-publics', label: 'IA pour votre métier dans le bâtiment' },
-                { href: diagnosticUrl, label: 'Échanger sur vos besoins (30 min)' },
+                { href: diagnosticUrl, label: CTA_RDV_LABEL },
               ]}
             />
           </div>
