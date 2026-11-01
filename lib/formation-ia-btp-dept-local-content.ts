@@ -2,6 +2,12 @@ import { CATALOGUE_NIV_RANGE } from '@/data/formations';
 import type { FAQItem } from '@/lib/faq';
 import { FINANCEMENT_FORMULATION_PRUDENTE } from '@/lib/financement-copy';
 import { LINKS } from '@/lib/internal-links';
+import {
+  SITE_DEPUIS_SIEGE_TRAJET,
+  SITE_INTER_LIEU_COURT,
+  siteAdresseLigne,
+  siteSiegeCourt,
+} from '@/lib/site-config';
 
 export type DeptInternalLink = {
   href: string;
@@ -28,7 +34,7 @@ export const DEPT_LOCAL_SEO_CONTENT: Record<string, DeptLocalSeoContent> = {
     intro:
       "La formation IA bâtiment et construction de Laure Olivié (OFC Création d'Entreprise) se déroule en présentiel à Paris, en intra (dans vos locaux) ou en inter. Cible : entreprises et chantiers parisiens intra-muros — DCE de marchés parisiens, mémoires techniques, comptes rendus de chantier en site occupé.",
     villesEtTrajets:
-      "Tout Paris intra-muros, des 20 arrondissements aux franges (porte de la Chapelle, rive gauche, secteur Bercy). Depuis Guyancourt (78), Paris est accessible en transport ou véhicule selon le créneau — temps indicatifs, selon le trafic. La petite et grande couronne sont couvertes via la page formation IA BTP Île-de-France.",
+      `Tout Paris intra-muros, des 20 arrondissements aux franges (porte de la Chapelle, rive gauche, secteur Bercy). ${SITE_DEPUIS_SIEGE_TRAJET} Paris est accessible en transport ou véhicule selon le créneau — temps indicatifs, selon le trafic. La petite et grande couronne sont couvertes via la page formation IA BTP Île-de-France.`,
     tissuBtpLocal:
       "Paris concentre maîtres d'œuvre, architectes et entreprises de construction / rénovation sous fortes contraintes : copropriétés, chantiers en site occupé, accès difficiles, exigences patrimoniales (ABF). Les équipes y passent un temps considérable sur l'écrit contractuel et les autorisations.",
     casUsage: [
@@ -73,7 +79,7 @@ export const DEPT_LOCAL_SEO_CONTENT: Record<string, DeptLocalSeoContent> = {
     intro:
       "Formation IA pour le BTP en présentiel en Seine-et-Marne (77), intra (dans vos locaux) ou inter. Le 77 est le plus vaste département francilien : la formation est pensée pour des équipes parfois dispersées sur de grandes distances de chantier.",
     villesEtTrajets:
-      "Melun (préfecture), Meaux, Chelles, le secteur de Marne-la-Vallée, Fontainebleau, Provins. Depuis Guyancourt, comptez environ une heure à une heure et quart selon la destination et le trafic — temps indicatifs.",
+      `${SITE_DEPUIS_SIEGE_TRAJET} comptez environ une heure à une heure et quart selon la destination et le trafic — temps indicatifs (Melun, Meaux, Chelles, Marne-la-Vallée, Fontainebleau, Provins).`,
     tissuBtpLocal:
       "Territoire mixte — péri-urbain dense à l'ouest (Marne-la-Vallée, Chelles) et plus rural à l'est. Forte présence du pavillonnaire, de la rénovation et des travaux publics / VRD liés à l'étalement et aux infrastructures.",
     casUsage: [
@@ -118,7 +124,7 @@ export const DEPT_LOCAL_SEO_CONTENT: Record<string, DeptLocalSeoContent> = {
     intro:
       "Laure Olivié (siège OFC à Paris 75012) intervient dans les Yvelines (78) en présentiel — intra (dans vos locaux) ou inter — sur vos documents réels.",
     villesEtTrajets:
-      "Versailles (préfecture), Saint-Quentin-en-Yvelines, Guyancourt, Poissy, Mantes-la-Jolie, Sartrouville, Trappes. La plupart des sites yvelinois sont à moins de 30 minutes de Guyancourt — selon le trafic.",
+      `Versailles (préfecture), Saint-Quentin-en-Yvelines, Guyancourt, Poissy, Mantes-la-Jolie, Sartrouville, Trappes. Sessions inter à ${SITE_INTER_LIEU_COURT} ; déplacements intra depuis le siège OFC (${siteSiegeCourt()}).`,
     tissuBtpLocal:
       "Les Yvelines combinent un tissu dense de PME du bâtiment, des sièges d'entreprises et des zones d'activité importantes (Saint-Quentin-en-Yvelines). Beaucoup de structures y cumulent chantier et bureau avec peu de bande passante administrative.",
     casUsage: [
@@ -127,8 +133,8 @@ export const DEPT_LOCAL_SEO_CONTENT: Record<string, DeptLocalSeoContent> = {
     ],
     faq: [
       {
-        q: 'Vous êtes bien basée dans le 78 ?',
-        a: "Oui, à Guyancourt (78280). C'est le département où les délais d'intervention sont les plus courts.",
+        q: 'Où se déroulent les sessions inter dans les Yvelines ?',
+        a: `Les sessions inter ont lieu à ${SITE_INTER_LIEU_COURT} (siège OFC). Les intra se organisent dans vos locaux dans tout le département.`,
       },
       {
         q: 'Peut-on faire une session intra à Versailles ou à Saint-Quentin-en-Yvelines ?',
@@ -163,7 +169,7 @@ export const DEPT_LOCAL_SEO_CONTENT: Record<string, DeptLocalSeoContent> = {
     intro:
       "Formation IA pour le BTP en présentiel en Essonne (91), intra (dans vos locaux) ou inter. Le sud francilien mêle pôles d'innovation (plateau de Saclay) et zones pavillonnaires : la formation s'adapte aux deux réalités.",
     villesEtTrajets:
-      "Évry-Courcouronnes (préfecture), Massy, Palaiseau, le plateau de Saclay, Longjumeau, Morangis, Corbeil-Essonnes. Depuis Guyancourt, le nord de l'Essonne (Massy, Saclay) est à une trentaine de minutes selon le trafic.",
+      `${SITE_DEPUIS_SIEGE_TRAJET} le nord de l'Essonne (Massy, Saclay, Évry-Courcouronnes, Palaiseau) se planifie typiquement en demi-journée à une heure selon le trafic — temps indicatifs.`,
     tissuBtpLocal:
       "L'Essonne porte des opérations d'envergure autour de Saclay et des grands axes, avec une part importante de marchés publics et de chantiers tertiaires, à côté d'un tissu pavillonnaire actif.",
     casUsage: [
@@ -208,7 +214,7 @@ export const DEPT_LOCAL_SEO_CONTENT: Record<string, DeptLocalSeoContent> = {
     intro:
       "Formation IA pour le BTP en présentiel dans les Hauts-de-Seine (92), intra (dans vos locaux) ou inter. Département de donneurs d'ordre et de tertiaire : la formation cible la productivité sur l'écrit contractuel et la conduite de travaux.",
     villesEtTrajets:
-      "Nanterre (préfecture), La Défense, Boulogne-Billancourt, Courbevoie, Issy-les-Moulineaux, Clichy, Levallois-Perret. Depuis Guyancourt, Nanterre / La Défense sont à environ 40 minutes à une heure selon le trafic.",
+      `${SITE_DEPUIS_SIEGE_TRAJET} Nanterre / La Défense sont à environ 30 à 50 minutes selon le trafic (Boulogne, Issy, Courbevoie, Levallois — temps indicatifs).`,
     tissuBtpLocal:
       "Le 92 concentre sièges sociaux, opérations tertiaires et rénovation lourde, avec de nombreuses entreprises générales et maîtres d'œuvre intervenant sur des marchés exigeants et très formalisés.",
     casUsage: [
@@ -253,7 +259,7 @@ export const DEPT_LOCAL_SEO_CONTENT: Record<string, DeptLocalSeoContent> = {
     intro:
       "Formation IA pour le BTP en présentiel en Seine-Saint-Denis (93), intra (dans vos locaux) ou inter. Territoire de grands chantiers et de marchés publics : la formation met l'accent sur la réponse aux marchés et la production documentaire de chantier.",
     villesEtTrajets:
-      "Bobigny (préfecture), Saint-Denis, Montreuil, Aubervilliers, Pantin, Saint-Ouen, Aulnay-sous-Bois. Depuis Guyancourt, comptez environ une heure selon la destination et le trafic.",
+      `${SITE_DEPUIS_SIEGE_TRAJET} comptez environ 45 minutes à une heure selon la destination et le trafic (Bobigny, Saint-Denis, Montreuil, Aubervilliers, Pantin).`,
     tissuBtpLocal:
       "Le 93 porte des opérations d'envergure (héritage des grands équipements, dynamique Grand Paris Express), avec une forte présence du gros œuvre, des travaux publics et des marchés publics structurants.",
     casUsage: [
@@ -298,7 +304,7 @@ export const DEPT_LOCAL_SEO_CONTENT: Record<string, DeptLocalSeoContent> = {
     intro:
       "Formation IA pour le BTP en présentiel dans le Val-de-Marne (94), intra (dans vos locaux) ou inter. Le sud-est francilien est traversé par les nouvelles lignes du Grand Paris Express : beaucoup d'opérations à coordonner.",
     villesEtTrajets:
-      "Créteil (préfecture), Vitry-sur-Seine, Ivry-sur-Seine, Nogent-sur-Marne, Vincennes, Maisons-Alfort, Champigny-sur-Marne. Depuis Guyancourt, Créteil est à environ une heure selon le trafic.",
+      `${SITE_DEPUIS_SIEGE_TRAJET} Créteil et le Val-de-Marne sont en général à 40 minutes à une heure selon le trafic (Vitry, Ivry, Vincennes, Champigny).`,
     tissuBtpLocal:
       "Le 94 mêle résidentiel dense, tertiaire et opérations liées aux infrastructures (extensions Grand Paris Express), avec un tissu actif de PME du bâtiment et de la conduite de travaux.",
     casUsage: [
@@ -343,7 +349,7 @@ export const DEPT_LOCAL_SEO_CONTENT: Record<string, DeptLocalSeoContent> = {
     intro:
       "Formation IA pour le BTP en présentiel dans le Val-d'Oise (95), intra (dans vos locaux) ou inter. Entre Cergy-Pontoise et le pôle aéroportuaire de Roissy, le nord-ouest francilien a ses propres logiques de chantier et de logistique.",
     villesEtTrajets:
-      "Cergy (préfecture), Pontoise, Argenteuil, Sarcelles, le secteur de Roissy, Goussainville. Depuis Guyancourt, Cergy-Pontoise est à environ 45 minutes à une heure selon le trafic.",
+      `${SITE_DEPUIS_SIEGE_TRAJET} Cergy-Pontoise et le Val-d'Oise sont en général à 45 minutes à une heure selon le trafic (Argenteuil, Sarcelles, Roissy).`,
     tissuBtpLocal:
       "Le 95 associe un tissu de PME du bâtiment, des opérations résidentielles autour de Cergy-Pontoise et une forte composante logistique / aéroportuaire au nord, souvent synonyme de chantiers dispersés.",
     casUsage: [
@@ -388,7 +394,7 @@ export const IDF_CHAPEAU_LOCAL = {
   intro:
     "Laure Olivié forme les équipes BTP à l'IA en présentiel dans toute l'Île-de-France — Paris (75), Seine-et-Marne (77), Yvelines (78), Essonne (91), Hauts-de-Seine (92), Seine-Saint-Denis (93), Val-de-Marne (94), Val-d'Oise (95). intra (dans vos locaux) ou inter — présentiel uniquement · Île-de-France uniquement.",
   positionnement:
-    "Basée à Paris (75012), elle intervient sur l'ensemble du territoire francilien sur vos documents réels : devis, comptes rendus, DCE, mémoires techniques, administratif chantier — toujours avec validation métier de vos équipes.",
+    `Basée à ${siteSiegeCourt()}, elle intervient sur l'ensemble du territoire francilien sur vos documents réels : devis, comptes rendus, DCE, mémoires techniques, administratif chantier — toujours avec validation métier de vos équipes.`,
   faq: [
     {
       q: "Couvrez-vous toute l'Île-de-France ?",
@@ -400,7 +406,7 @@ export const IDF_CHAPEAU_LOCAL = {
     },
     {
       q: 'Où êtes-vous basée ?',
-      a: "À Guyancourt (78), ce qui permet d'intervenir rapidement sur l'ensemble de la région.",
+      a: `À ${siteAdresseLigne()} (siège OFC), avec sessions inter à ${SITE_INTER_LIEU_COURT} et intra dans toute l'Île-de-France.`,
     },
   ] satisfies FAQItem[],
   internalLinks: [

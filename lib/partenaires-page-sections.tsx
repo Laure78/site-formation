@@ -7,13 +7,10 @@ import {
   ALT_LOGO_FFB_OFFICIEL,
   ALT_LOGO_IFRB,
   ALT_LOGO_MONITEUR_FORMATIONS,
-  ALT_LOGO_UMB_FFB,
   LOGO_MONITEUR_FORMATIONS,
-  LOGO_UMB_FFB,
   PARTNER_WEBSITES,
 } from '@/lib/client-logos';
 import { CSFE_NOM_LIBRE } from '@/lib/csfe';
-import { UMB_FFB_NOM_LIBRE } from '@/lib/umb-ffb';
 import { LINKS } from '@/lib/internal-links';
 import { OFC_LINK } from '@/lib/ofc-interaction-classes';
 import type { PartenaireLogo } from '@/lib/partenaires-content';
@@ -184,45 +181,6 @@ export const PARTENAIRES_PAGE_SECTIONS: PartenairePageSection[] = [
         certifier les ouvrages. L’angle métier étanchéité est aussi décrit sur la page{' '}
         <Link href={LINKS.formationIaEtancheur} className={OFC_LINK}>
           formation IA étancheur BTP
-        </Link>
-        .
-      </>,
-    ],
-  },
-  {
-    id: 'umb-ffb',
-    h2: 'UMB-FFB',
-    subtitle: UMB_FFB_NOM_LIBRE,
-    officialHref: PARTNER_WEBSITES.umbFfb,
-    officialLabel: 'Site officiel UMB-FFB — Union des Métiers du Bois',
-    logo: {
-      src: LOGO_UMB_FFB.src,
-      alt: ALT_LOGO_UMB_FFB,
-      width: LOGO_UMB_FFB.width,
-      height: LOGO_UMB_FFB.height,
-    },
-    paragraphs: [
-      <>
-        L’{UMB_FFB_NOM_LIBRE} rassemble, au sein de la FFB, les entreprises de charpente,
-        menuiserie, agencement et construction bois. Les adhérents sont surtout des TPE et
-        PME de la filière bois.
-      </>,
-      <>
-        J’y décline la même méthode sur le vocabulaire du bois : devis, métrés, mails
-        client, documents de chantier. Public : dirigeants et équipes en Île-de-France,
-        en présentiel, sur leurs pièces (plans, notes, extraits de CCTP bois).
-      </>,
-      <>
-        Charpente, menuiserie et agencement n’ont pas les mêmes DTU ni les mêmes postes
-        de devis. L’atelier s’adapte au lot amené par le groupe, sans transformer la
-        session en cours de conception bois. L’IA aide à rédiger et à classer ; le
-        métré et le choix technique restent ceux de l’entreprise.
-      </>,
-      <>
-        C’est une formation déléguée, pas une offre « labellisée UMB » distincte du
-        catalogue Qualiopi. Pour l’angle charpente, voir la{' '}
-        <Link href={LINKS.formationIaCharpentierBtp} className={OFC_LINK}>
-          formation IA charpentier BTP
         </Link>
         .
       </>,

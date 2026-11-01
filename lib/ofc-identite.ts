@@ -3,11 +3,13 @@
  * qualiopi-info ↔ schema-constants ↔ seo).
  * Réexportée depuis `lib/qualiopi-info.ts` (`OFC_IDENTITE`).
  */
+import { SITE } from '@/lib/site-config';
+
 export const OFC_IDENTITE = {
-  raisonSociale: "OFC Création d'Entreprise",
+  raisonSociale: SITE.raisonSociale,
   formeJuridique: 'SASU',
   formeJuridiqueLongue: 'Société par Actions Simplifiée Unipersonnelle (SASU)',
-  siret: '905 244 281 00010',
+  siret: SITE.siret,
   siren: '905244281',
-  nda: '11788515078',
+  nda: SITE.nda,
 } as const;

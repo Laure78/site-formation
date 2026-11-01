@@ -6,10 +6,8 @@ import {
   ALT_LOGO_MONITEUR_FORMATIONS,
   ALT_LOGO_LINKEDIN_LEARNING,
   ALT_LOGO_ARFAB,
-  ALT_LOGO_UMB_FFB,
   LOGO_MONITEUR_FORMATIONS,
   LOGO_LINKEDIN_LEARNING,
-  LOGO_UMB_FFB,
   PARTNER_WEBSITES,
 } from '@/lib/client-logos';
 import { CSFE_NOM_COMPLET } from '@/lib/csfe';
@@ -61,13 +59,6 @@ export const A_PROPOS_PARTNERS_GRID: AProposPartner[] = [
     href: 'https://www.csfe.fr/',
     logo: '/images/partenaires/logo-csfe-partenaire-formation-btp.webp',
     alt: ALT_LOGO_CSFE,
-  },
-  {
-    name: 'UMB-FFB',
-    subtitle: 'Union des Métiers du Bois',
-    href: PARTNER_WEBSITES.umbFfb,
-    logo: LOGO_UMB_FFB.src,
-    alt: ALT_LOGO_UMB_FFB,
   },
   {
     name: 'CNAM Entreprise',

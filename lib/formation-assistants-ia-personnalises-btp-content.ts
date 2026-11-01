@@ -3,6 +3,7 @@
  * Source programme : programme_OFC_Assistants_IA_BTP_7h_20261022.pdf
  */
 import { getFormationByCode, libelleEffectifFormation } from '@/data/formations';
+import { SITE_INTER_LIEU_PREFIX } from '@/lib/site-config';
 
 const NIV_09 = getFormationByCode('NIV-09')!;
 const EFFECTIF_NIV09 = libelleEffectifFormation(NIV_09);
@@ -13,7 +14,7 @@ export const ASSISTANTS_IA_PROPOSITION_VALEUR =
 export const ASSISTANTS_IA_HERO_FACTS = [
   '7 heures — 1 journée',
   'Présentiel',
-  'Inter : Guyancourt (78)',
+  SITE_INTER_LIEU_PREFIX,
   `Jusqu'à ${NIV_09.effectifMax} participants`,
   '70 % de pratique',
   'ChatGPT Plus et Claude Pro (ou comptes entreprise) requis',
@@ -219,7 +220,7 @@ export const ASSISTANTS_IA_PREREQUIS_ITEMS = [
 ] as const;
 
 export const ASSISTANTS_IA_MODALITES = [
-  'Présentiel — Inter : Guyancourt (78) · Intra : locaux de l\'entreprise en Île-de-France',
+  `Présentiel — ${SITE_INTER_LIEU_PREFIX} · Intra : locaux de l'entreprise en Île-de-France`,
   `Effectif : ${EFFECTIF_NIV09}`,
   'Horaires : 9h00 — 12h30 / 13h30 — 17h00 (pauses selon programme)',
   'Inscription via laureolivie.fr/contact jusqu\'à 7 jours avant la session, sous réserve de places',

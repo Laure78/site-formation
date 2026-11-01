@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { Suspense } from 'react';
-import { FormateursCatalogueHub } from '@/components/formateurs/FormateursCatalogueHub';
+import { FormateursCatalogueHubSection } from '@/components/formateurs/FormateursCatalogueHubSection';
+import { filtreIdFromUrlParam } from '@/lib/formateurs/hub-filtres';
 import { FormateursRecruitmentEncart } from '@/components/formateurs/FormateursRecruitmentEncart';
 import { FormateursBottomCta } from '@/components/formateurs/FormateursBottomCta';
 import { FormateursMobileStickyBar } from '@/components/formateurs/FormateursMobileStickyBar';
@@ -20,13 +20,13 @@ import { createPageMetadata, SITE_CONFIG } from '@/lib/seo';
 
 export const revalidate = 3600;
 
-const PAGE_TITLE = 'Les formateurs qui vous accompagnent | Laure Olivié';
+const PAGE_TITLE = 'Formateurs IA BTP en Île-de-France | Laure Olivié';
 const PAGE_DESCRIPTION =
   'Formateurs OFC : parcours métiers BTP, expériences chantier et modules IA animés en présentiel Île-de-France. Organisme certifié Qualiopi.';
 
 export const metadata: Metadata = {
   ...createPageMetadata({
-    title: 'Les formateurs qui vous accompagnent',
+    title: 'Formateurs IA BTP en Île-de-France',
     titleAbsolute: PAGE_TITLE,
     description: PAGE_DESCRIPTION,
     descriptionFinal: true,
@@ -49,7 +49,16 @@ const FORMATEURS_HERO_SECTION = ofcSectionClasses({
   divide: false,
 });
 
-export default function FormateursPage() {
+type FormateursPageProps = {
+  searchParams: Promise<Record<string, string | string[] | undefined>>;
+};
+
+export default async function FormateursPage({ searchParams }: FormateursPageProps) {
+  const sp = await searchParams;
+  const domaineRaw = sp.domaine;
+  const domaineParam = Array.isArray(domaineRaw) ? domaineRaw[0] : domaineRaw;
+  const filtreId = filtreIdFromUrlParam(domaineParam);
+
   const formateurs = getFormateursHubProfiles();
   const base = SITE_CONFIG.url.replace(/\/$/, '');
 
@@ -139,9 +148,7 @@ export default function FormateursPage() {
         <h2 id="formateurs-grille" className="sr-only">
           Grille des formateurs
         </h2>
-        <Suspense fallback={<p className="text-ofc-ink-muted">Chargement de l’équipe…</p>}>
-          <FormateursCatalogueHub formateurs={formateurs} />
-        </Suspense>
+        <FormateursCatalogueHubSection formateurs={formateurs} filtreId={filtreId} />
       </Section>
 
       <Section tone="muted" aria-labelledby="formateurs-cta">

@@ -2,6 +2,7 @@ import { LINKS } from '@/lib/internal-links';
 import type { DepartementPageData } from '@/lib/departement-pages/types';
 import { buildDeptMetaDescription } from '@/lib/meta-description';
 import { buildIdfDeptPageTitle } from '@/lib/seo-geo-keywords';
+import { SITE_DEPUIS_SIEGE_TRAJET } from '@/lib/site-config';
 
 export const DEPARTEMENT_SEINE_ET_MARNE_77: DepartementPageData = {
   code: '77',
@@ -21,8 +22,7 @@ export const DEPARTEMENT_SEINE_ET_MARNE_77: DepartementPageData = {
     'Savigny-le-Temple (Sénart)',
     'Bussy-Saint-Georges (Marne-la-Vallée)',
   ],
-  tempsTrajetGuyancourt:
-    "Depuis Guyancourt, l'ouest du 77 (Marne-la-Vallée, Sénart, Melun, Meaux) est en général accessible sous 30 à 45 minutes selon le trafic ; l'est (Provins, Coulommiers, Fontainebleau, Nemours) mobilise plutôt une journée bloquée ou des demi-journées — temps indicatifs, confirmés au devis.",
+  tempsTrajetGuyancourt: `${SITE_DEPUIS_SIEGE_TRAJET} l'ouest du 77 (Marne-la-Vallée, Sénart, Melun, Meaux) est en général accessible sous 45 à 75 minutes selon le trafic ; l'est (Provins, Fontainebleau) mobilise plutôt une journée ou des demi-journées — temps indicatifs, confirmés au devis.`,
   tissuLocal:
     "Territoire à deux visages : péri-urbain dense à l'ouest (Marne-la-Vallée / Val d'Europe, Sénart, Melun Val de Seine, Pays de Meaux) et plus rural à l'est. Forte présence du pavillonnaire, de la rénovation, de la logistique et des travaux publics / VRD liés à l'étalement et aux infrastructures. Les marchés publics des intercommunalités (Melun Val de Seine, Marne et Gondoire, Paris-Vallée de la Marne, Grand Paris Sud) pèsent sur la charge documentaire des PME. Axes A4, A5, A6, Francilienne (N104), RER A / D / E : les équipes jonglent entre chantier et bureau sur de longues distances. La session s'adapte à cette géographie : documents réels, validation métier, pas de modèle hors sol.",
   casUsageLocaux: [

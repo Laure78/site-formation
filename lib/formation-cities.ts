@@ -1,3 +1,5 @@
+import { siteDepuisSiege, siteSiegeCourt } from '@/lib/site-config';
+
 /**
  * Configuration des pages formation IA pour les pros du BTP par ville (Île-de-France).
  * Pages hors IDF (Lyon, Bordeaux, Lille) retirées — redirection 301 vers /formation-ia-btp-ile-de-france.
@@ -41,7 +43,7 @@ export const FORMATION_CITIES: Record<string, CityFormationConfig> = {
     zones: [
       { num: '91', nom: 'Morangis', contenu: 'Entreprises du bâtiment et périphérie immédiate • intra possible sur site' },
       { num: '91', nom: 'Les Ulis', contenu: 'Ville nouvelle voisine • regroupement d’équipes en intra-entreprise' },
-      { num: '91', nom: 'Longjumeau', contenu: 'TPE et PME du bâtiment — déplacements courts depuis Guyancourt (78)' },
+      { num: '91', nom: 'Longjumeau', contenu: `TPE et PME du bâtiment — ${siteDepuisSiege()}, déplacements courts vers l'Essonne` },
       { num: '91', nom: 'Massy', contenu: 'Pôle tertiaire et entreprises locales • créneaux adaptés aux agendas chargés' },
       { num: '91', nom: 'Savigny-sur-Orge', contenu: 'Second œuvre et rénovation • même programme catalogue Qualiopi' },
     ],
@@ -88,7 +90,7 @@ export const ILE_DE_FRANCE = {
     'Qualiopi · OPCO Constructys',
   ],
   zones: [
-    { num: '78', nom: 'Yvelines', contenu: 'Guyancourt, Versailles, Saint-Quentin • Siège OFC à Paris (75012)' },
+    { num: '78', nom: 'Yvelines', contenu: `Guyancourt, Versailles, Saint-Quentin • Siège OFC à ${siteSiegeCourt()}` },
     { num: '75', nom: 'Paris', contenu: 'Tous arrondissements • Sessions en présentiel' },
     { num: '92', nom: 'Hauts-de-Seine', contenu: 'Nanterre, Boulogne, Courbevoie, Levallois, Issy' },
     { num: '93', nom: 'Seine-Saint-Denis', contenu: 'Bobigny, Saint-Denis, Montreuil, Aubervilliers' },

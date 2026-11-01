@@ -333,7 +333,7 @@ export function FormationIaMarchePublicLanding({
               </Link>
               {' · '}
               <Link href={LINKS.partenaires} className={`font-medium ${OFC_LINK}`}>
-                Partenaires FFB, CSFE, UMB-FFB
+                Partenaires FFB, CSFE
               </Link>
             </p>
           </section>

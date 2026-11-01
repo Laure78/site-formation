@@ -2,6 +2,7 @@
  * Mots-clés SEO + ancrage GEO Île-de-France — source unique (pages, meta, alt images, vidéo).
  */
 import { deptLocatif, getDeptGrammar } from '@/lib/formation-ia-btp-dept-grammar';
+import { SITE_INTER_LIEU_COURT } from '@/lib/site-config';
 
 export const SEO_KW_FORMATION_IA_BTP = 'formation IA pour le BTP' as const;
 export const SEO_KW_FORMATION_IA_BATIMENT = 'formation IA appliquée au bâtiment' as const;
@@ -17,7 +18,7 @@ export const SEO_KW_SHORT = {
 export const SEO_GEO_REGION = 'Île-de-France' as const;
 export const SEO_GEO_REGION_SHORT = 'IDF' as const;
 export const SEO_GEO_PARIS = 'Paris' as const;
-export const SEO_GEO_SIEGE = 'Guyancourt (78)' as const;
+export const SEO_GEO_SIEGE = SITE_INTER_LIEU_COURT;
 
 /** Départements franciliens — code → libellé SEO. */
 export const SEO_GEO_DEPARTEMENTS = {

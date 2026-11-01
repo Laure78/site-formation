@@ -1,9 +1,14 @@
 import { getFormationByCode } from '@/data/formations';
+import { SITE_INTER_LIEU_COURT } from '@/lib/site-config';
 
 /** Logo horizontal (header, footer, schema Organization) — WebP uniquement. */
+/** Alt unique — voir `SITE_LOGO_ALT` (identique header / footer). */
+export const SITE_LOGO_ALT =
+  'Laure Olivié — formation IA pour le BTP, organisme certifié Qualiopi';
+
 export const SITE_BRAND_LOGO = {
   src: '/images/logo-laure-olivie-formation-ia-btp.webp',
-  alt: 'Laure Olivié — formation IA pour le BTP, logo horizontal',
+  alt: SITE_LOGO_ALT,
   width: 1024,
   height: 341,
 } as const;
@@ -23,10 +28,6 @@ export const SITE_FAVICON_MARK_SRC = '/images/logo-laure-olivie-mark-square.png'
  * À incrémenter quand on régénère `app/favicon.ico`, `public/icon-*.png`, etc.
  */
 export const SITE_FAVICON_CACHE_BUST = '20261029-lo-mark' as const;
-
-/** Alt unique du logo header — identique sur tout le site. */
-export const SITE_LOGO_ALT =
-  'Laure Olivié — formation IA pour le BTP, organisme certifié Qualiopi';
 
 export const SITE_LOGO_TITLE = "Retour à l'accueil — laureolivie.fr" as const;
 
@@ -723,6 +724,36 @@ export const PHOTOS = {
     width: 1024,
     height: 576,
   },
+  recrutementLandingProfilConduite: {
+    src: '/images/formation-ia-chantier-conducteur-travaux.webp',
+    alt: 'Conducteur de travaux sur chantier avec tablette — profil formateur conduite de travaux',
+    width: 1024,
+    height: 576,
+  },
+  recrutementLandingProfilEtudes: {
+    src: '/images/formation-ia-conducteur-travaux-plans.webp',
+    alt: 'Professionnel BTP avec plans et ordinateur — profil formateur études de prix',
+    width: 1024,
+    height: 576,
+  },
+  recrutementLandingProfilArtisans: {
+    src: '/images/ouvrier-chantier-confiant.png',
+    alt: 'Professionnel du bâtiment sur chantier — profil artisan ou dirigeant BTP',
+    width: 800,
+    height: 800,
+  },
+  recrutementLandingProfilGestion: {
+    src: '/images/btp-formation-chantier-plans.png',
+    alt: 'Équipe BTP autour de plans — profil gestion et fonctions support',
+    width: 1024,
+    height: 576,
+  },
+  recrutementCompetencesChantier: {
+    src: '/images/btp-formation-chantier-equipe.png',
+    alt: 'Équipe BTP sur chantier avec grue — compétences métier formateur IA',
+    width: 1024,
+    height: 576,
+  },
 
   /**
    * Illustrations blog — shootings cohérents (chantier, salle, convention).
@@ -954,7 +985,7 @@ export const PHOTOS = {
     src: '/images/formation-assistants-ia-personnalises-btp.webp',
     alt: 'Formation assistants IA BTP : prompts, modèles et workflows devis et chantier',
     description:
-      'Formation créer ses assistants IA BTP : ChatGPT et Claude, skills, 4 assistants métier, Guyancourt 78, 7 h présentiel OFC Qualiopi.',
+      `Formation créer ses assistants IA BTP : ChatGPT et Claude, skills, 4 assistants métier, ${SITE_INTER_LIEU_COURT}, 7 h présentiel OFC Qualiopi.`,
     title: 'Assistants IA personnalisés BTP — prompts, modèles et workflows',
     width: 1024,
     height: 768,

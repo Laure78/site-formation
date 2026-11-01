@@ -1,7 +1,5 @@
 import { Suspense } from 'react';
 import { JsonLd } from '@/components/JsonLd';
-import { AuthConnexionMinimalFooter } from '@/components/auth/AuthConnexionMinimalFooter';
-import { AuthConnexionMinimalHeader } from '@/components/auth/AuthConnexionMinimalHeader';
 import { createPageMetadata, SITE_CONFIG } from '@/lib/seo';
 import { LINKS } from '@/lib/internal-links';
 import ConnexionClient from './ConnexionClient';
@@ -54,7 +52,6 @@ export default async function ConnexionPage({
   return (
     <div className="flex min-h-full w-full flex-col bg-[#F2F2F2]">
       <JsonLd id="schema-auth-connexion" schema={getConnexionPageJsonLd()} />
-      <AuthConnexionMinimalHeader />
 
       <div className="flex flex-1 flex-col items-center px-4 pb-6 pt-8 sm:px-6 sm:pt-10 md:pt-12">
         <Suspense
@@ -70,8 +67,6 @@ export default async function ConnexionPage({
           <ConnexionClient adminMode={adminIntent} />
         </Suspense>
       </div>
-
-      <AuthConnexionMinimalFooter />
     </div>
   );
 }

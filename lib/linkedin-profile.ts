@@ -5,21 +5,18 @@
  */
 
 import { SCHEMA_LINKEDIN_PROFILE_URL } from '@/lib/schema-constants';
+import { siteLinkedinAbonnesCount, siteLinkedinFollowersLabel } from '@/lib/site-config';
 
 /** URL publique du profil — jamais le lien privé de gestion des abonnés. */
 export const LINKEDIN_PROFILE_URL = SCHEMA_LINKEDIN_PROFILE_URL;
 
 /**
- * Nombre d’abonnés LinkedIn — saisi manuellement par Laure.
- * Mettre à jour ici uniquement ; le libellé FR se recalcule.
+ * Nombre d’abonnés LinkedIn — saisi manuellement par Laure (`SITE.linkedinAbonnes`).
  */
-export const LINKEDIN_FOLLOWERS_COUNT = 15_000;
+export const LINKEDIN_FOLLOWERS_COUNT = siteLinkedinAbonnesCount();
 
-/**
- * Libellé public figé — évite les écarts entre pages quand le compteur évolue.
- * Le chiffre exact reste dans `LINKEDIN_FOLLOWERS_COUNT` (mise à jour manuelle).
- */
-export const LINKEDIN_FOLLOWERS_LABEL = 'plus de 15 000 abonnés' as const;
+/** Libellé public — aligné sur `SITE.linkedinAbonnes`. */
+export const LINKEDIN_FOLLOWERS_LABEL = siteLinkedinFollowersLabel();
 
 /** Texte compact hero / preuve sociale. */
 export const LINKEDIN_FOLLOWERS_PROOF_TEXT =

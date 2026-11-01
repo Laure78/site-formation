@@ -153,7 +153,7 @@ Liste les exigences par sous-partie : performances béton, coffrage, ferraillage
     {
       href: LINKS.formationIaCharpentierMenuisierBtp,
       title: 'Formation IA charpentier & menuisier bois',
-      description: 'Structure bois et interfaces après appuis gros œuvre — angle UMB-FFB.',
+      description: 'Structure bois et interfaces après appuis gros œuvre — charpente / ossature.',
     },
     {
       href: LINKS.formationIaCouvreurBtp,

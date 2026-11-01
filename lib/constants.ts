@@ -8,18 +8,19 @@ import {
   formatNoteSatisfactionSur5,
   indicateursResultats,
 } from '@/lib/data/indicateurs-resultats';
+import { siteAdresseLigne, SITE } from '@/lib/site-config';
 
 /** Contact public du site (email, téléphone, adresse) — source unique UI / contenus. */
 export const CONTACT = {
-  email: 'contact@laureolivie.fr',
-  phone: '+33695661818',
-  phoneDisplay: '06 95 66 18 18',
-  address: '61 rue de Lyon, 75012 Paris',
+  email: SITE.contact.email,
+  phone: SITE.contact.telIntl,
+  phoneDisplay: SITE.contact.tel,
+  address: siteAdresseLigne(),
 } as const;
 
 /** Candidatures formateurs / consultants-formateurs (distinct de CONTACT.email). */
 export const RECRUITMENT = {
-  email: 'recrutement@laureolivie.fr',
+  email: SITE.contact.recrutement,
   formateurEmailSubject: 'Candidature formateur IA BTP – Catalogue 2027',
 } as const;
 
@@ -93,7 +94,7 @@ export const PREUVES_MENTION_SOURCE =
 
 /** Bloc « Fédérations & OPCO » — accueil, pour qui. */
 export const PREUVES_FEDERATIONS_OPCO =
-  'Sessions animées avec FFB Grand Paris, CSFE et UMB-FFB.' as const;
+  'Sessions animées avec FFB Grand Paris et CSFE.' as const;
 
 export const siteStats = {
   noteMoyenneAffichee: PREUVES.satisfaction,

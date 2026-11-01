@@ -31,7 +31,12 @@ export function ConsultantFormateurCandidatureSection({
       aria-labelledby="candidature-heading"
     >
       <div className={RECRUITMENT_PAGE_INNER}>
-        <h2 id="candidature-heading" className={OFC_TYPE_H2}>
+        <p className="text-sm font-medium text-slate-600">
+          <Link href={LINKS.nousRejoindre} className="text-[#377CF3] underline-offset-2 hover:underline">
+            ← Retour à la page recrutement
+          </Link>
+        </p>
+        <h2 id="candidature-heading" className={`${OFC_TYPE_H2} mt-4`}>
           {FORMATEUR_RECRUITMENT_2027_CAMPAIGN.sections.candidatureHeading}
         </h2>
 
@@ -76,7 +81,7 @@ export function ConsultantFormateurCandidatureSection({
             sourcePage={sourcePage}
             submitLabel="Envoyer ma candidature"
             groupedLayout
-            successRedirectPath={LINKS.nousRejoindreMerci}
+            successRedirectPath={LINKS.devenezConsultantMerci}
           />
         </div>
 
@@ -86,7 +91,10 @@ export function ConsultantFormateurCandidatureSection({
 
         <p className={`mt-4 text-sm text-slate-600 ${RECRUITMENT_PAGE_PROSE}`}>
           Vous recherchez un{' '}
-          <Link href="#emplois-salarie-heading" className="font-medium text-[#377CF3] underline">
+          <Link
+            href={`${LINKS.nousRejoindre}#emplois-salarie-heading`}
+            className="font-medium text-[#377CF3] underline"
+          >
             emploi salarié
           </Link>{' '}
           ou souhaitez une{' '}

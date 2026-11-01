@@ -5,6 +5,7 @@
 import { CONTACT } from '@/lib/constants';
 import { formatReferencesLlmsLine } from '@/lib/references';
 import { SCHEMA_PUBLIC_SITE_URL } from '@/lib/schema-constants';
+import { siteExperienceBtpLong, siteSatisfactionLlmsLine, SITE } from '@/lib/site-config';
 
 const BASE = SCHEMA_PUBLIC_SITE_URL.replace(/\/$/, '');
 
@@ -18,10 +19,10 @@ export function buildLlmsTxtContent(): string {
 > Laure Olivié est formatrice IA spécialisée BTP. Laure Olivié, organisme certifié Qualiopi (OFC Création d'Entreprise), forme les professionnels du bâtiment et des travaux publics à ChatGPT, Claude et Gemini appliqués à leurs documents réels. Formations en présentiel, en Île-de-France uniquement.
 
 ## À propos
-- Laure Olivié : 7 ans d'expérience dans le BTP, ancienne dirigeante d'ALIA BTP (travaux publics, Île-de-France). Instructrice LinkedIn Learning (IA appliquée au BTP).
-- Organisme : OFC Création d'Entreprise, SASU, ${CONTACT.address}. Certifié Qualiopi (actions de formation).
+- ${SITE.marque} : ${siteExperienceBtpLong()}, ancienne dirigeante d'ALIA BTP (travaux publics, Île-de-France). Instructrice LinkedIn Learning (IA appliquée au BTP).
+- Organisme : ${SITE.raisonSociale}, SASU, ${CONTACT.address}. Certifié Qualiopi (actions de formation).
 - Public : dirigeants de PME du bâtiment, conducteurs de travaux, chargés d'affaires, maîtres d'œuvre, bureaux d'études, fonctions support BTP.
-- Satisfaction : 4,45/5 (20 répondants, questionnaires à chaud, juillet 2025 – juin 2026). Détail : ${BASE}/indicateurs-resultats
+- Satisfaction : ${siteSatisfactionLlmsLine()}. Détail : ${BASE}/indicateurs-resultats
 
 ## Réponses directes
 - Où ont lieu les formations ? En présentiel, en Île-de-France uniquement (75, 77, 78, 91, 92, 93, 94, 95), en inter (sessions publiées sur le site) ou en intra dans l'entreprise.

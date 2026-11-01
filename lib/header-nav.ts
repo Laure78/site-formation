@@ -7,6 +7,7 @@ import {
   buildUnifiedFormationsMobileNavGroups,
   buildUnifiedFormationsNavMegaColumns,
 } from '@/lib/header-nav-formations-unified';
+import { buildParcoursNavChildren } from '@/lib/header-nav-parcours';
 import {
   UTILITY_ORGANISME_NAV_LINKS,
   utilityOrganismeNavActive,
@@ -95,16 +96,14 @@ function ressourcesNavActive(pathname: string): boolean {
   );
 }
 
-function formateursNavActive(pathname: string): boolean {
-  return pathname === LINKS.formateurs || pathname.startsWith(`${LINKS.formateurs}/`);
+function formerMonEquipeNavActive(pathname: string): boolean {
+  if (pathname === LINKS.formationIaIntraEntrepriseBtp) return true;
+  if (pathname.startsWith(`${LINKS.formationIaIntraEntrepriseBtp}/`)) return true;
+  return pathname === LINKS.formations || pathname.startsWith(`${LINKS.formations}/`);
 }
 
 function financementNavActive(pathname: string): boolean {
   return pathname === LINKS.financement || pathname.startsWith(`${LINKS.financement}/`);
-}
-
-function etudesCasNavActive(pathname: string): boolean {
-  return pathname === LINKS.etudesCasHub || pathname.startsWith(`${LINKS.etudesCasHub}/`);
 }
 
 /** État actif rubrique « Notre organisme » (menu principal). */
@@ -144,16 +143,19 @@ function buildHeaderNavItems(at: Date = new Date()): readonly HeaderNavItem[] {
       dropdownPanelFormationsDual: true,
     },
     {
-      id: 'formateurs',
-      label: 'Nos formateurs',
-      href: LINKS.formateurs,
-      isActive: formateursNavActive,
+      id: 'parcours',
+      label: 'Parcours métiers',
+      href: LINKS.parcoursMetiers,
+      isActive: parcoursNavActive,
+      children: buildParcoursNavChildren(),
+      hideDropdownHeading: true,
+      dropdownAlign: 'start',
     },
     {
-      id: 'etudes-cas',
-      label: 'Études de cas',
-      href: LINKS.etudesCasHub,
-      isActive: etudesCasNavActive,
+      id: 'former-equipe',
+      label: 'Former mon équipe',
+      href: `${LINKS.formations}#plan-formation-entreprise`,
+      isActive: formerMonEquipeNavActive,
     },
     {
       id: 'financement',

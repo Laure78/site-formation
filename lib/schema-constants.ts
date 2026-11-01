@@ -10,6 +10,11 @@ import { MARQUE_COMMERCIALE } from '@/lib/marque-identite';
 import { OFC_IDENTITE } from '@/lib/ofc-identite';
 import { SITE_HEADER_LOGO_SRC } from '@/lib/photos';
 import { formatAnneesExperienceBTP } from '@/lib/data/indicateurs-resultats';
+import {
+  SITE,
+  SITE_LINKEDIN_LEARNING_INSTRUCTOR_URL,
+  SITE_LINKEDIN_PROFILE_URL,
+} from '@/lib/site-config';
 
 /** URL canonique du site (alignée sur NEXT_PUBLIC_SITE_URL en prod). */
 export const SCHEMA_PUBLIC_SITE_URL: string =
@@ -19,11 +24,10 @@ export const SCHEMA_PUBLIC_SITE_URL: string =
 /** Profil LinkedIn — sameAs Person / Organization (entité Laure Olivié).
  * Abonnés (chiffre manuel) : `lib/linkedin-profile.ts`.
  */
-export const SCHEMA_LINKEDIN_PROFILE_URL = 'https://www.linkedin.com/in/laure-olivie/' as const;
+export const SCHEMA_LINKEDIN_PROFILE_URL = SITE_LINKEDIN_PROFILE_URL;
 
 /** Page instructeur LinkedIn Learning (URL canonique — pluriel « instructors »). */
-export const SCHEMA_LINKEDIN_LEARNING_INSTRUCTOR_URL =
-  'https://www.linkedin.com/learning/instructors/laure-olivie' as const;
+export const SCHEMA_LINKEDIN_LEARNING_INSTRUCTOR_URL = SITE_LINKEDIN_LEARNING_INSTRUCTOR_URL;
 
 /** Chaîne YouTube — Laure Olivié. */
 export const SCHEMA_YOUTUBE_CHANNEL_URL =
@@ -71,10 +75,6 @@ export const SCHEMA_PERSON_AFFILIATIONS: ReadonlyArray<{
     url: 'https://www.csfe.fr/',
   },
   {
-    name: 'UMB-FFB — Union des Métiers du Bois',
-    url: 'https://www.ffbatiment.fr/organisation-ffb/unions-syndicats-metier/umb-ffb',
-  },
-  {
     name: 'CNAM Entreprise',
     url: 'https://www.cnam-idf.fr/',
   },
@@ -103,16 +103,16 @@ export const SCHEMA_CONTACT = {
   vatId: `FR${OFC_IDENTITE.siren}`,
 } as const;
 
-/** Coordonnées postales & GPS (siège — Paris 12e). Latitude/longitude : anciennes coords Guyancourt — à realigner. */
+/** Coordonnées postales & GPS (siège — Paris 12e). */
 export const SCHEMA_GEO = {
   addressCountry: 'FR',
   addressRegion: 'Île-de-France',
-  addressLocality: 'Paris',
+  addressLocality: SITE.adresse.ville,
   departement: 'Paris',
-  streetAddress: '61 rue de Lyon',
-  postalCode: '75012',
-  latitude: 48.7713,
-  longitude: 2.0739,
+  streetAddress: SITE.adresse.rue,
+  postalCode: SITE.adresse.cp,
+  latitude: SITE.adresse.lat,
+  longitude: SITE.adresse.lng,
 } as const;
 
 /** Requête Google Maps (siège OFC). */
@@ -151,7 +151,7 @@ export function schemaPersonNodeId(baseUrl: string = SCHEMA_PUBLIC_SITE_URL): st
 /** Person — Laure Olivié (fragments réutilisables JSON-LD). */
 export const SCHEMA_PERSON_LAURE = {
   '@type': 'Person' as const,
-  name: 'Laure Olivié',
+  name: SITE.marque,
   jobTitle: 'Formatrice IA pour les professionnels du BTP',
   description:
     `Ancienne dirigeante d’une entreprise de travaux publics (ALIA BTP), Laure Olivié s’appuie sur ${formatAnneesExperienceBTP()} pour former les équipes aux usages concrets de l’intelligence artificielle, en présentiel en Île-de-France.`,
@@ -168,7 +168,7 @@ export const SCHEMA_PERSON_KNOWS_ABOUT = [
   "appels d'offres BTP",
 ] as const;
 
-/** Affiliations Person — page /a-propos (FFB Grand Paris, CSFE, UMB-FFB). */
+/** Affiliations Person — page /a-propos (FFB Grand Paris, CSFE, CNAM). */
 export const SCHEMA_PERSON_AFFILIATIONS_A_PROPOS = SCHEMA_PERSON_AFFILIATIONS.slice(0, 3);
 
 /**

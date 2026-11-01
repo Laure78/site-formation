@@ -159,7 +159,7 @@ export const FORMATION_IA_BTP_YVELINES_78: FormationIaBtpDeptLandingConfig = {
     'Qualiopi Yvelines',
     'Constructys formation IA',
     'formation IA Versailles',
-    'formation IA Guyancourt',
+    'formation IA Paris 12e',
   ],
   departementNom: 'Yvelines',
   nom: 'Yvelines',

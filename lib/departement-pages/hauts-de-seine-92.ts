@@ -1,5 +1,6 @@
 import { LINKS } from '@/lib/internal-links';
 import type { DepartementPageData } from '@/lib/departement-pages/types';
+import { SITE_DEPUIS_SIEGE_TRAJET } from '@/lib/site-config';
 
 export const DEPARTEMENT_HAUTS_DE_SEINE_92: DepartementPageData = {
   code: '92',
@@ -19,8 +20,7 @@ export const DEPARTEMENT_HAUTS_DE_SEINE_92: DepartementPageData = {
     'Colombes',
     'Asnières-sur-Seine',
   ],
-  tempsTrajetGuyancourt:
-    "Depuis Guyancourt, Nanterre / La Défense sont à environ 40 minutes à une heure selon le trafic (temps indicatifs). Boulogne, Issy et le bord de Seine se planifient en demi-journée courante pour une intra. Colombes, Asnières et Levallois suivent le même schéma logistique — créneau confirmé au devis.",
+  tempsTrajetGuyancourt: `${SITE_DEPUIS_SIEGE_TRAJET} Nanterre / La Défense sont à environ 30 à 50 minutes selon le trafic (temps indicatifs). Boulogne, Issy et Levallois se planifient en demi-journée courante pour une intra — créneau confirmé au devis.`,
   tissuLocal:
     "Le 92 concentre sièges sociaux, opérations tertiaires et rénovation lourde, avec de nombreuses entreprises générales et maîtres d'œuvre sur des marchés exigeants et très formalisés. Proximité de Paris et de La Défense : délais courts, documentation lourde, coordination multi-lots. Les PME du bâtiment de proximité y répondent souvent aux mêmes exigences que les grands comptes. La formation travaille vos modèles réels (mails, devis, extraits CCTP) pour sécuriser conformité et relecture humaine. Les équipes y cherchent surtout un format court, sans anglicismes, utilisable dès la semaine suivante sur les dossiers en cours — pas une formation théorique hors chantier.",
   casUsageLocaux: [
@@ -30,7 +30,7 @@ export const DEPARTEMENT_HAUTS_DE_SEINE_92: DepartementPageData = {
   faqLocale: [
     {
       q: 'Faites-vous des sessions à La Défense ou Boulogne-Billancourt ?',
-      a: 'Oui, en intra (dans vos locaux) ou inter, partout dans les Hauts-de-Seine — Nanterre, Issy, Courbevoie et Levallois inclus. Depuis Guyancourt, une demi-journée se planifie sans difficulté majeure.',
+      a: `Oui, en intra (dans vos locaux) ou inter, partout dans les Hauts-de-Seine — Nanterre, Issy, Courbevoie et Levallois inclus. ${SITE_DEPUIS_SIEGE_TRAJET} une demi-journée se planifie sans difficulté majeure.`,
     },
     {
       q: "La formation convient-elle à un maître d'œuvre ?",

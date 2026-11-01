@@ -12,6 +12,7 @@ import { IMAGE_QUALITY_DEFAULT } from '@/lib/image-props';
 import { QUALIOPI_LEGAL } from '@/lib/qualiopi-info';
 import { MENTION_MARQUE_EXPLOITANTE } from '@/lib/marque-identite';
 import { SITE } from '@/lib/site';
+import { SITE as SITE_CONFIG_ROOT, siteLinkedinFollowersLabel } from '@/lib/site-config';
 import { EXTERNAL_AUTHORITY_LINKS } from '@/lib/seo-links';
 import {
   NAV_FOOTER_FORMATIONS,
@@ -21,7 +22,6 @@ import {
   NAV_LEGAL_SECONDARY,
   type NavItem,
 } from '@/lib/nav';
-import { isAuthConnexionPage } from '@/lib/auth-connexion-chrome';
 
 const FOOTER_BG = '#0b1220';
 const PHONE_ARIA_LABEL = `Appeler ${SITE.name} au ${SITE.phoneDisplay}`;
@@ -110,7 +110,6 @@ function FooterBackToTopButton() {
 export function Footer() {
   const pathname = usePathname();
   if (
-    isAuthConnexionPage(pathname) ||
     pathname?.startsWith('/admin') ||
     pathname?.startsWith('/demo/') ||
     pathname?.startsWith('/outils/demo-')
@@ -209,7 +208,16 @@ export function Footer() {
               </div>
 
               <p className="text-sm text-white/80">
-                © {year} {SITE.name}
+                © {year} {SITE_CONFIG_ROOT.raisonSociale} — {SITE_CONFIG_ROOT.marque}
+              </p>
+              <p className="text-sm text-white/70">
+                <ExternalLinkAnchor
+                  href={SITE.social.linkedin}
+                  title={`Profil LinkedIn — ${SITE_CONFIG_ROOT.marque}`}
+                  className="text-white/85 underline-offset-[3px] hover:text-white hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+                >
+                  {siteLinkedinFollowersLabel()} sur LinkedIn
+                </ExternalLinkAnchor>
               </p>
               <p className="text-xs text-white/50">{MENTION_MARQUE_EXPLOITANTE}</p>
 

@@ -4,13 +4,30 @@ import {
   getCataloguePageCoreFormations,
 } from '@/lib/formations-catalogue-page-config';
 import { getUpcomingCatalogueFormationEntries } from '@/lib/catalogue-formation-schedule';
-import { FormationsCatalogueFilteredGrid } from '@/components/formations/catalogue-2027/FormationsCatalogueFilteredGrid';
+import { FormationsCatalogueGrid } from '@/components/formations/catalogue-2027/FormationsCatalogueGrid';
 import { FormationsCatalogueToolbar } from '@/components/formations/catalogue-2027/FormationsCatalogueToolbar';
 import { CatalogModulesLegacyAnchor } from '@/components/formations/catalogue-2027/CatalogModulesLegacyAnchor';
+import type { FormationsCataloguePageFilters } from '@/lib/catalogue-filter-url';
+import {
+  buildFormationsCatalogueGridRows,
+  countFormationsCatalogueGridResults,
+} from '@/lib/catalogue-page-grid';
+import { formationsIaHasActiveFilters } from '@/lib/catalogue-formations-ia-filter';
 
-export function FormationsIaDisponibles() {
+type Props = {
+  filters: FormationsCataloguePageFilters;
+};
+
+export function FormationsIaDisponibles({ filters }: Props) {
   const availableEntries = getCataloguePageCoreFormations();
   const upcomingEntries = getUpcomingCatalogueFormationEntries();
+  const rows = buildFormationsCatalogueGridRows(availableEntries, upcomingEntries, filters);
+  const totalVisible = countFormationsCatalogueGridResults(
+    availableEntries,
+    upcomingEntries,
+    filters,
+  );
+  const hasActiveFilters = formationsIaHasActiveFilters(filters);
 
   return (
     <section
@@ -39,12 +56,11 @@ export function FormationsIaDisponibles() {
         <p className="mt-4 text-sm text-ofc-ink-muted">{CATALOGUE_GRILLE_MODALITES_LIGNE}</p>
       </div>
 
-      <Suspense fallback={null}>
-        <FormationsCatalogueFilteredGrid
-          availableEntries={availableEntries}
-          upcomingEntries={upcomingEntries}
-        />
-      </Suspense>
+      <FormationsCatalogueGrid
+        rows={rows}
+        totalVisible={totalVisible}
+        hasActiveFilters={hasActiveFilters}
+      />
     </section>
   );
 }

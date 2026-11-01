@@ -20,7 +20,10 @@ import type {
 import { catalogueDemandeHref } from '@/lib/training-page-helpers';
 import { getPublishedFormations } from '@/lib/formation-catalogue-visibility';
 import { LINKS } from '@/lib/internal-links';
-import { isFormateurVisibleOnHubProduction } from '@/lib/formateurs/hub-display';
+import {
+  isFormateurPublie,
+  isFormateurVisibleOnHubProduction,
+} from '@/lib/formateurs/hub-display';
 import { libelleTarifParticipantCatalogue } from '@/lib/tarifs-catalogue-participant';
 
 /** Métiers parcours → domaines catalogue (section sous-domaine). */
@@ -43,16 +46,20 @@ export function getIaFormateurs(): readonly FormateurProfile[] {
   return CONFIRMED_FORMATEURS;
 }
 
-/** Profils catalogue parcours métiers (hub + pages domaine). */
+/** Profils catalogue parcours métiers publiés (hub + pages domaine). */
 export function getCatalogueFormateurs(): readonly FormateurProfile[] {
-  return CATALOGUE_FORMATEURS.filter((f) => !f.hubOnly);
+  return CATALOGUE_FORMATEURS.filter((f) => !f.hubOnly && isFormateurPublie(f));
 }
 
-/** Page /formateurs — Laure en tête, puis les intervenants catalogue 2027. */
+/** Page /formateurs — Laure en tête, puis les intervenants catalogue publiés. */
 export function getFormateursHubProfiles(): readonly FormateurProfile[] {
-  return [FORMATEUR_LAURE_OLIVIE, ...CATALOGUE_FORMATEURS].filter(
-    isFormateurVisibleOnHubProduction,
-  );
+  const equipe = CATALOGUE_FORMATEURS.filter(isFormateurVisibleOnHubProduction);
+  return [FORMATEUR_LAURE_OLIVIE, ...equipe];
+}
+
+/** Intervenants catalogue publiés (hors Laure). */
+export function getPublishedCatalogueFormateurs(): readonly FormateurProfile[] {
+  return getCatalogueFormateurs();
 }
 
 /**

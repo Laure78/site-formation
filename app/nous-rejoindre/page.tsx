@@ -42,7 +42,7 @@ export default function NousRejoindrePage() {
         ]}
       />
       {FAQ_SCHEMA ? <JsonLd id="schema-faq-nous-rejoindre" schema={FAQ_SCHEMA} /> : null}
-      <EmploisPageContent sourcePage={PAGE_URL} />
+      <EmploisPageContent />
     </>
   );
 }

@@ -2,6 +2,7 @@ import { LINKS } from '@/lib/internal-links';
 import type { DepartementPageData } from '@/lib/departement-pages/types';
 import { buildDeptMetaDescription } from '@/lib/meta-description';
 import { buildIdfDeptPageTitle } from '@/lib/seo-geo-keywords';
+import { SITE_DEPUIS_SIEGE_TRAJET } from '@/lib/site-config';
 
 export const DEPARTEMENT_ESSONNE_91: DepartementPageData = {
   code: '91',
@@ -23,8 +24,7 @@ export const DEPARTEMENT_ESSONNE_91: DepartementPageData = {
     'Longjumeau',
     'Morangis',
   ],
-  tempsTrajetGuyancourt:
-    "Depuis Guyancourt, le nord de l'Essonne (Massy, Saclay, Palaiseau) est à une trentaine de minutes selon le trafic ; Évry-Courcouronnes et Corbeil se planifient typiquement sous 45 à 60 minutes — temps indicatifs, confirmés au devis. Yerres, Draveil et Savigny-sur-Orge suivent le même schéma logistique.",
+  tempsTrajetGuyancourt: `${SITE_DEPUIS_SIEGE_TRAJET} le nord de l'Essonne (Massy, Saclay, Palaiseau) se planifie typiquement en 30 à 60 minutes selon le trafic ; Évry-Courcouronnes et Corbeil suivent le même schéma — temps indicatifs, confirmés au devis.`,
   tissuLocal:
     "L'Essonne porte des opérations d'envergure autour de Saclay et des grands axes (A6, Francilienne sud), avec une part importante de marchés publics, de chantiers tertiaires et d'un tissu pavillonnaire actif. Ingénierie, sous-traitance BTP et rénovation cohabitent avec le neuf — de Palaiseau à Évry-Courcouronnes en passant par Corbeil. Les équipes support et conducteurs manquent souvent d'une méthode partagée sur les prompts et la relecture, surtout quand les consultations publiques s'empilent. Une intra en Essonne aligne réflexes, garde-fous confidentialité et livrables utilisables dès le lendemain, sur vos modèles de mémoire et de CR — sans jargon tech inutile.",
   casUsageLocaux: [

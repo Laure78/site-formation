@@ -338,7 +338,7 @@ export default function FormationsLinkedInLearningPage() {
               </p>
               <p>
                 Les actions de formation OFC Création d&apos;Entreprise sont dispensées par un organisme certifié Qualiopi.
-                Interventions et partenariats : FFB Grand Paris · CSFE · UMB-FFB · CNAM · Le Moniteur Formations.
+                Interventions et partenariats : FFB Grand Paris · CSFE · CNAM · Le Moniteur Formations.
               </p>
               <p>
                 <a
@@ -572,7 +572,7 @@ export default function FormationsLinkedInLearningPage() {
               </p>
               <p className="mt-3">
                 Ancienne dirigeante d’une entreprise de travaux publics, {formatAnneesExperienceBTP()} · formatrice IA depuis 2022. OFC Création d&apos;Entreprise —
-                Qualiopi. {formatProsFormesEtNoteQualiopi()} Partenaires : FFB Grand Paris, CSFE, UMB-FFB, CNAM, Le Moniteur Formations.
+                Qualiopi. {formatProsFormesEtNoteQualiopi()} Partenaires : FFB Grand Paris, CSFE, CNAM, Le Moniteur Formations.
               </p>
             </div>
           </div>

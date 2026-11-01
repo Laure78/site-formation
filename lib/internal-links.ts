@@ -60,10 +60,10 @@ export const LINKS = {
   emplois: '/nous-rejoindre',
   /** Confirmation envoi — candidature formateur indépendant (noindex). */
   nousRejoindreMerci: '/nous-rejoindre/merci',
-  /** @deprecated URL fusionnée — 301 vers `nousRejoindre`. */
-  devenezConsultant: '/nous-rejoindre',
-  /** @deprecated Préférer `nousRejoindreMerci`. */
-  devenezConsultantMerci: '/nous-rejoindre/merci',
+  /** Candidature formateur indépendant — formulaire en ligne. */
+  devenezConsultant: '/devenez-consultant',
+  /** Confirmation envoi — candidature formateur (noindex). */
+  devenezConsultantMerci: '/devenez-consultant/merci',
   /** Carrière — candidature spontanée */
   candidaturesSpontanees: '/candidatures-spontanees',
   /** Carrière — recrutement formateurs (annonce) */

@@ -9,6 +9,7 @@ import {
   QUALIOPI_MODALITES_ACCES_EXACT,
 } from '@/config/qualiopi';
 import { CONTACT } from '@/lib/constants';
+import { SITE_INTER_LIEU_PREFIX } from '@/lib/site-config';
 import {
   QUALIOPI_EVALUATION_STANDARD,
   QUALIOPI_METHODES_STANDARD,
@@ -236,7 +237,7 @@ export const DELAI_ACCES_NIV09 =
   'Inscription via laureolivie.fr/contact jusqu’à 7 jours avant la session, sous réserve de places disponibles.';
 
 export const MODALITE_PEDAGOGIQUE_NIV09 =
-  `Action de formation — Présentiel — Inter : Guyancourt (78), intra : locaux de l’entreprise en Île-de-France. Groupe de ${libelleEffectifFormation(getFormationByCode('NIV-09')!)}. 70 % de pratique / 30 % de théorie sur les cas réels des participants.`;
+  `Action de formation — Présentiel — ${SITE_INTER_LIEU_PREFIX}, intra : locaux de l’entreprise en Île-de-France. Groupe de ${libelleEffectifFormation(getFormationByCode('NIV-09')!)}. 70 % de pratique / 30 % de théorie sur les cas réels des participants.`;
 
 export const MODALITES_ACCES_NIV09 =
   `Inscription sur demande via ${CONTACT.email} ou laureolivie.fr/contact : analyse du besoin, convention de formation, convocation. Questionnaire de recueil des attentes adressé avant la session pour adapter les ateliers.`;

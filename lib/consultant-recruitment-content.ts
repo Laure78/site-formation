@@ -11,21 +11,86 @@ const RECRUITMENT_MAILTO = formateurRecruitmentMailtoHref();
 
 /** Hero — hub /nous-rejoindre (formateurs indépendants 2027). */
 export const NOUS_REJOINDRE_FORMATEUR_HERO = {
-  eyebrow: 'Recrutement formateurs · Catalogue 2027',
-  h1: 'Rejoignez notre réseau de formateurs IA BTP',
-  hook: 'Vous travaillez dans le BTP. Vous utilisez l’IA. Et si vous transmettiez les deux ?',
+  eyebrow: 'Recrutement · Catalogue 2027',
+  h1: 'Recrutement de formateurs IA BTP en Île-de-France',
+  hook: 'Vous connaissez le BTP et utilisez l’IA ?',
   intro:
-    'Pour développer notre catalogue de formations 2027, nous recherchons des formateurs et formatrices indépendants issus du BTP, capables de transmettre une utilisation concrète de l’intelligence artificielle aux professionnels du bâtiment et des travaux publics.',
-  facts: [
-    'Expérience BTP obligatoire : 2 ans minimum',
-    'Missions rémunérées — statut indépendant',
-    'Présentiel en Île-de-France',
-    'Interventions à partir de 2027',
+    'Transmettez votre expérience aux professionnels du bâtiment et des travaux publics.',
+  experienceBadge: '2 ans d’expérience BTP minimum',
+  heroHighlights: [
+    { label: 'Île-de-France', key: 'lieu' },
+    { label: 'Présentiel', key: 'modalite' },
+    { label: 'Missions rémunérées', key: 'remuneration' },
   ] as const,
-  primaryCtaLabel: 'Déposer ma candidature',
-  secondaryCtaLabel: 'Découvrir les profils recherchés',
+  facts: [
+    'Missions indépendantes rémunérées',
+    'Présentiel en Île-de-France',
+    'À partir de 2027',
+  ] as const,
+  primaryCtaLabel: 'Proposer ma candidature',
+  secondaryCtaLabel: 'Voir les profils recherchés',
+  imageBadge: 'IA + expertise métier',
   enBref:
     'Recrutement 2027 : formateurs indépendants issus du BTP (2 ans d’expérience métier minimum), pratique de ChatGPT ou Claude, missions rémunérées en présentiel en Île-de-France. Candidature en ligne ou par email à recrutement@laureolivie.fr.',
+} as const;
+
+/** Bandeau d’informations — sous le hero /nous-rejoindre. */
+export const NOUS_REJOINDRE_INFO_STRIP = [
+  { label: 'Missions indépendantes', key: 'missions' },
+  { label: 'Catalogue 2027', key: 'catalogue' },
+  { label: 'Présentiel', key: 'presentiel' },
+  { label: 'Île-de-France', key: 'idf' },
+] as const;
+
+/** Cartes profils — landing /nous-rejoindre (4 piliers visuels). */
+export const NOUS_REJOINDRE_LANDING_PROFILS = {
+  heading: 'Les profils recherchés',
+  cards: [
+    {
+      title: 'Conduite de travaux',
+      description: 'Conducteurs de travaux, chefs de chantier, encadrement terrain.',
+      photoKey: 'recrutementLandingProfilConduite' as const,
+    },
+    {
+      title: 'Études de prix et affaires',
+      description: 'Chargés d’affaires, économistes, responsables études de prix.',
+      photoKey: 'recrutementLandingProfilEtudes' as const,
+    },
+    {
+      title: 'Artisans et dirigeants',
+      description: 'Artisans du bâtiment, dirigeants ou anciens dirigeants de PME BTP.',
+      photoKey: 'recrutementLandingProfilArtisans' as const,
+    },
+    {
+      title: 'Gestion et fonctions support',
+      description: 'Assistants de gestion, administratif BTP, fonctions support en entreprise.',
+      photoKey: 'recrutementLandingProfilGestion' as const,
+    },
+  ] as const,
+  extraNote:
+    'Sont également recherchés : profils bureau d’études et maîtrise d’œuvre (techniciens d’études, projeteurs, ingénieurs MOE).',
+} as const;
+
+/** Mission formateur — grille compacte landing /nous-rejoindre. */
+export const NOUS_REJOINDRE_MISSION_LANDING = {
+  heading: 'Transmettre l’IA appliquée aux métiers du BTP',
+  intro:
+    'Les formateurs accompagnent les professionnels du BTP dans l’utilisation concrète de l’IA sur leurs documents et tâches métier.',
+  applications: [
+    { title: 'Devis et chiffrage', key: 'devis' },
+    { title: 'DCE et appels d’offres', key: 'dce' },
+    { title: 'Mémoires techniques', key: 'memoire' },
+    { title: 'Comptes rendus de chantier', key: 'cr' },
+    { title: 'Organisation des travaux', key: 'planning' },
+    { title: 'Gestion administrative', key: 'admin' },
+  ] as const,
+} as const;
+
+/** Bloc conversion — landing /nous-rejoindre. */
+export const NOUS_REJOINDRE_CONVERSION = {
+  heading: 'Prêt à transmettre votre expertise BTP ?',
+  lead: 'Rejoignez le réseau de formateurs indépendants pour le catalogue 2027 — missions en présentiel en Île-de-France.',
+  ctaLabel: 'Déposer ma candidature',
 } as const;
 
 /** @deprecated Préférer `NOUS_REJOINDRE_FORMATEUR_HERO`. */
@@ -270,7 +335,7 @@ export const NOUS_REJOINDRE_RECRUTEMENT_FAQ: readonly FAQItem[] = [
   },
   {
     q: 'Comment candidater ?',
-    a: `Complétez le formulaire sur cette page ou envoyez CV, parcours BTP, exemple d’usage de l’IA et disponibilités à <a href="${RECRUITMENT_MAILTO}">${RECRUITMENT.email}</a>.`,
+    a: `Complétez le <a href="${LINKS.devenezConsultant}">formulaire de candidature formateur</a> ou envoyez CV, parcours BTP, exemple d’usage de l’IA et disponibilités à <a href="${RECRUITMENT_MAILTO}">${RECRUITMENT.email}</a>.`,
   },
   {
     q: 'Comment se déroule la sélection ?',

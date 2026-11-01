@@ -2,7 +2,6 @@
  * Landings « formation IA pour le BTP » par métier — contenu + métadonnées + FAQ + teaches (Course JSON-LD).
  */
 import { CSFE_NOM_LIBRE } from '@/lib/csfe';
-import { UMB_FFB_NOM_LIBRE } from '@/lib/umb-ffb';
 import { withMetierBtpIdfTitle } from '@/lib/formation-ia-metier-idf';
 import {
   FORMATION_IA_ELECTRICIEN_BTP_H1,
@@ -314,7 +313,7 @@ Rédige un mail de relance pour client [particulier / pro] : rappel du contexte,
 };
 
 /**
- * Charpentier & menuisier bois — UMB-FFB, DTU 31.1 / 31.2, agencement, menuiserie
+ * Charpentier & menuisier bois — DTU 31.1 / 31.2, agencement, menuiserie
  * (page combinée distincte des landings `/formation-ia-charpentier-btp` et `/formation-ia-menuisier-btp`)
  */
 export const FORMATION_IA_METIER_CHARPENTIER_MENUISIER: FormationIaMetierBtpConfig = {
@@ -323,7 +322,7 @@ export const FORMATION_IA_METIER_CHARPENTIER_MENUISIER: FormationIaMetierBtpConf
   h1: 'Formation IA charpentier & menuisier bois — Île-de-France',
   metaTitle: 'Formation IA métiers du bois BTP',
   metaDescription:
-    'Formation IA pour les pros du BTP : charpente et menuiserie bois, DTU 31.1/31.2, calepinage, devis. Partenariat UMB-FFB. Qualiopi, présentiel Île-de-France.',
+    'Formation IA pour les pros du BTP : charpente et menuiserie bois, DTU 31.1/31.2, calepinage, devis. Qualiopi, présentiel Île-de-France.',
   keywords: [
     'formation IA charpentier menuisier',
     'formation IA métiers du bois BTP',
@@ -331,7 +330,6 @@ export const FORMATION_IA_METIER_CHARPENTIER_MENUISIER: FormationIaMetierBtpConf
     'DTU 31.1 DTU 31.2',
     'CCTP lot bois',
     'devis agencement calepinage',
-    'UMB-FFB formation IA',
     'Qualiopi charpentier menuisier',
   ],
   metierNom: 'charpentiers et menuisiers bois',
@@ -339,7 +337,7 @@ export const FORMATION_IA_METIER_CHARPENTIER_MENUISIER: FormationIaMetierBtpConf
   normeRef: 'les DTU 31.1 et 31.2',
   essentielItems: [
     'Charpente, ossature bois, agencement, menuiserie extérieure et intérieure — DTU 31.1 / 31.2, CCTP lot bois, calepinage, débit, quincaillerie.',
-    'Partenariat UMB-FFB : Laure Olivié forme les entreprises des métiers du bois avec le réseau FFB — cas d’usage alignés sur le terrain.',
+    'Cas d’usage alignés sur le terrain : devis, mémoires lot bois et comptes rendus — méthode Qualiopi en présentiel.',
     `Session catalogue ${CATALOGUE_DUREE_SESSION_METIER} (bases ${CATALOGUE_DUREE_BASES_IA_ONLY}) — Qualiopi : brouillons de devis d’agencement, mémoires et CR — relecture humaine obligatoire.`,
     'Financement Constructys selon éligibilité — présentiel Île-de-France uniquement, ateliers sur vos dossiers anonymisés.',
   ],
@@ -347,9 +345,9 @@ export const FORMATION_IA_METIER_CHARPENTIER_MENUISIER: FormationIaMetierBtpConf
     `Les entreprises de charpente et de menuiserie bois enchaînent ossature, fermes, agencement intérieur, menuiseries extérieures et lots mixtes : chaque dossier mobilise le ${'`'}DTU 31.1${'`'} (charpente bois) et le ${'`'}DTU 31.2${'`'} (construction à ossature bois), le CCTP lot bois, les plans de calepinage et de débit, la quincaillerie et les interfaces avec couverture, gros œuvre ou second œuvre.`,
     `Le temps part aussi en rédaction : devis d’agencement détaillés (panneaux, chants, ferrures), nomenclatures, comptes rendus après levage ou pose, relances client et mémoires pour appels d’offres. Sans méthode, on reformule tard le soir les mêmes postes de débit et de quincaillerie.`,
     `Les marchés publics et privés exigent des écrits précis sur le lot bois : une IA mal cadrée invente des sections, des essences ou des références DTU. La formation Qualiopi pose le cadre — prompts, sources, relecture et confidentialité — sans remplacer le bureau d’études ni le fascicule.`,
-    `L’objectif des sessions ${MARQUE} (partenariat ${UMB_FFB_NOM_LIBRE}) est de gagner plusieurs heures par semaine sur la structure des documents, pas de dimensionner une charpente ni de valider un assemblage à la place d’une personne compétente.`,
+    `L’objectif des sessions ${MARQUE} est de gagner plusieurs heures par semaine sur la structure des documents, pas de dimensionner une charpente ni de valider un assemblage à la place d’une personne compétente.`,
   ],
-  solutionIntro: `Les sessions combinent démonstration et ateliers sur vos cas (anonymisés). Vous apprenez à produire des brouillons pour devis d’agencement (calepinage, débit, quincaillerie), lecture structurée d’un CCTP lot bois, plans de mémoire technique et CR de chantier charpente / ossature — toujours avec validation métier. Angle réseau : les exemples s’alignent sur les enjeux des adhérents UMB-FFB (TPE et PME des métiers du bois en Île-de-France).`,
+  solutionIntro: `Les sessions combinent démonstration et ateliers sur vos cas (anonymisés). Vous apprenez à produire des brouillons pour devis d’agencement (calepinage, débit, quincaillerie), lecture structurée d’un CCTP lot bois, plans de mémoire technique et CR de chantier charpente / ossature — toujours avec validation métier. Les exemples s’alignent sur les enjeux des TPE et PME des métiers du bois en Île-de-France.`,
   prompts: [
     {
       title: 'Analyse CCTP — lot bois (DTU 31.1 / 31.2)',
@@ -383,9 +381,8 @@ Rédige un mail clair : rappel du périmètre, questions ouvertes (cotes, choix 
     },
   ],
   csfePartnership: false,
-  umbPartnership: true,
   testimonialQuote:
-    '« Les devis d’agencement et les mémoires lot bois sortent plus vite — le calepinage et le DTU, ça reste notre validation. Le cadre UMB-FFB aide à parler le même langage métier. »',
+    '« Les devis d’agencement et les mémoires lot bois sortent plus vite — le calepinage et le DTU, ça reste notre validation. »',
   testimonialAttribution: 'Dirigeant PME charpente-menuiserie — Yvelines (retour OFC, anonymisé)',
   faq: [
     {
@@ -397,10 +394,6 @@ Rédige un mail clair : rappel du périmètre, questions ouvertes (cotes, choix 
       a: `Pour proposer une structure de postes et reformuler vos notes — pas pour inventer des cotes, des quantités de débit ou un choix de ferrures définitif. Vous validez chaque ligne avant envoi client.`,
     },
     {
-      q: 'Quel est le lien avec le partenariat UMB-FFB (Union des Métiers du Bois) ?',
-      a: `${MARQUE} est partenaire de l’${UMB_FFB_NOM_LIBRE} pour sensibiliser et former les entreprises des métiers du bois à une IA utile et encadrée. Les sessions restent certifiées Qualiopi ; les validations techniques restent en entreprise.`,
-    },
-    {
       q: 'Mes plans de charpente et nomenclatures sont-ils protégés dans ChatGPT ?',
       a: `Évitez les plans nominatifs complets dans un outil grand public sans cadre entreprise. Anonymisez, utilisez des extraits, ou des offres professionnelles sans entraînement — c’est enseigné en formation ${MARQUE}.`,
     },
@@ -410,11 +403,11 @@ Rédige un mail clair : rappel du périmètre, questions ouvertes (cotes, choix 
     },
     {
       q: 'Quelle différence avec les pages « charpentier » ou « menuisier » seules ?',
-      a: `Les pages dédiées ciblent un métier ; celle-ci couvre le continuum bois (charpente, ossature, agencement, menuiserie) avec l’angle UMB-FFB et un jeu de prompts communs. Les trois pages se complètent.`,
+      a: `Les pages dédiées ciblent un métier ; celle-ci couvre le continuum bois (charpente, ossature, agencement, menuiserie) avec un jeu de prompts communs. Les trois pages se complètent.`,
     },
   ],
-  courseName: 'Formation IA charpentier & menuisier bois — UMB-FFB, Qualiopi',
-  courseDescription: `${MARQUE} : formation IA et ChatGPT pour charpentiers et menuisiers — DTU 31.1/31.2, CCTP lot bois, calepinage, débit, devis d’agencement, mémoires. Partenariat ${UMB_FFB_NOM_LIBRE}. Session catalogue ${CATALOGUE_DUREE_SESSION_METIER} (bases ${CATALOGUE_DUREE_BASES_IA_ONLY}), Qualiopi, financement possible selon éligibilité.`,
+  courseName: 'Formation IA charpentier & menuisier bois — Qualiopi',
+  courseDescription: `${MARQUE} : formation IA et ChatGPT pour charpentiers et menuisiers — DTU 31.1/31.2, CCTP lot bois, calepinage, débit, devis d’agencement, mémoires. Session catalogue ${CATALOGUE_DUREE_SESSION_METIER} (bases ${CATALOGUE_DUREE_BASES_IA_ONLY}), Qualiopi, financement possible selon éligibilité.`,
   courseTeaches: [
     'ChatGPT pour métiers du bois BTP',
     'DTU 31.1 / 31.2 — usage documentaire assisté',
@@ -437,7 +430,7 @@ Rédige un mail clair : rappel du périmètre, questions ouvertes (cotes, choix 
   },
   showAuthorBio: true,
   authorBioClosingLine:
-    'Basée en Île-de-France, elle accompagne notamment les entreprises de charpente, d’ossature bois et de menuiserie via le partenariat UMB-FFB.',
+    'Basée en Île-de-France, elle accompagne notamment les entreprises de charpente, d’ossature bois et de menuiserie.',
   relatedMetierLinks: [
     {
       href: LINKS.formationIaCharpentierBtp,
@@ -456,7 +449,7 @@ Rédige un mail clair : rappel du périmètre, questions ouvertes (cotes, choix 
     },
   ],
   liensUtilesIntro:
-    'Pages charpentier et menuisier dédiées, couvreur, catalogue Qualiopi, partenaires UMB-FFB et ressources IA BTP.',
+    'Pages charpentier et menuisier dédiées, couvreur, catalogue Qualiopi et ressources IA BTP.',
 };
 
 export {

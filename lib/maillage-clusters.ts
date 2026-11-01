@@ -121,7 +121,7 @@ const GEO_METIER_BY_DEPT: Record<string, RelatedLinkItem> = {
   'val-doise-95': {
     href: LINKS.formationIaCharpentierMenuisierBtp,
     label: 'Formation IA charpentier & menuisier bois',
-    description: 'DTU 31.1/31.2, agencement — angle UMB-FFB.',
+    description: 'DTU 31.1/31.2, agencement — métiers du bois.',
   },
   paris: {
     href: LINKS.formationIaDirigeantPmeBtp,
@@ -580,7 +580,7 @@ const CATALOGUE_CLUSTER: CatalogueCluster[] = [
     },
     geo: {
       href: LINKS.formationIaBtpYvelines78,
-      label: 'Formation IA BTP Yvelines (78) — Guyancourt',
+      label: 'Formation IA BTP Yvelines (78) — inter Paris 12e',
     },
     blog: {
       href: LINKS.blogCompteRenduChantierIa,

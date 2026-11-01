@@ -13,8 +13,10 @@ export {
   CATALOGUE_FORMATEURS,
 } from '@/lib/formateurs/catalogue-formateurs-profiles';
 export { FORMATEUR_LAURE_OLIVIE, CONFIRMED_FORMATEURS } from '@/lib/formateurs/confirmed-profiles';
+export { isFormateurPublie } from '@/lib/formateurs/hub-display';
 export {
   getCatalogueFormateurs,
+  getPublishedCatalogueFormateurs,
   getFormateursHubProfiles,
   getConfirmedFormateurs,
   getFormateurById,

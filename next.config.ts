@@ -192,16 +192,6 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
-        source: '/devenez-consultant',
-        destination: '/nous-rejoindre',
-        statusCode: 301,
-      },
-      {
-        source: '/devenez-consultant/merci',
-        destination: '/nous-rejoindre/merci',
-        statusCode: 301,
-      },
-      {
         source: '/prendre-rendez-vous',
         destination: '/prendre-rdv',
         permanent: true,
@@ -1756,11 +1746,6 @@ const nextConfig: NextConfig = {
       {
         source: '/images/formation-ia-analyse-plans-btp.png',
         destination: '/images/formation-ia-analyse-plans-btp.webp',
-        permanent: true,
-      },
-      {
-        source: '/images/partenaires/logo-umb-ffb-metiers-du-bois.png',
-        destination: '/images/partenaires/logo-umb-ffb-metiers-du-bois.webp',
         permanent: true,
       },
       {

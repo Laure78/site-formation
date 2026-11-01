@@ -69,9 +69,9 @@ npm run teachizy:prepare-import -- --apply-files
 5. Le script inventorie (réseau + page), puis télécharge les PDF accessibles avec votre session.
 6. Reprise possible : empreintes dans `teachizy-export/fingerprints.json`.
 
-## Résultat test — formation UMB-FFB
+## Résultat test — formation filière bois (exemple export)
 
-Formation : **L'IA au service des professionnels du BTP - Union des Métiers du Bois UMB-FFB**
+Formation : **L'IA au service des professionnels du BTP** (titre Teachizy d’exemple)
 
 Sur Teachizy, toutes les leçons ne sont **pas** des diaporamas PDF :
 - PDF (resource / visionneuse) : Programme, Module 1, Tuto CapCut / vidéo avant-après

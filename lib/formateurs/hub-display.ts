@@ -1,11 +1,16 @@
 import type { FormateurProfile } from '@/lib/formateurs/types';
 import type { FormateursFiltreId } from '@/lib/formateurs/hub-filtres';
 
+export function isFormateurPublie(f: FormateurProfile): boolean {
+  return f.publie === true;
+}
+
 export function isFormateurVisibleOnHubProduction(f: FormateurProfile): boolean {
   const affichage = f.affichageHub ?? 'actif';
   if (affichage === 'a-confirmer' && process.env.NODE_ENV === 'production') {
     return false;
   }
+  if (!isFormateurPublie(f)) return false;
   return true;
 }
 

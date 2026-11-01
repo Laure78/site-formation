@@ -4,7 +4,6 @@
  * Conversion catalogue : fiche NIV-02 (`LINKS.formationAO`) — ne pas dupliquer programme/tarif.
  */
 import { CSFE_NOM_LIBRE } from '@/lib/csfe';
-import { UMB_FFB_NOM_LIBRE } from '@/lib/umb-ffb';
 import { LINKS } from '@/lib/internal-links';
 import { createPageMetadata } from '@/lib/seo';
 import { SOCIAL_PROOF } from '@/lib/constants';
@@ -168,7 +167,7 @@ Propose une structure de courrier ou de DGD (titres uniquement) : faits, pièces
       comingSoon: true,
     },
   ],
-  eeatParagraph: `${MARQUE} — satisfaction mesurée (${formatNoteSatisfactionAffichageComplet()}). Laure Olivié intervient notamment avec la FFB, la ${CSFE_NOM_LIBRE}, l’${UMB_FFB_NOM_LIBRE}, le CNAM Entreprise et Le Moniteur Formations. Les sessions marché public de travaux restent en présentiel en Île-de-France, certifiées Qualiopi, avec financement OPCO Constructys possible selon éligibilité.`,
+  eeatParagraph: `${MARQUE} — satisfaction mesurée (${formatNoteSatisfactionAffichageComplet()}). Laure Olivié intervient notamment avec la FFB, la ${CSFE_NOM_LIBRE}, le CNAM Entreprise et Le Moniteur Formations. Les sessions marché public de travaux restent en présentiel en Île-de-France, certifiées Qualiopi, avec financement OPCO Constructys possible selon éligibilité.`,
   faq: [
     {
       q: "Qu’est-ce qu’une formation IA marché public de travaux ?",
@@ -335,7 +334,7 @@ Structure CR : zones, observations factuelles, réserves, demandes de précision
       ],
     },
   ],
-  eeatParagraph: `${formatProsFormesEtNoteQualiopi()} Partenariat pédagogique avec la ${CSFE_NOM_LIBRE} ; interventions FFB, ${UMB_FFB_NOM_LIBRE}, CNAM Entreprise, Le Moniteur Formations. Sessions Qualiopi en présentiel Île-de-France — financement Constructys selon éligibilité.`,
+  eeatParagraph: `${formatProsFormesEtNoteQualiopi()} Partenariat pédagogique avec la ${CSFE_NOM_LIBRE} ; interventions FFB, CNAM Entreprise, Le Moniteur Formations. Sessions Qualiopi en présentiel Île-de-France — financement Constructys selon éligibilité.`,
   faq: [
     {
       q: 'ChatGPT connaît-il le DTU 43 pour un marché public d’étanchéité ?',

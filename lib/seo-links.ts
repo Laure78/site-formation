@@ -131,7 +131,7 @@ export const EXTERNAL_AUTHORITY_LINKS = {
   },
   googleMaps: {
     href: SITE_CONFIG.googleMapsUrl,
-    label: 'Google Maps — OFC Guyancourt',
+    label: 'Google Maps — OFC Paris 12e',
     title: 'Ouvrir l’adresse dans Google Maps',
   },
   linkedinProfile: {

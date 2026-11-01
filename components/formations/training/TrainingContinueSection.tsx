@@ -8,6 +8,7 @@ import { getParcoursLinksForFormation } from '@/lib/page-maillage-blocks';
 import { getRelatedCatalogueFormations } from '@/lib/catalogue-formation-related';
 import { FORMATIONS } from '@/data/formations';
 import { libelleTarifParcoursCatalogue } from '@/lib/formations-catalogue-display';
+import { afficherTarifCatalogueAvecSuffixe } from '@/lib/tarifs-catalogue-participant';
 import { formationNiveauBadge } from '@/lib/formations-niveaux-ia';
 import { OFC_LINK } from '@/lib/ofc-interaction-classes';
 
@@ -151,7 +152,9 @@ export function TrainingContinueSection({ programmeRef }: Props) {
                       {bySlug ? (
                         <p className="mt-3 text-xs text-slate-500">
                           {bySlug.duree}
-                          {tarif && tarif !== 'Sur devis' ? ` · ${tarif} HT / participant` : null}
+                          {tarif && tarif !== 'Sur devis'
+                            ? ` · ${afficherTarifCatalogueAvecSuffixe(tarif)}`
+                            : null}
                         </p>
                       ) : null}
                       <span className={`${OFC_LINK} mt-3 inline-flex items-center gap-1 text-sm font-semibold`}>

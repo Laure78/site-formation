@@ -3,6 +3,7 @@
  * Usage : `npx tsx scripts/assert-indicateurs-resultats.ts`
  */
 import assert from 'node:assert/strict';
+import { SITE, siteSatisfactionNoteNumber } from '../lib/site-config';
 import {
   assertIndicateursResultatsCoherents,
   formatDateMiseAJourIndicateurs,
@@ -13,9 +14,9 @@ import {
 
 assertIndicateursResultatsCoherents();
 
-assert.equal(indicateursResultats.noteSatisfaction, 4.45);
-assert.equal(indicateursResultats.nombreRepondants, 20);
-assert.equal(formatNoteSatisfactionSur5(), '4,45/5');
+assert.equal(indicateursResultats.noteSatisfaction, siteSatisfactionNoteNumber());
+assert.equal(indicateursResultats.nombreRepondants, SITE.satisfaction.repondants);
+assert.equal(formatNoteSatisfactionSur5(), `${SITE.satisfaction.note}/5`);
 assert.equal(formatDateMiseAJourIndicateurs(), '23/08/2026');
 assert.equal(indicateursResultats.volumePublieSurPageIndicateurs, false);
 assert.equal(indicateursResultats.nonPublies.tauxAbandon.status, 'not_published');

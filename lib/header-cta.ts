@@ -1,9 +1,9 @@
 /**
- * CTA principal du header — distinct du libellé RDV long utilisé dans le corps des pages.
+ * CTA principal du header — aligné sur `SITE.cta` (`lib/site.ts`).
  */
 import { LINKS } from '@/lib/internal-links';
+import { SITE } from '@/lib/site';
 
-/** Bouton header — orientation projet (Calendly via page de prise de RDV). */
-export const HEADER_PRIMARY_CTA_LABEL = 'Échanger sur mon besoin' as const;
+export const HEADER_PRIMARY_CTA_LABEL = SITE.cta.label;
 
 export const HEADER_PRIMARY_CTA_HREF = LINKS.prendreRdv;

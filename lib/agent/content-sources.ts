@@ -16,6 +16,7 @@ import { BLOG_ARTICLES } from '@/lib/blog';
 import { CSFE_NOM_LIBRE } from '@/lib/csfe';
 import { LINKS } from '@/lib/internal-links';
 import { formatAnneesExperienceBTP } from '@/lib/data/indicateurs-resultats';
+import { siteAdresseLigne } from '@/lib/site-config';
 import { dureeCatalogueParCode } from '@/lib/catalogue-duree-copy';
 
 export interface ContentChunk {
@@ -41,14 +42,14 @@ const FORMATIONS_DATA = [
 ];
 
 const PAGES_DATA: { path: string; title: string; content: string }[] = [
-  { path: '/', title: 'Accueil', content: `Formation IA pour le BTP. Devis, DCE, appels d'offres et suivi de chantier avec ChatGPT et Claude. Présentiel · Île-de-France · documents réels · Qualiopi. financement possible selon éligibilité (Constructys, OPCO). Laure Olivié, formatrice IA, ${formatAnneesExperienceBTP()}. Guyancourt (Yvelines). Création avec l'IA : présentiel Île-de-France uniquement.` },
+  { path: '/', title: 'Accueil', content: `Formation IA pour le BTP. Devis, DCE, appels d'offres et suivi de chantier avec ChatGPT et Claude. Présentiel · Île-de-France · documents réels · Qualiopi. financement possible selon éligibilité (Constructys, OPCO). Laure Olivié, formatrice IA, ${formatAnneesExperienceBTP()}. Siège : ${siteAdresseLigne()}. Création avec l'IA : présentiel Île-de-France uniquement.` },
   { path: '/a-propos', title: 'À propos', content: 'Laure Olivié — Formatrice IA spécialisée BTP. OFC Création d\'Entreprise, certification Qualiopi. Partenaires : FFB, CSFE, LinkedIn Learning, Constructys.' },
   {
     path: '/etudes-de-cas/ffb-csfe',
     title: 'Étude de cas FFB & CSFE — Étanchéité',
     content: `Interventions réseau FFB (Grand Paris, Île-de-France Est et Ouest) et ${CSFE_NOM_LIBRE}. Modules : prompts métier, mémoires techniques, CCTP/DCE, comptes rendus chantier, devis et mails. Objectifs : autonomie sur les prompts, RGPD, validation métier. Bénéfices : gain de temps, Constructys, Qualiopi.`,
   },
-  { path: '/contact', title: 'Contact', content: `Contact : ${SITE_CONFIG.email}. Laure Olivié, Guyancourt (Yvelines).` },
+  { path: '/contact', title: 'Contact', content: `Contact : ${SITE_CONFIG.email}. Laure Olivié, ${siteAdresseLigne()}.` },
   { path: '/prendre-rdv', title: 'Prendre rendez-vous', content: 'Réservez un échange d\'environ 30 minutes pour une formation sur-mesure. Créneau via Calendly (visio découverte).' },
   { path: '/financement-constructys-formation-ia-btp', title: 'Financement formation IA OPCO Constructys', content: `Sessions ${SESSION_DUREE_LIBELLE} : ${libelleTarifsDualCourt(4)}. Prise en charge partielle OPCO Constructys selon barèmes et éligibilité. Qualiopi. eGestion, délais 15 jours.` },
   { path: '/financement-constructys-formation-ia-btp', title: 'Financement Constructys', content: 'OPCO Constructys finance les formations BTP. Plan de développement des compétences. Prise en charge selon barèmes et éligibilité. 24€ HT/heure/stagiaire.' },

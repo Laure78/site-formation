@@ -1,3 +1,9 @@
+import {
+  SITE,
+  siteExperienceBtpAnnees,
+  siteSatisfactionNoteNumber,
+} from '@/lib/site-config';
+
 /**
  * Indicateurs de résultats Qualiopi (indicateur 2) — source unique du site public.
  *
@@ -38,7 +44,7 @@ export const indicateursResultats = {
   /** Date de dernière consolidation (ISO). */
   lastCalculatedAt: '2026-08-23',
   /** Libellé humain de la période (affichage FR). */
-  periodeReference: 'juillet 2025 – juin 2026',
+  periodeReference: SITE.satisfaction.periode,
   /** Alias historique — même valeur que `lastCalculatedAt`. */
   dateMiseAJour: '2026-08-23',
 
@@ -56,9 +62,9 @@ export const indicateursResultats = {
   methodologyVersion: '2026.08',
 
   /** Note moyenne (échelle 1–5). */
-  noteSatisfaction: 4.45,
+  noteSatisfaction: siteSatisfactionNoteNumber(),
   /** Nombre de questionnaires valides consolidés. */
-  nombreRepondants: 20,
+  nombreRepondants: SITE.satisfaction.repondants,
   satisfactionScaleMax: 5 as const,
   satisfactionScaleMin: 1 as const,
   satisfactionQuestion:
@@ -174,7 +180,7 @@ assertIndicateursResultatsCoherents();
 // ---------------------------------------------------------------------------
 
 /** Années d'expérience BTP de Laure Olivié (ALIA BTP, 2017-2024). */
-export const anneesExperienceBTP = 7 as const;
+export const anneesExperienceBTP = siteExperienceBtpAnnees();
 
 /** Libellé affiché : « 7 ans d'expérience dans le BTP ». */
 export function formatAnneesExperienceBTP(): string {

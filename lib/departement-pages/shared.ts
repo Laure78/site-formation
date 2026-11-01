@@ -3,6 +3,7 @@
  * Ne pas reformuler par département (réutilisation assumée, pas de paraphrase mécanique).
  */
 import type { DepartementTemoignage } from '@/lib/departement-pages/types';
+import { siteAdresseLigne, SITE_INTER_LIEU } from '@/lib/site-config';
 
 export const DEPARTEMENT_CAS_USAGE_STANDARD: readonly string[] = [
   'Structurer devis et relances à partir de notes terrain — chiffrage définitif validé en interne.',
@@ -35,6 +36,6 @@ export const TEMOIGNAGES_REGION_IDF: readonly DepartementTemoignage[] = [
 export const DEPARTEMENT_TEMOIGNAGES_PARTAGES = TEMOIGNAGES_REGION_IDF;
 
 export const DEPARTEMENT_FORMATRICE_GUYANCOURT = {
-  title: 'Formatrice basée à Paris (75012)',
-  body: `Laure Olivié (OFC Création d'Entreprise) forme les équipes BTP à ChatGPT et Claude AI depuis Paris (75012). Sessions de 4 h en présentiel uniquement, en Île-de-France uniquement — intra-entreprise (dans vos locaux) ou inter. Déplacements et logistique sont précisés au devis, après un échange découverte de 30 minutes.`,
+  title: `Formatrice basée à ${siteAdresseLigne()}`,
+  body: `Laure Olivié (OFC Création d'Entreprise) forme les équipes BTP à ChatGPT et Claude AI depuis ${siteAdresseLigne()}. Sessions de 4 h en présentiel uniquement, en Île-de-France uniquement — intra-entreprise (dans vos locaux) ou ${SITE_INTER_LIEU}. Déplacements et logistique sont précisés au devis, après un échange découverte de 30 minutes.`,
 } as const;

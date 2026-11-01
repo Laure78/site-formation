@@ -2,6 +2,7 @@ import { LINKS } from '@/lib/internal-links';
 import type { DepartementPageData } from '@/lib/departement-pages/types';
 import { buildDeptMetaDescription } from '@/lib/meta-description';
 import { buildIdfDeptPageTitle } from '@/lib/seo-geo-keywords';
+import { SITE_DEPUIS_SIEGE_TRAJET } from '@/lib/site-config';
 
 export const DEPARTEMENT_VAL_DOISE_95: DepartementPageData = {
   code: '95',
@@ -22,8 +23,7 @@ export const DEPARTEMENT_VAL_DOISE_95: DepartementPageData = {
     'Ermont',
     'Goussainville',
   ],
-  tempsTrajetGuyancourt:
-    "Depuis Guyancourt, Cergy-Pontoise est à environ 45 minutes à une heure selon le trafic (temps indicatifs) ; le secteur Roissy / Goussainville se cadre au devis, souvent en journée dédiée ou demi-journées. Argenteuil, Franconville et Ermont se planifient typiquement en demi-journée.",
+  tempsTrajetGuyancourt: `${SITE_DEPUIS_SIEGE_TRAJET} Cergy-Pontoise est à environ 45 minutes à une heure selon le trafic (temps indicatifs) ; Roissy / Goussainville se cadrent au devis. Argenteuil et Franconville en demi-journée typique.`,
   tissuLocal:
     "Le 95 associe un tissu de PME du bâtiment, des opérations résidentielles autour de Cergy-Pontoise et une forte composante logistique / aéroportuaire au nord, souvent synonyme de chantiers dispersés. Axes A15, A115, Francilienne nord : les conducteurs et le support jonglent entre sites, avec des trajets qui mangent déjà la journée. Beaucoup de structures n'ont pas de fonction admin dédiée et cherchent à industrialiser le récurrent (devis, relances, CR) sans recruter. Argenteuil, Sarcelles et le corridor Franconville–Ermont partagent les mêmes frictions bureau / terrain. La formation pose une méthode courte, Qualiopi, avec validation humaine systématique. Les exemples d'atelier s'ajustent au mix local — pavillonnaire, logements collectifs, équipements et contraintes de planning liées au Grand Roissy.",
   casUsageLocaux: [

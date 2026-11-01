@@ -38,7 +38,7 @@ export const GEO_DEPARTMENT_LINKS: (ContextualLinkCard & { slug: string })[] = [
     slug: 'yvelines-78',
     href: LINKS.formationIaBtpYvelines78,
     title: 'Yvelines (78)',
-    description: 'Versailles, Guyancourt, Saint-Quentin-en-Yvelines — intra (dans vos locaux) ou inter.',
+    description: 'Versailles, SQY, Guyancourt — intra (dans vos locaux) ou inter à Paris 12e (61 rue de Lyon).',
   },
   {
     slug: 'essonne-91',
@@ -228,7 +228,7 @@ export const CONDUCTEUR_TRAVAUX_RELATED: ContextualLinkCard[] = [
   {
     href: LINKS.formationIleDeFrance,
     title: 'Formation IA Île-de-France',
-    description: 'Intra ou inter — Guyancourt → IDF.',
+    description: 'Intra ou inter — siège Paris 12e → toute l’IDF.',
   },
 ];
 
@@ -346,7 +346,7 @@ export const SITE_NAV_HUB_ITEMS: ContextualLinkCard[] = getSiteNavHubItems();
 
 /** Liens catalogue + ressources — landings métier BTP. */
 export function getMetierLandingCoreLinks(
-  config: Pick<FormationIaMetierBtpConfig, 'csfePartnership' | 'umbPartnership'>
+  config: Pick<FormationIaMetierBtpConfig, 'csfePartnership'>
 ): ContextualLinkCard[] {
   const links: ContextualLinkCard[] = [];
 
@@ -355,19 +355,6 @@ export function getMetierLandingCoreLinks(
       href: LINKS.etudesCas,
       title: 'Étude de cas FFB & CSFE',
       description: 'Retour d’expérience étanchéité et formation IA.',
-    });
-  }
-
-  if (config.umbPartnership) {
-    links.push({
-      href: LINKS.partenaires,
-      title: 'Partenaires — UMB-FFB & FFB',
-      description: 'Union des Métiers du Bois : formations IA avec OFC.',
-    });
-    links.push({
-      href: LINKS.formationIleDeFrance,
-      title: 'Formation IA BTP Île-de-France',
-      description: 'Sessions présentiel IDF — catalogue et départements.',
     });
   }
 

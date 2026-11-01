@@ -12,6 +12,7 @@ import {
 import { LINKS } from '@/lib/internal-links';
 import { MODALITE_PEDAGOGIQUE_CATALOGUE } from '@/lib/infos-pratiques-catalogue';
 import { getFormationCatalogueByRef } from '@/lib/formations-catalogue-display';
+import { SITE_INTER_LIEU_COURT } from '@/lib/site-config';
 
 export type FormationGeoMaillageLink = {
   href: string;
@@ -269,7 +270,7 @@ export const FORMATION_CATALOGUE_GEO_EXTENDED: Record<
     propresDossiers:
       'Oui — modèles et documents métier (anonymisés si besoin). Vérification humaine obligatoire.',
     iaRemplacePro: COMMON_IA_NON,
-    deroulement: `${MODALITE_PEDAGOGIQUE_CATALOGUE}. 70 % pratique — 7 h en présentiel (inter Guyancourt 78, intra Île-de-France), 4 modules + 4 ateliers retenus parmi 6.`,
+    deroulement: `${MODALITE_PEDAGOGIQUE_CATALOGUE}. 70 % pratique — 7 h en présentiel (inter ${SITE_INTER_LIEU_COURT}, intra Île-de-France), 4 modules + 4 ateliers retenus parmi 6.`,
     clusterMaillage: [
       { href: LINKS.claudeAiBtp, label: 'Guide Claude AI pour le BTP' },
       { href: LINKS.formationMaitriserClaudeAiBtp, label: 'Formation Maîtriser Claude pour le BTP' },

@@ -53,7 +53,7 @@ export const metadata = createPageMetadata({
   keywords: [
     'formation IA appliquée au bâtiment Saint-Quentin-en-Yvelines',
     'formation ChatGPT BTP SQY',
-    'formation IA pour le BTP Guyancourt',
+    'formation IA pour le BTP Paris 12e',
     'formation IA Montigny-le-Bretonneux',
     'formation IA pour les pros du BTP Trappes',
     'OPCO Constructys Yvelines',

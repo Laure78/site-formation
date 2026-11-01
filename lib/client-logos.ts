@@ -12,16 +12,6 @@ export const ALT_LOGO_FFB_GRAND_PARIS_IDF =
   'Logo FFB Grand Paris — fédération du bâtiment Île-de-France' as const;
 export const ALT_LOGO_CSFE =
   "Logo CSFE — Chambre Syndicale Française de l'Étanchéité" as const;
-export const ALT_LOGO_UMB_FFB =
-  'Logo UMB-FFB — Union des Métiers du Bois' as const;
-
-/** Logo officiel UMB-FFB (Union des Métiers du Bois). */
-export const LOGO_UMB_FFB = {
-  src: '/images/partenaires/logo-umb-ffb-metiers-du-bois.webp',
-  alt: ALT_LOGO_UMB_FFB,
-  width: 1024,
-  height: 480,
-} as const;
 
 /** Logo FFB — bandeaux accueil / campagnes terrain (fichier partenaire formation IA). */
 export const LOGO_FFB_PARTENAIRE_FORMATION_IA = {
@@ -112,7 +102,6 @@ export const PARTNER_WEBSITES = {
   moniteurFormations: 'https://formations.lemoniteur.fr/',
   /** @deprecated Alias — préférer `moniteurFormations`. */
   lefebvreDalloz: 'https://formations.lemoniteur.fr/',
-  umbFfb: 'https://www.ffbatiment.fr/organisation-ffb/unions-syndicats-metier/umb-ffb',
   /** Chambre des Professionnels du Bois — FFB Grand Paris Île-de-France */
   cpb: 'https://www.ffbatiment.fr/organisation-ffb/federations-departementales-chambres-syndicales/cpb',
   ifrb: 'https://www.ifrb-78-91-95.fr/',
@@ -168,16 +157,6 @@ export const CLIENT_LOGOS_MARQUEE: ClientLogoItem[] = [
     height: 120,
     href: PARTNER_WEBSITES.csfe,
     linkTitle: 'Site officiel CSFE — Chambre Syndicale Française de l’Étanchéité',
-  },
-  {
-    id: 'umb-ffb',
-    name: 'UMB-FFB',
-    alt: ALT_LOGO_UMB_FFB,
-    src: LOGO_UMB_FFB.src,
-    width: LOGO_UMB_FFB.width,
-    height: LOGO_UMB_FFB.height,
-    href: PARTNER_WEBSITES.umbFfb,
-    linkTitle: 'Site officiel UMB-FFB — Union des Métiers du Bois',
   },
   {
     id: 'cnam',

@@ -98,6 +98,11 @@ export type FormateurProfile = {
   modalite?: string;
   portrait: FormateurPortrait;
   status: FormateurStatus;
+  /**
+   * Affichage public (accueil, /formateurs, domaines catalogue).
+   * Les profils à `false` restent dans la source de données — non listés sur le site.
+   */
+  publie: boolean;
   /** Publication hub /formateurs — défaut `actif`. */
   affichageHub?: FormateurAffichageHub;
   /** Lien profil détaillé (confirmés uniquement, ex. /a-propos). */

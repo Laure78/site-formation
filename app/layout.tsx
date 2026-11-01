@@ -7,6 +7,7 @@ import { Header } from '@/components/Header';
 import { GlobalRecruitmentBanner } from '@/components/layout/GlobalRecruitmentBanner';
 import { DeferredLayoutWidgets } from '@/components/layout/DeferredLayoutWidgets';
 import { SITE_CONFIG, OG_SITE_NAME, GOOGLE_SITE_VERIFICATION } from '@/lib/seo';
+import { SITE, siteGeoPositionMeta } from '@/lib/site-config';
 import { PHOTOS, SITE_FAVICON_CACHE_BUST } from '@/lib/photos';
 import { clampMetaDescription } from '@/lib/meta-description';
 import { GlobalSitelinksJsonLd } from '@/components/schema/GlobalSitelinksJsonLd';
@@ -145,9 +146,9 @@ export async function generateMetadata(): Promise<Metadata> {
     },
     other: {
       'geo.region': 'FR-IDF',
-      'geo.placename': 'Paris',
-      'geo.position': `${SITE_CONFIG.geo.latitude};${SITE_CONFIG.geo.longitude}`,
-      ICBM: `${SITE_CONFIG.geo.latitude}, ${SITE_CONFIG.geo.longitude}`,
+      'geo.placename': SITE.adresse.ville,
+      'geo.position': siteGeoPositionMeta().geoPosition,
+      ICBM: siteGeoPositionMeta().icbm,
     },
   };
 }

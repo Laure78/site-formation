@@ -3,8 +3,6 @@ import { IMAGE_SIZES } from '@/lib/image-props';
 import {
   ALT_LOGO_CSFE,
   ALT_LOGO_FFB_GRAND_PARIS_IDF,
-  ALT_LOGO_UMB_FFB,
-  LOGO_UMB_FFB,
 } from '@/lib/client-logos';
 import { Temoignage } from '@/components/Temoignage';
 
@@ -32,18 +30,11 @@ const LOGOS = [
     width: 360,
     height: 120,
   },
-  {
-    id: 'umb-ffb',
-    src: LOGO_UMB_FFB.src,
-    alt: ALT_LOGO_UMB_FFB,
-    width: LOGO_UMB_FFB.width,
-    height: LOGO_UMB_FFB.height,
-  },
 ] as const;
 
 /**
  * Bandeau de preuve sous le H1 des landings métier.
- * Logos FFB Grand Paris, CSFE, UMB-FFB.
+ * Logos FFB Grand Paris, CSFE.
  */
 export function PreuveSociale({ auteur, role, texte, className = '' }: PreuveSocialeProps) {
   const quote = texte?.trim() ?? '';
@@ -53,7 +44,7 @@ export function PreuveSociale({ auteur, role, texte, className = '' }: PreuveSoc
       className={`rounded-2xl border border-slate-200 bg-[#F2F2F2] px-5 py-4 md:px-6 md:py-5 ${className}`.trim()}
     >
       <p className="text-center text-sm font-semibold text-[#377CF3] md:text-base">
-        Organisme certifié Qualiopi — FFB Grand Paris, CSFE, UMB-FFB
+        Organisme certifié Qualiopi — FFB Grand Paris, CSFE
       </p>
       <ul className="mt-4 flex flex-wrap items-center justify-center gap-x-8 gap-y-3">
         {LOGOS.map((logo) => (

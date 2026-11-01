@@ -20,6 +20,12 @@ import {
   ASSISTANTS_IA_PROPOSITION_VALEUR,
 } from '@/lib/formation-assistants-ia-personnalises-btp-content';
 import { mapProgrammeBlocsToCatalogueModules } from '@/lib/catalogue-programme-bloc-mapper';
+import {
+  SITE_INTER_LIEU,
+  SITE_INTER_LIEU_COURT,
+  SITE_INTER_LIEU_PREFIX,
+  siteExperienceBtpLong,
+} from '@/lib/site-config';
 import { NIV03_PEDAGOGICAL_METHODS, NIV03_PROGRAMME_BLOCS } from '@/lib/catalogue-formation-programmes-niv03';
 import { NIV04_PROGRAMME_BLOCS } from '@/lib/catalogue-formation-programmes-niv04';
 import { NIV05_PROGRAMME_BLOCS } from '@/lib/catalogue-formation-programmes-niv05';
@@ -872,11 +878,11 @@ const NIV_09: CatalogueFormationPageContent = {
     '7 heures — 1 journée',
     '70 % de pratique',
     `Jusqu'à ${getFormationByCode('NIV-09')!.effectifMax} participants`,
-    'Inter : Guyancourt (78)',
+    SITE_INTER_LIEU_PREFIX,
   ],
   practiceShare: '70 %',
   formatLabel: 'Présentiel',
-  locationLabel: 'Guyancourt (78) · Île-de-France',
+  locationLabel: `${SITE_INTER_LIEU_COURT} · Île-de-France`,
   quickFactsLevel: 'Niveau 2',
   pedagogicalNote: 'L’IA prépare et structure. Le professionnel contrôle et valide avant tout envoi.',
   objectivesTitle: 'Objectifs pédagogiques',
@@ -898,7 +904,7 @@ const NIV_09: CatalogueFormationPageContent = {
   })),
   pdfHref: LINKS.pdfProgrammeAssistantsIaPersonnalisesBtp,
   interExtraBullets: [
-    'Inter-entreprises : Guyancourt (78), Yvelines',
+    `Inter-entreprises : ${SITE_INTER_LIEU_COURT}, Paris`,
     '310 € net de TVA par participant, sous réserve de validation fiscale (exonération art. 261-4-4° a du CGI)',
   ],
   intraExtraBullets: [
@@ -925,12 +931,12 @@ const NIV_09: CatalogueFormationPageContent = {
   ],
   instructorTitle: 'Laure Olivié — formatrice IA spécialisée BTP',
   instructorBody:
-    '7 ans d’expérience dans le BTP, ancienne dirigeante d’ALIA BTP (travaux publics). Formatrice certifiée Qualiopi, instructrice LinkedIn Learning. Elle conçoit et anime cette session en présentiel en Île-de-France.',
+    `${siteExperienceBtpLong()}, ancienne dirigeante d’ALIA BTP (travaux publics). Formatrice certifiée Qualiopi, instructrice LinkedIn Learning. Elle conçoit et anime cette session en présentiel en Île-de-France.`,
   finalCta: {
     ...DEFAULT_FINAL_CTA,
     title: 'Inscrivez-vous à la formation assistants IA BTP',
     description:
-      'Session inter à Guyancourt ou format intra en Île-de-France. Prise en charge OPCO possible selon éligibilité — places limitées à 12 participants.',
+      `${SITE_INTER_LIEU} ou format intra en Île-de-France. Prise en charge OPCO possible selon éligibilité — places limitées à 12 participants.`,
     primaryLabel: 'Je m’inscris',
     secondaryLabel: 'Télécharger le programme',
     devisHref: `${LINKS.contact}?objet=inscription&formation=${encodeURIComponent(getFormationByCode('NIV-09')!.titre)}`,

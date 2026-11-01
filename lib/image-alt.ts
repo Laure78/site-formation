@@ -28,7 +28,7 @@ export function normalizePhotoAlt(baseAlt: string): string {
   let out = baseAlt.replace(/\s+/g, ' ').trim();
   out = out.replace(/^(image|photo|illustration) de\s+/i, '');
   out = out.replace(/\s*—\s*formation IA[^.]*$/i, '');
-  out = out.replace(/,\s*(Paris et IDF|Paris IDF|Île-de-France|Guyancourt \(78\))$/i, '');
+  out = out.replace(/,\s*(Paris et IDF|Paris IDF|Île-de-France|Paris 12e \(61 rue de Lyon\))$/i, '');
   out = out.replace(/\s*—\s*formation…$/i, '');
   return clampPhotoAlt(out);
 }

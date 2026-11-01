@@ -39,3 +39,15 @@ export const SESSION_CONVOQUEE_MIN_PARTICIPANTS = 6 as const;
 export function libelleTarifParticipantCatalogue(tarifHt: number): string {
   return `${formatNumberFr(tarifHt)} € HT / participant`;
 }
+
+/** True si le libellé contient déjà « HT / participant » (évite les doublons à l’affichage). */
+export function tarifAffichageContientHtParticipant(label: string): boolean {
+  return /HT\s*\/\s*participant/i.test(label);
+}
+
+/** Ajoute le suffixe catalogue uniquement s’il manque. */
+export function afficherTarifCatalogueAvecSuffixe(tarif: string): string {
+  if (!tarif.trim() || tarif === 'Sur devis') return tarif;
+  if (tarifAffichageContientHtParticipant(tarif)) return tarif;
+  return `${tarif} HT / participant`;
+}

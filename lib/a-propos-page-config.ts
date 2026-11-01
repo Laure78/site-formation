@@ -14,7 +14,7 @@ import {
 import { formatAnneesExperienceBTP } from '@/lib/data/indicateurs-resultats';
 import { MENTION_MARQUE_EXPLOITANTE } from '@/lib/marque-identite';
 import { LINKEDIN_LEARNING_INSTRUCTOR_HREF } from '@/lib/linkedin-learning-a-propos-embeds';
-import { PARTNER_WEBSITES, LOGO_UMB_FFB, LOGO_MONITEUR_FORMATIONS } from '@/lib/client-logos';
+import { PARTNER_WEBSITES, LOGO_MONITEUR_FORMATIONS } from '@/lib/client-logos';
 import type { FAQItem } from '@/lib/faq';
 
 export const A_PROPOS_PAGE_H1 = 'Organisme de formation IA pour les PME du BTP' as const;
@@ -29,7 +29,7 @@ export const A_PROPOS_PAGE_PROOF_LINE =
 export const A_PROPOS_PAGE_META_TITLE = 'Organisme de formation IA BTP | Laure Olivié' as const;
 
 export const A_PROPOS_PAGE_META_DESCRIPTION =
-  'Laure Olivié forme les PME du BTP à l’IA : devis, appels d’offres et conduite de travaux. En présentiel en Île-de-France. Qualiopi.' as const;
+  "Organisme de formation IA BTP certifié Qualiopi : 7 ans de BTP, ex-dirigeante d'ALIA BTP. Devis, DCE, chantier. Présentiel Île-de-France. Visio offerte." as const;
 
 /** Introduction éditoriale — identité organisme (hero / positionnement). */
 export const A_PROPOS_ORGANISME_INTRO =
@@ -151,14 +151,6 @@ export const A_PROPOS_REFERENCES_LOGOS = [
     alt: "Logo CSFE — Chambre Syndicale Française de l'Étanchéité",
     width: 360,
     height: 120,
-  },
-  {
-    id: 'umb',
-    name: 'UMB-FFB',
-    src: LOGO_UMB_FFB.src,
-    alt: LOGO_UMB_FFB.alt,
-    width: LOGO_UMB_FFB.width,
-    height: LOGO_UMB_FFB.height,
   },
   {
     id: 'cnam',

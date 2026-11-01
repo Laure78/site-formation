@@ -1,12 +1,13 @@
 /**
  * Configuration SEO et GEO pour Laure Olivié / OFC Création d'Entreprise
- * Formation IA appliquée au bâtiment — France, Île-de-France, Guyancourt (Yvelines)
+ * Formation IA appliquée au bâtiment — Île-de-France, siège Paris 12e
  */
 
 import type { Metadata } from 'next';
 import { SOCIAL_PROOF, IDF_ZONE_INTERVENTION } from '@/lib/constants';
 import { formatAnneesExperienceBTP, formatNoteSatisfactionAffichageComplet } from '@/lib/data/indicateurs-resultats';
 import { faqAnswerPlainTextForSchema } from '@/lib/faq-plain-text';
+import { SITE_INTER_LIEU_COURT } from '@/lib/site-config';
 import {
   SCHEMA_CONTACT,
   SCHEMA_GEO,
@@ -118,7 +119,7 @@ export const SITE_CONFIG = {
     'IA pour conducteur de travaux',
     'IA pour PME du bâtiment',
     // Géographie (SEO local / GEO)
-    'formation IA Guyancourt',
+    `formation IA ${SITE_INTER_LIEU_COURT}`,
     'formation IA Île-de-France',
     'formation IA Yvelines',
     'formation IA Paris',
@@ -727,7 +728,7 @@ export function getPersonSchema() {
     image: `${SITE_CONFIG.url}/images/laure-olivie-formatrice-ia-btp-qualiopi.webp`,
     jobTitle: 'Formatrice IA spécialisée BTP',
     alternateName: ['Laure Olivié', 'Laure Olivie'],
-    description: `Formatrice IA spécialisée BTP depuis fin 2021, basée à Paris (75012). ${formatNoteSatisfactionAffichageComplet()}. Ancienne dirigeante d’une entreprise de travaux publics, ${formatAnneesExperienceBTP()}. Instructrice LinkedIn Learning. Certification Qualiopi. Réseau FFB Grand Paris, CSFE, UMB-FFB.`,
+    description: `Formatrice IA spécialisée BTP depuis fin 2021, basée à Paris (75012). ${formatNoteSatisfactionAffichageComplet()}. Ancienne dirigeante d’une entreprise de travaux publics, ${formatAnneesExperienceBTP()}. Instructrice LinkedIn Learning. Certification Qualiopi. Réseau FFB Grand Paris et CSFE.`,
     knowsAbout: [
       'Formation IA pour le BTP',
       'Formation ChatGPT entreprise BTP',

@@ -1,3 +1,5 @@
+import { SITE_INTER_LIEU } from '@/lib/site-config';
+
 export * from './types';
 export * from './tarifs';
 export * from './domaines';
@@ -20,7 +22,7 @@ export const CATALOGUE_2027_POSITIONNEMENT = {
 
 export const CATALOGUE_2027_INFOS_PRATIQUES = {
   modalite: 'Présentiel en Île-de-France',
-  interLieu: 'Inter à Guyancourt ou dans les locaux d’un partenaire',
+  interLieu: SITE_INTER_LIEU,
   intraLieu: 'Intra dans les locaux de l’entreprise',
   effectifHabituel: '6 à 12 participants',
   effectifNum04: '4 à 8 participants (NUM-04)',

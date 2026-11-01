@@ -58,6 +58,7 @@ const JULIEN_MOREL: FormateurProfile = {
   ],
   portrait: photoPortrait(PHOTOS.formateurJulienMorel),
   status: 'confirmed',
+  publie: false,
 };
 
 const THOMAS_GARNIER: FormateurProfile = {
@@ -89,6 +90,7 @@ const THOMAS_GARNIER: FormateurProfile = {
   ],
   portrait: photoPortrait(PHOTOS.formateurThomasGarnier),
   status: 'confirmed',
+  publie: false,
 };
 
 const MARC_DELCOURT: FormateurProfile = {
@@ -120,6 +122,7 @@ const MARC_DELCOURT: FormateurProfile = {
   ],
   portrait: photoPortrait(PHOTOS.formateurMarcDelcourt),
   status: 'confirmed',
+  publie: false,
 };
 
 const NICOLAS_PERRIN: FormateurProfile = {
@@ -151,6 +154,7 @@ const NICOLAS_PERRIN: FormateurProfile = {
   ],
   portrait: photoPortrait(PHOTOS.formateurNicolasPerrin),
   status: 'confirmed',
+  publie: true,
 };
 
 const CLAIRE_ROUSSEAU: FormateurProfile = {
@@ -182,6 +186,7 @@ const CLAIRE_ROUSSEAU: FormateurProfile = {
   ],
   portrait: photoPortrait(PHOTOS.formateurClaireRousseau),
   status: 'confirmed',
+  publie: true,
 };
 
 const EMILIE_FONTAINE: FormateurProfile = {
@@ -220,6 +225,7 @@ const EMILIE_FONTAINE: FormateurProfile = {
   ],
   portrait: photoPortrait(PHOTOS.formateurEmilieFontaine),
   status: 'confirmed',
+  publie: true,
 };
 
 const FRANCOIS_BEGUIN: FormateurProfile = {
@@ -266,6 +272,7 @@ const FRANCOIS_BEGUIN: FormateurProfile = {
   ],
   portrait: photoPortrait(PHOTOS.formateurFrancoisBeguin),
   status: 'confirmed',
+  publie: true,
 };
 
 /**

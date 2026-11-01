@@ -1,5 +1,4 @@
 import type { Metadata } from 'next';
-import { Suspense } from 'react';
 import { JsonLd } from '@/components/JsonLd';
 import { createPageMetadata, SITE_CONFIG } from '@/lib/seo';
 import { PHOTOS } from '@/lib/photos';
@@ -16,7 +15,9 @@ import { FormationsContact2027 } from '@/components/formations/catalogue-2027/Fo
 import { FormationsCatalogueFaqSection } from '@/components/formations/catalogue-2027/FormationsCatalogueFaqSection';
 import { FormationsCatalogueMobileBar } from '@/components/formations/catalogue-2027/FormationsCatalogueMobileBar';
 import { buildFormationsPageUnifiedGraphJsonLd } from '@/lib/schema-formations-page-graph';
+import { siteGeoPositionMeta } from '@/lib/site-config';
 import { isParcoursMetiers2027Visible } from '@/lib/parcours-metiers-2027-visibility';
+import { parseFormationsCataloguePageFilters } from '@/lib/catalogue-filter-url';
 
 const baseUrl = SITE_CONFIG.url.replace(/\/$/, '');
 
@@ -68,14 +69,15 @@ export async function generateMetadata({ searchParams }: FormationsPageProps): P
     other: {
       'geo.region': 'FR-IDF',
       'geo.placename': 'Paris',
-      'geo.position': '48.7713;2.0739',
-      ICBM: '48.7713, 2.0739',
+      'geo.position': siteGeoPositionMeta().geoPosition,
+      ICBM: siteGeoPositionMeta().icbm,
     },
   };
 }
 
 export default async function FormationsPage({ searchParams }: FormationsPageProps) {
-  void searchParams;
+  const sp = await searchParams;
+  const catalogueFilters = parseFormationsCataloguePageFilters(sp);
 
   return (
     <>
@@ -88,9 +90,7 @@ export default async function FormationsPage({ searchParams }: FormationsPagePro
           <div className="-mx-4 sm:-mx-6 lg:-mx-8">
             <FormationsCataloguePageNav />
           </div>
-          <Suspense fallback={null}>
-            <FormationsIaDisponibles />
-          </Suspense>
+          <FormationsIaDisponibles filters={catalogueFilters} />
 
           {isParcoursMetiers2027Visible() ? (
             <>

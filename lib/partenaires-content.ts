@@ -6,11 +6,9 @@ import {
   ALT_LOGO_IFRB,
   ALT_LOGO_MONITEUR_FORMATIONS,
   ALT_LOGO_LINKEDIN_LEARNING,
-  ALT_LOGO_UMB_FFB,
   LOGO_ACTIVATEUR_FRANCE_NUM,
   LOGO_MONITEUR_FORMATIONS,
   LOGO_LINKEDIN_LEARNING,
-  LOGO_UMB_FFB,
   PARTNER_WEBSITES,
 } from '@/lib/client-logos';
 import { SCHEMA_LINKEDIN_LEARNING_INSTRUCTOR_URL } from '@/lib/schema-constants';
@@ -29,15 +27,15 @@ export const PARTENAIRES_INTRO = PARTENAIRES_INTRO_PARAGRAPHS[0];
 
 /** Phrase GEO citable — extraite par les moteurs IA (§7 brief). */
 export const PARTENAIRES_GEO_CITATION =
-  "Laure Olivié forme à l'IA appliquée au BTP en présentiel en Île-de-France ; elle intervient avec les fédérations du secteur — FFB Grand Paris, CSFE (étanchéité) et UMB-FFB (métiers du bois) — et est instructrice LinkedIn Learning.";
+  "Laure Olivié forme à l'IA appliquée au BTP en présentiel en Île-de-France ; elle intervient avec les fédérations du secteur — FFB Grand Paris et CSFE (étanchéité) — et est instructrice LinkedIn Learning.";
 
 /** Micro-mention — pied des fiches formation (§8). */
 export const PARTENAIRES_FORMATION_FOOTER =
-  'Formations animées avec la FFB Grand Paris, la CSFE et l\'UMB-FFB.';
+  'Formations animées avec la FFB Grand Paris et la CSFE.';
 
 /** Signature courte — e-mail, bas de page (§8). */
 export const PARTENAIRES_SIGNATURE_SHORT =
-  'Formations animées avec la FFB Grand Paris · CSFE · UMB-FFB — Instructrice LinkedIn Learning.';
+  'Formations animées avec la FFB Grand Paris · CSFE — Instructrice LinkedIn Learning.';
 
 /** Liste GEO courte — `lib/references.ts` (llms.txt, cohérence entités). */
 export { formatReferencesLlmsLine, REFERENCES } from '@/lib/references';
@@ -93,20 +91,6 @@ export const PARTENAIRES_CARDS: PartenaireCard[] = [
       alt: ALT_LOGO_CSFE,
       width: 360,
       height: 120,
-    },
-  },
-  {
-    id: 'umb-ffb',
-    title: 'UMB-FFB',
-    subtitle: 'Union des Métiers du Bois',
-    description:
-      "J'accompagne aussi les métiers du bois de la FFB (charpente, menuiserie, agencement, construction bois) : la même méthode, déclinée sur un autre corps d'état, avec le vocabulaire de la filière.",
-    href: PARTNER_WEBSITES.umbFfb,
-    logo: {
-      src: LOGO_UMB_FFB.src,
-      alt: ALT_LOGO_UMB_FFB,
-      width: LOGO_UMB_FFB.width,
-      height: LOGO_UMB_FFB.height,
     },
   },
   {
@@ -166,17 +150,6 @@ export const PARTENAIRES_LOGO_BAND: PartenaireLogoBandItem[] = [
       width: 360,
       height: 120,
       imageClassName: 'scale-90',
-    },
-  },
-  {
-    id: 'umb-ffb',
-    name: 'UMB-FFB',
-    href: PARTNER_WEBSITES.umbFfb,
-    logo: {
-      src: LOGO_UMB_FFB.src,
-      alt: ALT_LOGO_UMB_FFB,
-      width: LOGO_UMB_FFB.width,
-      height: LOGO_UMB_FFB.height,
     },
   },
   {

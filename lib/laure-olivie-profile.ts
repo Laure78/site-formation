@@ -165,7 +165,7 @@ export function getLaureOlivieAuthorBioBody(): string {
 
 /** Description JSON-LD Person — schémas globaux. */
 export function getLaureOlivieSchemaPersonDescription(): string {
-  return `${LAURE_OLIVIE_BIO_REFERENCE} Instructrice LinkedIn Learning, organisme certifié Qualiopi. ${formatNoteSatisfactionAffichageComplet()}. Partenaires : FFB Grand Paris, CSFE, UMB-FFB.`;
+  return `${LAURE_OLIVIE_BIO_REFERENCE} Instructrice LinkedIn Learning, organisme certifié Qualiopi. ${formatNoteSatisfactionAffichageComplet()}. Partenaires : FFB Grand Paris, CSFE.`;
 }
 
 /** Intro E-E-A-T page /a-propos — angle mission & double compétence. */

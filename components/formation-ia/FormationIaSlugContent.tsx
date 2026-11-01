@@ -12,6 +12,7 @@ import { CONTACT, SOCIAL_PROOF } from '@/lib/constants';
 import { formatNoteSatisfactionSur5 , formatNoteSatisfactionAffichageComplet } from '@/lib/data/indicateurs-resultats'
 import { LINKS } from '@/lib/internal-links';
 import { formationIaHubSlugDestination } from '@/lib/gsc-redirects-2026';
+import { siteAdresseLigne } from '@/lib/site-config';
 
 function hashSlug(s: string): number {
   let h = 0;
@@ -495,7 +496,7 @@ function FormationIaParisBody() {
       <p>
         Laure Olivié, formatrice <strong>ChatGPT</strong> et{' '}
         <strong>Claude AI</strong> pour le BTP. Siège :
-        Guyancourt (78).{' '}
+        {siteAdresseLigne()}.{' '}
         <Link href="/financement-constructys-formation-ia-btp" className="text-[#377CF3] hover:underline">
           Financement Constructys
         </Link>

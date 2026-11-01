@@ -19,7 +19,6 @@ import {
   HeaderNavSimpleLink,
 } from '@/components/nav/HeaderNavDropdown';
 import { useSiteHeaderBehavior } from '@/hooks/useSiteHeaderBehavior';
-import { isAuthConnexionPage } from '@/lib/auth-connexion-chrome';
 import type { LucideIcon } from 'lucide-react';
 
 const HeaderMobileDrawer = dynamic(
@@ -32,8 +31,8 @@ const HeaderMobileDrawer = dynamic(
 
 const MOBILE_NAV_ICON: Record<string, LucideIcon> = {
   formations: GraduationCap,
-  formateurs: Users,
-  'etudes-cas': BookOpen,
+  parcours: BookOpen,
+  'former-equipe': Users,
   financement: Wallet,
   ressources: Layers,
   organisme: Building2,
@@ -141,7 +140,6 @@ export function Header() {
   }, [openId]);
 
   if (
-    isAuthConnexionPage(pathname) ||
     pathname?.startsWith('/admin') ||
     pathname?.startsWith('/demo/') ||
     pathname?.startsWith('/outils/demo-')

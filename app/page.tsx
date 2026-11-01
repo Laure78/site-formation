@@ -21,7 +21,7 @@ import { buildHomeUnifiedGraphJsonLd } from '@/lib/schema-home-unified-graph';
 const HOME_META_TITLE_ABSOLUTE =
   'Formations IA BTP en Île-de-France | Laure Olivié';
 const HOME_META_DESCRIPTION =
-  "Laure Olivié, organisme de formation IA BTP (OFC Création d'Entreprise) en Île-de-France : devis, appels d’offres et chantier avec ChatGPT et Claude. Qualiopi. Visio découverte gratuite.";
+  'Formation IA BTP en Île-de-France : ChatGPT et Claude pour vos devis, DCE et chantiers. Présentiel, Qualiopi, OPCO selon éligibilité. Visio offerte.';
 
 const HOME_FAQ_PAGE_JSON_LD = buildHomeFAQPageJsonLd();
 

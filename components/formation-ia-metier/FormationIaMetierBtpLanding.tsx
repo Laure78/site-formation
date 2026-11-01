@@ -164,17 +164,6 @@ export function FormationIaMetierBtpLanding({ config }: { config: FormationIaMet
             </p>
           )}
 
-          {config.umbPartnership && (
-            <p className="mt-6 rounded-xl border border-blue-100 bg-[#F2F2F2] px-4 py-3 text-sm text-slate-700">
-              <strong className="text-slate-900">Autorité métier :</strong> {MARQUE} est partenaire de l&apos;Union des
-              Métiers du Bois de la FFB (UMB-FFB) pour la sensibilisation et la formation IA des entreprises de
-              charpente, ossature bois, agencement et menuiserie.{' '}
-              <strong className="text-slate-900">Laure Olivié anime des sessions avec le réseau UMB-FFB</strong> —
-              un repère pour les TPE et PME du bois en Île-de-France. La page partenaires est liée dans « Catalogue et
-              ressources ».
-            </p>
-          )}
-
           <nav aria-label="Sommaire" className="mt-10 rounded-2xl border border-slate-200 bg-slate-50 p-6">
             <h2 className="font-display text-lg font-bold text-slate-900">Sommaire</h2>
             <ol className="mt-4 list-decimal space-y-2 pl-5 text-slate-700">
@@ -296,11 +285,7 @@ export function FormationIaMetierBtpLanding({ config }: { config: FormationIaMet
 
           <section id="temoignage" className="scroll-mt-24 mt-14">
             <h2 className="font-display text-2xl font-bold text-slate-900 md:text-2xl">
-              {config.csfePartnership
-                ? 'Témoignage — partenariat CSFE'
-                : config.umbPartnership
-                  ? 'Témoignage — partenariat UMB-FFB'
-                  : 'Témoignage'}
+              {config.csfePartnership ? 'Témoignage — partenariat CSFE' : 'Témoignage'}
             </h2>
             <Citation
               className="mt-6"

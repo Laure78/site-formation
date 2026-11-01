@@ -12,18 +12,14 @@ import {
   ALT_LOGO_IFRB,
   ALT_LOGO_MONITEUR_FORMATIONS,
   ALT_LOGO_LINKEDIN_LEARNING,
-  ALT_LOGO_UMB_FFB,
   LOGO_MONITEUR_FORMATIONS,
   LOGO_LINKEDIN_LEARNING,
-  LOGO_UMB_FFB,
   PARTNER_WEBSITES,
 } from '@/lib/client-logos';
 import { CPB_NOM_COMPLET, CPB_NOM_COURT } from '@/lib/cpb';
 import { CSFE_NOM_COMPLET } from '@/lib/csfe';
 import { LINKS } from '@/lib/internal-links';
 import { SCHEMA_LINKEDIN_LEARNING_INSTRUCTOR_URL } from '@/lib/schema-constants';
-import { UMB_FFB_NOM_LIBRE } from '@/lib/umb-ffb';
-
 export const PARTENAIRES_PAGE_H1 =
   'Des organismes reconnus me confient leurs formations IA' as const;
 
@@ -274,28 +270,6 @@ export const PARTENAIRES_REFERENCES: readonly PartenaireReference[] = [
     proofLabel: 'Découvrir le programme',
     highlightBadge: '2 sessions',
     displayOrder: 6,
-  },
-  {
-    id: 'umb-ffb',
-    name: UMB_FFB_NOM_LIBRE,
-    shortName: 'UMB-FFB',
-    category: 'btp',
-    organizationType: 'Union de métiers',
-    relationshipLabel: 'Formation animée pour',
-    logo: {
-      src: LOGO_UMB_FFB.src,
-      alt: ALT_LOGO_UMB_FFB,
-      width: LOGO_UMB_FFB.width,
-      height: LOGO_UMB_FFB.height,
-    },
-    officialUrl: PARTNER_WEBSITES.umbFfb,
-    interventionSummary:
-      'Sessions pour la filière bois (charpente, menuiserie, agencement) : devis, documents de chantier et mails clients.',
-    audiences: ['Dirigeants et équipes filière bois'],
-    topics: ['Devis', 'Documents de chantier', 'Mails client'],
-    deliveryModes: DELIVERY,
-    locations: LOCATIONS,
-    displayOrder: 7,
   },
   {
     id: 'ifrb-idf',

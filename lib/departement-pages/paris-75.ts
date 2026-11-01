@@ -2,6 +2,7 @@ import { LINKS } from '@/lib/internal-links';
 import type { DepartementPageData } from '@/lib/departement-pages/types';
 import { buildDeptMetaDescription } from '@/lib/meta-description';
 import { buildIdfDeptPageTitle } from '@/lib/seo-geo-keywords';
+import { SITE_DEPUIS_SIEGE_TRAJET } from '@/lib/site-config';
 
 export const DEPARTEMENT_PARIS_75: DepartementPageData = {
   code: '75',
@@ -19,8 +20,7 @@ export const DEPARTEMENT_PARIS_75: DepartementPageData = {
     'Paris 15e–16e (Beaugrenelle, Trocadéro)',
     'Paris 18e–20e (Montmartre, Belleville)',
   ],
-  tempsTrajetGuyancourt:
-    "Depuis Guyancourt (78), Paris est accessible en transport ou véhicule selon le créneau — comptez typiquement 45 à 75 minutes selon l'arrondissement et le trafic (temps indicatifs). Centre, est et ouest se cadrent au devis ; la petite et grande couronne se traitent aussi via la page formation IA BTP Île-de-France.",
+  tempsTrajetGuyancourt: `${SITE_DEPUIS_SIEGE_TRAJET} les déplacements intra à Paris se cadrent au devis selon l'arrondissement et le trafic (temps indicatifs). Centre, est et ouest ; la petite et grande couronne via la page formation IA BTP Île-de-France.`,
   tissuLocal:
     "Paris concentre maîtres d'œuvre, architectes et entreprises de construction ou de rénovation sous fortes contraintes : copropriétés, chantiers en site occupé, accès difficiles, interlocuteurs ABF sur certains secteurs. Les équipes y passent un temps considérable sur l'écrit contractuel, les autorisations et la coordination multi-intervenants. La densité des opérations et la pression sur les délais rendent la production documentaire (devis, CR, mémoires) critique au quotidien. La formation s'appuie sur ces réalités parisiennes, sans modèle générique hors sol — présentiel uniquement, documents réels.",
   casUsageLocaux: [

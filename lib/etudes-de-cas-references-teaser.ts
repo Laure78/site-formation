@@ -70,15 +70,6 @@ const TEASER_BY_ID: readonly TeaserContent[] = [
     },
   },
   {
-    referenceId: 'umb-ffb',
-    hubDescription:
-      'Formations pour charpentiers, menuisiers et agencement : devis, mails clients et pièces de chantier, adaptées aux usages de la filière bois.',
-    relatedLink: {
-      href: LINKS.formationIaCharpentierBtp,
-      label: 'Formation IA charpentier BTP',
-    },
-  },
-  {
     referenceId: 'ifrb-idf',
     hubDescription:
       'Modules IA pour stagiaires de l’institut francilien : devis, administratif et documents de chantier, intégrés au parcours de formation régional.',

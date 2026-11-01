@@ -2,9 +2,10 @@ import Link from 'next/link';
 import { FormateurPortraitView } from '@/components/formateurs/FormateurPortrait';
 import { Section } from '@/components/ui/Section';
 import { SectionHeader } from '@/components/ui/SectionHeader';
+import { FormateursRecrutement2027Encart } from '@/components/formateurs/FormateursRecrutement2027Encart';
 import {
   FORMATEUR_LAURE_OLIVIE,
-  getCatalogueFormateurs,
+  getPublishedCatalogueFormateurs,
 } from '@/lib/formateurs';
 import { LINKS } from '@/lib/internal-links';
 import { OFC_CARD, OFC_CTA_PRIMARY } from '@/lib/ofc-interaction-classes';
@@ -16,10 +17,9 @@ const MAX_INTERVENANTS = 3;
 /** Laure Olivié + aperçu des intervenants confirmés — détail sur /formateurs. */
 export function AccueilLaureFormateursSection() {
   const laure = FORMATEUR_LAURE_OLIVIE;
-  const intervenants = getCatalogueFormateurs()
+  const intervenants = getPublishedCatalogueFormateurs()
     .filter((f) => f.status === 'confirmed')
     .slice(0, MAX_INTERVENANTS);
-
   return (
     <Section
       id="accueil-equipe"
@@ -78,7 +78,11 @@ export function AccueilLaureFormateursSection() {
               </article>
           ))}
         </RevealGroupShell>
-      ) : null}
+      ) : (
+        <RevealShell delay={MOTION_REVEAL.contentDelayMs}>
+          <FormateursRecrutement2027Encart className="mt-6" />
+        </RevealShell>
+      )}
 
       <RevealShell delay={120}>
       <div className="mt-8">

@@ -1,6 +1,7 @@
 import { MapPin } from 'lucide-react';
 import { OFC_SEC } from '@/lib/ofc-section-classes';
 import { DEPARTEMENT_FORMATRICE_GUYANCOURT } from '@/lib/departement-pages/shared';
+import { siteSiegeCourt } from '@/lib/site-config';
 import { deptLocatif, type DeptGrammar } from '@/lib/formation-ia-btp-dept-grammar';
 
 type Props = {
@@ -22,7 +23,7 @@ export function DepartementFormatriceGuyancourt({ grammar, deptCode }: Props) {
         </p>
         <div className="mt-4 inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-4 py-2 text-base text-slate-700">
           <MapPin size={16} className="text-[#377CF3]" aria-hidden />
-          Paris (75012) → interventions {locatif} ({deptCode})
+          {siteSiegeCourt()} → interventions {locatif} ({deptCode})
         </div>
       </div>
     </section>

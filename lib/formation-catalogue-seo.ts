@@ -10,6 +10,7 @@ import {
 } from '@/lib/data/indicateurs-resultats';
 import { getFormationByCode } from '@/data/formations';
 import { dureeCatalogueParCode } from '@/lib/catalogue-duree-copy';
+import { SITE_INTER_LIEU, SITE_INTER_LIEU_COURT } from '@/lib/site-config';
 import { SESSION_DUREE_LIBELLE, formatTarifHt } from '@/lib/tarifs-sessions';
 import {
   TARIF_INTER_DEV_WEB_IA_14H_HT,
@@ -212,9 +213,8 @@ export const FORMATION_CATALOGUE_SEO: Record<FormationCatalogueCode, FormationCa
     metaTitle: 'Créer ses assistants IA BTP | Formation 7h',
     h1: 'Créer ses assistants IA pour son entreprise du bâtiment',
     subtitle: 'ChatGPT & Claude : fonctionnalités clés et assistants métier',
-    metaDescription:
-      'Formation de 7h pour créer vos assistants IA BTP avec ChatGPT et Claude. Devis, chantier, appels d’offres. Présentiel à Guyancourt (78).',
-    enBref: `Formation NIV-09 (7 h, présentiel) : créer 4 assistants IA métier avec ChatGPT et Claude — projets, skills, modèles entreprise. Inter à Guyancourt (78), intra en Île-de-France. 70 % pratique, bibliothèque de skills BTP, accès plateforme 1 an. Abonnements ChatGPT Plus et Claude Pro (ou comptes entreprise) requis. ${QUALIOPI_MENTION}.`,
+    metaDescription: `Formation de 7h pour créer vos assistants IA BTP avec ChatGPT et Claude. Devis, chantier, appels d’offres. Présentiel à ${SITE_INTER_LIEU_COURT}.`,
+    enBref: `Formation NIV-09 (7 h, présentiel) : créer 4 assistants IA métier avec ChatGPT et Claude — projets, skills, modèles entreprise. ${SITE_INTER_LIEU}, intra en Île-de-France. 70 % pratique, bibliothèque de skills BTP, accès plateforme 1 an. Abonnements ChatGPT Plus et Claude Pro (ou comptes entreprise) requis. ${QUALIOPI_MENTION}.`,
     publicTargets: [
       'Dirigeants et professionnels du BTP',
       'Conducteurs de travaux et chargés d’affaires',
