@@ -87,7 +87,7 @@ export default function CandidaturesSpontaneesPage() {
               Nous rejoindre
             </Link>
             {' · '}
-            <Link href={LINKS.devenezConsultant} className="font-medium text-[#377CF3] underline">
+            <Link href={LINKS.nousRejoindre} className="font-medium text-[#377CF3] underline">
               Devenez consultant
             </Link>
             {' · '}

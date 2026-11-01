@@ -1,176 +1,107 @@
-import Link from 'next/link';
-import { FAQAccordion } from '@/components/a-propos/FAQAccordion';
+import Image from 'next/image';
+import { ConsultantExpertiseCards } from '@/components/career/ConsultantExpertiseCards';
+import { ConsultantFormateurCandidatureSection } from '@/components/career/ConsultantFormateurCandidatureSection';
 import {
-  ConsultantRecruitmentAnnonceSection,
-  ConsultantRecruitmentMissionsBrief,
-} from '@/components/career/ConsultantRecruitmentAnnonceSection';
-import {
-  FORMATEUR_RECRUITMENT_2027_CAMPAIGN,
-  NOUS_REJOINDRE_FORMATEUR_FAQ,
-} from '@/lib/consultant-recruitment-content';
-import { formateurRecruitmentMailtoHref, RECRUITMENT } from '@/lib/constants';
-import { LINKS } from '@/lib/internal-links';
-import { formatOrganismeQualiopiCourt } from '@/lib/marque-identite';
+  ConsultantRecruitmentCompetencesSection,
+  ConsultantRecruitmentProfilsSection,
+  NousRejoindreModalitesCollaborationSection,
+} from '@/components/career/ConsultantRecruitment2027Editorial';
+import { ConsultantSelectionTimeline } from '@/components/career/ConsultantSelectionTimeline';
+import { ConsultantWhyOfcSection } from '@/components/career/ConsultantWhyOfcSection';
+import { NOUS_REJOINDRE_FORMATEUR_HERO } from '@/lib/consultant-recruitment-content';
+import { RECRUITMENT_PAGE_INNER } from '@/lib/devenez-consultant-layout';
 import {
   OFC_CTA_PRIMARY,
   OFC_CTA_SECONDARY,
   OFC_EYEBROW,
   OFC_TYPE_BODY,
-  OFC_TYPE_H2,
   OFC_TYPE_HERO,
 } from '@/lib/ofc-interaction-classes';
-import { OFC_READABLE_COLUMN, ofcSectionClasses } from '@/lib/ofc-section-classes';
+import { PHOTOS } from '@/lib/photos';
+import { ofcSectionClasses } from '@/lib/ofc-section-classes';
 
-const HERO_SECTION = ofcSectionClasses({
-  tone: 'white',
-  size: 'compact',
-  mesh: false,
-  divide: false,
-});
+const H = NOUS_REJOINDRE_FORMATEUR_HERO;
+const HERO_IMAGE = PHOTOS.recrutementFormateursIaBtpHero2027;
 
-const MAILTO = formateurRecruitmentMailtoHref();
+type NousRejoindreFormateurRecruitmentProps = {
+  sourcePage: string;
+};
 
-/** Annonce recrutement formateurs indépendants — hub /nous-rejoindre. */
-export function NousRejoindreFormateurRecruitment() {
-  const C = FORMATEUR_RECRUITMENT_2027_CAMPAIGN;
-  const hero = C.hero;
-
+/** Hub formateurs indépendants — sections 1 à 8 de /nous-rejoindre. */
+export function NousRejoindreFormateurRecruitment({ sourcePage }: NousRejoindreFormateurRecruitmentProps) {
   return (
     <>
       <section
-        className={`${HERO_SECTION} scroll-mt-[var(--site-header-height)]`}
+        className={ofcSectionClasses({ tone: 'white', size: 'compact', mesh: true, divide: true })}
         aria-labelledby="nous-rejoindre-formateur-h1"
       >
-        <div className={OFC_READABLE_COLUMN}>
-          <div className="lg:grid lg:grid-cols-[minmax(0,1.05fr)_minmax(260px,22rem)] lg:items-start lg:gap-8 xl:gap-10">
+        <div className={RECRUITMENT_PAGE_INNER}>
+          <div className="lg:grid lg:grid-cols-[minmax(0,1.08fr)_minmax(280px,24rem)] lg:items-center lg:gap-8 xl:gap-10">
             <div className="min-w-0">
-              <p className={OFC_EYEBROW}>{hero.eyebrow}</p>
+              <p className={OFC_EYEBROW}>{H.eyebrow}</p>
               <h1 id="nous-rejoindre-formateur-h1" className={`${OFC_TYPE_HERO} mt-2 text-pretty`}>
-                {hero.h1}
+                {H.h1}
               </h1>
-              <p className={`${OFC_TYPE_BODY} mt-4 text-ofc-ink-muted text-pretty`}>{hero.intro}</p>
-              <p className={`${OFC_TYPE_BODY} mt-4 text-ofc-ink-muted`}>
-                Campagne portée par {formatOrganismeQualiopiCourt()} — missions de formateur
-                indépendant en intelligence artificielle appliquée au bâtiment et aux travaux publics,
-                en présentiel en Île-de-France, à partir de 2027.
+              <p className="mt-4 text-lg font-semibold leading-snug text-slate-900 text-pretty">
+                {H.hook}
               </p>
-              <ul className="mt-4 flex flex-wrap gap-x-4 gap-y-1 text-sm font-medium text-ofc-ink">
-                <li>Missions indépendantes rémunérées</li>
-                <li>Expérience BTP requise</li>
-                <li>Présentiel · Île-de-France</li>
-                <li>À partir de 2027</li>
+              <p className={`${OFC_TYPE_BODY} mt-4 text-ofc-ink-muted text-pretty`}>{H.intro}</p>
+              <ul className="mt-5 flex flex-wrap gap-2" aria-label="Informations essentielles">
+                {H.facts.map((fact) => (
+                  <li
+                    key={fact}
+                    className="rounded-full border border-[#377CF3]/25 bg-[#377CF3]/5 px-3.5 py-1.5 text-sm font-medium text-slate-800"
+                  >
+                    {fact}
+                  </li>
+                ))}
               </ul>
               <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
                 <a
                   href="#candidature"
                   className={`${OFC_CTA_PRIMARY} inline-flex min-h-11 items-center justify-center rounded-lg px-5 py-2.5 text-base font-semibold`}
                 >
-                  {hero.primaryCtaLabel}
+                  {H.primaryCtaLabel}
                 </a>
                 <a
                   href="#profils-recherches"
                   className={`${OFC_CTA_SECONDARY} inline-flex min-h-11 items-center justify-center rounded-lg px-5 py-2.5 text-base font-semibold`}
                 >
-                  {hero.secondaryCtaLabel}
+                  {H.secondaryCtaLabel}
                 </a>
               </div>
             </div>
-            <aside
-              className="mt-8 rounded-xl border border-slate-200/90 bg-slate-50/50 p-4 sm:p-5 lg:mt-1"
-              aria-labelledby="annonce-modalites-heading"
-            >
-              <ConsultantRecruitmentMissionsBrief />
-            </aside>
+            <figure className="relative mt-8 overflow-hidden rounded-xl border border-slate-200/90 bg-slate-50 lg:mt-0">
+              <Image
+                src={HERO_IMAGE.src}
+                alt={HERO_IMAGE.alt}
+                width={HERO_IMAGE.width}
+                height={HERO_IMAGE.height}
+                className="h-auto w-full object-cover"
+                sizes="(max-width: 1024px) 100vw, 384px"
+                priority
+              />
+            </figure>
           </div>
+          <aside
+            className="mt-6 rounded-lg border border-slate-200 bg-slate-50/80 px-4 py-3.5 text-sm leading-relaxed text-slate-700 sm:px-5"
+            aria-label="En bref"
+          >
+            <p>
+              <span className="font-semibold text-slate-900">En bref — </span>
+              {H.enBref}
+            </p>
+          </aside>
         </div>
       </section>
 
-      <ConsultantRecruitmentAnnonceSection
-        showShareConclusion={false}
-        useReadableColumn
-        omitMissionsBrief
-      />
-
-      <section
-        id="candidature"
-        className={`${ofcSectionClasses({ tone: 'muted', size: 'compact', divide: true })} scroll-mt-[calc(var(--site-header-height,4rem)+0.5rem)]`}
-        aria-labelledby="candidature-formateur-heading"
-      >
-        <div className={OFC_READABLE_COLUMN}>
-            <h2 id="candidature-formateur-heading" className={OFC_TYPE_H2}>
-              {C.sections.candidatureHeading}
-            </h2>
-            <p className={`${OFC_TYPE_BODY} mt-4 text-ofc-ink-muted`}>
-              {C.candidatureIntro}
-            </p>
-            <p className="mt-3">
-              <a
-                href={MAILTO}
-                className="break-all text-lg font-semibold text-[#377CF3] underline-offset-2 hover:underline"
-              >
-                {RECRUITMENT.email}
-              </a>
-            </p>
-            <p className="mt-6">
-              <a
-                href={MAILTO}
-                className={`${OFC_CTA_PRIMARY} inline-flex min-h-11 items-center justify-center rounded-lg px-5 py-2.5 text-base font-semibold`}
-              >
-                Envoyer ma candidature
-              </a>
-            </p>
-            <p className={`${OFC_TYPE_BODY} mt-8 text-ofc-ink-muted`}>{C.conclusion.share}</p>
-            <p className={`${OFC_TYPE_BODY} mt-2 font-semibold text-ofc-ink`}>
-              {C.conclusion.signature}
-              <br />
-              <Link
-                href={LINKS.home}
-                className="font-semibold text-[#377CF3] underline-offset-2 hover:underline"
-              >
-                {C.conclusion.site}
-              </Link>
-            </p>
-        </div>
-      </section>
-
-      <section
-        className={ofcSectionClasses({ tone: 'white', size: 'compact', divide: true })}
-        aria-labelledby="recrutement-formateur-faq-title"
-      >
-        <div className={OFC_READABLE_COLUMN}>
-          <FAQAccordion
-            id="recrutement-formateur-faq"
-            title="Questions fréquentes — recrutement formateur IA BTP"
-            subtitle="Réponses courtes sur les missions indépendantes du catalogue 2027."
-            items={NOUS_REJOINDRE_FORMATEUR_FAQ}
-          />
-        </div>
-      </section>
-
-      <section
-        className={ofcSectionClasses({ tone: 'muted', size: 'compact', divide: false })}
-        aria-label="Liens utiles"
-      >
-        <div className={OFC_READABLE_COLUMN}>
-          <p className={`${OFC_TYPE_BODY} text-ofc-ink-muted`}>
-            Découvrez le{' '}
-            <Link
-              href={LINKS.formations}
-              className="font-semibold text-[#377CF3] underline-offset-2 hover:underline"
-            >
-              catalogue des formations IA BTP
-            </Link>{' '}
-            et l’{' '}
-            <Link
-              href={LINKS.formateurs}
-              className="font-semibold text-[#377CF3] underline-offset-2 hover:underline"
-            >
-              équipe de formateurs
-            </Link>{' '}
-            qui anime déjà les parcours en présentiel.
-          </p>
-        </div>
-      </section>
+      <ConsultantRecruitmentProfilsSection />
+      <ConsultantRecruitmentCompetencesSection />
+      <ConsultantExpertiseCards />
+      <NousRejoindreModalitesCollaborationSection />
+      <ConsultantWhyOfcSection />
+      <ConsultantFormateurCandidatureSection sourcePage={sourcePage} />
+      <ConsultantSelectionTimeline />
     </>
   );
 }

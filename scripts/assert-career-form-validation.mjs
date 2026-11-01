@@ -24,7 +24,7 @@ const consultantOk = parseCareerFormPayload({
   expertiseDomain: 'conduite-travaux',
   mobilityIdf: 'oui',
   presentation: 'Plus de dix ans en conduite de travaux BTP, usage quotidien de Claude et animation de formations internes.',
-  sourcePage: 'https://www.laureolivie.fr/devenez-consultant',
+  sourcePage: 'https://www.laureolivie.fr/nous-rejoindre',
   website: '',
 });
 if (!consultantOk.success) throw new Error('consultantOk: ' + JSON.stringify(consultantOk.fieldErrors));
@@ -37,7 +37,7 @@ const consultantKo = consultantCareerSchema.safeParse({
   expertiseDomain: 'conduite-travaux',
   mobilityIdf: 'oui',
   presentation: 'trop court',
-  sourcePage: '/devenez-consultant',
+  sourcePage: '/nous-rejoindre',
   website: '',
 });
 if (consultantKo.success) throw new Error('consultantKo should fail');

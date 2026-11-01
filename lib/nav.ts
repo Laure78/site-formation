@@ -161,7 +161,7 @@ export const NAV_CARRIERE: readonly NavItem[] = [
     title: 'Devenir formateur IA BTP — rejoindre l’équipe',
   },
   {
-    href: LINKS.devenezConsultant,
+    href: LINKS.nousRejoindre,
     label: 'Devenez consultant',
     title: 'Proposer une expertise de consultant-formateur IA BTP',
   },

@@ -5,28 +5,28 @@ import {
   Building2,
   Calculator,
   ClipboardList,
+  DraftingCompass,
   HardHat,
-  Lock,
   MapPin,
-  ShieldCheck,
-  Sparkles,
-  Users,
   type LucideIcon,
 } from 'lucide-react';
 import {
+  CONSULTANT_ANNONCE_MODALITES,
   DEVENEZ_CONSULTANT_BTP_REQUIREMENT,
-  DEVENEZ_CONSULTANT_COMPETENCES,
   DEVENEZ_CONSULTANT_MISSION,
   DEVENEZ_CONSULTANT_MODALITES,
-  DEVENEZ_CONSULTANT_PROFILS,
+  NOUS_REJOINDRE_COMPETENCES,
+  NOUS_REJOINDRE_PROFILS,
 } from '@/lib/consultant-recruitment-content';
-import { DEVENEZ_CONSULTANT_INNER, DEVENEZ_CONSULTANT_PROSE } from '@/lib/devenez-consultant-layout';
+import {
+  DEVENEZ_CONSULTANT_INNER,
+  DEVENEZ_CONSULTANT_PROSE,
+} from '@/lib/devenez-consultant-layout';
 import { OFC_TYPE_H2, OFC_TYPE_H3 } from '@/lib/ofc-interaction-classes';
 import { PHOTOS } from '@/lib/photos';
 import { ofcSectionClasses } from '@/lib/ofc-section-classes';
 
-const PROFIL_ICONS: LucideIcon[] = [HardHat, Calculator, Building2, ClipboardList];
-const COMPETENCE_ICONS: LucideIcon[] = [Sparkles, ShieldCheck, Lock, Users];
+const PROFIL_ICONS: LucideIcon[] = [HardHat, Calculator, DraftingCompass, Building2, ClipboardList];
 const MODALITE_ICONS: LucideIcon[] = [Briefcase, MapPin, ClipboardList];
 
 const MISSION_IMAGE = PHOTOS.recrutementFormateursMissionIaBtp2027;
@@ -77,7 +77,7 @@ export function ConsultantRecruitmentBtpRequirementSection() {
 }
 
 export function ConsultantRecruitmentProfilsSection() {
-  const P = DEVENEZ_CONSULTANT_PROFILS;
+  const P = NOUS_REJOINDRE_PROFILS;
 
   return (
     <SectionShell tone="white" labelledBy="profils-recherches">
@@ -87,7 +87,7 @@ export function ConsultantRecruitmentProfilsSection() {
       >
         {P.heading}
       </h2>
-      <ul className="mt-5 grid gap-4 sm:grid-cols-2">
+      <ul className="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {P.cards.map((card, index) => {
           const Icon = PROFIL_ICONS[index] ?? HardHat;
           return (
@@ -111,7 +111,13 @@ export function ConsultantRecruitmentProfilsSection() {
           );
         })}
       </ul>
-      <p className={`mt-5 text-sm leading-relaxed text-slate-600 ${DEVENEZ_CONSULTANT_PROSE}`}>
+      <div
+        className={`mt-5 rounded-lg border border-[#377CF3]/20 bg-[#377CF3]/5 px-4 py-3.5 sm:px-5 ${DEVENEZ_CONSULTANT_PROSE}`}
+      >
+        <p className="text-base font-semibold text-slate-900">{P.conditionLead}</p>
+        <p className="mt-1.5 text-sm leading-relaxed text-slate-700">{P.conditionDetail}</p>
+      </div>
+      <p className={`mt-4 text-sm leading-relaxed text-slate-600 ${DEVENEZ_CONSULTANT_PROSE}`}>
         {P.footnote}
       </p>
     </SectionShell>
@@ -170,30 +176,46 @@ export function ConsultantRecruitmentMissionSection() {
 }
 
 export function ConsultantRecruitmentCompetencesSection() {
-  const C = DEVENEZ_CONSULTANT_COMPETENCES;
+  const C = NOUS_REJOINDRE_COMPETENCES;
 
   return (
-    <SectionShell tone="white" labelledBy="competences-attendues-heading">
+    <SectionShell tone="muted" labelledBy="competences-attendues-heading">
       <h2 id="competences-attendues-heading" className={OFC_TYPE_H2}>
         {C.heading}
       </h2>
-      <ul className="mt-5 grid gap-3 sm:grid-cols-2">
-        {C.items.map((item, index) => {
-          const Icon = COMPETENCE_ICONS[index] ?? Sparkles;
-          return (
-            <li
-              key={item.title}
-              className="flex gap-4 rounded-lg border border-slate-200 bg-slate-50/40 p-4 sm:p-5"
-            >
-              <Icon className="mt-0.5 h-6 w-6 shrink-0 text-[#377CF3]" aria-hidden />
-              <div>
-                <h3 className="font-display text-base font-bold text-slate-900">{item.title}</h3>
-                <p className="mt-1.5 text-sm leading-relaxed text-slate-600">{item.body}</p>
-              </div>
-            </li>
-          );
-        })}
+      <ul
+        className={`mt-4 list-disc space-y-2 pl-5 text-base leading-relaxed text-slate-700 ${DEVENEZ_CONSULTANT_PROSE}`}
+      >
+        {C.bullets.map((item) => (
+          <li key={item}>{item}</li>
+        ))}
       </ul>
+      <div className="mt-5 rounded-lg border border-slate-200 bg-white px-4 py-3.5 sm:px-5">
+        <p className="text-base font-semibold text-slate-900">{C.reassuranceTitle}</p>
+        <p className="mt-1.5 text-sm leading-relaxed text-slate-600">{C.reassuranceBody}</p>
+      </div>
+    </SectionShell>
+  );
+}
+
+/** Modalités contractuelles — une seule fois (catalogue 2027). */
+export function NousRejoindreModalitesCollaborationSection() {
+  return (
+    <SectionShell tone="white" labelledBy="modalites-collaboration-heading">
+      <h2 id="modalites-collaboration-heading" className={OFC_TYPE_H2}>
+        Modalités de collaboration
+      </h2>
+      <dl className="mt-4 grid gap-2.5 sm:grid-cols-2">
+        {CONSULTANT_ANNONCE_MODALITES.map(({ term, detail }) => (
+          <div
+            key={term}
+            className="rounded-lg border border-slate-200/90 bg-slate-50/50 px-3.5 py-2.5 text-sm leading-relaxed"
+          >
+            <dt className="font-semibold text-slate-900">{term}</dt>
+            <dd className="mt-0.5 text-slate-700">{detail}</dd>
+          </div>
+        ))}
+      </dl>
     </SectionShell>
   );
 }

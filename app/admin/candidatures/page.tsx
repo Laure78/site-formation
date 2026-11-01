@@ -30,7 +30,7 @@ export default async function AdminCandidaturesPage() {
                 Nous rejoindre
               </a>
               <a
-                href={LINKS.devenezConsultant}
+                href={LINKS.nousRejoindre}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="rounded-xl border border-slate-200 bg-white px-4 py-2 font-medium text-slate-700 hover:bg-slate-50"

@@ -1,16 +1,13 @@
 import Link from 'next/link';
+import { FAQAccordion } from '@/components/a-propos/FAQAccordion';
 import { JobOffersSection } from '@/components/career/JobOffersSection';
 import { NousRejoindreFormateurRecruitment } from '@/components/career/NousRejoindreFormateurRecruitment';
 import { ScrollToHashOnLoad } from '@/components/navigation/ScrollToHashOnLoad';
+import { NOUS_REJOINDRE_RECRUTEMENT_FAQ } from '@/lib/consultant-recruitment-content';
 import { emploisRecruitmentMailtoHref, RECRUITMENT } from '@/lib/constants';
 import { getPublishedJobOffers } from '@/lib/data/job-offers';
 import { LINKS } from '@/lib/internal-links';
-import {
-  OFC_CTA_PRIMARY,
-  OFC_CTA_SECONDARY,
-  OFC_TYPE_BODY,
-  OFC_TYPE_H2,
-} from '@/lib/ofc-interaction-classes';
+import { OFC_CTA_PRIMARY, OFC_TYPE_BODY, OFC_TYPE_H2 } from '@/lib/ofc-interaction-classes';
 import { ofcSectionClasses, OFC_READABLE_COLUMN } from '@/lib/ofc-section-classes';
 
 const SALARIE_SECTION = ofcSectionClasses({
@@ -19,14 +16,18 @@ const SALARIE_SECTION = ofcSectionClasses({
   divide: true,
 });
 
-export function EmploisPageContent() {
+type EmploisPageContentProps = {
+  sourcePage: string;
+};
+
+export function EmploisPageContent({ sourcePage }: EmploisPageContentProps) {
   const offers = getPublishedJobOffers();
   const hasOffers = offers.length > 0;
 
   return (
     <div className="emplois-page">
       <ScrollToHashOnLoad />
-      <NousRejoindreFormateurRecruitment />
+      <NousRejoindreFormateurRecruitment sourcePage={sourcePage} />
 
       <section
         className={`${SALARIE_SECTION} emplois-page__salarie`}
@@ -45,19 +46,9 @@ export function EmploisPageContent() {
           <div className="mt-6">
             <JobOffersSection compactEmpty={!hasOffers} />
 
-            {hasOffers ? (
-              <div className="emplois-page__complementary mt-8 border-t border-slate-200/80 pt-8">
-                <div className="grid gap-5 lg:grid-cols-2">
-                  <EmploisSpontaneousBlock variant="link" />
-                  <EmploisConsultantFormBlock />
-                </div>
-              </div>
-            ) : (
-              <div className="emplois-page__paths mt-6 grid gap-5 lg:grid-cols-2">
-                <EmploisSpontaneousBlock variant="primary" />
-                <EmploisConsultantFormBlock />
-              </div>
-            )}
+            <div className={hasOffers ? 'emplois-page__complementary mt-8 border-t border-slate-200/80 pt-8' : 'emplois-page__paths mt-6'}>
+              <EmploisSpontaneousBlock variant={hasOffers ? 'link' : 'primary'} />
+            </div>
 
             <p className={`${OFC_TYPE_BODY} mt-8 text-ofc-ink-muted`}>
               Questions recrutement ou envoi de CV (emploi salarié) :{' '}
@@ -70,6 +61,20 @@ export function EmploisPageContent() {
               .
             </p>
           </div>
+        </div>
+      </section>
+
+      <section
+        className={ofcSectionClasses({ tone: 'white', size: 'compact', divide: true })}
+        aria-labelledby="recrutement-faq-title"
+      >
+        <div className={OFC_READABLE_COLUMN}>
+          <FAQAccordion
+            id="recrutement-faq"
+            title="Questions fréquentes — recrutement formateurs IA BTP"
+            subtitle="Réponses courtes sur les missions indépendantes, la sélection et les candidatures."
+            items={NOUS_REJOINDRE_RECRUTEMENT_FAQ}
+          />
         </div>
       </section>
     </div>
@@ -111,28 +116,3 @@ function EmploisSpontaneousBlock({ variant }: { variant: 'primary' | 'link' }) {
   );
 }
 
-function EmploisConsultantFormBlock() {
-  return (
-    <section
-      aria-labelledby="emplois-consultant-form-heading"
-      className="emplois-path-block emplois-path-block--secondary flex flex-col rounded-xl border border-slate-200/90 bg-white p-5 sm:p-6"
-    >
-      <h2
-        id="emplois-consultant-form-heading"
-        className={`${OFC_TYPE_H2} emplois-path-block__title text-lg md:text-xl`}
-      >
-        Questionnaire consultant-formateur
-      </h2>
-      <p className={`${OFC_TYPE_BODY} mt-3 text-ofc-ink-muted`}>
-        Vous préférez compléter un formulaire en ligne pour les parcours métiers ? Utilisez la page
-        dédiée (complément à l’envoi par email sur cette annonce).
-      </p>
-      <Link
-        href={LINKS.devenezConsultant}
-        className={`${OFC_CTA_SECONDARY} emplois-path-block__cta mt-5 inline-flex min-h-11 w-full items-center justify-center rounded-lg px-5 py-2.5 text-base font-semibold sm:w-auto`}
-      >
-        Accéder au questionnaire
-      </Link>
-    </section>
-  );
-}

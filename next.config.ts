@@ -192,6 +192,16 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
+        source: '/devenez-consultant',
+        destination: '/nous-rejoindre',
+        statusCode: 301,
+      },
+      {
+        source: '/devenez-consultant/merci',
+        destination: '/nous-rejoindre/merci',
+        statusCode: 301,
+      },
+      {
         source: '/prendre-rendez-vous',
         destination: '/prendre-rdv',
         permanent: true,

@@ -313,7 +313,7 @@ export async function submitCareerApplicationAction(
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.laureolivie.fr';
   const sourcePage =
     data.sourcePage.trim() ||
-    `${baseUrl.replace(/\/$/, '')}${data.kind === 'consultant' ? '/devenez-consultant' : '/candidatures-spontanees'}`;
+    `${baseUrl.replace(/\/$/, '')}${data.kind === 'consultant' ? '/nous-rejoindre' : '/candidatures-spontanees'}`;
   const submittedAt = new Date().toISOString();
 
   const applicationRow = {

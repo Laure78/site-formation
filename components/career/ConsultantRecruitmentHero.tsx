@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { DEVENEZ_CONSULTANT_HERO } from '@/lib/consultant-recruitment-content';
+import { NOUS_REJOINDRE_FORMATEUR_HERO } from '@/lib/consultant-recruitment-content';
 import { DEVENEZ_CONSULTANT_INNER } from '@/lib/devenez-consultant-layout';
 import {
   OFC_CTA_PRIMARY,
@@ -11,7 +11,7 @@ import {
 import { PHOTOS } from '@/lib/photos';
 import { ofcSectionClasses } from '@/lib/ofc-section-classes';
 
-const H = DEVENEZ_CONSULTANT_HERO;
+const H = NOUS_REJOINDRE_FORMATEUR_HERO;
 const HERO_IMAGE = PHOTOS.recrutementFormateursIaBtpHero2027;
 
 export function ConsultantRecruitmentHero() {
@@ -23,7 +23,7 @@ export function ConsultantRecruitmentHero() {
       <div className={DEVENEZ_CONSULTANT_INNER}>
         <div className="lg:grid lg:grid-cols-[minmax(0,1.08fr)_minmax(280px,24rem)] lg:items-center lg:gap-8 xl:gap-10">
           <div className="min-w-0">
-            <p className={OFC_EYEBROW}>Recrutement formateurs · Catalogue 2027</p>
+            <p className={OFC_EYEBROW}>{H.eyebrow}</p>
             <h1 id="devenez-consultant-h1" className={`${OFC_TYPE_HERO} mt-2 text-pretty`}>
               {H.h1}
             </h1>
@@ -31,8 +31,6 @@ export function ConsultantRecruitmentHero() {
               {H.hook}
             </p>
             <p className={`${OFC_TYPE_BODY} mt-4 text-ofc-ink-muted text-pretty`}>{H.intro}</p>
-            <p className={`${OFC_TYPE_BODY} mt-3 text-ofc-ink-muted text-pretty`}>{H.objectif}</p>
-            <p className={`${OFC_TYPE_BODY} mt-3 font-medium text-ofc-ink`}>{H.perimetre}</p>
 
             <ul
               className="mt-5 flex flex-wrap gap-2"

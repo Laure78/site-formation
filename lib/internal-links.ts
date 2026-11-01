@@ -58,10 +58,12 @@ export const LINKS = {
   nousRejoindre: '/nous-rejoindre',
   /** @deprecated Préférer `nousRejoindre`. */
   emplois: '/nous-rejoindre',
-  /** Carrière — proposition consultant-formateur IA BTP */
-  devenezConsultant: '/devenez-consultant',
-  /** Confirmation envoi — formulaire consultant (noindex). */
-  devenezConsultantMerci: '/devenez-consultant/merci',
+  /** Confirmation envoi — candidature formateur indépendant (noindex). */
+  nousRejoindreMerci: '/nous-rejoindre/merci',
+  /** @deprecated URL fusionnée — 301 vers `nousRejoindre`. */
+  devenezConsultant: '/nous-rejoindre',
+  /** @deprecated Préférer `nousRejoindreMerci`. */
+  devenezConsultantMerci: '/nous-rejoindre/merci',
   /** Carrière — candidature spontanée */
   candidaturesSpontanees: '/candidatures-spontanees',
   /** Carrière — recrutement formateurs (annonce) */

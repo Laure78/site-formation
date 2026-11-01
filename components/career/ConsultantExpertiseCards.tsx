@@ -8,7 +8,7 @@ import {
 } from 'lucide-react';
 import { CONSULTANT_EXPERTISE_CARDS } from '@/lib/consultant-recruitment-content';
 import type { ConsultantExpertiseValue } from '@/lib/career-form-validation';
-import { DEVENEZ_CONSULTANT_INNER, DEVENEZ_CONSULTANT_PROSE } from '@/lib/devenez-consultant-layout';
+import { RECRUITMENT_PAGE_INNER, RECRUITMENT_PAGE_PROSE } from '@/lib/devenez-consultant-layout';
 import { OFC_TYPE_H2 } from '@/lib/ofc-interaction-classes';
 import { ofcSectionClasses } from '@/lib/ofc-section-classes';
 
@@ -23,16 +23,16 @@ const ICONS: Record<ConsultantExpertiseValue, LucideIcon> = {
 export function ConsultantExpertiseCards() {
   return (
     <section
-      className={ofcSectionClasses({ tone: 'muted', size: 'compact', divide: true })}
-      aria-labelledby="profils-recherches-heading"
+      className={ofcSectionClasses({ tone: 'white', size: 'compact', divide: true })}
+      aria-labelledby="domaines-intervention-heading"
     >
-      <div className={DEVENEZ_CONSULTANT_INNER}>
-        <h2 id="profils-recherches-heading" className={OFC_TYPE_H2}>
-          Domaines d&apos;expertise du questionnaire
+      <div className={RECRUITMENT_PAGE_INNER}>
+        <h2 id="domaines-intervention-heading" className={OFC_TYPE_H2}>
+          Domaines d&apos;intervention
         </h2>
-        <p className={`mt-3 text-base text-slate-600 ${DEVENEZ_CONSULTANT_PROSE}`}>
-          Indiquez dans le formulaire les filières métier sur lesquelles vous pouvez intervenir —
-          sans promesse de mission sur chaque domaine.
+        <p className={`mt-3 text-base text-slate-600 ${RECRUITMENT_PAGE_PROSE}`}>
+          Cas d&apos;usage que nous transmettons en formation — indiquez dans le formulaire le
+          domaine le plus proche de votre pratique.
         </p>
         <ul className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
           {CONSULTANT_EXPERTISE_CARDS.map((card) => {

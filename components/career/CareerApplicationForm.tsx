@@ -84,6 +84,7 @@ export function CareerApplicationForm({
   const [applicationType, setApplicationType] = useState<SpontaneousTypeValue | ''>('');
   const [desiredRole, setDesiredRole] = useState('');
   const [presentation, setPresentation] = useState('');
+  const [btpExperienceYears, setBtpExperienceYears] = useState('');
   const [aiPractice, setAiPractice] = useState('');
   const [pedagogyExperience, setPedagogyExperience] = useState('');
   const [mobilityIdf, setMobilityIdf] = useState<(typeof MOBILITY_IDF_VALUES)[number] | ''>('');
@@ -136,6 +137,19 @@ export function CareerApplicationForm({
     fd.set('phone', phone);
     let fullPresentation = presentation.trim();
     if (kind === 'consultant') {
+      if (groupConsultantForm) {
+        const years = Number.parseFloat(btpExperienceYears.replace(',', '.'));
+        if (!Number.isFinite(years) || years < 2) {
+          setFieldErrors((prev) => ({
+            ...prev,
+            btpExperienceYears:
+              'Indiquez au moins 2 ans d’expérience professionnelle en entreprise du BTP.',
+          }));
+          setSubmitting(false);
+          return;
+        }
+        fullPresentation = `Expérience BTP en entreprise : ${years} an(s).\n\n${fullPresentation}`;
+      }
       if (aiPractice.trim()) {
         fullPresentation += `\n\nPratique des outils d’IA :\n${aiPractice.trim()}`;
       }
@@ -173,6 +187,7 @@ export function CareerApplicationForm({
         setSelectedFormations([]);
         setAiPractice('');
         setPedagogyExperience('');
+        setBtpExperienceYears('');
         if (successRedirectPath) {
           router.push(successRedirectPath);
           return;
@@ -433,6 +448,36 @@ export function CareerApplicationForm({
         </>
       )}
 
+      {groupConsultantForm ? (
+        <div>
+          <label htmlFor={`${formId}-btpExperienceYears`} className={careerLabelClass}>
+            Années d&apos;expérience en entreprise du BTP <span className="text-[#DC2626]">*</span>
+          </label>
+          <input
+            id={`${formId}-btpExperienceYears`}
+            name="btpExperienceYears"
+            type="number"
+            inputMode="decimal"
+            min={2}
+            step={0.5}
+            required
+            value={btpExperienceYears}
+            onChange={(e) => setBtpExperienceYears(e.target.value)}
+            className={fieldClass('btpExperienceYears')}
+            aria-invalid={Boolean(fieldErrors.btpExperienceYears)}
+            aria-describedby={
+              fieldErrors.btpExperienceYears ? `${formId}-err-btpExperienceYears` : undefined
+            }
+            placeholder="Ex. : 8"
+          />
+          <p className="mt-1 text-xs text-slate-500">Minimum 2 ans en entreprise du BTP.</p>
+          <FieldError
+            id={`${formId}-err-btpExperienceYears`}
+            message={fieldErrors.btpExperienceYears}
+          />
+        </div>
+      ) : null}
+
       <div>
         <label htmlFor={`${formId}-presentation`} className={careerLabelClass}>
           {kind === 'consultant'
@@ -604,7 +649,7 @@ export function CareerApplicationForm({
       {showConsultantHint ? (
         <p className="rounded-lg border border-[#BFDBFE] bg-[#EFF6FF] px-4 py-3 text-sm text-slate-700">
           Vous souhaitez intervenir comme consultant-formateur ? Vous pouvez aussi compléter le{' '}
-          <Link href={LINKS.devenezConsultant} className="font-medium text-[#377CF3] underline">
+          <Link href={LINKS.nousRejoindre} className="font-medium text-[#377CF3] underline">
             formulaire dédié aux consultants
           </Link>
           .

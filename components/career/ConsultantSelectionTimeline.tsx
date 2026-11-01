@@ -15,7 +15,7 @@ export function ConsultantSelectionTimeline() {
     >
       <div className={DEVENEZ_CONSULTANT_INNER}>
         <h2 id="parcours-selection-heading" className={OFC_TYPE_H2}>
-          Les étapes de votre candidature
+          Processus de recrutement
         </h2>
 
         <ol className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
