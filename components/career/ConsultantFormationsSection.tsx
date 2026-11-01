@@ -20,7 +20,7 @@ export function ConsultantParcoursMetiersSection() {
         </h2>
         <p className={`mt-3 text-base text-slate-600 ${DEVENEZ_CONSULTANT_PROSE}`}>
           Propositions acceptées pour les <strong>7 parcours métiers</strong> IA BTP — pas pour les
-          modules isolés. Cochez vos filières dans le questionnaire ci-dessus.
+          modules isolés. Cochez vos filières dans le formulaire de candidature ci-dessous.
         </p>
         <ConsultantParcoursMetiersCatalogue />
         <p className="mt-6 text-sm text-slate-600">

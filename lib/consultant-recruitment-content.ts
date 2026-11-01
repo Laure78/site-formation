@@ -9,11 +9,149 @@ import { PERIMETRE_FORMATIONS_COURT } from '@/lib/tarifs-sessions';
 
 const RECRUITMENT_MAILTO = formateurRecruitmentMailtoHref();
 
-export const CONSULTANT_HERO_H1 =
-  'Recherche de formateurs — Intelligence artificielle appliquée au BTP' as const;
+/** Page /devenez-consultant — hero recrutement formateurs 2027. */
+export const DEVENEZ_CONSULTANT_HERO = {
+  h1: 'Devenez formateur IA pour les professionnels du BTP',
+  hook: 'Vous travaillez dans le BTP. Vous utilisez l’IA. Et si vous transmettiez les deux ?',
+  intro:
+    'Dans le cadre du développement de son catalogue de formations 2027, l’organisme de formation Laure Olivié recrute des formateurs et formatrices indépendants issus du bâtiment et des travaux publics.',
+  objectif:
+    'Notre objectif : transmettre aux professionnels du BTP des méthodes concrètes pour utiliser l’intelligence artificielle dans leurs activités quotidiennes.',
+  perimetre: 'Les interventions se déroulent en présentiel, en Île-de-France.',
+  facts: [
+    'Recrutement 2027',
+    'Missions indépendantes rémunérées',
+    'Présentiel en Île-de-France',
+  ] as const,
+  primaryCtaLabel: 'Déposer ma candidature',
+  secondaryCtaLabel: 'Découvrir les profils recherchés',
+  enBref:
+    'Recrutement 2027 : formateurs indépendants issus du BTP (minimum 2 ans d’expérience métier), utilisateurs de ChatGPT ou Claude, pour animer des formations IA en présentiel en Île-de-France. Candidature en ligne ou par email.',
+} as const;
 
-export const CONSULTANT_HERO_INTRO =
-  'Dans le cadre du développement du catalogue de formations 2027, Laure Olivié recherche des formateurs et formatrices indépendants issus du BTP, utilisant l’IA dans leur pratique professionnelle.' as const;
+/** @deprecated Préférer `DEVENEZ_CONSULTANT_HERO.h1`. */
+export const CONSULTANT_HERO_H1 = DEVENEZ_CONSULTANT_HERO.h1;
+
+/** @deprecated Préférer `DEVENEZ_CONSULTANT_HERO.intro`. */
+export const CONSULTANT_HERO_INTRO = DEVENEZ_CONSULTANT_HERO.intro;
+
+export const DEVENEZ_CONSULTANT_BTP_REQUIREMENT = {
+  heading: 'Une expérience professionnelle du BTP indispensable',
+  lead:
+    'Au moins 2 ans d’expérience dans une entreprise du BTP sont obligatoires.',
+  body: [
+    'Une bonne maîtrise de ChatGPT, de Claude ou des techniques d’animation de formation ne remplace pas l’expérience métier.',
+    'Les candidats doivent connaître les réalités du terrain, les documents professionnels, le vocabulaire technique et les contraintes des entreprises du BTP.',
+  ] as const,
+  reassuranceTitle: 'Vous n’avez jamais animé de formation ? Ce n’est pas bloquant.',
+  reassuranceBody:
+    'L’expérience pédagogique est un plus. L’expérience professionnelle dans le BTP est indispensable.',
+} as const;
+
+export type ConsultantRecruitmentProfilCard = {
+  title: string;
+  roles: readonly string[];
+};
+
+export const DEVENEZ_CONSULTANT_PROFILS = {
+  heading: 'Quels profils recherchons-nous ?',
+  cards: [
+    {
+      title: 'Encadrement de chantier',
+      roles: ['Conducteur de travaux', 'Chef de chantier', 'Chef d’équipe'],
+    },
+    {
+      title: 'Études et affaires',
+      roles: ['Chargé d’affaires', 'Économiste de la construction', 'Responsable d’études de prix'],
+    },
+    {
+      title: 'Artisans et dirigeants',
+      roles: ['Artisan du bâtiment', 'Dirigeant d’entreprise du BTP', 'Ancien dirigeant'],
+    },
+    {
+      title: 'Gestion et fonctions support',
+      roles: [
+        'Assistant de gestion BTP',
+        'Assistant administratif BTP',
+        'Fonction support en entreprise du BTP',
+      ],
+    },
+  ] as const satisfies readonly ConsultantRecruitmentProfilCard[],
+  footnote:
+    'Les professionnels en activité comme les retraités peuvent candidater, sous réserve de remplir les critères requis et de disposer d’un statut permettant d’effectuer des prestations indépendantes.',
+} as const;
+
+export const DEVENEZ_CONSULTANT_MISSION = {
+  heading: 'Former les professionnels du BTP à l’IA sur des cas concrets',
+  intro:
+    'Les formateurs accompagnent les professionnels du BTP dans l’utilisation de l’IA appliquée à leurs tâches et documents métier.',
+  domains: [
+    {
+      num: '01',
+      title: 'Devis et appels d’offres',
+      body: 'Exploiter l’IA pour préparer des devis, analyser des DCE et structurer des mémoires techniques.',
+    },
+    {
+      num: '02',
+      title: 'Documents techniques',
+      body: 'Faciliter la lecture et l’analyse des CCTP, documents contractuels et pièces de chantier.',
+    },
+    {
+      num: '03',
+      title: 'Conduite de travaux',
+      body: 'Préparer des comptes rendus de chantier, organiser les actions et faciliter le suivi documentaire.',
+    },
+    {
+      num: '04',
+      title: 'Gestion administrative et clients',
+      body: 'Rédiger des courriers, préparer des relances, structurer des e-mails et améliorer le suivi administratif.',
+    },
+  ] as const,
+  conclusion:
+    'Notre approche pédagogique privilégie la pratique, les situations réelles du BTP et la vérification systématique des productions de l’IA.',
+} as const;
+
+export const DEVENEZ_CONSULTANT_COMPETENCES = {
+  heading: 'Les compétences attendues',
+  items: [
+    {
+      title: 'Pratique régulière de l’IA',
+      body: 'ChatGPT ou Claude dans votre métier, avec des exemples concrets à partager en formation.',
+    },
+    {
+      title: 'Réflexe de vérification',
+      body: 'Vous contrôlez chaque réponse de l’IA avant de l’utiliser ou de la transmettre.',
+    },
+    {
+      title: 'Confidentialité',
+      body: 'Documents clients et de chantier traités avec prudence et respect des données sensibles.',
+    },
+    {
+      title: 'Envie de transmettre',
+      body: 'Expliquer simplement et accompagner des participants sur leurs propres tâches et documents.',
+    },
+  ] as const,
+} as const;
+
+export const DEVENEZ_CONSULTANT_MODALITES = {
+  heading: 'Comment se déroule la collaboration ?',
+  items: [
+    {
+      title: 'Missions indépendantes',
+      body: 'Micro-entreprise ou autre structure — prestations rémunérées selon les modules confiés.',
+    },
+    {
+      title: 'Formations en présentiel',
+      body: 'Interventions en Île-de-France auprès des entreprises du bâtiment et des travaux publics.',
+    },
+    {
+      title: 'Selon vos disponibilités',
+      body: 'Périmètre, calendrier et conditions de mission convenus avec notre équipe pédagogique.',
+    },
+  ] as const,
+  footnote:
+    'Pour candidater : précisez vos postes tenus dans le BTP, un usage concret de l’IA et votre département d’intervention.',
+} as const;
 
 /** Campagne recrutement formateurs catalogue 2027 — bandeau global et hub /nous-rejoindre. */
 export const FORMATEUR_RECRUITMENT_2027_CAMPAIGN = {
@@ -29,13 +167,13 @@ export const FORMATEUR_RECRUITMENT_2027_CAMPAIGN = {
     h1: 'Recrutement de formateurs IA BTP en Île-de-France',
     intro:
       'Dans le cadre du développement du catalogue de formations 2027, notre organisme recherche des formateurs et formatrices indépendants issus du BTP, utilisant l’IA dans leur pratique professionnelle.',
-    primaryCtaLabel: 'Proposer ma candidature',
+    primaryCtaLabel: 'Déposer ma candidature',
     secondaryCtaLabel: 'Découvrir les profils recherchés',
   },
   sections: {
     missionsHeading: 'Les missions en bref',
     profilsHeading: 'Les profils recherchés',
-    profilsHighlight: 'Une expérience concrète du BTP est requise.',
+    profilsHighlight: 'Au moins 2 ans d’expérience dans une entreprise du BTP sont obligatoires.',
     competencesHeading: 'Les compétences recherchées',
     candidatureHeading: 'Comment candidater ?',
   },
@@ -52,7 +190,7 @@ export const FORMATEUR_RECRUITMENT_2027_CAMPAIGN = {
 export const ACCUEIL_RECRUTEMENT = {
   eyebrow: 'RECRUTEMENT — CATALOGUE 2027',
   title: 'Vous connaissez le BTP et utilisez l’IA ?',
-  lead: 'Laure Olivié recherche des formateurs et formatrices indépendants issus du BTP pour animer des formations pratiques en intelligence artificielle auprès des professionnels du secteur.',
+  lead: 'Notre organisme recrute des formateurs et formatrices indépendants issus du BTP pour animer des formations pratiques en intelligence artificielle auprès des professionnels du secteur.',
   facts: 'Île-de-France · Présentiel · À partir de 2027 · Missions rémunérées',
   ctaLabel: 'Découvrir les missions et candidater',
   emailHint: 'Vous préférez envoyer votre candidature par email ?',
@@ -73,14 +211,14 @@ export const CONSULTANT_ANNONCE_MODALITES = [
 ] as const;
 
 export const CONSULTANT_PROFILS_RECHERCHES =
-  'Conducteurs de travaux, chefs de chantier, chargés d’affaires, responsables d’études de prix, dirigeants ou assistants de gestion BTP, en activité ou retraités.' as const;
+  'Encadrement de chantier, études et affaires, dirigeants et artisans du bâtiment, gestion et fonctions support — en activité ou retraités, avec au moins 2 ans d’expérience en entreprise du BTP.' as const;
 
 export const CONSULTANT_COMPETENCES_RECHERCHEES = [
-  'Expérience concrète des métiers et des documents du BTP.',
+  'Au moins 2 ans d’expérience professionnelle dans une entreprise du BTP.',
   'Pratique régulière de ChatGPT, Claude ou d’autres outils d’IA dans un contexte professionnel.',
-  'Capacité à appliquer l’IA à des tâches métier : devis, analyse de DCE, comptes rendus, préparation de chantier, suivi des travaux ou gestion administrative.',
-  'Capacité à transmettre simplement et à animer des exercices pratiques.',
-  'Vérification des résultats produits par l’IA et respect de la confidentialité des données.',
+  'Capacité à appliquer l’IA à des tâches métier : devis, analyse de DCE, comptes rendus, documents techniques ou gestion administrative.',
+  'Réflexe de vérification des productions de l’IA et respect de la confidentialité des données.',
+  'Capacité à transmettre simplement — l’expérience pédagogique est un plus, pas une condition absolue.',
 ] as const;
 
 export const CONSULTANT_CANDIDATURE_INTRO_BEFORE_EMAIL =
@@ -119,7 +257,7 @@ export const NOUS_REJOINDRE_FORMATEUR_FAQ: readonly FAQItem[] = [
 export const CONSULTANT_WHY_OFC = {
   heading: 'Informations utiles sur la collaboration',
   intro:
-    'Laure Olivié structure des parcours métiers pratiques en intelligence artificielle pour les entreprises du bâtiment et des travaux publics. Les collaborations portent sur l’animation de ces parcours et la transmission de méthodes reliées au terrain.',
+    'Notre organisme structure des parcours métiers pratiques en intelligence artificielle pour les entreprises du bâtiment et des travaux publics. Les collaborations portent sur l’animation de ces parcours et la transmission de méthodes reliées au terrain.',
   cards: [
     {
       title: 'Une expertise métier valorisée',
@@ -193,7 +331,11 @@ export const CONSULTANT_FAQ_ITEMS: readonly FAQItem[] = [
   },
   {
     q: 'Quelles compétences recherchez-vous ?',
-    a: `Une expérience concrète dans le bâtiment ou les travaux publics, une utilisation régulière de ChatGPT ou Claude, et la capacité à animer des exercices pratiques avec vérification humaine des productions de l’IA.`,
+    a: `Au minimum 2 ans d’expérience dans une entreprise du BTP, une utilisation régulière de ChatGPT ou Claude, et la capacité à animer des exercices pratiques avec vérification humaine des productions de l’IA.`,
+  },
+  {
+    q: 'Quelle expérience BTP minimum est requise ?',
+    a: `Au moins 2 ans d’expérience professionnelle dans une entreprise du bâtiment ou des travaux publics. Sans cette expérience métier, la candidature n’est pas retenue.`,
   },
   {
     q: 'Faut-il déjà avoir animé des formations ?',

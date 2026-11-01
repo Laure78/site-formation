@@ -3,9 +3,12 @@
 import Link from 'next/link';
 import { CareerApplicationForm } from '@/components/career/CareerApplicationForm';
 import {
+  CONSULTANT_ANNONCE_CONCLUSION,
   CONSULTANT_CANDIDATURE_INTRO_AFTER_EMAIL,
   CONSULTANT_CANDIDATURE_INTRO_BEFORE_EMAIL,
+  FORMATEUR_RECRUITMENT_2027_CAMPAIGN,
 } from '@/lib/consultant-recruitment-content';
+import { QUALIOPI_STATS } from '@/config/qualiopi';
 import { formateurRecruitmentMailtoHref, RECRUITMENT } from '@/lib/constants';
 import { DEVENEZ_CONSULTANT_INNER, DEVENEZ_CONSULTANT_PROSE } from '@/lib/devenez-consultant-layout';
 import { LINKS } from '@/lib/internal-links';
@@ -29,8 +32,17 @@ export function DevenezConsultantCandidatureSection({
     >
       <div className={DEVENEZ_CONSULTANT_INNER}>
         <h2 id="candidature-heading" className={OFC_TYPE_H2}>
-          Présentez votre candidature
+          {FORMATEUR_RECRUITMENT_2027_CAMPAIGN.sections.candidatureHeading}
         </h2>
+
+        <ul
+          className="mt-4 flex flex-wrap gap-x-6 gap-y-2 text-sm font-medium text-slate-700"
+          aria-label="Indicateurs de l’organisme de formation"
+        >
+          <li>Satisfaction {QUALIOPI_STATS.NOTE_MOYENNE} ({QUALIOPI_STATS.NB_REPONDANTS} répondants)</li>
+          <li>Organisme certifié Qualiopi</li>
+          <li>Recrutement catalogue 2027</li>
+        </ul>
 
         <p className={`mt-3 text-base leading-relaxed text-slate-600 ${DEVENEZ_CONSULTANT_PROSE}`}>
           {CONSULTANT_CANDIDATURE_INTRO_BEFORE_EMAIL}{' '}
@@ -66,7 +78,11 @@ export function DevenezConsultantCandidatureSection({
           />
         </div>
 
-        <p className={`mt-6 text-sm text-slate-600 ${DEVENEZ_CONSULTANT_PROSE}`}>
+        <p className={`mt-6 text-base leading-relaxed text-slate-600 ${DEVENEZ_CONSULTANT_PROSE}`}>
+          {CONSULTANT_ANNONCE_CONCLUSION}
+        </p>
+
+        <p className={`mt-4 text-sm text-slate-600 ${DEVENEZ_CONSULTANT_PROSE}`}>
           Vous recherchez un{' '}
           <Link href={LINKS.emplois} className="font-medium text-[#377CF3] underline">
             emploi salarié

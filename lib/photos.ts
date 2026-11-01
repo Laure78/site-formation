@@ -709,6 +709,21 @@ export const PHOTOS = {
     height: 576,
   },
 
+  /** Page /devenez-consultant — recrutement formateurs IA BTP 2027 (hero). */
+  recrutementFormateursIaBtpHero2027: {
+    src: '/images/btp-formation-ecran-ia-btp.png',
+    alt: 'Atelier IA BTP en salle : écran et plans techniques — recrutement formateur indépendant',
+    width: 1024,
+    height: 682,
+  },
+  /** Page /devenez-consultant — mission pédagogique (cas réels chantier). */
+  recrutementFormateursMissionIaBtp2027: {
+    src: '/images/accueil-equipe-btp-plans-tablette-ia.webp',
+    alt: 'Équipe BTP avec plan et tablette sur chantier — formation IA sur documents réels',
+    width: 1024,
+    height: 576,
+  },
+
   /**
    * Illustrations blog — shootings cohérents (chantier, salle, convention).
    * Référencées par lib/blog-article-illustrations.ts selon la catégorie SEO.
