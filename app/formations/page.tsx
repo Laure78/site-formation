@@ -27,11 +27,11 @@ const CATALOGUE_DESCRIPTION =
 export const revalidate = 3600;
 
 type FormationsPageProps = {
-  searchParams?: Promise<Record<string, string | string[] | undefined>>;
+  searchParams: Promise<Record<string, string | string[] | undefined>>;
 };
 
-export async function generateMetadata({ searchParams }: FormationsPageProps = {}): Promise<Metadata> {
-  const sp = searchParams ? await searchParams : {};
+export async function generateMetadata({ searchParams }: FormationsPageProps): Promise<Metadata> {
+  const sp = await searchParams;
   const niveauRaw = sp.niveau;
   const niveauParam = Array.isArray(niveauRaw) ? niveauRaw[0] : niveauRaw;
   const hasCatalogueFilters = Boolean(niveauParam?.trim());
@@ -74,7 +74,7 @@ export async function generateMetadata({ searchParams }: FormationsPageProps = {
   };
 }
 
-export default async function FormationsPage({ searchParams }: FormationsPageProps = {}) {
+export default async function FormationsPage({ searchParams }: FormationsPageProps) {
   void searchParams;
 
   return (
