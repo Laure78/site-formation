@@ -497,3 +497,145 @@ export const ACCUEIL_RESSOURCES = [
     href: LINKS.iaCompteRenduChantier,
   },
 ] as const;
+
+/** Ressources accueil — libellés maquette (URLs = {@link ACCUEIL_RESSOURCES}). */
+export const ACCUEIL_RESSOURCES_MAQUETTE = [
+  {
+    titre: 'Guide pratique de l’IA dans les métiers du BTP',
+    phrase: ACCUEIL_RESSOURCES[0].phrase,
+    href: ACCUEIL_RESSOURCES[0].href,
+  },
+  {
+    titre: 'Tutoriel d’analyse DCE et appels d’offres',
+    phrase: ACCUEIL_RESSOURCES[1].phrase,
+    href: ACCUEIL_RESSOURCES[1].href,
+  },
+  {
+    titre: 'Tutoriel de compte rendu de chantier',
+    phrase: ACCUEIL_RESSOURCES[2].phrase,
+    href: ACCUEIL_RESSOURCES[2].href,
+  },
+] as const;
+
+/** Métiers — cartes compactes (sans lien, évite doublons d’URL sur l’accueil). */
+export const ACCUEIL_METIERS_IA_CARTES = [
+  { id: 'devis', titre: 'Devis et chiffrage' },
+  { id: 'dce', titre: 'DCE et appels d’offres' },
+  { id: 'memoire', titre: 'Mémoire technique' },
+  { id: 'cr', titre: 'Comptes rendus de chantier' },
+  { id: 'planning', titre: 'Planning et suivi des travaux' },
+  { id: 'doc', titre: 'Gestion documentaire' },
+] as const;
+
+/** Exemples Avant / Avec l’IA — accueil maquette. */
+export const ACCUEIL_EXEMPLES_UTILISATION = [
+  {
+    id: 'dce',
+    titre: 'Analyse de DCE',
+    avant:
+      'Lecture manuelle des documents, recherche des informations et préparation de la réponse.',
+    avecIa:
+      'Synthèse des points clés, identification des exigences et préparation des vérifications.',
+  },
+  {
+    id: 'cr',
+    titre: 'Compte rendu de chantier',
+    avant: 'Notes dispersées et rédaction manuelle.',
+    avecIa: 'Compte rendu structuré, décisions et tableau des actions à suivre.',
+  },
+  {
+    id: 'admin',
+    titre: 'Gestion administrative',
+    avant: 'Classement et recherche manuels des documents.',
+    avecIa: 'Structuration de documents, aide à la rédaction et recherche facilitée.',
+  },
+] as const;
+
+/** Méthode commerciale — 4 étapes (accueil maquette). */
+export const ACCUEIL_METHODE_ACCOMPAGNEMENT_ETAPES = [
+  {
+    n: '1',
+    titre: 'Échanger sur vos besoins',
+    detail: 'Métiers, objectifs et contraintes.',
+  },
+  {
+    n: '2',
+    titre: 'Définir la formation',
+    detail: 'Contenu, format et cas pratiques.',
+  },
+  {
+    n: '3',
+    titre: 'Former vos équipes',
+    detail: 'En présentiel, en Île-de-France.',
+  },
+  {
+    n: '4',
+    titre: 'Passer à la pratique',
+    detail: 'Des usages concrets dans vos projets.',
+  },
+] as const;
+
+export type AccueilMaquetteFormationCarte = {
+  code: (typeof ACCUEIL_FORMATIONS_PRIORITAIRES_CODES)[number];
+  titre: string;
+  description: string;
+  badge: string;
+  href: string;
+  imageSrc: string;
+  imageAlt: string;
+};
+
+const ACCUEIL_MAQUETTE_FORMATION_COPY: Record<
+  AccueilMaquetteFormationCarte['code'],
+  { titre: string; description: string; imageSrc: string; imageAlt: string }
+> = {
+  'NIV-01': {
+    titre: 'Les bases de l’IA pour le BTP',
+    description:
+      'Comprendre et utiliser efficacement ChatGPT et Claude dans ses missions professionnelles.',
+    imageSrc: '/images/accueil/02-formation-initiation.webp',
+    imageAlt: 'Formation initiation IA BTP — ordinateur et usages ChatGPT',
+  },
+  'NIV-02': {
+    titre: 'IA et appels d’offres (DCE)',
+    description: 'Analyser un DCE, structurer une réponse et produire des documents de qualité.',
+    imageSrc: '/images/accueil/03-formation-appels-offres.webp',
+    imageAlt: 'Formation IA appels d’offres BTP — plans et casque chantier',
+  },
+  'NIV-03': {
+    titre: 'IA et conduite de travaux',
+    description:
+      'Gagner du temps dans le suivi de chantier, les comptes rendus et la coordination.',
+    imageSrc: '/images/accueil/04-formation-conduite-travaux.webp',
+    imageAlt: 'Formation IA conduite de travaux — chantier et grue',
+  },
+  'NIV-10': {
+    titre: 'Créer des applications métier avec l’IA',
+    description: 'Automatiser des tâches et créer des outils adaptés à son entreprise.',
+    imageSrc: '/images/accueil/05-formation-applications-metier.webp',
+    imageAlt: 'Formation création application métier BTP avec l’IA',
+  },
+};
+
+/** Cartes formations accueil — données catalogue + présentation maquette. */
+export function getAccueilMaquetteFormations(): readonly AccueilMaquetteFormationCarte[] {
+  const cartes: AccueilMaquetteFormationCarte[] = [];
+
+  for (const code of ACCUEIL_FORMATIONS_PRIORITAIRES_CODES) {
+    if (!isFormationCataloguePublished(code)) continue;
+    const f = getFormationByCode(code);
+    if (!f) continue;
+    const copy = ACCUEIL_MAQUETTE_FORMATION_COPY[code];
+    cartes.push({
+      code,
+      titre: copy.titre,
+      description: copy.description,
+      badge: `${catalogueNiveauLabel(code)} · ${f.duree}`,
+      href: FORMATION_HREF_BY_CODE[code],
+      imageSrc: copy.imageSrc,
+      imageAlt: copy.imageAlt,
+    });
+  }
+
+  return cartes;
+}

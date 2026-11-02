@@ -1,60 +1,38 @@
 'use client';
 
 import { CtaVisio } from '@/components/CtaVisio';
-import { PRENDRE_RDV_DUREE_MINUTES } from '@/lib/prendre-rendez-vous-page-config';
 import { CONTACT } from '@/lib/constants';
 import { OFC_LINK } from '@/lib/ofc-interaction-classes';
-import { RevealShell } from '@/components/motion/RevealShell';
+import { OFC_SECTION_INNER } from '@/lib/ofc-section-classes';
 
-/** CTA final — visio + téléphone + email cliquables. */
+/** CTA final — bandeau bleu marine pleine largeur. */
 export function AccueilCtaFinalSection() {
   return (
-    <section className="px-4 py-16 md:py-20 lg:py-24" aria-labelledby="accueil-cta-final">
-      <RevealShell distance={12}>
-      <div className="relative mx-auto max-w-3xl overflow-hidden rounded-ofc-card bg-ofc-accent px-6 py-12 text-center text-white sm:px-10 md:px-14 md:py-16">
-        <div
-          className="pointer-events-none absolute inset-0 opacity-30"
-          style={{
-            background:
-              'radial-gradient(ellipse 70% 55% at 85% 0%, rgba(255,255,255,0.22), transparent 55%)',
-          }}
-          aria-hidden
-        />
-        <div className="relative">
-          <h2
-            id="accueil-cta-final"
-            className="font-display text-xl font-extrabold tracking-tight text-balance md:text-2xl lg:text-[1.75rem]"
+    <section className="bg-[#101936] py-12 md:py-14 lg:py-16" aria-labelledby="accueil-cta-final">
+      <div className={`${OFC_SECTION_INNER} text-center`}>
+        <h2
+          id="accueil-cta-final"
+          className="font-display text-xl font-extrabold tracking-tight text-white text-balance md:text-2xl lg:text-[1.75rem]"
+        >
+          Trouvons la formation adaptée à votre métier
+        </h2>
+        <p className="mx-auto mt-4 max-w-xl text-base leading-relaxed text-white/85 md:text-lg">
+          Un échange pour définir vos besoins, vos objectifs et le format le plus adapté.
+        </p>
+        <div className="mt-8 flex flex-col items-center gap-4">
+          <CtaVisio
+            src="accueil-cta-final"
+            data-cta="rdv"
+            className="inline-flex min-h-11 w-full items-center justify-center border-0 bg-white px-6 py-3 text-[#101936] shadow-none hover:bg-white/95 sm:w-auto"
+          />
+          <a
+            href={`mailto:${CONTACT.email}`}
+            className={`${OFC_LINK} text-sm font-semibold !text-white underline decoration-white/40 underline-offset-2 hover:!text-white hover:decoration-white`}
           >
-            Trouvons la formation adaptée à votre métier
-          </h2>
-          <p className="mx-auto mt-4 max-w-xl text-base leading-[1.65] text-white/90 md:text-lg">
-            Visio de {PRENDRE_RDV_DUREE_MINUTES} min pour cadrer métier, niveau et format — sans
-            engagement. Les formations se déroulent en présentiel en Île-de-France.
-          </p>
-          <div className="mt-8 flex flex-col items-center gap-4">
-            <CtaVisio
-              src="accueil-cta-final"
-              data-cta="rdv"
-              className="inline-flex min-h-11 w-full items-center justify-center border-0 bg-white px-6 py-3 text-ofc-accent shadow-none hover:bg-white/95 sm:w-auto"
-            />
-            <p className="flex flex-col gap-2 text-sm text-white/90 sm:flex-row sm:flex-wrap sm:justify-center sm:gap-x-4">
-              <a
-                href={`tel:${CONTACT.phone}`}
-                className="font-semibold underline decoration-white/40 underline-offset-2 hover:decoration-white"
-              >
-                {CONTACT.phoneDisplay}
-              </a>
-              <a
-                href={`mailto:${CONTACT.email}`}
-                className={`${OFC_LINK} font-semibold !text-white underline decoration-white/40 underline-offset-2 hover:!text-white hover:decoration-white`}
-              >
-                {CONTACT.email}
-              </a>
-            </p>
-          </div>
+            {CONTACT.email}
+          </a>
         </div>
       </div>
-      </RevealShell>
     </section>
   );
 }

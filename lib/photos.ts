@@ -991,6 +991,22 @@ export const PHOTOS = {
     height: 768,
   },
 
+  /** Accueil maquette — hero équipe BTP (prototype — préférer asset HD avant prod). */
+  accueilHeroEquipeBtp: {
+    src: '/images/accueil/01-hero-equipe-btp.webp',
+    alt: 'Professionnels du BTP en formation IA — plans, devis et ordinateur',
+    width: 1200,
+    height: 800,
+  },
+
+  /** Accueil maquette — salle de formation BTP. */
+  accueilOrganismeSalleBtp: {
+    src: '/images/accueil/06-formation-salle-btp.webp',
+    alt: 'Session formation IA BTP en présentiel — participants et écran',
+    width: 1200,
+    height: 900,
+  },
+
 };
 
 export type PhotoKey = keyof typeof PHOTOS;

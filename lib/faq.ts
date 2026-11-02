@@ -104,20 +104,24 @@ export const FAQ_ITEMS_HOME: readonly FAQItem[] = [
     a: `Dirigeants de PME du bâtiment et des travaux publics, conducteurs de travaux, chargés d’affaires, assistants travaux et fonctions support — sans prérequis technique pour le niveau 1. Voir la page <a href="${LINKS.formationIaDirigeantPmeBtp}">formation IA pour les PME du BTP</a>, le <a href="${LINKS.formations}">catalogue</a> et les <a href="${LINKS.parcoursMetiers}">parcours métiers</a>.`,
   },
   {
-    q: 'Comment l’IA peut-elle faire gagner du temps au bureau BTP ?',
-    a: 'Elle accélère la structuration des devis, comptes rendus, courriers et synthèses de DCE — avec relecture humaine avant envoi. Les gains dépendent de votre organisation et de la pratique après la session.',
+    q: 'Faut-il des compétences techniques en IA ?',
+    a: 'Non pour le niveau 1 : la formation est conçue pour des professionnels du BTP sans prérequis technique. On travaille sur vos documents réels (devis, CR, emails), avec relecture humaine. Les autres programmes précisent leurs prérequis sur chaque fiche du <a href="/formations">catalogue</a>.',
   },
   {
-    q: 'Quelle formation choisir pour débuter ?',
-    a: 'Niveau 1 (4 h) pour débuter. Sinon formation métier (7 h) ou <a href="/formations#quelle-formation-choisir">questionnaire d’orientation</a>. Les prérequis de chaque fiche priment.',
+    q: 'Comment se déroulent les formations ?',
+    a: `${MODALITE_FORMATIONS_PRESENTIEL} Sessions courtes (4 h à 14 h) avec exercices guidés sur des cas BTP, anonymisés si besoin. Un échange préalable permet de cadrer métier, niveau et format — <a href="${LINKS.prendreRdv}">visio découverte gratuite</a> ou <a href="${LINKS.contact}">contact</a>.`,
   },
   {
-    q: 'Les sessions se déroulent-elles en présentiel en Île-de-France ?',
-    a: `Oui, exclusivement en présentiel en Île-de-France (${IDF_ZONE_INTERVENTION}), en inter ou intra-entreprise. Détails sur <a href="${LINKS.formations}">le catalogue</a>.`,
+    q: 'Les formations sont-elles éligibles à une prise en charge OPCO ?',
+    a: `${FINANCEMENT_FORMULATION_PRUDENTE} Voir <a href="${LINKS.financement}">financement Constructys — formation IA BTP</a>. La certification Qualiopi ne garantit pas le financement.`,
   },
   {
-    q: 'Comment étudier un financement OPCO ?',
-    a: `${FINANCEMENT_FORMULATION_PRUDENTE} Voir <a href="${LINKS.financement}">financement Constructys — formation IA BTP</a>.`,
+    q: 'Proposez-vous des formations sur mesure ?',
+    a: `Oui — intra-entreprise en présentiel en Île-de-France, programme adapté à vos métiers et documents. Voir <a href="${LINKS.formationIaIntraEntrepriseBtp}">formation IA intra-entreprise BTP</a> ou <a href="${LINKS.contact}">demander un devis</a>.`,
+  },
+  {
+    q: 'Où se déroulent les formations ?',
+    a: `En présentiel en Île-de-France uniquement (${IDF_ZONE_INTERVENTION}) — inter à ${siteSiegeCourt()} ou intra dans vos locaux. Détails sur <a href="${LINKS.formations}">le catalogue</a>.`,
   },
 ];
 

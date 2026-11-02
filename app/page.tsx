@@ -1,15 +1,15 @@
 import type { Metadata } from 'next';
 import { preload } from 'react-dom';
 import { AccueilHeroSection } from '@/components/landing/AccueilHeroSection';
-import { AccueilRecrutementCatalogue2027Section } from '@/components/landing/accueil/AccueilRecrutementCatalogue2027Section';
-import { AccueilEnBrefSection } from '@/components/landing/accueil/AccueilEnBrefSection';
+import { AccueilBandeauReassuranceSection } from '@/components/landing/accueil/AccueilBandeauReassuranceSection';
+import { AccueilFormationsCatalogueSection } from '@/components/landing/accueil/AccueilFormationsCatalogueSection';
+import { AccueilMetiersIaSection } from '@/components/landing/accueil/AccueilMetiersIaSection';
+import { AccueilExemplesConcretsSection } from '@/components/landing/accueil/AccueilExemplesConcretsSection';
+import { AccueilOrganismeSection } from '@/components/landing/accueil/AccueilOrganismeSection';
+import { AccueilIntraBandeauSection } from '@/components/landing/accueil/AccueilIntraBandeauSection';
+import { AccueilRessourcesGratuitesSection } from '@/components/landing/accueil/AccueilRessourcesGratuitesSection';
+import { AccueilMethodeAccompagnementSection } from '@/components/landing/accueil/AccueilMethodeAccompagnementSection';
 import { AccueilPreuvesConfianceSection } from '@/components/landing/accueil/AccueilPreuvesConfianceSection';
-import { AccueilFormationsParcoursSection } from '@/components/landing/accueil/AccueilFormationsParcoursSection';
-import { AccueilCasExercicesSection } from '@/components/landing/accueil/AccueilCasExercicesSection';
-import { AccueilFinancementCourtSection } from '@/components/landing/accueil/AccueilFinancementCourtSection';
-import { AccueilLaureFormateursSection } from '@/components/landing/accueil/AccueilLaureFormateursSection';
-import { AccueilIntraFinancementSection } from '@/components/landing/accueil/AccueilIntraFinancementSection';
-import { AccueilRessourcesEvenementSection } from '@/components/landing/accueil/AccueilRessourcesEvenementSection';
 import { AccueilFaqSection } from '@/components/landing/accueil/AccueilFaqSection';
 import { AccueilCtaFinalSection } from '@/components/landing/accueil/AccueilCtaFinalSection';
 import { buildMetadata } from '@/lib/seo';
@@ -25,7 +25,7 @@ const HOME_META_DESCRIPTION =
 
 const HOME_FAQ_PAGE_JSON_LD = buildHomeFAQPageJsonLd();
 
-preload(PHOTOS.heroAccueilFormationIABtpEchange2026.src, { as: 'image', fetchPriority: 'high' });
+preload(PHOTOS.accueilHeroEquipeBtp.src, { as: 'image', fetchPriority: 'high' });
 
 export const revalidate = 3600;
 
@@ -61,10 +61,10 @@ const homeMetadata = buildMetadata({
     },
   },
   image: {
-    url: PHOTOS.heroAccueilFormationIABtpEchange2026.src,
-    width: PHOTOS.heroAccueilFormationIABtpEchange2026.width,
-    height: PHOTOS.heroAccueilFormationIABtpEchange2026.height,
-    alt: PHOTOS.heroAccueilFormationIABtpEchange2026.alt,
+    url: PHOTOS.accueilHeroEquipeBtp.src,
+    width: PHOTOS.accueilHeroEquipeBtp.width,
+    height: PHOTOS.accueilHeroEquipeBtp.height,
+    alt: PHOTOS.accueilHeroEquipeBtp.alt,
   },
 });
 
@@ -85,15 +85,15 @@ export default function HomePage() {
   return (
     <div>
       <AccueilHeroSection />
-      <AccueilRecrutementCatalogue2027Section />
-      <AccueilEnBrefSection />
+      <AccueilBandeauReassuranceSection />
+      <AccueilFormationsCatalogueSection />
+      <AccueilMetiersIaSection />
+      <AccueilExemplesConcretsSection />
+      <AccueilOrganismeSection />
+      <AccueilIntraBandeauSection />
+      <AccueilRessourcesGratuitesSection />
+      <AccueilMethodeAccompagnementSection />
       <AccueilPreuvesConfianceSection />
-      <AccueilFormationsParcoursSection />
-      <AccueilCasExercicesSection />
-      <AccueilFinancementCourtSection />
-      <AccueilLaureFormateursSection />
-      <AccueilIntraFinancementSection />
-      <AccueilRessourcesEvenementSection />
       <AccueilFaqSection />
       <AccueilCtaFinalSection />
 
