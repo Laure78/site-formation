@@ -30,6 +30,68 @@ function sortFormationsFooter(a: Formation, b: Formation): number {
   return a.titre.localeCompare(b.titre, 'fr');
 }
 
+/** Colonne footer maquette — Navigation. */
+export const NAV_FOOTER_MAQUETTE_NAVIGATION: readonly NavItem[] = [
+  {
+    href: LINKS.formations,
+    label: 'Formations',
+    title: 'Catalogue des formations IA BTP — présentiel Île-de-France',
+  },
+  {
+    href: LINKS.formateurs,
+    label: 'Formateurs',
+    title: 'Équipe de formateurs IA BTP',
+  },
+  {
+    href: LINKS.etudesCasHub,
+    label: 'Études de cas',
+    title: 'Études de cas IA BTP',
+  },
+  {
+    href: LINKS.ressources,
+    label: 'Ressources',
+    title: 'Guides, tutoriels et outils IA BTP gratuits',
+  },
+];
+
+/** Colonne footer maquette — Financement (URLs distinctes). */
+export const NAV_FOOTER_MAQUETTE_FINANCEMENT: readonly NavItem[] = [
+  {
+    href: LINKS.financement,
+    label: 'Dispositifs et OPCO',
+    title: 'Financement OPCO Constructys — formation IA BTP',
+  },
+  {
+    href: LINKS.blogFinancerFormationIaBtpConstructys,
+    label: 'Aides au financement',
+    title: 'Financer une formation IA BTP via Constructys',
+  },
+  {
+    href: LINKS.contact,
+    label: 'Nous contacter',
+    title: 'Contact et demande de devis — Laure Olivié',
+  },
+];
+
+/** Colonne footer maquette — Notre organisme. */
+export const NAV_FOOTER_MAQUETTE_ORGANISME: readonly NavItem[] = [
+  {
+    href: LINKS.aPropos,
+    label: 'Qui sommes-nous ?',
+    title: 'Laure Olivié — organisme de formation IA BTP',
+  },
+  {
+    href: LINKS.qualiopi,
+    label: 'Certifié Qualiopi',
+    title: 'Certification Qualiopi OFC Création d’Entreprise',
+  },
+  {
+    href: LINKS.mentionsLegales,
+    label: 'Mentions légales',
+    title: 'Mentions légales du site laureolivie.fr',
+  },
+];
+
 /** Colonne footer — Formations (accès synthèse, sans liste catalogue). */
 export const NAV_FOOTER_FORMATIONS: readonly NavItem[] = [
   {

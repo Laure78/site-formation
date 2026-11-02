@@ -18,13 +18,12 @@ const VIEWPORTS = [
 ];
 
 const FOOTER_CHECKS = [
-  { role: 'link', name: /Échanger sur mon besoin/i },
-  { role: 'link', name: /Indicateurs de résultats/i },
-  { role: 'button', name: /Gérer mes cookies/i },
-  { role: 'link', name: /Catalogue de formations/i },
-  { role: 'link', name: /Tous les parcours métiers/i },
-  { role: 'link', name: /Avis clients/i },
-  { role: 'link', name: /^Devenir formateur IA BTP$/i },
+  { role: 'link', name: /^Formations$/i },
+  { role: 'link', name: /Dispositifs et OPCO/i },
+  { role: 'link', name: /Qui sommes-nous \?/i },
+  { role: 'link', name: /Consulter nos avis/i },
+  { role: 'link', name: /Politique de confidentialité/i },
+  { role: 'button', name: /Gestion des cookies/i },
 ];
 
 async function main() {

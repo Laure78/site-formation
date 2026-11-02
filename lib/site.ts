@@ -114,11 +114,12 @@ export const SITE = {
     googleMaps: SITE_CONFIG.googleMapsUrl,
   },
   footer: {
-    identitySubtitle: 'Formatrice IA pour le BTP',
+    identitySubtitle: 'Formation IA BTP',
     identityIntro:
-      'Formations pratiques en intelligence artificielle pour les entreprises du bâtiment et des travaux publics.',
+      'Organisme de formation spécialisé en intelligence artificielle pour les PME du BTP.',
     useCasesLine: 'Devis · Chantiers · Appels d’offres · Productivité',
-    locationLine: 'Paris · Île-de-France',
+    /** Zone d’intervention (footer contact — pas l’adresse du siège). */
+    locationLine: 'Paris – Île-de-France',
     geoSentence:
       'Laure Olivié accompagne les entreprises du bâtiment et des travaux publics dans l’utilisation concrète de l’intelligence artificielle pour les devis, les chantiers et les appels d’offres.',
     accessibiliteLabel:

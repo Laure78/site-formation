@@ -17,6 +17,17 @@ export const SITE_BRAND_LOGO = {
 export const SITE_BRAND_LOGO_IMAGE_CLASS =
   'h-9 w-auto max-w-[11rem] object-contain object-left sm:h-10 sm:max-w-[13rem]' as const;
 
+/** Logo horizontal — fond sombre (footer #101936), tagline FORMATION IA • BTP incluse. */
+export const SITE_BRAND_LOGO_FOOTER = {
+  src: '/images/logo-laure-olivie-formation-ia-btp-footer.webp',
+  alt: SITE_LOGO_ALT,
+  width: SITE_BRAND_LOGO.width,
+  height: SITE_BRAND_LOGO.height,
+} as const;
+
+export const SITE_BRAND_LOGO_FOOTER_IMAGE_CLASS =
+  'h-10 w-auto max-w-[14rem] object-contain object-left sm:h-11 sm:max-w-[16rem]' as const;
+
 /** Portrait header / schéma Person — distinct du logo de marque et des favicons. */
 export const SITE_HEADER_LOGO_SRC = '/images/laure-avatar-bleu.webp' as const;
 
@@ -42,6 +53,9 @@ export const PHOTOS = {
 
   /** Logo horizontal — chrome site (header, footer) */
   siteBrandLogo: SITE_BRAND_LOGO,
+
+  /** Logo footer — version fond bleu marine (sans filtre CSS) */
+  siteBrandLogoFooter: SITE_BRAND_LOGO_FOOTER,
 
   /** Avatar site — portrait circulaire IA & BTP (auteur articles, schéma Person) */
   siteAvatar: {
