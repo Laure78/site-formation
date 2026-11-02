@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { GraduationCap } from 'lucide-react';
 import { getAccueilMaquetteFormations } from '@/lib/accueil-config';
 import { AccueilMaquetteArrowButton } from '@/components/landing/accueil/AccueilMaquetteArrowButton';
+import { AccueilMaquettePill } from '@/components/landing/accueil/AccueilMaquettePill';
 import {
   AccueilMaquetteHeading,
   AccueilMaquetteSection,
@@ -29,21 +30,21 @@ export function AccueilFormationsCatalogueSection() {
           <li key={f.code} className="list-none">
             <Link
               href={f.href}
-              className="group flex h-full min-h-[17.5rem] flex-col overflow-hidden rounded-xl border border-ofc-border bg-white shadow-sm transition hover:border-[#377CF3]/35 hover:shadow-md"
+              className="group flex h-full flex-col overflow-hidden rounded-xl border border-ofc-border bg-white shadow-sm transition hover:border-[#377CF3]/35 hover:shadow-md"
             >
               <div className="flex flex-1 flex-col p-4 pb-3">
-                <GraduationCap className="h-5 w-5 text-[#377CF3]" strokeWidth={1.75} aria-hidden />
-                <p className="mt-2 inline-flex w-fit rounded-full bg-[#EAF3FF] px-2.5 py-0.5 text-[11px] font-semibold text-[#377CF3]">
-                  {f.badge}
-                </p>
-                <h3 className="mt-2 font-display text-[0.9375rem] font-bold leading-snug text-[#101936]">
+                <div className="flex items-center gap-2">
+                  <GraduationCap className="h-5 w-5 shrink-0 text-[#377CF3]" strokeWidth={1.75} aria-hidden />
+                  <AccueilMaquettePill variant="accent">{f.badge}</AccueilMaquettePill>
+                </div>
+                <h3 className="mt-2.5 font-display text-[0.9375rem] font-bold leading-snug text-[#101936]">
                   {f.titre}
                 </h3>
                 <p className="mt-1.5 line-clamp-3 flex-1 text-xs leading-relaxed text-ofc-ink-muted">
                   {f.description}
                 </p>
               </div>
-              <div className="relative h-[4.75rem] w-full shrink-0 overflow-hidden sm:h-[5.25rem]">
+              <div className="accueil-maquette-card__media relative w-full shrink-0 overflow-hidden">
                 <Image
                   src={f.imageSrc}
                   alt={f.imageAlt}

@@ -32,7 +32,7 @@ export function AccueilMetiersIaSection() {
         description="Des usages concrets pour gagner du temps, structurer vos documents et piloter vos projets."
       />
 
-      <ul className="accueil-maquette__grid grid list-none gap-2.5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6">
+      <ul className="accueil-maquette__grid grid list-none gap-2.5 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6">
         {ACCUEIL_METIERS_IA_CARTES.map(({ id, titre }) => {
           const Icon = ICONS[id];
           return (

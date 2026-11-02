@@ -1,5 +1,6 @@
 import { ArrowRight, Briefcase } from 'lucide-react';
 import { ACCUEIL_EXEMPLES_UTILISATION } from '@/lib/accueil-config';
+import { AccueilMaquettePill } from '@/components/landing/accueil/AccueilMaquettePill';
 import {
   AccueilMaquetteHeading,
   AccueilMaquetteSection,
@@ -28,21 +29,17 @@ export function AccueilExemplesConcretsSection() {
                 <h3 className="font-display text-sm font-bold text-[#101936]">{ex.titre}</h3>
               </div>
 
-              <div className="mt-3 grid flex-1 gap-2 md:grid-cols-[1fr_auto_1fr] md:items-center">
-                <div className="rounded-lg bg-[#F2F2F2] p-2.5">
-                  <p className="text-[10px] font-bold uppercase tracking-wide text-ofc-ink-subtle">
-                    Avant
-                  </p>
-                  <p className="mt-1 text-xs leading-relaxed text-ofc-ink-muted">{ex.avant}</p>
+              <div className="mt-3 grid flex-1 gap-2.5 md:grid-cols-[1fr_auto_1fr] md:items-stretch">
+                <div className="rounded-lg border border-ofc-border/80 bg-[#FAFAFA] p-2.5">
+                  <AccueilMaquettePill variant="neutral">Avant</AccueilMaquettePill>
+                  <p className="mt-2 text-xs leading-relaxed text-ofc-ink-muted">{ex.avant}</p>
                 </div>
-                <div className="flex justify-center md:px-0.5" aria-hidden>
+                <div className="flex items-center justify-center md:px-0.5" aria-hidden>
                   <ArrowRight className="h-4 w-4 rotate-90 text-[#377CF3] md:rotate-0" strokeWidth={2} />
                 </div>
-                <div className="rounded-lg border border-[#377CF3]/25 bg-[#377CF3]/5 p-2.5">
-                  <p className="text-[10px] font-bold uppercase tracking-wide text-[#377CF3]">
-                    Avec l&apos;IA
-                  </p>
-                  <p className="mt-1 text-xs leading-relaxed text-ofc-ink">{ex.avecIa}</p>
+                <div className="rounded-lg border border-[#377CF3]/20 bg-[#377CF3]/[0.06] p-2.5">
+                  <AccueilMaquettePill variant="accent">Avec l&apos;IA</AccueilMaquettePill>
+                  <p className="mt-2 text-xs leading-relaxed text-ofc-ink">{ex.avecIa}</p>
                 </div>
               </div>
             </article>

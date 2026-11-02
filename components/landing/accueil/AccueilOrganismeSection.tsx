@@ -1,8 +1,8 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { Check } from 'lucide-react';
+import { ArrowRight, Check } from 'lucide-react';
 import { LINKS } from '@/lib/internal-links';
-import { OFC_CTA_SECONDARY, OFC_LINK, OFC_TYPE_H2 } from '@/lib/ofc-interaction-classes';
+import { OFC_LINK, OFC_TYPE_H2 } from '@/lib/ofc-interaction-classes';
 import { PHOTOS } from '@/lib/photos';
 import { AccueilMaquetteSection } from '@/components/landing/accueil/AccueilMaquetteSection';
 
@@ -44,7 +44,12 @@ export function AccueilOrganismeSection() {
           <ul className="mt-3 space-y-2">
             {ARGUMENTS.map((line) => (
               <li key={line} className="flex gap-2.5 text-sm leading-snug text-ofc-ink">
-                <Check className="mt-0.5 h-4 w-4 shrink-0 text-[#377CF3]" strokeWidth={2.25} aria-hidden />
+                <span
+                  className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#377CF3]"
+                  aria-hidden
+                >
+                  <Check className="h-3 w-3 text-white" strokeWidth={3} />
+                </span>
                 <span>{line}</span>
               </li>
             ))}
@@ -63,17 +68,19 @@ export function AccueilOrganismeSection() {
         <aside className="min-w-0 lg:sticky lg:top-[calc(var(--site-header-height,4.5rem)+0.75rem)]">
           <div className="rounded-xl border border-[#377CF3]/15 bg-[#EAF3FF] p-4">
             <h3 className="font-display text-base font-bold leading-snug text-[#101936]">
-              Recrutement de formateurs — Catalogue 2027
+              Recrutement formateurs
             </h3>
+            <p className="mt-1 text-[11px] font-semibold text-[#377CF3]">Catalogue 2027</p>
             <p className="mt-2 text-xs leading-relaxed text-ofc-ink-muted sm:text-sm">
               Vous connaissez le BTP et utilisez l&apos;IA ? Rejoignez notre réseau de formateurs
               indépendants.
             </p>
             <Link
               href={LINKS.nousRejoindre}
-              className={`${OFC_CTA_SECONDARY} mt-3 inline-flex min-h-10 w-full items-center justify-center px-4 py-2 text-sm`}
+              className="mt-3 inline-flex min-h-10 w-full items-center justify-center gap-1.5 rounded-lg border border-[#377CF3] bg-white px-4 py-2 text-sm font-semibold text-[#377CF3] transition hover:bg-[#377CF3]/5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#377CF3]"
             >
               En savoir plus
+              <ArrowRight className="h-4 w-4" strokeWidth={2.25} aria-hidden />
             </Link>
           </div>
         </aside>

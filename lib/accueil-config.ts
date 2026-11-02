@@ -498,24 +498,34 @@ export const ACCUEIL_RESSOURCES = [
   },
 ] as const;
 
-/** Ressources accueil — libellés maquette (URLs = {@link ACCUEIL_RESSOURCES}). */
+/** Ressources accueil — cartes maquette (URLs = {@link ACCUEIL_RESSOURCES}). */
 export const ACCUEIL_RESSOURCES_MAQUETTE = [
   {
-    titre: 'Guide pratique de l’IA dans les métiers du BTP',
+    icon: 'book',
+    label: 'Guide pratique',
+    titre: 'L’IA dans les métiers du BTP',
     phrase: ACCUEIL_RESSOURCES[0].phrase,
     href: ACCUEIL_RESSOURCES[0].href,
   },
   {
-    titre: 'Tutoriel d’analyse DCE et appels d’offres',
+    icon: 'play',
+    label: 'Tutoriel',
+    titre: 'Analyse DCE et appels d’offres',
     phrase: ACCUEIL_RESSOURCES[1].phrase,
     href: ACCUEIL_RESSOURCES[1].href,
   },
   {
-    titre: 'Tutoriel de compte rendu de chantier',
+    icon: 'file',
+    label: 'Tutoriel',
+    titre: 'Compte rendu de chantier',
     phrase: ACCUEIL_RESSOURCES[2].phrase,
     href: ACCUEIL_RESSOURCES[2].href,
   },
 ] as const;
+
+/** Sous-titre section méthode — accueil maquette. */
+export const ACCUEIL_METHODE_ACCOMPAGNEMENT_LEAD =
+  'Un accompagnement simple et efficace, de l’analyse de vos besoins à la mise en pratique.' as const;
 
 /** Métiers — cartes compactes (sans lien, évite doublons d’URL sur l’accueil). */
 export const ACCUEIL_METIERS_IA_CARTES = [
@@ -630,7 +640,7 @@ export function getAccueilMaquetteFormations(): readonly AccueilMaquetteFormatio
       code,
       titre: copy.titre,
       description: copy.description,
-      badge: `${catalogueNiveauLabel(code)} · ${f.duree}`,
+      badge: `${catalogueNiveauLabel(code)} • ${f.duree}`,
       href: FORMATION_HREF_BY_CODE[code],
       imageSrc: copy.imageSrc,
       imageAlt: copy.imageAlt,

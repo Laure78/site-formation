@@ -1,9 +1,8 @@
-import { HomeFaqDetailsList } from '@/components/landing/HomeFaqDetailsList';
 import { FAQ_ITEMS_HOME } from '@/lib/faq';
-import { OFC_TYPE_H2 } from '@/lib/ofc-interaction-classes';
 import { AccueilMaquetteSection } from '@/components/landing/accueil/AccueilMaquetteSection';
+import { AccueilFaqMaquetteList } from '@/components/landing/accueil/AccueilFaqMaquetteList';
 
-/** FAQ accueil — deux colonnes, espacement réduit. */
+/** FAQ accueil — titre à gauche, pastilles en deux colonnes (maquette). */
 export function AccueilFaqSection() {
   const mid = Math.ceil(FAQ_ITEMS_HOME.length / 2);
   const colA = FAQ_ITEMS_HOME.slice(0, mid);
@@ -15,15 +14,24 @@ export function AccueilFaqSection() {
       className="scroll-mt-[calc(var(--site-header-height,4.5rem)+0.5rem)]"
       aria-labelledby="accueil-faq-heading"
     >
-      <div className="mx-auto max-w-2xl text-center">
-        <h2 id="accueil-faq-heading" className={`${OFC_TYPE_H2} text-xl font-extrabold text-[#101936] md:text-2xl`}>
-          FAQ — Vos questions fréquentes
-        </h2>
-      </div>
+      <div className="accueil-maquette__grid grid gap-8 lg:grid-cols-[minmax(0,11rem)_minmax(0,1fr)] lg:items-start lg:gap-10 xl:grid-cols-[minmax(0,13rem)_minmax(0,1fr)]">
+        <div className="min-w-0 lg:sticky lg:top-[calc(var(--site-header-height,4.5rem)+0.75rem)]">
+          <p className="font-display text-3xl font-extrabold tracking-tight text-[#101936] md:text-4xl" aria-hidden>
+            FAQ
+          </p>
+          <span className="mt-2 block h-1 w-10 rounded-full bg-[#377CF3]" aria-hidden />
+          <h2
+            id="accueil-faq-heading"
+            className="mt-4 font-display text-lg font-extrabold leading-snug text-[#101936] md:text-xl"
+          >
+            Vos questions fréquentes
+          </h2>
+        </div>
 
-      <div className="accueil-maquette__grid grid gap-6 lg:grid-cols-2 lg:gap-8">
-        <HomeFaqDetailsList items={colA} />
-        <HomeFaqDetailsList items={colB} />
+        <div className="grid min-w-0 gap-3 sm:grid-cols-2 sm:gap-3.5">
+          <AccueilFaqMaquetteList items={colA} />
+          <AccueilFaqMaquetteList items={colB} />
+        </div>
       </div>
     </AccueilMaquetteSection>
   );
