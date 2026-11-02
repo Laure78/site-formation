@@ -8,8 +8,8 @@ import { OFC_SECTION_INNER } from '@/lib/ofc-section-classes';
 /** CTA final — bandeau bleu marine pleine largeur. */
 export function AccueilCtaFinalSection() {
   return (
-    <section className="bg-[#101936] py-12 md:py-14 lg:py-16" aria-labelledby="accueil-cta-final">
-      <div className={`${OFC_SECTION_INNER} text-center`}>
+    <section className="bg-[#101936] py-8 md:py-10" aria-labelledby="accueil-cta-final">
+      <div className={`${OFC_SECTION_INNER} accueil-maquette__inner px-4 text-center sm:px-6 lg:px-8`}>
         <h2
           id="accueil-cta-final"
           className="font-display text-xl font-extrabold tracking-tight text-white text-balance md:text-2xl lg:text-[1.75rem]"

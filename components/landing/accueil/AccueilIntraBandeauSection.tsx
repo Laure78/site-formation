@@ -6,10 +6,10 @@ import { LINKS } from '@/lib/internal-links';
 export function AccueilIntraBandeauSection() {
   return (
     <section
-      className="bg-[#101936] py-10 md:py-12"
+      className="bg-[#101936] py-7 md:py-8"
       aria-labelledby="accueil-intra-bandeau-title"
     >
-      <div className={`${OFC_SECTION_INNER} flex flex-col items-start justify-between gap-6 md:flex-row md:items-center`}>
+      <div className={`${OFC_SECTION_INNER} accueil-maquette__inner flex flex-col items-start justify-between gap-4 px-4 sm:px-6 md:flex-row md:items-center lg:px-8`}>
         <div className="max-w-2xl">
           <h2
             id="accueil-intra-bandeau-title"

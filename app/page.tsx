@@ -83,7 +83,7 @@ export const metadata: Metadata = {
 
 export default function HomePage() {
   return (
-    <div>
+    <div className="accueil-maquette">
       <AccueilHeroSection />
       <AccueilBandeauReassuranceSection />
       <AccueilFormationsCatalogueSection />

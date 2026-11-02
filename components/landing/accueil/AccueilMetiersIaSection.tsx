@@ -7,9 +7,11 @@ import {
   FolderOpen,
   type LucideIcon,
 } from 'lucide-react';
-import { Section } from '@/components/ui/Section';
 import { ACCUEIL_METIERS_IA_CARTES } from '@/lib/accueil-config';
-import { OFC_TYPE_H2 } from '@/lib/ofc-interaction-classes';
+import {
+  AccueilMaquetteHeading,
+  AccueilMaquetteSection,
+} from '@/components/landing/accueil/AccueilMaquetteSection';
 
 const ICONS: Record<(typeof ACCUEIL_METIERS_IA_CARTES)[number]['id'], LucideIcon> = {
   devis: Calculator,
@@ -20,34 +22,33 @@ const ICONS: Record<(typeof ACCUEIL_METIERS_IA_CARTES)[number]['id'], LucideIcon
   doc: FolderOpen,
 };
 
-/** Six usages métiers — cartes compactes. */
+/** Six usages métiers — cartes horizontales compactes. */
 export function AccueilMetiersIaSection() {
   return (
-    <Section tone="muted" aria-labelledby="accueil-metiers-ia-title">
-      <div className="mx-auto max-w-2xl text-center">
-        <h2 id="accueil-metiers-ia-title" className={`${OFC_TYPE_H2} text-[#101936]`}>
-          L&apos;IA au service de vos métiers
-        </h2>
-        <p className="mt-3 text-base leading-relaxed text-ofc-ink-muted">
-          Des usages concrets pour gagner du temps, structurer vos documents et piloter vos projets.
-        </p>
-      </div>
+    <AccueilMaquetteSection tone="muted" aria-labelledby="accueil-metiers-ia-title">
+      <AccueilMaquetteHeading
+        id="accueil-metiers-ia-title"
+        title="L'IA au service de vos métiers"
+        description="Des usages concrets pour gagner du temps, structurer vos documents et piloter vos projets."
+      />
 
-      <ul className="mt-10 grid list-none gap-3 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6">
+      <ul className="accueil-maquette__grid grid list-none gap-2.5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6">
         {ACCUEIL_METIERS_IA_CARTES.map(({ id, titre }) => {
           const Icon = ICONS[id];
           return (
             <li key={id} className="list-none">
-              <article className="flex h-full flex-col items-center rounded-xl border border-ofc-border bg-white px-3 py-5 text-center shadow-sm">
-                <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#EAF3FF] text-[#377CF3]">
-                  <Icon className="h-5 w-5" strokeWidth={1.75} aria-hidden />
+              <article className="flex h-full min-h-[4.25rem] items-center gap-2.5 rounded-xl border border-ofc-border bg-white px-3 py-2.5 shadow-sm">
+                <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-[#EAF3FF] text-[#377CF3]">
+                  <Icon className="h-4 w-4" strokeWidth={1.75} aria-hidden />
                 </span>
-                <h3 className="mt-3 text-sm font-semibold leading-snug text-[#101936]">{titre}</h3>
+                <h3 className="text-left text-xs font-semibold leading-snug text-[#101936] sm:text-[0.8125rem]">
+                  {titre}
+                </h3>
               </article>
             </li>
           );
         })}
       </ul>
-    </Section>
+    </AccueilMaquetteSection>
   );
 }

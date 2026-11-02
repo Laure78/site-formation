@@ -2060,6 +2060,52 @@
     display: none;
   }
 
+  .ofc-section--mesh-0::before {
+    display: none;
+  }
+
+  /* Page d’accueil — maquette 2026 : colonne ~1280px, sections compactes, sans filets décoratifs */
+  .accueil-maquette .accueil-maquette__inner,
+  .accueil-maquette .ofc-section-inner {
+    max-width: 72rem;
+  }
+
+  .accueil-maquette .ofc-section {
+    --ofc-section-py: 1.75rem;
+    --ofc-section-py-md: 2.125rem;
+    --ofc-section-py-lg: 2.5rem;
+    --ofc-section-py-xl: 2.75rem;
+  }
+
+  .accueil-maquette .accueil-maquette__section.ofc-section--compact {
+    --ofc-section-py: 1.5rem;
+    --ofc-section-py-md: 1.875rem;
+    --ofc-section-py-lg: 2.125rem;
+    --ofc-section-py-xl: 2.375rem;
+  }
+
+  .accueil-maquette #accueil-hero {
+    padding-top: 1.25rem;
+    padding-bottom: 1.25rem;
+  }
+
+  @media (min-width: 768px) {
+    .accueil-maquette #accueil-hero {
+      padding-top: 1.5rem;
+      padding-bottom: 1.5rem;
+    }
+  }
+
+  .accueil-maquette .accueil-maquette__grid {
+    margin-top: 1.5rem;
+  }
+
+  @media (min-width: 768px) {
+    .accueil-maquette .accueil-maquette__grid {
+      margin-top: 1.75rem;
+    }
+  }
+
   /* Hub /formateurs — hero épuré, cartes statiques, filtre catalogue */
   .formateurs-hub-hero {
     padding-top: 0.75rem;

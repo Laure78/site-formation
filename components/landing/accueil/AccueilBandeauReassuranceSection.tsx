@@ -31,10 +31,10 @@ const ITEMS = [
 export function AccueilBandeauReassuranceSection() {
   return (
     <section
-      className="border-y border-[#377CF3]/10 bg-[#EAF3FF] py-6 md:py-7"
+      className="border-y border-[#377CF3]/10 bg-[#EAF3FF] py-4 md:py-5"
       aria-label="Réassurance — Qualiopi, présentiel, financement, satisfaction"
     >
-      <div className={OFC_SECTION_INNER}>
+      <div className={`${OFC_SECTION_INNER} accueil-maquette__inner px-4 sm:px-6 lg:px-8`}>
         <ul className="grid grid-cols-2 gap-4 md:grid-cols-4 md:gap-6">
           {ITEMS.map(({ icon: Icon, title, detail }) => (
             <li key={title} className="flex min-w-0 items-start gap-3">
@@ -48,7 +48,7 @@ export function AccueilBandeauReassuranceSection() {
             </li>
           ))}
         </ul>
-        <p className="mt-4 text-center text-xs text-ofc-ink-muted">
+        <p className="mt-3 text-center text-xs text-ofc-ink-muted">
           <Link href={LINKS.indicateursResultats} className="font-medium text-[#377CF3] hover:underline">
             Voir les indicateurs de résultats
           </Link>
