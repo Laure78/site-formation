@@ -26,6 +26,7 @@ import {
   buildFormationFicheCourseJsonLd,
 } from '@/lib/schema-formation-course-jsonld';
 import { buildQualiopiCredentialSchema } from '@/lib/qualiopi-info';
+import { SITE } from '@/lib/site-config';
 
 /** URLs legacy NIV-06/07/08 (301 → NIV-10) — distinctes des constantes `LINKS` canoniques. */
 const LEGACY_APPLICATION_METIER_PATH = {
@@ -420,12 +421,12 @@ export function buildFormationCatalogueRichCourseJsonLd(
     provider: {
       '@type': 'Organization',
       '@id': organizationId,
-      name: SCHEMA_ORGANIZATION_OFC.name,
+      name: SITE.raisonSociale,
       url: base,
       identifier: {
         '@type': 'PropertyValue',
         name: 'SIRET',
-        value: SCHEMA_CONTACT.siretFormatted,
+        value: SITE.siret,
       },
       hasCredential: buildQualiopiCredentialSchema(),
     },

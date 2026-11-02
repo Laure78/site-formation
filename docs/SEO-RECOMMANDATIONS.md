@@ -12,7 +12,7 @@
 - **robots.txt** : sitemap, disallow admin/auth/merci
 - **Sitemap** : toutes les pages importantes, blog, formations
 - **noindex** : pages merci-rdv, merci-devis (évite double contenu)
-- **Geo meta** : geo.region FR-IDF, geo.placename Paris — coords `lib/site-config.ts` (48.8466, 2.3713)
+- **Geo meta** : `siteMetadataGeoOther()` (`lib/site-config.ts`) — geo.region FR-75, placename Paris, coords WGS84 48.8506 / 2.3701 (OpenStreetMap Nominatim, 61 rue de Lyon)
 
 ## 🔧 À faire manuellement
 

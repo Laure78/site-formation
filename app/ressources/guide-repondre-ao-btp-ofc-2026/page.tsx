@@ -25,7 +25,6 @@ const CANONICAL = `${SITE_CONFIG.url.replace(/\/$/, '')}${PATH}`;
 const FILE_URL = `${SITE_CONFIG.url.replace(/\/$/, '')}${FILE_HREF}`;
 const THUMB = RESSOURCES_MINIATURES.guideRepondreAo;
 
-/** ISR — masque l’encart événement après le 5 nov. 2026. */
 export const revalidate = 3600;
 
 const META_TITLE = 'IA appels d’offres BTP : méthode en 5 étapes';

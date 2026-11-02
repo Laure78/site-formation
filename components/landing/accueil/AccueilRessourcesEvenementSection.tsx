@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import { EvenementAoBtpPromoEncart } from '@/components/evenements/EvenementAoBtpPromoEncart';
 import { ResourceCard } from '@/components/ui/ResourceCard';
 import { Section } from '@/components/ui/Section';
 import { SectionHeader } from '@/components/ui/SectionHeader';
@@ -12,7 +11,7 @@ import { OFC_LINK } from '@/lib/ofc-interaction-classes';
 import { RevealGroupShell, RevealShell } from '@/components/motion/RevealShell';
 import { MOTION_REVEAL } from '@/lib/motion-config';
 
-/** Ressources gratuites (aperçu) + méthode repliée + encart événement. */
+/** Ressources gratuites (aperçu) + méthode repliée. */
 export function AccueilRessourcesEvenementSection() {
   const ressourcesPreview = ACCUEIL_RESSOURCES.slice(0, 3);
 
@@ -76,12 +75,6 @@ export function AccueilRessourcesEvenementSection() {
           ))}
         </ol>
       </details>
-      </RevealShell>
-
-      <RevealShell delay={80}>
-      <div className="mt-10 overflow-hidden rounded-ofc-card border border-ofc-border bg-white">
-        <EvenementAoBtpPromoEncart placement="accueil" variant="compact" />
-      </div>
       </RevealShell>
     </Section>
   );

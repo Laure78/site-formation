@@ -69,8 +69,9 @@ export const SITE = {
     rue: '61 rue de Lyon',
     cp: '75012',
     ville: 'Paris',
-    lat: 48.8466,
-    lng: 2.3713,
+    /** OpenStreetMap Nominatim (node 1352821643) — 61 Rue de Lyon, 75012 Paris. */
+    lat: 48.8506,
+    lng: 2.3701,
   },
   contact: {
     email: 'contact@laureolivie.fr',
@@ -130,12 +131,29 @@ export function siteDepuisSiege(): string {
 /** Préfixe pour phrases de trajet (« Depuis Paris 12e (75012), »). */
 export const SITE_DEPUIS_SIEGE_TRAJET = `${siteDepuisSiege()},` as const;
 
-/** Meta geo.position / ICBM. */
+/** Balises HTML geo.* (ISO 3166-2 — département siège). */
+export const SITE_GEO_META = {
+  region: 'FR-75',
+  placename: SITE.adresse.ville,
+} as const;
+
+/** Meta geo.position / ICBM (WGS84, siège OFC). */
 export function siteGeoPositionMeta(): { geoPosition: string; icbm: string } {
   const { lat, lng } = SITE.adresse;
   return {
     geoPosition: `${lat};${lng}`,
     icbm: `${lat}, ${lng}`,
+  };
+}
+
+/** Objet `metadata.other` Next.js — geo.region, placename, position, ICBM. */
+export function siteMetadataGeoOther(): Record<string, string> {
+  const { geoPosition, icbm } = siteGeoPositionMeta();
+  return {
+    'geo.region': SITE_GEO_META.region,
+    'geo.placename': SITE_GEO_META.placename,
+    'geo.position': geoPosition,
+    ICBM: icbm,
   };
 }
 
@@ -162,3 +180,100 @@ export function siteExperienceBtpAnnees(): number {
 export const SITE_LINKEDIN_PROFILE_URL = LINKEDIN_PROFILE_URL;
 export const SITE_LINKEDIN_LEARNING_INSTRUCTOR_URL = LINKEDIN_LEARNING_INSTRUCTOR_URL;
 export const SITE_FRANCE_NUM_ACTIVATEUR_URL = FRANCE_NUM_ACTIVATEUR_URL;
+
+/** Chaîne YouTube — Laure Olivié (JSON-LD Person sameAs). */
+export const SITE_YOUTUBE_CHANNEL_URL =
+  'https://www.youtube.com/channel/UCnIc2a25xT8msvV69O2MeVg' as const;
+
+/** Titre métier — Person (layout référence, page À propos). */
+export const SITE_PERSON_JOB_TITLE = 'Formatrice IA spécialisée BTP' as const;
+
+/** Zone de formation — présentiel catalogue (Schema.org Course / Organization). */
+export const SITE_AREA_SERVED_LABEL = 'Île-de-France' as const;
+
+/** SIRET sans espaces — taxID Schema.org. */
+export function siteSiretDigits(): string {
+  return SITE.siret.replace(/\s/g, '');
+}
+
+/** @id Organization — graph layout (#organization). */
+export function siteSchemaOrganizationId(siteUrl: string): string {
+  return `${siteUrl.replace(/\/$/, '')}/#organization`;
+}
+
+/** @id Person — graph layout (#laure-olivie). */
+export function siteSchemaPersonId(siteUrl: string): string {
+  return `${siteUrl.replace(/\/$/, '')}/#laure-olivie`;
+}
+
+/** sameAs Person — LinkedIn profil, YouTube, LinkedIn Learning. */
+export function sitePersonSchemaSameAs(): readonly string[] {
+  return [SITE_LINKEDIN_PROFILE_URL, SITE_YOUTUBE_CHANNEL_URL, SITE_LINKEDIN_LEARNING_INSTRUCTOR_URL];
+}
+
+/** hasCredential Qualiopi — EducationalOrganization (n° depuis SITE.qualiopi). */
+export function siteQualiopiHasCredentialSchema(): Record<string, unknown> {
+  return {
+    '@type': 'EducationalOccupationalCredential',
+    name: 'Certification Qualiopi — actions de formation',
+    credentialCategory: 'certification',
+    identifier: SITE.qualiopi.numero,
+    recognizedBy: {
+      '@type': 'Organization',
+      name: SITE.qualiopi.certificateur,
+    },
+    validFrom: SITE.qualiopi.debut,
+    validUntil: SITE.qualiopi.fin,
+  };
+}
+
+/** Nœud JSON-LD layout — EducationalOrganization (sans @context). */
+export function buildSiteLayoutEducationalOrganizationNode(
+  siteUrl: string,
+  logoAbsoluteUrl: string,
+): Record<string, unknown> {
+  const base = siteUrl.replace(/\/$/, '');
+  return {
+    '@type': 'EducationalOrganization',
+    '@id': siteSchemaOrganizationId(base),
+    name: SITE.raisonSociale,
+    alternateName: SITE.marque,
+    url: base,
+    email: SITE.contact.email,
+    telephone: SITE.contact.telIntl,
+    logo: logoAbsoluteUrl,
+    taxID: siteSiretDigits(),
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: SITE.adresse.rue,
+      postalCode: SITE.adresse.cp,
+      addressLocality: siteSiegeParis12(),
+      addressCountry: 'FR',
+    },
+    areaServed: {
+      '@type': 'AdministrativeArea',
+      name: SITE_AREA_SERVED_LABEL,
+    },
+    hasCredential: siteQualiopiHasCredentialSchema(),
+    sameAs: [...SITE.sameAs],
+    founder: { '@id': siteSchemaPersonId(base) },
+  };
+}
+
+/** Nœud JSON-LD Person — page /a-propos (sans @context). */
+export function buildSiteAProposPersonSchemaNode(siteUrl: string): Record<string, unknown> {
+  const base = siteUrl.replace(/\/$/, '');
+  return {
+    '@type': 'Person',
+    '@id': siteSchemaPersonId(base),
+    name: SITE.marque,
+    jobTitle: SITE_PERSON_JOB_TITLE,
+    url: `${base}/a-propos`,
+    worksFor: {
+      '@type': 'Organization',
+      '@id': siteSchemaOrganizationId(base),
+      name: SITE.raisonSociale,
+    },
+    sameAs: [...sitePersonSchemaSameAs()],
+  };
+}

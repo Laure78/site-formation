@@ -215,7 +215,7 @@ export function SiteSearchDialog({
         <div className="max-h-[min(50vh,24rem)] overflow-y-auto p-2">
           {trimmed.length < 2 ? (
             <p className="px-3 py-6 text-center text-sm leading-relaxed text-slate-500">
-              Formations Qualiopi, parcours métiers, ressources PDF et événements en ligne — saisissez
+              Formations Qualiopi, parcours métiers et ressources PDF — saisissez
               au moins 2 caractères.
             </p>
           ) : results.length === 0 && !loading ? (

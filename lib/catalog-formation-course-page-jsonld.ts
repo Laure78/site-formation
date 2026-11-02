@@ -7,12 +7,11 @@ import {
   type FormationCatalogEntry,
 } from '@/lib/schema-course-formations';
 import {
-  SCHEMA_CONTACT,
   SCHEMA_LINKEDIN_PROFILE_URL,
-  SCHEMA_ORGANIZATION_OFC,
   SCHEMA_PERSON_LAURE,
   SCHEMA_PUBLIC_SITE_URL,
 } from '@/lib/schema-constants';
+import { SITE, siteSchemaOrganizationId } from '@/lib/site-config';
 import {
   FORMATION_COURSE_OFFER_CATEGORY,
   buildFormationFicheCourseJsonLd,
@@ -52,23 +51,20 @@ export function buildCatalogFormationCoursePageSchema(
       courseCode: entry.ref,
       educationalLevel: entry.level === 'DÉBUTANT' ? 'Fondamentaux' : 'Perfectionnement',
       teaches: entry.teaches,
-      organizationId: `${base}/#organization`,
+      organizationId: siteSchemaOrganizationId(base),
       instructorName: SCHEMA_PERSON_LAURE.name,
     }),
     provider: {
       '@type': 'Organization',
-      '@id': `${base}/#organization`,
-      name: SCHEMA_ORGANIZATION_OFC.name,
+      '@id': siteSchemaOrganizationId(base),
+      name: SITE.raisonSociale,
       url: base,
       identifier: {
         '@type': 'PropertyValue',
         name: 'SIRET',
-        value: SCHEMA_CONTACT.siretFormatted,
+        value: SITE.siret,
       },
-      sameAs: [
-        `https://annuaire-entreprises.data.gouv.fr/entreprise/${SCHEMA_CONTACT.siretDigits.slice(0, 9)}`,
-        SCHEMA_LINKEDIN_PROFILE_URL,
-      ],
+      sameAs: [SCHEMA_LINKEDIN_PROFILE_URL],
     },
     instructor: {
       '@type': 'Person',

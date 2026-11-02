@@ -142,7 +142,8 @@ export function Footer() {
                   quality={IMAGE_QUALITY_DEFAULT}
                 />
               </Link>
-              <p className="mt-2 text-sm text-white/70">Présentiel en Île-de-France</p>
+              <p className="mt-2 text-sm text-white/80">{SITE.address.full}</p>
+              <p className="text-sm text-white/70">Présentiel en Île-de-France</p>
             </div>
             <ul className="mt-4 space-y-0.5">
               <li>

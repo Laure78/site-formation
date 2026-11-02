@@ -15,7 +15,13 @@ import {
   SCHEMA_PERSON_LAURE,
   SCHEMA_PERSON_SAME_AS,
 } from '../lib/schema-constants.ts';
-import { SITE, SITE_LINKEDIN_LEARNING_INSTRUCTOR_URL, SITE_LINKEDIN_PROFILE_URL } from '../lib/site-config.ts';
+import {
+  SITE,
+  SITE_PERSON_JOB_TITLE,
+  sitePersonSchemaSameAs,
+  siteSiretDigits,
+  siteSiegeParis12,
+} from '../lib/site-config.ts';
 
 const BLOCKS = [
   { name: 'global-site-graph', schema: buildGlobalSiteJsonLdGraph() },
@@ -33,15 +39,12 @@ function assertPerson(node, label) {
     throw new Error(`${label}: @type Person attendu`);
   }
   if (node.name !== 'Laure Olivié') throw new Error(`${label}: name incorrect`);
-  if (node.jobTitle !== SCHEMA_PERSON_LAURE.jobTitle) {
-    throw new Error(`${label}: jobTitle incorrect (attendu « ${SCHEMA_PERSON_LAURE.jobTitle} »)`);
+  if (node.jobTitle !== SITE_PERSON_JOB_TITLE) {
+    throw new Error(`${label}: jobTitle incorrect (attendu « ${SITE_PERSON_JOB_TITLE} »)`);
   }
   if (!node.worksFor) throw new Error(`${label}: worksFor manquant`);
-  if (!node.affiliation || !Array.isArray(node.affiliation) || node.affiliation.length < 3) {
-    throw new Error(`${label}: affiliation incomplète`);
-  }
   const sameAs = node.sameAs ?? [];
-  for (const url of SCHEMA_PERSON_SAME_AS) {
+  for (const url of sitePersonSchemaSameAs()) {
     if (!sameAs.includes(url)) throw new Error(`${label}: sameAs manque ${url}`);
   }
   const knows = node.knowsAbout ?? [];
@@ -58,17 +61,20 @@ function assertLayoutRootOrganization(node, label) {
   if (node['@type'] !== 'EducationalOrganization') {
     throw new Error(`${label}: @type EducationalOrganization attendu`);
   }
-  if (node.name !== SITE.marque) throw new Error(`${label}: name incorrect`);
-  if (node.legalName !== SITE.raisonSociale) throw new Error(`${label}: legalName incorrect`);
-  if (node.taxID !== SCHEMA_CONTACT.siretDigits) throw new Error(`${label}: taxID SIRET incorrect`);
+  if (node.name !== SITE.raisonSociale) throw new Error(`${label}: name incorrect (OFC attendu)`);
+  if (node.alternateName !== SITE.marque) throw new Error(`${label}: alternateName incorrect`);
+  if (node.taxID !== siteSiretDigits()) throw new Error(`${label}: taxID SIRET incorrect`);
   if (node.telephone !== SITE.contact.telIntl) throw new Error(`${label}: telephone incorrect`);
   if (node.email !== SITE.contact.email) throw new Error(`${label}: email incorrect`);
   if (!node.hasCredential?.identifier || node.hasCredential.identifier !== SITE.qualiopi.numero) {
     throw new Error(`${label}: hasCredential Qualiopi ${SITE.qualiopi.numero} attendu`);
   }
-  const area = node.areaServed ?? [];
-  if (!Array.isArray(area) || area.length !== 8) {
-    throw new Error(`${label}: areaServed — 8 départements IDF attendus`);
+  const area = node.areaServed;
+  if (!area || area.name !== 'Île-de-France') {
+    throw new Error(`${label}: areaServed « Île-de-France » attendu`);
+  }
+  if (!node.founder?.['@id']?.endsWith('#laure-olivie')) {
+    throw new Error(`${label}: founder → Person #laure-olivie attendu`);
   }
   for (const url of SITE.sameAs) {
     if (!(node.sameAs ?? []).includes(url)) throw new Error(`${label}: sameAs manque ${url}`);
@@ -78,31 +84,10 @@ function assertLayoutRootOrganization(node, label) {
     !addr ||
     addr.streetAddress !== SITE.adresse.rue ||
     addr.postalCode !== SITE.adresse.cp ||
-    addr.addressLocality !== SITE.adresse.ville ||
+    addr.addressLocality !== siteSiegeParis12() ||
     addr.addressCountry !== 'FR'
   ) {
-    throw new Error(`${label}: PostalAddress incorrect`);
-  }
-}
-
-function assertLayoutRootPerson(node, label) {
-  if (node['@type'] !== 'Person') throw new Error(`${label}: @type Person attendu`);
-  if (node.name !== SITE.marque) throw new Error(`${label}: name incorrect`);
-  if (node.jobTitle !== 'Formatrice IA spécialisée BTP') throw new Error(`${label}: jobTitle incorrect`);
-  if (!node.worksFor?.['@id']?.endsWith('#organization')) {
-    throw new Error(`${label}: worksFor #organization attendu`);
-  }
-  const sameAs = node.sameAs ?? [];
-  if (!sameAs.includes(SITE_LINKEDIN_PROFILE_URL)) {
-    throw new Error(`${label}: sameAs LinkedIn manquant`);
-  }
-  if (!sameAs.includes(SITE_LINKEDIN_LEARNING_INSTRUCTOR_URL)) {
-    throw new Error(`${label}: sameAs LinkedIn Learning manquant`);
-  }
-  if (sameAs.length !== 2) throw new Error(`${label}: sameAs Person — 2 URLs attendues`);
-  const forbidden = /conductrice/i;
-  if (forbidden.test(JSON.stringify(node))) {
-    throw new Error(`${label}: formulation interdite (conductrice)`);
+    throw new Error(`${label}: PostalAddress incorrect (Paris 12e attendu)`);
   }
 }
 
@@ -158,8 +143,7 @@ function walkGraph(schema, blockName) {
     const type = node['@type'];
     const types = Array.isArray(type) ? type : [type];
     if (types.includes('Person')) {
-      if (isLayoutRoot) assertLayoutRootPerson(node, `${blockName}/Person`);
-      else assertPerson(node, `${blockName}/Person`);
+      if (!isLayoutRoot) assertPerson(node, `${blockName}/Person`);
     }
     if (types.includes('Organization') || types.includes('EducationalOrganization')) {
       if (node['@id']?.endsWith('#organization')) {

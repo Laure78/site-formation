@@ -1,11 +1,17 @@
 import {
-  SCHEMA_CONTACT,
   SCHEMA_PERSON_KNOWS_ABOUT,
   SCHEMA_PERSON_LAURE,
-  SCHEMA_PERSON_SAME_AS,
   schemaHeaderPersonImageUrl,
 } from '@/lib/schema-constants';
 import { SCHEMA_SITE_ORG, sitePersonProofDescription } from '@/lib/schema-site-proof';
+import {
+  SITE_AREA_SERVED_LABEL,
+  SITE_PERSON_JOB_TITLE,
+  buildSiteAProposPersonSchemaNode,
+  sitePersonSchemaSameAs,
+  siteSchemaOrganizationId,
+  siteSchemaPersonId,
+} from '@/lib/site-config';
 
 export type PersonLaureSchemaNodeOptions = {
   /** `@id` du nœud Person (défaut : `{base}/#laure-olivie`). */
@@ -27,27 +33,27 @@ export function buildPersonLaureSchemaNode(
   options: PersonLaureSchemaNodeOptions = {},
 ): Record<string, unknown> {
   const base = SCHEMA_SITE_ORG.url;
-  const personId = options.personId ?? `${base}/#laure-olivie`;
+  const personId = options.personId ?? siteSchemaPersonId(base);
   const pageUrl = options.pageUrl ?? `${base}/a-propos`;
-  const organizationId = options.organizationId ?? `${base}/#organization`;
+  const organizationId = options.organizationId ?? siteSchemaOrganizationId(base);
   return {
-    '@type': 'Person',
+    ...buildSiteAProposPersonSchemaNode(base),
     '@id': personId,
-    name: SCHEMA_SITE_ORG.personName,
-    jobTitle: SCHEMA_PERSON_LAURE.jobTitle,
     description:
       options.description ?? sitePersonProofDescription(SCHEMA_PERSON_LAURE.description),
     url: pageUrl,
     image: schemaHeaderPersonImageUrl(),
-    email: SCHEMA_SITE_ORG.email,
-    /** Organization déclarée dans le layout — référence par @id uniquement. */
-    worksFor: { '@id': organizationId },
+    jobTitle: SITE_PERSON_JOB_TITLE,
+    worksFor: {
+      '@id': organizationId,
+      '@type': 'Organization',
+      name: SCHEMA_SITE_ORG.legalName,
+    },
     knowsAbout: [...SCHEMA_PERSON_KNOWS_ABOUT],
-    /** LinkedIn + LinkedIn Learning (+ YouTube si présent dans SCHEMA_PERSON_SAME_AS). */
-    sameAs: [...SCHEMA_PERSON_SAME_AS],
+    sameAs: [...sitePersonSchemaSameAs()],
     areaServed: {
       '@type': 'AdministrativeArea',
-      name: 'Île-de-France',
+      name: SITE_AREA_SERVED_LABEL,
     },
   };
 }

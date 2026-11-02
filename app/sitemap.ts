@@ -80,7 +80,6 @@ function getAdditionalMarketingRoutes(baseUrl: string): MetadataRoute.Sitemap {
     '/ressources/guide-rh-btp-ia-ofc',
     '/ressources/guide-charge-affaires-ofc',
     '/ressources/guide-repondre-ao-btp-ofc-2026',
-    LINKS.evenementRepondreAoBtp5Etapes,
     LINKS.tutoSkillPic,
     '/formation-ia-btp-ile-de-france',
     '/formation-ia-paris',

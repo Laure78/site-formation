@@ -1,6 +1,6 @@
 /**
- * JSON-LD @graph unique — page /a-propos (Person, ProfilePage, LocalBusiness, FAQ, VideoObject, Course, ImageObject).
- * Références Organization par @id — pas de duplication du nœud #organization.
+ * JSON-LD @graph — page /a-propos (Person, ProfilePage, FAQPage, VideoObject, Course LinkedIn Learning, ImageObject).
+ * Organization (#organization) : layout racine uniquement.
  */
 
 import { PREUVES } from '@/lib/constants';
@@ -11,32 +11,27 @@ import {
 import { getAProposPagePersonDescription, FAQ_A_PROPOS_PAGE } from '@/lib/a-propos-page-config';
 import { PHOTOS } from '@/lib/photos';
 import {
-  SCHEMA_CONTACT,
   SCHEMA_GEO,
-  SCHEMA_GOOGLE_BUSINESS_PROFILE_URL,
-  SCHEMA_LINKEDIN_PROFILE_URL,
-  SCHEMA_OPENING_HOURS,
-  SCHEMA_ORGANIZATION_OFC,
-  SCHEMA_PERSON_SAME_AS,
   SCHEMA_PUBLIC_SITE_URL,
-  schemaLogoUrl,
-  buildIdfAreaServedSchemaEntities,
   buildPersonAffiliationSchemaNodes,
 } from '@/lib/schema-constants';
-import { buildQualiopiCredentialSchema } from '@/lib/qualiopi-info';
 import { getFAQSchema } from '@/lib/seo';
 import { buildAProposImageObjectJsonLd } from '@/lib/schema-image-objects';
 import { LINKEDIN_LEARNING_A_PROPOS_EMBEDS } from '@/lib/linkedin-learning-a-propos-embeds';
-import { buildOrganizationOfcSchemaNode } from '@/lib/schema-organization-global';
 import { buildPersonLaureSchemaNode } from '@/lib/schema-person-global';
+import {
+  SITE_PERSON_JOB_TITLE,
+  sitePersonSchemaSameAs,
+  siteSchemaOrganizationId,
+  siteSchemaPersonId,
+} from '@/lib/site-config';
 
 const BASE = SCHEMA_PUBLIC_SITE_URL.replace(/\/$/, '');
 const PAGE_PATH = '/a-propos';
 const PAGE_URL = `${BASE}${PAGE_PATH}`;
-const PERSON_ID = `${BASE}/#laure-olivie`;
-const ORGANIZATION_ID = `${BASE}/#organization`;
+const PERSON_ID = siteSchemaPersonId(BASE);
+const ORGANIZATION_ID = siteSchemaOrganizationId(BASE);
 const PROFILE_PAGE_ID = `${PAGE_URL}#profilepage`;
-const OFC_LOCAL_ID = `${PAGE_URL}#ofc-local-business`;
 
 const FAQ_COMPLET = FAQ_A_PROPOS_PAGE;
 
@@ -90,14 +85,10 @@ export function getAProposUnifiedJsonLd(): Record<string, unknown> {
         name: 'CNFPT Grande Couronne (chargée de formation 2009-2019)',
       },
     ],
-    sameAs: [
-      ...SCHEMA_PERSON_SAME_AS,
-      'https://annuaire-entreprises.data.gouv.fr/entreprise/ofc-creation-d-entreprise-ofc-creation-d-entreprise-905244281',
-      SCHEMA_GOOGLE_BUSINESS_PROFILE_URL,
-    ],
+    sameAs: [...sitePersonSchemaSameAs()],
     hasOccupation: {
       '@type': 'Occupation',
-      name: 'Formatrice IA pour le BTP',
+      name: SITE_PERSON_JOB_TITLE,
       occupationLocation: { '@type': 'City', name: SCHEMA_GEO.addressLocality },
       skills:
         'IA appliquée au BTP, ChatGPT bâtiment, Claude AI, mémoire technique, analyse DCE/CCTP, devis BTP',
@@ -112,49 +103,6 @@ export function getAProposUnifiedJsonLd(): Record<string, unknown> {
         name: 'Instructrice LinkedIn Learning',
       },
     ],
-  };
-
-  const organization = buildOrganizationOfcSchemaNode({
-    organizationId: ORGANIZATION_ID,
-    personId: PERSON_ID,
-  });
-
-  const localBusiness: Record<string, unknown> = {
-    '@type': ['LocalBusiness', 'EducationalOrganization'],
-    '@id': OFC_LOCAL_ID,
-    name: SCHEMA_ORGANIZATION_OFC.name,
-    legalName: SCHEMA_ORGANIZATION_OFC.legalName,
-    url: BASE,
-    logo: schemaLogoUrl(),
-    image: `${BASE}${PHOTOS.aProposHero2026.src}`,
-    description: `Organisme de formation IA BTP certifié Qualiopi : intelligence artificielle appliquée au bâtiment et aux travaux publics pour les PME. Présentiel Île-de-France — financement possible selon éligibilité. Satisfaction ${PREUVES.satisfaction} (${PREUVES.repondants} répondants).`,
-    email: SCHEMA_CONTACT.email,
-    address: {
-      '@type': 'PostalAddress',
-      streetAddress: SCHEMA_GEO.streetAddress,
-      addressLocality: SCHEMA_GEO.addressLocality,
-      postalCode: SCHEMA_GEO.postalCode,
-      addressCountry: SCHEMA_GEO.addressCountry,
-      addressRegion: SCHEMA_GEO.addressRegion,
-    },
-    geo: {
-      '@type': 'GeoCoordinates',
-      latitude: SCHEMA_GEO.latitude,
-      longitude: SCHEMA_GEO.longitude,
-    },
-    areaServed: buildIdfAreaServedSchemaEntities(),
-    priceRange: '€€',
-    currenciesAccepted: 'EUR',
-    openingHours: SCHEMA_OPENING_HOURS,
-    sameAs: [
-      SCHEMA_LINKEDIN_PROFILE_URL,
-      'https://www.malt.fr/profile/laureoli',
-      'https://annuaire-entreprises.data.gouv.fr/entreprise/905244281',
-    ],
-    hasCredential: buildQualiopiCredentialSchema(),
-    taxID: SCHEMA_CONTACT.siretDigits,
-    vatID: SCHEMA_CONTACT.vatId,
-    founder: { '@id': PERSON_ID },
   };
 
   const profilePage: Record<string, unknown> = {
@@ -217,6 +165,6 @@ export function getAProposUnifiedJsonLd(): Record<string, unknown> {
 
   return {
     '@context': 'https://schema.org',
-    '@graph': [profilePage, person, organization, localBusiness, faq, imageObj, ...videosAndCourses],
+    '@graph': [profilePage, person, faq, imageObj, ...videosAndCourses],
   };
 }

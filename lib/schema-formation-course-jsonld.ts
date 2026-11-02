@@ -2,16 +2,13 @@
  * JSON-LD `Course` — champs communs pour toutes les fiches formation.
  * Présentiel uniquement (Onsite), zone Île-de-France, durée 4 h, intra-entreprise.
  */
-import {
-  SCHEMA_CONTACT,
-  SCHEMA_ORGANIZATION_OFC,
-  SCHEMA_PUBLIC_SITE_URL,
-} from '@/lib/schema-constants';
+import { SCHEMA_PUBLIC_SITE_URL } from '@/lib/schema-constants';
+import { SITE, SITE_AREA_SERVED_LABEL, siteSchemaOrganizationId } from '@/lib/site-config';
 
 export const FORMATION_COURSE_DURATION_ISO = 'PT4H';
 /** Schema.org / Google — présentiel (jamais « online »). */
 export const FORMATION_COURSE_MODE_ONSITE = 'Onsite';
-export const FORMATION_COURSE_AREA_IDF = 'Île-de-France';
+export const FORMATION_COURSE_AREA_IDF = SITE_AREA_SERVED_LABEL;
 /** Langue des formations — JSON-LD fiches catalogue (Schema.org). */
 export const FORMATION_COURSE_IN_LANGUAGE = 'fr';
 /** Qualiopi — libellé court pour Course.educationalCredentialAwarded. */
@@ -110,7 +107,7 @@ export function buildFormationFicheCourseNode(
   const base = SCHEMA_PUBLIC_SITE_URL.replace(/\/$/, '');
   const normalizedPath = input.path.startsWith('/') ? input.path : `/${input.path}`;
   const courseUrl = input.url ?? `${base}${normalizedPath}`;
-  const organizationId = input.organizationId ?? `${base}/#organization`;
+  const organizationId = input.organizationId ?? siteSchemaOrganizationId(base);
   const duration = input.timeRequired ?? FORMATION_COURSE_DURATION_ISO;
 
   const node: Record<string, unknown> = {
@@ -125,12 +122,12 @@ export function buildFormationFicheCourseNode(
     provider: {
       '@type': 'Organization',
       '@id': organizationId,
-      name: SCHEMA_ORGANIZATION_OFC.name,
+      name: SITE.raisonSociale,
       url: base,
       identifier: {
         '@type': 'PropertyValue',
         name: 'SIRET',
-        value: SCHEMA_CONTACT.siretFormatted,
+        value: SITE.siret,
       },
     },
     inLanguage: FORMATION_COURSE_IN_LANGUAGE,
@@ -246,7 +243,7 @@ export function assertFormationFicheCourseSchema(
   }
   const providerName =
     'name' in provider ? String((provider as { name: unknown }).name) : '';
-  if (providerName !== SCHEMA_ORGANIZATION_OFC.name) {
+  if (providerName !== SITE.raisonSociale) {
     throw new Error(`${label}: provider.name incorrect (${providerName})`);
   }
 

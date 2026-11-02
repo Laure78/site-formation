@@ -95,7 +95,7 @@ Ne citer aucun autre partenaire sans validation. Équipe : formateurs réels, no
   FAQPage, BreadcrumbList, Article (`BlogPosting`).
 - robots : GPTBot, OAI-SearchBot, ChatGPT-User, ClaudeBot, Claude-SearchBot, PerplexityBot, Perplexity-User, Google-Extended, Applebot-Extended autorisés.
 - `public/llms.txt` à jour avec les faits site.
-- Meta geo/ICBM : 61 rue de Lyon (≈ 48.8466, 2.3713) — PAS Guyancourt.
+- Meta geo/ICBM : `siteMetadataGeoOther()` — 61 rue de Lyon (48.8506, 2.3701, OSM Nominatim) — PAS Guyancourt.
 
 ## Charte OFC
 Bleu #377CF3 · Blanc #FFFFFF · Gris #F2F2F2 · Poppins (fallback Century Gothic) · theme-color #377CF3.

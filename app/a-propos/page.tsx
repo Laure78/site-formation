@@ -51,7 +51,7 @@ export default function AProposPage() {
 
   return (
     <>
-      {/* Un seul @graph page — Person/Organization déjà dans le layout (#laure-olivie / #organization). */}
+      {/* @graph page : Person (#laure-olivie) + FAQPage — Organization (#organization) dans le layout. */}
       <JsonLd id="schema-a-propos-unified-graph" schema={getAProposUnifiedJsonLd()} />
 
       <AProposPageHero />

@@ -197,6 +197,11 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
+        source: '/evenements/repondre-appel-offres-btp-5-etapes',
+        destination: '/formations/ia-appels-offre-btp',
+        permanent: true,
+      },
+      {
         source: '/prendre-rendez-vous/',
         destination: '/prendre-rdv',
         permanent: true,

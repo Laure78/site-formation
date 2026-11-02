@@ -991,18 +991,6 @@ export const PHOTOS = {
     height: 768,
   },
 
-  /**
-   * Bannière webinaire — répondre à un appel d’offres BTP (5 nov. 2026).
-   * Fichier renommé depuis un export ChatGPT générique.
-   */
-  webinaireRepondreAoBtp: {
-    src: '/images/webinaire-repondre-appel-offres-btp-laure-olivie.jpg',
-    alt: "Webinaire : répondre à un appel d'offres BTP avec l'IA — Laure Olivié, analyse DCE",
-    title: 'Webinaire — répondre à un appel d’offres BTP',
-    width: 1024,
-    height: 512,
-  },
-
 };
 
 export type PhotoKey = keyof typeof PHOTOS;

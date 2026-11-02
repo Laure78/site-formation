@@ -197,7 +197,6 @@ export const NAV_RESSOURCES: readonly NavItem[] = [
     title: 'Guides PDF et modèles IA BTP',
   },
   { href: LINKS.blog, label: 'Articles et conseils', title: 'Articles et conseils IA BTP' },
-  { href: LINKS.evenements, label: 'Événements', title: 'Événements IA BTP' },
   {
     href: LINKS.financement,
     label: 'Financement',

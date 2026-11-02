@@ -255,10 +255,6 @@ const ROUTE_SOURCE_FILES: Record<string, readonly string[]> = {
   ],
   '/expert-ia-btp': ['app/expert-ia-btp/page.tsx'],
   '/formateur-ia-btp': ['app/formateur-ia-btp/page.tsx'],
-  '/evenements/repondre-appel-offres-btp-5-etapes': [
-    'app/evenements/repondre-appel-offres-btp-5-etapes/page.tsx',
-    'lib/evenements/repondre-appel-offres-btp-5-etapes.ts',
-  ],
   '/prendre-rdv': ['app/prendre-rdv/page.tsx'],
   '/diagnostic-ia-btp': ['app/diagnostic-ia-btp/page.tsx'],
   '/checklist-ia-btp': ['app/checklist-ia-btp/page.tsx'],

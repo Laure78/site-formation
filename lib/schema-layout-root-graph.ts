@@ -1,85 +1,36 @@
 /**
- * JSON-LD `@graph` racine (layout) — EducationalOrganization + Person.
- * Source identité : `SITE` (`lib/site-config.ts`).
+ * JSON-LD `@graph` racine (layout) — EducationalOrganization.
+ * Identité : `SITE` (`lib/site-config.ts`) · logo : `schema-constants`.
  */
-import {
-  IDF_DEPT_AREA_SERVED_LABELS,
-  SCHEMA_CONTACT,
-  SCHEMA_PUBLIC_SITE_URL,
-  schemaLogoUrl,
-} from '@/lib/schema-constants';
-import { buildQualiopiCredentialSchema } from '@/lib/qualiopi-info';
-import {
-  SITE,
-  SITE_LINKEDIN_LEARNING_INSTRUCTOR_URL,
-  SITE_LINKEDIN_PROFILE_URL,
-} from '@/lib/site-config';
+import { SCHEMA_PUBLIC_SITE_URL, schemaLogoUrl } from '@/lib/schema-constants';
+import { buildSiteLayoutEducationalOrganizationNode } from '@/lib/site-config';
 
-const PERSON_JOB_TITLE = 'Formatrice IA spécialisée BTP' as const;
-
-function layoutGraphBaseUrl(): string {
-  return SCHEMA_PUBLIC_SITE_URL.replace(/\/$/, '');
+/** `@graph` injecté dans `app/layout.tsx` via `<GlobalSiteJsonLd />`. */
+export function buildLayoutRootJsonLdGraph(): Record<string, unknown> {
+  const base = SCHEMA_PUBLIC_SITE_URL.replace(/\/$/, '');
+  return {
+    '@context': 'https://schema.org',
+    '@graph': [buildSiteLayoutEducationalOrganizationNode(base, schemaLogoUrl())],
+  };
 }
 
+/** @deprecated — Person définie sur /a-propos (`buildSiteAProposPersonSchemaNode`). */
 export function buildLayoutEducationalOrganizationNode(
   organizationId: string,
   personId: string,
 ): Record<string, unknown> {
-  const base = layoutGraphBaseUrl();
-  return {
-    '@type': 'EducationalOrganization',
-    '@id': organizationId,
-    name: SITE.marque,
-    legalName: SITE.raisonSociale,
-    url: base,
-    email: SITE.contact.email,
-    telephone: SITE.contact.telIntl,
-    taxID: SCHEMA_CONTACT.siretDigits,
-    logo: schemaLogoUrl(),
-    address: {
-      '@type': 'PostalAddress',
-      streetAddress: SITE.adresse.rue,
-      postalCode: SITE.adresse.cp,
-      addressLocality: SITE.adresse.ville,
-      addressCountry: 'FR',
-    },
-    areaServed: IDF_DEPT_AREA_SERVED_LABELS.map((name) => ({
-      '@type': 'AdministrativeArea',
-      name,
-    })),
-    hasCredential: buildQualiopiCredentialSchema(),
-    sameAs: [...SITE.sameAs],
-    founder: { '@id': personId },
-  };
+  void organizationId;
+  void personId;
+  const base = SCHEMA_PUBLIC_SITE_URL.replace(/\/$/, '');
+  return buildSiteLayoutEducationalOrganizationNode(base, schemaLogoUrl());
 }
 
+/** @deprecated — Person définie sur /a-propos. */
 export function buildLayoutPersonNode(
   personId: string,
   organizationId: string,
 ): Record<string, unknown> {
-  const base = layoutGraphBaseUrl();
-  return {
-    '@type': 'Person',
-    '@id': personId,
-    name: SITE.marque,
-    jobTitle: PERSON_JOB_TITLE,
-    url: `${base}/a-propos`,
-    worksFor: { '@id': organizationId },
-    sameAs: [SITE_LINKEDIN_PROFILE_URL, SITE_LINKEDIN_LEARNING_INSTRUCTOR_URL],
-  };
-}
-
-/** `@graph` injecté dans `app/layout.tsx` via `<GlobalSiteJsonLd />`. */
-export function buildLayoutRootJsonLdGraph(): Record<string, unknown> {
-  const base = layoutGraphBaseUrl();
-  const organizationId = `${base}/#organization`;
-  const personId = `${base}/#laure-olivie`;
-
-  return {
-    '@context': 'https://schema.org',
-    '@graph': [
-      buildLayoutEducationalOrganizationNode(organizationId, personId),
-      buildLayoutPersonNode(personId, organizationId),
-    ],
-  };
+  void personId;
+  void organizationId;
+  return {};
 }
