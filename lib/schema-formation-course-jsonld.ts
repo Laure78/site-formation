@@ -289,15 +289,16 @@ export function assertFormationFicheCourseSchema(
 
   const offers = course.offers;
   if (offers && typeof offers === 'object' && !Array.isArray(offers)) {
-    if (offers['@type'] !== 'Offer') {
+    const offer = offers as Record<string, unknown>;
+    if (offer['@type'] !== 'Offer') {
       throw new Error(`${label}: offers.@type Offer requis`);
     }
-    if (offers.priceCurrency !== 'EUR') {
+    if (offer.priceCurrency !== 'EUR') {
       throw new Error(`${label}: offers.priceCurrency EUR requis`);
     }
-    if (offers.category !== FORMATION_COURSE_OFFER_CATEGORY) {
+    if (offer.category !== FORMATION_COURSE_OFFER_CATEGORY) {
       throw new Error(
-        `${label}: offers.category « ${FORMATION_COURSE_OFFER_CATEGORY} » requis (${String(offers.category)})`,
+        `${label}: offers.category « ${FORMATION_COURSE_OFFER_CATEGORY} » requis (${String(offer.category)})`,
       );
     }
   }

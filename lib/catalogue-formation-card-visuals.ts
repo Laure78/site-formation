@@ -1,8 +1,8 @@
 /**
  * Visuels cartes catalogue `/formations` — photos existantes par ref formation.
  */
-import type { FormationCatalogueCode } from '@/data/formations';
-import { PHOTOS, type PhotoAsset } from '@/lib/photos';
+import type { FormationCatalogueCode } from '@/lib/formation-catalogue-visibility';
+import { PHOTOS } from '@/lib/photos';
 import {
   Bot,
   Briefcase,
@@ -14,8 +14,10 @@ import {
   type LucideIcon,
 } from 'lucide-react';
 
+type CataloguePhoto = (typeof PHOTOS)[keyof typeof PHOTOS];
+
 export type CatalogueCardVisual = {
-  photo: PhotoAsset;
+  photo: CataloguePhoto;
   Icon: LucideIcon;
 };
 
@@ -30,8 +32,6 @@ const REF_VISUALS: Partial<Record<FormationCatalogueCode, CatalogueCardVisual>> 
 };
 
 export function getCatalogueFormationCardVisual(ref: string): CatalogueCardVisual | null {
-  if (ref in REF_VISUALS) {
-    return REF_VISUALS[ref as FormationCatalogueCode];
-  }
-  return null;
+  const visual = REF_VISUALS[ref as FormationCatalogueCode];
+  return visual ?? null;
 }

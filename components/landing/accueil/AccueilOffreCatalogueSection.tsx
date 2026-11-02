@@ -13,6 +13,7 @@ import {
 import { LINKS } from '@/lib/internal-links';
 import {
   OFC_CARD,
+  OFC_CTA_PRIMARY,
   OFC_CTA_SECONDARY,
   OFC_TYPE_H3,
 } from '@/lib/ofc-interaction-classes';

@@ -2,7 +2,6 @@ import Link from 'next/link';
 import type { ReactNode } from 'react';
 import { Eyebrow } from '@/components/ui/Eyebrow';
 import { AccueilPrendreRdvLink } from '@/components/landing/accueil/AccueilPrendreRdvLink';
-import { CTA_RDV_LABEL } from '@/components/CtaRdv';
 import { LINKS } from '@/lib/internal-links';
 import { OFC_CTA_PRIMARY, OFC_CTA_SECONDARY } from '@/lib/ofc-interaction-classes';
 import { cn } from '@/lib/cn';
@@ -54,9 +53,7 @@ export function CTASection({
             <AccueilPrendreRdvLink
               origin={origin}
               className={`${OFC_CTA_PRIMARY} inline-flex min-h-11 w-full items-center justify-center border-0 bg-white px-6 py-3 text-ofc-accent shadow-none hover:bg-white/95 sm:w-auto`}
-            >
-              {CTA_RDV_LABEL}
-            </AccueilPrendreRdvLink>
+            />
             <Link
               href={secondaryHref}
               className={`${OFC_CTA_SECONDARY} min-h-11 w-full border-white/40 bg-transparent px-6 py-3 text-white hover:border-white hover:bg-white/10 hover:text-white sm:w-auto`}
