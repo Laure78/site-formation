@@ -41,7 +41,7 @@ export const A_PROPOS_ORGANISME_INTRO =
 
 /** Bloc GEO « En bref » — page organisme / entité. */
 export const A_PROPOS_PAGE_EN_BREF =
-  "Laure Olivié, organisme de formation certifié Qualiopi (OFC Création d'Entreprise), est spécialisé en intelligence artificielle appliquée au bâtiment et aux travaux publics. Les sessions (Claude, ChatGPT) couvrent devis, DCE, mémoires techniques et comptes rendus — en présentiel en Île-de-France, pour dirigeants, conducteurs de travaux et fonctions support.";
+  "OFC Création d'Entreprise (marque Laure Olivié) est un organisme de formation certifié Qualiopi, spécialisé en intelligence artificielle appliquée au bâtiment et aux travaux publics. Les sessions (Claude, ChatGPT) couvrent devis, DCE, mémoires techniques et comptes rendus — en présentiel en Île-de-France, pour dirigeants, conducteurs de travaux et fonctions support.";
 
 /** Description JSON-LD Person — page À propos uniquement (facts vérifiés). */
 export function getAProposPagePersonDescription(): string {

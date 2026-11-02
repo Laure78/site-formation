@@ -13,7 +13,13 @@ export const ROBOTS_SITEMAP = `${SITE_BASE}/sitemap.xml`;
  * Zones privées — non crawlables (robots.txt).
  * Auth, LMS apprenant, routes API uniquement.
  */
-export const PRIVATE_DISALLOW = ['/api/', '/auth/', '/espace-apprenant/'] as const;
+export const PRIVATE_DISALLOW = [
+  '/api/',
+  '/auth/',
+  '/admin/',
+  '/acces-admin',
+  '/espace-apprenant/',
+] as const;
 
 /** Moteurs de recherche classiques. */
 export const SEARCH_BOTS = ['Googlebot', 'Bingbot'] as const;

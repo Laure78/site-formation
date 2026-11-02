@@ -11,7 +11,13 @@ import {
   ROBOTS_SITEMAP,
 } from '../lib/robots-txt';
 
-const REQUIRED_DISALLOW = ['/api/', '/auth/', '/espace-apprenant/'] as const;
+const REQUIRED_DISALLOW = [
+  '/api/',
+  '/auth/',
+  '/admin/',
+  '/acces-admin',
+  '/espace-apprenant/',
+] as const;
 
 for (const path of REQUIRED_DISALLOW) {
   assert.ok(

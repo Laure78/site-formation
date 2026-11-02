@@ -8,11 +8,18 @@ import {
 } from '@/lib/formation-ia-conducteur-de-travaux-landing';
 import { createPageMetadata, getBreadcrumbSchema, getFAQSchema } from '@/lib/seo';
 import {
-  FORMATION_COURSE_DURATION_ISO,
-  FORMATION_COURSE_MODE_ONSITE,
+  FORMATION_COURSE_OFFER_CATEGORY,
+  buildFormationFicheCourseNode,
 } from '@/lib/schema-formation-course-jsonld';
-import { SCHEMA_ORGANIZATION_OFC, SCHEMA_PUBLIC_SITE_URL } from '@/lib/schema-constants';
-import { SESSION_DUREE_LIBELLE, TARIF_FORFAIT_DEBUTANT_HT } from '@/lib/tarifs-sessions';
+import { formationTimeRequiredIso } from '@/data/formations';
+import {
+  SCHEMA_LINKEDIN_PROFILE_URL,
+  SCHEMA_ORGANIZATION_OFC,
+  SCHEMA_PERSON_LAURE,
+  SCHEMA_PUBLIC_SITE_URL,
+} from '@/lib/schema-constants';
+import { TARIF_PARTICIPANT_NIV03_HT } from '@/lib/tarifs-catalogue-participant';
+import { buildSiteCalendlyCtaUrl } from '@/lib/calendly';
 import {
   CONDUCTEUR_FAQ_EXTRA,
   CONDUCTEUR_PROMPTS,
@@ -73,34 +80,40 @@ function stripJsonLdContext(node: Record<string, unknown>): Record<string, unkno
 /** @graph unique — Course + FAQPage + BreadcrumbList (données visibles sur la page). */
 function buildFormationIaConducteurDeTravauxJsonLdGraph(): Record<string, unknown> {
   const base = SCHEMA_PUBLIC_SITE_URL.replace(/\/$/, '');
-  const pageUrl = `${base}${FORMATION_IA_CONDUCTEUR_DE_TRAVAUX_PATH}`;
 
+  const courseDurationIso = formationTimeRequiredIso('NIV-03');
   const course: Record<string, unknown> = {
-    '@type': 'Course',
-    '@id': `${pageUrl}#course`,
-    name: COURSE_SCHEMA_NAME,
-    description: PAGE_CONFIG.shortAnswer,
-    url: pageUrl,
+    ...buildFormationFicheCourseNode({
+      name: COURSE_SCHEMA_NAME,
+      description: PAGE_CONFIG.shortAnswer ?? PAGE_DESCRIPTION,
+      path: FORMATION_IA_CONDUCTEUR_DE_TRAVAUX_PATH,
+      courseCode: 'NIV-03',
+      timeRequired: courseDurationIso,
+      instructorName: SCHEMA_PERSON_LAURE.name,
+      teaches: [...PAGE_CONFIG.courseTeaches],
+      keywords:
+        'formation IA conducteur de travaux, bâtiment, construction, ChatGPT, Claude AI, suivi chantier',
+    }),
     provider: {
       '@type': 'Organization',
+      '@id': `${base}/#organization`,
       name: SCHEMA_ORGANIZATION_OFC.name,
       url: base,
     },
-    hasCourseInstance: [
-      {
-        '@type': 'CourseInstance',
-        courseMode: FORMATION_COURSE_MODE_ONSITE,
-        courseWorkload: FORMATION_COURSE_DURATION_ISO,
-        location: {
-          '@type': 'Place',
-          name: 'Île-de-France, FR',
-        },
-      },
-    ],
+    instructor: {
+      '@type': 'Person',
+      name: SCHEMA_PERSON_LAURE.name,
+      jobTitle: SCHEMA_PERSON_LAURE.jobTitle,
+      url: `${base}/a-propos`,
+      sameAs: SCHEMA_LINKEDIN_PROFILE_URL,
+    },
     offers: {
       '@type': 'Offer',
-      price: String(TARIF_FORFAIT_DEBUTANT_HT),
+      price: String(TARIF_PARTICIPANT_NIV03_HT),
       priceCurrency: 'EUR',
+      category: FORMATION_COURSE_OFFER_CATEGORY,
+      availability: 'https://schema.org/InStock',
+      url: buildSiteCalendlyCtaUrl('formation-ia-conducteur-de-travaux-schema-offer'),
     },
   };
 
