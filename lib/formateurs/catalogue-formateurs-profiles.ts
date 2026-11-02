@@ -58,7 +58,7 @@ const JULIEN_MOREL: FormateurProfile = {
   ],
   portrait: photoPortrait(PHOTOS.formateurJulienMorel),
   status: 'confirmed',
-  publie: false,
+  publie: true,
 };
 
 const THOMAS_GARNIER: FormateurProfile = {
@@ -90,7 +90,7 @@ const THOMAS_GARNIER: FormateurProfile = {
   ],
   portrait: photoPortrait(PHOTOS.formateurThomasGarnier),
   status: 'confirmed',
-  publie: false,
+  publie: true,
 };
 
 const MARC_DELCOURT: FormateurProfile = {
@@ -122,7 +122,7 @@ const MARC_DELCOURT: FormateurProfile = {
   ],
   portrait: photoPortrait(PHOTOS.formateurMarcDelcourt),
   status: 'confirmed',
-  publie: false,
+  publie: true,
 };
 
 const NICOLAS_PERRIN: FormateurProfile = {
@@ -277,7 +277,7 @@ const FRANCOIS_BEGUIN: FormateurProfile = {
 
 /**
  * Hub /formateurs — intervenants catalogue parcours métiers 2027.
- * TODO(Laure) : renseigner `affichageHub: 'a-confirmer'` sur tout profil non publiable en production.
+ * `publie: false` ou `affichageHub: 'a-confirmer'` masque un profil sur /formateurs en production.
  */
 export const CATALOGUE_FORMATEURS: readonly FormateurProfile[] = [
   JULIEN_MOREL,

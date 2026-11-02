@@ -8,7 +8,11 @@ export const FORMATEURS_PAGE_HERO = {
   titleAfter: ' qui vous accompagnent',
   intro:
     'Une expertise métier et une pédagogie concrète pour les professionnels du bâtiment et des travaux publics.',
-  badges: ['Expertise BTP', 'IA appliquée aux métiers', 'Présentiel Île-de-France'] as const,
+  badges: [
+    { key: 'expertise', label: 'Expertise BTP' },
+    { key: 'ia', label: 'IA appliquée aux métiers' },
+    { key: 'idf', label: 'Présentiel Île-de-France' },
+  ] as const,
   primaryCtaLabel: 'Découvrir les formateurs',
   primaryCtaHash: '#notre-equipe',
   secondaryCtaLabel: 'Trouver ma formation',

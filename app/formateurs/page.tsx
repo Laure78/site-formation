@@ -19,13 +19,13 @@ import { createPageMetadata, SITE_CONFIG } from '@/lib/seo';
 
 export const revalidate = 3600;
 
-const PAGE_TITLE = 'Nos formateurs IA BTP | Laure Olivié';
+const PAGE_TITLE = 'Les formateurs qui vous accompagnent | Laure Olivié';
 const PAGE_DESCRIPTION =
-  'Découvrez les formateurs de Laure Olivié et une pédagogie concrète pour apprendre à utiliser l’IA dans les métiers du bâtiment et des travaux publics.';
+  'Découvrez les formateurs Laure Olivié : expertise métier BTP et pédagogie concrète pour utiliser l’IA en présentiel en Île-de-France.';
 
 export const metadata: Metadata = {
   ...createPageMetadata({
-    title: 'Nos formateurs IA BTP',
+    title: 'Les formateurs qui vous accompagnent',
     titleAbsolute: PAGE_TITLE,
     description: PAGE_DESCRIPTION,
     descriptionFinal: true,

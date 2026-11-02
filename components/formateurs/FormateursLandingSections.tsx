@@ -8,6 +8,7 @@ import {
   ClipboardList,
   FileStack,
   HardHat,
+  Layers,
   MapPin,
   ScrollText,
   Sparkles,
@@ -62,6 +63,13 @@ const METIER_ICONS: Record<(typeof FORMATEURS_METIERS_SECTION.items)[number]['ke
     ia: Brain,
   };
 
+const HERO_BADGE_ICONS: Record<(typeof FORMATEURS_PAGE_HERO.badges)[number]['key'], LucideIcon> =
+  {
+    expertise: Check,
+    ia: Layers,
+    idf: MapPin,
+  };
+
 function SectionTitleUnderline({ children, id }: { children: ReactNode; id?: string }) {
   return (
     <div className="text-center">
@@ -85,7 +93,7 @@ export function FormateursHeroSection() {
         <div className="grid min-w-0 gap-8 lg:grid-cols-2 lg:items-center lg:gap-10 xl:gap-14">
           <RevealShell className="min-w-0" as="div">
             <p
-              className={`inline-block rounded-md ${SOFT_BG} px-3 py-1.5 text-xs font-bold uppercase tracking-[0.14em] ${INK}`}
+              className={`inline-block rounded-full ${SOFT_BG} px-4 py-1.5 text-[11px] font-bold uppercase tracking-[0.12em] ${INK}`}
             >
               {H.eyebrow}
             </p>
@@ -98,16 +106,21 @@ export function FormateursHeroSection() {
               {H.intro}
             </p>
 
-            <ul className="mt-5 flex flex-wrap gap-2">
-              {H.badges.map((label) => (
-                <li
-                  key={label}
-                  className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-white px-3 py-1.5 text-sm font-medium text-slate-700"
-                >
-                  <Check className="h-3.5 w-3.5 text-[#377CF3]" aria-hidden />
-                  {label}
-                </li>
-              ))}
+            <ul className="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:gap-x-6 sm:gap-y-3">
+              {H.badges.map(({ key, label }) => {
+                const Icon = HERO_BADGE_ICONS[key];
+                return (
+                  <li key={key} className="inline-flex min-w-0 items-center gap-2.5 text-sm font-semibold text-slate-700">
+                    <span
+                      className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#377CF3]/12 text-[#377CF3]"
+                      aria-hidden
+                    >
+                      <Icon className="h-4 w-4" strokeWidth={2.25} />
+                    </span>
+                    {label}
+                  </li>
+                );
+              })}
             </ul>
 
             <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
@@ -200,7 +213,7 @@ export function FormateursTeamSection({ formateurs }: TeamSectionProps) {
             {T.intro}
           </p>
 
-          <ul className="mt-10 grid list-none grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4">
+          <ul className="mt-10 grid list-none grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {formateurs.map((f, index) => (
               <RevealShell
                 key={f.id}
@@ -283,10 +296,12 @@ export function FormateursPedagogieSection() {
             <ul className="mt-6 space-y-4">
               {P.points.map((point) => (
                 <li key={point} className="flex gap-3 text-base leading-relaxed text-slate-700">
-                  <Check
-                    className="mt-0.5 h-5 w-5 shrink-0 text-[#377CF3]"
+                  <span
+                    className="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[#377CF3] text-white"
                     aria-hidden
-                  />
+                  >
+                    <Check className="h-4 w-4" strokeWidth={2.75} />
+                  </span>
                   <span>{point}</span>
                 </li>
               ))}
@@ -309,7 +324,7 @@ export function FormateursPrimaryCtaSection() {
     >
       <div className={OFC_SECTION_INNER}>
         <RevealShell distance={12}>
-          <div className="relative overflow-hidden rounded-2xl bg-[#101936] px-6 py-10 text-center text-white sm:px-10 md:px-14 md:py-12">
+          <div className="relative overflow-hidden rounded-2xl bg-[#101936] px-6 py-8 text-white sm:px-8 md:px-10 md:py-10">
             <div
               className="pointer-events-none absolute inset-0 opacity-40"
               style={{
@@ -318,15 +333,18 @@ export function FormateursPrimaryCtaSection() {
               }}
               aria-hidden
             />
-            <div className="relative mx-auto max-w-2xl">
-              <h2 id="formateurs-primary-cta" className="font-display text-xl font-bold text-pretty md:text-2xl">
+            <div className="relative grid gap-8 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.95fr)_auto] lg:items-center lg:gap-6 xl:gap-10">
+              <h2
+                id="formateurs-primary-cta"
+                className="font-display text-xl font-bold text-pretty md:text-2xl lg:max-w-sm"
+              >
                 {C.heading}
               </h2>
-              <p className="mx-auto mt-4 max-w-xl text-base leading-relaxed text-white/90">{C.body}</p>
-              <div className="mt-8 flex flex-col items-center gap-4">
+              <p className="text-base leading-relaxed text-white/85 lg:max-w-md">{C.body}</p>
+              <div className="flex flex-col items-start gap-3 lg:items-end lg:justify-self-end">
                 <CtaVisio
                   src={C.visioSrc}
-                  className="inline-flex min-h-11 w-full items-center justify-center border-0 bg-[#377CF3] px-6 py-3 shadow-none hover:bg-[#2f6bd4] sm:w-auto"
+                  className="inline-flex min-h-11 w-full items-center justify-center border-0 bg-white px-5 py-3 text-center text-sm font-semibold text-[#377CF3] shadow-md hover:bg-slate-100 sm:w-auto sm:text-base"
                 />
                 <a
                   href={`mailto:${CONTACT.email}`}
@@ -352,14 +370,22 @@ export function FormateursRecrutementBandSection() {
       aria-labelledby="formateurs-recrutement-band"
     >
       <div className={`${OFC_SECTION_INNER} py-8 md:py-10`}>
-        <div className="mx-auto max-w-3xl text-center">
-          <h2 id="formateurs-recrutement-band" className={`${OFC_TYPE_H2} ${INK} text-pretty`}>
-            {R.heading}
-          </h2>
-          <p className="mt-3 text-base leading-relaxed text-slate-600">{R.body}</p>
+        <div className="grid gap-6 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)_auto] lg:items-center lg:gap-8">
+          <div className="flex min-w-0 items-start gap-3">
+            <span
+              className="mt-0.5 flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[#377CF3]/12 text-[#377CF3]"
+              aria-hidden
+            >
+              <Users className="h-5 w-5" strokeWidth={2.25} />
+            </span>
+            <h2 id="formateurs-recrutement-band" className={`${OFC_TYPE_H2} ${INK} text-pretty`}>
+              {R.heading}
+            </h2>
+          </div>
+          <p className="text-base leading-relaxed text-slate-600 lg:max-w-md">{R.body}</p>
           <Link
             href={LINKS.nousRejoindre}
-            className={`${OFC_CTA_SECONDARY} mt-6 inline-flex min-h-11 items-center justify-center rounded-lg px-6 py-2.5 text-base font-semibold`}
+            className={`${OFC_CTA_SECONDARY} inline-flex min-h-11 w-full items-center justify-center rounded-lg px-6 py-2.5 text-base font-semibold lg:w-auto lg:justify-self-end`}
           >
             {R.ctaLabel}
           </Link>
