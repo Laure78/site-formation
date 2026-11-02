@@ -11,13 +11,9 @@ import {
   ROBOTS_SITEMAP,
 } from '../lib/robots-txt';
 
-const REQUIRED_DISALLOW = [
-  '/api/',
-  '/auth/',
-  '/admin/',
-  '/acces-admin',
-  '/espace-apprenant/',
-] as const;
+const REQUIRED_DISALLOW = ['/api/', '/auth/', '/espace-apprenant/'] as const;
+
+const FORBIDDEN_DISALLOW = ['/admin/', '/acces-admin'] as const;
 
 for (const path of REQUIRED_DISALLOW) {
   assert.ok(
@@ -44,6 +40,14 @@ for (const bot of AI_BOTS_REQUIRED) {
 
 for (const path of REQUIRED_DISALLOW) {
   assert.match(txt, new RegExp(`Disallow: ${path.replace(/\//g, '\\/')}`, 'm'), `Disallow ${path} absent`);
+}
+
+for (const path of FORBIDDEN_DISALLOW) {
+  assert.doesNotMatch(
+    txt,
+    new RegExp(`Disallow: ${path.replace(/\//g, '\\/')}`, 'm'),
+    `Disallow ${path} ne doit pas figurer (hors périmètre)`,
+  );
 }
 
 console.log('assert-robots-txt : OK');

@@ -11,15 +11,9 @@ export const ROBOTS_SITEMAP = `${SITE_BASE}/sitemap.xml`;
 
 /**
  * Zones privées — non crawlables (robots.txt).
- * Auth, LMS apprenant, routes API uniquement.
+ * Auth, LMS apprenant, routes API uniquement (aucun autre Disallow).
  */
-export const PRIVATE_DISALLOW = [
-  '/api/',
-  '/auth/',
-  '/admin/',
-  '/acces-admin',
-  '/espace-apprenant/',
-] as const;
+export const PRIVATE_DISALLOW = ['/api/', '/auth/', '/espace-apprenant/'] as const;
 
 /** Moteurs de recherche classiques. */
 export const SEARCH_BOTS = ['Googlebot', 'Bingbot'] as const;
@@ -39,7 +33,8 @@ export const AI_BOTS_REQUIRED = [
   'Applebot-Extended',
 ] as const;
 
-export const AI_BOTS = [...AI_BOTS_REQUIRED, 'Claude-User', 'anthropic-ai', 'Perplexity-User'] as const;
+/** Bots IA nommés dans robots.txt (liste projet + Perplexity-User, .cursorrules). */
+export const AI_BOTS = [...AI_BOTS_REQUIRED, 'Perplexity-User'] as const;
 
 const DISALLOW_PATHS: string[] = [...PRIVATE_DISALLOW];
 

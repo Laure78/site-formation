@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { enrichPageDescription } from '@/lib/meta-description';
+import { siteMetadataGeoOther } from '@/lib/site-config';
 
 /** og:site_name — cohérence sur tout le site */
 export const OG_SITE_NAME = 'Laure Olivié — Formation IA BTP';
@@ -396,7 +397,9 @@ export function buildPageMetadata({
     article,
   });
 
-  const other: Record<string, string> = {};
+  const other: Record<string, string> = {
+    ...siteMetadataGeoOther(),
+  };
   if (ogType === 'article' && article) {
     const pub = toIso8601Utc(article.publishedTime);
     const mod = toIso8601Utc(article.modifiedTime ?? article.publishedTime);

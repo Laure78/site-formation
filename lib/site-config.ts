@@ -69,7 +69,11 @@ export const SITE = {
     rue: '61 rue de Lyon',
     cp: '75012',
     ville: 'Paris',
-    /** OpenStreetMap Nominatim (node 1352821643) — 61 Rue de Lyon, 75012 Paris. */
+    /**
+     * WGS84 — OpenStreetMap Nominatim (node osm_id 1352821643, place_rank 30).
+     * Requête : street=61 Rue de Lyon, postalcode=75012, city=Paris → lat 48.8505861, lon 2.3701351.
+     * Arrondi à 4 décimales pour meta geo.position / ICBM et JSON-LD GeoCoordinates.
+     */
     lat: 48.8506,
     lng: 2.3701,
   },
@@ -114,11 +118,11 @@ export function siteSiegeParis12(): string {
   return 'Paris 12e';
 }
 
-/** Lieu des sessions inter-entreprises (texte complet). */
-export const SITE_INTER_LIEU = 'Inter à Paris 12e (61 rue de Lyon)' as const;
+/** Lieu inter — libellé court réutilisable (siège = sessions inter). */
+export const SITE_INTER_LIEU_COURT = `${siteSiegeParis12()} (${SITE.adresse.rue})` as const;
 
-/** Lieu inter — libellé court réutilisable. */
-export const SITE_INTER_LIEU_COURT = 'Paris 12e (61 rue de Lyon)' as const;
+/** Lieu des sessions inter-entreprises (texte complet). */
+export const SITE_INTER_LIEU = `Inter à ${SITE_INTER_LIEU_COURT}` as const;
 
 /** Variante « Inter : … » (catalogue Qualiopi). */
 export const SITE_INTER_LIEU_PREFIX = `Inter : ${SITE_INTER_LIEU_COURT}` as const;

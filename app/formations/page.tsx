@@ -12,7 +12,6 @@ import { FormationsContact2027 } from '@/components/formations/catalogue-2027/Fo
 import { FormationsCatalogueFaqSection } from '@/components/formations/catalogue-2027/FormationsCatalogueFaqSection';
 import { FormationsCatalogueMobileBar } from '@/components/formations/catalogue-2027/FormationsCatalogueMobileBar';
 import { buildFormationsPageUnifiedGraphJsonLd } from '@/lib/schema-formations-page-graph';
-import { siteMetadataGeoOther } from '@/lib/site-config';
 import { parseFormationsCataloguePageFilters } from '@/lib/catalogue-filter-url';
 
 const baseUrl = SITE_CONFIG.url.replace(/\/$/, '');
@@ -62,7 +61,6 @@ export async function generateMetadata({ searchParams }: FormationsPageProps): P
       canonical: `${baseUrl}/formations`,
       languages: { 'fr-FR': `${baseUrl}/formations` },
     },
-    other: siteMetadataGeoOther(),
   };
 }
 

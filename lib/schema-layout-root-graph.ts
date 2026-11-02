@@ -3,14 +3,20 @@
  * Identité : `SITE` (`lib/site-config.ts`) · logo : `schema-constants`.
  */
 import { SCHEMA_PUBLIC_SITE_URL, schemaLogoUrl } from '@/lib/schema-constants';
-import { buildSiteLayoutEducationalOrganizationNode } from '@/lib/site-config';
+import {
+  buildSiteAProposPersonSchemaNode,
+  buildSiteLayoutEducationalOrganizationNode,
+} from '@/lib/site-config';
 
 /** `@graph` injecté dans `app/layout.tsx` via `<GlobalSiteJsonLd />`. */
 export function buildLayoutRootJsonLdGraph(): Record<string, unknown> {
   const base = SCHEMA_PUBLIC_SITE_URL.replace(/\/$/, '');
   return {
     '@context': 'https://schema.org',
-    '@graph': [buildSiteLayoutEducationalOrganizationNode(base, schemaLogoUrl())],
+    '@graph': [
+      buildSiteLayoutEducationalOrganizationNode(base, schemaLogoUrl()),
+      buildSiteAProposPersonSchemaNode(base),
+    ],
   };
 }
 

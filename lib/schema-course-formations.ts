@@ -13,11 +13,13 @@ import {
 } from '@/lib/schema-formation-course-jsonld';
 import { buildQualiopiCredentialSchema } from '@/lib/qualiopi-info';
 import { SCHEMA_CONTACT } from '@/lib/schema-constants';
+import { SITE, siteSchemaOrganizationId } from '@/lib/site-config';
 import { tarifHtDepuisBadgeCatalogue } from '@/lib/tarifs-sessions';
 import { getTarifApplicationMetierBtpHt } from '@/lib/tarifs-applications-metier-btp';
 
+/** @deprecated Préférer `siteSchemaOrganizationId(base)` — `#organization` (layout). */
 export const EDUCATIONAL_ORGANIZATION_FRAGMENT_ID =
-  `${SITE_CONFIG.url}/#educational-organization` as const;
+  `${SITE_CONFIG.url.replace(/\/$/, '')}/#organization` as const;
 
 export type NiveauCatalogue = 'DÉBUTANT' | 'AVANCÉ';
 
@@ -172,7 +174,7 @@ function buildCourseObject(entry: FormationCatalogEntry): Record<string, unknown
       courseCode: entry.ref,
       educationalLevel: educationalLevelSchema(entry.level),
       teaches: entry.teaches,
-      organizationId: EDUCATIONAL_ORGANIZATION_FRAGMENT_ID,
+      organizationId: siteSchemaOrganizationId(base),
     }),
     occupationalCategory: entry.occupationalCategory,
     offers: buildCatalogOffer(entry, courseUrl),
@@ -187,14 +189,16 @@ export function getFormationsCatalogJsonLd(): Record<string, unknown> {
     '@graph': [
       {
         '@type': 'EducationalOrganization',
-        '@id': EDUCATIONAL_ORGANIZATION_FRAGMENT_ID,
-        name: SITE_CONFIG.name,
-        url: SITE_CONFIG.url,
-        sameAs: 'https://www.linkedin.com/in/laure-olivie',
+        '@id': siteSchemaOrganizationId(SITE_CONFIG.url.replace(/\/$/, '')),
+        name: SITE.raisonSociale,
+        alternateName: SITE.marque,
+        url: SITE_CONFIG.url.replace(/\/$/, ''),
+        email: SITE.contact.email,
+        telephone: SITE.contact.telIntl,
         identifier: {
           '@type': 'PropertyValue',
           name: 'SIRET',
-          value: SCHEMA_CONTACT.siretFormatted,
+          value: SITE.siret,
         },
         hasCredential: buildQualiopiCredentialSchema(),
       },

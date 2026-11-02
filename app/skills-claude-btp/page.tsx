@@ -2,19 +2,26 @@ import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Download, Package } from 'lucide-react';
+import { EnBref } from '@/app/components/EnBref';
 import { ExternalLinkAnchor } from '@/components/ExternalLink';
 import { JsonLd } from '@/components/JsonLd';
+import { FAQSection } from '@/components/landing/FAQSection';
+import { ContentUpdatedLine } from '@/components/seo/ContentUpdatedLine';
 import { SchemaHowTo } from '@/components/seo/SchemaHowTo';
 import { LINKS } from '@/lib/internal-links';
-import { SCHEMA_ORGANIZATION_OFC, SCHEMA_PERSON_LAURE } from '@/lib/schema-constants';
 import { createPageMetadata, SITE_CONFIG } from '@/lib/seo';
 import {
   ANTHROPIC_SKILLS_DOCS,
+  buildSkillsClaudeBtpPageJsonLd,
   SKILLS_CLAUDE_BTP_CARDS,
   SKILLS_CLAUDE_BTP_CONTROLES,
+  SKILLS_CLAUDE_BTP_CONTENT_UPDATED_AT,
+  SKILLS_CLAUDE_BTP_EN_BREF,
+  SKILLS_CLAUDE_BTP_FAQ,
   SKILLS_CLAUDE_BTP_IMAGE,
   SKILLS_CLAUDE_BTP_INSTALL_STEPS,
   SKILLS_CLAUDE_BTP_INTRO,
+  SKILLS_CLAUDE_BTP_LICENSE_MENTION,
   SKILLS_CLAUDE_BTP_META,
   SKILLS_CLAUDE_BTP_PREPARER,
   SKILLS_VS_PROMPT_PROJET,
@@ -53,95 +60,11 @@ const btnCard =
 const linkClass =
   'font-medium text-[#377CF3] underline-offset-2 hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#377CF3]';
 
-const pageJsonLd = {
-  '@context': 'https://schema.org',
-  '@graph': [
-    {
-      '@type': 'WebPage',
-      '@id': `${CANONICAL}#webpage`,
-      url: CANONICAL,
-      name: META_TITLE,
-      description: META_DESCRIPTION,
-      inLanguage: 'fr-FR',
-      isPartOf: { '@type': 'WebSite', name: SITE_CONFIG.name, url: BASE },
-      about: { '@type': 'Thing', name: 'Skills Claude BTP' },
-      primaryImageOfPage: {
-        '@type': 'ImageObject',
-        url: `${BASE}${SKILLS_CLAUDE_BTP_IMAGE.src}`,
-        width: SKILLS_CLAUDE_BTP_IMAGE.width,
-        height: SKILLS_CLAUDE_BTP_IMAGE.height,
-        caption: SKILLS_CLAUDE_BTP_IMAGE.alt,
-      },
-      author: SCHEMA_PERSON_LAURE,
-      publisher: SCHEMA_ORGANIZATION_OFC,
-    },
-    {
-      '@type': 'LearningResource',
-      '@id': `${CANONICAL}#resource`,
-      name: SKILLS_CLAUDE_BTP_META.h1,
-      description: META_DESCRIPTION,
-      url: CANONICAL,
-      inLanguage: 'fr-FR',
-      isAccessibleForFree: true,
-      learningResourceType: 'Guide',
-      educationalLevel: 'beginner',
-      author: SCHEMA_PERSON_LAURE,
-      provider: SCHEMA_ORGANIZATION_OFC,
-      about: [
-        { '@type': 'Thing', name: 'Skills Claude BTP' },
-        { '@type': 'Thing', name: 'Assistants IA pour le bâtiment' },
-      ],
-    },
-    {
-      '@type': 'BreadcrumbList',
-      '@id': `${CANONICAL}#breadcrumb`,
-      itemListElement: [
-        {
-          '@type': 'ListItem',
-          position: 1,
-          name: 'Accueil',
-          item: BASE,
-        },
-        {
-          '@type': 'ListItem',
-          position: 2,
-          name: 'Skills Claude BTP',
-          item: CANONICAL,
-        },
-      ],
-    },
-    {
-      '@type': 'FAQPage',
-      '@id': `${CANONICAL}#faq`,
-      mainEntity: [
-        {
-          '@type': 'Question',
-          name: 'Qu’est-ce qu’un Skill Claude ?',
-          acceptedAnswer: {
-            '@type': 'Answer',
-            text: SKILLS_CLAUDE_BTP_INTRO.definition,
-          },
-        },
-        {
-          '@type': 'Question',
-          name: 'Comment créer et utiliser un Skill Claude pour le BTP ?',
-          acceptedAnswer: {
-            '@type': 'Answer',
-            text: 'Téléchargez un .zip sur cette page, importez-le via Personnalisation → Compétences sur claude.ai, activez-le puis joignez votre document métier. Vérifiez toujours les résultats avant usage.',
-          },
-        },
-        {
-          '@type': 'Question',
-          name: 'Quels contrôles effectuer sur les résultats d’un Skill ?',
-          acceptedAnswer: {
-            '@type': 'Answer',
-            text: SKILLS_CLAUDE_BTP_CONTROLES.join(' '),
-          },
-        },
-      ],
-    },
-  ],
-};
+const pageJsonLd = buildSkillsClaudeBtpPageJsonLd({
+  canonical: CANONICAL,
+  metaTitle: META_TITLE,
+  metaDescription: META_DESCRIPTION,
+});
 
 export default function SkillsClaudeBtpPage() {
   return (
@@ -162,6 +85,8 @@ export default function SkillsClaudeBtpPage() {
           <h1 className="mt-3 font-display text-2xl font-bold leading-tight text-slate-900 md:text-2xl">
             {SKILLS_CLAUDE_BTP_META.h1}
           </h1>
+          <EnBref text={SKILLS_CLAUDE_BTP_EN_BREF} className="max-w-3xl" />
+          <ContentUpdatedLine date={SKILLS_CLAUDE_BTP_CONTENT_UPDATED_AT} className="mt-3 max-w-3xl text-xs text-slate-500" />
           <p className="mt-5 max-w-3xl text-base leading-relaxed text-slate-800 md:text-lg">
             {SKILLS_CLAUDE_BTP_INTRO.definition}
           </p>
@@ -248,7 +173,7 @@ export default function SkillsClaudeBtpPage() {
               Quels usages pour une entreprise du BTP ?
             </h2>
             <p className="mt-3 max-w-2xl text-base leading-relaxed text-slate-600">
-              Cinq Skills Claude BTP prêts à importer — exemples pédagogiques à adapter à vos
+              Six Skills Claude BTP prêts à importer — exemples pédagogiques à adapter à vos
               méthodes. Complétez les zones métier de votre entreprise. Voir aussi la{' '}
               <Link href={LINKS.bibliothequeSkills} className={linkClass}>
                 bibliothèque de skills Claude BTP
@@ -297,6 +222,10 @@ export default function SkillsClaudeBtpPage() {
                 </li>
               ))}
             </ul>
+
+            <p className="mt-8 max-w-3xl text-sm leading-relaxed text-slate-600">
+              {SKILLS_CLAUDE_BTP_LICENSE_MENTION}
+            </p>
 
             <div id="pack-complet" className="mt-10 flex justify-center scroll-mt-28">
               <a href={LINKS.skillsClaudeBtpPackComplet} className={btnPack} download>
@@ -364,7 +293,7 @@ export default function SkillsClaudeBtpPage() {
             </figure>
 
             <p className="mt-6 text-sm leading-relaxed text-slate-600">
-              Pour industrialiser Projets, Skills et Cowork en formation présentielle
+              Pour industrialiser Projets, Skills et Cowork en formation présentiel
               Île-de-France&nbsp;:{' '}
               <Link href={LINKS.formationMaitriserClaudeAiBtp} className={linkClass}>
                 formation Maîtriser Claude AI pour le BTP
@@ -441,6 +370,14 @@ export default function SkillsClaudeBtpPage() {
             </ul>
           </div>
         </section>
+
+        <FAQSection
+          items={SKILLS_CLAUDE_BTP_FAQ}
+          title="Questions fréquentes — Skills Claude BTP"
+          subtitle="Réponses courtes sur l’import, la confidentialité et la licence CC BY 4.0."
+          id="faq"
+          className="border-t border-slate-200 bg-white py-12 md:py-14"
+        />
 
         <section
           className="border-t border-slate-200 bg-[#377CF3]"

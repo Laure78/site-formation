@@ -12,7 +12,11 @@ import { IMAGE_QUALITY_DEFAULT } from '@/lib/image-props';
 import { QUALIOPI_LEGAL } from '@/lib/qualiopi-info';
 import { MENTION_MARQUE_EXPLOITANTE } from '@/lib/marque-identite';
 import { SITE } from '@/lib/site';
-import { SITE as SITE_CONFIG_ROOT, siteLinkedinFollowersLabel } from '@/lib/site-config';
+import {
+  SITE as SITE_CONFIG_ROOT,
+  siteAdresseLigne,
+  siteLinkedinFollowersLabel,
+} from '@/lib/site-config';
 import { EXTERNAL_AUTHORITY_LINKS } from '@/lib/seo-links';
 import {
   NAV_FOOTER_FORMATIONS,
@@ -142,7 +146,7 @@ export function Footer() {
                   quality={IMAGE_QUALITY_DEFAULT}
                 />
               </Link>
-              <p className="mt-2 text-sm text-white/80">{SITE.address.full}</p>
+              <p className="mt-2 text-sm text-white/80">{siteAdresseLigne()}</p>
               <p className="text-sm text-white/70">Présentiel en Île-de-France</p>
             </div>
             <ul className="mt-4 space-y-0.5">
@@ -272,7 +276,7 @@ export function Footer() {
               </nav>
 
               <p className="text-xs text-white/55">
-                SIRET {SITE.siret} · NDA {SITE.nda}
+                Siège : {siteAdresseLigne()} · SIRET {SITE.siret} · NDA {SITE.nda}
               </p>
               <p className="max-w-3xl text-[11px] leading-relaxed text-white/45">{SITE.ndaMention}</p>
             </div>
