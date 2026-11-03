@@ -1,7 +1,13 @@
 import Link from 'next/link';
 import { ArrowRight, CalendarClock, CircleDollarSign, ClipboardCheck, Scale } from 'lucide-react';
 import { FINANCEMENT_BAREMES_NOTE } from '@/lib/financement-constructys-page-config';
-import { FC_CARD, FC_SECTION, FC_SUBTITLE, FC_TITLE } from '@/lib/financement-constructys-ui';
+import {
+  FC_CARD,
+  FC_ICON_SQUARE,
+  FC_SECTION,
+  FC_SUBTITLE,
+  FC_TITLE,
+} from '@/lib/financement-constructys-ui';
 
 const ESSENTIEL = [
   {
@@ -20,15 +26,14 @@ const ESSENTIEL = [
   },
   {
     titre: 'Connaître les plafonds',
-    texte:
-      'Barèmes horaires et plafonds journaliers selon l’effectif et la branche (Bâtiment, dispositif PDC).',
+    texte: 'Barèmes 2026 : 24 € ou 19 € HT/h/stagiaire selon l’effectif (Bâtiment, sous validation Constructys).',
     href: '#baremes-constructys',
     icon: Scale,
   },
   {
     titre: 'Prévoir le reste à charge',
     texte:
-      'La participation Constructys peut être partielle : le solde reste à la charge de l’entreprise après accord.',
+      'Participation partielle possible : le solde reste à la charge de l’entreprise après accord.',
     href: '#estimation-financement',
     icon: CircleDollarSign,
   },
@@ -47,16 +52,20 @@ export function FinancementEssentielSection() {
         {ESSENTIEL.map((item) => {
           const Icon = item.icon;
           return (
-            <li key={item.titre}>
+            <li key={item.titre} className="min-w-0">
               <Link
                 href={item.href}
-                className={`${FC_CARD} group flex h-full flex-col gap-3 no-underline`}
+                className={`${FC_CARD} group flex h-full min-h-[11.5rem] flex-col gap-3 no-underline`}
               >
-                <Icon className="h-6 w-6 text-[#377CF3]" strokeWidth={1.75} aria-hidden />
-                <h3 className="font-display text-base font-bold text-[#081943]">{item.titre}</h3>
-                <p className="flex-1 text-sm leading-relaxed text-ofc-ink-muted">{item.texte}</p>
+                <span className={FC_ICON_SQUARE}>
+                  <Icon className="h-5 w-5" strokeWidth={1.75} aria-hidden />
+                </span>
+                <h3 className="font-display text-[0.9375rem] font-bold text-[#081943] md:text-base">
+                  {item.titre}
+                </h3>
+                <p className="flex-1 text-sm leading-relaxed text-[#64748B]">{item.texte}</p>
                 <span
-                  className="mt-1 inline-flex h-9 w-9 items-center justify-center self-end rounded-full bg-[#377CF3] text-white transition-transform duration-200 motion-safe:group-hover:translate-x-0.5"
+                  className="inline-flex h-9 w-9 items-center justify-center self-end rounded-full bg-[#377CF3] text-white transition-transform duration-200 motion-safe:group-hover:translate-x-0.5"
                   aria-hidden
                 >
                   <ArrowRight className="h-4 w-4" />
@@ -67,7 +76,9 @@ export function FinancementEssentielSection() {
           );
         })}
       </ul>
-      <p className="mt-5 text-center text-sm italic text-ofc-ink-subtle">{FINANCEMENT_BAREMES_NOTE}</p>
+      <p className="mt-5 text-center text-xs italic text-[#94A3B8] md:text-sm">
+        {FINANCEMENT_BAREMES_NOTE}
+      </p>
     </section>
   );
 }

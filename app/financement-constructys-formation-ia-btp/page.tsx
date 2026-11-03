@@ -26,6 +26,7 @@ import { getFaqFinancementConstructysPage } from '@/lib/faq';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
 import { LINKS } from '@/lib/internal-links';
 import Link from 'next/link';
+import { FC_PAGE } from '@/lib/financement-constructys-ui';
 
 const HERO = PHOTOS.financementConstructysHero2026;
 
@@ -51,14 +52,14 @@ export default function FinancementConstructysPage() {
   const faqItems = getFaqFinancementConstructysPage();
 
   return (
-    <>
+    <div className={FC_PAGE}>
       <JsonLd data={getFinancementConstructysUnifiedJsonLd()} />
 
       <FinancementConstructysHero />
       <FinancementReassuranceBand />
 
-      <div className="financement-constructys-body mx-auto max-w-[80rem] px-4 pb-20 sm:px-6 lg:px-8">
-        <div className="space-y-12 md:space-y-16">
+      <div className="financement-constructys-body mx-auto max-w-[80rem] px-4 pb-16 sm:px-6 lg:px-8">
+        <div className="space-y-14 md:space-y-[4.5rem]">
           <FinancementEssentielSection />
           <FinancementBaremesSection />
           <FinancementEstimationCards />
@@ -67,7 +68,7 @@ export default function FinancementConstructysPage() {
           <FinancementQuiFaitQuoiSection />
           <FinancementFormationsAdapteesSection />
           <FinancementTarifsSection />
-          <FinancementOpcoEtenduSection />
+          <FinancementOpcoEtenduSection layout="maquette" />
           <FinancementConstructysFaqSection
             items={faqItems}
             title="Questions fréquentes"
@@ -100,6 +101,6 @@ export default function FinancementConstructysPage() {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }

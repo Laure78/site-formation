@@ -33,33 +33,35 @@ export function FinancementEstimationCards() {
           const photo = PHOTOS_EXEMPLES[index] ?? PHOTOS.constructysDevisFinancement;
           return (
             <article key={ex.id} className={`${FC_CARD} overflow-hidden p-0`}>
-              <div className="relative aspect-[2/1] w-full bg-[#EAF3FF]">
+              <div
+                className="relative w-full bg-[#EAF3FF]"
+                style={{ aspectRatio: `${photo.width} / ${photo.height}` }}
+              >
                 <Image
                   src={photo.src}
                   alt={photo.alt}
-                  width={photo.width}
-                  height={photo.height}
-                  className="h-full w-full object-cover object-center"
+                  fill
+                  className="object-cover object-center"
                   sizes="(max-width: 768px) 100vw, 40vw"
                 />
               </div>
               <div className="p-5 md:p-6">
                 <h3 className="font-display text-lg font-bold text-[#081943]">{ex.tranche}</h3>
-                <p className="mt-1 text-sm text-ofc-ink-muted">
-                  Groupe : {ex.participants} participants · intra
+                <p className="mt-1 text-sm text-[#64748B]">
+                  Groupe : {ex.participants} participants
                 </p>
-                <dl className="mt-4 space-y-2.5 text-sm">
-                  <div className="flex justify-between gap-3 border-b border-[#EAF3FF] pb-2">
-                    <dt className="text-ofc-ink-muted">Coût facturé OFC</dt>
-                    <dd className="font-semibold text-[#081943]">{formatMontantHt(ex.tarifFactureHt)}</dd>
+                <dl className="mt-4 space-y-3 text-sm">
+                  <div className="flex justify-between gap-3 border-b border-[#EAF3FF] pb-2.5">
+                    <dt className="text-[#64748B]">Coût facturé</dt>
+                    <dd className="font-bold text-[#081943]">{formatMontantHt(ex.tarifFactureHt)}</dd>
                   </div>
-                  <div className="flex justify-between gap-3 border-b border-[#EAF3FF] pb-2">
-                    <dt className="text-ofc-ink-muted">Participation potentielle</dt>
+                  <div className="flex justify-between gap-3 border-b border-[#EAF3FF] pb-2.5">
+                    <dt className="text-[#64748B]">Participation estimée</dt>
                     <dd className="font-bold text-[#377CF3]">{formatMontantHt(ex.priseEnChargeHt)}</dd>
                   </div>
-                  <div className="flex justify-between gap-3 pt-1">
-                    <dt className="text-ofc-ink-muted">Reste à charge possible</dt>
-                    <dd className="font-semibold text-[#081943]">
+                  <div className="flex justify-between gap-3 pt-0.5">
+                    <dt className="text-[#64748B]">Reste à charge possible</dt>
+                    <dd className="font-bold text-[#081943]">
                       {formatMontantHt(ex.resteAChargeHt)}
                     </dd>
                   </div>

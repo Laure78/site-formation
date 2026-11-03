@@ -7,26 +7,39 @@ import {
   FINANCEMENT_PRISE_EN_CHARGE_CONDITIONS_COMMUNES,
 } from '@/lib/financement-opco-etendu-config';
 import {
+  FC_SECTION,
+  FC_SUBTITLE,
+  FC_TITLE,
+} from '@/lib/financement-constructys-ui';
+import {
   OFC_CARD,
   OFC_CTA_PRIMARY,
   OFC_LINK,
-  OFC_TYPE_H2,
   OFC_TYPE_H3,
 } from '@/lib/ofc-interaction-classes';
 
-export function FinancementOpcoEtenduSection() {
+type Props = {
+  /** Titres centrés — page financement Constructys (maquette). */
+  layout?: 'default' | 'maquette';
+};
+
+export function FinancementOpcoEtenduSection({ layout = 'default' }: Props) {
+  const titleClass = layout === 'maquette' ? FC_TITLE : 'ofc-type-h2 text-ofc-ink text-balance';
+  const introClass =
+    layout === 'maquette'
+      ? FC_SUBTITLE
+      : 'mt-4 max-w-3xl text-base leading-relaxed text-ofc-ink-muted';
+
   return (
     <section
       id="financement-autres-opco"
       aria-labelledby="financement-autres-opco-title"
-      className="scroll-mt-24"
+      className={layout === 'maquette' ? FC_SECTION : 'scroll-mt-24'}
     >
-      <h2 id="financement-autres-opco-title" className={OFC_TYPE_H2}>
+      <h2 id="financement-autres-opco-title" className={titleClass}>
         {FINANCEMENT_OPCO_ETENDU_PAGE_SECTION.titre}
       </h2>
-      <p className="mt-4 max-w-3xl text-base leading-relaxed text-ofc-ink-muted">
-        {FINANCEMENT_OPCO_ETENDU_PAGE_SECTION.intro}
-      </p>
+      <p className={introClass}>{FINANCEMENT_OPCO_ETENDU_PAGE_SECTION.intro}</p>
 
       <div className="mt-8 grid gap-6 lg:grid-cols-2">
         <article className={`${OFC_CARD} flex flex-col p-6 md:p-8`}>
