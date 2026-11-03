@@ -341,6 +341,16 @@ export const LINKS = {
   formationPlateforme: '/formations/plateforme',
   /** Espace apprenant LMS (après connexion) */
   espaceApprenant: '/espace-apprenant',
+  /** Extranet formateurs indépendants (privé, hors SEO) */
+  espaceFormateurs: '/espace-formateurs',
+  espaceFormateursConnexion: '/espace-formateurs/connexion',
+  espaceFormateursProfil: '/espace-formateurs/profil',
+  espaceFormateursDocuments: '/espace-formateurs/documents',
+  espaceFormateursCharte: '/espace-formateurs/charte',
+  espaceFormateursProgrammes: '/espace-formateurs/programmes',
+  espaceFormateursSupports: '/espace-formateurs/supports',
+  espaceFormateursInterventions: '/espace-formateurs/interventions',
+  espaceFormateursQualite: '/espace-formateurs/qualite',
   /** Connexion espace apprenant LMS (indexable SEO/GEO) */
   authConnexion: '/auth/connexion',
   /** Espace productivité personnel apprenant (privé) */
@@ -355,6 +365,12 @@ export const LINKS = {
   /** Espace productivité personnel admin / formateur (privé, hors SEO) */
   /** Candidatures emploi / consultant (admin, accès restreint) */
   adminCandidatures: '/admin/candidatures',
+  /** Extranet formateurs — pilotage admin */
+  adminFormateurs: '/admin/formateurs',
+  adminFormateursCharte: '/admin/formateurs/charte',
+  adminFormateursProgrammes: '/admin/formateurs/programmes',
+  adminFormateursSupports: '/admin/formateurs/supports',
+  adminFormateursPlanning: '/admin/formateurs/planning',
   adminMonEspace: '/admin/mon-espace',
   adminMonEspaceAgenda: '/admin/mon-espace/agenda',
   adminMonEspaceNotes: '/admin/mon-espace/notes',

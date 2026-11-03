@@ -1045,6 +1045,30 @@ export const PHOTOS = {
     height: 135,
   },
 
+  /** Accueil maquette — carte « Formations IA BTP » (portable et plans). */
+  accueilCarteFormationsIa: {
+    src: '/images/accueil/02-formation-initiation.webp',
+    alt: 'Ordinateur portable et documents de chantier — formation IA BTP',
+    width: 640,
+    height: 360,
+  },
+
+  /** Accueil maquette — carte « Parcours métiers » (chantier et grue). */
+  accueilCarteParcoursMetiers: {
+    src: '/images/accueil/04-formation-conduite-travaux.webp',
+    alt: 'Chantier de construction avec grue — parcours métiers BTP',
+    width: 640,
+    height: 360,
+  },
+
+  /** Accueil maquette — bandeau CTA final (chantier). */
+  accueilCtaFinalChantier: {
+    src: '/images/formation-ia-chantier-conducteur-travaux.webp',
+    alt: 'Chantier BTP — formation IA sur vos documents métier',
+    width: 1024,
+    height: 1024,
+  },
+
 };
 
 export type PhotoKey = keyof typeof PHOTOS;

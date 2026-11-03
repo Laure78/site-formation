@@ -1,64 +1,57 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { Sparkles } from 'lucide-react';
-import { EnBref } from '@/app/components/EnBref';
-import { ACCUEIL_EN_BREF } from '@/lib/accueil-geo';
+import { ArrowRight } from 'lucide-react';
 import { LINKS } from '@/lib/internal-links';
-import {
-  OFC_CTA_PRIMARY,
-  OFC_CTA_SECONDARY,
-  OFC_TYPE_LEAD,
-} from '@/lib/ofc-interaction-classes';
+import { OFC_TYPE_LEAD } from '@/lib/ofc-interaction-classes';
 import { OFC_SECTION_INNER } from '@/lib/ofc-section-classes';
 import { PHOTOS } from '@/lib/photos';
+import { ACCUEIL_MAQUETTE_ICON_STROKE } from '@/components/landing/accueil/accueil-maquette-icons';
 
 const HERO = PHOTOS.accueilHeroEquipeBtp;
 
-/** Hero accueil — proportions maquette (texte ~44 % · visuel ~56 %). */
+const BTN_PRIMARY =
+  'inline-flex min-h-10 w-full items-center justify-center gap-2 rounded-lg bg-[#0755E8] px-5 py-2.5 text-sm font-semibold text-white motion-safe:transition-[transform,background-color] motion-safe:duration-200 motion-safe:hover:-translate-y-px motion-safe:hover:bg-[#0648c7] motion-reduce:transition-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0755E8] sm:w-auto';
+
+const BTN_SECONDARY =
+  'inline-flex min-h-10 w-full items-center justify-center gap-2 rounded-lg border border-[#0755E8] bg-white px-5 py-2.5 text-sm font-semibold text-[#0755E8] motion-safe:transition-[transform,background-color] motion-safe:duration-200 motion-safe:hover:-translate-y-px motion-safe:hover:bg-[#F5F9FF] motion-reduce:transition-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0755E8] sm:w-auto';
+
+/** Hero accueil — reproduction maquette (texte ~44 % · visuel ~56 %). */
 export function AccueilHeroSection() {
   return (
     <section id="accueil-hero" className="relative overflow-hidden bg-white">
       <div className={`${OFC_SECTION_INNER} accueil-maquette__inner relative px-4 sm:px-6 lg:px-8`}>
         <div className="grid min-w-0 items-center gap-6 lg:grid-cols-[minmax(0,0.44fr)_minmax(0,0.56fr)] lg:gap-8">
           <div className="accueil-hero-content min-w-0 order-1">
-            <p className="inline-block rounded-full bg-[#EAF3FF] px-3.5 py-1 text-[10px] font-bold uppercase tracking-[0.12em] text-[#101936] sm:text-[11px]">
-              Formation professionnelle · IA &amp; BTP
+            <p className="inline-block rounded-full bg-[#EAF3FF] px-3.5 py-1 text-[10px] font-bold uppercase tracking-[0.12em] text-[#081A3D] sm:text-[11px]">
+              Formations professionnelles · BTP
             </p>
-            <h1 className="mt-3 font-display text-[clamp(1.5rem,1.05rem+1.45vw,2.125rem)] font-extrabold leading-[1.14] tracking-tight text-[#101936] text-balance">
-              Formations{' '}
-              <span className="text-[#377CF3]">IA</span> pour les entreprises du{' '}
-              <span className="text-[#377CF3]">BTP</span> en Île-de-France
+            <h1 className="mt-3 font-display text-[clamp(1.5rem,1.05rem+1.45vw,2.125rem)] font-extrabold leading-[1.14] tracking-tight text-[#081A3D] text-balance">
+              Formations IA et parcours métiers pour les professionnels du BTP
             </h1>
             <p
               className={`${OFC_TYPE_LEAD} mt-3 max-w-xl text-[0.875rem] leading-[1.5] text-ofc-ink-muted md:text-[0.9375rem]`}
             >
-              Devis, appels d&apos;offres et suivi de chantier avec ChatGPT et Claude. Des formations
-              pratiques adaptées aux professionnels du bâtiment et des travaux publics.
+              Développez les compétences de vos équipes et intégrez l&apos;IA dans vos devis, appels
+              d&apos;offres, chantiers et activités administratives.
             </p>
-            <EnBref
-              text={ACCUEIL_EN_BREF}
-              className="mt-3 max-w-xl !px-3 !py-2.5 [&_p]:text-xs [&_p]:leading-relaxed md:[&_p]:text-[0.8125rem]"
-            />
             <div className="mt-4 flex flex-col gap-2.5 sm:flex-row sm:flex-wrap">
-              <Link
-                href={LINKS.formations}
-                data-cta="voir-formations"
-                className={`${OFC_CTA_PRIMARY} motion-safe:transition-[transform,box-shadow] motion-safe:duration-200 motion-safe:hover:-translate-y-px motion-reduce:transition-none inline-flex min-h-10 w-full items-center justify-center px-5 py-2.5 text-sm sm:w-auto`}
-              >
-                Découvrir les formations
+              <Link href="#accueil-formations-ia" data-cta="voir-formations" className={BTN_PRIMARY}>
+                Voir les formations IA
+                <ArrowRight className="h-4 w-4" strokeWidth={ACCUEIL_MAQUETTE_ICON_STROKE} aria-hidden />
               </Link>
               <Link
-                href={`${LINKS.formationIaIntraEntrepriseBtp}?src=accueil-hero`}
-                data-cta="intra-hero"
-                className={`${OFC_CTA_SECONDARY} motion-safe:transition-[transform,border-color,background-color] motion-safe:duration-200 motion-safe:hover:-translate-y-px motion-reduce:transition-none inline-flex min-h-10 w-full items-center justify-center px-5 py-2.5 text-sm sm:w-auto`}
+                href="#accueil-parcours-metiers"
+                data-cta="parcours-metiers-hero"
+                className={BTN_SECONDARY}
               >
-                Former mon équipe
+                Découvrir les parcours métiers
+                <ArrowRight className="h-4 w-4" strokeWidth={ACCUEIL_MAQUETTE_ICON_STROKE} aria-hidden />
               </Link>
             </div>
           </div>
 
           <div className="accueil-hero-aside relative order-2 min-w-0">
-            <div className="relative aspect-[505/224] w-full overflow-hidden rounded-2xl bg-[#F2F2F2] shadow-ofc-md ring-1 ring-ofc-border">
+            <div className="relative aspect-[505/224] w-full overflow-hidden rounded-2xl bg-[#F5F9FF] shadow-ofc-md ring-1 ring-[#DAE3F0]">
               <Image
                 src={HERO.src}
                 alt={HERO.alt}
@@ -69,10 +62,6 @@ export function AccueilHeroSection() {
                 className="h-full w-full object-cover object-center"
               />
             </div>
-            <p className="absolute top-3 right-3 flex max-w-[11rem] items-center gap-1.5 rounded-lg border border-white/90 bg-white/95 px-2.5 py-2 text-[11px] font-semibold leading-snug text-[#101936] shadow-md sm:max-w-[13rem] sm:text-xs">
-              <Sparkles className="h-4 w-4 shrink-0 text-[#377CF3]" strokeWidth={1.875} aria-hidden />
-              Des usages concrets pour vos projets BTP
-            </p>
           </div>
         </div>
       </div>

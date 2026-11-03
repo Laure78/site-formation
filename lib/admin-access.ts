@@ -55,6 +55,14 @@ export function isAdminOnlyPath(pathname: string): boolean {
   return pathname === '/admin' || pathname.startsWith('/admin/') || pathname.startsWith('/api/admin');
 }
 
+export function isExtranetFormateursPath(pathname: string): boolean {
+  return (
+    pathname === '/espace-formateurs' ||
+    (pathname.startsWith('/espace-formateurs/') &&
+      pathname !== '/espace-formateurs/connexion')
+  );
+}
+
 /**
  * Destination après connexion / callback OAuth.
  * N’honore `next` vers /admin que si l’utilisateur a réellement les droits.
@@ -62,20 +70,25 @@ export function isAdminOnlyPath(pathname: string): boolean {
 export function resolvePostAuthPath(
   nextRaw: string | null | undefined,
   profile: Pick<Profile, 'role'> | null | undefined,
-  email: string | null | undefined
+  email: string | null | undefined,
+  options?: { hasExtranetTrainer?: boolean }
 ): string {
   const safeNext = sanitizeInternalPath(nextRaw);
   const adminOk = canAccessAdmin(profile, email);
+  const extranetOk = options?.hasExtranetTrainer === true;
 
   if (safeNext) {
     const pathname = safeNext.split('?')[0] ?? safeNext;
     if (isAdminOnlyPath(pathname)) {
       if (adminOk) return safeNext;
+    } else if (isExtranetFormateursPath(pathname)) {
+      if (extranetOk || adminOk) return safeNext;
     } else {
       return safeNext;
     }
   }
 
+  if (extranetOk) return '/espace-formateurs';
   return adminOk ? '/admin' : '/espace-apprenant';
 }
 

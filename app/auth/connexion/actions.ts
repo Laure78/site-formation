@@ -3,6 +3,7 @@
 import { redirect } from 'next/navigation';
 import { createClient } from '@/lib/supabase/server';
 import { getProfileForAccessCheck, resolvePostAuthPath } from '@/lib/admin-access';
+import { userHasExtranetTrainer } from '@/lib/extranet-formateurs/access';
 import { sanitizeInternalPath } from '@/lib/sanitize-internal-path';
 
 function mapAuthError(message: string): string {
@@ -29,7 +30,8 @@ export async function resolvePostLoginRedirect(nextRaw: string | null): Promise<
   if (!user) return '/auth/connexion';
 
   const profile = await getProfileForAccessCheck(user.id);
-  return resolvePostAuthPath(nextRaw, profile, user.email);
+  const hasExtranetTrainer = await userHasExtranetTrainer(user.email, user.id);
+  return resolvePostAuthPath(nextRaw, profile, user.email, { hasExtranetTrainer });
 }
 
 /**
@@ -65,7 +67,8 @@ export async function loginWithPassword(
   }
 
   const profile = await getProfileForAccessCheck(user.id);
-  const destination = resolvePostAuthPath(nextRaw, profile, user.email);
+  const hasExtranetTrainer = await userHasExtranetTrainer(user.email, user.id);
+  const destination = resolvePostAuthPath(nextRaw, profile, user.email, { hasExtranetTrainer });
   const safe =
     sanitizeInternalPath(destination) ??
     (destination.startsWith('/') ? destination : '/espace-apprenant');

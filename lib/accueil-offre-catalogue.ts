@@ -12,6 +12,7 @@ import { formationHref, type FormationNiveau } from '@/data/formations';
 import { parcoursHref } from '@/lib/catalogue-2027/parcours-href';
 import { libelleDisponibilite } from '@/lib/catalogue-2027/search-modules';
 import { getPublishedFormations } from '@/lib/formation-catalogue-visibility';
+import { LINKS } from '@/lib/internal-links';
 import { isParcoursMetiers2027Visible } from '@/lib/parcours-metiers-2027-visibility';
 import {
   FORMATIONS_NIVEAUX_IA,
@@ -77,6 +78,17 @@ const NIVEAU_GROUP_META: Record<
   ]),
 ) as Record<FormationNiveau, { id: string; title: string; badge: string }>;
 
+/** Ordre d’affichage grille parcours — accueil maquette. */
+export const ACCUEIL_PARCOURS_MAQUETTE_ORDER: readonly ParcoursId[] = [
+  'conducteur-de-travaux',
+  'charge-affaires-btp',
+  'assistant-de-gestion-btp',
+  'dirigeant-pme-btp',
+  'chef-de-chantier',
+  'chef-dequipe',
+  'referent-ia-btp',
+];
+
 /** Parcours mis en avant sur l’accueil (sélection courte). */
 const ACCUEIL_PARCOURS_FEATURED_IDS: readonly ParcoursId[] = [
   'dirigeant-pme-btp',
@@ -125,9 +137,9 @@ const ACCUEIL_PARCOURS_NIVEAU_ENTREE: Partial<Record<ParcoursId, string>> = {
 
 /** Parcours du catalogue 2027 — ordre pédagogique (source PARCOURS_CATALOGUE_2027). */
 export function getAccueilParcoursOffre(
-  opts?: { featuredOnly?: boolean },
+  opts?: { featuredOnly?: boolean; /** Affichage accueil / orientation même si nav 2027 masquée */ preview?: boolean },
 ): readonly AccueilParcoursOffreCard[] {
-  if (!isParcoursMetiers2027Visible()) return [];
+  if (!opts?.preview && !isParcoursMetiers2027Visible()) return [];
   const list = getAllParcoursComputed().filter((p) =>
     opts?.featuredOnly ? ACCUEIL_PARCOURS_FEATURED_IDS.includes(p.id) : true,
   );
@@ -158,7 +170,21 @@ export function getAccueilParcoursOffre(
         titre: getModuleByCode(e.moduleCode)?.titre ?? e.moduleCode,
       })),
     };
-  });
+    });
+}
+
+/** Grille parcours métiers accueil — toujours 7 cartes (aperçu 2027). */
+export function getAccueilParcoursMetiersMaquette(): readonly AccueilParcoursOffreCard[] {
+  const byId = new Map(getAccueilParcoursOffre({ preview: true }).map((p) => [p.id, p]));
+  return ACCUEIL_PARCOURS_MAQUETTE_ORDER.map((id) => byId.get(id)).filter(
+    (p): p is AccueilParcoursOffreCard => p != null,
+  );
+}
+
+/** Lien carte parcours accueil — fiche parcours ou ancre orientation si catalogue 2027 non publié. */
+export function accueilParcoursMetiersCarteHref(parcoursId: ParcoursId, detailHref: string): string {
+  if (isParcoursMetiers2027Visible()) return detailHref;
+  return `${LINKS.parcoursMetiers}#${parcoursId}`;
 }
 
 /** Formations publiées du catalogue NIV — hors archivées / non encore publiées. */

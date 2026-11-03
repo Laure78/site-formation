@@ -3,7 +3,7 @@ import { cn } from '@/lib/cn';
 
 type AccueilMaquettePillProps = {
   children: ReactNode;
-  variant?: 'neutral' | 'accent';
+  variant?: 'neutral' | 'accent' | 'violet';
   className?: string;
 };
 
@@ -18,8 +18,10 @@ export function AccueilMaquettePill({
       className={cn(
         'inline-flex w-fit rounded-full px-2.5 py-0.5 text-[11px] font-semibold leading-none',
         variant === 'accent'
-          ? 'bg-[#EAF3FF] text-[#377CF3]'
-          : 'bg-[#E8E8E8] text-[#101936]/75',
+          ? 'bg-[#EAF3FF] text-[#0755E8]'
+          : variant === 'violet'
+            ? 'bg-[#EDE9FE] text-[#6D28D9] uppercase tracking-wide'
+            : 'bg-[#E8E8E8] text-[#101936]/75',
         className,
       )}
     >

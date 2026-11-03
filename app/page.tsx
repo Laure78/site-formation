@@ -2,11 +2,10 @@ import type { Metadata } from 'next';
 import { preload } from 'react-dom';
 import { AccueilHeroSection } from '@/components/landing/AccueilHeroSection';
 import { AccueilBandeauReassuranceSection } from '@/components/landing/accueil/AccueilBandeauReassuranceSection';
-import { AccueilFormationsCatalogueSection } from '@/components/landing/accueil/AccueilFormationsCatalogueSection';
-import { AccueilMetiersIaSection } from '@/components/landing/accueil/AccueilMetiersIaSection';
-import { AccueilExemplesConcretsSection } from '@/components/landing/accueil/AccueilExemplesConcretsSection';
-import { AccueilOrganismeSection } from '@/components/landing/accueil/AccueilOrganismeSection';
-import { AccueilIntraBandeauSection } from '@/components/landing/accueil/AccueilIntraBandeauSection';
+import { AccueilDeuxOffresSection } from '@/components/landing/accueil/AccueilDeuxOffresSection';
+import { AccueilFormationsIaMaquetteSection } from '@/components/landing/accueil/AccueilFormationsIaMaquetteSection';
+import { AccueilParcoursMetiersMaquetteSection } from '@/components/landing/accueil/AccueilParcoursMetiersMaquetteSection';
+import { AccueilResultatsPourquoiSection } from '@/components/landing/accueil/AccueilResultatsPourquoiSection';
 import { AccueilRessourcesGratuitesSection } from '@/components/landing/accueil/AccueilRessourcesGratuitesSection';
 import { AccueilMethodeAccompagnementSection } from '@/components/landing/accueil/AccueilMethodeAccompagnementSection';
 import { AccueilPreuvesConfianceSection } from '@/components/landing/accueil/AccueilPreuvesConfianceSection';
@@ -23,7 +22,7 @@ import { buildHomeUnifiedGraphJsonLd } from '@/lib/schema-home-unified-graph';
 const HOME_META_TITLE_ABSOLUTE =
   'Formations IA BTP en Île-de-France | Laure Olivié';
 const HOME_META_DESCRIPTION =
-  'Formation IA BTP en Île-de-France : ChatGPT et Claude pour vos devis, DCE et chantiers. Présentiel, Qualiopi, OPCO selon éligibilité. Visio offerte.';
+  'Formation IA BTP en Île-de-France : parcours métiers et sessions 4 h, 7 h ou 14 h pour devis, DCE et chantiers. Présentiel, Qualiopi, OPCO selon éligibilité. Visio offerte.';
 
 const HOME_FAQ_PAGE_JSON_LD = buildHomeFAQPageJsonLd();
 
@@ -49,6 +48,7 @@ const homeMetadata = buildMetadata({
     'Qualiopi formation IA pour le BTP',
     'organisme de formation IA BTP',
     'organisme de formation IA bâtiment',
+    'parcours métiers BTP',
   ],
   category: 'education',
   robots: {
@@ -88,11 +88,10 @@ export default function HomePage() {
     <div className="accueil-maquette">
       <AccueilHeroSection />
       <AccueilBandeauReassuranceSection />
-      <AccueilFormationsCatalogueSection />
-      <AccueilMetiersIaSection />
-      <AccueilExemplesConcretsSection />
-      <AccueilOrganismeSection />
-      <AccueilIntraBandeauSection />
+      <AccueilDeuxOffresSection />
+      <AccueilFormationsIaMaquetteSection />
+      <AccueilParcoursMetiersMaquetteSection />
+      <AccueilResultatsPourquoiSection />
       <AccueilRessourcesGratuitesSection />
       <AccueilMethodeAccompagnementSection />
       <AccueilPreuvesConfianceSection />

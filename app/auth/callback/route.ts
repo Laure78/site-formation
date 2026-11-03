@@ -2,6 +2,7 @@ import { createServerClient } from '@supabase/ssr';
 import { NextRequest, NextResponse } from 'next/server';
 import { resolvePostAuthPath } from '@/lib/admin-access';
 import type { UserRole } from '@/lib/auth';
+import { userHasExtranetTrainer } from '@/lib/extranet-formateurs/access';
 
 /**
  * Callback OAuth / magic link / recovery (échange du code PKCE).
@@ -49,10 +50,12 @@ export async function GET(request: NextRequest) {
     .eq('id', data.user.id)
     .maybeSingle();
 
+  const hasExtranetTrainer = await userHasExtranetTrainer(data.user.email, data.user.id);
   const redirectPath = resolvePostAuthPath(
     nextRaw,
     profile ? { role: profile.role as UserRole } : null,
-    data.user.email
+    data.user.email,
+    { hasExtranetTrainer }
   );
 
   const response = NextResponse.redirect(`${origin}${redirectPath}`);

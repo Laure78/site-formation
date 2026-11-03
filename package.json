@@ -55,6 +55,8 @@
     "test:invitation-secure": "npx tsx scripts/assert-invitation-no-temp-password.ts",
     "test:career-form": "node scripts/assert-career-form-validation.mjs",
     "db:migrate:career": "node scripts/apply-career-migration.mjs",
+    "db:migrate:extranet": "node scripts/apply-extranet-migrations.mjs",
+    "db:verify:extranet": "node scripts/verify-extranet-supabase.mjs",
     "setup:career-supabase": "node scripts/setup-career-supabase.mjs",
     "test:lms-automation": "npm run test:satisfaction-j1 && npm run test:invitation-secure && npm run check:training-satisfaction",
     "check:internal-links": "npx tsx scripts/check-internal-links.ts",

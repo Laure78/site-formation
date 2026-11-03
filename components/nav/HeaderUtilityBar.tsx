@@ -2,12 +2,13 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { LogIn, Mail, Search } from 'lucide-react';
+import { LogIn, Mail, Phone, Search } from 'lucide-react';
 import { useSiteSearch } from '@/components/search/SiteSearchProvider';
+import { CONTACT } from '@/lib/constants';
 import { LINKS } from '@/lib/internal-links';
 
 const UTILITY_LINK_CLASS =
-  'inline-flex min-h-11 min-w-0 items-center gap-1.5 rounded-md px-2 py-1.5 text-xs font-medium text-slate-600 transition-colors hover:bg-white/80 hover:text-slate-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#377CF3] lg:min-h-9 lg:px-2.5';
+  'inline-flex min-h-9 min-w-0 items-center gap-1.5 rounded-md px-2 py-1 text-xs font-medium text-white/90 transition-colors hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white lg:px-2.5';
 
 function utilityActive(pathname: string, href: string): boolean {
   const path = href.split('#')[0] || '/';
@@ -19,7 +20,7 @@ type HeaderUtilityBarProps = {
   onBeforeOpenSearch?: () => void;
 };
 
-/** Bandeau supérieur — positionnement + accès rapides. */
+/** Bandeau supérieur — spécialisation BTP + coordonnées (maquette). */
 export function HeaderUtilityBar({ onBeforeOpenSearch }: HeaderUtilityBarProps) {
   const pathname = usePathname() ?? '';
   const { openSearch } = useSiteSearch();
@@ -31,17 +32,29 @@ export function HeaderUtilityBar({ onBeforeOpenSearch }: HeaderUtilityBarProps) 
 
   return (
     <div
-      className="site-header__utility -mx-4 mb-1 flex min-h-9 min-w-0 items-center justify-between gap-2 border-b border-slate-100/90 bg-[#F2F2F2]/70 px-4 sm:-mx-6 sm:px-6 lg:-mx-8 lg:mb-1.5 lg:px-8"
+      className="site-header__utility -mx-4 mb-1 flex min-h-9 min-w-0 items-center justify-between gap-2 bg-[#071B42] px-4 sm:-mx-6 sm:px-6 lg:-mx-8 lg:mb-1.5 lg:px-8"
       aria-label="Informations et accès rapides"
     >
-      <p className="hidden min-w-0 truncate text-[0.6875rem] font-medium text-slate-600 sm:block sm:text-xs">
-        Formations IA BTP · Présentiel en Île-de-France
+      <p className="hidden min-w-0 truncate text-[0.6875rem] font-medium text-white/90 sm:block sm:text-xs">
+        Organisme de formation IA spécialisé BTP — Île-de-France
       </p>
-      <p className="min-w-0 truncate text-[0.65rem] font-medium leading-snug text-slate-600 sm:hidden">
-        IA BTP · Présentiel IDF
+      <p className="min-w-0 truncate text-[0.65rem] font-medium leading-snug text-white/90 sm:hidden">
+        IA BTP · IDF
       </p>
 
-      <div className="flex shrink-0 flex-wrap items-center justify-end gap-x-0.5 gap-y-0 sm:gap-x-1">
+      <div className="flex shrink-0 flex-wrap items-center justify-end gap-x-1 gap-y-0 sm:gap-x-2">
+        <a href={`tel:${CONTACT.phone}`} className={`${UTILITY_LINK_CLASS} hidden sm:inline-flex`}>
+          <Phone className="h-3.5 w-3.5 shrink-0" strokeWidth={1.75} aria-hidden />
+          <span>{CONTACT.phoneDisplay}</span>
+        </a>
+        <a
+          href={`mailto:${CONTACT.email}`}
+          className={`${UTILITY_LINK_CLASS} hidden md:inline-flex`}
+        >
+          <Mail className="h-3.5 w-3.5 shrink-0" strokeWidth={1.75} aria-hidden />
+          <span className="max-w-[11rem] truncate">{CONTACT.email}</span>
+        </a>
+        <span className="hidden h-4 w-px bg-white/25 sm:block" aria-hidden />
         <button
           type="button"
           onClick={(event) => {
@@ -50,26 +63,26 @@ export function HeaderUtilityBar({ onBeforeOpenSearch }: HeaderUtilityBarProps) 
           }}
           className={UTILITY_LINK_CLASS}
         >
-          <Search className="h-3.5 w-3.5 shrink-0 text-[#377CF3]" strokeWidth={1.75} aria-hidden />
-          <span>Rechercher</span>
+          <Search className="h-3.5 w-3.5 shrink-0" strokeWidth={1.75} aria-hidden />
+          <span className="sr-only sm:not-sr-only">Rechercher</span>
         </button>
-        <span className="header-utility-divider hidden sm:block" aria-hidden />
+        <span className="hidden h-4 w-px bg-white/25 sm:block" aria-hidden />
         <Link
           href={LINKS.contact}
-          className={`${UTILITY_LINK_CLASS}${contactActive ? ' font-semibold text-[#377CF3]' : ''}`}
+          className={`${UTILITY_LINK_CLASS}${contactActive ? ' font-semibold text-white' : ''}`}
           aria-current={contactActive ? 'page' : undefined}
         >
-          <Mail className="h-3.5 w-3.5 shrink-0 text-slate-400" strokeWidth={1.75} aria-hidden />
-          <span>Contact</span>
+          <span className="sm:hidden">Contact</span>
+          <span className="hidden sm:inline">Contact</span>
         </Link>
-        <span className="header-utility-divider hidden sm:block" aria-hidden />
+        <span className="hidden h-4 w-px bg-white/25 lg:block" aria-hidden />
         <Link
           href={espaceHref}
           title="Connexion à l’espace client — plateforme de formation Laure Olivié"
-          className={`${UTILITY_LINK_CLASS}${espaceActive ? ' font-semibold text-[#377CF3]' : ''}`}
+          className={`${UTILITY_LINK_CLASS} hidden lg:inline-flex${espaceActive ? ' font-semibold text-white' : ''}`}
           aria-current={espaceActive ? 'page' : undefined}
         >
-          <LogIn className="h-3.5 w-3.5 shrink-0 text-slate-400" strokeWidth={1.75} aria-hidden />
+          <LogIn className="h-3.5 w-3.5 shrink-0" strokeWidth={1.75} aria-hidden />
           <span>Espace client</span>
         </Link>
       </div>

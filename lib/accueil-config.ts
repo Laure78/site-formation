@@ -527,6 +527,54 @@ export const ACCUEIL_RESSOURCES_MAQUETTE = [
 export const ACCUEIL_METHODE_ACCOMPAGNEMENT_LEAD =
   'Un accompagnement simple et efficace, de l’analyse de vos besoins à la mise en pratique.' as const;
 
+/** Bandeaux formats commerciaux — accueil maquette (données catalogue : 4 h / 7 h / 14 h). */
+export const ACCUEIL_FORMATS_FORMATION_IA = [
+  {
+    id: 'express-4h',
+    titre: 'Format Express — 4 h',
+    description: 'Découvrir et pratiquer l’IA sur un ou deux cas métier ciblés.',
+    icon: 'timer',
+  },
+  {
+    id: 'approfondi-7h',
+    titre: 'Format Approfondi — 7 h',
+    description: 'Maîtriser les outils et construire une méthode réutilisable.',
+    icon: 'calendar',
+  },
+] as const;
+
+/** Quatre livrables — bloc « Ce que vos équipes sauront produire » (accueil maquette). */
+export const ACCUEIL_RESULTATS_PRODUITS_MAQUETTE = [
+  {
+    id: 'dce',
+    titre: 'Synthèse d’un DCE',
+    phrase: 'Repérer les exigences RC, CCTP et CCAP avant chiffrage et réponse.',
+    href: LINKS.formationIaAppelsOffresBtp,
+    ariaLabel: 'Synthèse DCE — formation IA appels d’offres BTP',
+  },
+  {
+    id: 'cr',
+    titre: 'Compte rendu de chantier',
+    phrase: 'Structurer notes terrain, décisions et actions à suivre.',
+    href: LINKS.formationConduiteTravauxSuiviChantier,
+    ariaLabel: 'Compte rendu de chantier — formation IA conduite de travaux',
+  },
+  {
+    id: 'memoire',
+    titre: 'Mémoire technique structuré',
+    phrase: 'Organiser moyens, méthodes et preuves pour l’appel d’offres.',
+    href: LINKS.iaMemoireTechnique,
+    ariaLabel: 'Mémoire technique — méthode IA BTP',
+  },
+  {
+    id: 'suivi',
+    titre: 'Tableau de suivi des travaux',
+    phrase: 'Piloter actions, réserves et avancement avec une trame réutilisable.',
+    href: LINKS.formationConduiteTravauxSuiviChantier,
+    ariaLabel: 'Suivi des travaux — formation IA conduite de travaux',
+  },
+] as const;
+
 /** Métiers — cartes compactes (sans lien, évite doublons d’URL sur l’accueil). */
 export const ACCUEIL_METIERS_IA_CARTES = [
   { id: 'devis', titre: 'Devis et chiffrage' },
@@ -600,14 +648,14 @@ const ACCUEIL_MAQUETTE_FORMATION_COPY: Record<
   { titre: string; description: string; imageSrc: string; imageAlt: string }
 > = {
   'NIV-01': {
-    titre: 'Les bases de l’IA pour le BTP',
+    titre: 'Les bases de l’IA pour les pros du BTP',
     description:
-      'Comprendre et utiliser efficacement ChatGPT et Claude dans ses missions professionnelles.',
+      'Découvrir et utiliser ChatGPT et Claude sur vos documents et tâches du quotidien.',
     imageSrc: '/images/accueil/02-formation-initiation.webp',
     imageAlt: 'Formation initiation IA BTP — ordinateur et usages ChatGPT',
   },
   'NIV-02': {
-    titre: 'IA et appels d’offres (DCE)',
+    titre: 'IA et appels d’offres BTP',
     description: 'Analyser un DCE, structurer une réponse et produire des documents de qualité.',
     imageSrc: '/images/accueil/03-formation-appels-offres.webp',
     imageAlt: 'Formation IA appels d’offres BTP — plans et casque chantier',
@@ -620,8 +668,8 @@ const ACCUEIL_MAQUETTE_FORMATION_COPY: Record<
     imageAlt: 'Formation IA conduite de travaux — chantier et grue',
   },
   'NIV-10': {
-    titre: 'Créer des applications métier avec l’IA',
-    description: 'Automatiser des tâches et créer des outils adaptés à son entreprise.',
+    titre: 'Créer des applications métier BTP avec l’IA',
+    description: 'Concevoir et tester un outil ou un assistant métier avec l’IA, sans coder.',
     imageSrc: '/images/accueil/05-formation-applications-metier.webp',
     imageAlt: 'Formation création application métier BTP avec l’IA',
   },
@@ -636,11 +684,13 @@ export function getAccueilMaquetteFormations(): readonly AccueilMaquetteFormatio
     const f = getFormationByCode(code);
     if (!f) continue;
     const copy = ACCUEIL_MAQUETTE_FORMATION_COPY[code];
+    const formatLabel =
+      code === 'NIV-10' ? `Atelier avancé · ${f.duree}` : f.duree;
     cartes.push({
       code,
       titre: copy.titre,
       description: copy.description,
-      badge: `${catalogueNiveauLabel(code)} • ${f.duree}`,
+      badge: formatLabel,
       href: FORMATION_HREF_BY_CODE[code],
       imageSrc: copy.imageSrc,
       imageAlt: copy.imageAlt,

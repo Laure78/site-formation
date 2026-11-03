@@ -7,6 +7,7 @@ const SUPABASE_SESSION_PREFIXES = [
   '/auth',
   '/acces-admin',
   '/espace-apprenant',
+  '/espace-formateurs',
   '/mon-espace',
   '/messages',
   '/cours/',

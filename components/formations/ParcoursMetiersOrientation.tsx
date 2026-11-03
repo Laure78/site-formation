@@ -37,7 +37,7 @@ function usagesMetierCarte(
 }
 
 export function ParcoursMetiersOrientation() {
-  const parcours = getAccueilParcoursOffre();
+  const parcours = getAccueilParcoursOffre({ preview: true });
   const competencesById = new Map(
     getAllParcoursComputed().map((x) => [x.id, x.competencesVisees] as const),
   );

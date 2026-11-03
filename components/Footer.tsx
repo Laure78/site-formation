@@ -26,7 +26,7 @@ import {
   type NavItem,
 } from '@/lib/nav';
 
-const FOOTER_BG = '#101936';
+const FOOTER_BG = '#071B42';
 const PHONE_ARIA_LABEL = `Appeler ${SITE.name} au ${SITE.phoneDisplay}`;
 
 const FOOTER_LINK_CLASS =
