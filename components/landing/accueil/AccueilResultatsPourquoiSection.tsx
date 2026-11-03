@@ -68,31 +68,31 @@ export function AccueilResultatsPourquoiSection() {
           <h2 className={`${OFC_TYPE_H2} text-xl font-extrabold text-[#081A3D] md:text-2xl`}>
             Pourquoi choisir Laure Olivié ?
           </h2>
-          <div className="mt-4 overflow-hidden rounded-xl bg-[#F2F2F2] ring-1 ring-[#DAE3F0]">
-            <div className="relative aspect-[16/10] w-full">
+          <div className="mt-4 grid gap-4 sm:grid-cols-[minmax(0,11.5rem)_minmax(0,1fr)] sm:items-start">
+            <div className="accueil-maquette-pourquoi__media overflow-hidden rounded-xl bg-[#F2F2F2] ring-1 ring-[#DAE3F0]">
               <Image
                 src={photo.src}
                 alt={photo.alt}
                 width={photo.width}
                 height={photo.height}
-                sizes="(max-width: 1024px) 100vw, 50vw"
-                className="h-full w-full object-cover object-center"
+                sizes="(max-width: 640px) 85vw, 184px"
+                className="h-auto w-full object-cover object-center"
               />
             </div>
+            <ul className="space-y-2.5">
+              {ARGUMENTS.map((line) => (
+                <li key={line} className="flex gap-2.5 text-sm leading-snug text-[#081A3D]">
+                  <span
+                    className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#0755E8]"
+                    aria-hidden
+                  >
+                    <Check className="h-3 w-3 text-white" strokeWidth={2.5} />
+                  </span>
+                  <span>{line}</span>
+                </li>
+              ))}
+            </ul>
           </div>
-          <ul className="mt-4 space-y-2.5">
-            {ARGUMENTS.map((line) => (
-              <li key={line} className="flex gap-2.5 text-sm leading-snug text-[#081A3D]">
-                <span
-                  className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#0755E8]"
-                  aria-hidden
-                >
-                  <Check className="h-3 w-3 text-white" strokeWidth={2.5} />
-                </span>
-                <span>{line}</span>
-              </li>
-            ))}
-          </ul>
           <p className="mt-3 text-sm text-ofc-ink-muted">
             Laure Olivié, marque commerciale d&apos;OFC Création d&apos;Entreprise — organisme certifié
             Qualiopi (actions de formation).

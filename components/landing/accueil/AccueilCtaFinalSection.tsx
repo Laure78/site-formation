@@ -15,8 +15,20 @@ export function AccueilCtaFinalSection() {
   return (
     <section className="bg-white py-8 md:py-10" aria-labelledby="accueil-cta-final">
       <div className={`${OFC_SECTION_INNER} accueil-maquette__inner px-4 sm:px-6 lg:px-8`}>
-        <div className="accueil-maquette-cta-final relative overflow-hidden rounded-2xl bg-gradient-to-r from-[#071B42] via-[#071B42] to-[#0755E8]/90">
-          <div className="relative grid min-h-[12rem] items-center gap-6 p-5 md:min-h-[14rem] md:p-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,22rem)] lg:gap-8">
+        <div className="accueil-maquette-cta-final relative overflow-hidden rounded-2xl bg-[#071B42]">
+          <div className="relative flex min-h-[12rem] items-center p-5 md:min-h-[14rem] md:p-8">
+            <Image
+              src={photo.src}
+              alt={photo.alt}
+              width={photo.width}
+              height={photo.height}
+              sizes="(max-width: 1024px) 0px, 22rem"
+              className="pointer-events-none absolute inset-y-0 right-0 hidden h-full w-[min(46%,20rem)] object-cover object-center lg:block"
+            />
+            <div
+              className="pointer-events-none absolute inset-y-0 right-0 hidden w-[min(50%,22rem)] bg-gradient-to-l from-[#071B42]/10 via-[#071B42]/75 to-[#071B42] lg:block"
+              aria-hidden
+            />
             <div className="relative z-10 min-w-0 max-w-xl">
               <h2
                 id="accueil-cta-final"
@@ -37,20 +49,6 @@ export function AccueilCtaFinalSection() {
                 />
               </div>
             </div>
-            <div className="relative z-10 hidden min-h-[10rem] overflow-hidden rounded-xl ring-1 ring-white/20 lg:block">
-              <Image
-                src={photo.src}
-                alt={photo.alt}
-                width={photo.width}
-                height={photo.height}
-                sizes="22rem"
-                className="h-full w-full object-cover object-center"
-              />
-            </div>
-            <div
-              className="pointer-events-none absolute inset-y-0 right-0 hidden w-[45%] bg-gradient-to-l from-black/25 to-transparent lg:block"
-              aria-hidden
-            />
           </div>
         </div>
       </div>

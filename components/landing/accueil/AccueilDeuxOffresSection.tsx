@@ -18,6 +18,23 @@ const MAQUETTE_BTN_PRIMARY =
 const MAQUETTE_BTN_SECONDARY =
   'inline-flex min-h-10 w-full items-center justify-center gap-2 rounded-lg border border-[#0755E8] bg-white px-4 py-2.5 text-sm font-semibold text-[#0755E8] motion-safe:transition-[transform,background-color] motion-safe:duration-200 motion-safe:hover:-translate-y-px motion-safe:hover:bg-[#F5F9FF] motion-reduce:transition-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0755E8]';
 
+type OffrePhoto = (typeof PHOTOS)['accueilCarteFormationsIa'];
+
+function OffreCarteMedia({ photo }: { photo: OffrePhoto }) {
+  return (
+    <div className="accueil-maquette-deux-offres__media relative mx-auto w-full max-w-[8.75rem] shrink-0 overflow-hidden rounded-lg bg-[#F5F9FF] ring-1 ring-[#DAE3F0] sm:mx-0 sm:max-w-[7.5rem]">
+      <Image
+        src={photo.src}
+        alt={photo.alt}
+        width={photo.width}
+        height={photo.height}
+        sizes="(max-width: 640px) 140px, 120px"
+        className="h-auto w-full object-cover object-center"
+      />
+    </div>
+  );
+}
+
 /** Deux cartes commerciales — Formations IA vs Parcours métiers (maquette). */
 export function AccueilDeuxOffresSection() {
   const photoFormations = PHOTOS.accueilCarteFormationsIa;
@@ -47,30 +64,26 @@ export function AccueilDeuxOffresSection() {
               </span>
               <h3 className="font-display text-lg font-bold text-[#081A3D]">Formations IA BTP</h3>
             </div>
-            <p className="mt-3 text-sm leading-relaxed text-ofc-ink-muted">
-              Des formations opérationnelles pour utiliser l&apos;IA dans vos missions du quotidien.
-            </p>
-            <ul className="mt-3 space-y-2 text-sm text-[#081A3D]">
-              {[
-                'Deux formats courts : 4 h ou 7 h.',
-                'Des cas d’usage concrets BTP.',
-                'ChatGPT, Claude et assistants IA.',
-                'Ateliers avancés de 14 h également proposés.',
-              ].map((line) => (
-                <li key={line} className="flex gap-2">
-                  <Check className="mt-0.5 h-4 w-4 shrink-0 text-[#0755E8]" strokeWidth={2.5} aria-hidden />
-                  <span>{line}</span>
-                </li>
-              ))}
-            </ul>
-            <div className="relative mt-4 aspect-[16/9] w-full overflow-hidden rounded-lg bg-[#F5F9FF]">
-              <Image
-                src={photoFormations.src}
-                alt={photoFormations.alt}
-                fill
-                sizes="(max-width: 1024px) 100vw, 50vw"
-                className="object-cover object-center"
-              />
+            <div className="mt-3 grid gap-4 sm:grid-cols-[minmax(0,1fr)_auto] sm:items-start">
+              <div className="min-w-0">
+                <p className="text-sm leading-relaxed text-ofc-ink-muted">
+                  Des formations opérationnelles pour utiliser l&apos;IA dans vos missions du quotidien.
+                </p>
+                <ul className="mt-3 space-y-2 text-sm text-[#081A3D]">
+                  {[
+                    'Deux formats courts : 4 h ou 7 h.',
+                    'Des cas d’usage concrets BTP.',
+                    'ChatGPT, Claude et assistants IA.',
+                    'Ateliers avancés de 14 h également proposés.',
+                  ].map((line) => (
+                    <li key={line} className="flex gap-2">
+                      <Check className="mt-0.5 h-4 w-4 shrink-0 text-[#0755E8]" strokeWidth={2.5} aria-hidden />
+                      <span>{line}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <OffreCarteMedia photo={photoFormations} />
             </div>
             <Link href={LINKS.formations} className={`${MAQUETTE_BTN_PRIMARY} mt-4`}>
               Découvrir les formations IA
@@ -92,30 +105,26 @@ export function AccueilDeuxOffresSection() {
                 Ouverture 2027
               </AccueilMaquettePill>
             </div>
-            <p className="mt-3 text-sm leading-relaxed text-ofc-ink-muted">
-              Des formations complètes pour développer les compétences de vos équipes, avec l&apos;IA en
-              appui des pratiques métier.
-            </p>
-            <ul className="mt-3 space-y-2 text-sm text-[#081A3D]">
-              {[
-                'Conducteur de travaux, chargé d’affaires et autres métiers BTP.',
-                'Une approche métier et opérationnelle.',
-                'Des mises en situation sur vos documents.',
-              ].map((line) => (
-                <li key={line} className="flex gap-2">
-                  <Check className="mt-0.5 h-4 w-4 shrink-0 text-[#0755E8]" strokeWidth={2.5} aria-hidden />
-                  <span>{line}</span>
-                </li>
-              ))}
-            </ul>
-            <div className="relative mt-4 aspect-[16/9] w-full overflow-hidden rounded-lg bg-[#F5F9FF]">
-              <Image
-                src={photoParcours.src}
-                alt={photoParcours.alt}
-                fill
-                sizes="(max-width: 1024px) 100vw, 50vw"
-                className="object-cover object-center"
-              />
+            <div className="mt-3 grid gap-4 sm:grid-cols-[minmax(0,1fr)_auto] sm:items-start">
+              <div className="min-w-0">
+                <p className="text-sm leading-relaxed text-ofc-ink-muted">
+                  Des formations complètes pour développer les compétences de vos équipes, avec l&apos;IA en
+                  appui des pratiques métier.
+                </p>
+                <ul className="mt-3 space-y-2 text-sm text-[#081A3D]">
+                  {[
+                    'Conducteur de travaux, chargé d’affaires et autres métiers BTP.',
+                    'Une approche métier et opérationnelle.',
+                    'Des mises en situation sur vos documents.',
+                  ].map((line) => (
+                    <li key={line} className="flex gap-2">
+                      <Check className="mt-0.5 h-4 w-4 shrink-0 text-[#0755E8]" strokeWidth={2.5} aria-hidden />
+                      <span>{line}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <OffreCarteMedia photo={photoParcours} />
             </div>
             <Link href={LINKS.parcoursMetiers} className={`${MAQUETTE_BTN_SECONDARY} mt-4`}>
               Découvrir les parcours métiers

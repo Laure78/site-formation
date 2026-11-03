@@ -1029,44 +1029,44 @@ export const PHOTOS = {
     height: 768,
   },
 
-  /** Accueil maquette — hero équipe BTP (prototype — préférer asset HD avant prod). */
+  /** Accueil maquette — hero équipe BTP autour d’un portable. */
   accueilHeroEquipeBtp: {
     src: '/images/accueil/01-hero-equipe-btp.webp',
-    alt: 'Professionnels du BTP en formation IA — plans, devis et ordinateur',
-    width: 505,
-    height: 224,
+    alt: 'Équipe BTP en formation IA — collaboration autour d’un ordinateur portable',
+    width: 538,
+    height: 239,
   },
 
-  /** Accueil maquette — salle de formation BTP. */
+  /** Accueil maquette — session présentiel salle BTP. */
   accueilOrganismeSalleBtp: {
-    src: '/images/accueil/06-formation-salle-btp.webp',
-    alt: 'Session formation IA BTP en présentiel — participants et écran',
-    width: 357,
-    height: 135,
+    src: '/images/accueil/04-session-formation-btp.webp',
+    alt: 'Session formation IA BTP en présentiel — participants et formateur',
+    width: 216,
+    height: 150,
   },
 
   /** Accueil maquette — carte « Formations IA BTP » (portable et plans). */
   accueilCarteFormationsIa: {
-    src: '/images/accueil/02-formation-initiation.webp',
-    alt: 'Ordinateur portable et documents de chantier — formation IA BTP',
-    width: 640,
-    height: 360,
+    src: '/images/accueil/02-formation-ia-ordinateur-plans.webp',
+    alt: 'Ordinateur portable, casque et plans — formation IA BTP',
+    width: 196,
+    height: 195,
   },
 
   /** Accueil maquette — carte « Parcours métiers » (chantier et grue). */
   accueilCarteParcoursMetiers: {
-    src: '/images/accueil/04-formation-conduite-travaux.webp',
-    alt: 'Chantier de construction avec grue — parcours métiers BTP',
-    width: 640,
-    height: 360,
+    src: '/images/accueil/03-parcours-metiers-chantier.webp',
+    alt: 'Chantier BTP avec grue — parcours métiers et IA',
+    width: 174,
+    height: 180,
   },
 
   /** Accueil maquette — bandeau CTA final (chantier). */
   accueilCtaFinalChantier: {
-    src: '/images/formation-ia-chantier-conducteur-travaux.webp',
-    alt: 'Chantier BTP — formation IA sur vos documents métier',
-    width: 1024,
-    height: 1024,
+    src: '/images/accueil/05-bandeau-chantier.webp',
+    alt: 'Chantier BTP avec grue — formation IA sur vos documents métier',
+    width: 304,
+    height: 124,
   },
 
 };

@@ -51,7 +51,7 @@ export function AccueilHeroSection() {
           </div>
 
           <div className="accueil-hero-aside relative order-2 min-w-0">
-            <div className="relative aspect-[505/224] w-full overflow-hidden rounded-2xl bg-[#F5F9FF] shadow-ofc-md ring-1 ring-[#DAE3F0]">
+            <div className="relative aspect-[538/239] w-full overflow-hidden rounded-2xl bg-[#F5F9FF] shadow-ofc-md ring-1 ring-[#DAE3F0]">
               <Image
                 src={HERO.src}
                 alt={HERO.alt}
