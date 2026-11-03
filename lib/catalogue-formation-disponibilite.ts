@@ -8,7 +8,7 @@ import {
 import {
   DEV_WEB_IA_DUREE_COURTE,
   DEV_WEB_IA_PRIX_LANCEMENT_LABEL,
-  TARIF_INTER_DEV_WEB_IA_HT,
+  TARIF_INTER_DEV_WEB_IA_14H_HT,
 } from '@/lib/formation-developpement-web-ia-content';
 import { libelleTarifParcoursCatalogue } from '@/lib/formations-catalogue-display';
 import { formatTarifHt } from '@/lib/tarifs-sessions';
@@ -53,7 +53,7 @@ export function catalogueEntryTarifLines(ref: string): string | null {
   if (!f) return null;
 
   if (ref === 'NIV-10') {
-    return `${DEV_WEB_IA_PRIX_LANCEMENT_LABEL} · ${formatTarifHt(TARIF_INTER_DEV_WEB_IA_HT)} € HT / participant`;
+    return `${DEV_WEB_IA_PRIX_LANCEMENT_LABEL} · ${formatTarifHt(TARIF_INTER_DEV_WEB_IA_14H_HT)} € HT / participant`;
   }
 
   if (f.tarifParcoursAppMetier) {

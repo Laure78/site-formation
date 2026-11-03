@@ -22,11 +22,7 @@ import {
   MENTIONS_TVA_INTRA_COURTE,
   PREREQUIS_NIVEAU_2,
 } from '@/lib/tarifs-sessions';
-import {
-  libelleTarifParticipantCatalogue,
-  TARIF_PARTICIPANT_NIV10_14H_HT,
-  TARIF_PARTICIPANT_NIV10_HT,
-} from '@/lib/tarifs-catalogue-participant';
+import { libelleTarifParticipantCatalogue } from '@/lib/tarifs-catalogue-participant';
 /** Modalité pédagogique fixe — toutes les actions catalogue OFC. */
 export const MODALITE_PEDAGOGIQUE_CATALOGUE =
   'Présentiel — Île-de-France uniquement (intra-entreprise (dans vos locaux) ou inter)' as const;
@@ -380,9 +376,6 @@ function prerequisPourRef(ref: FormationCode): string {
 }
 
 function tarifPourRef(ref: FormationCode): string {
-  if (ref === 'NIV-10') {
-    return `${libelleTarifParticipantCatalogue(TARIF_PARTICIPANT_NIV10_HT)} — 4 à 8 participants. ${MENTIONS_TVA_INTRA_COURTE} Prise en charge OPCO/Constructys selon éligibilité.`;
-  }
   const formation = getFormationByCode(ref);
   const entry = formation ? getFormationCatalogueByRef(ref) : undefined;
   if (formation?.tarifParticipantHt && entry) {

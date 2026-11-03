@@ -16,7 +16,7 @@ import {
   DEV_WEB_IA_BADGE_NOUVEAU,
   DEV_WEB_IA_DUREE_COURTE,
   DEV_WEB_IA_PRIX_LANCEMENT_LABEL,
-  TARIF_INTER_DEV_WEB_IA_HT,
+  TARIF_INTER_DEV_WEB_IA_14H_HT,
 } from '@/lib/formation-developpement-web-ia-content';
 import { formatTarifHt } from '@/lib/tarifs-sessions';
 import { OFC_CARD, OFC_CARD_ARROW, OFC_CTA_PRIMARY, OFC_LINK } from '@/lib/ofc-interaction-classes';
@@ -152,7 +152,7 @@ export function FormationsCatalogueCard({
                   <span className="text-[#377CF3]">{DEV_WEB_IA_PRIX_LANCEMENT_LABEL}</span>
                   {' · '}
                   <span>
-                    {formatTarifHt(TARIF_INTER_DEV_WEB_IA_HT)} € HT / participant
+                    {formatTarifHt(TARIF_INTER_DEV_WEB_IA_14H_HT)} € HT / participant
                   </span>
                 </>
               ) : (

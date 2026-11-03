@@ -1095,7 +1095,7 @@ export const DEV_WEB_IA_FAQ = [
 ] as const;
 
 export function libelleTarifLancementDevWebIa(): string {
-  return `${formatNumberFr(TARIF_INTER_DEV_WEB_IA_HT)} € HT / participant`;
+  return `${formatNumberFr(TARIF_INTER_DEV_WEB_IA_14H_HT)} € HT / participant`;
 }
 
 export function mentionFinancementDevWebIa(): string {
