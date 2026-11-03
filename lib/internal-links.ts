@@ -371,6 +371,7 @@ export const LINKS = {
   adminFormateursProgrammes: '/admin/formateurs/programmes',
   adminFormateursSupports: '/admin/formateurs/supports',
   adminFormateursPlanning: '/admin/formateurs/planning',
+  adminFormateursQualite: '/admin/formateurs/qualite',
   adminMonEspace: '/admin/mon-espace',
   adminMonEspaceAgenda: '/admin/mon-espace/agenda',
   adminMonEspaceNotes: '/admin/mon-espace/notes',

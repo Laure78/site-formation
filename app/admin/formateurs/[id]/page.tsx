@@ -4,6 +4,12 @@ import { requireAdminAccess } from '@/lib/admin-access';
 import { FormateursAdminSubnav } from '@/components/admin/formateurs/FormateursAdminSubnav';
 import { TrainerAdminPanel } from '@/components/admin/formateurs/TrainerAdminPanel';
 import { TrainerGrantsPanel } from '@/components/admin/formateurs/TrainerGrantsPanel';
+import { CompetencyEvaluationForm } from '@/components/admin/formateurs/CompetencyEvaluationForm';
+import { SubcontractorControlForm } from '@/components/admin/formateurs/SubcontractorControlForm';
+import {
+  fetchCompetencyEvaluationsForTrainer,
+  fetchLatestSubcontractorControl,
+} from '@/lib/extranet-formateurs/queries-phase3';
 import { fetchTrainerById, fetchTrainerDocuments } from '@/lib/extranet-formateurs/queries';
 import {
   fetchProgramsForAdmin,
@@ -25,9 +31,11 @@ export default async function AdminFormateurDetailPage({
   if (!trainer) notFound();
 
   const docs = await fetchTrainerDocuments(trainer.id);
-  const [programs, resources] = await Promise.all([
+  const [programs, resources, compEvals, subcontractControl] = await Promise.all([
     fetchProgramsForAdmin(),
     fetchResourcesForAdmin(),
+    fetchCompetencyEvaluationsForTrainer(trainer.id),
+    fetchLatestSubcontractorControl(trainer.id),
   ]);
   const admin = createAdminClient();
   const { data: programGrants } = await admin
@@ -50,6 +58,20 @@ export default async function AdminFormateurDetailPage({
           {[trainer.first_name, trainer.last_name].filter(Boolean).join(' ') || trainer.email}
         </h1>
         <p className="mt-1 text-sm text-slate-600">{trainer.email}</p>
+        <div className="mt-3 flex flex-wrap gap-3">
+          <a
+            href={`/api/admin/formateurs/export/${trainer.id}?format=json`}
+            className="rounded-lg border border-slate-200 bg-white px-3 py-1.5 text-sm font-medium text-[#377CF3] hover:bg-slate-50"
+          >
+            Export audit JSON
+          </a>
+          <a
+            href={`/api/admin/formateurs/export/${trainer.id}?format=zip`}
+            className="rounded-lg border border-slate-200 bg-white px-3 py-1.5 text-sm font-medium text-[#377CF3] hover:bg-slate-50"
+          >
+            Export audit ZIP
+          </a>
+        </div>
       </header>
       <TrainerGrantsPanel
         trainerId={trainer.id}
@@ -58,6 +80,8 @@ export default async function AdminFormateurDetailPage({
         grantedProgramIds={(programGrants ?? []).map((g) => g.program_id)}
         grantedResourceIds={(resourceGrants ?? []).map((g) => g.resource_id)}
       />
+      <CompetencyEvaluationForm trainerId={trainer.id} history={compEvals} />
+      <SubcontractorControlForm trainerId={trainer.id} latest={subcontractControl} />
       <TrainerAdminPanel trainer={trainer} documents={docs} />
     </div>
   );

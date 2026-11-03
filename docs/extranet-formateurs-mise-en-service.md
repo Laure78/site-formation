@@ -84,8 +84,18 @@ Parcours type :
 
 Lien optionnel futur : `training_session_id` sur `extranet_missions` (cockpit `/admin/sessions`).
 
-## Phase 3 (à venir)
+## Phase 3 (Qualité / audit)
 
-- Grilles compétences (ind. 21), fiches sous-traitance (ind. 27), exports audit PDF/ZIP.
+Migration : `074_extranet_formateurs_phase3.sql` (incluse dans le bundle si régénéré 071–074).
+
+| Fonction | Où |
+|----------|-----|
+| Grille compétences ind. 21 | Fiche `/admin/formateurs/[id]` |
+| Fiche sous-traitance ind. 27 | Idem |
+| Plans d’action ind. 31–32 | `/admin/formateurs/qualite` |
+| Retours session ind. 30 | `/espace-formateurs/qualite` |
+| Export JSON / ZIP | Fiche formateur → liens export |
+
+Après déploiement : exécuter **uniquement** `074_…sql` dans le SQL Editor si 071–073 sont déjà appliqués, puis `npm run db:verify:extranet`.
 
 Ne jamais exécuter de migration destructive en production sans validation explicite.

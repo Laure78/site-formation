@@ -24,6 +24,9 @@ const TABLES = [
   'extranet_programs',
   'extranet_missions',
   'extranet_trainer_resources',
+  'extranet_competency_evaluations',
+  'extranet_subcontractor_controls',
+  'extranet_quality_actions',
 ];
 
 async function main() {

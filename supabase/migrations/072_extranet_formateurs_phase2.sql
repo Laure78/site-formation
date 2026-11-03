@@ -10,7 +10,8 @@ CREATE TABLE IF NOT EXISTS public.extranet_programs (
   title text NOT NULL,
   slug text NOT NULL UNIQUE,
   catalogue_code text,
-  training_program_id uuid REFERENCES public.training_programs(id) ON DELETE SET NULL,
+  -- Lien optionnel cockpit /admin/sessions (063_training_ops) — pas de FK si non déployé
+  training_program_id uuid,
   is_archived boolean NOT NULL DEFAULT false,
   created_at timestamptz NOT NULL DEFAULT now(),
   updated_at timestamptz NOT NULL DEFAULT now()
@@ -98,7 +99,7 @@ CREATE TABLE IF NOT EXISTS public.extranet_missions (
   id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
   trainer_id uuid NOT NULL REFERENCES public.extranet_trainers(id) ON DELETE CASCADE,
   program_version_id uuid NOT NULL REFERENCES public.extranet_program_versions(id) ON DELETE RESTRICT,
-  training_session_id uuid REFERENCES public.training_sessions(id) ON DELETE SET NULL,
+  training_session_id uuid,
   title text NOT NULL,
   status text NOT NULL DEFAULT 'assigned'
     CHECK (status IN (
