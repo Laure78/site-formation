@@ -3,6 +3,9 @@
 # scratch / artefacts locaux
 /.tmp
 /tmp/
+.playwright-check-footer-before/
+.tmp-favicon-gen/
+scripts/check-meta-report.json
 
 # Export Teachizy (PDF + session navigateur — ne jamais committer)
 /.teachizy-auth/
