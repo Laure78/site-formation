@@ -1,53 +1,73 @@
-import { AccueilSectionPhoto } from '@/components/landing/accueil/AccueilSectionPhoto';
+import Link from 'next/link';
+import { ArrowRight, CalendarClock, CircleDollarSign, ClipboardCheck, Scale } from 'lucide-react';
 import { FINANCEMENT_BAREMES_NOTE } from '@/lib/financement-constructys-page-config';
-import { PHOTOS } from '@/lib/photos';
-import { OFC_CARD, OFC_TYPE_H2, OFC_TYPE_H3 } from '@/lib/ofc-interaction-classes';
+import { FC_CARD, FC_SECTION, FC_SUBTITLE, FC_TITLE } from '@/lib/financement-constructys-ui';
 
 const ESSENTIEL = [
   {
-    titre: 'Éligibilité',
+    titre: 'Vérifier l’éligibilité',
     texte:
-      'La participation financière dépend de votre rattachement à Constructys, de votre branche et de la validation de votre dossier.',
+      'Entreprise du BTP à jour de ses contributions, rattachement Constructys et dossier validé par l’OPCO.',
+    href: '#baremes-constructys',
+    icon: ClipboardCheck,
   },
   {
-    titre: 'Délai de dépôt',
+    titre: 'Anticiper le dépôt',
     texte:
       'Dossier complet dans eGestion au moins 15 jours calendaires avant le début de la formation.',
+    href: '#etapes-financement',
+    icon: CalendarClock,
   },
   {
-    titre: 'Plafonds',
+    titre: 'Connaître les plafonds',
     texte:
-      'Montants indicatifs selon l’effectif, la branche et le type d’action (horaire par stagiaire et plafond journalier de groupe en intra).',
+      'Barèmes horaires et plafonds journaliers selon l’effectif et la branche (Bâtiment, dispositif PDC).',
+    href: '#baremes-constructys',
+    icon: Scale,
   },
   {
-    titre: 'Paiement (oct.–déc. 2026)',
+    titre: 'Prévoir le reste à charge',
     texte:
-      'Pour les nouveaux dossiers concernés : l’entreprise règle OFC puis demande le remboursement à Constructys.',
+      'La participation Constructys peut être partielle : le solde reste à la charge de l’entreprise après accord.',
+    href: '#estimation-financement',
+    icon: CircleDollarSign,
   },
 ] as const;
 
 export function FinancementEssentielSection() {
-  const photo = PHOTOS.financementConstructysSessionFormation2026;
-
   return (
-    <section aria-labelledby="essentiel-title" className="scroll-mt-24">
-      <h2 id="essentiel-title" className={OFC_TYPE_H2}>
-        L’essentiel en 30 secondes
+    <section id="essentiel-financement" aria-labelledby="essentiel-title" className={FC_SECTION}>
+      <h2 id="essentiel-title" className={FC_TITLE}>
+        L’essentiel à retenir
       </h2>
-      <AccueilSectionPhoto
-        photo={photo}
-        className="mx-auto mt-8 max-w-3xl"
-        caption="Formation IA pour le BTP en présentiel : le financement Constructys accompagne les compétences, sous réserve d’éligibilité."
-      />
-      <ul className="mt-8 grid gap-5 sm:grid-cols-2">
-        {ESSENTIEL.map((item) => (
-          <li key={item.titre} className={`${OFC_CARD} p-6`}>
-            <h3 className={`${OFC_TYPE_H3} text-ofc-accent`}>{item.titre}</h3>
-            <p className="mt-3 text-sm leading-relaxed text-ofc-ink-muted md:text-base">{item.texte}</p>
-          </li>
-        ))}
+      <p className={FC_SUBTITLE}>
+        Quatre réflexes avant de lancer une demande de prise en charge auprès de Constructys.
+      </p>
+      <ul className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        {ESSENTIEL.map((item) => {
+          const Icon = item.icon;
+          return (
+            <li key={item.titre}>
+              <Link
+                href={item.href}
+                className={`${FC_CARD} group flex h-full flex-col gap-3 no-underline`}
+              >
+                <Icon className="h-6 w-6 text-[#377CF3]" strokeWidth={1.75} aria-hidden />
+                <h3 className="font-display text-base font-bold text-[#081943]">{item.titre}</h3>
+                <p className="flex-1 text-sm leading-relaxed text-ofc-ink-muted">{item.texte}</p>
+                <span
+                  className="mt-1 inline-flex h-9 w-9 items-center justify-center self-end rounded-full bg-[#377CF3] text-white transition-transform duration-200 motion-safe:group-hover:translate-x-0.5"
+                  aria-hidden
+                >
+                  <ArrowRight className="h-4 w-4" />
+                </span>
+                <span className="sr-only">Aller à la section {item.titre}</span>
+              </Link>
+            </li>
+          );
+        })}
       </ul>
-      <p className="mt-5 text-sm italic text-ofc-ink-subtle">{FINANCEMENT_BAREMES_NOTE}</p>
+      <p className="mt-5 text-center text-sm italic text-ofc-ink-subtle">{FINANCEMENT_BAREMES_NOTE}</p>
     </section>
   );
 }

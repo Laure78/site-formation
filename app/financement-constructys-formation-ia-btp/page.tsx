@@ -10,15 +10,18 @@ import {
   FinancementConstructysHero,
   FinancementConstructysCta,
 } from '@/components/financement/FinancementConstructysHero';
+import { FinancementReassuranceBand } from '@/components/financement/constructys/FinancementReassuranceBand';
 import { FinancementEssentielSection } from '@/components/financement/constructys/FinancementEssentielSection';
+import { FinancementBaremesSection } from '@/components/financement/constructys/FinancementBaremesSection';
 import { FinancementEstimationCards } from '@/components/financement/constructys/FinancementEstimationCards';
-import { FinancementCircuitPaiementTable } from '@/components/financement/constructys/FinancementCircuitPaiementTable';
 import { FinancementEtapesSection } from '@/components/financement/constructys/FinancementEtapesSection';
+import { FinancementCircuitTransitoireBanner } from '@/components/financement/constructys/FinancementCircuitTransitoireBanner';
 import { FinancementQuiFaitQuoiSection } from '@/components/financement/constructys/FinancementQuiFaitQuoiSection';
+import { FinancementFormationsAdapteesSection } from '@/components/financement/constructys/FinancementFormationsAdapteesSection';
 import { FinancementTarifsSection } from '@/components/financement/constructys/FinancementTarifsSection';
-import { FinancementSourcesSection } from '@/components/financement/constructys/FinancementSourcesSection';
 import { FinancementOpcoEtenduSection } from '@/components/financement/FinancementOpcoEtenduSection';
-import { FormationsFaqSection } from '@/components/formations/FormationsFaqSection';
+import { FinancementConstructysFaqSection } from '@/components/financement/constructys/FinancementConstructysFaqSection';
+import { FinancementSourcesSection } from '@/components/financement/constructys/FinancementSourcesSection';
 import { getFaqFinancementConstructysPage } from '@/lib/faq';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
 import { LINKS } from '@/lib/internal-links';
@@ -52,23 +55,26 @@ export default function FinancementConstructysPage() {
       <JsonLd data={getFinancementConstructysUnifiedJsonLd()} />
 
       <FinancementConstructysHero />
+      <FinancementReassuranceBand />
 
       <div className="financement-constructys-body mx-auto max-w-[80rem] px-4 pb-20 sm:px-6 lg:px-8">
-        <div className="space-y-10 md:space-y-14">
+        <div className="space-y-12 md:space-y-16">
           <FinancementEssentielSection />
+          <FinancementBaremesSection />
           <FinancementEstimationCards />
-          <FinancementCircuitPaiementTable />
           <FinancementEtapesSection />
+          <FinancementCircuitTransitoireBanner />
           <FinancementQuiFaitQuoiSection />
+          <FinancementFormationsAdapteesSection />
           <FinancementTarifsSection />
           <FinancementOpcoEtenduSection />
-          <FinancementConstructysCta />
-          <FormationsFaqSection
+          <FinancementConstructysFaqSection
             items={faqItems}
             title="Questions fréquentes"
             subtitle="Réponses courtes sur l’éligibilité, les plafonds et le circuit de paiement."
           />
           <FinancementSourcesSection />
+          <FinancementConstructysCta />
         </div>
       </div>
 

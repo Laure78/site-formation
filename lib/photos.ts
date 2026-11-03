@@ -602,15 +602,39 @@ export const PHOTOS = {
     height: 768,
   },
 
-  /** Page financement Constructys — hero (préparation dossier / devis OPCO) */
+  /** Page financement Constructys — hero (équipe BTP, formation IA) */
   financementConstructysHero2026: {
-    src: '/images/financement-constructys-formation-ia-btp-hero.webp',
-    alt: 'Dirigeant BTP prépare le financement Constructys d’une formation IA pour le BTP',
+    src: '/images/constructys/constructys-hero-equipe-formation-ia-btp.webp',
+    alt: 'Équipe BTP en formation IA autour d’un ordinateur sur chantier — financement Constructys',
     title: 'Financement Constructys 2026 — plafonds OPCO, devis et dossier eGestion',
     description:
-      'Professionnel du BTP consulte documents de financement et formation IA : dispositifs Constructys, élaboration du dossier et compétences durables — OFC Qualiopi, présentiel Île-de-France.',
+      'Trois professionnels du BTP collaborent sur une formation IA : préparation du dossier Constructys — OFC Qualiopi, présentiel Île-de-France.',
     width: 1024,
-    height: 768,
+    height: 524,
+  },
+  constructysDevisFinancement: {
+    src: '/images/constructys/constructys-devis-financement.webp',
+    alt: 'Devis et chiffrage formation IA BTP — documents et calculatrice sur bureau',
+    width: 324,
+    height: 169,
+  },
+  constructysDceCasquePlans: {
+    src: '/images/constructys/constructys-dce-casque-plans.webp',
+    alt: 'Plans de chantier, casque et outils — appels d’offres et DCE BTP',
+    width: 364,
+    height: 169,
+  },
+  constructysConducteurTravaux: {
+    src: '/images/constructys/constructys-conducteur-travaux.webp',
+    alt: 'Conducteur de travaux en gilet sur chantier — formation IA conduite de travaux',
+    width: 338,
+    height: 169,
+  },
+  constructysPlanningChantierIa: {
+    src: '/images/constructys/constructys-planning-chantier-ia.webp',
+    alt: 'Planning de chantier sur ordinateur — IA et suivi de travaux BTP',
+    width: 353,
+    height: 169,
   },
   /** Financement Constructys — checklist OPCO + devis formation */
   financementConstructysChecklistDevis2026: {

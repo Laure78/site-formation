@@ -1,71 +1,77 @@
+import Image from 'next/image';
 import {
-  CONSTRUCTYS_DUREE_SESSION_H,
   FINANCEMENT_ESTIMATION_DISCLAIMER,
+  FINANCEMENT_ESTIMATION_INTRA_4H,
   formatMontantHt,
-  getFinancementEstimationExemples,
+  getFinancementEstimationExemplesIntra4h,
 } from '@/lib/financement-constructys-page-config';
+import { PHOTOS } from '@/lib/photos';
+import { FC_CARD, FC_SECTION, FC_SUBTITLE, FC_TITLE } from '@/lib/financement-constructys-ui';
+
+const PHOTOS_EXEMPLES = [
+  PHOTOS.constructysDevisFinancement,
+  PHOTOS.constructysConducteurTravaux,
+] as const;
 
 export function FinancementEstimationCards() {
-  const exemples = getFinancementEstimationExemples();
-  const exemplePrincipal = exemples.filter((e) => e.participants === 6);
+  const exemples = getFinancementEstimationExemplesIntra4h();
+  const { dureeHeures, participants } = FINANCEMENT_ESTIMATION_INTRA_4H;
 
   return (
-    <section aria-labelledby="estimation-title" className="scroll-mt-24">
-      <h2
-        id="estimation-title"
-        className="font-display text-2xl font-bold tracking-tight text-[#0F172A] md:text-2xl"
-      >
-        Quel montant peut être pris en charge ?
+    <section id="estimation-financement" aria-labelledby="estimation-title" className={FC_SECTION}>
+      <h2 id="estimation-title" className={FC_TITLE}>
+        Exemple pour une formation intra de {dureeHeures} h
       </h2>
-      <p className="mt-3 max-w-3xl text-sm leading-relaxed text-[#64748B]">
-        Exemples pour une session intra-entreprise de {CONSTRUCTYS_DUREE_SESSION_H} h (tarif OFC
-        facturé). Calcul retenu : minimum entre plafond horaire × durée × stagiaires, plafond
-        journalier de groupe et coût pédagogique facturé.
+      <p className={FC_SUBTITLE}>
+        {participants} participants · coût pédagogique facturé{' '}
+        {formatMontantHt(FINANCEMENT_ESTIMATION_INTRA_4H.coutPedagogiqueFactureHt)}. Calcul retenu
+        : minimum entre plafond horaire × durée × stagiaires, plafond intra applicable et coût
+        facturé.
       </p>
-      <div className="mt-6 grid gap-5 md:grid-cols-2">
-        {exemplePrincipal.map((ex) => (
-          <article
-            key={ex.id}
-            className="flex flex-col rounded-xl border border-[#E2E8F0] bg-white p-5 shadow-sm"
-          >
-            <h3 className="font-display text-lg font-bold text-[#0F172A]">{ex.tranche}</h3>
-            <p className="mt-1 text-sm text-[#64748B]">{ex.participants} participants · intra</p>
-            <dl className="mt-4 space-y-2 text-sm">
-              <div className="flex justify-between gap-2 border-b border-[#F1F5F9] pb-2">
-                <dt className="text-[#64748B]">Plafond horaire / stagiaire</dt>
-                <dd className="font-semibold text-[#0F172A]">{ex.plafondHoraireHt} € HT/h</dd>
+      <div className="mt-8 grid gap-5 md:grid-cols-2">
+        {exemples.map((ex, index) => {
+          const photo = PHOTOS_EXEMPLES[index] ?? PHOTOS.constructysDevisFinancement;
+          return (
+            <article key={ex.id} className={`${FC_CARD} overflow-hidden p-0`}>
+              <div className="relative aspect-[2/1] w-full bg-[#EAF3FF]">
+                <Image
+                  src={photo.src}
+                  alt={photo.alt}
+                  width={photo.width}
+                  height={photo.height}
+                  className="h-full w-full object-cover object-center"
+                  sizes="(max-width: 768px) 100vw, 40vw"
+                />
               </div>
-              <div className="flex justify-between gap-2 border-b border-[#F1F5F9] pb-2">
-                <dt className="text-[#64748B]">Plafond journalier / groupe intra</dt>
-                <dd className="font-semibold text-[#0F172A]">{ex.plafondGroupeJourHt} € HT</dd>
+              <div className="p-5 md:p-6">
+                <h3 className="font-display text-lg font-bold text-[#081943]">{ex.tranche}</h3>
+                <p className="mt-1 text-sm text-ofc-ink-muted">
+                  Groupe : {ex.participants} participants · intra
+                </p>
+                <dl className="mt-4 space-y-2.5 text-sm">
+                  <div className="flex justify-between gap-3 border-b border-[#EAF3FF] pb-2">
+                    <dt className="text-ofc-ink-muted">Coût facturé OFC</dt>
+                    <dd className="font-semibold text-[#081943]">{formatMontantHt(ex.tarifFactureHt)}</dd>
+                  </div>
+                  <div className="flex justify-between gap-3 border-b border-[#EAF3FF] pb-2">
+                    <dt className="text-ofc-ink-muted">Participation potentielle</dt>
+                    <dd className="font-bold text-[#377CF3]">{formatMontantHt(ex.priseEnChargeHt)}</dd>
+                  </div>
+                  <div className="flex justify-between gap-3 pt-1">
+                    <dt className="text-ofc-ink-muted">Reste à charge possible</dt>
+                    <dd className="font-semibold text-[#081943]">
+                      {formatMontantHt(ex.resteAChargeHt)}
+                    </dd>
+                  </div>
+                </dl>
               </div>
-              <div className="flex justify-between gap-2 border-b border-[#F1F5F9] pb-2">
-                <dt className="text-[#64748B]">Tarif OFC facturé</dt>
-                <dd className="font-semibold text-[#0F172A]">{formatMontantHt(ex.tarifFactureHt)}</dd>
-              </div>
-              <div className="flex justify-between gap-2 border-b border-[#F1F5F9] pb-2">
-                <dt className="text-[#377CF3]">Participation estimée</dt>
-                <dd className="font-bold text-[#377CF3]">
-                  {formatMontantHt(ex.priseEnChargeHt)}
-                </dd>
-              </div>
-              <div className="flex justify-between gap-2 pt-1">
-                <dt className="text-[#64748B]">Reste à charge possible</dt>
-                <dd className="font-semibold text-[#0F172A]">
-                  {formatMontantHt(ex.resteAChargeHt)}
-                </dd>
-              </div>
-            </dl>
-          </article>
-        ))}
+            </article>
+          );
+        })}
       </div>
-      <p className="mt-4 rounded-lg bg-[#F8FAFC] px-4 py-3 text-sm text-[#475569]">
-        <strong>12 participants (TPE, intra) :</strong> le plafond journalier de groupe (
-        {exemples.find((e) => e.id === 'tpe-12')?.plafondGroupeJourHt} € HT) limite la prise en
-        charge à {formatMontantHt(exemples.find((e) => e.id === 'tpe-12')?.priseEnChargeHt ?? 0)},
-        et non le seul calcul horaire × effectif.
+      <p className="mt-5 rounded-xl bg-[#EAF3FF] px-4 py-3 text-center text-sm text-ofc-ink-muted">
+        {FINANCEMENT_ESTIMATION_DISCLAIMER}
       </p>
-      <p className="mt-3 text-sm italic text-[#64748B]">{FINANCEMENT_ESTIMATION_DISCLAIMER}</p>
     </section>
   );
 }

@@ -2514,6 +2514,11 @@
   line-height: 1.15;
 }
 
+/* Hero financement — visuel calé sur le ratio natif WebP (1024×524), comme maquette accueil */
+.financement-constructys-hero__figure {
+  max-width: 100%;
+}
+
 .financement-constructys-body {
   padding-top: 1rem;
 }

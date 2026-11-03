@@ -8,45 +8,56 @@ import {
   formatContentUpdatedLabel,
   getPillarPageContentUpdatedAt,
 } from '@/lib/content-updated-at';
+import { FC_SECTION } from '@/lib/financement-constructys-ui';
+
+const SOURCE_LINKS = [
+  CONSTRUCTYS_SOURCES.conditionsPriseEnCharge2026,
+  CONSTRUCTYS_SOURCES.dispositifTransitoirePaiement,
+  CONSTRUCTYS_SOURCES.egestion,
+  CONSTRUCTYS_SOURCES.modalites2026,
+] as const;
 
 export function FinancementSourcesSection() {
   const updatedAt = getPillarPageContentUpdatedAt('/financement-constructys-formation-ia-btp');
 
   return (
-    <section aria-labelledby="sources-title" className="scroll-mt-24 border-t border-[#E2E8F0] pt-10">
+    <section aria-labelledby="sources-title" className={`${FC_SECTION} border-t border-[#D7E5F7] pt-8`}>
       <h2
         id="sources-title"
-        className="font-display text-xl font-bold tracking-tight text-[#0F172A] md:text-2xl"
+        className="font-display text-lg font-bold tracking-tight text-[#081943] md:text-xl"
       >
-        Sources officielles
+        Sources et références
       </h2>
-      <p className="mt-2 text-sm text-[#64748B]">{formatContentUpdatedLabel(updatedAt)}</p>
-      <ul className="mt-4 space-y-3 text-sm">
-        {Object.values(CONSTRUCTYS_SOURCES).map((source) => (
-          <li key={source.href} className="rounded-lg border border-[#E2E8F0] bg-[#F8FAFC] px-4 py-3">
-            <ExternalLinkAnchor href={source.href} className="font-medium text-[#377CF3] underline">
+      <p className="mt-1 text-xs text-ofc-ink-subtle">{formatContentUpdatedLabel(updatedAt)}</p>
+      <ul className="mt-4 flex flex-col gap-2 text-sm">
+        {SOURCE_LINKS.map((source) => (
+          <li key={source.href}>
+            <ExternalLinkAnchor
+              href={source.href}
+              className="font-medium text-[#377CF3] underline underline-offset-2"
+            >
               {source.title}
             </ExternalLinkAnchor>
-            <span className="mt-1 block text-[#64748B]">{source.org}</span>
+            <span className="text-ofc-ink-subtle"> — {source.org}</span>
           </li>
         ))}
-        <li className="rounded-lg border border-[#E2E8F0] bg-[#F8FAFC] px-4 py-3">
+        <li>
           <ExternalLinkAnchor
             href={FINANCEMENT_OPCO_ATLAS.href}
-            className="font-medium text-[#377CF3] underline"
+            className="font-medium text-[#377CF3] underline underline-offset-2"
           >
             {FINANCEMENT_OPCO_ATLAS.bouton}
           </ExternalLinkAnchor>
-          <span className="mt-1 block text-[#64748B]">Atlas</span>
+          <span className="text-ofc-ink-subtle"> — Atlas</span>
         </li>
-        <li className="rounded-lg border border-[#E2E8F0] bg-[#F8FAFC] px-4 py-3">
+        <li>
           <ExternalLinkAnchor
             href={FINANCEMENT_OPCO_EP.href}
-            className="font-medium text-[#377CF3] underline"
+            className="font-medium text-[#377CF3] underline underline-offset-2"
           >
             {FINANCEMENT_OPCO_EP.bouton}
           </ExternalLinkAnchor>
-          <span className="mt-1 block text-[#64748B]">OPCO EP</span>
+          <span className="text-ofc-ink-subtle"> — OPCO EP</span>
         </li>
       </ul>
     </section>
