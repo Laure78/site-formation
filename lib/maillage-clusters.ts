@@ -938,7 +938,7 @@ export function getClusterRelatedLinks(path: string): ClusterPageConfig | null {
         {
           href: LINKS.parcoursMetiers,
           label: 'Parcours métiers — choisir selon ma fonction',
-          description: '7 parcours progressifs du catalogue 2027.',
+          description: '5 parcours progressifs du catalogue 2027.',
         },
         {
           href: LINKS.formations,

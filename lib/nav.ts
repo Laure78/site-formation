@@ -143,7 +143,7 @@ export function getNavFormationsFooter(at: Date = new Date()): readonly NavItem[
 /** @deprecated Préférer `NAV_FOOTER_FORMATIONS` dans le footer. */
 export const NAV_FORMATIONS_FOOTER: readonly NavItem[] = getNavFormationsFooter();
 
-/** Colonne 2 — Parcours métiers (7 parcours catalogue + hub). Ordre = METIERS_CATALOGUE_2027. */
+/** Colonne 2 — Parcours métiers (5 parcours catalogue + hub). Ordre = METIERS_CATALOGUE_2027. */
 const NAV_FOOTER_PARCOURS_ALL: readonly NavItem[] = [
   {
     href: LINKS.parcoursDirigeantPmeBtp,
@@ -159,16 +159,6 @@ const NAV_FOOTER_PARCOURS_ALL: readonly NavItem[] = [
     href: LINKS.parcoursConducteurDeTravaux,
     label: 'Conducteur de travaux',
     title: 'Parcours conducteur de travaux',
-  },
-  {
-    href: LINKS.parcoursChefDeChantier,
-    label: 'Chef de chantier',
-    title: 'Parcours encadrement de chantier',
-  },
-  {
-    href: LINKS.parcoursChefDequipe,
-    label: 'Chef d’équipe',
-    title: 'Parcours chef d’équipe',
   },
   {
     href: LINKS.parcoursAssistantDeGestionBtp,

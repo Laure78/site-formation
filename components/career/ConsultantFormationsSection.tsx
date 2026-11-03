@@ -19,7 +19,7 @@ export function ConsultantParcoursMetiersSection() {
           Parcours métiers du catalogue
         </h2>
         <p className={`mt-3 text-base text-slate-600 ${DEVENEZ_CONSULTANT_PROSE}`}>
-          Propositions acceptées pour les <strong>7 parcours métiers</strong> IA BTP — pas pour les
+          Propositions acceptées pour les <strong>5 parcours métiers</strong> IA BTP — pas pour les
           modules isolés. Cochez vos filières dans le formulaire de candidature ci-dessous.
         </p>
         <ConsultantParcoursMetiersCatalogue />
