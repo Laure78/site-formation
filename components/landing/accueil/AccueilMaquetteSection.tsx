@@ -1,7 +1,9 @@
 import type { ReactNode } from 'react';
+import { RevealShell } from '@/components/motion/RevealShell';
 import { cn } from '@/lib/cn';
 import { Section } from '@/components/ui/Section';
 import { OFC_TYPE_H2 } from '@/lib/ofc-interaction-classes';
+import { ACCUEIL_MOTION_REVEAL } from '@/components/landing/accueil/accueil-maquette-icons';
 
 type AccueilMaquetteSectionProps = {
   children: ReactNode;
@@ -43,7 +45,11 @@ type AccueilMaquetteHeadingProps = {
 
 export function AccueilMaquetteHeading({ id, title, description }: AccueilMaquetteHeadingProps) {
   return (
-    <div className="mx-auto max-w-2xl text-center">
+    <RevealShell
+      as="header"
+      className="mx-auto max-w-2xl text-center"
+      distance={ACCUEIL_MOTION_REVEAL.distance}
+    >
       <h2 id={id} className={`${OFC_TYPE_H2} text-xl font-extrabold text-[#101936] md:text-2xl`}>
         {title}
       </h2>
@@ -52,6 +58,6 @@ export function AccueilMaquetteHeading({ id, title, description }: AccueilMaquet
           {description}
         </p>
       ) : null}
-    </div>
+    </RevealShell>
   );
 }

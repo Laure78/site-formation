@@ -1,10 +1,13 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowRight, Check } from 'lucide-react';
+import { ArrowRight, Check, Users } from 'lucide-react';
 import { LINKS } from '@/lib/internal-links';
 import { OFC_LINK, OFC_TYPE_H2 } from '@/lib/ofc-interaction-classes';
 import { PHOTOS } from '@/lib/photos';
+import { ACCUEIL_MAQUETTE_ICON_STROKE } from '@/components/landing/accueil/accueil-maquette-icons';
 import { AccueilMaquetteSection } from '@/components/landing/accueil/AccueilMaquetteSection';
+import { RevealGroupShell } from '@/components/motion/RevealShell';
+import { ACCUEIL_MOTION_REVEAL } from '@/components/landing/accueil/accueil-maquette-icons';
 
 const PHOTO = PHOTOS.accueilOrganismeSalleBtp;
 
@@ -18,9 +21,13 @@ const ARGUMENTS = [
 export function AccueilOrganismeSection() {
   return (
     <AccueilMaquetteSection tone="muted" id="accueil-equipe" aria-labelledby="accueil-organisme-title">
-      <div className="grid min-w-0 gap-5 lg:grid-cols-[minmax(0,30%)_minmax(0,1fr)_minmax(0,15.5rem)] lg:items-start lg:gap-5 xl:grid-cols-[minmax(0,32%)_minmax(0,1fr)_minmax(0,17rem)] xl:gap-6">
+      <RevealGroupShell
+        className="grid min-w-0 gap-5 lg:grid-cols-[minmax(0,30%)_minmax(0,1fr)_minmax(0,15.5rem)] lg:items-start lg:gap-5 xl:grid-cols-[minmax(0,32%)_minmax(0,1fr)_minmax(0,17rem)] xl:gap-6"
+        staggerMs={ACCUEIL_MOTION_REVEAL.staggerMs}
+        distance={ACCUEIL_MOTION_REVEAL.distance}
+      >
         <div className="min-w-0">
-          <div className="aspect-[4/3] overflow-hidden rounded-xl shadow-ofc-md ring-1 ring-ofc-border lg:aspect-[5/4]">
+          <div className="aspect-[357/135] overflow-hidden rounded-xl bg-[#F2F2F2] shadow-ofc-md ring-1 ring-ofc-border">
             <Image
               src={PHOTO.src}
               alt={PHOTO.alt}
@@ -48,7 +55,7 @@ export function AccueilOrganismeSection() {
                   className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#377CF3]"
                   aria-hidden
                 >
-                  <Check className="h-3 w-3 text-white" strokeWidth={3} />
+                  <Check className="h-3 w-3 text-white" strokeWidth={2.5} />
                 </span>
                 <span>{line}</span>
               </li>
@@ -67,9 +74,14 @@ export function AccueilOrganismeSection() {
 
         <aside className="min-w-0 lg:sticky lg:top-[calc(var(--site-header-height,4.5rem)+0.75rem)]">
           <div className="rounded-xl border border-[#377CF3]/15 bg-[#EAF3FF] p-4">
-            <h3 className="font-display text-base font-bold leading-snug text-[#101936]">
-              Recrutement formateurs
-            </h3>
+            <div className="flex items-start gap-2.5">
+              <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-white text-[#377CF3] ring-1 ring-[#377CF3]/10">
+                <Users className="h-5 w-5" strokeWidth={ACCUEIL_MAQUETTE_ICON_STROKE} aria-hidden />
+              </span>
+              <h3 className="font-display text-base font-bold leading-snug text-[#101936]">
+                Recrutement formateurs
+              </h3>
+            </div>
             <p className="mt-1 text-[11px] font-semibold text-[#377CF3]">Catalogue 2027</p>
             <p className="mt-2 text-xs leading-relaxed text-ofc-ink-muted sm:text-sm">
               Vous connaissez le BTP et utilisez l&apos;IA ? Rejoignez notre réseau de formateurs
@@ -77,14 +89,14 @@ export function AccueilOrganismeSection() {
             </p>
             <Link
               href={LINKS.nousRejoindre}
-              className="mt-3 inline-flex min-h-10 w-full items-center justify-center gap-1.5 rounded-lg border border-[#377CF3] bg-white px-4 py-2 text-sm font-semibold text-[#377CF3] transition hover:bg-[#377CF3]/5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#377CF3]"
+              className="group mt-3 inline-flex min-h-10 w-full items-center justify-center gap-1.5 rounded-lg border border-[#377CF3] bg-white px-4 py-2 text-sm font-semibold text-[#377CF3] motion-safe:transition-[background-color,transform] motion-safe:duration-200 motion-safe:hover:-translate-y-px motion-safe:hover:bg-[#377CF3]/5 motion-reduce:transition-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#377CF3]"
             >
               En savoir plus
-              <ArrowRight className="h-4 w-4" strokeWidth={2.25} aria-hidden />
+              <ArrowRight className="h-4 w-4 motion-safe:transition-transform motion-safe:duration-200 group-hover:translate-x-0.5 motion-reduce:transition-none" strokeWidth={ACCUEIL_MAQUETTE_ICON_STROKE} aria-hidden />
             </Link>
           </div>
         </aside>
-      </div>
+      </RevealGroupShell>
     </AccueilMaquetteSection>
   );
 }

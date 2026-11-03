@@ -17,20 +17,20 @@ export function AccueilFaqMaquetteList({ items }: AccueilFaqMaquetteListProps) {
         >
           <summary className="flex cursor-pointer list-none items-center gap-2.5 px-4 py-3 text-left [&::-webkit-details-marker]:hidden">
             <CircleHelp
-              className="h-4 w-4 shrink-0 text-[#377CF3]"
-              strokeWidth={1.75}
+              className="h-[1.125rem] w-[1.125rem] shrink-0 text-[#377CF3]"
+              strokeWidth={1.875}
               aria-hidden
             />
             <span className="min-w-0 flex-1 text-[0.8125rem] font-semibold leading-snug text-[#101936] sm:text-sm">
               {item.q}
             </span>
             <ChevronDown
-              className="h-4 w-4 shrink-0 text-ofc-ink-subtle transition-transform duration-200 group-open:rotate-180"
-              strokeWidth={2}
+              className="accueil-maquette-faq__chevron h-[1.125rem] w-[1.125rem] shrink-0 text-ofc-ink-subtle group-open:rotate-180"
+              strokeWidth={1.875}
               aria-hidden
             />
           </summary>
-          <div className="border-t border-ofc-border/80 px-4 pb-4 pt-3 text-sm leading-relaxed text-ofc-ink-muted">
+          <div className="accueil-maquette-faq__panel border-t border-ofc-border/80 px-4 pb-4 pt-3 text-sm leading-relaxed text-ofc-ink-muted">
             <FAQAnswer content={item.a} />
           </div>
         </details>

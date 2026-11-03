@@ -1,13 +1,18 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { GraduationCap } from 'lucide-react';
 import { getAccueilMaquetteFormations } from '@/lib/accueil-config';
+import {
+  ACCUEIL_MAQUETTE_ICON_STROKE,
+  accueilMaquetteFormationIcon,
+} from '@/components/landing/accueil/accueil-maquette-icons';
 import { AccueilMaquetteArrowButton } from '@/components/landing/accueil/AccueilMaquetteArrowButton';
 import { AccueilMaquettePill } from '@/components/landing/accueil/AccueilMaquettePill';
 import {
   AccueilMaquetteHeading,
   AccueilMaquetteSection,
 } from '@/components/landing/accueil/AccueilMaquetteSection';
+import { RevealGroupShell } from '@/components/motion/RevealShell';
+import { ACCUEIL_MOTION_REVEAL } from '@/components/landing/accueil/accueil-maquette-icons';
 
 /** Quatre cartes formations — visuels bandeau bas + flèche (maquette). */
 export function AccueilFormationsCatalogueSection() {
@@ -25,16 +30,26 @@ export function AccueilFormationsCatalogueSection() {
         description="Des formations pratiques, orientées métiers, adaptées à vos besoins et au niveau de votre équipe."
       />
 
-      <ul className="accueil-maquette__grid grid list-none gap-4 sm:grid-cols-2 lg:grid-cols-4 lg:gap-3.5">
-        {formations.map((f) => (
-          <li key={f.code} className="list-none">
+      <RevealGroupShell
+        as="ul"
+        itemAs="li"
+        className="accueil-maquette__grid grid list-none gap-4 sm:grid-cols-2 lg:grid-cols-4 lg:gap-3.5"
+        staggerMs={ACCUEIL_MOTION_REVEAL.staggerMs}
+        distance={ACCUEIL_MOTION_REVEAL.distance}
+      >
+        {formations.map((f) => {
+          const FormationIcon = accueilMaquetteFormationIcon(f.code);
+          return (
             <Link
+              key={f.code}
               href={f.href}
-              className="group flex h-full flex-col overflow-hidden rounded-xl border border-ofc-border bg-white shadow-sm transition hover:border-[#377CF3]/35 hover:shadow-md"
+              className="accueil-maquette-card--interactive group flex h-full flex-col overflow-hidden rounded-xl border border-ofc-border bg-white shadow-sm motion-reduce:transition-none"
             >
               <div className="flex flex-1 flex-col p-4 pb-3">
                 <div className="flex items-center gap-2">
-                  <GraduationCap className="h-5 w-5 shrink-0 text-[#377CF3]" strokeWidth={1.75} aria-hidden />
+                  <span className="accueil-maquette-card__icon flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-[#EAF3FF] text-[#377CF3] motion-safe:transition-[transform,background-color] motion-safe:duration-200 motion-reduce:transition-none">
+                    <FormationIcon className="h-[1.375rem] w-[1.375rem]" strokeWidth={ACCUEIL_MAQUETTE_ICON_STROKE} aria-hidden />
+                  </span>
                   <AccueilMaquettePill variant="accent">{f.badge}</AccueilMaquettePill>
                 </div>
                 <h3 className="mt-2.5 font-display text-[0.9375rem] font-bold leading-snug text-[#101936]">
@@ -50,16 +65,16 @@ export function AccueilFormationsCatalogueSection() {
                   alt={f.imageAlt}
                   fill
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                  className="object-cover object-center transition duration-300 group-hover:scale-[1.02]"
+                  className="object-cover object-center motion-reduce:transition-none"
                 />
                 <span className="absolute bottom-2 right-2">
                   <AccueilMaquetteArrowButton className="!h-9 !w-9" />
                 </span>
               </div>
             </Link>
-          </li>
-        ))}
-      </ul>
+        );
+        })}
+      </RevealGroupShell>
     </AccueilMaquetteSection>
   );
 }

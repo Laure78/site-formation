@@ -7,7 +7,10 @@ import {
   AccueilMaquetteHeading,
   AccueilMaquetteSection,
 } from '@/components/landing/accueil/AccueilMaquetteSection';
+import { ACCUEIL_MAQUETTE_ICON_STROKE } from '@/components/landing/accueil/accueil-maquette-icons';
 import { AccueilMaquetteArrowButton } from '@/components/landing/accueil/AccueilMaquetteArrowButton';
+import { RevealGroupShell } from '@/components/motion/RevealShell';
+import { ACCUEIL_MOTION_REVEAL } from '@/components/landing/accueil/accueil-maquette-icons';
 
 const ICONS: Record<(typeof ACCUEIL_RESSOURCES_MAQUETTE)[number]['icon'], LucideIcon> = {
   book: BookOpen,
@@ -29,17 +32,23 @@ export function AccueilRessourcesGratuitesSection() {
         description="Des contenus pratiques pour mieux comprendre et utiliser l'IA dans le BTP."
       />
 
-      <ul className="accueil-maquette__grid grid list-none gap-3 sm:grid-cols-2 lg:grid-cols-3 lg:gap-3.5">
+      <RevealGroupShell
+        as="ul"
+        itemAs="li"
+        className="accueil-maquette__grid grid list-none gap-3 sm:grid-cols-2 lg:grid-cols-3 lg:gap-3.5"
+        staggerMs={ACCUEIL_MOTION_REVEAL.staggerMs}
+        distance={ACCUEIL_MOTION_REVEAL.distance}
+      >
         {ACCUEIL_RESSOURCES_MAQUETTE.map((r) => {
           const Icon = ICONS[r.icon];
           return (
-            <li key={r.href} className="list-none">
               <Link
+                key={r.href}
                 href={r.href}
-                className="group flex h-full min-h-[10.5rem] flex-col rounded-xl border border-ofc-border bg-white p-4 shadow-sm transition hover:border-[#377CF3]/35 hover:shadow-md"
+                className="accueil-maquette-card--interactive group flex h-full min-h-[10.5rem] flex-col rounded-xl border border-ofc-border bg-white p-4 shadow-sm motion-reduce:transition-none"
               >
-                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-[#EAF3FF] text-[#377CF3]">
-                  <Icon className="h-4 w-4" strokeWidth={1.75} aria-hidden />
+                <span className="accueil-maquette-card__icon flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-[#EAF3FF] text-[#377CF3] motion-safe:transition-[transform,background-color] motion-safe:duration-200 motion-reduce:transition-none">
+                  <Icon className="h-5 w-5" strokeWidth={ACCUEIL_MAQUETTE_ICON_STROKE} aria-hidden />
                 </span>
                 <span className="mt-3 block font-display text-xs font-bold text-[#101936] sm:text-[0.8125rem]">
                   {r.label}
@@ -52,10 +61,9 @@ export function AccueilRessourcesGratuitesSection() {
                   <AccueilMaquetteArrowButton className="!h-9 !w-9" />
                 </span>
               </Link>
-            </li>
           );
         })}
-      </ul>
+      </RevealGroupShell>
 
       <p className="mt-4 text-center">
         <Link href={LINKS.ressources} className={`${OFC_LINK} text-sm font-semibold`}>

@@ -1,6 +1,8 @@
 import { FAQ_ITEMS_HOME } from '@/lib/faq';
 import { AccueilMaquetteSection } from '@/components/landing/accueil/AccueilMaquetteSection';
 import { AccueilFaqMaquetteList } from '@/components/landing/accueil/AccueilFaqMaquetteList';
+import { RevealShell } from '@/components/motion/RevealShell';
+import { ACCUEIL_MOTION_REVEAL } from '@/components/landing/accueil/accueil-maquette-icons';
 
 /** FAQ accueil — titre à gauche, pastilles en deux colonnes (maquette). */
 export function AccueilFaqSection() {
@@ -15,7 +17,11 @@ export function AccueilFaqSection() {
       aria-labelledby="accueil-faq-heading"
     >
       <div className="accueil-maquette__grid grid gap-8 lg:grid-cols-[minmax(0,11rem)_minmax(0,1fr)] lg:items-start lg:gap-10 xl:grid-cols-[minmax(0,13rem)_minmax(0,1fr)]">
-        <div className="min-w-0 lg:sticky lg:top-[calc(var(--site-header-height,4.5rem)+0.75rem)]">
+        <RevealShell
+          as="div"
+          className="min-w-0 lg:sticky lg:top-[calc(var(--site-header-height,4.5rem)+0.75rem)]"
+          distance={ACCUEIL_MOTION_REVEAL.distance}
+        >
           <p className="font-display text-3xl font-extrabold tracking-tight text-[#101936] md:text-4xl" aria-hidden>
             FAQ
           </p>
@@ -26,12 +32,12 @@ export function AccueilFaqSection() {
           >
             Vos questions fréquentes
           </h2>
-        </div>
+        </RevealShell>
 
-        <div className="grid min-w-0 gap-3 sm:grid-cols-2 sm:gap-3.5">
+        <RevealShell as="div" className="grid min-w-0 gap-3 sm:grid-cols-2 sm:gap-3.5" delay={ACCUEIL_MOTION_REVEAL.contentDelayMs} distance={ACCUEIL_MOTION_REVEAL.distance}>
           <AccueilFaqMaquetteList items={colA} />
           <AccueilFaqMaquetteList items={colB} />
-        </div>
+        </RevealShell>
       </div>
     </AccueilMaquetteSection>
   );

@@ -35,7 +35,7 @@ export type RevealGroupShellProps = {
   distance?: number;
   as?: RevealTag;
   itemAs?: RevealTag;
-};
+} & Omit<HTMLAttributes<HTMLElement>, 'children' | 'className'>;
 
 /**
  * Enveloppe serveur pour animations scroll — sans `"use client"`.
@@ -77,13 +77,14 @@ export function RevealGroupShell({
   distance = 8,
   as = 'div',
   itemAs,
+  ...rest
 }: RevealGroupShellProps) {
   const items = Children.toArray(children).filter(Boolean);
   const childAs = itemAs ?? as;
 
   return createElement(
     as,
-    { className: className.trim() || undefined, 'data-reveal-group': true },
+    { className: className.trim() || undefined, 'data-reveal-group': true, ...rest },
     items.map((child, index) => {
       const key = isValidElement(child) && child.key != null ? String(child.key) : index;
       return (

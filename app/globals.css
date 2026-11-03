@@ -2107,11 +2107,76 @@
   }
 
   .accueil-maquette .accueil-maquette-card__media {
-    aspect-ratio: 16 / 7;
+    aspect-ratio: 225 / 57;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .accueil-maquette .accueil-maquette-card--interactive {
+      @apply transition-[transform,box-shadow,border-color] duration-200 ease-out;
+    }
+
+    .accueil-maquette .accueil-maquette-card--interactive:hover {
+      @apply -translate-y-[3px] border-[#377CF3]/35 shadow-md;
+    }
+
+    .accueil-maquette .accueil-maquette-card--interactive:hover .accueil-maquette-card__icon {
+      @apply scale-105 bg-[#377CF3]/15;
+    }
+
+    .accueil-maquette .accueil-maquette-metier-card {
+      @apply transition-[border-color,box-shadow,background-color] duration-200 ease-out;
+    }
+
+    .accueil-maquette .accueil-maquette-metier-card:hover {
+      @apply border-[#377CF3]/30 shadow-md;
+    }
+
+    .accueil-maquette .accueil-maquette-metier-card:hover .accueil-maquette-metier-card__icon {
+      @apply bg-[#377CF3]/15 text-[#377CF3];
+    }
+
+    .accueil-maquette .accueil-maquette-card__media img {
+      @apply transition-transform duration-300 ease-out;
+    }
+
+    .accueil-maquette .accueil-maquette-card--interactive:hover .accueil-maquette-card__media img {
+      @apply scale-[1.02];
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .accueil-maquette .accueil-maquette-card--interactive:hover {
+      transform: none;
+    }
+  }
+
+  .accueil-maquette .accueil-maquette-faq__item > summary .accueil-maquette-faq__chevron {
+    @apply transition-transform duration-[220ms] ease-out motion-reduce:transition-none;
   }
 
   .accueil-maquette .accueil-maquette-faq__item[open] > summary {
     @apply pb-2;
+  }
+
+  .accueil-maquette .accueil-maquette-faq__panel {
+    animation: accueil-faq-panel-in 220ms ease-out both;
+  }
+
+  @keyframes accueil-faq-panel-in {
+    from {
+      opacity: 0.92;
+      transform: translateY(-4px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .accueil-maquette .accueil-maquette-faq__panel {
+      animation: none;
+    }
   }
 
   .accueil-maquette-cta-final__pill {

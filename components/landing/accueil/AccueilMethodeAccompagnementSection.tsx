@@ -8,6 +8,9 @@ import {
   AccueilMaquetteHeading,
   AccueilMaquetteSection,
 } from '@/components/landing/accueil/AccueilMaquetteSection';
+import { ACCUEIL_MAQUETTE_ICON_STROKE } from '@/components/landing/accueil/accueil-maquette-icons';
+import { RevealShell } from '@/components/motion/RevealShell';
+import { ACCUEIL_MOTION_REVEAL } from '@/components/landing/accueil/accueil-maquette-icons';
 
 /** Méthode en 4 étapes — flux horizontal avec flèches (maquette). */
 export function AccueilMethodeAccompagnementSection() {
@@ -29,12 +32,20 @@ export function AccueilMethodeAccompagnementSection() {
                 className="flex list-none items-center justify-center py-0.5 lg:w-6 lg:shrink-0 lg:py-0"
                 aria-hidden
               >
-                <ArrowDown className="h-4 w-4 text-[#C5C5C5] lg:hidden" strokeWidth={2} />
-                <ArrowRight className="hidden h-4 w-4 text-[#C5C5C5] lg:block" strokeWidth={2} />
+                <ArrowDown className="h-5 w-5 text-[#C5C5C5] lg:hidden" strokeWidth={ACCUEIL_MAQUETTE_ICON_STROKE} />
+                <ArrowRight
+                  className="hidden h-5 w-5 text-[#C5C5C5] lg:block"
+                  strokeWidth={ACCUEIL_MAQUETTE_ICON_STROKE}
+                />
               </li>
             ) : null}
-            <li className="min-w-0 flex-1 list-none">
-              <article className="flex h-full items-start gap-3 rounded-xl border border-ofc-border bg-white p-3.5 shadow-sm lg:min-h-[5.5rem]">
+            <RevealShell
+              as="li"
+              className="min-w-0 flex-1 list-none"
+              delay={index * ACCUEIL_MOTION_REVEAL.staggerMs}
+              distance={ACCUEIL_MOTION_REVEAL.distance}
+            >
+              <article className="accueil-maquette-card--interactive flex h-full items-start gap-3 rounded-xl border border-ofc-border bg-white p-3.5 shadow-sm motion-reduce:transition-none lg:min-h-[5.5rem]">
                 <span
                   className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#377CF3] font-display text-sm font-bold text-white"
                   aria-hidden
@@ -46,7 +57,7 @@ export function AccueilMethodeAccompagnementSection() {
                   <p className="mt-1 text-xs leading-relaxed text-ofc-ink-muted">{etape.detail}</p>
                 </div>
               </article>
-            </li>
+            </RevealShell>
           </Fragment>
         ))}
       </ol>

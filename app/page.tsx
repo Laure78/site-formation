@@ -12,6 +12,8 @@ import { AccueilMethodeAccompagnementSection } from '@/components/landing/accuei
 import { AccueilPreuvesConfianceSection } from '@/components/landing/accueil/AccueilPreuvesConfianceSection';
 import { AccueilFaqSection } from '@/components/landing/accueil/AccueilFaqSection';
 import { AccueilCtaFinalSection } from '@/components/landing/accueil/AccueilCtaFinalSection';
+import { RevealShell } from '@/components/motion/RevealShell';
+import { ACCUEIL_MOTION_REVEAL } from '@/components/landing/accueil/accueil-maquette-icons';
 import { buildMetadata } from '@/lib/seo';
 import { buildHomeFAQPageJsonLd } from '@/lib/faq';
 import { JsonLd } from '@/components/JsonLd';
@@ -95,7 +97,9 @@ export default function HomePage() {
       <AccueilMethodeAccompagnementSection />
       <AccueilPreuvesConfianceSection />
       <AccueilFaqSection />
-      <AccueilCtaFinalSection />
+      <RevealShell distance={ACCUEIL_MOTION_REVEAL.distance}>
+        <AccueilCtaFinalSection />
+      </RevealShell>
 
       <JsonLd id="schema-home-unified-graph" schema={buildHomeUnifiedGraphJsonLd()} />
       <JsonLd id="faq-schema-home" schema={HOME_FAQ_PAGE_JSON_LD} />

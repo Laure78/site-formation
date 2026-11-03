@@ -20,7 +20,7 @@ export function AccueilHeroSection() {
     <section id="accueil-hero" className="relative overflow-hidden bg-white">
       <div className={`${OFC_SECTION_INNER} accueil-maquette__inner relative px-4 sm:px-6 lg:px-8`}>
         <div className="grid min-w-0 items-center gap-6 lg:grid-cols-[minmax(0,0.44fr)_minmax(0,0.56fr)] lg:gap-8">
-          <div className="min-w-0 order-1">
+          <div className="accueil-hero-content min-w-0 order-1">
             <p className="inline-block rounded-full bg-[#EAF3FF] px-3.5 py-1 text-[10px] font-bold uppercase tracking-[0.12em] text-[#101936] sm:text-[11px]">
               Formation professionnelle · IA &amp; BTP
             </p>
@@ -43,22 +43,22 @@ export function AccueilHeroSection() {
               <Link
                 href={LINKS.formations}
                 data-cta="voir-formations"
-                className={`${OFC_CTA_PRIMARY} inline-flex min-h-10 w-full items-center justify-center px-5 py-2.5 text-sm sm:w-auto`}
+                className={`${OFC_CTA_PRIMARY} motion-safe:transition-[transform,box-shadow] motion-safe:duration-200 motion-safe:hover:-translate-y-px motion-reduce:transition-none inline-flex min-h-10 w-full items-center justify-center px-5 py-2.5 text-sm sm:w-auto`}
               >
                 Découvrir les formations
               </Link>
               <Link
                 href={`${LINKS.formationIaIntraEntrepriseBtp}?src=accueil-hero`}
                 data-cta="intra-hero"
-                className={`${OFC_CTA_SECONDARY} inline-flex min-h-10 w-full items-center justify-center px-5 py-2.5 text-sm sm:w-auto`}
+                className={`${OFC_CTA_SECONDARY} motion-safe:transition-[transform,border-color,background-color] motion-safe:duration-200 motion-safe:hover:-translate-y-px motion-reduce:transition-none inline-flex min-h-10 w-full items-center justify-center px-5 py-2.5 text-sm sm:w-auto`}
               >
                 Former mon équipe
               </Link>
             </div>
           </div>
 
-          <div className="relative order-2 min-w-0">
-            <div className="relative aspect-[5/4] w-full max-h-[min(380px,46vh)] overflow-hidden rounded-2xl shadow-ofc-md ring-1 ring-ofc-border sm:max-h-none">
+          <div className="accueil-hero-aside relative order-2 min-w-0">
+            <div className="relative aspect-[505/224] w-full overflow-hidden rounded-2xl bg-[#F2F2F2] shadow-ofc-md ring-1 ring-ofc-border">
               <Image
                 src={HERO.src}
                 alt={HERO.alt}
@@ -70,7 +70,7 @@ export function AccueilHeroSection() {
               />
             </div>
             <p className="absolute top-3 right-3 flex max-w-[11rem] items-center gap-1.5 rounded-lg border border-white/90 bg-white/95 px-2.5 py-2 text-[11px] font-semibold leading-snug text-[#101936] shadow-md sm:max-w-[13rem] sm:text-xs">
-              <Sparkles className="h-3.5 w-3.5 shrink-0 text-[#377CF3]" aria-hidden />
+              <Sparkles className="h-4 w-4 shrink-0 text-[#377CF3]" strokeWidth={1.875} aria-hidden />
               Des usages concrets pour vos projets BTP
             </p>
           </div>
