@@ -19,14 +19,14 @@ export const SITE_BRAND_LOGO_IMAGE_CLASS =
 
 /** Logo horizontal — fond sombre (footer #101936), tagline FORMATION IA • BTP incluse. */
 export const SITE_BRAND_LOGO_FOOTER = {
-  src: '/images/logo-laure-olivie-formation-ia-btp-footer.webp',
+  src: '/images/logo-laure-olivie-formation-ia-btp-footer.png',
   alt: SITE_LOGO_ALT,
-  width: SITE_BRAND_LOGO.width,
-  height: SITE_BRAND_LOGO.height,
+  width: 1024,
+  height: 576,
 } as const;
 
 export const SITE_BRAND_LOGO_FOOTER_IMAGE_CLASS =
-  'h-10 w-auto max-w-[14rem] object-contain object-left sm:h-11 sm:max-w-[16rem]' as const;
+  'h-12 w-auto max-w-[15rem] object-contain object-left sm:h-[3.25rem] sm:max-w-[17rem]' as const;
 
 /** Portrait header / schéma Person — distinct du logo de marque et des favicons. */
 export const SITE_HEADER_LOGO_SRC = '/images/laure-avatar-bleu.webp' as const;
