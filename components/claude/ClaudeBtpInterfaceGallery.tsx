@@ -2,31 +2,31 @@ import Image from 'next/image';
 
 const VISUALS: { src: string; alt: string; caption: string; badge: string }[] = [
   {
-    src: '/images/blog/guide-claude-btp-2026/slide-02.png',
+    src: '/images/blog/guide-claude-btp-2026/guide-claude-btp-programme-quatre-modules.webp',
     alt: 'Claude Chat : interface conversationnelle pour analyser un DCE ou un CCTP BTP',
     caption: 'Claude Chat — conversation et projets',
     badge: 'CHAT',
   },
   {
-    src: '/images/blog/guide-claude-btp-2026/slide-04.png',
+    src: '/images/blog/guide-claude-btp-2026/guide-claude-btp-claude-code-installation.webp',
     alt: 'Claude Cowork : tableau de bord et missions sur fichiers pour un conducteur de travaux BTP',
     caption: 'Claude Cowork — missions sur dossiers locaux',
     badge: 'COWORK',
   },
   {
-    src: '/images/blog/guide-claude-btp-2026/slide-06.png',
+    src: '/images/blog/guide-claude-btp-2026/guide-claude-btp-projects-comparatif-contexte.webp',
     alt: 'Claude Code dans l’environnement de développement pour automatiser devis et exports BTP',
     caption: 'Claude Code — automatisation et scripts',
     badge: 'CODE',
   },
   {
-    src: '/images/blog/guide-claude-btp-2026/slide-08.png',
+    src: '/images/blog/guide-claude-btp-2026/guide-claude-btp-projects-modele-instructions.webp',
     alt: 'Application Claude sur bureau pour accéder à Cowork depuis le poste chantier ou bureau',
     caption: 'Application desktop Anthropic',
     badge: 'DESKTOP',
   },
   {
-    src: '/images/blog/guide-claude-btp-2026/slide-10.png',
+    src: '/images/blog/guide-claude-btp-2026/guide-claude-btp-claude-md-identite-regles.webp',
     alt: 'Extension Claude pour Chrome : analyse de fiches marchés publics et rédaction d’emails BTP',
     caption: 'Claude pour Chrome — page web ouverte',
     badge: 'CHROME',

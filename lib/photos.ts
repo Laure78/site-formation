@@ -26,7 +26,7 @@ export const SITE_BRAND_LOGO_FOOTER = {
 } as const;
 
 export const SITE_BRAND_LOGO_FOOTER_IMAGE_CLASS =
-  'h-12 w-auto max-w-[15rem] object-contain object-left sm:h-[3.25rem] sm:max-w-[17rem]' as const;
+  'h-14 w-auto max-w-[17rem] object-contain object-left sm:h-16 sm:max-w-[20rem] md:max-w-[22rem]' as const;
 
 /** Portrait header / schéma Person — distinct du logo de marque et des favicons. */
 export const SITE_HEADER_LOGO_SRC = '/images/laure-avatar-bleu.webp' as const;
@@ -931,7 +931,7 @@ export const PHOTOS = {
   },
   formationNiv10DevWebIaOg2026: {
     src: '/images/formation-developpement-web-ia-sans-coder/01-hero-applications-metier-btp-ia.webp',
-    alt: 'Équipe BTP devant un ERP chantier conçu avec l’IA, sans coder',
+    alt: 'Visuel de partage — équipe BTP et outil ERP chantier conçu avec l’IA, sans coder',
     description:
       'Visuel Open Graph de la formation Qualiopi « Créer des applications métier BTP avec l’IA » — OFC / Laure Olivié.',
     title: 'Créer des applications métier BTP avec l’IA',

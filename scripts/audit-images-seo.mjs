@@ -70,7 +70,7 @@ function extractImageTags(source, file) {
       issues.push({ type: 'missing-alt', file, line, snippet: block.slice(0, 80) });
     } else if (
       /alt=\{?\s*['"]\s*['"]\s*\}?/.test(block) &&
-      !/decorative|aria-hidden/.test(block) &&
+      !/\baria-hidden\b/.test(block) &&
       !EMPTY_ALT_ALLOWLIST.some((p) => file.includes(p))
     ) {
       issues.push({ type: 'empty-alt', file, line, note: 'alt vide — vérifier si décoratif' });

@@ -305,6 +305,7 @@ export function NousRejoindreMissionSection() {
         <Image
           src={MISSION_BG.src}
           alt=""
+          aria-hidden
           fill
           className="object-cover object-center"
           sizes="100vw"

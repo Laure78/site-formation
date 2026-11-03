@@ -1,6 +1,6 @@
 /**
  * Articles blog — guide Claude avancé BTP (visuels pédagogiques OFC).
- * Illustrations : /public/images/blog/guide-claude-btp-2026/slide-*.png
+ * Illustrations : /public/images/blog/guide-claude-btp-2026/*.webp (legacy slide-*.png → redirects 308)
  * Carrousels LinkedIn / PDF : carrousel-7-cas-usage-ia-btp, carrousel-5-assistants-ia-btp
  * Carrousel A présentation : blog-carrousel-a-article.ts
  */
@@ -278,7 +278,7 @@ export const blogArticlesClaudeBtp2026: BlogArticle[] = [
         type: 'html',
         title: 'Au programme : quatre blocs pour un assistant IA complet',
         content: `<figure class="my-6">
-<img src="${IMG}/slide-02.png" alt="Programme formation Claude : modules Claude Code, Projects Cowork, Skills métier, MCP connecteurs — OFC Laure Olivié Qualiopi" class="w-full rounded-xl border border-slate-200 shadow-sm" loading="lazy" width="1200" height="675" />
+<img src="${IMG}/guide-claude-btp-programme-quatre-modules.webp" alt="Programme formation Claude : modules Claude Code, Projects Cowork, Skills métier, MCP connecteurs — OFC Laure Olivié Qualiopi" class="w-full rounded-xl border border-slate-200 shadow-sm" loading="lazy" width="1200" height="675" />
 <figcaption class="mt-2 text-center text-sm text-slate-500">Les quatre modules du guide : Claude Code, Projects (Cowork), Skills métier, MCP — connecteurs vers vos outils.</figcaption>
 </figure>`,
       },
@@ -292,7 +292,7 @@ export const blogArticlesClaudeBtp2026: BlogArticle[] = [
         type: 'html',
         title: 'Schéma : de la consigne au résultat',
         content: `<figure class="my-6">
-<img src="${IMG}/slide-03.png" alt="Capture Claude Code — instruction en français, résultat sur fichiers et site web" class="w-full rounded-xl border border-slate-200 shadow-sm" loading="lazy" width="1200" height="675" />
+<img src="${IMG}/guide-claude-btp-claude-code-consigne-resultat.webp" alt="Capture Claude Code — instruction en français, résultat sur fichiers et site web" class="w-full rounded-xl border border-slate-200 shadow-sm" loading="lazy" width="1200" height="675" />
 <figcaption class="mt-2 text-center text-sm text-slate-500">Claude Code : vous tapez une instruction, le système interprète et agit sur vos fichiers ou votre site.</figcaption>
 </figure>`,
       },
@@ -301,7 +301,7 @@ export const blogArticlesClaudeBtp2026: BlogArticle[] = [
         title: 'Installation en trois étapes (Mac et Windows)',
         content: `<p class="text-slate-600 mb-4">Installez Node.js depuis nodejs.org, ouvrez le Terminal (Mac) ou PowerShell en administrateur (Windows), puis exécutez <code class="bg-slate-100 px-1 rounded">npm install -g @anthropic-ai/claude-code</code>. Lancez <code class="bg-slate-100 px-1 rounded">claude</code> et connectez votre clé API Anthropic (console.anthropic.com).</p>
 <figure class="my-6">
-<img src="${IMG}/slide-04.png" alt="Installation Claude Code sur Mac et Windows : Node.js, terminal, commande npm, clé API Anthropic" class="w-full rounded-xl border border-slate-200 shadow-sm" loading="lazy" width="1200" height="675" />
+<img src="${IMG}/guide-claude-btp-claude-code-installation.webp" alt="Installation Claude Code sur Mac et Windows : Node.js, terminal, commande npm, clé API Anthropic" class="w-full rounded-xl border border-slate-200 shadow-sm" loading="lazy" width="1200" height="675" />
 <figcaption class="mt-2 text-center text-sm text-slate-500">Étapes d’installation — à reproduire en formation encadrée pour sécuriser les accès.</figcaption>
 </figure>`,
       },
@@ -309,7 +309,7 @@ export const blogArticlesClaudeBtp2026: BlogArticle[] = [
         type: 'html',
         title: 'Exemples concrets BTP avec Claude Code',
         content: `<figure class="my-6">
-<img src="${IMG}/slide-05.png" alt="Exemples Claude Code BTP : convention formation, devis PDF, WordPress, emails série, rapport chantier, émargement Qualiopi" class="w-full rounded-xl border border-slate-200 shadow-sm" loading="lazy" width="1200" height="675" />
+<img src="${IMG}/guide-claude-btp-claude-code-exemples-btp.webp" alt="Exemples Claude Code BTP : convention formation, devis PDF, WordPress, emails série, rapport chantier, émargement Qualiopi" class="w-full rounded-xl border border-slate-200 shadow-sm" loading="lazy" width="1200" height="675" />
 <figcaption class="mt-2 text-center text-sm text-slate-500">Cas d’usage : conventions, devis, site, prospection, reporting — toujours valider les montants et clauses avant envoi.</figcaption>
 </figure>`,
       },
@@ -323,7 +323,7 @@ export const blogArticlesClaudeBtp2026: BlogArticle[] = [
         type: 'html',
         title: 'Sans Project vs avec Project',
         content: `<figure class="my-6">
-<img src="${IMG}/slide-06.png" alt="Comparatif Claude Projects : mémoire contextuelle entre conversations pour entreprises BTP" class="w-full rounded-xl border border-slate-200 shadow-sm" loading="lazy" width="1200" height="675" />
+<img src="${IMG}/guide-claude-btp-projects-comparatif-contexte.webp" alt="Comparatif Claude Projects : mémoire contextuelle entre conversations pour entreprises BTP" class="w-full rounded-xl border border-slate-200 shadow-sm" loading="lazy" width="1200" height="675" />
 <figcaption class="mt-2 text-center text-sm text-slate-500">Avec un Project, le contexte métier et les documents restent disponibles — moins de ressaisie, plus de cohérence.</figcaption>
 </figure>`,
       },
@@ -331,7 +331,7 @@ export const blogArticlesClaudeBtp2026: BlogArticle[] = [
         type: 'html',
         title: 'Créer et configurer un Project « BTP »',
         content: `<figure class="my-6">
-<img src="${IMG}/slide-07.png" alt="Cinq étapes pour créer un Project Claude.ai BTP : instructions, documents, test, partage équipe" class="w-full rounded-xl border border-slate-200 shadow-sm" loading="lazy" width="1200" height="675" />
+<img src="${IMG}/guide-claude-btp-projects-creation-cinq-etapes.webp" alt="Cinq étapes pour créer un Project Claude.ai BTP : instructions, documents, test, partage équipe" class="w-full rounded-xl border border-slate-200 shadow-sm" loading="lazy" width="1200" height="675" />
 <figcaption class="mt-2 text-center text-sm text-slate-500">Création du Project, instructions permanentes, import de pièces (programmes, grilles de prix), test puis invitation de l’équipe.</figcaption>
 </figure>`,
       },
@@ -339,7 +339,7 @@ export const blogArticlesClaudeBtp2026: BlogArticle[] = [
         type: 'html',
         title: 'Modèle d’instructions Project (à adapter)',
         content: `<figure class="my-6">
-<img src="${IMG}/slide-08.png" alt="Modèle d’instructions Project Claude : activité, formation phare, clients et règles de style Qualiopi" class="w-full rounded-xl border border-slate-200 shadow-sm" loading="lazy" width="1200" height="675" />
+<img src="${IMG}/guide-claude-btp-projects-modele-instructions.webp" alt="Modèle d’instructions Project Claude : activité, formation phare, clients et règles de style Qualiopi" class="w-full rounded-xl border border-slate-200 shadow-sm" loading="lazy" width="1200" height="675" />
 <figcaption class="mt-2 text-center text-sm text-slate-500">Exemple de canevas — à personnaliser avec votre raison sociale, tarifs et règles internes.</figcaption>
 </figure>`,
       },
@@ -353,7 +353,7 @@ export const blogArticlesClaudeBtp2026: BlogArticle[] = [
         type: 'html',
         title: 'Skills simples, métier et automatisation',
         content: `<figure class="my-6">
-<img src="${IMG}/slide-09.png" alt="Skills Claude : exemples style signature Qualiopi, devis mentions légales, commande convention Word" class="w-full rounded-xl border border-slate-200 shadow-sm" loading="lazy" width="1200" height="675" />
+<img src="${IMG}/guide-claude-btp-skills-exemples-niveaux.webp" alt="Skills Claude : exemples style signature Qualiopi, devis mentions légales, commande convention Word" class="w-full rounded-xl border border-slate-200 shadow-sm" loading="lazy" width="1200" height="675" />
 <figcaption class="mt-2 text-center text-sm text-slate-500">Trois niveaux : style, conformité métier, commandes automatisées.</figcaption>
 </figure>`,
       },
@@ -361,7 +361,7 @@ export const blogArticlesClaudeBtp2026: BlogArticle[] = [
         type: 'html',
         title: 'CLAUDE.md : identité et règles toujours actives',
         content: `<figure class="my-6">
-<img src="${IMG}/slide-10.png" alt="Fichier CLAUDE.md pour Claude Code : identité formatrice BTP, clients FFB et CSFE, règles de style français" class="w-full rounded-xl border border-slate-200 shadow-sm" loading="lazy" width="1200" height="675" />
+<img src="${IMG}/guide-claude-btp-claude-md-identite-regles.webp" alt="Fichier CLAUDE.md pour Claude Code : identité formatrice BTP, clients FFB et CSFE, règles de style français" class="w-full rounded-xl border border-slate-200 shadow-sm" loading="lazy" width="1200" height="675" />
 <figcaption class="mt-2 text-center text-sm text-slate-500">Le fichier est relu au démarrage : configurez-le une fois, capitalisez sur la durée.</figcaption>
 </figure>`,
       },
@@ -369,7 +369,7 @@ export const blogArticlesClaudeBtp2026: BlogArticle[] = [
         type: 'html',
         title: 'Six commandes « / » utiles pour une OF ou une PME BTP',
         content: `<figure class="my-6">
-<img src="${IMG}/slide-11.png" alt="Exemples de Skills BTP : convention Qualiopi, devis, email prospection, programme, CR réunion, fiche stagiaire" class="w-full rounded-xl border border-slate-200 shadow-sm" loading="lazy" width="1200" height="675" />
+<img src="${IMG}/guide-claude-btp-skills-commandes-btp.webp" alt="Exemples de Skills BTP : convention Qualiopi, devis, email prospection, programme, CR réunion, fiche stagiaire" class="w-full rounded-xl border border-slate-200 shadow-sm" loading="lazy" width="1200" height="675" />
 <figcaption class="mt-2 text-center text-sm text-slate-500">Exemples inspirés du terrain formation : conventions, devis au tarif HT / participant, prospection, comptes rendus.</figcaption>
 </figure>`,
       },
@@ -383,7 +383,7 @@ export const blogArticlesClaudeBtp2026: BlogArticle[] = [
         type: 'html',
         title: 'MCP : schéma et différence avec les connecteurs classiques',
         content: `<figure class="my-6">
-<img src="${IMG}/slide-12.png" alt="Schéma MCP Claude : connexion Drive Gmail Notion calendrier logiciels BTP Slack — lecture et écriture" class="w-full rounded-xl border border-slate-200 shadow-sm" loading="lazy" width="1200" height="675" />
+<img src="${IMG}/guide-claude-btp-mcp-schema-connecteurs.webp" alt="Schéma MCP Claude : connexion Drive Gmail Notion calendrier logiciels BTP Slack — lecture et écriture" class="w-full rounded-xl border border-slate-200 shadow-sm" loading="lazy" width="1200" height="675" />
 <figcaption class="mt-2 text-center text-sm text-slate-500">MCP : connexion complète lecture/écriture ; à distinguer des connecteurs limités à la consultation.</figcaption>
 </figure>`,
       },
@@ -391,7 +391,7 @@ export const blogArticlesClaudeBtp2026: BlogArticle[] = [
         type: 'html',
         title: 'Synthèse : quelle brique pour quel besoin ?',
         content: `<figure class="my-6">
-<img src="${IMG}/slide-15.png" alt="Récapitulatif Claude Code Projects Skills MCP pour assistant IA complet entreprise BTP" class="w-full rounded-xl border border-slate-200 shadow-sm" loading="lazy" width="1200" height="675" />
+<img src="${IMG}/guide-claude-btp-recapitulatif-code-projects-skills-mcp.webp" alt="Récapitulatif Claude Code Projects Skills MCP pour assistant IA complet entreprise BTP" class="w-full rounded-xl border border-slate-200 shadow-sm" loading="lazy" width="1200" height="675" />
 <figcaption class="mt-2 text-center text-sm text-slate-500">Les quatre briques complémentaires pour industrialiser l’usage de l’IA dans votre structure.</figcaption>
 </figure>`,
       },
@@ -399,7 +399,7 @@ export const blogArticlesClaudeBtp2026: BlogArticle[] = [
         type: 'html',
         title: 'Formation pratique et financement',
         content: `<figure class="my-6">
-<img src="${IMG}/slide-16.png" alt="Formation IA au service du BTP : 4h pratiques, inter intra, financement OPCO Constructys, Qualiopi, laureolivie.fr" class="w-full rounded-xl border border-slate-200 shadow-sm" loading="lazy" width="1200" height="675" />
+<img src="${IMG}/guide-claude-btp-formation-ia-btp-cta.webp" alt="Formation IA au service du BTP : 4h pratiques, inter intra, financement OPCO Constructys, Qualiopi, laureolivie.fr" class="w-full rounded-xl border border-slate-200 shadow-sm" loading="lazy" width="1200" height="675" />
 <figcaption class="mt-2 text-center text-sm text-slate-500">« L’IA au service du BTP » — session 4 h, intra (dans vos locaux) ou inter, éligibilité Constructys selon dossier.</figcaption>
 </figure>`,
       },
@@ -467,7 +467,7 @@ export const blogArticlesClaudeBtp2026: BlogArticle[] = [
         title: 'Installer un serveur MCP (exemple Google Drive)',
         content: `<p class="text-slate-600 mb-4">Vérifiez que Claude Code est installé (<code class="bg-slate-100 px-1 rounded">claude --version</code>), ajoutez le connecteur (<code class="bg-slate-100 px-1 rounded">claude mcp add google-drive</code>), authentifiez-vous dans le navigateur, puis testez avec une consigne ciblée sur un dossier projet.</p>
 <figure class="my-6">
-<img src="${IMG}/slide-13.png" alt="Tutoriel installation serveur MCP Google Drive pour Claude Code — authentification et test" class="w-full rounded-xl border border-slate-200 shadow-sm" loading="lazy" width="1200" height="675" />
+<img src="${IMG}/guide-claude-btp-mcp-google-drive-install.webp" alt="Tutoriel installation serveur MCP Google Drive pour Claude Code — authentification et test" class="w-full rounded-xl border border-slate-200 shadow-sm" loading="lazy" width="1200" height="675" />
 <figcaption class="mt-2 text-center text-sm text-slate-500">Étapes types : version Claude Code, ajout du serveur, OAuth Google, test de liste de fichiers.</figcaption>
 </figure>`,
       },
@@ -475,7 +475,7 @@ export const blogArticlesClaudeBtp2026: BlogArticle[] = [
         type: 'html',
         title: 'Six scénarios MCP appliqués à l’activité BTP',
         content: `<figure class="my-6">
-<img src="${IMG}/slide-14.png" alt="Exemples MCP BTP : Drive convention facture, Gmail prospection, Notion FFB, calendrier formation, WordPress, Slack équipe" class="w-full rounded-xl border border-slate-200 shadow-sm" loading="lazy" width="1200" height="675" />
+<img src="${IMG}/guide-claude-btp-mcp-exemples-btp.webp" alt="Exemples MCP BTP : Drive convention facture, Gmail prospection, Notion FFB, calendrier formation, WordPress, Slack équipe" class="w-full rounded-xl border border-slate-200 shadow-sm" loading="lazy" width="1200" height="675" />
 <figcaption class="mt-2 text-center text-sm text-slate-500">Cas d’usage : dossiers Drive, relances mail, documentation, planification, site web, communication interne.</figcaption>
 </figure>`,
       },
@@ -536,7 +536,7 @@ export const blogArticlesClaudeBtp2026: BlogArticle[] = [
         type: 'html',
         title: 'Exemple de Skills « posts » à décliner',
         content: `<figure class="my-6">
-<img src="${IMG}/slide-11.png" alt="Exemples commandes Skills BTP : emails, conventions, devis, programmes Qualiopi pour contenus LinkedIn" class="w-full rounded-xl border border-slate-200 shadow-sm" loading="lazy" width="1200" height="675" />
+<img src="${IMG}/guide-claude-btp-skills-commandes-btp.webp" alt="Exemples commandes Skills BTP : emails, conventions, devis, programmes Qualiopi pour contenus LinkedIn" class="w-full rounded-xl border border-slate-200 shadow-sm" loading="lazy" width="1200" height="675" />
 <figcaption class="mt-2 text-center text-sm text-slate-500">Les mêmes briques que pour vos emails peuvent nourrir des carrousels : preuve, chiffres, appel à contacter.</figcaption>
 </figure>`,
       },

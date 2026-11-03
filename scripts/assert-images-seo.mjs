@@ -77,6 +77,7 @@ function componentAltIssues() {
       if (!/\balt=/.test(block)) issues.push(`${rel}:${line} missing-alt`);
       else if (
         /alt=\{?\s*['"]\s*['"]\s*\}?/.test(block) &&
+        !/\baria-hidden\b/.test(block) &&
         !allow.some((p) => rel.includes(p))
       ) {
         issues.push(`${rel}:${line} empty-alt`);

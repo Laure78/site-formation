@@ -49,7 +49,7 @@ export function RessourcesHubSpotlightCard({ resource }: Props) {
         <div className="relative mb-3 hidden aspect-[5/3] overflow-hidden rounded-lg bg-[#F2F2F2] sm:block">
           <Image
             src={resource.image.src}
-            alt=""
+            alt={resource.image.alt}
             fill
             className="object-contain object-left"
             sizes="(max-width: 1024px) 33vw, 320px"

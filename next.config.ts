@@ -1686,6 +1686,81 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
+        source: '/images/blog/guide-claude-btp-2026/slide-02.png',
+        destination: '/images/blog/guide-claude-btp-2026/guide-claude-btp-programme-quatre-modules.webp',
+        permanent: true,
+      },
+      {
+        source: '/images/blog/guide-claude-btp-2026/slide-03.png',
+        destination: '/images/blog/guide-claude-btp-2026/guide-claude-btp-claude-code-consigne-resultat.webp',
+        permanent: true,
+      },
+      {
+        source: '/images/blog/guide-claude-btp-2026/slide-04.png',
+        destination: '/images/blog/guide-claude-btp-2026/guide-claude-btp-claude-code-installation.webp',
+        permanent: true,
+      },
+      {
+        source: '/images/blog/guide-claude-btp-2026/slide-05.png',
+        destination: '/images/blog/guide-claude-btp-2026/guide-claude-btp-claude-code-exemples-btp.webp',
+        permanent: true,
+      },
+      {
+        source: '/images/blog/guide-claude-btp-2026/slide-06.png',
+        destination: '/images/blog/guide-claude-btp-2026/guide-claude-btp-projects-comparatif-contexte.webp',
+        permanent: true,
+      },
+      {
+        source: '/images/blog/guide-claude-btp-2026/slide-07.png',
+        destination: '/images/blog/guide-claude-btp-2026/guide-claude-btp-projects-creation-cinq-etapes.webp',
+        permanent: true,
+      },
+      {
+        source: '/images/blog/guide-claude-btp-2026/slide-08.png',
+        destination: '/images/blog/guide-claude-btp-2026/guide-claude-btp-projects-modele-instructions.webp',
+        permanent: true,
+      },
+      {
+        source: '/images/blog/guide-claude-btp-2026/slide-09.png',
+        destination: '/images/blog/guide-claude-btp-2026/guide-claude-btp-skills-exemples-niveaux.webp',
+        permanent: true,
+      },
+      {
+        source: '/images/blog/guide-claude-btp-2026/slide-10.png',
+        destination: '/images/blog/guide-claude-btp-2026/guide-claude-btp-claude-md-identite-regles.webp',
+        permanent: true,
+      },
+      {
+        source: '/images/blog/guide-claude-btp-2026/slide-11.png',
+        destination: '/images/blog/guide-claude-btp-2026/guide-claude-btp-skills-commandes-btp.webp',
+        permanent: true,
+      },
+      {
+        source: '/images/blog/guide-claude-btp-2026/slide-12.png',
+        destination: '/images/blog/guide-claude-btp-2026/guide-claude-btp-mcp-schema-connecteurs.webp',
+        permanent: true,
+      },
+      {
+        source: '/images/blog/guide-claude-btp-2026/slide-13.png',
+        destination: '/images/blog/guide-claude-btp-2026/guide-claude-btp-mcp-google-drive-install.webp',
+        permanent: true,
+      },
+      {
+        source: '/images/blog/guide-claude-btp-2026/slide-14.png',
+        destination: '/images/blog/guide-claude-btp-2026/guide-claude-btp-mcp-exemples-btp.webp',
+        permanent: true,
+      },
+      {
+        source: '/images/blog/guide-claude-btp-2026/slide-15.png',
+        destination: '/images/blog/guide-claude-btp-2026/guide-claude-btp-recapitulatif-code-projects-skills-mcp.webp',
+        permanent: true,
+      },
+      {
+        source: '/images/blog/guide-claude-btp-2026/slide-16.png',
+        destination: '/images/blog/guide-claude-btp-2026/guide-claude-btp-formation-ia-btp-cta.webp',
+        permanent: true,
+      },
+      {
         source: '/images/laure-olivie-formatrice-ia-btp-portrait.webp',
         destination: '/images/formatrice-ia-btp-laure-olivie.webp',
         permanent: true,
