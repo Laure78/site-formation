@@ -2328,6 +2328,21 @@
     }
   }
 
+  /* Hub /ressources — hero maquette (fondu oblique vers la photo) */
+  @media (min-width: 1024px) {
+    .ressources-hub-hero__image-mask {
+      z-index: 2;
+      background: linear-gradient(
+        105deg,
+        #f8fafc 0%,
+        rgba(248, 250, 252, 0.92) 22%,
+        rgba(248, 250, 252, 0.35) 38%,
+        transparent 52%
+      );
+      clip-path: polygon(8% 0, 100% 0, 100% 100%, 0 100%);
+    }
+  }
+
   /* Hub /ressources — hero compact + catalogue resserré */
   .ressources-hub-hero__title {
     font-size: 1.75rem;

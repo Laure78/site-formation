@@ -1,52 +1,81 @@
+import Image from 'next/image';
 import Link from 'next/link';
+import { ArrowRight } from 'lucide-react';
 import { CtaVisio } from '@/components/CtaVisio';
-import { ArrowRight, CalendarCheck } from 'lucide-react';
 import { LINKS } from '@/lib/internal-links';
+import { RESSOURCES_HUB_CTA_FORMATIONS_PHOTO } from '@/lib/ressources-hub-photos';
+import { OFC_CTA_PRIMARY } from '@/lib/ofc-interaction-classes';
 
 export function RessourcesFinalCta() {
+  const photo = RESSOURCES_HUB_CTA_FORMATIONS_PHOTO;
+
   return (
     <section
       id="formation-cta"
       aria-labelledby="ressources-final-cta-heading"
-      className="scroll-mt-28 border-t border-slate-200 bg-gradient-to-br from-[#377CF3] to-[#2d66d6] py-14 text-white md:py-16"
+      className="scroll-mt-28 border-t border-slate-200 bg-gradient-to-br from-[#EFF6FF] via-[#F8FAFC] to-white py-12 md:py-16"
     >
-      <div className="mx-auto max-w-3xl px-4 text-center">
-        <span className="inline-flex items-center gap-2 rounded-full bg-white/15 px-3 py-1 text-xs font-semibold uppercase tracking-[0.16em]">
-          <CalendarCheck size={14} aria-hidden />
-          Accompagnement
-        </span>
-        <h2 id="ressources-final-cta-heading" className="mt-4 font-display text-2xl font-bold md:text-2xl">
-          Vous souhaitez adapter ces méthodes à votre entreprise ?
-        </h2>
-        <p className="mt-3 text-base leading-relaxed text-white/90 md:text-lg">
-          Passez du guide au{' '}
-          <Link href={LINKS.parcoursMetiers} className="font-medium text-white underline-offset-2 hover:underline">
-            parcours métier
-          </Link>{' '}
-          ou à une{' '}
-          <Link href={LINKS.formations} className="font-medium text-white underline-offset-2 hover:underline">
-            session catalogue Qualiopi
-          </Link>{' '}
-          — ou présentez votre besoin lors d&apos;un échange.
-        </p>
-        <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
-          <Link
-            href={LINKS.formations}
-            className="inline-flex min-h-[44px] items-center gap-2 rounded-xl bg-white px-6 py-3 text-[0.95rem] font-semibold text-[#377CF3] shadow-lg transition hover:bg-[#F2F2F2]"
+      <div className="mx-auto flex max-w-7xl flex-col items-center gap-8 px-4 lg:flex-row lg:items-center lg:gap-12 lg:px-8">
+        <div className="max-w-xl text-center lg:text-left">
+          <h2
+            id="ressources-final-cta-heading"
+            className="font-display text-2xl font-bold text-slate-900 md:text-3xl"
           >
-            Voir les formations
-            <ArrowRight size={16} aria-hidden />
-          </Link>
-          <CtaVisio src="cmp-ressources-RessourcesFinalCta" className="inline-flex min-h-[44px] items-center gap-2 rounded-xl border-2 border-white/80 bg-transparent px-6 py-3 text-[0.95rem] font-semibold text-white transition hover:bg-white/10" />
+            Passez de la ressource à la pratique
+          </h2>
+          <p className="mt-4 text-base leading-relaxed text-slate-600 md:text-lg">
+            Passez du guide au{' '}
+            <Link
+              href={LINKS.parcoursMetiers}
+              className="font-medium text-[#377CF3] underline-offset-2 hover:underline"
+            >
+              parcours métier
+            </Link>{' '}
+            ou à une{' '}
+            <Link
+              href={LINKS.formations}
+              className="font-medium text-[#377CF3] underline-offset-2 hover:underline"
+            >
+              session catalogue Qualiopi
+            </Link>{' '}
+            — formations IA BTP en présentiel en Île-de-France, sur vos DCE, devis et documents de
+            chantier.
+          </p>
+          <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row lg:justify-start">
+            <Link
+              href={LINKS.formations}
+              className={`${OFC_CTA_PRIMARY} inline-flex min-h-11 items-center gap-2 px-6 py-3 text-base`}
+            >
+              Découvrir les formations IA BTP
+              <ArrowRight className="h-4 w-4 shrink-0" aria-hidden />
+            </Link>
+            <CtaVisio
+              src="cmp-ressources-RessourcesFinalCta"
+              variant="secondary"
+              className="inline-flex min-h-11 items-center justify-center px-6 py-3"
+            />
+          </div>
+          <p className="mt-6 text-sm text-slate-600">
+            <Link
+              href={LINKS.diagnostic}
+              className="font-medium text-[#377CF3] underline-offset-2 hover:underline"
+            >
+              Diagnostic IA BTP gratuit
+            </Link>
+          </p>
         </div>
-        <p className="mt-6">
-          <Link
-            href={LINKS.diagnostic}
-            className="text-sm text-white/80 underline-offset-2 hover:text-white hover:underline"
-          >
-            Diagnostic IA BTP gratuit
-          </Link>
-        </p>
+
+        <div className="relative aspect-[4/3] w-full max-w-lg overflow-hidden rounded-2xl border border-slate-200/80 shadow-lg lg:max-w-[46%]">
+          <Image
+            src={photo.src}
+            alt={photo.alt}
+            fill
+            className="object-cover object-[center_30%]"
+            sizes="(max-width: 1024px) 100vw, 480px"
+            quality={80}
+            loading="lazy"
+          />
+        </div>
       </div>
     </section>
   );

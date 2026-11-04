@@ -16,6 +16,7 @@ import {
   RESSOURCE_FORMAT_FILTERS,
   RESSOURCE_NEED_FILTERS,
   RESSOURCES_HUB_INITIAL_VISIBLE,
+  RESSOURCES_HUB_LOAD_MORE_STEP,
   scoreRessourceSearch,
 } from '@/lib/ressources-catalog';
 import { LINKS } from '@/lib/internal-links';
@@ -23,6 +24,10 @@ import { LINKS } from '@/lib/internal-links';
 type Props = {
   resources: readonly RessourceCatalogEntry[];
   initialSearch?: string;
+  /** Recherche synchronisée avec le bandeau transversal du hub. */
+  hubQuery?: string;
+  onHubQueryChange?: (query: string) => void;
+  variant?: 'default' | 'dark';
 };
 
 type FilterState = {
@@ -96,18 +101,25 @@ function FilterGroup<T extends string>({
   selected,
   onToggle,
   collapsedDefault = false,
+  tone = 'light',
 }: {
   legend: string;
   options: readonly { id: T; label: string }[];
   selected: Set<T>;
   onToggle: (id: T) => void;
   collapsedDefault?: boolean;
+  tone?: 'light' | 'dark';
 }) {
   const [open, setOpen] = useState(!collapsedDefault);
   const contentId = useId();
+  const isDark = tone === 'dark';
 
   return (
-    <fieldset className="rounded-xl border border-slate-200 bg-white p-4">
+    <fieldset
+      className={`rounded-xl border p-4 ${
+        isDark ? 'border-white/15 bg-white/5' : 'border-slate-200 bg-white'
+      }`}
+    >
       <legend className="sr-only">{legend}</legend>
       <button
         type="button"
@@ -116,9 +128,13 @@ function FilterGroup<T extends string>({
         aria-controls={contentId}
         onClick={() => setOpen((v) => !v)}
       >
-        <span className="text-sm font-semibold text-slate-900">{legend}</span>
+        <span className={`text-sm font-semibold ${isDark ? 'text-white' : 'text-slate-900'}`}>
+          {legend}
+        </span>
         <ChevronDown
-          className={`h-4 w-4 text-slate-500 transition md:hidden ${open ? 'rotate-180' : ''}`}
+          className={`h-4 w-4 transition md:hidden ${open ? 'rotate-180' : ''} ${
+            isDark ? 'text-white/70' : 'text-slate-500'
+          }`}
           aria-hidden
         />
       </button>
@@ -131,10 +147,14 @@ function FilterGroup<T extends string>({
               type="button"
               aria-pressed={active}
               onClick={() => onToggle(option.id)}
-              className={`min-h-[44px] rounded-full px-3.5 py-2 text-sm font-medium transition ${
+              className={`min-h-[44px] rounded-full px-3.5 py-2 text-sm font-medium transition duration-200 motion-reduce:transition-none ${
                 active
-                  ? 'bg-[#377CF3] text-white ring-2 ring-[#377CF3] ring-offset-1'
-                  : 'bg-[#F8FAFC] text-slate-700 hover:bg-[#EFF6FF] hover:text-[#377CF3]'
+                  ? isDark
+                    ? 'bg-[#377CF3] text-white ring-2 ring-[#377CF3] ring-offset-2 ring-offset-[#071D45]'
+                    : 'bg-[#377CF3] text-white ring-2 ring-[#377CF3] ring-offset-1'
+                  : isDark
+                    ? 'border border-white/20 bg-transparent text-white/90 hover:border-white/40 hover:bg-white/10'
+                    : 'bg-[#F8FAFC] text-slate-700 hover:bg-[#EFF6FF] hover:text-[#377CF3]'
               }`}
             >
               {option.label}
@@ -146,13 +166,25 @@ function FilterGroup<T extends string>({
   );
 }
 
-export function RessourcesHubLibrary({ resources, initialSearch = '' }: Props) {
+export function RessourcesHubLibrary({
+  resources,
+  initialSearch = '',
+  hubQuery,
+  onHubQueryChange,
+  variant = 'default',
+}: Props) {
   const searchInputId = useId();
   const resultsLiveId = useId();
   const parsedInitial = parseUrlFilters(initialSearch);
   const [, startTransition] = useTransition();
 
-  const [query, setQuery] = useState(parsedInitial.query ?? '');
+  const [localQuery, setLocalQuery] = useState(parsedInitial.query ?? '');
+  const queryControlled = hubQuery !== undefined;
+  const query = queryControlled ? hubQuery : localQuery;
+  const setQuery = (value: string) => {
+    if (queryControlled) onHubQueryChange?.(value);
+    else setLocalQuery(value);
+  };
   const [needs, setNeeds] = useState<Set<RessourceNeedId>>(parsedInitial.needs ?? new Set());
   const [formats, setFormats] = useState<Set<RessourceFormatId>>(parsedInitial.formats ?? new Set());
   const [audiences, setAudiences] = useState<Set<RessourceAudienceId>>(
@@ -255,30 +287,66 @@ export function RessourcesHubLibrary({ resources, initialSearch = '' }: Props) {
     });
   }
 
+  const isDark = variant === 'dark';
+
   return (
     <section
       id="bibliotheque-ressources"
       aria-labelledby="ressources-library-heading"
-      className="scroll-mt-28 border-t border-slate-200 bg-white py-10 md:py-12"
+      className={`scroll-mt-28 py-10 md:py-14 ${
+        isDark ? 'bg-[#071D45] text-white' : 'border-t border-slate-200 bg-white'
+      }`}
     >
-      <div className="mx-auto max-w-7xl px-4">
-        <header className="mb-8 max-w-3xl">
-          <h2 id="ressources-library-heading" className="font-display text-2xl font-bold text-slate-900 md:text-2xl">
-            Tutoriels, skills et outils
-          </h2>
-          <p className="mt-3 text-sm leading-relaxed text-slate-600 md:text-base">
-            Tutoriels étape par étape, skills Claude et outils pratiques. Les guides métier complets sont
-            regroupés plus haut dans{' '}
-            <a href="#guides-pdf" className="font-medium text-[#377CF3] underline-offset-2 hover:underline">
-              Guides &amp; outils gratuits
-            </a>
-            .
-          </p>
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <header className="mb-8 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+          <div className="max-w-3xl">
+            <h2
+              id="ressources-library-heading"
+              className={`font-display text-2xl font-bold md:text-[1.65rem] ${
+                isDark ? 'text-white' : 'text-slate-900'
+              }`}
+            >
+              Tutoriels, skills et outils
+            </h2>
+            <p
+              className={`mt-3 text-sm leading-relaxed md:text-base ${
+                isDark ? 'text-white/80' : 'text-slate-600'
+              }`}
+            >
+              Tutoriels étape par étape, skills Claude et outils pratiques. Les guides métier complets sont
+              regroupés plus haut dans{' '}
+              <a
+                href="#guides-pdf"
+                className={`font-medium underline-offset-2 hover:underline ${
+                  isDark ? 'text-[#93C5FD]' : 'text-[#377CF3]'
+                }`}
+              >
+                Guides &amp; outils gratuits
+              </a>
+              .
+            </p>
+          </div>
+          <span
+            className={`inline-flex w-fit items-center rounded-full px-3 py-1 text-sm font-semibold ${
+              isDark ? 'bg-white/10 text-white' : 'bg-[#EFF6FF] text-[#377CF3]'
+            }`}
+          >
+            {resources.length} ressources
+          </span>
         </header>
 
         <div id="recherche-ressources" className="scroll-mt-28 space-y-4">
-          <div className="flex items-center gap-3 rounded-xl border border-slate-200 bg-[#F8FAFC] px-4 py-3 focus-within:border-[#377CF3] focus-within:ring-2 focus-within:ring-[#377CF3]/20">
-            <Search className="h-5 w-5 shrink-0 text-[#377CF3]" aria-hidden />
+          <div
+            className={`flex items-center gap-3 rounded-2xl border px-4 py-3 focus-within:ring-2 ${
+              isDark
+                ? 'border-white/20 bg-white/10 focus-within:border-white/40 focus-within:ring-white/20'
+                : 'border-slate-200 bg-[#F8FAFC] focus-within:border-[#377CF3] focus-within:ring-[#377CF3]/20'
+            }`}
+          >
+            <Search
+              className={`h-5 w-5 shrink-0 ${isDark ? 'text-white/70' : 'text-[#377CF3]'}`}
+              aria-hidden
+            />
             <label htmlFor={searchInputId} className="sr-only">
               Rechercher une ressource
             </label>
@@ -289,13 +357,21 @@ export function RessourcesHubLibrary({ resources, initialSearch = '' }: Props) {
               onChange={(e) => startTransition(() => setQuery(e.target.value))}
               placeholder="Rechercher : DCE, PPSPS, compte rendu, devis…"
               autoComplete="off"
-              className="min-w-0 flex-1 bg-transparent text-base text-slate-900 outline-none placeholder:text-slate-400"
+              className={`min-w-0 flex-1 bg-transparent text-base outline-none ${
+                isDark
+                  ? 'text-white placeholder:text-white/50'
+                  : 'text-slate-900 placeholder:text-slate-400'
+              }`}
             />
             {query ? (
               <button
                 type="button"
                 onClick={() => startTransition(() => setQuery(''))}
-                className="inline-flex min-h-[44px] min-w-[44px] items-center justify-center rounded-lg text-slate-500 hover:bg-white hover:text-slate-700"
+                className={`inline-flex min-h-[44px] min-w-[44px] items-center justify-center rounded-lg ${
+                  isDark
+                    ? 'text-white/70 hover:bg-white/10 hover:text-white'
+                    : 'text-slate-500 hover:bg-white hover:text-slate-700'
+                }`}
                 aria-label="Effacer la recherche"
               >
                 <X className="h-4 w-4" aria-hidden />
@@ -310,6 +386,7 @@ export function RessourcesHubLibrary({ resources, initialSearch = '' }: Props) {
               selected={needs}
               onToggle={(id) => toggleSet(needs, id, setNeeds)}
               collapsedDefault
+              tone={isDark ? 'dark' : 'light'}
             />
             <FilterGroup
               legend="Par format"
@@ -317,6 +394,7 @@ export function RessourcesHubLibrary({ resources, initialSearch = '' }: Props) {
               selected={formats}
               onToggle={(id) => toggleSet(formats, id, setFormats)}
               collapsedDefault
+              tone={isDark ? 'dark' : 'light'}
             />
             <FilterGroup
               legend="Par métier"
@@ -324,6 +402,7 @@ export function RessourcesHubLibrary({ resources, initialSearch = '' }: Props) {
               selected={audiences}
               onToggle={(id) => toggleSet(audiences, id, setAudiences)}
               collapsedDefault
+              tone={isDark ? 'dark' : 'light'}
             />
           </div>
 
@@ -346,7 +425,12 @@ export function RessourcesHubLibrary({ resources, initialSearch = '' }: Props) {
           ) : null}
 
           <div className="flex flex-wrap items-center justify-between gap-3">
-            <p id={resultsLiveId} className="text-sm text-slate-600" aria-live="polite" aria-atomic="true">
+            <p
+              id={resultsLiveId}
+              className={`text-sm ${isDark ? 'text-white/75' : 'text-slate-600'}`}
+              aria-live="polite"
+              aria-atomic="true"
+            >
               {filtered.length === resources.length
                 ? `${resources.length} ressources affichées`
                 : `${filtered.length} ressource${filtered.length > 1 ? 's' : ''} sur ${resources.length}`}
@@ -415,11 +499,15 @@ export function RessourcesHubLibrary({ resources, initialSearch = '' }: Props) {
                 <button
                   type="button"
                   onClick={() =>
-                    setVisibleCount((n) => n + RESSOURCES_HUB_INITIAL_VISIBLE)
+                    setVisibleCount((n) => n + RESSOURCES_HUB_LOAD_MORE_STEP)
                   }
-                  className="inline-flex min-h-[44px] items-center justify-center rounded-xl border border-slate-200 bg-white px-6 py-2.5 text-sm font-semibold text-slate-800 transition hover:border-[#377CF3]/40 hover:text-[#377CF3]"
+                  className={`inline-flex min-h-[44px] items-center justify-center rounded-xl border px-6 py-2.5 text-sm font-semibold transition duration-200 motion-reduce:transition-none ${
+                    isDark
+                      ? 'border-white/25 bg-white/10 text-white hover:bg-white/15'
+                      : 'border-slate-200 bg-white text-slate-800 hover:border-[#377CF3]/40 hover:text-[#377CF3]'
+                  }`}
                 >
-                  Afficher plus ({filtered.length - visibleCount} restantes)
+                  Voir les {filtered.length} tutoriels ({filtered.length - visibleCount} restantes)
                 </button>
               </div>
             ) : null}

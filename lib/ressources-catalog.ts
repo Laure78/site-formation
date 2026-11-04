@@ -666,5 +666,8 @@ export function getRessourceEncodingFormat(format: string): string | undefined {
 /** H1 canonique hub. */
 export const RESSOURCES_HUB_H1 = 'Ressources gratuites pour utiliser l’IA dans le BTP';
 
-/** Nombre de cartes visibles avant « Afficher plus ». */
-export const RESSOURCES_HUB_INITIAL_VISIBLE = 18;
+/** Nombre de cartes visibles avant « Afficher plus » (bibliothèque tutos hub). */
+export const RESSOURCES_HUB_INITIAL_VISIBLE = 4;
+
+/** Incrément « Afficher plus » — tutos / skills hub. */
+export const RESSOURCES_HUB_LOAD_MORE_STEP = 12;
