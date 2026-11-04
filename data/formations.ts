@@ -291,6 +291,41 @@ export const FORMATIONS: readonly Formation[] = [
     image: '/images/formation-ia-maitrise-oeuvre-btp.webp',
   },
   {
+    code: 'NIV-12',
+    slug: 'ia-maitrise-oeuvre-cctp-dpgf',
+    titre: 'IA et maîtrise d’œuvre : CCTP, DPGF, CR et plannings',
+    promesse:
+      'Rédiger CCTP et descriptifs, produire DPGF et comparatifs d’offres, CR et plannings courts sur les dossiers du cabinet.',
+    casUsageCourts: ['Rédiger un CCTP et un descriptif', 'Produire un DPGF et comparer les offres', 'CR de chantier et planning court'],
+    gamme: 'appliquer-metier',
+    theme: 'maitrise-oeuvre',
+    niveau: 2,
+    niveauLabel: 'Niveau 2',
+    duree: '4 h',
+    horaires: '9h00 – 13h00 ou 13h30 – 17h30',
+    effectifMin: 2,
+    effectifMax: 10,
+    prixHT: 0,
+    accroche:
+      'CCTP, descriptif et notice incendie, métré et DPGF, analyse des offres, CR de chantier, planning court et emails — ChatGPT ou Claude sur les dossiers du cabinet.',
+    objectifs: [
+      'Organiser un espace de travail IA (Projet ChatGPT ou Claude) par client ou par opération, en protégeant les données du cabinet',
+      'Rédiger un CCTP, un descriptif de travaux et une notice de sécurité incendie à partir des pièces de référence et de la base du cabinet',
+      'Produire un métré et un DPGF à partir des plans, puis comparer les offres des entreprises et constituer une base de prix',
+      'Produire un compte rendu de chantier et un rapport quotidien avec photos à partir de notes ou d’une dictée vocale',
+      'Construire le planning d’un chantier court et une bibliothèque de réponses aux emails récurrents',
+      'Contrôler systématiquement les productions de l’IA (quantités, prix, références réglementaires) avant tout usage',
+    ],
+    public:
+      'Maîtres d’œuvre de conception et d’exécution (MOE / MOEX), architectes, économistes de la construction, BET, OPC et collaborateurs de cabinets de maîtrise d’œuvre',
+    casUsage: 'CCTP, descriptif, notice sécurité incendie, métré, DPGF, comparatif des offres, base de prix, CR, planning, emails',
+    pdfProgramme:
+      '/formations/ia-maitrise-oeuvre-cctp-dpgf/programme_OFC_NIV-12_IA_MOE_CCTP_DPGF_20261104.pdf',
+    programmeVersion: 'Référence NIV-12',
+    programmeUpdatedAt: '04/11/2026',
+    image: '/images/formation-ia-maitrise-oeuvre-btp.webp',
+  },
+  {
     code: 'NIV-06',
     slug: 'application-metier-btp-niveau-1',
     titre: 'Créer sa première application métier BTP avec l’IA',
@@ -508,7 +543,7 @@ export const CATALOGUE_DUREE_SESSION_METIER = '7 h' as const;
 export const CATALOGUE_DUREE_NIV10 = '14 h' as const;
 
 /** Plage de numérotation catalogue — NIV-01 … NIV-10. */
-export const CATALOGUE_NIV_RANGE = 'NIV-01 à NIV-11' as const;
+export const CATALOGUE_NIV_RANGE = 'NIV-01 à NIV-12' as const;
 
 export function getFormationByCode(code: string): Formation | undefined {
   return FORMATIONS.find((f) => f.code === code);

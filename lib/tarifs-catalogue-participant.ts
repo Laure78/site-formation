@@ -22,6 +22,9 @@ export const TARIF_PARTICIPANT_NIV09_HT = TARIF_PARTICIPANT_NIV02_HT;
 /** NIV-11 — assistance à maîtrise d’ouvrage : forfait session intra de 4 h (jusqu’à 10 participants). */
 export const TARIF_SESSION_INTRA_NIV11_HT = 1200 as const;
 
+/** NIV-12 — maîtrise d’œuvre CCTP / DPGF : même forfait session intra de 4 h. */
+export const TARIF_SESSION_INTRA_NIV12_HT = TARIF_SESSION_INTRA_NIV11_HT;
+
 /** NUM-04 / NIV-10 — variante 7 h. */
 export const TARIF_PARTICIPANT_NIV10_HT = TARIF_PARTICIPANT_NIV02_HT;
 

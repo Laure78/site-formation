@@ -21,6 +21,7 @@ const FICHES = [
   { ref: 'NIV-04', file: 'app/formations/maitriser-claude-ai-btp/page.tsx' },
   { ref: 'NIV-05', file: 'app/formations/ia-maitrise-oeuvre/page.tsx' },
   { ref: 'NIV-11', file: 'app/formations/ia-assistance-maitrise-ouvrage/page.tsx' },
+  { ref: 'NIV-12', file: 'app/formations/ia-maitrise-oeuvre-cctp-dpgf/page.tsx' },
 ] as const;
 
 function auditPageSource(ref: string, relPath: string): string[] {

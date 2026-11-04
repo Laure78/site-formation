@@ -6,7 +6,7 @@ import type { FormationCatalogueCode } from '@/lib/formation-catalogue-visibilit
 import type { TrainingParcoursKind } from '@/lib/training-page-helpers';
 import { LINKS } from '@/lib/internal-links';
 import { formatPrixHt, getFormationByCode, libelleDureeFormation } from '@/data/formations';
-import { TARIF_SESSION_INTRA_NIV11_HT } from '@/lib/tarifs-catalogue-participant';
+import { TARIF_SESSION_INTRA_NIV11_HT, TARIF_SESSION_INTRA_NIV12_HT } from '@/lib/tarifs-catalogue-participant';
 import {
   DEV_WEB_IA_LIVRABLES,
   DEV_WEB_IA_OBJECTIFS,
@@ -31,6 +31,7 @@ import { NIV03_PEDAGOGICAL_METHODS, NIV03_PROGRAMME_BLOCS } from '@/lib/catalogu
 import { NIV04_PROGRAMME_BLOCS } from '@/lib/catalogue-formation-programmes-niv04';
 import { NIV05_PROGRAMME_BLOCS } from '@/lib/catalogue-formation-programmes-niv05';
 import { NIV11_PROGRAMME_BLOCS } from '@/lib/catalogue-formation-programmes-niv11';
+import { NIV12_PROGRAMME_BLOCS } from '@/lib/catalogue-formation-programmes-niv12';
 
 export type CataloguePainPoint = { title: string; texte: string };
 
@@ -810,11 +811,6 @@ const NIV_05: CatalogueFormationPageContent = {
   programIntro: '7 h · 70 % pratique · ateliers sur vos dossiers MOE (anonymisés si besoin).',
   programModules: mapProgrammeBlocsToCatalogueModules(NIV05_PROGRAMME_BLOCS),
   pdfHref: LINKS.pdfProgrammeIaMaitriseOeuvre,
-  intraExtraBullets: [
-    'Format intra 4 h sur vos dossiers : CCTP, descriptif, DPGF et analyse des offres, CR de chantier, planning court, emails récurrents',
-    '1 200 € HT la session de 4 h, jusqu’à 10 participants — exonération de TVA, art. 261-4-4°-a du CGI',
-    'Demi-journée dans vos locaux en Île-de-France — abonnement ChatGPT Plus ou Claude Pro / Team requis',
-  ],
   programLinks: [
     {
       prefix: 'Pour le pilotage chantier côté entreprise, voir la',
@@ -822,9 +818,9 @@ const NIV_05: CatalogueFormationPageContent = {
       label: 'formation conduite de travaux',
     },
     {
-      prefix: 'Pour un cabinet qui veut travailler ses propres pièces en une demi-journée, télécharger le',
-      href: LINKS.pdfProgrammeIaMaitriseOeuvreIntra4h,
-      label: 'programme intra 4 h (CCTP, DPGF, CR et plannings)',
+      prefix: 'Pour la conception (CCTP, DPGF, plannings), voir la',
+      href: LINKS.formationIaMaitriseOeuvreCctpDpgf,
+      label: 'formation IA et maîtrise d’œuvre : CCTP, DPGF, CR et plannings',
     },
     {
       prefix: 'Côté maîtrise d’ouvrage, voir la',
@@ -1082,6 +1078,112 @@ const NIV_11: CatalogueFormationPageContent = {
   },
 };
 
+const NIV_12: CatalogueFormationPageContent = {
+  programmeRef: 'NIV-12',
+  parcoursKind: 'usages-ia-btp',
+  levelBadgeLabel: 'Niveau 2 · Perfectionnement',
+  heroPublicLine:
+    'Maîtres d’œuvre de conception et d’exécution, architectes, économistes, BET et OPC.',
+  heroFacts: [
+    '4 heures',
+    '70 % de pratique',
+    '7 séquences sur vos dossiers',
+    'Intra en Île-de-France',
+  ],
+  quickFactsLevel: 'Niveau 2',
+  practiceShare: '70 %',
+  formatLabel: 'Présentiel',
+  locationLabel: 'Île-de-France',
+  pedagogicalNote: 'L’IA prépare et structure. Le professionnel contrôle et valide.',
+  objectivesTitle: 'Après la formation, vous saurez…',
+  painPointsTitle: 'Votre cabinet passe trop de temps sur les pièces écrites ?',
+  painPoints: [
+    { title: 'CCTP et descriptifs', texte: 'Rédaction répétitive à partir des mêmes CCTP types et contrats cadres.' },
+    { title: 'DPGF et offres', texte: 'Métrés, DPGF et comparatifs d’offres à reprendre à chaque consultation.' },
+    { title: 'CR et rapports', texte: 'Notes de chantier, dictées et photos à transformer en CR propres.' },
+    { title: 'Plannings et emails', texte: 'Phasages courts et réponses récurrentes aux entreprises et au client.' },
+  ],
+  outcomes: [
+    'Organiser un projet IA par client ou par opération, en protégeant les données du cabinet',
+    'Rédiger CCTP, descriptif et notice de sécurité incendie à partir de vos références',
+    'Produire métré, DPGF et comparatif des offres, et constituer une base de prix',
+    'Produire CR de chantier et rapport photo à partir de notes ou d’une dictée',
+    'Construire un planning court et une bibliothèque de réponses aux emails récurrents',
+  ],
+  outcomesDescription:
+    'CCTP, DPGF, CR et plannings pour la maîtrise d’œuvre — ChatGPT ou Claude, quantités et prix contrôlés par le maître d’œuvre.',
+  practicalCase: {
+    title: 'Comment se déroule la formation ?',
+    paragraphs: [
+      'Ateliers sur les documents réels du cabinet (CCTP types, plans, DPGF, CR, notes de chantier) — anonymisés si besoin. Chaque séquence produit un livrable réutilisable dès le lendemain.',
+    ],
+    steps: [
+      'Vous apportez vos pièces types et un dossier en cours.',
+      'Vous produisez un livrable par séquence.',
+      'Vous repartez avec un plan d’action à 30 jours.',
+    ],
+  },
+  deliverablesTitle: 'Ce que vous emportez',
+  deliverables: [
+    'Règles d’usage de l’IA du cabinet',
+    'Projet IA client / opération prêt à l’emploi',
+    'Trame de CCTP + descriptif de travaux',
+    'DPGF, tableau comparatif des offres et base de prix',
+    'Gabarit de CR + rapport photo, planning type Excel, bibliothèque de réponses',
+    'Certificat de réalisation',
+  ],
+  publicPrerequisites: [
+    {
+      title: 'Prérequis pédagogiques',
+      items: ['Aisance avec les outils numériques — aucun prérequis IA'],
+    },
+    {
+      title: 'Prérequis techniques',
+      items: [
+        'Abonnement ChatGPT Plus ou Claude Pro (ou offre Team) actif sur chaque poste — non inclus',
+        'CCTP types, plans, DPGF, CR et notes de chantier réels (anonymisés)',
+      ],
+    },
+  ],
+  iaLimits: [
+    { iaAide: 'Rédiger une trame de CCTP ou de descriptif', validation: 'Vérifier les références normatives et réglementaires sur les textes' },
+    { iaAide: 'Produire un métré et un DPGF depuis les plans', validation: 'Contrôler quantités et prix avant tout usage' },
+    { iaAide: 'Comparer les DPGF chiffrés des entreprises', validation: 'Vérifier écarts et oublis sur les offres d’origine' },
+    { iaAide: 'Mettre en forme CR, plannings et emails', validation: 'Relire et valider avant diffusion' },
+  ],
+  intraExtraBullets: [
+    `${formatPrixHt(TARIF_SESSION_INTRA_NIV12_HT)} € HT la session de 4 h, jusqu’à 10 participants — exonération de TVA, art. 261-4-4°-a du CGI`,
+    'Demi-journée dans vos locaux en Île-de-France, sur les dossiers du cabinet',
+  ],
+  interExtraBullets: ['Session inter sur demande — contactez-nous pour connaître les prochaines dates'],
+  priceLabelOverride: {
+    inter: 'Session inter sur demande',
+    intra: `${formatPrixHt(TARIF_SESSION_INTRA_NIV12_HT)} € HT / session de 4 h`,
+  },
+  programmeHeading: 'Programme — 7 séquences MOE (4 h)',
+  programIntro: '4 h · 70 % pratique · ateliers sur les dossiers du cabinet (anonymisés si besoin).',
+  programModules: mapProgrammeBlocsToCatalogueModules(NIV12_PROGRAMME_BLOCS),
+  pdfHref: LINKS.pdfProgrammeIaMaitriseOeuvreCctpDpgf,
+  programLinks: [
+    {
+      prefix: 'Pour l’exécution (DCE, OS, réserves et réception), voir la',
+      href: LINKS.formationIaMaitriseOeuvre,
+      label: 'formation IA et maîtrise d’œuvre (7 h)',
+    },
+    {
+      prefix: 'Côté maîtrise d’ouvrage, voir la',
+      href: LINKS.formationIaAssistanceMaitriseOuvrage,
+      label: 'formation IA et assistance à maîtrise d’ouvrage',
+    },
+  ],
+  finalCta: {
+    ...DEFAULT_FINAL_CTA,
+    title: 'Vous souhaitez former votre cabinet de maîtrise d’œuvre à l’IA ?',
+    description:
+      'Demandez un devis pour une session intra sur vos dossiers — réponse sous 48 h ouvrées.',
+  },
+};
+
 const BY_REF: Partial<Record<FormationCatalogueCode, CatalogueFormationPageContent>> = {
   'NIV-01': NIV_01,
   'NIV-02': NIV_02,
@@ -1089,6 +1191,7 @@ const BY_REF: Partial<Record<FormationCatalogueCode, CatalogueFormationPageConte
   'NIV-04': NIV_04,
   'NIV-05': NIV_05,
   'NIV-11': NIV_11,
+  'NIV-12': NIV_12,
   'NIV-09': NIV_09,
   'NIV-10': NIV_10,
 };

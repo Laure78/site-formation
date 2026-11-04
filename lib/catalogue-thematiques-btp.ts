@@ -76,6 +76,7 @@ export const FORMATION_THEMATIQUE_PRINCIPALE: Record<
   'NIV-09': 'assistants-ia',
   'NIV-10': 'outils-gestion',
   'NIV-11': 'chantier-moe',
+  'NIV-12': 'chantier-moe',
 };
 
 /** Entrées complémentaires (landing / sur mesure) — hors doublon Qualiopi. */
@@ -173,6 +174,7 @@ export const FORMATION_METIERS: Record<FormationCatalogueCode, readonly MetierId
   'NIV-09': ['assistant-gestion', 'dirigeant', 'referent-ia'],
   'NIV-10': ['dirigeant', 'conducteur-travaux', 'charge-affaires', 'assistant-gestion'],
   'NIV-11': ['charge-affaires', 'dirigeant', 'conducteur-travaux'],
+  'NIV-12': ['charge-affaires', 'conducteur-travaux', 'dirigeant'],
 };
 
 export const CATALOGUE_PREREQUIS_NIVEAU_NOTE =

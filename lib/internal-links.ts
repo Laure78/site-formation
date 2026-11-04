@@ -172,9 +172,10 @@ export const LINKS = {
   formationIaMaitriseOeuvre: '/formations/ia-maitrise-oeuvre',
   pdfProgrammeIaMaitriseOeuvre:
     '/formations/ia-maitrise-oeuvre/programme_OFC_NIV-05_IA_Maitrise_oeuvre_20261017.pdf',
-  /** NIV-05 — format intra 4 h sur dossiers cabinet (CCTP, DPGF, CR, plannings) */
-  pdfProgrammeIaMaitriseOeuvreIntra4h:
-    '/formations/ia-maitrise-oeuvre/programme_OFC_NIV-05_IA_Maitrise_oeuvre_intra4h_20261104.pdf',
+  /** NIV-12 — IA et maîtrise d'œuvre : CCTP, DPGF, CR et plannings (catalogue, 4 h) */
+  formationIaMaitriseOeuvreCctpDpgf: '/formations/ia-maitrise-oeuvre-cctp-dpgf',
+  pdfProgrammeIaMaitriseOeuvreCctpDpgf:
+    '/formations/ia-maitrise-oeuvre-cctp-dpgf/programme_OFC_NIV-12_IA_MOE_CCTP_DPGF_20261104.pdf',
   /** NIV-11 — L'IA au service de l'assistance à maîtrise d'ouvrage (catalogue) */
   formationIaAssistanceMaitriseOuvrage: '/formations/ia-assistance-maitrise-ouvrage',
   pdfProgrammeIaAssistanceMaitriseOuvrage:

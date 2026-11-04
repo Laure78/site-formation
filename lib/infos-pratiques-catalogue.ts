@@ -22,7 +22,11 @@ import {
   MENTIONS_TVA_INTRA_COURTE,
   PREREQUIS_NIVEAU_2,
 } from '@/lib/tarifs-sessions';
-import { libelleTarifParticipantCatalogue, TARIF_SESSION_INTRA_NIV11_HT } from '@/lib/tarifs-catalogue-participant';
+import {
+  libelleTarifParticipantCatalogue,
+  TARIF_SESSION_INTRA_NIV11_HT,
+  TARIF_SESSION_INTRA_NIV12_HT,
+} from '@/lib/tarifs-catalogue-participant';
 /** Modalité pédagogique fixe — toutes les actions catalogue OFC. */
 export const MODALITE_PEDAGOGIQUE_CATALOGUE =
   'Présentiel — Île-de-France uniquement (intra-entreprise (dans vos locaux) ou inter)' as const;
@@ -70,6 +74,16 @@ export const PROGRAMME_CONTENU_CATALOGUE: Record<FormationCode, readonly string[
     'Module 2 — Comptes rendus de chantier (1 h 25)',
     'Module 3 — Courriers, ordres de service et actes administratifs (1 h 25)',
     'Module 4 — Réserves, réception et suivi client (1 h 30)',
+    'Clôture — Bilan, plan d’action et évaluation (15 min)',
+  ],
+  'NIV-12': [
+    'Séquence 1 — Cadrage, confidentialité et prise en main (15 min)',
+    'Séquence 2 — Un projet IA par client ou par opération (25 min)',
+    'Séquence 3 — CCTP, descriptif et sécurité incendie (40 min)',
+    'Séquence 4 — Métré, DPGF et analyse des offres (40 min)',
+    'Séquence 5 — CR de chantier et rapport quotidien (35 min)',
+    'Séquence 6 — Planning de chantier court (30 min)',
+    'Séquence 7 — Emails récurrents (30 min)',
     'Clôture — Bilan, plan d’action et évaluation (15 min)',
   ],
   'NIV-11': [
@@ -296,6 +310,20 @@ export const MODALITES_ACCES_NIV05 =
 export const DELAI_ACCES_NIV05 =
   "Inscription jusqu'à 15 jours calendaires avant le démarrage, sous réserve des disponibilités de la formatrice et du client. Ce délai correspond au minimum exigé par les OPCO pour l'instruction d'une demande de prise en charge. Le délai exact est confirmé lors de la demande de formation.";
 
+export const PREREQUIS_NIV12 =
+  "Aisance avec les outils numériques courants — aucun prérequis IA. Abonnement ChatGPT Plus ou Claude Pro (ou offre Team) actif sur le poste de chaque participant — un des deux suffit ; non inclus, à la charge de l'entreprise. Chaque participant apporte des documents réels du cabinet (CCTP types, plans, DPGF, CR, notes de chantier), anonymisés si besoin.";
+
+export const MODALITE_PEDAGOGIQUE_NIV12 =
+  'Action de formation au sens de l\'art. L6313-1 du Code du travail — intra-entreprise — 100 % présentiel — ateliers sur les documents réels du cabinet — 70 % pratique / 30 % théorie';
+
+export const EVALUATION_NIV12 = [
+  'Évaluation en amont : questionnaire de positionnement et recueil des attentes.',
+  'Auto-positionnement en début et en fin de session sur les objectifs.',
+  'Évaluation des acquis sur les livrables produits (trame de CCTP, DPGF et comparatif, CR, planning, bibliothèque de réponses) — critères : quantités et prix contrôlés, références exactes et sourcées, aucune validation réglementaire confiée à l’IA.',
+  'Satisfaction : questionnaire à chaud ; questionnaire à froid à J+30.',
+  'Feuille d\'émargement signée ; attestation individuelle de fin de formation et certificat de réalisation.',
+] as const;
+
 export const MODALITE_PEDAGOGIQUE_NIV11 =
   'Action de formation au sens de l\'art. L6313-1 du Code du travail — intra-entreprise — 100 % présentiel — ateliers sur les consultations et opérations des participants — 70 % pratique / 30 % théorie';
 
@@ -395,10 +423,14 @@ function prerequisPourRef(ref: FormationCode): string {
   if (ref === 'NIV-09') return PREREQUIS_NIV09;
   if (ref === 'NIV-10') return PREREQUIS_NIV10;
   if (ref === 'NIV-11') return PREREQUIS_NIV11;
+  if (ref === 'NIV-12') return PREREQUIS_NIV12;
   return PREREQUIS_NIVEAU_2.join(' ');
 }
 
 function tarifPourRef(ref: FormationCode): string {
+  if (ref === 'NIV-12') {
+    return `${formatPrixHt(TARIF_SESSION_INTRA_NIV12_HT)} € HT la session intra de 4 h (jusqu’à 10 participants). ${MENTIONS_TVA_INTRA_COURTE}`;
+  }
   if (ref === 'NIV-11') {
     return `${formatPrixHt(TARIF_SESSION_INTRA_NIV11_HT)} € HT la session intra de 4 h (jusqu’à 10 participants). ${MENTIONS_TVA_INTRA_COURTE}`;
   }
@@ -443,7 +475,7 @@ export function getInfosPratiquesForCatalogue(ref: string): InfosPratiquesFormat
     duree: libelleDureeInfosPratiques(formation),
     modalitesAcces: withQuestionnairePositionnementMention(
       sanitizeInfosPratiquesText(
-        code === 'NIV-11'
+        code === 'NIV-11' || code === 'NIV-12'
           ? MODALITES_ACCES_NIV05
           : code === 'NIV-01'
           ? MODALITES_ACCES_NIV01
@@ -467,7 +499,7 @@ export function getInfosPratiquesForCatalogue(ref: string): InfosPratiquesFormat
       )
     ),
     delaiAcces: sanitizeInfosPratiquesText(
-      code === 'NIV-11'
+      code === 'NIV-11' || code === 'NIV-12'
         ? DELAI_ACCES_NIV05
         : code === 'NIV-01' || code === 'NIV-02' || code === 'NIV-03' || code === 'NIV-04' || code === 'NIV-05' || code === 'NIV-06' || code === 'NIV-07' || code === 'NIV-08' || code === 'NIV-09' || code === 'NIV-10'
         ? code === 'NIV-02'
@@ -499,7 +531,9 @@ export function getInfosPratiquesForCatalogue(ref: string): InfosPratiquesFormat
           ? [...METHODES_NIV09]
           : [...QUALIOPI_METHODES_STANDARD],
     modalitesEvaluation:
-      code === 'NIV-11'
+      code === 'NIV-12'
+        ? [...EVALUATION_NIV12]
+        : code === 'NIV-11'
         ? [...EVALUATION_NIV11]
         : code === 'NIV-01'
         ? [...EVALUATION_NIV01]
@@ -523,7 +557,9 @@ export function getInfosPratiquesForCatalogue(ref: string): InfosPratiquesFormat
                 ? [...EVALUATION_NIV05]
                 : [...QUALIOPI_EVALUATION_STANDARD],
     modalitePedagogique:
-      code === 'NIV-11'
+      code === 'NIV-12'
+        ? MODALITE_PEDAGOGIQUE_NIV12
+        : code === 'NIV-11'
         ? MODALITE_PEDAGOGIQUE_NIV11
         : code === 'NIV-02'
         ? MODALITE_PEDAGOGIQUE_NIV02
@@ -572,6 +608,7 @@ export function getFormationOutilsAbonnementsAvantDevis(ref: string): string {
     case 'NIV-09':
       return 'Abonnements ChatGPT Plus et Claude Pro, ou comptes entreprise (Team) compatibles, actifs sur le poste de chaque participant avant la session. Non inclus dans le tarif de formation — à la charge de l’entreprise.';
     case 'NIV-11':
+    case 'NIV-12':
       return 'Outils : abonnement ChatGPT Plus ou Claude Pro (ou offre Team) actif sur le poste de chaque participant — un des deux suffit ; non inclus dans le tarif, à la charge de l’entreprise.';
     case 'NIV-10':
       return 'Moyens techniques : ordinateur par participant, connexion internet, abonnement actif à ChatGPT ou Claude AI, à la charge du participant.';

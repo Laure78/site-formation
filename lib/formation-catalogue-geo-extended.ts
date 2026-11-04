@@ -158,6 +158,29 @@ export const FORMATION_CATALOGUE_GEO_EXTENDED: Record<
       { href: LINKS.iaCompteRenduChantier, label: 'Compte rendu de chantier avec l’IA' },
     ],
   },
+  'NIV-12': {
+    queApprendre:
+      'Rédiger CCTP, descriptif et notice de sécurité incendie, produire métré, DPGF et comparatif des offres, CR de chantier, planning court et réponses aux emails récurrents côté maîtrise d’œuvre.',
+    documentsBtp: ['CCTP types et contrats cadres', 'Plans (export PDF / DXF)', 'DPGF chiffrés des entreprises', 'Notes et photos de chantier'],
+    outilsIa: ['ChatGPT', 'Claude AI'],
+    dureeReponse: '',
+    livrables: [
+      'Trame de CCTP et descriptif',
+      'DPGF, comparatif des offres et base de prix',
+      'Gabarit de CR, planning type et bibliothèque de réponses',
+    ],
+    debutants:
+      'Oui pour l’IA — aisance numérique suffisante. Abonnement ChatGPT Plus ou Claude Pro requis.',
+    propresDossiers:
+      'Oui — CCTP types, plans, DPGF, CR et notes de chantier du cabinet, anonymisés si besoin.',
+    iaRemplacePro: COMMON_IA_NON,
+    deroulement: `${MODALITE_PEDAGOGIQUE_CATALOGUE}. 70 % pratique sur les dossiers du cabinet — format intra 4 h, complémentaire de la formation maîtrise d’œuvre 7 h (exécution).`,
+    clusterMaillage: [
+      ...CLUSTER_BASE,
+      { href: LINKS.formationIaMaitriseOeuvreCctpDpgf, label: 'Formation IA maîtrise d’œuvre : CCTP, DPGF, CR et plannings' },
+      { href: LINKS.formationIaMaitriseOeuvre, label: 'Formation IA maîtrise d’œuvre (7 h)' },
+    ],
+  },
   'NIV-11': {
     queApprendre:
       'Protéger les données des consultations, analyser les offres et préparer un rapport d’analyse sourcé, contrôler les livrables MOE et rendre compte au maître d’ouvrage côté AMO.',

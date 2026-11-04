@@ -48,6 +48,7 @@ const CATALOGUE_REF_BY_PATH: Record<string, string> = {
   [LINKS.formationMaitriserClaudeAiBtp]: 'NIV-04',
   [LINKS.formationIaMaitriseOeuvre]: 'NIV-05',
   [LINKS.formationIaAssistanceMaitriseOuvrage]: 'NIV-11',
+  [LINKS.formationIaMaitriseOeuvreCctpDpgf]: 'NIV-12',
   [LEGACY_APPLICATION_METIER_PATH.niveau1]: 'NIV-06',
   [LEGACY_APPLICATION_METIER_PATH.niveau2]: 'NIV-07',
   [LEGACY_APPLICATION_METIER_PATH.niveau3]: 'NIV-08',
@@ -79,7 +80,7 @@ function priceSpecDescription(ref: string): string {
 }
 
 const PRICE_SPEC_DESCRIPTION_BY_REF: Record<string, string> = Object.fromEntries(
-  (['NIV-01', 'NIV-02', 'NIV-03', 'NIV-04', 'NIV-05', 'NIV-06', 'NIV-07', 'NIV-08', 'NIV-09', 'NIV-10', 'NIV-11'] as const).map((ref) => [
+  (['NIV-01', 'NIV-02', 'NIV-03', 'NIV-04', 'NIV-05', 'NIV-06', 'NIV-07', 'NIV-08', 'NIV-09', 'NIV-10', 'NIV-11', 'NIV-12'] as const).map((ref) => [
     ref,
     priceSpecDescription(ref),
   ])
@@ -111,6 +112,7 @@ export type CatalogueCourseJsonLdConfig = {
     | typeof LINKS.formationMaitriserClaudeAiBtp
     | typeof LINKS.formationIaMaitriseOeuvre
     | typeof LINKS.formationIaAssistanceMaitriseOuvrage
+    | typeof LINKS.formationIaMaitriseOeuvreCctpDpgf
     | typeof LINKS.formationApplicationMetierBtpNiveau1
     | typeof LINKS.formationApplicationMetierBtpNiveau2
     | typeof LINKS.formationApplicationMetierBtpNiveau3
@@ -120,7 +122,7 @@ export type CatalogueCourseJsonLdConfig = {
   description: string;
   price?: number;
   keywords: readonly string[];
-  courseCode: 'NIV-01' | 'NIV-02' | 'NIV-03' | 'NIV-04' | 'NIV-05' | 'NIV-06' | 'NIV-07' | 'NIV-08' | 'NIV-09' | 'NIV-10' | 'NIV-11';
+  courseCode: 'NIV-01' | 'NIV-02' | 'NIV-03' | 'NIV-04' | 'NIV-05' | 'NIV-06' | 'NIV-07' | 'NIV-08' | 'NIV-09' | 'NIV-10' | 'NIV-11' | 'NIV-12';
   educationalLevel: 'Beginner' | 'Advanced';
 };
 
@@ -133,6 +135,7 @@ export type FormationCatalogueRichCourseConfig = {
     | typeof LINKS.formationMaitriserClaudeAiBtp
     | typeof LINKS.formationIaMaitriseOeuvre
     | typeof LINKS.formationIaAssistanceMaitriseOuvrage
+    | typeof LINKS.formationIaMaitriseOeuvreCctpDpgf
     | typeof LINKS.formationApplicationMetierBtpNiveau1
     | typeof LINKS.formationApplicationMetierBtpNiveau2
     | typeof LINKS.formationApplicationMetierBtpNiveau3
@@ -363,6 +366,26 @@ export const FORMATION_RICH_COURSE_NIV11: FormationCatalogueRichCourseConfig = {
   teaches: teachesFromCatalogue('NIV-11'),
 };
 
+export const CATALOGUE_COURSE_MAITRISE_OEUVRE_CCTP_DPGF_NIV12: CatalogueCourseJsonLdConfig = {
+  path: LINKS.formationIaMaitriseOeuvreCctpDpgf,
+  name: getFormationByCode('NIV-12')!.titre,
+  description: `${getFormationByCode('NIV-12')!.accroche} Session ${getFormationByCode('NIV-12')!.duree}, intra en Île-de-France, Qualiopi.`,
+  price: prixCatalogue('NIV-12'),
+  keywords: ['maîtrise d’œuvre', 'MOE', 'CCTP', 'DPGF', 'analyse des offres', 'CR chantier', 'planning', 'ChatGPT', 'Claude'],
+  courseCode: 'NIV-12',
+  educationalLevel: 'Advanced',
+};
+
+export const FORMATION_RICH_COURSE_NIV12: FormationCatalogueRichCourseConfig = {
+  ref: 'NIV-12',
+  path: LINKS.formationIaMaitriseOeuvreCctpDpgf,
+  name: CATALOGUE_COURSE_MAITRISE_OEUVRE_CCTP_DPGF_NIV12.name,
+  description: CATALOGUE_COURSE_MAITRISE_OEUVRE_CCTP_DPGF_NIV12.description,
+  price: prixCatalogue('NIV-12'),
+  educationalLevel: 'Perfectionnement',
+  teaches: teachesFromCatalogue('NIV-12'),
+};
+
 function buildCatalogueOffer(
   catalogueRef: string,
   courseUrl: string,
@@ -509,6 +532,7 @@ export function buildCatalogueCourseJsonLd(
     'NIV-09': FORMATION_RICH_COURSE_NIV09,
     'NIV-10': FORMATION_RICH_COURSE_NIV10,
     'NIV-11': FORMATION_RICH_COURSE_NIV11,
+    'NIV-12': FORMATION_RICH_COURSE_NIV12,
   };
   const rich = richByCode[config.courseCode];
   if (!rich) {
@@ -563,6 +587,10 @@ export function buildCatalogueCourseAssistanceMaitriseOuvrageNiv11JsonLd(): Reco
   return buildFormationCatalogueRichCourseJsonLd(FORMATION_RICH_COURSE_NIV11);
 }
 
+export function buildCatalogueCourseMaitriseOeuvreCctpDpgfNiv12JsonLd(): Record<string, unknown> {
+  return buildFormationCatalogueRichCourseJsonLd(FORMATION_RICH_COURSE_NIV12);
+}
+
 /** @deprecated Utiliser buildCatalogueCourseApplicationMetierJsonLd('NIV-06') */
 export function buildCatalogueCourseCursorBtpNiv06JsonLd(): Record<string, unknown> {
   return buildCatalogueCourseApplicationMetierJsonLd('NIV-06');
@@ -600,6 +628,7 @@ export function buildCatalogueCourseJsonLdByRef(ref: FormationCode): Record<stri
     'NIV-09': buildCatalogueCourseAssistantsIaNiv09JsonLd,
     'NIV-10': buildCatalogueCourseDeveloppementWebIaNiv10JsonLd,
     'NIV-11': buildCatalogueCourseAssistanceMaitriseOuvrageNiv11JsonLd,
+    'NIV-12': buildCatalogueCourseMaitriseOeuvreCctpDpgfNiv12JsonLd,
   };
   const build = builders[ref];
   if (!build) {

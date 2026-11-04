@@ -69,6 +69,11 @@ const ALL_CATALOGUE_FORMATIONS_NAV_LINKS: CatalogueFormationNavLink[] = [
     icon: Landmark,
   },
   {
+    href: LINKS.formationIaMaitriseOeuvreCctpDpgf,
+    label: "IA et maîtrise d'œuvre : CCTP, DPGF (4 h)",
+    icon: Landmark,
+  },
+  {
     href: LINKS.formationIaAssistanceMaitriseOuvrage,
     label: "IA et assistance à maîtrise d'ouvrage",
     icon: Landmark,

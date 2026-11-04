@@ -209,6 +209,27 @@ export const FORMATION_CATALOGUE_SEO: Record<FormationCatalogueCode, FormationCa
       { iaAide: 'Automatiser un workflow IA', validationHumaine: 'Point de contrôle humain sur les résultats sensibles' },
     ],
   },
+  'NIV-12': {
+    metaTitle: 'Formation IA MOE : CCTP, DPGF et plannings',
+    h1: 'Formation IA maîtrise d’œuvre : CCTP, DPGF, CR et plannings',
+    subtitle:
+      'CCTP, descriptif, métré et DPGF, analyse des offres, CR de chantier, planning court et emails avec ChatGPT ou Claude.',
+    metaDescription:
+      'Formation IA pour le BTP côté maîtrise d’œuvre : CCTP, DPGF, comparatif des offres, CR et plannings sur vos dossiers. 4 h intra, Qualiopi.',
+    enBref: `La formation IA pour la maîtrise d'œuvre de conception apprend à rédiger CCTP et descriptifs, produire métré et DPGF, comparer les offres des entreprises, rédiger CR et plannings courts avec ChatGPT ou Claude. 4 h en intra — ${QUALIOPI_MENTION}.`,
+    publicTargets: [
+      'Maîtres d’œuvre de conception et d’exécution',
+      'Architectes et économistes de la construction',
+      'BET et OPC',
+      'Collaborateurs de cabinets de maîtrise d’œuvre',
+    ],
+    iaLimits: [
+      { iaAide: 'Rédiger une trame de CCTP ou de descriptif', validationHumaine: 'Vérifier les références sur les textes' },
+      { iaAide: 'Produire un métré et un DPGF', validationHumaine: 'Contrôler quantités et prix' },
+      { iaAide: 'Comparer les DPGF des entreprises', validationHumaine: 'Vérifier écarts et oublis sur les offres' },
+      { iaAide: 'Mettre en forme CR, plannings et emails', validationHumaine: 'Relire et valider avant diffusion' },
+    ],
+  },
   'NIV-11': {
     metaTitle: 'Formation IA AMO BTP | Consultations & pilotage',
     h1: 'Formation IA assistance à maîtrise d’ouvrage : consultations, offres et pilotage',

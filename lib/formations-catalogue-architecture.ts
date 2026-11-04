@@ -46,7 +46,7 @@ export type CatalogueGammeSection = {
 };
 
 const QUALIOPI_OFFERS: CatalogueOffer[] = (
-  ['NIV-01', 'NIV-02', 'NIV-03', 'NIV-04', 'NIV-05', 'NIV-11', 'NIV-10'] as const
+  ['NIV-01', 'NIV-02', 'NIV-03', 'NIV-04', 'NIV-05', 'NIV-12', 'NIV-11', 'NIV-10'] as const
 ).map(
   (code) => {
     const f = getFormationByCode(code)!;

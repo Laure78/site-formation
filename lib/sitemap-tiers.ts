@@ -37,6 +37,7 @@ export const SITEMAP_FORMATION_CATALOG_PATHS = [
   LINKS.formationMaitriserClaudeAiBtp,
   LINKS.formationIaMaitriseOeuvre,
   LINKS.formationIaAssistanceMaitriseOuvrage,
+  LINKS.formationIaMaitriseOeuvreCctpDpgf,
 ] as const;
 
 const TIER1_SET = new Set<string>(SITEMAP_TIER1_STATIC_PATHS);

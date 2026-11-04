@@ -160,7 +160,7 @@ function prerequisPourCatalogue(entry: FormationCatalogueEntry): string[] {
 function tarifsPourCatalogue(entry: FormationCatalogueEntry): { inter: string; intra: string } {
   const formation = getFormationByCode(entry.ref);
   const effectif = entry.effectif.toLowerCase();
-  if (entry.ref === 'NIV-11') {
+  if (entry.ref === 'NIV-11' || entry.ref === 'NIV-12') {
     return {
       inter: 'Session inter sur demande',
       intra: `${TARIF_SESSION_INTRA_NIV11_HT.toLocaleString('fr-FR')} € HT la session de 4 h (jusqu’à 10 participants)`,
