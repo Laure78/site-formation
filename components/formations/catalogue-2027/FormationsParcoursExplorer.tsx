@@ -3,12 +3,12 @@
 import { useMemo, useState } from 'react';
 import Link from 'next/link';
 import {
-  METIERS_CATALOGUE_2027,
   formatPrixInterHt,
   libelleJoursFormation,
   type MetierId,
   type ParcoursComputed,
 } from '@/data/catalogue-2027';
+import { getMetiersCataloguePublic } from '@/lib/parcours-metiers-public';
 import { libelleDisponibilite } from '@/lib/catalogue-2027/search-modules';
 import { parcoursHref } from '@/lib/catalogue-2027/parcours-href';
 import { OFC_CTA_PRIMARY, OFC_CTA_SECONDARY } from '@/lib/ofc-interaction-classes';
@@ -17,12 +17,14 @@ type Props = {
   parcours: readonly ParcoursComputed[];
 };
 
+const METIERS_PUBLIC = getMetiersCataloguePublic();
+
 export function FormationsParcoursExplorer({ parcours }: Props) {
   const [metierActif, setMetierActif] = useState<MetierId | 'all'>('all');
 
   const highlightedId = useMemo(() => {
     if (metierActif === 'all') return null;
-    return METIERS_CATALOGUE_2027.find((m) => m.id === metierActif)?.parcoursId ?? null;
+    return METIERS_PUBLIC.find((m) => m.id === metierActif)?.parcoursId ?? null;
   }, [metierActif]);
 
   const ordered = useMemo(() => {
@@ -69,7 +71,7 @@ export function FormationsParcoursExplorer({ parcours }: Props) {
         >
           Voir tous les parcours
         </button>
-        {METIERS_CATALOGUE_2027.map((m) => (
+        {METIERS_PUBLIC.map((m) => (
           <button
             key={m.id}
             type="button"
@@ -90,7 +92,7 @@ export function FormationsParcoursExplorer({ parcours }: Props) {
         {ordered.map((p) => {
           const highlight = highlightedId === p.id;
           const metierLabel =
-            METIERS_CATALOGUE_2027.find((m) => m.id === p.metierId)?.label ?? p.titre;
+            METIERS_PUBLIC.find((m) => m.id === p.metierId)?.label ?? p.titre;
           return (
             <article
               key={p.id}

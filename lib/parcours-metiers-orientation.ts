@@ -107,7 +107,7 @@ export function getParcoursMetiersProfilsAvecFormations(
 }
 
 export const PARCOURS_METIERS_PAGE = {
-  h1: 'Parcours de formation IA par métier BTP',
+  h1: 'Les parcours métiers BTP avec l’IA',
   intro:
-    'Choisissez votre métier : formations IA liées à vos missions (devis, DCE, CR, relances…) — ChatGPT ou Claude selon le module, relecture sur vos documents.',
+    'Développez les compétences de vos équipes avec des formations concrètes, adaptées à chaque métier.',
 } as const;

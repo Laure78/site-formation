@@ -1,10 +1,11 @@
 /**
  * Parcours métiers catalogue 2027 — options page /devenez-consultant et formulaire.
  */
-import { getAllParcoursComputed, libelleJoursFormation } from '@/data/catalogue-2027/parcours';
+import { libelleJoursFormation } from '@/data/catalogue-2027/parcours';
 import { parcoursHref } from '@/lib/catalogue-2027/parcours-href';
 import type { ParcoursId } from '@/data/catalogue-2027';
 import { isParcoursMetiers2027Visible } from '@/lib/parcours-metiers-2027-visibility';
+import { getParcoursMetiersPublicsComputed } from '@/lib/parcours-metiers-public';
 
 export type ConsultantParcoursMetierOption = {
   id: ParcoursId;
@@ -18,7 +19,7 @@ export type ConsultantParcoursMetierOption = {
 
 export function getConsultantParcoursMetiersOptions(): ConsultantParcoursMetierOption[] {
   if (!isParcoursMetiers2027Visible()) return [];
-  return getAllParcoursComputed().map((p) => ({
+  return getParcoursMetiersPublicsComputed().map((p) => ({
     id: p.id,
     titre: p.titre,
     benefice: p.benefice,

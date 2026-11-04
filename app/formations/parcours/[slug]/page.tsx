@@ -56,6 +56,9 @@ export default async function ParcoursPage({ params }: Props) {
   }
 
   const { slug } = await params;
+  if (slug === 'chef-dequipe') {
+    redirect(LINKS.parcoursMetiers);
+  }
   const parcours = getParcoursBySlug(slug);
   if (!parcours) notFound();
   const computed = computeParcours(parcours);

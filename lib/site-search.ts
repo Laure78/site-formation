@@ -1,4 +1,4 @@
-import { getAllParcoursComputed } from '@/data/catalogue-2027';
+import { getParcoursMetiersPublicsComputed } from '@/lib/parcours-metiers-public';
 import { getAllArticles } from '@/lib/blog';
 import { getFormateursHubProfiles } from '@/lib/formateurs';
 import { getFormationsCatalogue } from '@/lib/formations-catalogue-display';
@@ -288,7 +288,7 @@ function buildSiteSearchIndex(): SiteSearchEntry[] {
   }));
 
   const parcours: SiteSearchEntry[] = isParcoursMetiers2027Visible()
-    ? getAllParcoursComputed().map((p) => ({
+    ? getParcoursMetiersPublicsComputed().map((p) => ({
         id: `parcours-${p.id}`,
         title: p.titre,
         description: p.benefice,

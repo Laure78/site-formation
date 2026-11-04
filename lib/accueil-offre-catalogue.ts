@@ -15,6 +15,10 @@ import { getPublishedFormations } from '@/lib/formation-catalogue-visibility';
 import { LINKS } from '@/lib/internal-links';
 import { isParcoursMetiers2027Visible } from '@/lib/parcours-metiers-2027-visibility';
 import {
+  ACCUEIL_PARCOURS_METIERS_PUBLIC_ORDER,
+  isParcoursMetierPublic,
+} from '@/lib/parcours-metiers-public';
+import {
   FORMATIONS_NIVEAUX_IA,
   formationNiveauBadge,
 } from '@/lib/formations-niveaux-ia';
@@ -78,16 +82,8 @@ const NIVEAU_GROUP_META: Record<
   ]),
 ) as Record<FormationNiveau, { id: string; title: string; badge: string }>;
 
-/** Ordre d’affichage grille parcours — accueil maquette. */
-export const ACCUEIL_PARCOURS_MAQUETTE_ORDER: readonly ParcoursId[] = [
-  'conducteur-de-travaux',
-  'charge-affaires-btp',
-  'assistant-de-gestion-btp',
-  'dirigeant-pme-btp',
-  'chef-de-chantier',
-  'chef-dequipe',
-  'referent-ia-btp',
-];
+/** @deprecated Préférer `ACCUEIL_PARCOURS_METIERS_PUBLIC_ORDER` — 6 parcours publics. */
+export const ACCUEIL_PARCOURS_MAQUETTE_ORDER = ACCUEIL_PARCOURS_METIERS_PUBLIC_ORDER;
 
 /** Parcours mis en avant sur l’accueil (sélection courte). */
 const ACCUEIL_PARCOURS_FEATURED_IDS: readonly ParcoursId[] = [
@@ -140,9 +136,11 @@ export function getAccueilParcoursOffre(
   opts?: { featuredOnly?: boolean; /** Affichage accueil / orientation même si nav 2027 masquée */ preview?: boolean },
 ): readonly AccueilParcoursOffreCard[] {
   if (!opts?.preview && !isParcoursMetiers2027Visible()) return [];
-  const list = getAllParcoursComputed().filter((p) =>
-    opts?.featuredOnly ? ACCUEIL_PARCOURS_FEATURED_IDS.includes(p.id) : true,
-  );
+  const list = getAllParcoursComputed().filter((p) => {
+    if (!isParcoursMetierPublic(p.id)) return false;
+    if (opts?.featuredOnly) return ACCUEIL_PARCOURS_FEATURED_IDS.includes(p.id);
+    return true;
+  });
   return list.map((p) => {
     const dureeLabel =
       p.dureeHeures > 0
@@ -173,10 +171,10 @@ export function getAccueilParcoursOffre(
     });
 }
 
-/** Grille parcours métiers accueil — toujours 7 cartes (aperçu 2027). */
+/** Grille parcours métiers accueil — 6 cartes (aperçu 2027, sans Chef d’équipe). */
 export function getAccueilParcoursMetiersMaquette(): readonly AccueilParcoursOffreCard[] {
   const byId = new Map(getAccueilParcoursOffre({ preview: true }).map((p) => [p.id, p]));
-  return ACCUEIL_PARCOURS_MAQUETTE_ORDER.map((id) => byId.get(id)).filter(
+  return ACCUEIL_PARCOURS_METIERS_PUBLIC_ORDER.map((id) => byId.get(id)).filter(
     (p): p is AccueilParcoursOffreCard => p != null,
   );
 }

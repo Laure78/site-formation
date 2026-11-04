@@ -1,14 +1,14 @@
 import type { Metadata } from 'next';
 import { JsonLd } from '@/components/JsonLd';
-import { ParcoursMetiersOrientation } from '@/components/formations/ParcoursMetiersOrientation';
+import { ParcoursMetiersPage as ParcoursMetiersPageContent } from '@/components/formations/ParcoursMetiersPage';
 import { createPageMetadata, getBreadcrumbSchema, SITE_CONFIG } from '@/lib/seo';
 import { LINKS } from '@/lib/internal-links';
-import { PARCOURS_METIERS_PAGE } from '@/lib/parcours-metiers-orientation';
+import { PARCOURS_METIERS_HERO } from '@/lib/parcours-metiers-page-content';
 export const revalidate = 3600;
 
-const META_TITLE = 'Parcours métiers — formation IA BTP';
+const META_TITLE = 'Parcours métiers BTP avec l’IA';
 const META_DESCRIPTION =
-  'Parcours formation IA BTP par métier : dirigeant, conducteur de travaux, études de prix, MOE ou gestion. Programmes Qualiopi en présentiel Île-de-France.';
+  'Six parcours formation IA BTP par métier en présentiel Île-de-France : dirigeant, chargé d’affaires, conducteur de travaux, chef de chantier, gestion, référent IA. Qualiopi — ouverture 2027.';
 
 export const metadata: Metadata = createPageMetadata({
   title: META_TITLE,
@@ -30,7 +30,7 @@ function getParcoursMetiersJsonLd() {
         '@type': 'WebPage',
         '@id': `${pageUrl}#webpage`,
         url: pageUrl,
-        name: PARCOURS_METIERS_PAGE.h1,
+        name: PARCOURS_METIERS_HERO.h1,
         description: META_DESCRIPTION,
         inLanguage: 'fr-FR',
         isPartOf: { '@id': `${SITE_CONFIG.url}#website` },
@@ -47,7 +47,7 @@ export default function ParcoursMetiersPage() {
   return (
     <>
       <JsonLd id="schema-parcours-metiers" schema={getParcoursMetiersJsonLd()} />
-      <ParcoursMetiersOrientation />
+      <ParcoursMetiersPageContent />
     </>
   );
 }
