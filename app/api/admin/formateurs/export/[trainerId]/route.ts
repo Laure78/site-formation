@@ -34,7 +34,7 @@ export async function GET(
 
   if (format === 'zip') {
     const zip = await buildTrainerAuditZip(trainerId);
-    return new NextResponse(zip, {
+    return new NextResponse(Buffer.from(zip), {
       headers: {
         'Content-Type': 'application/zip',
         'Content-Disposition': `attachment; filename="audit-formateur-${slug}.zip"`,
