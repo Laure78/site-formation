@@ -132,6 +132,7 @@ export const LINKS = {
   parcoursChargeAffairesBtp: '/formations/parcours/charge-affaires-btp',
   parcoursConducteurDeTravaux: '/formations/parcours/conducteur-de-travaux',
   parcoursChefDeChantier: '/formations/parcours/chef-de-chantier',
+  /** @deprecated Parcours retiré — 301 vers `parcoursMetiers`. Ne pas lier en dur. */
   parcoursChefDequipe: '/formations/parcours/chef-dequipe',
   parcoursAssistantDeGestionBtp: '/formations/parcours/assistant-de-gestion-btp',
   parcoursReferentIaBtp: '/formations/parcours/referent-ia-btp',

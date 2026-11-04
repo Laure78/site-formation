@@ -255,6 +255,7 @@ export const GSC_EXCLUDED_SITEMAP_PATHS = new Set<string>([
   '/blog/recrutement-btp-l-ia-pour-attirer-les-talents-741609-9',
   '/blog/recrutement-btp-l-ia-pour-attirer-les-talents-741614-9',
   ...BLOG_GEO_HORS_IDF_REDIRECTED_SLUGS.map((slug) => `/blog/${slug}`),
+  '/formations/parcours/chef-dequipe',
   '/formations/ia-btp-bordeaux',
   '/formations/ia-btp-lille',
   '/formations/ia-btp-lyon',

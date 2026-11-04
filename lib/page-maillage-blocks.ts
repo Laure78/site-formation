@@ -216,7 +216,7 @@ function getFormationCatalogueNavigationBlock(): PageMaillageBlock {
     links.push({
       href: LINKS.parcoursMetiers,
       title: 'Parcours métiers — choisir selon ma fonction',
-      description: '7 parcours progressifs — dirigeant, conducteur, chargé d’affaires…',
+      description: '6 parcours progressifs — dirigeant, conducteur, chargé d’affaires…',
     });
   }
   return {
@@ -322,23 +322,6 @@ const PARCOURS_PRACTICE_RESOURCES: Partial<
       description: 'PDF OFC — organisation et consignes.',
     },
   ],
-  'chef-dequipe': [
-    {
-      href: LINKS.tutoCrChantier,
-      title: 'Tutoriel — compte rendu de chantier',
-      description: 'Structurer vos CR et consignes d’équipe avec l’IA.',
-    },
-    {
-      href: LINKS.iaCompteRenduChantier,
-      title: 'IA et comptes rendus de chantier',
-      description: 'Méthode terrain — limites et validation humaine.',
-    },
-    {
-      href: LINKS.guideChefDeChantierOfc,
-      title: 'Guide chef de chantier × IA',
-      description: 'PDF OFC — organisation et coordination.',
-    },
-  ],
   'assistant-de-gestion-btp': [
     {
       href: LINKS.formationIaAssistanteBtp,
@@ -427,7 +410,7 @@ export function buildParcoursPageMaillageBlocks(parcours: ParcoursComputed): Pag
       {
         href: LINKS.parcoursMetiers,
         title: 'Comparer les parcours métiers',
-        description: '7 parcours — choisir selon votre fonction BTP.',
+        description: '6 parcours — choisir selon votre fonction BTP.',
       },
       {
         href: buildCatalogueModulesHref({ metier: parcours.metierId }),

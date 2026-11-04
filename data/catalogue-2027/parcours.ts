@@ -1,5 +1,5 @@
 /**
- * 7 parcours métiers — catalogue 2027.
+ * 6 parcours métiers — catalogue 2027.
  * Les parcours référencent les codes modules ; contenus non dupliqués.
  */
 import { prixParcoursDepuisDurees } from './tarifs';
@@ -241,49 +241,6 @@ export const PARCOURS_CATALOGUE_2027: readonly CatalogueParcours[] = [
     ],
   },
   {
-    id: 'chef-dequipe',
-    slug: 'chef-dequipe',
-    metierId: 'chef-equipe',
-    titre: 'Chef d’équipe',
-    benefice: 'Répartir les tâches, donner les consignes et accompagner les collaborateurs.',
-    objectif: 'Répartir les tâches, donner les consignes et accompagner les collaborateurs.',
-    publicCible: 'Chefs d’équipe et compagnons en évolution.',
-    prerequis: 'Expérience terrain et projet d’évolution vers l’encadrement.',
-    competencesVisees: [
-      'Répartir les tâches et transmettre les consignes',
-      'Préparer les consignes avec l’IA (sans inventer de règle sécurité)',
-      'Gérer les tensions',
-      'Accueillir et intégrer un salarié ou un apprenti',
-      'Rappels de prévention et transmission au chef de chantier',
-    ],
-    etapes: [
-      {
-        moduleCode: 'MAN-01',
-        competence: 'Organiser l’équipe et les consignes',
-        exercice: 'Plan de journée, briefing et consignes reformulées',
-        livrable: 'Trame d’organisation et fiche de briefing',
-      },
-      {
-        moduleCode: 'MAN-03',
-        competence: 'Gérer les tensions',
-        exercice: 'Mise en situation',
-        livrable: 'Grille d’entretien',
-      },
-      {
-        moduleCode: 'MAN-04',
-        competence: 'Accueillir et intégrer',
-        exercice: 'Parcours d’intégration',
-        livrable: 'Checklist d’accueil',
-      },
-      {
-        moduleCode: 'TQP-01',
-        competence: 'Rappels de prévention et accueil',
-        exercice: 'Quart d’heure sécurité et signalement structuré',
-        livrable: 'Support prévention + actions à transmettre',
-      },
-    ],
-  },
-  {
     id: 'assistant-de-gestion-btp',
     slug: 'assistant-de-gestion-btp',
     metierId: 'assistant-gestion',
@@ -472,15 +429,14 @@ export function assertCatalogueParcoursIntegrity(): {
   errors: string[];
 } {
   const errors: string[] = [];
-  if (PARCOURS_CATALOGUE_2027.length !== 7) {
-    errors.push(`Attendu 7 parcours, trouvé ${PARCOURS_CATALOGUE_2027.length}`);
+  if (PARCOURS_CATALOGUE_2027.length !== 6) {
+    errors.push(`Attendu 6 parcours, trouvé ${PARCOURS_CATALOGUE_2027.length}`);
   }
   const expected: Record<string, { h: number; prix: number; jours: number }> = {
     'dirigeant-pme-btp': { h: 49, prix: 2170, jours: 7 },
     'charge-affaires-btp': { h: 49, prix: 2170, jours: 7 },
     'conducteur-de-travaux': { h: 56, prix: 2480, jours: 8 },
     'chef-de-chantier': { h: 42, prix: 1860, jours: 6 },
-    'chef-dequipe': { h: 35, prix: 1550, jours: 5 },
     'assistant-de-gestion-btp': { h: 39, prix: 1670, jours: 5.5 },
     'referent-ia-btp': { h: 35, prix: 1550, jours: 5 },
   };

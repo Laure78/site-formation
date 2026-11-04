@@ -14,10 +14,7 @@ import { libelleDisponibilite } from '@/lib/catalogue-2027/search-modules';
 import { getPublishedFormations } from '@/lib/formation-catalogue-visibility';
 import { LINKS } from '@/lib/internal-links';
 import { isParcoursMetiers2027Visible } from '@/lib/parcours-metiers-2027-visibility';
-import {
-  ACCUEIL_PARCOURS_METIERS_PUBLIC_ORDER,
-  isParcoursMetierPublic,
-} from '@/lib/parcours-metiers-public';
+import { ACCUEIL_PARCOURS_METIERS_PUBLIC_ORDER } from '@/lib/parcours-metiers-public';
 import {
   FORMATIONS_NIVEAUX_IA,
   formationNiveauBadge,
@@ -137,7 +134,6 @@ export function getAccueilParcoursOffre(
 ): readonly AccueilParcoursOffreCard[] {
   if (!opts?.preview && !isParcoursMetiers2027Visible()) return [];
   const list = getAllParcoursComputed().filter((p) => {
-    if (!isParcoursMetierPublic(p.id)) return false;
     if (opts?.featuredOnly) return ACCUEIL_PARCOURS_FEATURED_IDS.includes(p.id);
     return true;
   });

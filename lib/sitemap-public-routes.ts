@@ -3,7 +3,6 @@
  * (catalogue, métiers, tâches /ia-*, départements), pas une liste marketing figée.
  */
 import { formationHref } from '@/data/formations';
-import { PARCOURS_CATALOGUE_2027 } from '@/data/catalogue-2027';
 import { DEPARTEMENT_PAGE_PATHS } from '@/lib/departement-pages';
 import { FORMATION_IA_METIER_DYNAMIC_REGISTRY } from '@/lib/formation-ia-metier-dynamic-registry';
 import { GSC_EXCLUDED_SITEMAP_PATHS } from '@/lib/gsc-redirects-2026';
@@ -11,6 +10,7 @@ import { getPublishedFormations } from '@/lib/formation-catalogue-visibility';
 import { parcoursHref } from '@/lib/catalogue-2027/parcours-href';
 import { LINKS } from '@/lib/internal-links';
 import { isParcoursMetiers2027Visible } from '@/lib/parcours-metiers-2027-visibility';
+import { getParcoursMetiersPublicsComputed } from '@/lib/parcours-metiers-public';
 import { isFormationMetierPath, normSitemapPath } from '@/lib/sitemap-tiers';
 
 function uniqPaths(paths: readonly string[]): string[] {
@@ -50,7 +50,7 @@ export function getSitemapCatalogueFormationPaths(): string[] {
   return uniqPaths([
     ...getPublishedFormations().map((f) => formationHref(f)),
     ...(isParcoursMetiers2027Visible()
-      ? PARCOURS_CATALOGUE_2027.map((p) => parcoursHref(p.id))
+      ? getParcoursMetiersPublicsComputed().map((p) => parcoursHref(p.id))
       : []),
     LINKS.formationPmeBtp,
   ]);

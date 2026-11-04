@@ -1,5 +1,5 @@
 /**
- * Sous-menu « Parcours métiers » — dérivé du catalogue 2027 (7 parcours).
+ * Sous-menu « Parcours métiers » — dérivé du catalogue 2027 (6 parcours).
  */
 import { METIERS_CATALOGUE_2027 } from '@/data/catalogue-2027';
 import { parcoursHref } from '@/lib/catalogue-2027/parcours-href';

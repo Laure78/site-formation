@@ -1,6 +1,5 @@
 /**
- * Parcours métiers affichés publiquement (catalogue 2027).
- * Le parcours « Chef d’équipe » reste en source de données pour les modules transversaux.
+ * Parcours métiers affichés publiquement (catalogue 2027 — 6 parcours).
  */
 import {
   getAllParcoursComputed,
@@ -9,9 +8,6 @@ import {
   type ParcoursComputed,
   type ParcoursId,
 } from '@/data/catalogue-2027';
-
-/** Retiré du catalogue public (cartes, nav, accueil) — modules MAN-* conservés. */
-export const PARCOURS_METIER_RETIRE_PUBLIC: ParcoursId = 'chef-dequipe';
 
 /** Ordre maquette page /parcours-metiers (6 parcours). */
 export const PARCOURS_METIERS_PAGE_ORDER: readonly ParcoursId[] = [
@@ -33,12 +29,8 @@ export const ACCUEIL_PARCOURS_METIERS_PUBLIC_ORDER: readonly ParcoursId[] = [
   'referent-ia-btp',
 ] as const;
 
-export function isParcoursMetierPublic(id: ParcoursId | string): boolean {
-  return id !== PARCOURS_METIER_RETIRE_PUBLIC;
-}
-
 export function getParcoursMetiersPublicsComputed(): ParcoursComputed[] {
-  return getAllParcoursComputed().filter((p) => isParcoursMetierPublic(p.id));
+  return getAllParcoursComputed();
 }
 
 export function getParcoursMetiersPublicsOrdered(
@@ -49,5 +41,5 @@ export function getParcoursMetiersPublicsOrdered(
 }
 
 export function getMetiersCataloguePublic(): MetierCatalogue[] {
-  return METIERS_CATALOGUE_2027.filter((m) => isParcoursMetierPublic(m.parcoursId));
+  return [...METIERS_CATALOGUE_2027];
 }
