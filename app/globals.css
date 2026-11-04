@@ -2151,6 +2151,23 @@
     }
   }
 
+  /* Fiche NIV-01 — maquette formation IA BTP */
+  .formation-niv01-maquette .formation-niv01-maquette__inner {
+    max-width: 72rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .formation-niv01-maquette .formation-niv01-maquette-card {
+      @apply transition-[transform,box-shadow,border-color] duration-200 ease-out;
+    }
+
+    .formation-niv01-maquette .formation-niv01-maquette-card:hover {
+      @apply -translate-y-0.5 border-[#377CF3]/30 shadow-md;
+    }
+  }
+
   .accueil-maquette .accueil-maquette-faq__item > summary .accueil-maquette-faq__chevron {
     @apply transition-transform duration-[220ms] ease-out motion-reduce:transition-none;
   }

@@ -1,5 +1,5 @@
 import { JsonLd } from '@/components/JsonLd';
-import { TrainingPageTemplate } from '@/components/formations/training';
+import { TrainingNiv01MaquetteTemplate } from '@/components/formations/training/TrainingNiv01MaquetteTemplate';
 import { createPageMetadata, getFAQSchema } from '@/lib/seo';
 import { mergeCatalogueFormationFaq } from '@/lib/catalogue-formation-faq';
 import { FAQ_BATIMENT } from '@/lib/faq';
@@ -40,15 +40,14 @@ const faqSchema = getFAQSchema(FAQ_NIV01);
 const courseSchema = buildCatalogueCourseIaBtpNiv01JsonLd();
 
 /**
- * Page pilote — template de référence UX/UI des fiches formation catalogue.
- * Contenu : `getCatalogueFormationPageContent('NIV-01')` + `data/formations`.
+ * Fiche NIV-01 — refonte UI maquette (contenu catalogue + Qualiopi inchangés).
  */
 export default async function FormationIAuServiceDuBatimentPage() {
   return (
     <>
       <JsonLd id="schema-course-niv-01" schema={courseSchema} />
       {faqSchema ? <JsonLd id="schema-faq" schema={faqSchema} /> : null}
-      <TrainingPageTemplate
+      <TrainingNiv01MaquetteTemplate
         content={PAGE_CONTENT}
         faqItems={FAQ_BATIMENT}
         faqSectionId="faq-niv-01"
