@@ -17,7 +17,7 @@ import { SCHEMA_ORGANIZATION_OFC } from '@/lib/schema-constants';
 
 type Props = { params: Promise<{ slug: string }> };
 
-const PARCOURS_SLUG_RETIRE = 'chef-dequipe';
+const PARCOURS_SLUGS_RETIRES = new Set(['chef-dequipe', 'chef-de-chantier']);
 
 export function generateStaticParams() {
   return PARCOURS_CATALOGUE_2027.map((p) => ({ slug: p.slug }));
@@ -25,7 +25,7 @@ export function generateStaticParams() {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
-  if (slug === PARCOURS_SLUG_RETIRE) return {};
+  if (PARCOURS_SLUGS_RETIRES.has(slug)) return {};
   const parcours = getParcoursBySlug(slug);
   if (!parcours) return {};
   const computed = computeParcours(parcours);
@@ -59,7 +59,7 @@ export default async function ParcoursPage({ params }: Props) {
   }
 
   const { slug } = await params;
-  if (slug === PARCOURS_SLUG_RETIRE) {
+  if (PARCOURS_SLUGS_RETIRES.has(slug)) {
     redirect(LINKS.parcoursMetiers);
   }
   const parcours = getParcoursBySlug(slug);

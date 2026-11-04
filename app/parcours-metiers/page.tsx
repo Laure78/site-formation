@@ -8,7 +8,7 @@ export const revalidate = 3600;
 
 const META_TITLE = 'Parcours métiers BTP avec l’IA';
 const META_DESCRIPTION =
-  'Six parcours formation IA BTP par métier en présentiel Île-de-France : dirigeant, chargé d’affaires, conducteur de travaux, chef de chantier, gestion, référent IA. Qualiopi — ouverture 2027.';
+  'Cinq parcours formation IA BTP par métier en présentiel Île-de-France : dirigeant, chargé d’affaires, conducteur de travaux, gestion, référent IA. Qualiopi — ouverture 2027.';
 
 export const metadata: Metadata = createPageMetadata({
   title: META_TITLE,

@@ -144,7 +144,7 @@ export function getNavFormationsFooter(at: Date = new Date()): readonly NavItem[
 /** @deprecated Préférer `NAV_FOOTER_FORMATIONS` dans le footer. */
 export const NAV_FORMATIONS_FOOTER: readonly NavItem[] = getNavFormationsFooter();
 
-/** Colonne 2 — Parcours métiers publics (6 parcours + hub). */
+/** Colonne 2 — Parcours métiers publics (5 parcours + hub). */
 const NAV_FOOTER_PARCOURS_ALL: readonly NavItem[] = [
   {
     href: LINKS.parcoursDirigeantPmeBtp,
@@ -160,11 +160,6 @@ const NAV_FOOTER_PARCOURS_ALL: readonly NavItem[] = [
     href: LINKS.parcoursConducteurDeTravaux,
     label: 'Conducteur de travaux',
     title: 'Parcours conducteur de travaux',
-  },
-  {
-    href: LINKS.parcoursChefDeChantier,
-    label: 'Chef de chantier',
-    title: 'Parcours encadrement de chantier',
   },
   {
     href: LINKS.parcoursAssistantDeGestionBtp,

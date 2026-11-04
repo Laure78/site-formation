@@ -79,7 +79,7 @@ const NIVEAU_GROUP_META: Record<
   ]),
 ) as Record<FormationNiveau, { id: string; title: string; badge: string }>;
 
-/** @deprecated Préférer `ACCUEIL_PARCOURS_METIERS_PUBLIC_ORDER` — 6 parcours publics. */
+/** @deprecated Préférer `ACCUEIL_PARCOURS_METIERS_PUBLIC_ORDER` — 5 parcours publics. */
 export const ACCUEIL_PARCOURS_MAQUETTE_ORDER = ACCUEIL_PARCOURS_METIERS_PUBLIC_ORDER;
 
 /** Parcours mis en avant sur l’accueil (sélection courte). */
@@ -167,7 +167,7 @@ export function getAccueilParcoursOffre(
     });
 }
 
-/** Grille parcours métiers accueil — 6 cartes (aperçu 2027, sans Chef d’équipe). */
+/** Grille parcours métiers accueil — 5 cartes (aperçu 2027, sans Chef d’équipe ni Chef de chantier). */
 export function getAccueilParcoursMetiersMaquette(): readonly AccueilParcoursOffreCard[] {
   const byId = new Map(getAccueilParcoursOffre({ preview: true }).map((p) => [p.id, p]));
   return ACCUEIL_PARCOURS_METIERS_PUBLIC_ORDER.map((id) => byId.get(id)).filter(

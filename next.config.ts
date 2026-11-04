@@ -335,6 +335,16 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
+        source: '/formations/parcours/chef-de-chantier',
+        destination: '/parcours-metiers',
+        permanent: true,
+      },
+      {
+        source: '/formations/parcours/chef-de-chantier/',
+        destination: '/parcours-metiers',
+        permanent: true,
+      },
+      {
         source: '/parcours/applications-metier-btp',
         destination: '/formations/developpement-web-ia-sans-coder',
         permanent: true,

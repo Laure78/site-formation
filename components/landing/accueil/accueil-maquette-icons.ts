@@ -53,7 +53,6 @@ const PARCOURS_METIER_ICONS: Record<ParcoursId, LucideIcon> = {
   'charge-affaires-btp': Briefcase,
   'assistant-de-gestion-btp': FolderOpen,
   'dirigeant-pme-btp': Building2,
-  'chef-de-chantier': HardHat,
   'referent-ia-btp': UserCog,
 };
 

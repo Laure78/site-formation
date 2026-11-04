@@ -42,9 +42,8 @@ const LAYOUT_SPAN: Partial<Record<ParcoursId, string>> = {
   'dirigeant-pme-btp': 'lg:col-span-2',
   'charge-affaires-btp': 'lg:col-span-2',
   'conducteur-de-travaux': 'lg:col-span-2',
-  'chef-de-chantier': 'lg:col-span-3',
   'assistant-de-gestion-btp': 'lg:col-span-3',
-  'referent-ia-btp': 'lg:col-span-6',
+  'referent-ia-btp': 'lg:col-span-3',
 };
 
 function parcoursCardsData(): AccueilParcoursOffreCard[] {

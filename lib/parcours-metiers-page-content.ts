@@ -29,7 +29,6 @@ export const PARCOURS_METIERS_ACCROCHE: Partial<Record<ParcoursId, string>> = {
   'dirigeant-pme-btp': 'Pilotage, marges, trésorerie',
   'charge-affaires-btp': 'Devis, DCE, mémoire technique',
   'conducteur-de-travaux': 'Planning, comptes rendus, réception',
-  'chef-de-chantier': 'Organisation, équipes, sécurité',
   'assistant-de-gestion-btp': 'Administratif, relances, suivi',
   'referent-ia-btp': 'Claude, appels d’offres, applications',
 };
@@ -47,10 +46,6 @@ export const PARCOURS_METIERS_CARD_IMAGE: Partial<Record<ParcoursId, { src: stri
     'conducteur-de-travaux': {
       src: `${IMG}/parcours-conducteur-travaux.webp`,
       alt: 'Conducteur de travaux avec casque blanc devant une structure en béton sur chantier.',
-    },
-    'chef-de-chantier': {
-      src: `${IMG}/parcours-chef-chantier.webp`,
-      alt: 'Chef de chantier en gilet haute visibilité supervisant une équipe sur un chantier.',
     },
     'assistant-de-gestion-btp': {
       src: `${IMG}/parcours-assistant-gestion-btp.webp`,

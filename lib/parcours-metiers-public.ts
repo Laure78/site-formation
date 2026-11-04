@@ -1,5 +1,5 @@
 /**
- * Parcours métiers affichés publiquement (catalogue 2027 — 6 parcours).
+ * Parcours métiers affichés publiquement (catalogue 2027 — 5 parcours).
  */
 import {
   getAllParcoursComputed,
@@ -9,23 +9,21 @@ import {
   type ParcoursId,
 } from '@/data/catalogue-2027';
 
-/** Ordre maquette page /parcours-metiers (6 parcours). */
+/** Ordre maquette page /parcours-metiers (5 parcours). */
 export const PARCOURS_METIERS_PAGE_ORDER: readonly ParcoursId[] = [
   'dirigeant-pme-btp',
   'charge-affaires-btp',
   'conducteur-de-travaux',
-  'chef-de-chantier',
   'assistant-de-gestion-btp',
   'referent-ia-btp',
 ] as const;
 
-/** Ordre grille accueil (6 cartes). */
+/** Ordre grille accueil (5 cartes). */
 export const ACCUEIL_PARCOURS_METIERS_PUBLIC_ORDER: readonly ParcoursId[] = [
   'conducteur-de-travaux',
   'charge-affaires-btp',
   'assistant-de-gestion-btp',
   'dirigeant-pme-btp',
-  'chef-de-chantier',
   'referent-ia-btp',
 ] as const;
 

@@ -16,7 +16,7 @@ import {
   getAccueilParcoursMetiersMaquette,
 } from '@/lib/accueil-offre-catalogue';
 
-/** Grille des six parcours métiers — ouverture 2027 (maquette). */
+/** Grille des cinq parcours métiers — ouverture 2027 (maquette). */
 export function AccueilParcoursMetiersMaquetteSection() {
   const parcours = getAccueilParcoursMetiersMaquette();
 
@@ -39,7 +39,7 @@ export function AccueilParcoursMetiersMaquetteSection() {
       <RevealGroupShell
         as="ul"
         itemAs="li"
-        className="accueil-maquette__grid grid list-none gap-2.5 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6"
+        className="accueil-maquette__grid grid list-none gap-2.5 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5"
         staggerMs={ACCUEIL_MOTION_REVEAL.staggerMs}
         distance={ACCUEIL_MOTION_REVEAL.distance}
       >
