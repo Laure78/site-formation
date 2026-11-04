@@ -8,7 +8,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "node scripts/generate-sitemap-dates.mjs && node scripts/build-bibliotheque-skills.mjs && NODE_OPTIONS=--max-old-space-size=4096 next build",
-    "build:railway": "node scripts/generate-sitemap-dates.mjs && node scripts/build-bibliotheque-skills.mjs && NODE_OPTIONS=--max-old-space-size=4096 next build --webpack",
+    "build:railway": "npm run build",
     "sitemap:dates": "node scripts/generate-sitemap-dates.mjs",
     "validate:sitemap-dates": "node scripts/generate-sitemap-dates.mjs && node scripts/validate-sitemap-dates.mjs",
     "llms:sync": "node scripts/sync-llms-txt.mjs",
