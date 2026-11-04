@@ -4,7 +4,8 @@
 builder = "RAILPACK"
 # NODE_OPTIONS déjà dans le script `build` de package.json (4096 Mo — next build + TypeScript)
 # Mémoire explicite côté Railpack (le script npm le définit aussi — redondance volontaire).
-buildCommand = "NODE_OPTIONS=--max-old-space-size=4096 npm run build"
+# Webpack : plus stable sur Railpack (mémoire / workers) que Turbopack seul.
+buildCommand = "NODE_OPTIONS=--max-old-space-size=4096 npm run build:railway"
 
 [deploy]
 startCommand = "npm run start"
