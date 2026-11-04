@@ -84,6 +84,8 @@ export const ACCUEIL_PARCOURS_MAQUETTE_ORDER: readonly ParcoursId[] = [
   'charge-affaires-btp',
   'assistant-de-gestion-btp',
   'dirigeant-pme-btp',
+  'chef-de-chantier',
+  'chef-dequipe',
   'referent-ia-btp',
 ];
 

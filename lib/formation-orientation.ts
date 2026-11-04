@@ -133,7 +133,7 @@ const METIER_PARCOURS: Partial<Record<OrientationMetier, ParcoursId>> = {
   dirigeant: 'dirigeant-pme-btp',
   'charge-affaires': 'charge-affaires-btp',
   'conducteur-travaux': 'conducteur-de-travaux',
-  'chef-chantier': 'conducteur-de-travaux',
+  'chef-chantier': 'chef-de-chantier',
   'assistant-gestion': 'assistant-de-gestion-btp',
 };
 

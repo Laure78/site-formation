@@ -5,6 +5,8 @@ const PARCOURS_LINKS: Record<ParcoursId, string> = {
   'dirigeant-pme-btp': LINKS.parcoursDirigeantPmeBtp,
   'charge-affaires-btp': LINKS.parcoursChargeAffairesBtp,
   'conducteur-de-travaux': LINKS.parcoursConducteurDeTravaux,
+  'chef-de-chantier': LINKS.parcoursChefDeChantier,
+  'chef-dequipe': LINKS.parcoursChefDequipe,
   'assistant-de-gestion-btp': LINKS.parcoursAssistantDeGestionBtp,
   'referent-ia-btp': LINKS.parcoursReferentIaBtp,
 };

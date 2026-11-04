@@ -9,6 +9,7 @@ import {
   HardHat,
   Layers,
   UserCog,
+  Users,
   type LucideIcon,
 } from 'lucide-react';
 import type { ParcoursId } from '@/data/catalogue-2027';
@@ -53,6 +54,8 @@ const PARCOURS_METIER_ICONS: Record<ParcoursId, LucideIcon> = {
   'charge-affaires-btp': Briefcase,
   'assistant-de-gestion-btp': FolderOpen,
   'dirigeant-pme-btp': Building2,
+  'chef-de-chantier': HardHat,
+  'chef-dequipe': Users,
   'referent-ia-btp': UserCog,
 };
 

@@ -63,6 +63,8 @@ export type ParcoursId =
   | 'dirigeant-pme-btp'
   | 'charge-affaires-btp'
   | 'conducteur-de-travaux'
+  | 'chef-de-chantier'
+  | 'chef-dequipe'
   | 'assistant-de-gestion-btp'
   | 'referent-ia-btp';
 

@@ -181,16 +181,6 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
-        source: '/formations/parcours/chef-de-chantier',
-        destination: '/parcours-metiers',
-        permanent: true,
-      },
-      {
-        source: '/formations/parcours/chef-dequipe',
-        destination: '/parcours-metiers',
-        permanent: true,
-      },
-      {
         source: '/video/formations-ia-btp',
         destination: '/formations',
         permanent: true,
