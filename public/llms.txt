@@ -17,7 +17,7 @@
 - L'IA remplace-t-elle les métiers du bâtiment ? Non : elle prend en charge une partie de l'administratif ; la relecture et la responsabilité restent humaines.
 
 ## Catalogue (présentiel Île-de-France)
-- Niveau 1 — Les bases de l'IA pour les pros du BTP (4 h) : https://www.laureolivie.fr/formations/ia-batiment-travaux-publics
+- Niveau 1 — Les bases de l'IA pour les professionnels du BTP (4 h) : https://www.laureolivie.fr/formations/ia-batiment-travaux-publics
 - IA et appels d'offres (7 h) : https://www.laureolivie.fr/formations/ia-appels-offre-btp
 - IA et conduite de travaux (7 h) : https://www.laureolivie.fr/formations/ia-conduite-travaux-suivi-chantier
 - Maîtriser Claude AI pour le BTP (7 h) : https://www.laureolivie.fr/formations/maitriser-claude-ai-btp

@@ -103,7 +103,7 @@ export const DEPT_LOCAL_SEO_CONTENT: Record<string, DeptLocalSeoContent> = {
     internalLinks: [
       {
         href: LINKS.formationIaBtpNiveau1BatimentTp,
-        label: "L'IA au service du bâtiment & TP",
+        label: 'Les bases de l’IA pour les professionnels du BTP',
         description: 'Programme NIV-01 — bases 4 h',
       },
       {
@@ -373,7 +373,7 @@ export const DEPT_LOCAL_SEO_CONTENT: Record<string, DeptLocalSeoContent> = {
     internalLinks: [
       {
         href: LINKS.formationIaBtpNiveau1BatimentTp,
-        label: "L'IA au service du bâtiment & TP",
+        label: 'Les bases de l’IA pour les professionnels du BTP',
         description: 'Programme NIV-01 — bases 4 h',
       },
       {

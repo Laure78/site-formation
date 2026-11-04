@@ -55,7 +55,7 @@ export const FORMATION_IA_PME_BTP_PARCOURS = [
     resume:
       'Premiers usages sur devis, emails et comptes rendus — idéal pour homogénéiser le niveau de l’équipe.',
     href: nivHref('NIV-01'),
-    label: getFormationByCode('NIV-01')?.titre ?? 'Les bases de l’IA pour les pros du BTP',
+    label: getFormationByCode('NIV-01')?.titre ?? 'Les bases de l’IA pour les professionnels du BTP',
     duree: getFormationByCode('NIV-01')?.duree ?? '4 h',
   },
   {

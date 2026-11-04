@@ -23,7 +23,7 @@ export function CatalogueCourseSchema({ config, description }: CatalogueCourseSc
 }
 
 /**
- * Formation NIV-01 — L'IA au service des professionnels du BTP.
+ * Formation NIV-01 — Les bases de l’IA pour les professionnels du BTP.
  * À injecter dans le layout ou la page `/formations/ia-batiment-travaux-publics`.
  */
 export function FormationIaBatimentTravauxPublicsCourseSchema({

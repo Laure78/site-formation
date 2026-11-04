@@ -68,7 +68,7 @@ BEGIN
   -- =========================================================
   cid := public._ofc_seed_catalogue_course(
     'ia-batiment-travaux-publics',
-    'L''IA au service des pros du bâtiment et des travaux publics',
+    'Les bases de l''IA pour les professionnels du BTP',
     'Niveau 1 (4 h) : bases opérationnelles IA pour équipes bâtiment et travaux publics — devis, CR, emails, administratif. Qualiopi, présentiel Île-de-France.',
     'Comprendre les usages de l''IA générative utiles sur chantier et au bureau · Accélérer devis, comptes rendus, courriers et suivi client · Structurer l''administratif et repartir avec des prompts adaptés au BTP / TP',
     'Aucune compétence technique requise. Ordinateur + connexion internet. Comptes IA gratuits possibles (ChatGPT, Claude, Gemini).',

@@ -182,7 +182,7 @@ export const INTRA_CONFIDENTIALITE = {
 
 export const INTRA_REF_CPB = {
   name: CPB_NOM_COMPLET,
-  text: 'Deux sessions mises en place avec la Chambre des Professionnels du Bois autour du programme “L’IA au service des pros du bâtiment et des travaux publics”.',
+  text: 'Deux sessions mises en place avec la Chambre des Professionnels du Bois autour du programme « Les bases de l’IA pour les professionnels du BTP ».',
   programmeHref: LINKS.formationIaBtpNiveau1BatimentTp,
   programmeLabel: 'Découvrir le programme',
   officialHref: CPB_OFFICIAL_URL,

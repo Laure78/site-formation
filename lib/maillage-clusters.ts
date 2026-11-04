@@ -213,7 +213,7 @@ const METIER_CLUSTER: Record<string, MetierClusterEntry> = {
     close: [LINKS.formationPlombierBtp, LINKS.formationChargeAffairesBtp],
     catalogue: {
       href: LINKS.formationIaBtpNiveau1BatimentTp,
-      label: 'Catalogue NIV-01 — IA au service du bâtiment & TP',
+      label: 'Catalogue NIV-01 — Les bases de l’IA pour les professionnels du BTP',
       description: `Session ${CATALOGUE_DUREE_BASES_IA_ONLY} devis, CR, emails — Qualiopi.`,
     },
     blog: {
@@ -270,7 +270,7 @@ const METIER_CLUSTER: Record<string, MetierClusterEntry> = {
     close: [LINKS.formationChargeAffairesBtp, LINKS.formationConducteurTravaux],
     catalogue: {
       href: LINKS.formationIaBtpNiveau1BatimentTp,
-      label: 'Session catalogue — L’IA au service du bâtiment (NIV-01)',
+      label: 'Session catalogue — Les bases de l’IA pour les professionnels du BTP (NIV-01)',
     },
     blog: {
       href: LINKS.blogFormationIaBtpGuide2026,
@@ -375,7 +375,7 @@ const METIER_CLUSTER: Record<string, MetierClusterEntry> = {
     close: [LINKS.formationIaChefChantierTp, LINKS.formationIaAssistanteTravaux],
     catalogue: {
       href: LINKS.formationIaBtpNiveau1BatimentTp,
-      label: 'Catalogue NIV-01 — IA au service du bâtiment & TP',
+      label: 'Catalogue NIV-01 — Les bases de l’IA pour les professionnels du BTP',
       description: `Session ${CATALOGUE_DUREE_BASES_IA_ONLY} — bases documentaires BTP.`,
     },
     blog: {
@@ -389,7 +389,7 @@ const METIER_CLUSTER: Record<string, MetierClusterEntry> = {
     close: [LINKS.formationChargeAffairesBtp, LINKS.formationIaChefChantierTp],
     catalogue: {
       href: LINKS.formationIaBtpNiveau1BatimentTp,
-      label: 'Catalogue NIV-01 — IA au service du bâtiment & TP',
+      label: 'Catalogue NIV-01 — Les bases de l’IA pour les professionnels du BTP',
       description: `Session ${CATALOGUE_DUREE_BASES_IA_ONLY} — bases documentaires BTP.`,
     },
     blog: {
@@ -664,7 +664,7 @@ function buildCatalogueSatelliteLinks(path: string): RelatedLinkItem[] | null {
 
 function buildCataloguePillarLinks(at: Date = new Date()): RelatedLinkItem[] {
   const labels: Record<string, string> = {
-    [LINKS.formationIaBtpNiveau1BatimentTp]: 'NIV-01 — L’IA au service du bâtiment & TP',
+    [LINKS.formationIaBtpNiveau1BatimentTp]: 'NIV-01 — Les bases de l’IA pour les professionnels du BTP',
     [LINKS.formationAO]: 'NIV-02 — IA appliquée aux appels d’offres BTP',
     [LINKS.formationConduiteTravauxSuiviChantier]: 'NIV-03 — Conduite de travaux & suivi chantier',
     [LINKS.formationMaitriserClaudeAiBtp]: 'NIV-04 — Maîtriser Claude AI pour le BTP — Chat, Cowork & Code',
@@ -903,7 +903,7 @@ export function getClusterRelatedLinks(path: string): ClusterPageConfig | null {
         },
         {
           href: LINKS.formationIaBtpNiveau1BatimentTp,
-          label: 'Catalogue NIV-01 — IA au service du bâtiment',
+          label: 'Catalogue NIV-01 — Les bases de l’IA pour les professionnels du BTP',
         },
         {
           href: LINKS.blogFormationIaBtpGuide2026,
@@ -1158,7 +1158,7 @@ function buildUsageTaskPageCluster(path: string): ClusterPageConfig | null {
         },
         {
           href: LINKS.formationIaBtpNiveau1BatimentTp,
-          label: 'Les bases de l’IA pour les pros du BTP',
+          label: 'Les bases de l’IA pour les professionnels du BTP',
           description: 'Devis, emails, CR — session 4 h Qualiopi (NIV-01).',
         },
         {

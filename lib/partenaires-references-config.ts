@@ -261,7 +261,7 @@ export const PARTENAIRES_REFERENCES: readonly PartenaireReference[] = [
     officialUrl: PARTNER_WEBSITES.cpb,
     officialLinkLabel: 'Découvrir la CPB',
     interventionSummary:
-      'Deux sessions mises en place avec la Chambre des Professionnels du Bois autour du programme “L’IA au service des pros du bâtiment et des travaux publics”. Une approche pratique de ChatGPT et Claude pour préparer les devis, les emails et les documents de chantier, avec vérification humaine des contenus.',
+      'Deux sessions mises en place avec la Chambre des Professionnels du Bois autour du programme « Les bases de l’IA pour les professionnels du BTP ». Une approche pratique de ChatGPT et Claude pour préparer les devis, les emails et les documents de chantier, avec vérification humaine des contenus.',
     audiences: ['Adhérents CPB — filière bois'],
     topics: ['Devis', 'Emails', 'Documents de chantier'],
     deliveryModes: DELIVERY,

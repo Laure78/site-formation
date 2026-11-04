@@ -648,7 +648,7 @@ const ACCUEIL_MAQUETTE_FORMATION_COPY: Record<
   { titre: string; description: string; imageSrc: string; imageAlt: string }
 > = {
   'NIV-01': {
-    titre: 'Les bases de l’IA pour les pros du BTP',
+    titre: 'Les bases de l’IA pour les professionnels du BTP',
     description:
       'Découvrir et utiliser ChatGPT et Claude sur vos documents et tâches du quotidien.',
     imageSrc: '/images/accueil/02-formation-initiation.webp',

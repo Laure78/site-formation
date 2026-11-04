@@ -858,10 +858,10 @@ export const PHOTOS = {
   /** Cartes catalogue niveau 1 et niveau 2 — affiches promotionnelles par formation (juin 2026). */
   formationNiv01IaBatimentTravauxPublics2026: {
     src: '/images/formation-ia-batiment-travaux-publics.webp',
-    alt: "Affiche L'IA au service des pros du bâtiment et TP — niveau débutant, Laure Olivié",
+    alt: 'Affiche Les bases de l’IA pour les professionnels du BTP — niveau débutant, Laure Olivié',
     description:
-      "Affiche promotionnelle niveau 1 « L'IA au service des pros du bâtiment et des travaux publics » : débutant, 4 h, devis et administratif BTP. Laure Olivié, OFC Création d'Entreprise.",
-    title: "Niveau 1 · L'IA au service des pros du bâtiment et des travaux publics",
+      'Affiche promotionnelle niveau 1 « Les bases de l’IA pour les professionnels du BTP » : débutant, 4 h, devis et administratif BTP. Laure Olivié, OFC Création d’Entreprise.',
+    title: 'Niveau 1 · Les bases de l’IA pour les professionnels du BTP',
     width: 1024,
     height: 1024,
   },

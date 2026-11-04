@@ -720,7 +720,7 @@ export default function FormationIaBtpPillarPage() {
               |
             </span>
             <Link href={LINKS.formationIaBtpNiveau1BatimentTp} className="font-semibold text-[var(--accent)] hover:underline">
-              Fiche catalogue : L&apos;IA au service du bâtiment (programme détaillé)
+              Fiche catalogue : Les bases de l&apos;IA pour les professionnels du BTP (programme détaillé)
             </Link>
           </p>
           </Reveal>

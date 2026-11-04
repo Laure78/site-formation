@@ -55,12 +55,12 @@ export const FAQ_IA_BTP_METIERS_CHANTIER_SEO: readonly FAQItem[] = [
   {
     q: "Comment l'IA améliore-t-elle les devis et métrés ?",
     a:
-      `Elle accélère la mise en forme, les relectures, les variantes de libellés et l'extraction de quantités à partir de notes ou de brouillons — avec validation humaine sur les prix, les unités et les hypothèses. L'objectif est de réduire le temps de rédaction et les erreurs de forme, pas de substituer votre expertise chiffrage. Approfondissement : <a href="/ia-devis-batiment">IA devis bâtiment</a> et formation <a href="${LINKS.formationIaBtpNiveau1BatimentTp}">formation niveau 1 — L'IA au service des pros du Bâtiment Travaux Publics</a>.`,
+      `Elle accélère la mise en forme, les relectures, les variantes de libellés et l'extraction de quantités à partir de notes ou de brouillons — avec validation humaine sur les prix, les unités et les hypothèses. L'objectif est de réduire le temps de rédaction et les erreurs de forme, pas de substituer votre expertise chiffrage. Approfondissement : <a href="/ia-devis-batiment">IA devis bâtiment</a> et formation <a href="${LINKS.formationIaBtpNiveau1BatimentTp}">Les bases de l’IA pour les professionnels du BTP</a>.`,
   },
   {
     q: "La formation aborde-t-elle le BIM et l'IA ?",
     a:
-      "La formation niveau 1 « L'IA au service des pros du Bâtiment Travaux Publics » met l'accent sur l'IA générative (ChatGPT, Claude) pour les usages métiers et administratifs du bâtiment et des travaux publics. Le BIM n'est pas un module dédié dans cette session. Pour les documents longs (CCTP, DCE) et les réponses à marchés, le programme <a href=\"" +
+      "La formation « Les bases de l’IA pour les professionnels du BTP » met l'accent sur l'IA générative (ChatGPT, Claude) pour les usages métiers et administratifs du bâtiment et des travaux publics. Le BIM n'est pas un module dédié dans cette session. Pour les documents longs (CCTP, DCE) et les réponses à marchés, le programme <a href=\"" +
       LINKS.formationAO +
       "\">formation appels d'offres BTP</a> ou le <a href=\"" +
       LINKS.claudeAiBtp +
@@ -293,7 +293,7 @@ export const FAQ_FORMATIONS: FAQItem[] = [
   },
   {
     q: 'Comment choisir la bonne formation IA pour le BTP pour mon entreprise ?',
-    a: `Le choix dépend de votre fonction et de votre niveau. L&apos;équipe débute ou couvre à la fois chantier bâtiment et travaux publics : <a href="${LINKS.formationIaBtpNiveau1BatimentTp}">L&apos;IA au service des pros du bâtiment et des travaux publics</a>. Pour la réponse aux marchés, mémoires techniques et DCE : <a href="${LINKS.formationAO}">L&apos;IA appliquée aux appels d&apos;offres BTP</a>. Pour piloter vos chantiers (CCTP, CR, PPSPS, réception) : <a href="${LINKS.formationConduiteTravauxSuiviChantier}">L&apos;IA appliquée à la conduite de travaux</a>. Pour industrialiser Claude (Projets, Skills, Cowork, connecteurs, Claude Code) et installer des skills métier sur les appels d&apos;offres, le chantier ou le juridique : <a href="${LINKS.formationMaitriserClaudeAiBtp}">Maîtriser Claude AI pour le BTP — Chat, Cowork &amp; Code</a>. Pour la maîtrise d&apos;œuvre d&apos;exécution (DCE, CR, OS, réserves) : <a href="${LINKS.formationIaMaitriseOeuvre}">L&apos;IA au service des maîtres d&apos;œuvre</a>. Pour transformer vos processus en applications métier : <a href="${LINKS.formationApplicationMetierBtpNiveau1}">créer sa première application métier BTP</a>. Un diagnostic gratuit de 30 minutes en visio permet de cibler le parcours — <a href="${LINKS.prendreRdv}">Prendre RDV</a> ou <a href="${LINKS.contact}">contact</a>.`,
+    a: `Le choix dépend de votre fonction et de votre niveau. L&apos;équipe débute ou couvre à la fois chantier bâtiment et travaux publics : <a href="${LINKS.formationIaBtpNiveau1BatimentTp}">Les bases de l’IA pour les professionnels du BTP</a>. Pour la réponse aux marchés, mémoires techniques et DCE : <a href="${LINKS.formationAO}">L&apos;IA appliquée aux appels d&apos;offres BTP</a>. Pour piloter vos chantiers (CCTP, CR, PPSPS, réception) : <a href="${LINKS.formationConduiteTravauxSuiviChantier}">L&apos;IA appliquée à la conduite de travaux</a>. Pour industrialiser Claude (Projets, Skills, Cowork, connecteurs, Claude Code) et installer des skills métier sur les appels d&apos;offres, le chantier ou le juridique : <a href="${LINKS.formationMaitriserClaudeAiBtp}">Maîtriser Claude AI pour le BTP — Chat, Cowork &amp; Code</a>. Pour la maîtrise d&apos;œuvre d&apos;exécution (DCE, CR, OS, réserves) : <a href="${LINKS.formationIaMaitriseOeuvre}">L&apos;IA au service des maîtres d&apos;œuvre</a>. Pour transformer vos processus en applications métier : <a href="${LINKS.formationApplicationMetierBtpNiveau1}">créer sa première application métier BTP</a>. Un diagnostic gratuit de 30 minutes en visio permet de cibler le parcours — <a href="${LINKS.prendreRdv}">Prendre RDV</a> ou <a href="${LINKS.contact}">contact</a>.`,
   },
   {
     q: 'Qu\'apporte la formation Maîtriser Claude AI pour le BTP (niveau 2) ?',
@@ -587,7 +587,7 @@ export const FAQ_IA_BTP_PARIS: FAQItem[] = [
   },
   {
     q: "Quel est le format de la formation IA pour le BTP Paris ?",
-    a: `Session de 4 h pratiques : ChatGPT pour devis, emails, relances clients. Travail sur vos vrais documents. Aucun prérequis technique pour le niveau débutant. ${libelleTarifParticipantCatalogue(TARIF_PARTICIPANT_NIV01_HT)} — parcours <a href="${LINKS.formationIaBtpNiveau1BatimentTp}">formation niveau 1 — Bâtiment & travaux publics</a>.`,
+    a: `Session de 4 h pratiques : ChatGPT pour devis, emails, relances clients. Travail sur vos vrais documents. Aucun prérequis technique pour le niveau débutant. ${libelleTarifParticipantCatalogue(TARIF_PARTICIPANT_NIV01_HT)} — parcours <a href="${LINKS.formationIaBtpNiveau1BatimentTp}">Les bases de l’IA pour les professionnels du BTP</a>.`,
   },
 ];
 
@@ -847,7 +847,7 @@ export const FAQ_FORMATION_IA_TRAVAUX_PUBLICS_LANDING: FAQItem[] = [
 export const FAQ_TRAVAUX_PUBLICS: FAQItem[] = [
   {
     q: "Quels outils IA sont prévus pour le niveau débutant ?",
-    a: `${COMPTES_IA_GRATUITS_NIVEAU_DEBUTANT} Voir <a href="${LINKS.formationIaBtpNiveau1BatimentTp}">formation niveau 1 — Bâtiment & travaux publics</a>.`,
+    a: `${COMPTES_IA_GRATUITS_NIVEAU_DEBUTANT} Voir <a href="${LINKS.formationIaBtpNiveau1BatimentTp}">Les bases de l’IA pour les professionnels du BTP</a>.`,
   },
   {
     q: "Qui peut suivre la formation « L'IA au service des Travaux Publics » ?",

@@ -96,7 +96,7 @@ export async function GET(request: Request) {
     .from('courses')
     .insert({
       slug: SLUG,
-      title: "L'IA au service des professionnels du bâtiment",
+      title: 'Les bases de l’IA pour les professionnels du BTP',
       description:
         "Session FFB — professionnels du bâtiment (tous corps d'état). Formation 4 h : fondamentaux IA, devis & chiffrage, gestion de chantier, visibilité en ligne (CapCut). Qualiopi — financement OPCO possible selon éligibilité.",
       objectifs:
@@ -152,7 +152,7 @@ export async function GET(request: Request) {
     {
       moduleId: m0,
       lesson: {
-        title: "Programme officiel — L'IA au service des professionnels du bâtiment",
+        title: 'Programme officiel — Les bases de l’IA pour les professionnels du BTP',
         type: 'pdf',
         content_url: `${BASE}/programme-ia-artisans-batiment.pdf`,
         order_index: 0,

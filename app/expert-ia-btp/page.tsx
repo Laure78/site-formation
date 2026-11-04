@@ -231,7 +231,7 @@ export default function ExpertIABTPPage() {
           <div className="mt-12 grid gap-6 md:grid-cols-2">
             {[
               {
-                title: "Niveau 1 — L'IA au service des pros du bâtiment et des travaux publics",
+                title: 'Niveau 1 — Les bases de l’IA pour les professionnels du BTP',
                 href: LINKS.formationIaBtpNiveau1BatimentTp,
                 desc: `${dureeCatalogueNiv01()} — débutant · Programme PDF`,
               },

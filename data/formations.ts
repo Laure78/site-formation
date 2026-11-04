@@ -76,7 +76,7 @@ export const FORMATIONS: readonly Formation[] = [
   {
     code: 'NIV-01',
     slug: 'ia-batiment-travaux-publics',
-    titre: 'Les bases de l’IA pour les pros du BTP',
+    titre: 'Les bases de l’IA pour les professionnels du BTP',
     promesse:
       'Comprendre l’IA générative et l’utiliser sur vos documents BTP : devis, emails, comptes rendus et DOE.',
     casUsageCourts: ['Rédiger un devis ou une désignation', 'Préparer un compte rendu', 'Structurer un DOE ou PV'],

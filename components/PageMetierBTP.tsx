@@ -148,7 +148,7 @@ export function PageMetierBTP({
           <p>
             {GARDE_FOU} Programme catalogue :{' '}
             <Link href={LINKS.formationIaBtpNiveau1BatimentTp} className={OFC_LINK}>
-              L&apos;IA au service des pros du bâtiment et des travaux publics
+              Les bases de l&apos;IA pour les professionnels du BTP
             </Link>
             .
           </p>

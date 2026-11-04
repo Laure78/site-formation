@@ -47,7 +47,7 @@ export const FORMATIONS_CATALOG_SCHEMA: FormationCatalogEntry[] = [
     ref: 'NIV-01',
     level: 'DÉBUTANT',
     path: '/formations/ia-batiment-travaux-publics',
-    name: "L'IA au service des pros du bâtiment et des travaux publics",
+    name: 'Les bases de l’IA pour les professionnels du BTP',
     description:
       "Formation niveau 1 — 4 h : ChatGPT et Claude pour préparer devis, emails, comptes rendus, DOE et PV. Qualiopi, Constructys. Validation humaine obligatoire.",
     teaches: teachesFromCatalogueDisplay('NIV-01'),

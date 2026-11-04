@@ -732,7 +732,7 @@ export const MODULES_CATALOGUE_2027: readonly CatalogueModule[] = [
   // ── DOMAINE 7 — NUMÉRIQUE / IA (6 disponibles) ─────────────────────
   {
     code: 'NUM-01',
-    titre: 'Les bases de l’IA pour les pros du BTP',
+    titre: 'Les bases de l’IA pour les professionnels du BTP',
     domaineId: 'numerique-ia',
     sousDomaine: 'Initiation IA',
     metiers: ['assistant-gestion', 'dirigeant', 'referent-ia', 'charge-affaires', 'conducteur-travaux'],
