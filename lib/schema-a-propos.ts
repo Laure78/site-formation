@@ -72,7 +72,7 @@ export function getAProposLocalBusinessJsonLd(): Record<string, unknown> {
         name: 'Ministère du Travail',
       },
     },
-    taxID: SCHEMA_CONTACT.siretFormatted,
+    taxID: SCHEMA_CONTACT.siretDigits,
     vatID: SCHEMA_CONTACT.vatId,
   };
 }
@@ -114,7 +114,7 @@ export const A_PROPOS_PERSON_SCRIPT_JSON_LD: Record<string, unknown> = {
     '@type': 'Organization',
     name: SCHEMA_ORGANIZATION_OFC.name,
     url: BASE,
-    identifier: '905 244 281 00010',
+    identifier: SCHEMA_CONTACT.sirenFormatted,
   },
   address: {
     '@type': 'PostalAddress',

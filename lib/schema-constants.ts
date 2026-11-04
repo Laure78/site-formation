@@ -14,6 +14,9 @@ import {
   SITE,
   SITE_LINKEDIN_LEARNING_INSTRUCTOR_URL,
   SITE_LINKEDIN_PROFILE_URL,
+  siteSirenDigits,
+  siteSiretSiegeFormatted,
+  siteTaxIdSchema,
 } from '@/lib/site-config';
 
 /** URL canonique du site (alignée sur NEXT_PUBLIC_SITE_URL en prod). */
@@ -96,11 +99,14 @@ export const SCHEMA_CONTACT = {
   phoneDisplay: CONTACT.phoneDisplay,
   /** E.164 — champ `telephone` Schema.org Organization (layout / rich results). */
   telephoneJsonLd: CONTACT.phone,
-  siretFormatted: OFC_IDENTITE.siret,
-  /** Sans espaces — annuaires, URLs, taxID Schema.org */
-  siretDigits: `${OFC_IDENTITE.siren}00010`,
+  siretFormatted: siteSiretSiegeFormatted(),
+  /** Sans espaces — taxID Schema.org (SIRET siège ou SIREN). */
+  siretDigits: siteTaxIdSchema(),
+  sirenFormatted: OFC_IDENTITE.siren,
+  sirenDigits: siteSirenDigits(),
+  rcsLibelle: OFC_IDENTITE.rcsLibelle,
   nda: OFC_IDENTITE.nda,
-  vatId: `FR${OFC_IDENTITE.siren}`,
+  vatId: `FR${OFC_IDENTITE.sirenDigits}`,
 } as const;
 
 /** Coordonnées postales & GPS (siège — Paris 12e). */
@@ -180,6 +186,8 @@ export const SCHEMA_ORGANIZATION_OFC = {
   name: MARQUE_COMMERCIALE,
   legalName: OFC_IDENTITE.raisonSociale,
   /** Dénomination juridique complète (JSON-LD layout #ofc). */
+  legalNameForme: `${OFC_IDENTITE.raisonSociale} ${OFC_IDENTITE.formeJuridique}`,
+  /** @deprecated Alias historique — préférer `legalNameForme`. */
   legalNameSasu: `${OFC_IDENTITE.raisonSociale} ${OFC_IDENTITE.formeJuridique}`,
   description:
     "Organisme de formation : intelligence artificielle et ChatGPT pour le BTP, PME bâtiment et professionnels du secteur. Automatisation administrative, IA devis bâtiment, IA gestion chantier. Certifié Qualiopi.",

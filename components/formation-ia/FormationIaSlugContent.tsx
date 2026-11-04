@@ -13,6 +13,7 @@ import { formatNoteSatisfactionSur5 , formatNoteSatisfactionAffichageComplet } f
 import { LINKS } from '@/lib/internal-links';
 import { formationIaHubSlugDestination } from '@/lib/gsc-redirects-2026';
 import { siteAdresseLigne } from '@/lib/site-config';
+import { SITE_CONFIG } from '@/lib/seo';
 
 function hashSlug(s: string): number {
   let h = 0;
@@ -183,7 +184,7 @@ export function FormationIaMetierBody({
       <p>
         <strong>Formatrice IA spécialisée BTP</strong> — plus de{' '}
         {formatNoteSatisfactionAffichageComplet()} (satisfaction Qualiopi).
-        SIRET 905 244 281 00010 — NDA 11788515078.
+        {SITE_CONFIG.identifiantsOrganismeLine}.
         Siège : {CONTACT.address} — contact@laureolivie.fr.
       </p>
 

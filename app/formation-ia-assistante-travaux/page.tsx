@@ -481,7 +481,7 @@ export default function FormationIaAssistanteTravauxPage() {
             Formation IA assistante travaux — présentiel en Île-de-France uniquement
           </h2>
           <p className="mt-4 text-sm text-slate-600 leading-relaxed">
-            Laure Olivié · Organisme certifié Qualiopi · SIRET {SITE_CONFIG.siret} · NDA
+            Laure Olivié · {SITE_CONFIG.blocFooterOrganismeQualiopi}
             11788515078 · {SITE_CONFIG.email}
             {sitePhoneDisplaySuffix()}
           </p>

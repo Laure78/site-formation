@@ -19,6 +19,9 @@ export const TARIF_PARTICIPANT_NIV05_HT = TARIF_PARTICIPANT_NIV02_HT;
 /** NIV-09 — assistants IA personnalisés (7 h). */
 export const TARIF_PARTICIPANT_NIV09_HT = TARIF_PARTICIPANT_NIV02_HT;
 
+/** NIV-11 — assistance à maîtrise d’ouvrage : forfait session intra de 4 h (jusqu’à 10 participants). */
+export const TARIF_SESSION_INTRA_NIV11_HT = 1200 as const;
+
 /** NUM-04 / NIV-10 — variante 7 h. */
 export const TARIF_PARTICIPANT_NIV10_HT = TARIF_PARTICIPANT_NIV02_HT;
 

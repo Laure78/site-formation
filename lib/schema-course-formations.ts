@@ -13,7 +13,7 @@ import {
 } from '@/lib/schema-formation-course-jsonld';
 import { buildQualiopiCredentialSchema } from '@/lib/qualiopi-info';
 import { SCHEMA_CONTACT } from '@/lib/schema-constants';
-import { SITE, siteSchemaOrganizationId } from '@/lib/site-config';
+import { SITE, siteProviderIdentifierSchema, siteSchemaOrganizationId } from '@/lib/site-config';
 import { tarifHtDepuisBadgeCatalogue } from '@/lib/tarifs-sessions';
 import { getTarifApplicationMetierBtpHt } from '@/lib/tarifs-applications-metier-btp';
 
@@ -195,11 +195,10 @@ export function getFormationsCatalogJsonLd(): Record<string, unknown> {
         url: SITE_CONFIG.url.replace(/\/$/, ''),
         email: SITE.contact.email,
         telephone: SITE.contact.telIntl,
-        identifier: {
-          '@type': 'PropertyValue',
-          name: 'SIRET',
-          value: SITE.siret,
-        },
+        identifier: (() => {
+          const id = siteProviderIdentifierSchema();
+          return { '@type': 'PropertyValue', name: id.name, value: id.value };
+        })(),
         hasCredential: buildQualiopiCredentialSchema(),
       },
       {

@@ -69,6 +69,11 @@ const ALL_CATALOGUE_FORMATIONS_NAV_LINKS: CatalogueFormationNavLink[] = [
     icon: Landmark,
   },
   {
+    href: LINKS.formationIaAssistanceMaitriseOuvrage,
+    label: "IA et assistance à maîtrise d'ouvrage",
+    icon: Landmark,
+  },
+  {
     href: LINKS.formationAssistantsIaPersonnalisesBtp,
     label: 'Assistants IA BTP (7 h)',
     icon: Cpu,

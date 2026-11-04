@@ -3,6 +3,7 @@ import { redirect } from 'next/navigation';
 import Link from 'next/link';
 import { EmargementForm } from './EmargementForm';
 import { isAdmin } from '@/lib/auth';
+import { SITE_CONFIG } from '@/lib/seo';
 
 export default async function EmargementPage({
   searchParams,
@@ -97,7 +98,7 @@ function FeuilleEmargementPrint({
       <div className="rounded-2xl border-2 border-slate-200 bg-white p-8 print:border print:shadow-none" id="feuille-emargement">
         <div className="mb-8 text-center">
           <h2 className="font-display text-xl font-bold text-slate-900">FEUILLE D&apos;ÉMARGEMENT</h2>
-          <p className="mt-2 text-slate-600">OFC Création d&apos;Entreprise — SIRET 905 244 281 00010 — Qualiopi</p>
+          <p className="mt-2 text-slate-600">OFC Création d&apos;Entreprise — {SITE_CONFIG.identifiantsOrganismeLine} — Qualiopi</p>
         </div>
         <div className="mb-6 grid grid-cols-2 gap-4 text-sm">
           <div>

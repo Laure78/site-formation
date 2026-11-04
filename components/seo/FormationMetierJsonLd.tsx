@@ -24,6 +24,7 @@ import {
   SCHEMA_PUBLIC_SITE_URL,
   schemaLogoUrl,
 } from '@/lib/schema-constants';
+import { siteProviderIdentifierSchema } from '@/lib/site-config';
 import { buildQualiopiCredentialSchema } from '@/lib/qualiopi-info';
 import { buildSiteCalendlyCtaUrl } from '@/lib/calendly';
 import { QUALIOPI_CERTIFICAT_REALISATION } from '@/config/qualiopi';
@@ -120,14 +121,17 @@ function buildOrganizationNode() {
     },
     email: SCHEMA_CONTACT.email,
     vatID: SCHEMA_CONTACT.vatId,
-    taxID: SCHEMA_CONTACT.siretFormatted,
+    taxID: SCHEMA_CONTACT.siretDigits,
     founder: { '@id': PERSON_LAURE_ID },
     identifier: [
-      {
-        '@type': 'PropertyValue',
-        propertyID: 'SIRET',
-        value: SCHEMA_CONTACT.siretFormatted,
-      },
+      (() => {
+        const id = siteProviderIdentifierSchema();
+        return {
+          '@type': 'PropertyValue',
+          propertyID: id.name,
+          value: id.value,
+        };
+      })(),
       {
         '@type': 'PropertyValue',
         propertyID: 'NDA',

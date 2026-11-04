@@ -49,6 +49,7 @@ export const SITE = {
   phone: CONTACT.phone,
   phoneDisplay: CONTACT.phoneDisplay,
   siret: SCHEMA_CONTACT.siretFormatted,
+  siren: SCHEMA_CONTACT.sirenFormatted,
   nda: SCHEMA_CONTACT.nda,
   ndaMention: QUALIOPI_LEGAL.ndaExactMention,
   address: {

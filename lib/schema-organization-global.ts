@@ -14,6 +14,7 @@ import {
   siteOrganizationProofSnippet,
   siteOrganizationSameAsUrls,
 } from '@/lib/schema-site-proof';
+import { siteProviderIdentifierSchema } from '@/lib/site-config';
 
 export type OrganizationOfcSchemaNodeOptions = {
   organizationId?: string;
@@ -63,11 +64,10 @@ export function buildOrganizationOfcSchemaNode(
     },
     areaServed: buildIdfAreaServedSchemaEntities(),
     identifier: [
-      {
-        '@type': 'PropertyValue',
-        name: 'SIRET',
-        value: SCHEMA_CONTACT.siretFormatted,
-      },
+      (() => {
+        const id = siteProviderIdentifierSchema();
+        return { '@type': 'PropertyValue', name: id.name, value: id.value };
+      })(),
       {
         '@type': 'PropertyValue',
         name: 'NDA',

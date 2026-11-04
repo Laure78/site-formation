@@ -7,6 +7,7 @@ import { ArrowLeft } from 'lucide-react';
 import { PrintButton } from '@/components/PrintButton';
 import { QuestionnaireSatisfactionBanner } from '@/components/espace-apprenant/QuestionnaireSatisfactionBanner';
 import { AvisGoogleBanner } from '@/components/espace-apprenant/AvisGoogleBanner';
+import { SITE_CONFIG } from '@/lib/seo';
 
 export default async function AttestationPage({
   params,
@@ -89,7 +90,7 @@ export default async function AttestationPage({
           <div className="text-right">
             <p className="text-sm font-medium text-slate-700">OFC Création d&apos;Entreprise</p>
             <p className="text-xs text-slate-500">Organisme certifié Qualiopi</p>
-            <p className="text-xs text-slate-500">SIRET 905 244 281 00010</p>
+            <p className="text-xs text-slate-500">{SITE_CONFIG.identifiantsOrganismeLine}</p>
           </div>
         </div>
       </div>

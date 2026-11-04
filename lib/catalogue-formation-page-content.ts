@@ -5,7 +5,8 @@
 import type { FormationCatalogueCode } from '@/lib/formation-catalogue-visibility';
 import type { TrainingParcoursKind } from '@/lib/training-page-helpers';
 import { LINKS } from '@/lib/internal-links';
-import { getFormationByCode, libelleDureeFormation } from '@/data/formations';
+import { formatPrixHt, getFormationByCode, libelleDureeFormation } from '@/data/formations';
+import { TARIF_SESSION_INTRA_NIV11_HT } from '@/lib/tarifs-catalogue-participant';
 import {
   DEV_WEB_IA_LIVRABLES,
   DEV_WEB_IA_OBJECTIFS,
@@ -29,6 +30,7 @@ import {
 import { NIV03_PEDAGOGICAL_METHODS, NIV03_PROGRAMME_BLOCS } from '@/lib/catalogue-formation-programmes-niv03';
 import { NIV04_PROGRAMME_BLOCS } from '@/lib/catalogue-formation-programmes-niv04';
 import { NIV05_PROGRAMME_BLOCS } from '@/lib/catalogue-formation-programmes-niv05';
+import { NIV11_PROGRAMME_BLOCS } from '@/lib/catalogue-formation-programmes-niv11';
 
 export type CataloguePainPoint = { title: string; texte: string };
 
@@ -127,6 +129,8 @@ export type CatalogueFormationPageContent = {
   objectivesTitle?: string;
   /** Titre section programme (défaut : « Programme — {durée session} »). */
   programmeHeading?: string;
+  /** Libellés prix du bloc tarif (onglets Inter / Intra) quand le tarif n’est pas « par participant ». */
+  priceLabelOverride?: { inter: string; intra: string };
   /** Remplace la bandeau TrainingQuickFacts par défaut (tarifs 7 h / 14 h, etc.). */
   quickFactsOverride?: readonly { label: string; value: string }[];
   /** Passerelle vers NIV-10 — masquer sur la fiche BeWork elle-même. */
@@ -806,13 +810,29 @@ const NIV_05: CatalogueFormationPageContent = {
   programIntro: '7 h · 70 % pratique · ateliers sur vos dossiers MOE (anonymisés si besoin).',
   programModules: mapProgrammeBlocsToCatalogueModules(NIV05_PROGRAMME_BLOCS),
   pdfHref: LINKS.pdfProgrammeIaMaitriseOeuvre,
+  intraExtraBullets: [
+    'Format intra 4 h sur vos dossiers : CCTP, descriptif, DPGF et analyse des offres, CR de chantier, planning court, emails récurrents',
+    '1 200 € HT la session de 4 h, jusqu’à 10 participants — exonération de TVA, art. 261-4-4°-a du CGI',
+    'Demi-journée dans vos locaux en Île-de-France — abonnement ChatGPT Plus ou Claude Pro / Team requis',
+  ],
   programLinks: [
     {
       prefix: 'Pour le pilotage chantier côté entreprise, voir la',
       href: LINKS.formationConduiteTravauxSuiviChantier,
       label: 'formation conduite de travaux',
     },
+    {
+      prefix: 'Pour un cabinet qui veut travailler ses propres pièces en une demi-journée, télécharger le',
+      href: LINKS.pdfProgrammeIaMaitriseOeuvreIntra4h,
+      label: 'programme intra 4 h (CCTP, DPGF, CR et plannings)',
+    },
+    {
+      prefix: 'Côté maîtrise d’ouvrage, voir la',
+      href: LINKS.formationIaAssistanceMaitriseOuvrage,
+      label: 'formation IA et assistance à maîtrise d’ouvrage',
+    },
   ],
+
   finalCta: {
     ...DEFAULT_FINAL_CTA,
     title: 'Vous souhaitez former votre équipe MOE à l’IA ?',
@@ -948,12 +968,127 @@ const NIV_09: CatalogueFormationPageContent = {
   },
 };
 
+const NIV_11: CatalogueFormationPageContent = {
+  programmeRef: 'NIV-11',
+  parcoursKind: 'usages-ia-btp',
+  levelBadgeLabel: 'Niveau 2 · Perfectionnement',
+  heroPublicLine:
+    'AMO, conduite d’opération, programmation et maîtrise d’ouvrage déléguée — ingénieurs, chefs de projet et chargés d’opération.',
+  heroFacts: [
+    '4 heures',
+    '70 % de pratique',
+    '4 modules AMO opérationnels',
+    'Intra en Île-de-France',
+  ],
+  quickFactsLevel: 'Niveau 2',
+  practiceShare: '70 %',
+  formatLabel: 'Présentiel',
+  locationLabel: 'Île-de-France',
+  pedagogicalNote: 'L’IA prépare et structure. Le professionnel contrôle et valide.',
+  objectivesTitle: 'Après la formation, vous saurez…',
+  painPointsTitle: 'L’AMO croule sous les pièces à relire ?',
+  painPoints: [
+    {
+      title: 'Consultations',
+      texte: 'Programme, RC, CCTP, CCAP et DPGF à relire et croiser avant le lancement.',
+    },
+    {
+      title: 'Analyse des offres',
+      texte: 'Mémoires techniques et offres de prix à comparer, rapport d’analyse à justifier.',
+    },
+    {
+      title: 'Pilotage des intervenants',
+      texte: 'Livrables MOE, avis du contrôleur technique, observations du CSPS à suivre.',
+    },
+    {
+      title: 'Reporting MOA',
+      texte: 'CR de comité de pilotage, tableau de bord et notes d’alerte à produire vite.',
+    },
+  ],
+  outcomes: [
+    'Protéger les données des consultations et appliquer une charte IA',
+    'Choisir ChatGPT ou Claude et utiliser Projets, Skills et connecteurs pour l’AMO',
+    'Préparer un rapport d’analyse des offres sourcé (MOE, entreprises, CT, CSPS)',
+    'Contrôler les livrables MOE et suivre les avis du CT et du CSPS',
+    'Rédiger CR de pilotage et notes d’alerte au maître d’ouvrage',
+  ],
+  outcomesDescription:
+    'Consultations, analyse des offres et pilotage des intervenants pour l’AMO — ChatGPT et Claude, validation humaine.',
+  practicalCase: {
+    title: 'Comment se déroule la formation ?',
+    paragraphs: [
+      'Ateliers sur vos consultations et dossiers d’opération — anonymisés si besoin. Chaque participant construit un assistant « Consultations » puis un assistant « Pilotage », enrichis d’un Skill par cas d’usage.',
+    ],
+    steps: [
+      'Vous apportez une consultation ou une opération fil rouge.',
+      'Vous construisez vos assistants module par module.',
+      'Vous repartez avec un plan d’action à 30 jours.',
+    ],
+  },
+  deliverablesTitle: 'Ce que vous emportez',
+  deliverables: [
+    'Modèle de charte IA + check-list « avant d’envoyer un document à l’IA »',
+    'Mémo « ChatGPT ou Claude pour l’AMO » + modèle de prompt CRAFT',
+    'Assistant « Consultations » + grille d’analyse et trame de rapport d’analyse des offres',
+    'Assistant « Pilotage » + gabarit de CR de pilotage et note d’alerte MOA',
+    'Base de Skills AMO + accès 1 an à l’espace apprenant',
+    'Certificat de réalisation',
+  ],
+  publicPrerequisites: [
+    {
+      title: 'Prérequis pédagogiques',
+      items: ['Aisance avec les outils numériques — aucun prérequis IA'],
+    },
+    {
+      title: 'Prérequis techniques',
+      items: [
+        'Abonnement ChatGPT Plus ou Claude Pro (ou offre Team) actif sur chaque poste — non inclus',
+        'Connecteurs Microsoft 365 validés par l’administrateur informatique, si utilisés',
+        'Consultations et dossiers d’opération réels (anonymisés)',
+      ],
+    },
+  ],
+  iaLimits: [
+    { iaAide: 'Relire et croiser les pièces d’une consultation', validation: 'Vérifier chaque incohérence sur les pièces sources' },
+    { iaAide: 'Pré-rédiger le rapport d’analyse des offres', validation: 'Noter, classer et proposer — décision du maître d’ouvrage' },
+    { iaAide: 'Synthétiser avis CT et observations CSPS', validation: 'Contrôler les références et les suites à donner' },
+    { iaAide: 'Rédiger CR de pilotage et notes d’alerte', validation: 'Relire et valider avant diffusion' },
+  ],
+  intraExtraBullets: [
+    '1 200 € HT la session de 4 h, jusqu’à 10 participants — exonération de TVA, art. 261-4-4°-a du CGI',
+    'Demi-journée dans vos locaux en Île-de-France, sur vos consultations',
+  ],
+  interExtraBullets: ['Session inter sur demande — contactez-nous pour connaître les prochaines dates'],
+  priceLabelOverride: {
+    inter: 'Session inter sur demande',
+    intra: `${formatPrixHt(TARIF_SESSION_INTRA_NIV11_HT)} € HT / session de 4 h`,
+  },
+  programmeHeading: 'Programme — 4 modules AMO (4 h)',
+  programIntro: '4 h · 70 % pratique · ateliers sur vos consultations et opérations (anonymisées si besoin).',
+  programModules: mapProgrammeBlocsToCatalogueModules(NIV11_PROGRAMME_BLOCS),
+  pdfHref: LINKS.pdfProgrammeIaAssistanceMaitriseOuvrage,
+  programLinks: [
+    {
+      prefix: 'Côté maîtrise d’œuvre, voir la',
+      href: LINKS.formationIaMaitriseOeuvre,
+      label: 'formation IA et maîtrise d’œuvre',
+    },
+  ],
+  finalCta: {
+    ...DEFAULT_FINAL_CTA,
+    title: 'Vous souhaitez former votre équipe AMO à l’IA ?',
+    description:
+      'Demandez un devis pour une session intra sur vos consultations — réponse sous 48 h ouvrées.',
+  },
+};
+
 const BY_REF: Partial<Record<FormationCatalogueCode, CatalogueFormationPageContent>> = {
   'NIV-01': NIV_01,
   'NIV-02': NIV_02,
   'NIV-03': NIV_03,
   'NIV-04': NIV_04,
   'NIV-05': NIV_05,
+  'NIV-11': NIV_11,
   'NIV-09': NIV_09,
   'NIV-10': NIV_10,
 };

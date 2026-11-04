@@ -49,7 +49,12 @@ const RELATED_BY_REF: Record<FormationCatalogueCode, readonly RelatedCatalogueFo
     card('NIV-01', 'Si vous devez consolider les bases IA avant d’industrialiser Claude.'),
     card('NIV-10', 'Pour créer ensuite un outil métier réutilisable.'),
   ],
-  'NIV-05': [card('NIV-02', 'DCE et mémoires.'), card('NIV-03', 'Conduite de travaux.'), card('NIV-01', 'Bases IA.')],
+  'NIV-05': [card('NIV-02', 'DCE et mémoires.'), card('NIV-03', 'Conduite de travaux.'), card('NIV-11', 'Côté maîtrise d’ouvrage : consultations et pilotage.')],
+  'NIV-11': [
+    card('NIV-05', 'Côté maîtrise d’œuvre : DCE, CR, OS et réception.'),
+    card('NIV-02', 'Appels d’offres, DCE et mémoire technique.'),
+    card('NIV-09', 'Créer et partager ses assistants IA.'),
+  ],
   'NIV-06': [card('NIV-02', 'Préparer le chiffrage depuis le DCE.'), card('NIV-01', 'Bases IA.'), card('NIV-08', 'Assistants métré et devis.')],
   'NIV-07': [card('NIV-08', 'Assistants personnalisés.'), card('NIV-02', 'Appels d’offres.'), card('NIV-01', 'Bases IA.')],
   'NIV-08': [card('NIV-01', 'Prérequis — bases IA BTP.'), card('NIV-02', 'Appels d’offres et DCE.'), card('NIV-03', 'Chantier et DOE.')],

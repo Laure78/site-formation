@@ -92,7 +92,8 @@ export function ReferentHandicapBlock({
             <strong>Organisme certifié <QualiopiWordmark /></strong> (actions de formation).
           </p>
           <p className="mt-1 text-xs text-slate-500">
-            SIRET {QUALIOPI_LEGAL.siret} · NDA {QUALIOPI_LEGAL.nda}
+            SIREN {QUALIOPI_LEGAL.siren} · {QUALIOPI_LEGAL.rcsLibelle} · NDA {QUALIOPI_LEGAL.nda}
+            {QUALIOPI_LEGAL.siret ? ` · SIRET ${QUALIOPI_LEGAL.siret}` : ''}
           </p>
         </div>
       ) : null}

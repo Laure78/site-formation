@@ -224,7 +224,7 @@ const PAGES_DATA: { path: string; title: string; content: string }[] = [
       "Landing SEO : formation IA et ChatGPT pour routes, VRD, génie civil. Cas d'usage TP (planification, études de sol, marchés publics, rapports chantier). Qualiopi, OPCO Constructys. Fiche catalogue niveau 1 : /formations/ia-batiment-travaux-publics ; page pilier SEO : /formation-ia-travaux-publics.",
   },
   { path: LINKS.formationConducteurTravaux, title: 'Guide IA conducteur de travaux BTP', content: 'L\'IA pour les conducteurs de travaux : CR, planning, DCE, PPSPS. Page métier canonique.' },
-  { path: '/mentions-legales', title: 'Mentions légales', content: 'OFC Création d\'Entreprise, SIRET 905 244 281 00010. Hébergement O2switch.' },
+  { path: '/mentions-legales', title: 'Mentions légales', content: 'OFC Création d\'Entreprise, SIREN 905 244 281, RCS Paris. Hébergement Vercel Inc.' },
 ];
 
 /** Extraire le texte d'un article de blog */

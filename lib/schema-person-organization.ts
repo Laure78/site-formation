@@ -12,6 +12,7 @@ import {
   schemaLogoUrl,
 } from '@/lib/schema-constants';
 import { SITE_CONFIG, siteHasPublicPhone } from '@/lib/seo';
+import { siteProviderIdentifierSchema } from '@/lib/site-config';
 
 export function getSchemaPersonOrganization() {
   const base = SCHEMA_PUBLIC_SITE_URL.replace(/\/$/, '');
@@ -49,11 +50,10 @@ export function getSchemaPersonOrganization() {
           availableLanguage: 'French',
         },
         identifier: [
-          {
-            '@type': 'PropertyValue',
-            name: 'SIRET',
-            value: SCHEMA_CONTACT.siretFormatted,
-          },
+          (() => {
+            const id = siteProviderIdentifierSchema();
+            return { '@type': 'PropertyValue', name: id.name, value: id.value };
+          })(),
           {
             '@type': 'PropertyValue',
             name: 'NDA',

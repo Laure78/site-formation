@@ -89,8 +89,8 @@ export default function AProposPage() {
             />
           </div>
           <p className="mt-8 text-xs text-ofc-ink-subtle">
-            OFC Création d&apos;Entreprise — SIRET {SCHEMA_CONTACT.siretFormatted} · NDA{' '}
-            {SCHEMA_CONTACT.nda}
+            OFC Création d&apos;Entreprise — SIREN {SCHEMA_CONTACT.sirenFormatted} ·{' '}
+            {SCHEMA_CONTACT.rcsLibelle} · NDA {SCHEMA_CONTACT.nda}
           </p>
         </div>
       </div>

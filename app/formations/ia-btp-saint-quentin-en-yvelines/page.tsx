@@ -441,7 +441,7 @@ export default function FormationIABTPSaintQuentinYvelinesPage() {
             Qualiopi · OPCO Constructys selon éligibilité
           </p>
           <p className="mt-6 text-sm text-slate-500">
-            SIRET {SITE_CONFIG.siret} · NDA 11788515078 · {SITE_CONFIG.email}{sitePhoneDisplaySuffix()} ·{' '}
+            {SITE_CONFIG.identifiantsOrganismeLine} · {SITE_CONFIG.email}{sitePhoneDisplaySuffix()} ·{' '}
             <a href={`mailto:${SITE_CONFIG.email}`} className="text-[var(--accent)] hover:underline">
               {SITE_CONFIG.email}
             </a>

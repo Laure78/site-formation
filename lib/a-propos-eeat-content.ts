@@ -37,7 +37,7 @@ export const A_PROPOS_OFFRE_CLIENTS = LAURE_OLIVIE_CLIENT_REFERENCES;
 export const A_PROPOS_TIMELINE = LAURE_OLIVIE_PARCOURS_TIMELINE;
 
 export const A_PROPOS_AUTORITE_PARAGRAPHS = [
-  `Parcours terrain BTP : ancienne dirigeante d'une entreprise de travaux publics (ALIA BTP, 2017-2024), puis structuration d'**OFC Création d'Entreprise** en 2022 — organisme certifié **Qualiopi** (NDA ${SCHEMA_CONTACT.nda}, SIRET ${SCHEMA_CONTACT.siretFormatted}). Les sessions restent en **présentiel, Île-de-France uniquement**, sur documents réels (DCE, devis, CR, mémoire technique).`,
+  `Parcours terrain BTP : ancienne dirigeante d'une entreprise de travaux publics (ALIA BTP, 2017-2024), puis structuration d'**OFC Création d'Entreprise** en 2022 — organisme certifié **Qualiopi** (${SCHEMA_CONTACT.sirenFormatted}, ${SCHEMA_CONTACT.rcsLibelle}, NDA ${SCHEMA_CONTACT.nda}). Les sessions restent en **présentiel, Île-de-France uniquement**, sur documents réels (DCE, devis, CR, mémoire technique).`,
   `**Instructrice officielle LinkedIn Learning** — cours publics vérifiables sur ChatGPT et l'IA appliquée au bâtiment, complémentaires aux formations OFC sur site ou en salle partenaire.`,
   `Interventions et références auprès de **FFB Grand Paris**, **CSFE**, **CNAM Entreprise**, **Le Moniteur Formations** et **CAPEB** — cadres de confiance pour des sessions finançables **Constructys** selon éligibilité.`,
   `Indicateurs consolidés (${getStatsFreshnessLabel()}) : **${formatNoteSatisfactionAffichageComplet()}**. Les retours portent sur le gain de temps administratif, la clarté des livrables et la montée en compétence sans jargon — preuve sociale alignée sur le profil LinkedIn public.`,
@@ -57,7 +57,7 @@ export const A_PROPOS_MISSION = {
   ],
 } as const;
 
-export const A_PROPOS_CERTIFICATIONS_INTRO = `Transparence totale sur l'organisme et les labels : OFC Création d'Entreprise est une SASU immatriculée, déclarée auprès de la DREETS et certifiée Qualiopi. Les formations respectent le référentiel national qualité ; les participants reçoivent attestation, évaluation à chaud et supports réutilisables. Laure Olivié maintient une veille active auprès des éditeurs d'IA (OpenAI, Anthropic, Google, Mistral) pour intégrer les évolutions sans déstabiliser les équipes.`;
+export const A_PROPOS_CERTIFICATIONS_INTRO = `Transparence totale sur l'organisme et les labels : OFC Création d'Entreprise est une société par actions simplifiée (SAS) immatriculée au RCS de Paris, déclarée auprès de la DREETS et certifiée Qualiopi. Les formations respectent le référentiel national qualité ; les participants reçoivent attestation, évaluation à chaud et supports réutilisables. Laure Olivié maintient une veille active auprès des éditeurs d'IA (OpenAI, Anthropic, Google, Mistral) pour intégrer les évolutions sans déstabiliser les équipes.`;
 
 export const A_PROPOS_CONTACT_INTRO = `Pour un premier échange, réservez un créneau Calendly (visio 30 min, sans engagement) ou écrivez à l'organisme. Réponse sous 48 h ouvrées avec une proposition adaptée : session inter catalogue, intra sur site, ou parcours sur mesure pour votre métier (conducteur de travaux, dirigeant de TPE/PME, bureau d'études). Les dossiers Constructys peuvent être montés en amont si votre entreprise est éligible.`;
 
@@ -69,8 +69,8 @@ export const A_PROPOS_CERTIFICATIONS = [
     detail: 'Certification actions de formation — validité janvier 2028',
   },
   {
-    label: 'SIRET OFC',
-    detail: SCHEMA_CONTACT.siretFormatted,
+    label: 'Identifiants OFC',
+    detail: `${SCHEMA_CONTACT.sirenFormatted} · ${SCHEMA_CONTACT.rcsLibelle}${SCHEMA_CONTACT.siretFormatted ? ` · SIRET ${SCHEMA_CONTACT.siretFormatted}` : ''}`,
   },
   {
     label: 'NDA',

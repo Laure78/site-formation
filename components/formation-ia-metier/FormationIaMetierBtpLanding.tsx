@@ -420,7 +420,7 @@ export function FormationIaMetierBtpLanding({ config }: { config: FormationIaMet
 
           <section className="mt-14 border-t border-slate-200 pt-10 text-sm text-slate-600">
             <p>
-              <strong>{SITE_CONFIG.legalName}</strong> — SIRET {SITE_CONFIG.siret} · NDA 11788515078 · Organisme certifié Qualiopi
+              <strong>{SITE_CONFIG.legalName}</strong> — {SITE_CONFIG.identifiantsOrganismeLine} · Organisme certifié Qualiopi
               · {SITE_CONFIG.email} ·{' '}
               <a href={SITE_CONFIG.url} className={OFC_LINK}>
                 www.laureolivie.fr

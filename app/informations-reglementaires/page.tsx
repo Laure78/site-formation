@@ -146,7 +146,7 @@ export default function InformationsReglementairesPage() {
       <aside className="mt-12 rounded-lg border-l-[6px] border-[#377CF3] bg-[#F2F2F2] p-5 text-sm leading-relaxed text-[#1A1A1A]">
         <p className="font-semibold text-[#377CF3]">{OFC_IDENTITE.raisonSociale}</p>
         <p className="mt-2">
-          SIRET {OFC_IDENTITE.siret} · NDA {OFC_IDENTITE.nda}
+          SIREN {OFC_IDENTITE.siren} · {OFC_IDENTITE.rcsLibelle} · NDA {OFC_IDENTITE.nda}
         </p>
         <p className="mt-1">{CONTACT.address}</p>
         <p className="mt-1">

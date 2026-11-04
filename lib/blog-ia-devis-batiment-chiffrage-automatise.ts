@@ -241,7 +241,7 @@ Ne réécris pas le devis, signale uniquement les manques.`,
       type: 'html',
       content: `
 <p class="text-sm text-slate-600">Laure Olivié — Formatrice IA pour les pros du BTP, OFC Création d'Entreprise<br/>
-Organisme certifié Qualiopi · SIRET 905 244 281 00010 · NDA 11788515078<br/>
+Organisme certifié Qualiopi · SIREN 905 244 281 · RCS Paris 905 244 281 · NDA 11788515078<br/>
 <a href="mailto:contact@laureolivie.fr" class="text-[var(--accent)] underline">contact@laureolivie.fr</a> · www.laureolivie.fr</p>
 <p class="mt-4"><a href="/prendre-rdv">Réservez votre visio découverte gratuite</a></p>`,
     },

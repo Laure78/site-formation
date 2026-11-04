@@ -11,7 +11,8 @@ import { requestCookieConsentDialog } from '@/lib/cookie-consent';
 import { IMAGE_QUALITY_DEFAULT } from '@/lib/image-props';
 import { QUALIOPI_LEGAL } from '@/lib/qualiopi-info';
 import { SITE } from '@/lib/site';
-import { siteSiretDigits } from '@/lib/site-config';
+import { OFC_IDENTITE } from '@/lib/ofc-identite';
+import { siteAdresseLigne, siteRcsLibelle, siteSirenDisplay } from '@/lib/site-config';
 import { LINKS } from '@/lib/internal-links';
 import {
   PHOTOS,
@@ -34,10 +35,6 @@ const FOOTER_LINK_CLASS =
 
 const FOOTER_HEADING_CLASS = 'text-sm font-semibold text-white';
 
-function formatSirenDisplay(): string {
-  const digits = siteSiretDigits().slice(0, 9);
-  return `${digits.slice(0, 3)} ${digits.slice(3, 6)} ${digits.slice(6, 9)}`;
-}
 
 function isExternalHref(href: string): boolean {
   return /^https?:\/\//i.test(href);
@@ -106,7 +103,7 @@ export function Footer() {
   }
 
   const year = new Date().getFullYear();
-  const siren = formatSirenDisplay();
+  const siren = siteSirenDisplay();
 
   return (
     <footer className="border-t border-white/10 text-white" style={{ backgroundColor: FOOTER_BG }}>
@@ -130,6 +127,13 @@ export function Footer() {
             <div className="mt-3 h-px w-10 bg-white/35" aria-hidden />
             <p className="mt-2 max-w-[16rem] text-xs leading-relaxed text-white/70">
               {SITE.footer.identityIntro}
+            </p>
+            <p className="mt-2 max-w-[16rem] text-[10px] leading-snug text-white/55">
+              {SITE.legalName} · {OFC_IDENTITE.formeJuridique} · Capital {OFC_IDENTITE.capitalSocial}
+              <br />
+              Siège : {siteAdresseLigne()}
+              <br />
+              SIREN {siren} · {siteRcsLibelle()}
             </p>
           </div>
 
@@ -202,7 +206,8 @@ export function Footer() {
         <div className="border-t border-white/15 py-4">
           <div className="flex flex-col gap-3 text-xs text-white/70 lg:flex-row lg:items-center lg:justify-between lg:gap-4">
             <p className="min-w-0 leading-relaxed">
-              © {year} {SITE.name} – {SITE.legalName} | SIREN : {siren} | NDA : {SITE.nda}
+              © {year} {SITE.name} – {SITE.legalName} | SIREN : {siren} | {siteRcsLibelle()} | NDA :{' '}
+              {SITE.nda}
             </p>
             <p className="flex shrink-0 flex-wrap items-center gap-x-2 gap-y-1">
               <Link

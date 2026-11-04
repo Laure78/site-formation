@@ -3,7 +3,7 @@
  * Source : `data/formations.ts`, `config/qualiopi.ts`, programmes des fiches catalogue.
  */
 
-import { getFormationByCode, isFormationSurDevis, libelleEffectifFormation, type FormationCode } from '@/data/formations';
+import { formatPrixHt, getFormationByCode, isFormationSurDevis, libelleEffectifFormation, type FormationCode } from '@/data/formations';
 import {
   QUALIOPI_DELAI_ACCES_EXACT,
   QUALIOPI_MODALITES_ACCES_EXACT,
@@ -22,7 +22,7 @@ import {
   MENTIONS_TVA_INTRA_COURTE,
   PREREQUIS_NIVEAU_2,
 } from '@/lib/tarifs-sessions';
-import { libelleTarifParticipantCatalogue } from '@/lib/tarifs-catalogue-participant';
+import { libelleTarifParticipantCatalogue, TARIF_SESSION_INTRA_NIV11_HT } from '@/lib/tarifs-catalogue-participant';
 /** Modalité pédagogique fixe — toutes les actions catalogue OFC. */
 export const MODALITE_PEDAGOGIQUE_CATALOGUE =
   'Présentiel — Île-de-France uniquement (intra-entreprise (dans vos locaux) ou inter)' as const;
@@ -71,6 +71,13 @@ export const PROGRAMME_CONTENU_CATALOGUE: Record<FormationCode, readonly string[
     'Module 3 — Courriers, ordres de service et actes administratifs (1 h 25)',
     'Module 4 — Réserves, réception et suivi client (1 h 30)',
     'Clôture — Bilan, plan d’action et évaluation (15 min)',
+  ],
+  'NIV-11': [
+    'Module 1 — Confidentialité des données, risques de l’IA et charte de bonnes pratiques (45 min)',
+    'Module 2 — ChatGPT ou Claude : choisir et prendre en main son outil (30 min)',
+    'Module 3 — Analyse des consultations : MOE, entreprises, contrôleur technique, CSPS (1 h 25)',
+    'Module 4 — Piloter les intervenants : l’AMO chef d’orchestre (1 h 10)',
+    'Clôture — Bilan, plan d’action et évaluation (10 min)',
   ],
   'NIV-06': [
     'Module 1 — Identifier un problème métier à digitaliser (45 min)',
@@ -225,6 +232,9 @@ export const DELAI_ACCES_NIV06 = DELAI_ACCES_NIV04;
 export const PREREQUIS_NIV05 =
   "Aisance avec les outils numériques courants — aucun prérequis IA. Abonnements Claude Pro et ChatGPT Plus actifs sur le poste de chaque participant (environ 18 à 20 € HT / mois chacun, à la charge de l'entreprise). Chaque participant apporte ses dossiers techniques, OS, CR et DCE réels.";
 
+export const PREREQUIS_NIV11 =
+  "Aisance avec les outils numériques courants — aucun prérequis IA. Abonnement ChatGPT Plus ou Claude Pro (ou offre Team) actif sur le poste de chaque participant — un des deux suffit ; non inclus, à la charge de l'entreprise. Si Microsoft 365 est utilisé : connecteurs (Outlook, SharePoint / OneDrive, Teams) validés par l'administrateur informatique avant la session. Chaque participant apporte des consultations et dossiers d'opération réels, anonymisés si besoin.";
+
 /** Prérequis NIV-09 — assistants IA (lien initiation via URL interne). */
 export const PREREQUIS_NIV09 =
   'Savoir utiliser un ordinateur et naviguer sur internet. Utilisation courante de l’IA (ChatGPT ou Claude). Ordinateur portable. Abonnements ChatGPT Plus et Claude Pro, ou comptes entreprise (Team) compatibles, actifs avant la session — non inclus dans le tarif, à la charge de l’entreprise.';
@@ -285,6 +295,18 @@ export const MODALITES_ACCES_NIV05 =
 
 export const DELAI_ACCES_NIV05 =
   "Inscription jusqu'à 15 jours calendaires avant le démarrage, sous réserve des disponibilités de la formatrice et du client. Ce délai correspond au minimum exigé par les OPCO pour l'instruction d'une demande de prise en charge. Le délai exact est confirmé lors de la demande de formation.";
+
+export const MODALITE_PEDAGOGIQUE_NIV11 =
+  'Action de formation au sens de l\'art. L6313-1 du Code du travail — intra-entreprise — 100 % présentiel — ateliers sur les consultations et opérations des participants — 70 % pratique / 30 % théorie';
+
+export const EVALUATION_NIV11 = [
+  'Évaluation en amont : questionnaire de positionnement et recueil des attentes.',
+  'Auto-positionnement en début et en fin de session sur les objectifs.',
+  'Évaluation des acquis sur les livrables produits (grille et rapport d’analyse des offres, CR de pilotage, assistant IA) — critères : références exactes et sourcées, distinction observation / hypothèse, aucune validation réglementaire ou contractuelle confiée à l’IA.',
+  'Remédiation : retour aux pièces d’origine lorsque les références sont inexactes.',
+  'Satisfaction : questionnaire à chaud ; questionnaire à froid à J+30.',
+  'Feuille d\'émargement signée ; attestation individuelle de fin de formation et certificat de réalisation.',
+] as const;
 
 export const EVALUATION_NIV05 = [
   'Évaluation en amont : vérification des prérequis et recueil des attentes pour ajuster les dossiers apportés (anonymisés).',
@@ -372,10 +394,14 @@ function prerequisPourRef(ref: FormationCode): string {
   if (ref === 'NIV-08') return PREREQUIS_NIV08;
   if (ref === 'NIV-09') return PREREQUIS_NIV09;
   if (ref === 'NIV-10') return PREREQUIS_NIV10;
+  if (ref === 'NIV-11') return PREREQUIS_NIV11;
   return PREREQUIS_NIVEAU_2.join(' ');
 }
 
 function tarifPourRef(ref: FormationCode): string {
+  if (ref === 'NIV-11') {
+    return `${formatPrixHt(TARIF_SESSION_INTRA_NIV11_HT)} € HT la session intra de 4 h (jusqu’à 10 participants). ${MENTIONS_TVA_INTRA_COURTE}`;
+  }
   const formation = getFormationByCode(ref);
   const entry = formation ? getFormationCatalogueByRef(ref) : undefined;
   if (formation?.tarifParticipantHt && entry) {
@@ -417,7 +443,9 @@ export function getInfosPratiquesForCatalogue(ref: string): InfosPratiquesFormat
     duree: libelleDureeInfosPratiques(formation),
     modalitesAcces: withQuestionnairePositionnementMention(
       sanitizeInfosPratiquesText(
-        code === 'NIV-01'
+        code === 'NIV-11'
+          ? MODALITES_ACCES_NIV05
+          : code === 'NIV-01'
           ? MODALITES_ACCES_NIV01
           : code === 'NIV-02'
             ? MODALITES_ACCES_NIV02
@@ -439,7 +467,9 @@ export function getInfosPratiquesForCatalogue(ref: string): InfosPratiquesFormat
       )
     ),
     delaiAcces: sanitizeInfosPratiquesText(
-      code === 'NIV-01' || code === 'NIV-02' || code === 'NIV-03' || code === 'NIV-04' || code === 'NIV-05' || code === 'NIV-06' || code === 'NIV-07' || code === 'NIV-08' || code === 'NIV-09' || code === 'NIV-10'
+      code === 'NIV-11'
+        ? DELAI_ACCES_NIV05
+        : code === 'NIV-01' || code === 'NIV-02' || code === 'NIV-03' || code === 'NIV-04' || code === 'NIV-05' || code === 'NIV-06' || code === 'NIV-07' || code === 'NIV-08' || code === 'NIV-09' || code === 'NIV-10'
         ? code === 'NIV-02'
           ? DELAI_ACCES_NIV02
           : code === 'NIV-03'
@@ -469,7 +499,9 @@ export function getInfosPratiquesForCatalogue(ref: string): InfosPratiquesFormat
           ? [...METHODES_NIV09]
           : [...QUALIOPI_METHODES_STANDARD],
     modalitesEvaluation:
-      code === 'NIV-01'
+      code === 'NIV-11'
+        ? [...EVALUATION_NIV11]
+        : code === 'NIV-01'
         ? [...EVALUATION_NIV01]
         : code === 'NIV-02'
           ? [...EVALUATION_NIV02]
@@ -491,7 +523,9 @@ export function getInfosPratiquesForCatalogue(ref: string): InfosPratiquesFormat
                 ? [...EVALUATION_NIV05]
                 : [...QUALIOPI_EVALUATION_STANDARD],
     modalitePedagogique:
-      code === 'NIV-02'
+      code === 'NIV-11'
+        ? MODALITE_PEDAGOGIQUE_NIV11
+        : code === 'NIV-02'
         ? MODALITE_PEDAGOGIQUE_NIV02
         : code === 'NIV-03'
           ? MODALITE_PEDAGOGIQUE_NIV03
@@ -537,6 +571,8 @@ export function getFormationOutilsAbonnementsAvantDevis(ref: string): string {
       return 'Outils : ordinateur portable avec connexion internet. Aucun abonnement IA payant obligatoire indiqué au programme — les éventuels abonnements restent hors tarif.';
     case 'NIV-09':
       return 'Abonnements ChatGPT Plus et Claude Pro, ou comptes entreprise (Team) compatibles, actifs sur le poste de chaque participant avant la session. Non inclus dans le tarif de formation — à la charge de l’entreprise.';
+    case 'NIV-11':
+      return 'Outils : abonnement ChatGPT Plus ou Claude Pro (ou offre Team) actif sur le poste de chaque participant — un des deux suffit ; non inclus dans le tarif, à la charge de l’entreprise.';
     case 'NIV-10':
       return 'Moyens techniques : ordinateur par participant, connexion internet, abonnement actif à ChatGPT ou Claude AI, à la charge du participant.';
     default:

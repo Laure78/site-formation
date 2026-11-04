@@ -48,7 +48,8 @@ export function satisfactionJ1EmailText(props: SatisfactionJ1EmailProps): string
     '',
     [
       OFC_IDENTITE.raisonSociale,
-      `SIRET ${SCHEMA_CONTACT.siretFormatted}`,
+      `SIREN ${SCHEMA_CONTACT.sirenFormatted}`,
+      SCHEMA_CONTACT.rcsLibelle,
       `NDA ${SCHEMA_CONTACT.nda}`,
       `${SCHEMA_GEO.streetAddress}, ${SCHEMA_GEO.postalCode} ${SCHEMA_GEO.addressLocality}`,
       SCHEMA_CONTACT.email,
@@ -176,7 +177,8 @@ export function SatisfactionJ1Email({
                           color: '#64748b',
                         }}
                       >
-                        {OFC_IDENTITE.raisonSociale} · SIRET {SCHEMA_CONTACT.siretFormatted} · NDA{' '}
+                        {OFC_IDENTITE.raisonSociale} · SIREN {SCHEMA_CONTACT.sirenFormatted} ·{' '}
+                        {SCHEMA_CONTACT.rcsLibelle} · NDA{' '}
                         {SCHEMA_CONTACT.nda} · {SCHEMA_GEO.streetAddress}, {SCHEMA_GEO.postalCode}{' '}
                         {SCHEMA_GEO.addressLocality} · {SCHEMA_CONTACT.email}
                       </td>

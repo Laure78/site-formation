@@ -521,7 +521,7 @@ export default function FormationIaDirigeantPmeBtpPage() {
             {FORMATION_IA_PME_BTP_H1} — présentiel Île-de-France
           </h2>
           <p className="mt-4 text-sm text-slate-600 leading-relaxed">
-            OFC Création d’Entreprise · Organisme certifié Qualiopi · SIRET {SITE_CONFIG.siret} · NDA 11788515078 ·{' '}
+            OFC Création d’Entreprise · {SITE_CONFIG.blocFooterOrganismeQualiopi} ·{' '}
             {SITE_CONFIG.email}{sitePhoneDisplaySuffix()}
           </p>
         </section>

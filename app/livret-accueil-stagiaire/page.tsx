@@ -184,7 +184,8 @@ export default function LivretAccueilStagiairePage() {
           <H2 id="organisme">L&apos;organisme</H2>
           <div className="mt-4 space-y-3 leading-relaxed">
             <p>
-              <strong>{OFC_IDENTITE.raisonSociale}</strong> · SIRET {OFC_IDENTITE.siret} ·{' '}
+              <strong>{OFC_IDENTITE.raisonSociale}</strong> · SIREN {OFC_IDENTITE.siren} ·{' '}
+              {OFC_IDENTITE.rcsLibelle} ·{' '}
               {QUALIOPI_NDA_MENTION_REGLEMENTAIRE} · {CONTACT.address}.
             </p>
             <Encadre>

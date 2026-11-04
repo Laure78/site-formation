@@ -35,7 +35,16 @@ export type SiteSatisfaction = {
 export type SiteConfig = {
   readonly marque: string;
   readonly raisonSociale: string;
-  readonly siret: string;
+  /** SIREN (9 chiffres) — identifiant unité légale. */
+  readonly siren: string;
+  /**
+   * SIRET de l’établissement siège (14 chiffres), une fois publié par l’INSEE.
+   * `null` : ne pas afficher de SIRET (l’ancien 905 244 281 00010 = Guyancourt).
+   */
+  readonly siretSiege: string | null;
+  readonly capitalSocial: string;
+  readonly rcsGreffe: string;
+  readonly rcsNumero: string;
   readonly nda: string;
   readonly qualiopi: SiteQualiopi;
   readonly adresse: SiteAdresse;
@@ -57,7 +66,12 @@ const FRANCE_NUM_ACTIVATEUR_URL =
 export const SITE = {
   marque: 'Laure Olivié',
   raisonSociale: "OFC Création d'Entreprise",
-  siret: '905 244 281 00010',
+  siren: '905 244 281',
+  /** En attente publication INSEE post-transfert siège (Kbis 03/11/2026 — Paris). */
+  siretSiege: null as string | null,
+  capitalSocial: '10 €',
+  rcsGreffe: 'Paris',
+  rcsNumero: '905 244 281',
   nda: '11788515078',
   qualiopi: {
     numero: '520911-1',
@@ -195,9 +209,66 @@ export const SITE_PERSON_JOB_TITLE = 'Formatrice IA spécialisée BTP' as const;
 /** Zone de formation — présentiel catalogue (Schema.org Course / Organization). */
 export const SITE_AREA_SERVED_LABEL = 'Île-de-France' as const;
 
-/** SIRET sans espaces — taxID Schema.org. */
+/** SIREN sans espaces. */
+export function siteSirenDigits(): string {
+  return SITE.siren.replace(/\s/g, '');
+}
+
+/** SIREN affichage (905 244 281). */
+export function siteSirenDisplay(): string {
+  return SITE.siren;
+}
+
+/** SIRET siège formaté — `null` si non publié. */
+export function siteSiretSiegeFormatted(): string | null {
+  return SITE.siretSiege;
+}
+
+/** SIRET siège sans espaces — `null` si non publié. */
+export function siteSiretSiegeDigits(): string | null {
+  const s = SITE.siretSiege;
+  return s ? s.replace(/\s/g, '') : null;
+}
+
+/**
+ * taxID Schema.org — SIRET siège si connu, sinon SIREN (ne pas réutiliser l’ancien SIRET Guyancourt).
+ */
+export function siteTaxIdSchema(): string {
+  return siteSiretSiegeDigits() ?? siteSirenDigits();
+}
+
+/** @deprecated Alias — préférer `siteTaxIdSchema()`. */
 export function siteSiretDigits(): string {
-  return SITE.siret.replace(/\s/g, '');
+  return siteTaxIdSchema();
+}
+
+/** Libellé RCS (ex. « RCS Paris 905 244 281 »). */
+export function siteRcsLibelle(): string {
+  return `RCS ${SITE.rcsGreffe} ${SITE.rcsNumero}`;
+}
+
+/** Ligne identifiants publics (sans SIRET tant que `siretSiege` est null). */
+export function siteIdentifiantsOrganismeLine(): string {
+  const parts = [`SIREN ${siteSirenDisplay()}`, siteRcsLibelle(), `NDA ${SITE.nda}`];
+  const siret = siteSiretSiegeFormatted();
+  if (siret) {
+    parts.splice(1, 0, `SIRET ${siret}`);
+  }
+  return parts.join(' · ');
+}
+
+/** Bloc court « Organisme certifié Qualiopi · … » (pieds de page formations). */
+export function siteBlocFooterOrganismeQualiopi(): string {
+  return `Organisme certifié Qualiopi · ${siteIdentifiantsOrganismeLine()}`;
+}
+
+/** Identifiant provider Course JSON-LD (SIRET siège ou SIREN). */
+export function siteProviderIdentifierSchema(): { name: 'SIRET' | 'SIREN'; value: string } {
+  const siret = siteSiretSiegeFormatted();
+  if (siret) {
+    return { name: 'SIRET', value: siret };
+  }
+  return { name: 'SIREN', value: siteSirenDisplay() };
 }
 
 /** @id Organization — graph layout (#organization). */
@@ -246,7 +317,7 @@ export function buildSiteLayoutEducationalOrganizationNode(
     email: SITE.contact.email,
     telephone: SITE.contact.telIntl,
     logo: logoAbsoluteUrl,
-    taxID: siteSiretDigits(),
+    taxID: siteTaxIdSchema(),
     address: {
       '@type': 'PostalAddress',
       streetAddress: SITE.adresse.rue,

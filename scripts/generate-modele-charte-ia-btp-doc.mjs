@@ -254,7 +254,7 @@ const doc = new Document({
         bullet('RGPD — Règlement (UE) 2016/679 : https://eur-lex.europa.eu/eli/reg/2016/679/oj?locale=fr'),
         bullet('Règlement européen sur l\'IA — (UE) 2024/1689 : https://eur-lex.europa.eu/eli/reg/2024/1689/oj?locale=fr'),
         bullet('Commission européenne — Maîtrise de l\'IA (FAQ) : https://digital-strategy.ec.europa.eu/en/faqs/ai-literacy-questions-answers'),
-        p('OFC Création d\'Entreprise — SIRET 905 244 281 00010 — contact@laureolivie.fr — www.laureolivie.fr'),
+        p('OFC Création d\'Entreprise — SIREN 905 244 281 — RCS Paris — contact@laureolivie.fr — www.laureolivie.fr'),
       ],
     },
   ],

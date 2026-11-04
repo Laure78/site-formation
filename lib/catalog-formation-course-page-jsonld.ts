@@ -11,7 +11,7 @@ import {
   SCHEMA_PERSON_LAURE,
   SCHEMA_PUBLIC_SITE_URL,
 } from '@/lib/schema-constants';
-import { SITE, siteSchemaOrganizationId } from '@/lib/site-config';
+import { SITE, siteProviderIdentifierSchema, siteSchemaOrganizationId } from '@/lib/site-config';
 import {
   FORMATION_COURSE_OFFER_CATEGORY,
   buildFormationFicheCourseJsonLd,
@@ -59,11 +59,10 @@ export function buildCatalogFormationCoursePageSchema(
       '@id': siteSchemaOrganizationId(base),
       name: SITE.raisonSociale,
       url: base,
-      identifier: {
-        '@type': 'PropertyValue',
-        name: 'SIRET',
-        value: SITE.siret,
-      },
+      identifier: (() => {
+        const id = siteProviderIdentifierSchema();
+        return { '@type': 'PropertyValue', name: id.name, value: id.value };
+      })(),
       sameAs: [SCHEMA_LINKEDIN_PROFILE_URL],
     },
     instructor: {

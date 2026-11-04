@@ -18,7 +18,7 @@ import { SCHEMA_CONTACT, SCHEMA_GEO } from '@/lib/schema-constants';
 import { siteQualiopiHasCredentialSchema, siteSiretDigits } from '@/lib/site-config';
 import { SITE_CONFIG } from '@/lib/seo';
 import { MODALITE_FORMATIONS_PRESENTIEL } from '@/lib/tarifs-sessions';
-import { libelleTarifParticipantCatalogue } from '@/lib/tarifs-catalogue-participant';
+import { libelleTarifParticipantCatalogue, TARIF_SESSION_INTRA_NIV11_HT } from '@/lib/tarifs-catalogue-participant';
 import {
   FORMATIONS_CATALOGUE,
   type FormationCatalogueEntry,
@@ -56,7 +56,10 @@ export const QUALIOPI_FICHE_VERSION = QUALIOPI_FICHE_META.version;
 export const QUALIOPI_LEGAL = {
   raisonSociale: OFC_IDENTITE.raisonSociale,
   formeJuridique: OFC_IDENTITE.formeJuridique,
+  /** SIRET siège — `null` tant que non publié INSEE (ne pas réutiliser l’ancien établissement Guyancourt). */
   siret: OFC_IDENTITE.siret,
+  siren: OFC_IDENTITE.siren,
+  rcsLibelle: OFC_IDENTITE.rcsLibelle,
   nda: OFC_IDENTITE.nda,
   ndaExactMention: QUALIOPI_NDA_MENTION_REGLEMENTAIRE,
   qualiopiCategoryMention: QUALIOPI_MENTION_PERIMETRE,
@@ -157,6 +160,12 @@ function prerequisPourCatalogue(entry: FormationCatalogueEntry): string[] {
 function tarifsPourCatalogue(entry: FormationCatalogueEntry): { inter: string; intra: string } {
   const formation = getFormationByCode(entry.ref);
   const effectif = entry.effectif.toLowerCase();
+  if (entry.ref === 'NIV-11') {
+    return {
+      inter: 'Session inter sur demande',
+      intra: `${TARIF_SESSION_INTRA_NIV11_HT.toLocaleString('fr-FR')} € HT la session de 4 h (jusqu’à 10 participants)`,
+    };
+  }
   if (formation?.tarifParticipantHt && formation.tarifParticipantHt > 0) {
     const label = `${libelleTarifParticipantCatalogue(formation.tarifParticipantHt)} (${effectif})`;
     return { inter: label, intra: label };

@@ -10,7 +10,7 @@ import {
   Building2,
   Download,
 } from 'lucide-react';
-import { createPageMetadata } from '@/lib/seo';
+import { createPageMetadata, SITE_CONFIG } from '@/lib/seo';
 import { ReferentHandicapBlock } from '@/components/formation/ReferentHandicapBlock';
 import { LINKS } from '@/lib/internal-links';
 import { EXTERNAL_SITE_URLS } from '@/lib/external-site-urls';
@@ -260,7 +260,7 @@ export default function AnnuaireHandicapPage() {
         <p className="mt-2 font-semibold text-slate-900">
           OFC Création d&apos;Entreprise
         </p>
-        <p>SIRET : 905 244 281 00010 | Organisme certifié Qualiopi</p>
+        <p>{SITE_CONFIG.identifiantsOrganismeLine} | Organisme certifié Qualiopi</p>
         <p>
           Numéro de déclaration d&apos;activité : 11788515078 (auprès du préfet
           de région d&apos;Île-de-France)

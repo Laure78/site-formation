@@ -5,12 +5,19 @@
 import { CONTACT } from '@/lib/constants';
 import { formatReferencesLlmsLine } from '@/lib/references';
 import { SCHEMA_PUBLIC_SITE_URL } from '@/lib/schema-constants';
-import { siteExperienceBtpLong, siteSatisfactionLlmsLine, SITE } from '@/lib/site-config';
+import {
+  siteExperienceBtpLong,
+  siteIdentifiantsOrganismeLine,
+  siteRcsLibelle,
+  siteSatisfactionLlmsLine,
+  SITE,
+} from '@/lib/site-config';
+import { OFC_IDENTITE } from '@/lib/ofc-identite';
 
 const BASE = SCHEMA_PUBLIC_SITE_URL.replace(/\/$/, '');
 
 /** Date ISO (YYYY-MM-DD) — mettre à jour à chaque modification de ce fichier. */
-export const LLMS_TXT_LAST_UPDATED = '2026-11-02';
+export const LLMS_TXT_LAST_UPDATED = '2026-11-04';
 
 export function buildLlmsTxtContent(): string {
   const refs = formatReferencesLlmsLine();
@@ -20,7 +27,7 @@ export function buildLlmsTxtContent(): string {
 
 ## À propos
 - ${SITE.marque} : ${siteExperienceBtpLong()}, ancienne dirigeante d'ALIA BTP (travaux publics, Île-de-France). Instructrice LinkedIn Learning (IA appliquée au BTP).
-- Organisme : ${SITE.raisonSociale}, SASU, ${CONTACT.address}. Certifié Qualiopi (actions de formation).
+- Organisme : ${SITE.raisonSociale}, ${OFC_IDENTITE.formeJuridiqueLongue}, siège ${CONTACT.address}. ${siteRcsLibelle()}. Certifié Qualiopi (actions de formation).
 - Public : dirigeants de PME du bâtiment, conducteurs de travaux, chargés d'affaires, maîtres d'œuvre, bureaux d'études, fonctions support BTP.
 - Satisfaction : ${siteSatisfactionLlmsLine()}. Détail : ${BASE}/indicateurs-resultats
 
@@ -65,7 +72,7 @@ export function buildLlmsTxtContent(): string {
 ${refs}
 
 ## Contact
-Laure Olivié · OFC Création d'Entreprise · SIRET 905 244 281 00010 · NDA 11788515078 · ${CONTACT.address} · contact@laureolivie.fr · 06 95 66 18 18
+Laure Olivié · OFC Création d'Entreprise · ${siteIdentifiantsOrganismeLine()} · ${CONTACT.address} · contact@laureolivie.fr · 06 95 66 18 18
 Visio découverte gratuite (30 min) : ${BASE}/prendre-rdv
 
 Dernière mise à jour : ${LLMS_TXT_LAST_UPDATED}

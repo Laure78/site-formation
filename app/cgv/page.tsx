@@ -5,6 +5,7 @@ import { MentionTVA, MentionTvaAsterisque } from '@/components/MentionTVA';
 import { OFC_IDENTITE, QUALIOPI_CONTACTS, QUALIOPI_RECLAMATIONS } from '@/lib/qualiopi-info';
 import { MARQUE_COMMERCIALE, MENTION_MARQUE_EXPLOITANTE } from '@/lib/marque-identite';
 import { LINKS } from '@/lib/internal-links';
+import { siteIdentifiantsOrganismeLine } from '@/lib/site-config';
 
 export const revalidate = 3600;
 export const metadata = createPageMetadata({
@@ -36,8 +37,7 @@ export default function CGVPage() {
           <p className="mt-2 text-xs text-slate-500">{MENTION_MARQUE_EXPLOITANTE}</p>
           <div className="mt-6 space-y-1 text-sm text-slate-600">
             <p className="flex flex-wrap justify-center gap-x-6">
-              <span>SIRET : 905 244 281 00010</span>
-              <span>NDA : 11788515078</span>
+              <span>{siteIdentifiantsOrganismeLine()}</span>
             </p>
             <p>{QUALIOPI_CONTACTS.adresse}</p>
           </div>
@@ -67,7 +67,8 @@ export default function CGVPage() {
           <div className="mt-6 rounded-lg bg-slate-50 p-4 text-sm">
             <p>Raison sociale : OFC CRÉATION D&apos;ENTREPRISE</p>
             <p>Forme juridique : {OFC_IDENTITE.formeJuridiqueLongue}</p>
-            <p>SIRET : 905 244 281 00010</p>
+            {OFC_IDENTITE.siret ? <p>SIRET : {OFC_IDENTITE.siret}</p> : null}
+            <p>SIREN : {OFC_IDENTITE.siren} · {OFC_IDENTITE.rcsLibelle}</p>
             <p>CODE NAF : 8559B - Autres enseignements</p>
             <p>Siège social : {QUALIOPI_CONTACTS.adresse}</p>
             <p>
@@ -405,7 +406,7 @@ export default function CGVPage() {
             OFC CRÉATION D&apos;ENTREPRISE
           </p>
           <p>{QUALIOPI_CONTACTS.adresse}</p>
-          <p>SIRET : 905 244 281 00010 | NDA : 11788515078</p>
+          <p>{siteIdentifiantsOrganismeLine()}</p>
           <p>
             <a
               href="mailto:contact@laureolivie.fr"

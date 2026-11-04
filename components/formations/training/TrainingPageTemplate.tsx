@@ -87,11 +87,13 @@ export async function TrainingPageTemplate({
   const maillageBlocks = buildFormationPageMaillageBlocks(ref as FormationCatalogueCode).filter(
     (b) => b.id !== 'parcours-metier',
   );
+  const priceOverride = content.priceLabelOverride;
   const surDevis = isFormationSurDevis(formation);
   const tarifLabel =
-    formation.tarifParticipantHt && formation.tarifParticipantHt > 0
+    priceOverride?.inter ??
+    (formation.tarifParticipantHt && formation.tarifParticipantHt > 0
       ? libelleTarifParticipantCatalogue(formation.tarifParticipantHt)
-      : 'Sur devis';
+      : 'Sur devis');
   const effectifLabel = `${formation.effectifMin} à ${formation.effectifMax} participants`;
   const devisHref = trainingDevisHref(formation.titre);
   const formatLabel = content.formatLabel ?? 'Présentiel';
@@ -155,8 +157,8 @@ export async function TrainingPageTemplate({
     formationTitle: formation.titre,
     durationLabel,
     interPriceLabel: tarifLabel,
-    intraPriceLabel: surDevis ? 'Tarif sur devis' : undefined,
-    showTvaAsterisk: !surDevis,
+    intraPriceLabel: priceOverride?.intra ?? (surDevis ? 'Tarif sur devis' : undefined),
+    showTvaAsterisk: priceOverride ? false : !surDevis,
     effectifLabel,
     pdfHref,
     interInscriptionHref,
@@ -187,8 +189,8 @@ export async function TrainingPageTemplate({
           priceSlot={
             <div className="space-y-1 text-base text-slate-800 lg:hidden">
               <p className="font-semibold">
-                {tarifLabel}
-                {!surDevis ? <MentionTvaAsterisque /> : null}
+                {priceOverride?.intra ?? tarifLabel}
+                {priceOverride || !surDevis ? <MentionTvaAsterisque /> : null}
               </p>
               <p className="text-sm text-slate-600">{effectifLabel}</p>
             </div>

@@ -692,7 +692,7 @@ export default function FormationIaBtpPillarPage() {
           <h2 className="font-display text-2xl font-bold text-slate-900">Qui est Laure Olivié ?</h2>
           <p>
             Laure Olivié est <strong>formatrice IA spécialisée BTP</strong> et fondatrice de l&apos;organisme certifié
-            Qualiopi (OFC Création d&apos;Entreprise · SIRET 905 244 281 00010). Son parcours croise la{' '}
+            Qualiopi (OFC Création d&apos;Entreprise · {SITE_CONFIG.identifiantsOrganismeLine}). Son parcours croise la{' '}
             <strong>direction d&apos;ALIA BTP</strong>{' '}
             (travaux publics, 2017-2024), la <strong>gestion de formations au CNFPT</strong> (2009-2019) et un{' '}
             <strong>Master Stratégie d&apos;entreprise au CNAM</strong> (2021) — une expertise rare : IA générative × réalités terrain.
@@ -826,7 +826,7 @@ export default function FormationIaBtpPillarPage() {
         </section>
 
         <p className="not-prose mt-12 text-center text-xs text-slate-500">
-          Laure Olivié · SIRET 905 244 281 00010 · NDA 11788515078 · {CONTACT.address} ·{' '}
+          Laure Olivié · {SITE_CONFIG.identifiantsOrganismeLine} · {CONTACT.address} ·{' '}
           {SITE_CONFIG.email}
           {siteHasPublicPhone() ? (
             <>

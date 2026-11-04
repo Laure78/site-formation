@@ -158,6 +158,34 @@ export const FORMATION_CATALOGUE_GEO_EXTENDED: Record<
       { href: LINKS.iaCompteRenduChantier, label: 'Compte rendu de chantier avec l’IA' },
     ],
   },
+  'NIV-11': {
+    queApprendre:
+      'Protéger les données des consultations, analyser les offres et préparer un rapport d’analyse sourcé, contrôler les livrables MOE et rendre compte au maître d’ouvrage côté AMO.',
+    documentsBtp: [
+      'Programme, RC, CCTP, CCAP et DPGF',
+      'Offres et mémoires techniques des candidats',
+      'Avis du contrôleur technique et observations CSPS',
+      'CR de comité de pilotage',
+    ],
+    outilsIa: ['ChatGPT', 'Claude AI'],
+    dureeReponse: '',
+    livrables: [
+      'Assistant « Consultations » et assistant « Pilotage »',
+      'Grille et trame de rapport d’analyse des offres',
+      'Charte IA et gabarit de CR de pilotage',
+    ],
+    debutants:
+      'Oui pour l’IA — aisance numérique suffisante. Abonnement ChatGPT Plus ou Claude Pro requis.',
+    propresDossiers:
+      'Oui — consultations et dossiers d’opération réels apportés par les participants, anonymisés si besoin.',
+    iaRemplacePro: COMMON_IA_NON,
+    deroulement: `${MODALITE_PEDAGOGIQUE_CATALOGUE}. 70 % pratique sur consultations réelles — format intra 4 h, complémentaire de la formation maîtrise d’œuvre.`,
+    clusterMaillage: [
+      ...CLUSTER_BASE,
+      { href: LINKS.formationIaAssistanceMaitriseOuvrage, label: 'Formation IA assistance à maîtrise d’ouvrage' },
+      { href: LINKS.formationIaMaitriseOeuvre, label: 'Formation IA maîtrise d’œuvre' },
+    ],
+  },
   'NIV-06': {
     queApprendre:
       'Cadrer un besoin métier, utiliser le développement assisté par l’IA pour construire un prototype fonctionnel (suivi, CR, tableau documentaire) et tester en sécurisant les données.',

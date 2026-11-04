@@ -7,7 +7,13 @@ import type { Metadata } from 'next';
 import { SOCIAL_PROOF, IDF_ZONE_INTERVENTION } from '@/lib/constants';
 import { formatAnneesExperienceBTP, formatNoteSatisfactionAffichageComplet } from '@/lib/data/indicateurs-resultats';
 import { faqAnswerPlainTextForSchema } from '@/lib/faq-plain-text';
-import { SITE_INTER_LIEU_COURT } from '@/lib/site-config';
+import {
+  SITE_INTER_LIEU_COURT,
+  siteBlocFooterOrganismeQualiopi,
+  siteIdentifiantsOrganismeLine,
+} from '@/lib/site-config';
+
+export { siteBlocFooterOrganismeQualiopi, siteIdentifiantsOrganismeLine };
 import {
   SCHEMA_CONTACT,
   SCHEMA_GEO,
@@ -74,6 +80,12 @@ export const SITE_CONFIG = {
   phone: SCHEMA_CONTACT.phone,
   phoneDisplay: SCHEMA_CONTACT.phoneDisplay,
   siret: SCHEMA_CONTACT.siretFormatted,
+  siren: SCHEMA_CONTACT.sirenFormatted,
+  rcsLibelle: SCHEMA_CONTACT.rcsLibelle,
+  /** SIREN · RCS · NDA (sans SIRET tant que non publié). */
+  identifiantsOrganismeLine: siteIdentifiantsOrganismeLine(),
+  /** Organisme certifié Qualiopi · identifiants. */
+  blocFooterOrganismeQualiopi: siteBlocFooterOrganismeQualiopi(),
   locale: 'fr_FR',
   geo: {
     country: SCHEMA_GEO.addressCountry,
@@ -405,7 +417,7 @@ export function getOrganizationSchema() {
     },
     areaServed: buildIdfAreaServedSchemaEntities(),
     sameAs: SITE_CONFIG.sameAs,
-    taxID: SITE_CONFIG.siret,
+    taxID: SCHEMA_CONTACT.siretDigits,
     contactPoint: [
       {
         '@type': 'ContactPoint',
@@ -760,7 +772,7 @@ export function getPersonSchema() {
       {
         '@type': 'EducationalOccupationalCredential',
         name: 'Certification Qualiopi',
-        description: 'Organisme de formation certifié Qualiopi (Certifopac n° 520911-1, validité 16/01/2025–15/01/2028) pour les actions de formation professionnelle · SIRET 905 244 281 00010 · NDA 11788515078',
+        description: `Organisme de formation certifié Qualiopi (Certifopac n° 520911-1, validité 16/01/2025–15/01/2028) pour les actions de formation professionnelle · SIREN ${SCHEMA_CONTACT.sirenFormatted} · ${SCHEMA_CONTACT.rcsLibelle} · NDA ${SCHEMA_CONTACT.nda}`,
         credentialCategory: 'Certification qualité formation',
       },
       {

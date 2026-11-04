@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { QUALIOPI_CONTACTS, OFC_IDENTITE } from '@/lib/qualiopi-info';
 import { MARQUE_COMMERCIALE, MENTION_MARQUE_EXPLOITANTE } from '@/lib/marque-identite';
 import { createPageMetadata } from '@/lib/seo';
+import { siteIdentifiantsOrganismeLine } from '@/lib/site-config';
 
 export const revalidate = 3600;
 export const metadata = createPageMetadata({
@@ -38,7 +39,7 @@ export default function PolitiqueConfidentialitePage() {
             </span>
           </p>
           <p>{QUALIOPI_CONTACTS.adresse}</p>
-          <p>SIRET : 905 244 281 00010 | NDA : 11788515078</p>
+          <p>{siteIdentifiantsOrganismeLine()}</p>
           <p>
             Email :{' '}
             <a

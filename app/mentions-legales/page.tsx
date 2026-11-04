@@ -2,6 +2,8 @@ import Link from 'next/link';
 import { OFC_IDENTITE, QUALIOPI_CONTACTS } from '@/lib/qualiopi-info';
 import { MARQUE_COMMERCIALE, MENTION_MARQUE_EXPLOITANTE } from '@/lib/marque-identite';
 import { createPageMetadata } from '@/lib/seo';
+import { SITE_HEBERGEMENT } from '@/lib/site-hebergement';
+import { siteIdentifiantsOrganismeLine, siteRcsLibelle, siteSirenDisplay } from '@/lib/site-config';
 
 export const revalidate = 3600;
 export const metadata = createPageMetadata({
@@ -40,11 +42,19 @@ export default function MentionsLegalesPage() {
           </p>
           <ul className="mt-4 space-y-2">
             <li>Forme juridique : {OFC_IDENTITE.formeJuridiqueLongue}</li>
-            <li>Capital social : 10,00 €</li>
+            <li>Capital social : {OFC_IDENTITE.capitalSocial}</li>
             <li>Siège social : {QUALIOPI_CONTACTS.adresse}</li>
-            <li>SIREN : 905 244 281</li>
-            <li>SIRET : 905 244 281 00010</li>
-            <li>RCS : Versailles</li>
+            <li>SIREN : {siteSirenDisplay()}</li>
+            {OFC_IDENTITE.siret ? <li>SIRET : {OFC_IDENTITE.siret}</li> : null}
+            <li>{siteRcsLibelle()}</li>
+            <li>
+              Immatriculation au RCS de {OFC_IDENTITE.rcsGreffe} :{' '}
+              {OFC_IDENTITE.dateImmatriculationRcsParis.split('-').reverse().join('/')}
+            </li>
+            <li>
+              Date d&apos;immatriculation d&apos;origine :{' '}
+              {OFC_IDENTITE.dateImmatriculationOrigine.split('-').reverse().join('/')}
+            </li>
             <li>N° de déclaration d&apos;activité : 11 78 85 15 078</li>
             <li className="italic">
               Enregistré sous le numéro 11788515078 auprès du préfet de région Île-de-France. Cet
@@ -59,6 +69,12 @@ export default function MentionsLegalesPage() {
               : ACTIONS DE FORMATION
             </li>
           </ul>
+          {!OFC_IDENTITE.siret ? (
+            <p className="mt-4 text-sm text-slate-500">
+              Le SIRET de l&apos;établissement siège à Paris sera publié dès sa mise à disposition
+              dans les registres officiels (SIREN {siteSirenDisplay()}, {siteRcsLibelle()}).
+            </p>
+          ) : null}
         </section>
 
         <section>
@@ -84,14 +100,28 @@ export default function MentionsLegalesPage() {
             3. HÉBERGEMENT DU SITE
           </h2>
           <p className="mt-4">
-            Le site est hébergé par Vercel Inc. (ou l&apos;hébergeur actuel du
-            site).
+            Le site est hébergé par {SITE_HEBERGEMENT.raisonSociale}
           </p>
-          <p className="mt-4">
-            Pour toute question relative à l&apos;hébergement, vous pouvez
-            consulter les informations disponibles sur la plateforme
-            d&apos;hébergement utilisée.
-          </p>
+          <ul className="mt-4 space-y-2">
+            <li>Adresse : {SITE_HEBERGEMENT.adresse}</li>
+            <li>
+              Téléphone :{' '}
+              <a href={`tel:${SITE_HEBERGEMENT.telephone.replace(/\s/g, '')}`} className="text-[var(--accent)] hover:underline">
+                {SITE_HEBERGEMENT.telephone}
+              </a>
+            </li>
+            <li>
+              Site web :{' '}
+              <a
+                href={SITE_HEBERGEMENT.siteWeb}
+                className="text-[var(--accent)] hover:underline"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                {SITE_HEBERGEMENT.siteWeb.replace(/^https:\/\//, '')}
+              </a>
+            </li>
+          </ul>
         </section>
 
         <section>
@@ -241,7 +271,7 @@ export default function MentionsLegalesPage() {
           <p className="mt-4">
             Tout litige relatif à l&apos;utilisation du site sera soumis aux
             tribunaux compétents du ressort du siège social de OFC CRÉATION
-            D&apos;ENTREPRISE, soit les tribunaux de Versailles.
+            D&apos;ENTREPRISE, soit les tribunaux de Paris.
           </p>
         </section>
 
@@ -264,12 +294,13 @@ export default function MentionsLegalesPage() {
               </a>
             </li>
             <li>Adresse : {QUALIOPI_CONTACTS.adresse}</li>
+            <li>Identifiants : {siteIdentifiantsOrganismeLine()}</li>
           </ul>
         </section>
       </article>
 
       <div className="mt-16 rounded-xl border border-slate-200 bg-slate-50 p-6 text-center text-sm text-slate-600">
-        <p>Dernière mise à jour : 29 janvier 2026</p>
+        <p>Dernière mise à jour : 4 novembre 2026</p>
         <p className="mt-2 font-semibold text-slate-900">
           © 2025 OFC Création d&apos;Entreprise • Organisme
           certifié Qualiopi

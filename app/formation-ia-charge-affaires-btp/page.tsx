@@ -623,7 +623,7 @@ export default function FormationIaChargeAffairesBtpPage() {
 
         <footer className="mt-14 border-t border-slate-200 pt-8 text-sm text-slate-500">
           <p>Laure Olivié — Formatrice IA pour les pros du BTP, OFC Création d&apos;Entreprise</p>
-          <p>Organisme certifié Qualiopi · SIRET 905 244 281 00010 · NDA 11788515078</p>
+          <p>{SITE_CONFIG.blocFooterOrganismeQualiopi}</p>
           <p>
             contact@laureolivie.fr ·{' '}
             <a href="/" className="underline">

@@ -256,6 +256,41 @@ export const FORMATIONS: readonly Formation[] = [
     image: '/images/formation-ia-maitrise-oeuvre-btp.webp',
   },
   {
+    code: 'NIV-11',
+    slug: 'ia-assistance-maitrise-ouvrage',
+    titre: 'IA et assistance à maîtrise d’ouvrage',
+    promesse:
+      'Analyser les consultations et piloter les intervenants côté AMO : rapport d’analyse des offres, avis CT et CSPS, CR de pilotage.',
+    casUsageCourts: ['Analyser les offres d’une consultation', 'Contrôler les livrables MOE', 'Rendre compte au maître d’ouvrage'],
+    gamme: 'appliquer-metier',
+    theme: 'maitrise-oeuvre',
+    niveau: 2,
+    niveauLabel: 'Niveau 2',
+    duree: '4 h',
+    horaires: '9h00 – 13h00 ou 13h30 – 17h30',
+    effectifMin: 4,
+    effectifMax: 10,
+    prixHT: 0,
+    accroche:
+      'Charte IA, analyse des consultations, rapport d’analyse des offres et pilotage des intervenants — ChatGPT et Claude côté assistance à maîtrise d’ouvrage.',
+    objectifs: [
+      'Identifier les risques de l’IA générative et appliquer les règles de confidentialité aux données des consultations et des opérations',
+      'Appliquer une charte de bonnes pratiques IA dans son usage quotidien',
+      'Choisir entre ChatGPT et Claude selon l’usage et utiliser leurs fonctionnalités utiles à l’AMO (Projets, Skills, connecteurs)',
+      'Analyser une consultation et préparer un rapport d’analyse des offres sourcé (MOE, entreprises, contrôleur technique, CSPS)',
+      'Structurer le suivi des intervenants et le reporting au maître d’ouvrage',
+      'Créer et fiabiliser un assistant IA (ChatGPT ou Claude) pour une tâche récurrente de son poste',
+    ],
+    public:
+      'Ingénieurs, chefs de projet et chargés d’opération en assistance à maîtrise d’ouvrage, conduite d’opération, programmation et maîtrise d’ouvrage déléguée',
+    casUsage: 'Analyse des consultations, rapport d’analyse des offres, revue des livrables MOE, avis CT et CSPS, CR de pilotage',
+    pdfProgramme:
+      '/formations/ia-assistance-maitrise-ouvrage/programme_OFC_NIV-11_IA_AMO_20261104.pdf',
+    programmeVersion: 'Référence NIV-11',
+    programmeUpdatedAt: '04/11/2026',
+    image: '/images/formation-ia-maitrise-oeuvre-btp.webp',
+  },
+  {
     code: 'NIV-06',
     slug: 'application-metier-btp-niveau-1',
     titre: 'Créer sa première application métier BTP avec l’IA',
@@ -473,7 +508,7 @@ export const CATALOGUE_DUREE_SESSION_METIER = '7 h' as const;
 export const CATALOGUE_DUREE_NIV10 = '14 h' as const;
 
 /** Plage de numérotation catalogue — NIV-01 … NIV-10. */
-export const CATALOGUE_NIV_RANGE = 'NIV-01 à NIV-10' as const;
+export const CATALOGUE_NIV_RANGE = 'NIV-01 à NIV-11' as const;
 
 export function getFormationByCode(code: string): Formation | undefined {
   return FORMATIONS.find((f) => f.code === code);

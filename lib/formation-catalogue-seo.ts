@@ -209,6 +209,27 @@ export const FORMATION_CATALOGUE_SEO: Record<FormationCatalogueCode, FormationCa
       { iaAide: 'Automatiser un workflow IA', validationHumaine: 'Point de contrôle humain sur les résultats sensibles' },
     ],
   },
+  'NIV-11': {
+    metaTitle: 'Formation IA AMO BTP | Consultations & pilotage',
+    h1: 'Formation IA assistance à maîtrise d’ouvrage : consultations, offres et pilotage',
+    subtitle:
+      'Charte IA, analyse des consultations, rapport d’analyse des offres et pilotage des intervenants avec ChatGPT et Claude.',
+    metaDescription:
+      'Formation IA pour le BTP côté AMO : analyse des offres, rapport d’analyse, pilotage MOE, CT et CSPS avec ChatGPT et Claude. 4 h intra, Qualiopi.',
+    enBref: `La formation IA pour l'assistance à maîtrise d'ouvrage apprend à protéger les données des consultations, analyser les offres et préparer un rapport d'analyse sourcé, contrôler les livrables MOE et rédiger CR de pilotage et notes d'alerte. 4 h en intra — ${QUALIOPI_MENTION}.`,
+    publicTargets: [
+      'Assistants à maîtrise d’ouvrage (AMO)',
+      'Conducteurs d’opération et programmistes',
+      'Maîtrise d’ouvrage déléguée',
+      'Chefs de projet et chargés d’opération',
+    ],
+    iaLimits: [
+      { iaAide: 'Relire et croiser les pièces d’une consultation', validationHumaine: 'Vérifier chaque incohérence sur les pièces sources' },
+      { iaAide: 'Pré-rédiger le rapport d’analyse des offres', validationHumaine: 'Noter et classer — décision du maître d’ouvrage' },
+      { iaAide: 'Synthétiser avis CT et observations CSPS', validationHumaine: 'Contrôler références et suites à donner' },
+      { iaAide: 'Rédiger CR de pilotage et notes d’alerte', validationHumaine: 'Relire et valider avant diffusion' },
+    ],
+  },
   'NIV-09': {
     metaTitle: 'Créer ses assistants IA BTP | Formation 7h',
     h1: 'Créer ses assistants IA pour son entreprise du bâtiment',

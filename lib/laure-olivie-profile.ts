@@ -120,7 +120,7 @@ export const LAURE_OLIVIE_PARCOURS_TIMELINE = [
   },
   {
     period: '2022',
-    title: 'Formatrice IA générative · création d\'OFC Création d\'Entreprise (SASU)',
+    title: 'Formatrice IA générative · création d\'OFC Création d\'Entreprise (SAS)',
     body: `Lancement de l'activité **formatrice IA spécialiste BTP** et structuration juridique d'**OFC Création d'Entreprise** — sessions courtes (4 h), intra ou inter, exclusivement en **présentiel en Île-de-France**. Programmes : « L'IA au service du Bâtiment », appels d'offres, assistants métier. ${LAURE_OLIVIE_PROMPTS_DELIVERY} **Apprentissage clé** : Qualiopi et financement OPCO imposent une pédagogie claire et mesurable.`,
   },
   {

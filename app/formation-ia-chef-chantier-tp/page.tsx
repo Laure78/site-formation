@@ -405,7 +405,7 @@ export default function FormationIaChefChantierTpPage() {
             Formation IA chef de chantier TP — Île-de-France &amp; Grand Paris
           </h2>
           <p className="mt-4 text-sm leading-relaxed text-slate-600">
-            OFC Création d’Entreprise · Organisme certifié Qualiopi · SIRET {SITE_CONFIG.siret} · NDA 11788515078 ·{' '}
+            OFC Création d’Entreprise · {SITE_CONFIG.blocFooterOrganismeQualiopi} ·{' '}
             {SITE_CONFIG.email}
             {sitePhoneDisplaySuffix()}
           </p>

@@ -172,6 +172,13 @@ export const LINKS = {
   formationIaMaitriseOeuvre: '/formations/ia-maitrise-oeuvre',
   pdfProgrammeIaMaitriseOeuvre:
     '/formations/ia-maitrise-oeuvre/programme_OFC_NIV-05_IA_Maitrise_oeuvre_20261017.pdf',
+  /** NIV-05 — format intra 4 h sur dossiers cabinet (CCTP, DPGF, CR, plannings) */
+  pdfProgrammeIaMaitriseOeuvreIntra4h:
+    '/formations/ia-maitrise-oeuvre/programme_OFC_NIV-05_IA_Maitrise_oeuvre_intra4h_20261104.pdf',
+  /** NIV-11 — L'IA au service de l'assistance à maîtrise d'ouvrage (catalogue) */
+  formationIaAssistanceMaitriseOuvrage: '/formations/ia-assistance-maitrise-ouvrage',
+  pdfProgrammeIaAssistanceMaitriseOuvrage:
+    '/formations/ia-assistance-maitrise-ouvrage/programme_OFC_NIV-11_IA_AMO_20261104.pdf',
   /** NIV-09 — Créer des assistants IA personnalisés pour le BTP (catalogue) */
   formationAssistantsIaPersonnalisesBtp: '/formations/assistants-ia-personnalises-btp',
   pdfProgrammeAssistantsIaPersonnalisesBtp:

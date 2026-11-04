@@ -500,7 +500,7 @@ export default function FormationIaConstructionPage() {
           </p>
           <RenvoiFicheCatalogue programmeRef="NIV-01" />
 
-          <p>Organisme certifié Qualiopi · SIRET 905 244 281 00010 · NDA 11788515078</p>
+          <p>{SITE_CONFIG.blocFooterOrganismeQualiopi}</p>
         </footer>
       </article>
     </div>

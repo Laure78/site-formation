@@ -41,7 +41,8 @@ import {
   blogConsolidationRedirectsJuly2026,
   gscRedirects2026April,
 } from '@/lib/gsc-redirects-2026';
-import { formatNoteSatisfactionSur5 , formatNoteSatisfactionAffichageComplet, formatAnneesExperienceBTP } from '@/lib/data/indicateurs-resultats'
+import { formatNoteSatisfactionSur5 , formatNoteSatisfactionAffichageComplet, formatAnneesExperienceBTP } from '@/lib/data/indicateurs-resultats';
+import { siteIdentifiantsOrganismeLine } from '@/lib/site-config';
 import { formatProsFormesEtNoteQualiopi } from '@/lib/data/indicateurs-resultats-helpers';
 
 /** Prompt optimisé pour affichage dans les articles ressources */
@@ -938,7 +939,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
         type: 'paragraph',
         title: 'Qui est Laure Olivié ?',
         content:
-          `Laure Olivié est formatrice IA spécialisée BTP depuis 2022. Ancienne dirigeante d’une entreprise de travaux publics (ALIA BTP), elle s’appuie sur ${formatAnneesExperienceBTP()}. Basée à Paris (75012), satisfaction publiée : ${formatNoteSatisfactionAffichageComplet()}. L'organisme (OFC Création d'Entreprise), marque Laure Olivié, est certifié Qualiopi (Certifopac n° 520911-1) · SIRET 905 244 281 00010. Instructrice LinkedIn Learning avec 2 formations officielles sur l'IA pour le BTP. Ses clients incluent FFB Grand Paris, FFB Île-de-France Est et Ouest, IFRB 78, CSFE.`,
+          `Laure Olivié est formatrice IA spécialisée BTP depuis 2022. Ancienne dirigeante d’une entreprise de travaux publics (ALIA BTP), elle s’appuie sur ${formatAnneesExperienceBTP()}. Basée à Paris (75012), satisfaction publiée : ${formatNoteSatisfactionAffichageComplet()}. L'organisme (OFC Création d'Entreprise), marque Laure Olivié, est certifié Qualiopi (Certifopac n° 520911-1) · ${siteIdentifiantsOrganismeLine()}. Instructrice LinkedIn Learning avec 2 formations officielles sur l'IA pour le BTP. Ses clients incluent FFB Grand Paris, FFB Île-de-France Est et Ouest, IFRB 78, CSFE.`,
       },
       {
         type: 'html',
