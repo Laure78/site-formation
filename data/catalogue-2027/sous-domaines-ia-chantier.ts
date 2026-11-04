@@ -264,7 +264,7 @@ export const SOUS_DOMAINES_IA_CHANTIER: readonly SousDomaineIaChantier[] = [
       'Aide documentaire uniquement : pas de conformité automatique, pas d’habilitation sécurité, pas de validation réglementaire par l’IA. Une analyse de photo par IA n’est pas un diagnostic exhaustif des risques.',
     integrationParcours: {
       'conducteur-travaux': [
-        'Préparation documentaire de la prévention (module TQP-01 en ciblage ou parcours chef de chantier)',
+        'Préparation documentaire de la prévention (module TQP-01 en ciblage ou parcours conducteur de travaux)',
         'Suivi des actions de prévention (NUM-07 — tableaux d’actions)',
       ],
       'chef-chantier': [
