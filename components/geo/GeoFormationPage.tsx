@@ -222,7 +222,7 @@ export function GeoFormationPage(props: GeoFormationPageProps) {
       <section className={OFC_SEC.white}>
         <div className={OFC_SECTION_INNER_ARTICLE}>
           <CTABlock
-            title="Prendre rendez-vous"
+            title="Prendre RDV"
             description={
               <>
                 30 minutes pour cadrer vos besoins {deptPreposition} : devis, CR, AO, financement

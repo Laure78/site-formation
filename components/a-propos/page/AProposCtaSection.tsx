@@ -2,7 +2,6 @@
 
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
-import { CtaDevis } from '@/components/CtaDevis';
 import { CtaVisio } from '@/components/CtaVisio';
 import { LINKS } from '@/lib/internal-links';
 import {
@@ -37,10 +36,6 @@ export function AProposCtaSection() {
           Découvrir les formations
           <ArrowRight className="h-5 w-5" aria-hidden />
         </Link>
-        <CtaDevis
-          variant="secondary"
-          className="inline-flex min-h-11 items-center justify-center gap-2 border-white/40 bg-transparent px-6 py-3 text-white hover:border-white hover:bg-white/10 hover:text-white"
-        />
       </div>
     </section>
   );

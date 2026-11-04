@@ -2,7 +2,6 @@
 
 import type { ReactNode } from 'react';
 import Link from 'next/link';
-import { CtaDevis } from '@/components/CtaDevis';
 import { CtaVisio } from '@/components/CtaVisio';
 import { isCalendlyBookingHref } from '@/lib/calendly';
 import { LINKS } from '@/lib/internal-links';
@@ -93,10 +92,8 @@ export function CTABlock({
         )}
       </div>
       <div className="mt-6 flex flex-wrap gap-4">
-        {isRdvHref(primaryHref) ? (
+        {isRdvHref(primaryHref) || isContactHref(primaryHref) ? (
           <CtaVisio src={primaryRdvSrc} variant="secondary" className={primaryClass} />
-        ) : isContactHref(primaryHref) ? (
-          <CtaDevis href={primaryHref} variant="primary" className={primaryClass} />
         ) : (
           <CtaHref href={primaryHref} className={primaryClass}>
             {primaryLabel}
@@ -105,7 +102,9 @@ export function CTABlock({
         {isRdvHref(secondaryHref) ? (
           <CtaVisio src={secondaryRdvSrc} variant="secondary" className={secondaryClass} />
         ) : isContactHref(secondaryHref) ? (
-          <CtaDevis href={secondaryHref} variant="secondary" className={secondaryClass} />
+          <CtaHref href={secondaryHref} className={secondaryClass}>
+            {secondaryLabel ?? 'Demander un devis'}
+          </CtaHref>
         ) : (
           <CtaHref href={secondaryHref} className={secondaryClass}>
             {secondaryLabel ?? primaryLabel}

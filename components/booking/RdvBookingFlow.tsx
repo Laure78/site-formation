@@ -1,7 +1,6 @@
 'use client';
 
 import dynamic from 'next/dynamic';
-import { CtaDevis } from '@/components/CtaDevis';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
@@ -586,7 +585,9 @@ export function RdvBookingFlow() {
               <p className="font-semibold">Aucun créneau natif ouvert pour le moment.</p>
               <p className="mt-1">
                 Vous pouvez réserver via l’agenda ci-dessous, ou nous écrire via la{' '}
-                <CtaDevis className="font-medium text-[var(--accent)] underline" />
+                <Link href={LINKS.contact} className="font-medium text-[var(--accent)] underline">
+                  page contact
+                </Link>
                 .
               </p>
               <div className="mt-4">

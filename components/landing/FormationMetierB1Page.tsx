@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import { CtaDevis } from '@/components/CtaDevis';
 import { CTA_RDV_LABEL } from '@/components/CtaRdv';
 import { ArrowRight, Check } from 'lucide-react';
 import { FAQAnswer } from '@/components/landing/FAQAnswer';
@@ -152,7 +151,7 @@ export function FormationMetierB1Page({
         </section>
 
         <aside className="mt-14 rounded-2xl bg-[var(--accent)] p-8 text-white md:p-10">
-          <h2 className="font-display text-2xl font-bold">Prendre rendez-vous</h2>
+          <h2 className="font-display text-2xl font-bold">Prendre RDV</h2>
           <p className="mt-4 text-blue-100 leading-relaxed">
             30 minutes pour analyser vos besoins et bâtir un plan de formation IA adapté à votre activité.
           </p>
@@ -245,14 +244,13 @@ export function FormationMetierB1Page({
         <section id="rdv" className="scroll-mt-24 mt-14 rounded-2xl bg-[var(--accent)] p-8 text-white md:p-10">
           <h2 className="font-display text-2xl font-bold">Passez à l&apos;action</h2>
           <p className="mt-4 text-blue-100 leading-relaxed">
-            Prendre rendez-vous pour cadrer votre plan de formation IA.
+            Prendre RDV pour cadrer votre plan de formation IA.
           </p>
           <div className="mt-8 flex flex-wrap gap-4" id="cta-calendly">
             <RdvLink
               campaign={`${slugFromPath}-fin-rdv`}
               className="inline-flex items-center gap-2 rounded-xl bg-white px-6 py-3 font-semibold text-[var(--accent)] hover:bg-blue-50"
              />
-            <CtaDevis className="inline-flex items-center gap-2 rounded-xl border-2 border-white px-6 py-3 font-semibold text-white hover:bg-white/10" />
           </div>
           <p className="mt-6 text-sm text-blue-100">
             <a href={`mailto:${SITE_CONFIG.email}`} className="underline hover:text-white">

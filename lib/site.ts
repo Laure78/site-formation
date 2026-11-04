@@ -4,6 +4,7 @@
  * pas CONTACT, SCHEMA_CONTACT, LINKS ni SITE_CONFIG directement.
  */
 import { CONTACT } from '@/lib/constants';
+import { CTA_RDV_LABEL } from '@/lib/cta-rdv-label';
 import { CATALOGUE_NIV_RANGE } from '@/data/formations';
 import { getCatalogueFormationsCount } from '@/lib/formations-catalogue-display';
 import { getHeaderNav } from '@/lib/header-nav';
@@ -67,11 +68,11 @@ export const SITE = {
   },
   cta: {
     href: LINKS.prendreRdv,
-    label: 'Réservez votre visio découverte gratuite',
+    label: CTA_RDV_LABEL,
     /** CTA footer — même libellé conversion (aligné CtaRdv). */
-    footerLabel: 'Réservez votre visio découverte gratuite',
+    footerLabel: CTA_RDV_LABEL,
     /** @deprecated Conservé pour compat — identique à `label`. */
-    labelCompact: 'Réservez votre visio découverte gratuite',
+    labelCompact: CTA_RDV_LABEL,
   },
   platform: {
     loginHref: LINKS.authConnexion,

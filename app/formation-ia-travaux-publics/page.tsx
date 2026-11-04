@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import { CtaDevis } from '@/components/CtaDevis';
 import { RdvLink } from '@/components/RdvLink';
 import {
   Sparkles,
@@ -346,13 +345,16 @@ export default function FormationIATravauxPublicsLandingPage() {
             <strong>prise en charge OPCO selon éligibilité</strong>.
           </p>
           <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
+            <RdvLink
+              origin="formation-tp-cta"
+              className="inline-flex items-center justify-center rounded-xl bg-[var(--accent)] px-8 py-4 font-semibold text-white transition-colors hover:bg-blue-700"
+            />
             <a
               href="#contact-tp"
-              className="inline-flex items-center justify-center rounded-xl bg-[var(--accent)] px-8 py-4 font-semibold text-white transition-colors hover:bg-blue-700"
+              className="inline-flex items-center justify-center rounded-xl border-2 border-white/70 px-8 py-4 font-semibold text-white transition-colors hover:bg-white/10"
             >
               Demander un devis
             </a>
-            <RdvLink className="inline-flex items-center justify-center rounded-xl border-2 border-white/70 px-8 py-4 font-semibold text-white transition-colors hover:bg-white/10" />
           </div>
         </div>
       </section>
@@ -365,8 +367,7 @@ export default function FormationIATravauxPublicsLandingPage() {
           <p className="text-slate-700">
             Écrivez à OFC ou réservez une visio découverte — sans engagement.
           </p>
-          <CtaDevis className="inline-flex items-center justify-center rounded-xl bg-[var(--accent)] px-6 py-3 font-semibold text-white hover:bg-blue-700" />
-        </div>
+</div>
       </section>
 
       <FAQSection

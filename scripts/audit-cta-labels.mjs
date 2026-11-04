@@ -8,7 +8,7 @@ import path from 'node:path';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
 const SKIP = new Set(['node_modules', '.next', '.git', 'dist']);
-const CANON_VISIO = 'Réservez votre visio découverte gratuite';
+const CANON_VISIO = 'Prendre RDV';
 const CANON_DEVIS = 'Demander un devis';
 
 function walk(dir, files = []) {

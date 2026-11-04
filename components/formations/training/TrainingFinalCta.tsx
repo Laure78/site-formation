@@ -1,7 +1,6 @@
 'use client';
 
 import Link from 'next/link';
-import { CtaDevis } from '@/components/CtaDevis';
 import { CtaVisio } from '@/components/CtaVisio';
 import { LINKS } from '@/lib/internal-links';
 import { FINANCEMENT_FORMULATION_PRUDENTE } from '@/lib/financement-copy';
@@ -61,7 +60,17 @@ function CtaForHref({
   }
 
   if (isContactHref(href)) {
-    return <CtaDevis href={href} variant="primary" className={btnClass} />;
+    return (
+      <CtaVisio
+        src={visioSrc}
+        variant="primary"
+        className={
+          variant === 'dark'
+            ? `${btnClass} border-0 bg-[#377CF3] text-white hover:bg-[#2f6bd4]`
+            : btnClass
+        }
+      />
+    );
   }
 
   return (
@@ -93,7 +102,11 @@ function SecondaryCtaForHref({
   }
 
   if (isContactHref(href)) {
-    return <CtaDevis href={href} variant="secondary" className={btnClass} />;
+    return (
+      <Link href={href} className={btnClass}>
+        {fallbackLabel ?? 'Demander un devis'}
+      </Link>
+    );
   }
 
   return (

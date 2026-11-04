@@ -148,7 +148,7 @@ const DEFAULT_FINAL_CTA = {
   title: 'Vous souhaitez former votre équipe à l’IA ?',
   description:
     'Cadrage métier, niveau et cas pratiques avant la session pour adapter le programme.',
-  primaryLabel: 'Réservez votre visio découverte gratuite',
+  primaryLabel: 'Prendre RDV',
   primaryHref: LINKS.prendreRdv,
   secondaryLabel: 'Demander un devis',
   secondaryHref: LINKS.contact,
@@ -303,7 +303,7 @@ const NIV_01: CatalogueFormationPageContent = {
     title: 'Vous souhaitez former votre équipe à l’IA ?',
     description:
       'Les besoins et cas d’usage de votre entreprise sont étudiés avant la session, pour adapter le programme à votre équipe.',
-    primaryLabel: 'Réservez votre visio découverte gratuite',
+    primaryLabel: 'Prendre RDV',
     primaryHref: LINKS.prendreRdv,
     secondaryLabel: 'Demander un devis',
     secondaryHref: LINKS.contact,

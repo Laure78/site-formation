@@ -1,6 +1,5 @@
 import Link from 'next/link';
-import { CtaDevis } from '@/components/CtaDevis';
-import { calendlyCatalogueUrl } from '@/lib/calendly';
+import { CtaVisio } from '@/components/CtaVisio';
 import { LINKS } from '@/lib/internal-links';
 import { FINANCEMENT_FORMULATION_PRUDENTE } from '@/lib/financement-copy';
 import {
@@ -62,13 +61,10 @@ export function FormationsTarifsGrilleSection() {
       </ul>
 
       <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-        <Link
-          href={calendlyCatalogueUrl('devis-formations')}
+        <CtaVisio
+          src="tarifs-grille-formations"
           className="inline-flex items-center justify-center rounded-xl bg-[#377CF3] px-5 py-3 text-center text-sm font-semibold text-white hover:bg-[#2A6BD9]"
-        >
-          Demander un devis
-        </Link>
-        <CtaDevis className="inline-flex items-center justify-center rounded-xl border-2 border-[#377CF3] bg-white px-5 py-3 text-center text-sm font-semibold text-[#377CF3] hover:bg-[#EFF6FF]" />
+        />
       </div>
 
       <p className="mt-6 text-xs leading-relaxed text-[#64748B]">

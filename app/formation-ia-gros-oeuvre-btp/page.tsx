@@ -62,7 +62,7 @@ const SOMMAIRE = [
   { href: '#resultats', label: 'Résultats et preuves' },
   { href: '#faq', label: 'FAQ' },
   { href: '#a-propos', label: 'Laure Olivié — formatrice' },
-  { href: '#cta-final', label: 'Prendre rendez-vous' },
+  { href: '#cta-final', label: 'Prendre RDV' },
 ] as const;
 
 const ESSENTIEL = [

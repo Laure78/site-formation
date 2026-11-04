@@ -1,8 +1,8 @@
 'use client';
 
 import Link from 'next/link';
+import { CtaVisio } from '@/components/CtaVisio';
 import { ArrowRight, ClipboardList, GraduationCap, Search } from 'lucide-react';
-import { CtaDevis } from '@/components/CtaDevis';
 import { LINKS } from '@/lib/internal-links';
 
 const STEPS = [
@@ -62,7 +62,10 @@ export function FormationsCatalogueEntrepriseCompact() {
       </ol>
 
       <div className="mt-10 flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:items-center">
-        <CtaDevis className="inline-flex min-h-11 items-center justify-center gap-2 rounded-[8px] px-6 py-3 text-sm font-semibold" />
+        <CtaVisio
+          src="catalogue-entreprise-compact"
+          className="inline-flex min-h-11 items-center justify-center gap-2 rounded-[8px] px-6 py-3 text-sm font-semibold"
+        />
         <Link
           href={LINKS.formationIaIntraEntrepriseBtp}
           className="inline-flex min-h-11 items-center justify-center gap-2 rounded-[8px] border border-[#377CF3]/30 bg-white px-6 py-3 text-sm font-semibold text-[#377CF3] transition-colors hover:bg-white/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#377CF3]"

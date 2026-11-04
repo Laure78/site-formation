@@ -1,5 +1,4 @@
 import { CtaButton as RdvCtaButton } from '@/components/CtaButton';
-import { CtaDevis } from '@/components/CtaDevis';
 import Image from 'next/image';
 import Link from 'next/link';
 import type { ReactNode } from 'react';
@@ -317,8 +316,7 @@ export default function GuideMaitriseOeuvreIaPage() {
                   En savoir plus sur Laure Olivié
                 </Link>
                 {' · '}
-                <CtaDevis variant="inline" className="font-semibold text-[#377CF3] hover:underline" />
-              </p>
+</p>
             </div>
           </div>
         </div>
@@ -333,7 +331,7 @@ export default function GuideMaitriseOeuvreIaPage() {
       <section className="bg-[#377CF3] ofc-band text-center text-white" aria-labelledby="cta-final-moe">
         <div className="ofc-section-inner max-w-3xl">
           <h2 id="cta-final-moe" className="font-display text-2xl font-bold md:text-2xl">
-            Prendre rendez-vous
+            Prendre RDV
           </h2>
           <p className="mt-4 text-lg text-white/95">
             30&nbsp;minutes pour cartographier vos missions MOE et valider la prochaine étape — guide PDF ou formation

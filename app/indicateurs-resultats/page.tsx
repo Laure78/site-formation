@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import { CtaDevis } from '@/components/CtaDevis';
 import type { ReactNode } from 'react';
 import { JsonLd } from '@/components/JsonLd';
 import { Breadcrumb } from '@/components/Breadcrumb';
@@ -352,7 +351,12 @@ export default function IndicateursResultatsPage() {
                     </Link>
                   </li>
                   <li>
-                    <CtaDevis className="font-medium text-[#377CF3] underline-offset-2 hover:underline" />
+                    <Link
+                      href={LINKS.prendreRdv}
+                      className="font-medium text-[#377CF3] underline-offset-2 hover:underline"
+                    >
+                      Prendre RDV
+                    </Link>
                   </li>
                   <li>
                     <Link

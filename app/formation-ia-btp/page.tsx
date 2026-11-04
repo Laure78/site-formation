@@ -162,7 +162,7 @@ function BlocCtaHaut() {
         Votre formation IA pour le BTP, financement possible selon éligibilité.
       </p>
       <p className="mt-2 text-slate-700">
-        Prendre rendez-vous — 30 min pour savoir si la formation vous convient.
+        Prendre RDV — 30 min pour savoir si la formation vous convient.
       </p>
       <div className="mt-4">
         <PilierRdvCta origin="formation-ia-btp-bloc-haut" />

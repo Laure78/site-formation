@@ -12,7 +12,6 @@ import {
   ArrowRight,
 } from 'lucide-react';
 import { CtaVisio } from '@/components/CtaVisio';
-import { CtaDevis } from '@/components/CtaDevis';
 import { trackContactCtaClick } from '@/lib/ga4-analytics';
 import { ParcoursFormationModulesList } from '@/components/formations/ParcoursFormationModulesList';
 import { getAccueilParcoursOffre } from '@/lib/accueil-offre-catalogue';
@@ -94,14 +93,10 @@ function ParcoursMetierDetailPanel({ parcours }: { parcours: AccueilParcoursOffr
           Fiche parcours complète
           <ArrowRight className="h-4 w-4 shrink-0" aria-hidden />
         </Link>
-        <CtaDevis
-          href={catalogueDemandeHref({
-            formationOuParcours: `Parcours ${parcours.titre}`,
-            nature: 'devis',
-            metier: computed?.metierId,
-          })}
+        <CtaVisio
+          src="parcours-metiers-card"
           variant="secondary"
-          className="inline-flex min-h-10 items-center justify-center px-5 py-2.5 text-sm"
+          className={`${OFC_CTA_PRIMARY} inline-flex min-h-10 items-center justify-center px-5 py-2.5 text-sm`}
         />
       </div>
     </div>

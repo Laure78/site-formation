@@ -1,9 +1,9 @@
 'use client';
 
 import { useId, useState } from 'react';
-import { CtaDevis } from '@/components/CtaDevis';
 import Link from 'next/link';
 import { ChevronRight, Mail, Users } from 'lucide-react';
+import { CtaVisio } from '@/components/CtaVisio';
 import { MentionTvaAsterisque } from '@/components/MentionTVA';
 import { catalogueDemandeHref } from '@/lib/training-page-helpers';
 import { LINKS } from '@/lib/internal-links';
@@ -180,12 +180,11 @@ export function TrainingFormatTabs({
             )}
             {format === 'inter' ? (
               <>
-                <Link
-                  href={devisInterHref}
+                <CtaVisio
+                  src={`training-format-inter-devis-${baseId}`}
+                  variant="secondary"
                   className={`${OFC_CTA_SECONDARY} inline-flex min-h-11 items-center justify-center px-4 py-2.5 text-sm`}
-                >
-                  Obtenir un devis
-                </Link>
+                />
                 {interInscriptionHref ? (
                   <Link
                     href={interInscriptionHref}
@@ -203,12 +202,10 @@ export function TrainingFormatTabs({
                 )}
               </>
             ) : (
-              <Link
-                href={devisIntraHref}
+              <CtaVisio
+                src={`training-format-intra-${baseId}`}
                 className={`${OFC_CTA_PRIMARY} inline-flex min-h-11 items-center justify-center px-4 py-2.5 text-sm`}
-              >
-                Demander un devis intra
-              </Link>
+              />
             )}
           </div>
           <p className="mt-4 text-xs leading-relaxed text-slate-500">{FINANCEMENT_FORMULATION_COURTE}</p>
@@ -242,9 +239,6 @@ export function TrainingFormatTabs({
               <ChevronRight className="h-4 w-4 shrink-0" aria-hidden />
             </button>
           )}
-          <div className="border-t border-slate-100">
-            <CtaDevis className="flex min-h-11 items-center justify-between gap-2 text-sm font-semibold text-slate-800 hover:text-[#377CF3]" />
-          </div>
         </div>
       ) : null}
     </div>

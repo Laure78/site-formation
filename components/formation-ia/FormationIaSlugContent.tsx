@@ -38,7 +38,7 @@ function FormationIaVilleCalendlySection() {
           id="hub-ville-calendly-heading"
           className="font-display text-center text-2xl font-bold tracking-tight text-slate-900 md:text-2xl"
         >
-          Prendre rendez-vous
+          Prendre RDV
         </h2>
         <p className="mx-auto mt-3 max-w-2xl text-center text-slate-600 md:text-lg">
           Choisissez un créneau de 30 minutes pour cadrer votre besoin (formation IA pour les pros du BTP, financement

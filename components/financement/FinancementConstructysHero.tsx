@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { BadgeCheck } from 'lucide-react';
-import { CtaDevis } from '@/components/CtaDevis';
+import { CtaVisio } from '@/components/CtaVisio';
 import { PHOTOS } from '@/lib/photos';
 import { FC_CTA_PRIMARY, FC_CTA_SECONDARY } from '@/lib/financement-constructys-ui';
 
@@ -32,7 +32,7 @@ export function FinancementConstructysHero() {
             publics.
           </p>
           <div className="mt-6 flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:items-center lg:justify-start">
-            <CtaDevis className={`${FC_CTA_PRIMARY} w-full sm:w-auto`} />
+            <CtaVisio src="financement-constructys-hero" className={`${FC_CTA_PRIMARY} w-full sm:w-auto`} />
             <Link href={ANCHOR_ETAPES} className={`${FC_CTA_SECONDARY} w-full sm:w-auto`}>
               Voir les démarches
             </Link>
@@ -85,7 +85,8 @@ export function FinancementConstructysCta() {
           </p>
         </div>
         <div className="flex shrink-0 justify-center md:justify-end">
-          <CtaDevis
+          <CtaVisio
+            src="financement-constructys-footer"
             variant="primary"
             className={`${FC_CTA_PRIMARY} min-w-[12rem] border-0 bg-white text-[#377CF3] shadow-none hover:bg-white/95`}
           />

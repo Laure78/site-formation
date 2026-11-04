@@ -1578,7 +1578,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
         title: '',
         content: `<div class="rounded-2xl border border-[var(--accent)] bg-[var(--accent-soft)] p-6 my-2">
 <p class="font-semibold text-slate-900">Vous voulez voir la méthode en action ?</p>
-<p class="mt-2 text-slate-700"><a href="${LINKS.prendreRdv}" class="ofc-link">Réservez votre visio découverte gratuite</a> — en 30 min, nous vous montrons comment l'adapter à vos devis.</p>
+<p class="mt-2 text-slate-700"><a href="${LINKS.prendreRdv}" class="ofc-link">Prendre RDV</a> — en 30 min, nous vous montrons comment l'adapter à vos devis.</p>
 </div>`,
       },
       {

@@ -4,9 +4,9 @@
  * globalement dans `app/layout.tsx` pour toutes les pages.
  */
 import Link from 'next/link';
-import { CtaDevis } from '@/components/CtaDevis';
 import { Calendar, Check, MapPin } from 'lucide-react';
 import { JsonLd } from '@/components/JsonLd';
+import { CtaVisio } from '@/components/CtaVisio';
 import { RdvLink } from '@/components/RdvLink';
 import { FAQSection } from '@/components/landing/FAQSection';
 import { StatCallout } from '@/components/readability/StatCallout';
@@ -365,7 +365,11 @@ export function FormationIaBtpDepartementLanding({ config }: { config: Formation
             >
               Financement Constructys — guide
             </Link>
-            <CtaDevis className="inline-flex rounded-xl border-2 border-[#377CF3] px-6 py-3 text-base font-semibold text-[#377CF3] hover:bg-blue-50" />
+            <CtaVisio
+              src={`formation-ia-dept-${config.deptCode}-financement`}
+              variant="secondary"
+              className="inline-flex rounded-xl border-2 border-[#377CF3] px-6 py-3 text-base font-semibold text-[#377CF3] hover:bg-blue-50"
+            />
           </div>
         </div>
       </section>

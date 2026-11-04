@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import { CtaDevis } from '@/components/CtaDevis';
 import { FORMATION_IA_METIERS } from '@/lib/seo-formation-ia-hub-data';
 import { FORMATION_IA_GEO_CANONICAL } from '@/lib/seo-formation-ia-hub-links';
 import { LINKS } from '@/lib/internal-links';
@@ -70,7 +69,9 @@ export function FormationIaHubContent({ hubPath }: Props) {
               Financement Constructys / OPCO
             </Link>
             {' · '}
-            <CtaDevis className="text-[#377CF3] hover:underline" />
+            <Link href={LINKS.prendreRdv} className="text-[#377CF3] hover:underline">
+              Prendre RDV
+            </Link>
             {' · '}
             <Link href={LINKS.formations} className="text-[#377CF3] hover:underline">
               Catalogue formations

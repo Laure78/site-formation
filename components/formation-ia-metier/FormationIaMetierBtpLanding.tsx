@@ -49,7 +49,7 @@ function sommaireForConfig(config: FormationIaMetierBtpConfig) {
   ];
   if (config.showAuthorBio) {
     base.push(
-      { href: '#rdv-3', label: 'Prendre rendez-vous' },
+      { href: '#rdv-3', label: 'Prendre RDV' },
       { href: '#auteur', label: 'Laure Olivié — formatrice' },
     );
   }

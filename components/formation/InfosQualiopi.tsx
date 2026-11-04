@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import { CtaVisio } from '@/components/CtaVisio';
-import { CtaDevis } from '@/components/CtaDevis';
 import {
   Accessibility,
   Award,
@@ -137,8 +136,6 @@ export function InformationsReglementaires(props: InfosQualiopiProps) {
             <QuestionnairePositionnementLien />
             <p className="mt-3">
               <CtaVisio src="cmp-formation-InfosQualiopi" className="font-medium text-[#377CF3] hover:underline" />{' '}
-              ou{' '}
-              <CtaDevis className="font-medium text-[#377CF3] hover:underline" />{' '}
               pour vérifier les prochaines dates.
             </p>
           </QualiopiItem>

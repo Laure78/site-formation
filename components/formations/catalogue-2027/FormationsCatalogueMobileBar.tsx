@@ -3,6 +3,8 @@
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { CONTACT } from '@/lib/constants';
+import { CTA_RDV_LABEL } from '@/lib/cta-rdv-label';
+import { LINKS } from '@/lib/internal-links';
 
 /** Barre CTA fixe mobile — catalogue formations uniquement. */
 export function FormationsCatalogueMobileBar() {
@@ -60,10 +62,10 @@ export function FormationsCatalogueMobileBar() {
           Appeler {CONTACT.phoneDisplay}
         </a>
         <Link
-          href="#contact-catalogue"
+          href={`${LINKS.prendreRdv}?src=catalogue-mobile-bar`}
           className="inline-flex min-h-11 flex-1 items-center justify-center rounded-lg bg-[#377CF3] px-3 text-sm font-semibold text-white hover:bg-[#2563EB] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#377CF3]"
         >
-          Demander un devis
+          {CTA_RDV_LABEL}
         </Link>
       </div>
     </div>

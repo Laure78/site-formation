@@ -2,6 +2,7 @@
  * Navigation footer — source unique des listes de liens.
  * Une seule ancre par URL sur l’ensemble du footer (pas de doublon entre colonnes).
  */
+import { CTA_RDV_LABEL } from '@/lib/cta-rdv-label';
 import { LINKS } from '@/lib/internal-links';
 import { formationHref, type Formation } from '@/data/formations';
 import { getPublishedFormations } from '@/lib/formation-catalogue-visibility';
@@ -240,8 +241,8 @@ export const NAV_FOOTER_RESSOURCES: readonly NavItem[] = [
   { href: LINKS.etudesCasHub, label: 'Études de cas', title: 'Études de cas IA BTP' },
   {
     href: LINKS.prendreRdv,
-    label: 'Réservez votre visio découverte gratuite',
-    title: 'Visio découverte gratuite — cadrage de votre projet IA BTP',
+    label: CTA_RDV_LABEL,
+    title: 'Prendre RDV — visio découverte gratuite, cadrage de votre projet IA BTP',
   },
 ];
 

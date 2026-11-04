@@ -529,7 +529,7 @@ export default function FormationIaParisPage() {
         <section id="rdv" className={`${OFC_SEC.accent} scroll-mt-24`}>
           <div className="mx-auto max-w-4xl text-center">
             <h2 className="font-display text-2xl font-bold md:text-2xl">
-              Prendre rendez-vous
+              Prendre RDV
             </h2>
             <p className="mx-auto mt-4 max-w-2xl text-blue-100">
               30 minutes pour cadrer une formation IA à Paris adaptée à votre équipe : documents à apporter,

@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import { CtaDevis } from '@/components/CtaDevis';
 import { Check } from 'lucide-react';
 import { EnBref } from '@/app/components/EnBref';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
@@ -299,8 +298,7 @@ export default function FormationIaAchatsApprovisionnementBtpPage() {
             Proposition adaptée — financement OPCO possible selon éligibilité.
           </p>
           <div className="mt-8 flex flex-wrap gap-4">
-            <CtaDevis className="inline-flex items-center gap-2 rounded-xl bg-white px-6 py-3 font-semibold text-[#377CF3] hover:bg-blue-50" />
-            <RdvLink
+<RdvLink
               campaign="formation-ia-achats-appro-rdv"
               ctaPosition="footer"
               className="inline-flex items-center gap-2 rounded-xl border-2 border-white px-6 py-3 font-semibold text-white hover:bg-white/10"

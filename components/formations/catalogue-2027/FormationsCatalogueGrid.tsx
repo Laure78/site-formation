@@ -1,5 +1,4 @@
 import { CtaVisio } from '@/components/CtaVisio';
-import { CtaDevis } from '@/components/CtaDevis';
 import { FormationsCatalogueGridCard } from '@/components/formations/catalogue/FormationsCatalogueGridCard';
 import { FormationsCatalogueComplementaryCard } from '@/components/formations/catalogue/FormationsCatalogueComplementaryCard';
 import { FormationsCatalogueResetFiltersButton } from '@/components/formations/catalogue-2027/FormationsCatalogueResetFiltersButton';
@@ -37,15 +36,7 @@ export function FormationsCatalogueGrid({ rows, totalVisible, hasActiveFilters }
           <div className="mt-5 flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:items-center">
             {hasActiveFilters ? <FormationsCatalogueResetFiltersButton variant="secondary" /> : null}
             <CtaVisio src="catalogue-vide" className="inline-flex min-h-11 items-center justify-center px-5 py-2.5 text-sm font-semibold" />
-            <CtaDevis
-              href={catalogueDemandeHref({
-                formationOuParcours: 'Catalogue formations',
-                nature: 'devis',
-              })}
-              variant="secondary"
-              className="inline-flex min-h-11 items-center justify-center px-5 py-2.5 text-sm"
-            />
-          </div>
+</div>
         </div>
       ) : (
         <ul className="mt-6 grid list-none gap-5 sm:grid-cols-2 xl:grid-cols-4">

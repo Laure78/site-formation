@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { ArrowRight, ArrowUpRight } from 'lucide-react';
 import { CTA_RDV_HREF, CtaRdv } from '@/components/CtaRdv';
+import { CTA_RDV_LABEL } from '@/lib/cta-rdv-label';
 import { isCalendlyBookingHref } from '@/lib/calendly';
 import { LINKS } from '@/lib/internal-links';
 import { OFC_LINK } from '@/lib/ofc-interaction-classes';
@@ -21,7 +22,7 @@ const DEFAULT_LINKS: AllerPlusLoinLink[] = [
   { href: LINKS.blog, label: 'Articles et guides' },
   {
     href: CTA_RDV_HREF,
-    label: 'Réservez votre visio découverte gratuite',
+    label: CTA_RDV_LABEL,
     origin: 'aller-plus-loin',
   },
   { href: LINKS.financement, label: 'Financement Constructys' },

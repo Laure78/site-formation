@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { CTA_RDV_LABEL } from '@/lib/cta-rdv-label';
 import { Section } from '@/components/ui/Section';
 import { SectionHeader } from '@/components/ui/SectionHeader';
 import { LINKS } from '@/lib/internal-links';
@@ -24,10 +25,10 @@ export function AccueilIntraFinancementSection() {
         </ul>
         <div className="mt-8 flex flex-col items-start gap-4 sm:flex-row sm:flex-wrap sm:items-center">
           <Link
-            href={`${LINKS.formationIaIntraEntrepriseBtp}?src=accueil-intra`}
+            href={`${LINKS.prendreRdv}?src=accueil-intra`}
             className={`${OFC_CTA_PRIMARY} inline-flex min-h-11 items-center px-6 py-3`}
           >
-            Échanger sur les besoins de mon équipe
+            {CTA_RDV_LABEL}
           </Link>
           <Link href={LINKS.financement} className={`${OFC_LINK} text-sm font-semibold`}>
             Étudier les modalités de financement

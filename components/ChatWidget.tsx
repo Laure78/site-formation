@@ -4,6 +4,7 @@ import { useState, useRef, useEffect } from 'react';
 import { MessageCircle, X, Send, Loader2 } from 'lucide-react';
 import { SUGGESTED_QUESTIONS } from '@/lib/agent/suggestions';
 import { SITE_CONFIG } from '@/lib/seo';
+import { CTA_RDV_LABEL } from '@/lib/cta-rdv-label';
 import { LINKS } from '@/lib/internal-links';
 import { trackCtaRdvClick } from '@/lib/cta-analytics';
 
@@ -39,7 +40,7 @@ interface Message {
 }
 
 const CTAS = [
-  { label: 'Réservez votre visio découverte gratuite', href: CHAT_WIDGET_RDV, intent: 'rdv' as const },
+  { label: CTA_RDV_LABEL, href: CHAT_WIDGET_RDV, intent: 'rdv' as const },
   { label: 'Recevoir le programme', intent: 'programme' as const },
   { label: 'Être recontacté', intent: 'recontact' as const },
 ];

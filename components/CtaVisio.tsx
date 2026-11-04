@@ -30,7 +30,7 @@ export type CtaVisioProps = Omit<
 };
 
 /**
- * CTA visio unique — `/prendre-rdv`, libellé « Réservez votre visio découverte gratuite ».
+ * CTA visio unique — `/prendre-rdv`, libellé « Prendre RDV » ({@link CTA_RDV_LABEL}).
  */
 export function CtaVisio({
   src,

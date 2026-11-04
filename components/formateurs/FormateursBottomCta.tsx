@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { CtaDevis } from '@/components/CtaDevis';
+import { CtaVisio } from '@/components/CtaVisio';
 import { CONTACT, formateurRecruitmentMailtoHref, RECRUITMENT } from '@/lib/constants';
 import { LINKS } from '@/lib/internal-links';
 import { OFC_CTA_SECONDARY, OFC_LINK, OFC_TYPE_H2 } from '@/lib/ofc-interaction-classes';
@@ -19,7 +19,10 @@ export function FormateursBottomCta() {
         Île-de-France.
       </p>
       <div className="mt-6 flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:items-center">
-        <CtaDevis className="inline-flex min-h-11 items-center justify-center px-6 py-3 text-base" />
+        <CtaVisio
+          src="formateurs-bottom-cta"
+          className={`${OFC_CTA_SECONDARY} inline-flex min-h-11 items-center justify-center px-6 py-3 text-base`}
+        />
         <a
           href={`tel:${CONTACT.phone}`}
           className={`${OFC_CTA_SECONDARY} inline-flex min-h-11 items-center justify-center px-6 py-3 text-base`}

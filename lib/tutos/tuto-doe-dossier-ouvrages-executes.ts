@@ -48,7 +48,7 @@ export const TUTO_DOE_DOSSIER_OUVRAGES_EXECUTES: TutoData = {
   totalTimeMinutes: 30,
 
   heroDownloadLabel: 'Télécharger le modèle DOE',
-  finalCtaLabel: 'Réservez votre visio découverte gratuite',
+  finalCtaLabel: 'Prendre RDV',
 
   heroLearnPoints: [
     "La structure standardisée d'un DOE conforme",

@@ -5,7 +5,6 @@ import Link from 'next/link';
 import { LinkedInFollowersLink } from '@/components/linkedin/LinkedInFollowersLink';
 import { Badge } from '@/components/ui/Badge';
 import { EnBref } from '@/app/components/EnBref';
-import { CtaDevis } from '@/components/CtaDevis';
 import { CtaVisio } from '@/components/CtaVisio';
 import {
   A_PROPOS_PAGE_EN_BREF,
@@ -52,8 +51,7 @@ export function AProposPageHero() {
             >
               Découvrir les formations
             </Link>
-            <CtaDevis variant="secondary" className="inline-flex min-h-11 items-center justify-center px-6 py-3" />
-            <CtaVisio src="a-propos-hero" variant="secondary" className="inline-flex min-h-11 items-center justify-center px-6 py-3" />
+<CtaVisio src="a-propos-hero" variant="secondary" className="inline-flex min-h-11 items-center justify-center px-6 py-3" />
             <LinkedInFollowersLink variant="button" />
           </div>
         </div>

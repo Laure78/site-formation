@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import { CtaDevis } from '@/components/CtaDevis';
 import { CtaButton } from '@/components/CtaButton';
 import { CTA_RDV_LABEL } from '@/components/CtaRdv';
 import { Check } from 'lucide-react';
@@ -154,8 +153,7 @@ export default function FormationIaConstructionPage() {
             >
               Voir les programmes
             </Link>
-            <CtaDevis className="inline-flex items-center rounded-lg border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-800 hover:border-[#377CF3] hover:text-[#377CF3]" />
-            <CtaButton
+<CtaButton
               origin="formation-ia-construction-hero"
               variant="unstyled"
               className="inline-flex items-center rounded-lg border border-[#377CF3] px-5 py-3 text-sm font-semibold text-[#377CF3] hover:bg-blue-50"
@@ -434,7 +432,7 @@ export default function FormationIaConstructionPage() {
         <section id="rdv" className="scroll-mt-24 mt-14">
           <CtaVisioBlock
             id="cta-final"
-            title="Prendre rendez-vous — 30 min"
+            title="Prendre RDV — 30 min"
             subtitle="Cadrons ensemble vos enjeux DCE, chiffrage et coordination : format intra (dans vos locaux) ou inter, éligibilité Constructys, profils à former. Sans engagement."
             campaign="formation-ia-construction-final"
           />

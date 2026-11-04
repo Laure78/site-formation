@@ -2,6 +2,7 @@
 
 import { usePathname } from 'next/navigation';
 import { CtaRdv } from '@/components/CtaRdv';
+import { CTA_RDV_LABEL } from '@/lib/cta-rdv-label';
 import { isFormationCalendlyInlinePath } from '@/lib/formation-calendly-path';
 
 /**
@@ -25,7 +26,7 @@ export function FormationCalendlyInlineGate() {
           id="formation-calendly-heading"
           className="font-display text-2xl font-bold tracking-tight text-slate-900 md:text-2xl"
         >
-          Réservez votre visio découverte gratuite
+          {CTA_RDV_LABEL}
         </h2>
         <p className="mx-auto mt-3 max-w-2xl text-slate-600 md:text-lg">
           Rendez-vous découverte de 30 minutes, en visioconférence si vous le souhaitez, pour cadrer

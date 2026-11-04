@@ -312,7 +312,7 @@ export default function FormationIaMetreurEconomisteConstructionPage() {
 
         <section id="rdv" className="scroll-mt-24 mt-14 rounded-2xl border border-[#377CF3]/30 bg-[#F2F2F2] p-8">
           <h2 className="font-display text-2xl font-bold text-slate-900">
-            Prendre rendez-vous — 30 min
+            Prendre RDV — 30 min
           </h2>
           <p className="mt-4 leading-relaxed text-slate-600">
             Identifions ensemble vos dossiers DPGF, DQE et métrés où l&apos;IA vous fera gagner le plus de temps.

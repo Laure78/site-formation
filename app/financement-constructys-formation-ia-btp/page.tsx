@@ -94,7 +94,7 @@ export default function FinancementConstructysPage() {
                   label: 'Article — financer une formation IA BTP avec Constructys',
                 },
                 { href: LINKS.formationIleDeFrance, label: 'Formation IA BTP en Île-de-France' },
-                { href: LINKS.prendreRdv, label: 'Réservez votre visio découverte gratuite' },
+                { href: LINKS.prendreRdv, label: 'Prendre RDV' },
                 { href: LINKS.contact, label: 'Demander un devis' },
               ]}
             />

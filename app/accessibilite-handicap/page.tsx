@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import { CtaDevis } from '@/components/CtaDevis';
 import type { ReactNode } from 'react';
 import { Poppins } from 'next/font/google';
 import { Mail, Phone } from 'lucide-react';
@@ -415,7 +414,12 @@ export default function AccessibiliteHandicapPage() {
             aménagements dont vous pourriez avoir besoin. N&apos;envoyez pas de document médical.
           </p>
           <p className="text-sm text-slate-600">
-            <CtaDevis className="font-medium text-[#377CF3] underline-offset-2 hover:underline" />
+            <Link
+              href={LINKS.prendreRdv}
+              className="font-medium text-[#377CF3] underline-offset-2 hover:underline"
+            >
+              Prendre RDV
+            </Link>
             {' · '}
             <Link
               href={LINKS.formations}

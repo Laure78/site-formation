@@ -1,5 +1,5 @@
 import { FAQAnswer } from '@/components/landing/FAQAnswer';
-import { CtaDevis } from '@/components/CtaDevis';
+import { CtaVisio } from '@/components/CtaVisio';
 import { CTA_RDV_LABEL, CtaRdv } from '@/components/CtaRdv';
 import Link from 'next/link';
 import { ArrowRight, Check } from 'lucide-react';
@@ -174,7 +174,10 @@ export default function FormationIaDirigeantPmeBtpPage() {
             Voir les formations
             <ArrowRight className="h-4 w-4" aria-hidden />
           </Link>
-          <CtaDevis className="inline-flex items-center gap-2 rounded-lg border-2 border-[var(--accent)] px-6 py-3 font-semibold text-[var(--accent)] hover:bg-[var(--accent-soft)]" />
+          <CtaVisio
+            src="formation-dirigeant-pme-hero"
+            className="inline-flex items-center gap-2 rounded-lg border-2 border-[var(--accent)] px-6 py-3 font-semibold text-[var(--accent)] hover:bg-[var(--accent-soft)]"
+          />
         </div>
 
         <nav
@@ -301,8 +304,7 @@ export default function FormationIaDirigeantPmeBtpPage() {
           </p>
           <div className="mt-6 flex flex-wrap gap-4">
             <CtaRdv origin="pme-btp-organiser-equipe" />
-            <CtaDevis className="inline-flex items-center gap-2 rounded-lg border border-slate-300 px-5 py-2.5 font-semibold text-slate-800 hover:bg-slate-50" />
-          </div>
+</div>
         </section>
 
         <section id="le-probleme" className="scroll-mt-24 mt-14">
@@ -507,7 +509,6 @@ export default function FormationIaDirigeantPmeBtpPage() {
           <div className="mt-8 flex flex-wrap gap-4" id="cta-calendly">
             <RdvLink className="inline-flex items-center gap-2 rounded-xl bg-white px-6 py-3 font-semibold text-[var(--accent)] hover:bg-blue-50" />
             <PublicPhoneCta className="inline-flex items-center gap-2 rounded-xl border-2 border-white px-6 py-3 font-semibold text-white hover:bg-white/10" />
-            <CtaDevis className="inline-flex items-center gap-2 rounded-xl border-2 border-white px-6 py-3 font-semibold text-white hover:bg-white/10" />
           </div>
           <p className="mt-6 text-sm text-blue-100">
             <a href={`mailto:${SITE_CONFIG.email}`} className="underline hover:text-white">

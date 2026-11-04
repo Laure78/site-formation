@@ -327,7 +327,7 @@ export default function FormateurIaBtpPage() {
         <section id="rdv" className={`${OFC_SEC.accent} scroll-mt-24`}>
           <div className={`${PAGE_INNER} lg:flex lg:items-center lg:justify-between lg:gap-10 lg:text-left`}>
             <div className="min-w-0 text-center lg:text-left">
-              <h2 className="font-display text-2xl font-bold md:text-2xl">Prendre rendez-vous</h2>
+              <h2 className="font-display text-2xl font-bold md:text-2xl">Prendre RDV</h2>
               <p className="mx-auto mt-4 max-w-2xl text-blue-100 lg:mx-0">
                 30 minutes pour vérifier que Laure Olivié est le bon prestataire formateur / formatrice IA
                 pour votre équipe bâtiment ou construction.

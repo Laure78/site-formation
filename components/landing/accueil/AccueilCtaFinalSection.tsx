@@ -1,7 +1,6 @@
 'use client';
 
 import Image from 'next/image';
-import { CtaDevis } from '@/components/CtaDevis';
 import { CtaVisio } from '@/components/CtaVisio';
 import { OFC_SECTION_INNER } from '@/lib/ofc-section-classes';
 import { PHOTOS } from '@/lib/photos';
@@ -41,11 +40,10 @@ export function AccueilCtaFinalSection() {
                 opérationnelles pour vos équipes.
               </p>
               <div className="mt-5 flex flex-col gap-2.5 sm:flex-row sm:flex-wrap">
-                <CtaDevis className="inline-flex min-h-11 w-full items-center justify-center rounded-lg bg-white px-5 py-2.5 text-sm font-semibold text-[#0755E8] hover:bg-white/95 sm:w-auto" />
                 <CtaVisio
                   src={VISIO_SRC}
                   data-cta="visio"
-                  className="inline-flex min-h-11 w-full items-center justify-center rounded-lg border border-white/70 bg-transparent px-5 py-2.5 text-sm font-semibold text-white hover:bg-white/10 sm:w-auto"
+                  className="inline-flex min-h-11 w-full items-center justify-center rounded-lg bg-white px-5 py-2.5 text-sm font-semibold text-[#0755E8] hover:bg-white/95 sm:w-auto"
                 />
               </div>
             </div>

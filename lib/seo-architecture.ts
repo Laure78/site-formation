@@ -66,7 +66,7 @@ export function getPillarPathForCluster(clusterId: string): string {
 /** Liens internes par défaut pour les articles (URLs canoniques) */
 export const DEFAULT_INTERNAL_LINKS = {
   formation: { path: LINKS.formationIaBtpPillar, anchor: 'formation IA pour le BTP' },
-  prendreRdv: { path: LINKS.prendreRdv, anchor: 'Réservez votre visio découverte gratuite' },
+  prendreRdv: { path: LINKS.prendreRdv, anchor: 'Prendre RDV' },
   chatgptArtisans: { path: LINKS.chatgptPmeBatiment, anchor: 'ChatGPT pour PME du bâtiment' },
   chatgptPmeBatiment: { path: LINKS.chatgptPmeBatiment, anchor: 'ChatGPT pour PME du bâtiment' },
   iaDevis: { path: '/ia-devis-batiment', anchor: 'IA devis bâtiment' },
@@ -79,6 +79,6 @@ export const CTA_BLOCKS = [
     href: LINKS.formationIaBtpPillar,
     variant: 'primary' as const,
   },
-  { label: 'Réservez votre visio découverte gratuite', href: LINKS.prendreRdv, variant: 'secondary' as const },
+  { label: 'Prendre RDV', href: LINKS.prendreRdv, variant: 'secondary' as const },
   { label: 'Télécharger le guide', href: '/ressources', variant: 'outline' as const },
 ] as const;

@@ -84,7 +84,7 @@ export default function PrendreRendezVousPage() {
           {
             '@type': 'ListItem',
             position: 2,
-            name: 'Prendre rendez-vous',
+            name: 'Prendre RDV',
             item: pageUrl,
           },
         ],
