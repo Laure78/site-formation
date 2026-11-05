@@ -6,29 +6,27 @@ import { LINKS } from '@/lib/internal-links';
 
 export function AProposReferencesTeaser() {
   return (
-    <section aria-labelledby="references-title">
+    <section id="clients-partenaires" aria-labelledby="references-title" className="scroll-mt-24">
       <h2
         id="references-title"
-        className="font-display text-2xl font-bold tracking-tight text-[#0F172A] md:text-2xl"
+        className="font-display text-2xl font-bold tracking-tight text-[#0F172A] md:text-3xl"
       >
-        Des interventions pour des réseaux et organismes reconnus
+        Références <span className="text-ofc-accent">professionnelles</span>
       </h2>
-      <p className="mt-3 max-w-2xl text-sm leading-relaxed text-[#64748B]">
-        Découvrez la nature de chaque intervention et les organismes concernés.
+      <p className="mt-3 max-w-2xl text-sm leading-relaxed text-ofc-ink-muted">
+        Interventions et formations pour des fédérations et organismes reconnus du BTP — détail sur
+        la page partenaires.
       </p>
-      <ul className="mt-6 grid grid-cols-2 items-center gap-4 sm:grid-cols-3 md:grid-cols-5">
+      <ul className="mt-6 flex flex-wrap items-center justify-center gap-6 sm:gap-8 md:justify-start">
         {A_PROPOS_REFERENCES_LOGOS.map((logo) => (
-          <li
-            key={logo.id}
-            className="flex h-16 items-center justify-center rounded-lg border border-[#E2E8F0] bg-white px-3 py-2"
-          >
+          <li key={logo.id} className="flex h-14 items-center justify-center px-2">
             <Image
               src={logo.src}
               alt={logo.alt}
               width={logo.width}
               height={logo.height}
-              className="max-h-10 w-auto max-w-full object-contain"
-              sizes="120px"
+              className="max-h-10 w-auto max-w-[140px] object-contain opacity-90 grayscale transition hover:opacity-100 hover:grayscale-0 motion-reduce:transition-none"
+              sizes="140px"
               loading="lazy"
               quality={70}
             />
@@ -38,9 +36,9 @@ export function AProposReferencesTeaser() {
       <p className="mt-6">
         <Link
           href={LINKS.partenaires}
-          className="inline-flex min-h-[44px] items-center gap-2 font-semibold text-[#377CF3] hover:underline"
+          className="inline-flex min-h-[44px] items-center gap-2 font-semibold text-ofc-accent hover:underline"
         >
-          Voir les références
+          Voir toutes les références
           <ArrowRight className="h-5 w-5" aria-hidden />
         </Link>
       </p>

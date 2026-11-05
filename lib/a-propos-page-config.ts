@@ -18,10 +18,12 @@ import { LINKEDIN_LEARNING_INSTRUCTOR_HREF } from '@/lib/linkedin-learning-a-pro
 import { PARTNER_WEBSITES, LOGO_MONITEUR_FORMATIONS } from '@/lib/client-logos';
 import type { FAQItem } from '@/lib/faq';
 
-export const A_PROPOS_PAGE_H1 = 'Organisme de formation IA pour les PME du BTP' as const;
+export const A_PROPOS_PAGE_HERO_EYEBROW = 'Notre organisme · IA & BTP' as const;
+
+export const A_PROPOS_PAGE_H1 = 'Du terrain à l’intelligence artificielle.' as const;
 
 export const A_PROPOS_PAGE_SUBTITLE =
-  'Laure Olivié forme les dirigeants et les équipes du bâtiment et des travaux publics à l’intelligence artificielle — fondatrice et formatrice principale, organisme certifié Qualiopi.' as const;
+  'Je forme les professionnels du bâtiment et des travaux publics à utiliser l’IA sur leurs vrais documents métier.' as const;
 
 export const A_PROPOS_PAGE_PROOF_LINE =
   'Organisme certifié Qualiopi · Spécialisation IA BTP · Instructrice LinkedIn Learning' as const;
@@ -53,6 +55,14 @@ export const A_PROPOS_POSITIONNEMENT = [
   `L'organisme forme en présentiel en Île-de-France des dirigeants, conducteurs de travaux et fonctions support sur leurs documents réels : devis, comptes rendus, DCE et mémoires techniques. Chaque production de l'IA est relue avant envoi ou décision.`,
 ] as const;
 
+export const A_PROPOS_EXPERTISE_METIER_POINTS = [
+  'Direction d’ALIA BTP — travaux publics et revêtements',
+  'Conduite et coordination de chantiers',
+  'Devis, chiffrage et appels d’offres',
+  'Gestion d’entreprise et pilotage d’activité',
+  'Formation IA appliquée aux métiers du BTP',
+] as const;
+
 export const A_PROPOS_APPORTS = [
   {
     title: 'Comprendre les métiers',
@@ -63,8 +73,50 @@ export const A_PROPOS_APPORTS = [
     text: 'Exercices sur des situations professionnelles : structurer un devis, analyser un extrait de DCE, rédiger un compte rendu.',
   },
   {
-    title: 'Encadrer les usages',
-    text: 'Confidentialité des données, limites de l’outil et vérification systématique des résultats.',
+    title: 'Vérifier et sécuriser les usages',
+    text: 'Confidentialité des données, limites de l’outil, relecture systématique et cadre d’usage aligné sur le AI Act.',
+  },
+] as const;
+
+export const A_PROPOS_DOCUMENTAIRE = [
+  {
+    title: 'Devis et chiffrage',
+    text: 'Structurer, relire et accélérer vos propositions commerciales sans perdre le contrôle du chiffrage.',
+  },
+  {
+    title: 'DCE et appels d’offres',
+    text: 'Analyser les pièces de marché, extraire les points sensibles et préparer vos réponses.',
+  },
+  {
+    title: 'CCTP et CCAP',
+    text: 'Repérer les exigences contractuelles et les faire dialoguer avec vos mémoires techniques.',
+  },
+  {
+    title: 'Comptes rendus de chantier',
+    text: 'Rédiger des CR clairs, exploitables par les équipes et les clients, à partir de vos notes de terrain.',
+  },
+  {
+    title: 'DOE',
+    text: 'Organiser les livrables de fin de chantier et sécuriser la remise documentaire.',
+  },
+] as const;
+
+export const A_PROPOS_METHODE_ETAPES = [
+  {
+    title: 'Besoin métier',
+    text: 'Partir d’une tâche concrète : devis, CR, dossier marché ou mail client.',
+  },
+  {
+    title: 'Documents concrets',
+    text: 'Travailler sur des exemples adaptés au groupe, avec anonymisation si nécessaire.',
+  },
+  {
+    title: 'Mise en pratique',
+    text: 'Environ 70 % de la session en exercices guidés sur vos cas réels.',
+  },
+  {
+    title: 'Vérification humaine',
+    text: 'Contrôler chaque production avant envoi, signature ou décision.',
   },
 ] as const;
 

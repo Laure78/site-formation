@@ -307,6 +307,30 @@ export const PHOTOS = {
     height: 1024,
   },
 
+  /** Page À propos — chantier, tablette et plans (section expertise métier). */
+  aProposExperienceChantier: {
+    src: '/images/a-propos/experience-chantier-tablette.webp',
+    alt: 'Professionnelle du BTP sur chantier, casque et gilet, plan technique sur tablette',
+    width: 406,
+    height: 162,
+  },
+
+  /** Page À propos — session de formation IA en petit groupe. */
+  aProposFormationGroupe: {
+    src: '/images/a-propos/formation-ia-btp-groupe.webp',
+    alt: 'Session formation IA BTP en présentiel, équipe autour d’un ordinateur portable',
+    width: 414,
+    height: 185,
+  },
+
+  /** Page À propos — bandeau chantier (CTA fin de page). */
+  aProposChantierBandeau: {
+    src: '/images/a-propos/chantier-bandeau-rdv.webp',
+    alt: 'Chantier BTP avec grue et immeuble en construction sous un ciel bleu',
+    width: 265,
+    height: 74,
+  },
+
   /** Portraits intervenants catalogue — page /formateurs (visuels fournis, usage interne OFC). */
   formateurJulienMorel: {
     src: '/images/formateurs/julien-morel.jpg',

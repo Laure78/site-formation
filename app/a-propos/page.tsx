@@ -8,15 +8,15 @@ import {
   getFaqAProposPage,
 } from '@/lib/a-propos-page-config';
 import { AProposPageHero } from '@/components/a-propos/page/AProposPageHero';
-import { AProposPositionnementSection } from '@/components/a-propos/page/AProposPositionnementSection';
-import { AProposApportsSection } from '@/components/a-propos/page/AProposApportsSection';
+import { AProposReperesBandeau } from '@/components/a-propos/page/AProposReperesBandeau';
+import { AProposExpertiseMetierSection } from '@/components/a-propos/page/AProposExpertiseMetierSection';
 import { AProposParcoursSection } from '@/components/a-propos/page/AProposParcoursSection';
+import { AProposExpertiseDocumentaireSection } from '@/components/a-propos/page/AProposExpertiseDocumentaireSection';
 import { AProposConfianceSection } from '@/components/a-propos/page/AProposConfianceSection';
 import { AProposReferencesTeaser } from '@/components/a-propos/page/AProposReferencesTeaser';
-import { AProposLinkedInSection } from '@/components/a-propos/page/AProposLinkedInSection';
 import { AProposMethodeSection } from '@/components/a-propos/page/AProposMethodeSection';
 import { AProposCtaSection } from '@/components/a-propos/page/AProposCtaSection';
-import { FormationsFaqSection } from '@/components/formations/FormationsFaqSection';
+import { AProposPageFaqSection } from '@/components/a-propos/page/AProposPageFaqSection';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
 import { LINKS } from '@/lib/internal-links';
 import { SCHEMA_CONTACT } from '@/lib/schema-constants';
@@ -51,25 +51,28 @@ export default function AProposPage() {
 
   return (
     <>
-      {/* @graph page : Person (#laure-olivie) + FAQPage — Organization (#organization) dans le layout. */}
       <JsonLd id="schema-a-propos-unified-graph" schema={getAProposUnifiedJsonLd()} />
 
       <AProposPageHero />
+      <AProposReperesBandeau />
 
-      <div className="mx-auto max-w-[80rem] space-y-16 px-4 pb-20 sm:px-6 md:space-y-20 lg:px-8">
-        <AProposPositionnementSection />
-        <AProposApportsSection />
+      <div className="mx-auto max-w-[80rem] space-y-14 px-4 py-14 sm:px-6 md:space-y-16 md:py-16 lg:px-8">
+        <AProposExpertiseMetierSection />
         <AProposParcoursSection />
+      </div>
+
+      <AProposExpertiseDocumentaireSection />
+
+      <div className="mx-auto max-w-[80rem] space-y-14 px-4 py-14 sm:px-6 md:space-y-16 md:py-16 lg:px-8">
         <AProposConfianceSection />
         <AProposReferencesTeaser />
-        <AProposLinkedInSection />
         <AProposMethodeSection />
-        <AProposCtaSection />
-        <FormationsFaqSection
-          items={faqItems}
-          title="Laure Olivié et OFC — questions fréquentes"
-          subtitle="Identité, expérience BTP et lien entre la marque commerciale et l’organisme de formation."
-        />
+      </div>
+
+      <AProposCtaSection />
+
+      <div className="mx-auto max-w-[80rem] px-4 pb-16 pt-14 sm:px-6 lg:px-8">
+        <AProposPageFaqSection items={faqItems} />
       </div>
 
       <div className="border-t border-ofc-border bg-[var(--ofc-color-canvas)] px-4 py-10 sm:px-6 lg:px-8">
