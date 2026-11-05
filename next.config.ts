@@ -120,6 +120,7 @@ const nextConfig: NextConfig = {
           { key: 'Cache-Control', value: 'no-store, private' },
           { key: 'X-Frame-Options', value: 'DENY' },
           { key: 'Referrer-Policy', value: 'no-referrer' },
+          { key: 'X-Robots-Tag', value: 'noindex, nofollow' },
         ],
       },
       {

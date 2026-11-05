@@ -1,7 +1,7 @@
 /**
  * Filtrage catalogue « Formations IA disponibles » — partagé SSR / client.
  */
-import { getFormationByCode } from '@/data/formations';
+import { getFormationByCode, isFormationSurDevis } from '@/data/formations';
 import type { FormationCatalogueEntry } from '@/lib/formations-catalogue-display';
 import type { MetierId } from '@/data/catalogue-2027';
 import type { FormationsIaFilterParams } from '@/lib/catalogue-filter-url';
@@ -17,12 +17,27 @@ import {
   formationRefMatchesSearchQuery,
 } from '@/lib/catalogue-formation-text-search';
 
+function formationDureeHeures(ref: string): number | null {
+  const f = getFormationByCode(ref);
+  if (!f) return null;
+  const m = f.duree.match(/(\d+)\s*h/i);
+  return m ? Number(m[1]) : null;
+}
+
 export function formationRefMatchesFormationsIaFilters(
   ref: string,
   filters: FormationsIaFilterParams,
 ): boolean {
   const f = getFormationByCode(ref);
   if (!f) return false;
+
+  if (filters.segment === 'sur-demande') {
+    if (!isFormationSurDevis(f)) return false;
+  } else if (filters.duree) {
+    const hours = formationDureeHeures(ref);
+    if (hours !== filters.duree) return false;
+  }
+
   if (filters.niveau && f.niveau !== filters.niveau) return false;
   if (filters.metier) {
     const metiers = FORMATION_METIERS[ref as FormationCatalogueCode];
@@ -40,11 +55,18 @@ export function complementaryEntryMatchesFormationsIaFilters(
   item: (typeof CATALOGUE_COMPLEMENTARY_ENTRIES)[number],
   filters: FormationsIaFilterParams,
 ): boolean {
-  if (filters.niveau) return false;
-  if (filters.thematique && item.thematique !== filters.thematique) return false;
-  if (filters.metier && !item.metiers.includes(filters.metier as MetierId)) return false;
-  if (filters.q && !complementaryEntryMatchesSearchQuery(item, filters.q)) return false;
-  return true;
+  if (filters.segment !== 'sur-demande') {
+    return false;
+  }
+  if (filters.niveau || filters.duree) return false;
+  const lower = item.disponibiliteLabel.toLowerCase();
+  if (lower.includes('sur mesure') || lower.includes('contacter') || lower.includes('demande')) {
+    if (filters.thematique && item.thematique !== filters.thematique) return false;
+    if (filters.metier && !item.metiers.includes(filters.metier as MetierId)) return false;
+    if (filters.q && !complementaryEntryMatchesSearchQuery(item, filters.q)) return false;
+    return true;
+  }
+  return false;
 }
 
 export function filterAvailableFormationsIaEntries(
@@ -74,5 +96,5 @@ export function countVisibleFormationsIaCatalogue(
 }
 
 export function formationsIaHasActiveFilters(filters: FormationsIaFilterParams): boolean {
-  return Boolean(filters.niveau);
+  return Boolean(filters.niveau || filters.duree || filters.segment === 'sur-demande');
 }

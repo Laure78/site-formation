@@ -375,6 +375,10 @@ export const LINKS = {
   /** Espace productivité personnel admin / formateur (privé, hors SEO) */
   /** Candidatures emploi / consultant (admin, accès restreint) */
   adminCandidatures: '/admin/candidatures',
+  /** Pipeline entretiens formateurs (admin + formateur) */
+  adminRecrutement: '/admin/recrutement/planning',
+  adminRecrutementPlanning: '/admin/recrutement/planning',
+  adminRecrutementCandidats: '/admin/recrutement/candidats',
   /** Extranet formateurs — pilotage admin */
   adminFormateurs: '/admin/formateurs',
   adminFormateursCharte: '/admin/formateurs/charte',
@@ -663,5 +667,13 @@ export const LINKS = {
   /** Hub informations réglementaires Qualiopi (indicateur 1) */
   informationsReglementaires: '/informations-reglementaires',
 } as const;
+
+export function adminRecrutementCandidat(id: string): string {
+  return `/admin/recrutement/candidats/${encodeURIComponent(id)}`;
+}
+
+export function adminRecrutementEvaluation(id: string, stage: 1 | 2): string {
+  return `/admin/recrutement/candidats/${encodeURIComponent(id)}/evaluation/etape-${stage}`;
+}
 
 export type InternalLinkPath = (typeof LINKS)[keyof typeof LINKS];

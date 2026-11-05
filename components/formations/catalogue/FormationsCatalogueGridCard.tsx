@@ -2,7 +2,11 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 import type { FormationCatalogueEntry } from '@/lib/formations-catalogue-display';
-import { catalogueNiveauBadgeLabel } from '@/lib/formations-catalogue-display';
+import { getFormationByCode } from '@/data/formations';
+import {
+  catalogueMaquetteNiveauBadge,
+  catalogueMaquetteNiveauBadgeTone,
+} from '@/lib/formations-catalogue-maquette';
 import { cataloguePublicOneLine } from '@/lib/formations-catalogue-page-config';
 import {
   catalogueEntryDuree,
@@ -10,6 +14,7 @@ import {
   getCatalogueEntryDisponibiliteBadge,
 } from '@/lib/catalogue-formation-disponibilite';
 import { getCatalogueFormationCardVisual } from '@/lib/catalogue-formation-card-visuals';
+import { catalogueCardAnchorId } from '@/lib/formations-catalogue-page-config';
 import { catalogueDemandeHref } from '@/lib/training-page-helpers';
 
 type Props = {
@@ -18,12 +23,21 @@ type Props = {
 };
 
 export function FormationsCatalogueGridCard({ entry, upcoming = false }: Props) {
-  const niveauBadge = catalogueNiveauBadgeLabel(entry.ref);
+  const formation = getFormationByCode(entry.ref);
+  const niveauBadge = formation
+    ? catalogueMaquetteNiveauBadge(formation.niveau)
+    : 'Niveau Métiers';
+  const niveauTone = formation ? catalogueMaquetteNiveauBadgeTone(formation.niveau) : 'metiers';
+  const badgeToneClass =
+    niveauTone === 'debutant'
+      ? 'bg-[#377CF3] text-white'
+      : niveauTone === 'metiers'
+        ? 'bg-[#4F46E5] text-white'
+        : 'bg-[#7C3AED] text-white';
   const disponibilite = getCatalogueEntryDisponibiliteBadge(entry.ref, { upcoming });
   const tarif = catalogueEntryTarifLines(entry.ref);
   const duree = catalogueEntryDuree(entry);
   const visual = getCatalogueFormationCardVisual(entry.ref);
-  const Icon = visual?.Icon;
 
   const programmeHref = upcoming
     ? catalogueDemandeHref({ formationOuParcours: entry.title, nature: 'choix-formation' })
@@ -37,7 +51,8 @@ export function FormationsCatalogueGridCard({ entry, upcoming = false }: Props) 
 
   return (
     <article
-      className="group flex h-full flex-col overflow-hidden rounded-2xl border border-[#E2E8F0] bg-white shadow-[0_4px_24px_rgba(15,23,42,0.06)] transition-[box-shadow,transform] duration-200 motion-reduce:transition-none hover:-translate-y-0.5 hover:shadow-[0_12px_32px_rgba(15,23,42,0.1)]"
+      id={catalogueCardAnchorId(entry.ref)}
+      className="group flex h-full flex-col overflow-hidden rounded-2xl border border-[#E2E8F0] bg-white shadow-[0_4px_24px_rgba(15,23,42,0.06)] transition-[box-shadow,transform] duration-200 motion-reduce:transition-none hover:-translate-y-0.5 hover:shadow-[0_12px_32px_rgba(15,23,42,0.1)] scroll-mt-[calc(var(--site-header-height,4.5rem)+0.75rem)]"
       aria-labelledby={titleId}
     >
       <div className="relative aspect-[16/10] overflow-hidden bg-[#EAF3FF]">
@@ -48,15 +63,12 @@ export function FormationsCatalogueGridCard({ entry, upcoming = false }: Props) 
             width={visual.photo.width}
             height={visual.photo.height}
             className="h-full w-full object-cover transition-transform duration-300 motion-reduce:transition-none group-hover:scale-[1.02]"
-            sizes="(max-width: 640px) 100vw, (max-width: 1280px) 50vw, 25vw"
+            sizes="(max-width: 640px) 100vw, (max-width: 1280px) 50vw, 33vw"
           />
         ) : null}
-        {Icon ? (
-          <span className="absolute left-3 top-3 flex h-10 w-10 items-center justify-center rounded-xl bg-[#377CF3] text-white shadow-md">
-            <Icon className="h-5 w-5" strokeWidth={2} aria-hidden />
-          </span>
-        ) : null}
-        <span className="absolute bottom-3 left-3 rounded-full bg-white/95 px-2.5 py-1 text-xs font-semibold text-[#101936] shadow-sm backdrop-blur-sm">
+        <span
+          className={`absolute left-3 top-3 rounded-full px-2.5 py-1 text-xs font-semibold shadow-sm ${badgeToneClass}`}
+        >
           {niveauBadge}
         </span>
         {showDisponibilite ? (
@@ -106,7 +118,7 @@ export function FormationsCatalogueGridCard({ entry, upcoming = false }: Props) 
       <div className="border-t border-[#E2E8F0] px-4 pb-4 pt-3 sm:px-5 sm:pb-5">
         <Link
           href={programmeHref}
-          className="inline-flex w-full items-center justify-center gap-2 rounded-[8px] bg-[#377CF3] px-4 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-[#2f6bd4] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#377CF3]"
+          className="inline-flex w-full items-center justify-center gap-2 text-sm font-semibold text-[#377CF3] transition-colors hover:text-[#2f6bd4] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#377CF3]"
         >
           {ctaLabel}
           <ArrowRight className="h-4 w-4" aria-hidden />

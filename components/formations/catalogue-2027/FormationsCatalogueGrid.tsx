@@ -39,7 +39,7 @@ export function FormationsCatalogueGrid({ rows, totalVisible, hasActiveFilters }
 </div>
         </div>
       ) : (
-        <ul className="mt-6 grid list-none gap-5 sm:grid-cols-2 xl:grid-cols-4">
+        <ul className="mt-6 grid list-none gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {rows.map((row) => (
             <li key={row.key} className="min-w-0">
               {row.kind === 'ia' ? (

@@ -593,11 +593,55 @@ export const PHOTOS = {
 
   /** Page catalogue /formations — hero affiche catalogue (IA BTP, présentiel IDF) */
   formationsCatalogueHero2026: {
-    src: '/images/formations-catalogue-hero-competences-btp.webp',
+    src: '/images/formations/hero-formations-ia-btp.webp',
     alt: 'Formatrice et professionnel du BTP devant un ordinateur — plans, devis et chantier',
     title: 'Formations IA pour le BTP — compétences concrètes · Île-de-France',
     description:
       'Visuel catalogue laureolivie.fr : compétences IA pour le BTP (formations, devis, chantier), présentiel Île-de-France, Qualiopi.',
+    width: 1024,
+    height: 768,
+  },
+
+  /** Cartes catalogue /formations — visuels maquette (public/images/formations). */
+  formationsCatalogueCarteBasesIa2026: {
+    src: '/images/formations/carte-bases-ia-btp.webp',
+    alt: 'Formation IA BTP — plans, casque et ordinateur avec visualisation IA',
+    width: 1024,
+    height: 768,
+  },
+  formationsCatalogueCarteAppelsOffres2026: {
+    src: '/images/formations/carte-appels-offres-btp.webp',
+    alt: 'Formation IA appels d’offres BTP — analyse DCE et plans sur écran',
+    width: 1024,
+    height: 768,
+  },
+  formationsCatalogueCarteConduiteTravaux2026: {
+    src: '/images/formations/carte-conduite-travaux-btp.webp',
+    alt: 'Formation IA conduite de travaux — professionnel sur chantier avec tablette',
+    width: 1024,
+    height: 768,
+  },
+  formationsCatalogueCarteMaitriseOeuvre2026: {
+    src: '/images/formations/carte-maitrise-oeuvre-btp.webp',
+    alt: 'Formation IA maîtrise d’œuvre — collaboration sur plans et écran 3D',
+    width: 1024,
+    height: 768,
+  },
+  formationsCatalogueCarteClaudeAssistants2026: {
+    src: '/images/formations/carte-claude-assistants-ia-btp.webp',
+    alt: 'Formation Claude et assistants IA — équipe BTP autour d’un ordinateur',
+    width: 1024,
+    height: 768,
+  },
+  formationsCatalogueMethodePedagogique2026: {
+    src: '/images/formations/methode-pedagogique-presentiel-groupe.webp',
+    alt: 'Session formation IA BTP en présentiel — groupe autour d’un ordinateur',
+    width: 1024,
+    height: 768,
+  },
+  formationsCatalogueMenuiserieBanniere2026: {
+    src: '/images/formations/banniere-menuiserie-btp.webp',
+    alt: 'Artisan menuisier en atelier — formation IA menuiserie BTP',
     width: 1024,
     height: 768,
   },

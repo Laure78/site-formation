@@ -39,11 +39,11 @@ export function FormationsIaDisponibles({ filters }: Props) {
 
       <div className="text-center">
         <h2 id="catalogue-formations-title" className="font-display text-2xl font-bold text-[#101936] md:text-3xl">
-          Choisissez votre formation
+          Catalogue de formations
         </h2>
         <span className="mx-auto mt-3 block h-1 w-12 rounded-full bg-[#377CF3]" aria-hidden />
         <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-slate-600">
-          Des parcours pratiques adaptés à votre niveau et à votre métier.
+          Neuf programmes en présentiel en Île-de-France — filtres par durée ou offres sur demande.
         </p>
       </div>
 

@@ -1,6 +1,6 @@
 'use client';
 
-import { CatalogueNiveauPillFilters } from '@/components/formations/catalogue-2027/CatalogueNiveauPillFilters';
+import { CatalogueDureePillFilters } from '@/components/formations/catalogue-2027/CatalogueDureePillFilters';
 import type { FormationsCataloguePageFilters } from '@/lib/catalogue-filter-url';
 
 type Props = {
@@ -12,5 +12,5 @@ type Props = {
 
 /** Filtres catalogue — pills niveau (desktop + mobile). */
 export function CatalogueSearchFilters({ filters, onChange }: Props) {
-  return <CatalogueNiveauPillFilters filters={filters} onChange={onChange} />;
+  return <CatalogueDureePillFilters filters={filters} onChange={onChange} />;
 }

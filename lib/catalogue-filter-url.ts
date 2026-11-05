@@ -29,6 +29,8 @@ export type FormationsIaFilterParams = CatalogueModulesFilterParams & {
   vue?: CatalogueVue;
   disponibilite?: CatalogueDisponibiliteFilter;
   duree?: CatalogueDureeFilter;
+  /** Offres sur demande — page catalogue maquette */
+  segment?: 'sur-demande';
 };
 
 const THEMATIQUE_IDS = new Set<string>(CATALOGUE_THEMATIQUE_IDS);
@@ -125,21 +127,44 @@ export function buildFormationsIaNiveauHref(niveau: FormationNiveau): string {
   return buildFormationsCataloguePageHref({ niveau });
 }
 
-/** Filtres publics de `/formations` — niveau uniquement. */
+/** Filtres publics de `/formations` — durée, sur demande (niveau conservé pour liens legacy). */
 export type FormationsCataloguePageFilters = {
   niveau?: FormationNiveau;
+  duree?: CatalogueDureeFilter;
+  segment?: 'sur-demande';
 };
 
 export function parseFormationsCataloguePageFilters(
   searchParams: URLSearchParams | Readonly<Record<string, string | string[] | undefined>>,
 ): FormationsCataloguePageFilters {
-  return { niveau: parseFormationsIaFilters(searchParams).niveau };
+  const get = (key: string): string | undefined => {
+    if (searchParams instanceof URLSearchParams) {
+      const v = searchParams.get(key);
+      return v && v.trim() ? v.trim() : undefined;
+    }
+    const raw = searchParams[key];
+    if (Array.isArray(raw)) return raw[0]?.trim() || undefined;
+    return raw?.trim() || undefined;
+  };
+  const ia = parseFormationsIaFilters(searchParams);
+  const segmentRaw = get('segment');
+  return {
+    niveau: ia.niveau,
+    duree: ia.duree,
+    segment: segmentRaw === 'sur-demande' ? 'sur-demande' : undefined,
+  };
 }
 
 export function buildFormationsCataloguePageHref(
   filters: FormationsCataloguePageFilters,
 ): string {
-  return buildFormationsIaHref({ niveau: filters.niveau });
+  const params = new URLSearchParams();
+  if (filters.niveau) params.set('niveau', String(filters.niveau));
+  if (filters.duree) params.set('duree', String(filters.duree));
+  if (filters.segment === 'sur-demande') params.set('segment', 'sur-demande');
+  const qs = params.toString();
+  const hash = 'catalogue-formations';
+  return qs ? `/formations?${qs}#${hash}` : `/formations#${hash}`;
 }
 
 export function buildFormationsIaHref(filters: FormationsIaFilterParams): string {
