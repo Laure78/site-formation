@@ -70,7 +70,7 @@ export function AccueilFormationsIaMaquetteSection() {
         Ateliers avancés de 14 h également disponibles.
       </p>
 
-      <div className="mt-4 flex justify-end">
+      <div className="mt-4 flex flex-col items-end gap-2 text-right">
         <Link
           href={LINKS.formations}
           className="inline-flex items-center gap-1.5 text-sm font-semibold text-[#0755E8] hover:underline"
@@ -78,6 +78,13 @@ export function AccueilFormationsIaMaquetteSection() {
           Voir les 7 formations du catalogue
           <ArrowRight className="h-4 w-4" strokeWidth={ACCUEIL_MAQUETTE_ICON_STROKE} aria-hidden />
         </Link>
+        <p className="max-w-md text-xs leading-relaxed text-ofc-ink-muted">
+          Entreprise de menuiserie extérieure ou d&apos;agencement ?{' '}
+          <Link href={LINKS.formationIaMenuisierBtp} className="font-semibold text-[#0755E8] hover:underline">
+            Formation IA pour les entreprises de menuiserie
+          </Link>
+          .
+        </p>
       </div>
 
       <RevealGroupShell

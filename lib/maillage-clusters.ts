@@ -479,7 +479,7 @@ const METIER_LABELS: Record<string, string> = {
   [LINKS.formationIaCarreleurBtp]: 'Formation IA entreprise de carrelage',
   [LINKS.formationIaPlatriste]: 'Formation IA plâtrerie',
   [LINKS.formationIaPeintreBatiment]: 'Formation IA peintre bâtiment',
-  [LINKS.formationIaMenuisierBtp]: 'Formation IA menuiserie & agencement',
+  [LINKS.formationIaMenuisierBtp]: 'Formation IA pour les entreprises de menuiserie',
   [LINKS.formationIaTravauxPublics]: 'Formation IA travaux publics',
 };
 

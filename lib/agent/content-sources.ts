@@ -129,9 +129,9 @@ const PAGES_DATA: { path: string; title: string; content: string }[] = [
   },
   {
     path: '/formation-ia-menuisier-btp',
-    title: 'Formation IA menuiserie & agencement — intérieur, extérieur',
+    title: 'Formation IA menuiserie extérieure & agencement — intérieur, extérieur',
     content:
-      'Landing SEO : menuiserie intérieure, extérieure et agencement — devis, relevés, CCTP, suivi pose, ChatGPT et Claude. Pas de validation de mesures ou performances par l’IA. Qualiopi, présentiel IDF. Laure Olivié.',
+      'Landing SEO : priorité menuiserie extérieure (fenêtres, portes, volets) plus intérieur et agencement — devis, CCTP, offres fournisseurs, suivi pose, ChatGPT et Claude. Pas de validation de mesures ou performances par l’IA. Qualiopi, présentiel IDF. Laure Olivié.',
   },
   {
     path: '/formation-ia-dirigeant-pme-btp',

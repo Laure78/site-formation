@@ -196,9 +196,9 @@ const COMPLEMENTARY_OFFERS: readonly CatalogueOffer[] = [
   },
   {
     id: 'menuiserie-agencement',
-    title: 'IA pour les entreprises de menuiserie et d’agencement',
+    title: 'Formation IA pour les entreprises de menuiserie',
     shortPromise:
-      'Intérieur, extérieur et agencement : devis, relevés, CCTP et suivi pose — sans validation de mesures par l’IA.',
+      'Menuiserie extérieure (fenêtres, portes, volets), intérieure et agencement : devis, CCTP, offres fournisseurs et suivi pose — sans validation de mesures par l’IA.',
     audience: 'Dirigeants, chargés d’affaires, études de prix, atelier, assistants',
     durationLabel: 'Sur mesure',
     useCases: [

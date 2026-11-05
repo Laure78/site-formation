@@ -136,6 +136,17 @@ export const CATALOGUE_COMPLEMENTARY_ENTRIES: readonly CatalogueComplementaryEnt
     disponibiliteLabel: 'Programme sur mesure — nous contacter',
     metiers: ['charge-affaires', 'dirigeant'],
   },
+  {
+    id: 'menuiserie-agencement',
+    title: 'Formation IA pour les entreprises de menuiserie',
+    promesse:
+      'Menuiserie extérieure, intérieure et agencement : devis fenêtres, CCTP, comparatifs fournisseurs et suivi pose — validation humaine obligatoire.',
+    href: LINKS.formationIaMenuisierBtp,
+    thematique: 'devis-ao',
+    dureeLabel: 'Sur mesure',
+    disponibiliteLabel: 'Programme sur mesure — nous contacter',
+    metiers: ['charge-affaires', 'conducteur-travaux', 'dirigeant'],
+  },
 ] as const;
 
 /** Masquées dans la grille `/formations` — fiches landing conservées (SEO, liens internes). */

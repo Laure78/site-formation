@@ -34,17 +34,20 @@ export const MENUISERIE_SOURCES_OFFICIELLES = [
 ] as const;
 
 export const MENUISERIE_SEO = {
-  title: 'IA menuiserie : devis et agencement',
+  /** ≤ 60 car. avec suffixe marque — priorité menuiserie extérieure, int./agencement conservés dans le contenu */
+  title: 'Formation IA menuiserie ext. et agencement',
   description:
-    'Formation IA menuiserie et agencement : devis, relevés, CCTP et suivi pose sous validation métier. Formation IA pour le BTP. Présentiel IDF, Qualiopi.',
+    'Formation IA menuiserie extérieure : devis, CCTP, offres fournisseurs. ChatGPT et Claude, présentiel IDF, Qualiopi. Réservez votre visio découverte gratuite.',
   h1: 'Formation IA pour les entreprises de menuiserie et d’agencement',
-  openGraphTitle: 'Formation IA menuiserie & agencement BTP',
+  openGraphTitle: 'Formation IA menuiserie extérieure & agencement BTP',
+  heroAccroche:
+    'Fenêtres, portes, volets, devis, CCTP et suivi de pose : formez vos équipes à ChatGPT et Claude sur vos documents métier, en présentiel en Île-de-France.',
 } as const;
 
 export const MENUISERIE_EN_BREF = [
-  'Une page pour les entreprises de menuiserie intérieure, extérieure et d’agencement : ChatGPT et Claude pour structurer devis, relevés, CCTP, choix de finitions, suivi fabrication / pose et réponses AO — sur vos documents, sous validation métier.',
-  'Public : dirigeants TPE/PME, chargés d’affaires, métreurs / études de prix, conducteurs de travaux, responsables atelier, assistants admin et commerciaux. Présentiel Île-de-France, Qualiopi.',
-  'Progression catalogue : NIV-01 (bases documentaires), NIV-02 (appels d’offres), NIV-03 (conduite & suivi) — sans inventer de programme « menuiserie » isolé. Distinct de la page charpente / ossature. Pas de validation de mesures, plans de fabrication ou performances par l’IA.',
+  'Une page pour les entreprises de menuiserie intérieure, extérieure et d’agencement — avec un focus documentaire sur la menuiserie extérieure (fenêtres PVC, aluminium ou bois, portes-fenêtres, baies coulissantes, volets) : ChatGPT et Claude pour structurer devis, relevés, CCTP, comparatifs fournisseurs et suivi fabrication / pose — sur vos documents, sous validation métier.',
+  'Public : dirigeants TPE/PME, chargés d’affaires, métreurs / études de prix, conducteurs de travaux, poseurs et responsables atelier, assistants admin et commerciaux. Présentiel Île-de-France, Qualiopi.',
+  'Progression catalogue : NIV-01 (bases documentaires), NIV-02 (appels d’offres, DCE / CCTP / DPGF), NIV-03 (conduite & suivi, CR et DOE) — sans inventer de programme « menuiserie » isolé. Distinct de la page charpente / ossature. Pas de validation de mesures, plans de fabrication, classements AEV / Uw ou performances par l’IA.',
 ] as const;
 
 export const MENUISERIE_PUBLIC = [
@@ -92,39 +95,54 @@ export const MENUISERIE_INTERIEURE = {
   ],
 } as const;
 
-/** Section 2 — menuiserie extérieure */
+/** Section 2 — menuiserie extérieure (priorité commerciale) */
 export const MENUISERIE_EXTERIEURE = {
   titre: 'Menuiserie extérieure',
   intro:
-    'Fenêtres, portes-fenêtres, portes d’entrée, fermetures : l’enjeu documentaire porte sur le relevé de visite, les offres fournisseurs et les rapports de pose — pas sur le calcul de performances.',
+    'Fenêtres PVC, aluminium ou bois, portes-fenêtres, baies coulissantes, portes d’entrée, volets et fermetures : l’enjeu documentaire porte sur les trames de devis, les extraits de DCE / CCTP / DPGF, les fiches techniques fabricants et le suivi jusqu’au DOE — pas sur le calcul de performances ni la certification de conformité.',
   cas: [
     {
+      title: 'Préparer les trames de devis fenêtres et portes',
+      body: 'Structurer postes et désignations (dépose, fourniture, pose, habillages) à partir de relevés et briefs fournis — quantités, PU et références produits marqués [À COMPLÉTER] tant qu’ils ne sont pas validés.',
+    },
+    {
+      title: 'Synthétiser un CCTP de menuiserie extérieure',
+      body: 'Tableau exigence / extrait source / statut à partir des passages fournis (menuiseries, vitrages, quincaillerie, étanchéité) — sans conclure à la conformité au fascicule ni interpréter seul les classements AEV ou Uw.',
+    },
+    {
       title: 'Organiser un relevé de visite en fiche exploitable',
-      body: 'Passer des notes terrain à une fiche structurée (baies, contraintes d’accès, dépose, points à revérifier) — sans inventer de dimensions absentes.',
+      body: 'Passer des notes terrain à une fiche structurée (baies, contraintes d’accès, dépose, finitions indiquées, points à revérifier) — sans inventer de dimensions absentes.',
     },
     {
       title: 'Comparer offres fournisseurs et fiches techniques',
-      body: 'Tableau champs présents / absents / contradictoires entre deux offres ou fiches — jamais inventer Uw, Rw ou classements.',
+      body: 'Tableau champs présents / absents / contradictoires entre deux offres ou fiches techniques — jamais inventer Uw, Rw, AEV ou performances acoustiques.',
     },
     {
-      title: 'Repérer informations absentes ou contradictoires',
-      body: 'Checklist des manques avant commande (cotes, finitions, délais annoncés, exclusions).',
+      title: 'Préparer consultations et relances fournisseurs',
+      body: 'Demandes de prix et relances factuelles (références, délais annoncés, exclusions) à partir de vos listes — sans inventer stocks, délais ou tarifs.',
     },
     {
-      title: 'Courriers délais et conditions d’intervention',
-      body: 'Brouillons de mails factuels à partir de vos dates et contraintes validées — relecture avant envoi.',
+      title: 'Suivre fabrication, livraison et pose',
+      body: 'Tableau d’avancement (commande, fab, livraison, pose) alimenté uniquement par vos notes atelier et chantier — statuts [À COMPLÉTER] si l’information manque.',
     },
     {
-      title: 'Rapports de pose et documents de réception',
-      body: 'Structurer CR, réserves et listes de pièces à joindre à partir des notes de pose.',
+      title: 'Comptes rendus d’intervention et suivi des réserves',
+      body: 'Structurer CR de pose, réserves et listes de pièces à joindre à partir des faits fournis — validation métier avant envoi au client ou au MOE.',
+    },
+    {
+      title: 'Rédiger courriers et relances clients',
+      body: 'Brouillons de mails (délais, conditions d’intervention, pièces manquantes) à partir de vos dates et contraintes validées — ton professionnel, relecture avant envoi.',
     },
   ],
   livrables: [
+    'Trame de devis fenêtres / portes (désignations)',
+    'Tableau d’exigences CCTP extérieur',
     'Fiche relevé de visite',
     'Comparatif offres / fiches (traçable)',
-    'Liste d’écarts et manques',
-    'Courriers délais / intervention',
-    'Rapport de pose et réception (brouillon)',
+    'Consultation ou relance fournisseur (brouillon)',
+    'Tableau suivi fab / livraison / pose',
+    'CR intervention, réserves et réception (brouillon)',
+    'Courriers clients (brouillon)',
   ],
 } as const;
 
@@ -265,6 +283,22 @@ Pas de prix, pas de délais inventés, pas de cotes inventées.`;
 
 export const MENUISERIE_FAQ: readonly FAQItem[] = [
   {
+    q: 'Quelle formation IA choisir pour une entreprise de menuiserie extérieure ?',
+    a: `Commencez par le programme catalogue NIV-01 (bases documentaires sur vos devis et relevés), puis NIV-02 si vous répondez aux appels d’offres (DCE, CCTP, DPGF) et NIV-03 pour le suivi chantier. Cette page regroupe les cas d’usage menuiserie extérieure, intérieure et agencement — présentiel Île-de-France, organisme Qualiopi. Réservez une visio découverte gratuite pour cadrer le parcours.`,
+  },
+  {
+    q: 'Comment utiliser ChatGPT pour préparer un devis de menuiserie ?',
+    a: `Collez uniquement les relevés et choix déjà validés (types d’ouvrages, finitions indiquées, contraintes de pose). Demandez une structure de postes et une liste « à confirmer » — jamais de quantités, PU ou performances inventés. La formation NIV-01 cadre cette méthode sur vos trames réelles ; le chiffrage définitif reste sous votre responsabilité.`,
+  },
+  {
+    q: 'Comment analyser un CCTP de fenêtres avec Claude ?',
+    a: `Fournissez des extraits (lot menuiseries extérieures, vitrages, quincaillerie). Claude peut produire un tableau exigence / source / statut et signaler les manques — il ne certifie pas la conformité au DTU ni ne valide seul les Uw ou classements AEV. Voir aussi le <a href="${LINKS.claudeAiBtp}">guide Claude AI BTP</a>.`,
+  },
+  {
+    q: 'Où former une équipe de menuisiers à l’IA en Île-de-France ?',
+    a: `${SCHEMA_ORGANIZATION_OFC.name} (marque ${SCHEMA_PERSON_LAURE.name}) intervient en présentiel en Île-de-France (75, 77, 78, 91, 92, 93, 94, 95) — siège et sessions inter : Paris 12e. Sessions intra sur vos documents ou inter selon calendrier. Contact : visio découverte via la page <a href="${LINKS.prendreRdv}">prendre rendez-vous</a>.`,
+  },
+  {
     q: 'Peut-on travailler sur nos devis et relevés ?',
     a: 'Oui, c’est le cœur de la session : vous apportez des extraits anonymisés (relevés, trames de devis, mails). On structure les livrables sans inventer de cotes ni de prix.',
   },
@@ -293,8 +327,8 @@ export const MENUISERIE_FAQ: readonly FAQItem[] = [
     a: `Les deux peuvent servir selon vos habitudes. La formation cadre la méthode (données fournies, confirmé / à vérifier, validation humaine). Voir aussi le <a href="${LINKS.claudeAiBtp}">guide Claude AI BTP</a> et la <a href="${LINKS.iaDevis}">méthode IA devis</a>.`,
   },
   {
-    q: 'Financement OPCO / Constructys ?',
-    a: 'Financement OPCO possible selon éligibilité (organisme Qualiopi). Le guide Constructys est lié dans le maillage en bas de page.',
+    q: 'Les formations IA BTP peuvent-elles faire l’objet d’une prise en charge Constructys ?',
+    a: `Oui, une prise en charge OPCO Constructys est possible selon éligibilité de votre entreprise et de votre dossier — ${SCHEMA_ORGANIZATION_OFC.name} est certifié Qualiopi (actions de formation). Aucune garantie de financement : vérifiez auprès de Constructys. Le guide est lié en bas de page.`,
   },
 ] as const;
 

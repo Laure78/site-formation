@@ -536,10 +536,10 @@ export const FORMATION_IA_METIER_MENUISIER: FormationIaMetierBtpConfig = {
   id: 'menuisier',
   path: '/formation-ia-menuisier-btp',
   h1: 'Formation IA pour les entreprises de menuiserie et d’agencement',
-  metaTitle: 'IA menuiserie : intérieur, extérieur, agencement',
+  metaTitle: 'Formation IA menuiserie ext. et agencement',
   skipIdfTitleOverride: true,
   metaDescription:
-    'Formation IA menuiserie et agencement : devis, relevés, CCTP et suivi pose sous validation métier. Formation IA pour le BTP. Présentiel IDF, Qualiopi.',
+    'Formation IA menuiserie extérieure : devis, CCTP, offres fournisseurs. ChatGPT et Claude, présentiel IDF, Qualiopi. Réservez votre visio découverte gratuite.',
   keywords: [
     'formation IA entreprise de menuiserie',
     'formation IA menuiserie intérieure',

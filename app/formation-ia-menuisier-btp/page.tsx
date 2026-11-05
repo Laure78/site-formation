@@ -47,19 +47,22 @@ export const metadata = createMetierBtpPageMetadata('menuiserie', {
   openGraphType: 'website',
   openGraphTitle: MENUISERIE_SEO.openGraphTitle,
   keywords: [
-    'formation IA entreprise de menuiserie',
-    'formation IA menuiserie intérieure',
     'formation IA menuiserie extérieure',
+    'formation ChatGPT menuisier',
+    'formation IA entreprise de menuiserie',
+    'IA devis fenêtre',
+    'IA CCTP menuiserie',
+    'Claude IA BTP',
+    'formation IA second œuvre',
+    'formation IA menuiserie intérieure',
     'formation IA entreprise d’agencement',
-    'ChatGPT Claude menuisiers',
-    'IA devis menuiserie agencement',
     'formation IA pour le BTP',
   ],
 });
 
 const SOMMAIRE = [
-  { href: '#interieur', label: 'Menuiserie intérieure' },
   { href: '#exterieur', label: 'Menuiserie extérieure' },
+  { href: '#interieur', label: 'Menuiserie intérieure' },
   { href: '#agencement', label: 'Agencement' },
   { href: '#gestion-commune', label: 'Gestion commune' },
   { href: '#exemple-fictif', label: 'Exemple pédagogique fictif' },
@@ -136,8 +139,8 @@ export default function FormationIaMenuisierBtpPage() {
         <h1 className="font-display text-2xl font-bold tracking-tight text-slate-900 md:text-[1.75rem] lg:text-2xl lg:leading-tight">
           {MENUISERIE_SEO.h1}
         </h1>
-        <p className="mt-2 text-xl font-medium text-[#377CF3]">
-          Devis, relevés et suivi pose — ChatGPT &amp; Claude sous validation métier
+        <p className="mt-3 text-lg font-medium leading-relaxed text-slate-800 md:text-xl">
+          {MENUISERIE_SEO.heroAccroche}
         </p>
 
         <EnBref>
@@ -215,19 +218,19 @@ export default function FormationIaMenuisierBtpPage() {
         </section>
 
         <CasSection
-          id="interieur"
-          titre={MENUISERIE_INTERIEURE.titre}
-          intro={MENUISERIE_INTERIEURE.intro}
-          cas={MENUISERIE_INTERIEURE.cas}
-          livrables={MENUISERIE_INTERIEURE.livrables}
-        />
-
-        <CasSection
           id="exterieur"
           titre={MENUISERIE_EXTERIEURE.titre}
           intro={MENUISERIE_EXTERIEURE.intro}
           cas={MENUISERIE_EXTERIEURE.cas}
           livrables={MENUISERIE_EXTERIEURE.livrables}
+        />
+
+        <CasSection
+          id="interieur"
+          titre={MENUISERIE_INTERIEURE.titre}
+          intro={MENUISERIE_INTERIEURE.intro}
+          cas={MENUISERIE_INTERIEURE.cas}
+          livrables={MENUISERIE_INTERIEURE.livrables}
         />
 
         <CasSection

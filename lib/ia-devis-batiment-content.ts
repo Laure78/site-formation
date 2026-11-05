@@ -260,9 +260,9 @@ export const IA_DEVIS_ALLER_PLUS_LOIN = [
     desc: 'Métrés, DPGF et contrôles de bordereaux avec l’IA.',
   },
   {
-    href: LINKS.formationConducteurTravaux,
-    label: 'IA et conduite de chantier',
-    desc: 'CR, planning et suivi de chantier assistés par l’IA.',
+    href: LINKS.formationIaMenuisierBtp,
+    label: 'Formation IA pour les entreprises de menuiserie',
+    desc: 'Devis fenêtres, CCTP extérieur et comparatifs fournisseurs — validation métier.',
   },
   {
     href: LINKS.formationAO,
