@@ -41,7 +41,7 @@ export function FormationsCatalogueMethodePedagogique() {
                 key={item.id}
                 className="flex gap-4 rounded-2xl border border-[#E2E8F0] bg-white p-5 shadow-sm"
               >
-                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[#EAF3FF] text-[#377CF3]">
+                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[#EFF6FF] text-[#377CF3] ring-1 ring-[#377CF3]/10">
                   <Icon className="h-5 w-5" strokeWidth={2} aria-hidden />
                 </span>
                 <div className="min-w-0">

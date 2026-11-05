@@ -40,6 +40,10 @@ export function catalogueMaquetteNiveauBadgeTone(
   return 'avance';
 }
 
+/** Classes badge carte — charte OFC (bleu clair + accent #377CF3, pas indigo/violet). */
+export const CATALOGUE_MAQUETTE_NIVEAU_BADGE_CLASS =
+  'bg-[#EFF6FF] text-[#377CF3] ring-1 ring-[#377CF3]/15';
+
 /** Méthode pédagogique — 3 piliers maquette. */
 export const CATALOGUE_MAQUETTE_METHODE = [
   {

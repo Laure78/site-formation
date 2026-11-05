@@ -28,7 +28,7 @@ export function FormationsCatalogueMenuiserieBanner() {
             className="max-w-xl font-display text-xl font-bold leading-snug text-white md:text-2xl"
           >
             Vous travaillez dans la{' '}
-            <span className="text-[#93C5FD]">menuiserie</span> ? Une formation IA adaptée à vos
+            <span className="text-[#377CF3]">menuiserie</span> ? Une formation IA adaptée à vos
             devis et CCTP.
           </h2>
           <p className="mt-3 max-w-lg text-sm leading-relaxed text-white/85 md:text-base">

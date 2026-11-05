@@ -40,7 +40,7 @@ export function FormationsCatalogueMaquetteHero() {
           className="mt-4 max-w-3xl font-display text-[clamp(1.75rem,1.25rem+1.8vw,2.65rem)] font-extrabold leading-[1.1] tracking-tight text-white text-balance"
         >
           Formations IA pour les professionnels{' '}
-          <span className="text-[#93C5FD]">du BTP</span>
+          <span className="text-[#377CF3]">du BTP</span>
         </h1>
         <p className="mt-4 max-w-2xl text-base leading-relaxed text-white/90 md:text-lg">
           Devis, appels d&apos;offres, conduite de travaux : l&apos;IA au service de vos métiers.
@@ -48,7 +48,7 @@ export function FormationsCatalogueMaquetteHero() {
         <ul className="mt-6 flex flex-col gap-2 sm:gap-2.5" aria-label="Points clés">
           {CATALOGUE_MAQUETTE_HERO_CHECKS.map((label) => (
             <li key={label} className="flex items-start gap-2.5 text-sm text-white/95 md:text-base">
-              <Check className="mt-0.5 h-4 w-4 shrink-0 text-[#93C5FD]" strokeWidth={2.5} aria-hidden />
+              <Check className="mt-0.5 h-4 w-4 shrink-0 text-[#377CF3]" strokeWidth={2.5} aria-hidden />
               {label}
             </li>
           ))}

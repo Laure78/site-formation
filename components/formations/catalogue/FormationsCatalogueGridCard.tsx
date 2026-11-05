@@ -1,11 +1,11 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Clock, Wallet } from 'lucide-react';
 import type { FormationCatalogueEntry } from '@/lib/formations-catalogue-display';
 import { getFormationByCode } from '@/data/formations';
 import {
   catalogueMaquetteNiveauBadge,
-  catalogueMaquetteNiveauBadgeTone,
+  CATALOGUE_MAQUETTE_NIVEAU_BADGE_CLASS,
 } from '@/lib/formations-catalogue-maquette';
 import { cataloguePublicOneLine } from '@/lib/formations-catalogue-page-config';
 import {
@@ -27,13 +27,7 @@ export function FormationsCatalogueGridCard({ entry, upcoming = false }: Props) 
   const niveauBadge = formation
     ? catalogueMaquetteNiveauBadge(formation.niveau)
     : 'Niveau Métiers';
-  const niveauTone = formation ? catalogueMaquetteNiveauBadgeTone(formation.niveau) : 'metiers';
-  const badgeToneClass =
-    niveauTone === 'debutant'
-      ? 'bg-[#377CF3] text-white'
-      : niveauTone === 'metiers'
-        ? 'bg-[#4F46E5] text-white'
-        : 'bg-[#7C3AED] text-white';
+  const badgeClass = CATALOGUE_MAQUETTE_NIVEAU_BADGE_CLASS;
   const disponibilite = getCatalogueEntryDisponibiliteBadge(entry.ref, { upcoming });
   const tarif = catalogueEntryTarifLines(entry.ref);
   const duree = catalogueEntryDuree(entry);
@@ -55,7 +49,7 @@ export function FormationsCatalogueGridCard({ entry, upcoming = false }: Props) 
       className="group flex h-full flex-col overflow-hidden rounded-2xl border border-[#E2E8F0] bg-white shadow-[0_4px_24px_rgba(15,23,42,0.06)] transition-[box-shadow,transform] duration-200 motion-reduce:transition-none hover:-translate-y-0.5 hover:shadow-[0_12px_32px_rgba(15,23,42,0.1)] scroll-mt-[calc(var(--site-header-height,4.5rem)+0.75rem)]"
       aria-labelledby={titleId}
     >
-      <div className="relative aspect-[16/10] overflow-hidden bg-[#EAF3FF]">
+      <div className="relative aspect-[16/10] overflow-hidden bg-[#F2F2F2]">
         {visual ? (
           <Image
             src={visual.photo.src}
@@ -67,7 +61,7 @@ export function FormationsCatalogueGridCard({ entry, upcoming = false }: Props) 
           />
         ) : null}
         <span
-          className={`absolute left-3 top-3 rounded-full px-2.5 py-1 text-xs font-semibold shadow-sm ${badgeToneClass}`}
+          className={`absolute left-3 top-3 rounded-full px-2.5 py-1 text-[11px] font-bold uppercase tracking-wide ${badgeClass}`}
         >
           {niveauBadge}
         </span>
@@ -101,15 +95,25 @@ export function FormationsCatalogueGridCard({ entry, upcoming = false }: Props) 
           {cataloguePublicOneLine(entry.comparatif.publicLabel, 2)}
         </p>
 
-        <div className="mt-auto flex flex-wrap items-end justify-between gap-2 border-t border-[#E2E8F0] pt-4 text-sm">
-          <div>
-            <p className="text-xs font-medium uppercase tracking-wide text-slate-500">Durée</p>
-            <p className="font-semibold tabular-nums text-[#101936]">{duree}</p>
+        <div className="mt-auto flex flex-wrap items-end justify-between gap-3 border-t border-[#E2E8F0] bg-[#EFF6FF]/40 px-0 py-3 text-sm">
+          <div className="flex items-center gap-2">
+            <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-[#EFF6FF] text-[#377CF3]">
+              <Clock className="h-4 w-4" strokeWidth={2} aria-hidden />
+            </span>
+            <div>
+              <p className="text-[10px] font-semibold uppercase tracking-wide text-slate-500">Durée</p>
+              <p className="font-semibold tabular-nums text-[#101936]">{duree}</p>
+            </div>
           </div>
           {tarif ? (
-            <div className="text-right">
-              <p className="text-xs font-medium uppercase tracking-wide text-slate-500">Tarif HT</p>
-              <p className="font-semibold tabular-nums text-[#101936]">{tarif}</p>
+            <div className="flex items-center gap-2 text-right">
+              <div className="min-w-0">
+                <p className="text-[10px] font-semibold uppercase tracking-wide text-slate-500">Tarif HT</p>
+                <p className="font-semibold tabular-nums text-[#101936]">{tarif}</p>
+              </div>
+              <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-[#EFF6FF] text-[#377CF3]">
+                <Wallet className="h-4 w-4" strokeWidth={2} aria-hidden />
+              </span>
             </div>
           ) : null}
         </div>

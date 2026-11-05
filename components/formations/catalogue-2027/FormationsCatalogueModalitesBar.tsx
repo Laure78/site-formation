@@ -17,7 +17,7 @@ export function FormationsCatalogueModalitesBar() {
               key={item.id}
               className="flex min-w-0 items-center gap-3 md:justify-center md:border-l md:border-white/15 md:pl-6 md:first:border-l-0 md:first:pl-0"
             >
-              <Icon className="h-5 w-5 shrink-0 text-[#93C5FD]" strokeWidth={2} aria-hidden />
+              <Icon className="h-5 w-5 shrink-0 text-[#377CF3]" strokeWidth={2} aria-hidden />
               <p className="text-sm font-semibold text-white md:text-base">{item.label}</p>
             </li>
           );
