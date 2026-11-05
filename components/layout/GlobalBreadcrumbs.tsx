@@ -6,6 +6,7 @@ import { buildBreadcrumbTrail } from '@/lib/breadcrumb-trail';
 import { cn } from '@/lib/cn';
 import { isAuthConnexionPage } from '@/lib/auth-connexion-chrome';
 import { LINKS } from '@/lib/internal-links';
+import { isParcoursMetiersMaquetteRoute } from '@/lib/parcours-metiers-maquette-route';
 
 /**
  * Fil d'Ariane visuel — injecté dans `app/layout.tsx` (toutes les pages sauf l'accueil / admin).
@@ -14,6 +15,7 @@ import { LINKS } from '@/lib/internal-links';
 export function GlobalBreadcrumbs() {
   const pathname = usePathname() ?? '/';
   if (isAuthConnexionPage(pathname)) return null;
+  if (isParcoursMetiersMaquetteRoute(pathname)) return null;
   const pathNorm = pathname.replace(/\/$/, '') || '/';
   /** Fil explicite — évite un écart d’hydratation sur le hub formateurs. */
   const items =

@@ -7,8 +7,19 @@ import { SITE_BRAND_LOGO_IMAGE_CLASS } from '@/lib/photos';
 import { IMAGE_QUALITY_DEFAULT } from '@/lib/image-props';
 import { usePathname } from 'next/navigation';
 import { useEffect, useRef, useState } from 'react';
-import { BookOpen, Building2, Menu, X, GraduationCap, Layers, Users, Wallet } from 'lucide-react';
+import {
+  BookOpen,
+  Building2,
+  Calendar,
+  Menu,
+  X,
+  GraduationCap,
+  Layers,
+  Users,
+  Wallet,
+} from 'lucide-react';
 import { SITE } from '@/lib/site';
+import { isParcoursMetiersMaquetteRoute } from '@/lib/parcours-metiers-maquette-route';
 import { useHeaderNavDesktopHover } from '@/hooks/useHeaderNavDesktopHover';
 import { getHeaderNav, headerNavItemHasPanel } from '@/lib/header-nav';
 import { HeaderPrimaryCta } from '@/components/nav/HeaderPrimaryCta';
@@ -147,81 +158,119 @@ export function Header() {
     return null;
   }
 
+  const parcoursMaquetteHeader = isParcoursMetiersMaquetteRoute(pathname);
+
+  const brandLink = (
+    <Link
+      href={SITE.links.home}
+      className="site-header__brand flex min-w-0 shrink-0 items-center"
+    >
+      <Image
+        src={SITE.logo.src}
+        alt={SITE.logo.alt}
+        title={SITE.logo.title}
+        width={SITE.logo.width}
+        height={SITE.logo.height}
+        className={SITE_BRAND_LOGO_IMAGE_CLASS}
+        quality={IMAGE_QUALITY_DEFAULT}
+        priority
+      />
+    </Link>
+  );
+
+  const mobileMenuButton = (
+    <div className="flex shrink-0 items-center gap-0.5 lg:hidden">
+      <button
+        ref={menuButtonRef}
+        type="button"
+        onClick={() => (mobileOpen ? setMobileOpen(false) : openMobileMenu())}
+        className="flex min-h-[44px] min-w-[44px] items-center justify-center rounded-xl text-slate-700 transition-colors hover:bg-slate-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#377CF3]"
+        aria-expanded={mobileOpen}
+        aria-controls="header-mobile-drawer"
+        aria-label={mobileOpen ? 'Fermer le menu' : 'Ouvrir le menu'}
+      >
+        {mobileOpen ? <X size={22} strokeWidth={1.75} /> : <Menu size={22} strokeWidth={1.75} />}
+      </button>
+    </div>
+  );
+
+  const desktopNavItems = headerNav.map((item) => {
+    if (!headerNavItemHasPanel(item)) {
+      return <HeaderNavSimpleLink key={item.id} item={item} pathname={pathname} />;
+    }
+    return (
+      <HeaderNavDropdown
+        key={item.id}
+        item={item}
+        pathname={pathname}
+        open={openId === item.id}
+        onToggle={() => toggleItem(item.id)}
+        onNavigate={closeNav}
+        onZoneFocusOut={() => {
+          if (openId === item.id) setOpenId(null);
+        }}
+        desktopHover={desktopHoverHandlers}
+      />
+    );
+  });
+
   return (
     <>
       <header
         ref={headerRef}
         className="site-header"
+        data-variant={parcoursMaquetteHeader ? 'parcours-maquette' : undefined}
         data-compact={compact ? 'true' : 'false'}
         data-scroll-hidden={scrollHidden ? 'true' : 'false'}
       >
-        <div className="site-header__inner mx-auto flex max-w-[80rem] min-w-0 flex-col gap-0 px-4 py-1.5 sm:px-6 lg:gap-1 lg:px-8 lg:py-2">
-          <HeaderUtilityBar onBeforeOpenSearch={prepareSearchOpen} />
+        <div
+          className={`site-header__inner mx-auto flex max-w-[80rem] min-w-0 flex-col gap-0 px-4 py-1.5 sm:px-6 lg:gap-1 lg:px-8 lg:py-2 ${
+            parcoursMaquetteHeader ? 'site-header__inner--parcours-maquette' : ''
+          }`}
+        >
+          {!parcoursMaquetteHeader ? (
+            <HeaderUtilityBar onBeforeOpenSearch={prepareSearchOpen} />
+          ) : null}
 
-          {/* Ligne principale — marque et accès */}
-          <div className="site-header__top flex min-w-0 items-center justify-between gap-2 sm:gap-3">
-            <Link
-              href={SITE.links.home}
-              className="site-header__brand flex min-w-0 shrink-0 items-center"
-            >
-              <Image
-                src={SITE.logo.src}
-                alt={SITE.logo.alt}
-                title={SITE.logo.title}
-                width={SITE.logo.width}
-                height={SITE.logo.height}
-                className={SITE_BRAND_LOGO_IMAGE_CLASS}
-                quality={IMAGE_QUALITY_DEFAULT}
-                priority
-              />
-            </Link>
-
-            <div className="site-header__actions relative z-[55] hidden shrink-0 items-center gap-2 border-l border-slate-200/90 pl-2.5 lg:flex xl:gap-2.5 xl:pl-3.5">
-              <HeaderPrimaryCta origin="header-desktop" />
-            </div>
-
-            <div className="flex shrink-0 items-center gap-0.5 lg:hidden">
-              <button
-                ref={menuButtonRef}
-                type="button"
-                onClick={() => (mobileOpen ? setMobileOpen(false) : openMobileMenu())}
-                className="flex min-h-[44px] min-w-[44px] items-center justify-center rounded-xl text-slate-700 transition-colors hover:bg-slate-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#377CF3]"
-                aria-expanded={mobileOpen}
-                aria-controls="header-mobile-drawer"
-                aria-label={mobileOpen ? 'Fermer le menu' : 'Ouvrir le menu'}
+          {parcoursMaquetteHeader ? (
+            <div className="site-header__parcours-maquette-row flex min-h-[4.25rem] min-w-0 items-center justify-between gap-3 sm:gap-4 lg:min-h-[4.75rem]">
+              {brandLink}
+              <nav
+                className="site-header__nav-pill site-header__nav-pill--parcours-maquette hidden min-w-0 flex-1 lg:flex"
+                aria-label="Navigation principale"
+                data-header-nav-pill=""
               >
-                {mobileOpen ? <X size={22} strokeWidth={1.75} /> : <Menu size={22} strokeWidth={1.75} />}
-              </button>
-            </div>
-          </div>
-
-          {/* Ligne 2 — navigation principale (desktop) */}
-          <nav
-            className="site-header__nav-pill"
-            aria-label="Navigation principale"
-            data-header-nav-pill=""
-          >
-            {headerNav.map((item) => {
-              if (!headerNavItemHasPanel(item)) {
-                return <HeaderNavSimpleLink key={item.id} item={item} pathname={pathname} />;
-              }
-              return (
-                <HeaderNavDropdown
-                  key={item.id}
-                  item={item}
-                  pathname={pathname}
-                  open={openId === item.id}
-                  onToggle={() => toggleItem(item.id)}
-                  onNavigate={closeNav}
-                  onZoneFocusOut={() => {
-                    if (openId === item.id) setOpenId(null);
-                  }}
-                  desktopHover={desktopHoverHandlers}
+                {desktopNavItems}
+              </nav>
+              <div className="site-header__actions site-header__actions--parcours-maquette relative z-[55] hidden shrink-0 items-center lg:flex">
+                <HeaderPrimaryCta
+                  src="header-parcours-maquette"
+                  leadingAdornment={<Calendar className="h-4 w-4 shrink-0" aria-hidden />}
                 />
-              );
-            })}
-          </nav>
+              </div>
+              {mobileMenuButton}
+            </div>
+          ) : (
+            <>
+              <div className="site-header__top flex min-w-0 items-center justify-between gap-2 sm:gap-3">
+                {brandLink}
 
+                <div className="site-header__actions relative z-[55] hidden shrink-0 items-center gap-2 border-l border-slate-200/90 pl-2.5 lg:flex xl:gap-2.5 xl:pl-3.5">
+                  <HeaderPrimaryCta origin="header-desktop" />
+                </div>
+
+                {mobileMenuButton}
+              </div>
+
+              <nav
+                className="site-header__nav-pill"
+                aria-label="Navigation principale"
+                data-header-nav-pill=""
+              >
+                {desktopNavItems}
+              </nav>
+            </>
+          )}
         </div>
       </header>
 

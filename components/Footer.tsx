@@ -20,14 +20,96 @@ import {
   SITE_LOGO_ALT,
   SITE_LOGO_TITLE,
 } from '@/lib/photos';
-import {
-  NAV_FOOTER_MAQUETTE_FINANCEMENT,
-  NAV_FOOTER_MAQUETTE_NAVIGATION,
-  NAV_FOOTER_MAQUETTE_ORGANISME,
-  type NavItem,
-} from '@/lib/nav';
+import type { NavItem } from '@/lib/nav';
 
 const FOOTER_BG = '#071B42';
+
+/** Colonne — Formations IA BTP (maquette footer, URLs catalogue existantes). */
+const FOOTER_FORMATIONS_IA_BTP: readonly NavItem[] = [
+  {
+    href: LINKS.formations,
+    label: 'Toutes les formations IA BTP',
+    title: 'Catalogue formations IA BTP — présentiel Paris et Île-de-France',
+  },
+  {
+    href: LINKS.formationAO,
+    label: 'Formation IA appels d’offres et DCE',
+    title: 'Appels d’offres BTP et analyse DCE avec l’IA — Île-de-France',
+  },
+  {
+    href: LINKS.formationConduiteTravauxSuiviChantier,
+    label: 'Formation IA conduite de travaux',
+    title: 'IA pour conducteurs de travaux — chantier et documents BTP',
+  },
+  {
+    href: LINKS.iaDevis,
+    label: 'IA devis et chiffrage BTP',
+    title: 'Devis et chiffrage bâtiment assistés par l’IA — guide et formation',
+  },
+  {
+    href: LINKS.formationIaMenuisierBtp,
+    label: 'Formation IA menuiserie BTP',
+    title: 'Formation IA pour entreprises de menuiserie — Paris et Île-de-France',
+  },
+];
+
+/** Colonne — Parcours métiers · 2027. */
+const FOOTER_PARCOURS_METIERS_2027: readonly NavItem[] = [
+  {
+    href: LINKS.parcoursConducteurDeTravaux,
+    label: 'Parcours conducteur de travaux',
+    title: 'Parcours métier IA — conducteur de travaux BTP',
+  },
+  {
+    href: LINKS.parcoursChargeAffairesBtp,
+    label: 'Parcours chargé d’affaires BTP',
+    title: 'Parcours métier IA — chargé d’affaires bâtiment et TP',
+  },
+  {
+    href: LINKS.parcoursAssistantDeGestionBtp,
+    label: 'Parcours assistant de gestion BTP',
+    title: 'Parcours métier IA — assistant de gestion BTP',
+  },
+  {
+    href: LINKS.parcoursDirigeantPmeBtp,
+    label: 'Parcours dirigeant de PME BTP',
+    title: 'Parcours métier IA — dirigeant PME du bâtiment',
+  },
+  {
+    href: LINKS.parcoursReferentIaBtp,
+    label: 'Parcours référent IA BTP',
+    title: 'Parcours métier IA — référent intelligence artificielle BTP',
+  },
+];
+
+/** Colonne — Explorer. */
+const FOOTER_EXPLORER: readonly NavItem[] = [
+  {
+    href: LINKS.financement,
+    label: 'Financement OPCO Constructys',
+    title: 'Financement OPCO — formation IA BTP en Île-de-France',
+  },
+  {
+    href: LINKS.ressources,
+    label: 'Ressources et guides IA BTP',
+    title: 'Guides gratuits, tutoriels et outils IA pour le BTP',
+  },
+  {
+    href: LINKS.formateurs,
+    label: 'Nos formateurs IA BTP',
+    title: 'Équipe de formateurs — intelligence artificielle appliquée au BTP',
+  },
+  {
+    href: LINKS.aPropos,
+    label: 'À propos de Laure Olivié',
+    title: 'Organisme de formation IA BTP certifié Qualiopi — Paris',
+  },
+  {
+    href: LINKS.avisClients,
+    label: 'Avis clients formation BTP',
+    title: 'Témoignages et avis — formations IA bâtiment et travaux publics',
+  },
+];
 const PHONE_ARIA_LABEL = `Appeler ${SITE.name} au ${SITE.phoneDisplay}`;
 
 const FOOTER_LINK_CLASS =
@@ -126,10 +208,18 @@ export function Footer() {
             </Link>
             <div className="mt-3 h-px w-10 bg-white/35" aria-hidden />
             <p className="mt-2 max-w-[16rem] text-xs leading-relaxed text-white/70">
-              {SITE.footer.identityIntro}
+              <span className="font-semibold text-white/90">Laure OLIVIÉ</span>
+              <br />
+              Formation IA pour les entreprises du bâtiment et des travaux publics.
+              <br />
+              <span className="text-white/60">Présentiel · Paris et Île-de-France</span>
             </p>
             <p className="mt-2 max-w-[16rem] text-[10px] leading-snug text-white/55">
-              {SITE.legalName} · {OFC_IDENTITE.formeJuridique} · Capital {OFC_IDENTITE.capitalSocial}
+              {OFC_IDENTITE.raisonSociale} — {OFC_IDENTITE.formeJuridique}
+              <br />
+              Laure Olivié est la marque commerciale d&apos;{OFC_IDENTITE.raisonSociale}.
+              <br />
+              Capital {OFC_IDENTITE.capitalSocial}
               <br />
               Siège : {siteAdresseLigne()}
               <br />
@@ -138,19 +228,19 @@ export function Footer() {
           </div>
 
           <FooterNavColumn
-            ariaLabel="Navigation"
-            heading="Navigation"
-            items={NAV_FOOTER_MAQUETTE_NAVIGATION}
+            ariaLabel="Formations IA BTP"
+            heading="Formations IA BTP"
+            items={FOOTER_FORMATIONS_IA_BTP}
           />
           <FooterNavColumn
-            ariaLabel="Financement"
-            heading="Financement"
-            items={NAV_FOOTER_MAQUETTE_FINANCEMENT}
+            ariaLabel="Parcours métiers 2027"
+            heading="Parcours métiers · 2027"
+            items={FOOTER_PARCOURS_METIERS_2027}
           />
           <FooterNavColumn
-            ariaLabel="Notre organisme"
-            heading="Notre organisme"
-            items={NAV_FOOTER_MAQUETTE_ORGANISME}
+            ariaLabel="Explorer le site"
+            heading="Explorer"
+            items={FOOTER_EXPLORER}
           />
 
           <nav aria-label="Nous contacter" className="min-w-0">
@@ -179,7 +269,7 @@ export function Footer() {
               <li>
                 <span className={`${FOOTER_LINK_CLASS} gap-2 font-normal text-white/80`}>
                   <MapPin size={15} strokeWidth={1.75} className="shrink-0" aria-hidden />
-                  {SITE.footer.locationLine}
+                  Présentiel · Paris et Île-de-France
                 </span>
               </li>
             </ul>
@@ -197,8 +287,19 @@ export function Footer() {
                 <QualiopiBadge size="default" className="w-full max-w-[11.5rem]" />
               </a>
               <p className="max-w-[15rem] text-[10px] leading-snug text-white/55">
-                {QUALIOPI_LEGAL.qualiopiCategoryMention}
+                Certification Qualiopi — Actions de formation
+                <br />
+                Certificat n° {QUALIOPI_LEGAL.certificatNumero}
               </p>
+              <a
+                href={QUALIOPI_LEGAL.certificatPdfHref}
+                className={`${FOOTER_LINK_CLASS} text-[10px]`}
+                download
+                title={QUALIOPI_LEGAL.certificatPdfLabel}
+                type="application/pdf"
+              >
+                Voir le certificat
+              </a>
             </div>
           </div>
         </div>
@@ -211,10 +312,37 @@ export function Footer() {
             </p>
             <p className="flex shrink-0 flex-wrap items-center gap-x-2 gap-y-1">
               <Link
+                href={LINKS.mentionsLegales}
+                className="text-white/80 underline-offset-[3px] hover:text-white hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+              >
+                Mentions légales
+              </Link>
+              <span className="text-white/35 select-none" aria-hidden>
+                |
+              </span>
+              <Link
+                href={LINKS.cgv}
+                className="text-white/80 underline-offset-[3px] hover:text-white hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+              >
+                CGV
+              </Link>
+              <span className="text-white/35 select-none" aria-hidden>
+                |
+              </span>
+              <Link
                 href={LINKS.politiqueConfidentialite}
                 className="text-white/80 underline-offset-[3px] hover:text-white hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
               >
-                Politique de confidentialité
+                Confidentialité
+              </Link>
+              <span className="text-white/35 select-none" aria-hidden>
+                |
+              </span>
+              <Link
+                href={LINKS.accessibiliteHandicap}
+                className="text-white/80 underline-offset-[3px] hover:text-white hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+              >
+                Accessibilité
               </Link>
               <span className="text-white/35 select-none" aria-hidden>
                 |

@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import type { ComponentPropsWithoutRef } from 'react';
+import type { ComponentPropsWithoutRef, ReactNode } from 'react';
 import { CTA_RDV_LABEL } from '@/lib/cta-rdv-label';
 import { trackClicVisio } from '@/lib/ga4-analytics';
 import { buildPrendreRdvHref } from '@/lib/prendre-rdv-href';
@@ -27,6 +27,8 @@ export type CtaVisioProps = Omit<
   variant?: 'primary' | 'secondary' | 'inline';
   /** @deprecated Alias de `src` — conservé pour migration depuis {@link CtaRdv}. */
   origin?: string;
+  /** Icône ou élément affiché avant le libellé (ex. calendrier maquette). */
+  leadingAdornment?: ReactNode;
 };
 
 /**
@@ -37,6 +39,7 @@ export function CtaVisio({
   origin,
   variant = 'primary',
   className = '',
+  leadingAdornment,
   onClick,
   ...rest
 }: CtaVisioProps) {
@@ -62,6 +65,7 @@ export function CtaVisio({
       aria-label={CTA_RDV_LABEL}
       {...rest}
     >
+      {leadingAdornment}
       {CTA_RDV_LABEL}
     </Link>
   );

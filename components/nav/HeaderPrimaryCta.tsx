@@ -1,6 +1,6 @@
 'use client';
 
-import type { ComponentPropsWithoutRef } from 'react';
+import type { ComponentPropsWithoutRef, ReactNode } from 'react';
 import { CtaVisio } from '@/components/CtaVisio';
 
 const HEADER_CTA_CLASS =
@@ -14,12 +14,27 @@ export type HeaderPrimaryCtaProps = Omit<
   src?: string;
   /** @deprecated Alias `src`. */
   origin?: string;
+  leadingAdornment?: ReactNode;
 };
 
 /** CTA header — « Prendre RDV » → `/prendre-rdv`. */
-export function HeaderPrimaryCta({ className = '', src, origin, ...rest }: HeaderPrimaryCtaProps) {
+export function HeaderPrimaryCta({
+  className = '',
+  src,
+  origin,
+  leadingAdornment,
+  ...rest
+}: HeaderPrimaryCtaProps) {
   const merged = [HEADER_CTA_CLASS, className].filter(Boolean).join(' ');
   const trackingSrc = (src ?? origin ?? 'header').trim() || 'header';
 
-  return <CtaVisio src={trackingSrc} className={merged} data-cta="header-rdv" {...rest} />;
+  return (
+    <CtaVisio
+      src={trackingSrc}
+      className={merged}
+      data-cta="header-rdv"
+      leadingAdornment={leadingAdornment}
+      {...rest}
+    />
+  );
 }

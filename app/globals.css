@@ -1407,6 +1407,54 @@
     @apply py-0.5 shadow-[0_1px_2px_rgba(15,23,42,0.05)];
   }
 
+  /* Page /parcours-metiers — header blanc une ligne (maquette 2027) */
+  .site-header[data-variant='parcours-maquette'] {
+    @apply border-[#E2E8F0] bg-white shadow-[0_1px_0_rgba(15,23,42,0.04)];
+    @apply supports-[backdrop-filter]:bg-white;
+  }
+
+  .site-header[data-variant='parcours-maquette'][data-compact='true'] {
+    @apply bg-white shadow-[0_4px_20px_-12px_rgba(15,23,42,0.12)];
+    @apply supports-[backdrop-filter]:bg-white;
+  }
+
+  .site-header[data-variant='parcours-maquette'] .site-header__inner--parcours-maquette {
+    @apply py-2 lg:py-2.5;
+  }
+
+  .site-header[data-variant='parcours-maquette'] .site-header__nav-pill--parcours-maquette {
+    @apply justify-center gap-0.5 border-0 bg-transparent px-0 py-0 shadow-none backdrop-blur-none;
+  }
+
+  .site-header[data-variant='parcours-maquette'] .site-header__nav-pill--parcours-maquette > * {
+    @apply lg:min-h-[2.75rem] lg:flex-none;
+  }
+
+  .site-header[data-variant='parcours-maquette'] .header-nav-trigger--idle {
+    @apply text-[#071A42]/85 hover:bg-[#F2F7FF] hover:text-[#071A42];
+  }
+
+  .site-header[data-variant='parcours-maquette'] .header-nav-trigger--active {
+    @apply relative font-semibold text-[#071A42];
+  }
+
+  .site-header[data-variant='parcours-maquette'] .header-nav-trigger--active .header-nav-trigger__link {
+    @apply relative;
+  }
+
+  .site-header[data-variant='parcours-maquette'] .header-nav-trigger--active .header-nav-trigger__link::after {
+    content: '';
+    @apply absolute -bottom-0.5 left-2 right-2 h-0.5 rounded-full bg-[#086BFF] xl:left-3 xl:right-3;
+  }
+
+  .site-header[data-variant='parcours-maquette'] .header-nav-trigger--open {
+    @apply bg-[#F2F7FF] text-[#086BFF] shadow-none;
+  }
+
+  .site-header[data-variant='parcours-maquette'] .site-header__actions--parcours-maquette {
+    @apply border-0 pl-0;
+  }
+
   .header-mega-menu {
     @apply overflow-y-auto overscroll-contain;
     max-height: min(80vh, 40rem);

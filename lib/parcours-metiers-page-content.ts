@@ -8,7 +8,9 @@ import { ClipboardList, FileSpreadsheet, FileText, Layers } from 'lucide-react';
 const IMG = '/images/parcours-metiers';
 
 export const PARCOURS_METIERS_HERO = {
-  badge: 'FORMATIONS MÉTIERS BTP · 2027',
+  badge: 'FORMATIONS MÉTIERS BTP – OUVERTURE 2027',
+  h1Before: 'Les parcours métiers BTP avec ',
+  h1Highlight: 'l’IA',
   h1: 'Les parcours métiers BTP avec l’IA',
   intro:
     'Développez les compétences de vos équipes avec des formations concrètes, adaptées à chaque métier.',
@@ -97,12 +99,7 @@ export const PARCOURS_DOCUMENTS_METIER: readonly ParcoursDocumentMetierTile[] = 
 ] as const;
 
 export const PARCOURS_METIERS_TRUST = [
-  {
-    id: 'qualiopi',
-    title: 'Organisme certifié Qualiopi',
-    detail:
-      'La certification qualité a été délivrée au titre de la catégorie d’action suivante : actions de formation.',
-  },
+  { id: 'idf', title: 'Présentiel – Île-de-France', detail: null },
+  { id: 'qualiopi', title: 'Certifié Qualiopi', detail: null },
   { id: 'cas', title: 'Cas pratiques BTP', detail: null },
-  { id: '2027', title: 'Ouverture prévue en 2027', detail: null },
 ] as const;
