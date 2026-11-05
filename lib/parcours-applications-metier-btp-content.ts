@@ -23,7 +23,7 @@ export type ApplicationMetierNiveauConfig = {
   slug: string;
   path: string;
   tarifKey: ApplicationMetierBtpTarifKey;
-  duree: '7 h';
+  duree: '4 h';
   progressionLabel: string;
   progressionTagline: string;
   metaTitle: string;
@@ -152,7 +152,7 @@ export const PARCOURS_APPLICATIONS_METIER = {
     },
     {
       q: 'Quelle durée pour le parcours complet ?',
-      a: 'Trois sessions de 7 heures (21 heures au total), en présentiel intra-entreprise en Île-de-France. Chaque niveau peut aussi être suivi séparément.',
+      a: 'Trois sessions de 4 heures (12 heures au total), en présentiel intra-entreprise en Île-de-France. Chaque niveau peut aussi être suivi séparément.',
     },
     {
       q: 'Le financement OPCO est-il possible ?',
@@ -166,12 +166,12 @@ export const APPLICATION_METIER_NIVEAU_1: ApplicationMetierNiveauConfig = {
   slug: 'application-metier-btp-niveau-1',
   path: LINKS.formationApplicationMetierBtpNiveau1,
   tarifKey: 'niveau-1',
-  duree: '7 h',
+  duree: '4 h',
   progressionLabel: 'Niveau 1 — CONCEVOIR',
   progressionTagline: 'Je transforme un problème métier en prototype.',
   metaTitle: 'Créer une application métier BTP avec l’IA | Niveau 1',
   metaDescription:
-    'Formation pratique de 7 h pour créer votre premier prototype d’application métier BTP avec l’IA. Intra-entreprise en Île-de-France. Qualiopi.',
+    'Formation pratique de 4 h pour créer votre premier prototype d’application métier BTP avec l’IA. Intra-entreprise en Île-de-France. Qualiopi.',
   h1: 'Créez votre première application métier BTP avec l’IA',
   subtitle:
     'Transformez un problème concret de votre entreprise en premier prototype fonctionnel, sans être développeur.',
@@ -193,7 +193,7 @@ export const APPLICATION_METIER_NIVEAU_1: ApplicationMetierNiveauConfig = {
   modules: [
     {
       title: 'Identifier les processus à digitaliser',
-      duree: '45 min',
+      duree: '25 min',
       items: [
         'Tâches répétitives, doubles saisies, fichiers Excel',
         'Documents répétitifs, données dispersées, procédures manuelles',
@@ -201,7 +201,7 @@ export const APPLICATION_METIER_NIVEAU_1: ApplicationMetierNiveauConfig = {
     },
     {
       title: 'Transformer le besoin en cahier des charges',
-      duree: '1 h',
+      duree: '35 min',
       items: [
         'Problème, utilisateur, données, pages et fonctionnalités',
         'Règles métier et résultats attendus',
@@ -209,7 +209,7 @@ export const APPLICATION_METIER_NIVEAU_1: ApplicationMetierNiveauConfig = {
     },
     {
       title: 'Comprendre une application web',
-      duree: '1 h',
+      duree: '35 min',
       items: [
         'Interface, logique métier, données et base de données',
         'Serveur, hébergement et API',
@@ -217,7 +217,7 @@ export const APPLICATION_METIER_NIVEAU_1: ApplicationMetierNiveauConfig = {
     },
     {
       title: 'Concevoir l’interface',
-      duree: '1 h 30',
+      duree: '50 min',
       items: [
         'Navigation, tableau de bord, formulaires et tableaux',
         'Fiches, filtres et boutons',
@@ -225,7 +225,7 @@ export const APPLICATION_METIER_NIVEAU_1: ApplicationMetierNiveauConfig = {
     },
     {
       title: 'Construire les fonctionnalités',
-      duree: '1 h 30',
+      duree: '50 min',
       items: [
         'Créer, modifier, supprimer, rechercher et filtrer',
         'Calculer et changer un statut',
@@ -233,7 +233,7 @@ export const APPLICATION_METIER_NIVEAU_1: ApplicationMetierNiveauConfig = {
     },
     {
       title: 'Tester et améliorer',
-      duree: '1 h 15',
+      duree: '45 min',
       items: [
         'Tests utilisateurs, erreurs et corrections',
         'Responsive ordinateur et smartphone, préparation de la publication',
@@ -271,7 +271,7 @@ export const APPLICATION_METIER_NIVEAU_1: ApplicationMetierNiveauConfig = {
     },
   ],
   ux: {
-    heroFacts: '7 h · jusqu’à 8 participants · Intra-entreprise · Île-de-France',
+    heroFacts: '4 h · jusqu’à 8 participants · Intra-entreprise · Île-de-France',
     heroBadge: 'Applications métier BTP · Niveau 1 — Concevoir',
     resultatJournee: [
       'Définir votre besoin métier',
@@ -377,12 +377,12 @@ export const APPLICATION_METIER_NIVEAU_2: ApplicationMetierNiveauConfig = {
   slug: 'application-metier-btp-niveau-2',
   path: LINKS.formationApplicationMetierBtpNiveau2,
   tarifKey: 'niveau-2',
-  duree: '7 h',
+  duree: '4 h',
   progressionLabel: 'Niveau 2 — CONNECTER',
   progressionTagline: 'Je transforme mon prototype en application métier connectée.',
   metaTitle: 'Application métier BTP connectée avec l’IA | Niveau 2',
   metaDescription:
-    'Formation de 7 h pour connecter votre application métier BTP : données, utilisateurs, workflows et services externes. Niveau 2 en Île-de-France.',
+    'Formation de 4 h pour connecter votre application métier BTP : données, utilisateurs, workflows et services externes. Niveau 2 en Île-de-France.',
   h1: 'Développez une application métier BTP connectée',
   subtitle:
     'Faites évoluer votre prototype avec une base de données, des utilisateurs, des workflows et des services connectés.',
@@ -403,12 +403,12 @@ export const APPLICATION_METIER_NIVEAU_2: ApplicationMetierNiveauConfig = {
   modules: [
     {
       title: 'Structurer une base de données métier',
-      duree: '1 h 15',
+      duree: '45 min',
       items: ['Tables, champs, relations et identifiants', 'Statuts et historique'],
     },
     {
       title: 'Gérer les utilisateurs et les accès',
-      duree: '1 h',
+      duree: '35 min',
       items: [
         'Authentification et comptes utilisateurs',
         'Administrateur, collaborateurs, rôles et droits',
@@ -416,7 +416,7 @@ export const APPLICATION_METIER_NIVEAU_2: ApplicationMetierNiveauConfig = {
     },
     {
       title: 'Construire un workflow métier',
-      duree: '1 h',
+      duree: '35 min',
       items: [
         'Exemple : prospect → rendez-vous → devis → relance → commande → chantier',
         'Ou : affaire → préparation → travaux → contrôle → réception',
@@ -424,7 +424,7 @@ export const APPLICATION_METIER_NIVEAU_2: ApplicationMetierNiveauConfig = {
     },
     {
       title: 'Connecter des services externes',
-      duree: '1 h 15',
+      duree: '45 min',
       items: [
         'API, formulaires, calendrier, messagerie',
         'Notifications et services externes',
@@ -432,7 +432,7 @@ export const APPLICATION_METIER_NIVEAU_2: ApplicationMetierNiveauConfig = {
     },
     {
       title: 'Automatiser les actions répétitives',
-      duree: '1 h',
+      duree: '35 min',
       items: [
         'Créer une tâche, envoyer une notification, changer un statut',
         'Générer un document, préparer une relance',
@@ -440,12 +440,12 @@ export const APPLICATION_METIER_NIVEAU_2: ApplicationMetierNiveauConfig = {
     },
     {
       title: 'Générer et gérer des documents',
-      duree: '1 h',
+      duree: '35 min',
       items: ['Devis, rapport, compte rendu, fiche chantier', 'Synthèse et PDF'],
     },
     {
       title: 'Tester et sécuriser',
-      duree: '30 min',
+      duree: '15 min',
       items: [
         'Contrôle des accès et validation des données',
         'Tests et gestion des erreurs',
@@ -483,7 +483,7 @@ export const APPLICATION_METIER_NIVEAU_2: ApplicationMetierNiveauConfig = {
     },
   ],
   ux: {
-    heroFacts: '7 h · jusqu’à 8 participants · Intra-entreprise · Île-de-France',
+    heroFacts: '4 h · jusqu’à 8 participants · Intra-entreprise · Île-de-France',
     heroBadge: 'Applications métier BTP · Niveau 2 — Connecter',
     ctaHeroLabel: 'Parler de mon application',
     resultatJourneeTitle: 'Passez du prototype à une application connectée',
@@ -583,43 +583,43 @@ export const APPLICATION_METIER_NIVEAU_2: ApplicationMetierNiveauConfig = {
         label: '01',
         title: 'Structurer les données',
         text: 'Tables, champs, relations, statuts et historique.',
-        duree: '1 h 15',
+        duree: '45 min',
       },
       {
         label: '02',
         title: 'Gérer les utilisateurs',
         text: 'Authentification, comptes, rôles et droits.',
-        duree: '1 h',
+        duree: '35 min',
       },
       {
         label: '03',
         title: 'Créer le workflow',
         text: 'Transformer votre processus métier en étapes et actions.',
-        duree: '1 h',
+        duree: '35 min',
       },
       {
         label: '04',
         title: 'Connecter des services',
         text: 'Calendrier, formulaires, messagerie, notifications et API.',
-        duree: '1 h 15',
+        duree: '45 min',
       },
       {
         label: '05',
         title: 'Automatiser',
         text: 'Déclencher certaines actions selon les événements de l’application.',
-        duree: '1 h',
+        duree: '35 min',
       },
       {
         label: '06',
         title: 'Générer des documents',
         text: 'Devis, rapports, comptes rendus, fiches chantier ou PDF.',
-        duree: '1 h',
+        duree: '35 min',
       },
       {
         label: '07',
         title: 'Tester et sécuriser',
         text: 'Contrôler les accès, données, erreurs et comportements.',
-        duree: '30 min',
+        duree: '15 min',
       },
     ],
     livrablesTitle: 'Vous repartez avec une application plus complète',
@@ -660,13 +660,13 @@ export const APPLICATION_METIER_NIVEAU_3: ApplicationMetierNiveauConfig = {
   slug: 'application-metier-btp-niveau-3',
   path: LINKS.formationApplicationMetierBtpNiveau3,
   tarifKey: 'niveau-3',
-  duree: '7 h',
+  duree: '4 h',
   progressionLabel: 'Niveau 3 — INTÉGRER L’IA ET INDUSTRIALISER',
   progressionTagline:
     'Je transforme mon application en outil avancé intégrant intelligence artificielle, automatisations et workflows métier.',
   metaTitle: 'Application métier BTP IA : niveau 3',
   metaDescription:
-    'Formation IA pour les pros du BTP : application métier BTP avec intelligence artificielle, automatisations et workflows. 7 h, Qualiopi, présentiel IDF.',
+    'Formation IA pour les pros du BTP : application métier BTP avec intelligence artificielle, automatisations et workflows. 4 h, Qualiopi, présentiel IDF.',
   h1: 'Développer une application métier BTP avancée avec l’IA',
   subtitle:
     'Intégrer des fonctionnalités avancées d’intelligence artificielle dans une application métier — analyse documentaire, workflows et déploiement.',
@@ -687,7 +687,7 @@ export const APPLICATION_METIER_NIVEAU_3: ApplicationMetierNiveauConfig = {
   modules: [
     {
       title: 'Structurer une application métier avancée',
-      duree: '1 h',
+      duree: '35 min',
       items: [
         'Architecture, modules, données et utilisateurs',
         'Documents, automatisations et dépendances',
@@ -695,7 +695,7 @@ export const APPLICATION_METIER_NIVEAU_3: ApplicationMetierNiveauConfig = {
     },
     {
       title: 'Intégrer une intelligence artificielle',
-      duree: '1 h 15',
+      duree: '45 min',
       items: [
         'Analyser, extraire, classer, résumer, comparer',
         'Générer et structurer des informations',
@@ -703,7 +703,7 @@ export const APPLICATION_METIER_NIVEAU_3: ApplicationMetierNiveauConfig = {
     },
     {
       title: 'Exploiter des documents métier',
-      duree: '1 h 15',
+      duree: '45 min',
       items: [
         'Import de documents et extraction d’informations',
         'Recherche, comparaison, analyse et structuration',
@@ -711,7 +711,7 @@ export const APPLICATION_METIER_NIVEAU_3: ApplicationMetierNiveauConfig = {
     },
     {
       title: 'Construire un workflow IA',
-      duree: '1 h',
+      duree: '35 min',
       items: [
         'Document → analyse → extraction → classification → génération',
         'Contrôle humain → résultat',
@@ -719,7 +719,7 @@ export const APPLICATION_METIER_NIVEAU_3: ApplicationMetierNiveauConfig = {
     },
     {
       title: 'Automatiser un processus complet',
-      duree: '1 h',
+      duree: '35 min',
       items: [
         'Déclencher analyse, génération, notifications',
         'Changement de statut, tâches et production de documents',
@@ -727,7 +727,7 @@ export const APPLICATION_METIER_NIVEAU_3: ApplicationMetierNiveauConfig = {
     },
     {
       title: 'Fiabiliser et sécuriser',
-      duree: '1 h',
+      duree: '35 min',
       items: [
         'Validation des données, droits et accès aux documents',
         'Clés API, données sensibles, erreurs, sauvegardes, principes RGPD',
@@ -735,7 +735,7 @@ export const APPLICATION_METIER_NIVEAU_3: ApplicationMetierNiveauConfig = {
     },
     {
       title: 'Déployer et maintenir',
-      duree: '30 min',
+      duree: '15 min',
       items: [
         'Environnement de production, tests, versionnement',
         'Mises à jour, sauvegardes et maintenance',

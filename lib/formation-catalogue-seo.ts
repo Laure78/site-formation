@@ -66,12 +66,12 @@ export const FORMATION_CATALOGUE_SEO: Record<FormationCatalogueCode, FormationCa
     ],
   },
   'NIV-02': {
-    metaTitle: 'Programme IA DCE & mémoire technique (7 h)',
-    h1: 'Programme Niveau 2 : analyser un DCE et préparer son mémoire technique (7 h)',
+    metaTitle: 'Programme IA DCE & mémoire technique (4 h)',
+    h1: 'Programme Niveau 2 : analyser un DCE et préparer son mémoire technique (4 h)',
     subtitle:
       'Apprenez à extraire les exigences d’un DCE, préparer les points de contrôle du chiffrage et structurer un mémoire technique avec l’aide de l’IA. Atelier pratique sur un dossier réel de l’entreprise.',
     metaDescription:
-      "Programme IA DCE & mémoire technique (7 h) : méthode DCE, chiffrage et mémoire technique avec l'IA. Présentiel Île-de-France, Qualiopi, OPCO selon éligibilité.",
+      "Programme IA DCE & mémoire technique (4 h) : méthode DCE, chiffrage et mémoire technique avec l'IA. Présentiel Île-de-France, Qualiopi, OPCO selon éligibilité.",
     enBref: `La formation IA appels d’offres BTP (NIV-02, ${dureeCatalogueParCode('NIV-02')}, ${libelleTarifParticipantCatalogue(TARIF_PARTICIPANT_NIV02_HT)} en inter) construit une méthode guidée pour analyser un DCE (RC, CCTP, CCAP, DPGF), préparer une checklist de chiffrage et structurer un mémoire technique avec ChatGPT ou Claude. Présentiel Île-de-France, dossier fil rouge — ${QUALIOPI_MENTION}. L’IA assiste l’analyse ; le chiffrage et les engagements restent à valider par le professionnel.`,
     publicTargets: [
       'Dirigeants de PME du BTP',
@@ -87,12 +87,12 @@ export const FORMATION_CATALOGUE_SEO: Record<FormationCatalogueCode, FormationCa
     ],
   },
   'NIV-03': {
-    metaTitle: 'Programme IA suivi de chantier (7 h)',
-    h1: 'Programme Niveau 2 : suivi de chantier, CR et DOE avec l’IA (7 h)',
+    metaTitle: 'Programme IA suivi de chantier (4 h)',
+    h1: 'Programme Niveau 2 : suivi de chantier, CR et DOE avec l’IA (4 h)',
     subtitle:
       'Analysez vos CCTP, produisez vos comptes rendus et organisez le suivi du chantier jusqu\'à la réception avec ChatGPT et Claude.',
     metaDescription:
-      "Programme IA suivi de chantier (7 h) : CR, CCTP, PPSPS et DOE assistés par l'IA sur vos dossiers BTP. Présentiel IDF, Qualiopi, OPCO selon éligibilité.",
+      "Programme IA suivi de chantier (4 h) : CR, CCTP, PPSPS et DOE assistés par l'IA sur vos dossiers BTP. Présentiel IDF, Qualiopi, OPCO selon éligibilité.",
     enBref: `La formation IA pour conducteurs de travaux apprend à utiliser ChatGPT et Claude pour analyser un CCTP, préparer un compte rendu, suivre les actions, gérer les réserves et structurer un DOE. Session ${dureeCatalogueParCode('NIV-03')} en présentiel — ${QUALIOPI_MENTION}.`,
     publicTargets: [
       'Conducteurs de travaux',
@@ -114,7 +114,7 @@ export const FORMATION_CATALOGUE_SEO: Record<FormationCatalogueCode, FormationCa
     subtitle:
       'Exploitez l’écosystème Claude (Projects, Cowork, Skills, connecteurs) sur vos documents BTP — formation avancée distincte du parcours applications métier.',
     metaDescription:
-      'Formation Claude AI BTP : Projects, Cowork, Skills et connecteurs sur vos dossiers chantier. 7 h présentiel IDF, Qualiopi, financement OPCO selon éligibilité.',
+      'Formation Claude AI BTP : Projects, Cowork, Skills et connecteurs sur vos dossiers chantier. 4 h présentiel IDF, Qualiopi, financement OPCO selon éligibilité.',
     enBref: `La Formation Claude AI BTP apprend à structurer des Projets Claude, créer des Skills métier, déléguer la production documentaire à Cowork et connecter Claude à la messagerie et au drive. ${dureeCatalogueParCode('NIV-04')} en présentiel — ${QUALIOPI_MENTION}. Distincte du parcours applications métier BTP.`,
     publicTargets: [
       'Référents IA et responsables digitaux',
@@ -134,7 +134,7 @@ export const FORMATION_CATALOGUE_SEO: Record<FormationCatalogueCode, FormationCa
     subtitle:
       'Analyse DCE, comptes rendus, ordres de service, réserves et réception avec ChatGPT et Claude.',
     metaDescription:
-      'Formation IA maîtrise d’œuvre : DCE, CR, OS et réception sur vos dossiers réels. 7 h, présentiel Île-de-France, Qualiopi, financement OPCO selon éligibilité.',
+      'Formation IA maîtrise d’œuvre : DCE, CR, OS et réception sur vos dossiers réels. 4 h, présentiel Île-de-France, Qualiopi, financement OPCO selon éligibilité.',
     enBref: `La formation IA pour maîtres d'œuvre apprend à analyser un DCE, rédiger un compte rendu de chantier, produire ordres de service et courriers MOE, et organiser le suivi des réserves avec l'IA. ${dureeCatalogueParCode('NIV-05')} en présentiel — ${QUALIOPI_MENTION}.`,
     publicTargets: [
       'Maîtres d\'œuvre d\'exécution (MOEX)',
@@ -155,8 +155,8 @@ export const FORMATION_CATALOGUE_SEO: Record<FormationCatalogueCode, FormationCa
     subtitle:
       'Transformer un problème métier en prototype fonctionnel avec le développement assisté par l’intelligence artificielle — sans compétence préalable en programmation.',
     metaDescription:
-      'Formation IA pour le BTP : créer sa première application métier avec le développement assisté par l’IA. 7 h, prototype, Qualiopi, présentiel IDF.',
-    enBref: `La formation niveau 1 applications métier BTP apprend à cadrer un besoin métier, rédiger un cahier des charges simple et construire un prototype fonctionnel avec le développement assisté par l’IA. Session 7 h en présentiel — ${QUALIOPI_MENTION}. Chaque participant repart avec un prototype ou le socle de son application — pas une application professionnelle complète.`,
+      'Formation IA pour le BTP : créer sa première application métier avec le développement assisté par l’IA. 4 h, prototype, Qualiopi, présentiel IDF.',
+    enBref: `La formation niveau 1 applications métier BTP apprend à cadrer un besoin métier, rédiger un cahier des charges simple et construire un prototype fonctionnel avec le développement assisté par l’IA. Session 4 h en présentiel — ${QUALIOPI_MENTION}. Chaque participant repart avec un prototype ou le socle de son application — pas une application professionnelle complète.`,
     publicTargets: [
       'Dirigeants PME BTP et responsables méthodes',
       'Conducteurs de travaux et chargés d’affaires porteurs d’un projet d’outil',
@@ -175,8 +175,8 @@ export const FORMATION_CATALOGUE_SEO: Record<FormationCatalogueCode, FormationCa
     subtitle:
       'Base de données, utilisateurs, workflows et services externes — faire évoluer un prototype vers une application métier connectée.',
     metaDescription:
-      'Formation IA appliquée au bâtiment : application métier connectée (BDD, API, automatisations). 7 h présentiel, Qualiopi, financement selon éligibilité.',
-    enBref: `La formation niveau 2 applications métier BTP enseigne la structuration d’une base de données, la gestion des accès, les workflows métier et la connexion à des services externes. Session 7 h en présentiel — ${QUALIOPI_MENTION}. Les cas d’usage (CRM, devis, trésorerie…) sont des exemples, pas des modules obligatoires.`,
+      'Formation IA appliquée au bâtiment : application métier connectée (BDD, API, automatisations). 4 h présentiel, Qualiopi, financement selon éligibilité.',
+    enBref: `La formation niveau 2 applications métier BTP enseigne la structuration d’une base de données, la gestion des accès, les workflows métier et la connexion à des services externes. Session 4 h en présentiel — ${QUALIOPI_MENTION}. Les cas d’usage (CRM, devis, trésorerie…) sont des exemples, pas des modules obligatoires.`,
     publicTargets: [
       'Participants ayant suivi le niveau 1 ou disposant d’un prototype',
       'Dirigeants et responsables digitaux PME BTP',
@@ -195,8 +195,8 @@ export const FORMATION_CATALOGUE_SEO: Record<FormationCatalogueCode, FormationCa
     subtitle:
       'Intégrer l’intelligence artificielle dans une application métier : analyse documentaire, workflows IA et déploiement.',
     metaDescription:
-      'Formation IA pour les pros du BTP : intégrer l’IA dans une application métier (documents, workflows). 7 h, Qualiopi, présentiel IDF.',
-    enBref: `La formation niveau 3 applications métier BTP enseigne l’intégration de l’IA dans une application (analyse, extraction, classification, génération) avec validation humaine. Session 7 h en présentiel — ${QUALIOPI_MENTION}. L’assistant DCE est un exemple parmi d’autres cas d’usage avancés.`,
+      'Formation IA pour les pros du BTP : intégrer l’IA dans une application métier (documents, workflows). 4 h, Qualiopi, présentiel IDF.',
+    enBref: `La formation niveau 3 applications métier BTP enseigne l’intégration de l’IA dans une application (analyse, extraction, classification, génération) avec validation humaine. Session 4 h en présentiel — ${QUALIOPI_MENTION}. L’assistant DCE est un exemple parmi d’autres cas d’usage avancés.`,
     publicTargets: [
       'Participants autonomes sur une application simple (niveau 2 ou équivalent)',
       'Dirigeants et référents digitaux PME BTP',

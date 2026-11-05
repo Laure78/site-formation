@@ -4,7 +4,10 @@
  */
 import {
   CATALOGUE_DUREE_BASES_IA_ONLY,
+  CATALOGUE_DUREE_NIV09,
+  CATALOGUE_DUREE_NIV10,
   CATALOGUE_DUREE_SESSION_METIER,
+  CATALOGUE_DUREE_STANDARD,
   CATALOGUE_FORMATIONS_TOTAL,
   FORMATION_NIV01,
   getFormationByCode,
@@ -14,7 +17,10 @@ import {
 
 export {
   CATALOGUE_DUREE_BASES_IA_ONLY,
+  CATALOGUE_DUREE_NIV09,
+  CATALOGUE_DUREE_NIV10,
   CATALOGUE_DUREE_SESSION_METIER,
+  CATALOGUE_DUREE_STANDARD,
   CATALOGUE_FORMATIONS_TOTAL,
 };
 
@@ -28,7 +34,7 @@ export function dureeCatalogueParCode(code: FormationCode): string {
 
 /** Phrase FAQ / blog — durées du catalogue sans valeurs codées en dur. */
 export function faqDureesCatalogueSentence(): string {
-  return `Les bases de l’IA (NIV-01) durent ${CATALOGUE_DUREE_BASES_IA_ONLY} ; les sessions métier catalogue durent ${CATALOGUE_DUREE_SESSION_METIER}. Format intra (dans vos locaux) ou inter, exclusivement en présentiel en Île-de-France.`;
+  return `Les formations du catalogue IA BTP durent ${CATALOGUE_DUREE_STANDARD} en session standard (exceptions : assistants IA personnalisés ${CATALOGUE_DUREE_NIV09}, applications métier sur 2 jours ${CATALOGUE_DUREE_NIV10}). Format intra (dans vos locaux) ou inter, exclusivement en présentiel en Île-de-France.`;
 }
 
 export function phraseSessionCatalogueMetierQualiopi(): string {

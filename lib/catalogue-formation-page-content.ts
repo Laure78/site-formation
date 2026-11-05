@@ -315,11 +315,11 @@ const NIV_01: CatalogueFormationPageContent = {
 const NIV_02: CatalogueFormationPageContent = {
   programmeRef: 'NIV-02',
   parcoursKind: 'usages-ia-btp',
-  levelBadgeLabel: 'NUM-02 · Appels d’offres · 7 heures',
+  levelBadgeLabel: 'NUM-02 · Appels d’offres · 4 heures',
   heroPublicLine:
     'Bases de l’IA générative requises. Abonnement professionnel à l’outil utilisé pendant la session (non inclus dans le tarif).',
   heroFacts: [
-    '7 heures',
+    '4 heures',
     '75 % de pratique',
     'Présentiel en Île-de-France',
     'Niveau intermédiaire',
@@ -416,10 +416,10 @@ const NIV_02: CatalogueFormationPageContent = {
   ],
   intraExtraBullets: ['Dossier fil rouge de l’entreprise'],
   interExtraBullets: ['Dossier pédagogique commun'],
-  programIntro: '7 h · 75 % pratique · fil rouge appels d’offres.',
+  programIntro: '4 h · 75 % pratique · fil rouge appels d’offres.',
   programModules: [
     {
-      title: 'Accueil et cadrage — 15 min',
+      title: 'Accueil et cadrage — 10 min',
       points: [
         'Vérification des prérequis',
         'Présentation du dossier fil rouge',
@@ -427,7 +427,7 @@ const NIV_02: CatalogueFormationPageContent = {
       ],
     },
     {
-      title: 'Module 1 — Préparer l’analyse du DCE — 1 h 15',
+      title: 'Module 1 — Préparer l’analyse du DCE — 45 min',
       competence: 'Organiser les pièces et cadrer l’analyse du DCE',
       points: [
         'Rôle du RC, du CCAP, du CCTP, de la DPGF et du BPU',
@@ -440,7 +440,7 @@ const NIV_02: CatalogueFormationPageContent = {
         'Exercice pratique : classer le fil rouge et rédiger une consigne avec obligation de citation des pièces sources.',
     },
     {
-      title: 'Module 2 — Analyser et croiser les pièces — 1 h 45',
+      title: 'Module 2 — Analyser et croiser les pièces — 55 min',
       competence: 'Extraire et croiser les exigences avec références',
       points: [
         'Extraction des exigences avec références (Claude / Artifacts)',
@@ -452,7 +452,7 @@ const NIV_02: CatalogueFormationPageContent = {
         'Exercice pratique : tableau d’écarts CCTP/DPGF — critère : références exactes, faits vs hypothèses.',
     },
     {
-      title: 'Module 3 — Préparer le chiffrage — 1 h 30',
+      title: 'Module 3 — Préparer le chiffrage — 45 min',
       competence: 'Préparer une checklist de chiffrage contrôlée',
       points: [
         'Checklist des prestations, unités et quantités à partir des pièces',
@@ -464,7 +464,7 @@ const NIV_02: CatalogueFormationPageContent = {
         'Exercice pratique : checklist chiffrage — critère : échantillon recalculé manuellement par le professionnel.',
     },
     {
-      title: 'Module 4 — Structurer le mémoire technique — 2 h',
+      title: 'Module 4 — Structurer le mémoire technique — 1 h 10',
       competence: 'Structurer un mémoire aligné sur les critères du RC',
       points: [
         'Lecture des critères et pondérations du RC',
@@ -527,7 +527,7 @@ const NIV_03: CatalogueFormationPageContent = {
   heroPublicLine:
     'Conducteurs de travaux, chefs de chantier, responsables travaux et assistant(e)s travaux.',
   heroFacts: [
-    '7 heures',
+    '4 heures',
     '70 % de pratique',
     `${getFormationByCode('NIV-03')!.effectifMin} à ${getFormationByCode('NIV-03')!.effectifMax} participants`,
     'Présentiel en Île-de-France',
@@ -605,7 +605,7 @@ const NIV_03: CatalogueFormationPageContent = {
   ],
   intraExtraBullets: ['Suivi visio J+30 inclus'],
   programIntro:
-    '7 h · 70 % pratique sur vos documents chantier (installation, suivi, gestion). Réception : module TRA-05 du parcours Conducteur de travaux.',
+    '4 h · 70 % pratique sur vos documents chantier (installation, suivi, gestion). Réception : module TRA-05 du parcours Conducteur de travaux.',
   programmeMethodsBullets: [...NIV03_PEDAGOGICAL_METHODS],
   programModules: mapProgrammeBlocsToCatalogueModules(NIV03_PROGRAMME_BLOCS),
   programLinks: [
@@ -645,7 +645,7 @@ const NIV_04: CatalogueFormationPageContent = {
   heroPublicLine:
     'Référents IA, dirigeants, responsables digitaux, chargés d’affaires et conducteurs de travaux souhaitant industrialiser l’usage de Claude dans l’entreprise.',
   heroFacts: [
-    '7 heures',
+    '4 heures',
     '70 % de pratique',
     'Projets, Cowork, connecteurs, Claude Code',
     'Présentiel en Île-de-France',
@@ -710,7 +710,7 @@ const NIV_04: CatalogueFormationPageContent = {
     },
   ],
   programIntro:
-    '7 h (9h–17h) · 4 modules : Projets, Cowork, connecteurs, Claude Code · 70 % pratique.',
+    '4 h (demi-journée) · 4 modules : Projets, Cowork, connecteurs, Claude Code · 70 % pratique.',
   programModules: mapProgrammeBlocsToCatalogueModules(NIV04_PROGRAMME_BLOCS),
   pdfHref: LINKS.pdfProgrammeMaitriserClaudeBtpNiv04,
   programLinks: [
@@ -735,7 +735,7 @@ const NIV_05: CatalogueFormationPageContent = {
   heroPublicLine:
     'Maîtres d’œuvre d’exécution (MOEX), conducteurs de travaux, OPC, BET et assistants gestion travaux.',
   heroFacts: [
-    '7 heures',
+    '4 heures',
     '70 % de pratique',
     '5 modules MOE opérationnels',
     'Présentiel en Île-de-France',
@@ -807,8 +807,8 @@ const NIV_05: CatalogueFormationPageContent = {
       ],
     },
   ],
-  programmeHeading: 'Programme — 5 modules MOE (7 h)',
-  programIntro: '7 h · 70 % pratique · ateliers sur vos dossiers MOE (anonymisés si besoin).',
+  programmeHeading: 'Programme — 5 modules MOE (4 h)',
+  programIntro: '4 h · 70 % pratique · ateliers sur vos dossiers MOE (anonymisés si besoin).',
   programModules: mapProgrammeBlocsToCatalogueModules(NIV05_PROGRAMME_BLOCS),
   pdfHref: LINKS.pdfProgrammeIaMaitriseOeuvre,
   programLinks: [
@@ -1168,7 +1168,7 @@ const NIV_12: CatalogueFormationPageContent = {
     {
       prefix: 'Pour l’exécution (DCE, OS, réserves et réception), voir la',
       href: LINKS.formationIaMaitriseOeuvre,
-      label: 'formation IA et maîtrise d’œuvre (7 h)',
+      label: 'formation IA et maîtrise d’œuvre (4 h)',
     },
     {
       prefix: 'Côté maîtrise d’ouvrage, voir la',

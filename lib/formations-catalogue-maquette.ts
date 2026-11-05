@@ -9,13 +9,13 @@ export const CATALOGUE_MAQUETTE_FORMATS = [
     id: 'express',
     titre: 'Express',
     duree: '4 h',
-    description: 'Acquérir les bases rapidement',
+    description: 'Bases et sessions métier — format demi-journée',
   },
   {
     id: 'approfondi',
     titre: 'Approfondi',
     duree: '7 h',
-    description: 'Mettre en pratique sur vos cas métiers',
+    description: 'Assistants IA personnalisés — session dédiée',
   },
   {
     id: 'avance',

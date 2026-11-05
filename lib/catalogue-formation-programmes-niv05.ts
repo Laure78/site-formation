@@ -4,7 +4,7 @@ import type { ProgrammeFormationBloc } from '@/components/formations/catalogue/P
 export const NIV05_PROGRAMME_BLOCS: readonly ProgrammeFormationBloc[] = [
   {
     heading: 'ACCUEIL — Accueil, cadrage et positionnement',
-    meta: '15 min',
+    meta: '10 min',
     objectifs: [
       'Ouverture de session',
       'Émargement, présentation des objectifs et du déroulé',
@@ -15,7 +15,7 @@ export const NIV05_PROGRAMME_BLOCS: readonly ProgrammeFormationBloc[] = [
   },
   {
     heading: 'MODULE 0 — Claude et l’écosystème Anthropic pour la MOE',
-    meta: '45 min',
+    meta: '30 min',
     objectifs: [
       'Claude ou ChatGPT ?',
       'Quel outil pour quel usage MOE : rigueur, documents longs, confidentialité',
@@ -27,7 +27,7 @@ export const NIV05_PROGRAMME_BLOCS: readonly ProgrammeFormationBloc[] = [
   },
   {
     heading: 'MODULE 1 — Analyse des offres et conformité',
-    meta: '1 h 25',
+    meta: '50 min',
     objectifs: [
       'Lecture des pièces',
       'CCTP, CCAP, CCAG, bordereaux : points de vigilance',
@@ -42,7 +42,7 @@ export const NIV05_PROGRAMME_BLOCS: readonly ProgrammeFormationBloc[] = [
   },
   {
     heading: 'MODULE 2 — Comptes rendus de chantier',
-    meta: '1 h 25',
+    meta: '50 min',
     objectifs: [
       'Trame MOE',
       'Présents / excusés, avancement par corps d’état, réserves, décisions, échéances',
@@ -56,7 +56,7 @@ export const NIV05_PROGRAMME_BLOCS: readonly ProgrammeFormationBloc[] = [
   },
   {
     heading: 'MODULE 3 — Courriers, ordres de service et actes administratifs',
-    meta: '1 h 25',
+    meta: '50 min',
     objectifs: [
       'Bibliothèque d’actes MOE',
       'OS de démarrage, d’arrêt, de modification, de reprise',
@@ -69,7 +69,7 @@ export const NIV05_PROGRAMME_BLOCS: readonly ProgrammeFormationBloc[] = [
   },
   {
     heading: 'MODULE 4 — Réserves, réception et suivi client',
-    meta: '1 h 30',
+    meta: '45 min',
     objectifs: [
       'Réserves',
       'Photo + dictée → fiche de réserve structurée',

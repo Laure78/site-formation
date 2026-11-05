@@ -121,8 +121,8 @@ export const FORMATIONS: readonly Formation[] = [
     theme: 'appels-offres-etudes',
     niveau: 2,
     niveauLabel: 'NUM-02',
-    duree: '7 h',
-    horaires: '9h00 – 12h30 / 13h30 – 17h00',
+    duree: '4 h',
+    horaires: '9h00 – 13h00 ou 13h30 – 17h30',
     effectifMin: 6,
     effectifMax: 12,
     prixHT: 0,
@@ -157,8 +157,8 @@ export const FORMATIONS: readonly Formation[] = [
     theme: 'chantier-travaux',
     niveau: 2,
     niveauLabel: 'NUM-07',
-    duree: '7 h',
-    horaires: '9h00 – 12h30 / 13h30 – 17h00',
+    duree: '4 h',
+    horaires: '9h00 – 13h00 ou 13h30 – 17h30',
     effectifMin: 6,
     effectifMax: 12,
     prixHT: 0,
@@ -193,8 +193,8 @@ export const FORMATIONS: readonly Formation[] = [
     theme: 'outils-applications',
     niveau: 2,
     niveauLabel: 'NUM-03',
-    duree: '7 h',
-    horaires: '9h00 – 12h30 / 13h30 – 17h00',
+    duree: '4 h',
+    horaires: '9h00 – 13h00 ou 13h30 – 17h30',
     effectifMin: 6,
     effectifMax: 12,
     prixHT: 0,
@@ -230,8 +230,8 @@ export const FORMATIONS: readonly Formation[] = [
     theme: 'maitrise-oeuvre',
     niveau: 2,
     niveauLabel: 'NUM-08',
-    duree: '7 h',
-    horaires: '9h00 – 12h30 / 13h30 – 17h00',
+    duree: '4 h',
+    horaires: '9h00 – 13h00 ou 13h30 – 17h30',
     effectifMin: 6,
     effectifMax: 12,
     prixHT: 0,
@@ -340,8 +340,8 @@ export const FORMATIONS: readonly Formation[] = [
     theme: 'outils-applications',
     niveau: 3,
     niveauLabel: 'Niveau 1 — Concevoir',
-    duree: '7 h',
-    horaires: 'journée complète ou organisation à convenir',
+    duree: '4 h',
+    horaires: '9h00 – 13h00 ou 13h30 – 17h30',
     effectifMin: 2,
     effectifMax: 8,
     prixHT: 0,
@@ -380,8 +380,8 @@ export const FORMATIONS: readonly Formation[] = [
     theme: 'outils-applications',
     niveau: 3,
     niveauLabel: 'Niveau 2 — Connecter',
-    duree: '7 h',
-    horaires: 'journée complète ou organisation à convenir',
+    duree: '4 h',
+    horaires: '9h00 – 13h00 ou 13h30 – 17h30',
     effectifMin: 2,
     effectifMax: 8,
     prixHT: 0,
@@ -420,8 +420,8 @@ export const FORMATIONS: readonly Formation[] = [
     theme: 'outils-applications',
     niveau: 3,
     niveauLabel: 'Niveau 3 — Industrialiser',
-    duree: '7 h',
-    horaires: 'journée complète ou organisation à convenir',
+    duree: '4 h',
+    horaires: '9h00 – 13h00 ou 13h30 – 17h30',
     effectifMin: 2,
     effectifMax: 8,
     prixHT: 0,
@@ -535,11 +535,15 @@ export const FORMATIONS_COUNT = FORMATIONS.length;
 export const CATALOGUE_FORMATIONS_TOTAL = FORMATIONS.length;
 
 /**
- * Durées catalogue — seul NIV-01 (« Les bases de l’IA ») est en 4 h.
- * Toutes les autres sessions publiées sont en 7 h, sauf NIV-10 (14 h).
+ * Durées catalogue — standard 4 h pour les sessions IA BTP publiées.
+ * Exceptions : NIV-09 (7 h), NIV-10 (14 h).
  */
-export const CATALOGUE_DUREE_BASES_IA_ONLY = '4 h' as const;
-export const CATALOGUE_DUREE_SESSION_METIER = '7 h' as const;
+export const CATALOGUE_DUREE_STANDARD = '4 h' as const;
+/** @deprecated Alias — sessions catalogue hors exceptions NIV-09 / NIV-10. */
+export const CATALOGUE_DUREE_BASES_IA_ONLY = CATALOGUE_DUREE_STANDARD;
+/** @deprecated Alias historique — sessions métier catalogue : 4 h (assistants IA : NIV-09). */
+export const CATALOGUE_DUREE_SESSION_METIER = CATALOGUE_DUREE_STANDARD;
+export const CATALOGUE_DUREE_NIV09 = '7 h' as const;
 export const CATALOGUE_DUREE_NIV10 = '14 h' as const;
 
 /** Plage de numérotation catalogue — NIV-01 … NIV-10. */

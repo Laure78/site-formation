@@ -174,11 +174,11 @@ export const FORMATION_CATALOGUE_GEO_EXTENDED: Record<
     propresDossiers:
       'Oui — CCTP types, plans, DPGF, CR et notes de chantier du cabinet, anonymisés si besoin.',
     iaRemplacePro: COMMON_IA_NON,
-    deroulement: `${MODALITE_PEDAGOGIQUE_CATALOGUE}. 70 % pratique sur les dossiers du cabinet — format intra 4 h, complémentaire de la formation maîtrise d’œuvre 7 h (exécution).`,
+    deroulement: `${MODALITE_PEDAGOGIQUE_CATALOGUE}. 70 % pratique sur les dossiers du cabinet — format intra 4 h, complémentaire de la formation maîtrise d’œuvre (exécution, 4 h).`,
     clusterMaillage: [
       ...CLUSTER_BASE,
       { href: LINKS.formationIaMaitriseOeuvreCctpDpgf, label: 'Formation IA maîtrise d’œuvre : CCTP, DPGF, CR et plannings' },
-      { href: LINKS.formationIaMaitriseOeuvre, label: 'Formation IA maîtrise d’œuvre (7 h)' },
+      { href: LINKS.formationIaMaitriseOeuvre, label: 'Formation IA maîtrise d’œuvre (4 h)' },
     ],
   },
   'NIV-11': {
@@ -231,7 +231,7 @@ export const FORMATION_CATALOGUE_GEO_EXTENDED: Record<
       'Oui — jeu de données professionnelles anonymisées recommandé pour l’atelier de construction.',
     iaRemplacePro:
       'Non. Le développement assisté par l’IA aide à produire un prototype ; architecture, sécurité et maintenance peuvent nécessiter un développeur ou un DSI.',
-    deroulement: `${MODALITE_PEDAGOGIQUE_CATALOGUE}. 70 % pratique sur le poste du participant — session 7 h (niveau 1 du parcours applications métier).`,
+    deroulement: `${MODALITE_PEDAGOGIQUE_CATALOGUE}. 70 % pratique sur le poste du participant — session 4 h (niveau 1 du parcours applications métier).`,
     clusterMaillage: [
       ...CLUSTER_BASE,
       { href: LINKS.formationApplicationMetierBtpNiveau2, label: 'Application métier BTP connectée — niveau 2' },
@@ -261,7 +261,7 @@ export const FORMATION_CATALOGUE_GEO_EXTENDED: Record<
       'Oui — prototype ou socle existant recommandé ; données anonymisées pour les tests de connexion et d’automatisation.',
     iaRemplacePro:
       'Non. L’objectif est une application connectée fonctionnelle ; la sécurité avancée et la mise en production peuvent nécessiter un développeur ou un DSI.',
-    deroulement: `${MODALITE_PEDAGOGIQUE_CATALOGUE}. 70 % pratique — session 7 h (niveau 2 du parcours applications métier).`,
+    deroulement: `${MODALITE_PEDAGOGIQUE_CATALOGUE}. 70 % pratique — session 4 h (niveau 2 du parcours applications métier).`,
     clusterMaillage: [
       ...CLUSTER_BASE,
       { href: LINKS.formationApplicationMetierBtpNiveau1, label: 'Créer sa première application métier BTP' },
@@ -290,7 +290,7 @@ export const FORMATION_CATALOGUE_GEO_EXTENDED: Record<
       'Oui — documents métier anonymisés pour tester l’analyse documentaire et les workflows IA.',
     iaRemplacePro:
       'Non. La validation finale des documents et décisions métier reste sous la responsabilité de l’utilisateur — l’IA assiste, ne remplace pas le métier.',
-    deroulement: `${MODALITE_PEDAGOGIQUE_CATALOGUE}. 70 % pratique — session 7 h (niveau 3 du parcours applications métier).`,
+    deroulement: `${MODALITE_PEDAGOGIQUE_CATALOGUE}. 70 % pratique — session 4 h (niveau 3 du parcours applications métier).`,
     clusterMaillage: [
       ...CLUSTER_BASE,
       { href: LINKS.formationApplicationMetierBtpNiveau2, label: 'Application métier BTP connectée — niveau 2' },

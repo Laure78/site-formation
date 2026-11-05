@@ -4,7 +4,7 @@ import type { ProgrammeFormationBloc } from '@/components/formations/catalogue/P
 export const NIV03_PROGRAMME_BLOCS: readonly ProgrammeFormationBloc[] = [
   {
     heading: 'ACCUEIL — Accueil, cadrage et positionnement',
-    meta: '15 min',
+    meta: '10 min',
     objectifs: [
       'Ouverture de session',
       'Émargement, présentation des objectifs et du déroulé',
@@ -15,7 +15,7 @@ export const NIV03_PROGRAMME_BLOCS: readonly ProgrammeFormationBloc[] = [
   },
   {
     heading: 'MODULE 1 — Installation et démarrage de chantier',
-    meta: '1 h 40',
+    meta: '55 min',
     objectifs: [
       'Bibliothèque de skills',
       'Activer l’option « Exécution de code » et accéder à la bibliothèque BTP',
@@ -31,7 +31,7 @@ export const NIV03_PROGRAMME_BLOCS: readonly ProgrammeFormationBloc[] = [
   },
   {
     heading: 'MODULE 2 — Sécurité de chantier',
-    meta: '1 h',
+    meta: '35 min',
     objectifs: [
       'PPSPS',
       'Structure réglementaire complète adaptée au corps d’état et au chantier',
@@ -45,7 +45,7 @@ export const NIV03_PROGRAMME_BLOCS: readonly ProgrammeFormationBloc[] = [
   },
   {
     heading: 'MODULE 3 — Gestion de chantier au quotidien',
-    meta: '2 h',
+    meta: '1 h 10',
     objectifs: [
       'Réunions et comptes rendus',
       'CR par corps d’état, observations numérotées, points non soldés (levé / en cours / en attente)',
@@ -61,7 +61,7 @@ export const NIV03_PROGRAMME_BLOCS: readonly ProgrammeFormationBloc[] = [
   },
   {
     heading: 'MODULE 4 — Administratif jusqu’à la réception',
-    meta: '1 h 50',
+    meta: '55 min',
     objectifs: [
       'Situations de travaux',
       'Situations d’avancement mensuelles et états d’acompte',

@@ -70,7 +70,7 @@ export const FORMATIONS_NIVEAUX_IA: readonly FormationNiveauIaDefinition[] = [
     anchorId: 'catalogue-niveau-2',
     sectionHeading: 'Niveau 2 — Intermédiaire',
     accueilAccroche: 'Utiliser l’IA sur ses documents et ses tâches métier.',
-    accueilDuree: '7 h',
+    accueilDuree: '4 h',
     prerequis:
       'Niveau 1 ou pratique régulière de ChatGPT ou Claude sur des documents professionnels.',
     exemplesRealisations: [

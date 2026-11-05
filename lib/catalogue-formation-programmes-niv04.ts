@@ -4,7 +4,7 @@ import type { ProgrammeFormationBloc } from '@/components/formations/catalogue/P
 export const NIV04_PROGRAMME_BLOCS: readonly ProgrammeFormationBloc[] = [
   {
     heading: 'ACCUEIL — Accueil, cadrage et positionnement',
-    meta: '15 min',
+    meta: '10 min',
     objectifs: [
       'Ouverture de session',
       'Émargement, présentation des objectifs et du déroulé',
@@ -15,7 +15,7 @@ export const NIV04_PROGRAMME_BLOCS: readonly ProgrammeFormationBloc[] = [
   },
   {
     heading: 'MODULE 1 — Projets et skills : structurer Claude pour l’entreprise',
-    meta: '1 h 40',
+    meta: '55 min',
     objectifs: [
       'Projets Claude',
       'Un Projet par affaire, chantier ou client : instructions permanentes et base de connaissances',
@@ -30,7 +30,7 @@ export const NIV04_PROGRAMME_BLOCS: readonly ProgrammeFormationBloc[] = [
   },
   {
     heading: 'MODULE 2 — Cowork : déléguer la production documentaire',
-    meta: '1 h 35',
+    meta: '50 min',
     objectifs: [
       'Tâche supervisée',
       'Lancer une production documentaire en autonomie supervisée avec jalons de validation',
@@ -45,7 +45,7 @@ export const NIV04_PROGRAMME_BLOCS: readonly ProgrammeFormationBloc[] = [
   },
   {
     heading: 'MODULE 3 — Connecteurs : relier Claude à ses outils',
-    meta: '1 h 30',
+    meta: '45 min',
     objectifs: [
       'Démonstration et cas d’usage',
       'Connecteur drive / messagerie / agenda selon les accès du compte',
@@ -60,7 +60,7 @@ export const NIV04_PROGRAMME_BLOCS: readonly ProgrammeFormationBloc[] = [
   },
   {
     heading: 'MODULE 4 — Claude Code : automatiser ses tâches',
-    meta: '1 h 45',
+    meta: '1 h 05',
     objectifs: [
       'Automatiser',
       'Automatiser des tâches répétitives et générer des documents en lot',
