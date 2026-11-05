@@ -35,5 +35,5 @@ export const REJOINDRE_EQUIPE_BADGES = [
 export const REJOINDRE_EQUIPE_CTA = {
   intro:
     'Pour candidater, envoyez votre CV et quelques lignes sur votre parcours BTP à',
-  outro: 'ou appelez le 06 95 66 18 18.',
+  outro: 'ou complétez le formulaire de candidature formateur indépendant.',
 } as const;

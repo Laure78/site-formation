@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { Check } from 'lucide-react';
-import { CONTACT, formateurRecruitmentMailtoHref, RECRUITMENT } from '@/lib/constants';
+import { formateurRecruitmentMailtoHref, RECRUITMENT } from '@/lib/constants';
 import { LINKS } from '@/lib/internal-links';
 import { OFC_CTA_PRIMARY, OFC_CTA_SECONDARY } from '@/lib/ofc-interaction-classes';
 import { ofcSectionClasses, OFC_SECTION_INNER } from '@/lib/ofc-section-classes';
@@ -96,13 +96,6 @@ export function RejoindreEquipeOfferSection() {
               aria-label={`Postuler par email à ${RECRUITMENT.email}`}
             >
               Postuler par email
-            </a>
-            <a
-              href={`tel:${CONTACT.phone}`}
-              className={`${OFC_CTA_SECONDARY} inline-flex min-h-12 items-center justify-center rounded-lg px-6 py-3 text-base font-semibold`}
-              aria-label={`Appeler OFC au ${CONTACT.phoneDisplay}`}
-            >
-              Appeler
             </a>
           </div>
         </div>

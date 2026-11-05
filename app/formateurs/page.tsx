@@ -10,7 +10,6 @@ import {
   FormateursRecrutementBandSection,
   FormateursTeamSection,
 } from '@/components/formateurs/FormateursLandingSections';
-import { ScrollToHashOnLoad } from '@/components/navigation/ScrollToHashOnLoad';
 import { JsonLd } from '@/components/JsonLd';
 import { BreadcrumbJsonLd } from '@/components/seo/BreadcrumbJsonLd';
 import { getFormateursHubProfiles } from '@/lib/formateurs';
@@ -108,8 +107,6 @@ export default async function FormateursPage() {
       <Suspense fallback={null}>
         <FormateursProfileDialogHost formateurs={formateurs} />
       </Suspense>
-
-      <ScrollToHashOnLoad />
     </div>
   );
 }

@@ -4,7 +4,6 @@ import { ConsultantFormateurCandidatureSection } from '@/components/career/Consu
 import { JobOffersSection } from '@/components/career/JobOffersSection';
 import { NousRejoindreFormateurRecruitment } from '@/components/career/NousRejoindreFormateurRecruitment';
 import { RejoindreEquipeOfferSection } from '@/components/career/RejoindreEquipeOfferSection';
-import { ScrollToHashOnLoad } from '@/components/navigation/ScrollToHashOnLoad';
 import { NOUS_REJOINDRE_RECRUTEMENT_FAQ } from '@/lib/consultant-recruitment-content';
 import { getPublishedJobOffers } from '@/lib/data/job-offers';
 import { RECRUITMENT_PAGE_INNER } from '@/lib/devenez-consultant-layout';
@@ -20,7 +19,6 @@ export function EmploisPageContent() {
 
   return (
     <div className="emplois-page min-w-0">
-      <ScrollToHashOnLoad />
       <NousRejoindreFormateurRecruitment />
 
       <RejoindreEquipeOfferSection />
