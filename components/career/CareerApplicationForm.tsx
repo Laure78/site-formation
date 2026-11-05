@@ -21,6 +21,14 @@ import {
 import { RECRUITMENT } from '@/lib/constants';
 import { LINKS } from '@/lib/internal-links';
 import {
+  NOUS_REJOINDRE_RECRUITMENT_CATEGORIES,
+  type NousRejoindreRecruitmentCategoryId,
+} from '@/lib/consultant-recruitment-content';
+import {
+  getConsultantFormationsIaBtpOptions,
+  type ConsultantFormationIaOption,
+} from '@/lib/consultant-formations-ia-options';
+import {
   getConsultantParcoursMetiersOptions,
   type ConsultantParcoursMetierOption,
 } from '@/lib/consultant-parcours-metiers-options';
@@ -32,6 +40,9 @@ import {
 
 const CONSULTANT_PARCOURS_OPTIONS: ConsultantParcoursMetierOption[] =
   getConsultantParcoursMetiersOptions();
+const CONSULTANT_FORMATIONS_IA_OPTIONS: ConsultantFormationIaOption[] =
+  getConsultantFormationsIaBtpOptions();
+const CAT = NOUS_REJOINDRE_RECRUITMENT_CATEGORIES;
 
 type CareerApplicationFormProps = {
   kind: CareerKind;
@@ -45,6 +56,8 @@ type CareerApplicationFormProps = {
   onSuccess?: () => void;
   /** Redirection après envoi réussi (prioritaire sur l’affichage inline). */
   successRedirectPath?: string;
+  /** Présélection depuis les cartes missions (?animer=). */
+  initialRecruitmentCategories?: NousRejoindreRecruitmentCategoryId[];
 };
 
 const fieldsetLegendClass =
@@ -67,6 +80,7 @@ export function CareerApplicationForm({
   groupedLayout = false,
   onSuccess,
   successRedirectPath,
+  initialRecruitmentCategories = [],
 }: CareerApplicationFormProps) {
   const router = useRouter();
   const formId = useId();
@@ -90,7 +104,14 @@ export function CareerApplicationForm({
   const [mobilityIdf, setMobilityIdf] = useState<(typeof MOBILITY_IDF_VALUES)[number] | ''>('');
   const [availability, setAvailability] = useState('');
   const [linkedinOrPortfolio, setLinkedinOrPortfolio] = useState('');
-  const [selectedFormations, setSelectedFormations] = useState<string[]>([]);
+  const [animateParcours, setAnimateParcours] = useState(
+    initialRecruitmentCategories.includes(CAT.parcoursMetiers.id),
+  );
+  const [animateFormations, setAnimateFormations] = useState(
+    initialRecruitmentCategories.includes(CAT.formationsIaBtp.id),
+  );
+  const [selectedParcours, setSelectedParcours] = useState<string[]>([]);
+  const [selectedFormationCodes, setSelectedFormationCodes] = useState<string[]>([]);
   const [submitting, setSubmitting] = useState(false);
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -99,6 +120,15 @@ export function CareerApplicationForm({
   useEffect(() => {
     formStartedAtRef.current = Date.now();
   }, []);
+
+  useEffect(() => {
+    if (initialRecruitmentCategories.includes(CAT.parcoursMetiers.id)) {
+      setAnimateParcours(true);
+    }
+    if (initialRecruitmentCategories.includes(CAT.formationsIaBtp.id)) {
+      setAnimateFormations(true);
+    }
+  }, [initialRecruitmentCategories]);
 
   useEffect(() => {
     if (!success) return;
@@ -110,11 +140,24 @@ export function CareerApplicationForm({
   const fieldClass = (name: string) =>
     `${careerFieldClassBase}${fieldErrors[name] ? ` ${careerFieldErrorClass}` : ''}`;
 
-  const toggleFormation = useCallback((slug: string) => {
-    setSelectedFormations((prev) =>
+  const toggleParcours = useCallback((slug: string) => {
+    setSelectedParcours((prev) =>
       prev.includes(slug) ? prev.filter((s) => s !== slug) : [...prev, slug],
     );
   }, []);
+
+  const toggleFormationCode = useCallback((code: string) => {
+    setSelectedFormationCodes((prev) =>
+      prev.includes(code) ? prev.filter((s) => s !== code) : [...prev, code],
+    );
+  }, []);
+
+  const recruitmentCategoriesValue = [
+    animateParcours ? CAT.parcoursMetiers.id : null,
+    animateFormations ? CAT.formationsIaBtp.id : null,
+  ]
+    .filter(Boolean)
+    .join(', ');
 
   const showConsultantHint =
     kind === 'spontaneous' &&
@@ -165,9 +208,22 @@ export function CareerApplicationForm({
     fd.set('website', '');
 
     if (kind === 'consultant') {
+      if (!animateParcours && !animateFormations) {
+        setFieldErrors((prev) => ({
+          ...prev,
+          recruitmentCategories:
+            'Sélectionnez au moins une catégorie : parcours métiers ou formations IA BTP.',
+        }));
+        setSubmitting(false);
+        return;
+      }
       fd.set('expertiseDomain', expertiseDomain);
       fd.set('mobilityIdf', mobilityIdf);
-      fd.set('formationSlugs', selectedFormations.join(', '));
+      fd.set('recruitmentCategories', recruitmentCategoriesValue);
+      fd.set(
+        'formationSlugs',
+        [...selectedParcours, ...selectedFormationCodes].join(', '),
+      );
     } else {
       fd.set('applicationType', applicationType);
       fd.set('desiredRole', desiredRole);
@@ -184,7 +240,10 @@ export function CareerApplicationForm({
       if (result.ok) {
         onSuccess?.();
         formRef.current?.reset();
-        setSelectedFormations([]);
+        setSelectedParcours([]);
+        setSelectedFormationCodes([]);
+        setAnimateParcours(false);
+        setAnimateFormations(false);
         setAiPractice('');
         setPedagogyExperience('');
         setBtpExperienceYears('');
@@ -223,14 +282,14 @@ export function CareerApplicationForm({
   const groupConsultantForm = groupedLayout && kind === 'consultant';
 
   const parcoursCheckboxList = (
-    <ul className="max-h-72 space-y-3 overflow-y-auto pr-1">
+    <ul className="max-h-56 space-y-2 overflow-y-auto pr-1">
       {CONSULTANT_PARCOURS_OPTIONS.map((p) => (
         <li key={p.id}>
           <label className="flex cursor-pointer gap-2 text-sm text-slate-700">
             <input
               type="checkbox"
-              checked={selectedFormations.includes(p.id)}
-              onChange={() => toggleFormation(p.id)}
+              checked={selectedParcours.includes(p.id)}
+              onChange={() => toggleParcours(p.id)}
               className="mt-0.5 h-4 w-4 shrink-0 rounded border-slate-300 text-[#377CF3] focus:ring-[#377CF3]"
             />
             <span>
@@ -239,6 +298,27 @@ export function CareerApplicationForm({
                 {' '}
                 — {p.dureeLabel} ({p.dureeHeures} h)
               </span>
+            </span>
+          </label>
+        </li>
+      ))}
+    </ul>
+  );
+
+  const formationsCheckboxList = (
+    <ul className="max-h-56 space-y-2 overflow-y-auto pr-1">
+      {CONSULTANT_FORMATIONS_IA_OPTIONS.map((f) => (
+        <li key={f.id}>
+          <label className="flex cursor-pointer gap-2 text-sm text-slate-700">
+            <input
+              type="checkbox"
+              checked={selectedFormationCodes.includes(f.id)}
+              onChange={() => toggleFormationCode(f.id)}
+              className="mt-0.5 h-4 w-4 shrink-0 rounded border-slate-300 text-[#377CF3] focus:ring-[#377CF3]"
+            />
+            <span>
+              <span className="font-medium text-slate-900">{f.titre}</span>
+              <span className="text-slate-500"> — {f.duree}</span>
             </span>
           </label>
         </li>
@@ -553,15 +633,53 @@ export function CareerApplicationForm({
 
       </fieldset>
 
-      {showFormationCheckboxes && CONSULTANT_PARCOURS_OPTIONS.length > 0 ? (
-        <fieldset className="space-y-3 rounded-xl border border-slate-200 bg-slate-50/80 p-4">
+      {showFormationCheckboxes ? (
+        <fieldset className="space-y-4 rounded-xl border border-slate-200 bg-slate-50/80 p-4">
           <legend className="px-1 text-sm font-medium text-slate-800">
-            Parcours métiers sur lesquels intervenir (facultatif)
+            Vous souhaitez animer <span className="text-[#DC2626]">*</span>
           </legend>
-          <p className="text-xs leading-relaxed text-slate-500">
-            Sélectionnez un ou plusieurs parcours du catalogue 2027 — pas les modules NIV isolés.
-          </p>
-          {parcoursCheckboxList}
+          <div className="space-y-2">
+            <label className="flex cursor-pointer gap-2 text-sm font-medium text-slate-800">
+              <input
+                type="checkbox"
+                checked={animateParcours}
+                onChange={(e) => setAnimateParcours(e.target.checked)}
+                className="mt-0.5 h-4 w-4 shrink-0 rounded border-slate-300 text-[#377CF3] focus:ring-[#377CF3]"
+              />
+              {CAT.parcoursMetiers.label}
+            </label>
+            <label className="flex cursor-pointer gap-2 text-sm font-medium text-slate-800">
+              <input
+                type="checkbox"
+                checked={animateFormations}
+                onChange={(e) => setAnimateFormations(e.target.checked)}
+                className="mt-0.5 h-4 w-4 shrink-0 rounded border-slate-300 text-[#377CF3] focus:ring-[#377CF3]"
+              />
+              {CAT.formationsIaBtp.label}
+            </label>
+          </div>
+          <FieldError
+            id={`${formId}-err-recruitmentCategories`}
+            message={fieldErrors.recruitmentCategories}
+          />
+          {animateParcours && CONSULTANT_PARCOURS_OPTIONS.length > 0 ? (
+            <div className="border-t border-slate-200/80 pt-3">
+              <p className="text-xs font-medium text-slate-700">Parcours métiers (facultatif)</p>
+              <p className="mt-0.5 text-xs text-slate-500">
+                Cochez les parcours du catalogue 2027 sur lesquels vous pouvez intervenir.
+              </p>
+              <div className="mt-2">{parcoursCheckboxList}</div>
+            </div>
+          ) : null}
+          {animateFormations && CONSULTANT_FORMATIONS_IA_OPTIONS.length > 0 ? (
+            <div className="border-t border-slate-200/80 pt-3">
+              <p className="text-xs font-medium text-slate-700">Formations IA BTP (facultatif)</p>
+              <p className="mt-0.5 text-xs text-slate-500">
+                Cochez les sessions du catalogue sur lesquelles vous souhaitez intervenir.
+              </p>
+              <div className="mt-2">{formationsCheckboxList}</div>
+            </div>
+          ) : null}
         </fieldset>
       ) : null}
 

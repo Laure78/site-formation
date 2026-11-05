@@ -34,13 +34,14 @@ const PARCOURS_BY_ID = new Map(
   getConsultantParcoursMetiersOptions().map((p) => [p.id, p.titre] as const),
 );
 
-/** Libellés lisibles pour emails / admin (IDs séparés par virgule). */
+/** Libellés lisibles pour emails / admin (IDs parcours séparés par virgule). */
 export function formatConsultantParcoursSlugs(raw: string | null | undefined): string {
   if (!raw?.trim()) return '';
   return raw
     .split(',')
     .map((s) => s.trim())
     .filter(Boolean)
+    .filter((id) => !id.startsWith('NIV-'))
     .map((id) => PARCOURS_BY_ID.get(id as ParcoursId) ?? id)
     .join(' · ');
 }

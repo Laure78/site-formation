@@ -748,10 +748,34 @@ export const PHOTOS = {
     height: 576,
   },
 
-  /** Page /devenez-consultant — recrutement formateurs IA BTP 2027 (hero). */
+  /** Page /nous-rejoindre — hero recrutement formateurs 2027. */
   recrutementFormateursIaBtpHero2027: {
-    src: '/images/btp-formation-ecran-ia-btp.png',
-    alt: 'Atelier IA BTP en salle : écran et plans techniques — recrutement formateur indépendant',
+    src: '/images/hero-formateurs-ia-btp.webp',
+    alt: 'Professionnels du BTP et formatrice analysant un dossier sur ordinateur portable devant un chantier',
+    width: 1024,
+    height: 682,
+  },
+  recrutementParcoursMetiersCarte2027: {
+    src: '/images/parcours-metiers-btp.webp',
+    alt: 'Conducteur de travaux sur chantier consultant une tablette devant une structure en béton',
+    width: 1024,
+    height: 682,
+  },
+  recrutementFormationsIaBtpCarte2027: {
+    src: '/images/formation-ia-btp-presentiel.webp',
+    alt: 'Ordinateur portable affichant une interface IA sur un bureau de chantier avec plans et casque',
+    width: 1024,
+    height: 682,
+  },
+  recrutementCandidatureFormateur2027: {
+    src: '/images/candidature-formateur-btp-ia.webp',
+    alt: 'Équipe de professionnels du BTP collaborant autour d’un ordinateur et de plans techniques',
+    width: 768,
+    height: 512,
+  },
+  recrutementProfilsEquipe2027: {
+    src: '/images/hero-formateurs-ia-btp.webp',
+    alt: 'Binôme BTP et pédagogie IA devant un ordinateur, chantier visible à travers la fenêtre',
     width: 1024,
     height: 682,
   },

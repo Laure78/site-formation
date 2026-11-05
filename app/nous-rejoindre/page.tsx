@@ -32,7 +32,13 @@ export const metadata = createPageMetadata({
 
 const FAQ_SCHEMA = getFAQSchema(NOUS_REJOINDRE_RECRUTEMENT_FAQ);
 
-export default function NousRejoindrePage() {
+type PageProps = {
+  searchParams: Promise<{ animer?: string }>;
+};
+
+export default async function NousRejoindrePage({ searchParams }: PageProps) {
+  const { animer } = await searchParams;
+
   return (
     <>
       <BreadcrumbJsonLd
@@ -47,7 +53,7 @@ export default function NousRejoindrePage() {
         id="schema-job-posting-nous-rejoindre"
         schema={buildRejoindreEquipeJobPostingJsonLd(PAGE_URL)}
       />
-      <EmploisPageContent />
+      <EmploisPageContent animer={animer} />
     </>
   );
 }

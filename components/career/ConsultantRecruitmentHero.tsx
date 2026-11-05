@@ -1,5 +1,8 @@
 import Image from 'next/image';
-import { NOUS_REJOINDRE_FORMATEUR_HERO } from '@/lib/consultant-recruitment-content';
+import {
+  NOUS_REJOINDRE_FORMATEUR_HERO,
+  NOUS_REJOINDRE_INFO_STRIP,
+} from '@/lib/consultant-recruitment-content';
 import { DEVENEZ_CONSULTANT_INNER } from '@/lib/devenez-consultant-layout';
 import {
   OFC_CTA_PRIMARY,
@@ -25,23 +28,20 @@ export function ConsultantRecruitmentHero() {
           <div className="min-w-0">
             <p className={OFC_EYEBROW}>{H.eyebrow}</p>
             <h1 id="devenez-consultant-h1" className={`${OFC_TYPE_HERO} mt-2 text-pretty`}>
-              {H.h1}
+              {H.h1Line1} {H.h1Line2} {H.h1Line3}
             </h1>
-            <p className="mt-4 text-lg font-semibold leading-snug text-slate-900 text-pretty">
-              {H.hook}
-            </p>
             <p className={`${OFC_TYPE_BODY} mt-4 text-ofc-ink-muted text-pretty`}>{H.intro}</p>
 
             <ul
               className="mt-5 flex flex-wrap gap-2"
               aria-label="Informations sur le recrutement"
             >
-              {H.facts.map((fact) => (
+              {NOUS_REJOINDRE_INFO_STRIP.map(({ label, key }) => (
                 <li
-                  key={fact}
+                  key={key}
                   className="rounded-full border border-[#377CF3]/25 bg-[#377CF3]/5 px-3.5 py-1.5 text-sm font-medium text-slate-800"
                 >
-                  {fact}
+                  {label}
                 </li>
               ))}
             </ul>

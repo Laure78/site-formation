@@ -15,7 +15,9 @@ import {
   parseCareerFormPayload,
   type CareerFormInput,
 } from '@/lib/career-form-validation';
+import { formatConsultantFormationCodes } from '@/lib/consultant-formations-ia-options';
 import { formatConsultantParcoursSlugs } from '@/lib/consultant-parcours-metiers-options';
+import { NOUS_REJOINDRE_RECRUITMENT_CATEGORIES } from '@/lib/consultant-recruitment-content';
 import { RECRUITMENT } from '@/lib/constants';
 import { LINKS } from '@/lib/internal-links';
 
@@ -62,12 +64,26 @@ function buildNotificationHtml(
   if (data.kind === 'consultant') {
     rows.push(['Domaine d’expertise', CONSULTANT_EXPERTISE_LABELS[data.expertiseDomain]]);
     rows.push(['Mobilité IDF', MOBILITY_IDF_LABELS[data.mobilityIdf]]);
-    if (data.formationSlugs?.trim()) {
-      rows.push([
-        'Parcours métiers',
-        formatConsultantParcoursSlugs(data.formationSlugs) || data.formationSlugs.trim(),
-      ]);
+    if (data.recruitmentCategories?.trim()) {
+      const labels = data.recruitmentCategories
+        .split(',')
+        .map((s) => s.trim())
+        .filter(Boolean)
+        .map((id) => {
+          if (id === NOUS_REJOINDRE_RECRUITMENT_CATEGORIES.parcoursMetiers.id) {
+            return NOUS_REJOINDRE_RECRUITMENT_CATEGORIES.parcoursMetiers.label;
+          }
+          if (id === NOUS_REJOINDRE_RECRUITMENT_CATEGORIES.formationsIaBtp.id) {
+            return NOUS_REJOINDRE_RECRUITMENT_CATEGORIES.formationsIaBtp.label;
+          }
+          return id;
+        });
+      rows.push(['Catégories visées', labels.join(' · ')]);
     }
+    const parcoursLabels = formatConsultantParcoursSlugs(data.formationSlugs);
+    const formationLabels = formatConsultantFormationCodes(data.formationSlugs);
+    if (parcoursLabels) rows.push(['Parcours métiers', parcoursLabels]);
+    if (formationLabels) rows.push(['Formations IA BTP', formationLabels]);
   } else {
     rows.push(['Type de candidature', SPONTANEOUS_TYPE_LABELS[data.applicationType]]);
     rows.push(['Fonction ou domaine', data.desiredRole]);
@@ -214,6 +230,7 @@ export async function submitCareerApplicationAction(
   if (raw.kind === 'consultant') {
     raw.expertiseDomain = formData.get('expertiseDomain');
     raw.mobilityIdf = formData.get('mobilityIdf');
+    raw.recruitmentCategories = formData.get('recruitmentCategories') ?? '';
     raw.formationSlugs = formData.get('formationSlugs') ?? '';
   } else {
     raw.applicationType = formData.get('applicationType');

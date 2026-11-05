@@ -83,6 +83,17 @@ export const consultantCareerSchema = z.object({
     .min(40, 'Présentez votre parcours (40 caractères minimum).')
     .max(8000, 'Texte trop long (8 000 caractères maximum).'),
   mobilityIdf: z.enum(MOBILITY_IDF_VALUES, { message: 'Indiquez votre mobilité IDF.' }),
+  recruitmentCategories: z
+    .string()
+    .trim()
+    .min(1, 'Sélectionnez au moins une catégorie.')
+    .refine((value) => {
+      const parts = value
+        .split(',')
+        .map((s) => s.trim())
+        .filter(Boolean);
+      return parts.some((p) => p === 'parcours-metiers' || p === 'formations-ia-btp');
+    }, 'Cochez Parcours métiers BTP + IA et/ou Formations IA BTP.'),
   formationSlugs: z
     .string()
     .trim()

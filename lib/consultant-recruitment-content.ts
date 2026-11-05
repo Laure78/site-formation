@@ -12,84 +12,95 @@ const RECRUITMENT_MAILTO = formateurRecruitmentMailtoHref();
 /** Hero — hub /nous-rejoindre (formateurs indépendants 2027). */
 export const NOUS_REJOINDRE_FORMATEUR_HERO = {
   eyebrow: 'Recrutement · Catalogue 2027',
-  h1: 'Vous connaissez le BTP et utilisez l’IA ?',
-  hook: 'Vous connaissez le BTP et utilisez l’IA ?',
+  h1Line1: 'Vous connaissez le BTP.',
+  h1Line2: 'Vous utilisez l’IA.',
+  h1Line3: 'Transmettez les deux.',
   intro:
-    'Transmettez votre expérience aux professionnels du bâtiment et des travaux publics.',
-  experienceBadge: 'Expérience BTP requise',
-  heroHighlights: [
-    { label: 'Île-de-France', key: 'lieu' },
-    { label: 'Présentiel', key: 'modalite' },
-    { label: 'Missions rémunérées', key: 'remuneration' },
-  ] as const,
-  facts: [
-    'Missions indépendantes rémunérées',
-    'Présentiel en Île-de-France',
-    'À partir de 2027',
-  ] as const,
-  primaryCtaLabel: 'Proposer ma candidature',
-  secondaryCtaLabel: 'Voir les profils recherchés',
-  imageBadge: 'IA + expertise métier',
+    'Notre organisme recrute des formateurs et formatrices indépendants issus du BTP pour animer des parcours métiers et des formations IA en présentiel en Île-de-France, à partir de 2027.',
+  primaryCtaLabel: 'Déposer ma candidature',
+  secondaryCtaLabel: 'Découvrir les missions',
   enBref:
     'Recrutement 2027 : formateurs indépendants issus du BTP (2 ans d’expérience métier minimum), pratique de ChatGPT ou Claude, missions rémunérées en présentiel en Île-de-France. Candidature en ligne ou par email à recrutement@laureolivie.fr.',
 } as const;
 
 /** Bandeau d’informations — sous le hero /nous-rejoindre. */
 export const NOUS_REJOINDRE_INFO_STRIP = [
-  { label: 'Missions indépendantes', key: 'missions' },
+  { label: '2 ans d’expérience BTP minimum', key: 'experience' },
+  { label: 'Missions indépendantes rémunérées', key: 'missions' },
+  { label: 'Présentiel en Île-de-France', key: 'presentiel' },
   { label: 'À partir de 2027', key: 'catalogue' },
-  { label: 'En présentiel', key: 'presentiel' },
-  { label: 'Île-de-France', key: 'idf' },
 ] as const;
+
+export const NOUS_REJOINDRE_RECRUITMENT_CATEGORIES = {
+  parcoursMetiers: {
+    id: 'parcours-metiers',
+    label: 'Parcours métiers BTP + IA',
+  },
+  formationsIaBtp: {
+    id: 'formations-ia-btp',
+    label: 'Formations IA BTP',
+  },
+} as const;
+
+export type NousRejoindreRecruitmentCategoryId =
+  (typeof NOUS_REJOINDRE_RECRUITMENT_CATEGORIES)[keyof typeof NOUS_REJOINDRE_RECRUITMENT_CATEGORIES]['id'];
 
 /** Cartes profils — landing /nous-rejoindre (4 piliers visuels). */
 export const NOUS_REJOINDRE_LANDING_PROFILS = {
-  heading: 'Qui recherchons-nous ?',
-  subtitle: 'Actifs ou retraités bienvenus. Expérience terrain indispensable.',
+  heading: 'Les profils que nous recherchons',
+  subtitle:
+    'Professionnels du bâtiment et des travaux publics — en activité ou retraités — avec une expérience terrain vérifiable.',
   cards: [
     {
       title: 'Conduite de travaux',
-      description: 'Conducteurs de travaux, chefs de chantier, chefs d’équipe.',
-      photoKey: 'recrutementLandingProfilConduite' as const,
+      description: 'Conducteurs de travaux, chefs de chantier et chefs d’équipe.',
     },
     {
-      title: 'Études de prix & affaires',
-      description: 'Chargés d’affaires, économistes de la construction, responsables études de prix.',
-      photoKey: 'recrutementLandingProfilEtudes' as const,
+      title: 'Affaires et études',
+      description: 'Chargés d’affaires, économistes de la construction et bureaux d’études.',
     },
     {
-      title: 'Dirigeants & artisans',
+      title: 'Artisans et dirigeants',
       description: 'Artisans et dirigeants d’entreprises du BTP, en activité ou retraités.',
-      photoKey: 'recrutementLandingProfilArtisans' as const,
     },
     {
-      title: 'Gestion & fonctions support',
-      description: 'Assistants de gestion et collaborateurs administratifs BTP.',
-      photoKey: 'recrutementLandingProfilGestion' as const,
+      title: 'Gestion et support',
+      description: 'Assistants de gestion et fonctions support en entreprise du BTP.',
     },
   ] as const,
-  extraNote:
-    'Sont également recherchés : profils bureau d’études et maîtrise d’œuvre (techniciens d’études, projeteurs, ingénieurs MOE).',
 } as const;
 
-/** Mission formateur — grille compacte landing /nous-rejoindre. */
+/** Bandeau missions — landing /nous-rejoindre. */
 export const NOUS_REJOINDRE_MISSION_LANDING = {
-  heading: 'Votre mission : transmettre l’IA appliquée au BTP',
-  intro:
-    'Les formateurs accompagnent les professionnels du BTP dans l’utilisation concrète de l’IA sur leurs documents et tâches métier.',
-  featuredApplications: [
+  heading: 'Votre expertise métier + l’IA = des compétences utiles sur le terrain',
+  casPratiques: [
     { title: 'Devis et chiffrage', key: 'devis' },
-    { title: 'DCE et appels d’offres', key: 'dce' },
-    { title: 'Comptes rendus de chantier', key: 'cr' },
-  ] as const,
-  otherUsages: [
-    'Mémoires techniques',
-    'Analyse de CCTP et CCAP',
-    'Documents de chantier',
-    'Suivi administratif',
-    'Automatisation des tâches professionnelles',
+    { title: 'Appels d’offres (DCE)', key: 'dce' },
+    { title: 'CCTP / CCAP', key: 'cctp' },
+    { title: 'Suivi de chantier', key: 'chantier' },
+    { title: 'Comptes rendus', key: 'cr' },
+    { title: 'DOE', key: 'doe' },
   ] as const,
 } as const;
+
+export const NOUS_REJOINDRE_AVANTAGES = [
+  {
+    title: 'Supports prêts à l’emploi',
+    body: 'Programmes, exercices et trames pédagogiques construits autour de documents BTP réels.',
+  },
+  {
+    title: 'Accompagnement de proximité',
+    body: 'Échanges avec l’équipe pédagogique avant les premières interventions.',
+  },
+  {
+    title: 'Missions indépendantes en IDF',
+    body: 'Prestations rémunérées en présentiel, intra ou interentreprises, selon vos disponibilités.',
+  },
+  {
+    title: 'Organisme certifié Qualiopi',
+    body: 'Formation IA spécialisée BTP — cadre Qualiopi et pédagogie ancrée terrain.',
+  },
+] as const;
 
 /** Modalités — section compétences & conditions (/nous-rejoindre). */
 export const NOUS_REJOINDRE_MODALITES = [
@@ -140,8 +151,8 @@ export const NOUS_REJOINDRE_CONVERSION = {
 /** @deprecated Préférer `NOUS_REJOINDRE_FORMATEUR_HERO`. */
 export const DEVENEZ_CONSULTANT_HERO = NOUS_REJOINDRE_FORMATEUR_HERO;
 
-/** @deprecated Préférer `NOUS_REJOINDRE_FORMATEUR_HERO.h1`. */
-export const CONSULTANT_HERO_H1 = NOUS_REJOINDRE_FORMATEUR_HERO.h1;
+/** @deprecated Préférer les lignes `h1Line1`…`h1Line3` de `NOUS_REJOINDRE_FORMATEUR_HERO`. */
+export const CONSULTANT_HERO_H1 = `${NOUS_REJOINDRE_FORMATEUR_HERO.h1Line1} ${NOUS_REJOINDRE_FORMATEUR_HERO.h1Line2}`;
 
 /** @deprecated Préférer `NOUS_REJOINDRE_FORMATEUR_HERO.intro`. */
 export const CONSULTANT_HERO_INTRO = NOUS_REJOINDRE_FORMATEUR_HERO.intro;
@@ -472,10 +483,10 @@ export const CONSULTANT_EXPERTISE_CARDS: readonly ConsultantExpertiseCard[] = [
 ];
 
 export const CONSULTANT_SELECTION_STEPS = [
-  'Transmission de la candidature.',
-  'Analyse du parcours BTP et de la pratique IA.',
-  'Échange avec notre organisme, selon les besoins.',
-  'Définition des modalités de collaboration.',
+  { title: 'Candidature', body: 'Dépôt du dossier en ligne ou par email.' },
+  { title: 'Analyse du profil', body: 'Étude du parcours BTP et des usages IA.' },
+  { title: 'Échange', body: 'Entretien en visio ou sur site si un besoin correspond.' },
+  { title: 'Collaboration', body: 'Intégration au réseau formateurs pour 2027.' },
 ] as const;
 
 export const CONSULTANT_SELECTION_DISCLAIMER =
