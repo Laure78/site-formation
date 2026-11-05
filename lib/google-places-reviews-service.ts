@@ -57,10 +57,12 @@ function publishTimeToUnix(iso: string | undefined): number {
   return Number.isFinite(ms) ? Math.floor(ms / 1000) : 0;
 }
 
+type PlacesApiNewResult = GoogleReviewsApiResponse | null | 'permission_denied';
+
 async function fetchFromPlacesApiNew(
   placeId: string,
   apiKey: string,
-): Promise<GoogleReviewsApiResponse | null> {
+): Promise<PlacesApiNewResult> {
   const resource = placeResourceName(placeId);
   const fieldMask = [
     'id',
@@ -82,8 +84,14 @@ async function fetchFromPlacesApiNew(
 
   if (!response.ok) {
     const body = await response.text().catch(() => '');
-    console.error('[google-reviews] Places API (New) HTTP', response.status, body.slice(0, 200));
-    return null;
+    if (response.status === 403) {
+      console.warn(
+        '[google-reviews] Places API (New) refusée (403) — activer « Places API (New) » + facturation sur Google Cloud, puis vérifier GOOGLE_PLACES_API_KEY / GOOGLE_PLACE_ID (Railway). Diagnostic : npm run test:google-reviews',
+      );
+    } else {
+      console.error('[google-reviews] Places API (New) HTTP', response.status, body.slice(0, 200));
+    }
+    return response.status === 403 ? 'permission_denied' : null;
   }
 
   const data = (await response.json()) as {
@@ -170,7 +178,9 @@ async function fetchFromPlacesApiLegacy(
 
   if (data.status !== 'OK' || !data.result) {
     if (data.status === 'REQUEST_DENIED') {
-      console.error('[google-reviews] Places legacy denied:', data.error_message ?? data.status);
+      console.warn(
+        '[google-reviews] Places API (legacy) refusée — préférer Places API (New) sur Google Cloud (voir npm run test:google-reviews).',
+      );
     }
     return null;
   }
@@ -215,6 +225,7 @@ async function fetchGoogleReviewsFromGoogle(): Promise<GoogleReviewsApiResponse 
   }
 
   const fromNew = await fetchFromPlacesApiNew(creds.placeId, creds.apiKey);
+  if (fromNew === 'permission_denied') return null;
   if (fromNew) return fromNew;
 
   return fetchFromPlacesApiLegacy(creds.placeId, creds.apiKey);

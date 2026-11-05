@@ -62,6 +62,11 @@ Mettre le site laureolivie.fr en ligne avec Railway. Suivez chaque étape dans l
 | `SUPABASE_SERVICE_ROLE_KEY` | Votre clé service_role | Supabase → Settings → API → service_role (cliquez « Reveal ») |
 | `OPENAI_API_KEY` | `sk-proj-...` | platform.openai.com → API keys → Create new |
 | `NEXT_PUBLIC_SITE_URL` | `https://votre-url.railway.app` | Vous la remplirez après (voir étape 5) |
+| `GOOGLE_PLACE_ID` | ID fiche Google Business Profile | Même valeur que `.env.local` |
+| `GOOGLE_PLACES_API_KEY` | Clé API Google Cloud (serveur) | Console Google Cloud → APIs → **Places API (New)** activée + facturation |
+| `NEXT_PUBLIC_ELFSIGHT_GOOGLE_REVIEWS_APP_ID` | UUID widget Elfsight (optionnel) | Repli `/avis-clients` si Places API indisponible |
+
+**Avis Google (403 en logs)** : sur [Google Cloud Console](https://console.cloud.google.com/), activer **Places API (New)** (pas seulement l’API legacy), lier la facturation au projet, puis restreindre la clé à cette API. Test local : `npm run test:google-reviews` (avec `.env.local`).
 
 5. Pour **chaque variable** :
    - Tapez le **nom** dans la colonne de gauche.

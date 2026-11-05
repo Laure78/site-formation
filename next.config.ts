@@ -978,11 +978,6 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
-        source: '/images/constructys-plafonds-financement-pdc-batiment-juin-2026.png',
-        destination: '/images/constructys-plafonds-financement-pdc-batiment-juin.png',
-        permanent: true,
-      },
-      {
         source: '/images/ffb-affiche-ia-tous-concernes.png',
         destination: '/images/affiche-ffb-intelligence-artificielle-btp.png',
         permanent: true,
@@ -1025,11 +1020,6 @@ const nextConfig: NextConfig = {
       {
         source: '/images/formation-ia-artisans-batiment-laure-olivie-2026.png',
         destination: '/images/laure-olivie-formation-ia-batiment-salle.png',
-        permanent: true,
-      },
-      {
-        source: '/images/formation-ia-au-service-du-batiment-carte-btp-01-2026.png',
-        destination: '/images/formation-ia-au-service-du-batiment-carte-btp-01.png',
         permanent: true,
       },
       {
@@ -1209,16 +1199,6 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
-        source: '/images/accueil-reference-partenaires-laure-ofc-2026.jpg',
-        destination: '/images/formation-ia-dirigeant-pme-btp.webp',
-        permanent: true,
-      },
-      {
-        source: '/images/accueil-reference-partenaires-laure-ofc-2026.png',
-        destination: '/images/formation-ia-dirigeant-pme-btp.webp',
-        permanent: true,
-      },
-      {
         source: '/images/hero-accueil-formation-ia-btp-echange-2026.jpg',
         destination: '/images/formation-ia-btp-laure-olivie-ile-de-france.webp',
         permanent: true,
@@ -1316,11 +1296,6 @@ const nextConfig: NextConfig = {
       {
         source: '/images/architecte-concentration.png',
         destination: '/images/formation-ia-analyse-plans-btp.webp',
-        permanent: true,
-      },
-      {
-        source: '/images/formation-ia-btp-entreprise.png',
-        destination: '/images/formation-ia-intra-entreprise-batiment.webp',
         permanent: true,
       },
       {
