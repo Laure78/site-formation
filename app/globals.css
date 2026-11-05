@@ -2448,6 +2448,17 @@
     box-shadow: none;
   }
 
+  /* Landing /formateurs — découpe hero (maquette) */
+  .formateurs-page .formateurs-hero-image {
+    clip-path: polygon(0 0, 100% 0, 100% 94%, 0 100%);
+  }
+
+  @media (min-width: 1024px) {
+    .formateurs-page .formateurs-hero-image {
+      clip-path: polygon(0 0, 100% 0, 100% 100%, 6% 100%);
+    }
+  }
+
   .formateur-detail-dialog {
     padding-bottom: env(safe-area-inset-bottom, 0);
   }
