@@ -1389,6 +1389,13 @@
     @apply lg:flex lg:flex-1 lg:flex-nowrap lg:gap-0.5 lg:px-0 lg:py-0 xl:gap-1;
   }
 
+  /* Si la nav dépasse la place disponible, on n’affiche que le menu burger (évite le chevauchement logo / liens). */
+  @media (min-width: 1024px) {
+    .site-header[data-header-desktop-overflow='true'] .site-header__nav-pill {
+      display: none !important;
+    }
+  }
+
   .site-header__nav-pill > * {
     @apply min-w-0 shrink-0 lg:flex lg:min-h-[2.625rem] lg:flex-none lg:items-stretch lg:justify-center;
   }
