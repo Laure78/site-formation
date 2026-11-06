@@ -651,6 +651,20 @@ export const PHOTOS = {
     width: 1024,
     height: 768,
   },
+  /** Carte catalogue — assistance à maîtrise d’ouvrage (NIV-11), visuel distinct NIV-12 */
+  formationsCatalogueCarteAssistanceMaitriseOuvrage2026: {
+    src: '/images/formations/carte-assistance-maitrise-ouvrage-btp.webp',
+    alt: 'Formation IA assistance à maîtrise d’ouvrage — professionnels du BTP autour d’un ordinateur',
+    width: 1024,
+    height: 768,
+  },
+  /** Carte catalogue — CCTP, DPGF, CR et plannings (NIV-12), visuel distinct NIV-11 */
+  formationsCatalogueCarteMaitriseOeuvreCctpDpgf2026: {
+    src: '/images/formations/carte-maitrise-oeuvre-cctp-dpgf-ia-btp.webp',
+    alt: 'Formation IA maîtrise d’œuvre — plans, ordinateur avec CCTP, DPGF et planning chantier',
+    width: 1024,
+    height: 768,
+  },
   formationsCatalogueCarteClaudeAssistants2026: {
     src: '/images/formations/carte-claude-assistants-ia-btp.webp',
     alt: 'Formation Claude et assistants IA — équipe BTP autour d’un ordinateur',
