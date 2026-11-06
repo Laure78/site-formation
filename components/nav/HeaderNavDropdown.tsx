@@ -1,7 +1,7 @@
 'use client';
 
 import type { ReactNode } from 'react';
-import { useState } from 'react';
+import { useLayoutEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import type { HeaderNavDesktopHover } from '@/hooks/useHeaderNavDesktopHover';
 import { ChevronDown } from 'lucide-react';
@@ -14,6 +14,25 @@ import {
   type HeaderNavItem,
   type HeaderNavLink,
 } from '@/lib/header-nav';
+
+const VIEWPORT_MARGIN_PX = 16;
+
+function getDropdownPanelWidthPx(
+  vw: number,
+  opts: {
+    formationsGridQuad: boolean;
+    formationsPanel: boolean;
+    hasMega: boolean;
+    formationsGridDual: boolean;
+  },
+): number {
+  const usable = vw - VIEWPORT_MARGIN_PX * 2;
+  if (opts.formationsGridQuad) return Math.min(usable, 1024);
+  if (opts.formationsPanel && opts.hasMega && opts.formationsGridDual) return Math.min(usable, 704);
+  if (opts.formationsPanel && opts.hasMega) return Math.min(usable, 896);
+  if (opts.formationsPanel) return Math.min(usable, 448);
+  return Math.min(usable, 352);
+}
 
 function triggerClass({
   routeActive,
@@ -294,6 +313,7 @@ export function HeaderNavDropdown({
   /** Survol desktop — ouverture au pointer enter (appareils fine pointer uniquement). */
   desktopHover?: Pick<HeaderNavDesktopHover, 'onZoneEnter' | 'onZoneLeave'>;
 }) {
+  const zoneRef = useRef<HTMLDivElement>(null);
   const panelId = `header-nav-panel-${item.id}`;
   const buttonId = `header-nav-btn-${item.id}`;
   const routeActive = headerNavItemIsActive(item, pathname);
@@ -311,6 +331,58 @@ export function HeaderNavDropdown({
     formationsDual && formationsMegaColumnCount === 2 && !formationsGridQuad;
   const panelOpen = open && (children.length > 0 || hasMega);
 
+  const [panelFixedStyle, setPanelFixedStyle] = useState<{
+    top: number;
+    left: number;
+    width: number;
+  } | null>(null);
+
+  useLayoutEffect(() => {
+    if (!panelOpen) {
+      setPanelFixedStyle(null);
+      return;
+    }
+
+    const update = () => {
+      const zone = zoneRef.current;
+      if (!zone) return;
+      const rect = zone.getBoundingClientRect();
+      const vw = window.innerWidth;
+      const widthPx = getDropdownPanelWidthPx(vw, {
+        formationsGridQuad,
+        formationsPanel,
+        hasMega,
+        formationsGridDual,
+      });
+      let left = alignEnd ? rect.right - widthPx : rect.left;
+      left = Math.min(
+        Math.max(VIEWPORT_MARGIN_PX, left),
+        vw - VIEWPORT_MARGIN_PX - widthPx,
+      );
+      const top = rect.bottom;
+      setPanelFixedStyle({ top, left, width: widthPx });
+    };
+
+    update();
+
+    window.addEventListener('scroll', update, { capture: true, passive: true });
+    window.addEventListener('resize', update);
+
+    return () => {
+      window.removeEventListener('scroll', update, { capture: true });
+      window.removeEventListener('resize', update);
+    };
+  }, [
+    panelOpen,
+    alignEnd,
+    formationsGridQuad,
+    formationsGridDual,
+    formationsPanel,
+    hasMega,
+    open,
+    item.id,
+  ]);
+
   const submenuAriaLabel = open
     ? `Fermer le sous-menu ${item.label}`
     : `Sous-menu ${item.label}`;
@@ -323,7 +395,8 @@ export function HeaderNavDropdown({
 
   return (
     <div
-      className="relative flex w-full min-w-0 shrink-0 items-stretch justify-center lg:flex-1"
+      ref={zoneRef}
+      className="relative flex w-full min-w-0 shrink-0 items-stretch justify-center lg:flex-none"
       data-header-nav-zone={item.id}
       onPointerEnter={() => desktopHover?.onZoneEnter(item.id)}
       onPointerLeave={() => desktopHover?.onZoneLeave(item.id)}

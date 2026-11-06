@@ -3,20 +3,31 @@
  */
 import type { ParcoursId } from '@/data/catalogue-2027';
 import type { LucideIcon } from 'lucide-react';
-import { ClipboardList, FileSpreadsheet, FileText, Layers } from 'lucide-react';
+import {
+  BookOpen,
+  ClipboardList,
+  FileSpreadsheet,
+  FileText,
+  Layers,
+  LayoutGrid,
+  Waypoints,
+} from 'lucide-react';
 
-const IMG = '/images/parcours-metiers';
-
+/**
+ * Visuels en définition suffisante (≥ ~1024 px) — les exports légers dans
+ * `public/images/parcours-metiers/*.webp` (~600 px de large) pixelisaient en grand format.
+ */
 export const PARCOURS_METIERS_HERO = {
   badge: 'FORMATIONS MÉTIERS BTP – OUVERTURE 2027',
   h1Before: 'Les parcours métiers BTP avec ',
   h1Highlight: 'l’IA',
   h1: 'Les parcours métiers BTP avec l’IA',
   intro:
-    'Développez les compétences de vos équipes avec des formations concrètes, adaptées à chaque métier.',
-  imageSrc: `${IMG}/parcours-metiers-hero.webp`,
+    'Développez vos compétences avec l’IA, à votre rythme. Suivez un parcours métier complet ou choisissez uniquement les modules adaptés à vos besoins professionnels.',
+  modulariteLead: 'Parcours complet ou modules à la carte',
+  imageSrc: '/images/accueil-ia-chantier-laptop-plans-btp.webp',
   imageAlt:
-    'Professionnel du BTP avec casque et gilet haute visibilité, tablette en main sur un chantier avec grue.',
+    'Professionnel du BTP en EPI consulte plans et ordinateur portable sur un chantier actif.',
   lieuBadge: 'Présentiel · Île-de-France',
 } as const;
 
@@ -25,6 +36,51 @@ export const PARCOURS_METIERS_SECTION = {
   title: 'Un parcours pour chaque métier',
   subtitle: 'Choisissez votre fonction pour découvrir les modules et compétences.',
 } as const;
+
+export const PARCOURS_METIERS_MODULARITE_SECTION = {
+  id: 'modularite-parcours-metiers',
+  title: 'Votre formation, votre parcours, vos modules.',
+  intro:
+    'Chaque professionnel du BTP a des besoins différents. Nos parcours métiers sont modulaires : vous pouvez suivre l’ensemble du programme, sélectionner un seul module ou combiner plusieurs modules selon vos compétences et vos objectifs.',
+  options: [
+    {
+      id: 'parcours-complet',
+      title: 'Parcours complet',
+      description:
+        'Suivez tous les modules pour développer une maîtrise globale de l’IA appliquée à votre métier.',
+      Icon: BookOpen,
+    },
+    {
+      id: 'module-a-la-carte',
+      title: 'Module à la carte',
+      description:
+        'Choisissez uniquement la formation qui répond à votre besoin : devis, chiffrage, appels d’offres, planning, suivi de chantier ou gestion administrative, selon les modules disponibles.',
+      Icon: LayoutGrid,
+    },
+    {
+      id: 'parcours-personnalise',
+      title: 'Parcours personnalisé',
+      description:
+        'Combinez plusieurs modules de formation IA pour les professionnels du BTP pour construire une formation adaptée à vos missions et à votre niveau.',
+      Icon: Waypoints,
+    },
+  ],
+} as const;
+
+export const PARCOURS_METIERS_FAQ = [
+  {
+    q: 'Faut-il suivre l’intégralité d’un parcours métier ?',
+    a: 'Non. Chaque parcours est modulaire. Vous pouvez suivre le programme complet ou sélectionner uniquement les modules correspondant à vos besoins, sous réserve des prérequis.',
+  },
+  {
+    q: 'Peut-on combiner des modules de différents parcours ?',
+    a: 'Oui. Un programme personnalisé peut être construit selon votre fonction, votre expérience et vos objectifs professionnels.',
+  },
+  {
+    q: 'Les formations sont-elles proposées en présentiel ?',
+    a: 'Oui. Les formations sont proposées en présentiel en Île-de-France.',
+  },
+] as const;
 
 /** Accroches courtes cartes — maquette. */
 export const PARCOURS_METIERS_ACCROCHE: Partial<Record<ParcoursId, string>> = {
@@ -38,24 +94,24 @@ export const PARCOURS_METIERS_ACCROCHE: Partial<Record<ParcoursId, string>> = {
 export const PARCOURS_METIERS_CARD_IMAGE: Partial<Record<ParcoursId, { src: string; alt: string }>> =
   {
     'dirigeant-pme-btp': {
-      src: `${IMG}/parcours-dirigeant-pme-btp.webp`,
-      alt: 'Dirigeant de PME du BTP devant un ordinateur portable dans un bureau lumineux.',
+      src: '/images/formation-ia-dirigeant-pme-btp.webp',
+      alt: 'Laure Olivié échange avec un professionnel en gilet BTP autour d’un café.',
     },
     'charge-affaires-btp': {
-      src: `${IMG}/parcours-charge-affaires-btp.webp`,
-      alt: 'Chargé d’affaires annotant des plans sur un bureau avec casque de chantier.',
+      src: '/images/og/formation-ia-charge-affaires-btp.webp',
+      alt: 'Professionnel du BTP analyse des plans et documents sur ordinateur avec casque.',
     },
     'conducteur-de-travaux': {
-      src: `${IMG}/parcours-conducteur-travaux.webp`,
-      alt: 'Conducteur de travaux avec casque blanc devant une structure en béton sur chantier.',
+      src: '/images/formation-ia-conducteur-travaux-plans.webp',
+      alt: 'Professionnel du BTP consulte des plans de chantier sur table.',
     },
     'assistant-de-gestion-btp': {
-      src: `${IMG}/parcours-assistant-gestion-btp.webp`,
-      alt: 'Assistante de gestion BTP travaillant sur ordinateur dans un open space.',
+      src: '/images/formation-assistants-ia-personnalises-btp.webp',
+      alt: 'Groupe BTP en formation — assistants IA, prompts et workflows devis et chantier.',
     },
     'referent-ia-btp': {
-      src: `${IMG}/parcours-referent-ia-btp.webp`,
-      alt: 'Référent IA BTP avec casque et plans techniques sur table, écran d’ordinateur ouvert.',
+      src: '/images/formation-maitriser-claude-ai-btp.webp',
+      alt: 'Formation Claude AI BTP : écran, plans et documents chantier sur une table.',
     },
   };
 
@@ -71,29 +127,29 @@ export const PARCOURS_DOCUMENTS_METIER: readonly ParcoursDocumentMetierTile[] = 
   {
     id: 'dce-cctp',
     title: 'DCE & CCTP',
-    src: `${IMG}/cas-pratique-dce-cctp.webp`,
-    alt: 'Documents DCE et CCTP posés sur un bureau.',
+    src: '/images/formation-appels-offres-btp-dce-memoire.webp',
+    alt: 'Formation appels d’offres BTP : analyse DCE et mémoire technique avec l’IA.',
     Icon: Layers,
   },
   {
     id: 'devis',
     title: 'Devis & chiffrage',
-    src: `${IMG}/cas-pratique-devis-chiffrage.webp`,
-    alt: 'Document de devis et chiffrage posé sur un bureau en bois.',
+    src: '/images/formation-ia-devis-chiffrage-btp.webp',
+    alt: 'Notes de terrain, photos et plans transformés en devis bâtiment structuré.',
     Icon: FileSpreadsheet,
   },
   {
     id: 'cr',
     title: 'Comptes rendus',
-    src: `${IMG}/cas-pratique-compte-rendu-chantier.webp`,
-    alt: 'Compte rendu de chantier rédigé à la main avec un stylo.',
+    src: '/images/formation-ia-compte-rendu-chantier.webp',
+    alt: 'Note vocale sur téléphone transformée en compte rendu de chantier structuré.',
     Icon: ClipboardList,
   },
   {
     id: 'doe',
     title: 'DOE & réception',
-    src: `${IMG}/cas-pratique-doe-reception.webp`,
-    alt: 'Document DOE avec case réception cochée, posé sur des plans.',
+    src: '/images/tuto-doe-hero.png',
+    alt: 'Écran et documents pour préparer un DOE (dossier des ouvrages exécutés) BTP avec l’IA.',
     Icon: FileText,
   },
 ] as const;

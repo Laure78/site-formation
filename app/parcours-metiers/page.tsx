@@ -6,9 +6,9 @@ import { LINKS } from '@/lib/internal-links';
 import { PARCOURS_METIERS_HERO } from '@/lib/parcours-metiers-page-content';
 export const revalidate = 3600;
 
-const META_TITLE = 'Parcours métiers BTP avec l’IA';
+const META_TITLE = 'Parcours métiers BTP modulaires avec l’IA';
 const META_DESCRIPTION =
-  'Cinq parcours formation IA BTP par métier en présentiel Île-de-France : dirigeant, chargé d’affaires, conducteur de travaux, gestion, référent IA. Qualiopi — ouverture 2027.';
+  'Parcours métiers BTP modulaires et formation IA BTP à la carte en présentiel Île-de-France : modules ou parcours complet pour dirigeants, chargés d’affaires, conducteurs de travaux, gestion, référent IA. Qualiopi — ouverture 2027.';
 
 export const metadata: Metadata = createPageMetadata({
   title: META_TITLE,

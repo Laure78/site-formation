@@ -13,6 +13,7 @@ import { OFC_CTA_PRIMARY, OFC_CTA_SECONDARY } from '@/lib/ofc-interaction-classe
 import { FormateursMetierSection } from '@/components/formateurs/FormateursDomaineSection';
 import { getModule2027IaUsage, labelOutil } from '@/lib/formation-ia';
 import { FormationsContact2027 } from './FormationsContact2027';
+import { ParcoursChoixModulesRdvCta } from './ParcoursChoixModulesRdvCta';
 import { ParcoursEncadrerIaBlock } from '@/components/formations/ParcoursEncadrerIaBlock';
 import { PageMaillageSection } from '@/components/maillage/PageMaillageSection';
 import { buildParcoursPageMaillageBlocks } from '@/lib/page-maillage-blocks';
@@ -92,17 +93,22 @@ export function ParcoursDetailView({ parcours: p }: Props) {
 
           <section className="mt-10" aria-labelledby="etapes-title">
             <h2 id="etapes-title" className="ofc-type-h2 text-ofc-ink">
-              Étapes du parcours
+              Modules du parcours
             </h2>
             <p className="mt-3 text-sm text-ofc-ink-muted">
-              Frise verticale des modules. Un cas pratique commun relie les étapes. Les journées
-              peuvent être espacées.
+              Chaque bloc correspond à un module du catalogue : vous pouvez suivre le parcours complet
+              ou ne retenir que certains modules — sous réserve des prérequis. Un cas pratique commun
+              relie les étapes lorsque vous suivez le parcours entier ; les journées peuvent être espacées.
             </p>
+            <div className="mt-5">
+              <ParcoursChoixModulesRdvCta />
+            </div>
             <ol className="relative mt-8 space-y-0 border-l-2 border-[#377CF3]/40 pl-6">
               {p.etapes.map((etape, index) => {
                 const mod = getModuleByCode(etape.moduleCode);
                 const duree = etape.dureeHeuresOverride ?? mod?.dureeHeures ?? 0;
                 const iaUsage = getModule2027IaUsage(etape.moduleCode);
+                const moduleTitleId = `module-parcours-${p.id}-${etape.moduleCode}-${index}`;
                 return (
                   <li key={`${etape.moduleCode}-${index}`} className="relative pb-8 last:pb-0">
                     <span
@@ -111,26 +117,46 @@ export function ParcoursDetailView({ parcours: p }: Props) {
                     >
                       {index + 1}
                     </span>
-                    <article className="border border-[#E2E8F0] bg-white p-4">
-                      <p className="text-xs text-ofc-ink-muted">
+                    <article
+                      className="border border-[#E2E8F0] bg-white p-4"
+                      aria-labelledby={moduleTitleId}
+                    >
+                      <p className="text-xs font-semibold uppercase tracking-wide text-[#377CF3]">
                         Module {etape.moduleCode}
                         {mod ? ` · ${duree} h` : ''}
                       </p>
-                      <h3 className="mt-1 font-semibold text-ofc-ink">
+                      <h3 id={moduleTitleId} className="mt-1 text-lg font-semibold text-ofc-ink">
                         {mod?.titre ?? etape.moduleCode}
                       </h3>
+                      <p className="mt-2 text-sm text-ofc-ink-muted">
+                        Chaque module peut être suivi indépendamment, sous réserve des prérequis
+                        pédagogiques du module
+                        {mod?.prerequis ? ` (${mod.prerequis})` : ''} et du positionnement du parcours.
+                      </p>
                       <dl className="mt-3 space-y-2 text-sm">
+                        {mod ? (
+                          <div>
+                            <dt className="font-medium text-ofc-ink">Objectifs pédagogiques</dt>
+                            <dd className="text-ofc-ink-muted">{mod.objectifPrincipal}</dd>
+                          </div>
+                        ) : null}
                         <div>
-                          <dt className="font-medium text-ofc-ink">Compétence travaillée</dt>
+                          <dt className="font-medium text-ofc-ink">Durée</dt>
+                          <dd className="text-ofc-ink-muted">{duree > 0 ? `${duree} h` : '—'}</dd>
+                        </div>
+                        <div>
+                          <dt className="font-medium text-ofc-ink">Compétences développées</dt>
                           <dd className="text-ofc-ink-muted">{etape.competence}</dd>
                         </div>
+                      </dl>
+                      <dl className="mt-4 space-y-2 border-t border-slate-100 pt-4 text-sm text-ofc-ink-muted">
                         <div>
-                          <dt className="font-medium text-ofc-ink">Exercice professionnel</dt>
-                          <dd className="text-ofc-ink-muted">{etape.exercice}</dd>
+                          <dt className="font-medium text-ofc-ink">Exercice professionnel (étape)</dt>
+                          <dd>{etape.exercice}</dd>
                         </div>
                         <div>
-                          <dt className="font-medium text-ofc-ink">Livrable</dt>
-                          <dd className="text-ofc-ink-muted">{etape.livrable}</dd>
+                          <dt className="font-medium text-ofc-ink">Livrable (étape)</dt>
+                          <dd>{etape.livrable}</dd>
                         </div>
                       </dl>
                       {iaUsage ? (
@@ -283,6 +309,9 @@ export function ParcoursDetailView({ parcours: p }: Props) {
                 <dd className="font-semibold text-ofc-ink">{p.moduleCount}</dd>
               </div>
             </dl>
+            <div className="mt-5">
+              <ParcoursChoixModulesRdvCta className="w-full text-sm" />
+            </div>
             <Link
               href={devisHref}
               className={`${OFC_CTA_PRIMARY} mt-5 inline-flex min-h-11 w-full items-center justify-center px-4 py-2 text-sm`}

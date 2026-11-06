@@ -30,6 +30,7 @@ import {
   HeaderNavSimpleLink,
 } from '@/components/nav/HeaderNavDropdown';
 import { useSiteHeaderBehavior } from '@/hooks/useSiteHeaderBehavior';
+import { useHeaderDesktopNavOverflow } from '@/hooks/useHeaderDesktopNavOverflow';
 import type { LucideIcon } from 'lucide-react';
 
 const HeaderMobileDrawer = dynamic(
@@ -58,6 +59,9 @@ export function Header() {
   const [mobileExpanded, setMobileExpanded] = useState<Record<string, boolean>>({});
   const [navPath, setNavPath] = useState(pathname);
   const headerRef = useRef<HTMLElement>(null);
+  const desktopNavRef = useRef<HTMLElement>(null);
+  const standardNavWidthRef = useRef<HTMLDivElement>(null);
+  const parcoursNavSlotRef = useRef<HTMLDivElement>(null);
   const { compact, scrollHidden } = useSiteHeaderBehavior(headerRef);
   const menuButtonRef = useRef<HTMLButtonElement>(null);
   const desktopHover = useHeaderNavDesktopHover(openId, setOpenId);
@@ -159,6 +163,9 @@ export function Header() {
   }
 
   const parcoursMaquetteHeader = isParcoursMetiersMaquetteRoute(pathname);
+  const navLayoutWidthRef = parcoursMaquetteHeader ? parcoursNavSlotRef : standardNavWidthRef;
+  const desktopNavNeedsHamburger = useHeaderDesktopNavOverflow(desktopNavRef, navLayoutWidthRef);
+  const useDesktopHamburger = desktopNavNeedsHamburger;
 
   const brandLink = (
     <Link
@@ -179,7 +186,9 @@ export function Header() {
   );
 
   const mobileMenuButton = (
-    <div className="flex shrink-0 items-center gap-0.5 lg:hidden">
+    <div
+      className={`flex shrink-0 items-center gap-0.5 ${useDesktopHamburger ? '' : 'lg:hidden'}`}
+    >
       <button
         ref={menuButtonRef}
         type="button"
@@ -222,6 +231,7 @@ export function Header() {
         data-variant={parcoursMaquetteHeader ? 'parcours-maquette' : undefined}
         data-compact={compact ? 'true' : 'false'}
         data-scroll-hidden={scrollHidden ? 'true' : 'false'}
+        data-desktop-nav-overflow={useDesktopHamburger ? 'true' : 'false'}
       >
         <div
           className={`site-header__inner mx-auto flex max-w-[80rem] min-w-0 flex-col gap-0 px-4 py-1.5 sm:px-6 lg:gap-1 lg:px-8 lg:py-2 ${
@@ -235,14 +245,17 @@ export function Header() {
           {parcoursMaquetteHeader ? (
             <div className="site-header__parcours-maquette-row flex min-h-[4.25rem] min-w-0 items-center justify-between gap-3 sm:gap-4 lg:min-h-[4.75rem]">
               {brandLink}
-              <nav
-                className="site-header__nav-pill site-header__nav-pill--parcours-maquette hidden min-w-0 flex-1 lg:flex"
-                aria-label="Navigation principale"
-                data-header-nav-pill=""
-              >
-                {desktopNavItems}
-              </nav>
-              <div className="site-header__actions site-header__actions--parcours-maquette relative z-[55] hidden shrink-0 items-center lg:flex">
+              <div ref={parcoursNavSlotRef} className="min-w-0 flex-1 lg:min-h-[2.75rem]">
+                <nav
+                  ref={desktopNavRef}
+                  className="site-header__nav-pill site-header__nav-pill--parcours-maquette hidden min-w-0 lg:flex lg:w-full"
+                  aria-label="Navigation principale"
+                  data-header-nav-pill=""
+                >
+                  {desktopNavItems}
+                </nav>
+              </div>
+              <div className="site-header__desktop-only-actions site-header__actions site-header__actions--parcours-maquette relative z-[55] hidden shrink-0 items-center lg:flex">
                 <HeaderPrimaryCta
                   src="header-parcours-maquette"
                   leadingAdornment={<Calendar className="h-4 w-4 shrink-0" aria-hidden />}
@@ -255,20 +268,26 @@ export function Header() {
               <div className="site-header__top flex min-w-0 items-center justify-between gap-2 sm:gap-3">
                 {brandLink}
 
-                <div className="site-header__actions relative z-[55] hidden shrink-0 items-center gap-2 border-l border-slate-200/90 pl-2.5 lg:flex xl:gap-2.5 xl:pl-3.5">
+                <div className="site-header__desktop-only-actions site-header__actions relative z-[55] hidden shrink-0 items-center gap-2 border-l border-slate-200/90 pl-2.5 lg:flex xl:gap-2.5 xl:pl-3.5">
                   <HeaderPrimaryCta origin="header-desktop" />
                 </div>
 
                 {mobileMenuButton}
               </div>
 
-              <nav
-                className="site-header__nav-pill"
-                aria-label="Navigation principale"
-                data-header-nav-pill=""
+              <div
+                ref={standardNavWidthRef}
+                className="site-header__nav-row min-w-0 w-full"
               >
-                {desktopNavItems}
-              </nav>
+                <nav
+                  ref={desktopNavRef}
+                  className="site-header__nav-pill w-full min-w-0"
+                  aria-label="Navigation principale"
+                  data-header-nav-pill=""
+                >
+                  {desktopNavItems}
+                </nav>
+              </div>
             </>
           )}
         </div>
@@ -278,6 +297,7 @@ export function Header() {
         <HeaderMobileDrawer
           headerNav={headerNav}
           pathname={pathname}
+          visibleOnLargeScreens={useDesktopHamburger}
           onBeforeOpenSearch={prepareSearchOpen}
           mobileExpanded={mobileExpanded}
           onToggleSection={(id) =>

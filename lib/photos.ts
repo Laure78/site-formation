@@ -1155,10 +1155,10 @@ export const PHOTOS = {
 
   /** Accueil maquette — bandeau CTA final (chantier). */
   accueilCtaFinalChantier: {
-    src: '/images/accueil/05-bandeau-chantier.webp',
-    alt: 'Chantier BTP avec grue — formation IA sur vos documents métier',
-    width: 304,
-    height: 124,
+    src: '/images/formation-ia-chantier-conducteur-travaux.webp',
+    alt: 'Professionnel casqué consulte une tablette sur un chantier avec grue — formation IA BTP',
+    width: 1024,
+    height: 1024,
   },
 
 };

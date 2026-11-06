@@ -4,11 +4,13 @@ import {
   ArrowRight,
   Award,
   Calendar,
+  ChevronDown,
   Clock,
   Layers3,
   MapPin,
 } from 'lucide-react';
 import { CtaVisio } from '@/components/CtaVisio';
+import { FAQSchema } from '@/components/seo/FAQSchema';
 import { getAccueilParcoursOffre } from '@/lib/accueil-offre-catalogue';
 import { parcoursHref } from '@/lib/catalogue-2027/parcours-href';
 import { PARCOURS_METIERS_PAGE_ORDER } from '@/lib/parcours-metiers-public';
@@ -16,7 +18,9 @@ import {
   PARCOURS_DOCUMENTS_METIER,
   PARCOURS_METIERS_ACCROCHE,
   PARCOURS_METIERS_CARD_IMAGE,
+  PARCOURS_METIERS_FAQ,
   PARCOURS_METIERS_HERO,
+  PARCOURS_METIERS_MODULARITE_SECTION,
   PARCOURS_METIERS_SECTION,
   PARCOURS_METIERS_TRUST,
 } from '@/lib/parcours-metiers-page-content';
@@ -92,10 +96,15 @@ function ParcoursMetierCard({ parcours }: { parcours: AccueilParcoursOffreCard }
       <div className="flex flex-1 flex-col p-5 sm:p-6">
         <h3 className="text-lg font-bold text-pretty text-[#071A42]">{parcours.titre}</h3>
         <p className="mt-2 text-sm leading-relaxed text-[#475569]">{accroche}</p>
+        <p className="mt-3 text-xs font-semibold uppercase tracking-wide text-[#086BFF]">
+          Disponible en parcours complet ou par modules
+        </p>
         {parcours.dureeLabel ? (
-          <p className="mt-4 flex items-center gap-2 text-sm font-medium text-[#071A42]">
+          <p className="mt-4 flex flex-wrap items-center gap-2 text-sm font-medium text-[#071A42]">
             <Clock className="h-4 w-4 shrink-0 text-[#086BFF]" aria-hidden />
-            {parcours.dureeLabel}
+            <span>
+              Parcours complet : {parcours.dureeLabel}
+            </span>
           </p>
         ) : null}
         <div className="mt-auto pt-5">
@@ -137,6 +146,9 @@ export function ParcoursMetiersPage() {
             </h1>
             <p className="mt-4 max-w-lg text-base leading-relaxed text-[#475569]">
               {PARCOURS_METIERS_HERO.intro}
+            </p>
+            <p className="mt-3 max-w-lg text-sm font-medium text-[#071A42]">
+              {PARCOURS_METIERS_HERO.modulariteLead}
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
               <Link href={`#${PARCOURS_METIERS_SECTION.id}`} className={PARCOURS_CTA_PRIMARY}>
@@ -180,6 +192,34 @@ export function ParcoursMetiersPage() {
         </div>
       </section>
 
+      {/* Modularité */}
+      <section
+        id={PARCOURS_METIERS_MODULARITE_SECTION.id}
+        className="border-t border-[#E2E8F0] bg-white py-12 sm:py-16"
+        aria-labelledby="parcours-metiers-modularite-title"
+      >
+        <div className="mx-auto max-w-[80rem] px-4 sm:px-6 lg:px-8">
+          <ParcoursMaquetteSectionHeading
+            id="parcours-metiers-modularite-title"
+            title={PARCOURS_METIERS_MODULARITE_SECTION.title}
+            subtitle={PARCOURS_METIERS_MODULARITE_SECTION.intro}
+          />
+          <ul className="mt-10 grid list-none gap-5 sm:grid-cols-2 lg:grid-cols-3 lg:gap-6">
+            {PARCOURS_METIERS_MODULARITE_SECTION.options.map((opt) => (
+              <li key={opt.id}>
+                <div className="flex h-full flex-col rounded-xl border border-[#E2E8F0] bg-[#F8FAFF]/60 p-5 shadow-[0_4px_18px_rgba(15,23,42,0.05)] sm:p-6">
+                  <span className="flex h-11 w-11 items-center justify-center rounded-lg bg-white text-[#086BFF] shadow-sm ring-1 ring-[#E2E8F0]">
+                    <opt.Icon className="h-5 w-5" strokeWidth={1.75} aria-hidden />
+                  </span>
+                  <h3 className="mt-4 text-base font-bold text-[#071A42]">{opt.title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-[#475569]">{opt.description}</p>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
       {/* Grille parcours */}
       <section
         id={PARCOURS_METIERS_SECTION.id}
@@ -200,6 +240,48 @@ export function ParcoursMetiersPage() {
               </li>
             ))}
           </ul>
+        </div>
+      </section>
+
+      <FAQSchema
+        id="schema-parcours-metiers-faq"
+        items={PARCOURS_METIERS_FAQ.map((item) => ({
+          question: item.q,
+          answer: item.a,
+        }))}
+      />
+
+      {/* FAQ */}
+      <section
+        className="border-t border-[#E2E8F0] bg-[#F2F7FF]/30 py-12 sm:py-16"
+        aria-labelledby="parcours-metiers-faq-title"
+      >
+        <div className="mx-auto max-w-[48rem] px-4 sm:px-6 lg:px-8">
+          <ParcoursMaquetteSectionHeading
+            id="parcours-metiers-faq-title"
+            title="Questions fréquentes"
+            subtitle="Parcours métiers BTP modulaires, formation IA BTP à la carte et modules de formation IA pour les professionnels du BTP : ce qu’il faut retenir."
+          />
+          <div className="mt-8 space-y-3">
+            {PARCOURS_METIERS_FAQ.map((item, i) => (
+              <details
+                key={i}
+                className="group rounded-xl border border-[#E2E8F0] bg-white p-5 shadow-sm open:shadow-md [&_summary::-webkit-details-marker]:hidden"
+              >
+                <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-left text-sm font-semibold text-[#071A42] sm:text-[0.9375rem]">
+                  <span>{item.q}</span>
+                  <ChevronDown
+                    className="h-5 w-5 shrink-0 text-[#475569] transition-transform duration-200 group-open:rotate-180"
+                    strokeWidth={1.5}
+                    aria-hidden
+                  />
+                </summary>
+                <p className="mt-4 border-t border-[#E2E8F0] pt-4 text-sm leading-relaxed text-[#475569]">
+                  {item.a}
+                </p>
+              </details>
+            ))}
+          </div>
         </div>
       </section>
 
