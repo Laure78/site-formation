@@ -42,7 +42,6 @@ export type SiteConfig = {
    * `null` : ne pas afficher de SIRET (l’ancien 905 244 281 00010 = Guyancourt).
    */
   readonly siretSiege: string | null;
-  readonly capitalSocial: string;
   readonly rcsGreffe: string;
   readonly rcsNumero: string;
   readonly nda: string;
@@ -69,7 +68,6 @@ export const SITE = {
   siren: '905 244 281',
   /** En attente publication INSEE post-transfert siège (Kbis 03/11/2026 — Paris). */
   siretSiege: null as string | null,
-  capitalSocial: '10 €',
   rcsGreffe: 'Paris',
   rcsNumero: '905 244 281',
   nda: '11788515078',

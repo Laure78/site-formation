@@ -42,7 +42,6 @@ export default function MentionsLegalesPage() {
           </p>
           <ul className="mt-4 space-y-2">
             <li>Forme juridique : {OFC_IDENTITE.formeJuridiqueLongue}</li>
-            <li>Capital social : {OFC_IDENTITE.capitalSocial}</li>
             <li>Siège social : {QUALIOPI_CONTACTS.adresse}</li>
             <li>SIREN : {siteSirenDisplay()}</li>
             {OFC_IDENTITE.siret ? <li>SIRET : {OFC_IDENTITE.siret}</li> : null}

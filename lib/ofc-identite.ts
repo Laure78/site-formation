@@ -16,7 +16,6 @@ export const OFC_IDENTITE = {
   /** Forme inscrite au RCS (Kbis 03/11/2026) — unipersonnel possible sans changer la dénomination « SAS ». */
   formeJuridique: 'SAS',
   formeJuridiqueLongue: 'Société par actions simplifiée (SAS)',
-  capitalSocial: SITE.capitalSocial,
   siren: siteSirenDisplay(),
   sirenDigits: siteSirenDigits(),
   siret: siteSiretSiegeFormatted(),

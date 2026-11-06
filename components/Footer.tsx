@@ -219,8 +219,6 @@ export function Footer() {
               <br />
               Laure Olivié est la marque commerciale d&apos;{OFC_IDENTITE.raisonSociale}.
               <br />
-              Capital {OFC_IDENTITE.capitalSocial}
-              <br />
               Siège : {siteAdresseLigne()}
               <br />
               SIREN {siren} · {siteRcsLibelle()}
