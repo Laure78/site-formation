@@ -24,15 +24,19 @@ type ConnexionClientProps = {
   forcedNext?: string;
   /** Affiche le libellé / UX « administrateur » même sans ?next=. */
   adminMode?: boolean;
+  /** Connexion extranet formateurs (/espace-formateurs) — titres et CTA dédiés. */
+  extranetTrainerMode?: boolean;
 };
 
 export default function ConnexionClient({
   forcedNext,
   adminMode = false,
+  extranetTrainerMode = false,
 }: ConnexionClientProps) {
   const searchParams = useSearchParams();
   const nextParam = forcedNext ?? searchParams.get('next');
-  const isAdminLogin = adminMode || isAdminNextPath(nextParam);
+  const isAdminLogin =
+    !extranetTrainerMode && (adminMode || isAdminNextPath(nextParam));
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
@@ -113,12 +117,18 @@ export default function ConnexionClient({
   return (
     <div className="w-full max-w-[440px] rounded-xl border border-slate-200 bg-white p-6 shadow-[0_4px_24px_rgba(15,23,42,0.06)] sm:p-8">
       <h1 className="font-display text-xl font-bold tracking-tight text-slate-900 sm:text-2xl">
-        {isAdminLogin ? 'Connexion administrateur' : 'Votre espace apprenant'}
+        {extranetTrainerMode
+          ? 'Connexion — espace formateurs'
+          : isAdminLogin
+            ? 'Connexion administrateur'
+            : 'Votre espace apprenant'}
       </h1>
       <p className="mt-2 text-sm leading-relaxed text-slate-600">
-        {isAdminLogin
-          ? 'Accès réservé aux formateurs et administrateurs de la plateforme.'
-          : 'Retrouvez vos supports et ressources de formation.'}
+        {extranetTrainerMode
+          ? 'Accès réservé aux intervenants invités par Laure Olivié (OFC Création d’Entreprise) : charte, programmes et interventions.'
+          : isAdminLogin
+            ? 'Accès réservé aux formateurs et administrateurs de la plateforme.'
+            : 'Retrouvez vos supports et ressources de formation.'}
       </p>
 
       {resetOk ? (
@@ -206,7 +216,13 @@ export default function ConnexionClient({
           disabled={loading}
           className="mt-2 w-full rounded-lg bg-[#377CF3] py-3.5 text-base font-semibold text-white transition-colors hover:bg-[#2A6BD9] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#377CF3] disabled:cursor-not-allowed disabled:opacity-50"
         >
-          {loading ? 'Connexion…' : isAdminLogin ? 'Accéder à l’admin' : 'Se connecter'}
+          {loading
+            ? 'Connexion…'
+            : extranetTrainerMode
+              ? 'Accéder à l’espace formateurs'
+              : isAdminLogin
+                ? 'Accéder à l’admin'
+                : 'Se connecter'}
         </button>
       </form>
 
@@ -220,7 +236,7 @@ export default function ConnexionClient({
         </a>
       </p>
 
-      {isAdminLogin ? (
+      {isAdminLogin || extranetTrainerMode ? (
         <p className="mt-4 text-center text-sm text-slate-500">
           Stagiaire ?{' '}
           <Link
