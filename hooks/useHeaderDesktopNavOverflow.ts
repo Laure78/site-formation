@@ -38,18 +38,20 @@ export function useHeaderDesktopNavOverflow(
 
       const prev = nav.style.cssText;
 
-      // Override `hidden` / flux pour mesurer la largeur intrinsèque des rubriques.
-      nav.style.cssText = [
-        'display:flex',
-        'visibility:hidden',
-        'position:absolute',
-        'left:-9999px',
-        'top:0',
-        `width:${w}px`,
-        'max-width:none',
-        'flex-wrap:nowrap',
-        'pointer-events:none',
-      ].join(';');
+      // Override `hidden` / `display:none !important` (mode burger desktop) pour mesurer
+      // la largeur intrinsèque — sans `!important`, la feuille de style gagne et la mesure
+      // devient fausse → bascule overflow / affichage en boucle (« tremblement »).
+      nav.style.cssText = '';
+      nav.style.setProperty('display', 'flex', 'important');
+      nav.style.setProperty('flex-direction', 'row', 'important');
+      nav.style.setProperty('flex-wrap', 'nowrap', 'important');
+      nav.style.visibility = 'hidden';
+      nav.style.position = 'absolute';
+      nav.style.left = '-9999px';
+      nav.style.top = '0';
+      nav.style.width = `${w}px`;
+      nav.style.maxWidth = 'none';
+      nav.style.pointerEvents = 'none';
 
       const needs =
         nav.scrollWidth > nav.clientWidth + OVERFLOW_TOLERANCE_PX;
