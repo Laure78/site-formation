@@ -997,7 +997,7 @@ export const PHOTOS = {
     src: '/images/formation-ia-architecture-claude-presentiel-groupe.jpg',
     alt: 'Formation application métier BTP — créer un prototype avec le développement assisté par l’IA',
     description:
-      'Parcours applications métier BTP : cadrage, prototype et développement assisté par l’IA — session 7 h. Laure Olivié, OFC Qualiopi.',
+      'Parcours applications métier BTP : cadrage, prototype et développement assisté par l’IA — session 4 h (parcours historique). Laure Olivié, OFC Qualiopi.',
     title: 'Applications métier BTP avec l’IA — niveau 1',
     width: 1200,
     height: 800,
@@ -1041,9 +1041,9 @@ export const PHOTOS = {
   },
   formationNiv10DevWebIaPratique2026: {
     src: '/images/formation-developpement-web-ia-sans-coder/04-formation-pratique.webp',
-    alt: 'Formation pratique 7 h, 4 à 8 participants, 70 % pratique — ERP BTP',
+    alt: 'Formation pratique 14 h sur 2 jours, 4 à 8 participants, 70 % pratique — outil métier BTP',
     description:
-      'Visuel formation pratique ERP BTP avec l’IA : journée de 7 h, groupe de 4 à 8 participants, 70 % de pratique, financement OPCO possible selon éligibilité. Chaque stagiaire avance sur son projet d’outil de gestion. OFC Qualiopi / Laure Olivié.',
+      'Visuel formation pratique outil métier BTP avec l’IA : 14 h sur 2 jours (7 h par journée), groupe de 4 à 8 participants, environ 70 % de pratique, financement OPCO possible selon éligibilité. Chaque stagiaire avance sur son projet. OFC Qualiopi / Laure Olivié.',
     title: 'Petit groupe, maximum de pratique',
     width: 819,
     height: 1024,
@@ -1097,7 +1097,7 @@ export const PHOTOS = {
     src: '/images/formation-ia-architecture-claude-presentiel-groupe.jpg',
     alt: 'Formation application métier BTP connectée avec l’IA — Niveau 2',
     description:
-      'Parcours applications métier BTP niveau 2 : données, utilisateurs, workflows et services connectés — session 7 h.',
+      'Parcours applications métier BTP niveau 2 : données, utilisateurs, workflows et services connectés — session 4 h (parcours historique).',
     title: 'Applications métier BTP connectée — niveau 2',
     width: 1200,
     height: 800,
@@ -1106,7 +1106,7 @@ export const PHOTOS = {
     src: '/images/formation-ia-architecture-claude-presentiel-groupe.jpg',
     alt: 'Formation application métier BTP avancée avec l’IA — Niveau 3',
     description:
-      'Parcours applications métier BTP niveau 3 : IA, automatisations et industrialisation — session 7 h.',
+      'Parcours applications métier BTP niveau 3 : IA, automatisations et industrialisation — session 4 h (parcours historique).',
     title: 'Applications métier BTP avancée — niveau 3',
     width: 1200,
     height: 800,
@@ -1115,7 +1115,7 @@ export const PHOTOS = {
     src: '/images/formation-assistants-ia-personnalises-btp.webp',
     alt: 'Formation assistants IA BTP : prompts, modèles et workflows devis et chantier',
     description:
-      `Formation créer ses assistants IA BTP : ChatGPT et Claude, skills, 4 assistants métier, ${SITE_INTER_LIEU_COURT}, 7 h présentiel OFC Qualiopi.`,
+      `Formation créer ses assistants IA BTP : ChatGPT et Claude, skills et méthode, premier assistant visé en session, ${SITE_INTER_LIEU_COURT}, 4 h présentiel OFC Qualiopi.`,
     title: 'Assistants IA personnalisés BTP — prompts, modèles et workflows',
     width: 1024,
     height: 768,

@@ -14,7 +14,7 @@ export function AssistantsIaBtpCreationsSection() {
     <TrainingSection
       id="ce-que-vous-creez"
       title="Ce que vous allez créer"
-      description="Résultats concrets de la journée — 4 assistants visés, skills et ressources pour la suite."
+      description="Résultats concrets de la demi-journée — premier assistant opérationnel visé, skills et ressources pour la suite."
       tone="muted"
     >
       <ul className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
@@ -88,8 +88,8 @@ export function AssistantsIaBtpProgrammeTimelineSection() {
   return (
     <TrainingSection
       id="planning-journee"
-      title="Planning de la journée"
-      description="7 heures annoncées — pauses 10h45–11h00 et 15 min incluse en module 3 (temps pédagogique effectif ~6h30)."
+      title="Planning de la demi-journée"
+      description="4 heures annoncées — 4 modules de 60 minutes de formation effective ; pauses courtes entre modules."
       tone="muted"
     >
       <ol className="space-y-2 border-l-2 border-[#377CF3]/30 pl-4">

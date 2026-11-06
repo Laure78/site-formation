@@ -25,8 +25,8 @@ type Props = {
 export function FormationsCatalogueGridCard({ entry, upcoming = false }: Props) {
   const formation = getFormationByCode(entry.ref);
   const niveauBadge = formation
-    ? catalogueMaquetteNiveauBadge(formation.niveau)
-    : 'Niveau Métiers';
+    ? catalogueMaquetteNiveauBadge(entry.ref, formation.niveau)
+    : 'Niveau Avancé';
   const badgeClass = CATALOGUE_MAQUETTE_NIVEAU_BADGE_CLASS;
   const disponibilite = getCatalogueEntryDisponibiliteBadge(entry.ref, { upcoming });
   const tarif = catalogueEntryTarifLines(entry.ref);

@@ -25,7 +25,7 @@ export function AccueilEnBrefSection() {
         </Link>
         {' · '}
         <Link href={LINKS.formationAO} className={`${OFC_LINK} font-medium`}>
-          Programme appels d’offres et DCE (7 h)
+          Programme appels d’offres et DCE (4 h)
         </Link>
         {' · '}
         <Link href={LINKS.formationIaIntraEntrepriseBtp} className={`${OFC_LINK} font-medium`}>

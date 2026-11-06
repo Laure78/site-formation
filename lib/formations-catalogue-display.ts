@@ -24,13 +24,19 @@ import {
 import {
   libelleTarifLancementDevWebIa,
 } from '@/lib/formation-developpement-web-ia-content';
-import { libelleTarifParticipantCatalogue } from '@/lib/tarifs-catalogue-participant';
+import {
+  libelleTarifParticipantCatalogue,
+  TARIF_PARTICIPANT_NIV02_HT,
+} from '@/lib/tarifs-catalogue-participant';
 import { isProgrammePdfObsoleteForLegacyCode } from '@/lib/catalogue-2027/pdf-programme';
 
 export type CatalogueLevel = 'DÉBUTANT' | 'AVANCÉ';
 
 /** Tarif affiché sur le catalogue public — HT / participant uniquement. */
 export function libelleTarifParcoursCatalogue(f: Formation): string {
+  if (f.code === 'NIV-11' || f.code === 'NIV-12') {
+    return `Sur demande — grille inter ${libelleTarifParticipantCatalogue(TARIF_PARTICIPANT_NIV02_HT)} (session 4 h)`;
+  }
   if (f.tarifParticipantHt && f.tarifParticipantHt > 0) {
     return libelleTarifParticipantCatalogue(f.tarifParticipantHt);
   }

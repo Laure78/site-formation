@@ -253,7 +253,7 @@ function buildStaticPages(): SiteSearchEntry[] {
       id: 'page-dev-web-ia',
       title: DEV_WEB_IA_FORMATION_TITRE,
       description:
-        'Formation 7 h : créer un site, une application ou un outil métier avec l’IA, sans prérequis en programmation.',
+        'Formation 14 h sur 2 jours : créer un site, une application ou un outil métier avec l’IA, sans prérequis en programmation.',
       href: LINKS.formationDeveloppementWebIaSansCoder,
       kind: 'page',
       keywords:

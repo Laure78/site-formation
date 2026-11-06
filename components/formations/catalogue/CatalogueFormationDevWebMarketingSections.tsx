@@ -15,7 +15,6 @@ import {
 } from '@/lib/formation-catalogue-layout-classes';
 import { LINKS } from '@/lib/internal-links';
 import { formatTarifHt, MENTIONS_TVA_INTRA_COURTE } from '@/lib/tarifs-sessions';
-import type { BeworkParcoursId } from '@/lib/bework-programmes';
 import {
   DEV_WEB_IA_CTA_PRIMARY_LABEL,
   DEV_WEB_IA_CTA_SECONDARY_LABEL,
@@ -24,20 +23,14 @@ import {
   DEV_WEB_IA_MODALITES,
   DEV_WEB_IA_MODALITES_SECTION,
   DEV_WEB_IA_PARCOURS_14H,
-  DEV_WEB_IA_PARCOURS_7H,
   DEV_WEB_IA_PARCOURS_INTRO,
   DEV_WEB_IA_PARCOURS_MARKETING,
   DEV_WEB_IA_PDF_14H_HREF,
-  DEV_WEB_IA_PDF_7H_HREF,
   DEV_WEB_IA_QUALIOPI_ENGAGEMENTS,
   PROGRAMME_PDF_14H,
-  PROGRAMME_PDF_7H,
   devWebIaInscriptionHref,
   devWebIaPrimaryCtaHref,
 } from '@/lib/formation-developpement-web-ia-content';
-
-type DevWebParcoursMarketing = (typeof DEV_WEB_IA_PARCOURS_MARKETING)[BeworkParcoursId];
-type DevWebParcoursTarif = typeof DEV_WEB_IA_PARCOURS_7H | typeof DEV_WEB_IA_PARCOURS_14H;
 
 export function CatalogueFormationDevWebModalitesSection() {
   const { eyebrow, title, lead, compareHref, compareLabel } = DEV_WEB_IA_MODALITES_SECTION;
@@ -130,9 +123,8 @@ export function CatalogueFormationDevWebQualiopiEngagementSection() {
 }
 
 type ParcoursCardProps = {
-  parcoursId: BeworkParcoursId;
-  data: DevWebParcoursTarif;
-  marketing: DevWebParcoursMarketing;
+  data: typeof DEV_WEB_IA_PARCOURS_14H;
+  marketing: (typeof DEV_WEB_IA_PARCOURS_MARKETING)['14h'];
   pdfHref: string;
   pdfName: string;
 };
@@ -196,11 +188,41 @@ function ParcoursChoixCard({ data, marketing, pdfHref, pdfName }: ParcoursCardPr
   );
 }
 
+function Jour1ContenuCard() {
+  const marketing = DEV_WEB_IA_PARCOURS_MARKETING.jour1;
+  return (
+    <article className="flex h-full flex-col rounded-2xl border border-dashed border-[#377CF3]/40 bg-[#EFF6FF]/30 p-6 shadow-sm">
+      <div className="flex flex-wrap items-start justify-between gap-2">
+        <p className="text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">{marketing.label}</p>
+        {marketing.badge14h ? (
+          <span className="rounded-full bg-[#EFF6FF] px-2.5 py-0.5 text-[0.6rem] font-bold uppercase tracking-[0.08em] text-[#377CF3]">
+            {marketing.badge14h}
+          </span>
+        ) : null}
+      </div>
+      <h3 className={`${OFC_TYPE_H3} mt-3`}>{marketing.title}</h3>
+      <p className="mt-2 text-sm leading-relaxed text-slate-600">{marketing.desc}</p>
+      <ul className="mt-5 flex-1 space-y-2">
+        {marketing.highlights.map((point) => (
+          <li key={point} className="flex gap-2 text-sm text-slate-700">
+            <Check className="mt-0.5 h-4 w-4 shrink-0 text-[#377CF3]" aria-hidden />
+            <span>{point}</span>
+          </li>
+        ))}
+      </ul>
+      <p className="mt-4 text-sm font-medium text-slate-800">{marketing.outcome}</p>
+      <Link href="#parcours-jour1" className={`${OFC_LINK} mt-5 text-sm font-semibold`}>
+        Voir le détail du Jour 1 dans le programme
+      </Link>
+    </article>
+  );
+}
+
 function JourParcoursResume({ jourKey }: { jourKey: 'jour1' | 'jour2' }) {
   const jour = DEV_WEB_IA_JOUR_RESUME[jourKey];
-  const pdfHref = jourKey === 'jour1' ? DEV_WEB_IA_PDF_7H_HREF : DEV_WEB_IA_PDF_14H_HREF;
-  const pdfName = jourKey === 'jour1' ? PROGRAMME_PDF_7H : PROGRAMME_PDF_14H;
-  const programmeAnchor = jourKey === 'jour1' ? '#parcours-7h' : '#parcours-14h';
+  const pdfHref = DEV_WEB_IA_PDF_14H_HREF;
+  const pdfName = PROGRAMME_PDF_14H;
+  const programmeAnchor = jourKey === 'jour1' ? '#parcours-jour1' : '#parcours-14h';
 
   return (
     <article className="flex h-full flex-col rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
@@ -215,7 +237,7 @@ function JourParcoursResume({ jourKey }: { jourKey: 'jour1' | 'jour2' }) {
       <p className="mt-5 font-display text-base font-bold text-slate-900">{jour.closing}</p>
       <div className="mt-5 flex flex-col gap-2">
         <Link href={programmeAnchor} className={`${OFC_LINK} text-sm font-semibold`}>
-          {jourKey === 'jour1' ? 'Voir le détail du programme 7 h' : 'Voir le détail du programme 14 h'}
+          {jourKey === 'jour1' ? 'Voir le détail du Jour 1' : 'Voir le détail du parcours complet'}
         </Link>
         <a
           href={pdfHref}
@@ -223,14 +245,14 @@ function JourParcoursResume({ jourKey }: { jourKey: 'jour1' | 'jour2' }) {
           className="inline-flex items-center gap-1.5 text-sm font-medium text-slate-600 hover:text-[#377CF3]"
         >
           <Download className="h-4 w-4 shrink-0" aria-hidden />
-          Télécharger le programme PDF
+          Télécharger le programme PDF (14 h)
         </a>
       </div>
     </article>
   );
 }
 
-/** Parcours 7 h / 14 h, tarifs et CTA Jour 1 · Jour 2. */
+/** Tarif catalogue 14 h + résumé Jour 1 · Jour 2. */
 export function CatalogueFormationDevWebParcoursTarifsSection() {
   return (
     <section
@@ -249,15 +271,8 @@ export function CatalogueFormationDevWebParcoursTarifsSection() {
         </p>
 
         <div className="mt-10 grid gap-6 lg:grid-cols-2">
+          <Jour1ContenuCard />
           <ParcoursChoixCard
-            parcoursId="7h"
-            data={DEV_WEB_IA_PARCOURS_7H}
-            marketing={DEV_WEB_IA_PARCOURS_MARKETING['7h']}
-            pdfHref={DEV_WEB_IA_PDF_7H_HREF}
-            pdfName={PROGRAMME_PDF_7H}
-          />
-          <ParcoursChoixCard
-            parcoursId="14h"
             data={DEV_WEB_IA_PARCOURS_14H}
             marketing={DEV_WEB_IA_PARCOURS_MARKETING['14h']}
             pdfHref={DEV_WEB_IA_PDF_14H_HREF}
@@ -266,9 +281,9 @@ export function CatalogueFormationDevWebParcoursTarifsSection() {
         </div>
 
         <p className="mt-6 text-sm text-slate-600">
-          Commencez par la journée à {formatTarifHt(DEV_WEB_IA_PARCOURS_7H.tarifHt)} € HT / participant, ou
-          choisissez directement le parcours {DEV_WEB_IA_PARCOURS_14H.dureeLabel} à{' '}
-          {formatTarifHt(DEV_WEB_IA_PARCOURS_14H.tarifHt)} € HT / participant.
+          Inter-entreprises : forfait {DEV_WEB_IA_PARCOURS_14H.dureeLabel} à{' '}
+          {formatTarifHt(DEV_WEB_IA_PARCOURS_14H.tarifHt)} € HT / participant — les deux journées (2 × 7 h)
+          sont incluses. Aucune inscription catalogue sur une seule journée.
         </p>
         <p className="mt-2 text-xs leading-relaxed text-slate-600">{MENTIONS_TVA_INTRA_COURTE}</p>
         <p className="mt-2 text-sm text-slate-600">

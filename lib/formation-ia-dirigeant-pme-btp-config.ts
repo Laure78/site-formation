@@ -64,7 +64,7 @@ export const FORMATION_IA_PME_BTP_PARCOURS = [
       'Usages métier approfondis : appels d’offres, conduite de travaux, Claude AI — selon le métier visé.',
     href: LINKS.formations,
     label: 'Catalogue — formations IA par thématique',
-    duree: '7 h (sessions métier)',
+    duree: '4 h (sessions métier et assistants)',
   },
   {
     niveau: 'Création et déploiement',
@@ -125,7 +125,7 @@ export function getFormationIaPmeBtpFaq(): FAQItem[] {
     },
     {
       q: 'Faut-il déjà utiliser ChatGPT ou Claude ?',
-      a: `Non pour débuter : le niveau 1 (${dureeInit}, fiche <a href="${nivHref('NIV-01')}">${niv01?.titre ?? 'Les bases de l’IA'}</a>) part de zéro prérequis technique. Pour les sessions métier (7 h), une pratique régulière ou le niveau 1 est recommandé — détail sur chaque fiche du <a href="${LINKS.formations}">catalogue</a>.`,
+      a: `Non pour débuter : le niveau 1 (${dureeInit}, fiche <a href="${nivHref('NIV-01')}">${niv01?.titre ?? 'Les bases de l’IA'}</a>) part de zéro prérequis technique. Pour les sessions avancées (4 h), une pratique régulière ou le niveau 1 est recommandé — détail sur chaque fiche du <a href="${LINKS.formations}">catalogue</a>.`,
     },
     {
       q: 'Quels documents métier peut-on travailler en formation ?',

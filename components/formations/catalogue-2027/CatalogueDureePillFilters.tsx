@@ -15,13 +15,6 @@ type Props = {
   onChange: (next: Partial<FormationsCataloguePageFilters>) => void;
 };
 
-function parseDureeHeures(ref: string): number | null {
-  const f = getFormationByCode(ref);
-  if (!f) return null;
-  const m = f.duree.match(/(\d+)\s*h/i);
-  return m ? Number(m[1]) : null;
-}
-
 function countForFilter(filters: FormationsCataloguePageFilters): number {
   const available = getCataloguePageCoreFormations();
   const upcoming = getUpcomingCatalogueFormationEntries();
@@ -51,12 +44,6 @@ export function CatalogueDureePillFilters({ filters, onChange }: Props) {
         count: countForFilter({ duree: 4 }),
       },
       {
-        key: '7h',
-        label: '7 h',
-        filters: { duree: 7 as const },
-        count: countForFilter({ duree: 7 }),
-      },
-      {
         key: '14h',
         label: '14 h',
         filters: { duree: 14 as const },
@@ -75,7 +62,6 @@ export function CatalogueDureePillFilters({ filters, onChange }: Props) {
   const activeKey = useMemo(() => {
     if (filters.segment === 'sur-demande') return 'sur-demande';
     if (filters.duree === 4) return '4h';
-    if (filters.duree === 7) return '7h';
     if (filters.duree === 14) return '14h';
     return 'all';
   }, [filters.duree, filters.segment]);

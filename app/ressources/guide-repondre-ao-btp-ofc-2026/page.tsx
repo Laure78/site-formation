@@ -127,7 +127,7 @@ const FAQ = [
   },
   {
     q: 'Comment passer de la méthode à la pratique en formation ?',
-    a: `Laure Olivié (OFC Création d’Entreprise) anime la <a href="${LINKS.formationAO}">formation IA appels d’offres BTP (7 h)</a> en présentiel Île-de-France — organisme certifié Qualiopi, financement OPCO possible selon éligibilité (Constructys). ${formatProsFormesEtNoteQualiopi()}`,
+    a: `Laure Olivié (OFC Création d’Entreprise) anime la <a href="${LINKS.formationAO}">formation IA appels d’offres BTP (4 h)</a> en présentiel Île-de-France — organisme certifié Qualiopi, financement OPCO possible selon éligibilité (Constructys). ${formatProsFormesEtNoteQualiopi()}`,
   },
   {
     q: 'Comment utiliser ChatGPT ou Claude pour analyser un DCE ?',

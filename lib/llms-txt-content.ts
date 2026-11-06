@@ -27,27 +27,38 @@ export function buildLlmsTxtContent(): string {
 
 ## À propos
 - ${SITE.marque} : ${siteExperienceBtpLong()}, ancienne dirigeante d'ALIA BTP (travaux publics, Île-de-France). Instructrice LinkedIn Learning (IA appliquée au BTP).
-- Organisme : ${SITE.raisonSociale}, ${OFC_IDENTITE.formeJuridiqueLongue}, siège ${CONTACT.address}. ${siteRcsLibelle()}. Certifié Qualiopi (actions de formation).
+- Organisme : ${SITE.raisonSociale}, ${OFC_IDENTITE.formeJuridiqueLongue}, siège ${CONTACT.address}. ${siteRcsLibelle()}.
 - Public : dirigeants de PME du bâtiment, conducteurs de travaux, chargés d'affaires, maîtres d'œuvre, bureaux d'études, fonctions support BTP.
 - Satisfaction : ${siteSatisfactionLlmsLine()}. Détail : ${BASE}/indicateurs-resultats
+
+### Certification Qualiopi
+- Organisme titulaire : ${SITE.raisonSociale}
+- Certification : Qualiopi — Actions de formation
+- Numéro de certificat : ${SITE.qualiopi.numero}
+- Organisme certificateur : ${SITE.qualiopi.certificateur}
+- Date de début de validité : 16/01/2025
+- Date de fin de validité : 15/01/2028
+- Page officielle de présentation : ${BASE}/qualiopi
 
 ## Réponses directes
 - Où ont lieu les formations ? En présentiel, en Île-de-France uniquement (75, 77, 78, 91, 92, 93, 94, 95), en inter (sessions publiées sur le site) ou en intra dans l'entreprise.
 - Parcours métiers BTP modulaires ? Formation IA BTP à la carte ou parcours complet : cinq parcours par métier (dirigeant de PME BTP, chargé d'affaires, conducteur de travaux, assistant de gestion, référent IA) — modules de formation IA pour les professionnels du BTP suivis ensemble ou séparément selon les besoins et les prérequis pédagogiques. Page : ${BASE}/parcours-metiers
-- Combien de temps ? Niveau 1 : 4 h. Modules métier : 7 h. Parcours avancé : 14 h (2 jours).
-- Combien ça coûte ? Inter : 120 € HT par participant (4 h), 310 € HT (7 h), 620 € HT (14 h). Intra : sur devis. TVA exonérée (art. 261-4-4°-a du CGI).
+- Combien de temps ? Débutant : 4 h. Avancé : 4 h. Approfondi (applications métier BTP avec l'IA) : 14 h sur 2 jours (2 × 7 h par journée). Aucune formation catalogue autonome en 7 h.
+- Combien ça coûte ? Inter : 120 € HT (débutant 4 h), 170 € HT (avancé 4 h), 620 € HT (approfondi 14 h). Intra : sur devis. TVA exonérée (art. 261-4-4°-a du CGI).
 - Peut-on la faire financer ? Prise en charge OPCO/Constructys possible selon éligibilité (jamais automatique) : ${BASE}/financement-constructys-formation-ia-btp
 - Faut-il être à l'aise en informatique ? Non : les exercices se font en français courant, sur des documents BTP (devis, DCE, CCTP, CR de chantier).
 - L'IA remplace-t-elle les métiers du bâtiment ? Non : elle prend en charge une partie de l'administratif ; la relecture et la responsabilité restent humaines.
 
 ## Catalogue (présentiel Île-de-France)
 - Niveau 1 — Les bases de l'IA pour les professionnels du BTP (4 h) : ${BASE}/formations/ia-batiment-travaux-publics
-- IA et appels d'offres (7 h) : ${BASE}/formations/ia-appels-offre-btp
-- IA et conduite de travaux (7 h) : ${BASE}/formations/ia-conduite-travaux-suivi-chantier
-- Maîtriser Claude AI pour le BTP (7 h) : ${BASE}/formations/maitriser-claude-ai-btp
-- IA et maîtrise d'œuvre (7 h) : ${BASE}/formations/ia-maitrise-oeuvre
-- Créer ses assistants IA pour son entreprise du bâtiment (7 h, niveau 2) : ${BASE}/formations/assistants-ia-personnalises-btp
-- Créer des applications métier BTP avec l'IA (14 heures — 2 jours, niveau 3) : ${BASE}/formations/developpement-web-ia-sans-coder
+- IA et appels d'offres (4 h) : ${BASE}/formations/ia-appels-offre-btp
+- IA et conduite de travaux (4 h) : ${BASE}/formations/ia-conduite-travaux-suivi-chantier
+- Maîtriser Claude AI pour le BTP (4 h) : ${BASE}/formations/maitriser-claude-ai-btp
+- IA et maîtrise d'œuvre (4 h) : ${BASE}/formations/ia-maitrise-oeuvre
+- IA et maîtrise d'œuvre : CCTP, DPGF, CR et plannings (4 h) : ${BASE}/formations/ia-maitrise-oeuvre-cctp-dpgf
+- IA et assistance à maîtrise d'ouvrage (4 h) : ${BASE}/formations/ia-assistance-maitrise-ouvrage
+- Créer ses assistants IA pour son entreprise du bâtiment (4 h, niveau avancé) : ${BASE}/formations/assistants-ia-personnalises-btp
+- Créer des applications métier BTP avec l'IA (14 heures — 2 jours, niveau approfondi) : ${BASE}/formations/developpement-web-ia-sans-coder
 
 ## Pages clés
 - Parcours métiers BTP modulaires (parcours complet ou modules à la carte) : ${BASE}/parcours-metiers

@@ -71,7 +71,7 @@ export function AccueilDeuxOffresSection() {
                 </p>
                 <ul className="mt-3 space-y-2 text-sm text-[#081A3D]">
                   {[
-                    'Deux formats courts : 4 h ou 7 h.',
+                    'Formats courts : 4 h (débutant ou avancé).',
                     'Des cas d’usage concrets BTP.',
                     'ChatGPT, Claude et assistants IA.',
                     'Ateliers avancés de 14 h également proposés.',

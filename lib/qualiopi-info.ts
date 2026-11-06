@@ -15,7 +15,7 @@ import {
 } from '@/config/qualiopi';
 import { OFC_IDENTITE } from '@/lib/ofc-identite';
 import { SCHEMA_CONTACT, SCHEMA_GEO } from '@/lib/schema-constants';
-import { siteQualiopiHasCredentialSchema, siteSiretDigits } from '@/lib/site-config';
+import { siteQualiopiHasCredentialSchema } from '@/lib/site-config';
 import { SITE_CONFIG } from '@/lib/seo';
 import { MODALITE_FORMATIONS_PRESENTIEL } from '@/lib/tarifs-sessions';
 import { libelleTarifParticipantCatalogue, TARIF_SESSION_INTRA_NIV11_HT } from '@/lib/tarifs-catalogue-participant';
@@ -79,10 +79,8 @@ export const QUALIOPI_LEGAL = {
  * Source unique : `QUALIOPI_LEGAL` + `SCHEMA_CONTACT` (pas de hardcode SIRET / n° certificat).
  */
 export function buildQualiopiCredentialSchema(): Record<string, unknown> {
-  const siren = siteSiretDigits().slice(0, 9);
   return {
     ...siteQualiopiHasCredentialSchema(),
-    url: `https://annuaire-entreprises.data.gouv.fr/labels-certificats/${siren}`,
   };
 }
 

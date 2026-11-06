@@ -267,7 +267,7 @@ Rédige un mail de relance pour client [particulier / pro] : rappel du contexte,
     },
   ],
   courseName: 'Formation IA électricien BTP — NF C 15-100, Qualiopi',
-  courseDescription: `${MARQUE} : formation IA et ChatGPT pour électriciens du BTP — devis tableautage, puissance, rapports, mémoires AO, CR et SAV. Référence NF C 15-100. Sessions catalogue 7 h (bases 4 h), Qualiopi, financement possible selon éligibilité.`,
+  courseDescription: `${MARQUE} : formation IA et ChatGPT pour électriciens du BTP — devis tableautage, puissance, rapports, mémoires AO, CR et SAV. Référence NF C 15-100. Sessions catalogue 4 h (bases et perfectionnement), Qualiopi, financement possible selon éligibilité.`,
   courseTeaches: [
     'ChatGPT pour électriciens BTP',
     'Devis et descriptifs tableautage (relecture humaine)',

@@ -15,7 +15,7 @@ import { PHOTOS } from '@/lib/photos';
 const QUICK_LINKS = [
   { href: '#catalogue-positionnement', label: 'Notre approche' },
   { href: '#catalogue-gammes', label: 'Choisir sa gamme' },
-  { href: '#tarifs-formations-btp', label: 'Tarifs 4 h / 7 h / 14 h' },
+  { href: '#tarifs-formations-btp', label: 'Tarifs 4 h / 14 h' },
   { href: '#parcours-guide-heading', label: 'Parcours Qualiopi' },
   { href: '#formations-page-faq-heading', label: 'Questions fréquentes' },
 ] as const;

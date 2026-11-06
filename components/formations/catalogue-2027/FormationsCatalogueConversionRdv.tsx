@@ -25,7 +25,7 @@ export function FormationsCatalogueConversionRdv() {
           Parlons de vos besoins
         </h2>
         <p className="mt-2 text-sm leading-relaxed text-slate-600">
-          Visio découverte gratuite pour cadrer votre parcours, le format (4 h, 7 h ou 14 h) et les
+          Visio découverte gratuite pour cadrer votre parcours, le format (4 h ou 14 h sur 2 jours) et les
           options intra ou inter.
         </p>
         <CtaVisio

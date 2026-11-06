@@ -740,7 +740,7 @@ export function getPersonSchema() {
     image: `${SITE_CONFIG.url}/images/laure-olivie-formatrice-ia-btp-qualiopi.webp`,
     jobTitle: 'Formatrice IA spécialisée BTP',
     alternateName: ['Laure Olivié', 'Laure Olivie'],
-    description: `Formatrice IA spécialisée BTP depuis fin 2021, basée à Paris (75012). ${formatNoteSatisfactionAffichageComplet()}. Ancienne dirigeante d’une entreprise de travaux publics, ${formatAnneesExperienceBTP()}. Instructrice LinkedIn Learning. Certification Qualiopi. Réseau FFB Grand Paris et CSFE.`,
+    description: `Formatrice IA spécialisée BTP depuis fin 2021, basée à Paris (75012). ${formatNoteSatisfactionAffichageComplet()}. Ancienne dirigeante d’une entreprise de travaux publics, ${formatAnneesExperienceBTP()}. Instructrice LinkedIn Learning. Réseau FFB Grand Paris et CSFE.`,
     knowsAbout: [
       'Formation IA pour le BTP',
       'Formation ChatGPT entreprise BTP',
@@ -769,12 +769,6 @@ export function getPersonSchema() {
       'Formation continue BTP',
     ],
     hasCredential: [
-      {
-        '@type': 'EducationalOccupationalCredential',
-        name: 'Certification Qualiopi',
-        description: `Organisme de formation certifié Qualiopi (Certifopac n° 520911-1, validité 16/01/2025–15/01/2028) pour les actions de formation professionnelle · SIREN ${SCHEMA_CONTACT.sirenFormatted} · ${SCHEMA_CONTACT.rcsLibelle} · NDA ${SCHEMA_CONTACT.nda}`,
-        credentialCategory: 'Certification qualité formation',
-      },
       {
         '@type': 'EducationalOccupationalCredential',
         name: 'LinkedIn Learning Instructor',

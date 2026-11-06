@@ -119,7 +119,7 @@ export type FinancementEstimationExemple = {
 
 export function getFinancementEstimationExemples(): FinancementEstimationExemple[] {
   const duree = CONSTRUCTYS_DUREE_SESSION_H;
-  /** Tarif métier 7 h × participants = coût pédagogique facturé. */
+  /** Tarif catalogue avancé 4 h × participants = coût pédagogique facturé (exemple). */
   const tarifParParticipant = TARIF_PARTICIPANT_NIV02_HT;
 
   const cas = [
@@ -228,7 +228,7 @@ export const FINANCEMENT_ENTREPRISE_REALISE = [
 export const FINANCEMENT_TARIFS_BLOC = {
   bases: libelleTarifParticipantCatalogue(TARIF_PARTICIPANT_NIV01_HT),
   metier: libelleTarifParticipantCatalogue(TARIF_PARTICIPANT_NIV02_HT),
-  /** @deprecated Alias — sessions métier 7 h. */
+  /** @deprecated Alias — sessions avancées 4 h. */
   intra: libelleTarifParticipantCatalogue(TARIF_PARTICIPANT_NIV02_HT),
   /** @deprecated Alias — bases. */
   inter: libelleTarifParticipantCatalogue(TARIF_PARTICIPANT_NIV01_HT),

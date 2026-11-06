@@ -10,15 +10,13 @@ import {
   DEV_WEB_IA_PARCOURS_14H_SECTION,
   DEV_WEB_IA_PARCOURS_7H_SECTION,
   DEV_WEB_IA_PDF_14H_HREF,
-  DEV_WEB_IA_PDF_7H_HREF,
   DEV_WEB_IA_PROGRAMME_SCAN_14H,
   DEV_WEB_IA_PROGRAMME_SCAN_7H,
   DEV_WEB_IA_PROGRAMME_SECTION,
   PROGRAMME_PDF_14H,
-  PROGRAMME_PDF_7H,
 } from '@/lib/formation-developpement-web-ia-content';
 
-type ParcoursId = '7h' | '14h';
+type ParcoursId = 'jour1' | '14h';
 
 function WorkflowSteps({ steps }: { steps: readonly string[] }) {
   return (
@@ -39,7 +37,7 @@ function WorkflowSteps({ steps }: { steps: readonly string[] }) {
   );
 }
 
-function Etape7hCard({
+function EtapeJour1Card({
   etape,
 }: {
   etape: (typeof DEV_WEB_IA_MODULES)[number];
@@ -184,27 +182,22 @@ function ProgrammeScanSteps({
   );
 }
 
-function Parcours7hPanel() {
+function ParcoursJour1Panel() {
   const { title, intro } = DEV_WEB_IA_PARCOURS_7H_SECTION;
   return (
-    <div id="parcours-7h" className="scroll-mt-28">
+    <div id="parcours-jour1" className="scroll-mt-28">
       <h3 className={OFC_TYPE_H3}>{title}</h3>
       <p className="mt-3 max-w-3xl text-base leading-relaxed text-slate-600">{intro}</p>
       <ProgrammeScanSteps steps={DEV_WEB_IA_PROGRAMME_SCAN_7H} />
       <div className="mt-8 space-y-4">
         {DEV_WEB_IA_MODULES.map((etape) => (
-          <Etape7hCard key={etape.number} etape={etape} />
+          <EtapeJour1Card key={etape.number} etape={etape} />
         ))}
       </div>
-      <p className="mt-6">
-        <a
-          href={DEV_WEB_IA_PDF_7H_HREF}
-          download={PROGRAMME_PDF_7H}
-          className={`${OFC_CTA_SECONDARY} inline-flex min-h-11 items-center gap-2 px-5 py-3`}
-        >
-          <Download className="h-4 w-4 shrink-0" aria-hidden />
-          Télécharger le programme officiel 7 h (PDF)
-        </a>
+      <p className="mt-6 rounded-xl border border-slate-200 bg-[#EFF6FF]/40 px-4 py-3 text-sm text-slate-700">
+        Ce contenu correspond au <strong className="font-semibold">Jour 1</strong> du parcours catalogue{' '}
+        <strong className="font-semibold">14 h</strong> — pas de session inter-entreprises réservable sur une
+        seule journée.
       </p>
     </div>
   );
@@ -229,7 +222,7 @@ function Parcours14hPanel() {
       </div>
 
       <div className="mt-8 rounded-2xl border border-slate-200 bg-[#F2F2F2] p-5 md:p-6">
-        <h4 className={`${OFC_TYPE_H3}`}>Jour 1 — Reprendre le parcours 7 h</h4>
+        <h4 className={`${OFC_TYPE_H3}`}>Jour 1 — Première journée (7 h)</h4>
         <ul className="mt-4 flex flex-wrap gap-2">
           {s.jour1Resume.map((item) => (
             <li
@@ -242,8 +235,8 @@ function Parcours14hPanel() {
         </ul>
         <p className="mt-4 text-sm text-slate-600">
           Le détail des 4 étapes figure dans l&apos;onglet{' '}
-          <a href="#parcours-7h" className="font-semibold text-[#377CF3] hover:underline">
-            Parcours 7 h
+          <a href="#parcours-jour1" className="font-semibold text-[#377CF3] hover:underline">
+            Jour 1 — 7 h
           </a>
           .
         </p>
@@ -278,12 +271,12 @@ function Parcours14hPanel() {
 
 export function CatalogueFormationDevWebProgramme() {
   const baseId = useId();
-  const [parcours, setParcours] = useState<ParcoursId>('7h');
+  const [parcours, setParcours] = useState<ParcoursId>('14h');
 
   const selectParcours = useCallback((id: ParcoursId) => {
     setParcours(id);
     if (typeof window !== 'undefined') {
-      window.history.replaceState(null, '', id === '7h' ? '#parcours-7h' : '#parcours-14h');
+      window.history.replaceState(null, '', id === 'jour1' ? '#parcours-jour1' : '#parcours-14h');
     }
   }, []);
 
@@ -292,8 +285,8 @@ export function CatalogueFormationDevWebProgramme() {
       const hash = window.location.hash.replace('#', '');
       if (hash === 'parcours-14h' || hash === 'programme-14h') {
         setParcours('14h');
-      } else if (hash === 'parcours-7h') {
-        setParcours('7h');
+      } else if (hash === 'parcours-jour1' || hash === 'parcours-7h') {
+        setParcours('jour1');
       }
     };
     applyHash();
@@ -323,7 +316,7 @@ export function CatalogueFormationDevWebProgramme() {
 
       <div
         role="tablist"
-        aria-label="Choisir un parcours de formation"
+        aria-label="Choisir une partie du programme"
         className="mt-8 flex flex-col gap-2 sm:flex-row"
       >
         {DEV_WEB_IA_PROGRAMME_SECTION.formats.map((f) => {
@@ -365,7 +358,7 @@ export function CatalogueFormationDevWebProgramme() {
         aria-labelledby={`${baseId}-tab-${parcours}`}
         className="mt-8"
       >
-        {parcours === '7h' ? <Parcours7hPanel /> : <Parcours14hPanel />}
+        {parcours === 'jour1' ? <ParcoursJour1Panel /> : <Parcours14hPanel />}
       </div>
     </div>
   );

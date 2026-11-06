@@ -3,15 +3,13 @@
  * Tarifs HT / participant (catalogue).
  */
 import { LINKS } from '@/lib/internal-links';
-import {
-  DEV_WEB_IA_FORMATION_TITRE,
-  TARIF_INTER_DEV_WEB_IA_HT,
-} from '@/lib/formation-developpement-web-ia-content';
+import { DEV_WEB_IA_FORMATION_TITRE } from '@/lib/formation-developpement-web-ia-content';
 import {
   libelleTarifParticipantCatalogue,
   SESSION_CONVOQUEE_MIN_PARTICIPANTS,
   TARIF_PARTICIPANT_NIV01_HT,
   TARIF_PARTICIPANT_NIV09_HT,
+  TARIF_PARTICIPANT_NIV10_14H_HT,
 } from '@/lib/tarifs-catalogue-participant';
 
 export const FEDERATION_PARCOURS_EFFECTIF_MIN = SESSION_CONVOQUEE_MIN_PARTICIPANTS;
@@ -45,7 +43,7 @@ export const FEDERATION_PARCOURS_TROIS_NIVEAUX: readonly FederationParcoursNivea
   {
     niveau: 2,
     title: 'Niveau 2 — Perfectionnement',
-    formatLabel: '4 à 7 heures',
+    formatLabel: '4 heures',
     description:
       'Approfondir l’utilisation de l’IA sur les appels d’offres, la conduite de travaux, Claude AI et la maîtrise d’œuvre.',
     tarifHtParParticipant: TARIF_PARTICIPANT_NIV09_HT,
@@ -55,13 +53,12 @@ export const FEDERATION_PARCOURS_TROIS_NIVEAUX: readonly FederationParcoursNivea
   {
     niveau: 3,
     title: DEV_WEB_IA_FORMATION_TITRE,
-    formatLabel: '7 heures ou 14 heures',
+    formatLabel: '14 heures sur 2 jours (2 × 7 h)',
     description:
       'Concevoir et déployer ses propres applications et outils métier BTP avec l’IA, sans être développeur.',
     note:
       'C’est notamment ce que nous avons évoqué lors de la démonstration réalisée par Mess sur le salon.',
-    tarifHtParParticipant: TARIF_INTER_DEV_WEB_IA_HT,
-    tarifSuffix: 'par jour',
+    tarifHtParParticipant: TARIF_PARTICIPANT_NIV10_14H_HT,
     programmeHref: LINKS.formationDeveloppementWebIaSansCoder,
     programmeLabel: 'Programme niveau 3 — création et déploiement d’applications métier BTP',
   },

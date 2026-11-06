@@ -527,18 +527,24 @@ export const ACCUEIL_RESSOURCES_MAQUETTE = [
 export const ACCUEIL_METHODE_ACCOMPAGNEMENT_LEAD =
   'Un accompagnement simple et efficace, de l’analyse de vos besoins à la mise en pratique.' as const;
 
-/** Bandeaux formats commerciaux — accueil maquette (données catalogue : 4 h / 7 h / 14 h). */
+/** Bandeaux formats commerciaux — accueil maquette (catalogue : débutant 4 h · avancé 4 h · approfondi 14 h). */
 export const ACCUEIL_FORMATS_FORMATION_IA = [
   {
-    id: 'express-4h',
-    titre: 'Format Express — 4 h',
-    description: 'Découvrir et pratiquer l’IA sur un ou deux cas métier ciblés.',
+    id: 'debutant-4h',
+    titre: 'Débutant — 4 h',
+    description: 'Les bases de l’IA — une demi-journée pour démarrer sur vos documents.',
     icon: 'timer',
   },
   {
-    id: 'approfondi-7h',
-    titre: 'Format Approfondi — 7 h',
-    description: 'Maîtriser les outils et construire une méthode réutilisable.',
+    id: 'avance-4h',
+    titre: 'Avancé — 4 h',
+    description: 'Sessions métier et assistants — pratique sur devis, DCE, chantier ou Claude.',
+    icon: 'timer',
+  },
+  {
+    id: 'approfondi-14h',
+    titre: 'Approfondi — 14 h',
+    description: 'Applications métier BTP avec l’IA — 2 jours pour cadrer et prototyper.',
     icon: 'calendar',
   },
 ] as const;

@@ -3,40 +3,42 @@
  */
 import type { FormationNiveau } from '@/data/formations';
 
-/** Bandeau formats — Express / Approfondi / Avancé. */
+/** Bandeau formats — Débutant / Avancé / Approfondi (catalogue IA BTP). */
 export const CATALOGUE_MAQUETTE_FORMATS = [
   {
-    id: 'express',
-    titre: 'Express',
+    id: 'debutant',
+    titre: 'Débutant',
     duree: '4 h',
-    description: 'Bases et sessions métier — format demi-journée',
-  },
-  {
-    id: 'approfondi',
-    titre: 'Approfondi',
-    duree: '7 h',
-    description: 'Assistants IA personnalisés — session dédiée',
+    description: 'Les bases de l’IA — format demi-journée',
   },
   {
     id: 'avance',
     titre: 'Avancé',
+    duree: '4 h',
+    description: 'Sessions métier et assistants — demi-journée pratique',
+  },
+  {
+    id: 'approfondi',
+    titre: 'Approfondi',
     duree: '14 h',
-    description: 'Créer et déployer vos outils IA métier',
+    description: 'Applications métier BTP avec l’IA — 2 jours',
   },
 ] as const;
 
 /** Badges cartes — libellés maquette (distincts du méga-menu si besoin). */
-export function catalogueMaquetteNiveauBadge(niveau: FormationNiveau): string {
+export function catalogueMaquetteNiveauBadge(ref: string, niveau: FormationNiveau): string {
+  if (ref === 'NIV-10') return 'Niveau Approfondi';
   if (niveau === 1) return 'Niveau Débutant';
-  if (niveau === 2) return 'Niveau Métiers';
-  return 'Niveau Avancé';
+  if (niveau === 2) return 'Niveau Avancé';
+  return 'Niveau Approfondi';
 }
 
 export function catalogueMaquetteNiveauBadgeTone(
+  ref: string,
   niveau: FormationNiveau,
-): 'debutant' | 'metiers' | 'avance' {
+): 'debutant' | 'avance' | 'approfondi' {
+  if (ref === 'NIV-10' || niveau === 3) return 'approfondi';
   if (niveau === 1) return 'debutant';
-  if (niveau === 2) return 'metiers';
   return 'avance';
 }
 

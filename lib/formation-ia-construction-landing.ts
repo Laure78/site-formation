@@ -10,6 +10,7 @@ import {
   SCHEMA_PERSON_LAURE,
   SCHEMA_PUBLIC_SITE_URL,
 } from '@/lib/schema-constants';
+import { buildQualiopiCredentialSchema } from '@/lib/qualiopi-info';
 import { buildFormationFicheCourseJsonLd } from '@/lib/schema-formation-course-jsonld';
 import { phraseSessionCataloguePresentielIdf } from '@/lib/catalogue-duree-copy';
 import { MODALITE_FORMATIONS_STANDARD, TARIF_FORFAIT_DEBUTANT_HT } from '@/lib/tarifs-sessions';
@@ -62,12 +63,12 @@ export const CONSTRUCTION_PROGRAMMES_ORIENTATION = [
   {
     label: 'DCE, mémoire technique et appels d’offres',
     href: LINKS.formationAO,
-    programme: 'NIV-02 — IA appliquée aux appels d’offres BTP (7 h)',
+    programme: 'NIV-02 — IA appliquée aux appels d’offres BTP (4 h)',
   },
   {
     label: 'Suivi de chantier, CR et coordination',
     href: LINKS.formationConduiteTravauxSuiviChantier,
-    programme: 'NIV-03 — IA conduite de travaux et suivi chantier (7 h)',
+    programme: 'NIV-03 — IA conduite de travaux et suivi chantier (4 h)',
   },
   {
     label: 'Chiffrage, DPGF et quantitatifs (métreurs, économistes)',
@@ -240,11 +241,7 @@ export function buildFormationIaConstructionCourseJsonLd(): Record<string, unkno
       '@id': `${base}/#organization`,
       name: SCHEMA_ORGANIZATION_OFC.name,
       url: base,
-      hasCredential: {
-        '@type': 'EducationalOccupationalCredential',
-        name: 'Certification Qualiopi',
-        credentialCategory: 'certification',
-      },
+      hasCredential: buildQualiopiCredentialSchema(),
     },
     instructor: {
       '@type': 'Person',

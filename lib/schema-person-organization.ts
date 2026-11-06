@@ -13,6 +13,7 @@ import {
 } from '@/lib/schema-constants';
 import { SITE_CONFIG, siteHasPublicPhone } from '@/lib/seo';
 import { siteProviderIdentifierSchema } from '@/lib/site-config';
+import { buildQualiopiCredentialSchema } from '@/lib/qualiopi-info';
 
 export function getSchemaPersonOrganization() {
   const base = SCHEMA_PUBLIC_SITE_URL.replace(/\/$/, '');
@@ -60,11 +61,7 @@ export function getSchemaPersonOrganization() {
             value: SCHEMA_CONTACT.nda,
           },
         ],
-        hasCredential: {
-          '@type': 'EducationalOccupationalCredential',
-          name: 'Qualiopi',
-          credentialCategory: 'Certification qualité organisme de formation',
-        },
+        hasCredential: buildQualiopiCredentialSchema(),
         areaServed: [
           'Île-de-France',
           'Paris',

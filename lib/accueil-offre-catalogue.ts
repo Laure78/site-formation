@@ -124,7 +124,7 @@ const ACCUEIL_PARCOURS_USAGES_IA: Partial<Record<ParcoursId, readonly string[]>>
 const ACCUEIL_PARCOURS_NIVEAU_ENTREE: Partial<Record<ParcoursId, string>> = {
   'dirigeant-pme-btp': 'Entrée conseillée : niveau 1 — Débutant (4 h)',
   'charge-affaires-btp': 'Prérequis : pratique du chiffrage ou des consultations',
-  'conducteur-de-travaux': 'Entrée conseillée : niveau 1, puis formation chantier (7 h)',
+  'conducteur-de-travaux': 'Entrée conseillée : niveau 1, puis formation chantier (4 h)',
   'assistant-de-gestion-btp': 'Entrée conseillée : niveau 1 — Débutant (4 h)',
 };
 

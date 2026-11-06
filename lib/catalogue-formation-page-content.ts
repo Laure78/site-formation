@@ -6,7 +6,12 @@ import type { FormationCatalogueCode } from '@/lib/formation-catalogue-visibilit
 import type { TrainingParcoursKind } from '@/lib/training-page-helpers';
 import { LINKS } from '@/lib/internal-links';
 import { formatPrixHt, getFormationByCode, libelleDureeFormation } from '@/data/formations';
-import { TARIF_SESSION_INTRA_NIV11_HT, TARIF_SESSION_INTRA_NIV12_HT } from '@/lib/tarifs-catalogue-participant';
+import {
+  libelleTarifParticipantCatalogue,
+  TARIF_PARTICIPANT_NIV09_HT,
+  TARIF_SESSION_INTRA_NIV11_HT,
+  TARIF_SESSION_INTRA_NIV12_HT,
+} from '@/lib/tarifs-catalogue-participant';
 import {
   DEV_WEB_IA_LIVRABLES,
   DEV_WEB_IA_OBJECTIFS,
@@ -32,6 +37,7 @@ import { NIV04_PROGRAMME_BLOCS } from '@/lib/catalogue-formation-programmes-niv0
 import { NIV05_PROGRAMME_BLOCS } from '@/lib/catalogue-formation-programmes-niv05';
 import { NIV11_PROGRAMME_BLOCS } from '@/lib/catalogue-formation-programmes-niv11';
 import { NIV12_PROGRAMME_BLOCS } from '@/lib/catalogue-formation-programmes-niv12';
+import { MENTIONS_TVA_REGIMES_COURT } from '@/lib/tarifs-sessions';
 
 export type CataloguePainPoint = { title: string; texte: string };
 
@@ -840,7 +846,7 @@ const NIV_05: CatalogueFormationPageContent = {
 const NIV_10: CatalogueFormationPageContent = {
   programmeRef: 'NIV-10',
   parcoursKind: 'creation-ia',
-  levelBadgeLabel: 'Niveau 3 — Avancé',
+  levelBadgeLabel: 'Niveau 3 — Approfondi',
   heroPublicLine:
     'Dirigeants, conducteurs de travaux, chargés d’affaires et fonctions support du BTP — sans prérequis en programmation.',
   heroFacts: [
@@ -850,7 +856,7 @@ const NIV_10: CatalogueFormationPageContent = {
     '4 à 8 participants',
     '70 % pratique · 30 % méthodologie',
   ],
-  quickFactsLevel: 'Niveau 3 — Avancé',
+  quickFactsLevel: 'Niveau 3 — Approfondi',
   practiceShare: '70 %',
   formatLabel: 'Présentiel',
   locationLabel: 'Île-de-France',
@@ -892,18 +898,18 @@ const NIV_10: CatalogueFormationPageContent = {
 const NIV_09: CatalogueFormationPageContent = {
   programmeRef: 'NIV-09',
   parcoursKind: 'usages-ia-btp',
-  levelBadgeLabel: 'Niveau 2 · 7 heures · Présentiel',
+  levelBadgeLabel: 'Niveau Avancé · 4 heures · Présentiel',
   heroPublicLine: undefined,
   heroFacts: [
-    '7 heures — 1 journée',
-    '70 % de pratique',
+    libelleDureeFormation(getFormationByCode('NIV-09')!),
+    'Environ 70 % de pratique',
     `Jusqu'à ${getFormationByCode('NIV-09')!.effectifMax} participants`,
     SITE_INTER_LIEU_PREFIX,
   ],
   practiceShare: '70 %',
   formatLabel: 'Présentiel',
   locationLabel: `${SITE_INTER_LIEU_COURT} · Île-de-France`,
-  quickFactsLevel: 'Niveau 2',
+  quickFactsLevel: 'Niveau Avancé',
   pedagogicalNote: 'L’IA prépare et structure. Le professionnel contrôle et valide avant tout envoi.',
   objectivesTitle: 'Objectifs pédagogiques',
   deliverablesTitle: 'Ce que vous emportez',
@@ -911,11 +917,11 @@ const NIV_09: CatalogueFormationPageContent = {
   painPoints: [],
   outcomes: [...ASSISTANTS_IA_OBJECTIFS],
   outcomesDescription:
-    'À l’issue de la journée, vous savez créer, tester et déployer des assistants IA métier sur ChatGPT et Claude — sans développer d’application.',
+    'À l’issue de la demi-journée, vous savez concevoir, tester et préparer le déploiement d’assistants IA sur ChatGPT et Claude — sans développer d’application.',
   deliverables: [],
   publicPrerequisites: [{ title: 'Prérequis techniques et pédagogiques', items: ASSISTANTS_IA_PREREQUIS_ITEMS }],
   programIntro: ASSISTANTS_IA_PROPOSITION_VALEUR,
-  programmeHeading: 'Programme détaillé — 4 modules',
+  programmeHeading: 'Programme détaillé — 4 modules (4 × 60 min de formation effective)',
   programmeMethodsBullets: [...ASSISTANTS_IA_PEDAGOGIE],
   programModules: ASSISTANTS_IA_MODULES.map((m) => ({
     title: `${m.heading.replace(/^Module \d+ — /, '')} (${m.duree})`,
@@ -925,7 +931,7 @@ const NIV_09: CatalogueFormationPageContent = {
   pdfHref: LINKS.pdfProgrammeAssistantsIaPersonnalisesBtp,
   interExtraBullets: [
     `Inter-entreprises : ${SITE_INTER_LIEU_COURT}, Paris`,
-    '310 € net de TVA par participant, sous réserve de validation fiscale (exonération art. 261-4-4° a du CGI)',
+    `${libelleTarifParticipantCatalogue(TARIF_PARTICIPANT_NIV09_HT)}, sous réserve de validation fiscale (${MENTIONS_TVA_REGIMES_COURT})`,
   ],
   intraExtraBullets: [
     'Intra-entreprise : dans vos locaux en Île-de-France',

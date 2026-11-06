@@ -1,4 +1,8 @@
 import { getFormationByCode, isFormationSurDevis, libellePrixSessionHt } from '@/data/formations';
+import {
+  libelleTarifParticipantCatalogue,
+  TARIF_PARTICIPANT_NIV02_HT,
+} from '@/lib/tarifs-catalogue-participant';
 import type { FormationCatalogueEntry } from '@/lib/formations-catalogue-display';
 import type { CatalogueComplementaryEntry } from '@/lib/catalogue-thematiques-btp';
 import {
@@ -65,6 +69,10 @@ export function catalogueEntryTarifLines(ref: string): string | null {
       return `${participant} · ${parcours}`;
     }
     return parcours;
+  }
+
+  if (ref === 'NIV-11' || ref === 'NIV-12') {
+    return `Sur demande — grille inter ${libelleTarifParticipantCatalogue(TARIF_PARTICIPANT_NIV02_HT)} (session 4 h)`;
   }
 
   const participant = libellePrixSessionHt(f);

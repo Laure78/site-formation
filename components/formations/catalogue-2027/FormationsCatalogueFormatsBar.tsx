@@ -2,9 +2,9 @@ import { Clock, Layers, Rocket } from 'lucide-react';
 import { CATALOGUE_MAQUETTE_FORMATS } from '@/lib/formations-catalogue-maquette';
 
 const ICONS = {
-  express: Clock,
-  approfondi: Layers,
-  avance: Rocket,
+  debutant: Clock,
+  avance: Layers,
+  approfondi: Rocket,
 } as const;
 
 export function FormationsCatalogueFormatsBar() {

@@ -14,6 +14,7 @@ import {
 import { getFormationCatalogueByRef } from '@/lib/formations-catalogue-display';
 import { TARIF_INTER_DEV_WEB_IA_14H_HT } from '@/lib/formation-developpement-web-ia-content';
 import { LINKS } from '@/lib/internal-links';
+import { TARIF_PARTICIPANT_NIV02_HT } from '@/lib/tarifs-catalogue-participant';
 import { getFormationCatalogueImageObjectJsonLd } from '@/lib/photo-seo';
 import {
   SCHEMA_CONTACT,
@@ -88,6 +89,7 @@ const PRICE_SPEC_DESCRIPTION_BY_REF: Record<string, string> = Object.fromEntries
 
 function prixCatalogue(ref: string): number | undefined {
   if (ref === 'NIV-10') return TARIF_INTER_DEV_WEB_IA_14H_HT;
+  if (ref === 'NIV-11' || ref === 'NIV-12') return TARIF_PARTICIPANT_NIV02_HT;
   const f = getFormationByCode(ref);
   if (!f) return undefined;
   if (f.tarifParticipantHt) return f.tarifParticipantHt;
@@ -166,7 +168,7 @@ export const CATALOGUE_COURSE_IA_AO_NIV02: CatalogueCourseJsonLdConfig = {
   path: LINKS.formationAO,
   name: "L'IA appliquée aux appels d'offres BTP",
   description:
-    'Formation IA appels d’offres BTP : méthode guidée pour analyser un DCE, préparer le chiffrage et structurer un mémoire technique avec l’IA. 7 h, présentiel Île-de-France, 6 à 12 participants.',
+    'Formation IA appels d’offres BTP : méthode guidée pour analyser un DCE, préparer le chiffrage et structurer un mémoire technique avec l’IA. 4 h, présentiel Île-de-France, 6 à 12 participants.',
   price: prixCatalogue('NIV-02'),
   keywords: ['formation IA appels d’offres BTP', 'DCE', 'mémoire technique', 'chiffrage BTP', 'CCTP', 'DPGF'],
   courseCode: 'NIV-02',
@@ -197,7 +199,7 @@ export const CATALOGUE_COURSE_CONDUITE_TRAVAUX_NIV03: CatalogueCourseJsonLdConfi
   path: LINKS.formationConduiteTravauxSuiviChantier,
   name: "L'IA appliquée à la conduite de travaux",
   description:
-    'Formation IA niveau 2 : conduite de travaux et suivi chantier (CCTP, CR, PPSPS). 7 h, présentiel Île-de-France.',
+    'Formation IA niveau 2 : conduite de travaux et suivi chantier (CCTP, CR, PPSPS). 4 h, présentiel Île-de-France.',
   price: prixCatalogue('NIV-03'),
   keywords: ['CCTP', 'DPGF', 'PPSPS', 'skills Claude', 'conduite de travaux'],
   courseCode: 'NIV-03',
@@ -238,7 +240,7 @@ export const CATALOGUE_COURSE_MAITRISE_OEUVRE_NIV05: CatalogueCourseJsonLdConfig
   path: LINKS.formationIaMaitriseOeuvre,
   name: "L'IA au service des maîtres d'œuvre",
   description:
-    "Formation IA niveau 2 pour maîtres d'œuvre : DCE, CR chantier, OS, réserves. 7 h, présentiel Île-de-France.",
+    "Formation IA niveau 2 pour maîtres d'œuvre : DCE, CR chantier, OS, réserves. 4 h, présentiel Île-de-France.",
   price: prixCatalogue('NIV-05'),
   keywords: ['MOE', 'MOEX', 'DCE', 'CR chantier', 'réserves', 'Claude', 'ChatGPT'],
   courseCode: 'NIV-05',

@@ -261,11 +261,11 @@ export function CatalogueFormationDevWebTariffsSection() {
     >
       <div className={FORMATION_CATALOGUE_INNER_MAX_4XL}>
         <h2 id="tarifs-modalites-title" className={FORMATION_CATALOGUE_H2}>
-          Combien coûtent les formats 7 h et 14 h&nbsp;?
+          Combien coûte la formation catalogue (14 h) ?
         </h2>
         <p className="mt-2 max-w-2xl text-base text-slate-600">
-          Formats 7 h ou 14 h — tarif HT par participant (inter-entreprises ou intra, présentiel en
-          Île-de-France uniquement).
+          Offre catalogue : 14 heures sur 2 jours (2 × 7 h par journée), tarif HT par participant en
+          inter-entreprises ou sur devis en intra — présentiel en Île-de-France uniquement.
         </p>
         <DevWebIaPrixLancementCard className="mt-6" formationTitle={FORMATION.titre} showCtas={false} />
         <ul className="mt-6 list-disc space-y-1 pl-5 text-base text-slate-700">

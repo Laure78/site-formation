@@ -110,9 +110,9 @@ export function getCataloguePilierConnexeDescription(at: Date = new Date()): str
 export function getCatalogueSiteSearchDescription(at: Date = new Date()): string {
   const base = `${CATALOGUE_FORMATIONS_TOTAL} formations`;
   if (isFormationCataloguePublished('NIV-03', at)) {
-    return `${base} IA BTP Qualiopi — sessions ${CATALOGUE_DUREE_SESSION_METIER} (assistants IA 7 h, applications métier 14 h). Devis, AO, chantier, Claude.`;
+    return `${base} IA BTP Qualiopi — sessions ${CATALOGUE_DUREE_SESSION_METIER} (applications métier 14 h sur 2 jours). Devis, AO, chantier, Claude.`;
   }
-  return `${base} IA BTP Qualiopi — sessions catalogue ${CATALOGUE_DUREE_SESSION_METIER} (exceptions assistants 7 h et applications 14 h). Devis, AO, Claude, maîtrise d'œuvre.`;
+  return `${base} IA BTP Qualiopi — sessions catalogue ${CATALOGUE_DUREE_SESSION_METIER} (exception applications métier 14 h sur 2 jours). Devis, AO, Claude, maîtrise d'œuvre.`;
 }
 
 /** Description lien catalogue — landings métier (ex. métreur). */

@@ -296,7 +296,7 @@ const PARCOURS_PRACTICE_RESOURCES: Partial<
   'conducteur-de-travaux': [
     {
       href: LINKS.formationConduiteTravauxSuiviChantier,
-      title: 'Programme catalogue conduite de travaux (7 h)',
+      title: 'Programme catalogue conduite de travaux (4 h)',
       description: 'Fiche Qualiopi NIV-03 — CR, CCTP, skills Claude, DOE.',
     },
     {

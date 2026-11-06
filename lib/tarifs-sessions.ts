@@ -22,6 +22,7 @@ import {
   TARIF_PARTICIPANT_NIV01_HT,
   TARIF_PARTICIPANT_NIV02_HT,
   TARIF_PARTICIPANT_NIV10_HT,
+  TARIF_PARTICIPANT_NIV10_14H_HT,
 } from '@/lib/tarifs-catalogue-participant';
 
 /** Durées catalogue reconnues pour la grille tarifaire. */
@@ -109,21 +110,22 @@ export function getTarifGrille(dureeHeures: TarifDureeHeures): TarifGrille {
         intraHT: TARIF_PARTICIPANT_NIV01_HT,
       };
     case 7:
+      /** Journée au sein d’un parcours 14 h (620 ÷ 2) — pas d’offre catalogue autonome 7 h. */
       return {
         dureeHeures: 7,
-        participantHT: TARIF_PARTICIPANT_NIV10_HT,
-        intraHT: TARIF_PARTICIPANT_NIV10_HT,
-        interHT: TARIF_PARTICIPANT_NIV10_HT,
+        participantHT: TARIF_PARTICIPANT_NIV10_14H_HT / 2,
+        intraHT: TARIF_PARTICIPANT_NIV10_14H_HT / 2,
+        interHT: TARIF_PARTICIPANT_NIV10_14H_HT / 2,
       };
     case 14:
       return {
         dureeHeures: 14,
-        participantHT: 620,
-        intraHT: 620,
-        interHT: 620,
+        participantHT: TARIF_PARTICIPANT_NIV10_14H_HT,
+        intraHT: TARIF_PARTICIPANT_NIV10_14H_HT,
+        interHT: TARIF_PARTICIPANT_NIV10_14H_HT,
       };
     default:
-      // 4 h = exception NUM-01 uniquement (120 € HT) — pas de prorata journalier.
+      /** 4 h — référence débutant (NUM-01) pour les mentions génériques « session 4 h ». */
       return {
         dureeHeures: 4,
         participantHT: TARIF_PARTICIPANT_NIV01_HT,
@@ -168,7 +170,7 @@ export function libelleTarifsDualCourt(dureeHeures: TarifDureeHeures = 4): strin
   return libelleTarifsCarteCatalogue(dureeHeures).participant;
 }
 
-/** Ligne grille — ex. « 7 heures : 310 € HT / participant ». */
+/** Ligne grille — ex. « 7 heures : 340 € HT / participant » (journée dans un parcours 14 h). */
 export function libelleTarifsGrilleLigne(dureeHeures: TarifDureeHeures): string {
   const t = libelleTarifsCarteCatalogue(dureeHeures);
   const label = dureeHeures === 2 ? '2 heures' : `${dureeHeures} heures`;
@@ -176,7 +178,7 @@ export function libelleTarifsGrilleLigne(dureeHeures: TarifDureeHeures): string 
 }
 
 /** Durées affichées sur la grille catalogue `/formations`. */
-export const GRILLE_TARIFS_CATALOGUE_DUREES: readonly TarifDureeHeures[] = [4, 7];
+export const GRILLE_TARIFS_CATALOGUE_DUREES: readonly TarifDureeHeures[] = [4, 7, 14];
 
 /** Mention abonnements IA non inclus dans le tarif. */
 export const MENTION_ABONNEMENTS_IA_HORS_FORFAIT =
@@ -260,7 +262,7 @@ export const COMPTES_IA_GRATUITS_NIVEAU_DEBUTANT =
 
 export function getEncartTarifsCommerciaux(at: Date = new Date()): string {
   const count = getCatalogueFormationsCount(at);
-  return `Formations catalogue (${count} parcours) — tarifs HT par participant selon le programme (ex. ${libelleTarifParticipantCatalogue(TARIF_PARTICIPANT_NIV01_HT)} pour les bases 4 h, ${libelleTarifParticipantCatalogue(TARIF_PARTICIPANT_NIV02_HT)} pour les sessions métier 7 h). ${COMPTES_IA_GRATUITS_NIVEAU_DEBUTANT} ${MODALITE_FORMATIONS_PRESENTIEL}`;
+  return `Formations catalogue (${count} parcours) — tarifs HT par participant selon le programme (ex. ${libelleTarifParticipantCatalogue(TARIF_PARTICIPANT_NIV01_HT)} pour le niveau débutant 4 h, ${libelleTarifParticipantCatalogue(TARIF_PARTICIPANT_NIV02_HT)} pour les sessions avancées 4 h, ${libelleTarifParticipantCatalogue(TARIF_PARTICIPANT_NIV10_14H_HT)} pour l’approfondi 14 h). ${COMPTES_IA_GRATUITS_NIVEAU_DEBUTANT} ${MODALITE_FORMATIONS_PRESENTIEL}`;
 }
 
 /** @deprecated Préférer getEncartTarifsCommerciaux() — évaluation paresseuse (évite cycle d'import). */

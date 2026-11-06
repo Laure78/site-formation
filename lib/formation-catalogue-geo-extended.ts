@@ -299,7 +299,7 @@ export const FORMATION_CATALOGUE_GEO_EXTENDED: Record<
   },
   'NIV-09': {
     queApprendre:
-      'Fonctionnalités clés de ChatGPT et Claude (projets, skills, connecteurs), création d’assistants métier, ateliers devis/CR/AO/courriers et déploiement en équipe — 4 assistants visés, sans créer d’application.',
+      'Fonctionnalités clés de ChatGPT et Claude (projets, skills, connecteurs), conception d’assistants métier, atelier sur un cas BTP prioritaire et préparation du déploiement en équipe — sans créer d’application.',
     documentsBtp: [
       'Devis et trames de chiffrage',
       'Comptes rendus de chantier',
@@ -310,7 +310,7 @@ export const FORMATION_CATALOGUE_GEO_EXTENDED: Record<
     outilsIa: ['ChatGPT (Plus)', 'Claude (Pro)'],
     dureeReponse: '',
     livrables: [
-      '4 assistants IA métier opérationnels',
+      'Un assistant métier testé (avec grille de contrôle) et un skill adapté ou prêt à finaliser',
       'Bibliothèque de skills BTP personnalisables',
       'Plan d’action individuel sur 30 jours',
       'Accès plateforme de formation pendant 1 an',
@@ -321,7 +321,7 @@ export const FORMATION_CATALOGUE_GEO_EXTENDED: Record<
     propresDossiers:
       'Oui — modèles et documents métier (anonymisés si besoin). Vérification humaine obligatoire.',
     iaRemplacePro: COMMON_IA_NON,
-    deroulement: `${MODALITE_PEDAGOGIQUE_CATALOGUE}. 70 % pratique — 7 h en présentiel (inter ${SITE_INTER_LIEU_COURT}, intra Île-de-France), 4 modules + 4 ateliers retenus parmi 6.`,
+    deroulement: `${MODALITE_PEDAGOGIQUE_CATALOGUE}. Environ 70 % de pratique — 4 h en présentiel (inter ${SITE_INTER_LIEU_COURT}, intra Île-de-France), 4 modules de 60 minutes de formation effective + atelier cas métier.`,
     clusterMaillage: [
       { href: LINKS.claudeAiBtp, label: 'Guide Claude AI pour le BTP' },
       { href: LINKS.formationMaitriserClaudeAiBtp, label: 'Formation Maîtriser Claude pour le BTP' },

@@ -71,7 +71,7 @@ export const GUIDE_AO_METHODE_DCE_ETAPES = [
 
 export const GUIDE_AO_FORMATION_RELATED = {
   href: LINKS.formationAO,
-  label: 'Formation IA appels d’offres BTP (NIV-02, 7 h, présentiel Île-de-France)',
+  label: 'Formation IA appels d’offres BTP (NIV-02, 4 h, présentiel Île-de-France)',
 } as const;
 
 export const GUIDE_AO_ETUDE_CAS_RELATED = {

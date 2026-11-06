@@ -101,7 +101,7 @@ const FAQ_IDF: FAQItem[] = [
   },
   {
     q: 'Comment choisir une formation selon mon métier (conducteur, chargé d’affaires, MOE) ?',
-    a: `Le <a href="${LINKS.parcoursMetiers}">parcours métiers</a> regroupe les modules par fonction ; le <a href="${LINKS.formations}">catalogue</a> détaille durées et prérequis (4 h, 7 h ou 14 h selon la fiche).`,
+    a: `Le <a href="${LINKS.parcoursMetiers}">parcours métiers</a> regroupe les modules par fonction ; le <a href="${LINKS.formations}">catalogue</a> détaille durées et prérequis (4 h ou 14 h sur 2 jours selon la fiche).`,
   },
 ];
 

@@ -15,6 +15,7 @@ import {
   SCHEMA_PUBLIC_SITE_URL,
   schemaLogoUrl,
 } from '@/lib/schema-constants';
+import { buildQualiopiCredentialSchema } from '@/lib/qualiopi-info';
 
 const BASE = SCHEMA_PUBLIC_SITE_URL.replace(/\/$/, '');
 
@@ -63,15 +64,7 @@ export function getAProposLocalBusinessJsonLd(): Record<string, unknown> {
       'https://www.malt.fr/profile/laureoli',
       'https://annuaire-entreprises.data.gouv.fr/entreprise/905244281',
     ],
-    hasCredential: {
-      '@type': 'EducationalOccupationalCredential',
-      name: 'Certification Qualiopi',
-      credentialCategory: 'certification',
-      recognizedBy: {
-        '@type': 'Organization',
-        name: 'Ministère du Travail',
-      },
-    },
+    hasCredential: buildQualiopiCredentialSchema(),
     taxID: SCHEMA_CONTACT.siretDigits,
     vatID: SCHEMA_CONTACT.vatId,
   };
@@ -140,17 +133,5 @@ export const A_PROPOS_PERSON_SCRIPT_JSON_LD: Record<string, unknown> = {
     'Formation BTP',
     'Devis BTP',
     "Appels d'offres BTP",
-    'Qualiopi',
-  ],
-  hasCredential: [
-    {
-      '@type': 'EducationalOccupationalCredential',
-      name: 'Certification Qualiopi',
-      credentialCategory: 'Certification',
-      recognizedBy: {
-        '@type': 'Organization',
-        name: 'État français',
-      },
-    },
   ],
 };

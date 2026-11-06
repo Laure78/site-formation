@@ -17,6 +17,8 @@ export const TARIF_INTRA_LIBELLE = 'Sur devis' as const;
 
 export function prixInterHtPourDuree(dureeHeures: ModuleDureeHeures | number): number {
   if (dureeHeures === 4) return TARIF_NUM01_4H_INTER_HT;
+  /** Offre catalogue NIV-10 — forfait 14 h (non proratisé sur 2 × journée 7 h). */
+  if (dureeHeures === 14) return TARIF_PARTICIPANT_NIV10_14H_HT;
   if (dureeHeures % 7 !== 0) {
     throw new Error(`Durée non standard pour grille journalière : ${dureeHeures} h`);
   }

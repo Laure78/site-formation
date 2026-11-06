@@ -4,10 +4,7 @@
  */
 import { LINKS } from '@/lib/internal-links';
 import { formatNumberFr } from '@/lib/format-number-fr';
-import {
-  TARIF_PARTICIPANT_NIV10_14H_HT,
-  TARIF_PARTICIPANT_NIV10_HT,
-} from '@/lib/tarifs-catalogue-participant';
+import { TARIF_PARTICIPANT_NIV10_14H_HT } from '@/lib/tarifs-catalogue-participant';
 
 export const DEV_WEB_IA_PATH = LINKS.formationDeveloppementWebIaSansCoder;
 export const DEV_WEB_IA_CODE = 'NIV-10' as const;
@@ -18,30 +15,16 @@ export const DEV_WEB_IA_FORMATION_TITRE = 'Créer des applications métier BTP a
 /** Menus et libellés courts (catalogue, navigation, breadcrumb, footer). */
 export { DEV_WEB_IA_FORMATION_TITRE_COURT } from '@/lib/formation-developpement-web-ia-labels';
 
-/** Tarifs inter — grille catalogue 2027 (distincts de BeWork). */
-export const TARIF_INTER_DEV_WEB_IA_HT = TARIF_PARTICIPANT_NIV10_HT;
+/** Tarif inter — seul le parcours 14 h (2 × 7 h) est proposé au catalogue IA BTP. */
 export const TARIF_INTER_DEV_WEB_IA_14H_HT = TARIF_PARTICIPANT_NIV10_14H_HT;
 
-/** Métadonnées parcours catalogue — sans importer BeWork (évite cycle Header client). */
-export const DEV_WEB_IA_PARCOURS_7H = {
-  id: '7h' as const,
-  title: DEV_WEB_IA_FORMATION_TITRE,
-  intitule:
-    'Créer des applications métier BTP avec l’IA — premier prototype sur un périmètre limité',
-  dureeLabel: '7 h',
-  joursLabel: '1 journée',
-  tarifHt: TARIF_INTER_DEV_WEB_IA_HT,
-  tarifLabel: `${formatNumberFr(TARIF_INTER_DEV_WEB_IA_HT)} € HT / participant`,
-  effectif: '4 à 8 participants',
-  pdfHref: LINKS.pdfProgrammeDeveloppementWebIaSansCoder,
-  highlights: [
-    'Cadrer un besoin sur un périmètre limité',
-    'Construire un premier prototype assisté par l’IA',
-    'Tester et documenter les bases',
-  ],
-  outcome: 'Vous repartez avec un prototype testé sur un périmètre défini.',
-};
+/**
+ * @deprecated Ancien libellé tarif — préférer TARIF_INTER_DEV_WEB_IA_14H_HT (catalogue = 14 h uniquement).
+ * Conservé pour blocs partenaires / fédérations qui affichent un tarif « par jour » (620 ÷ 2).
+ */
+export const TARIF_INTER_DEV_WEB_IA_HT = TARIF_INTER_DEV_WEB_IA_14H_HT / 2;
 
+/** Métadonnées parcours catalogue — sans importer BeWork (évite cycle Header client). */
 export const DEV_WEB_IA_PARCOURS_14H = {
   id: '14h' as const,
   title: DEV_WEB_IA_FORMATION_TITRE,
@@ -54,17 +37,15 @@ export const DEV_WEB_IA_PARCOURS_14H = {
   effectif: '4 à 8 participants',
   pdfHref: LINKS.pdfProgrammeDeveloppementWebIaSansCoder14h,
   highlights: [
-    'Tout le parcours 7 h',
-    'Approfondissement, tests et documentation',
-    'Préparation des évolutions (sans promesse de mise en production complète)',
+    'Jour 1 (7 h) — cadrage et première version fonctionnelle',
+    'Jour 2 (7 h) — approfondissement, liaisons et préparation du déploiement',
+    'Méthode pour faire évoluer l’outil après la session',
   ],
   outcome: 'Prototype approfondi, testé et documenté — pas un logiciel prêt pour la production.',
 };
 
-export const DEV_WEB_IA_PDF_7H_HREF = LINKS.pdfProgrammeDeveloppementWebIaSansCoder;
 export const DEV_WEB_IA_PDF_14H_HREF = LINKS.pdfProgrammeDeveloppementWebIaSansCoder14h;
 
-export const PROGRAMME_PDF_7H = 'programme_OFC_Niveau3_Outils_Chantier_IA_7h_20261008.pdf' as const;
 export const PROGRAMME_PDF_14H = 'programme_OFC_Niveau3_Outils_Chantier_IA_14h_20261008.pdf' as const;
 
 export const DEV_WEB_IA_BADGE_NOUVELLE = 'Nouvelle formation' as const;
@@ -86,7 +67,7 @@ export const DEV_WEB_IA_INTRO_CLARIFIER =
 export const DEV_WEB_IA_ERP_DEFINITION =
   'Un outil métier centralise les informations utiles à votre activité. Vous commencez par un besoin prioritaire, puis vous enrichissez progressivement les fonctions, en testant chaque évolution.' as const;
 
-export const DEV_WEB_IA_HERO_EYEBROW = 'Formation IA BTP — Niveau 3' as const;
+export const DEV_WEB_IA_HERO_EYEBROW = 'Formation IA BTP — Niveau approfondi' as const;
 
 export const DEV_WEB_IA_HERO_BENEFIT_CARDS = [
   {
@@ -195,41 +176,44 @@ export const DEV_WEB_IA_QUALIOPI_ENGAGEMENTS = [
 ] as const;
 
 export const DEV_WEB_IA_PARCOURS_INTRO = {
-  eyebrow: 'Formats 7 h et 14 h',
-  titleLine1: 'Combien coûtent les formats',
-  titleLine2: '7 h et 14 h ?',
-  lead: 'Une première journée (7 h) pour cadrer le besoin, choisir un module métier et construire une première version fonctionnelle. Une deuxième journée (7 h supplémentaires) pour approfondir, relier les modules utiles et préparer le déploiement progressif.',
+  eyebrow: 'Formation catalogue — 14 h sur 2 jours',
+  titleLine1: 'Un seul parcours inter-entreprises :',
+  titleLine2: '14 heures sur 2 journées de 7 h',
+  lead: 'L’offre inter-entreprises est le parcours complet 14 h (620 € HT / participant). Chaque journée compte 7 h (9h00 – 12h30 / 13h30 – 17h00) : cadrage et première version le jour 1 ; approfondissement, liaisons entre fonctions et préparation du déploiement le jour 2. Aucune session catalogue autonome sur une seule journée.',
 } as const;
 
 export const DEV_WEB_IA_PARCOURS_MARKETING = {
-  '7h': {
-    label: 'Parcours 7 h — 1 journée',
+  /** Jour 1 — contenu pédagogique (7 h), vendu uniquement dans le forfait 14 h au catalogue. */
+  jour1: {
+    label: 'Jour 1 — 7 h',
     title: 'Construire une première version fonctionnelle',
-    desc: 'Cadrer votre projet d’ERP BTP, choisir une fonction prioritaire et construire une première version utilisable avec l’IA.',
-    badge14h: null as string | null,
+    desc: 'Cadrer votre projet d’outil métier BTP, choisir une fonction prioritaire et construire une première version utilisable avec l’IA.',
+    badge14h: 'Inclus dans le parcours 14 h' as const,
     highlights: [
-      'Cadrer son ERP BTP',
+      'Cadrer son outil métier BTP',
       'Construire le premier module avec l’IA',
       'Créer les règles de gestion',
       'Tester et préparer la suite',
     ],
-    outcome: 'Vous repartez avec une première version fonctionnelle et une feuille de route.',
+    outcome: 'Vous repartez du Jour 1 avec une première version fonctionnelle et une feuille de route.',
   },
+  /** Parcours catalogue complet. */
   '14h': {
     label: 'Parcours 14 h — 2 journées',
-    title: 'Construire, approfondir et relier son ERP',
-    desc: 'Le Jour 1 reprend le parcours 7 h. Le Jour 2 sert à améliorer, relier les modules et préparer le déploiement.',
-    badge14h: 'Comprend le parcours 7 h',
+    title: 'Construire, approfondir et relier son outil métier',
+    desc: 'Le Jour 1 couvre cadrage et première version (7 h). Le Jour 2 sert à améliorer, relier les modules et préparer le déploiement (7 h).',
+    badge14h: null as string | null,
     highlights: [
-      'Tout le parcours 7 h (Jour 1)',
-      'Améliorer et enrichir le module',
-      'Relier plusieurs modules',
-      'Préparer validations, exports et accès',
-      'Tester et préparer le déploiement',
+      'Jour 1 (7 h) — cadrage, premier module, règles de gestion, tests',
+      'Jour 2 (7 h) — améliorer, relier plusieurs fonctions, exports et accès',
+      'Préparer un déploiement progressif',
+      'Méthode pour poursuivre après la session',
     ],
-    outcome: 'Vous avez le temps d’approfondir, connecter et sécuriser l’outil.',
+    outcome: 'Vous avez le temps d’approfondir, connecter et sécuriser l’outil sur 2 journées.',
   },
 } as const;
+
+export type DevWebIaParcoursMarketingId = keyof typeof DEV_WEB_IA_PARCOURS_MARKETING;
 
 export const DEV_WEB_IA_JOUR_RESUME = {
   jour1: {
@@ -264,14 +248,14 @@ export const DEV_WEB_IA_PROGRAMME_SECTION = {
   ],
   formats: [
     {
-      id: '7h' as const,
-      label: 'Parcours 7 h',
-      summary: 'Cadrer, construire, tester et préparer la suite',
+      id: 'jour1' as const,
+      label: 'Jour 1 — 7 h',
+      summary: 'Cadrer, construire une première version, tester et préparer la suite',
     },
     {
       id: '14h' as const,
-      label: 'Parcours 14 h',
-      summary: 'Connecter, sécuriser et préparer le déploiement',
+      label: 'Parcours complet — 14 h',
+      summary: 'Jour 1 + Jour 2 : approfondir, relier, sécuriser et préparer le déploiement',
     },
   ],
   disclaimer:
@@ -973,10 +957,11 @@ export const DEV_WEB_IA_FIL_ROUGE = {
 } as const;
 
 export const DEV_WEB_IA_FORMAT_COMPARATIF = {
-  title: 'Quel format choisir ?',
-  tagline: '7 h = construire · 14 h = construire + approfondir + connecter + sécuriser',
+  title: 'Comment se lit le programme ?',
+  tagline:
+    'Jour 1 (7 h) = construire une première version · Jour 2 (7 h) = approfondir, relier et préparer le déploiement — offre catalogue = les 2 jours (14 h).',
   parcours7h: {
-    title: 'Parcours 7 h',
+    title: 'Jour 1 — 7 h (inclus dans le parcours 14 h)',
     ideals: [
       'Démarrer son projet',
       'Cadrer son besoin',
@@ -986,9 +971,9 @@ export const DEV_WEB_IA_FORMAT_COMPARATIF = {
     ],
   },
   parcours14h: {
-    title: 'Parcours 14 h',
+    title: 'Parcours catalogue — 14 h (2 × 7 h)',
     ideals: [
-      'Aller plus loin',
+      'Tout le contenu du Jour 1',
       'Améliorer la première version',
       'Relier plusieurs fonctions',
       'Structurer les accès',
@@ -1118,7 +1103,7 @@ export function devWebIaPrimaryCtaHref(): string {
   return LINKS.prendreRdv;
 }
 
-export function devWebIaDevisHref(_formationTitle?: string): string {
+export function devWebIaDevisHref(): string {
   return LINKS.prendreRdv;
 }
 

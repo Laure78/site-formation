@@ -130,13 +130,13 @@ export const INTRA_PROGRESSION = [
     niveau: 2,
     title: 'Approfondir',
     text: 'Structurer les usages métier et créer des assistants.',
-    duree: 'Format cible : 7 h.',
+    duree: 'Format cible : 4 h (sessions catalogue avancées).',
   },
   {
     niveau: 3,
     title: 'Créer',
     text: 'Concevoir ses outils métier avec l’IA.',
-    duree: 'Format cible : 7 h ou 14 h selon le programme.',
+    duree: 'Format cible : 14 h sur 2 jours (approfondi catalogue) selon le programme.',
   },
 ] as const;
 

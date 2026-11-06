@@ -18,7 +18,7 @@ export type CatalogueVue = 'ia' | 'modules' | 'tout';
 
 export type CatalogueDisponibiliteFilter = 'disponible' | 'ouverture-2027';
 
-export type CatalogueDureeFilter = 4 | 7 | 14;
+export type CatalogueDureeFilter = 4 | 14;
 
 export type FormationsIaFilterParams = CatalogueModulesFilterParams & {
   /** Filtre niveau — section « Formations IA disponibles » */
@@ -115,7 +115,7 @@ export function parseFormationsIaFilters(
   const dureeRaw = get('duree');
   const dureeParsed = dureeRaw ? Number.parseInt(dureeRaw, 10) : NaN;
   const duree =
-    dureeParsed === 4 || dureeParsed === 7 || dureeParsed === 14
+    dureeParsed === 4 || dureeParsed === 14
       ? (dureeParsed as CatalogueDureeFilter)
       : undefined;
 

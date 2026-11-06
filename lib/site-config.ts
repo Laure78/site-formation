@@ -3,6 +3,8 @@
  * Importer `SITE` plutôt que recoder ces valeurs dans les pages ou composants.
  */
 
+import { LINKS } from '@/lib/internal-links';
+
 export type SiteQualiopi = {
   readonly numero: string;
   readonly certificateur: string;
@@ -286,11 +288,15 @@ export function sitePersonSchemaSameAs(): readonly string[] {
 
 /** hasCredential Qualiopi — EducationalOrganization (n° depuis SITE.qualiopi). */
 export function siteQualiopiHasCredentialSchema(): Record<string, unknown> {
+  const debut = `${SITE.qualiopi.debut.slice(8, 10)}/${SITE.qualiopi.debut.slice(5, 7)}/${SITE.qualiopi.debut.slice(0, 4)}`;
+  const fin = `${SITE.qualiopi.fin.slice(8, 10)}/${SITE.qualiopi.fin.slice(5, 7)}/${SITE.qualiopi.fin.slice(0, 4)}`;
   return {
     '@type': 'EducationalOccupationalCredential',
-    name: 'Certification Qualiopi — actions de formation',
-    credentialCategory: 'certification',
+    name: 'Certification Qualiopi — Actions de formation',
+    credentialCategory: 'Certification qualité',
     identifier: SITE.qualiopi.numero,
+    description: `Certification Qualiopi délivrée par ${SITE.qualiopi.certificateur} à ${SITE.raisonSociale} au titre des actions de formation. Certificat n° ${SITE.qualiopi.numero}, valable du ${debut} au ${fin}.`,
+    url: `https://www.laureolivie.fr${LINKS.qualiopi}`,
     recognizedBy: {
       '@type': 'Organization',
       name: SITE.qualiopi.certificateur,

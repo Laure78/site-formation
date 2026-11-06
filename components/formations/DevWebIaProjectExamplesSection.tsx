@@ -332,9 +332,9 @@ export function DevWebIaProjectExamplesSection() {
         </ul>
 
         <p className="mt-8 max-w-3xl rounded-xl border border-slate-200 bg-white px-4 py-4 text-sm leading-relaxed text-slate-700">
-          En 7 heures, vous construisez et testez une première version. Son utilisation par toute
-          l&apos;équipe peut nécessiter des vérifications, des tests et des mesures de sécurité
-          supplémentaires.
+          La première journée (7 h) du parcours catalogue sert à construire et tester une première version.
+          Son utilisation par toute l&apos;équipe peut nécessiter des vérifications, des tests et des mesures
+          de sécurité supplémentaires.
         </p>
       </div>
     </section>

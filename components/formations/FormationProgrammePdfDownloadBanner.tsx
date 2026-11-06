@@ -20,9 +20,9 @@ function programmeDownloadDescription(catalogueRef: string, formationTitle: stri
     case 'NIV-05':
       return "Téléchargez le programme officiel (PDF) de la formation L'IA au service des maîtres d'œuvre — MOEX, DCE, CR chantier et réserves.";
     case 'NIV-09':
-      return 'Téléchargez le programme officiel (PDF) de la formation assistants IA personnalisés BTP — ChatGPT et Claude, 7 h.';
+      return 'Téléchargez le programme officiel (PDF) de la formation assistants IA personnalisés BTP — ChatGPT et Claude, 4 h (PDF historique 7 h à mettre à jour).';
     case 'NIV-10':
-      return `Téléchargez le programme officiel (PDF) de la formation ${DEV_WEB_IA_FORMATION_TITRE}, 14 h (2 × 7 h). Variante 7 h : voir la section programmes sur la fiche.`;
+      return `Téléchargez le programme officiel (PDF) de la formation ${DEV_WEB_IA_FORMATION_TITRE}, 14 h (2 × 7 h) — parcours catalogue unique.`;
     default:
       return `Téléchargez le programme officiel (PDF) — ${formationTitle}.`;
   }

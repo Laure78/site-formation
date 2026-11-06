@@ -39,8 +39,8 @@ export function DevWebIaFormatComparatifSection() {
               ))}
             </ul>
             <p className="mt-5">
-              <a href="#parcours-7h" className="text-sm font-semibold text-[#377CF3] hover:underline">
-                Voir le parcours 7 h
+              <a href="#parcours-jour1" className="text-sm font-semibold text-[#377CF3] hover:underline">
+                Voir le détail du Jour 1
               </a>
             </p>
           </article>

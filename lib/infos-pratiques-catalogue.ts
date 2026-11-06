@@ -24,6 +24,7 @@ import {
 } from '@/lib/tarifs-sessions';
 import {
   libelleTarifParticipantCatalogue,
+  TARIF_PARTICIPANT_NIV02_HT,
   TARIF_SESSION_INTRA_NIV11_HT,
   TARIF_SESSION_INTRA_NIV12_HT,
 } from '@/lib/tarifs-catalogue-participant';
@@ -120,10 +121,10 @@ export const PROGRAMME_CONTENU_CATALOGUE: Record<FormationCode, readonly string[
     'Module 7 — Déployer et maintenir (30 min)',
   ],
   'NIV-09': [
-    'Module 1 — Les fonctionnalités clés de ChatGPT et de Claude (1 h 45)',
-    'Module 2 — Créer des assistants chantier (1 h 30)',
-    'Module 3 — Ateliers pratiques — 4 ateliers retenus parmi 6 (3 h 00)',
-    'Module 4 — Déployer ses assistants et plan d’action (30 min)',
+    'Module 1 — Panorama outils, cadre d’usage et confidentialité (60 min de formation effective)',
+    'Module 2 — Concevoir un assistant sur vos modèles (60 min de formation effective)',
+    'Module 3 — Skills et cas pratique BTP prioritaire (60 min de formation effective)',
+    'Module 4 — Déploiement, évaluation des acquis et plan d’action (60 min de formation effective)',
   ],
   'NIV-10': [
     'Jour 1 — Accueil, cadrage et positionnement (15 min)',
@@ -428,11 +429,12 @@ function prerequisPourRef(ref: FormationCode): string {
 }
 
 function tarifPourRef(ref: FormationCode): string {
+  const grilleInter4h = `${libelleTarifParticipantCatalogue(TARIF_PARTICIPANT_NIV02_HT)} — grille catalogue inter pour une session 4 h (prise en charge sur demande)`;
   if (ref === 'NIV-12') {
-    return `${formatPrixHt(TARIF_SESSION_INTRA_NIV12_HT)} € HT la session intra de 4 h (jusqu’à 10 participants). ${MENTIONS_TVA_INTRA_COURTE}`;
+    return `${formatPrixHt(TARIF_SESSION_INTRA_NIV12_HT)} € HT la session intra de 4 h (jusqu’à 10 participants). ${grilleInter4h}. ${MENTIONS_TVA_INTRA_COURTE}`;
   }
   if (ref === 'NIV-11') {
-    return `${formatPrixHt(TARIF_SESSION_INTRA_NIV11_HT)} € HT la session intra de 4 h (jusqu’à 10 participants). ${MENTIONS_TVA_INTRA_COURTE}`;
+    return `${formatPrixHt(TARIF_SESSION_INTRA_NIV11_HT)} € HT la session intra de 4 h (jusqu’à 10 participants). ${grilleInter4h}. ${MENTIONS_TVA_INTRA_COURTE}`;
   }
   const formation = getFormationByCode(ref);
   const entry = formation ? getFormationCatalogueByRef(ref) : undefined;

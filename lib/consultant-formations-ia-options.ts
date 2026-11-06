@@ -12,25 +12,25 @@ export type ConsultantFormationIaOption = {
 };
 
 export type RecruitmentFormationFormatBucket = {
-  key: 'express-4h' | 'approfondi-7h' | 'avance-14h';
+  key: 'debutant-4h' | 'avance-4h' | 'approfondi-14h';
   title: string;
   dureeLabel: string;
   formations: readonly ConsultantFormationIaOption[];
 };
 
-const FORMAT_BY_DUREE: Record<string, RecruitmentFormationFormatBucket['key']> = {
-  '4 h': 'express-4h',
-  '7 h': 'approfondi-7h',
-  '14 h': 'avance-14h',
-};
+function formatBucketKeyForFormation(f: Formation): RecruitmentFormationFormatBucket['key'] | null {
+  if (f.duree === '14 h') return 'approfondi-14h';
+  if (f.duree !== '4 h') return null;
+  return f.niveau === 1 ? 'debutant-4h' : 'avance-4h';
+}
 
 const FORMAT_META: Record<
   RecruitmentFormationFormatBucket['key'],
   { title: string; dureeLabel: string }
 > = {
-  'express-4h': { title: 'Format Express', dureeLabel: '4 heures' },
-  'approfondi-7h': { title: 'Format Approfondi', dureeLabel: '7 heures' },
-  'avance-14h': { title: 'Ateliers avancés', dureeLabel: '14 heures' },
+  'debutant-4h': { title: 'Débutant — 4 h', dureeLabel: '4 heures' },
+  'avance-4h': { title: 'Avancé — 4 h', dureeLabel: '4 heures' },
+  'approfondi-14h': { title: 'Approfondi — 14 h', dureeLabel: '14 heures (2 jours)' },
 };
 
 export function getConsultantFormationsIaBtpOptions(): ConsultantFormationIaOption[] {
@@ -46,14 +46,16 @@ export function getRecruitmentFormationFormatBuckets(): RecruitmentFormationForm
   const byKey = new Map<RecruitmentFormationFormatBucket['key'], ConsultantFormationIaOption[]>();
 
   for (const f of getConsultantFormationsIaBtpOptions()) {
-    const key = FORMAT_BY_DUREE[f.duree];
+    const formation = getFormationByCode(f.id);
+    if (!formation) continue;
+    const key = formatBucketKeyForFormation(formation);
     if (!key) continue;
     const list = byKey.get(key) ?? [];
     list.push(f);
     byKey.set(key, list);
   }
 
-  return (['express-4h', 'approfondi-7h', 'avance-14h'] as const)
+  return (['debutant-4h', 'avance-4h', 'approfondi-14h'] as const)
     .filter((key) => (byKey.get(key)?.length ?? 0) > 0)
     .map((key) => ({
       key,

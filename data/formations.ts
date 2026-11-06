@@ -450,27 +450,27 @@ export const FORMATIONS: readonly Formation[] = [
     slug: 'assistants-ia-personnalises-btp',
     titre: 'Créer ses assistants IA pour son entreprise du bâtiment',
     promesse:
-      'Créez vos propres assistants IA pour les tâches quotidiennes de votre entreprise du BTP — ChatGPT et Claude, 7 h en présentiel.',
+      'Créez vos propres assistants IA pour les tâches quotidiennes de votre entreprise du BTP — ChatGPT et Claude, demi-journée en présentiel.',
     casUsageCourts: [
-      '4 assistants IA métier',
-      'Skills BTP personnalisables',
+      'Assistants et skills BTP',
+      'Projets et modèles entreprise',
       'Devis, CR, AO, administratif',
     ],
     gamme: 'appliquer-metier',
     theme: 'assistants-automatisation',
     niveau: 2,
-    niveauLabel: 'Niveau 2 — Intermédiaire',
-    duree: '7 h',
-    horaires: '9h00 — 12h30 / 13h30 — 17h00',
+    niveauLabel: 'Niveau Avancé',
+    duree: '4 h',
+    horaires: '9h00 – 13h00 ou 13h30 – 17h30',
     effectifMin: 6,
     effectifMax: 12,
     prixHT: 0,
     tarifParticipantHt: TARIF_PARTICIPANT_NIV09_HT,
     accroche:
-      'ChatGPT & Claude : fonctionnalités clés et assistants métier — journée pratique pour créer 4 assistants adaptés à vos documents.',
+      'ChatGPT et Claude : fonctionnalités clés et assistants métier — demi-journée pratique pour concevoir et tester des assistants adaptés à vos documents.',
     objectifs: [
       'Utiliser les fonctionnalités clés de ChatGPT et de Claude (projets, skills, connecteurs)',
-      'Créer un assistant IA personnalisé et des skills réutilisables pour son entreprise',
+      'Concevoir un assistant IA personnalisé et des skills réutilisables pour son entreprise (un premier assistant opérationnel visé en session, poursuite selon votre plan d’action)',
       'Alimenter ses assistants avec ses modèles (devis, CR, courriers, conditions générales)',
       'Déployer ses assistants en équipe avec confidentialité et vérification humaine',
       'Appliquer ses assistants à une tâche réelle du quotidien',
@@ -498,7 +498,7 @@ export const FORMATIONS: readonly Formation[] = [
     gamme: 'deployer',
     theme: 'outils-applications',
     niveau: 3,
-    niveauLabel: 'Niveau 3 — Avancé',
+    niveauLabel: 'Niveau Approfondi',
     duree: '14 h',
     horaires: '2 jours — 9h00 – 12h30 / 13h30 – 17h00',
     effectifMin: 4,
@@ -536,14 +536,14 @@ export const CATALOGUE_FORMATIONS_TOTAL = FORMATIONS.length;
 
 /**
  * Durées catalogue — standard 4 h pour les sessions IA BTP publiées.
- * Exceptions : NIV-09 (7 h), NIV-10 (14 h).
+ * Exception longue durée : NIV-10 (14 h sur 2 jours).
  */
 export const CATALOGUE_DUREE_STANDARD = '4 h' as const;
-/** @deprecated Alias — sessions catalogue hors exceptions NIV-09 / NIV-10. */
+/** @deprecated Alias — sessions catalogue hors NIV-10 (14 h). */
 export const CATALOGUE_DUREE_BASES_IA_ONLY = CATALOGUE_DUREE_STANDARD;
-/** @deprecated Alias historique — sessions métier catalogue : 4 h (assistants IA : NIV-09). */
+/** Sessions métier et assistants — 4 h (aligné catalogue public). */
 export const CATALOGUE_DUREE_SESSION_METIER = CATALOGUE_DUREE_STANDARD;
-export const CATALOGUE_DUREE_NIV09 = '7 h' as const;
+export const CATALOGUE_DUREE_NIV09 = CATALOGUE_DUREE_STANDARD;
 export const CATALOGUE_DUREE_NIV10 = '14 h' as const;
 
 /** Plage de numérotation catalogue — NIV-01 … NIV-10. */

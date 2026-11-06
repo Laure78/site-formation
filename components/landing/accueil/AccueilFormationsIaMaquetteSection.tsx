@@ -23,7 +23,7 @@ const FORMAT_ICONS = {
   calendar: CalendarDays,
 } as const;
 
-/** Formations IA — bandeaux 4 h / 7 h + quatre cartes catalogue (maquette). */
+/** Formations IA — bandeaux débutant / avancé / approfondi + cartes catalogue (maquette). */
 export function AccueilFormationsIaMaquetteSection() {
   const formations = getAccueilMaquetteFormations();
 
@@ -75,7 +75,7 @@ export function AccueilFormationsIaMaquetteSection() {
           href={LINKS.formations}
           className="inline-flex items-center gap-1.5 text-sm font-semibold text-[#0755E8] hover:underline"
         >
-          Voir les 7 formations du catalogue
+          Voir les 9 formations du catalogue
           <ArrowRight className="h-4 w-4" strokeWidth={ACCUEIL_MAQUETTE_ICON_STROKE} aria-hidden />
         </Link>
         <p className="max-w-md text-xs leading-relaxed text-ofc-ink-muted">

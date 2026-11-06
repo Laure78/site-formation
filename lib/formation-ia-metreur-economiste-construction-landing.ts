@@ -9,6 +9,7 @@ import {
   SCHEMA_PERSON_LAURE,
   SCHEMA_PUBLIC_SITE_URL,
 } from '@/lib/schema-constants';
+import { buildQualiopiCredentialSchema } from '@/lib/qualiopi-info';
 import { buildFormationFicheCourseJsonLd } from '@/lib/schema-formation-course-jsonld';
 import { TARIF_FORFAIT_AVANCE_HT } from '@/lib/tarifs-sessions';
 import type { FAQItem } from '@/lib/faq';
@@ -201,11 +202,7 @@ export function buildMetreurEconomisteConstructionCourseJsonLd(): Record<string,
       '@id': `${base}/#organization`,
       name: SCHEMA_ORGANIZATION_OFC.name,
       url: base,
-      hasCredential: {
-        '@type': 'EducationalOccupationalCredential',
-        name: 'Certification Qualiopi',
-        credentialCategory: 'certification',
-      },
+      hasCredential: buildQualiopiCredentialSchema(),
     },
     instructor: {
       '@type': 'Person',

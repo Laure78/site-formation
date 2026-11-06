@@ -167,7 +167,7 @@ export const FAQ_ITEMS: readonly FAQItem[] = [
   },
   {
     q: "Combien de temps dure la formation IA pour le BTP ?",
-    a: `Les formations du catalogue IA BTP durent 4 heures en session standard (exceptions : assistants IA personnalisés 7 h, applications métier sur 2 jours 14 h). ${MODALITE_FORMATIONS_PRESENTIEL} Bases : ${libelleTarifParticipantCatalogue(TARIF_PARTICIPANT_NIV01_HT)} · sessions métier 4 h : ${libelleTarifParticipantCatalogue(TARIF_PARTICIPANT_NIV02_HT)} — voir les programmes sur la page <a href="/formations">formations IA pour le BTP</a>.`,
+    a: `Les formations du catalogue IA BTP sont en 4 h, sauf l’approfondi « applications métier BTP avec l’IA » en 14 h sur 2 jours (2 × 7 h par journée). ${MODALITE_FORMATIONS_PRESENTIEL} Débutant (4 h) : ${libelleTarifParticipantCatalogue(TARIF_PARTICIPANT_NIV01_HT)} · avancé (4 h) : ${libelleTarifParticipantCatalogue(TARIF_PARTICIPANT_NIV02_HT)} · approfondi (14 h) : ${libelleTarifParticipantCatalogue(TARIF_PARTICIPANT_NIV10_14H_HT)} — voir les programmes sur la page <a href="/formations">formations IA pour le BTP</a>.`,
   },
   {
     q: "La formation se fait-elle en présentiel ?",
@@ -236,7 +236,7 @@ export const FAQ_GEO: FAQItem[] = [
 export const FAQ_CATALOGUE_PAGE: readonly FAQItem[] = [
   {
     q: 'Quelles formations en intelligence artificielle pour le BTP propose Laure Olivié ?',
-    a: `Laure Olivié propose ${getCatalogueFormationsCount()} formations IA pour le BTP au catalogue : sessions en 4 h (bases, appels d’offres, chantier, Claude, maîtrise d’œuvre, applications métier niveaux 1 à 3), une session assistants IA personnalisés en 7 h et la formation « applications métier BTP avec l’IA » en 14 h sur 2 jours. Toutes les actions sont en présentiel en Île-de-France — voir les fiches sur <a href="${LINKS.formations}">cette page</a> et le pilier <a href="${LINKS.formationIaHub}">formation IA BTP</a>.`,
+    a: `Laure Olivié propose neuf formations IA pour le BTP au catalogue : huit sessions en 4 h (bases, appels d’offres, chantier, Claude, maîtrise d’œuvre, AMO, CCTP/DPGF, assistants IA) et la formation approfondie « applications métier BTP avec l’IA » en 14 h sur 2 jours. Toutes les actions sont en présentiel en Île-de-France — voir les fiches sur <a href="${LINKS.formations}">cette page</a> et le pilier <a href="${LINKS.formationIaHub}">formation IA BTP</a>.`,
   },
   {
     q: 'À qui s’adressent ces formations ?',
@@ -281,7 +281,7 @@ export const FAQ_FORMATIONS: FAQItem[] = [
   },
   {
     q: 'Combien coûte une formation IA pour le BTP ?',
-    a: `Les bases de l’IA (4 h) : ${libelleTarifParticipantCatalogue(TARIF_PARTICIPANT_NIV01_HT)}. Sessions métier (4 h) : ${libelleTarifParticipantCatalogue(TARIF_PARTICIPANT_NIV02_HT)}. Assistants IA personnalisés (7 h) et créer des applications métier BTP avec l’IA (14 h — 2 jours, ${libelleTarifParticipantCatalogue(TARIF_PARTICIPANT_NIV10_14H_HT)}). Voir la <a href="${LINKS.formations}#tarifs-formations-btp">grille tarifaire</a>.`,
+    a: `Les bases de l’IA (4 h) : ${libelleTarifParticipantCatalogue(TARIF_PARTICIPANT_NIV01_HT)}. Sessions avancées (4 h, dont assistants IA) : ${libelleTarifParticipantCatalogue(TARIF_PARTICIPANT_NIV02_HT)}. Créer des applications métier BTP avec l’IA (14 h — 2 jours, ${libelleTarifParticipantCatalogue(TARIF_PARTICIPANT_NIV10_14H_HT)}). Voir la <a href="${LINKS.formations}#tarifs-formations-btp">grille tarifaire</a>.`,
   },
   {
     q: 'La formation peut-elle être financée par Constructys ?',
@@ -289,7 +289,7 @@ export const FAQ_FORMATIONS: FAQItem[] = [
   },
   {
     q: 'Quelles formations IA appliquées au bâtiment sont proposées au catalogue ?',
-    a: `Notre catalogue de formations IA pour le BTP comprend des sessions en 4 h (bases, appels d&apos;offres, chantier, Claude, maîtrise d&apos;œuvre, applications métier niveaux 1 à 3), une session assistants IA en 7 h et la formation <a href="${LINKS.formationDeveloppementWebIaSansCoder}">applications métier BTP avec l&apos;IA</a> (14 heures — 2 jours). Toutes les actions sont dispensées par ${formatOrganismeQualiopiCourt()}. ${MODALITE_FORMATIONS_PRESENTIEL} ${FINANCEMENT_FORMULATION_COURTE} Fiches détaillées : cartes ci-dessus.`,
+    a: `Notre catalogue de formations IA pour le BTP comprend des sessions en 4 h (bases, appels d&apos;offres, chantier, Claude, maîtrise d&apos;œuvre, AMO, CCTP/DPGF, assistants IA) et la formation <a href="${LINKS.formationDeveloppementWebIaSansCoder}">applications métier BTP avec l&apos;IA</a> (14 heures — 2 jours). Toutes les actions sont dispensées par ${formatOrganismeQualiopiCourt()}. ${MODALITE_FORMATIONS_PRESENTIEL} ${FINANCEMENT_FORMULATION_COURTE} Fiches détaillées : cartes ci-dessus.`,
   },
   {
     q: 'Comment choisir la bonne formation IA pour le BTP pour mon entreprise ?',
@@ -301,7 +301,7 @@ export const FAQ_FORMATIONS: FAQItem[] = [
   },
   {
     q: 'Combien coûte une formation IA pour les pros du BTP du catalogue ?',
-    a: `Tarifs HT / participant : bases 4 h ${libelleTarifParticipantCatalogue(TARIF_PARTICIPANT_NIV01_HT)} · sessions métier 4 h ${libelleTarifParticipantCatalogue(TARIF_PARTICIPANT_NIV02_HT)} · assistants IA 7 h · applications métier 14 h (2 jours). ${MENTIONS_TVA_REGIMES_COURT} ${FINANCEMENT_FORMULATION_PRUDENTE}`,
+    a: `Tarifs HT / participant : débutant 4 h ${libelleTarifParticipantCatalogue(TARIF_PARTICIPANT_NIV01_HT)} · avancé 4 h ${libelleTarifParticipantCatalogue(TARIF_PARTICIPANT_NIV02_HT)} · approfondi 14 h (2 jours, ${libelleTarifParticipantCatalogue(TARIF_PARTICIPANT_NIV10_14H_HT)}). ${MENTIONS_TVA_REGIMES_COURT} ${FINANCEMENT_FORMULATION_PRUDENTE}`,
   },
   {
     q: 'Les formations IA pour les pros du BTP peuvent-elles être financées par Constructys ou mon OPCO ?',
@@ -333,7 +333,7 @@ export function getFaqFormations(at: Date = new Date()): FAQItem[] {
     if (item.q === 'Quelles formations IA appliquées au bâtiment sont proposées au catalogue ?') {
       return {
         ...item,
-        a: `Notre catalogue de formations IA pour le BTP comprend des sessions en 4 h (devis et documents courants, appels d&apos;offres, Claude, maîtrise d&apos;œuvre${count > 4 ? ', conduite de travaux' : ''}), une session assistants IA en 7 h et la formation <a href="${LINKS.formationDeveloppementWebIaSansCoder}">applications métier BTP avec l&apos;IA</a> (14 heures — 2 jours). Toutes les actions sont dispensées par ${formatOrganismeQualiopiCourt()}. ${MODALITE_FORMATIONS_PRESENTIEL} ${FINANCEMENT_FORMULATION_COURTE} Fiches détaillées : cartes ci-dessus.`,
+        a: `Notre catalogue de formations IA pour le BTP comprend des sessions en 4 h (devis et documents courants, appels d&apos;offres, Claude, maîtrise d&apos;œuvre${count > 4 ? ', conduite de travaux' : ''}, assistants IA) et la formation <a href="${LINKS.formationDeveloppementWebIaSansCoder}">applications métier BTP avec l&apos;IA</a> (14 heures — 2 jours). Toutes les actions sont dispensées par ${formatOrganismeQualiopiCourt()}. ${MODALITE_FORMATIONS_PRESENTIEL} ${FINANCEMENT_FORMULATION_COURTE} Fiches détaillées : cartes ci-dessus.`,
       };
     }
     if (item.q === 'Comment choisir la bonne formation IA pour le BTP pour mon entreprise ?') {
@@ -358,7 +358,7 @@ export const FAQ_TARIFS: FAQItem[] = [
   },
   {
     q: 'Combien coûte une formation IA pour les pros du BTP ?',
-    a: `Tarifs HT / participant : bases 4 h ${libelleTarifParticipantCatalogue(TARIF_PARTICIPANT_NIV01_HT)} · sessions métier 4 h ${libelleTarifParticipantCatalogue(TARIF_PARTICIPANT_NIV02_HT)} · assistants IA 7 h · applications métier 14 h (2 jours). ${MENTIONS_TVA_REGIMES_COURT} ${FINANCEMENT_FORMULATION_PRUDENTE} — <a href="/financement-constructys-formation-ia-btp">guide financement</a> et <a href="/contact">accompagnement dossier</a>.`,
+    a: `Tarifs HT / participant : débutant 4 h ${libelleTarifParticipantCatalogue(TARIF_PARTICIPANT_NIV01_HT)} · avancé 4 h ${libelleTarifParticipantCatalogue(TARIF_PARTICIPANT_NIV02_HT)} · approfondi 14 h (2 jours, ${libelleTarifParticipantCatalogue(TARIF_PARTICIPANT_NIV10_14H_HT)}). ${MENTIONS_TVA_REGIMES_COURT} ${FINANCEMENT_FORMULATION_PRUDENTE} — <a href="/financement-constructys-formation-ia-btp">guide financement</a> et <a href="/contact">accompagnement dossier</a>.`,
   },
   {
     q: "Comment financer ma formation IA ?",
@@ -615,7 +615,7 @@ export const FAQ_ASSISTANTS_IA_NIV09: FAQItem[] = [
   },
   {
     q: 'Combien d’assistants vais-je créer ?',
-    a: 'Objectif pédagogique : 4 assistants opérationnels, plus un premier assistant chantier guidé en module 2, à partir de la bibliothèque de skills BTP adaptée à vos documents.',
+    a: 'Objectif pédagogique réaliste : concevoir et tester au moins un assistant opérationnel en session, avec un skill associé ; la bibliothèque de skills BTP et le plan d’action servent à en décliner d’autres après la formation — le volume dépend du temps de finalisation en entreprise.',
   },
   {
     q: 'Puis-je utiliser les documents de mon entreprise ?',

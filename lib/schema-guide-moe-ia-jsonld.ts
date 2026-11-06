@@ -1,4 +1,3 @@
-import { SITE_CONFIG } from '@/lib/seo';
 import {
   FAQ_GUIDE_MOE_IA,
   GUIDE_MOE_IA_H1,
@@ -13,6 +12,7 @@ import {
   schemaLogoUrl,
 } from '@/lib/schema-constants';
 import { LINKS } from '@/lib/internal-links';
+import { buildQualiopiCredentialSchema } from '@/lib/qualiopi-info';
 
 export function buildGuideMoeIaUnifiedGraphJsonLd(): Record<string, unknown> {
   const base = SCHEMA_PUBLIC_SITE_URL.replace(/\/$/, '');
@@ -39,11 +39,7 @@ export function buildGuideMoeIaUnifiedGraphJsonLd(): Record<string, unknown> {
         url: base,
         logo: { '@type': 'ImageObject', url: schemaLogoUrl() },
         email: SCHEMA_CONTACT.email,
-        hasCredential: {
-          '@type': 'EducationalOccupationalCredential',
-          name: 'Qualiopi — Actions de formation',
-          credentialCategory: 'Certification qualité organisme de formation',
-        },
+        hasCredential: buildQualiopiCredentialSchema(),
       },
       {
         '@type': 'Person',
