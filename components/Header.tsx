@@ -154,6 +154,15 @@ export function Header() {
     };
   }, [openId]);
 
+  const parcoursMaquetteHeader = pathname ? isParcoursMetiersMaquetteRoute(pathname) : false;
+  const navLayoutWidthRef = parcoursMaquetteHeader ? parcoursNavSlotRef : standardNavWidthRef;
+  const desktopNavNeedsHamburger = useHeaderDesktopNavOverflow(
+    desktopNavRef,
+    navLayoutWidthRef,
+    pathname ?? '',
+  );
+  const useDesktopHamburger = desktopNavNeedsHamburger;
+
   if (
     pathname?.startsWith('/admin') ||
     pathname?.startsWith('/demo/') ||
@@ -161,11 +170,6 @@ export function Header() {
   ) {
     return null;
   }
-
-  const parcoursMaquetteHeader = isParcoursMetiersMaquetteRoute(pathname);
-  const navLayoutWidthRef = parcoursMaquetteHeader ? parcoursNavSlotRef : standardNavWidthRef;
-  const desktopNavNeedsHamburger = useHeaderDesktopNavOverflow(desktopNavRef, navLayoutWidthRef);
-  const useDesktopHamburger = desktopNavNeedsHamburger;
 
   const brandLink = (
     <Link
@@ -245,7 +249,10 @@ export function Header() {
           {parcoursMaquetteHeader ? (
             <div className="site-header__parcours-maquette-row flex min-h-[4.25rem] min-w-0 items-center justify-between gap-3 sm:gap-4 lg:min-h-[4.75rem]">
               {brandLink}
-              <div ref={parcoursNavSlotRef} className="min-w-0 flex-1 lg:min-h-[2.75rem]">
+              <div
+                ref={parcoursNavSlotRef}
+                className="site-header__parcours-maquette-nav-slot min-w-0 flex-1 lg:min-h-[2.75rem]"
+              >
                 <nav
                   ref={desktopNavRef}
                   className="site-header__nav-pill site-header__nav-pill--parcours-maquette hidden min-w-0 lg:flex lg:w-full"

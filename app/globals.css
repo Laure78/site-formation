@@ -1403,6 +1403,11 @@
     @apply hidden;
   }
 
+  .site-header[data-desktop-nav-overflow='true'][data-variant='parcours-maquette']
+    .site-header__parcours-maquette-nav-slot {
+    @apply hidden;
+  }
+
   .header-utility-divider {
     @apply mx-0.5 h-4 w-px shrink-0 bg-slate-300/70;
   }

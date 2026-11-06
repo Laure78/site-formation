@@ -2,6 +2,14 @@ import type { FAQItem } from '@/lib/faq';
 import { getCatalogueFormationsCount } from '@/lib/formations-catalogue-display';
 import { isFormationCataloguePublished } from '@/lib/formation-catalogue-visibility';
 import { LINKS } from '@/lib/internal-links';
+import { MARQUE_COMMERCIALE } from '@/lib/marque-identite';
+import { MENTIONS_TVA_REGIMES_COURT } from '@/lib/tarifs-sessions';
+import {
+  libelleTarifParticipantCatalogue,
+  TARIF_PARTICIPANT_NIV01_HT,
+  TARIF_PARTICIPANT_NIV02_HT,
+  TARIF_PARTICIPANT_NIV10_14H_HT,
+} from '@/lib/tarifs-catalogue-participant';
 
 /** FAQ — page pilier /formation-ia-btp (alignée JSON-LD FAQPage) */
 export function getFaqFormationIaBtpPillar(at: Date = new Date()): FAQItem[] {
@@ -73,6 +81,10 @@ export function getFaqFormationIaBtpPillar(at: Date = new Date()): FAQItem[] {
       q: 'Où se déroulent les sessions ?',
       a:
         `Sessions intra (dans vos locaux) ou inter — présentiel uniquement · Île-de-France uniquement. Détail par département sur <a href="${LINKS.formationIleDeFrance}">formation IA pour le BTP en Île-de-France</a>.`,
+    },
+    {
+      q: 'Combien coûte une formation IA BTP en Île-de-France ?',
+      a: `Chez ${MARQUE_COMMERCIALE}, les formations en intelligence artificielle appliquée au BTP démarrent à ${libelleTarifParticipantCatalogue(TARIF_PARTICIPANT_NIV01_HT)} en présentiel en Île-de-France. Le niveau débutant coûte ${libelleTarifParticipantCatalogue(TARIF_PARTICIPANT_NIV01_HT)} pour 4 heures, le niveau avancé ${libelleTarifParticipantCatalogue(TARIF_PARTICIPANT_NIV02_HT)} pour 4 heures et le niveau approfondi « Créer des applications métier BTP avec l&apos;IA » ${libelleTarifParticipantCatalogue(TARIF_PARTICIPANT_NIV10_14H_HT)} pour 14 heures (2 journées de 7 h). ${MENTIONS_TVA_REGIMES_COURT}<br /><br />Publics : dirigeants de PME du bâtiment et des travaux publics, conducteurs de travaux, chargés d&apos;affaires, maîtres d&apos;œuvre, assistants travaux et fonctions support. Les sessions portent sur des usages concrets : devis, analyse de DCE, mémoires techniques, comptes rendus de chantier, CCTP, DOE et outils métier.<br /><br />Les sessions intra-entreprise font l&apos;objet d&apos;un devis. Une prise en charge par un OPCO peut être étudiée selon l&apos;éligibilité et les conditions du financeur.<br /><br />Découvrir les formations IA BTP : <a href="${LINKS.formations}">catalogue /formations</a> · <a href="${LINKS.formations}#tarifs-formations-btp">grille tarifaire</a>.`,
     },
     {
       q: 'Comment financer avec Constructys ou mon OPCO ?',

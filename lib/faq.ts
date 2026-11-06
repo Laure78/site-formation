@@ -95,13 +95,17 @@ export const FAQ_IA_BTP_METIERS_CHANTIER_SEO: readonly FAQItem[] = [
 ];
 
 /**
- * FAQ page d'accueil — 5 questions visibles (public, prérequis, documents, lieu, OPCO).
+ * FAQ page d'accueil — 6 questions visibles (public, AI Act, prérequis, déroulé, OPCO, intra, lieu).
  * Source unique accordion + JSON-LD FAQPage (`buildHomeFAQPageJsonLd`).
  */
 export const FAQ_ITEMS_HOME: readonly FAQItem[] = [
   {
     q: 'À qui s’adressent les formations IA pour le BTP ?',
     a: `Dirigeants de PME du bâtiment et des travaux publics, conducteurs de travaux, chargés d’affaires, assistants travaux et fonctions support — sans prérequis technique pour le niveau 1. Voir la page <a href="${LINKS.formationIaDirigeantPmeBtp}">formation IA pour les PME du BTP</a>, le <a href="${LINKS.formations}">catalogue</a> et les <a href="${LINKS.parcoursMetiers}">parcours métiers</a>.`,
+  },
+  {
+    q: 'IA et AI Act : quelles obligations pour une PME du BTP ?',
+    a: `Depuis le 2 février 2025, l&apos;article 4 du règlement européen sur l&apos;intelligence artificielle impose aux fournisseurs et aux déployeurs de systèmes d&apos;IA de prendre des mesures adaptées pour favoriser la maîtrise de l&apos;IA par les personnes qui les utilisent pour leur compte. Cette obligation concerne également une PME du BTP qui utilise des outils comme ChatGPT ou Claude dans son activité professionnelle. ${OFC_IDENTITE.raisonSociale} dispense les formations sous la marque ${MARQUE_COMMERCIALE}.<br /><br />Concrètement, une entreprise du BTP doit tenir compte des compétences de ses collaborateurs, de leurs missions et des risques liés aux outils utilisés. Elle peut les sensibiliser à la confidentialité des documents, à la vérification des résultats générés et aux limites de l&apos;IA.<br /><br />L&apos;article 4 n&apos;impose pas une formation certifiante, un nombre d&apos;heures minimum ni un certificat individuel obligatoire. Une formation pratique peut contribuer à une démarche de maîtrise de l&apos;IA, mais ne garantit pas à elle seule la conformité.<br /><br />Selon les usages, d&apos;autres obligations peuvent s&apos;appliquer, notamment le RGPD et certaines dispositions de transparence de l&apos;AI Act. Ne présentez pas tous les usages de ChatGPT comme des systèmes à haut risque au sens du règlement.<br /><br />Références : règlement (UE) 2024/1689, article 4 ; règlement modificatif (UE) 2026/1744 ; texte consolidé à vérifier avant publication. <a href="https://ai-act-service-desk.ec.europa.eu/fr/ai-act/article-4" rel="noopener nofollow" target="_blank">AI Act Service Desk — article 4</a> · <a href="https://eur-lex.europa.eu/legal-content/FR/TXT/?uri=CELEX:02024R1689-20260727" rel="noopener nofollow" target="_blank">EUR-Lex — texte consolidé</a><br /><br />En savoir plus : <a href="${LINKS.formationIaHub}">formation IA pour le BTP</a> · <a href="${LINKS.formations}">catalogue des formations IA BTP</a>.`,
   },
   {
     q: 'Faut-il des compétences techniques en IA ?',
@@ -440,11 +444,15 @@ export const FAQ_FINANCEMENT_IA_BTP: FAQItem[] = [
   },
 ];
 
-/** FAQ page `/financement-constructys-formation-ia-btp` — 6 questions visibles (JSON-LD aligné). */
+/** FAQ page `/financement-constructys-formation-ia-btp` — 7 questions visibles (JSON-LD aligné). */
 export const FAQ_FINANCEMENT_CONSTRUCTYS_PAGE: FAQItem[] = [
   {
     q: 'Une formation IA peut-elle bénéficier d’une participation Constructys ?',
     a: `Oui, si votre entreprise relève du périmètre BTP, que Constructys est votre OPCO et que votre dossier est éligible. OFC propose des actions certifiées Qualiopi. ${FINANCEMENT_FORMULATION_PRUDENTE} Voir le <a href="${LINKS.formations}">catalogue formations IA BTP</a>.`,
+  },
+  {
+    q: 'Constructys finance-t-il une formation ChatGPT pour les entreprises du BTP ?',
+    a: `Oui, Constructys peut participer au financement d&apos;une formation ChatGPT ou Claude destinée aux salariés d&apos;une entreprise du BTP, dans le cadre du plan de développement des compétences. La prise en charge dépend de l&apos;effectif, de la branche professionnelle, des conditions de financement en vigueur et de l&apos;accord préalable de Constructys — elle n&apos;est jamais garantie d&apos;avance.<br /><br />Les formations peuvent notamment porter sur la rédaction de devis, l&apos;analyse d&apos;appels d&apos;offres, les comptes rendus de chantier ou la gestion administrative avec l&apos;IA.<br /><br />Pour demander une prise en charge, l&apos;entreprise vérifie son éligibilité et dépose son dossier dans eGestion, en respectant les délais applicables. Un reste à charge peut subsister.<br /><br />Pour les nouveaux dossiers concernés entre le 1er octobre et le 31 décembre 2026, Constructys a mis en place un dispositif transitoire sans subrogation : l&apos;entreprise règle l&apos;organisme puis demande le remboursement selon l&apos;accord obtenu (voir le <a href="#circuit-transitoire">bloc circuit transitoire</a> sur cette page). Vérifiez toute prolongation des règles avant une mise à jour ultérieure. Ne présumez pas d&apos;un délai universel de 15 jours calendaires hors ce que votre dossier et Constructys indiquent.<br /><br />Sources officielles Constructys : <a href="https://www.constructys.fr/conditions-de-prise-en-charge-2/" rel="noopener nofollow" target="_blank">conditions de prise en charge</a> · <a href="https://www.constructys.fr/demandes-de-prise-en-charge-2/" rel="noopener nofollow" target="_blank">demandes de prise en charge</a> · <a href="https://www.constructys.fr/evoluer-progresser/le-plan-de-developpement-des-competences/" rel="noopener nofollow" target="_blank">plan de développement des compétences</a> · <a href="https://www.constructys.fr/?p=246047" rel="noopener nofollow" target="_blank">dispositif transitoire (page Constructys)</a>.<br /><br />Comprendre le financement Constructys : vous êtes sur <a href="${LINKS.financement}">${FINANCEMENT_PAGE_LINK_LABEL}</a>.`,
   },
   {
     q: 'Quel est le délai pour déposer le dossier ?',

@@ -338,10 +338,7 @@ export function HeaderNavDropdown({
   } | null>(null);
 
   useLayoutEffect(() => {
-    if (!panelOpen) {
-      setPanelFixedStyle(null);
-      return;
-    }
+    if (!panelOpen) return;
 
     const update = () => {
       const zone = zoneRef.current;
@@ -442,21 +439,16 @@ export function HeaderNavDropdown({
           />
         </button>
       </div>
-      {panelOpen ? (
+      {panelOpen && panelFixedStyle ? (
         <div
           id={panelId}
           data-header-dropdown=""
-          className={`header-nav-dropdown-panel absolute top-full z-[60] ${
-            formationsGridQuad
-              ? 'min-w-[min(100vw-2rem,64rem)] max-w-[min(100vw-2rem,64rem)]'
-              : formationsPanel && hasMega && formationsGridDual
-                ? 'min-w-[min(100vw-2rem,44rem)] max-w-[min(100vw-2rem,44rem)]'
-                : formationsPanel && hasMega
-                  ? 'min-w-[min(100vw-2rem,56rem)] max-w-[min(100vw-2rem,56rem)]'
-              : formationsPanel
-                ? 'min-w-[17rem] max-w-[min(100vw-2rem,28rem)]'
-                : 'min-w-[15.5rem] max-w-[min(100vw-2rem,22rem)]'
-          } ${alignEnd ? 'right-0' : 'left-0'}`}
+          className="header-nav-dropdown-panel fixed z-[60]"
+          style={{
+            top: `${panelFixedStyle.top}px`,
+            left: `${panelFixedStyle.left}px`,
+            width: `${panelFixedStyle.width}px`,
+          }}
         >
           <div
             className="pointer-events-none absolute inset-x-0 -top-1 h-2"
@@ -530,7 +522,9 @@ export function HeaderNavSimpleLink({
 }) {
   const routeActive = headerNavItemIsActive(item, pathname);
   return (
-    <div className={`${triggerClass({ routeActive, open: false, simple: true })} w-full min-w-0 shrink-0 lg:flex-1`}>
+    <div
+      className={`${triggerClass({ routeActive, open: false, simple: true })} w-full min-w-0 shrink-0 lg:flex-none`}
+    >
       <Link
         href={item.href}
         aria-current={routeActive ? 'page' : undefined}

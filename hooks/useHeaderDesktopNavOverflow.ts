@@ -17,6 +17,8 @@ function isLgViewport(): boolean {
 export function useHeaderDesktopNavOverflow(
   navRef: RefObject<HTMLElement | null>,
   layoutWidthRef: RefObject<HTMLElement | null>,
+  /** Recalcule quand l’état actif des liens change (poids police, libellés). */
+  remeasureKey?: string,
 ): boolean {
   const [overflow, setOverflow] = useState(false);
 
@@ -76,7 +78,7 @@ export function useHeaderDesktopNavOverflow(
       mq.removeEventListener('change', schedule);
       window.removeEventListener('orientationchange', schedule);
     };
-  }, [navRef, layoutWidthRef]);
+  }, [navRef, layoutWidthRef, remeasureKey]);
 
   return overflow;
 }
