@@ -96,16 +96,6 @@ function ressourcesNavActive(pathname: string): boolean {
   );
 }
 
-function formerMonEquipeNavActive(pathname: string): boolean {
-  if (pathname === LINKS.formationIaIntraEntrepriseBtp) return true;
-  if (pathname.startsWith(`${LINKS.formationIaIntraEntrepriseBtp}/`)) return true;
-  return pathname === LINKS.formations || pathname.startsWith(`${LINKS.formations}/`);
-}
-
-function financementNavActive(pathname: string): boolean {
-  return pathname === LINKS.financement || pathname.startsWith(`${LINKS.financement}/`);
-}
-
 /** État actif rubrique « Notre organisme » (menu principal). */
 export function headerUtilityOrganismeIsActive(pathname: string): boolean {
   return utilityOrganismeNavActive(pathname);
@@ -150,18 +140,6 @@ function buildHeaderNavItems(at: Date = new Date()): readonly HeaderNavItem[] {
       children: buildParcoursNavChildren(),
       hideDropdownHeading: true,
       dropdownAlign: 'start',
-    },
-    {
-      id: 'former-equipe',
-      label: 'Former mon équipe',
-      href: `${LINKS.formations}#plan-formation-entreprise`,
-      isActive: formerMonEquipeNavActive,
-    },
-    {
-      id: 'financement',
-      label: 'Financement',
-      href: LINKS.financement,
-      isActive: financementNavActive,
     },
     {
       id: 'ressources',

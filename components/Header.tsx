@@ -15,8 +15,6 @@ import {
   X,
   GraduationCap,
   Layers,
-  Users,
-  Wallet,
 } from 'lucide-react';
 import { SITE } from '@/lib/site';
 import { isParcoursMetiersMaquetteRoute } from '@/lib/parcours-metiers-maquette-route';
@@ -44,8 +42,6 @@ const HeaderMobileDrawer = dynamic(
 const MOBILE_NAV_ICON: Record<string, LucideIcon> = {
   formations: GraduationCap,
   parcours: BookOpen,
-  'former-equipe': Users,
-  financement: Wallet,
   ressources: Layers,
   organisme: Building2,
 };
@@ -248,13 +244,17 @@ export function Header() {
           {parcoursMaquetteHeader ? (
             <div className="site-header__parcours-maquette-row flex min-h-[4.25rem] min-w-0 items-center justify-between gap-3 sm:gap-4 lg:min-h-[4.75rem]">
               {brandLink}
+              <span
+                className="site-header__brand-divider hidden h-9 w-px shrink-0 self-center bg-[#071B42]/35 lg:block"
+                aria-hidden
+              />
               <div
                 ref={parcoursNavSlotRef}
                 className="site-header__parcours-maquette-nav-slot min-w-0 flex-1 lg:min-h-[2.75rem]"
               >
                 <nav
                   ref={desktopNavRef}
-                  className="site-header__nav-pill site-header__nav-pill--parcours-maquette hidden min-w-0 lg:flex lg:w-full"
+                  className="site-header__nav-pill site-header__nav-pill--parcours-maquette hidden min-w-0 lg:flex lg:flex-1 lg:min-w-0"
                   aria-label="Navigation principale"
                   data-header-nav-pill=""
                 >
@@ -270,31 +270,35 @@ export function Header() {
               {mobileMenuButton}
             </div>
           ) : (
-            <>
-              <div className="site-header__top flex min-w-0 items-center justify-between gap-2 sm:gap-3">
+            <div className="site-header__main-row flex min-h-[3.5rem] min-w-0 items-center justify-between gap-2 sm:gap-3 lg:min-h-[3.75rem] lg:gap-3">
+              <div className="flex min-w-0 shrink-0 items-center gap-2 sm:gap-3 lg:gap-3.5">
                 {brandLink}
-
-                <div className="site-header__desktop-only-actions site-header__actions relative z-[55] hidden shrink-0 items-center gap-2 border-l border-slate-200/90 pl-2.5 lg:flex xl:gap-2.5 xl:pl-3.5">
-                  <HeaderPrimaryCta origin="header-desktop" />
-                </div>
-
-                {mobileMenuButton}
+                <span
+                  className="site-header__brand-divider hidden h-9 w-px shrink-0 self-center bg-[#071B42]/35 lg:block"
+                  aria-hidden
+                />
               </div>
-
               <div
                 ref={standardNavWidthRef}
-                className="site-header__nav-row min-w-0 w-full"
+                className="site-header__nav-slot min-w-0 flex-1 lg:flex lg:min-h-[2.75rem] lg:min-w-0 lg:items-stretch lg:justify-center"
               >
                 <nav
                   ref={desktopNavRef}
-                  className="site-header__nav-pill w-full min-w-0"
+                  className="site-header__nav-pill w-full min-w-0 lg:flex-1"
                   aria-label="Navigation principale"
                   data-header-nav-pill=""
                 >
                   {desktopNavItems}
                 </nav>
               </div>
-            </>
+              <div className="site-header__desktop-only-actions site-header__actions relative z-[55] hidden shrink-0 items-center lg:flex">
+                <HeaderPrimaryCta
+                  origin="header-desktop"
+                  leadingAdornment={<Calendar className="h-4 w-4 shrink-0" aria-hidden />}
+                />
+              </div>
+              {mobileMenuButton}
+            </div>
           )}
         </div>
       </header>

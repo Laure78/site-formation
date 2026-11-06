@@ -1321,9 +1321,8 @@
 
   /* Header sticky — hauteur fixe (zéro CLS), compression visuelle au scroll */
   .site-header {
-    @apply sticky top-0 z-50 border-b border-[var(--header-border)] bg-white/90 backdrop-blur-md;
-    @apply transition-[transform,background-color,box-shadow,border-color,backdrop-filter] duration-200 ease-out motion-reduce:transition-none;
-    @apply supports-[backdrop-filter]:bg-white/80;
+    @apply sticky top-0 z-50 border-b border-[var(--header-border)] bg-white;
+    @apply transition-[transform,background-color,box-shadow,border-color] duration-200 ease-out motion-reduce:transition-none;
     height: auto;
   }
 
@@ -1386,14 +1385,12 @@
   }
 
   .site-header__nav-pill {
-    @apply hidden min-w-0 items-center justify-start gap-1 overflow-x-auto rounded-ofc-xl border border-ofc-border bg-white/70 px-1.5 py-1 shadow-none backdrop-blur-sm [scrollbar-width:none];
-    @apply transition-[padding,box-shadow,border-color] duration-200 ease-out motion-reduce:transition-none;
-    /* overflow-x-auto ≥ lg : si les rubriques dépassent la largeur, la nav reste visible (scroll) au lieu d’être masquée */
-    @apply lg:flex lg:w-full lg:max-w-none lg:flex-nowrap lg:items-stretch lg:justify-start lg:gap-0.5 lg:overflow-x-auto lg:px-1.5 lg:py-1 xl:gap-1;
+    @apply hidden min-w-0 items-stretch justify-center gap-0 overflow-visible [scrollbar-width:none];
+    @apply lg:flex lg:flex-1 lg:flex-nowrap lg:gap-0.5 lg:px-0 lg:py-0 xl:gap-1;
   }
 
   .site-header__nav-pill > * {
-    @apply min-w-0 shrink-0 lg:flex lg:min-h-[2.75rem] lg:flex-none lg:justify-center;
+    @apply min-w-0 shrink-0 lg:flex lg:min-h-[2.625rem] lg:flex-none lg:items-stretch lg:justify-center;
   }
 
   .header-utility-divider {
@@ -1506,15 +1503,15 @@
   }
 
   .header-nav-trigger--idle {
-    @apply text-slate-600 hover:bg-[#EFF6FF]/90 hover:text-[#2563EB];
+    @apply text-[#071B42]/90 hover:bg-[#F2F7FF] hover:text-[#071B42];
   }
 
   .header-nav-trigger--active {
-    @apply font-semibold text-[#2563EB];
+    @apply font-semibold text-[#071B42];
   }
 
   .header-nav-trigger--open {
-    @apply bg-[#EFF6FF] font-medium text-[#2563EB] shadow-[inset_0_0_0_1px_rgba(55,124,243,0.18)];
+    @apply bg-[#F2F7FF] font-medium text-[#071B42] shadow-[inset_0_0_0_1px_rgba(7,27,66,0.1)];
   }
 
   .header-nav-trigger__link {

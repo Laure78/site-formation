@@ -11,6 +11,16 @@ function navItemToHeaderLink(item: { href: string; label: string; title?: string
 
 export const UTILITY_ORGANISME_NAV_LINKS: readonly HeaderNavLink[] = [
   {
+    href: `${LINKS.formations}#plan-formation-entreprise`,
+    label: 'Former mon équipe',
+    title: 'Formation IA en intra-entreprise — plan pour votre équipe',
+  },
+  {
+    href: LINKS.financement,
+    label: 'Financement',
+    title: 'Financement OPCO Constructys — formation IA BTP',
+  },
+  {
     href: LINKS.aPropos,
     label: 'À propos',
     title: 'Laure Olivié — formatrice IA BTP',
@@ -39,8 +49,21 @@ export const UTILITY_ORGANISME_NAV_LINKS: readonly HeaderNavLink[] = [
 ];
 
 export function utilityOrganismeNavActive(pathname: string): boolean {
+  if (pathname === LINKS.financement || pathname.startsWith(`${LINKS.financement}/`)) {
+    return true;
+  }
+  if (
+    pathname === LINKS.formationIaIntraEntrepriseBtp ||
+    pathname.startsWith(`${LINKS.formationIaIntraEntrepriseBtp}/`)
+  ) {
+    return true;
+  }
   return UTILITY_ORGANISME_NAV_LINKS.some((link) => {
     const path = link.href.split('#')[0] || '/';
+    // Ancre sur le catalogue — sans hash côté serveur : ne pas activer tout `/formations/*`
+    if (link.href.includes('plan-formation-entreprise')) {
+      return false;
+    }
     return pathname === path || pathname.startsWith(`${path}/`);
   });
 }
