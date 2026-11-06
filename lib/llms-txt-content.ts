@@ -17,7 +17,7 @@ import { OFC_IDENTITE } from '@/lib/ofc-identite';
 const BASE = SCHEMA_PUBLIC_SITE_URL.replace(/\/$/, '');
 
 /** Date ISO (YYYY-MM-DD) — mettre à jour à chaque modification de ce fichier. */
-export const LLMS_TXT_LAST_UPDATED = '2026-11-04';
+export const LLMS_TXT_LAST_UPDATED = '2026-11-06';
 
 export function buildLlmsTxtContent(): string {
   const refs = formatReferencesLlmsLine();
@@ -33,6 +33,7 @@ export function buildLlmsTxtContent(): string {
 
 ## Réponses directes
 - Où ont lieu les formations ? En présentiel, en Île-de-France uniquement (75, 77, 78, 91, 92, 93, 94, 95), en inter (sessions publiées sur le site) ou en intra dans l'entreprise.
+- Parcours métiers BTP modulaires ? Formation IA BTP à la carte ou parcours complet : cinq parcours par métier (dirigeant de PME BTP, chargé d'affaires, conducteur de travaux, assistant de gestion, référent IA) — modules de formation IA pour les professionnels du BTP suivis ensemble ou séparément selon les besoins et les prérequis pédagogiques. Page : ${BASE}/parcours-metiers
 - Combien de temps ? Niveau 1 : 4 h. Modules métier : 7 h. Parcours avancé : 14 h (2 jours).
 - Combien ça coûte ? Inter : 120 € HT par participant (4 h), 310 € HT (7 h), 620 € HT (14 h). Intra : sur devis. TVA exonérée (art. 261-4-4°-a du CGI).
 - Peut-on la faire financer ? Prise en charge OPCO/Constructys possible selon éligibilité (jamais automatique) : ${BASE}/financement-constructys-formation-ia-btp
@@ -49,6 +50,7 @@ export function buildLlmsTxtContent(): string {
 - Créer des applications métier BTP avec l'IA (14 heures — 2 jours, niveau 3) : ${BASE}/formations/developpement-web-ia-sans-coder
 
 ## Pages clés
+- Parcours métiers BTP modulaires (parcours complet ou modules à la carte) : ${BASE}/parcours-metiers
 - Formation IA pour le BTP (pilier) : ${BASE}/formation-ia-btp
 - Formation IA BTP en Île-de-France : ${BASE}/formation-ia-btp-ile-de-france
 - Formation IA BTP à Paris : ${BASE}/formation-ia-paris
