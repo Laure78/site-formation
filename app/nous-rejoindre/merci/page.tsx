@@ -1,9 +1,5 @@
 import Link from 'next/link';
 import { BreadcrumbJsonLd } from '@/components/seo/BreadcrumbJsonLd';
-import {
-  CAREER_FORM_SUCCESS,
-  CAREER_FORM_SUCCESS_FOLLOWUP,
-} from '@/lib/career-form-validation';
 import { LINKS } from '@/lib/internal-links';
 import { createPageMetadata, SITE_CONFIG } from '@/lib/seo';
 
@@ -38,10 +34,14 @@ export default function NousRejoindreMerciPage() {
           Candidature envoyée
         </h1>
         <p className="mx-auto mt-4 max-w-xl text-base font-medium leading-relaxed text-slate-900">
-          {CAREER_FORM_SUCCESS}
+          Votre candidature a bien été reçue. Merci pour votre intérêt pour{' '}
+          <strong className="font-semibold">
+            Laure Olivié, organisme de formation spécialisé dans l’intelligence artificielle appliquée au BTP.
+          </strong>
         </p>
         <p className="mx-auto mt-4 max-w-xl text-base leading-relaxed text-slate-600">
-          {CAREER_FORM_SUCCESS_FOLLOWUP}
+          Nous examinons chaque candidature avec attention et vous recontactons si votre profil correspond aux
+          parcours en cours de constitution.
         </p>
       </div>
 
