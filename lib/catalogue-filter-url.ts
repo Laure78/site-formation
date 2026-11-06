@@ -148,11 +148,20 @@ export function parseFormationsCataloguePageFilters(
   };
   const ia = parseFormationsIaFilters(searchParams);
   const segmentRaw = get('segment');
-  return {
-    niveau: ia.niveau,
-    duree: ia.duree,
-    segment: segmentRaw === 'sur-demande' ? 'sur-demande' : undefined,
-  };
+  const segment = segmentRaw === 'sur-demande' ? 'sur-demande' : undefined;
+
+  /** Filtres maquette : priorité au niveau ; migration depuis l’ancien filtre durée. */
+  if (ia.niveau) {
+    return { niveau: ia.niveau };
+  }
+  if (segment) {
+    return { segment };
+  }
+  if (ia.duree === 14) {
+    return { niveau: 3 as FormationNiveau };
+  }
+  /** « 4 h » seul est ambigu (débutant et avancé) — on n’applique pas de filtre niveau. */
+  return {};
 }
 
 export function buildFormationsCataloguePageHref(

@@ -81,10 +81,10 @@ export const FORMATIONS_NIVEAUX_IA: readonly FormationNiveauIaDefinition[] = [
   },
   {
     niveau: 3,
-    labelComplet: 'Niveau 3 — Avancé',
-    sousTitre: 'Avancé',
+    labelComplet: 'Niveau 3 — Approfondi',
+    sousTitre: 'Approfondi',
     accrocheNiveau: 'Créer ses assistants et ses outils',
-    badge: 'Niveau 3 — Avancé',
+    badge: 'Niveau 3 — Approfondi',
     publicCible:
       'Utilisateurs autonomes souhaitant personnaliser leurs outils et assistants.',
     objectif:
@@ -92,7 +92,7 @@ export const FORMATIONS_NIVEAUX_IA: readonly FormationNiveauIaDefinition[] = [
     descriptionMenu:
       'Concevoir des usages réutilisables et des outils adaptés à son activité.',
     anchorId: 'catalogue-niveau-3',
-    sectionHeading: 'Niveau 3 — Avancé',
+    sectionHeading: 'Niveau 3 — Approfondi',
     accueilAccroche:
       'Créer des assistants et des outils adaptés à son activité.',
     accueilDuree: '14 h',

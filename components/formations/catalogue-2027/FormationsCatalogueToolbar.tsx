@@ -1,6 +1,6 @@
 'use client';
 
-import { useMemo, useState } from 'react';
+import { useMemo } from 'react';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { CatalogueSearchFilters } from '@/components/formations/catalogue-2027/CatalogueSearchFilters';
 import {
@@ -18,26 +18,21 @@ export function FormationsCatalogueToolbar() {
     [searchParams],
   );
 
-  const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
-
   const pushFilters = (next: FormationsCataloguePageFilters) => {
     if (pathname !== '/formations') return;
     router.replace(buildFormationsCataloguePageHref(next), { scroll: false });
   };
 
   const applyFilterChange = (next: Partial<FormationsCataloguePageFilters>) => {
-    pushFilters({
-      ...filters,
-      ...next,
-    });
+    const merged: FormationsCataloguePageFilters = { ...filters, ...next };
+    if ('niveau' in next) {
+      merged.duree = next.niveau !== undefined ? undefined : merged.duree;
+      merged.segment = next.niveau !== undefined ? undefined : merged.segment;
+    }
+    pushFilters(merged);
   };
 
   return (
-    <CatalogueSearchFilters
-      filters={filters}
-      onChange={applyFilterChange}
-      mobileOpen={mobileFiltersOpen}
-      onMobileOpenChange={setMobileFiltersOpen}
-    />
+    <CatalogueSearchFilters filters={filters} onChange={applyFilterChange} />
   );
 }

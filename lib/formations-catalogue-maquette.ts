@@ -33,6 +33,16 @@ export function catalogueMaquetteNiveauBadge(ref: string, niveau: FormationNivea
   return 'Niveau Approfondi';
 }
 
+/** Badge court — grille maquette (Débutant / Avancé / Approfondi). */
+export function catalogueMaquetteNiveauBadgeShort(
+  ref: string,
+  niveau: FormationNiveau,
+): 'Débutant' | 'Avancé' | 'Approfondi' {
+  if (ref === 'NIV-10' || niveau === 3) return 'Approfondi';
+  if (niveau === 1) return 'Débutant';
+  return 'Avancé';
+}
+
 export function catalogueMaquetteNiveauBadgeTone(
   ref: string,
   niveau: FormationNiveau,
@@ -42,7 +52,17 @@ export function catalogueMaquetteNiveauBadgeTone(
   return 'avance';
 }
 
-/** Classes badge carte — charte OFC (bleu clair + accent #377CF3, pas indigo/violet). */
+/** Classes badge carte — tons pastel (maquette). */
+export const CATALOGUE_MAQUETTE_NIVEAU_BADGE_TONE_CLASS: Record<
+  ReturnType<typeof catalogueMaquetteNiveauBadgeTone>,
+  string
+> = {
+  debutant: 'bg-emerald-50 text-emerald-900 ring-1 ring-emerald-200/70',
+  avance: 'bg-sky-50 text-sky-900 ring-1 ring-sky-200/70',
+  approfondi: 'bg-violet-50 text-violet-900 ring-1 ring-violet-200/70',
+};
+
+/** @deprecated Préférer `CATALOGUE_MAQUETTE_NIVEAU_BADGE_TONE_CLASS`. */
 export const CATALOGUE_MAQUETTE_NIVEAU_BADGE_CLASS =
   'bg-[#EFF6FF] text-[#377CF3] ring-1 ring-[#377CF3]/15';
 

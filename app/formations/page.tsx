@@ -15,6 +15,8 @@ import { FormationsContact2027 } from '@/components/formations/catalogue-2027/Fo
 import { FormationsCatalogueConversionRdv } from '@/components/formations/catalogue-2027/FormationsCatalogueConversionRdv';
 import { FormationsCatalogueFaqSection } from '@/components/formations/catalogue-2027/FormationsCatalogueFaqSection';
 import { FormationsCatalogueMobileBar } from '@/components/formations/catalogue-2027/FormationsCatalogueMobileBar';
+import { FormationsCatalogueTerrainBar } from '@/components/formations/catalogue-2027/FormationsCatalogueTerrainBar';
+import { FormationsCatalogueBottomCta } from '@/components/formations/catalogue-2027/FormationsCatalogueBottomCta';
 import { buildFormationsPageUnifiedGraphJsonLd } from '@/lib/schema-formations-page-graph';
 import { parseFormationsCataloguePageFilters } from '@/lib/catalogue-filter-url';
 
@@ -34,7 +36,14 @@ function hasCatalogueFilterParams(
   sp: Record<string, string | string[] | undefined>,
 ): boolean {
   const filters = parseFormationsCataloguePageFilters(sp);
-  return Boolean(filters.niveau || filters.duree || filters.segment);
+  if (filters.niveau || filters.segment) return true;
+  const get = (key: string): string | undefined => {
+    const raw = sp[key];
+    if (Array.isArray(raw)) return raw[0]?.trim() || undefined;
+    return raw?.trim() || undefined;
+  };
+  /** Variantes d’URL historiques — ne pas indexer les variantes filtrées. */
+  return Boolean(get('duree') || get('thematique') || get('domaine') || get('metier') || get('q'));
 }
 
 export async function generateMetadata({ searchParams }: FormationsPageProps): Promise<Metadata> {
@@ -82,23 +91,32 @@ export default async function FormationsPage({ searchParams }: FormationsPagePro
       <JsonLd id="schema-formations-page-graph" schema={buildFormationsPageUnifiedGraphJsonLd()} />
       <FormationsCatalogueMaquetteHero />
 
-      <div className="mx-auto max-w-[80rem] space-y-12 px-4 pb-16 pt-6 sm:px-6 md:space-y-14 lg:px-8 lg:pb-20">
+      <div className="mx-auto max-w-[80rem] space-y-12 px-4 pb-10 pt-8 sm:px-6 md:space-y-14 lg:px-8 lg:pb-12">
         <FormationsCatalogueFormatsBar />
         <FormationsIaDisponibles filters={catalogueFilters} />
-        <FormationsCatalogueMenuiserieBanner />
-        <FormationsCatalogueMethodePedagogique />
-        <FormationsCatalogueModalitesBar />
-        <FormationsCatalogueEntrepriseCompact />
-        <FormationsCatalogueFormateursTeaser />
-        <FormationsCatalogueFinancementEncadre />
+        <FormationsCatalogueTerrainBar />
 
-        <div className="grid gap-8 lg:grid-cols-[minmax(0,340px)_1fr] lg:items-start lg:gap-10">
-          <FormationsCatalogueConversionRdv />
-          <FormationsCatalogueFaqSection />
+        <div className="space-y-10 rounded-2xl border border-dashed border-[#E2E8F0] bg-[#FAFBFC] p-5 sm:p-6 md:space-y-12 md:p-8">
+          <p className="text-center text-xs font-semibold uppercase tracking-[0.1em] text-slate-500">
+            Compléments d’information
+          </p>
+          <FormationsCatalogueMenuiserieBanner />
+          <FormationsCatalogueMethodePedagogique />
+          <FormationsCatalogueModalitesBar />
+          <FormationsCatalogueEntrepriseCompact />
+          <FormationsCatalogueFormateursTeaser />
+          <FormationsCatalogueFinancementEncadre />
+
+          <div className="grid gap-8 lg:grid-cols-[minmax(0,340px)_1fr] lg:items-start lg:gap-10">
+            <FormationsCatalogueConversionRdv />
+            <FormationsCatalogueFaqSection />
+          </div>
         </div>
 
         <FormationsContact2027 formationHint={null} />
       </div>
+
+      <FormationsCatalogueBottomCta />
 
       <FormationsCatalogueMobileBar />
     </>

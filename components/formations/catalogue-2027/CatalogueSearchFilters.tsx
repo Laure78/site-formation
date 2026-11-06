@@ -1,16 +1,14 @@
 'use client';
 
-import { CatalogueDureePillFilters } from '@/components/formations/catalogue-2027/CatalogueDureePillFilters';
+import { FormationsCatalogueNiveauPillFilters } from '@/components/formations/catalogue-2027/FormationsCatalogueNiveauPillFilters';
 import type { FormationsCataloguePageFilters } from '@/lib/catalogue-filter-url';
 
 type Props = {
   filters: FormationsCataloguePageFilters;
   onChange: (next: Partial<FormationsCataloguePageFilters>) => void;
-  mobileOpen: boolean;
-  onMobileOpenChange: (open: boolean) => void;
 };
 
-/** Filtres catalogue — pills niveau (desktop + mobile). */
+/** Filtres catalogue — pills par niveau maquette (Toutes / Débutant / Avancé / Approfondi). */
 export function CatalogueSearchFilters({ filters, onChange }: Props) {
-  return <CatalogueDureePillFilters filters={filters} onChange={onChange} />;
+  return <FormationsCatalogueNiveauPillFilters filters={filters} onChange={onChange} />;
 }

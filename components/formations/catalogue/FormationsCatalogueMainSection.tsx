@@ -155,7 +155,7 @@ export function FormationsCatalogueMainSection({ formations }: Props) {
         {showNiveau3 && formationsNiveau3.length > 0 && (
           <section className="scroll-mt-24" aria-labelledby="catalogue-niveau-3">
             <h2 id="catalogue-niveau-3" className="font-display text-xl font-bold text-ofc-ink md:text-2xl">
-              Niveau 3 — Avancé
+              Niveau 3 — Approfondi
             </h2>
             <p className="mt-2 max-w-2xl text-sm leading-relaxed text-slate-600">
               Concevoir, développer, tester et déployer ses propres applications et outils métier BTP

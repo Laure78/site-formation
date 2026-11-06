@@ -4,8 +4,9 @@ import { ArrowRight, Clock, Wallet } from 'lucide-react';
 import type { FormationCatalogueEntry } from '@/lib/formations-catalogue-display';
 import { getFormationByCode } from '@/data/formations';
 import {
-  catalogueMaquetteNiveauBadge,
-  CATALOGUE_MAQUETTE_NIVEAU_BADGE_CLASS,
+  catalogueMaquetteNiveauBadgeShort,
+  catalogueMaquetteNiveauBadgeTone,
+  CATALOGUE_MAQUETTE_NIVEAU_BADGE_TONE_CLASS,
 } from '@/lib/formations-catalogue-maquette';
 import { cataloguePublicOneLine } from '@/lib/formations-catalogue-page-config';
 import {
@@ -25,9 +26,12 @@ type Props = {
 export function FormationsCatalogueGridCard({ entry, upcoming = false }: Props) {
   const formation = getFormationByCode(entry.ref);
   const niveauBadge = formation
-    ? catalogueMaquetteNiveauBadge(entry.ref, formation.niveau)
-    : 'Niveau Avancé';
-  const badgeClass = CATALOGUE_MAQUETTE_NIVEAU_BADGE_CLASS;
+    ? catalogueMaquetteNiveauBadgeShort(entry.ref, formation.niveau)
+    : 'Avancé';
+  const badgeTone = formation
+    ? catalogueMaquetteNiveauBadgeTone(entry.ref, formation.niveau)
+    : 'avance';
+  const badgeClass = CATALOGUE_MAQUETTE_NIVEAU_BADGE_TONE_CLASS[badgeTone];
   const disponibilite = getCatalogueEntryDisponibiliteBadge(entry.ref, { upcoming });
   const tarif = catalogueEntryTarifLines(entry.ref);
   const duree = catalogueEntryDuree(entry);
@@ -49,7 +53,7 @@ export function FormationsCatalogueGridCard({ entry, upcoming = false }: Props) 
       className="group flex h-full flex-col overflow-hidden rounded-2xl border border-[#E2E8F0] bg-white shadow-[0_4px_24px_rgba(15,23,42,0.06)] transition-[box-shadow,transform] duration-200 motion-reduce:transition-none hover:-translate-y-0.5 hover:shadow-[0_12px_32px_rgba(15,23,42,0.1)] scroll-mt-[calc(var(--site-header-height,4.5rem)+0.75rem)]"
       aria-labelledby={titleId}
     >
-      <div className="relative aspect-[16/10] overflow-hidden bg-[#F2F2F2]">
+      <div className="relative aspect-[5/3] overflow-hidden bg-[#F2F2F2]">
         {visual ? (
           <Image
             src={visual.photo.src}
@@ -61,7 +65,7 @@ export function FormationsCatalogueGridCard({ entry, upcoming = false }: Props) 
           />
         ) : null}
         <span
-          className={`absolute left-3 top-3 rounded-full px-2.5 py-1 text-[11px] font-bold uppercase tracking-wide ${badgeClass}`}
+          className={`absolute left-3 top-3 rounded-full px-2.5 py-1 text-[11px] font-bold ${badgeClass}`}
         >
           {niveauBadge}
         </span>
@@ -78,7 +82,7 @@ export function FormationsCatalogueGridCard({ entry, upcoming = false }: Props) 
         ) : null}
       </div>
 
-      <div className="flex flex-1 flex-col p-4 sm:p-5">
+      <div className="flex min-h-0 flex-1 flex-col p-4 sm:p-5">
         <h3
           id={titleId}
           className="font-display text-lg font-bold leading-snug text-[#101936] text-balance"
@@ -119,10 +123,10 @@ export function FormationsCatalogueGridCard({ entry, upcoming = false }: Props) 
         </div>
       </div>
 
-      <div className="border-t border-[#E2E8F0] px-4 pb-4 pt-3 sm:px-5 sm:pb-5">
+      <div className="mt-auto border-t border-[#E2E8F0] px-4 pb-4 pt-3 sm:px-5 sm:pb-5">
         <Link
           href={programmeHref}
-          className="inline-flex w-full items-center justify-center gap-2 text-sm font-semibold text-[#377CF3] transition-colors hover:text-[#2f6bd4] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#377CF3]"
+          className="inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-[8px] border-2 border-[#377CF3] bg-white px-4 py-2.5 text-sm font-semibold text-[#377CF3] transition-colors hover:bg-[#F8FAFF] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#377CF3]"
         >
           {ctaLabel}
           <ArrowRight className="h-4 w-4" aria-hidden />
