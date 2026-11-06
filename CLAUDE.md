@@ -10,7 +10,7 @@ Guide pour travailler dans ce dépôt. Écris et commente en **français**.
 
 - **Next.js 16** (App Router) · **React 19** · **Tailwind CSS v4** · **TypeScript** · **Node ≥ 20**
 - **Supabase** (auth + BDD, `@supabase/ssr`) · **Stripe** · **Resend** (email) · **OpenAI** · **docx**
-- Déploiement : **Railway** (`railway.toml`) et **Vercel** (`vercel.json`, crons)
+- Déploiement : **Railway** (`railway.toml`, IaC `.railway/railway.ts` en préparation) et **Vercel** (`vercel.json`, crons)
 
 ```bash
 npm run dev              # serveur de dev

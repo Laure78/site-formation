@@ -1,4 +1,6 @@
 # Configuration Railway pour Next.js (Railpack)
+# Source de vérité à terme : `.railway/railway.ts` (IaC). Ce fichier reste lu par Railway
+# jusqu’à `railway config migrate cutover` — voir GUIDE-DEPLOIEMENT-RAILWAY.md.
 
 [build]
 builder = "RAILPACK"

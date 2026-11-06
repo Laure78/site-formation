@@ -235,7 +235,6 @@ export function Header() {
         data-variant={parcoursMaquetteHeader ? 'parcours-maquette' : undefined}
         data-compact={compact ? 'true' : 'false'}
         data-scroll-hidden={scrollHidden ? 'true' : 'false'}
-        data-desktop-nav-overflow={useDesktopHamburger ? 'true' : 'false'}
       >
         <div
           className={`site-header__inner mx-auto flex max-w-[80rem] min-w-0 flex-col gap-0 px-4 py-1.5 sm:px-6 lg:gap-1 lg:px-8 lg:py-2 ${

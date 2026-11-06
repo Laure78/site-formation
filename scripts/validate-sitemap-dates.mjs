@@ -2,28 +2,16 @@
  * Échoue si > 20 % des URL du sitemap partagent la même date lastModified.
  * Usage : node scripts/validate-sitemap-dates.mjs (après generate-sitemap-dates).
  */
-import { execSync } from 'node:child_process';
+import { execFileSync } from 'node:child_process';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const projectRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
+const runner = path.join(projectRoot, 'scripts/validate-sitemap-dates-run.ts');
 
-const raw = execSync(
-  `npx tsx -e "
-import sitemap from './app/sitemap.ts';
-const entries = await sitemap();
-const byDay = new Map();
-for (const e of entries) {
-  const d = e.lastModified instanceof Date ? e.lastModified.toISOString().slice(0, 10) : String(e.lastModified).slice(0, 10);
-  byDay.set(d, (byDay.get(d) ?? 0) + 1);
-}
-const total = entries.length;
-const sorted = [...byDay.entries()].sort((a,b)=>b[1]-a[1]);
-const [topDay, topCount] = sorted[0] ?? ['', 0];
-const ratio = total ? topCount / total : 0;
-console.log(JSON.stringify({ total, topDay, topCount, ratio, distribution: Object.fromEntries(sorted.slice(0, 5)) }));
-if (ratio > 0.2) process.exit(1);
-"`,
+const raw = execFileSync(
+  process.execPath,
+  [path.join(projectRoot, 'node_modules/tsx/dist/cli.mjs'), runner],
   { cwd: projectRoot, encoding: 'utf8', maxBuffer: 20 * 1024 * 1024 },
 );
 

@@ -113,6 +113,15 @@ Si vous voulez que le site soit accessible sur **laureolivie.fr** :
 - Regardez les **logs** (onglet **Deployments** puis cliquez sur le déploiement).
 - Erreur « OPENAI_API_KEY manquant » → ajoutez la variable (étape 4).
 - Erreur « Module not found » → vérifiez que tout le code est bien poussé sur GitHub (`git push`).
+- Build Next.js / mémoire : le projet utilise **`next build` (Turbopack)** avec `NODE_OPTIONS=--max-old-space-size=4096`. N’utilisez pas `next build --webpack` sur Railway (risque d’OOM à la génération statique).
+
+### Sitemap : pas de dépôt git dans l’image Docker
+
+Le script `scripts/generate-sitemap-dates.mjs` tourne avant chaque build. S’il n’y a pas de `.git` (Railpack), il remplit **`lib/sitemap-dates.generated.json`** avec les **dates de modification des fichiers** (`mtime`) — plus de carte vide ni d’avertissement bloquant. En local avec git, les **dates de commit** restent prioritaires.
+
+### Infrastructure as Code Railway (optionnel)
+
+Le fichier **`.railway/railway.ts`** reprend la config de `railway.toml` (build/start Railpack). Les variables d’environnement restent gérées dans le dashboard (**unmanaged**). Quand vous voudrez basculer : `railway config migrate cutover` puis `railway config plan` / `apply` (voir [doc Railway IaC](https://docs.railway.com/infrastructure-as-code)). Tant que le *cutover* n’est pas fait, **`railway.toml` reste la référence** utilisée par la plateforme.
 
 ### Le site affiche une erreur 500
 
