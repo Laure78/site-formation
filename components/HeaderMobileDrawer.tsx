@@ -21,6 +21,8 @@ type HeaderMobileDrawerProps = {
   onToggleSection: (id: string) => void;
   onClose: () => void;
   navIcons: Record<string, LucideIcon>;
+  /** Nav desktop débordante : tiroir utilisable dès le breakpoint lg. */
+  visibleOnLargeScreens?: boolean;
 };
 
 const MOBILE_UTILITY_BTN =
@@ -35,6 +37,7 @@ export function HeaderMobileDrawer({
   onToggleSection,
   onClose,
   navIcons,
+  visibleOnLargeScreens = false,
 }: HeaderMobileDrawerProps) {
   const drawerRef = useRef<HTMLDivElement>(null);
   const closeButtonRef = useRef<HTMLButtonElement>(null);
@@ -77,14 +80,14 @@ export function HeaderMobileDrawer({
     <>
       <button
         type="button"
-        className="header-mobile-backdrop lg:hidden"
+        className={`header-mobile-backdrop ${visibleOnLargeScreens ? '' : 'lg:hidden'}`}
         aria-label="Fermer le menu"
         onClick={onClose}
       />
       <div
         ref={drawerRef}
         id="header-mobile-drawer"
-        className="header-mobile-drawer lg:hidden"
+        className={`header-mobile-drawer ${visibleOnLargeScreens ? '' : 'lg:hidden'}`}
         role="dialog"
         aria-modal="true"
         aria-label="Menu de navigation"

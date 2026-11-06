@@ -19,12 +19,17 @@ import { PageMaillageSection } from '@/components/maillage/PageMaillageSection';
 import { buildParcoursPageMaillageBlocks } from '@/lib/page-maillage-blocks';
 import { FinancementOpcoEtenduCourtBlock } from '@/components/financement/FinancementOpcoEtenduCourtBlock';
 import { parcoursIdShowsFinancementOpcoEtendu } from '@/lib/financement-opco-etendu-config';
+import { ParcoursReferentIaBtpLanding } from './ParcoursReferentIaBtpLanding';
 
 type Props = {
   parcours: ParcoursComputed;
 };
 
 export function ParcoursDetailView({ parcours: p }: Props) {
+  if (p.id === 'referent-ia-btp') {
+    return <ParcoursReferentIaBtpLanding parcours={p} />;
+  }
+
   const thematiquesChantier = getThematiquesForParcoursMetier(p.metierId);
 
   const devisHref = catalogueDemandeHref({

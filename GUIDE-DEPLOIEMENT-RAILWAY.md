@@ -113,6 +113,7 @@ Si vous voulez que le site soit accessible sur **laureolivie.fr** :
 - Regardez les **logs** (onglet **Deployments** puis cliquez sur le déploiement).
 - Erreur « OPENAI_API_KEY manquant » → ajoutez la variable (étape 4).
 - Erreur « Module not found » → vérifiez que tout le code est bien poussé sur GitHub (`git push`).
+- **Railway installe souvent uniquement les dépendances de production** (`npm ci` / install sans `devDependencies`). Les paquets nécessaires au **build** Next (Tailwind/PostCSS, TypeScript, types React, `pdfkit` pour les PDF recrutement, etc.) sont donc déclarés dans **`dependencies`** dans `package.json`, pas seulement dans `devDependencies`.
 - Build Next.js / mémoire : le projet utilise **`next build` (Turbopack)** avec `NODE_OPTIONS=--max-old-space-size=4096`. N’utilisez pas `next build --webpack` sur Railway (risque d’OOM à la génération statique).
 
 ### Sitemap : pas de dépôt git dans l’image Docker

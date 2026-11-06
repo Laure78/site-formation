@@ -393,13 +393,13 @@ export function HeaderNavDropdown({
   return (
     <div
       ref={zoneRef}
-      className="relative flex w-full min-w-0 shrink-0 items-stretch justify-center lg:flex-none"
+      className="relative flex w-full min-w-0 shrink-0 items-stretch justify-center lg:w-auto lg:max-w-none lg:flex-none"
       data-header-nav-zone={item.id}
       onPointerEnter={() => desktopHover?.onZoneEnter(item.id)}
       onPointerLeave={() => desktopHover?.onZoneLeave(item.id)}
       onBlur={handleZoneFocusOut}
     >
-      <div className={`${triggerClass({ routeActive, open })} w-full`}>
+      <div className={`${triggerClass({ routeActive, open })} w-full lg:w-auto`}>
         {/* Libellé → page hub ; chevron → sous-menu (évite d’ouvrir le menu quand on veut la page). */}
         <Link
           href={item.href}
@@ -523,7 +523,7 @@ export function HeaderNavSimpleLink({
   const routeActive = headerNavItemIsActive(item, pathname);
   return (
     <div
-      className={`${triggerClass({ routeActive, open: false, simple: true })} w-full min-w-0 shrink-0 lg:flex-none`}
+      className={`${triggerClass({ routeActive, open: false, simple: true })} w-full min-w-0 shrink-0 lg:w-auto lg:flex-none`}
     >
       <Link
         href={item.href}

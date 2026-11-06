@@ -257,8 +257,10 @@ export const PARCOURS_CATALOGUE_2027: readonly CatalogueParcours[] = [
     slug: 'referent-ia-btp',
     metierId: 'referent-ia',
     titre: 'Référent IA BTP',
-    benefice: 'Structurer les usages IA, réaliser un outil et préparer le déploiement.',
-    objectif: 'Structurer les usages IA, réaliser un outil et préparer le déploiement.',
+    benefice:
+      'Structurer les usages de l’IA, créer un outil métier et préparer son déploiement.',
+    objectif:
+      'Structurer les usages de l’IA, créer un outil métier et préparer son déploiement.',
     publicCible: 'Référents IA, dirigeants et profils métier chargés du déploiement.',
     prerequis: 'NUM-01 ou niveau équivalent.',
     competencesVisees: [

@@ -28,6 +28,7 @@ import {
   HeaderNavSimpleLink,
 } from '@/components/nav/HeaderNavDropdown';
 import { useSiteHeaderBehavior } from '@/hooks/useSiteHeaderBehavior';
+import { useHeaderDesktopNavOverflow } from '@/hooks/useHeaderDesktopNavOverflow';
 import type { LucideIcon } from 'lucide-react';
 
 const HeaderMobileDrawer = dynamic(
@@ -55,6 +56,8 @@ export function Header() {
   const [navPath, setNavPath] = useState(pathname);
   const headerRef = useRef<HTMLElement>(null);
   const desktopNavRef = useRef<HTMLElement>(null);
+  const standardNavWidthRef = useRef<HTMLDivElement>(null);
+  const parcoursNavSlotRef = useRef<HTMLDivElement>(null);
   const { compact, scrollHidden } = useSiteHeaderBehavior(headerRef);
   const menuButtonRef = useRef<HTMLButtonElement>(null);
   const desktopHover = useHeaderNavDesktopHover(openId, setOpenId);
@@ -148,6 +151,12 @@ export function Header() {
   }, [openId]);
 
   const parcoursMaquetteHeader = pathname ? isParcoursMetiersMaquetteRoute(pathname) : false;
+  const navLayoutWidthRef = parcoursMaquetteHeader ? parcoursNavSlotRef : standardNavWidthRef;
+  const desktopNavOverflow = useHeaderDesktopNavOverflow(
+    desktopNavRef,
+    navLayoutWidthRef,
+    pathname ?? '',
+  );
 
   if (
     pathname?.startsWith('/admin') ||
@@ -176,7 +185,9 @@ export function Header() {
   );
 
   const mobileMenuButton = (
-    <div className="flex shrink-0 items-center gap-0.5 lg:hidden">
+    <div
+      className={`flex shrink-0 items-center gap-0.5 ${desktopNavOverflow ? '' : 'lg:hidden'}`}
+    >
       <button
         ref={menuButtonRef}
         type="button"
@@ -219,6 +230,7 @@ export function Header() {
         data-variant={parcoursMaquetteHeader ? 'parcours-maquette' : undefined}
         data-compact={compact ? 'true' : 'false'}
         data-scroll-hidden={scrollHidden ? 'true' : 'false'}
+        data-header-desktop-overflow={desktopNavOverflow ? 'true' : undefined}
       >
         <div
           className={`site-header__inner mx-auto flex max-w-[80rem] min-w-0 flex-col gap-0 px-4 py-1.5 sm:px-6 lg:gap-1 lg:px-8 lg:py-2 ${
@@ -236,7 +248,10 @@ export function Header() {
                 className="site-header__brand-divider hidden h-9 w-px shrink-0 self-center bg-[#071B42]/35 lg:block"
                 aria-hidden
               />
-              <div className="site-header__parcours-maquette-nav-slot min-w-0 flex-1 lg:min-h-[2.75rem]">
+              <div
+                ref={parcoursNavSlotRef}
+                className="site-header__parcours-maquette-nav-slot relative min-w-0 flex-1 lg:min-h-[2.75rem]"
+              >
                 <nav
                   ref={desktopNavRef}
                   className="site-header__nav-pill site-header__nav-pill--parcours-maquette hidden min-w-0 lg:flex lg:flex-1 lg:min-w-0"
@@ -263,7 +278,10 @@ export function Header() {
                   aria-hidden
                 />
               </div>
-              <div className="site-header__nav-slot min-w-0 flex-1 lg:flex lg:min-h-[2.75rem] lg:min-w-0 lg:items-stretch lg:justify-center">
+              <div
+                ref={standardNavWidthRef}
+                className="site-header__nav-slot relative min-w-0 flex-1 lg:flex lg:min-h-[2.75rem] lg:min-w-0 lg:items-stretch lg:justify-center"
+              >
                 <nav
                   ref={desktopNavRef}
                   className="site-header__nav-pill w-full min-w-0 lg:flex-1"
@@ -289,6 +307,7 @@ export function Header() {
         <HeaderMobileDrawer
           headerNav={headerNav}
           pathname={pathname}
+          visibleOnLargeScreens={desktopNavOverflow}
           onBeforeOpenSearch={prepareSearchOpen}
           mobileExpanded={mobileExpanded}
           onToggleSection={(id) =>
