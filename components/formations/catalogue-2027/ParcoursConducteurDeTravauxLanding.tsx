@@ -41,7 +41,7 @@ import { FinancementOpcoEtenduCourtBlock } from '@/components/financement/Financ
 import { parcoursIdShowsFinancementOpcoEtendu } from '@/lib/financement-opco-etendu-config';
 import { CtaVisio } from '@/components/CtaVisio';
 
-const HERO_IMAGE = '/images/formation-ia-chantier-conducteur-travaux.webp';
+const HERO_IMAGE = '/images/conducteur-de-travaux-photo-hero.webp';
 const HERO_IMAGE_ALT =
   'Conducteur de travaux sur chantier, casqué, consultant une tablette devant une grue et un bâtiment en construction';
 const PEDAGOGIE_BG = '/images/accueil/03-parcours-metiers-chantier.webp';
