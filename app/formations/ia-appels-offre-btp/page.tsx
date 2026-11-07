@@ -1,5 +1,5 @@
 import { JsonLd } from '@/components/JsonLd';
-import { CatalogueFormationPageTemplate } from '@/components/formations/catalogue/CatalogueFormationPageTemplate';
+import { TrainingNiv02MaquetteTemplate } from '@/components/formations/training/TrainingNiv02MaquetteTemplate';
 import { createPageMetadata, getFAQSchema } from '@/lib/seo';
 import { mergeCatalogueFormationFaq } from '@/lib/catalogue-formation-faq';
 import { FAQ_APPELS_OFFRE } from '@/lib/faq';
@@ -39,18 +39,21 @@ const FAQ_NIV02 = mergeCatalogueFormationFaq('NIV-02', FAQ_APPELS_OFFRE);
 const faqSchema = getFAQSchema(FAQ_NIV02);
 const courseSchema = buildCatalogueCourseIaAppelsOffreNiv02JsonLd();
 
+/**
+ * Fiche NIV-02 — refonte UI maquette (contenu catalogue + Qualiopi inchangés).
+ */
 export default async function FormationIAAppelsOffreBTPPage() {
   return (
-    <div>
+    <>
       <JsonLd id="schema-course-niv-02" schema={courseSchema} />
       {faqSchema ? <JsonLd id="schema-faq" schema={faqSchema} /> : null}
 
-      <CatalogueFormationPageTemplate
+      <TrainingNiv02MaquetteTemplate
         content={PAGE_CONTENT}
         faqItems={FAQ_APPELS_OFFRE}
         faqSectionId="faq-niv-02"
         h1Id="formation-niv-02-h1"
       />
-    </div>
+    </>
   );
 }
