@@ -53,6 +53,8 @@ type Props = {
   afterObjectives?: ReactNode;
   afterDeliverables?: ReactNode;
   customHero?: ReactNode;
+  /** Hero marketing pleine largeur (sans colonne latérale tarifs au hero). */
+  customHeroFullWidth?: boolean;
   tariffsSection?: ReactNode;
   programmeSupplement?: ReactNode;
   afterProgrammeSupplement?: ReactNode;
@@ -73,6 +75,7 @@ export async function TrainingPageTemplate({
   afterObjectives,
   afterDeliverables,
   customHero,
+  customHeroFullWidth = false,
   tariffsSection,
   programmeSupplement,
   afterProgrammeSupplement,
@@ -167,16 +170,20 @@ export async function TrainingPageTemplate({
   return (
     <div className="training-page">
       {customHero ? (
-        <div className="border-b border-slate-200 bg-white">
-          <div className="mx-auto max-w-[78rem] px-4 lg:grid lg:grid-cols-[minmax(0,1fr)_minmax(17.5rem,20rem)] lg:items-start lg:gap-8 xl:gap-10">
-            <div className="min-w-0 [&>section]:border-b-0">{customHero}</div>
-            <aside className="hidden py-8 lg:block" aria-label="Tarifs et inscription">
-              <div className="sticky top-[calc(var(--site-header-height)+0.75rem)] z-20 max-h-[calc(100dvh-var(--site-header-height)-1rem)] overflow-y-auto overscroll-contain pb-4">
-                <TrainingSidebarCard {...sidebarProps} />
-              </div>
-            </aside>
+        customHeroFullWidth ? (
+          <div className="border-b border-slate-200 bg-white [&>section]:border-b-0">{customHero}</div>
+        ) : (
+          <div className="border-b border-slate-200 bg-white">
+            <div className="mx-auto max-w-[78rem] px-4 lg:grid lg:grid-cols-[minmax(0,1fr)_minmax(17.5rem,20rem)] lg:items-start lg:gap-8 xl:gap-10">
+              <div className="min-w-0 [&>section]:border-b-0">{customHero}</div>
+              <aside className="hidden py-8 lg:block" aria-label="Tarifs et inscription">
+                <div className="sticky top-[calc(var(--site-header-height)+0.75rem)] z-20 max-h-[calc(100dvh-var(--site-header-height)-1rem)] overflow-y-auto overscroll-contain pb-4">
+                  <TrainingSidebarCard {...sidebarProps} />
+                </div>
+              </aside>
+            </div>
           </div>
-        </div>
+        )
       ) : (
         <TrainingHero
           titleId={h1Id}

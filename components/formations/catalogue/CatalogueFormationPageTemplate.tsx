@@ -13,6 +13,7 @@ type Props = {
   afterObjectives?: ReactNode;
   afterDeliverables?: ReactNode;
   customHero?: ReactNode;
+  customHeroFullWidth?: boolean;
   tariffsSection?: ReactNode;
   programmeSupplement?: ReactNode;
   afterProgrammeSupplement?: ReactNode;

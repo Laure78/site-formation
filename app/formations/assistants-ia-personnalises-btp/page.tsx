@@ -1,7 +1,7 @@
 import { JsonLd } from '@/components/JsonLd';
+import { AssistantsIaPersonnalisesBtpLanding } from '@/components/formations/assistants-ia/AssistantsIaPersonnalisesBtpLanding';
 import {
   AssistantsIaBtpAteliersSection,
-  AssistantsIaBtpCreationsSection,
   AssistantsIaBtpProgrammeTimelineSection,
 } from '@/components/formations/assistants-ia/AssistantsIaBtpPageSections';
 import { CatalogueFormationPageTemplate } from '@/components/formations/catalogue/CatalogueFormationPageTemplate';
@@ -52,11 +52,12 @@ export default async function FormationAssistantsIaPersonnalisesBtpPage() {
       {faqSchema ? <JsonLd id="schema-faq-niv-09" schema={faqSchema} /> : null}
 
       <CatalogueFormationPageTemplate
-        content={PAGE_CONTENT}
+        content={{ ...PAGE_CONTENT, hideHeroEnBref: true }}
         faqItems={FAQ_ASSISTANTS_IA_NIV09}
         faqSectionId="faq-niv-09"
         h1Id="formation-niv-09-h1"
-        afterObjectives={<AssistantsIaBtpCreationsSection />}
+        customHero={<AssistantsIaPersonnalisesBtpLanding h1Id="formation-niv-09-h1" />}
+        customHeroFullWidth
         programmeSupplement={<AssistantsIaBtpProgrammeTimelineSection />}
         afterProgrammeSupplement={<AssistantsIaBtpAteliersSection />}
       />

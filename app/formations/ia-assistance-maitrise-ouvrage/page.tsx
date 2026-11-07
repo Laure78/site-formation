@@ -1,5 +1,5 @@
 import { JsonLd } from '@/components/JsonLd';
-import { CatalogueFormationPageTemplate } from '@/components/formations/catalogue/CatalogueFormationPageTemplate';
+import { TrainingNiv11MaquetteTemplate } from '@/components/formations/training/TrainingNiv11MaquetteTemplate';
 import { buildCatalogueFormationCoursePageJsonLd, buildCatalogueFormationFaqPageJsonLd } from '@/lib/catalogue-formation-page-jsonld';
 import { createPageMetadata, SITE_CONFIG } from '@/lib/seo';
 import { getFormationCatalogueVisuel } from '@/lib/formations-catalogue-display';
@@ -38,7 +38,7 @@ export default async function FormationIaAssistanceMaitriseOuvragePage() {
       <JsonLd id="schema-course-niv-11" schema={courseSchema} />
       {faqSchema ? <JsonLd id="schema-faq-niv-11" schema={faqSchema} /> : null}
 
-      <CatalogueFormationPageTemplate
+      <TrainingNiv11MaquetteTemplate
         content={PAGE_CONTENT}
         faqSectionId="faq-niv-11"
         h1Id="formation-amo-h1"

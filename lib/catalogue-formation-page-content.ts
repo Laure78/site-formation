@@ -8,6 +8,7 @@ import { LINKS } from '@/lib/internal-links';
 import { formatPrixHt, getFormationByCode, libelleDureeFormation } from '@/data/formations';
 import {
   libelleTarifParticipantCatalogue,
+  TARIF_PARTICIPANT_NIV02_HT,
   TARIF_PARTICIPANT_NIV09_HT,
   TARIF_SESSION_INTRA_NIV11_HT,
   TARIF_SESSION_INTRA_NIV12_HT,
@@ -967,12 +968,12 @@ const NIV_09: CatalogueFormationPageContent = {
   instructorTitle: 'Laure Olivié — formatrice IA spécialisée BTP',
   instructorBody:
     `${siteExperienceBtpLong()}, ancienne dirigeante d’ALIA BTP (travaux publics). Formatrice certifiée Qualiopi, instructrice LinkedIn Learning. Elle conçoit et anime cette session en présentiel en Île-de-France.`,
+  hideHeroEnBref: true,
   finalCta: {
     ...DEFAULT_FINAL_CTA,
-    title: 'Inscrivez-vous à la formation assistants IA BTP',
+    title: 'Construisons votre assistant sur mesure',
     description:
       `${SITE_INTER_LIEU} ou format intra en Île-de-France. Prise en charge OPCO possible selon éligibilité — places limitées à 12 participants.`,
-    primaryHref: `${LINKS.contact}?objet=inscription&formation=${encodeURIComponent(getFormationByCode('NIV-09')!.titre)}`,
     secondaryLabel: 'Télécharger le programme',
     secondaryHref: LINKS.pdfProgrammeAssistantsIaPersonnalisesBtp,
     note: undefined,
@@ -1069,12 +1070,15 @@ const NIV_11: CatalogueFormationPageContent = {
     '1 200 € HT la session de 4 h, jusqu’à 10 participants — exonération de TVA, art. 261-4-4°-a du CGI',
     'Demi-journée dans vos locaux en Île-de-France, sur vos consultations',
   ],
-  interExtraBullets: ['Session inter sur demande — contactez-nous pour connaître les prochaines dates'],
+  interExtraBullets: [
+    `${libelleTarifParticipantCatalogue(TARIF_PARTICIPANT_NIV02_HT)}, sous réserve d’une session inter ouverte`,
+  ],
   priceLabelOverride: {
-    inter: 'Session inter sur demande',
+    inter: libelleTarifParticipantCatalogue(TARIF_PARTICIPANT_NIV02_HT),
     intra: `${formatPrixHt(TARIF_SESSION_INTRA_NIV11_HT)} € HT / session de 4 h`,
   },
-  programmeHeading: 'Programme — 4 modules AMO (4 h)',
+  hideHeroEnBref: true,
+  programmeHeading: 'Le programme de la formation (4 h)',
   programIntro: '4 h · 70 % pratique · ateliers sur vos consultations et opérations (anonymisées si besoin).',
   programModules: mapProgrammeBlocsToCatalogueModules(NIV11_PROGRAMME_BLOCS),
   pdfHref: LINKS.pdfProgrammeIaAssistanceMaitriseOuvrage,
