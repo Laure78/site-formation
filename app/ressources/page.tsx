@@ -2,7 +2,11 @@ import type { Metadata } from 'next';
 import { JsonLd } from '@/components/JsonLd';
 import { createPageMetadata } from '@/lib/seo';
 import { RessourcesHubHero } from '@/components/ressources/RessourcesHubHero';
+import { RessourcesHubStatsBar } from '@/components/ressources/RessourcesHubStatsBar';
+import { RessourcesHubValueSections } from '@/components/ressources/RessourcesHubValueSections';
+import { RessourcesHubBtpBanner } from '@/components/ressources/RessourcesHubBtpBanner';
 import { RessourcesHubMain } from '@/components/ressources/RessourcesHubMain';
+import { getRessourcesHubDisplayCounts } from '@/lib/ressources-hub-display-counts';
 import { buildGuidesPdfItemListJsonLd } from '@/lib/schema-ressources-guides-pdf-jsonld';
 import { RessourcesHubComplementary } from '@/components/ressources/RessourcesHubComplementary';
 import { RessourcesDisclaimerSection } from '@/components/ressources/RessourcesDisclaimerSection';
@@ -27,7 +31,7 @@ export const metadata: Metadata = createPageMetadata({
     'Guides, tutoriels, prompts et modèles IA gratuits pour le BTP : analyser un DCE, mémoire technique, devis, chantier et DOE. Ressources OFC Qualiopi Île-de-France.',
   appendAuthorSuffix: false,
   image: {
-    url: '/images/ressources/ressources-ia-btp-hero.webp',
+    url: '/images/ressources/ressources-hub-hero-2026.webp',
     width: 1600,
     height: 900,
     alt: 'Ressources IA BTP : guides, tutoriels et outils pour professionnels du bâtiment',
@@ -61,14 +65,20 @@ export default async function RessourcesIndexPage({ searchParams }: PageProps) {
     (r) => r.resourceType !== 'guide' && r.resourceType !== 'modele-fichier',
   );
   const guides = getGuidesLibraryEntries();
+  const counts = getRessourcesHubDisplayCounts(guides, libraryCatalog);
   const resolvedParams = searchParams ? await searchParams : {};
   const initialSearch = buildInitialSearch(resolvedParams);
 
   return (
-    <div className="ressources-page ofc-editorial min-h-0 bg-white">
+    <div className="ressources-page ofc-editorial min-h-0 overflow-x-hidden bg-white pb-24 lg:pb-0">
       <JsonLd id="schema-ressources-hub" data={hubJsonLd} />
 
       <RessourcesHubHero />
+      <RessourcesHubStatsBar
+        guideCount={counts.guides}
+        complementaryCount={counts.complementary}
+      />
+      <RessourcesHubValueSections />
 
       <div
         id="catalogue-ressources"
@@ -98,6 +108,8 @@ export default async function RessourcesIndexPage({ searchParams }: PageProps) {
       <RessourcesDisclaimerSection />
 
       <RelatedLinks path={PATH} tone="muted" excludeHrefs={[LINKS.formations, LINKS.parcoursMetiers]} />
+
+      <RessourcesHubBtpBanner />
 
       <RessourcesFinalCta />
     </div>

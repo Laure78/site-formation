@@ -1,65 +1,77 @@
 import Image from 'next/image';
-import { Gift, LockOpen, Zap } from 'lucide-react';
-import {
-  RESSOURCES_HUB_EYEBROW,
-  RESSOURCES_HUB_INTRO,
-} from '@/lib/ressources-catalog';
+import Link from 'next/link';
+import { ArrowRight, Play } from 'lucide-react';
 import { RESSOURCES_HUB_HERO_PHOTO } from '@/lib/ressources-hub-photos';
-import { Eyebrow } from '@/components/ui/Eyebrow';
-import { OFC_TYPE_HERO, OFC_TYPE_LEAD } from '@/lib/ofc-interaction-classes';
+import { RESSOURCES_HUB_H1, RESSOURCES_HUB_INTRO } from '@/lib/ressources-catalog';
+import { OFC_CTA_PRIMARY, OFC_CTA_SECONDARY } from '@/lib/ofc-interaction-classes';
 
-const TRUST_BADGES = [
-  { icon: Gift, label: 'Gratuit' },
-  { icon: LockOpen, label: 'Sans inscription' },
-  { icon: Zap, label: 'Prêt à utiliser' },
-] as const;
-
-/** Hero hub ressources — H1, intro, pastilles et visuel chantier (maquette 2026). */
+/** Hero hub ressources — deux colonnes, charte parcours métiers (maquette 2026). */
 export function RessourcesHubHero() {
   const photo = RESSOURCES_HUB_HERO_PHOTO;
 
   return (
     <section
-      className="ressources-hub-hero scroll-mt-[var(--site-header-height)] overflow-hidden border-b border-slate-200/80 bg-gradient-to-br from-[#F8FAFC] via-white to-[#EFF6FF]/80"
+      className="ressources-hub-hero border-b border-slate-100 bg-white"
       aria-labelledby="ressources-hero-title"
     >
-      <div className="relative mx-auto flex max-w-7xl flex-col lg:min-h-[min(360px,42vw)] lg:flex-row lg:items-stretch">
-        <div className="relative z-10 flex flex-1 flex-col justify-center px-4 py-8 sm:px-6 md:py-10 lg:max-w-[52%] lg:px-8 lg:py-12">
-          <Eyebrow className="ressources-hub-hero__eyebrow mb-3 text-[#377CF3]">{RESSOURCES_HUB_EYEBROW}</Eyebrow>
-          <h1 id="ressources-hero-title" className={`${OFC_TYPE_HERO} ressources-hub-hero__title max-w-xl`}>
-            Ressources gratuites pour utiliser{' '}
-            <span className="text-[#377CF3]">l&apos;IA</span> dans le{' '}
-            <span className="ressources-hub-hero__title-btp text-[#377CF3]">BTP</span>
-          </h1>
-          <p className={`${OFC_TYPE_LEAD} ressources-hub-hero__intro max-w-lg text-ofc-ink-muted`}>
-            {RESSOURCES_HUB_INTRO}
+      <div className="mx-auto max-w-[80rem] px-4 pt-4 sm:px-6 lg:px-8">
+        <nav className="text-sm text-slate-600" aria-label="Fil d'Ariane">
+          <ol className="flex flex-wrap items-center gap-x-1 gap-y-1">
+            <li>
+              <Link href="/" className="underline decoration-slate-300 underline-offset-2 hover:text-[#377CF3]">
+                Accueil
+              </Link>
+            </li>
+            <li className="text-slate-400" aria-hidden>
+              /
+            </li>
+            <li className="font-medium text-[#101936]" aria-current="page">
+              Ressources
+            </li>
+          </ol>
+        </nav>
+      </div>
+
+      <div className="mx-auto grid max-w-[80rem] items-center gap-10 px-4 py-10 sm:px-6 lg:grid-cols-2 lg:gap-12 lg:px-8 lg:py-14">
+        <div className="min-w-0">
+          <p className="text-xs font-semibold uppercase tracking-[0.12em] text-[#377CF3]">
+            Ressources gratuites · IA BTP
           </p>
-          <ul className="mt-5 flex flex-wrap gap-2" aria-label="Engagements">
-            {TRUST_BADGES.map(({ icon: Icon, label }) => (
-              <li key={label}>
-                <span className="inline-flex items-center gap-1.5 rounded-full border border-[#377CF3]/20 bg-white/90 px-3 py-1.5 text-xs font-semibold text-[#377CF3] shadow-sm">
-                  <Icon className="h-3.5 w-3.5 shrink-0" aria-hidden />
-                  {label}
-                </span>
-              </li>
-            ))}
-          </ul>
+          <h1 id="ressources-hero-title" className="ofc-type-hero mt-4 text-balance text-[#101936]">
+            {RESSOURCES_HUB_H1}
+          </h1>
+          <p className="ofc-type-lead mt-4 text-balance text-[#101936]">{RESSOURCES_HUB_INTRO}</p>
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+            <Link
+              href="#guides-pdf"
+              className={`${OFC_CTA_PRIMARY} inline-flex min-h-11 w-full items-center justify-center gap-2 px-5 py-3 sm:w-auto`}
+            >
+              Explorer les ressources
+              <ArrowRight className="h-4 w-4 shrink-0" aria-hidden />
+            </Link>
+            <Link
+              href="#bibliotheque-ressources"
+              className={`${OFC_CTA_SECONDARY} inline-flex min-h-11 w-full items-center justify-center gap-2 px-5 py-3 sm:w-auto`}
+            >
+              <Play className="h-4 w-4 shrink-0" aria-hidden />
+              Voir les tutoriels
+            </Link>
+          </div>
         </div>
 
-        <div className="relative min-h-[220px] flex-1 sm:min-h-[260px] lg:absolute lg:inset-y-0 lg:right-0 lg:w-[58%]">
-          <div
-            className="ressources-hub-hero__image-mask absolute inset-0 bg-[#E2E8F0]"
-            aria-hidden
-          />
-          <Image
-            src={photo.src}
-            alt={photo.alt}
-            fill
-            priority
-            className="object-cover object-[center_25%] lg:object-[center_20%]"
-            sizes="(max-width: 1024px) 100vw, 58vw"
-            quality={80}
-          />
+        <div className="relative min-h-0 w-full">
+          <figure className="overflow-hidden rounded-2xl border border-slate-200/80 bg-slate-100 shadow-sm">
+            <div className="relative aspect-[16/10] w-full">
+              <Image
+                src={photo.src}
+                alt={photo.alt}
+                fill
+                className="object-cover object-center"
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                priority
+              />
+            </div>
+          </figure>
         </div>
       </div>
     </section>

@@ -70,7 +70,7 @@ export function RessourceCard({ resource, headingLevel = 'h3' }: RessourceCardPr
   );
 
   return (
-    <article className={`ressources-tuto-card ${OFC_CARD} flex h-full flex-col overflow-hidden rounded-2xl`}>
+    <article className={`ressources-tuto-card ${OFC_CARD} flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm`}>
       {resource.image ? (
         <div className="relative aspect-video bg-[#F2F2F2]">
           <Image

@@ -8,8 +8,8 @@ import type { RessourceMiniature } from '@/lib/ressources-miniatures';
 const BASE = '/images/ressources';
 
 export const RESSOURCES_HUB_HERO_PHOTO: RessourceMiniature = {
-  src: `${BASE}/ressources-ia-btp-hero.webp`,
-  alt: 'Professionnelle du BTP sur chantier avec tablette — ressources IA gratuites formation bâtiment',
+  src: `${BASE}/ressources-hub-hero-2026.webp`,
+  alt: 'Professionnel du BTP sur chantier avec ordinateur portable — ressources IA gratuites pour le bâtiment',
   width: 1600,
   height: 900,
 };

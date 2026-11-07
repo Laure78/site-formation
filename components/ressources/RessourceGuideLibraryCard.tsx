@@ -10,7 +10,7 @@ import { OFC_CARD, OFC_CTA_PRIMARY, OFC_CTA_SECONDARY } from '@/lib/ofc-interact
 
 type Props = {
   guide: RessourceGuideEntry;
-  variant?: 'featured' | 'compact';
+  variant?: 'featured' | 'compact' | 'row';
 };
 
 function fileNameFromHref(href: string): string {
@@ -28,6 +28,7 @@ export function RessourceGuideLibraryCard({ guide, variant = 'compact' }: Props)
   const cover = getRessourcesHubGuideCover(guide.href) ?? guide.thumbnail;
   const formatLabel = formatFileLabel(guide);
   const isFeatured = variant === 'featured';
+  const isRow = variant === 'row';
 
   const onConsult = () => {
     sendGa4Event('ressource_guide_consult', {
@@ -46,6 +47,67 @@ export function RessourceGuideLibraryCard({ guide, variant = 'compact' }: Props)
       guide_id: guide.href,
     });
   };
+
+  if (isRow) {
+    return (
+      <article
+        className={`ressources-guide-card ${OFC_CARD} flex h-full gap-3 overflow-hidden rounded-xl p-3 motion-reduce:transition-none sm:gap-4 sm:p-4`}
+      >
+        <div className="relative h-20 w-20 shrink-0 overflow-hidden rounded-lg bg-[#E2E8F0] sm:h-24 sm:w-24">
+          {cover ? (
+            <Image
+              src={cover.src}
+              alt={cover.alt}
+              fill
+              className="object-cover object-center"
+              sizes="96px"
+              quality={75}
+              loading="lazy"
+            />
+          ) : (
+            <div className="flex h-full items-center justify-center px-1 text-center text-[10px] font-semibold text-slate-500">
+              {formatLabel}
+            </div>
+          )}
+        </div>
+        <div className="flex min-w-0 flex-1 flex-col">
+          <p className="text-[11px] font-medium uppercase tracking-wide text-[#377CF3]">{guide.categoryLabel}</p>
+          <h3 className="mt-1 font-display text-sm font-bold leading-snug text-slate-900 sm:text-base">
+            <Link
+              href={guide.href}
+              onClick={onConsult}
+              className="hover:text-[#377CF3] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#377CF3]"
+            >
+              {guide.title}
+            </Link>
+          </h3>
+          <p className="mt-1 line-clamp-2 flex-1 text-xs leading-relaxed text-slate-600 sm:text-sm">
+            {guide.promise}
+          </p>
+          <p className="mt-2 text-[11px] font-medium text-slate-500">{formatLabel}</p>
+          <div className="mt-2 flex flex-col gap-2 border-t border-slate-100 pt-2 sm:flex-row sm:items-center">
+            <Link
+              href={guide.href}
+              onClick={onConsult}
+              className="inline-flex min-h-9 items-center gap-1 text-xs font-semibold text-[#377CF3] underline-offset-2 hover:underline sm:text-sm"
+            >
+              {guide.primaryActionLabel}
+              <ArrowRight className="h-3.5 w-3.5 shrink-0" aria-hidden />
+            </Link>
+            <a
+              href={guide.pdfHref}
+              download
+              onClick={onDownload}
+              className="inline-flex min-h-9 items-center gap-1.5 text-xs font-semibold text-slate-700 underline-offset-2 hover:text-[#377CF3] hover:underline sm:ml-auto sm:text-sm"
+            >
+              <Download className="h-3.5 w-3.5 shrink-0" aria-hidden />
+              {guide.downloadLabel}
+            </a>
+          </div>
+        </div>
+      </article>
+    );
+  }
 
   return (
     <article

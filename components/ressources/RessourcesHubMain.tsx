@@ -38,9 +38,9 @@ export function RessourcesHubMain({ guides, libraryResources, initialSearch = ''
     <>
       <section
         aria-label="Recherche et filtres"
-        className="border-b border-slate-200/80 bg-[#F8FAFC] py-6 md:py-8"
+        className="border-b border-slate-100 bg-white py-6 md:py-8"
       >
-        <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-[80rem] px-4 sm:px-6 lg:px-8">
           <div className="flex items-center gap-3 rounded-2xl border border-slate-200 bg-white px-4 py-3 shadow-sm focus-within:border-[#377CF3] focus-within:ring-2 focus-within:ring-[#377CF3]/20">
             <Search className="h-5 w-5 shrink-0 text-slate-400" aria-hidden />
             <label htmlFor={searchInputId} className="sr-only">
@@ -108,7 +108,7 @@ export function RessourcesHubMain({ guides, libraryResources, initialSearch = ''
         initialSearch={initialSearch}
         hubQuery={query}
         onHubQueryChange={setQuery}
-        variant="dark"
+        variant="default"
       />
     </>
   );

@@ -16,11 +16,10 @@ import {
   RESSOURCE_NEED_FILTERS,
   RESSOURCES_HUB_INITIAL_VISIBLE,
   RESSOURCES_HUB_LOAD_MORE_STEP,
-  RESSOURCES_HUB_SECTION_TUTOS_EYEBROW,
   scoreRessourceSearch,
 } from '@/lib/ressources-catalog';
 import { LINKS } from '@/lib/internal-links';
-import { Eyebrow } from '@/components/ui/Eyebrow';
+import { RessourcesMaquetteSectionTitle } from '@/components/ressources/RessourcesMaquetteSectionTitle';
 import { CtaVisio } from '@/components/CtaVisio';
 
 type Props = {
@@ -295,52 +294,21 @@ export function RessourcesHubLibrary({
     <section
       id="bibliotheque-ressources"
       aria-labelledby="ressources-library-heading"
-      className={`scroll-mt-28 py-10 md:py-14 ${
-        isDark
-          ? 'ressources-hub-tutos bg-gradient-to-b from-[#0c2452] to-[#071D45] text-white'
-          : 'border-t border-slate-200 bg-white'
+      className={`scroll-mt-28 border-t border-slate-100 bg-[#F8FAFC] py-10 md:py-14 ${
+        isDark ? 'ressources-hub-tutos' : ''
       }`}
     >
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <header className="mb-8 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
-          <div className="max-w-3xl">
-            <Eyebrow className={`mb-2 ${isDark ? 'text-[#93C5FD]' : 'text-[#377CF3]'}`}>
-              {RESSOURCES_HUB_SECTION_TUTOS_EYEBROW}
-            </Eyebrow>
-            <h2
-              id="ressources-library-heading"
-              className={`font-display text-2xl font-bold md:text-[1.65rem] ${
-                isDark ? 'text-white' : 'text-slate-900'
-              }`}
-            >
-              Tutoriels, skills et outils
-            </h2>
-            <p
-              className={`mt-3 text-sm leading-relaxed md:text-base ${
-                isDark ? 'text-white/80' : 'text-slate-600'
-              }`}
-            >
-              Tutoriels étape par étape, skills Claude et outils pratiques. Les guides métier complets sont
-              regroupés plus haut dans{' '}
-              <a
-                href="#guides-pdf"
-                className={`font-medium underline-offset-2 hover:underline ${
-                  isDark ? 'text-[#93C5FD]' : 'text-[#377CF3]'
-                }`}
-              >
-                Guides &amp; outils gratuits
-              </a>
-              .
-            </p>
-          </div>
-          <span
-            className={`inline-flex w-fit items-center rounded-full px-3 py-1 text-sm font-semibold ${
-              isDark ? 'bg-white/10 text-white' : 'bg-[#EFF6FF] text-[#377CF3]'
-            }`}
-          >
+      <div className="mx-auto max-w-[80rem] px-4 sm:px-6 lg:px-8">
+        <div className="mb-8 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+          <RessourcesMaquetteSectionTitle
+            id="ressources-library-heading"
+            title="Tutoriels, skills et outils"
+            description="Tutoriels étape par étape, skills Claude et outils pratiques. Les guides métier complets sont regroupés dans la section « Tous les guides et outils »."
+          />
+          <span className="inline-flex w-fit items-center rounded-full border border-[#BFDBFE] bg-white px-3 py-1 text-sm font-semibold text-[#377CF3]">
             {resources.length} ressources
           </span>
-        </header>
+        </div>
 
         <div id="recherche-ressources" className="scroll-mt-28 space-y-4">
           <div
