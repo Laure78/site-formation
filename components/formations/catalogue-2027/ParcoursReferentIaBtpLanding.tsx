@@ -309,16 +309,16 @@ export function ParcoursReferentIaBtpLanding({ parcours: p }: Props) {
               return (
                 <article
                   key={`${etape.moduleCode}-${index}`}
-                  className="flex flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm ring-1 ring-slate-100 sm:flex-row"
+                  className="flex flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm ring-1 ring-slate-100"
                   aria-labelledby={moduleTitleId}
                 >
-                  <div className="relative aspect-[16/11] w-full shrink-0 sm:aspect-auto sm:h-auto sm:w-44 md:w-52">
+                  <div className="relative h-40 w-full shrink-0 bg-slate-100">
                     <Image
                       src={illustration}
                       alt={`Illustration thématique pour le module ${etape.moduleCode} — usage pédagogique`}
                       fill
-                      className="object-cover"
-                      sizes="(max-width: 640px) 100vw, 208px"
+                      className="object-cover object-center"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 480px"
                       loading="lazy"
                     />
                   </div>
