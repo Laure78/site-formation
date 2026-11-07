@@ -1,4 +1,4 @@
-import { BlogIndexView } from '@/components/blog/BlogIndexView';
+import { BlogIndexLandingView } from '@/components/blog/BlogIndexLandingView';
 import { computeBlogListing } from '@/lib/blog-index-query';
 import { getBlogIndexMetadata } from '@/lib/blog-metadata';
 
@@ -20,11 +20,10 @@ export default async function BlogPage({
   });
 
   return (
-    <BlogIndexView
+    <BlogIndexLandingView
       items={items}
       currentPage={currentPage}
       totalPages={totalPages}
-      mode="all"
       searchQuery={q}
       canonicalPath="/blog"
     />

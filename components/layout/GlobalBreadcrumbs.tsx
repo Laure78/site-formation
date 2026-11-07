@@ -17,6 +17,8 @@ export function GlobalBreadcrumbs() {
   if (isAuthConnexionPage(pathname)) return null;
   if (isParcoursMetiersMaquetteRoute(pathname)) return null;
   const pathNorm = pathname.replace(/\/$/, '') || '/';
+  /** Hub blog maquette — fil d’Ariane intégré au hero. */
+  if (pathNorm === '/blog' || pathNorm.startsWith('/blog/page/')) return null;
   /** Fil explicite — évite un écart d’hydratation sur le hub formateurs. */
   const items =
     pathNorm === '/formateurs'

@@ -1,5 +1,5 @@
 import { notFound } from 'next/navigation';
-import { BlogIndexView } from '@/components/blog/BlogIndexView';
+import { BlogIndexLandingView } from '@/components/blog/BlogIndexLandingView';
 import { computeBlogListing } from '@/lib/blog-index-query';
 import { getBlogIndexMetadata } from '@/lib/blog-metadata';
 
@@ -44,11 +44,10 @@ export default async function BlogPaginatedPage({ params }: Props) {
   if (n > totalPages) notFound();
 
   return (
-    <BlogIndexView
+    <BlogIndexLandingView
       items={items}
       currentPage={currentPage}
       totalPages={totalPages}
-      mode="all"
       canonicalPath={`/blog/page/${n}`}
     />
   );

@@ -23,6 +23,7 @@ import { ParcoursReferentIaBtpLanding } from './ParcoursReferentIaBtpLanding';
 import { ParcoursDirigeantPmeBtpLanding } from './ParcoursDirigeantPmeBtpLanding';
 import { ParcoursConducteurDeTravauxLanding } from './ParcoursConducteurDeTravauxLanding';
 import { ParcoursAssistantDeGestionBtpLanding } from './ParcoursAssistantDeGestionBtpLanding';
+import { ParcoursChargeAffairesBtpLanding } from './ParcoursChargeAffairesBtpLanding';
 
 type Props = {
   parcours: ParcoursComputed;
@@ -43,6 +44,10 @@ export function ParcoursDetailView({ parcours: p }: Props) {
 
   if (p.id === 'assistant-de-gestion-btp') {
     return <ParcoursAssistantDeGestionBtpLanding parcours={p} />;
+  }
+
+  if (p.id === 'charge-affaires-btp') {
+    return <ParcoursChargeAffairesBtpLanding parcours={p} />;
   }
 
   const thematiquesChantier = getThematiquesForParcoursMetier(p.metierId);
