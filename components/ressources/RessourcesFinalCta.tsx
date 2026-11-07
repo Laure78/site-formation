@@ -4,6 +4,8 @@ import { ArrowRight } from 'lucide-react';
 import { CtaVisio } from '@/components/CtaVisio';
 import { LINKS } from '@/lib/internal-links';
 import { RESSOURCES_HUB_CTA_FORMATIONS_PHOTO } from '@/lib/ressources-hub-photos';
+import { RESSOURCES_HUB_FINAL_CTA_EYEBROW } from '@/lib/ressources-catalog';
+import { Eyebrow } from '@/components/ui/Eyebrow';
 import { OFC_CTA_PRIMARY } from '@/lib/ofc-interaction-classes';
 
 export function RessourcesFinalCta() {
@@ -13,10 +15,13 @@ export function RessourcesFinalCta() {
     <section
       id="formation-cta"
       aria-labelledby="ressources-final-cta-heading"
-      className="scroll-mt-28 border-t border-slate-200 bg-gradient-to-br from-[#EFF6FF] via-[#F8FAFC] to-white py-12 md:py-16"
+      className="ressources-hub-final-cta scroll-mt-28 border-t border-slate-200 bg-gradient-to-br from-[#EFF6FF] via-[#F8FAFC] to-white py-12 md:py-16"
     >
       <div className="mx-auto flex max-w-7xl flex-col items-center gap-8 px-4 lg:flex-row lg:items-center lg:gap-12 lg:px-8">
         <div className="max-w-xl text-center lg:text-left">
+          <Eyebrow className="mb-3 justify-center text-[#377CF3] lg:justify-start">
+            {RESSOURCES_HUB_FINAL_CTA_EYEBROW}
+          </Eyebrow>
           <h2
             id="ressources-final-cta-heading"
             className="font-display text-2xl font-bold text-slate-900 md:text-3xl"

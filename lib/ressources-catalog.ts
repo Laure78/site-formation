@@ -550,9 +550,17 @@ export function getRessourcesCatalog(options?: {
   return list.sort((a, b) => a.sortOrder - b.sortOrder);
 }
 
+/** Surtitre hero hub `/ressources` (maquette 2026). */
+export const RESSOURCES_HUB_EYEBROW = 'Ressources IA BTP' as const;
+
+export const RESSOURCES_HUB_SECTION_FEATURED_EYEBROW = 'À la une' as const;
+export const RESSOURCES_HUB_SECTION_GUIDES_EYEBROW = 'Guides & outils' as const;
+export const RESSOURCES_HUB_SECTION_TUTOS_EYEBROW = 'Tutoriels & skills' as const;
+export const RESSOURCES_HUB_FINAL_CTA_EYEBROW = 'Formation IA BTP' as const;
+
 /** Introduction courte sous le H1 du hub `/ressources`. */
 export const RESSOURCES_HUB_INTRO =
-  'Guides, tutoriels et prompts pour vos appels d’offres, devis et documents de chantier.';
+  'Guides, tutoriels, prompts et modèles pour vos appels d’offres, devis et documents de chantier.';
 
 /** Ressources du hero hub — ordre fixe, identifiants stables (catalogue unifié). */
 export const RESSOURCES_HUB_SPOTLIGHT_IDS = [

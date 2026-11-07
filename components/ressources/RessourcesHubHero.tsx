@@ -1,10 +1,11 @@
 import Image from 'next/image';
 import { Gift, LockOpen, Zap } from 'lucide-react';
 import {
-  RESSOURCES_HUB_H1,
+  RESSOURCES_HUB_EYEBROW,
   RESSOURCES_HUB_INTRO,
 } from '@/lib/ressources-catalog';
 import { RESSOURCES_HUB_HERO_PHOTO } from '@/lib/ressources-hub-photos';
+import { Eyebrow } from '@/components/ui/Eyebrow';
 import { OFC_TYPE_HERO, OFC_TYPE_LEAD } from '@/lib/ofc-interaction-classes';
 
 const TRUST_BADGES = [
@@ -24,8 +25,11 @@ export function RessourcesHubHero() {
     >
       <div className="relative mx-auto flex max-w-7xl flex-col lg:min-h-[min(360px,42vw)] lg:flex-row lg:items-stretch">
         <div className="relative z-10 flex flex-1 flex-col justify-center px-4 py-8 sm:px-6 md:py-10 lg:max-w-[52%] lg:px-8 lg:py-12">
+          <Eyebrow className="ressources-hub-hero__eyebrow mb-3 text-[#377CF3]">{RESSOURCES_HUB_EYEBROW}</Eyebrow>
           <h1 id="ressources-hero-title" className={`${OFC_TYPE_HERO} ressources-hub-hero__title max-w-xl`}>
-            {RESSOURCES_HUB_H1}
+            Ressources gratuites pour utiliser{' '}
+            <span className="text-[#377CF3]">l&apos;IA</span> dans le{' '}
+            <span className="ressources-hub-hero__title-btp text-[#377CF3]">BTP</span>
           </h1>
           <p className={`${OFC_TYPE_LEAD} ressources-hub-hero__intro max-w-lg text-ofc-ink-muted`}>
             {RESSOURCES_HUB_INTRO}

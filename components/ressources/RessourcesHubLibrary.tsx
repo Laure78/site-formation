@@ -16,9 +16,12 @@ import {
   RESSOURCE_NEED_FILTERS,
   RESSOURCES_HUB_INITIAL_VISIBLE,
   RESSOURCES_HUB_LOAD_MORE_STEP,
+  RESSOURCES_HUB_SECTION_TUTOS_EYEBROW,
   scoreRessourceSearch,
 } from '@/lib/ressources-catalog';
 import { LINKS } from '@/lib/internal-links';
+import { Eyebrow } from '@/components/ui/Eyebrow';
+import { CtaVisio } from '@/components/CtaVisio';
 
 type Props = {
   resources: readonly RessourceCatalogEntry[];
@@ -293,12 +296,17 @@ export function RessourcesHubLibrary({
       id="bibliotheque-ressources"
       aria-labelledby="ressources-library-heading"
       className={`scroll-mt-28 py-10 md:py-14 ${
-        isDark ? 'bg-[#071D45] text-white' : 'border-t border-slate-200 bg-white'
+        isDark
+          ? 'ressources-hub-tutos bg-gradient-to-b from-[#0c2452] to-[#071D45] text-white'
+          : 'border-t border-slate-200 bg-white'
       }`}
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <header className="mb-8 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
           <div className="max-w-3xl">
+            <Eyebrow className={`mb-2 ${isDark ? 'text-[#93C5FD]' : 'text-[#377CF3]'}`}>
+              {RESSOURCES_HUB_SECTION_TUTOS_EYEBROW}
+            </Eyebrow>
             <h2
               id="ressources-library-heading"
               className={`font-display text-2xl font-bold md:text-[1.65rem] ${
@@ -354,7 +362,7 @@ export function RessourcesHubLibrary({
               type="search"
               value={query}
               onChange={(e) => startTransition(() => setQuery(e.target.value))}
-              placeholder="Rechercher : DCE, PPSPS, compte rendu, devis…"
+              placeholder="Rechercher : DCE, PPSPS, compte rendu, devis, prompt…"
               autoComplete="off"
               className={`min-w-0 flex-1 bg-transparent text-base outline-none ${
                 isDark
@@ -412,7 +420,11 @@ export function RessourcesHubLibrary({
                   <button
                     type="button"
                     onClick={chip.onRemove}
-                    className="inline-flex min-h-[40px] items-center gap-1.5 rounded-full border border-[#377CF3]/30 bg-[#EFF6FF] px-3 text-xs font-medium text-[#377CF3]"
+                    className={`inline-flex min-h-[40px] items-center gap-1.5 rounded-full border px-3 text-xs font-medium ${
+                      isDark
+                        ? 'border-white/25 bg-white/10 text-[#BFDBFE]'
+                        : 'border-[#377CF3]/30 bg-[#EFF6FF] text-[#377CF3]'
+                    }`}
                   >
                     {chip.label}
                     <X className="h-3.5 w-3.5" aria-hidden />
@@ -438,7 +450,9 @@ export function RessourcesHubLibrary({
               <button
                 type="button"
                 onClick={resetFilters}
-                className="inline-flex min-h-[44px] items-center gap-2 rounded-lg px-3 text-sm font-medium text-[#377CF3] hover:bg-[#EFF6FF]"
+                className={`inline-flex min-h-[44px] items-center gap-2 rounded-lg px-3 text-sm font-medium text-[#377CF3] ${
+                  isDark ? 'hover:bg-white/10' : 'hover:bg-[#EFF6FF]'
+                }`}
               >
                 <RotateCcw className="h-4 w-4" aria-hidden />
                 Tout effacer
@@ -459,9 +473,17 @@ export function RessourcesHubLibrary({
         </noscript>
 
         {filtered.length === 0 ? (
-          <div className="mt-10 rounded-2xl border border-dashed border-slate-200 bg-[#F8FAFC] px-6 py-12 text-center">
-            <h3 className="font-medium text-slate-900">Aucune ressource ne correspond à ces critères</h3>
-            <p className="mt-2 text-sm text-slate-600">
+          <div
+            className={`mt-10 rounded-2xl border border-dashed px-6 py-12 text-center ${
+              isDark
+                ? 'border-white/25 bg-white/5'
+                : 'border-slate-200 bg-[#F8FAFC]'
+            }`}
+          >
+            <h3 className={`font-medium ${isDark ? 'text-white' : 'text-slate-900'}`}>
+              Aucune ressource ne correspond à ces critères
+            </h3>
+            <p className={`mt-2 text-sm ${isDark ? 'text-white/75' : 'text-slate-600'}`}>
               Essayez un autre mot-clé ou réinitialisez les filtres pour afficher toute la bibliothèque.
             </p>
             <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row">
@@ -480,11 +502,13 @@ export function RessourcesHubLibrary({
                 Voir le blog
               </Link>
             </div>
-            <p className="mt-4">
-              <Link href={LINKS.prendreRdv} className="text-sm text-slate-500 underline-offset-2 hover:underline">
-                Prendre RDV
-              </Link>
-            </p>
+            <div className="mt-4 flex justify-center">
+              <CtaVisio
+                src="cmp-ressources-bibliotheque-empty"
+                variant="secondary"
+                className="inline-flex min-h-11 items-center justify-center px-4 py-2 text-sm"
+              />
+            </div>
           </div>
         ) : (
           <>

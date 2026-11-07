@@ -6,7 +6,7 @@ import { ArrowRight, Download } from 'lucide-react';
 import type { RessourceGuideEntry } from '@/lib/ressources-guides';
 import { getRessourcesHubGuideCover } from '@/lib/ressources-hub-photos';
 import { getPagePath, sendGa4Event, trackDownloadGuide } from '@/lib/ga4-analytics';
-import { OFC_CTA_PRIMARY, OFC_CTA_SECONDARY } from '@/lib/ofc-interaction-classes';
+import { OFC_CARD, OFC_CTA_PRIMARY, OFC_CTA_SECONDARY } from '@/lib/ofc-interaction-classes';
 
 type Props = {
   guide: RessourceGuideEntry;
@@ -49,8 +49,8 @@ export function RessourceGuideLibraryCard({ guide, variant = 'compact' }: Props)
 
   return (
     <article
-      className={`flex h-full flex-col overflow-hidden border border-slate-200/90 bg-white shadow-sm transition duration-200 hover:border-[#377CF3]/35 hover:shadow-md motion-reduce:transition-none ${
-        isFeatured ? 'rounded-2xl' : 'rounded-xl'
+      className={`ressources-guide-card ${OFC_CARD} flex h-full flex-col overflow-hidden motion-reduce:transition-none ${
+        isFeatured ? 'rounded-2xl border-t-[3px] border-t-[#377CF3]' : 'rounded-xl'
       }`}
     >
       <div className="relative aspect-video bg-[#E2E8F0]">

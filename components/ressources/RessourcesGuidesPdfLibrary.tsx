@@ -11,6 +11,11 @@ import {
 } from '@/lib/ressources-guides';
 import { LINKS } from '@/lib/internal-links';
 import { filterGuidesHub } from '@/lib/ressources-hub-utils';
+import { Eyebrow } from '@/components/ui/Eyebrow';
+import {
+  RESSOURCES_HUB_SECTION_FEATURED_EYEBROW,
+  RESSOURCES_HUB_SECTION_GUIDES_EYEBROW,
+} from '@/lib/ressources-catalog';
 import { getPagePath, sendGa4Event } from '@/lib/ga4-analytics';
 import { OFC_CTA_PRIMARY, OFC_LINK } from '@/lib/ofc-interaction-classes';
 
@@ -66,8 +71,10 @@ export function RessourcesGuidesPdfLibrary({
   return (
     <div id="guides-pdf" className="scroll-mt-28 bg-white">
       {featuredVisible.length > 0 ? (
-        <div className="mx-auto max-w-7xl px-4 pb-2 pt-8 sm:px-6 md:pt-10 lg:px-8">
+        <div className="ressources-hub-featured border-b border-slate-200/80 bg-gradient-to-b from-white via-white to-[#F8FAFC]/90">
+          <div className="mx-auto max-w-7xl px-4 pb-10 pt-8 sm:px-6 md:pb-12 md:pt-10 lg:px-8">
           <header className="mb-6 max-w-3xl">
+            <Eyebrow className="mb-2 text-[#377CF3]">{RESSOURCES_HUB_SECTION_FEATURED_EYEBROW}</Eyebrow>
             <h2 className="font-display text-2xl font-bold text-slate-900 md:text-[1.65rem]">
               Guides métier à la une
             </h2>
@@ -83,12 +90,14 @@ export function RessourcesGuidesPdfLibrary({
               </li>
             ))}
           </ul>
+          </div>
         </div>
       ) : null}
 
       <div className="mx-auto max-w-7xl px-4 pb-10 pt-8 sm:px-6 md:pb-12 md:pt-10 lg:px-8">
         <header className="mb-6 flex flex-wrap items-end justify-between gap-3">
           <div>
+            <Eyebrow className="mb-2 text-[#377CF3]">{RESSOURCES_HUB_SECTION_GUIDES_EYEBROW}</Eyebrow>
             <h2 className="font-display text-2xl font-bold text-slate-900 md:text-[1.65rem]">
               Tous les guides et outils
             </h2>
@@ -159,7 +168,7 @@ export function RessourcesGuidesPdfLibrary({
         </p>
 
         <aside
-          className="mt-12 rounded-2xl border border-slate-200 bg-[#F8FAFC] p-6 text-center md:p-8"
+          className="ressources-hub-mid-cta mt-12 rounded-2xl border border-slate-200 border-l-[3px] border-l-[#377CF3] bg-gradient-to-br from-[#F8FAFC] via-white to-[#EFF6FF]/50 p-6 text-center shadow-sm md:p-8"
           aria-labelledby="guides-pdf-cta-heading"
         >
           <h3 id="guides-pdf-cta-heading" className="font-display text-xl font-bold text-slate-900 md:text-2xl">

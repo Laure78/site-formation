@@ -2413,6 +2413,18 @@
     }
   }
 
+  .ressources-hub-hero__eyebrow {
+    font-weight: 700;
+    letter-spacing: 0.12em;
+  }
+
+  .ressources-hub-hero__title-btp {
+    text-decoration-line: underline;
+    text-decoration-color: #377cf3;
+    text-decoration-thickness: 3px;
+    text-underline-offset: 0.2em;
+  }
+
   /* Hub /ressources — hero compact + catalogue resserré */
   .ressources-hub-hero__title {
     font-size: 1.75rem;
@@ -2440,6 +2452,20 @@
 
   .ressources-page #catalogue-ressources {
     scroll-margin-top: calc(var(--site-header-height, 4.5rem) + 0.75rem);
+  }
+
+  .ressources-page .ressources-guide-card.ofc-card:hover,
+  .ressources-page .ressources-guide-card.ofc-card:active {
+    transform: translateY(-3px);
+  }
+
+  .ressources-page .ressources-tuto-card.ofc-card:hover,
+  .ressources-page .ressources-tuto-card.ofc-card:active {
+    transform: translateY(-3px);
+  }
+
+  .ressources-hub-tutos {
+    box-shadow: inset 0 1px 0 rgba(147, 197, 253, 0.22);
   }
 
   .ressources-page #guides-pdf,

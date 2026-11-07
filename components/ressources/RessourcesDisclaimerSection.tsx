@@ -5,7 +5,7 @@ export function RessourcesDisclaimerSection() {
       className="border-t border-slate-200 bg-white py-10 md:py-12"
     >
       <div className="mx-auto max-w-3xl px-4">
-        <div className="rounded-2xl border border-slate-200 bg-[#F8FAFC] p-6 md:p-8">
+        <div className="rounded-2xl border border-slate-200 border-l-[3px] border-l-[#377CF3] bg-[#F8FAFC] p-6 md:p-8">
           <h2
             id="ressources-disclaimer-heading"
             className="font-display text-lg font-bold text-slate-900 md:text-xl"

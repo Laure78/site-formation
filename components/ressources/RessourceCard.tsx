@@ -4,6 +4,7 @@ import { ArrowRight, Download, ExternalLink, ShieldCheck } from 'lucide-react';
 import { ExternalLinkAnchor } from '@/components/ExternalLink';
 import type { RessourceCatalogEntry } from '@/lib/ressources-catalog';
 import { getRessourcePrimaryCta } from '@/lib/ressources-catalog';
+import { OFC_CARD } from '@/lib/ofc-interaction-classes';
 
 const FORMAT_BADGE: Record<string, string> = {
   guide: 'Guide',
@@ -69,7 +70,7 @@ export function RessourceCard({ resource, headingLevel = 'h3' }: RessourceCardPr
   );
 
   return (
-    <article className="flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition hover:border-[#377CF3]/35 hover:shadow-md">
+    <article className={`ressources-tuto-card ${OFC_CARD} flex h-full flex-col overflow-hidden rounded-2xl`}>
       {resource.image ? (
         <div className="relative aspect-video bg-[#F2F2F2]">
           <Image
