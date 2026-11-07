@@ -238,11 +238,22 @@ export const FORMATION_RICH_COURSE_NIV04: FormationCatalogueRichCourseConfig = {
 
 export const CATALOGUE_COURSE_MAITRISE_OEUVRE_NIV05: CatalogueCourseJsonLdConfig = {
   path: LINKS.formationIaMaitriseOeuvre,
-  name: "L'IA au service des maîtres d'œuvre",
+  name: 'Formation IA maîtrise d’œuvre BTP : CCTP, DPGF et suivi de chantier',
   description:
-    "Formation IA niveau 2 pour maîtres d'œuvre : DCE, CR chantier, OS, réserves. 4 h, présentiel Île-de-France.",
+    'Formation IA maîtrise d’œuvre BTP : CCTP, DPGF, DCE, comptes rendus, ordres de service et réserves. 4 h en présentiel en Île-de-France.',
   price: prixCatalogue('NIV-05'),
-  keywords: ['MOE', 'MOEX', 'DCE', 'CR chantier', 'réserves', 'Claude', 'ChatGPT'],
+  keywords: [
+    'formation IA maîtrise d’œuvre BTP',
+    'CCTP',
+    'DPGF',
+    'DCE',
+    'MOEX',
+    'compte rendu chantier',
+    'ordres de service',
+    'réserves',
+    'ChatGPT',
+    'Claude',
+  ],
   courseCode: 'NIV-05',
   educationalLevel: 'Advanced',
 };

@@ -1,6 +1,8 @@
 import { JsonLd } from '@/components/JsonLd';
 import { CatalogueFormationPageTemplate } from '@/components/formations/catalogue/CatalogueFormationPageTemplate';
+import { FormationMoeNiv05GeoSections } from '@/components/formations/catalogue/FormationMoeNiv05GeoSections';
 import { buildCatalogueFormationCoursePageJsonLd, buildCatalogueFormationFaqPageJsonLd } from '@/lib/catalogue-formation-page-jsonld';
+import { FAQ_MOE_NIV05 } from '@/lib/catalogue-formation-faq-niv05';
 import { createPageMetadata, SITE_CONFIG } from '@/lib/seo';
 import { getFormationCatalogueVisuel } from '@/lib/formations-catalogue-display';
 import { LINKS } from '@/lib/internal-links';
@@ -18,7 +20,7 @@ export const metadata = createPageMetadata({
   descriptionFinal: true,
   path: LINKS.formationIaMaitriseOeuvre,
   openGraphType: 'website',
-  openGraphTitle: 'Formation IA maîtrise d\'œuvre MOEX — organisme certifié Qualiopi',
+  openGraphTitle: 'Formation IA maîtrise d’œuvre BTP — CCTP, DPGF, chantier — Qualiopi',
   openGraphDescription: CATALOGUE_SEO.metaDescription,
   alternatesLanguages: { 'fr-FR': `${SITE_CONFIG.url}${LINKS.formationIaMaitriseOeuvre}` },
   image: {
@@ -30,7 +32,7 @@ export const metadata = createPageMetadata({
 });
 
 const courseSchema = buildCatalogueFormationCoursePageJsonLd('NIV-05');
-const faqSchema = buildCatalogueFormationFaqPageJsonLd('NIV-05');
+const faqSchema = buildCatalogueFormationFaqPageJsonLd('NIV-05', FAQ_MOE_NIV05);
 
 export default async function FormationIaMaitriseOeuvrePage() {
   return (
@@ -40,8 +42,10 @@ export default async function FormationIaMaitriseOeuvrePage() {
 
       <CatalogueFormationPageTemplate
         content={PAGE_CONTENT}
+        faqItems={FAQ_MOE_NIV05}
         faqSectionId="faq-niv-05"
         h1Id="formation-moe-h1"
+        afterIaLimits={<FormationMoeNiv05GeoSections />}
       />
     </div>
   );

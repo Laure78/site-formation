@@ -69,13 +69,11 @@ export const PROGRAMME_CONTENU_CATALOGUE: Record<FormationCode, readonly string[
     'Clôture — Bilan, plan d’action et évaluation (15 min)',
   ],
   'NIV-05': [
-    'Accueil, cadrage et positionnement (15 min)',
-    'Module 0 — Claude et l’écosystème Anthropic pour la MOE (45 min)',
-    'Module 1 — Analyse des offres et conformité (1 h 25)',
-    'Module 2 — Comptes rendus de chantier (1 h 25)',
-    'Module 3 — Courriers, ordres de service et actes administratifs (1 h 25)',
-    'Module 4 — Réserves, réception et suivi client (1 h 30)',
-    'Clôture — Bilan, plan d’action et évaluation (15 min)',
+    'Module 1 — IA et maîtrise d’œuvre (30 min)',
+    'Module 2 — CCTP et DPGF (55 min)',
+    'Module 3 — Analyse DCE et comparaison des offres (45 min)',
+    'Module 4 — Comptes rendus et plannings de chantier (50 min)',
+    'Module 5 — Ordres de service, réserves et réception (60 min)',
   ],
   'NIV-12': [
     'Séquence 1 — Cadrage, confidentialité et prise en main (15 min)',

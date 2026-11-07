@@ -65,6 +65,8 @@ export const FORMATION_CATALOGUE_RETIRED = new Set<FormationCatalogueCode>([
   'NIV-06',
   'NIV-07',
   'NIV-08',
+  /** Fusionnée dans NIV-05 — redirection 301 vers /formations/ia-maitrise-oeuvre. */
+  'NIV-12',
 ]);
 
 export function isFormationCatalogueRetired(code: string): boolean {

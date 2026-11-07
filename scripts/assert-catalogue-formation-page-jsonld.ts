@@ -11,6 +11,7 @@ import {
   FAQ_CONDUITE_TRAVAUX_NIV03,
   FAQ_MAITRISER_CLAUDE_NIV04,
 } from '../lib/faq';
+import { FAQ_MOE_NIV05 } from '../lib/catalogue-formation-faq-niv05';
 import { DEV_WEB_IA_FAQ } from '../lib/formation-developpement-web-ia-content';
 import {
   buildCatalogueFormationCoursePageJsonLd,
@@ -32,7 +33,7 @@ const CATALOGUE_FICHES: Array<{
   { ref: 'NIV-02', metierFaq: FAQ_APPELS_OFFRE },
   { ref: 'NIV-03', metierFaq: FAQ_CONDUITE_TRAVAUX_NIV03 },
   { ref: 'NIV-04', metierFaq: FAQ_MAITRISER_CLAUDE_NIV04 },
-  { ref: 'NIV-05' },
+  { ref: 'NIV-05', metierFaq: FAQ_MOE_NIV05 },
   { ref: 'NIV-06', metierFaq: getApplicationMetierNiveauByRef('NIV-06').faq },
   { ref: 'NIV-07', metierFaq: getApplicationMetierNiveauByRef('NIV-07').faq },
   { ref: 'NIV-08', metierFaq: getApplicationMetierNiveauByRef('NIV-08').faq },

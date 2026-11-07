@@ -125,24 +125,24 @@ export const FORMATION_CATALOGUE_SEO: Record<FormationCatalogueCode, FormationCa
     ],
   },
   'NIV-05': {
-    metaTitle: 'Formation IA MOE BTP | CR & réception',
-    h1: 'Formation IA maîtrise d\'œuvre : CR, OS et réception chantier',
+    metaTitle: 'Formation IA Maîtrise d’œuvre BTP | CCTP, DPGF, chantier',
+    h1: 'Formation IA Maîtrise d’œuvre BTP : CCTP, DPGF et suivi de chantier',
     subtitle:
-      'Analyse DCE, comptes rendus, ordres de service, réserves et réception avec ChatGPT et Claude.',
+      'Apprenez à utiliser ChatGPT et Claude pour préparer vos CCTP et DPGF, analyser les dossiers de consultation, rédiger vos comptes rendus de chantier, préparer les ordres de service et suivre les réserves jusqu’à la réception.',
     metaDescription:
-      'Formation IA maîtrise d’œuvre : DCE, CR, OS et réception sur vos dossiers réels. 4 h, présentiel Île-de-France, Qualiopi, financement OPCO selon éligibilité.',
-    enBref: `La formation IA pour maîtres d'œuvre apprend à analyser un DCE, rédiger un compte rendu de chantier, produire ordres de service et courriers MOE, et organiser le suivi des réserves avec l'IA. ${dureeCatalogueParCode('NIV-05')} en présentiel — ${QUALIOPI_MENTION}.`,
+      'Formation IA maîtrise d’œuvre BTP : CCTP, DPGF, DCE, comptes rendus, ordres de service et réserves. 4 h en présentiel en Île-de-France.',
+    enBref: `Formation IA maîtrise d’œuvre BTP (${dureeCatalogueParCode('NIV-05')}, ${libelleTarifParticipantCatalogue(TARIF_PARTICIPANT_NIV02_HT)} en inter) : CCTP, DPGF, analyse DCE, comptes rendus, ordres de service et réserves avec ChatGPT et Claude. 5 modules, 70 % de pratique — ${QUALIOPI_MENTION}. L’IA assiste ; le maître d’œuvre valide métrés, conformité et engagements.`,
     publicTargets: [
-      'Maîtres d\'œuvre d\'exécution (MOEX)',
-      'Conducteurs de travaux MOE',
-      'OPC et BET',
-      'Assistant(e)s de gestion travaux',
+      'Maîtres d’œuvre de conception et d’exécution (MOE / MOEX)',
+      'Architectes et économistes de la construction',
+      'BET, OPC et collaborateurs de cabinets de maîtrise d’œuvre',
+      'Conducteurs de travaux MOE et assistants gestion travaux',
     ],
     iaLimits: [
-      { iaAide: 'Rédiger un CR à partir de notes vocales', validationHumaine: 'Valider observations et décisions' },
-      { iaAide: 'Analyser un DCE MOE', validationHumaine: 'Confirmer conformité et alertes contractuelles' },
-      { iaAide: 'Préparer un OS ou courrier type', validationHumaine: 'Valider le fond juridique et technique' },
-      { iaAide: 'Suivre les réserves et la GPA', validationHumaine: 'Contrôler les levées sur le terrain' },
+      { iaAide: 'Structurer un CCTP ou une trame de DPGF', validationHumaine: 'Vérifier références, quantités et unités' },
+      { iaAide: 'Synthétiser un DCE et comparer des offres', validationHumaine: 'Recouper chaque point avec les pièces sources' },
+      { iaAide: 'Rédiger un CR à partir de notes ou dictée', validationHumaine: 'Valider faits, décisions et responsabilités' },
+      { iaAide: 'Préparer OS, réserves et documents de réception', validationHumaine: 'Contrôler habilitations et stipulations contractuelles' },
     ],
   },
   'NIV-06': {

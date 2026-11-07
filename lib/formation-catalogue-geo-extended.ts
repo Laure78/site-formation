@@ -140,21 +140,30 @@ export const FORMATION_CATALOGUE_GEO_EXTENDED: Record<
   },
   'NIV-05': {
     queApprendre:
-      'Analyser un DCE MOE, rédiger des comptes rendus structurés, produire OS et courriers, suivre réserves et réception côté maîtrise d’œuvre.',
-    documentsBtp: ['DCE et bordereaux MOE', 'Comptes rendus de chantier', 'Ordres de service', 'Courriers MOE et réserves'],
-    outilsIa: ['Claude AI', 'ChatGPT'],
+      'Préparer CCTP et DPGF, analyser un DCE et comparer les offres, rédiger des comptes rendus et plannings, produire ordres de service et suivre réserves jusqu’à la réception côté maîtrise d’œuvre.',
+    documentsBtp: [
+      'CCTP, descriptifs et trames de DPGF',
+      'DCE (CCTP, CCAP, annexes) et offres des entreprises',
+      'Comptes rendus de chantier et plannings courts',
+      'Ordres de service, listes de réserves et pièces de réception',
+    ],
+    outilsIa: ['ChatGPT', 'Claude AI'],
     dureeReponse: '',
-    livrables: ['Bibliothèque de prompts MOE', 'CR et courriers sur vos dossiers', 'Méthode suivi réserves / GPA'],
+    livrables: [
+      'Prompts et modèles MOE réutilisables',
+      'CCTP / DPGF et synthèse DCE sourcée',
+      'CR, tableaux d’actions et suivi des réserves',
+    ],
     debutants:
-      'Oui pour l’IA — aisance numérique suffisante. Abonnements Claude Pro et ChatGPT Plus recommandés.',
+      'Oui pour l’IA — aisance numérique suffisante. Abonnement ChatGPT Plus ou Claude Pro requis.',
     propresDossiers:
-      'Oui — dossiers techniques, OS, CR et DCE réels apportés par les participants MOE/MOEX.',
+      'Oui — CCTP types, DCE, DPGF, CR, OS et réserves apportés par les participants, anonymisés si besoin.',
     iaRemplacePro: COMMON_IA_NON,
-    deroulement: `${MODALITE_PEDAGOGIQUE_CATALOGUE}. 70 % pratique sur cas réels MOE — distinct de la formation conducteur de travaux (côté entreprise).`,
+    deroulement: `${MODALITE_PEDAGOGIQUE_CATALOGUE}. 70 % pratique — 5 modules (240 min), évaluations intégrées aux exercices.`,
     clusterMaillage: [
       ...CLUSTER_BASE,
       { href: LINKS.guideMaitriseOeuvreIa, label: 'Guide maîtrise d’œuvre × IA' },
-      { href: LINKS.formationIaMaitriseOeuvre, label: 'Formation IA maîtrise d’œuvre' },
+      { href: LINKS.formationIaAssistanceMaitriseOuvrage, label: 'Formation IA assistance à maîtrise d’ouvrage' },
       { href: LINKS.iaCompteRenduChantier, label: 'Compte rendu de chantier avec l’IA' },
     ],
   },
@@ -177,8 +186,7 @@ export const FORMATION_CATALOGUE_GEO_EXTENDED: Record<
     deroulement: `${MODALITE_PEDAGOGIQUE_CATALOGUE}. 70 % pratique sur les dossiers du cabinet — format intra 4 h, complémentaire de la formation maîtrise d’œuvre (exécution, 4 h).`,
     clusterMaillage: [
       ...CLUSTER_BASE,
-      { href: LINKS.formationIaMaitriseOeuvreCctpDpgf, label: 'Formation IA maîtrise d’œuvre : CCTP, DPGF, CR et plannings' },
-      { href: LINKS.formationIaMaitriseOeuvre, label: 'Formation IA maîtrise d’œuvre (4 h)' },
+      { href: LINKS.formationIaMaitriseOeuvre, label: 'Formation IA maîtrise d’œuvre BTP : CCTP, DPGF et suivi de chantier' },
     ],
   },
   'NIV-11': {

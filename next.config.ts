@@ -396,6 +396,17 @@ const nextConfig: NextConfig = {
         destination: '/formations/developpement-web-ia-sans-coder',
         permanent: true,
       },
+      // NIV-12 fusionné dans NIV-05 — maîtrise d’œuvre unique
+      {
+        source: '/formations/ia-maitrise-oeuvre-cctp-dpgf',
+        destination: '/formations/ia-maitrise-oeuvre',
+        permanent: true,
+      },
+      {
+        source: '/formations/ia-maitrise-oeuvre-cctp-dpgf/',
+        destination: '/formations/ia-maitrise-oeuvre',
+        permanent: true,
+      },
 
       {
         source: '/formations/formation-claude-ia-btp/programme_OFC_IA_BTP_4h.pdf',

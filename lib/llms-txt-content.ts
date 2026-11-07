@@ -54,8 +54,7 @@ export function buildLlmsTxtContent(): string {
 - IA et appels d'offres (4 h) : ${BASE}/formations/ia-appels-offre-btp
 - IA et conduite de travaux (4 h) : ${BASE}/formations/ia-conduite-travaux-suivi-chantier
 - Maîtriser Claude AI pour le BTP (4 h) : ${BASE}/formations/maitriser-claude-ai-btp
-- IA et maîtrise d'œuvre (4 h) : ${BASE}/formations/ia-maitrise-oeuvre
-- IA et maîtrise d'œuvre : CCTP, DPGF, CR et plannings (4 h) : ${BASE}/formations/ia-maitrise-oeuvre-cctp-dpgf
+- Formation IA maîtrise d'œuvre BTP : CCTP, DPGF et suivi de chantier (4 h) : ${BASE}/formations/ia-maitrise-oeuvre
 - IA et assistance à maîtrise d'ouvrage (4 h) : ${BASE}/formations/ia-assistance-maitrise-ouvrage
 - Créer ses assistants IA pour son entreprise du bâtiment (4 h, niveau avancé) : ${BASE}/formations/assistants-ia-personnalises-btp
 - Créer des applications métier BTP avec l'IA (14 heures — 2 jours, niveau approfondi) : ${BASE}/formations/developpement-web-ia-sans-coder

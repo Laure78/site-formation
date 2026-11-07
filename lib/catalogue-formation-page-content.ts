@@ -737,67 +737,69 @@ const NIV_04: CatalogueFormationPageContent = {
 const NIV_05: CatalogueFormationPageContent = {
   programmeRef: 'NIV-05',
   parcoursKind: 'usages-ia-btp',
-  levelBadgeLabel: 'Niveau 2 · Perfectionnement',
+  levelBadgeLabel: 'Niveau 2 — Avancé',
   heroPublicLine:
-    'Maîtres d’œuvre d’exécution (MOEX), conducteurs de travaux, OPC, BET et assistants gestion travaux.',
+    'Maîtres d’œuvre de conception et d’exécution, architectes, économistes, BET, OPC, conducteurs de travaux MOE et assistants gestion travaux.',
   heroFacts: [
-    '4 heures',
+    '4 heures · 240 minutes',
     '70 % de pratique',
-    '5 modules MOE opérationnels',
+    '5 modules — conception à réception',
+    '6 à 12 participants en inter',
     'Présentiel en Île-de-France',
+    'Intra et inter-entreprises',
   ],
-  quickFactsLevel: 'NUM-08',
+  quickFactsLevel: 'Niveau 2 — Avancé',
   practiceShare: '70 %',
   formatLabel: 'Présentiel',
   locationLabel: 'Île-de-France',
   pedagogicalNote: 'L’IA prépare et structure. Le professionnel contrôle et valide.',
   objectivesTitle: 'Après la formation, vous saurez…',
-  painPointsTitle: 'La MOE d’exécution produit trop de documents ?',
+  painPointsTitle: 'Entre conception et chantier, la MOE noie sous les pièces ?',
   painPoints: [
     {
-      title: 'Analyse DCE',
-      texte: 'CCTP, CCAP, CCAG — synthèse et points de vigilance entre pièces.',
+      title: 'CCTP et DPGF',
+      texte: 'Descriptifs, métrés et bordereaux à structurer et recouper à chaque consultation.',
+    },
+    {
+      title: 'DCE et offres',
+      texte: 'Pièces à croiser, écarts entre entreprises et demandes de clarification à formuler.',
     },
     {
       title: 'Comptes rendus',
-      texte: 'CR de chantier chronophages sans trame ni dictée structurée.',
+      texte: 'Notes, dictées et photos à transformer en CR exploitables et tableaux d’actions.',
     },
     {
-      title: 'Actes administratifs',
-      texte: 'OS, courriers types, PV et avenants à produire rapidement.',
-    },
-    {
-      title: 'Réserves & GPA',
-      texte: 'Suivi des réserves, pré-PV de réception et réponses acquéreurs.',
+      title: 'OS, réserves, réception',
+      texte: 'Actes contractuels, listes de réserves et suivi GPA à tenir à jour sans perte de temps.',
     },
   ],
   outcomes: [
-    'Choisir Claude ou ChatGPT selon l’usage MOE et cadrer l’écosystème Anthropic',
-    'Analyser un DCE et produire une fiche de synthèse avec sources',
-    'Rédiger un CR de chantier structuré à partir de notes ou dictée',
-    'Produire OS, courriers et actes administratifs MOE avec modèles réutilisables',
-    'Structurer le suivi des réserves et la préparation à la réception',
+    'Construire des prompts et un cadre d’usage IA adaptés aux missions MOE',
+    'Préparer des CCTP, descriptifs et trames de DPGF avec contrôles professionnels',
+    'Analyser un DCE, comparer les offres et produire une synthèse sourcée',
+    'Rédiger des comptes rendus et des plannings courts à partir de notes ou dictées',
+    'Préparer ordres de service, tableaux de réserves et pièces de réception',
   ],
   outcomesDescription:
-    'DCE, CR, OS, réserves et GPA pour la MOEX — Claude et ChatGPT, validation humaine.',
+    'CCTP, DPGF, DCE, CR, OS et réserves — ChatGPT et Claude, de la conception au suivi de chantier.',
   practicalCase: {
     title: 'Comment se déroule la formation ?',
     paragraphs: [
-      'Ateliers sur vos DCE, CR, OS, listes de réserves ou courriers — anonymisés si besoin. Chaque module produit un livrable réutilisable dès le lendemain.',
+      'Ateliers sur vos dossiers MOE (CCTP types, DCE, DPGF, CR, OS, réserves) — anonymisés si besoin. Chaque module se termine par un livrable réutilisable ; les évaluations sont intégrées aux exercices pratiques.',
     ],
     steps: [
-      'Vous apportez un dossier fil rouge MOE.',
-      'Vous travaillez module par module sur vos cas.',
-      'Vous repartez avec un plan d’action à 30 jours.',
+      'Vous apportez un dossier fil rouge ou des pièces types du cabinet.',
+      'Vous progressez des CCTP et DPGF jusqu’aux réserves et à la réception.',
+      'Vous repartez avec prompts, modèles et tableaux prêts à l’emploi.',
     ],
   },
   deliverablesTitle: 'Ce que vous emportez',
   deliverables: [
-    'Mémo « Claude pour la maîtrise d’œuvre »',
-    'Fiche-type d’analyse DCE (30 points)',
-    'Gabarit CR MOE + prompt transcription vocale',
-    'Pack de modèles d’actes administratifs MOE',
-    'Modèle de suivi des réserves + tableau GPA',
+    'Prompt réutilisable pour une mission MOE',
+    'Extrait de CCTP + trame de DPGF',
+    'Synthèse DCE + tableau comparatif des offres',
+    'Gabarit de compte rendu + tableau des actions',
+    'Liste de réserves + tableau de suivi des levées',
     'Certificat de réalisation',
   ],
   publicPrerequisites: [
@@ -808,13 +810,20 @@ const NIV_05: CatalogueFormationPageContent = {
     {
       title: 'Prérequis techniques',
       items: [
-        'Abonnements Claude Pro et ChatGPT Plus actifs sur chaque poste',
-        'Dossiers techniques, OS, CR et DCE réels (anonymisés)',
+        'Abonnement ChatGPT Plus ou Claude Pro (ou offre Team) actif sur chaque poste — non inclus',
+        'CCTP types, DCE, DPGF, CR, OS et listes de réserves réels (anonymisés)',
       ],
     },
   ],
-  programmeHeading: 'Programme — 5 modules MOE (4 h)',
-  programIntro: '4 h · 70 % pratique · ateliers sur vos dossiers MOE (anonymisés si besoin).',
+  iaLimits: [
+    { iaAide: 'Trames de CCTP, DPGF et descriptifs par lot', validation: 'Vérifier références normatives et quantités' },
+    { iaAide: 'Synthèse DCE et tableau comparatif d’offres', validation: 'Recouper chaque point avec les pièces sources' },
+    { iaAide: 'CR, plannings courts et courriers de suivi', validation: 'Valider faits et engagements avant envoi' },
+    { iaAide: 'Projets d’OS, réserves et pièces de réception', validation: 'Contrôler habilitations et clauses contractuelles' },
+  ],
+  programmeHeading: 'Programme — 5 modules (4 h · 240 min)',
+  programIntro:
+    '4 h · 70 % pratique · 5 modules (30 + 55 + 45 + 50 + 60 min) · ateliers sur vos dossiers MOE (anonymisés si besoin).',
   programModules: mapProgrammeBlocsToCatalogueModules(NIV05_PROGRAMME_BLOCS),
   pdfHref: LINKS.pdfProgrammeIaMaitriseOeuvre,
   programLinks: [
@@ -824,14 +833,14 @@ const NIV_05: CatalogueFormationPageContent = {
       label: 'formation conduite de travaux',
     },
     {
-      prefix: 'Pour la conception (CCTP, DPGF, plannings), voir la',
-      href: LINKS.formationIaMaitriseOeuvreCctpDpgf,
-      label: 'formation IA et maîtrise d’œuvre : CCTP, DPGF, CR et plannings',
-    },
-    {
       prefix: 'Côté maîtrise d’ouvrage, voir la',
       href: LINKS.formationIaAssistanceMaitriseOuvrage,
       label: 'formation IA et assistance à maîtrise d’ouvrage',
+    },
+    {
+      prefix: 'Guide gratuit —',
+      href: LINKS.guideMaitriseOeuvreIa,
+      label: 'maîtrise d’œuvre et intelligence artificielle',
     },
   ],
 
@@ -839,7 +848,7 @@ const NIV_05: CatalogueFormationPageContent = {
     ...DEFAULT_FINAL_CTA,
     title: 'Vous souhaitez former votre équipe MOE à l’IA ?',
     description:
-      'Demandez un devis ou planifiez votre session intra ou inter — réponse sous 48 h ouvrées.',
+      'Réservez une visio découverte ou demandez un devis pour une session intra ou inter — réponse sous 48 h ouvrées.',
   },
 };
 
