@@ -1,6 +1,5 @@
 import { JsonLd } from '@/components/JsonLd';
-import { CatalogueFormationPageTemplate } from '@/components/formations/catalogue/CatalogueFormationPageTemplate';
-import { CatalogueFormationClaudeExtras } from '@/components/formations/catalogue/CatalogueFormationClaudeExtras';
+import { TrainingNiv04MaquetteTemplate } from '@/components/formations/training/TrainingNiv04MaquetteTemplate';
 import { createPageMetadata, getFAQSchema } from '@/lib/seo';
 import { mergeCatalogueFormationFaq } from '@/lib/catalogue-formation-faq';
 import { FAQ_MAITRISER_CLAUDE_NIV04 } from '@/lib/faq';
@@ -47,18 +46,18 @@ const FAQ_NIV04 = mergeCatalogueFormationFaq('NIV-04', FAQ_MAITRISER_CLAUDE_NIV0
 const faqSchema = getFAQSchema(FAQ_NIV04);
 const courseSchema = buildCatalogueCourseMaitriserClaudeNiv04JsonLd();
 
+/** Fiche NIV-04 — refonte UI maquette (contenu catalogue + Qualiopi inchangés). */
 export default async function FormationMaitriserClaudeAiBtpPage() {
   return (
     <div>
       <JsonLd id="schema-course-niv-04" schema={courseSchema} />
       {faqSchema ? <JsonLd id="schema-faq-niv-04" schema={faqSchema} /> : null}
 
-      <CatalogueFormationPageTemplate
+      <TrainingNiv04MaquetteTemplate
         content={PAGE_CONTENT}
         faqItems={FAQ_MAITRISER_CLAUDE_NIV04}
         faqSectionId="faq-niv-04"
         h1Id="formation-claude-h1"
-        afterObjectives={<CatalogueFormationClaudeExtras />}
       />
     </div>
   );

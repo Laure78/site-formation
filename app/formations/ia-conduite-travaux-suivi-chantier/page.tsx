@@ -1,6 +1,6 @@
 import { notFound } from 'next/navigation';
 import { JsonLd } from '@/components/JsonLd';
-import { CatalogueFormationPageTemplate } from '@/components/formations/catalogue/CatalogueFormationPageTemplate';
+import { TrainingNiv03MaquetteTemplate } from '@/components/formations/training/TrainingNiv03MaquetteTemplate';
 import { createPageMetadata, getFAQSchema } from '@/lib/seo';
 import { mergeCatalogueFormationFaq } from '@/lib/catalogue-formation-faq';
 import { FAQ_CONDUITE_TRAVAUX_NIV03 } from '@/lib/faq';
@@ -46,6 +46,7 @@ const courseSchema = buildCatalogueCourseConduiteTravauxNiv03JsonLd();
 
 export const dynamic = 'force-dynamic';
 
+/** Fiche NIV-03 — refonte UI maquette (contenu catalogue + Qualiopi inchangés). */
 export default async function FormationIaConduiteTravauxSuiviChantierPage() {
   if (!isFormationCataloguePublished('NIV-03')) notFound();
 
@@ -54,7 +55,7 @@ export default async function FormationIaConduiteTravauxSuiviChantierPage() {
       <JsonLd id="schema-course-niv-03" schema={courseSchema} />
       {faqSchema ? <JsonLd id="schema-faq-niv-03" schema={faqSchema} /> : null}
 
-      <CatalogueFormationPageTemplate
+      <TrainingNiv03MaquetteTemplate
         content={PAGE_CONTENT}
         faqItems={FAQ_CONDUITE_TRAVAUX_NIV03}
         faqSectionId="faq-niv-03"
