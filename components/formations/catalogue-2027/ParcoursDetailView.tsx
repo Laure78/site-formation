@@ -22,6 +22,7 @@ import { parcoursIdShowsFinancementOpcoEtendu } from '@/lib/financement-opco-ete
 import { ParcoursReferentIaBtpLanding } from './ParcoursReferentIaBtpLanding';
 import { ParcoursDirigeantPmeBtpLanding } from './ParcoursDirigeantPmeBtpLanding';
 import { ParcoursConducteurDeTravauxLanding } from './ParcoursConducteurDeTravauxLanding';
+import { ParcoursAssistantDeGestionBtpLanding } from './ParcoursAssistantDeGestionBtpLanding';
 
 type Props = {
   parcours: ParcoursComputed;
@@ -38,6 +39,10 @@ export function ParcoursDetailView({ parcours: p }: Props) {
 
   if (p.id === 'conducteur-de-travaux') {
     return <ParcoursConducteurDeTravauxLanding parcours={p} />;
+  }
+
+  if (p.id === 'assistant-de-gestion-btp') {
+    return <ParcoursAssistantDeGestionBtpLanding parcours={p} />;
   }
 
   const thematiquesChantier = getThematiquesForParcoursMetier(p.metierId);
