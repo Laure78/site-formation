@@ -15,6 +15,7 @@ import {
   X,
   GraduationCap,
   Layers,
+  Wallet,
 } from 'lucide-react';
 import { SITE } from '@/lib/site';
 import { isParcoursMetiersMaquetteRoute } from '@/lib/parcours-metiers-maquette-route';
@@ -42,6 +43,7 @@ const HeaderMobileDrawer = dynamic(
 const MOBILE_NAV_ICON: Record<string, LucideIcon> = {
   formations: GraduationCap,
   parcours: BookOpen,
+  financement: Wallet,
   ressources: Layers,
   organisme: Building2,
 };

@@ -16,11 +16,6 @@ export const UTILITY_ORGANISME_NAV_LINKS: readonly HeaderNavLink[] = [
     title: 'Formation IA en intra-entreprise — plan pour votre équipe',
   },
   {
-    href: LINKS.financement,
-    label: 'Financement',
-    title: 'Financement OPCO Constructys — formation IA BTP',
-  },
-  {
     href: LINKS.aPropos,
     label: 'À propos',
     title: 'Laure Olivié — formatrice IA BTP',
@@ -49,9 +44,6 @@ export const UTILITY_ORGANISME_NAV_LINKS: readonly HeaderNavLink[] = [
 ];
 
 export function utilityOrganismeNavActive(pathname: string): boolean {
-  if (pathname === LINKS.financement || pathname.startsWith(`${LINKS.financement}/`)) {
-    return true;
-  }
   if (
     pathname === LINKS.formationIaIntraEntrepriseBtp ||
     pathname.startsWith(`${LINKS.formationIaIntraEntrepriseBtp}/`)

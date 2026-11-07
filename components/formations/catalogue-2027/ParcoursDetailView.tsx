@@ -20,6 +20,7 @@ import { buildParcoursPageMaillageBlocks } from '@/lib/page-maillage-blocks';
 import { FinancementOpcoEtenduCourtBlock } from '@/components/financement/FinancementOpcoEtenduCourtBlock';
 import { parcoursIdShowsFinancementOpcoEtendu } from '@/lib/financement-opco-etendu-config';
 import { ParcoursReferentIaBtpLanding } from './ParcoursReferentIaBtpLanding';
+import { ParcoursDirigeantPmeBtpLanding } from './ParcoursDirigeantPmeBtpLanding';
 
 type Props = {
   parcours: ParcoursComputed;
@@ -28,6 +29,10 @@ type Props = {
 export function ParcoursDetailView({ parcours: p }: Props) {
   if (p.id === 'referent-ia-btp') {
     return <ParcoursReferentIaBtpLanding parcours={p} />;
+  }
+
+  if (p.id === 'dirigeant-pme-btp') {
+    return <ParcoursDirigeantPmeBtpLanding parcours={p} />;
   }
 
   const thematiquesChantier = getThematiquesForParcoursMetier(p.metierId);
@@ -246,8 +251,6 @@ export function ParcoursDetailView({ parcours: p }: Props) {
               acquis en fin de parcours, intégrée à la durée annoncée. Formations non certifiantes.
             </p>
           </section>
-
-          {p.id === 'dirigeant-pme-btp' ? <ParcoursEncadrerIaBlock /> : null}
 
           <section className="mt-10" aria-labelledby="adaptation-title">
             <h2 id="adaptation-title" className="ofc-type-h2 text-ofc-ink">

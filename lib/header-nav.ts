@@ -77,6 +77,10 @@ function formationsNavActive(pathname: string): boolean {
   return catalogueFormationNavContainsPath(pathname);
 }
 
+function financementNavActive(pathname: string): boolean {
+  return pathname === LINKS.financement || pathname.startsWith(`${LINKS.financement}/`);
+}
+
 function ressourcesNavActive(pathname: string): boolean {
   return (
     pathname === LINKS.ressources ||
@@ -140,6 +144,12 @@ function buildHeaderNavItems(at: Date = new Date()): readonly HeaderNavItem[] {
       children: buildParcoursNavChildren(),
       hideDropdownHeading: true,
       dropdownAlign: 'start',
+    },
+    {
+      id: 'financement',
+      label: 'Financement',
+      href: LINKS.financement,
+      isActive: financementNavActive,
     },
     {
       id: 'ressources',
