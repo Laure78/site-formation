@@ -479,6 +479,12 @@ export const ACCUEIL_CAS_USAGE_RESULTATS = [
 
 export const ACCUEIL_RESSOURCES = [
   {
+    titre: 'Diagnostic IA BTP',
+    phrase: '2 min — maturité, priorités et parcours recommandé.',
+    category: 'Outil',
+    href: LINKS.diagnostic,
+  },
+  {
     titre: 'Guide conducteur de travaux',
     phrase: 'Skills IA — DCE, PPSPS, CR, DOE (PDF).',
     category: 'Guide',
@@ -501,25 +507,32 @@ export const ACCUEIL_RESSOURCES = [
 /** Ressources accueil — cartes maquette (URLs = {@link ACCUEIL_RESSOURCES}). */
 export const ACCUEIL_RESSOURCES_MAQUETTE = [
   {
-    icon: 'book',
-    label: 'Guide pratique',
-    titre: 'L’IA dans les métiers du BTP',
+    icon: 'play',
+    label: 'Outil gratuit',
+    titre: 'Diagnostic IA BTP',
     phrase: ACCUEIL_RESSOURCES[0].phrase,
     href: ACCUEIL_RESSOURCES[0].href,
   },
   {
-    icon: 'play',
-    label: 'Tutoriel',
-    titre: 'Analyse DCE et appels d’offres',
+    icon: 'book',
+    label: 'Guide pratique',
+    titre: 'L’IA dans les métiers du BTP',
     phrase: ACCUEIL_RESSOURCES[1].phrase,
     href: ACCUEIL_RESSOURCES[1].href,
   },
   {
     icon: 'file',
     label: 'Tutoriel',
-    titre: 'Compte rendu de chantier',
+    titre: 'Analyse DCE et appels d’offres',
     phrase: ACCUEIL_RESSOURCES[2].phrase,
     href: ACCUEIL_RESSOURCES[2].href,
+  },
+  {
+    icon: 'book',
+    label: 'Tutoriel',
+    titre: 'Compte rendu de chantier',
+    phrase: ACCUEIL_RESSOURCES[3].phrase,
+    href: ACCUEIL_RESSOURCES[3].href,
   },
 ] as const;
 

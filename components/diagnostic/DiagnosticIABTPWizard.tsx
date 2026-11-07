@@ -258,9 +258,7 @@ export function DiagnosticIABTPWizard() {
             onClick={() => setAnswers((p) => ({ ...p, maturity: opt.id }))}
             className={optionBtnClass(answers.maturity === opt.id)}
           >
-            <span>
-              <span className="font-semibold text-[#377CF3]">{opt.id}</span> — {opt.label}
-            </span>
+            <span>{opt.label}</span>
           </button>
         ));
 

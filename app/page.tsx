@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { preload } from 'react-dom';
 import { AccueilHeroSection } from '@/components/landing/AccueilHeroSection';
 import { AccueilBandeauReassuranceSection } from '@/components/landing/accueil/AccueilBandeauReassuranceSection';
+import { AccueilDiagnosticIaBtpSection } from '@/components/landing/accueil/AccueilDiagnosticIaBtpSection';
 import { AccueilDeuxOffresSection } from '@/components/landing/accueil/AccueilDeuxOffresSection';
 import { AccueilFormationsIaMaquetteSection } from '@/components/landing/accueil/AccueilFormationsIaMaquetteSection';
 import { AccueilParcoursMetiersMaquetteSection } from '@/components/landing/accueil/AccueilParcoursMetiersMaquetteSection';
@@ -88,6 +89,7 @@ export default function HomePage() {
     <div className="accueil-maquette">
       <AccueilHeroSection />
       <AccueilBandeauReassuranceSection />
+      <AccueilDiagnosticIaBtpSection />
       <AccueilDeuxOffresSection />
       <AccueilFormationsIaMaquetteSection />
       <AccueilParcoursMetiersMaquetteSection />

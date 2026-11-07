@@ -1,17 +1,9 @@
 #!/usr/bin/env node
 /**
  * Valide les profils de test du diagnostic IA BTP.
- * Usage : node scripts/validate-diagnostic-scoring.mjs
+ * Usage : npx tsx --tsconfig tsconfig.json scripts/validate-diagnostic-scoring.mjs
  */
-import { createRequire } from 'node:module';
-
-const require = createRequire(import.meta.url);
-
 async function main() {
-  // Compile TS via tsx if available, else use dynamic import with ts-node
-  const { register } = await import('tsx/esm/api').catch(() => null);
-  if (register) register();
-
   const { validateDiagnosticTestProfiles, DIAGNOSTIC_TEST_PROFILES, computeDiagnosticResult } =
     await import('../lib/diagnostic-ia-btp/scoring.ts');
 

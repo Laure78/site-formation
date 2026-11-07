@@ -130,7 +130,19 @@ export type DiagnosticPriority = {
   taskIds: DiagnosticTaskId[];
 };
 
+export type DiagnosticTrainingMappingKey =
+  | 'fondamentaux'
+  | 'appels_offres'
+  | 'conduite_travaux'
+  | 'maitrise_oeuvre'
+  | 'claude_avance'
+  | 'app_metier_1'
+  | 'app_metier_2'
+  | 'app_metier_3';
+
 export type DiagnosticTrainingRecommendation = {
+  /** Clé interne — distincte même si la fiche catalogue est la même (ex. NIV-10). */
+  key?: DiagnosticTrainingMappingKey;
   href: string;
   title: string;
   why: string;

@@ -286,6 +286,7 @@ export function computeDiagnosticResult(answers: DiagnosticAnswers): DiagnosticR
     securityRecommendation: dataOpt?.needsSecurityAdvice ? SECURITY_RECOMMENDATION_TEXT : null,
     constructysNote,
     training: {
+      key: trainingKey,
       href: trainingBase.href,
       title: trainingBase.title,
       code: trainingBase.code,
@@ -409,9 +410,7 @@ export function validateDiagnosticTestProfiles(): { ok: boolean; failures: strin
     }
     results.push(result);
 
-    const trainingKey = (Object.keys(TRAINING_MAPPINGS) as TrainingMappingKey[]).find(
-      (k) => TRAINING_MAPPINGS[k].href === result.training.href,
-    );
+    const trainingKey = result.training.key;
     if (trainingKey !== profile.expectedTraining) {
       failures.push(
         `${profile.name}: formation attendue ${profile.expectedTraining}, obtenue ${trainingKey ?? result.training.href}`,

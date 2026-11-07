@@ -432,19 +432,19 @@ export const TRAINING_MAPPINGS: Record<
     code: 'NIV-05',
   },
   app_metier_1: {
-    href: LINKS.formationApplicationMetierBtpNiveau1,
+    href: LINKS.formationDeveloppementWebIaSansCoder,
     title: 'Créer sa première application métier BTP avec l\'IA',
-    code: 'NIV-06',
+    code: 'NIV-10',
   },
   app_metier_2: {
-    href: LINKS.formationApplicationMetierBtpNiveau2,
+    href: LINKS.formationDeveloppementWebIaSansCoder,
     title: 'Développer une application métier BTP connectée',
-    code: 'NIV-07',
+    code: 'NIV-10',
   },
   app_metier_3: {
-    href: LINKS.formationApplicationMetierBtpNiveau3,
-    title: 'Développer une application métier BTP avancée avec l\'IA',
-    code: 'NIV-08',
+    href: LINKS.formationDeveloppementWebIaSansCoder,
+    title: 'Créer des applications métier BTP avec l’IA',
+    code: 'NIV-10',
   },
 };
 
