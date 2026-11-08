@@ -84,6 +84,7 @@ export default function FormationIaEtudesPrixChiffrageBtpPage() {
           <TrainingFormationHeroActions
             formationTitle={CATALOGUE_NIV02.titre}
             pdfHref={NIV02_PDF_HREF}
+            ctaSrc="formation-etudes-prix-chiffrage-hero"
             className="w-full sm:flex-row"
           />
         }

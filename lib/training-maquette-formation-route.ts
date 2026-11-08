@@ -33,8 +33,15 @@ function publishedFichePaths(): ReadonlySet<string> {
  * Fiches catalogue avec fil d’Ariane intégré au hero (maquette ou template catalogue).
  * Le fil global du layout est masqué pour éviter un doublon visuel.
  */
+/** Fiches parcours métiers 2027 — fil d’Ariane intégré au hero. */
+export function isParcoursMetierFichePath(pathname: string): boolean {
+  const pathNorm = pathname.replace(/\/$/, '') || '/';
+  return /^\/formations\/parcours\/[^/]+$/.test(pathNorm);
+}
+
 export function isCatalogueFormationFichePath(pathname: string): boolean {
   const pathNorm = pathname.replace(/\/$/, '') || '/';
   if (!pathNorm.startsWith('/formations/')) return false;
+  if (isParcoursMetierFichePath(pathNorm)) return true;
   return publishedFichePaths().has(pathNorm);
 }

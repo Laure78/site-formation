@@ -25,6 +25,7 @@ import {
   PARCOURS_METIERS_TRUST,
 } from '@/lib/parcours-metiers-page-content';
 import { PHOTOS } from '@/lib/photos';
+import { PARCOURS_TARIFS_PAR_MODULE } from '@/lib/catalogue-2027/parcours-affichage';
 import type { AccueilParcoursOffreCard } from '@/lib/accueil-offre-catalogue';
 const PARCOURS_CTA_PRIMARY =
   'inline-flex min-h-11 items-center justify-center gap-2 rounded-lg bg-[#086BFF] px-6 py-3 text-sm font-semibold text-white shadow-sm transition-[background-color,transform] duration-200 hover:bg-[#0658d4] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#086BFF] motion-reduce:transition-none active:scale-[0.98]';
@@ -97,14 +98,19 @@ function ParcoursMetierCard({ parcours }: { parcours: AccueilParcoursOffreCard }
         <h3 className="text-lg font-bold text-pretty text-[#071A42]">{parcours.titre}</h3>
         <p className="mt-2 text-sm leading-relaxed text-[#475569]">{accroche}</p>
         <p className="mt-3 text-xs font-semibold uppercase tracking-wide text-[#086BFF]">
-          Disponible en parcours complet ou par modules
+          Parcours complet ou modules à la carte
+        </p>
+        <p className="mt-2 text-xs font-semibold uppercase tracking-wide text-[#086BFF]">
+          {PARCOURS_TARIFS_PAR_MODULE}
+        </p>
+        <p className="mt-4 flex flex-wrap items-center gap-2 text-sm font-medium text-[#071A42]">
+          <Layers3 className="h-4 w-4 shrink-0 text-[#086BFF]" aria-hidden />
+          <span>{parcours.moduleCount} modules</span>
         </p>
         {parcours.dureeLabel ? (
-          <p className="mt-4 flex flex-wrap items-center gap-2 text-sm font-medium text-[#071A42]">
+          <p className="mt-2 flex flex-wrap items-center gap-2 text-sm font-medium text-[#071A42]">
             <Clock className="h-4 w-4 shrink-0 text-[#086BFF]" aria-hidden />
-            <span>
-              Parcours complet : {parcours.dureeLabel}
-            </span>
+            <span>Durée totale : {parcours.dureeLabel}</span>
           </p>
         ) : null}
         <div className="mt-auto pt-5">

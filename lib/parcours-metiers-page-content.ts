@@ -81,6 +81,10 @@ export const PARCOURS_METIERS_FAQ = [
     q: 'Les formations sont-elles proposées en présentiel ?',
     a: 'Oui. Les formations sont proposées en présentiel en Île-de-France.',
   },
+  {
+    q: 'Quel est le tarif d’un parcours métier ?',
+    a: 'Les tarifs sont affichés par module (120 €, 170 € ou 620 € HT / participant selon le niveau et la durée du module). Il n’y a pas de forfait global de parcours : vous composez votre programme module par module. L’intra-entreprise est sur devis.',
+  },
 ] as const;
 
 /** Accroches courtes cartes — maquette. */

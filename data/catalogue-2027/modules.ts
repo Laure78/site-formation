@@ -4,7 +4,45 @@
  * Compléments pédagogiques marqués via `complementsAValider`.
  */
 import { LINKS } from '@/lib/internal-links';
-import type { CatalogueModule, ModuleCode } from './types';
+import {
+  assertNiveauCoherent,
+  dureeHeuresPourNiveau,
+  MODULE_ANNEE_DISPONIBILITE,
+  moduleIdFromCode,
+  NIVEAU_PAR_MODULE,
+  prixInterHtPourNiveau,
+} from './module-niveaux';
+import { getParcoursIdsPourModule } from './parcours-module-index';
+import { getModuleProgrammePedagogique, programmeVersChampsCatalogue } from './module-programmes';
+import type { CatalogueModule, ModuleCode, ModuleNiveau } from './types';
+
+type ModuleRaw = Omit<
+  CatalogueModule,
+  'id' | 'niveau' | 'dureeHeures' | 'prixInterHt' | 'anneeDisponibilite' | 'parcoursIds'
+> & {
+  niveau?: ModuleNiveau;
+  /** @deprecated Ignoré — dérivé du niveau. */
+  dureeHeures?: number;
+};
+
+function enrichCatalogueModule(m: ModuleRaw): CatalogueModule {
+  const niveau = m.niveau ?? NIVEAU_PAR_MODULE[m.code];
+  const dureeHeures = dureeHeuresPourNiveau(niveau);
+  const prixInterHt = prixInterHtPourNiveau(niveau);
+  const { dureeHeures: _legacy, niveau: _n, ...rest } = m;
+  const prog = getModuleProgrammePedagogique(m.code);
+  const progFields = prog ? programmeVersChampsCatalogue(prog) : {};
+  return {
+    ...rest,
+    ...progFields,
+    id: moduleIdFromCode(m.code),
+    niveau,
+    dureeHeures,
+    prixInterHt,
+    anneeDisponibilite: MODULE_ANNEE_DISPONIBILITE,
+    parcoursIds: getParcoursIdsPourModule(m.code),
+  };
+}
 
 const EVAL_STANDARD =
   'Positionnement amont, exercices professionnels en session et évaluation des acquis en fin de module — intégrée à la durée annoncée.';
@@ -21,7 +59,7 @@ const DISPO_MAINTENANT_VALIDE = {
   statutEditorial: 'programme-valide' as const,
 };
 
-export const MODULES_CATALOGUE_2027: readonly CatalogueModule[] = [
+const MODULES_RAW: readonly ModuleRaw[] = [
   // ── DOMAINE 1 — DIRECTION ──────────────────────────────────────────
   {
     code: 'DIR-01',
@@ -966,6 +1004,8 @@ export const MODULES_CATALOGUE_2027: readonly CatalogueModule[] = [
   },
 ] as const;
 
+export const MODULES_CATALOGUE_2027: readonly CatalogueModule[] = MODULES_RAW.map(enrichCatalogueModule);
+
 const BY_CODE = new Map(MODULES_CATALOGUE_2027.map((m) => [m.code, m]));
 
 export function getModuleByCode(code: ModuleCode | string): CatalogueModule | undefined {
@@ -995,9 +1035,23 @@ export function assertCatalogueModulesIntegrity(): {
   const ouverture = MODULES_CATALOGUE_2027.filter((m) => m.disponibilite === 'ouverture-2027');
   if (disponibles.length !== 6) errors.push(`Attendu 6 disponibles, trouvé ${disponibles.length}`);
   if (ouverture.length !== 29) errors.push(`Attendu 29 en 2027, trouvé ${ouverture.length}`);
-  const only4h = MODULES_CATALOGUE_2027.filter((m) => m.dureeHeures === 4);
-  if (only4h.length !== 1 || only4h[0]?.code !== 'NUM-01') {
-    errors.push('Seul NUM-01 doit durer 4 h');
+  const niveau1 = MODULES_CATALOGUE_2027.filter((m) => m.niveau === 1);
+  if (niveau1.length !== 1 || niveau1[0]?.code !== 'NUM-01') {
+    errors.push('Seul NUM-01 doit être en niveau 1');
+  }
+  const niveau3 = MODULES_CATALOGUE_2027.filter((m) => m.niveau === 3);
+  if (niveau3.length !== 1 || niveau3[0]?.code !== 'NUM-04') {
+    errors.push('Seul NUM-04 doit être en niveau 3');
+  }
+  for (const mod of MODULES_CATALOGUE_2027) {
+    const err = assertNiveauCoherent(mod.code, mod.niveau, mod.dureeHeures);
+    if (err) errors.push(err);
+    if (mod.prixInterHt !== prixInterHtPourNiveau(mod.niveau)) {
+      errors.push(`${mod.code}: prix incohérent avec le niveau`);
+    }
+    if (mod.anneeDisponibilite !== MODULE_ANNEE_DISPONIBILITE) {
+      errors.push(`${mod.code}: anneeDisponibilite invalide`);
+    }
   }
   const domaines = new Set(MODULES_CATALOGUE_2027.map((m) => m.domaineId));
   if (domaines.size !== 7) errors.push(`Attendu 7 domaines, trouvé ${domaines.size}`);

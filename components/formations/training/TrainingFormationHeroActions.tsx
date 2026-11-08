@@ -1,46 +1,67 @@
-import { Download } from 'lucide-react';
-import { CtaDevis } from '@/components/CtaDevis';
-import { CTA_TELECHARGER_PROGRAMME_LABEL } from '@/lib/cta-programme-label';
+import Link from 'next/link';
+import { Calendar, Download } from 'lucide-react';
+import { CtaVisio } from '@/components/CtaVisio';
+import { CTA_RECEVOIR_PROGRAMME_LABEL } from '@/lib/cta-programme-label';
 import { cn } from '@/lib/cn';
+import { LINKS } from '@/lib/internal-links';
 import { OFC_CTA_SECONDARY } from '@/lib/ofc-interaction-classes';
-import { trainingDevisHref } from '@/lib/training-page-helpers';
 
 type Props = {
   formationTitle: string;
   pdfHref?: string;
+  /** Suivi GA4 — query `?src=` (ex. `formation-niv02-ao-hero`). */
+  ctaSrc?: string;
   className?: string;
   /** Libellé court pour la barre sticky mobile. */
   programmeShortLabel?: string;
+  /** Encadré format court : bouton programme seul (réf. NIV-02). */
+  variant?: 'full' | 'programme-only';
 };
 
 /**
- * CTA hero catalogue — « Demander un devis » + « Télécharger le programme » (PDF uniquement si disponible).
+ * CTA hero catalogue — « Prendre RDV » + « Recevoir le programme » (réf. NIV-02).
  */
 export function TrainingFormationHeroActions({
   formationTitle,
   pdfHref,
+  ctaSrc = 'formation-catalogue-unspecified',
   className,
   programmeShortLabel = 'Programme',
+  variant = 'full',
 }: Props) {
-  const devisHref = trainingDevisHref(formationTitle);
+  const programmeButton = pdfHref ? (
+    <a
+      href={pdfHref}
+      download
+      className={`${OFC_CTA_SECONDARY} inline-flex min-h-11 w-full items-center justify-center gap-2 px-5 py-3 sm:w-auto`}
+    >
+      <Download className="h-4 w-4 shrink-0" aria-hidden />
+      <span className="hidden sm:inline">{CTA_RECEVOIR_PROGRAMME_LABEL}</span>
+      <span className="sm:hidden">{programmeShortLabel}</span>
+    </a>
+  ) : (
+    <Link
+      href={`${LINKS.contact}?objet=devis&formation=${encodeURIComponent(formationTitle)}`}
+      className={`${OFC_CTA_SECONDARY} inline-flex min-h-11 w-full items-center justify-center gap-2 px-5 py-3 sm:w-auto`}
+    >
+      <Download className="h-4 w-4 shrink-0" aria-hidden />
+      <span className="hidden sm:inline">{CTA_RECEVOIR_PROGRAMME_LABEL}</span>
+      <span className="sm:hidden">{programmeShortLabel}</span>
+    </Link>
+  );
+
+  if (variant === 'programme-only') {
+    return <div className={cn('flex', className)}>{programmeButton}</div>;
+  }
 
   return (
     <div className={cn('flex flex-col gap-3 sm:flex-row sm:flex-wrap', className)}>
-      <CtaDevis
-        href={devisHref}
+      <CtaVisio
+        src={ctaSrc}
         className="inline-flex min-h-11 w-full items-center justify-center gap-2 px-5 py-3 sm:w-auto"
+        leadingAdornment={<Calendar className="h-4 w-4 shrink-0" aria-hidden />}
       />
-      {pdfHref ? (
-        <a
-          href={pdfHref}
-          download
-          className={`${OFC_CTA_SECONDARY} inline-flex min-h-11 w-full items-center justify-center gap-2 px-5 py-3 sm:w-auto`}
-        >
-          <Download className="h-4 w-4 shrink-0" aria-hidden />
-          <span className="hidden sm:inline">{CTA_TELECHARGER_PROGRAMME_LABEL}</span>
-          <span className="sm:hidden">{programmeShortLabel}</span>
-        </a>
-      ) : null}
+      {programmeButton}
     </div>
   );
 }

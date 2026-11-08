@@ -12,12 +12,11 @@ import {
   Users,
 } from 'lucide-react';
 import { TrainingFormationBreadcrumb } from '@/components/formations/training/TrainingFormationBreadcrumb';
-import { TrainingFormationFormatSection } from '@/components/formations/training/TrainingFormationFormatSection';
 import { TrainingFormationHeroActions } from '@/components/formations/training/TrainingFormationHeroActions';
-import { CTA_TELECHARGER_PROGRAMME_LABEL } from '@/lib/cta-programme-label';
-import { CtaDevis } from '@/components/CtaDevis';
+import { CtaVisio } from '@/components/CtaVisio';
+import { LINKS } from '@/lib/internal-links';
 import { OFC_CTA_SECONDARY } from '@/lib/ofc-interaction-classes';
-import { trainingDevisHref } from '@/lib/training-page-helpers';
+import Link from 'next/link';
 import type { CatalogueProgramModule } from '@/lib/catalogue-formation-page-content';
 import type { FormationCatalogueCode } from '@/lib/formation-catalogue-visibility';
 import { getFormationMaquetteAssets } from '@/lib/formation-maquette-assets';
@@ -51,7 +50,7 @@ const DEFAULT_PEDAGOGY_ICONS = [HardHat, FileText, Layers, Shield, Target] as co
 /**
  * Sections marketing communes — modèle graphique NIV-02 (hero → CTA final + barre mobile).
  */
-export async function TrainingMaquetteMarketing({
+export function TrainingMaquetteMarketing({
   programmeRef,
   h1Id,
   heroH1,
@@ -112,6 +111,7 @@ export async function TrainingMaquetteMarketing({
             <TrainingFormationHeroActions
               formationTitle={formationTitle}
               pdfHref={pdfHref}
+              ctaSrc={`${slice.ctaSrcPrefix}-hero`}
               className="mt-8"
             />
           </div>
@@ -157,14 +157,6 @@ export async function TrainingMaquetteMarketing({
           </div>
         </section>
 
-        <TrainingFormationFormatSection
-          programmeRef={programmeRef}
-          formationTitle={formationTitle}
-          formationSlug={formation.slug}
-          effectifMin={effectifMin}
-          effectifMax={effectifMax}
-        />
-
         <section aria-labelledby={`${programmeRef}-benefices-title`}>
           <h2 id={`${programmeRef}-benefices-title`} className="ofc-type-h2 text-center text-[#101936] md:text-left">
             {slice.benefitsTitle}
@@ -187,18 +179,26 @@ export async function TrainingMaquetteMarketing({
 
         <section
           aria-labelledby={`${programmeRef}-format-court-title`}
-          className="flex gap-4 rounded-2xl border border-[#BFDBFE] bg-[#EFF6FF] p-6"
+          className="flex flex-col gap-5 rounded-2xl border border-[#BFDBFE] bg-[#EFF6FF] p-6 md:flex-row md:items-center md:justify-between md:gap-8"
         >
-          <Layers className="mt-0.5 h-8 w-8 shrink-0 text-[#1D4ED8]" aria-hidden />
-          <div>
-            <h2
-              id={`${programmeRef}-format-court-title`}
-              className="font-display text-lg font-semibold text-[#101936]"
-            >
-              {slice.formatTitle}
-            </h2>
-            <p className="mt-2 text-sm leading-relaxed text-slate-700">{slice.formatDescription}</p>
+          <div className="flex min-w-0 gap-4 md:max-w-[58%]">
+            <Layers className="mt-0.5 h-8 w-8 shrink-0 text-[#1D4ED8]" aria-hidden />
+            <div>
+              <h2
+                id={`${programmeRef}-format-court-title`}
+                className="font-display text-lg font-semibold text-[#101936]"
+              >
+                {slice.formatTitle}
+              </h2>
+              <p className="mt-2 text-sm leading-relaxed text-slate-700">{slice.formatDescription}</p>
+            </div>
           </div>
+          <TrainingFormationHeroActions
+            formationTitle={formationTitle}
+            pdfHref={pdfHref}
+            variant="programme-only"
+            className="shrink-0"
+          />
         </section>
 
         {programCards.length > 0 ? (
@@ -307,6 +307,7 @@ export async function TrainingMaquetteMarketing({
           <TrainingFormationHeroActions
             formationTitle={formationTitle}
             pdfHref={pdfHref}
+            ctaSrc={`${slice.ctaSrcPrefix}-final`}
             className="mt-8 justify-center sm:justify-center"
           />
         </section>
@@ -314,8 +315,9 @@ export async function TrainingMaquetteMarketing({
 
       <div className="fixed inset-x-0 bottom-0 z-40 border-t border-slate-200 bg-white/95 p-3 backdrop-blur lg:hidden">
         <div className="mx-auto flex max-w-[80rem] gap-2">
-          <CtaDevis
-            href={trainingDevisHref(formationTitle)}
+          <CtaVisio
+            src={`${slice.ctaSrcPrefix}-sticky`}
+            variant="primary"
             className="inline-flex min-h-11 flex-1 items-center justify-center px-3 py-2 text-sm"
           />
           {pdfHref ? (
@@ -324,9 +326,16 @@ export async function TrainingMaquetteMarketing({
               download
               className={`${OFC_CTA_SECONDARY} inline-flex min-h-11 flex-1 items-center justify-center px-3 py-2 text-sm`}
             >
-              {CTA_TELECHARGER_PROGRAMME_LABEL}
+              Programme
             </a>
-          ) : null}
+          ) : (
+            <Link
+              href={`#${TRAINING_ANCHOR.programme}`}
+              className={`${OFC_CTA_SECONDARY} inline-flex min-h-11 flex-1 items-center justify-center px-3 py-2 text-sm`}
+            >
+              Programme
+            </Link>
+          )}
         </div>
       </div>
     </div>

@@ -4,10 +4,14 @@ import {
 } from '@/lib/site-config';
 
 export * from './types';
+export * from './module-niveaux';
+export * from './module-programmes';
 export * from './tarifs';
 export * from './domaines';
 export * from './modules';
+export * from './parcours-data';
 export * from './parcours';
+export * from './parcours-module-index';
 export * from './metiers';
 export * from './mapping-legacy';
 export * from './sous-domaines-ia-chantier';

@@ -8,43 +8,56 @@ import {
   TARIF_NUM01_4H_INTER_HT,
   TARIF_PARTICIPANT_NIV10_14H_HT,
 } from '@/lib/tarifs-catalogue-participant';
-import type { ModuleDureeHeures } from './types';
+import type { CatalogueModule, ModuleNiveau } from './types';
+import { prixInterHtPourNiveau } from './module-niveaux';
 
 export { TARIF_JOURNEE_7H_INTER_HT, TARIF_NUM01_4H_INTER_HT };
 
 /** Intra-entreprise et plan de formation — pas de montant catalogue. */
 export const TARIF_INTRA_LIBELLE = 'Sur devis' as const;
 
-export function prixInterHtPourDuree(dureeHeures: ModuleDureeHeures | number): number {
-  if (dureeHeures === 4) return TARIF_NUM01_4H_INTER_HT;
-  /** Offre catalogue NIV-10 — forfait 14 h (non proratisé sur 2 × journée 7 h). */
-  if (dureeHeures === 14) return TARIF_PARTICIPANT_NIV10_14H_HT;
-  if (dureeHeures % 7 !== 0) {
-    throw new Error(`Durée non standard pour grille journalière : ${dureeHeures} h`);
+/** Prix d’un module catalogue — dérivé du niveau pédagogique. */
+export function prixModuleInterHt(
+  moduleOrCode: CatalogueModule | Pick<CatalogueModule, 'code' | 'niveau' | 'prixInterHt'>,
+  _dureeLegacy?: number,
+): number {
+  if ('prixInterHt' in moduleOrCode && typeof moduleOrCode.prixInterHt === 'number') {
+    return moduleOrCode.prixInterHt;
   }
-  return (dureeHeures / 7) * TARIF_JOURNEE_7H_INTER_HT;
+  if ('niveau' in moduleOrCode) {
+    return prixInterHtPourNiveau(moduleOrCode.niveau as ModuleNiveau);
+  }
+  throw new Error(`Module inconnu pour tarif : ${String(moduleOrCode)}`);
 }
 
-/** Prix d’un module catalogue (NUM-01 = exception 4 h). */
-export function prixModuleInterHt(
-  code: string,
-  dureeHeures: ModuleDureeHeures | number,
-): number {
-  if (code === 'NUM-01') return TARIF_NUM01_4H_INTER_HT;
-  return prixInterHtPourDuree(dureeHeures as ModuleDureeHeures);
+/** @deprecated Préférer `prixModuleInterHt` avec le module ou son niveau. */
+export function prixInterHtPourDuree(_dureeHeures: number, niveau: ModuleNiveau): number {
+  return prixInterHtPourNiveau(niveau);
 }
 
 /**
  * Prix parcours avec modules mixtes (ex. 35 h + NUM-01 4 h = 39 h).
  * Somme des prix modules — ne pas appliquer de prorata sur NUM-01.
  */
-export function prixParcoursDepuisDurees(
-  modules: readonly { code: string; dureeHeures: number }[],
+export function prixParcoursDepuisModules(
+  modules: readonly Pick<CatalogueModule, 'code' | 'niveau' | 'prixInterHt' | 'dureeHeures'>[],
 ): number {
-  return modules.reduce((sum, m) => sum + prixModuleInterHt(m.code, m.dureeHeures), 0);
+  return modules.reduce((sum, m) => sum + prixModuleInterHt(m), 0);
 }
 
-export function formatPrixInterHt(amount: number): string {
+/** @deprecated */
+export function prixParcoursDepuisDurees(
+  modules: readonly { code: string; dureeHeures: number; niveau?: ModuleNiveau; prixInterHt?: number }[],
+): number {
+  return modules.reduce((sum, m) => {
+    if (m.prixInterHt != null) return sum + m.prixInterHt;
+    if (m.niveau != null) return sum + prixInterHtPourNiveau(m.niveau);
+    throw new Error(`Tarif module ${m.code} : niveau manquant`);
+  }, 0);
+}
+
+export function formatPrixInterHt(amount: number | undefined | null): string {
+  if (amount == null) return 'prix selon modules retenus';
   return `${formatNumberFr(amount)} € HT`;
 }
 

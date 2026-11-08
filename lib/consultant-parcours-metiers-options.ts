@@ -1,7 +1,7 @@
 /**
  * Parcours métiers catalogue 2027 — options page /devenez-consultant et formulaire.
  */
-import { libelleJoursFormation } from '@/data/catalogue-2027/parcours';
+import { libelleDureeParcoursHeures } from '@/data/catalogue-2027/parcours';
 import { parcoursHref } from '@/lib/catalogue-2027/parcours-href';
 import type { ParcoursId } from '@/data/catalogue-2027';
 import { isParcoursMetiers2027Visible } from '@/lib/parcours-metiers-2027-visibility';
@@ -24,7 +24,7 @@ export function getConsultantParcoursMetiersOptions(): ConsultantParcoursMetierO
     titre: p.titre,
     benefice: p.benefice,
     href: parcoursHref(p.id),
-    dureeLabel: libelleJoursFormation(p.joursFormation),
+    dureeLabel: libelleDureeParcoursHeures(p.dureeHeures),
     dureeHeures: p.dureeHeures,
     moduleCount: p.moduleCount,
   }));

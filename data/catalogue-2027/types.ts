@@ -72,26 +72,84 @@ export type DisponibiliteCommerciale = 'disponible' | 'ouverture-2027';
 /** Statut éditorial du programme (distinct de la disponibilité commerciale). */
 export type StatutEditorial = 'programme-en-preparation' | 'programme-valide';
 
-export type ModuleDureeHeures = 4 | 7 | 14;
+export type ModuleDureeHeures = 4 | 14;
+
+export type ModuleNiveau = 1 | 2 | 3;
+
+/** Séquence horaire d’un programme module (minutes incluses dans la durée publiée). */
+export type ProgrammeSequence = {
+  ordre: number;
+  titre: string;
+  minutes: number;
+  contenu: string;
+};
+
+/** Programme pédagogique structuré (sections A–J). */
+export type ModuleProgrammePedagogique = {
+  code: ModuleCode;
+  /** A — Intitulé (aligné sur le module catalogue). */
+  intitule: string;
+  /** B — Niveau, durée et tarif (contrôle référentiel). */
+  niveau: ModuleNiveau;
+  dureeMinutes: number;
+  prixInterHt: number;
+  /** C */
+  publicCible: string;
+  prerequis: string;
+  /** D — Formulés en résultats observables en session. */
+  objectifsMesurables: readonly string[];
+  /** E — Somme = dureeMinutes. */
+  sequences: readonly ProgrammeSequence[];
+  /** F */
+  exercicePratique: string;
+  /** G */
+  usageIa: {
+    outil: 'chatgpt' | 'claude' | 'claude-et-chatgpt';
+    description: string;
+    documents: string;
+    controleHumain: string;
+  };
+  /** H */
+  livrables: readonly string[];
+  /** I */
+  evaluation: {
+    modalites: string;
+    criteres: readonly string[];
+  };
+  /** J */
+  verificationHumaineEtConfidentialite: string;
+};
 
 export type CatalogueModule = {
+  /** Identifiant référentiel (slug dérivé du code). */
+  id: string;
   code: ModuleCode;
+  /** Niveau pédagogique — fixe durée et tarif inter. */
+  niveau: ModuleNiveau;
+  /** Année de disponibilité catalogue parcours (référentiel 2027). */
+  anneeDisponibilite: 2027;
   titre: string;
   domaineId: DomaineId;
   sousDomaine: string;
   metiers: readonly MetierId[];
   objectifPrincipal: string;
+  /** D — Objectifs mesurables (programme harmonisé si présent). */
+  objectifsMesurables?: readonly string[];
   publicCible: string;
   prerequis: string;
-  /** Points de programme (synthèse). Compléments marqués « à valider » si non issus du brief. */
+  /** Points de programme (synthèse ou dérivés des séquences chronologiques). */
   programme: readonly string[];
+  /** E — Détail horaire (source de vérité si défini). */
+  programmeSequences?: readonly ProgrammeSequence[];
   exercices: readonly string[];
   livrables: readonly string[];
   evaluation: string;
-  /** Durée principale (heures). */
+  /** Durée principale (heures) — alignée sur `niveau`. */
   dureeHeures: ModuleDureeHeures;
-  /** Variantes de durée (ex. NUM-04). */
-  variantesDureeHeures?: readonly ModuleDureeHeures[];
+  /** Tarif inter HT / participant — aligné sur `niveau`. */
+  prixInterHt: number;
+  /** Parcours métiers qui référencent ce module (dérivé à l’export, voir enrichissement). */
+  parcoursIds?: readonly ParcoursId[];
   disponibilite: DisponibiliteCommerciale;
   statutEditorial: StatutEditorial;
   /** URL fiche détaillée publiée — sinon null (demande de programme). */
@@ -137,15 +195,16 @@ export type CatalogueParcours = {
   varianteOptionnelle?: {
     label: string;
     modulesRetires: readonly ModuleCode[];
-    dureeHeures: number;
-    prixInterHt: number;
+    /** Calculé — contrôle interne, pas d’affichage prix parcours global. */
+    dureeHeures?: number;
+    prixInterHt?: number;
   };
   /** Initiation complémentaire éventuelle (Référent IA + NUM-01). */
   initiationComplementaire?: {
     label: string;
     moduleAjoute: ModuleCode;
-    dureeHeures: number;
-    prixInterHt: number;
+    dureeHeures?: number;
+    prixInterHt?: number;
   };
 };
 

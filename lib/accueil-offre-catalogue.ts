@@ -5,7 +5,7 @@
 import {
   getAllParcoursComputed,
   getModuleByCode,
-  libelleJoursFormation,
+  libelleDureeParcoursHeures,
   type ParcoursId,
 } from '@/data/catalogue-2027';
 import { formationHref, type FormationNiveau } from '@/data/formations';
@@ -41,6 +41,7 @@ export type AccueilParcoursOffreCard = {
   /** Niveau d’entrée ou prérequis — libellé court. */
   niveauEntree: string;
   dureeLabel: string | null;
+  moduleCount: number;
   disponibiliteLabel: string;
   href: string;
   etapes: readonly AccueilParcoursEtapeCard[];
@@ -140,7 +141,7 @@ export function getAccueilParcoursOffre(
   return list.map((p) => {
     const dureeLabel =
       p.dureeHeures > 0
-        ? `${p.dureeHeures} h · ${libelleJoursFormation(p.joursFormation)}`
+        ? libelleDureeParcoursHeures(p.dureeHeures)
         : null;
 
     return {
@@ -157,6 +158,7 @@ export function getAccueilParcoursOffre(
         ACCUEIL_PARCOURS_NIVEAU_ENTREE[p.id] ??
         (p.prerequis ? `Prérequis : ${p.prerequis}` : 'Voir le détail sur la page parcours'),
       dureeLabel,
+      moduleCount: p.moduleCount,
       disponibiliteLabel: libelleDisponibilite(p.disponibilite),
       href: parcoursHref(p.id),
       etapes: p.etapes.map((e) => ({

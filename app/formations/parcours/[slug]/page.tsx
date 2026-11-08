@@ -91,10 +91,10 @@ export default async function ParcoursPage({ params }: Props) {
     offers: {
       '@type': 'Offer',
       category: 'Paid',
-      price: computed.prixInterHt,
       priceCurrency: 'EUR',
       availability: 'https://schema.org/PreOrder',
       url,
+      description: 'Tarif au module — pas de forfait parcours. Intra : sur devis.',
     },
     timeRequired: `PT${computed.dureeHeures}H`,
   };

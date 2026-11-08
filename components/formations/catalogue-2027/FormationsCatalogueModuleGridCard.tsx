@@ -1,13 +1,12 @@
 import Link from 'next/link';
 import {
   DOMAINES_CATALOGUE_2027,
-  formatPrixInterHt,
   prixModuleInterHt,
   type CatalogueModule,
 } from '@/data/catalogue-2027';
+import { libellePrixParticipantInter } from '@/data/catalogue-2027/tarifs';
 import { libelleDisponibilite } from '@/lib/catalogue-2027/search-modules';
 import { MODALITE_FORMATIONS_PRESENTIEL } from '@/lib/tarifs-sessions';
-import { TARIF_PARTICIPANT_NIV10_14H_HT } from '@/lib/tarifs-catalogue-participant';
 import { catalogueDemandeHref } from '@/lib/training-page-helpers';
 import { OFC_CARD, OFC_CTA_PRIMARY } from '@/lib/ofc-interaction-classes';
 
@@ -17,18 +16,8 @@ type Props = {
 
 function metaLigne(mod: CatalogueModule): string {
   const domaine = DOMAINES_CATALOGUE_2027.find((d) => d.id === mod.domaineId)?.titre ?? '';
-  const duree =
-    mod.code === 'NUM-04'
-      ? '14 h (catalogue)'
-      : mod.variantesDureeHeures
-        ? `${mod.dureeHeures} h ou ${mod.variantesDureeHeures.find((h) => h !== mod.dureeHeures) ?? 7} h`
-        : `${mod.dureeHeures} h`;
-
-  const prix = prixModuleInterHt(mod.code, mod.dureeHeures);
-  const tarif =
-    mod.code === 'NUM-04'
-      ? `${formatPrixInterHt(TARIF_PARTICIPANT_NIV10_14H_HT)} HT (14 h)`
-      : formatPrixInterHt(prix);
+  const duree = `${mod.dureeHeures} h`;
+  const tarif = libellePrixParticipantInter(prixModuleInterHt(mod));
 
   return [duree, tarif, MODALITE_FORMATIONS_PRESENTIEL, libelleDisponibilite(mod.disponibilite)]
     .filter(Boolean)
@@ -62,7 +51,7 @@ export function FormationsCatalogueModuleGridCard({ module: m }: Props) {
         </div>
 
         <p className="mt-3 text-xs font-medium text-ofc-ink-muted line-clamp-1">{metaLigne(m)}</p>
-        <p className="mt-1 text-[11px] text-ofc-ink-muted">HT · prise en charge possible</p>
+        <p className="mt-1 text-[11px] text-ofc-ink-muted">Prise en charge possible selon éligibilité</p>
 
         <h3
           id={titleId}

@@ -3,14 +3,14 @@
 import { useMemo, useState } from 'react';
 import Link from 'next/link';
 import {
-  formatPrixInterHt,
-  libelleJoursFormation,
+  libelleDureeParcoursHeures,
   type MetierId,
   type ParcoursComputed,
 } from '@/data/catalogue-2027';
 import { getMetiersCataloguePublic } from '@/lib/parcours-metiers-public';
 import { libelleDisponibilite } from '@/lib/catalogue-2027/search-modules';
 import { parcoursHref } from '@/lib/catalogue-2027/parcours-href';
+import { PARCOURS_TARIFS_PAR_MODULE } from '@/lib/catalogue-2027/parcours-affichage';
 import { OFC_CTA_PRIMARY, OFC_CTA_SECONDARY } from '@/lib/ofc-interaction-classes';
 
 type Props = {
@@ -117,14 +117,12 @@ export function FormationsParcoursExplorer({ parcours }: Props) {
                 <div>
                   <dt className="text-ofc-ink-muted">Durée</dt>
                   <dd className="font-semibold text-ofc-ink">
-                    {p.dureeHeures} h · {libelleJoursFormation(p.joursFormation)}
+                    {libelleDureeParcoursHeures(p.dureeHeures)}
                   </dd>
                 </div>
                 <div>
-                  <dt className="text-ofc-ink-muted">Prix inter</dt>
-                  <dd className="font-semibold text-ofc-ink">
-                    {formatPrixInterHt(p.prixInterHt)} / participant
-                  </dd>
+                  <dt className="text-ofc-ink-muted">Tarification</dt>
+                  <dd className="font-semibold text-ofc-ink">{PARCOURS_TARIFS_PAR_MODULE}</dd>
                 </div>
                 <div>
                   <dt className="text-ofc-ink-muted">Disponibilité</dt>
