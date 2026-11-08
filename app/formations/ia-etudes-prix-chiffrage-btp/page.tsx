@@ -1,16 +1,21 @@
 import Link from 'next/link';
 import { Calculator, FileSearch, HelpCircle, Scale, Table2 } from 'lucide-react';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
-import { RdvLink } from '@/components/RdvLink';
 import { FAQSection } from '@/components/landing/FAQSection';
 import { JsonLd } from '@/components/JsonLd';
 import { FormationCourseHero } from '@/components/formations/FormationCourseHero';
+import { TrainingFormationBreadcrumb } from '@/components/formations/training/TrainingFormationBreadcrumb';
+import { TrainingFormationHeroActions } from '@/components/formations/training/TrainingFormationHeroActions';
 import { RenvoiFicheCatalogue } from '@/components/qualiopi/RenvoiFicheCatalogue';
+import { CtaDevis } from '@/components/CtaDevis';
 import { FooterTelOrMailLink } from '@/components/PublicPhoneCta';
 import { GAINS_TEMPS_MENTION_PRUDENCE } from '@/lib/gains-temps-copy';
 import { createPageMetadata, getFAQSchema } from '@/lib/seo';
 import { LINKS } from '@/lib/internal-links';
 import { FinancementOpcoEtenduCourtBlock } from '@/components/financement/FinancementOpcoEtenduCourtBlock';
+import { isProgrammePdfObsoleteForLegacyCode } from '@/lib/catalogue-2027/pdf-programme';
+import { getFormationByCode } from '@/data/formations';
+import { trainingDevisHref } from '@/lib/training-page-helpers';
 import {
   ETUDES_PRIX_CAS_USAGE,
   ETUDES_PRIX_EN_BREF,
@@ -21,6 +26,13 @@ import {
 } from '@/lib/formation-ia-etudes-prix-chiffrage-btp-content';
 
 const CAS_ICONS = [FileSearch, Table2, Scale, Calculator, HelpCircle] as const;
+
+const BREADCRUMB_PAGE_TITLE = 'IA études de prix et chiffrage BTP';
+
+const CATALOGUE_NIV02 = getFormationByCode('NIV-02')!;
+const NIV02_PDF_HREF = isProgrammePdfObsoleteForLegacyCode('NIV-02')
+  ? undefined
+  : CATALOGUE_NIV02.pdfProgramme;
 
 export const metadata = createPageMetadata({
   title: ETUDES_PRIX_SEO.title,
@@ -40,10 +52,21 @@ export const metadata = createPageMetadata({
 
 export default function FormationIaEtudesPrixChiffrageBtpPage() {
   const faqSchema = getFAQSchema([...ETUDES_PRIX_FAQ]);
+  const devisHref = trainingDevisHref(CATALOGUE_NIV02.titre);
 
   return (
     <div>
       <JsonLd id="schema-faq-etudes-prix" schema={faqSchema} />
+
+      <div className="border-b border-slate-100 bg-white">
+        <div className="mx-auto max-w-[80rem] px-4 pt-4 sm:px-6 lg:px-8">
+          <TrainingFormationBreadcrumb
+            formationTitle={BREADCRUMB_PAGE_TITLE}
+            formationPath={ETUDES_PRIX_CHIFFRAGE_PATH}
+            jsonLdId="schema-breadcrumb-etudes-prix"
+          />
+        </div>
+      </div>
 
       <FormationCourseHero
         refLine="Études de prix · Chiffrage · Présentiel IDF · Qualiopi"
@@ -51,29 +74,30 @@ export default function FormationIaEtudesPrixChiffrageBtpPage() {
         subtitle="DPGF, métrés, BPU et quantitatifs — l’IA assiste, le métreur valide"
         badges={['Métreurs & économistes', 'Bureaux d’études', 'Cas concrets']}
         summaryItems={[...ETUDES_PRIX_EN_BREF]}
+        catalogueRef="NIV-02"
+        programmePdfAfterHero={false}
         textLink={{
           href: LINKS.formationIaBureauEtudesBtp,
           label: 'Page métier — IA pour bureaux d’études et études de prix',
         }}
         ctas={
-          <>
-            <RdvLink
-              campaign="formations-etudes-prix-hero"
-              className="rounded-xl bg-[var(--accent)] px-6 py-3.5 text-center font-semibold text-white hover:bg-blue-600"
-             />
-            <Link
-              href={LINKS.formationAO}
-              className="rounded-xl border-2 border-slate-200 px-6 py-3.5 text-center font-semibold text-slate-800 hover:border-[var(--accent)]"
-            >
-              Voir la fiche NIV-02
-            </Link>
-          </>
+          <TrainingFormationHeroActions
+            formationTitle={CATALOGUE_NIV02.titre}
+            pdfHref={NIV02_PDF_HREF}
+            className="w-full sm:flex-row"
+          />
         }
         footerLinks={
           <>
             <a href="#cas-usage" className="font-medium text-[var(--accent)] hover:underline">
               Cas d&apos;usage
             </a>
+            <Link
+              href={LINKS.formationAO}
+              className="font-medium text-slate-600 hover:text-[var(--accent)] hover:underline"
+            >
+              Fiche catalogue NIV-02 (appels d&apos;offres)
+            </Link>
             <Link
               href={LINKS.formations}
               className="font-medium text-slate-600 hover:text-[var(--accent)] hover:underline"
@@ -124,8 +148,8 @@ export default function FormationIaEtudesPrixChiffrageBtpPage() {
           subtitle="Responsabilité métier, fiche catalogue, financement."
         />
 
-        <div className="mt-10">
-          <RdvLink className="inline-block rounded-xl bg-[var(--accent)] px-8 py-3 font-semibold text-white hover:bg-blue-700" />
+        <div className="mt-10 flex justify-center">
+          <CtaDevis href={devisHref} className="inline-flex min-h-11 items-center justify-center px-8 py-3" />
         </div>
 
         <RenvoiFicheCatalogue

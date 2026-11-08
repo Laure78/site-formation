@@ -6,6 +6,11 @@ const APPLICATION_METIER_PATHS = [
   '/formations/application-metier-btp-niveau-3',
 ] as const;
 
+/** Entrées thématiques sous `/formations/` — même fil d’Ariane intégré que les fiches catalogue. */
+const FORMATION_THEMATIC_INTEGRATED_PATHS = [
+  '/formations/ia-etudes-prix-chiffrage-btp',
+] as const;
+
 let cachedPublishedFichePaths: ReadonlySet<string> | null = null;
 
 function publishedFichePaths(): ReadonlySet<string> {
@@ -15,6 +20,9 @@ function publishedFichePaths(): ReadonlySet<string> {
     paths.add(`/formations/${f.slug}`);
   }
   for (const p of APPLICATION_METIER_PATHS) {
+    paths.add(p);
+  }
+  for (const p of FORMATION_THEMATIC_INTEGRATED_PATHS) {
     paths.add(p);
   }
   cachedPublishedFichePaths = paths;
