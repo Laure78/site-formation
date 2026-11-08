@@ -1,5 +1,6 @@
 import { JsonLd } from '@/components/JsonLd';
 import { TrainingNiv11MaquetteTemplate } from '@/components/formations/training/TrainingNiv11MaquetteTemplate';
+import { FAQ_AMO_NIV11 } from '@/lib/catalogue-formation-faq-niv11';
 import { buildCatalogueFormationCoursePageJsonLd, buildCatalogueFormationFaqPageJsonLd } from '@/lib/catalogue-formation-page-jsonld';
 import { createPageMetadata, SITE_CONFIG } from '@/lib/seo';
 import { getFormationCatalogueVisuel } from '@/lib/formations-catalogue-display';
@@ -30,7 +31,7 @@ export const metadata = createPageMetadata({
 });
 
 const courseSchema = buildCatalogueFormationCoursePageJsonLd('NIV-11');
-const faqSchema = buildCatalogueFormationFaqPageJsonLd('NIV-11');
+const faqSchema = buildCatalogueFormationFaqPageJsonLd('NIV-11', FAQ_AMO_NIV11);
 
 export default async function FormationIaAssistanceMaitriseOuvragePage() {
   return (
@@ -40,6 +41,7 @@ export default async function FormationIaAssistanceMaitriseOuvragePage() {
 
       <TrainingNiv11MaquetteTemplate
         content={PAGE_CONTENT}
+        faqItems={FAQ_AMO_NIV11}
         faqSectionId="faq-niv-11"
         h1Id="formation-amo-h1"
       />

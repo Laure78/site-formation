@@ -2,6 +2,7 @@
  * Niveaux pédagogiques IA BTP — libellés et descriptions uniques (menu, accueil, catalogue, cartes).
  */
 import type { FormationNiveau } from '@/data/formations';
+import { FORMATION_NIVEAU_OFFICIEL } from '@/lib/formation-niveaux-officiels';
 
 export type FormationNiveauIaDefinition = {
   niveau: FormationNiveau;
@@ -32,10 +33,10 @@ export type FormationNiveauIaDefinition = {
 export const FORMATIONS_NIVEAUX_IA: readonly FormationNiveauIaDefinition[] = [
   {
     niveau: 1,
-    labelComplet: 'Niveau 1 — Débutant',
+    labelComplet: FORMATION_NIVEAU_OFFICIEL[1],
     sousTitre: 'Débutant',
     accrocheNiveau: 'Prendre en main l’IA',
-    badge: 'Niveau 1 — Débutant',
+    badge: FORMATION_NIVEAU_OFFICIEL[1],
     publicCible:
       'Personnes qui découvrent l’IA ou l’utilisent occasionnellement sur quelques tâches.',
     objectif:
@@ -43,7 +44,7 @@ export const FORMATIONS_NIVEAUX_IA: readonly FormationNiveauIaDefinition[] = [
     descriptionMenu:
       'Découvrir les outils et réaliser ses premières tâches.',
     anchorId: 'catalogue-niveau-1',
-    sectionHeading: 'Niveau 1 — Débutant',
+    sectionHeading: FORMATION_NIVEAU_OFFICIEL[1],
     accueilAccroche:
       'Découvrir l’IA et réaliser ses premiers usages professionnels.',
     accueilDuree: '4 h',
@@ -57,10 +58,10 @@ export const FORMATIONS_NIVEAUX_IA: readonly FormationNiveauIaDefinition[] = [
   },
   {
     niveau: 2,
-    labelComplet: 'Niveau 2 — Intermédiaire',
-    sousTitre: 'Intermédiaire',
+    labelComplet: FORMATION_NIVEAU_OFFICIEL[2],
+    sousTitre: 'Avancé',
     accrocheNiveau: 'Appliquer l’IA à son métier',
-    badge: 'Niveau 2 — Intermédiaire',
+    badge: FORMATION_NIVEAU_OFFICIEL[2],
     publicCible:
       'Personnes disposant des bases et souhaitant structurer leurs usages sur leurs documents métier.',
     objectif:
@@ -68,7 +69,7 @@ export const FORMATIONS_NIVEAUX_IA: readonly FormationNiveauIaDefinition[] = [
     descriptionMenu:
       'Analyser ses documents, produire et contrôler ses livrables.',
     anchorId: 'catalogue-niveau-2',
-    sectionHeading: 'Niveau 2 — Intermédiaire',
+    sectionHeading: FORMATION_NIVEAU_OFFICIEL[2],
     accueilAccroche: 'Utiliser l’IA sur ses documents et ses tâches métier.',
     accueilDuree: '4 h',
     prerequis:
@@ -81,10 +82,10 @@ export const FORMATIONS_NIVEAUX_IA: readonly FormationNiveauIaDefinition[] = [
   },
   {
     niveau: 3,
-    labelComplet: 'Niveau 3 — Approfondi',
+    labelComplet: FORMATION_NIVEAU_OFFICIEL[3],
     sousTitre: 'Approfondi',
     accrocheNiveau: 'Créer ses assistants et ses outils',
-    badge: 'Niveau 3 — Approfondi',
+    badge: FORMATION_NIVEAU_OFFICIEL[3],
     publicCible:
       'Utilisateurs autonomes souhaitant personnaliser leurs outils et assistants.',
     objectif:
@@ -92,7 +93,7 @@ export const FORMATIONS_NIVEAUX_IA: readonly FormationNiveauIaDefinition[] = [
     descriptionMenu:
       'Concevoir des usages réutilisables et des outils adaptés à son activité.',
     anchorId: 'catalogue-niveau-3',
-    sectionHeading: 'Niveau 3 — Approfondi',
+    sectionHeading: FORMATION_NIVEAU_OFFICIEL[3],
     accueilAccroche:
       'Créer des assistants et des outils adaptés à son activité.',
     accueilDuree: '14 h',

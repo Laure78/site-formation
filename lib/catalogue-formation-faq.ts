@@ -5,7 +5,6 @@
 import {
   formationHref,
   getFormationByCode,
-  libelleDureeFormation,
   libelleEffectifFormation,
   type FormationCode,
 } from '@/data/formations';
@@ -20,8 +19,10 @@ const CORE_QUESTION_MARKERS = [
   'usages métier',
   'prérequis',
   'durée de la formation',
+  'quelle est la durée',
   'quel est le tarif',
   'quel est son tarif',
+  'combien coûte',
   'devis ou s’inscrire',
   "devis ou s'inscrire",
 ] as const;
@@ -50,12 +51,11 @@ export function buildCatalogueFormationCoreFaq(ref: string): FAQItem[] {
   const devisHref = trainingDevisHref(formation.titre);
   const usagesListe = formation.casUsageCourts.join(', ');
   const effectif = libelleEffectifFormation(formation);
-  const dureeCourte = libelleDureeFormation(formation);
 
   return [
     {
       q: 'Quels usages métier sont travaillés ?',
-      a: `Cette session « ${formation.titre} » travaille ${usagesListe.toLowerCase()} — au-delà des cas affichés sur la fiche : ${formation.casUsage}. Les ateliers s’appuient sur des documents BTP réels (devis, DCE, CCTP, comptes rendus de chantier, mémoires techniques ou assistants métier selon le programme), avec relecture humaine avant envoi. Voir le <a href="${ficheHref}#programme">programme détaillé</a> et le PDF du programme sur la fiche.`,
+      a: `Cette session « ${formation.titre} » aborde ${usagesListe.toLowerCase()} — au-delà des cas affichés sur la fiche : ${formation.casUsage}. Les ateliers s’appuient sur des documents BTP réels (devis, dossier de consultation des entreprises (DCE), cahier des clauses techniques particulières (CCTP), comptes rendus de chantier, mémoires techniques ou assistants métier selon le programme), avec relecture humaine avant envoi. Voir le <a href="${ficheHref}#programme">programme détaillé</a> et le PDF du programme sur la fiche.`,
     },
     {
       q: 'Quels sont les prérequis ?',
@@ -63,7 +63,7 @@ export function buildCatalogueFormationCoreFaq(ref: string): FAQItem[] {
     },
     {
       q: 'Quelle est la durée de la formation ?',
-      a: `La formation dure ${infos.duree} (${dureeCourte} sur la fiche), pour ${effectif}, en ${MODALITE_PEDAGOGIQUE_CATALOGUE.toLowerCase()}.`,
+      a: `La formation dure ${infos.duree}, pour ${effectif}, en ${MODALITE_PEDAGOGIQUE_CATALOGUE.toLowerCase()}. La durée indiquée est pédagogique (hors pause) ; les horaires de session précisés sur la fiche ou à l’inscription s’appliquent le jour J.`,
     },
     {
       q: 'Quel est le tarif ?',

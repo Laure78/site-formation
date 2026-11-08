@@ -99,8 +99,9 @@ export function FormationMoeNiv05GeoSections() {
           contrôle humain (prompts, modèles, tableaux) utilisable dès le lendemain sur vos dossiers.
         </p>
         <p className="mt-3">
-          Le programme couvre cinq modules en 4 heures (240 minutes) : IA et MOE, CCTP/DPGF, analyse
-          DCE, CR et plannings, OS et réserves — 70 % de pratique en présentiel en Île-de-France.
+          Le programme couvre cinq modules en 4 heures : IA et maîtrise d’œuvre, CCTP et DPGF, analyse
+          du dossier de consultation des entreprises (DCE), comptes rendus et plannings, ordres de service
+          et réserves — 70 % de pratique en présentiel en Île-de-France.
         </p>
       </TrainingSection>
     </>

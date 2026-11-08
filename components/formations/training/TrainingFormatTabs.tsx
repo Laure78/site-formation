@@ -2,12 +2,13 @@
 
 import { useId, useState } from 'react';
 import Link from 'next/link';
-import { ChevronRight, Mail, Users } from 'lucide-react';
-import { CtaVisio } from '@/components/CtaVisio';
+import { ChevronRight, Users } from 'lucide-react';
+import { CtaDevis } from '@/components/CtaDevis';
 import { MentionTvaAsterisque } from '@/components/MentionTVA';
-import { catalogueDemandeHref } from '@/lib/training-page-helpers';
+import { CTA_TELECHARGER_PROGRAMME_LABEL } from '@/lib/cta-programme-label';
+import { catalogueDemandeHref, trainingDevisHref } from '@/lib/training-page-helpers';
 import { LINKS } from '@/lib/internal-links';
-import { OFC_CTA_PRIMARY, OFC_CTA_SECONDARY } from '@/lib/ofc-interaction-classes';
+import { OFC_CTA_SECONDARY } from '@/lib/ofc-interaction-classes';
 import { FINANCEMENT_FORMULATION_COURTE } from '@/lib/financement-copy';
 import { TRAINING_ANCHOR } from '@/lib/training-fiche-nav';
 
@@ -17,13 +18,21 @@ type Props = {
   formationTitle: string;
   durationLabel: string;
   interPriceLabel: string;
+  /** Tarif intra — par défaut identique à l’inter (grille catalogue). */
   intraPriceLabel?: string;
   showTvaAsterisk?: boolean;
   effectifLabel: string;
   pdfHref?: string;
   showIntra?: boolean;
-  /** Lien d’inscription inter (session ouverte) — sinon bouton « Demander une prochaine date ». */
+  /** Lien d’inscription inter (session publiée). */
   interInscriptionHref?: string;
+  /** Sessions inter publiées — affiche « Voir les dates » vers la section sessions. */
+  hasPublishedSessions?: boolean;
+  /**
+   * `catalogue` : modalités sans CTA (hero porte devis + programme).
+   * `sidebar` : encadré latéral legacy (`TrainingPageTemplate`).
+   */
+  variant?: 'catalogue' | 'sidebar';
   onFormatChange?: (format: TrainingFormatKind) => void;
 };
 
@@ -31,16 +40,19 @@ export function TrainingFormatTabs({
   formationTitle,
   durationLabel,
   interPriceLabel,
-  intraPriceLabel = 'Tarif sur devis',
+  intraPriceLabel,
   showTvaAsterisk = true,
   effectifLabel,
   pdfHref,
   showIntra = true,
   interInscriptionHref,
+  hasPublishedSessions = false,
+  variant = 'sidebar',
   onFormatChange,
 }: Props) {
   const [format, setFormat] = useState<TrainingFormatKind>('inter');
   const baseId = useId();
+  const resolvedIntraPrice = intraPriceLabel ?? interPriceLabel;
 
   const set = (next: TrainingFormatKind) => {
     setFormat(next);
@@ -50,21 +62,11 @@ export function TrainingFormatTabs({
   const devisInterHref = `${LINKS.contact}?objet=devis&formation=${encodeURIComponent(formationTitle)}&variante=inter-entreprises`;
   const devisIntraHref = catalogueDemandeHref({
     formationOuParcours: formationTitle,
-    nature: 'intra',
+    nature: 'devis',
     variante: 'intra-entreprise',
   });
 
-  const prochaineDateHref = catalogueDemandeHref({
-    formationOuParcours: formationTitle,
-    nature: 'devis',
-    variante: 'inter-entreprises',
-    metier: 'prochaine-date-inter',
-  });
-
-  const programmeFallbackHref = catalogueDemandeHref({
-    formationOuParcours: formationTitle,
-    nature: 'choix-formation',
-  });
+  const showDatesLink = hasPublishedSessions || Boolean(interInscriptionHref);
 
   return (
     <div className="space-y-3">
@@ -112,22 +114,25 @@ export function TrainingFormatTabs({
           {format === 'inter' ? (
             <>
               <p className="text-sm leading-relaxed text-slate-600">
-                Formation sur catalogue, ouverte à plusieurs entreprises, en présentiel.
+                Formation inter-entreprises en présentiel en Île-de-France, selon le lieu communiqué pour la
+                session.
               </p>
               <dl className="mt-4 space-y-3 text-sm">
                 <div className="flex items-baseline justify-between gap-3">
                   <dt className="font-semibold text-slate-800">Durée</dt>
                   <dd className="font-bold text-slate-900">{durationLabel}</dd>
                 </div>
-                <div>
-                  <a
-                    href={`#${TRAINING_ANCHOR.sessions}`}
-                    className="inline-flex items-center gap-1 font-semibold text-[#377CF3] hover:underline"
-                  >
-                    Voir les dates et lieux
-                    <ChevronRight className="h-4 w-4" aria-hidden />
-                  </a>
-                </div>
+                {showDatesLink ? (
+                  <div>
+                    <a
+                      href={`#${TRAINING_ANCHOR.sessions}`}
+                      className="inline-flex items-center gap-1 font-semibold text-[#377CF3] hover:underline"
+                    >
+                      Voir les dates
+                      <ChevronRight className="h-4 w-4" aria-hidden />
+                    </a>
+                  </div>
+                ) : null}
                 <div className="flex items-baseline justify-between gap-3 border-t border-slate-100 pt-3">
                   <dt className="text-slate-600">Prix HT par participant</dt>
                   <dd className="font-display text-lg font-bold text-slate-900">
@@ -141,7 +146,7 @@ export function TrainingFormatTabs({
           ) : (
             <>
               <p className="text-sm leading-relaxed text-slate-600">
-                Formation dédiée à votre équipe, dans vos locaux en Île-de-France.
+                Formation intra-entreprise en présentiel dans les locaux de l&apos;entreprise, en Île-de-France.
               </p>
               <dl className="mt-4 space-y-3 text-sm">
                 <div className="flex items-baseline justify-between gap-3">
@@ -153,67 +158,49 @@ export function TrainingFormatTabs({
                   <dd className="font-semibold text-slate-900">À convenir</dd>
                 </div>
                 <div className="flex items-baseline justify-between gap-3 border-t border-slate-100 pt-3">
-                  <dt className="text-slate-600">Tarif</dt>
-                  <dd className="font-display text-lg font-bold text-slate-900">{intraPriceLabel}</dd>
+                  <dt className="text-slate-600">Prix HT par participant</dt>
+                  <dd className="font-display text-lg font-bold text-slate-900">
+                    {resolvedIntraPrice}
+                    {showTvaAsterisk ? <MentionTvaAsterisque /> : null}
+                  </dd>
                 </div>
               </dl>
               <p className="mt-2 text-xs text-slate-500">{effectifLabel}</p>
             </>
           )}
 
-          <div className="mt-5 flex flex-col gap-2">
-            {pdfHref ? (
-              <a
-                href={pdfHref}
-                download
-                className={`${OFC_CTA_SECONDARY} inline-flex min-h-11 items-center justify-center px-4 py-2.5 text-sm`}
-              >
-                Télécharger le programme
-              </a>
-            ) : (
-              <Link
-                href={programmeFallbackHref}
-                className={`${OFC_CTA_SECONDARY} inline-flex min-h-11 items-center justify-center px-4 py-2.5 text-sm`}
-              >
-                Recevoir le programme
-              </Link>
-            )}
-            {format === 'inter' ? (
-              <>
-                <CtaVisio
-                  src={`training-format-inter-devis-${baseId}`}
-                  variant="secondary"
+          {variant === 'sidebar' ? (
+            <div className="mt-5 flex flex-col gap-2">
+              {pdfHref ? (
+                <a
+                  href={pdfHref}
+                  download
                   className={`${OFC_CTA_SECONDARY} inline-flex min-h-11 items-center justify-center px-4 py-2.5 text-sm`}
-                />
-                {interInscriptionHref ? (
-                  <Link
-                    href={interInscriptionHref}
-                    className={`${OFC_CTA_PRIMARY} inline-flex min-h-11 items-center justify-center px-4 py-2.5 text-sm`}
-                  >
-                    S&apos;inscrire
-                  </Link>
-                ) : (
-                  <Link
-                    href={prochaineDateHref}
-                    className={`${OFC_CTA_PRIMARY} inline-flex min-h-11 items-center justify-center px-4 py-2.5 text-sm`}
-                  >
-                    Demander une prochaine date
-                  </Link>
-                )}
-              </>
-            ) : (
-              <CtaVisio
-                src={`training-format-intra-${baseId}`}
-                className={`${OFC_CTA_PRIMARY} inline-flex min-h-11 items-center justify-center px-4 py-2.5 text-sm`}
+                >
+                  {CTA_TELECHARGER_PROGRAMME_LABEL}
+                </a>
+              ) : null}
+              <CtaDevis
+                href={format === 'inter' ? devisInterHref : devisIntraHref}
+                className="inline-flex min-h-11 items-center justify-center px-4 py-2.5 text-sm"
               />
-            )}
-          </div>
+              {format === 'inter' && interInscriptionHref ? (
+                <Link
+                  href={interInscriptionHref}
+                  className={`${OFC_CTA_SECONDARY} inline-flex min-h-11 items-center justify-center px-4 py-2.5 text-sm`}
+                >
+                  S&apos;inscrire à une session
+                </Link>
+              ) : null}
+            </div>
+          ) : null}
+
           <p className="mt-4 text-xs leading-relaxed text-slate-500">{FINANCEMENT_FORMULATION_COURTE}</p>
         </div>
       </div>
 
       {showIntra ? (
-        <div className="rounded-2xl border border-slate-200 bg-white px-4 py-2 shadow-sm">
+        <div className="rounded-2xl border border-slate-200 bg-white px-4 py-2 shadow-sm lg:hidden">
           {format === 'inter' ? (
             <button
               type="button"
@@ -243,4 +230,19 @@ export function TrainingFormatTabs({
       ) : null}
     </div>
   );
+}
+
+/** Href devis catalogue selon le format sélectionné (export pour usages futurs). */
+export function trainingCatalogueDevisHref(
+  formationTitle: string,
+  format: TrainingFormatKind,
+): string {
+  if (format === 'intra') {
+    return catalogueDemandeHref({
+      formationOuParcours: formationTitle,
+      nature: 'devis',
+      variante: 'intra-entreprise',
+    });
+  }
+  return trainingDevisHref(formationTitle);
 }

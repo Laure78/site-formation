@@ -11,6 +11,7 @@ import {
   FAQ_CONDUITE_TRAVAUX_NIV03,
   FAQ_MAITRISER_CLAUDE_NIV04,
 } from '../lib/faq';
+import { FAQ_AMO_NIV11 } from '../lib/catalogue-formation-faq-niv11';
 import { FAQ_MOE_NIV05 } from '../lib/catalogue-formation-faq-niv05';
 import { DEV_WEB_IA_FAQ } from '../lib/formation-developpement-web-ia-content';
 import {
@@ -39,6 +40,7 @@ const CATALOGUE_FICHES: Array<{
   { ref: 'NIV-08', metierFaq: getApplicationMetierNiveauByRef('NIV-08').faq },
   { ref: 'NIV-09', metierFaq: FAQ_ASSISTANTS_IA_NIV09 },
   { ref: 'NIV-10', metierFaq: DEV_WEB_IA_FAQ },
+  { ref: 'NIV-11', metierFaq: FAQ_AMO_NIV11 },
 ];
 
 function assertNoDistanciel(label: string, payload: unknown): void {

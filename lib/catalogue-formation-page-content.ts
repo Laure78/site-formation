@@ -62,6 +62,8 @@ export type CatalogueProgramModule = {
   practice?: string;
   /** Compétence travaillée — affichée en tête du module si renseignée. */
   competence?: string;
+  /** Livrable module — sinon extrait d’une puce « Livrable : … ». */
+  deliverable?: string;
 };
 
 export type CatalogueNavItem = {
@@ -649,7 +651,7 @@ const NIV_03: CatalogueFormationPageContent = {
 const NIV_04: CatalogueFormationPageContent = {
   programmeRef: 'NIV-04',
   parcoursKind: 'usages-ia-btp',
-  levelBadgeLabel: 'Niveau 3 · Avancé',
+  levelBadgeLabel: 'Niveau 2 · Avancé',
   heroPublicLine:
     'Référents IA, dirigeants, responsables digitaux, chargés d’affaires et conducteurs de travaux souhaitant industrialiser l’usage de Claude dans l’entreprise.',
   heroFacts: [
@@ -658,7 +660,7 @@ const NIV_04: CatalogueFormationPageContent = {
     'Projets, Cowork, connecteurs, Claude Code',
     'Présentiel en Île-de-France',
   ],
-  quickFactsLevel: 'Niveau 3 · Avancé',
+  quickFactsLevel: 'Niveau 2 · Avancé',
   practiceShare: '70 %',
   formatLabel: 'Présentiel',
   locationLabel: SITE_FORMATION_LOCATION_LABEL,
@@ -743,7 +745,7 @@ const NIV_05: CatalogueFormationPageContent = {
   heroPublicLine:
     'Maîtres d’œuvre de conception et d’exécution, architectes, économistes, BET, OPC, conducteurs de travaux MOE et assistants gestion travaux.',
   heroFacts: [
-    '4 heures · 240 minutes',
+    '4 heures',
     '70 % de pratique',
     '5 modules — conception à réception',
     '6 à 12 participants en inter',
@@ -823,7 +825,7 @@ const NIV_05: CatalogueFormationPageContent = {
     { iaAide: 'CR, plannings courts et courriers de suivi', validation: 'Valider faits et engagements avant envoi' },
     { iaAide: 'Projets d’OS, réserves et pièces de réception', validation: 'Contrôler habilitations et clauses contractuelles' },
   ],
-  programmeHeading: 'Programme — 5 modules (4 h · 240 min)',
+  programmeHeading: 'Programme — 5 modules (4 h)',
   programIntro:
     '4 h · 70 % pratique · 5 modules (30 + 55 + 45 + 50 + 60 min) · ateliers sur vos dossiers MOE (anonymisés si besoin).',
   programModules: mapProgrammeBlocsToCatalogueModules(NIV05_PROGRAMME_BLOCS),

@@ -7,6 +7,7 @@ import { cn } from '@/lib/cn';
 import { isAuthConnexionPage } from '@/lib/auth-connexion-chrome';
 import { LINKS } from '@/lib/internal-links';
 import { isParcoursMetiersMaquetteRoute } from '@/lib/parcours-metiers-maquette-route';
+import { isCatalogueFormationFichePath } from '@/lib/training-maquette-formation-route';
 
 /**
  * Fil d'Ariane visuel — injecté dans `app/layout.tsx` (toutes les pages sauf l'accueil / admin).
@@ -17,6 +18,8 @@ export function GlobalBreadcrumbs() {
   if (isAuthConnexionPage(pathname)) return null;
   if (isParcoursMetiersMaquetteRoute(pathname)) return null;
   const pathNorm = pathname.replace(/\/$/, '') || '/';
+  /** Fil intégré au hero des fiches catalogue maquette. */
+  if (isCatalogueFormationFichePath(pathNorm)) return null;
   /** Hub blog maquette — fil d’Ariane intégré au hero. */
   if (pathNorm === '/blog' || pathNorm.startsWith('/blog/page/')) return null;
   /** Fil explicite — évite un écart d’hydratation sur le hub formateurs. */

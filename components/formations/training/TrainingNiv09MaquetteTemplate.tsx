@@ -2,7 +2,6 @@ import { ShortAnswerBlock } from '@/components/landing/ShortAnswerBlock';
 import {
   TrainingDeliverables,
   TrainingFAQ,
-  TrainingMethod,
   TrainingOutcomes,
 } from '@/components/formations/training';
 import { TrainingPageLayout } from '@/components/formations/training/TrainingPageLayout';

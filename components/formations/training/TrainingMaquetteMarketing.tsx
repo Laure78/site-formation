@@ -19,6 +19,12 @@ import type { CatalogueProgramModule } from '@/lib/catalogue-formation-page-cont
 import type { FormationCatalogueCode } from '@/lib/formation-catalogue-visibility';
 import { getFormationMaquetteAssets } from '@/lib/formation-maquette-assets';
 import { getFormationMaquetteMarketingSlice } from '@/lib/formation-maquette-marketing-config';
+import {
+  formationHeroBadgeNiveau,
+  formationNiveauOfficielLabel,
+} from '@/lib/formation-niveaux-officiels';
+import { FORMATION_SECTION_PROGRAMME } from '@/lib/formation-pedagogy-sections';
+import { buildProgrammeModuleCards } from '@/lib/formation-program-module-display';
 import { LINKS } from '@/lib/internal-links';
 import { OFC_CTA_SECONDARY } from '@/lib/ofc-interaction-classes';
 import { formatNumberFr } from '@/lib/format-number-fr';
@@ -41,59 +47,6 @@ type Props = {
 
 const DEFAULT_PEDAGOGY_ICONS = [HardHat, FileText, Layers, Shield, Target] as const;
 
-function parseDurationFromModuleTitle(title: string): string | null {
-  const emDash = title.match(/—\s*([^—]+)$/);
-  if (emDash) return emDash[1].trim();
-  const paren = title.match(/\(([^)]+)\)\s*$/);
-  return paren ? paren[1].trim() : null;
-}
-
-function stripModuleHeading(title: string): string {
-  const withoutParen = title.replace(/\s*\([^)]+\)\s*$/, '').trim();
-  const withoutMeta = withoutParen.replace(/—\s*[^—]+$/, '').trim();
-  return (
-    withoutMeta
-      .replace(/^MODULE\s+\d+\s*—\s*/i, '')
-      .replace(/^Module\s+\d+\s*—\s*/i, '')
-      .trim() || withoutParen
-  );
-}
-
-function pickTeachingModules(modules: readonly CatalogueProgramModule[]) {
-  const filtered = modules.filter(
-    (m) => /^MODULE\s+\d/i.test(m.title) || /^Module\s+\d/i.test(m.title),
-  );
-  const source = filtered.length > 0 ? filtered : modules;
-  return source
-    .map((mod, index) => ({
-      numero: String(index + 1).padStart(2, '0'),
-      titre: stripModuleHeading(mod.title),
-      duree: parseDurationFromModuleTitle(mod.title) ?? '',
-      points: mod.points,
-      competence: mod.competence,
-      practice: mod.practice,
-    }));
-}
-
-function pickFixedLabelModules(
-  modules: readonly CatalogueProgramModule[],
-  labels: readonly string[],
-) {
-  const teaching = modules.filter((m) => /^Module\s+\d/i.test(m.title));
-  return labels.map((label, index) => {
-    const mod = teaching[index];
-    const duree = mod ? parseDurationFromModuleTitle(mod.title) : null;
-    return {
-      numero: String(index + 1).padStart(2, '0'),
-      titre: label,
-      duree: duree ?? '',
-      points: mod?.points ?? [],
-      competence: mod?.competence,
-      practice: mod?.practice,
-    };
-  });
-}
-
 /**
  * Sections marketing communes — modèle graphique NIV-02 (hero → CTA final + barre mobile).
  */
@@ -114,12 +67,12 @@ export function TrainingMaquetteMarketing({
   const tarifHt = formation.tarifParticipantHt ?? 0;
   const tarifLabel = libelleTarifParticipantCatalogue(tarifHt);
   const is14h = formation.duree.includes('14');
+  const heroBadge = formationHeroBadgeNiveau(formation.niveau);
+  const levelKeyFact = formationNiveauOfficielLabel(formation.niveau);
 
-  const programCards = slice.programmeFixedLabels?.length
-    ? pickFixedLabelModules(programModules, slice.programmeFixedLabels)
-    : pickTeachingModules(programModules);
+  const programCards = buildProgrammeModuleCards(programModules, slice.programmeFixedLabels);
 
-  const programmeTitle = programmeHeading ?? slice.programmeTitleDefault;
+  const programmeTitle = programmeHeading ?? FORMATION_SECTION_PROGRAMME;
   const pedagogyLabels = slice.pedagogyLabels ?? [
     'Cas pratiques BTP',
     'Documents métier',
@@ -148,10 +101,10 @@ export function TrainingMaquetteMarketing({
   );
 
   const footnote = is14h
-    ? `${slice.programmeFootnote14h ?? 'Durée totale : 14 h'} — ${tarifLabel} en inter-entreprises.`
-    : `${slice.programmeFootnote4h ?? 'Durée totale : 4 h'} — ${tarifLabel} en inter-entreprises.`;
+    ? `${slice.programmeFootnote14h ?? 'Durée totale : 14 h'} — ${tarifLabel} (identique intra et inter).`
+    : `${slice.programmeFootnote4h ?? 'Durée totale : 4 h'} — ${tarifLabel} (identique intra et inter).`;
 
-  const tarifKeyFact = `${formatNumberFr(tarifHt)} € HT / participant — inter-entreprises`;
+  const tarifKeyFact = `${formatNumberFr(tarifHt)} € HT / participant`;
   const durationKeyFact = formation.duree;
 
   return (
@@ -188,7 +141,7 @@ export function TrainingMaquetteMarketing({
 
         <div className="mx-auto grid max-w-[80rem] items-center gap-10 px-4 py-10 sm:px-6 lg:grid-cols-2 lg:gap-12 lg:px-8 lg:py-14">
           <div className="min-w-0">
-            <p className="text-xs font-semibold uppercase tracking-[0.12em] text-[#377CF3]">{slice.heroBadge}</p>
+            <p className="text-xs font-semibold uppercase tracking-[0.12em] text-[#377CF3]">{heroBadge}</p>
             <h1 id={h1Id} className="ofc-type-hero mt-4 text-balance text-[#101936]">
               {heroH1}
             </h1>
@@ -228,7 +181,7 @@ export function TrainingMaquetteMarketing({
           </h2>
           <div className="grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-5">
             {[
-              { icon: Layers, sub: slice.keyFactsLevel },
+              { icon: Layers, sub: levelKeyFact },
               { icon: Clock, sub: durationKeyFact },
               { icon: Coins, sub: tarifKeyFact },
               { icon: MapPin, sub: SITE_FORMATION_MODALITE_ENCART },
@@ -302,19 +255,12 @@ export function TrainingMaquetteMarketing({
                     className="flex h-full flex-col rounded-2xl border border-slate-200 bg-white p-5 shadow-sm ring-1 ring-slate-50"
                     aria-labelledby={cardTitleId}
                   >
-                    <div className="flex items-start justify-between gap-3">
-                      <div className="flex items-center gap-3">
-                        <span
-                          className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-[#377CF3] text-sm font-bold text-white"
-                          aria-hidden
-                        >
-                          {card.numero}
-                        </span>
-                        <FileText className="h-5 w-5 shrink-0 text-[#377CF3]" aria-hidden />
-                      </div>
-                      {card.duree ? (
-                        <p className="text-sm font-semibold text-slate-500">{card.duree}</p>
-                      ) : null}
+                    <div className="flex items-center gap-2">
+                      <FileText className="h-5 w-5 shrink-0 text-[#377CF3]" aria-hidden />
+                      <p className="text-xs font-semibold uppercase tracking-[0.08em] text-[#377CF3]">
+                        MODULE {card.numero}
+                        {card.dureeLabel ? ` — ${card.dureeLabel}` : ''}
+                      </p>
                     </div>
                     <h3
                       id={cardTitleId}
@@ -334,6 +280,12 @@ export function TrainingMaquetteMarketing({
                       <p className="mt-3 rounded-lg border border-slate-100 bg-[#F8FAFC] p-3 text-sm text-slate-600">
                         <span className="font-medium text-[#101936]">Mise en pratique : </span>
                         {card.practice}
+                      </p>
+                    ) : null}
+                    {card.livrable ? (
+                      <p className="mt-3 rounded-lg border border-[#BFDBFE]/60 bg-[#EFF6FF] p-3 text-sm text-slate-700">
+                        <span className="font-medium text-[#101936]">Livrable : </span>
+                        {card.livrable}
                       </p>
                     ) : null}
                   </article>

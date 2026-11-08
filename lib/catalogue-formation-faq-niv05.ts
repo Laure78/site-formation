@@ -5,10 +5,6 @@ import { getFormationByCode, libelleDureeFormation, libelleEffectifFormation } f
 import type { FAQItem } from '@/lib/faq';
 import { FINANCEMENT_FORMULATION_PRUDENTE } from '@/lib/financement-copy';
 import { LINKS } from '@/lib/internal-links';
-import {
-  libelleTarifParticipantCatalogue,
-  TARIF_PARTICIPANT_NIV05_HT,
-} from '@/lib/tarifs-catalogue-participant';
 
 const F = () => getFormationByCode('NIV-05')!;
 
@@ -44,10 +40,6 @@ export const FAQ_MOE_NIV05: FAQItem[] = [
   {
     q: 'Comment suivre les réserves avec l’IA ?',
     a: 'Structuration des listes de réserves, tableaux de suivi des levées, relances et préparation des pièces de réception. Les constats terrain et la conformité des levées sont contrôlés par le maître d’œuvre sur place.',
-  },
-  {
-    q: 'Combien coûte la formation ?',
-    a: `${libelleTarifParticipantCatalogue(TARIF_PARTICIPANT_NIV05_HT)} en inter (${libelleEffectifFormation(F())}). Format intra sur devis. ${FINANCEMENT_FORMULATION_PRUDENTE} <a href="${LINKS.financement}">Financement OPCO</a>.`,
   },
   {
     q: 'Constructys peut-il prendre en charge la formation ?',

@@ -137,15 +137,14 @@ export const SITE_SIEGE_LIEU_COURT = `${siteSiegeParis12()} (${SITE.adresse.rue}
 
 /** Encart UI — modalités lieu formations (cartes, hero, menu). */
 export const SITE_FORMATION_MODALITE_ENCART =
-  'Présentiel · Inter-entreprises et intra-entreprise · Île-de-France' as const;
+  'Présentiel en inter-entreprises et en intra-entreprise dans les locaux de l’entreprise — Île-de-France' as const;
 
 /** Texte détaillé — fiches formation et blocs modalités. */
 export const SITE_FORMATION_MODALITE_DETAIL =
-  'Nos formations se déroulent en présentiel en Île-de-France, en inter-entreprises lors de sessions collectives ou en intra-entreprise directement dans les locaux de votre entreprise.' as const;
+  'Les formations sont dispensées en présentiel en Île-de-France : en inter-entreprises (lieu communiqué pour chaque session) ou en intra-entreprise dans les locaux de l’entreprise.' as const;
 
 /** Suffixe lieu pour mini-cartes « Format · Présentiel · … ». */
-export const SITE_FORMATION_LOCATION_LABEL =
-  'Inter-entreprises et intra-entreprise · Île-de-France' as const;
+export const SITE_FORMATION_LOCATION_LABEL = SITE_FORMATION_MODALITE_ENCART;
 
 /** Libellé court sessions inter — sans adresse fixe (lieu communiqué à l’inscription). */
 export const SITE_INTER_LIEU_COURT = 'sessions collectives inter-entreprises' as const;

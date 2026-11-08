@@ -197,10 +197,10 @@ export function catalogueNiveauLabel(ref: string): string {
   return 'Niveau 2';
 }
 
-/** Badge niveau catalogue — libellés unifiés Débutant / Intermédiaire / Avancé. */
+/** Badge niveau catalogue — libellés officiels (Niveau X · …). */
 export function catalogueNiveauBadgeLabel(ref: string): string {
   const f = getFormationByCode(ref);
-  if (!f) return 'Niveau 2 — Intermédiaire';
+  if (!f) return 'Niveau 2 · Avancé';
   return formationNiveauBadge(f.niveau);
 }
 
