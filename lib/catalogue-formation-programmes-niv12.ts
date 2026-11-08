@@ -46,7 +46,7 @@ export const NIV12_PROGRAMME_BLOCS: readonly ProgrammeFormationBloc[] = [
   },
   {
     heading: 'SÉQUENCE 5 — CR de chantier et rapport quotidien',
-    meta: '35 min',
+    meta: '45 min',
     objectifs: [
       'CR de chantier à partir de notes, d’une dictée vocale et de photos',
       'Rapport quotidien illustré : avancement, points bloquants, actions',

@@ -72,7 +72,7 @@ export async function TrainingNiv05MaquetteTemplate({
 
   const mergedFaqItems = mergeCatalogueFormationFaq(ref, faqItems ?? []);
   const modules = content.programModules ?? [];
-  const objectivesTitle = content.objectivesTitle ?? 'Objectifs pédagogiques';
+  const objectivesTitle = content.objectivesTitle;
   return (
     <div className="formation-niv05-maquette training-page pb-24 lg:pb-0">
       <TrainingMaquetteMarketing
@@ -172,7 +172,7 @@ export async function TrainingNiv05MaquetteTemplate({
 
         <TrainingDeliverables
           items={content.deliverables}
-          title={content.deliverablesTitle ?? 'Les + de la formation'}
+          title={content.deliverablesTitle}
           description={content.deliverablesIntro}
           id={TRAINING_ANCHOR.atouts}
         />

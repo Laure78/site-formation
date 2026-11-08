@@ -4,7 +4,10 @@ import {
   getTarifApplicationMetierBtpHt,
 } from '@/lib/tarifs-applications-metier-btp';
 import { MentionTvaAsterisque } from '@/components/MentionTVA';
-import { ApplicationMetierRdvCta } from '@/components/formations/ApplicationMetierRdvCta';
+import { CtaDevis } from '@/components/CtaDevis';
+import { CTA_TELECHARGER_PROGRAMME_LABEL } from '@/lib/cta-programme-label';
+import { trainingDevisHref } from '@/lib/training-page-helpers';
+import { OFC_CTA_SECONDARY } from '@/lib/ofc-interaction-classes';
 import { TrainingDeliveryInfo } from '@/components/formations/TrainingDeliveryInfo';
 import {
   APPLICATION_METIER_PARCOURS_MOTHER,
@@ -13,6 +16,7 @@ import { trainingCategoryBadge } from '@/lib/training-page-helpers';
 import { OFC_LINK } from '@/lib/ofc-interaction-classes';
 import type { ApplicationMetierNiveauConfig } from '@/lib/parcours-applications-metier-btp-content';
 import { FormationHeroOutilsNote } from '@/components/formations/FormationHeroOutilsNote';
+import { TrainingFormationBreadcrumb } from '@/components/formations/training/TrainingFormationBreadcrumb';
 
 type Props = {
   config: ApplicationMetierNiveauConfig;
@@ -21,14 +25,19 @@ type Props = {
 };
 
 /** Hero compact — sans image LCP, priorise H1 + promesse + tarif + CTA. */
-export function ApplicationMetierFormationHero({ config, stepBadge, formationHint }: Props) {
+export function ApplicationMetierFormationHero({ config, stepBadge }: Props) {
   const montant = formatMontantHtApplicationMetier(getTarifApplicationMetierBtpHt(config.tarifKey));
   const facts = config.ux?.heroFacts ?? `${config.duree} · Intra-entreprise · Île-de-France`;
 
   return (
     <header className="border-b border-slate-200 bg-white px-4 pb-10 pt-8 md:pb-12 md:pt-10">
       <div className="mx-auto max-w-3xl">
-        <Link href={APPLICATION_METIER_PARCOURS_MOTHER.path} className={`text-sm ${OFC_LINK}`}>
+        <TrainingFormationBreadcrumb
+          formationTitle={config.h1}
+          formationPath={config.path}
+          jsonLdId={`schema-breadcrumb-${config.ref.toLowerCase()}`}
+        />
+        <Link href={APPLICATION_METIER_PARCOURS_MOTHER.path} className={`mt-4 inline-block text-sm ${OFC_LINK}`}>
           {APPLICATION_METIER_PARCOURS_MOTHER.backLabel}
         </Link>
 
@@ -60,16 +69,15 @@ export function ApplicationMetierFormationHero({ config, stepBadge, formationHin
         <FormationHeroOutilsNote catalogueRef={config.ref} className="mt-5" />
 
         <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center">
-          <ApplicationMetierRdvCta
-            label={config.ux?.ctaHeroLabel ?? 'Demander un devis pour mon équipe'}
-            origin={`application-metier-${config.slug}-hero`}
-            formationHint={formationHint}
+          <CtaDevis
+            href={trainingDevisHref(config.h1)}
+            className="inline-flex min-h-11 w-full items-center justify-center px-6 py-3 sm:w-auto"
           />
           <a
             href="#programme"
-            className="inline-flex min-h-12 items-center justify-center rounded-xl border border-slate-200 bg-white px-6 text-base font-semibold text-slate-800 hover:border-[var(--accent)]"
+            className={`${OFC_CTA_SECONDARY} inline-flex min-h-11 w-full items-center justify-center px-6 py-3 sm:w-auto`}
           >
-            Voir le programme
+            {CTA_TELECHARGER_PROGRAMME_LABEL}
           </a>
         </div>
         <p className="sr-only">{stepBadge}</p>

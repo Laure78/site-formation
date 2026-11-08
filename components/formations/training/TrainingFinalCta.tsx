@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { CtaVisio } from '@/components/CtaVisio';
+import { CtaDevis } from '@/components/CtaDevis';
 import { LINKS } from '@/lib/internal-links';
 import { FINANCEMENT_FORMULATION_PRUDENTE } from '@/lib/financement-copy';
 
@@ -61,9 +62,8 @@ function CtaForHref({
 
   if (isContactHref(href)) {
     return (
-      <CtaVisio
-        src={visioSrc}
-        variant="primary"
+      <CtaDevis
+        href={href}
         className={
           variant === 'dark'
             ? `${btnClass} border-0 bg-[#377CF3] text-white hover:bg-[#2f6bd4]`
@@ -103,9 +103,11 @@ function SecondaryCtaForHref({
 
   if (isContactHref(href)) {
     return (
-      <Link href={href} className={btnClass}>
-        {fallbackLabel ?? 'Demander un devis'}
-      </Link>
+      <CtaDevis
+        href={href}
+        variant="secondary"
+        className={btnClass}
+      />
     );
   }
 

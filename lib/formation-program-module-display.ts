@@ -6,10 +6,10 @@ import type { CatalogueProgramModule } from '@/lib/catalogue-formation-page-cont
 const LIVRABLE_POINT = /^Livrable\s*:\s*(.+)$/iu;
 
 export function parseDurationFromModuleTitle(title: string): string | null {
-  const emDash = title.match(/[—–-]\s*([^—–-]+)$/);
-  if (emDash) return emDash[1].trim();
   const paren = title.match(/\(([^)]+)\)\s*$/);
-  return paren ? paren[1].trim() : null;
+  if (paren) return paren[1].trim();
+  const emDash = title.match(/[—–-]\s*([^—–-]+)$/);
+  return emDash ? emDash[1].trim() : null;
 }
 
 /** Convertit « 45 min », « 1 h 10 », « 60 min » en minutes (null si non parseable). */
@@ -93,11 +93,6 @@ export function buildProgrammeModuleCards(
       : { body: [] as string[] };
     const titre =
       fixedLabels?.[index] ?? (mod ? stripModuleHeading(mod.title) : `Module ${index + 1}`);
-    const livrableExplicit =
-      mod && 'deliverable' in mod && typeof (mod as { deliverable?: string }).deliverable === 'string'
-        ? (mod as { deliverable: string }).deliverable
-        : undefined;
-
     return {
       numero: String(index + 1).padStart(2, '0'),
       titre,
@@ -106,7 +101,7 @@ export function buildProgrammeModuleCards(
       points: mod ? body : [],
       competence: mod?.competence,
       practice: mod?.practice,
-      livrable: livrableExplicit ?? livrableFromPoints,
+      livrable: mod?.deliverable ?? livrableFromPoints,
     };
   });
 }

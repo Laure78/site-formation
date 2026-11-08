@@ -72,7 +72,7 @@ export async function TrainingNiv01MaquetteTemplate({
     Boolean(infosPratiques.prerequis?.trim());
 
   const mergedFaqItems = mergeCatalogueFormationFaq(ref, faqItems ?? []);
-  const objectivesTitle = content.objectivesTitle ?? 'Objectifs pédagogiques';
+  const objectivesTitle = content.objectivesTitle;
   const modules = content.programModules ?? [];
 
   return (
@@ -192,7 +192,7 @@ export async function TrainingNiv01MaquetteTemplate({
 
         <TrainingDeliverables
           items={content.deliverables}
-          title={content.deliverablesTitle ?? 'Les + de la formation'}
+          title={content.deliverablesTitle}
           description={content.deliverablesIntro}
           id={TRAINING_ANCHOR.atouts}
         />

@@ -12,6 +12,8 @@ type Props = {
   pdfHref?: string;
   showIntra?: boolean;
   interInscriptionHref?: string;
+  hasPublishedSessions?: boolean;
+  variant?: 'catalogue' | 'sidebar';
 };
 
 export function TrainingSidebarCard(props: Props) {

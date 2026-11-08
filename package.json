@@ -42,6 +42,7 @@
     "triage:images-unreferenced": "node scripts/triage-unreferenced-images.mjs --csv tmp/triage-unreferenced-images.csv",
     "archive:images-duplicates": "node scripts/archive-duplicate-images.mjs",
     "audit:qualiopi-fiches": "npx tsx scripts/audit-qualiopi-fiches-formations.ts",
+    "audit:formation-durations": "npx tsx scripts/audit-formation-module-durations.ts",
     "programmes:applications-metier": "npx tsx scripts/generate-programmes-applications-metier.ts",
     "programmes:ofc": "npx tsx scripts/generate-programmes-ofc-catalogue.ts",
     "validate:schema": "npx tsx scripts/validate-schema-jsonld.mjs && npx tsx scripts/validate-formation-course-jsonld.mjs && npx tsx scripts/assert-catalogue-formation-page-jsonld.ts && node scripts/validate-article-faq-jsonld.mjs",

@@ -19,13 +19,13 @@ const FORMATIONS = [
   },
   {
     titre: 'Appels d’offres et DCE',
-    badge: 'Niveau avancé · 4 h',
+    badge: 'Niveau 2 · Avancé · 4 h',
     href: LINKS.formationIaCctpAnalyseDceBtp,
     photo: PHOTOS.constructysDceCasquePlans,
   },
   {
     titre: 'IA et conduite de travaux',
-    badge: 'Niveau avancé · 4 h',
+    badge: 'Niveau 2 · Avancé · 4 h',
     href: LINKS.formationConduiteTravauxSuiviChantier,
     photo: PHOTOS.constructysConducteurTravaux,
   },

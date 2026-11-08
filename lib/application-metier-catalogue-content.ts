@@ -59,7 +59,7 @@ export function buildApplicationMetierCatalogueContent(
     painPoints,
     outcomes: config.objectifs,
     outcomesDescription: `${config.positionnement} ${config.promesseRealiste}`,
-    deliverablesTitle: ux?.livrablesTitle ?? 'Les + de la formation',
+    deliverablesTitle: ux?.livrablesTitle,
     deliverables: ux?.livrables ?? [
       'Prototype ou socle d’application métier',
       'Cahier des charges simplifié',

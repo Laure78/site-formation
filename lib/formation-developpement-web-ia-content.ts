@@ -70,7 +70,7 @@ export const DEV_WEB_IA_INTRO_CLARIFIER =
 export const DEV_WEB_IA_ERP_DEFINITION =
   'Un outil métier centralise les informations utiles à votre activité. Vous commencez par un besoin prioritaire, puis vous enrichissez progressivement les fonctions, en testant chaque évolution.' as const;
 
-export const DEV_WEB_IA_HERO_EYEBROW = 'Formation IA BTP — Niveau approfondi' as const;
+export const DEV_WEB_IA_HERO_EYEBROW = 'Formation IA BTP · Niveau 3 · Approfondi' as const;
 
 export const DEV_WEB_IA_HERO_BENEFIT_CARDS = [
   {

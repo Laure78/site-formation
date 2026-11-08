@@ -12,7 +12,12 @@ import { IMAGE_QUALITY_DEFAULT } from '@/lib/image-props';
 import { QUALIOPI_LEGAL } from '@/lib/qualiopi-info';
 import { SITE } from '@/lib/site';
 import { OFC_IDENTITE } from '@/lib/ofc-identite';
-import { siteAdresseLigne, siteRcsLibelle, siteSirenDisplay } from '@/lib/site-config';
+import {
+  SITE_FORMATION_MODALITE_ENCART,
+  siteAdresseLigne,
+  siteRcsLibelle,
+  siteSirenDisplay,
+} from '@/lib/site-config';
 import { LINKS } from '@/lib/internal-links';
 import {
   PHOTOS,
@@ -212,7 +217,7 @@ export function Footer() {
               <br />
               Formation IA pour les entreprises du bâtiment et des travaux publics.
               <br />
-              <span className="text-white/60">Présentiel · Inter-entreprises et intra-entreprise · Île-de-France</span>
+              <span className="text-white/60">{SITE_FORMATION_MODALITE_ENCART}</span>
             </p>
             <p className="mt-2 max-w-[16rem] text-[10px] leading-snug text-white/55">
               {OFC_IDENTITE.raisonSociale} — {OFC_IDENTITE.formeJuridique}
@@ -267,7 +272,7 @@ export function Footer() {
               <li>
                 <span className={`${FOOTER_LINK_CLASS} gap-2 font-normal text-white/80`}>
                   <MapPin size={15} strokeWidth={1.75} className="shrink-0" aria-hidden />
-                  Présentiel · Inter-entreprises et intra-entreprise · Île-de-France
+                  {SITE_FORMATION_MODALITE_ENCART}
                 </span>
               </li>
             </ul>

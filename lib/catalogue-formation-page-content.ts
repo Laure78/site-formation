@@ -30,10 +30,12 @@ import {
 import { mapProgrammeBlocsToCatalogueModules } from '@/lib/catalogue-programme-bloc-mapper';
 import {
   SITE_FORMATION_LOCATION_LABEL,
+  SITE_FORMATION_MODALITE_ENCART,
   SITE_INTER_LIEU,
   SITE_INTER_LIEU_PREFIX,
   siteExperienceBtpLong,
 } from '@/lib/site-config';
+import { formationNiveauOfficielLabel } from '@/lib/formation-niveaux-officiels';
 import { NIV03_PEDAGOGICAL_METHODS, NIV03_PROGRAMME_BLOCS } from '@/lib/catalogue-formation-programmes-niv03';
 import { NIV04_PROGRAMME_BLOCS } from '@/lib/catalogue-formation-programmes-niv04';
 import { NIV05_PROGRAMME_BLOCS } from '@/lib/catalogue-formation-programmes-niv05';
@@ -177,12 +179,12 @@ const NIV_01: CatalogueFormationPageContent = {
     libelleDureeFormation(NIV_01_FORMATION),
     '70 % de pratique',
     `${NIV_01_FORMATION.effectifMin} à ${NIV_01_FORMATION.effectifMax} participants`,
-    'Présentiel en Île-de-France',
+    SITE_FORMATION_MODALITE_ENCART,
   ],
   practiceShare: '70 %',
   formatLabel: 'Présentiel',
   locationLabel: SITE_FORMATION_LOCATION_LABEL,
-  quickFactsLevel: 'Débutant',
+  quickFactsLevel: formationNiveauOfficielLabel(1),
   painPointsTitle: 'Cette formation est faite pour vous si…',
   painPoints: [
     { title: 'Devis', texte: 'Gagner du temps pour rédiger et structurer vos devis.' },
@@ -197,7 +199,6 @@ const NIV_01: CatalogueFormationPageContent = {
     'Rédiger un compte rendu, une trame de DOE ou de PV à partir de notes, avec relecture humaine',
     'Créer des emails et contenus professionnels, et anonymiser ses documents avant tout usage de l’IA',
   ],
-  objectivesTitle: 'Après la formation, vous saurez…',
   outcomesDescription:
     'Structurer devis, CR et emails avec l’IA — le professionnel valide prix, métrés et conformité.',
   pedagogicalNote: 'L’IA prépare et structure. Le professionnel contrôle et valide.',
@@ -212,7 +213,6 @@ const NIV_01: CatalogueFormationPageContent = {
       'Vous repartez avec une méthode réutilisable.',
     ],
   },
-  deliverablesTitle: 'Ce que vous emportez',
   deliverables: [
     'Bibliothèque de prompts BTP',
     'Trames de devis, comptes rendus, DOE et PV',
@@ -331,11 +331,11 @@ const NIV_02: CatalogueFormationPageContent = {
   heroFacts: [
     '4 heures',
     '75 % de pratique',
-    'Présentiel en Île-de-France',
-    'Niveau intermédiaire',
+    SITE_FORMATION_MODALITE_ENCART,
+    formationNiveauOfficielLabel(2),
     'Dossier fil rouge BTP',
   ],
-  quickFactsLevel: 'Intermédiaire',
+  quickFactsLevel: formationNiveauOfficielLabel(2),
   practiceShare: '75 %',
   formatLabel: 'Présentiel',
   locationLabel: SITE_FORMATION_LOCATION_LABEL,
@@ -540,15 +540,14 @@ const NIV_03: CatalogueFormationPageContent = {
     '4 heures',
     '70 % de pratique',
     `${getFormationByCode('NIV-03')!.effectifMin} à ${getFormationByCode('NIV-03')!.effectifMax} participants`,
-    'Présentiel en Île-de-France',
+    SITE_FORMATION_MODALITE_ENCART,
     'Bibliothèque 20+ skills Claude BTP',
   ],
-  quickFactsLevel: 'Niveau 2',
+  quickFactsLevel: formationNiveauOfficielLabel(2),
   practiceShare: '70 %',
   formatLabel: 'Présentiel',
   locationLabel: SITE_FORMATION_LOCATION_LABEL,
   pedagogicalNote: 'L’IA prépare et structure. Le professionnel contrôle et valide.',
-  objectivesTitle: 'Après la formation, vous saurez…',
   painPointsTitle: 'Vous perdez du temps sur le pilotage chantier ?',
   painPoints: [
     {
@@ -589,7 +588,6 @@ const NIV_03: CatalogueFormationPageContent = {
     ],
     note: 'Un compte Claude Pro est recommandé par participant (environ 18 € HT/mois, à souscrire par l’entreprise) — non inclus dans le tarif.',
   },
-  deliverablesTitle: 'Ce que vous emportez',
   deliverables: [
     'Accès à la bibliothèque 20+ skills Claude BTP (par phase de chantier)',
     'Skills opérationnels testés sur le fil rouge (CCTP, PPSPS, CR, DOE…)',
@@ -658,15 +656,13 @@ const NIV_04: CatalogueFormationPageContent = {
     '4 heures',
     '70 % de pratique',
     'Projets, Cowork, connecteurs, Claude Code',
-    'Présentiel en Île-de-France',
+    SITE_FORMATION_MODALITE_ENCART,
   ],
-  quickFactsLevel: 'Niveau 2 · Avancé',
+  quickFactsLevel: formationNiveauOfficielLabel(2),
   practiceShare: '70 %',
   formatLabel: 'Présentiel',
   locationLabel: SITE_FORMATION_LOCATION_LABEL,
   pedagogicalNote: 'L’IA prépare et structure. Le professionnel contrôle et valide.',
-  objectivesTitle: 'Après la formation, vous saurez…',
-  deliverablesTitle: 'Ce que vous emportez',
   painPointsTitle: 'Vous voulez structurer Claude dans l’entreprise ?',
   painPoints: [
     {
@@ -749,15 +745,14 @@ const NIV_05: CatalogueFormationPageContent = {
     '70 % de pratique',
     '5 modules — conception à réception',
     '6 à 12 participants en inter',
-    'Présentiel en Île-de-France',
+    SITE_FORMATION_MODALITE_ENCART,
     'Intra et inter-entreprises',
   ],
-  quickFactsLevel: 'Niveau 2 — Avancé',
+  quickFactsLevel: formationNiveauOfficielLabel(2),
   practiceShare: '70 %',
   formatLabel: 'Présentiel',
   locationLabel: SITE_FORMATION_LOCATION_LABEL,
   pedagogicalNote: 'L’IA prépare et structure. Le professionnel contrôle et valide.',
-  objectivesTitle: 'Après la formation, vous saurez…',
   painPointsTitle: 'Entre conception et chantier, la MOE noie sous les pièces ?',
   painPoints: [
     {
@@ -797,7 +792,6 @@ const NIV_05: CatalogueFormationPageContent = {
       'Vous repartez avec prompts, modèles et tableaux prêts à l’emploi.',
     ],
   },
-  deliverablesTitle: 'Ce que vous emportez',
   deliverables: [
     'Prompt réutilisable pour une mission MOE',
     'Extrait de CCTP + trame de DPGF',
@@ -825,7 +819,6 @@ const NIV_05: CatalogueFormationPageContent = {
     { iaAide: 'CR, plannings courts et courriers de suivi', validation: 'Valider faits et engagements avant envoi' },
     { iaAide: 'Projets d’OS, réserves et pièces de réception', validation: 'Contrôler habilitations et clauses contractuelles' },
   ],
-  programmeHeading: 'Programme — 5 modules (4 h)',
   programIntro:
     '4 h · 70 % pratique · 5 modules (30 + 55 + 45 + 50 + 60 min) · ateliers sur vos dossiers MOE (anonymisés si besoin).',
   programModules: mapProgrammeBlocsToCatalogueModules(NIV05_PROGRAMME_BLOCS),
@@ -869,13 +862,12 @@ const NIV_10: CatalogueFormationPageContent = {
     DEV_WEB_IA_EFFECTIF_LABEL,
     '70 % pratique · 30 % méthodologie',
   ],
-  quickFactsLevel: 'Niveau 3 — Approfondi',
+  quickFactsLevel: formationNiveauOfficielLabel(3),
   practiceShare: '70 %',
   formatLabel: 'Présentiel',
   locationLabel: SITE_FORMATION_LOCATION_LABEL,
   pedagogicalNote:
     'L’IA génère une première version. Vous validez le périmètre, les tests et la responsabilité du projet.',
-  deliverablesTitle: 'Ce que vous emportez',
   painPointsTitle: 'Pourquoi vos idées d’outils BTP restent au stade de projet ?',
   painPoints: [],
   outcomes: DEV_WEB_IA_OBJECTIFS,
@@ -896,8 +888,6 @@ const NIV_10: CatalogueFormationPageContent = {
   interExtraBullets: [`Session inter — 14 heures — 2 jours, ${DEV_WEB_IA_EFFECTIF_LABEL}`],
   intraExtraBullets: ['Session intra en présentiel dans vos locaux en Île-de-France'],
   programIntro: `${DEV_WEB_IA_PARCOURS_14H_SECTION.intro} · 70 % pratique.`,
-  programmeHeading: 'Programme — 14 heures (2 jours · 2 × 7 h par journée)',
-  objectivesTitle: 'Objectifs pédagogiques',
   programModules: getDevWebIaCatalogueProgramModules14h(),
   pdfHref: LINKS.pdfProgrammeDeveloppementWebIaSansCoder14h,
   instructorTitle: 'Qui conçoit et encadre la formation ?',
@@ -922,10 +912,8 @@ const NIV_09: CatalogueFormationPageContent = {
   practiceShare: '70 %',
   formatLabel: 'Présentiel',
   locationLabel: SITE_FORMATION_LOCATION_LABEL,
-  quickFactsLevel: 'Niveau Avancé',
+  quickFactsLevel: formationNiveauOfficielLabel(2),
   pedagogicalNote: 'L’IA prépare et structure. Le professionnel contrôle et valide avant tout envoi.',
-  objectivesTitle: 'Objectifs pédagogiques',
-  deliverablesTitle: 'Ce que vous emportez',
   painPointsTitle: '',
   painPoints: [],
   outcomes: [...ASSISTANTS_IA_OBJECTIFS],
@@ -934,7 +922,6 @@ const NIV_09: CatalogueFormationPageContent = {
   deliverables: [],
   publicPrerequisites: [{ title: 'Prérequis techniques et pédagogiques', items: ASSISTANTS_IA_PREREQUIS_ITEMS }],
   programIntro: ASSISTANTS_IA_PROPOSITION_VALEUR,
-  programmeHeading: 'Programme détaillé — 4 modules (4 × 60 min de formation effective)',
   programmeMethodsBullets: [...ASSISTANTS_IA_PEDAGOGIE],
   programModules: ASSISTANTS_IA_MODULES.map((m) => ({
     title: `${m.heading.replace(/^Module \d+ — /, '')} (${m.duree})`,
@@ -995,12 +982,11 @@ const NIV_11: CatalogueFormationPageContent = {
     '4 modules AMO opérationnels',
     'Intra en Île-de-France',
   ],
-  quickFactsLevel: 'Niveau 2',
+  quickFactsLevel: formationNiveauOfficielLabel(2),
   practiceShare: '70 %',
   formatLabel: 'Présentiel',
   locationLabel: SITE_FORMATION_LOCATION_LABEL,
   pedagogicalNote: 'L’IA prépare et structure. Le professionnel contrôle et valide.',
-  objectivesTitle: 'Après la formation, vous saurez…',
   painPointsTitle: 'L’AMO croule sous les pièces à relire ?',
   painPoints: [
     {
@@ -1040,7 +1026,6 @@ const NIV_11: CatalogueFormationPageContent = {
       'Vous repartez avec un plan d’action à 30 jours.',
     ],
   },
-  deliverablesTitle: 'Ce que vous emportez',
   deliverables: [
     'Modèle de charte IA + check-list « avant d’envoyer un document à l’IA »',
     'Mémo « ChatGPT ou Claude pour l’AMO » + modèle de prompt CRAFT',
@@ -1081,7 +1066,6 @@ const NIV_11: CatalogueFormationPageContent = {
     intra: `${formatPrixHt(TARIF_SESSION_INTRA_NIV11_HT)} € HT / session de 4 h`,
   },
   hideHeroEnBref: true,
-  programmeHeading: 'Le programme de la formation (4 h)',
   programIntro: '4 h · 70 % pratique · ateliers sur vos consultations et opérations (anonymisées si besoin).',
   programModules: mapProgrammeBlocsToCatalogueModules(NIV11_PROGRAMME_BLOCS),
   pdfHref: LINKS.pdfProgrammeIaAssistanceMaitriseOuvrage,
@@ -1112,12 +1096,11 @@ const NIV_12: CatalogueFormationPageContent = {
     '7 séquences sur vos dossiers',
     'Intra en Île-de-France',
   ],
-  quickFactsLevel: 'Niveau 2',
+  quickFactsLevel: formationNiveauOfficielLabel(2),
   practiceShare: '70 %',
   formatLabel: 'Présentiel',
   locationLabel: SITE_FORMATION_LOCATION_LABEL,
   pedagogicalNote: 'L’IA prépare et structure. Le professionnel contrôle et valide.',
-  objectivesTitle: 'Après la formation, vous saurez…',
   painPointsTitle: 'Votre cabinet passe trop de temps sur les pièces écrites ?',
   painPoints: [
     { title: 'CCTP et descriptifs', texte: 'Rédaction répétitive à partir des mêmes CCTP types et contrats cadres.' },
@@ -1145,7 +1128,6 @@ const NIV_12: CatalogueFormationPageContent = {
       'Vous repartez avec un plan d’action à 30 jours.',
     ],
   },
-  deliverablesTitle: 'Ce que vous emportez',
   deliverables: [
     'Règles d’usage de l’IA du cabinet',
     'Projet IA client / opération prêt à l’emploi',
@@ -1182,7 +1164,6 @@ const NIV_12: CatalogueFormationPageContent = {
     inter: 'Session inter sur demande',
     intra: `${formatPrixHt(TARIF_SESSION_INTRA_NIV12_HT)} € HT / session de 4 h`,
   },
-  programmeHeading: 'Programme — 7 séquences MOE (4 h)',
   programIntro: '4 h · 70 % pratique · ateliers sur les dossiers du cabinet (anonymisés si besoin).',
   programModules: mapProgrammeBlocsToCatalogueModules(NIV12_PROGRAMME_BLOCS),
   pdfHref: LINKS.pdfProgrammeIaMaitriseOeuvreCctpDpgf,

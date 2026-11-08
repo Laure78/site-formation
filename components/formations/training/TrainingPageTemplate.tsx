@@ -152,7 +152,7 @@ export async function TrainingPageTemplate({
     });
 
   const programmeHeading = content.programmeHeading ?? 'Programme de la formation';
-  const objectivesTitle = content.objectivesTitle ?? 'Objectifs pédagogiques';
+  const objectivesTitle = content.objectivesTitle;
 
   const legacyDevisHref = content.finalCta.devisHref;
   const finalPrimaryHref = content.finalCta.primaryHref ?? LINKS.prendreRdv;
@@ -164,11 +164,13 @@ export async function TrainingPageTemplate({
     formationTitle: formation.titre,
     durationLabel,
     interPriceLabel: tarifLabel,
-    intraPriceLabel: priceOverride?.intra ?? (surDevis ? 'Tarif sur devis' : undefined),
+    intraPriceLabel: priceOverride?.intra ?? (surDevis ? 'Sur devis' : tarifLabel),
     showTvaAsterisk: priceOverride ? false : !surDevis,
     effectifLabel,
     pdfHref,
     interInscriptionHref,
+    hasPublishedSessions: publicSessions.length > 0,
+    variant: 'sidebar' as const,
   };
 
   return (
@@ -350,7 +352,7 @@ export async function TrainingPageTemplate({
 
         <TrainingDeliverables
           items={content.deliverables}
-          title={content.deliverablesTitle ?? 'Les + de la formation'}
+          title={content.deliverablesTitle}
           description={content.deliverablesIntro}
           id={TRAINING_ANCHOR.atouts}
         />
