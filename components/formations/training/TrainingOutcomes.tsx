@@ -1,5 +1,6 @@
 import { Check, Target } from 'lucide-react';
 import { TrainingSection } from '@/components/formations/training/TrainingSection';
+import { FORMATION_SECTION_OBJECTIFS } from '@/lib/formation-pedagogy-sections';
 import { TRAINING_ANCHOR } from '@/lib/training-fiche-nav';
 
 type Props = {
@@ -13,10 +14,10 @@ type Props = {
   variant?: 'checklist' | 'pills';
 };
 
-/** Checklist « Après la formation, vous saurez… » + encadré pédagogique. */
+/** Section objectifs pédagogiques + encadré pédagogique. */
 export function TrainingOutcomes({
   outcomes,
-  title = 'Après la formation, vous saurez…',
+  title = FORMATION_SECTION_OBJECTIFS,
   description,
   pedagogicalNote,
   max = 6,

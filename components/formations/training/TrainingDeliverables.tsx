@@ -1,5 +1,6 @@
 import { Check, Sparkles } from 'lucide-react';
 import { TrainingSection } from '@/components/formations/training/TrainingSection';
+import { FORMATION_SECTION_LIVRABLES } from '@/lib/formation-pedagogy-sections';
 
 type Props = {
   items: readonly string[];
@@ -11,7 +12,7 @@ type Props = {
 /** Livrables / ce que le participant emporte — cartes légères. */
 export function TrainingDeliverables({
   items,
-  title = 'Les + de la formation',
+  title = FORMATION_SECTION_LIVRABLES,
   description,
   id = 'atouts',
 }: Props) {
