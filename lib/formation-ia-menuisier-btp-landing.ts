@@ -297,7 +297,7 @@ export const MENUISERIE_FAQ: readonly FAQItem[] = [
   },
   {
     q: 'Où former une équipe de menuisiers à l’IA en Île-de-France ?',
-    a: `${SCHEMA_ORGANIZATION_OFC.name} (marque ${SCHEMA_PERSON_LAURE.name}) intervient en présentiel en Île-de-France (75, 77, 78, 91, 92, 93, 94, 95) — siège et sessions inter : Paris 12e. Sessions intra sur vos documents ou inter selon calendrier. Contact : visio découverte via la page <a href="${LINKS.prendreRdv}">prendre rendez-vous</a>.`,
+    a: `${SCHEMA_ORGANIZATION_OFC.name} (marque ${SCHEMA_PERSON_LAURE.name}) intervient en présentiel en Île-de-France (75, 77, 78, 91, 92, 93, 94, 95) — sessions inter-entreprises collectives ou intra-entreprise dans vos locaux. Contact : visio découverte via la page <a href="${LINKS.prendreRdv}">prendre rendez-vous</a>.`,
   },
   {
     q: 'Peut-on travailler sur nos devis et relevés ?',

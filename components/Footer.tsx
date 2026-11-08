@@ -212,7 +212,7 @@ export function Footer() {
               <br />
               Formation IA pour les entreprises du bâtiment et des travaux publics.
               <br />
-              <span className="text-white/60">Présentiel · Paris et Île-de-France</span>
+              <span className="text-white/60">Présentiel · Inter-entreprises et intra-entreprise · Île-de-France</span>
             </p>
             <p className="mt-2 max-w-[16rem] text-[10px] leading-snug text-white/55">
               {OFC_IDENTITE.raisonSociale} — {OFC_IDENTITE.formeJuridique}
@@ -267,7 +267,7 @@ export function Footer() {
               <li>
                 <span className={`${FOOTER_LINK_CLASS} gap-2 font-normal text-white/80`}>
                   <MapPin size={15} strokeWidth={1.75} className="shrink-0" aria-hidden />
-                  Présentiel · Paris et Île-de-France
+                  Présentiel · Inter-entreprises et intra-entreprise · Île-de-France
                 </span>
               </li>
             </ul>

@@ -1,4 +1,5 @@
 import { Clock, Coins, Layers, MapPin, Users } from 'lucide-react';
+import { SITE_FORMATION_MODALITE_ENCART } from '@/lib/site-config';
 import { formatNumberFr } from '@/lib/format-number-fr';
 import {
   TARIF_PARTICIPANT_NIV02_HT,
@@ -26,7 +27,7 @@ export function Niv11MaquetteKeyFacts({ effectifMin, effectifMax }: Props) {
               icon: Coins,
               sub: `${formatNumberFr(TARIF_PARTICIPANT_NIV02_HT)} € HT / participant (inter)`,
             },
-            { icon: MapPin, sub: 'Présentiel · Île-de-France' },
+            { icon: MapPin, sub: SITE_FORMATION_MODALITE_ENCART },
             { icon: Users, sub: `${effectifMin} à ${effectifMax} participants` },
           ].map((item) => (
             <div

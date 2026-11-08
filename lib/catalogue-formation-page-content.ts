@@ -28,8 +28,8 @@ import {
 } from '@/lib/formation-assistants-ia-personnalises-btp-content';
 import { mapProgrammeBlocsToCatalogueModules } from '@/lib/catalogue-programme-bloc-mapper';
 import {
+  SITE_FORMATION_LOCATION_LABEL,
   SITE_INTER_LIEU,
-  SITE_INTER_LIEU_COURT,
   SITE_INTER_LIEU_PREFIX,
   siteExperienceBtpLong,
 } from '@/lib/site-config';
@@ -178,7 +178,7 @@ const NIV_01: CatalogueFormationPageContent = {
   ],
   practiceShare: '70 %',
   formatLabel: 'Présentiel',
-  locationLabel: 'Île-de-France',
+  locationLabel: SITE_FORMATION_LOCATION_LABEL,
   quickFactsLevel: 'Débutant',
   painPointsTitle: 'Cette formation est faite pour vous si…',
   painPoints: [
@@ -335,7 +335,7 @@ const NIV_02: CatalogueFormationPageContent = {
   quickFactsLevel: 'Intermédiaire',
   practiceShare: '75 %',
   formatLabel: 'Présentiel',
-  locationLabel: 'Île-de-France',
+  locationLabel: SITE_FORMATION_LOCATION_LABEL,
   pedagogicalNote: 'L’IA assiste l’analyse. Le chiffrage et les engagements restent à valider par le professionnel.',
   painPointsTitle: 'Vos réponses aux appels d’offres mobilisent trop de temps ?',
   painPoints: [
@@ -543,7 +543,7 @@ const NIV_03: CatalogueFormationPageContent = {
   quickFactsLevel: 'Niveau 2',
   practiceShare: '70 %',
   formatLabel: 'Présentiel',
-  locationLabel: 'Île-de-France',
+  locationLabel: SITE_FORMATION_LOCATION_LABEL,
   pedagogicalNote: 'L’IA prépare et structure. Le professionnel contrôle et valide.',
   objectivesTitle: 'Après la formation, vous saurez…',
   painPointsTitle: 'Vous perdez du temps sur le pilotage chantier ?',
@@ -660,7 +660,7 @@ const NIV_04: CatalogueFormationPageContent = {
   quickFactsLevel: 'Niveau 3 · Avancé',
   practiceShare: '70 %',
   formatLabel: 'Présentiel',
-  locationLabel: 'Île-de-France',
+  locationLabel: SITE_FORMATION_LOCATION_LABEL,
   pedagogicalNote: 'L’IA prépare et structure. Le professionnel contrôle et valide.',
   objectivesTitle: 'Après la formation, vous saurez…',
   deliverablesTitle: 'Ce que vous emportez',
@@ -752,7 +752,7 @@ const NIV_05: CatalogueFormationPageContent = {
   quickFactsLevel: 'Niveau 2 — Avancé',
   practiceShare: '70 %',
   formatLabel: 'Présentiel',
-  locationLabel: 'Île-de-France',
+  locationLabel: SITE_FORMATION_LOCATION_LABEL,
   pedagogicalNote: 'L’IA prépare et structure. Le professionnel contrôle et valide.',
   objectivesTitle: 'Après la formation, vous saurez…',
   painPointsTitle: 'Entre conception et chantier, la MOE noie sous les pièces ?',
@@ -869,7 +869,7 @@ const NIV_10: CatalogueFormationPageContent = {
   quickFactsLevel: 'Niveau 3 — Approfondi',
   practiceShare: '70 %',
   formatLabel: 'Présentiel',
-  locationLabel: 'Île-de-France',
+  locationLabel: SITE_FORMATION_LOCATION_LABEL,
   pedagogicalNote:
     'L’IA génère une première version. Vous validez le périmètre, les tests et la responsabilité du projet.',
   deliverablesTitle: 'Ce que vous emportez',
@@ -918,7 +918,7 @@ const NIV_09: CatalogueFormationPageContent = {
   ],
   practiceShare: '70 %',
   formatLabel: 'Présentiel',
-  locationLabel: `${SITE_INTER_LIEU_COURT} · Île-de-France`,
+  locationLabel: SITE_FORMATION_LOCATION_LABEL,
   quickFactsLevel: 'Niveau Avancé',
   pedagogicalNote: 'L’IA prépare et structure. Le professionnel contrôle et valide avant tout envoi.',
   objectivesTitle: 'Objectifs pédagogiques',
@@ -940,7 +940,7 @@ const NIV_09: CatalogueFormationPageContent = {
   })),
   pdfHref: LINKS.pdfProgrammeAssistantsIaPersonnalisesBtp,
   interExtraBullets: [
-    `Inter-entreprises : ${SITE_INTER_LIEU_COURT}, Paris`,
+    'Inter-entreprises : sessions collectives en Île-de-France',
     `${libelleTarifParticipantCatalogue(TARIF_PARTICIPANT_NIV09_HT)}, sous réserve de validation fiscale (${MENTIONS_TVA_REGIMES_COURT})`,
   ],
   intraExtraBullets: [
@@ -995,7 +995,7 @@ const NIV_11: CatalogueFormationPageContent = {
   quickFactsLevel: 'Niveau 2',
   practiceShare: '70 %',
   formatLabel: 'Présentiel',
-  locationLabel: 'Île-de-France',
+  locationLabel: SITE_FORMATION_LOCATION_LABEL,
   pedagogicalNote: 'L’IA prépare et structure. Le professionnel contrôle et valide.',
   objectivesTitle: 'Après la formation, vous saurez…',
   painPointsTitle: 'L’AMO croule sous les pièces à relire ?',
@@ -1112,7 +1112,7 @@ const NIV_12: CatalogueFormationPageContent = {
   quickFactsLevel: 'Niveau 2',
   practiceShare: '70 %',
   formatLabel: 'Présentiel',
-  locationLabel: 'Île-de-France',
+  locationLabel: SITE_FORMATION_LOCATION_LABEL,
   pedagogicalNote: 'L’IA prépare et structure. Le professionnel contrôle et valide.',
   objectivesTitle: 'Après la formation, vous saurez…',
   painPointsTitle: 'Votre cabinet passe trop de temps sur les pièces écrites ?',

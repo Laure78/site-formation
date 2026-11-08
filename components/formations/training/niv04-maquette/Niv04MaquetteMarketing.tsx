@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import { SITE_FORMATION_MODALITE_ENCART } from '@/lib/site-config';
 import Link from 'next/link';
 import {
   Calendar,
@@ -183,7 +184,7 @@ export function Niv04MaquetteMarketing({
                 icon: Coins,
                 sub: `${formatNumberFr(TARIF_PARTICIPANT_NIV04_HT)} € HT / participant`,
               },
-              { icon: MapPin, sub: 'Présentiel · Île-de-France' },
+              { icon: MapPin, sub: SITE_FORMATION_MODALITE_ENCART },
               { icon: Users, sub: `${effectifMin} à ${effectifMax} participants` },
             ].map((item) => (
               <div

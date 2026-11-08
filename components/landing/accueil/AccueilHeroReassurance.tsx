@@ -1,9 +1,10 @@
 import { Award, MapPin, Wallet } from 'lucide-react';
 import { formatNoteSatisfactionSur5 } from '@/lib/data/indicateurs-resultats';
+import { SITE_FORMATION_MODALITE_ENCART } from '@/lib/site-config';
 
 const ITEMS = [
   { icon: Award, label: 'Qualiopi' },
-  { icon: MapPin, label: 'Présentiel Île-de-France' },
+  { icon: MapPin, label: SITE_FORMATION_MODALITE_ENCART },
   {
     icon: Wallet,
     label: 'Prise en charge OPCO/Constructys selon éligibilité',

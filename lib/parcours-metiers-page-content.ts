@@ -2,6 +2,7 @@
  * Contenus visuels page /parcours-metiers — maquette 2027 (accroches, images, documents).
  */
 import type { ParcoursId } from '@/data/catalogue-2027';
+import { SITE_FORMATION_MODALITE_ENCART } from '@/lib/site-config';
 import type { LucideIcon } from 'lucide-react';
 import {
   BookOpen,
@@ -28,7 +29,7 @@ export const PARCOURS_METIERS_HERO = {
   imageSrc: '/images/accueil-ia-chantier-laptop-plans-btp.webp',
   imageAlt:
     'Professionnel du BTP en EPI consulte plans et ordinateur portable sur un chantier actif.',
-  lieuBadge: 'Présentiel · Île-de-France',
+  lieuBadge: SITE_FORMATION_MODALITE_ENCART,
 } as const;
 
 export const PARCOURS_METIERS_SECTION = {

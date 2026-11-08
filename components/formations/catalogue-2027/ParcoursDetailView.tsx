@@ -9,6 +9,7 @@ import {
 import { libelleDisponibilite } from '@/lib/catalogue-2027/search-modules';
 import { catalogueDemandeHref } from '@/lib/training-page-helpers';
 import { LINKS } from '@/lib/internal-links';
+import { SITE_FORMATION_MODALITE_ENCART } from '@/lib/site-config';
 import { OFC_CTA_PRIMARY, OFC_CTA_SECONDARY } from '@/lib/ofc-interaction-classes';
 import { FormateursMetierSection } from '@/components/formateurs/FormateursDomaineSection';
 import { getModule2027IaUsage, labelOutil } from '@/lib/formation-ia';
@@ -319,7 +320,7 @@ export function ParcoursDetailView({ parcours: p }: Props) {
               </div>
               <div>
                 <dt className="text-ofc-ink-muted">Lieu</dt>
-                <dd className="font-semibold text-ofc-ink">Présentiel Île-de-France</dd>
+                <dd className="font-semibold text-ofc-ink">{SITE_FORMATION_MODALITE_ENCART}</dd>
               </div>
               <div>
                 <dt className="text-ofc-ink-muted">Disponibilité</dt>

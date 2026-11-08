@@ -3,7 +3,7 @@ import { getCatalogueDureeBannerLabel } from '@/lib/formations-catalogue-duree-b
 
 const ITEMS = [
   { Icon: Clock, getLabel: () => getCatalogueDureeBannerLabel(), sub: 'Durées selon les formations' },
-  { Icon: MapPin, label: 'Présentiel', sub: 'Île-de-France' },
+  { Icon: MapPin, label: 'Présentiel', sub: 'Inter-entreprises et intra-entreprise · Île-de-France' },
   { Icon: Users, label: 'PME du BTP', sub: 'Formations adaptées aux métiers' },
   { Icon: Coins, label: 'Financement', sub: 'Selon éligibilité' },
 ] as const;

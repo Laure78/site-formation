@@ -3,7 +3,6 @@
  * Toutes les URLs proviennent de `lib/internal-links.ts`.
  */
 import type { FormationIaMetierBtpConfig } from '@/lib/formation-ia-metier-btp-types';
-import { SITE_INTER_LIEU_COURT } from '@/lib/site-config';
 import {
   formationCatalogueLinkLabel,
   getCatalogueFormationsCount,
@@ -39,7 +38,7 @@ export const GEO_DEPARTMENT_LINKS: (ContextualLinkCard & { slug: string })[] = [
     slug: 'yvelines-78',
     href: LINKS.formationIaBtpYvelines78,
     title: 'Yvelines (78)',
-    description: `Versailles, SQY, Guyancourt — intra (dans vos locaux) ou inter à ${SITE_INTER_LIEU_COURT}.`,
+    description: 'Versailles, SQY, Guyancourt — intra (dans vos locaux) ou inter-entreprises en Île-de-France.',
   },
   {
     slug: 'essonne-91',
@@ -229,7 +228,7 @@ export const CONDUCTEUR_TRAVAUX_RELATED: ContextualLinkCard[] = [
   {
     href: LINKS.formationIleDeFrance,
     title: 'Formation IA Île-de-France',
-    description: 'Intra ou inter — siège Paris 12e → toute l’IDF.',
+    description: 'Intra ou inter-entreprises — présentiel dans toute l’Île-de-France.',
   },
 ];
 

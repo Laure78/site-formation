@@ -1,4 +1,7 @@
-import { SITE_INTER_LIEU } from '@/lib/site-config';
+import {
+  SITE_FORMATION_MODALITE_DETAIL,
+  SITE_INTER_LIEU,
+} from '@/lib/site-config';
 
 export * from './types';
 export * from './tarifs';
@@ -21,7 +24,7 @@ export const CATALOGUE_2027_POSITIONNEMENT = {
 } as const;
 
 export const CATALOGUE_2027_INFOS_PRATIQUES = {
-  modalite: 'Présentiel en Île-de-France',
+  modalite: SITE_FORMATION_MODALITE_DETAIL,
   interLieu: SITE_INTER_LIEU,
   intraLieu: 'Intra dans les locaux de l’entreprise',
   effectifHabituel: '6 à 12 participants',

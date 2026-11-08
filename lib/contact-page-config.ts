@@ -3,6 +3,7 @@
  */
 import { CONTACT, IDF_ZONE_INTERVENTION } from '@/lib/constants';
 import { MODALITE_FORMATIONS_PRESENTIEL } from '@/lib/tarifs-sessions';
+import { SITE_FORMATION_MODALITE_ENCART } from '@/lib/site-config';
 import { LINKS } from '@/lib/internal-links';
 
 export const CONTACT_PAGE_H1 = 'Parlons de votre projet de formation IA BTP' as const;
@@ -11,7 +12,7 @@ export const CONTACT_PAGE_SUBTITLE =
   'Décrivez les profils à former, les tâches concernées et vos contraintes. Vous recevrez une réponse adaptée à votre projet.' as const;
 
 export const CONTACT_PAGE_PROOF_LINE =
-  'OFC certifié Qualiopi · Présentiel Île-de-France · Groupe · Intra & inter' as const;
+  `OFC certifié Qualiopi · ${SITE_FORMATION_MODALITE_ENCART} · Groupe` as const;
 
 export const CONTACT_PAGE_META_TITLE = 'Contact et devis formation IA BTP | Laure Olivié' as const;
 

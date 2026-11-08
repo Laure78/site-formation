@@ -16,7 +16,7 @@ import { BLOG_ARTICLES } from '@/lib/blog';
 import { CSFE_NOM_LIBRE } from '@/lib/csfe';
 import { LINKS } from '@/lib/internal-links';
 import { formatAnneesExperienceBTP } from '@/lib/data/indicateurs-resultats';
-import { siteAdresseLigne } from '@/lib/site-config';
+import { SITE_FORMATION_MODALITE_ENCART, siteAdresseLigne } from '@/lib/site-config';
 import { dureeCatalogueParCode } from '@/lib/catalogue-duree-copy';
 
 export interface ContentChunk {
@@ -42,7 +42,7 @@ const FORMATIONS_DATA = [
 ];
 
 const PAGES_DATA: { path: string; title: string; content: string }[] = [
-  { path: '/', title: 'Accueil', content: `Formation IA pour le BTP. Devis, DCE, appels d'offres et suivi de chantier avec ChatGPT et Claude. Présentiel · Île-de-France · documents réels · Qualiopi. financement possible selon éligibilité (Constructys, OPCO). Laure Olivié, formatrice IA, ${formatAnneesExperienceBTP()}. Siège : ${siteAdresseLigne()}. Création avec l'IA : présentiel Île-de-France uniquement.` },
+  { path: '/', title: 'Accueil', content: `Formation IA pour le BTP. Devis, DCE, appels d'offres et suivi de chantier avec ChatGPT et Claude. ${SITE_FORMATION_MODALITE_ENCART} · documents réels · Qualiopi. financement possible selon éligibilité (Constructys, OPCO). Laure Olivié, formatrice IA, ${formatAnneesExperienceBTP()}. Siège : ${siteAdresseLigne()}. Création avec l'IA : présentiel Île-de-France uniquement.` },
   { path: '/a-propos', title: 'À propos', content: 'Laure Olivié — Formatrice IA spécialisée BTP. OFC Création d\'Entreprise, certification Qualiopi. Partenaires : FFB, CSFE, LinkedIn Learning, Constructys.' },
   {
     path: '/etudes-de-cas/ffb-csfe',

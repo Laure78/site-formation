@@ -5,6 +5,7 @@ import type {
 } from '@/lib/parcours-applications-metier-btp-content';
 import { getFormationByCode } from '@/data/formations';
 import { LINKS } from '@/lib/internal-links';
+import { SITE_FORMATION_LOCATION_LABEL } from '@/lib/site-config';
 import { libellePrixSessionHt } from '@/data/formations';
 
 function mapApplicationMetierModule(mod: ApplicationMetierModule): {
@@ -50,7 +51,7 @@ export function buildApplicationMetierCatalogueContent(
     ],
     quickFactsLevel: config.progressionLabel,
     formatLabel: 'Présentiel',
-    locationLabel: 'Île-de-France',
+    locationLabel: SITE_FORMATION_LOCATION_LABEL,
     practiceShare: '70 %',
     pedagogicalNote:
       'L’IA accélère le prototypage. Vous validez le périmètre, les données, les droits et la mise en production.',

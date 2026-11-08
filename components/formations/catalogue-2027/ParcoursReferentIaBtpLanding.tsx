@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import { SITE_FORMATION_MODALITE_ENCART } from '@/lib/site-config';
 import Link from 'next/link';
 import {
   ArrowUpRight,
@@ -205,7 +206,7 @@ export function ParcoursReferentIaBtpLanding({ parcours: p }: Props) {
               <MapPin className="mt-0.5 h-5 w-5 shrink-0 text-[#377CF3]" aria-hidden />
               <div>
                 <p className="text-xs font-medium uppercase tracking-wide text-slate-500">Lieu</p>
-                <p className="text-sm font-semibold text-[#101936]">Présentiel · Île-de-France</p>
+                <p className="text-sm font-semibold text-[#101936]">{SITE_FORMATION_MODALITE_ENCART}</p>
               </div>
             </div>
           </div>

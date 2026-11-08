@@ -580,7 +580,7 @@ const CATALOGUE_CLUSTER: CatalogueCluster[] = [
     },
     geo: {
       href: LINKS.formationIaBtpYvelines78,
-      label: 'Formation IA BTP Yvelines (78) — inter Paris 12e',
+      label: 'Formation IA BTP Yvelines (78) — inter et intra IDF',
     },
     blog: {
       href: LINKS.blogCompteRenduChantierIa,

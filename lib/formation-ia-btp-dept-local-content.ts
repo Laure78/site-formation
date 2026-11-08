@@ -4,7 +4,6 @@ import { FINANCEMENT_FORMULATION_PRUDENTE } from '@/lib/financement-copy';
 import { LINKS } from '@/lib/internal-links';
 import {
   SITE_DEPUIS_SIEGE_TRAJET,
-  SITE_INTER_LIEU_COURT,
   siteAdresseLigne,
   siteSiegeCourt,
 } from '@/lib/site-config';
@@ -124,7 +123,7 @@ export const DEPT_LOCAL_SEO_CONTENT: Record<string, DeptLocalSeoContent> = {
     intro:
       "Laure Olivié (siège OFC à Paris 75012) intervient dans les Yvelines (78) en présentiel — intra (dans vos locaux) ou inter — sur vos documents réels.",
     villesEtTrajets:
-      `Versailles (préfecture), Saint-Quentin-en-Yvelines, Guyancourt, Poissy, Mantes-la-Jolie, Sartrouville, Trappes. Sessions inter à ${SITE_INTER_LIEU_COURT} ; déplacements intra depuis le siège OFC (${siteSiegeCourt()}).`,
+      `Versailles (préfecture), Saint-Quentin-en-Yvelines, Guyancourt, Poissy, Mantes-la-Jolie, Sartrouville, Trappes. Sessions inter-entreprises collectives en Île-de-France ; déplacements intra depuis le siège OFC (${siteSiegeCourt()}).`,
     tissuBtpLocal:
       "Les Yvelines combinent un tissu dense de PME du bâtiment, des sièges d'entreprises et des zones d'activité importantes (Saint-Quentin-en-Yvelines). Beaucoup de structures y cumulent chantier et bureau avec peu de bande passante administrative.",
     casUsage: [
@@ -134,7 +133,7 @@ export const DEPT_LOCAL_SEO_CONTENT: Record<string, DeptLocalSeoContent> = {
     faq: [
       {
         q: 'Où se déroulent les sessions inter dans les Yvelines ?',
-        a: `Les sessions inter ont lieu à ${SITE_INTER_LIEU_COURT} (siège OFC). Les intra se organisent dans vos locaux dans tout le département.`,
+        a: 'Les sessions inter-entreprises sont des sessions collectives en présentiel en Île-de-France (lieu précisé à l’inscription). Les intra se organisent dans vos locaux dans tout le département.',
       },
       {
         q: 'Peut-on faire une session intra à Versailles ou à Saint-Quentin-en-Yvelines ?',
@@ -406,7 +405,7 @@ export const IDF_CHAPEAU_LOCAL = {
     },
     {
       q: 'Où êtes-vous basée ?',
-      a: `À ${siteAdresseLigne()} (siège OFC), avec sessions inter à ${SITE_INTER_LIEU_COURT} et intra dans toute l'Île-de-France.`,
+      a: `Siège OFC : ${siteAdresseLigne()}. Formations en présentiel en Île-de-France — inter-entreprises (sessions collectives) ou intra-entreprise dans vos locaux.`,
     },
   ] satisfies FAQItem[],
   internalLinks: [

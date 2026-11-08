@@ -43,6 +43,10 @@ import type { FormationCatalogueCode } from '@/lib/formation-catalogue-visibilit
 import { TrainingPracticalInfo } from '@/components/formations/training/TrainingPracticalInfo';
 import { getCataloguePublicSessionsForSlug } from '@/lib/catalogue-public-sessions';
 import { DEV_WEB_IA_DUREE_AFFICHAGE } from '@/lib/formation-developpement-web-ia-content';
+import {
+  SITE_FORMATION_LOCATION_LABEL,
+  SITE_FORMATION_MODALITE_DETAIL,
+} from '@/lib/site-config';
 
 type Props = {
   content: CatalogueFormationPageContent;
@@ -100,7 +104,7 @@ export async function TrainingPageTemplate({
   const effectifLabel = `${formation.effectifMin} à ${formation.effectifMax} participants`;
   const devisHref = trainingDevisHref(formation.titre);
   const formatLabel = content.formatLabel ?? 'Présentiel';
-  const locationLabel = content.locationLabel ?? 'Île-de-France';
+  const locationLabel = content.locationLabel ?? SITE_FORMATION_LOCATION_LABEL;
   const mergedFaqItems = mergeCatalogueFormationFaq(ref, faqItems ?? []);
   const hasFaq = mergedFaqItems.length > 0;
   const infosPratiques = getInfosPratiquesForCatalogue(ref);
@@ -233,6 +237,7 @@ export async function TrainingPageTemplate({
         ) : null}
 
         <TrainingSection id={TRAINING_ANCHOR.presentation} title="Présentation" tone="white">
+          <p className="mb-4 text-base leading-relaxed text-slate-700">{SITE_FORMATION_MODALITE_DETAIL}</p>
           <TrainingPresentationExpand summary={content.programIntro}>
             {content.heroPublicLine ? <p>{content.heroPublicLine}</p> : null}
           </TrainingPresentationExpand>

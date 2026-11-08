@@ -23,6 +23,7 @@ import {
   LOGO_MONITEUR_FORMATIONS,
   PARTNER_WEBSITES,
 } from '@/lib/client-logos';
+import { SITE_FORMATION_MODALITE_ENCART } from '@/lib/site-config';
 
 const FORMATION_HREF_BY_CODE = {
   'NIV-01': LINKS.formationIaBtpNiveau1BatimentTp,
@@ -33,11 +34,11 @@ const FORMATION_HREF_BY_CODE = {
 } as const;
 
 /** Format catalogue affiché sur les cartes accueil (présentiel IDF). */
-const ACCUEIL_FORMAT_FORMATION = 'Présentiel · Île-de-France' as const;
+const ACCUEIL_FORMAT_FORMATION = SITE_FORMATION_MODALITE_ENCART;
 
 /** Ligne compacte hero — modalités commerciales (filtre immédiat). */
 export function getAccueilHeroModalitesLine(): string {
-  return 'Présentiel · Île-de-France · Vos documents réels · Organisme certifié Qualiopi';
+  return `${SITE_FORMATION_MODALITE_ENCART} · Vos documents réels · Organisme certifié Qualiopi`;
 }
 
 /** Ligne tarif NIV-10 accueil — source `data/formations.ts` + tarifs catalogue. */

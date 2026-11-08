@@ -1,4 +1,4 @@
-import { SITE_INTER_LIEU_COURT } from '@/lib/site-config';
+import { SITE_SIEGE_LIEU_COURT } from '@/lib/site-config';
 
 /**
  * Conventions alt images site laureolivie.fr :
@@ -30,7 +30,7 @@ export function normalizePhotoAlt(baseAlt: string): string {
   let out = baseAlt.replace(/\s+/g, ' ').trim();
   out = out.replace(/^(image|photo|illustration) de\s+/i, '');
   out = out.replace(/\s*—\s*formation IA[^.]*$/i, '');
-  const siegeTail = SITE_INTER_LIEU_COURT.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  const siegeTail = SITE_SIEGE_LIEU_COURT.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
   out = out.replace(
     new RegExp(`,\\s*(Paris et IDF|Paris IDF|Île-de-France|${siegeTail})$`, 'i'),
     '',

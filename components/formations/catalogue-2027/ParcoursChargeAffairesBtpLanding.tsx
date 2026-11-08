@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import { SITE_FORMATION_MODALITE_ENCART } from '@/lib/site-config';
 import Link from 'next/link';
 import {
   ArrowRight,
@@ -179,7 +180,7 @@ export function ParcoursChargeAffairesBtpLanding({ parcours: p }: Props) {
               { icon: Layers, sub: `${p.moduleCount} modules` },
               { icon: Clock, sub: `${p.dureeHeures} h · ${joursLabel}` },
               { icon: Coins, sub: `${formatPrixInterHt(p.prixInterHt)} HT / participant` },
-              { icon: MapPin, sub: 'Présentiel · Île-de-France' },
+              { icon: MapPin, sub: SITE_FORMATION_MODALITE_ENCART },
               { icon: Calendar, sub: disponibiliteLabel },
             ].map((item) => (
               <div

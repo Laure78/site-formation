@@ -2,7 +2,7 @@ import { LINKS } from '@/lib/internal-links';
 import type { DepartementPageData } from '@/lib/departement-pages/types';
 import { buildDeptMetaDescription } from '@/lib/meta-description';
 import { buildIdfDeptPageTitle } from '@/lib/seo-geo-keywords';
-import { SITE_INTER_LIEU_COURT, siteAdresseLigne, siteSiegeCourt } from '@/lib/site-config';
+import { siteAdresseLigne, siteSiegeCourt } from '@/lib/site-config';
 
 export const DEPARTEMENT_YVELINES_78: DepartementPageData = {
   code: '78',
@@ -22,7 +22,7 @@ export const DEPARTEMENT_YVELINES_78: DepartementPageData = {
     'Saint-Germain-en-Laye',
     'Rambouillet',
   ],
-  tempsTrajetDepuisSiege: `Sessions inter à ${SITE_INTER_LIEU_COURT} (siège ${siteAdresseLigne()}). Les intra dans les Yvelines (Versailles, SQY, Vélizy, Poissy, Mantes, Rambouillet) se planifient au devis — temps indicatifs selon trafic.`,
+  tempsTrajetDepuisSiege: `Sessions inter-entreprises collectives en Île-de-France (lieu communiqué à l’inscription). Les intra dans les Yvelines (Versailles, SQY, Vélizy, Poissy, Mantes, Rambouillet) se planifient au devis — déplacements depuis le siège (${siteAdresseLigne()}), temps indicatifs selon trafic.`,
   tissuLocal:
     "Les Yvelines combinent un tissu dense de PME du bâtiment et du second œuvre, des sièges et des zones d'activité importantes (Saint-Quentin-en-Yvelines), avec des bassins plus périurbains vers Rambouillet ou Mantes. Versailles, Poissy et Saint-Germain-en-Laye concentrent aussi des opérations de rénovation et de second œuvre sous forte exigence documentaire. Beaucoup de structures cumulent chantier et bureau avec peu de bande passante administrative. Les marchés y sont exigeants sur la documentation (mémoires, CR, AO) et les délais. Objectif terrain : un gain mesurable sur l'admin en 4 h, pas une transformation de trois ans — méthode courte, présentiel, documents réels.",
   casUsageLocaux: [
@@ -32,7 +32,7 @@ export const DEPARTEMENT_YVELINES_78: DepartementPageData = {
   faqLocale: [
     {
       q: 'Où se déroulent les sessions inter dans les Yvelines ?',
-      a: `À ${SITE_INTER_LIEU_COURT} (${siteAdresseLigne()}). Les sessions intra se organisent dans vos locaux dans tout le département — délais souvent courts sans nuitée.`,
+      a: 'Les sessions inter-entreprises sont des sessions collectives en présentiel en Île-de-France (lieu précisé à l’inscription). Les sessions intra se organisent dans vos locaux dans tout le département — délais souvent courts sans nuitée.',
     },
     {
       q: 'Peut-on faire une session intra à Versailles ou à Saint-Quentin-en-Yvelines ?',
@@ -54,6 +54,6 @@ export const DEPARTEMENT_YVELINES_78: DepartementPageData = {
     'formation IA appliquée au bâtiment Yvelines',
     'formation ChatGPT 78',
     'formation IA Versailles',
-    `formation IA ${SITE_INTER_LIEU_COURT}`,
+    'formation IA présentiel Île-de-France',
   ],
 };

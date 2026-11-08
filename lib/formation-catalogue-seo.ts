@@ -10,7 +10,7 @@ import {
 } from '@/lib/data/indicateurs-resultats';
 import { getFormationByCode } from '@/data/formations';
 import { dureeCatalogueParCode } from '@/lib/catalogue-duree-copy';
-import { SITE_INTER_LIEU, SITE_INTER_LIEU_COURT } from '@/lib/site-config';
+import { SITE_INTER_LIEU } from '@/lib/site-config';
 import { SESSION_DUREE_LIBELLE } from '@/lib/tarifs-sessions';
 import { formatOrganismeQualiopiCourt } from '@/lib/marque-identite';
 import { libelleTarifParticipantCatalogue, TARIF_PARTICIPANT_NIV02_HT } from '@/lib/tarifs-catalogue-participant';
@@ -251,7 +251,8 @@ export const FORMATION_CATALOGUE_SEO: Record<FormationCatalogueCode, FormationCa
     metaTitle: 'Créer ses assistants IA BTP | Formation 4 h',
     h1: 'Créer ses assistants IA pour son entreprise du bâtiment',
     subtitle: 'ChatGPT & Claude : fonctionnalités clés et assistants métier',
-    metaDescription: `Formation de 4 h pour concevoir vos assistants IA BTP avec ChatGPT et Claude. Devis, chantier, appels d’offres. Présentiel à ${SITE_INTER_LIEU_COURT}.`,
+    metaDescription:
+      'Formation de 4 h pour concevoir vos assistants IA BTP avec ChatGPT et Claude. Devis, chantier, appels d’offres. Présentiel inter ou intra en Île-de-France.',
     enBref: `Formation NIV-09 (4 h, présentiel, niveau avancé) : concevoir et tester des assistants IA avec ChatGPT et Claude — projets, skills, modèles entreprise. ${SITE_INTER_LIEU}, inter et intra en Île-de-France. Environ 70 % de pratique, bibliothèque de skills BTP, accès plateforme 1 an. Abonnements ChatGPT Plus et Claude Pro (ou comptes entreprise) requis. ${QUALIOPI_MENTION}.`,
     publicTargets: [
       'Dirigeants et professionnels du BTP',

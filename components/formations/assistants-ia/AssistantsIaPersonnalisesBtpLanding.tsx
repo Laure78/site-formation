@@ -33,7 +33,7 @@ import {
   TARIF_PARTICIPANT_NIV09_HT,
 } from '@/lib/tarifs-catalogue-participant';
 import { TRAINING_ANCHOR } from '@/lib/training-fiche-nav';
-import { SITE_INTER_LIEU_COURT } from '@/lib/site-config';
+import { SITE_FORMATION_MODALITE_ENCART } from '@/lib/site-config';
 
 const HERO_IMAGE = '/images/formations/assistants-ia-btp.webp';
 const PEDAGOGY_BG = '/images/formation-ia-chantier-conducteur-travaux.webp';
@@ -187,7 +187,7 @@ export function AssistantsIaPersonnalisesBtpLanding({ h1Id }: Props) {
               {[
                 { icon: Clock, label: 'Durée', sub: '4 heures' },
                 { icon: Coins, label: 'Tarif inter', sub: tarifLabel },
-                { icon: MapPin, label: 'Format', sub: `Présentiel · ${SITE_INTER_LIEU_COURT} · Île-de-France` },
+                { icon: MapPin, label: 'Format', sub: SITE_FORMATION_MODALITE_ENCART },
                 { icon: Users, label: 'Effectif', sub: effectifLabel },
                 { icon: BarChart3, label: 'Niveau', sub: 'Niveau avancé' },
               ].map((item) => (

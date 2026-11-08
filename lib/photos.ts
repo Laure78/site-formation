@@ -1,5 +1,5 @@
 import { getFormationByCode } from '@/data/formations';
-import { SITE_INTER_LIEU_COURT } from '@/lib/site-config';
+import { SEO_GEO_REGION } from '@/lib/seo-geo-keywords';
 
 /** Logo horizontal (header, footer, schema Organization) — WebP uniquement. */
 /** Alt unique — voir `SITE_LOGO_ALT` (identique header / footer). */
@@ -1129,7 +1129,7 @@ export const PHOTOS = {
     src: '/images/formation-assistants-ia-personnalises-btp.webp',
     alt: 'Formation assistants IA BTP : prompts, modèles et workflows devis et chantier',
     description:
-      `Formation créer ses assistants IA BTP : ChatGPT et Claude, skills et méthode, premier assistant visé en session, ${SITE_INTER_LIEU_COURT}, 4 h présentiel OFC Qualiopi.`,
+      `Formation créer ses assistants IA BTP : ChatGPT et Claude, skills et méthode, premier assistant visé en session, présentiel ${SEO_GEO_REGION}, 4 h OFC Qualiopi.`,
     title: 'Assistants IA personnalisés BTP — prompts, modèles et workflows',
     width: 1024,
     height: 768,

@@ -11,6 +11,7 @@ import { HeaderPrimaryCta } from '@/components/nav/HeaderPrimaryCta';
 import { HeaderMobileNavSection } from '@/components/nav/HeaderNavDropdown';
 import { useSiteSearch } from '@/components/search/SiteSearchProvider';
 import { SITE } from '@/lib/site';
+import { SITE_FORMATION_MODALITE_ENCART } from '@/lib/site-config';
 import { LINKS } from '@/lib/internal-links';
 import { headerNavLinkIsActive, type HeaderNavItem } from '@/lib/header-nav';
 type HeaderMobileDrawerProps = {
@@ -175,7 +176,7 @@ export function HeaderMobileDrawer({
         </nav>
         <div className="shrink-0 border-t border-slate-200 bg-white px-4 py-4">
           <p className="mb-3 flex flex-wrap gap-x-3 gap-y-1 text-xs text-slate-600">
-            <span className="font-medium text-slate-500">Présentiel · Île-de-France</span>
+            <span className="font-medium text-slate-500">{SITE_FORMATION_MODALITE_ENCART}</span>
             <Link href={LINKS.contact} onClick={onClose} className="hover:text-[#377CF3]">
               Contact
             </Link>

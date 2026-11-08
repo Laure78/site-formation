@@ -5,6 +5,7 @@ import {
 } from '@/components/formations/training';
 import { TrainingPageLayout } from '@/components/formations/training/TrainingPageLayout';
 import { TrainingPresentationExpand } from '@/components/formations/training/TrainingPresentationExpand';
+import { SITE_FORMATION_MODALITE_DETAIL } from '@/lib/site-config';
 import { TrainingSessionsSection } from '@/components/formations/training/TrainingSessionsSection';
 import { TrainingPublicPrerequisitesSection } from '@/components/formations/training/TrainingPublicPrerequisitesSection';
 import { TrainingModalitiesSection } from '@/components/formations/training/TrainingModalitiesSection';
@@ -141,6 +142,7 @@ export async function TrainingNiv01MaquetteTemplate({
 
       <TrainingPageLayout sidebar={null}>
         <TrainingSection id={TRAINING_ANCHOR.presentation} title="Présentation" tone="white">
+          <p className="mb-4 text-base leading-relaxed text-slate-700">{SITE_FORMATION_MODALITE_DETAIL}</p>
           <TrainingPresentationExpand summary={content.programIntro}>
             {content.heroPublicLine ? <p>{content.heroPublicLine}</p> : null}
           </TrainingPresentationExpand>

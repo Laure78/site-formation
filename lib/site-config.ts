@@ -132,14 +132,30 @@ export function siteSiegeParis12(): string {
   return 'Paris 12e';
 }
 
-/** Lieu inter — libellé court réutilisable (siège = sessions inter). */
-export const SITE_INTER_LIEU_COURT = `${siteSiegeParis12()} (${SITE.adresse.rue})` as const;
+/** Siège — libellé court avec adresse (mentions légales, contact, SEO siège — pas lieu de formation). */
+export const SITE_SIEGE_LIEU_COURT = `${siteSiegeParis12()} (${SITE.adresse.rue})` as const;
+
+/** Encart UI — modalités lieu formations (cartes, hero, menu). */
+export const SITE_FORMATION_MODALITE_ENCART =
+  'Présentiel · Inter-entreprises et intra-entreprise · Île-de-France' as const;
+
+/** Texte détaillé — fiches formation et blocs modalités. */
+export const SITE_FORMATION_MODALITE_DETAIL =
+  'Nos formations se déroulent en présentiel en Île-de-France, en inter-entreprises lors de sessions collectives ou en intra-entreprise directement dans les locaux de votre entreprise.' as const;
+
+/** Suffixe lieu pour mini-cartes « Format · Présentiel · … ». */
+export const SITE_FORMATION_LOCATION_LABEL =
+  'Inter-entreprises et intra-entreprise · Île-de-France' as const;
+
+/** Libellé court sessions inter — sans adresse fixe (lieu communiqué à l’inscription). */
+export const SITE_INTER_LIEU_COURT = 'sessions collectives inter-entreprises' as const;
 
 /** Lieu des sessions inter-entreprises (texte complet). */
-export const SITE_INTER_LIEU = `Inter à ${SITE_INTER_LIEU_COURT}` as const;
+export const SITE_INTER_LIEU =
+  'Inter-entreprises : sessions collectives en présentiel en Île-de-France' as const;
 
 /** Variante « Inter : … » (catalogue Qualiopi). */
-export const SITE_INTER_LIEU_PREFIX = `Inter : ${SITE_INTER_LIEU_COURT}` as const;
+export const SITE_INTER_LIEU_PREFIX = `Inter-entreprises : ${SITE_INTER_LIEU_COURT} en Île-de-France` as const;
 
 /** Déplacement depuis le siège (pages départements). */
 export function siteDepuisSiege(): string {

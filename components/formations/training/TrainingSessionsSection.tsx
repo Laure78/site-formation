@@ -11,6 +11,7 @@ import {
   type CataloguePublicSession,
 } from '@/lib/catalogue-public-sessions';
 import { trainingDevisHref } from '@/lib/training-page-helpers';
+import { SITE_FORMATION_MODALITE_ENCART } from '@/lib/site-config';
 
 type Props = {
   formationTitle: string;
@@ -25,7 +26,7 @@ function SessionRow({ session, formationTitle }: { session: CataloguePublicSessi
       <div className="min-w-0">
         <p className="font-semibold text-slate-900">{formatSessionDateFr(session.sessionEndsOn)}</p>
         <p className="mt-1 text-sm text-slate-600">
-          Présentiel · Île-de-France · Inter-entreprises
+          {SITE_FORMATION_MODALITE_ENCART}
         </p>
       </div>
       <Link href={contactHref} className={`${OFC_CTA_PRIMARY} inline-flex min-h-11 shrink-0 items-center justify-center px-5 py-2.5 text-sm`}>

@@ -7,11 +7,7 @@ import type { Metadata } from 'next';
 import { SOCIAL_PROOF, IDF_ZONE_INTERVENTION } from '@/lib/constants';
 import { formatAnneesExperienceBTP, formatNoteSatisfactionAffichageComplet } from '@/lib/data/indicateurs-resultats';
 import { faqAnswerPlainTextForSchema } from '@/lib/faq-plain-text';
-import {
-  SITE_INTER_LIEU_COURT,
-  siteBlocFooterOrganismeQualiopi,
-  siteIdentifiantsOrganismeLine,
-} from '@/lib/site-config';
+import { siteBlocFooterOrganismeQualiopi, siteIdentifiantsOrganismeLine } from '@/lib/site-config';
 
 export { siteBlocFooterOrganismeQualiopi, siteIdentifiantsOrganismeLine };
 import {
@@ -131,7 +127,7 @@ export const SITE_CONFIG = {
     'IA pour conducteur de travaux',
     'IA pour PME du bâtiment',
     // Géographie (SEO local / GEO)
-    `formation IA ${SITE_INTER_LIEU_COURT}`,
+    'formation IA présentiel Île-de-France',
     'formation IA Île-de-France',
     'formation IA Yvelines',
     'formation IA Paris',

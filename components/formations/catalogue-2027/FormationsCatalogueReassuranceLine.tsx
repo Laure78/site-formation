@@ -1,8 +1,9 @@
 import { formatNoteSatisfactionSur5 } from '@/lib/data/indicateurs-resultats';
+import { SITE_FORMATION_MODALITE_ENCART } from '@/lib/site-config';
 
 const ITEMS = [
   'Qualiopi',
-  'Présentiel Île-de-France',
+  SITE_FORMATION_MODALITE_ENCART,
   `${formatNoteSatisfactionSur5()} de satisfaction`,
   'Prise en charge OPCO/Constructys selon éligibilité',
 ] as const;

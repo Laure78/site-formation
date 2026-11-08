@@ -5,6 +5,7 @@ import { NIV11_MAQUETTE_HERO } from '@/lib/formation-niv11-maquette-assets';
 import { LINKS } from '@/lib/internal-links';
 import { OFC_CTA_PRIMARY, OFC_CTA_SECONDARY } from '@/lib/ofc-interaction-classes';
 import { TRAINING_ANCHOR } from '@/lib/training-fiche-nav';
+import { SITE_FORMATION_MODALITE_ENCART } from '@/lib/site-config';
 
 type Props = {
   h1Id: string;
@@ -99,7 +100,7 @@ export function Niv11MaquetteHero({
             </li>
             <li className="inline-flex items-center gap-2">
               <MapPin className="h-4 w-4 text-[#377CF3]" strokeWidth={ICON_STROKE} aria-hidden />
-              Présentiel Île-de-France
+              {SITE_FORMATION_MODALITE_ENCART}
             </li>
           </ul>
           <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap">

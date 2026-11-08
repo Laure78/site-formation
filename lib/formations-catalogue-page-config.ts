@@ -11,6 +11,7 @@ import {
 } from '@/lib/data/indicateurs-resultats';
 import { CATALOGUE_ALL_OFFERS, type CatalogueOffer } from '@/lib/formations-catalogue-architecture';
 import { FINANCEMENT_FORMULATION_CATALOGUE } from '@/lib/financement-copy';
+import { SITE_FORMATION_MODALITE_ENCART } from '@/lib/site-config';
 /** Codes hors offre catalogue publique (remplacés par NIV-10 — création avec l’IA). */
 export const CATALOGUE_APP_METIER_REFS = ['NIV-06', 'NIV-07', 'NIV-08'] as const;
 
@@ -51,7 +52,7 @@ export function getCataloguePageCoreFormations(
 }
 
 export const CATALOGUE_HERO_REASSURANCE =
-  `OFC certifié Qualiopi · Présentiel Île-de-France · Groupe · Intra & inter` as const;
+  `OFC certifié Qualiopi · ${SITE_FORMATION_MODALITE_ENCART} · Groupe` as const;
 
 /** Modalités communes — une seule fois au-dessus de la grille catalogue. */
 export const CATALOGUE_GRILLE_MODALITES_LIGNE =

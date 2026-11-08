@@ -38,7 +38,7 @@ import {
 } from '@/lib/financement-copy';
 import { formatProsFormesEtNoteQualiopi } from '@/lib/data/indicateurs-resultats-helpers';
 import { formatNoteSatisfactionAffichageComplet, formatAnneesExperienceBTP } from '@/lib/data/indicateurs-resultats';
-import { SITE_INTER_LIEU_COURT, siteSiegeCourt } from '@/lib/site-config';
+import { siteSiegeCourt } from '@/lib/site-config';
 
 export type FAQItem = { q: string; a: string };
 
@@ -539,7 +539,7 @@ export const FAQ_IA_BTP_YVELINES: FAQItem[] = [
 export const FAQ_IA_BTP_SAINT_QUENTIN_YVELINES: FAQItem[] = [
   {
     q: 'Intervenez-vous dans toute la communauté d’agglomération de Saint-Quentin-en-Yvelines ?',
-    a: `Oui. Sessions exclusivement en présentiel, en intra (dans vos locaux — Montigny-le-Bretonneux, Trappes, Élancourt, Maurepas, La Verrière, Coignières, Magny-les-Hameaux, etc.) ou inter (${SITE_INTER_LIEU_COURT}). Le siège OFC est à ${siteSiegeCourt()}. Voir <a href="/formation-ia-btp-yvelines-78">formation IA pour les pros du BTP Yvelines (78)</a> et le <a href="/formations">catalogue formations</a>.`,
+    a: `Oui. Sessions exclusivement en présentiel, en intra (dans vos locaux — Montigny-le-Bretonneux, Trappes, Élancourt, Maurepas, La Verrière, Coignières, Magny-les-Hameaux, etc.) ou en inter-entreprises (sessions collectives en Île-de-France, lieu précisé à l’inscription). Le siège OFC est à ${siteSiegeCourt()}. Voir <a href="/formation-ia-btp-yvelines-78">formation IA pour les pros du BTP Yvelines (78)</a> et le <a href="/formations">catalogue formations</a>.`,
   },
   {
     q: "Faut-il des compétences informatiques pour suivre cette formation ?",
@@ -639,7 +639,7 @@ export const FAQ_ASSISTANTS_IA_NIV09: FAQItem[] = [
   },
   {
     q: 'La formation est-elle disponible en intra-entreprise ?',
-    a: `Oui, en présentiel dans vos locaux en Île-de-France. Les sessions inter-entreprises ont lieu à ${SITE_INTER_LIEU_COURT}.`,
+    a: 'Oui, en présentiel dans vos locaux en Île-de-France pour l’intra-entreprise. Les sessions inter-entreprises sont des sessions collectives en présentiel en Île-de-France (lieu communiqué à l’inscription).',
   },
   {
     q: 'Quel est son tarif ?',

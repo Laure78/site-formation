@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import { SITE_FORMATION_MODALITE_ENCART } from '@/lib/site-config';
 import Link from 'next/link';
 import {
   ArrowRight,
@@ -188,7 +189,7 @@ export function ParcoursDirigeantPmeBtpLanding({ parcours: p }: Props) {
               {
                 icon: MapPin,
                 label: 'Format',
-                sub: 'Présentiel · Île-de-France',
+                sub: SITE_FORMATION_MODALITE_ENCART,
               },
               {
                 icon: Calendar,
