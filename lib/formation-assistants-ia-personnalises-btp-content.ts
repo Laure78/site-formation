@@ -19,7 +19,7 @@ export const ASSISTANTS_IA_HERO_FACTS = [
   SITE_INTER_LIEU_PREFIX,
   `Jusqu'à ${NIV_09.effectifMax} participants`,
   'Environ 70 % de pratique',
-  'ChatGPT Plus et Claude Pro (ou comptes entreprise) requis',
+  'ChatGPT Plus ou Claude Pro (ou compte entreprise) — un des deux suffit',
 ] as const;
 
 export const ASSISTANTS_IA_OUTILS = 'ChatGPT · Claude' as const;
@@ -217,7 +217,7 @@ export const ASSISTANTS_IA_PREREQUIS_ITEMS = [
   'Savoir utiliser un ordinateur et naviguer sur internet',
   'Utilisation courante de l\'IA (ChatGPT ou Claude)',
   'Ordinateur portable',
-  'Abonnements ChatGPT Plus et Claude Pro, ou comptes entreprise (Team) compatibles — actifs avant la session (non inclus dans le tarif)',
+  'Abonnement ChatGPT Plus ou Claude Pro (ou offre Team) actif avant la session — un des deux suffit (non inclus dans le tarif)',
 ] as const;
 
 export const ASSISTANTS_IA_MODALITES = [

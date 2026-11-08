@@ -91,5 +91,5 @@ export const NIV03_PROGRAMME_BLOCS: readonly ProgrammeFormationBloc[] = [
 export const NIV03_PEDAGOGICAL_METHODS = [
   '70 % pratique / 30 % théorie',
   'Présentiel en Île-de-France uniquement — outils enseignés : Claude et ChatGPT.',
-  'Un ordinateur portable par participant, connexion internet. Compte Claude Pro recommandé (environ 18 € HT/mois, à la charge de l’entreprise, non inclus). Documents de chantier anonymisés : CCTP, DPGF, CR, modèles de courriers',
+  'Un ordinateur portable par participant, connexion internet. Ateliers skills : compte Claude Pro actif recommandé ; pour le reste de la session, un abonnement actif à ChatGPT Plus ou Claude Pro suffit (non inclus, à la charge de l’entreprise). Documents de chantier anonymisés : CCTP, DPGF, CR, modèles de courriers',
 ] as const;

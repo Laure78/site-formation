@@ -1,10 +1,5 @@
 import { JsonLd } from '@/components/JsonLd';
-import { AssistantsIaPersonnalisesBtpLanding } from '@/components/formations/assistants-ia/AssistantsIaPersonnalisesBtpLanding';
-import {
-  AssistantsIaBtpAteliersSection,
-  AssistantsIaBtpProgrammeTimelineSection,
-} from '@/components/formations/assistants-ia/AssistantsIaBtpPageSections';
-import { CatalogueFormationPageTemplate } from '@/components/formations/catalogue/CatalogueFormationPageTemplate';
+import { TrainingNiv09MaquetteTemplate } from '@/components/formations/training/TrainingNiv09MaquetteTemplate';
 import { createPageMetadata, getFAQSchema } from '@/lib/seo';
 import { mergeCatalogueFormationFaq } from '@/lib/catalogue-formation-faq';
 import { FAQ_ASSISTANTS_IA_NIV09 } from '@/lib/faq';
@@ -47,20 +42,16 @@ const courseSchema = buildCatalogueCourseAssistantsIaNiv09JsonLd();
 
 export default async function FormationAssistantsIaPersonnalisesBtpPage() {
   return (
-    <div>
+    <>
       <JsonLd id="schema-course-niv-09" schema={courseSchema} />
       {faqSchema ? <JsonLd id="schema-faq-niv-09" schema={faqSchema} /> : null}
 
-      <CatalogueFormationPageTemplate
+      <TrainingNiv09MaquetteTemplate
         content={{ ...PAGE_CONTENT, hideHeroEnBref: true }}
         faqItems={FAQ_ASSISTANTS_IA_NIV09}
         faqSectionId="faq-niv-09"
         h1Id="formation-niv-09-h1"
-        customHero={<AssistantsIaPersonnalisesBtpLanding h1Id="formation-niv-09-h1" />}
-        customHeroFullWidth
-        programmeSupplement={<AssistantsIaBtpProgrammeTimelineSection />}
-        afterProgrammeSupplement={<AssistantsIaBtpAteliersSection />}
       />
-    </div>
+    </>
   );
 }

@@ -253,7 +253,7 @@ export const FORMATION_CATALOGUE_SEO: Record<FormationCatalogueCode, FormationCa
     subtitle: 'ChatGPT & Claude : fonctionnalités clés et assistants métier',
     metaDescription:
       'Formation de 4 h pour concevoir vos assistants IA BTP avec ChatGPT et Claude. Devis, chantier, appels d’offres. Présentiel inter ou intra en Île-de-France.',
-    enBref: `Formation NIV-09 (4 h, présentiel, niveau avancé) : concevoir et tester des assistants IA avec ChatGPT et Claude — projets, skills, modèles entreprise. ${SITE_INTER_LIEU}, inter et intra en Île-de-France. Environ 70 % de pratique, bibliothèque de skills BTP, accès plateforme 1 an. Abonnements ChatGPT Plus et Claude Pro (ou comptes entreprise) requis. ${QUALIOPI_MENTION}.`,
+    enBref: `Formation NIV-09 (4 h, présentiel, niveau avancé) : concevoir et tester des assistants IA avec ChatGPT et Claude — projets, skills, modèles entreprise. ${SITE_INTER_LIEU}, inter et intra en Île-de-France. Environ 70 % de pratique, bibliothèque de skills BTP, accès plateforme 1 an. Abonnement ChatGPT Plus ou Claude Pro (ou compte entreprise) requis — un des deux suffit. ${QUALIOPI_MENTION}.`,
     publicTargets: [
       'Dirigeants et professionnels du BTP',
       'Conducteurs de travaux et chargés d’affaires',
@@ -274,7 +274,7 @@ export const FORMATION_CATALOGUE_SEO: Record<FormationCatalogueCode, FormationCa
     metaDescription:
       'Formation IA pour le BTP : créer une application métier sur mesure avec l’IA, sans coder. 14 heures — 2 jours, présentiel Île-de-France, Qualiopi.',
     enBref:
-      'Formation IA pour le BTP : concevoir, construire et tester une application métier avec l’IA générative, sans compétence en programmation. 14 heures — 2 jours, 4 à 8 participants, présentiel Île-de-France uniquement. Qualiopi — Laure Olivié.',
+      'Formation IA pour le BTP : concevoir, construire et tester une application métier avec l’IA générative, sans compétence en programmation. 14 heures — 2 jours, 6 à 12 participants, présentiel Île-de-France uniquement. Qualiopi — Laure Olivié.',
     publicTargets: [
       'Dirigeants de TPE et PME du BTP',
       'Conducteurs de travaux et chargés d’affaires',

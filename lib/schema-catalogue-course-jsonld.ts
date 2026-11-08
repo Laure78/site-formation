@@ -614,7 +614,7 @@ export function buildCatalogueCourseDeveloppementWebIaNiv10JsonLd(): Record<stri
   const courseUrl = `${SCHEMA_PUBLIC_SITE_URL.replace(/\/$/, '')}${LINKS.formationDeveloppementWebIaSansCoder}`;
   const offer14h = buildCatalogueOffer('NIV-10', courseUrl, TARIF_INTER_DEV_WEB_IA_14H_HT);
   offer14h.name = 'Session 14 heures — 2 jours';
-  offer14h.description = `${TARIF_INTER_DEV_WEB_IA_14H_HT} € HT / participant — 14 heures — 2 jours — 4 à 8 participants`;
+  offer14h.description = `${TARIF_INTER_DEV_WEB_IA_14H_HT} € HT / participant — 14 heures — 2 jours — ${libelleEffectifFormation(getFormationByCode('NIV-10')!)}`;
 
   return {
     ...base,

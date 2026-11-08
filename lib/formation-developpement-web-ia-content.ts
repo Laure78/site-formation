@@ -2,9 +2,12 @@
  * Contenu — formation NUM-04 / NIV-10 : créer des applications métier BTP avec l’IA.
  * Formation catalogue : 14 heures sur 2 jours (2 × 7 h par journée). Tarif 14 h : grille catalogue 2027.
  */
+import { getFormationByCode, libelleEffectifFormation } from '@/data/formations';
 import { LINKS } from '@/lib/internal-links';
 import { formatNumberFr } from '@/lib/format-number-fr';
 import { TARIF_PARTICIPANT_NIV10_14H_HT } from '@/lib/tarifs-catalogue-participant';
+
+export const DEV_WEB_IA_EFFECTIF_LABEL = libelleEffectifFormation(getFormationByCode('NIV-10')!);
 
 export const DEV_WEB_IA_PATH = LINKS.formationDeveloppementWebIaSansCoder;
 export const DEV_WEB_IA_CODE = 'NIV-10' as const;
@@ -34,7 +37,7 @@ export const DEV_WEB_IA_PARCOURS_14H = {
   joursLabel: '2 journées',
   tarifHt: TARIF_INTER_DEV_WEB_IA_14H_HT,
   tarifLabel: `${formatNumberFr(TARIF_INTER_DEV_WEB_IA_14H_HT)} € HT / participant`,
-  effectif: '4 à 8 participants',
+  effectif: DEV_WEB_IA_EFFECTIF_LABEL,
   pdfHref: LINKS.pdfProgrammeDeveloppementWebIaSansCoder14h,
   highlights: [
     'Jour 1 (7 h) — cadrage et première version fonctionnelle',
@@ -108,7 +111,7 @@ export const DEV_WEB_IA_HERO_REASSURANCES = [
 export const DEV_WEB_IA_HERO_FACTS = [
   '14 heures — 2 jours',
   'Présentiel en Île-de-France',
-  '4 à 8 participants',
+  DEV_WEB_IA_EFFECTIF_LABEL,
   'Aucune compétence en programmation requise',
 ] as const;
 
@@ -132,13 +135,13 @@ export const DEV_WEB_IA_INCLUS_TARIF = [
 
 export const DEV_WEB_IA_FORMATS = [
   'Présentiel en Île-de-France uniquement (inter-entreprises ou intra dans vos locaux)',
-  'Tarif HT / participant — 4 à 8 participants',
+  `Tarif HT / participant — ${DEV_WEB_IA_EFFECTIF_LABEL}`,
 ] as const;
 
 export const DEV_WEB_IA_MODALITES_SECTION = {
   eyebrow: 'Modalités',
   title: 'Présentiel en Île-de-France uniquement.',
-  lead: 'Sessions en inter-entreprises à dates programmées, ou en intra dans vos locaux. Petit groupe (4 à 8), accompagnement de proximité tout au long de la pratique.',
+  lead: `Sessions en inter-entreprises à dates programmées, ou en intra dans vos locaux. ${DEV_WEB_IA_EFFECTIF_LABEL}, accompagnement de proximité tout au long de la pratique.`,
   compareLabel: 'Voir les tarifs',
   compareHref: '#tarifs-modalites',
 } as const;
@@ -148,7 +151,7 @@ export const DEV_WEB_IA_MODALITES = [
     id: 'presentiel',
     title: 'Présentiel',
     badge: 'Île-de-France uniquement',
-    desc: 'En inter-entreprises à dates programmées, ou en intra dans vos locaux. Petit groupe (4 à 8), accompagnement de proximité tout au long de la pratique.',
+    desc: `En inter-entreprises à dates programmées, ou en intra dans vos locaux. ${DEV_WEB_IA_EFFECTIF_LABEL}, accompagnement de proximité tout au long de la pratique.`,
   },
 ] as const;
 
@@ -161,7 +164,7 @@ export const DEV_WEB_IA_QUALIOPI_ENGAGEMENTS = [
   {
     num: '02',
     title: 'Un accompagnement personnalisé',
-    desc: 'Groupes limités à 4 à 8 participants pour des allers-retours pédagogiques réguliers.',
+    desc: `Groupes limités à ${DEV_WEB_IA_EFFECTIF_LABEL} pour des allers-retours pédagogiques réguliers.`,
   },
   {
     num: '03',
@@ -566,7 +569,7 @@ export const DEV_WEB_IA_CTA_FINAL = {
   title: 'Quel outil votre entreprise construirait-elle si vous n’aviez plus besoin de savoir coder ?',
   lead: 'Relevé d’heures ? Planning ? Suivi chantier ? CRM ? Tableau de bord ? Application métier complète ?',
   closing: 'Commencez par le besoin qui vous fait perdre le plus de temps.',
-  facts: ['Formation en présentiel en Île-de-France', DEV_WEB_IA_DUREE_AFFICHAGE, '4 à 8 participants'],
+  facts: ['Formation en présentiel en Île-de-France', DEV_WEB_IA_DUREE_AFFICHAGE, DEV_WEB_IA_EFFECTIF_LABEL],
 } as const;
 
 export type DevWebIaErpModule = {
@@ -1004,7 +1007,7 @@ export const DEV_WEB_IA_PEDAGOGIE = [
   'Fil rouge sur le projet d’ERP de chaque participant — pas sur un cas générique',
   'Courtes démonstrations, ateliers guidés puis travail individuel sur poste',
   'Tests et corrections en direct, avec échanges pédagogiques pendant la session',
-  'Petit groupe (4 à 8 participants) pour des allers-retours réguliers',
+  `Groupe de ${DEV_WEB_IA_EFFECTIF_LABEL} pour des allers-retours réguliers`,
 ] as const;
 
 export const DEV_WEB_IA_ESPACE = [
@@ -1059,7 +1062,7 @@ export const DEV_WEB_IA_FAQ = [
   },
   {
     q: 'Où se déroule la formation ?',
-    a: 'Uniquement en présentiel en Île-de-France : en inter-entreprises à dates programmées, ou en intra dans vos locaux. Effectif : 4 à 8 participants.',
+    a: `Uniquement en présentiel en Île-de-France : en inter-entreprises à dates programmées, ou en intra dans vos locaux. Effectif : ${DEV_WEB_IA_EFFECTIF_LABEL}.`,
   },
   {
     q: 'Peut-on créer un outil de gestion de chantier avec l’IA sans savoir coder ?',
@@ -1067,7 +1070,7 @@ export const DEV_WEB_IA_FAQ = [
   },
   {
     q: 'Quelle est la durée et le format de la formation ?',
-    a: '14 heures sur 2 jours en présentiel Île-de-France (4 à 8 participants), inter ou intra. Chaque journée dure 7 h (9h00 – 12h30 / 13h30 – 17h00). Tarif catalogue HT par participant. Prise en charge OPCO/Constructys selon éligibilité.',
+    a: `14 heures sur 2 jours en présentiel Île-de-France (${DEV_WEB_IA_EFFECTIF_LABEL}), inter ou intra. Chaque journée dure 7 h (9h00 – 12h30 / 13h30 – 17h00). Tarif catalogue HT par participant. Prise en charge OPCO/Constructys selon éligibilité.`,
   },
   {
     q: 'Dois-je apporter mon ordinateur ?',

@@ -92,8 +92,8 @@ export function getCatalogueFormationsCount(at: Date = new Date()): number {
   return getPublishedFormations(at).length;
 }
 
-export function getCatalogueLabelWithCount(_at: Date = new Date()): string {
-  return `Catalogue des ${CATALOGUE_FORMATIONS_TOTAL} formations IA BTP`;
+export function getCatalogueLabelWithCount(at: Date = new Date()): string {
+  return `Catalogue des ${getCatalogueFormationsCount(at)} formations IA BTP`;
 }
 
 /** Description pilier — bloc Liens connexes métier. */

@@ -4,6 +4,7 @@
  */
 import type { FormationCode, FormationGamme, FormationTheme } from '@/data/formations';
 import { formationHref, getFormationByCode } from '@/data/formations';
+import { isFormationCatalogueRetired } from '@/lib/formation-catalogue-visibility';
 import { LINKS } from '@/lib/internal-links';
 import type { TarifDureeHeures } from '@/lib/tarifs-sessions';
 
@@ -46,9 +47,10 @@ export type CatalogueGammeSection = {
 };
 
 const QUALIOPI_OFFERS: CatalogueOffer[] = (
-  ['NIV-01', 'NIV-02', 'NIV-03', 'NIV-04', 'NIV-05', 'NIV-12', 'NIV-11', 'NIV-10'] as const
-).map(
-  (code) => {
+  ['NIV-01', 'NIV-02', 'NIV-03', 'NIV-04', 'NIV-05', 'NIV-11', 'NIV-09', 'NIV-10'] as const
+)
+  .filter((code) => !isFormationCatalogueRetired(code))
+  .map((code) => {
     const f = getFormationByCode(code)!;
     return {
       id: code,

@@ -1,7 +1,9 @@
 import { ShortAnswerBlock } from '@/components/landing/ShortAnswerBlock';
 import {
   TrainingDeliverables,
+  TrainingFAQ,
   TrainingMethod,
+  TrainingOutcomes,
 } from '@/components/formations/training';
 import { TrainingPageLayout } from '@/components/formations/training/TrainingPageLayout';
 import { TrainingPresentationExpand } from '@/components/formations/training/TrainingPresentationExpand';
@@ -13,26 +15,14 @@ import { TrainingParticipantsReviewsSection } from '@/components/formations/trai
 import { TrainingContinueSection } from '@/components/formations/training/TrainingContinueSection';
 import { FormateurIntervenantBlock } from '@/components/formateurs/FormateurIntervenantBlock';
 import { FormationIaApplicationsSection } from '@/components/formations/ia/FormationIaApplicationsSection';
-import { Niv01MaquetteHero } from '@/components/formations/training/niv01-maquette/Niv01MaquetteHero';
-import { Niv01MaquetteTrustBar } from '@/components/formations/training/niv01-maquette/Niv01MaquetteTrustBar';
-import { Niv01MaquetteFormatSection } from '@/components/formations/training/niv01-maquette/Niv01MaquetteFormatSection';
-import { Niv01MaquetteSkillCards } from '@/components/formations/training/niv01-maquette/Niv01MaquetteSkillCards';
-import { Niv01MaquetteProgramSection } from '@/components/formations/training/niv01-maquette/Niv01MaquetteProgramSection';
-import { Niv01MaquetteFaqSection } from '@/components/formations/training/niv01-maquette/Niv01MaquetteFaqSection';
-import { Niv01MaquetteFinalCta } from '@/components/formations/training/niv01-maquette/Niv01MaquetteFinalCta';
+import { TrainingMaquetteMarketing } from '@/components/formations/training/TrainingMaquetteMarketing';
 import type { CatalogueFormationPageContent } from '@/lib/catalogue-formation-page-content';
-import { getFormationByCode, isFormationSurDevis } from '@/data/formations';
+import { getFormationByCode } from '@/data/formations';
 import { getFormationCatalogueSeo } from '@/lib/formation-catalogue-seo';
 import { getFormationIaApplications } from '@/lib/formation-ia';
 import type { FAQItem } from '@/lib/faq';
 import { mergeCatalogueFormationFaq } from '@/lib/catalogue-formation-faq';
-import {
-  buildNiv01MaquetteFeaturedFaq,
-  buildNiv01MaquetteSecondaryFaq,
-} from '@/lib/formation-niv01-maquette-faq';
 import { getInfosPratiquesForCatalogue } from '@/lib/infos-pratiques-catalogue';
-import { libelleTarifParticipantCatalogue } from '@/lib/tarifs-catalogue-participant';
-import { trainingDevisHref } from '@/lib/training-page-helpers';
 import { TRAINING_ANCHOR } from '@/lib/training-fiche-nav';
 import { FinancementOpcoEtenduCourtBlock } from '@/components/financement/FinancementOpcoEtenduCourtBlock';
 import { catalogueRefShowsFinancementOpcoEtendu } from '@/lib/financement-opco-etendu-config';
@@ -67,15 +57,6 @@ export async function TrainingNiv01MaquetteTemplate({
   const maillageBlocks = buildFormationPageMaillageBlocks(ref as FormationCatalogueCode).filter(
     (b) => b.id !== 'parcours-metier',
   );
-  const priceOverride = content.priceLabelOverride;
-  const surDevis = isFormationSurDevis(formation);
-  const tarifLabel =
-    priceOverride?.inter ??
-    (formation.tarifParticipantHt && formation.tarifParticipantHt > 0
-      ? libelleTarifParticipantCatalogue(formation.tarifParticipantHt)
-      : 'Sur devis');
-  const effectifLabel = `${formation.effectifMin} à ${formation.effectifMax} participants`;
-  const devisHref = trainingDevisHref(formation.titre);
   const infosPratiques = getInfosPratiquesForCatalogue(ref);
   const hasModalitesSection =
     (infosPratiques.methodes?.length ?? 0) > 0 ||
@@ -91,54 +72,28 @@ export async function TrainingNiv01MaquetteTemplate({
     Boolean(infosPratiques.prerequis?.trim());
 
   const mergedFaqItems = mergeCatalogueFormationFaq(ref, faqItems ?? []);
-  const featuredFaq = buildNiv01MaquetteFeaturedFaq(mergedFaqItems);
-  const secondaryFaq = buildNiv01MaquetteSecondaryFaq(mergedFaqItems, featuredFaq);
-
   const objectivesTitle = content.objectivesTitle ?? 'Objectifs pédagogiques';
-  const programmeHeading = content.programmeHeading ?? 'Programme de la formation';
   const modules = content.programModules ?? [];
 
   return (
-    <div className="formation-niv01-maquette training-page">
-      <Niv01MaquetteHero
+    <div className="formation-niv01-maquette training-page pb-24 lg:pb-0">
+      <TrainingMaquetteMarketing
+        programmeRef={ref as FormationCatalogueCode}
         h1Id={h1Id}
-        title={seo.h1}
-        lead={seo.subtitle}
+        heroH1={seo.h1}
+        formationTitle={formation.titre}
+        effectifMin={formation.effectifMin}
+        effectifMax={formation.effectifMax}
         pdfHref={pdfHref}
+        programModules={modules}
+        programmeHeading={content.programmeHeading ?? 'Le programme de la formation (4 h)'}
       />
-
-      <Niv01MaquetteTrustBar />
 
       <section className="sr-only" aria-label="En bref">
         <div className="mx-auto max-w-[78rem] px-4 py-2">
           <ShortAnswerBlock>{seo.enBref}</ShortAnswerBlock>
         </div>
       </section>
-
-      <Niv01MaquetteFormatSection
-        formationTitle={formation.titre}
-        durationLabel={formation.duree}
-        interPriceLabel={tarifLabel}
-        effectifLabel={effectifLabel}
-        showTvaAsterisk={priceOverride ? false : !surDevis}
-      />
-
-      <Niv01MaquetteSkillCards
-        painPoints={content.painPoints}
-        outcomes={content.outcomes}
-        outcomesTitle={objectivesTitle}
-        outcomesDescription={content.outcomesDescription}
-        pedagogicalNote={content.pedagogicalNote}
-      />
-
-      {modules.length > 0 ? (
-        <Niv01MaquetteProgramSection
-          modules={modules}
-          programLinks={content.programLinks}
-          pdfHref={pdfHref}
-          title={programmeHeading}
-        />
-      ) : null}
 
       <TrainingPageLayout sidebar={null}>
         <TrainingSection id={TRAINING_ANCHOR.presentation} title="Présentation" tone="white">
@@ -147,6 +102,16 @@ export async function TrainingNiv01MaquetteTemplate({
             {content.heroPublicLine ? <p>{content.heroPublicLine}</p> : null}
           </TrainingPresentationExpand>
         </TrainingSection>
+
+        <TrainingOutcomes
+          outcomes={content.outcomes}
+          title={objectivesTitle}
+          description={content.outcomesDescription}
+          variant="checklist"
+          pedagogicalNote={
+            content.pedagogicalNote ?? 'L’IA prépare et structure. Le professionnel contrôle et valide.'
+          }
+        />
 
         {hasPublicPrerequisSection ? (
           <TrainingPublicPrerequisitesSection
@@ -247,16 +212,12 @@ export async function TrainingNiv01MaquetteTemplate({
       <TrainingContinueSection programmeRef={ref as FormationCatalogueCode} />
 
       {maillageBlocks.map((block) => (
-        <PageMaillageSection key={block.id} {...block} />
+        <PageMaillageSection key={block.id} {...block} tone="white" className="!px-0" />
       ))}
 
-      <Niv01MaquetteFaqSection
-        featured={featuredFaq}
-        secondary={secondaryFaq}
-        id={faqSectionId}
-      />
-
-      <Niv01MaquetteFinalCta devisHref={devisHref} pdfHref={pdfHref} />
+      {mergedFaqItems.length > 0 ? (
+        <TrainingFAQ items={mergedFaqItems} id={faqSectionId} />
+      ) : null}
     </div>
   );
 }

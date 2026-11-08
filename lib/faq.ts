@@ -619,7 +619,7 @@ export const FAQ_ASSISTANTS_IA_NIV09: FAQItem[] = [
   },
   {
     q: 'Pourquoi faut-il des abonnements payants ?',
-    a: 'Les projets, skills et connecteurs utilisés en atelier nécessitent ChatGPT Plus et Claude Pro, ou des comptes entreprise (Team) compatibles — actifs avant la session, non inclus dans le tarif de formation.',
+    a: 'Les projets, skills et connecteurs utilisés en atelier nécessitent un abonnement actif à ChatGPT Plus ou Claude Pro (ou des comptes entreprise Team compatibles) — un des deux suffit ; actif avant la session, non inclus dans le tarif de formation.',
   },
   {
     q: 'Combien d’assistants vais-je créer ?',
@@ -823,7 +823,7 @@ export const FAQ_BATIMENT: FAQItem[] = [
   },
   {
     q: 'Quelle différence entre intra et interentreprises ?',
-    a: `Session convoquée, intra ou inter : ${libelleTarifParticipantCatalogue(getFormationByCode('NIV-01')!.tarifParticipantHt!)} — ${SESSION_DUREE_LIBELLE}, 4 à ${EFFECTIF_GROUPE_MAX} participants (minimum 6 pour une session convoquée par un réseau). En intra : dans vos locaux, programme adaptable à l’équipe. En inter : dates selon calendrier, session maintenue sous réserve d’un nombre minimum d’inscrits.`,
+    a: `Session convoquée, intra ou inter : ${libelleTarifParticipantCatalogue(getFormationByCode('NIV-01')!.tarifParticipantHt!)} — ${SESSION_DUREE_LIBELLE}, ${libelleEffectifFormation(getFormationByCode('NIV-01')!)} (minimum 6 pour une session convoquée par un réseau). En intra : dans vos locaux, programme adaptable à l’équipe. En inter : dates selon calendrier, session maintenue sous réserve d’un nombre minimum d’inscrits.`,
   },
   {
     q: 'L’IA peut-elle garantir la conformité d’un devis ou d’un DOE ?',

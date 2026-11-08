@@ -15,6 +15,7 @@ import {
 } from '@/lib/tarifs-catalogue-participant';
 import {
   DEV_WEB_IA_LIVRABLES,
+  DEV_WEB_IA_EFFECTIF_LABEL,
   DEV_WEB_IA_OBJECTIFS,
   DEV_WEB_IA_PARCOURS_14H_SECTION,
 } from '@/lib/formation-developpement-web-ia-content';
@@ -863,7 +864,7 @@ const NIV_10: CatalogueFormationPageContent = {
     '14 heures — 2 jours',
     '9h00 – 12h30 · 13h30 – 17h00',
     'Présentiel Île-de-France uniquement',
-    '4 à 8 participants',
+    DEV_WEB_IA_EFFECTIF_LABEL,
     '70 % pratique · 30 % méthodologie',
   ],
   quickFactsLevel: 'Niveau 3 — Approfondi',
@@ -890,7 +891,7 @@ const NIV_10: CatalogueFormationPageContent = {
     { iaAide: 'Aider à préparer des exports', validation: 'Valider le format avec le destinataire' },
     { iaAide: 'Aider à sauvegarder et documenter', validation: 'Garder la responsabilité du projet' },
   ],
-  interExtraBullets: ['Session inter — 14 heures — 2 jours, 4 à 8 participants'],
+  interExtraBullets: [`Session inter — 14 heures — 2 jours, ${DEV_WEB_IA_EFFECTIF_LABEL}`],
   intraExtraBullets: ['Session intra en présentiel dans vos locaux en Île-de-France'],
   programIntro: `${DEV_WEB_IA_PARCOURS_14H_SECTION.intro} · 70 % pratique.`,
   programmeHeading: 'Programme — 14 heures (2 jours · 2 × 7 h par journée)',

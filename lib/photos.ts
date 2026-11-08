@@ -1055,9 +1055,9 @@ export const PHOTOS = {
   },
   formationNiv10DevWebIaPratique2026: {
     src: '/images/formation-developpement-web-ia-sans-coder/04-formation-pratique.webp',
-    alt: 'Formation pratique 14 h sur 2 jours, 4 à 8 participants, 70 % pratique — outil métier BTP',
+    alt: 'Formation pratique 14 h sur 2 jours, 6 à 12 participants, 70 % pratique — outil métier BTP',
     description:
-      'Visuel formation pratique outil métier BTP avec l’IA : 14 h sur 2 jours (7 h par journée), groupe de 4 à 8 participants, environ 70 % de pratique, financement OPCO possible selon éligibilité. Chaque stagiaire avance sur son projet. OFC Qualiopi / Laure Olivié.',
+      'Visuel formation pratique outil métier BTP avec l’IA : 14 h sur 2 jours (7 h par journée), groupe de 6 à 12 participants, environ 70 % de pratique, financement OPCO possible selon éligibilité. Chaque stagiaire avance sur son projet. OFC Qualiopi / Laure Olivié.',
     title: 'Petit groupe, maximum de pratique',
     width: 819,
     height: 1024,

@@ -13,27 +13,16 @@ import { TrainingPublicPrerequisitesSection } from '@/components/formations/trai
 import { TrainingModalitiesSection } from '@/components/formations/training/TrainingModalitiesSection';
 import { TrainingParticipantsReviewsSection } from '@/components/formations/training/TrainingParticipantsReviewsSection';
 import { TrainingContinueSection } from '@/components/formations/training/TrainingContinueSection';
-import { TrainingSidebarCard } from '@/components/formations/training/TrainingSidebarCard';
 import { FormateurIntervenantBlock } from '@/components/formateurs/FormateurIntervenantBlock';
 import { FormationIaApplicationsSection } from '@/components/formations/ia/FormationIaApplicationsSection';
-import { Niv11MaquetteHero } from '@/components/formations/training/niv11-maquette/Niv11MaquetteHero';
-import { Niv11MaquetteKeyFacts } from '@/components/formations/training/niv11-maquette/Niv11MaquetteKeyFacts';
-import { Niv11MaquetteMetierCards } from '@/components/formations/training/niv11-maquette/Niv11MaquetteMetierCards';
-import { Niv11MaquetteProgramSection } from '@/components/formations/training/niv11-maquette/Niv11MaquetteProgramSection';
-import { Niv11MaquettePedagogyBanner } from '@/components/formations/training/niv11-maquette/Niv11MaquettePedagogyBanner';
-import { Niv11MaquetteFinalCta } from '@/components/formations/training/niv11-maquette/Niv11MaquetteFinalCta';
+import { TrainingMaquetteMarketing } from '@/components/formations/training/TrainingMaquetteMarketing';
 import type { CatalogueFormationPageContent } from '@/lib/catalogue-formation-page-content';
-import { formatPrixHt, getFormationByCode, isFormationSurDevis } from '@/data/formations';
+import { getFormationByCode } from '@/data/formations';
 import { getFormationCatalogueSeo } from '@/lib/formation-catalogue-seo';
 import { getFormationIaApplications } from '@/lib/formation-ia';
 import type { FAQItem } from '@/lib/faq';
 import { mergeCatalogueFormationFaq } from '@/lib/catalogue-formation-faq';
 import { getInfosPratiquesForCatalogue } from '@/lib/infos-pratiques-catalogue';
-import {
-  libelleTarifParticipantCatalogue,
-  TARIF_PARTICIPANT_NIV02_HT,
-  TARIF_SESSION_INTRA_NIV11_HT,
-} from '@/lib/tarifs-catalogue-participant';
 import { TRAINING_ANCHOR } from '@/lib/training-fiche-nav';
 import { FinancementOpcoEtenduCourtBlock } from '@/components/financement/FinancementOpcoEtenduCourtBlock';
 import { catalogueRefShowsFinancementOpcoEtendu } from '@/lib/financement-opco-etendu-config';
@@ -43,11 +32,6 @@ import { buildFormationPageMaillageBlocks } from '@/lib/page-maillage-blocks';
 import type { FormationCatalogueCode } from '@/lib/formation-catalogue-visibility';
 import { TrainingPracticalInfo } from '@/components/formations/training/TrainingPracticalInfo';
 import { TrainingSection } from '@/components/formations/training/TrainingSection';
-import { getCataloguePublicSessionsForSlug } from '@/lib/catalogue-public-sessions';
-import { CtaVisio } from '@/components/CtaVisio';
-import { OFC_CTA_SECONDARY } from '@/lib/ofc-interaction-classes';
-import Link from 'next/link';
-import { LINKS } from '@/lib/internal-links';
 
 type Props = {
   content: CatalogueFormationPageContent;
@@ -71,15 +55,6 @@ export async function TrainingNiv11MaquetteTemplate({
   const maillageBlocks = buildFormationPageMaillageBlocks(ref as FormationCatalogueCode).filter(
     (b) => b.id !== 'parcours-metier',
   );
-  const priceOverride = content.priceLabelOverride;
-  const surDevis = isFormationSurDevis(formation);
-  const tarifLabel =
-    priceOverride?.inter ??
-    libelleTarifParticipantCatalogue(TARIF_PARTICIPANT_NIV02_HT);
-  const intraPriceLabel =
-    priceOverride?.intra ??
-    `${formatPrixHt(TARIF_SESSION_INTRA_NIV11_HT)} € HT / session de 4 h`;
-  const effectifLabel = `${formation.effectifMin} à ${formation.effectifMax} participants`;
   const infosPratiques = getInfosPratiquesForCatalogue(ref);
   const hasModalitesSection =
     (infosPratiques.methodes?.length ?? 0) > 0 ||
@@ -97,77 +72,25 @@ export async function TrainingNiv11MaquetteTemplate({
   const mergedFaqItems = mergeCatalogueFormationFaq(ref, faqItems ?? []);
   const modules = content.programModules ?? [];
   const objectivesTitle = content.objectivesTitle ?? 'Objectifs pédagogiques';
-  const programmeHeading = content.programmeHeading ?? 'Le programme de la formation (4 h)';
-
-  const publicSessions = await getCataloguePublicSessionsForSlug(formation.slug);
-  const interInscriptionHref =
-    publicSessions.length > 0
-      ? `${LINKS.contact}?objet=inscription&formation=${encodeURIComponent(formation.titre)}`
-      : undefined;
-
-  const sidebarProps = {
-    formationTitle: formation.titre,
-    durationLabel: formation.duree,
-    interPriceLabel: tarifLabel,
-    intraPriceLabel,
-    showTvaAsterisk: priceOverride ? false : !surDevis,
-    effectifLabel,
-    pdfHref,
-    interInscriptionHref,
-  };
-
-  const heroIntro =
-    'Analysez les consultations, préparez vos rapports d’analyse des offres et pilotez les intervenants avec ChatGPT et Claude.';
-
   return (
     <div className="formation-niv11-maquette training-page pb-24 lg:pb-0">
-      <div className="border-b border-slate-200 bg-white">
-        <div className="mx-auto max-w-[80rem] lg:grid lg:grid-cols-[minmax(0,1fr)_minmax(17.5rem,20rem)] lg:items-start lg:gap-8 xl:gap-10">
-          <div className="min-w-0">
-            <Niv11MaquetteHero
-              h1Id={h1Id}
-              title={seo.h1}
-              subtitle={seo.subtitle}
-              intro={heroIntro}
-              formationTitle={formation.titre}
-              pdfHref={pdfHref}
-            />
-          </div>
-          <aside className="hidden px-4 py-6 lg:block lg:px-0 lg:py-8" aria-label="Tarifs et inscription">
-            <div className="sticky top-[calc(var(--site-header-height)+0.75rem)] z-20 max-h-[calc(100dvh-var(--site-header-height)-1rem)] overflow-y-auto overscroll-contain pb-4">
-              <TrainingSidebarCard {...sidebarProps} />
-            </div>
-          </aside>
-        </div>
-      </div>
-
-      <div className="border-b border-slate-200 bg-white px-4 py-4 lg:hidden">
-        <TrainingSidebarCard {...sidebarProps} />
-      </div>
-
-      <Niv11MaquetteKeyFacts effectifMin={formation.effectifMin} effectifMax={formation.effectifMax} />
+      <TrainingMaquetteMarketing
+        programmeRef={ref as FormationCatalogueCode}
+        h1Id={h1Id}
+        heroH1={seo.h1}
+        formationTitle={formation.titre}
+        effectifMin={formation.effectifMin}
+        effectifMax={formation.effectifMax}
+        pdfHref={pdfHref}
+        programModules={modules}
+        programmeHeading={content.programmeHeading}
+      />
 
       <section className="sr-only" aria-label="En bref">
         <div className="mx-auto max-w-[78rem] px-4 py-2">
           <ShortAnswerBlock>{seo.enBref}</ShortAnswerBlock>
         </div>
       </section>
-
-      <div className="space-y-14 py-10 sm:space-y-16">
-        <Niv11MaquetteMetierCards formationTitle={formation.titre} pdfHref={pdfHref} />
-
-        {modules.length > 0 ? (
-          <Niv11MaquetteProgramSection
-            modules={modules}
-            programLinks={content.programLinks}
-            pdfHref={pdfHref}
-            title={programmeHeading}
-          />
-        ) : null}
-
-        <Niv11MaquettePedagogyBanner />
-        <Niv11MaquetteFinalCta formationTitle={formation.titre} pdfHref={pdfHref} />
-      </div>
 
       <TrainingPageLayout sidebar={null}>
         <TrainingSection id={TRAINING_ANCHOR.presentation} title="Présentation" tone="white">
@@ -275,32 +198,6 @@ export async function TrainingNiv11MaquetteTemplate({
       {mergedFaqItems.length > 0 ? (
         <TrainingFAQ items={mergedFaqItems} id={faqSectionId} />
       ) : null}
-
-      <div className="fixed inset-x-0 bottom-0 z-40 border-t border-slate-200 bg-white/95 p-3 backdrop-blur lg:hidden">
-        <div className="mx-auto flex max-w-[80rem] gap-2">
-          <CtaVisio
-            src="formation-niv11-amo-sticky"
-            variant="primary"
-            className="inline-flex min-h-11 flex-1 items-center justify-center px-3 py-2 text-sm"
-          />
-          {pdfHref ? (
-            <a
-              href={pdfHref}
-              download
-              className={`${OFC_CTA_SECONDARY} inline-flex min-h-11 flex-1 items-center justify-center px-3 py-2 text-sm`}
-            >
-              Programme
-            </a>
-          ) : (
-            <Link
-              href={`#${TRAINING_ANCHOR.programme}`}
-              className={`${OFC_CTA_SECONDARY} inline-flex min-h-11 flex-1 items-center justify-center px-3 py-2 text-sm`}
-            >
-              Programme
-            </Link>
-          )}
-        </div>
-      </div>
     </div>
   );
 }

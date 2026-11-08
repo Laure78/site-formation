@@ -333,13 +333,13 @@
       "sousTitre": "Démarrage, sécurité, comptes rendus et réception avec les skills Claude",
       "niveau": "NIVEAU 2 · INTERMÉDIAIRE",
       "pdf": "programme_OFC_NIV-03_IA_Conduite_travaux_20261017.pdf",
-      "duree": "7 heures — 9h00 – 12h30 / 13h30 – 17h00 (journée complète)",
+      "duree": "4 heures — 240 minutes — 9h00 – 13h00 ou 13h30 – 17h30",
       "effectif": "6 à 12 participants",
-      "tarif": "310 € HT par participant — TVA exonérée, art. 261-4-4°-a du CGI — prise en charge OPCO/Constructys selon éligibilité",
+      "tarif": "170 € HT par participant — TVA exonérée, art. 261-4-4° du CGI — prise en charge OPCO/Constructys selon éligibilité",
       "pratique": "70 % pratique / 30 % théorie",
       "public": "Conducteurs de travaux, chefs de chantier, responsables travaux, assistant(e)s travaux",
       "prerequis": "Savoir utiliser un ordinateur. Bonne maîtrise du français écrit. Avoir suivi le Niveau 1 ou pratiquer déjà un outil d’IA générative",
-      "moyens": "Un ordinateur portable par participant, connexion internet. Compte Claude Pro recommandé (environ 18 € HT/mois, à la charge de l’entreprise, non inclus). Documents de chantier anonymisés : CCTP, DPGF, CR, modèles de courriers",
+      "moyens": "Un ordinateur portable par participant, connexion internet. Ateliers skills : compte Claude Pro actif recommandé ; pour le reste de la session, un abonnement actif à ChatGPT Plus ou Claude Pro suffit (non inclus). Documents de chantier anonymisés : CCTP, DPGF, CR, modèles de courriers",
       "objectifs": [
         "Utiliser, adapter et créer des skills Claude à partir de la bibliothèque BTP mise à disposition",
         "Préparer le démarrage d’un chantier : analyse du CCTP et de la DPGF, DICT, ordre de service, planning",
@@ -351,7 +351,7 @@
         {
           "label": "ACCUEIL",
           "titre": "Accueil, cadrage et positionnement",
-          "duree": "15 min",
+          "duree": "10 min",
           "contenu": [
             {
               "titre": "Ouverture de session",
@@ -367,7 +367,7 @@
         {
           "label": "MODULE 1",
           "titre": "Installation et démarrage de chantier",
-          "duree": "1 h 40",
+          "duree": "55 min",
           "contenu": [
             {
               "titre": "Bibliothèque de skills",
@@ -396,7 +396,7 @@
         {
           "label": "MODULE 2",
           "titre": "Sécurité de chantier",
-          "duree": "1 h",
+          "duree": "35 min",
           "contenu": [
             {
               "titre": "PPSPS",
@@ -423,7 +423,7 @@
         {
           "label": "MODULE 3",
           "titre": "Gestion de chantier au quotidien",
-          "duree": "2 h",
+          "duree": "1 h 10",
           "contenu": [
             {
               "titre": "Réunions et comptes rendus",
@@ -452,7 +452,7 @@
         {
           "label": "MODULE 4",
           "titre": "Administratif jusqu’à la réception",
-          "duree": "1 h 50",
+          "duree": "55 min",
           "contenu": [
             {
               "titre": "Situations de travaux",
@@ -848,9 +848,9 @@
       "sousTitre": "Concevoir, construire et tester une première application — sans coder",
       "niveau": "NIVEAU 3 · CRÉATION",
       "pdf": "programme_OFC_NIV-10_Applications_metier_BTP_IA_20261017.pdf",
-      "duree": "7 heures — 9h00 – 12h30 / 13h30 – 17h00 (journée complète)",
-      "effectif": "4 à 8 participants",
-      "tarif": "310 € HT par participant — TVA exonérée, art. 261-4-4°-a du CGI — prise en charge OPCO/Constructys selon éligibilité",
+      "duree": "14 heures — 2 jours (2 × 7 h) — 9h00 – 12h30 / 13h30 – 17h00",
+      "effectif": "6 à 12 participants",
+      "tarif": "620 € HT par participant — TVA exonérée, art. 261-4-4° du CGI — prise en charge OPCO/Constructys selon éligibilité",
       "pratique": "70 % pratique / 30 % apports méthodologiques",
       "public": "Dirigeants de TPE et PME du BTP, conducteurs de travaux et chargés d’affaires, assistant(e)s travaux et fonctions support, indépendants du second œuvre",
       "prerequis": "Aucun prérequis en programmation. Une première utilisation de ChatGPT ou Claude est recommandée. Savoir utiliser un ordinateur, naviguer sur internet et installer une application",

@@ -242,15 +242,17 @@ export const MODALITES_ACCES_NIV06 = MODALITES_ACCES_NIV04;
 
 export const DELAI_ACCES_NIV06 = DELAI_ACCES_NIV04;
 
-export const PREREQUIS_NIV05 =
-  "Aisance avec les outils numériques courants — aucun prérequis IA. Abonnements Claude Pro et ChatGPT Plus actifs sur le poste de chaque participant (environ 18 à 20 € HT / mois chacun, à la charge de l'entreprise). Chaque participant apporte ses dossiers techniques, OS, CR et DCE réels.";
+/** Formulation catalogue — un abonnement ChatGPT Plus ou Claude Pro suffit. */
+export const PREREQUIS_MATERIEL_ABONNEMENT_CHATGPT_OU_CLAUDE =
+  "Prérequis matériel : disposer d'un ordinateur portable avec connexion Internet et d'un abonnement actif à ChatGPT Plus ou Claude Pro (ou offre Team) — non inclus, à la charge de l'entreprise.";
+
+export const PREREQUIS_NIV05 = `${PREREQUIS_MATERIEL_ABONNEMENT_CHATGPT_OU_CLAUDE} Aisance avec les outils numériques courants — aucun prérequis IA. Chaque participant apporte ses dossiers techniques, OS, CR et DCE réels.`;
 
 export const PREREQUIS_NIV11 =
   "Aisance avec les outils numériques courants — aucun prérequis IA. Abonnement ChatGPT Plus ou Claude Pro (ou offre Team) actif sur le poste de chaque participant — un des deux suffit ; non inclus, à la charge de l'entreprise. Si Microsoft 365 est utilisé : connecteurs (Outlook, SharePoint / OneDrive, Teams) validés par l'administrateur informatique avant la session. Chaque participant apporte des consultations et dossiers d'opération réels, anonymisés si besoin.";
 
 /** Prérequis NIV-09 — assistants IA (lien initiation via URL interne). */
-export const PREREQUIS_NIV09 =
-  'Savoir utiliser un ordinateur et naviguer sur internet. Utilisation courante de l’IA (ChatGPT ou Claude). Ordinateur portable. Abonnements ChatGPT Plus et Claude Pro, ou comptes entreprise (Team) compatibles, actifs avant la session — non inclus dans le tarif, à la charge de l’entreprise.';
+export const PREREQUIS_NIV09 = `${PREREQUIS_MATERIEL_ABONNEMENT_CHATGPT_OU_CLAUDE} Savoir utiliser un ordinateur et naviguer sur internet. Utilisation courante de l’IA (ChatGPT ou Claude).`;
 
 export const DELAI_ACCES_NIV09 =
   'Inscription via laureolivie.fr/contact jusqu’à 7 jours avant la session, sous réserve de places disponibles.';
@@ -596,17 +598,17 @@ export function getFormationOutilsAbonnementsAvantDevis(ref: string): string {
     case 'NIV-02':
       return 'Outils : abonnement professionnel à l’outil utilisé (Claude AI Pro avec Cowork selon le programme) — non inclus dans le tarif, à la charge de l’entreprise.';
     case 'NIV-03':
-      return 'Outils : ordinateur. Compte Claude Pro recommandé — non inclus dans le tarif s’il est souscrit.';
+      return 'Outils : ordinateur portable et connexion Internet. Ateliers skills : compte Claude Pro actif recommandé ; pour la session, un abonnement ChatGPT Plus ou Claude Pro suffit — un des deux ; non inclus dans le tarif.';
     case 'NIV-04':
       return 'Outils : abonnement Claude Pro actif (environ 18 € HT / mois, à la charge de l’entreprise) avec l’option « Exécution de code » — non inclus dans le tarif.';
     case 'NIV-05':
-      return 'Outils : abonnements Claude Pro et ChatGPT Plus actifs sur le poste de chaque participant (environ 18 à 20 € HT / mois chacun, à la charge de l’entreprise) — non inclus dans le tarif.';
+      return 'Outils : abonnement ChatGPT Plus ou Claude Pro (ou offre Team) actif sur le poste de chaque participant — un des deux suffit ; non inclus dans le tarif, à la charge de l’entreprise.';
     case 'NIV-06':
     case 'NIV-07':
     case 'NIV-08':
       return 'Outils : ordinateur portable avec connexion internet. Aucun abonnement IA payant obligatoire indiqué au programme — les éventuels abonnements restent hors tarif.';
     case 'NIV-09':
-      return 'Abonnements ChatGPT Plus et Claude Pro, ou comptes entreprise (Team) compatibles, actifs sur le poste de chaque participant avant la session. Non inclus dans le tarif de formation — à la charge de l’entreprise.';
+      return 'Outils : abonnement ChatGPT Plus ou Claude Pro (ou offre Team) actif sur le poste de chaque participant — un des deux suffit ; non inclus dans le tarif, à la charge de l’entreprise.';
     case 'NIV-11':
     case 'NIV-12':
       return 'Outils : abonnement ChatGPT Plus ou Claude Pro (ou offre Team) actif sur le poste de chaque participant — un des deux suffit ; non inclus dans le tarif, à la charge de l’entreprise.';

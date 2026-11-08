@@ -13,6 +13,10 @@ import {
   TARIF_PARTICIPANT_NIV10_14H_HT,
 } from '@/lib/tarifs-catalogue-participant';
 
+/** Effectif standard — toutes les formations catalogue IA BTP (niveaux 1, 2 et 3). */
+export const CATALOGUE_EFFECTIF_MIN = 6 as const;
+export const CATALOGUE_EFFECTIF_MAX = 12 as const;
+
 export type FormationNiveau = 1 | 2 | 3;
 
 /** Gamme stratégique du catalogue — Découvrir · Appliquer par métier · Déployer. */
@@ -268,9 +272,10 @@ export const FORMATIONS: readonly Formation[] = [
     niveauLabel: 'Niveau 2',
     duree: '4 h',
     horaires: '9h00 – 13h00 ou 13h30 – 17h30',
-    effectifMin: 4,
-    effectifMax: 10,
+    effectifMin: CATALOGUE_EFFECTIF_MIN,
+    effectifMax: CATALOGUE_EFFECTIF_MAX,
     prixHT: 0,
+    tarifParticipantHt: TARIF_PARTICIPANT_NIV02_HT,
     accroche:
       'Charte IA, analyse des consultations, rapport d’analyse des offres et pilotage des intervenants — ChatGPT et Claude côté assistance à maîtrise d’ouvrage.',
     objectifs: [
@@ -303,8 +308,8 @@ export const FORMATIONS: readonly Formation[] = [
     niveauLabel: 'Niveau 2',
     duree: '4 h',
     horaires: '9h00 – 13h00 ou 13h30 – 17h30',
-    effectifMin: 2,
-    effectifMax: 10,
+    effectifMin: CATALOGUE_EFFECTIF_MIN,
+    effectifMax: CATALOGUE_EFFECTIF_MAX,
     prixHT: 0,
     accroche:
       'CCTP, descriptif et notice incendie, métré et DPGF, analyse des offres, CR de chantier, planning court et emails — ChatGPT ou Claude sur les dossiers du cabinet.',
@@ -342,8 +347,8 @@ export const FORMATIONS: readonly Formation[] = [
     niveauLabel: 'Niveau 1 — Concevoir',
     duree: '4 h',
     horaires: '9h00 – 13h00 ou 13h30 – 17h30',
-    effectifMin: 2,
-    effectifMax: 8,
+    effectifMin: CATALOGUE_EFFECTIF_MIN,
+    effectifMax: CATALOGUE_EFFECTIF_MAX,
     prixHT: 0,
     tarifParcoursAppMetier: 'niveau-1',
     accroche:
@@ -382,8 +387,8 @@ export const FORMATIONS: readonly Formation[] = [
     niveauLabel: 'Niveau 2 — Connecter',
     duree: '4 h',
     horaires: '9h00 – 13h00 ou 13h30 – 17h30',
-    effectifMin: 2,
-    effectifMax: 8,
+    effectifMin: CATALOGUE_EFFECTIF_MIN,
+    effectifMax: CATALOGUE_EFFECTIF_MAX,
     prixHT: 0,
     tarifParcoursAppMetier: 'niveau-2',
     accroche:
@@ -422,8 +427,8 @@ export const FORMATIONS: readonly Formation[] = [
     niveauLabel: 'Niveau 3 — Industrialiser',
     duree: '4 h',
     horaires: '9h00 – 13h00 ou 13h30 – 17h30',
-    effectifMin: 2,
-    effectifMax: 8,
+    effectifMin: CATALOGUE_EFFECTIF_MIN,
+    effectifMax: CATALOGUE_EFFECTIF_MAX,
     prixHT: 0,
     tarifParcoursAppMetier: 'niveau-3',
     accroche:
@@ -501,8 +506,8 @@ export const FORMATIONS: readonly Formation[] = [
     niveauLabel: 'Niveau Approfondi',
     duree: '14 h',
     horaires: '2 jours — 9h00 – 12h30 / 13h30 – 17h00',
-    effectifMin: 4,
-    effectifMax: 8,
+    effectifMin: CATALOGUE_EFFECTIF_MIN,
+    effectifMax: CATALOGUE_EFFECTIF_MAX,
     prixHT: 0,
     tarifParticipantHt: TARIF_PARTICIPANT_NIV10_14H_HT,
     accroche:
@@ -531,8 +536,18 @@ export type FormationSlug = (typeof FORMATIONS)[number]['slug'];
 
 export const FORMATIONS_COUNT = FORMATIONS.length;
 
-/** Nombre de parcours catalogue officiels (NIV-01 … NIV-10) — copy site, llms.txt, GEO. */
-export const CATALOGUE_FORMATIONS_TOTAL = FORMATIONS.length;
+/** Codes hors catalogue public (fusion, remplacement ou retrait). */
+export const CATALOGUE_FORMATIONS_RETIRED_CODES = [
+  'NIV-06',
+  'NIV-07',
+  'NIV-08',
+  'NIV-12',
+] as const;
+
+/** Nombre de parcours catalogue publics — copy site, llms.txt, GEO. */
+export const CATALOGUE_FORMATIONS_TOTAL = FORMATIONS.filter(
+  (f) => !(CATALOGUE_FORMATIONS_RETIRED_CODES as readonly string[]).includes(f.code),
+).length;
 
 /**
  * Durées catalogue — standard 4 h pour les sessions IA BTP publiées.
@@ -546,8 +561,8 @@ export const CATALOGUE_DUREE_SESSION_METIER = CATALOGUE_DUREE_STANDARD;
 export const CATALOGUE_DUREE_NIV09 = CATALOGUE_DUREE_STANDARD;
 export const CATALOGUE_DUREE_NIV10 = '14 h' as const;
 
-/** Plage de numérotation catalogue — NIV-01 … NIV-10. */
-export const CATALOGUE_NIV_RANGE = 'NIV-01 à NIV-12' as const;
+/** Plage de numérotation catalogue — références actives (hors fiches retirées). */
+export const CATALOGUE_NIV_RANGE = 'NIV-01 à NIV-11' as const;
 
 export function getFormationByCode(code: string): Formation | undefined {
   return FORMATIONS.find((f) => f.code === code);

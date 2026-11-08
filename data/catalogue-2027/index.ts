@@ -28,7 +28,7 @@ export const CATALOGUE_2027_INFOS_PRATIQUES = {
   interLieu: SITE_INTER_LIEU,
   intraLieu: 'Intra dans les locaux de l’entreprise',
   effectifHabituel: '6 à 12 participants',
-  effectifNum04: '4 à 8 participants (NUM-04)',
+  effectifNum04: '6 à 12 participants (NUM-04)',
   effectifIntraMin: 'Intra à partir de 4 participants',
   delaiMinimum: 'Délai minimum annoncé : 15 jours',
   positionnement: 'Positionnement et évaluation des acquis',

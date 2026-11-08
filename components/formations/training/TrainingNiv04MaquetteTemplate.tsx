@@ -16,7 +16,7 @@ import { TrainingContinueSection } from '@/components/formations/training/Traini
 import { FormateurIntervenantBlock } from '@/components/formateurs/FormateurIntervenantBlock';
 import { FormationIaApplicationsSection } from '@/components/formations/ia/FormationIaApplicationsSection';
 import { CatalogueFormationClaudeExtras } from '@/components/formations/catalogue/CatalogueFormationClaudeExtras';
-import { Niv04MaquetteMarketing } from '@/components/formations/training/niv04-maquette/Niv04MaquetteMarketing';
+import { TrainingMaquetteMarketing } from '@/components/formations/training/TrainingMaquetteMarketing';
 import type { CatalogueFormationPageContent } from '@/lib/catalogue-formation-page-content';
 import { getFormationByCode } from '@/data/formations';
 import { getFormationCatalogueSeo } from '@/lib/formation-catalogue-seo';
@@ -78,13 +78,16 @@ export async function TrainingNiv04MaquetteTemplate({
 
   return (
     <div className="formation-niv04-maquette training-page pb-24 lg:pb-0">
-      <Niv04MaquetteMarketing
+      <TrainingMaquetteMarketing
+        programmeRef={ref as FormationCatalogueCode}
         h1Id={h1Id}
+        heroH1={formation.titre}
         formationTitle={formation.titre}
         effectifMin={formation.effectifMin}
         effectifMax={formation.effectifMax}
         pdfHref={pdfHref}
         programModules={modules}
+        programmeHeading={content.programmeHeading}
       />
 
       <section className="sr-only" aria-label="En bref">

@@ -1,6 +1,5 @@
 import { JsonLd } from '@/components/JsonLd';
-import { CatalogueFormationPageTemplate } from '@/components/formations/catalogue/CatalogueFormationPageTemplate';
-import { FormationMoeNiv05GeoSections } from '@/components/formations/catalogue/FormationMoeNiv05GeoSections';
+import { TrainingNiv05MaquetteTemplate } from '@/components/formations/training/TrainingNiv05MaquetteTemplate';
 import { buildCatalogueFormationCoursePageJsonLd, buildCatalogueFormationFaqPageJsonLd } from '@/lib/catalogue-formation-page-jsonld';
 import { FAQ_MOE_NIV05 } from '@/lib/catalogue-formation-faq-niv05';
 import { createPageMetadata, SITE_CONFIG } from '@/lib/seo';
@@ -40,12 +39,11 @@ export default async function FormationIaMaitriseOeuvrePage() {
       <JsonLd id="schema-course-niv-05" schema={courseSchema} />
       {faqSchema ? <JsonLd id="schema-faq-niv-05" schema={faqSchema} /> : null}
 
-      <CatalogueFormationPageTemplate
+      <TrainingNiv05MaquetteTemplate
         content={PAGE_CONTENT}
         faqItems={FAQ_MOE_NIV05}
         faqSectionId="faq-niv-05"
         h1Id="formation-moe-h1"
-        afterIaLimits={<FormationMoeNiv05GeoSections />}
       />
     </div>
   );

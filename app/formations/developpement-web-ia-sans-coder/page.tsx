@@ -1,5 +1,5 @@
 import { JsonLd } from '@/components/JsonLd';
-import { CatalogueFormationPageTemplate } from '@/components/formations/catalogue/CatalogueFormationPageTemplate';
+import { TrainingNiv10MaquetteTemplate } from '@/components/formations/training/TrainingNiv10MaquetteTemplate';
 import { createPageMetadata, getFAQSchema } from '@/lib/seo';
 import { getFormationCatalogueVisuel } from '@/lib/formations-catalogue-display';
 import { LINKS } from '@/lib/internal-links';
@@ -42,16 +42,16 @@ const courseSchema = buildCatalogueCourseDeveloppementWebIaNiv10JsonLd();
 
 export default async function FormationDeveloppementWebIaSansCoderPage() {
   return (
-    <div>
+    <>
       <JsonLd id="schema-course-niv-10" schema={courseSchema} />
       {faqSchema ? <JsonLd id="schema-faq-niv-10" schema={faqSchema} /> : null}
 
-      <CatalogueFormationPageTemplate
+      <TrainingNiv10MaquetteTemplate
         content={PAGE_CONTENT}
         faqItems={DEV_WEB_IA_FAQ}
         faqSectionId="faq-niv-10"
         h1Id="formation-niv-10-h1"
       />
-    </div>
+    </>
   );
 }
