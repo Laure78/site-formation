@@ -19,10 +19,9 @@ import {
 } from '@/lib/catalogue-2027/parcours-seo-metadata';
 import {
   buildParcoursMetierCourseJsonLd,
+  buildParcoursMetierFaqPageJsonLd,
   buildParcoursModulesItemListJsonLd,
 } from '@/lib/schema-parcours-metiers-jsonld';
-import { getParcoursMetierFaqForPage } from '@/lib/catalogue-2027/parcours-metiers-faq-pages';
-import { FAQSchema } from '@/components/seo/FAQSchema';
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -75,7 +74,7 @@ export default async function ParcoursPage({ params }: Props) {
 
   const courseSchema = buildParcoursMetierCourseJsonLd(computed);
   const modulesListSchema = buildParcoursModulesItemListJsonLd(computed);
-  const faqItems = getParcoursMetierFaqForPage(parcours.id, computed);
+  const faqSchema = buildParcoursMetierFaqPageJsonLd(parcours.id, computed);
 
   const base = SITE_CONFIG.url.replace(/\/$/, '');
 
@@ -83,13 +82,9 @@ export default async function ParcoursPage({ params }: Props) {
     <>
       <JsonLd id={`schema-parcours-${parcours.id}`} schema={courseSchema} />
       <JsonLd id={`schema-parcours-modules-${parcours.id}`} schema={modulesListSchema} />
-      <FAQSchema
-        id={`schema-parcours-faq-${parcours.id}`}
-        items={faqItems.map((item) => ({
-          question: item.q,
-          answer: item.a,
-        }))}
-      />
+      {faqSchema ? (
+        <JsonLd id={`schema-parcours-faq-${parcours.id}`} schema={faqSchema} />
+      ) : null}
       <BreadcrumbJsonLd
         id={`schema-breadcrumb-parcours-${parcours.id}`}
         items={[

@@ -2,7 +2,10 @@
  * JSON-LD — hub et fiches parcours métiers 2027 (Course, ItemList — tarif = somme modules obligatoires).
  */
 import type { ParcoursComputed } from '@/data/catalogue-2027/parcours';
+import type { ParcoursId } from '@/data/catalogue-2027';
 import { getModuleByCode } from '@/data/catalogue-2027';
+import { getParcoursMetierFaqForPage } from '@/lib/catalogue-2027/parcours-metiers-faq-pages';
+import { getFAQSchema } from '@/lib/seo';
 import { parcoursHref } from '@/lib/catalogue-2027/parcours-href';
 import { PARCOURS_SEO_BY_ID } from '@/lib/catalogue-2027/parcours-seo-metadata';
 import {
@@ -60,6 +63,14 @@ export function buildParcoursModulesItemListJsonLd(parcours: ParcoursComputed): 
       };
     }),
   };
+}
+
+/** FAQPage — alignée sur `getFAQSchema` (même logique que fiches catalogue NIV). */
+export function buildParcoursMetierFaqPageJsonLd(
+  parcoursId: ParcoursId,
+  computed?: ParcoursComputed,
+): Record<string, unknown> | null {
+  return getFAQSchema(getParcoursMetierFaqForPage(parcoursId, computed));
 }
 
 export function buildParcoursMetiersHubItemListJsonLd(
