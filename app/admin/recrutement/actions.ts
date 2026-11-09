@@ -9,11 +9,14 @@ import {
   LINKS,
 } from '@/lib/internal-links';
 import {
+  RECRUITMENT_BTP_EXPERIENCE,
   RECRUITMENT_FORMATION_OPTIONS,
   RECRUITMENT_LEGAL_STATUS,
   RECRUITMENT_MODALITY,
+  RECRUITMENT_NDA_STATUS,
   RECRUITMENT_SOURCES,
   RECRUITMENT_STATUS,
+  RECRUITMENT_TRIAGE_STATUS,
   type RecruitmentFormationId,
 } from '@/lib/recruitment/constants';
 import {
@@ -61,6 +64,9 @@ export async function upsertRecruitmentCandidatAction(
   const legal_status = parseEnum(RECRUITMENT_LEGAL_STATUS, formData.get('legal_status'));
   const source = parseEnum(RECRUITMENT_SOURCES, formData.get('source'));
   const interview_modality = parseEnum(RECRUITMENT_MODALITY, formData.get('interview_modality'));
+  const nda_status = parseEnum(RECRUITMENT_NDA_STATUS, formData.get('nda_status'));
+  const triage_status = parseEnum(RECRUITMENT_TRIAGE_STATUS, formData.get('triage_status'));
+  const btp_experience_status = parseEnum(RECRUITMENT_BTP_EXPERIENCE, formData.get('btp_experience_status'));
 
   const interview_date = String(formData.get('interview_date') ?? '').trim();
   const interview_time = String(formData.get('interview_time') ?? '').trim() as InterviewSlotTime;
@@ -81,9 +87,21 @@ export async function upsertRecruitmentCandidatAction(
     legal_status,
     siret: String(formData.get('siret') ?? '').trim() || null,
     nda: String(formData.get('nda') ?? '').trim() || null,
+    nda_status,
+    current_role: String(formData.get('current_role') ?? '').trim() || null,
     btp_background: String(formData.get('btp_background') ?? '').trim() || null,
+    btp_experience_status,
     ai_usage: String(formData.get('ai_usage') ?? '').trim() || null,
+    ai_competencies: String(formData.get('ai_competencies') ?? '').trim() || null,
+    ai_tools: String(formData.get('ai_tools') ?? '').trim() || null,
+    pedagogy_experience: String(formData.get('pedagogy_experience') ?? '').trim() || null,
     availability_notes: String(formData.get('availability_notes') ?? '').trim() || null,
+    availability_summary: String(formData.get('availability_summary') ?? '').trim() || null,
+    notice_period: String(formData.get('notice_period') ?? '').trim() || null,
+    triage_status,
+    strengths: String(formData.get('strengths') ?? '').trim() || null,
+    to_verify: String(formData.get('to_verify') ?? '').trim() || null,
+    admin_notes: String(formData.get('admin_notes') ?? '').trim() || null,
     source,
     formations: parseFormations(formData) as RecruitmentFormationId[],
     stage,

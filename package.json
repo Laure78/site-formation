@@ -64,6 +64,8 @@
     "test:career-form": "node scripts/assert-career-form-validation.mjs",
     "db:migrate:career": "node scripts/apply-career-migration.mjs",
     "db:migrate:extranet": "node scripts/apply-extranet-migrations.mjs",
+    "db:migrate:recruitment": "node --env-file=.env.local scripts/apply-recruitment-migration.mjs",
+    "db:migrate:recruitment-profile": "node --env-file=.env.local scripts/apply-recruitment-migration.mjs 077_recruitment_candidat_profile_fields.sql",
     "db:verify:extranet": "node scripts/verify-extranet-supabase.mjs",
     "setup:career-supabase": "node scripts/setup-career-supabase.mjs",
     "test:lms-automation": "npm run test:satisfaction-j1 && npm run test:invitation-secure && npm run check:training-satisfaction",

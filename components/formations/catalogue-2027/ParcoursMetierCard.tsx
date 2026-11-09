@@ -5,45 +5,42 @@ import type { ParcoursComputed } from '@/data/catalogue-2027';
 import { libelleDureeParcoursHeures } from '@/data/catalogue-2027';
 import { libellePrixParcoursCompletInter } from '@/lib/catalogue-2027/parcours-affichage';
 import { parcoursHref } from '@/lib/catalogue-2027/parcours-href';
-import { OFC_CTA_SECONDARY } from '@/lib/ofc-interaction-classes';
-import { PARCOURS_METIERS_CARD_IMAGE } from '@/lib/parcours-metiers-page-content';
-
-const BADGE_OUVERTURE_2027 = 'Ouverture 2027' as const;
-const MODULARITE_MENTION = 'Modules à la carte' as const;
+import {
+  PARCOURS_METIERS_CARD_IMAGE,
+  PARCOURS_METIERS_CARD_MENTION_COMPLET,
+  PARCOURS_METIERS_CARD_MENTION_MODULES,
+  PARCOURS_METIERS_CARD_SUBTITLE,
+} from '@/lib/parcours-metiers-page-content';
 
 export type ParcoursMetierCardProps = {
   parcours: ParcoursComputed;
-  /** Description synthétique — une phrase distincte par métier. */
-  description: string;
+  /** @deprecated Préférer les sous-titres dans `PARCOURS_METIERS_CARD_SUBTITLE`. */
+  description?: string;
 };
 
 /**
- * Carte parcours métier — hub / grilles (alignée fiches /formations/parcours/*).
+ * Carte parcours métier — hub /parcours-metiers.
  */
 export function ParcoursMetierCard({ parcours: p, description }: ParcoursMetierCardProps) {
   const image = PARCOURS_METIERS_CARD_IMAGE[p.id];
   const ficheHref = parcoursHref(p.id);
   const duree = libelleDureeParcoursHeures(p.dureeHeures);
+  const subtitle = description ?? PARCOURS_METIERS_CARD_SUBTITLE[p.id];
 
   return (
     <article
-      className="group flex h-full min-h-0 flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm ring-1 ring-slate-50 transition-shadow hover:shadow-md"
+      className="group flex h-full min-h-0 flex-col overflow-hidden rounded-2xl border border-slate-200 bg-[#F8FAFC] shadow-sm ring-1 ring-slate-50 transition-shadow hover:shadow-md"
       aria-labelledby={`parcours-card-title-${p.id}`}
     >
-      {image ? (
-        <div className="relative aspect-[16/10] w-full shrink-0 overflow-hidden bg-slate-100">
-          <span className="absolute left-3 top-3 z-10 rounded-lg bg-[#377CF3] px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wide text-white shadow-sm">
-            {BADGE_OUVERTURE_2027}
-          </span>
-          <Image
-            src={image.src}
-            alt={image.alt}
-            fill
-            className="object-cover object-center transition-transform duration-300 group-hover:scale-[1.02] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
-            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-          />
-        </div>
-      ) : null}
+      <div className="relative aspect-[16/10] w-full shrink-0 overflow-hidden bg-slate-100">
+        <Image
+          src={image.src}
+          alt={image.alt}
+          fill
+          className="object-cover object-center transition-transform duration-300 group-hover:scale-[1.02] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
+          sizes="(max-width: 640px) 100vw, (max-width: 1280px) 50vw, 33vw"
+        />
+      </div>
 
       <div className="flex min-h-0 flex-1 flex-col p-5 sm:p-6">
         <h3
@@ -52,8 +49,7 @@ export function ParcoursMetierCard({ parcours: p, description }: ParcoursMetierC
         >
           {p.titre}
         </h3>
-        <p className="mt-2 line-clamp-3 min-h-[3.75rem] text-sm leading-relaxed text-slate-600">{description}</p>
-        <p className="mt-3 text-xs font-semibold uppercase tracking-wide text-[#377CF3]">{MODULARITE_MENTION}</p>
+        <p className="mt-2 text-sm leading-relaxed text-slate-600">{subtitle}</p>
 
         <dl className="mt-4 space-y-2 text-sm text-slate-600">
           <div className="flex items-center gap-2">
@@ -70,19 +66,24 @@ export function ParcoursMetierCard({ parcours: p, description }: ParcoursMetierC
               Durée totale : <span className="font-medium text-[#101936]">{duree}</span>
             </dd>
           </div>
-          <div className="flex items-center gap-2 sm:col-span-2">
+          <div className="flex items-start gap-2">
             <dt className="sr-only">Tarif parcours complet inter</dt>
             <dd className="text-slate-600">
-              Parcours complet :{' '}
+              Parcours complet (inter) :{' '}
               <span className="font-medium text-[#101936]">{libellePrixParcoursCompletInter(p)}</span>
             </dd>
           </div>
         </dl>
 
+        <ul className="mt-3 space-y-1 text-xs leading-snug text-slate-500">
+          <li>{PARCOURS_METIERS_CARD_MENTION_COMPLET}</li>
+          <li>{PARCOURS_METIERS_CARD_MENTION_MODULES}</li>
+        </ul>
+
         <div className="mt-auto pt-5">
           <Link
             href={ficheHref}
-            className={`${OFC_CTA_SECONDARY} inline-flex min-h-11 w-full items-center justify-center gap-2 px-4 py-2.5 text-sm`}
+            className="inline-flex min-h-11 items-center gap-1.5 text-sm font-semibold text-[#377CF3] underline decoration-[#377CF3]/35 underline-offset-[3px] transition-colors hover:text-[#2f6bd4] hover:decoration-[#377CF3]"
           >
             Découvrir le parcours
             <ArrowRight className="h-4 w-4 shrink-0" aria-hidden />

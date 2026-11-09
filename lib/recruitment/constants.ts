@@ -31,6 +31,32 @@ export const RECRUITMENT_STATUS = {
 
 export type RecruitmentStatus = keyof typeof RECRUITMENT_STATUS;
 
+export const RECRUITMENT_NDA_STATUS = {
+  oui: 'Oui',
+  oui_a_verifier: 'Oui, à vérifier',
+  non: 'Non',
+  en_cours: 'En cours d’instruction',
+  non_renseigne: 'Non renseigné',
+} as const;
+
+export type RecruitmentNdaStatus = keyof typeof RECRUITMENT_NDA_STATUS;
+
+export const RECRUITMENT_TRIAGE_STATUS = {
+  identifie: 'Formateur identifié',
+  a_evaluer: 'Profil à évaluer',
+} as const;
+
+export type RecruitmentTriageStatus = keyof typeof RECRUITMENT_TRIAGE_STATUS;
+
+export const RECRUITMENT_BTP_EXPERIENCE = {
+  confirmee: 'Expérience BTP confirmée',
+  partielle: 'Expérience BTP partielle',
+  a_confirmer: 'Expérience BTP à confirmer',
+  absente: 'Pas de parcours BTP documenté',
+} as const;
+
+export type RecruitmentBtpExperienceStatus = keyof typeof RECRUITMENT_BTP_EXPERIENCE;
+
 export const RECRUITMENT_MODALITY = {
   presentiel_paris: 'Présentiel — 61 rue de Lyon, 75012 Paris',
   visio_zoom: 'Visio Zoom',

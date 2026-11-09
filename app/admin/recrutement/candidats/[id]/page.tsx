@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { CandidatEditForm } from '@/components/admin/recrutement/CandidatEditForm';
+import { CandidatProfileSummary } from '@/components/admin/recrutement/CandidatProfileSummary';
 import { CandidatInterviewPrepPanel } from '@/components/admin/recrutement/CandidatInterviewPrepPanel';
 import { DeleteCandidatDialog } from '@/components/admin/recrutement/DeleteCandidatDialog';
 import { NotesTimeline } from '@/components/admin/recrutement/NotesTimeline';
@@ -52,6 +53,14 @@ export default async function AdminRecrutementCandidatPage({ params }: Props) {
         </OrgCard>
 
         <OrgCard>
+          <h2 className="font-display text-lg font-bold text-slate-900">Synthèse profil</h2>
+          <div className="mt-4">
+            <CandidatProfileSummary candidat={candidat} />
+          </div>
+        </OrgCard>
+
+        <OrgCard>
+          <h2 className="mb-4 font-display text-lg font-bold text-slate-900">Modifier la fiche</h2>
           <CandidatEditForm candidat={candidat} />
         </OrgCard>
 

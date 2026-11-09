@@ -8,9 +8,9 @@ import { libelleDureeParcoursHeures } from '@/data/catalogue-2027/parcours';
 import { buildTitle, META_DESCRIPTION_MAX_LENGTH } from '@/utils/metadata';
 
 export const PARCOURS_METIERS_HUB_SEO = {
-  titleSegment: 'Parcours métiers IA BTP · formation modulaire',
+  titleSegment: 'Parcours métiers IA BTP pour PME',
   description:
-    'Parcours métiers IA BTP en Île-de-France : formation IA pour les professionnels du BTP, modules à la carte ou parcours complet. Ouverture 2027, Qualiopi.',
+    'Parcours métiers IA BTP en Île-de-France : formation IA PME bâtiment et travaux publics, modules à la carte ou parcours complet. Réservez votre visio découverte gratuite.',
 } as const;
 
 export type ParcoursSeoPack = {

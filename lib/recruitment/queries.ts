@@ -10,6 +10,9 @@ export async function listRecruitmentCandidats(filters?: {
   status?: string;
   stage?: string;
   formation?: string;
+  nda_status?: string;
+  triage_status?: string;
+  btp_experience_status?: string;
   q?: string;
 }): Promise<RecruitmentCandidatRow[]> {
   const admin = createAdminClient();
@@ -23,6 +26,15 @@ export async function listRecruitmentCandidats(filters?: {
   }
   if (filters?.formation?.trim()) {
     q = q.contains('formations', [filters.formation.trim()]);
+  }
+  if (filters?.nda_status?.trim()) {
+    q = q.eq('nda_status', filters.nda_status.trim());
+  }
+  if (filters?.triage_status?.trim()) {
+    q = q.eq('triage_status', filters.triage_status.trim());
+  }
+  if (filters?.btp_experience_status?.trim()) {
+    q = q.eq('btp_experience_status', filters.btp_experience_status.trim());
   }
   const { data, error } = await q;
   if (error) {

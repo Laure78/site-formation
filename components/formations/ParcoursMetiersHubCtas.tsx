@@ -1,7 +1,8 @@
 'use client';
 
-import { ParcoursMetiersHubPrimaryCtas } from './ParcoursMetiersHubPrimaryCtas';
+import { ParcoursMetiersHubHeroActions } from './ParcoursMetiersHubHeroActions';
 
+/** @deprecated Préférer `ParcoursMetiersHubHeroActions` — alias conservé. */
 export function ParcoursMetiersHubHeroCtas() {
-  return <ParcoursMetiersHubPrimaryCtas className="mt-8" />;
+  return <ParcoursMetiersHubHeroActions className="mt-8" />;
 }

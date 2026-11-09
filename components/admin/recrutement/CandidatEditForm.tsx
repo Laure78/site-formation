@@ -4,11 +4,14 @@ import { useTransition } from 'react';
 import { useRouter } from 'next/navigation';
 import { upsertRecruitmentCandidatAction } from '@/app/admin/recrutement/actions';
 import {
+  RECRUITMENT_BTP_EXPERIENCE,
   RECRUITMENT_FORMATION_OPTIONS,
   RECRUITMENT_LEGAL_STATUS,
   RECRUITMENT_MODALITY,
+  RECRUITMENT_NDA_STATUS,
   RECRUITMENT_SOURCES,
   RECRUITMENT_STATUS,
+  RECRUITMENT_TRIAGE_STATUS,
 } from '@/lib/recruitment/constants';
 import {
   INTERVIEW_SLOT_TIMES,
@@ -78,9 +81,35 @@ export function CandidatEditForm({ candidat }: { candidat: RecruitmentCandidatRo
           SIRET
           <input name="siret" defaultValue={candidat.siret ?? ''} className={inputClass} />
         </label>
+        <label className="text-sm sm:col-span-2">
+          Métier / fonction actuelle
+          <input name="current_role" defaultValue={candidat.current_role ?? ''} className={inputClass} />
+        </label>
         <label className="text-sm">
-          NDA éventuel
-          <input name="nda" defaultValue={candidat.nda ?? ''} className={inputClass} />
+          Statut NDA
+          <select name="nda_status" defaultValue={candidat.nda_status ?? ''} className={inputClass}>
+            <option value="">—</option>
+            {Object.entries(RECRUITMENT_NDA_STATUS).map(([k, label]) => (
+              <option key={k} value={k}>
+                {label}
+              </option>
+            ))}
+          </select>
+        </label>
+        <label className="text-sm">
+          Numéro NDA (facultatif)
+          <input name="nda" defaultValue={candidat.nda ?? ''} className={inputClass} placeholder="Si confirmé" />
+        </label>
+        <label className="text-sm">
+          Statut vivier formateurs
+          <select name="triage_status" defaultValue={candidat.triage_status ?? ''} className={inputClass}>
+            <option value="">—</option>
+            {Object.entries(RECRUITMENT_TRIAGE_STATUS).map(([k, label]) => (
+              <option key={k} value={k}>
+                {label}
+              </option>
+            ))}
+          </select>
         </label>
         <label className="text-sm">
           Source
@@ -166,7 +195,7 @@ export function CandidatEditForm({ candidat }: { candidat: RecruitmentCandidatRo
       </fieldset>
 
       <label className="block text-sm">
-        Parcours BTP
+        Expérience BTP (détail)
         <textarea
           name="btp_background"
           rows={3}
@@ -175,17 +204,81 @@ export function CandidatEditForm({ candidat }: { candidat: RecruitmentCandidatRo
         />
       </label>
       <label className="block text-sm">
-        Usage de l&apos;IA
+        Niveau expérience BTP (filtre)
+        <select
+          name="btp_experience_status"
+          defaultValue={candidat.btp_experience_status ?? ''}
+          className={inputClass}
+        >
+          <option value="">—</option>
+          {Object.entries(RECRUITMENT_BTP_EXPERIENCE).map(([k, label]) => (
+            <option key={k} value={k}>
+              {label}
+            </option>
+          ))}
+        </select>
+      </label>
+      <label className="block text-sm">
+        Compétences IA
+        <textarea
+          name="ai_competencies"
+          rows={2}
+          defaultValue={candidat.ai_competencies ?? ''}
+          className={inputClass}
+        />
+      </label>
+      <label className="block text-sm">
+        Outils IA maîtrisés
+        <textarea name="ai_tools" rows={2} defaultValue={candidat.ai_tools ?? ''} className={inputClass} />
+      </label>
+      <label className="block text-sm">
+        Usage / réalisations IA
         <textarea name="ai_usage" rows={3} defaultValue={candidat.ai_usage ?? ''} className={inputClass} />
       </label>
       <label className="block text-sm">
-        Disponibilités (2027, mobilité IDF, contraintes)
+        Expérience pédagogique
+        <textarea
+          name="pedagogy_experience"
+          rows={2}
+          defaultValue={candidat.pedagogy_experience ?? ''}
+          className={inputClass}
+        />
+      </label>
+      <div className="grid gap-4 sm:grid-cols-2">
+        <label className="text-sm">
+          Disponibilité (synthèse tableau)
+          <input
+            name="availability_summary"
+            defaultValue={candidat.availability_summary ?? ''}
+            className={inputClass}
+            placeholder="Ex. Rapide, 1–2 j/sem."
+          />
+        </label>
+        <label className="text-sm">
+          Préavis
+          <input name="notice_period" defaultValue={candidat.notice_period ?? ''} className={inputClass} />
+        </label>
+      </div>
+      <label className="block text-sm">
+        Disponibilités (détail : 2027, mobilité IDF, contraintes)
         <textarea
           name="availability_notes"
           rows={2}
           defaultValue={candidat.availability_notes ?? ''}
           className={inputClass}
         />
+      </label>
+      <label className="block text-sm">
+        Points forts
+        <textarea name="strengths" rows={2} defaultValue={candidat.strengths ?? ''} className={inputClass} />
+      </label>
+      <label className="block text-sm">
+        Informations restant à vérifier
+        <textarea name="to_verify" rows={2} defaultValue={candidat.to_verify ?? ''} className={inputClass} />
+      </label>
+      <label className="block text-sm">
+        Notes internes (admin)
+        <textarea name="admin_notes" rows={2} defaultValue={candidat.admin_notes ?? ''} className={inputClass} />
       </label>
 
       <div className="grid gap-4 sm:grid-cols-3">

@@ -1,31 +1,50 @@
 import Link from 'next/link';
 import { Users } from 'lucide-react';
 import { PlanningDossiersSection } from '@/components/admin/recrutement/PlanningInterviewBrief';
+import { RecruitmentNdaBadge } from '@/components/admin/recrutement/RecruitmentNdaBadge';
+import { RecruitmentTriageBadge } from '@/components/admin/recrutement/RecruitmentTriageBadge';
 import { RgpdStaleBanner } from '@/components/admin/recrutement/RgpdStaleBanner';
 import { RecruitmentStatusBadge } from '@/components/admin/recrutement/RecruitmentStatusBadge';
 import { OrgCard, OrgPageHeader, orgPageBg } from '@/components/admin/mon-espace/ui';
 import { adminRecrutementCandidat } from '@/lib/internal-links';
 import {
   formatRecruitmentFormations,
+  RECRUITMENT_BTP_EXPERIENCE,
   RECRUITMENT_FORMATION_OPTIONS,
+  RECRUITMENT_NDA_STATUS,
   RECRUITMENT_STATUS,
+  RECRUITMENT_TRIAGE_STATUS,
+  type RecruitmentNdaStatus,
   type RecruitmentStatus,
+  type RecruitmentTriageStatus,
 } from '@/lib/recruitment/constants';
 import { listRecruitmentCandidats, listStaleNonRetenus } from '@/lib/recruitment/queries';
 
 type Props = {
-  searchParams: Promise<{ status?: string; stage?: string; formation?: string; q?: string }>;
+  searchParams: Promise<{
+    status?: string;
+    stage?: string;
+    formation?: string;
+    nda_status?: string;
+    triage_status?: string;
+    btp_experience_status?: string;
+    q?: string;
+  }>;
 };
 
 export default async function AdminRecrutementCandidatsPage({ searchParams }: Props) {
   const sp = await searchParams;
+  const filters = {
+    status: sp.status,
+    stage: sp.stage,
+    formation: sp.formation,
+    nda_status: sp.nda_status,
+    triage_status: sp.triage_status,
+    btp_experience_status: sp.btp_experience_status,
+    q: sp.q,
+  };
   const [rows, stale, allCandidats] = await Promise.all([
-    listRecruitmentCandidats({
-      status: sp.status,
-      stage: sp.stage,
-      formation: sp.formation,
-      q: sp.q,
-    }),
+    listRecruitmentCandidats(filters),
     listStaleNonRetenus(),
     listRecruitmentCandidats(),
   ]);
@@ -52,8 +71,8 @@ export default async function AdminRecrutementCandidatsPage({ searchParams }: Pr
         </OrgCard>
 
         <OrgCard>
-          <form method="get" className="grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
-            <label className="text-sm">
+          <form method="get" className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+            <label className="text-sm lg:col-span-2">
               Recherche nom
               <input
                 name="q"
@@ -63,10 +82,51 @@ export default async function AdminRecrutementCandidatsPage({ searchParams }: Pr
               />
             </label>
             <label className="text-sm">
-              Statut
+              Statut pipeline
               <select name="status" defaultValue={sp.status ?? ''} className="mt-1 w-full rounded-lg border border-slate-200 px-3 py-2">
                 <option value="">Tous</option>
                 {Object.entries(RECRUITMENT_STATUS).map(([k, label]) => (
+                  <option key={k} value={k}>
+                    {label}
+                  </option>
+                ))}
+              </select>
+            </label>
+            <label className="text-sm">
+              Vivier
+              <select
+                name="triage_status"
+                defaultValue={sp.triage_status ?? ''}
+                className="mt-1 w-full rounded-lg border border-slate-200 px-3 py-2"
+              >
+                <option value="">Tous</option>
+                {Object.entries(RECRUITMENT_TRIAGE_STATUS).map(([k, label]) => (
+                  <option key={k} value={k}>
+                    {label}
+                  </option>
+                ))}
+              </select>
+            </label>
+            <label className="text-sm">
+              NDA
+              <select name="nda_status" defaultValue={sp.nda_status ?? ''} className="mt-1 w-full rounded-lg border border-slate-200 px-3 py-2">
+                <option value="">Tous</option>
+                {Object.entries(RECRUITMENT_NDA_STATUS).map(([k, label]) => (
+                  <option key={k} value={k}>
+                    {label}
+                  </option>
+                ))}
+              </select>
+            </label>
+            <label className="text-sm">
+              Expérience BTP
+              <select
+                name="btp_experience_status"
+                defaultValue={sp.btp_experience_status ?? ''}
+                className="mt-1 w-full rounded-lg border border-slate-200 px-3 py-2"
+              >
+                <option value="">Toutes</option>
+                {Object.entries(RECRUITMENT_BTP_EXPERIENCE).map(([k, label]) => (
                   <option key={k} value={k}>
                     {label}
                   </option>
@@ -101,19 +161,21 @@ export default async function AdminRecrutementCandidatsPage({ searchParams }: Pr
         </OrgCard>
 
         <OrgCard className="overflow-x-auto p-0">
-          <table className="w-full min-w-[640px] text-left text-sm">
+          <table className="w-full min-w-[800px] text-left text-sm">
             <thead className="border-b border-slate-200 bg-[#F2F2F2] text-xs font-semibold uppercase text-slate-500">
               <tr>
-                <th className="px-4 py-3">Candidat</th>
-                <th className="px-4 py-3">Statut</th>
-                <th className="px-4 py-3">Étape</th>
-                <th className="px-4 py-3">Formations</th>
+                <th className="px-4 py-3">Formateur</th>
+                <th className="px-4 py-3">Profil</th>
+                <th className="px-4 py-3">NDA</th>
+                <th className="px-4 py-3">Disponibilité</th>
+                <th className="px-4 py-3">Statut vivier</th>
+                <th className="px-4 py-3 hidden md:table-cell">Pipeline</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-slate-100">
               {rows.length === 0 ? (
                 <tr>
-                  <td colSpan={4} className="px-4 py-8 text-slate-500">
+                  <td colSpan={6} className="px-4 py-8 text-slate-500">
                     Aucun candidat.
                   </td>
                 </tr>
@@ -130,11 +192,23 @@ export default async function AdminRecrutementCandidatsPage({ searchParams }: Pr
                       </Link>
                       <p className="text-xs text-slate-500">{r.email}</p>
                     </td>
+                    <td className="px-4 py-3 text-slate-700">{r.current_role ?? '—'}</td>
                     <td className="px-4 py-3">
-                      <RecruitmentStatusBadge status={r.status as RecruitmentStatus} />
+                      <RecruitmentNdaBadge status={r.nda_status as RecruitmentNdaStatus | null} />
                     </td>
-                    <td className="px-4 py-3">{r.stage}</td>
-                    <td className="px-4 py-3 text-slate-600">{formatRecruitmentFormations(r.formations)}</td>
+                    <td className="px-4 py-3 text-slate-700">
+                      {r.availability_summary ?? r.availability_notes?.slice(0, 48) ?? '—'}
+                      {r.notice_period ? (
+                        <p className="text-xs text-slate-500">Préavis : {r.notice_period}</p>
+                      ) : null}
+                    </td>
+                    <td className="px-4 py-3">
+                      <RecruitmentTriageBadge status={r.triage_status as RecruitmentTriageStatus | null} />
+                    </td>
+                    <td className="hidden px-4 py-3 md:table-cell">
+                      <RecruitmentStatusBadge status={r.status as RecruitmentStatus} />
+                      <p className="mt-1 text-xs text-slate-500">{formatRecruitmentFormations(r.formations)}</p>
+                    </td>
                   </tr>
                 ))
               )}

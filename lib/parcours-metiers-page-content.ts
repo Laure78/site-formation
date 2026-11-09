@@ -1,8 +1,9 @@
 /**
- * Contenus visuels page /parcours-metiers — maquette 2027 (accroches, images, documents).
+ * Contenus visuels page /parcours-metiers — hub 2027 (hero, avantages, cartes).
  */
 import type { ParcoursId } from '@/data/catalogue-2027';
 import {
+  PARCOURS_COMPLET_DISPONIBILITE_LIBELLE,
   PARCOURS_DISPONIBILITE_LIBELLE,
   PARCOURS_MODALITE_GEO,
   PARCOURS_MODULARITE_DETAIL,
@@ -10,60 +11,126 @@ import {
 } from '@/lib/catalogue-2027/parcours-commercial-copy';
 import type { LucideIcon } from 'lucide-react';
 import {
-  BookOpen,
-  ClipboardList,
-  FileSpreadsheet,
+  BarChart3,
+  Calendar,
+  Clock,
+  Coins,
   FileText,
+  GraduationCap,
+  HardHat,
   Layers,
-  LayoutGrid,
-  Waypoints,
+  MapPin,
+  Shield,
+  Timer,
+  Users,
 } from 'lucide-react';
+import { PARCOURS_METIER_PEDAGOGIE_BACKGROUND } from '@/lib/catalogue-2027/parcours-metier-template-content';
 
-/**
- * Visuels en définition suffisante (≥ ~1024 px) — les exports légers dans
- * `public/images/parcours-metiers/*.webp` (~600 px de large) pixelisaient en grand format.
- */
 export const PARCOURS_METIERS_HERO = {
-  badge: 'PARCOURS MÉTIERS · OUVERTURE 2027',
+  badge: 'PARCOURS MÉTIERS · 2027',
   h1: 'Parcours métiers IA pour le BTP',
+  lead: 'Des parcours complets et modulables pour chaque métier du BTP.',
   intro:
-    'Des parcours modulaires pour intégrer l’IA (ChatGPT, Claude) aux fonctions du bâtiment et des travaux publics : direction, chiffrage, chantier, gestion et déploiement des usages.',
-  imageSrc: '/images/accueil-ia-chantier-laptop-plans-btp.webp',
+    'Montez en compétences avec l’IA sur vos tâches réelles : devis, DCE, suivi de chantier, DOE, gestion et pilotage. Des formations adaptées aux équipes des PME du bâtiment et des travaux publics.',
+  imageSrc: '/images/parcours-metiers/hero-parcours-metiers.webp',
   imageAlt:
-    'Professionnel du BTP en EPI consulte plans et ordinateur portable sur un chantier actif.',
+    'Deux professionnels du BTP en EPI consultent une tablette sur un chantier avec structure en béton.',
 } as const;
 
 export const PARCOURS_METIERS_SECTION = {
   id: 'parcours',
-  title: 'Un parcours pour chaque métier',
+  title: 'Nos parcours métiers',
   subtitle: 'Choisissez votre fonction pour découvrir les modules et compétences.',
 } as const;
 
-export const PARCOURS_METIERS_MODULARITE_SECTION = {
-  id: 'modularite-parcours-metiers',
-  title: 'Trois façons de composer votre formation',
-  intro:
-    'Un même catalogue de modules par métier — vous fixez l’ampleur du programme selon votre situation, sous réserve des prérequis.',
-  options: [
+export const PARCOURS_METIERS_AVANTAGES_SECTION = {
+  id: 'avantages-parcours-metiers',
+  title: 'Pourquoi choisir un parcours métier ?',
+  cards: [
     {
-      id: 'parcours-complet',
-      title: 'Parcours complet',
-      description: 'Enchaîner tous les modules du métier pour une progression structurée.',
-      Icon: BookOpen,
+      id: 'performance',
+      title: 'Plus de performance',
+      text: 'Exploiter des outils IA adaptés aux responsabilités de chaque métier.',
+      Icon: BarChart3,
     },
     {
-      id: 'module-a-la-carte',
-      title: 'Module à la carte',
-      description: 'Un module ciblé pour une compétence précise (devis, planning, administratif…).',
-      Icon: LayoutGrid,
+      id: 'productivite',
+      title: 'Plus de productivité',
+      text: 'Accélérer la préparation de documents et les tâches administratives.',
+      Icon: Timer,
     },
     {
-      id: 'parcours-personnalise',
-      title: 'Parcours personnalisé',
-      description: 'Plusieurs modules choisis, éventuellement issus de parcours différents.',
-      Icon: Waypoints,
+      id: 'qualite',
+      title: 'Plus de qualité',
+      text: 'Structurer les livrables et systématiser les vérifications humaines.',
+      Icon: Shield,
+    },
+    {
+      id: 'equipes',
+      title: 'Pour vos équipes',
+      text: 'Former les collaborateurs sur leurs documents et situations professionnelles.',
+      Icon: Users,
     },
   ],
+} as const;
+
+export type ParcoursMetiersHubIndicateur = {
+  id: string;
+  label: string;
+  sub: string;
+  Icon: LucideIcon;
+};
+
+/** Bandeau d’informations sous le hero — hub (pas les totaux d’un seul parcours). */
+export const PARCOURS_METIERS_HUB_INDICATEURS: readonly ParcoursMetiersHubIndicateur[] = [
+  {
+    id: 'modularite',
+    label: 'Modularité',
+    sub: 'Parcours complets et modules à la carte.',
+    Icon: GraduationCap,
+  },
+  {
+    id: 'duree-modules',
+    label: 'Durées',
+    sub: 'Modules de 4 h ou 14 h selon le niveau.',
+    Icon: Clock,
+  },
+  {
+    id: 'tarifs',
+    label: 'Tarifs',
+    sub: 'Tarifs selon les modules sélectionnés.',
+    Icon: Coins,
+  },
+  {
+    id: 'lieu',
+    label: 'Format',
+    sub: PARCOURS_MODALITE_GEO,
+    Icon: MapPin,
+  },
+  {
+    id: 'calendrier',
+    label: 'Calendrier',
+    sub: `${PARCOURS_COMPLET_DISPONIBILITE_LIBELLE}. Modules unitaires : sur programmation dès maintenant.`,
+    Icon: Calendar,
+  },
+] as const;
+
+export const PARCOURS_METIERS_PEDAGOGIE = {
+  id: 'pedagogie-parcours-metiers',
+  title: 'Une pédagogie ancrée dans la réalité du BTP',
+  backgroundSrc: PARCOURS_METIER_PEDAGOGIE_BACKGROUND,
+  items: [
+    { id: 'cas', title: 'Cas pratiques issus du terrain.', Icon: HardHat },
+    { id: 'docs', title: 'Documents métier et exemples concrets.', Icon: FileText },
+    { id: 'livrables', title: 'Livrables réutilisables dans votre entreprise.', Icon: Layers },
+    { id: 'validation', title: 'Validation humaine des propositions IA.', Icon: Shield },
+  ],
+} as const;
+
+export const PARCOURS_METIERS_CONTACT_BAND = {
+  title: 'Construisons le parcours adapté à votre métier',
+  lead:
+    'Échangeons sur vos objectifs, vos enjeux et la combinaison de modules la plus adaptée à votre entreprise.',
 } as const;
 
 export const PARCOURS_METIERS_FAQ = [
@@ -93,86 +160,48 @@ export const PARCOURS_METIERS_FAQ = [
   },
 ] as const;
 
-/** Descriptions synthétiques cartes hub — une phrase distincte par métier. */
+/** Sous-titres cartes hub — une ligne métier par parcours. */
+export const PARCOURS_METIERS_CARD_SUBTITLE: Record<ParcoursId, string> = {
+  'dirigeant-pme-btp': 'Pilotage, marges et organisation.',
+  'charge-affaires-btp': 'Devis, DCE et mémoire technique.',
+  'conducteur-de-travaux': 'Planning, suivi de chantier et réception.',
+  'assistant-de-gestion-btp': 'Administratif, relances et suivi.',
+  'referent-ia-btp': 'Déploiement, automatisation et accompagnement.',
+};
+
+export const PARCOURS_METIERS_CARD_MENTION_COMPLET = PARCOURS_COMPLET_DISPONIBILITE_LIBELLE;
+
+export const PARCOURS_METIERS_CARD_MENTION_MODULES =
+  'Modules individuels accessibles dès maintenant, selon programmation et prérequis.' as const;
+
+/** @deprecated Préférer PARCOURS_METIERS_CARD_SUBTITLE — conservé pour compatibilité explorateur. */
 export const PARCOURS_METIERS_CARD_DESCRIPTION: Record<ParcoursId, string> = {
-  'dirigeant-pme-btp':
-    'Piloter prix, marges et trésorerie, puis cadrer les usages IA utiles à l’entreprise.',
-  'charge-affaires-btp':
-    'Structurer le chiffrage, les réponses aux marchés et le suivi commercial avec l’IA.',
-  'conducteur-de-travaux':
-    'Préparer, suivre et coordonner le chantier jusqu’à la réception — planning, CR, documents.',
-  'assistant-de-gestion-btp':
-    'Fluidifier l’administratif, la facturation et le suivi documentaire au quotidien.',
-  'referent-ia-btp':
-    'Structurer les usages IA, prototyper un outil métier et préparer le déploiement en PME.',
+  'dirigeant-pme-btp': PARCOURS_METIERS_CARD_SUBTITLE['dirigeant-pme-btp'],
+  'charge-affaires-btp': PARCOURS_METIERS_CARD_SUBTITLE['charge-affaires-btp'],
+  'conducteur-de-travaux': PARCOURS_METIERS_CARD_SUBTITLE['conducteur-de-travaux'],
+  'assistant-de-gestion-btp': PARCOURS_METIERS_CARD_SUBTITLE['assistant-de-gestion-btp'],
+  'referent-ia-btp': PARCOURS_METIERS_CARD_SUBTITLE['referent-ia-btp'],
 };
 
-export const PARCOURS_METIERS_CARD_IMAGE: Partial<Record<ParcoursId, { src: string; alt: string }>> =
-  {
-    'dirigeant-pme-btp': {
-      src: '/images/formation-ia-dirigeant-pme-btp.webp',
-      alt: 'Laure Olivié échange avec un professionnel en gilet BTP autour d’un café.',
-    },
-    'charge-affaires-btp': {
-      src: '/images/og/formation-ia-charge-affaires-btp.webp',
-      alt: 'Professionnel du BTP analyse des plans et documents sur ordinateur avec casque.',
-    },
-    'conducteur-de-travaux': {
-      src: '/images/formation-ia-conducteur-travaux-plans.webp',
-      alt: 'Professionnel du BTP consulte des plans de chantier sur table.',
-    },
-    'assistant-de-gestion-btp': {
-      src: '/images/formation-assistants-ia-personnalises-btp.webp',
-      alt: 'Groupe BTP en formation — assistants IA, prompts et workflows devis et chantier.',
-    },
-    'referent-ia-btp': {
-      src: '/images/formation-maitriser-claude-ai-btp.webp',
-      alt: 'Formation Claude AI BTP : écran, plans et documents chantier sur une table.',
-    },
-  };
-
-export type ParcoursDocumentMetierTile = {
-  id: string;
-  title: string;
-  src: string;
-  alt: string;
-  Icon: LucideIcon;
+export const PARCOURS_METIERS_CARD_IMAGE: Record<ParcoursId, { src: string; alt: string }> = {
+  'dirigeant-pme-btp': {
+    src: '/images/parcours-metiers/parcours-dirigeant-pme-btp.webp',
+    alt: 'Dirigeant de PME BTP au bureau avec plans techniques, pilotage entreprise.',
+  },
+  'charge-affaires-btp': {
+    src: '/images/parcours-metiers/parcours-charge-affaires-btp.webp',
+    alt: 'Chargée d’affaires BTP au bureau, devis et analyse documentaire.',
+  },
+  'conducteur-de-travaux': {
+    src: '/images/parcours-metiers/parcours-conducteur-travaux.webp',
+    alt: 'Conducteur de travaux sur chantier en EPI, consultation tablette.',
+  },
+  'assistant-de-gestion-btp': {
+    src: '/images/parcours-metiers/parcours-assistant-gestion-btp.webp',
+    alt: 'Assistante de gestion BTP au bureau, suivi administratif et documents.',
+  },
+  'referent-ia-btp': {
+    src: '/images/parcours-metiers/parcours-referent-ia-btp.webp',
+    alt: 'Référent IA BTP au poste de travail, déploiement outils intelligence artificielle.',
+  },
 };
-
-export const PARCOURS_DOCUMENTS_METIER: readonly ParcoursDocumentMetierTile[] = [
-  {
-    id: 'dce-cctp',
-    title: 'DCE & CCTP',
-    src: '/images/formation-appels-offres-btp-dce-memoire.webp',
-    alt: 'Formation appels d’offres BTP : analyse DCE et mémoire technique avec l’IA.',
-    Icon: Layers,
-  },
-  {
-    id: 'devis',
-    title: 'Devis & chiffrage',
-    src: '/images/formation-ia-devis-chiffrage-btp.webp',
-    alt: 'Notes de terrain, photos et plans transformés en devis bâtiment structuré.',
-    Icon: FileSpreadsheet,
-  },
-  {
-    id: 'cr',
-    title: 'Comptes rendus',
-    src: '/images/formation-ia-compte-rendu-chantier.webp',
-    alt: 'Note vocale sur téléphone transformée en compte rendu de chantier structuré.',
-    Icon: ClipboardList,
-  },
-  {
-    id: 'doe',
-    title: 'DOE & réception',
-    src: '/images/tuto-doe-hero.png',
-    alt: 'Écran et documents pour préparer un DOE (dossier des ouvrages exécutés) BTP avec l’IA.',
-    Icon: FileText,
-  },
-] as const;
-
-export const PARCOURS_CAS_USAGE_SECTION = {
-  id: 'cas-usage-ia-btp',
-  title: 'Cas d’usage IA dans le BTP',
-  subtitle:
-    'Chaque parcours s’appuie sur des documents métier réels — devis, DCE, comptes rendus, DOE.',
-} as const;

@@ -1,8 +1,11 @@
 import type {
+  RecruitmentBtpExperienceStatus,
   RecruitmentLegalStatus,
   RecruitmentModality,
+  RecruitmentNdaStatus,
   RecruitmentSource,
   RecruitmentStatus,
+  RecruitmentTriageStatus,
 } from '@/lib/recruitment/constants';
 
 export type RecruitmentCandidatRow = {
@@ -18,6 +21,18 @@ export type RecruitmentCandidatRow = {
   btp_background: string | null;
   ai_usage: string | null;
   availability_notes: string | null;
+  current_role: string | null;
+  nda_status: RecruitmentNdaStatus | null;
+  ai_tools: string | null;
+  ai_competencies: string | null;
+  pedagogy_experience: string | null;
+  notice_period: string | null;
+  availability_summary: string | null;
+  triage_status: RecruitmentTriageStatus | null;
+  btp_experience_status: RecruitmentBtpExperienceStatus | null;
+  strengths: string | null;
+  to_verify: string | null;
+  admin_notes: string | null;
   source: RecruitmentSource | null;
   formations: string[];
   stage: 1 | 2;
