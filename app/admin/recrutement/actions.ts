@@ -83,6 +83,7 @@ export async function upsertRecruitmentCandidatAction(
     nda: String(formData.get('nda') ?? '').trim() || null,
     btp_background: String(formData.get('btp_background') ?? '').trim() || null,
     ai_usage: String(formData.get('ai_usage') ?? '').trim() || null,
+    availability_notes: String(formData.get('availability_notes') ?? '').trim() || null,
     source,
     formations: parseFormations(formData) as RecruitmentFormationId[],
     stage,

@@ -178,6 +178,15 @@ export function CandidatEditForm({ candidat }: { candidat: RecruitmentCandidatRo
         Usage de l&apos;IA
         <textarea name="ai_usage" rows={3} defaultValue={candidat.ai_usage ?? ''} className={inputClass} />
       </label>
+      <label className="block text-sm">
+        Disponibilités (2027, mobilité IDF, contraintes)
+        <textarea
+          name="availability_notes"
+          rows={2}
+          defaultValue={candidat.availability_notes ?? ''}
+          className={inputClass}
+        />
+      </label>
 
       <div className="grid gap-4 sm:grid-cols-3">
         <label className="text-sm sm:col-span-3">

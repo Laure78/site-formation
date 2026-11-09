@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { CandidatEditForm } from '@/components/admin/recrutement/CandidatEditForm';
+import { CandidatInterviewPrepPanel } from '@/components/admin/recrutement/CandidatInterviewPrepPanel';
 import { DeleteCandidatDialog } from '@/components/admin/recrutement/DeleteCandidatDialog';
 import { NotesTimeline } from '@/components/admin/recrutement/NotesTimeline';
 import { RecruitmentSubnav } from '@/components/admin/recrutement/RecruitmentSubnav';
@@ -47,6 +48,10 @@ export default async function AdminRecrutementCandidatPage({ params }: Props) {
             Grille étape 2
           </Link>
         </div>
+
+        <OrgCard>
+          <CandidatInterviewPrepPanel candidat={candidat} />
+        </OrgCard>
 
         <OrgCard>
           <CandidatEditForm candidat={candidat} />

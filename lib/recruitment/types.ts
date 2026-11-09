@@ -17,6 +17,7 @@ export type RecruitmentCandidatRow = {
   nda: string | null;
   btp_background: string | null;
   ai_usage: string | null;
+  availability_notes: string | null;
   source: RecruitmentSource | null;
   formations: string[];
   stage: 1 | 2;

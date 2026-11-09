@@ -1,4 +1,5 @@
 import { notFound } from 'next/navigation';
+import { CandidatInterviewPrepPanel } from '@/components/admin/recrutement/CandidatInterviewPrepPanel';
 import { EvaluationForm } from '@/components/admin/recrutement/EvaluationForm';
 import { RecruitmentSubnav } from '@/components/admin/recrutement/RecruitmentSubnav';
 import { OrgCard, OrgPageHeader, orgPageBg } from '@/components/admin/mon-espace/ui';
@@ -22,6 +23,9 @@ export default async function EvaluationEtape1Page({ params }: Props) {
           description={`8 critères notés de 1 à 4 — total sur ${EVALUATION_MAX_ETAPE_1}. ${candidat.first_name} ${candidat.last_name}.`}
         />
         <RecruitmentSubnav />
+        <OrgCard>
+          <CandidatInterviewPrepPanel candidat={candidat} />
+        </OrgCard>
         <OrgCard>
           <EvaluationForm candidatId={id} stage={1} initial={evaluation} />
         </OrgCard>
