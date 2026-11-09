@@ -5,7 +5,6 @@
 import type { ParcoursId } from '@/data/catalogue-2027';
 import type { ParcoursComputed } from '@/data/catalogue-2027/parcours';
 import { libelleDureeParcoursHeures } from '@/data/catalogue-2027/parcours';
-import { PARCOURS_DISPONIBILITE_LIBELLE } from '@/lib/catalogue-2027/parcours-commercial-copy';
 import { buildTitle, META_DESCRIPTION_MAX_LENGTH } from '@/utils/metadata';
 
 export const PARCOURS_METIERS_HUB_SEO = {
@@ -26,7 +25,7 @@ export const PARCOURS_SEO_BY_ID: Record<ParcoursId, ParcoursSeoPack> = {
   'dirigeant-pme-btp': {
     titleSegment: 'IA dirigeant PME BTP · pilotage entreprise',
     description:
-      'Formation IA dirigeants de PME BTP : rentabilité, marges chantier, trésorerie et pilotage d’entreprise. Modules présentiel IDF — ouverture 2027.',
+      'Formation IA dirigeant PME BTP : marges, trésorerie et pilotage d’entreprise. Présentiel Île-de-France.',
     keywords:
       'formation IA dirigeant BTP, IA PME bâtiment, pilotage entreprise, marges chantier, trésorerie, ChatGPT BTP',
     schemaDescription:
@@ -35,7 +34,7 @@ export const PARCOURS_SEO_BY_ID: Record<ParcoursId, ParcoursSeoPack> = {
   'charge-affaires-btp': {
     titleSegment: 'IA chargé d’affaires BTP · devis et AO',
     description:
-      'IA chargé d’affaires BTP : devis, analyse DCE, appels d’offres et mémoire technique en présentiel Île-de-France. Parcours modulaire — ouverture 2027.',
+      'Formation IA chargé d’affaires BTP : devis, DCE, mémoire technique et appels d’offres. Présentiel IDF.',
     keywords:
       'formation IA chargé d’affaires, devis BTP ChatGPT, DCE, mémoire technique, appels d’offres travaux',
     schemaDescription:
@@ -44,7 +43,7 @@ export const PARCOURS_SEO_BY_ID: Record<ParcoursId, ParcoursSeoPack> = {
   'conducteur-de-travaux': {
     titleSegment: 'IA conducteur de travaux · chantier',
     description:
-      'Formation IA conducteur de travaux : planning, comptes rendus, suivi et réception de chantier. Parcours BTP modulaire en Île-de-France — ouverture 2027.',
+      'Formation IA conducteur de travaux : planning, comptes rendus et réception chantier. Modulaire, IDF.',
     keywords:
       'formation IA conducteur de travaux, planning chantier IA, compte rendu chantier, réception travaux, BTP',
     schemaDescription:
@@ -53,7 +52,7 @@ export const PARCOURS_SEO_BY_ID: Record<ParcoursId, ParcoursSeoPack> = {
   'assistant-de-gestion-btp': {
     titleSegment: 'IA assistant de gestion BTP · administratif',
     description:
-      'Formation IA assistant de gestion BTP : administratif, facturation, relances et tableaux Excel. Modules à la carte, présentiel Île-de-France — ouverture 2027.',
+      'Formation IA assistant de gestion BTP : administratif, facturation, relances et Excel. Présentiel IDF.',
     keywords:
       'formation IA assistant BTP, facturation, relances, administratif chantier, Excel BTP',
     schemaDescription:
@@ -62,7 +61,7 @@ export const PARCOURS_SEO_BY_ID: Record<ParcoursId, ParcoursSeoPack> = {
   'referent-ia-btp': {
     titleSegment: 'Référent IA BTP · Claude et déploiement',
     description:
-      'Référent IA BTP : déploiement des usages, Claude, appels d’offres et applications métier. Formation modulaire présentiel IDF — ouverture 2027, Qualiopi.',
+      'Formation référent IA BTP : Claude, déploiement des usages et applications métier. Présentiel IDF, Qualiopi.',
     keywords:
       'référent IA BTP, formation Claude BTP, déploiement IA entreprise, application métier BTP',
     schemaDescription:
@@ -90,8 +89,22 @@ export function parcoursMetierPageTitle(id: ParcoursId): string {
   return buildTitle(PARCOURS_SEO_BY_ID[id].titleSegment);
 }
 
+/** H1 visible fiche parcours — aligné sur les requêtes métier (fil d’Ariane : `parcours.titre`). */
+export const PARCOURS_METIER_PAGE_H1: Record<ParcoursId, string> = {
+  'dirigeant-pme-btp': 'Formation IA dirigeant PME BTP',
+  'charge-affaires-btp': 'Formation IA chargé d’affaires BTP',
+  'conducteur-de-travaux': 'Formation IA conducteur de travaux',
+  'assistant-de-gestion-btp': 'Formation IA assistant de gestion BTP',
+  'referent-ia-btp': 'Formation référent IA BTP',
+};
+
+export function parcoursMetierPageH1(id: ParcoursId): string {
+  return PARCOURS_METIER_PAGE_H1[id];
+}
+
 export function parcoursMetierPageDescription(p: ParcoursComputed): string {
   const pack = PARCOURS_SEO_BY_ID[p.id];
-  const withDuration = `${pack.description} ${libelleDureeParcoursHeures(p.dureeHeures)} au total. ${PARCOURS_DISPONIBILITE_LIBELLE}.`;
-  return clampMetaDescription(withDuration);
+  const duree = libelleDureeParcoursHeures(p.dureeHeures);
+  const withFacts = `${pack.description} ${duree}, ${p.prixInterHt} € HT le parcours — ouverture 2027.`;
+  return clampMetaDescription(withFacts);
 }

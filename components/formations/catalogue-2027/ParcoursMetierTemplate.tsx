@@ -28,6 +28,7 @@ import { parcoursIdShowsFinancementOpcoEtendu } from '@/lib/financement-opco-ete
 import { ParcoursMetierFaqSection } from './ParcoursMetierFaqSection';
 import { ParcoursSectionGeoLead } from './ParcoursSectionGeoLead';
 import { getParcoursGeoIntro } from '@/lib/catalogue-2027/parcours-geo-intros';
+import { parcoursMetierPageH1 } from '@/lib/catalogue-2027/parcours-seo-metadata';
 import { ParcoursInfosPratiquesSection } from './ParcoursInfosPratiquesSection';
 import {
   moduleEstRetirableApresPositionnement,
@@ -96,7 +97,7 @@ export function ParcoursMetierTemplate({ parcours: p, content }: Props) {
               Parcours métier · {PARCOURS_DISPONIBILITE_LIBELLE}
             </p>
             <h1 id={heroTitleId} className="ofc-type-hero mt-4 text-balance text-[#101936]">
-              {p.titre}
+              {parcoursMetierPageH1(p.id)}
             </h1>
             <p className="ofc-type-lead mt-4 text-balance text-[#101936]">{p.benefice}</p>
             <p className="mt-3 text-base text-slate-600">{content.heroDescription}</p>

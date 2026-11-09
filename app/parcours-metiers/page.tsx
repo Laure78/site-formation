@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { JsonLd } from '@/components/JsonLd';
 import { BreadcrumbJsonLd } from '@/components/seo/BreadcrumbJsonLd';
 import { ParcoursMetiersPage as ParcoursMetiersPageContent } from '@/components/formations/ParcoursMetiersPage';
-import { createPageMetadata, getBreadcrumbSchema, SITE_CONFIG } from '@/lib/seo';
+import { createPageMetadata, SITE_CONFIG } from '@/lib/seo';
 import { LINKS } from '@/lib/internal-links';
 import { PARCOURS_METIERS_HERO } from '@/lib/parcours-metiers-page-content';
 import {
@@ -31,22 +31,14 @@ function getParcoursMetiersJsonLd() {
   const pageUrl = `${SITE_CONFIG.url}${LINKS.parcoursMetiers}`;
   return {
     '@context': 'https://schema.org',
-    '@graph': [
-      {
-        '@type': 'WebPage',
-        '@id': `${pageUrl}#webpage`,
-        url: pageUrl,
-        name: PARCOURS_METIERS_HERO.h1,
-        headline: PARCOURS_METIERS_HERO.h1,
-        description: META_DESCRIPTION,
-        inLanguage: 'fr-FR',
-        isPartOf: { '@id': `${SITE_CONFIG.url}#website` },
-      },
-      getBreadcrumbSchema([
-        { name: 'Accueil', path: LINKS.home },
-        { name: 'Parcours métiers', path: LINKS.parcoursMetiers },
-      ]),
-    ],
+    '@type': 'WebPage',
+    '@id': `${pageUrl}#webpage`,
+    url: pageUrl,
+    name: PARCOURS_METIERS_HERO.h1,
+    headline: PARCOURS_METIERS_HERO.h1,
+    description: META_DESCRIPTION,
+    inLanguage: 'fr-FR',
+    isPartOf: { '@id': `${SITE_CONFIG.url}#website` },
   };
 }
 

@@ -6,6 +6,7 @@ import { ParcoursMetierCard } from '@/components/formations/catalogue-2027/Parco
 import { ParcoursMetiersHubModalitesPratiques } from '@/components/formations/catalogue-2027/ParcoursMetiersHubModalitesPratiques';
 import { ParcoursMetiersHubHeroCtas } from '@/components/formations/ParcoursMetiersHubCtas';
 import { ParcoursMetiersHubCtaFinal } from '@/components/formations/ParcoursMetiersHubCtaFinal';
+import { ParcoursSectionGeoLead } from '@/components/formations/catalogue-2027/ParcoursSectionGeoLead';
 import { FAQSchema } from '@/components/seo/FAQSchema';
 import { getParcoursMetiersPublicsOrdered } from '@/lib/parcours-metiers-public';
 import {
@@ -94,6 +95,7 @@ export function ParcoursMetiersPage() {
             title={PARCOURS_METIERS_MODULARITE_SECTION.title}
             subtitle={PARCOURS_METIERS_MODULARITE_SECTION.intro}
           />
+          <ParcoursSectionGeoLead>{PARCOURS_METIERS_HUB_GEO.modularite}</ParcoursSectionGeoLead>
           <ul className="mt-8 grid list-none gap-4 sm:grid-cols-3">
             {PARCOURS_METIERS_MODULARITE_SECTION.options.map((opt) => {
               const Icon = MODULARITE_ICONS[opt.id as keyof typeof MODULARITE_ICONS] ?? BookOpen;

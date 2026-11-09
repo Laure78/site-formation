@@ -77,6 +77,8 @@ export function getParcoursGeoIntro(
 }
 
 export const PARCOURS_METIERS_HUB_GEO = {
+  modularite:
+    'Les parcours regroupent des modules du catalogue : durée totale, tarif inter du parcours complet (somme des modules obligatoires) et prix unitaire par module. Vous pouvez suivre le parcours complet, un module seul ou un programme personnalisé, sous réserve des prérequis. Présentiel en Île-de-France ; ouverture commerciale des parcours en 2027, modules unitaires programmables selon calendrier.',
   grid:
     'Cinq parcours métiers couvrent la direction, l’affaires, la conduite de travaux, la gestion et le référent IA. Chaque fiche affiche la durée totale, le tarif inter du parcours complet (somme des modules obligatoires) et le prix unitaire de chaque module.',
   casUsage:

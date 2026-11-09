@@ -403,7 +403,7 @@ export function buildParcoursPageMaillageBlocks(parcours: ParcoursComputed): Pag
       {
         href: buildCatalogueModulesHref({ metier: parcours.metierId }),
         title: 'Modules catalogue pour ce métier',
-        description: 'Filtre métier pré-appliqué — 35 modules par domaine.',
+        description: 'Filtre métier pré-appliqué sur le catalogue (35 modules au total).',
       },
       {
         href: LINKS.formations,

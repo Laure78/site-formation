@@ -27,6 +27,7 @@ export function FormationsIaDisponibles({ filters }: Props) {
     upcomingEntries,
     filters,
   );
+  const catalogueProgrammeCount = availableEntries.length;
   const hasActiveFilters = formationsIaHasActiveFilters(filters);
 
   return (
@@ -43,8 +44,8 @@ export function FormationsIaDisponibles({ filters }: Props) {
         </h2>
         <span className="mx-auto mt-3 block h-1 w-12 rounded-full bg-[#377CF3]" aria-hidden />
         <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-slate-600">
-          Neuf programmes en présentiel en Île-de-France — filtres par niveau (Débutant, Avancé,
-          Approfondi).
+          {catalogueProgrammeCount} programmes en présentiel en Île-de-France — filtres par niveau
+          (Débutant, Avancé, Approfondi).
         </p>
       </div>
 
