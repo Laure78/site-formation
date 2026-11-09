@@ -7,7 +7,7 @@ import {
 } from '@/lib/recruitment/interview-prep';
 import type { RecruitmentCandidatRow } from '@/lib/recruitment/types';
 
-const FORMATION_IDS = new Set(RECRUITMENT_FORMATION_OPTIONS.map((f) => f.id));
+const FORMATION_IDS = new Set<string>(RECRUITMENT_FORMATION_OPTIONS.map((f) => f.id));
 
 export function CandidatInterviewPrepPanel({ candidat }: { candidat: RecruitmentCandidatRow }) {
   const prep = getRecruitmentInterviewPrep(candidat.email);

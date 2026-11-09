@@ -103,10 +103,7 @@ export function filterCatalogueModules(filters: ModuleSearchFilters = {}): Catal
     if (domaineId !== 'all' && mod.domaineId !== domaineId) return false;
     if (metierId !== 'all' && !mod.metiers.includes(metierId)) return false;
     if (disponibilite !== 'all' && mod.disponibilite !== disponibilite) return false;
-    if (dureeHeures !== 'all') {
-      const variantes = mod.variantesDureeHeures ?? [mod.dureeHeures];
-      if (!variantes.includes(dureeHeures) && mod.dureeHeures !== dureeHeures) return false;
-    }
+    if (dureeHeures !== 'all' && mod.dureeHeures !== dureeHeures) return false;
     if (!matchesQuery(mod, query)) return false;
     return true;
   });

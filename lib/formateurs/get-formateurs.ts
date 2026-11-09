@@ -194,9 +194,7 @@ export function getFormateurModuleLinks(
           ? 'Voir le programme'
           : 'Demander le programme',
       disponibiliteLabel: libelleDisponibilite(mod.disponibilite),
-      dureeLabel: mod.variantesDureeHeures
-        ? `${mod.variantesDureeHeures.join(' h ou ')} h`
-        : `${mod.dureeHeures} h`,
+      dureeLabel: `${mod.dureeHeures} h`,
     });
   }
   return links;
