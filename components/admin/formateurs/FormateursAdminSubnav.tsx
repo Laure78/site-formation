@@ -6,7 +6,6 @@ const ITEMS = [
   { href: LINKS.adminFormateursProgrammes, label: 'Programmes' },
   { href: LINKS.adminFormateursSupports, label: 'Supports' },
   { href: LINKS.adminFormateursPlanning, label: 'Planning' },
-  { href: LINKS.adminRecrutementPlanning, label: 'Entretiens recrutement' },
   { href: LINKS.adminFormateursQualite, label: 'Qualité' },
   { href: LINKS.adminFormateursCharte, label: 'Charte' },
 ] as const;

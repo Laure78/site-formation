@@ -1,4 +1,5 @@
 import { CalendarDays } from 'lucide-react';
+import { PlanningDossiersSection } from '@/components/admin/recrutement/PlanningInterviewBrief';
 import { PlanningDayView } from '@/components/admin/recrutement/PlanningDayView';
 import { RecruitmentSubnav } from '@/components/admin/recrutement/RecruitmentSubnav';
 import { OrgCard, OrgPageHeader, orgPageBg } from '@/components/admin/mon-espace/ui';
@@ -27,7 +28,7 @@ export default async function AdminRecrutementPlanningPage({ searchParams }: Pro
         <OrgPageHeader
           eyebrow="Administration · Recrutement"
           title="Planning entretiens"
-          description="Créneaux de 30 minutes (10h00–12h30 et 14h00–17h00). Accès admin et formateurs — hors indexation."
+          description="Créneaux de 30 minutes (10h00–12h30 et 14h00–17h00). Usage interne admin — dossiers, grilles et disponibilités ci-dessous."
           icon={<CalendarDays className="h-7 w-7 text-[#377CF3]" strokeWidth={1.5} aria-hidden />}
         />
         <RecruitmentSubnav />
@@ -61,6 +62,16 @@ export default async function AdminRecrutementPlanningPage({ searchParams }: Pro
         </OrgCard>
 
         <PlanningDayView dateYmd={dateYmd} candidats={dayCandidats} unscheduled={unscheduled} />
+
+        <OrgCard>
+          <h2 className="font-display text-lg font-bold text-slate-900">Dossiers entretien</h2>
+          <p className="mt-1 text-sm text-slate-600">
+            Résumé CV, disponibilités, déroulé et questions — grille de notation accessible sur chaque dossier.
+          </p>
+          <div className="mt-6">
+            <PlanningDossiersSection candidats={all} />
+          </div>
+        </OrgCard>
       </div>
     </div>
   );

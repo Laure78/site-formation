@@ -13,6 +13,7 @@ import {
   interviewAtToSlotTime,
   type InterviewSlotTime,
 } from '@/lib/recruitment/interview-slots';
+import { PlanningSlotBrief } from '@/components/admin/recrutement/PlanningInterviewBrief';
 import type { RecruitmentCandidatRow } from '@/lib/recruitment/types';
 
 export function PlanningDayView({
@@ -98,6 +99,7 @@ export function PlanningDayView({
                       ? RECRUITMENT_MODALITY[c.interview_modality]
                       : 'Modalité non renseignée'}
                   </p>
+                  {!c.is_example ? <PlanningSlotBrief candidat={c} /> : null}
                   <button
                     type="button"
                     disabled={pending}
