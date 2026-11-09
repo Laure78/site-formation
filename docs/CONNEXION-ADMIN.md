@@ -13,10 +13,10 @@ L’accès `/admin` est protégé par :
 3. Variable d’environnement optionnelle :
 
 ```bash
-ADMIN_ALLOWED_EMAILS=contact@laureolivie.fr
+ADMIN_ALLOWED_EMAILS=contact@laureolivie.fr,recrutement@laureolivie.fr
 ```
 
-(Séparer plusieurs emails par des virgules. Par défaut : `contact@laureolivie.fr`.)
+(Séparer plusieurs emails par des virgules. Par défaut : `contact@laureolivie.fr` et `recrutement@laureolivie.fr`.)
 
 Les comptes **formateur** conservent l’accès admin sans liste blanche (gérés via Supabase).
 
