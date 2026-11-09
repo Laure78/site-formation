@@ -189,53 +189,6 @@ const CLAIRE_ROUSSEAU: FormateurProfile = {
   publie: true,
 };
 
-const FRANCOIS_BEGUIN: FormateurProfile = {
-  id: 'formateur-coordination-sps',
-  slug: 'formateur-coordination-sps',
-  prenom: 'François',
-  nom: 'Béguin',
-  intitule:
-    'Intervenant en coordination SPS (Sécurité et protection de la santé) et prévention de chantier',
-  parcours:
-    'Issu de la coordination de la prévention sur chantier, François intervient sur la coactivité, les mesures de prévention et la transmission des consignes. Il s’appuie sur des situations réelles pour repérer les points de vigilance et structurer l’information — les formations catalogue ne constituent pas une habilitation de coordonnateur SPS.',
-  specialites: [
-    'Coordination de la prévention',
-    'Risques et coactivité',
-    'Accueil sécurité',
-  ],
-  domaineIds: ['technique-qualite-prevention'],
-  formationCodes: [],
-  moduleCodes: moduleCodes(['TQP-01']),
-  hubSousDomaines: [
-    {
-      id: 'securite-prevention-chantier-ia',
-      note:
-        'Supports et trames de prévention avec l’IA — productions vérifiées sur le terrain, sans promesse de conformité automatique.',
-    },
-  ],
-  formationsHubLabel: 'Formations animées',
-  experiences: [
-    {
-      periode: '13 ans',
-      titre: 'Coordination de la prévention — opérations BTP',
-      detail:
-        'Anticipation des risques, analyse des conditions d’intervention et suivi documentaire des observations.',
-    },
-    {
-      titre: 'Transmission des consignes et accueil sécurité',
-      detail:
-        'Accompagnement des équipes, quart d’heure sécurité et communication des actions de prévention.',
-    },
-  ] satisfies readonly FormateurExperienceStep[],
-  formationsProfessionnelles: [
-    'Formation prévention et coordination des intervenants sur chantier',
-    'Modules contribution à la prévention documentaire (hors habilitation coordonnateur SPS)',
-  ],
-  portrait: photoPortrait(PHOTOS.formateurFrancoisBeguin),
-  status: 'confirmed',
-  publie: true,
-};
-
 /**
  * Hub /formateurs — intervenants catalogue parcours métiers 2027.
  * `publie: false` ou `affichageHub: 'a-confirmer'` masque un profil sur /formateurs en production.
@@ -246,5 +199,4 @@ export const CATALOGUE_FORMATEURS: readonly FormateurProfile[] = [
   MARC_DELCOURT,
   NICOLAS_PERRIN,
   CLAIRE_ROUSSEAU,
-  FRANCOIS_BEGUIN,
 ];

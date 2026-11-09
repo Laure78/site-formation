@@ -367,14 +367,6 @@ export const PHOTOS = {
     height: 1024,
     objectPosition: '50% 20%',
   },
-  formateurFrancoisBeguin: {
-    src: '/images/formateurs/francois-beguin.jpg',
-    alt: 'François Béguin, formateur coordination SPS et prévention chantier',
-    width: 819,
-    height: 1024,
-    objectPosition: '50% 18%',
-  },
-
   /** Visuels formations 2026 */
   formationIATP2026: {
     src: '/images/formation-ia-tp.png',

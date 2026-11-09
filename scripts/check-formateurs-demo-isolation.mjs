@@ -10,7 +10,6 @@ const CATALOGUE_IDS = [
   'marc-delcourt',
   'nicolas-perrin',
   'claire-rousseau',
-  'formateur-coordination-sps',
 ];
 
 const IA_IDS = ['laure-olivie'];
@@ -25,7 +24,7 @@ function visibleAllIds() {
   return [...IA_IDS, ...CATALOGUE_IDS];
 }
 
-assert.equal(visibleHubIds().length, 6);
+assert.equal(visibleHubIds().length, 5);
 assert.equal(
   visibleHubIds().filter((id) => id === 'claire-rousseau').length,
   1,
@@ -40,4 +39,4 @@ for (const removed of REMOVED_DEMO_IDS) {
   );
 }
 
-console.log('OK — formateurs catalogue (6 profils hub + Laure IA)');
+console.log('OK — formateurs catalogue (5 profils hub + Laure IA)');

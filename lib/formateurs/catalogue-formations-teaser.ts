@@ -12,7 +12,6 @@ export const FORMATEUR_CATALOGUE_TEASER_SPECIALTY: Record<FormateurId, string> =
   'marc-delcourt': 'Gestion, prix de revient et trésorerie.',
   'nicolas-perrin': 'Encadrement et organisation des équipes.',
   'claire-rousseau': 'Recrutement, intégration et bases de la paie.',
-  'formateur-coordination-sps': 'Prévention et coordination sur chantier.',
 };
 
 export function getFormateursCatalogueTeaserProfiles(): readonly FormateurProfile[] {

@@ -7,8 +7,7 @@ export type FormateurId =
   | 'thomas-garnier'
   | 'marc-delcourt'
   | 'nicolas-perrin'
-  | 'claire-rousseau'
-  | 'formateur-coordination-sps';
+  | 'claire-rousseau';
 
 /**
  * Portrait — photo réelle (confirmé) ou avatar initiales (démo / slot).
