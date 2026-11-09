@@ -12,6 +12,25 @@ export function sumSequencesMinutes(sequences: readonly ProgrammeSequence[]): nu
   return sequences.reduce((s, seq) => s + seq.minutes, 0);
 }
 
+const PRATIQUE_TITRE =
+  /Atelier|Exercice|Simulation|Jeu |Manipulations|Mise en place|Démonstration|Prototype|Tests|fil rouge|pratique|Construction assistée|Première version|Amélioration|Revu et corrections/i;
+
+/** Estimation de la part pratique (~70 % visé en conception). */
+export function minutesPratiqueEstimees(sequences: readonly ProgrammeSequence[]): number {
+  return sequences.reduce((s, seq) => {
+    const t = seq.titre;
+    if (/^Accueil/i.test(t)) return s + seq.minutes * 0.25;
+    if (PRATIQUE_TITRE.test(t)) return s + seq.minutes;
+    if (/^Jour \d/i.test(t)) return s + seq.minutes * 0.88;
+    if (/Évaluation/i.test(t)) return s + seq.minutes * 0.85;
+    return s + seq.minutes * 0.35;
+  }, 0);
+}
+
+export function partPratiquePourcent(sequences: readonly ProgrammeSequence[], total: number): number {
+  return Math.round((minutesPratiqueEstimees(sequences) / total) * 100);
+}
+
 type Programme4hInput = Omit<
   ModuleProgrammePedagogique,
   'code' | 'dureeMinutes' | 'niveau' | 'prixInterHt' | 'verificationHumaineEtConfidentialite'

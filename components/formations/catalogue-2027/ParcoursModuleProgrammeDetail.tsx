@@ -1,7 +1,15 @@
 import type { ReactNode } from 'react';
 import type { CatalogueModule, ParcoursEtape } from '@/data/catalogue-2027';
 import { getModuleProgrammePedagogique } from '@/data/catalogue-2027/module-programmes/programmes-parcours';
-import { CONFIDENTIALITE_STANDARD } from '@/data/catalogue-2027/module-programmes/builders';
+import {
+  CONFIDENTIALITE_STANDARD,
+  partPratiquePourcent,
+} from '@/data/catalogue-2027/module-programmes/builders';
+import {
+  libelleDureeModuleHeures,
+  libelleNiveauModule,
+  libellePrixModuleInter,
+} from '@/lib/catalogue-2027/parcours-affichage';
 import { getModule2027IaUsage, labelOutil } from '@/lib/formation-ia';
 
 type Props = {
@@ -19,31 +27,59 @@ function DetailSection({ title, children }: { title: string; children: ReactNode
 }
 
 /**
- * Contenu dépliable module parcours — ordre fixe A à H (identique sur les 5 métiers).
+ * Programme détaillé module parcours — structure commune A à J (5 parcours métiers).
  */
 export function ParcoursModuleProgrammeDetail({ mod, etape }: Props) {
   const prog = getModuleProgrammePedagogique(mod.code);
   const sequences = mod.programmeSequences ?? prog?.sequences;
-  const iaUsageLegacy = getModule2027IaUsage(mod.code);
 
   const objectifs = mod.objectifsMesurables?.length
     ? mod.objectifsMesurables
-    : mod.objectifPrincipal
-      ? [mod.objectifPrincipal]
-      : [];
+    : prog?.objectifsMesurables?.length
+      ? prog.objectifsMesurables
+      : mod.objectifPrincipal
+        ? [mod.objectifPrincipal]
+        : [];
 
-  const evaluationText = prog
-    ? `${prog.evaluation.modalites} Critères : ${prog.evaluation.criteres.join(' · ')}`
-    : mod.evaluation;
+  const pctPratique =
+    sequences?.length && prog
+      ? partPratiquePourcent(sequences, prog.dureeMinutes)
+      : null;
 
   const confidentialite =
     prog?.verificationHumaineEtConfidentialite ?? CONFIDENTIALITE_STANDARD;
 
   return (
     <div className="space-y-0">
-      {/* A — Objectifs pédagogiques */}
+      <DetailSection title="A. Intitulé et code">
+        <p>
+          <span className="font-semibold text-[#101936]">{mod.code}</span>
+          {' — '}
+          {prog?.intitule ?? mod.titre}
+        </p>
+      </DetailSection>
+
+      <DetailSection title="B. Niveau, durée et tarif">
+        <ul className="list-disc space-y-1 pl-5">
+          <li>{libelleNiveauModule(mod)}</li>
+          <li>Durée : {libelleDureeModuleHeures(mod)}</li>
+          <li>Tarif inter : {libellePrixModuleInter(mod)}</li>
+        </ul>
+      </DetailSection>
+
+      <DetailSection title="C. Public concerné et prérequis">
+        <p className="mb-2">
+          <span className="font-medium text-[#101936]">Public — </span>
+          {prog?.publicCible ?? mod.publicCible}
+        </p>
+        <p>
+          <span className="font-medium text-[#101936]">Prérequis — </span>
+          {prog?.prerequis ?? mod.prerequis}
+        </p>
+      </DetailSection>
+
       {objectifs.length > 0 ? (
-        <DetailSection title="A. Objectifs pédagogiques">
+        <DetailSection title="D. Objectifs pédagogiques mesurables">
           <ul className="list-disc space-y-1 pl-5">
             {objectifs.map((o) => (
               <li key={o}>{o}</li>
@@ -52,19 +88,12 @@ export function ParcoursModuleProgrammeDetail({ mod, etape }: Props) {
         </DetailSection>
       ) : null}
 
-      {/* B — Prérequis */}
-      {mod.prerequis ? (
-        <DetailSection title="B. Prérequis">
-          <p>{mod.prerequis}</p>
-        </DetailSection>
-      ) : null}
-
-      {/* C — Programme chronologique */}
       {sequences?.length ? (
-        <DetailSection title="C. Programme chronologique et durée des séquences">
+        <DetailSection title="E. Programme chronologique">
           <p className="mb-2 text-xs text-slate-500">
-            Durée annoncée : {mod.dureeHeures} h ({sequences.reduce((s, x) => s + x.minutes, 0)} min de séquences
-            planifiées).
+            Durée annoncée : {mod.dureeHeures} h ({sequences.reduce((s, x) => s + x.minutes, 0)} min planifiées
+            {pctPratique != null ? ` · ~${pctPratique} % d’activités pratiques guidées` : ''}
+            ).
           </p>
           <ol className="space-y-2">
             {sequences.map((seq) => (
@@ -79,22 +108,23 @@ export function ParcoursModuleProgrammeDetail({ mod, etape }: Props) {
         </DetailSection>
       ) : null}
 
-      {/* D — Exercice professionnel BTP (variante parcours si définie) */}
-      <DetailSection title="D. Exercice professionnel BTP">
-        <p className="mb-2">
-          <span className="font-medium text-[#101936]">Dans ce parcours : </span>
+      <DetailSection title="F. Exercice pratique">
+        {prog?.exercicePratique ? (
+          <p className="mb-2">{prog.exercicePratique}</p>
+        ) : null}
+        <p>
+          <span className="font-medium text-[#101936]">Dans ce parcours — </span>
           {etape.exercice}
         </p>
         {etape.competence ? (
-          <p>
+          <p className="mt-2">
             <span className="font-medium text-[#101936]">Compétence travaillée : </span>
             {etape.competence}
           </p>
         ) : null}
       </DetailSection>
 
-      {/* E — Utilisation de l'IA */}
-      <DetailSection title="E. Utilisation de l’IA">
+      <DetailSection title="G. Utilisation de l’IA">
         {prog?.usageIa ? (
           <div className="space-y-2">
             <p>
@@ -109,51 +139,65 @@ export function ParcoursModuleProgrammeDetail({ mod, etape }: Props) {
               {prog.usageIa.documents}
             </p>
             <p>
-              <span className="font-medium text-[#101936]">Contrôle humain : </span>
+              <span className="font-medium text-[#101936]">Vérification des sorties IA : </span>
               {prog.usageIa.controleHumain}
             </p>
           </div>
-        ) : iaUsageLegacy ? (
-          <div className="space-y-2">
-            <p>
-              <span className="font-medium text-[#101936]">Outil : </span>
-              {labelOutil(iaUsageLegacy.outil)}
-            </p>
-            <p>{iaUsageLegacy.tacheIa}</p>
-            <p>
-              <span className="font-medium text-[#101936]">Contrôle humain : </span>
-              {iaUsageLegacy.controlesHumains}
-            </p>
-          </div>
         ) : (
-          <p>Usage IA contextualisé en session selon le module ; validation humaine systématique.</p>
+          (() => {
+            const iaUsageLegacy = getModule2027IaUsage(mod.code);
+            if (iaUsageLegacy) {
+              return (
+                <div className="space-y-2">
+                  <p>
+                    <span className="font-medium text-[#101936]">Outil : </span>
+                    {labelOutil(iaUsageLegacy.outil)}
+                  </p>
+                  <p>{iaUsageLegacy.tacheIa}</p>
+                  <p>
+                    <span className="font-medium text-[#101936]">Vérification : </span>
+                    {iaUsageLegacy.controlesHumains}
+                  </p>
+                </div>
+              );
+            }
+            return (
+              <p>Usage IA contextualisé en session ; contrôle humain systématique sur les livrables.</p>
+            );
+          })()
         )}
       </DetailSection>
 
-      {/* F — Livrables */}
-      <DetailSection title="F. Livrables remis ou produits">
+      <DetailSection title="H. Livrables professionnels">
         <p className="mb-2">
-          <span className="font-medium text-[#101936]">Livrable principal dans ce parcours : </span>
+          <span className="font-medium text-[#101936]">Livrable attendu dans ce parcours : </span>
           {etape.livrable}
         </p>
-        {mod.livrables.length > 0 ? (
+        {(mod.livrables.length > 0 || prog?.livrables.length) ? (
           <ul className="list-disc space-y-1 pl-5">
-            {mod.livrables.map((l) => (
+            {(prog?.livrables ?? mod.livrables).map((l) => (
               <li key={l}>{l}</li>
             ))}
           </ul>
         ) : null}
       </DetailSection>
 
-      {/* G — Évaluation */}
-      {evaluationText ? (
-        <DetailSection title="G. Évaluation des acquis">
-          <p>{evaluationText}</p>
-        </DetailSection>
-      ) : null}
+      <DetailSection title="I. Modalités et critères d’évaluation">
+        {prog ? (
+          <>
+            <p>{prog.evaluation.modalites}</p>
+            <ul className="mt-2 list-disc space-y-1 pl-5">
+              {prog.evaluation.criteres.map((c) => (
+                <li key={c}>{c}</li>
+              ))}
+            </ul>
+          </>
+        ) : (
+          <p>{mod.evaluation}</p>
+        )}
+      </DetailSection>
 
-      {/* H — Vérifications humaines */}
-      <DetailSection title="H. Vérifications humaines et confidentialité">
+      <DetailSection title="J. Validation humaine et confidentialité">
         <p>{confidentialite}</p>
       </DetailSection>
     </div>

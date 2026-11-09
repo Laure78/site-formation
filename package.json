@@ -49,6 +49,7 @@
     "validate:diagnostic": "npx tsx --tsconfig tsconfig.json scripts/validate-diagnostic-scoring.mjs",
     "assert:catalogue-2027": "npx tsx scripts/assert-catalogue-2027.ts",
     "report:referentiel-parcours": "npx tsx scripts/rapport-referentiel-modules-parcours.ts",
+    "report:programmes-parcours": "npx tsx scripts/rapport-programmes-parcours.ts",
     "test:seo-titles": "npx tsx scripts/assert-branded-titles.ts",
     "test:indicateurs": "npx tsx scripts/assert-indicateurs-resultats.ts",
     "test:google-reviews": "node --env-file=.env.local scripts/test-google-reviews-api.mjs",

@@ -6,9 +6,11 @@ import {
   assertCatalogueModulesIntegrity,
   assertCatalogueParcoursIntegrity,
 } from '../data/catalogue-2027';
+import { assertProgrammesParcoursIntegrity } from '../data/catalogue-2027/module-programmes/assert-programmes';
 
 const m = assertCatalogueModulesIntegrity();
 const p = assertCatalogueParcoursIntegrity();
+const prog = assertProgrammesParcoursIntegrity();
 
 console.log('=== Catalogue 2027 — contrôles métier ===');
 console.log('Modules:', m.counts);
@@ -23,7 +25,14 @@ if (!p.ok) {
   console.log('Parcours: OK');
 }
 
-if (!m.ok || !p.ok) {
+console.log('Programmes parcours:', prog.modules);
+if (!prog.ok) {
+  console.error('Erreurs programmes:', prog.errors);
+} else {
+  console.log('Programmes: OK');
+}
+
+if (!m.ok || !p.ok || !prog.ok) {
   process.exit(1);
 }
 console.log('Tous les contrôles métier sont passés.');
