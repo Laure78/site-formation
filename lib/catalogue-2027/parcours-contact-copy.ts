@@ -53,5 +53,5 @@ export const PARCOURS_HUB_CONTACT_COPY: ParcoursContactCopy = {
   messagePlaceholder:
     'Indiquez le parcours métier visé, les modules retenus ou un parcours complet, l’effectif et la période (2027 ou ultérieure)…',
   needExample:
-    'Ex. : parcours conducteur de travaux — 3 modules sur le planning et les CR chantier — 6 participants — inter Q2 2027 — Île-de-France.',
+    'Ex. : parcours chargé d’affaires — devis ou programme — 6 participants — inter ou intra — ouverture 2027 — Île-de-France.',
 };

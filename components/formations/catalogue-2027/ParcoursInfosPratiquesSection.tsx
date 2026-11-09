@@ -1,6 +1,10 @@
 import type { ParcoursComputed } from '@/data/catalogue-2027';
 import { CATALOGUE_2027_INFOS_PRATIQUES } from '@/data/catalogue-2027';
 import {
+  libellePrixParcoursCompletInter,
+  PARCOURS_TARIF_INTER_CALCULE_MENTION,
+} from '@/lib/catalogue-2027/parcours-affichage';
+import {
   PARCOURS_ACCESSIBILITE_RESUME,
   PARCOURS_ADAPTATION_INTRA,
   PARCOURS_DISPONIBILITE_LIBELLE,
@@ -27,6 +31,10 @@ export function ParcoursInfosPratiquesSection({ parcours: p }: Props) {
 
   const rows: { titre: string; contenu: string }[] = [
     { titre: 'Public visé', contenu: p.publicCible },
+    {
+      titre: 'Tarif inter (parcours complet)',
+      contenu: `${libellePrixParcoursCompletInter(p)}. ${PARCOURS_TARIF_INTER_CALCULE_MENTION} ${CATALOGUE_2027_INFOS_PRATIQUES.intraTarif}.`,
+    },
     { titre: 'Prérequis', contenu: p.prerequis },
     { titre: 'Disponibilité', contenu: PARCOURS_DISPONIBILITE_LIBELLE },
     { titre: 'Format et lieu', contenu: `${PARCOURS_MODALITE_GEO}. ${PARCOURS_MODALITE_GEO_DETAIL}` },

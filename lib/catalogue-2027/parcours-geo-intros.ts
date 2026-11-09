@@ -4,7 +4,11 @@
 import type { ParcoursId } from '@/data/catalogue-2027';
 import type { ParcoursComputed } from '@/data/catalogue-2027/parcours';
 import { libelleDureeParcoursHeures } from '@/data/catalogue-2027/parcours';
-import { libellePrixModuleInter } from '@/lib/catalogue-2027/parcours-affichage';
+import {
+  libellePrixModuleInter,
+  libellePrixParcoursCompletInter,
+  PARCOURS_TARIF_INTER_CALCULE_MENTION,
+} from '@/lib/catalogue-2027/parcours-affichage';
 import { getModuleByCode } from '@/data/catalogue-2027';
 import { PARCOURS_DISPONIBILITE_LIBELLE, PARCOURS_MODALITE_GEO } from '@/lib/catalogue-2027/parcours-commercial-copy';
 
@@ -25,7 +29,7 @@ const APPRENDRE: Record<ParcoursId, string> = {
 
 const PREREQUIS: Record<ParcoursId, string> = {
   'dirigeant-pme-btp':
-    'Public : dirigeants, associés, repreneurs. Prérequis : responsabilité de direction ou projet de reprise en BTP. Chaque module affiche son tarif HT à la carte ; le parcours complet n’a pas de forfait global.',
+    'Public : dirigeants, associés, repreneurs. Prérequis : responsabilité de direction ou projet de reprise en BTP. Tarif parcours complet et tarifs unitaires par module, selon la grille inter 2027.',
   'charge-affaires-btp':
     'Public : chargés d’affaires, économistes, commerciaux BTP. Prérequis : pratique du chiffrage ou de la consultation. Formation en présentiel Île-de-France — modules de 4 h à 14 h selon le code catalogue.',
   'conducteur-de-travaux':
@@ -42,9 +46,9 @@ const FINANCEMENT: Record<ParcoursId, string> = {
   'charge-affaires-btp':
     'Inter ou intra en Île-de-France : calendrier confirmé après étude de votre demande. Une prise en charge Constructys peut être étudiée selon vos critères — sans garantie de remboursement.',
   'conducteur-de-travaux':
-    'Vous composez votre parcours module par module ; les prix HT s’affichent sur chaque module. Adaptation intra possible (ordre des modules, documents d’entreprise, effectif).',
+    'Parcours complet ou modules à la carte : tarifs HT / participant sur chaque carte. Adaptation intra possible (ordre des modules, documents d’entreprise, effectif) — sur devis.',
   'assistant-de-gestion-btp':
-    'Formation non certifiante : attestation de fin de formation et certificat de réalisation. Tarifs au module ; pas de session datée affichée sans confirmation écrite.',
+    'Formation non certifiante : attestation de fin de formation et certificat de réalisation. Tarif parcours (somme des modules) et prix unitaires ; pas de session datée affichée sans confirmation écrite.',
   'referent-ia-btp':
     'Le module NUM-04 (14 h) suit les règles tarifaires du niveau 3 du catalogue. Déploiement IA et gouvernance peuvent être regroupés en intra sur devis.',
 };
@@ -66,14 +70,15 @@ export function getParcoursGeoIntro(
         return m ? `${m.code} (${libellePrixModuleInter(m)})` : e.moduleCode;
       })
       .join(', ');
-    return `${PARCOURS_DISPONIBILITE_LIBELLE}. ${computed.moduleCount} modules, ${duree} au total — ${PARCOURS_MODALITE_GEO}. Exemples de modules : ${sample}${computed.moduleCount > 2 ? ', etc.' : ''}. Chaque module peut être choisi indépendamment, sous réserve des prérequis.`;
+    const tarif = libellePrixParcoursCompletInter(computed);
+    return `${PARCOURS_DISPONIBILITE_LIBELLE}. ${computed.moduleCount} modules, ${duree}, parcours complet ${tarif} — ${PARCOURS_MODALITE_GEO}. ${PARCOURS_TARIF_INTER_CALCULE_MENTION} Exemples de modules : ${sample}${computed.moduleCount > 2 ? ', etc.' : ''}. Chaque module peut être choisi indépendamment, sous réserve des prérequis.`;
   }
   return APPRENDRE[parcoursId];
 }
 
 export const PARCOURS_METIERS_HUB_GEO = {
   grid:
-    'Cinq parcours métiers couvrent la direction, l’affaires, la conduite de travaux, la gestion et le référent IA. Chaque fiche détaille les modules, durées et tarifs unitaires ; aucun forfait global n’est affiché sur cette page.',
+    'Cinq parcours métiers couvrent la direction, l’affaires, la conduite de travaux, la gestion et le référent IA. Chaque fiche affiche la durée totale, le tarif inter du parcours complet (somme des modules obligatoires) et le prix unitaire de chaque module.',
   casUsage:
     'Les exercices s’appuient sur des documents BTP courants : DCE, devis, comptes rendus, DOE. L’IA aide à structurer et synthétiser ; la validation métier reste humaine.',
   modalites:

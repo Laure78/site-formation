@@ -13,7 +13,7 @@ import {
   PARCOURS_MODALITE_GEO,
 } from '@/lib/catalogue-2027/parcours-commercial-copy';
 import { parcoursHref } from '@/lib/catalogue-2027/parcours-href';
-import { PARCOURS_TARIFS_PAR_MODULE } from '@/lib/catalogue-2027/parcours-affichage';
+import { libellePrixParcoursCompletInter } from '@/lib/catalogue-2027/parcours-affichage';
 import { OFC_CTA_PRIMARY, OFC_CTA_SECONDARY } from '@/lib/ofc-interaction-classes';
 
 type Props = {
@@ -123,8 +123,8 @@ export function FormationsParcoursExplorer({ parcours }: Props) {
                   </dd>
                 </div>
                 <div>
-                  <dt className="text-ofc-ink-muted">Tarification</dt>
-                  <dd className="font-semibold text-ofc-ink">{PARCOURS_TARIFS_PAR_MODULE}</dd>
+                  <dt className="text-ofc-ink-muted">Parcours complet</dt>
+                  <dd className="font-semibold text-ofc-ink">{libellePrixParcoursCompletInter(p)}</dd>
                 </div>
                 <div>
                   <dt className="text-ofc-ink-muted">Disponibilité</dt>

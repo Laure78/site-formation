@@ -1,9 +1,9 @@
 import Image from 'next/image';
 import { BookOpen, ChevronDown, LayoutGrid, Waypoints } from 'lucide-react';
-import { FormationsContact2027 } from '@/components/formations/catalogue-2027/FormationsContact2027';
+import { ParcoursHubContactProvider } from '@/components/formations/parcours-hub-contact-context';
+import { ParcoursMetiersHubContactSection } from '@/components/formations/ParcoursMetiersHubContactSection';
 import { ParcoursMetierCard } from '@/components/formations/catalogue-2027/ParcoursMetierCard';
 import { ParcoursMetiersHubModalitesPratiques } from '@/components/formations/catalogue-2027/ParcoursMetiersHubModalitesPratiques';
-import { PARCOURS_HUB_CONTACT_COPY } from '@/lib/catalogue-2027/parcours-contact-copy';
 import { ParcoursMetiersHubHeroCtas } from '@/components/formations/ParcoursMetiersHubCtas';
 import { ParcoursMetiersHubCtaFinal } from '@/components/formations/ParcoursMetiersHubCtaFinal';
 import { FAQSchema } from '@/components/seo/FAQSchema';
@@ -50,6 +50,7 @@ export function ParcoursMetiersPage() {
   const parcours = getParcoursMetiersPublicsOrdered();
 
   return (
+    <ParcoursHubContactProvider>
     <div className="overflow-x-hidden bg-white pb-12 text-[#101936]">
       {/* Hero — aligné fiche parcours (conducteur) */}
       <section className="border-b border-slate-100 bg-white" aria-labelledby="parcours-metiers-hero-title">
@@ -220,18 +221,12 @@ export function ParcoursMetiersPage() {
 
       <section className="border-t border-slate-100 bg-white py-12 sm:py-16">
         <div className="mx-auto max-w-[80rem] px-4 sm:px-6 lg:px-8">
-          <FormationsContact2027
-            formationHint="Parcours métiers BTP — catalogue 2027"
-            initialObjet="devis"
-            initialMetier={PARCOURS_HUB_CONTACT_COPY.participantRoleDefault}
-            messagePlaceholder={PARCOURS_HUB_CONTACT_COPY.messagePlaceholder}
-            needExample={PARCOURS_HUB_CONTACT_COPY.needExample}
-            parcoursMetiersContext
-          />
+          <ParcoursMetiersHubContactSection />
         </div>
       </section>
 
       <ParcoursMetiersHubCtaFinal />
     </div>
+    </ParcoursHubContactProvider>
   );
 }

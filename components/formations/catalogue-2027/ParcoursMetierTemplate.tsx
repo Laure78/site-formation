@@ -1,11 +1,10 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowRight, Layers, Users } from 'lucide-react';
+import { ArrowRight, Layers } from 'lucide-react';
 import { getModuleByCode, getThematiquesForParcoursMetier, type ParcoursComputed } from '@/data/catalogue-2027';
 import type { ParcoursMetierTemplateContent } from '@/lib/catalogue-2027/parcours-metier-template-content';
 import { PARCOURS_METIER_PEDAGOGIE_BACKGROUND } from '@/lib/catalogue-2027/parcours-metier-template-content';
 import { PARCOURS_MODALITE_GEO, PARCOURS_MODULARITE_DETAIL } from '@/lib/catalogue-2027/parcours-commercial-copy';
-import { catalogueDemandeHref } from '@/lib/training-page-helpers';
 import { LINKS } from '@/lib/internal-links';
 import { OFC_CTA_PRIMARY, OFC_CTA_SECONDARY } from '@/lib/ofc-interaction-classes';
 import { FormateurCard } from '@/components/formateurs/FormateurCard';
@@ -17,6 +16,7 @@ import { ParcoursModuleCard } from './ParcoursModuleCard';
 import { ParcoursModulesSelectionBar } from './ParcoursModulesSelectionBar';
 import { ParcoursMetierContactSection } from './ParcoursMetierContactSection';
 import { ParcoursMetierHeroCtas } from './ParcoursMetierHeroCtas';
+import { ParcoursMetierPrimaryCtas } from './ParcoursMetierPrimaryCtas';
 import { ParcoursMetierDevisBandCta } from './ParcoursMetierDevisBandCta';
 import { ParcoursMetierStickyCta } from './ParcoursMetierStickyCta';
 import { ParcoursScrollLink } from './ParcoursScrollLink';
@@ -29,7 +29,11 @@ import { ParcoursMetierFaqSection } from './ParcoursMetierFaqSection';
 import { ParcoursSectionGeoLead } from './ParcoursSectionGeoLead';
 import { getParcoursGeoIntro } from '@/lib/catalogue-2027/parcours-geo-intros';
 import { ParcoursInfosPratiquesSection } from './ParcoursInfosPratiquesSection';
-import { PARCOURS_DISPONIBILITE_LIBELLE } from '@/lib/catalogue-2027/parcours-affichage';
+import {
+  moduleEstRetirableApresPositionnement,
+  libellePrixModuleInter,
+} from '@/lib/catalogue-2027/parcours-affichage';
+import { PARCOURS_DISPONIBILITE_LIBELLE } from '@/lib/catalogue-2027/parcours-commercial-copy';
 
 type Props = {
   parcours: ParcoursComputed;
@@ -40,17 +44,6 @@ export function ParcoursMetierTemplate({ parcours: p, content }: Props) {
   const formateurs = getFormateursForMetier(p.metierId);
   const thematiquesChantier = getThematiquesForParcoursMetier(p.metierId);
   const maillageBlocks = buildParcoursPageMaillageBlocks(p);
-
-  const programmeHref = catalogueDemandeHref({
-    formationOuParcours: `Parcours ${p.titre}`,
-    nature: 'choix-formation',
-    metier: p.metierId,
-  });
-  const adaptHref = catalogueDemandeHref({
-    formationOuParcours: `Parcours ${p.titre} — adaptation équipe`,
-    nature: 'intra',
-    metier: p.metierId,
-  });
 
   const heroTitleId = `parcours-hero-title-${p.id}`;
   return (
@@ -239,10 +232,36 @@ export function ParcoursMetierTemplate({ parcours: p, content }: Props) {
                   accordionId={accordionId}
                   ficheHref={mod.href}
                   illustration={illustration}
+                  retraitPossibleApresPositionnement={moduleEstRetirableApresPositionnement(
+                    p,
+                    mod.code,
+                  )}
                 />
               );
             })}
           </div>
+          {p.initiationComplementaire
+            ? (() => {
+                const optCode = p.initiationComplementaire.moduleAjoute;
+                const optMod = getModuleByCode(optCode);
+                if (!optMod) return null;
+                return (
+                  <div className="mt-8 rounded-2xl border border-dashed border-amber-200 bg-amber-50/50 p-5">
+                    <p className="text-sm font-semibold text-amber-950">Module optionnel (hors parcours de base)</p>
+                    <p className="mt-2 text-sm text-amber-950/90">{p.initiationComplementaire.label}</p>
+                    <p className="mt-3 text-sm text-slate-700">
+                      <span className="font-semibold text-[#377CF3]">{optMod.code}</span>
+                      {' — '}
+                      {optMod.titre}
+                      {' · '}
+                      {libellePrixModuleInter(optMod)}
+                      {' · '}
+                      non inclus dans le tarif parcours affiché en tête de fiche.
+                    </p>
+                  </div>
+                );
+              })()
+            : null}
         </section>
 
         {/* 07 Méthodes pédagogiques et livrables */}
@@ -369,21 +388,7 @@ export function ParcoursMetierTemplate({ parcours: p, content }: Props) {
             Le parcours peut être adapté en intra : ordre des modules, documents d’entreprise, effectif et calendrier.
             Tarif intra : sur devis. Prise en charge OPCO possible selon éligibilité.
           </p>
-          <div className="mt-6 flex flex-col gap-3 sm:flex-row">
-            <Link
-              href={programmeHref}
-              className={`${OFC_CTA_PRIMARY} inline-flex min-h-11 items-center justify-center px-5 py-3`}
-            >
-              Demander le programme
-            </Link>
-            <Link
-              href={adaptHref}
-              className={`${OFC_CTA_SECONDARY} inline-flex min-h-11 items-center justify-center gap-2 px-5 py-3`}
-            >
-              <Users className="h-4 w-4 shrink-0" aria-hidden />
-              Adapter ce parcours à mon équipe
-            </Link>
-          </div>
+          <ParcoursMetierPrimaryCtas variant="band" className="mt-6" />
           {parcoursIdShowsFinancementOpcoEtendu(p.id) ? (
             <FinancementOpcoEtenduCourtBlock className="mt-8" />
           ) : null}
@@ -400,13 +405,13 @@ export function ParcoursMetierTemplate({ parcours: p, content }: Props) {
           className="rounded-2xl border border-slate-200 bg-[#F8FAFC] px-6 py-10 text-center md:px-10"
         >
           <h2 id={`parcours-devis-${p.id}`} className="ofc-type-h2 text-balance text-[#101936]">
-            Demander un devis
+            Programme ou devis
           </h2>
           <p className="mx-auto mt-3 max-w-2xl text-sm text-slate-600 md:text-base">
-            Indiquez les modules retenus ou votre besoin de parcours complet : nous vous répondons avec un programme et
-            un devis HT par participant (intra sur mesure).
+            Recevez le programme détaillé ou demandez un devis : la sélection de modules sur cette page est reprise dans
+            le formulaire (parcours complet ou modules à la carte). Intra : sur devis.
           </p>
-          <ParcoursMetierDevisBandCta visioSrc={`${content.ctaAnalyticsPrefix}-devis`} />
+          <ParcoursMetierDevisBandCta />
         </section>
 
         <ParcoursMetierContactSection />

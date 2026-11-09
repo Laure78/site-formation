@@ -88,6 +88,29 @@ export function buildFormationCourseInstanceLocation(): Record<string, unknown> 
   };
 }
 
+/** Offre inter — prix HT par participant (parcours ou fiche catalogue). */
+export function buildFormationCourseInterOffer(
+  courseUrl: string,
+  priceHt: number,
+  description = 'Tarif inter-entreprises HT par participant',
+): Record<string, unknown> {
+  return {
+    '@type': 'Offer',
+    price: priceHt,
+    priceCurrency: 'EUR',
+    category: FORMATION_COURSE_OFFER_CATEGORY,
+    availability: 'https://schema.org/PreOrder',
+    url: courseUrl,
+    priceSpecification: {
+      '@type': 'PriceSpecification',
+      price: priceHt,
+      priceCurrency: 'EUR',
+      valueAddedTaxIncluded: false,
+      description,
+    },
+  };
+}
+
 /** Instance CourseInstance — inter-entreprises, présentiel IDF uniquement. */
 export function buildFormationCourseInstances(
   duration: string = FORMATION_COURSE_DURATION_ISO,

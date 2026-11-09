@@ -2,12 +2,16 @@
  * FAQ par fiche parcours — complète le noyau commun sans dupliquer mot pour mot le hub.
  */
 import type { ParcoursId } from '@/data/catalogue-2027';
+import type { ParcoursComputed } from '@/data/catalogue-2027/parcours';
+import { libellePrixParcoursCompletInter } from '@/lib/catalogue-2027/parcours-affichage';
 import {
   PARCOURS_COMPLET_DISPONIBILITE_LIBELLE,
   PARCOURS_DISPONIBILITE_LIBELLE,
   PARCOURS_MODALITE_GEO,
 } from '@/lib/catalogue-2027/parcours-commercial-copy';
 import { PARCOURS_MODULARITE_DETAIL } from '@/lib/catalogue-2027/parcours-commercial-copy';
+import { PARCOURS_TARIF_INTER_CALCULE_MENTION } from '@/lib/catalogue-2027/parcours-affichage';
+import { TARIF_INTRA_LIBELLE } from '@/data/catalogue-2027/tarifs';
 
 type FaqItem = { q: string; a: string };
 
@@ -20,7 +24,7 @@ const CORE: FaqItem[] = [
   { q: 'Où a lieu la formation ?', a: PARCOURS_MODALITE_GEO },
   {
     q: 'Comment est calculé le tarif ?',
-    a: 'Chaque module a un prix HT par participant (affiché sur sa carte). Il n’y a pas de forfait global de parcours : vous additionnez les modules retenus. L’intra-entreprise est sur devis.',
+    a: `Le tarif du parcours complet affiché en tête de fiche est la somme des modules obligatoires (120 €, 170 € ou 620 € HT / participant selon le niveau). Chaque carte module reprend son tarif unitaire. ${PARCOURS_TARIF_INTER_CALCULE_MENTION} Intra-entreprise : ${TARIF_INTRA_LIBELLE.toLowerCase()}.`,
   },
 ];
 
@@ -78,6 +82,16 @@ const METIER_FAQ: Record<ParcoursId, readonly FaqItem[]> = {
 };
 
 /** FAQ affichée + JSON-LD sur une fiche parcours. */
-export function getParcoursMetierFaqForPage(id: ParcoursId): readonly FaqItem[] {
-  return [...CORE, ...METIER_FAQ[id]];
+export function getParcoursMetierFaqForPage(
+  id: ParcoursId,
+  computed?: ParcoursComputed,
+): readonly FaqItem[] {
+  const core = CORE.map((item) => {
+    if (item.q !== 'Comment est calculé le tarif ?' || !computed) return item;
+    return {
+      ...item,
+      a: `Parcours complet sur cette fiche : ${libellePrixParcoursCompletInter(computed)}. ${item.a}`,
+    };
+  });
+  return [...core, ...METIER_FAQ[id]];
 }

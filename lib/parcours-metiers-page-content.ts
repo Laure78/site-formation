@@ -85,7 +85,7 @@ export const PARCOURS_METIERS_FAQ = [
   },
   {
     q: 'Quel est le tarif d’un parcours métier ?',
-    a: 'Les tarifs sont affichés par module (120 €, 170 € ou 620 € HT / participant selon le niveau et la durée du module). Il n’y a pas de forfait global de parcours : vous composez votre programme module par module. L’intra-entreprise est sur devis.',
+    a: 'Chaque fiche parcours affiche le tarif inter du parcours complet (somme des modules obligatoires) et le prix HT / participant de chaque module. Grille : 120 € (niveau 1 · 4 h), 170 € (niveau 2 · 4 h), 620 € (niveau 3 · 14 h). Tarif inter-entreprises calculé à partir des modules du parcours, sans remise automatique. Intra-entreprise : sur devis.',
   },
   {
     q: 'Qui dispense les formations ?',

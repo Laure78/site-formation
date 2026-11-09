@@ -18,6 +18,8 @@ type Props = {
   sectionId?: string;
   /** Contexte parcours métiers — rappel ouverture 2027 + Qualiopi. */
   parcoursMetiersContext?: boolean;
+  sectionTitle?: string;
+  sectionLead?: string;
 };
 
 export function FormationsContact2027({
@@ -29,6 +31,9 @@ export function FormationsContact2027({
   needExample = null,
   sectionId = 'contact-catalogue',
   parcoursMetiersContext = false,
+  sectionTitle = 'Demander un devis',
+  sectionLead =
+    'Précisez le parcours ou le module concerné. Pas de pièces confidentielles de chantier dans ce formulaire.',
 }: Props) {
   return (
     <section
@@ -38,12 +43,11 @@ export function FormationsContact2027({
     >
       <div className="text-center">
         <h2 id="contact-catalogue-title" className="font-display text-2xl font-bold text-[#101936] md:text-3xl">
-          Demander un devis
+          {sectionTitle}
         </h2>
         <span className="mx-auto mt-3 block h-1 w-12 rounded-full bg-[#377CF3]" aria-hidden />
         <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-slate-600">
-          Précisez le parcours ou le module concerné. Pas de pièces confidentielles de chantier dans ce
-          formulaire.
+          {sectionLead}
           {parcoursMetiersContext ? (
             <>
               {' '}

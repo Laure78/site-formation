@@ -23,7 +23,7 @@ export type ParcoursComputed = CatalogueParcours & {
   dureeHeures: number;
   /** @deprecated Ne plus afficher — conservé pour compatibilité interne (nombre de modules). */
   joursFormation: number;
-  /** Contrôle interne uniquement — ne pas afficher de prix global parcours. */
+  /** Somme HT des modules obligatoires — tarif parcours complet affiché (calcul référentiel). */
   prixInterHt: number;
   disponibilite: DisponibiliteCommerciale;
   statutEditorial: StatutEditorial;

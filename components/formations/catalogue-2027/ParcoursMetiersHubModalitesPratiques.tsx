@@ -7,14 +7,18 @@ import {
   PARCOURS_NON_CERTIFIANT,
 } from '@/lib/catalogue-2027/parcours-commercial-copy';
 import Link from 'next/link';
-import { PARCOURS_TARIFS_PAR_MODULE } from '@/lib/catalogue-2027/parcours-affichage';
+import { PARCOURS_TARIF_INTER_CALCULE_MENTION } from '@/lib/catalogue-2027/parcours-affichage';
+import { TARIF_INTRA_LIBELLE } from '@/data/catalogue-2027/tarifs';
 import { LINKS } from '@/lib/internal-links';
 
 const ROWS = [
   { titre: 'Disponibilité', contenu: PARCOURS_DISPONIBILITE_LIBELLE },
   { titre: 'Lieu et format', contenu: PARCOURS_MODALITE_GEO },
   { titre: 'Modularité', contenu: PARCOURS_MODULARITE_DETAIL },
-  { titre: 'Tarification', contenu: `${PARCOURS_TARIFS_PAR_MODULE}. Pas de forfait parcours global.` },
+  {
+    titre: 'Tarification',
+    contenu: `Tarif inter du parcours complet = somme des modules obligatoires (120 € · 170 € · 620 € HT / participant selon le niveau). ${PARCOURS_TARIF_INTER_CALCULE_MENTION} Intra : ${TARIF_INTRA_LIBELLE.toLowerCase()}.`,
+  },
   { titre: 'Inscription', contenu: PARCOURS_INSCRIPTION_RESUME },
   { titre: 'Organisme', contenu: PARCOURS_QUALIOPI_ORGANISME },
   { titre: 'Nature', contenu: PARCOURS_NON_CERTIFIANT },

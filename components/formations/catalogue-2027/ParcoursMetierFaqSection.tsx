@@ -11,7 +11,7 @@ type Props = {
 };
 
 export function ParcoursMetierFaqSection({ parcours }: Props) {
-  const items = getParcoursMetierFaqForPage(parcours.id);
+  const items = getParcoursMetierFaqForPage(parcours.id, parcours);
   const intro = `${PARCOURS_DISPONIBILITE_LIBELLE}. ${PARCOURS_MODALITE_GEO}. Questions spécifiques au parcours ${parcours.titre}.`;
 
   return (

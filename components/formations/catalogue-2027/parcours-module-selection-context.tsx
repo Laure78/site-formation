@@ -11,11 +11,19 @@ import {
 import { getModuleByCode, type ParcoursComputed } from '@/data/catalogue-2027';
 import {
   buildParcoursDevisMessage,
+  buildParcoursProgrammeMessage,
   type ParcoursDemandeType,
 } from '@/lib/catalogue-2027/parcours-module-selection-message';
-import { PARCOURS_CONTACT_COPY } from '@/lib/catalogue-2027/parcours-contact-copy';
+import { PARCOURS_CONTACT_COPY, PARCOURS_CONTACT_SECTION_ID } from '@/lib/catalogue-2027/parcours-contact-copy';
+import { scrollToAnchor } from '@/lib/catalogue-2027/scroll-to-anchor';
+import type { ParcoursFormIntent } from '@/lib/catalogue-2027/parcours-form-intent';
+import { PARCOURS_FORM_INTENT_OBJET } from '@/lib/catalogue-2027/parcours-form-intent';
 import { METIERS_CATALOGUE_2027 } from '@/data/catalogue-2027/metiers';
-import { libellePrixModuleInter } from '@/lib/catalogue-2027/parcours-affichage';
+import {
+  libellePrixModuleInter,
+  libellePrixParcoursCompletInter,
+} from '@/lib/catalogue-2027/parcours-affichage';
+import { prixParcoursDepuisModules } from '@/data/catalogue-2027/tarifs';
 
 type ParcoursModuleSelectionContextValue = {
   parcours: ParcoursComputed;
@@ -26,10 +34,14 @@ type ParcoursModuleSelectionContextValue = {
   toggleModule: (code: string) => void;
   selectComplet: () => void;
   clearModules: () => void;
-  selectedModules: ReturnType<typeof getModuleByCode>[];
+  selectedModules: NonNullable<ReturnType<typeof getModuleByCode>>[];
   formationTheme: string;
   formationHint: string;
   devisMessage: string;
+  programmeMessage: string;
+  formIntent: ParcoursFormIntent;
+  contactObjet: (typeof PARCOURS_FORM_INTENT_OBJET)[ParcoursFormIntent];
+  openContactForm: (intent: ParcoursFormIntent) => void;
   contactCopy: (typeof PARCOURS_CONTACT_COPY)[keyof typeof PARCOURS_CONTACT_COPY];
   participantRoleDefault: string;
 };
@@ -47,6 +59,7 @@ export function ParcoursModuleSelectionProvider({
 }) {
   const [demandeType, setDemandeType] = useState<ParcoursDemandeType>('modules');
   const [selectedCodes, setSelectedCodes] = useState<ReadonlySet<string>>(() => new Set());
+  const [formIntent, setFormIntent] = useState<ParcoursFormIntent>('devis');
 
   const toggleModule = useCallback((code: string) => {
     setDemandeType('modules');
@@ -102,6 +115,21 @@ export function ParcoursModuleSelectionProvider({
     [parcours.titre, demandeType, selectedModules],
   );
 
+  const programmeMessage = useMemo(
+    () =>
+      buildParcoursProgrammeMessage({
+        parcoursTitre: parcours.titre,
+        demandeType,
+        modules: selectedModules,
+      }),
+    [parcours.titre, demandeType, selectedModules],
+  );
+
+  const openContactForm = useCallback((intent: ParcoursFormIntent) => {
+    setFormIntent(intent);
+    scrollToAnchor(PARCOURS_CONTACT_SECTION_ID);
+  }, []);
+
   const value: ParcoursModuleSelectionContextValue = {
     parcours,
     demandeType,
@@ -115,6 +143,10 @@ export function ParcoursModuleSelectionProvider({
     formationTheme,
     formationHint,
     devisMessage,
+    programmeMessage,
+    formIntent,
+    contactObjet: PARCOURS_FORM_INTENT_OBJET[formIntent],
+    openContactForm,
     contactCopy,
     participantRoleDefault: metierLabel,
   };
@@ -132,7 +164,6 @@ export function useParcoursModuleSelection(): ParcoursModuleSelectionContextValu
   return ctx;
 }
 
-/** Liste affichage prix unitaires — jamais de total. */
 export function useSelectedModulePriceLines(): { code: string; titre: string; prix: string }[] {
   const { selectedModules } = useParcoursModuleSelection();
   return selectedModules.map((m) => ({
@@ -140,4 +171,23 @@ export function useSelectedModulePriceLines(): { code: string; titre: string; pr
     titre: m.titre,
     prix: libellePrixModuleInter(m),
   }));
+}
+
+export function useSelectionTarifRecap(): {
+  totalLabel: string | null;
+  parcoursCompletLabel: string;
+} {
+  const { selectedModules, demandeType, parcours } = useParcoursModuleSelection();
+  const parcoursCompletLabel = libellePrixParcoursCompletInter(parcours);
+  if (demandeType === 'complet') {
+    return { totalLabel: parcoursCompletLabel, parcoursCompletLabel };
+  }
+  if (selectedModules.length === 0) {
+    return { totalLabel: null, parcoursCompletLabel };
+  }
+  const totalHt = prixParcoursDepuisModules(selectedModules);
+  return {
+    totalLabel: libellePrixParcoursCompletInter({ prixInterHt: totalHt }),
+    parcoursCompletLabel,
+  };
 }

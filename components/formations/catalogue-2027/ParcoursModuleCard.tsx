@@ -10,9 +10,7 @@ import {
   libellePrixModuleInter,
 } from '@/lib/catalogue-2027/parcours-affichage';
 import { libelleDisponibiliteModuleUnitaire } from '@/lib/catalogue-2027/parcours-commercial-copy';
-import { PARCOURS_CONTACT_SECTION_ID } from '@/lib/catalogue-2027/parcours-contact-copy';
 import { CTA_DEVIS_LABEL } from '@/lib/cta-devis-label';
-import { scrollToAnchor } from '@/lib/catalogue-2027/scroll-to-anchor';
 import { Accordion } from '@/components/readability/Accordion';
 import { OFC_CTA_PRIMARY, OFC_CTA_SECONDARY } from '@/lib/ofc-interaction-classes';
 import { ParcoursModuleProgrammeDetail } from './ParcoursModuleProgrammeDetail';
@@ -32,6 +30,8 @@ type Props = {
   /** Fiche catalogue publiée — sinon masqué. */
   ficheHref: string | null;
   illustration?: ParcoursModuleCardIllustration;
+  /** Retrait possible après positionnement — non inclus dans une variante « sans ce module ». */
+  retraitPossibleApresPositionnement?: boolean;
 };
 
 const checkboxClass =
@@ -48,8 +48,9 @@ export function ParcoursModuleCard({
   accordionId,
   ficheHref,
   illustration,
+  retraitPossibleApresPositionnement = false,
 }: Props) {
-  const { isSelected, toggleModule, demandeType } = useParcoursModuleSelection();
+  const { isSelected, toggleModule, demandeType, openContactForm } = useParcoursModuleSelection();
   const checked = isSelected(mod.code);
   const selectId = `select-module-${accordionId}`;
 
@@ -57,7 +58,7 @@ export function ParcoursModuleCard({
     if (!checked && demandeType === 'modules') {
       toggleModule(mod.code);
     }
-    scrollToAnchor(PARCOURS_CONTACT_SECTION_ID);
+    openContactForm('devis');
   };
 
   return (
@@ -93,6 +94,11 @@ export function ParcoursModuleCard({
             <span className="rounded-full bg-[#EFF6FF] px-2.5 py-0.5 text-[11px] font-semibold text-[#1D4ED8]">
               {libelleNiveauModule(mod)}
             </span>
+            {retraitPossibleApresPositionnement ? (
+              <span className="rounded-full bg-amber-50 px-2.5 py-0.5 text-[11px] font-semibold text-amber-900">
+                Retrait possible après positionnement
+              </span>
+            ) : null}
           </div>
 
           <div className="mt-2 flex flex-wrap items-baseline gap-x-3 gap-y-1 text-xs text-slate-600">
@@ -159,7 +165,7 @@ export function ParcoursModuleCard({
           <label htmlFor={selectId} className="cursor-pointer text-sm text-slate-700">
             Inclure ce module dans ma demande de devis
             <span id={`${selectId}-hint`} className="mt-0.5 block text-xs text-slate-500">
-              {libellePrixModuleInter(mod)} — tarif unitaire, sans total parcours.
+              {libellePrixModuleInter(mod)} — tarif unitaire inter.
             </span>
           </label>
         </div>

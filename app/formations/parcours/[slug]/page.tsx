@@ -75,7 +75,7 @@ export default async function ParcoursPage({ params }: Props) {
 
   const courseSchema = buildParcoursMetierCourseJsonLd(computed);
   const modulesListSchema = buildParcoursModulesItemListJsonLd(computed);
-  const faqItems = getParcoursMetierFaqForPage(parcours.id);
+  const faqItems = getParcoursMetierFaqForPage(parcours.id, computed);
 
   const base = SITE_CONFIG.url.replace(/\/$/, '');
 
@@ -83,7 +83,13 @@ export default async function ParcoursPage({ params }: Props) {
     <>
       <JsonLd id={`schema-parcours-${parcours.id}`} schema={courseSchema} />
       <JsonLd id={`schema-parcours-modules-${parcours.id}`} schema={modulesListSchema} />
-      <FAQSchema id={`schema-parcours-faq-${parcours.id}`} items={faqItems} />
+      <FAQSchema
+        id={`schema-parcours-faq-${parcours.id}`}
+        items={faqItems.map((item) => ({
+          question: item.q,
+          answer: item.a,
+        }))}
+      />
       <BreadcrumbJsonLd
         id={`schema-breadcrumb-parcours-${parcours.id}`}
         items={[

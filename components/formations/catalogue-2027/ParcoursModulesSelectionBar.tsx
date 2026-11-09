@@ -10,13 +10,23 @@ import { scrollToAnchor } from '@/lib/catalogue-2027/scroll-to-anchor';
 import {
   useParcoursModuleSelection,
   useSelectedModulePriceLines,
+  useSelectionTarifRecap,
 } from './parcours-module-selection-context';
+import { PARCOURS_TARIF_INTER_CALCULE_MENTION } from '@/lib/catalogue-2027/parcours-affichage';
 import { ParcoursScrollLink } from './ParcoursScrollLink';
 
 export function ParcoursModulesSelectionBar() {
-  const { demandeType, setDemandeType, selectComplet, clearModules, selectedModules, parcours } =
-    useParcoursModuleSelection();
+  const {
+    demandeType,
+    setDemandeType,
+    selectComplet,
+    clearModules,
+    selectedModules,
+    parcours,
+    openContactForm,
+  } = useParcoursModuleSelection();
   const priceLines = useSelectedModulePriceLines();
+  const tarifRecap = useSelectionTarifRecap();
 
   return (
     <div
@@ -78,7 +88,19 @@ export function ParcoursModulesSelectionBar() {
               Cochez un ou plusieurs modules ci-dessous, ou choisissez le parcours complet.
             </p>
           )}
-          <p className="mt-2 text-xs text-slate-500">Tarifs unitaires HT / participant — pas de forfait parcours.</p>
+          {tarifRecap.totalLabel ? (
+            <>
+              <p className="mt-3 text-sm font-medium text-[#101936]">
+                {demandeType === 'complet' ? 'Parcours complet : ' : 'Total sélection : '}
+                {tarifRecap.totalLabel}
+              </p>
+              <p className="mt-1 text-xs text-slate-500">{PARCOURS_TARIF_INTER_CALCULE_MENTION}</p>
+            </>
+          ) : (
+            <p className="mt-2 text-xs text-slate-500">
+              Parcours complet : {tarifRecap.parcoursCompletLabel} — {PARCOURS_TARIF_INTER_CALCULE_MENTION}
+            </p>
+          )}
         </div>
 
         <div className="flex w-full shrink-0 flex-col gap-2 sm:flex-row lg:w-auto lg:flex-col">
@@ -90,7 +112,7 @@ export function ParcoursModulesSelectionBar() {
           </ParcoursScrollLink>
           <button
             type="button"
-            onClick={() => scrollToAnchor(PARCOURS_CONTACT_SECTION_ID)}
+            onClick={() => openContactForm('devis')}
             className={`${OFC_CTA_PRIMARY} inline-flex min-h-11 items-center justify-center px-5 py-3 text-sm`}
           >
             {CTA_DEVIS_LABEL}

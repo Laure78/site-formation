@@ -1,11 +1,15 @@
 /**
- * JSON-LD — hub et fiches parcours métiers 2027 (Course, ItemList — sans prix global ni date de session).
+ * JSON-LD — hub et fiches parcours métiers 2027 (Course, ItemList — tarif = somme modules obligatoires).
  */
 import type { ParcoursComputed } from '@/data/catalogue-2027/parcours';
 import { getModuleByCode } from '@/data/catalogue-2027';
 import { parcoursHref } from '@/lib/catalogue-2027/parcours-href';
 import { PARCOURS_SEO_BY_ID } from '@/lib/catalogue-2027/parcours-seo-metadata';
-import { buildFormationFicheCourseJsonLd } from '@/lib/schema-formation-course-jsonld';
+import {
+  buildFormationFicheCourseJsonLd,
+  buildFormationCourseInterOffer,
+} from '@/lib/schema-formation-course-jsonld';
+import { PARCOURS_TARIF_INTER_CALCULE_MENTION } from '@/lib/catalogue-2027/parcours-affichage';
 import { SCHEMA_PUBLIC_SITE_URL } from '@/lib/schema-constants';
 import { LINKS } from '@/lib/internal-links';
 
@@ -17,7 +21,8 @@ function absoluteUrl(path: string): string {
 export function buildParcoursMetierCourseJsonLd(parcours: ParcoursComputed): Record<string, unknown> {
   const path = parcoursHref(parcours.id);
   const pack = PARCOURS_SEO_BY_ID[parcours.id];
-  return buildFormationFicheCourseJsonLd({
+  const courseUrl = absoluteUrl(path);
+  const core = buildFormationFicheCourseJsonLd({
     name: `Parcours ${parcours.titre} — formation IA BTP`,
     description: pack.schemaDescription,
     path,
@@ -27,6 +32,14 @@ export function buildParcoursMetierCourseJsonLd(parcours: ParcoursComputed): Rec
     instructorName: 'Laure Olivié',
     courseCode: parcours.id,
   });
+  return {
+    ...core,
+    offers: buildFormationCourseInterOffer(
+      courseUrl,
+      parcours.prixInterHt,
+      PARCOURS_TARIF_INTER_CALCULE_MENTION,
+    ),
+  };
 }
 
 export function buildParcoursModulesItemListJsonLd(parcours: ParcoursComputed): Record<string, unknown> {

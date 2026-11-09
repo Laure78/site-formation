@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { ArrowRight, Clock, Layers } from 'lucide-react';
 import type { ParcoursComputed } from '@/data/catalogue-2027';
 import { libelleDureeParcoursHeures } from '@/data/catalogue-2027';
+import { libellePrixParcoursCompletInter } from '@/lib/catalogue-2027/parcours-affichage';
 import { parcoursHref } from '@/lib/catalogue-2027/parcours-href';
 import { OFC_CTA_SECONDARY } from '@/lib/ofc-interaction-classes';
 import { PARCOURS_METIERS_CARD_IMAGE } from '@/lib/parcours-metiers-page-content';
@@ -67,6 +68,13 @@ export function ParcoursMetierCard({ parcours: p, description }: ParcoursMetierC
             <dt className="sr-only">Durée totale</dt>
             <dd>
               Durée totale : <span className="font-medium text-[#101936]">{duree}</span>
+            </dd>
+          </div>
+          <div className="flex items-center gap-2 sm:col-span-2">
+            <dt className="sr-only">Tarif parcours complet inter</dt>
+            <dd className="text-slate-600">
+              Parcours complet :{' '}
+              <span className="font-medium text-[#101936]">{libellePrixParcoursCompletInter(p)}</span>
             </dd>
           </div>
         </dl>
