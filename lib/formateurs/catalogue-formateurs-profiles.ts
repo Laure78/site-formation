@@ -189,45 +189,6 @@ const CLAIRE_ROUSSEAU: FormateurProfile = {
   publie: true,
 };
 
-const EMILIE_FONTAINE: FormateurProfile = {
-  id: 'intervenante-assistance-travaux-btp',
-  slug: 'intervenante-assistance-travaux-btp',
-  prenom: 'Émilie',
-  nom: 'Fontaine',
-  intitule: 'Ancienne assistante travaux — assistance et suivi administratif des chantiers',
-  parcours:
-    'Issue de l’assistance aux conducteurs de travaux, Émilie intervient sur la préparation des dossiers, le suivi documentaire et les échanges bureau–chantier. Ses mises en situation portent sur les tableaux de suivi des pièces, les comptes rendus, les relances et la préparation à la clôture administrative.',
-  specialites: [
-    'Assistance travaux',
-    'Situations et relances',
-    'Comptes rendus de chantier',
-  ],
-  domaineIds: ['administration', 'travaux'],
-  formationCodes: [],
-  moduleCodes: moduleCodes(['ADM-01', 'ADM-02', 'TRA-04']),
-  formationsHubLabel: 'Formations animées',
-  experiences: [
-    {
-      periode: '11 ans',
-      titre: 'Assistante travaux — entreprises du bâtiment',
-      detail:
-        'Dossiers de chantier, pièces sous-traitants, situations de travaux et éléments de facturation.',
-    },
-    {
-      titre: 'Réunions de chantier et clôture administrative',
-      detail:
-        'Organisation des réunions, comptes rendus, collecte des pièces DOE et relances ciblées.',
-    },
-  ] satisfies readonly FormateurExperienceStep[],
-  formationsProfessionnelles: [
-    'Formation assistante de gestion BTP',
-    'Modules administratif chantier et facturation',
-  ],
-  portrait: photoPortrait(PHOTOS.formateurEmilieFontaine),
-  status: 'confirmed',
-  publie: true,
-};
-
 const FRANCOIS_BEGUIN: FormateurProfile = {
   id: 'formateur-coordination-sps',
   slug: 'formateur-coordination-sps',
@@ -285,6 +246,5 @@ export const CATALOGUE_FORMATEURS: readonly FormateurProfile[] = [
   MARC_DELCOURT,
   NICOLAS_PERRIN,
   CLAIRE_ROUSSEAU,
-  EMILIE_FONTAINE,
   FRANCOIS_BEGUIN,
 ];

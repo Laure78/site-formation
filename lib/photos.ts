@@ -367,13 +367,6 @@ export const PHOTOS = {
     height: 1024,
     objectPosition: '50% 20%',
   },
-  formateurEmilieFontaine: {
-    src: '/images/formateurs/emilie-fontaine.jpg',
-    alt: 'Émilie Fontaine, formatrice assistance travaux BTP',
-    width: 819,
-    height: 1024,
-    objectPosition: '50% 18%',
-  },
   formateurFrancoisBeguin: {
     src: '/images/formateurs/francois-beguin.jpg',
     alt: 'François Béguin, formateur coordination SPS et prévention chantier',
@@ -1124,6 +1117,15 @@ export const PHOTOS = {
     title: 'Applications métier BTP avancée — niveau 3',
     width: 1200,
     height: 800,
+  },
+  formationNiv13AgentsIaAutonomesBtp2026: {
+    src: '/images/formation-assistants-ia-personnalises-btp.webp',
+    alt: 'Formation agents IA autonomes BTP : scénario Make, relances et échéances chantier',
+    description:
+      'Formation créer son premier agent IA autonome pour le BTP — Make AI Agents, 7 h, présentiel Île-de-France, Qualiopi.',
+    title: 'Agents IA autonomes BTP — Make',
+    width: 1024,
+    height: 768,
   },
   formationNiv09AssistantsIaPersonnalisesBtp2026: {
     src: '/images/formation-assistants-ia-personnalises-btp.webp',

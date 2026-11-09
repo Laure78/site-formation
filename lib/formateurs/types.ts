@@ -8,7 +8,6 @@ export type FormateurId =
   | 'marc-delcourt'
   | 'nicolas-perrin'
   | 'claire-rousseau'
-  | 'intervenante-assistance-travaux-btp'
   | 'formateur-coordination-sps';
 
 /**
