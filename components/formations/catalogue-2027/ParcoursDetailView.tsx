@@ -1,6 +1,7 @@
 import type { ParcoursComputed } from '@/data/catalogue-2027';
 import { getParcoursMetierTemplateContent } from '@/lib/catalogue-2027/parcours-metier-template-content';
 import { ParcoursMetierTemplate } from './ParcoursMetierTemplate';
+import { ParcoursModuleSelectionProvider } from './parcours-module-selection-context';
 
 type Props = {
   parcours: ParcoursComputed;
@@ -15,5 +16,9 @@ export function ParcoursDetailView({ parcours: p }: Props) {
       </div>
     );
   }
-  return <ParcoursMetierTemplate parcours={p} content={content} />;
+  return (
+    <ParcoursModuleSelectionProvider parcours={p}>
+      <ParcoursMetierTemplate parcours={p} content={content} />
+    </ParcoursModuleSelectionProvider>
+  );
 }

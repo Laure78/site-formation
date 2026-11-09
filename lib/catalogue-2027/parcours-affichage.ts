@@ -4,6 +4,7 @@
 import { libellePrixParticipantInter, type CatalogueModule } from '@/data/catalogue-2027';
 import { NIVEAU_LIBELLE } from '@/data/catalogue-2027/module-niveaux';
 import type { ParcoursComputed } from '@/data/catalogue-2027/parcours';
+import { PARCOURS_DISPONIBILITE_LIBELLE } from '@/lib/catalogue-2027/parcours-commercial-copy';
 
 export const PARCOURS_TARIFS_PAR_MODULE =
   'Tarifs affichés par module' as const;
@@ -11,7 +12,10 @@ export const PARCOURS_TARIFS_PAR_MODULE =
 export const PARCOURS_MODULARITE_LIBELLE =
   'Parcours complet ou modules à la carte' as const;
 
-export const PARCOURS_OUVERTURE_2027 = 'Ouverture 2027' as const;
+/** @deprecated Préférer PARCOURS_DISPONIBILITE_LIBELLE — alias historique. */
+export const PARCOURS_OUVERTURE_2027 = PARCOURS_DISPONIBILITE_LIBELLE;
+
+export { PARCOURS_DISPONIBILITE_LIBELLE } from '@/lib/catalogue-2027/parcours-commercial-copy';
 
 /** « 170 € HT / participant » — une seule fois HT. */
 export function libellePrixModuleInter(mod: Pick<CatalogueModule, 'prixInterHt'>): string {

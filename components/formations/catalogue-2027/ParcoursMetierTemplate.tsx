@@ -1,28 +1,35 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowRight, Calendar, Layers, Users } from 'lucide-react';
+import { ArrowRight, Layers, Users } from 'lucide-react';
 import { getModuleByCode, getThematiquesForParcoursMetier, type ParcoursComputed } from '@/data/catalogue-2027';
 import type { ParcoursMetierTemplateContent } from '@/lib/catalogue-2027/parcours-metier-template-content';
 import { PARCOURS_METIER_PEDAGOGIE_BACKGROUND } from '@/lib/catalogue-2027/parcours-metier-template-content';
-import { libelleDisponibilite } from '@/lib/catalogue-2027/search-modules';
+import { PARCOURS_MODALITE_GEO, PARCOURS_MODULARITE_DETAIL } from '@/lib/catalogue-2027/parcours-commercial-copy';
 import { catalogueDemandeHref } from '@/lib/training-page-helpers';
 import { LINKS } from '@/lib/internal-links';
 import { OFC_CTA_PRIMARY, OFC_CTA_SECONDARY } from '@/lib/ofc-interaction-classes';
 import { FormateurCard } from '@/components/formateurs/FormateurCard';
 import { getFormateursForMetier } from '@/lib/formateurs';
-import { CtaDevis } from '@/components/CtaDevis';
-import { CtaVisio } from '@/components/CtaVisio';
+import { PARCOURS_MODULES_SECTION_ID } from '@/lib/catalogue-2027/parcours-contact-copy';
 import { ParcoursIndicateursCles } from './ParcoursIndicateursCles';
 import { ParcoursMentionsOptionnelles } from './ParcoursMentionsOptionnelles';
 import { ParcoursModuleCard } from './ParcoursModuleCard';
-import { FormationsContact2027 } from './FormationsContact2027';
-import { ParcoursChoixModulesRdvCta } from './ParcoursChoixModulesRdvCta';
+import { ParcoursModulesSelectionBar } from './ParcoursModulesSelectionBar';
+import { ParcoursMetierContactSection } from './ParcoursMetierContactSection';
+import { ParcoursMetierHeroCtas } from './ParcoursMetierHeroCtas';
+import { ParcoursMetierDevisBandCta } from './ParcoursMetierDevisBandCta';
+import { ParcoursMetierStickyCta } from './ParcoursMetierStickyCta';
+import { ParcoursScrollLink } from './ParcoursScrollLink';
 import { ParcoursEncadrerIaBlock } from '@/components/formations/ParcoursEncadrerIaBlock';
 import { PageMaillageSection } from '@/components/maillage/PageMaillageSection';
 import { buildParcoursPageMaillageBlocks } from '@/lib/page-maillage-blocks';
 import { FinancementOpcoEtenduCourtBlock } from '@/components/financement/FinancementOpcoEtenduCourtBlock';
 import { parcoursIdShowsFinancementOpcoEtendu } from '@/lib/financement-opco-etendu-config';
 import { ParcoursMetierFaqSection } from './ParcoursMetierFaqSection';
+import { ParcoursSectionGeoLead } from './ParcoursSectionGeoLead';
+import { getParcoursGeoIntro } from '@/lib/catalogue-2027/parcours-geo-intros';
+import { ParcoursInfosPratiquesSection } from './ParcoursInfosPratiquesSection';
+import { PARCOURS_DISPONIBILITE_LIBELLE } from '@/lib/catalogue-2027/parcours-affichage';
 
 type Props = {
   parcours: ParcoursComputed;
@@ -39,11 +46,6 @@ export function ParcoursMetierTemplate({ parcours: p, content }: Props) {
     nature: 'choix-formation',
     metier: p.metierId,
   });
-  const devisHref = catalogueDemandeHref({
-    formationOuParcours: `Parcours ${p.titre}`,
-    nature: 'devis',
-    metier: p.metierId,
-  });
   const adaptHref = catalogueDemandeHref({
     formationOuParcours: `Parcours ${p.titre} — adaptation équipe`,
     nature: 'intra',
@@ -51,10 +53,6 @@ export function ParcoursMetierTemplate({ parcours: p, content }: Props) {
   });
 
   const heroTitleId = `parcours-hero-title-${p.id}`;
-  const modulesSectionId = content.modulesSectionId;
-  const calendrierIndicateurs =
-    p.mentionDisponibilite ?? (p.id === 'referent-ia-btp' ? libelleDisponibilite(p.disponibilite) : undefined);
-
   return (
     <div className="overflow-x-hidden bg-white pb-24 lg:pb-20">
       {/* 01–02 Hero + fil d'Ariane */}
@@ -101,8 +99,8 @@ export function ParcoursMetierTemplate({ parcours: p, content }: Props) {
 
         <div className="mx-auto grid max-w-[80rem] items-center gap-10 px-4 py-10 sm:px-6 lg:grid-cols-2 lg:gap-12 lg:px-8 lg:py-14">
           <div className="min-w-0">
-            <p className="text-xs font-semibold uppercase tracking-[0.12em] text-[#377CF3]">
-              Parcours métier · Ouverture 2027
+            <p className="text-xs font-semibold uppercase tracking-[0.08em] text-[#377CF3]">
+              Parcours métier · {PARCOURS_DISPONIBILITE_LIBELLE}
             </p>
             <h1 id={heroTitleId} className="ofc-type-hero mt-4 text-balance text-[#101936]">
               {p.titre}
@@ -112,20 +110,7 @@ export function ParcoursMetierTemplate({ parcours: p, content }: Props) {
             <p className="mt-3 text-sm text-slate-600">
               <span className="font-medium text-[#101936]">Public :</span> {p.publicCible}
             </p>
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-              <Link
-                href={`#${modulesSectionId}`}
-                className={`${OFC_CTA_PRIMARY} inline-flex min-h-11 w-full items-center justify-center gap-2 px-5 py-3 sm:w-auto`}
-              >
-                Choisir mes modules
-                <ArrowRight className="h-4 w-4 shrink-0" aria-hidden />
-              </Link>
-              <CtaDevis
-                href={devisHref}
-                variant="secondary"
-                className="inline-flex min-h-11 w-full items-center justify-center gap-2 px-5 py-3 sm:w-auto"
-              />
-            </div>
+            <ParcoursMetierHeroCtas />
           </div>
 
           <div className="relative min-h-0 w-full">
@@ -156,7 +141,7 @@ export function ParcoursMetierTemplate({ parcours: p, content }: Props) {
           <h2 id={`parcours-indicateurs-${p.id}`} className="sr-only">
             Informations clés du parcours
           </h2>
-          <ParcoursIndicateursCles parcours={p} calendrierLabel={calendrierIndicateurs} />
+          <ParcoursIndicateursCles parcours={p} />
         </section>
 
         {/* 04 Ce que vous apprendrez */}
@@ -164,6 +149,7 @@ export function ParcoursMetierTemplate({ parcours: p, content }: Props) {
           <h2 id={`parcours-apprendre-${p.id}`} className="ofc-type-h2 text-center text-[#101936] md:text-left">
             Ce que vous apprendrez
           </h2>
+          <ParcoursSectionGeoLead>{getParcoursGeoIntro(p.id, 'apprendre')}</ParcoursSectionGeoLead>
           <div className="mt-8 grid gap-4 md:grid-cols-3">
             {content.apprentissageCards.map((card) => (
               <div
@@ -197,33 +183,30 @@ export function ParcoursMetierTemplate({ parcours: p, content }: Props) {
               <h2 id={`parcours-modularite-${p.id}`} className="font-display text-lg font-semibold text-[#101936]">
                 Parcours complet ou modules à la carte
               </h2>
-              <p className="mt-2 text-sm leading-relaxed text-slate-700">
-                Vous pouvez suivre l&apos;ensemble du parcours ou choisir chaque module indépendamment, sous réserve des
-                prérequis et du positionnement.
-              </p>
+              <p className="mt-2 text-sm leading-relaxed text-slate-700">{PARCOURS_MODULARITE_DETAIL}</p>
             </div>
           </div>
-          <Link
-            href={`#${modulesSectionId}`}
+          <ParcoursScrollLink
+            anchorId={PARCOURS_MODULES_SECTION_ID}
             className={`${OFC_CTA_PRIMARY} inline-flex min-h-11 shrink-0 items-center justify-center gap-2 self-start px-6 py-3 md:self-center`}
           >
-            Voir les modules
+            Choisir mes modules
             <ArrowRight className="h-4 w-4 shrink-0" aria-hidden />
-          </Link>
+          </ParcoursScrollLink>
         </section>
 
         {/* 06 Programme du parcours */}
-        <section id={modulesSectionId} className="scroll-mt-24" aria-labelledby={`parcours-programme-${p.id}`}>
+        <section
+          id={PARCOURS_MODULES_SECTION_ID}
+          className="scroll-mt-[calc(var(--site-header-height,4.5rem)+0.75rem)]"
+          aria-labelledby={`parcours-programme-${p.id}`}
+        >
           <h2 id={`parcours-programme-${p.id}`} className="ofc-type-h2 text-[#101936]">
             Programme du parcours — {p.moduleCount} modules
           </h2>
-          <p className="mt-3 max-w-3xl text-sm text-slate-600">
-            Chaque bloc correspond à un module du catalogue : vous pouvez suivre le parcours complet ou ne retenir que
-            certains modules — sous réserve des prérequis. Un cas pratique commun relie les étapes lorsque vous suivez le
-            parcours entier ; les journées peuvent être espacées.
-          </p>
+          <ParcoursSectionGeoLead>{getParcoursGeoIntro(p.id, 'programme', p)}</ParcoursSectionGeoLead>
           <div className="mt-6">
-            <ParcoursChoixModulesRdvCta />
+            <ParcoursModulesSelectionBar />
           </div>
 
           <div className="mt-8 grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
@@ -246,12 +229,6 @@ export function ParcoursMetierTemplate({ parcours: p, content }: Props) {
                 );
               }
 
-              const moduleDevisHref = catalogueDemandeHref({
-                formationOuParcours: `${mod.code} — ${mod.titre}`,
-                nature: 'devis',
-                metier: p.metierId,
-              });
-
               return (
                 <ParcoursModuleCard
                   key={`${etape.moduleCode}-${index}`}
@@ -260,7 +237,6 @@ export function ParcoursMetierTemplate({ parcours: p, content }: Props) {
                   numero={numero}
                   titleId={moduleTitleId}
                   accordionId={accordionId}
-                  devisHref={moduleDevisHref}
                   ficheHref={mod.href}
                   illustration={illustration}
                 />
@@ -287,7 +263,7 @@ export function ParcoursMetierTemplate({ parcours: p, content }: Props) {
               Méthodes pédagogiques et livrables
             </h2>
             <p className="mt-3 max-w-3xl text-sm text-white/90">
-              Présentiel en Île-de-France, exercices sur cas professionnels, livrables réutilisables. Évaluation des acquis
+              {PARCOURS_MODALITE_GEO}. Exercices sur cas professionnels BTP et livrables réutilisables. Évaluation des acquis
               intégrée à la durée annoncée. Formations non certifiantes.
             </p>
             <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
@@ -307,6 +283,7 @@ export function ParcoursMetierTemplate({ parcours: p, content }: Props) {
           <h2 id={`parcours-prerequis-${p.id}`} className="ofc-type-h2 text-[#101936]">
             Prérequis et modalités
           </h2>
+          <ParcoursSectionGeoLead>{getParcoursGeoIntro(p.id, 'prerequis')}</ParcoursSectionGeoLead>
           <p className="mt-3 text-slate-600">{p.prerequis}</p>
           <p className="mt-2 text-sm text-slate-600">
             Un positionnement permet d’ajuster le parcours. L’évaluation des acquis est intégrée à la durée annoncée.
@@ -387,6 +364,7 @@ export function ParcoursMetierTemplate({ parcours: p, content }: Props) {
           <h2 id={`parcours-financement-${p.id}`} className="ofc-type-h2 text-[#101936]">
             Financement et adaptation
           </h2>
+          <ParcoursSectionGeoLead>{getParcoursGeoIntro(p.id, 'financement')}</ParcoursSectionGeoLead>
           <p className="mt-3 text-slate-600">
             Le parcours peut être adapté en intra : ordre des modules, documents d’entreprise, effectif et calendrier.
             Tarif intra : sur devis. Prise en charge OPCO possible selon éligibilité.
@@ -411,8 +389,10 @@ export function ParcoursMetierTemplate({ parcours: p, content }: Props) {
           ) : null}
         </section>
 
+        <ParcoursInfosPratiquesSection parcours={p} />
+
         {/* 11 FAQ */}
-        <ParcoursMetierFaqSection />
+        <ParcoursMetierFaqSection parcours={p} />
 
         {/* 12 Devis + formulaire */}
         <section
@@ -426,20 +406,10 @@ export function ParcoursMetierTemplate({ parcours: p, content }: Props) {
             Indiquez les modules retenus ou votre besoin de parcours complet : nous vous répondons avec un programme et
             un devis HT par participant (intra sur mesure).
           </p>
-          <div className="mt-8 flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:items-center">
-            <CtaDevis
-              href={devisHref}
-              className="inline-flex min-h-11 w-full items-center justify-center px-6 py-3 sm:w-auto"
-            />
-            <CtaVisio
-              src={`${content.ctaAnalyticsPrefix}-devis`}
-              className={`${OFC_CTA_SECONDARY} inline-flex min-h-11 w-full items-center justify-center gap-2 px-6 py-3 sm:w-auto`}
-              leadingAdornment={<Calendar className="h-4 w-4 shrink-0" aria-hidden />}
-            />
-          </div>
+          <ParcoursMetierDevisBandCta visioSrc={`${content.ctaAnalyticsPrefix}-devis`} />
         </section>
 
-        <FormationsContact2027 formationHint={`Parcours ${p.titre}`} initialObjet="devis" />
+        <ParcoursMetierContactSection />
       </div>
 
       {/* Ressources / maillage */}
@@ -449,21 +419,7 @@ export function ParcoursMetierTemplate({ parcours: p, content }: Props) {
         ))}
       </div>
 
-      {/* CTA mobile sticky */}
-      <div className="fixed inset-x-0 bottom-0 z-40 border-t border-slate-200 bg-white/95 p-3 backdrop-blur lg:hidden">
-        <div className="mx-auto flex max-w-[80rem] gap-2">
-          <CtaVisio
-            src={`${content.ctaAnalyticsPrefix}-sticky`}
-            variant="primary"
-            className="inline-flex min-h-11 flex-1 items-center justify-center px-3 py-2 text-sm"
-          />
-          <CtaDevis
-            href={devisHref}
-            variant="secondary"
-            className="inline-flex min-h-11 flex-1 items-center justify-center px-3 py-2 text-sm"
-          />
-        </div>
-      </div>
+      <ParcoursMetierStickyCta />
     </div>
   );
 }

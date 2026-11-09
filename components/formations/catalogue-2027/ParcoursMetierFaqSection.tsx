@@ -1,17 +1,26 @@
 import { FAQAccordion } from '@/components/a-propos/FAQAccordion';
-import { PARCOURS_METIERS_FAQ } from '@/lib/parcours-metiers-page-content';
+import type { ParcoursComputed } from '@/data/catalogue-2027';
+import { getParcoursMetierFaqForPage } from '@/lib/catalogue-2027/parcours-metiers-faq-pages';
+import {
+  PARCOURS_DISPONIBILITE_LIBELLE,
+  PARCOURS_MODALITE_GEO,
+} from '@/lib/catalogue-2027/parcours-commercial-copy';
 
-const INTRO =
-  'Parcours modulaires, présentiel en Île-de-France, tarifs au module et financement selon éligibilité.';
+type Props = {
+  parcours: ParcoursComputed;
+};
 
-export function ParcoursMetierFaqSection() {
+export function ParcoursMetierFaqSection({ parcours }: Props) {
+  const items = getParcoursMetierFaqForPage(parcours.id);
+  const intro = `${PARCOURS_DISPONIBILITE_LIBELLE}. ${PARCOURS_MODALITE_GEO}. Questions spécifiques au parcours ${parcours.titre}.`;
+
   return (
     <section aria-labelledby="parcours-metier-faq-title">
       <FAQAccordion
         id="parcours-metier-faq"
         title="Questions fréquentes"
-        subtitle={INTRO}
-        items={[...PARCOURS_METIERS_FAQ]}
+        subtitle={intro}
+        items={[...items]}
         framedList
       />
     </section>

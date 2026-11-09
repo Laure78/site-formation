@@ -8,7 +8,10 @@ import {
   type ParcoursComputed,
 } from '@/data/catalogue-2027';
 import { getMetiersCataloguePublic } from '@/lib/parcours-metiers-public';
-import { libelleDisponibilite } from '@/lib/catalogue-2027/search-modules';
+import {
+  libelleDisponibiliteParcoursMetier,
+  PARCOURS_MODALITE_GEO,
+} from '@/lib/catalogue-2027/parcours-commercial-copy';
 import { parcoursHref } from '@/lib/catalogue-2027/parcours-href';
 import { PARCOURS_TARIFS_PAR_MODULE } from '@/lib/catalogue-2027/parcours-affichage';
 import { OFC_CTA_PRIMARY, OFC_CTA_SECONDARY } from '@/lib/ofc-interaction-classes';
@@ -48,9 +51,8 @@ export function FormationsParcoursExplorer({ parcours }: Props) {
           Construisez votre parcours selon votre métier
         </h2>
         <p className="mt-3 text-ofc-ink-muted">
-          Parcours modulaires par fonction — distincts des formations unitaires du catalogue.
-          La plupart des parcours complets ouvrent en 2027 ; les formations IA ci-dessus restent
-          disponibles dès maintenant. Sélectionnez un métier pour repérer la progression adaptée.
+          Parcours modulaires par fonction — distincts des autres formations du catalogue.{' '}
+          {libelleDisponibiliteParcoursMetier()}. Sélectionnez un métier pour repérer la progression adaptée.
         </p>
       </div>
 
@@ -126,16 +128,9 @@ export function FormationsParcoursExplorer({ parcours }: Props) {
                 </div>
                 <div>
                   <dt className="text-ofc-ink-muted">Disponibilité</dt>
-                  <dd className="font-semibold text-ofc-ink">
-                    {p.mentionDisponibilite
-                      ? 'Modules IA dispo. · Parcours 2027'
-                      : libelleDisponibilite(p.disponibilite)}
-                  </dd>
+                  <dd className="font-semibold text-ofc-ink">{libelleDisponibiliteParcoursMetier()}</dd>
                 </div>
               </dl>
-              {p.mentionDisponibilite ? (
-                <p className="mt-3 text-xs text-ofc-ink-muted">{p.mentionDisponibilite}</p>
-              ) : null}
               <div className="mt-5 flex flex-col gap-2">
                 <Link
                   href={parcoursHref(p.id)}
@@ -150,8 +145,7 @@ export function FormationsParcoursExplorer({ parcours }: Props) {
       </div>
 
       <p className="mt-6 text-sm text-ofc-ink-muted">
-        Calendrier et dates de session : sur devis ou lors de l’inscription — présentiel en
-        Île-de-France.
+        Calendrier et dates de session : sur devis ou lors de l’inscription confirmée — {PARCOURS_MODALITE_GEO}.
       </p>
       <div className="mt-4">
         <a href="#catalogue-modules" className={`${OFC_CTA_SECONDARY} inline-flex min-h-10 px-4 py-2 text-sm`}>

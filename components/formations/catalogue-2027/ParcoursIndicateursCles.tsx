@@ -5,20 +5,18 @@ import {
   PARCOURS_OUVERTURE_2027,
   PARCOURS_TARIFS_PAR_MODULE,
 } from '@/lib/catalogue-2027/parcours-affichage';
-import { SITE_FORMATION_MODALITE_ENCART } from '@/lib/site-config';
+import { PARCOURS_MODALITE_GEO } from '@/lib/catalogue-2027/parcours-commercial-copy';
 
 type Props = {
   parcours: ParcoursComputed;
-  /** Remplace « Ouverture 2027 » si mention spécifique (ex. référent IA). */
-  calendrierLabel?: string;
   className?: string;
 };
 
 /**
  * Informations clés — pas de prix global parcours.
  */
-export function ParcoursIndicateursCles({ parcours: p, calendrierLabel, className = '' }: Props) {
-  const calendrier = calendrierLabel ?? PARCOURS_OUVERTURE_2027;
+export function ParcoursIndicateursCles({ parcours: p, className = '' }: Props) {
+  const calendrier = PARCOURS_OUVERTURE_2027;
 
   const items = [
     { icon: Layers, label: 'Modules', sub: `${p.moduleCount} modules` },
@@ -44,7 +42,7 @@ export function ParcoursIndicateursCles({ parcours: p, calendrierLabel, classNam
         </div>
       ))}
       <p className="col-span-2 text-xs text-slate-500 lg:col-span-5">
-        {SITE_FORMATION_MODALITE_ENCART}. Intra-entreprise : sur devis.
+        {PARCOURS_MODALITE_GEO}. Intra-entreprise : sur devis.
       </p>
     </div>
   );

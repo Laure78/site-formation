@@ -101,6 +101,13 @@ export const ARBITRAGES_PEDAGOGIQUES_NIVEAU: readonly {
   },
 ];
 
+/** Tarif inter HT / participant — ancienne grille parcours (7 h → 310 €, 14 h → 620 €, 4 h → 120 €). */
+export function legacyPrixInterParcoursHt(dureeHeuresLegacy: number): number {
+  if (dureeHeuresLegacy <= 4) return TARIF_PARTICIPANT_NIV01_HT;
+  if (dureeHeuresLegacy <= 7) return 310;
+  return TARIF_PARTICIPANT_NIV10_14H_HT;
+}
+
 export function assertNiveauCoherent(
   code: ModuleCode,
   niveau: ModuleNiveau,

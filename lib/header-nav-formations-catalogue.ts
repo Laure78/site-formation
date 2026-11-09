@@ -67,7 +67,6 @@ export function buildFormationsNavMegaColumns(at: Date = new Date()): readonly H
 
   return FORMATIONS_NIVEAUX_IA.map((def) => ({
     title: def.labelComplet,
-    intro: def.descriptionMenu,
     links: byNiveau.get(def.niveau) ?? [],
   }));
 }
@@ -82,7 +81,6 @@ export function buildFormationsMobileNavGroupsByNiveau(
     href: `${LINKS.formations}#${def.anchorId}`,
     label: def.labelComplet,
     title: def.labelComplet,
-    description: def.descriptionMenu,
     children: byNiveau.get(def.niveau) ?? [],
   }));
 }

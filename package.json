@@ -48,6 +48,7 @@
     "validate:schema": "npx tsx scripts/validate-schema-jsonld.mjs && npx tsx scripts/validate-formation-course-jsonld.mjs && npx tsx scripts/assert-catalogue-formation-page-jsonld.ts && node scripts/validate-article-faq-jsonld.mjs",
     "validate:diagnostic": "npx tsx --tsconfig tsconfig.json scripts/validate-diagnostic-scoring.mjs",
     "assert:catalogue-2027": "npx tsx scripts/assert-catalogue-2027.ts",
+    "report:referentiel-parcours": "npx tsx scripts/rapport-referentiel-modules-parcours.ts",
     "test:seo-titles": "npx tsx scripts/assert-branded-titles.ts",
     "test:indicateurs": "npx tsx scripts/assert-indicateurs-resultats.ts",
     "test:google-reviews": "node --env-file=.env.local scripts/test-google-reviews-api.mjs",

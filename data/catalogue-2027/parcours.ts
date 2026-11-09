@@ -74,16 +74,18 @@ export function computeParcours(parcours: CatalogueParcours): ParcoursComputed {
   const prixInterHt = prixParcoursDepuisModules(modules);
 
   const modStatuses = enriched.etapes.map((e) => getModuleByCode(e.moduleCode));
-  const allDisponibles = modStatuses.every((m) => m?.disponibilite === 'disponible');
   const allValides = modStatuses.every((m) => m?.statutEditorial === 'programme-valide');
 
+  const { mentionDisponibilite: _mentionOmit, ...sansMentionDispo } = enriched;
+
   return {
-    ...enriched,
+    ...sansMentionDispo,
     moduleCount: enriched.etapes.length,
     dureeHeures,
     joursFormation: enriched.etapes.length,
     prixInterHt,
-    disponibilite: allDisponibles ? 'disponible' : 'ouverture-2027',
+    /** Règle commerciale parcours métiers — indépendante du statut « disponible » de certains modules NUM au catalogue. */
+    disponibilite: 'ouverture-2027',
     statutEditorial: allValides ? 'programme-valide' : 'programme-en-preparation',
     modulesCodes: enriched.etapes.map((e) => e.moduleCode),
   };

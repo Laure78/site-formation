@@ -822,7 +822,7 @@ const MODULES_RAW: readonly ModuleRaw[] = [
     legacyCode: 'NIV-02',
     motsCles: ['DCE', 'CCTP', 'CCAP', 'mémoire technique', 'appels d’offres', 'IA'],
     complementsAValider: [
-      'PDF programme 7 h à régénérer (ancien programme 4 h retiré du téléchargement)',
+      'PDF programme : aligner sur session harmonisée 4 h (niveau 2) — ne pas proposer d’ancien PDF 7 h au téléchargement.',
     ],
   },
   {
@@ -852,7 +852,7 @@ const MODULES_RAW: readonly ModuleRaw[] = [
     legacyCode: 'NIV-04',
     motsCles: ['Claude', 'IA', 'Skills', 'Projects', 'Cowork'],
     complementsAValider: [
-      'PDF programme 7 h à régénérer (ancien programme 4 h retiré du téléchargement)',
+      'PDF programme : aligner sur session harmonisée 4 h (niveau 2).',
     ],
   },
   {
@@ -969,7 +969,7 @@ const MODULES_RAW: readonly ModuleRaw[] = [
       'PPSPS',
     ],
     complementsAValider: [
-      'PDF programme 7 h à régénérer (ancien programme 4 h retiré du téléchargement)',
+      'PDF programme : aligner sur session harmonisée 4 h (niveau 2).',
     ],
   },
   {
@@ -999,12 +999,17 @@ const MODULES_RAW: readonly ModuleRaw[] = [
     legacyCode: 'NIV-05',
     motsCles: ['IA', 'maîtrise d’œuvre', 'MOE', 'OS', 'réserves'],
     complementsAValider: [
-      'PDF programme 7 h à régénérer (ancien programme MOE 4 h retiré du téléchargement)',
+      'PDF programme : aligner sur session harmonisée 4 h (niveau 2).',
     ],
   },
 ] as const;
 
 export const MODULES_CATALOGUE_2027: readonly CatalogueModule[] = MODULES_RAW.map(enrichCatalogueModule);
+
+/** Durées parcours avant harmonisation grille 4 h / 14 h (lecture seule — champs legacy dans MODULES_RAW). */
+export const LEGACY_DUREE_HEURES_AVANT: Record<ModuleCode, number> = Object.fromEntries(
+  MODULES_RAW.map((m) => [m.code, m.dureeHeures ?? dureeHeuresPourNiveau(m.niveau ?? NIVEAU_PAR_MODULE[m.code])]),
+) as Record<ModuleCode, number>;
 
 const BY_CODE = new Map(MODULES_CATALOGUE_2027.map((m) => [m.code, m]));
 

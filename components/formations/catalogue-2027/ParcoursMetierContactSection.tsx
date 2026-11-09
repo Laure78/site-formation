@@ -25,6 +25,7 @@ export function ParcoursMetierContactSection() {
       initialMessage={devisMessage}
       messagePlaceholder={contactCopy.messagePlaceholder}
       needExample={contactCopy.needExample}
+      parcoursMetiersContext
     />
   );
 }

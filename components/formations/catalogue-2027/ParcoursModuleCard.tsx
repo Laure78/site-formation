@@ -9,6 +9,7 @@ import {
   libelleNiveauModule,
   libellePrixModuleInter,
 } from '@/lib/catalogue-2027/parcours-affichage';
+import { libelleDisponibiliteModuleUnitaire } from '@/lib/catalogue-2027/parcours-commercial-copy';
 import { PARCOURS_CONTACT_SECTION_ID } from '@/lib/catalogue-2027/parcours-contact-copy';
 import { CTA_DEVIS_LABEL } from '@/lib/cta-devis-label';
 import { scrollToAnchor } from '@/lib/catalogue-2027/scroll-to-anchor';
@@ -103,6 +104,11 @@ export function ParcoursModuleCard({
             <span>
               <span className="font-medium text-[#101936]">Prix </span>
               {libellePrixModuleInter(mod)}
+            </span>
+            <span aria-hidden>·</span>
+            <span>
+              <span className="font-medium text-[#101936]">Disponibilité </span>
+              {libelleDisponibiliteModuleUnitaire(mod)}
             </span>
           </div>
 

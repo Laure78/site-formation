@@ -256,8 +256,6 @@ export const PARCOURS_CATALOGUE_2027: readonly CatalogueParcours[] = [
       'Cas pratiques : assistants organisation de chantier et prévention documentaire',
       'Préparer règles d’usage et plan de déploiement',
     ],
-    mentionDisponibilite:
-      'Modules IA disponibles dès maintenant. Parcours complet prévu en 2027.',
     etapes: [
       {
         moduleCode: 'NUM-02',

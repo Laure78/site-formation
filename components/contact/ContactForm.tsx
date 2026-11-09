@@ -46,6 +46,10 @@ type ContactFormProps = {
   formationHint?: string | null;
   /** Métier concerné — préremplit le champ participantRole. */
   initialMetier?: string | null;
+  /** Message prérempli (sélection modules parcours). */
+  initialMessage?: string | null;
+  messagePlaceholder?: string | null;
+  needExample?: string | null;
   density?: 'default' | 'compact';
   /** Formulaire catalogue en 2 étapes (coordonnées puis détails). */
   steppedCatalogue?: boolean;
@@ -55,6 +59,9 @@ export function ContactForm({
   initialObjet,
   formationHint,
   initialMetier,
+  initialMessage,
+  messagePlaceholder,
+  needExample,
   density = 'default',
   steppedCatalogue = false,
 }: ContactFormProps) {
@@ -79,10 +86,21 @@ export function ContactForm({
   const [started, setStarted] = useState(false);
   const formStartedAtRef = useRef<number>(0);
   const formRef = useRef<HTMLFormElement>(null);
+  const messageRef = useRef<HTMLTextAreaElement>(null);
+
+  const defaultCatalogueMessage =
+    initialMessage?.trim() ||
+    (steppedCatalogue ? 'Demande programme / devis — catalogue formations' : '');
 
   useEffect(() => {
     formStartedAtRef.current = Date.now();
   }, []);
+
+  useEffect(() => {
+    const ta = messageRef.current;
+    if (!ta || initialMessage == null) return;
+    ta.value = initialMessage;
+  }, [initialMessage]);
 
   const handleStart = useCallback(() => {
     if (!started) {
@@ -430,19 +448,20 @@ export function ContactForm({
             Votre besoin {!steppedCatalogue ? <span className="text-[#DC2626]">*</span> : null}
           </label>
           <textarea
+            ref={messageRef}
             id={`${formId}-message`}
             name="message"
             required={!steppedCatalogue}
-            defaultValue={steppedCatalogue ? 'Demande programme / devis — catalogue formations' : undefined}
+            defaultValue={defaultCatalogueMessage || undefined}
             rows={compact ? 3 : 5}
             maxLength={5000}
-            placeholder={CONTACT_FORM_NEED_PLACEHOLDER}
+            placeholder={messagePlaceholder?.trim() || CONTACT_FORM_NEED_PLACEHOLDER}
             aria-invalid={Boolean(fieldErrors.message)}
             aria-describedby={`${formId}-message-example ${formId}-message-hint${fieldErrors.message ? ` ${formId}-message-error` : ''}`}
             className={`${fieldClass} resize-y ${fieldErrors.message ? fieldErrorClass : ''}`}
           />
           <p id={`${formId}-message-example`} className="mt-1 text-xs text-[#64748B]">
-            {CONTACT_FORM_NEED_EXAMPLE}
+            {needExample?.trim() || CONTACT_FORM_NEED_EXAMPLE}
           </p>
           <p id={`${formId}-message-hint`} className="mt-1 text-xs text-[#64748B]">
             {CONTACT_FORM_SENSITIVE_HINT}

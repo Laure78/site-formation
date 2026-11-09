@@ -13,7 +13,16 @@ import { parcoursHref } from '@/lib/catalogue-2027/parcours-href';
 import { LINKS } from '@/lib/internal-links';
 import { isParcoursMetiers2027Visible } from '@/lib/parcours-metiers-2027-visibility';
 import { redirect } from 'next/navigation';
-import { SCHEMA_ORGANIZATION_OFC } from '@/lib/schema-constants';
+import {
+  parcoursMetierPageDescription,
+  parcoursMetierPageTitle,
+} from '@/lib/catalogue-2027/parcours-seo-metadata';
+import {
+  buildParcoursMetierCourseJsonLd,
+  buildParcoursModulesItemListJsonLd,
+} from '@/lib/schema-parcours-metiers-jsonld';
+import { getParcoursMetierFaqForPage } from '@/lib/catalogue-2027/parcours-metiers-faq-pages';
+import { FAQSchema } from '@/components/seo/FAQSchema';
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -29,12 +38,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const parcours = getParcoursBySlug(slug);
   if (!parcours) return {};
   const computed = computeParcours(parcours);
-  const title = `${parcours.titre} : parcours formation BTP | Laure Olivié`.slice(0, 65);
-  const description =
-    `${parcours.benefice} ${computed.dureeHeures} h, formation IA pour le BTP et compétences métier. Présentiel Île-de-France.`.slice(
-      0,
-      160,
-    );
+  const title = parcoursMetierPageTitle(parcours.id);
+  const description = parcoursMetierPageDescription(computed);
   const path = parcoursHref(parcours.id);
 
   return {
@@ -68,42 +73,17 @@ export default async function ParcoursPage({ params }: Props) {
   const path = parcoursHref(parcours.id);
   const url = `${SITE_CONFIG.url.replace(/\/$/, '')}${path}`;
 
-  const courseSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'Course',
-    name: `Parcours ${parcours.titre}`,
-    description: parcours.objectif,
-    provider: {
-      '@type': 'Organization',
-      name: SCHEMA_ORGANIZATION_OFC.name,
-      url: SITE_CONFIG.url,
-    },
-    url,
-    educationalCredentialAwarded: 'Attestation de fin de formation et certificat de réalisation',
-    hasCourseInstance: {
-      '@type': 'CourseInstance',
-      courseMode: 'onsite',
-      location: {
-        '@type': 'Place',
-        name: 'Île-de-France',
-      },
-    },
-    offers: {
-      '@type': 'Offer',
-      category: 'Paid',
-      priceCurrency: 'EUR',
-      availability: 'https://schema.org/PreOrder',
-      url,
-      description: 'Tarif au module — pas de forfait parcours. Intra : sur devis.',
-    },
-    timeRequired: `PT${computed.dureeHeures}H`,
-  };
+  const courseSchema = buildParcoursMetierCourseJsonLd(computed);
+  const modulesListSchema = buildParcoursModulesItemListJsonLd(computed);
+  const faqItems = getParcoursMetierFaqForPage(parcours.id);
 
   const base = SITE_CONFIG.url.replace(/\/$/, '');
 
   return (
     <>
       <JsonLd id={`schema-parcours-${parcours.id}`} schema={courseSchema} />
+      <JsonLd id={`schema-parcours-modules-${parcours.id}`} schema={modulesListSchema} />
+      <FAQSchema id={`schema-parcours-faq-${parcours.id}`} items={faqItems} />
       <BreadcrumbJsonLd
         id={`schema-breadcrumb-parcours-${parcours.id}`}
         items={[

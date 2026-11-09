@@ -38,7 +38,7 @@ export const MAPPING_LEGACY_VERS_2027: readonly LegacyOfferMapping[] = [
     nouveauCode: 'NUM-02',
     urlRetenue: '/formations/ia-appels-offre-btp',
     action: 'renommer-et-mettre-a-jour',
-    notes: 'Passage 4 h / 170 € → 7 h / 310 €. PDF 4 h à régénérer.',
+    notes: 'NUM-02 · niveau 2 — 4 h / 170 € HT (grille parcours). Fiche catalogue alignée ; PDF à régénérer si écart.',
   },
   {
     legacyCode: 'NIV-03',
@@ -47,7 +47,7 @@ export const MAPPING_LEGACY_VERS_2027: readonly LegacyOfferMapping[] = [
     nouveauCode: 'NUM-07',
     urlRetenue: '/formations/ia-conduite-travaux-suivi-chantier',
     action: 'renommer-et-mettre-a-jour',
-    notes: 'Passage 4 h / 170 € → 7 h / 310 €. Distinct de TRA-05 (méthode réception). PDF à régénérer.',
+    notes: 'NUM-07 · niveau 2 — 4 h / 170 €. Distinct de TRA-05 (réception). PDF à régénérer si écart.',
   },
   {
     legacyCode: 'NIV-04',
@@ -56,7 +56,7 @@ export const MAPPING_LEGACY_VERS_2027: readonly LegacyOfferMapping[] = [
     nouveauCode: 'NUM-03',
     urlRetenue: '/formations/maitriser-claude-ai-btp',
     action: 'renommer-et-mettre-a-jour',
-    notes: 'Passage 4 h / 170 € → 7 h / 310 €. PDF à régénérer.',
+    notes: 'NUM-03 · niveau 2 — 4 h / 170 € HT. PDF à régénérer si écart.',
   },
   {
     legacyCode: 'NIV-05',
@@ -65,7 +65,7 @@ export const MAPPING_LEGACY_VERS_2027: readonly LegacyOfferMapping[] = [
     nouveauCode: 'NUM-08',
     urlRetenue: '/formations/ia-maitrise-oeuvre',
     action: 'renommer-et-mettre-a-jour',
-    notes: 'Passage 4 h / 170 € → 7 h / 310 €. PDF MOE 4 h à régénérer.',
+    notes: 'NUM-08 · niveau 2 — 4 h / 170 € HT. PDF à régénérer si écart.',
   },
   {
     legacyCode: 'NIV-10',
@@ -74,7 +74,7 @@ export const MAPPING_LEGACY_VERS_2027: readonly LegacyOfferMapping[] = [
     nouveauCode: 'NUM-04',
     urlRetenue: '/formations/developpement-web-ia-sans-coder',
     action: 'renommer-et-mettre-a-jour',
-    notes: 'Variantes 7 h / 310 € et 14 h / 620 €. Effectif 4–8.',
+    notes: 'NUM-04 · seul niveau 3 du référentiel — 14 h / 620 € HT. Effectif 6–12.',
   },
   {
     legacyCode: 'NIV-06',

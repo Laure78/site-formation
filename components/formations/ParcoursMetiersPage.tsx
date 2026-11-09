@@ -1,224 +1,173 @@
 import Image from 'next/image';
-import Link from 'next/link';
-import {
-  ArrowRight,
-  Award,
-  Calendar,
-  ChevronDown,
-  Clock,
-  Layers3,
-  MapPin,
-} from 'lucide-react';
-import { CtaVisio } from '@/components/CtaVisio';
+import { BookOpen, ChevronDown, LayoutGrid, Waypoints } from 'lucide-react';
+import { FormationsContact2027 } from '@/components/formations/catalogue-2027/FormationsContact2027';
+import { ParcoursMetierCard } from '@/components/formations/catalogue-2027/ParcoursMetierCard';
+import { ParcoursMetiersHubModalitesPratiques } from '@/components/formations/catalogue-2027/ParcoursMetiersHubModalitesPratiques';
+import { PARCOURS_HUB_CONTACT_COPY } from '@/lib/catalogue-2027/parcours-contact-copy';
+import { ParcoursMetiersHubHeroCtas } from '@/components/formations/ParcoursMetiersHubCtas';
+import { ParcoursMetiersHubCtaFinal } from '@/components/formations/ParcoursMetiersHubCtaFinal';
 import { FAQSchema } from '@/components/seo/FAQSchema';
-import { getAccueilParcoursOffre } from '@/lib/accueil-offre-catalogue';
-import { parcoursHref } from '@/lib/catalogue-2027/parcours-href';
-import { PARCOURS_METIERS_PAGE_ORDER } from '@/lib/parcours-metiers-public';
+import { getParcoursMetiersPublicsOrdered } from '@/lib/parcours-metiers-public';
 import {
+  PARCOURS_CAS_USAGE_SECTION,
   PARCOURS_DOCUMENTS_METIER,
-  PARCOURS_METIERS_ACCROCHE,
-  PARCOURS_METIERS_CARD_IMAGE,
+  PARCOURS_METIERS_CARD_DESCRIPTION,
   PARCOURS_METIERS_FAQ,
   PARCOURS_METIERS_HERO,
   PARCOURS_METIERS_MODULARITE_SECTION,
   PARCOURS_METIERS_SECTION,
-  PARCOURS_METIERS_TRUST,
 } from '@/lib/parcours-metiers-page-content';
-import { PHOTOS } from '@/lib/photos';
-import { PARCOURS_TARIFS_PAR_MODULE } from '@/lib/catalogue-2027/parcours-affichage';
-import type { AccueilParcoursOffreCard } from '@/lib/accueil-offre-catalogue';
-const PARCOURS_CTA_PRIMARY =
-  'inline-flex min-h-11 items-center justify-center gap-2 rounded-lg bg-[#086BFF] px-6 py-3 text-sm font-semibold text-white shadow-sm transition-[background-color,transform] duration-200 hover:bg-[#0658d4] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#086BFF] motion-reduce:transition-none active:scale-[0.98]';
+import { PARCOURS_METIERS_HUB_GEO } from '@/lib/catalogue-2027/parcours-geo-intros';
 
-const PARCOURS_CTA_SECONDARY =
-  'inline-flex min-h-11 items-center justify-center gap-2 rounded-lg border border-[#071A42]/15 bg-white px-6 py-3 text-sm font-semibold text-[#071A42] transition-colors duration-200 hover:border-[#071A42]/25 hover:bg-[#F2F7FF] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#086BFF] motion-reduce:transition-none';
-
-function parcoursCardsData(): AccueilParcoursOffreCard[] {
-  const byId = new Map(getAccueilParcoursOffre({ preview: true }).map((p) => [p.id, p]));
-  return PARCOURS_METIERS_PAGE_ORDER.map((id) => byId.get(id)).filter(
-    (p): p is AccueilParcoursOffreCard => p != null,
-  );
-}
-
-function ParcoursMaquetteSectionHeading({
+function ParcoursSectionHeading({
   id,
   title,
   subtitle,
-  className = '',
 }: {
   id: string;
   title: string;
   subtitle?: string;
-  className?: string;
 }) {
   return (
-    <header className={className}>
-      <div className="flex items-start gap-3 sm:gap-4">
-        <span
-          className="mt-1.5 block h-9 w-1 shrink-0 rotate-[18deg] rounded-full bg-[#086BFF]"
-          aria-hidden
-        />
-        <div className="min-w-0">
-          <h2 id={id} className="text-pretty text-2xl font-bold tracking-tight text-[#071A42] sm:text-[1.65rem]">
-            {title}
-          </h2>
-          {subtitle ? (
-            <p className="mt-2 max-w-2xl text-sm leading-relaxed text-[#475569] sm:text-[0.9375rem]">
-              {subtitle}
-            </p>
-          ) : null}
-        </div>
-      </div>
+    <header>
+      <h2 id={id} className="ofc-type-h2 text-[#101936]">
+        {title}
+      </h2>
+      {subtitle ? (
+        <p className="mt-3 max-w-2xl text-sm leading-relaxed text-slate-600 md:text-base">{subtitle}</p>
+      ) : null}
     </header>
   );
 }
 
-function ParcoursMetierCard({ parcours }: { parcours: AccueilParcoursOffreCard }) {
-  const image = PARCOURS_METIERS_CARD_IMAGE[parcours.id];
-  const accroche = PARCOURS_METIERS_ACCROCHE[parcours.id] ?? parcours.benefice;
-  const ficheHref = parcoursHref(parcours.id);
-
-  return (
-    <article className="group flex h-full flex-col overflow-hidden rounded-xl border border-[#E2E8F0] bg-white shadow-[0_4px_20px_rgba(15,23,42,0.06)] transition-[box-shadow,transform] duration-200 motion-reduce:transition-none hover:-translate-y-0.5 hover:shadow-[0_12px_28px_rgba(15,23,42,0.1)]">
-      {image ? (
-        <div className="relative aspect-[16/10] w-full overflow-hidden bg-[#EAF3FF]">
-          <span className="absolute left-3 top-3 z-10 rounded-md bg-[#086BFF] px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wide text-white shadow-sm">
-            Ouverture 2027
-          </span>
-          <Image
-            src={image.src}
-            alt={image.alt}
-            fill
-            className="object-cover object-center transition-transform duration-300 group-hover:scale-[1.02] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
-            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-          />
-        </div>
-      ) : null}
-      <div className="flex flex-1 flex-col p-5 sm:p-6">
-        <h3 className="text-lg font-bold text-pretty text-[#071A42]">{parcours.titre}</h3>
-        <p className="mt-2 text-sm leading-relaxed text-[#475569]">{accroche}</p>
-        <p className="mt-3 text-xs font-semibold uppercase tracking-wide text-[#086BFF]">
-          Parcours complet ou modules à la carte
-        </p>
-        <p className="mt-2 text-xs font-semibold uppercase tracking-wide text-[#086BFF]">
-          {PARCOURS_TARIFS_PAR_MODULE}
-        </p>
-        <p className="mt-4 flex flex-wrap items-center gap-2 text-sm font-medium text-[#071A42]">
-          <Layers3 className="h-4 w-4 shrink-0 text-[#086BFF]" aria-hidden />
-          <span>{parcours.moduleCount} modules</span>
-        </p>
-        {parcours.dureeLabel ? (
-          <p className="mt-2 flex flex-wrap items-center gap-2 text-sm font-medium text-[#071A42]">
-            <Clock className="h-4 w-4 shrink-0 text-[#086BFF]" aria-hidden />
-            <span>Durée totale : {parcours.dureeLabel}</span>
-          </p>
-        ) : null}
-        <div className="mt-auto pt-5">
-          <Link
-            href={ficheHref}
-            className="inline-flex items-center gap-1.5 text-sm font-semibold text-[#086BFF] transition-colors hover:text-[#0658d4] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#086BFF]"
-          >
-            Découvrir le parcours
-            <ArrowRight className="h-4 w-4 shrink-0 transition-transform duration-200 group-hover:translate-x-0.5 motion-reduce:transition-none" aria-hidden />
-          </Link>
-        </div>
-      </div>
-    </article>
-  );
-}
-
-function trustIcon(id: string) {
-  if (id === 'qualiopi') return Award;
-  if (id === 'cas') return Layers3;
-  return MapPin;
-}
+const MODULARITE_ICONS = {
+  'parcours-complet': BookOpen,
+  'module-a-la-carte': LayoutGrid,
+  'parcours-personnalise': Waypoints,
+} as const;
 
 export function ParcoursMetiersPage() {
-  const parcours = parcoursCardsData();
-  const ctaChantier = PHOTOS.accueilCtaFinalChantier;
+  const parcours = getParcoursMetiersPublicsOrdered();
 
   return (
-    <div className="parcours-metiers-maquette bg-white text-[#071A42]">
-      {/* Hero */}
-      <section className="relative overflow-hidden bg-gradient-to-r from-[#F2F7FF] via-[#F8FAFF] to-white">
-        <div className="mx-auto grid max-w-[80rem] lg:grid-cols-2 lg:items-stretch">
-          <div className="flex flex-col justify-center px-4 py-10 sm:px-6 lg:min-h-[26rem] lg:max-w-none lg:px-8 lg:py-12">
-            <p className="inline-flex w-fit rounded-full bg-[#086BFF] px-3.5 py-1.5 text-[10px] font-semibold uppercase tracking-[0.06em] text-white sm:text-[11px]">
+    <div className="overflow-x-hidden bg-white pb-12 text-[#101936]">
+      {/* Hero — aligné fiche parcours (conducteur) */}
+      <section className="border-b border-slate-100 bg-white" aria-labelledby="parcours-metiers-hero-title">
+        <div className="mx-auto grid max-w-[80rem] items-center gap-10 px-4 py-10 sm:px-6 lg:grid-cols-2 lg:gap-12 lg:px-8 lg:py-14">
+          <div className="min-w-0">
+            <p className="text-xs font-semibold uppercase tracking-[0.08em] text-[#377CF3]">
               {PARCOURS_METIERS_HERO.badge}
             </p>
-            <h1 className="ofc-type-hero mt-5 max-w-xl text-balance text-[#071A42]">
-              {PARCOURS_METIERS_HERO.h1Before}
-              <span className="text-[#086BFF]">{PARCOURS_METIERS_HERO.h1Highlight}</span>
+            <h1 id="parcours-metiers-hero-title" className="ofc-type-hero mt-4 text-balance text-[#101936]">
+              {PARCOURS_METIERS_HERO.h1}
             </h1>
-            <p className="mt-4 max-w-lg text-base leading-relaxed text-[#475569]">
-              {PARCOURS_METIERS_HERO.intro}
-            </p>
-            <p className="mt-3 max-w-lg text-sm font-medium text-[#071A42]">
-              {PARCOURS_METIERS_HERO.modulariteLead}
-            </p>
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-              <Link href={`#${PARCOURS_METIERS_SECTION.id}`} className={PARCOURS_CTA_PRIMARY}>
-                Découvrir les parcours
-                <ArrowRight className="h-4 w-4 shrink-0" aria-hidden />
-              </Link>
-              <CtaVisio
-                src="parcours-metiers-hero"
-                variant="secondary"
-                className={PARCOURS_CTA_SECONDARY}
-                leadingAdornment={<Calendar className="h-4 w-4 shrink-0" aria-hidden />}
-              />
-            </div>
-            <ul className="mt-8 flex list-none flex-col gap-4 border-t border-[#E2E8F0]/80 pt-6 sm:flex-row sm:flex-wrap sm:gap-x-8 sm:gap-y-3">
-              {PARCOURS_METIERS_TRUST.map((item) => {
-                const Icon = trustIcon(item.id);
-                return (
-                  <li key={item.id} className="flex min-w-0 items-center gap-2.5">
-                    <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-white text-[#086BFF] shadow-sm ring-1 ring-[#E2E8F0]">
-                      <Icon className="h-[1.125rem] w-[1.125rem]" strokeWidth={1.75} aria-hidden />
-                    </span>
-                    <span className="text-sm font-medium text-[#071A42]">{item.title}</span>
-                  </li>
-                );
-              })}
-            </ul>
+            <p className="mt-4 max-w-xl text-base leading-relaxed text-slate-600">{PARCOURS_METIERS_HERO.intro}</p>
+            <ParcoursMetiersHubHeroCtas />
           </div>
-          <div className="relative min-h-[16rem] lg:min-h-[26rem]">
-            <div className="absolute inset-y-0 left-0 z-[1] hidden w-16 bg-gradient-to-r from-[#F8FAFF] to-transparent lg:block" aria-hidden />
-            <div className="relative h-full min-h-[16rem] overflow-hidden lg:absolute lg:inset-0 lg:min-h-0 lg:[clip-path:polygon(8%_0,100%_0,100%_100%,0_100%)]">
-              <Image
-                src={PARCOURS_METIERS_HERO.imageSrc}
-                alt={PARCOURS_METIERS_HERO.imageAlt}
-                fill
-                priority
-                className="object-cover object-[center_22%]"
-                sizes="(max-width: 1024px) 100vw, 50vw"
-              />
-            </div>
+          <div className="relative min-h-0 w-full">
+            <figure className="overflow-hidden rounded-2xl border border-slate-200/80 bg-slate-100 shadow-sm">
+              <div className="relative aspect-[16/10] w-full">
+                <Image
+                  src={PARCOURS_METIERS_HERO.imageSrc}
+                  alt={PARCOURS_METIERS_HERO.imageAlt}
+                  fill
+                  className="object-cover object-center"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  priority
+                />
+              </div>
+            </figure>
           </div>
         </div>
       </section>
 
-      {/* Modularité */}
+      {/* Modularité courte */}
       <section
         id={PARCOURS_METIERS_MODULARITE_SECTION.id}
-        className="border-t border-[#E2E8F0] bg-white py-12 sm:py-16"
+        className="border-b border-slate-100 bg-[#F8FAFC] py-12 sm:py-14"
         aria-labelledby="parcours-metiers-modularite-title"
       >
         <div className="mx-auto max-w-[80rem] px-4 sm:px-6 lg:px-8">
-          <ParcoursMaquetteSectionHeading
+          <ParcoursSectionHeading
             id="parcours-metiers-modularite-title"
             title={PARCOURS_METIERS_MODULARITE_SECTION.title}
             subtitle={PARCOURS_METIERS_MODULARITE_SECTION.intro}
           />
-          <ul className="mt-10 grid list-none gap-5 sm:grid-cols-2 lg:grid-cols-3 lg:gap-6">
-            {PARCOURS_METIERS_MODULARITE_SECTION.options.map((opt) => (
-              <li key={opt.id}>
-                <div className="flex h-full flex-col rounded-xl border border-[#E2E8F0] bg-[#F8FAFF]/60 p-5 shadow-[0_4px_18px_rgba(15,23,42,0.05)] sm:p-6">
-                  <span className="flex h-11 w-11 items-center justify-center rounded-lg bg-white text-[#086BFF] shadow-sm ring-1 ring-[#E2E8F0]">
-                    <opt.Icon className="h-5 w-5" strokeWidth={1.75} aria-hidden />
-                  </span>
-                  <h3 className="mt-4 text-base font-bold text-[#071A42]">{opt.title}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-[#475569]">{opt.description}</p>
+          <ul className="mt-8 grid list-none gap-4 sm:grid-cols-3">
+            {PARCOURS_METIERS_MODULARITE_SECTION.options.map((opt) => {
+              const Icon = MODULARITE_ICONS[opt.id as keyof typeof MODULARITE_ICONS] ?? BookOpen;
+              return (
+                <li key={opt.id} className="h-full">
+                  <div className="flex h-full flex-col rounded-2xl border border-slate-200 bg-white p-5 shadow-sm ring-1 ring-slate-50">
+                    <span className="inline-flex rounded-xl bg-[#EFF6FF] p-2.5">
+                      <Icon className="h-6 w-6 text-[#377CF3]" aria-hidden />
+                    </span>
+                    <h3 className="mt-4 font-display text-base font-semibold text-[#101936]">{opt.title}</h3>
+                    <p className="mt-2 text-sm leading-relaxed text-slate-600">{opt.description}</p>
+                  </div>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+      </section>
+
+      {/* Grille — 5 métiers */}
+      <section
+        id={PARCOURS_METIERS_SECTION.id}
+        className="scroll-mt-[calc(var(--site-header-height,4.5rem)+0.75rem)] py-12 sm:py-16"
+        aria-labelledby="parcours-metiers-grid-title"
+      >
+        <div className="mx-auto max-w-[80rem] px-4 sm:px-6 lg:px-8">
+          <ParcoursSectionHeading
+            id="parcours-metiers-grid-title"
+            title={PARCOURS_METIERS_SECTION.title}
+            subtitle={`${PARCOURS_METIERS_SECTION.subtitle} ${PARCOURS_METIERS_HUB_GEO.grid}`}
+          />
+          <ul className="mt-10 grid list-none gap-5 sm:grid-cols-2 xl:grid-cols-3">
+            {parcours.map((p) => (
+              <li key={p.id} className="flex min-h-0 min-w-0">
+                <ParcoursMetierCard
+                  parcours={p}
+                  description={PARCOURS_METIERS_CARD_DESCRIPTION[p.id]}
+                />
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      {/* Cas d’usage */}
+      <section
+        id={PARCOURS_CAS_USAGE_SECTION.id}
+        className="border-t border-slate-100 bg-white py-12 sm:py-16"
+        aria-labelledby="parcours-cas-usage-title"
+      >
+        <div className="mx-auto max-w-[80rem] px-4 sm:px-6 lg:px-8">
+          <ParcoursSectionHeading
+            id="parcours-cas-usage-title"
+            title={PARCOURS_CAS_USAGE_SECTION.title}
+            subtitle={`${PARCOURS_CAS_USAGE_SECTION.subtitle} ${PARCOURS_METIERS_HUB_GEO.casUsage}`}
+          />
+          <ul className="mt-10 grid list-none gap-4 sm:grid-cols-2 lg:grid-cols-4 lg:gap-5">
+            {PARCOURS_DOCUMENTS_METIER.map((tile) => (
+              <li key={tile.id} className="h-full">
+                <div className="group flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm ring-1 ring-slate-50 transition-shadow hover:shadow-md">
+                  <div className="relative aspect-[4/3] overflow-hidden bg-slate-100">
+                    <Image
+                      src={tile.src}
+                      alt={tile.alt}
+                      fill
+                      className="object-cover object-center transition-transform duration-300 group-hover:scale-[1.02] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                    />
+                  </div>
+                  <div className="flex items-center gap-3 border-t border-slate-100 px-4 py-3.5">
+                    <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-[#EFF6FF] text-[#377CF3]">
+                      <tile.Icon className="h-5 w-5" strokeWidth={1.75} aria-hidden />
+                    </span>
+                    <p className="text-sm font-semibold text-[#101936]">{tile.title}</p>
+                  </div>
                 </div>
               </li>
             ))}
@@ -226,28 +175,7 @@ export function ParcoursMetiersPage() {
         </div>
       </section>
 
-      {/* Grille parcours */}
-      <section
-        id={PARCOURS_METIERS_SECTION.id}
-        className="scroll-mt-[calc(var(--site-header-height,4.5rem)+0.5rem)] bg-white py-12 sm:py-16"
-        aria-labelledby="parcours-metiers-grid-title"
-      >
-        <div className="mx-auto max-w-[80rem] px-4 sm:px-6 lg:px-8">
-          <ParcoursMaquetteSectionHeading
-            id="parcours-metiers-grid-title"
-            title={PARCOURS_METIERS_SECTION.title}
-            subtitle={PARCOURS_METIERS_SECTION.subtitle}
-          />
-
-          <ul className="mt-10 grid list-none gap-5 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3">
-            {parcours.map((p) => (
-              <li key={p.id} id={p.id} className="min-w-0 scroll-mt-28">
-                <ParcoursMetierCard parcours={p} />
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
+      <ParcoursMetiersHubModalitesPratiques />
 
       <FAQSchema
         id="schema-parcours-metiers-faq"
@@ -257,32 +185,31 @@ export function ParcoursMetiersPage() {
         }))}
       />
 
-      {/* FAQ */}
       <section
-        className="border-t border-[#E2E8F0] bg-[#F2F7FF]/30 py-12 sm:py-16"
+        className="border-t border-slate-100 bg-[#F8FAFC] py-12 sm:py-16"
         aria-labelledby="parcours-metiers-faq-title"
       >
         <div className="mx-auto max-w-[48rem] px-4 sm:px-6 lg:px-8">
-          <ParcoursMaquetteSectionHeading
+          <ParcoursSectionHeading
             id="parcours-metiers-faq-title"
             title="Questions fréquentes"
-            subtitle="Parcours métiers BTP modulaires, formation IA BTP à la carte et modules de formation IA pour les professionnels du BTP : ce qu’il faut retenir."
+            subtitle={PARCOURS_METIERS_HUB_GEO.modalites}
           />
           <div className="mt-8 space-y-3">
             {PARCOURS_METIERS_FAQ.map((item, i) => (
               <details
                 key={i}
-                className="group rounded-xl border border-[#E2E8F0] bg-white p-5 shadow-sm open:shadow-md [&_summary::-webkit-details-marker]:hidden"
+                className="group rounded-2xl border border-slate-200 bg-white p-5 shadow-sm open:shadow-md [&_summary::-webkit-details-marker]:hidden"
               >
-                <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-left text-sm font-semibold text-[#071A42] sm:text-[0.9375rem]">
+                <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-left text-sm font-semibold text-[#101936] sm:text-base">
                   <span>{item.q}</span>
                   <ChevronDown
-                    className="h-5 w-5 shrink-0 text-[#475569] transition-transform duration-200 group-open:rotate-180"
+                    className="h-5 w-5 shrink-0 text-slate-500 transition-transform duration-200 group-open:rotate-180"
                     strokeWidth={1.5}
                     aria-hidden
                   />
                 </summary>
-                <p className="mt-4 border-t border-[#E2E8F0] pt-4 text-sm leading-relaxed text-[#475569]">
+                <p className="mt-4 border-t border-slate-100 pt-4 text-sm leading-relaxed text-slate-600">
                   {item.a}
                 </p>
               </details>
@@ -291,75 +218,20 @@ export function ParcoursMetiersPage() {
         </div>
       </section>
 
-      {/* Documents métier */}
-      <section
-        className="border-t border-[#E2E8F0] bg-[#F2F7FF]/40 py-12 sm:py-16"
-        aria-labelledby="parcours-documents-metier-title"
-      >
+      <section className="border-t border-slate-100 bg-white py-12 sm:py-16">
         <div className="mx-auto max-w-[80rem] px-4 sm:px-6 lg:px-8">
-          <ParcoursMaquetteSectionHeading
-            id="parcours-documents-metier-title"
-            title="Des formations centrées sur vos documents métier"
+          <FormationsContact2027
+            formationHint="Parcours métiers BTP — catalogue 2027"
+            initialObjet="devis"
+            initialMetier={PARCOURS_HUB_CONTACT_COPY.participantRoleDefault}
+            messagePlaceholder={PARCOURS_HUB_CONTACT_COPY.messagePlaceholder}
+            needExample={PARCOURS_HUB_CONTACT_COPY.needExample}
+            parcoursMetiersContext
           />
-          <ul className="mt-10 grid list-none gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-4">
-            {PARCOURS_DOCUMENTS_METIER.map((tile) => (
-              <li key={tile.id}>
-                <div className="group flex h-full flex-col overflow-hidden rounded-xl border border-[#E2E8F0] bg-white shadow-[0_4px_18px_rgba(15,23,42,0.05)] transition-[box-shadow,transform] duration-200 motion-reduce:transition-none hover:-translate-y-0.5 hover:shadow-[0_10px_26px_rgba(15,23,42,0.09)]">
-                  <div className="relative aspect-[4/3] overflow-hidden bg-[#EAF3FF]">
-                    <Image
-                      src={tile.src}
-                      alt={tile.alt}
-                      fill
-                      className="object-cover object-center transition-transform duration-300 group-hover:scale-[1.02] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
-                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                    />
-                  </div>
-                  <div className="flex items-center gap-3 border-t border-[#E2E8F0] px-4 py-3.5">
-                    <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-[#F2F7FF] text-[#086BFF]">
-                      <tile.Icon className="h-5 w-5" strokeWidth={1.75} aria-hidden />
-                    </span>
-                    <p className="text-sm font-semibold text-[#071A42] sm:text-[0.9375rem]">{tile.title}</p>
-                  </div>
-                </div>
-              </li>
-            ))}
-          </ul>
         </div>
       </section>
 
-      {/* Bandeau conversion */}
-      <section className="overflow-hidden" aria-labelledby="parcours-cta-final-title">
-        <div className="mx-auto grid max-w-[80rem] lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:items-stretch">
-          <div className="flex flex-col justify-center bg-[#F2F7FF] px-4 py-10 sm:px-6 lg:px-10 lg:py-14">
-            <h2
-              id="parcours-cta-final-title"
-              className="max-w-md text-pretty text-2xl font-bold tracking-tight text-[#071A42] sm:text-[1.65rem]"
-            >
-              Construisons le parcours adapté à vos équipes
-            </h2>
-            <p className="mt-3 flex items-center gap-2 text-sm text-[#475569]">
-              <MapPin className="h-4 w-4 shrink-0 text-[#086BFF]" aria-hidden />
-              Présentiel en Île-de-France
-            </p>
-            <div className="mt-6">
-              <CtaVisio
-                src="parcours-metiers-cta-final"
-                className={PARCOURS_CTA_PRIMARY}
-                leadingAdornment={<Calendar className="h-4 w-4 shrink-0" aria-hidden />}
-              />
-            </div>
-          </div>
-          <div className="relative min-h-[12rem] sm:min-h-[14rem] lg:min-h-[16rem]">
-            <Image
-              src={ctaChantier.src}
-              alt={ctaChantier.alt}
-              fill
-              className="object-cover object-center"
-              sizes="(max-width: 1024px) 100vw, 45vw"
-            />
-          </div>
-        </div>
-      </section>
+      <ParcoursMetiersHubCtaFinal />
     </div>
   );
 }

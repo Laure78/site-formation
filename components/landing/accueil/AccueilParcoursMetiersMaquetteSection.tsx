@@ -32,7 +32,7 @@ export function AccueilParcoursMetiersMaquetteSection() {
           title="Les parcours métiers BTP avec l’IA"
         />
         <AccueilMaquettePill variant="violet" className="text-[10px]">
-          Ouverture prévue en 2027
+          Ouverture des parcours et modules en 2027
         </AccueilMaquettePill>
       </div>
 

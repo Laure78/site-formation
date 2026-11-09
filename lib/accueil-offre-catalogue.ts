@@ -10,7 +10,7 @@ import {
 } from '@/data/catalogue-2027';
 import { formationHref, type FormationNiveau } from '@/data/formations';
 import { parcoursHref } from '@/lib/catalogue-2027/parcours-href';
-import { libelleDisponibilite } from '@/lib/catalogue-2027/search-modules';
+import { libelleDisponibiliteParcoursMetier } from '@/lib/catalogue-2027/parcours-commercial-copy';
 import { getPublishedFormations } from '@/lib/formation-catalogue-visibility';
 import { LINKS } from '@/lib/internal-links';
 import { isParcoursMetiers2027Visible } from '@/lib/parcours-metiers-2027-visibility';
@@ -159,7 +159,7 @@ export function getAccueilParcoursOffre(
         (p.prerequis ? `Prérequis : ${p.prerequis}` : 'Voir le détail sur la page parcours'),
       dureeLabel,
       moduleCount: p.moduleCount,
-      disponibiliteLabel: libelleDisponibilite(p.disponibilite),
+      disponibiliteLabel: libelleDisponibiliteParcoursMetier(),
       href: parcoursHref(p.id),
       etapes: p.etapes.map((e) => ({
         moduleCode: e.moduleCode,

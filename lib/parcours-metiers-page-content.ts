@@ -2,7 +2,12 @@
  * Contenus visuels page /parcours-metiers — maquette 2027 (accroches, images, documents).
  */
 import type { ParcoursId } from '@/data/catalogue-2027';
-import { SITE_FORMATION_MODALITE_ENCART } from '@/lib/site-config';
+import {
+  PARCOURS_DISPONIBILITE_LIBELLE,
+  PARCOURS_MODALITE_GEO,
+  PARCOURS_MODULARITE_DETAIL,
+  PARCOURS_QUALIOPI_ORGANISME,
+} from '@/lib/catalogue-2027/parcours-commercial-copy';
 import type { LucideIcon } from 'lucide-react';
 import {
   BookOpen,
@@ -19,17 +24,13 @@ import {
  * `public/images/parcours-metiers/*.webp` (~600 px de large) pixelisaient en grand format.
  */
 export const PARCOURS_METIERS_HERO = {
-  badge: 'FORMATIONS MÉTIERS BTP – OUVERTURE 2027',
-  h1Before: 'Les parcours métiers BTP avec ',
-  h1Highlight: 'l’IA',
-  h1: 'Les parcours métiers BTP avec l’IA',
+  badge: 'PARCOURS MÉTIERS · OUVERTURE 2027',
+  h1: 'Parcours métiers IA pour le BTP',
   intro:
-    'Développez vos compétences avec l’IA, à votre rythme. Suivez un parcours métier complet ou choisissez uniquement les modules adaptés à vos besoins professionnels.',
-  modulariteLead: 'Parcours complet ou modules à la carte',
+    'Des parcours modulaires pour intégrer l’IA (ChatGPT, Claude) aux fonctions du bâtiment et des travaux publics : direction, chiffrage, chantier, gestion et déploiement des usages.',
   imageSrc: '/images/accueil-ia-chantier-laptop-plans-btp.webp',
   imageAlt:
     'Professionnel du BTP en EPI consulte plans et ordinateur portable sur un chantier actif.',
-  lieuBadge: SITE_FORMATION_MODALITE_ENCART,
 } as const;
 
 export const PARCOURS_METIERS_SECTION = {
@@ -40,29 +41,26 @@ export const PARCOURS_METIERS_SECTION = {
 
 export const PARCOURS_METIERS_MODULARITE_SECTION = {
   id: 'modularite-parcours-metiers',
-  title: 'Votre formation, votre parcours, vos modules.',
+  title: 'Trois façons de composer votre formation',
   intro:
-    'Chaque professionnel du BTP a des besoins différents. Nos parcours métiers sont modulaires : vous pouvez suivre l’ensemble du programme, sélectionner un seul module ou combiner plusieurs modules selon vos compétences et vos objectifs.',
+    'Un même catalogue de modules par métier — vous fixez l’ampleur du programme selon votre situation, sous réserve des prérequis.',
   options: [
     {
       id: 'parcours-complet',
       title: 'Parcours complet',
-      description:
-        'Suivez tous les modules pour développer une maîtrise globale de l’IA appliquée à votre métier.',
+      description: 'Enchaîner tous les modules du métier pour une progression structurée.',
       Icon: BookOpen,
     },
     {
       id: 'module-a-la-carte',
       title: 'Module à la carte',
-      description:
-        'Choisissez uniquement la formation qui répond à votre besoin : devis, chiffrage, appels d’offres, planning, suivi de chantier ou gestion administrative, selon les modules disponibles.',
+      description: 'Un module ciblé pour une compétence précise (devis, planning, administratif…).',
       Icon: LayoutGrid,
     },
     {
       id: 'parcours-personnalise',
       title: 'Parcours personnalisé',
-      description:
-        'Combinez plusieurs modules de formation IA pour les professionnels du BTP pour construire une formation adaptée à vos missions et à votre niveau.',
+      description: 'Plusieurs modules choisis, éventuellement issus de parcours différents.',
       Icon: Waypoints,
     },
   ],
@@ -70,30 +68,43 @@ export const PARCOURS_METIERS_MODULARITE_SECTION = {
 
 export const PARCOURS_METIERS_FAQ = [
   {
+    q: 'Quand les parcours et modules sont-ils disponibles ?',
+    a: PARCOURS_DISPONIBILITE_LIBELLE,
+  },
+  {
     q: 'Faut-il suivre l’intégralité d’un parcours métier ?',
-    a: 'Non. Chaque parcours est modulaire. Vous pouvez suivre le programme complet ou sélectionner uniquement les modules correspondant à vos besoins, sous réserve des prérequis.',
+    a: PARCOURS_MODULARITE_DETAIL,
   },
   {
     q: 'Peut-on combiner des modules de différents parcours ?',
-    a: 'Oui. Un programme personnalisé peut être construit selon votre fonction, votre expérience et vos objectifs professionnels.',
+    a: 'Oui. Un programme personnalisé peut être construit selon votre fonction, votre expérience et vos objectifs professionnels, sous réserve des prérequis et du positionnement.',
   },
   {
-    q: 'Les formations sont-elles proposées en présentiel ?',
-    a: 'Oui. Les formations sont proposées en présentiel en Île-de-France.',
+    q: 'Où se déroulent les formations ?',
+    a: PARCOURS_MODALITE_GEO,
   },
   {
     q: 'Quel est le tarif d’un parcours métier ?',
     a: 'Les tarifs sont affichés par module (120 €, 170 € ou 620 € HT / participant selon le niveau et la durée du module). Il n’y a pas de forfait global de parcours : vous composez votre programme module par module. L’intra-entreprise est sur devis.',
   },
+  {
+    q: 'Qui dispense les formations ?',
+    a: `${PARCOURS_QUALIOPI_ORGANISME} Laure Olivié est la marque commerciale. Formations non certifiantes.`,
+  },
 ] as const;
 
-/** Accroches courtes cartes — maquette. */
-export const PARCOURS_METIERS_ACCROCHE: Partial<Record<ParcoursId, string>> = {
-  'dirigeant-pme-btp': 'Pilotage, marges, trésorerie',
-  'charge-affaires-btp': 'Devis, DCE, mémoire technique',
-  'conducteur-de-travaux': 'Planning, comptes rendus, réception',
-  'assistant-de-gestion-btp': 'Administratif, relances, suivi',
-  'referent-ia-btp': 'Claude, appels d’offres, applications',
+/** Descriptions synthétiques cartes hub — une phrase distincte par métier. */
+export const PARCOURS_METIERS_CARD_DESCRIPTION: Record<ParcoursId, string> = {
+  'dirigeant-pme-btp':
+    'Piloter prix, marges et trésorerie, puis cadrer les usages IA utiles à l’entreprise.',
+  'charge-affaires-btp':
+    'Structurer le chiffrage, les réponses aux marchés et le suivi commercial avec l’IA.',
+  'conducteur-de-travaux':
+    'Préparer, suivre et coordonner le chantier jusqu’à la réception — planning, CR, documents.',
+  'assistant-de-gestion-btp':
+    'Fluidifier l’administratif, la facturation et le suivi documentaire au quotidien.',
+  'referent-ia-btp':
+    'Structurer les usages IA, prototyper un outil métier et préparer le déploiement en PME.',
 };
 
 export const PARCOURS_METIERS_CARD_IMAGE: Partial<Record<ParcoursId, { src: string; alt: string }>> =
@@ -159,8 +170,9 @@ export const PARCOURS_DOCUMENTS_METIER: readonly ParcoursDocumentMetierTile[] = 
   },
 ] as const;
 
-export const PARCOURS_METIERS_TRUST = [
-  { id: 'idf', title: 'Présentiel – Île-de-France', detail: null },
-  { id: 'qualiopi', title: 'Certifié Qualiopi', detail: null },
-  { id: 'cas', title: 'Cas pratiques BTP', detail: null },
-] as const;
+export const PARCOURS_CAS_USAGE_SECTION = {
+  id: 'cas-usage-ia-btp',
+  title: 'Cas d’usage IA dans le BTP',
+  subtitle:
+    'Chaque parcours s’appuie sur des documents métier réels — devis, DCE, comptes rendus, DOE.',
+} as const;
