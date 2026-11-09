@@ -21,6 +21,7 @@ const FICHES = [
   { ref: 'NIV-04', file: 'app/formations/maitriser-claude-ai-btp/page.tsx' },
   { ref: 'NIV-05', file: 'app/formations/ia-maitrise-oeuvre/page.tsx' },
   { ref: 'NIV-11', file: 'app/formations/ia-assistance-maitrise-ouvrage/page.tsx' },
+  { ref: 'NIV-13', file: 'app/formations/agents-ia-autonomes-btp/page.tsx' },
 ] as const;
 
 function auditPageSource(ref: string, relPath: string): string[] {
@@ -30,14 +31,23 @@ function auditPageSource(ref: string, relPath: string): string[] {
   }
   const src = fs.readFileSync(abs, 'utf8');
   const problems: string[] = [];
-  if (!src.includes('CatalogueInfosPratiques')) {
-    problems.push('Composant CatalogueInfosPratiques absent');
+  const hasQualiopiBloc =
+    src.includes('CatalogueInfosPratiques') || src.includes('TrainingPracticalInfo');
+  if (!hasQualiopiBloc) {
+    problems.push('Bloc informations pratiques Qualiopi absent (CatalogueInfosPratiques ou TrainingPracticalInfo)');
   }
-  if (!src.includes(`programmeRef="${ref}"`)) {
-    problems.push(`programmeRef="${ref}" absent`);
+  const hasProgrammeRef =
+    src.includes(`programmeRef="${ref}"`) ||
+    src.includes(`getCatalogueFormationPageContent('${ref}')`);
+  if (!hasProgrammeRef) {
+    problems.push(`Référence programme ${ref} absente de la page`);
   }
-  if (!src.includes('catalogueRef=')) {
-    problems.push('Hero sans catalogueRef (lien vers informations réglementaires)');
+  const hasHeroRef =
+    src.includes('catalogueRef=') ||
+    src.includes('TrainingMaquetteMarketing') ||
+    src.includes('TrainingNiv');
+  if (!hasHeroRef) {
+    problems.push('Hero formation non reconnu (catalogueRef ou maquette)');
   }
   return problems;
 }

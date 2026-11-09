@@ -34,6 +34,9 @@ export const TARIF_PARTICIPANT_NIV10_14H_HT = 620 as const;
 
 /** Tarif d’une journée pédagogique de 7 h dans un parcours (ex. 14 h = 2 × 7 h) — aligné sur la demi-journée 4 h catalogue. */
 export const TARIF_JOURNEE_7H_INTER_HT = 2 * TARIF_PARTICIPANT_NIV02_HT;
+
+/** NIV-13 — agents IA autonomes (Make) · journée 7 h inter. */
+export const TARIF_PARTICIPANT_NIV13_HT = TARIF_JOURNEE_7H_INTER_HT;
 export const TARIF_NUM01_4H_INTER_HT = TARIF_PARTICIPANT_NIV01_HT;
 
 /** @deprecated Alias — préférer TARIF_PARTICIPANT_NIV02_HT. */

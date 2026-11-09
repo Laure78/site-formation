@@ -55,6 +55,7 @@ const CATALOGUE_REF_BY_PATH: Record<string, string> = {
   [LEGACY_APPLICATION_METIER_PATH.niveau3]: 'NIV-08',
   [LINKS.formationAssistantsIaPersonnalisesBtp]: 'NIV-09',
   [LINKS.formationDeveloppementWebIaSansCoder]: 'NIV-10',
+  [LINKS.formationAgentsIaAutonomesBtp]: 'NIV-13',
 };
 
 function priceSpecDescription(ref: string): string {
@@ -81,7 +82,7 @@ function priceSpecDescription(ref: string): string {
 }
 
 const PRICE_SPEC_DESCRIPTION_BY_REF: Record<string, string> = Object.fromEntries(
-  (['NIV-01', 'NIV-02', 'NIV-03', 'NIV-04', 'NIV-05', 'NIV-06', 'NIV-07', 'NIV-08', 'NIV-09', 'NIV-10', 'NIV-11', 'NIV-12'] as const).map((ref) => [
+  (['NIV-01', 'NIV-02', 'NIV-03', 'NIV-04', 'NIV-05', 'NIV-06', 'NIV-07', 'NIV-08', 'NIV-09', 'NIV-10', 'NIV-11', 'NIV-12', 'NIV-13'] as const).map((ref) => [
     ref,
     priceSpecDescription(ref),
   ])
@@ -359,6 +360,33 @@ export const FORMATION_RICH_COURSE_NIV09: FormationCatalogueRichCourseConfig = {
   teaches: teachesFromCatalogue('NIV-09'),
 };
 
+export const CATALOGUE_COURSE_AGENTS_IA_NIV13: CatalogueCourseJsonLdConfig = {
+  path: LINKS.formationAgentsIaAutonomesBtp,
+  name: getFormationByCode('NIV-13')!.titre,
+  description: `${getFormationByCode('NIV-13')!.accroche} Session ${getFormationByCode('NIV-13')!.duree}, présentiel Île-de-France, Qualiopi.`,
+  price: prixCatalogue('NIV-13'),
+  keywords: [
+    'agent IA autonome BTP',
+    'Make AI Agents',
+    'automatisation BTP',
+    'workflow Make',
+    'formation IA dirigeant BTP',
+    'formation IA conducteur de travaux',
+  ],
+  courseCode: 'NIV-13',
+  educationalLevel: 'Beginner',
+};
+
+export const FORMATION_RICH_COURSE_NIV13: FormationCatalogueRichCourseConfig = {
+  ref: 'NIV-13',
+  path: LINKS.formationAgentsIaAutonomesBtp,
+  name: CATALOGUE_COURSE_AGENTS_IA_NIV13.name,
+  description: CATALOGUE_COURSE_AGENTS_IA_NIV13.description,
+  price: prixCatalogue('NIV-13'),
+  educationalLevel: 'Fondamentaux',
+  teaches: teachesFromCatalogue('NIV-13'),
+};
+
 export const CATALOGUE_COURSE_ASSISTANCE_MAITRISE_OUVRAGE_NIV11: CatalogueCourseJsonLdConfig = {
   path: LINKS.formationIaAssistanceMaitriseOuvrage,
   name: getFormationByCode('NIV-11')!.titre,
@@ -546,6 +574,7 @@ export function buildCatalogueCourseJsonLd(
     'NIV-10': FORMATION_RICH_COURSE_NIV10,
     'NIV-11': FORMATION_RICH_COURSE_NIV11,
     'NIV-12': FORMATION_RICH_COURSE_NIV12,
+    'NIV-13': FORMATION_RICH_COURSE_NIV13,
   };
   const rich = richByCode[config.courseCode];
   if (!rich) {
@@ -596,6 +625,10 @@ export function buildCatalogueCourseAssistantsIaNiv09JsonLd(): Record<string, un
   return buildFormationCatalogueRichCourseJsonLd(FORMATION_RICH_COURSE_NIV09);
 }
 
+export function buildCatalogueCourseAgentsIaAutonomesNiv13JsonLd(): Record<string, unknown> {
+  return buildFormationCatalogueRichCourseJsonLd(FORMATION_RICH_COURSE_NIV13);
+}
+
 export function buildCatalogueCourseAssistanceMaitriseOuvrageNiv11JsonLd(): Record<string, unknown> {
   return buildFormationCatalogueRichCourseJsonLd(FORMATION_RICH_COURSE_NIV11);
 }
@@ -642,6 +675,7 @@ export function buildCatalogueCourseJsonLdByRef(ref: FormationCode): Record<stri
     'NIV-10': buildCatalogueCourseDeveloppementWebIaNiv10JsonLd,
     'NIV-11': buildCatalogueCourseAssistanceMaitriseOuvrageNiv11JsonLd,
     'NIV-12': buildCatalogueCourseMaitriseOeuvreCctpDpgfNiv12JsonLd,
+    'NIV-13': buildCatalogueCourseAgentsIaAutonomesNiv13JsonLd,
   };
   const build = builders[ref];
   if (!build) {

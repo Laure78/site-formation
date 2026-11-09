@@ -266,6 +266,25 @@ export const FORMATION_CATALOGUE_SEO: Record<FormationCatalogueCode, FormationCa
       { iaAide: 'Partager assistants avec l’équipe', validationHumaine: 'Définir droits, référents et mises à jour' },
     ],
   },
+  'NIV-13': {
+    metaTitle: 'Agent IA autonome BTP : Make (7 h)',
+    h1: 'Créer son premier agent IA autonome pour le BTP',
+    subtitle:
+      'Apprenez à créer un agent IA qui travaille automatiquement pour vous. Suivi des devis, relances clients, actions chantier et échéances : automatisez une tâche professionnelle avec Make, sans programmation.',
+    metaDescription:
+      'Formation agents IA BTP (7 h) : créer un agent Make AI Agents pour devis, relances ou échéances chantier. Présentiel IDF, Qualiopi, OPCO selon éligibilité.',
+    enBref: `Formation IA pour le BTP (NIV-13, 7 h, présentiel Île-de-France) : comprendre les agents autonomes, configurer un scénario Make AI Agents sur un cas dirigeant ou conducteur de travaux, avec validation humaine avant tout envoi. ${QUALIOPI_MENTION}. Tarif catalogue aligné sur une journée 7 h inter.`,
+    publicTargets: [
+      'Dirigeants de PME du bâtiment et des travaux publics',
+      'Conducteurs de travaux',
+    ],
+    iaLimits: [
+      { iaAide: 'Déclencher un scénario sur un événement (email, date, fichier)', validationHumaine: 'Configurer les filtres et le périmètre' },
+      { iaAide: 'Préparer brouillons de relances ou de rappels', validationHumaine: 'Relire et valider avant envoi' },
+      { iaAide: 'Synthétiser l’état d’un suivi (devis, actions)', validationHumaine: 'Contrôler les données sources' },
+      { iaAide: 'Proposer la prochaine action', validationHumaine: 'Décider et engager l’entreprise' },
+    ],
+  },
   'NIV-10': {
     metaTitle: 'Créer des applications métier BTP avec l’IA',
     h1: 'Créez votre outil métier BTP sur mesure avec l’IA',

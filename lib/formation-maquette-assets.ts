@@ -8,6 +8,7 @@ import { NIV03_MAQUETTE_HERO, NIV03_MAQUETTE_PEDAGOGIE_BG } from '@/lib/formatio
 import { NIV04_MAQUETTE_HERO, NIV04_MAQUETTE_PEDAGOGIE_BG } from '@/lib/formation-niv04-maquette-assets';
 import { NIV05_MAQUETTE_HERO, NIV05_MAQUETTE_PEDAGOGIE_BG } from '@/lib/formation-niv05-maquette-assets';
 import { NIV11_MAQUETTE_HERO, NIV11_MAQUETTE_PEDAGOGIE_BG } from '@/lib/formation-niv11-maquette-assets';
+import { NIV13_MAQUETTE_HERO } from '@/lib/formation-niv13-maquette-assets';
 import { getFormationByCode } from '@/data/formations';
 
 export type MaquetteHeroImage = { src: string; alt: string; width?: number; height?: number };
@@ -37,6 +38,7 @@ const ASSETS: Partial<
     pedagogyBg: DEFAULT_PEDAGOGY_BG,
   },
   'NIV-11': { hero: NIV11_MAQUETTE_HERO, pedagogyBg: NIV11_MAQUETTE_PEDAGOGIE_BG },
+  'NIV-13': { hero: NIV13_MAQUETTE_HERO, pedagogyBg: DEFAULT_PEDAGOGY_BG },
 };
 
 export function getFormationMaquetteAssets(code: FormationCatalogueCode): {

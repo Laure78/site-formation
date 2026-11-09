@@ -27,8 +27,14 @@ function card(code: FormationCatalogueCode, teaser: string): RelatedCatalogueFor
 const RELATED_BY_REF: Record<FormationCatalogueCode, readonly RelatedCatalogueFormation[]> = {
   'NIV-01': [
     card('NIV-02', 'Analyser un DCE et structurer un mémoire technique.'),
+    card('NIV-13', 'Automatiser devis, relances ou échéances avec Make AI Agents.'),
     card('NIV-04', 'Skills Claude, Projects et Cowork sur vos dossiers BTP.'),
     card('NIV-03', 'Suivi chantier, comptes rendus et DOE avec l’IA.'),
+  ],
+  'NIV-13': [
+    card('NIV-01', 'Les bases IA BTP — prérequis recommandé.'),
+    card('NIV-09', 'Assistants ChatGPT et Claude avant d’aller vers l’automatisation.'),
+    card('NIV-03', 'Conduite de travaux et suivi documentaire chantier.'),
   ],
   'NIV-02': [
     card('NIV-01', 'Les bases de l’IA sur devis, CR et documents courants.'),

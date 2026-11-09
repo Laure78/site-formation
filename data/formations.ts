@@ -11,6 +11,7 @@ import {
   TARIF_PARTICIPANT_NIV05_HT,
   TARIF_PARTICIPANT_NIV09_HT,
   TARIF_PARTICIPANT_NIV10_14H_HT,
+  TARIF_PARTICIPANT_NIV13_HT,
 } from '@/lib/tarifs-catalogue-participant';
 
 /** Effectif standard — toutes les formations catalogue IA BTP (niveaux 1, 2 et 3). */
@@ -109,6 +110,43 @@ export const FORMATIONS: readonly Formation[] = [
     programmeVersion: 'Référence NIV-01',
     programmeUpdatedAt: '17/10/2026',
     image: '/images/formation-ia-batiment-travaux-publics.webp',
+  },
+  {
+    code: 'NIV-13',
+    slug: 'agents-ia-autonomes-btp',
+    titre: 'Créer son premier agent IA autonome pour le BTP',
+    promesse:
+      'Créer un agent Make AI Agents qui travaille pour vous : relances, suivi devis ou échéances chantier — sans programmation.',
+    casUsageCourts: [
+      'Automatiser le suivi des devis',
+      'Préparer les relances clients',
+      'Rappeler les échéances chantier',
+    ],
+    gamme: 'decouvrir',
+    theme: 'assistants-automatisation',
+    niveau: 1,
+    niveauLabel: 'NUM-13',
+    duree: '7 h',
+    horaires: '9h00 – 12h30 / 13h30 – 17h00',
+    effectifMin: CATALOGUE_EFFECTIF_MIN,
+    effectifMax: CATALOGUE_EFFECTIF_MAX,
+    prixHT: 0,
+    tarifParticipantHt: TARIF_PARTICIPANT_NIV13_HT,
+    accroche:
+      'Make AI Agents en présentiel : concevoir et tester un premier agent autonome sur un cas métier BTP (dirigeant ou conducteur de travaux), avec validation humaine à chaque étape.',
+    objectifs: [
+      'Expliquer le fonctionnement d’un agent IA autonome et ses limites dans une PME du BTP',
+      'Identifier les tâches répétitives automatisables sans risque juridique ou contractuel',
+      'Configurer un scénario Make AI Agents sur un cas réel (devis, relances ou échéances chantier)',
+      'Relier les outils du quotidien (messagerie, tableur, agenda) à un flux contrôlé',
+      'Tester, documenter et planifier le déploiement avec des points de validation humaine',
+    ],
+    public: 'Dirigeants et conducteurs de travaux des PME du bâtiment et des travaux publics',
+    casUsage: 'Agents autonomes — suivi devis, relances, échéances chantier',
+    pdfProgramme: '',
+    programmeVersion: 'Référence NIV-13',
+    programmeUpdatedAt: '09/11/2026',
+    image: '/images/formation-assistants-ia-personnalises-btp.webp',
   },
   {
     code: 'NIV-02',
@@ -562,7 +600,9 @@ export const CATALOGUE_DUREE_NIV09 = CATALOGUE_DUREE_STANDARD;
 export const CATALOGUE_DUREE_NIV10 = '14 h' as const;
 
 /** Plage de numérotation catalogue — références actives (hors fiches retirées). */
-export const CATALOGUE_NIV_RANGE = 'NIV-01 à NIV-11' as const;
+export const CATALOGUE_DUREE_NIV13 = '7 h' as const;
+
+export const CATALOGUE_NIV_RANGE = 'NIV-01 à NIV-13' as const;
 
 export function getFormationByCode(code: string): Formation | undefined {
   return FORMATIONS.find((f) => f.code === code);

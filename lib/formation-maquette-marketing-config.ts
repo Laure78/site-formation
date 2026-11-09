@@ -240,6 +240,53 @@ export const FORMATION_MAQUETTE_MARKETING: Partial<
     programmeFootnote14h: 'Durée totale : 14 h sur 2 jours (accueil, ateliers et bilan inclus)',
     pedagogyLabels: [...DEFAULT_PEDAGOGY],
   },
+  'NIV-13': {
+    heroBadge: 'Niveau 1 · Débutant',
+    keyFactsLevel: 'Niveau débutant',
+    heroLead:
+      'Apprenez à créer un agent IA qui travaille automatiquement pour vous. Suivi des devis, relances clients, actions chantier et échéances : automatisez une tâche professionnelle avec Make, sans programmation.',
+    heroDescription:
+      'Une journée en présentiel en Île-de-France — deux parcours métier au choix (dirigeant ou conducteur de travaux), sur le même programme.',
+    benefitsTitle: 'Pourquoi passer à un agent autonome (et pas seulement au prompting)',
+    benefits: [
+      {
+        icon: Zap,
+        titre: 'Tâches qui s’exécutent seules',
+        texte: 'Déclenchement sur un email, une date ou un fichier — l’agent enchaîne les étapes que vous avez définies.',
+      },
+      {
+        icon: Link2,
+        titre: 'Outils du quotidien reliés',
+        texte: 'Messagerie, tableur ou agenda : un flux unique au lieu de copier-coller entre applications.',
+      },
+      {
+        icon: Shield,
+        titre: 'Contrôles humains intégrés',
+        texte: 'Pas d’envoi client ni d’engagement contractuel sans votre validation explicite.',
+      },
+      {
+        icon: Puzzle,
+        titre: 'Sans développeur',
+        texte: 'Make AI Agents en interface visuelle — adapté aux dirigeants et conducteurs de travaux du BTP.',
+      },
+    ],
+    formatTitle: 'Une journée de 7 heures, 70 % de pratique',
+    formatDescription:
+      'Inter-entreprises ou intra dans vos locaux en Île-de-France — un scénario opérationnel testé avant la fin de session.',
+    finalCtaTitle: 'Automatisez une première tâche métier en toute sécurité',
+    finalCtaDescription:
+      'Recevez le programme détaillé ou demandez un devis pour une session intra adaptée à votre entreprise.',
+    ctaSrcPrefix: 'formation-niv13-agents-ia',
+    programmeTitleDefault: 'Programme — 6 modules (7 h)',
+    programmeFootnote4h: 'Durée totale : 7 h (accueil, modules et bilan inclus)',
+    pedagogyLabels: [
+      'Scénarios Make guidés',
+      'Cas dirigeant ou conducteur de travaux',
+      '70 % de pratique',
+      'Validation humaine systématique',
+      'Plan de déploiement 30 jours',
+    ],
+  },
   'NIV-11': {
     heroBadge: 'Formation IA BTP · Niveau avancé',
     keyFactsLevel: 'Niveau avancé',

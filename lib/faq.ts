@@ -595,6 +595,34 @@ export const FAQ_IA_BTP_PARIS: FAQItem[] = [
   },
 ];
 
+/** FAQ Formation agents IA autonomes (Make) — NIV-13 */
+export const FAQ_AGENTS_IA_NIV13: FAQItem[] = [
+  {
+    q: 'Qu’est-ce qu’un agent IA autonome par rapport à ChatGPT ou Claude ?',
+    a: 'Un assistant conversationnel répond quand vous posez une question. Un agent autonome enchaîne des actions sur un déclencheur (email reçu, date atteinte, ligne ajoutée) selon un scénario que vous avez configuré — avec des points où vous validez avant envoi.',
+  },
+  {
+    q: 'Faut-il savoir programmer pour utiliser Make ?',
+    a: 'Non. L’interface Make est visuelle : modules, connexions et tests pas à pas. La formation cible dirigeants et conducteurs de travaux du BTP, sans compétence développeur.',
+  },
+  {
+    q: 'Quelle différence entre le parcours dirigeant et conducteur de travaux ?',
+    a: 'Le programme est unique : en atelier, vous travaillez sur l’un des deux fils rouges — suivi devis et relances commerciales (dirigeant) ou échéances et rappels chantier (conducteur de travaux). Les modules 3 et 4 couvrent ces deux cas ; chaque participant approfondit celui qui correspond à son poste.',
+  },
+  {
+    q: 'Make remplace-t-il mes outils de gestion ?',
+    a: 'Non. Make relie et automatise des étapes entre outils que vous utilisez déjà (messagerie, tableur, agenda). L’agent ne décide pas à votre place des prix, engagements contractuels ou consignes de sécurité chantier.',
+  },
+  {
+    q: 'La formation est-elle en présentiel uniquement ?',
+    a: 'Oui — inter-entreprises en Île-de-France ou intra dans vos locaux. Pas de session à distance pour cette action catalogue.',
+  },
+  {
+    q: 'Une prise en charge OPCO est-elle possible ?',
+    a: `${FINANCEMENT_FORMULATION_PRUDENTE} Détails : <a href="${LINKS.financement}">financement Constructys formation IA BTP</a>.`,
+  },
+];
+
 /** FAQ Formation assistants IA personnalisés BTP — NIV-09 */
 export const FAQ_ASSISTANTS_IA_NIV09: FAQItem[] = [
   {

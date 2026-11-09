@@ -24,6 +24,7 @@ const CATALOGUE_REFS = [
   'NIV-08',
   'NIV-09',
   'NIV-10',
+  'NIV-13',
 ];
 
 const BLOCKS = [

@@ -10,11 +10,14 @@ import {
   Shield,
   Target,
   Users,
+  type LucideIcon,
 } from 'lucide-react';
 import { TrainingFormationBreadcrumb } from '@/components/formations/training/TrainingFormationBreadcrumb';
 import { TrainingFormationHeroActions } from '@/components/formations/training/TrainingFormationHeroActions';
 import { CtaVisio } from '@/components/CtaVisio';
+import { CtaDevis } from '@/components/CtaDevis';
 import { LINKS } from '@/lib/internal-links';
+import { trainingDevisHref } from '@/lib/training-page-helpers';
 import { OFC_CTA_SECONDARY } from '@/lib/ofc-interaction-classes';
 import Link from 'next/link';
 import type { CatalogueProgramModule } from '@/lib/catalogue-formation-page-content';
@@ -43,6 +46,9 @@ type Props = {
   pdfHref?: string;
   programModules: readonly CatalogueProgramModule[];
   programmeHeading?: string;
+  /** Remplace la grille tarif / effectif par défaut (ex. NIV-13). */
+  indicatorItems?: readonly { icon: LucideIcon; sub: string }[];
+  ctaMode?: 'visio-programme' | 'programme-devis';
 };
 
 const DEFAULT_PEDAGOGY_ICONS = [HardHat, FileText, Layers, Shield, Target] as const;
@@ -60,6 +66,8 @@ export function TrainingMaquetteMarketing({
   pdfHref,
   programModules,
   programmeHeading,
+  indicatorItems,
+  ctaMode = 'visio-programme',
 }: Props) {
   const slice = getFormationMaquetteMarketingSlice(programmeRef);
   const assets = getFormationMaquetteAssets(programmeRef);
@@ -82,12 +90,24 @@ export function TrainingMaquetteMarketing({
     'Méthodes terrain',
   ];
 
-  const footnote = is14h
-    ? `${slice.programmeFootnote14h ?? 'Durée totale : 14 h'} — ${tarifLabel} (identique intra et inter).`
-    : `${slice.programmeFootnote4h ?? 'Durée totale : 4 h'} — ${tarifLabel} (identique intra et inter).`;
-
   const tarifKeyFact = `${formatNumberFr(tarifHt)} € HT / participant`;
   const durationKeyFact = formation.duree;
+
+  const defaultIndicators = [
+    { icon: Layers, sub: levelKeyFact },
+    { icon: Clock, sub: durationKeyFact },
+    { icon: Coins, sub: tarifKeyFact },
+    { icon: MapPin, sub: SITE_FORMATION_MODALITE_ENCART },
+    { icon: Users, sub: `${effectifMin} à ${effectifMax} participants` },
+  ] as const;
+  const indicators = indicatorItems ?? defaultIndicators;
+
+  const footnote7h = `Durée totale : ${formation.duree} — ${tarifLabel} (identique intra et inter).`;
+  const footnoteResolved = is14h
+    ? `${slice.programmeFootnote14h ?? 'Durée totale : 14 h'} — ${tarifLabel} (identique intra et inter).`
+    : formation.duree.includes('7')
+      ? footnote7h
+      : `${slice.programmeFootnote4h ?? 'Durée totale : 4 h'} — ${tarifLabel} (identique intra et inter).`;
 
   return (
     <div className={`formation-maquette formation-${programmeRef.toLowerCase()}-maquette overflow-x-hidden bg-white`}>
@@ -112,6 +132,7 @@ export function TrainingMaquetteMarketing({
               formationTitle={formationTitle}
               pdfHref={pdfHref}
               ctaSrc={`${slice.ctaSrcPrefix}-hero`}
+              ctaMode={ctaMode}
               className="mt-8"
             />
           </div>
@@ -139,13 +160,7 @@ export function TrainingMaquetteMarketing({
             Informations clés de la formation
           </h2>
           <div className="grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-5">
-            {[
-              { icon: Layers, sub: levelKeyFact },
-              { icon: Clock, sub: durationKeyFact },
-              { icon: Coins, sub: tarifKeyFact },
-              { icon: MapPin, sub: SITE_FORMATION_MODALITE_ENCART },
-              { icon: Users, sub: `${effectifMin} à ${effectifMax} participants` },
-            ].map((item) => (
+            {indicators.map((item) => (
               <div
                 key={item.sub}
                 className="flex flex-col gap-2 rounded-2xl border border-[#BFDBFE] bg-[#F8FAFC] p-4 shadow-sm transition-shadow hover:shadow-md"
@@ -256,7 +271,7 @@ export function TrainingMaquetteMarketing({
                 );
               })}
             </div>
-            <p className="mt-4 text-sm text-slate-500">{footnote}</p>
+            <p className="mt-4 text-sm text-slate-500">{footnoteResolved}</p>
           </section>
         ) : null}
 
@@ -308,6 +323,7 @@ export function TrainingMaquetteMarketing({
             formationTitle={formationTitle}
             pdfHref={pdfHref}
             ctaSrc={`${slice.ctaSrcPrefix}-final`}
+            ctaMode={ctaMode}
             className="mt-8 justify-center sm:justify-center"
           />
         </section>
@@ -315,26 +331,53 @@ export function TrainingMaquetteMarketing({
 
       <div className="fixed inset-x-0 bottom-0 z-40 border-t border-slate-200 bg-white/95 p-3 backdrop-blur lg:hidden">
         <div className="mx-auto flex max-w-[80rem] gap-2">
-          <CtaVisio
-            src={`${slice.ctaSrcPrefix}-sticky`}
-            variant="primary"
-            className="inline-flex min-h-11 flex-1 items-center justify-center px-3 py-2 text-sm"
-          />
-          {pdfHref ? (
-            <a
-              href={pdfHref}
-              download
-              className={`${OFC_CTA_SECONDARY} inline-flex min-h-11 flex-1 items-center justify-center px-3 py-2 text-sm`}
-            >
-              Programme
-            </a>
+          {ctaMode === 'programme-devis' ? (
+            <>
+              {pdfHref ? (
+                <a
+                  href={pdfHref}
+                  download
+                  className={`${OFC_CTA_SECONDARY} inline-flex min-h-11 flex-1 items-center justify-center px-3 py-2 text-sm`}
+                >
+                  Programme
+                </a>
+              ) : (
+                <Link
+                  href={`${LINKS.contact}?objet=devis&formation=${encodeURIComponent(formationTitle)}`}
+                  className={`${OFC_CTA_SECONDARY} inline-flex min-h-11 flex-1 items-center justify-center px-3 py-2 text-sm`}
+                >
+                  Programme
+                </Link>
+              )}
+              <CtaDevis
+                href={trainingDevisHref(formationTitle)}
+                className="inline-flex min-h-11 flex-1 items-center justify-center px-3 py-2 text-sm"
+              />
+            </>
           ) : (
-            <Link
-              href={`#${TRAINING_ANCHOR.programme}`}
-              className={`${OFC_CTA_SECONDARY} inline-flex min-h-11 flex-1 items-center justify-center px-3 py-2 text-sm`}
-            >
-              Programme
-            </Link>
+            <>
+              <CtaVisio
+                src={`${slice.ctaSrcPrefix}-sticky`}
+                variant="primary"
+                className="inline-flex min-h-11 flex-1 items-center justify-center px-3 py-2 text-sm"
+              />
+              {pdfHref ? (
+                <a
+                  href={pdfHref}
+                  download
+                  className={`${OFC_CTA_SECONDARY} inline-flex min-h-11 flex-1 items-center justify-center px-3 py-2 text-sm`}
+                >
+                  Programme
+                </a>
+              ) : (
+                <Link
+                  href={`#${TRAINING_ANCHOR.programme}`}
+                  className={`${OFC_CTA_SECONDARY} inline-flex min-h-11 flex-1 items-center justify-center px-3 py-2 text-sm`}
+                >
+                  Programme
+                </Link>
+              )}
+            </>
           )}
         </div>
       </div>

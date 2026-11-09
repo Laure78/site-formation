@@ -1,10 +1,12 @@
 import Link from 'next/link';
 import { Calendar, Download } from 'lucide-react';
 import { CtaVisio } from '@/components/CtaVisio';
+import { CtaDevis } from '@/components/CtaDevis';
 import { CTA_RECEVOIR_PROGRAMME_LABEL } from '@/lib/cta-programme-label';
 import { cn } from '@/lib/cn';
 import { LINKS } from '@/lib/internal-links';
-import { OFC_CTA_SECONDARY } from '@/lib/ofc-interaction-classes';
+import { OFC_CTA_PRIMARY, OFC_CTA_SECONDARY } from '@/lib/ofc-interaction-classes';
+import { trainingDevisHref } from '@/lib/training-page-helpers';
 
 type Props = {
   formationTitle: string;
@@ -16,6 +18,8 @@ type Props = {
   programmeShortLabel?: string;
   /** Encadré format court : bouton programme seul (réf. NIV-02). */
   variant?: 'full' | 'programme-only';
+  /** Hero catalogue : visio + programme (défaut) ou programme + devis (NIV-13). */
+  ctaMode?: 'visio-programme' | 'programme-devis';
 };
 
 /**
@@ -28,6 +32,7 @@ export function TrainingFormationHeroActions({
   className,
   programmeShortLabel = 'Programme',
   variant = 'full',
+  ctaMode = 'visio-programme',
 }: Props) {
   const programmeButton = pdfHref ? (
     <a
@@ -52,6 +57,18 @@ export function TrainingFormationHeroActions({
 
   if (variant === 'programme-only') {
     return <div className={cn('flex', className)}>{programmeButton}</div>;
+  }
+
+  if (ctaMode === 'programme-devis') {
+    return (
+      <div className={cn('flex flex-col gap-3 sm:flex-row sm:flex-wrap', className)}>
+        {programmeButton}
+        <CtaDevis
+          href={trainingDevisHref(formationTitle)}
+          className={`${OFC_CTA_PRIMARY} inline-flex min-h-11 w-full items-center justify-center px-5 py-3 sm:w-auto`}
+        />
+      </div>
+    );
   }
 
   return (

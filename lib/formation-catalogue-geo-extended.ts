@@ -337,6 +337,35 @@ export const FORMATION_CATALOGUE_GEO_EXTENDED: Record<
       { href: LINKS.avisClients, label: 'Avis clients formation IA BTP' },
     ],
   },
+  'NIV-13': {
+    queApprendre:
+      'Comprendre un agent IA autonome, cartographier une tâche répétitive BTP, configurer un scénario Make AI Agents (devis, relances ou échéances chantier) et documenter les contrôles humains avant mise en production.',
+    documentsBtp: [
+      'Tableaux de suivi devis',
+      'Modèles de relances clients',
+      'Listes d’actions chantier',
+      'Agendas et plannings d’intervention',
+    ],
+    outilsIa: ['Make AI Agents'],
+    dureeReponse: '',
+    livrables: [
+      'Scénario Make configuré et testé',
+      'Schéma du flux et checklist de validation',
+      'Plan d’action 30 jours',
+      'Certificat de réalisation',
+    ],
+    debutants:
+      'Formation niveau 1 : bases IA BTP (NIV-01) ou pratique équivalente de ChatGPT / Claude. Compte Make avec AI Agents actif — non inclus dans le tarif.',
+    propresDossiers:
+      'Oui — données d’exemple ou documents anonymisés. Aucun envoi client automatisé sans validation explicite.',
+    iaRemplacePro: COMMON_IA_NON,
+    deroulement: `${MODALITE_PEDAGOGIQUE_CATALOGUE}. 70 % de pratique — journée 7 h, parcours dirigeant ou conducteur de travaux au choix.`,
+    clusterMaillage: [
+      ...CLUSTER_BASE,
+      { href: LINKS.formationAgentsIaAutonomesBtp, label: 'Formation agents IA autonomes BTP' },
+      { href: LINKS.formationIaBtpNiveau1BatimentTp, label: 'Formation IA BTP niveau débutant' },
+    ],
+  },
   'NIV-10': {
     queApprendre:
       'Cadrer un projet numérique, guider l’IA avec des instructions structurées, construire une première version fonctionnelle de site, d’application ou d’outil métier, puis tester, corriger et définir une feuille de route — sans écrire de code.',

@@ -19,6 +19,7 @@ const EXACT: Record<string, string> = {
   '/formations/ia-batiment-travaux-publics': 'Formation IA BTP',
   '/formations/ia-appels-offre-btp': 'Formation IA appels d’offres BTP',
   '/formations/ia-conduite-travaux-suivi-chantier': "L'IA appliquée à la conduite de travaux",
+  '/formations/agents-ia-autonomes-btp': 'Agent IA autonome pour le BTP (Make)',
   '/formations/developpement-web-ia-sans-coder': 'Créer des applications métier BTP avec l’IA',
 };
 

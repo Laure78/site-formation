@@ -54,6 +54,7 @@ export const FORMATIONS_NIVEAUX_IA: readonly FormationNiveauIaDefinition[] = [
       'Premier devis ou désignation structurée',
       'Compte rendu à partir de notes',
       'Email ou courrier professionnel relu avant envoi',
+      'Premier scénario Make pour relances ou rappels d’échéances (formation 7 h)',
     ],
   },
   {

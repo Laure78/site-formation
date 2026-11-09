@@ -31,6 +31,7 @@ const REF_VISUALS: Partial<Record<FormationCatalogueCode, CatalogueCardVisual>> 
   'NIV-12': { photo: PHOTOS.formationsCatalogueCarteMaitriseOeuvreCctpDpgf2026, Icon: Building2 },
   'NIV-09': { photo: PHOTOS.formationNiv09AssistantsIaPersonnalisesBtp2026, Icon: Layers },
   'NIV-10': { photo: PHOTOS.formationNiv10DevWebIaHero2026, Icon: Briefcase },
+  'NIV-13': { photo: PHOTOS.formationNiv13AgentsIaAutonomesBtp2026, Icon: Bot },
 };
 
 export function getCatalogueFormationCardVisual(ref: string): CatalogueCardVisual | null {

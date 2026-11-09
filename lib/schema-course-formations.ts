@@ -128,6 +128,15 @@ export const FORMATIONS_CATALOG_SCHEMA: FormationCatalogEntry[] = [
     teaches: teachesFromCatalogueDisplay('NIV-10'),
     occupationalCategory: 'Applications métier BTP, no-code IA',
   },
+  {
+    ref: 'NIV-13',
+    level: 'DÉBUTANT',
+    path: '/formations/agents-ia-autonomes-btp',
+    name: getFormationByCode('NIV-13')!.titre,
+    description: `${getFormationByCode('NIV-13')!.accroche} Session 7 h, présentiel Île-de-France. Qualiopi.`,
+    teaches: teachesFromCatalogueDisplay('NIV-13'),
+    occupationalCategory: 'BTP, dirigeants PME, conducteurs de travaux, automatisation',
+  },
 ];
 
 const DURATION_ISO = FORMATION_COURSE_DURATION_ISO;
@@ -267,6 +276,7 @@ export const DEDICATED_FORMATION_COURSE_PATHS = [
   '/formations/ia-conduite-travaux-suivi-chantier',
   '/formations/maitriser-claude-ai-btp',
   '/formations/ia-maitrise-oeuvre',
+  '/formations/agents-ia-autonomes-btp',
 ] as const;
 
 export type DedicatedFormationCoursePath = (typeof DEDICATED_FORMATION_COURSE_PATHS)[number];

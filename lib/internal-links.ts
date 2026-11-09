@@ -182,6 +182,8 @@ export const LINKS = {
   formationIaAssistanceMaitriseOuvrage: '/formations/ia-assistance-maitrise-ouvrage',
   pdfProgrammeIaAssistanceMaitriseOuvrage:
     '/formations/ia-assistance-maitrise-ouvrage/programme_OFC_NIV-11_IA_AMO_20261104.pdf',
+  /** NIV-13 — Agents IA autonomes (Make) pour le BTP — journée 7 h */
+  formationAgentsIaAutonomesBtp: '/formations/agents-ia-autonomes-btp',
   /** NIV-09 — Créer des assistants IA personnalisés pour le BTP (catalogue) */
   formationAssistantsIaPersonnalisesBtp: '/formations/assistants-ia-personnalises-btp',
   pdfProgrammeAssistantsIaPersonnalisesBtp:

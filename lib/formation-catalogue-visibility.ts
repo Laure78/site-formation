@@ -25,7 +25,8 @@ export type FormationCatalogueCode =
   | 'NIV-09'
   | 'NIV-10'
   | 'NIV-11'
-  | 'NIV-12';
+  | 'NIV-12'
+  | 'NIV-13';
 
 /** Date de première publication (YYYY-MM-DD, inclusive, fuseau Europe/Paris). */
 export const FORMATION_CATALOGUE_PUBLISH_FROM: Partial<

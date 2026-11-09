@@ -41,6 +41,11 @@ import { NIV04_PROGRAMME_BLOCS } from '@/lib/catalogue-formation-programmes-niv0
 import { NIV05_PROGRAMME_BLOCS } from '@/lib/catalogue-formation-programmes-niv05';
 import { NIV11_PROGRAMME_BLOCS } from '@/lib/catalogue-formation-programmes-niv11';
 import { NIV12_PROGRAMME_BLOCS } from '@/lib/catalogue-formation-programmes-niv12';
+import {
+  AGENTS_IA_AUTONOMES_OUTCOMES,
+  AGENTS_IA_DELIVERABLES,
+} from '@/lib/formation-agents-ia-autonomes-btp-content';
+import { NIV13_PEDAGOGICAL_METHODS, NIV13_PROGRAMME_BLOCS } from '@/lib/catalogue-formation-programmes-niv13';
 import { MENTIONS_TVA_REGIMES_COURT } from '@/lib/tarifs-sessions';
 
 export type CataloguePainPoint = { title: string; texte: string };
@@ -898,6 +903,89 @@ const NIV_10: CatalogueFormationPageContent = {
   finalCta: DEFAULT_FINAL_CTA,
 };
 
+const NIV_13: CatalogueFormationPageContent = {
+  programmeRef: 'NIV-13',
+  parcoursKind: 'usages-ia-btp',
+  levelBadgeLabel: 'Niveau 1 · Débutant',
+  heroPublicLine:
+    'Inter-entreprises à Paris 12e ou intra-entreprise dans vos locaux en Île-de-France — un seul programme, deux fils rouges métier au choix.',
+  heroFacts: [
+    '7 heures',
+    'Présentiel · Île-de-France',
+    'Make AI Agents',
+    '70 % de pratique',
+  ],
+  practiceShare: '70 %',
+  formatLabel: 'Présentiel',
+  locationLabel: SITE_FORMATION_LOCATION_LABEL,
+  quickFactsLevel: formationNiveauOfficielLabel(1),
+  pedagogicalNote:
+    'L’agent exécute le scénario que vous configurez — vous validez chaque envoi ou engagement vers clients et partenaires.',
+  painPointsTitle: '',
+  painPoints: [],
+  objectivesTitle: 'Après la formation, vous saurez',
+  outcomes: [...AGENTS_IA_AUTONOMES_OUTCOMES],
+  outcomesDescription:
+    'Passer du prompting ponctuel à un agent Make qui enchaîne les étapes sur vos outils — avec points de contrôle humains.',
+  deliverables: [...AGENTS_IA_DELIVERABLES],
+  deliverablesTitle: 'Ce que vous repartez avec',
+  publicPrerequisites: [
+    {
+      title: 'Prérequis',
+      items: [
+        'Savoir utiliser un ordinateur et une messagerie professionnelle',
+        'Avoir suivi le niveau 1 IA BTP ou une pratique équivalente de ChatGPT / Claude',
+        'Compte Make (offre compatible AI Agents) — non inclus dans le tarif, à prévoir avant la session',
+        'Données d’exemple ou documents anonymisés pour l’atelier',
+      ],
+    },
+  ],
+  programIntro:
+    '7 h (9h00–17h00) · 70 % de pratique · Make AI Agents — parcours dirigeant (devis / relances) ou conducteur de travaux (échéances chantier).',
+  programmeMethodsBullets: [...NIV13_PEDAGOGICAL_METHODS],
+  programModules: NIV13_PROGRAMME_BLOCS.map((m) => ({
+    title: m.title,
+    points: [...m.points],
+    practice: m.practice,
+    competence: m.competence,
+    deliverable: m.deliverable,
+  })),
+  programmeHeading: 'Programme détaillé — journée 7 h',
+  workflow: [
+    'Cartographier une tâche répétitive et définir le déclencheur.',
+    'Construire le scénario Make étape par étape.',
+    'Tester sur données réelles anonymisées.',
+    'Ajouter les contrôles humains et documenter.',
+  ],
+  iaLimits: [
+    { iaAide: 'Exécuter un scénario sur déclencheur', validation: 'Périmètre, filtres et données sources' },
+    { iaAide: 'Préparer relances ou rappels', validation: 'Contenu et destinataires avant envoi' },
+    { iaAide: 'Synthétiser un suivi commercial ou chantier', validation: 'Exactitude des chiffres et dates' },
+    { iaAide: 'Suggérer la prochaine action', validation: 'Décision et engagement de l’entreprise' },
+  ],
+  programLinks: [
+    {
+      prefix: 'Pour les bases ChatGPT et Claude, voir la',
+      href: LINKS.formationIaBtpNiveau1BatimentTp,
+      label: 'formation IA BTP niveau débutant (4 h)',
+    },
+    {
+      prefix: 'Pour les assistants conversationnels, voir la',
+      href: LINKS.formationAssistantsIaPersonnalisesBtp,
+      label: 'formation assistants IA personnalisés',
+    },
+  ],
+  finalCta: {
+    title: 'Prêt à automatiser une première tâche métier ?',
+    description:
+      'Demandez le programme ou un devis pour une session intra dans vos locaux — Île-de-France uniquement.',
+    primaryLabel: 'Prendre RDV',
+    primaryHref: LINKS.prendreRdv,
+    secondaryLabel: 'Demander un devis',
+    secondaryHref: LINKS.contact,
+  },
+};
+
 const NIV_09: CatalogueFormationPageContent = {
   programmeRef: 'NIV-09',
   parcoursKind: 'usages-ia-btp',
@@ -1197,6 +1285,7 @@ const BY_REF: Partial<Record<FormationCatalogueCode, CatalogueFormationPageConte
   'NIV-12': NIV_12,
   'NIV-09': NIV_09,
   'NIV-10': NIV_10,
+  'NIV-13': NIV_13,
 };
 
 export function getCatalogueFormationPageContent(
