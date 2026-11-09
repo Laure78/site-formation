@@ -4,7 +4,6 @@ import { CandidatEditForm } from '@/components/admin/recrutement/CandidatEditFor
 import { CandidatInterviewPrepPanel } from '@/components/admin/recrutement/CandidatInterviewPrepPanel';
 import { DeleteCandidatDialog } from '@/components/admin/recrutement/DeleteCandidatDialog';
 import { NotesTimeline } from '@/components/admin/recrutement/NotesTimeline';
-import { RecruitmentSubnav } from '@/components/admin/recrutement/RecruitmentSubnav';
 import { RgpdStaleBanner } from '@/components/admin/recrutement/RgpdStaleBanner';
 import { OrgCard, OrgPageHeader, orgPageBg } from '@/components/admin/mon-espace/ui';
 import { adminRecrutementEvaluation } from '@/lib/internal-links';
@@ -31,7 +30,6 @@ export default async function AdminRecrutementCandidatPage({ params }: Props) {
           eyebrow="Recrutement · Fiche candidat"
           title={`${candidat.first_name} ${candidat.last_name}${candidat.is_example ? ' (Exemple)' : ''}`}
         />
-        <RecruitmentSubnav />
         <RgpdStaleBanner candidats={stale} />
 
         <div className="flex flex-wrap gap-2 text-sm">

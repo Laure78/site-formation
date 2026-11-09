@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { Users } from 'lucide-react';
-import { RecruitmentSubnav } from '@/components/admin/recrutement/RecruitmentSubnav';
+import { PlanningDossiersSection } from '@/components/admin/recrutement/PlanningInterviewBrief';
+import { RgpdStaleBanner } from '@/components/admin/recrutement/RgpdStaleBanner';
 import { RecruitmentStatusBadge } from '@/components/admin/recrutement/RecruitmentStatusBadge';
 import { OrgCard, OrgPageHeader, orgPageBg } from '@/components/admin/mon-espace/ui';
 import { adminRecrutementCandidat } from '@/lib/internal-links';
@@ -10,7 +11,7 @@ import {
   RECRUITMENT_STATUS,
   type RecruitmentStatus,
 } from '@/lib/recruitment/constants';
-import { listRecruitmentCandidats } from '@/lib/recruitment/queries';
+import { listRecruitmentCandidats, listStaleNonRetenus } from '@/lib/recruitment/queries';
 
 type Props = {
   searchParams: Promise<{ status?: string; stage?: string; formation?: string; q?: string }>;
@@ -18,12 +19,16 @@ type Props = {
 
 export default async function AdminRecrutementCandidatsPage({ searchParams }: Props) {
   const sp = await searchParams;
-  const rows = await listRecruitmentCandidats({
-    status: sp.status,
-    stage: sp.stage,
-    formation: sp.formation,
-    q: sp.q,
-  });
+  const [rows, stale, allCandidats] = await Promise.all([
+    listRecruitmentCandidats({
+      status: sp.status,
+      stage: sp.stage,
+      formation: sp.formation,
+      q: sp.q,
+    }),
+    listStaleNonRetenus(),
+    listRecruitmentCandidats(),
+  ]);
 
   return (
     <div className={`min-h-screen ${orgPageBg} px-4 py-8 md:px-8`}>
@@ -31,10 +36,20 @@ export default async function AdminRecrutementCandidatsPage({ searchParams }: Pr
         <OrgPageHeader
           eyebrow="Administration · Recrutement"
           title="Candidats formateurs"
-          description="Filtrez par statut, étape ou formation. Recherche par nom."
+          description="Dossiers entretien (CV, dispos, questions), puis liste et filtres."
           icon={<Users className="h-7 w-7 text-[#377CF3]" strokeWidth={1.5} aria-hidden />}
         />
-        <RecruitmentSubnav />
+        <RgpdStaleBanner candidats={stale} />
+
+        <OrgCard>
+          <h2 className="font-display text-lg font-bold text-slate-900">Dossiers entretien</h2>
+          <p className="mt-1 text-sm text-slate-600">
+            Résumé CV, disponibilités, déroulé et questions — grille accessible sur chaque dossier.
+          </p>
+          <div className="mt-6">
+            <PlanningDossiersSection candidats={allCandidats} />
+          </div>
+        </OrgCard>
 
         <OrgCard>
           <form method="get" className="grid gap-3 sm:grid-cols-2 lg:grid-cols-5">

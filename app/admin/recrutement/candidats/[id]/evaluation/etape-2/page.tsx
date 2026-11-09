@@ -1,6 +1,5 @@
 import { notFound } from 'next/navigation';
 import { EvaluationForm } from '@/components/admin/recrutement/EvaluationForm';
-import { RecruitmentSubnav } from '@/components/admin/recrutement/RecruitmentSubnav';
 import { OrgCard, OrgPageHeader, orgPageBg } from '@/components/admin/mon-espace/ui';
 import { EVALUATION_MAX_ETAPE_2 } from '@/lib/recruitment/evaluation-criteria';
 import { getRecruitmentCandidat, getRecruitmentEvaluation } from '@/lib/recruitment/queries';
@@ -21,7 +20,6 @@ export default async function EvaluationEtape2Page({ params }: Props) {
           title="Grille d’évaluation — cas pratique animation visio (20 min)"
           description={`6 critères notés de 1 à 4 — total sur ${EVALUATION_MAX_ETAPE_2}. ${candidat.first_name} ${candidat.last_name}.`}
         />
-        <RecruitmentSubnav />
         <OrgCard>
           <EvaluationForm candidatId={id} stage={2} initial={evaluation} />
         </OrgCard>

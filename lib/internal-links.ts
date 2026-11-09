@@ -375,9 +375,10 @@ export const LINKS = {
   /** Espace productivité personnel admin / formateur (privé, hors SEO) */
   /** Candidatures emploi / consultant (admin, accès restreint) */
   adminCandidatures: '/admin/candidatures',
-  /** Pipeline entretiens formateurs (admin + formateur) */
-  adminRecrutement: '/admin/recrutement/planning',
-  adminRecrutementPlanning: '/admin/recrutement/planning',
+  /** Pipeline entretiens formateurs (admin, hors extranet formateurs) */
+  adminRecrutement: '/admin/recrutement/candidats',
+  /** @deprecated Ancienne URL planning créneaux — redirigée vers candidats */
+  adminRecrutementPlanning: '/admin/recrutement/candidats',
   adminRecrutementCandidats: '/admin/recrutement/candidats',
   /** Extranet formateurs — pilotage admin */
   adminFormateurs: '/admin/formateurs',

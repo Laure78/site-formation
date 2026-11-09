@@ -3,32 +3,7 @@ import { adminRecrutementEvaluation } from '@/lib/internal-links';
 import { getRecruitmentInterviewPrep, INTERVIEW_DEROULE_30_MIN } from '@/lib/recruitment/interview-prep';
 import type { RecruitmentCandidatRow } from '@/lib/recruitment/types';
 
-/** Version compacte pour les cartes créneau du planning. */
-export function PlanningSlotBrief({ candidat }: { candidat: RecruitmentCandidatRow }) {
-  const prep = getRecruitmentInterviewPrep(candidat.email);
-  const dispo = candidat.availability_notes?.trim() || prep?.availabilityHint;
-  const cv = prep?.cvSummary ?? candidat.btp_background;
-
-  return (
-    <div className="mt-3 space-y-2 border-t border-slate-100 pt-3 text-sm">
-      {dispo ? (
-        <p>
-          <span className="font-semibold text-slate-700">Dispo : </span>
-          <span className="text-slate-600">{dispo}</span>
-        </p>
-      ) : null}
-      {cv ? <p className="line-clamp-3 text-slate-600">{cv}</p> : null}
-      <Link
-        href={`#recrutement-candidat-${candidat.id}`}
-        className="text-xs font-semibold text-[#377CF3] hover:underline"
-      >
-        Dossier complet ↓
-      </Link>
-    </div>
-  );
-}
-
-/** Dossiers complets sous la grille (page planning). */
+/** Dossiers entretien (liste candidats admin recrutement). */
 export function PlanningDossiersSection({ candidats }: { candidats: RecruitmentCandidatRow[] }) {
   const rows = candidats.filter((c) => !c.is_example);
   if (rows.length === 0) {

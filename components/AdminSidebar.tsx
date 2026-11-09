@@ -30,7 +30,7 @@ const NAV_PILOTAGE = [
   { href: LINKS.adminMonEspace, label: 'Organisation', icon: CalendarDays, exact: false },
   { href: LINKS.adminProspection, label: 'Prospection', icon: Target, exact: false },
   { href: LINKS.adminCandidatures, label: 'Candidatures', icon: UserPlus, exact: false },
-  { href: LINKS.adminRecrutementPlanning, label: 'Recrutement formateurs', icon: UserSearch, exact: false },
+  { href: LINKS.adminRecrutementCandidats, label: 'Recrutement formateurs', icon: UserSearch, exact: false },
   { href: LINKS.adminFormateurs, label: 'Formateurs extranet', icon: ShieldCheck, exact: false },
 ] as const;
 

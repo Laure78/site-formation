@@ -1,7 +1,6 @@
 import { notFound } from 'next/navigation';
 import { CandidatInterviewPrepPanel } from '@/components/admin/recrutement/CandidatInterviewPrepPanel';
 import { EvaluationForm } from '@/components/admin/recrutement/EvaluationForm';
-import { RecruitmentSubnav } from '@/components/admin/recrutement/RecruitmentSubnav';
 import { OrgCard, OrgPageHeader, orgPageBg } from '@/components/admin/mon-espace/ui';
 import { EVALUATION_MAX_ETAPE_1 } from '@/lib/recruitment/evaluation-criteria';
 import { getRecruitmentCandidat, getRecruitmentEvaluation } from '@/lib/recruitment/queries';
@@ -22,7 +21,6 @@ export default async function EvaluationEtape1Page({ params }: Props) {
           title="Grille d’évaluation — entretien de présentation (30 min)"
           description={`8 critères notés de 1 à 4 — total sur ${EVALUATION_MAX_ETAPE_1}. ${candidat.first_name} ${candidat.last_name}.`}
         />
-        <RecruitmentSubnav />
         <OrgCard>
           <CandidatInterviewPrepPanel candidat={candidat} />
         </OrgCard>

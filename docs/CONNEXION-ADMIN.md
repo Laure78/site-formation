@@ -36,7 +36,26 @@ Par défaut, tout nouveau compte a le rôle **apprenant**. Il faut lui donner le
 
 ## Étape 2 — Donner les droits Admin à votre compte
 
-### A. Ouvrir Supabase
+### Option CLI (recommandée en local)
+
+Depuis le dépôt, avec `.env.local` (clé `SUPABASE_SERVICE_ROLE_KEY`) :
+
+```bash
+# Compte existant
+npm run admin:promote -- recrutement@laureolivie.fr
+
+# Création + admin
+npm run admin:promote -- --create --password 'MotDePasseSecurise' --name 'Prénom Nom' email@domaine.fr
+
+# Invitation e-mail Supabase puis admin
+npm run admin:promote -- --invite email@domaine.fr
+```
+
+L’e-mail doit figurer dans `ADMIN_ALLOWED_EMAILS` (local **et** production) pour l’accès complet à `/admin/mon-espace`.
+
+Accès **formateur** (LMS + extranet, sans Organisation) : `npm run admin:formateur -- [--invite] email@…`
+
+### A. Ouvrir Supabase (manuel)
 
 1. Allez sur **https://supabase.com** et connectez-vous
 2. Ouvrez votre projet (celui de laureolivie.fr)

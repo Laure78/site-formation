@@ -57,6 +57,8 @@
     "test:ressources": "npx tsx scripts/assert-ressources-catalog.ts",
     "linkedin:catalogue": "npx tsx scripts/export-catalogue-linkedin.ts",
     "test:auth-access": "npx tsx scripts/assert-admin-access.ts",
+    "admin:promote": "node --env-file=.env.local scripts/promote-admin-email.mjs",
+    "admin:formateur": "node --env-file=.env.local scripts/ensure-formateur-access.mjs",
     "test:satisfaction-j1": "npx tsx scripts/assert-satisfaction-j1.ts",
     "test:invitation-secure": "npx tsx scripts/assert-invitation-no-temp-password.ts",
     "test:career-form": "node scripts/assert-career-form-validation.mjs",
