@@ -120,12 +120,13 @@ export type CatalogueCourseJsonLdConfig = {
     | typeof LINKS.formationApplicationMetierBtpNiveau2
     | typeof LINKS.formationApplicationMetierBtpNiveau3
     | typeof LINKS.formationAssistantsIaPersonnalisesBtp
+    | typeof LINKS.formationAgentsIaAutonomesBtp
     | typeof LINKS.formationDeveloppementWebIaSansCoder;
   name: string;
   description: string;
   price?: number;
   keywords: readonly string[];
-  courseCode: 'NIV-01' | 'NIV-02' | 'NIV-03' | 'NIV-04' | 'NIV-05' | 'NIV-06' | 'NIV-07' | 'NIV-08' | 'NIV-09' | 'NIV-10' | 'NIV-11' | 'NIV-12';
+  courseCode: 'NIV-01' | 'NIV-02' | 'NIV-03' | 'NIV-04' | 'NIV-05' | 'NIV-06' | 'NIV-07' | 'NIV-08' | 'NIV-09' | 'NIV-10' | 'NIV-11' | 'NIV-12' | 'NIV-13';
   educationalLevel: 'Beginner' | 'Advanced';
 };
 
@@ -143,6 +144,7 @@ export type FormationCatalogueRichCourseConfig = {
     | typeof LINKS.formationApplicationMetierBtpNiveau2
     | typeof LINKS.formationApplicationMetierBtpNiveau3
     | typeof LINKS.formationAssistantsIaPersonnalisesBtp
+    | typeof LINKS.formationAgentsIaAutonomesBtp
     | typeof LINKS.formationDeveloppementWebIaSansCoder
     | (typeof LEGACY_APPLICATION_METIER_PATH)[keyof typeof LEGACY_APPLICATION_METIER_PATH];
   name: string;

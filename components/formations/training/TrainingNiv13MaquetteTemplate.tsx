@@ -127,7 +127,7 @@ export async function TrainingNiv13MaquetteTemplate({
         />
 
         {content.workflow && content.workflow.length > 0 ? (
-          <TrainingMethod steps={content.workflow} title={content.workflowTitle} />
+          <TrainingMethod steps={content.workflow} />
         ) : null}
 
         {hasPublicPrerequisSection ? (
