@@ -86,24 +86,37 @@ function HeaderNavFormationsByLevel({
       }
     >
       {columns.map((column) => (
-        <div key={column.title} className="header-nav-dropdown-formations-col min-w-0">
-          <p
-            className={`header-nav-dropdown-formations-level ${
-              isStack ? 'header-nav-dropdown-formations-level--stack' : ''
-            }`}
+        <div
+          key={column.title}
+          className={`header-nav-dropdown-formations-col min-w-0${
+            quadColumn ? ' header-nav-dropdown-formations-col--quad' : ''
+          }`}
+        >
+          <div
+            className={
+              isStack
+                ? undefined
+                : 'header-nav-dropdown-formations-col__head'
+            }
           >
-            {column.title}
-          </p>
-          {column.intro ? (
             <p
-              className={`text-xs leading-snug text-slate-500 ${
-                isStack ? 'px-3 pb-1' : 'px-2 pb-2'
+              className={`header-nav-dropdown-formations-level ${
+                isStack ? 'header-nav-dropdown-formations-level--stack' : ''
               }`}
             >
-              {column.intro}
+              {column.title}
             </p>
-          ) : null}
-          <ul className={isStack ? 'mt-1 space-y-0' : 'mt-2 space-y-0.5'}>
+            {column.intro ? (
+              <p
+                className={`text-xs leading-snug text-slate-500 ${
+                  isStack ? 'px-3 pb-1' : 'header-nav-dropdown-formations-intro'
+                }`}
+              >
+                {column.intro}
+              </p>
+            ) : null}
+          </div>
+          <ul className={isStack ? 'mt-1 space-y-0' : 'header-nav-dropdown-formations-links'}>
             {column.links.map((link) => {
               const active = headerNavLinkIsActive(link.href, pathname);
               return (
@@ -142,7 +155,9 @@ function HeaderNavFormationsByLevel({
             <HeaderNavFormationsFooter
               footer={column.footer}
               onNavigate={onNavigate}
-              className={isStack ? 'px-1' : ''}
+              className={
+                isStack ? 'px-1' : quadColumn ? 'header-nav-dropdown-formations-col__footer' : ''
+              }
             />
           ) : null}
         </div>
@@ -352,6 +367,9 @@ export function HeaderNavDropdown({
         formationsGridDual,
       });
       let left = alignEnd ? rect.right - widthPx : rect.left;
+      if (formationsGridQuad) {
+        left = (vw - widthPx) / 2;
+      }
       left = Math.min(
         Math.max(VIEWPORT_MARGIN_PX, left),
         vw - VIEWPORT_MARGIN_PX - widthPx,

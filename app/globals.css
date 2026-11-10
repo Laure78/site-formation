@@ -1386,7 +1386,7 @@
 
   .site-header__nav-pill {
     @apply hidden min-w-0 items-stretch justify-center gap-0 overflow-visible [scrollbar-width:none];
-    @apply lg:flex lg:flex-1 lg:flex-nowrap lg:gap-0.5 lg:px-0 lg:py-0 xl:gap-1;
+    @apply lg:flex lg:flex-1 lg:flex-nowrap lg:gap-0 lg:px-0 lg:py-0 xl:gap-px;
   }
 
   /* Pas assez de place : nav horizontale masquée — menu hamburger (évite chevauchement logo / liens / CTA). */
@@ -1506,7 +1506,7 @@
 
   /* ——— Navigation header — triggers, dropdowns, mobile ——— */
   .header-nav-trigger {
-    @apply inline-flex min-h-11 w-auto items-stretch rounded-xl text-[0.8125rem] font-medium transition-all duration-150 motion-reduce:transition-none lg:min-h-[2.625rem] xl:min-h-12 xl:text-[0.9375rem] 2xl:text-base;
+    @apply inline-flex min-h-11 w-auto items-stretch rounded-xl text-[0.8125rem] font-medium transition-all duration-150 motion-reduce:transition-none lg:min-h-[2.5rem] lg:text-[0.8125rem] xl:min-h-[2.625rem] xl:text-[0.875rem] 2xl:text-[0.9375rem];
   }
 
   .header-nav-trigger--idle {
@@ -1522,15 +1522,15 @@
   }
 
   .header-nav-trigger__link {
-    @apply inline-flex flex-1 items-center justify-center gap-2 whitespace-nowrap rounded-l-xl py-2.5 pl-3 pr-1 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#377CF3] xl:py-3 xl:pl-4 2xl:pl-5;
+    @apply inline-flex flex-1 items-center justify-center gap-1.5 whitespace-nowrap rounded-l-xl py-2 pl-2.5 pr-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#377CF3] lg:py-2 lg:pl-2 xl:pl-2.5 2xl:pl-3;
   }
 
   .header-nav-trigger--simple .header-nav-trigger__link {
-    @apply rounded-xl px-2.5 lg:px-2 xl:px-3.5 2xl:px-4;
+    @apply rounded-xl px-2 lg:px-2 xl:px-2.5 2xl:px-3;
   }
 
   .header-nav-trigger__toggle {
-    @apply inline-flex items-center rounded-r-xl py-2.5 pr-2.5 pl-0.5 text-current/70 transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#377CF3] hover:text-current xl:py-3 xl:pr-3;
+    @apply inline-flex items-center rounded-r-xl py-2 pr-2 pl-px text-current/70 transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#377CF3] hover:text-current lg:py-2 xl:pr-2;
   }
 
   .header-nav-dropdown-panel {
@@ -1569,7 +1569,7 @@
   }
 
   .header-nav-dropdown-menu--formations-mega {
-    @apply py-3;
+    @apply px-1 py-2.5;
   }
 
   .header-nav-dropdown-formations-grid {
@@ -1582,7 +1582,54 @@
   }
 
   .header-nav-dropdown-formations-grid--quad {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0.75rem 1.125rem;
+    padding: 0.25rem 0.75rem 0.5rem;
+    grid-template-columns:
+      minmax(0, 0.92fr)
+      minmax(0, 1.28fr)
+      minmax(0, 0.92fr)
+      minmax(0, 1fr);
+  }
+
+  .header-nav-dropdown-formations-col--quad {
+    @apply flex min-w-0 flex-col;
+  }
+
+  .header-nav-dropdown-formations-col--quad .header-nav-dropdown-formations-col__head {
+    @apply mb-1.5 min-h-[2.25rem];
+  }
+
+  .header-nav-dropdown-formations-intro {
+    @apply mt-1 px-2;
+  }
+
+  .header-nav-dropdown-formations-links {
+    @apply mt-0 space-y-px;
+  }
+
+  .header-nav-dropdown-formations-col--quad .header-nav-dropdown-formations-links {
+    @apply min-w-0 flex-1;
+  }
+
+  .header-nav-dropdown-formations-col__footer {
+    @apply mt-auto shrink-0 px-1.5;
+  }
+
+  .header-nav-dropdown-menu--formations-mega .header-nav-dropdown-formations-grid--quad .header-nav-dropdown-link--formation {
+    @apply min-h-0 py-1.5 pl-3 pr-2 text-[0.8125rem] leading-snug;
+  }
+
+  .header-nav-dropdown-menu--formations-mega
+    .header-nav-dropdown-formations-grid--quad
+    .header-nav-dropdown-link--formation
+    .header-nav-dropdown-link__label {
+    @apply text-[0.8125rem] leading-[1.35];
+  }
+
+  .header-nav-dropdown-menu--formations-mega
+    .header-nav-dropdown-formations-col__footer
+    .header-nav-dropdown-footer {
+    @apply mx-0 mt-1.5 px-3 py-2 text-[0.8125rem];
   }
 
   @media (max-width: 1023px) {
@@ -1597,6 +1644,10 @@
 
   .header-nav-dropdown-formations-level {
     @apply px-2 text-[0.8125rem] font-bold leading-snug tracking-tight text-slate-900;
+  }
+
+  .header-nav-dropdown-formations-grid--quad .header-nav-dropdown-formations-level {
+    @apply px-0 text-[0.8125rem] font-bold leading-tight text-slate-900;
   }
 
   .header-nav-dropdown-formations-level--stack {

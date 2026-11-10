@@ -272,8 +272,8 @@ export function Header() {
               {mobileMenuButton}
             </div>
           ) : (
-            <div className="site-header__main-row flex min-h-[3.5rem] min-w-0 items-center justify-between gap-2 sm:gap-3 lg:min-h-[3.75rem] lg:gap-3">
-              <div className="flex min-w-0 shrink-0 items-center gap-2 sm:gap-3 lg:gap-3.5">
+            <div className="site-header__main-row flex min-h-[3.25rem] min-w-0 items-center justify-between gap-2 sm:gap-2.5 lg:min-h-[3.5rem] lg:gap-2">
+              <div className="flex min-w-0 shrink-0 items-center gap-2 sm:gap-2.5 lg:gap-2.5">
                 {brandLink}
                 <span
                   className="site-header__brand-divider hidden h-9 w-px shrink-0 self-center bg-[#071B42]/35 lg:block"

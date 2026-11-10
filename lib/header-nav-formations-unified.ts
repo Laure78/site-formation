@@ -35,7 +35,6 @@ export function buildUnifiedFormationsNavMegaColumns(
     ...withCatalogueFooter,
     {
       title: 'Parcours métiers BTP',
-      intro: 'Dirigeant, conducteur, chargé d’affaires, admin…',
       links: buildParcoursNavChildren(),
       footer: {
         href: LINKS.parcoursMetiers,
