@@ -76,15 +76,16 @@ export function FormationsCatalogueMaquetteHero() {
           </ul>
         </div>
 
-        <div className="relative min-h-[14rem] bg-[#F2F2F2] lg:min-h-0">
+        <div className="relative min-h-[14rem] bg-[#F2F2F2] lg:m-6 lg:min-h-0 lg:overflow-hidden lg:rounded-2xl">
           <Image
             src={visual.src}
             alt={visual.alt}
             width={visual.width}
             height={visual.height}
-            className="h-full w-full object-cover object-[65%_35%] motion-reduce:object-[60%_30%] max-lg:max-h-[22rem] max-lg:min-h-[16rem] lg:object-[58%_32%]"
+            className="h-full w-full object-cover object-[center_35%] motion-reduce:object-[center_30%] max-lg:max-h-[22rem] max-lg:min-h-[16rem] lg:aspect-[16/10] lg:object-[center_32%]"
             sizes="(max-width: 1024px) 100vw, 45vw"
             priority
+            fetchPriority="high"
           />
           <div
             className="pointer-events-none absolute inset-y-0 left-0 z-[1] w-[min(100%,4.5rem)] bg-gradient-to-r from-white via-white/85 to-transparent max-lg:h-24 max-lg:w-full max-lg:bg-gradient-to-b max-lg:from-white max-lg:via-white/90 max-lg:to-transparent lg:w-[42%]"

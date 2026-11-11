@@ -53,15 +53,16 @@ export function FormationsCatalogueGridCard({ entry, upcoming = false }: Props) 
       className="group flex h-full flex-col overflow-hidden rounded-2xl border border-[#E2E8F0] bg-white shadow-[0_4px_24px_rgba(15,23,42,0.06)] transition-[box-shadow,transform] duration-200 motion-reduce:transition-none hover:-translate-y-0.5 hover:shadow-[0_12px_32px_rgba(15,23,42,0.1)] scroll-mt-[calc(var(--site-header-height,4.5rem)+0.75rem)]"
       aria-labelledby={titleId}
     >
-      <div className="relative aspect-[5/3] overflow-hidden bg-[#F2F2F2]">
+      <div className="relative aspect-video overflow-hidden rounded-t-2xl bg-[#F2F2F2]">
         {visual ? (
           <Image
             src={visual.photo.src}
             alt={visual.photo.alt}
             width={visual.photo.width}
             height={visual.photo.height}
-            className="h-full w-full object-cover transition-transform duration-300 motion-reduce:transition-none group-hover:scale-[1.02]"
+            className="h-full w-full object-cover object-center transition-transform duration-300 motion-reduce:transition-none group-hover:scale-[1.02]"
             sizes="(max-width: 640px) 100vw, (max-width: 1280px) 50vw, 33vw"
+            loading="lazy"
           />
         ) : null}
         <span
