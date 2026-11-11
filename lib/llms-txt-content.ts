@@ -17,7 +17,7 @@ import { OFC_IDENTITE } from '@/lib/ofc-identite';
 const BASE = SCHEMA_PUBLIC_SITE_URL.replace(/\/$/, '');
 
 /** Date ISO (YYYY-MM-DD) — mettre à jour à chaque modification de ce fichier. */
-export const LLMS_TXT_LAST_UPDATED = '2026-11-06';
+export const LLMS_TXT_LAST_UPDATED = '2026-11-11';
 
 export function buildLlmsTxtContent(): string {
   const refs = formatReferencesLlmsLine();
@@ -80,6 +80,17 @@ export function buildLlmsTxtContent(): string {
 - Laure Olivié — à propos : ${BASE}/a-propos
 - Recrutement formateurs (nous rejoindre) : ${BASE}/nous-rejoindre
 - Références et partenaires : ${BASE}/partenaires
+- [Formation IA maîtrise d'œuvre (MOE, MOEX, OPC, BET)](${BASE}/formations/ia-maitrise-oeuvre) : intra, présentiel en Île-de-France, 2 niveaux, Claude AI ou ChatGPT.
+- [Formation IA assistant maîtrise d'ouvrage (AMO)](${BASE}/formations/ia-assistance-maitrise-ouvrage) : programme, consultation MOE, revue d'études, reporting MOA.
+- [IA et maîtrise d'œuvre : 12 usages de PRO-DCE à AOR](${BASE}/blog/ia-maitrise-oeuvre-usages)
+- [IA et AMO : 8 usages](${BASE}/blog/ia-amo-assistant-maitrise-ouvrage)
+- [Tuto IA — contrôle de situation des travaux](${BASE}/blog/tuto-controle-situation-travaux-ia)
+- [Tuto IA — avenant et ordre de service](${BASE}/blog/tuto-avenant-ordre-de-service-ia)
+- [Tuto IA — dépouillement des offres](${BASE}/blog/tuto-depouillement-offres-ia)
+- [Tuto — skill Claude pour la maîtrise d'œuvre](${BASE}/blog/tuto-skill-claude-maitrise-oeuvre)
+
+## Expertise
+Publics : dirigeants de PME BTP, conducteurs de travaux, chargés d'affaires, maîtres d'œuvre (MOE/MOEX/OPC), bureaux d'études, AMO, fonctions support.
 
 ## Références
 ${refs}

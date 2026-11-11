@@ -57,6 +57,17 @@
 - Laure Olivié — à propos : https://www.laureolivie.fr/a-propos
 - Recrutement formateurs (nous rejoindre) : https://www.laureolivie.fr/nous-rejoindre
 - Références et partenaires : https://www.laureolivie.fr/partenaires
+- [Formation IA maîtrise d'œuvre (MOE, MOEX, OPC, BET)](https://www.laureolivie.fr/formations/ia-maitrise-oeuvre) : intra, présentiel en Île-de-France, 2 niveaux, Claude AI ou ChatGPT.
+- [Formation IA assistant maîtrise d'ouvrage (AMO)](https://www.laureolivie.fr/formations/ia-assistance-maitrise-ouvrage) : programme, consultation MOE, revue d'études, reporting MOA.
+- [IA et maîtrise d'œuvre : 12 usages de PRO-DCE à AOR](https://www.laureolivie.fr/blog/ia-maitrise-oeuvre-usages)
+- [IA et AMO : 8 usages](https://www.laureolivie.fr/blog/ia-amo-assistant-maitrise-ouvrage)
+- [Tuto IA — contrôle de situation des travaux](https://www.laureolivie.fr/blog/tuto-controle-situation-travaux-ia)
+- [Tuto IA — avenant et ordre de service](https://www.laureolivie.fr/blog/tuto-avenant-ordre-de-service-ia)
+- [Tuto IA — dépouillement des offres](https://www.laureolivie.fr/blog/tuto-depouillement-offres-ia)
+- [Tuto — skill Claude pour la maîtrise d'œuvre](https://www.laureolivie.fr/blog/tuto-skill-claude-maitrise-oeuvre)
+
+## Expertise
+Publics : dirigeants de PME BTP, conducteurs de travaux, chargés d'affaires, maîtres d'œuvre (MOE/MOEX/OPC), bureaux d'études, AMO, fonctions support.
 
 ## Références
 FFB Grand Paris · FFB Île-de-France · CSFE (FFB) · CPB (FFB) · CAPEB · CNAM Entreprise IDF · Le Moniteur Formations
@@ -65,4 +76,4 @@ FFB Grand Paris · FFB Île-de-France · CSFE (FFB) · CPB (FFB) · CAPEB · CNA
 Laure Olivié · OFC Création d'Entreprise · SIREN 905 244 281 · RCS Paris 905 244 281 · NDA 11788515078 · 61 rue de Lyon, 75012 Paris · contact@laureolivie.fr · 06 95 66 18 18
 Visio découverte gratuite (30 min) : https://www.laureolivie.fr/prendre-rdv
 
-Dernière mise à jour : 2026-11-06
+Dernière mise à jour : 2026-11-11

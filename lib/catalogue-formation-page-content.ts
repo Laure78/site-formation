@@ -735,6 +735,11 @@ const NIV_04: CatalogueFormationPageContent = {
       href: LINKS.formationConduiteTravauxSuiviChantier,
       label: 'formation conduite de travaux',
     },
+    {
+      prefix: 'Pour côté maîtrise d’œuvre, consultez le',
+      href: LINKS.blogTutoSkillClaudeMaitriseOeuvre,
+      label: 'tutoriel skill Claude pour la maîtrise d’œuvre',
+    },
   ],
   finalCta: DEFAULT_FINAL_CTA,
 };

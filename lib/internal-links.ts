@@ -635,6 +635,12 @@ export const LINKS = {
   blogPlanningChantierSurMesureIa: '/blog/planning-chantier-sur-mesure-ia',
   /** Article MDX — PPSPS et IA (trame, précautions, validation) */
   blogPpspsIa: '/blog/ppsps-ia',
+  /** Tuto — dépouillement des offres avec l'IA (MOE / consultation) */
+  blogTutoDepouillementOffresIa: '/blog/tuto-depouillement-offres-ia',
+  /** Article — usages IA en maîtrise d'œuvre BTP */
+  blogIaMaitriseOeuvreUsages: '/blog/ia-maitrise-oeuvre-usages',
+  /** Tuto — skill Claude pour la maîtrise d'œuvre */
+  blogTutoSkillClaudeMaitriseOeuvre: '/blog/tuto-skill-claude-maitrise-oeuvre',
   /**
    * @deprecated Alias → formationAO (NIV-02). Ancienne fiche CCTP supprimée (301/308).
    * Conservé pour éviter de casser les imports ; préférer `formationAO`.

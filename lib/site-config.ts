@@ -301,6 +301,16 @@ export function sitePersonSchemaSameAs(): readonly string[] {
   return [SITE_LINKEDIN_PROFILE_URL, SITE_YOUTUBE_CHANNEL_URL, SITE_LINKEDIN_LEARNING_INSTRUCTOR_URL];
 }
 
+/** Thématiques `knowsAbout` — nœud EducationalOrganization (layout `#organization`). */
+export const SITE_EDUCATIONAL_ORGANIZATION_KNOWS_ABOUT = [
+  'IA pour la maîtrise d’œuvre',
+  "IA pour l'assistance à maîtrise d'ouvrage",
+  'Claude AI',
+  'ChatGPT',
+  'dépouillement des offres',
+  'situations de travaux',
+] as const;
+
 /** hasCredential Qualiopi — EducationalOrganization (n° depuis SITE.qualiopi). */
 export function siteQualiopiHasCredentialSchema(): Record<string, unknown> {
   const debut = `${SITE.qualiopi.debut.slice(8, 10)}/${SITE.qualiopi.debut.slice(5, 7)}/${SITE.qualiopi.debut.slice(0, 4)}`;
@@ -349,6 +359,7 @@ export function buildSiteLayoutEducationalOrganizationNode(
       name: SITE_AREA_SERVED_LABEL,
     },
     hasCredential: siteQualiopiHasCredentialSchema(),
+    knowsAbout: [...SITE_EDUCATIONAL_ORGANIZATION_KNOWS_ABOUT],
     sameAs: [...SITE.sameAs],
     founder: { '@id': siteSchemaPersonId(base) },
   };

@@ -144,7 +144,12 @@ export default function IaCompteRenduChantierPage() {
             <p className="mt-4 text-base leading-relaxed text-slate-600">
               Le flux type : capture terrain → structuration par lot → points non soldés → plan
               d&apos;actions → relecture → diffusion. L&apos;outil accélère ; le responsable de
-              chantier reste garant du contenu.
+              chantier reste garant du contenu. Pour la rédaction côté MOEX (CR, OS, réserves),
+              l&apos;article{' '}
+              <Link href={LINKS.blogIaMaitriseOeuvreUsages} className={OFC_LINK}>
+                l&apos;IA en maîtrise d&apos;œuvre
+              </Link>{' '}
+              détaille les autres usages courants.
             </p>
             <div className="mt-6 overflow-x-auto rounded-2xl border border-slate-200 bg-white">
               <table className="min-w-full text-left text-sm text-slate-700">

@@ -135,7 +135,12 @@ export default function IaAnalyseDceBtpPage() {
             <p className="mt-6 text-lg leading-relaxed text-slate-600">
               Un DCE, c&apos;est souvent des heures de lecture — et le risque de rater une clause
               éliminatoire. L&apos;IA ne décide pas à votre place : elle structure l&apos;analyse pour
-              que vous alliez plus vite, sans déléguer le GO / NO GO.
+              que vous alliez plus vite, sans déléguer le GO / NO GO. Les cabinets de maîtrise
+              d&apos;œuvre peuvent prolonger cette lecture avec la{' '}
+              <Link href={LINKS.formationIaMaitriseOeuvre} className={OFC_LINK}>
+                formation IA pour maîtres d&apos;œuvre
+              </Link>{' '}
+              (CCTP, DPGF, consultation).
             </p>
           </div>
         </section>
@@ -184,7 +189,11 @@ export default function IaAnalyseDceBtpPage() {
             </div>
             <p className="mt-4 text-sm leading-relaxed text-slate-500">
               Les productions générées par l&apos;IA doivent être contrôlées avant utilisation commerciale
-              ou contractuelle.
+              ou contractuelle. Une fois les offres rendues, le tutoriel{' '}
+              <Link href={LINKS.blogTutoDepouillementOffresIa} className={OFC_LINK}>
+                dépouiller les offres avec l&apos;IA
+              </Link>{' '}
+              structure la comparaison des mémoires et des bordereaux sans trancher à votre place.
             </p>
           </div>
         </section>

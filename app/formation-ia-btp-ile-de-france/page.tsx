@@ -199,7 +199,15 @@ export default function FormationIaBtpIleDeFrancePage() {
                 formations IA pour le BTP
               </Link>
               — effectifs et tarifs à jour (ex. appels d&apos;offres : {LIBELLE_EFFECTIF_GROUPE_NIV02}). Présentiel
-              uniquement, sessions intra ou inter, sur {IDF_ZONE_INTERVENTION}.
+              uniquement, sessions intra ou inter, sur {IDF_ZONE_INTERVENTION}. Le catalogue compte aussi une{' '}
+              <Link href={LINKS.formationIaMaitriseOeuvre} className={OFC_LINK}>
+                formation IA pour maîtres d&apos;œuvre
+              </Link>{' '}
+              et une{' '}
+              <Link href={LINKS.formationIaAssistanceMaitriseOuvrage} className={OFC_LINK}>
+                formation IA assistance à maîtrise d&apos;ouvrage
+              </Link>{' '}
+              pour les équipes MOEX et AMO.
             </p>
             <div className="mt-10">
               <FormationsCatalogueInteractive formations={catalogueFormations} catalogueCount={catalogueCount} />

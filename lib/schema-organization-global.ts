@@ -14,7 +14,10 @@ import {
   siteOrganizationProofSnippet,
   siteOrganizationSameAsUrls,
 } from '@/lib/schema-site-proof';
-import { siteProviderIdentifierSchema } from '@/lib/site-config';
+import {
+  SITE_EDUCATIONAL_ORGANIZATION_KNOWS_ABOUT,
+  siteProviderIdentifierSchema,
+} from '@/lib/site-config';
 
 export type OrganizationOfcSchemaNodeOptions = {
   organizationId?: string;
@@ -80,6 +83,7 @@ export function buildOrganizationOfcSchemaNode(
       },
     ],
     hasCredential: buildQualiopiCredentialSchema(),
+    knowsAbout: [...SITE_EDUCATIONAL_ORGANIZATION_KNOWS_ABOUT],
     /** Person déclarée dans le layout — référence par @id uniquement. */
     founder: { '@id': personId },
   };
