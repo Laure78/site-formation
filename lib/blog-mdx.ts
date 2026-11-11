@@ -10,7 +10,7 @@ import rehypeSlug from 'rehype-slug';
 import { rehypeAutoLink } from '@/lib/autoLink';
 import matter from 'gray-matter';
 import { getBlogArticleCanonicalPathFromMdx } from '@/lib/blog-article-path';
-import { buildBlogArticleOgImageAlt } from '@/lib/image-alt';
+import { buildBlogArticleOgImageAlt, normalizePhotoAlt } from '@/lib/image-alt';
 import { ARTICLE_SECTION_GEO, createPageMetadata, estimateWordCountFromPlainText, SITE_CONFIG } from '@/lib/seo';
 import { getBlogMdxComponents } from '@/components/blog/blog-mdx-components';
 import type { BlogArticle } from '@/lib/blog';
@@ -115,7 +115,10 @@ export function buildMdxBlogMetadata(slug: string, pathOverride?: string): Metad
   const path = pathOverride ?? getBlogArticleCanonicalPathFromMdx(fm);
   const coverUrl = resolveMdxCoverUrl(fm.cover);
   const metaTitle = fm.seoTitle ?? fm.title;
-  const ogImageAlt = buildBlogArticleOgImageAlt(metaTitle);
+  const ogImageAlt =
+    fm.coverAlt?.trim()
+      ? normalizePhotoAlt(fm.coverAlt)
+      : buildBlogArticleOgImageAlt(metaTitle);
   return createPageMetadata({
     title: metaTitle,
     description: fm.description,
@@ -191,11 +194,26 @@ export function mdxFrontmatterToBlogArticle(fm: BlogMdxFrontmatter): BlogArticle
     sections: [],
     faq: faq.length ? faq : undefined,
     coverImage: fm.cover,
+    coverAlt: fm.coverAlt,
     relatedSlugs: fm.relatedSlugs,
     readingTime: fm.readingTime,
     enBref: fm.enBref,
     canonicalPath: fm.canonicalPath,
   };
+}
+
+/** Articles MDX avec couverture visible dans le corps (même visuel que la carte blog). */
+export const BLOG_MDX_INLINE_COVER_SLUGS = new Set([
+  'ia-amo-assistant-maitrise-ouvrage',
+  'ia-maitrise-oeuvre-usages',
+  'tuto-avenant-ordre-de-service-ia',
+  'tuto-controle-situation-travaux-ia',
+  'tuto-depouillement-offres-ia',
+  'tuto-skill-claude-maitrise-oeuvre',
+]);
+
+export function shouldShowMdxInlineCover(slug: string): boolean {
+  return BLOG_MDX_INLINE_COVER_SLUGS.has(slug);
 }
 
 export function resolveMdxCoverUrl(cover: string): string {

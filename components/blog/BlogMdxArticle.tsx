@@ -9,6 +9,7 @@ import {
   compileMdxBlogPostCached,
   resolveMdxCoverUrl,
   readMdxBlogRaw,
+  shouldShowMdxInlineCover,
 } from '@/lib/blog-mdx';
 import matter from 'gray-matter';
 import { buildMdxBlogHowToSchema } from '@/lib/blog-mdx-howto';
@@ -23,6 +24,7 @@ import { shouldShowSkillLeadMagnetCta } from '@/lib/lead-magnet-skill-ia';
 import { BlogCTA } from '@/components/BlogCTA';
 import { LeadMagnetCTA } from '@/components/LeadMagnetCTA';
 import { OFC_LINK } from '@/lib/ofc-interaction-classes';
+import { BlogMdxCover } from '@/components/blog/BlogMdxCover';
 import {
   OFC_EDITORIAL,
   OFC_PAGE_ARTICLE_NARROW,
@@ -156,6 +158,10 @@ export async function BlogMdxArticle({ slug }: Props) {
         </h1>
         {enBrefSentences ? <BlogArticleEnBref sentences={enBrefSentences} /> : null}
         <p className="mt-4 text-lg text-slate-600">{frontmatter.description}</p>
+
+        {shouldShowMdxInlineCover(slug) ? (
+          <BlogMdxCover src={frontmatter.cover} alt={frontmatter.coverAlt} priority />
+        ) : null}
 
         <div className="article-mdx mt-8 max-w-none">{content}</div>
 

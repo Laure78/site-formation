@@ -79,6 +79,8 @@ export interface BlogArticle {
   faq?: { question: string; answer: string }[];
   /** Image de couverture pour le schéma Article (URL absolue ou chemin commençant par /) */
   coverImage?: string;
+  /** Texte alternatif de la couverture (articles MDX) */
+  coverAlt?: string;
   /** Affichage carte blog (ex. « 8 min ») — articles MDX avec `sections` vides */
   readingTime?: string;
   /** Synthèse factuelle sous le H1 (2–3 phrases) — absent = bloc masqué */

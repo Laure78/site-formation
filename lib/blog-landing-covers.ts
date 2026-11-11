@@ -23,7 +23,14 @@ export function getBlogLandingCardCoverSrc(article: Pick<BlogArticle, 'slug' | '
   return LANDING_COVER_BY_SLUG[article.slug] ?? getBlogCardCoverSrc(article);
 }
 
-export function getBlogLandingCardCoverAlt(article: Pick<BlogArticle, 'title'>): string {
+export function getBlogLandingCardCoverAlt(
+  article: Pick<BlogArticle, 'title' | 'coverAlt'>,
+): string {
+  const fromCover = article.coverAlt?.trim();
+  if (fromCover) {
+    if (fromCover.length <= 120) return fromCover;
+    return `${fromCover.slice(0, 117)}…`;
+  }
   const base = article.title.trim();
   if (base.length <= 120) return base;
   return `${base.slice(0, 117)}…`;
