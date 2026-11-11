@@ -13,7 +13,7 @@ import { clampMetaDescription } from '@/lib/meta-description';
 import { GlobalSitelinksJsonLd } from '@/components/schema/GlobalSitelinksJsonLd';
 import { GlobalSiteJsonLd } from '@/components/schema/GlobalSiteJsonLd';
 import { GlobalBreadcrumbs } from '@/components/layout/GlobalBreadcrumbs';
-import { ScrollToHashOnLoad } from '@/components/navigation/ScrollToHashOnLoad';
+import { DeferredScrollToHashOnLoad } from '@/components/navigation/DeferredScrollToHashOnLoad';
 import { SiteSearchProvider } from '@/components/search/SiteSearchProvider';
 const FormationCalendlyInlineGate = dynamic(
   () =>
@@ -168,7 +168,7 @@ export default function RootLayout({
         <GlobalSiteJsonLd />
       </head>
       <body className="flex min-h-screen min-w-0 flex-col overflow-x-clip bg-white font-sans text-slate-900 antialiased">
-        <ScrollToHashOnLoad />
+        <DeferredScrollToHashOnLoad />
         <GlobalSitelinksJsonLd />
         <script
           type="application/ld+json"

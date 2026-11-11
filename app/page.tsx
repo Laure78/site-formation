@@ -1,5 +1,4 @@
 import type { Metadata } from 'next';
-import { preload } from 'react-dom';
 import { AccueilHeroSection } from '@/components/landing/AccueilHeroSection';
 import { AccueilBandeauReassuranceSection } from '@/components/landing/accueil/AccueilBandeauReassuranceSection';
 import { AccueilDiagnosticIaBtpSection } from '@/components/landing/accueil/AccueilDiagnosticIaBtpSection';
@@ -26,8 +25,6 @@ const HOME_META_DESCRIPTION =
   'Formation IA BTP en Île-de-France : parcours métiers et sessions catalogue 4 h ou 14 h (2 jours) pour devis, DCE et chantiers. Présentiel, Qualiopi, OPCO selon éligibilité. Visio offerte.';
 
 const HOME_FAQ_PAGE_JSON_LD = buildHomeFAQPageJsonLd();
-
-preload(PHOTOS.accueilHeroEquipeBtp.src, { as: 'image', fetchPriority: 'high' });
 
 export const revalidate = 3600;
 

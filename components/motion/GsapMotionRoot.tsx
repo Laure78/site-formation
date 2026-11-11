@@ -4,6 +4,7 @@ import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import Lenis from 'lenis';
+import 'lenis/dist/lenis.css';
 import { usePathname } from 'next/navigation';
 import { useRef } from 'react';
 import { scanDataAnims } from '@/lib/motion/animations/registry';

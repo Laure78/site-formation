@@ -40,6 +40,16 @@ const nextConfig: NextConfig = {
   async headers() {
     return [
       {
+        /** ISR accueil — `revalidate=3600` ; `public` pour cache edge (Cloudflare) si éligible. */
+        source: '/',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, s-maxage=3600, stale-while-revalidate=86400',
+          },
+        ],
+      },
+      {
         source: '/_next/static/:path*',
         headers: [
           {

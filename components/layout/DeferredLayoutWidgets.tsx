@@ -3,7 +3,6 @@
 import dynamic from 'next/dynamic';
 import { useEffect, useState } from 'react';
 import { DeferredRevealScrollObserver } from '@/components/motion/DeferredRevealScrollObserver';
-import { GsapMotionRoot } from '@/components/motion/GsapMotionRoot';
 
 const ScrollToTopButton = dynamic(
   () =>
@@ -45,6 +44,14 @@ const CookieConsentBanner = dynamic(
   { ssr: false },
 );
 
+const ConditionalGsapMotionRootLazy = dynamic(
+  () =>
+    import('@/components/motion/ConditionalGsapMotionRoot').then((mod) => ({
+      default: mod.ConditionalGsapMotionRoot,
+    })),
+  { ssr: false },
+);
+
 const GoogleAnalytics = dynamic(
   () =>
     import('@/components/analytics/GoogleAnalytics').then((mod) => ({
@@ -72,6 +79,7 @@ const CalendlyScriptLoader = dynamic(
 /** Widgets globaux non critiques — chargés après le JS initial (code splitting). */
 export function DeferredLayoutWidgets() {
   const [deferredReady, setDeferredReady] = useState(false);
+  const [revealReady, setRevealReady] = useState(false);
 
   useEffect(() => {
     const enable = () => setDeferredReady(true);
@@ -85,13 +93,25 @@ export function DeferredLayoutWidgets() {
     return () => clearTimeout(timer);
   }, []);
 
+  useEffect(() => {
+    const enable = () => setRevealReady(true);
+
+    if (typeof window.requestIdleCallback === 'function') {
+      const id = window.requestIdleCallback(enable, { timeout: 1200 });
+      return () => window.cancelIdleCallback(id);
+    }
+
+    const timer = setTimeout(enable, 400);
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <>
-      <GsapMotionRoot />
-      <DeferredRevealScrollObserver />
+      {revealReady ? <DeferredRevealScrollObserver /> : null}
       <CookieConsentBanner />
       {deferredReady ? (
         <>
+          <ConditionalGsapMotionRootLazy />
           <GoogleAnalytics />
           <AiTrafficAttribution />
           <CalendlyScriptLoader />

@@ -1,9 +1,8 @@
 /**
  * Animations premium (GSAP + CSS) — transform / opacity uniquement.
  * Complète `data-anim` initialisé par `GsapMotionRoot`.
+ * Lenis : importé dans `GsapMotionRoot.tsx` uniquement (évite CSS bloquant global).
  */
-
-@import 'lenis/dist/lenis.css';
 
 /* ——— Masques mots (split-words) ——— */
 .anim-word-mask {

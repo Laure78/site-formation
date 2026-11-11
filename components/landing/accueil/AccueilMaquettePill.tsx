@@ -20,8 +20,8 @@ export function AccueilMaquettePill({
         variant === 'accent'
           ? 'bg-[#EAF3FF] text-[#0755E8]'
           : variant === 'violet'
-            ? 'bg-[#EDE9FE] text-[#6D28D9] uppercase tracking-wide'
-            : 'bg-[#E8E8E8] text-[#101936]/75',
+            ? 'bg-[#EDE9FE] text-[#5B21B6] uppercase tracking-wide'
+            : 'bg-[#E8E8E8] text-[#101936]',
         className,
       )}
     >
