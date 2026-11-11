@@ -68,7 +68,13 @@ function assertOfferRules(name, schema) {
     throw new Error(`${name}: category « ${FORMATION_COURSE_OFFER_CATEGORY} » requise`);
   }
   if (name.startsWith('catalogue-niv-')) {
-    const surDevis = ['catalogue-niv-06', 'catalogue-niv-07', 'catalogue-niv-08'].includes(name);
+    const surDevis = [
+      'catalogue-niv-05',
+      'catalogue-niv-06',
+      'catalogue-niv-07',
+      'catalogue-niv-08',
+      'catalogue-niv-11',
+    ].includes(name);
     if (!surDevis && offers.price == null) {
       throw new Error(`${name}: price requis`);
     }

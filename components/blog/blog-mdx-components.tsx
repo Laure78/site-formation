@@ -6,6 +6,8 @@ import { BlogEncadre } from '@/components/blog/BlogEncadre';
 import { BlogTableWrap } from '@/components/blog/BlogTableWrap';
 import { EnBref } from '@/app/components/EnBref';
 import { CopiableCodeBlock } from '@/components/blog/CopiableCodeBlock';
+import { BlogCtaVisio } from '@/components/blog/BlogCtaVisio';
+import { MdxCopiablePre } from '@/components/blog/MdxCopiablePre';
 import {
   SKILL_CHATGPT_EDITOR_EXAMPLE,
   SKILL_CR_PLOMBERIE_EXAMPLE,
@@ -69,6 +71,9 @@ export function getBlogMdxComponents(): MDXComponents {
     BlogTableWrap,
     EnBref,
     CopiableCodeBlock,
+    BlogCtaVisio,
+    pre: (props) => <MdxCopiablePre {...props} />,
+    BlogCtaVisio,
     SkillCrPlomberieCopiable: () => (
       <CopiableCodeBlock
         title="SKILL.md — extraction lot plomberie (données fictives)"

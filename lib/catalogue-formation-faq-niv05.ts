@@ -1,48 +1,42 @@
 /**
- * FAQ métier — fiche NIV-05 (maîtrise d’œuvre BTP, fusion NIV-12).
+ * FAQ métier — fiche NIV-05 (contenu SEO docs/seo-moe-amo/02).
  */
-import { getFormationByCode, libelleDureeFormation, libelleEffectifFormation } from '@/data/formations';
 import type { FAQItem } from '@/lib/faq';
-import { FINANCEMENT_FORMULATION_PRUDENTE } from '@/lib/financement-copy';
 import { LINKS } from '@/lib/internal-links';
-
-const F = () => getFormationByCode('NIV-05')!;
+import { formatNoteSatisfactionAffichageComplet } from '@/lib/data/indicateurs-resultats';
 
 export const FAQ_MOE_NIV05: FAQItem[] = [
   {
-    q: 'À qui s’adresse cette formation IA maîtrise d’œuvre ?',
-    a: `Aux maîtres d’œuvre de conception et d’exécution (MOE / MOEX), architectes, économistes de la construction, BET, OPC et collaborateurs de cabinets — ainsi qu’aux conducteurs de travaux MOE et assistants gestion travaux. ${libelleDureeFormation(F())}, présentiel en Île-de-France.`,
+    q: 'Quelle formation IA pour un cabinet de maîtrise d’œuvre en Île-de-France ?',
+    a: 'Une formation intra, en présentiel, construite sur vos trames et vos phases de mission. Laure Olivié la propose en deux niveaux de 4 h, dans vos locaux, partout en Île-de-France.',
   },
   {
-    q: 'Quels outils d’IA sont utilisés ?',
-    a: 'ChatGPT et Claude AI sur ordinateur : rédaction, analyse de documents longs, structuration de tableaux et transcription de notes ou dictées. Chaque participant utilise son propre compte (ChatGPT Plus ou Claude Pro recommandé — non inclus dans le tarif).',
+    q: 'L’IA peut-elle contrôler une situation de travaux ?',
+    a: 'Elle peut repérer des écarts (avancement, avenants oubliés, retenue de garantie) et rédiger la demande de correction. Les calculs restent vérifiés dans Excel et la validation reste celle du maître d’œuvre.',
   },
   {
-    q: 'Peut-on rédiger un CCTP avec ChatGPT ?',
-    a: 'Oui pour structurer des trames, descriptifs par lot et listes d’exigences à partir de vos pièces de référence. Les références normatives, quantités et conformité restent à vérifier sur les textes officiels et à valider par le maître d’œuvre compétent.',
+    q: 'Claude ou ChatGPT pour un maître d’œuvre ?',
+    a: 'Les deux fonctionnent. La formation s’appuie de préférence sur Claude pour ses Projets et ses Skills, très adaptés aux trames répétitives d’une opération.',
   },
   {
-    q: 'Comment préparer une DPGF avec l’IA ?',
-    a: 'L’IA aide à organiser les postes, repérer des incohérences avec le CCTP et préparer une trame de bordereau. Les métrés, quantités et prix doivent être contrôlés par le professionnel avant toute consultation ou engagement.',
+    q: 'L’IA lit-elle les plans AutoCAD ?',
+    a: 'Pas les fichiers DWG. Elle exploite des plans exportés en PDF ou DXF pour contrôler cartouches, indices et listes de plans.',
   },
   {
-    q: 'Peut-on analyser un DCE avec Claude ?',
-    a: 'Oui : synthèse des pièces (CCTP, CCAP, etc.), extraction d’exigences et points de vigilance, avec renvoi aux documents sources. Claude et ChatGPT sont interchangeables selon vos habitudes de cabinet — la vérification humaine est obligatoire.',
+    q: 'Mes pièces de marché sont-elles en sécurité ?',
+    a: 'La formation traite la confidentialité en premier : paramétrage de l’espace Team, données à anonymiser, règles d’usage écrites pour l’équipe.',
   },
   {
-    q: 'Comment rédiger un compte rendu de chantier ?',
-    a: 'À partir de notes, d’une dictée vocale ou de photos : l’IA structure le CR par corps d’état, décisions, actions et échéances. Vous relisez et validez avant envoi aux entreprises et au maître d’ouvrage.',
+    q: 'Comment financer la formation ?',
+    a: 'Prise en charge OPCO selon éligibilité (Atlas pour les sociétés d’ingénierie). L’entreprise règle la formation puis se fait rembourser ; non éligible au CPF.',
   },
   {
-    q: 'L’IA peut-elle préparer les ordres de service ?',
-    a: 'Elle peut produire un projet d’OS ou de courrier à partir de vos modèles et du contexte chantier. La validation juridique, les habilitations de signature et les stipulations contractuelles restent de votre responsabilité.',
-  },
-  {
-    q: 'Comment suivre les réserves avec l’IA ?',
-    a: 'Structuration des listes de réserves, tableaux de suivi des levées, relances et préparation des pièces de réception. Les constats terrain et la conformité des levées sont contrôlés par le maître d’œuvre sur place.',
-  },
-  {
-    q: 'Constructys peut-il prendre en charge la formation ?',
-    a: `La prise en charge par Constructys ou un autre OPCO est possible selon l’éligibilité de votre entreprise et de vos salariés — elle n’est jamais automatique. OFC Création d’Entreprise est référencé Qualiopi. Voir <a href="${LINKS.financement}">financement Constructys formation IA BTP</a>.`,
+    q: 'Faut-il être à l’aise en informatique ?',
+    a: 'Non. Il suffit de savoir utiliser Word, Excel et sa messagerie.',
   },
 ];
+
+/** Bloc « Qui forme ? » — satisfaction via indicateurs (pas de chiffre en dur). */
+export function formationMoeQuiFormeHtml(): string {
+  return `Laure Olivié, fondatrice de l’organisme de formation OFC Création d’Entreprise (certifié Qualiopi, actions de formation), 7 ans dans le BTP comme ex-dirigeante d’ALIA BTP (travaux publics, Île-de-France), instructrice LinkedIn Learning (IA BTP). Satisfaction : ${formatNoteSatisfactionAffichageComplet()} — voir <a href="${LINKS.indicateursResultats}">nos indicateurs</a>.`;
+}

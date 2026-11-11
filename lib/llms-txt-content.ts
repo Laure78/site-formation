@@ -80,7 +80,7 @@ export function buildLlmsTxtContent(): string {
 - Laure Olivié — à propos : ${BASE}/a-propos
 - Recrutement formateurs (nous rejoindre) : ${BASE}/nous-rejoindre
 - Références et partenaires : ${BASE}/partenaires
-- [Formation IA maîtrise d'œuvre (MOE, MOEX, OPC, BET)](${BASE}/formations/ia-maitrise-oeuvre) : intra, présentiel en Île-de-France, 2 niveaux, Claude AI ou ChatGPT.
+- [Formation IA maîtrise d'œuvre (MOE, MOEX, OPC, BET)](${BASE}/formations/ia-maitrise-oeuvre) : intra, présentiel en Île-de-France, un seul parcours, Claude AI ou ChatGPT.
 - [Formation IA assistant maîtrise d'ouvrage (AMO)](${BASE}/formations/ia-assistance-maitrise-ouvrage) : programme, consultation MOE, revue d'études, reporting MOA.
 - [IA et maîtrise d'œuvre : 12 usages de PRO-DCE à AOR](${BASE}/blog/ia-maitrise-oeuvre-usages)
 - [IA et AMO : 8 usages](${BASE}/blog/ia-amo-assistant-maitrise-ouvrage)

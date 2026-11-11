@@ -1,0 +1,74 @@
+---
+title: "Tuto : créer un Skill Claude pour la maîtrise d'œuvre (lettre de commande)"
+seoTitle: "Créer un Skill Claude pour la maîtrise d'œuvre (tuto)"
+description: "Tuto pas à pas : transformer votre trame de lettre de commande en Skill Claude réutilisable par toute l'équipe de maîtrise d'œuvre. Nom, instructions, test."
+slug: tuto-skill-claude-maitrise-oeuvre
+publishedAt: "2026-11-11"
+updatedAt: "2026-11-11"
+cover: /images/og-default-formation-ia-btp.jpg
+coverAlt: "Tuto : créer un Skill Claude pour la maîtrise d'œuvre (lettre de commande)"
+keywords:
+  - Skill Claude maîtrise d'œuvre
+  - Claude AI maître d'œuvre
+  - Claude Skills BTP
+  - formation Claude AI maîtrise d'œuvre
+readingTime: "6 min"
+hideEndCta: true
+enBref: "un Skill Claude est un ensemble d'instructions, de trames et de règles que Claude applique automatiquement quand la demande correspond. Pour un maître d'œuvre, transformer la trame de lettre de commande en Skill permet à toute l'équipe d'obtenir le même résultat, avec les mêmes contrôles, sans réécrire le prompt à chaque fois."
+relatedSlugs:
+  - ia-maitrise-oeuvre-usages
+  - ia-amo-assistant-maitrise-ouvrage
+faq:
+  - question: "Faut-il savoir coder ?"
+    answer: "Non. Un Skill s'écrit en français ; Claude peut même vous aider à le rédiger."
+  - question: "Les Skills sont-ils disponibles dans toutes les offres Claude ?"
+    answer: "Les fonctionnalités évoluent ; vérifiez dans les réglages de votre espace. Le partage en équipe dépend de l'administrateur."
+  - question: "Peut-on faire la même chose avec ChatGPT ?"
+    answer: "Un GPT personnalisé s'en approche, avec un fonctionnement différent."
+  - question: "Où apprendre à créer ses Skills ?"
+    answer: "Dans le Niveau 2 de la [formation IA maîtrise d'œuvre](/formations/ia-maitrise-oeuvre) ou la formation [Maîtriser Claude AI dans le BTP](/formations/maitriser-claude-ai-btp), en présentiel en Île-de-France."
+---
+
+## Prompt, Projet ou Skill : quelle différence ?
+| | Prompt | Projet | Skill |
+|---|---|---|---|
+| Ce que c'est | Une consigne ponctuelle | Un espace avec des documents d'une opération | Une méthode réutilisable |
+| Portée | Une conversation | Une opération | Toutes les opérations, toute l'équipe |
+| Exemple | « Rédige cette LC » | Projet « Opération X » | Skill « Lettre de commande » |
+
+## Étape 1 — Choisir une tâche répétitive et stable
+Bon candidat : lettre de commande, avenant, OS, demande d'agrément, PV de levée des réserves. Mauvais candidat : une tâche qui change à chaque fois.
+
+## Étape 2 — Écrire le nom et la description de déclenchement
+- **Nom** : `lettre-de-commande-moe`
+- **Description** : « Rédige une lettre de commande de travaux à partir du récapitulatif d'opération et du devis retenu. À utiliser dès que l'utilisateur demande une lettre de commande, une LC ou un bon de commande travaux. »
+
+La description décide quand Claude utilise le Skill : soyez explicite.
+
+## Étape 3 — Rédiger les instructions
+```
+1. Demande ou repère : opération, lot, entreprise, devis retenu, montant HT, délais.
+2. Complète la trame jointe (avec ou sans CCAP selon le cas).
+3. Liste les pièces contractuelles de CETTE opération uniquement
+   (CCAP, CCTP du lot avec indice, études, PGCSPS, RICT).
+4. Montant HT en chiffres et en toutes lettres.
+5. Termine par un encadré « Contrôles » : pièces, montants, délais, paiement.
+6. N'invente rien : [À COMPLÉTER] si une donnée manque.
+```
+Joignez votre trame Word au Skill.
+
+<BlogCtaVisio src="tuto-skill" label="Construire votre bibliothèque de Skills en équipe ?" />
+## Étape 4 — Tester sur une affaire réelle
+Lancez trois demandes différentes (lot avec CCAP, sans CCAP, donnée manquante). Corrigez les instructions à chaque écart. Un Skill se stabilise en quelques itérations.
+
+## Étape 5 — Partager et gouverner
+- Partager le Skill avec l'équipe (selon l'offre Claude Team et les réglages de l'administrateur)
+- Désigner un référent Skills qui gère les versions
+- Écrire les règles : confidentialité, relecture obligatoire
+
+## Quels Skills pour un cabinet de maîtrise d'œuvre ?
+- Administratif : lettre de commande, avenant, OS, agrément, contrôle de situation, courriers LRAR
+- Consultation : analyse CCTP/CCAP, dépouillement des offres
+- Chantier : visite de chantier, contrôle de complétude PPSPS, réception / DOE / PVLR
+
+<BlogCtaVisio src="tuto-skill" />

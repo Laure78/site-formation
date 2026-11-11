@@ -8,7 +8,10 @@ import { shouldShowSommaireAncre } from '@/lib/sommaire-ancre';
 import {
   compileMdxBlogPostCached,
   resolveMdxCoverUrl,
+  readMdxBlogRaw,
 } from '@/lib/blog-mdx';
+import matter from 'gray-matter';
+import { buildMdxBlogHowToSchema } from '@/lib/blog-mdx-howto';
 import { getBlogArticleCanonicalPathFromMdx } from '@/lib/blog-article-path';
 import { getRelatedArticlesForDisplay } from '@/lib/blog';
 import { mdxFrontmatterToBlogArticle } from '@/lib/blog-mdx';
@@ -46,6 +49,18 @@ export async function BlogMdxArticle({ slug }: Props) {
     .map((entry) => ({ label: entry.text, anchor: entry.id }));
   const showSommaire = shouldShowSommaireAncre(sommaireItems);
 
+  const raw = readMdxBlogRaw(slug);
+  const markdownBody = raw ? matter(raw).content : '';
+  const howToSchema =
+    markdownBody.length > 0
+      ? buildMdxBlogHowToSchema({
+          title: frontmatter.title,
+          description: frontmatter.description,
+          path: canonicalPath,
+          markdownBody,
+        })
+      : null;
+
   return (
     <div
       className={
@@ -56,6 +71,7 @@ export async function BlogMdxArticle({ slug }: Props) {
         slug={slug}
         canonicalPath={canonicalPath}
         legacyArticle={legacyArticle}
+        howToSchema={howToSchema}
         article={{
           id: 'schema-blog-mdx-article',
           title: frontmatter.title,

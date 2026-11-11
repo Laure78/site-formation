@@ -277,7 +277,6 @@ export const FORMATIONS: readonly Formation[] = [
     effectifMin: 6,
     effectifMax: 12,
     prixHT: 0,
-    tarifParticipantHt: TARIF_PARTICIPANT_NIV05_HT,
     accroche:
       'CCTP, DPGF, analyse DCE, comptes rendus, ordres de service et réserves — ChatGPT et Claude pour la maîtrise d’œuvre de conception et d’exécution.',
     objectifs: [
@@ -313,7 +312,6 @@ export const FORMATIONS: readonly Formation[] = [
     effectifMin: CATALOGUE_EFFECTIF_MIN,
     effectifMax: CATALOGUE_EFFECTIF_MAX,
     prixHT: 0,
-    tarifParticipantHt: TARIF_PARTICIPANT_NIV02_HT,
     accroche:
       'Charte IA, analyse des consultations, rapport d’analyse des offres et pilotage des intervenants — ChatGPT et Claude côté assistance à maîtrise d’ouvrage.',
     objectifs: [

@@ -125,13 +125,14 @@ export const FORMATION_CATALOGUE_SEO: Record<FormationCatalogueCode, FormationCa
     ],
   },
   'NIV-05': {
-    metaTitle: 'Formation IA Maîtrise d’œuvre BTP | CCTP, DPGF, chantier',
-    h1: 'Formation IA Maîtrise d’œuvre BTP : CCTP, DPGF et suivi de chantier',
+    metaTitle: 'Formation IA Maître d’œuvre Île-de-France',
+    h1: 'Formation IA pour maîtres d’œuvre en Île-de-France — de la consultation à la réception',
     subtitle:
-      'Apprenez à utiliser ChatGPT et Claude pour préparer vos CCTP et DPGF, analyser les dossiers de consultation, rédiger vos comptes rendus de chantier, préparer les ordres de service et suivre les réserves jusqu’à la réception.',
+      'Lettres de commande, avenants, OS, situations, dépouillement, visites et réception : Claude ou ChatGPT sur vos trames, en intra et en présentiel en Île-de-France.',
     metaDescription:
-      'Formation IA maîtrise d’œuvre BTP : CCTP, DPGF, DCE, comptes rendus, ordres de service et réserves. 4 h en présentiel en Île-de-France.',
-    enBref: `Formation IA maîtrise d’œuvre BTP (${dureeCatalogueParCode('NIV-05')}, ${libelleTarifParticipantCatalogue(TARIF_PARTICIPANT_NIV02_HT)} en inter) : CCTP, DPGF, analyse DCE, comptes rendus, ordres de service et réserves avec ChatGPT et Claude. 5 modules, 70 % de pratique — ${QUALIOPI_MENTION}. L’IA assiste ; le maître d’œuvre valide métrés, conformité et engagements.`,
+      'Formation IA pour maîtres d’œuvre et MOEX : avenants, OS, situations, dépouillement, réception. Présentiel en Île-de-France, Qualiopi, OPCO selon éligibilité.',
+    enBref:
+      'La formation « L’IA au service des maîtres d’œuvre » apprend aux équipes de maîtrise d’œuvre (MOE, MOEX, OPC, bureaux d’études) à utiliser Claude AI ou ChatGPT sur leurs vraies tâches : lettres de commande, avenants, OS, agréments de sous-traitants, contrôle des situations, dépouillement des offres, visites de chantier et réception. Elle est dispensée par Laure Olivié (OFC Création d’Entreprise, certifié Qualiopi) en présentiel, en intra dans vos locaux en Île-de-France, en deux niveaux.',
     publicTargets: [
       'Maîtres d’œuvre de conception et d’exécution (MOE / MOEX)',
       'Architectes et économistes de la construction',
@@ -227,13 +228,14 @@ export const FORMATION_CATALOGUE_SEO: Record<FormationCatalogueCode, FormationCa
     ],
   },
   'NIV-11': {
-    metaTitle: 'Formation IA AMO BTP | Consultations & pilotage',
-    h1: 'Formation IA assistance à maîtrise d’ouvrage : consultations, offres et pilotage',
+    metaTitle: 'Formation IA Assistant Maîtrise d’ouvrage (AMO) | IDF',
+    h1: 'Formation IA pour assistants à maîtrise d’ouvrage (AMO) en Île-de-France',
     subtitle:
-      'Charte IA, analyse des consultations, rapport d’analyse des offres et pilotage des intervenants avec ChatGPT et Claude.',
+      'Programme, consultation MOE, revue des études, analyse des offres et reporting au maître d’ouvrage avec Claude ou ChatGPT.',
     metaDescription:
-      'Formation IA pour le BTP côté AMO : analyse des offres, rapport d’analyse, pilotage MOE, CT et CSPS avec ChatGPT et Claude. 4 h intra, Qualiopi.',
-    enBref: `La formation IA pour l'assistance à maîtrise d'ouvrage apprend à protéger les données des consultations, analyser les offres et préparer un rapport d'analyse sourcé, contrôler les livrables MOE et rédiger CR de pilotage et notes d'alerte. 4 h en intra — ${QUALIOPI_MENTION}.`,
+      'Formation IA pour AMO et chargés d’opération : programme, consultation MOE, revue des études, reporting MOA. Présentiel en Île-de-France, Qualiopi.',
+    enBref:
+      'Cette formation apprend aux AMO, chargés d’opération et équipes de maîtrise d’ouvrage à utiliser Claude AI ou ChatGPT pour préparer un programme, consulter une maîtrise d’œuvre, relire les études, analyser les offres et produire le reporting au maître d’ouvrage. Elle est dispensée par Laure Olivié (OFC Création d’Entreprise, certifié Qualiopi), en intra et en présentiel en Île-de-France, et construite sur vos propres trames.',
     publicTargets: [
       'Assistants à maîtrise d’ouvrage (AMO)',
       'Conducteurs d’opération et programmistes',

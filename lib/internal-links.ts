@@ -637,8 +637,12 @@ export const LINKS = {
   blogPpspsIa: '/blog/ppsps-ia',
   /** Tuto — dépouillement des offres avec l'IA (MOE / consultation) */
   blogTutoDepouillementOffresIa: '/blog/tuto-depouillement-offres-ia',
+  blogTutoAvenantOrdreDeServiceIa: '/blog/tuto-avenant-ordre-de-service-ia',
+  blogTutoControleSituationTravauxIa: '/blog/tuto-controle-situation-travaux-ia',
   /** Article — usages IA en maîtrise d'œuvre BTP */
   blogIaMaitriseOeuvreUsages: '/blog/ia-maitrise-oeuvre-usages',
+  /** Article — usages IA pour l'assistance à maîtrise d'ouvrage (AMO) */
+  blogIaAmoAssistantMaitriseOuvrage: '/blog/ia-amo-assistant-maitrise-ouvrage',
   /** Tuto — skill Claude pour la maîtrise d'œuvre */
   blogTutoSkillClaudeMaitriseOeuvre: '/blog/tuto-skill-claude-maitrise-oeuvre',
   /**

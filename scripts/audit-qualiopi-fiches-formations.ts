@@ -45,7 +45,8 @@ function auditPageSource(ref: string, relPath: string): string[] {
   const hasHeroRef =
     src.includes('catalogueRef=') ||
     src.includes('TrainingMaquetteMarketing') ||
-    src.includes('TrainingNiv');
+    src.includes('TrainingNiv') ||
+    src.includes('FormationSeoFicheShell');
   if (!hasHeroRef) {
     problems.push('Hero formation non reconnu (catalogueRef ou maquette)');
   }

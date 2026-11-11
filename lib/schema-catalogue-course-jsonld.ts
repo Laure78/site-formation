@@ -90,7 +90,8 @@ const PRICE_SPEC_DESCRIPTION_BY_REF: Record<string, string> = Object.fromEntries
 
 function prixCatalogue(ref: string): number | undefined {
   if (ref === 'NIV-10') return TARIF_INTER_DEV_WEB_IA_14H_HT;
-  if (ref === 'NIV-11' || ref === 'NIV-12') return TARIF_PARTICIPANT_NIV02_HT;
+  if (ref === 'NIV-11') return undefined;
+  if (ref === 'NIV-12') return TARIF_PARTICIPANT_NIV02_HT;
   const f = getFormationByCode(ref);
   if (!f) return undefined;
   if (f.tarifParticipantHt) return f.tarifParticipantHt;

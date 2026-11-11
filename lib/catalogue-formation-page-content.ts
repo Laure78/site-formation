@@ -8,9 +8,7 @@ import { LINKS } from '@/lib/internal-links';
 import { formatPrixHt, getFormationByCode, libelleDureeFormation } from '@/data/formations';
 import {
   libelleTarifParticipantCatalogue,
-  TARIF_PARTICIPANT_NIV02_HT,
   TARIF_PARTICIPANT_NIV09_HT,
-  TARIF_SESSION_INTRA_NIV11_HT,
   TARIF_SESSION_INTRA_NIV12_HT,
 } from '@/lib/tarifs-catalogue-participant';
 import {
@@ -721,7 +719,7 @@ const NIV_04: CatalogueFormationPageContent = {
     },
   ],
   programIntro:
-    '4 h (demi-journée) · 4 modules : Projets, Cowork, connecteurs, Claude Code · 70 % pratique.',
+    '4 h (demi-journée) · 4 modules : Projets, Cowork, connecteurs, Claude Code · 70 % pratique. Pour aller plus loin côté maîtrise d’œuvre, voir le tutoriel skill Claude MOE dans les liens ci-dessous.',
   programModules: mapProgrammeBlocsToCatalogueModules(NIV04_PROGRAMME_BLOCS),
   pdfHref: LINKS.pdfProgrammeMaitriserClaudeBtpNiv04,
   programLinks: [
@@ -1148,15 +1146,13 @@ const NIV_11: CatalogueFormationPageContent = {
     { iaAide: 'Rédiger CR de pilotage et notes d’alerte', validation: 'Relire et valider avant diffusion' },
   ],
   intraExtraBullets: [
-    '1 200 € HT la session de 4 h, jusqu’à 10 participants — exonération de TVA, art. 261-4-4°-a du CGI',
-    'Demi-journée dans vos locaux en Île-de-France, sur vos consultations',
+    'Tarif sur devis — demi-journée dans vos locaux en Île-de-France, sur vos consultations',
+    'Exonération de TVA, article 261-4-4° du CGI',
   ],
-  interExtraBullets: [
-    `${libelleTarifParticipantCatalogue(TARIF_PARTICIPANT_NIV02_HT)}, sous réserve d’une session inter ouverte`,
-  ],
+  interExtraBullets: ['Sur devis — session inter sur demande'],
   priceLabelOverride: {
-    inter: libelleTarifParticipantCatalogue(TARIF_PARTICIPANT_NIV02_HT),
-    intra: `${formatPrixHt(TARIF_SESSION_INTRA_NIV11_HT)} € HT / session de 4 h`,
+    inter: 'Sur devis',
+    intra: 'Sur devis',
   },
   hideHeroEnBref: true,
   programIntro: '4 h · 70 % pratique · ateliers sur vos consultations et opérations (anonymisées si besoin).',

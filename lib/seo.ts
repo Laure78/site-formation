@@ -697,7 +697,7 @@ export function buildBlogPostingJsonLd({
     publisher: {
       '@type': 'Organization',
       '@id': organizationId,
-      name: SITE_CONFIG.name,
+      name: SITE_CONFIG.legalName,
       url: baseRoot,
       logo: {
         '@type': 'ImageObject',
