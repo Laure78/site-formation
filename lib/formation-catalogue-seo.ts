@@ -228,14 +228,13 @@ export const FORMATION_CATALOGUE_SEO: Record<FormationCatalogueCode, FormationCa
     ],
   },
   'NIV-11': {
-    metaTitle: 'Formation IA Assistant Maîtrise d’ouvrage (AMO) | IDF',
-    h1: 'Formation IA pour assistants à maîtrise d’ouvrage (AMO) en Île-de-France',
+    metaTitle: 'Formation IA AMO BTP | Consultations & pilotage',
+    h1: 'Formation IA assistance à maîtrise d’ouvrage : consultations, offres et pilotage',
     subtitle:
-      'Programme, consultation MOE, revue des études, analyse des offres et reporting au maître d’ouvrage avec Claude ou ChatGPT.',
+      'Charte IA, analyse des consultations, rapport d’analyse des offres et pilotage des intervenants avec ChatGPT et Claude.',
     metaDescription:
-      'Formation IA pour AMO et chargés d’opération : programme, consultation MOE, revue des études, reporting MOA. Présentiel en Île-de-France, Qualiopi.',
-    enBref:
-      'Cette formation apprend aux AMO, chargés d’opération et équipes de maîtrise d’ouvrage à utiliser Claude AI ou ChatGPT pour préparer un programme, consulter une maîtrise d’œuvre, relire les études, analyser les offres et produire le reporting au maître d’ouvrage. Elle est dispensée par Laure Olivié (OFC Création d’Entreprise, certifié Qualiopi), en intra et en présentiel en Île-de-France, et construite sur vos propres trames.',
+      'Formation IA pour le BTP côté AMO : analyse des offres, rapport d’analyse, pilotage MOE, CT et CSPS avec ChatGPT et Claude. 4 h intra, Qualiopi.',
+    enBref: `La formation IA pour l'assistance à maîtrise d'ouvrage apprend à protéger les données des consultations, analyser les offres et préparer un rapport d'analyse sourcé, contrôler les livrables MOE et rédiger CR de pilotage et notes d'alerte. 4 h en intra — ${QUALIOPI_MENTION}.`,
     publicTargets: [
       'Assistants à maîtrise d’ouvrage (AMO)',
       'Conducteurs d’opération et programmistes',

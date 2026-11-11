@@ -8,7 +8,9 @@ import { LINKS } from '@/lib/internal-links';
 import { formatPrixHt, getFormationByCode, libelleDureeFormation } from '@/data/formations';
 import {
   libelleTarifParticipantCatalogue,
+  TARIF_PARTICIPANT_NIV02_HT,
   TARIF_PARTICIPANT_NIV09_HT,
+  TARIF_SESSION_INTRA_NIV11_HT,
   TARIF_SESSION_INTRA_NIV12_HT,
 } from '@/lib/tarifs-catalogue-participant';
 import {
@@ -1073,11 +1075,12 @@ const NIV_11: CatalogueFormationPageContent = {
     '4 modules AMO opérationnels',
     'Intra en Île-de-France',
   ],
-  quickFactsLevel: formationNiveauOfficielLabel(2),
+  quickFactsLevel: 'Niveau 2',
   practiceShare: '70 %',
   formatLabel: 'Présentiel',
   locationLabel: SITE_FORMATION_LOCATION_LABEL,
   pedagogicalNote: 'L’IA prépare et structure. Le professionnel contrôle et valide.',
+  objectivesTitle: 'Après la formation, vous saurez…',
   painPointsTitle: 'L’AMO croule sous les pièces à relire ?',
   painPoints: [
     {
@@ -1117,6 +1120,7 @@ const NIV_11: CatalogueFormationPageContent = {
       'Vous repartez avec un plan d’action à 30 jours.',
     ],
   },
+  deliverablesTitle: 'Ce que vous emportez',
   deliverables: [
     'Modèle de charte IA + check-list « avant d’envoyer un document à l’IA »',
     'Mémo « ChatGPT ou Claude pour l’AMO » + modèle de prompt CRAFT',
@@ -1146,15 +1150,18 @@ const NIV_11: CatalogueFormationPageContent = {
     { iaAide: 'Rédiger CR de pilotage et notes d’alerte', validation: 'Relire et valider avant diffusion' },
   ],
   intraExtraBullets: [
-    'Tarif sur devis — demi-journée dans vos locaux en Île-de-France, sur vos consultations',
-    'Exonération de TVA, article 261-4-4° du CGI',
+    '1 200 € HT la session de 4 h, jusqu’à 10 participants — exonération de TVA, art. 261-4-4°-a du CGI',
+    'Demi-journée dans vos locaux en Île-de-France, sur vos consultations',
   ],
-  interExtraBullets: ['Sur devis — session inter sur demande'],
+  interExtraBullets: [
+    `${libelleTarifParticipantCatalogue(TARIF_PARTICIPANT_NIV02_HT)}, sous réserve d’une session inter ouverte`,
+  ],
   priceLabelOverride: {
-    inter: 'Sur devis',
-    intra: 'Sur devis',
+    inter: libelleTarifParticipantCatalogue(TARIF_PARTICIPANT_NIV02_HT),
+    intra: `${formatPrixHt(TARIF_SESSION_INTRA_NIV11_HT)} € HT / session de 4 h`,
   },
   hideHeroEnBref: true,
+  programmeHeading: 'Le programme de la formation (4 h)',
   programIntro: '4 h · 70 % pratique · ateliers sur vos consultations et opérations (anonymisées si besoin).',
   programModules: mapProgrammeBlocsToCatalogueModules(NIV11_PROGRAMME_BLOCS),
   pdfHref: LINKS.pdfProgrammeIaAssistanceMaitriseOuvrage,
