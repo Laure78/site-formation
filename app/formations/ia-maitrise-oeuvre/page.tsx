@@ -1,27 +1,25 @@
 import { JsonLd } from '@/components/JsonLd';
-import { FormationSeoFicheShell } from '@/components/formations/seo/FormationSeoFicheShell';
-import { FormationMoeSeoBody, FORMATION_MOE_VOIR_AUSSI } from '@/components/formations/seo/FormationMoeSeoBody';
-import { TrainingPracticalInfo } from '@/components/formations/training/TrainingPracticalInfo';
-import { buildCatalogueFormationCoursePageJsonLd } from '@/lib/catalogue-formation-page-jsonld';
+import { TrainingNiv05MaquetteTemplate } from '@/components/formations/training/TrainingNiv05MaquetteTemplate';
+import { buildCatalogueFormationCoursePageJsonLd, buildCatalogueFormationFaqPageJsonLd } from '@/lib/catalogue-formation-page-jsonld';
 import { FAQ_MOE_NIV05 } from '@/lib/catalogue-formation-faq-niv05';
-import { createPageMetadata, getFAQSchema, SITE_CONFIG } from '@/lib/seo';
+import { createPageMetadata, SITE_CONFIG } from '@/lib/seo';
 import { getFormationCatalogueVisuel } from '@/lib/formations-catalogue-display';
 import { LINKS } from '@/lib/internal-links';
 import { getFormationCatalogueSeo } from '@/lib/formation-catalogue-seo';
-import { getFormationByCode } from '@/data/formations';
+import { getCatalogueFormationPageContent } from '@/lib/catalogue-formation-page-content';
 
 const CATALOGUE_SEO = getFormationCatalogueSeo('NIV-05');
 const CATALOGUE_VISUEL = getFormationCatalogueVisuel('NIV-05');
-const META_TITLE_ABSOLUTE = "Formation IA Maître d'œuvre Île-de-France | Laure Olivié";
+const PAGE_CONTENT = getCatalogueFormationPageContent('NIV-05');
 
 export const metadata = createPageMetadata({
   title: CATALOGUE_SEO.metaTitle,
-  titleAbsolute: META_TITLE_ABSOLUTE,
+  titleAbsolute: `${CATALOGUE_SEO.metaTitle} | Laure Olivié`,
   description: CATALOGUE_SEO.metaDescription,
   descriptionFinal: true,
   path: LINKS.formationIaMaitriseOeuvre,
   openGraphType: 'website',
-  openGraphTitle: META_TITLE_ABSOLUTE,
+  openGraphTitle: 'Formation IA maîtrise d’œuvre BTP — CCTP, DPGF, chantier — Qualiopi',
   openGraphDescription: CATALOGUE_SEO.metaDescription,
   alternatesLanguages: { 'fr-FR': `${SITE_CONFIG.url}${LINKS.formationIaMaitriseOeuvre}` },
   image: {
@@ -33,30 +31,20 @@ export const metadata = createPageMetadata({
 });
 
 const courseSchema = buildCatalogueFormationCoursePageJsonLd('NIV-05');
-const faqSchema = getFAQSchema(FAQ_MOE_NIV05);
+const faqSchema = buildCatalogueFormationFaqPageJsonLd('NIV-05', FAQ_MOE_NIV05);
 
-export default function FormationIaMaitriseOeuvrePage() {
-  const formation = getFormationByCode('NIV-05')!;
-
+export default async function FormationIaMaitriseOeuvrePage() {
   return (
     <div>
       <JsonLd id="schema-course-niv-05" schema={courseSchema} />
       {faqSchema ? <JsonLd id="schema-faq-niv-05" schema={faqSchema} /> : null}
 
-      <FormationSeoFicheShell
-        h1={CATALOGUE_SEO.h1}
-        enBref={CATALOGUE_SEO.enBref}
-        faq={FAQ_MOE_NIV05}
-        ctaSrcMid="fiche-moe"
-        ctaSrcEnd="fiche-moe"
-        voirAussi={[...FORMATION_MOE_VOIR_AUSSI]}
-      >
-        <FormationMoeSeoBody />
-      </FormationSeoFicheShell>
-
-      <div className="mx-auto max-w-3xl px-4 pb-16">
-        <TrainingPracticalInfo programmeRef="NIV-05" publicCible={formation.public} />
-      </div>
+      <TrainingNiv05MaquetteTemplate
+        content={PAGE_CONTENT}
+        faqItems={FAQ_MOE_NIV05}
+        faqSectionId="faq-niv-05"
+        h1Id="formation-moe-h1"
+      />
     </div>
   );
 }
