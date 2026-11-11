@@ -217,6 +217,27 @@ const nextConfig: NextConfig = {
         destination: '/prendre-rdv',
         permanent: true,
       },
+      // GSC — href non interpolé (chaîne littérale « ${LINKS.prendreRdv} ») en 404
+      {
+        source: '/${LINKS.prendreRdv}',
+        destination: '/prendre-rdv',
+        permanent: true,
+      },
+      {
+        source: '/$%7BLINKS.prendreRdv%7D',
+        destination: '/prendre-rdv',
+        permanent: true,
+      },
+      {
+        source: '/blog/categorie/${LINKS.prendreRdv}',
+        destination: '/prendre-rdv',
+        permanent: true,
+      },
+      {
+        source: '/blog/categorie/$%7BLINKS.prendreRdv%7D',
+        destination: '/prendre-rdv',
+        permanent: true,
+      },
       {
         source: '/emplois',
         destination: '/nous-rejoindre',

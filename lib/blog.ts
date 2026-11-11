@@ -1976,7 +1976,11 @@ export const BLOG_ARTICLES: BlogArticle[] = [
 function normalizeLegacyPathsInText(text: string): string {
   return text
     .replaceAll('/prendre-rendez-vous', LINKS.prendreRdv)
-    .replaceAll('/formation-ia-artisans-btp', LINKS.formationIaDirigeantPmeBtp);
+    .replaceAll('/formation-ia-artisans-btp', LINKS.formationIaDirigeantPmeBtp)
+    .replace(/\$\{LINKS\.(\w+)\}/g, (_, key: string) => {
+      const path = (LINKS as Record<string, string>)[key];
+      return path ?? `\${LINKS.${key}}`;
+    });
 }
 
 function normalizeGeneratedArticleSections(
