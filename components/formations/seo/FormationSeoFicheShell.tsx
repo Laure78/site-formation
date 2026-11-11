@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { CtaVisio } from '@/components/CtaVisio';
 import { FAQAnswer } from '@/components/landing/FAQAnswer';
 import { BlogArticleEnBref } from '@/components/blog/BlogArticleEnBref';
+import { normalizeEnBref } from '@/lib/blog-en-bref';
 import type { ReactNode } from 'react';
 import { OFC_EDITORIAL, OFC_PAGE_ARTICLE_NARROW } from '@/lib/ofc-page-classes';
 import { OFC_LINK } from '@/lib/ofc-interaction-classes';
@@ -35,7 +36,7 @@ export function FormationSeoFicheShell({
   return (
     <div className={`${OFC_PAGE_ARTICLE_NARROW} py-10 md:py-14`}>
       <article className={OFC_EDITORIAL}>
-        <BlogArticleEnBref sentences={enBref} />
+        <BlogArticleEnBref sentences={normalizeEnBref(enBref) ?? []} />
         <h1 className="mt-6 font-display text-2xl font-bold tracking-tight text-slate-900 md:text-3xl">
           {h1}
         </h1>

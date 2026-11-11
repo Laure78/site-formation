@@ -88,7 +88,7 @@ function extractFaq(lines) {
   return faq;
 }
 
-function cleanBody(lines) {
+function cleanBody(lines, slug) {
   const out = [];
   let skipUntilContent = true;
   for (const line of lines) {
@@ -114,7 +114,23 @@ function cleanBody(lines) {
     if (/^👉\s*\[/.test(t)) continue;
     out.push(line);
   }
-  return transformCtas(out.join('\n').trim());
+  let body = transformCtas(out.join('\n').trim());
+  const srcBySlug = {
+    'ia-maitrise-oeuvre-usages': 'blog-moe-usages',
+    'ia-amo-assistant-maitrise-ouvrage': 'blog-amo',
+    'tuto-controle-situation-travaux-ia': 'tuto-situation',
+    'tuto-avenant-ordre-de-service-ia': 'tuto-avenant',
+    'tuto-depouillement-offres-ia': 'tuto-depouillement',
+    'tuto-skill-claude-maitrise-oeuvre': 'tuto-skill',
+  };
+  const endSrc = srcBySlug[slug];
+  if (endSrc) {
+    const endTag = `<BlogCtaVisio src="${endSrc}" />`;
+    if (!body.trimEnd().endsWith(endTag)) {
+      body = `${body.trimEnd()}\n\n${endTag}\n`;
+    }
+  }
+  return body;
 }
 
 function transformCtas(body) {
@@ -146,7 +162,7 @@ for (const { src, slug, readingTime } of FILES) {
   const { seoTitle, description, keywords } = parseMeta(lines);
   const enBref = extractEnBref(lines);
   const faq = extractFaq(lines);
-  const body = cleanBody(lines);
+  const body = cleanBody(lines, slug);
 
   const related =
     slug === 'ia-maitrise-oeuvre-usages'

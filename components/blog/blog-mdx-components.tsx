@@ -73,7 +73,6 @@ export function getBlogMdxComponents(): MDXComponents {
     CopiableCodeBlock,
     BlogCtaVisio,
     pre: (props) => <MdxCopiablePre {...props} />,
-    BlogCtaVisio,
     SkillCrPlomberieCopiable: () => (
       <CopiableCodeBlock
         title="SKILL.md — extraction lot plomberie (données fictives)"
