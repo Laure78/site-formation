@@ -3,22 +3,28 @@ import Link from 'next/link';
 import {
   ArrowRight,
   BookOpen,
+  Calculator,
+  Calendar,
+  CheckSquare,
+  Clock,
+  Coins,
   Download,
   FileText,
+  FolderOpen,
   GraduationCap,
   HardHat,
   Layers,
+  RefreshCw,
   Search,
   Shield,
   Sparkles,
-  Wallet,
   Users,
-  Briefcase,
   Mail,
-  MessageSquare,
+  Rss,
 } from 'lucide-react';
 import { JsonLd } from '@/components/JsonLd';
 import { FAQSectionServer } from '@/components/landing/FAQSectionServer';
+import { CtaVisio } from '@/components/CtaVisio';
 import { LINKS } from '@/lib/internal-links';
 import { FAQ_BLOG } from '@/lib/faq';
 import {
@@ -26,30 +32,45 @@ import {
   getAllArticles,
   getArticleCategory,
   getArticlesByCategory,
+  getBlogLandingSecondaryFeaturedArticles,
   getFeaturedBlogArticles,
   type BlogArticle,
   type BlogCategoryId,
 } from '@/lib/blog';
 import { getBlogArticleCanonicalPath } from '@/lib/blog-article-path';
-import { getBlogCardCoverSrc } from '@/lib/blog-cover';
+import {
+  BLOG_LANDING_HERO_ALT,
+  BLOG_LANDING_HERO_IMAGE,
+  getBlogLandingCardCoverAlt,
+  getBlogLandingCardCoverSrc,
+} from '@/lib/blog-landing-covers';
 import { getFAQSchema } from '@/lib/seo';
 import { buildBlogListingJsonLd, getBlogIndexLastModifiedIso } from '@/lib/blog-index-schema';
 import { blogCategoryListingHref, blogIndexListingHref } from '@/lib/blog-index-urls';
 import { OFC_CTA_PRIMARY, OFC_CTA_SECONDARY } from '@/lib/ofc-interaction-classes';
 import { getRessourcesCounts } from '@/lib/ressources-catalog';
 
-const HERO_IMAGE = '/images/blog/photo_blog_btp_hero.png';
-const HERO_IMAGE_ALT =
-  'Chantier BTP en arrière-plan avec ordinateur portable affichant un planning sur un bureau de chantier';
-
 const LISTING_SECTION_ID = 'liste-articles';
 
-const CATEGORY_ICONS: Record<BlogCategoryId, typeof FileText> = {
-  devis: Wallet,
-  'appels-offres': FileText,
-  financement: Wallet,
+/** 5 thématiques visibles sur la landing — chaque entrée pointe vers une catégorie réelle du blog. */
+const BLOG_LANDING_CATEGORY_CARDS: {
+  id: BlogCategoryId;
+  label: string;
+  icon: typeof FileText;
+}[] = [
+  { id: 'appels-offres', label: "Appels d'offres", icon: Layers },
+  { id: 'devis', label: 'Devis & chiffrage', icon: Calculator },
+  { id: 'metiers', label: 'Conduite de travaux', icon: HardHat },
+  { id: 'chatgpt', label: 'ChatGPT & Claude', icon: Sparkles },
+  { id: 'financement', label: 'Financement', icon: Coins },
+];
+
+const CATEGORY_FILTER_ICONS: Record<BlogCategoryId, typeof FileText> = {
+  devis: Calculator,
+  'appels-offres': Layers,
+  financement: Coins,
   chatgpt: Sparkles,
-  metiers: Briefcase,
+  metiers: HardHat,
   rh: Users,
   productivite: Mail,
 };
@@ -67,27 +88,32 @@ function BlogCardCover({
   sizes,
   priority,
   className,
+  showCategoryBadge = true,
 }: {
   article: BlogArticle;
   sizes: string;
   priority?: boolean;
   className?: string;
+  showCategoryBadge?: boolean;
 }) {
-  const src = getBlogCardCoverSrc(article);
+  const src = getBlogLandingCardCoverSrc(article);
   const cat = getArticleCategory(article.slug);
+  const alt = getBlogLandingCardCoverAlt(article);
   return (
     <div className={`relative overflow-hidden bg-slate-100 ${className ?? ''}`}>
       <Image
         src={src}
-        alt=""
+        alt={alt}
         fill
-        className="object-cover object-center"
+        className="object-cover object-center transition-transform duration-300 group-hover:scale-[1.02]"
         sizes={sizes}
         priority={priority}
       />
-      <span className="absolute bottom-3 left-3 rounded-lg bg-[#0B1F4F]/85 px-2.5 py-1 text-xs font-semibold text-white backdrop-blur-sm">
-        {BLOG_CATEGORIES[cat]}
-      </span>
+      {showCategoryBadge ? (
+        <span className="absolute bottom-3 left-3 rounded-lg bg-[#0B1F4F]/85 px-2.5 py-1 text-xs font-semibold text-white backdrop-blur-sm">
+          {BLOG_CATEGORIES[cat]}
+        </span>
+      ) : null}
     </div>
   );
 }
@@ -96,7 +122,7 @@ function FeaturedMainCard({ article }: { article: BlogArticle }) {
   const href = getBlogArticleCanonicalPath(article);
   const pub = new Date(article.date);
   return (
-    <article className="flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm ring-1 ring-slate-50">
+    <article className="group flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm ring-1 ring-slate-50 transition-shadow hover:shadow-md">
       <Link href={href} className="block">
         <BlogCardCover
           article={article}
@@ -110,7 +136,10 @@ function FeaturedMainCard({ article }: { article: BlogArticle }) {
           {pub.toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' })}
         </time>
         <h3 className="mt-2 font-display text-xl font-bold leading-snug text-[#101936] sm:text-2xl">
-          <Link href={href} className="hover:text-[#377CF3] focus-visible:outline focus-visible:ring-2 focus-visible:ring-[#377CF3]">
+          <Link
+            href={href}
+            className="hover:text-[#377CF3] focus-visible:outline focus-visible:ring-2 focus-visible:ring-[#377CF3]"
+          >
             {article.title}
           </Link>
         </h3>
@@ -129,22 +158,40 @@ function FeaturedMainCard({ article }: { article: BlogArticle }) {
 
 function FeaturedSideCard({ article }: { article: BlogArticle }) {
   const href = getBlogArticleCanonicalPath(article);
+  const pub = new Date(article.date);
   const cat = getArticleCategory(article.slug);
   return (
-    <article className="flex flex-1 flex-col rounded-2xl border border-slate-200 bg-white p-4 shadow-sm ring-1 ring-slate-50 sm:p-5">
-      <p className="text-xs font-semibold uppercase tracking-wide text-[#377CF3]">{BLOG_CATEGORIES[cat]}</p>
-      <h3 className="mt-2 font-display text-base font-semibold leading-snug text-[#101936]">
-        <Link href={href} className="hover:text-[#377CF3] focus-visible:outline focus-visible:ring-2 focus-visible:ring-[#377CF3]">
-          {article.title}
-        </Link>
-      </h3>
-      <Link
-        href={href}
-        className="mt-auto inline-flex items-center gap-1 pt-3 text-sm font-semibold text-[#377CF3] underline underline-offset-2 hover:no-underline"
-      >
-        Lire l&apos;article
-        <ArrowRight className="h-4 w-4" aria-hidden />
+    <article className="group flex flex-1 flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm ring-1 ring-slate-50 transition-shadow hover:shadow-md">
+      <Link href={href} className="block">
+        <BlogCardCover
+          article={article}
+          sizes="(max-width: 1024px) 100vw, 33vw"
+          className="aspect-[16/10] w-full"
+          showCategoryBadge={false}
+        />
       </Link>
+      <div className="flex flex-1 flex-col p-4 sm:p-5">
+        <p className="text-xs font-semibold uppercase tracking-wide text-[#377CF3]">{BLOG_CATEGORIES[cat]}</p>
+        <time dateTime={article.date} className="mt-1 text-xs text-slate-500">
+          {pub.toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' })}
+        </time>
+        <h3 className="mt-2 font-display text-base font-semibold leading-snug text-[#101936]">
+          <Link
+            href={href}
+            className="hover:text-[#377CF3] focus-visible:outline focus-visible:ring-2 focus-visible:ring-[#377CF3]"
+          >
+            {article.title}
+          </Link>
+        </h3>
+        <p className="mt-2 line-clamp-2 flex-1 text-sm text-slate-600">{article.description}</p>
+        <Link
+          href={href}
+          className="mt-auto inline-flex items-center gap-1 pt-3 text-sm font-semibold text-[#377CF3] underline underline-offset-2 hover:no-underline"
+        >
+          Lire l&apos;article
+          <ArrowRight className="h-4 w-4" aria-hidden />
+        </Link>
+      </div>
     </article>
   );
 }
@@ -153,16 +200,23 @@ function BlogGridCard({ article }: { article: BlogArticle }) {
   const href = getBlogArticleCanonicalPath(article);
   const pub = new Date(article.date);
   return (
-    <article className="flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm ring-1 ring-slate-50 transition-shadow hover:shadow-md">
+    <article className="group flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm ring-1 ring-slate-50 transition-shadow hover:shadow-md">
       <Link href={href} className="block">
-        <BlogCardCover article={article} sizes="(max-width: 640px) 100vw, (max-width: 1280px) 50vw, 33vw" className="aspect-[16/10] w-full" />
+        <BlogCardCover
+          article={article}
+          sizes="(max-width: 640px) 100vw, (max-width: 1280px) 50vw, 33vw"
+          className="aspect-[16/10] w-full"
+        />
       </Link>
       <div className="flex flex-1 flex-col p-4 sm:p-5">
         <time dateTime={article.date} className="text-xs text-slate-500">
           {pub.toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' })}
         </time>
         <h3 className="mt-2 font-display text-base font-semibold leading-snug text-[#101936]">
-          <Link href={href} className="hover:text-[#377CF3] focus-visible:outline focus-visible:ring-2 focus-visible:ring-[#377CF3]">
+          <Link
+            href={href}
+            className="hover:text-[#377CF3] focus-visible:outline focus-visible:ring-2 focus-visible:ring-[#377CF3]"
+          >
             {article.title}
           </Link>
         </h3>
@@ -193,11 +247,7 @@ export function BlogIndexLandingView({
   const guidesGratuitsCount = ressourcesCounts.guides + ressourcesCounts.tutoriels;
 
   const featured = getFeaturedBlogArticles();
-  const featuredSlugs = new Set(featured.map((a) => a.slug));
-  const secondarySpotlight = [...getAllArticles()]
-    .filter((a) => !featuredSlugs.has(a.slug))
-    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
-    .slice(0, 2);
+  const secondarySpotlight = getBlogLandingSecondaryFeaturedArticles();
 
   const listingLd = buildBlogListingJsonLd({
     canonicalPath,
@@ -217,14 +267,14 @@ export function BlogIndexLandingView({
       <section className="border-b border-slate-100 bg-white" aria-labelledby="blog-hero-title">
         <div className="mx-auto max-w-[80rem] px-4 pt-4 sm:px-6 lg:px-8">
           <nav className="text-sm text-slate-600" aria-label="Fil d'Ariane">
-            <ol className="flex flex-wrap items-center gap-x-1 gap-y-1">
+            <ol className="flex flex-wrap items-center gap-x-1.5 gap-y-1">
               <li>
                 <Link href="/" className="underline decoration-slate-300 underline-offset-2 hover:text-[#377CF3]">
                   Accueil
                 </Link>
               </li>
               <li className="text-slate-400" aria-hidden>
-                /
+                &gt;
               </li>
               <li className="font-medium text-[#101936]" aria-current="page">
                 Blog
@@ -235,12 +285,16 @@ export function BlogIndexLandingView({
 
         <div className="mx-auto grid max-w-[80rem] items-center gap-10 px-4 py-8 sm:px-6 lg:grid-cols-2 lg:gap-12 lg:px-8 lg:py-12">
           <div className="min-w-0">
-            <p className="text-xs font-semibold uppercase tracking-[0.12em] text-[#377CF3]">Blog</p>
+            <p className="text-xs font-semibold uppercase tracking-[0.12em] text-[#377CF3]">Blog IA BTP</p>
             <h1 id="blog-hero-title" className="ofc-type-hero mt-3 text-balance text-[#101936]">
-              Blog IA BTP
+              Le blog IA au service des métiers du BTP
             </h1>
-            <p className="ofc-type-lead mt-4 text-balance text-slate-600">
-              Guides pratiques, tutoriels et retours d&apos;expérience pour les entreprises du BTP.
+            <p className="ofc-type-lead mt-4 text-balance font-semibold text-[#101936]">
+              Conseils, méthodes et retours d&apos;expérience pour les PME du BTP en Île-de-France.
+            </p>
+            <p className="mt-3 max-w-xl text-sm leading-relaxed text-slate-600 sm:text-base">
+              Articles concrets sur les appels d&apos;offres, le chiffrage, la conduite de travaux, ChatGPT, Claude et le
+              financement OPCO — applicables dès le bureau ou le chantier.
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
               <Link
@@ -261,10 +315,10 @@ export function BlogIndexLandingView({
           </div>
 
           <figure className="relative min-h-0 w-full overflow-hidden rounded-2xl border border-slate-200/80 bg-slate-100 shadow-sm">
-            <div className="relative aspect-[16/10] w-full">
+            <div className="relative aspect-[4/3] w-full sm:aspect-[16/10]">
               <Image
-                src={HERO_IMAGE}
-                alt={HERO_IMAGE_ALT}
+                src={BLOG_LANDING_HERO_IMAGE}
+                alt={BLOG_LANDING_HERO_ALT}
                 fill
                 className="object-cover object-center"
                 sizes="(max-width: 1024px) 100vw, 50vw"
@@ -276,6 +330,102 @@ export function BlogIndexLandingView({
       </section>
 
       <div className="mx-auto max-w-[80rem] space-y-14 px-4 sm:space-y-16 sm:px-6 lg:px-8 lg:py-4">
+        {showLandingExtras ? (
+          <section aria-labelledby="blog-categories-title">
+            <h2 id="blog-categories-title" className="sr-only">
+              Thématiques du blog
+            </h2>
+            <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5 lg:gap-4">
+              {BLOG_LANDING_CATEGORY_CARDS.map((card) => {
+                const count = grouped[card.id]?.length ?? 0;
+                if (count === 0) return null;
+                const href = blogCategoryListingHref(card.id, 1);
+                return (
+                  <Link
+                    key={card.id}
+                    href={href}
+                    className="flex flex-col gap-2 rounded-2xl border border-slate-200 bg-[#F8FAFC] p-4 shadow-sm transition-shadow hover:shadow-md focus-visible:outline focus-visible:ring-2 focus-visible:ring-[#377CF3]"
+                  >
+                    <card.icon className="h-5 w-5 text-[#377CF3]" aria-hidden />
+                    <span className="text-sm font-semibold leading-snug text-[#101936]">{card.label}</span>
+                    <span className="text-xs text-slate-500">{count} articles</span>
+                  </Link>
+                );
+              })}
+            </div>
+          </section>
+        ) : null}
+
+        {showLandingExtras ? (
+          <section aria-labelledby="blog-benefits-title">
+            <h2 id="blog-benefits-title" className="ofc-type-h2 text-center text-[#101936] md:text-left">
+              Des contenus concrets pour les PME du BTP
+            </h2>
+            <div className="mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+              {[
+                {
+                  icon: Clock,
+                  titre: 'Gagner du temps',
+                  texte: 'Méthodes et prompts pour accélérer devis, comptes-rendus et dossiers administratifs.',
+                },
+                {
+                  icon: FolderOpen,
+                  titre: 'Structurer vos documents',
+                  texte: 'Modèles et checklists pour DCE, mémoires techniques, chartes IA et livrables chantier.',
+                },
+                {
+                  icon: Shield,
+                  titre: 'Fiabiliser vos usages IA',
+                  texte: 'Bonnes pratiques, validation humaine et conformité pour un déploiement responsable.',
+                },
+                {
+                  icon: RefreshCw,
+                  titre: 'Rester à jour',
+                  texte: 'Veille outils, cas d’usage terrain et évolutions réglementaires pour vos équipes.',
+                },
+              ].map((card) => (
+                <div
+                  key={card.titre}
+                  className="rounded-2xl border border-slate-200 border-b-[3px] border-b-[#377CF3] bg-[#F8FAFC] p-6 shadow-sm ring-1 ring-slate-50"
+                >
+                  <span className="inline-flex rounded-xl bg-[#EFF6FF] p-2.5">
+                    <card.icon className="h-6 w-6 text-[#377CF3]" aria-hidden />
+                  </span>
+                  <h3 className="mt-4 font-display text-lg font-semibold text-[#101936]">{card.titre}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-slate-600">{card.texte}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+        ) : null}
+
+        {showLandingExtras ? (
+          <section
+            aria-labelledby="blog-bandeau-title"
+            className="flex flex-col gap-5 rounded-2xl border border-[#BFDBFE] bg-[#EFF6FF] p-6 md:flex-row md:items-center md:justify-between md:gap-8"
+          >
+            <div className="flex min-w-0 gap-4 md:max-w-[65%]">
+              <Layers className="mt-0.5 h-8 w-8 shrink-0 text-[#1D4ED8]" aria-hidden />
+              <div>
+                <h2 id="blog-bandeau-title" className="font-display text-lg font-semibold text-[#101936]">
+                  Un blog pratique, terrain et directement utile à vos équipes
+                </h2>
+                <p className="mt-2 text-sm leading-relaxed text-slate-700">
+                  Des articles, cas d&apos;usage et ressources gratuites pour appels d&apos;offres, chiffrage, chantier et
+                  productivité — rédigés par une formatrice du BTP, certifiée Qualiopi.
+                </p>
+              </div>
+            </div>
+            <Link
+              href={`#${LISTING_SECTION_ID}`}
+              className={`${OFC_CTA_PRIMARY} inline-flex min-h-11 shrink-0 items-center justify-center gap-2 px-6 py-3`}
+            >
+              Explorer nos articles
+              <ArrowRight className="h-4 w-4 shrink-0" aria-hidden />
+            </Link>
+          </section>
+        ) : null}
+
         {showLandingExtras ? (
           <section aria-labelledby="blog-stats-title">
             <h2 id="blog-stats-title" className="sr-only">
@@ -317,10 +467,7 @@ export function BlogIndexLandingView({
                     {inner}
                   </Link>
                 ) : (
-                  <div
-                    key={card.titre}
-                    className="rounded-2xl border border-slate-200 bg-[#F8FAFC] p-5 shadow-sm"
-                  >
+                  <div key={card.titre} className="rounded-2xl border border-slate-200 bg-[#F8FAFC] p-5 shadow-sm">
                     {inner}
                   </div>
                 );
@@ -397,13 +544,13 @@ export function BlogIndexLandingView({
             {(Object.entries(BLOG_CATEGORIES) as [BlogCategoryId, string][]).map(([id, label]) => {
               const count = grouped[id]?.length ?? 0;
               if (count === 0) return null;
-              const Icon = CATEGORY_ICONS[id];
+              const Icon = CATEGORY_FILTER_ICONS[id];
               const href = blogCategoryListingHref(id, 1);
               return (
                 <Link
                   key={id}
                   href={href}
-                  className="inline-flex shrink-0 items-center gap-1.5 rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-medium text-slate-700 transition-colors hover:border-[#377CF3]/40 hover:bg-[#F8FAFC]"
+                  className="inline-flex shrink-0 items-center gap-1.5 rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-medium text-slate-700 transition-colors hover:border-[#377CF3]/40 hover:bg-[#F8FAFC] focus-visible:outline focus-visible:ring-2 focus-visible:ring-[#377CF3]"
                 >
                   <Icon className="h-4 w-4 text-[#377CF3]" aria-hidden />
                   {label}
@@ -457,6 +604,7 @@ export function BlogIndexLandingView({
               href="/blog/rss.xml"
               className="inline-flex items-center gap-1 font-medium text-[#377CF3] hover:underline"
             >
+              <Rss className="h-3.5 w-3.5" aria-hidden />
               Flux RSS du blog
             </a>
           </p>
@@ -469,19 +617,22 @@ export function BlogIndexLandingView({
               <h2 id="blog-pedagogie-title" className="ofc-type-h2 text-white">
                 Des méthodes testées sur le terrain
               </h2>
-              <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+              <ul className="mt-8 flex flex-col gap-4 sm:flex-row sm:flex-wrap sm:items-stretch lg:flex-nowrap lg:divide-x lg:divide-white/25">
                 {[
-                  { icon: HardHat, label: 'Cas réels du BTP' },
-                  { icon: Layers, label: 'Outils et modèles prêts à l’emploi' },
-                  { icon: MessageSquare, label: 'Retours d’expérience' },
-                  { icon: Shield, label: 'Conformité et bonnes pratiques' },
+                  { icon: HardHat, label: 'Cas pratiques' },
+                  { icon: FileText, label: 'Documents métier' },
+                  { icon: CheckSquare, label: 'Méthodes terrain' },
+                  { icon: RefreshCw, label: 'Veille IA' },
                 ].map((item) => (
-                  <div key={item.label} className="rounded-xl border border-white/15 bg-white/5 p-4 text-center sm:text-left">
-                    <item.icon className="mx-auto h-7 w-7 text-white sm:mx-0" aria-hidden />
-                    <p className="mt-3 text-sm font-semibold text-white">{item.label}</p>
-                  </div>
+                  <li
+                    key={item.label}
+                    className="flex flex-1 flex-col items-center gap-2 px-0 text-center sm:min-w-[9rem] lg:px-4"
+                  >
+                    <item.icon className="h-7 w-7 text-white" aria-hidden />
+                    <span className="text-sm font-semibold leading-snug text-white">{item.label}</span>
+                  </li>
                 ))}
-              </div>
+              </ul>
             </div>
           </section>
         ) : null}
@@ -494,7 +645,7 @@ export function BlogIndexLandingView({
             <div className="relative mx-auto aspect-[4/3] w-full max-w-[220px] shrink-0 overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm md:mx-0">
               <Image
                 src="/images/creer-skill-claude-btp.webp"
-                alt=""
+                alt="Couverture du guide gratuit pour créer un Skill IA BTP"
                 fill
                 className="object-cover"
                 sizes="220px"
@@ -526,6 +677,38 @@ export function BlogIndexLandingView({
           className="scroll-mt-24 rounded-2xl border border-slate-200 bg-white px-4 py-10 sm:px-8"
           layout="wide"
         />
+
+        {showLandingExtras ? (
+          <section
+            aria-labelledby="blog-cta-final-title"
+            className="rounded-2xl border border-slate-200 bg-[#F8FAFC] px-6 py-10 text-center md:px-10"
+          >
+            <h2
+              id="blog-cta-final-title"
+              className="font-display text-2xl font-bold text-balance text-[#101936]"
+            >
+              Développez vos compétences IA dans le BTP
+            </h2>
+            <p className="mx-auto mt-3 max-w-2xl text-sm text-slate-600 md:text-base">
+              Formations en présentiel en Île-de-France, certifiées Qualiopi — appels d&apos;offres, devis, chantier et
+              productivité.
+            </p>
+            <div className="mt-8 flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:items-center">
+              <CtaVisio
+                src="blog-index-final"
+                className="inline-flex min-h-11 w-full items-center justify-center gap-2 px-6 py-3 sm:w-auto"
+                leadingAdornment={<Calendar className="h-4 w-4 shrink-0" aria-hidden />}
+              />
+              <Link
+                href={LINKS.formations}
+                className={`${OFC_CTA_SECONDARY} inline-flex min-h-11 w-full items-center justify-center gap-2 px-6 py-3 sm:w-auto`}
+              >
+                <GraduationCap className="h-4 w-4 shrink-0" aria-hidden />
+                Découvrir les formations
+              </Link>
+            </div>
+          </section>
+        ) : null}
       </div>
     </div>
   );

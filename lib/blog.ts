@@ -2233,10 +2233,24 @@ export const BLOG_FEATURED_SLUGS: string[] = [
   'ia-memoire-technique-appel-offres-guide-2026',
 ];
 
+/** Cartes secondaires « À la une » sur `/blog` (ordre affiché). */
+export const BLOG_LANDING_SECONDARY_FEATURED_SLUGS: string[] = [
+  'creer-skill-chatgpt-claude-btp',
+  'charte-ia-btp',
+];
+
 /** Articles mis en avant (résolus depuis le catalogue ; slug inconnu ignoré) */
 export function getFeaturedBlogArticles(): BlogArticle[] {
   const bySlug = new Map(getAllArticles().map((a) => [a.slug, a]));
   return BLOG_FEATURED_SLUGS.map((s) => bySlug.get(s)).filter(
+    (a): a is BlogArticle => a !== undefined
+  );
+}
+
+/** Articles secondaires de la zone « À la une » sur la landing blog. */
+export function getBlogLandingSecondaryFeaturedArticles(): BlogArticle[] {
+  const bySlug = new Map(getAllArticles().map((a) => [a.slug, a]));
+  return BLOG_LANDING_SECONDARY_FEATURED_SLUGS.map((s) => bySlug.get(s)).filter(
     (a): a is BlogArticle => a !== undefined
   );
 }
