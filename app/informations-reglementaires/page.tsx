@@ -15,7 +15,7 @@ const PAGE_PATH = LINKS.informationsReglementaires;
 const PAGE_URL = siteAbsoluteUrl(PAGE_PATH);
 const PAGE_TITLE = 'Informations réglementaires | Laure Olivié';
 const PAGE_DESCRIPTION =
-  "Informations réglementaires Laure Olivié (OFC Création d'Entreprise), organisme de formation : livret d'accueil, règlement intérieur, réclamations, accessibilité, Qualiopi.";
+  "Infos réglementaires OFC : livret d'accueil, règlement intérieur, réclamations, accessibilité et Qualiopi. Organisme de formation Laure Olivié, certification actions de formation.";
 
 export const metadata = createPageMetadata({
   title: PAGE_TITLE,

@@ -29,7 +29,7 @@ const GUIDE_THUMB = RESSOURCES_MINIATURES.guideAssistantsTravaux;
 /** Segment avant suffixe — total avec « | Laure Olivié » ≈ 52 car. (≤ 60). */
 const SEO_TITLE = 'Formation IA assistante travaux BTP';
 const SEO_DESCRIPTION =
-  'Formation IA assistante travaux : PPSPS, CR, DOE et DC4 plus rapides au bureau, sous validation métier. Présentiel Île-de-France, Qualiopi, OPCO selon éligibilité.';
+  'Formation IA assistante travaux : PPSPS, CR, DOE et DC4 au bureau, sous validation métier. Présentiel IDF, Qualiopi. Prise en charge OPCO/Constructys selon éligibilité.';
 
 export const metadata = createPageMetadata({
   title: SEO_TITLE,

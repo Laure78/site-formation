@@ -26,7 +26,7 @@ export const metadata = createMetierBtpPageMetadata('ferrailleur', {
   preferCustomTitle: true,
   title: 'IA ferrailleur BTP : plans et devis',
   description:
-    'Formation IA ferrailleur BTP : structurer plans, devis et bons de commande acier, sous relecture métier. Formation IA pour le BTP. Présentiel IDF, Qualiopi.',
+    'Formation IA ferrailleur BTP : plans, devis et bons de commande acier, sous relecture métier. Présentiel IDF, Qualiopi. Prise en charge OPCO/Constructys selon éligibilité.',
   descriptionFinal: true,
   path: PATH,
   keywords: [

@@ -27,7 +27,7 @@ const PATH = '/formation-ia-paysagiste-btp';
 export const metadata = createMetierBtpPageMetadata('paysagiste', {
   title: 'Formation IA Paysagiste BTP Île-de-France',
   description:
-    'Formation IA paysagiste BTP : devis, briefs clients et plans d’aménagement avec ChatGPT. Présentiel Île-de-France, Qualiopi, financement OPCO selon éligibilité.',
+    'Formation IA paysagiste BTP : devis, briefs et plans d’aménagement avec ChatGPT. Présentiel IDF, Qualiopi. Prise en charge OPCO/Constructys selon éligibilité. Réservez une visio.',
   path: PATH,
   keywords: [
     'formation IA paysagiste BTP',

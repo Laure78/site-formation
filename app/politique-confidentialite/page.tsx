@@ -8,7 +8,7 @@ export const revalidate = 3600;
 export const metadata = createPageMetadata({
   title: 'Politique de confidentialité | Laure Olivié',
   description:
-    "Politique de confidentialité Laure Olivié : responsable de traitement OFC Création d'Entreprise, RGPD, droits d'accès. Stagiaires et prospects formations IA BTP.",
+    "Politique de confidentialité Laure Olivié : OFC Création d'Entreprise, RGPD, droits d'accès et cookies. Stagiaires et prospects formations IA BTP en Île-de-France.",
   path: '/politique-confidentialite',
   keywords: ['RGPD formation', 'politique confidentialité organisme', 'données personnelles stagiaires'],
 });

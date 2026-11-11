@@ -16,7 +16,7 @@ const FILE_URL = `${SITE_CONFIG.url.replace(/\/$/, '')}${FILE_HREF}`;
 
 const META_TITLE = 'Guide RH BTP : 18 cas d’usage IA';
 const META_DESCRIPTION =
-  'Guide RH BTP : 18 cas d’usage IA (recrutement, onboarding, droit social). Formation IA pour les pros du BTP, présentiel Île-de-France, Qualiopi — PDF gratuit.';
+  'Guide RH BTP : 18 cas d’usage IA (recrutement, onboarding, droit social). PDF gratuit OFC Qualiopi. Formation IA BTP en présentiel IDF — réservez une visio.';
 
 export const metadata = buildMetadata({
   title: META_TITLE,

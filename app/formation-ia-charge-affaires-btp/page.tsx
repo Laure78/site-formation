@@ -44,7 +44,7 @@ const COURSE_JSON_LD: Record<string, unknown> = {
   ...buildFormationFicheCourseJsonLd({
     name: "Formation IA pour Chargé d'Affaires BTP",
     description:
-      "Formation ChatGPT et Claude AI pour chargés d'affaires BTP : pré-chiffrage devis, mémoire technique, analyse DCE, relances prospects, argumentaires prix. Organisme certifié Qualiopi. Financement possible selon éligibilité. Présentiel Île-de-France.",
+      "Formation IA chargés d'affaires BTP : devis, mémoires, DCE et relances avec ChatGPT. Présentiel IDF, Qualiopi. Prise en charge OPCO/Constructys selon éligibilité. Réservez une visio.",
     path: PATH,
     educationalLevel: 'Advanced',
     organizationId: `${BASE_URL}/#organization`,

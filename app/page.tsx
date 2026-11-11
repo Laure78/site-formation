@@ -22,7 +22,7 @@ import { buildHomeUnifiedGraphJsonLd } from '@/lib/schema-home-unified-graph';
 const HOME_META_TITLE_ABSOLUTE =
   'Formations IA BTP en Île-de-France | Laure Olivié';
 const HOME_META_DESCRIPTION =
-  'Formation IA BTP en Île-de-France : parcours métiers et sessions catalogue 4 h ou 14 h (2 jours) pour devis, DCE et chantiers. Présentiel, Qualiopi, OPCO selon éligibilité. Visio offerte.';
+  'Formation IA BTP IDF : devis, DCE, chantier 4 h/14 h. Présentiel Qualiopi. Prise en charge OPCO/Constructys selon éligibilité. Réservez une visio gratuite.';
 
 const HOME_FAQ_PAGE_JSON_LD = buildHomeFAQPageJsonLd();
 

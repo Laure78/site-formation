@@ -21,7 +21,7 @@ const PATH = '/ia-analyse-dce-btp';
 
 const META_TITLE = 'IA et analyse de DCE dans le BTP';
 const META_DESCRIPTION =
-  "Analyse DCE (CCTP, CCAP, RC) avec l'IA : méthode, vigilance et confidentialité. Formation IA pour le BTP en présentiel IDF, Qualiopi, OPCO selon éligibilité.";
+  "Analyse DCE (CCTP, CCAP, RC) avec l'IA : méthode et points de vigilance. Formation IA BTP en présentiel IDF, Qualiopi. Prise en charge OPCO/Constructys selon éligibilité.";
 
 const EN_BREF =
   'Un DCE, ou dossier de consultation des entreprises, regroupe les pièces transmises aux candidats d’un marché. L’IA (Claude ou ChatGPT) aide à extraire exigences, délais, pénalités et points de vigilance à partir du CCTP, du CCAP et du RC. La décision GO/NO GO et la validation commerciale restent humaines.';

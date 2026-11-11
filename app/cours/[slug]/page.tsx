@@ -157,7 +157,7 @@ export default async function CoursDetailPage({ params }: PageProps) {
                   </Link>
                 ) : isFree ? (
                   <Link
-                    href={user ? `/api/enroll-free?courseId=${course.id}` : `/auth/connexion?next=/cours/${slug}`}
+                    href={user ? `/api/enroll-free?courseId=${course.id}` : LINKS.espaceApprenant}
                     className="block w-full rounded-xl bg-emerald-600 px-4 py-4 text-center font-semibold text-white hover:bg-emerald-700"
                   >
                     S&apos;inscrire gratuitement

@@ -15,7 +15,7 @@ const FILE_URL = `${SITE_CONFIG.url.replace(/\/$/, '')}${FILE_HREF}`;
 
 const META_TITLE = 'Guide Claude BTP : Projets, Skills, MCP';
 const META_DESCRIPTION =
-  'Guide PDF Claude BTP : Projets, Skills, MCP, Cowork pour l’admin chantier. Formation IA appliquée au bâtiment, présentiel Île-de-France, Qualiopi — gratuit.';
+  'Guide PDF Claude BTP : Projets, Skills, MCP et Cowork pour l’admin chantier. PDF gratuit Qualiopi. Formation IA BTP en présentiel IDF — réservez une visio.';
 
 export const metadata = buildMetadata({
   title: META_TITLE,

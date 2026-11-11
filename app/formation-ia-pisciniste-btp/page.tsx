@@ -28,7 +28,7 @@ const PATH = '/formation-ia-pisciniste-btp';
 export const metadata = createMetierBtpPageMetadata('pisciniste', {
   title: 'Formation IA Pisciniste BTP Île-de-France',
   description:
-    'Formation IA pisciniste BTP : devis, fiches techniques et relances clients avec l’IA. Présentiel Île-de-France, Qualiopi, financement OPCO selon éligibilité.',
+    'Formation IA pisciniste BTP : devis, fiches techniques et relances avec l’IA. Présentiel IDF, Qualiopi. Prise en charge OPCO/Constructys selon éligibilité. Réservez une visio.',
   path: PATH,
   keywords: [
     'formation IA pisciniste BTP',

@@ -396,7 +396,7 @@ export const FAQ_FINANCEMENT: FAQItem[] = [
   },
   {
     q: "Quels documents fournir pour le financement ?",
-    a: 'Programme de formation détaillé, devis du prestataire, convention de formation, liste des participants, attestation FFB (si adhérent), justificatifs d\'effectif. Nous vous accompagnons pour monter le dossier : <a href="/contact">contact</a> ou <a href="${LINKS.prendreRdv}">Prendre RDV</a>.',
+    a: `Programme de formation détaillé, devis du prestataire, convention de formation, liste des participants, attestation FFB (si adhérent), justificatifs d'effectif. Nous vous accompagnons pour monter le dossier : <a href="${LINKS.contact}">contact</a> ou <a href="${LINKS.prendreRdv}">Prendre RDV</a>.`,
   },
 ];
 
@@ -975,7 +975,7 @@ export const FAQ_BLOG: FAQItem[] = [
   },
   {
     q: "Les formations sont-elles finançables ?",
-    a: 'Oui, financement possible via Constructys ou votre OPCO selon éligibilité. Prenez rendez-vous pour un devis personnalisé — <a href="${LINKS.prendreRdv}">Prendre RDV</a> et <a href="/formations">catalogue</a>.',
+    a: `Oui, financement possible via Constructys ou votre OPCO selon éligibilité. Prenez rendez-vous pour un devis personnalisé — <a href="${LINKS.prendreRdv}">Prendre RDV</a> et <a href="${LINKS.formations}">catalogue</a>.`,
   },
   {
     q: "Comment accéder aux formations IA pour le BTP ?",

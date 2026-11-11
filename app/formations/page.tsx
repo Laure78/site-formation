@@ -24,7 +24,7 @@ const baseUrl = SITE_CONFIG.url.replace(/\/$/, '');
 
 const CATALOGUE_TITLE = 'Catalogue des formations IA BTP | Laure Olivié';
 const CATALOGUE_DESCRIPTION =
-  'Formations IA pour les professionnels du BTP : devis, appels d’offres, conduite de travaux. Programmes en présentiel en Île-de-France. Réservez une visio découverte gratuite ou demandez un devis.';
+  'Catalogue IA BTP : devis, AO et chantier, présentiel IDF. Qualiopi. Prise en charge OPCO/Constructys selon éligibilité. Réservez une visio gratuite.';
 
 export const revalidate = 3600;
 

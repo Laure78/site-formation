@@ -12,7 +12,7 @@ const PAGE_URL = `${SITE_CONFIG.url.replace(/\/$/, '')}${LINKS.nousRejoindre}`;
 
 const PAGE_TITLE = 'Recrutement formateurs IA BTP 2027 | Laure Olivié';
 const PAGE_DESCRIPTION =
-  'Formation IA pour le BTP : recrutement 2027 de formateurs indépendants (2 ans d’expérience métier). Missions rémunérées en présentiel en Île-de-France. Candidature en ligne.';
+  'Recrutement formateurs IA BTP 2027 : indépendants avec 2 ans d’expérience métier. Missions rémunérées en présentiel IDF. Postulez en ligne sur Laure Olivié.';
 
 export const metadata = createPageMetadata({
   title: 'Recrutement formateurs IA BTP 2027',

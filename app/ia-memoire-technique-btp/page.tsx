@@ -19,7 +19,7 @@ const PATH = '/ia-memoire-technique-btp';
 
 const META_TITLE = "Mémoire technique BTP avec l'IA";
 const META_DESCRIPTION =
-  "Rédigez un mémoire technique BTP gagnant avec l'IA : plan, méthodologie, moyens et références structurés. Vous validez le contenu. Présentiel IDF. RDV gratuit.";
+  "Mémoire technique BTP avec l'IA : plan, méthodologie et moyens structurés — vous validez le contenu. Présentiel IDF. Réservez une visio découverte gratuite.";
 
 const EN_BREF =
   'Le mémoire technique est le document dans lequel l’entreprise présente son organisation, ses moyens et sa méthodologie pour exécuter le marché. L’IA peut aider à préparer une trame alignée sur le RC et un premier jet — mais moyens, références et engagements doivent être vérifiés et adaptés avant remise.';

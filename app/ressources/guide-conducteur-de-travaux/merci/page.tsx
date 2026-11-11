@@ -9,7 +9,7 @@ import { MerciSkillIaDownload } from '@/components/ressources/MerciSkillIaDownlo
 export const metadata = createPageMetadata({
   title: 'Merci — votre guide Skill IA est prêt',
   description:
-    'Téléchargez le guide PDF « Créez votre 1er Skill IA » pour conducteurs de travaux BTP : prompts et méthode Claude, avec relecture métier avant usage chantier.',
+    'Téléchargez le guide PDF Skill IA pour conducteurs de travaux BTP : prompts Claude et relecture métier avant usage chantier. Gratuit OFC Laure Olivié.',
   path: '/ressources/guide-conducteur-de-travaux/merci',
   robots: { index: false, follow: false },
   appendAuthorSuffix: false,
