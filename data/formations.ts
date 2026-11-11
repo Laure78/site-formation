@@ -277,6 +277,7 @@ export const FORMATIONS: readonly Formation[] = [
     effectifMin: 6,
     effectifMax: 12,
     prixHT: 0,
+    tarifParticipantHt: TARIF_PARTICIPANT_NIV05_HT,
     accroche:
       'CCTP, DPGF, analyse DCE, comptes rendus, ordres de service et réserves — ChatGPT et Claude pour la maîtrise d’œuvre de conception et d’exécution.',
     objectifs: [
