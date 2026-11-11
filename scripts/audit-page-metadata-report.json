@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-19T19:57:30.311Z",
+  "generatedAt": "2026-11-11T14:27:57.571Z",
   "rows": [
     {
       "url": "/a-propos",
@@ -121,6 +121,102 @@
     {
       "url": "/admin/disponibilites",
       "file": "app/admin/disponibilites/page.tsx",
+      "title": "(generateMetadata dynamique / absent)",
+      "titleLen": 0,
+      "desc": "(dynamique / absent)",
+      "descLen": 0,
+      "problems": [
+        "metadata non-statique (generateMetadata ou absent)"
+      ],
+      "skipFix": true
+    },
+    {
+      "url": "/admin/formateurs/[id]",
+      "file": "app/admin/formateurs/[id]/page.tsx",
+      "title": "(generateMetadata dynamique / absent)",
+      "titleLen": 0,
+      "desc": "(dynamique / absent)",
+      "descLen": 0,
+      "problems": [
+        "metadata non-statique (generateMetadata ou absent)"
+      ],
+      "skipFix": true
+    },
+    {
+      "url": "/admin/formateurs/charte",
+      "file": "app/admin/formateurs/charte/page.tsx",
+      "title": "(generateMetadata dynamique / absent)",
+      "titleLen": 0,
+      "desc": "(dynamique / absent)",
+      "descLen": 0,
+      "problems": [
+        "metadata non-statique (generateMetadata ou absent)"
+      ],
+      "skipFix": true
+    },
+    {
+      "url": "/admin/formateurs",
+      "file": "app/admin/formateurs/page.tsx",
+      "title": "Formateurs extranet | Admin",
+      "titleFinal": "Formateurs extranet | Admin | Laure Olivié",
+      "titleLen": 42,
+      "segLen": 27,
+      "desc": "—",
+      "descLen": 0,
+      "problems": [
+        "description source non extraite",
+        "canonical absent (pas via buildMetadata)",
+        "openGraph absent",
+        "twitter absent"
+      ],
+      "helper": false,
+      "finalFlag": false
+    },
+    {
+      "url": "/admin/formateurs/planning",
+      "file": "app/admin/formateurs/planning/page.tsx",
+      "title": "(generateMetadata dynamique / absent)",
+      "titleLen": 0,
+      "desc": "(dynamique / absent)",
+      "descLen": 0,
+      "problems": [
+        "metadata non-statique (generateMetadata ou absent)"
+      ],
+      "skipFix": true
+    },
+    {
+      "url": "/admin/formateurs/programmes",
+      "file": "app/admin/formateurs/programmes/page.tsx",
+      "title": "(generateMetadata dynamique / absent)",
+      "titleLen": 0,
+      "desc": "(dynamique / absent)",
+      "descLen": 0,
+      "problems": [
+        "metadata non-statique (generateMetadata ou absent)"
+      ],
+      "skipFix": true
+    },
+    {
+      "url": "/admin/formateurs/qualite",
+      "file": "app/admin/formateurs/qualite/page.tsx",
+      "title": "Qualité formateurs | Admin",
+      "titleFinal": "Qualité formateurs | Admin | Laure Olivié",
+      "titleLen": 41,
+      "segLen": 26,
+      "desc": "—",
+      "descLen": 0,
+      "problems": [
+        "description source non extraite",
+        "canonical absent (pas via buildMetadata)",
+        "openGraph absent",
+        "twitter absent"
+      ],
+      "helper": false,
+      "finalFlag": false
+    },
+    {
+      "url": "/admin/formateurs/supports",
+      "file": "app/admin/formateurs/supports/page.tsx",
       "title": "(generateMetadata dynamique / absent)",
       "titleLen": 0,
       "desc": "(dynamique / absent)",
@@ -563,6 +659,78 @@
       "skipFix": true
     },
     {
+      "url": "/admin/recrutement/candidats/[id]/evaluation/etape-1",
+      "file": "app/admin/recrutement/candidats/[id]/evaluation/etape-1/page.tsx",
+      "title": "(generateMetadata dynamique / absent)",
+      "titleLen": 0,
+      "desc": "(dynamique / absent)",
+      "descLen": 0,
+      "problems": [
+        "metadata non-statique (generateMetadata ou absent)"
+      ],
+      "skipFix": true
+    },
+    {
+      "url": "/admin/recrutement/candidats/[id]/evaluation/etape-2",
+      "file": "app/admin/recrutement/candidats/[id]/evaluation/etape-2/page.tsx",
+      "title": "(generateMetadata dynamique / absent)",
+      "titleLen": 0,
+      "desc": "(dynamique / absent)",
+      "descLen": 0,
+      "problems": [
+        "metadata non-statique (generateMetadata ou absent)"
+      ],
+      "skipFix": true
+    },
+    {
+      "url": "/admin/recrutement/candidats/[id]",
+      "file": "app/admin/recrutement/candidats/[id]/page.tsx",
+      "title": "(generateMetadata dynamique / absent)",
+      "titleLen": 0,
+      "desc": "(dynamique / absent)",
+      "descLen": 0,
+      "problems": [
+        "metadata non-statique (generateMetadata ou absent)"
+      ],
+      "skipFix": true
+    },
+    {
+      "url": "/admin/recrutement/candidats",
+      "file": "app/admin/recrutement/candidats/page.tsx",
+      "title": "(generateMetadata dynamique / absent)",
+      "titleLen": 0,
+      "desc": "(dynamique / absent)",
+      "descLen": 0,
+      "problems": [
+        "metadata non-statique (generateMetadata ou absent)"
+      ],
+      "skipFix": true
+    },
+    {
+      "url": "/admin/recrutement",
+      "file": "app/admin/recrutement/page.tsx",
+      "title": "(generateMetadata dynamique / absent)",
+      "titleLen": 0,
+      "desc": "(dynamique / absent)",
+      "descLen": 0,
+      "problems": [
+        "metadata non-statique (generateMetadata ou absent)"
+      ],
+      "skipFix": true
+    },
+    {
+      "url": "/admin/recrutement/planning",
+      "file": "app/admin/recrutement/planning/page.tsx",
+      "title": "(generateMetadata dynamique / absent)",
+      "titleLen": 0,
+      "desc": "(dynamique / absent)",
+      "descLen": 0,
+      "problems": [
+        "metadata non-statique (generateMetadata ou absent)"
+      ],
+      "skipFix": true
+    },
+    {
       "url": "/admin/satisfaction/[id]",
       "file": "app/admin/satisfaction/[id]/page.tsx",
       "title": "(generateMetadata dynamique / absent)",
@@ -754,6 +922,21 @@
       "finalFlag": true
     },
     {
+      "url": "/barometre-ia-btp-ile-de-france",
+      "file": "app/barometre-ia-btp-ile-de-france/page.tsx",
+      "title": "Baromètre IA BTP Île-de-France 2026",
+      "titleFinal": "Baromètre IA BTP Île-de-France 2026 | Laure Olivié",
+      "titleLen": 50,
+      "segLen": 35,
+      "desc": "—",
+      "descLen": 0,
+      "problems": [
+        "description source non extraite"
+      ],
+      "helper": true,
+      "finalFlag": true
+    },
+    {
       "url": "/bework",
       "file": "app/bework/page.tsx",
       "title": "(generateMetadata dynamique / absent)",
@@ -854,33 +1037,16 @@
       "finalFlag": false
     },
     {
-      "url": "/candidatures-spontanees",
-      "file": "app/candidatures-spontanees/page.tsx",
-      "title": "Candidature spontanée — OFC Création d’Entreprise",
-      "titleFinal": "Candidature spontanée — OFC Création | Laure Olivié",
-      "titleLen": 51,
-      "segLen": 49,
-      "desc": "Déposez une candidature spontanée auprès d’OFC Création d’Entreprise : emploi, stage, alternance ou collaboration. Formation IA BTP en Île-de-France.",
-      "descLen": 149,
-      "problems": [
-        "title segment trop long (49>45) → troncature",
-        "desc trop courte (149)",
-        "sans descriptionFinal — enrich peut modifier"
-      ],
-      "helper": true,
-      "finalFlag": false
-    },
-    {
       "url": "/cgv",
       "file": "app/cgv/page.tsx",
-      "title": "CGV — OFC Création d\\",
-      "titleFinal": "CGV — OFC Création d\\ | Laure Olivié",
-      "titleLen": 36,
-      "segLen": 21,
-      "desc": "CGV des formations OFC : vente, délais, annulations, paiement. Organisme certifié Qualiopi. À lire avant de réserver votre formation IA pour le BTP.",
-      "descLen": 148,
+      "title": "CGV formations | Laure Olivié",
+      "titleFinal": "CGV formations | Laure Olivié",
+      "titleLen": 29,
+      "segLen": 14,
+      "desc": "CGV des formations Laure Olivié (OFC Création d'Entreprise) : vente, délais, annulations, paiement. Organisme certifié Qualiopi.",
+      "descLen": 128,
       "problems": [
-        "desc trop courte (148)",
+        "desc trop courte (128)",
         "sans descriptionFinal — enrich peut modifier"
       ],
       "helper": true,
@@ -963,19 +1129,6 @@
       "finalFlag": true
     },
     {
-      "url": "/devenez-consultant",
-      "file": "app/devenez-consultant/page.tsx",
-      "title": "Devenez consultant-formateur IA BTP",
-      "titleFinal": "Devenez consultant-formateur IA BTP | Laure Olivié",
-      "titleLen": 50,
-      "segLen": 35,
-      "desc": "Proposez votre expertise BTP et votre pratique de l’IA pour animer des formations en présentiel en Île-de-France. Formulaire de candidature consultant OFC.",
-      "descLen": 155,
-      "problems": [],
-      "helper": true,
-      "finalFlag": false
-    },
-    {
       "url": "/diagnostic-ia-btp",
       "file": "app/diagnostic-ia-btp/page.tsx",
       "title": "Diagnostic IA BTP gratuit",
@@ -987,35 +1140,6 @@
       "problems": [],
       "helper": true,
       "finalFlag": true
-    },
-    {
-      "url": "/emplois/[slug]",
-      "file": "app/emplois/[slug]/page.tsx",
-      "title": "Offre d’emploi",
-      "titleFinal": "Offre d’emploi | Laure Olivié",
-      "titleLen": 29,
-      "segLen": 14,
-      "desc": "Offre d’emploi OFC Création d’Entreprise.",
-      "descLen": 41,
-      "problems": [
-        "desc trop courte (41)",
-        "sans descriptionFinal — enrich peut modifier"
-      ],
-      "helper": true,
-      "finalFlag": false
-    },
-    {
-      "url": "/emplois",
-      "file": "app/emplois/page.tsx",
-      "title": "Emplois — rejoindre OFC Création d’Entreprise",
-      "titleFinal": "Emplois — rejoindre OFC Création d’Entreprise | Laure Olivié",
-      "titleLen": 60,
-      "segLen": 45,
-      "desc": "Offres d’emploi chez OFC Création d’Entreprise : formation IA pour les professionnels du BTP en présentiel en Île-de-France. Candidature spontanée possible.",
-      "descLen": 156,
-      "problems": [],
-      "helper": true,
-      "finalFlag": false
     },
     {
       "url": "/espace-apprenant/attestation/[courseId]",
@@ -1066,6 +1190,142 @@
       "skipFix": true
     },
     {
+      "url": "/espace-formateurs/charte",
+      "file": "app/espace-formateurs/(app)/charte/page.tsx",
+      "title": "(generateMetadata dynamique / absent)",
+      "titleLen": 0,
+      "desc": "(dynamique / absent)",
+      "descLen": 0,
+      "problems": [
+        "metadata non-statique (generateMetadata ou absent)"
+      ],
+      "skipFix": true
+    },
+    {
+      "url": "/espace-formateurs/documents",
+      "file": "app/espace-formateurs/(app)/documents/page.tsx",
+      "title": "(generateMetadata dynamique / absent)",
+      "titleLen": 0,
+      "desc": "(dynamique / absent)",
+      "descLen": 0,
+      "problems": [
+        "metadata non-statique (generateMetadata ou absent)"
+      ],
+      "skipFix": true
+    },
+    {
+      "url": "/espace-formateurs/interventions/[id]",
+      "file": "app/espace-formateurs/(app)/interventions/[id]/page.tsx",
+      "title": "(generateMetadata dynamique / absent)",
+      "titleLen": 0,
+      "desc": "(dynamique / absent)",
+      "descLen": 0,
+      "problems": [
+        "metadata non-statique (generateMetadata ou absent)"
+      ],
+      "skipFix": true
+    },
+    {
+      "url": "/espace-formateurs/interventions",
+      "file": "app/espace-formateurs/(app)/interventions/page.tsx",
+      "title": "(generateMetadata dynamique / absent)",
+      "titleLen": 0,
+      "desc": "(dynamique / absent)",
+      "descLen": 0,
+      "problems": [
+        "metadata non-statique (generateMetadata ou absent)"
+      ],
+      "skipFix": true
+    },
+    {
+      "url": "/espace-formateurs",
+      "file": "app/espace-formateurs/(app)/page.tsx",
+      "title": "(generateMetadata dynamique / absent)",
+      "titleLen": 0,
+      "desc": "(dynamique / absent)",
+      "descLen": 0,
+      "problems": [
+        "metadata non-statique (generateMetadata ou absent)"
+      ],
+      "skipFix": true
+    },
+    {
+      "url": "/espace-formateurs/profil",
+      "file": "app/espace-formateurs/(app)/profil/page.tsx",
+      "title": "(generateMetadata dynamique / absent)",
+      "titleLen": 0,
+      "desc": "(dynamique / absent)",
+      "descLen": 0,
+      "problems": [
+        "metadata non-statique (generateMetadata ou absent)"
+      ],
+      "skipFix": true
+    },
+    {
+      "url": "/espace-formateurs/programmes/[id]",
+      "file": "app/espace-formateurs/(app)/programmes/[id]/page.tsx",
+      "title": "(generateMetadata dynamique / absent)",
+      "titleLen": 0,
+      "desc": "(dynamique / absent)",
+      "descLen": 0,
+      "problems": [
+        "metadata non-statique (generateMetadata ou absent)"
+      ],
+      "skipFix": true
+    },
+    {
+      "url": "/espace-formateurs/programmes",
+      "file": "app/espace-formateurs/(app)/programmes/page.tsx",
+      "title": "(generateMetadata dynamique / absent)",
+      "titleLen": 0,
+      "desc": "(dynamique / absent)",
+      "descLen": 0,
+      "problems": [
+        "metadata non-statique (generateMetadata ou absent)"
+      ],
+      "skipFix": true
+    },
+    {
+      "url": "/espace-formateurs/qualite",
+      "file": "app/espace-formateurs/(app)/qualite/page.tsx",
+      "title": "(generateMetadata dynamique / absent)",
+      "titleLen": 0,
+      "desc": "(dynamique / absent)",
+      "descLen": 0,
+      "problems": [
+        "metadata non-statique (generateMetadata ou absent)"
+      ],
+      "skipFix": true
+    },
+    {
+      "url": "/espace-formateurs/supports",
+      "file": "app/espace-formateurs/(app)/supports/page.tsx",
+      "title": "(generateMetadata dynamique / absent)",
+      "titleLen": 0,
+      "desc": "(dynamique / absent)",
+      "descLen": 0,
+      "problems": [
+        "metadata non-statique (generateMetadata ou absent)"
+      ],
+      "skipFix": true
+    },
+    {
+      "url": "/espace-formateurs/connexion",
+      "file": "app/espace-formateurs/connexion/page.tsx",
+      "title": "Connexion — espace formateurs",
+      "titleFinal": "Connexion — espace formateurs | Laure Olivié",
+      "titleLen": 44,
+      "segLen": 29,
+      "desc": "Connexion à l’extranet formateurs Laure Olivié (OFC Création d’Entreprise).",
+      "descLen": 75,
+      "problems": [
+        "desc trop courte (75)",
+        "sans descriptionFinal — enrich peut modifier"
+      ],
+      "helper": true,
+      "finalFlag": false
+    },
+    {
       "url": "/etudes-de-cas/compte-rendu-vocal-chantier-btp",
       "file": "app/etudes-de-cas/compte-rendu-vocal-chantier-btp/page.tsx",
       "title": "Étude de cas CR vocal chantier — IA BTP",
@@ -1108,19 +1368,6 @@
         "title source non extrait",
         "description source non extraite"
       ],
-      "helper": true,
-      "finalFlag": true
-    },
-    {
-      "url": "/evenements/repondre-appel-offres-btp-5-etapes",
-      "file": "app/evenements/repondre-appel-offres-btp-5-etapes/page.tsx",
-      "title": "Webinaire AO BTP — 5 novembre 2026",
-      "titleFinal": "Webinaire AO BTP — 5 novembre 2026 | Laure Olivié",
-      "titleLen": 49,
-      "segLen": 34,
-      "desc": "Webinaire AO BTP du 5 novembre 2026 (12 h–13 h) : 5 étapes pour répondre avec l’IA. Formation IA pour le BTP — événement en ligne, inscription Eventbrite.",
-      "descLen": 154,
-      "problems": [],
       "helper": true,
       "finalFlag": true
     },
@@ -1173,10 +1420,10 @@
       "titleFinal": "Les formateurs qui vous accompagnent | Laure Olivié",
       "titleLen": 51,
       "segLen": 36,
-      "desc": "Intervenants OFC : spécialités, expériences métier et formations animées pour les professionnels du bâtiment et des travaux publics. Présentiel Île-de-France — Qualiopi.",
-      "descLen": 169,
+      "desc": "Découvrez les formateurs Laure Olivié : expertise métier BTP et pédagogie concrète pour utiliser l’IA en présentiel en Île-de-France.",
+      "descLen": 133,
       "problems": [
-        "desc trop longue (169)"
+        "desc trop courte (133)"
       ],
       "helper": true,
       "finalFlag": true
@@ -1314,9 +1561,11 @@
       "titleFinal": "Formation IA assistante travaux BTP | Laure Olivié",
       "titleLen": 50,
       "segLen": 35,
-      "desc": "Formation IA assistante travaux : PPSPS, CR, DOE et DC4 plus rapides au bureau, sous validation métier. Formation IA pour le BTP. Présentiel IDF, Qualiopi.",
-      "descLen": 155,
-      "problems": [],
+      "desc": "Formation IA assistante travaux : PPSPS, CR, DOE et DC4 plus rapides au bureau, sous validation métier. Présentiel Île-de-France, Qualiopi, OPCO selon éligibilité.",
+      "descLen": 163,
+      "problems": [
+        "desc trop longue (163)"
+      ],
       "helper": true,
       "finalFlag": true
     },
@@ -1721,15 +1970,21 @@
     {
       "url": "/formation-ia-dirigeant-pme-btp",
       "file": "app/formation-ia-dirigeant-pme-btp/page.tsx",
-      "title": "Formation IA chef de TPE du bâtiment, IDF",
-      "titleFinal": "Formation IA chef de TPE du bâtiment, IDF | Laure Olivié",
-      "titleLen": 56,
-      "segLen": 41,
-      "desc": "Formation IA pour le BTP : chefs de TPE — devis, relances clients et prospection. Présentiel Île-de-France, Qualiopi. Prenez un rendez-vous découverte.",
-      "descLen": 151,
-      "problems": [],
-      "helper": true,
-      "finalFlag": true
+      "title": "—",
+      "titleFinal": "—",
+      "titleLen": 0,
+      "segLen": 0,
+      "desc": "—",
+      "descLen": 0,
+      "problems": [
+        "title source non extrait",
+        "description source non extraite",
+        "canonical absent (pas via buildMetadata)",
+        "openGraph absent",
+        "twitter absent"
+      ],
+      "helper": false,
+      "finalFlag": false
     },
     {
       "url": "/formation-ia-electricien-btp",
@@ -2180,6 +2435,22 @@
       "skipFix": true
     },
     {
+      "url": "/formations/agents-ia-autonomes-btp",
+      "file": "app/formations/agents-ia-autonomes-btp/page.tsx",
+      "title": "—",
+      "titleFinal": "—",
+      "titleLen": 0,
+      "segLen": 0,
+      "desc": "—",
+      "descLen": 0,
+      "problems": [
+        "title source non extrait",
+        "description source non extraite"
+      ],
+      "helper": true,
+      "finalFlag": true
+    },
+    {
       "url": "/formations/application-metier-btp-niveau-1",
       "file": "app/formations/application-metier-btp-niveau-1/page.tsx",
       "title": "—",
@@ -2276,6 +2547,21 @@
       "finalFlag": true
     },
     {
+      "url": "/formations/ia-assistance-maitrise-ouvrage",
+      "file": "app/formations/ia-assistance-maitrise-ouvrage/page.tsx",
+      "title": "Formation IA Assistant Maîtrise d\\",
+      "titleFinal": "Formation IA Assistant Maîtrise d\\ | Laure Olivié",
+      "titleLen": 49,
+      "segLen": 34,
+      "desc": "—",
+      "descLen": 0,
+      "problems": [
+        "description source non extraite"
+      ],
+      "helper": true,
+      "finalFlag": true
+    },
+    {
       "url": "/formations/ia-batiment-travaux-publics",
       "file": "app/formations/ia-batiment-travaux-publics/page.tsx",
       "title": "—",
@@ -2363,14 +2649,13 @@
     {
       "url": "/formations/ia-maitrise-oeuvre",
       "file": "app/formations/ia-maitrise-oeuvre/page.tsx",
-      "title": "—",
-      "titleFinal": "—",
-      "titleLen": 0,
-      "segLen": 0,
+      "title": "Formation IA Maître d'œuvre Île-de-France | Laure Olivié",
+      "titleFinal": "Formation IA Maître d'œuvre Île-de-France | Laure Olivié",
+      "titleLen": 56,
+      "segLen": 41,
       "desc": "—",
       "descLen": 0,
       "problems": [
-        "title source non extrait",
         "description source non extraite"
       ],
       "helper": true,
@@ -2579,9 +2864,11 @@
       "titleFinal": "Informations réglementaires | Laure Olivié",
       "titleLen": 42,
       "segLen": 27,
-      "desc": "Informations réglementaires OFC Création d'Entreprise, organisme de formation : livret d'accueil, règlement intérieur, réclamations, accessibilité, Qualiopi.",
-      "descLen": 157,
-      "problems": [],
+      "desc": "Informations réglementaires Laure Olivié (OFC Création d'Entreprise), organisme de formation : livret d'accueil, règlement intérieur, réclamations, accessibilité, Qualiopi.",
+      "descLen": 172,
+      "problems": [
+        "desc trop longue (172)"
+      ],
       "helper": true,
       "finalFlag": true
     },
@@ -2649,12 +2936,12 @@
     {
       "url": "/mentions-legales",
       "file": "app/mentions-legales/page.tsx",
-      "title": "Mentions légales — OFC Création d\\",
-      "titleFinal": "Mentions légales — OFC Création d\\ | Laure Olivié",
-      "titleLen": 49,
-      "segLen": 34,
-      "desc": "Mentions légales OFC Création d'Entreprise : éditeur Laure Olivié, siège Guyancourt, hébergeur, RGPD. Organisme de formation IA pour le BTP, Qualiopi.",
-      "descLen": 150,
+      "title": "Mentions légales | Laure Olivié",
+      "titleFinal": "Mentions légales | Laure Olivié",
+      "titleLen": 31,
+      "segLen": 16,
+      "desc": "Mentions légales du site Laure Olivié : marque commerciale, éditeur OFC Création d'Entreprise, siège Paris, hébergeur, RGPD. Formation IA BTP, Qualiopi.",
+      "descLen": 152,
       "problems": [],
       "helper": true,
       "finalFlag": false
@@ -2761,6 +3048,52 @@
       "skipFix": true
     },
     {
+      "url": "/nous-rejoindre/[slug]",
+      "file": "app/nous-rejoindre/[slug]/page.tsx",
+      "title": "Offre d’emploi",
+      "titleFinal": "Offre d’emploi | Laure Olivié",
+      "titleLen": 29,
+      "segLen": 14,
+      "desc": "Offre d’emploi chez OFC Création d’Entreprise : formation IA pour le BTP en présentiel Île-de-France. Consultez la fiche ou déposez une candidature.",
+      "descLen": 148,
+      "problems": [
+        "desc trop courte (148)"
+      ],
+      "helper": true,
+      "finalFlag": true
+    },
+    {
+      "url": "/nous-rejoindre/merci",
+      "file": "app/nous-rejoindre/merci/page.tsx",
+      "title": "Candidature envoyée — formateur IA BTP",
+      "titleFinal": "Candidature envoyée — formateur IA BTP | Laure Olivié",
+      "titleLen": 53,
+      "segLen": 38,
+      "desc": "Votre candidature formateur indépendant IA BTP a bien été transmise à OFC Création d’Entreprise.",
+      "descLen": 96,
+      "problems": [
+        "desc trop courte (96)",
+        "sans descriptionFinal — enrich peut modifier"
+      ],
+      "helper": true,
+      "finalFlag": false
+    },
+    {
+      "url": "/nous-rejoindre",
+      "file": "app/nous-rejoindre/page.tsx",
+      "title": "Recrutement formateurs IA BTP 2027 | Laure Olivié",
+      "titleFinal": "Recrutement formateurs IA BTP 2027 | Laure Olivié",
+      "titleLen": 49,
+      "segLen": 34,
+      "desc": "Formation IA pour le BTP : recrutement 2027 de formateurs indépendants (2 ans d’expérience métier). Missions rémunérées en présentiel en Île-de-France. Candidature en ligne.",
+      "descLen": 173,
+      "problems": [
+        "desc trop longue (173)"
+      ],
+      "helper": true,
+      "finalFlag": true
+    },
+    {
       "url": "/outils/cas-usage-ia-btp",
       "file": "app/outils/cas-usage-ia-btp/page.tsx",
       "title": "Cas d'usage IA BTP — par métier",
@@ -2824,7 +3157,7 @@
       "titleFinal": "Formations IA pour le BTP | Laure Olivié",
       "titleLen": 40,
       "segLen": 25,
-      "desc": "Formations IA pour le BTP en présentiel Île-de-France : devis, appels d’offres et suivi de chantier avec ChatGPT et Claude. Parcours métiers, Qualiopi, financement OPCO selon éligibilité.",
+      "desc": "Formation IA BTP en Île-de-France : parcours métiers et sessions catalogue 4 h ou 14 h (2 jours) pour devis, DCE et chantiers. Présentiel, Qualiopi, OPCO selon éligibilité. Visio offerte.",
       "descLen": 187,
       "problems": [
         "desc trop longue (187)"
@@ -2835,13 +3168,16 @@
     {
       "url": "/parcours-metiers",
       "file": "app/parcours-metiers/page.tsx",
-      "title": "Parcours métiers — formation IA BTP",
-      "titleFinal": "Parcours métiers — formation IA BTP | Laure Olivié",
-      "titleLen": 50,
-      "segLen": 35,
-      "desc": "Parcours formation IA BTP par métier : dirigeant, conducteur de travaux, études de prix, MOE ou gestion. Programmes Qualiopi en présentiel Île-de-France.",
-      "descLen": 153,
-      "problems": [],
+      "title": "—",
+      "titleFinal": "—",
+      "titleLen": 0,
+      "segLen": 0,
+      "desc": "—",
+      "descLen": 0,
+      "problems": [
+        "title source non extrait",
+        "description source non extraite"
+      ],
       "helper": true,
       "finalFlag": true
     },
@@ -2864,15 +3200,14 @@
     {
       "url": "/politique-confidentialite",
       "file": "app/politique-confidentialite/page.tsx",
-      "title": "Politique confidentialité — OFC",
-      "titleFinal": "Politique confidentialité — OFC | Laure Olivié",
-      "titleLen": 46,
-      "segLen": 31,
-      "desc": "Politique confidentialité OFC : données personnelles, RGPD, droits d'accès. Informations pour stagiaires et prospects des formations IA pour le BTP.",
-      "descLen": 148,
+      "title": "Politique de confidentialité | Laure Olivié",
+      "titleFinal": "Politique de confidentialité | Laure Olivié",
+      "titleLen": 43,
+      "segLen": 28,
+      "desc": "Politique de confidentialité Laure Olivié : responsable de traitement OFC Création d'Entreprise, RGPD, droits d'accès. Stagiaires et prospects formations IA BTP.",
+      "descLen": 161,
       "problems": [
-        "desc trop courte (148)",
-        "sans descriptionFinal — enrich peut modifier"
+        "desc trop longue (161)"
       ],
       "helper": true,
       "finalFlag": false
@@ -2938,12 +3273,9 @@
       "titleFinal": "Gérer mon rendez-vous | Laure Olivié",
       "titleLen": 36,
       "segLen": 21,
-      "desc": "Modifier ou annuler votre rendez-vous avec Laure Olivié — formation IA pour le BTP.",
-      "descLen": 83,
-      "problems": [
-        "desc trop courte (83)",
-        "sans descriptionFinal — enrich peut modifier"
-      ],
+      "desc": "Modifiez ou annulez votre rendez-vous visio découverte avec Laure Olivié (formation IA BTP, présentiel Île-de-France). Lien personnel reçu par e-mail.",
+      "descLen": 150,
+      "problems": [],
       "helper": true,
       "finalFlag": false
     },
@@ -3018,6 +3350,39 @@
       "finalFlag": true
     },
     {
+      "url": "/ressources/charte-ia-btp",
+      "file": "app/ressources/charte-ia-btp/page.tsx",
+      "title": "Charte IA BTP : modèle gratuit pour PME",
+      "titleFinal": "Charte IA BTP : modèle gratuit pour PME | Laure Olivié",
+      "titleLen": 54,
+      "segLen": 39,
+      "desc": "Téléchargez un modèle de charte IA pour votre PME du bâtiment : confidentialité, contrôle humain et règles pratiques au bureau comme sur chantier.",
+      "descLen": 146,
+      "problems": [
+        "desc trop courte (146)"
+      ],
+      "helper": true,
+      "finalFlag": true
+    },
+    {
+      "url": "/ressources/creer-skill-chatgpt-claude-btp",
+      "file": "app/ressources/creer-skill-chatgpt-claude-btp/page.tsx",
+      "title": "Article non trouvé",
+      "titleFinal": "Article non trouvé | Laure Olivié",
+      "titleLen": 33,
+      "segLen": 18,
+      "desc": "—",
+      "descLen": 0,
+      "problems": [
+        "description source non extraite",
+        "canonical absent (pas via buildMetadata)",
+        "openGraph absent",
+        "twitter absent"
+      ],
+      "helper": false,
+      "finalFlag": false
+    },
+    {
       "url": "/ressources/guide-assistants-travaux-ofc",
       "file": "app/ressources/guide-assistants-travaux-ofc/page.tsx",
       "title": "Guide assistants travaux IA — 12 missions | Laure Olivié",
@@ -3076,12 +3441,9 @@
       "titleFinal": "Merci — votre guide Skill IA est prêt | Laure Olivié",
       "titleLen": 52,
       "segLen": 37,
-      "desc": "Téléchargez votre guide PDF « Créez votre 1er Skill IA » pour conducteurs de travaux BTP.",
-      "descLen": 89,
-      "problems": [
-        "desc trop courte (89)",
-        "sans descriptionFinal — enrich peut modifier"
-      ],
+      "desc": "Téléchargez le guide PDF « Créez votre 1er Skill IA » pour conducteurs de travaux BTP : prompts et méthode Claude, avec relecture métier avant usage chantier.",
+      "descLen": 158,
+      "problems": [],
       "helper": true,
       "finalFlag": false
     },
@@ -3131,9 +3493,11 @@
       "titleFinal": "IA appels d’offres BTP : méthode en 5 étapes | Laure Olivié",
       "titleLen": 59,
       "segLen": 44,
-      "desc": "Guide AO BTP 2026 : méthode 5 étapes, 4 prompts IA et contrôles. Formation IA appliquée au bâtiment, présentiel Île-de-France, Qualiopi — PDF gratuit.",
-      "descLen": 150,
-      "problems": [],
+      "desc": "Guide AO BTP 2026 : analyser un DCE avec l’IA, méthode 5 étapes, 4 prompts et 6 contrôles. Présentiel Île-de-France, Qualiopi — PDF gratuit OFC.",
+      "descLen": 144,
+      "problems": [
+        "desc trop courte (144)"
+      ],
       "helper": true,
       "finalFlag": true
     },
@@ -3183,9 +3547,11 @@
       "titleFinal": "Ressources IA BTP : guides et tutos | Laure Olivié",
       "titleLen": 50,
       "segLen": 35,
-      "desc": "Guides, tutoriels et prompts IA gratuits pour le BTP : analyser un DCE, mémoire technique, devis, chantier et DOE. Ressources OFC Qualiopi Île-de-France.",
-      "descLen": 153,
-      "problems": [],
+      "desc": "Guides, tutoriels, prompts et modèles IA gratuits pour le BTP : analyser un DCE, mémoire technique, devis, chantier et DOE. Ressources OFC Qualiopi Île-de-France.",
+      "descLen": 162,
+      "problems": [
+        "desc trop longue (162)"
+      ],
       "helper": true,
       "finalFlag": true
     },
@@ -3271,7 +3637,7 @@
       "titleFinal": "Formations IA pour le BTP | Laure Olivié",
       "titleLen": 40,
       "segLen": 25,
-      "desc": "Formations IA pour le BTP en présentiel Île-de-France : devis, appels d’offres et suivi de chantier avec ChatGPT et Claude. Parcours métiers, Qualiopi, financement OPCO selon éligibilité.",
+      "desc": "Formation IA BTP en Île-de-France : parcours métiers et sessions catalogue 4 h ou 14 h (2 jours) pour devis, DCE et chantiers. Présentiel, Qualiopi, OPCO selon éligibilité. Visio offerte.",
       "descLen": 187,
       "problems": [
         "desc trop longue (187)"
@@ -3398,6 +3764,102 @@
     {
       "url": "/admin/disponibilites",
       "file": "app/admin/disponibilites/page.tsx",
+      "title": "(generateMetadata dynamique / absent)",
+      "titleLen": 0,
+      "desc": "(dynamique / absent)",
+      "descLen": 0,
+      "problems": [
+        "metadata non-statique (generateMetadata ou absent)"
+      ],
+      "skipFix": true
+    },
+    {
+      "url": "/admin/formateurs",
+      "file": "app/admin/formateurs/page.tsx",
+      "title": "Formateurs extranet | Admin",
+      "titleFinal": "Formateurs extranet | Admin | Laure Olivié",
+      "titleLen": 42,
+      "segLen": 27,
+      "desc": "—",
+      "descLen": 0,
+      "problems": [
+        "description source non extraite",
+        "canonical absent (pas via buildMetadata)",
+        "openGraph absent",
+        "twitter absent"
+      ],
+      "helper": false,
+      "finalFlag": false
+    },
+    {
+      "url": "/admin/formateurs/[id]",
+      "file": "app/admin/formateurs/[id]/page.tsx",
+      "title": "(generateMetadata dynamique / absent)",
+      "titleLen": 0,
+      "desc": "(dynamique / absent)",
+      "descLen": 0,
+      "problems": [
+        "metadata non-statique (generateMetadata ou absent)"
+      ],
+      "skipFix": true
+    },
+    {
+      "url": "/admin/formateurs/charte",
+      "file": "app/admin/formateurs/charte/page.tsx",
+      "title": "(generateMetadata dynamique / absent)",
+      "titleLen": 0,
+      "desc": "(dynamique / absent)",
+      "descLen": 0,
+      "problems": [
+        "metadata non-statique (generateMetadata ou absent)"
+      ],
+      "skipFix": true
+    },
+    {
+      "url": "/admin/formateurs/planning",
+      "file": "app/admin/formateurs/planning/page.tsx",
+      "title": "(generateMetadata dynamique / absent)",
+      "titleLen": 0,
+      "desc": "(dynamique / absent)",
+      "descLen": 0,
+      "problems": [
+        "metadata non-statique (generateMetadata ou absent)"
+      ],
+      "skipFix": true
+    },
+    {
+      "url": "/admin/formateurs/programmes",
+      "file": "app/admin/formateurs/programmes/page.tsx",
+      "title": "(generateMetadata dynamique / absent)",
+      "titleLen": 0,
+      "desc": "(dynamique / absent)",
+      "descLen": 0,
+      "problems": [
+        "metadata non-statique (generateMetadata ou absent)"
+      ],
+      "skipFix": true
+    },
+    {
+      "url": "/admin/formateurs/qualite",
+      "file": "app/admin/formateurs/qualite/page.tsx",
+      "title": "Qualité formateurs | Admin",
+      "titleFinal": "Qualité formateurs | Admin | Laure Olivié",
+      "titleLen": 41,
+      "segLen": 26,
+      "desc": "—",
+      "descLen": 0,
+      "problems": [
+        "description source non extraite",
+        "canonical absent (pas via buildMetadata)",
+        "openGraph absent",
+        "twitter absent"
+      ],
+      "helper": false,
+      "finalFlag": false
+    },
+    {
+      "url": "/admin/formateurs/supports",
+      "file": "app/admin/formateurs/supports/page.tsx",
       "title": "(generateMetadata dynamique / absent)",
       "titleLen": 0,
       "desc": "(dynamique / absent)",
@@ -3828,6 +4290,78 @@
       "skipFix": true
     },
     {
+      "url": "/admin/recrutement",
+      "file": "app/admin/recrutement/page.tsx",
+      "title": "(generateMetadata dynamique / absent)",
+      "titleLen": 0,
+      "desc": "(dynamique / absent)",
+      "descLen": 0,
+      "problems": [
+        "metadata non-statique (generateMetadata ou absent)"
+      ],
+      "skipFix": true
+    },
+    {
+      "url": "/admin/recrutement/candidats",
+      "file": "app/admin/recrutement/candidats/page.tsx",
+      "title": "(generateMetadata dynamique / absent)",
+      "titleLen": 0,
+      "desc": "(dynamique / absent)",
+      "descLen": 0,
+      "problems": [
+        "metadata non-statique (generateMetadata ou absent)"
+      ],
+      "skipFix": true
+    },
+    {
+      "url": "/admin/recrutement/candidats/[id]",
+      "file": "app/admin/recrutement/candidats/[id]/page.tsx",
+      "title": "(generateMetadata dynamique / absent)",
+      "titleLen": 0,
+      "desc": "(dynamique / absent)",
+      "descLen": 0,
+      "problems": [
+        "metadata non-statique (generateMetadata ou absent)"
+      ],
+      "skipFix": true
+    },
+    {
+      "url": "/admin/recrutement/candidats/[id]/evaluation/etape-1",
+      "file": "app/admin/recrutement/candidats/[id]/evaluation/etape-1/page.tsx",
+      "title": "(generateMetadata dynamique / absent)",
+      "titleLen": 0,
+      "desc": "(dynamique / absent)",
+      "descLen": 0,
+      "problems": [
+        "metadata non-statique (generateMetadata ou absent)"
+      ],
+      "skipFix": true
+    },
+    {
+      "url": "/admin/recrutement/candidats/[id]/evaluation/etape-2",
+      "file": "app/admin/recrutement/candidats/[id]/evaluation/etape-2/page.tsx",
+      "title": "(generateMetadata dynamique / absent)",
+      "titleLen": 0,
+      "desc": "(dynamique / absent)",
+      "descLen": 0,
+      "problems": [
+        "metadata non-statique (generateMetadata ou absent)"
+      ],
+      "skipFix": true
+    },
+    {
+      "url": "/admin/recrutement/planning",
+      "file": "app/admin/recrutement/planning/page.tsx",
+      "title": "(generateMetadata dynamique / absent)",
+      "titleLen": 0,
+      "desc": "(dynamique / absent)",
+      "descLen": 0,
+      "problems": [
+        "metadata non-statique (generateMetadata ou absent)"
+      ],
+      "skipFix": true
+    },
+    {
       "url": "/admin/satisfaction",
       "file": "app/admin/satisfaction/page.tsx",
       "title": "(generateMetadata dynamique / absent)",
@@ -4019,6 +4553,21 @@
       "finalFlag": true
     },
     {
+      "url": "/barometre-ia-btp-ile-de-france",
+      "file": "app/barometre-ia-btp-ile-de-france/page.tsx",
+      "title": "Baromètre IA BTP Île-de-France 2026",
+      "titleFinal": "Baromètre IA BTP Île-de-France 2026 | Laure Olivié",
+      "titleLen": 50,
+      "segLen": 35,
+      "desc": "—",
+      "descLen": 0,
+      "problems": [
+        "description source non extraite"
+      ],
+      "helper": true,
+      "finalFlag": true
+    },
+    {
       "url": "/bework",
       "file": "app/bework/page.tsx",
       "title": "(generateMetadata dynamique / absent)",
@@ -4119,33 +4668,16 @@
       "finalFlag": false
     },
     {
-      "url": "/candidatures-spontanees",
-      "file": "app/candidatures-spontanees/page.tsx",
-      "title": "Candidature spontanée — OFC Création d’Entreprise",
-      "titleFinal": "Candidature spontanée — OFC Création | Laure Olivié",
-      "titleLen": 51,
-      "segLen": 49,
-      "desc": "Déposez une candidature spontanée auprès d’OFC Création d’Entreprise : emploi, stage, alternance ou collaboration. Formation IA BTP en Île-de-France.",
-      "descLen": 149,
-      "problems": [
-        "title segment trop long (49>45) → troncature",
-        "desc trop courte (149)",
-        "sans descriptionFinal — enrich peut modifier"
-      ],
-      "helper": true,
-      "finalFlag": false
-    },
-    {
       "url": "/cgv",
       "file": "app/cgv/page.tsx",
-      "title": "CGV — OFC Création d\\",
-      "titleFinal": "CGV — OFC Création d\\ | Laure Olivié",
-      "titleLen": 36,
-      "segLen": 21,
-      "desc": "CGV des formations OFC : vente, délais, annulations, paiement. Organisme certifié Qualiopi. À lire avant de réserver votre formation IA pour le BTP.",
-      "descLen": 148,
+      "title": "CGV formations | Laure Olivié",
+      "titleFinal": "CGV formations | Laure Olivié",
+      "titleLen": 29,
+      "segLen": 14,
+      "desc": "CGV des formations Laure Olivié (OFC Création d'Entreprise) : vente, délais, annulations, paiement. Organisme certifié Qualiopi.",
+      "descLen": 128,
       "problems": [
-        "desc trop courte (148)",
+        "desc trop courte (128)",
         "sans descriptionFinal — enrich peut modifier"
       ],
       "helper": true,
@@ -4215,22 +4747,6 @@
       "finalFlag": true
     },
     {
-      "url": "/emplois/[slug]",
-      "file": "app/emplois/[slug]/page.tsx",
-      "title": "Offre d’emploi",
-      "titleFinal": "Offre d’emploi | Laure Olivié",
-      "titleLen": 29,
-      "segLen": 14,
-      "desc": "Offre d’emploi OFC Création d’Entreprise.",
-      "descLen": 41,
-      "problems": [
-        "desc trop courte (41)",
-        "sans descriptionFinal — enrich peut modifier"
-      ],
-      "helper": true,
-      "finalFlag": false
-    },
-    {
       "url": "/espace-apprenant",
       "file": "app/espace-apprenant/page.tsx",
       "title": "(generateMetadata dynamique / absent)",
@@ -4269,6 +4785,142 @@
     {
       "url": "/espace-apprenant/mes-formations",
       "file": "app/espace-apprenant/mes-formations/page.tsx",
+      "title": "(generateMetadata dynamique / absent)",
+      "titleLen": 0,
+      "desc": "(dynamique / absent)",
+      "descLen": 0,
+      "problems": [
+        "metadata non-statique (generateMetadata ou absent)"
+      ],
+      "skipFix": true
+    },
+    {
+      "url": "/espace-formateurs",
+      "file": "app/espace-formateurs/(app)/page.tsx",
+      "title": "(generateMetadata dynamique / absent)",
+      "titleLen": 0,
+      "desc": "(dynamique / absent)",
+      "descLen": 0,
+      "problems": [
+        "metadata non-statique (generateMetadata ou absent)"
+      ],
+      "skipFix": true
+    },
+    {
+      "url": "/espace-formateurs/charte",
+      "file": "app/espace-formateurs/(app)/charte/page.tsx",
+      "title": "(generateMetadata dynamique / absent)",
+      "titleLen": 0,
+      "desc": "(dynamique / absent)",
+      "descLen": 0,
+      "problems": [
+        "metadata non-statique (generateMetadata ou absent)"
+      ],
+      "skipFix": true
+    },
+    {
+      "url": "/espace-formateurs/connexion",
+      "file": "app/espace-formateurs/connexion/page.tsx",
+      "title": "Connexion — espace formateurs",
+      "titleFinal": "Connexion — espace formateurs | Laure Olivié",
+      "titleLen": 44,
+      "segLen": 29,
+      "desc": "Connexion à l’extranet formateurs Laure Olivié (OFC Création d’Entreprise).",
+      "descLen": 75,
+      "problems": [
+        "desc trop courte (75)",
+        "sans descriptionFinal — enrich peut modifier"
+      ],
+      "helper": true,
+      "finalFlag": false
+    },
+    {
+      "url": "/espace-formateurs/documents",
+      "file": "app/espace-formateurs/(app)/documents/page.tsx",
+      "title": "(generateMetadata dynamique / absent)",
+      "titleLen": 0,
+      "desc": "(dynamique / absent)",
+      "descLen": 0,
+      "problems": [
+        "metadata non-statique (generateMetadata ou absent)"
+      ],
+      "skipFix": true
+    },
+    {
+      "url": "/espace-formateurs/interventions",
+      "file": "app/espace-formateurs/(app)/interventions/page.tsx",
+      "title": "(generateMetadata dynamique / absent)",
+      "titleLen": 0,
+      "desc": "(dynamique / absent)",
+      "descLen": 0,
+      "problems": [
+        "metadata non-statique (generateMetadata ou absent)"
+      ],
+      "skipFix": true
+    },
+    {
+      "url": "/espace-formateurs/interventions/[id]",
+      "file": "app/espace-formateurs/(app)/interventions/[id]/page.tsx",
+      "title": "(generateMetadata dynamique / absent)",
+      "titleLen": 0,
+      "desc": "(dynamique / absent)",
+      "descLen": 0,
+      "problems": [
+        "metadata non-statique (generateMetadata ou absent)"
+      ],
+      "skipFix": true
+    },
+    {
+      "url": "/espace-formateurs/profil",
+      "file": "app/espace-formateurs/(app)/profil/page.tsx",
+      "title": "(generateMetadata dynamique / absent)",
+      "titleLen": 0,
+      "desc": "(dynamique / absent)",
+      "descLen": 0,
+      "problems": [
+        "metadata non-statique (generateMetadata ou absent)"
+      ],
+      "skipFix": true
+    },
+    {
+      "url": "/espace-formateurs/programmes",
+      "file": "app/espace-formateurs/(app)/programmes/page.tsx",
+      "title": "(generateMetadata dynamique / absent)",
+      "titleLen": 0,
+      "desc": "(dynamique / absent)",
+      "descLen": 0,
+      "problems": [
+        "metadata non-statique (generateMetadata ou absent)"
+      ],
+      "skipFix": true
+    },
+    {
+      "url": "/espace-formateurs/programmes/[id]",
+      "file": "app/espace-formateurs/(app)/programmes/[id]/page.tsx",
+      "title": "(generateMetadata dynamique / absent)",
+      "titleLen": 0,
+      "desc": "(dynamique / absent)",
+      "descLen": 0,
+      "problems": [
+        "metadata non-statique (generateMetadata ou absent)"
+      ],
+      "skipFix": true
+    },
+    {
+      "url": "/espace-formateurs/qualite",
+      "file": "app/espace-formateurs/(app)/qualite/page.tsx",
+      "title": "(generateMetadata dynamique / absent)",
+      "titleLen": 0,
+      "desc": "(dynamique / absent)",
+      "descLen": 0,
+      "problems": [
+        "metadata non-statique (generateMetadata ou absent)"
+      ],
+      "skipFix": true
+    },
+    {
+      "url": "/espace-formateurs/supports",
+      "file": "app/espace-formateurs/(app)/supports/page.tsx",
       "title": "(generateMetadata dynamique / absent)",
       "titleLen": 0,
       "desc": "(dynamique / absent)",
@@ -4347,10 +4999,10 @@
       "titleFinal": "Les formateurs qui vous accompagnent | Laure Olivié",
       "titleLen": 51,
       "segLen": 36,
-      "desc": "Intervenants OFC : spécialités, expériences métier et formations animées pour les professionnels du bâtiment et des travaux publics. Présentiel Île-de-France — Qualiopi.",
-      "descLen": 169,
+      "desc": "Découvrez les formateurs Laure Olivié : expertise métier BTP et pédagogie concrète pour utiliser l’IA en présentiel en Île-de-France.",
+      "descLen": 133,
       "problems": [
-        "desc trop longue (169)"
+        "desc trop courte (133)"
       ],
       "helper": true,
       "finalFlag": true
@@ -4479,6 +5131,21 @@
         "twitter absent"
       ],
       "helper": false,
+      "finalFlag": true
+    },
+    {
+      "url": "/formation-ia-assistante-travaux",
+      "file": "app/formation-ia-assistante-travaux/page.tsx",
+      "title": "Formation IA assistante travaux BTP",
+      "titleFinal": "Formation IA assistante travaux BTP | Laure Olivié",
+      "titleLen": 50,
+      "segLen": 35,
+      "desc": "Formation IA assistante travaux : PPSPS, CR, DOE et DC4 plus rapides au bureau, sous validation métier. Présentiel Île-de-France, Qualiopi, OPCO selon éligibilité.",
+      "descLen": 163,
+      "problems": [
+        "desc trop longue (163)"
+      ],
+      "helper": true,
       "finalFlag": true
     },
     {
@@ -4813,6 +5480,25 @@
         "metadata non-statique (generateMetadata ou absent)"
       ],
       "skipFix": true
+    },
+    {
+      "url": "/formation-ia-dirigeant-pme-btp",
+      "file": "app/formation-ia-dirigeant-pme-btp/page.tsx",
+      "title": "—",
+      "titleFinal": "—",
+      "titleLen": 0,
+      "segLen": 0,
+      "desc": "—",
+      "descLen": 0,
+      "problems": [
+        "title source non extrait",
+        "description source non extraite",
+        "canonical absent (pas via buildMetadata)",
+        "openGraph absent",
+        "twitter absent"
+      ],
+      "helper": false,
+      "finalFlag": false
     },
     {
       "url": "/formation-ia-electricien-btp",
@@ -5188,6 +5874,22 @@
       "skipFix": true
     },
     {
+      "url": "/formations/agents-ia-autonomes-btp",
+      "file": "app/formations/agents-ia-autonomes-btp/page.tsx",
+      "title": "—",
+      "titleFinal": "—",
+      "titleLen": 0,
+      "segLen": 0,
+      "desc": "—",
+      "descLen": 0,
+      "problems": [
+        "title source non extrait",
+        "description source non extraite"
+      ],
+      "helper": true,
+      "finalFlag": true
+    },
+    {
       "url": "/formations/application-metier-btp-niveau-1",
       "file": "app/formations/application-metier-btp-niveau-1/page.tsx",
       "title": "—",
@@ -5284,6 +5986,21 @@
       "finalFlag": true
     },
     {
+      "url": "/formations/ia-assistance-maitrise-ouvrage",
+      "file": "app/formations/ia-assistance-maitrise-ouvrage/page.tsx",
+      "title": "Formation IA Assistant Maîtrise d\\",
+      "titleFinal": "Formation IA Assistant Maîtrise d\\ | Laure Olivié",
+      "titleLen": 49,
+      "segLen": 34,
+      "desc": "—",
+      "descLen": 0,
+      "problems": [
+        "description source non extraite"
+      ],
+      "helper": true,
+      "finalFlag": true
+    },
+    {
       "url": "/formations/ia-batiment-travaux-publics",
       "file": "app/formations/ia-batiment-travaux-publics/page.tsx",
       "title": "—",
@@ -5358,14 +6075,13 @@
     {
       "url": "/formations/ia-maitrise-oeuvre",
       "file": "app/formations/ia-maitrise-oeuvre/page.tsx",
-      "title": "—",
-      "titleFinal": "—",
-      "titleLen": 0,
-      "segLen": 0,
+      "title": "Formation IA Maître d'œuvre Île-de-France | Laure Olivié",
+      "titleFinal": "Formation IA Maître d'œuvre Île-de-France | Laure Olivié",
+      "titleLen": 56,
+      "segLen": 41,
       "desc": "—",
       "descLen": 0,
       "problems": [
-        "title source non extrait",
         "description source non extraite"
       ],
       "helper": true,
@@ -5500,6 +6216,21 @@
       "finalFlag": true
     },
     {
+      "url": "/informations-reglementaires",
+      "file": "app/informations-reglementaires/page.tsx",
+      "title": "Informations réglementaires | Laure Olivié",
+      "titleFinal": "Informations réglementaires | Laure Olivié",
+      "titleLen": 42,
+      "segLen": 27,
+      "desc": "Informations réglementaires Laure Olivié (OFC Création d'Entreprise), organisme de formation : livret d'accueil, règlement intérieur, réclamations, accessibilité, Qualiopi.",
+      "descLen": 172,
+      "problems": [
+        "desc trop longue (172)"
+      ],
+      "helper": true,
+      "finalFlag": true
+    },
+    {
       "url": "/invitation/[token]",
       "file": "app/invitation/[token]/page.tsx",
       "title": "—",
@@ -5623,6 +6354,52 @@
       "skipFix": true
     },
     {
+      "url": "/nous-rejoindre",
+      "file": "app/nous-rejoindre/page.tsx",
+      "title": "Recrutement formateurs IA BTP 2027 | Laure Olivié",
+      "titleFinal": "Recrutement formateurs IA BTP 2027 | Laure Olivié",
+      "titleLen": 49,
+      "segLen": 34,
+      "desc": "Formation IA pour le BTP : recrutement 2027 de formateurs indépendants (2 ans d’expérience métier). Missions rémunérées en présentiel en Île-de-France. Candidature en ligne.",
+      "descLen": 173,
+      "problems": [
+        "desc trop longue (173)"
+      ],
+      "helper": true,
+      "finalFlag": true
+    },
+    {
+      "url": "/nous-rejoindre/[slug]",
+      "file": "app/nous-rejoindre/[slug]/page.tsx",
+      "title": "Offre d’emploi",
+      "titleFinal": "Offre d’emploi | Laure Olivié",
+      "titleLen": 29,
+      "segLen": 14,
+      "desc": "Offre d’emploi chez OFC Création d’Entreprise : formation IA pour le BTP en présentiel Île-de-France. Consultez la fiche ou déposez une candidature.",
+      "descLen": 148,
+      "problems": [
+        "desc trop courte (148)"
+      ],
+      "helper": true,
+      "finalFlag": true
+    },
+    {
+      "url": "/nous-rejoindre/merci",
+      "file": "app/nous-rejoindre/merci/page.tsx",
+      "title": "Candidature envoyée — formateur IA BTP",
+      "titleFinal": "Candidature envoyée — formateur IA BTP | Laure Olivié",
+      "titleLen": 53,
+      "segLen": 38,
+      "desc": "Votre candidature formateur indépendant IA BTP a bien été transmise à OFC Création d’Entreprise.",
+      "descLen": 96,
+      "problems": [
+        "desc trop courte (96)",
+        "sans descriptionFinal — enrich peut modifier"
+      ],
+      "helper": true,
+      "finalFlag": false
+    },
+    {
       "url": "/outils/demo-cursor-vitrine-ffb",
       "file": "app/outils/demo-cursor-vitrine-ffb/page.tsx",
       "title": "Démo Cursor — reconstitution visuelle (noindex)",
@@ -5654,6 +6431,22 @@
       "finalFlag": false
     },
     {
+      "url": "/parcours-metiers",
+      "file": "app/parcours-metiers/page.tsx",
+      "title": "—",
+      "titleFinal": "—",
+      "titleLen": 0,
+      "segLen": 0,
+      "desc": "—",
+      "descLen": 0,
+      "problems": [
+        "title source non extrait",
+        "description source non extraite"
+      ],
+      "helper": true,
+      "finalFlag": true
+    },
+    {
       "url": "/partenaires",
       "file": "app/partenaires/page.tsx",
       "title": "—",
@@ -5672,15 +6465,14 @@
     {
       "url": "/politique-confidentialite",
       "file": "app/politique-confidentialite/page.tsx",
-      "title": "Politique confidentialité — OFC",
-      "titleFinal": "Politique confidentialité — OFC | Laure Olivié",
-      "titleLen": 46,
-      "segLen": 31,
-      "desc": "Politique confidentialité OFC : données personnelles, RGPD, droits d'accès. Informations pour stagiaires et prospects des formations IA pour le BTP.",
-      "descLen": 148,
+      "title": "Politique de confidentialité | Laure Olivié",
+      "titleFinal": "Politique de confidentialité | Laure Olivié",
+      "titleLen": 43,
+      "segLen": 28,
+      "desc": "Politique de confidentialité Laure Olivié : responsable de traitement OFC Création d'Entreprise, RGPD, droits d'accès. Stagiaires et prospects formations IA BTP.",
+      "descLen": 161,
       "problems": [
-        "desc trop courte (148)",
-        "sans descriptionFinal — enrich peut modifier"
+        "desc trop longue (161)"
       ],
       "helper": true,
       "finalFlag": false
@@ -5714,20 +6506,19 @@
       "skipFix": true
     },
     {
-      "url": "/rdv/[token]",
-      "file": "app/rdv/[token]/page.tsx",
-      "title": "Gérer mon rendez-vous",
-      "titleFinal": "Gérer mon rendez-vous | Laure Olivié",
-      "titleLen": 36,
-      "segLen": 21,
-      "desc": "Modifier ou annuler votre rendez-vous avec Laure Olivié — formation IA pour le BTP.",
-      "descLen": 83,
+      "url": "/ressources",
+      "file": "app/ressources/page.tsx",
+      "title": "Ressources IA BTP : guides et tutos",
+      "titleFinal": "Ressources IA BTP : guides et tutos | Laure Olivié",
+      "titleLen": 50,
+      "segLen": 35,
+      "desc": "Guides, tutoriels, prompts et modèles IA gratuits pour le BTP : analyser un DCE, mémoire technique, devis, chantier et DOE. Ressources OFC Qualiopi Île-de-France.",
+      "descLen": 162,
       "problems": [
-        "desc trop courte (83)",
-        "sans descriptionFinal — enrich peut modifier"
+        "desc trop longue (162)"
       ],
       "helper": true,
-      "finalFlag": false
+      "finalFlag": true
     },
     {
       "url": "/ressources/[slug]",
@@ -5761,20 +6552,52 @@
       "finalFlag": true
     },
     {
-      "url": "/ressources/guide-conducteur-de-travaux/merci",
-      "file": "app/ressources/guide-conducteur-de-travaux/merci/page.tsx",
-      "title": "Merci — votre guide Skill IA est prêt",
-      "titleFinal": "Merci — votre guide Skill IA est prêt | Laure Olivié",
-      "titleLen": 52,
-      "segLen": 37,
-      "desc": "Téléchargez votre guide PDF « Créez votre 1er Skill IA » pour conducteurs de travaux BTP.",
-      "descLen": 89,
+      "url": "/ressources/charte-ia-btp",
+      "file": "app/ressources/charte-ia-btp/page.tsx",
+      "title": "Charte IA BTP : modèle gratuit pour PME",
+      "titleFinal": "Charte IA BTP : modèle gratuit pour PME | Laure Olivié",
+      "titleLen": 54,
+      "segLen": 39,
+      "desc": "Téléchargez un modèle de charte IA pour votre PME du bâtiment : confidentialité, contrôle humain et règles pratiques au bureau comme sur chantier.",
+      "descLen": 146,
       "problems": [
-        "desc trop courte (89)",
-        "sans descriptionFinal — enrich peut modifier"
+        "desc trop courte (146)"
       ],
       "helper": true,
+      "finalFlag": true
+    },
+    {
+      "url": "/ressources/creer-skill-chatgpt-claude-btp",
+      "file": "app/ressources/creer-skill-chatgpt-claude-btp/page.tsx",
+      "title": "Article non trouvé",
+      "titleFinal": "Article non trouvé | Laure Olivié",
+      "titleLen": 33,
+      "segLen": 18,
+      "desc": "—",
+      "descLen": 0,
+      "problems": [
+        "description source non extraite",
+        "canonical absent (pas via buildMetadata)",
+        "openGraph absent",
+        "twitter absent"
+      ],
+      "helper": false,
       "finalFlag": false
+    },
+    {
+      "url": "/ressources/guide-repondre-ao-btp-ofc-2026",
+      "file": "app/ressources/guide-repondre-ao-btp-ofc-2026/page.tsx",
+      "title": "IA appels d’offres BTP : méthode en 5 étapes",
+      "titleFinal": "IA appels d’offres BTP : méthode en 5 étapes | Laure Olivié",
+      "titleLen": 59,
+      "segLen": 44,
+      "desc": "Guide AO BTP 2026 : analyser un DCE avec l’IA, méthode 5 étapes, 4 prompts et 6 contrôles. Présentiel Île-de-France, Qualiopi — PDF gratuit OFC.",
+      "descLen": 144,
+      "problems": [
+        "desc trop courte (144)"
+      ],
+      "helper": true,
+      "finalFlag": true
     },
     {
       "url": "/ressources/tuto-skill-pic",

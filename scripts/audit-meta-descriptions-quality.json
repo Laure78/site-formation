@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-10-19T20:00:00.919Z",
+  "generatedAt": "2026-11-11T14:28:13.625Z",
   "totals": {
-    "analyzed": 230,
-    "ok": 182,
-    "issues": 48,
-    "exactDuplicates": 67,
-    "similarPairs": 72
+    "analyzed": 234,
+    "ok": 174,
+    "issues": 60,
+    "exactDuplicates": 66,
+    "similarPairs": 36
   },
   "exactDuplicates": [
     {
@@ -13,7 +13,7 @@
         "/a-propos",
         "/a-propos"
       ],
-      "preview": "laure olivié, formatrice ia spécialisée btp, ancienne dirigeante de travaux publics. formations clau"
+      "preview": "organisme de formation ia btp certifié qualiopi : 7 ans de btp, ex-dirigeante d'alia btp. devis, dce"
     },
     {
       "urls": [
@@ -52,17 +52,17 @@
     },
     {
       "urls": [
-        "/candidatures-spontanees",
-        "/candidatures-spontanees"
+        "/barometre-ia-btp-ile-de-france",
+        "/barometre-ia-btp-ile-de-france"
       ],
-      "preview": "déposez une candidature spontanée auprès d’ofc création d’entreprise : emploi, stage, alternance ou "
+      "preview": "baromètre ia btp île-de-france 2026 : outils déjà utilisés, tâches visées et freins (n=20, juillet 2"
     },
     {
       "urls": [
         "/cgv",
         "/cgv"
       ],
-      "preview": "cgv des formations ofc : vente, délais, annulations, paiement. organisme certifié qualiopi. à lire a"
+      "preview": "cgv des formations laure olivié (ofc création d'entreprise) : vente, délais, annulations, paiement. "
     },
     {
       "urls": [
@@ -94,13 +94,6 @@
     },
     {
       "urls": [
-        "/devenez-consultant",
-        "/devenez-consultant"
-      ],
-      "preview": "proposez votre expertise btp et votre pratique de l’ia pour animer des formations en présentiel en î"
-    },
-    {
-      "urls": [
         "/diagnostic-ia-btp",
         "/diagnostic-ia-btp"
       ],
@@ -108,17 +101,10 @@
     },
     {
       "urls": [
-        "/emplois/[slug]",
-        "/emplois/[slug]"
+        "/espace-formateurs/connexion",
+        "/espace-formateurs/connexion"
       ],
-      "preview": "offre d’emploi chez ofc création d’entreprise : formation ia pour le btp en présentiel île-de-france"
-    },
-    {
-      "urls": [
-        "/emplois",
-        "/emplois"
-      ],
-      "preview": "offres d’emploi chez ofc création d’entreprise : formation ia pour les professionnels du btp en prés"
+      "preview": "connexion à l’extranet formateurs laure olivié (ofc création d’entreprise)."
     },
     {
       "urls": [
@@ -153,7 +139,7 @@
         "/formateurs",
         "/formateurs"
       ],
-      "preview": "formateurs ofc : parcours métiers btp, expériences chantier et modules ia animés en présentiel île-d"
+      "preview": "découvrez les formateurs laure olivié : expertise métier btp et pédagogie concrète pour utiliser l’i"
     },
     {
       "urls": [
@@ -206,13 +192,6 @@
     },
     {
       "urls": [
-        "/formation-ia-dirigeant-pme-btp",
-        "/formation-ia-dirigeant-pme-btp"
-      ],
-      "preview": "formation ia pour le btp : chefs de tpe — devis, relances clients et prospection. présentiel île-de-"
-    },
-    {
-      "urls": [
         "/formation-ia-etancheur",
         "/formation-ia-etancheur"
       ],
@@ -251,7 +230,7 @@
         "/formations",
         "/formations"
       ],
-      "preview": "découvrez les formations ia pour le btp de laure olivié. consultez les programmes, niveaux et durées"
+      "preview": "formations ia pour les professionnels du btp : devis, appels d’offres, conduite de travaux. programm"
     },
     {
       "urls": [
@@ -279,7 +258,7 @@
         "/informations-reglementaires",
         "/informations-reglementaires"
       ],
-      "preview": "informations réglementaires ofc création d'entreprise, organisme de formation : livret d'accueil, rè"
+      "preview": "informations réglementaires laure olivié (ofc création d'entreprise), organisme de formation : livre"
     },
     {
       "urls": [
@@ -307,7 +286,7 @@
         "/mentions-legales",
         "/mentions-legales"
       ],
-      "preview": "mentions légales ofc création d'entreprise : éditeur laure olivié, siège guyancourt, hébergeur, rgpd"
+      "preview": "mentions légales du site laure olivié : marque commerciale, éditeur ofc création d'entreprise, siège"
     },
     {
       "urls": [
@@ -322,6 +301,27 @@
         "/messages"
       ],
       "preview": "échangez en messagerie avec votre formateur sur les modules ia btp. questions de parcours et ressour"
+    },
+    {
+      "urls": [
+        "/nous-rejoindre/[slug]",
+        "/nous-rejoindre/[slug]"
+      ],
+      "preview": "offre d’emploi chez ofc création d’entreprise : formation ia pour le btp en présentiel île-de-france"
+    },
+    {
+      "urls": [
+        "/nous-rejoindre/merci",
+        "/nous-rejoindre/merci"
+      ],
+      "preview": "votre candidature formateur indépendant ia btp a bien été transmise à ofc création d’entreprise."
+    },
+    {
+      "urls": [
+        "/nous-rejoindre",
+        "/nous-rejoindre"
+      ],
+      "preview": "formation ia pour le btp : recrutement 2027 de formateurs indépendants (2 ans d’expérience métier). "
     },
     {
       "urls": [
@@ -353,13 +353,6 @@
     },
     {
       "urls": [
-        "/parcours-metiers",
-        "/parcours-metiers"
-      ],
-      "preview": "parcours formation ia btp par métier : dirigeant, conducteur de travaux, études de prix, moe ou gest"
-    },
-    {
-      "urls": [
         "/partenaires",
         "/partenaires"
       ],
@@ -370,7 +363,7 @@
         "/politique-confidentialite",
         "/politique-confidentialite"
       ],
-      "preview": "politique confidentialité ofc : données personnelles, rgpd, droits d'accès. informations pour stagia"
+      "preview": "politique de confidentialité laure olivié : responsable de traitement ofc création d'entreprise, rgp"
     },
     {
       "urls": [
@@ -398,7 +391,7 @@
         "/rdv/[token]",
         "/rdv/[token]"
       ],
-      "preview": "modifier ou annuler votre rendez-vous avec laure olivié — formation ia pour le btp."
+      "preview": "modifiez ou annulez votre rendez-vous visio découverte avec laure olivié (formation ia btp, présenti"
     },
     {
       "urls": [
@@ -433,7 +426,7 @@
         "/ressources/guide-conducteur-de-travaux/merci",
         "/ressources/guide-conducteur-de-travaux/merci"
       ],
-      "preview": "téléchargez votre guide pdf « créez votre 1er skill ia » pour conducteurs de travaux btp."
+      "preview": "téléchargez le guide pdf « créez votre 1er skill ia » pour conducteurs de travaux btp : prompts et m"
     },
     {
       "urls": [
@@ -468,7 +461,7 @@
         "/ressources",
         "/ressources"
       ],
-      "preview": "guides, tutoriels et prompts ia gratuits pour le btp : analyser un dce, mémoire technique, devis, ch"
+      "preview": "guides, tutoriels, prompts et modèles ia gratuits pour le btp : analyser un dce, mémoire technique, "
     },
     {
       "urls": [
@@ -479,186 +472,6 @@
     }
   ],
   "similarPairs": [
-    {
-      "sim": "0.89",
-      "a": "/blog/comment-utiliser-chatgpt-pour-vos-devis-carreleur",
-      "b": "/blog/comment-utiliser-chatgpt-pour-vos-devis-charpentier"
-    },
-    {
-      "sim": "0.89",
-      "a": "/blog/comment-utiliser-chatgpt-pour-vos-devis-carreleur",
-      "b": "/blog/comment-utiliser-chatgpt-pour-vos-devis-chauffagiste"
-    },
-    {
-      "sim": "0.89",
-      "a": "/blog/comment-utiliser-chatgpt-pour-vos-devis-carreleur",
-      "b": "/blog/comment-utiliser-chatgpt-pour-vos-devis-couvreur"
-    },
-    {
-      "sim": "0.89",
-      "a": "/blog/comment-utiliser-chatgpt-pour-vos-devis-carreleur",
-      "b": "/blog/comment-utiliser-chatgpt-pour-vos-devis-electricien"
-    },
-    {
-      "sim": "0.89",
-      "a": "/blog/comment-utiliser-chatgpt-pour-vos-devis-carreleur",
-      "b": "/blog/comment-utiliser-chatgpt-pour-vos-devis-macon"
-    },
-    {
-      "sim": "0.89",
-      "a": "/blog/comment-utiliser-chatgpt-pour-vos-devis-carreleur",
-      "b": "/blog/comment-utiliser-chatgpt-pour-vos-devis-menuisier"
-    },
-    {
-      "sim": "0.89",
-      "a": "/blog/comment-utiliser-chatgpt-pour-vos-devis-carreleur",
-      "b": "/blog/comment-utiliser-chatgpt-pour-vos-devis-peintre"
-    },
-    {
-      "sim": "0.89",
-      "a": "/blog/comment-utiliser-chatgpt-pour-vos-devis-carreleur",
-      "b": "/blog/comment-utiliser-chatgpt-pour-vos-devis-plombier"
-    },
-    {
-      "sim": "0.89",
-      "a": "/blog/comment-utiliser-chatgpt-pour-vos-devis-charpentier",
-      "b": "/blog/comment-utiliser-chatgpt-pour-vos-devis-chauffagiste"
-    },
-    {
-      "sim": "0.89",
-      "a": "/blog/comment-utiliser-chatgpt-pour-vos-devis-charpentier",
-      "b": "/blog/comment-utiliser-chatgpt-pour-vos-devis-couvreur"
-    },
-    {
-      "sim": "0.89",
-      "a": "/blog/comment-utiliser-chatgpt-pour-vos-devis-charpentier",
-      "b": "/blog/comment-utiliser-chatgpt-pour-vos-devis-electricien"
-    },
-    {
-      "sim": "0.89",
-      "a": "/blog/comment-utiliser-chatgpt-pour-vos-devis-charpentier",
-      "b": "/blog/comment-utiliser-chatgpt-pour-vos-devis-macon"
-    },
-    {
-      "sim": "0.89",
-      "a": "/blog/comment-utiliser-chatgpt-pour-vos-devis-charpentier",
-      "b": "/blog/comment-utiliser-chatgpt-pour-vos-devis-menuisier"
-    },
-    {
-      "sim": "0.89",
-      "a": "/blog/comment-utiliser-chatgpt-pour-vos-devis-charpentier",
-      "b": "/blog/comment-utiliser-chatgpt-pour-vos-devis-peintre"
-    },
-    {
-      "sim": "0.89",
-      "a": "/blog/comment-utiliser-chatgpt-pour-vos-devis-charpentier",
-      "b": "/blog/comment-utiliser-chatgpt-pour-vos-devis-plombier"
-    },
-    {
-      "sim": "0.89",
-      "a": "/blog/comment-utiliser-chatgpt-pour-vos-devis-chauffagiste",
-      "b": "/blog/comment-utiliser-chatgpt-pour-vos-devis-couvreur"
-    },
-    {
-      "sim": "0.89",
-      "a": "/blog/comment-utiliser-chatgpt-pour-vos-devis-chauffagiste",
-      "b": "/blog/comment-utiliser-chatgpt-pour-vos-devis-electricien"
-    },
-    {
-      "sim": "0.89",
-      "a": "/blog/comment-utiliser-chatgpt-pour-vos-devis-chauffagiste",
-      "b": "/blog/comment-utiliser-chatgpt-pour-vos-devis-macon"
-    },
-    {
-      "sim": "0.89",
-      "a": "/blog/comment-utiliser-chatgpt-pour-vos-devis-chauffagiste",
-      "b": "/blog/comment-utiliser-chatgpt-pour-vos-devis-menuisier"
-    },
-    {
-      "sim": "0.89",
-      "a": "/blog/comment-utiliser-chatgpt-pour-vos-devis-chauffagiste",
-      "b": "/blog/comment-utiliser-chatgpt-pour-vos-devis-peintre"
-    },
-    {
-      "sim": "0.89",
-      "a": "/blog/comment-utiliser-chatgpt-pour-vos-devis-chauffagiste",
-      "b": "/blog/comment-utiliser-chatgpt-pour-vos-devis-plombier"
-    },
-    {
-      "sim": "0.89",
-      "a": "/blog/comment-utiliser-chatgpt-pour-vos-devis-couvreur",
-      "b": "/blog/comment-utiliser-chatgpt-pour-vos-devis-electricien"
-    },
-    {
-      "sim": "0.89",
-      "a": "/blog/comment-utiliser-chatgpt-pour-vos-devis-couvreur",
-      "b": "/blog/comment-utiliser-chatgpt-pour-vos-devis-macon"
-    },
-    {
-      "sim": "0.89",
-      "a": "/blog/comment-utiliser-chatgpt-pour-vos-devis-couvreur",
-      "b": "/blog/comment-utiliser-chatgpt-pour-vos-devis-menuisier"
-    },
-    {
-      "sim": "0.89",
-      "a": "/blog/comment-utiliser-chatgpt-pour-vos-devis-couvreur",
-      "b": "/blog/comment-utiliser-chatgpt-pour-vos-devis-peintre"
-    },
-    {
-      "sim": "0.89",
-      "a": "/blog/comment-utiliser-chatgpt-pour-vos-devis-couvreur",
-      "b": "/blog/comment-utiliser-chatgpt-pour-vos-devis-plombier"
-    },
-    {
-      "sim": "0.89",
-      "a": "/blog/comment-utiliser-chatgpt-pour-vos-devis-electricien",
-      "b": "/blog/comment-utiliser-chatgpt-pour-vos-devis-macon"
-    },
-    {
-      "sim": "0.89",
-      "a": "/blog/comment-utiliser-chatgpt-pour-vos-devis-electricien",
-      "b": "/blog/comment-utiliser-chatgpt-pour-vos-devis-menuisier"
-    },
-    {
-      "sim": "0.89",
-      "a": "/blog/comment-utiliser-chatgpt-pour-vos-devis-electricien",
-      "b": "/blog/comment-utiliser-chatgpt-pour-vos-devis-peintre"
-    },
-    {
-      "sim": "0.89",
-      "a": "/blog/comment-utiliser-chatgpt-pour-vos-devis-electricien",
-      "b": "/blog/comment-utiliser-chatgpt-pour-vos-devis-plombier"
-    },
-    {
-      "sim": "0.89",
-      "a": "/blog/comment-utiliser-chatgpt-pour-vos-devis-macon",
-      "b": "/blog/comment-utiliser-chatgpt-pour-vos-devis-menuisier"
-    },
-    {
-      "sim": "0.89",
-      "a": "/blog/comment-utiliser-chatgpt-pour-vos-devis-macon",
-      "b": "/blog/comment-utiliser-chatgpt-pour-vos-devis-peintre"
-    },
-    {
-      "sim": "0.89",
-      "a": "/blog/comment-utiliser-chatgpt-pour-vos-devis-macon",
-      "b": "/blog/comment-utiliser-chatgpt-pour-vos-devis-plombier"
-    },
-    {
-      "sim": "0.89",
-      "a": "/blog/comment-utiliser-chatgpt-pour-vos-devis-menuisier",
-      "b": "/blog/comment-utiliser-chatgpt-pour-vos-devis-peintre"
-    },
-    {
-      "sim": "0.89",
-      "a": "/blog/comment-utiliser-chatgpt-pour-vos-devis-menuisier",
-      "b": "/blog/comment-utiliser-chatgpt-pour-vos-devis-plombier"
-    },
-    {
-      "sim": "0.89",
-      "a": "/blog/comment-utiliser-chatgpt-pour-vos-devis-peintre",
-      "b": "/blog/comment-utiliser-chatgpt-pour-vos-devis-plombier"
-    },
     {
       "sim": "0.88",
       "a": "/blog/l-ia-va-t-elle-remplacer-les-carreleurs",
@@ -728,6 +541,116 @@
       "sim": "0.88",
       "a": "/blog/l-ia-va-t-elle-remplacer-les-charpentiers",
       "b": "/blog/l-ia-va-t-elle-remplacer-les-peintres"
+    },
+    {
+      "sim": "0.88",
+      "a": "/blog/l-ia-va-t-elle-remplacer-les-charpentiers",
+      "b": "/blog/l-ia-va-t-elle-remplacer-les-plombiers"
+    },
+    {
+      "sim": "0.88",
+      "a": "/blog/l-ia-va-t-elle-remplacer-les-chauffagistes",
+      "b": "/blog/l-ia-va-t-elle-remplacer-les-couvreurs"
+    },
+    {
+      "sim": "0.88",
+      "a": "/blog/l-ia-va-t-elle-remplacer-les-chauffagistes",
+      "b": "/blog/l-ia-va-t-elle-remplacer-les-electriciens"
+    },
+    {
+      "sim": "0.88",
+      "a": "/blog/l-ia-va-t-elle-remplacer-les-chauffagistes",
+      "b": "/blog/l-ia-va-t-elle-remplacer-les-macons"
+    },
+    {
+      "sim": "0.88",
+      "a": "/blog/l-ia-va-t-elle-remplacer-les-chauffagistes",
+      "b": "/blog/l-ia-va-t-elle-remplacer-les-menuisiers"
+    },
+    {
+      "sim": "0.88",
+      "a": "/blog/l-ia-va-t-elle-remplacer-les-chauffagistes",
+      "b": "/blog/l-ia-va-t-elle-remplacer-les-peintres"
+    },
+    {
+      "sim": "0.88",
+      "a": "/blog/l-ia-va-t-elle-remplacer-les-chauffagistes",
+      "b": "/blog/l-ia-va-t-elle-remplacer-les-plombiers"
+    },
+    {
+      "sim": "0.88",
+      "a": "/blog/l-ia-va-t-elle-remplacer-les-couvreurs",
+      "b": "/blog/l-ia-va-t-elle-remplacer-les-electriciens"
+    },
+    {
+      "sim": "0.88",
+      "a": "/blog/l-ia-va-t-elle-remplacer-les-couvreurs",
+      "b": "/blog/l-ia-va-t-elle-remplacer-les-macons"
+    },
+    {
+      "sim": "0.88",
+      "a": "/blog/l-ia-va-t-elle-remplacer-les-couvreurs",
+      "b": "/blog/l-ia-va-t-elle-remplacer-les-menuisiers"
+    },
+    {
+      "sim": "0.88",
+      "a": "/blog/l-ia-va-t-elle-remplacer-les-couvreurs",
+      "b": "/blog/l-ia-va-t-elle-remplacer-les-peintres"
+    },
+    {
+      "sim": "0.88",
+      "a": "/blog/l-ia-va-t-elle-remplacer-les-couvreurs",
+      "b": "/blog/l-ia-va-t-elle-remplacer-les-plombiers"
+    },
+    {
+      "sim": "0.88",
+      "a": "/blog/l-ia-va-t-elle-remplacer-les-electriciens",
+      "b": "/blog/l-ia-va-t-elle-remplacer-les-macons"
+    },
+    {
+      "sim": "0.88",
+      "a": "/blog/l-ia-va-t-elle-remplacer-les-electriciens",
+      "b": "/blog/l-ia-va-t-elle-remplacer-les-menuisiers"
+    },
+    {
+      "sim": "0.88",
+      "a": "/blog/l-ia-va-t-elle-remplacer-les-electriciens",
+      "b": "/blog/l-ia-va-t-elle-remplacer-les-peintres"
+    },
+    {
+      "sim": "0.88",
+      "a": "/blog/l-ia-va-t-elle-remplacer-les-electriciens",
+      "b": "/blog/l-ia-va-t-elle-remplacer-les-plombiers"
+    },
+    {
+      "sim": "0.88",
+      "a": "/blog/l-ia-va-t-elle-remplacer-les-macons",
+      "b": "/blog/l-ia-va-t-elle-remplacer-les-menuisiers"
+    },
+    {
+      "sim": "0.88",
+      "a": "/blog/l-ia-va-t-elle-remplacer-les-macons",
+      "b": "/blog/l-ia-va-t-elle-remplacer-les-peintres"
+    },
+    {
+      "sim": "0.88",
+      "a": "/blog/l-ia-va-t-elle-remplacer-les-macons",
+      "b": "/blog/l-ia-va-t-elle-remplacer-les-plombiers"
+    },
+    {
+      "sim": "0.88",
+      "a": "/blog/l-ia-va-t-elle-remplacer-les-menuisiers",
+      "b": "/blog/l-ia-va-t-elle-remplacer-les-peintres"
+    },
+    {
+      "sim": "0.88",
+      "a": "/blog/l-ia-va-t-elle-remplacer-les-menuisiers",
+      "b": "/blog/l-ia-va-t-elle-remplacer-les-plombiers"
+    },
+    {
+      "sim": "0.88",
+      "a": "/blog/l-ia-va-t-elle-remplacer-les-peintres",
+      "b": "/blog/l-ia-va-t-elle-remplacer-les-plombiers"
     }
   ],
   "issues": [
@@ -756,6 +679,30 @@
       "status": "issue"
     },
     {
+      "url": "/espace-formateurs/connexion",
+      "file": "app/espace-formateurs/connexion/page.tsx",
+      "description": "Connexion à l’extranet formateurs Laure Olivié (OFC Création d’Entreprise).",
+      "length": 75,
+      "descriptionFinal": false,
+      "appendAuthorSuffix": false,
+      "problems": [
+        "courte (75)"
+      ],
+      "status": "issue"
+    },
+    {
+      "url": "/espace-formateurs/connexion",
+      "file": "app/espace-formateurs/connexion/page.tsx",
+      "description": "Connexion à l’extranet formateurs Laure Olivié (OFC Création d’Entreprise).",
+      "length": 75,
+      "descriptionFinal": false,
+      "appendAuthorSuffix": false,
+      "problems": [
+        "courte (75)"
+      ],
+      "status": "issue"
+    },
+    {
       "url": "/etudes-de-cas",
       "file": "app/etudes-de-cas/page.tsx",
       "status": "ref_unresolved",
@@ -814,6 +761,42 @@
       "file": "app/formation-ia-construction/page.tsx",
       "status": "ref_unresolved",
       "ref": "FORMATION_IA_CONSTRUCTION_SEO"
+    },
+    {
+      "url": "/formations",
+      "file": "app/formations/page.tsx",
+      "description": "Formations IA pour les professionnels du BTP : devis, appels d’offres, conduite de travaux. Programmes en présentiel en Île-de-France. Réservez une visio découverte gratuite ou demandez un devis.",
+      "length": 195,
+      "descriptionFinal": true,
+      "appendAuthorSuffix": false,
+      "problems": [
+        "longue (195)"
+      ],
+      "status": "issue"
+    },
+    {
+      "url": "/formations",
+      "file": "app/formations/page.tsx",
+      "description": "Formations IA pour les professionnels du BTP : devis, appels d’offres, conduite de travaux. Programmes en présentiel en Île-de-France. Réservez une visio découverte gratuite ou demandez un devis.",
+      "length": 195,
+      "descriptionFinal": true,
+      "appendAuthorSuffix": false,
+      "problems": [
+        "longue (195)"
+      ],
+      "status": "issue"
+    },
+    {
+      "url": "/formations/agents-ia-autonomes-btp",
+      "file": "app/formations/agents-ia-autonomes-btp/page.tsx",
+      "status": "ref_unresolved",
+      "ref": "CATALOGUE_SEO"
+    },
+    {
+      "url": "/formations/agents-ia-autonomes-btp",
+      "file": "app/formations/agents-ia-autonomes-btp/page.tsx",
+      "status": "ref_unresolved",
+      "ref": "CATALOGUE_SEO"
     },
     {
       "url": "/formations/application-metier-btp-niveau-1",
@@ -884,6 +867,18 @@
     {
       "url": "/formations/ia-appels-offre-btp",
       "file": "app/formations/ia-appels-offre-btp/page.tsx",
+      "status": "ref_unresolved",
+      "ref": "CATALOGUE_SEO"
+    },
+    {
+      "url": "/formations/ia-assistance-maitrise-ouvrage",
+      "file": "app/formations/ia-assistance-maitrise-ouvrage/page.tsx",
+      "status": "ref_unresolved",
+      "ref": "CATALOGUE_SEO"
+    },
+    {
+      "url": "/formations/ia-assistance-maitrise-ouvrage",
+      "file": "app/formations/ia-assistance-maitrise-ouvrage/page.tsx",
       "status": "ref_unresolved",
       "ref": "CATALOGUE_SEO"
     },
@@ -960,14 +955,26 @@
       "ref": "IA_DEVIS_SEO"
     },
     {
-      "url": "/marketing-export/bework/home-journee",
-      "file": "app/marketing-export/bework/home-journee/page.tsx",
-      "description": "Aperçu interne de la section accueil BeWork « Jour 1 » (non indexée).",
-      "length": 69,
-      "descriptionFinal": false,
+      "url": "/informations-reglementaires",
+      "file": "app/informations-reglementaires/page.tsx",
+      "description": "Informations réglementaires Laure Olivié (OFC Création d'Entreprise), organisme de formation : livret d'accueil, règlement intérieur, réclamations, accessibilité, Qualiopi.",
+      "length": 172,
+      "descriptionFinal": true,
       "appendAuthorSuffix": false,
       "problems": [
-        "courte (69)"
+        "longue (172)"
+      ],
+      "status": "issue"
+    },
+    {
+      "url": "/informations-reglementaires",
+      "file": "app/informations-reglementaires/page.tsx",
+      "description": "Informations réglementaires Laure Olivié (OFC Création d'Entreprise), organisme de formation : livret d'accueil, règlement intérieur, réclamations, accessibilité, Qualiopi.",
+      "length": 172,
+      "descriptionFinal": true,
+      "appendAuthorSuffix": false,
+      "problems": [
+        "longue (172)"
       ],
       "status": "issue"
     },
@@ -984,52 +991,76 @@
       "status": "issue"
     },
     {
-      "url": "/rdv/[token]",
-      "file": "app/rdv/[token]/page.tsx",
-      "description": "Modifier ou annuler votre rendez-vous avec Laure Olivié — formation IA pour le BTP.",
-      "length": 83,
+      "url": "/marketing-export/bework/home-journee",
+      "file": "app/marketing-export/bework/home-journee/page.tsx",
+      "description": "Aperçu interne de la section accueil BeWork « Jour 1 » (non indexée).",
+      "length": 69,
       "descriptionFinal": false,
       "appendAuthorSuffix": false,
       "problems": [
-        "courte (83)"
+        "courte (69)"
       ],
       "status": "issue"
     },
     {
-      "url": "/rdv/[token]",
-      "file": "app/rdv/[token]/page.tsx",
-      "description": "Modifier ou annuler votre rendez-vous avec Laure Olivié — formation IA pour le BTP.",
-      "length": 83,
-      "descriptionFinal": false,
+      "url": "/nous-rejoindre",
+      "file": "app/nous-rejoindre/page.tsx",
+      "description": "Formation IA pour le BTP : recrutement 2027 de formateurs indépendants (2 ans d’expérience métier). Missions rémunérées en présentiel en Île-de-France. Candidature en ligne.",
+      "length": 173,
+      "descriptionFinal": true,
       "appendAuthorSuffix": false,
       "problems": [
-        "courte (83)"
+        "longue (173)"
       ],
       "status": "issue"
     },
     {
-      "url": "/ressources/guide-conducteur-de-travaux/merci",
-      "file": "app/ressources/guide-conducteur-de-travaux/merci/page.tsx",
-      "description": "Téléchargez votre guide PDF « Créez votre 1er Skill IA » pour conducteurs de travaux BTP.",
-      "length": 89,
-      "descriptionFinal": false,
+      "url": "/nous-rejoindre",
+      "file": "app/nous-rejoindre/page.tsx",
+      "description": "Formation IA pour le BTP : recrutement 2027 de formateurs indépendants (2 ans d’expérience métier). Missions rémunérées en présentiel en Île-de-France. Candidature en ligne.",
+      "length": 173,
+      "descriptionFinal": true,
       "appendAuthorSuffix": false,
       "problems": [
-        "courte (89)"
+        "longue (173)"
       ],
       "status": "issue"
     },
     {
-      "url": "/ressources/guide-conducteur-de-travaux/merci",
-      "file": "app/ressources/guide-conducteur-de-travaux/merci/page.tsx",
-      "description": "Téléchargez votre guide PDF « Créez votre 1er Skill IA » pour conducteurs de travaux BTP.",
-      "length": 89,
+      "url": "/nous-rejoindre/merci",
+      "file": "app/nous-rejoindre/merci/page.tsx",
+      "description": "Votre candidature formateur indépendant IA BTP a bien été transmise à OFC Création d’Entreprise.",
+      "length": 96,
       "descriptionFinal": false,
       "appendAuthorSuffix": false,
       "problems": [
-        "courte (89)"
+        "courte (96)"
       ],
       "status": "issue"
+    },
+    {
+      "url": "/nous-rejoindre/merci",
+      "file": "app/nous-rejoindre/merci/page.tsx",
+      "description": "Votre candidature formateur indépendant IA BTP a bien été transmise à OFC Création d’Entreprise.",
+      "length": 96,
+      "descriptionFinal": false,
+      "appendAuthorSuffix": false,
+      "problems": [
+        "courte (96)"
+      ],
+      "status": "issue"
+    },
+    {
+      "url": "/parcours-metiers",
+      "file": "app/parcours-metiers/page.tsx",
+      "status": "ref_unresolved",
+      "ref": "META_DESCRIPTION"
+    },
+    {
+      "url": "/parcours-metiers",
+      "file": "app/parcours-metiers/page.tsx",
+      "status": "ref_unresolved",
+      "ref": "META_DESCRIPTION"
     },
     {
       "url": "/ressources/tuto-skill-pic",
