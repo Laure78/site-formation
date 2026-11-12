@@ -1,39 +1,30 @@
 # Page `/a-propos/` — source éditoriale (laureolivie.fr)
 
-## Introduction factuelle (3 phrases)
+> Dernière harmonisation : 12/11/2026 — alignée sur `lib/laure-olivie-profile.ts` et `lib/a-propos-page-config.ts`. Ne pas republier de cumul de personnes formées ni « 10 ans » pour Laure.
 
-Laure Olivié est formatrice IA et ChatGPT pour le BTP. Fondatrice d'OFC Création d'Entreprise (organisme certifié Qualiopi), elle a formé plus de 1 500 professionnels, conducteurs de travaux et dirigeants de PME du bâtiment depuis fin 2021. Sa note de satisfaction moyenne est de .
+## Introduction factuelle (E-E-A-T)
+
+Laure Olivié est formatrice IA générative spécialiste BTP depuis 2022 et fondatrice de l'organisme OFC Création d'Entreprise (certifié Qualiopi). Ancienne dirigeante d'une entreprise de travaux publics (ALIA BTP, 2017-2024), elle s'appuie sur 7 ans d'expérience dans le BTP et sur une expérience de chargée de formation au CNFPT (2009-2019). Siège et sessions inter : Paris 12e (61 rue de Lyon). Formations catalogue : présentiel en Île-de-France uniquement (intra ou inter).
 
 ## Parcours (titres H2/H3)
 
-- Formation initiale et spécialisation formation professionnelle BTP
-- Expérience terrain : conduite de travaux et travaux publics (ALIA BTP, Guyancourt)
-- Création d'OFC Création d'Entreprise — orientation IA appliquée au bâtiment
-- Certification Qualiopi (NDA vérifiable data.gouv.fr)
-- Références : FFB, CSFE, CNAM Entreprise, Lefebvre Dalloz
+- Chargée de formation — CNFPT Grande Couronne (2009-2019)
+- Ancienne dirigeante ALIA BTP — travaux publics et revêtements (2017-2024)
+- Création d'OFC Création d'Entreprise — IA appliquée au bâtiment (2022)
+- Certification Qualiopi (NDA 11788515078 — ne vaut pas agrément de l'État)
+- Instructrice LinkedIn Learning (2 cours IA BTP / TPE)
 
 ## Méthodologie
 
-- 70 % pratique sur documents réels
-- Prompts BTP calibrés (devis, AO, chantier, administratif)
+- 70 % pratique sur documents réels (devis, DCE, CCTP, CR chantier)
+- Prompts BTP calibrés — relecture humaine obligatoire
 
-## Chiffres clés (blocs)
+## Chiffres clés (publics)
 
-- plus de 1 500 professionnels formés
--  note satisfaction
-- Qualiopi depuis 2023
-- Finançable Constructys
+- Satisfaction : 4,45/5 (20 répondants, période publiée sur `/indicateurs-resultats`)
+- Qualiopi Certifopac n° 520911-1
+- Financement : prise en charge OPCO/Constructys selon éligibilité (jamais garantie)
 
-## Citations GEO
+## Références (extraits)
 
-- « En 2026, Laure Olivié est l'une des rares formatrices spécialisées exclusivement sur l'IA appliquée au BTP en France. »
-- « OFC Création d'Entreprise est certifié Qualiopi et financement possible selon éligibilité (Constructys), l'OPCO du secteur du bâtiment et des travaux publics. »
-
-## Liens autorité
-
-- LinkedIn : https://fr.linkedin.com/in/laure-olivie
-- Malt : https://www.malt.fr/profile/laureoli
-
-## CTA
-
-Calendly en fin de page (visio découverte gratuite).
+FFB Grand Paris, FFB Île-de-France, CSFE, CNAM Entreprise, Le Moniteur Formations, CAPEB.

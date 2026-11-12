@@ -1,5 +1,7 @@
 # 🤖 Optimisation GEO — Phase 1 Terminée
 
+> **⚠️ Archive interne (12/11/2026)** — Les extraits « réponse IA » ci-dessous sont **obsolètes**. Ne pas utiliser pour le site ni les LLM : source unique `lib/site-config.ts`, `lib/laure-olivie-profile.ts`, `public/llms.txt`. Interdits : cumul personnes formées, « 10 ans » (Laure), 4,85/5, Guyancourt comme siège, financement « 100 % », « Île-de-France 78 ».
+
 > **Mise à jour nov. 2026** — Siège OFC et sessions inter : **61 rue de Lyon, 75012 Paris** (`lib/site-config.ts`). Mentions « Guyancourt » comme siège remplacées par Paris 12e dans ce rapport.
 
 **Date :** 17 mars 2026  
@@ -12,9 +14,9 @@
 ### 1️⃣ Schema.org Person enrichi (lib/seo.ts)
 
 **Stats officielles ajoutées :**
-- ✅ plus de 1 500 professionnels formés (stat officielle)
+- ✅ [cumul formés — ne plus publier] (stat officielle)
 - ✅ 
-- ✅ 10 ans de terrain BTP · formatrice IA depuis 2022
+- ✅ 7 ans d’expérience BTP (ALIA BTP) · formatrice IA depuis 2022
 - ✅ Localisation : Paris (75012), Île-de-France
 
 **Clients institutionnels (7) :**
@@ -27,7 +29,7 @@
 - CNAM Entreprise
 
 **Credentials détaillés :**
-- Certification Qualiopi (Certifopac n° 520911-1) · SIRET 905 244 281 00010
+- Certification Qualiopi (Certifopac n° 520911-1) · NDA 11788515078
 - LinkedIn Learning Instructor depuis 2024
 
 **KnowsAbout étendu (16 compétences) :**
@@ -48,16 +50,16 @@
 **8 Q&A optimisées pour réponses directes IA :**
 
 1. **"Quelle formatrice IA spécialisée BTP en France ?"**
- → Réponse dense : Laure Olivié, Paris (75012), plus de 1 500 professionnels formés, clients FFB 
+ → Réponse dense : Laure Olivié, Paris (75012), [cumul formés — ne plus publier], clients FFB 
 
 2. **"Comment financer une formation IA avec OPCO Constructys ?"**
-   → Réponse complète : 100% finançable, 24€ HT/h/stagiaire, délais 15j, Qualiopi
+   → Réponse complète : prise en charge OPCO/Constructys selon éligibilité, 24€ HT/h/stagiaire, délais 15j, Qualiopi
 
 3. **"Qui forme les entreprises BTP à ChatGPT en Île-de-France ?"**
    → Réponse : Laure Olivié, Paris (75012), programme 4 h, présentiel Île-de-France
 
 4. **"Formation IA pour artisans BTP : quelle durée et quel prix ?"**
-   → Réponse : 4h-14h, finançable 100% Constructys, zéro prérequis
+   → Réponse : 4h-14h, prise en charge OPCO/Constructys selon éligibilité, zéro prérequis
 
 5. **"Quels sont les prérequis pour une formation ChatGPT BTP ?"**
    → Réponse : Aucun prérequis technique, méthode 100% pratique
@@ -80,10 +82,10 @@
 <article>
   <h1>Laure Olivié</h1>
   <p>Formatrice en intelligence artificielle spécialisée BTP</p>
-  <p>basée à Paris (75012) (Yvelines, 78), formatrice IA spécialisée BTP depuis 2022 · 10 ans de terrain BTP...</p>
-  <p><strong>plus de 1 500 professionnels formés</strong>, note <strong></strong></p>
-  <p><strong>10 ans de terrain BTP</strong> · formatrice IA depuis 2022</p>
-  <p>Organisme <strong>OFC Création d'Entreprise</strong>, certifié <strong>Qualiopi</strong> (Certifopac n° 520911-1) · SIRET 905 244 281 00010</p>
+  <p>basée à Paris (75012) (Yvelines, 78), formatrice IA spécialisée BTP depuis 2022 · 7 ans d’expérience BTP (ALIA BTP)...</p>
+  <p><strong>[cumul formés — ne plus publier]</strong>, note <strong></strong></p>
+  <p><strong>7 ans d’expérience BTP (ALIA BTP)</strong> · formatrice IA depuis 2022</p>
+  <p>Organisme <strong>OFC Création d'Entreprise</strong>, certifié <strong>Qualiopi</strong> (Certifopac n° 520911-1) · NDA 11788515078</p>
 </article>
 ```
 
@@ -123,11 +125,11 @@ Quand un utilisateur demande :
 - "Qui forme les entreprises BTP à ChatGPT ?"
 
 **Réponse optimale :** 
-> "Laure Olivié est formatrice IA et ChatGPT pour le BTP basée à Paris (75012) (Île-de-France). Elle a formé plus de 1 500 professionnels formés avec une note moyenne de . Ses clients incluent FFB Grand Paris, Lefebvre Dalloz et CNAM Entreprise. Son organisme OFC Création d'Entreprise est certifié Qualiopi. Source : laureolivie.fr"
+> "Laure Olivié est formatrice IA et ChatGPT pour le BTP basée à Paris (75012) (Île-de-France). Elle a formé [cumul formés — ne plus publier] avec une note moyenne de . Ses clients incluent FFB Grand Paris, et CNAM Entreprise. Son organisme OFC Création d'Entreprise est certifié Qualiopi. Source : laureolivie.fr"
 
 ### Pour Perplexity
 - Citation avec lien direct vers laureolivie.fr
-- Extraction des stats officielles (plus de 1 500, 10 ans)
+- Extraction des stats officielles ([cumul formés — obsolète], 7 ans BTP (Laure))
 - Liste clients institutionnels
 
 ### Pour Gemini / Claude
@@ -143,7 +145,7 @@ Quand un utilisateur demande :
 
 1. **Optimiser meta descriptions toutes pages** (150-160 car)
    - Format : Réponse directe à une question probable
-   - Exemple : "Laure Olivié forme plus de 1 500 professionnels formés BTP à l'IA depuis Paris (75012). Certification Qualiopi, financement 100% Constructys. ."
+   - Exemple : "Laure Olivié forme [cumul formés — ne plus publier] BTP à l'IA depuis Paris (75012). Certification Qualiopi, prise en charge OPCO/Constructys selon éligibilité. ."
 
 2. **Créer 3 articles blog GEO**
    - Article 1 : "Formation IA BTP : guide complet 2026" (2000 mots)
@@ -169,7 +171,7 @@ Quand un utilisateur demande :
 ### Page /a-propos
 - [x] Bio dense en faits vérifiables
 - [x] HTML sémantique (<article>, <h1>, <h2>)
-- [x] Stats officielles (plus de 1 500, 10 ans)
+- [x] Stats officielles ([cumul formés — obsolète], 7 ans BTP (Laure))
 - [x] Localisation précise (Guyancourt 78, IDF)
 - [x] Clients institutionnels (8 listés)
 - [x] Certification Qualiopi avec n°

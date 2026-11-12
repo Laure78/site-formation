@@ -72,7 +72,7 @@
 | Page | Title optimisé | Meta (caractères) |
 |------|---------------|-------------------|
 | `/` | Formation IA BTP : Gagnez 3-5h/semaine | 159 |
-| `/formations` | Formations IA BTP : Catalogue Qualiopi 100% finançable | 138 |
+| `/formations` | Formations IA BTP : Catalogue Qualiopi prise en charge OPCO selon éligibilité | 138 |
 | `/formations/ia-appels-offre-btp` | IA Appels d'offres BTP : Gagnez 5x en rapidité | 143 |
 | `/formations/ia-rh-btp` | Formation IA RH BTP : Recrutement & GEPP efficaces | 149 |
 | `/formations/ia-travaux-publics` | L'IA au service de travaux publics : DCE, CCTP & rapports | 144 |
@@ -82,14 +82,14 @@
 | `/formations/ia-btp-bordeaux` | Formation IA BTP Bordeaux : Devis & appels d'offres automatisés | 136 |
 | `/formations/ia-btp-lille` | Formation IA BTP Lille : Automatiser devis & appels d'offres | 127 |
 | `/chatgpt-artisans-btp` | ChatGPT Artisans BTP : Devis & emails automatisés | 146 |
-| `/a-propos` | Laure Olivié : Formatrice IA BTP depuis 2022 \| 10 ans de terrain BTP | 139 |
+| `/a-propos` | Laure Olivié : Formatrice IA BTP depuis 2022 \| 7 ans d’expérience BTP | 139 |
 
 **Règles appliquées :**
 - ✅ Title : 50-60 caractères
 - ✅ Meta : 150-160 caractères max
 - ✅ Mot-clé principal en début de title
 - ✅ Bénéfice ou chiffre clé dans title
-- ✅ Call-to-action dans meta (, 100% finançable)
+- ✅ Call-to-action dans meta (, prise en charge OPCO selon éligibilité)
 
 **Impact :**
 - ✅ +50% de chances d'apparaître en rich snippets

@@ -25,7 +25,7 @@ Articles audités: 94 | Sections H2 auditées: 539
 | Ce que cet exemple enseigne sur la bonne utilisation de l'IA | <strong>L'IA ne remplace pas le bureau d'études.</strong> La découverte que l'AT du système habituel est expiré — c'est le chargé d'affaires qui l'a détecté en vérifiant les références produites par Claude. | OK | (Conserver telle quelle) |
 | Gains de temps mesurés — appels d'offres avec l'IA | Gains de temps appels d'offres avec l'IA Tâche Sans IA Avec IA Gain GO/NO GO documenté 1 h 30 8 à 10 min −90 % Analyse CCTP (64 pages) 2 h 30 12 à 15 min −90 % Extraction critères RC + plan mémoire 1 h 8 à 10 min −85 % Rédaction section mémoire (600 mots) 1 h 30 à 2 h 10 à 15 min −85 % Vérification cohérence mémoire / BPU 1 h 5 min −90 % Total tâches documentaires AO ~8 h &lt; 1 h −90 % | OK | (Conserver telle quelle) |
 | FAQ | Peut-on utiliser ce workflow sur n'importe quel lot BTP ? | OK | (Conserver telle quelle) |
-| Se former à la réponse aux appels d'offres avec l'IA — OFC Création d'Entreprise | <strong>OFC Création d'Entreprise</strong> propose la formation <strong>Répondre aux appels d'offres avec l'IA (BTP-02)</strong>, une session de 4 heures 100 % finançable Constructys (plafonds et règles sur <a href="https://www.constructys.fr" class="text-[#377CF3] font-medium underline" target="_blank" rel="noopener noreferrer">constructys.fr</a>). | OK | (Conserver telle quelle) |
+| Se former à la réponse aux appels d'offres avec l'IA — OFC Création d'Entreprise | (voir `content/generated/article-analyse-dce-ia-exemple-reel.json`) | OK | Audit 12/11/2026 : plus de « 100 % finançable » dans le JSON source |
 
 ## Appels d'offres BTP : l'IA comme assistant (`appels-d-offres-btp-l-ia-comme-assistant-741595-8`)
 
@@ -625,7 +625,7 @@ Articles audités: 94 | Sections H2 auditées: 539
 | Outils enseignés lors des sessions intra OFC | <strong>Claude AI (Anthropic, 18 €/mois en version Pro)</strong> est l'outil principal enseigné dans les formations OFC. | OK | (Conserver telle quelle) |
 | Tableau de gains de temps — Tâches BTP avant et après formation IA | <em>Données mesurées lors des sessions de formation avec la FFB Grand Paris, la FFB Île-de-France et la CSFE.</em> | OK | (Conserver telle quelle) |
 | FAQ — Formation IA intra-entreprise BTP | Mon entreprise est-elle éligible à Constructys pour une formation IA ? | OK | (Conserver telle quelle) |
-| Organiser votre formation IA intra-entreprise avec OFC Création d'Entreprise | <strong>OFC Création d'Entreprise</strong> propose des sessions de formation IA intra-entreprise pour les PME du bâtiment et des travaux publics, de 4 heures à 2 jours, 100 % finançables Constructys (plafonds et règles sur <a href="https://www.constructys.fr" class="text-[#377CF3] font-medium underline" target="_blank" rel="noopener noreferrer">constructys.fr</a>). | OK | (Conserver telle quelle) |
+| Organiser votre formation IA intra-entreprise avec OFC Création d'Entreprise | (voir `content/generated/article-formation-ia-intra-btp-constructys-2026.json`) | OK | Audit 12/11/2026 : formulation OPCO selon éligibilité dans le JSON source |
 | Pour aller plus loin | La formation intra est le point de départ le plus efficace pour ancrer l'IA dans vos pratiques terrain. | OK | (Conserver telle quelle) |
 
 ## Gagner du temps sur ses devis avec l’IA (`gagner-temps-devis-ia-btp`)

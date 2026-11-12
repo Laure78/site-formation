@@ -53,7 +53,7 @@
 **H2 recommandés :**
 - Formation IA bâtiment : devis, emails, CR chantier
 - IA pour entreprise du BTP — Formations par objectif
-- Formation IA Constructys : 100% finançable
+- Formation IA Constructys : prise en charge OPCO selon éligibilité
 - Productivité entreprise bâtiment avec ChatGPT
 
 **Suggestions d'amélioration du contenu :**
@@ -189,7 +189,7 @@
 - Productivité entreprise bâtiment : automatiser devis et emails
 - IA pour gestion administrative BTP — Chantier
 - Formation IA bâtiment : atelier, micro-learning, coaching
-- Formation IA Constructys : 100% finançable
+- Formation IA Constructys : prise en charge OPCO selon éligibilité
 
 ---
 
@@ -264,7 +264,7 @@
 **Title SEO proposé :** Formation IA Constructys — Financement 100% | Laure Olivié  
 
 **Meta description actuelle :** Modalités de prise en charge 2026... (96 car.)  
-**Meta description proposée :** Formation IA Constructys : 100% finançable. Modalités 2026, eGestion. Gagnez du temps sur devis et emails. Artisans, PME BTP. (148 car.)  
+**Meta description proposée :** Formation IA Constructys : prise en charge OPCO selon éligibilité. Modalités 2026, eGestion. Gagnez du temps sur devis et emails. Artisans, PME BTP. (148 car.)  
 
 **H1 actuel :** Financement Constructys  
 **H1 proposé :** Formation IA Constructys : financement 100%  
@@ -285,7 +285,7 @@
 **Title SEO proposé :** Formation IA BTP — Tarifs, financement Constructys  
 
 **Meta description actuelle :** Tarifs des formations IA pour le BTP...  
-**Meta description proposée :** Formation IA BTP : tarifs et financement Constructys. 100% finançable pour artisans et PME bâtiment. Gagnez du temps sur devis. (158 car.)  
+**Meta description proposée :** Formation IA BTP : tarifs et financement Constructys. prise en charge OPCO selon éligibilité pour artisans et PME bâtiment. Gagnez du temps sur devis. (158 car.)  
 
 ---
 
@@ -324,7 +324,7 @@
 **Title SEO actuel :** À propos — Laure Olivié (24 car.)  
 **Title SEO proposé :** Laure Olivié — Formatrice IA BTP | Formation bâtiment  
 
-**Meta description proposée :** Laure Olivié, formatrice IA spécialisée BTP depuis 2022. 10 ans de terrain BTP, méthode 100% pratique. Formation IA bâtiment finançable Constructys. Paris. (156 car.)  
+**Meta description proposée :** Laure Olivié, formatrice IA spécialisée BTP depuis 2022. 7 ans d’expérience BTP, méthode 100% pratique. Formation IA bâtiment finançable Constructys. Paris. (156 car.)  
 
 ---
 
