@@ -1,11 +1,10 @@
-import { ShortAnswerBlock } from '@/components/landing/ShortAnswerBlock';
 import {
   TrainingDeliverables,
   TrainingFAQ,
   TrainingMethod,
   TrainingOutcomes,
 } from '@/components/formations/training';
-import { FormationMoeNiv05GeoSections } from '@/components/formations/catalogue/FormationMoeNiv05GeoSections';
+import { FormationMoeMoexOpcSection } from '@/components/formations/catalogue/FormationMoeMoexOpcSection';
 import { TrainingPageLayout } from '@/components/formations/training/TrainingPageLayout';
 import { TrainingPresentationExpand } from '@/components/formations/training/TrainingPresentationExpand';
 import { SITE_FORMATION_MODALITE_DETAIL } from '@/lib/site-config';
@@ -15,14 +14,11 @@ import { TrainingModalitiesSection } from '@/components/formations/training/Trai
 import { TrainingParticipantsReviewsSection } from '@/components/formations/training/TrainingParticipantsReviewsSection';
 import { TrainingContinueSection } from '@/components/formations/training/TrainingContinueSection';
 import { FormateurIntervenantBlock } from '@/components/formateurs/FormateurIntervenantBlock';
-import { FormationIaApplicationsSection } from '@/components/formations/ia/FormationIaApplicationsSection';
 import { TrainingMaquetteMarketing } from '@/components/formations/training/TrainingMaquetteMarketing';
 import type { CatalogueFormationPageContent } from '@/lib/catalogue-formation-page-content';
 import { getFormationByCode } from '@/data/formations';
 import { getFormationCatalogueSeo } from '@/lib/formation-catalogue-seo';
-import { getFormationIaApplications } from '@/lib/formation-ia';
 import type { FAQItem } from '@/lib/faq';
-import { mergeCatalogueFormationFaq } from '@/lib/catalogue-formation-faq';
 import { getInfosPratiquesForCatalogue } from '@/lib/infos-pratiques-catalogue';
 import { TRAINING_ANCHOR } from '@/lib/training-fiche-nav';
 import { FinancementOpcoEtenduCourtBlock } from '@/components/financement/FinancementOpcoEtenduCourtBlock';
@@ -63,14 +59,13 @@ export async function TrainingNiv05MaquetteTemplate({
     (infosPratiques.modalitesEvaluation?.length ?? 0) > 0 ||
     Boolean(infosPratiques.modalitesAcces) ||
     Boolean(infosPratiques.accessibiliteHandicap);
-  const iaApplications = getFormationIaApplications(ref);
   const showFinancementOpcoEtendu = catalogueRefShowsFinancementOpcoEtendu(ref);
   const hasPublicPrerequisSection =
     Boolean(formation.public) ||
     Boolean(content.publicPrerequisites?.length) ||
     Boolean(infosPratiques.prerequis?.trim());
 
-  const mergedFaqItems = mergeCatalogueFormationFaq(ref, faqItems ?? []);
+  const mergedFaqItems = faqItems ?? [];
   const modules = content.programModules ?? [];
   const objectivesTitle = content.objectivesTitle;
   return (
@@ -85,13 +80,9 @@ export async function TrainingNiv05MaquetteTemplate({
         pdfHref={pdfHref}
         programModules={modules}
         programmeHeading={content.programmeHeading}
+        programmeMaxBullets={3}
+        enBref={seo.enBref}
       />
-
-      <section className="sr-only" aria-label="En bref">
-        <div className="mx-auto max-w-[78rem] px-4 py-2">
-          <ShortAnswerBlock>{seo.enBref}</ShortAnswerBlock>
-        </div>
-      </section>
 
       <TrainingPageLayout sidebar={null}>
         <TrainingSection id={TRAINING_ANCHOR.presentation} title="Présentation" tone="white">
@@ -135,8 +126,6 @@ export async function TrainingNiv05MaquetteTemplate({
           />
         ) : null}
 
-        {iaApplications ? <FormationIaApplicationsSection bundle={iaApplications} /> : null}
-
         {content.iaLimits && content.iaLimits.length > 0 ? (
           <TrainingSection
             id="limites-ia"
@@ -168,7 +157,7 @@ export async function TrainingNiv05MaquetteTemplate({
           </TrainingSection>
         ) : null}
 
-        <FormationMoeNiv05GeoSections />
+        <FormationMoeMoexOpcSection />
 
         <TrainingDeliverables
           items={content.deliverables}

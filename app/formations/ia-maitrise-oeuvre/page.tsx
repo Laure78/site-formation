@@ -31,7 +31,9 @@ export const metadata = createPageMetadata({
 });
 
 const courseSchema = buildCatalogueFormationCoursePageJsonLd('NIV-05');
-const faqSchema = buildCatalogueFormationFaqPageJsonLd('NIV-05', FAQ_MOE_NIV05);
+const faqSchema = buildCatalogueFormationFaqPageJsonLd('NIV-05', FAQ_MOE_NIV05, {
+  includeCore: false,
+});
 
 export default async function FormationIaMaitriseOeuvrePage() {
   return (

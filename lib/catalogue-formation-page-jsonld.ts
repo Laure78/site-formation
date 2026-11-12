@@ -19,8 +19,10 @@ export function getCatalogueFormationVisibleFaq(
 export function buildCatalogueFormationFaqPageJsonLd(
   ref: FormationCode,
   metierFaq: readonly FAQItem[] = [],
+  options?: { includeCore?: boolean },
 ): Record<string, unknown> | null {
-  const items = getCatalogueFormationVisibleFaq(ref, metierFaq);
+  const items =
+    options?.includeCore === false ? [...metierFaq] : getCatalogueFormationVisibleFaq(ref, metierFaq);
   return getFAQSchema(items);
 }
 

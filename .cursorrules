@@ -2,54 +2,65 @@
 # Site vitrine + blog — « Laure Olivié », marque commerciale d'OFC Création d'Entreprise
 # Organisme de formation IA pour le BTP — certifié Qualiopi
 # Stack : Next.js 16 (App Router) · React 19 · TypeScript · Tailwind CSS v4
-# Version règles : 01/11/2026
+# Version règles : 12/11/2026 — focus cluster Maîtrise d'œuvre / MOEX / AMO
 
 ## Objectif unique
-SEO + GEO au service d'un seul CTA visio : « Réservez votre visio découverte gratuite » → `/prendre-rdv` (Calendly).
+SEO + GEO au service d'un seul CTA visio : « Réservez votre visio découverte gratuite » → `/prendre-rdv` (Calendly), `?src=<page>` pour le suivi.
 Devis écrit → `/contact`, libellé « Demander un devis » (`CtaDevis`).
 Positionnement : organisme de formation IA spécialisé BTP — PRÉSENTIEL, ÎLE-DE-FRANCE uniquement.
 
 ## Stack & conventions techniques
 - App Router (`app/`). Une route = un dossier avec `page.tsx`.
-- Métadonnées via export `metadata` / `generateMetadata()` — jamais de `<head>` manuel.
+- Métadonnées via export `metadata` / `generateMetadata()` — jamais de `<head>` manuel ni `<title>` en dur dans le JSX.
 - Contenu indexable rendu côté serveur (Server Components). INTERDIT de charger en client-only
   (« Chargement… ») un contenu SEO : catalogue, grille formateurs, FAQ, avis.
 - Images via `next/image` (WebP/AVIF), `alt` renseigné, `priority` uniquement sur le LCP.
 - Header, Footer, CTA, bloc confiance : UN seul composant partagé, utilisé sur toutes les routes.
 - Redirections 301 dans `next.config` (`redirects()`), jamais deux pages 200 pour une même intention.
-- JSON-LD via `lib/schema*.ts`, injecté `<script type="application/ld+json">` dans layout/page.
+  Avant toute redirection 301, suppression de page ou renommage de route : lister les fichiers touchés, montrer le plan, attendre validation.
+- JSON-LD via `lib/schema*.ts`, injecté `<script type="application/ld+json">` dans layout/page — jamais en JS client.
 
 ## Sources de données uniques (ne jamais coder en dur)
-- Identité, contact, adresse, Qualiopi, satisfaction, geo : `lib/site-config.ts` (alias `SITE` / aligner `lib/schema-constants.ts`, `lib/seo.ts`).
-- Tarifs, durées, effectifs, versions formations : `lib/data/formations.ts` · indicateurs : `lib/data/indicateurs-resultats.ts`.
+- Identité, contact, adresse, Qualiopi, satisfaction, geo, **grille tarifaire** (`SITE_TARIFS`) : `lib/site-config.ts` (aligner `lib/schema-constants.ts`, `lib/seo.ts`).
+- Tarifs catalogue (ré-export) : `lib/tarifs-catalogue-participant.ts` — importer les montants depuis `site-config`, pas de € en dur ailleurs.
+- Durées, effectifs, fiches formation : `data/formations.ts` · indicateurs : `lib/data/indicateurs-resultats.ts` / `config/qualiopi.ts`.
 - Liens internes : `lib/internal-links.ts` (`LINKS`) — étendre le fichier, jamais d'URL en dur ailleurs.
 - Calendly : `lib/constants.ts` (`CALENDLY_URL`) · href RDV : `lib/prendre-rdv-href.ts` (`buildPrendreRdvHref`).
 - Toute modification de faits site → mettre à jour `public/llms.txt` (`npm run llms:sync`).
 
 ## Données de référence (alignées sur `lib/site-config.ts`)
-- Marque : Laure Olivié — marque commerciale d'OFC Création d'Entreprise (SASU)
-- SIRET 905 244 281 00010 · NDA 11788515078 (ne vaut pas agrément de l'État)
+- Marque : Laure Olivié — marque commerciale d'OFC Création d'Entreprise (SASU) ; organisme avec **équipe** — Laure = fondatrice et formatrice principale.
+- SIRET 905 244 281 00010 · NDA 11788515078 (ne vaut pas agrément de l'État) — afficher le SIRET siège quand publié INSEE (`SITE.siretSiege`).
 - Qualiopi : certificat n° 520911-1, Certifopac, valide du 16/01/2025 au 15/01/2028 (actions de formation)
 - Siège ET lieu des sessions inter : 61 rue de Lyon, 75012 Paris (depuis 27/10/2026 — Guyancourt = ANCIENNE adresse, ne plus afficher)
 - Contact : contact@laureolivie.fr · 06 95 66 18 18 · recrutement@laureolivie.fr (jamais Yahoo)
 - Satisfaction : 4,45/5 (20 répondants, juillet 2025 – juin 2026) — renvoyer vers `/indicateurs-resultats`
-- Expérience : 7 ans dans le BTP, ex-dirigeante d'ALIA BTP (travaux publics, 2017-2024). NE JAMAIS « conductrice de travaux » ni « 10 ans ».
-- Instructrice LinkedIn Learning : 2 cours (IA BTP ; IA TPE/PME — recrutement)
-- Tarifs inter : 120 € HT/participant (Niveau 1, 4 h) · 310 € HT/participant/jour (formats 7 h) · intra sur devis
+- Parcours pro : 7 ans dans le BTP, ex-dirigeante d'ALIA BTP (travaux publics, IDF, 2017-2024) ; chargée de formation au CNFPT (2009-2019) ; instructrice LinkedIn Learning (2 cours) ; Activateur France Num.
+  NE JAMAIS « conductrice de travaux » ni « 10 ans ».
+- Formats : Niveau 1 = 4 h · avancé = 4 h · journée catalogue = 7 h · approfondi = 14 h (2 × 7 h) · inter (Paris 12e) ou intra (locaux client), Île-de-France (75-77-78-91-92-93-94-95).
+- **Tarifs (validés 12/11/2026 — `SITE_TARIFS` / imports site-config)** :
+  - Niveau 1 (4 h) = 120 € HT/participant
+  - Niveau 2 avancé (4 h), dont **MOE NIV-05 et AMO NIV-11** = **170 € HT/participant, identique intra et inter**
+  - Journée 7 h (ex. NIV-13) = 310 € HT/participant
+  - Approfondi 14 h = 620 € HT/participant
 - TVA : « TVA exonérée, article 261-4-4° du CGI » (jamais « non applicable », jamais 293 B)
-- Pas de CPF, pas de formation individuelle, pas de subrogation OPCO.
+- Financement : « prise en charge OPCO/Constructys selon éligibilité » ; pas de subrogation (l'entreprise règle puis se fait rembourser selon barèmes) ; **non éligible au CPF** ; pas de formation individuelle.
+- Outils enseignés : ChatGPT et Claude. Méthode de prompt **CRAFT** (Contexte – Rôle – Action – Format – Ton).
 - Ne jamais publier de cumul de personnes formées (« 1 592 » supprimé définitivement).
 
 ## CTA (conversion + analytics)
 - Visio : composant `<CtaVisio src="…" />` — libellé unique « Réservez votre visio découverte gratuite », query `?src=`, GA4 `clic_visio` + param `src`.
 - Devis : `<CtaDevis href="…" />` — libellé unique « Demander un devis ».
 - `@deprecated` : `<CtaRdv origin="…" />` → alias de `CtaVisio`.
-- Max 3 CTA conversion visibles par page (milieu, fin, sticky mobile) — pas de libellés alternatifs (« Échanger sur mon besoin », « Prendre rendez-vous », etc.) sur les boutons RDV/devis.
+- Max 3 CTA conversion visibles par page (milieu, fin, sticky mobile) — pas de libellés alternatifs sur les boutons RDV/devis.
 
 ## Audience — labels AUTORISÉS
 professionnels du BTP · PME du bâtiment et des travaux publics · dirigeants BTP · conducteurs de travaux ·
-chargés d'affaires · maîtres d'œuvre · assistants travaux / fonctions support
-Ne JAMAIS employer « artisans » comme label de public cible principal (ni dans les slugs).
+chargés d'affaires · **maîtres d'œuvre (MOE)** · **maîtres d'œuvre d'exécution (MOEX) et OPC** ·
+**assistants à maîtrise d'ouvrage (AMO) du bâtiment / construction** · bureaux d'études · économistes de la construction ·
+assistants travaux / fonctions support.
+- « AMO » : toujours qualifier **AMO bâtiment / construction** (le sigle AMOA désigne aussi un métier informatique).
+- Ne JAMAIS employer « artisans » comme label de public cible principal (ni dans les slugs).
 
 ## Interdits absolus (ne jamais écrire)
 - GERESO · ARFBABOF · FSE+ · Mon Compte Formation · CPF (sauf « non éligible au CPF ») · tarif journalier formateur
@@ -62,6 +73,7 @@ Ne JAMAIS employer « artisans » comme label de public cible principal (ni dans
 
 ## Positionnement géographique (strict)
 Présentiel UNIQUEMENT · Île-de-France UNIQUEMENT (75-77-78-91-92-93-94-95). Aucune promesse nationale ni distancielle.
+Rappeler « présentiel » + « Île-de-France » au moins 2 fois par page commerciale.
 
 ## Preuves E-E-A-T (formulations exactes)
 Qualiopi n° 520911-1 · 4,45/5 (20 répondants) · 7 ans BTP (ALIA BTP) · Instructrice LinkedIn Learning · Activateur France Num.
@@ -81,20 +93,34 @@ Ne citer aucun autre partenaire sans validation. Équipe : formateurs réels, no
 - Recrutement → `/nous-rejoindre` UNIQUEMENT (301 : `/rejoindre-equipe`, `/devenez-consultant`, `/emplois`, `/candidatures-spontanees`)
 - Visio → `/prendre-rdv` · contact/devis → `/contact`
 
+### Cluster maîtrise d'œuvre / AMO (ne pas dupliquer)
+- MOE / MOEX / OPC → `/formations/ia-maitrise-oeuvre` (fiche NIV-05)
+- AMO bâtiment → `/formations/ia-assistance-maitrise-ouvrage` (fiche NIV-11)
+- Parcours (intention « montée en compétences ») : `/formations/parcours/maitre-oeuvre` et `/formations/parcours/amo-btp` — **à créer**, cohérents avec les parcours métiers existants
+- Blog cluster (existant, ne pas recannibaliser) :
+  `/blog/ia-maitrise-oeuvre-usages` · `/blog/ia-amo-assistant-maitrise-ouvrage` · `/blog/tuto-depouillement-offres-ia` ·
+  `/blog/tuto-avenant-ordre-de-service-ia` · `/blog/tuto-controle-situation-travaux-ia` · `/blog/tuto-skill-claude-maitrise-oeuvre`
+  (+ articles phase 2 prévus : visa, confidentialité, OPR, ChatGPT vs Claude — slugs dédiés)
+- Phase 2 (si signaux Search Console) : `/formation-ia-bureau-etudes-btp` · `/formation-ia-economiste-construction`
+- Nouvelle page = intention absente de la liste ; sinon canonical, fusion ou 301 (plan à valider).
+
 ## Conventions SEO
-- 1 H1 unique/page avec le mot-clé principal ; hiérarchie H2/H3 logique.
+- 1 H1 unique/page avec le mot-clé principal ; H2/H3 logiques, formulés en questions quand c'est naturel.
 - Title ≤ 60 car., suffixe « | Laure Olivié » INCLUS (tronquer le titre avant le suffixe).
-- Meta description 140–160 car., phrase complète (jamais d'ellipse), mot-clé en tête + CTA.
+- Meta description 140–160 car., phrase complète (jamais d'ellipse), mot-clé en tête + CTA, rédigée à la main.
 - alt descriptif ≤ 125 car., 1 mot-clé max ; logo = alt identique partout.
-- Canonical auto-référencé ; sitemap `lastmod` réel. Aucune page orpheline. ≥ 3 liens internes/page vers le pilier du cluster.
-- Bloc « En bref » factuel en tête ; date « Mis à jour le » réelle (`dateModified`).
+- Canonical auto-référencé ; sitemap `lastmod` réel. Aucune page orpheline. ≥ 3 liens internes contextuels/page (fiche + page sœur + guide/article).
+- Bloc **« En bref »** (2–3 phrases factuelles, citables, « Laure Olivié » + « OFC Création d'Entreprise ») **visible sous le H1** — pas seulement en `sr-only`.
+- Date « Mis à jour le » / `dateModified` = date réelle du dernier changement de contenu (jamais la date du build).
 - Netlinking : max 5 liens internes/article blog ; jamais 2 liens même URL/page ; ancres descriptives.
+- Vocabulaire MOE exact : MOA, MOE, MOEX, OPC, AMO, DCE, CCTP, CCAP, DPGF, RAO, visa, OS, CR de chantier, OPR, réserves, DOE, situations de travaux — tout livrable IA **relu et validé par un humain**.
 
 ## GEO
-- Schema : Organization/EducationalOrganization (adresse Paris 12e), Person (Laure, sameAs), Course (+ CourseInstance location IDF),
+- Schema : Organization/EducationalOrganization (adresse Paris 12e), Person (Laure, sameAs), Course (+ CourseInstance location IDF, `courseMode` Onsite),
   FAQPage, BreadcrumbList, Article (`BlogPosting`).
 - robots : GPTBot, OAI-SearchBot, ChatGPT-User, ClaudeBot, Claude-SearchBot, PerplexityBot, Perplexity-User, Google-Extended, Applebot-Extended autorisés.
-- `public/llms.txt` à jour avec les faits site.
+  Disallow : `/auth`, `/espace-apprenant`, `/api` (selon config déploiement).
+- `public/llms.txt` à jour avec les faits site (`npm run llms:sync`).
 - Meta geo/ICBM : `siteMetadataGeoOther()` — 61 rue de Lyon (48.8506, 2.3701, OSM Nominatim) — PAS Guyancourt.
 
 ## Charte OFC

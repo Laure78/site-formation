@@ -1,4 +1,4 @@
-import { ShortAnswerBlock } from '@/components/landing/ShortAnswerBlock';
+import { Clock, Coins, Layers, MapPin, Users } from 'lucide-react';
 import {
   TrainingDeliverables,
   TrainingFAQ,
@@ -14,14 +14,14 @@ import { TrainingModalitiesSection } from '@/components/formations/training/Trai
 import { TrainingParticipantsReviewsSection } from '@/components/formations/training/TrainingParticipantsReviewsSection';
 import { TrainingContinueSection } from '@/components/formations/training/TrainingContinueSection';
 import { FormateurIntervenantBlock } from '@/components/formateurs/FormateurIntervenantBlock';
-import { FormationIaApplicationsSection } from '@/components/formations/ia/FormationIaApplicationsSection';
 import { TrainingMaquetteMarketing } from '@/components/formations/training/TrainingMaquetteMarketing';
 import type { CatalogueFormationPageContent } from '@/lib/catalogue-formation-page-content';
 import { getFormationByCode } from '@/data/formations';
 import { getFormationCatalogueSeo } from '@/lib/formation-catalogue-seo';
-import { getFormationIaApplications } from '@/lib/formation-ia';
 import type { FAQItem } from '@/lib/faq';
-import { mergeCatalogueFormationFaq } from '@/lib/catalogue-formation-faq';
+import { formationNiveauOfficielLabel } from '@/lib/formation-niveaux-officiels';
+import { libelleTarifParticipantCatalogue, TARIF_PARTICIPANT_NIV02_HT } from '@/lib/tarifs-catalogue-participant';
+import { formatNumberFr } from '@/lib/format-number-fr';
 import { getInfosPratiquesForCatalogue } from '@/lib/infos-pratiques-catalogue';
 import { TRAINING_ANCHOR } from '@/lib/training-fiche-nav';
 import { FinancementOpcoEtenduCourtBlock } from '@/components/financement/FinancementOpcoEtenduCourtBlock';
@@ -62,15 +62,25 @@ export async function TrainingNiv11MaquetteTemplate({
     (infosPratiques.modalitesEvaluation?.length ?? 0) > 0 ||
     Boolean(infosPratiques.modalitesAcces) ||
     Boolean(infosPratiques.accessibiliteHandicap);
-  const iaApplications = getFormationIaApplications(ref);
   const showFinancementOpcoEtendu = catalogueRefShowsFinancementOpcoEtendu(ref);
   const hasPublicPrerequisSection =
     Boolean(formation.public) ||
     Boolean(content.publicPrerequisites?.length) ||
     Boolean(infosPratiques.prerequis?.trim());
 
-  const mergedFaqItems = mergeCatalogueFormationFaq(ref, faqItems ?? []);
+  const mergedFaqItems = faqItems ?? [];
   const modules = content.programModules ?? [];
+  const tarifHt = formation.tarifParticipantHt ?? TARIF_PARTICIPANT_NIV02_HT;
+  const amoKeyFacts = [
+    { icon: Layers, sub: formationNiveauOfficielLabel(formation.niveau) },
+    { icon: Clock, sub: formation.duree },
+    { icon: Coins, sub: `${formatNumberFr(tarifHt)} € HT / participant` },
+    {
+      icon: MapPin,
+      sub: 'Présentiel — inter à Paris 12e ou intra dans vos locaux en Île-de-France',
+    },
+    { icon: Users, sub: `${formation.effectifMin} à ${formation.effectifMax} participants` },
+  ] as const;
   const objectivesTitle = content.objectivesTitle;
   return (
     <div className="formation-niv11-maquette training-page pb-24 lg:pb-0">
@@ -84,13 +94,10 @@ export async function TrainingNiv11MaquetteTemplate({
         pdfHref={pdfHref}
         programModules={modules}
         programmeHeading={content.programmeHeading}
+        programmeMaxBullets={3}
+        enBref={seo.enBref}
+        indicatorItems={amoKeyFacts}
       />
-
-      <section className="sr-only" aria-label="En bref">
-        <div className="mx-auto max-w-[78rem] px-4 py-2">
-          <ShortAnswerBlock>{seo.enBref}</ShortAnswerBlock>
-        </div>
-      </section>
 
       <TrainingPageLayout sidebar={null}>
         <TrainingSection id={TRAINING_ANCHOR.presentation} title="Présentation" tone="white">
@@ -133,10 +140,6 @@ export async function TrainingNiv11MaquetteTemplate({
             steps={content.practicalCase.steps}
             note={content.practicalCase.note}
           />
-        ) : null}
-
-        {iaApplications ? (
-          <FormationIaApplicationsSection bundle={iaApplications} />
         ) : null}
 
         {content.iaLimits && content.iaLimits.length > 0 ? (

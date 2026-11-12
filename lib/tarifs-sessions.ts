@@ -170,7 +170,7 @@ export function libelleTarifsDualCourt(dureeHeures: TarifDureeHeures = 4): strin
   return libelleTarifsCarteCatalogue(dureeHeures).participant;
 }
 
-/** Ligne grille — ex. « 7 heures : 340 € HT / participant » (journée dans un parcours 14 h). */
+/** Ligne grille — ex. « 7 heures : 310 € HT / participant » (journée dans un parcours 14 h). */
 export function libelleTarifsGrilleLigne(dureeHeures: TarifDureeHeures): string {
   const t = libelleTarifsCarteCatalogue(dureeHeures);
   const label = dureeHeures === 2 ? '2 heures' : `${dureeHeures} heures`;

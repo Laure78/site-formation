@@ -1,42 +1,49 @@
 /**
- * Tarifs HT par participant — catalogue OFC (source unique).
- * Grille catalogue IA BTP (inter) : 120 € HT (débutant 4 h) · 170 € HT (avancé 4 h) · 620 € HT (approfondi 14 h).
- * Exception NUM-01 / NIV-01 — 4 h — 120 € HT (pas de prorata).
- * Les journées de 7 h du parcours 14 h (2 × 7 h) ne sont pas proposées comme formation autonome au catalogue.
+ * Tarifs HT par participant — catalogue OFC.
+ * Montants : `lib/site-config.ts` (`SITE_TARIFS`).
  *
  * Ne pas importer `data/catalogue-2027` ici (risque de cycle avec le Header client).
  */
 import { formatNumberFr } from '@/lib/format-number-fr';
+import {
+  TARIF_PARTICIPANT_JOURNEE_7H_HT,
+  TARIF_PARTICIPANT_NIV01_HT,
+  TARIF_PARTICIPANT_NIV02_HT,
+  TARIF_PARTICIPANT_NIV03_HT,
+  TARIF_PARTICIPANT_NIV04_HT,
+  TARIF_PARTICIPANT_NIV05_HT,
+  TARIF_PARTICIPANT_NIV09_HT,
+  TARIF_PARTICIPANT_NIV10_14H_HT,
+  TARIF_PARTICIPANT_NIV13_HT,
+} from '@/lib/site-config';
 
-/** Les bases de l’IA (NUM-01 / NIV-01) — 4 h. */
-export const TARIF_PARTICIPANT_NIV01_HT = 120 as const;
+export {
+  TARIF_PARTICIPANT_JOURNEE_7H_HT,
+  TARIF_PARTICIPANT_NIV01_HT,
+  TARIF_PARTICIPANT_NIV02_HT,
+  TARIF_PARTICIPANT_NIV03_HT,
+  TARIF_PARTICIPANT_NIV04_HT,
+  TARIF_PARTICIPANT_NIV05_HT,
+  TARIF_PARTICIPANT_NIV09_HT,
+  TARIF_PARTICIPANT_NIV10_14H_HT,
+  TARIF_PARTICIPANT_NIV13_HT,
+};
 
-/** Sessions avancées 4 h inter (NUM-02, NUM-03, NUM-07, NUM-08, NIV-09, etc.). */
-export const TARIF_PARTICIPANT_NIV02_HT = 170 as const;
-export const TARIF_PARTICIPANT_NIV03_HT = TARIF_PARTICIPANT_NIV02_HT;
-export const TARIF_PARTICIPANT_NIV04_HT = TARIF_PARTICIPANT_NIV02_HT;
-export const TARIF_PARTICIPANT_NIV05_HT = TARIF_PARTICIPANT_NIV02_HT;
+/** Tarif d’une journée pédagogique de 7 h dans un parcours (ex. 14 h = 2 × 7 h). */
+export const TARIF_JOURNEE_7H_INTER_HT = TARIF_PARTICIPANT_JOURNEE_7H_HT;
 
-/** NIV-09 — assistants IA personnalisés (4 h). */
-export const TARIF_PARTICIPANT_NIV09_HT = TARIF_PARTICIPANT_NIV02_HT;
+/**
+ * @deprecated Ancien forfait session intra MOE/AMO — remplacé par tarif / participant (170 € HT).
+ * Conservé pour compatibilité imports ; ne plus afficher « session de 4 h » à ce montant.
+ */
+export const TARIF_SESSION_INTRA_NIV11_HT = TARIF_PARTICIPANT_NIV02_HT;
 
-/** NIV-11 — assistance à maîtrise d’ouvrage : forfait session intra de 4 h (jusqu’à 10 participants). */
-export const TARIF_SESSION_INTRA_NIV11_HT = 1200 as const;
-
-/** NIV-12 — maîtrise d’œuvre CCTP / DPGF : même forfait session intra de 4 h. */
-export const TARIF_SESSION_INTRA_NIV12_HT = TARIF_SESSION_INTRA_NIV11_HT;
+/** @deprecated Alias — même tarif / participant que NIV-11. */
+export const TARIF_SESSION_INTRA_NIV12_HT = TARIF_PARTICIPANT_NIV02_HT;
 
 /** @deprecated Référence historique — préférer TARIF_PARTICIPANT_NIV10_14H_HT pour NIV-10. */
 export const TARIF_PARTICIPANT_NIV10_HT = TARIF_PARTICIPANT_NIV02_HT;
 
-/** NUM-04 variante 14 h. */
-export const TARIF_PARTICIPANT_NIV10_14H_HT = 620 as const;
-
-/** Tarif d’une journée pédagogique de 7 h dans un parcours (ex. 14 h = 2 × 7 h) — aligné sur la demi-journée 4 h catalogue. */
-export const TARIF_JOURNEE_7H_INTER_HT = 2 * TARIF_PARTICIPANT_NIV02_HT;
-
-/** NIV-13 — agents IA autonomes (Make) · journée 7 h inter. */
-export const TARIF_PARTICIPANT_NIV13_HT = TARIF_JOURNEE_7H_INTER_HT;
 export const TARIF_NUM01_4H_INTER_HT = TARIF_PARTICIPANT_NIV01_HT;
 
 /** @deprecated Alias — préférer TARIF_PARTICIPANT_NIV02_HT. */

@@ -294,7 +294,7 @@ export const FORMATIONS: readonly Formation[] = [
     pdfProgramme:
       '/formations/ia-maitrise-oeuvre/programme_OFC_NIV-05_IA_Maitrise_oeuvre_20261017.pdf',
     programmeVersion: 'Référence NIV-05 (intègre l’ancienne réf. NIV-12)',
-    programmeUpdatedAt: '07/11/2026',
+    programmeUpdatedAt: '12/11/2026',
     image: '/images/formation-ia-maitrise-oeuvre-btp.webp',
   },
   {
@@ -330,7 +330,7 @@ export const FORMATIONS: readonly Formation[] = [
     pdfProgramme:
       '/formations/ia-assistance-maitrise-ouvrage/programme_OFC_NIV-11_IA_AMO_20261104.pdf',
     programmeVersion: 'Référence NIV-11',
-    programmeUpdatedAt: '04/11/2026',
+    programmeUpdatedAt: '12/11/2026',
     image: '/images/formation-ia-maitrise-oeuvre-btp.webp',
   },
   {
@@ -349,6 +349,7 @@ export const FORMATIONS: readonly Formation[] = [
     effectifMin: CATALOGUE_EFFECTIF_MIN,
     effectifMax: CATALOGUE_EFFECTIF_MAX,
     prixHT: 0,
+    tarifParticipantHt: TARIF_PARTICIPANT_NIV02_HT,
     accroche:
       'CCTP, descriptif et notice incendie, métré et DPGF, analyse des offres, CR de chantier, planning court et emails — ChatGPT ou Claude sur les dossiers du cabinet.',
     objectifs: [

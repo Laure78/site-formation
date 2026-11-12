@@ -10,8 +10,6 @@ import {
   libelleTarifParticipantCatalogue,
   TARIF_PARTICIPANT_NIV02_HT,
   TARIF_PARTICIPANT_NIV09_HT,
-  TARIF_SESSION_INTRA_NIV11_HT,
-  TARIF_SESSION_INTRA_NIV12_HT,
 } from '@/lib/tarifs-catalogue-participant';
 import {
   DEV_WEB_IA_LIVRABLES,
@@ -1150,16 +1148,12 @@ const NIV_11: CatalogueFormationPageContent = {
     { iaAide: 'Rédiger CR de pilotage et notes d’alerte', validation: 'Relire et valider avant diffusion' },
   ],
   intraExtraBullets: [
-    '1 200 € HT la session de 4 h, jusqu’à 10 participants — exonération de TVA, art. 261-4-4°-a du CGI',
+    `${libelleTarifParticipantCatalogue(TARIF_PARTICIPANT_NIV02_HT)} — exonération de TVA, art. 261-4-4°-a du CGI`,
     'Demi-journée dans vos locaux en Île-de-France, sur vos consultations',
   ],
   interExtraBullets: [
     `${libelleTarifParticipantCatalogue(TARIF_PARTICIPANT_NIV02_HT)}, sous réserve d’une session inter ouverte`,
   ],
-  priceLabelOverride: {
-    inter: libelleTarifParticipantCatalogue(TARIF_PARTICIPANT_NIV02_HT),
-    intra: `${formatPrixHt(TARIF_SESSION_INTRA_NIV11_HT)} € HT / session de 4 h`,
-  },
   hideHeroEnBref: true,
   programmeHeading: 'Le programme de la formation (4 h)',
   programIntro: '4 h · 70 % pratique · ateliers sur vos consultations et opérations (anonymisées si besoin).',
@@ -1252,13 +1246,13 @@ const NIV_12: CatalogueFormationPageContent = {
     { iaAide: 'Mettre en forme CR, plannings et emails', validation: 'Relire et valider avant diffusion' },
   ],
   intraExtraBullets: [
-    `${formatPrixHt(TARIF_SESSION_INTRA_NIV12_HT)} € HT la session de 4 h, jusqu’à 10 participants — exonération de TVA, art. 261-4-4°-a du CGI`,
+    `${libelleTarifParticipantCatalogue(TARIF_PARTICIPANT_NIV02_HT)} — exonération de TVA, art. 261-4-4°-a du CGI`,
     'Demi-journée dans vos locaux en Île-de-France, sur les dossiers du cabinet',
   ],
   interExtraBullets: ['Session inter sur demande — contactez-nous pour connaître les prochaines dates'],
   priceLabelOverride: {
     inter: 'Session inter sur demande',
-    intra: `${formatPrixHt(TARIF_SESSION_INTRA_NIV12_HT)} € HT / session de 4 h`,
+    intra: libelleTarifParticipantCatalogue(TARIF_PARTICIPANT_NIV02_HT),
   },
   programIntro: '4 h · 70 % pratique · ateliers sur les dossiers du cabinet (anonymisés si besoin).',
   programModules: mapProgrammeBlocsToCatalogueModules(NIV12_PROGRAMME_BLOCS),

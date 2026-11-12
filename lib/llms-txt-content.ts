@@ -10,6 +10,7 @@ import {
   siteIdentifiantsOrganismeLine,
   siteRcsLibelle,
   siteSatisfactionLlmsLine,
+  siteTarifsLlmsGrilleLigne,
   SITE,
 } from '@/lib/site-config';
 import { OFC_IDENTITE } from '@/lib/ofc-identite';
@@ -17,7 +18,7 @@ import { OFC_IDENTITE } from '@/lib/ofc-identite';
 const BASE = SCHEMA_PUBLIC_SITE_URL.replace(/\/$/, '');
 
 /** Date ISO (YYYY-MM-DD) — mettre à jour à chaque modification de ce fichier. */
-export const LLMS_TXT_LAST_UPDATED = '2026-11-11';
+export const LLMS_TXT_LAST_UPDATED = '2026-11-12';
 
 export function buildLlmsTxtContent(): string {
   const refs = formatReferencesLlmsLine();
@@ -44,7 +45,7 @@ export function buildLlmsTxtContent(): string {
 - Où ont lieu les formations ? En présentiel, en Île-de-France uniquement (75, 77, 78, 91, 92, 93, 94, 95), en inter (sessions publiées sur le site) ou en intra dans l'entreprise.
 - Parcours métiers BTP modulaires ? Formation IA BTP à la carte ou parcours complet : cinq parcours par métier (dirigeant de PME BTP, chargé d'affaires, conducteur de travaux, assistant de gestion, référent IA) — modules de formation IA pour les professionnels du BTP suivis ensemble ou séparément selon les besoins et les prérequis pédagogiques. Page : ${BASE}/parcours-metiers
 - Combien de temps ? Débutant : 4 h (sauf agents IA autonomes Make : 7 h). Avancé : 4 h. Approfondi (applications métier BTP avec l'IA) : 14 h sur 2 jours (2 × 7 h par journée).
-- Combien ça coûte ? Inter : 120 € HT (débutant 4 h), 340 € HT (agents IA autonomes 7 h), 170 € HT (avancé 4 h), 620 € HT (approfondi 14 h). Intra : sur devis. TVA exonérée (art. 261-4-4°-a du CGI).
+- Combien ça coûte ? ${siteTarifsLlmsGrilleLigne()}
 - Peut-on la faire financer ? Prise en charge OPCO/Constructys possible selon éligibilité (jamais automatique) : ${BASE}/financement-constructys-formation-ia-btp
 - Faut-il être à l'aise en informatique ? Non : les exercices se font en français courant, sur des documents BTP (devis, DCE, CCTP, CR de chantier).
 - L'IA remplace-t-elle les métiers du bâtiment ? Non : elle prend en charge une partie de l'administratif ; la relecture et la responsabilité restent humaines.

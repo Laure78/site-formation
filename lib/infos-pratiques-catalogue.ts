@@ -25,7 +25,6 @@ import {
 import {
   libelleTarifParticipantCatalogue,
   TARIF_PARTICIPANT_NIV02_HT,
-  TARIF_SESSION_INTRA_NIV12_HT,
 } from '@/lib/tarifs-catalogue-participant';
 /** Modalité pédagogique fixe — toutes les actions catalogue OFC. */
 export const MODALITE_PEDAGOGIQUE_CATALOGUE =
@@ -441,9 +440,6 @@ function prerequisPourRef(ref: FormationCode): string {
 
 function tarifPourRef(ref: FormationCode): string {
   const grilleInter4h = `${libelleTarifParticipantCatalogue(TARIF_PARTICIPANT_NIV02_HT)} — grille catalogue inter pour une session 4 h (prise en charge sur demande)`;
-  if (ref === 'NIV-12') {
-    return `${formatPrixHt(TARIF_SESSION_INTRA_NIV12_HT)} € HT la session intra de 4 h (jusqu’à 10 participants). ${grilleInter4h}. ${MENTIONS_TVA_INTRA_COURTE}`;
-  }
   const formation = getFormationByCode(ref);
   const entry = formation ? getFormationCatalogueByRef(ref) : undefined;
   if (formation?.tarifParticipantHt && entry) {

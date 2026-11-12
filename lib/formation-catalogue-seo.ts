@@ -125,14 +125,14 @@ export const FORMATION_CATALOGUE_SEO: Record<FormationCatalogueCode, FormationCa
     ],
   },
   'NIV-05': {
-    metaTitle: 'Formation IA Maître d’œuvre Île-de-France',
-    h1: 'Formation IA pour maîtres d’œuvre en Île-de-France — de la consultation à la réception',
+    metaTitle: 'Formation IA maître d’œuvre & MOEX en IDF',
+    h1: 'Formation IA pour maîtres d’œuvre et MOEX en Île-de-France',
     subtitle:
-      'Lettres de commande, avenants, OS, situations, dépouillement, visites et réception : Claude ou ChatGPT sur vos trames, en intra et en présentiel en Île-de-France.',
+      'CCTP, DPGF, DCE, comptes rendus, ordres de service, visas, situations, OPR et réserves : ChatGPT et Claude sur vos dossiers, en présentiel en Île-de-France.',
     metaDescription:
-      'Formation IA pour maîtres d’œuvre et MOEX : avenants, OS, situations, dépouillement, réception. Présentiel en Île-de-France, Qualiopi, OPCO selon éligibilité.',
+      'Formation IA pour maîtres d’œuvre et MOEX : CCTP, OS, visas, situations, OPR et réserves avec ChatGPT et Claude. Présentiel en Île-de-France, Qualiopi.',
     enBref:
-      'La formation « L’IA au service des maîtres d’œuvre » apprend aux équipes de maîtrise d’œuvre (MOE, MOEX, OPC, bureaux d’études) à utiliser Claude AI ou ChatGPT sur leurs vraies tâches : lettres de commande, avenants, OS, agréments de sous-traitants, contrôle des situations, dépouillement des offres, visites de chantier et réception. Elle est dispensée par Laure Olivié (OFC Création d’Entreprise, certifié Qualiopi) en présentiel, en intra dans vos locaux en Île-de-France, en deux niveaux.',
+      'Laure Olivié (OFC Création d’Entreprise, Qualiopi) forme les maîtres d’œuvre et MOEX à utiliser ChatGPT et Claude sur CCTP, DPGF, DCE, comptes rendus, OS et réserves — en 4 h, en présentiel en Île-de-France.',
     publicTargets: [
       'Maîtres d’œuvre de conception et d’exécution (MOE / MOEX)',
       'Architectes et économistes de la construction',
@@ -228,13 +228,13 @@ export const FORMATION_CATALOGUE_SEO: Record<FormationCatalogueCode, FormationCa
     ],
   },
   'NIV-11': {
-    metaTitle: 'Formation IA AMO BTP | Consultations & pilotage',
-    h1: 'Formation IA assistance à maîtrise d’ouvrage : consultations, offres et pilotage',
+    metaTitle: 'Formation IA AMO bâtiment Île-de-France',
+    h1: 'Formation IA AMO bâtiment : assistance à maîtrise d’ouvrage en Île-de-France',
     subtitle:
-      'Charte IA, analyse des consultations, rapport d’analyse des offres et pilotage des intervenants avec ChatGPT et Claude.',
+      'Charte IA, analyse des consultations, rapport d’analyse des offres et pilotage des intervenants avec ChatGPT et Claude — présentiel en Île-de-France.',
     metaDescription:
-      'Formation IA pour le BTP côté AMO : analyse des offres, rapport d’analyse, pilotage MOE, CT et CSPS avec ChatGPT et Claude. 4 h intra, Qualiopi.',
-    enBref: `La formation IA pour l'assistance à maîtrise d'ouvrage apprend à protéger les données des consultations, analyser les offres et préparer un rapport d'analyse sourcé, contrôler les livrables MOE et rédiger CR de pilotage et notes d'alerte. 4 h en intra — ${QUALIOPI_MENTION}.`,
+      'Formation IA pour assistants à maîtrise d’ouvrage du bâtiment : analyse des offres, pilotage MOE, ChatGPT et Claude. Présentiel en Île-de-France, Qualiopi.',
+    enBref: `Laure Olivié (OFC Création d’Entreprise, ${QUALIOPI_MENTION}) forme les AMO bâtiment à analyser les consultations, structurer le rapport d’analyse des offres et piloter les intervenants avec ChatGPT et Claude — 4 h, présentiel en Île-de-France.`,
     publicTargets: [
       'Assistants à maîtrise d’ouvrage (AMO)',
       'Conducteurs d’opération et programmistes',

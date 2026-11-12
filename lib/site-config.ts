@@ -224,6 +224,42 @@ export const SITE_PERSON_JOB_TITLE = 'Formatrice IA spécialisée BTP' as const;
 /** Zone de formation — présentiel catalogue (Schema.org Course / Organization). */
 export const SITE_AREA_SERVED_LABEL = 'Île-de-France' as const;
 
+/**
+ * Grille tarifaire catalogue OFC — source unique (validée le 12/11/2026).
+ * Importer ces constantes plutôt que coder un montant en dur (pages, JSON-LD, llms.txt).
+ */
+export const SITE_TARIFS = {
+  /** Niveau 1 — Les bases de l’IA (4 h). */
+  participant4hNiveau1: 120,
+  /** Niveau 2 — sessions avancées 4 h (MOE NIV-05, AMO NIV-11, etc.). */
+  participant4hNiveau2: 170,
+  /** Journée catalogue 7 h (ex. agents IA autonomes NIV-13). */
+  participant7hJournee: 310,
+  /** Niveau 3 — approfondi 14 h (2 × 7 h). */
+  participant14hApprofondi: 620,
+} as const;
+
+/** @see SITE_TARIFS.participant4hNiveau1 */
+export const TARIF_PARTICIPANT_NIV01_HT = SITE_TARIFS.participant4hNiveau1;
+/** @see SITE_TARIFS.participant4hNiveau2 */
+export const TARIF_PARTICIPANT_NIV02_HT = SITE_TARIFS.participant4hNiveau2;
+export const TARIF_PARTICIPANT_NIV03_HT = TARIF_PARTICIPANT_NIV02_HT;
+export const TARIF_PARTICIPANT_NIV04_HT = TARIF_PARTICIPANT_NIV02_HT;
+export const TARIF_PARTICIPANT_NIV05_HT = TARIF_PARTICIPANT_NIV02_HT;
+export const TARIF_PARTICIPANT_NIV09_HT = TARIF_PARTICIPANT_NIV02_HT;
+/** @see SITE_TARIFS.participant14hApprofondi */
+export const TARIF_PARTICIPANT_NIV10_14H_HT = SITE_TARIFS.participant14hApprofondi;
+/** @see SITE_TARIFS.participant7hJournee */
+export const TARIF_PARTICIPANT_JOURNEE_7H_HT = SITE_TARIFS.participant7hJournee;
+export const TARIF_PARTICIPANT_NIV13_HT = TARIF_PARTICIPANT_JOURNEE_7H_HT;
+
+/** Ligne « Combien ça coûte ? » pour public/llms.txt. */
+export function siteTarifsLlmsGrilleLigne(): string {
+  const { participant4hNiveau1, participant7hJournee, participant4hNiveau2, participant14hApprofondi } =
+    SITE_TARIFS;
+  return `Inter : ${participant4hNiveau1} € HT (débutant 4 h), ${participant7hJournee} € HT (agents IA autonomes 7 h), ${participant4hNiveau2} € HT (avancé 4 h), ${participant14hApprofondi} € HT (approfondi 14 h). Maîtrise d’œuvre et AMO (4 h) : ${participant4hNiveau2} € HT / participant en inter comme en intra. TVA exonérée (art. 261-4-4°-a du CGI).`;
+}
+
 /** SIREN sans espaces. */
 export function siteSirenDigits(): string {
   return SITE.siren.replace(/\s/g, '');

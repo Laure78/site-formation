@@ -18,7 +18,7 @@ import { SCHEMA_CONTACT, SCHEMA_GEO } from '@/lib/schema-constants';
 import { siteQualiopiHasCredentialSchema } from '@/lib/site-config';
 import { SITE_CONFIG } from '@/lib/seo';
 import { MODALITE_FORMATIONS_PRESENTIEL } from '@/lib/tarifs-sessions';
-import { libelleTarifParticipantCatalogue, TARIF_SESSION_INTRA_NIV11_HT } from '@/lib/tarifs-catalogue-participant';
+import { libelleTarifParticipantCatalogue, TARIF_PARTICIPANT_NIV02_HT } from '@/lib/tarifs-catalogue-participant';
 import {
   FORMATIONS_CATALOGUE,
   type FormationCatalogueEntry,
@@ -159,16 +159,12 @@ function tarifsPourCatalogue(entry: FormationCatalogueEntry): { inter: string; i
   const formation = getFormationByCode(entry.ref);
   const effectif = entry.effectif.toLowerCase();
   if (entry.ref === 'NIV-11') {
-    return {
-      inter: 'Sur devis',
-      intra: 'Sur devis',
-    };
+    const label = `${libelleTarifParticipantCatalogue(TARIF_PARTICIPANT_NIV02_HT)} (${effectif})`;
+    return { inter: label, intra: label };
   }
   if (entry.ref === 'NIV-12') {
-    return {
-      inter: 'Session inter sur demande',
-      intra: `${TARIF_SESSION_INTRA_NIV11_HT.toLocaleString('fr-FR')} € HT la session de 4 h (jusqu’à 10 participants)`,
-    };
+    const label = `${libelleTarifParticipantCatalogue(TARIF_PARTICIPANT_NIV02_HT)} (${effectif})`;
+    return { inter: 'Session inter sur demande', intra: label };
   }
   if (formation?.tarifParticipantHt && formation.tarifParticipantHt > 0) {
     const label = `${libelleTarifParticipantCatalogue(formation.tarifParticipantHt)} (${effectif})`;

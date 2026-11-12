@@ -8,7 +8,7 @@ import { formatNoteSatisfactionAffichageComplet } from '@/lib/data/indicateurs-r
 export const FAQ_MOE_NIV05: FAQItem[] = [
   {
     q: 'Quelle formation IA pour un cabinet de maîtrise d’œuvre en Île-de-France ?',
-    a: 'Une formation intra, en présentiel, construite sur vos trames et vos phases de mission. Laure Olivié la propose en deux niveaux de 4 h, dans vos locaux, partout en Île-de-France.',
+    a: 'Une session de 4 h en présentiel, en inter à Paris 12e ou en intra dans vos locaux en Île-de-France, construite sur vos trames MOE/MOEX (CCTP, DCE, CR, OS, réserves). Organisme certifié Qualiopi — Laure Olivié, OFC Création d’Entreprise.',
   },
   {
     q: 'L’IA peut-elle contrôler une situation de travaux ?',

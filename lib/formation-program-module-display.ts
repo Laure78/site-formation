@@ -81,6 +81,7 @@ export function getTeachingModules(modules: readonly CatalogueProgramModule[]): 
 export function buildProgrammeModuleCards(
   modules: readonly CatalogueProgramModule[],
   fixedLabels?: readonly string[],
+  maxPointsPerModule?: number,
 ): ProgrammeModuleCard[] {
   const teaching = getTeachingModules(modules);
   const count = fixedLabels?.length ?? teaching.length;
@@ -93,12 +94,18 @@ export function buildProgrammeModuleCards(
       : { body: [] as string[] };
     const titre =
       fixedLabels?.[index] ?? (mod ? stripModuleHeading(mod.title) : `Module ${index + 1}`);
+    const points =
+      mod && maxPointsPerModule != null && maxPointsPerModule > 0
+        ? body.slice(0, maxPointsPerModule)
+        : mod
+          ? body
+          : [];
     return {
       numero: String(index + 1).padStart(2, '0'),
       titre,
       dureeRaw,
       dureeLabel: formatDurationMinutesLabel(dureeRaw),
-      points: mod ? body : [],
+      points,
       competence: mod?.competence,
       practice: mod?.practice,
       livrable: mod?.deliverable ?? livrableFromPoints,

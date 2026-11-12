@@ -48,6 +48,10 @@ type Props = {
   programmeHeading?: string;
   /** Remplace la grille tarif / effectif par défaut (ex. NIV-13). */
   indicatorItems?: readonly { icon: LucideIcon; sub: string }[];
+  /** Limite les puces affichées par carte programme (fiches allégées). */
+  programmeMaxBullets?: number;
+  /** Bloc « En bref » visible sous le hero (GEO). */
+  enBref?: string;
   ctaMode?: 'visio-programme' | 'programme-devis';
 };
 
@@ -67,6 +71,8 @@ export function TrainingMaquetteMarketing({
   programModules,
   programmeHeading,
   indicatorItems,
+  programmeMaxBullets,
+  enBref,
   ctaMode = 'visio-programme',
 }: Props) {
   const slice = getFormationMaquetteMarketingSlice(programmeRef);
@@ -78,7 +84,11 @@ export function TrainingMaquetteMarketing({
   const heroBadge = formationHeroBadgeNiveau(formation.niveau);
   const levelKeyFact = formationNiveauOfficielLabel(formation.niveau);
 
-  const programCards = buildProgrammeModuleCards(programModules, slice.programmeFixedLabels);
+  const programCards = buildProgrammeModuleCards(
+    programModules,
+    slice.programmeFixedLabels,
+    programmeMaxBullets,
+  );
   const formationPath = `/formations/${formation.slug}`;
 
   const programmeTitle = programmeHeading ?? FORMATION_SECTION_PROGRAMME;
@@ -135,6 +145,12 @@ export function TrainingMaquetteMarketing({
               ctaMode={ctaMode}
               className="mt-8"
             />
+            {enBref ? (
+              <p className="mt-6 border-l-4 border-[#377CF3] bg-[#F8FAFC] py-3 pl-4 text-sm leading-relaxed text-slate-700 md:text-base">
+                <span className="font-semibold text-[#101936]">En bref — </span>
+                {enBref}
+              </p>
+            ) : null}
           </div>
 
           <div className="relative min-h-0 w-full">
@@ -271,7 +287,12 @@ export function TrainingMaquetteMarketing({
                 );
               })}
             </div>
-            <p className="mt-4 text-sm text-slate-500">{footnoteResolved}</p>
+            <p className="mt-4 text-sm text-slate-500">
+              {footnoteResolved}
+              {programmeMaxBullets != null && pdfHref
+                ? ' Objectifs détaillés et critères pédagogiques : téléchargez le programme PDF.'
+                : ''}
+            </p>
           </section>
         ) : null}
 

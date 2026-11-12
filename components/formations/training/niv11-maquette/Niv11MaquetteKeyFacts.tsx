@@ -1,10 +1,7 @@
 import { Clock, Coins, Layers, MapPin, Users } from 'lucide-react';
 import { SITE_FORMATION_MODALITE_ENCART } from '@/lib/site-config';
 import { formatNumberFr } from '@/lib/format-number-fr';
-import {
-  TARIF_PARTICIPANT_NIV02_HT,
-  TARIF_SESSION_INTRA_NIV11_HT,
-} from '@/lib/tarifs-catalogue-participant';
+import { TARIF_PARTICIPANT_NIV02_HT } from '@/lib/tarifs-catalogue-participant';
 
 type Props = {
   effectifMin: number;
@@ -25,7 +22,7 @@ export function Niv11MaquetteKeyFacts({ effectifMin, effectifMax }: Props) {
             { icon: Clock, sub: '4 h' },
             {
               icon: Coins,
-              sub: `${formatNumberFr(TARIF_PARTICIPANT_NIV02_HT)} € HT / participant (inter)`,
+              sub: `${formatNumberFr(TARIF_PARTICIPANT_NIV02_HT)} € HT / participant`,
             },
             { icon: MapPin, sub: SITE_FORMATION_MODALITE_ENCART },
             { icon: Users, sub: `${effectifMin} à ${effectifMax} participants` },
@@ -40,8 +37,7 @@ export function Niv11MaquetteKeyFacts({ effectifMin, effectifMax }: Props) {
           ))}
         </div>
         <p className="mt-3 text-center text-xs text-slate-500 lg:text-left">
-          Format intra : {formatNumberFr(TARIF_SESSION_INTRA_NIV11_HT)} € HT la session de 4 h — TVA exonérée,
-          article 261-4-4° du CGI.
+          Même tarif HT / participant en intra et en inter — TVA exonérée, article 261-4-4°-a du CGI.
         </p>
       </div>
     </section>

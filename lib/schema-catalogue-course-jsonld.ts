@@ -15,6 +15,12 @@ import { getFormationCatalogueByRef } from '@/lib/formations-catalogue-display';
 import { TARIF_INTER_DEV_WEB_IA_14H_HT } from '@/lib/formation-developpement-web-ia-content';
 import { LINKS } from '@/lib/internal-links';
 import { TARIF_PARTICIPANT_NIV02_HT } from '@/lib/tarifs-catalogue-participant';
+import {
+  contentUpdatedAtToSchemaIso,
+  getPillarPageContentUpdatedAt,
+  type PillarPagePath,
+  PILLAR_PAGE_CONTENT_UPDATED_AT,
+} from '@/lib/content-updated-at';
 import { getFormationCatalogueImageObjectJsonLd } from '@/lib/photo-seo';
 import {
   SCHEMA_CONTACT,
@@ -27,6 +33,12 @@ import {
   buildFormationFicheCourseJsonLd,
 } from '@/lib/schema-formation-course-jsonld';
 import { buildQualiopiCredentialSchema } from '@/lib/qualiopi-info';
+import {
+  contentUpdatedAtToSchemaIso,
+  getPillarPageContentUpdatedAt,
+  type PillarPagePath,
+  PILLAR_PAGE_CONTENT_UPDATED_AT,
+} from '@/lib/content-updated-at';
 import { SITE, siteProviderIdentifierSchema } from '@/lib/site-config';
 
 /** URLs legacy NIV-06/07/08 (301 → NIV-10) — distinctes des constantes `LINKS` canoniques. */
@@ -90,7 +102,7 @@ const PRICE_SPEC_DESCRIPTION_BY_REF: Record<string, string> = Object.fromEntries
 
 function prixCatalogue(ref: string): number | undefined {
   if (ref === 'NIV-10') return TARIF_INTER_DEV_WEB_IA_14H_HT;
-  if (ref === 'NIV-11') return undefined;
+  if (ref === 'NIV-11') return TARIF_PARTICIPANT_NIV02_HT;
   if (ref === 'NIV-12') return TARIF_PARTICIPANT_NIV02_HT;
   const f = getFormationByCode(ref);
   if (!f) return undefined;
@@ -270,6 +282,7 @@ export const FORMATION_RICH_COURSE_NIV05: FormationCatalogueRichCourseConfig = {
   price: prixCatalogue('NIV-05'),
   educationalLevel: 'Perfectionnement',
   teaches: teachesFromCatalogue('NIV-05'),
+  audienceType: 'Maîtres d’œuvre, MOEX, OPC',
 };
 
 export const CATALOGUE_COURSE_APPLICATION_METIER_NIV06: CatalogueCourseJsonLdConfig = {
@@ -393,7 +406,7 @@ export const FORMATION_RICH_COURSE_NIV13: FormationCatalogueRichCourseConfig = {
 export const CATALOGUE_COURSE_ASSISTANCE_MAITRISE_OUVRAGE_NIV11: CatalogueCourseJsonLdConfig = {
   path: LINKS.formationIaAssistanceMaitriseOuvrage,
   name: getFormationByCode('NIV-11')!.titre,
-  description: `${getFormationByCode('NIV-11')!.accroche} Session ${getFormationByCode('NIV-11')!.duree}, intra en Île-de-France, Qualiopi.`,
+  description: `${getFormationByCode('NIV-11')!.accroche} Session ${getFormationByCode('NIV-11')!.duree}, présentiel en Île-de-France (inter et intra), Qualiopi.`,
   price: prixCatalogue('NIV-11'),
   keywords: ['AMO', 'assistance à maîtrise d’ouvrage', 'analyse des offres', 'rapport d’analyse', 'conduite d’opération', 'ChatGPT', 'Claude'],
   courseCode: 'NIV-11',
@@ -408,6 +421,7 @@ export const FORMATION_RICH_COURSE_NIV11: FormationCatalogueRichCourseConfig = {
   price: prixCatalogue('NIV-11'),
   educationalLevel: 'Perfectionnement',
   teaches: teachesFromCatalogue('NIV-11'),
+  audienceType: 'Assistants à maîtrise d’ouvrage du bâtiment, maîtres d’ouvrage',
 };
 
 export const CATALOGUE_COURSE_MAITRISE_OEUVRE_CCTP_DPGF_NIV12: CatalogueCourseJsonLdConfig = {
@@ -429,6 +443,11 @@ export const FORMATION_RICH_COURSE_NIV12: FormationCatalogueRichCourseConfig = {
   educationalLevel: 'Perfectionnement',
   teaches: teachesFromCatalogue('NIV-12'),
 };
+
+function courseContentDateModified(path: string): string | undefined {
+  if (!(path in PILLAR_PAGE_CONTENT_UPDATED_AT)) return undefined;
+  return contentUpdatedAtToSchemaIso(getPillarPageContentUpdatedAt(path as PillarPagePath));
+}
 
 function buildCatalogueOffer(
   catalogueRef: string,
@@ -494,11 +513,14 @@ export function buildFormationCatalogueRichCourseJsonLd(
   const courseNode = { ...core };
   delete (courseNode as { '@context'?: unknown })['@context'];
 
+  const dateModified = courseContentDateModified(config.path);
+
   return {
     '@context': 'https://schema.org',
     ...courseNode,
     timeRequired: durationIso,
     hasCourseInstance: buildFormationCourseInstances(durationIso),
+    ...(dateModified ? { dateModified } : {}),
     ...(courseImage ? { image: courseImage } : {}),
     ...(config.audienceType
       ? {
