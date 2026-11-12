@@ -1,9 +1,10 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { Clock, Download, MapPin, Percent } from 'lucide-react';
+import { CtaVisio } from '@/components/CtaVisio';
 import { NIV11_MAQUETTE_HERO } from '@/lib/formation-niv11-maquette-assets';
 import { LINKS } from '@/lib/internal-links';
-import { OFC_CTA_PRIMARY, OFC_CTA_SECONDARY } from '@/lib/ofc-interaction-classes';
+import { OFC_CTA_SECONDARY } from '@/lib/ofc-interaction-classes';
 import { TRAINING_ANCHOR } from '@/lib/training-fiche-nav';
 import { SITE_FORMATION_MODALITE_ENCART } from '@/lib/site-config';
 
@@ -104,11 +105,15 @@ export function Niv11MaquetteHero({
             </li>
           </ul>
           <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+            <CtaVisio
+              src="formation-niv11-amo-hero"
+              className="inline-flex min-h-11 w-full items-center justify-center px-5 py-3 sm:w-auto"
+            />
             <Link
               href={`#${TRAINING_ANCHOR.sessions}`}
-              className={`${OFC_CTA_PRIMARY} inline-flex min-h-11 w-full items-center justify-center px-5 py-3 sm:w-auto`}
+              className={`${OFC_CTA_SECONDARY} inline-flex min-h-11 w-full items-center justify-center px-5 py-3 sm:w-auto`}
             >
-              Demander une session
+              Voir les prochaines sessions
             </Link>
             {programmeButton}
           </div>

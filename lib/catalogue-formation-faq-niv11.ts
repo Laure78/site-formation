@@ -3,8 +3,9 @@
  */
 import { getFormationByCode } from '@/data/formations';
 import type { FAQItem } from '@/lib/faq';
-import { FINANCEMENT_FORMULATION_PRUDENTE } from '@/lib/financement-copy';
+import { FINANCEMENT_PRISE_EN_CHARGE_100_SELON_ELIGIBILITE } from '@/lib/financement-copy';
 import { LINKS } from '@/lib/internal-links';
+import { SITE_FORMATION_MODALITE_DETAIL } from '@/lib/site-config';
 
 const F = () => getFormationByCode('NIV-11')!;
 
@@ -26,8 +27,12 @@ export const FAQ_AMO_NIV11: FAQItem[] = [
     a: 'Elle peut accélérer la lecture croisée de CCTP, notices et pièces graphiques pour repérer incohérences ou oublis apparents. La conformité technique, les prescriptions réglementaires et la validation contractuelle restent de la responsabilité du MOA et des acteurs habilités.',
   },
   {
-    q: 'Quelle différence avec la formation IA maîtrise d’œuvre ?',
-    a: `La <a href="${LINKS.formationIaMaitriseOeuvre}">formation maîtrise d’œuvre</a> cible les missions MOE (CCTP, DPGF, DCE, CR, OS, réserves). Cette session AMO porte sur l’analyse des consultations, le rapport d’analyse des offres, le pilotage des intervenants et le reporting au maître d’ouvrage.`,
+    q: 'Quelle différence entre la formation IA AMO et la formation IA maîtrise d’œuvre ?',
+    a: `La <a href="${LINKS.formationIaMaitriseOeuvre}">formation IA maîtrise d’œuvre</a> cible les missions MOE (CCTP, DPGF, DCE, CR, OS, réserves). Cette session AMO porte sur l’analyse des consultations, le rapport d’analyse des offres, le pilotage des intervenants et le reporting au maître d’ouvrage.`,
+  },
+  {
+    q: 'Les données de mes opérations sont-elles en sécurité ?',
+    a: `Oui, sous réserve d’anonymisation, de paramétrage des espaces professionnels et du respect des règles internes de votre maître d’ouvrage. Consultez notre guide sur la <a href="${LINKS.blogSecuriteDonneesChatgptBtp}">sécurité des données avec ChatGPT dans le BTP</a> avant tout dépôt de pièces sensibles.`,
   },
   {
     q: 'Faut-il déjà maîtriser ChatGPT ou Claude ?',
@@ -39,6 +44,10 @@ export const FAQ_AMO_NIV11: FAQItem[] = [
   },
   {
     q: 'Une prise en charge OPCO est-elle possible ?',
-    a: `${FINANCEMENT_FORMULATION_PRUDENTE} Voir <a href="${LINKS.financement}">financement Constructys formation IA BTP</a>.`,
+    a: `Prise en charge par votre OPCO selon éligibilité. ${FINANCEMENT_PRISE_EN_CHARGE_100_SELON_ELIGIBILITE}`,
+  },
+  {
+    q: 'Où se déroule la formation ?',
+    a: `${SITE_FORMATION_MODALITE_DETAIL} Zone : Île-de-France (Paris et départements 77, 78, 91, 92, 93, 94, 95).`,
   },
 ];

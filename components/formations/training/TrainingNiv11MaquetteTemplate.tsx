@@ -32,6 +32,7 @@ import { buildFormationPageMaillageBlocks } from '@/lib/page-maillage-blocks';
 import type { FormationCatalogueCode } from '@/lib/formation-catalogue-visibility';
 import { TrainingPracticalInfo } from '@/components/formations/training/TrainingPracticalInfo';
 import { TrainingSection } from '@/components/formations/training/TrainingSection';
+import { FormationAmoSeoBody } from '@/components/formations/seo/FormationAmoSeoBody';
 
 type Props = {
   content: CatalogueFormationPageContent;
@@ -105,6 +106,10 @@ export async function TrainingNiv11MaquetteTemplate({
           <TrainingPresentationExpand summary={content.programIntro}>
             {content.heroPublicLine ? <p>{content.heroPublicLine}</p> : null}
           </TrainingPresentationExpand>
+        </TrainingSection>
+
+        <TrainingSection id="amo-ia-batiment" tone="white">
+          <FormationAmoSeoBody />
         </TrainingSection>
 
         <TrainingOutcomes

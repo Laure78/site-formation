@@ -16,6 +16,7 @@ import {
   PARCOURS_METIERS_HERO,
   PARCOURS_METIERS_HUB_INDICATEURS,
   PARCOURS_METIERS_PEDAGOGIE,
+  PARCOURS_METIERS_MOE_AMO_ENCADRE,
   PARCOURS_METIERS_SECTION,
 } from '@/lib/parcours-metiers-page-content';
 
@@ -163,6 +164,38 @@ export function ParcoursMetiersPage() {
                 </li>
               ))}
             </ul>
+            <aside
+              className="mt-10 rounded-2xl border border-[#377CF3]/20 bg-[#EFF6FF] p-6 md:p-8"
+              aria-labelledby="parcours-metiers-moe-amo-title"
+            >
+              <h3
+                id="parcours-metiers-moe-amo-title"
+                className="font-display text-lg font-semibold text-[#101936] md:text-xl"
+              >
+                {PARCOURS_METIERS_MOE_AMO_ENCADRE.title}
+              </h3>
+              <p className="mt-2 text-sm leading-relaxed text-slate-700 md:text-base">
+                {PARCOURS_METIERS_MOE_AMO_ENCADRE.body}
+              </p>
+              <ul className="mt-4 list-none space-y-2 text-sm md:text-base">
+                <li>
+                  <Link
+                    href={LINKS[PARCOURS_METIERS_MOE_AMO_ENCADRE.moe.hrefKey]}
+                    className="font-semibold text-[#377CF3] hover:underline"
+                  >
+                    {PARCOURS_METIERS_MOE_AMO_ENCADRE.moe.label}
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href={LINKS[PARCOURS_METIERS_MOE_AMO_ENCADRE.amo.hrefKey]}
+                    className="font-semibold text-[#377CF3] hover:underline"
+                  >
+                    {PARCOURS_METIERS_MOE_AMO_ENCADRE.amo.label}
+                  </Link>
+                </li>
+              </ul>
+            </aside>
           </div>
         </section>
 

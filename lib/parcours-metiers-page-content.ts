@@ -43,6 +43,20 @@ export const PARCOURS_METIERS_SECTION = {
   subtitle: 'Choisissez votre fonction pour découvrir les modules et compétences.',
 } as const;
 
+/** Encart maillage — fiches catalogue MOE / AMO (sous la grille parcours). */
+export const PARCOURS_METIERS_MOE_AMO_ENCADRE = {
+  title: 'Vous êtes maître d’œuvre, AMO ou maître d’ouvrage ?',
+  body: 'Sessions catalogue de 4 h en présentiel en Île-de-France — validation humaine des livrables IA sur vos documents.',
+  moe: {
+    hrefKey: 'formationIaMaitriseOeuvre' as const,
+    label: 'Formation IA maîtrise d’œuvre (MOE, MOEX, OPC)',
+  },
+  amo: {
+    hrefKey: 'formationIaAssistanceMaitriseOuvrage' as const,
+    label: 'Formation IA assistance maîtrise d’ouvrage (AMO bâtiment)',
+  },
+} as const;
+
 export const PARCOURS_METIERS_AVANTAGES_SECTION = {
   id: 'avantages-parcours-metiers',
   title: 'Pourquoi choisir un parcours métier ?',

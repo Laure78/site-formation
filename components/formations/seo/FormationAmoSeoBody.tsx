@@ -1,29 +1,50 @@
+import { Check } from 'lucide-react';
 import { CtaVisio } from '@/components/CtaVisio';
-import { formatAnneesExperienceBTP } from '@/lib/data/indicateurs-resultats';
+import { getFormationCatalogueSeo } from '@/lib/formation-catalogue-seo';
+import { getFormationByCode } from '@/data/formations';
+import { SITE_FORMATION_MODALITE_DETAIL } from '@/lib/site-config';
+import { libelleTarifParticipantCatalogue } from '@/lib/tarifs-catalogue-participant';
 import { IDF_ZONE_INTERVENTION } from '@/lib/constants';
 
 const sectionH2 = 'font-display text-xl font-bold text-slate-900 md:text-2xl';
-const sectionH3 = 'mt-6 font-display text-lg font-semibold text-slate-900';
+
+const seo = getFormationCatalogueSeo('NIV-11');
+const formation = getFormationByCode('NIV-11')!;
 
 export function FormationAmoSeoBody() {
+  const tarifLabel =
+    formation.tarifParticipantHt != null
+      ? libelleTarifParticipantCatalogue(formation.tarifParticipantHt)
+      : 'Sur devis';
+
   return (
-    <>
+    <div className="max-w-none">
       <section>
-        <h2 className={sectionH2}>Le problème : l&apos;AMO synthétise tout, pour tout le monde</h2>
-        <p className="mt-4 leading-relaxed">
-          L&apos;assistant à maîtrise d&apos;ouvrage lit plus qu&apos;il n&apos;écrit : programmes, études de faisabilité, rendus
-          APS/APD/PRO, CCTP, offres, comptes rendus, situations. Il doit ensuite en tirer une note claire pour un maître
-          d&apos;ouvrage qui n&apos;a pas le temps de tout lire. Ce travail de synthèse et de contrôle de cohérence occupe une
-          grande partie de la semaine.
-        </p>
+        <h2 className={sectionH2}>
+          Maîtres d&apos;ouvrage, conducteurs d&apos;opération, AMO : à qui s&apos;adresse cette formation ?
+        </h2>
+        <ul className="mt-4 space-y-2">
+          {seo.publicTargets.map((target) => (
+            <li key={target} className="flex gap-2 text-slate-700">
+              <Check className="mt-0.5 h-5 w-5 shrink-0 text-[#377CF3]" strokeWidth={1.5} aria-hidden />
+              {target}
+            </li>
+          ))}
+        </ul>
       </section>
 
       <section className="mt-10">
-        <h2 className={sectionH2}>La solution : l&apos;IA comme assistant de lecture et de synthèse</h2>
-        <p className="mt-4 leading-relaxed">
-          Bien cadrée, l&apos;IA peut résumer un rendu d&apos;études, comparer une version à la précédente, relever les écarts
-          avec le programme, structurer un tableau d&apos;analyse des offres et préparer un reporting. La décision et la
-          validation restent celles de l&apos;AMO et du maître d&apos;ouvrage.
+        <h2 className={sectionH2}>Comment l&apos;IA aide-t-elle un AMO ?</h2>
+        <p className="mt-4 leading-relaxed text-slate-700">
+          L&apos;IA accélère la lecture croisée des pièces d&apos;opération et la synthèse pour le maître
+          d&apos;ouvrage, sans se substituer à votre jugement.
+        </p>
+        <p className="mt-3 leading-relaxed text-slate-700">
+          L&apos;assistant à maîtrise d&apos;ouvrage lit plus qu&apos;il n&apos;écrit : programmes, rendus
+          APS/APD/PRO, CCTP, offres, comptes rendus, situations. Bien cadrée, l&apos;IA peut résumer un rendu
+          d&apos;études, comparer une version à la précédente, relever les écarts avec le programme, structurer un
+          tableau d&apos;analyse des offres et préparer un reporting — chaque livrable reste validé par l&apos;AMO et
+          le maître d&apos;ouvrage.
         </p>
         <div className="mt-6 rounded-2xl border border-[#377CF3]/25 bg-slate-50 p-6">
           <p className="font-medium text-slate-800">Votre équipe AMO en Île-de-France ?</p>
@@ -34,46 +55,43 @@ export function FormationAmoSeoBody() {
       </section>
 
       <section className="mt-10">
-        <h2 className={sectionH2}>Contenu de la formation (adapté à vos missions)</h2>
-        <h3 className={sectionH3}>Niveau 1 — Les bases sur vos documents d&apos;opération (4 h)</h3>
-        <ul className="mt-3 list-disc space-y-2 pl-6 leading-relaxed">
-          <li>
-            Interface Claude / ChatGPT, AI Act (art. 4 du règlement UE 2024/1689), confidentialité des données du maître
-            d&apos;ouvrage, limites de l&apos;IA.
-          </li>
-          <li>
-            Méthode CRAFT et Projet « Opération » : un espace par opération avec programme, planning et budget.
-          </li>
-          <li>Programmation : structurer un programme fonctionnel, un tableau de surfaces, une liste d&apos;exigences à partir de notes d&apos;entretien.</li>
-          <li>
-            Consultation de maîtrise d&apos;œuvre : trame de règlement de consultation et de critères, grille d&apos;analyse des
-            candidatures et des offres.
-          </li>
-          <li>
-            Reporting : note mensuelle au maître d&apos;ouvrage, tableau de bord budget / planning / risques, comptes rendus
-            de comité.
-          </li>
-        </ul>
-
-        <h3 className={sectionH3}>Niveau 2 — Skills et automatisation (4 h)</h3>
-        <ul className="mt-3 list-disc space-y-2 pl-6 leading-relaxed">
-          <li>
-            Skill « Revue d&apos;études » : relire un rendu APS, APD ou PRO au regard du programme et lister les écarts.
-          </li>
-          <li>Skill « Analyse des offres » : tableau comparatif, écarts en € et en %, questions de négociation.</li>
-          <li>Suivi de travaux pour le compte du MOA : lecture des comptes rendus de chantier, suivi des réserves et des DOE.</li>
-          <li>Tâches planifiées : veille réglementaire, point hebdomadaire des documents reçus.</li>
-        </ul>
+        <h2 className={sectionH2}>Comment préparer un rapport d&apos;analyse des offres avec l&apos;IA ?</h2>
+        <p className="mt-4 leading-relaxed text-slate-700">
+          Vous structurez une trame de rapport sourcée en recoupant RC, CCTP, CCAP, DPGF, mémoires techniques et offres
+          de prix.
+        </p>
+        <p className="mt-3 leading-relaxed text-slate-700">
+          L&apos;IA aide à organiser les notes, comparer les éléments techniques et financiers et préparer un tableau
+          comparatif avec renvoi aux pièces sources (MOE, entreprises, contrôleur technique, coordonnateur sécurité).
+          Chaque point sensible est relié à un document avant envoi au maître d&apos;ouvrage.
+        </p>
       </section>
 
       <section className="mt-10">
-        <h2 className={sectionH2}>Ce que vous repartez avec</h2>
-        <ol className="mt-4 list-decimal space-y-2 pl-6 leading-relaxed">
-          <li>Un Projet « Opération » type.</li>
-          <li>Une base de prompts CRAFT AMO (programme, consultation, revue d&apos;études, reporting).</li>
-          <li>Des Skills testés sur vos dossiers.</li>
-          <li>Une fiche « Limites et confidentialité » pour l&apos;équipe.</li>
-        </ol>
+        <h2 className={sectionH2}>Peut-on relire un APS, un APD ou un PRO avec l&apos;IA ?</h2>
+        <p className="mt-4 leading-relaxed text-slate-700">
+          Oui, pour accélérer la lecture d&apos;un rendu d&apos;études au regard du programme et lister les écarts
+          apparents.
+        </p>
+        <p className="mt-3 leading-relaxed text-slate-700">
+          Un skill « Revue d&apos;études » compare le document au programme fonctionnel, aux surfaces et aux exigences
+          déjà actées. La conformité technique, les prescriptions réglementaires et la validation contractuelle restent
+          de la responsabilité de l&apos;AMO et du maître d&apos;ouvrage.
+        </p>
+      </section>
+
+      <section className="mt-10">
+        <h2 className={sectionH2}>
+          Comment préparer le reporting au maître d&apos;ouvrage avec ChatGPT ou Claude ?
+        </h2>
+        <p className="mt-4 leading-relaxed text-slate-700">
+          Vous transformez comptes rendus de comité, suivis budget / planning / risques et notes d&apos;alerte en
+          synthèses lisibles pour le MOA.
+        </p>
+        <p className="mt-3 leading-relaxed text-slate-700">
+          ChatGPT ou Claude structurent la note mensuelle, le tableau de bord et les CR de pilotage à partir de vos
+          sources — chaque formulation est relue et validée avant diffusion au maître d&apos;ouvrage.
+        </p>
       </section>
 
       <section className="mt-10">
@@ -85,30 +103,28 @@ export function FormationAmoSeoBody() {
                 <th scope="row" className="px-4 py-3 font-semibold text-slate-900">
                   Public
                 </th>
-                <td className="px-4 py-3">
-                  AMO, chargés d&apos;opération, responsables de programmes, directions techniques et immobilières
-                </td>
+                <td className="px-4 py-3">{formation.public}</td>
               </tr>
               <tr className="border-b border-slate-100">
                 <th scope="row" className="px-4 py-3 font-semibold text-slate-900">
                   Format
                 </th>
                 <td className="px-4 py-3">
-                  Intra, présentiel dans vos locaux en Île-de-France — par exemple 2 sessions de 4 h
+                  {SITE_FORMATION_MODALITE_DETAIL} Durée : {formation.duree}.
                 </td>
               </tr>
               <tr className="border-b border-slate-100">
                 <th scope="row" className="px-4 py-3 font-semibold text-slate-900">
                   Tarif
                 </th>
-                <td className="px-4 py-3">Sur devis</td>
+                <td className="px-4 py-3">{tarifLabel}</td>
               </tr>
               <tr>
                 <th scope="row" className="px-4 py-3 font-semibold text-slate-900">
                   Financement
                 </th>
                 <td className="px-4 py-3">
-                  Prise en charge OPCO selon éligibilité, sans subrogation ; non éligible au CPF
+                  Prise en charge par votre OPCO selon éligibilité, sans subrogation ; non éligible au CPF.
                 </td>
               </tr>
             </tbody>
@@ -116,14 +132,6 @@ export function FormationAmoSeoBody() {
         </div>
         <p className="mt-4 text-sm text-slate-600">Zone d&apos;intervention : {IDF_ZONE_INTERVENTION}.</p>
       </section>
-
-      <section className="mt-10">
-        <h2 className={sectionH2}>Qui forme ?</h2>
-        <p className="mt-4 leading-relaxed">
-          Laure Olivié, fondatrice d&apos;OFC Création d&apos;Entreprise (certifié Qualiopi), {formatAnneesExperienceBTP()} dans le
-          BTP comme ex-dirigeante d&apos;ALIA BTP, instructrice LinkedIn Learning.
-        </p>
-      </section>
-    </>
+    </div>
   );
 }

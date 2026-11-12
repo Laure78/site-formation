@@ -83,6 +83,8 @@ export function buildLlmsTxtContent(): string {
 - Références et partenaires : ${BASE}/partenaires
 - [Formation IA maîtrise d'œuvre (MOE, MOEX, OPC, BET)](${BASE}/formations/ia-maitrise-oeuvre) : intra, présentiel en Île-de-France, un seul parcours, Claude AI ou ChatGPT.
 - [Formation IA assistant maîtrise d'ouvrage (AMO)](${BASE}/formations/ia-assistance-maitrise-ouvrage) : programme, consultation MOE, revue d'études, reporting MOA.
+- [Parcours IA maître d'œuvre · MOEX](${BASE}/formations/parcours/maitre-oeuvre) : 16 h, quatre modules — initiation, MOE, Claude, assistants (présentiel Île-de-France).
+- [Parcours IA AMO BTP](${BASE}/formations/parcours/amo-btp) : 12 h — initiation, mission AMO et appels d'offres (présentiel Île-de-France).
 - [IA et maîtrise d'œuvre : 12 usages de PRO-DCE à AOR](${BASE}/blog/ia-maitrise-oeuvre-usages)
 - [IA et AMO : 8 usages](${BASE}/blog/ia-amo-assistant-maitrise-ouvrage)
 - [Tuto IA — contrôle de situation des travaux](${BASE}/blog/tuto-controle-situation-travaux-ia)

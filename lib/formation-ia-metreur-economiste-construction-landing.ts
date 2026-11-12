@@ -153,6 +153,11 @@ export function getMetreurEconomisteRelated(at: Date = new Date()) {
       description: 'Session catalogue — DPGF, métrés, BPU, contrôles.',
     },
     {
+      href: LINKS.formationIaMaitriseOeuvre,
+      title: 'Formation IA maîtrise d’œuvre (MOE, MOEX)',
+      description: 'CCTP, DPGF, dépouillement, OS et réception — session 4 h.',
+    },
+    {
       href: LINKS.formationAO,
       title: 'Formation NIV-02 — IA appels d’offres BTP',
       description: 'DCE, mémoire technique — catalogue Qualiopi.',

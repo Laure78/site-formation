@@ -122,6 +122,10 @@ function cleanBody(lines, slug) {
     'tuto-avenant-ordre-de-service-ia': 'tuto-avenant',
     'tuto-depouillement-offres-ia': 'tuto-depouillement',
     'tuto-skill-claude-maitrise-oeuvre': 'tuto-skill',
+    'ia-visa-documents-execution': 'blog-ia-visa-documents-execution',
+    'ia-confidentialite-donnees-maitrise-oeuvre': 'blog-ia-confidentialite-donnees-maitrise-oeuvre',
+    'ia-opr-levee-reserves': 'blog-ia-opr-levee-reserves',
+    'chatgpt-ou-claude-maitrise-oeuvre': 'blog-chatgpt-ou-claude-maitrise-oeuvre',
   };
   const endSrc = srcBySlug[slug];
   if (endSrc) {

@@ -19,7 +19,7 @@ export const metadata = createPageMetadata({
   descriptionFinal: true,
   path: LINKS.formationIaMaitriseOeuvre,
   openGraphType: 'website',
-  openGraphTitle: 'Formation IA maîtrise d’œuvre BTP — CCTP, DPGF, chantier — Qualiopi',
+  openGraphTitle: 'Formation IA maîtrise d’œuvre MOE MOEX — Qualiopi',
   openGraphDescription: CATALOGUE_SEO.metaDescription,
   alternatesLanguages: { 'fr-FR': `${SITE_CONFIG.url}${LINKS.formationIaMaitriseOeuvre}` },
   image: {

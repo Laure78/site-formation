@@ -90,7 +90,7 @@ export function AccueilFormationsIaMaquetteSection() {
       <RevealGroupShell
         as="ul"
         itemAs="li"
-        className="accueil-maquette__grid !mt-3 grid list-none gap-3 sm:grid-cols-2 lg:grid-cols-4"
+        className="accueil-maquette__grid !mt-3 grid list-none gap-3 sm:grid-cols-2 lg:grid-cols-3"
         staggerMs={ACCUEIL_MOTION_REVEAL.staggerMs}
         distance={ACCUEIL_MOTION_REVEAL.distance}
       >

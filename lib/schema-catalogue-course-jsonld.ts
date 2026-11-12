@@ -167,6 +167,8 @@ export type FormationCatalogueRichCourseConfig = {
   teaches: readonly string[];
   /** Public cible schema.org `audience.audienceType` (optionnel). */
   audienceType?: string;
+  /** Publics schema.org `EducationalAudience` (remplace `audienceType` si renseigné). */
+  educationalAudiences?: readonly string[];
 };
 
 export const CATALOGUE_COURSE_IA_BTP_NIV01: CatalogueCourseJsonLdConfig = {
@@ -274,6 +276,24 @@ export const CATALOGUE_COURSE_MAITRISE_OEUVRE_NIV05: CatalogueCourseJsonLdConfig
   educationalLevel: 'Advanced',
 };
 
+const NIV05_TEACHES_LIVRABLES = [
+  'CCTP et trames de DPGF',
+  'Analyse d’offres et synthèse DCE',
+  'Comptes rendus de chantier et de coordination',
+  'Ordres de service et brouillons contractuels',
+  'Suivi des visas et des réserves',
+  'Tableaux de planning et constats OPC',
+] as const;
+
+const NIV05_EDUCATIONAL_AUDIENCES = [
+  'Maître d’œuvre',
+  'Maître d’œuvre d’exécution (MOEX)',
+  'Pilote OPC',
+  'Architecte',
+  'Économiste de la construction',
+  'Ingénieur BET',
+] as const;
+
 export const FORMATION_RICH_COURSE_NIV05: FormationCatalogueRichCourseConfig = {
   ref: 'NIV-05',
   path: LINKS.formationIaMaitriseOeuvre,
@@ -281,8 +301,8 @@ export const FORMATION_RICH_COURSE_NIV05: FormationCatalogueRichCourseConfig = {
   description: CATALOGUE_COURSE_MAITRISE_OEUVRE_NIV05.description,
   price: prixCatalogue('NIV-05'),
   educationalLevel: 'Perfectionnement',
-  teaches: teachesFromCatalogue('NIV-05'),
-  audienceType: 'Maîtres d’œuvre, MOEX, OPC',
+  teaches: NIV05_TEACHES_LIVRABLES,
+  educationalAudiences: NIV05_EDUCATIONAL_AUDIENCES,
 };
 
 export const CATALOGUE_COURSE_APPLICATION_METIER_NIV06: CatalogueCourseJsonLdConfig = {
@@ -421,7 +441,8 @@ export const FORMATION_RICH_COURSE_NIV11: FormationCatalogueRichCourseConfig = {
   price: prixCatalogue('NIV-11'),
   educationalLevel: 'Perfectionnement',
   teaches: teachesFromCatalogue('NIV-11'),
-  audienceType: 'Assistants à maîtrise d’ouvrage du bâtiment, maîtres d’ouvrage',
+  audienceType:
+    'Assistants à maîtrise d’ouvrage (AMO), conducteur d’opération, chargé d’opérations, maître d’ouvrage',
 };
 
 export const CATALOGUE_COURSE_MAITRISE_OEUVRE_CCTP_DPGF_NIV12: CatalogueCourseJsonLdConfig = {
@@ -522,14 +543,21 @@ export function buildFormationCatalogueRichCourseJsonLd(
     hasCourseInstance: buildFormationCourseInstances(durationIso),
     ...(dateModified ? { dateModified } : {}),
     ...(courseImage ? { image: courseImage } : {}),
-    ...(config.audienceType
+    ...(config.educationalAudiences?.length
       ? {
-          audience: {
-            '@type': 'Audience',
-            audienceType: config.audienceType,
-          },
+          audience: config.educationalAudiences.map((educationalRole) => ({
+            '@type': 'EducationalAudience',
+            educationalRole,
+          })),
         }
-      : {}),
+      : config.audienceType
+        ? {
+            audience: {
+              '@type': 'Audience',
+              audienceType: config.audienceType,
+            },
+          }
+        : {}),
     provider: {
       '@type': 'Organization',
       '@id': organizationId,

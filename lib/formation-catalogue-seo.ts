@@ -10,7 +10,7 @@ import {
 } from '@/lib/data/indicateurs-resultats';
 import { getFormationByCode } from '@/data/formations';
 import { dureeCatalogueParCode } from '@/lib/catalogue-duree-copy';
-import { SITE_INTER_LIEU } from '@/lib/site-config';
+import { SITE_FORMATION_MODALITE_ENCART, SITE_INTER_LIEU } from '@/lib/site-config';
 import { SESSION_DUREE_LIBELLE } from '@/lib/tarifs-sessions';
 import { formatOrganismeQualiopiCourt } from '@/lib/marque-identite';
 import {
@@ -129,14 +129,13 @@ export const FORMATION_CATALOGUE_SEO: Record<FormationCatalogueCode, FormationCa
     ],
   },
   'NIV-05': {
-    metaTitle: 'Formation IA maître d’œuvre & MOEX en IDF',
+    metaTitle: 'Formation IA maîtrise d’œuvre MOE MOEX',
     h1: 'Formation IA pour maîtres d’œuvre et MOEX en Île-de-France',
     subtitle:
       'CCTP, DPGF, DCE, comptes rendus, ordres de service, visas, situations, OPR et réserves : ChatGPT et Claude sur vos dossiers, en présentiel en Île-de-France.',
     metaDescription:
-      'Formation IA pour maîtres d’œuvre et MOEX : CCTP, OS, visas, situations, OPR et réserves avec ChatGPT et Claude. Présentiel en Île-de-France, Qualiopi.',
-    enBref:
-      'Laure Olivié (OFC Création d’Entreprise, Qualiopi) forme les maîtres d’œuvre et MOEX à utiliser ChatGPT et Claude sur CCTP, DPGF, DCE, comptes rendus, OS et réserves — en 4 h, en présentiel en Île-de-France.',
+      'Formation IA pour maîtres d’œuvre, MOEX et pilotes OPC : CCTP, CR, OS et visas avec ChatGPT et Claude. Présentiel en Île-de-France, organisme certifié Qualiopi.',
+    enBref: `Cette formation IA s’adresse aux maîtres d’œuvre de conception, aux MOEX, aux pilotes OPC, aux architectes, aux économistes de la construction et aux ingénieurs BET. En atelier, vous structurez CCTP, DPGF, analyse d’offres, comptes rendus, ordres de service et suivi des réserves avec ChatGPT et Claude — chaque production est relue et validée par le professionnel. Session de ${dureeCatalogueParCode('NIV-05')} — ${SITE_FORMATION_MODALITE_ENCART} ; Laure Olivié (OFC Création d’Entreprise, organisme certifié Qualiopi).`,
     publicTargets: [
       'Maîtres d’œuvre de conception et d’exécution (MOE / MOEX)',
       'Architectes et économistes de la construction',
@@ -232,18 +231,20 @@ export const FORMATION_CATALOGUE_SEO: Record<FormationCatalogueCode, FormationCa
     ],
   },
   'NIV-11': {
-    metaTitle: 'Formation IA AMO bâtiment Île-de-France',
-    h1: 'Formation IA AMO bâtiment : assistance à maîtrise d’ouvrage en Île-de-France',
+    metaTitle: 'Formation IA AMO assistant maîtrise d’ouvrage',
+    h1: 'Formation IA pour assistants à maîtrise d’ouvrage (AMO) du bâtiment en Île-de-France',
     subtitle:
       'Charte IA, analyse des consultations, rapport d’analyse des offres et pilotage des intervenants avec ChatGPT et Claude — présentiel en Île-de-France.',
     metaDescription:
-      'Formation IA pour assistants à maîtrise d’ouvrage du bâtiment : analyse des offres, pilotage MOE, ChatGPT et Claude. Présentiel en Île-de-France, Qualiopi.',
-    enBref: `Laure Olivié (OFC Création d’Entreprise, ${QUALIOPI_MENTION}) forme les AMO bâtiment à analyser les consultations, structurer le rapport d’analyse des offres et piloter les intervenants avec ChatGPT et Claude — 4 h, présentiel en Île-de-France.`,
+      'Formation IA pour AMO bâtiment : analyse des offres et reporting au maître d’ouvrage. Présentiel inter et intra en Île-de-France, organisme certifié Qualiopi.',
+    enBref: `Cette formation vise l’AMO d’opérations de construction et de programmation immobilière — pas l’AMOA informatique (assistance maîtrise d’ouvrage des systèmes d’information). Laure Olivié, via OFC Création d’Entreprise (${QUALIOPI_MENTION}), forme les professionnels à analyser les consultations, structurer le rapport d’analyse des offres et le reporting au maître d’ouvrage avec ChatGPT et Claude. Session de ${dureeCatalogueParCode('NIV-11')} en présentiel — ${SITE_FORMATION_MODALITE_ENCART}.`,
     publicTargets: [
-      'Assistants à maîtrise d’ouvrage (AMO)',
-      'Conducteurs d’opération et programmistes',
+      'AMO indépendants et sociétés d’AMO',
+      'Conducteurs et chargés d’opération',
       'Maîtrise d’ouvrage déléguée',
-      'Chefs de projet et chargés d’opération',
+      'Services bâtiment de collectivités',
+      'Bailleurs sociaux',
+      'Promoteurs',
     ],
     iaLimits: [
       { iaAide: 'Relire et croiser les pièces d’une consultation', validationHumaine: 'Vérifier chaque incohérence sur les pièces sources' },

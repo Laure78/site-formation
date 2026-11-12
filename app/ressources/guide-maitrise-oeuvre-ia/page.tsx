@@ -4,7 +4,6 @@ import Link from 'next/link';
 import type { ReactNode } from 'react';
 import { Download } from 'lucide-react';
 import { JsonLd } from '@/components/JsonLd';
-import { SOCIAL_PROOF } from '@/lib/constants';
 import {
   FAQ_GUIDE_MOE_IA,
   GUIDE_MOE_IA_H1,
@@ -20,16 +19,21 @@ import { PHOTOS } from '@/lib/photos';
 import { RESSOURCES_MINIATURES } from '@/lib/ressources-miniatures';
 import { buildGuideMoeIaUnifiedGraphJsonLd } from '@/lib/schema-guide-moe-ia-jsonld';
 import { FINANCEMENT_FORMULATION_COURTE } from '@/lib/financement-copy';
+import {
+  getLaureOlivieFormationPortraitParagraph,
+  LAURE_OLIVIE_CLIENT_REFERENCES_SHORT,
+} from '@/lib/laure-olivie-profile';
 import { createPageMetadata } from '@/lib/seo';
 import { MaillageRessourceFromConfig } from '@/app/components/MaillageRessource';
 import { getMaillageRessourceConfig } from '@/lib/maillage-ressources';
+import { FormationAssocieeMoeLigne } from '@/components/FormationAssocieeMoeLigne';
 
 const THUMB = RESSOURCES_MINIATURES.guideMoeIa;
 
 export const metadata = createPageMetadata({
   title: "Guide Maître d'Œuvre × IA — 12 missions | Laure Olivié",
   description:
-    "Guide gratuit maîtrise d'œuvre × IA : 12 missions classées IA/mixte/humain, checklist et méthode. Formation IA pour le BTP, Qualiopi, Île-de-France 78.",
+    "Guide gratuit maîtrise d'œuvre × IA : 12 missions classées IA, mixte ou humain, checklist et méthode. Formation IA BTP Qualiopi, présentiel en Île-de-France.",
   descriptionFinal: true,
   path: GUIDE_MOE_IA_PATH,
   openGraphType: 'article',
@@ -297,30 +301,29 @@ export default function GuideMaitriseOeuvreIaPage() {
             <h2 id="qui-est-laure" className="font-display text-2xl font-bold md:text-2xl">
               Qui est Laure Olivié&nbsp;?
             </h2>
-            <div className="mt-6 space-y-4 leading-relaxed text-[#666666]">
-              <p>
-                Plus de 10&nbsp;ans en conduite de travaux et pilotage de chantiers, Laure Olivié est aujourd&apos;hui
-                formatrice IA spécialisée BTP — Laure Olivié, organisme certifié Qualiopi (OFC Création d&apos;Entreprise).
-                Elle forme maîtres d&apos;œuvre, BET et directions techniques à utiliser Claude et ChatGPT sur leurs dossiers
-                réels : DCE, DPGF, CR, réserves, OPR et DOE.
-              </p>
-              <p>
-                Elle intervient notamment pour FFB Grand Paris, FFB Île-de-France, CSFE, CNAM Entreprise et Le Moniteur Formations. Ses formations IA BTP Paris et Grand Paris sont finançables via Constructys / OPCO selon éligibilité.
-              </p>
-              <p>
-                <Link href={LINKS.formations} className="font-semibold text-[#377CF3] hover:underline">
-                  Catalogue des formations IA BTP
-                </Link>
-                {' · '}
-                <Link href={LINKS.aPropos} className="font-semibold text-[#377CF3] hover:underline">
-                  En savoir plus sur Laure Olivié
-                </Link>
-                {' · '}
-</p>
-            </div>
+            <p className="mt-6 leading-relaxed text-[#666666]">
+              {getLaureOlivieFormationPortraitParagraph(
+                'Elle accompagne maîtres d’œuvre, BET, économistes et directions techniques sur DCE, DPGF, CR, réserves, OPR et DOE.',
+              )}
+            </p>
+            <p className="mt-4 leading-relaxed text-[#666666]">
+              <strong>Références :</strong> {LAURE_OLIVIE_CLIENT_REFERENCES_SHORT}.
+            </p>
+            <p className="mt-4">
+              <Link
+                href={LINKS.aPropos}
+                className="text-sm font-semibold text-[#377CF3] underline-offset-2 hover:underline"
+              >
+                Parcours complet, certifications et clients →
+              </Link>
+            </p>
           </div>
         </div>
       </section>
+
+      <div className="ofc-section-inner max-w-4xl border-t border-slate-200 pt-8">
+        <FormationAssocieeMoeLigne />
+      </div>
 
       <MaillageRessourceFromConfig
         config={getMaillageRessourceConfig(GUIDE_MOE_IA_PATH)!}

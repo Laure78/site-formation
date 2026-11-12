@@ -87,19 +87,29 @@ const FORMATION_PRACTICE_RESOURCES: Partial<
   ],
   'NIV-05': [
     {
-      href: LINKS.guideMaitriseOeuvreIa,
-      title: 'Guide maîtrise d’œuvre × IA',
-      description: 'CR, OS et réserves — PDF gratuit.',
-    },
-    {
       href: LINKS.blogIaMaitriseOeuvreUsages,
       title: 'IA maîtrise d’œuvre : 12 usages',
       description: 'De PRO-DCE à la réception — article et prompts.',
     },
     {
-      href: LINKS.tutoSkillOsOfc,
-      title: 'Tutoriel — ordre de service',
-      description: 'Skill PDF pour rédiger vos OS avec l’IA.',
+      href: LINKS.blogTutoAvenantOrdreDeServiceIa,
+      title: 'Tutoriel — avenant et ordre de service',
+      description: 'Rédiger et contrôler OS et avenants avec l’IA.',
+    },
+    {
+      href: LINKS.blogTutoControleSituationTravauxIa,
+      title: 'Tutoriel — contrôle de situation des travaux',
+      description: 'Repérer les écarts avant validation du MOE.',
+    },
+    {
+      href: LINKS.blogTutoDepouillementOffresIa,
+      title: 'Tutoriel — dépouillement des offres',
+      description: 'Tableau comparatif et points de négociation.',
+    },
+    {
+      href: LINKS.blogTutoSkillClaudeMaitriseOeuvre,
+      title: 'Skill Claude pour la maîtrise d’œuvre',
+      description: 'Packager une méthode MOE réutilisable.',
     },
   ],
   'NIV-11': [
@@ -197,7 +207,9 @@ export function getParcoursLinksForFormation(
 export function getFormationPracticeResourceLinks(
   ref: FormationCatalogueCode,
 ): ContextualLinkCard[] {
-  return [...(FORMATION_PRACTICE_RESOURCES[ref] ?? [])].slice(0, 3);
+  const links = [...(FORMATION_PRACTICE_RESOURCES[ref] ?? [])];
+  const max = ref === 'NIV-05' ? 5 : 3;
+  return links.slice(0, max);
 }
 
 export function getFormationIntraTeamBlock(): PageMaillageBlock {

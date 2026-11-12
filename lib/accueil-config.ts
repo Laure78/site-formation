@@ -30,7 +30,9 @@ const FORMATION_HREF_BY_CODE = {
   'NIV-02': LINKS.formationAO,
   'NIV-03': LINKS.formationConduiteTravauxSuiviChantier,
   'NIV-04': LINKS.formationMaitriserClaudeAiBtp,
+  'NIV-05': LINKS.formationIaMaitriseOeuvre,
   'NIV-10': LINKS.formationDeveloppementWebIaSansCoder,
+  'NIV-11': LINKS.formationIaAssistanceMaitriseOuvrage,
 } as const;
 
 /** Format catalogue affiché sur les cartes accueil (présentiel IDF). */
@@ -353,6 +355,13 @@ const ACCUEIL_FORMATIONS_PRIORITAIRES_CODES = [
   'NIV-10',
 ] as const;
 
+/** Cartes maquette accueil — prioritaires + cluster MOE / AMO. */
+const ACCUEIL_MAQUETTE_FORMATION_CODES = [
+  ...ACCUEIL_FORMATIONS_PRIORITAIRES_CODES,
+  'NIV-05',
+  'NIV-11',
+] as const;
+
 /**
  * Formations prioritaires — sélection équilibrée niveaux 1, 2 et 3 (données catalogue).
  */
@@ -654,7 +663,7 @@ export const ACCUEIL_METHODE_ACCOMPAGNEMENT_ETAPES = [
 ] as const;
 
 export type AccueilMaquetteFormationCarte = {
-  code: (typeof ACCUEIL_FORMATIONS_PRIORITAIRES_CODES)[number];
+  code: (typeof ACCUEIL_MAQUETTE_FORMATION_CODES)[number];
   titre: string;
   description: string;
   badge: string;
@@ -693,13 +702,27 @@ const ACCUEIL_MAQUETTE_FORMATION_COPY: Record<
     imageSrc: '/images/accueil/05-formation-applications-metier.webp',
     imageAlt: 'Formation création application métier BTP avec l’IA',
   },
+  'NIV-05': {
+    titre: 'IA et maîtrise d’œuvre',
+    description:
+      'CCTP, DPGF, analyse DCE, comptes rendus, ordres de service, réserves et réception avec l’IA.',
+    imageSrc: '/images/formation-ia-maitrise-oeuvre-btp.webp',
+    imageAlt: 'Formation IA maîtrise d’œuvre BTP — MOE, MOEX et OPC en présentiel Île-de-France',
+  },
+  'NIV-11': {
+    titre: 'IA et assistance à maîtrise d’ouvrage',
+    description:
+      'Consultations MOE, rapports d’analyse des offres, pilotage des intervenants et reporting MOA.',
+    imageSrc: '/images/formations/ia-assistance-maitrise-ouvrage-hero.jpg',
+    imageAlt: 'Formation IA assistance maîtrise d’ouvrage — AMO bâtiment, présentiel Île-de-France',
+  },
 };
 
 /** Cartes formations accueil — données catalogue + présentation maquette. */
 export function getAccueilMaquetteFormations(): readonly AccueilMaquetteFormationCarte[] {
   const cartes: AccueilMaquetteFormationCarte[] = [];
 
-  for (const code of ACCUEIL_FORMATIONS_PRIORITAIRES_CODES) {
+  for (const code of ACCUEIL_MAQUETTE_FORMATION_CODES) {
     if (!isFormationCataloguePublished(code)) continue;
     const f = getFormationByCode(code);
     if (!f) continue;

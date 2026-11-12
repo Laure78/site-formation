@@ -23,6 +23,14 @@ import type {
 } from '@/lib/tutos/types';
 import { tutoDownloadLabel } from '@/lib/tutos/types';
 import { computeHeroLearnAnchorIds } from '@/lib/tutos/hero-anchors';
+import { FormationAssocieeMoeLigne } from '@/components/FormationAssocieeMoeLigne';
+
+/** Tutos ressources reliés au cluster MOE — ligne « Formation associée ». */
+const TUTO_RESSOURCE_FORMATION_MOE_SLUGS = new Set([
+  'tuto-skill-os-ofc',
+  'tuto-doe-dossier-ouvrages-executes',
+  'tuto-pv-levee-reserves',
+]);
 import { formatNoteSatisfactionSur5 } from '@/lib/data/indicateurs-resultats';
 import { getTutoEnBref } from '@/lib/tutos/en-bref';
 import { OFC_CTA_PRIMARY } from '@/lib/ofc-interaction-classes';
@@ -533,6 +541,12 @@ export function TutoPage({ tuto }: { tuto: TutoData }) {
           </div>
         </div>
       </section>
+
+      {TUTO_RESSOURCE_FORMATION_MOE_SLUGS.has(tuto.slug) ? (
+        <div className="ofc-section-inner max-w-4xl border-t border-slate-200 pt-8">
+          <FormationAssocieeMoeLigne />
+        </div>
+      ) : null}
 
       {maillage ? (
         <MaillageRessourceFromConfig

@@ -28,7 +28,9 @@ const FORMATION_ICONS: Record<AccueilMaquetteFormationCarte['code'], LucideIcon>
   'NIV-01': BrainCircuit,
   'NIV-02': FileSearch,
   'NIV-03': HardHat,
+  'NIV-05': Building2,
   'NIV-10': AppWindow,
+  'NIV-11': Briefcase,
 };
 
 export function accueilMaquetteFormationIcon(code: AccueilMaquetteFormationCarte['code']): LucideIcon {

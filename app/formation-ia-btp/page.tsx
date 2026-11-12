@@ -581,6 +581,17 @@ export default function FormationIaBtpPillarPage() {
             </Link>{' '}
             — page dédiée (usages DCE, mémoires techniques, choix de programme).
           </p>
+          <p>
+            Pour les équipes MOE, MOEX et OPC, la{' '}
+            <Link href={LINKS.formationIaMaitriseOeuvre} className="font-semibold text-[var(--accent)] hover:underline">
+              formation IA pour maîtres d&apos;œuvre (MOE, MOEX, OPC)
+            </Link>{' '}
+            couvre CR, OS, avenants et réception ; côté maîtrise d&apos;ouvrage, la{' '}
+            <Link href={LINKS.formationIaAssistanceMaitriseOuvrage} className="font-semibold text-[var(--accent)] hover:underline">
+              formation IA pour AMO bâtiment
+            </Link>{' '}
+            vise consultations, dépouillement et reporting — toujours en présentiel en Île-de-France.
+          </p>
           </Reveal>
         </section>
 
@@ -804,6 +815,16 @@ export default function FormationIaBtpPillarPage() {
                 Formation Claude pour le bâtiment
               </Link>
             </li>
+            <li>
+              <Link href={LINKS.formationIaMaitriseOeuvre} className="text-slate-700 hover:underline">
+                Formation IA maîtrise d&apos;œuvre (MOE, MOEX, OPC)
+              </Link>
+            </li>
+            <li>
+              <Link href={LINKS.formationIaAssistanceMaitriseOuvrage} className="text-slate-700 hover:underline">
+                Formation IA assistance maîtrise d&apos;ouvrage (AMO)
+              </Link>
+            </li>
           </ul>
         </section>
 
@@ -833,6 +854,16 @@ export default function FormationIaBtpPillarPage() {
             <li>
               <Link href={LINKS.blog} className="text-slate-700 hover:underline">
                 Blog — tous les articles sur l&apos;IA dans le BTP
+              </Link>
+            </li>
+            <li>
+              <Link href={LINKS.formationIaMaitriseOeuvre} className="text-slate-700 hover:underline">
+                Catalogue — IA et maîtrise d&apos;œuvre (NIV-05)
+              </Link>
+            </li>
+            <li>
+              <Link href={LINKS.formationIaAssistanceMaitriseOuvrage} className="text-slate-700 hover:underline">
+                Catalogue — IA et AMO bâtiment (NIV-11)
               </Link>
             </li>
           </ul>

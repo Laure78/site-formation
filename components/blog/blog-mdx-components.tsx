@@ -12,6 +12,7 @@ import { BlogArticleSplitHero } from '@/components/blog/BlogArticleSplitHero';
 import { BlogArticleValuePropsRow } from '@/components/blog/BlogArticleValuePropsRow';
 import { BlogArticleRessourcesTrio } from '@/components/blog/BlogArticleRessourcesTrio';
 import { BlogFormationsEquipeCta } from '@/components/blog/BlogFormationsEquipeCta';
+import { BlogFormationAssocieeMoe } from '@/components/blog/BlogFormationAssocieeMoe';
 import {
   SKILL_CHATGPT_EDITOR_EXAMPLE,
   SKILL_CR_PLOMBERIE_EXAMPLE,
@@ -93,6 +94,7 @@ export function getBlogMdxComponents(): MDXComponents {
     BlogArticleValuePropsRow,
     BlogArticleRessourcesTrio,
     BlogFormationsEquipeCta,
+    BlogFormationAssocieeMoe,
     table: (props) => (
       <div className="my-6 overflow-x-auto rounded-xl border border-slate-200">
         <table className="min-w-[640px] w-full text-left text-sm text-slate-700" {...props} />

@@ -30,6 +30,7 @@ import {
   SITE_FORMATION_LOCATION_LABEL,
   SITE_FORMATION_MODALITE_ENCART,
   SITE_INTER_LIEU,
+  SITE_INTER_LIEU_COURT,
   SITE_INTER_LIEU_PREFIX,
   siteExperienceBtpLong,
 } from '@/lib/site-config';
@@ -1071,7 +1072,7 @@ const NIV_11: CatalogueFormationPageContent = {
     '4 heures',
     '70 % de pratique',
     '4 modules AMO opérationnels',
-    'Intra en Île-de-France',
+    `${SITE_INTER_LIEU_COURT} ou intra en Île-de-France`,
   ],
   quickFactsLevel: 'Niveau 2',
   practiceShare: '70 %',
