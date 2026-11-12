@@ -60,6 +60,9 @@ function mapFormationToSessionBase(
 }
 
 async function loadTrainingOpsPublicSessions(): Promise<DatesLieuxSessionRow[]> {
+  if (!process.env.SUPABASE_SERVICE_ROLE_KEY || !process.env.NEXT_PUBLIC_SUPABASE_URL) {
+    return [];
+  }
   try {
     const supabase = createAdminClient();
     const { data, error } = await supabase
