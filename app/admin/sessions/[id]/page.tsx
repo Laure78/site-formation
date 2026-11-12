@@ -408,6 +408,36 @@ export default async function SessionDetailPage({
               Max participants
               <input name="maxParticipants" type="number" defaultValue={session.max_participants ?? ''} className="mt-1 w-full rounded-lg border border-slate-200 px-3 py-2" />
             </label>
+            <label className="block text-sm">
+              Département (IDF)
+              <select
+                name="departmentCode"
+                defaultValue={
+                  (session as { department_code?: string | null }).department_code ?? ''
+                }
+                className="mt-1 w-full rounded-lg border border-slate-200 px-3 py-2"
+              >
+                <option value="">—</option>
+                {['75', '77', '78', '91', '92', '93', '94', '95'].map((d) => (
+                  <option key={d} value={d}>
+                    {d}
+                  </option>
+                ))}
+              </select>
+            </label>
+            <label className="flex items-center gap-2 text-sm sm:col-span-2">
+              <input
+                type="checkbox"
+                name="listedOnCatalogue"
+                value="1"
+                defaultChecked={Boolean(
+                  (session as { listed_on_catalogue?: boolean }).listed_on_catalogue,
+                )}
+              />
+              <span className="font-medium text-slate-700">
+                Publier sur /dates-et-lieux (inter, statut « Confirmée »)
+              </span>
+            </label>
             <input type="hidden" name="companyContactName" value={session.company_contact_name ?? ''} />
             <input type="hidden" name="companyContactEmail" value={session.company_contact_email ?? ''} />
             <input type="hidden" name="companyContactPhone" value={session.company_contact_phone ?? ''} />

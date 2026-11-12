@@ -67,6 +67,7 @@ function parcoursNavActive(pathname: string): boolean {
 
 function formationsNavActive(pathname: string): boolean {
   if (parcoursNavActive(pathname)) return true;
+  if (pathname === LINKS.datesEtLieux) return true;
   if (pathname === LINKS.formations || pathname.startsWith(`${LINKS.formations}/`)) {
     return true;
   }

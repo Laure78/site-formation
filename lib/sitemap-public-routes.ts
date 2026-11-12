@@ -32,6 +32,7 @@ export const SITEMAP_CORE_STATIC_PATHS = [
   LINKS.home,
   ...(isParcoursMetiers2027Visible() ? [LINKS.parcoursMetiers] : []),
   LINKS.formations,
+  LINKS.datesEtLieux,
   LINKS.financement,
   LINKS.aPropos,
   LINKS.formateurs,

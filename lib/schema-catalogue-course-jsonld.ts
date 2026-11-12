@@ -33,12 +33,6 @@ import {
   buildFormationFicheCourseJsonLd,
 } from '@/lib/schema-formation-course-jsonld';
 import { buildQualiopiCredentialSchema } from '@/lib/qualiopi-info';
-import {
-  contentUpdatedAtToSchemaIso,
-  getPillarPageContentUpdatedAt,
-  type PillarPagePath,
-  PILLAR_PAGE_CONTENT_UPDATED_AT,
-} from '@/lib/content-updated-at';
 import { SITE, siteProviderIdentifierSchema } from '@/lib/site-config';
 
 /** URLs legacy NIV-06/07/08 (301 → NIV-10) — distinctes des constantes `LINKS` canoniques. */

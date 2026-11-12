@@ -16,6 +16,13 @@ const FORMATIONS_CATALOGUE_FOOTER: HeaderNavLink = {
   title: 'Catalogue des formations IA BTP — présentiel Île-de-France',
 };
 
+const FORMATIONS_DATES_LIEUX_LINK: HeaderNavLink = {
+  href: LINKS.datesEtLieux,
+  label: 'Dates et lieux',
+  title: 'Dates et lieux des sessions IA BTP en Île-de-France',
+  description: 'Sessions inter-entreprises confirmées et demandes d’inscription',
+};
+
 /** Desktop — trois colonnes niveau + parcours métiers. */
 export function buildUnifiedFormationsNavMegaColumns(
   at: Date = new Date(),
@@ -24,7 +31,13 @@ export function buildUnifiedFormationsNavMegaColumns(
   const lastNiveauIndex = niveauColumns.length - 1;
 
   const withCatalogueFooter = niveauColumns.map((col, index) =>
-    index === lastNiveauIndex ? { ...col, footer: FORMATIONS_CATALOGUE_FOOTER } : col,
+    index === lastNiveauIndex
+      ? {
+          ...col,
+          links: [...col.links, FORMATIONS_DATES_LIEUX_LINK],
+          footer: FORMATIONS_CATALOGUE_FOOTER,
+        }
+      : col,
   );
 
   if (!isParcoursMetiers2027Visible()) {
@@ -53,7 +66,11 @@ export function buildUnifiedFormationsMobileNavGroups(
     href: LINKS.formations,
     label: 'Formations IA BTP',
     description: 'Par niveau — devis, DCE, chantier, applications métier…',
-    children: [...buildFormationsMobileNavGroupsByNiveau(at), FORMATIONS_CATALOGUE_FOOTER],
+    children: [
+      ...buildFormationsMobileNavGroupsByNiveau(at),
+      FORMATIONS_DATES_LIEUX_LINK,
+      FORMATIONS_CATALOGUE_FOOTER,
+    ],
   };
 
   if (!isParcoursMetiers2027Visible()) {

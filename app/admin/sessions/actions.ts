@@ -41,6 +41,7 @@ function revalidateSession(sessionId: string) {
   revalidatePath(LINKS.adminSessions);
   revalidatePath(`${LINKS.adminSessions}/${sessionId}`);
   revalidatePath(LINKS.adminSessionsDashboard);
+  revalidatePath(LINKS.datesEtLieux);
 }
 
 export async function syncProgramsAction() {
@@ -343,6 +344,8 @@ export async function updateSessionFieldsAction(formData: FormData) {
       company_contact_email: String(formData.get('companyContactEmail') ?? '').trim() || null,
       company_contact_phone: String(formData.get('companyContactPhone') ?? '').trim() || null,
       internal_notes: String(formData.get('internalNotes') ?? '').trim() || null,
+      department_code: String(formData.get('departmentCode') ?? '').trim() || null,
+      listed_on_catalogue: formData.get('listedOnCatalogue') === '1',
       updated_at: new Date().toISOString(),
     })
     .eq('id', sessionId);

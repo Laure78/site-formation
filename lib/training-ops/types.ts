@@ -6,6 +6,7 @@ export type TrainingSessionStatus =
   | 'brouillon'
   | 'a_preparer'
   | 'planifiee'
+  | 'confirmee'
   | 'en_cours'
   | 'terminee'
   | 'cloturee'

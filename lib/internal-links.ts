@@ -13,6 +13,8 @@ export const LINKS = {
   // Tier 1 — Pages principales
   home: '/',
   formations: '/formations',
+  /** Calendrier public — sessions inter-entreprises confirmées (présentiel IDF). */
+  datesEtLieux: '/dates-et-lieux',
   /** Pilier SEO — formation IA BTP (ex-hub `/formation-ia` → 301) */
   formationIaHub: '/formation-ia-btp',
   /** Hub — 2 formations LinkedIn Learning (à la demande) */
