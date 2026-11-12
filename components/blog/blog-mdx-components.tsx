@@ -8,6 +8,10 @@ import { EnBref } from '@/app/components/EnBref';
 import { CopiableCodeBlock } from '@/components/blog/CopiableCodeBlock';
 import { BlogCtaVisio } from '@/components/blog/BlogCtaVisio';
 import { MdxCopiablePre } from '@/components/blog/MdxCopiablePre';
+import { BlogArticleSplitHero } from '@/components/blog/BlogArticleSplitHero';
+import { BlogArticleValuePropsRow } from '@/components/blog/BlogArticleValuePropsRow';
+import { BlogArticleRessourcesTrio } from '@/components/blog/BlogArticleRessourcesTrio';
+import { BlogFormationsEquipeCta } from '@/components/blog/BlogFormationsEquipeCta';
 import {
   SKILL_CHATGPT_EDITOR_EXAMPLE,
   SKILL_CR_PLOMBERIE_EXAMPLE,
@@ -85,6 +89,10 @@ export function getBlogMdxComponents(): MDXComponents {
         text={SKILL_CHATGPT_EDITOR_EXAMPLE}
       />
     ),
+    BlogArticleSplitHero,
+    BlogArticleValuePropsRow,
+    BlogArticleRessourcesTrio,
+    BlogFormationsEquipeCta,
     table: (props) => (
       <div className="my-6 overflow-x-auto rounded-xl border border-slate-200">
         <table className="min-w-[640px] w-full text-left text-sm text-slate-700" {...props} />

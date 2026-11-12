@@ -89,6 +89,8 @@ export interface BlogArticle {
   templated?: boolean;
   /** URL canonique hors `/blog/[slug]` (une seule URL indexable). */
   canonicalPath?: string;
+  /** Extrait affiché sur la carte blog — sinon `description`. */
+  cardDescription?: string;
 }
 
 /** Titre de section (H2) typique d’un bloc FAQ pour détection HTML. */
@@ -2171,6 +2173,7 @@ export function getArticleCategory(slug: string): BlogCategoryId {
   if (s.includes('avis-google') || s.includes('organisation-chantier') || s.includes('planning-chantier')) return 'productivite';
   if (s.includes('compte-rendu') || s.includes('cr-chantier') || s.includes('doe') || s.includes('pv-reception')) return 'productivite';
   if (s.includes('emails') || s.includes('automatiser-vos') || s.includes('emails-clients')) return 'productivite';
+  if (s.includes('7-taches-administratives') || s.includes('administratives-ia-pme')) return 'productivite';
   if (s.includes('devis') || s.includes('ia-devis')) return 'devis';
   if (s.includes('peintre') || s.includes('peinture')) return 'metiers';
   if (s.includes('ia-et-') || s.includes('remplacer-les')) return 'metiers';

@@ -11,6 +11,7 @@ const LANDING_COVER_BY_SLUG: Record<string, string> = {
   'planning-chantier-sur-mesure-ia': '/images/blog/blog-suivi-chantier.webp',
   'situation-travaux-ia-btp': '/images/blog/blog-suivi-chantier.webp',
   'chatgpt-devis-btp-methode-2026': '/images/blog/blog-devis-chiffrage.webp',
+  '7-taches-administratives-ia-pme-btp': '/images/laure-olivie-ia-administratif-batiment.webp',
   'gagner-temps-devis-btp-ia': '/images/blog/blog-devis-chiffrage.webp',
 };
 

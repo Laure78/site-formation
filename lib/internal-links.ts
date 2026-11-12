@@ -611,6 +611,8 @@ export const LINKS = {
   blogChatgptDevisBtpMethode2026: '/blog/chatgpt-devis-btp-methode-2026',
   /** Article MDX — 7 leviers ChatGPT productivité BTP */
   blogChatgptBtp7LeviersProductivite2026: '/blog/chatgpt-btp-7-leviers-productivite-2026',
+  /** Article MDX — 7 tâches administratives IA PME BTP */
+  blog7TachesAdministrativesIaPmeBtp: '/blog/7-taches-administratives-ia-pme-btp',
   /** Article — comparatif ChatGPT / Claude / Gemini BTP */
   blogComparatifChatgptClaudeGeminiBtp: '/blog/comparatif-chatgpt-claude-gemini-btp',
   /** Article — 7 cas d'usage IA BTP (carrousel) */

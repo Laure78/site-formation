@@ -20,6 +20,7 @@ type CardArticle = Pick<
   | 'coverImage'
   | 'keywords'
   | 'canonicalPath'
+  | 'cardDescription'
 >;
 
 function estimateReadingMinutes(article: {
@@ -95,7 +96,7 @@ export function BlogArticleCard({
             {article.title}
           </Link>
         </h3>
-        <p className="mt-2 text-slate-600">{article.description}</p>
+        <p className="mt-2 text-slate-600">{article.cardDescription ?? article.description}</p>
         {showTags && article.keywords && article.keywords.length > 0 && (
           <ul className="mt-3 flex flex-wrap gap-2" aria-label="Mots-clés">
             {article.keywords.slice(0, 5).map((k) => (

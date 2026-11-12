@@ -55,6 +55,12 @@ export type BlogMdxFrontmatter = {
   canonicalPath?: string;
   /** Masque le CTA blog générique en fin d’article. */
   hideEndCta?: boolean;
+  /** Extrait carte blog — si absent, `description` est affichée sur /blog. */
+  cardDescription?: string;
+  /** Badge catégorie au-dessus du H1 (libellé depuis `getArticleCategory`). */
+  showCategoryBadge?: boolean;
+  /** Masque le paragraphe `description` sous le H1 (hero MDX dédié). */
+  heroLayout?: 'split';
 };
 
 export type { BlogFaqFrontmatterPair, BlogMdxFaqItem };
@@ -199,6 +205,7 @@ export function mdxFrontmatterToBlogArticle(fm: BlogMdxFrontmatter): BlogArticle
     readingTime: fm.readingTime,
     enBref: fm.enBref,
     canonicalPath: fm.canonicalPath,
+    cardDescription: fm.cardDescription,
   };
 }
 

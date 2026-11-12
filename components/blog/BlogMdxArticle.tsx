@@ -14,7 +14,7 @@ import {
 import matter from 'gray-matter';
 import { buildMdxBlogHowToSchema } from '@/lib/blog-mdx-howto';
 import { getBlogArticleCanonicalPathFromMdx } from '@/lib/blog-article-path';
-import { getRelatedArticlesForDisplay } from '@/lib/blog';
+import { BLOG_CATEGORIES, getArticleCategory, getRelatedArticlesForDisplay } from '@/lib/blog';
 import { mdxFrontmatterToBlogArticle } from '@/lib/blog-mdx';
 import { getBlogArticleContentUpdatedAt, formatContentUpdatedLabel } from '@/lib/content-updated-at';
 import { normalizeEnBref } from '@/lib/blog-en-bref';
@@ -153,11 +153,22 @@ export async function BlogMdxArticle({ slug }: Props) {
           </div>
         </div>
 
-        <h1 className="mt-4 font-display text-2xl font-bold tracking-tight text-slate-900 md:text-[1.75rem]">
+        {frontmatter.showCategoryBadge ? (
+          <p className="mt-4 text-xs font-bold uppercase tracking-wide text-[#377CF3]">
+            Blog IA BTP · {BLOG_CATEGORIES[getArticleCategory(slug)]}
+          </p>
+        ) : null}
+        <h1
+          className={`font-display text-2xl font-bold tracking-tight text-slate-900 md:text-[1.75rem] ${
+            frontmatter.showCategoryBadge ? 'mt-2' : 'mt-4'
+          }`}
+        >
           {frontmatter.title}
         </h1>
         {enBrefSentences ? <BlogArticleEnBref sentences={enBrefSentences} /> : null}
-        <p className="mt-4 text-lg text-slate-600">{frontmatter.description}</p>
+        {frontmatter.heroLayout !== 'split' ? (
+          <p className="mt-4 text-lg text-slate-600">{frontmatter.description}</p>
+        ) : null}
 
         {shouldShowMdxInlineCover(slug) ? (
           <BlogMdxCover src={frontmatter.cover} alt={frontmatter.coverAlt} priority />
