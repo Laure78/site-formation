@@ -1,4 +1,4 @@
-/** Données brutes des 5 parcours — sans dépendance modules (évite cycles d’import). */
+/** Données brutes des 7 parcours — sans dépendance modules (évite cycles d’import). */
 import type { CatalogueParcours } from './types';
 
 export const PARCOURS_CATALOGUE_2027: readonly CatalogueParcours[] = [
@@ -286,5 +286,87 @@ export const PARCOURS_CATALOGUE_2027: readonly CatalogueParcours[] = [
       label: 'Initiation complémentaire éventuelle (NUM-01)',
       moduleAjoute: 'NUM-01',
     },
+  },
+  {
+    id: 'maitre-oeuvre',
+    slug: 'maitre-oeuvre',
+    metierId: 'maitre-oeuvre',
+    titre: 'Maître d’œuvre · MOEX',
+    benefice:
+      'Parcourir de l’initiation IA à la maîtrise d’œuvre documentaire, Claude et assistants métier — présentiel Île-de-France.',
+    objectif:
+      'Structurer les usages IA pour la MOE/MOEX : dossiers, comptes rendus, Claude et assistants personnalisés, avec validation humaine.',
+    publicCible:
+      'Maîtres d’œuvre d’exécution, MOEX, OPC et profils MOE en évolution.',
+    prerequis: 'Intervention sur dossiers chantier ou MOE ; NUM-01 recommandé en entrée.',
+    competencesVisees: [
+      'Bases IA pour documents professionnels BTP',
+      'Analyser dossiers et rédiger pièces MOE assistées',
+      'Maîtriser Claude pour les usages documentaires MOE',
+      'Concevoir des assistants IA personnalisés pour la mission',
+    ],
+    etapes: [
+      {
+        moduleCode: 'NUM-01',
+        competence: 'Les bases de l’IA pour le BTP',
+        exercice: 'Cas documents MOE/chantier anonymisés',
+        livrable: 'Méthode de formulation et contrôle des contenus IA',
+      },
+      {
+        moduleCode: 'NUM-08',
+        competence: 'IA et maîtrise d’œuvre',
+        exercice: 'Fil rouge CR, réserves et pièces administratives',
+        livrable: 'Trames IA pour la maîtrise d’œuvre',
+      },
+      {
+        moduleCode: 'NUM-03',
+        competence: 'Maîtriser Claude AI pour le BTP',
+        exercice: 'Project/skill sur pièces MOE',
+        livrable: 'Bibliothèque de trames Claude',
+      },
+      {
+        moduleCode: 'NUM-09',
+        competence: 'Assistants IA personnalisés',
+        exercice: 'Conception d’un assistant métier cadré',
+        livrable: 'Fiche d’assistant + protocole de validation',
+      },
+    ],
+  },
+  {
+    id: 'amo-btp',
+    slug: 'amo-btp',
+    metierId: 'amo-btp',
+    titre: 'AMO BTP',
+    benefice:
+      'De l’initiation IA à l’assistance à maîtrise d’ouvrage et à l’analyse d’appels d’offres — parcours modulaire IDF.',
+    objectif:
+      'Renforcer les missions AMO/MOA : synthèse documentaire, suivi de dossiers et réponse aux consultations avec l’IA, toujours validée par le métier.',
+    publicCible: 'AMO, MOA, chargés de mission maîtrise d’ouvrage et profils pilotage opération.',
+    prerequis: 'Mission ou exposition aux dossiers de consultation / suivi MOA ; NUM-01 en entrée conseillée.',
+    competencesVisees: [
+      'Bases IA pour documents professionnels',
+      'Synthèses et suivi AMO assistés',
+      'Analyse de DCE et structuration de réponse',
+    ],
+    etapes: [
+      {
+        moduleCode: 'NUM-01',
+        competence: 'Les bases de l’IA pour le BTP',
+        exercice: 'Cas documents MOA anonymisés',
+        livrable: 'Méthode de formulation et contrôle',
+      },
+      {
+        moduleCode: 'NUM-10',
+        competence: 'IA et assistance à maîtrise d’ouvrage',
+        exercice: 'Dossier AMO fil rouge (synthèses, CR, tableaux)',
+        livrable: 'Trames IA pour missions AMO',
+      },
+      {
+        moduleCode: 'NUM-02',
+        competence: 'IA et appels d’offres',
+        exercice: 'Analyse DCE et structuration de réponse',
+        livrable: 'Méthode IA pour appels d’offres',
+      },
+    ],
   },
 ] as const;

@@ -44,7 +44,7 @@ export function buildLlmsTxtContent(): string {
 ## Réponses directes
 - Où ont lieu les formations ? En présentiel, en Île-de-France uniquement (75, 77, 78, 91, 92, 93, 94, 95), en inter (sessions publiées sur le site) ou en intra dans l'entreprise.
 - Parcours métiers BTP modulaires ? Formation IA BTP à la carte ou parcours complet : cinq parcours par métier (dirigeant de PME BTP, chargé d'affaires, conducteur de travaux, assistant de gestion, référent IA) — modules de formation IA pour les professionnels du BTP suivis ensemble ou séparément selon les besoins et les prérequis pédagogiques. Page : ${BASE}/parcours-metiers
-- Combien de temps ? Débutant : 4 h (sauf agents IA autonomes Make : 7 h). Avancé : 4 h. Approfondi (applications métier BTP avec l'IA) : 14 h sur 2 jours (2 × 7 h par journée).
+- Combien de temps ? Débutant : 4 h. Avancé : 4 h. Approfondi : 14 h sur 2 jours (applications métier) ou 7 h (agents IA autonomes Make).
 - Combien ça coûte ? ${siteTarifsLlmsGrilleLigne()}
 - Peut-on la faire financer ? Prise en charge OPCO/Constructys possible selon éligibilité (jamais automatique) : ${BASE}/financement-constructys-formation-ia-btp
 - Faut-il être à l'aise en informatique ? Non : les exercices se font en français courant, sur des documents BTP (devis, DCE, CCTP, CR de chantier).
@@ -52,7 +52,6 @@ export function buildLlmsTxtContent(): string {
 
 ## Catalogue (présentiel Île-de-France)
 - Niveau 1 — Les bases de l'IA pour les professionnels du BTP (4 h) : ${BASE}/formations/ia-batiment-travaux-publics
-- Créer son premier agent IA autonome pour le BTP — Make AI Agents (7 h, niveau débutant) : ${BASE}/formations/agents-ia-autonomes-btp
 - IA et appels d'offres (4 h) : ${BASE}/formations/ia-appels-offre-btp
 - IA et conduite de travaux (4 h) : ${BASE}/formations/ia-conduite-travaux-suivi-chantier
 - Maîtriser Claude AI pour le BTP (4 h) : ${BASE}/formations/maitriser-claude-ai-btp
@@ -60,6 +59,7 @@ export function buildLlmsTxtContent(): string {
 - IA et assistance à maîtrise d'ouvrage (4 h) : ${BASE}/formations/ia-assistance-maitrise-ouvrage
 - Créer ses assistants IA pour son entreprise du bâtiment (4 h, niveau avancé) : ${BASE}/formations/assistants-ia-personnalises-btp
 - Créer des applications métier BTP avec l'IA (14 heures — 2 jours, niveau approfondi) : ${BASE}/formations/developpement-web-ia-sans-coder
+- Créer son premier agent IA autonome pour le BTP — Make AI Agents (7 h, niveau approfondi) : ${BASE}/formations/agents-ia-autonomes-btp
 
 ## Pages clés
 - Parcours métiers BTP modulaires (parcours complet ou modules à la carte) : ${BASE}/parcours-metiers

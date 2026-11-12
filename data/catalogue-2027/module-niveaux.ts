@@ -75,6 +75,8 @@ export const NIVEAU_PAR_MODULE: Record<ModuleCode, ModuleNiveau> = {
   'NUM-06': 2,
   'NUM-07': 2,
   'NUM-08': 2,
+  'NUM-09': 2,
+  'NUM-10': 2,
 };
 
 /** Cas où l’ancienne durée était 14 h mais le niveau reste 2 (4 h) — arbitrage documenté. */

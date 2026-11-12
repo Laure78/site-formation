@@ -13,7 +13,11 @@ import { dureeCatalogueParCode } from '@/lib/catalogue-duree-copy';
 import { SITE_INTER_LIEU } from '@/lib/site-config';
 import { SESSION_DUREE_LIBELLE } from '@/lib/tarifs-sessions';
 import { formatOrganismeQualiopiCourt } from '@/lib/marque-identite';
-import { libelleTarifParticipantCatalogue, TARIF_PARTICIPANT_NIV02_HT } from '@/lib/tarifs-catalogue-participant';
+import {
+  libelleTarifParticipantCatalogue,
+  TARIF_PARTICIPANT_NIV02_HT,
+  TARIF_PARTICIPANT_NIV13_HT,
+} from '@/lib/tarifs-catalogue-participant';
 
 export type FormationIaLimitRow = {
   iaAide: string;
@@ -274,7 +278,7 @@ export const FORMATION_CATALOGUE_SEO: Record<FormationCatalogueCode, FormationCa
       'Apprenez à créer un agent IA qui travaille automatiquement pour vous. Suivi des devis, relances clients, actions chantier et échéances : automatisez une tâche professionnelle avec Make, sans programmation.',
     metaDescription:
       'Formation agents IA BTP (7 h) : créer un agent Make AI Agents pour devis, relances ou échéances chantier. Présentiel IDF, Qualiopi, OPCO selon éligibilité.',
-    enBref: `Formation IA pour le BTP (NIV-13, 7 h, présentiel Île-de-France) : comprendre les agents autonomes, configurer un scénario Make AI Agents sur un cas dirigeant ou conducteur de travaux, avec validation humaine avant tout envoi. ${QUALIOPI_MENTION}. Tarif catalogue aligné sur une journée 7 h inter.`,
+    enBref: `Formation IA pour le BTP (NIV-13, 7 h, présentiel Île-de-France) : comprendre les agents autonomes, configurer un scénario Make AI Agents sur un cas dirigeant ou conducteur de travaux, avec validation humaine avant tout envoi. ${QUALIOPI_MENTION}. ${libelleTarifParticipantCatalogue(TARIF_PARTICIPANT_NIV13_HT)} en inter comme en intra.`,
     publicTargets: [
       'Dirigeants de PME du bâtiment et des travaux publics',
       'Conducteurs de travaux',

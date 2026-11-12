@@ -1,5 +1,5 @@
 /**
- * SEO — hub /parcours-metiers et 5 fiches /formations/parcours/*.
+ * SEO — hub /parcours-metiers et 7 fiches /formations/parcours/*.
  * Titres via `buildTitle` (suffixe « | Laure Olivié » inclus dans titleAbsolute).
  */
 import type { ParcoursId } from '@/data/catalogue-2027';
@@ -67,6 +67,24 @@ export const PARCOURS_SEO_BY_ID: Record<ParcoursId, ParcoursSeoPack> = {
     schemaDescription:
       'Parcours référent IA : structuration des usages, Claude et ChatGPT, prototypes métier et plan de déploiement en PME du BTP. Modules facturés à l’unité.',
   },
+  'maitre-oeuvre': {
+    titleSegment: 'Parcours IA maître d’œuvre · Île-de-France',
+    description:
+      'Parcours IA maître d’œuvre BTP : initiation, MOE/MOEX, Claude et assistants. Modules 4 h, présentiel IDF — visio découverte gratuite.',
+    keywords:
+      'formation IA maître d’œuvre, IA MOE BTP, MOEX, Claude maîtrise d’œuvre, assistants IA BTP, présentiel Île-de-France',
+    schemaDescription:
+      'Parcours modulaire MOE/MOEX : NUM-01, maîtrise d’œuvre, Claude et assistants personnalisés. Présentiel Île-de-France, tarifs au module.',
+  },
+  'amo-btp': {
+    titleSegment: 'Parcours IA AMO BTP · Île-de-France',
+    description:
+      'Parcours IA AMO BTP : initiation, assistance maîtrise d’ouvrage et appels d’offres. Présentiel IDF — réservez votre visio découverte gratuite.',
+    keywords:
+      'formation IA AMO, assistance maîtrise d’ouvrage, IA BTP, appels d’offres, MOA, présentiel Île-de-France',
+    schemaDescription:
+      'Parcours AMO/MOA : initiation IA, mission AMO et analyse d’appels d’offres. Modules 4 h en présentiel Île-de-France.',
+  },
 };
 
 function clampMetaDescription(text: string): string {
@@ -96,6 +114,8 @@ export const PARCOURS_METIER_PAGE_H1: Record<ParcoursId, string> = {
   'conducteur-de-travaux': 'Formation IA conducteur de travaux',
   'assistant-de-gestion-btp': 'Formation IA assistant de gestion BTP',
   'referent-ia-btp': 'Formation référent IA BTP',
+  'maitre-oeuvre': 'Formation IA maître d’œuvre BTP',
+  'amo-btp': 'Formation IA AMO BTP',
 };
 
 export function parcoursMetierPageH1(id: ParcoursId): string {

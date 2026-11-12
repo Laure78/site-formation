@@ -137,6 +137,8 @@ export const LINKS = {
   parcoursChefDequipe: '/formations/parcours/chef-dequipe',
   parcoursAssistantDeGestionBtp: '/formations/parcours/assistant-de-gestion-btp',
   parcoursReferentIaBtp: '/formations/parcours/referent-ia-btp',
+  parcoursMaitreOeuvre: '/formations/parcours/maitre-oeuvre',
+  parcoursAmoBtp: '/formations/parcours/amo-btp',
   /** Niveau 1 — bâtiment & travaux publics (programme PDF) */
   formationIaBtpNiveau1BatimentTp: '/formations/ia-batiment-travaux-publics',
   /** Niveau 2 — appels d'offre BTP (programme PDF) — alias historique « AO » */

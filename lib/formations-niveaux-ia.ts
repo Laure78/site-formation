@@ -54,7 +54,6 @@ export const FORMATIONS_NIVEAUX_IA: readonly FormationNiveauIaDefinition[] = [
       'Premier devis ou désignation structurée',
       'Compte rendu à partir de notes',
       'Email ou courrier professionnel relu avant envoi',
-      'Premier scénario Make pour relances ou rappels d’échéances (formation 7 h)',
     ],
   },
   {
@@ -104,6 +103,7 @@ export const FORMATIONS_NIVEAUX_IA: readonly FormationNiveauIaDefinition[] = [
       'Prototype d’outil métier (suivi, relances, planning)',
       'Workflow Claude ou assistant réutilisable',
       'Application métier avec contrôle humain sur les outputs IA',
+      'Agent Make pour relances, devis ou échéances chantier (formation 7 h)',
     ],
   },
 ] as const;

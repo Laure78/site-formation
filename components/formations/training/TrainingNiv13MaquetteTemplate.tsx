@@ -31,7 +31,9 @@ import { buildFormationPageMaillageBlocks } from '@/lib/page-maillage-blocks';
 import type { FormationCatalogueCode } from '@/lib/formation-catalogue-visibility';
 import { TrainingPracticalInfo } from '@/components/formations/training/TrainingPracticalInfo';
 import { TrainingSection } from '@/components/formations/training/TrainingSection';
-import { Clock, MapPin, Percent, Users, Workflow } from 'lucide-react';
+import { Clock, Coins, MapPin, Percent, Users, Workflow } from 'lucide-react';
+import { formatNumberFr } from '@/lib/format-number-fr';
+import { TARIF_PARTICIPANT_NIV13_HT } from '@/lib/tarifs-catalogue-participant';
 
 type Props = {
   content: CatalogueFormationPageContent;
@@ -42,6 +44,7 @@ type Props = {
 
 const NIV13_KEY_FACTS = [
   { icon: Clock, sub: '7 heures' },
+  { icon: Coins, sub: `${formatNumberFr(TARIF_PARTICIPANT_NIV13_HT)} € HT / participant` },
   { icon: MapPin, sub: 'Présentiel · Île-de-France' },
   { icon: Users, sub: 'Dirigeants et conducteurs de travaux' },
   { icon: Workflow, sub: 'Make AI Agents' },

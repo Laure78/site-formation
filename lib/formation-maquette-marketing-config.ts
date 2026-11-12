@@ -241,8 +241,8 @@ export const FORMATION_MAQUETTE_MARKETING: Partial<
     pedagogyLabels: [...DEFAULT_PEDAGOGY],
   },
   'NIV-13': {
-    heroBadge: 'Niveau 1 · Débutant',
-    keyFactsLevel: 'Niveau débutant',
+    heroBadge: 'Formation IA BTP · Niveau 3 · Approfondi',
+    keyFactsLevel: 'Niveau 3 · Approfondi',
     heroLead:
       'Apprenez à créer un agent IA qui travaille automatiquement pour vous. Suivi des devis, relances clients, actions chantier et échéances : automatisez une tâche professionnelle avec Make, sans programmation.',
     heroDescription:

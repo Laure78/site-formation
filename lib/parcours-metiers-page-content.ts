@@ -167,6 +167,8 @@ export const PARCOURS_METIERS_CARD_SUBTITLE: Record<ParcoursId, string> = {
   'conducteur-de-travaux': 'Planning, suivi de chantier et réception.',
   'assistant-de-gestion-btp': 'Administratif, relances et suivi.',
   'referent-ia-btp': 'Déploiement, automatisation et accompagnement.',
+  'maitre-oeuvre': 'Dossiers MOE, Claude et assistants métier.',
+  'amo-btp': 'AMO, synthèses documentaires et appels d’offres.',
 };
 
 export const PARCOURS_METIERS_CARD_MENTION_COMPLET = PARCOURS_COMPLET_DISPONIBILITE_LIBELLE;
@@ -181,6 +183,8 @@ export const PARCOURS_METIERS_CARD_DESCRIPTION: Record<ParcoursId, string> = {
   'conducteur-de-travaux': PARCOURS_METIERS_CARD_SUBTITLE['conducteur-de-travaux'],
   'assistant-de-gestion-btp': PARCOURS_METIERS_CARD_SUBTITLE['assistant-de-gestion-btp'],
   'referent-ia-btp': PARCOURS_METIERS_CARD_SUBTITLE['referent-ia-btp'],
+  'maitre-oeuvre': PARCOURS_METIERS_CARD_SUBTITLE['maitre-oeuvre'],
+  'amo-btp': PARCOURS_METIERS_CARD_SUBTITLE['amo-btp'],
 };
 
 export const PARCOURS_METIERS_CARD_IMAGE: Record<ParcoursId, { src: string; alt: string }> = {
@@ -203,5 +207,13 @@ export const PARCOURS_METIERS_CARD_IMAGE: Record<ParcoursId, { src: string; alt:
   'referent-ia-btp': {
     src: '/images/parcours-metiers/parcours-referent-ia-btp.webp',
     alt: 'Référent IA BTP au poste de travail, déploiement outils intelligence artificielle.',
+  },
+  'maitre-oeuvre': {
+    src: '/images/parcours-metiers/parcours-conducteur-travaux.webp',
+    alt: 'Maître d’œuvre BTP en réunion de chantier avec plans et ordinateur portable.',
+  },
+  'amo-btp': {
+    src: '/images/parcours-metiers/parcours-charge-affaires-btp.webp',
+    alt: 'Professionnel AMO au bureau analysant un dossier de consultation travaux.',
   },
 };

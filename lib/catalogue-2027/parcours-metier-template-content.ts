@@ -325,6 +325,104 @@ export const PARCOURS_METIER_TEMPLATE_BY_ID: Record<ParcoursId, ParcoursMetierTe
       },
     },
   },
+  'maitre-oeuvre': {
+    heroImage: {
+      src: '/images/conducteur-de-travaux-photo-hero.webp',
+      alt: 'Maître d’œuvre sur opération de construction, casqué, consultant des plans sur tablette',
+    },
+    heroDescription:
+      'Un parcours en quatre modules — initiation, MOE/MOEX, Claude et assistants — pour professionnels de la maîtrise d’œuvre en Île-de-France.',
+    apprentissageCards: [
+      {
+        icon: FileText,
+        titre: 'Sécuriser le dossier MOE',
+        texte: 'Analyser pièces, CR et réserves avec l’IA — validation humaine systématique.',
+      },
+      {
+        icon: Layers,
+        titre: 'Industrialiser avec Claude',
+        texte: 'Projects, skills et trames réutilisables sur vos documents MOE.',
+      },
+      {
+        icon: Sparkles,
+        titre: 'Déployer des assistants',
+        texte: 'Concevoir un assistant métier cadré (sources, garde-fous, contrôles).',
+      },
+    ],
+    pedagogyCards: [
+      {
+        icon: HardHat,
+        titre: 'Cas MOE issus du terrain',
+        texte: 'Dossiers anonymisés : CR, OS, réserves, synthèses.',
+      },
+      {
+        icon: FileText,
+        titre: 'Documents contractuels',
+        texte: 'Trames et méthodes sans engagement automatique.',
+      },
+      {
+        icon: Layers,
+        titre: 'Livrables réutilisables',
+        texte: 'Modèles exploitables après chaque session.',
+      },
+      {
+        icon: Shield,
+        titre: 'Confidentialité et contrôle',
+        texte: 'Données autorisées et validation humaine avant diffusion.',
+      },
+    ],
+    modulesSectionId: 'maitre-oeuvre-parcours-modules',
+    ctaAnalyticsPrefix: 'parcours-maitre-oeuvre',
+  },
+  'amo-btp': {
+    heroImage: {
+      src: '/images/parcours/charge-affaires-btp.webp',
+      alt: 'Professionnel AMO au bureau avec dossiers de consultation pour une opération travaux',
+    },
+    heroDescription:
+      'Initiation IA, assistance à maîtrise d’ouvrage et appels d’offres — parcours modulaire pour AMO et MOA en présentiel IDF.',
+    apprentissageCards: [
+      {
+        icon: Briefcase,
+        titre: 'Piloter la mission AMO',
+        texte: 'Synthèses, tableaux de suivi et échanges MOA assistés par l’IA.',
+      },
+      {
+        icon: FileText,
+        titre: 'Structurer les consultations',
+        texte: 'Lire un DCE et préparer une réponse cohérente.',
+      },
+      {
+        icon: Coins,
+        titre: 'Tarifs transparents',
+        texte: 'Trois modules de 4 h — parcours complet 460 € HT / participant (inter).',
+      },
+    ],
+    pedagogyCards: [
+      {
+        icon: HardHat,
+        titre: 'Cas AMO / MOA',
+        texte: 'Pièces pédagogiques inspirées de missions réelles.',
+      },
+      {
+        icon: FileText,
+        titre: 'DCE et synthèses',
+        texte: 'Méthodes de lecture et de reformulation contrôlée.',
+      },
+      {
+        icon: Layers,
+        titre: 'Trames réutilisables',
+        texte: 'Modèles à adapter à vos missions.',
+      },
+      {
+        icon: Shield,
+        titre: 'Engagements MOA',
+        texte: 'Aucune promesse contractuelle sans validation humaine.',
+      },
+    ],
+    modulesSectionId: 'amo-btp-parcours-modules',
+    ctaAnalyticsPrefix: 'parcours-amo-btp',
+  },
 };
 
 export function getParcoursMetierTemplateContent(id: ParcoursId): ParcoursMetierTemplateContent | undefined {

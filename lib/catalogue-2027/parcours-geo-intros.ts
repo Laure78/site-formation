@@ -25,6 +25,10 @@ const APPRENDRE: Record<ParcoursId, string> = {
     'Assistants de gestion, comptables et fonctions support : ce parcours couvre facturation, relances, organisation des dossiers et tableaux de suivi avec l’IA. Les livrables sont réutilisables dans votre PME — sans automatiser les validations comptables ou fiscales.',
   'referent-ia-btp':
     'Référents IA, dirigeants et profils métier chargés du déploiement : vous structurez les usages, travaillez avec Claude et ChatGPT, et pouvez aller jusqu’à un prototype d’application métier. Le parcours inclut gouvernance et plan de déploiement sur 90 jours.',
+  'maitre-oeuvre':
+    'Maîtres d’œuvre, MOEX et OPC : vous enchaînez initiation IA, usages MOE documentaires, Claude et assistants personnalisés. Les exercices portent sur des dossiers anonymisés — validation humaine sur chaque acte.',
+  'amo-btp':
+    'AMO, MOA et chargés de mission : initiation IA, module assistance à maîtrise d’ouvrage puis analyse d’appels d’offres. L’IA accélère synthèses et structuration ; vous gardez le contrôle des engagements MOA.',
 };
 
 const PREREQUIS: Record<ParcoursId, string> = {
@@ -38,6 +42,10 @@ const PREREQUIS: Record<ParcoursId, string> = {
     'Public : assistants de gestion, comptables, support chantier. Prérequis : gestion courante d’une PME du bâtiment. Possibilité de ne suivre qu’un module administratif ou facturation.',
   'referent-ia-btp':
     'Public : référents IA, dirigeants, profils en charge du déploiement. Prérequis catalogue : NUM-01 ou niveau équivalent pour aborder Claude et les usages avancés.',
+  'maitre-oeuvre':
+    'Public : MOE, MOEX, OPC. Prérequis : expérience dossier chantier ; NUM-01 en entrée. Quatre modules de 4 h — parcours complet 630 € HT / participant (inter).',
+  'amo-btp':
+    'Public : AMO, MOA, pilotage opération. Prérequis : exposition aux dossiers MOA. Trois modules de 4 h — parcours complet 460 € HT / participant (inter).',
 };
 
 const FINANCEMENT: Record<ParcoursId, string> = {
@@ -51,6 +59,10 @@ const FINANCEMENT: Record<ParcoursId, string> = {
     'Formation non certifiante : attestation de fin de formation et certificat de réalisation. Tarif parcours (somme des modules) et prix unitaires ; pas de session datée affichée sans confirmation écrite.',
   'referent-ia-btp':
     'Le module NUM-04 (14 h) suit les règles tarifaires du niveau 3 du catalogue. Déploiement IA et gouvernance peuvent être regroupés en intra sur devis.',
+  'maitre-oeuvre':
+    'Modules MOE (NUM-08), Claude (NUM-03) et assistants (NUM-09) sont éligibles selon critères OPCO ; intra sur devis en Île-de-France.',
+  'amo-btp':
+    'Modules AMO (NUM-10) et appels d’offres (NUM-02) à la carte ou parcours complet ; prise en charge Constructys possible selon éligibilité, sans garantie.',
 };
 
 export function getParcoursGeoIntro(
@@ -80,7 +92,7 @@ export const PARCOURS_METIERS_HUB_GEO = {
   modularite:
     'Les parcours regroupent des modules du catalogue : durée totale, tarif inter du parcours complet (somme des modules obligatoires) et prix unitaire par module. Vous pouvez suivre le parcours complet, un module seul ou un programme personnalisé, sous réserve des prérequis. Présentiel en Île-de-France ; ouverture commerciale des parcours en 2027, modules unitaires programmables selon calendrier.',
   grid:
-    'Cinq parcours métiers couvrent la direction, l’affaires, la conduite de travaux, la gestion et le référent IA. Chaque fiche affiche la durée totale, le tarif inter du parcours complet (somme des modules obligatoires) et le prix unitaire de chaque module.',
+    'Sept parcours métiers couvrent la direction, l’affaires, la conduite de travaux, la maîtrise d’œuvre, l’AMO, la gestion et le référent IA. Chaque fiche affiche la durée totale, le tarif inter du parcours complet (somme des modules obligatoires) et le prix unitaire de chaque module.',
   casUsage:
     'Les exercices s’appuient sur des documents BTP courants : DCE, devis, comptes rendus, DOE. L’IA aide à structurer et synthétiser ; la validation métier reste humaine.',
   modalites:

@@ -79,6 +79,26 @@ const METIER_FAQ: Record<ParcoursId, readonly FaqItem[]> = {
       a: 'Les modules NUM travaillent appels d’offres, Claude (projects/skills), et selon le module un prototype plus avancé. Les outils exacts sont indiqués dans chaque programme.',
     },
   ],
+  'maitre-oeuvre': [
+    {
+      q: 'Ce parcours couvre-t-il la MOE et le MOEX ?',
+      a: 'Oui : initiation IA, module maîtrise d’œuvre (CR, réserves, pièces), Claude puis assistants personnalisés. Vous validez chaque livrable contractuel.',
+    },
+    {
+      q: 'Peut-on suivre uniquement le module maîtrise d’œuvre ?',
+      a: 'Oui en module à la carte sur la fiche formation IA maîtrise d’œuvre, après NUM-01 ou positionnement équivalent.',
+    },
+  ],
+  'amo-btp': [
+    {
+      q: 'Quelle différence avec le parcours chargé d’affaires ?',
+      a: 'Le parcours AMO cible missions maîtrise d’ouvrage (NUM-10) puis appels d’offres ; le parcours chargé d’affaires approfondit devis, mémoire technique et suivi commercial.',
+    },
+    {
+      q: 'L’IA peut-elle répondre à un appel d’offres à ma place ?',
+      a: 'Non : elle aide à analyser le DCE et structurer la réponse ; stratégie, prix et engagements restent de votre responsabilité.',
+    },
+  ],
 };
 
 /** FAQ affichée + JSON-LD sur une fiche parcours. */

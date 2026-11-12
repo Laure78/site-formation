@@ -54,6 +54,8 @@ const PARCOURS_METIER_ICONS: Record<ParcoursId, LucideIcon> = {
   'assistant-de-gestion-btp': FolderOpen,
   'dirigeant-pme-btp': Building2,
   'referent-ia-btp': UserCog,
+  'maitre-oeuvre': HardHat,
+  'amo-btp': Briefcase,
 };
 
 export function accueilParcoursMetierIcon(id: ParcoursId): LucideIcon {

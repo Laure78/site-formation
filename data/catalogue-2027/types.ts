@@ -48,7 +48,9 @@ export type ModuleCode =
   | 'NUM-05'
   | 'NUM-06'
   | 'NUM-07'
-  | 'NUM-08';
+  | 'NUM-08'
+  | 'NUM-09'
+  | 'NUM-10';
 
 export type MetierId =
   | 'dirigeant'
@@ -57,14 +59,18 @@ export type MetierId =
   | 'chef-chantier'
   | 'chef-equipe'
   | 'assistant-gestion'
-  | 'referent-ia';
+  | 'referent-ia'
+  | 'maitre-oeuvre'
+  | 'amo-btp';
 
 export type ParcoursId =
   | 'dirigeant-pme-btp'
   | 'charge-affaires-btp'
   | 'conducteur-de-travaux'
   | 'assistant-de-gestion-btp'
-  | 'referent-ia-btp';
+  | 'referent-ia-btp'
+  | 'maitre-oeuvre'
+  | 'amo-btp';
 
 /** Disponibilité commerciale affichée au visiteur. */
 export type DisponibiliteCommerciale = 'disponible' | 'ouverture-2027';

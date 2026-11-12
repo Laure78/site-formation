@@ -58,7 +58,7 @@ for (const ref of REFS) {
   if (ref === 'NIV-10') {
     minutes = DEV_WEB_IA_JOUR1_DUREE_MINUTES * 2;
   }
-  const cible = formationDureeCibleMinutes(formation.niveau);
+  const cible = formationDureeCibleMinutes(formation.niveau, ref);
   const ok = minutes === cible;
   if (!ok) exitCode = 1;
   rows.push({
@@ -68,7 +68,7 @@ for (const ref of REFS) {
     cible,
     ok,
     tarif: libelleTarifParticipantCatalogue(
-      formation.tarifParticipantHt ?? formationTarifHtParNiveau(formation.niveau),
+      formation.tarifParticipantHt ?? formationTarifHtParNiveau(formation.niveau, ref),
     ),
     effectif: `${formation.effectifMin}–${formation.effectifMax}`,
   });

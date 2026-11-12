@@ -1,5 +1,5 @@
 /**
- * 35 modules uniques — catalogue 2027.
+ * 37 modules uniques — catalogue 2027.
  * Document joint non accessible : contenus synthétisés depuis le brief mission.
  * Compléments pédagogiques marqués via `complementsAValider`.
  */
@@ -767,7 +767,7 @@ const MODULES_RAW: readonly ModuleRaw[] = [
     motsCles: ['non-conformités', 'pathologies', 'qualité', 'chantier'],
   },
 
-  // ── DOMAINE 7 — NUMÉRIQUE / IA (6 disponibles) ─────────────────────
+  // ── DOMAINE 7 — NUMÉRIQUE / IA (8 disponibles) ─────────────────────
   {
     code: 'NUM-01',
     titre: 'Les bases de l’IA pour les professionnels du BTP',
@@ -1002,6 +1002,63 @@ const MODULES_RAW: readonly ModuleRaw[] = [
       'PDF programme : aligner sur session harmonisée 4 h (niveau 2).',
     ],
   },
+  {
+    code: 'NUM-09',
+    titre: 'Créer des assistants IA personnalisés pour le BTP',
+    domaineId: 'numerique-ia',
+    sousDomaine: 'Assistants IA',
+    metiers: ['referent-ia', 'conducteur-travaux', 'charge-affaires', 'maitre-oeuvre'],
+    objectifPrincipal:
+      'Concevoir et configurer des assistants IA métier (instructions, sources, contrôles) pour industrialiser les tâches documentaires.',
+    publicCible: 'Profils MOE/MOEX, conducteurs, chargés d’affaires et référents IA.',
+    prerequis: 'NUM-01 ou niveau équivalent ; maîtrise Claude ou ChatGPT recommandée (NUM-03 utile).',
+    programme: [
+      'Cadrer un cas d’usage et les données autorisées',
+      'Rédiger instructions et garde-fous',
+      'Tester sur documents BTP anonymisés',
+      'Préparer la validation humaine avant déploiement',
+    ],
+    exercices: ['Assistant fil rouge sur dossier MOE / chantier'],
+    livrables: ['Fiche d’assistant réutilisable + protocole de contrôle'],
+    evaluation: EVAL_STANDARD,
+    ...DISPO_MAINTENANT_VALIDE,
+    href: LINKS.formationAssistantsIaPersonnalisesBtp,
+    pdfProgramme: null,
+    pdfARegenerer: true,
+    legacyCode: 'NIV-09',
+    motsCles: ['assistants', 'ChatGPT', 'Claude', 'IA', 'BTP', 'automatisation'],
+    complementsAValider: [
+      'PDF programme : aligner sur session harmonisée 4 h (niveau 2).',
+    ],
+  },
+  {
+    code: 'NUM-10',
+    titre: 'IA et assistance à maîtrise d’ouvrage (AMO)',
+    domaineId: 'numerique-ia',
+    sousDomaine: 'Assistance maîtrise d’ouvrage',
+    metiers: ['charge-affaires', 'conducteur-travaux', 'amo-btp', 'dirigeant'],
+    objectifPrincipal:
+      'Utiliser l’IA pour synthétiser pièces, tableaux de suivi et échanges MOA — sans automatiser les validations contractuelles.',
+    publicCible: 'AMO, MOA, chargés de mission et profils pilotage opération côté maîtrise d’ouvrage.',
+    prerequis: 'NUM-01 ou niveau équivalent recommandé.',
+    programme: [
+      'Lire et structurer un dossier de consultation ou de suivi MOA',
+      'Produire synthèses, CR et tableaux d’actions assistés',
+      'Encadrer confidentialité et validation humaine',
+      'Préparer trames réutilisables pour la mission AMO',
+    ],
+    exercices: ['Cas AMO fil rouge sur pièces pédagogiques'],
+    livrables: ['Trames IA pour missions AMO'],
+    evaluation: EVAL_STANDARD,
+    ...DISPO_MAINTENANT_VALIDE,
+    href: LINKS.formationIaAssistanceMaitriseOuvrage,
+    pdfProgramme: LINKS.pdfProgrammeIaAssistanceMaitriseOuvrage,
+    legacyCode: 'NIV-11',
+    motsCles: ['AMO', 'maîtrise d’ouvrage', 'MOA', 'IA', 'synthèse', 'BTP'],
+    complementsAValider: [
+      'PDF programme : aligner sur session harmonisée 4 h (niveau 2).',
+    ],
+  },
 ] as const;
 
 export const MODULES_CATALOGUE_2027: readonly CatalogueModule[] = MODULES_RAW.map(enrichCatalogueModule);
@@ -1033,12 +1090,12 @@ export function assertCatalogueModulesIntegrity(): {
   const errors: string[] = [];
   const codes = MODULES_CATALOGUE_2027.map((m) => m.code);
   if (new Set(codes).size !== codes.length) errors.push('Codes modules en double');
-  if (MODULES_CATALOGUE_2027.length !== 35) {
-    errors.push(`Attendu 35 modules, trouvé ${MODULES_CATALOGUE_2027.length}`);
+  if (MODULES_CATALOGUE_2027.length !== 37) {
+    errors.push(`Attendu 37 modules, trouvé ${MODULES_CATALOGUE_2027.length}`);
   }
   const disponibles = MODULES_CATALOGUE_2027.filter((m) => m.disponibilite === 'disponible');
   const ouverture = MODULES_CATALOGUE_2027.filter((m) => m.disponibilite === 'ouverture-2027');
-  if (disponibles.length !== 6) errors.push(`Attendu 6 disponibles, trouvé ${disponibles.length}`);
+  if (disponibles.length !== 8) errors.push(`Attendu 8 disponibles, trouvé ${disponibles.length}`);
   if (ouverture.length !== 29) errors.push(`Attendu 29 en 2027, trouvé ${ouverture.length}`);
   const niveau1 = MODULES_CATALOGUE_2027.filter((m) => m.niveau === 1);
   if (niveau1.length !== 1 || niveau1[0]?.code !== 'NUM-01') {

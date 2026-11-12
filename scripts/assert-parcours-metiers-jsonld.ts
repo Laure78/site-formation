@@ -1,5 +1,5 @@
 /**
- * JSON-LD — 5 fiches `/formations/parcours/[slug]` (Course, ItemList modules, FAQPage).
+ * JSON-LD — 7 fiches `/formations/parcours/[slug]` (Course, ItemList modules, FAQPage).
  * Usage : `npx tsx scripts/assert-parcours-metiers-jsonld.ts`
  */
 import assert from 'node:assert/strict';
@@ -38,8 +38,8 @@ function assertNoDistanciel(label: string, payload: unknown): void {
 
 assert.equal(
   PARCOURS_CATALOGUE_2027.length,
-  5,
-  'Attendu exactement 5 parcours dans PARCOURS_CATALOGUE_2027',
+  7,
+  'Attendu exactement 7 parcours dans PARCOURS_CATALOGUE_2027',
 );
 
 for (const raw of PARCOURS_CATALOGUE_2027) {

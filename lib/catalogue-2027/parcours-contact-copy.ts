@@ -46,6 +46,20 @@ export const PARCOURS_CONTACT_COPY: Record<ParcoursId, ParcoursContactCopy> = {
     needExample:
       'Ex. : 3 référents IA — appels d’offres, applications métier et pilotage des usages Claude/ChatGPT en entreprise.',
   },
+  'maitre-oeuvre': {
+    participantRoleDefault: 'Maître d’œuvre / MOEX',
+    messagePlaceholder:
+      'Ex. : parcours MOE complet ou modules NUM-08 + Claude — 5 MOEX, intra IDF, 2027…',
+    needExample:
+      'Ex. : 5 profils MOE — initiation, maîtrise d’œuvre, Claude et assistants — présentiel Île-de-France.',
+  },
+  'amo-btp': {
+    participantRoleDefault: 'AMO / MOA',
+    messagePlaceholder:
+      'Ex. : modules AMO et appels d’offres — 4 participants, parcours ou à la carte, 2027…',
+    needExample:
+      'Ex. : 4 profils AMO — assistance maîtrise d’ouvrage et analyse DCE avec l’IA, format inter Paris.',
+  },
 };
 
 export const PARCOURS_HUB_CONTACT_COPY: ParcoursContactCopy = {

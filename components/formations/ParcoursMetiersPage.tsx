@@ -34,8 +34,10 @@ const PARCOURS_GRID_LAYOUT: Record<number, string> = {
   0: 'xl:col-span-2',
   1: 'xl:col-span-2',
   2: 'xl:col-span-2',
-  3: 'xl:col-span-2 xl:col-start-2',
+  3: 'xl:col-span-2',
   4: 'xl:col-span-2',
+  5: 'xl:col-span-2',
+  6: 'xl:col-span-2 xl:col-start-3',
 };
 
 export function ParcoursMetiersPage() {
@@ -140,7 +142,7 @@ export function ParcoursMetiersPage() {
           </div>
         </section>
 
-        {/* Grille — 5 parcours (3 + 2) */}
+        {/* Grille — 7 parcours */}
         <section
           id={PARCOURS_METIERS_SECTION.id}
           className="scroll-mt-[calc(var(--site-header-height,4.5rem)+0.75rem)] py-12 sm:py-16"

@@ -1,5 +1,5 @@
 /**
- * 5 parcours métiers publics — catalogue 2027.
+ * 7 parcours métiers publics — catalogue 2027.
  * Les parcours référencent les codes modules ; contenus non dupliqués.
  */
 import { PARCOURS_CATALOGUE_2027 } from './parcours-data';
@@ -122,8 +122,8 @@ export function assertCatalogueParcoursIntegrity(): {
   errors: string[];
 } {
   const errors: string[] = [];
-  if (PARCOURS_CATALOGUE_2027.length !== 5) {
-    errors.push(`Attendu 5 parcours, trouvé ${PARCOURS_CATALOGUE_2027.length}`);
+  if (PARCOURS_CATALOGUE_2027.length !== 7) {
+    errors.push(`Attendu 7 parcours, trouvé ${PARCOURS_CATALOGUE_2027.length}`);
   }
   const expected: Record<string, { h: number; prix: number; modules: number }> = {
     'dirigeant-pme-btp': { h: 24, prix: 1020, modules: 6 },
@@ -131,6 +131,8 @@ export function assertCatalogueParcoursIntegrity(): {
     'conducteur-de-travaux': { h: 24, prix: 1020, modules: 6 },
     'assistant-de-gestion-btp': { h: 24, prix: 970, modules: 6 },
     'referent-ia-btp': { h: 26, prix: 1130, modules: 4 },
+    'maitre-oeuvre': { h: 16, prix: 630, modules: 4 },
+    'amo-btp': { h: 12, prix: 460, modules: 3 },
   };
   for (const p of getAllParcoursComputed()) {
     const exp = expected[p.id];

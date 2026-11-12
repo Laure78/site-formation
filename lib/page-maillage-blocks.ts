@@ -216,7 +216,7 @@ function getFormationCatalogueNavigationBlock(): PageMaillageBlock {
     links.push({
       href: LINKS.parcoursMetiers,
       title: 'Parcours métiers — choisir selon ma fonction',
-      description: '5 parcours progressifs — dirigeant, conducteur, chargé d’affaires…',
+      description: 'Parcours métiers — dirigeant, MOE, AMO, conducteur, chargé d’affaires…',
     });
   }
   return {
@@ -327,6 +327,40 @@ const PARCOURS_PRACTICE_RESOURCES: Partial<
       description: 'Préparer un chiffrage assisté avec validation humaine.',
     },
   ],
+  'maitre-oeuvre': [
+    {
+      href: LINKS.formationIaMaitriseOeuvre,
+      title: 'Formation IA maîtrise d’œuvre (4 h)',
+      description: 'Fiche catalogue MOE/MOEX — CR, réserves, pièces administratives.',
+    },
+    {
+      href: LINKS.formationMaitriserClaudeAiBtp,
+      title: 'Maîtriser Claude pour le BTP',
+      description: 'Enchaînement naturel après le module MOE du parcours.',
+    },
+    {
+      href: LINKS.formationAssistantsIaPersonnalisesBtp,
+      title: 'Assistants IA personnalisés BTP',
+      description: 'Industrialiser les usages documentaires MOE.',
+    },
+  ],
+  'amo-btp': [
+    {
+      href: LINKS.formationIaAssistanceMaitriseOuvrage,
+      title: 'Formation IA assistance maîtrise d’ouvrage',
+      description: 'Module cœur du parcours AMO — synthèses et suivi MOA.',
+    },
+    {
+      href: LINKS.formationIaAppelsOffresBtp,
+      title: 'Formation IA appels d’offres BTP',
+      description: 'Analyse DCE et structuration de réponse.',
+    },
+    {
+      href: LINKS.iaAnalyseDce,
+      title: 'Analyser un DCE avec l’IA',
+      description: 'Page méthode avant la session appels d’offres.',
+    },
+  ],
   'referent-ia-btp': [
     {
       href: LINKS.skillsClaudeBtp,
@@ -398,12 +432,12 @@ export function buildParcoursPageMaillageBlocks(parcours: ParcoursComputed): Pag
       {
         href: LINKS.parcoursMetiers,
         title: 'Comparer les parcours métiers',
-        description: '5 parcours — choisir selon votre fonction BTP.',
+        description: 'Parcours métiers — choisir selon votre fonction BTP.',
       },
       {
         href: buildCatalogueModulesHref({ metier: parcours.metierId }),
         title: 'Modules catalogue pour ce métier',
-        description: 'Filtre métier pré-appliqué sur le catalogue (35 modules au total).',
+        description: 'Filtre métier pré-appliqué sur le catalogue (37 modules au total).',
       },
       {
         href: LINKS.formations,

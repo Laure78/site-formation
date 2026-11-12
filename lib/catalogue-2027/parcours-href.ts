@@ -7,6 +7,8 @@ const PARCOURS_LINKS: Record<ParcoursId, string> = {
   'conducteur-de-travaux': LINKS.parcoursConducteurDeTravaux,
   'assistant-de-gestion-btp': LINKS.parcoursAssistantDeGestionBtp,
   'referent-ia-btp': LINKS.parcoursReferentIaBtp,
+  'maitre-oeuvre': LINKS.parcoursMaitreOeuvre,
+  'amo-btp': LINKS.parcoursAmoBtp,
 };
 
 export function parcoursHref(id: ParcoursId | string): string {
