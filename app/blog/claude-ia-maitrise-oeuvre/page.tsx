@@ -9,7 +9,7 @@ import {
   BLOG_CLAUDE_MOE_FAQ_JSON_LD,
 } from '@/lib/blog-claude-ia-maitrise-oeuvre-schema';
 import { CLAUDE_MOE_TOC } from '@/lib/blog-claude-ia-maitrise-oeuvre-data';
-import { ARTICLE_SECTION_GEO, createPageMetadata, SITE_CONFIG } from '@/lib/seo';
+import { ARTICLE_SECTION_GEO, createPageMetadata, SITE_CONFIG, siteAbsoluteUrl } from '@/lib/seo';
 import { buildBlogArticleOgImageAlt } from '@/lib/image-alt';
 import { LINKS } from '@/lib/internal-links';
 import { OFC_LINK } from '@/lib/ofc-interaction-classes';
@@ -45,9 +45,9 @@ export const metadata = createPageMetadata({
 
 export default function BlogClaudeIaMaitriseOeuvrePage() {
   const breadcrumbItems = [
-    { name: 'Accueil', path: LINKS.home },
-    { name: 'Blog', path: LINKS.blog },
-    { name: "IA et maîtrise d'œuvre", path: PATH },
+    { name: 'Accueil', url: siteAbsoluteUrl(LINKS.home) },
+    { name: 'Blog', url: siteAbsoluteUrl(LINKS.blog) },
+    { name: "IA et maîtrise d'œuvre", url: siteAbsoluteUrl(PATH) },
   ];
 
   return (

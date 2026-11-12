@@ -35,6 +35,8 @@ const METIER_TO_DOMAINES: Record<MetierId, readonly DomaineId[]> = {
   'chef-equipe': ['management'],
   'assistant-gestion': ['administration'],
   'referent-ia': ['numerique-ia'],
+  'maitre-oeuvre': ['technique-qualite-prevention'],
+  'amo-btp': ['commercial'],
 };
 
 function isConfirmed(f: FormateurProfile): boolean {
