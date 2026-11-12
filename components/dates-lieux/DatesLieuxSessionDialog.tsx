@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useId, useRef, useState, type FormEvent } from 'react';
+import { ArrowRight } from 'lucide-react';
 import { submitContactFormAction } from '@/app/actions/contact';
 import { CONTACT_FORM_SUCCESS } from '@/lib/contact-page-config';
 import { CONTACT_SUBJECT_VALUES } from '@/lib/contact-form-validation';
@@ -16,6 +17,7 @@ type Props = {
   sessionDateLabel?: string;
   triggerLabel: string;
   triggerClassName: string;
+  showArrow?: boolean;
 };
 
 export function DatesLieuxSessionDialog({
@@ -25,6 +27,7 @@ export function DatesLieuxSessionDialog({
   sessionDateLabel,
   triggerLabel,
   triggerClassName,
+  showArrow = false,
 }: Props) {
   const dialogId = useId();
   const [open, setOpen] = useState(false);
@@ -101,6 +104,7 @@ export function DatesLieuxSessionDialog({
     <>
       <button type="button" className={triggerClassName} onClick={() => setOpen(true)}>
         {triggerLabel}
+        {showArrow ? <ArrowRight className="h-4 w-4 shrink-0" aria-hidden /> : null}
       </button>
       {open ? (
         <div

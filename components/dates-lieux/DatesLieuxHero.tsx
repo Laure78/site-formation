@@ -23,10 +23,13 @@ export function DatesLieuxHero() {
           >
             Trouvez votre prochaine session de formation IA BTP
           </h1>
-          <p className="mt-4 max-w-xl text-base leading-relaxed text-slate-600 md:text-lg">
-            <strong className="font-semibold text-slate-800">En bref :</strong> Laure Olivié (OFC Création
-            d&apos;Entreprise) publie ici les sessions inter-entreprises confirmées en présentiel en
-            Île-de-France. Les dates et lieux affichés proviennent du catalogue Qualiopi — aucune date fictive.
+          <p className="mt-4 max-w-xl rounded-xl border border-[#E2E8F0] bg-[#FAFBFC] px-4 py-3 text-sm leading-relaxed text-slate-700 md:text-base">
+            <strong className="font-semibold text-[#101936]">En bref :</strong> Laure Olivié (OFC Création
+            d&apos;Entreprise) liste ici les sessions inter confirmées en présentiel en Île-de-France — données
+            catalogue Qualiopi, sans date fictive.
+          </p>
+          <p className="mt-3 max-w-xl text-base leading-relaxed text-slate-600 md:text-lg">
+            Des formations pratiques pour les équipes des PME du bâtiment et des travaux publics.
           </p>
           <div className="mt-8 flex max-w-xl flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
             <a

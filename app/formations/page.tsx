@@ -18,7 +18,9 @@ import { FormationsCatalogueMobileBar } from '@/components/formations/catalogue-
 import { FormationsCatalogueTerrainBar } from '@/components/formations/catalogue-2027/FormationsCatalogueTerrainBar';
 import { FormationsCatalogueBottomCta } from '@/components/formations/catalogue-2027/FormationsCatalogueBottomCta';
 import { buildFormationsPageUnifiedGraphJsonLd } from '@/lib/schema-formations-page-graph';
+import Link from 'next/link';
 import { parseFormationsCataloguePageFilters } from '@/lib/catalogue-filter-url';
+import { LINKS } from '@/lib/internal-links';
 
 const baseUrl = SITE_CONFIG.url.replace(/\/$/, '');
 
@@ -93,6 +95,13 @@ export default async function FormationsPage({ searchParams }: FormationsPagePro
 
       <div className="mx-auto max-w-[80rem] space-y-12 px-4 pb-10 pt-8 sm:px-6 md:space-y-14 lg:px-8 lg:pb-12">
         <FormationsCatalogueFormatsBar />
+        <p className="text-center text-sm text-slate-600">
+          <Link href={LINKS.datesEtLieux} className="font-semibold text-[#377CF3] hover:underline">
+            Dates et lieux des sessions inter
+          </Link>
+          {' '}
+          — présentiel en Île-de-France.
+        </p>
         <FormationsIaDisponibles filters={catalogueFilters} />
         <FormationsCatalogueTerrainBar />
 

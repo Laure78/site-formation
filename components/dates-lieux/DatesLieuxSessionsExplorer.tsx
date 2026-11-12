@@ -10,7 +10,7 @@ import {
   MapPin,
   RotateCcw,
 } from 'lucide-react';
-import { formatSessionDateFr } from '@/lib/catalogue-public-sessions';
+import { formatSessionDateFr } from '@/lib/session-date-format';
 import { libelleTarifParticipantCatalogue } from '@/lib/tarifs-catalogue-participant';
 import { IDF_DEPARTEMENT_OPTIONS } from '@/lib/business-delivery';
 import { DATES_LIEUX_NIVEAU_FILTER_OPTIONS } from '@/lib/dates-lieux/niveau';
@@ -22,6 +22,7 @@ import type {
 import { isOnDemandRow } from '@/lib/dates-lieux/types';
 import { OFC_CTA_PRIMARY, OFC_CTA_SECONDARY } from '@/lib/ofc-interaction-classes';
 import { DatesLieuxSessionDialog } from '@/components/dates-lieux/DatesLieuxSessionDialog';
+import { getDatesLieuxFormationIcon } from '@/lib/dates-lieux/formation-card-icon';
 
 type Props = {
   confirmed: DatesLieuxSessionRow[];
@@ -175,15 +176,29 @@ export function DatesLieuxSessionsExplorer({ confirmed, onDemand, formationOptio
               .
             </li>
           ) : (
-            filtered.map((item) => (
+            filtered.map((item) => {
+              const Icon = getDatesLieuxFormationIcon(item.formationCode);
+              return (
               <li
                 key={isOnDemandRow(item) ? `od-${item.formationSlug}` : item.id}
-                className="flex flex-col gap-4 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm sm:flex-row sm:items-center sm:justify-between"
+                className="flex flex-col gap-4 rounded-2xl border border-[#E2E8F0] bg-white p-4 shadow-sm sm:flex-row sm:items-center sm:gap-5 sm:p-5"
               >
+                <span
+                  className="mx-auto flex h-14 w-14 shrink-0 items-center justify-center rounded-xl border border-[#E2E8F0] bg-[#F8FAFC] text-[#377CF3] sm:mx-0"
+                  aria-hidden
+                >
+                  <Icon className="h-7 w-7" strokeWidth={1.5} />
+                </span>
                 <div className="min-w-0 flex-1">
-                  <div className="flex flex-wrap items-center gap-2">
+                  <div className="flex flex-col gap-2 sm:flex-row sm:flex-wrap sm:items-center">
+                    <Link
+                      href={item.formationHref}
+                      className="font-display text-lg font-bold leading-snug text-[#101936] hover:text-[#377CF3]"
+                    >
+                      {item.formationTitle}
+                    </Link>
                     <span
-                      className={`rounded-full px-2.5 py-0.5 text-xs font-semibold ${
+                      className={`w-fit rounded-full px-2.5 py-0.5 text-xs font-semibold ${
                         item.niveau === 1
                           ? 'bg-sky-100 text-sky-800'
                           : item.niveau === 2
@@ -191,14 +206,8 @@ export function DatesLieuxSessionsExplorer({ confirmed, onDemand, formationOptio
                             : 'bg-violet-100 text-violet-800'
                       }`}
                     >
-                      {item.niveauLabel}
+                      {item.niveau === 1 ? 'Débutant' : item.niveau === 2 ? 'Avancé' : item.niveauLabel}
                     </span>
-                    <Link
-                      href={item.formationHref}
-                      className="font-display text-lg font-bold text-[#101936] hover:text-[#377CF3]"
-                    >
-                      {item.formationTitle}
-                    </Link>
                   </div>
                   <ul className="mt-3 flex flex-wrap gap-x-5 gap-y-1 text-sm text-slate-600">
                     <li className="inline-flex items-center gap-1.5">
@@ -229,6 +238,7 @@ export function DatesLieuxSessionsExplorer({ confirmed, onDemand, formationOptio
                       formationHref={item.formationHref}
                       triggerClassName={`${OFC_CTA_SECONDARY} inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-[8px] border-2 border-[#377CF3] px-5 py-2.5 text-sm font-semibold text-[#377CF3] sm:w-auto`}
                       triggerLabel="Proposer une date"
+                      showArrow
                     />
                   ) : item.isFull ? (
                     <DatesLieuxSessionDialog
@@ -236,8 +246,9 @@ export function DatesLieuxSessionsExplorer({ confirmed, onDemand, formationOptio
                       formationTitle={item.formationTitle}
                       formationHref={item.formationHref}
                       sessionDateLabel={formatSessionDateFr(item.sessionDate)}
-                      triggerClassName={`${OFC_CTA_PRIMARY} inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-[8px] px-5 py-2.5 text-sm font-semibold sm:w-auto`}
+                      triggerClassName={`${OFC_CTA_PRIMARY} inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-[8px] px-5 py-2.5 text-sm font-semibold sm:min-w-[11rem] sm:w-auto`}
                       triggerLabel="Être informé"
+                      showArrow
                     />
                   ) : (
                     <DatesLieuxSessionDialog
@@ -245,13 +256,15 @@ export function DatesLieuxSessionsExplorer({ confirmed, onDemand, formationOptio
                       formationTitle={item.formationTitle}
                       formationHref={item.formationHref}
                       sessionDateLabel={formatSessionDateFr(item.sessionDate)}
-                      triggerClassName={`${OFC_CTA_PRIMARY} inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-[8px] px-5 py-2.5 text-sm font-semibold sm:w-auto`}
+                      triggerClassName={`${OFC_CTA_PRIMARY} inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-[8px] px-5 py-2.5 text-sm font-semibold sm:min-w-[11rem] sm:w-auto`}
                       triggerLabel="Demander une inscription"
+                      showArrow
                     />
                   )}
                 </div>
               </li>
-            ))
+            );
+            })
           )}
         </ul>
 
