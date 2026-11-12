@@ -1,0 +1,90 @@
+---
+title: "OPR et levée des réserves avec l'IA"
+seoTitle: "OPR et levée des réserves avec l'IA"
+description: "MOEX : préparez les OPR, la liste des réserves et le suivi de leur levée avec ChatGPT ou Claude. Méthode, prompts, limites. Formation en Île-de-France."
+slug: ia-opr-levee-reserves
+publishedAt: "2026-11-12"
+updatedAt: "2026-11-12"
+cover: /images/blog/ia-controle-situation-travaux.webp
+coverAlt: "Suivi de réserves et OPR chantier — maîtrise d'œuvre et usage IA"
+keywords:
+  - OPR et levée des réserves avec l'IA
+  - liste des réserves IA
+  - réception des travaux
+  - mission AOR
+readingTime: "7 min"
+hideEndCta: true
+enBref: "Pendant les opérations préalables à la réception (OPR), l'IA générative peut transformer des notes dictées et des photos en liste de réserves structurée par lot, rédiger les courriers aux entreprises et suivre la levée des réserves. Le constat sur place et la proposition de réception restent ceux du maître d'œuvre. Laure Olivié (OFC Création d'Entreprise, Qualiopi) forme les MOEX à cette méthode, en présentiel en Île-de-France."
+relatedSlugs:
+  - ia-maitrise-oeuvre-usages
+  - tuto-controle-situation-travaux-ia
+  - ia-confidentialite-donnees-maitrise-oeuvre
+faq:
+  - question: "L'IA peut-elle rédiger le PV de réception ?"
+    answer: "Elle peut préparer une trame à partir de vos éléments ; le contenu et la proposition de réception relèvent de la maîtrise d'œuvre et du maître d'ouvrage."
+  - question: "Faut-il un outil spécialisé ?"
+    answer: "Non pour démarrer : ChatGPT ou Claude, une dictée sur téléphone et un tableur suffisent. Des logiciels dédiés existent si vous voulez aller plus loin."
+  - question: "Ça marche aussi pour le DOE ?"
+    answer: "Oui : l'IA aide à contrôler la complétude du DOE à partir de la liste des pièces attendues."
+  - question: "Où apprendre ces méthodes ?"
+    answer: "Dans le parcours IA maître d'œuvre et la formation IA maîtrise d'œuvre, en présentiel en Île-de-France."
+---
+
+## La fin de chantier, période la plus chargée
+
+Dans la mission AOR, le maître d'œuvre organise les OPR, propose au maître d'ouvrage la réception avec ou sans réserves, puis suit la levée des réserves. Le suivi continue ensuite pendant l'année de garantie de parfait achèvement (article 1792-6 du Code civil).
+
+Concrètement : des visites lot par lot, des dizaines de notes prises au téléphone, des photos à rattacher, une liste à diffuser vite et des relances à répéter. L'IA intervient sur la mise en forme et le suivi.
+
+## Méthode pas à pas (prompts CRAFT)
+
+### Étape 1 — Dicter pendant la visite
+
+Dictez vos constats sur votre téléphone, pièce par pièce : « Logement 12, séjour, plinthe décollée côté fenêtre, lot peinture-revêtements ». Pas besoin de phrases parfaites.
+
+### Étape 2 — Structurer la liste des réserves
+
+```
+Contexte : voici la transcription de ma visite d'OPR sur [opération anonymisée], bâtiment [X]. Lots : [liste des lots et entreprises A, B, C].
+Rôle : assistant de maîtrise d'œuvre d'exécution.
+Action : transforme mes notes en liste de réserves. Une ligne par réserve, rattachée au bon lot. Si le lot n'est pas clair, écris « lot à confirmer ». N'invente aucune réserve.
+Format : tableau | n° | localisation | description | lot | entreprise | photo (référence) |.
+Ton : descriptif, factuel.
+```
+
+### Étape 3 — Relire et valider
+
+Vous relisez chaque ligne, corrigez le lot, supprimez ce qui n'est pas une réserve. C'est votre liste, elle engage la maîtrise d'œuvre.
+
+### Étape 4 — Rédiger les envois par entreprise
+
+```
+Contexte : voici la liste validée des réserves.
+Rôle : maître d'œuvre.
+Action : prépare un courrier par entreprise listant uniquement ses réserves, avec le délai de levée convenu [date] et la demande de confirmation écrite de chaque levée.
+Format : un courrier par entreprise, objet + corps + tableau de ses réserves.
+Ton : professionnel et ferme.
+```
+
+### Étape 5 — Suivre la levée
+
+Tenez un tableau de suivi (réserve, date de levée annoncée, date de constat, statut). Chaque semaine, collez-le et demandez : « Liste les réserves non levées dont le délai est dépassé, par entreprise, et rédige les relances. » Vous arrivez en réunion avec un point net.
+
+<BlogCtaVisio src="blog-ia-opr-levee-reserves" label="Préparer vos OPR avec une méthode outillée ?" />
+
+## Les limites à connaître
+
+- L'IA ne voit pas le chantier : elle structure ce que vous avez constaté.
+- L'analyse de photos par l'IA est utile pour décrire, pas pour juger une non-conformité.
+- Les délais et les conséquences contractuelles se lisent dans votre marché (CCAP) : vérifiez-les vous-même.
+- Anonymisez les noms avant envoi si votre outil ou votre offre l'exige (voir [IA et confidentialité en maîtrise d'œuvre](/blog/ia-confidentialite-donnees-maitrise-oeuvre)).
+
+Pour structurer les CR en amont des OPR : [compte rendu de chantier avec l'IA](/ia-compte-rendu-chantier).
+
+## Exemple (fictif)
+
+Sur une opération de 40 logements, un MOEX dicte ses constats pendant deux jours de visite. La liste structurée par lot est prête le soir même, il la relit et la corrige, puis les courriers par entreprise partent le lendemain. Le tableau de suivi sert ensuite de base aux réunions de levée des réserves.
+
+[Parcours IA maître d'œuvre](/formations/parcours/maitre-oeuvre) · [Formation IA pour maîtres d'œuvre et MOEX](/formations/ia-maitrise-oeuvre).
+
+<BlogCtaVisio src="blog-ia-opr-levee-reserves" />

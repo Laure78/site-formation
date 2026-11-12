@@ -1,0 +1,104 @@
+---
+title: "Visa des documents d'exécution avec l'IA"
+seoTitle: "Visa des documents d'exécution avec l'IA"
+description: "MOEX : préparez le visa des plans et notes d'exécution avec ChatGPT ou Claude. Méthode, prompts CRAFT, limites. Formation présentiel en Île-de-France."
+slug: ia-visa-documents-execution
+publishedAt: "2026-11-12"
+updatedAt: "2026-11-12"
+cover: /images/blog/ia-maitrise-oeuvre.webp
+coverAlt: "Maître d'œuvre sur chantier avec plans et tablette — visa documents d'exécution IA"
+keywords:
+  - visa des documents d'exécution avec l'IA
+  - mission VISA maîtrise d'œuvre
+  - tableau de suivi des visas
+  - IA MOEX
+readingTime: "7 min"
+hideEndCta: true
+enBref: "L'IA générative (ChatGPT, Claude) peut aider un maître d'œuvre d'exécution à préparer le visa des documents d'exécution : comparer un plan ou une note de calcul au CCTP, lister les écarts, rédiger les observations et tenir le tableau de suivi. Elle ne vise rien elle-même : l'avis reste celui du MOEX. Laure Olivié (OFC Création d'Entreprise, Qualiopi) enseigne cette méthode en présentiel en Île-de-France."
+relatedSlugs:
+  - tuto-avenant-ordre-de-service-ia
+  - ia-maitrise-oeuvre-usages
+  - chatgpt-ou-claude-maitrise-oeuvre
+faq:
+  - question: "L'IA peut-elle émettre un avis de visa ?"
+    answer: "Non. Elle prépare la comparaison et la rédaction ; l'avis engage la maîtrise d'œuvre et reste une décision humaine."
+  - question: "Peut-elle lire des plans ?"
+    answer: "Partiellement. Elle lit bien les textes, cartouches et nomenclatures, beaucoup moins bien les détails graphiques. Gardez la lecture des plans pour vous."
+  - question: "Mes documents sont-ils confidentiels ?"
+    answer: "Vérifiez les paramètres de votre outil et préférez une offre professionnelle. Voir notre article sur la confidentialité des données en maîtrise d'œuvre."
+  - question: "ChatGPT ou Claude pour le visa ?"
+    answer: "Les deux fonctionnent pour cet usage ; Claude est souvent apprécié pour les longs documents. Voir le comparatif ChatGPT ou Claude pour la maîtrise d'œuvre."
+---
+
+## Pourquoi le visa est un goulot d'étranglement
+
+Dans la mission VISA, la maîtrise d'œuvre vérifie que les documents d'exécution produits par les entreprises (plans, notes de calcul, fiches techniques, PV d'essais) sont conformes au projet. Sur une opération tous corps d'état, ce sont des dizaines d'indices à suivre, des relances permanentes et des observations à reformuler pour chaque lot.
+
+Ce qui prend du temps, ce n'est pas le jugement technique : c'est la lecture croisée avec le CCTP, la rédaction des observations et la mise à jour du tableau de suivi. C'est exactement là que l'IA peut faire gagner du temps, à condition de garder la main sur la décision.
+
+## Ce que l'IA fait bien (et ce qu'elle ne doit pas faire)
+
+**Ce qu'elle aide à faire**
+- extraire du CCTP les exigences d'un lot (matériaux, performances, références de DTU citées) sous forme de liste de contrôle ;
+- comparer une fiche technique ou une note à cette liste et signaler les écarts apparents ;
+- rédiger des observations claires et homogènes ;
+- tenir et mettre à jour un tableau de suivi des visas (document, indice, date, avis, relance).
+
+**Ce qu'elle ne doit pas faire**
+- donner l'avis à votre place ;
+- lire seule un plan complexe : la lecture de plans par l'IA reste imparfaite (cotes, détails, calques) ;
+- valider un dimensionnement ou une note de calcul.
+
+<BlogCtaVisio src="blog-ia-visa-documents-execution" label="MOEX : structurer le visa avec l'IA sur vos documents ?" />
+
+## Méthode pas à pas avec la méthode CRAFT
+
+La méthode CRAFT structure chaque demande : **C**ontexte, **R**ôle, **A**ction, **F**ormat, **T**on.
+
+### Étape 1 — Construire la liste de contrôle du lot
+
+```
+Contexte : je suis maître d'œuvre d'exécution sur une opération de [type d'ouvrage]. Voici le CCTP du lot [n° et intitulé].
+Rôle : agis comme un assistant de maîtrise d'œuvre rigoureux.
+Action : extrais toutes les exigences vérifiables lors du visa des documents d'exécution (matériaux, performances, normes et DTU cités, essais, documents à fournir). Ne rajoute rien qui ne figure pas dans le CCTP.
+Format : tableau | n° | article du CCTP | exigence | document d'exécution concerné |.
+Ton : factuel.
+```
+
+### Étape 2 — Comparer un document à la liste
+
+```
+Contexte : voici la liste de contrôle du lot [n°] et la fiche technique / note transmise par l'entreprise [nom], indice [X].
+Rôle : assistant de visa.
+Action : pour chaque exigence, indique « conforme apparent », « écart apparent » ou « information absente », en citant le passage du document. Si tu n'es pas sûr, écris « à vérifier par le MOEX ».
+Format : tableau | exigence | statut | citation | commentaire |.
+Ton : neutre, sans conclusion sur l'avis.
+```
+
+### Étape 3 — Rédiger les observations
+
+```
+Contexte : voici les écarts que j'ai validés moi-même : [liste].
+Rôle : maître d'œuvre qui rédige des observations de visa.
+Action : rédige une observation par écart, précise, actionnable, avec la référence de l'article du CCTP.
+Format : liste numérotée, 2 lignes maximum par observation.
+Ton : professionnel, courtois, ferme.
+```
+
+### Étape 4 — Mettre à jour le tableau de suivi
+
+Collez votre tableau existant (ou un export Excel) et demandez : « Ajoute la ligne du document [X], indice [Y], avis [Z], date de retour attendue [date]. Signale les documents sans retour depuis plus de 15 jours. » Vous obtenez un point clair pour la réunion de chantier.
+
+### Étape 5 — Relire et signer
+
+Vous relisez chaque statut, corrigez, puis émettez l'avis. L'IA a préparé ; vous décidez.
+
+## Exemple (fictif)
+
+Sur un lot menuiseries extérieures, l'assistant compare la fiche technique d'un châssis aux performances demandées au CCTP. Il signale que la valeur thermique n'apparaît pas dans la fiche et classe ce point « information absente ». Le MOEX vérifie, confirme et formule l'observation : « Fournir la fiche indiquant la performance thermique exigée à l'article [X] du CCTP. » Le gain se situe dans la préparation, pas dans la décision.
+
+Pour la confidentialité des pièces, voir [IA et confidentialité des données en maîtrise d'œuvre](/blog/ia-confidentialite-donnees-maitrise-oeuvre). Pour choisir l'outil, voir [ChatGPT ou Claude pour la maîtrise d'œuvre](/blog/chatgpt-ou-claude-maitrise-oeuvre).
+
+[Découvrez la formation IA pour maîtres d'œuvre et MOEX](/formations/ia-maitrise-oeuvre) · [Parcours IA maître d'œuvre](/formations/parcours/maitre-oeuvre).
+
+<BlogCtaVisio src="blog-ia-visa-documents-execution" />

@@ -89,6 +89,10 @@ export function buildLlmsTxtContent(): string {
 - [Tuto IA — avenant et ordre de service](${BASE}/blog/tuto-avenant-ordre-de-service-ia)
 - [Tuto IA — dépouillement des offres](${BASE}/blog/tuto-depouillement-offres-ia)
 - [Tuto — skill Claude pour la maîtrise d'œuvre](${BASE}/blog/tuto-skill-claude-maitrise-oeuvre)
+- [Visa des documents d'exécution avec l'IA](${BASE}/blog/ia-visa-documents-execution)
+- [IA et confidentialité des données en maîtrise d'œuvre](${BASE}/blog/ia-confidentialite-donnees-maitrise-oeuvre)
+- [OPR et levée des réserves avec l'IA](${BASE}/blog/ia-opr-levee-reserves)
+- [ChatGPT ou Claude pour la maîtrise d'œuvre](${BASE}/blog/chatgpt-ou-claude-maitrise-oeuvre)
 
 ## Expertise
 Publics : dirigeants de PME BTP, conducteurs de travaux, chargés d'affaires, maîtres d'œuvre (MOE/MOEX/OPC), bureaux d'études, AMO, fonctions support.

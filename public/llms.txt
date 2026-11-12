@@ -65,6 +65,10 @@
 - [Tuto IA — avenant et ordre de service](https://www.laureolivie.fr/blog/tuto-avenant-ordre-de-service-ia)
 - [Tuto IA — dépouillement des offres](https://www.laureolivie.fr/blog/tuto-depouillement-offres-ia)
 - [Tuto — skill Claude pour la maîtrise d'œuvre](https://www.laureolivie.fr/blog/tuto-skill-claude-maitrise-oeuvre)
+- [Visa des documents d'exécution avec l'IA](https://www.laureolivie.fr/blog/ia-visa-documents-execution)
+- [IA et confidentialité des données en maîtrise d'œuvre](https://www.laureolivie.fr/blog/ia-confidentialite-donnees-maitrise-oeuvre)
+- [OPR et levée des réserves avec l'IA](https://www.laureolivie.fr/blog/ia-opr-levee-reserves)
+- [ChatGPT ou Claude pour la maîtrise d'œuvre](https://www.laureolivie.fr/blog/chatgpt-ou-claude-maitrise-oeuvre)
 
 ## Expertise
 Publics : dirigeants de PME BTP, conducteurs de travaux, chargés d'affaires, maîtres d'œuvre (MOE/MOEX/OPC), bureaux d'études, AMO, fonctions support.

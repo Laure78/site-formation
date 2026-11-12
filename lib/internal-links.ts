@@ -645,6 +645,10 @@ export const LINKS = {
   blogTutoControleSituationTravauxIa: '/blog/tuto-controle-situation-travaux-ia',
   /** Article — usages IA en maîtrise d'œuvre BTP */
   blogIaMaitriseOeuvreUsages: '/blog/ia-maitrise-oeuvre-usages',
+  blogIaVisaDocumentsExecution: '/blog/ia-visa-documents-execution',
+  blogIaConfidentialiteDonneesMaitriseOeuvre: '/blog/ia-confidentialite-donnees-maitrise-oeuvre',
+  blogIaOprLeveeReserves: '/blog/ia-opr-levee-reserves',
+  blogChatgptOuClaudeMaitriseOeuvre: '/blog/chatgpt-ou-claude-maitrise-oeuvre',
   /** Article — usages IA pour l'assistance à maîtrise d'ouvrage (AMO) */
   blogIaAmoAssistantMaitriseOuvrage: '/blog/ia-amo-assistant-maitrise-ouvrage',
   /** Tuto — skill Claude pour la maîtrise d'œuvre */

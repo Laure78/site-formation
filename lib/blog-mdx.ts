@@ -217,6 +217,10 @@ export const BLOG_MDX_INLINE_COVER_SLUGS = new Set([
   'tuto-controle-situation-travaux-ia',
   'tuto-depouillement-offres-ia',
   'tuto-skill-claude-maitrise-oeuvre',
+  'ia-visa-documents-execution',
+  'ia-confidentialite-donnees-maitrise-oeuvre',
+  'ia-opr-levee-reserves',
+  'chatgpt-ou-claude-maitrise-oeuvre',
 ]);
 
 export function shouldShowMdxInlineCover(slug: string): boolean {

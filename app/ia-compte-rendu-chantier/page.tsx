@@ -191,6 +191,25 @@ export default function IaCompteRenduChantierPage() {
           </div>
         </section>
 
+        <section className={OFC_SEC.white} aria-labelledby="cr-moe">
+          <div className="ofc-section-inner max-w-4xl">
+            <h2 id="cr-moe" className="font-display text-2xl font-bold text-slate-900">
+              Compte rendu de chantier côté maître d&apos;œuvre
+            </h2>
+            <p className="mt-4 text-base leading-relaxed text-slate-600 md:text-lg">
+              Côté maîtrise d&apos;œuvre, le compte rendu de réunion de chantier sert aussi à
+              tracer décisions, ordres de service et réserves avant diffusion aux entreprises et
+              au maître d&apos;ouvrage. L&apos;IA structure le brouillon à partir de vos notes ; le
+              MOE valide chaque engagement. Pour un parcours aligné CR, OS et pièces
+              administratives, voir la{' '}
+              <Link href={LINKS.formationIaMaitriseOeuvre} className={OFC_LINK}>
+                formation IA maîtrise d&apos;œuvre
+              </Link>{' '}
+              (présentiel Île-de-France).
+            </p>
+          </div>
+        </section>
+
         <section className={OFC_SEC.white} aria-labelledby="methode-cr">
           <div className="ofc-section-inner max-w-4xl">
             <h2 id="methode-cr" className="font-display text-2xl font-bold text-slate-900">
@@ -267,7 +286,11 @@ export default function IaCompteRenduChantierPage() {
 
         <RelatedLinks
           path={PATH}
-          excludeHrefs={[LINKS.formationIaConducteurDeTravaux, LINKS.formationIaBtp]}
+          excludeHrefs={[
+            LINKS.formationIaMaitriseOeuvre,
+            LINKS.formationIaConducteurDeTravaux,
+            LINKS.formationIaBtp,
+          ]}
         />
 
         <section className={OFC_SEC.muted} aria-labelledby="se-former-cr">

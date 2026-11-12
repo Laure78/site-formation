@@ -92,9 +92,31 @@ const FORMATION_PRACTICE_RESOURCES: Partial<
       description: 'CR, OS et réserves — PDF gratuit.',
     },
     {
+      href: LINKS.blogIaMaitriseOeuvreUsages,
+      title: 'IA maîtrise d’œuvre : 12 usages',
+      description: 'De PRO-DCE à la réception — article et prompts.',
+    },
+    {
       href: LINKS.tutoSkillOsOfc,
       title: 'Tutoriel — ordre de service',
       description: 'Skill PDF pour rédiger vos OS avec l’IA.',
+    },
+  ],
+  'NIV-11': [
+    {
+      href: LINKS.blogIaAmoAssistantMaitriseOuvrage,
+      title: 'IA et assistant maîtrise d’ouvrage',
+      description: 'Synthèses MOA, consultations et limites.',
+    },
+    {
+      href: LINKS.blogTutoDepouillementOffresIa,
+      title: 'Tutoriel — dépouillement des offres',
+      description: 'Comparer les offres rendues avec l’IA.',
+    },
+    {
+      href: LINKS.iaAnalyseDce,
+      title: 'Analyser un DCE avec l’IA',
+      description: 'Méthode amont avant la session appels d’offres.',
     },
   ],
   'NIV-06': [
@@ -229,11 +251,41 @@ function getFormationCatalogueNavigationBlock(): PageMaillageBlock {
   };
 }
 
+/** Liens croisés MOE ↔ AMO sur les fiches catalogue du cluster. */
+const FORMATION_MOE_AMO_PEER: Partial<
+  Record<FormationCatalogueCode, readonly ContextualLinkCard[]>
+> = {
+  'NIV-05': [
+    {
+      href: LINKS.formationIaAssistanceMaitriseOuvrage,
+      title: 'Formation IA assistance maîtrise d’ouvrage (AMO)',
+      description: 'Synthèses MOA et pilotage — complément côté maîtrise d’ouvrage.',
+    },
+  ],
+  'NIV-11': [
+    {
+      href: LINKS.formationIaMaitriseOeuvre,
+      title: 'Formation IA maîtrise d’œuvre (MOE / MOEX)',
+      description: 'CR, OS, avenants et réception — complément côté exécution.',
+    },
+  ],
+};
+
 export function buildFormationPageMaillageBlocks(
   ref: FormationCatalogueCode,
   at: Date = new Date(),
 ): PageMaillageBlock[] {
   const blocks: PageMaillageBlock[] = [getFormationCatalogueNavigationBlock()];
+
+  const peer = FORMATION_MOE_AMO_PEER[ref];
+  if (peer?.length) {
+    blocks.push({
+      id: 'cluster-moe-amo',
+      title: 'Dans le cluster maîtrise d’œuvre / AMO',
+      subtitle: 'Fiche sœur du même cluster — présentiel Île-de-France, validation humaine.',
+      links: [...peer],
+    });
+  }
 
   const parcours = getParcoursLinksForFormation(ref, at);
   if (parcours.length > 0) {

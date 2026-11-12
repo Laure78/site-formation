@@ -1,0 +1,95 @@
+---
+title: "IA et confidentialité des données en maîtrise d'œuvre"
+seoTitle: "IA et confidentialité en maîtrise d'œuvre"
+description: "Maîtres d'œuvre, AMO : utilisez ChatGPT ou Claude sans exposer les données de vos clients. Paramètres, anonymisation, charte d'usage. Formation en IDF."
+slug: ia-confidentialite-donnees-maitrise-oeuvre
+publishedAt: "2026-11-12"
+updatedAt: "2026-11-12"
+cover: /images/blog/blog-charte-ia.webp
+coverAlt: "Charte d'usage de l'IA en cabinet de maîtrise d'œuvre — confidentialité données BTP"
+keywords:
+  - IA et confidentialité des données en maîtrise d'œuvre
+  - ChatGPT données clients
+  - Claude confidentialité
+  - charte IA cabinet
+readingTime: "7 min"
+hideEndCta: true
+enBref: "Un maître d'œuvre ou un AMO peut utiliser ChatGPT ou Claude sans exposer les données de ses clients s'il applique trois règles : choisir le bon niveau d'offre et les bons paramètres, anonymiser avant de coller, et formaliser une charte d'usage au sein du cabinet. Ces réflexes sont au programme des formations de Laure Olivié (OFC Création d'Entreprise, Qualiopi), en présentiel en Île-de-France. Cet article ne constitue pas un avis juridique."
+relatedSlugs:
+  - ia-maitrise-oeuvre-usages
+  - chatgpt-ou-claude-maitrise-oeuvre
+  - ia-amo-assistant-maitrise-ouvrage
+faq:
+  - question: "Puis-je envoyer un DCE complet à ChatGPT ou Claude ?"
+    answer: "Techniquement oui ; en pratique, vérifiez d'abord vos paramètres, votre offre et vos obligations contractuelles, et anonymisez ce qui peut l'être."
+  - question: "L'IA garde-t-elle mes documents ?"
+    answer: "Cela dépend de l'outil, de l'offre et des réglages (historique, entraînement). Consultez la page de confidentialité de l'éditeur et les paramètres de votre compte."
+  - question: "Faut-il prévenir le maître d'ouvrage ?"
+    answer: "Cela dépend de vos contrats et de votre relation client. La charte du cabinet doit trancher ce point."
+  - question: "Est-ce couvert en formation ?"
+    answer: "Oui : les formations maîtrise d'œuvre et AMO abordent la confidentialité des données, les risques de l'IA et une charte de bonnes pratiques."
+---
+
+## Pourquoi c'est la première question des cabinets
+
+Un cabinet de maîtrise d'œuvre manipule des informations sensibles : programmes de maîtres d'ouvrage, budgets d'opération, offres d'entreprises en cours de consultation, plans d'ouvrages parfois soumis à des contraintes de sûreté, données personnelles d'intervenants. Coller ces documents tels quels dans un outil grand public sans vérifier ses paramètres, c'est prendre un risque contractuel et réputationnel.
+
+La bonne nouvelle : la plupart des usages utiles (rédaction, synthèse, comparaison) fonctionnent très bien sur des documents anonymisés.
+
+## Règle 1 — Choisir l'offre et les paramètres
+
+- **Comptes gratuits ou individuels** : vérifiez dans les paramètres si vos conversations peuvent servir à l'entraînement des modèles, et désactivez cette option si elle existe.
+- **Offres professionnelles** (équipe, entreprise) : les éditeurs annoncent en général que les données ne servent pas à l'entraînement par défaut et proposent des contrôles d'administration. Vérifiez les conditions en vigueur au moment de votre choix : elles évoluent.
+- **Un compte au nom du cabinet**, pas des comptes personnels dispersés : c'est la condition pour appliquer une règle commune.
+
+<BlogCtaVisio src="blog-ia-confidentialite-donnees-maitrise-oeuvre" label="Cadrer l'usage IA dans votre cabinet MOE ou AMO ?" />
+
+## Règle 2 — Anonymiser avant de coller
+
+Avant d'envoyer un document, remplacez :
+- le nom du maître d'ouvrage et de l'opération par [MOA] et [OPÉRATION] ;
+- les noms d'entreprises par [ENTREPRISE A], [ENTREPRISE B] ;
+- les montants sensibles par des ordres de grandeur si le calcul exact n'est pas l'objet de la demande ;
+- les noms, téléphones et adresses e-mail des personnes.
+
+Prompt d'aide à l'anonymisation (sur un texte déjà peu sensible, ou en local) :
+
+```
+Contexte : voici un compte rendu de réunion de chantier.
+Rôle : assistant chargé de la protection des données.
+Action : remplace tous les noms de personnes, d'entreprises, d'adresses et de maîtres d'ouvrage par des étiquettes [PERSONNE 1], [ENTREPRISE A], [MOA]. Donne-moi ensuite la table de correspondance séparément.
+Format : texte anonymisé, puis tableau de correspondance.
+Ton : neutre.
+```
+
+Gardez la table de correspondance de votre côté pour réinjecter les vrais noms dans le document final.
+
+## Règle 3 — Écrire une charte d'usage du cabinet
+
+Une page suffit :
+1. outils autorisés et type de compte ;
+2. données interdites (ex. offres non ouvertes, données personnelles, documents classés) ;
+3. anonymisation obligatoire pour tout document client ;
+4. relecture humaine de tout livrable produit avec l'IA ;
+5. mention ou non de l'usage de l'IA auprès du client, selon vos contrats ;
+6. une personne référente pour les questions.
+
+Prompt pour en rédiger la première version :
+
+```
+Contexte : cabinet de maîtrise d'œuvre de [X] personnes, missions [loi MOP complète / exécution / AMO], clients publics et privés.
+Rôle : consultant en organisation.
+Action : rédige une charte d'usage de l'IA générative d'une page, en 6 rubriques : outils autorisés, données interdites, anonymisation, relecture humaine, transparence client, référent.
+Format : titres courts et puces.
+Ton : clair, applicable dès demain.
+```
+
+Faites-la relire par votre conseil si vos contrats contiennent des clauses de confidentialité particulières.
+
+## Exemple (fictif)
+
+Un cabinet de cinq personnes utilisait des comptes personnels hétérogènes. Après une formation intra, il passe sur un compte d'équipe, adopte une charte d'une page et un modèle d'anonymisation pour les comptes rendus. Les usages continuent ; les données clients ne circulent plus en clair.
+
+[Formation IA pour maîtres d'œuvre](/formations/ia-maitrise-oeuvre) · [Formation IA AMO bâtiment](/formations/ia-assistance-maitrise-ouvrage) · [12 usages IA en maîtrise d'œuvre](/blog/ia-maitrise-oeuvre-usages).
+
+<BlogCtaVisio src="blog-ia-confidentialite-donnees-maitrise-oeuvre" />

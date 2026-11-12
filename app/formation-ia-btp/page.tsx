@@ -5,6 +5,7 @@ import { RdvLink } from '@/components/RdvLink';
 import { FAQSection } from '@/components/landing/FAQSection';
 import { ShortAnswerBlock } from '@/components/landing/ShortAnswerBlock';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
+import { RelatedLinks } from '@/components/RelatedLinks';
 import { RenvoiFicheCatalogue } from '@/components/qualiopi/RenvoiFicheCatalogue';
 import { InlinePublicPhoneLink } from '@/components/PublicPhoneCta';
 import { DisclaimerGains } from '@/components/formation/DisclaimerGains';
@@ -316,6 +317,18 @@ export default function FormationIaBtpPillarPage() {
               recherche : former les professionnels du bâtiment à l&apos;intelligence
               artificielle appliquée à leurs métiers — pas une formation bâtiment
               générique sans IA.
+            </p>
+            <p>
+              Les cabinets de{' '}
+              <Link href={LINKS.formationIaMaitriseOeuvre} className="font-semibold text-[var(--accent)] hover:underline">
+                maîtrise d&apos;œuvre et MOEX
+              </Link>{' '}
+              et les missions{' '}
+              <Link href={LINKS.formationIaAssistanceMaitriseOuvrage} className="font-semibold text-[var(--accent)] hover:underline">
+                AMO bâtiment
+              </Link>{' '}
+              disposent de programmes catalogue et de parcours modulaires dédiés — même
+              exigence de présentiel en Île-de-France et de validation humaine des livrables.
             </p>
           </Reveal>
         </section>
@@ -839,6 +852,11 @@ export default function FormationIaBtpPillarPage() {
       </article>
 
       <RenvoiFicheCatalogue programmeRef="NIV-01" contexte="pour les professionnels du BTP" />
+
+      <RelatedLinks
+        path={PATH}
+        excludeHrefs={[LINKS.formationIaMaitriseOeuvre, LINKS.formationIaAssistanceMaitriseOuvrage]}
+      />
 
       <div className="mx-auto max-w-3xl px-4 pb-8">
         <FAQSection

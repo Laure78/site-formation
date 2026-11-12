@@ -268,6 +268,15 @@ export default function FormationIaParisPage() {
                 formations IA pour le BTP
               </Link>{' '}
               décline ces usages en sessions intra ou inter — organisme certifié Qualiopi ({DUREE_NIV01}, NIV-01).
+              Les équipes{' '}
+              <Link href={LINKS.formationIaMaitriseOeuvre} className={OFC_LINK}>
+                maîtres d&apos;œuvre et MOEX
+              </Link>{' '}
+              et les profils{' '}
+              <Link href={LINKS.formationIaAssistanceMaitriseOuvrage} className={OFC_LINK}>
+                AMO bâtiment
+              </Link>{' '}
+              disposent aussi de fiches et parcours dédiés en présentiel Île-de-France.
             </p>
           </div>
         </section>

@@ -194,6 +194,11 @@ export default function IaAnalyseDceBtpPage() {
                 dépouiller les offres avec l&apos;IA
               </Link>{' '}
               structure la comparaison des mémoires et des bordereaux sans trancher à votre place.
+              Côté maîtrise d&apos;ouvrage, la{' '}
+              <Link href={LINKS.formationIaAssistanceMaitriseOuvrage} className={OFC_LINK}>
+                formation IA assistance à maîtrise d&apos;ouvrage
+              </Link>{' '}
+              approfondit synthèses et analyse des offres en présentiel Île-de-France.
             </p>
           </div>
         </section>
@@ -327,7 +332,12 @@ export default function IaAnalyseDceBtpPage() {
 
         <RelatedLinks
           path={PATH}
-          excludeHrefs={[LINKS.formationIaBtp, LINKS.formationIaAppelsOffresBtp]}
+          excludeHrefs={[
+            LINKS.formationIaBtp,
+            LINKS.formationIaAppelsOffresBtp,
+            LINKS.formationIaMaitriseOeuvre,
+            LINKS.formationIaAssistanceMaitriseOuvrage,
+          ]}
         />
 
         <section className={OFC_SEC.muted} aria-labelledby="se-former-dce">

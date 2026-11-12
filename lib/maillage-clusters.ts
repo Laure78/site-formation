@@ -21,7 +21,8 @@ export type MaillageClusterId =
   | 'catalogue'
   | 'claude'
   | 'marche-public'
-  | 'usage';
+  | 'usage'
+  | 'moe-amo';
 
 type ClusterPageConfig = {
   cluster: MaillageClusterId;
@@ -608,16 +609,34 @@ const CATALOGUE_CLUSTER: CatalogueCluster[] = [
     path: LINKS.formationIaMaitriseOeuvre,
     catalogueAnchor: 'Retour au catalogue OFC — formations IA BTP',
     metier: {
-      href: LINKS.formationChargeAffairesBtp,
-      label: "IA pour chargé d'affaires et maîtrise d’œuvre",
+      href: LINKS.parcoursMaitreOeuvre,
+      label: 'Parcours IA maître d’œuvre · MOEX',
+      description: 'Initiation, MOE, Claude et assistants — modules 4 h.',
+    },
+    geo: {
+      href: LINKS.formationIleDeFrance,
+      label: 'Formation IA BTP en Île-de-France',
+    },
+    blog: {
+      href: LINKS.blogIaMaitriseOeuvreUsages,
+      label: 'IA maîtrise d’œuvre : 12 usages de PRO-DCE à AOR',
+    },
+  },
+  {
+    path: LINKS.formationIaAssistanceMaitriseOuvrage,
+    catalogueAnchor: 'Retour au catalogue OFC — formations IA BTP',
+    metier: {
+      href: LINKS.parcoursAmoBtp,
+      label: 'Parcours IA AMO BTP',
+      description: 'Initiation, mission AMO et appels d’offres.',
     },
     geo: {
       href: LINKS.formationIaBtpParis,
       label: 'Formation IA bâtiment à Paris',
     },
     blog: {
-      href: LINKS.guideMaitriseOeuvreIa,
-      label: 'Guide Maître d’Œuvre × IA (ressources)',
+      href: LINKS.blogIaAmoAssistantMaitriseOuvrage,
+      label: 'IA et assistant maîtrise d’ouvrage (blog)',
     },
   },
   {
@@ -669,6 +688,7 @@ function buildCataloguePillarLinks(at: Date = new Date()): RelatedLinkItem[] {
     [LINKS.formationConduiteTravauxSuiviChantier]: 'NIV-03 — Conduite de travaux & suivi chantier',
     [LINKS.formationMaitriserClaudeAiBtp]: 'NIV-04 — Maîtriser Claude AI pour le BTP — Chat, Cowork & Code',
     [LINKS.formationIaMaitriseOeuvre]: 'NIV-05 — IA pour la maîtrise d’œuvre',
+    [LINKS.formationIaAssistanceMaitriseOuvrage]: 'NIV-11 — IA assistance à maîtrise d’ouvrage',
     [LINKS.formationDeveloppementWebIaSansCoder]:
       'NIV-10 — Créer des applications métier BTP avec l’IA',
   };
@@ -723,6 +743,132 @@ function buildClaudeLinks(path: string): RelatedLinkItem[] {
     label: 'Cours Claude AI pour conducteurs de travaux (blog)',
   });
   return dedupeLinks(links).slice(0, 5);
+}
+
+const MOE_AMO_CLUSTER_PATHS = new Set<string>([
+  LINKS.formationIaMaitriseOeuvre,
+  LINKS.formationIaAssistanceMaitriseOuvrage,
+  LINKS.parcoursMaitreOeuvre,
+  LINKS.parcoursAmoBtp,
+]);
+
+function buildMoeAmoClusterLinks(path: string): ClusterPageConfig | null {
+  if (!MOE_AMO_CLUSTER_PATHS.has(path)) return null;
+
+  const common: RelatedLinkItem[] = [
+    {
+      href: LINKS.formations,
+      label: 'Catalogue des formations IA BTP',
+      description: 'Toutes les fiches Qualiopi — MOE, AMO, appels d’offres.',
+    },
+    {
+      href: LINKS.formationIleDeFrance,
+      label: 'Formation IA BTP en Île-de-France',
+      description: 'Présentiel uniquement — intra ou inter.',
+    },
+  ];
+
+  const byPath: Record<string, RelatedLinkItem[]> = {
+    [LINKS.formationIaMaitriseOeuvre]: [
+      {
+        href: LINKS.formationIaAssistanceMaitriseOuvrage,
+        label: 'Formation IA AMO bâtiment',
+        description: 'Côté maîtrise d’ouvrage — synthèses et consultations.',
+      },
+      {
+        href: LINKS.parcoursMaitreOeuvre,
+        label: 'Parcours IA maître d’œuvre · MOEX',
+        description: 'NUM-01, MOE, Claude et assistants — 16 h.',
+      },
+      {
+        href: LINKS.blogIaMaitriseOeuvreUsages,
+        label: '12 usages IA en maîtrise d’œuvre',
+        description: 'Article — phases PRO-DCE à AOR.',
+      },
+      {
+        href: LINKS.blogTutoSkillClaudeMaitriseOeuvre,
+        label: 'Tuto Skill Claude pour la MOE',
+        description: 'Lettres de commande et trames réutilisables.',
+      },
+    ],
+    [LINKS.formationIaAssistanceMaitriseOuvrage]: [
+      {
+        href: LINKS.formationIaMaitriseOeuvre,
+        label: 'Formation IA maîtrise d’œuvre',
+        description: 'Côté MOE/MOEX — CR, OS, avenants, réception.',
+      },
+      {
+        href: LINKS.parcoursAmoBtp,
+        label: 'Parcours IA AMO BTP',
+        description: 'Initiation, AMO et appels d’offres — 12 h.',
+      },
+      {
+        href: LINKS.formationAO,
+        label: 'Formation IA appels d’offres BTP',
+        description: 'Analyse DCE et structuration de réponse.',
+      },
+      {
+        href: LINKS.blogTutoDepouillementOffresIa,
+        label: 'Tutoriel dépouillement des offres',
+        description: 'Comparer les offres rendues avec l’IA.',
+      },
+    ],
+    [LINKS.parcoursMaitreOeuvre]: [
+      {
+        href: LINKS.formationIaMaitriseOeuvre,
+        label: 'Module MOE du parcours (NIV-05)',
+        description: 'Fiche catalogue Qualiopi — 4 h, 170 € HT/participant.',
+      },
+      {
+        href: LINKS.formationMaitriserClaudeAiBtp,
+        label: 'Maîtriser Claude AI pour le BTP',
+        description: 'Étape 3 du parcours — Projects et Skills.',
+      },
+      {
+        href: LINKS.formationAssistantsIaPersonnalisesBtp,
+        label: 'Assistants IA personnalisés BTP',
+        description: 'Étape 4 — industrialiser les usages documentaires.',
+      },
+      {
+        href: LINKS.blogIaMaitriseOeuvreUsages,
+        label: 'Usages IA par phase de mission MOE',
+        description: 'Lecture complémentaire avant le parcours.',
+      },
+    ],
+    [LINKS.parcoursAmoBtp]: [
+      {
+        href: LINKS.formationIaAssistanceMaitriseOuvrage,
+        label: 'Module AMO du parcours (NIV-11)',
+        description: 'Fiche catalogue — assistance à maîtrise d’ouvrage.',
+      },
+      {
+        href: LINKS.formationAO,
+        label: 'Formation IA appels d’offres BTP',
+        description: 'Étape 3 du parcours — analyse DCE.',
+      },
+      {
+        href: LINKS.blogIaAmoAssistantMaitriseOuvrage,
+        label: 'IA pour assistants maîtrise d’ouvrage',
+        description: 'Cas AMO et limites de confidentialité.',
+      },
+      {
+        href: LINKS.iaAnalyseDce,
+        label: 'Méthode — analyser un DCE avec l’IA',
+        description: 'Page transactionnelle avant la session NIV-02.',
+      },
+    ],
+  };
+
+  const specific = byPath[path] ?? [];
+  const links = dedupeLinks([...specific, ...common]).slice(0, 5);
+  if (links.length < 3) return null;
+
+  return {
+    cluster: 'moe-amo',
+    title: 'Cluster maîtrise d’œuvre · AMO',
+    subtitle: 'Fiches formation, parcours modulaires et articles du même périmètre — présentiel IDF.',
+    links,
+  };
 }
 
 function dedupeLinks(links: RelatedLinkItem[]): RelatedLinkItem[] {
@@ -938,7 +1084,7 @@ export function getClusterRelatedLinks(path: string): ClusterPageConfig | null {
         {
           href: LINKS.parcoursMetiers,
           label: 'Parcours métiers — choisir selon ma fonction',
-          description: '5 parcours progressifs du catalogue 2027.',
+          description: 'Parcours modulaires dont MOE, AMO et conducteur de travaux.',
         },
         {
           href: LINKS.formations,
@@ -978,6 +1124,16 @@ export function getClusterRelatedLinks(path: string): ClusterPageConfig | null {
           description: 'De la passation à la réception — modules + IA.',
         },
         {
+          href: LINKS.parcoursMaitreOeuvre,
+          label: 'Parcours IA maître d’œuvre · MOEX',
+          description: 'Initiation, MOE, Claude et assistants — 4 modules.',
+        },
+        {
+          href: LINKS.parcoursAmoBtp,
+          label: 'Parcours IA AMO BTP',
+          description: 'Initiation, AMO et appels d’offres.',
+        },
+        {
           href: LINKS.iaAnalyseDce,
           label: 'Analyser un DCE avec l’IA',
           description: 'Méthode CCTP, CCAP, RC — avant la session NIV-02.',
@@ -995,6 +1151,44 @@ export function getClusterRelatedLinks(path: string): ClusterPageConfig | null {
       ]).slice(0, 6),
     };
   }
+
+  if (normalized === LINKS.formationIaBtp) {
+    return {
+      cluster: 'moe-amo',
+      title: 'Montée en compétences MOE et AMO',
+      subtitle: 'Sessions catalogue et parcours modulaires — présentiel Île-de-France uniquement.',
+      links: dedupeLinks([
+        {
+          href: LINKS.formationIaMaitriseOeuvre,
+          label: 'Formation IA maîtres d’œuvre et MOEX',
+          description: 'CR, OS, avenants, situations — validation humaine.',
+        },
+        {
+          href: LINKS.formationIaAssistanceMaitriseOuvrage,
+          label: 'Formation IA assistance maîtrise d’ouvrage (AMO)',
+          description: 'Synthèses MOA, consultations et suivi de dossiers.',
+        },
+        {
+          href: LINKS.parcoursMaitreOeuvre,
+          label: 'Parcours IA maître d’œuvre',
+          description: 'Quatre modules de 4 h — catalogue 2027.',
+        },
+        {
+          href: LINKS.parcoursAmoBtp,
+          label: 'Parcours IA AMO BTP',
+          description: 'Initiation, AMO et analyse d’appels d’offres.',
+        },
+        {
+          href: LINKS.formations,
+          label: 'Catalogue complet des formations',
+          description: 'Comparer durées et tarifs HT / participant.',
+        },
+      ]).slice(0, 5),
+    };
+  }
+
+  const moeAmoCluster = buildMoeAmoClusterLinks(normalized);
+  if (moeAmoCluster) return moeAmoCluster;
 
   // --- Catalogue ---
   if (normalized === LINKS.formations) {
@@ -1064,6 +1258,16 @@ function buildUsageTaskPageCluster(path: string): ClusterPageConfig | null {
           description: 'DCE, checklist et mémoire technique — session catalogue NIV-02.',
         },
         {
+          href: LINKS.formationIaAssistanceMaitriseOuvrage,
+          label: 'Formation IA AMO bâtiment',
+          description: 'Comparer et synthétiser les offres côté maîtrise d’ouvrage.',
+        },
+        {
+          href: LINKS.parcoursAmoBtp,
+          label: 'Parcours IA AMO BTP',
+          description: 'Initiation, mission AMO et appels d’offres.',
+        },
+        {
           href: LINKS.parcoursChargeAffairesBtp,
           label: 'Parcours Chargé d’affaires BTP',
           description: 'Chiffrage, AO et suivi d’affaire — modules métier + IA.',
@@ -1124,6 +1328,16 @@ function buildUsageTaskPageCluster(path: string): ClusterPageConfig | null {
           href: LINKS.formationConduiteTravauxSuiviChantier,
           label: 'Formation IA conduite de travaux et suivi chantier',
           description: 'CR, CCTP, PPSPS — session catalogue NIV-03.',
+        },
+        {
+          href: LINKS.formationIaMaitriseOeuvre,
+          label: 'Formation IA maîtrise d’œuvre',
+          description: 'CR, OS et réserves côté MOE/MOEX.',
+        },
+        {
+          href: LINKS.parcoursMaitreOeuvre,
+          label: 'Parcours IA maître d’œuvre',
+          description: 'Module MOE + Claude + assistants.',
         },
         {
           href: LINKS.parcoursConducteurDeTravaux,
