@@ -4,6 +4,7 @@ import { FAQAnswer } from '@/components/landing/FAQAnswer';
 import Link from 'next/link';
 import { notFound, permanentRedirect } from 'next/navigation';
 import {
+  getBlogArticleCanonicalPath,
   getBlogArticleCanonicalPathFromMdx,
   mdxBlogSlugRequiresExternalCanonical,
 } from '@/lib/blog-article-path';
@@ -26,6 +27,7 @@ import {
   type ArticlePrompt,
 } from '@/lib/blog';
 import { isBlogTemplatedSlug } from '@/lib/blog-templated-articles';
+import { isBlogCustomPageSlug } from '@/lib/blog-custom-page-slugs';
 import { BlogMdxArticle } from '@/components/blog/BlogMdxArticle';
 import {
   buildMdxBlogMetadata,
@@ -117,7 +119,9 @@ function getPromptsFromContent(
 }
 
 export async function generateStaticParams() {
-  return mergeBlogSlugsForStaticParams(getAllSlugs()).map((slug) => ({ slug }));
+  return mergeBlogSlugsForStaticParams(getAllSlugs())
+    .filter((slug) => !isBlogCustomPageSlug(slug))
+    .map((slug) => ({ slug }));
 }
 
 export async function generateMetadata({ params }: Props) {
@@ -184,6 +188,9 @@ export async function generateMetadata({ params }: Props) {
 
 export default async function BlogArticlePage({ params }: Props) {
   const { slug } = await params;
+  if (isBlogCustomPageSlug(slug)) {
+    permanentRedirect(getBlogArticleCanonicalPath(getArticle(slug) ?? { slug }));
+  }
   const fmEarly = getMdxFrontmatter(slug);
   if (fmEarly && mdxBlogSlugRequiresExternalCanonical(fmEarly)) {
     permanentRedirect(getBlogArticleCanonicalPathFromMdx(fmEarly));

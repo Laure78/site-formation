@@ -205,7 +205,11 @@ export default function IaCompteRenduChantierPage() {
               <Link href={LINKS.formationIaMaitriseOeuvre} className={OFC_LINK}>
                 formation IA maîtrise d&apos;œuvre
               </Link>{' '}
-              (présentiel Île-de-France).
+              (présentiel Île-de-France). Pour une vue d&apos;ensemble côté MOE, voir{' '}
+              <Link href={LINKS.blogClaudeIaMaitriseOeuvre} className={OFC_LINK}>
+                les 12 usages de Claude en maîtrise d&apos;œuvre
+              </Link>
+              .
             </p>
           </div>
         </section>

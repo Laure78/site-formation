@@ -647,6 +647,8 @@ export const LINKS = {
   blogTutoControleSituationTravauxIa: '/blog/tuto-controle-situation-travaux-ia',
   /** Article — usages IA en maîtrise d'œuvre BTP */
   blogIaMaitriseOeuvreUsages: '/blog/ia-maitrise-oeuvre-usages',
+  /** Article dédié — Claude × maîtrise d'œuvre (12 usages, page custom) */
+  blogClaudeIaMaitriseOeuvre: '/blog/claude-ia-maitrise-oeuvre',
   blogIaVisaDocumentsExecution: '/blog/ia-visa-documents-execution',
   blogIaConfidentialiteDonneesMaitriseOeuvre: '/blog/ia-confidentialite-donnees-maitrise-oeuvre',
   blogIaOprLeveeReserves: '/blog/ia-opr-levee-reserves',

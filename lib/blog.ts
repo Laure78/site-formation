@@ -17,6 +17,7 @@ import { blogArticlesClaudeBtp2026 } from '@/lib/blog-claude-btp-2026-articles';
 import { blogArticlesLsrAoModules } from '@/lib/blog-lsr-ao-modules-articles';
 import { blogArticleFormationIaCctpAnalyseDceBtp } from '@/lib/blog-formation-ia-cctp-pillar';
 import { blogArticleIaDevisBatimentChiffrageAutomatise } from '@/lib/blog-ia-devis-batiment-chiffrage-automatise';
+import { blogArticleClaudeIaMaitriseOeuvre } from '@/lib/blog-claude-ia-maitrise-oeuvre-article';
 import {
   AO_DCE_CLUSTER_BLOG,
   clusterMaillageHtmlSection,
@@ -247,6 +248,7 @@ export function getBlogCTAMidInsertAfterIndex(
 }
 
 export const BLOG_ARTICLES: BlogArticle[] = [
+  blogArticleClaudeIaMaitriseOeuvre,
   blogArticleIaDevisBatimentChiffrageAutomatise,
   blogArticleFormationIaCctpAnalyseDceBtp, ...blogArticlesClaudeBtp2026, ...blogArticlesLsrAoModules,
   // Avril 2026 — Brief chiffré adoption IA BTP (Plein Sens, Orisha, marchés)
@@ -2166,6 +2168,7 @@ export function getArticleCategory(slug: string): BlogCategoryId {
     return 'metiers';
   if (s.includes('7-cas-usage-ia-btp') || s.includes('5-assistants-ia-btp')) return 'metiers';
   if (s.includes('guide-claude-ia-btp') || s.includes('mcp-claude-model')) return 'metiers';
+  if (s.includes('maitrise-oeuvre') || s.includes('claude-ia-maitrise')) return 'metiers';
   if (s.includes('prompts-linkedin-btp')) return 'productivite';
   if (s.includes('adoption-ia-btp') || s.includes('ia-btp-2026')) return 'metiers';
   if (s.includes('garage-automobile') || s.includes('garage-auto')) return 'metiers';

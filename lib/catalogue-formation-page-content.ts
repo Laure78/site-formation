@@ -834,6 +834,11 @@ const NIV_05: CatalogueFormationPageContent = {
   pdfHref: LINKS.pdfProgrammeIaMaitriseOeuvre,
   programLinks: [
     {
+      prefix: 'À lire :',
+      href: LINKS.blogClaudeIaMaitriseOeuvre,
+      label: "12 usages de Claude en maîtrise d'œuvre",
+    },
+    {
       prefix: 'Pour le pilotage chantier côté entreprise, voir la',
       href: LINKS.formationConduiteTravauxSuiviChantier,
       label: 'formation conduite de travaux',
