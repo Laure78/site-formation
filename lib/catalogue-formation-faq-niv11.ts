@@ -27,7 +27,7 @@ export const FAQ_AMO_NIV11: FAQItem[] = [
   },
   {
     q: 'Quelle différence avec la formation IA maîtrise d’œuvre ?',
-    a: `La <a href="${LINKS.formationIaMaitriseOuvrage}">formation maîtrise d’œuvre</a> cible les missions MOE (CCTP, DPGF, DCE, CR, OS, réserves). Cette session AMO porte sur l’analyse des consultations, le rapport d’analyse des offres, le pilotage des intervenants et le reporting au maître d’ouvrage.`,
+    a: `La <a href="${LINKS.formationIaMaitriseOeuvre}">formation maîtrise d’œuvre</a> cible les missions MOE (CCTP, DPGF, DCE, CR, OS, réserves). Cette session AMO porte sur l’analyse des consultations, le rapport d’analyse des offres, le pilotage des intervenants et le reporting au maître d’ouvrage.`,
   },
   {
     q: 'Faut-il déjà maîtriser ChatGPT ou Claude ?',

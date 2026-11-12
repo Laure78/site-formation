@@ -18,6 +18,7 @@ import {
   type RdvFonction,
 } from '@/lib/rdv-form-options';
 import { LINKS } from '@/lib/internal-links';
+import { PRENDRE_RDV_SECOURS_ANCHOR } from '@/lib/prendre-rendez-vous-page-config';
 import {
   getPagePath,
   sendGa4Event,
@@ -584,10 +585,13 @@ export function RdvBookingFlow() {
             <div className="rounded-xl border border-amber-200 bg-amber-50 p-4 text-sm text-amber-950">
               <p className="font-semibold">Aucun créneau natif ouvert pour le moment.</p>
               <p className="mt-1">
-                Vous pouvez réserver via l’agenda ci-dessous, ou nous écrire via la{' '}
-                <Link href={LINKS.contact} className="font-medium text-[var(--accent)] underline">
-                  page contact
-                </Link>
+                Vous pouvez réserver via l’agenda ci-dessous, ou utiliser la section{' '}
+                <a
+                  href={`#${PRENDRE_RDV_SECOURS_ANCHOR}`}
+                  className="font-medium text-[var(--accent)] underline"
+                >
+                  Aucun créneau ne vous convient ?
+                </a>
                 .
               </p>
               <div className="mt-4">

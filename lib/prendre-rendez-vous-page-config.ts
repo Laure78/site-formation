@@ -124,6 +124,9 @@ export const PRENDRE_RDV_FORM_ANCHOR = 'calendly';
 /** Ancre formulaire natif (option secondaire). */
 export const PRENDRE_RDV_NATIVE_FORM_ANCHOR = 'agenda-site';
 
+/** Section secours — après réservation / aucun créneau (`aria-labelledby` sur `/prendre-rdv`). */
+export const PRENDRE_RDV_SECOURS_ANCHOR = 'rdv-apres';
+
 /** GEO discret (bas de page) — Laure, BTP, siège Paris 12e / IDF. */
 export const PRENDRE_RDV_GEO_NOTE =
   `Laure Olivié — formatrice IA appliquée au BTP (OFC Création d’Entreprise, ${siteAdresseLigne()}). Catalogue IA BTP exclusivement en présentiel en Île-de-France, en groupe (intra ou interentreprises). Vous pouvez vous inscrire à une session collective interentreprises ; aucun accompagnement individuel n’est proposé. Le catalogue IA BTP est en présentiel, en Île-de-France. L’échange découverte (30 minutes) peut se faire en visioconférence. Satisfaction ${PREUVES.satisfaction}.`;

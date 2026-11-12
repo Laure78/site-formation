@@ -43,6 +43,7 @@ import {
   PRENDRE_RDV_PROCESS_TITLE,
   PRENDRE_RDV_PROOFS,
   PRENDRE_RDV_REASSURANCE,
+  PRENDRE_RDV_SECOURS_ANCHOR,
   PRENDRE_RDV_SUBTITLE,
 } from '@/lib/prendre-rendez-vous-page-config';
 import { getPillarPageContentUpdatedAt } from '@/lib/content-updated-at';
@@ -270,9 +271,15 @@ export default function PrendreRendezVousPage() {
       </section>
 
       {/* ——— Après / secours ——— */}
-      <section className="border-t border-slate-100 bg-[#F8FAFC]" aria-labelledby="rdv-apres">
+      <section
+        className="border-t border-slate-100 bg-[#F8FAFC]"
+        aria-labelledby={PRENDRE_RDV_SECOURS_ANCHOR}
+      >
         <div className={`${OFC_SECTION_INNER} max-w-3xl py-12 md:py-14`}>
-          <h2 id="rdv-apres" className="font-display text-lg font-bold text-slate-900 md:text-xl">
+          <h2
+            id={PRENDRE_RDV_SECOURS_ANCHOR}
+            className="font-display text-lg font-bold text-slate-900 md:text-xl"
+          >
             Après la réservation
           </h2>
           <ul className="mt-4 list-inside list-disc space-y-1.5 text-sm text-slate-700">
