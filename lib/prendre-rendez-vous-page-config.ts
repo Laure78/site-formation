@@ -2,7 +2,8 @@
  * Contenu page `/prendre-rdv` — UX conversion + SEO (source unique).
  * Ne pas inventer de chiffres : preuves via `lib/constants` / indicateurs.
  */
-import { CONTACT, PREUVES } from '@/lib/constants';
+import { CONTACT, PREUVES, PREUVES_FEDERATIONS_OPCO } from '@/lib/constants';
+import { TARIF_PARTICIPANT_NIV01_HT } from '@/lib/tarifs-catalogue-participant';
 import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
 import { LINKS } from '@/lib/internal-links';
 import { siteAdresseLigne } from '@/lib/site-config';
@@ -16,10 +17,18 @@ export const PRENDRE_RDV_PAGE_TITLE = 'Prendre rendez-vous | Formation IA BTP';
 export const PRENDRE_RDV_META_DESCRIPTION =
   'Réservez 30 min avec Laure Olivié : formation IA pour le BTP, devis, chantiers et appels d’offres. Visio découverte gratuite, sans engagement. Qualiopi.';
 
-export const PRENDRE_RDV_H1 = 'Prenez rendez-vous';
+export const PRENDRE_RDV_H1 =
+  'Visio découverte gratuite : votre projet de formation IA BTP en Île-de-France';
 
 export const PRENDRE_RDV_SUBTITLE =
-  'Choisissez directement le créneau qui vous convient pour échanger sur votre projet de formation IA dans le BTP.';
+  '30 minutes avec Laure Olivié pour repérer vos tâches chronophages et choisir la bonne formation. Gratuit, sans engagement.';
+
+export const PRENDRE_RDV_HOST_NAME = 'Laure Olivié';
+
+export const PRENDRE_RDV_HOST_BIO =
+  "Fondatrice d'OFC Création d'Entreprise, organisme certifié Qualiopi. 7 ans dans le BTP (ex-dirigeante d'ALIA BTP), instructrice LinkedIn Learning.";
+
+export const PRENDRE_RDV_REFERENCES_LINE = PREUVES_FEDERATIONS_OPCO;
 
 export const PRENDRE_RDV_USE_CASES_LINE =
   'Devis · Chantiers · Appels d’offres · Administratif · Commercial';
@@ -69,9 +78,9 @@ export const PRENDRE_RDV_PROCESS_STEPS = [
   },
 ] as const;
 
-export const PRENDRE_RDV_FORM_TITLE = 'Autre option : formulaire du site';
+export const PRENDRE_RDV_FORM_TITLE = 'Vous préférez décrire votre besoin par écrit ?';
 export const PRENDRE_RDV_FORM_SUBTITLE =
-  'Si vous préférez ne pas utiliser Calendly, indiquez votre besoin ici puis choisissez un créneau.';
+  'Indiquez votre besoin ici, puis choisissez un créneau : même échange de 30 minutes, sans passer par Calendly.';
 
 export const PRENDRE_RDV_CALENDLY_SECTION_TITLE = 'Réserver votre créneau';
 export const PRENDRE_RDV_CALENDLY_SECTION_SUBTITLE =
@@ -134,7 +143,15 @@ export const FAQ_PRENDRE_RDV_PAGE: readonly PrendreRdvFaqItem[] = [
     a: `Non. Le catalogue IA BTP est en présentiel, en Île-de-France, en groupe, en intra ou en inter-entreprises. Vous pouvez vous inscrire à une session collective interentreprises ; aucun accompagnement individuel n’est proposé.`,
   },
   {
+    q: 'Combien coûte une formation ?',
+    a: `Le Niveau 1 (4 h) en interentreprises à Paris 12e coûte ${TARIF_PARTICIPANT_NIV01_HT} € HT par participant. En intra, dans vos locaux en Île-de-France, le tarif est établi sur devis.`,
+  },
+  {
+    q: 'La formation est-elle finançable ?',
+    a: `Prise en charge OPCO/Constructys selon éligibilité, sans subrogation : l'entreprise règle la formation puis se fait rembourser. Les formations ne sont pas éligibles au CPF. Voir <a href="${LINKS.financement}">le financement Constructys</a>.`,
+  },
+  {
     q: 'Que faire si aucun créneau ne me convient ?',
-    a: `Utilisez la page <a href="${LINKS.contact}">Contact</a> ou écrivez à <a href="mailto:${CONTACT.email}">${CONTACT.email}</a>.`,
+    a: `Utilisez la section « Aucun créneau ne vous convient ? » sur cette page : bouton de demande ou email ${CONTACT.email}.`,
   },
 ];

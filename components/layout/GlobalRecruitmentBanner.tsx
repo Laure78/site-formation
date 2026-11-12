@@ -20,6 +20,11 @@ export function GlobalRecruitmentBanner() {
     return null;
   }
 
+  // Pas de distraction au-dessus de l’agenda sur les pages RDV.
+  if (pathname === '/prendre-rdv' || pathname === '/prendre-rendez-vous') {
+    return null;
+  }
+
   const { banner } = campaign;
 
   return (

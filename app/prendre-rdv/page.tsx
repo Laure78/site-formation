@@ -1,13 +1,18 @@
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import Link from 'next/link';
 import { Suspense } from 'react';
 import { FAQSection } from '@/components/landing/FAQSection';
 import { RdvBookingFlowIsland } from '@/components/prendre-rendez-vous/RdvBookingFlowIsland';
 import { PrendreRdvAgenda } from '@/components/prendre-rendez-vous/PrendreRdvAgenda';
+import { RdvBookingTracker } from '@/components/prendre-rendez-vous/RdvBookingTracker';
 import { RdvStickyMobileCta } from '@/components/prendre-rendez-vous/RdvStickyMobileCta';
 import { TrainingDeliveryInfo } from '@/components/formations/TrainingDeliveryInfo';
 import { JsonLd } from '@/components/JsonLd';
 import { createPageMetadata, getFAQSchema } from '@/lib/seo';
+import { PREUVES } from '@/lib/constants';
+import { LINKS } from '@/lib/internal-links';
+import { PHOTOS } from '@/lib/photos';
 import { SCHEMA_PUBLIC_SITE_URL } from '@/lib/schema-constants';
 import { OFC_SECTION_INNER } from '@/lib/ofc-section-classes';
 import { OFC_CTA_SECONDARY, OFC_LINK } from '@/lib/ofc-interaction-classes';
@@ -18,8 +23,10 @@ import {
   PRENDRE_RDV_AUDIENCE_TITLE,
   PRENDRE_RDV_CALENDLY_SECTION_TITLE,
   PRENDRE_RDV_CONTACT_HREF,
-  PRENDRE_RDV_CTA_NATIVE,
   PRENDRE_RDV_CTA_SECONDARY,
+  PRENDRE_RDV_HOST_BIO,
+  PRENDRE_RDV_HOST_NAME,
+  PRENDRE_RDV_REFERENCES_LINE,
   PRENDRE_RDV_DEVIS_FORMULATION,
   PRENDRE_RDV_EMAIL,
   PRENDRE_RDV_FORM_ANCHOR,
@@ -155,6 +162,21 @@ export default function PrendreRendezVousPage() {
           </div>
 
           <div className="mt-4 space-y-3 border-t border-slate-100 pt-4 sm:mt-5">
+            <div className="flex gap-3 sm:gap-4">
+              <Image
+                src={PHOTOS.profileBlue.src}
+                alt={PHOTOS.profileBlue.alt}
+                width={56}
+                height={62}
+                className="h-[62px] w-14 shrink-0 rounded-full object-cover"
+              />
+              <div className="min-w-0 text-sm leading-snug text-slate-600">
+                <p className="font-semibold text-slate-900">
+                  Vous échangez avec {PRENDRE_RDV_HOST_NAME}
+                </p>
+                <p className="mt-0.5">{PRENDRE_RDV_HOST_BIO}</p>
+              </div>
+            </div>
             <p className="text-xs font-medium text-slate-600 sm:text-sm">{PRENDRE_RDV_REASSURANCE}</p>
             <ul className="flex flex-col gap-1.5 text-xs text-slate-600 sm:flex-row sm:flex-wrap sm:gap-x-5 sm:gap-y-1 sm:text-sm">
               {PRENDRE_RDV_PROOFS.map((item) => (
@@ -164,6 +186,12 @@ export default function PrendreRendezVousPage() {
                 </li>
               ))}
             </ul>
+            <p className="text-xs text-slate-600 sm:text-sm">
+              {PRENDRE_RDV_REFERENCES_LINE}{' '}
+              <Link href={LINKS.indicateursResultats} className={OFC_LINK}>
+                Voir nos indicateurs ({PREUVES.satisfaction})
+              </Link>
+            </p>
             <TrainingDeliveryInfo variant="inline" className="text-slate-600" />
             <p className="text-sm text-slate-600">
               <Link href={PRENDRE_RDV_FORMATIONS_HREF} className={OFC_LINK}>
@@ -232,10 +260,8 @@ export default function PrendreRendezVousPage() {
           <p className="mt-2 max-w-prose text-sm text-slate-600">{PRENDRE_RDV_FORM_SUBTITLE}</p>
           <p className="mt-3 text-sm">
             <a href={`#${PRENDRE_RDV_FORM_ANCHOR}`} className={OFC_LINK}>
-              Revenir à Calendly
+              Revenir à l&apos;agenda
             </a>
-            {' · '}
-            <span className="text-slate-500">{PRENDRE_RDV_CTA_NATIVE}</span>
           </p>
           <div className="mx-auto mt-8 max-w-[720px]">
             <RdvBookingFlowIsland />
@@ -287,7 +313,7 @@ export default function PrendreRendezVousPage() {
           <FAQSection
             items={[...FAQ_PRENDRE_RDV_PAGE]}
             title="Questions fréquentes"
-            subtitle="Gratuité, déroulement, absence de créneau."
+            subtitle="Gratuité, déroulement, tarif, financement, absence de créneau."
           />
           <p className="mt-8 max-w-prose text-xs leading-relaxed text-slate-500">
             {PRENDRE_RDV_GEO_NOTE}
@@ -303,6 +329,9 @@ export default function PrendreRendezVousPage() {
       </section>
 
       <RdvStickyMobileCta />
+      <Suspense fallback={null}>
+        <RdvBookingTracker />
+      </Suspense>
     </main>
   );
 }
