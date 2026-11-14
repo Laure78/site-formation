@@ -591,7 +591,7 @@ export const FORMATIONS: readonly Formation[] = [
     prixHT: 0,
     tarifParticipantHt: TARIF_PARTICIPANT_NIV10_14H_HT,
     accroche:
-      'En deux jours, reliez vos outils avec Make, intégrez une étape IA et testez une automatisation sur l’un de vos processus métier — avec validation humaine avant tout envoi.',
+      'Apportez une tâche que votre équipe répète : en deux jours, reliez vos outils avec Make, ajoutez une étape IA et testez une automatisation — validation humaine avant tout envoi.',
     objectifs: [
       'Choisir une tâche répétitive BTP automatisables sans risque juridique ni contractuel',
       'Cartographier le processus, les données et les points de contrôle humain',

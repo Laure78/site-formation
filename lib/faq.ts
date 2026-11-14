@@ -630,6 +630,10 @@ export const FAQ_AGENTS_IA_NIV13: FAQItem[] = [
 /** FAQ — Automatiser ses tâches avec l’IA dans le BTP (NIV-14) */
 export const AUTOMATISER_TACHES_IA_FAQ: FAQItem[] = [
   {
+    q: 'Puis-je participer si mes outils d’entreprise ne sont pas accessibles ?',
+    a: 'Oui. Vous pouvez construire et tester votre scénario sur des comptes de test, avec des exemples anonymisés ou fictifs. Les accès nécessaires sont vérifiés avant la session.',
+  },
+  {
     q: 'Peut-on travailler avec les outils de notre entreprise ?',
     a: 'Oui, selon les connecteurs Make disponibles et les autorisations de votre entreprise. Les outils et accès sont cadrés avant la session.',
   },

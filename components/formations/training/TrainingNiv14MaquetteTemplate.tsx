@@ -14,6 +14,7 @@ import { TrainingParticipantsReviewsSection } from '@/components/formations/trai
 import { TrainingContinueSection } from '@/components/formations/training/TrainingContinueSection';
 import { FormateurIntervenantBlock } from '@/components/formateurs/FormateurIntervenantBlock';
 import { TrainingMaquetteMarketing } from '@/components/formations/training/TrainingMaquetteMarketing';
+import { Niv14AtelierContext } from '@/components/formations/training/niv14-maquette/Niv14AtelierContext';
 import { Niv14AutomatisationCasPratiques } from '@/components/formations/training/niv14-maquette/Niv14AutomatisationCasPratiques';
 import type { CatalogueFormationPageContent } from '@/lib/catalogue-formation-page-content';
 import { getFormationByCode } from '@/data/formations';
@@ -30,7 +31,7 @@ import { buildFormationPageMaillageBlocks } from '@/lib/page-maillage-blocks';
 import type { FormationCatalogueCode } from '@/lib/formation-catalogue-visibility';
 import { TrainingPracticalInfo } from '@/components/formations/training/TrainingPracticalInfo';
 import { TrainingSection } from '@/components/formations/training/TrainingSection';
-import { Clock, Coins, Layers, MapPin, Percent, Users } from 'lucide-react';
+import { Clock, Coins, Layers, MapPin, Users } from 'lucide-react';
 import { formatNumberFr } from '@/lib/format-number-fr';
 import { TARIF_PARTICIPANT_NIV10_14H_HT } from '@/lib/tarifs-catalogue-participant';
 import { formationNiveauOfficielLabel } from '@/lib/formation-niveaux-officiels';
@@ -47,8 +48,10 @@ const NIV14_KEY_FACTS = [
   { icon: Clock, sub: '14 h sur 2 jours (dont 10 h de pratique)' },
   { icon: Coins, sub: `${formatNumberFr(TARIF_PARTICIPANT_NIV10_14H_HT)} € HT / participant` },
   { icon: Users, sub: '6 à 12 participants' },
-  { icon: MapPin, sub: 'Présentiel inter et intra — Île-de-France' },
-  { icon: Percent, sub: 'Environ 71 % de pratique' },
+  {
+    icon: MapPin,
+    sub: 'Présentiel en inter-entreprises et en intra-entreprise dans les locaux de l’entreprise — Île-de-France',
+  },
 ] as const;
 
 /** Fiche NIV-14 — automatisation Make · 14 h · maquette catalogue. */
@@ -98,7 +101,12 @@ export async function TrainingNiv14MaquetteTemplate({
         indicatorItems={NIV14_KEY_FACTS}
         ctaMode="programme-devis"
         enBref={seo.enBref}
-        slotBeforeProgramme={<Niv14AutomatisationCasPratiques />}
+        slotBeforeProgramme={
+          <>
+            <Niv14AutomatisationCasPratiques />
+            <Niv14AtelierContext />
+          </>
+        }
       />
 
       <section className="sr-only" aria-label="En bref">

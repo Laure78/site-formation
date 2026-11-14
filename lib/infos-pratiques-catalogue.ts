@@ -132,6 +132,16 @@ export const PROGRAMME_CONTENU_CATALOGUE: Record<FormationCode, readonly string[
     'Jour 2 — Module 7 — Organiser la supervision (2 h)',
     'Jour 2 — Module 8 — Mesurer et présenter le prototype (2 h)',
   ],
+  'NIV-14': [
+    'Jour 1 — Module 1 — Choisir une tâche répétitive (1 h 30)',
+    'Jour 1 — Module 2 — Préparer les données et les accès (1 h 30)',
+    'Jour 1 — Module 3 — Relier deux outils avec Make (2 h)',
+    'Jour 1 — Module 4 — Ajouter une étape IA et une validation (2 h)',
+    'Jour 2 — Module 5 — Monter son scénario BTP (2 h 30)',
+    'Jour 2 — Module 6 — Tester cinq situations (2 h)',
+    'Jour 2 — Module 7 — Documenter et transmettre (1 h 30)',
+    'Jour 2 — Module 8 — Évaluer et préparer le pilote (1 h)',
+  ],
   'NIV-10': [
     'Jour 1 — Accueil, cadrage et positionnement (15 min)',
     'Jour 1 — Module 1 — Cadrer et préparer son projet (1 h 15)',
@@ -151,6 +161,9 @@ const PREREQUIS_NIV01 =
 
 export const PREREQUIS_NIV13 =
   'Public : dirigeants, conducteurs de travaux, chargés d’affaires et fonctions support des PME du BTP. Savoir utiliser ChatGPT ou Claude et avoir déjà construit ou testé une automatisation simple. Apporter un ordinateur, un processus décrit et quelques exemples anonymisés ou fictifs. Outils : Make pour relier les outils ; Claude Code ou Codex selon le prototype — accès et licences vérifiés avant la session, non inclus dans le tarif.';
+
+export const PREREQUIS_NIV14 =
+  'Public : dirigeants, conducteurs de travaux, chargés d’affaires et fonctions support des PME du BTP. Savoir utiliser ChatGPT ou Claude et identifier clairement une tâche répétitive à automatiser. Apporter un ordinateur, une description de processus et des exemples anonymisés ou fictifs si les outils d’entreprise ne sont pas accessibles. Outils : compte Make actif (modules utilisés en session) — accès vérifiés avant la session, non inclus dans le tarif.';
 
 const MODALITES_ACCES_NIV01 =
   `Inscription sur demande auprès d'OFC (${CONTACT.email} — ${CONTACT.phoneDisplay}) : analyse du besoin → acceptation du devis → signature de la convention de formation → demande de prise en charge OPCO → convocation. Un questionnaire de positionnement est adressé à chaque participant avant la session.`;
@@ -437,6 +450,7 @@ function prerequisPourRef(ref: FormationCode): string {
   if (ref === 'NIV-11') return PREREQUIS_NIV11;
   if (ref === 'NIV-12') return PREREQUIS_NIV12;
   if (ref === 'NIV-13') return PREREQUIS_NIV13;
+  if (ref === 'NIV-14') return PREREQUIS_NIV14;
   return PREREQUIS_NIVEAU_2.join(' ');
 }
 
@@ -485,7 +499,7 @@ export function getInfosPratiquesForCatalogue(ref: string): InfosPratiquesFormat
       sanitizeInfosPratiquesText(
         code === 'NIV-11' || code === 'NIV-12'
           ? MODALITES_ACCES_NIV05
-          : code === 'NIV-13'
+          : code === 'NIV-13' || code === 'NIV-14'
             ? MODALITES_ACCES_NIV10
           : code === 'NIV-01'
           ? MODALITES_ACCES_NIV01
@@ -511,7 +525,7 @@ export function getInfosPratiquesForCatalogue(ref: string): InfosPratiquesFormat
     delaiAcces: sanitizeInfosPratiquesText(
       code === 'NIV-11' || code === 'NIV-12'
         ? DELAI_ACCES_NIV05
-        : code === 'NIV-01' || code === 'NIV-02' || code === 'NIV-03' || code === 'NIV-04' || code === 'NIV-05' || code === 'NIV-06' || code === 'NIV-07' || code === 'NIV-08' || code === 'NIV-09' || code === 'NIV-10' || code === 'NIV-13'
+        : code === 'NIV-01' || code === 'NIV-02' || code === 'NIV-03' || code === 'NIV-04' || code === 'NIV-05' || code === 'NIV-06' || code === 'NIV-07' || code === 'NIV-08' || code === 'NIV-09' || code === 'NIV-10' || code === 'NIV-13' || code === 'NIV-14'
         ? code === 'NIV-02'
           ? DELAI_ACCES_NIV02
           : code === 'NIV-03'
@@ -528,7 +542,7 @@ export function getInfosPratiquesForCatalogue(ref: string): InfosPratiquesFormat
                       ? DELAI_ACCES_NIV09
                       : code === 'NIV-10'
                         ? DELAI_ACCES_NIV10
-                      : code === 'NIV-13'
+                      : code === 'NIV-13' || code === 'NIV-14'
                         ? DELAI_ACCES_NIV10
               : code === 'NIV-05'
                 ? DELAI_ACCES_NIV05
@@ -537,7 +551,7 @@ export function getInfosPratiquesForCatalogue(ref: string): InfosPratiquesFormat
     ),
     tarif: tarifPourRef(code),
     methodes:
-      code === 'NIV-10' || code === 'NIV-13'
+      code === 'NIV-10' || code === 'NIV-13' || code === 'NIV-14'
         ? [...METHODES_NIV10]
         : code === 'NIV-09'
           ? [...METHODES_NIV09]
@@ -549,7 +563,7 @@ export function getInfosPratiquesForCatalogue(ref: string): InfosPratiquesFormat
         ? [...EVALUATION_NIV11]
         : code === 'NIV-01'
         ? [...EVALUATION_NIV01]
-        : code === 'NIV-13'
+        : code === 'NIV-13' || code === 'NIV-14'
         ? [...EVALUATION_NIV10]
         : code === 'NIV-02'
           ? [...EVALUATION_NIV02]
@@ -579,7 +593,7 @@ export function getInfosPratiquesForCatalogue(ref: string): InfosPratiquesFormat
         ? MODALITE_PEDAGOGIQUE_NIV02
         : code === 'NIV-03'
           ? MODALITE_PEDAGOGIQUE_NIV03
-          : code === 'NIV-13'
+          : code === 'NIV-13' || code === 'NIV-14'
             ? MODALITE_PEDAGOGIQUE_NIV10
           : code === 'NIV-04'
             ? MODALITE_PEDAGOGIQUE_NIV04

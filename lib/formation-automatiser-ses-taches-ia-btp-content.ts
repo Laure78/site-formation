@@ -4,19 +4,20 @@
 import type { CatalogueProgramModule } from '@/lib/catalogue-formation-page-content';
 
 export const AUTOMATISER_TACHES_RESULTAT_HERO =
-  'Vous repartez avec un scénario Make testé en atelier, sa grille de tests et une fiche de fonctionnement que votre équipe peut reprendre.';
+  'Un scénario Make testé sur cinq situations, sa grille de tests et une fiche de fonctionnement pour que votre équipe puisse le vérifier, l’arrêter et le reprendre.';
 
 export const AUTOMATISER_TACHES_IA_OUTCOMES = [
   'Choisir une tâche répétitive BTP et cartographier déclencheur, sorties et contrôles humains.',
   'Préparer les données, anonymiser les exemples et paramétrer les connexions sur des espaces de test.',
   'Construire un scénario Make reliant au moins deux outils (formulaire, messagerie ou tableur).',
   'Intégrer une étape IA pour extraire ou préparer des contenus — avec validation avant envoi.',
-  'Tester les cas limites (doublon, donnée manquante, connecteur indisponible) et configurer une alerte.',
+  'Tester cinq situations : cas standard, doublon, donnée manquante, sortie IA invalide, connecteur indisponible — et configurer une alerte.',
+  'Comparer le temps de traitement avant et après (relecture comprise), mesure réalisée par le participant.',
   'Documenter le scénario (déclencheur, accès, responsable, reprise) et préparer un pilote en entreprise.',
 ] as const;
 
 export const AUTOMATISER_TACHES_IA_DELIVERABLES = [
-  'Un scénario Make testé sur votre cas métier',
+  'Un scénario Make testé sur cinq situations en atelier',
   'Une grille de tests (5 situations)',
   'Une fiche de fonctionnement d’une page',
   'Un comparatif temps avant / après (relecture comprise)',
@@ -26,63 +27,75 @@ export const AUTOMATISER_TACHES_IA_DELIVERABLES = [
 export const AUTOMATISER_TACHES_CAS_METIER = [
   {
     id: 'devis',
-    label: 'Relance de devis',
-    title: 'Relancer les devis restés sans réponse',
+    label: 'Relances de devis',
+    title: 'Relances de devis',
     steps: [
-      { label: 'Déclencheur', text: 'L’échéance de relance arrive dans le tableau des devis.' },
       {
-        label: 'Préparation',
-        text: 'Make vérifie le statut et l’historique, puis prépare un brouillon si le devis est éligible.',
+        label: 'Déclencheur',
+        text: 'À l’échéance, le scénario vérifie le statut du devis et l’historique des relances.',
       },
-      { label: 'Validation', text: 'Le chargé d’affaires valide le brouillon et l’envoie.' },
+      {
+        label: 'Résultat préparé',
+        text: 'Il prépare un brouillon de relance si le devis est éligible.',
+      },
+      {
+        label: 'Validation humaine',
+        text: 'Le chargé d’affaires valide le brouillon avant envoi.',
+      },
     ],
   },
   {
     id: 'chantier',
-    label: 'Suivi chantier',
-    title: 'Alimenter le tableau d’actions chantier',
+    label: 'Comptes rendus de chantier',
+    title: 'Comptes rendus de chantier',
     steps: [
       {
         label: 'Déclencheur',
-        text: 'Un compte rendu de chantier est déposé dans le dossier de suivi.',
+        text: 'Au dépôt d’un compte rendu de chantier dans le dossier de suivi.',
       },
       {
-        label: 'Préparation',
-        text: 'L’IA propose les actions, cite le passage source et signale les champs manquants.',
+        label: 'Résultat préparé',
+        text: 'L’IA propose les actions à reporter, cite le passage source et signale les informations manquantes.',
       },
-      { label: 'Validation', text: 'Le conducteur valide les lignes avant leur ajout au tableau.' },
+      {
+        label: 'Validation humaine',
+        text: 'Le conducteur valide les lignes avant leur ajout au tableau de suivi.',
+      },
     ],
   },
   {
     id: 'intervention',
     label: 'Demandes d’intervention',
-    title: 'Centraliser les demandes d’intervention',
+    title: 'Demandes d’intervention',
     steps: [
       {
         label: 'Déclencheur',
-        text: 'Une demande arrive dans un formulaire ou une boîte partagée.',
+        text: 'À la réception d’une demande (formulaire ou messagerie partagée).',
       },
       {
-        label: 'Préparation',
-        text: 'Le scénario extrait le site, le lot et le besoin, puis prépare une ligne de suivi.',
+        label: 'Résultat préparé',
+        text: 'Le scénario prépare une ligne avec le site, le lot et le besoin.',
       },
-      { label: 'Validation', text: 'Le responsable vérifie les données et attribue la demande.' },
+      {
+        label: 'Validation humaine',
+        text: 'Le responsable vérifie les données et attribue la demande.',
+      },
     ],
   },
 ] as const;
 
 export const NIV14_PROGRAMME_MODULES: readonly CatalogueProgramModule[] = [
   {
-    title: 'MODULE 1 — Choisir une tâche répétitive (1 h 30)',
+    title: 'Jour 1 — MODULE 1 — Choisir une tâche répétitive (1 h 30)',
     points: [
-      'Cartographier le processus et mesurer le temps actuel',
-      'Choisir le déclencheur, la sortie et le contrôle attendu',
+      'Choisir une tâche selon sa fréquence, le temps qu’elle prend et la clarté de ses étapes',
+      'Cartographier le processus et le contrôle humain attendu',
       'Identifier les risques juridiques ou contractuels à exclure',
     ],
     practice: 'Sur un processus réel de votre entreprise (devis, CR ou demandes).',
   },
   {
-    title: 'MODULE 2 — Préparer les données et les accès (1 h 30)',
+    title: 'Jour 1 — MODULE 2 — Préparer les données et les accès (1 h 30)',
     points: [
       'Repérer les champs utiles et les sources de vérité',
       'Anonymiser les exemples et jeux de tests',
@@ -90,7 +103,7 @@ export const NIV14_PROGRAMME_MODULES: readonly CatalogueProgramModule[] = [
     ],
   },
   {
-    title: 'MODULE 3 — Relier deux outils avec Make (2 h)',
+    title: 'Jour 1 — MODULE 3 — Relier deux outils avec Make (2 h)',
     points: [
       'Construire un scénario guidé étape par étape',
       'Exemple : une demande reçue via formulaire crée une ligne dans un tableau',
@@ -99,7 +112,7 @@ export const NIV14_PROGRAMME_MODULES: readonly CatalogueProgramModule[] = [
     deliverable: 'Premier flux opérationnel entre deux outils.',
   },
   {
-    title: 'MODULE 4 — Ajouter une étape IA et une validation (2 h)',
+    title: 'Jour 1 — MODULE 4 — Ajouter une étape IA et une validation (2 h)',
     points: [
       'Extraire des champs ou générer un brouillon avec l’IA',
       'Contrôler les données manquantes ou incohérentes',
@@ -107,7 +120,7 @@ export const NIV14_PROGRAMME_MODULES: readonly CatalogueProgramModule[] = [
     ],
   },
   {
-    title: 'MODULE 5 — Monter son scénario BTP (2 h 30)',
+    title: 'Jour 2 — MODULE 5 — Monter son scénario BTP (2 h 30)',
     points: [
       'Réaliser le cas choisi : relances de devis, actions de CR ou demandes d’intervention',
       'Ajuster le périmètre pour rester conforme au cahier des charges interne',
@@ -116,16 +129,15 @@ export const NIV14_PROGRAMME_MODULES: readonly CatalogueProgramModule[] = [
     practice: 'Atelier sur votre cas métier prioritaire (données anonymisées).',
   },
   {
-    title: 'MODULE 6 — Tester cinq situations (2 h)',
+    title: 'Jour 2 — MODULE 6 — Tester cinq situations (2 h)',
     points: [
-      'Cas standard, doublon, donnée manquante',
-      'Sortie IA invalide et connecteur indisponible',
+      'Cas standard, doublon, donnée manquante, sortie IA invalide, connecteur indisponible',
       'Configurer une alerte et une procédure de reprise',
     ],
     deliverable: 'Grille de tests complétée.',
   },
   {
-    title: 'MODULE 7 — Documenter et transmettre (1 h 30)',
+    title: 'Jour 2 — MODULE 7 — Documenter et transmettre (1 h 30)',
     points: [
       'Décrire déclencheur, accès, validation, responsable et reprise',
       'Rédiger une fiche d’une page lisible par l’équipe',
@@ -134,10 +146,10 @@ export const NIV14_PROGRAMME_MODULES: readonly CatalogueProgramModule[] = [
     deliverable: 'Fiche de fonctionnement.',
   },
   {
-    title: 'MODULE 8 — Évaluer et préparer le pilote (1 h)',
+    title: 'Jour 2 — MODULE 8 — Évaluer et préparer le pilote (1 h)',
     points: [
-      'Présenter le scénario et comparer le temps avant / après',
-      'Inclure le temps de relecture humaine dans le calcul',
+      'Présenter le scénario testé en atelier',
+      'Comparer le temps de traitement avant et après, relecture comprise (mesure par le participant)',
       'Définir les conditions de mise en service et de montée en charge',
     ],
   },

@@ -246,9 +246,11 @@ export const FORMATION_MAQUETTE_MARKETING: Partial<
     heroBadge: 'Formation IA BTP · Niveau 3 · Approfondi',
     keyFactsLevel: 'Niveau 3 · Approfondi',
     heroLead:
-      'Un devis à relancer, un compte rendu à reporter dans un tableau, une demande travaux à enregistrer. En deux jours, vous reliez vos outils et testez une automatisation Make.',
+      'Un devis à relancer, des actions de chantier à reporter dans un tableau, une demande d’intervention à enregistrer. Apportez une tâche que votre équipe répète. En deux jours, vous reliez vos outils avec Make, ajoutez une étape IA et testez votre automatisation.',
     heroDescription:
-      'Présentiel inter ou intra en Île-de-France — vous repartez avec un scénario testé, sa grille de tests et une fiche de fonctionnement pour votre équipe.',
+      'Présentiel en inter-entreprises et en intra-entreprise dans les locaux de l’entreprise — Île-de-France.',
+    heroRepartezAvec:
+      'Un scénario Make testé sur cinq situations, sa grille de tests et une fiche de fonctionnement pour que votre équipe puisse le vérifier, l’arrêter et le reprendre.',
     benefitsTitle: 'Pourquoi automatiser une tâche métier avec Make',
     benefits: [
       {

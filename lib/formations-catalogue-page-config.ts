@@ -25,6 +25,8 @@ export const CATALOGUE_MENU_LABELS: Record<string, string> = {
   'NIV-11': "IA et assistance à maîtrise d'ouvrage",
   'NIV-09': 'Créer ses assistants IA BTP',
   'NIV-10': 'Créer des applications métier BTP avec l’IA (NUM-04)',
+  'NIV-13': 'Construire ses agents IA pour le BTP',
+  'NIV-14': 'Automatiser ses tâches avec l’IA dans le BTP',
 };
 
 /** Ordre d’affichage catalogue public (hors apps métier N1–N3). */
@@ -38,6 +40,7 @@ export const CATALOGUE_PUBLIC_REFS = [
   'NIV-09',
   'NIV-10',
   'NIV-13',
+  'NIV-14',
 ] as const;
 
 /** Formations catalogue publiques (NIV-01…05 + NIV-09) — sans applications métier. */

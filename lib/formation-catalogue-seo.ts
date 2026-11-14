@@ -294,13 +294,13 @@ export const FORMATION_CATALOGUE_SEO: Record<FormationCatalogueCode, FormationCa
     ],
   },
   'NIV-14': {
-    metaTitle: 'Automatiser ses tâches IA BTP (14 h)',
+    metaTitle: 'Automatisation IA BTP en Île-de-France',
     h1: 'Automatiser ses tâches avec l’IA dans le BTP',
     subtitle:
-      'Un devis à relancer, un compte rendu à reporter dans un tableau, une demande travaux à enregistrer. En deux jours, reliez vos outils et testez une automatisation Make.',
+      'Un devis à relancer, des actions de chantier à reporter dans un tableau, une demande d’intervention à enregistrer. Apportez une tâche que votre équipe répète. En deux jours, vous reliez vos outils avec Make, ajoutez une étape IA et testez votre automatisation.',
     metaDescription:
-      'Formation Make BTP (14 h) : relances de devis, suivi chantier ou demandes d’intervention. Présentiel Île-de-France, Qualiopi, financement OPCO selon éligibilité.',
-    enBref: `Laure Olivié (OFC Création d’Entreprise) propose une formation IA pour le BTP, niveau 3 approfondi (14 h sur 2 jours, 6 à 12 participants, présentiel Île-de-France) : construire et tester un scénario Make sur relances de devis, actions de chantier ou demandes d’intervention, avec grille de tests et fiche de fonctionnement pour l’équipe. ${QUALIOPI_MENTION}. ${libelleTarifParticipantCatalogue(TARIF_PARTICIPANT_NIV10_14H_HT)} en inter comme en intra.`,
+      'Construisez et testez un scénario Make pour vos relances de devis, comptes rendus de chantier ou demandes d’intervention. Formation BTP de 14 h en Île-de-France.',
+    enBref: `Laure Olivié (OFC Création d’Entreprise) propose une formation IA pour le BTP, niveau 3 approfondi (14 h sur 2 jours, dont 10 h de pratique, 6 à 12 participants, présentiel Île-de-France) : un scénario Make testé sur cinq situations, avec grille de tests et fiche de fonctionnement pour l’équipe. ${QUALIOPI_MENTION}. ${libelleTarifParticipantCatalogue(TARIF_PARTICIPANT_NIV10_14H_HT)} en inter comme en intra.`,
     publicTargets: [
       'Dirigeants et chargés d’affaires',
       'Conducteurs de travaux',
