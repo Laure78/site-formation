@@ -39,6 +39,7 @@ const ASSETS: Partial<
   },
   'NIV-11': { hero: NIV11_MAQUETTE_HERO, pedagogyBg: NIV11_MAQUETTE_PEDAGOGIE_BG },
   'NIV-13': { hero: NIV13_MAQUETTE_HERO, pedagogyBg: DEFAULT_PEDAGOGY_BG },
+  'NIV-14': { hero: NIV13_MAQUETTE_HERO, pedagogyBg: DEFAULT_PEDAGOGY_BG },
 };
 
 export function getFormationMaquetteAssets(code: FormationCatalogueCode): {

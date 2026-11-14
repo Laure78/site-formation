@@ -2,7 +2,6 @@ import { ShortAnswerBlock } from '@/components/landing/ShortAnswerBlock';
 import {
   TrainingDeliverables,
   TrainingFAQ,
-  TrainingMethod,
   TrainingOutcomes,
 } from '@/components/formations/training';
 import { TrainingPageLayout } from '@/components/formations/training/TrainingPageLayout';
@@ -15,7 +14,8 @@ import { TrainingParticipantsReviewsSection } from '@/components/formations/trai
 import { TrainingContinueSection } from '@/components/formations/training/TrainingContinueSection';
 import { FormateurIntervenantBlock } from '@/components/formateurs/FormateurIntervenantBlock';
 import { TrainingMaquetteMarketing } from '@/components/formations/training/TrainingMaquetteMarketing';
-import { Niv13AgentsMetierCards } from '@/components/formations/training/niv13-maquette/Niv13AgentsMetierCards';
+import { Niv13AgentsCasPratiques } from '@/components/formations/training/niv13-maquette/Niv13AgentsCasPratiques';
+import { Niv13PrototypePiloteSection } from '@/components/formations/training/niv13-maquette/Niv13PrototypePiloteSection';
 import type { CatalogueFormationPageContent } from '@/lib/catalogue-formation-page-content';
 import { getFormationByCode } from '@/data/formations';
 import { getFormationCatalogueSeo } from '@/lib/formation-catalogue-seo';
@@ -31,9 +31,10 @@ import { buildFormationPageMaillageBlocks } from '@/lib/page-maillage-blocks';
 import type { FormationCatalogueCode } from '@/lib/formation-catalogue-visibility';
 import { TrainingPracticalInfo } from '@/components/formations/training/TrainingPracticalInfo';
 import { TrainingSection } from '@/components/formations/training/TrainingSection';
-import { Clock, Coins, MapPin, Percent, Users, Workflow } from 'lucide-react';
+import { Clock, Coins, Layers, MapPin, Users } from 'lucide-react';
 import { formatNumberFr } from '@/lib/format-number-fr';
 import { TARIF_PARTICIPANT_NIV13_HT } from '@/lib/tarifs-catalogue-participant';
+import { formationNiveauOfficielLabel } from '@/lib/formation-niveaux-officiels';
 
 type Props = {
   content: CatalogueFormationPageContent;
@@ -43,15 +44,24 @@ type Props = {
 };
 
 const NIV13_KEY_FACTS = [
-  { icon: Clock, sub: '7 heures' },
+  { icon: Layers, sub: formationNiveauOfficielLabel(3) },
+  { icon: Clock, sub: '14 h sur 2 jours (dont 10 h de pratique)' },
   { icon: Coins, sub: `${formatNumberFr(TARIF_PARTICIPANT_NIV13_HT)} € HT / participant` },
-  { icon: MapPin, sub: 'Présentiel · Île-de-France' },
-  { icon: Users, sub: 'Dirigeants et conducteurs de travaux' },
-  { icon: Workflow, sub: 'Make AI Agents' },
-  { icon: Percent, sub: '70 % de pratique' },
+  { icon: Users, sub: '6 à 12 participants' },
+  {
+    icon: MapPin,
+    sub: 'Présentiel inter et intra en locaux client — Île-de-France',
+  },
 ] as const;
 
-/** Fiche NIV-13 — agents IA autonomes (Make) · maquette catalogue. */
+const SLOT_BEFORE_PROGRAMME = (
+  <div className="space-y-14">
+    <Niv13AgentsCasPratiques />
+    <Niv13PrototypePiloteSection />
+  </div>
+);
+
+/** Fiche NIV-13 — Construire ses agents IA pour le BTP · 14 h · maquette catalogue. */
 export async function TrainingNiv13MaquetteTemplate({
   content,
   faqItems,
@@ -98,11 +108,9 @@ export async function TrainingNiv13MaquetteTemplate({
         programmeHeading={content.programmeHeading}
         indicatorItems={NIV13_KEY_FACTS}
         ctaMode="programme-devis"
+        enBref={seo.enBref}
+        slotBeforeProgramme={SLOT_BEFORE_PROGRAMME}
       />
-
-      <div className="mx-auto max-w-[80rem] py-10 sm:py-12">
-        <Niv13AgentsMetierCards />
-      </div>
 
       <section className="sr-only" aria-label="En bref">
         <div className="mx-auto max-w-[78rem] px-4 py-2">
@@ -120,7 +128,7 @@ export async function TrainingNiv13MaquetteTemplate({
 
         <TrainingOutcomes
           outcomes={content.outcomes}
-          title={objectivesTitle ?? 'Après la formation, vous saurez'}
+          title={objectivesTitle ?? 'Objectifs pédagogiques'}
           description={content.outcomesDescription}
           variant="checklist"
           pedagogicalNote={
@@ -128,10 +136,6 @@ export async function TrainingNiv13MaquetteTemplate({
             'L’agent exécute ce que vous avez configuré — vous gardez la validation avant tout envoi ou engagement.'
           }
         />
-
-        {content.workflow && content.workflow.length > 0 ? (
-          <TrainingMethod steps={content.workflow} />
-        ) : null}
 
         {hasPublicPrerequisSection ? (
           <TrainingPublicPrerequisitesSection

@@ -22,6 +22,7 @@ const FICHES = [
   { ref: 'NIV-05', file: 'app/formations/ia-maitrise-oeuvre/page.tsx' },
   { ref: 'NIV-11', file: 'app/formations/ia-assistance-maitrise-ouvrage/page.tsx' },
   { ref: 'NIV-13', file: 'app/formations/agents-ia-autonomes-btp/page.tsx' },
+  { ref: 'NIV-14', file: 'app/formations/automatiser-ses-taches-ia-btp/page.tsx' },
 ] as const;
 
 function auditPageSource(ref: string, relPath: string): string[] {

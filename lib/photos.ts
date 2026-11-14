@@ -1126,7 +1126,7 @@ export const PHOTOS = {
     src: '/images/formation-assistants-ia-personnalises-btp.webp',
     alt: 'Formation agents IA autonomes BTP : scénario Make, relances et échéances chantier',
     description:
-      'Formation créer son premier agent IA autonome pour le BTP — Make AI Agents, 7 h, présentiel Île-de-France, Qualiopi.',
+      'Formation Construire ses agents IA pour le BTP — Make AI Agents, 14 h sur 2 jours, présentiel Île-de-France, Qualiopi.',
     title: 'Agents IA autonomes BTP — Make',
     width: 1024,
     height: 768,

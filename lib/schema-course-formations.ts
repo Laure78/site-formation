@@ -130,12 +130,21 @@ export const FORMATIONS_CATALOG_SCHEMA: FormationCatalogEntry[] = [
   },
   {
     ref: 'NIV-13',
-    level: 'DÉBUTANT',
+    level: 'AVANCÉ',
     path: '/formations/agents-ia-autonomes-btp',
     name: getFormationByCode('NIV-13')!.titre,
-    description: `${getFormationByCode('NIV-13')!.accroche} Session 7 h, présentiel Île-de-France. Qualiopi.`,
+    description: `${getFormationByCode('NIV-13')!.accroche} Session ${getFormationByCode('NIV-13')!.duree} sur 2 jours, présentiel Île-de-France. Qualiopi.`,
     teaches: teachesFromCatalogueDisplay('NIV-13'),
     occupationalCategory: 'BTP, dirigeants PME, conducteurs de travaux, automatisation',
+  },
+  {
+    ref: 'NIV-14',
+    level: 'AVANCÉ',
+    path: '/formations/automatiser-ses-taches-ia-btp',
+    name: getFormationByCode('NIV-14')!.titre,
+    description: `${getFormationByCode('NIV-14')!.accroche} Session ${getFormationByCode('NIV-14')!.duree} sur 2 jours, présentiel Île-de-France. Qualiopi.`,
+    teaches: teachesFromCatalogueDisplay('NIV-14'),
+    occupationalCategory: 'BTP, automatisation Make, workflows métier',
   },
 ];
 

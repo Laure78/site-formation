@@ -171,7 +171,7 @@ export const FAQ_ITEMS: readonly FAQItem[] = [
   },
   {
     q: "Combien de temps dure la formation IA pour le BTP ?",
-    a: `Les formations du catalogue IA BTP sont en 4 h, sauf l’approfondi « applications métier BTP avec l’IA » en 14 h sur 2 jours (2 × 7 h par journée). ${MODALITE_FORMATIONS_PRESENTIEL} Débutant (4 h) : ${libelleTarifParticipantCatalogue(TARIF_PARTICIPANT_NIV01_HT)} · avancé (4 h) : ${libelleTarifParticipantCatalogue(TARIF_PARTICIPANT_NIV02_HT)} · approfondi (14 h) : ${libelleTarifParticipantCatalogue(TARIF_PARTICIPANT_NIV10_14H_HT)} — voir les programmes sur la page <a href="/formations">formations IA pour le BTP</a>.`,
+    a: `Les formations du catalogue IA BTP sont en 4 h, sauf les approfondis en 14 h sur 2 jours (2 × 7 h par journée) : « applications métier BTP avec l’IA » et « Construire ses agents IA pour le BTP » (Make). ${MODALITE_FORMATIONS_PRESENTIEL} Débutant (4 h) : ${libelleTarifParticipantCatalogue(TARIF_PARTICIPANT_NIV01_HT)} · avancé (4 h) : ${libelleTarifParticipantCatalogue(TARIF_PARTICIPANT_NIV02_HT)} · approfondi (14 h) : ${libelleTarifParticipantCatalogue(TARIF_PARTICIPANT_NIV10_14H_HT)} — voir les programmes sur la page <a href="/formations">formations IA pour le BTP</a>.`,
   },
   {
     q: "La formation se fait-elle en présentiel ?",
@@ -606,8 +606,12 @@ export const FAQ_AGENTS_IA_NIV13: FAQItem[] = [
     a: 'Non. L’interface Make est visuelle : modules, connexions et tests pas à pas. La formation cible dirigeants et conducteurs de travaux du BTP, sans compétence développeur.',
   },
   {
-    q: 'Quelle différence entre le parcours dirigeant et conducteur de travaux ?',
-    a: 'Le programme est unique : en atelier, vous travaillez sur l’un des deux fils rouges — suivi devis et relances commerciales (dirigeant) ou échéances et rappels chantier (conducteur de travaux). Les modules 3 et 4 couvrent ces deux cas ; chaque participant approfondit celui qui correspond à son poste.',
+    q: 'Quel cas pratique choisir en atelier ?',
+    a: 'Trois cas au choix : relances de devis (dirigeant ou chargé d’affaires), extraction d’actions depuis un CR de chantier (conducteur de travaux) ou qualification de demandes d’intervention (fonctions support). Chaque participant travaille sur des exemples anonymisés ou fictifs.',
+  },
+  {
+    q: 'Faut-il savoir programmer ?',
+    a: 'Non pour le cœur du flux Make. Selon le prototype, Claude Code ou Codex peut compléter la construction — la session reste orientée métier BTP, avec validation humaine sur chaque livrable sensible.',
   },
   {
     q: 'Make remplace-t-il mes outils de gestion ?',
@@ -620,6 +624,26 @@ export const FAQ_AGENTS_IA_NIV13: FAQItem[] = [
   {
     q: 'Une prise en charge OPCO est-elle possible ?',
     a: `${FINANCEMENT_FORMULATION_PRUDENTE} Détails : <a href="${LINKS.financement}">financement Constructys formation IA BTP</a>.`,
+  },
+];
+
+/** FAQ — Automatiser ses tâches avec l’IA dans le BTP (NIV-14) */
+export const AUTOMATISER_TACHES_IA_FAQ: FAQItem[] = [
+  {
+    q: 'Peut-on travailler avec les outils de notre entreprise ?',
+    a: 'Oui, selon les connecteurs Make disponibles et les autorisations de votre entreprise. Les outils et accès sont cadrés avant la session.',
+  },
+  {
+    q: 'Où se déroule la formation ?',
+    a: 'En présentiel en inter-entreprises et en intra-entreprise dans les locaux de l’entreprise, en Île-de-France uniquement.',
+  },
+  {
+    q: 'Une prise en charge OPCO est-elle possible ?',
+    a: `${FINANCEMENT_FORMULATION_PRUDENTE} Détails : <a href="${LINKS.financement}">financement Constructys formation IA BTP</a>.`,
+  },
+  {
+    q: 'Quelle différence avec la formation « Construire ses agents IA pour le BTP » ?',
+    a: `Les deux sessions durent 14 h sur 2 jours. NIV-14 cible un scénario Make documenté pour l’équipe (relances, CR ou demandes). La fiche <a href="${LINKS.formationAgentsIaAutonomesBtp}">agents IA autonomes</a> approfondit la conception de plusieurs agents Make AI Agents.`,
   },
 ];
 

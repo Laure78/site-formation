@@ -114,38 +114,39 @@ export const FORMATIONS: readonly Formation[] = [
   {
     code: 'NIV-13',
     slug: 'agents-ia-autonomes-btp',
-    titre: 'Créer son premier agent IA autonome pour le BTP',
+    titre: 'Construire ses agents IA pour le BTP',
     promesse:
-      'Créer un agent Make AI Agents qui travaille pour vous : relances, suivi devis ou échéances chantier — sans programmation.',
+      'Construire et tester un prototype d’agent IA sur un processus BTP : relances de devis, actions de CR ou demandes d’intervention — validation humaine à chaque étape sensible.',
     casUsageCourts: [
-      'Automatiser le suivi des devis',
-      'Préparer les relances clients',
-      'Rappeler les échéances chantier',
+      'Relances de devis',
+      'Actions extraites d’un CR',
+      'Demandes d’intervention',
     ],
     gamme: 'deployer',
     theme: 'assistants-automatisation',
     niveau: 3,
     niveauLabel: 'Niveau 3 · Approfondi',
-    duree: '7 h',
-    horaires: '9h00 – 12h30 / 13h30 – 17h00',
+    duree: '14 h',
+    horaires: '2 jours — 9h00 – 12h30 / 13h30 – 17h00',
     effectifMin: CATALOGUE_EFFECTIF_MIN,
     effectifMax: CATALOGUE_EFFECTIF_MAX,
     prixHT: 0,
     tarifParticipantHt: TARIF_PARTICIPANT_NIV13_HT,
     accroche:
-      'Make AI Agents en présentiel : concevoir et tester un premier agent autonome sur un cas métier BTP (dirigeant ou conducteur de travaux), avec validation humaine à chaque étape.',
+      'En deux jours en présentiel, concevoir et tester un prototype d’agent IA sur un processus de votre PME — Make pour relier les outils, Claude Code ou Codex selon le prototype, avec validation humaine avant tout envoi.',
     objectifs: [
-      'Expliquer le fonctionnement d’un agent IA autonome et ses limites dans une PME du BTP',
-      'Identifier les tâches répétitives automatisables sans risque juridique ou contractuel',
-      'Configurer un scénario Make AI Agents sur un cas réel (devis, relances ou échéances chantier)',
-      'Relier les outils du quotidien (messagerie, tableur, agenda) à un flux contrôlé',
-      'Tester, documenter et planifier le déploiement avec des points de validation humaine',
+      'Choisir un processus répétitif et déterminer son niveau d’autonomie',
+      'Définir la mission de l’agent, ses sources, ses outils et ses limites',
+      'Construire un prototype relié à des outils de test et produire une sortie exploitable',
+      'Tester les cas ambigus, déclencher une validation et suivre les erreurs et les coûts',
     ],
-    public: 'Dirigeants et conducteurs de travaux des PME du bâtiment et des travaux publics',
-    casUsage: 'Agents autonomes — suivi devis, relances, échéances chantier',
-    pdfProgramme: '',
+    public:
+      'Dirigeants, conducteurs de travaux, chargés d’affaires et fonctions support des PME du bâtiment et des travaux publics',
+    casUsage: 'Agents IA — relances devis, actions CR, demandes d’intervention',
+    pdfProgramme:
+      '/formations/agents-ia-autonomes-btp/programme-formation-agents-ia-btp-niveau-3.pdf',
     programmeVersion: 'Référence NIV-13',
-    programmeUpdatedAt: '09/11/2026',
+    programmeUpdatedAt: '14/11/2026',
     image: '/images/formation-assistants-ia-personnalises-btp.webp',
   },
   {
@@ -568,6 +569,46 @@ export const FORMATIONS: readonly Formation[] = [
     programmeUpdatedAt: '08/10/2026',
     image: '/images/formation-ia-architecture-claude-presentiel-groupe.jpg',
   },
+  {
+    code: 'NIV-14',
+    slug: 'automatiser-ses-taches-ia-btp',
+    titre: 'Automatiser ses tâches avec l’IA dans le BTP',
+    promesse:
+      'Construire un scénario Make testé sur un processus répétitif BTP — relances de devis, suivi d’actions chantier ou demandes d’intervention.',
+    casUsageCourts: [
+      'Relances de devis',
+      'Suivi des actions de chantier',
+      'Traitement des demandes d’intervention',
+    ],
+    gamme: 'deployer',
+    theme: 'assistants-automatisation',
+    niveau: 3,
+    niveauLabel: 'Niveau 3 · Approfondi',
+    duree: '14 h',
+    horaires: '2 jours — 9h00 – 12h30 / 13h30 – 17h00',
+    effectifMin: CATALOGUE_EFFECTIF_MIN,
+    effectifMax: CATALOGUE_EFFECTIF_MAX,
+    prixHT: 0,
+    tarifParticipantHt: TARIF_PARTICIPANT_NIV10_14H_HT,
+    accroche:
+      'En deux jours, reliez vos outils avec Make, intégrez une étape IA et testez une automatisation sur l’un de vos processus métier — avec validation humaine avant tout envoi.',
+    objectifs: [
+      'Choisir une tâche répétitive BTP automatisables sans risque juridique ni contractuel',
+      'Cartographier le processus, les données et les points de contrôle humain',
+      'Configurer un scénario Make reliant messagerie, formulaire ou tableur',
+      'Ajouter une étape IA pour extraire ou préparer des contenus, avec relecture obligatoire',
+      'Tester cinq situations (cas standard, doublon, donnée manquante, sortie IA invalide, connecteur indisponible)',
+      'Documenter le scénario pour qu’une équipe puisse le reprendre (fiche d’une page, grille de tests)',
+    ],
+    public:
+      'Dirigeants et chargés d’affaires, conducteurs de travaux, assistants administratifs et fonctions support des PME du bâtiment et des travaux publics',
+    casUsage: 'Automatisation Make — devis, actions chantier, demandes d’intervention',
+    pdfProgramme:
+      '/formations/automatiser-ses-taches-ia-btp/programme-automatiser-ses-taches-ia-btp.pdf',
+    programmeVersion: 'Référence NIV-14',
+    programmeUpdatedAt: '14/11/2026',
+    image: '/images/formation-assistants-ia-personnalises-btp.webp',
+  },
 ] as const;
 
 export type FormationCode = (typeof FORMATIONS)[number]['code'];
@@ -590,7 +631,7 @@ export const CATALOGUE_FORMATIONS_TOTAL = FORMATIONS.filter(
 
 /**
  * Durées catalogue — standard 4 h pour les sessions IA BTP publiées.
- * Exception longue durée : NIV-10 (14 h sur 2 jours).
+ * Exceptions longue durée : NIV-10, NIV-13 et NIV-14 (14 h sur 2 jours).
  */
 export const CATALOGUE_DUREE_STANDARD = '4 h' as const;
 /** @deprecated Alias — sessions catalogue hors NIV-10 (14 h). */
@@ -601,9 +642,10 @@ export const CATALOGUE_DUREE_NIV09 = CATALOGUE_DUREE_STANDARD;
 export const CATALOGUE_DUREE_NIV10 = '14 h' as const;
 
 /** Plage de numérotation catalogue — références actives (hors fiches retirées). */
-export const CATALOGUE_DUREE_NIV13 = '7 h' as const;
+export const CATALOGUE_DUREE_NIV13 = '14 h' as const;
+export const CATALOGUE_DUREE_NIV14 = CATALOGUE_DUREE_NIV10;
 
-export const CATALOGUE_NIV_RANGE = 'NIV-01 à NIV-13' as const;
+export const CATALOGUE_NIV_RANGE = 'NIV-01 à NIV-14' as const;
 
 export function getFormationByCode(code: string): Formation | undefined {
   return FORMATIONS.find((f) => f.code === code);

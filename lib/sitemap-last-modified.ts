@@ -345,6 +345,12 @@ const ROUTE_SOURCE_FILES: Record<string, readonly string[]> = {
     'data/formations.ts',
     'lib/catalogue-formation-page-content.ts',
   ],
+  '/formations/automatiser-ses-taches-ia-btp': [
+    'app/formations/automatiser-ses-taches-ia-btp/page.tsx',
+    'data/formations.ts',
+    'lib/catalogue-formation-page-content.ts',
+    'lib/formation-automatiser-ses-taches-ia-btp-content.ts',
+  ],
   '/mentions-legales': ['app/mentions-legales/page.tsx'],
   '/politique-confidentialite': ['app/politique-confidentialite/page.tsx'],
   '/cgv': ['app/cgv/page.tsx'],

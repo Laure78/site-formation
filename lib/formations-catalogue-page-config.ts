@@ -37,6 +37,7 @@ export const CATALOGUE_PUBLIC_REFS = [
   'NIV-11',
   'NIV-09',
   'NIV-10',
+  'NIV-13',
 ] as const;
 
 /** Formations catalogue publiques (NIV-01…05 + NIV-09) — sans applications métier. */

@@ -103,7 +103,7 @@ export const FORMATIONS_NIVEAUX_IA: readonly FormationNiveauIaDefinition[] = [
       'Prototype d’outil métier (suivi, relances, planning)',
       'Workflow Claude ou assistant réutilisable',
       'Application métier avec contrôle humain sur les outputs IA',
-      'Agent Make pour relances, devis ou échéances chantier (formation 7 h)',
+      'Agents Make pour relances, devis ou échéances chantier (formation 14 h)',
     ],
   },
 ] as const;

@@ -359,11 +359,42 @@ export const FORMATION_CATALOGUE_GEO_EXTENDED: Record<
     propresDossiers:
       'Oui — données d’exemple ou documents anonymisés. Aucun envoi client automatisé sans validation explicite.',
     iaRemplacePro: COMMON_IA_NON,
-    deroulement: `${MODALITE_PEDAGOGIQUE_CATALOGUE}. 70 % de pratique — journée 7 h, parcours dirigeant ou conducteur de travaux au choix.`,
+    deroulement: `${MODALITE_PEDAGOGIQUE_CATALOGUE}. 14 h sur 2 jours, dont 10 h de pratique — prototype d’agent testé (devis, CR ou demandes d’intervention au choix).`,
     clusterMaillage: [
       ...CLUSTER_BASE,
       { href: LINKS.formationAgentsIaAutonomesBtp, label: 'Formation agents IA autonomes BTP' },
+      { href: LINKS.formationAutomatiserTachesIaBtp, label: 'Automatiser ses tâches avec l’IA dans le BTP' },
       { href: LINKS.formationIaBtpNiveau1BatimentTp, label: 'Formation IA BTP niveau débutant' },
+    ],
+  },
+  'NIV-14': {
+    queApprendre:
+      'Choisir une tâche répétitive BTP, relier vos outils avec Make, intégrer une étape IA contrôlée, tester cinq situations et documenter le scénario pour l’équipe (relances de devis, actions de CR ou demandes d’intervention).',
+    documentsBtp: [
+      'Tableaux de suivi devis',
+      'Comptes rendus de chantier',
+      'Formulaires de demande d’intervention',
+      'Modèles de relances',
+    ],
+    outilsIa: ['Make', 'ChatGPT ou Claude (étape IA)'],
+    dureeReponse: '',
+    livrables: [
+      'Scénario Make testé',
+      'Grille de tests',
+      'Fiche de fonctionnement',
+      'Comparatif temps avant / après',
+      'Certificat de réalisation',
+    ],
+    debutants:
+      'Pratique de ChatGPT ou Claude, ou formation niveau 1 IA BTP. Compte Make actif — non inclus dans le tarif.',
+    propresDossiers:
+      'Oui — données d’exemple ou documents anonymisés. Validation humaine avant envoi ou mise à jour.',
+    iaRemplacePro: COMMON_IA_NON,
+    deroulement: `${MODALITE_PEDAGOGIQUE_CATALOGUE}. Environ 71 % de pratique — 14 h sur 2 jours dont 10 h d’atelier Make.`,
+    clusterMaillage: [
+      ...CLUSTER_BASE,
+      { href: LINKS.formationAgentsIaAutonomesBtp, label: 'Construire ses agents IA pour le BTP' },
+      { href: LINKS.formationAssistantsIaPersonnalisesBtp, label: 'Créer ses assistants IA BTP' },
     ],
   },
   'NIV-10': {

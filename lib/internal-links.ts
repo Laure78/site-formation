@@ -186,8 +186,14 @@ export const LINKS = {
   formationIaAssistanceMaitriseOuvrage: '/formations/ia-assistance-maitrise-ouvrage',
   pdfProgrammeIaAssistanceMaitriseOuvrage:
     '/formations/ia-assistance-maitrise-ouvrage/programme_OFC_NIV-11_IA_AMO_20261104.pdf',
-  /** NIV-13 — Agents IA autonomes (Make) pour le BTP — journée 7 h */
+  /** NIV-13 — Agents IA autonomes (Make) pour le BTP — approfondi 14 h */
   formationAgentsIaAutonomesBtp: '/formations/agents-ia-autonomes-btp',
+  pdfProgrammeAgentsIaBtpNiv13:
+    '/formations/agents-ia-autonomes-btp/programme-formation-agents-ia-btp-niveau-3.pdf',
+  /** NIV-14 — Automatiser ses tâches avec l’IA dans le BTP — Make · 14 h */
+  formationAutomatiserTachesIaBtp: '/formations/automatiser-ses-taches-ia-btp',
+  pdfProgrammeAutomatiserTachesIaBtp:
+    '/formations/automatiser-ses-taches-ia-btp/programme-automatiser-ses-taches-ia-btp.pdf',
   /** NIV-09 — Créer des assistants IA personnalisés pour le BTP (catalogue) */
   formationAssistantsIaPersonnalisesBtp: '/formations/assistants-ia-personnalises-btp',
   pdfProgrammeAssistantsIaPersonnalisesBtp:

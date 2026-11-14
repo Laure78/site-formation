@@ -44,6 +44,12 @@ import {
   AGENTS_IA_AUTONOMES_OUTCOMES,
   AGENTS_IA_DELIVERABLES,
 } from '@/lib/formation-agents-ia-autonomes-btp-content';
+import {
+  AUTOMATISER_TACHES_IA_DELIVERABLES,
+  AUTOMATISER_TACHES_IA_OUTCOMES,
+  AUTOMATISER_TACHES_RESULTAT_HERO,
+  NIV14_PROGRAMME_MODULES,
+} from '@/lib/formation-automatiser-ses-taches-ia-btp-content';
 import { NIV13_PEDAGOGICAL_METHODS, NIV13_PROGRAMME_BLOCS } from '@/lib/catalogue-formation-programmes-niv13';
 import { MENTIONS_TVA_REGIMES_COURT } from '@/lib/tarifs-sessions';
 
@@ -915,19 +921,19 @@ const NIV_10: CatalogueFormationPageContent = {
 const NIV_13: CatalogueFormationPageContent = {
   programmeRef: 'NIV-13',
   parcoursKind: 'usages-ia-btp',
-  levelBadgeLabel: 'Niveau 1 · Débutant',
+  levelBadgeLabel: 'Niveau 3 · Approfondi',
   heroPublicLine:
-    'Inter-entreprises à Paris 12e ou intra-entreprise dans vos locaux en Île-de-France — un seul programme, deux fils rouges métier au choix.',
+    'Présentiel en inter-entreprises (Paris 12e) ou intra-entreprise dans les locaux de l’entreprise — Île-de-France · 14 h sur 2 jours, dont 10 h de pratique.',
   heroFacts: [
-    '7 heures',
-    'Présentiel · Île-de-France',
-    'Make AI Agents',
-    '70 % de pratique',
+    '14 h sur 2 jours (dont 10 h de pratique)',
+    'Présentiel inter et intra — Île-de-France',
+    'Make · Claude Code ou Codex',
+    'Prototype testé en atelier',
   ],
-  practiceShare: '70 %',
+  practiceShare: '71 %',
   formatLabel: 'Présentiel',
   locationLabel: SITE_FORMATION_LOCATION_LABEL,
-  quickFactsLevel: formationNiveauOfficielLabel(1),
+  quickFactsLevel: formationNiveauOfficielLabel(3),
   pedagogicalNote:
     'L’agent exécute le scénario que vous configurez — vous validez chaque envoi ou engagement vers clients et partenaires.',
   painPointsTitle: '',
@@ -935,22 +941,22 @@ const NIV_13: CatalogueFormationPageContent = {
   objectivesTitle: 'Après la formation, vous saurez',
   outcomes: [...AGENTS_IA_AUTONOMES_OUTCOMES],
   outcomesDescription:
-    'Passer du prompting ponctuel à un agent Make qui enchaîne les étapes sur vos outils — avec points de contrôle humains.',
+    'Concevoir un prototype d’agent sur un processus réel, avec fiche de mission, grille de tests et plan de supervision.',
   deliverables: [...AGENTS_IA_DELIVERABLES],
   deliverablesTitle: 'Ce que vous repartez avec',
   publicPrerequisites: [
     {
       title: 'Prérequis',
       items: [
-        'Savoir utiliser un ordinateur et une messagerie professionnelle',
-        'Avoir suivi le niveau 1 IA BTP ou une pratique équivalente de ChatGPT / Claude',
-        'Compte Make (offre compatible AI Agents) — non inclus dans le tarif, à prévoir avant la session',
-        'Données d’exemple ou documents anonymisés pour l’atelier',
+        'Utiliser ChatGPT ou Claude et avoir déjà construit ou testé une automatisation simple',
+        'Apporter un ordinateur, un processus décrit et des exemples anonymisés ou fictifs',
+        'Compte Make et accès Claude Code ou Codex selon le prototype — non inclus dans le tarif, vérifiés avant la session',
       ],
     },
   ],
   programIntro:
-    '7 h (9h00–17h00) · 70 % de pratique · Make AI Agents — parcours dirigeant (devis / relances) ou conducteur de travaux (échéances chantier).',
+    '14 h sur 2 jours (dont 10 h de pratique) · Make pour relier les outils · Claude Code ou Codex selon le prototype · un cas au choix parmi devis, CR ou demandes d’intervention.',
+  pdfHref: LINKS.pdfProgrammeAgentsIaBtpNiv13,
   programmeMethodsBullets: [...NIV13_PEDAGOGICAL_METHODS],
   programModules: NIV13_PROGRAMME_BLOCS.map((m) => ({
     title: m.title,
@@ -959,12 +965,12 @@ const NIV_13: CatalogueFormationPageContent = {
     competence: m.competence,
     deliverable: m.deliverable,
   })),
-  programmeHeading: 'Programme détaillé — journée 7 h',
+  programmeHeading: 'Programme détaillé — 8 modules · 14 h sur 2 jours',
   workflow: [
-    'Cartographier une tâche répétitive et définir le déclencheur.',
-    'Construire le scénario Make étape par étape.',
-    'Tester sur données réelles anonymisées.',
-    'Ajouter les contrôles humains et documenter.',
+    'Choisir le processus et rédiger la fiche de mission.',
+    'Construire le prototype dans un environnement de test.',
+    'Tester cinq situations et corriger les règles.',
+    'Mesurer le gain de temps et préparer la supervision.',
   ],
   iaLimits: [
     { iaAide: 'Exécuter un scénario sur déclencheur', validation: 'Périmètre, filtres et données sources' },
@@ -988,6 +994,84 @@ const NIV_13: CatalogueFormationPageContent = {
     title: 'Prêt à automatiser une première tâche métier ?',
     description:
       'Demandez le programme ou un devis pour une session intra dans vos locaux — Île-de-France uniquement.',
+    primaryLabel: 'Prendre RDV',
+    primaryHref: LINKS.prendreRdv,
+    secondaryLabel: 'Demander un devis',
+    secondaryHref: LINKS.contact,
+  },
+};
+
+const NIV_14: CatalogueFormationPageContent = {
+  programmeRef: 'NIV-14',
+  parcoursKind: 'usages-ia-btp',
+  levelBadgeLabel: 'Niveau 3 · Approfondi',
+  heroPublicLine:
+    'Présentiel en inter-entreprises et en intra-entreprise dans les locaux de l’entreprise — Île-de-France uniquement.',
+  heroFacts: [
+    '14 h sur 2 jours',
+    'Dont 10 h de pratique',
+    'Make',
+    'Validation humaine avant envoi',
+  ],
+  practiceShare: '71 %',
+  formatLabel: 'Présentiel',
+  locationLabel: SITE_FORMATION_LOCATION_LABEL,
+  quickFactsLevel: formationNiveauOfficielLabel(3),
+  pedagogicalNote:
+    'L’IA et Make préparent les contenus et enchaînent les étapes — vous validez chaque envoi ou mise à jour.',
+  painPointsTitle: '',
+  painPoints: [],
+  objectivesTitle: 'Après la formation, vous saurez',
+  outcomes: [...AUTOMATISER_TACHES_IA_OUTCOMES],
+  outcomesDescription:
+    'Relier vos outils, intégrer une étape IA et fiabiliser un scénario sur un cas métier BTP.',
+  deliverables: [...AUTOMATISER_TACHES_IA_DELIVERABLES],
+  deliverablesTitle: 'Ce que vous repartez avec',
+  deliverablesIntro: AUTOMATISER_TACHES_RESULTAT_HERO,
+  publicPrerequisites: [
+    {
+      title: 'Prérequis',
+      items: [
+        'Savoir utiliser un ordinateur, une messagerie et un tableur',
+        'Pratique de ChatGPT ou Claude, ou avoir suivi le niveau 1 IA BTP',
+        'Compte Make actif (offre compatible modules utilisés) — non inclus dans le tarif',
+        'Données d’exemple ou documents anonymisés pour l’atelier',
+      ],
+    },
+  ],
+  programIntro:
+    '14 h sur 2 jours · 8 modules · Make — relances de devis, suivi des actions de chantier ou traitement des demandes d’intervention.',
+  programModules: NIV14_PROGRAMME_MODULES.map((m) => ({
+    title: m.title,
+    points: [...m.points],
+    practice: m.practice,
+    competence: m.competence,
+    deliverable: m.deliverable,
+  })),
+  programmeHeading: 'Programme détaillé — 14 h sur 2 jours',
+  pdfHref: LINKS.pdfProgrammeAutomatiserTachesIaBtp,
+  iaLimits: [
+    { iaAide: 'Enchaîner des étapes entre outils sur un déclencheur', validation: 'Périmètre, données et autorisations' },
+    { iaAide: 'Extraire des champs ou générer des brouillons', validation: 'Relire le contenu avant envoi' },
+    { iaAide: 'Créer des lignes dans un tableau de suivi', validation: 'Vérifier site, lot, dates et responsable' },
+    { iaAide: 'Configurer des alertes en cas d’erreur', validation: 'Tester et définir qui intervient' },
+  ],
+  programLinks: [
+    {
+      prefix: 'Pour une montée en charge sur plusieurs agents, voir',
+      href: LINKS.formationAgentsIaAutonomesBtp,
+      label: 'Construire ses agents IA pour le BTP',
+    },
+    {
+      prefix: 'Pour les bases IA,',
+      href: LINKS.formationIaBtpNiveau1BatimentTp,
+      label: 'formation niveau débutant (4 h)',
+    },
+  ],
+  finalCta: {
+    title: 'Quel processus voulez-vous automatiser ?',
+    description:
+      'Indiquez le cas d’usage, les outils de votre équipe et le nombre de participants — réponse sous 48 h ouvrées.',
     primaryLabel: 'Prendre RDV',
     primaryHref: LINKS.prendreRdv,
     secondaryLabel: 'Demander un devis',
@@ -1294,6 +1378,7 @@ const BY_REF: Partial<Record<FormationCatalogueCode, CatalogueFormationPageConte
   'NIV-09': NIV_09,
   'NIV-10': NIV_10,
   'NIV-13': NIV_13,
+  'NIV-14': NIV_14,
 };
 
 export function getCatalogueFormationPageContent(

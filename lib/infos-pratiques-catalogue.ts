@@ -123,12 +123,14 @@ export const PROGRAMME_CONTENU_CATALOGUE: Record<FormationCode, readonly string[
     'Module 4 — Déploiement, évaluation des acquis et plan d’action (60 min de formation effective)',
   ],
   'NIV-13': [
-    'Module 1 — Agents IA et automatisation dans le BTP (60 min)',
-    'Module 2 — Prise en main Make AI Agents (55 min)',
-    'Module 3 — Parcours dirigeant : devis et relances (70 min)',
-    'Module 4 — Parcours conducteur de travaux : chantier et échéances (70 min)',
-    'Module 5 — Connexions outils et fiabilisation (55 min)',
-    'Module 6 — Déploiement et plan d’action (50 min)',
+    'Jour 1 — Module 1 — Choisir le processus (1 h 30)',
+    'Jour 1 — Module 2 — Rédiger la fiche de mission (1 h 30)',
+    'Jour 1 — Module 3 — Construire le prototype (2 h)',
+    'Jour 1 — Module 4 — Encadrer les actions de l’agent (2 h)',
+    'Jour 2 — Module 5 — Tester cinq situations (1 h 30)',
+    'Jour 2 — Module 6 — Corriger et rejouer (1 h 30)',
+    'Jour 2 — Module 7 — Organiser la supervision (2 h)',
+    'Jour 2 — Module 8 — Mesurer et présenter le prototype (2 h)',
   ],
   'NIV-10': [
     'Jour 1 — Accueil, cadrage et positionnement (15 min)',
@@ -148,7 +150,7 @@ const PREREQUIS_NIV01 =
   'Savoir utiliser un ordinateur et un smartphone. Bonne maîtrise du français écrit et oral. La formation de niveau débutant ne nécessite aucune pratique préalable de l’IA ni abonnement payant : les versions gratuites suffisent. Un compte payant (Claude Pro, ChatGPT Plus) est seulement recommandé pour aller plus loin ensuite — non inclus dans le tarif.';
 
 export const PREREQUIS_NIV13 =
-  'Savoir utiliser un ordinateur, une messagerie professionnelle et un tableur ou agenda partagé. Bonne maîtrise du français écrit. Avoir suivi la formation « Les bases de l’IA pour les professionnels du BTP » (NIV-01) ou pratiquer déjà ChatGPT ou Claude. Compte Make avec accès aux fonctionnalités AI Agents actif sur le poste du participant — non inclus dans le tarif, à la charge de l’entreprise. Documents ou jeux de données anonymisés pour l’atelier.';
+  'Public : dirigeants, conducteurs de travaux, chargés d’affaires et fonctions support des PME du BTP. Savoir utiliser ChatGPT ou Claude et avoir déjà construit ou testé une automatisation simple. Apporter un ordinateur, un processus décrit et quelques exemples anonymisés ou fictifs. Outils : Make pour relier les outils ; Claude Code ou Codex selon le prototype — accès et licences vérifiés avant la session, non inclus dans le tarif.';
 
 const MODALITES_ACCES_NIV01 =
   `Inscription sur demande auprès d'OFC (${CONTACT.email} — ${CONTACT.phoneDisplay}) : analyse du besoin → acceptation du devis → signature de la convention de formation → demande de prise en charge OPCO → convocation. Un questionnaire de positionnement est adressé à chaque participant avant la session.`;
@@ -484,7 +486,7 @@ export function getInfosPratiquesForCatalogue(ref: string): InfosPratiquesFormat
         code === 'NIV-11' || code === 'NIV-12'
           ? MODALITES_ACCES_NIV05
           : code === 'NIV-13'
-            ? MODALITES_ACCES_NIV01
+            ? MODALITES_ACCES_NIV10
           : code === 'NIV-01'
           ? MODALITES_ACCES_NIV01
           : code === 'NIV-02'
@@ -527,7 +529,7 @@ export function getInfosPratiquesForCatalogue(ref: string): InfosPratiquesFormat
                       : code === 'NIV-10'
                         ? DELAI_ACCES_NIV10
                       : code === 'NIV-13'
-                        ? DELAI_ACCES_NIV01
+                        ? DELAI_ACCES_NIV10
               : code === 'NIV-05'
                 ? DELAI_ACCES_NIV05
                 : DELAI_ACCES_NIV01
@@ -535,7 +537,7 @@ export function getInfosPratiquesForCatalogue(ref: string): InfosPratiquesFormat
     ),
     tarif: tarifPourRef(code),
     methodes:
-      code === 'NIV-10'
+      code === 'NIV-10' || code === 'NIV-13'
         ? [...METHODES_NIV10]
         : code === 'NIV-09'
           ? [...METHODES_NIV09]
@@ -545,8 +547,10 @@ export function getInfosPratiquesForCatalogue(ref: string): InfosPratiquesFormat
         ? [...EVALUATION_NIV12]
         : code === 'NIV-11'
         ? [...EVALUATION_NIV11]
-        : code === 'NIV-01' || code === 'NIV-13'
+        : code === 'NIV-01'
         ? [...EVALUATION_NIV01]
+        : code === 'NIV-13'
+        ? [...EVALUATION_NIV10]
         : code === 'NIV-02'
           ? [...EVALUATION_NIV02]
           : code === 'NIV-03'
@@ -573,8 +577,10 @@ export function getInfosPratiquesForCatalogue(ref: string): InfosPratiquesFormat
         ? MODALITE_PEDAGOGIQUE_NIV11
         : code === 'NIV-02'
         ? MODALITE_PEDAGOGIQUE_NIV02
-        : code === 'NIV-03' || code === 'NIV-13'
+        : code === 'NIV-03'
           ? MODALITE_PEDAGOGIQUE_NIV03
+          : code === 'NIV-13'
+            ? MODALITE_PEDAGOGIQUE_NIV10
           : code === 'NIV-04'
             ? MODALITE_PEDAGOGIQUE_NIV04
             : code === 'NIV-06'
@@ -602,7 +608,9 @@ export function getInfosPratiquesForCatalogue(ref: string): InfosPratiquesFormat
 export function getFormationOutilsAbonnementsAvantDevis(ref: string): string {
   switch (ref) {
     case 'NIV-13':
-      return 'Outils : ordinateur, messagerie professionnelle, compte Make avec AI Agents actif — non inclus dans le tarif. Atelier sur données anonymisées ; validation humaine avant tout envoi automatisé.';
+      return 'Outils : ordinateur, compte Make, accès Claude Code ou Codex selon le prototype — non inclus dans le tarif, à vérifier avant la session. Atelier sur données anonymisées ou fictives ; validation humaine avant tout envoi ou engagement.';
+    case 'NIV-14':
+      return 'Outils : ordinateur, messagerie professionnelle, compte Make actif (modules utilisés en session) — non inclus dans le tarif. Atelier sur données anonymisées ; validation humaine avant tout envoi ou mise à jour automatisée.';
     case 'NIV-01':
       return 'Outils : ordinateur et smartphone. Versions gratuites de ChatGPT ou Claude suffisantes. Aucun abonnement payant requis ni inclus dans le tarif.';
     case 'NIV-02':

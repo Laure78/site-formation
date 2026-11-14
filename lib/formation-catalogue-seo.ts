@@ -16,6 +16,7 @@ import { formatOrganismeQualiopiCourt } from '@/lib/marque-identite';
 import {
   libelleTarifParticipantCatalogue,
   TARIF_PARTICIPANT_NIV02_HT,
+  TARIF_PARTICIPANT_NIV10_14H_HT,
   TARIF_PARTICIPANT_NIV13_HT,
 } from '@/lib/tarifs-catalogue-participant';
 
@@ -273,22 +274,43 @@ export const FORMATION_CATALOGUE_SEO: Record<FormationCatalogueCode, FormationCa
     ],
   },
   'NIV-13': {
-    metaTitle: 'Agent IA autonome BTP : Make (7 h)',
-    h1: 'Créer son premier agent IA autonome pour le BTP',
+    metaTitle: 'Agents IA BTP : prototype Make (14 h)',
+    h1: 'Construire ses agents IA pour le BTP',
     subtitle:
-      'Apprenez à créer un agent IA qui travaille automatiquement pour vous. Suivi des devis, relances clients, actions chantier et échéances : automatisez une tâche professionnelle avec Make, sans programmation.',
+      'Préparez vos relances de devis ou extrayez les actions de vos comptes rendus de chantier. En deux jours, vous construisez et testez un prototype d’agent IA sur un processus de votre PME.',
     metaDescription:
-      'Formation agents IA BTP (7 h) : créer un agent Make AI Agents pour devis, relances ou échéances chantier. Présentiel IDF, Qualiopi, OPCO selon éligibilité.',
-    enBref: `Formation IA pour le BTP (NIV-13, 7 h, présentiel Île-de-France) : comprendre les agents autonomes, configurer un scénario Make AI Agents sur un cas dirigeant ou conducteur de travaux, avec validation humaine avant tout envoi. ${QUALIOPI_MENTION}. ${libelleTarifParticipantCatalogue(TARIF_PARTICIPANT_NIV13_HT)} en inter comme en intra.`,
+      'Formation agents IA BTP (14 h, Niveau 3) : prototype Make testé en atelier, fiche de mission, grille de tests. Présentiel IDF, 620 € HT, Qualiopi.',
+    enBref: `Laure Olivié (OFC Création d’Entreprise) forme les PME du BTP au Niveau 3 · Approfondi (14 h sur 2 jours, dont 10 h de pratique, présentiel Île-de-France) : construire et tester un prototype d’agent IA (Make, Claude Code ou Codex) sur relances de devis, actions de CR ou demandes d’intervention, avec validation humaine. ${QUALIOPI_MENTION}. ${libelleTarifParticipantCatalogue(TARIF_PARTICIPANT_NIV13_HT)} en inter comme en intra.`,
     publicTargets: [
-      'Dirigeants de PME du bâtiment et des travaux publics',
+      'Dirigeants et chargés d’affaires de PME du BTP',
       'Conducteurs de travaux',
+      'Fonctions support',
     ],
     iaLimits: [
       { iaAide: 'Déclencher un scénario sur un événement (email, date, fichier)', validationHumaine: 'Configurer les filtres et le périmètre' },
       { iaAide: 'Préparer brouillons de relances ou de rappels', validationHumaine: 'Relire et valider avant envoi' },
       { iaAide: 'Synthétiser l’état d’un suivi (devis, actions)', validationHumaine: 'Contrôler les données sources' },
       { iaAide: 'Proposer la prochaine action', validationHumaine: 'Décider et engager l’entreprise' },
+    ],
+  },
+  'NIV-14': {
+    metaTitle: 'Automatiser ses tâches IA BTP (14 h)',
+    h1: 'Automatiser ses tâches avec l’IA dans le BTP',
+    subtitle:
+      'Un devis à relancer, un compte rendu à reporter dans un tableau, une demande travaux à enregistrer. En deux jours, reliez vos outils et testez une automatisation Make.',
+    metaDescription:
+      'Formation Make BTP (14 h) : relances de devis, suivi chantier ou demandes d’intervention. Présentiel Île-de-France, Qualiopi, financement OPCO selon éligibilité.',
+    enBref: `Laure Olivié (OFC Création d’Entreprise) propose une formation IA pour le BTP, niveau 3 approfondi (14 h sur 2 jours, 6 à 12 participants, présentiel Île-de-France) : construire et tester un scénario Make sur relances de devis, actions de chantier ou demandes d’intervention, avec grille de tests et fiche de fonctionnement pour l’équipe. ${QUALIOPI_MENTION}. ${libelleTarifParticipantCatalogue(TARIF_PARTICIPANT_NIV10_14H_HT)} en inter comme en intra.`,
+    publicTargets: [
+      'Dirigeants et chargés d’affaires',
+      'Conducteurs de travaux',
+      'Assistants administratifs et fonctions support du BTP',
+    ],
+    iaLimits: [
+      { iaAide: 'Relier messagerie, formulaire et tableur', validationHumaine: 'Connexions, droits et données de test' },
+      { iaAide: 'Générer ou structurer des brouillons', validationHumaine: 'Relire avant envoi ou mise à jour' },
+      { iaAide: 'Proposer des lignes dans un tableau de suivi', validationHumaine: 'Contrôler les champs métier' },
+      { iaAide: 'Signaler une anomalie (doublon, donnée manquante)', validationHumaine: 'Décider de la suite' },
     ],
   },
   'NIV-10': {

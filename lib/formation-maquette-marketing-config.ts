@@ -34,6 +34,8 @@ export type FormationMaquetteMarketingSlice = {
   keyFactsLevel: string;
   heroLead: string;
   heroDescription: string;
+  /** Bloc « Vous repartez avec » affiché sous les boutons du hero. */
+  heroRepartezAvec?: string;
   benefitsTitle: string;
   benefits: readonly MaquetteBenefitCard[];
   formatTitle: string;
@@ -240,51 +242,100 @@ export const FORMATION_MAQUETTE_MARKETING: Partial<
     programmeFootnote14h: 'Durée totale : 14 h sur 2 jours (accueil, ateliers et bilan inclus)',
     pedagogyLabels: [...DEFAULT_PEDAGOGY],
   },
+  'NIV-14': {
+    heroBadge: 'Formation IA BTP · Niveau 3 · Approfondi',
+    keyFactsLevel: 'Niveau 3 · Approfondi',
+    heroLead:
+      'Un devis à relancer, un compte rendu à reporter dans un tableau, une demande travaux à enregistrer. En deux jours, vous reliez vos outils et testez une automatisation Make.',
+    heroDescription:
+      'Présentiel inter ou intra en Île-de-France — vous repartez avec un scénario testé, sa grille de tests et une fiche de fonctionnement pour votre équipe.',
+    benefitsTitle: 'Pourquoi automatiser une tâche métier avec Make',
+    benefits: [
+      {
+        icon: Zap,
+        titre: 'Scénario Make opérationnel',
+        texte: 'Un flux testé sur relances, actions de CR ou demandes d’intervention.',
+      },
+      {
+        icon: Shield,
+        titre: 'Validation humaine intégrée',
+        texte: 'Aucun envoi client ni mise à jour critique sans votre accord.',
+      },
+      {
+        icon: Link2,
+        titre: 'Vos outils reliés',
+        texte: 'Messagerie, formulaire ou tableur — selon les connecteurs disponibles.',
+      },
+      {
+        icon: ClipboardList,
+        titre: 'Grille de tests et fiche d’une page',
+        texte: 'Pour reprendre le scénario en interne et préparer un pilote.',
+      },
+    ],
+    formatTitle: '14 h sur 2 jours — dont 10 h de pratique',
+    formatDescription:
+      '8 modules en atelier — un cas métier au choix parmi relances de devis, suivi chantier ou demandes d’intervention.',
+    finalCtaTitle: 'Quel processus voulez-vous automatiser ?',
+    finalCtaDescription:
+      'Demandez un devis en précisant vos outils, le cas d’usage et le nombre de participants.',
+    ctaSrcPrefix: 'formation-niv14-automatiser',
+    programmeTitleDefault: 'Programme détaillé — 8 modules · 14 h sur 2 jours',
+    programmeFootnote14h: 'Durée totale : 14 h sur 2 jours (dont 10 h de pratique)',
+    pedagogyLabels: [
+      'Cas réels BTP',
+      'Make et connexions outils',
+      'Étape IA contrôlée',
+      'Grille de tests',
+      'Fiche de fonctionnement',
+    ],
+  },
   'NIV-13': {
     heroBadge: 'Formation IA BTP · Niveau 3 · Approfondi',
     keyFactsLevel: 'Niveau 3 · Approfondi',
     heroLead:
-      'Apprenez à créer un agent IA qui travaille automatiquement pour vous. Suivi des devis, relances clients, actions chantier et échéances : automatisez une tâche professionnelle avec Make, sans programmation.',
+      'Préparez vos relances de devis ou extrayez les actions de vos comptes rendus de chantier. En deux jours, vous construisez et testez un prototype d’agent IA sur un processus de votre PME. Vous choisissez les actions qui nécessitent votre validation.',
     heroDescription:
-      'Une journée en présentiel en Île-de-France — deux parcours métier au choix (dirigeant ou conducteur de travaux), sur le même programme.',
-    benefitsTitle: 'Pourquoi passer à un agent autonome (et pas seulement au prompting)',
+      'Make pour relier vos outils · Claude Code ou Codex selon le prototype · présentiel inter ou intra en Île-de-France.',
+    heroRepartezAvec:
+      'Un prototype testé en atelier, sa fiche de mission et de validation, une grille de tests et un plan de supervision.',
+    benefitsTitle: 'Ce que vous construisez en atelier',
     benefits: [
       {
         icon: Zap,
-        titre: 'Tâches qui s’exécutent seules',
-        texte: 'Déclenchement sur un email, une date ou un fichier — l’agent enchaîne les étapes que vous avez définies.',
+        titre: 'Prototype testé',
+        texte: 'Un agent opérationnel sur votre cas (devis, CR ou demande d’intervention) dans un environnement de test.',
       },
       {
-        icon: Link2,
-        titre: 'Outils du quotidien reliés',
-        texte: 'Messagerie, tableur ou agenda : un flux unique au lieu de copier-coller entre applications.',
+        icon: ClipboardList,
+        titre: 'Fiche de mission',
+        texte: 'Déclencheur, sources, actions permises et limites — relu avant toute mise en production.',
       },
       {
         icon: Shield,
-        titre: 'Contrôles humains intégrés',
-        texte: 'Pas d’envoi client ni d’engagement contractuel sans votre validation explicite.',
+        titre: 'Validations cadrées',
+        texte: 'Chaque envoi client ou mise à jour critique passe par votre accord explicite.',
       },
       {
-        icon: Puzzle,
-        titre: 'Sans développeur',
-        texte: 'Make AI Agents en interface visuelle — adapté aux dirigeants et conducteurs de travaux du BTP.',
+        icon: Link2,
+        titre: 'Mesure du gain',
+        texte: 'Comparaison du temps de traitement avant / après et estimation du coût d’exécution.',
       },
     ],
-    formatTitle: 'Une journée de 7 heures, 70 % de pratique',
+    formatTitle: '14 h sur 2 jours — dont 10 h de pratique',
     formatDescription:
-      'Inter-entreprises ou intra dans vos locaux en Île-de-France — un scénario opérationnel testé avant la fin de session.',
-    finalCtaTitle: 'Automatisez une première tâche métier en toute sécurité',
+      '8 modules : concevoir le prototype le jour 1, tester cinq situations et préparer la supervision le jour 2.',
+    finalCtaTitle: 'Quel processus voulez-vous confier à un agent ?',
     finalCtaDescription:
-      'Recevez le programme détaillé ou demandez un devis pour une session intra adaptée à votre entreprise.',
+      'Téléchargez le programme ou demandez un devis en précisant votre cas d’usage et le nombre de participants.',
     ctaSrcPrefix: 'formation-niv13-agents-ia',
-    programmeTitleDefault: 'Programme — 6 modules (7 h)',
-    programmeFootnote4h: 'Durée totale : 7 h (accueil, modules et bilan inclus)',
+    programmeTitleDefault: 'Programme détaillé — 8 modules · 14 h sur 2 jours',
+    programmeFootnote14h: 'Durée totale : 14 h sur 2 jours (dont 10 h de pratique)',
     pedagogyLabels: [
-      'Scénarios Make guidés',
-      'Cas dirigeant ou conducteur de travaux',
-      '70 % de pratique',
-      'Validation humaine systématique',
-      'Plan de déploiement 30 jours',
+      'Prototype agent testé',
+      'Make et connexions outils',
+      'Claude Code ou Codex',
+      'Grille de tests (5 situations)',
+      'Plan de supervision',
     ],
   },
   'NIV-11': {

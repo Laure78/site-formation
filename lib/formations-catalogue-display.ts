@@ -102,6 +102,7 @@ const PHOTO_BY_CODE: Record<string, (typeof PHOTOS)[keyof typeof PHOTOS]> = {
   'NIV-09': PHOTOS.formationNiv09AssistantsIaPersonnalisesBtp2026,
   'NIV-10': PHOTOS.formationNiv10DevWebIaHero2026,
   'NIV-13': PHOTOS.formationNiv13AgentsIaAutonomesBtp2026,
+  'NIV-14': PHOTOS.formationNiv13AgentsIaAutonomesBtp2026,
 };
 
 const PROFILE_TAGS_BY_CODE: Record<
@@ -121,6 +122,7 @@ const PROFILE_TAGS_BY_CODE: Record<
   'NIV-09': ['assistants-ia'],
   'NIV-10': ['applications-metier-btp'],
   'NIV-13': ['assistants-ia'],
+  'NIV-14': ['assistants-ia'],
 };
 
 function toCatalogueEntry(f: Formation): FormationCatalogueEntry {

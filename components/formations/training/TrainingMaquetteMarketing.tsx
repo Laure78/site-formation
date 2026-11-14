@@ -34,6 +34,7 @@ import { formatNumberFr } from '@/lib/format-number-fr';
 import { libelleTarifParticipantCatalogue } from '@/lib/tarifs-catalogue-participant';
 import { TRAINING_ANCHOR } from '@/lib/training-fiche-nav';
 import { getFormationByCode } from '@/data/formations';
+import type { ReactNode } from 'react';
 
 type Props = {
   programmeRef: FormationCatalogueCode;
@@ -53,6 +54,8 @@ type Props = {
   /** Bloc « En bref » visible sous le hero (GEO). */
   enBref?: string;
   ctaMode?: 'visio-programme' | 'programme-devis';
+  /** Inséré avant le bloc programme (ex. cas métier NIV-14). */
+  slotBeforeProgramme?: ReactNode;
 };
 
 const DEFAULT_PEDAGOGY_ICONS = [HardHat, FileText, Layers, Shield, Target] as const;
@@ -74,6 +77,7 @@ export function TrainingMaquetteMarketing({
   programmeMaxBullets,
   enBref,
   ctaMode = 'visio-programme',
+  slotBeforeProgramme,
 }: Props) {
   const slice = getFormationMaquetteMarketingSlice(programmeRef);
   const assets = getFormationMaquetteAssets(programmeRef);
@@ -145,6 +149,12 @@ export function TrainingMaquetteMarketing({
               ctaMode={ctaMode}
               className="mt-8"
             />
+            {slice.heroRepartezAvec ? (
+              <p className="mt-5 rounded-xl border border-[#BFDBFE] bg-[#EFF6FF] p-4 text-sm leading-relaxed text-slate-700 md:text-base">
+                <span className="font-semibold text-[#101936]">Vous repartez avec — </span>
+                {slice.heroRepartezAvec}
+              </p>
+            ) : null}
             {enBref ? (
               <p className="mt-6 border-l-4 border-[#377CF3] bg-[#F8FAFC] py-3 pl-4 text-sm leading-relaxed text-slate-700 md:text-base">
                 <span className="font-semibold text-[#101936]">En bref — </span>
@@ -231,6 +241,8 @@ export function TrainingMaquetteMarketing({
             className="shrink-0"
           />
         </section>
+
+        {slotBeforeProgramme}
 
         {programCards.length > 0 ? (
           <section

@@ -39,10 +39,7 @@ export function formationRefMatchesFormationsIaFilters(
   }
 
   if (filters.niveau) {
-    if (filters.niveau === 3) {
-      /** Seul le programme 14 h (NIV-10) relève du parcours « approfondi » catalogue maquette. */
-      if (ref !== 'NIV-10') return false;
-    } else if (f.niveau !== filters.niveau) {
+    if (f.niveau !== filters.niveau) {
       return false;
     }
   }
