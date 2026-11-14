@@ -129,6 +129,7 @@ export type CatalogueCourseJsonLdConfig = {
     | typeof LINKS.formationApplicationMetierBtpNiveau3
     | typeof LINKS.formationAssistantsIaPersonnalisesBtp
     | typeof LINKS.formationAgentsIaAutonomesBtp
+    | typeof LINKS.formationAutomatiserTachesIaBtp
     | typeof LINKS.formationDeveloppementWebIaSansCoder;
   name: string;
   description: string;
@@ -153,6 +154,7 @@ export type FormationCatalogueRichCourseConfig = {
     | typeof LINKS.formationApplicationMetierBtpNiveau3
     | typeof LINKS.formationAssistantsIaPersonnalisesBtp
     | typeof LINKS.formationAgentsIaAutonomesBtp
+    | typeof LINKS.formationAutomatiserTachesIaBtp
     | typeof LINKS.formationDeveloppementWebIaSansCoder
     | (typeof LEGACY_APPLICATION_METIER_PATH)[keyof typeof LEGACY_APPLICATION_METIER_PATH];
   name: string;
@@ -441,7 +443,7 @@ export const FORMATION_RICH_COURSE_NIV14: FormationCatalogueRichCourseConfig = {
   name: CATALOGUE_COURSE_AUTOMATISER_TACHES_NIV14.name,
   description: CATALOGUE_COURSE_AUTOMATISER_TACHES_NIV14.description,
   price: prixCatalogue('NIV-14'),
-  educationalLevel: 'Advanced',
+  educationalLevel: 'Avancé',
   teaches: teachesFromCatalogue('NIV-14'),
 };
 

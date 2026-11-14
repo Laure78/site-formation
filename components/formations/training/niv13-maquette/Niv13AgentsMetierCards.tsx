@@ -1,7 +1,11 @@
-import { Briefcase, HardHat } from 'lucide-react';
+import { Briefcase, HardHat, Headphones } from 'lucide-react';
 import { AGENTS_IA_METIER_CARDS } from '@/lib/formation-agents-ia-autonomes-btp-content';
 
-const ICONS = { dirigeant: Briefcase, 'conducteur-travaux': HardHat } as const;
+const ICONS: Record<(typeof AGENTS_IA_METIER_CARDS)[number]['id'], typeof Briefcase> = {
+  devis: Briefcase,
+  chantier: HardHat,
+  support: Headphones,
+};
 
 export function Niv13AgentsMetierCards() {
   return (
@@ -10,9 +14,9 @@ export function Niv13AgentsMetierCards() {
         À qui s&apos;adresse cette formation ?
       </h2>
       <p className="mx-auto mt-3 max-w-3xl text-center text-sm text-slate-600 md:mx-0 md:text-left md:text-base">
-        Un seul programme, deux parcours métier au choix en atelier — dirigeant ou conducteur de travaux.
+        Un seul programme, trois cas métier en atelier — devis, chantier ou fonctions support.
       </p>
-      <div className="mt-8 grid gap-4 md:grid-cols-2">
+      <div className="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
         {AGENTS_IA_METIER_CARDS.map((card) => {
           const Icon = ICONS[card.id];
           return (
