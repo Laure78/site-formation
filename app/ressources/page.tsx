@@ -32,9 +32,9 @@ export const metadata: Metadata = createPageMetadata({
   appendAuthorSuffix: false,
   image: {
     url: '/images/ressources/ressources-hub-hero-2026.webp',
-    width: 1600,
-    height: 900,
-    alt: 'Ressources IA BTP : guides, tutoriels et outils pour professionnels du bâtiment',
+    width: 1280,
+    height: 720,
+    alt: 'Deux professionnels du BTP en casque consultent guides et tablette — ressources IA gratuites',
   },
 });
 

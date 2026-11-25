@@ -9,9 +9,9 @@ const BASE = '/images/ressources';
 
 export const RESSOURCES_HUB_HERO_PHOTO: RessourceMiniature = {
   src: `${BASE}/ressources-hub-hero-2026.webp`,
-  alt: 'Professionnel du BTP sur chantier avec ordinateur portable — ressources IA gratuites pour le bâtiment',
-  width: 1600,
-  height: 900,
+  alt: 'Deux professionnels du BTP en casque consultent guides et tablette au bureau — ressources IA gratuites',
+  width: 1280,
+  height: 720,
 };
 
 export const RESSOURCES_HUB_CTA_FORMATIONS_PHOTO: RessourceMiniature = {
