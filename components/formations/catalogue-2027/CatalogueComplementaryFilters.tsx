@@ -114,6 +114,7 @@ export function CatalogueComplementaryFilters({ filters, onChange }: Props) {
               [
                 { key: 'all', label: 'Toutes', duree: undefined },
                 { key: '4', label: '4 h', duree: 4 as const },
+                { key: '7', label: '7 h', duree: 7 as const },
                 { key: '14', label: '14 h', duree: 14 as const },
               ] as const
             ).map((opt) => {

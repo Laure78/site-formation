@@ -126,13 +126,13 @@ export function assertCatalogueParcoursIntegrity(): {
     errors.push(`Attendu 7 parcours, trouvé ${PARCOURS_CATALOGUE_2027.length}`);
   }
   const expected: Record<string, { h: number; prix: number; modules: number }> = {
-    'dirigeant-pme-btp': { h: 24, prix: 1020, modules: 6 },
-    'charge-affaires-btp': { h: 24, prix: 1020, modules: 6 },
-    'conducteur-de-travaux': { h: 24, prix: 1020, modules: 6 },
-    'assistant-de-gestion-btp': { h: 24, prix: 970, modules: 6 },
-    'referent-ia-btp': { h: 26, prix: 1130, modules: 4 },
-    'maitre-oeuvre': { h: 16, prix: 630, modules: 4 },
-    'amo-btp': { h: 12, prix: 460, modules: 3 },
+    'dirigeant-pme-btp': { h: 42, prix: 1860, modules: 6 },
+    'charge-affaires-btp': { h: 42, prix: 1860, modules: 6 },
+    'conducteur-de-travaux': { h: 42, prix: 1860, modules: 6 },
+    'assistant-de-gestion-btp': { h: 39, prix: 1670, modules: 6 },
+    'referent-ia-btp': { h: 35, prix: 1550, modules: 4 },
+    'maitre-oeuvre': { h: 25, prix: 1050, modules: 4 },
+    'amo-btp': { h: 18, prix: 740, modules: 3 },
   };
   for (const p of getAllParcoursComputed()) {
     const exp = expected[p.id];
@@ -157,14 +157,14 @@ export function assertCatalogueParcoursIntegrity(): {
     }
     if (p.id === 'assistant-de-gestion-btp' && p.varianteOptionnelle) {
       const v = p.varianteOptionnelle;
-      if (v.dureeHeures !== 20 || v.prixInterHt !== 850) {
-        errors.push(`Assistant gestion variante: ${v.dureeHeures}h / ${v.prixInterHt}€ (attendu 20h / 850€)`);
+      if (v.dureeHeures !== 35 || v.prixInterHt !== 1550) {
+        errors.push(`Assistant gestion variante: ${v.dureeHeures}h / ${v.prixInterHt}€ (attendu 35h / 1550€)`);
       }
     }
     if (p.id === 'referent-ia-btp' && p.initiationComplementaire) {
       const i = p.initiationComplementaire;
-      if (i.dureeHeures !== 30 || i.prixInterHt !== 1250) {
-        errors.push(`Référent initiation: ${i.dureeHeures}h / ${i.prixInterHt}€ (attendu 30h / 1250€)`);
+      if (i.dureeHeures !== 39 || i.prixInterHt !== 1670) {
+        errors.push(`Référent initiation: ${i.dureeHeures}h / ${i.prixInterHt}€ (attendu 39h / 1670€)`);
       }
     }
     for (const e of p.etapes) {

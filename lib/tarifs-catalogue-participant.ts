@@ -52,7 +52,7 @@ export const TARIF_PARTICIPANT_NIVEAU_2_4H_HT = TARIF_PARTICIPANT_NIV02_HT;
 /** Minimum participants — sessions convoquées par un réseau. */
 export const SESSION_CONVOQUEE_MIN_PARTICIPANTS = 6 as const;
 
-/** « 170 € HT / participant » — format d’affichage catalogue (sessions avancées 4 h). */
+/** « 310 € HT / participant » — format d’affichage catalogue (sessions avancées 7 h). */
 export function libelleTarifParticipantCatalogue(tarifHt: number): string {
   return `${formatNumberFr(tarifHt)} € HT / participant`;
 }

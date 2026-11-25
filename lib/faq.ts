@@ -83,7 +83,7 @@ export const FAQ_IA_BTP_METIERS_CHANTIER_SEO: readonly FAQItem[] = [
   {
     q: "La formation convient-elle aux PME du BTP et aux équipes terrain ?",
     a:
-      "Oui : c'est le cœur du public visé — professionnels du BTP, TPE, PME du bâtiment et travaux publics, sans prérequis technique. Les sessions catalogue durent 4 h (niveau débutant ou avancé selon la fiche). " +
+      "Oui : c'est le cœur du public visé — professionnels du BTP, TPE, PME du bâtiment et travaux publics, sans prérequis technique. Les sessions catalogue durent 4 h (niveau 1) ou 7 h (niveau 2 · avancé), selon la fiche. " +
       MODALITE_FORMATIONS_STANDARD +
       " " +
       FINANCEMENT_FORMULATION_COURTE +
@@ -177,7 +177,7 @@ export const FAQ_ITEMS: readonly FAQItem[] = [
   },
   {
     q: "Combien de temps dure la formation IA pour le BTP ?",
-    a: `Les formations du catalogue IA BTP sont en 4 h, sauf les approfondis en 14 h sur 2 jours (2 × 7 h par journée) : « applications métier BTP avec l’IA » et « Construire ses agents IA pour le BTP » (Make). ${MODALITE_FORMATIONS_PRESENTIEL} Débutant (4 h) : ${libelleTarifParticipantCatalogue(TARIF_PARTICIPANT_NIV01_HT)} · avancé (4 h) : ${libelleTarifParticipantCatalogue(TARIF_PARTICIPANT_NIV02_HT)} · approfondi (14 h) : ${libelleTarifParticipantCatalogue(TARIF_PARTICIPANT_NIV10_14H_HT)} — voir les programmes sur la page <a href="/formations">formations IA pour le BTP</a>.`,
+    a: `Les formations du catalogue IA BTP suivent trois durées : niveau 1 en 4 h, niveau 2 · avancé en 7 h (1 journée), approfondi en 14 h sur 2 jours (2 × 7 h par journée) pour « Créer des applications métier BTP avec l’IA » et « Construire ses agents IA pour le BTP » (Make). ${MODALITE_FORMATIONS_PRESENTIEL} Débutant (4 h) : ${libelleTarifParticipantCatalogue(TARIF_PARTICIPANT_NIV01_HT)} · avancé (7 h) : ${libelleTarifParticipantCatalogue(TARIF_PARTICIPANT_NIV02_HT)} · approfondi (14 h) : ${libelleTarifParticipantCatalogue(TARIF_PARTICIPANT_NIV10_14H_HT)} — voir les programmes sur la page <a href="/formations">formations IA pour le BTP</a>.`,
   },
   {
     q: "La formation se fait-elle en présentiel ?",
@@ -262,7 +262,7 @@ export const FAQ_CATALOGUE_PAGE: readonly FAQItem[] = [
   },
   {
     q: 'Quelle est la différence entre une formation intra et interentreprises ?',
-    a: `En intra, la session se déroule dans votre entreprise pour une équipe homogène : le programme peut être ajusté à vos documents (devis, DCE, CR). En inter, des participants de plusieurs entreprises se retrouvent sur une date convoquée ; les tarifs catalogue sont en HT par participant (${libelleTarifParticipantCatalogue(TARIF_PARTICIPANT_NIV01_HT)} pour les bases 4 h, ${libelleTarifParticipantCatalogue(TARIF_PARTICIPANT_NIV02_HT)} pour une session métier 4 h — voir chaque fiche). Le devis détaille format, effectif et montant total.`,
+    a: `En intra, la session se déroule dans votre entreprise pour une équipe homogène : le programme peut être ajusté à vos documents (devis, DCE, CR). En inter, des participants de plusieurs entreprises se retrouvent sur une date convoquée ; les tarifs catalogue sont en HT par participant (${libelleTarifParticipantCatalogue(TARIF_PARTICIPANT_NIV01_HT)} pour les bases 4 h, ${libelleTarifParticipantCatalogue(TARIF_PARTICIPANT_NIV02_HT)} pour une session métier 7 h — voir chaque fiche). Le devis détaille format, effectif et montant total.`,
   },
   {
     q: 'Les formations sont-elles certifiantes ?',
@@ -291,7 +291,7 @@ export const FAQ_FORMATIONS: FAQItem[] = [
   },
   {
     q: 'Combien coûte une formation IA pour le BTP ?',
-    a: `Tarifs HT par participant : débutant 4 h ${libelleTarifParticipantCatalogue(TARIF_PARTICIPANT_NIV01_HT)} · avancé 4 h ${libelleTarifParticipantCatalogue(TARIF_PARTICIPANT_NIV02_HT)} · approfondi 14 h (2 jours) ${libelleTarifParticipantCatalogue(TARIF_PARTICIPANT_NIV10_14H_HT)}. ${MENTIONS_TVA_REGIMES_COURT} ${FINANCEMENT_FORMULATION_PRUDENTE} Grille détaillée : <a href="${LINKS.formations}#tarifs-formations-btp">tarifs formations BTP</a>.`,
+    a: `Tarifs HT par participant : débutant 4 h ${libelleTarifParticipantCatalogue(TARIF_PARTICIPANT_NIV01_HT)} · avancé 7 h ${libelleTarifParticipantCatalogue(TARIF_PARTICIPANT_NIV02_HT)} · approfondi 14 h (2 jours) ${libelleTarifParticipantCatalogue(TARIF_PARTICIPANT_NIV10_14H_HT)}. ${MENTIONS_TVA_REGIMES_COURT} ${FINANCEMENT_FORMULATION_PRUDENTE} Grille détaillée : <a href="${LINKS.formations}#tarifs-formations-btp">tarifs formations BTP</a>.`,
   },
   {
     q: 'La formation peut-elle être financée par Constructys ?',
@@ -299,7 +299,7 @@ export const FAQ_FORMATIONS: FAQItem[] = [
   },
   {
     q: 'Quelles formations IA appliquées au bâtiment sont proposées au catalogue ?',
-    a: `Notre catalogue de formations IA pour le BTP comprend des sessions en 4 h (bases, appels d&apos;offres, chantier, Claude, maîtrise d&apos;œuvre, assistance à maîtrise d&apos;ouvrage, assistants IA) et la formation <a href="${LINKS.formationDeveloppementWebIaSansCoder}">Créer des applications métier BTP avec l&apos;IA</a> (14 heures — 2 jours). Toutes les actions sont dispensées par ${formatOrganismeQualiopiCourt()}. ${MODALITE_FORMATIONS_PRESENTIEL} ${FINANCEMENT_FORMULATION_COURTE} Fiches détaillées : cartes ci-dessus.`,
+    a: `Notre catalogue de formations IA pour le BTP comprend le niveau 1 en 4 h (bases) et le niveau 2 · avancé en 7 h (appels d&apos;offres, chantier, Claude, maîtrise d&apos;œuvre, assistance à maîtrise d&apos;ouvrage, assistants IA), ainsi que la formation <a href="${LINKS.formationDeveloppementWebIaSansCoder}">Créer des applications métier BTP avec l&apos;IA</a> (14 heures — 2 jours, niveau 3). Toutes les actions sont dispensées par ${formatOrganismeQualiopiCourt()}. ${MODALITE_FORMATIONS_PRESENTIEL} ${FINANCEMENT_FORMULATION_COURTE} Fiches détaillées : cartes ci-dessus.`,
   },
   {
     q: 'Comment choisir la bonne formation IA pour le BTP pour mon entreprise ?',
@@ -307,7 +307,7 @@ export const FAQ_FORMATIONS: FAQItem[] = [
   },
   {
     q: 'Qu\'apporte la formation Maîtriser Claude AI pour le BTP (niveau 2) ?',
-    a: `Cette formation cible les profils qui maîtrisent déjà Claude Pro : structurer l&apos;usage en entreprise (Projets, bibliothèque de Skills), installer des skills métier (appels d&apos;offres RC/DCE, chantier CCTP/CR/réserves, juridique marché de travaux — l&apos;IA n&apos;est pas un avocat), déléguer la production documentaire via Cowork, connecter Gmail/Drive/agenda en sécurisant les données, et automatiser avec Claude Code. Session de 4 h (demi-journée), 6 à 12 participants, ${libelleTarifParticipantCatalogue(TARIF_PARTICIPANT_NIV02_HT)}. Fiche : <a href="${LINKS.formationMaitriserClaudeAiBtp}">Maîtriser Claude AI pour le BTP — Chat, Cowork &amp; Code</a>.`,
+    a: `Cette formation cible les profils qui maîtrisent déjà Claude Pro : structurer l&apos;usage en entreprise (Projets, bibliothèque de Skills), installer des skills métier (appels d&apos;offres RC/DCE, chantier CCTP/CR/réserves, juridique marché de travaux — l&apos;IA n&apos;est pas un avocat), déléguer la production documentaire via Cowork, connecter Gmail/Drive/agenda en sécurisant les données, et automatiser avec Claude Code. Session de 7 h (1 journée), 6 à 12 participants, ${libelleTarifParticipantCatalogue(TARIF_PARTICIPANT_NIV02_HT)}. Fiche : <a href="${LINKS.formationMaitriserClaudeAiBtp}">Maîtriser Claude AI pour le BTP — Chat, Cowork &amp; Code</a>.`,
   },
   {
     q: 'Les formations IA pour les pros du BTP peuvent-elles être financées par Constructys ou mon OPCO ?',
@@ -364,7 +364,7 @@ export const FAQ_TARIFS: FAQItem[] = [
   },
   {
     q: 'Combien coûte une formation IA pour les pros du BTP ?',
-    a: `Tarifs HT / participant : débutant 4 h ${libelleTarifParticipantCatalogue(TARIF_PARTICIPANT_NIV01_HT)} · avancé 4 h ${libelleTarifParticipantCatalogue(TARIF_PARTICIPANT_NIV02_HT)} · approfondi 14 h (2 jours, ${libelleTarifParticipantCatalogue(TARIF_PARTICIPANT_NIV10_14H_HT)}). ${MENTIONS_TVA_REGIMES_COURT} ${FINANCEMENT_FORMULATION_PRUDENTE} — <a href="/financement-constructys-formation-ia-btp">guide financement</a> et <a href="/contact">accompagnement dossier</a>.`,
+    a: `Tarifs HT / participant : débutant 4 h ${libelleTarifParticipantCatalogue(TARIF_PARTICIPANT_NIV01_HT)} · avancé 7 h ${libelleTarifParticipantCatalogue(TARIF_PARTICIPANT_NIV02_HT)} · approfondi 14 h (2 jours, ${libelleTarifParticipantCatalogue(TARIF_PARTICIPANT_NIV10_14H_HT)}). ${MENTIONS_TVA_REGIMES_COURT} ${FINANCEMENT_FORMULATION_PRUDENTE} — <a href="/financement-constructys-formation-ia-btp">guide financement</a> et <a href="/contact">accompagnement dossier</a>.`,
   },
   {
     q: "Comment financer ma formation IA ?",

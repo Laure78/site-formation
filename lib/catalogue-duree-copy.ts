@@ -36,7 +36,7 @@ export function dureeCatalogueParCode(code: FormationCode): string {
 
 /** Phrase FAQ / blog — durées du catalogue sans valeurs codées en dur. */
 export function faqDureesCatalogueSentence(): string {
-  return `Les formations du catalogue IA BTP durent ${CATALOGUE_DUREE_STANDARD} en session standard (exceptions : agents IA autonomes Make ${CATALOGUE_DUREE_NIV13}, assistants IA personnalisés ${CATALOGUE_DUREE_NIV09}, applications métier sur 2 jours ${CATALOGUE_DUREE_NIV10}). Format intra (dans vos locaux) ou inter, exclusivement en présentiel en Île-de-France.`;
+  return `Les formations du catalogue IA BTP durent ${CATALOGUE_DUREE_STANDARD} au niveau 1, ${CATALOGUE_DUREE_SESSION_METIER} au niveau 2 · avancé, et ${CATALOGUE_DUREE_NIV10} sur 2 jours au niveau 3 · approfondi (agents IA autonomes Make : ${CATALOGUE_DUREE_NIV13}). Format intra (dans vos locaux) ou inter, exclusivement en présentiel en Île-de-France.`;
 }
 
 export function phraseSessionCatalogueMetierQualiopi(): string {

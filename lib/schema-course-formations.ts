@@ -2,7 +2,7 @@
  * Schémas JSON-LD Course + EducationalOrganization pour le catalogue et les fiches formation.
  */
 import { formationsData } from '@/src/data/formations';
-import { getFormationByCode } from '@/data/formations';
+import { formationTimeRequiredIso, getFormationByCode } from '@/data/formations';
 import { getFormationCatalogueByRef } from '@/lib/formations-catalogue-display';
 import { SITE_CONFIG } from '@/lib/seo';
 import {
@@ -59,7 +59,7 @@ export const FORMATIONS_CATALOG_SCHEMA: FormationCatalogEntry[] = [
     path: '/formations/ia-appels-offre-btp',
     name: "L'IA appliquée aux appels d'offres BTP",
     description:
-      "Formation niveau 2 — 4 h : assistants IA DCE et mémoire technique avec Claude AI Pro, Cowork & Skills — Qualiopi, OPCO Constructys.",
+      "Formation niveau 2 — 7 h : assistants IA DCE et mémoire technique avec Claude AI Pro, Cowork & Skills — Qualiopi, OPCO Constructys.",
     teaches: teachesFromCatalogueDisplay('NIV-02'),
     occupationalCategory: 'BTP, Bâtiment, Travaux Publics',
   },
@@ -69,7 +69,7 @@ export const FORMATIONS_CATALOG_SCHEMA: FormationCatalogEntry[] = [
     path: '/formations/ia-conduite-travaux-suivi-chantier',
     name: "L'IA appliquée à la conduite de travaux",
     description:
-      'Formation niveau 2 — 4 h : conduite de travaux et suivi chantier avec skills Claude (CCTP, DPGF, PPSPS, CR, réception). Qualiopi, Constructys.',
+      'Formation niveau 2 — 7 h : conduite de travaux et suivi chantier avec skills Claude (CCTP, DPGF, PPSPS, CR, réception). Qualiopi, Constructys.',
     teaches: teachesFromCatalogueDisplay('NIV-03'),
     occupationalCategory: 'BTP, conduite de travaux, suivi chantier',
   },
@@ -88,7 +88,7 @@ export const FORMATIONS_CATALOG_SCHEMA: FormationCatalogEntry[] = [
     path: '/formations/ia-maitrise-oeuvre',
     name: "L'IA au service des maîtres d'œuvre",
     description:
-      "Formation niveau 2 — 4 h : IA pour maîtrise d'œuvre d'exécution — analyse DCE, CR chantier, OS, courriers et réserves. Qualiopi, Constructys.",
+      "Formation niveau 2 — 7 h : IA pour maîtrise d'œuvre d'exécution — analyse DCE, CR chantier, OS, courriers et réserves. Qualiopi, Constructys.",
     teaches: teachesFromCatalogueDisplay('NIV-05'),
     occupationalCategory: 'BTP, maîtrise d\'œuvre, MOEX',
   },
@@ -193,6 +193,7 @@ function buildCourseObject(entry: FormationCatalogEntry): Record<string, unknown
       educationalLevel: educationalLevelSchema(entry.level),
       teaches: entry.teaches,
       organizationId: siteSchemaOrganizationId(base),
+      timeRequired: formationTimeRequiredIso(entry.ref),
     }),
     occupationalCategory: entry.occupationalCategory,
     offers: buildCatalogOffer(entry, courseUrl),

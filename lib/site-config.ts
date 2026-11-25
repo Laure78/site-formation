@@ -231,8 +231,8 @@ export const SITE_AREA_SERVED_LABEL = 'Île-de-France' as const;
 export const SITE_TARIFS = {
   /** Niveau 1 — Les bases de l’IA (4 h). */
   participant4hNiveau1: 120,
-  /** Niveau 2 — sessions avancées 4 h (MOE NIV-05, AMO NIV-11, etc.). */
-  participant4hNiveau2: 170,
+  /** Niveau 2 — sessions avancées 7 h (MOE NIV-05, AMO NIV-11, etc.). */
+  participant4hNiveau2: 310,
   /** Journée au sein d’un parcours 14 h (référence interne — pas d’offre catalogue autonome 7 h agents). */
   participant7hJournee: 310,
   /** Niveau 3 — approfondi 14 h (2 × 7 h). */
@@ -257,7 +257,7 @@ export const TARIF_PARTICIPANT_NIV13_HT = SITE_TARIFS.participant14hApprofondi;
 export function siteTarifsLlmsGrilleLigne(): string {
   const { participant4hNiveau1, participant7hJournee, participant4hNiveau2, participant14hApprofondi } =
     SITE_TARIFS;
-  return `Inter : ${participant4hNiveau1} € HT (débutant 4 h), ${participant4hNiveau2} € HT (avancé 4 h), ${participant14hApprofondi} € HT (approfondi 14 h : applications métier et agents IA Make). Maîtrise d’œuvre et AMO (4 h) : ${participant4hNiveau2} € HT / participant en inter comme en intra. TVA exonérée (art. 261-4-4°-a du CGI).`;
+  return `Inter : ${participant4hNiveau1} € HT (débutant 4 h), ${participant4hNiveau2} € HT (avancé 7 h), ${participant14hApprofondi} € HT (approfondi 14 h : applications métier et agents IA Make). Maîtrise d’œuvre et AMO (7 h) : ${participant4hNiveau2} € HT / participant en inter comme en intra. TVA exonérée (art. 261-4-4°-a du CGI).`;
 }
 
 /** SIREN sans espaces. */

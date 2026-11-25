@@ -20,6 +20,7 @@ export const NIVEAU_LIBELLE: Record<ModuleNiveau, string> = {
 /** Durée inter standard par niveau (heures). */
 export function dureeHeuresPourNiveau(niveau: ModuleNiveau): ModuleDureeHeures {
   if (niveau === 3) return 14;
+  if (niveau === 2) return 7;
   return 4;
 }
 

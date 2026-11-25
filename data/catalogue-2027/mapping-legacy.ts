@@ -38,7 +38,7 @@ export const MAPPING_LEGACY_VERS_2027: readonly LegacyOfferMapping[] = [
     nouveauCode: 'NUM-02',
     urlRetenue: '/formations/ia-appels-offre-btp',
     action: 'renommer-et-mettre-a-jour',
-    notes: 'NUM-02 · niveau 2 — 4 h / 170 € HT (grille parcours). Fiche catalogue alignée ; PDF à régénérer si écart.',
+    notes: 'NUM-02 · niveau 2 — 7 h / 310 € HT (grille parcours). Fiche catalogue alignée ; PDF à valider pédagogiquement.',
   },
   {
     legacyCode: 'NIV-03',
@@ -47,7 +47,7 @@ export const MAPPING_LEGACY_VERS_2027: readonly LegacyOfferMapping[] = [
     nouveauCode: 'NUM-07',
     urlRetenue: '/formations/ia-conduite-travaux-suivi-chantier',
     action: 'renommer-et-mettre-a-jour',
-    notes: 'NUM-07 · niveau 2 — 4 h / 170 €. Distinct de TRA-05 (réception). PDF à régénérer si écart.',
+    notes: 'NUM-07 · niveau 2 — 7 h / 310 €. Distinct de TRA-05 (réception). PDF à valider pédagogiquement.',
   },
   {
     legacyCode: 'NIV-04',
@@ -56,7 +56,7 @@ export const MAPPING_LEGACY_VERS_2027: readonly LegacyOfferMapping[] = [
     nouveauCode: 'NUM-03',
     urlRetenue: '/formations/maitriser-claude-ai-btp',
     action: 'renommer-et-mettre-a-jour',
-    notes: 'NUM-03 · niveau 2 — 4 h / 170 € HT. PDF à régénérer si écart.',
+    notes: 'NUM-03 · niveau 2 — 7 h / 310 € HT. PDF à valider pédagogiquement.',
   },
   {
     legacyCode: 'NIV-05',
@@ -65,7 +65,7 @@ export const MAPPING_LEGACY_VERS_2027: readonly LegacyOfferMapping[] = [
     nouveauCode: 'NUM-08',
     urlRetenue: '/formations/ia-maitrise-oeuvre',
     action: 'renommer-et-mettre-a-jour',
-    notes: 'NUM-08 · niveau 2 — 4 h / 170 € HT. PDF à régénérer si écart.',
+    notes: 'NUM-08 · niveau 2 — 7 h / 310 € HT. PDF à valider pédagogiquement.',
   },
   {
     legacyCode: 'NIV-10',
@@ -111,7 +111,7 @@ export const MAPPING_LEGACY_VERS_2027: readonly LegacyOfferMapping[] = [
     nouveauParcours: 'maitre-oeuvre',
     urlRetenue: '/formations/assistants-ia-personnalises-btp',
     action: 'renommer-et-mettre-a-jour',
-    notes: 'NUM-09 · niveau 2 — 4 h / 170 € HT (grille parcours). PDF à harmoniser 4 h si écart.',
+    notes: 'NUM-09 · niveau 2 — 7 h / 310 € HT (grille parcours). PDF à valider pédagogiquement.',
   },
   {
     legacyCode: 'NIV-11',
@@ -121,6 +121,6 @@ export const MAPPING_LEGACY_VERS_2027: readonly LegacyOfferMapping[] = [
     nouveauParcours: 'amo-btp',
     urlRetenue: '/formations/ia-assistance-maitrise-ouvrage',
     action: 'renommer-et-mettre-a-jour',
-    notes: 'NUM-10 · niveau 2 — 4 h / 170 € HT. Parcours AMO : NUM-01 + NUM-10 + NUM-02.',
+    notes: 'NUM-10 · niveau 2 — 7 h / 310 € HT. Parcours AMO : NUM-01 + NUM-10 + NUM-02.',
   },
 ] as const;

@@ -75,6 +75,18 @@ export const NIV03_PROGRAMME_BLOCS: readonly ProgrammeFormationBloc[] = [
     livrable: 'Skills « Situations », « PV de réserves », « DOE » et « Assistant juridique » + accès à la bibliothèque de 20+ skills BTP',
   },
   {
+    heading: 'MODULE 5 — Atelier fil rouge : industrialiser le suivi chantier',
+    meta: '2 h 40',
+    objectifs: [
+      'Approfondissement sur le chantier fil rouge',
+      'Enchaîner CCTP → PPSPS → CR → tableau d’actions → situation sur un même dossier',
+      'Personnaliser 2 skills supplémentaires et les documenter pour l’équipe',
+      'Simuler un point hebdomadaire : ordre du jour, décisions et relances ST',
+      'Grille de contrôle humain avant envoi (prix, engagements, données personnelles)',
+    ],
+    livrable: 'Méthode chantier complète testée + 2 skills personnalisés documentés',
+  },
+  {
     heading: 'CLÔTURE — Bilan, plan d’action et évaluation',
     meta: '15 min',
     objectifs: [

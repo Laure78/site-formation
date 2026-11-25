@@ -13,6 +13,7 @@ import {
   TARIF_PARTICIPANT_NIV10_14H_HT,
   TARIF_PARTICIPANT_NIV13_HT,
 } from '@/lib/tarifs-catalogue-participant';
+import { FORMATION_HORAIRES_JOURNEE_7H } from '@/lib/formation-niveaux-officiels';
 
 /** Effectif standard — toutes les formations catalogue IA BTP (niveaux 1, 2 et 3). */
 export const CATALOGUE_EFFECTIF_MIN = 6 as const;
@@ -164,8 +165,8 @@ export const FORMATIONS: readonly Formation[] = [
     theme: 'appels-offres-etudes',
     niveau: 2,
     niveauLabel: 'NUM-02',
-    duree: '4 h',
-    horaires: '9h00 – 13h00 ou 13h30 – 17h30',
+    duree: '7 h',
+    horaires: FORMATION_HORAIRES_JOURNEE_7H,
     effectifMin: 6,
     effectifMax: 12,
     prixHT: 0,
@@ -200,8 +201,8 @@ export const FORMATIONS: readonly Formation[] = [
     theme: 'chantier-travaux',
     niveau: 2,
     niveauLabel: 'NUM-07',
-    duree: '4 h',
-    horaires: '9h00 – 13h00 ou 13h30 – 17h30',
+    duree: '7 h',
+    horaires: FORMATION_HORAIRES_JOURNEE_7H,
     effectifMin: 6,
     effectifMax: 12,
     prixHT: 0,
@@ -236,8 +237,8 @@ export const FORMATIONS: readonly Formation[] = [
     theme: 'outils-applications',
     niveau: 2,
     niveauLabel: 'NUM-03',
-    duree: '4 h',
-    horaires: '9h00 – 13h00 ou 13h30 – 17h30',
+    duree: '7 h',
+    horaires: FORMATION_HORAIRES_JOURNEE_7H,
     effectifMin: 6,
     effectifMax: 12,
     prixHT: 0,
@@ -273,8 +274,8 @@ export const FORMATIONS: readonly Formation[] = [
     theme: 'maitrise-oeuvre',
     niveau: 2,
     niveauLabel: 'Niveau 2 — Avancé',
-    duree: '4 h',
-    horaires: '9h00 – 13h00 ou 13h30 – 17h30',
+    duree: '7 h',
+    horaires: FORMATION_HORAIRES_JOURNEE_7H,
     effectifMin: 6,
     effectifMax: 12,
     prixHT: 0,
@@ -309,8 +310,8 @@ export const FORMATIONS: readonly Formation[] = [
     theme: 'maitrise-oeuvre',
     niveau: 2,
     niveauLabel: 'Niveau 2',
-    duree: '4 h',
-    horaires: '9h00 – 13h00 ou 13h30 – 17h30',
+    duree: '7 h',
+    horaires: FORMATION_HORAIRES_JOURNEE_7H,
     effectifMin: CATALOGUE_EFFECTIF_MIN,
     effectifMax: CATALOGUE_EFFECTIF_MAX,
     prixHT: 0,
@@ -495,7 +496,7 @@ export const FORMATIONS: readonly Formation[] = [
     slug: 'assistants-ia-personnalises-btp',
     titre: 'Créer ses assistants IA pour son entreprise du bâtiment',
     promesse:
-      'Créez vos propres assistants IA pour les tâches quotidiennes de votre entreprise du BTP — ChatGPT et Claude, demi-journée en présentiel.',
+      'Créez vos propres assistants IA pour les tâches quotidiennes de votre entreprise du BTP — ChatGPT et Claude, journée en présentiel.',
     casUsageCourts: [
       'Assistants et skills BTP',
       'Projets et modèles entreprise',
@@ -505,14 +506,14 @@ export const FORMATIONS: readonly Formation[] = [
     theme: 'assistants-automatisation',
     niveau: 2,
     niveauLabel: 'Niveau Avancé',
-    duree: '4 h',
-    horaires: '9h00 – 13h00 ou 13h30 – 17h30',
+    duree: '7 h',
+    horaires: FORMATION_HORAIRES_JOURNEE_7H,
     effectifMin: 6,
     effectifMax: 12,
     prixHT: 0,
     tarifParticipantHt: TARIF_PARTICIPANT_NIV09_HT,
     accroche:
-      'ChatGPT et Claude : fonctionnalités clés et assistants métier — demi-journée pratique pour concevoir et tester des assistants adaptés à vos documents.',
+      'ChatGPT et Claude : fonctionnalités clés et assistants métier — journée pratique pour concevoir et tester des assistants adaptés à vos documents.',
     objectifs: [
       'Utiliser les fonctionnalités clés de ChatGPT et de Claude (projets, skills, connecteurs)',
       'Concevoir un assistant IA personnalisé et des skills réutilisables pour son entreprise (un premier assistant opérationnel visé en session, poursuite selon votre plan d’action)',
@@ -630,15 +631,14 @@ export const CATALOGUE_FORMATIONS_TOTAL = FORMATIONS.filter(
 ).length;
 
 /**
- * Durées catalogue — standard 4 h pour les sessions IA BTP publiées.
- * Exceptions longue durée : NIV-10, NIV-13 et NIV-14 (14 h sur 2 jours).
+ * Durées catalogue — niveau 1 : 4 h · niveau 2 : 7 h · niveau 3 : 14 h.
  */
 export const CATALOGUE_DUREE_STANDARD = '4 h' as const;
-/** @deprecated Alias — sessions catalogue hors NIV-10 (14 h). */
+/** Niveau 1 — Les bases de l’IA. */
 export const CATALOGUE_DUREE_BASES_IA_ONLY = CATALOGUE_DUREE_STANDARD;
-/** Sessions métier et assistants — 4 h (aligné catalogue public). */
-export const CATALOGUE_DUREE_SESSION_METIER = CATALOGUE_DUREE_STANDARD;
-export const CATALOGUE_DUREE_NIV09 = CATALOGUE_DUREE_STANDARD;
+/** Sessions métier et avancées (niveau 2) — 7 h. */
+export const CATALOGUE_DUREE_SESSION_METIER = '7 h' as const;
+export const CATALOGUE_DUREE_NIV09 = CATALOGUE_DUREE_SESSION_METIER;
 export const CATALOGUE_DUREE_NIV10 = '14 h' as const;
 
 /** Plage de numérotation catalogue — références actives (hors fiches retirées). */

@@ -1,6 +1,6 @@
 import type { ProgrammeFormationBloc } from '@/components/formations/catalogue/ProgrammeFormationBlocs';
 
-/** Programme NIV-05 — maîtrise d’œuvre conception et exécution (fusion NIV-12), 4 h · 5 modules · 240 min. */
+/** Programme NIV-05 — maîtrise d’œuvre conception et exécution (fusion NIV-12), 7 h · 6 modules · 420 min. */
 export const NIV05_PROGRAMME_BLOCS: readonly ProgrammeFormationBloc[] = [
   {
     heading: 'Module 1 — IA et maîtrise d’œuvre',
@@ -93,5 +93,20 @@ export const NIV05_PROGRAMME_BLOCS: readonly ProgrammeFormationBloc[] = [
     critereEvaluation:
       'Le participant livre une liste de réserves, un tableau de suivi et un brouillon d’OS ou courrier relu.',
     livrable: 'Liste de réserves + tableau de suivi des levées',
+  },
+  {
+    heading: 'Module 6 — Atelier fil rouge MOE : de la consultation à la réception',
+    meta: '3 h',
+    objective:
+      'Consolider la chaîne documentaire MOE sur un dossier anonymisé, de l’analyse DCE à la liste de réserves.',
+    objectifs: [
+      'Enchaînement guidé : synthèse DCE, extrait CCTP, comparatif offres, CR, OS et réserves sur le même opération',
+      'Atelier en binôme : chaque duo produit un livrable et le contrôle par l’autre binôme',
+      'Consolidation de la bibliothèque de prompts et modèles du cabinet',
+      'Plan d’action 30 jours : 3 missions MOE à industrialiser en priorité',
+    ],
+    critereEvaluation:
+      'Le participant livre au moins trois livrables chaînés avec références aux pièces sources et points de contrôle listés.',
+    livrable: 'Bibliothèque MOE personnelle + plan d’action 30 jours',
   },
 ];

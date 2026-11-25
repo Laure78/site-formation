@@ -117,7 +117,7 @@ const CONDUCTEUR_FORMATION_CHOIX_ALL = [
   {
     title: 'Parcours conducteur 2027',
     duree: '6 modules · 24 h',
-    tarifLabel: 'Modules à 170 € HT ou parcours complet',
+    tarifLabel: 'Modules à 310 € HT ou parcours complet',
     description: 'Montée en compétences modulaire : préparation, planning, CR, réception.',
     href: LINKS.parcoursConducteurDeTravaux,
     cta: 'Parcours conducteur de travaux',

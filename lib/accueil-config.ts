@@ -550,7 +550,7 @@ export const ACCUEIL_RESSOURCES_MAQUETTE = [
 export const ACCUEIL_METHODE_ACCOMPAGNEMENT_LEAD =
   'Un accompagnement simple et efficace, de l’analyse de vos besoins à la mise en pratique.' as const;
 
-/** Bandeaux formats commerciaux — accueil maquette (catalogue : débutant 4 h · avancé 4 h · approfondi 14 h). */
+/** Bandeaux formats commerciaux — accueil maquette (catalogue : débutant 4 h · avancé 7 h · approfondi 14 h). */
 export const ACCUEIL_FORMATS_FORMATION_IA = [
   {
     id: 'debutant-4h',
@@ -559,9 +559,9 @@ export const ACCUEIL_FORMATS_FORMATION_IA = [
     icon: 'timer',
   },
   {
-    id: 'avance-4h',
-    titre: 'Avancé — 4 h',
-    description: 'Sessions métier et assistants — pratique sur devis, DCE, chantier ou Claude.',
+    id: 'avance-7h',
+    titre: 'Avancé — 7 h',
+    description: 'Sessions métier et assistants — une journée de pratique sur devis, DCE, chantier ou Claude.',
     icon: 'timer',
   },
   {

@@ -35,7 +35,7 @@ export type CatalogueLevel = 'DÉBUTANT' | 'AVANCÉ';
 /** Tarif affiché sur le catalogue public — HT / participant uniquement. */
 export function libelleTarifParcoursCatalogue(f: Formation): string {
   if (f.code === 'NIV-12') {
-    return `Sur demande — grille inter ${libelleTarifParticipantCatalogue(TARIF_PARTICIPANT_NIV02_HT)} (session 4 h)`;
+    return `Sur demande — grille inter ${libelleTarifParticipantCatalogue(TARIF_PARTICIPANT_NIV02_HT)} (session 7 h)`;
   }
   if (f.tarifParticipantHt && f.tarifParticipantHt > 0) {
     return libelleTarifParticipantCatalogue(f.tarifParticipantHt);

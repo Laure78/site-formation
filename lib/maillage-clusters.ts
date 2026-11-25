@@ -821,7 +821,7 @@ function buildMoeAmoClusterLinks(path: string): ClusterPageConfig | null {
       {
         href: LINKS.formationIaMaitriseOeuvre,
         label: 'Module MOE du parcours (NIV-05)',
-        description: 'Fiche catalogue Qualiopi — 4 h, 170 € HT/participant.',
+        description: 'Fiche catalogue Qualiopi — 7 h, 310 € HT/participant.',
       },
       {
         href: LINKS.formationMaitriserClaudeAiBtp,

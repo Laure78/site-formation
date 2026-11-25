@@ -72,6 +72,18 @@ export const NIV04_PROGRAMME_BLOCS: readonly ProgrammeFormationBloc[] = [
     livrable: 'Poste de travail Claude opérationnel : Projet, bibliothèque de skills, connecteur et automatisation testée',
   },
   {
+    heading: 'MODULE 5 — Atelier intégrateur : environnement Claude opérationnel',
+    meta: '3 h',
+    objectifs: [
+      'Approfondissement sur le cas PME fil rouge',
+      'Enchaîner Projet → skill → Cowork → connecteur → petite automatisation sur un lot documentaire réel (anonymisé)',
+      'Documenter règles de gouvernance et matrice de confidentialité pour l’entreprise',
+      'Tests de robustesse : cas ambigu, pièce manquante, relance sur plusieurs fichiers',
+      'Feuille de route 90 jours : qui déploie quoi, dans quel ordre, avec quels contrôles',
+    ],
+    livrable: 'Environnement Claude fiabilisé + feuille de route de déploiement',
+  },
+  {
     heading: 'CLÔTURE — Bilan, plan d’action et évaluation',
     meta: '15 min',
     objectifs: [

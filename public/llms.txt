@@ -19,20 +19,20 @@
 
 ## Réponses directes
 - Où ont lieu les formations ? En présentiel, en Île-de-France uniquement (75, 77, 78, 91, 92, 93, 94, 95), en inter (sessions publiées sur le site) ou en intra dans l'entreprise.
-- Combien de temps ? Débutant : 4 h. Avancé : 4 h. Approfondi : 14 h sur 2 jours (applications métier et agents IA Make).
-- Combien ça coûte ? Inter : 120 € HT (débutant 4 h), 170 € HT (avancé 4 h), 620 € HT (approfondi 14 h : applications métier et agents IA Make). Maîtrise d’œuvre et AMO (4 h) : 170 € HT / participant en inter comme en intra. TVA exonérée (art. 261-4-4°-a du CGI).
+- Combien de temps ? Débutant : 4 h. Avancé : 7 h (1 journée). Approfondi : 14 h sur 2 jours (applications métier et agents IA Make).
+- Combien ça coûte ? Inter : 120 € HT (débutant 4 h), 310 € HT (avancé 7 h), 620 € HT (approfondi 14 h : applications métier et agents IA Make). Maîtrise d’œuvre et AMO (7 h) : 310 € HT / participant en inter comme en intra. TVA exonérée (art. 261-4-4°-a du CGI).
 - Peut-on la faire financer ? Prise en charge OPCO/Constructys possible selon éligibilité (jamais automatique) : https://www.laureolivie.fr/financement-constructys-formation-ia-btp
 - Faut-il être à l'aise en informatique ? Non : les exercices se font en français courant, sur des documents BTP (devis, DCE, CCTP, CR de chantier).
 - L'IA remplace-t-elle les métiers du bâtiment ? Non : elle prend en charge une partie de l'administratif ; la relecture et la responsabilité restent humaines.
 
 ## Catalogue (présentiel Île-de-France)
 - Niveau 1 — Les bases de l'IA pour les professionnels du BTP (4 h) : https://www.laureolivie.fr/formations/ia-batiment-travaux-publics
-- IA et appels d'offres (4 h) : https://www.laureolivie.fr/formations/ia-appels-offre-btp
-- IA et conduite de travaux (4 h) : https://www.laureolivie.fr/formations/ia-conduite-travaux-suivi-chantier
-- Maîtriser Claude AI pour le BTP (4 h) : https://www.laureolivie.fr/formations/maitriser-claude-ai-btp
-- Formation IA maîtrise d'œuvre BTP : CCTP, DPGF et suivi de chantier (4 h) : https://www.laureolivie.fr/formations/ia-maitrise-oeuvre
-- IA et assistance à maîtrise d'ouvrage (4 h) : https://www.laureolivie.fr/formations/ia-assistance-maitrise-ouvrage
-- Créer ses assistants IA pour son entreprise du bâtiment (4 h, niveau avancé) : https://www.laureolivie.fr/formations/assistants-ia-personnalises-btp
+- IA et appels d'offres (7 h) : https://www.laureolivie.fr/formations/ia-appels-offre-btp
+- IA et conduite de travaux (7 h) : https://www.laureolivie.fr/formations/ia-conduite-travaux-suivi-chantier
+- Maîtriser Claude AI pour le BTP (7 h) : https://www.laureolivie.fr/formations/maitriser-claude-ai-btp
+- Formation IA maîtrise d'œuvre BTP : CCTP, DPGF et suivi de chantier (7 h) : https://www.laureolivie.fr/formations/ia-maitrise-oeuvre
+- IA et assistance à maîtrise d'ouvrage (7 h) : https://www.laureolivie.fr/formations/ia-assistance-maitrise-ouvrage
+- Créer ses assistants IA pour son entreprise du bâtiment (7 h, niveau avancé) : https://www.laureolivie.fr/formations/assistants-ia-personnalises-btp
 - Créer des applications métier BTP avec l'IA (14 heures — 2 jours, niveau approfondi) : https://www.laureolivie.fr/formations/developpement-web-ia-sans-coder
 - Construire ses agents IA pour le BTP — prototype Make testé en atelier (14 h, Niveau 3 · Approfondi, 620 € HT) : https://www.laureolivie.fr/formations/agents-ia-autonomes-btp
 - Automatiser ses tâches avec l’IA dans le BTP — scénario Make, grille de tests (14 h, Niveau 3 · Approfondi, 620 € HT) : https://www.laureolivie.fr/formations/automatiser-ses-taches-ia-btp

@@ -213,7 +213,7 @@ export const CATALOGUE_COURSE_CONDUITE_TRAVAUX_NIV03: CatalogueCourseJsonLdConfi
   path: LINKS.formationConduiteTravauxSuiviChantier,
   name: "L'IA appliquée à la conduite de travaux",
   description:
-    'Formation IA niveau 2 : conduite de travaux et suivi chantier (CCTP, CR, PPSPS). 4 h, présentiel Île-de-France.',
+    'Formation IA niveau 2 : conduite de travaux et suivi chantier (CCTP, CR, PPSPS). 7 h, présentiel Île-de-France.',
   price: prixCatalogue('NIV-03'),
   keywords: ['CCTP', 'DPGF', 'PPSPS', 'skills Claude', 'conduite de travaux'],
   courseCode: 'NIV-03',

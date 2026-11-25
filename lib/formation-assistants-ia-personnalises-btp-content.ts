@@ -2,7 +2,7 @@
  * Contenu centralisé — fiche catalogue NIV-09 assistants IA personnalisés BTP.
  *
  * Proposition pédagogique — validation Laure avant diffusion des supports PDF définitifs.
- * Référence PDF actuelle (nom historique) : programme_OFC_Assistants_IA_BTP_7h_20261022.pdf — à régénérer en 4 h.
+ * Référence PDF actuelle : programme_OFC_Assistants_IA_BTP_7h_20261022.pdf — à valider pédagogiquement avant republication.
  */
 import { getFormationByCode, libelleEffectifFormation } from '@/data/formations';
 import { SITE_INTER_LIEU_PREFIX } from '@/lib/site-config';
@@ -14,7 +14,7 @@ export const ASSISTANTS_IA_PROPOSITION_VALEUR =
   'Créez vos propres assistants IA pour les tâches quotidiennes de votre entreprise du BTP. Apprenez à utiliser ChatGPT et Claude pour concevoir des assistants adaptés à vos devis, comptes rendus de chantier, courriers, appels d\'offres et documents administratifs. Travaillez sur vos propres modèles et repartez avec une méthode et un plan de déploiement réaliste pour la suite.' as const;
 
 export const ASSISTANTS_IA_HERO_FACTS = [
-  '4 heures — demi-journée',
+  '7 heures — 1 journée',
   'Présentiel',
   SITE_INTER_LIEU_PREFIX,
   `Jusqu'à ${NIV_09.effectifMax} participants`,
@@ -61,9 +61,13 @@ export const ASSISTANTS_IA_JOURNEE_TIMELINE = [
   '10h00 — 10h10 · Pause',
   '10h10 — 11h10 · Module 2 — Concevoir un assistant sur vos modèles (60 min)',
   '11h10 — 11h20 · Pause',
-  '11h20 — 12h20 · Module 3 — Skills et mise en pratique sur un cas BTP (60 min)',
-  '12h20 — 12h30 · Pause',
-  '12h30 — 13h30 · Module 4 — Déploiement, évaluation des acquis et plan d’action (60 min)',
+  '11h20 — 12h30 · Module 3 — Skills et mise en pratique sur un cas BTP (70 min)',
+  '12h30 — 13h30 · Pause déjeuner',
+  '13h30 — 14h40 · Module 4 — Atelier famille métier au choix (devis, CR, AO…) (70 min)',
+  '14h40 — 14h50 · Pause',
+  '14h50 — 15h50 · Module 5 — Deuxième skill ou assistant complémentaire (60 min)',
+  '15h50 — 16h00 · Pause',
+  '16h00 — 17h00 · Module 6 — Déploiement, évaluation des acquis et plan d’action (60 min)',
 ] as const;
 
 export const ASSISTANTS_IA_MODULES = [
@@ -91,7 +95,7 @@ export const ASSISTANTS_IA_MODULES = [
   },
   {
     heading: 'Module 3 — Skills et automatisation d’une tâche métier',
-    duree: '60 min — temps de formation effective',
+    duree: '70 min — temps de formation effective',
     points: [
       'Règle d’or : un skill = une mission précise (relance, structure de CR, contrôle avant envoi…).',
       'Importer ou personnaliser un skill depuis la bibliothèque BTP fournie ; critères de qualité.',
@@ -101,7 +105,27 @@ export const ASSISTANTS_IA_MODULES = [
     atelier: 'Livrable : au moins un skill opérationnel ou un brouillon validé pour finalisation en autonomie supervisée.',
   },
   {
-    heading: 'Module 4 — Déploiement, évaluation des acquis et plan d’action',
+    heading: 'Module 4 — Atelier famille métier au choix',
+    duree: '1 h 30 — temps de formation effective',
+    points: [
+      'Choisir une famille parmi devis, CR chantier, e-mails, AO, administratif chantier, communication.',
+      'Construire ou adapter un skill sur vos modèles anonymisés.',
+      'Tests sur cas réel avec grille de contrôle avant envoi.',
+    ],
+    atelier: 'Livrable : skill opérationnel testé sur la famille métier choisie.',
+  },
+  {
+    heading: 'Module 5 — Second assistant ou skill complémentaire',
+    duree: '1 h 20 — temps de formation effective',
+    points: [
+      'Approfondir une deuxième tâche récurrente de l’entreprise.',
+      'Harmoniser consignes, ton et interdits entre assistants.',
+      'Documenter usage, limites et mises à jour pour l’équipe.',
+    ],
+    atelier: 'Livrable : deuxième skill ou assistant documenté.',
+  },
+  {
+    heading: 'Module 6 — Déploiement, évaluation des acquis et plan d’action',
     duree: '60 min — temps de formation effective',
     points: [
       'Partage en équipe : droits, référent, fréquence des mises à jour.',

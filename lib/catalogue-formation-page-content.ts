@@ -35,7 +35,10 @@ import {
   SITE_INTER_LIEU_PREFIX,
   siteExperienceBtpLong,
 } from '@/lib/site-config';
-import { formationNiveauOfficielLabel } from '@/lib/formation-niveaux-officiels';
+import {
+  formationDureeAfficheeParNiveau,
+  formationNiveauOfficielLabel,
+} from '@/lib/formation-niveaux-officiels';
 import { NIV03_PEDAGOGICAL_METHODS, NIV03_PROGRAMME_BLOCS } from '@/lib/catalogue-formation-programmes-niv03';
 import { NIV04_PROGRAMME_BLOCS } from '@/lib/catalogue-formation-programmes-niv04';
 import { NIV05_PROGRAMME_BLOCS } from '@/lib/catalogue-formation-programmes-niv05';
@@ -336,11 +339,11 @@ const NIV_01: CatalogueFormationPageContent = {
 const NIV_02: CatalogueFormationPageContent = {
   programmeRef: 'NIV-02',
   parcoursKind: 'usages-ia-btp',
-  levelBadgeLabel: 'NUM-02 · Appels d’offres · 4 heures',
+  levelBadgeLabel: `NUM-02 · Appels d’offres · ${formationDureeAfficheeParNiveau(2)} (1 journée)`,
   heroPublicLine:
     'Bases de l’IA générative requises. Abonnement professionnel à l’outil utilisé pendant la session (non inclus dans le tarif).',
   heroFacts: [
-    '4 heures',
+    `${formationDureeAfficheeParNiveau(2)} (1 journée)`,
     '75 % de pratique',
     SITE_FORMATION_MODALITE_ENCART,
     formationNiveauOfficielLabel(2),
@@ -437,7 +440,7 @@ const NIV_02: CatalogueFormationPageContent = {
   ],
   intraExtraBullets: ['Dossier fil rouge de l’entreprise'],
   interExtraBullets: ['Dossier pédagogique commun'],
-  programIntro: '4 h · 75 % pratique · fil rouge appels d’offres.',
+  programIntro: '7 h · 70 % pratique · fil rouge appels d’offres.',
   programModules: [
     {
       title: 'Accueil et cadrage — 10 min',
@@ -498,6 +501,18 @@ const NIV_02: CatalogueFormationPageContent = {
         'Exercice pratique : plan de mémoire + brouillon d’une section avec grille d’audit avant dépôt.',
     },
     {
+      title: 'Module 5 — Atelier fil rouge : dossier complet AO — 3 h',
+      competence: 'Consolider la méthode sur un DCE de bout en bout',
+      points: [
+        'Enchaînement guidé : organisation → extraction → croisement → checklist chiffrage → plan de mémoire → section rédigée',
+        'Travail en binôme avec contrôle croisé des références et des hypothèses',
+        'Cas d’ambiguïté contractuelle : formulation des questions à la MOE',
+        'Grille de relecture avant dépôt et plan d’action 30 jours',
+      ],
+      practice:
+        'Atelier : dossier fil rouge complet avec livrables intermédiaires validés à chaque étape.',
+    },
+    {
       title: 'Bilan, plan d’action et clôture — 15 min',
       points: [
         'Checklist finale avant dépôt',
@@ -548,7 +563,7 @@ const NIV_03: CatalogueFormationPageContent = {
   heroPublicLine:
     'Conducteurs de travaux, chefs de chantier, responsables travaux et assistant(e)s travaux.',
   heroFacts: [
-    '4 heures',
+    `${formationDureeAfficheeParNiveau(2)} (1 journée)`,
     '70 % de pratique',
     `${getFormationByCode('NIV-03')!.effectifMin} à ${getFormationByCode('NIV-03')!.effectifMax} participants`,
     SITE_FORMATION_MODALITE_ENCART,
@@ -624,7 +639,7 @@ const NIV_03: CatalogueFormationPageContent = {
   ],
   intraExtraBullets: ['Suivi visio J+30 inclus'],
   programIntro:
-    '4 h · 70 % pratique sur vos documents chantier (installation, suivi, gestion). Réception : module TRA-05 du parcours Conducteur de travaux.',
+    '7 h · 70 % pratique sur vos documents chantier (installation, suivi, gestion). Réception : module TRA-05 du parcours Conducteur de travaux.',
   programmeMethodsBullets: [...NIV03_PEDAGOGICAL_METHODS],
   programModules: mapProgrammeBlocsToCatalogueModules(NIV03_PROGRAMME_BLOCS),
   programLinks: [
@@ -664,7 +679,7 @@ const NIV_04: CatalogueFormationPageContent = {
   heroPublicLine:
     'Référents IA, dirigeants, responsables digitaux, chargés d’affaires et conducteurs de travaux souhaitant industrialiser l’usage de Claude dans l’entreprise.',
   heroFacts: [
-    '4 heures',
+    `${formationDureeAfficheeParNiveau(2)} (1 journée)`,
     '70 % de pratique',
     'Projets, Cowork, connecteurs, Claude Code',
     SITE_FORMATION_MODALITE_ENCART,
@@ -727,7 +742,7 @@ const NIV_04: CatalogueFormationPageContent = {
     },
   ],
   programIntro:
-    '4 h (demi-journée) · 4 modules : Projets, Cowork, connecteurs, Claude Code · 70 % pratique. Pour aller plus loin côté maîtrise d’œuvre, voir le tutoriel skill Claude MOE dans les liens ci-dessous.',
+    '7 h (1 journée) · Projets, Cowork, connecteurs, Claude Code et atelier intégrateur · 70 % pratique. Pour aller plus loin côté maîtrise d’œuvre, voir le tutoriel skill Claude MOE dans les liens ci-dessous.',
   programModules: mapProgrammeBlocsToCatalogueModules(NIV04_PROGRAMME_BLOCS),
   pdfHref: LINKS.pdfProgrammeMaitriserClaudeBtpNiv04,
   programLinks: [
@@ -757,9 +772,9 @@ const NIV_05: CatalogueFormationPageContent = {
   heroPublicLine:
     'Maîtres d’œuvre de conception et d’exécution, architectes, économistes, BET, OPC, conducteurs de travaux MOE et assistants gestion travaux.',
   heroFacts: [
-    '4 heures',
+    `${formationDureeAfficheeParNiveau(2)} (1 journée)`,
     '70 % de pratique',
-    '5 modules — conception à réception',
+    '6 modules — conception à réception',
     '6 à 12 participants en inter',
     SITE_FORMATION_MODALITE_ENCART,
     'Intra et inter-entreprises',
@@ -836,7 +851,7 @@ const NIV_05: CatalogueFormationPageContent = {
     { iaAide: 'Projets d’OS, réserves et pièces de réception', validation: 'Contrôler habilitations et clauses contractuelles' },
   ],
   programIntro:
-    '4 h · 70 % pratique · 5 modules (30 + 55 + 45 + 50 + 60 min) · ateliers sur vos dossiers MOE (anonymisés si besoin).',
+    '7 h · 70 % pratique · 6 modules · ateliers sur vos dossiers MOE (anonymisés si besoin).',
   programModules: mapProgrammeBlocsToCatalogueModules(NIV05_PROGRAMME_BLOCS),
   pdfHref: LINKS.pdfProgrammeIaMaitriseOeuvre,
   programLinks: [
@@ -1083,7 +1098,7 @@ const NIV_14: CatalogueFormationPageContent = {
 const NIV_09: CatalogueFormationPageContent = {
   programmeRef: 'NIV-09',
   parcoursKind: 'usages-ia-btp',
-  levelBadgeLabel: 'Niveau Avancé · 4 heures · Présentiel',
+  levelBadgeLabel: `Niveau 2 · Avancé · ${formationDureeAfficheeParNiveau(2)} · Présentiel`,
   heroPublicLine: undefined,
   heroFacts: [
     libelleDureeFormation(getFormationByCode('NIV-09')!),
@@ -1100,7 +1115,7 @@ const NIV_09: CatalogueFormationPageContent = {
   painPoints: [],
   outcomes: [...ASSISTANTS_IA_OBJECTIFS],
   outcomesDescription:
-    'À l’issue de la demi-journée, vous savez concevoir, tester et préparer le déploiement d’assistants IA sur ChatGPT et Claude — sans développer d’application.',
+    'À l’issue de la journée, vous savez concevoir, tester et préparer le déploiement d’assistants IA sur ChatGPT et Claude — sans développer d’application.',
   deliverables: [],
   publicPrerequisites: [{ title: 'Prérequis techniques et pédagogiques', items: ASSISTANTS_IA_PREREQUIS_ITEMS }],
   programIntro: ASSISTANTS_IA_PROPOSITION_VALEUR,
@@ -1159,9 +1174,9 @@ const NIV_11: CatalogueFormationPageContent = {
   heroPublicLine:
     'AMO, conduite d’opération, programmation et maîtrise d’ouvrage déléguée — ingénieurs, chefs de projet et chargés d’opération.',
   heroFacts: [
-    '4 heures',
+    `${formationDureeAfficheeParNiveau(2)} (1 journée)`,
     '70 % de pratique',
-    '4 modules AMO opérationnels',
+    '5 modules AMO opérationnels',
     `${SITE_INTER_LIEU_COURT} ou intra en Île-de-France`,
   ],
   quickFactsLevel: 'Niveau 2',
@@ -1240,14 +1255,14 @@ const NIV_11: CatalogueFormationPageContent = {
   ],
   intraExtraBullets: [
     `${libelleTarifParticipantCatalogue(TARIF_PARTICIPANT_NIV02_HT)} — exonération de TVA, art. 261-4-4°-a du CGI`,
-    'Demi-journée dans vos locaux en Île-de-France, sur vos consultations',
+    'Journée dans vos locaux en Île-de-France, sur vos consultations',
   ],
   interExtraBullets: [
     `${libelleTarifParticipantCatalogue(TARIF_PARTICIPANT_NIV02_HT)}, sous réserve d’une session inter ouverte`,
   ],
   hideHeroEnBref: true,
-  programmeHeading: 'Le programme de la formation (4 h)',
-  programIntro: '4 h · 70 % pratique · ateliers sur vos consultations et opérations (anonymisées si besoin).',
+  programmeHeading: 'Le programme de la formation (7 h)',
+  programIntro: '7 h · 70 % pratique · ateliers sur vos consultations et opérations (anonymisées si besoin).',
   programModules: mapProgrammeBlocsToCatalogueModules(NIV11_PROGRAMME_BLOCS),
   pdfHref: LINKS.pdfProgrammeIaAssistanceMaitriseOuvrage,
   programLinks: [

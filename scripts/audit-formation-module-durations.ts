@@ -27,7 +27,6 @@ const REFS: FormationCatalogueCode[] = [
   'NIV-09',
   'NIV-10',
   'NIV-11',
-  'NIV-12',
   'NIV-13',
 ];
 

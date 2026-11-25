@@ -455,7 +455,7 @@ function prerequisPourRef(ref: FormationCode): string {
 }
 
 function tarifPourRef(ref: FormationCode): string {
-  const grilleInter4h = `${libelleTarifParticipantCatalogue(TARIF_PARTICIPANT_NIV02_HT)} — grille catalogue inter pour une session 4 h (prise en charge sur demande)`;
+  const grilleInter4h = `${libelleTarifParticipantCatalogue(TARIF_PARTICIPANT_NIV02_HT)} — grille catalogue inter pour une session niveau 2 · avancé 7 h (prise en charge sur demande)`;
   const formation = getFormationByCode(ref);
   const entry = formation ? getFormationCatalogueByRef(ref) : undefined;
   if (formation?.tarifParticipantHt && entry) {

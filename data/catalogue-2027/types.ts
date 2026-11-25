@@ -78,7 +78,7 @@ export type DisponibiliteCommerciale = 'disponible' | 'ouverture-2027';
 /** Statut éditorial du programme (distinct de la disponibilité commerciale). */
 export type StatutEditorial = 'programme-en-preparation' | 'programme-valide';
 
-export type ModuleDureeHeures = 4 | 14;
+export type ModuleDureeHeures = 4 | 7 | 14;
 
 export type ModuleNiveau = 1 | 2 | 3;
 

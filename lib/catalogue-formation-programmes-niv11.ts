@@ -69,6 +69,18 @@ export const NIV11_PROGRAMME_BLOCS: readonly ProgrammeFormationBloc[] = [
       'Assistant « Pilotage » avec ses Skills + tableau de suivi des intervenants + gabarit de CR de pilotage + note d’alerte MOA',
   },
   {
+    heading: 'MODULE 5 — Atelier fil rouge AMO : consultation et pilotage',
+    meta: '3 h',
+    objectifs: [
+      'Approfondissement sur une consultation fil rouge (anonymisée)',
+      'Enchaîner relecture croisée des pièces, grille d’analyse des offres et brouillon de rapport',
+      'Construire ou enrichir les assistants « Consultations » et « Pilotage » avec Skills dédiés',
+      'Rédiger un CR de pilotage et une note d’alerte MOA à partir de données partielles',
+      'Grille de partage en équipe : droits, mises à jour, traçabilité des versions',
+    ],
+    livrable: 'Assistants AMO opérationnels + trame de rapport d’analyse des offres testée',
+  },
+  {
     heading: 'CLÔTURE — Bilan, plan d’action et évaluation',
     meta: '10 min',
     objectifs: [

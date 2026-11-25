@@ -110,12 +110,11 @@ export function getTarifGrille(dureeHeures: TarifDureeHeures): TarifGrille {
         intraHT: TARIF_PARTICIPANT_NIV01_HT,
       };
     case 7:
-      /** Journée au sein d’un parcours 14 h (620 ÷ 2) — pas d’offre catalogue autonome 7 h. */
       return {
         dureeHeures: 7,
-        participantHT: TARIF_PARTICIPANT_NIV10_14H_HT / 2,
-        intraHT: TARIF_PARTICIPANT_NIV10_14H_HT / 2,
-        interHT: TARIF_PARTICIPANT_NIV10_14H_HT / 2,
+        participantHT: TARIF_PARTICIPANT_NIV02_HT,
+        intraHT: TARIF_PARTICIPANT_NIV02_HT,
+        interHT: TARIF_PARTICIPANT_NIV02_HT,
       };
     case 14:
       return {
@@ -262,7 +261,7 @@ export const COMPTES_IA_GRATUITS_NIVEAU_DEBUTANT =
 
 export function getEncartTarifsCommerciaux(at: Date = new Date()): string {
   const count = getCatalogueFormationsCount(at);
-  return `Formations catalogue (${count} parcours) — tarifs HT par participant selon le programme (ex. ${libelleTarifParticipantCatalogue(TARIF_PARTICIPANT_NIV01_HT)} pour le niveau débutant 4 h, ${libelleTarifParticipantCatalogue(TARIF_PARTICIPANT_NIV02_HT)} pour les sessions avancées 4 h, ${libelleTarifParticipantCatalogue(TARIF_PARTICIPANT_NIV10_14H_HT)} pour l’approfondi 14 h). ${COMPTES_IA_GRATUITS_NIVEAU_DEBUTANT} ${MODALITE_FORMATIONS_PRESENTIEL}`;
+  return `Formations catalogue (${count} parcours) — tarifs HT par participant selon le programme (ex. ${libelleTarifParticipantCatalogue(TARIF_PARTICIPANT_NIV01_HT)} pour le niveau débutant 4 h, ${libelleTarifParticipantCatalogue(TARIF_PARTICIPANT_NIV02_HT)} pour les sessions avancées 7 h, ${libelleTarifParticipantCatalogue(TARIF_PARTICIPANT_NIV10_14H_HT)} pour l’approfondi 14 h). ${COMPTES_IA_GRATUITS_NIVEAU_DEBUTANT} ${MODALITE_FORMATIONS_PRESENTIEL}`;
 }
 
 /** @deprecated Préférer getEncartTarifsCommerciaux() — évaluation paresseuse (évite cycle d'import). */
