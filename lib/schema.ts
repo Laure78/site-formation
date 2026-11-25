@@ -1,13 +1,28 @@
 /**
- * Facade Schema.org — Organization, Person, Course, AggregateRating.
+ * Facade Schema.org — point d’entrée unique pour le layout et les fiches.
  *
- * Sources uniques (ne pas dupliquer les faits ici) :
- * - Organization / Person layout → `lib/schema-organization-global.ts`, `GlobalSiteJsonLd`
- * - Course fiches → `lib/schema-course-formations.ts` + `lib/data/formations.ts`
- * - AggregateRating → `lib/schema-aggregate-rating.ts` + `lib/data/indicateurs-resultats.ts`
+ * Organisation / Person : nœuds complets **une seule fois** dans `app/layout.tsx` (`GlobalSiteJsonLd`).
+ * Les `Course` référencent `#organization` par `@id` (`buildSchemaOrganizationReference` / provider minimal).
  *
- * Toute modification de tarif / durée → `lib/data/formations.ts` + `public/llms.txt`.
+ * Sources de vérité : `lib/site-config.ts`, `lib/schema-constants.ts`, `lib/schema-layout-root-graph.ts`.
  */
+export {
+  buildSchemaOrganizationReference,
+  buildSiteAProposPersonSchemaNode,
+  buildSiteLayoutEducationalOrganizationNode,
+  siteSchemaOrganizationId,
+  siteSchemaPersonId,
+  SITE_PERSON_JOB_TITLE,
+} from '@/lib/site-config';
+
+export {
+  buildLayoutEducationalOrganizationJsonLdNode,
+  buildLayoutRootJsonLdGraph,
+} from '@/lib/schema-layout-root-graph';
+
+export { buildGlobalSiteJsonLdGraph } from '@/lib/schema-global-site-graph';
+
+export { buildPersonLaureSchemaNode } from '@/lib/schema-person-global';
 export { buildOrganizationOfcSchemaNode } from '@/lib/schema-organization-global';
 export { buildSchemaAggregateRating } from '@/lib/schema-aggregate-rating';
 export {

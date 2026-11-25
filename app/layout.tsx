@@ -164,7 +164,7 @@ export default function RootLayout({
   return (
     <html lang="fr" className={`${inter.variable} ${outfit.variable}`}>
       <head>
-        {/* Organization + Person — SITE / PROOF via `lib/schema-site-proof.ts` */}
+        {/* Organization + Person — `lib/schema.ts` → `buildLayoutRootJsonLdGraph()` */}
         <GlobalSiteJsonLd />
       </head>
       <body className="flex min-h-screen min-w-0 flex-col overflow-x-clip bg-white font-sans text-slate-900 antialiased">

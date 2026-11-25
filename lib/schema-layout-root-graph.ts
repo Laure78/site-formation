@@ -2,11 +2,26 @@
  * JSON-LD `@graph` racine (layout) — EducationalOrganization.
  * Identité : `SITE` (`lib/site-config.ts`) · logo : `schema-constants`.
  */
-import { SCHEMA_PUBLIC_SITE_URL, schemaLogoUrl } from '@/lib/schema-constants';
+import {
+  SCHEMA_PUBLIC_SITE_URL,
+  buildIdfAreaServedSchemaEntities,
+  schemaLogoUrl,
+} from '@/lib/schema-constants';
 import {
   buildSiteAProposPersonSchemaNode,
   buildSiteLayoutEducationalOrganizationNode,
 } from '@/lib/site-config';
+
+/** Nœud Organization layout — IDF (région + 8 départements), Qualiopi, NAP Paris 12e. */
+export function buildLayoutEducationalOrganizationJsonLdNode(
+  siteUrl: string = SCHEMA_PUBLIC_SITE_URL.replace(/\/$/, ''),
+): Record<string, unknown> {
+  const base = siteUrl.replace(/\/$/, '');
+  return {
+    ...buildSiteLayoutEducationalOrganizationNode(base, schemaLogoUrl()),
+    areaServed: buildIdfAreaServedSchemaEntities(),
+  };
+}
 
 /** `@graph` injecté dans `app/layout.tsx` via `<GlobalSiteJsonLd />`. */
 export function buildLayoutRootJsonLdGraph(): Record<string, unknown> {
@@ -14,7 +29,7 @@ export function buildLayoutRootJsonLdGraph(): Record<string, unknown> {
   return {
     '@context': 'https://schema.org',
     '@graph': [
-      buildSiteLayoutEducationalOrganizationNode(base, schemaLogoUrl()),
+      buildLayoutEducationalOrganizationJsonLdNode(base),
       buildSiteAProposPersonSchemaNode(base),
     ],
   };

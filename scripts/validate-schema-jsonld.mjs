@@ -58,7 +58,8 @@ function assertPerson(node, label) {
 }
 
 function assertLayoutRootOrganization(node, label) {
-  if (node['@type'] !== 'EducationalOrganization') {
+  const types = Array.isArray(node['@type']) ? node['@type'] : [node['@type']];
+  if (!types.includes('EducationalOrganization')) {
     throw new Error(`${label}: @type EducationalOrganization attendu`);
   }
   if (node.name !== SITE.raisonSociale) throw new Error(`${label}: name incorrect (OFC attendu)`);

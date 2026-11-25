@@ -14,14 +14,12 @@ import {
   FORMATION_IA_CONDUCTEUR_DE_TRAVAUX_PATH,
 } from '@/lib/formation-ia-conducteur-de-travaux-landing';
 import { LINKS } from '@/lib/internal-links';
-import { buildQualiopiCredentialSchema } from '@/lib/qualiopi-info';
 import {
   FORMATION_COURSE_OFFER_CATEGORY,
   buildFormationFicheCourseNode,
 } from '@/lib/schema-formation-course-jsonld';
 import {
   SCHEMA_LINKEDIN_PROFILE_URL,
-  SCHEMA_ORGANIZATION_OFC,
   SCHEMA_PERSON_LAURE,
   SCHEMA_PUBLIC_SITE_URL,
 } from '@/lib/schema-constants';
@@ -62,11 +60,7 @@ export function buildFormationIaConducteurDeTravauxB1JsonLdGraph(): Record<strin
     }),
     dateModified,
     provider: {
-      '@type': ['Organization', 'EducationalOrganization'],
       '@id': `${base}/#organization`,
-      name: SCHEMA_ORGANIZATION_OFC.name,
-      url: base,
-      hasCredential: buildQualiopiCredentialSchema(),
     },
     instructor: {
       '@type': 'Person',

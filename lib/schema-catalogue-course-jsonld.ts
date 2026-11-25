@@ -583,15 +583,7 @@ export function buildFormationCatalogueRichCourseJsonLd(
           }
         : {}),
     provider: {
-      '@type': 'Organization',
       '@id': organizationId,
-      name: SITE.raisonSociale,
-      url: base,
-      identifier: (() => {
-        const id = siteProviderIdentifierSchema();
-        return { '@type': 'PropertyValue', name: id.name, value: id.value };
-      })(),
-      hasCredential: buildQualiopiCredentialSchema(),
     },
     instructor: { '@id': instructorId },
     offers: buildCatalogueOffer(catalogueRef, courseUrl, config.price),

@@ -50,9 +50,13 @@ export const SCHEMA_GOOGLE_REVIEWS_VIEW_URL = SCHEMA_GOOGLE_BUSINESS_PROFILE_URL
 /** sameAs Person — LinkedIn, LinkedIn Learning, YouTube.
  * Absents du Footer : URLs sourcées ici (constantes NAP / EEAT).
  */
+export const SCHEMA_FRANCE_NUM_ACTIVATEUR_URL =
+  'https://www.francenum.gouv.fr/activateurs/ofc-creation-dentreprise' as const;
+
 export const SCHEMA_PERSON_SAME_AS = [
   SCHEMA_LINKEDIN_PROFILE_URL,
   SCHEMA_LINKEDIN_LEARNING_INSTRUCTOR_URL,
+  SCHEMA_FRANCE_NUM_ACTIVATEUR_URL,
   SCHEMA_YOUTUBE_CHANNEL_URL,
 ] as const;
 

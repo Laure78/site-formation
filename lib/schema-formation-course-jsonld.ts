@@ -148,14 +148,7 @@ export function buildFormationFicheCourseNode(
     locationCreated: buildFormationCourseIdfPlace(),
     areaServed: buildFormationCourseAreaServed(),
     provider: {
-      '@type': 'Organization',
       '@id': organizationId,
-      name: SITE.raisonSociale,
-      url: base,
-      identifier: (() => {
-        const id = siteProviderIdentifierSchema();
-        return { '@type': 'PropertyValue', name: id.name, value: id.value };
-      })(),
     },
     inLanguage: FORMATION_COURSE_IN_LANGUAGE,
     educationalCredentialAwarded: FORMATION_COURSE_CREDENTIAL_AWARDED,
