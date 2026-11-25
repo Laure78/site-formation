@@ -21,11 +21,6 @@ export const UTILITY_ORGANISME_NAV_LINKS: readonly HeaderNavLink[] = [
     title: 'Laure Olivié — formatrice IA BTP',
   },
   {
-    href: LINKS.formateurs,
-    label: 'Nos formateurs',
-    title: 'Équipe de formateurs IA BTP',
-  },
-  {
     href: LINKS.qualiopi,
     label: 'Qualité et certification Qualiopi',
     title: 'Certification Qualiopi OFC',

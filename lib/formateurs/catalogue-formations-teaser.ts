@@ -11,7 +11,6 @@ export const FORMATEUR_CATALOGUE_TEASER_SPECIALTY: Record<FormateurId, string> =
   'thomas-garnier': 'Devis et mémoires techniques.',
   'marc-delcourt': 'Gestion, prix de revient et trésorerie.',
   'nicolas-perrin': 'Encadrement et organisation des équipes.',
-  'claire-rousseau': 'Recrutement, intégration et bases de la paie.',
 };
 
 export function getFormateursCatalogueTeaserProfiles(): readonly FormateurProfile[] {

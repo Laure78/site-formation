@@ -743,7 +743,7 @@ export const FAQ_MAITRISER_CLAUDE_NIV04: FAQItem[] = [
 export const FAQ_CONDUITE_TRAVAUX_NIV03: FAQItem[] = [
   {
     q: 'Je suis conducteur de travaux : quels documents puis-je vraiment accélérer avec l\'IA ?',
-    a: `Les CR de réunion, synthèses CCTP/DPGF, brouillons PPSPS, courriers sous-traitants (DC4), PV de réserves et trames DOE — avec relecture humaine avant diffusion. Cette session (${dureeCatalogueParCode('NIV-03')}) travaille ces livrables sur vos documents anonymisés. Complément : <a href="${LINKS.formationConducteurTravaux}">page métier conducteur de travaux</a> et <a href="${LINKS.parcoursConducteurDeTravaux}">parcours Conducteur de travaux</a>.`,
+    a: `Les CR de réunion, synthèses CCTP/DPGF, brouillons PPSPS, courriers sous-traitants (DC4), PV de réserves et trames DOE — avec relecture humaine avant diffusion. Cette session (${dureeCatalogueParCode('NIV-03')}) travaille ces livrables sur vos documents anonymisés. Complément : <a href="${LINKS.formationConducteurTravaux}">formation IA conducteur de travaux</a> et <a href="${LINKS.parcoursConducteurDeTravaux}">parcours Conducteur de travaux</a>.`,
   },
   {
     q: 'Les skills Claude remplacent-ils mon logiciel de gestion de chantier ?',

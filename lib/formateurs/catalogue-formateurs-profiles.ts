@@ -157,38 +157,6 @@ const NICOLAS_PERRIN: FormateurProfile = {
   publie: true,
 };
 
-const CLAIRE_ROUSSEAU: FormateurProfile = {
-  id: 'claire-rousseau',
-  slug: 'claire-rousseau',
-  prenom: 'Claire',
-  nom: 'Rousseau',
-  intitule: 'Ancienne chargée d’affaires et dirigeante d’entreprise du bâtiment',
-  parcours:
-    'Issue de la gestion d’affaires et de la direction d’entreprise, Claire intervient sur le recrutement, l’intégration et les bases de la paie du bâtiment. Elle privilégie des méthodes pratiques pour organiser les processus RH et dialoguer avec le prestataire paie.',
-  specialites: ['Recrutement BTP', 'Intégration', 'Bases de la paie bâtiment'],
-  domaineIds: ['administration'],
-  formationCodes: [],
-  moduleCodes: moduleCodes(['ADM-03', 'ADM-04']),
-  experiences: [
-    {
-      periode: '14 ans',
-      titre: 'Chargée d’affaires puis dirigeante — bâtiment',
-      detail: 'Suivi administratif des chantiers, situations de travaux et relation clients.',
-    },
-    {
-      titre: 'Organisation back-office chantier',
-      detail: 'Classement des pièces, relances et préparation à la facturation.',
-    },
-  ] satisfies readonly FormateurExperienceStep[],
-  formationsProfessionnelles: [
-    'Formation assistante de gestion BTP',
-    'Modules facturation et administration des marchés',
-  ],
-  portrait: photoPortrait(PHOTOS.formateurClaireRousseau),
-  status: 'confirmed',
-  publie: true,
-};
-
 /**
  * Hub /formateurs — intervenants catalogue parcours métiers 2027.
  * `publie: false` ou `affichageHub: 'a-confirmer'` masque un profil sur /formateurs en production.
@@ -198,5 +166,4 @@ export const CATALOGUE_FORMATEURS: readonly FormateurProfile[] = [
   THOMAS_GARNIER,
   MARC_DELCOURT,
   NICOLAS_PERRIN,
-  CLAIRE_ROUSSEAU,
 ];

@@ -82,6 +82,10 @@ function financementNavActive(pathname: string): boolean {
   return pathname === LINKS.financement || pathname.startsWith(`${LINKS.financement}/`);
 }
 
+function formateursNavActive(pathname: string): boolean {
+  return pathname === LINKS.formateurs || pathname.startsWith(`${LINKS.formateurs}/`);
+}
+
 function ressourcesNavActive(pathname: string): boolean {
   return (
     pathname === LINKS.ressources ||
@@ -145,6 +149,12 @@ function buildHeaderNavItems(at: Date = new Date()): readonly HeaderNavItem[] {
       children: buildParcoursNavChildren(),
       hideDropdownHeading: true,
       dropdownAlign: 'start',
+    },
+    {
+      id: 'formateurs',
+      label: 'Nos formateurs',
+      href: LINKS.formateurs,
+      isActive: formateursNavActive,
     },
     {
       id: 'financement',

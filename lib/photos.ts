@@ -360,13 +360,6 @@ export const PHOTOS = {
     height: 1024,
     objectPosition: '50% 18%',
   },
-  formateurClaireRousseau: {
-    src: '/images/formateurs/claire-rousseau.jpg',
-    alt: 'Claire Rousseau, formatrice administration et gestion BTP',
-    width: 796,
-    height: 1024,
-    objectPosition: '50% 20%',
-  },
   /** Visuels formations 2026 */
   formationIATP2026: {
     src: '/images/formation-ia-tp.png',

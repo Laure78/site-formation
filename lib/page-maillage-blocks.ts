@@ -53,6 +53,11 @@ const FORMATION_PRACTICE_RESOURCES: Partial<
   ],
   'NIV-03': [
     {
+      href: LINKS.formationConducteurTravaux,
+      title: 'formation IA conducteur de travaux',
+      description: 'Page métier : usages, prompts et choix de parcours — complément de cette fiche catalogue.',
+    },
+    {
       href: LINKS.tutoCrChantier,
       title: 'Tutoriel — compte rendu de chantier',
       description: 'Skill PDF pour structurer vos CR avec l’IA.',
@@ -365,7 +370,7 @@ const PARCOURS_PRACTICE_RESOURCES: Partial<
     },
     {
       href: LINKS.formationConducteurTravaux,
-      title: 'Formation IA conducteur de travaux — page métier',
+      title: 'formation IA conducteur de travaux',
       description: 'Usages, prompts et public — distinct du parcours multi-modules.',
     },
     {
