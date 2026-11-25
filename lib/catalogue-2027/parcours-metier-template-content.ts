@@ -101,7 +101,7 @@ export const PARCOURS_METIER_TEMPLATE_BY_ID: Record<ParcoursId, ParcoursMetierTe
       },
     ],
     modulesSectionId: 'conducteur-parcours-modules',
-    ctaAnalyticsPrefix: 'parcours-conducteur-de-travaux',
+    ctaAnalyticsPrefix: 'parcours-conducteur',
   },
   'dirigeant-pme-btp': {
     heroImage: {
@@ -372,7 +372,7 @@ export const PARCOURS_METIER_TEMPLATE_BY_ID: Record<ParcoursId, ParcoursMetierTe
       },
     ],
     modulesSectionId: 'maitre-oeuvre-parcours-modules',
-    ctaAnalyticsPrefix: 'parcours-maitre-oeuvre',
+    ctaAnalyticsPrefix: 'parcours-moe',
   },
   'amo-btp': {
     heroImage: {

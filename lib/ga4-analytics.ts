@@ -74,9 +74,27 @@ export function initAiTrafficAttribution(): void {
 }
 
 /** Conversion — intention RDV (CTA ou page /prendre-rdv). */
-export function trackGenerateLead(origin: string, pagePath?: string): void {
+export function trackGenerateLead(
+  origin: string,
+  pagePath?: string,
+  extra?: { src?: string; metier?: string },
+): void {
   sendGa4Event('generate_lead', {
     origin,
+    page_path: pagePath ?? getPagePath(),
+    ...(extra?.src ? { src: extra.src } : {}),
+    ...(extra?.metier ? { metier: extra.metier } : {}),
+    ...aiSourceEventParams(),
+  });
+}
+
+/** Arrivée sur `/prendre-rdv` avec `?src=` — après consentement cookies. */
+export function trackPrendreRdvPageLead(src: string, metier: string, pagePath?: string): void {
+  const trimmedSrc = src.trim() || 'direct';
+  sendGa4Event('generate_lead', {
+    src: trimmedSrc,
+    metier,
+    origin: trimmedSrc,
     page_path: pagePath ?? getPagePath(),
     ...aiSourceEventParams(),
   });

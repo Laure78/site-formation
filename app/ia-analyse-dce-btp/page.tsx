@@ -189,16 +189,35 @@ export default function IaAnalyseDceBtpPage() {
             </div>
             <p className="mt-4 text-sm leading-relaxed text-slate-500">
               Les productions générées par l&apos;IA doivent être contrôlées avant utilisation commerciale
-              ou contractuelle. Une fois les offres rendues, le tutoriel{' '}
+              ou contractuelle.
+            </p>
+            <h3 className="mt-8 font-display text-xl font-semibold text-slate-900">
+              Analyse des offres côté maîtrise d&apos;œuvre
+            </h3>
+            <p className="mt-3 text-base leading-relaxed text-slate-600">
+              Après consultation, le MOE ou le MOA compare mémoires techniques, bordereaux et
+              variantes. L&apos;IA prépare des grilles d&apos;écarts et des synthèses — la note et la
+              décision restent humaines. La{' '}
+              <Link href={LINKS.formationIaMaitriseOeuvre} className={OFC_LINK}>
+                formation IA pour maîtres d&apos;œuvre
+              </Link>{' '}
+              et le tutoriel{' '}
               <Link href={LINKS.blogTutoDepouillementOffresIa} className={OFC_LINK}>
-                dépouiller les offres avec l&apos;IA
+                dépouillement des offres avec l&apos;IA
               </Link>{' '}
-              structure la comparaison des mémoires et des bordereaux sans trancher à votre place.
-              Côté maîtrise d&apos;ouvrage, la{' '}
-              <Link href={LINKS.formationIaAssistanceMaitriseOuvrage} className={OFC_LINK}>
-                formation IA assistance à maîtrise d&apos;ouvrage
+              couvrent ces usages en présentiel Île-de-France.
+            </p>
+            <h3 className="mt-8 font-display text-xl font-semibold text-slate-900">
+              Réponse entreprise aux appels d&apos;offres
+            </h3>
+            <p className="mt-3 text-base leading-relaxed text-slate-600">
+              Côté entreprise, le même DCE sert à construire le GO/NO GO et le mémoire. L&apos;IA
+              accélère la lecture du CCTP et du CCAP ; le chargé d&apos;affaires valide prix, risques et
+              engagement. Programme catalogue :{' '}
+              <Link href={LINKS.formationAO} className={OFC_LINK}>
+                formation IA appels d&apos;offres BTP
               </Link>{' '}
-              approfondit synthèses et analyse des offres en présentiel Île-de-France.
+              (analyse DCE, mémoire technique, chiffrage assisté).
             </p>
           </div>
         </section>

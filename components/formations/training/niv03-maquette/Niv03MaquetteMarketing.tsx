@@ -145,7 +145,7 @@ export function Niv03MaquetteMarketing({
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
               <CtaVisio
-                src="formation-niv03-chantier-hero"
+                src="fiche-suivi-chantier-hero"
                 className="inline-flex min-h-11 w-full items-center justify-center gap-2 px-5 py-3 sm:w-auto"
                 leadingAdornment={<Calendar className="h-4 w-4 shrink-0" aria-hidden />}
               />
@@ -368,7 +368,7 @@ export function Niv03MaquetteMarketing({
           </p>
           <div className="mt-8 flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:items-center">
             <CtaVisio
-              src="formation-niv03-chantier-final"
+              src="fiche-suivi-chantier-fin"
               className="inline-flex min-h-11 w-full items-center justify-center gap-2 px-6 py-3 sm:w-auto"
               leadingAdornment={<Calendar className="h-4 w-4 shrink-0" aria-hidden />}
             />
@@ -380,7 +380,7 @@ export function Niv03MaquetteMarketing({
       <div className="fixed inset-x-0 bottom-0 z-40 border-t border-slate-200 bg-white/95 p-3 backdrop-blur lg:hidden">
         <div className="mx-auto flex max-w-[80rem] gap-2">
           <CtaVisio
-            src="formation-niv03-chantier-sticky"
+            src="fiche-suivi-chantier-sticky"
             variant="primary"
             className="inline-flex min-h-11 flex-1 items-center justify-center px-3 py-2 text-sm"
           />

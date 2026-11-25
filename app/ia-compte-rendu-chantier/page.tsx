@@ -191,25 +191,35 @@ export default function IaCompteRenduChantierPage() {
           </div>
         </section>
 
-        <section className={OFC_SEC.white} aria-labelledby="cr-moe">
+        <section className={OFC_SEC.white} aria-labelledby="cr-par-role">
           <div className="ofc-section-inner max-w-4xl">
-            <h2 id="cr-moe" className="font-display text-2xl font-bold text-slate-900">
-              Compte rendu de chantier côté maître d&apos;œuvre
+            <h2 id="cr-par-role" className="font-display text-2xl font-bold text-slate-900">
+              Compte rendu : selon votre rôle sur le chantier
             </h2>
-            <p className="mt-4 text-base leading-relaxed text-slate-600 md:text-lg">
-              Côté maîtrise d&apos;œuvre, le compte rendu de réunion de chantier sert aussi à
-              tracer décisions, ordres de service et réserves avant diffusion aux entreprises et
-              au maître d&apos;ouvrage. L&apos;IA structure le brouillon à partir de vos notes ; le
-              MOE valide chaque engagement. Pour un parcours aligné CR, OS et pièces
-              administratives, voir la{' '}
+            <h3 className="mt-8 font-display text-xl font-semibold text-slate-900">
+              Pour le conducteur de travaux
+            </h3>
+            <p className="mt-3 text-base leading-relaxed text-slate-600">
+              Vous transformez des notes de réunion ou une dictée en CR interne, tableau
+              d&apos;actions sous-traitants et relances à envoyer le jour même. L&apos;IA propose
+              la structure par lot ; vous vérifiez qui fait quoi, les montants évoqués et les
+              délais avant diffusion au MOE ou aux partenaires. Pour ancrer la méthode en équipe, la{' '}
+              <Link href={LINKS.formationConducteurTravaux} className={OFC_LINK}>
+                formation IA conducteur de travaux
+              </Link>{' '}
+              en présentiel Île-de-France couvre CR, CCTP et suivi documentaire.
+            </p>
+            <h3 className="mt-8 font-display text-xl font-semibold text-slate-900">
+              Pour le maître d&apos;œuvre
+            </h3>
+            <p className="mt-3 text-base leading-relaxed text-slate-600">
+              Le CR de réunion de coordination doit être opposable : décisions, ordres de service,
+              réserves, participants et diffusion aux entreprises. L&apos;IA rédige le brouillon à
+              partir de vos notes ; le MOE ou le MOEX valide chaque engagement avant envoi. La{' '}
               <Link href={LINKS.formationIaMaitriseOeuvre} className={OFC_LINK}>
                 formation IA maîtrise d&apos;œuvre
               </Link>{' '}
-              (présentiel Île-de-France). Pour une vue d&apos;ensemble côté MOE, voir{' '}
-              <Link href={LINKS.blogClaudeIaMaitriseOeuvre} className={OFC_LINK}>
-                les 12 usages de Claude en maîtrise d&apos;œuvre
-              </Link>
-              .
+              traite CR, OS et visas en atelier sur dossiers anonymisés.
             </p>
           </div>
         </section>

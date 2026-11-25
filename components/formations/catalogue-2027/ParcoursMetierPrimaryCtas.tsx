@@ -1,8 +1,10 @@
 'use client';
 
 import { Download } from 'lucide-react';
+import { CtaVisio } from '@/components/CtaVisio';
 import { CTA_RECEVOIR_PROGRAMME_LABEL } from '@/lib/cta-programme-label';
 import { CTA_DEVIS_LABEL } from '@/lib/cta-devis-label';
+import { PARCOURS_VISIO_SRC } from '@/lib/parcours-rdv-src';
 import { getParcoursProgrammePdfHref } from '@/lib/catalogue-2027/parcours-programme-cta';
 import type { ParcoursFormIntent } from '@/lib/catalogue-2027/parcours-form-intent';
 import type { ParcoursId } from '@/data/catalogue-2027';
@@ -76,6 +78,7 @@ export function ParcoursMetierPrimaryCtas({ variant = 'hero', className }: Props
   const { parcours, openContactForm } = useParcoursModuleSelection();
   const btn = BTN_CLASS[variant];
   const isSticky = variant === 'sticky';
+  const visioSrc = PARCOURS_VISIO_SRC[parcours.id];
 
   return (
     <div className={cn(VARIANT_CLASS[variant], className)}>
@@ -92,6 +95,9 @@ export function ParcoursMetierPrimaryCtas({ variant = 'hero', className }: Props
       >
         {CTA_DEVIS_LABEL}
       </button>
+      {visioSrc && variant === 'hero' ? (
+        <CtaVisio src={visioSrc} variant="secondary" className={btn.devis} />
+      ) : null}
     </div>
   );
 }

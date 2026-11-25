@@ -10,10 +10,32 @@ import { NIVEAU_LIBELLE } from '@/data/catalogue-2027/module-niveaux';
 import type { ParcoursComputed } from '@/data/catalogue-2027/parcours';
 import type { CatalogueParcours } from '@/data/catalogue-2027/types';
 import { PARCOURS_DISPONIBILITE_LIBELLE } from '@/lib/catalogue-2027/parcours-commercial-copy';
+import { SITE_TARIFS } from '@/lib/site-config';
+import { TARIF_PARTICIPANT_NIV02_HT } from '@/lib/tarifs-catalogue-participant';
 
 /** Mention légale sous le tarif parcours complet (grille hero / fiche). */
 export const PARCOURS_TARIF_INTER_CALCULE_MENTION =
   'Tarif inter-entreprises calculé à partir des modules du parcours.' as const;
+
+/** Grille HT / participant — niveaux parcours métiers (source `SITE_TARIFS`). */
+export function parcoursGrilleTarifsNiveauxLabel(): string {
+  const { participant4hNiveau1, participant4hNiveau2, participant14hApprofondi } = SITE_TARIFS;
+  return `${participant4hNiveau1} € (niveau 1 · 4 h), ${participant4hNiveau2} € (niveau 2 · 4 h), ${participant14hApprofondi} € (niveau 3 · 14 h)`;
+}
+
+/** FAQ / hub — calcul du tarif parcours (somme des modules). */
+export function parcoursFaqCalculTarifPhrase(intraLibelleLower: string): string {
+  return `Le tarif du parcours complet affiché en tête de fiche est la somme des modules obligatoires (${parcoursGrilleTarifsNiveauxLabel()} HT / participant selon le niveau de chaque module). Chaque carte module reprend son tarif unitaire. ${PARCOURS_TARIF_INTER_CALCULE_MENTION} Intra-entreprise : ${intraLibelleLower}.`;
+}
+
+/** FAQ conducteur — 6 modules niveau 2 à 170 € HT. */
+export function parcoursConducteurFaqTarifPhrase(
+  prixParcoursHt: number,
+  intraLibelleLower: string,
+): string {
+  const unit = TARIF_PARTICIPANT_NIV02_HT;
+  return `Sur le parcours conducteur de travaux, le tarif affiché est la somme de 6 modules obligatoires en niveau 2 (4 h) à ${unit} € HT / participant chacun, soit ${prixParcoursHt} € HT pour le parcours complet. Grille générale des parcours : ${parcoursGrilleTarifsNiveauxLabel()} HT / participant. ${PARCOURS_TARIF_INTER_CALCULE_MENTION} Intra-entreprise : ${intraLibelleLower}.`;
+}
 
 /** Rappel sur les cartes module : chaque module conserve son prix catalogue. */
 export const PARCOURS_TARIFS_UNITAIRES_RAPPEL =

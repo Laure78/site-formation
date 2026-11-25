@@ -4,7 +4,10 @@ import {
   TrainingMethod,
   TrainingOutcomes,
 } from '@/components/formations/training';
+import { FormationMoeBlogArticlesSection } from '@/components/formations/catalogue/FormationMoeBlogArticlesSection';
+import { FormationMoeCabinetTestimonialsSection } from '@/components/formations/catalogue/FormationMoeCabinetTestimonialsSection';
 import { FormationMoeMoexOpcSection } from '@/components/formations/catalogue/FormationMoeMoexOpcSection';
+import { FormationMoeNextInterSessionBlock } from '@/components/formations/catalogue/FormationMoeNextInterSessionBlock';
 import { TrainingPageLayout } from '@/components/formations/training/TrainingPageLayout';
 import { TrainingPresentationExpand } from '@/components/formations/training/TrainingPresentationExpand';
 import { SITE_FORMATION_MODALITE_DETAIL } from '@/lib/site-config';
@@ -92,6 +95,10 @@ export async function TrainingNiv05MaquetteTemplate({
           </TrainingPresentationExpand>
         </TrainingSection>
 
+        <FormationMoeCabinetTestimonialsSection />
+
+        <FormationMoeNextInterSessionBlock formationSlug={formation.slug} />
+
         <TrainingOutcomes
           outcomes={content.outcomes}
           title={objectivesTitle}
@@ -158,6 +165,8 @@ export async function TrainingNiv05MaquetteTemplate({
         ) : null}
 
         <FormationMoeMoexOpcSection />
+
+        <FormationMoeBlogArticlesSection />
 
         <TrainingDeliverables
           items={content.deliverables}

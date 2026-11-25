@@ -5,6 +5,7 @@ import { Suspense } from 'react';
 import { FAQSection } from '@/components/landing/FAQSection';
 import { RdvBookingFlowIsland } from '@/components/prendre-rendez-vous/RdvBookingFlowIsland';
 import { PrendreRdvAgenda } from '@/components/prendre-rendez-vous/PrendreRdvAgenda';
+import { PrendreRdvLeadTracker } from '@/components/prendre-rendez-vous/PrendreRdvLeadTracker';
 import { RdvBookingTracker } from '@/components/prendre-rendez-vous/RdvBookingTracker';
 import { RdvStickyMobileCta } from '@/components/prendre-rendez-vous/RdvStickyMobileCta';
 import { TrainingDeliveryInfo } from '@/components/formations/TrainingDeliveryInfo';
@@ -337,6 +338,7 @@ export default function PrendreRendezVousPage() {
 
       <RdvStickyMobileCta />
       <Suspense fallback={null}>
+        <PrendreRdvLeadTracker />
         <RdvBookingTracker />
       </Suspense>
     </main>

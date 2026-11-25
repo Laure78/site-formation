@@ -50,7 +50,7 @@ Dossier de référence : `.playwright-check-formateurs/` (captures antérieures)
 ## Vérifications effectuées (contenu)
 
 - Note satisfaction : source `formatNoteSatisfactionSur5()` (4,45/5).
-- Tarifs NIV : `120 € HT / participant` (NIV-01), `310 € HT / participant` (autres publiés) via `lib/tarifs-catalogue-participant.ts`.
+- Tarifs NIV : `120 € HT / participant` (NIV-01), `170 € HT / participant` (catalogue avancé 4 h) via `lib/tarifs-catalogue-participant.ts` et `SITE_TARIFS`.
 - Financement : pas de « 100 % finançable » sur cette page.
 - Laure : pas de « conductrice de travaux » ; 7 ans via `formatAnneesExperienceBTP()`.
 - Coordonnées : `CONTACT` (`06 95 66 18 18`, `contact@laureolivie.fr`).

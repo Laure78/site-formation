@@ -2,6 +2,7 @@
 
 import { useEffect } from 'react';
 import { useSearchParams } from 'next/navigation';
+import { deduceRdvMetierFromSrc } from '@/lib/rdv-src-metier';
 import { getPagePath, sendGa4Event } from '@/lib/ga4-analytics';
 
 /** Conversion GA4 — réservation confirmée dans l’iframe Calendly (`calendly.event_scheduled`). */
@@ -14,7 +15,11 @@ export function RdvBookingTracker() {
       if (!event.origin.endsWith('calendly.com')) return;
       const payload = event.data as { event?: string } | null;
       if (payload?.event === 'calendly.event_scheduled') {
-        sendGa4Event('rdv_reserve', { src, page_path: getPagePath() });
+        sendGa4Event('rdv_reserve', {
+          src,
+          metier: deduceRdvMetierFromSrc(src),
+          page_path: getPagePath(),
+        });
       }
     };
 

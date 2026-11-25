@@ -8,6 +8,16 @@ import type { SeoClusterPageConfig } from '@/lib/seo-cluster-landing-types';
 
 export const FORMATION_IA_CONDUCTEUR_DE_TRAVAUX_PATH = '/formation-ia-conducteur-de-travaux' as const;
 
+/** Landing B1 — H1 et métadonnées (présentiel IDF). */
+export const FORMATION_IA_CONDUCTEUR_B1_H1 =
+  'Formation IA pour conducteurs de travaux en Île-de-France' as const;
+
+export const FORMATION_IA_CONDUCTEUR_B1_TITLE =
+  'Formation IA conducteur de travaux IDF' as const;
+
+export const FORMATION_IA_CONDUCTEUR_B1_DESCRIPTION =
+  'Formation IA conducteur de travaux en IDF : CR, PPSPS, DOE et courriers chantier avec ChatGPT et Claude. Présentiel Qualiopi. Réservez votre visio découverte gratuite.' as const;
+
 export const FORMATION_IA_CONDUCTEUR_DE_TRAVAUX_CONFIG: SeoClusterPageConfig = {
   path: FORMATION_IA_CONDUCTEUR_DE_TRAVAUX_PATH,
   seo: {
@@ -31,7 +41,7 @@ export const FORMATION_IA_CONDUCTEUR_DE_TRAVAUX_CONFIG: SeoClusterPageConfig = {
       alt: 'Formation intelligence artificielle pour conducteurs de travaux — plans et suivi chantier',
     },
   },
-  h1: 'Formation IA pour Conducteurs de Travaux',
+  h1: 'Formation IA pour conducteurs de travaux en Île-de-France',
   subtitle:
     'Comptes rendus, réunions, synthèses documentaires, réserves, planning et courriers MOA/MOE — avec ChatGPT et Claude, sur vos dossiers réels.',
   shortAnswer:

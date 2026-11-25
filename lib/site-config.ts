@@ -51,7 +51,7 @@ export type SiteConfig = {
   readonly adresse: SiteAdresse;
   readonly contact: SiteContact;
   readonly satisfaction: SiteSatisfaction;
-  /** Chiffre d’abonnés LinkedIn — saisi manuellement (affichage avec espaces). */
+  /** Chiffre d’abonnés LinkedIn — saisi manuellement (affichage avec espaces). À vérifier sur le profil. */
   readonly linkedinAbonnes: string;
   /** Libellé court expérience terrain BTP (ex. « 7 ans »). */
   readonly experienceBtp: string;
@@ -332,9 +332,14 @@ export function siteSchemaPersonId(siteUrl: string): string {
   return `${siteUrl.replace(/\/$/, '')}/#laure-olivie`;
 }
 
-/** sameAs Person — LinkedIn profil, YouTube, LinkedIn Learning. */
+/** sameAs Person — LinkedIn, LinkedIn Learning, France Num (+ YouTube E-E-A-T). */
 export function sitePersonSchemaSameAs(): readonly string[] {
-  return [SITE_LINKEDIN_PROFILE_URL, SITE_YOUTUBE_CHANNEL_URL, SITE_LINKEDIN_LEARNING_INSTRUCTOR_URL];
+  return [
+    SITE_LINKEDIN_PROFILE_URL,
+    SITE_LINKEDIN_LEARNING_INSTRUCTOR_URL,
+    FRANCE_NUM_ACTIVATEUR_URL,
+    SITE_YOUTUBE_CHANNEL_URL,
+  ];
 }
 
 /** Thématiques `knowsAbout` — nœud EducationalOrganization (layout `#organization`). */
@@ -367,16 +372,23 @@ export function siteQualiopiHasCredentialSchema(): Record<string, unknown> {
   };
 }
 
+/** Référence `@id` Organization — fiches `Course` (entité complète dans le layout). */
+export function buildSchemaOrganizationReference(siteUrl: string): Record<string, unknown> {
+  return { '@id': siteSchemaOrganizationId(siteUrl.replace(/\/$/, '')) };
+}
+
 /** Nœud JSON-LD layout — EducationalOrganization (sans @context). */
 export function buildSiteLayoutEducationalOrganizationNode(
   siteUrl: string,
   logoAbsoluteUrl: string,
 ): Record<string, unknown> {
   const base = siteUrl.replace(/\/$/, '');
+  const { buildIdfAreaServedSchemaEntities } = require('@/lib/schema-constants') as typeof import('@/lib/schema-constants');
   return {
-    '@type': 'EducationalOrganization',
+    '@type': ['Organization', 'EducationalOrganization'],
     '@id': siteSchemaOrganizationId(base),
     name: SITE.raisonSociale,
+    legalName: SITE.raisonSociale,
     alternateName: SITE.marque,
     url: base,
     email: SITE.contact.email,
@@ -390,10 +402,7 @@ export function buildSiteLayoutEducationalOrganizationNode(
       addressLocality: siteSiegeParis12(),
       addressCountry: 'FR',
     },
-    areaServed: {
-      '@type': 'AdministrativeArea',
-      name: SITE_AREA_SERVED_LABEL,
-    },
+    areaServed: buildIdfAreaServedSchemaEntities(),
     hasCredential: siteQualiopiHasCredentialSchema(),
     knowsAbout: [...SITE_EDUCATIONAL_ORGANIZATION_KNOWS_ABOUT],
     sameAs: [...SITE.sameAs],

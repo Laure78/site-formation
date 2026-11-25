@@ -141,7 +141,7 @@ export const FORMATION_MAQUETTE_MARKETING: Partial<
     finalCtaTitle: 'Pilotez vos chantiers plus efficacement avec l’IA',
     finalCtaDescription:
       'Des outils, des méthodes et des cas concrets pour industrialiser le suivi documentaire de vos chantiers.',
-    ctaSrcPrefix: 'formation-niv03-chantier',
+    ctaSrcPrefix: 'fiche-suivi-chantier',
     programmeTitleDefault: 'Le programme de la formation (4 h)',
     programmeFootnote4h: 'Durée totale : 4 h (accueil, modules et bilan inclus)',
     pedagogyLabels: ['Cas pratiques', 'Documents métier', 'Modèles réutilisables', 'Méthodes applicables', 'Gain de temps'],
@@ -189,7 +189,7 @@ export const FORMATION_MAQUETTE_MARKETING: Partial<
     finalCtaTitle: 'Vous souhaitez former votre équipe MOE à l’IA ?',
     finalCtaDescription:
       'Réservez une visio découverte ou demandez un devis pour une session intra ou inter — réponse sous 48 h ouvrées.',
-    ctaSrcPrefix: 'formation-ia-maitrise-oeuvre',
+    ctaSrcPrefix: 'fiche-moe',
     programmeTitleDefault: 'Programme — 5 modules (4 h · 240 min)',
     programmeFootnote4h: 'Durée totale : 4 h (5 modules, 240 min)',
     pedagogyLabels: [...DEFAULT_PEDAGOGY],

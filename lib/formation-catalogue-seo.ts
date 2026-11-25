@@ -19,6 +19,7 @@ import {
   TARIF_PARTICIPANT_NIV10_14H_HT,
   TARIF_PARTICIPANT_NIV13_HT,
 } from '@/lib/tarifs-catalogue-participant';
+import { formationMoeNiv05EnBref } from '@/lib/formation-moe-niv05-en-bref';
 
 export type FormationIaLimitRow = {
   iaAide: string;
@@ -88,12 +89,12 @@ export const FORMATION_CATALOGUE_SEO: Record<FormationCatalogueCode, FormationCa
     ],
   },
   'NIV-03': {
-    metaTitle: 'Programme IA suivi de chantier (4 h)',
+    metaTitle: 'Formation IA suivi de chantier et CR',
     h1: 'Programme Niveau 2 : suivi de chantier, CR et DOE avec l’IA (4 h)',
     subtitle:
       'Analysez vos CCTP, produisez vos comptes rendus et organisez le suivi du chantier jusqu\'à la réception avec ChatGPT et Claude.',
     metaDescription:
-      "Programme IA suivi de chantier (4 h) : CR, CCTP, PPSPS et DOE assistés par l'IA sur vos dossiers BTP. Présentiel IDF, Qualiopi, OPCO selon éligibilité.",
+      'Formation IA suivi de chantier et CR : CCTP, PPSPS et DOE sur vos dossiers BTP avec ChatGPT et Claude. 4 h en présentiel IDF, Qualiopi, OPCO selon éligibilité.',
     enBref: `La formation IA pour conducteurs de travaux apprend à utiliser ChatGPT et Claude pour analyser un CCTP, préparer un compte rendu, suivre les actions, gérer les réserves et structurer un DOE. Session ${dureeCatalogueParCode('NIV-03')} en présentiel — ${QUALIOPI_MENTION}.`,
     publicTargets: [
       'Conducteurs de travaux',
@@ -136,7 +137,7 @@ export const FORMATION_CATALOGUE_SEO: Record<FormationCatalogueCode, FormationCa
       'CCTP, DPGF, DCE, comptes rendus, ordres de service, visas, situations, OPR et réserves : ChatGPT et Claude sur vos dossiers, en présentiel en Île-de-France.',
     metaDescription:
       'Formation IA pour maîtres d’œuvre, MOEX et pilotes OPC : CCTP, CR, OS et visas avec ChatGPT et Claude. Présentiel en Île-de-France, organisme certifié Qualiopi.',
-    enBref: `Cette formation IA s’adresse aux maîtres d’œuvre de conception, aux MOEX, aux pilotes OPC, aux architectes, aux économistes de la construction et aux ingénieurs BET. En atelier, vous structurez CCTP, DPGF, analyse d’offres, comptes rendus, ordres de service et suivi des réserves avec ChatGPT et Claude — chaque production est relue et validée par le professionnel. Session de ${dureeCatalogueParCode('NIV-05')} — ${SITE_FORMATION_MODALITE_ENCART} ; Laure Olivié (OFC Création d’Entreprise, organisme certifié Qualiopi).`,
+    enBref: formationMoeNiv05EnBref(),
     publicTargets: [
       'Maîtres d’œuvre de conception et d’exécution (MOE / MOEX)',
       'Architectes et économistes de la construction',

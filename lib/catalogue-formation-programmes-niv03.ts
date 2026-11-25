@@ -45,7 +45,7 @@ export const NIV03_PROGRAMME_BLOCS: readonly ProgrammeFormationBloc[] = [
   },
   {
     heading: 'MODULE 3 — Gestion de chantier au quotidien',
-    meta: '1 h 10',
+    meta: '1 h 30',
     objectifs: [
       'Réunions et comptes rendus',
       'CR par corps d’état, observations numérotées, points non soldés (levé / en cours / en attente)',

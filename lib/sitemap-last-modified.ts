@@ -136,6 +136,11 @@ const ROUTE_SOURCE_FILES: Record<string, readonly string[]> = {
     'lib/barometre-2026-faq.ts',
   ],
   '/formation-chatgpt-btp': ['app/formation-chatgpt-btp/page.tsx', 'lib/formation-chatgpt-btp-landing.ts'],
+  '/formation-ia-conducteur-de-travaux': [
+    'app/formation-ia-conducteur-de-travaux/page.tsx',
+    'lib/formation-ia-conducteur-de-travaux-b1-content.ts',
+    'lib/formation-ia-conducteur-de-travaux-landing.ts',
+  ],
   '/formation-ia-conducteur-de-travaux-btp': [
     'app/formation-ia-conducteur-de-travaux-btp/page.tsx',
     'lib/formation-ia-conducteur-de-travaux-btp-landing.ts',

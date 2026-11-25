@@ -25,6 +25,11 @@ import {
   Users,
 } from 'lucide-react';
 import { PARCOURS_METIER_PEDAGOGIE_BACKGROUND } from '@/lib/catalogue-2027/parcours-metier-template-content';
+import {
+  PARCOURS_TARIF_INTER_CALCULE_MENTION,
+  parcoursGrilleTarifsNiveauxLabel,
+} from '@/lib/catalogue-2027/parcours-affichage';
+import { TARIF_INTRA_LIBELLE } from '@/data/catalogue-2027/tarifs';
 
 export const PARCOURS_METIERS_HERO = {
   badge: 'PARCOURS MÉTIERS · 2027',
@@ -166,7 +171,7 @@ export const PARCOURS_METIERS_FAQ = [
   },
   {
     q: 'Quel est le tarif d’un parcours métier ?',
-    a: 'Chaque fiche parcours affiche le tarif inter du parcours complet (somme des modules obligatoires) et le prix HT / participant de chaque module. Grille : 120 € (niveau 1 · 4 h), 170 € (niveau 2 · 4 h), 620 € (niveau 3 · 14 h). Tarif inter-entreprises calculé à partir des modules du parcours, sans remise automatique. Intra-entreprise : sur devis.',
+    a: `Chaque fiche parcours affiche le tarif inter du parcours complet (somme des modules obligatoires) et le prix HT / participant de chaque module. Grille : ${parcoursGrilleTarifsNiveauxLabel()}. ${PARCOURS_TARIF_INTER_CALCULE_MENTION} Intra-entreprise : ${TARIF_INTRA_LIBELLE.toLowerCase()}.`,
   },
   {
     q: 'Qui dispense les formations ?',

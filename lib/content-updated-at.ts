@@ -20,6 +20,7 @@ export const PILLAR_PAGE_CONTENT_UPDATED_AT = {
   '/a-propos': '2026-04-05',
   '/formations/ia-maitrise-oeuvre': '2026-11-12',
   '/formations/ia-assistance-maitrise-ouvrage': '2026-11-12',
+  '/formation-ia-conducteur-de-travaux': '2026-11-25',
 } as const satisfies Record<string, ContentUpdatedDate>;
 
 export type PillarPagePath = keyof typeof PILLAR_PAGE_CONTENT_UPDATED_AT;

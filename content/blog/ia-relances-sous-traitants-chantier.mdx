@@ -1,0 +1,107 @@
+---
+title: "Relances sous-traitants avec l'IA : méthode conducteur de travaux"
+seoTitle: "Relances sous-traitants chantier avec l'IA"
+description: "Relancer un sous-traitant avec ChatGPT ou Claude : mails, courriers et tableau d'actions BTP. Méthode conducteur, prompts CRAFT, validation avant envoi. Formation IDF."
+slug: ia-relances-sous-traitants-chantier
+publishedAt: "2026-11-25"
+updatedAt: "2026-11-25"
+cover: /images/btp-conducteur-plans.png
+coverAlt: "Conducteur de travaux BTP au planning — relances sous-traitants assistées par l'IA"
+keywords:
+  - relance sous-traitant IA
+  - conducteur de travaux ChatGPT
+  - courrier chantier sous-traitant
+  - tableau actions chantier IA
+  - formation IA conducteur de travaux
+readingTime: "7 min"
+hideEndCta: true
+enBref: "Sur chantier, les retards de plan, de livraison ou de pièces contractuelles génèrent des relances répétitives. L'IA (ChatGPT ou Claude) structure le tableau d'actions, le mail ou le courrier type — à condition de fournir des faits datés et de valider chaque engagement avant envoi. Laure Olivié (OFC Création d'Entreprise, Qualiopi) enseigne cette méthode en présentiel en Île-de-France."
+relatedSlugs:
+  - comment-ia-gagne-5h-conducteurs-travaux
+  - guide-skill-ia-conducteur-travaux-btp
+  - tuto-avenant-ordre-de-service-ia
+faq:
+  - question: "Peut-on envoyer une relance générée par l'IA sans relecture ?"
+    answer: "Non. Chaque relance engage l'entreprise : vérifiez les délais, références contractuelles et destinataires avant envoi."
+  - question: "ChatGPT ou Claude pour les relances ?"
+    answer: "ChatGPT convient aux mails courts. Claude gère bien un historique de plusieurs échanges collés dans le même fil."
+  - question: "Où approfondir en formation ?"
+    answer: "La formation IA conducteur de travaux et la fiche suivi de chantier (NIV-03) travaillent relances, CR et courriers en présentiel Île-de-France."
+---
+
+## Le problème : des relances qui s'accumulent
+
+Un lot en retard entraîne des mails au plâtrier, au menuisier, au plombier. Sans trame, on répète les mêmes formulations, on oublie une pièce jointe ou une date d'échéance, et la traçabilité devient floue en cas de litige. L'IA ne remplace pas le conducteur de travaux : elle accélère la **rédaction** et le **classement** des demandes, à partir de faits que vous fournissez.
+
+## La solution IA : tableau d'actions puis courrier
+
+### Prompt 1 — mettre à jour le tableau d'actions
+
+<CopiableCodeBlock
+  title="CRAFT — tableau relances sous-traitants"
+  text={`Contexte : chantier [nom], lot [lot], conducteur [vous]. Voici l'état au [date] : [coller la liste brute des retards / pièces manquantes].
+Rôle : assistant conducteur de travaux rigoureux.
+Action : construis un tableau : sous-traitant | sujet | date demande initiale | retard (jours) | prochaine action | statut.
+Format : tableau markdown, 15 lignes max. Marque [À COMPLÉTER] si une date manque.
+Ton : factuel, vocabulaire BTP.`}
+/>
+
+**Ce que vous devez vérifier :** chaque ligne correspond à un fait du terrain, les dates initiales sont correctes, aucun lot n’est inventé.
+
+### Prompt 2 — mail de relance courte
+
+<CopiableCodeBlock
+  title="CRAFT — mail relance planning"
+  text={`Contexte : entreprise sous-traitant [nom], lot [lot], retard sur [prestation] depuis le [date].
+Rôle : rédacteur de mails professionnels BTP.
+Action : rédige un mail de relance ferme et courtois : rappel de l'engagement, retard constaté, conséquence planning, demande de retour sous [délai] avec pièce attendue.
+Format : objet + corps, 120 à 180 mots, prêt à copier dans la messagerie.
+Ton : factuel, sans menace juridique.`}
+/>
+
+**Ce que vous devez vérifier :** le ton, les délais annoncés, l’absence de données personnelles non nécessaires, l’adéquation avec le contrat de sous-traitance.
+
+### Prompt 3 — courrier formel avec historique
+
+<CopiableCodeBlock
+  title="CRAFT — courrier relance formelle"
+  text={`Contexte : courrier relance n°[x] — chantier [nom], lot [lot], entreprise [nom]. Historique : [coller dates des mails précédents et réponses].
+Rôle : assistant rédaction courriers BTP.
+Action : rédige un courrier AR structuré : rappel des faits datés, référence marché / commande, demande explicite, délai de réponse.
+Format : en-têtes courrier professionnel, 250 mots max.
+Ton : ferme, opposable, sans argument juridique inventé.`}
+/>
+
+**Ce que vous devez vérifier :** chaque date citée existe dans l’historique, les références contractuelles sont exactes, le niveau d’escalade est cohérent avec votre stratégie commerciale.
+
+<BlogCtaVisio src="blog-relances-sous-traitants" label="Former votre équipe à ces relances et CR ?" />
+
+## Méthode pas à pas
+
+1. **Capturer** les retards le jour même (note vocale ou puces).
+2. **Mettre à jour** le tableau d’actions (prompt 1).
+3. **Choisir** mail court ou courrier selon la gravité.
+4. **Relire** faits, montants, délais, destinataires.
+5. **Archiver** une copie dans la GED ou le dossier chantier.
+
+## Exemple fictif
+
+Lot étanchéité : livraison prévue le 12 mars, absent le 18 mars. Relance mail le 19, sans réponse le 22. L’IA propose le courrier n°2 avec historique à jour ; le conducteur vérifie la date de commande et envoie en AR. La date de reprise planning reste une décision humaine.
+
+## FAQ
+
+### Peut-on automatiser l'envoi des mails ?
+
+Non recommandé sans validation humaine systématique sur les engagements contractuels.
+
+### Peut-on coller des contrats complets dans l'IA ?
+
+Anonymisez ou travaillez en environnement professionnel adapté à la confidentialité.
+
+### Quelle ressource gratuite complète ce tutoriel ?
+
+Le [guide IA conducteur de travaux](/ressources/guide-conducteur-de-travaux) inclut des tutos Claude pour CR, DCE et relances.
+
+Pour une montée en compétences sur toute la coordination chantier : [formation IA pour conducteurs de travaux en Île-de-France](/formation-ia-conducteur-de-travaux). Fiche catalogue : [programme IA suivi de chantier](/formations/ia-conduite-travaux-suivi-chantier).
+
+<BlogCtaVisio src="blog-relances-sous-traitants" />

@@ -41,9 +41,9 @@ export const PARCOURS_SEO_BY_ID: Record<ParcoursId, ParcoursSeoPack> = {
       'Parcours pour chargés d’affaires et commerciaux BTP : chiffrage, négociation, marchés publics, mémoire technique et suivi d’affaires avec l’IA. Tarifs par module.',
   },
   'conducteur-de-travaux': {
-    titleSegment: 'IA conducteur de travaux · chantier',
+    titleSegment: 'Parcours IA conducteur de travaux 24 h',
     description:
-      'Formation IA conducteur de travaux : planning, comptes rendus et réception chantier. Modulaire, IDF.',
+      'Parcours IA conducteur de travaux : 6 modules, 24 h en présentiel Île-de-France. Planning, CR, réception. Ouverture 2027. Visio découverte gratuite.',
     keywords:
       'formation IA conducteur de travaux, planning chantier IA, compte rendu chantier, réception travaux, BTP',
     schemaDescription:
@@ -111,7 +111,7 @@ export function parcoursMetierPageTitle(id: ParcoursId): string {
 export const PARCOURS_METIER_PAGE_H1: Record<ParcoursId, string> = {
   'dirigeant-pme-btp': 'Formation IA dirigeant PME BTP',
   'charge-affaires-btp': 'Formation IA chargé d’affaires BTP',
-  'conducteur-de-travaux': 'Formation IA conducteur de travaux',
+  'conducteur-de-travaux': 'Parcours IA conducteur de travaux — 6 modules, ouverture 2027',
   'assistant-de-gestion-btp': 'Formation IA assistant de gestion BTP',
   'referent-ia-btp': 'Formation référent IA BTP',
   'maitre-oeuvre': 'Formation IA maître d’œuvre BTP',
@@ -124,6 +124,9 @@ export function parcoursMetierPageH1(id: ParcoursId): string {
 
 export function parcoursMetierPageDescription(p: ParcoursComputed): string {
   const pack = PARCOURS_SEO_BY_ID[p.id];
+  if (p.id === 'conducteur-de-travaux') {
+    return clampMetaDescription(pack.description);
+  }
   const duree = libelleDureeParcoursHeures(p.dureeHeures);
   const withFacts = `${pack.description} ${duree}, ${p.prixInterHt} € HT le parcours — ouverture 2027.`;
   return clampMetaDescription(withFacts);

@@ -19,9 +19,9 @@ const PATH = '/ressources/guide-conducteur-de-travaux';
 const CANONICAL = `${SITE_CONFIG.url.replace(/\/$/, '')}${PATH}`;
 
 export const metadata = createPageMetadata({
-  title: 'Guide conducteur travaux — PDF Claude',
+  title: 'Guide IA conducteur de travaux : prompts',
   description:
-    'Formation IA pour le BTP : guide PDF gratuit conducteur de travaux — DCE, PPSPS, CR, DOE. Six tutos Claude, prompts inclus. Téléchargement immédiat PDF.',
+    'Guide IA conducteur de travaux : 6 tutos Claude, prompts pour DCE, PPSPS, CR et DOE. PDF gratuit à télécharger — méthode terrain BTP, sans inscription payante.',
   descriptionFinal: true,
   path: PATH,
   keywords: [
@@ -127,7 +127,7 @@ export default function SkillIaConducteurTravauxPage() {
         <div className="ofc-section-inner grid gap-10 py-10 md:items-start md:gap-12 md:py-12 lg:grid-cols-2">
           <div className="min-w-0">
             <h1 id="hero-skill-ia" className="font-display text-2xl font-bold leading-tight md:text-2xl lg:text-2xl">
-              Guide du conducteur de travaux : 6&nbsp;skills Claude pour piloter le chantier
+              Guide IA conducteur de travaux : prompts et skills Claude pour le chantier
             </h1>
             <p className="mt-5 max-w-none text-lg leading-relaxed text-white/95 lg:max-w-[42rem] xl:max-w-none">
               Ce guide PDF gratuit regroupe préparation (DCE, sécurité), exécution (CR chantier, constats) et livraison
