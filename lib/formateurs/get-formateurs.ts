@@ -53,9 +53,19 @@ export function getCatalogueFormateurs(): readonly FormateurProfile[] {
   return CATALOGUE_FORMATEURS.filter((f) => !f.hubOnly && isFormateurPublie(f));
 }
 
+/** Manuel Gomez — juste après Laure sur le hub `/formateurs`. */
+const FORMATEUR_AFTER_LAURE_ID: FormateurId = 'manuel-gomez';
+
+function orderEquipeHub(equipe: readonly FormateurProfile[]): FormateurProfile[] {
+  const manuel = equipe.find((f) => f.id === FORMATEUR_AFTER_LAURE_ID);
+  if (!manuel) return [...equipe];
+  const rest = equipe.filter((f) => f.id !== FORMATEUR_AFTER_LAURE_ID);
+  return [manuel, ...rest];
+}
+
 /** Page /formateurs — Laure en tête, puis les intervenants catalogue publiés. */
 export function getFormateursHubProfiles(): readonly FormateurProfile[] {
-  const equipe = CATALOGUE_FORMATEURS.filter(isFormateurVisibleOnHubProduction);
+  const equipe = orderEquipeHub(CATALOGUE_FORMATEURS.filter(isFormateurVisibleOnHubProduction));
   return [FORMATEUR_LAURE_OLIVIE, ...equipe];
 }
 
@@ -67,7 +77,9 @@ export function getHubFormateurProfileBySlug(slug: string): FormateurProfile | u
 /** Slugs des fiches dédiées `/formateurs/[slug]` (hors Laure → `/a-propos`). */
 export function getFormateurProfileStaticSlugs(): readonly string[] {
   return getFormateursHubProfiles()
-    .filter((f) => f.id !== FORMATEUR_LAURE_OLIVIE.id)
+    .filter(
+      (f) => f.id !== FORMATEUR_LAURE_OLIVIE.id && f.profilePage !== false && !f.profileHref,
+    )
     .map((f) => f.slug);
 }
 

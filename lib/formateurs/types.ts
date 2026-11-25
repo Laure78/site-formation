@@ -6,7 +6,8 @@ export type FormateurId =
   | 'thomas-garnier'
   | 'marc-delcourt'
   | 'nicolas-perrin'
-  | 'christophe-delgery';
+  | 'christophe-delgery'
+  | 'manuel-gomez';
 
 /**
  * Portrait — photo réelle (confirmé) ou avatar initiales (démo / slot).
@@ -104,6 +105,11 @@ export type FormateurProfile = {
   affichageHub?: FormateurAffichageHub;
   /** Lien profil détaillé (confirmés uniquement, ex. /a-propos). */
   profileHref?: string;
+  /**
+   * `false` : pas de route `/formateurs/[slug]` — ancre hub uniquement.
+   * Défaut : fiche dédiée publiée.
+   */
+  profilePage?: boolean;
 };
 
 export type FormateurFormationLink = {

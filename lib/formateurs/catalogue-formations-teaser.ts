@@ -11,6 +11,7 @@ export const FORMATEUR_CATALOGUE_TEASER_SPECIALTY: Record<FormateurId, string> =
   'marc-delcourt': 'Gestion, prix de revient et trésorerie.',
   'nicolas-perrin': 'Encadrement et organisation des équipes.',
   'christophe-delgery': 'Intervient sur toutes les formations IA BTP du catalogue.',
+  'manuel-gomez': 'Dirigeant TP et ancien conducteur de travaux chez Eiffage.',
 };
 
 export function getFormateursCatalogueTeaserProfiles(): readonly FormateurProfile[] {

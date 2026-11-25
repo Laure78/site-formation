@@ -29,6 +29,28 @@ function photoPortrait(
   };
 }
 
+const MANUEL_GOMEZ: FormateurProfile = {
+  id: 'manuel-gomez',
+  slug: 'manuel-gomez',
+  prenom: 'Manuel',
+  nom: 'Gomez',
+  intitule: 'Dirigeant d’entreprise de travaux publics et ancien conducteur de travaux chez Eiffage',
+  parcours:
+    'Dirigeant d’entreprise de travaux publics et ancien conducteur de travaux chez Eiffage.',
+  specialites: [],
+  domaineIds: ['travaux'],
+  formationCodes: [],
+  hubOnly: true,
+  profilePage: false,
+  portrait: {
+    kind: 'initials',
+    initials: 'MG',
+    label: 'Manuel Gomez – Formateur BTP',
+  },
+  status: 'confirmed',
+  publie: true,
+};
+
 const THOMAS_GARNIER: FormateurProfile = {
   id: 'thomas-garnier',
   slug: 'thomas-garnier',
@@ -180,6 +202,7 @@ const CHRISTOPHE_DELGERY: FormateurProfile = {
  * `publie: false` ou `affichageHub: 'a-confirmer'` masque un profil sur /formateurs en production.
  */
 export const CATALOGUE_FORMATEURS: readonly FormateurProfile[] = [
+  MANUEL_GOMEZ,
   THOMAS_GARNIER,
   MARC_DELCOURT,
   NICOLAS_PERRIN,

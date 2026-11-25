@@ -24,6 +24,7 @@ export function FormateurShowcaseCard({ formateur, portraitPriority = false }: P
       : `Portrait de ${fullName}, ${specialty}`;
   const specialitesLine = formateur.specialites.slice(0, MAX_SPECIALITES_INLINE).join(' · ');
   const href = formateurPublicProfileHref(formateur);
+  const opensHubAnchor = href.includes('#');
 
   return (
     <article
@@ -78,6 +79,7 @@ export function FormateurShowcaseCard({ formateur, portraitPriority = false }: P
         <div className="mt-auto pt-5">
           <Link
             href={href}
+            {...(opensHubAnchor ? { scroll: false } : {})}
             className="inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-lg bg-[#377CF3] px-4 py-2.5 text-sm font-semibold text-white shadow-sm motion-safe:transition-[background-color,transform] motion-safe:duration-200 motion-safe:hover:bg-[#2d6ad8] motion-safe:hover:scale-[1.01] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#377CF3]"
           >
             {formateur.profileHref ? 'Voir le parcours' : 'Voir le profil'}

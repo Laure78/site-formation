@@ -40,7 +40,7 @@ export function FormateursProfileDialogHost({ formateurs }: Props) {
       const match = formateurs.find((f) => f.slug === hash);
       if (!match) return;
       const target = formateurPublicProfileHref(match);
-      if (target.startsWith('#')) {
+      if (target.includes('#')) {
         setSelectedSlug(hash);
         return;
       }

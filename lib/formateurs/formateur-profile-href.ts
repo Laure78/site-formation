@@ -16,13 +16,18 @@ export function formateurPublicProfilePath(slug: string, id?: FormateurId): stri
   return `${LINKS.formateurs}/${slug}`;
 }
 
-export function formateurPublicProfileHref(formateur: Pick<FormateurProfile, 'slug' | 'id' | 'profileHref'>): string {
+export function formateurPublicProfileHref(
+  formateur: Pick<FormateurProfile, 'slug' | 'id' | 'profileHref' | 'profilePage'>,
+): string {
   if (formateur.profileHref) return formateur.profileHref;
+  if (formateur.profilePage === false) {
+    return `${LINKS.formateurs}#${formateur.slug}`;
+  }
   return formateurPublicProfilePath(formateur.slug, formateur.id);
 }
 
 export function formateurPublicProfileAbsoluteUrl(
-  formateur: Pick<FormateurProfile, 'slug' | 'id' | 'profileHref'>,
+  formateur: Pick<FormateurProfile, 'slug' | 'id' | 'profileHref' | 'profilePage'>,
   siteUrl: string,
 ): string {
   const base = siteUrl.replace(/\/$/, '');
