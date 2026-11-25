@@ -93,12 +93,25 @@ export function countVisibleFormationsIaCatalogue(
   upcoming: readonly FormationCatalogueEntry[],
   filters: FormationsIaFilterParams,
 ): number {
-  const a = filterAvailableFormationsIaEntries(available, filters).length;
-  const u = filterAvailableFormationsIaEntries(upcoming, filters).length;
+  let a = filterAvailableFormationsIaEntries(available, filters).length;
+  let u = filterAvailableFormationsIaEntries(upcoming, filters).length;
+  if (filters.disponibilite === 'disponible') {
+    u = 0;
+  } else if (filters.disponibilite === 'ouverture-2027') {
+    a = 0;
+  }
   const c = filterComplementaryFormationsIaEntries(filters).length;
   return a + u + c;
 }
 
 export function formationsIaHasActiveFilters(filters: FormationsIaFilterParams): boolean {
-  return Boolean(filters.niveau || filters.duree || filters.segment === 'sur-demande');
+  return Boolean(
+    filters.niveau ||
+      filters.duree ||
+      filters.segment === 'sur-demande' ||
+      filters.thematique ||
+      filters.metier ||
+      filters.disponibilite ||
+      (filters.q && filters.q.trim().length > 0),
+  );
 }

@@ -4,10 +4,10 @@ import { ArrowRight, Clock, Wallet } from 'lucide-react';
 import type { FormationCatalogueEntry } from '@/lib/formations-catalogue-display';
 import { getFormationByCode } from '@/data/formations';
 import {
-  catalogueMaquetteNiveauBadgeShort,
   catalogueMaquetteNiveauBadgeTone,
   CATALOGUE_MAQUETTE_NIVEAU_BADGE_TONE_CLASS,
 } from '@/lib/formations-catalogue-maquette';
+import { catalogueNiveauBadgeLabel } from '@/lib/formations-catalogue-display';
 import { cataloguePublicOneLine } from '@/lib/formations-catalogue-page-config';
 import {
   catalogueEntryDuree,
@@ -25,9 +25,7 @@ type Props = {
 
 export function FormationsCatalogueGridCard({ entry, upcoming = false }: Props) {
   const formation = getFormationByCode(entry.ref);
-  const niveauBadge = formation
-    ? catalogueMaquetteNiveauBadgeShort(entry.ref, formation.niveau)
-    : 'Avancé';
+  const niveauBadge = formation ? catalogueNiveauBadgeLabel(entry.ref) : 'Niveau 2 · Avancé';
   const badgeTone = formation
     ? catalogueMaquetteNiveauBadgeTone(entry.ref, formation.niveau)
     : 'avance';

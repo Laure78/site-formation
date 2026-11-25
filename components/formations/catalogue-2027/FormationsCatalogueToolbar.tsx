@@ -25,10 +25,20 @@ export function FormationsCatalogueToolbar() {
 
   const applyFilterChange = (next: Partial<FormationsCataloguePageFilters>) => {
     const merged: FormationsCataloguePageFilters = { ...filters, ...next };
-    if ('niveau' in next) {
-      merged.duree = next.niveau !== undefined ? undefined : merged.duree;
-      merged.segment = next.niveau !== undefined ? undefined : merged.segment;
-    }
+    const clearIfUndefined = (
+      key: keyof FormationsCataloguePageFilters,
+    ) => {
+      if (key in next && next[key] === undefined) {
+        delete merged[key];
+      }
+    };
+    clearIfUndefined('niveau');
+    clearIfUndefined('duree');
+    clearIfUndefined('thematique');
+    clearIfUndefined('metier');
+    clearIfUndefined('disponibilite');
+    clearIfUndefined('q');
+    clearIfUndefined('segment');
     pushFilters(merged);
   };
 

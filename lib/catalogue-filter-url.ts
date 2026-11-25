@@ -127,11 +127,15 @@ export function buildFormationsIaNiveauHref(niveau: FormationNiveau): string {
   return buildFormationsCataloguePageHref({ niveau });
 }
 
-/** Filtres publics de `/formations` — durée, sur demande (niveau conservé pour liens legacy). */
+/** Filtres publics de `/formations` — combinables (niveau + recherche + thématique…). */
 export type FormationsCataloguePageFilters = {
   niveau?: FormationNiveau;
   duree?: CatalogueDureeFilter;
   segment?: 'sur-demande';
+  thematique?: CatalogueThematiqueId;
+  metier?: MetierId;
+  disponibilite?: CatalogueDisponibiliteFilter;
+  q?: string;
 };
 
 export function parseFormationsCataloguePageFilters(
@@ -150,30 +154,29 @@ export function parseFormationsCataloguePageFilters(
   const segmentRaw = get('segment');
   const segment = segmentRaw === 'sur-demande' ? 'sur-demande' : undefined;
 
-  /** Filtres maquette : priorité au niveau ; migration depuis l’ancien filtre durée. */
-  if (ia.niveau) {
-    return { niveau: ia.niveau };
-  }
-  if (segment) {
-    return { segment };
-  }
-  if (ia.duree === 14) {
-    return { niveau: 3 as FormationNiveau };
-  }
-  /** « 4 h » seul est ambigu (débutant et avancé) — on n’applique pas de filtre niveau. */
-  return {};
+  return {
+    niveau: ia.niveau,
+    duree: ia.duree,
+    thematique: ia.thematique,
+    metier: ia.metier,
+    disponibilite: ia.disponibilite,
+    q: ia.q,
+    segment,
+  };
 }
 
 export function buildFormationsCataloguePageHref(
   filters: FormationsCataloguePageFilters,
 ): string {
-  const params = new URLSearchParams();
-  if (filters.niveau) params.set('niveau', String(filters.niveau));
-  if (filters.duree) params.set('duree', String(filters.duree));
-  if (filters.segment === 'sur-demande') params.set('segment', 'sur-demande');
-  const qs = params.toString();
-  const hash = 'catalogue-formations';
-  return qs ? `/formations?${qs}#${hash}` : `/formations#${hash}`;
+  return buildFormationsIaHref({
+    niveau: filters.niveau,
+    duree: filters.duree,
+    thematique: filters.thematique,
+    metier: filters.metier,
+    disponibilite: filters.disponibilite,
+    q: filters.q,
+    segment: filters.segment,
+  });
 }
 
 export function buildFormationsIaHref(filters: FormationsIaFilterParams): string {
@@ -185,6 +188,7 @@ export function buildFormationsIaHref(filters: FormationsIaFilterParams): string
   if (filters.metier) params.set('metier', filters.metier);
   if (filters.disponibilite) params.set('disponibilite', filters.disponibilite);
   if (filters.duree) params.set('duree', String(filters.duree));
+  if (filters.segment === 'sur-demande') params.set('segment', 'sur-demande');
   if (filters.q) params.set('q', filters.q);
   const qs = params.toString();
   const hash = 'catalogue-formations';
