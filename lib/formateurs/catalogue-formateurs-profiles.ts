@@ -164,7 +164,7 @@ const CHRISTOPHE_DELGERY: FormateurProfile = {
   nom: 'Delgery',
   intitule: 'Ingénieur BTP — logistique, conformité et intelligence artificielle',
   parcours:
-    'Ingénieur (Centrale Méditerranée) et titulaire d’un master supply chain et systèmes d’information, il aide les professionnels du BTP à intégrer l’intelligence artificielle de façon concrète et fiable sur le terrain. Coach certifié (RNCP), formé à l’automatisation et à l’IA (Académie Millenium / Theyo), créateur de contenus assistés par IA et concepteur de sites web via l’IA, il partage des méthodes pragmatiques et vérifiables pour gagner en efficacité sur les dossiers BTP (appels d’offres, conformité, CCTP, suivi de chantier).',
+    'Ingénieur (Centrale Méditerranée) et titulaire d’un master supply chain et systèmes d’information, il aide les professionnels du BTP à intégrer l’intelligence artificielle de façon concrète et fiable sur le terrain. Coach certifié (RNCP), formé à l’automatisation et à l’IA (Académie Millenium / Theyo), créateur de contenus assistés par IA et concepteur de sites web via l’IA, il partage des méthodes pragmatiques et vérifiables pour gagner en efficacité sur les dossiers BTP (appels d’offres, conformité, CCTP, suivi de chantier). Il intervient sur l’ensemble des formations IA BTP du catalogue publié en présentiel en Île-de-France.',
   specialites: [
     'Appels d’offres et conformité fournisseurs',
     'Intégration de l’IA sur le terrain BTP',
@@ -174,8 +174,8 @@ const CHRISTOPHE_DELGERY: FormateurProfile = {
   ],
   domaineIds: ['numerique-ia', 'commercial', 'travaux'],
   formationCodes: [],
-  formationCodesHub: ['NIV-02', 'NIV-03'],
-  formationsHubLabel: 'Formations associées à ses spécialités',
+  formationsHubLabel: 'Formations IA BTP qu’il anime',
+  animatesAllPublished: true,
   experiences: [
     {
       titre: 'Manager logistique — Vinci Construction et Bouygues Bâtiment',

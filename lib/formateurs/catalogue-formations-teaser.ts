@@ -11,7 +11,7 @@ export const FORMATEUR_CATALOGUE_TEASER_SPECIALTY: Record<FormateurId, string> =
   'thomas-garnier': 'Devis et mémoires techniques.',
   'marc-delcourt': 'Gestion, prix de revient et trésorerie.',
   'nicolas-perrin': 'Encadrement et organisation des équipes.',
-  'christophe-delgery': 'Appels d’offres, conformité et IA sur le terrain.',
+  'christophe-delgery': 'Intervient sur toutes les formations IA BTP du catalogue.',
 };
 
 export function getFormateursCatalogueTeaserProfiles(): readonly FormateurProfile[] {
