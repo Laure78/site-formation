@@ -3,6 +3,7 @@ import { CtaVisio } from '@/components/CtaVisio';
 import Link from 'next/link';
 import { BookOpen, MonitorPlay, ShieldCheck } from 'lucide-react';
 import { FormationPlateformeConnexionButton } from '@/components/formation/FormationPlateformeConnexionButton';
+import { PlateformePortailAcces } from '@/components/auth/PlateformePortailAcces';
 import { JsonLd } from '@/components/JsonLd';
 import { createPageMetadata, getFAQSchema, getBreadcrumbSchema, SITE_CONFIG } from '@/lib/seo';
 import { LINKS } from '@/lib/internal-links';
@@ -145,7 +146,13 @@ export default function FormationPlateformePage() {
               .
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
-              <FormationPlateformeConnexionButton variant="primary" label="Se connecter" />
+              <FormationPlateformeConnexionButton variant="primary" label="Espace client" />
+              <Link
+                href={LINKS.authPortail}
+                className="inline-flex items-center justify-center rounded-lg border border-slate-300 bg-white px-6 py-3 text-sm font-semibold text-slate-800 transition-colors hover:border-[#377CF3] hover:text-[#377CF3]"
+              >
+                Tous les accès
+              </Link>
             </div>
             <p className="mt-4 text-sm text-[#64748B]">
               Vous n&apos;êtes pas encore inscrit ?{' '}
@@ -165,6 +172,15 @@ export default function FormationPlateformePage() {
             
               quality={75}/>
           </figure>
+        </div>
+      </section>
+
+      <section
+        aria-labelledby="formation-plateforme-portails"
+        className="border-b border-slate-200 bg-white px-4 py-12 md:py-16"
+      >
+        <div className="mx-auto max-w-6xl">
+          <PlateformePortailAcces />
         </div>
       </section>
 

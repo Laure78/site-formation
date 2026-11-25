@@ -372,9 +372,12 @@ export const LINKS = {
   espaceFormateursProgrammes: '/espace-formateurs/programmes',
   espaceFormateursSupports: '/espace-formateurs/supports',
   espaceFormateursInterventions: '/espace-formateurs/interventions',
+  espaceFormateursAgenda: '/espace-formateurs/agenda',
   espaceFormateursQualite: '/espace-formateurs/qualite',
   /** Connexion espace apprenant LMS (indexable SEO/GEO) */
   authConnexion: '/auth/connexion',
+  /** Hub : client / formateur extranet / admin (noindex) */
+  authPortail: '/auth/portail',
   /** Espace productivité personnel apprenant (privé) */
   monEspace: '/mon-espace',
   monEspaceAgenda: '/mon-espace/agenda',

@@ -2,7 +2,7 @@
 
 import { redirect } from 'next/navigation';
 import { createClient } from '@/lib/supabase/server';
-import { getProfileForAccessCheck, resolvePostAuthPath } from '@/lib/admin-access';
+import { getProfileForAccessCheck, resolvePostAuthPath, type PostAuthPortal } from '@/lib/admin-access';
 import { userHasExtranetTrainer } from '@/lib/extranet-formateurs/access';
 import { sanitizeInternalPath } from '@/lib/sanitize-internal-path';
 
@@ -21,7 +21,15 @@ function mapAuthError(message: string): string {
 }
 
 /** Détermine la redirection après connexion (sans exposer la liste blanche côté client). */
-export async function resolvePostLoginRedirect(nextRaw: string | null): Promise<string> {
+function parsePortal(raw: string | null | undefined): PostAuthPortal | undefined {
+  if (raw === 'apprenant' || raw === 'formateur' || raw === 'admin') return raw;
+  return undefined;
+}
+
+export async function resolvePostLoginRedirect(
+  nextRaw: string | null,
+  portalRaw?: string | null
+): Promise<string> {
   const supabase = await createClient();
   const {
     data: { user },
@@ -31,7 +39,10 @@ export async function resolvePostLoginRedirect(nextRaw: string | null): Promise<
 
   const profile = await getProfileForAccessCheck(user.id);
   const hasExtranetTrainer = await userHasExtranetTrainer(user.email, user.id);
-  return resolvePostAuthPath(nextRaw, profile, user.email, { hasExtranetTrainer });
+  return resolvePostAuthPath(nextRaw, profile, user.email, {
+    hasExtranetTrainer,
+    portal: parsePortal(portalRaw),
+  });
 }
 
 /**
@@ -41,7 +52,8 @@ export async function resolvePostLoginRedirect(nextRaw: string | null): Promise<
 export async function loginWithPassword(
   email: string,
   password: string,
-  nextRaw: string | null
+  nextRaw: string | null,
+  portalRaw?: string | null
 ): Promise<{ error: string }> {
   const normalizedEmail = email.trim().toLowerCase();
   if (!normalizedEmail || !password) {
@@ -68,7 +80,10 @@ export async function loginWithPassword(
 
   const profile = await getProfileForAccessCheck(user.id);
   const hasExtranetTrainer = await userHasExtranetTrainer(user.email, user.id);
-  const destination = resolvePostAuthPath(nextRaw, profile, user.email, { hasExtranetTrainer });
+  const destination = resolvePostAuthPath(nextRaw, profile, user.email, {
+    hasExtranetTrainer,
+    portal: parsePortal(portalRaw),
+  });
   const safe =
     sanitizeInternalPath(destination) ??
     (destination.startsWith('/') ? destination : '/espace-apprenant');

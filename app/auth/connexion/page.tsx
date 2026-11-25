@@ -1,7 +1,15 @@
 import { Suspense } from 'react';
+import { redirect } from 'next/navigation';
 import { JsonLd } from '@/components/JsonLd';
+import { createClient } from '@/lib/supabase/server';
 import { createPageMetadata, SITE_CONFIG } from '@/lib/seo';
 import { LINKS } from '@/lib/internal-links';
+import {
+  getProfileForAccessCheck,
+  resolvePostAuthPath,
+  type PostAuthPortal,
+} from '@/lib/admin-access';
+import { userHasExtranetTrainer } from '@/lib/extranet-formateurs/access';
 import ConnexionClient from './ConnexionClient';
 
 /** Query ?reset= / ?error= doivent être lus à chaque requête (pas de cache HTML). */
@@ -41,13 +49,37 @@ function isAdminNextPath(next: string | null | undefined): boolean {
   return pathname === '/admin' || pathname.startsWith('/admin/');
 }
 
+function parsePortal(raw: string | undefined): PostAuthPortal | undefined {
+  if (raw === 'apprenant' || raw === 'formateur' || raw === 'admin') return raw;
+  return undefined;
+}
+
 export default async function ConnexionPage({
   searchParams,
 }: {
-  searchParams: Promise<{ reset?: string; error?: string; next?: string }>;
+  searchParams: Promise<{ reset?: string; error?: string; next?: string; portal?: string }>;
 }) {
   const params = await searchParams;
-  const adminIntent = isAdminNextPath(params.next);
+  const adminIntent = isAdminNextPath(params.next) || params.portal === 'admin';
+  const portal = parsePortal(params.portal) ?? (adminIntent ? 'admin' : 'apprenant');
+  const defaultNext = adminIntent ? '/admin' : LINKS.espaceApprenant;
+  const nextRaw = params.next ?? defaultNext;
+
+  const supabase = await createClient();
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+
+  if (user?.email && !params.reset && !params.error) {
+    const profile = await getProfileForAccessCheck(user.id);
+    const hasExtranetTrainer = await userHasExtranetTrainer(user.email, user.id);
+    redirect(
+      resolvePostAuthPath(nextRaw, profile, user.email, {
+        hasExtranetTrainer,
+        portal,
+      })
+    );
+  }
 
   return (
     <div className="flex min-h-full w-full flex-col bg-[#F2F2F2]">

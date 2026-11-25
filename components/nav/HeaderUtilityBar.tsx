@@ -28,7 +28,7 @@ export function HeaderUtilityBar({ onBeforeOpenSearch }: HeaderUtilityBarProps) 
   const espaceActive =
     pathname === LINKS.espaceApprenant || pathname.startsWith(`${LINKS.espaceApprenant}/`);
 
-  const espaceHref = `${LINKS.authConnexion}?next=${encodeURIComponent(LINKS.espaceApprenant)}`;
+  const espaceHref = `${LINKS.authConnexion}?portal=apprenant&next=${encodeURIComponent(LINKS.espaceApprenant)}`;
 
   return (
     <div

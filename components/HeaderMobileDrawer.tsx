@@ -43,7 +43,7 @@ export function HeaderMobileDrawer({
   const drawerRef = useRef<HTMLDivElement>(null);
   const closeButtonRef = useRef<HTMLButtonElement>(null);
   const { openSearch } = useSiteSearch();
-  const espaceHref = `${LINKS.authConnexion}?next=${encodeURIComponent(LINKS.espaceApprenant)}`;
+  const espaceHref = `${LINKS.authConnexion}?portal=apprenant&next=${encodeURIComponent(LINKS.espaceApprenant)}`;
   const contactActive = headerNavLinkIsActive(LINKS.contact, pathname);
   const espaceActive =
     pathname === LINKS.espaceApprenant || pathname.startsWith(`${LINKS.espaceApprenant}/`);

@@ -33,7 +33,7 @@ export function FormationPlateformeConnexionButton({
 }: FormationPlateformeConnexionButtonProps) {
   return (
     <Link
-      href={`${LINKS.authConnexion}?next=${encodeURIComponent(LINKS.espaceApprenant)}`}
+      href={`${LINKS.authConnexion}?portal=apprenant&next=${encodeURIComponent(LINKS.espaceApprenant)}`}
       title="Connexion à la plateforme de formation IA BTP — Laure Olivié"
       aria-label={label}
       onClick={onClick}

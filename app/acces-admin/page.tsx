@@ -39,13 +39,20 @@ export default async function AccesAdminPage() {
               Accès administrateur
             </h1>
             <p className="mt-4 max-w-xl text-base leading-relaxed text-slate-600">
-              Connectez-vous avec votre compte formateur ou administrateur pour gérer les
-              formations, les apprenants et le suivi Qualiopi.
+              Connexion réservée à l&apos;équipe OFC (gestion LMS, apprenants, sessions et suivi
+              Qualiopi). Les intervenants externes utilisent l&apos;extranet formateur.
             </p>
             <p className="mt-6 text-sm text-slate-500">
               Stagiaire ?{' '}
-              <Link href={LINKS.authConnexion} className="font-medium text-[#377CF3] hover:underline">
-                Connexion espace apprenant
+              <Link
+                href={`${LINKS.authConnexion}?portal=apprenant&next=${encodeURIComponent(LINKS.espaceApprenant)}`}
+                className="font-medium text-[#377CF3] hover:underline"
+              >
+                Espace client
+              </Link>
+              {' · '}
+              <Link href={LINKS.espaceFormateursConnexion} className="font-medium text-[#377CF3] hover:underline">
+                Espace formateur
               </Link>
             </p>
           </section>

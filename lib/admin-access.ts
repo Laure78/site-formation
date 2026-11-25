@@ -66,6 +66,36 @@ export function isExtranetFormateursPath(pathname: string): boolean {
   );
 }
 
+export function isEspaceApprenantPath(pathname: string): boolean {
+  return (
+    pathname === '/espace-apprenant' ||
+    pathname.startsWith('/espace-apprenant/') ||
+    pathname === '/mon-espace' ||
+    pathname.startsWith('/mon-espace/')
+  );
+}
+
+/** Portail de connexion — fige la destination si `next` est absent ou refusé. */
+export type PostAuthPortal = 'apprenant' | 'formateur' | 'admin';
+
+function fallbackForPortal(
+  portal: PostAuthPortal | undefined,
+  adminOk: boolean,
+  extranetOk: boolean
+): string | null {
+  if (!portal) return null;
+  if (portal === 'apprenant') return '/espace-apprenant';
+  if (portal === 'formateur') {
+    if (extranetOk || adminOk) return '/espace-formateurs';
+    return '/espace-formateurs/connexion?error=Accès+extranet+non+autorisé+pour+ce+compte.';
+  }
+  if (portal === 'admin') {
+    if (adminOk) return '/admin';
+    return '/espace-apprenant?admin=denied';
+  }
+  return null;
+}
+
 /**
  * Destination après connexion / callback OAuth.
  * N’honore `next` vers /admin que si l’utilisateur a réellement les droits.
@@ -74,11 +104,12 @@ export function resolvePostAuthPath(
   nextRaw: string | null | undefined,
   profile: Pick<Profile, 'role'> | null | undefined,
   email: string | null | undefined,
-  options?: { hasExtranetTrainer?: boolean }
+  options?: { hasExtranetTrainer?: boolean; portal?: PostAuthPortal }
 ): string {
   const safeNext = sanitizeInternalPath(nextRaw);
   const adminOk = canAccessAdmin(profile, email);
   const extranetOk = options?.hasExtranetTrainer === true;
+  const portal = options?.portal;
 
   if (safeNext) {
     const pathname = safeNext.split('?')[0] ?? safeNext;
@@ -86,10 +117,15 @@ export function resolvePostAuthPath(
       if (adminOk) return safeNext;
     } else if (isExtranetFormateursPath(pathname)) {
       if (extranetOk || adminOk) return safeNext;
+    } else if (isEspaceApprenantPath(pathname)) {
+      return safeNext;
     } else {
       return safeNext;
     }
   }
+
+  const portalFallback = fallbackForPortal(portal, adminOk, extranetOk);
+  if (portalFallback) return portalFallback;
 
   if (extranetOk) return '/espace-formateurs';
   return adminOk ? '/admin' : '/espace-apprenant';

@@ -7,7 +7,13 @@ import { Eye, EyeOff } from 'lucide-react';
 import { createClient } from '@/lib/supabase/client';
 import { CONTACT } from '@/lib/constants';
 import { LINKS } from '@/lib/internal-links';
+import type { PostAuthPortal } from '@/lib/admin-access';
 import { loginWithPassword } from './actions';
+
+function parsePortalParam(raw: string | null): PostAuthPortal | undefined {
+  if (raw === 'apprenant' || raw === 'formateur' || raw === 'admin') return raw;
+  return undefined;
+}
 
 /** Détecte une intention admin depuis ?next= (sans importer le module serveur admin-access). */
 function isAdminNextPath(next: string | null | undefined): boolean {
@@ -34,9 +40,22 @@ export default function ConnexionClient({
   extranetTrainerMode = false,
 }: ConnexionClientProps) {
   const searchParams = useSearchParams();
-  const nextParam = forcedNext ?? searchParams.get('next');
+  const portalParam = parsePortalParam(searchParams.get('portal'));
   const isAdminLogin =
-    !extranetTrainerMode && (adminMode || isAdminNextPath(nextParam));
+    !extranetTrainerMode && (adminMode || portalParam === 'admin' || isAdminNextPath(forcedNext ?? searchParams.get('next')));
+  const nextParam =
+    forcedNext ??
+    searchParams.get('next') ??
+    (extranetTrainerMode
+      ? LINKS.espaceFormateurs
+      : isAdminLogin
+        ? '/admin'
+        : LINKS.espaceApprenant);
+  const loginPortal: PostAuthPortal | undefined = extranetTrainerMode
+    ? 'formateur'
+    : isAdminLogin
+      ? 'admin'
+      : portalParam ?? 'apprenant';
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
@@ -84,7 +103,7 @@ export default function ConnexionClient({
     setError(null);
     startTransition(async () => {
       try {
-        const result = await loginWithPassword(email, password, nextParam);
+        const result = await loginWithPassword(email, password, nextParam, loginPortal);
         if (result?.error) setError(result.error);
       } catch (err) {
         unstable_rethrow(err);
@@ -236,26 +255,43 @@ export default function ConnexionClient({
         </a>
       </p>
 
-      {isAdminLogin || extranetTrainerMode ? (
-        <p className="mt-4 text-center text-sm text-slate-500">
-          Stagiaire ?{' '}
-          <Link
-            href={LINKS.authConnexion}
-            className="font-medium text-[#377CF3] underline-offset-2 hover:underline"
-          >
-            Connexion espace apprenant
-          </Link>
-        </p>
-      ) : (
-        <p className="mt-4 text-center text-xs text-slate-500">
-          <Link
-            href={LINKS.accesAdmin}
-            className="font-medium text-slate-600 underline-offset-2 hover:text-[#377CF3] hover:underline"
-          >
-            Accès formateur / administrateur
-          </Link>
-        </p>
-      )}
+      <p className="mt-4 text-center text-xs text-slate-500">
+        {extranetTrainerMode ? (
+          <>
+            Stagiaire ?{' '}
+            <Link
+              href={`${LINKS.authConnexion}?portal=apprenant&next=${encodeURIComponent(LINKS.espaceApprenant)}`}
+              className="font-medium text-[#377CF3] underline-offset-2 hover:underline"
+            >
+              Espace client
+            </Link>
+            {' · '}
+            <Link href={LINKS.accesAdmin} className="font-medium text-slate-600 underline-offset-2 hover:underline">
+              Administration
+            </Link>
+          </>
+        ) : isAdminLogin ? (
+          <>
+            Stagiaire ?{' '}
+            <Link
+              href={`${LINKS.authConnexion}?portal=apprenant&next=${encodeURIComponent(LINKS.espaceApprenant)}`}
+              className="font-medium text-[#377CF3] underline-offset-2 hover:underline"
+            >
+              Espace client
+            </Link>
+            {' · '}
+            <Link href={LINKS.espaceFormateursConnexion} className="font-medium text-slate-600 underline-offset-2 hover:underline">
+              Espace formateur
+            </Link>
+          </>
+        ) : (
+          <>
+            <Link href={LINKS.authPortail} className="font-medium text-slate-600 underline-offset-2 hover:underline">
+              Autre profil (formateur ou admin)
+            </Link>
+          </>
+        )}
+      </p>
     </div>
   );
 }

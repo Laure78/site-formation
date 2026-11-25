@@ -75,7 +75,7 @@ export const SITE = {
     labelCompact: CTA_RDV_LABEL,
   },
   platform: {
-    loginHref: LINKS.authConnexion,
+    loginHref: LINKS.authPortail,
     connexionLabel: 'Connexion',
     connexionNavMobileLabel: 'Connexion plateforme',
     title: 'Connexion à la plateforme de formation IA BTP — Laure Olivié',

@@ -137,4 +137,21 @@ assert.equal(
   'formateur sans next → /admin'
 );
 
+assert.equal(
+  resolvePostAuthPath(null, { role: 'formateur' }, 'formateur@example.com', {
+    hasExtranetTrainer: true,
+    portal: 'apprenant',
+  }),
+  '/espace-apprenant',
+  'formateur extranet via portail apprenant → espace apprenant'
+);
+
+assert.equal(
+  resolvePostAuthPath('/espace-apprenant', { role: 'formateur' }, 'formateur@example.com', {
+    hasExtranetTrainer: true,
+  }),
+  '/espace-apprenant',
+  'extranet avec next espace apprenant → espace apprenant'
+);
+
 console.log('assert-admin-access : OK');

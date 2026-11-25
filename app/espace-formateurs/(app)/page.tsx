@@ -7,8 +7,10 @@ import {
   fetchCurrentCharter,
   fetchTrainerDocuments,
 } from '@/lib/extranet-formateurs/queries';
-import { fetchUpcomingMissionsForTrainer } from '@/lib/extranet-formateurs/queries-phase2';
+import { fetchMissionsForTrainer, fetchUpcomingMissionsForTrainer } from '@/lib/extranet-formateurs/queries-phase2';
 import { MISSION_STATUS_LABELS } from '@/lib/extranet-formateurs/phase2-types';
+import { missionToAgendaSession } from '@/lib/extranet-formateurs/agenda';
+import { FormateurAgendaCalendar } from '@/components/espace-formateurs/FormateurAgendaCalendar';
 import { LINKS } from '@/lib/internal-links';
 
 export default async function EspaceFormateursAccueilPage() {
@@ -16,11 +18,13 @@ export default async function EspaceFormateursAccueilPage() {
   if (!access.ok) return null;
 
   const { trainer } = access;
-  const [docs, charter, upcoming] = await Promise.all([
+  const [docs, charter, upcoming, allMissions] = await Promise.all([
     fetchTrainerDocuments(trainer.id),
     fetchCurrentCharter(),
     fetchUpcomingMissionsForTrainer(trainer.id),
+    fetchMissionsForTrainer(trainer.id),
   ]);
+  const agendaSessions = allMissions.map(missionToAgendaSession);
 
   const acceptance =
     charter != null
@@ -133,6 +137,16 @@ export default async function EspaceFormateursAccueilPage() {
           </ul>
         </section>
       )}
+
+      <section className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
+        <div className="mb-4 flex flex-wrap items-center justify-between gap-2">
+          <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">Planning</p>
+          <Link href={LINKS.espaceFormateursAgenda} className="text-sm font-medium text-[#377CF3] hover:underline">
+            Ouvrir l&apos;agenda complet
+          </Link>
+        </div>
+        <FormateurAgendaCalendar sessions={agendaSessions} compact />
+      </section>
 
       <section className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
         <div className="flex items-center justify-between gap-3">

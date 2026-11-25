@@ -11,6 +11,7 @@ import {
   BookOpen,
   FolderOpen,
   CalendarDays,
+  ListChecks,
   Award,
   Menu,
   X,
@@ -21,12 +22,13 @@ import { signOutExtranetAction } from '@/app/espace-formateurs/actions';
 
 const NAV = [
   { href: LINKS.espaceFormateurs, label: 'Accueil', icon: Home, exact: true },
+  { href: LINKS.espaceFormateursAgenda, label: 'Agenda', icon: CalendarDays },
   { href: LINKS.espaceFormateursProfil, label: 'Mon profil', icon: UserRound },
   { href: LINKS.espaceFormateursDocuments, label: 'Mes documents', icon: FileText },
   { href: LINKS.espaceFormateursCharte, label: 'Charte du formateur', icon: ScrollText },
   { href: LINKS.espaceFormateursProgrammes, label: 'Programmes', icon: BookOpen },
   { href: LINKS.espaceFormateursSupports, label: 'Supports', icon: FolderOpen },
-  { href: LINKS.espaceFormateursInterventions, label: 'Mes interventions', icon: CalendarDays },
+  { href: LINKS.espaceFormateursInterventions, label: 'Mes interventions', icon: ListChecks },
   { href: LINKS.espaceFormateursQualite, label: 'Qualité', icon: Award },
 ] as const;
 

@@ -264,7 +264,7 @@ export const NAV_RESSOURCES: readonly NavItem[] = [
     title: 'Financement OPCO Constructys — formation IA BTP',
   },
   {
-    href: `${LINKS.authConnexion}?next=${encodeURIComponent(LINKS.espaceApprenant)}`,
+    href: `${LINKS.authConnexion}?portal=apprenant&next=${encodeURIComponent(LINKS.espaceApprenant)}`,
     label: 'Espace client',
     title: 'Connexion à l’espace client — plateforme Laure Olivié',
   },
