@@ -364,7 +364,7 @@ export const PHOTOS = {
   },
   formateurManuelGomez: {
     src: '/images/formateurs/manuel-gomez.png',
-    alt: 'Manuel Gomez – Formateur BTP',
+    alt: 'Manuel Gomez, formateur en intelligence artificielle appliquée au BTP',
     width: 286,
     height: 272,
     /** PNG circulaire — remonte le sujet dans le cadre gris. */

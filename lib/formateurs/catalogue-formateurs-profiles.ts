@@ -34,14 +34,22 @@ const MANUEL_GOMEZ: FormateurProfile = {
   slug: 'manuel-gomez',
   prenom: 'Manuel',
   nom: 'Gomez',
-  intitule: 'Dirigeant d’entreprise de travaux publics et ancien conducteur de travaux chez Eiffage',
+  intitule: 'Formateur en intelligence artificielle appliquée au BTP',
   parcours:
-    'Dirigeant d’entreprise de travaux publics et ancien conducteur de travaux chez Eiffage.',
-  specialites: [],
-  domaineIds: ['travaux'],
+    'Manuel Gomez accompagne les PME du BTP dans l’utilisation opérationnelle de l’intelligence artificielle. Il intervient sur l’ensemble du catalogue de formations, de l’initiation aux agents IA et à l’automatisation.',
+  specialites: [
+    'IA appliquée au BTP',
+    'Appels d’offres',
+    'Conduite de travaux',
+    'Assistants et agents IA',
+    'Automatisation',
+  ],
+  domaineIds: ['numerique-ia', 'commercial', 'travaux', 'direction'],
   formationCodes: [],
-  hubOnly: true,
-  profilePage: false,
+  animatesAllPublished: true,
+  formationsHubLabel: 'Formations IA BTP animées',
+  modalite: 'Formations en présentiel en Île-de-France.',
+  profileDraft: true,
   portrait: photoPortrait(PHOTOS.formateurManuelGomez),
   status: 'confirmed',
   publie: true,
@@ -118,7 +126,7 @@ const CHRISTOPHE_DELGERY: FormateurProfile = {
   nom: 'Delgery',
   intitule: 'Ingénieur BTP — logistique, conformité et intelligence artificielle',
   parcours:
-    'Ingénieur (Centrale Méditerranée) et titulaire d’un master supply chain et systèmes d’information, il aide les professionnels du BTP à intégrer l’intelligence artificielle de façon concrète et fiable sur le terrain. Coach certifié (RNCP), formé à l’automatisation et à l’IA (Académie Millenium / Theyo), créateur de contenus assistés par IA et concepteur de sites web via l’IA, il partage des méthodes pragmatiques et vérifiables pour gagner en efficacité sur les dossiers BTP (appels d’offres, conformité, CCTP, suivi de chantier). Il intervient sur l’ensemble des formations IA BTP du catalogue publié en présentiel en Île-de-France.',
+    'Ingénieur (Centrale Méditerranée) et titulaire d’un master supply chain et systèmes d’information, il aide les professionnels du BTP à intégrer l’intelligence artificielle de façon concrète et fiable sur le terrain. Coach certifié (RNCP), formé à l’automatisation et à l’IA (Académie Millenium / Theyo), créateur de contenus assistés par IA et concepteur de sites web via l’IA, il partage des méthodes pragmatiques et vérifiables pour gagner en efficacité sur les dossiers BTP (appels d’offres, conformité, CCTP, suivi de chantier).',
   specialites: [
     'Appels d’offres et conformité fournisseurs',
     'Intégration de l’IA sur le terrain BTP',
@@ -128,8 +136,6 @@ const CHRISTOPHE_DELGERY: FormateurProfile = {
   ],
   domaineIds: ['numerique-ia', 'commercial', 'travaux'],
   formationCodes: [],
-  formationsHubLabel: 'Formations IA BTP qu’il anime',
-  animatesAllPublished: true,
   experiences: [
     {
       titre: 'Manager logistique — Vinci Construction et Bouygues Bâtiment',

@@ -1,5 +1,9 @@
 import Image from 'next/image';
 import type { FormateurPortrait as Portrait } from '@/lib/formateurs/types';
+import {
+  FORMATEUR_SHOWCASE_PORTRAIT_FRAME,
+  FORMATEUR_SHOWCASE_PORTRAIT_IMAGE,
+} from '@/lib/formateurs/formateur-showcase-portrait';
 import { cn } from '@/lib/cn';
 
 type Props = {
@@ -40,21 +44,28 @@ export function FormateurPortraitView({
   const radius = isSquareShape || isPortraitShape ? 'rounded-lg' : 'rounded-full';
 
   if (portrait.kind === 'photo') {
-    return (
-      <div
-        className={cn(
+    const frameClass = isPortraitShape
+      ? cn(
+          FORMATEUR_SHOWCASE_PORTRAIT_FRAME,
+          'rounded-lg ring-1 ring-ofc-border',
+          box,
+          className,
+        )
+      : cn(
           'relative overflow-hidden bg-ofc-accent-soft ring-1 ring-ofc-border',
           radius,
           box,
           className,
-        )}
-      >
+        );
+
+    return (
+      <div className={frameClass}>
         <Image
           src={portrait.src}
           alt={portrait.alt}
           width={portrait.width}
           height={portrait.height}
-          className="h-full w-full object-cover"
+          className={isPortraitShape ? FORMATEUR_SHOWCASE_PORTRAIT_IMAGE : 'h-full w-full object-cover'}
           style={
             portrait.objectPosition
               ? { objectPosition: portrait.objectPosition }

@@ -80,13 +80,22 @@ export function FormateurShowcaseCard({ formateur, portraitPriority = false }: P
             {specialitesLine}
           </p>
         ) : null}
+        {formateur.animatesAllPublished ? (
+          <p className="mt-3 text-sm leading-snug text-slate-600 text-pretty line-clamp-4">
+            {formateur.parcours}
+          </p>
+        ) : null}
         <div className="mt-auto pt-5">
           <Link
             href={href}
             {...(opensHubAnchor ? { scroll: false } : {})}
-            className="inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-lg bg-[#377CF3] px-4 py-2.5 text-sm font-semibold text-white shadow-sm motion-safe:transition-[background-color,transform] motion-safe:duration-200 motion-safe:hover:bg-[#2d6ad8] motion-safe:hover:scale-[1.01] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#377CF3]"
+            className="inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-lg bg-[#377CF3] px-4 py-2.5 text-sm font-semibold text-white shadow-sm motion-safe:transition-[background-color,transform] motion-safe:duration-200 motion-safe:hover:bg-[#2d6ad8] motion-safe:scale-[1.01] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#377CF3]"
           >
-            {formateur.profileHref ? 'Voir le parcours' : 'Voir le profil'}
+            {formateur.profileHref
+              ? 'Voir le parcours'
+              : formateur.profilePage === false
+                ? 'Voir le profil'
+                : 'Découvrir son profil'}
             <ArrowRight className="h-4 w-4 shrink-0" aria-hidden />
           </Link>
         </div>

@@ -22,6 +22,9 @@ export const PILLAR_PAGE_CONTENT_UPDATED_AT = {
   '/formations/ia-assistance-maitrise-ouvrage': '2026-11-12',
   '/formation-ia-conducteur-de-travaux': '2026-11-25',
   '/formateurs': '2026-11-25',
+  '/formateurs/marc-delcourt': '2026-11-25',
+  '/formateurs/thomas-garnier': '2026-11-25',
+  '/formateurs/manuel-gomez': '2026-11-25',
 } as const satisfies Record<string, ContentUpdatedDate>;
 
 /** Fiches `/formateurs/[slug]` — alignées sur la source profils. */

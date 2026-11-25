@@ -22,6 +22,10 @@ export function GlobalBreadcrumbs() {
   if (isCatalogueFormationFichePath(pathNorm)) return null;
   /** Hub blog maquette — fil d’Ariane intégré au hero. */
   if (pathNorm === '/blog' || pathNorm.startsWith('/blog/page/')) return null;
+  /** Fiche Marc Delcourt — un seul fil (BreadcrumbList JSON-LD + layout global). */
+  if (pathNorm === '/formateurs/marc-delcourt') return null;
+  if (pathNorm === '/formateurs/thomas-garnier') return null;
+  if (pathNorm === '/formateurs/manuel-gomez') return null;
   /** Fil explicite — évite un écart d’hydratation sur le hub formateurs. */
   const items =
     pathNorm === '/formateurs'
