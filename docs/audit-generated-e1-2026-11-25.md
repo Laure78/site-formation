@@ -18,10 +18,11 @@
 | `article-formation-ia-intra-btp-constructys-2026.json` | idem |
 | `article-chatgpt-artisans-btp-usages.json` | idem |
 
-## Vigilance (non bloquant)
+## Reforme slugs « artisan » (25/11/2026)
 
-- **~40 articles** avec « artisan » dans le slug ou le corps (contenu legacy SEO métier). Hors interdits absolus `.cursorrules` ; revue éditoriale ou dépublication = décision produit distincte.
-- Slugs `artisan` : pas de redirection automatique ; ne pas recannibaliser `/formation-ia-btp` sans plan 301 validé.
+- **Purge** : `article-chatgpt-pour-artisans-erreurs-a-eviter.json` (doublon PME), `article-5-cas-usage-chatgpt-artisans-btp.json` (canonique déjà en `blog.ts`).
+- **Slugs canoniques** : `chatgpt-usages-concrets-btp`, `chatgpt-prompts-btp-metiers`, `ia-btp-par-ou-commencer` — 301 via `lib/blog-artisan-legacy-redirects.ts`.
+- Audit : rejet `slug` / nom de fichier contenant `artisan`.
 
 ## Commande CI (optionnelle)
 

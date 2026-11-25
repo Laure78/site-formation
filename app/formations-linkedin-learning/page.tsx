@@ -11,13 +11,8 @@ import { LINKS } from '@/lib/internal-links';
 import { OFC_CTA_PRIMARY, OFC_LINK } from '@/lib/ofc-interaction-classes';
 import { PHOTOS } from '@/lib/photos';
 import {
-  SCHEMA_LINKEDIN_LEARNING_INSTRUCTOR_URL,
-  SCHEMA_LINKEDIN_PROFILE_URL,
-  SCHEMA_ORGANIZATION_OFC,
   SCHEMA_PERSON_SAME_AS,
   SCHEMA_PUBLIC_SITE_URL,
-  SCHEMA_YOUTUBE_CHANNEL_URL,
-  schemaLogoUrl,
 } from '@/lib/schema-constants';
 import { createPageMetadata, SITE_CONFIG } from '@/lib/seo';
 import { formatProsFormesEtNoteQualiopi } from '@/lib/data/indicateurs-resultats-helpers';

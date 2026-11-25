@@ -47,7 +47,7 @@ function blogRedirect(slug: string, destination: string): BlogRedirectEntry[] {
 
 /** Slugs blog absorbés par les pages métier (exclusion sitemap / catalogue). */
 export const BLOG_TEMPLATED_METIER_REDIRECTED_SLUGS: readonly string[] = (() => {
-  const slugs: string[] = ['chatgpt-pour-artisans-erreurs-a-eviter'];
+  const slugs: string[] = [];
   for (const metier of Object.keys(TEMPLATED_METIER_FORMATION_PATH)) {
     const plural = METIER_PLURAL[metier] ?? `${metier}s`;
     slugs.push(`l-ia-va-t-elle-remplacer-les-${plural}`);
@@ -62,10 +62,6 @@ export function blogTemplatedMetierRedirectsOctober2026(): BlogRedirectEntry[] {
   const out: BlogRedirectEntry[] = [];
 
   for (const slug of BLOG_TEMPLATED_METIER_REDIRECTED_SLUGS) {
-    if (slug === 'chatgpt-pour-artisans-erreurs-a-eviter') {
-      out.push(...blogRedirect(slug, '/formation-chatgpt-btp'));
-      continue;
-    }
     for (const [metier, dest] of Object.entries(TEMPLATED_METIER_FORMATION_PATH)) {
       const plural = METIER_PLURAL[metier] ?? `${metier}s`;
       if (

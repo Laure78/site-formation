@@ -29,6 +29,17 @@ for (const file of files) {
   for (const { label, re } of TERMS) {
     if (re.test(text)) hits.push({ file, term: label });
   }
+  try {
+    const { slug } = JSON.parse(text);
+    if (typeof slug === 'string' && /artisan/i.test(slug)) {
+      hits.push({ file, term: 'slug contenant « artisan »' });
+    }
+  } catch {
+    /* ignore JSON invalide — autres audits */
+  }
+  if (/article-[^"]*artisan[^"]*\.json$/i.test(file)) {
+    hits.push({ file, term: 'nom de fichier « artisan »' });
+  }
 }
 
 if (!hits.length) {

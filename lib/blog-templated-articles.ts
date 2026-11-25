@@ -7,7 +7,6 @@ const TEMPLATED_SLUG_PATTERNS: readonly RegExp[] = [
   /^l-ia-va-t-elle-remplacer-les-/,
   /^ia-et-.+-5-gains-de-temps-concrets$/,
   /^comment-utiliser-chatgpt-pour-vos-devis-/,
-  /^chatgpt-pour-artisans-erreurs-a-eviter$/,
 ];
 
 export function isBlogTemplatedSlug(slug: string): boolean {

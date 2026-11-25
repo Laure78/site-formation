@@ -8,6 +8,10 @@
 
 import { FORMATION_IA_ALL_SLUGS } from './seo-formation-ia-hub-data';
 import {
+  BLOG_ARTISAN_LEGACY_REDIRECTED_SLUGS,
+  blogArtisanLegacyRedirects,
+} from './blog-artisan-legacy-redirects';
+import {
   BLOG_TEMPLATED_METIER_REDIRECTED_SLUGS,
   blogTemplatedMetierRedirectsOctober2026,
   devisEn15MinToFormationRedirects,
@@ -323,6 +327,7 @@ export const GSC_EXCLUDED_SITEMAP_PATHS = new Set<string>([
 
 /** Slugs blog absorbés (juillet 2026 — consolidation doublons cron B2). */
 export const BLOG_CONSOLIDATION_REDIRECTED_SLUGS = [
+  ...BLOG_ARTISAN_LEGACY_REDIRECTED_SLUGS,
   'appels-d-offres-btp-l-ia-comme-assistant-741595-8',
   'appels-d-offres-btp-l-ia-comme-assistant-741614-8',
   'appels-d-offres-btp-l-ia-comme-assistant-741628-8',
@@ -440,9 +445,9 @@ export function blogConsolidationRedirectsJuly2026(): RedirectEntry[] {
     { source: '/blog/automatiser-vos-emails-clients-avec-l-ia-741703-9', destination: '/blog/automatiser-emails-clients-btp-ia', permanent: true },
     { source: '/blog/chatgpt-conducteur-travaux-5-prompts-gagner-temps', destination: '/blog/comment-ia-gagne-5h-conducteurs-travaux', permanent: true },
     { source: '/blog/chatgpt-garage-automobile-btp', destination: '/blog/chatgpt-pour-pme-btp-erreurs-a-eviter', permanent: true },
-    { source: '/blog/chatgpt-pour-artisans-erreurs-a-eviter-741598-8', destination: '/blog/chatgpt-pour-artisans-erreurs-a-eviter', permanent: true },
-    { source: '/blog/chatgpt-pour-artisans-erreurs-a-eviter-741612-8', destination: '/blog/chatgpt-pour-artisans-erreurs-a-eviter', permanent: true },
-    { source: '/blog/chatgpt-pour-artisans-erreurs-a-eviter-741617-8', destination: '/blog/chatgpt-pour-artisans-erreurs-a-eviter', permanent: true },
+    { source: '/blog/chatgpt-pour-artisans-erreurs-a-eviter-741598-8', destination: '/blog/chatgpt-pour-pme-btp-erreurs-a-eviter', permanent: true },
+    { source: '/blog/chatgpt-pour-artisans-erreurs-a-eviter-741612-8', destination: '/blog/chatgpt-pour-pme-btp-erreurs-a-eviter', permanent: true },
+    { source: '/blog/chatgpt-pour-artisans-erreurs-a-eviter-741617-8', destination: '/blog/chatgpt-pour-pme-btp-erreurs-a-eviter', permanent: true },
     { source: '/blog/chatgpt-pour-pme-btp-erreurs-a-eviter-741631-8', destination: '/blog/chatgpt-pour-pme-btp-erreurs-a-eviter', permanent: true },
     { source: '/blog/chatgpt-pour-pme-btp-erreurs-a-eviter-741650-8', destination: '/blog/chatgpt-pour-pme-btp-erreurs-a-eviter', permanent: true },
     { source: '/blog/chatgpt-pour-pme-btp-erreurs-a-eviter-741664-8', destination: '/blog/chatgpt-pour-pme-btp-erreurs-a-eviter', permanent: true },
@@ -494,6 +499,7 @@ export function blogConsolidationRedirectsJuly2026(): RedirectEntry[] {
     { source: '/blog/recrutement-btp-l-ia-pour-attirer-les-talents-741685-9', destination: '/blog/recrutement-btp-l-ia-pour-attirer-les-talents', permanent: true },
     { source: '/blog/recrutement-btp-l-ia-pour-attirer-les-talents-741699-9', destination: '/blog/recrutement-btp-l-ia-pour-attirer-les-talents', permanent: true },
     { source: '/blog/recrutement-btp-l-ia-pour-attirer-les-talents-741704-9', destination: '/blog/recrutement-btp-l-ia-pour-attirer-les-talents', permanent: true },
+    ...blogArtisanLegacyRedirects(),
   ];
 }
 

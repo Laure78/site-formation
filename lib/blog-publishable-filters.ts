@@ -3,6 +3,7 @@
  * Exclut les doublons Media Machine (suffixe date-index) et les slugs redirigés (non-200).
  */
 
+import { BLOG_ARTISAN_LEGACY_REDIRECTED_SLUGS } from '@/lib/blog-artisan-legacy-redirects';
 import { BLOG_CONSOLIDATION_REDIRECTED_SLUGS, BLOG_GEO_HORS_IDF_REDIRECTED_SLUGS } from '@/lib/gsc-redirects-2026';
 import { isBlogTemplatedSlug } from '@/lib/blog-templated-articles';
 
@@ -12,6 +13,7 @@ import { isBlogTemplatedSlug } from '@/lib/blog-templated-articles';
  * (lib/gsc-redirects-2026.ts) et fusionnés ci-dessous dans BLOG_LISTING_EXCLUDED_SLUGS.
  */
 export const BLOG_CONSOLIDATED_REDIRECTED_SLUGS = new Set<string>([
+  ...BLOG_ARTISAN_LEGACY_REDIRECTED_SLUGS,
   'ia-devis-gain-temps-pme-btp', // → ia-devis-batiment-chiffrage-automatise (aussi B2)
   'memoire-technique-btp-ia-gagner-temps-appels-offres', // → ia-memoire-technique-appel-offres-guide-2026
   /** Fusion électricien — canonique `chatgpt-devis-electricien-btp` (next.config 301). */

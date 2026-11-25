@@ -1,12 +1,12 @@
 {
-  "slug": "chatgpt-prompts-artisans-btp",
-  "title": "ChatGPT pour professionnels du BTP BTP : 10 prompts prêts à l'emploi par corps de métier",
-  "seoTitle": "ChatGPT professionnels du BTP BTP : 10 prompts par métier | Laure Olivié",
+  "slug": "chatgpt-prompts-btp-metiers",
+  "title": "ChatGPT pour professionnels du BTP : 10 prompts prêts à l'emploi par corps de métier",
+  "seoTitle": "ChatGPT professionnels du BTP : 10 prompts par métier | Laure Olivié",
   "description": "10 prompts ChatGPT testés pour électriciens, plombiers, couvreurs, maçons et métiers du bâtiment. Devis, CR chantier, relances — copier-coller. Qualiopi, OFC.",
   "date": "2026-04-10",
   "dateModified": "2026-04-12",
   "keywords": [
-    "ChatGPT professionnels du BTP BTP",
+    "ChatGPT professionnels du BTP",
     "prompts BTP par métier",
     "IA devis professionnel du BTP",
     "prompts électricien plombier",
@@ -15,7 +15,7 @@
   "relatedSlugs": [
     "outils-ia-btp-chatgpt-claude-gemini",
     "securite-donnees-chatgpt-btp",
-    "5-cas-usage-chatgpt-professionnels du BTP-btp",
+    "5-cas-usage-chatgpt-pme-batiment",
     "chatgpt-btp-guide-complet"
   ],
   "sections": [
