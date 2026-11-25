@@ -10,13 +10,15 @@ import {
 import { AProposPageHero } from '@/components/a-propos/page/AProposPageHero';
 import { AProposReperesBandeau } from '@/components/a-propos/page/AProposReperesBandeau';
 import { AProposExpertiseMetierSection } from '@/components/a-propos/page/AProposExpertiseMetierSection';
-import { AProposParcoursSection } from '@/components/a-propos/page/AProposParcoursSection';
-import { AProposExpertiseDocumentaireSection } from '@/components/a-propos/page/AProposExpertiseDocumentaireSection';
-import { AProposConfianceSection } from '@/components/a-propos/page/AProposConfianceSection';
-import { AProposReferencesTeaser } from '@/components/a-propos/page/AProposReferencesTeaser';
+import { AProposEquipeSection } from '@/components/a-propos/page/AProposEquipeSection';
+import { AProposHistoireSection } from '@/components/a-propos/page/AProposHistoireSection';
+import { AProposDomainesSection } from '@/components/a-propos/page/AProposDomainesSection';
 import { AProposMethodeSection } from '@/components/a-propos/page/AProposMethodeSection';
-import { AProposCtaSection } from '@/components/a-propos/page/AProposCtaSection';
+import { AProposReferencesTeaser } from '@/components/a-propos/page/AProposReferencesTeaser';
+import { AProposConfianceSection } from '@/components/a-propos/page/AProposConfianceSection';
+import { AProposZoneSection } from '@/components/a-propos/page/AProposZoneSection';
 import { AProposPageFaqSection } from '@/components/a-propos/page/AProposPageFaqSection';
+import { AProposCtaSection } from '@/components/a-propos/page/AProposCtaSection';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
 import { LINKS } from '@/lib/internal-links';
 import { SCHEMA_CONTACT } from '@/lib/schema-constants';
@@ -24,15 +26,22 @@ import Link from 'next/link';
 
 export const revalidate = 3600;
 
-/** Title A5 figé (déjà ≤ 60 car.) — sans re-suffixe « | Laure Olivié ». */
 export const metadata: Metadata = {
   ...createPageMetadata({
-    title: A_PROPOS_PAGE_META_TITLE,
+    title: 'Organisme de formation IA BTP certifié Qualiopi',
     titleAbsolute: A_PROPOS_PAGE_META_TITLE,
     description: A_PROPOS_PAGE_META_DESCRIPTION,
     descriptionFinal: true,
-    path: '/a-propos',
-    keywords: null,
+    path: LINKS.aPropos,
+    keywords: [
+      'organisme de formation IA construction',
+      'organisme de formation IA pour le bâtiment',
+      'formation intelligence artificielle travaux publics',
+      'organisme de formation IA Île-de-France',
+      'formation IA PME BTP',
+      'équipe de formateurs IA BTP',
+      'organisme de formation certifié Qualiopi',
+    ],
     appendAuthorSuffix: false,
     openGraphTitle: A_PROPOS_PAGE_META_TITLE,
     openGraphDescription: A_PROPOS_PAGE_META_DESCRIPTION,
@@ -40,7 +49,7 @@ export const metadata: Metadata = {
       url: '/og/og-a-propos-laure-olivie-formatrice-ia-btp.png',
       width: 1200,
       height: 630,
-      alt: 'Laure Olivié, formatrice IA BTP — page À propos',
+      alt: 'Organisme de formation IA BTP certifié Qualiopi — Laure Olivié, équipe et formations en Île-de-France',
     },
   }),
   title: { absolute: A_PROPOS_PAGE_META_TITLE },
@@ -56,42 +65,37 @@ export default function AProposPage() {
       <AProposPageHero />
       <AProposReperesBandeau />
 
-      <div className="mx-auto max-w-[80rem] space-y-14 px-4 py-14 sm:px-6 md:space-y-16 md:py-16 lg:px-8">
+      <div className="mx-auto max-w-[80rem] space-y-12 px-4 py-10 sm:px-6 md:space-y-14 md:py-12 lg:px-8">
         <AProposExpertiseMetierSection />
-        <AProposParcoursSection />
-      </div>
-
-      <AProposExpertiseDocumentaireSection />
-
-      <div className="mx-auto max-w-[80rem] space-y-14 px-4 py-14 sm:px-6 md:space-y-16 md:py-16 lg:px-8">
-        <AProposConfianceSection />
-        <AProposReferencesTeaser />
+        <AProposEquipeSection />
+        <AProposHistoireSection />
+        <AProposDomainesSection />
         <AProposMethodeSection />
+        <AProposReferencesTeaser />
+        <AProposConfianceSection />
+        <AProposZoneSection />
+        <AProposPageFaqSection items={faqItems} />
       </div>
 
       <AProposCtaSection />
 
-      <div className="mx-auto max-w-[80rem] px-4 pb-16 pt-14 sm:px-6 lg:px-8">
-        <AProposPageFaqSection items={faqItems} />
-      </div>
-
-      <div className="border-t border-ofc-border bg-[var(--ofc-color-canvas)] px-4 py-10 sm:px-6 lg:px-8">
+      <div className="border-t border-ofc-border bg-[var(--ofc-color-canvas)] px-4 py-8 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-[80rem]">
-          <Link href="/" className="font-medium text-ofc-accent hover:underline">
+          <Link href={LINKS.home} className="font-medium text-ofc-accent hover:underline">
             ← Retour à l&apos;accueil
           </Link>
-          <div className="mt-8">
+          <div className="mt-6">
             <AllerPlusLoin
               links={[
-                { href: LINKS.formations, label: 'Découvrir les formations IA pour le BTP' },
-                { href: LINKS.formationIaConducteurDeTravaux, label: 'Formation IA et conduite de travaux' },
-                { href: LINKS.formateurIaBtp, label: 'Formateur IA bâtiment en Île-de-France' },
+                { href: LINKS.formations, label: 'Catalogue des formations IA BTP' },
+                { href: LINKS.formateurs, label: 'Notre équipe de formateurs' },
+                { href: LINKS.formationIaBtp, label: 'Formation IA pour le BTP' },
                 { href: LINKS.financement, label: 'Financement OPCO Constructys' },
-                { href: LINKS.contact, label: 'Contact' },
+                { href: LINKS.contact, label: 'Demander un devis' },
               ]}
             />
           </div>
-          <p className="mt-8 text-xs text-ofc-ink-subtle">
+          <p className="mt-6 text-xs text-ofc-ink-subtle">
             OFC Création d&apos;Entreprise — SIREN {SCHEMA_CONTACT.sirenFormatted} ·{' '}
             {SCHEMA_CONTACT.rcsLibelle} · NDA {SCHEMA_CONTACT.nda}
           </p>

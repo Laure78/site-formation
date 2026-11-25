@@ -1,38 +1,40 @@
-import { Award, HardHat, MapPin, PlayCircle } from 'lucide-react';
-import { formatAnneesExperienceBTP } from '@/lib/data/indicateurs-resultats';
+import { Award, MapPin, Users, Wrench } from 'lucide-react';
+import { getAProposFormateursPubliesCount } from '@/lib/a-propos-page-config';
 import { OFC_SECTION_INNER } from '@/lib/ofc-section-classes';
 
 const ICON_STROKE = 1.75;
 
-/** Bandeau gris clair — 4 repères sous le hero (maquette À propos). */
+/** Bandeau de réassurance — Qualiopi, équipe, pratique, présentiel IDF. */
 export function AProposReperesBandeau() {
+  const formateurCount = getAProposFormateursPubliesCount();
+
   const items = [
-    {
-      icon: HardHat,
-      title: formatAnneesExperienceBTP(),
-      detail: 'Expérience terrain BTP',
-    },
     {
       icon: Award,
       title: 'Qualiopi',
       detail: 'Organisme certifié',
     },
     {
+      icon: Users,
+      title: `${formateurCount} formateur${formateurCount > 1 ? 's' : ''}`,
+      detail: 'Équipe spécialisée BTP',
+    },
+    {
+      icon: Wrench,
+      title: '70 % de pratique',
+      detail: 'Pédagogie axée sur le terrain',
+    },
+    {
       icon: MapPin,
       title: 'Présentiel',
       detail: 'Île-de-France (75–95)',
-    },
-    {
-      icon: PlayCircle,
-      title: 'LinkedIn Learning',
-      detail: '2 cours publiés',
     },
   ] as const;
 
   return (
     <section
       className="border-y border-ofc-border bg-[#F2F2F2] py-5 md:py-6"
-      aria-label="Repères — expérience, Qualiopi, zone, LinkedIn Learning"
+      aria-label="Repères — Qualiopi, équipe, pédagogie, zone"
     >
       <div className={`${OFC_SECTION_INNER} px-4 sm:px-6 lg:px-8`}>
         <ul className="grid grid-cols-2 gap-4 md:grid-cols-4 md:gap-6">

@@ -17,7 +17,7 @@ export const PILLAR_PAGE_CONTENT_UPDATED_AT = {
   '/financement-constructys-formation-ia-btp': '2026-09-26',
   '/prendre-rdv': '2026-09-16',
   '/prendre-rendez-vous': '2026-09-16',
-  '/a-propos': '2026-04-05',
+  '/a-propos': '2026-11-25',
   '/formations/ia-maitrise-oeuvre': '2026-11-12',
   '/formations/ia-assistance-maitrise-ouvrage': '2026-11-12',
   '/formation-ia-conducteur-de-travaux': '2026-11-25',

@@ -6,16 +6,17 @@ import { LINKS } from '@/lib/internal-links';
 
 export function AProposReferencesTeaser() {
   return (
-    <section id="clients-partenaires" aria-labelledby="references-title" className="scroll-mt-24">
+    <section id="references" aria-labelledby="references-title" className="scroll-mt-24">
       <h2
         id="references-title"
         className="font-display text-2xl font-bold tracking-tight text-[#0F172A] md:text-3xl"
       >
-        Références <span className="text-ofc-accent">professionnelles</span>
+        Ils nous font <span className="text-ofc-accent">confiance</span>
       </h2>
-      <p className="mt-3 max-w-2xl text-sm leading-relaxed text-ofc-ink-muted">
-        Interventions et formations pour des fédérations et organismes reconnus du BTP — détail sur
-        la page partenaires.
+      <p className="mt-3 max-w-2xl text-sm leading-relaxed text-ofc-ink-muted sm:text-base">
+        Interventions pour des entreprises clientes, des fédérations professionnelles et des
+        organismes de formation — sans présenter une intervention ponctuelle comme un partenariat
+        permanent. Le détail est sur la page références.
       </p>
       <ul className="mt-6 flex flex-wrap items-center justify-center gap-6 sm:gap-8 md:justify-start">
         {A_PROPOS_REFERENCES_LOGOS.map((logo) => (
@@ -38,7 +39,7 @@ export function AProposReferencesTeaser() {
           href={LINKS.partenaires}
           className="inline-flex min-h-[44px] items-center gap-2 font-semibold text-ofc-accent hover:underline"
         >
-          Voir toutes les références
+          Découvrir nos références
           <ArrowRight className="h-5 w-5" aria-hidden />
         </Link>
       </p>
