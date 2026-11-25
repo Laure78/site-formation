@@ -225,10 +225,12 @@ async function fetchGoogleReviewsFromGoogle(): Promise<GoogleReviewsApiResponse 
   }
 
   const fromNew = await fetchFromPlacesApiNew(creds.placeId, creds.apiKey);
-  if (fromNew === 'permission_denied') return null;
-  if (fromNew) return fromNew;
+  if (fromNew && fromNew !== 'permission_denied') return fromNew;
 
-  return fetchFromPlacesApiLegacy(creds.placeId, creds.apiKey);
+  const fromLegacy = await fetchFromPlacesApiLegacy(creds.placeId, creds.apiKey);
+  if (fromLegacy) return fromLegacy;
+
+  return null;
 }
 
 function toPlaceDetails(payload: GoogleReviewsApiResponse): GooglePlaceDetails {

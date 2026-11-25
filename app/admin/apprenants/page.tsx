@@ -1,16 +1,22 @@
 import { createClient } from '@/lib/supabase/server';
 import { createAdminClient } from '@/lib/supabase/admin';
-import Link from 'next/link';
-import { InviterForm } from './InviterForm';
-import { ImportApprenantsForm } from './ImportApprenantsForm';
-import { ExportApprenantsButton } from './ExportApprenantsButton';
-import { RenvoyerInvitationButton } from './RenvoyerInvitationButton';
+import {
+  AdminApprenantsActionsPanel,
+  AdminApprenantsAdvancedToggle,
+} from '@/components/admin/apprenants/AdminApprenantsActionsPanel';
+import { ApprenantsListTable } from '@/components/admin/apprenants/ApprenantsListTable';
 import { LmsAutomationSettingsCard } from '@/components/admin/apprenants/LmsAutomationSettingsCard';
 import { getLmsAutomationSettings } from '@/lib/lms-automation-settings';
+import {
+  formatAdminShortDate,
+  getApprenantAccessBadge,
+  type ApprenantListRow,
+} from '@/lib/admin/apprenants-dashboard';
+import { ExportApprenantsButton } from './ExportApprenantsButton';
+import { RenvoyerInvitationButton } from './RenvoyerInvitationButton';
 
 export default async function AdminApprenantsPage() {
   const supabase = await createClient();
-  // Invitations : service role pour éviter un tableau vide si RLS admin flanche
   const adminDb = createAdminClient();
   const [
     { data: profiles },
@@ -29,7 +35,7 @@ export default async function AdminApprenantsPage() {
     supabase.from('session_logs').select('user_id, started_at').order('started_at', { ascending: false }),
     adminDb
       .from('invitations')
-      .select('id, email, first_name, last_name, formation_id, status, sent_count, expires_at, created_at, accepted_at')
+      .select('id, email, first_name, last_name, formation_id, status, sent_count, expires_at, created_at')
       .in('status', ['pending', 'expired', 'accepted'])
       .order('created_at', { ascending: false })
       .limit(100),
@@ -55,357 +61,158 @@ export default async function AdminApprenantsPage() {
     enrollmentsByUser[e.user_id].push({ title, progress: e.progress_percent });
   }
 
-  /** Dernière invitation non acceptée par email (pour « Renvoyer » depuis la liste). */
-  const pendingInviteByEmail: Record<
-    string,
-    {
-      id: string;
-      email: string;
-      first_name: string | null;
-      last_name: string | null;
-      formation_id: string | null;
-      status: string;
-      sent_count: number;
-      expires_at: string;
-      created_at?: string;
-    }
-  > = {};
+  type PendingInvitationRow = NonNullable<typeof invitations>[number];
+  const pendingInviteByEmail: Record<string, PendingInvitationRow> = {};
   for (const inv of invitations ?? []) {
     if (inv.status === 'accepted') continue;
     const key = inv.email.toLowerCase();
-    if (!pendingInviteByEmail[key]) {
-      pendingInviteByEmail[key] = inv;
-    }
+    if (!pendingInviteByEmail[key]) pendingInviteByEmail[key] = inv;
   }
 
-  const getAccesLabel = (accountStatus: string | null | undefined) => {
-    if (accountStatus === 'active') {
-      return { label: 'Compte activé', color: 'text-emerald-700 bg-emerald-50' };
-    }
-    if (accountStatus === 'disabled') {
-      return { label: 'Désactivé', color: 'text-rose-700 bg-rose-50' };
-    }
-    if (accountStatus === 'invited') {
-      return { label: 'Invitation envoyée', color: 'text-amber-800 bg-amber-50' };
-    }
-    return { label: 'Invitation à envoyer', color: 'text-slate-600 bg-slate-50' };
-  };
-
-  const formatInvitationStatus = (inv: {
-    status: string;
-    expires_at: string;
-    created_at?: string;
-    accepted_at?: string | null;
-  }) => {
-    if (inv.status === 'accepted') {
-      const when = inv.accepted_at
-        ? new Date(inv.accepted_at).toLocaleString('fr-FR', {
-            day: '2-digit',
-            month: '2-digit',
-            year: 'numeric',
-            hour: '2-digit',
-            minute: '2-digit',
-          })
-        : null;
-      return {
-        label: when ? `Compte activé le ${when}` : 'Compte activé',
-        color: 'text-emerald-700',
-      };
-    }
-    if (inv.status === 'expired' || new Date(inv.expires_at) <= new Date()) {
-      return { label: 'Lien expiré — renvoyer', color: 'text-amber-800' };
-    }
-    const sent = inv.created_at
-      ? new Date(inv.created_at).toLocaleString('fr-FR', {
-          day: '2-digit',
-          month: '2-digit',
-          year: 'numeric',
-          hour: '2-digit',
-          minute: '2-digit',
-        })
-      : null;
-    return {
-      label: sent ? `Invitation envoyée le ${sent}` : 'Invitation envoyée',
-      color: 'text-blue-700',
-    };
-  };
-
   const pendingInvitations = (invitations ?? []).filter((inv) => inv.status !== 'accepted');
+
+  const rows: ApprenantListRow[] = (profiles ?? []).map((p) => {
+    const accountStatus = (p as { account_status?: string }).account_status;
+    const name =
+      [(p as { first_name?: string }).first_name, (p as { last_name?: string }).last_name]
+        .filter(Boolean)
+        .join(' ') ||
+      (p as { full_name?: string }).full_name ||
+      '—';
+    const pending = p.email ? pendingInviteByEmail[p.email.toLowerCase()] : undefined;
+    const formationTitle = pending?.formation_id
+      ? courseTitleById[pending.formation_id] ?? '—'
+      : '—';
+
+    return {
+      id: p.id,
+      name,
+      email: p.email ?? '—',
+      createdLabel: formatAdminShortDate(p.created_at),
+      enrollments: enrollmentsByUser[p.id] ?? [],
+      lastActivityLabel: formatAdminShortDate(lastActivityByUser[p.id]),
+      access: getApprenantAccessBadge(accountStatus),
+      showResend: accountStatus === 'invited' && Boolean(pending),
+      pendingInvitation:
+        pending && accountStatus === 'invited'
+          ? {
+              ...pending,
+              courses: { title: formationTitle },
+            }
+          : null,
+    };
+  });
+
+  const total = profiles?.length ?? 0;
+  const activeCount = (profiles ?? []).filter((p) => (p as { account_status?: string }).account_status === 'active').length;
+  const invitedCount = (profiles ?? []).filter((p) => (p as { account_status?: string }).account_status === 'invited').length;
   const lmsAutomation = await getLmsAutomationSettings().catch(() => null);
 
   return (
-    <div className="p-4 md:p-8">
-      <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+    <div className="mx-auto max-w-6xl p-4 md:p-8">
+      <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
         <div>
           <h1 className="font-display text-2xl font-bold text-slate-900">Apprenants</h1>
-          <p className="mt-2 text-slate-600">
-            Inviter des stagiaires, suivre l’accès plateforme et la progression
-          </p>
+          <p className="mt-1 text-sm text-slate-600">Invitations, accès à la plateforme et progression LMS.</p>
         </div>
-        <div className="flex flex-wrap items-center gap-3">
-          <ExportApprenantsButton />
-        </div>
+        <ExportApprenantsButton />
       </div>
 
-      {lmsAutomation ? <LmsAutomationSettingsCard settings={lmsAutomation} /> : null}
+      <div className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-4">
+        <StatCard label="Total" value={total} />
+        <StatCard label="Comptes actifs" value={activeCount} tone="emerald" />
+        <StatCard label="En attente" value={invitedCount} tone="amber" />
+        <StatCard label="Invitations ouvertes" value={pendingInvitations.length} tone={pendingInvitations.length > 0 ? 'amber' : 'neutral'} />
+      </div>
+
+      <div className="mt-6">
+        <AdminApprenantsActionsPanel courses={courses ?? []} />
+      </div>
+
+      <section className="mt-8" aria-labelledby="liste-apprenants">
+        <div className="mb-3 flex items-baseline justify-between gap-2">
+          <h2 id="liste-apprenants" className="font-display text-lg font-semibold text-slate-900">
+            Liste des apprenants
+          </h2>
+          <span className="text-sm text-slate-500">{total} profil{total > 1 ? 's' : ''}</span>
+        </div>
+        <ApprenantsListTable rows={rows} />
+      </section>
 
       {pendingInvitations.length > 0 ? (
         <section
-          className="mt-6 rounded-2xl border border-amber-200 bg-amber-50 p-5"
-          aria-labelledby="invitations-a-renvoyer"
+          className="mt-6 rounded-xl border border-amber-200 bg-amber-50/80 px-4 py-3"
+          aria-labelledby="invitations-relance"
         >
-          <h2 id="invitations-a-renvoyer" className="font-display text-lg font-semibold text-slate-900">
-            Invitations à renvoyer
+          <h2 id="invitations-relance" className="text-sm font-semibold text-amber-950">
+            Invitations à renvoyer ({pendingInvitations.length})
           </h2>
-          <p className="mt-1 text-sm text-amber-900/80">
-            Compte créé mais mot de passe pas encore défini — cliquez pour renvoyer un nouvel email
-            d’activation.
+          <p className="mt-1 text-xs text-amber-900/80">
+            Compte créé, mot de passe pas encore défini — renvoyer l’email d’activation si besoin.
           </p>
-          <ul className="mt-4 space-y-3">
-            {pendingInvitations.slice(0, 12).map((inv) => {
+          <ul className="mt-3 space-y-2">
+            {pendingInvitations.slice(0, 5).map((inv) => {
               const title = inv.formation_id ? courseTitleById[inv.formation_id] ?? '—' : '—';
               const name = [inv.first_name, inv.last_name].filter(Boolean).join(' ') || inv.email;
               return (
                 <li
                   key={inv.id}
-                  className="flex flex-col gap-3 rounded-xl border border-amber-200/80 bg-white px-4 py-3 sm:flex-row sm:items-center sm:justify-between"
+                  className="flex flex-col gap-2 rounded-lg border border-amber-100 bg-white px-3 py-2 sm:flex-row sm:items-center sm:justify-between"
                 >
-                  <div className="min-w-0">
-                    <p className="font-medium text-slate-900">{name}</p>
-                    <p className="truncate text-sm text-slate-600">{inv.email}</p>
-                    <p className="mt-0.5 text-xs text-slate-500">{title}</p>
+                  <div className="min-w-0 text-sm">
+                    <span className="font-medium text-slate-900">{name}</span>
+                    <span className="block truncate text-slate-600">{inv.email}</span>
+                    <span className="text-slate-500">{title}</span>
                   </div>
                   <RenvoyerInvitationButton
                     variant="primary"
-                    invitation={{
-                      ...inv,
-                      courses: { title },
-                    }}
+                    invitation={{ ...inv, courses: { title } }}
                   />
                 </li>
               );
             })}
           </ul>
+          {pendingInvitations.length > 5 ? (
+            <p className="mt-2 text-xs text-amber-900/80">
+              + {pendingInvitations.length - 5} autre(s) — utilisez « Renvoyer » dans la liste pour les comptes au statut Invitation.
+            </p>
+          ) : null}
         </section>
       ) : null}
 
-      <div className="mt-8 grid gap-6 lg:grid-cols-2">
-        {(courses ?? []).length > 0 ? <InviterForm courses={courses ?? []} /> : null}
-        <ImportApprenantsForm courses={courses ?? []} />
-      </div>
-
-      {(invitations ?? []).length > 0 && (
-        <div className="mt-8 overflow-x-auto rounded-2xl border border-slate-200 bg-white shadow-sm">
-          <div className="border-b border-slate-200 px-6 py-4">
-            <h2 className="font-display text-lg font-semibold text-slate-900">Invitations</h2>
-            <p className="text-sm text-slate-600">
-              Email avec lien sécurisé pour créer le mot de passe. « Renvoyer l’invitation » invalide
-              l’ancien lien et en envoie un nouveau.
-            </p>
-          </div>
-          <table className="w-full min-w-[640px]">
-            <thead>
-              <tr className="border-b border-slate-200 bg-slate-50">
-                <th className="px-6 py-3 text-left text-sm font-semibold text-slate-900">Apprenant</th>
-                <th className="px-6 py-3 text-left text-sm font-semibold text-slate-900">Formation</th>
-                <th className="px-6 py-3 text-left text-sm font-semibold text-slate-900">Accès plateforme</th>
-                <th className="px-6 py-3 text-left text-sm font-semibold text-slate-900">Date d’invitation</th>
-                <th className="px-6 py-3 text-left text-sm font-semibold text-slate-900">Envois</th>
-                <th className="px-6 py-3 text-right text-sm font-semibold text-slate-900">Actions</th>
-              </tr>
-            </thead>
-            <tbody>
-              {(invitations ?? []).map((inv) => {
-                const title = inv.formation_id ? courseTitleById[inv.formation_id] ?? '—' : '—';
-                const name = [inv.first_name, inv.last_name].filter(Boolean).join(' ') || inv.email;
-                const st = formatInvitationStatus(inv);
-                const invitedAt = inv.created_at
-                  ? new Date(inv.created_at).toLocaleString('fr-FR', {
-                      day: '2-digit',
-                      month: '2-digit',
-                      year: 'numeric',
-                      hour: '2-digit',
-                      minute: '2-digit',
-                    })
-                  : '—';
-                const activatedAt =
-                  inv.status === 'accepted' && inv.accepted_at
-                    ? new Date(inv.accepted_at).toLocaleString('fr-FR', {
-                        day: '2-digit',
-                        month: '2-digit',
-                        year: 'numeric',
-                        hour: '2-digit',
-                        minute: '2-digit',
-                      })
-                    : null;
-                return (
-                  <tr key={inv.id} className="border-b border-slate-100 last:border-0">
-                    <td className="px-6 py-3">
-                      <p className="font-medium text-slate-900">{name}</p>
-                      <p className="text-sm text-slate-500">{inv.email}</p>
-                    </td>
-                    <td className="px-6 py-3 text-sm text-slate-700">{title}</td>
-                    <td className={`px-6 py-3 text-sm ${st.color}`}>
-                      {st.label}
-                      {activatedAt ? (
-                        <span className="mt-0.5 block text-xs text-slate-500">
-                          Activation : {activatedAt}
-                        </span>
-                      ) : null}
-                    </td>
-                    <td className="px-6 py-3 text-sm text-slate-600">{invitedAt}</td>
-                    <td className="px-6 py-3 text-sm text-slate-600">{inv.sent_count}</td>
-                    <td className="px-6 py-3 text-right">
-                      {inv.status !== 'accepted' ? (
-                        <RenvoyerInvitationButton
-                          invitation={{
-                            ...inv,
-                            courses: { title },
-                          }}
-                        />
-                      ) : (
-                        <span className="text-xs text-slate-400">—</span>
-                      )}
-                    </td>
-                  </tr>
-                );
-              })}
-            </tbody>
-          </table>
+      {lmsAutomation ? (
+        <div className="mt-8">
+          <AdminApprenantsAdvancedToggle title="Automatisations LMS (paramètres avancés)">
+            <LmsAutomationSettingsCard settings={lmsAutomation} />
+          </AdminApprenantsAdvancedToggle>
         </div>
-      )}
+      ) : null}
+    </div>
+  );
+}
 
-      <div className="mt-8 overflow-x-auto rounded-2xl border border-slate-200 bg-white shadow-sm">
-        <table className="w-full min-w-[700px]">
-          <thead>
-            <tr className="border-b border-slate-200 bg-slate-50">
-              <th className="px-6 py-4 text-left text-sm font-semibold text-slate-900">Nom</th>
-              <th className="px-6 py-4 text-left text-sm font-semibold text-slate-900">Email</th>
-              <th className="px-6 py-4 text-left text-sm font-semibold text-slate-900">Formation</th>
-              <th className="px-6 py-4 text-left text-sm font-semibold text-slate-900">Progression</th>
-              <th className="px-6 py-4 text-left text-sm font-semibold text-slate-900">Dernière connexion</th>
-              <th className="px-6 py-4 text-left text-sm font-semibold text-slate-900">Accès plateforme</th>
-              <th className="px-6 py-4 text-left text-sm font-semibold text-slate-900">Actions</th>
-            </tr>
-          </thead>
-          <tbody>
-            {(profiles ?? []).length === 0 ? (
-              <tr>
-                <td colSpan={7} className="px-6 py-12 text-center text-slate-500">
-                  Aucun apprenant inscrit
-                </td>
-              </tr>
-            ) : (
-              (profiles ?? []).flatMap((p) => {
-                const myEnrollments = enrollmentsByUser[p.id] ?? [];
-                const compte = getAccesLabel((p as { account_status?: string }).account_status);
-                const lastAct = lastActivityByUser[p.id]
-                  ? new Date(lastActivityByUser[p.id]).toLocaleDateString('fr-FR', {
-                      day: '2-digit',
-                      month: 'short',
-                      year: 'numeric',
-                    })
-                  : '—';
-                const name =
-                  [(p as { first_name?: string }).first_name, (p as { last_name?: string }).last_name]
-                    .filter(Boolean)
-                    .join(' ') ||
-                  (p as { full_name?: string }).full_name ||
-                  '—';
-                const pending = p.email ? pendingInviteByEmail[p.email.toLowerCase()] : undefined;
-                const showResend =
-                  (p as { account_status?: string }).account_status === 'invited' && pending;
+function StatCard({
+  label,
+  value,
+  tone = 'neutral',
+}: {
+  label: string;
+  value: number;
+  tone?: 'neutral' | 'emerald' | 'amber' | 'rose';
+}) {
+  const toneClass =
+    tone === 'emerald'
+      ? 'border-emerald-100 bg-emerald-50/50'
+      : tone === 'amber'
+        ? 'border-amber-100 bg-amber-50/50'
+        : tone === 'rose'
+          ? 'border-rose-100 bg-rose-50/50'
+          : 'border-slate-200 bg-white';
 
-                const actionsCell = (
-                  <div className="flex flex-col items-start gap-2">
-                    <Link
-                      href={`/admin/apprenants/${p.id}`}
-                      className="text-sm text-[var(--accent)] hover:underline"
-                    >
-                      Profil
-                    </Link>
-                    {showResend && pending ? (
-                      <RenvoyerInvitationButton
-                        invitation={{
-                          ...pending,
-                          courses: {
-                            title: pending.formation_id
-                              ? courseTitleById[pending.formation_id] ?? '—'
-                              : '—',
-                          },
-                        }}
-                      />
-                    ) : null}
-                  </div>
-                );
-
-                if (myEnrollments.length === 0) {
-                  return (
-                    <tr key={p.id} className="border-b border-slate-100 last:border-0">
-                      <td className="px-6 py-4">
-                        <Link
-                          href={`/admin/apprenants/${p.id}`}
-                          className="font-medium text-slate-900 hover:text-[var(--accent)]"
-                        >
-                          {name}
-                        </Link>
-                        <p className="text-xs text-slate-500">
-                          Inscrit le {new Date(p.created_at).toLocaleDateString('fr-FR')}
-                        </p>
-                      </td>
-                      <td className="px-6 py-4 text-slate-600">{p.email}</td>
-                      <td className="px-6 py-4 text-slate-400">—</td>
-                      <td className="px-6 py-4">—</td>
-                      <td className="px-6 py-4 text-sm text-slate-500">{lastAct}</td>
-                      <td className="px-6 py-4">
-                        <span
-                          className={`inline-flex rounded-full px-2.5 py-0.5 text-xs font-medium ${compte.color}`}
-                        >
-                          {compte.label}
-                        </span>
-                      </td>
-                      <td className="px-6 py-4">{actionsCell}</td>
-                    </tr>
-                  );
-                }
-                return myEnrollments.map((e, i) => (
-                  <tr key={`${p.id}-${i}`} className="border-b border-slate-100 last:border-0">
-                    <td className="px-6 py-4">
-                      {i === 0 ? (
-                        <>
-                          <Link
-                            href={`/admin/apprenants/${p.id}`}
-                            className="font-medium text-slate-900 hover:text-[var(--accent)]"
-                          >
-                            {name}
-                          </Link>
-                          <p className="text-xs text-slate-500">
-                            Inscrit le {new Date(p.created_at).toLocaleDateString('fr-FR')}
-                          </p>
-                        </>
-                      ) : null}
-                    </td>
-                    <td className="px-6 py-4 text-slate-600">{i === 0 ? p.email : null}</td>
-                    <td className="px-6 py-4 text-sm">{e.title}</td>
-                    <td className="px-6 py-4 font-medium">{e.progress}%</td>
-                    <td className="px-6 py-4 text-sm text-slate-500">{i === 0 ? lastAct : null}</td>
-                    <td className="px-6 py-4">
-                      {i === 0 ? (
-                        <span
-                          className={`inline-flex rounded-full px-2.5 py-0.5 text-xs font-medium ${compte.color}`}
-                        >
-                          {compte.label}
-                        </span>
-                      ) : null}
-                    </td>
-                    <td className="px-6 py-4">{i === 0 ? actionsCell : null}</td>
-                  </tr>
-                ));
-              })
-            )}
-          </tbody>
-        </table>
-      </div>
+  return (
+    <div className={`rounded-xl border px-3 py-3 ${toneClass}`}>
+      <p className="text-xs font-medium uppercase tracking-wide text-slate-500">{label}</p>
+      <p className="mt-1 font-display text-2xl font-bold text-slate-900">{value}</p>
     </div>
   );
 }

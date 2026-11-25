@@ -7,6 +7,7 @@ import { importApprenantsAction } from './actions';
 
 interface Props {
   courses: { id: string; title: string }[];
+  compact?: boolean;
 }
 
 const SAMPLE_CSV = `email;prenom;nom
@@ -14,7 +15,7 @@ jean.dupont@exemple.fr;Jean;Dupont
 marie.martin@exemple.fr;Marie;Martin
 `;
 
-export function ImportApprenantsForm({ courses }: Props) {
+export function ImportApprenantsForm({ courses, compact = false }: Props) {
   const router = useRouter();
   const [courseId, setCourseId] = useState(courses[0]?.id ?? '');
   const [file, setFile] = useState<File | null>(null);
@@ -75,19 +76,29 @@ export function ImportApprenantsForm({ courses }: Props) {
     );
   }
 
+  const shellClass = compact ? 'min-w-0' : 'rounded-2xl border border-slate-200 bg-white p-6';
+
   return (
-    <div className="rounded-2xl border border-slate-200 bg-white p-6">
+    <div className={shellClass}>
       <div className="flex flex-wrap items-start justify-between gap-3">
         <div>
-          <h3 className="font-display text-lg font-semibold text-slate-900">Importer des apprenants</h3>
-          <p className="mt-1 text-sm text-slate-600">
-            CSV Excel (séparateur <code className="rounded bg-slate-100 px-1">;</code> ou{' '}
-            <code className="rounded bg-slate-100 px-1">,</code>) — colonnes{' '}
-            <code className="rounded bg-slate-100 px-1">email</code>,{' '}
-            <code className="rounded bg-slate-100 px-1">prenom</code>,{' '}
-            <code className="rounded bg-slate-100 px-1">nom</code>. Max 50 lignes. Chaque ligne envoie un
-            email d’invitation avec <strong>identifiant (= email) + lien pour créer le mot de passe</strong>.
-            Aucun mot de passe n’est envoyé en clair.
+          {!compact ? (
+            <h3 className="font-display text-lg font-semibold text-slate-900">Importer des apprenants</h3>
+          ) : null}
+          <p className={`${compact ? '' : 'mt-1 '}text-sm text-slate-600`}>
+            {compact ? (
+              <>CSV : colonnes email, prénom, nom — max 50 lignes, une invitation par ligne.</>
+            ) : (
+              <>
+                CSV Excel (séparateur <code className="rounded bg-slate-100 px-1">;</code> ou{' '}
+                <code className="rounded bg-slate-100 px-1">,</code>) — colonnes{' '}
+                <code className="rounded bg-slate-100 px-1">email</code>,{' '}
+                <code className="rounded bg-slate-100 px-1">prenom</code>,{' '}
+                <code className="rounded bg-slate-100 px-1">nom</code>. Max 50 lignes. Chaque ligne envoie un
+                email d’invitation avec <strong>identifiant (= email) + lien pour créer le mot de passe</strong>.
+                Aucun mot de passe n’est envoyé en clair.
+              </>
+            )}
           </p>
         </div>
         <button

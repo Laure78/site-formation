@@ -260,7 +260,7 @@ export const PARTENAIRES_PAGE_SECTIONS: PartenairePageSection[] = [
     h2: 'IFRB 77',
     subtitle: 'Institut de Formation Régional du Bâtiment — Seine-et-Marne et Île-de-France',
     officialHref: PARTNER_WEBSITES.ifrb,
-    officialLabel: 'Site officiel IFRB — Institut de Formation Régional du Bâtiment',
+    officialLabel: 'Site officiel IFRB 77 — ifrbtp77.fr',
     logo: {
       src: '/images/partenaires/logo-ifrb-78-91-95-formation-batiment.webp',
       alt: ALT_LOGO_IFRB,

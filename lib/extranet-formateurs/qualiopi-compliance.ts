@@ -23,12 +23,6 @@ export const QUALIOPI_INDICATOR_LABELS = {
     summary:
       'Après chaque intervention : retour formateur, pièces de session (émargement, évaluation) et compte rendu pour amélioration continue.',
   },
-  ind31: {
-    code: '31–32',
-    title: 'Actions d’amélioration',
-    summary:
-      'Plans d’action partagés avec vous lorsque l’audit interne ou vos retours le nécessitent.',
-  },
 } as const;
 
 export type QualiopiChecklistItem = {

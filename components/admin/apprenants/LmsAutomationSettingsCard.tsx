@@ -10,7 +10,7 @@ export function LmsAutomationSettingsCard({ settings }: { settings: LmsAutomatio
   const [pending, startTransition] = useTransition();
 
   return (
-    <section className="mt-6 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+    <section className="min-w-0">
       <h2 className="font-display text-lg font-semibold text-slate-900">Automatisations LMS</h2>
       <p className="mt-1 text-sm text-slate-600">
         Invitations à l’ajout d’un participant de session · relance satisfaction J+1 (parcours LMS sans

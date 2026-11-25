@@ -14,14 +14,12 @@ type Props = {
   readiness: InterventionReadiness;
   evaluations: CompetencyEvaluationRow[];
   subcontractorControl: SubcontractorControlRow | null;
-  openActionsCount: number;
 };
 
 export function QualiopiConformiteDashboard({
   readiness,
   evaluations,
   subcontractorControl,
-  openActionsCount,
 }: Props) {
   const qualiopi = SITE.qualiopi;
   const qualiopiFin = qualiopi.fin.slice(8, 10) + '/' + qualiopi.fin.slice(5, 7) + '/' + qualiopi.fin.slice(0, 4);
@@ -179,12 +177,6 @@ export function QualiopiConformiteDashboard({
             {evaluations.length} au total).
           </p>
         )}
-        {openActionsCount > 0 ? (
-          <p className="mt-3 rounded-lg border border-amber-200 bg-amber-50 px-3 py-2 text-sm text-amber-900">
-            {openActionsCount} plan{openActionsCount > 1 ? 's' : ''} d&apos;action en cours — consultez la
-            rubrique Qualité.
-          </p>
-        ) : null}
       </section>
 
       <ExtranetRgpdNotice />

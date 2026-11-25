@@ -4,6 +4,7 @@
  */
 import { CTA_RDV_LABEL } from '@/lib/cta-rdv-label';
 import { LINKS } from '@/lib/internal-links';
+import { SCHEMA_GOOGLE_REVIEWS_VIEW_URL } from '@/lib/schema-constants';
 import { formationHref, type Formation } from '@/data/formations';
 import { getPublishedFormations } from '@/lib/formation-catalogue-visibility';
 import { isParcoursMetiers2027Visible } from '@/lib/parcours-metiers-2027-visibility';
@@ -22,9 +23,8 @@ export const NAV_ITEM_NOUS_REJOINDRE: NavItem = {
   title: 'Recrutement formateurs IA BTP — candidatures et offres',
 };
 
-/** URL partage avis Google — footer (lien utilisateur vérifié). */
-export const FOOTER_GOOGLE_REVIEWS_URL =
-  'https://share.google/gpl7i0IH7c2AManrN' as const;
+/** URL partage avis Google — footer (alignée sur `SCHEMA_GOOGLE_REVIEWS_VIEW_URL`). */
+export const FOOTER_GOOGLE_REVIEWS_URL = SCHEMA_GOOGLE_REVIEWS_VIEW_URL;
 
 function sortFormationsFooter(a: Formation, b: Formation): number {
   if (a.niveau !== b.niveau) return a.niveau - b.niveau;

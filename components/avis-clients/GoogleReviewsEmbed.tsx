@@ -1,4 +1,5 @@
 import type { GoogleReviewEntry } from '@/data/googleReviews';
+import { GoogleBusinessProfileMapEmbed } from '@/components/avis-clients/GoogleBusinessProfileMapEmbed';
 import { GoogleReviewsCarousel } from '@/components/avis-clients/GoogleReviewsCarousel';
 import { ElfsightGoogleReviewsWidget } from '@/components/avis-clients/ElfsightGoogleReviewsWidget';
 import { isElfsightGoogleReviewsConfigured } from '@/lib/elfsight-google-reviews';
@@ -13,24 +14,36 @@ type GoogleReviewsEmbedProps = {
 
 function GoogleReviewsEmptyFallback({ googleUrl }: { googleUrl: string }) {
   return (
-    <div
-      className="flex min-h-[240px] flex-col items-center justify-center rounded-2xl border border-slate-200 bg-white p-8 text-center shadow-sm md:min-h-[280px] md:p-12"
-      role="status"
-    >
-      <p className="max-w-xl text-slate-700">
-        Consultez les avis authentiques sur la fiche Google Business Profile d&apos;OFC Création
-        d&apos;Entreprise.
+    <div className="space-y-6" role="status">
+      <p className="max-w-2xl text-slate-700">
+        Avis publiés sur la fiche Google Business Profile d&apos;OFC Création d&apos;Entreprise —
+        consultez la carte (onglet Avis dans le panneau latéral) ou ouvrez la fiche complète sur
+        Google.
       </p>
-      <a
-        href={googleUrl}
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Voir tous les avis Google (ouvre un nouvel onglet)"
-        className={`${OFC_CTA_SECONDARY} mt-6 inline-flex items-center gap-2`}
-      >
-        Voir tous les avis Google
-        <ExternalLink size={16} strokeWidth={1.5} aria-hidden="true" />
-      </a>
+      <GoogleBusinessProfileMapEmbed />
+      <div className="flex flex-col items-stretch gap-3 sm:flex-row sm:items-center">
+        <a
+          href={googleUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Voir tous les avis Google (ouvre un nouvel onglet)"
+          className={`${OFC_CTA_SECONDARY} inline-flex items-center justify-center gap-2`}
+        >
+          Voir tous les avis sur Google
+          <ExternalLink size={16} strokeWidth={1.5} aria-hidden="true" />
+        </a>
+        <p className="text-sm text-slate-500">
+          Lien direct :{' '}
+          <a
+            href={googleUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-medium text-[var(--accent)] hover:underline"
+          >
+            fiche Laure Olivié sur Google
+          </a>
+        </p>
+      </div>
     </div>
   );
 }

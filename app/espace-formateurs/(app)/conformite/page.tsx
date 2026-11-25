@@ -4,7 +4,6 @@ import { computeInterventionReadiness } from '@/lib/extranet-formateurs/qualiopi
 import {
   fetchCompetencyEvaluationsForTrainer,
   fetchLatestSubcontractorControl,
-  fetchQualityActionsForTrainer,
 } from '@/lib/extranet-formateurs/queries-phase3';
 import { fetchCharterAcceptance, fetchCurrentCharter, fetchTrainerDocuments } from '@/lib/extranet-formateurs/queries';
 import { QualiopiConformiteDashboard } from '@/components/espace-formateurs/QualiopiConformiteDashboard';
@@ -14,12 +13,11 @@ export default async function EspaceFormateursConformitePage() {
   if (!access.ok) return null;
 
   const { trainer } = access;
-  const [docs, charter, evaluations, subcontractorControl, actions] = await Promise.all([
+  const [docs, charter, evaluations, subcontractorControl] = await Promise.all([
     fetchTrainerDocuments(trainer.id),
     fetchCurrentCharter(),
     fetchCompetencyEvaluationsForTrainer(trainer.id),
     fetchLatestSubcontractorControl(trainer.id),
-    fetchQualityActionsForTrainer(trainer.id),
   ]);
 
   const acceptance =
@@ -32,14 +30,11 @@ export default async function EspaceFormateursConformitePage() {
     subcontractorControl,
   });
 
-  const openActionsCount = actions.filter((a) => a.status !== 'closed').length;
-
   return (
     <QualiopiConformiteDashboard
       readiness={readiness}
       evaluations={evaluations}
       subcontractorControl={subcontractorControl}
-      openActionsCount={openActionsCount}
     />
   );
 }

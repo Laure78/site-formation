@@ -36,16 +36,27 @@ export const SCHEMA_LINKEDIN_LEARNING_INSTRUCTOR_URL = SITE_LINKEDIN_LEARNING_IN
 export const SCHEMA_YOUTUBE_CHANNEL_URL =
   'https://www.youtube.com/channel/UCnIc2a25xT8msvV69O2MeVg' as const;
 
-/** Fiche Google Business Profile — avis, horaires, SEO local (lien Maps de partage). */
+/** Fiche Google Business Profile — lien Maps court (schema / NAP). */
 export const SCHEMA_GOOGLE_BUSINESS_PROFILE_URL =
   'https://maps.app.goo.gl/qPHKWMAceJegYWg8A' as const;
+
+/**
+ * Lien de partage Google — consultation des avis (vérifié 2026-11).
+ * @see kgmid /g/11jp0ttzqx — Formation Intelligence Artificielle BTP I Laure Olivie
+ */
+export const SCHEMA_GOOGLE_BUSINESS_PROFILE_SHARE_URL =
+  'https://share.google/7vR5Hk3Ou3TvTpGIZ' as const;
+
+/** Iframe « intégrer une carte » — repli si API Places indisponible (fiche + accès avis Google Maps). */
+export const SCHEMA_GOOGLE_MAPS_EMBED_SRC =
+  'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4220!2d2.0158343!3d48.7759459!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e68551fca64273%3A0x5570e501e07a466e!2sFormation%20Intelligence%20Artificielle%20BTP%20I%20Laure%20Olivie!5e0!3m2!1sfr!2sfr!4v1732552800000!5m2!1sfr!2sfr' as const;
 
 /** Lien direct pour déposer un avis sur Google Business Profile. */
 export const SCHEMA_GOOGLE_REVIEW_SUBMIT_URL =
   'https://g.page/r/CW5GeuAB5XBVEBM/review' as const;
 
-/** Fiche Google — consulter les avis (même URL Maps que la fiche établissement). */
-export const SCHEMA_GOOGLE_REVIEWS_VIEW_URL = SCHEMA_GOOGLE_BUSINESS_PROFILE_URL;
+/** Fiche Google — consulter les avis (lien de partage utilisateur). */
+export const SCHEMA_GOOGLE_REVIEWS_VIEW_URL = SCHEMA_GOOGLE_BUSINESS_PROFILE_SHARE_URL;
 
 /** sameAs Person — LinkedIn, LinkedIn Learning, YouTube.
  * Absents du Footer : URLs sourcées ici (constantes NAP / EEAT).

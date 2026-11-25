@@ -102,7 +102,7 @@ export async function getAvisClientsPageData(): Promise<AvisClientsPageData> {
         rating: payload.rating,
         total: payload.userRatingsTotal,
         placeName: payload.placeName,
-        googleUrl: payload.googleUrl || SCHEMA_GOOGLE_REVIEWS_VIEW_URL,
+        googleUrl: payload.googleUrl?.trim() || SCHEMA_GOOGLE_REVIEWS_VIEW_URL,
         lastUpdated: payload.lastUpdated,
       },
       reviews: googleReviews,

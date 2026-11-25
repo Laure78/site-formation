@@ -57,7 +57,11 @@ export const ALT_LOGO_MONITEUR_FORMATIONS =
 export const ALT_LOGO_LEFEBVRE_DALLOZ = ALT_LOGO_MONITEUR_FORMATIONS;
 export const ALT_LOGO_ARFAB = 'Logo ARFAB — formation pros du bâtiment' as const;
 export const ALT_LOGO_IFRB =
-  "Logo IFRB — Institut de Formation Régional du Bâtiment Yvelines, Essonne, Val-d'Oise" as const;
+  'Logo IFRB 77 — Institut de Formation Régional du Bâtiment, Seine-et-Marne' as const;
+export const ALT_LOGO_ESTP =
+  'Logo ESTP — École Spéciale des Travaux Publics, formation ingénieurs construction' as const;
+export const ALT_LOGO_AFORTECH =
+  'Logo Afortech — centre de formation professionnelle BTP Île-de-France' as const;
 /** @deprecated Alias — préférer `ALT_LOGO_IFRB`. */
 export const ALT_LOGO_IFRB_77 = ALT_LOGO_IFRB;
 
@@ -104,7 +108,9 @@ export const PARTNER_WEBSITES = {
   lefebvreDalloz: 'https://formations.lemoniteur.fr/',
   /** Chambre des Professionnels du Bois — FFB Grand Paris Île-de-France */
   cpb: 'https://www.ffbatiment.fr/organisation-ffb/federations-departementales-chambres-syndicales/cpb',
-  ifrb: 'https://www.ifrb-78-91-95.fr/',
+  ifrb: 'https://www.ifrbtp77.fr/',
+  estp: 'https://www.estp.fr/',
+  afortech: 'https://afortech.com/',
   arfab: 'https://www.arfab.fr/',
   linkedinLearning: 'https://www.linkedin.com/learning/',
   /** Fiche officielle OFC — réseau Activateurs France Num. */
@@ -186,8 +192,8 @@ export const CLIENT_LOGOS_MARQUEE: ClientLogoItem[] = [
     width: 200,
     height: 80,
     href: PARTNER_WEBSITES.ifrb,
-    linkTitle: 'Site officiel IFRB — Institut de Formation Régional du Bâtiment',
-    caption: 'IFRB 78 · 91 · 95',
+    linkTitle: 'Site officiel IFRB 77 — ifrbtp77.fr',
+    caption: 'IFRB 77',
   },
   {
     id: 'linkedin-learning',

@@ -10,11 +10,13 @@ import {
 
 interface Props {
   courses: { id: string; title: string }[];
+  /** Intégré dans le panneau à onglets — sans carte englobante. */
+  compact?: boolean;
 }
 
 type ApiStatus = 'cree' | 'deja_invite' | 'renvoye';
 
-export function InviterForm({ courses }: Props) {
+export function InviterForm({ courses, compact = false }: Props) {
   const router = useRouter();
   const dialogRef = useRef<HTMLDialogElement>(null);
   const titleId = useId();
@@ -164,28 +166,36 @@ export function InviterForm({ courses }: Props) {
     );
   }
 
+  const shellClass = compact ? 'min-w-0' : 'rounded-2xl border border-slate-200 bg-white p-6';
+
   return (
     <>
-      <div className="rounded-2xl border border-slate-200 bg-white p-6">
+      <div className={shellClass}>
         <div className="flex flex-wrap items-start justify-between gap-3">
-          <div>
-            <h3 className="font-display text-lg font-semibold text-slate-900">Ajouter un apprenant</h3>
-            <p className="mt-1 text-sm text-slate-600">
-              Crée le compte (identifiant = email), l’inscrit à la formation et envoie un lien
-              sécurisé pour créer son mot de passe. Aucun mot de passe n’est envoyé par email.
+          {compact ? (
+            <p className="text-sm text-slate-600">
+              Email = identifiant. L’apprenant reçoit un lien pour créer son mot de passe.
             </p>
-          </div>
+          ) : (
+            <div>
+              <h3 className="font-display text-lg font-semibold text-slate-900">Ajouter un apprenant</h3>
+              <p className="mt-1 text-sm text-slate-600">
+                Crée le compte (identifiant = email), l’inscrit à la formation et envoie un lien
+                sécurisé pour créer son mot de passe. Aucun mot de passe n’est envoyé par email.
+              </p>
+            </div>
+          )}
           <button
             type="button"
             onClick={openBatch}
             className="inline-flex items-center gap-2 rounded-xl border border-[var(--accent)] bg-white px-4 py-2 text-sm font-semibold text-[var(--accent)] hover:bg-[var(--accent-soft)]"
           >
             <UserPlus size={16} aria-hidden />
-            + Inviter plusieurs
+            {compact ? 'Plusieurs' : '+ Inviter plusieurs'}
           </button>
         </div>
 
-        <form onSubmit={handleSingleSubmit} className="mt-6 grid gap-4 sm:grid-cols-2">
+        <form onSubmit={handleSingleSubmit} className={`${compact ? 'mt-4' : 'mt-6'} grid gap-4 sm:grid-cols-2`}>
           <div>
             <label className="block text-sm font-medium text-slate-700">Prénom</label>
             <input

@@ -64,7 +64,7 @@ const LOGOS = [
     width: 200,
     height: 80,
     href: PARTNER_WEBSITES.ifrb,
-    linkTitle: 'Site officiel IFRB — Institut de Formation Régional du Bâtiment',
+    linkTitle: 'Site officiel IFRB 77 — ifrbtp77.fr',
   },
 ] as const;
 
