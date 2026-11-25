@@ -3,6 +3,8 @@ import { notFound } from 'next/navigation';
 import { createAdminClient } from '@/lib/supabase/admin';
 import { requireExtranetTrainerAccess } from '@/lib/extranet-formateurs/access';
 import { fetchMissionById } from '@/lib/extranet-formateurs/queries-phase2';
+import { computeMissionSessionChecklist } from '@/lib/extranet-formateurs/qualiopi-compliance';
+import { fetchMissionFeedbackForMission } from '@/lib/extranet-formateurs/queries-phase3';
 import { MissionDetailClient } from '@/components/espace-formateurs/MissionDetailClient';
 import type { ExtranetMissionDocumentRow } from '@/lib/extranet-formateurs/phase2-types';
 import { LINKS } from '@/lib/internal-links';
@@ -26,12 +28,23 @@ export default async function EspaceFormateurMissionDetailPage({
     .eq('mission_id', id)
     .order('uploaded_at', { ascending: false });
 
+  const feedback = await fetchMissionFeedbackForMission(id, access.trainer.id);
+  const sessionChecklist = computeMissionSessionChecklist(
+    mission,
+    (docs ?? []) as ExtranetMissionDocumentRow[],
+    feedback
+  );
+
   return (
     <div className="space-y-4">
       <Link href={LINKS.espaceFormateursInterventions} className="text-sm font-medium text-[#377CF3] hover:underline">
         ← Mes interventions
       </Link>
-      <MissionDetailClient mission={mission} documents={(docs ?? []) as ExtranetMissionDocumentRow[]} />
+      <MissionDetailClient
+        mission={mission}
+        documents={(docs ?? []) as ExtranetMissionDocumentRow[]}
+        sessionChecklist={sessionChecklist}
+      />
     </div>
   );
 }

@@ -1,10 +1,16 @@
 'use client';
 
 import { useTransition } from 'react';
+import Link from 'next/link';
 import { submitMissionFeedbackAction } from '@/app/espace-formateurs/phase3-actions';
 import { COMPETENCY_CRITERIA, EVALUATION_TYPE_LABELS, scoreLabel } from '@/lib/extranet-formateurs/competency-criteria';
+import {
+  QUALIOPI_INDICATOR_LABELS,
+  QUALITY_ACTION_STATUS_LABELS,
+} from '@/lib/extranet-formateurs/qualiopi-compliance';
 import type { CompetencyEvaluationRow, QualityActionRow } from '@/lib/extranet-formateurs/phase3-types';
 import type { ExtranetMissionRow } from '@/lib/extranet-formateurs/phase2-types';
+import { LINKS } from '@/lib/internal-links';
 
 export function QualiteTrainerView({
   evaluations,
@@ -22,9 +28,26 @@ export function QualiteTrainerView({
       <header>
         <h1 className="font-display text-2xl font-bold text-slate-900">Qualité</h1>
         <p className="mt-2 text-sm text-slate-600">
-          Suivi de vos compétences, retours de session et plans d&apos;action OFC (Qualiopi).
+          Suivi Qualiopi : indicateurs 21 (compétences), 30 (analyse des prestations) et 31–32
+          (amélioration continue).
+        </p>
+        <p className="mt-2 text-sm text-slate-500">
+          <Link href={LINKS.espaceFormateursConformite} className="font-medium text-[#377CF3] hover:underline">
+            Conformité et habilitation →
+          </Link>
         </p>
       </header>
+
+      <div className="grid gap-3 sm:grid-cols-3">
+        {[QUALIOPI_INDICATOR_LABELS.ind21, QUALIOPI_INDICATOR_LABELS.ind30, QUALIOPI_INDICATOR_LABELS.ind31].map(
+          (ind) => (
+            <div key={ind.code} className="rounded-lg border border-slate-200 bg-slate-50 px-3 py-2 text-xs text-slate-600">
+              <p className="font-semibold text-slate-800">Ind. {ind.code}</p>
+              <p className="mt-0.5">{ind.title}</p>
+            </div>
+          )
+        )}
+      </div>
 
       <section className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
         <h2 className="font-display text-lg font-bold text-slate-900">Évaluations de compétences</h2>
@@ -61,7 +84,9 @@ export function QualiteTrainerView({
       </section>
 
       <section className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
-        <h2 className="font-display text-lg font-bold text-slate-900">Plans d&apos;action</h2>
+        <h2 className="font-display text-lg font-bold text-slate-900">
+          Plans d&apos;action ({QUALIOPI_INDICATOR_LABELS.ind31.code})
+        </h2>
         {actions.length === 0 ? (
           <p className="mt-2 text-sm text-slate-500">Aucun plan d&apos;action ouvert.</p>
         ) : (
@@ -69,8 +94,14 @@ export function QualiteTrainerView({
             {actions.map((a) => (
               <li key={a.id} className="rounded-lg border border-slate-100 px-3 py-2">
                 <span className="font-medium">Ind. {a.qualiopi_indicator}</span> — {a.title}
+                <span className="ml-2 rounded-full bg-slate-100 px-2 py-0.5 text-xs font-medium text-slate-700">
+                  {QUALITY_ACTION_STATUS_LABELS[a.status]}
+                </span>
                 {a.due_date ? (
                   <span className="text-slate-500"> · échéance {new Date(a.due_date).toLocaleDateString('fr-FR')}</span>
+                ) : null}
+                {a.description ? (
+                  <p className="mt-1 text-slate-600">{a.description}</p>
                 ) : null}
               </li>
             ))}

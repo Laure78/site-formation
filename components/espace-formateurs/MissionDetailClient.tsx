@@ -7,7 +7,9 @@ import {
   saveMissionTrainerReportAction,
   uploadMissionDocumentAction,
 } from '@/app/espace-formateurs/phase2-actions';
+import { MissionQualiopiChecklist } from '@/components/espace-formateurs/MissionQualiopiChecklist';
 import { MISSION_STATUS_LABELS } from '@/lib/extranet-formateurs/phase2-types';
+import type { MissionSessionCheckItem } from '@/lib/extranet-formateurs/qualiopi-compliance';
 import type { ExtranetMissionDocumentRow, ExtranetMissionRow } from '@/lib/extranet-formateurs/phase2-types';
 
 const DOC_KIND_LABELS: Record<string, string> = {
@@ -21,9 +23,11 @@ const DOC_KIND_LABELS: Record<string, string> = {
 export function MissionDetailClient({
   mission,
   documents,
+  sessionChecklist,
 }: {
   mission: ExtranetMissionRow;
   documents: ExtranetMissionDocumentRow[];
+  sessionChecklist: MissionSessionCheckItem[];
 }) {
   const [pending, startTransition] = useTransition();
 
@@ -107,8 +111,14 @@ export function MissionDetailClient({
         </form>
       </section>
 
+      <MissionQualiopiChecklist items={sessionChecklist} />
+
       <section className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
         <h2 className="font-display text-lg font-bold text-slate-900">Documents de session</h2>
+        <p className="mt-1 text-xs text-slate-500">
+          Émargement et évaluation des acquis : pièces attendues pour la conformité Qualiopi (ind. 11
+          et 30).
+        </p>
         <ul className="mt-3 space-y-2 text-sm">
           {documents.length === 0 ? (
             <li className="text-slate-500">Aucun document déposé.</li>

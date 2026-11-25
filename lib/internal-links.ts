@@ -374,6 +374,7 @@ export const LINKS = {
   espaceFormateursInterventions: '/espace-formateurs/interventions',
   espaceFormateursAgenda: '/espace-formateurs/agenda',
   espaceFormateursQualite: '/espace-formateurs/qualite',
+  espaceFormateursConformite: '/espace-formateurs/conformite',
   /** Connexion espace apprenant LMS (indexable SEO/GEO) */
   authConnexion: '/auth/connexion',
   /** Hub : client / formateur extranet / admin (noindex) */

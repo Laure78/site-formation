@@ -50,7 +50,8 @@ export function DocumentsPanel({
       <header>
         <h1 className="font-display text-2xl font-bold text-slate-900">Mes documents</h1>
         <p className="mt-2 text-sm text-slate-600">
-          Dépôt sécurisé — seules les pièces requises pour votre situation sont listées ci-dessous.
+          Dépôt sécurisé — pièces exigées pour la conformité Qualiopi (indicateur 27 — sous-traitance).
+          Seules les pièces requises pour votre situation sont listées.
         </p>
       </header>
 

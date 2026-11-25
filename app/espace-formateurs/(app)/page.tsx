@@ -10,7 +10,10 @@ import {
 import { fetchMissionsForTrainer, fetchUpcomingMissionsForTrainer } from '@/lib/extranet-formateurs/queries-phase2';
 import { MISSION_STATUS_LABELS } from '@/lib/extranet-formateurs/phase2-types';
 import { missionToAgendaSession } from '@/lib/extranet-formateurs/agenda';
+import { computeInterventionReadiness } from '@/lib/extranet-formateurs/qualiopi-compliance';
+import { fetchLatestSubcontractorControl } from '@/lib/extranet-formateurs/queries-phase3';
 import { FormateurAgendaCalendar } from '@/components/espace-formateurs/FormateurAgendaCalendar';
+import { QualiopiReadinessBanner } from '@/components/espace-formateurs/QualiopiReadinessBanner';
 import { LINKS } from '@/lib/internal-links';
 
 export default async function EspaceFormateursAccueilPage() {
@@ -18,11 +21,12 @@ export default async function EspaceFormateursAccueilPage() {
   if (!access.ok) return null;
 
   const { trainer } = access;
-  const [docs, charter, upcoming, allMissions] = await Promise.all([
+  const [docs, charter, upcoming, allMissions, subcontractorControl] = await Promise.all([
     fetchTrainerDocuments(trainer.id),
     fetchCurrentCharter(),
     fetchUpcomingMissionsForTrainer(trainer.id),
     fetchMissionsForTrainer(trainer.id),
+    fetchLatestSubcontractorControl(trainer.id),
   ]);
   const agendaSessions = allMissions.map(missionToAgendaSession);
 
@@ -32,6 +36,12 @@ export default async function EspaceFormateursAccueilPage() {
       : null;
 
   const completeness = computeCompleteness(trainer, docs, Boolean(acceptance));
+  const readiness = computeInterventionReadiness({
+    trainer,
+    charterAccepted: Boolean(acceptance),
+    completeness,
+    subcontractorControl,
+  });
 
   const pendingDocs = docs.filter((d) => d.status === 'pending');
   const rejectedDocs = docs.filter((d) => d.status === 'rejected');
@@ -46,6 +56,8 @@ export default async function EspaceFormateursAccueilPage() {
           Synthèse de votre dossier et des actions à effectuer avant vos interventions.
         </p>
       </header>
+
+      <QualiopiReadinessBanner readiness={readiness} />
 
       <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
         <div className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm">

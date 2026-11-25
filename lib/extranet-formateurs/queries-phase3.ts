@@ -53,6 +53,20 @@ export async function fetchOpenQualityActions(): Promise<QualityActionRow[]> {
   return (data ?? []) as QualityActionRow[];
 }
 
+export async function fetchMissionFeedbackForMission(
+  missionId: string,
+  trainerId: string
+): Promise<MissionFeedbackRow | null> {
+  const admin = createAdminClient();
+  const { data } = await admin
+    .from('extranet_mission_feedbacks')
+    .select('*')
+    .eq('mission_id', missionId)
+    .eq('trainer_id', trainerId)
+    .maybeSingle();
+  return (data as MissionFeedbackRow | null) ?? null;
+}
+
 export async function fetchMissionFeedbacksForTrainer(
   trainerId: string
 ): Promise<MissionFeedbackRow[]> {
