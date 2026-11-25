@@ -346,13 +346,6 @@ export const PHOTOS = {
     height: 1024,
     objectPosition: '50% 18%',
   },
-  formateurNicolasPerrin: {
-    src: '/images/formateurs/nicolas-perrin.jpg',
-    alt: 'Nicolas Perrin, formateur encadrement de chantier BTP',
-    width: 796,
-    height: 1024,
-    objectPosition: '50% 18%',
-  },
   formateurChristopheDelgery: {
     src: '/images/formateurs/christophe-delgery.jpg',
     alt: 'Christophe Delgery, formateur IA appliquée au BTP',

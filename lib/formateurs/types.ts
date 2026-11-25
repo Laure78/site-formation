@@ -5,7 +5,6 @@ export type FormateurId =
   | 'laure-olivie'
   | 'thomas-garnier'
   | 'marc-delcourt'
-  | 'nicolas-perrin'
   | 'christophe-delgery'
   | 'manuel-gomez';
 

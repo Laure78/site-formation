@@ -111,38 +111,6 @@ const MARC_DELCOURT: FormateurProfile = {
   publie: true,
 };
 
-const NICOLAS_PERRIN: FormateurProfile = {
-  id: 'nicolas-perrin',
-  slug: 'nicolas-perrin',
-  prenom: 'Nicolas',
-  nom: 'Perrin',
-  intitule: 'Ancien conducteur de travaux',
-  parcours:
-    'Issu de l’encadrement de chantier, Nicolas intervient sur l’organisation du travail et la communication avec les équipes. Ses mises en situation portent sur les consignes, la répartition des tâches et le suivi quotidien.',
-  specialites: ['Encadrement de chantier', 'Organisation des équipes', 'Transmission des consignes'],
-  domaineIds: ['management'],
-  formationCodes: [],
-  moduleCodes: moduleCodes(['MAN-01', 'MAN-02']),
-  experiences: [
-    {
-      periode: '11 ans',
-      titre: 'Conducteur de travaux et chef de chantier',
-      detail: 'Animation d’équipes, briefings quotidiens et suivi de la production.',
-    },
-    {
-      titre: 'Montée en compétences des chefs d’équipe',
-      detail: 'Répartition des tâches, consignes de sécurité et points d’avancement.',
-    },
-  ] satisfies readonly FormateurExperienceStep[],
-  formationsProfessionnelles: [
-    'Formation encadrement chantier',
-    'Modules management d’équipes terrain BTP',
-  ],
-  portrait: photoPortrait(PHOTOS.formateurNicolasPerrin),
-  status: 'confirmed',
-  publie: true,
-};
-
 const CHRISTOPHE_DELGERY: FormateurProfile = {
   id: 'christophe-delgery',
   slug: 'christophe-delgery',
@@ -201,6 +169,5 @@ export const CATALOGUE_FORMATEURS: readonly FormateurProfile[] = [
   MANUEL_GOMEZ,
   THOMAS_GARNIER,
   MARC_DELCOURT,
-  NICOLAS_PERRIN,
   CHRISTOPHE_DELGERY,
 ];
