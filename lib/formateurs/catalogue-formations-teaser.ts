@@ -7,7 +7,6 @@ import type { FormateurId, FormateurProfile } from '@/lib/formateurs/types';
 /** Spécialités courtes — alignées sur /formateurs (specialites / parcours), formulées pour le catalogue. */
 export const FORMATEUR_CATALOGUE_TEASER_SPECIALTY: Record<FormateurId, string> = {
   'laure-olivie': 'Intelligence artificielle appliquée au BTP.',
-  'julien-morel': 'Préparation et planification de chantier.',
   'thomas-garnier': 'Devis et mémoires techniques.',
   'marc-delcourt': 'Gestion, prix de revient et trésorerie.',
   'nicolas-perrin': 'Encadrement et organisation des équipes.',

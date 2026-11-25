@@ -3,7 +3,6 @@ import type { DomaineId, ModuleCode, SousDomaineIaChantierId } from '@/data/cata
 /** Identifiants stables — ne pas changer une fois publiés. */
 export type FormateurId =
   | 'laure-olivie'
-  | 'julien-morel'
   | 'thomas-garnier'
   | 'marc-delcourt'
   | 'nicolas-perrin'

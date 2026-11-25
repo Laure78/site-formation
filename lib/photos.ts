@@ -332,13 +332,6 @@ export const PHOTOS = {
   },
 
   /** Portraits intervenants catalogue — page /formateurs (visuels fournis, usage interne OFC). */
-  formateurJulienMorel: {
-    src: '/images/formateurs/julien-morel.jpg',
-    alt: 'Julien Morel, formateur préparation de chantier BTP',
-    width: 796,
-    height: 1024,
-    objectPosition: '50% 18%',
-  },
   formateurThomasGarnier: {
     src: '/images/formateurs/thomas-garnier.jpg',
     alt: 'Thomas Garnier, formateur commercial et devis BTP',

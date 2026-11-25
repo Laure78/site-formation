@@ -29,38 +29,6 @@ function photoPortrait(
   };
 }
 
-const JULIEN_MOREL: FormateurProfile = {
-  id: 'julien-morel',
-  slug: 'julien-morel',
-  prenom: 'Julien',
-  nom: 'Morel',
-  intitule: 'Ancien conducteur de travaux bâtiment',
-  parcours:
-    'Issu de la conduite de travaux, Julien accompagne la préparation des opérations et l’organisation des interventions. Son approche repose sur des situations concrètes : passation, coordination et actualisation des plannings.',
-  specialites: ['Préparation de chantier', 'Planification des travaux'],
-  domaineIds: ['travaux'],
-  formationCodes: [],
-  moduleCodes: moduleCodes(['TRA-01', 'TRA-02']),
-  experiences: [
-    {
-      periode: '10 ans',
-      titre: 'Conducteur de travaux — bâtiment',
-      detail: 'Passation, coordination des corps d’état et suivi des délais.',
-    },
-    {
-      titre: 'Préparation d’ouverture de chantiers',
-      detail: 'Dossiers de lancement, plannings prévisionnels et points de coordination.',
-    },
-  ] satisfies readonly FormateurExperienceStep[],
-  formationsProfessionnelles: [
-    'Formation conduite de travaux (niveau bac + 3)',
-    'Habilitations coordination sécurité chantier',
-  ],
-  portrait: photoPortrait(PHOTOS.formateurJulienMorel),
-  status: 'confirmed',
-  publie: true,
-};
-
 const THOMAS_GARNIER: FormateurProfile = {
   id: 'thomas-garnier',
   slug: 'thomas-garnier',
@@ -212,7 +180,6 @@ const CHRISTOPHE_DELGERY: FormateurProfile = {
  * `publie: false` ou `affichageHub: 'a-confirmer'` masque un profil sur /formateurs en production.
  */
 export const CATALOGUE_FORMATEURS: readonly FormateurProfile[] = [
-  JULIEN_MOREL,
   THOMAS_GARNIER,
   MARC_DELCOURT,
   NICOLAS_PERRIN,

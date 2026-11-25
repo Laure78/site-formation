@@ -5,7 +5,6 @@
 import assert from 'node:assert/strict';
 
 const CATALOGUE_IDS = [
-  'julien-morel',
   'thomas-garnier',
   'marc-delcourt',
   'nicolas-perrin',
@@ -14,7 +13,12 @@ const CATALOGUE_IDS = [
 
 const IA_IDS = ['laure-olivie'];
 
-const REMOVED_DEMO_IDS = ['claire-delmas', 'sophie-laurent', 'claire-rousseau'];
+const REMOVED_DEMO_IDS = [
+  'claire-delmas',
+  'sophie-laurent',
+  'claire-rousseau',
+  'julien-morel',
+];
 
 function visibleHubIds() {
   return CATALOGUE_IDS;
@@ -24,7 +28,7 @@ function visibleAllIds() {
   return [...IA_IDS, ...CATALOGUE_IDS];
 }
 
-assert.equal(visibleHubIds().length, 5);
+assert.equal(visibleHubIds().length, 4);
 
 for (const removed of REMOVED_DEMO_IDS) {
   assert.equal(
@@ -34,4 +38,4 @@ for (const removed of REMOVED_DEMO_IDS) {
   );
 }
 
-console.log('OK — formateurs catalogue (5 profils hub + Laure IA)');
+console.log('OK — formateurs catalogue (4 profils hub + Laure IA)');

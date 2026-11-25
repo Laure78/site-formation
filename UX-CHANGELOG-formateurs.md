@@ -20,7 +20,7 @@ Réduire la duplication, clarifier les CTA, renforcer la confiance (Qualiopi, sa
 
 ## Ancres conservées
 
-- `/formateurs#laure-olivie`, `#julien-morel`, `#thomas-garnier`, `#marc-delcourt`, `#nicolas-perrin`
+- `/formateurs#laure-olivie`, `#thomas-garnier`, `#marc-delcourt`, `#nicolas-perrin`, `#christophe-delgery`
 - `#formateurs-profiles` (grille)
 
 ## Données structurées
